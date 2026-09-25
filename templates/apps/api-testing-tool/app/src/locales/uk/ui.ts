@@ -1,15 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Знайшли помилку, маєте запит на функцію або хочете підказати, що нам створити далі? Напишіть на hello@pylon.dev — кожне повідомлення потрапляє до реального інженера команди.',
   'about.contactTitle': "Зв'яжіться з нами",
+  'about.intro':
+    '{{app}} — це швидкий, орієнтований на клавіатуру робочий простір для тестування API для інженерів, які живуть у терміналі — запити в стилі Postman, колекції, середовища та історія без зайвого.',
+  'about.missionBody':
+    'API — це основа сучасного програмного забезпечення, але інструменти для роботи з ними повільні, громіздкі та керуються мишею. {{app}} існує, щоб дати розробникам гостру, швидку, термінальну робочу станцію: надсилайте запити, куйте впевненість і випускайте, не відриваючись від клавіатури.',
+  'about.missionTitle': 'Наша місія',
   'about.pageTitle': 'Про {{app}}',
   'authShell.statusLabel': 'runners онлайн',
   'collections.createError': 'Не вдалося створити колекцію.',
   'collections.defaultName': 'Колекція без назви {{n}}',
+  'collections.empty': 'Колекцій ще немає — натисніть «Нова колекція», щоб створити першу теку.',
   'collections.eyebrow': '$ pylon collections --tree',
   'collections.fetchError': 'Не вдалося завантажити колекції.',
   'collections.heading': 'Колекції',
   'collections.loading': 'Завантаження колекцій…',
+  'collections.metric.allGreen': 'Усе гаразд',
   'collections.metric.collections': 'Колекції',
   'collections.metric.failing': 'З помилками',
   'collections.metric.failingCaption': 'Останній запуск містив помилки',
@@ -23,6 +32,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Змінні',
   'environments.createError': 'Не вдалося створити середовище.',
   'environments.defaultName': 'Середовище без назви {{n}}',
+  'environments.empty': 'Середовищ ще немає — натисніть «Нове середовище», щоб додати.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'Не вдалося завантажити середовища.',
   'environments.heading': 'Середовища',
@@ -30,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Нове середовище',
   'environments.subheading':
     'Змінні, які підставляються у запити під час надсилання. Одне активне середовище на робочий простір.',
+  'forgotPassword.statusLabel': 'скидання · захищений тунель',
   'forgotPassword.success':
     'Якщо для цієї пошти існує обліковий запис, посилання для скидання вже в дорозі. Перевірте вашу поштову скриньку.',
+  'history.empty':
+    'Тут поки нічого немає — надішліть свій перший запит із вкладки «Робочий простір».',
   'history.eyebrow': '$ pylon history --tail',
   'history.fetchError': 'Не вдалося завантажити історію.',
   'history.heading': 'Історія запусків',
@@ -40,9 +53,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Останні 50',
+  'history.realtime': 'у реальному часі',
   'history.subheading':
     'Усі запити, надіслані в цьому робочому просторі, зі статусом, затримкою та розміром корисного навантаження.',
   'landing.choosePlan': 'Обрати план',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Куйте впевненість.',
   'landing.ctaBody':
     "Без кредитної картки. Без інженера з платформи. Відкрийте ⌘K і надішліть перший запит менш ніж за п'ять хвилин.",
   'landing.ctaHeading': 'Будуйте впевненість.',
@@ -84,6 +99,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Сер. затримка',
   'mocks.metric.live': 'Публічний',
   'mocks.metric.servers': 'Моки',
+  'mocks.ms': 'мс',
   'mocks.newMock': 'Новий mock',
   'mocks.online': 'Публічний',
   'mocks.paused': 'Приватний',
@@ -107,9 +123,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Справний',
   'monitors.metric.uptime': 'Сер. час роботи',
   'monitors.newMonitor': 'Новий монітор',
+  'monitors.paused': 'призупинено',
   'monitors.run': 'Запустити',
   'monitors.runError': 'Запуск завершився з мережевою помилкою: {{error}}',
+  'monitors.runFailed': 'Запуск не вдався.',
   'monitors.running': 'Виконання…',
+  'monitors.runSuccess': 'Запуск {{status}} — вищестоящий сервер повернув {{code}} за {{ms}} мс.',
   'monitors.sparkLabel': 'Тренд затримки',
   'monitors.subheading':
     "Перевірки на вимогу для будь-якого збереженого тесту. Прив'яжіть тест, натисніть Запустити та спостерігайте, як 24-годинний показник успіху оновлюється з кожним запуском.",
@@ -118,27 +137,54 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Час роботи · 24г',
   'nav.legal': 'Юридична інформація',
   'notFound.backToWorkspace': 'Повернутися до робочого простору',
+  'notFound.body':
+    '{{app}} надіслав запит для цієї URL-адреси й не отримав відповіді. Перевірте маршрут або поверніться до робочого простору.',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Маршрут не знайдено',
+  'planUpdated.body':
+    'Зміну оплати активовано. Ви можете керувати своїм планом будь-коли на сторінці оплати.',
+  'planUpdated.retry': 'Спробувати ще раз',
+  'planUpdated.verifyFailed': 'Нам ще не вдалося підтвердити ваш платіж.',
+  'planUpdated.verifyFailedBody': 'Можливо, ваш платіж ще обробляється. Спробуйте ще раз за мить.',
   'planUpdated.verifying': 'Підтвердження платежу…',
+  'pricing.advancedFeatures': 'Розширені функції: {{yes}}',
+  'pricing.canExport': 'Експорт даних: {{yes}}',
+  'pricing.heading': 'Оберіть тариф {{app}}',
+  'pricing.maxCollections': 'Колекції {{count}}',
+  'pricing.maxEnvironments': 'Середовища {{count}}',
+  'pricing.maxHistory': 'Записи історії {{count}}',
+  'pricing.maxRequests': '{{count}} запити',
   'privacy.collect.account':
     "Обліковий запис: ваша електронна пошта, хешований пароль, відображуване ім'я та часова мітка останнього входу.",
+  'privacy.intro':
+    '{{app}} поважає вашу приватність. На цій сторінці описано, які дані ми збираємо, чому ми їх збираємо та як їх видалити.',
   'privacy.rights.body':
     'Ви можете будь-коли експортувати ваші колекції та середовища або видалити обліковий запис у Налаштуваннях, щоб назавжди видалити всі дані протягом 30 днів.',
   'privacy.share.body':
     'Тільки ви. Ми ніколи не продаємо, не передаємо та не здаємо в оренду вміст вашого робочого простору третім особам. Серверні журнали зберігаються 30 днів для реагування на інциденти, а потім видаляються.',
   'privacy.title': 'Повідомлення про конфіденційність',
+  'profile.bio':
+    'Ваш особистий робочий простір {{app}} — закріплюйте колекції, діліться середовищами та відстежуйте API, які випускають продукт.',
   'profile.eyebrow': '@{{handle}}',
   'profile.joined': 'приєднався {{when}}',
+  'profile.metric.collections': 'Колекції',
   'profile.metric.monitors': 'Монітори',
   'profile.metric.requests': 'Збережені запити',
+  'profile.noActivity':
+    'Запитів ще не надсилали — перейдіть на вкладку «Робочий простір», щоб зробити це.',
   'profile.signedOut': 'Увійдіть, щоб переглянути свій профіль',
   'pylonShell.primaryNavLabel': 'Основна навігація',
+  'resetPassword.passwordLabel': 'Новий пароль',
+  'resetPassword.statusLabel': 'скидання · токен підтверджено',
   'resetPassword.subtitle': 'Оберіть надійний пароль, який ви ще не використовували.',
   'resetPassword.tokenPlaceholder': 'вставте з листа',
+  'settings.accountManagement.desc':
+    'Оновіть свою електронну пошту та пароль, керуйте сповіщеннями й пристроями, вийдіть або видаліть свій акаунт.',
+  'settings.accountManagement.title': 'Обліковий запис і безпека',
   'settings.eyebrow': '$ pylon settings --edit',
   'settings.fetchError': 'Не вдалося завантажити налаштування.',
   'settings.language.title': 'Мова',
+  'settings.seeding': 'Початкове наповнення…',
   'settings.seedStarter': 'Заповнити початковий вміст',
   'settings.starterCollection': 'Початкова колекція',
   'settings.starterCollectionDesc': 'Створено в Налаштуваннях {{ts}}',
@@ -152,6 +198,8 @@ export const ui: UiTranslations = {
     'Ви несете відповідальність за захист свого пароля. Спільне використання одного облікового запису кількома людьми не дозволяється в планах Free або Pro — придбайте підписку Team для спільних робочих просторів.',
   'terms.billing.body':
     'Платні підписки автоматично поновлюються кожен розрахунковий період. Скасувати можна в Налаштуваннях будь-коли; доступ продовжується до кінця поточного періоду.',
+  'terms.intro':
+    'Створюючи акаунт {{app}}, ви погоджуєтеся з умовами нижче. Прочитайте їх один раз; ми не здивуємо вас змінами заднім числом.',
   'terms.title': 'Умови використання',
   'terms.usage.body':
     'Не використовуйте Pylon для надсилання запитів до сервісів, якими ви не володієте або на тестування яких у вас немає явного дозволу. Не використовуйте Pylon для обходу обмежень швидкості або вчинення шахрайства.',
@@ -172,16 +220,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Не запускалось',
   'testRunner.metric.passed': 'Пройдено',
   'testRunner.never': 'Ніколи не запускалось',
+  'testRunner.newTest': 'Новий тест',
   'testRunner.noAssertions': 'Поки немає тверджень у цьому тесті.',
+  'testRunner.noRunsYet':
+    'Запусків ще не записано — натисніть «Запустити всі», щоб наповнити історію.',
   'testRunner.passed': 'пройдено',
+  'testRunner.recentRuns': 'Останні запуски',
   'testRunner.runAll': 'Запустити все',
   'testRunner.running': 'Виконання…',
   'testRunner.runOne': 'Запустити',
   'testRunner.subheading': 'Результати набору, відмінності тверджень та останні 50 запусків.',
+  'testRunner.suites': 'Набори',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Увійдено як',
   'workspace.auth.keyName': 'Назва заголовка',
   'workspace.auth.keyValue': 'Ключове значення',
+  'workspace.auth.noneHint': 'Заголовок авторизації не буде надіслано із цим запитом.',
   'workspace.auth.password': 'Пароль',
   'workspace.auth.username': "Ім'я користувача",
   'workspace.authOption.apikey': 'Ключ API',
@@ -191,13 +245,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Тип',
   'workspace.authTypeLabel': 'Тип автентифікації',
+  'workspace.body.contentLabel': 'Request body',
+  'workspace.body.hint':
+    '{{envVars}} підставляються перед надсиланням запиту. Тіла надсилаються на POST/PUT/PATCH/DELETE.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Немає',
+  'workspace.body.noneHint':
+    'Тіло запиту не буде надіслано. Виберіть JSON або звичайний текст, щоб додати його.',
   'workspace.body.text': 'Неоформлений текст',
   'workspace.body.type': 'Тип',
   'workspace.environment': 'Без середовища',
   'workspace.envVar': 'змінна середовища',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.failedCount': '{{count}} не вдалося',
+  'workspace.idle': 'Неактивне',
   'workspace.kv.addHeader': 'Додати заголовок',
   'workspace.kv.addParam': 'Додати параметр',
   'workspace.kv.headerKey': 'Назва заголовка',
@@ -210,12 +271,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP method',
   'workspace.metric.latency': 'Затримка',
   'workspace.metric.latencyCaption': 'Час туди-назад для цього запуску',
+  'workspace.metric.size': 'Корисне навантаження',
   'workspace.metric.sizeCaption': 'Байти response body',
   'workspace.metric.statusCaption': 'Останній response',
   'workspace.metric.tests': 'Тести',
+  'workspace.metric.testsAllPassing': 'Усі перевірки успішні',
   'workspace.metric.testsFailing': '{{count}} не пройдено',
+  'workspace.metric.testsIdle': 'Надішліть запит для оцінки',
   'workspace.noAssertions': 'Запустіть запит для оцінки вбудованих тверджень.',
   'workspace.noResponseYet': 'Поки немає response',
+  'workspace.passedCount': '{{count}} прийнято',
   'workspace.responseHint': '// Натисніть Надіслати, щоб виконати запит і захопити response.',
   'workspace.saveError': 'Не вдалося зберегти запит.',
   'workspace.statusError': 'Не вдалося надіслати запит.',
@@ -224,10 +289,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Складіть запит, надішліть його та перевірте response — все в одній панелі.',
   'workspace.testResults': 'Результати тестування',
+  'workspace.tests.autoHint':
+    'Сімейство статусів, затримка, розмір тіла та стан транспорту перевіряються автоматично — результати з’являються в розділі «Результати тестів» на панелі відповіді.',
+  'workspace.tests.autoTitle': 'Вбудовані перевірки виконуються для кожної відповіді',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Надсилається як Authorization: Bearer <token> з кожним запитом у цій колекції.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Запит без назви',
+  'workspace.urlLabel': 'URL запиту',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

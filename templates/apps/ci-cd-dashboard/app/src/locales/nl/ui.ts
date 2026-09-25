@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vragen, feedback of een demo voor je team? Mail ons op hello@conduit.dev — elk bericht bereikt een echt persoon in het team.',
   'about.contactHeading': 'Neem contact op',
   'about.eyebrow': 'Over',
+  'about.featuresHeading': 'Wat u krijgt',
+  'about.introBody':
+    '{{app}} brengt continuous delivery in de stijl van GitHub Actions naar één snel dashboard: pipelines, buildlogs, artifacts, statusbadges en deployment-omgevingen voor al je repositories op één plek. Geen tabs wisselen, niet gissen welke build stukging — elke run, logregel en deploy is één klik verwijderd.',
+  'about.introHeading': 'Wat {{app}} is',
+  'about.missionBody':
+    'Software uitleveren zou rustig en voorspelbaar moeten zijn, geen bron van angst. Wij bouwen de pipelines, logs en deploy-tooling zodat het traject van commit naar productie snel, zichtbaar en betrouwbaar is — de eerste groene build binnen vijf minuten, en elke build daarna net zo duidelijk.',
+  'about.missionHeading': 'Onze missie',
+  'about.subtitle':
+    '{{app}} is een CI/CD-dashboard voor teams die builds, deployments en omgevingen over alle repositories heen willen volgen — en met zekerheid willen uitleveren.',
   'artifacts.empty': 'Nog geen artefacten.',
   'artifacts.heading': 'Artefacten',
   'artifacts.loadError': 'Kon artefacten niet laden.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Omgevingen',
   'environments.loadError': 'Kon omgevingen niet laden.',
+  'environments.loading': 'Omgevingen laden…',
   'environments.subheading': 'Live deploystatus over elk doel.',
   'forgotPassword.runnerStatus': 'reset · beveiligde tunnel',
+  'forgotPassword.success':
+    'Als er voor dit e-mailadres een account bestaat, is een reset-link onderweg. Controleer uw inbox.',
   'insights.changeFailureRate': 'Faalpercentage wijzigingen',
   'insights.deployFrequency': 'Deploys / dag',
   'insights.empty': 'Nog niet genoeg gegevens.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Kon inzichten niet laden.',
   'insights.meanP95': 'gemiddelde {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Traagste pipelinestappen',
   'insights.successRateHeading': 'Succespercentage pipeline (afgelopen 14 dagen)',
   'landing.choosePlan': 'Kies abonnement',
+  'landing.copyright': '© {{year}} {{app}}. Ship with certainty.',
   'landing.ctaBody':
     'Geen creditcard. Geen platform engineer nodig. Krijg de eerste pipeline groen in vijf minuten.',
   'landing.ctaHeading': 'Lever met zekerheid.',
   'landing.featuresEyebrow': '// platformfuncties',
   'landing.featuresHeading': 'Gebouwd voor leveranciers, door leveranciers',
+  'landing.heroSubtitle':
+    'Pipelines die in seconden klaar zijn. Logs die je kunt lezen. Deploys die je kunt vertrouwen.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Eenvoudige, voorspelbare prijzen',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Nu actief',
   'pipelines.metric.successCaption': '{{count}} van {{total}} runs',
   'pipelines.metric.successRate': 'Succespercentage',
+  'pipelines.realtimeOn': 'realtime',
   'pipelines.subheading': 'Live updates van elke gevolgde repository.',
+  'pricing.advancedFeatures': 'Geavanceerde functies: {{mark}}',
+  'pricing.canExport': 'Gegevensexport: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artifacts',
+  'pricing.maxBuilds': '{{count}} builds',
+  'pricing.maxPipelines': '{{count}} pipelines',
   'privacy.dataAccount': 'Account: naam, e-mail, gehasht wachtwoord, abonnementsniveau.',
   'privacy.intro':
     '{{app}} verzamelt alleen de minimaal benodigde gegevens om uw continuous-deliveryaccount te bedienen: uw e-mail, de repositories die u verbindt, de commits en buildmetadata die uw runners produceren en de secrets die u bij ons opslaat. Wij lezen uw broncode nooit buiten de buildrunner; buildartefacten worden in uw S3-bucket opgeslagen indien geconfigureerd.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Wij gebruiken Stripe voor facturering, Mailgun voor transactionele e-mail en AWS S3 voor opslag van buildartefacten. Elk is contractueel gebonden aan de minimale scope van gegevens die nodig is om zijn dienst te leveren.',
   'privacy.rightsBody':
     'U kunt al uw gegevens exporteren, uw account op elk gewenst moment verwijderen via de instellingen en een overzicht opvragen van elke webhook-levering op uw account. We reageren binnen 30 dagen op GDPR/CCPA-verzoeken.',
+  'privacy.subtitle':
+    'Hoe {{app}} je gegevens verzamelt, opslaat en beschermt terwijl wij je pipelines draaien.',
   'privacy.title': 'Privacybeleid',
   'repositories.empty': 'Geen repositories verbonden.',
   'repositories.heading': 'Repositories',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Alle repositories',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Kon repository niet laden.',
+  'repositoryDetail.meanDuration': 'Gemiddelde duur',
   'repositoryDetail.notFound': 'Repository niet gevonden.',
+  'repositoryDetail.successRate': 'Slagingspercentage',
   'repositoryDetail.totalBuilds': 'Totale builds',
   'repositoryDetail.webhookActive': 'actief',
   'repositoryDetail.webhookPaused': 'pauzeerde',
   'repositoryDetail.webhooksHeading': 'Webhooks',
+  'resetPassword.passwordLabel': 'Nieuw wachtwoord',
   'resetPassword.runnerStatus': 'reset · token geverifieerd',
   'resetPassword.subtitle': 'Kies een sterk wachtwoord dat u nog niet eerder heeft gebruikt.',
   'resetPassword.tokenPlaceholder': 'plak vanuit e-mail',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Repositories die Conduit volgt. Verbreek de verbinding met uw VCS-provider om het opnemen van events te stoppen.',
   'settings.repositories.empty': 'Nog geen repositories verbonden.',
+  'settings.repositories.heading': 'Repository-verbindingen',
   'settings.repositories.loadError': 'Kon repositories niet laden.',
   'settings.secrets.addCta': 'Secret toevoegen',
   'settings.secrets.addError': 'Het toevoegen van het geheim is mislukt.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Het verwijderen van het geheim is mislukt.',
   'settings.secrets.empty': 'Geen secrets opgeslagen.',
   'settings.secrets.heading': 'Secrets',
+  'settings.secrets.lastUsed': 'laatst gebruikt {{date}}',
   'settings.secrets.loadError': 'Kon secrets niet laden.',
   'settings.secrets.neverUsed': 'nooit gebruikt',
   'settings.secrets.rotateCta': 'Roteren',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Het bijwerken van de webhook is mislukt.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'gratis abonnement · 1.000 buildmin/mnd',
+  'terms.intro':
+    'Door een {{app}}-account aan te maken ga je akkoord met deze voorwaarden. Ze behandelen acceptabel gebruik van de build runners, de grenzen van onze SLA en de voorwaarden waaronder we je account kunnen opschorten of beëindigen bij misbruik van workloads.',
   'terms.slaBody':
     'Pro- en Team-abonnementen richten zich op 99,95% maandelijkse uptime voor de API en de runnerpool. Het Free-abonnement wordt as-is geleverd. Storingen worden gerapporteerd op status.conduit.dev en gecrediteerd volgens de formule op uw factuur.',
   'terms.terminationBody':

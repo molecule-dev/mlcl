@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Aiseolas agat, fabht aimsithe, nó gné uait? Déan teagmháil linn ó shocruithe do chuntais — téann gach teachtaireacht chuig duine fíor ar an bhfoireann.',
   'about.contactTitle': 'Téigh i dteagmháil',
   'about.eyebrow': 'Maidir',
+  'about.intro':
+    'Is stiúideo scríbhneoireachta AI é {{app}} do scríbhneoirí a bhfuil cúram mór orthu faoina gcuid próis. Ceanglaíonn sé giniúint AI fhadfhormeach le heagarthóir suaimhneach, scóráil SEO, agus giniúint íomhánna ionas gur féidir leat píosa a thabhairt ó leathanach bán go foilsithe — gan do ghuth a chailleadh riamh.',
+  'about.missionBody':
+    'Creidimid gur cheart do AI dréachtú taobh leat, ní in ionad duit. Coinníonn {{app}} moltaí go sofheicthe ar leith ó do chuid focal féin, fágann tú i do úinéir ar gach doiciméad a chruthaíonn tú, agus cuireann sé na huirlisí as bealach na scríbhneoireachta.',
+  'about.missionTitle': 'Ár misean',
   'about.pageTitle': 'Faoi {{app}}',
   'aiSuggestionCard.applied': 'Moladh curtha i bhfeidhm',
   'aiSuggestionCard.apply': 'Cuir isteach',
@@ -24,7 +31,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Foinsí tráchta',
   'billing.activePlan': 'Síntiús gníomhach.',
   'billing.aiWordsLabel': 'Glúinte AI san áireamh',
+  'billing.cancelFailed': 'Níorbh fhéidir an síntiús a chealú.',
   'billing.cancelPlan': 'Cealaigh an plean',
+  'billing.cancelPlanConfirm': 'Deimhnigh cealú?',
   'billing.cancelSuccess': 'Síntiús curtha ar ceal. Athnuachan chun an plean a nuashonrú.',
   'billing.changePlan': 'Athraigh an plean',
   'billing.col.invoice': 'Sonrasc',
@@ -41,26 +50,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'Féach ar phleananna',
   'common.goToDashboard': 'Téigh chuig an Deais',
   'dashboard.continueWriting': 'Lean ort ag scríobh',
+  'dashboard.createFirst': 'Cruthaigh doiciméad',
   'dashboard.days.sat': 'Sat',
   'dashboard.days.sun': 'Sun',
   'dashboard.defaultWriterName': 'Scríbhneoir',
   'dashboard.greeting': 'Maidin mhaith, {{name}}',
   'dashboard.loadError': 'Níorbh fhéidir do phainéal rialaithe a lódáil.',
+  'dashboard.loading': 'Do stiúideo á lódáil…',
   'dashboard.loadingDocs': 'Ag lódáil doiciméid le déanaí…',
   'dashboard.noDocuments': 'Gan aon doiciméid fós — tosaigh ar do chéad cheann.',
   'dashboard.startWriting': 'Tosaigh doiciméad nua',
+  'dashboard.streakBody': 'Tá {{words}} focal scríofa agat an tseachtain seo.',
   'dashboard.streakTitle': '{{count}} sraith lae',
+  'dashboard.subgreeting': '{{count}} doiciméad i do leabharlann — coinnigh an luas.',
+  'documentCard.seoScoreTitle': 'Scór SEO: {{score}}/100',
+  'documents.createNew': 'Cruthaigh doiciméad nua',
   'documents.empty': 'Tá do leabharlann ag fanacht — tosaigh ar do chéad doiciméad.',
+  'documents.emptyFiltered': 'Níl aon doiciméad ag teacht le do scagairí fós.',
   'documents.loadError': 'Níorbh fhéidir na doiciméid a luchtú.',
   'documents.loading': 'Ag lódáil do leabharlann…',
   'documents.new': 'Doiciméad nua',
+  'documents.searchAriaLabel': 'Cuardaigh doiciméid',
   'documents.searchPlaceholder': 'Cuardaigh doiciméid…',
   'documents.subtitle': '{{count}} doiciméid i do leabharlann.',
   'documents.title': 'Doiciméid',
   'editor.aiPanelTitle': 'Faisnéis Plume',
+  'editor.aiSuggestion.empty':
+    'Níl aon scagadh gníomhach ann. Iarr moladh ar {{appName}} nuair a theastaíonn dara súil uait.',
   'editor.aiSuggestion.failed': 'Níorbh fhéidir moltaí a lódáil faoi láthair.',
   'editor.aiSuggestion.loadingBody': 'Ag giniúint mionchoigeartú soiléireachta…',
   'editor.backToDocuments': 'Gach doiciméad',
+  'editor.bodyAriaLabel': 'Corp an doiciméid',
   'editor.closeAiPanel': 'Dún painéal AI',
   'editor.createFailed': 'Níorbh fhéidir doiciméad a chruthú.',
   'editor.exported': 'Easpórtáilte mar {{format}} .',
@@ -77,18 +97,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'Iarr mionchoigeartú',
   'editor.saveBeforePublish': 'Sábháil an doiciméad sula bhfoilseofar é.',
   'editor.status.chars': '{{count}} carachtair',
+  'editor.status.readTime': '{{minutes}} léamh nóiméid',
   'editor.status.savedAt': 'Sábháilte {{time}}',
   'editor.status.saveError': 'Theip ar shábháil',
+  'editor.status.unsaved': 'Gan sábháil fós',
   'editor.titleAriaLabel': 'Teideal an doiciméid',
   'editor.titlePlaceholder': 'Doiciméad gan teideal',
   'editor.toggleAiPanel': 'Painéal AI a scoránaigh',
   'editor.viewSeo': 'Sinsearach',
   'forgotPassword.emailPlaceholder': 'údar@sampla.com',
+  'forgotPassword.sent': 'Má tá {{email}} ar comhad, tá nasc athshocraithe ar a bhealach.',
   'imageGenerator.failed': 'Theip ar ghiniúint íomhá.',
   'imageGenerator.generate': 'Gin Íomhá',
   'imageGenerator.generating': 'Ag giniúint...',
   'imageGenerator.placeholder': 'Déan cur síos ar an íomhá is mian leat a ghiniúint...',
+  'imageGenerator.promptAriaLabel': 'Leid íomhá',
+  'imageGenerator.subtitle': 'Déan cur síos ar íomhá chlúdaigh agus lig do AI í a mhaisiú.',
   'imageGenerator.title': 'Gineadóir Íomhánna AI',
+  'landing.aiSuggestionBody':
+    "ina sheasamh ar an mbalcóin ar an 42ú hurlár, mhothaigh Elias an chathair ag brú ina choinne — scuabadh an ghaoth an tormán timpeallach, rud a d'fhág crochta é i bhfolús fuar ciúin os cionn an ghreille ghlóraigh.",
   'landing.eyebrow': 'Stiúideo scríbhneoireachta AI do scríbhneoirí tromchúiseacha',
   'landing.featuresHeading': 'Uirlisí a théann as an mbealach',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -98,14 +125,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Stiúideo atá deartha do scríbhneoirí a bhfuil cúram orthu faoina bprós, a luas agus a gcruinneas. Dréachtaí Plume in aice leat — ní i do áit riamh.',
   'landing.heroTitle.eloquence': 'labharthacht',
+  'landing.heroTitle.intelligence': 'Tagann intleacht le ',
   'landing.nav.testimonials': 'Teistiméireachtaí',
   'landing.plan.cta': 'Tosaigh leis an bplean seo',
   'landing.plan.popular': 'An-ghrámhar',
   'landing.pricingEyebrow': 'Praghsáil',
   'landing.pricingHeading': 'Roghnaigh cad a oireann do do chleachtas',
   'landing.sampleDocTitle': 'Ailtireacht na Tost',
+  'landing.sampleParagraph1':
+    'Ní raibh an chathair riamh ina ciúnas iomlán. Fiú i ndoimhneacht na hoíche, chreathadh tormán íseal trí bhunsraitheanna coincréite — buille croí meicniúil traenacha faoi thalamh agus seaftaí aerála.',
+  'landing.sampleParagraph2.after': ' in aghaidh na gloine.',
+  'landing.sampleParagraph2.before': 'Ach ',
   'landing.sampleParagraph2.highlight':
     'Agus é ina sheasamh ar bhalcóin an 42ú hurláir, bhraith Elias mothú domhain uaignis',
+  'landing.showcaseBody':
+    'Aibhsigh abairt agus tairgeann {{appName}} scagadh. Glac leis, coigeartaigh é, nó scaoil uait é. Bíonn moltaí i gcónaí daite corcra ionas go bhfeice tú cad a scríobh tú féin i gcomparáid le cad a tairgeadh.',
+  'landing.showcaseHeading': 'Dara súil — ní dara húdar.',
   'landing.startWriting': 'Tosaigh ag scríobh',
   'login.emailPlaceholder': 'údar@sampla.com',
   'login.failed': 'Theip ar an síniú isteach',
@@ -120,8 +155,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Oscail an painéal rialaithe',
   'notFound.title': 'Níl an chaibidil seo scríofa fós.',
   'plumeSidebarLayout.primaryNavLabel': 'Príomh-loingseoireacht',
+  'pricing.maxDocuments': '{{count}} doiciméid',
+  'pricing.maxGenerate': '{{count}} giniúint AI',
+  'pricing.maxImages': '{{count}} giniúint íomhá',
   'privacy.data':
     'Seoladh ríomhphoist do chuntais agus pasfhocal hasháilte. Doiciméid agus teimpléid a chruthaíonn tú. Logaí moltaí AI (ionchur + aschur) le haghaidh billeála agus anailísíochta. Aitheantóirí custaiméirí + síntiúis Stripe; ní stórálaimid uimhreacha cártaí iomlána choíche.',
+  'privacy.intro':
+    'Ní bhailímid ach na sonraí a theastaíonn chun {{app}} a oibriú: do ríomhphost, na doiciméid a chruthaíonn tú, agus na hiarratais AI a dhéanann tú. Ní dhíolaimid do chuid scríbhneoireachta ná do chuid leideanna riamh.',
   'profile.loadError': 'Níorbh fhéidir do phróifíl a lódáil.',
   'profile.loading': 'Ag lódáil do phróifíl…',
   'profile.loadingPublished': 'Ag lódáil doiciméid fhoilsithe…',
@@ -133,7 +173,13 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Pasfhocal nua',
   'seoAnalysis.backToEditor': 'Ar ais chuig an eagarthóir',
   'seoAnalysis.eyebrow': 'Anailís Sinsearach',
+  'seoAnalysis.heroBody':
+    '{{count}} moladh le cur i bhfeidhm. Is ardú struchtúrtha nó eochairfhocail gach ceann acu, ní balla de bhratacha dearga.',
+  'seoAnalysis.heroBodyEmpty':
+    'Cliceáil "Rith anailís" chun inléiteacht, dlús eochairfhocal agus struchtúr a scóráil.',
   'seoAnalysis.heroEmpty': 'Gan aon anailís fós. Rith ceann amháin chun an dréacht seo a scóráil.',
+  'seoAnalysis.heroNeedsWork': 'Cuirfidh roinnt ardú struchtúrtha leis an sroicheadh.',
+  'seoAnalysis.heroStrong': 'Píosa láidir — beagán ardú ó shármhaitheas.',
   'seoAnalysis.historyEmpty': 'Gan aon anailísí roimhe seo taifeadta.',
   'seoAnalysis.historyTitle': 'Stair anailíse',
   'seoAnalysis.keywordEmpty':
@@ -160,9 +206,15 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'Coigeartaigh Plume chun go n-oireann sé do do scríbhneoireacht.',
   'settings.toggleIntegrationFailed': 'Theip ar nuashonrú an chomhtháthaithe.',
   'settings.writing.aiSuggestions': 'Moltaí inlíne AI agus tú ag clóscríobh',
+  'settings.writing.aiSuggestionsBody':
+    'Taispeánann sé scagthaí agus tú ag scríobh. Bíonn moltaí roghnaitheach in aghaidh na habairte i gcónaí.',
   'settings.writing.autoSave': 'Uathshábháil gach 30 soicind',
+  'settings.writing.autoSaveBody':
+    'Coinníonn {{appName}} pictiúr de do dhréacht ionas gur féidir leat teacht slán ó aon chluaisín.',
   'settings.writing.notifyEmail':
     'Seol ríomhphost chugam le hachoimrí scríbhneoireachta seachtainiúla',
+  'settings.writing.notifyEmailBody':
+    'Achoimre ghearr Dé Domhnaigh ar shraitheanna, dréachtaí agus feabhsuithe SEO.',
   'settings.writing.title': 'Roghanna scríbhneoireachta',
   'settings.writing.tone': 'Réamhshocrú ton réamhshocraithe',
   'signup.emailPlaceholder': 'údar@sampla.com',
@@ -174,8 +226,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'Níor cuireadh cur síos ar fáil.',
   'templates.subtitle':
     'Tosaigh ó fhráma eagarthóireachta atá tástáilte i gcath, agus ansin déan do chuid féin de.',
+  'terms.intro':
+    "Rialaíonn na téarmaí seo d'úsáid as {{app}}. Trí chuntas a chruthú aontaíonn tú an tseirbhís a úsáid le haghaidh scríbhneoireachta dleathach agus do dhintiúir chuntais a choinneáil faoi rún.",
   'terms.license':
     'Coinníonn tú úinéireacht ar gach doiciméad, teimpléad, agus giniúint AI a chruthaíonn tú. Teastaíonn ceadúnas neamh-eisiach uainn chun d’obair a óstáil agus a sheirbheáil ar ais chugat, agus chun iarratais AI a phróiseáil trí na soláthraithe bannaithe a roghnaíonn tú.',
   'writingStreakHeroCard.change': '{{sign}} {{amount}} focail',
   'writingStreakHeroCard.greeting': 'Lá maith, {{name}}',
+  'writingStreakHeroCard.subtitle': 'Focail scríofa an tseachtain seo — sraith {{count}} lá',
+  'writingStreakHeroCard.tagline': 'Coinníonn leathanach in aghaidh an lae an muse gafa.',
 }

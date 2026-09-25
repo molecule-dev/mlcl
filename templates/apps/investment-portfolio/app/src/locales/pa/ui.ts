@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ਕੋਈ ਫੀਡਬੈਕ ਹੈ, ਬੱਗ ਮਿਲਿਆ ਹੈ, ਜਾਂ ਕੋਈ ਫੀਚਰ ਚਾਹੀਦਾ ਹੈ? ਆਪਣੀ ਖਾਤਾ ਸੈਟਿੰਗਾਂ ਤੋਂ ਸੰਪਰਕ ਕਰੋ — ਹਰ ਸੁਨੇਹਾ ਟੀਮ ਦੇ ਕਿਸੇ ਅਸਲ ਵਿਅਕਤੀ ਤੱਕ ਪਹੁੰਚਦਾ ਹੈ। ਨੋਟ: ਇੱਥੇ ਕੁਝ ਵੀ ਨਿਵੇਸ਼ ਸਲਾਹ ਨਹੀਂ ਹੈ; ਹਰ ਵਪਾਰ ਦਾ ਕੰਟਰੋਲ ਤੁਹਾਡੇ ਕੋਲ ਹੀ ਰਹਿੰਦਾ ਹੈ।',
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
+  'about.featureAttribution':
+    'ਪ੍ਰਦਰਸ਼ਨ ਐਟਰੀਬਿਊਸ਼ਨ — ਸੈਕਟਰ, ਖੇਤਰ ਅਤੇ ਸੰਪੱਤੀ ਸ਼੍ਰੇਣੀ ਅਨੁਸਾਰ ਵਾਪਸੀ ਦਾ ਵਿਸ਼ਲੇਸ਼ਣ ਕਰੋ, ਅਤੇ ਕਿਸੇ ਵੀ ਸਮੇਂ-ਖਿੜਕੀ ਵਿੱਚ ਬੈਂਚਮਾਰਕ ਕਰੋ।',
+  'about.featureRebalance':
+    'ਅਨੁਸ਼ਾਸਿਤ ਰੀਬੈਲੈਂਸਿੰਗ — ਟਾਰਗਿਟ ਐਲੋਕੇਸ਼ਨ ਅਤੇ ਸਹਿਣਸ਼ੀਲਤਾ ਬੈਂਡ ਸੈੱਟ ਕਰੋ, ਡ੍ਰਿਫਟ ਜਲਦੀ ਫਲੈਗ ਹੁੰਦੀ ਦੇਖੋ, ਅਤੇ ਉਹ ਵਪਾਰ ਪ੍ਰਾਪਤ ਕਰੋ ਜੋ ਤੁਹਾਨੂੰ ਵਾਪਸ ਲਿਆਉਂਦੇ ਹਨ।',
+  'about.featureTax':
+    'ਟੈਕਸ-ਦਸਤਾਵੇਜ਼ ਸਫ਼ਾਈ — ਅਹਿਸਾਸ ਅਤੇ ਅਣ-ਅਹਿਸਾਸ ਲਾਭ, ਡਿਵੀਡੈਂਡ ਅਤੇ 1099 ਦਸਤਾਵੇਜ਼ ਇੱਕ ਥਾਂ, ਵਾਸ਼-ਸੇਲ ਫਲੈਗਾਂ ਸਮੇਤ।',
+  'about.featureUnified':
+    'ਇੱਕ ਏਕੀਕ੍ਰਿਤ ਪੋਰਟਫੋਲੀਓ — ਇਕੁਇਟੀਜ਼, ETF, ਮਿਊਚੁਅਲ ਫੰਡ, ਬਾਂਡ ਅਤੇ ਹੋਰ ਬਹੁਤ ਕੁਝ, ਹਰ ਬ੍ਰੋਕਰੇਜ ਖਾਤੇ ਤੋਂ ਇਕੱਠੇ ਕੀਤੇ।',
+  'about.featureWatchlist':
+    "ਵਾਚਲਿਸਟਾਂ, ਖ਼ਬਰਾਂ ਅਤੇ ਕੀਮਤ ਅਲਰਟ ਤਾਂ ਜੋ ਤੁਸੀਂ ਸ਼ੋਰ ਤੋਂ ਬਿਨਾਂ ਮਹੱਤਵਪੂਰਨ ਚੀਜ਼ਾਂ 'ਤੇ ਕਾਰਵਾਈ ਕਰ ਸਕੋ।",
+  'about.intro':
+    '{{app}} ਵਿਅਕਤੀਗਤ ਨਿਵੇਸ਼ਕਾਂ ਅਤੇ ਸੁਤੰਤਰ ਸਲਾਹਕਾਰਾਂ ਲਈ ਇੱਕ ਮਲਟੀ-ਐਸੈਟ ਪੋਰਟਫੋਲੀਓ ਡੈਸ਼ਬੋਰਡ ਹੈ। ਇਕੁਇਟੀਜ਼, ETF, ਮਿਊਚੁਅਲ ਫੰਡ, ਬਾਂਡ, ਰੀਅਲ ਅਸਟੇਟ ਅਤੇ ਨਕਦ — ਹਰ ਖਾਤੇ ਵਿੱਚ ਹਰ ਹੋਲਡਿੰਗ, ਇੱਕ ਥਾਂ, ਇੱਕ ਪੇਸ਼ੇਵਰ ਡੈਸਕ ਦੇ ਅਨੁਸ਼ਾਸਨ ਨਾਲ।',
+  'about.missionBody':
+    'ਚੰਗਾ ਨਿਵੇਸ਼ ਜ਼ਿਆਦਾਤਰ ਅਨੁਸ਼ਾਸਨ ਹੈ: ਇੱਕ ਸਪਸ਼ਟ ਟਾਰਗਿਟ ਐਲੋਕੇਸ਼ਨ, ਇਮਾਨਦਾਰ ਪ੍ਰਦਰਸ਼ਨ ਐਟਰੀਬਿਊਸ਼ਨ, ਅਤੇ ਸਾਫ਼-ਸੁਥਰੇ ਟੈਕਸ ਰਿਕਾਰਡ। {{app}} ਉਹ ਸੰਸਥਾਗਤ ਆਦਤਾਂ ਕਿਸੇ ਨੂੰ ਵੀ ਦਿੰਦਾ ਹੈ, ਤਾਂ ਜੋ ਤੁਸੀਂ ਭਾਵਨਾ ਦੀ ਬਜਾਏ ਇਰਾਦੇ ਨਾਲ ਰੀਬੈਲੈਂਸ ਕਰ ਸਕੋ — ਅਤੇ ਇਹ ਕਦੇ ਨਾ ਭੁੱਲੋ ਕਿ ਤੁਹਾਡਾ ਪੋਰਟਫੋਲੀਓ ਅਸਲ ਵਿੱਚ ਕੀ ਕਰ ਰਿਹਾ ਹੈ।',
+  'about.missionTitle': 'ਸਾਡਾ ਮਿਸ਼ਨ',
   'about.pageTitle': '{{app}} ਬਾਰੇ',
   'argentAuthShell.brandEyebrow': 'ਪੈਸਾ · ਵੈਲਥ ਟੂਲਿੰਗ',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . ਨਿਵੇਸ਼ ਸਲਾਹ ਨਹੀਂ।',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'ਵਿਅਕਤੀਗਤ ਨਿਵੇਸ਼ਕਾਂ ਅਤੇ ਸਲਾਹਕਾਰਾਂ ਲਈ ਇੱਕ ਪੋਰਟਫੋਲੀਓ ਡੈਸ਼ਬੋਰਡ ਜੋ ਅਨੁਸ਼ਾਸਿਤ ਪੁਨਰ-ਸੰਤੁਲਨ, ਤਿੱਖੀ ਕਾਰਗੁਜ਼ਾਰੀ ਵਿਸ਼ੇਸ਼ਤਾ, ਅਤੇ ਟੈਕਸ-ਦਸਤਾਵੇਜ਼ ਸਫਾਈ ਚਾਹੁੰਦੇ ਹਨ - ਬਿਨਾਂ ਕਿਸੇ ਸ਼ੋਰ ਦੇ।',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · ਪਿਛਲਾ ਪ੍ਰਦਰਸ਼ਨ ਭਵਿੱਖ ਦੇ ਨਤੀਜਿਆਂ ਦੀ ਗਾਰੰਟੀ ਨਹੀਂ ਦਿੰਦਾ।',
   'argentAuthShell.sampleChange': 'ਅੱਜ +$2,841 (+0.28%)',
+  'argentAuthShell.sampleLabel': 'ਪੋਰਟਫੋਲੀਓ ਮੁੱਲ',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
   'assetAllocationDonut.heading': 'ਤੁਹਾਡਾ ਪੈਸਾ ਕਿਵੇਂ ਨਿਵੇਸ਼ ਕੀਤਾ ਜਾਂਦਾ ਹੈ',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'ਅੱਜ',
   'assetDetail.txEmpty': 'ਇਸ ਟਿੱਕਰ ਲਈ ਕੋਈ ਲੈਣ-ਦੇਣ ਨਹੀਂ।',
   'assetDetail.txHeading': 'ਤੁਹਾਡੇ ਲੈਣ-ਦੇਣ',
+  'auth.legalConsent.prefix': 'ਜਾਰੀ ਰੱਖ ਕੇ, ਤੁਸੀਂ {{appName}} ਦੀਆਂ ਸ਼ਰਤਾਂ ਨਾਲ ਸਹਿਮਤ ਹੁੰਦੇ ਹੋ',
   'common.and': 'ਅਤੇ',
   'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'ਅੱਜ',
   'dashboard.topHoldings.heading': 'ਤੁਹਾਡਾ ਪੈਸਾ ਕਿੱਥੇ ਕੰਮ ਕਰ ਰਿਹਾ ਹੈ',
   'dashboard.topHoldings.label': 'ਚੋਟੀ ਦੀਆਂ ਹੋਲਡਿੰਗਾਂ',
+  'forgotPassword.gotLinkCta': 'ਮੇਰੇ ਕੋਲ ਰੀਸੈਟ ਲਿੰਕ ਹੈ →',
+  'forgotPassword.subheading':
+    "ਆਪਣੇ Gavl ਖਾਤੇ 'ਤੇ ਈਮੇਲ ਦਰਜ ਕਰੋ ਅਤੇ ਅਸੀਂ ਤੁਹਾਨੂੰ ਇੱਕ ਸੁਰੱਖਿਅਤ ਰੀਸੈਟ ਲਿੰਕ ਭੇਜਾਂਗੇ।",
   'forgotPassword.successBody':
     'ਜੇਕਰ ਤੁਹਾਨੂੰ ਇਹ ਕੁਝ ਮਿੰਟਾਂ ਵਿੱਚ ਨਹੀਂ ਦਿਖਾਈ ਦਿੰਦਾ, ਤਾਂ ਆਪਣੇ ਸਪੈਮ ਫੋਲਡਰ ਦੀ ਜਾਂਚ ਕਰੋ ਜਾਂ ਕੋਈ ਵੱਖਰੀ ਈਮੇਲ ਅਜ਼ਮਾਓ।',
   'forgotPassword.successSubheading':
     'ਚੈੱਕ ਕਰੋ {{email}} ਰੀਸੈਟ ਲਿੰਕ ਲਈ। ਇਸਦੀ ਮਿਆਦ 60 ਮਿੰਟਾਂ ਵਿੱਚ ਖਤਮ ਹੋ ਜਾਵੇਗੀ।',
+  'forgotPassword.successTitle': 'ਰੀਸੈਟ ਈਮੇਲ ਭੇਜੀ ਜਾ ਰਹੀ ਹੈ',
   'holdingHighlightRow.todayLabel': 'ਅੱਜ',
   'holdings.addCta': 'ਖਰੀਦੋ',
   'holdings.col.allocation': 'ਵੰਡ',
@@ -58,6 +87,8 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . ਨਿਵੇਸ਼ ਸਲਾਹ ਨਹੀਂ। ਪਿਛਲੀ ਕਾਰਗੁਜ਼ਾਰੀ ਭਵਿੱਖ ਦੇ ਨਤੀਜਿਆਂ ਦੀ ਗਰੰਟੀ ਨਹੀਂ ਦਿੰਦੀ।',
   'landing.eyebrow': 'ਅਰਜੈਂਟ · ਇੱਕ ਦੌਲਤ-ਟੂਲਿੰਗ ਪਲੇਟਫਾਰਮ',
   'landing.features.heading': 'ਹਰ ਚੀਜ਼ ਜੋ ਇੱਕ ਸਲਾਹਕਾਰ ਆਪਣੇ ਲਈ ਬਣਾਏਗਾ।',
+  'landing.finalCta.body': 'ਦੋ ਕਲਿੱਕਾਂ ਵਿੱਚ ਆਪਣੀ ਬ੍ਰੋਕਰੇਜ ਕਨੈਕਟ ਕਰੋ। ਬਾਕੀ {{appName}} ਕਰਦਾ ਹੈ।',
+  'landing.finalCta.cta': 'ਆਪਣਾ ਅਰਜੈਂਟ ਖਾਤਾ ਖੋਲ੍ਹੋ',
   'landing.finalCta.heading': 'ਆਪਣੇ ਪੋਰਟਫੋਲੀਓ ਵਿੱਚ ਅਨੁਸ਼ਾਸਨ ਵਾਪਸ ਲਿਆਓ।',
   'landing.footerSignup': 'ਖਾਤਾ ਖੋਲ੍ਹੋ',
   'landing.getStarted': 'ਖਾਤਾ ਖੋਲ੍ਹੋ',
@@ -65,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'ਕੀਮਤ ਵੇਖੋ',
   'landing.heroSubtitle':
     'ਵਿਅਕਤੀਗਤ ਨਿਵੇਸ਼ਕਾਂ ਅਤੇ ਸਲਾਹਕਾਰਾਂ ਲਈ ਇੱਕ ਪੋਰਟਫੋਲੀਓ ਡੈਸ਼ਬੋਰਡ ਜੋ ਅਨੁਸ਼ਾਸਿਤ ਪੁਨਰ-ਸੰਤੁਲਨ, ਤਿੱਖੀ ਕਾਰਗੁਜ਼ਾਰੀ ਵਿਸ਼ੇਸ਼ਤਾ, ਅਤੇ ਟੈਕਸ-ਦਸਤਾਵੇਜ਼ ਸਫਾਈ ਚਾਹੁੰਦੇ ਹਨ - ਬਿਨਾਂ ਕਿਸੇ ਸ਼ੋਰ ਦੇ।',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'ਇੱਕ ਪ੍ਰਤੀਨਿਧੀ ਪੋਰਟਫੋਲੀਓ ਤੋਂ ਇੱਕ ਲਾਈਵ ਪੂਰਵਦਰਸ਼ਨ',
   'login.heading': 'ਅਰਜੈਂਟ ਵਿੱਚ ਸਾਈਨ ਇਨ ਕਰੋ',
   'login.subheading':
@@ -76,6 +108,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} ਘੰਟਾ ਪਹਿਲਾਂ',
   'news.justNow': 'ਹੁਣੇ ਹੀ',
   'news.loadError': 'ਖ਼ਬਰਾਂ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
+  'planUpdated.body':
+    'ਤੁਹਾਡੀ ਬਿਲਿੰਗ ਤਬਦੀਲੀ ਹੁਣ ਸਰਗਰਮ ਹੈ। ਤੁਸੀਂ ਕਿਸੇ ਵੀ ਸਮੇਂ ਬਿਲਿੰਗ ਪੰਨੇ ਤੋਂ ਆਪਣਾ ਪਲਾਨ ਪ੍ਰਬੰਧਿਤ ਕਰ ਸਕਦੇ ਹੋ।',
+  'planUpdated.retry': 'ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ',
+  'planUpdated.verifyFailed': 'ਅਸੀਂ ਅਜੇ ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਨਹੀਂ ਕਰ ਸਕੇ।',
+  'planUpdated.verifyFailedBody':
+    'ਤੁਹਾਡਾ ਭੁਗਤਾਨ ਅਜੇ ਵੀ ਪ੍ਰਕਿਰਿਆ ਅਧੀਨ ਹੋ ਸਕਦਾ ਹੈ। ਕੁਝ ਦੇਰ ਬਾਅਦ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
   'planUpdated.verifying': 'ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'portfolioHeroCard.label': 'ਪੋਰਟਫੋਲੀਓ ਮੁੱਲ',
   'pricing.holdingsLabel': 'ਹੋਲਡਿੰਗਜ਼',
@@ -86,12 +124,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'ਵੰਡ ਵਹਾਅ',
   'rebalance.empty': 'ਅਜੇ ਕੋਈ ਟੀਚਾ ਨਿਰਧਾਰਤ ਨਹੀਂ ਕੀਤਾ ਗਿਆ।',
   'rebalance.executeCta': 'ਸਥਾਨ {{count}} ਵਪਾਰ',
+  'rebalance.executeError': 'ਵਪਾਰ ਰੱਖਣ ਵਿੱਚ ਅਸਫਲ।',
   'rebalance.executeOk': 'ਰੱਖਿਆ ਗਿਆ {{count}} ਵਪਾਰ। ਉਹਨਾਂ ਨੂੰ ਲੈਣ-ਦੇਣ ਪੰਨੇ ’ਤੇ ਦੇਖੋ।',
+  'rebalance.executing': 'ਰੱਖਿਆ ਜਾ ਰਿਹਾ ਹੈ…',
   'rebalance.eyebrow': 'ਰੀਬੈਲੈਂਸ · ਅਰਜਨਟੀਨਾ ਸਲਾਹਕਾਰ',
   'rebalance.heading': 'ਆਪਣੇ ਪੋਰਟਫੋਲੀਓ ਨੂੰ ਵਾਪਸ ਅਨੁਸ਼ਾਸਨ ਵਿੱਚ ਲਿਆਓ',
   'rebalance.loadError': 'ਰੀਬੈਲੈਂਸ ਪਲਾਨ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
+  'rebalance.plan.driftLine': 'ਵਰਤਮਾਨ ਵਿੱਚ {{current}}% · ਟਾਰਗਿਟ {{target}}%',
   'rebalance.planHeading': 'ਅਰਜਨਟੀਨਾ ਟਿਕਟ — ਰੱਖਣ ਤੋਂ ਪਹਿਲਾਂ ਸਮੀਖਿਆ ਕਰੋ',
   'rebalance.planLabel': 'ਸੁਝਾਈ ਗਈ ਵਪਾਰ ਯੋਜਨਾ',
+  'rebalance.subheading':
+    "ਆਪਣੇ ਸਹਿਣਸ਼ੀਲਤਾ ਬੈਂਡ ਤੋਂ ਬਾਹਰ ਦੀਆਂ ਕਤਾਰਾਂ ਵਪਾਰ ਸੁਝਾਅ ਟ੍ਰਿਗਰ ਕਰਦੀਆਂ ਹਨ। {{appName}} ਸਿਰਫ਼ ਤੁਹਾਡੀ ਪੁਸ਼ਟੀ 'ਤੇ ਕਾਰਵਾਈ ਕਰਦਾ ਹੈ।",
   'rebalance.summary.buyLabel': 'ਖਰੀਦਦਾ ਹੈ',
   'rebalance.summary.buySub': 'ਭਰਨ ਲਈ ਅਹੁਦੇ',
   'rebalance.summary.driftLabel': 'ਆਊਟ-ਆਫ-ਬੈਂਡ',
@@ -100,6 +143,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'ਸੁਝਾਏ ਗਏ ਵਪਾਰਾਂ ਵਿੱਚ',
   'rebalance.summary.sellLabel': 'ਵੇਚਦਾ ਹੈ',
   'rebalance.summary.sellSub': 'ਟ੍ਰਿਮ ਕਰਨ ਲਈ ਸਥਿਤੀਆਂ',
+  'rebalanceDriftCard.drift': 'ਡ੍ਰਿਫਟ {{sign}}{{pct}}% · ਬੈਂਡ ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'ਟੀਚਾ {{pct}} %',
   'reports.attributionHeading': 'ਪ੍ਰਦਰਸ਼ਨ ਵਿਸ਼ੇਸ਼ਤਾ (1Y)',
   'reports.col.alpha': 'ਅਲਫ਼ਾ',
@@ -113,37 +157,68 @@ export const ui: UiTranslations = {
   'reports.col.year': 'ਸਾਲ',
   'reports.gainsHeading': 'ਪ੍ਰਾਪਤ ਅਤੇ ਅਪ੍ਰਾਪਤ ਲਾਭ',
   'reports.noAttribution': 'ਅਜੇ ਤੱਕ ਕੋਈ ਵਿਸ਼ੇਸ਼ਤਾ ਡੇਟਾ ਨਹੀਂ ਹੈ।',
+  'reports.noGains': 'ਹਾਲੇ ਕੋਈ ਅਹਿਸਾਸ/ਅਣ-ਅਹਿਸਾਸ ਲਾਭ ਡੇਟਾ ਨਹੀਂ।',
   'reports.noPerformance': 'ਅਜੇ ਤੱਕ ਕੋਈ ਪ੍ਰਦਰਸ਼ਨ ਡੇਟਾ ਨਹੀਂ ਹੈ।',
   'reports.noTaxDocs': 'ਅਜੇ ਤੱਕ ਕੋਈ ਟੈਕਸ ਦਸਤਾਵੇਜ਼ ਨਹੀਂ ਹਨ।',
   'reports.performanceHeading': 'ਪ੍ਰਦਰਸ਼ਨ ਬਨਾਮ ਬੈਂਚਮਾਰਕ',
   'reports.taxHeading': 'ਟੈਕਸ ਦਸਤਾਵੇਜ਼',
   'resetPassword.heading': 'ਇੱਕ ਮਜ਼ਬੂਤ ਨਵਾਂ ਪਾਸਵਰਡ ਚੁਣੋ',
+  'resetPassword.passwordPlaceholder': 'ਨਵਾਂ ਪਾਸਵਰਡ',
   'resetPassword.subheading':
     'ਤੁਹਾਡਾ ਪਾਸਵਰਡ ਸੈੱਟ ਹੋਣ ਤੋਂ ਬਾਅਦ ਅਰਜੈਂਟ ਤੁਹਾਨੂੰ ਆਪਣੇ ਆਪ ਸਾਈਨ ਇਨ ਕਰ ਦੇਵੇਗਾ।',
   'resetPassword.tokenPlaceholder': 'ਈਮੇਲ ਤੋਂ ਟੋਕਨ ਰੀਸੈਟ ਕਰੋ',
+  'settings.appearance.description': 'ਲਾਈਟ ਅਤੇ ਡਾਰਕ ਮੋਡ ਵਿਚਕਾਰ ਟੌਗਲ ਕਰੋ।',
   'settings.appearance.title': 'ਦਿੱਖ',
+  'settings.devices.body': 'ਤੁਹਾਡੇ ਖਾਤੇ ਵਿੱਚ ਇਸ ਵੇਲੇ ਸਾਈਨ ਇਨ ਕੀਤੇ ਗਏ ਡਿਵਾਈਸਾਂ।',
+  'settings.devices.empty': 'ਕੋਈ ਡਿਵਾਈਸ ਨਹੀਂ ਮਿਲੀ।',
   'settings.devices.heading': 'ਡਿਵਾਈਸਾਂ',
+  'settings.devices.revokeWarning':
+    'ਇਸ ਡਿਵਾਈਸ ਦੀ ਪਹੁੰਚ ਜਲਦੀ ਹੀ ਰੱਦ ਕਰ ਦਿੱਤੀ ਜਾਵੇਗੀ। ਇਸਨੂੰ ਸਾਈਨ ਆਊਟ ਕਰਨਾ ਹੈ?',
   'settings.devices.signOut': 'ਸਾਇਨ ਆਉਟ',
   'settings.devices.thisDevice': 'ਇਹ ਡਿਵਾਈਸ',
   'settings.devices.unknown': 'ਅਗਿਆਤ ਡਿਵਾਈਸ',
   'settings.linked.body':
     'ਬ੍ਰੋਕਰੇਜ ਸਿੰਕਿੰਗ ਲਈ ਇੱਕ ਤੀਜੀ-ਧਿਰ ਕਨੈਕਟਰ (ਪਲੇਡ, ਯੋਡਲੀ, ਆਦਿ) ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ। ਆਟੋ-ਆਯਾਤ ਨੂੰ ਸਮਰੱਥ ਬਣਾਉਣ ਲਈ ਆਪਣੇ ਵਾਤਾਵਰਣ ਵਿੱਚ ਆਪਣੇ ਪ੍ਰਦਾਤਾ ਨੂੰ ਕੌਂਫਿਗਰ ਕਰੋ।',
   'settings.linked.heading': 'ਲਿੰਕ ਕੀਤੇ ਬ੍ਰੋਕਰੇਜ ਖਾਤੇ',
+  'settings.linked.placeholder': 'ਹਾਲੇ ਤੱਕ ਕੋਈ ਖਾਤਾ ਲਿੰਕ ਨਹੀਂ ਕੀਤਾ ਗਿਆ।',
+  'settings.notifications.dividendsPaid': 'ਭੁਗਤਾਨ ਕੀਤੇ ਡਿਵੀਡੈਂਡ',
   'settings.notifications.error': 'ਤਰਜੀਹ ਨੂੰ ਅੱਪਡੇਟ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।',
   'settings.notifications.priceAlerts': 'ਕੀਮਤ ਸੰਬੰਧੀ ਸੁਚੇਤਨਾਵਾਂ',
+  'settings.notifications.rebalanceDrift': 'ਰੀਬੈਲੈਂਸ ਡ੍ਰਿਫਟ',
+  'settings.notifications.taxDocsReady': 'ਟੈਕਸ ਦਸਤਾਵੇਜ਼ ਤਿਆਰ',
   'settings.profile.advisor': 'ਸਲਾਹਕਾਰ ਈਮੇਲ (ਵਿਕਲਪਿਕ)',
   'settings.profile.heading': 'ਪ੍ਰੋਫਾਈਲ',
   'settings.security.changePassword': 'ਪਾਸਵਰਡ ਬਦਲੋ',
+  'settings.security.changePasswordTitle': 'ਪਾਸਵਰਡ ਬਦਲੋ',
   'settings.security.changing': 'ਬਦਲ ਰਿਹਾ ਹੈ...',
+  'settings.security.confirmPassword': 'ਪਾਸਵਰਡ',
+  'settings.security.currentPassword': 'ਵਰਤਮਾਨ ਪਾਸਵਰਡ',
   'settings.security.deleteAccount': 'ਖਾਤਾ ਮਿਟਾਓ',
   'settings.security.deleteError': 'ਖਾਤਾ ਮਿਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ।',
   'settings.security.deleteHeading': 'ਖਾਤਾ ਮਿਟਾਓ',
+  'settings.security.deleteModalWarning':
+    "ਇਹ ਤੁਹਾਡਾ ਖਾਤਾ ਅਤੇ ਡੇਟਾ ਸਥਾਈ ਤੌਰ 'ਤੇ ਮਿਟਾ ਦਿੰਦਾ ਹੈ। ਪੁਸ਼ਟੀ ਲਈ ਆਪਣਾ ਪਾਸਵਰਡ ਦਰਜ ਕਰੋ।",
+  'settings.security.deleteWarning':
+    "ਆਪਣਾ ਖਾਤਾ ਅਤੇ ਸਾਰਾ ਸੰਬੰਧਿਤ ਡੇਟਾ ਸਥਾਈ ਤੌਰ 'ਤੇ ਮਿਟਾਓ। ਇਹ ਵਾਪਸ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ।",
   'settings.security.deleting': 'ਮਿਟਾਇਆ ਜਾ ਰਿਹਾ ਹੈ…',
   'settings.security.heading': 'ਸੁਰੱਖਿਆ',
   'settings.security.newPassword': 'ਨਵਾਂ ਪਾਸਵਰਡ',
   'settings.security.password': 'ਪਾਸਵਰਡ',
+  'settings.security.passwordError': 'ਪਾਸਵਰਡ ਨਹੀਂ ਬਦਲਿਆ ਜਾ ਸਕਿਆ।',
+  'settings.security.passwordHint': 'ਸਾਈਨ ਇਨ ਕਰਨ ਲਈ ਵਰਤਿਆ ਜਾਣ ਵਾਲਾ ਪਾਸਵਰਡ ਬਦਲੋ।',
+  'settings.security.twoFactor': 'ਦੋ-ਕਾਰਕ ਪ੍ਰਮਾਣਿਕਤਾ',
+  'settings.security.twoFactorCode': 'ਪ੍ਰਮਾਣੀਕਰਨ ਕੋਡ',
+  'settings.security.twoFactorDisable': 'ਅਯੋਗ ਕਰੋ',
+  'settings.security.twoFactorDisableTitle': 'ਦੋ-ਪੜਾਅ ਪ੍ਰਮਾਣਿਕਤਾ ਬੰਦ ਕਰੋ',
   'settings.security.twoFactorEnable': 'ਯੋਗ ਬਣਾਓ',
+  'settings.security.twoFactorEnableTitle': 'ਦੋ-ਪੜਾਅ ਪ੍ਰਮਾਣਿਕਤਾ ਚਾਲੂ ਕਰੋ',
+  'settings.security.twoFactorHint': 'ਆਪਣੇ ਖਾਤੇ ਵਿੱਚ ਸੁਰੱਖਿਆ ਦੀ ਇੱਕ ਵਾਧੂ ਪਰਤ ਸ਼ਾਮਲ ਕਰੋ।',
   'settings.security.twoFactorInvalidCode': 'ਅਵੈਧ ਕੋਡ',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'ਦੋ-ਪੜਾਅ QR ਕੋਡ',
+  'settings.security.twoFactorScan':
+    'ਇਸ QR ਕੋਡ ਨੂੰ ਆਪਣੀ ਪ੍ਰਮਾਣਿਕਤਾ ਐਪ ਨਾਲ ਸਕੈਨ ਕਰੋ, ਫਿਰ 6-ਅੰਕਾਂ ਵਾਲਾ ਕੋਡ ਦਰਜ ਕਰੋ।',
+  'settings.security.twoFactorUnavailable': 'ਇਸ ਐਪ ਲਈ ਦੋ-ਕਾਰਕ ਪ੍ਰਮਾਣੀਕਰਨ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।',
   'settings.security.twoFactorVerify': 'ਪੁਸ਼ਟੀ ਕਰੋ ਅਤੇ ਸਮਰੱਥ ਬਣਾਓ',
   'settings.tax.error': 'ਟੈਕਸ ਵਿਧੀ ਨੂੰ ਅੱਪਡੇਟ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।',
   'settings.tax.heading': 'ਟੈਕਸ ਲਾਟ ਅਕਾਊਂਟਿੰਗ',
@@ -154,6 +229,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'ਟੈਕਸ ਵਿਧੀ ਸੁਰੱਖਿਅਤ ਕੀਤੀ ਗਈ।',
   'signup.eyebrow': 'ਖਾਤਾ ਖੋਲ੍ਹੋ',
   'signup.heading': 'ਆਪਣਾ ਅਰਜੈਂਟ ਖਾਤਾ ਖੋਲ੍ਹੋ',
+  'signup.legalPrefix': 'ਖਾਤਾ ਬਣਾ ਕੇ ਤੁਸੀਂ {{appName}} ਨਾਲ ਸਹਿਮਤ ਹੁੰਦੇ ਹੋ',
   'signup.subheading': '30 ਦਿਨਾਂ ਲਈ ਮੁਫ਼ਤ। ਕਿਸੇ ਕਾਰਡ ਦੀ ਲੋੜ ਨਹੀਂ। ਕਿਸੇ ਵੀ ਸਮੇਂ ਰੱਦ ਕਰੋ।',
   'signup.terms':
     'ਖਾਤਾ ਬਣਾ ਕੇ ਤੁਸੀਂ ਅਰਜੈਂਟ ਦੀ ਸੇਵਾ ਦੀਆਂ ਸ਼ਰਤਾਂ ਅਤੇ ਗੋਪਨੀਯਤਾ ਨੀਤੀ ਨਾਲ ਸਹਿਮਤ ਹੁੰਦੇ ਹੋ।',

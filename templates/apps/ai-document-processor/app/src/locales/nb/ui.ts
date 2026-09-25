@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du et spørsmål, funnet en feil, eller ønsker du en demo for teamet ditt? Ta kontakt fra kontoinneinnstillingene dine — hver melding går til en ekte person på teamet.',
   'about.contactTitle': 'Ta kontakt',
+  'about.intro':
+    '{{app}} gjør stabler med skannede dokumenter og PDF-er om til strukturerte, søkbare og arkiverte data. Slipp inn fakturaer, kvitteringer, kontrakter eller skjemaer og la AI lese, hente ut, klassifisere og arkivere dem — med konfidensfarger slik at teamet ditt bare gjennomgår det som virkelig trenger et menneske.',
+  'about.missionBody':
+    'Kjedelig dokumentarbeid bør ikke spise opp teamets dag. Vi mener at hver uthentet verdi skal kunne forklares og revideres — slik at du kan stole på automatiseringen uten å miste sporene. {{app}} er bygget for å spare timer per stabel, samtidig som et menneske er med i loopen der det teller.',
+  'about.missionTitle': 'Vårt oppdrag',
+  'about.subtitle':
+    'OCR, AI-uttrekk, klassifisering og automatisert arkivering for dokumentene dine.',
   'about.title': 'Om {{app}}',
+  'about.whatYouGetTitle': 'Det du får',
   'authShell.backToLanding': '← Tilbake til forsiden',
   'common.goToDashboard': 'Gå til oversikt',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'I dag · Driftsoversikt',
   'dashboard.heading': 'Dokumentintelligens',
+  'dashboard.metric.accuracy': 'Gj.sn. nøyaktighet',
   'dashboard.metric.filed': 'Arkivert i dag',
   'dashboard.metric.filedCaption': 'Rutet av arkiveringsregler',
   'dashboard.metric.processed': 'Behandlet i dag',
@@ -23,11 +34,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Dokument',
   'dashboard.recent.col.uploaded': 'Lastet opp',
   'dashboard.recent.heading': 'Nylige dokumenter',
+  'dashboard.recent.typeUnknown': 'Venter på klassifisering',
   'dashboard.subheading':
     'Hver side klassifisert, ekstrahert og arkivert — med konfidensfarger så gjennomgang holder fokus.',
   'documentDetail.audit.heading': 'Revisjonstidslinje',
+  'documentDetail.audit.subheading':
+    'Hvert steg som er tatt på dette dokumentet, med ansvarlig aktør.',
   'documentDetail.back': 'Alle dokumenter',
   'documentDetail.downloadHint': 'Bruk Last ned for å åpne den opprinnelige filen.',
+  'documentDetail.extracted.empty': 'Ingen felt er hentet ut ennå.',
   'documentDetail.extracted.heading': 'Ekstraherte felt',
   'documentDetail.extracted.subheading':
     '{{count}} felt · klikk et felt for å fremheve det på siden',
@@ -55,13 +70,23 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Søk i dokumenter…',
   'documents.subheading': '{{count}} dokumenter i biblioteket ditt, sortert med nyeste først.',
   'documents.uploadCta': 'Last opp dokumenter',
+  'documentTypeBreakdown.barAria': 'Dokumentsammensetning etter type',
   'documentTypeBreakdown.empty': 'Ingen dokumenter behandlet ennå.',
   'documentTypeBreakdown.subtitle': '{{total}} behandlet',
   'documentTypeBreakdown.title': 'Dokumentsammensetning',
+  'forgotPassword.backToSignIn': '← Tilbake til innlogging',
   'forgotPassword.checkEmail': 'Sjekk e-posten din',
   'forgotPassword.tip': 'Fikk du den ikke? Sjekk søppelpost eller prøv en annen adresse.',
+  'landing.copyright': '© {{year}} {{app}}. Bygget for driftsteam som reviderer hver side.',
+  'landing.ctaBody':
+    '14-dagers prøveperiode. Ingen kort nødvendig. Avbryt når som helst. Bygget for driftsteam som beveger seg raskt og reviderer i rolig tempo.',
   'landing.ctaHeading': 'Slutt å taste inn kvitteringer. Begynn å arkivere dem.',
   'landing.eyebrow': 'OCR · Ekstrahering · AI-arkivering',
+  'landing.featuresHeading': 'Dokumentintelligens som forklarer seg selv',
+  'landing.heroSubtitle':
+    'Slipp inn en stabel med fakturaer, kvitteringer, kontrakter eller skjemaer. {{app}} klassifiserer, henter ut og arkiverer dem — med konfidensfarger slik at teamet ditt bare gjennomgår det som virkelig trenger et menneske.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Daglig volum · siste 7 dager',
   'landing.sampleCardLabel': 'Dokumenter behandlet i dag',
   'landing.sampleCardSubtitle':
     '96,2 % gjennomsnittlig nøyaktighet på tvers av fakturaer, kvitteringer og skjemaer.',
@@ -75,6 +100,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Åpne forsiden',
   'notFound.title': 'Den siden er ikke arkivert',
+  'parcelaHeroCard.accuracy': 'Gj.sn. nøyaktighet {{value}} % på tvers av alle uttrekk',
   'parcelaHeroCard.change': '{{sign}}{{amount}} % vs. i går',
   'parcelaHeroCard.title': 'Dokumenter behandlet i dag',
   'parcelaLayout.primaryNavLabel': 'Hovednavigasjon',
@@ -82,6 +108,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'dokumenter',
   'pricing.processingLabel': 'behandlingsjobber',
   'resetPassword.confirmPlaceholder': 'Gjenta det nye passordet',
+  'resetPassword.hidePassword': 'Skjul passord',
   'resetPassword.passwordLabel': 'Nytt passord',
   'resetPassword.showPassword': 'Vis passord',
   'resetPassword.subtitle': 'Velg noe som er minst 8 tegn langt.',
@@ -98,10 +125,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Klarte ikke å laste regler.',
   'rules.loading': 'Laster regler…',
   'rules.matched30d': '{{count}} dokumenter matchet de siste 30 dagene',
+  'rules.neverUsed': 'Aldri brukt',
   'rules.newRule': 'Ny regel',
   'rules.saveError': 'Klarte ikke å lagre regelen.',
   'rules.subheading':
     'Fortell systemet hvor hver type dokument skal. Betingelser kjedes ovenfra og ned — første treff vinner.',
+  'rules.templatesEmpty': 'Ingen uttrekksmaler ennå.',
   'rules.templatesHeading': 'Ekstraheringsmaler',
   'rules.templatesSubheading': 'Feltskjemaer som ekstrahereren bruker for hver dokumenttype.',
   'rules.then': 'Så',
@@ -109,17 +138,24 @@ export const ui: UiTranslations = {
   'settings.account.error': 'Klarte ikke å lagre.',
   'settings.account.nameLabel': 'Arbeidsområdets navn',
   'settings.account.subheading': 'Visningsnavn og primær e-post for varsler og revisjonshistorikk.',
+  'settings.api.confirmRevoke': 'Bekrefte?',
   'settings.api.copyOnce': 'Kopier denne nøkkelen — den vises ikke igjen',
   'settings.api.createdOn': 'Opprettet {{date}}',
   'settings.api.empty': 'Ingen API-nøkler ennå. Generer en ovenfor.',
   'settings.api.error': 'Klarte ikke å opprette nøkkel.',
+  'settings.api.generating': 'Genererer…',
+  'settings.api.heading': 'API-nøkler',
   'settings.api.labelPlaceholder': 'Nøkkeletikett (f.eks. CI-opplaster)',
+  'settings.api.loading': 'Laster inn nøkler …',
   'settings.api.newKey': 'Generer nøkkel',
   'settings.api.subheading':
     'Bruk disse til å sende dokumenter fra et skript eller ERP-systemet ditt. Roter en nøkkel når som helst.',
   'settings.integrations.heading': 'Arkiveringsintegrasjoner',
   'settings.integrations.subheading':
     'Send arkiverte dokumenter til skylageret eller chatteverktøyet teamet allerede bruker.',
+  'settings.subheading':
+    'Administrer konto, API-nøkler og arkiveringsintegrasjoner for {{app}}-arbeidsområdet ditt.',
+  'signup.hidePassword': 'Skjul passord',
   'signup.identityPrompt': 'Hva skal vi kalle deg?',
   'signup.showPassword': 'Vis passord',
   'signup.subtitle': '14 dager gratis, ingen kort kreves.',
@@ -127,6 +163,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Opplasting mislyktes.',
   'upload.eyebrow': 'Inntak',
   'upload.heading': 'Last opp dokumenter',
+  'upload.queue.clear': 'Fjern fullførte',
   'upload.queue.col.confidence': 'Konfidens',
   'upload.queue.col.file': 'Fil',
   'upload.queue.detecting': 'Oppdager…',
@@ -139,5 +176,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Eller slipp flere filer samtidig for batch-ekstrahering, klassifisering og arkivering.',
   'uploadDropZone.cta': 'Velg filer',
+  'uploadDropZone.maxSize': 'Maks 25 MB per fil · Ende-til-ende-kryptert',
   'uploadDropZone.title': 'Slipp dokumenter for å starte behandling',
 }

@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Teave',
+  'about.featureConnections':
+    'Ühenduste haldur, mis salvestab andmebaasid turvaliselt ja värvikoodidega — volitused on krüpteeritud, mitte kunagi lihttekstina.',
+  'about.featureMonitoring':
+    'Reaalajas päringute jõudluse ja andmebaasi aktiivsuse jälgimine, klaviatuuri kiirklahvide ja käsukäsuga, et kõike käed-vabad juhtida.',
+  'about.featurePlans':
+    'Plaanid, mis kasvavad koos sinuga — tasuta soolotööks, Pro ja Team rohkemate ühenduste, pikema päringute säilitamise, eksportide ja täiustatud funktsioonide jaoks.',
+  'about.featureQueryEditor':
+    'Monaco-põhine SQL-redaktor päringute ajalooga, salvestatud päringutega ja tulemuste ühe klõpsuga CSV-ekspordiga.',
+  'about.featureSchema':
+    'Skeemi uurija ja tabelite brauser andmebaaside, tabelite ja veergude navigeerimiseks ning ridade sirvimiseks, filtreerimiseks ja reaalajas redigeerimiseks.',
+  'about.missionTitle': 'Meie missioon',
   'authShell.commands': 'Käsud',
   'authShell.ssoSupported': 'Toetab SSO-d',
   'common.run': 'Jookse',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Päringud',
   'connections.schema': 'Skeem',
   'connections.subtitle': 'Haldage oma andmebaasiühendusi.',
+  'connections.test': 'Test',
   'databaseAdminLayout.adminRole': 'Admin-roll',
   'databaseAdminLayout.commandPalette': 'Käskude palett',
   'databaseAdminLayout.commands': 'käskud',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Uus ühendus',
   'databaseAdminLayout.queries': 'Päringud',
   'databaseAdminLayout.ready': 'Valmis',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Otsi käske, päringuid, tabeleid…',
   'databaseAdminLayout.user': 'Kasutaja',
   'editConnection.confirmDelete': 'Kas soovid selle ühenduse kustutada?',
   'editConnection.deleteButton': 'Kustuta ühendus',
+  'editConnection.newPassword': 'Uus parool (jätke tühjaks, et säilitada)',
   'editConnection.saved': 'Ühendus salvestatud.',
   'editConnection.title': 'Muuda ühendust',
   'forgotPassword.success': 'Kui see konto on olemas, saadetakse sulle kohe taastamislingi.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Edu',
   'monitoring.title': 'Järelevalve',
   'monitoring.totalQueries': 'Päringute koguarv',
+  'nav.schema': 'Skeem',
   'newConnection.database': 'Andmebaas',
   'newConnection.engine': 'Mootor',
   'newConnection.host': 'Saatejuht',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Selle koodijupiga ei ole seotud ühtegi ühendust.',
   'savedQuery.notBound': 'Ei ole seotud',
   'savedQuery.title': 'Salvestatud päring',
+  'schema.columns': 'Veerud',
   'schema.foreignKeys': 'Välisvõtmed',
   'schema.indexes': 'Indeksid',
   'schemaExplorer.browseRows': 'Ridade sirvimine',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'null-võimalik',
   'schemaExplorer.colType': 'tüüp',
   'schemaExplorer.noColumns': 'Veerge pole.',
+  'schemaExplorer.noForeignKeys': 'Võõrvõtmeid pole.',
   'schemaExplorer.noIndexes': 'Indekseid pole.',
   'schemaExplorer.noTables': 'Tabelid puuduvad',
   'schemaExplorer.pickATable': 'Vali külgribalt tabel.',
   'schemaExplorer.tables': 'Tabelid',
   'schemaExplorer.title': 'Skeemiotsija',
+  'settings.session': 'Seanss',
   'settings.subtitle': 'Haldage oma kontot ja paketti.',
   'signup.heading': 'Loo oma Quarry konto',
   'signup.tagline': 'Saate juurdepääsu käivitada vähem kui minutiga.',
   'tableBrowser.noRows': 'Selles tabelis pole veel ridu.',
+  'tableBrowser.subtitle': 'Ridade sirvimine sinu kaugandmebaasist.',
   'tableBrowser.title': 'Kaugandmebaasi ridade sirvimine.',
 }

@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Has trobat un error, vols demanar una funcionalitat o vols dir-nos què construir després? Escriu a hello@pylon.dev — cada missatge arriba a un enginyer real de l'equip.",
   'about.contactTitle': 'Parla amb nosaltres',
+  'about.intro':
+    "{{app}} és un banc de proves d'API ràpid i natiu de teclat per a enginyers que viuen al terminal — peticions a l'estil Postman, col·leccions, entorns i historial sense la faramalla.",
+  'about.missionBody':
+    'Les API són la columna vertebral del programari modern, però les eines per exercitar-les són lentes, inflades i controlades amb el ratolí. {{app}} existeix per donar als desenvolupadors un banc de treball precís, ràpid i de nivell terminal: llança peticions, forja confiança i publica sense deixar el teclat.',
+  'about.missionTitle': 'La nostra missió',
   'about.pageTitle': 'Sobre {{app}}',
   'authShell.statusLabel': 'corredors en línia',
   'collections.createError': "No s'ha pogut crear la col·lecció.",
   'collections.defaultName': 'Col·lecció sense títol {{n}}',
+  'collections.empty':
+    'Encara no hi ha col·leccions — fes clic a «Nova col·lecció» per crear la teva primera carpeta.',
   'collections.eyebrow': '$ pylon collections --tree',
   'collections.fetchError': "No s'han pogut carregar les col·leccions.",
   'collections.heading': 'Col·leccions',
   'collections.loading': "S'estan carregant les col·leccions…",
+  'collections.metric.allGreen': 'Tot correcte',
   'collections.metric.collections': 'Col·leccions',
   'collections.metric.failing': 'Fallant',
   'collections.metric.failingCaption': "L'última execució va tenir errors",
@@ -24,6 +34,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Variables',
   'environments.createError': "No s'ha pogut crear l'entorn.",
   'environments.defaultName': 'Entorn sense títol {{n}}',
+  'environments.empty': 'Encara no hi ha entorns — fes clic a «Nou entorn» per afegir-ne un.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': "No s'han pogut carregar els entorns.",
   'environments.heading': 'Entorns',
@@ -31,8 +42,11 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Nou entorn',
   'environments.subheading':
     "Variables que es converteixen en sol·licituds en el moment de l'enviament. Un entorn actiu per espai de treball.",
+  'forgotPassword.statusLabel': 'restablir · túnel segur',
   'forgotPassword.success':
     "Si ja existeix un compte per a aquest correu electrònic, un enllaç de restabliment està en camí. Revisa la teva safata d'entrada.",
+  'history.empty':
+    'Encara no hi ha res aquí — llança la teva primera petició des de la pestanya Espai de treball.',
   'history.eyebrow': '$ historial del piló --tail',
   'history.fetchError': "No s'ha pogut carregar l'historial.",
   'history.heading': "Historial d'execucions",
@@ -41,9 +55,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Últims 50',
+  'history.realtime': 'en temps real',
   'history.subheading':
     "Cada sol·licitud s'ha activat en aquest espai de treball, amb l'estat, la latència i la mida de la càrrega útil.",
   'landing.choosePlan': 'Tria un pla',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Forge confidence.',
   'landing.ctaBody':
     'No cal targeta de crèdit. No cal cap enginyer de plataforma. Obre ⌘K i envia la teva primera sol·licitud en menys de cinc minuts.',
   'landing.ctaHeading': 'Forjar confiança.',
@@ -85,6 +101,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Latència mitjana',
   'mocks.metric.live': 'Públic',
   'mocks.metric.servers': 'Burles',
+  'mocks.ms': 'ms',
   'mocks.newMock': 'Nova maqueta',
   'mocks.online': 'Públic',
   'mocks.paused': 'Privat',
@@ -108,9 +125,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Saludable',
   'monitors.metric.uptime': 'Temps de funcionament mitjà',
   'monitors.newMonitor': 'Nou monitor',
+  'monitors.paused': 'pausat',
   'monitors.run': 'Corre',
   'monitors.runError': "L'execució ha finalitzat amb un error de xarxa: {{error}}",
+  'monitors.runFailed': "L'execució ha fallat.",
   'monitors.running': 'Corrent…',
+  'monitors.runSuccess': "Executa {{status}} — l'origen ha retornat {{code}} en {{ms}}ms.",
   'monitors.sparkLabel': 'Tendència de latència',
   'monitors.subheading':
     "Comprovacions a demanda per a qualsevol prova desada. Enllaça una prova, prem Executa i observa l'actualització de la taxa d'èxit de 24 hores amb cada incendi.",
@@ -119,27 +139,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Temps de funcionament · 24 h',
   'nav.legal': 'Legal',
   'notFound.backToWorkspace': "Torna a l'espai de treball",
+  'notFound.body':
+    "{{app}} ha llançat una petició per a aquesta URL i no ha rebut res. Comprova la ruta o torna a l'espai de treball.",
   'notFound.eyebrow': '$ pylon resolue --strict',
   'notFound.title': 'Ruta no trobada',
+  'planUpdated.body':
+    'El canvi de facturació ja és actiu. Pots gestionar el teu pla en qualsevol moment des de la pàgina de facturació.',
+  'planUpdated.retry': 'Torna-ho a intentar',
+  'planUpdated.verifyFailed': 'Encara no hem pogut confirmar el vostre pagament.',
+  'planUpdated.verifyFailedBody':
+    "És possible que el vostre pagament encara s'estigui processant. Torneu-ho a provar en un moment.",
   'planUpdated.verifying': 'Confirmant el teu pagament…',
+  'pricing.advancedFeatures': 'Funcions avançades: {{yes}}',
+  'pricing.canExport': 'Exportació de dades: {{yes}}',
+  'pricing.heading': 'Tria el teu pla de {{app}}',
+  'pricing.maxCollections': '{{count}} col·leccions',
+  'pricing.maxEnvironments': '{{count}} entorns',
+  'pricing.maxHistory': "{{count}} entrades d'historial",
+  'pricing.maxRequests': '{{count}} sol·licituds',
   'privacy.collect.account':
     'Compte: el vostre correu electrònic, la contrasenya codificada, el nom de visualització i la marca de temps del vostre darrer inici de sessió.',
+  'privacy.intro':
+    '{{app}} respecta la teva privadesa. Aquesta pàgina resumeix les dades que recollim, per què les recollim i com eliminar-les.',
   'privacy.rights.body':
     'Pots exportar les teves col·leccions i entorns en qualsevol moment o eliminar el teu compte des de Configuració per eliminar totes les dades permanentment en un termini de 30 dies.',
   'privacy.share.body':
     "Només tu. Mai venem, compartim ni lloguem el contingut del teu espai de treball a tercers. Els registres del servidor es conserven durant 30 dies per a la resposta a incidents i després s'eliminen.",
   'privacy.title': 'Avís de privacitat',
+  'profile.bio':
+    'El teu espai de treball personal de {{app}} — fixa col·leccions, comparteix entorns i monitora les API que publiquen producte.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'unit {{when}}',
+  'profile.metric.collections': 'Col·leccions',
   'profile.metric.monitors': 'Monitors',
   'profile.metric.requests': 'Sol·licituds desades',
+  'profile.noActivity':
+    "Encara no s'ha llançat cap petició — ves a la pestanya Espai de treball per fer-ne una.",
   'profile.signedOut': 'Inicia la sessió per veure el teu perfil',
   'pylonShell.primaryNavLabel': 'Navegació principal',
+  'resetPassword.passwordLabel': 'Nova contrasenya',
+  'resetPassword.statusLabel': 'restablir · testimoni verificat',
   'resetPassword.subtitle': 'Trieu una contrasenya forta que no hàgiu utilitzat mai abans.',
   'resetPassword.tokenPlaceholder': 'enganxar des del correu electrònic',
+  'settings.accountManagement.desc':
+    'Actualitza el teu correu i contrasenya, gestiona les notificacions i els dispositius, tanca la sessió o elimina el teu compte.',
+  'settings.accountManagement.title': 'Compte i seguretat',
   'settings.eyebrow': '$ configuració del piló --edit',
   'settings.fetchError': "No s'ha pogut carregar la configuració.",
   'settings.language.title': 'Llengua',
+  'settings.seeding': "S'està sembrant…",
   'settings.seedStarter': 'Contingut inicial de llavors',
   'settings.starterCollection': "Col·lecció d'iniciació",
   'settings.starterCollectionDesc': 'Creat des de la configuració a {{ts}}',
@@ -154,6 +202,8 @@ export const ui: UiTranslations = {
     'Ets responsable de protegir la teva contrasenya. No es permet compartir un compte amb diverses persones en els plans gratuït o Pro; compra una subscripció a Team per a espais de treball compartits.',
   'terms.billing.body':
     'Les subscripcions de pagament es renoven automàticament cada període de facturació. Pots cancel·lar-les des de Configuració en qualsevol moment; el teu accés continuarà fins al final del període actual.',
+  'terms.intro':
+    'En crear un compte de {{app}} acceptes els termes següents. Llegeix-los un cop; no et sorprendrem amb canvis retroactius.',
   'terms.title': 'Condicions del servei',
   'terms.usage.body':
     'No utilitzeu Pylon per generar sol·licituds a serveis que no sigueu propietaris o que no tingueu permís explícit per provar. No utilitzeu Pylon per eludir els límits de velocitat ni cometre frau.',
@@ -174,17 +224,23 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'No executar',
   'testRunner.metric.passed': 'Aprovat',
   'testRunner.never': 'Mai corre',
+  'testRunner.newTest': 'Prova nova',
   'testRunner.noAssertions': 'Encara no hi ha cap afirmació sobre aquesta prova.',
+  'testRunner.noRunsYet':
+    "Encara no s'ha registrat cap execució — prem «Executa-ho tot» per omplir l'historial.",
   'testRunner.passed': 'passant',
+  'testRunner.recentRuns': 'Curses recents',
   'testRunner.runAll': 'Executa-ho tot',
   'testRunner.running': 'Corrent…',
   'testRunner.runOne': 'Corre',
   'testRunner.subheading':
     "Resultats de la suite, diferències d'assercions i les últimes 50 execucions.",
+  'testRunner.suites': 'Suites',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Has iniciat la sessió com a',
   'workspace.auth.keyName': 'Nom de la capçalera',
   'workspace.auth.keyValue': 'Valor clau',
+  'workspace.auth.noneHint': "No s'enviarà cap capçalera d'autorització amb aquesta petició.",
   'workspace.auth.password': 'Contrasenya',
   'workspace.auth.username': "Nom d'usuari",
   'workspace.authOption.apikey': 'Clau API',
@@ -194,13 +250,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Tipus',
   'workspace.authTypeLabel': "Tipus d'autorització",
+  'workspace.body.contentLabel': 'Cos de la sol·licitud',
+  'workspace.body.hint':
+    "{{envVars}} se substitueixen abans que es llanci la petició. Els cossos s'envien a POST/PUT/PATCH/DELETE.",
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Cap',
+  'workspace.body.noneHint':
+    "No s'enviarà cap cos de petició. Tria JSON o text pla per afegir-ne un.",
   'workspace.body.text': 'Text sense processar',
   'workspace.body.type': 'Tipus',
   'workspace.environment': 'Sense entorn',
   'workspace.envVar': "variable d'entorn",
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.failedCount': '{{count}} fallat',
+  'workspace.idle': 'Inactiu',
   'workspace.kv.addHeader': 'Afegeix una capçalera',
   'workspace.kv.addParam': 'Afegeix un paràmetre',
   'workspace.kv.headerKey': 'Nom de la capçalera',
@@ -213,12 +276,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'Mètode HTTP',
   'workspace.metric.latency': 'Latència',
   'workspace.metric.latencyCaption': "Anada i tornada des d'aquesta cursa",
+  'workspace.metric.size': 'Càrrega útil',
   'workspace.metric.sizeCaption': 'Bytes del cos de la resposta',
   'workspace.metric.statusCaption': 'Última resposta',
   'workspace.metric.tests': 'Proves',
+  'workspace.metric.testsAllPassing': 'Totes les assercions correctes',
   'workspace.metric.testsFailing': '{{count}} fallant',
+  'workspace.metric.testsIdle': 'Envia una petició per avaluar',
   'workspace.noAssertions': 'Executa una sol·licitud per avaluar les assercions integrades.',
   'workspace.noResponseYet': 'Encara no hi ha resposta',
+  'workspace.passedCount': '{{count}} passat',
   'workspace.responseHint': '// Premeu Enviar per enviar la sol·licitud i capturar la resposta.',
   'workspace.saveError': "No s'ha pogut desar la sol·licitud.",
   'workspace.statusError': "No s'ha pogut enviar la sol·licitud.",
@@ -227,10 +294,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Redacta una sol·licitud, envia-la i després confirma la resposta, tot en un sol panell.',
   'workspace.testResults': 'Resultats de les proves',
+  'workspace.tests.autoHint':
+    "La família d'estat, la latència, la mida del cos i la salut del transport s'asseveren automàticament — els resultats apareixen a «Resultats de la prova» al tauler de resposta.",
+  'workspace.tests.autoTitle': "Les assercions integrades s'executen a cada resposta",
   'workspace.token': 'testimoni',
   'workspace.tokenHint':
     "Enviat com a autorització: Portador<token> a cada sol·licitud d'aquesta col·lecció.",
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Sol·licitud sense títol',
+  'workspace.urlLabel': 'URL de sol·licitud',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

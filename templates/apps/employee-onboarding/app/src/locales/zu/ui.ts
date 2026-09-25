@@ -1,26 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ufuna ukuqalisa uhlelo lokwamukela olufudumele eqenjini lakho, uthole iphutha, noma unombono? Xhumana nathi kusukela kuzilungiselelo ze-akhawunti yakho — yonke imiyalezo ifinyelela kumuntu wangempela ongakusiza.',
   'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
+  'about.missionTitle': 'Umsebenzi wethu',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Setha kabusha iphasiwedi yakho.',
+  'auth.forgotPassword.panel.body':
+    'Ukusetha kabusha kuthatha imizuzwana engu-30 — inqubekelaphambili yakho yohlu lokuhlola ikulindile.',
+  'auth.forgotPassword.panel.headline': 'Sibuyele khona lapho ushiye khona.',
+  'auth.forgotPassword.subheading':
+    'Faka i-imeyili yakho yomsebenzi futhi sizokuthumelela isixhumanisi sokusetha kabusha.',
   'auth.forgotPassword.successSubheading':
     'Hlola ibhokisi lakho lokungenayo — sithumele imiyalelo yokusetha kabusha.',
   'auth.login.emailPlaceholder': 'name@yourcompany.com',
   'auth.login.heading': 'Siyakwamukela.',
   'auth.login.passwordPlaceholder': 'Iphasiwedi yakho',
+  'auth.login.signupPrompt': 'Umsha eqenjini lakho?',
   'auth.login.subheading': 'Ngena ngemvume ukuze uqale uhambo lwakho lokungena lapho ugcine khona.',
   'auth.login.submit': 'Qhubeka nohambo lwakho',
+  'auth.panel.body':
+    'Uhlu lwakho lokuhlola lomuntu siqu, izigaba zokuqeqeshwa, kanye nokwaziswa kweqembu — konke endaweni eyodwa ezolile.',
   'auth.panel.footnote': '© Embark — ukungenisa abantu kuqala kusukela namuhla.',
   'auth.panel.headline': 'Izinsuku zokuqala ezingama-90 eziqinisekile ziqala lapha.',
   'auth.resetPassword.heading': 'Setha iphasiwedi entsha.',
   'auth.resetPassword.newPasswordLabel': 'Iphasiwedi Entsha',
+  'auth.resetPassword.panel.body':
+    'Gcina iphasiwedi entsha futhi sizokubuyisela emuva ohambweni lwakho lokwamukelwa.',
+  'auth.resetPassword.panel.headline': 'Seseduze ukubuya.',
   'auth.resetPassword.subheading': 'Khetha into ozoyikhumbula — okungenani izinhlamvu ezingu-8.',
   'auth.signup.emailPlaceholder': 'name@yourcompany.com',
   'auth.signup.heading': 'Siyakwamukela ezinsukwini zakho zokuqala ezingama-90.',
   'auth.signup.panel.body':
     'Uhlu lokuhlola oluqondisiwe, ukuqeqeshwa okuqaphelayo izindima, kanye nokwethulwa kwabantu — kulungele ngaphambi kokuthi ungene.',
+  'auth.signup.panel.headline': 'Usuku lokuqala, ngosuku lokuqala.',
   'auth.signup.subheading':
     'Dala i-akhawunti yakho ye-Embark ukuze uqale uhambo lwakho lokungena oluqondisiwe.',
   'checklist.empty.body': 'Shintsha isihlungi ukuze ubone eminye imisebenzi.',
@@ -28,6 +43,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'Ukungena ngemvume · Uhlu lokuhlola',
   'checklist.loading': 'Ilayisha uhlu lwakho lokuhlola…',
   'checklist.stat.actionNeeded': 'Kudingeka isinyathelo',
+  'checklist.stat.completion': 'Ukuqedwa',
+  'checklist.stat.inProgress': 'Kuyaqhubeka',
   'checklist.stat.inProgressHelper': 'Qhubeka lapho ugcine khona',
   'checklist.stat.overdueHelper': 'Thola lokhu kuqala',
   'checklist.subtitle':
@@ -59,6 +76,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Awekho amadokhumenti okwamanje',
   'documents.eyebrow': 'Ukungena ngemvume · Amadokhumenti',
   'documents.loading': 'Ilayisha amadokhumenti…',
+  'documents.stat.actionNeeded': 'Sayina manje',
+  'documents.stat.all': 'Yonke imibhalo',
   'documents.stat.allHelper': 'Kuzo zonke izigaba',
   'documents.stat.pending': 'Amasignesha alindile',
   'documents.stat.pendingHelper': 'Kuyadingeka ukuze kuqedwe',
@@ -66,6 +85,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Kugcinwe ngokuphephile',
   'documents.status.optional': 'Ongakukhetha',
   'documents.status.required': 'Kuyadingeka',
+  'documents.status.signed': 'Kusayinwe',
   'documents.subtitle':
     'Incwadi yakho yemiyalelo, amafomu, kanye nezivumelwano ezisayiniwe — konke endaweni eyodwa.',
   'documents.title': 'Konke okudingayo ukuze ukufunde nokusayina.',
@@ -73,10 +93,14 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'Isibukeli',
   'documentViewer.breadcrumbDocs': 'Amadokhumenti',
   'documentViewer.downloadMeta': 'Landa imethadatha',
+  'documentViewer.helpBody':
+    'I-People & Culture iphendula imibuzo yencwadi yomhlahlandlela ku-#ask-people ku-Slack.',
   'documentViewer.helpEyebrow': 'Udinga usizo?',
   'documentViewer.loadError': 'Asikwazanga ukulayisha le dokhumenti.',
   'documentViewer.loading': 'Ilayisha idokhumenti…',
   'documentViewer.notFound': 'Idokhumenti ayitholakalanga',
+  'documentViewer.previewBody':
+    'Uma ukulayisha kusethiwe sibonisa ifayela ngaphakathi. Okwamanje, ukulanda kwemethadatha kukuvumela ukuqinisekisa ukuthi irekhodi lingempela.',
   'documentViewer.previewBodyExternal':
     'Sebenzisa inkinobho yokulanda ukuze uvule ifayela kuthebhu entsha.',
   'documentViewer.previewTitle': 'Ukubuka kuqala kwedokhumenti',
@@ -84,6 +108,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Funda idokhumenti, bese uchofoza ngezansi ukuze usayine futhi uvume.',
   'documentViewer.signatureHeading': 'Kudingeka isiginesha',
+  'documentViewer.signed': '✓ Isayiniwe futhi yagcinwa',
   'documentViewer.signing': 'Kusayinwa…',
   'documentViewer.uploadedRecently': 'Okulayishiwe muva nje',
   'landing.closing.body':
@@ -93,10 +118,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Sengivele nginayo i-akhawunti',
   'landing.feature1.body':
     'Yonke imisebenzi — amaphepha, ama-akhawunti, izingeniso — ihlelwe kusengaphambili ngezinsuku zokugcina kanye nomnikazi ofanele.',
+  'landing.feature1.title': 'Uhlu lokuhlola oluholayo',
   'landing.feature2.body':
     'Amamojula avuleka kumaphuzu angu-30/60/90, ahlelwe ngokwendima kanye neqembu eliqashiwe elijoyinayo.',
+  'landing.feature2.title': 'Ukuqeqeshwa okuhambisana nendima',
   'landing.feature3.body':
     'Abangane, abaphathi, kanye nezingeniso ezihlanganisa imisebenzi ehlukahlukene zihleliwe — ngakho akekho oqala yedwa.',
+  'landing.feature3.title': 'Ukuzazisa kwangempela',
   'landing.featureEyebrow': 'Kungani Kufanele Uqale',
   'landing.featureHeadline':
     'Izindlela ezintathu i-Embark ethola ngazo ukwethenjwa ngosuku lokuqala.',
@@ -107,6 +135,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Okulandelayo: Hlangana nomngane wakho ukuze nixoxe ngekhofi imizuzu engama-30 — ngoLwesibili ngo-10:00 ekuseni.',
   'landing.preview.eyebrow': 'Usuku 14 kwangu-90 — ideshibhodi yesampula',
+  'landing.preview.headline': 'Wamukelekile futhi, Maya.',
   'landing.proof.spec': 'I-SOC 2 + i-GDPR ilungile',
   'landing.proof.teams': 'Yakhelwe amaqembu abantu abangu-50–5,000',
   'landing.proof.time': 'Isivivinyo samahhala sezinsuku ezingu-14',
@@ -123,16 +152,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Usulungile.',
   'planUpdated.preparing': 'Ibuyekeza uhlelo lwakho…',
+  'planUpdated.retry': 'Zama futhi',
+  'planUpdated.verifyFailed': 'Asikwazanga ukuqinisekisa inkokhelo yakho okwamanje.',
+  'planUpdated.verifyFailedBody':
+    'Inkokhelo yakho ingase isacutshungulwa. Zama futhi ngemva kwesikhashana.',
   'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'pricing.documentsLabel': 'imibhalo',
   'pricing.onboardingsLabel': 'ukungeniswa',
   'pricing.tasksLabel': 'imisebenzi',
   'profile.dayNumber': 'Usuku',
   'profile.detailsHeading': 'Imininingwane yokubhalisa',
+  'profile.encouragementBody':
+    'Gcina umngane wakho kanye nomphathi wakho benolwazi — izinyathelo ezincane ziyahlangana.',
   'profile.milestones': 'Izenzakalo Ezibalulekile',
   'profile.progressEyebrow': 'Inqubekela phambili yokwamukelwa',
   'profile.tasks': 'Imisebenzi',
   'profile.unknownName': 'Siyakwamukela',
+  'settings.appearance.description': 'Shintsha phakathi kwemodi yokukhanya neyomnyama.',
+  'settings.appearance.title': 'Ukubukeka',
+  'settings.subtitle':
+    'Lungisa izaziso, ukuphepha, amadivayisi, kanye nokuthunyelwa kwedatha ngaphandle — konke kuhlala lapha, ngokwemibandela yakho.',
   'settings.title': 'Izilungiselelo kanye nezintandokazi.',
   'taskDetail.backToChecklist': 'Buyela ohlwini lokuhlola',
   'taskDetail.breadcrumbChecklist': 'Uhlu Lokuhlola',
@@ -145,7 +184,10 @@ export const ui: UiTranslations = {
   'taskDetail.notFound': 'Umsebenzi awutholakalanga',
   'taskDetail.notFoundBody':
     'Lo msebenzi kungenzeka ukuthi ususuliwe noma ungowomunye umsebenzisi.',
+  'taskDetail.tipBody':
+    'Uma uvimbekile, thumela umyalezo kumngane wakho wokwamukelwa ku-Slack — bangabokuqala abakusizayo.',
   'taskDetail.tipEyebrow': 'Icebiso elisheshayo',
+  'team.empty.body': 'Zama ukusesha okubanzi noma khetha umnyango ohlukile.',
   'team.empty.title': 'Akukho ozakwethu abafanayo',
   'team.eyebrow': 'Ukungena · Abantu',
   'team.loading': 'Ilayisha ozakwethu beqembu…',
@@ -168,14 +210,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Izenzakalo Ezibalulekile',
   'timeline.stat.current': 'Ingqophamlando yamanje',
   'timeline.stat.next': 'Ukuvula okulandelayo',
+  'timeline.stat.progress': 'Sekukonke',
   'timeline.subtitle':
     'Ingqophamlando ngayinye ivula amamojula amasha, izingeniso, kanye nezingxoxo zokukhula. Akukho ngcindezi — intuthuko nje.',
+  'timeline.tipBody':
+    'Hlela isikhathi sokuzindla semizuzu engu-30 ngezinsuku 30, 60, no-90 nomphathi wakho — kwenza impendulo icace futhi inqubekelaphambili ibonakale.',
   'timeline.tipEyebrow': 'Ithiphu yomphathi',
+  'timeline.tipTitle': 'Beka isikhathi sekhalenda sezigaba ezibalulekile.',
   'timeline.title': 'Uhambo lwakho lwamahora angu-30/60/90.',
   'training.badge.notStarted': 'Akuqalwanga',
   'training.empty': 'Azikho amamojula okuqeqesha okwamanje.',
   'training.eyebrow': 'Ukuqeqeshwa · Ukuqeqeshwa',
   'training.loading': 'Ilayisha amamojula…',
+  'training.stat.all': 'Amamojula abelwe',
   'training.subtitle':
     'Amamojula avuleka ku-30/60/90 ukuze afane nendima yakho. Adingekayo eza kuqala.',
   'training.title': 'Amakhono, amathuluzi, kanye nezindaba — ngesivinini sakho.',
@@ -188,9 +235,12 @@ export const ui: UiTranslations = {
   'trainingModule.quizBody':
     'Thola amaphuzu angu-80% noma ngaphezulu ukuze uphawule ukuthi le module isiqediwe.',
   'trainingModule.quizHeading': 'Imibuzo yokuphela kwemodyuli',
+  'trainingModule.quizLocked': 'Qala imojula kuqala',
   'trainingModule.quizNone': 'Akukho mibuzo kule mojuli.',
   'trainingModule.quizRetry': 'Zama futhi',
+  'trainingModule.quizStart': 'Qala umbuzo',
   'trainingModule.quizSubmit': 'Thumela izimpendulo',
+  'trainingModule.start': 'Qala imojula',
   'trainingModule.statusNotStarted': 'Akuqalwanga',
   'welcomeHeroCard.completeLabel': 'Kuqediwe',
   'welcomeHeroCard.milestonesLabel': 'Izenzakalo Ezibalulekile',

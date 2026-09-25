@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Санал хүсэлт байна уу, алдаа олсон уу, эсвэл шинэ функц хүсэж байна уу? Бүртгэлийн тохиргооноосоо холбогдоорой — илгээсэн мессеж бүр багийн бодит хүнд хүрдэг. Анхаар: энд байгаа зүйл хөрөнгө оруулалтын зөвлөгөө биш; хийсэн арилжаа бүрийг та өөрөө удирдана.',
+  'about.contactTitle': 'Бидэнтэй холбогдох',
+  'about.featureAttribution':
+    'Гүйцэтгэлийн задаргаа — өгөөжийг салбар, бүс нутаг, хөрөнгийн ангиллаар задлан, дурын хугацаанд жишигтэй харьцуулна.',
+  'about.featureRebalance':
+    'Сахилга баттай дахин тэнцвэржүүлэлт — зорилтот хуваарилалт болон хүлцлийн хязгаарыг тогтоож, хазайлтыг эрт илрүүлж, буцаах арилжаануудыг аваарай.',
+  'about.featureTax':
+    'Татварын баримтын эмх цэгц — хэрэгжсэн болон хэрэгжээгүй ашиг, ногдол ашиг, 1099 баримтууд нэг дор, wash-sale тэмдэглэгээтэйгээр.',
+  'about.featureUnified':
+    'Нэгдсэн багц — хувьцаа, ETF, харилцан сан, бонд болон бусад нь бүх брокерийн данснаас нэгтгэгдэнэ.',
+  'about.featureWatchlist':
+    'Хяналтын жагсаалт, мэдээ, үнийн сэрэмжлүүлэг — чухал зүйлд шуугиангүйгээр хариу үйлдэл үзүүлэх боломж.',
+  'about.intro':
+    '{{app}} нь хувь хүний хөрөнгө оруулагч болон бие даасан зөвлөхүүдэд зориулсан олон төрлийн хөрөнгийн багцын хяналтын самбар юм. Хувьцаа, ETF, харилцан сан, бонд, үл хөдлөх хөрөнгө, бэлэн мөнгө — бүх дансны бүх хөрөнгө нэг дор, мэргэжлийн түвшний сахилга баттайгаар.',
+  'about.missionBody':
+    'Сайн хөрөнгө оруулалт ихэвчлэн сахилга бат юм: тодорхой зорилтот хуваарилалт, шударга гүйцэтгэлийн задаргаа, эмх цэгцтэй татварын бүртгэл. {{app}} эдгээр байгууллагын дадлыг хүн бүрт хүргэж, тэнцвэржүүлэлтийг түлхэлтээр биш зориуд хийх боломжийг олгож, багц тань үнэхээр юу хийж байгааг хэзээ ч мартагдуулахгүй.',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
   'about.pageTitle': '{{app}}-ийн тухай',
   'argentAuthShell.brandEyebrow': 'Аргент · Баялгийн хэрэгсэл',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Хөрөнгө оруулалтын зөвлөгөө биш.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Сахилга баттай тэнцвэржүүлэлт, гүйцэтгэлийн тодорхой хамаарал, татварын баримт бичгийн эрүүл ахуйг хүссэн хувь хүн хөрөнгө оруулагчид болон зөвлөхүүдэд зориулсан портфолио хянах самбар - чимээ шуугиангүйгээр.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · Өмнөх гүйцэтгэл ирээдүйн үр дүнг баталгаажуулахгүй.',
   'argentAuthShell.sampleChange': 'Өнөөдөр +$2,841 (+0.28%)',
+  'argentAuthShell.sampleLabel': 'Портфолиогийн үнэ цэнэ',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Үндсэн навигаци',
   'assetAllocationDonut.heading': 'Таны мөнгийг хэрхэн хөрөнгө оруулдаг вэ',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'өнөөдөр',
   'assetDetail.txEmpty': 'Энэ тикерээр гүйлгээ хийгдээгүй байна.',
   'assetDetail.txHeading': 'Таны гүйлгээ',
+  'auth.legalConsent.prefix': 'Үргэлжлүүлснээр та {{appName}}-ийн нөхцөлийг зөвшөөрч байна',
   'common.and': 'мөн',
   'common.goToDashboard': 'Хянах самбар руу очих',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'өнөөдөр',
   'dashboard.topHoldings.heading': 'Таны мөнгө хаана ажиллаж байна вэ',
   'dashboard.topHoldings.label': 'Шилдэг холдингууд',
+  'forgotPassword.gotLinkCta': 'Надад шинэчлэх холбоос байна →',
+  'forgotPassword.subheading':
+    'Gavl бүртгэлийнхээ имэйл хаягийг оруулна уу, бид танд аюулгүй дахин тохируулах холбоос илгээх болно.',
   'forgotPassword.successBody':
     'Хэрэв та хэдэн минутын дараа үүнийг харахгүй бол спам хавтасаа шалгах эсвэл өөр имэйл оруулна уу.',
   'forgotPassword.successSubheading':
     'Шалгах {{email}} дахин тохируулах холбоосын хувьд. Энэ нь 60 минутын дараа хугацаа нь дуусна.',
+  'forgotPassword.successTitle': 'Шинэчлэх имэйл илгээгдэж байна',
   'holdingHighlightRow.todayLabel': 'өнөөдөр',
   'holdings.addCta': 'Худалдан авах',
   'holdings.col.allocation': 'Хуваарилалт',
@@ -58,6 +87,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Хөрөнгө оруулалтын зөвлөгөө биш. Өнгөрсөн үеийн гүйцэтгэл нь ирээдүйн үр дүнг баталгаажуулахгүй.',
   'landing.eyebrow': 'Argent · Баялгийн хэрэгслийн платформ',
   'landing.features.heading': 'Зөвлөх хүн өөртөө зориулж бүтээх бүх зүйл.',
+  'landing.finalCta.body':
+    'Брокерийн дансаа хоёр товшилтоор холбоно уу. Үлдсэнийг {{appName}} хийнэ.',
+  'landing.finalCta.cta': 'Аргент дансаа нээнэ үү',
   'landing.finalCta.heading': 'Сахилга батыг портфолиодоо буцааж авчир.',
   'landing.footerSignup': 'Данс нээх',
   'landing.getStarted': 'Данс нээх',
@@ -65,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Үнийг харах',
   'landing.heroSubtitle':
     'Сахилга баттай тэнцвэржүүлэлт, гүйцэтгэлийн тодорхой хамаарал, татварын баримт бичгийн эрүүл ахуйг хүссэн хувь хүн хөрөнгө оруулагчид болон зөвлөхүүдэд зориулсан портфолио хянах самбар - чимээ шуугиангүйгээр.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Төлөөллийн портфолионоос шууд тойм',
   'login.heading': 'Argent-д нэвтрэх',
   'login.subheading':
@@ -76,6 +109,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} цагийн өмнө',
   'news.justNow': 'дөнгөж сая',
   'news.loadError': 'Мэдээг ачаалж чадсангүй.',
+  'planUpdated.body':
+    'Таны төлбөрийн өөрчлөлт идэвхжлээ. Та төлбөрийн хуудаснаас төлөвлөгөөгөө хүссэн үедээ удирдах боломжтой.',
+  'planUpdated.retry': 'Дахин оролдоно уу',
+  'planUpdated.verifyFailed': 'Бид таны төлбөрийг хараахан баталгаажуулж чадсангүй.',
+  'planUpdated.verifyFailedBody':
+    'Таны төлбөрийг боловсруулж байж магадгүй. Хэсэг хугацааны дараа дахин оролдоно уу.',
   'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'portfolioHeroCard.label': 'Портфолиогийн үнэ цэнэ',
   'pricing.holdingsLabel': 'эзэмшил газрууд',
@@ -86,13 +125,18 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Хуваарилалтын шилжилт',
   'rebalance.empty': 'Одоогоор зорилт тавиагүй байна.',
   'rebalance.executeCta': 'Байршил {{count}} арилжаа',
+  'rebalance.executeError': 'Арилжаа хийж чадсангүй.',
   'rebalance.executeOk':
     'Байршуулсан {{count}} арилжаа. Тэдгээрийг Гүйлгээний хуудсан дээрээс үзнэ үү.',
+  'rebalance.executing': 'Байршуулж байна…',
   'rebalance.eyebrow': 'Дахин тэнцвэржүүлэх · Аргент зөвлөх',
   'rebalance.heading': 'Портфолиогоо сахилга баттай болгоорой',
   'rebalance.loadError': 'Дахин тэнцвэржүүлэх төлөвлөгөөг ачаалж чадсангүй.',
+  'rebalance.plan.driftLine': 'одоо {{current}}% · зорилт {{target}}%',
   'rebalance.planHeading': 'Аргент тасалбар — байршуулахаасаа өмнө хянаж үзээрэй',
   'rebalance.planLabel': 'Санал болгож буй худалдааны төлөвлөгөө',
+  'rebalance.subheading':
+    'Хүлцлийн хязгаараас гарсан мөрүүд арилжааны санал үүсгэнэ. {{appName}} зөвхөн таны баталгаажуулалтаар ажиллана.',
   'rebalance.summary.buyLabel': 'Худалдан авалтууд',
   'rebalance.summary.buySub': 'нэмэлт байр суурь',
   'rebalance.summary.driftLabel': 'Хамтлагаас гадуур',
@@ -101,6 +145,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'санал болгож буй арилжаануудаар',
   'rebalance.summary.sellLabel': 'Борлуулалт',
   'rebalance.summary.sellSub': 'тайрах байрлалууд',
+  'rebalanceDriftCard.drift': 'хазайлт {{sign}}{{pct}}% · хязгаар ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'бай {{pct}} %',
   'reports.attributionHeading': 'Гүйцэтгэлийн хамаарал (1 жил)',
   'reports.col.alpha': 'Альфа',
@@ -114,37 +159,68 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Жил',
   'reports.gainsHeading': 'Хийж бүтээсэн болон хийж чадаагүй ашиг',
   'reports.noAttribution': 'Одоогоор хамаарлын мэдээлэл алга байна.',
+  'reports.noGains': 'Хэрэгжсэн/хэрэгжээгүй ашгийн мэдээлэл хараахан алга.',
   'reports.noPerformance': 'Гүйцэтгэлийн мэдээлэл хараахан алга байна.',
   'reports.noTaxDocs': 'Татварын баримт бичиг хараахан байхгүй байна.',
   'reports.performanceHeading': 'Гүйцэтгэл ба жишиг үзүүлэлт',
   'reports.taxHeading': 'Татварын баримт бичиг',
   'resetPassword.heading': 'Хүчтэй шинэ нууц үг сонгоно уу',
+  'resetPassword.passwordPlaceholder': 'Шинэ нууц үг',
   'resetPassword.subheading':
     'Таны нууц үгийг тохируулсны дараа Argent таныг автоматаар нэвтрүүлэх болно.',
   'resetPassword.tokenPlaceholder': 'Имэйлээс токеныг дахин тохируулах',
+  'settings.appearance.description': 'Гэрэл болон харанхуй горимын хооронд шилжих/унтраах.',
   'settings.appearance.title': 'Гадаад төрх',
+  'settings.devices.body': 'Таны бүртгэлд одоогоор нэвтэрсэн төхөөрөмжүүд.',
+  'settings.devices.empty': 'Төхөөрөмж олдсонгүй.',
   'settings.devices.heading': 'Төхөөрөмжүүд',
+  'settings.devices.revokeWarning': 'Энэ төхөөрөмжийн хандалт удахгүй хаагдана. Гаргах уу?',
   'settings.devices.signOut': 'Гарах',
   'settings.devices.thisDevice': 'Энэ төхөөрөмж',
   'settings.devices.unknown': 'Үл мэдэгдэх төхөөрөмж',
   'settings.linked.body':
     'Брокерын синк хийхэд гуравдагч талын холбогч (Plaid, Yodlee гэх мэт) шаардлагатай. Автоматаар импортлохыг идэвхжүүлэхийн тулд үйлчилгээ үзүүлэгчээ орчиндоо тохируулна уу.',
   'settings.linked.heading': 'Холбоотой брокерийн дансууд',
+  'settings.linked.placeholder': 'Одоогоор холбогдсон бүртгэл алга.',
+  'settings.notifications.dividendsPaid': 'Төлсөн ногдол ашиг',
   'settings.notifications.error': 'Тохиргоог шинэчилж чадсангүй.',
   'settings.notifications.priceAlerts': 'Үнийн мэдэгдэл',
+  'settings.notifications.rebalanceDrift': 'Дахин тэнцвэржүүлэх хазайлт',
+  'settings.notifications.taxDocsReady': 'Татварын баримт бэлэн',
   'settings.profile.advisor': 'Зөвлөхийн имэйл (заавал биш)',
   'settings.profile.heading': 'Профайл',
   'settings.security.changePassword': 'Нууц үг солих',
+  'settings.security.changePasswordTitle': 'Нууц үг солих',
   'settings.security.changing': 'Өөрчлөгдөж байна…',
+  'settings.security.confirmPassword': 'Нууц үг',
+  'settings.security.currentPassword': 'Одоогийн нууц үг',
   'settings.security.deleteAccount': 'Бүртгэл устгах',
   'settings.security.deleteError': 'Бүртгэлийг устгаж чадсангүй.',
   'settings.security.deleteHeading': 'Бүртгэл устгах',
+  'settings.security.deleteModalWarning':
+    'Энэ нь таны бүртгэл болон өгөгдлийг бүрмөсөн устгана. Баталгаажуулахын тулд нууц үгээ оруулна уу.',
+  'settings.security.deleteWarning':
+    'Бүртгэл болон холбогдох бүх өгөгдлийг бүрмөсөн устгана. Үүнийг буцаах боломжгүй.',
   'settings.security.deleting': 'Устгаж байна…',
   'settings.security.heading': 'Аюулгүй байдал',
   'settings.security.newPassword': 'Шинэ нууц үг',
   'settings.security.password': 'Нууц үг',
+  'settings.security.passwordError': 'Нууц үгийг өөрчилж чадсангүй.',
+  'settings.security.passwordHint': 'Нэвтрэхэд ашигладаг нууц үгээ солино уу.',
+  'settings.security.twoFactor': 'Хоёр хүчин зүйлийн баталгаажуулалт',
+  'settings.security.twoFactorCode': 'Баталгаажуулах код',
+  'settings.security.twoFactorDisable': 'Идэвхгүй болгох',
+  'settings.security.twoFactorDisableTitle': 'Хоёр шатлалт баталгаажуулалтыг идэвхгүй болгох',
   'settings.security.twoFactorEnable': 'Идэвхжүүлэх',
+  'settings.security.twoFactorEnableTitle': 'Хоёр шатлалт баталгаажуулалтыг идэвхжүүлэх',
+  'settings.security.twoFactorHint': 'Бүртгэлдээ нэмэлт хамгаалалтын давхарга нэмнэ үү.',
   'settings.security.twoFactorInvalidCode': 'Буруу код',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'Хоёр хүчин зүйлийн QR код',
+  'settings.security.twoFactorScan':
+    'Энэ QR кодыг баталгаажуулагч аппаараа сканнердаж, дараа нь 6 оронтой кодыг оруулна уу.',
+  'settings.security.twoFactorUnavailable':
+    'Энэ аппликейшнд хоёр хүчин зүйлийн баталгаажуулалт боломжгүй байна.',
   'settings.security.twoFactorVerify': 'Баталгаажуулах ба идэвхжүүлэх',
   'settings.tax.error': 'Татварын аргыг шинэчилж чадсангүй.',
   'settings.tax.heading': 'Татварын талбайн нягтлан бодох бүртгэл',
@@ -155,6 +231,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Татварын аргыг хадгалсан.',
   'signup.eyebrow': 'Данс нээх',
   'signup.heading': 'Аргент дансаа нээнэ үү',
+  'signup.legalPrefix': 'Бүртгэл үүсгэснээр та {{appName}}-тэй зөвшөөрч байна',
   'signup.subheading': '30 хоногийн турш үнэгүй. Карт шаардлагагүй. Хүссэн үедээ цуцлах боломжтой.',
   'signup.terms':
     'Та бүртгэл үүсгэснээр Argent Үйлчилгээний Нөхцөл болон Нууцлалын Бодлогыг зөвшөөрч байна.',

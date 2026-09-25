@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Có phản hồi, phát hiện lỗi, hay muốn mang {{app}} đến trường hoặc nhóm của bạn? Chúng tôi đọc mọi tin nhắn — hãy liên hệ từ cài đặt tài khoản và một người thật sẽ trả lời.',
   'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Giới thiệu',
+  'about.intro':
+    '{{app}} là trò chơi ô chữ hằng ngày. Đoán từ năm chữ cái trong sáu lượt, giữ chuỗi thắng, chia sẻ lưới emoji và xem cả đấu trường thể hiện thế nào với từ hôm nay.',
+  'about.missionBody':
+    'Một câu đố hay là một chiến thắng nhỏ mỗi ngày. {{app}} xoay quanh một từ chung mỗi ngày — đủ nhanh cho giờ nghỉ uống cà phê, đủ hấp dẫn để quay lại vào ngày mai.',
+  'about.missionTitle': 'Sứ mệnh của chúng tôi',
   'about.title': 'Giới thiệu {{app}}',
   'archive.loadError': 'Không thể tải kho lưu trữ.',
   'archive.missed': 'Đã bỏ lỡ',
   'archive.notPlayed': 'Chưa chơi',
+  'archive.subhead':
+    'Chơi lại bất kỳ ngày nào trong quá khứ để luyện tập — không chuỗi thắng, không thống kê, trọn niềm vui.',
   'archive.title': 'Lưu trữ',
   'auth.backToHome': 'Về trang chủ',
   'auth.backToHomeArrow': '← Về trang chủ',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Quên mật khẩu?',
   'auth.login.loggingIn': 'Đang đăng nhập…',
   'auth.login.logIn': 'Chơi từ hôm nay',
+  'auth.login.noAccount': 'Mới đến Tessera?',
   'auth.login.or': 'hoặc tiếp tục với',
   'auth.login.password': 'Mật khẩu',
   'auth.login.signInButton': 'Đăng nhập',
@@ -32,6 +42,10 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Đang lưu…',
   'common.sendingEllipsis': 'Đang gửi…',
   'common.startingEllipsis': 'Đang bắt đầu…',
+  'forgotPassword.subhead': 'Nhập email của quý vị và chúng tôi sẽ gửi liên kết đặt lại.',
+  'forgotPassword.success.body':
+    'Nếu tồn tại tài khoản cho {{email}}, quý vị sẽ nhận được liên kết đặt lại trong vài phút.',
+  'forgotPassword.success.title': 'Vui lòng kiểm tra hộp thư đến của bạn.',
   'form.name': 'Tên',
   'howToPlay.cta.home': 'Về trang chủ',
   'howToPlay.cta.play': 'Chơi ô chữ hôm nay',
@@ -68,10 +82,14 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Chuỗi bạn không muốn phá vỡ',
   'leaderboard.daily.title': 'Lượt giải hôm nay',
   'leaderboard.loadError': 'Không thể tải bảng xếp hạng.',
+  'leaderboard.streaks.empty': 'Chưa có chuỗi thắng nào — hãy là người đầu tiên.',
+  'leaderboard.streaks.subhead': 'Chuỗi thắng dài nhất mọi thời đại.',
   'leaderboard.streaks.title': 'Bảng dẫn đầu chuỗi',
+  'leaderboard.subhead': 'Đấu trường thể hiện thế nào hôm nay và ai đang giữ chuỗi thắng dài nhất.',
   'leaderboard.title': 'Bảng xếp hạng',
   'login.headline': 'Chào mừng trở lại.',
   'login.streakPill': 'Chuỗi {{days}} ngày đang chờ',
+  'login.subhead': 'Đăng nhập để giữ chuỗi thắng và xem bạn thể hiện thế nào với từ hôm nay.',
   'nav.archive': 'Lưu trữ',
   'nav.editProfile': 'Chỉnh sửa hồ sơ',
   'nav.getStarted': 'Bắt đầu',
@@ -89,6 +107,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Không có từ này',
   'notFound.title': 'Trang này trống rỗng.',
   'planUpdated.message': 'Gói của bạn đã hoạt động.',
+  'planUpdated.retry': 'Thử lại',
+  'planUpdated.verifyFailed': 'Chúng tôi chưa thể xác nhận thanh toán của bạn.',
+  'planUpdated.verifyFailedBody':
+    'Giao dịch thanh toán của bạn có thể vẫn đang được xử lý. Vui lòng thử lại sau một lát.',
   'planUpdated.verifying': 'Đang xác nhận thanh toán…',
   'play.alreadyFinished': 'Bạn đã hoàn thành ô chữ này',
   'play.answerWas': 'Từ là',
@@ -104,6 +126,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Ô chữ luyện tập',
   'play.tooShort': 'Chưa đủ chữ cái',
   'play.won': 'Đã giải được!',
+  'pricing.advancedStats': 'Thống kê nâng cao: {{yes}}',
+  'pricing.archiveHistory': '{{count}} ngày lịch sử lưu trữ',
+  'pricing.archivePlays': '{{count}} lượt chơi lại lưu trữ / ngày',
+  'pricing.archiveUnlimited': 'Lịch sử lưu trữ không giới hạn',
+  'pricing.canExport': 'Xuất dữ liệu: {{yes}}',
+  'pricing.checkoutError': 'Không thể bắt đầu thanh toán. Vui lòng thử lại.',
   'pricing.dailyWord': 'Từ hàng ngày',
   'pricing.heading': 'Chọn gói {{app}} của bạn',
   'pricing.included': 'Bao gồm',
@@ -111,7 +139,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Từ hàng ngày luôn miễn phí. Nâng cấp để chơi lại kho lưu trữ không giới hạn và thống kê chi tiết hơn.',
   'pricing.yearly': 'Hàng năm',
+  'privacy.intro':
+    '{{app}} tôn trọng quyền riêng tư của bạn. Trang này tóm tắt dữ liệu chúng tôi lưu trữ, lý do lưu trữ và cách xóa dữ liệu.',
   'privacy.title': 'Thông báo riêng tư',
+  'resetPassword.subhead': 'Chọn mật khẩu mới để quay lại với chuỗi thắng của bạn.',
   'settings.account': 'Tài khoản',
   'settings.danger.body': 'Xóa vĩnh viễn tài khoản {{appName}} và toàn bộ lịch sử ô chữ của bạn.',
   'settings.danger.confirm': 'Có, xóa vĩnh viễn',
@@ -120,17 +151,24 @@ export const ui: UiTranslations = {
   'settings.guest': 'Khách',
   'settings.language.title': 'Ngôn ngữ',
   'settings.subhead': 'Điều chỉnh hồ sơ, âm thanh, và cách bạn hiển thị trên bảng xếp hạng.',
+  'settings.unnamed': 'Người chơi Sparq',
   'settings.upgrade': 'Nâng cấp',
   'signup.eyebrow': 'Miễn phí mãi mãi — một từ mỗi ngày',
   'signup.headline': 'Bắt đầu chuỗi của bạn.',
+  'signup.subhead':
+    'Tạo tài khoản {{appName}} để chơi từ hằng ngày, xây dựng chuỗi thắng và leo bảng xếp hạng.',
   'stats.currentStreak': 'Chuỗi',
   'stats.distribution.title': 'Phân bố lượt đoán',
   'stats.loadError': 'Không thể tải thống kê của bạn.',
   'stats.maxStreak': 'Chuỗi tối đa',
   'stats.played': 'Đã chơi',
   'stats.playToday': 'Chơi ô chữ hôm nay',
+  'stats.subhead':
+    'Chỉ tính các câu đố hằng ngày có xếp hạng — luyện tập lưu trữ không bao giờ được tính.',
   'stats.title': 'Thống kê của bạn',
   'stats.winRate': 'Tỷ lệ thắng',
   'status.monthly': 'Hàng tháng',
+  'terms.intro':
+    'Khi sử dụng {{app}}, bạn đồng ý với các quy tắc dưới đây. Nếu không thể chấp nhận, vui lòng không sử dụng dịch vụ.',
   'terms.title': 'Điều khoản dịch vụ',
 }

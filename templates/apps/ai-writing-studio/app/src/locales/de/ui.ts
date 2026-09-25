@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Hast du Feedback, einen Bug gefunden oder einen Wunsch für ein Feature? Melde dich in deinen Kontoeinstellungen — jede Nachricht erreicht eine echte Person im Team.',
   'about.contactTitle': 'Kontakt aufnehmen',
   'about.eyebrow': 'Über',
+  'about.intro':
+    '{{app}} ist ein KI-Schreibstudio für Autorinnen und Autoren, denen ihre Prosa am Herzen liegt. Es verbindet langformatige KI-Generierung mit einem ruhigen Editor, SEO-Bewertung und Bildgenerierung, damit du ein Stück von der leeren Seite bis zur Veröffentlichung bringst — ohne je deine Stimme zu verlieren.',
+  'about.missionBody':
+    'Wir glauben, dass KI neben dir schreiben sollte, niemals statt dir. {{app}} hält Vorschläge sichtbar getrennt von deinen eigenen Worten, lässt dich Eigentümer jedes Dokuments bleiben, das du erstellst, und hält die Werkzeuge aus dem Weg des Schreibens.',
+  'about.missionTitle': 'Unsere Mission',
   'about.pageTitle': 'Über „{{app}}“',
   'aiSuggestionCard.applied': 'Vorschlag übernommen',
   'aiSuggestionCard.apply': 'Übernehmen',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Traffic-Quellen',
   'billing.activePlan': 'Abonnement aktiv.',
   'billing.aiWordsLabel': 'Enthaltene KI-Generierungen',
+  'billing.cancelFailed': 'Abonnement konnte nicht gekündigt werden.',
   'billing.cancelPlan': 'Tarif kündigen',
+  'billing.cancelPlanConfirm': 'Abbrechen bestätigen?',
   'billing.cancelSuccess':
     'Abonnement gekündigt. Aktualisieren Sie, um den Tarif zu aktualisieren.',
   'billing.changePlan': 'Tarif wechseln',
@@ -44,26 +53,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'Tarife anzeigen',
   'common.goToDashboard': 'Zum Dashboard',
   'dashboard.continueWriting': 'Weiter schreiben',
+  'dashboard.createFirst': 'Dokument erstellen',
   'dashboard.days.sat': 'Sa',
   'dashboard.days.sun': 'So',
   'dashboard.defaultWriterName': 'Autor',
   'dashboard.greeting': 'Guten Morgen, {{name}}',
   'dashboard.loadError': 'Ihr Dashboard konnte nicht geladen werden.',
+  'dashboard.loading': 'Dein Studio wird geladen…',
   'dashboard.loadingDocs': 'Letzte Dokumente werden geladen…',
   'dashboard.noDocuments': 'Noch keine Dokumente — beginnen Sie mit dem ersten.',
   'dashboard.startWriting': 'Neues Dokument starten',
+  'dashboard.streakBody': 'Du hast diese Woche {{words}} Wörter geschrieben.',
   'dashboard.streakTitle': '{{count}} Tage in Folge',
+  'dashboard.subgreeting': '{{count}} Dokumente in deiner Bibliothek — bleib dran.',
+  'documentCard.seoScoreTitle': 'SEO-Wert: {{score}}/100',
+  'documents.createNew': 'Neues Dokument erstellen',
   'documents.empty': 'Ihre Bibliothek wartet — beginnen Sie Ihr erstes Dokument.',
+  'documents.emptyFiltered': 'Noch keine Dokumente passen zu deinen Filtern.',
   'documents.loadError': 'Dokumente konnten nicht geladen werden.',
   'documents.loading': 'Ihre Bibliothek wird geladen…',
   'documents.new': 'Neues Dokument',
+  'documents.searchAriaLabel': 'Dokumente suchen',
   'documents.searchPlaceholder': 'Dokumente durchsuchen…',
   'documents.subtitle': '{{count}} Dokumente in Ihrer Bibliothek.',
   'documents.title': 'Dokumente',
   'editor.aiPanelTitle': 'Plume Intelligence',
+  'editor.aiSuggestion.empty':
+    'Keine aktiven Überarbeitungen. Bitte {{appName}} um einen Vorschlag, wenn du ein zweites Paar Augen möchtest.',
   'editor.aiSuggestion.failed': 'Vorschläge konnten derzeit nicht geladen werden.',
   'editor.aiSuggestion.loadingBody': 'Klarheitsverbesserung wird generiert…',
   'editor.backToDocuments': 'Alle Dokumente',
+  'editor.bodyAriaLabel': 'Dokumenttext',
   'editor.closeAiPanel': 'KI-Bereich schließen',
   'editor.createFailed': 'Dokument konnte nicht erstellt werden.',
   'editor.exported': 'Als „{{format}}“ exportiert.',
@@ -79,18 +99,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'Verbesserung anfordern',
   'editor.saveBeforePublish': 'Bitte speichern Sie das Dokument vor der Veröffentlichung.',
   'editor.status.chars': '{{count}} Zeichen',
+  'editor.status.readTime': '{{minutes}} Min. Lesezeit',
   'editor.status.savedAt': 'Gespeichert {{time}}',
   'editor.status.saveError': 'Speichern fehlgeschlagen',
+  'editor.status.unsaved': 'Noch nicht gespeichert',
   'editor.titleAriaLabel': 'Dokumenttitel',
   'editor.titlePlaceholder': 'Unbenanntes Dokument',
   'editor.toggleAiPanel': 'KI-Bereich umschalten',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'autor@beispiel.com',
+  'forgotPassword.sent': 'Wenn {{email}} hinterlegt ist, ist ein Link zum Zurücksetzen unterwegs.',
   'imageGenerator.failed': 'Bildgenerierung fehlgeschlagen.',
   'imageGenerator.generate': 'Bild generieren',
   'imageGenerator.generating': 'Wird generiert...',
   'imageGenerator.placeholder': 'Beschreiben Sie das Bild, das Sie generieren möchten...',
+  'imageGenerator.promptAriaLabel': 'Bild-Prompt',
+  'imageGenerator.subtitle': 'Beschreibe ein Titelbild und lass es von der KI illustrieren.',
   'imageGenerator.title': 'KI-Bildgenerator',
+  'landing.aiSuggestionBody':
+    'auf dem Balkon des 42. Stocks stehend, spürte Elias, wie die Stadt gegen ihn drückte — der Wind riss das Hintergrundrauschen fort und ließ ihn in einer eisigen, stillen Leere über dem glühenden Raster schweben.',
   'landing.eyebrow': 'KI-Schreibstudio für ernsthafte Autoren',
   'landing.featuresHeading': 'Werkzeuge, die sich zurückhalten',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -100,14 +127,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Ein Studio für Autoren, denen ihre Prosa, ihr Rhythmus und ihre Präzision am Herzen liegen. Plume schreibt neben Ihnen — nie an Ihrer Stelle.',
   'landing.heroTitle.eloquence': 'Eloquenz',
+  'landing.heroTitle.intelligence': 'Intelligenz trifft ',
   'landing.nav.testimonials': 'Stimmen',
   'landing.plan.cta': 'Mit diesem Tarif beginnen',
   'landing.plan.popular': 'Am beliebtesten',
   'landing.pricingEyebrow': 'Preise',
   'landing.pricingHeading': 'Wählen Sie, was zu Ihrer Arbeit passt',
   'landing.sampleDocTitle': 'Die Architektur der Stille',
+  'landing.sampleParagraph1':
+    'Die Stadt war nie wirklich still. Selbst in den tiefsten Nachtstunden vibrierte ein leises Brummen durch die Betonfundamente — ein mechanischer Herzschlag aus U-Bahnen und Lüftungsschächten.',
+  'landing.sampleParagraph2.after': ' gegen das Glas.',
+  'landing.sampleParagraph2.before': 'Doch ',
   'landing.sampleParagraph2.highlight':
     'auf dem Balkon im 42. Stock stehend, spürte Elias eine tiefe Einsamkeit',
+  'landing.showcaseBody':
+    'Markiere einen Satz und {{appName}} bietet eine Überarbeitung an. Übernimm sie, passe sie an oder winke ab. Vorschläge sind immer violett eingefärbt, damit du weißt, was du geschrieben hast und was vorgeschlagen wurde.',
+  'landing.showcaseHeading': 'Ein zweites Paar Augen — niemals ein zweiter Autor.',
   'landing.startWriting': 'Schreiben beginnen',
   'login.emailPlaceholder': 'autor@beispiel.com',
   'login.failed': 'Anmeldung fehlgeschlagen',
@@ -122,8 +157,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Dashboard öffnen',
   'notFound.title': 'Dieses Kapitel wurde noch nicht geschrieben.',
   'plumeSidebarLayout.primaryNavLabel': 'Hauptnavigation',
+  'pricing.maxDocuments': '{{count}} Dokumente',
+  'pricing.maxGenerate': '{{count}} KI-Generierungen',
+  'pricing.maxImages': '{{count}} Bildgenerierungen',
   'privacy.data':
     'Ihre Konto-E-Mail-Adresse und ein gehashtes Passwort. Dokumente und Vorlagen, die Sie erstellen. KI-Vorschlagsprotokolle (Eingabe + Ausgabe) für Abrechnung und Analyse. Stripe-Kunden- + Abonnementkennungen; vollständige Kartennummern werden nie gespeichert.',
+  'privacy.intro':
+    'Wir erheben nur die Daten, die für den Betrieb von {{app}} nötig sind: deine E-Mail-Adresse, die von dir erstellten Dokumente und die von dir gestellten KI-Anfragen. Wir verkaufen niemals deine Texte oder deine Prompts.',
   'profile.loadError': 'Ihr Profil konnte nicht geladen werden.',
   'profile.loading': 'Ihr Profil wird geladen…',
   'profile.loadingPublished': 'Veröffentlichte Dokumente werden geladen…',
@@ -134,8 +174,14 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Neues Passwort',
   'seoAnalysis.backToEditor': 'Zurück zum Editor',
   'seoAnalysis.eyebrow': 'SEO-Analyse',
+  'seoAnalysis.heroBody':
+    '{{count}} Vorschlag/Vorschläge zum Anwenden. Jeder ist eine strukturelle oder keywordbezogene Verbesserung, keine Wand aus roten Flaggen.',
+  'seoAnalysis.heroBodyEmpty':
+    'Klicke auf „Analyse starten“, um Lesbarkeit, Keyword-Dichte und Struktur zu bewerten.',
   'seoAnalysis.heroEmpty':
     'Noch keine Analyse. Führen Sie eine durch, um diesen Entwurf zu bewerten.',
+  'seoAnalysis.heroNeedsWork': 'Einige strukturelle Verbesserungen steigern die Reichweite.',
+  'seoAnalysis.heroStrong': 'Starker Text — nur kleine Verbesserungen bis zur Exzellenz.',
   'seoAnalysis.historyEmpty': 'Keine vorherigen Analysen vorhanden.',
   'seoAnalysis.historyTitle': 'Analyseverlauf',
   'seoAnalysis.keywordEmpty':
@@ -162,8 +208,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'Passen Sie Plume an Ihren Schreibstil an.',
   'settings.toggleIntegrationFailed': 'Integration konnte nicht aktualisiert werden.',
   'settings.writing.aiSuggestions': 'Inline-KI-Vorschläge während des Schreibens',
+  'settings.writing.aiSuggestionsBody':
+    'Zeigt Überarbeitungen während des Schreibens. Vorschläge sind immer pro Satz optional.',
   'settings.writing.autoSave': 'Automatisches Speichern alle 30 Sekunden',
+  'settings.writing.autoSaveBody':
+    '{{appName}} speichert einen Schnappschuss deines Entwurfs, damit du dich von jedem Tab erholen kannst.',
   'settings.writing.notifyEmail': 'Wöchentliche Schreib-Zusammenfassungen per E-Mail',
+  'settings.writing.notifyEmailBody':
+    'Eine kurze Sonntags-Zusammenfassung von Serien, Entwürfen und SEO-Verbesserungen.',
   'settings.writing.title': 'Schreibeinstellungen',
   'settings.writing.tone': 'Standard-Tonvoreinstellung',
   'signup.emailPlaceholder': 'autor@beispiel.com',
@@ -175,8 +227,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'Keine Beschreibung verfügbar.',
   'templates.subtitle':
     'Starten Sie mit einem bewährten redaktionellen Rahmen und gestalten Sie ihn selbst.',
+  'terms.intro':
+    'Diese Bedingungen regeln deine Nutzung von {{app}}. Mit der Erstellung eines Kontos erklärst du dich damit einverstanden, den Dienst für rechtmäßiges Schreiben zu nutzen und deine Zugangsdaten vertraulich zu behandeln.',
   'terms.license':
     'Sie behalten das Eigentum an jedem Dokument, jeder Vorlage und jeder KI-Generierung, die Sie erstellen. Wir benötigen eine nicht-exklusive Lizenz, um Ihre Arbeit zu hosten und Ihnen wieder bereitzustellen sowie KI-Anfragen über die von Ihnen gewählten Anbieter zu verarbeiten.',
   'writingStreakHeroCard.change': '{{sign}}{{amount}} Wörter',
   'writingStreakHeroCard.greeting': 'Schönen Tag, {{name}}',
+  'writingStreakHeroCard.subtitle': 'Diese Woche geschriebene Wörter — {{count}}-Tage-Serie',
+  'writingStreakHeroCard.tagline': 'Eine Seite am Tag hält die Muse wach.',
 }

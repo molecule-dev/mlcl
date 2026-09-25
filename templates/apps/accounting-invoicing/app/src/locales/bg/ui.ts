@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Имате въпрос, открихте бъг или искате да прехвърлите книгите си? Свържете се с екипа на {{app}} на hello@{{app}}.example — истински човек чете всяко съобщение.',
   'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'Относно',
+  'about.intro':
+    '{{app}} е счетоводство за малки бизнеси, което следи всяка стотинка — фактури, разходи, плащания и отчети на едно спокойно място за собственици, счетоводители и одитори.',
+  'about.missionBody':
+    'Да управляваш бизнес не бива да означава да се страхуваш от счетоводството си. {{app}} заменя разпилените електронни таблици с ясни числа, по които можете да действате, така че да отделяте по-малко време за сверяване и повече време за работата, заради която всъщност започнахте бизнеса.',
+  'about.missionTitle': 'Нашата мисия',
   'about.title': 'За {{app}}',
   'accounts.count': '{{count}} сметки',
+  'accounts.emptyBody':
+    'Сметките в главната книга проследяват къде живеят и се движат парите. Те се появяват тук, след като вашият счетоводител или интеграция ги настрои.',
   'accounts.emptyTitle': 'Все още няма акаунти',
   'accounts.heading': 'Схема на счетоводните сметки',
   'accounts.kpi.accounts': 'Акаунти',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Всяка сметка в главната книга, свързана с вашите фактури, разходи и плащания, групирана по вид.',
   'accounts.tag.inactive': 'неактивен',
   'authBrandPanel.attributionName': 'Сара Дженкинс',
+  'authBrandPanel.attributionRole': 'Финансов директор, Horizon Tech',
   'authBrandPanel.eyebrow': 'Доверен от финансовите екипи',
   'authBrandPanel.label': 'Витрина на марката',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Всички клиенти',
   'customerDetail.invoiceMeta': 'Дата на издаване{{issued}} · Краен срок{{due}}',
   'customerDetail.loadError': 'Зареждането на клиента не бе успешно.',
+  'customerDetail.missingBody':
+    'Записаният клиентски профил не можа да бъде зареден. Възможно е да е премахнат или да нямате достъп до него.',
   'customerDetail.missingHeading': 'Записът на клиента е недостъпен',
+  'customerDetail.missingHelp':
+    'Използвайте връзката за връщане назад по-горе, за да се върнете към списъка с клиенти, или изберете друг запис оттам.',
+  'customerDetail.noInvoices': 'Все още няма фактури.',
   'customerDetail.notesEmpty': 'Все още няма бележки.',
   'customerDetail.paymentsEmpty': 'Няма регистрирани плащания.',
   'customerDetail.paymentTerms': 'Условия за плащане',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Самоучастие',
   'expenseDetail.detailsHeading': 'Детайли за транзакцията',
   'expenseDetail.loadError': 'Зареждането на разходите не бе успешно.',
+  'expenseDetail.matched': 'Съвпадение · {{description}}',
   'expenseDetail.missingBody':
     'Заявеният разход не можа да бъде зареден. Възможно е да е бил премахнат или да нямате достъп до него.',
   'expenseDetail.missingHeading': 'Разходният запис не е наличен',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Разписка',
   'expenseDetail.receiptHeading': 'Разписка',
   'expenseDetail.reconciled': 'Съгласувано',
+  'expenseDetail.unreconciled': 'Несъгласувани',
   'expenses.empty': 'Все още няма разходи.',
   'expenses.heading': 'Разходи',
   'expenses.kpi.deductible': 'Самоучастие',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Зареждането на фактурите не бе успешно.',
   'invoices.searchPlaceholder': 'Търсене на фактура № или клиент…',
   'invoices.summary.paid': 'Платено през този период',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'Безплатно за 30 дни. Без карта. Доведете вашия счетоводител — той ще ви бъде благодарен.',
   'landing.ctaTitle': 'Преместете книгите си на по-спокойно място.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Вземания',
   'ledgerStatTriad.eyebrow.mtd': 'Месец до момента',
   'ledgerStatTriad.netSub': 'Нетно {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} просрочени',
   'ledgerStatTriad.revenueLabel': 'Приходи',
   'login.failed': 'Влизането не бе успешно.',
   'login.hidePassword': 'Скрий паролата',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Вход',
   'nav.legal': 'Правни',
   'newExpense.back': 'Разходи',
+  'newExpense.clearReceiptCta': 'Изчистване на прикачената квитанция',
   'newExpense.deductible': 'Данъчно приспадаемо',
   'newExpense.dropPrompt': 'Прикачете снимка или PDF файл с касова бележка тук.',
   'newExpense.failed': 'Не можах да спестя разходи.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Зареждането на плащанията не бе успешно.',
   'payments.unmatchedTag': 'ненадминат',
   'planUpdated.pageLabel': 'Потвърждение за актуализиране на плана',
+  'pricing.advancedFeatures': 'Разширени функции: {{yes}}',
+  'pricing.canExport': 'Експорт на данни: {{yes}}',
+  'pricing.heading': 'Изберете {{app}} план',
+  'pricing.maxAccounts': '{{count}} сметки',
+  'pricing.maxExpenses': '{{count}} разходи',
+  'pricing.maxInvoices': '{{count}} фактури',
+  'privacy.intro':
+    'Тази Политика за поверителност описва как {{app}} събира, използва и разкрива информация за бизнеси, които използват услугата.',
   'privacy.lastUpdated': 'Последна актуализация: {{дата}}',
   'privacy.section.collected.body':
     'Събираме данни за акаунта (име, имейл, фирма), финансовите записи, които качвате (фактури, разходи, клиенти, плащания) и стандартни регистрационни файлове за операции с услуги (IP адрес, потребителски агент, времеви отпечатъци).',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Информацията се използва за управление на услугата, генериране на отчети и PDF файлове, които заявявате, изпращане на транзакционни имейли чрез Mailgun и обработка на плащания чрез Stripe. Ние не продаваме и не отдаваме под наем лична информация.',
   'recentInvoicesCard.dueMeta': 'Дължим {{date}}',
+  'recentInvoicesCard.empty': 'Няма съвпадащи фактури.',
   'recentInvoicesCard.eyebrow': 'Вземания',
   'recentInvoicesCard.searchAriaLabel': 'Търсене на фактури',
+  'recentInvoicesCard.searchPlaceholder': 'Търсене на фактури…',
   'recentInvoicesCard.title': 'Последни фактури',
   'recentInvoicesCard.viewAll': 'Вижте всички фактури →',
   'reports.assets': 'Активи',
@@ -181,16 +211,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Печалба и загуба (12 месеца)',
   'resetPassword.backToLogin': '← Обратно към Вход',
   'resetPassword.hidePassword': 'Скрий паролата',
+  'resetPassword.passwordLabel': 'Нова парола',
   'resetPassword.showPassword': 'Покажи паролата',
+  'resetPassword.subheading': 'Изберете силна парола — минимум осем знака.',
   'resetPassword.submit': 'Възстановяване на парола',
   'resetPassword.tooShort': 'Паролата трябва да съдържа най-малко 8 символа.',
   'settings.account.changePassword': 'Промяна на паролата',
   'settings.account.changingPassword': 'Промяна…',
   'settings.account.currentPassword': 'Текуща парола',
+  'settings.account.dangerZone': 'Опасна зона',
   'settings.account.deleteAccount': 'Изтриване на акаунт',
   'settings.account.deleteDescription':
     'Изтрийте завинаги профила си и всички свързани с него данни.',
   'settings.account.deleteError': 'Изтриването на акаунта не бе успешно.',
+  'settings.account.deleteWarning':
+    'Това изтрива завинаги профила ви и не може да бъде отменено. Въведете паролата си за потвърждение.',
   'settings.account.deleting': 'Изтриване…',
   'settings.account.devices': 'Устройства',
   'settings.account.email': 'Имейл',
@@ -201,6 +236,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Парола',
   'settings.account.passwordError': 'Промяната на паролата не бе успешна.',
   'settings.account.pushNotifications': 'Известия при натискане на това устройство',
+  'settings.account.revokeDeviceWarning':
+    'Достъпът на това устройство скоро ще бъде отменен. Да се излезе ли?',
   'settings.account.saveError': 'Актуализирането на профила не бе успешно.',
   'settings.account.security': 'Сигурност',
   'settings.account.signOutDevice': 'Изход',
@@ -208,12 +245,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Двуфакторно удостоверяване',
   'settings.account.twoFactorCode': 'Код за удостоверяване',
   'settings.account.twoFactorDisable': 'Деактивирай',
+  'settings.account.twoFactorDisableTitle': 'Изключване на двуфакторното удостоверяване',
   'settings.account.twoFactorEnable': 'Активирай',
+  'settings.account.twoFactorEnableTitle': 'Включване на двуфакторното удостоверяване',
   'settings.account.twoFactorInvalidCode': 'Невалиден код',
   'settings.account.twoFactorOn': 'На',
+  'settings.account.twoFactorQrAlt': 'QR код за двуфакторна автентикация',
+  'settings.account.twoFactorScan':
+    'Сканирайте този QR код с приложението си за удостоверяване, след което въведете 6-цифрения код.',
+  'settings.account.twoFactorUnavailable':
+    'Двуфакторното удостоверяване не е налично за това приложение.',
   'settings.account.twoFactorVerify': 'Провери и активирай',
   'settings.account.unknownDevice': 'Неизвестно устройство',
   'settings.company.email': 'Имейл за фактуриране',
+  'settings.company.heading': 'Фирма и данъци',
   'settings.company.name': 'Официално име',
   'settings.company.saveButton': 'Запази профила на фирмата',
   'settings.company.taxId': 'Данъчен номер / EIN',
@@ -257,6 +302,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Очаквано на тримесечие',
   'taxes.kpi.owed': 'Дължим',
   'taxes.loadError': 'Зареждането на данъчната справка не бе успешно.',
+  'taxes.remittedPct': '({{pct}}% внесени)',
+  'terms.intro':
+    'Тези Условия за ползване („Условията“) уреждат достъпа ви до и използването на {{app}}. Със създаването на профил или използването на услугата вие се съгласявате да бъдете обвързани от тях.',
   'terms.lastUpdated': 'Последна актуализация: {{дата}}',
   'terms.section.acceptable.body':
     'Вие се съгласявате да не използвате услугата, за да нарушавате закони, да нарушавате права върху интелектуална собственост, да предавате злонамерен софтуер или да се опитвате да получите неоторизиран достъп до други акаунти или нашата инфраструктура.',

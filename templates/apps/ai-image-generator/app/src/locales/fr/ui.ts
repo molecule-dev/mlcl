@@ -1,14 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Un retour, un problème ou une idée de ce qu'on devrait créer ensuite ? Écrivez à l'équipe à hello@reverie.app — chaque message arrive à une vraie personne qui fait le produit.",
   'about.contactTitle': 'Contactez-nous',
+  'about.missionTitle': 'Notre mission',
   'auth.fields.newPassword': 'Nouveau mot de passe',
   'collectionDetail.addImage': 'Créer pour la collection',
   'collectionDetail.backCta': 'Retour aux collections',
   'collectionDetail.coverNote': 'Planche d’inspiration soignée avec {{count}} images.',
   'collectionDetail.editName': 'Nom de la collection',
+  'collectionDetail.empty':
+    "Aucune image dans cette collection pour l'instant — générez quelque chose pour en ajouter.",
   'collectionDetail.loading': 'Chargement de la collection…',
   'collectionDetail.loadingImages': 'Chargement des images…',
+  'collectionDetail.notFoundBody': 'Cette collection a été supprimée ou est privée.',
   'collectionDetail.notFoundTitle': 'Collection indisponible',
   'collectionDetail.shared': 'Visibilité modifiée',
   'collections.create': 'Nouvelle collection',
@@ -16,6 +22,7 @@ export const ui: UiTranslations = {
     'Aucune collection pour le moment. Créez-en une pour commencer à organiser votre travail.',
   'collections.imageCount': '{{count}} images',
   'collections.loading': 'Chargement des collections…',
+  'collections.noDescription': 'Pas encore de description — ouvrez pour en ajouter une.',
   'collections.subtitle': 'Planches d’inspiration, briefs et séries en cours',
   'collections.title': 'Collections',
   'collections.untitled': 'Sans titre · {{stamp}}',
@@ -55,6 +62,7 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'Saisissez l’e-mail associé à votre compte Reverie et nous vous enverrons un lien de réinitialisation.',
   'forgot.successBody': 'Un lien de réinitialisation est en route vers {{email}}.',
+  'gallery.empty.body': 'Essayez un autre état ou générez un nouveau lot depuis le studio.',
   'gallery.empty.title': 'Rien ne correspond à ce filtre',
   'gallery.exportAll': 'Tout exporter',
   'gallery.exported': 'Exportation en file',
@@ -77,12 +85,15 @@ export const ui: UiTranslations = {
   'generate.controls.title': 'Affiner le rêve',
   'generate.defaultPrompt': 'Un nouveau rêve',
   'generate.progress': 'Étape {{step}} / {{total}}',
+  'generate.submitFailed':
+    "La génération n'a pas pu être mise en file d'attente — vérifiez votre connexion et réessayez.",
   'generate.subtitle': 'Composez un prompt, ajustez les contrôles, créez des variantes',
   'generate.title': 'Studio',
   'generation.created': '{{when}}',
   'imageDetail.acting': 'Traitement…',
   'imageDetail.actionFailed': 'L’action a échoué.',
   'imageDetail.actions': 'Actions sur l’image',
+  'imageDetail.downloadStarted': 'Téléchargement lancé.',
   'imageDetail.downloadUnavailable': 'Aucune image disponible au téléchargement pour l’instant.',
   'imageDetail.fields.aspect': 'Format',
   'imageDetail.fields.created': 'Créé',
@@ -93,11 +104,17 @@ export const ui: UiTranslations = {
   'imageDetail.notFoundTitle': 'Image indisponible',
   'imageDetail.noVariations': 'Aucune variation pour l’instant — demandez-en une ci-dessus.',
   'imageDetail.openEditor': 'Ouvrir dans l’éditeur',
+  'imageDetail.tips.lockSeed':
+    "Verrouillez la graine pour itérer sur l'éclairage sans perdre la composition.",
+  'imageDetail.tips.upscale':
+    "Lancez l'upscale 4× avant l'export pour une qualité prête à imprimer.",
   'imageDetail.tipsTitle': 'Affiner le rêve',
+  'imageDetail.title': 'Image',
   'imageDetail.upscaleQueued': 'Mise à l’échelle en file',
   'imageDetail.variations': 'Variations',
   'imageDetail.variationsQueued': 'Variations en file',
   'imageDetail.visibilityToggled': 'Visibilité mise à jour',
+  'landing.copyright': '© {{year}} {{appName}} Labs. Développé avec Molecule.dev.',
   'landing.cta': 'Commencer à créer',
   'landing.eyebrow': 'Disponible : Reverie XL v3',
   'landing.featuresEyebrow': 'Pourquoi Reverie',
@@ -138,8 +155,18 @@ export const ui: UiTranslations = {
     'L’activité de génération, les partages et les alertes de crédits apparaîtront ici.',
   'notifications.empty.title': 'Rien à signaler',
   'notifications.subtitle': 'Événements de génération regroupés par jour',
+  'planUpdated.confirmed': 'Votre forfait {{planKey}} est actif et les crédits ont été ajoutés.',
+  'planUpdated.error':
+    "Nous n'avons pas pu confirmer votre mise à niveau automatiquement. Veuillez contacter le support.",
+  'planUpdated.retry': 'Réessayer',
+  'planUpdated.unpaid':
+    "Votre session de paiement n'a pas été réglée. Réessayez depuis les Paramètres.",
+  'planUpdated.verifyFailed': "Nous n'avons pas encore pu confirmer votre paiement.",
+  'planUpdated.verifyFailedBody':
+    'Votre paiement est peut-être encore en cours de traitement. Veuillez réessayer dans quelques instants.',
   'planUpdated.verifying': 'Confirmation de votre paiement…',
   'pricing.limits.gallery': 'Galerie de {{count}}',
+  'pricing.limits.generations': '{{count}} générations',
   'privacy.collect.body':
     'Lorsque vous vous inscrivez, nous collectons votre nom, votre adresse e-mail et un mot de passe haché. Pendant que vous utilisez Reverie, nous stockons les prompts que vous soumettez, les images que nous générons pour vous, les styles et collections que vous enregistrez, ainsi que des métadonnées telles que le modèle utilisé, les horodatages de génération et le solde de crédits.',
   'privacy.cookies.body':
@@ -153,6 +180,8 @@ export const ui: UiTranslations = {
   'profile.followedBio': 'Vous suivez un créateur depuis l’instant',
   'profile.following': 'Suivi en cours…',
   'profile.loadingWorks': 'Chargement des œuvres publiques…',
+  'profile.noPublicWorks':
+    "Aucune œuvre publique pour l'instant — partagez une image pour remplir cette galerie.",
   'profile.notFoundTitle': 'Profil indisponible',
   'profile.publicWorks': 'Œuvres publiques',
   'profile.subtitle': '@{{handle}} · profil public de créateur',
@@ -165,6 +194,7 @@ export const ui: UiTranslations = {
   'prompts.empty.cta': 'Ouvrir le studio',
   'prompts.empty.title': 'Aucun prompt enregistré ne correspond',
   'prompts.lastUsed': 'Utilisé {{when}}',
+  'prompts.loading': 'Chargement des invitations…',
   'prompts.negativeLabel': 'NEG',
   'prompts.runAgain': 'Exécuter',
   'prompts.running': 'Exécution…',
@@ -180,6 +210,7 @@ export const ui: UiTranslations = {
   'settings.account.saveFailed': 'Impossible d’enregistrer le profil',
   'settings.account.title': 'Profil de créateur',
   'settings.accountSecurity': 'Compte & sécurité',
+  'settings.accountSecurity.title': 'Connexion, appareils et compte',
   'settings.api.empty': 'Aucune clé API pour le moment — créez-en une pour commencer à intégrer.',
   'settings.api.loading': 'Chargement des clés API…',
   'settings.api.revoked': 'Clé API révoquée',
@@ -198,13 +229,17 @@ export const ui: UiTranslations = {
   'sidebar.secondary': 'Navigation secondaire',
   'signup.failed': 'Échec de l’inscription. Réessayez.',
   'signup.firstNamePlaceholder': 'Aria',
+  'signup.haveAccount': 'Déjà un rêveur ?',
   'signup.heading': 'Commencez votre rêverie',
   'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Créez un compte et obtenez 120 crédits gratuits.',
+  'styles.body':
+    'Chaque preset regroupe son propre modèle, échantillonneur, structure de prompt et puces de style. Activez-en un pour plonger tout le studio dans cette ambiance — parfait pour le travail en série.',
   'styles.empty':
     'Aucun preset de style pour l’instant — ils apparaîtront après la première connexion.',
   'styles.eyebrow': 'Sélection',
   'styles.headline': 'Créez plus vite grâce aux presets visuels réutilisables',
+  'styles.loading': 'Chargement de la bibliothèque de styles…',
   'styles.subtitle': 'Presets visuels sélectionnés par l’équipe du studio Reverie',
   'styles.title': 'Bibliothèque de styles',
   'terms.acceptableUse.body':

@@ -1,32 +1,48 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Haluatko käynnistää lämpimämmän perehdytyksen tiimillesi, löysitkö virheen tai onko sinulla palautetta? Ota yhteyttä tilisi asetuksista — jokainen viesti menee oikealle ihmiselle, joka voi auttaa.',
   'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
+  'about.missionTitle': 'Missiomme',
   'auth.forgotPassword.emailPlaceholder': 'nimi@yrityksesi.com',
   'auth.forgotPassword.heading': 'Nollaa salasanasi.',
+  'auth.forgotPassword.panel.body':
+    'Nollaus kestää 30 sekuntia — tarkistuslistasi edistyminen odottaa.',
+  'auth.forgotPassword.panel.headline': 'Takaisin siihen, mihin jäit.',
+  'auth.forgotPassword.subheading': 'Syötä työsähköpostisi, niin lähetämme sinulle nollauslinkin.',
   'auth.forgotPassword.successSubheading':
     'Tarkista sähköpostisi – olemme lähettäneet sinulle palautusohjeet.',
   'auth.login.emailPlaceholder': 'nimi@yrityksesi.com',
   'auth.login.heading': 'Tervetuloa takaisin.',
   'auth.login.passwordPlaceholder': 'Salasanasi',
+  'auth.login.signupPrompt': 'Uusi tiimissäsi?',
   'auth.login.subheading': 'Kirjaudu sisään jatkaaksesi perehdytysprosessiasi siitä, mihin jäit.',
   'auth.login.submit': 'Jatka matkaasi',
+  'auth.panel.body':
+    'Henkilökohtainen tarkistuslistasi, koulutustavoitteet ja tiimiesittelyt — kaikki yhdessä rauhallisessa paikassa.',
   'auth.panel.footnote': '© Embark — ihmiset etusijalla perehdytyksessä tästä päivästä lähtien.',
   'auth.panel.headline': 'Luottavaiset ensimmäiset 90 päivää alkavat tästä.',
   'auth.resetPassword.heading': 'Aseta uusi salasana.',
   'auth.resetPassword.newPasswordLabel': 'Uusi salasana',
+  'auth.resetPassword.panel.body':
+    'Tallenna uusi salasana, niin palautamme sinut suoraan takaisin perehdytyspolullesi.',
+  'auth.resetPassword.panel.headline': 'Melkein takaisin sisällä.',
   'auth.resetPassword.subheading': 'Valitse jotain, jonka muistat – vähintään 8 merkkiä.',
   'auth.signup.emailPlaceholder': 'nimi@yrityksesi.com',
   'auth.signup.heading': 'Tervetuloa ensimmäisten 90 päivän pariin.',
   'auth.signup.panel.body':
     'Ohjattu tarkistuslista, roolitietoinen koulutus ja ihmisten esittelyt – valmiina ennen sisäänastumista.',
+  'auth.signup.panel.headline': 'Ensimmäinen päivä heti alkuun.',
   'auth.signup.subheading': 'Luo Embark-tili aloittaaksesi ohjatun perehdytysmatkasi.',
   'checklist.empty.body': 'Vaihda suodatinta nähdäksesi muita tehtäviä.',
   'checklist.empty.title': 'Ei mitään täällä juuri nyt',
   'checklist.eyebrow': 'Perehdytys · Tarkistuslista',
   'checklist.loading': 'Ladataan tarkistuslistaasi…',
   'checklist.stat.actionNeeded': 'Toimenpiteitä tarvitaan',
+  'checklist.stat.completion': 'Valmistuminen',
+  'checklist.stat.inProgress': 'Käynnissä',
   'checklist.stat.inProgressHelper': 'Jatka siitä, mihin jäit',
   'checklist.stat.overdueHelper': 'Ota nämä ensin haltuun',
   'checklist.subtitle':
@@ -58,6 +74,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Ei vielä asiakirjoja',
   'documents.eyebrow': 'Perehdytys · Asiakirjat',
   'documents.loading': 'Ladataan asiakirjoja…',
+  'documents.stat.actionNeeded': 'Kirjaudu nyt',
+  'documents.stat.all': 'Kaikki dokumentit',
   'documents.stat.allHelper': 'Luokkien välillä',
   'documents.stat.pending': 'Odottavat allekirjoitukset',
   'documents.stat.pendingHelper': 'Vaaditaan suorittamiseen',
@@ -65,6 +83,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Säilytetty turvallisesti',
   'documents.status.optional': 'Valinnainen',
   'documents.status.required': 'Pakollinen',
+  'documents.status.signed': 'Allekirjoitettu',
   'documents.subtitle':
     'Käsikirjasi, lomakkeet ja allekirjoitetut sopimukset – kaikki yhdessä paikassa.',
   'documents.title': 'Kaikki mitä sinun tarvitsee lukea ja allekirjoittaa.',
@@ -72,10 +91,14 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'Katselija',
   'documentViewer.breadcrumbDocs': 'Asiakirjat',
   'documentViewer.downloadMeta': 'Lataa metatiedot',
+  'documentViewer.helpBody':
+    'People & Culture vastaa käsikirjaa koskeviin kysymyksiin Slackissa kanavalla #ask-people.',
   'documentViewer.helpEyebrow': 'Tarvitsetko apua?',
   'documentViewer.loadError': 'Emme voineet ladata tätä asiakirjaa.',
   'documentViewer.loading': 'Ladataan dokumenttia…',
   'documentViewer.notFound': 'Dokumenttia ei löytynyt',
+  'documentViewer.previewBody':
+    'Kun lataukset on määritetty, näytämme tiedoston suoraan. Toistaiseksi metatietojen lataus auttaa varmistamaan, että tietue on olemassa.',
   'documentViewer.previewBodyExternal':
     'Avaa tiedosto uudessa välilehdessä latauspainikkeen avulla.',
   'documentViewer.previewTitle': 'Asiakirjan esikatselu',
@@ -83,6 +106,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Lue asiakirja ja napsauta sitten alla olevaa painiketta allekirjoittaaksesi ja hyväksyäksesi sen.',
   'documentViewer.signatureHeading': 'Allekirjoitus vaaditaan',
+  'documentViewer.signed': '✓ Allekirjoitettu ja arkistoitu',
   'documentViewer.signing': 'Allekirjoitetaan…',
   'documentViewer.uploadedRecently': 'Äskettäin ladattu',
   'landing.closing.body':
@@ -92,10 +116,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Minulla on jo tili',
   'landing.feature1.body':
     'Jokainen tehtävä – paperityöt, tilit, esittelyt – on esivalmisteltu määräpäivineen ja oikean omistajan kanssa.',
+  'landing.feature1.title': 'Opastettu tarkistuslista',
   'landing.feature2.body':
     'Moduulit avautuvat 30/60/90 virstanpylvään kohdalla ja ne on mukautettu rooliin ja tiimiin, johon työntekijä liittyy.',
+  'landing.feature2.title': 'Roolikohtainen koulutus',
   'landing.feature3.body':
     'Kavereille, esimiehille ja eri toimintojen välisille perehdytyksille on aikataulutettu paikka – kukaan ei aloita yksin.',
+  'landing.feature3.title': 'Aitoja esittelyjä',
   'landing.featureEyebrow': 'Miksi lähteä mukaan',
   'landing.featureHeadline':
     'Kolme tapaa, joilla Embark ansaitsee luottamuksen heti ensimmäisenä päivänä.',
@@ -106,6 +133,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Seuraavaksi: Tapaa kaverisi 30 minuutin kahvitteluhetkellä — tiistaina klo 10.00.',
   'landing.preview.eyebrow': 'Päivä 14/90 — esimerkkikojelauta',
+  'landing.preview.headline': 'Tervetuloa takaisin, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR-valmis',
   'landing.proof.teams': 'Rakennettu 50–5 000 hengen tiimeille',
   'landing.proof.time': '14 päivän ilmainen kokeilujakso',
@@ -122,16 +150,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'eilen',
   'planUpdated.message': 'Olet valmis.',
   'planUpdated.preparing': 'Päivitetään suunnitelmaasi…',
+  'planUpdated.retry': 'Yritä uudelleen',
+  'planUpdated.verifyFailed': 'Emme voineet vielä vahvistaa maksuasi.',
+  'planUpdated.verifyFailedBody':
+    'Maksusi käsittely saattaa olla vielä kesken. Yritä uudelleen hetken kuluttua.',
   'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'pricing.documentsLabel': 'asiakirjat',
   'pricing.onboardingsLabel': 'perehdytykset',
   'pricing.tasksLabel': 'tehtävät',
   'profile.dayNumber': 'Päivä',
   'profile.detailsHeading': 'Perehdytyksen tiedot',
+  'profile.encouragementBody':
+    'Pidä perehdyttäjäsi ja esihenkilösi ajan tasalla — pienet askeleet kertyvät.',
   'profile.milestones': 'Virstanpylväät',
   'profile.progressEyebrow': 'Perehdytyksen edistyminen',
   'profile.tasks': 'Tehtävät',
   'profile.unknownName': 'Tervetuloa',
+  'settings.appearance.description': 'Vaihda vaalean ja tumman tilan välillä.',
+  'settings.appearance.title': 'Ulkoasu',
+  'settings.subtitle':
+    'Säädä ilmoituksia, tietoturvaa, laitteita ja tietojen vientiä — kaikki pysyy täällä, sinun ehdoillasi.',
   'settings.title': 'Asetukset ja mieltymykset.',
   'taskDetail.backToChecklist': 'Takaisin tarkistuslistalle',
   'taskDetail.breadcrumbChecklist': 'Tarkistuslista',
@@ -143,7 +181,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'Ei eräpäivää',
   'taskDetail.notFound': 'Tehtävää ei löytynyt',
   'taskDetail.notFoundBody': 'Tämä tehtävä on saatettu poistaa tai kuuluu toiselle käyttäjälle.',
+  'taskDetail.tipBody':
+    'Jos olet jumissa, lähetä viesti perehdyttäjällesi Slackissa — hän on ensimmäinen tukesi.',
   'taskDetail.tipEyebrow': 'Nopea vinkki',
+  'team.empty.body': 'Kokeile laajempaa hakua tai valitse toinen osasto.',
   'team.empty.title': 'Ei ottelupareja',
   'team.eyebrow': 'Perehdytys · Ihmiset',
   'team.loading': 'Tiimikavereita ladataan…',
@@ -166,14 +207,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Virstanpylväät',
   'timeline.stat.current': 'Nykyinen virstanpylväs',
   'timeline.stat.next': 'Seuraava lukituksen avaaminen',
+  'timeline.stat.progress': 'Kokonaisuus',
   'timeline.subtitle':
     'Jokainen virstanpylväs avaa uusia moduuleja, esittelyjä ja kehityskeskusteluja. Ei paineita – vain edistystä.',
+  'timeline.tipBody':
+    'Varaa 30 minuutin palautekeskustelu 30, 60 ja 90 päivän kohdalle esihenkilösi kanssa — se tekee palautteesta konkreettista ja edistymisestä näkyvää.',
   'timeline.tipEyebrow': 'Päällikön tippi',
+  'timeline.tipTitle': 'Varaa kalenterista aikaa tavoitteille.',
   'timeline.title': '30 / 60 / 90-matkasi.',
   'training.badge.notStarted': 'Ei aloitettu',
   'training.empty': 'Ei vielä koulutusmoduuleja.',
   'training.eyebrow': 'Perehdytys · Koulutus',
   'training.loading': 'Ladataan moduuleja…',
+  'training.stat.all': 'Moduulit määritetty',
   'training.subtitle':
     'Moduulit avautuvat roolisi mukaan 30/60/90-kerroin. Pakolliset moduulit tulevat ensin.',
   'training.title': 'Taidot, työkalut ja tarinat – omaan tahtiisi.',
@@ -185,9 +231,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'Moduulia ei löydy',
   'trainingModule.quizBody': 'Suorita moduuli suorittamalla vähintään 80 % pistemäärällä.',
   'trainingModule.quizHeading': 'Moduulin lopputesti',
+  'trainingModule.quizLocked': 'Aloita moduuli ensin',
   'trainingModule.quizNone': 'Tässä moduulissa ei ole tietokilpailua.',
   'trainingModule.quizRetry': 'Yritä uudelleen',
+  'trainingModule.quizStart': 'Aloita tietovisa',
   'trainingModule.quizSubmit': 'Lähetä vastaukset',
+  'trainingModule.start': 'Aloita moduuli',
   'trainingModule.statusNotStarted': 'Ei aloitettu',
   'welcomeHeroCard.completeLabel': 'Täydellinen',
   'welcomeHeroCard.milestonesLabel': 'Virstanpylväät',

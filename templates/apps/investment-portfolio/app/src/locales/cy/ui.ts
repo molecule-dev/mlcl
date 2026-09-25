@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Oes gennych adborth, wedi dod o hyd i fyg, neu eisiau nodwedd? Cysylltwch o'ch gosodiadau cyfrif — mae pob neges yn mynd at berson go iawn ar y tîm. Sylwer: nid yw'r cynnwys hwn yn gyngor buddsoddi; chi sy'n rheoli pob masnach.",
+  'about.contactTitle': 'Siaradwch â ni',
+  'about.featureAttribution':
+    'Priodoli perfformiad — dadansoddwch enillion yn ôl sector, rhanbarth a dosbarth asedau, a meincnodwch dros unrhyw gyfnod.',
+  'about.featureRebalance':
+    "Ailgydbwyso disgybledig — gosodwch ddyraniadau targed a bandiau goddefgarwch, gwelwch ddrifft yn cael ei nodi'n gynnar, a chael y masnachau sy'n eich dychwelyd.",
+  'about.featureTax':
+    "Hylendid dogfennau treth — enillion a wireddwyd ac heb eu gwireddu, difidendau a dogfennau 1099 mewn un lle, gyda baneri gwerthu-golchi wedi'u cynnwys.",
+  'about.featureUnified':
+    "Un portffolio unedig — ecwiti, ETFs, cronfeydd cydfuddiannol, bondiau a mwy, wedi'u tynnu at ei gilydd ar draws pob cyfrif broceriaeth.",
+  'about.featureWatchlist':
+    "Rhestrau gwylio, newyddion a rhybuddion pris fel y gallwch weithredu ar yr hyn sy'n bwysig heb y sŵn.",
+  'about.intro':
+    'Mae {{app}} yn ddangosfwrdd portffolio aml-ased ar gyfer buddsoddwyr unigol ac ymgynghorwyr annibynnol. Ecwiti, ETFs, cronfeydd cydfuddiannol, bondiau, eiddo tiriog a chyfalaf — pob daliad ar draws pob cyfrif, mewn un lle, gyda disgyblaeth desg broffesiynol.',
+  'about.missionBody':
+    "Disgyblaeth yw'r rhan fwyaf o fuddsoddi da: dyraniad targed clir, priodoli perfformiad gonest, a chofnodion treth taclus. Mae {{app}} yn dod â'r arferion sefydliadol hynny i bawb, fel y gallwch ailgydbwyso'n fwriadol yn lle ar fympwy — a pheidio â cholli golwg ar yr hyn y mae eich portffolio'n ei wneud mewn gwirionedd.",
+  'about.missionTitle': 'Ein cenhadaeth',
   'about.pageTitle': 'Ynghylch {{app}}',
   'argentAuthShell.brandEyebrow': 'Ariannin · Offer cyfoeth',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Nid cyngor buddsoddi mo hyn.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Dangosfwrdd portffolio ar gyfer buddsoddwyr a chynghorwyr unigol sydd eisiau ailgydbwyso disgybledig, priodoli perfformiad miniog, a hylendid dogfennau treth - heb y sŵn.',
+  'argentAuthShell.formFooter':
+    "© {{year}} {{app}} · Nid yw perfformiad yn y gorffennol yn gwarantu canlyniadau'r dyfodol.",
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) heddiw',
+  'argentAuthShell.sampleLabel': 'Gwerth Portffolio',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Prif lywio',
   'assetAllocationDonut.heading': 'Sut mae eich arian yn cael ei fuddsoddi',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'heddiw',
   'assetDetail.txEmpty': 'Dim trafodion ar gyfer y ticer hwn.',
   'assetDetail.txHeading': 'Eich trafodion',
+  'auth.legalConsent.prefix': 'Drwy barhau, rydych yn cytuno i {{appName}}',
   'common.and': 'a',
   'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'heddiw',
   'dashboard.topHoldings.heading': 'Lle mae eich arian yn gweithio',
   'dashboard.topHoldings.label': 'Daliadau Gorau',
+  'forgotPassword.gotLinkCta': 'Mae gen i ddolen ailosod →',
+  'forgotPassword.subheading':
+    'Rhowch yr e-bost ar eich cyfrif Gavl a byddwn yn anfon dolen ailosod ddiogel atoch.',
   'forgotPassword.successBody':
     'Os na welwch chi ef o fewn ychydig funudau, gwiriwch eich ffolder sbam neu rhowch gynnig ar e-bost gwahanol.',
   'forgotPassword.successSubheading':
     'Gwirio {{email}} am ddolen ailosod. Mae’n dod i ben ymhen 60 munud.',
+  'forgotPassword.successTitle': 'E-bost ailosod ar ei ffordd',
   'holdingHighlightRow.todayLabel': 'heddiw',
   'holdings.addCta': 'Prynu',
   'holdings.col.allocation': 'Dyrannu',
@@ -58,6 +87,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Nid cyngor buddsoddi mo hyn. Nid yw perfformiad yn y gorffennol yn gwarantu canlyniadau yn y dyfodol.',
   'landing.eyebrow': 'Argent · Platfform offer cyfoeth',
   'landing.features.heading': 'Popeth y byddai cynghorydd yn ei adeiladu drostynt eu hunain.',
+  'landing.finalCta.body':
+    "Cysylltwch eich broceriaeth mewn dau glic. {{appName}} sy'n gwneud y gweddill.",
+  'landing.finalCta.cta': 'Agorwch eich cyfrif Argent',
   'landing.finalCta.heading': 'Dewch â disgyblaeth yn ôl i’ch portffolio.',
   'landing.footerSignup': 'Agor cyfrif',
   'landing.getStarted': 'Agor cyfrif',
@@ -65,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Gweld prisiau',
   'landing.heroSubtitle':
     'Dangosfwrdd portffolio ar gyfer buddsoddwyr a chynghorwyr unigol sydd eisiau ailgydbwyso disgybledig, priodoli perfformiad miniog, a hylendid dogfennau treth - heb y sŵn.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Rhagolwg byw o bortffolio cynrychioliadol',
   'login.heading': 'Mewngofnodwch i Argent',
   'login.subheading':
@@ -76,6 +109,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} awr yn ôl',
   'news.justNow': 'nawr yn unig',
   'news.loadError': 'Methwyd llwytho newyddion.',
+  'planUpdated.body':
+    "Mae eich newid bilio bellach yn weithredol. Gallwch reoli eich cynllun ar unrhyw adeg o'r dudalen filio.",
+  'planUpdated.retry': 'Rhowch gynnig arall arni',
+  'planUpdated.verifyFailed': 'Ni allem gadarnhau eich taliad eto.',
+  'planUpdated.verifyFailedBody':
+    "Mae'n bosibl bod eich taliad yn dal i gael ei brosesu. Rhowch gynnig arall arni ymhen eiliad.",
   'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'portfolioHeroCard.label': 'Gwerth Portffolio',
   'pricing.holdingsLabel': 'daliadau',
@@ -86,12 +125,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Drifft dyraniad',
   'rebalance.empty': 'Dim targedau wedi’u gosod eto.',
   'rebalance.executeCta': 'Lle {{count}} crefftau',
+  'rebalance.executeError': 'Methwyd â gosod masnachau.',
   'rebalance.executeOk': 'Wedi’i osod {{count}} crefftau. Gweldwch nhw ar y dudalen Trafodion.',
+  'rebalance.executing': 'Yn gosod…',
   'rebalance.eyebrow': 'Ailgydbwyso · Cynghorydd Arian',
   'rebalance.heading': 'Dewch â’ch portffolio yn ôl i ddisgyblaeth',
   'rebalance.loadError': 'Methwyd llwytho cynllun ailgydbwyso.',
+  'rebalance.plan.driftLine': 'ar hyn o bryd {{current}}% · targed {{target}}%',
   'rebalance.planHeading': 'Tocyn Argent — adolygu cyn gosod',
   'rebalance.planLabel': 'Cynllun masnach a awgrymir',
+  'rebalance.subheading':
+    "Mae rhesi y tu allan i'w band goddefgarwch yn sbarduno awgrymiadau masnach. Dim ond ar eich cadarnhad y bydd {{appName}} yn gweithredu.",
   'rebalance.summary.buyLabel': 'Pryniannau',
   'rebalance.summary.buySub': 'swyddi i ychwanegu atynt',
   'rebalance.summary.driftLabel': 'Allan o’r band',
@@ -100,6 +144,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'ar draws crefftau awgrymedig',
   'rebalance.summary.sellLabel': 'Yn gwerthu',
   'rebalance.summary.sellSub': 'safleoedd i docio',
+  'rebalanceDriftCard.drift': 'drift {{sign}}{{pct}}% · band ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'targed {{pct}} %',
   'reports.attributionHeading': 'Priodoli perfformiad (1F)',
   'reports.col.alpha': 'Alffa',
@@ -113,37 +158,68 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Blwyddyn',
   'reports.gainsHeading': 'Enillion wedi’u gwireddu a heb eu gwireddu',
   'reports.noAttribution': 'Dim data priodoli eto.',
+  'reports.noGains': 'Dim data enillion a wireddwyd/heb eu gwireddu eto.',
   'reports.noPerformance': 'Dim data perfformiad eto.',
   'reports.noTaxDocs': 'Dim dogfennau treth eto.',
   'reports.performanceHeading': 'Perfformiad yn erbyn meincnod',
   'reports.taxHeading': 'Dogfennau treth',
   'resetPassword.heading': 'Dewiswch gyfrinair newydd cryf',
+  'resetPassword.passwordPlaceholder': 'Cyfrinair newydd',
   'resetPassword.subheading':
     'Bydd Argent yn eich mewngofnodi’n awtomatig unwaith y bydd eich cyfrinair wedi’i osod.',
   'resetPassword.tokenPlaceholder': 'Ailosod tocyn o e-bost',
+  'settings.appearance.description': 'Newid rhwng modd golau a thywyll.',
   'settings.appearance.title': 'Ymddangosiad',
+  'settings.devices.body': "Dyfeisiau sydd wedi mewngofnodi i'ch cyfrif ar hyn o bryd.",
+  'settings.devices.empty': 'Ni chanfuwyd dyfeisiau.',
   'settings.devices.heading': 'Dyfeisiau',
+  'settings.devices.revokeWarning':
+    'Bydd mynediad y ddyfais hon yn cael ei ddirwyn yn fuan. Ei allgofnodi?',
   'settings.devices.signOut': 'Allgofnodi',
   'settings.devices.thisDevice': 'Y ddyfais hon',
   'settings.devices.unknown': 'Dyfais anhysbys',
   'settings.linked.body':
     'Mae cydamseru broceriaeth yn gofyn am gysylltydd trydydd parti (Plaid, Yodlee, ac ati). Ffurfweddwch eich darparwr yn eich amgylchedd i alluogi mewnforio awtomatig.',
   'settings.linked.heading': 'Cyfrifon broceriaeth cysylltiedig',
+  'settings.linked.placeholder': "Dim cyfrifon wedi'u cysylltu eto.",
+  'settings.notifications.dividendsPaid': 'Difidendau a dalwyd',
   'settings.notifications.error': 'Methwyd diweddaru’r dewis.',
   'settings.notifications.priceAlerts': 'Rhybuddion prisiau',
+  'settings.notifications.rebalanceDrift': 'Drift ailgydbwyso',
+  'settings.notifications.taxDocsReady': 'Dogfennau treth yn barod',
   'settings.profile.advisor': 'E-bost y cynghorydd (dewisol)',
   'settings.profile.heading': 'Proffil',
   'settings.security.changePassword': 'Newid cyfrinair',
+  'settings.security.changePasswordTitle': 'Newid cyfrinair',
   'settings.security.changing': 'Yn newid…',
+  'settings.security.confirmPassword': 'Cyfrinair',
+  'settings.security.currentPassword': 'Cyfrinair cyfredol',
   'settings.security.deleteAccount': 'Dileu cyfrif',
   'settings.security.deleteError': "Methwyd dileu'r cyfrif.",
   'settings.security.deleteHeading': 'Dileu cyfrif',
+  'settings.security.deleteModalWarning':
+    "Mae hyn yn dileu eich cyfrif a'ch data yn barhaol. Rhowch eich cyfrinair i gadarnhau.",
+  'settings.security.deleteWarning':
+    "Dileu eich cyfrif a'r holl ddata cysylltiedig yn barhaol. Ni ellir dadwneud hyn.",
   'settings.security.deleting': 'Yn dileu…',
   'settings.security.heading': 'Diogelwch',
   'settings.security.newPassword': 'Cyfrinair newydd',
   'settings.security.password': 'Cyfrinair',
+  'settings.security.passwordError': 'Methwyd newid y cyfrinair.',
+  'settings.security.passwordHint': 'Newidiwch y cyfrinair rydych yn ei ddefnyddio i fewngofnodi.',
+  'settings.security.twoFactor': 'Dilysu dau ffactor',
+  'settings.security.twoFactorCode': 'Cod dilysu',
+  'settings.security.twoFactorDisable': 'Analluogi',
+  'settings.security.twoFactorDisableTitle': 'Analluogi dilysu dau ffactor',
   'settings.security.twoFactorEnable': 'Galluogi',
+  'settings.security.twoFactorEnableTitle': 'Galluogi dilysu dau ffactor',
+  'settings.security.twoFactorHint': "Ychwanegwch haen ychwanegol o amddiffyniad i'ch cyfrif.",
   'settings.security.twoFactorInvalidCode': 'Cod annilys',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'Cod QR dau ffactor',
+  'settings.security.twoFactorScan':
+    "Sganiwch y cod QR hwn gyda'ch ap dilysu, yna rhowch y cod 6 digid.",
+  'settings.security.twoFactorUnavailable': 'Nid yw dilysu dau ffactor ar gael ar gyfer yr ap hwn.',
   'settings.security.twoFactorVerify': 'Dilysu a galluogi',
   'settings.tax.error': 'Methwyd diweddaru’r dull treth.',
   'settings.tax.heading': 'Cyfrifeg lot treth',
@@ -154,6 +230,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Dull treth wedi’i gadw.',
   'signup.eyebrow': 'Agor cyfrif',
   'signup.heading': 'Agorwch eich cyfrif Argent',
+  'signup.legalPrefix': "Trwy greu cyfrif rydych yn cytuno i'r {{appName}}",
   'signup.subheading': 'Am ddim am 30 diwrnod. Dim angen cerdyn. Canslo unrhyw bryd.',
   'signup.terms':
     'Drwy greu cyfrif rydych chi’n cytuno i Delerau Gwasanaeth a Pholisi Preifatrwydd Argent.',

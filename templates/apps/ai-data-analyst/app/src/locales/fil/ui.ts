@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May mga tanong, feedback, o dataset na hindi kayang sagutin ng modelo? Abutin ang {{app}} team mula sa in-app help menu — bawat mensahe ay napupunta sa isang tunay na tao na nagtatrabaho sa produkto.',
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'about.intro':
+    'Ang {{app}} ay isang AI data analyst na ginagawang sagot ang raw data. Mag-upload ng CSV o kumonekta sa isang warehouse, magtanong sa simpleng wika, at makakuha ng tamang chart, ang sumusuportang table, at ang SQL na gumawa nito — {{tagline}}.',
+  'about.missionBody':
+    'Hindi dapat kailanganin ng analytics ang backlog ticket at isang linggong paghihintay. Inilalagay ng {{app}} ang isang mahusay na analyst sa likod ng text box para masagot ng product, ops, at finance teams ang sarili nilang mga tanong sa loob ng ilang minuto — habang pinapanatiling reproducible at auditable ang bawat resulta.',
+  'about.missionTitle': 'Ang aming misyon',
   'about.pageTitle': 'Tungkol sa {{app}}',
+  'about.whatYouGet': 'Ano ang matatanggap ninyo',
+  'askClarionBar.ariaLabel': 'Magtanong sa {{appName}}',
   'askClarionBar.askCta': 'Itanong',
   'askClarionBar.placeholder':
     'Magtanong tungkol sa Inyong data — hal. “nangungunang 10 customer ayon sa kita sa Q3”',
@@ -19,16 +29,20 @@ export const ui: UiTranslations = {
   'dashboard.insightsEyebrow': 'Natukoy ng AI',
   'dashboard.insightsHeading': 'Mga kamakailang insight',
   'dashboard.noInsights': 'Wala pang mga insight — mag-upload ng dataset para magsimula.',
+  'dashboard.subhead':
+    'Tatlong bagong insight mula kahapon. Isang anomaly na dapat tingnan nang mabuti.',
   'dashboard.uploadCta': 'Mag-upload ng data',
   'datasetCard.analyzedPrefix': 'sinuri {{when}}',
   'datasetCard.cols': 'Mga kolumna',
   'datasetCard.rows': 'Mga row',
+  'datasetDetail.aiHeading': 'AI insights',
   'datasetDetail.back': 'Mga dataset',
   'datasetDetail.col.example': 'Halimbawa',
   'datasetDetail.col.name': 'Patlang',
   'datasetDetail.col.nullable': 'Maaaring walang laman',
   'datasetDetail.col.unique': 'Natatangi',
   'datasetDetail.cols': 'Mga kolumna',
+  'datasetDetail.lineageEmpty': 'Na-import mula sa upload — walang upstream transforms.',
   'datasetDetail.loadError': 'Nabigo ang pag-load ng dataset.',
   'datasetDetail.notFound': 'Hindi nahanap ang dataset.',
   'datasetDetail.queriesEmpty': 'Wala pang naka-save na query sa dataset na ito.',
@@ -42,17 +56,22 @@ export const ui: UiTranslations = {
   'datasetDetail.tab.${tk}': 'Patlang',
   'datasets.empty': 'Wala pang mga dataset — mag-upload ng isa para magsimula.',
   'datasets.eyebrow': '{{count}} dataset · {{rows}} row',
+  'datasets.heading': 'Mga Dataset',
   'datasets.loadError': 'Nabigo ang pag-load ng mga dataset.',
   'datasets.subhead':
     'Mga file na na-index ng Clarion at ginawang available para sa mga query. Mag-click ng card para tingnan ang schema, statistics, at lineage.',
   'datasets.uploadCta': 'Mag-upload ng dataset',
+  'forgotPassword.backPrompt': 'Naalala mo pa ba? ',
   'forgotPassword.checkSpam':
     'Kung hindi Ninyo ito nakita sa loob ng isang minuto, tingnan ang inyong spam folder o subukang ipadala muli.',
   'forgotPassword.emailRequired': 'Kailangan ang email',
+  'forgotPassword.resend': 'Ipadala muli',
   'forgotPassword.sendError': 'Hindi maipaabot ang reset email',
   'forgotPassword.sentHeading': 'Tingnan ang inyong email',
   'forgotPassword.sentSubheading':
     'Nagpadala kami ng reset link sa {{email}}. Mag-e-expire ang link sa loob ng 30 minuto.',
+  'forgotPassword.subheading':
+    'Ilagay ang iyong work email at padadalhan ka namin ng link para mag-set ng bagong password.',
   'googleSignInButton.label': 'Magpatuloy gamit ang Google',
   'insightFeedCard.viewCta': 'Tingnan',
   'insightHeroCard.subtitle':
@@ -61,36 +80,54 @@ export const ui: UiTranslations = {
   'kpiTileGrid.momSuffix': 'kumpara noong nakaraang buwan',
   'landing.closing.cta': 'Subukan ang Clarion nang libre',
   'landing.closing.heading': 'Itigil ang pagbuo ng mga dashboard. Magsimulang magtanong.',
+  'landing.closing.subhead':
+    'Libre sa loob ng 14 na araw. Magdala ng isang CSV, makuha ang iyong unang tatlong insight sa loob ng wala pang limang minuto.',
   'landing.features.eyebrow': 'Paano gumagana ang Clarion',
   'landing.features.heading': 'Mag-drop ng CSV. Magtanong. Makuha ang sagot.',
+  'landing.features.subhead':
+    'Hindi kailangan ng SQL. Walang dashboard sprawl. Bawat sagot ay isang chart, isang table, at ang SQL na tumakbo — na-e-export sa isang click.',
   'landing.hero.eyebrow': 'AI Data Analyst · para sa mga team ng produkto at operasyon',
   'landing.hero.primaryCta': 'Subukan ang Clarion nang libre sa loob ng 14 na araw',
   'landing.hero.secondaryCta': 'Tingnan ang halimbawa ng query',
   'landing.hero.subtitle':
     'Mag-upload ng dataset, magtanong sa natural na wika, at makuha ang tamang chart. Hinahawakan ng Clarion ang SQL, pagtuklas ng schema, at lineage — para mas mabilis na makapaglabas ang mga analyst ng 10×.',
+  'landing.hero.title': '{{tagline}}.',
   'landing.hero.trust1': 'Walang credit card',
   'landing.hero.trust2': 'SOC 2 uri II',
   'landing.hero.trust3': 'Lineage sa bawat chart',
   'landing.nav.tryFree': 'Subukan nang libre',
+  'landing.preview.cta': 'Subukan ang isang query',
   'landing.preview.label': 'Mga insight na na-surface ngayong buwan',
   'landing.proof.heading': 'Ginawa para sa mga seryosong team ng analytics',
   'login.hidePassword': 'Itago ang password',
+  'login.newUserPrompt': 'Bago sa {{appName}}? ',
   'login.showPassword': 'Ipakita ang password',
   'login.subheading':
     'Mag-sign in para magpatuloy ng pagtatanong ng mas magagandang tanong sa inyong data.',
+  'login.trialCta': 'Simulan ang iyong {{days}}-day trial',
   'mobileNav.closeMenu': 'Isara ang menu ng nabigasyon',
   'mobileNav.openMenu': 'Buksan ang menu ng nabigasyon',
+  'planUpdated.body':
+    'Aktibo na ang pagbabago sa iyong billing. Maaari mong pamahalaan ang iyong plano anumang oras mula sa billing page.',
+  'planUpdated.retry': 'Subukan muli',
+  'planUpdated.verifyFailed': 'Hindi pa namin makumpirma ang iyong bayad.',
+  'planUpdated.verifyFailedBody':
+    'Maaaring pinoproseso pa rin ang iyong bayad. Subukan muli maya-maya.',
   'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
+  'pricing.limits.advanced': 'Mga advanced na feature',
   'queryEditor.aiBadge': 'Ginawa ng AI',
   'queryEditor.aiSummary': 'Buod ng AI',
   'queryEditor.copyFailed': 'Hindi nakopya sa clipboard.',
   'queryEditor.dataHeading': 'Data',
+  'queryEditor.emptyBody':
+    'Sumasagot ang {{appName}} sa tatlong bahagi: isang chart, ang underlying data table, at ang SQL na tumakbo.',
   'queryEditor.emptyHeading': 'Pumili ng mungkahi o mag-type ng sarili',
   'queryEditor.emptyResult': 'Walang sagot na ibinalik. Subukan ang ibang tanong.',
   'queryEditor.exportCsv': 'CSV',
   'queryEditor.eyebrow': 'Itanong sa Clarion · Natural na wika na query',
   'queryEditor.heading': 'Ano ang gusto Ninyong malaman?',
   'queryEditor.questionEyebrow': 'Tinanong Ninyo',
+  'queryEditor.runFailed': 'Hindi maipatupad ang query na iyon. Pakisubukan muli.',
   'queryEditor.sqlHeading': 'Nabuong SQL',
   'queryEditor.subhead':
     'Mag-type ng tanong sa natural na wika. Pipiliin ng Clarion ang chart, magpapatakbo ng SQL, at ipapakita sa Inyo ang lineage.',
@@ -107,8 +144,11 @@ export const ui: UiTranslations = {
   'reports.subhead':
     'Mga naka-save na pagsusuri na maaari Ninyong ibahagi, i-iskedyul, at i-export. Mag-click ng thumbnail para buksan ang buong ulat.',
   'reportThumbnailCard.onDemand': 'on demand',
+  'reportThumbnailCard.runPrefix': 'patakbuhin ang {{when}}',
+  'resetPassword.hidePassword': 'Itago ang password',
   'resetPassword.newPasswordLabel': 'Bagong password',
   'resetPassword.newPasswordPlaceholder': 'Bagong password',
+  'resetPassword.passwordTooShort': 'Ang password ay dapat na hindi bababa sa {{min}} na character',
   'resetPassword.resetFailed': 'Nabigo ang pag-reset',
   'resetPassword.showPassword': 'Ipakita ang password',
   'resetPassword.subheading':
@@ -125,19 +165,26 @@ export const ui: UiTranslations = {
   'settings.apiKeys.createCta': 'Gumawa',
   'settings.apiKeys.created': 'Bagong API key na nalikha.',
   'settings.apiKeys.createError': 'Hindi makagawa ng API key.',
+  'settings.apiKeys.creating': 'Nige-generate…',
   'settings.apiKeys.deleted': 'Na-revoke ang API key.',
   'settings.apiKeys.deleteError': 'Hindi mabawi ang API key.',
+  'settings.apiKeys.empty': 'Wala pang API keys — bumuo ng isa sa itaas.',
   'settings.apiKeys.heading': 'Mga API key',
   'settings.apiKeys.namePlaceholder': 'Pangalan ng key (hal. CI bot)',
   'settings.apiKeys.rotateCta': 'I-rotate',
   'settings.apiKeys.rotated': 'Na-rotate ang API key. I-update ang inyong mga integration.',
+  'settings.apiKeys.rotateError': 'Hindi ma-rotate ang API key.',
+  'settings.appearance.description': 'Mag-toggle sa pagitan ng light at dark mode.',
   'settings.appearance.title': 'Hitsura',
   'settings.dangerZone': 'Sona ng panganib',
   'settings.integrations.body':
     'Ikonekta ang isang warehouse para mag-query ng live na data sa halip na mag-upload ng mga file.',
   'settings.integrations.connected': 'Na-update ang koneksyon para sa {{source}}.',
   'settings.integrations.connectedTag': 'nakakonekta',
+  'settings.integrations.error': 'Hindi ma-update ang integration.',
   'settings.integrations.heading': 'Mga pinagkukunan ng data',
+  'settings.revokeDeviceWarning':
+    'Mababawi ang access ng device na ito sa ilang sandali. I-sign out ito?',
   'settings.security.heading': 'Seguridad',
   'settings.signOutDevice': 'Mag-sign out',
   'settings.team.empty':
@@ -145,21 +192,31 @@ export const ui: UiTranslations = {
   'settings.team.removed': 'Naalis na ang miyembro ng team.',
   'settings.twoFactorCode': 'Kodigo ng pagpapatunay',
   'settings.twoFactorDisable': 'I-disable',
+  'settings.twoFactorDisableTitle': 'I-disable ang two-factor authentication',
   'settings.twoFactorEnable': 'I-enable',
+  'settings.twoFactorEnableTitle': 'I-enable ang two-factor authentication',
   'settings.twoFactorInvalidCode': 'Hindi wastong code',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Two-factor QR code',
+  'settings.twoFactorScan':
+    'I-scan ang QR code na ito gamit ang iyong authenticator app, pagkatapos ay ilagay ang 6-digit na code.',
+  'settings.twoFactorUnavailable':
+    'Hindi available ang two-factor authentication para sa app na ito.',
   'settings.twoFactorVerify': 'I-verify at paganahin',
   'sideNavBar.appSubtitle': 'AI Data Analyst',
   'sideNavBar.datasets': 'Mga dataset',
   'sideNavBar.newAnalysis': 'Bagong pagsusuri',
   'sideNavBar.queries': 'Mga query',
   'signup.failed': 'Nabigo ang pag-sign up',
+  'signup.haveAccount': 'May account ka na ba? ',
+  'signup.hidePassword': 'Itago ang password',
   'signup.showPassword': 'Ipakita ang password',
   'signup.subheading':
     '14 na araw nang libre. Walang credit card. Magdala ng isang CSV — gagawin ng Clarion ang natitira.',
   'topNavBar.help': 'Tulong',
   'topNavBar.lastDays': 'Huling {{days}} Araw',
   'topNavBar.userProfileAlt': 'Profile ng User',
+  'upload.dropPrompt': 'Mag-drop ng file dito, o mag-click para mag-browse',
   'upload.maxSize': 'Maks {{size}}',
   'upload.noRecent': 'Wala pang mga upload.',
   'upload.recentHeading': 'Mga kamakailang upload',
@@ -170,9 +227,13 @@ export const ui: UiTranslations = {
   'upload.uploading': 'Nag-u-upload…',
   'upload.viewCta': 'Mga dataset →',
   'uploadDropZone.eyebrow': 'Mag-drop ng file · o mag-click para mag-browse',
+  'uploadDropZone.fileInputLabel': 'Pumili ng file na i-a-upload',
+  'uploadDropZone.maxSize':
+    'Max file size {{size}} · CSV ang mas mainam para sa pinakamalalaking dataset',
   'uploadDropZone.readyEyebrow': 'Handa nang suriin',
   'uploadDropZone.subtitle':
     'Awtomatikong natatukoy ng Clarion ang schema, nagpapatakbo ng statistics, at natutuklasan ang mga anomalya sa sandaling dumating ang inyong file.',
+  'uploadDropZone.title': 'I-upload ang iyong dataset',
   'uploadDropZone.unknownType': 'hindi kilalang uri',
   'userMenu.datasets': 'Aking mga dataset',
 }

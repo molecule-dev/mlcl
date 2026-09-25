@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχετε ερωτήσεις, σχόλια ή θέλετε μια επίδειξη για την ομάδα σας; Στείλτε μας email στο hello@conduit.dev — κάθε μήνυμα φτάνει σε ένα πραγματικό μέλος της ομάδας.',
   'about.contactHeading': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.featuresHeading': 'Τι αποκτάτε',
+  'about.introBody':
+    'Το {{app}} φέρνει συνεχή παράδοση τύπου GitHub Actions σε ένα γρήγορο ταμπλό: pipelines, αρχεία καταγραφής build, artifacts, σήματα κατάστασης και περιβάλλοντα ανάπτυξης για όλα τα αποθετήριά σας σε ένα μέρος. Χωρίς εναλλαγή καρτελών, χωρίς μαντεψιές για το ποιο build χάλασε — κάθε εκτέλεση, γραμμή καταγραφής και ανάπτυξη είναι ένα κλικ μακριά.',
+  'about.introHeading': 'Τι είναι το {{app}}',
+  'about.missionBody':
+    'Η παράδοση λογισμικού πρέπει να είναι ήρεμη και προβλέψιμη, όχι πηγή άγχους. Φτιάχνουμε τα pipelines, τα αρχεία καταγραφής και τα εργαλεία ανάπτυξης ώστε η διαδρομή από το commit στην παραγωγή να είναι γρήγορη, ορατή και αξιόπιστη — το πρώτο επιτυχημένο build σε πέντε λεπτά, και κάθε επόμενο build εξίσου ξεκάθαρο.',
+  'about.missionHeading': 'Η αποστολή μας',
+  'about.subtitle':
+    'Το {{app}} είναι ένα ταμπλό CI/CD για ομάδες που θέλουν να παρακολουθούν builds, αναπτύξεις και περιβάλλοντα σε κάθε αποθετήριο — και να παραδίδουν με βεβαιότητα.',
   'artifacts.empty': 'Δεν υπάρχουν ακόμα artifacts.',
   'artifacts.heading': 'Artifacts',
   'artifacts.loadError': 'Αποτυχία φόρτωσης artifacts.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Περιβάλλοντα',
   'environments.loadError': 'Αποτυχία φόρτωσης περιβαλλόντων.',
+  'environments.loading': 'Φόρτωση περιβαλλόντων…',
   'environments.subheading': 'Κατάσταση deployment σε πραγματικό χρόνο σε όλους τους στόχους.',
   'forgotPassword.runnerStatus': 'επαναφορά · ασφαλής σήραγγα',
+  'forgotPassword.success':
+    "Αν υπάρχει λογαριασμός για αυτό το email, ένας σύνδεσμος επαναφοράς είναι καθ' οδόν. Ελέγξτε τα εισερχόμενά σας.",
   'insights.changeFailureRate': 'Ποσοστό αποτυχίας αλλαγών',
   'insights.deployFrequency': 'Deploys / ημέρα',
   'insights.empty': 'Δεν υπάρχουν αρκετά δεδομένα ακόμα.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Αποτυχία φόρτωσης αναλύσεων.',
   'insights.meanP95': 'μέσος {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Πιο αργά βήματα pipeline',
   'insights.successRateHeading': 'Ποσοστό επιτυχίας pipeline (τελευταίες 14 ημέρες)',
   'landing.choosePlan': 'Επιλογή πλάνου',
+  'landing.copyright': '© {{year}} {{app}}. Παραδώστε με βεβαιότητα.',
   'landing.ctaBody':
     'Χωρίς πιστωτική κάρτα. Χωρίς platform engineer. Βάλτε το πρώτο pipeline στο πράσινο σε πέντε λεπτά.',
   'landing.ctaHeading': 'Παραδίδετε με σιγουριά.',
   'landing.featuresEyebrow': '// platform features',
   'landing.featuresHeading': 'Φτιαγμένο από developers για developers',
+  'landing.heroSubtitle':
+    'Pipelines που ολοκληρώνονται σε δευτερόλεπτα. Αρχεία καταγραφής που διαβάζονται. Αναπτύξεις που εμπιστεύεστε.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Απλή, προβλέψιμη τιμολόγηση',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Εκτελείται τώρα',
   'pipelines.metric.successCaption': '{{count}} από {{total}} εκτελέσεις',
   'pipelines.metric.successRate': 'Ποσοστό επιτυχίας',
+  'pipelines.realtimeOn': 'σε πραγματικό χρόνο',
   'pipelines.subheading': 'Ενημερώσεις σε πραγματικό χρόνο από όλα τα παρακολουθούμενα αποθετήρια.',
+  'pricing.advancedFeatures': 'Σύνθετες λειτουργίες: {{mark}}',
+  'pricing.canExport': 'Εξαγωγή δεδομένων: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artifacts',
+  'pricing.maxBuilds': '{{count}} builds',
+  'pricing.maxPipelines': '{{count}} pipelines',
   'privacy.dataAccount': 'Λογαριασμός: όνομα, email, κατακερματισμένος κωδικός, επίπεδο πλάνου.',
   'privacy.intro':
     'Η {{app}} συλλέγει μόνο τα ελάχιστα δεδομένα που χρειαζόμαστε για τη λειτουργία του λογαριασμού συνεχούς παράδοσής σας: το email σας, τα αποθετήρια που συνδέετε, τα commits και μεταδεδομένα build που παράγουν οι runners σας, και τα μυστικά που επιλέγετε να αποθηκεύσετε μαζί μας. Δεν διαβάζουμε ποτέ τον πηγαίο κώδικά σας εκτός του build runner· τα artifacts build αποθηκεύονται στον κάδο S3 σας όταν αυτό ρυθμίζεται.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Χρησιμοποιούμε τη Stripe για χρέωση, το Mailgun για συναλλακτικά email και το AWS S3 για αποθήκευση artifacts build. Κάθε ένας δεσμεύεται συμβατικά στο ελάχιστο εύρος δεδομένων που απαιτείται για την παροχή της υπηρεσίας του.',
   'privacy.rightsBody':
     'Μπορείτε να εξαγάγετε κάθε byte των δεδομένων σας, να διαγράψετε τον λογαριασμό σας ανά πάσα στιγμή από τις Ρυθμίσεις και να ζητήσετε ένα αρχείο για κάθε παράδοση webhook στον λογαριασμό σας. Απαντάμε σε αιτήματα GDPR / CCPA εντός 30 ημερών.',
+  'privacy.subtitle':
+    'Πώς το {{app}} συλλέγει, αποθηκεύει και προστατεύει τα δεδομένα σας όσο εκτελούμε τα pipelines σας.',
   'privacy.title': 'Πολιτική απορρήτου',
   'repositories.empty': 'Δεν υπάρχουν συνδεδεμένα αποθετήρια.',
   'repositories.heading': 'Αποθετήρια',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Όλα τα αποθετήρια',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Αποτυχία φόρτωσης αποθετηρίου.',
+  'repositoryDetail.meanDuration': 'Μέση διάρκεια',
   'repositoryDetail.notFound': 'Το αποθετήριο δεν βρέθηκε.',
+  'repositoryDetail.successRate': 'Ποσοστό επιτυχίας',
   'repositoryDetail.totalBuilds': 'Σύνολο builds',
   'repositoryDetail.webhookActive': 'ενεργό',
   'repositoryDetail.webhookPaused': 'σε παύση',
   'repositoryDetail.webhooksHeading': 'Webhooks',
+  'resetPassword.passwordLabel': 'Νέος κωδικός πρόσβασης',
   'resetPassword.runnerStatus': 'επαναφορά · token επαληθεύτηκε',
   'resetPassword.subtitle': 'Επιλέξτε ισχυρό κωδικό που δεν έχετε χρησιμοποιήσει ξανά.',
   'resetPassword.tokenPlaceholder': 'επικολλήστε από email',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Αποθετήρια που παρακολουθεί η Conduit. Αποσυνδεθείτε από τον πάροχο VCS για να σταματήσετε τη λήψη συμβάντων.',
   'settings.repositories.empty': 'Δεν υπάρχουν συνδεδεμένα αποθετήρια ακόμα.',
+  'settings.repositories.heading': 'Συνδέσεις αποθετηρίων',
   'settings.repositories.loadError': 'Αποτυχία φόρτωσης αποθετηρίων.',
   'settings.secrets.addCta': 'Προσθήκη μυστικού',
   'settings.secrets.addError': 'Δεν κατέστη δυνατή η προσθήκη του κωδικού πρόσβασης.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Δεν κατέστη δυνατή η διαγραφή του μυστικού.',
   'settings.secrets.empty': 'Δεν υπάρχουν αποθηκευμένα μυστικά.',
   'settings.secrets.heading': 'Μυστικά',
+  'settings.secrets.lastUsed': 'τελευταία χρήση {{date}}',
   'settings.secrets.loadError': 'Αποτυχία φόρτωσης μυστικών.',
   'settings.secrets.neverUsed': 'ποτέ δεν χρησιμοποιήθηκε',
   'settings.secrets.rotateCta': 'Εναλλαγή',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Δεν κατέστη δυνατή η ενημέρωση του webhook.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'δωρεάν επίπεδο · 1.000 λεπτά build/μήνα',
+  'terms.intro':
+    'Δημιουργώντας λογαριασμό {{app}} συμφωνείτε με αυτούς τους όρους. Καλύπτουν την αποδεκτή χρήση των build runners, τα όρια του SLA μας και τις προϋποθέσεις υπό τις οποίες μπορούμε να αναστείλουμε ή να τερματίσουμε τον λογαριασμό σας για καταχρηστικούς φόρτους εργασίας.',
   'terms.slaBody':
     'Τα πλάνα Pro και Team στοχεύουν σε 99,95% μηνιαία διαθεσιμότητα για το API και το pool runners. Το δωρεάν πλάνο παρέχεται ως έχει. Οι διακοπές αναφέρονται στο status.conduit.dev και πιστώνονται σύμφωνα με τον τύπο στο τιμολόγιό σας.',
   'terms.terminationBody':

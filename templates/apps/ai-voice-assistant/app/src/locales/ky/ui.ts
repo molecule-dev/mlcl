@@ -5,7 +5,13 @@ export const ui: UiTranslations = {
     'Пикириңиз, функция боюнча суроо-талабыңыз барбы же ката таптыңызбы? Аккаунтуңуздун менюсундагы колдоо шилтемеси аркылуу {{app}} командасына кайрылыңыз — ар бир билдирүү чыныгы адамга барат.',
   'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Жөнүндө',
+  'about.intro':
+    '{{app}} — үн аркылуу иштеген AI жардамчы. Табигый сүйлөңүз, сөздөрүңүз текстке айланганын көрүңүз жана үн менен жооп алыңыз — ошентип баарын терип отуруунун ордуна, ойлогонуңузду үн менен айта аласыз.',
+  'about.missionBody':
+    'Терип жазуу — идеяларыңыз менен аларды ишке ашыруунун ортосундагы тоскоолдук. {{app}} аны жоюу үчүн түзүлгөн: кол тийгизбей, баарлашуу аркылуу идея жаратуу, долбоор түзүү жана чечим кабыл алуу ыкмасы — мыкты сүйлөө жана ой жүгүртүү моделдеринин негизинде, маалыматтарыңыз купуя сакталат.',
+  'about.missionTitle': 'Биздин миссиябыз',
   'agentDetail.back': 'Бардык агенттер',
+  'agentDetail.behavior': 'Жүрүм-турум',
   'agentDetail.capabilities': 'Мүмкүнчүлүктөр',
   'agentDetail.delete': 'Персонаны өчүрүү',
   'agentDetail.deleteConfirm': 'Бул персонаны өчүрөсүзбү? Муну артка кайтаруу мүмкүн эмес.',
@@ -39,15 +45,19 @@ export const ui: UiTranslations = {
   'agents.subtitle':
     'Ар бир агенттин өзүнүн тону, темпи жана өзгөчөлүгү бар. Сүйлөшүүнүн ортосунда каалаган убакта алмаштырсаңыз болот.',
   'agents.title': 'Ойлонуу үчүн үн тандаңыз.',
+  'authShell.tagline': '{{tagline}} — {{brand}}',
+  'billing.cardNoneBody': 'Жаңыртуу учурунда бирөөнү кошуңуз — сактоону Stripe башкарат.',
   'billing.cardNoneTitle': 'Файлда карта жок',
   'billing.choose': 'Которгуч',
   'billing.currentPlan': 'Сиздин планыңыз',
   'billing.currentPlanReadout': '{{plan}} план',
   'billing.eyebrow': 'План жана колдонуу',
   'billing.fetchError': 'Эсеп-кысап маалыматы жүктөлбөй койду.',
+  'billing.loadingStatus': 'Абалы жүктөлүүдө…',
   'billing.noTiers': 'Учурда эч кандай пландар жок.',
   'billing.plansTitle': 'Пландар',
   'billing.switching': 'Которулууда…',
+  'billing.updateAcknowledged': 'Жаңыртуу {{time}} да кабыл алынды',
   'billing.updateError': 'Жаңыртуу башталган жок.',
   'billing.usageHeading': 'Бул циклде үндүн колдонулушу',
   'chatBubble.source.text': 'текст',
@@ -66,11 +76,13 @@ export const ui: UiTranslations = {
   'conversation.title': 'Талкуулаңыз',
   'conversation.toggleMic': 'Микрофонду өчүрүү/күйгүзүү',
   'conversation.toggleVoicePlayback': 'Үн ойнотуу',
+  'conversation.transcribeError': 'Аудиону текстке айландыруу мүмкүн болбоду.',
   'conversation.transcriptionEmpty': 'Эч нерсе уга алган жокпуз. Кайра аракет кылалыбы?',
   'conversation.voiceOff': 'Үн өчүрүлгөн',
   'conversation.voiceOn': 'Үн күйгүзүлгөн',
   'conversationDetail.assistant': 'Жардамчы',
   'conversationDetail.back': 'Тарыхка кайтуу',
+  'conversationDetail.elapsed': '00:00 / {{duration}}',
   'conversationDetail.empty': 'Бул сүйлөшүүдө азырынча эч кандай билдирүү жок.',
   'conversationDetail.eyebrow': 'Транскрипт',
   'conversationDetail.fetchError': 'Транскрипция жүктөлбөй койду.',
@@ -81,6 +93,7 @@ export const ui: UiTranslations = {
   'conversationDetail.setSpeed': 'Ойнотуу ылдамдыгын төмөнкүгө коюңуз {{speed}}',
   'conversationDetail.system': 'Система',
   'conversationDetail.untitled': 'Аталышы жок маек',
+  'conversationListItem.messageCount': '{{count}} билдирүү',
   'forgotPassword.subheading':
     'Электрондук почтаңызды киргизиңиз, биз сизге баштапкы абалга келтирүү шилтемесин жөнөтөбүз.',
   'forgotPassword.successBody':
@@ -98,6 +111,9 @@ export const ui: UiTranslations = {
   'history.voiceOnly': 'Үн менен гана',
   'landing.copyright': '© {{year}} {{brand}} Үн чыгарып ойлон.',
   'landing.demoMessage1': 'Салам Сара — жаңы өнөктүктү баштоого даярсызбы?',
+  'landing.demoMessage2': 'Ооба — үчүнчү чейректин органикалык өсүү стратегияларына көңүл буралы.',
+  'landing.demoMessage3':
+    'Мыкты. Мен коомчулукка таянган демилгеден баштайт элем. Баскычтарын жазып берейинби?',
   'landing.eyebrow': 'Үн менен башкарылуучу жасалма интеллект',
   'landing.featuresSubtitle':
     'Табигый диалог үчүн иштелип чыккан — сиздин ылдамдыгыңызга, тонуңузга жана контекстиңизге ыңгайлашат.',
@@ -127,10 +143,12 @@ export const ui: UiTranslations = {
   'parlanceLayout.openMenu': 'Навигация менюсун ачуу',
   'parlanceLayout.primaryNavLabel': 'Негизги навигация',
   'pricing.conversations': '{{count}} сүйлөшүүлөр',
+  'pricing.cta.start': '{{tierName}} тандаңыз',
   'pricing.cta.startFree': 'Акысыз баштаңыз',
   'pricing.cta.upgrade': 'Жаңыртуу {{tierName}}',
   'pricing.empty': 'Учурда эч кандай пландар жок.',
   'pricing.error': 'Баалар жүктөлбөй койду. Кийинчерээк кайра аракет кылыңыз.',
+  'pricing.speech': '{{count}} сүйлөө',
   'pricing.subtitle': 'Жардамчыңыз менен канчалык көп сүйлөшөөрүңүзгө ылайыктуу планды тандаңыз.',
   'privacy.collection.account': 'Аккаунтуңуздун электрондук почтасы жана көрсөтүлүүчү аты-жөнүңүз',
   'privacy.contact.body':
@@ -138,6 +156,8 @@ export const ui: UiTranslations = {
   'privacy.deletion.body':
     'Сиз каалаган убакта тиешелүү баракчадан сүйлөшүүнү, жеке билдирүүнү же аудиоклипти өчүрө аласыз. Аккаунтуңузду Жөндөөлөрдөн жок кылуу менен, жумуш мейкиндигиңизге байланышкан ар бир сүйлөшүүнү, транскрипцияны жана жеке билдирүү сабын өчүрөсүз.',
   'privacy.eyebrow': 'Юридикалык',
+  'privacy.intro':
+    '{{app}} сиз түзгөн сүйлөшүүлөрдү жана үн клиптерин жардамчы тажрыйбасын берүү үчүн гана керектүү убакытка сактайт. Биз сиздин маалыматыңызды эч качан сатпайбыз жана кардарлардын аудиосун же транскрипттерин тышкы AI моделдерин окутуу үчүн эч качан колдонбойбуз.',
   'privacy.lastUpdated': 'Акыркы жолу жаңыртылган: 2026-05-01',
   'privacy.processors.body':
     'Жардамчыңыз менен сүйлөшкөнүңүздө, биз сиздин аудиоңузду транскрипциялоо үчүн OpenAI Whisper компаниясына, жооп алуу үчүн транскрипцияңызды Anthropic (Claude) компаниясына жана үн синтези үчүн жоопту ElevenLabs же OpenAI компаниясына жөнөтөбүз. Ар бир провайдер өзүнүн маалыматтарды иштетүү шарттары менен байланышкан; кайра даярдоо үчүн эч нерсе сакталбайт.',
@@ -159,13 +179,19 @@ export const ui: UiTranslations = {
   'resetPassword.newPassword': 'Жаңы сыр сөз',
   'resetPassword.subheading': 'Сүйлөшүүнү улантуу үчүн жаңы сырсөз тандаңыз.',
   'search.agentPreview': 'Сүрөттөмө жок',
+  'search.emptyBody': 'Башка ачкыч сөздү байлап көрүңүз же үн менен айтыңыз.',
   'search.emptyTitle': 'Дал келүүлөр жок',
   'search.eyebrow': 'Буйрук палитрасы',
   'search.fetchError': 'Издөө индекси жүктөлбөй койду.',
+  'search.static.billing.preview': 'Пландар, төлөм ыкмасы жана эсеп-фактуралар',
+  'search.static.billing.title': 'Төлөм',
   'search.static.profile.preview': 'Көрсөтүлүүчү аты-жөнү, дареги, өмүр баяны',
+  'search.static.profile.title': 'Профиль',
+  'search.static.voice.preview': 'Демейки үн жана тил жөндөөлөрү',
   'search.static.voice.title': 'Үн',
   'search.title': 'Vox издөө',
   'search.transcriptPreview': 'Ачык транскрипция',
+  'settings.appearance.description': 'Жарык жана караңгы режимдердин ортосунда которулуңуз.',
   'settings.appearance.title': 'Көрүнүшү',
   'settings.loadError': 'Жөндөөлөр жүктөлбөй койду.',
   'settings.privacy.${row.key}.label': 'Билдирмелер',
@@ -182,6 +208,8 @@ export const ui: UiTranslations = {
   'terms.changes.body':
     'Эгерде бул шарттар олуттуу өзгөрсө, биз сизге колдонмодо кабарлайбыз; эскертүүдөн кийин колдонууну улантуу сиздин жаңыртууларды кабыл алганыңызды билдирет.',
   'terms.eyebrow': 'Юридикалык',
+  'terms.intro':
+    'Бул шарттар {{app}} колдонууңузду жөнгө салат. Аккаунт түзүү менен сиз аларга макул болосуз.',
   'terms.lastUpdated': 'Акыркы жолу жаңыртылган: 2026-05-01',
   'terms.title': 'Тейлөө шарттары',
   'terms.usage.body':

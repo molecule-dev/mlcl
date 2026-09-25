@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '{{app}} အတွက် မေးခွန်းများ၊ အကြံပြုချက်များ သို့မဟုတ် စိတ်ကူးများ ရှိပါသလား။ သင့်ထံမှ ကြားလိုပါသည် — မက်ဆေ့ခ်ျတိုင်း အဖွဲ့ထဲရှိ လူတစ်ဦးထံ ရောက်ပါသည်။',
   'about.contactTitle': 'ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.intro':
+    '{{app}} သည် flashcards၊ quizzes နှင့် Socratic ဆွေးနွေးမှုများအတွက် သင့်စိတ်ရှည်သော AI ကျူတာဖြစ်သည်။ {{tagline}} — မည်သည့်ဘာသာရပ်ကိုမဆို သင့်ကိုယ်ပိုင်အရှိန်အဟုန်ဖြင့် နက်ရှိုင်းပြီး တည်တံ့သော နားလည်မှု တည်ဆောက်ပါ။',
+  'about.missionBody':
+    'စစ်မှန်သော သင်ယူမှုသည် အလွတ်ကျက်ခြင်းမှမဟုတ်၊ နားလည်ခြင်းမှ လာသည်။ {{app}} သည် လိုက်လျောညီထွေသော ကျူတာသင်ကြားမှု၊ အချိန်အပိုင်းအခြားအလိုက် ပြန်လည်လေ့လာမှုနှင့် ရိုးသားသော တိုးတက်မှုခြေရာခံခြင်းတို့ကို ပေါင်းစပ်ပေးထားသဖြင့် သင်ယူသူတိုင်းသည် သူတို့ရှိရာနေရာမှ စတင်တွေ့ဆုံပေးသော ဗဟုသုတရှိသည့် လမ်းညွှန်တစ်ဦး ရရှိမည်ဖြစ်ပြီး — ဘယ်တော့မှ စိတ်မရှည်တော့ပါ။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
+  'about.whatYouGetTitle': 'သင်ရရှိသောအရာ',
   'billing.cta.upgrade': 'အစီအစဉ် ရွေးချယ်ပါ',
   'billing.error': 'ငွေတောင်းခံလွှာအချက်အလက်များကို တင်၍မရပါ။',
   'billing.freeLabel': 'အခမဲ့',
@@ -11,11 +19,13 @@ export const ui: UiTranslations = {
   'billing.loading': 'အစီအစဉ်အချက်အလက်ကို တင်နေသည်…',
   'billing.popular': 'အချစ်ဆုံး',
   'billing.subtitle': 'သင့်လေ့လာမှုနှုန်းထားနှင့် ကိုက်ညီသော အစီအစဉ်ကို ရွေးချယ်ပါ။',
+  'billing.viewPricing': 'အပြည့်အစုံ စျေးနှုန်းကြည့်ရန် →',
   'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'common.today': 'ယနေ့',
   'common.yesterday': 'မနေ့က',
   'courseDetail.empty.body':
     'ဤခေါင်းစဉ်ကို ကျွမ်းကျင်စွာ စတင်လေ့လာရန် လေ့လာရန်ပစ္စည်းတစ်ခု ထည့်ပါ။',
+  'courseDetail.empty.title': 'သင်ခန်းစာများ မရှိသေးပါ',
   'courseDetail.error': 'သင်တန်းကို တင်၍မရပါ။',
   'courseDetail.loading': 'သင်တန်းတင်နေသည်…',
   'courseDetail.masteryHint':
@@ -33,8 +43,10 @@ export const ui: UiTranslations = {
   'courses.title': 'သင့်ရဲ့သင်တန်းတွေ',
   'courses.titleLabel': 'သင်တန်းခေါင်းစဉ်',
   'courses.titlePlaceholder': 'ဥပမာ Linear Algebra',
+  'dashboard.dueLabel': '{{count}} ပေးရန်ရှိသော',
   'dashboard.error': 'ဒက်ရှ်ဘုတ်ကို ဖွင့်၍မရပါ။',
   'dashboard.greeting': 'မင်္ဂလာနံနက်ခင်းပါ, {{name}}',
+  'dashboard.greetingGeneric': 'မင်္ဂလာနံနက်ခင်းပါ',
   'dashboard.kpi.cards': 'ကတ်များကို ကျွမ်းကျင်စွာ ကိုင်တွယ်ပြီးပါပြီ',
   'dashboard.kpi.hours': 'လေ့လာခဲ့တဲ့ နာရီတွေ',
   'dashboard.kpi.hoursSuffix': 'နာရီ',
@@ -52,7 +64,10 @@ export const ui: UiTranslations = {
   'dashboard.subgreeting': 'နောက်ထပ် အစည်းအဝေးတစ်ခုအတွက် အဆင်သင့်ဖြစ်ပြီလား။',
   'dashboard.timeline.cards': 'ကတ်များ',
   'dashboard.timeline.empty': 'သင်ပြီးမြောက်ခဲ့သော အစည်းအဝေးများကို ဤနေရာတွင် မြင်ရပါမည်။',
+  'dashboard.timeline.qaDetail': '{{ai}} AI ဖလှယ်မှုများ',
+  'dashboard.timeline.reviewDetail': '{{cards}} ကတ်များ ပြန်လည်လေ့လာပြီး',
   'dashboard.timeline.title': 'လေ့လာမှုအချိန်ဇယား',
+  'dashboard.upToDate': 'နောက်ဆုံးအခြေအနေ',
   'deckDetail.addCard': '+ ကတ်ထည့်ပါ',
   'deckDetail.addError': 'ကတ်ထည့်၍မရပါ။',
   'deckDetail.addSubmit': 'ကတ်ထည့်ပါ',
@@ -65,6 +80,7 @@ export const ui: UiTranslations = {
   'deckDetail.error': 'ကဒ်ပြားကို တင်၍မရပါ။',
   'deckDetail.eyebrow': 'ကုန်းပတ်',
   'deckDetail.frontLabel': 'ရှေ့ (မေးခွန်း)',
+  'deckDetail.hint': 'အရိပ်အမြွက်:',
   'deckDetail.loading': 'ကုန်းပတ်တင်နေသည်…',
   'deckDetail.question': 'မေးခွန်း',
   'deckDetail.subtitle': 'တက်ကြွစွာပြန်လည်မှတ်မိခြင်း — အဖြေတစ်ခုအတွက် ကတိပြုသည့်အခါ လှန်ပါ။',
@@ -82,6 +98,7 @@ export const ui: UiTranslations = {
   'flashcards.loading': 'ကုန်းပတ်များ တင်နေသည်…',
   'flashcards.mastery': 'ကျွမ်းကျင်ပိုင်နိုင်မှု',
   'flashcards.nameLabel': 'ကုန်းပတ်အမည်',
+  'flashcards.noneDue': 'နောက်ဆုံးအခြေအနေ',
   'flashcards.subtitle':
     'သင့်အရှိန်အဟုန်နှင့် လိုက်လျောညီထွေဖြစ်အောင် နေရာခြား၍ ထပ်ခါတလဲလဲလုပ်ဆောင်ခြင်း။',
   'flashcards.title': 'ဖလက်ရှ်ကတ်များ',
@@ -106,6 +123,7 @@ export const ui: UiTranslations = {
   'landing.heroLead': 'အရာအားလုံးကို မေးခွန်းထုတ်ပါ၊',
   'landing.startLearning': 'အခမဲ့စတင်လေ့လာပါ',
   'landing.streakBannerLead': 'ပျမ်းမျှအားဖြင့် ကျောင်းသား ၅၀,၀၀၀+ နှင့် ပူးပေါင်းပါ ',
+  'landing.streakBannerMid': '၄၂ ရက်',
   'landing.streakBannerTail': ' အစင်းကြောင်း',
   'login.heading': 'ပြန်လည်ကြိုဆိုပါတယ်၊ လေ့လာသူ',
   'login.hidePassword': 'စကားဝှက်ကို ဝှက်ပါ',
@@ -113,6 +131,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'စကားဝှက်ပြပါ',
   'login.signUp': 'အကောင့်တစ်ခု ဖန်တီးပါ - အခမဲ့ပါ',
   'login.subheading': 'မင်းရဲ့ အရှိန်အဟုန်ကို ဆက်ထိန်းထားပါ။',
+  'masteryHeroCard.cardsMastered': '{{total}} ကတ်အနက် {{mastered}} ကတ် ကျွမ်းကျင်ပြီး',
   'masteryHeroCard.title': 'အလုံးစုံကျွမ်းကျင်မှု',
   'masteryHeroCard.weeklyHours': '{{hours}} ဒီအပတ် နာရီ',
   'masteryRing.label': 'ကျွမ်းကျင်စွာ ကိုင်တွယ်ပြီး',
@@ -126,16 +145,27 @@ export const ui: UiTranslations = {
     'အဲဒီ URL က မမှတ်မိတော့တဲ့ နယ်မြေပါ။ စာရိုက်မှားနေတာလည်း ဖြစ်နိုင်တယ်၊ ဖျက်လိုက်တဲ့ သင်ခန်းစာလည်း ဖြစ်နိုင်တယ် — ဘယ်လိုပဲဖြစ်ဖြစ်၊ ပြန်လေ့လာကြရအောင်။',
   'notFound.heading': 'စာမျက်နှာကို ရှာမတွေ့ပါ။',
   'notFound.label': '{{appName}} · ၄၀၄',
+  'notifications.empty.body': 'အသစ်ပြောင်းလဲမှုများ ဤနေရာတွင် ပေါ်လာမည်။',
   'notifications.empty.title': 'အားလုံးပြီးသွားပါပြီ',
   'notifications.filter.${opt}': 'အကြောင်းကြားချက်များကို တင်နေသည်…',
+  'notifications.loading': 'အကြောင်းကြားချက်များကို တင်နေသည်…',
   'notifications.markAllError': 'အားလုံးကို ဖတ်ပြီးဟု မှတ်သား၍မရပါ။',
   'notifications.markError': 'ဖတ်ပြီးဟု မှတ်သား၍မရပါ။',
   'notifications.subtitle': '{{count}} မဖတ်ရသေးသော အပ်ဒိတ်များ',
+  'planUpdated.body':
+    'သင့်ငွေတောင်းခံမှု ပြောင်းလဲမှုသည် ယခု အသက်ဝင်နေပါပြီ။ သင့်အစီအစဉ်ကို ငွေတောင်းခံမှုစာမျက်နှာမှ မည်သည့်အချိန်တွင်မဆို စီမံနိုင်ပါသည်။',
+  'planUpdated.retry': 'ထပ်ကြိုးစားပါ',
+  'planUpdated.verifyFailed': 'သင့်ငွေပေးချေမှုကို ကျွန်ုပ်တို့ အတည်မပြုနိုင်သေးပါ။',
+  'planUpdated.verifyFailedBody':
+    'သင့်ငွေပေးချေမှုကို လုပ်ဆောင်နေဆဲဖြစ်နိုင်ပါသည်။ ခဏအကြာတွင် ထပ်မံကြိုးစားပါ။',
   'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'pricing.heading': 'ဉာဏ်စမ်းမေးခွန်းများ',
+  'pricing.limits.quizzes': 'quizzes',
   'pricing.limits.topics': 'ခေါင်းစဉ်များ',
   'privacy.collectBody':
     'အကောင့်အီးမေးလ်၊ သင်ဖန်တီးထားသော သင်တန်းများ၊ သင်ခန်းစာများ၊ မှတ်စုများနှင့် ဉာဏ်စမ်းပဟေဠိကြိုးစားမှုများနှင့် သင်၏တိုးတက်မှုဇယားများကို ပြသရန်အသုံးပြုသည့် စုစည်းထားသော လေ့လာရေးလှုပ်ရှားမှု။',
+  'privacy.intro':
+    '{{app}} သည် သင့်ကိုယ်ရေးကိုယ်တာလုံခြုံမှုကို လေးစားပါသည်။ ဤစာမျက်နှာတွင် ကျွန်ုပ်တို့ မည်သည့်အချက်အလက်များ စုဆောင်းသည်၊ အဘယ်ကြောင့် စုဆောင်းသည်၊ မည်သို့ ထိန်းချုပ်နိုင်သည်ကို ရှင်းပြထားပါသည်။',
   'privacy.shareBody':
     'AI ကျူရှင်ဆရာ မေးခွန်းများကို ကျွန်ုပ်တို့၏ LLM ဝန်ဆောင်မှုပေးသူထံ ထုတ်လုပ်ရန်အတွက် ပေးပို့ပါသည်။ ငွေပေးချေမှုများကို Stripe မှ စီမံဆောင်ရွက်ပါသည်။ အထောက်အထားစိစစ်ခြင်း အီးမေးလ်များကို Mailgun မှတစ်ဆင့် ပေးပို့ပါသည်။',
   'privacy.title': 'ကိုယ်ရေးအချက်အလက်မူဝါဒ',
@@ -146,6 +176,7 @@ export const ui: UiTranslations = {
   'profile.kpi.badges': 'ရရှိထားသော တံဆိပ်များ',
   'profile.kpi.hours': 'စုစုပေါင်းနာရီ',
   'profile.kpi.quizzes': 'စာမေးပွဲများဖြေဆိုပြီး',
+  'profile.kpi.subjects': 'လက်ရှိ ဘာသာရပ်များ',
   'profile.locked': 'သော့ခတ်ထားသည်',
   'profile.member': 'အဖွဲ့ဝင်အဖြစ် စတင်လုပ်ကိုင်ချိန် {{year}}',
   'profile.subtitle': 'သင့်ရဲ့ သင်ယူမှု လက္ခဏာရဲ့ လျှပ်တစ်ပြက်ပုံရိပ်။',
@@ -153,6 +184,7 @@ export const ui: UiTranslations = {
   'progress.chart.empty':
     'လေ့လာမှုလှုပ်ရှားမှု မရှိသေးပါ — သင်၏ပထမဆုံးအစည်းအဝေးကို ဤနေရာတွင် ပေါ်လာပါမည်။',
   'progress.chart.label': 'အပတ်စဉ် မိနစ်များ',
+  'progress.chart.peak': 'အမြင့်ဆုံး: {{peak}}မ',
   'progress.chart.title': 'သင့်ရဲ့ လေ့လာမှု မိနစ် — ၇ ရက်ကြာ',
   'progress.error': 'တိုးတက်မှုကို ဖွင့်၍မရပါ။',
   'progress.eyebrow': 'ထိုးထွင်းသိမြင်မှုများ',
@@ -160,6 +192,7 @@ export const ui: UiTranslations = {
   'progress.kpi.recall': 'ပြန်လည်သိမ်းဆည်းမှုနှုန်း',
   'progress.kpi.streak': 'အစင်းကြောင်း',
   'progress.kpi.streakValue': '{{count}} ရက်များ',
+  'progress.loading': 'တိုးတက်မှု ဖွင့်နေသည်…',
   'progress.overall': 'အလုံးစုံ',
   'progress.subjects': 'ဘာသာရပ်ခေတ်ရေစီးကြောင်းများ (ပြီးခဲ့သည့် ၃၀ ရက်)',
   'progress.subtitle': 'ဘယ်ကိုရောက်ဖူးလဲ၊ ဘာတွေပြန်သွားလည်ရမလဲ၊ နောက်ထပ်တောင်တစ်တောင်။',
@@ -170,6 +203,7 @@ export const ui: UiTranslations = {
   'quiz.endQuiz': 'ဉာဏ်စမ်းပဟေဠိကို အဆုံးသတ်ပါ',
   'quiz.error': 'ဉာဏ်စမ်းပဟေဠိကို ဖွင့်၍မရပါ။',
   'quiz.eyebrow': 'ဉာဏ်စမ်းပဟေဠိ',
+  'quiz.loading': 'ဉာဏ်စမ်းပဟေဠိကို တင်နေသည်…',
   'quiz.next': 'နောက်တစ်ခု →',
   'quiz.prev': 'ယခင်',
   'quiz.progress': 'မေးခွန်း {{current}} ၏ {{total}}',
@@ -181,8 +215,11 @@ export const ui: UiTranslations = {
   'quizResults.empty.body':
     'ဤနေရာတွင် သင့်ရမှတ်ခွဲခြမ်းစိတ်ဖြာမှုကိုကြည့်ရှုရန် ဤဉာဏ်စမ်းပဟေဠိကိုဖြေဆိုပါ။',
   'quizResults.empty.title': 'ကြိုးစားမှု မရှိသေးပါ',
+  'quizResults.encouragement':
+    'သင်လွဲချော်ခဲ့သော မေးခွန်းများအတွက် အောက်ပါ ရှင်းလင်းချက်များကို ပြန်လည်ကြည့်ပါ။',
   'quizResults.error': 'ဉာဏ်စမ်းပဟေဠိရလဒ်များကို တင်၍မရပါ။',
   'quizResults.eyebrow': 'ရလဒ်များ',
+  'quizResults.kpi.correct': 'မှန်သည်',
   'quizResults.kpi.incorrect': 'မမှန်ကန်ပါ',
   'quizResults.kpi.skipped': 'ကျော်သွားပါပြီ',
   'quizResults.loading': 'ရလဒ်များကို တင်နေသည်…',
@@ -193,9 +230,11 @@ export const ui: UiTranslations = {
   'quizResults.title': 'ဉာဏ်စမ်းပဟေဠိ ပြီးပါပြီ',
   'quizResults.your': 'သင့်အဖြေ:',
   'resetPassword.hidePassword': 'စကားဝှက်ကို ဝှက်ပါ',
+  'resetPassword.newPasswordLabel': 'စကားဝှက်အသစ်',
   'resetPassword.showPassword': 'စကားဝှက်ပြပါ',
   'resetPassword.subtitle': 'အမှတ်ရစရာတစ်ခု — ထူးခြားတဲ့အရာတစ်ခုကို ရွေးချယ်ပါ။',
   'reviewQueueCard.cardsWaiting': '{{count}} ကတ်များစောင့်ဆိုင်းနေသည်',
+  'reviewQueueCard.startReview': 'ပြန်လည်လေ့လာမှု စတင်ရန်',
   'search.empty.body': 'အခြား keyword သို့မဟုတ် filter တစ်ခုကို စမ်းကြည့်ပါ။',
   'search.empty.title': 'ဘာမှ ကိုက်ညီမှု မရှိဘူး။',
   'search.error': 'ရလဒ်များကို တင်၍မရပါ။',
@@ -219,12 +258,14 @@ export const ui: UiTranslations = {
   'settings.reminders.freezeHelp': 'သင့်ရဲ့ streak ကို သိမ်းဆည်းဖို့ freeze ကို အလိုအလျောက်သုံးပါ။',
   'settings.reminders.time': 'နေ့စဉ်သတိပေးချက်အချိန်',
   'settings.reminders.timeHelp': 'ဘယ်အချိန်မှာ တွန်းထိုးသင့်လဲ။',
+  'settings.reminders.weekend': 'စနေတနင်္ဂနွေ သက်ညှာမှု',
   'settings.reminders.weekendHelp': 'စနေနေ့နှင့် တနင်္ဂနွေနေ့တွင် နေ့စဉ်ရည်မှန်းချက် လျှော့ချပါ။',
   'settings.saveError': 'ဆက်တင်များကို သိမ်းဆည်း၍မရပါ။',
   'settings.subtitle':
     'အကောင်းဆုံးအာရုံစူးစိုက်မှုအတွက် သင့်လေ့လာမှုအတွေ့အကြုံကို စိတ်ကြိုက်ပြင်ဆင်ပါ။',
   'signup.fullNamePrompt': 'ကျွန်ုပ်တို့ သင့်ကို ဘယ်လို ဆက်ဆံသင့်ပါသလဲ။',
   'signup.heading': 'သင့်ရဲ့ လေ့လာရေးခရီးကို စတင်လိုက်ပါ',
+  'signup.hidePassword': 'စကားဝှက်ကို ဝှက်ပါ',
   'signup.showPassword': 'စကားဝှက်ပြပါ',
   'signup.subheading': 'ထာဝရအခမဲ့ — ခရက်ဒစ်ကတ် မလိုအပ်ပါ။',
   'streakBadge.days': '{{count}} နေ့စဉ် စီးရီး',
@@ -238,17 +279,23 @@ export const ui: UiTranslations = {
   'studySession.loading': 'လေ့လာရေးအစည်းအဝေးကို တင်နေသည်…',
   'studySession.markError': 'သုံးသပ်ပြီးဟု မှတ်သား၍မရပါ။',
   'studySession.markReviewed': 'မာ့ခ် သုံးသပ်ပြီးပါပြီ',
+  'studySession.masteryPct': '{{pct}}% ကျွမ်းကျင်ပြီး',
   'studySession.reviewed': 'ပြန်လည်သုံးသပ်ပြီး',
   'studySession.thinking': 'စဉ်းစားနေသည်…',
   'studySession.title': 'လေ့လာရေးအစည်းအဝေး',
   'studySession.tutor.label': 'ကျူရှင်ဆရာ',
   'studySession.tutor.name': 'AI ကျူရှင်ဆရာ',
   'studySession.tutor.status': 'လူနာ · ဆိုကရေးတီး · လိုက်လျောညီထွေဖြစ်အောင်ပြုလုပ်ခြင်း',
+  'studySession.welcomeGeneric':
+    'ကျွန်ုပ် ကူညီရန် ဤနေရာတွင် ရှိပါသည်။ ဤခေါင်းစဉ်နှင့်ပတ်သက်၍ မည်သည့်အရာမဆို မေးနိုင်ပါသည်။',
   'studySession.welcomeWithTopic':
     'ပြန်လည်ကြိုဆိုပါတယ် {{title}} ။ တစ်ခုခုမေးပါ၊ သို့မဟုတ် စတင်ရန် "ပြန်လည်အကျဉ်းချုပ်" ဟုပြောပါ။',
+  'subjectCard.cardCount': '{{count}} ကတ်များ',
   'subjectCard.mastery': 'ကျွမ်းကျင်ပိုင်နိုင်မှု',
   'terms.contentBody':
     'သင်ဖန်တီးထားသော သင်တန်းများ၊ သင်တန်းအစီအစဉ်များ၊ မှတ်စုများနှင့် ချတ်မက်ဆေ့ချ်များကို သင်ပိုင်ဆိုင်ကြောင်း ဆက်လက်ထိန်းသိမ်းထားပါသည်။ သင်ယူမှုအတွေ့အကြုံကို ပေးအပ်ရန်နှင့် သင့်ဒေတာကို လုံခြုံစွာထားရှိရန်အတွက်သာ ကျွန်ုပ်တို့သည် ၎င်းတို့ကို စီမံဆောင်ရွက်ပါသည်။',
+  'terms.intro':
+    '{{app}} တွင် အကောင့်ဖွင့်ခြင်းဖြင့် သင်သည် လေးစားစွာလေ့လာရန်၊ သင့်အကောင့် အထောက်အထားများကို လျှို့ဝှက်ထားရန်၊ နှင့် ပလက်ဖောင်းကို ကိုယ်ပိုင်သင်ယူမှုရည်ရွယ်ချက်အတွက် အသုံးပြုရန် သဘောတူပါသည်။',
   'terms.terminationBody':
     'သင့်အကောင့်ကို ဆက်တင်များမှ အချိန်မရွေး ဖျက်ပစ်နိုင်ပါသည်။ အကြောင်းကြားပြီးနောက် အလွဲသုံးစားပြုသည့်အကောင့်များကို ကျွန်ုပ်တို့ ရပ်ဆိုင်းနိုင်ပါသည်။ ရပ်စဲလိုက်သည်နှင့် သင့်လေ့လာမှုဒေတာကို ရက်ပေါင်းသုံးဆယ်အတွင်း ဖျက်ပစ်ပါသည်။',
   'terms.useBody':

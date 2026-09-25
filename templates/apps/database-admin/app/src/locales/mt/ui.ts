@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwar',
+  'about.featureConnections':
+    "Manager tal-konnessjonijiet li jaħżen b'mod sigur u jagħti kodiċi tal-kulur lill-bażijiet tad-dejta tiegħek — il-kredenzjali huma kriptati meta jkunu mistrieħa, qatt f'forma ċara.",
+  'about.featureMonitoring':
+    "Monitoraġġ f'ħin reali tal-prestazzjoni tal-mistoqsijiet u l-attività tal-bażi tad-dejta, bil-shortcuts tal-keyboard u l-command palette biex tmexxi kollox mingħajr idejn.",
+  'about.featurePlans':
+    "Pjanijiet li jikbru miegħek — B'xejn għax-xogħol solo, Pro u Team għal aktar konnessjonijiet, żamma tal-mistoqsijiet itwal, esportazzjonijiet, u karatteristiċi avvanzati.",
+  'about.featureQueryEditor':
+    "Editur SQL imħaddem minn Monaco b'istorja tal-mistoqsijiet, mistoqsijiet salvati, u esportazzjoni CSV b'klikk wieħed tar-riżultati tiegħek.",
+  'about.featureSchema':
+    'Esploratur tal-iskema u browser tat-tabelli biex tinnaviga l-bażijiet tad-dejta, it-tabelli, u l-kolonni, imbagħad tfittex, tiffiltra, u teditja r-ringieli inline.',
+  'about.missionTitle': 'Il-missjoni tagħna',
   'authShell.commands': 'Kmandi',
   'authShell.ssoSupported': 'SSO appoġġjat',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Mistoqsijiet',
   'connections.schema': 'Skema',
   'connections.subtitle': 'Immaniġġja l-konnessjonijiet tad-database tiegħek.',
+  'connections.test': 'Test',
   'databaseAdminLayout.adminRole': "Rwol ta' amministratur",
   'databaseAdminLayout.commandPalette': 'Paletta tal-kmandi',
   'databaseAdminLayout.commands': 'kmandi',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Konnessjoni ġdida',
   'databaseAdminLayout.queries': 'Mistoqsijiet',
   'databaseAdminLayout.ready': 'Lest',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Fittex kmandi, mistoqsijiet, tabelli…',
   'databaseAdminLayout.user': 'Utent',
   'editConnection.confirmDelete': 'Tħassar din il-konnessjoni?',
   'editConnection.deleteButton': 'Ħassar il-konnessjoni',
+  'editConnection.newPassword': 'Password ġdida (ħalli vojta biex iżżomm)',
   'editConnection.saved': 'Konnessjoni salvata.',
   'editConnection.title': 'Editja l-konnessjoni',
   'forgotPassword.success': "Jekk dak il-kont jeżisti, link ta' reset jinsab fi triqtu.",
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Suċċessi',
   'monitoring.title': 'Monitoraġġ',
   'monitoring.totalQueries': "Total ta' mistoqsijiet",
+  'nav.schema': 'Skema',
   'newConnection.database': 'Database',
   'newConnection.engine': 'Magna',
   'newConnection.host': 'Ospitanti',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': "L-ebda konnessjoni ma' dan is-snippet.",
   'savedQuery.notBound': 'Mhux marbut',
   'savedQuery.title': 'Mistoqsija ssejvjata',
+  'schema.columns': 'Kolonni',
   'schema.foreignKeys': 'Ċwievet barranin',
   'schema.indexes': 'Indiċijiet',
   'schemaExplorer.browseRows': 'Fittex ringieli',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'nullabbli',
   'schemaExplorer.colType': 'tip',
   'schemaExplorer.noColumns': 'L-ebda kolonni.',
+  'schemaExplorer.noForeignKeys': 'L-ebda foreign keys.',
   'schemaExplorer.noIndexes': 'L-ebda indiċi.',
   'schemaExplorer.noTables': 'L-ebda mejda',
   'schemaExplorer.pickATable': 'Agħżel tabella mill-menu tal-ġenb.',
   'schemaExplorer.tables': 'Tabelli',
   'schemaExplorer.title': 'Esploratur tal-iskema',
+  'settings.session': 'Sessjoni',
   'settings.subtitle': 'Immaniġġja l-kont u l-pjan tiegħek.',
   'signup.heading': 'Oħloq il-kont Quarry tiegħek',
   'signup.tagline': "Dawwar l-aċċess f'inqas minn minuta.",
   'tableBrowser.noRows': "Din it-tabella għad m'għandhiex ringieli.",
+  'tableBrowser.subtitle': 'Qed tinnaviga r-ringieli mill-bażi tad-dejta remota tiegħek.',
   'tableBrowser.title': 'Qed tfittex ringieli mid-database remota tiegħek.',
 }

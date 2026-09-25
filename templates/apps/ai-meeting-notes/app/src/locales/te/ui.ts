@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ప్రశ్నలు, అభిప్రాయం లేదా ఫీచర్ అభ్యర్థన ఉందా? hello@murmur.app కు టీమ్కు ఇమెయిల్ చేయండి — ప్రతి సందేశం ఉత్పత్తిపై పనిచేసే నిజమైన మనిషిని చేరుతుంది.',
   'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'మా గురించి',
+  'about.intro':
+    'నోట్స్ తీసుకోవడం కంటే నిర్ణయాలు తీసుకోవడానికి ఇష్టపడే టీమ్ల కోసం {{app}} మీటింగ్ ఇంటెలిజెన్స్. ఇది మీ కాల్లలో చేరి, ప్రతి మాటను స్పీకర్ లేబుల్లతో ట్రాన్స్క్రైబ్ చేస్తుంది, మీటింగ్ ముగిసిన వెంటనే AI సారాంశం మరియు బాధ్యతలతో కూడిన యాక్షన్ ఐటమ్లను అందిస్తుంది.',
+  'about.missionBody':
+    'మీటింగ్లు టీమ్లు నిర్ణయాలు తీసుకునే చోటు — అలాగే ఆ నిర్ణయాలు పోయే చోటు కూడా. సంభాషణలో జరిగే పని ఆ సంభాషణ కంటే ఎక్కువ కాలం నిలిచేలా చేయడానికే {{app}} ఉంది: నమ్మకమైన రికార్డు, స్పష్టమైన రీక్యాప్, మరియు జవాబుదారీతో కూడిన తదుపరి చర్యలు, ఆటోమేటిక్గా.',
+  'about.missionTitle': 'మా లక్ష్యం',
   'actions.empty': 'ఏ యాక్షన్ ఐటమ్స్ సరిపోలడం లేదు.',
   'actions.heading': 'కార్యాచరణ అంశాలు',
   'actions.loadError': 'యాక్షన్ ఐటమ్‌లను లోడ్ చేయడంలో విఫలమైంది.',
@@ -10,11 +17,14 @@ export const ui: UiTranslations = {
     'ప్రతి సమావేశం నుండి సేకరించబడింది. దృష్టి పెట్టడానికి స్థితి ప్రకారం ఫిల్టర్ చేయండి.',
   'actions.toggleDoneLabel': 'పూర్తయినట్లుగా గుర్తించండి',
   'actions.toggleReopenLabel': 'తెరిచి ఉన్నట్లుగా గుర్తించండి',
+  'auth.footer': '© {{year}} {{app}}. ప్రతి మాట, సారాంశంగా.',
   'calendar.heading': 'క్యాలెండర్',
   'calendar.joinCta': 'చేరండి',
   'calendar.loadError': 'క్యాలెండర్‌ను లోడ్ చేయడంలో విఫలమైంది.',
   'calendar.nextMonth': 'వచ్చే నెల',
   'calendar.noEventsForDay': 'ఈ రోజుకు ఎలాంటి సమావేశాలు షెడ్యూల్ చేయబడలేదు.',
+  'calendar.noUpcomingEvents':
+    'రాబోయే మీటింగ్లు లేవు. ఈ జాబితాను నింపడానికి Integrations నుండి క్యాలెండర్ను కనెక్ట్ చేయండి.',
   'calendar.previousMonth': 'గత నెల',
   'calendar.recent': 'ఇటీవలి',
   'common.daysAgo': '{{count}} డి క్రితం',
@@ -26,9 +36,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} కార్యాచరణ అంశాలు',
   'dashboard.empty.body':
     'రికార్డింగ్ ప్రారంభించండి లేదా గూగుల్ క్యాలెండర్‌ను కనెక్ట్ చేయండి, తద్వారా మర్మర్ మీ తదుపరి మీటింగ్‌లో ఆటోమేటిక్‌గా చేరుతుంది.',
+  'dashboard.empty.cta': 'రికార్డింగ్ ప్రారంభించండి',
   'dashboard.empty.heading': 'ఇంకా సమావేశాలు జరగలేదు',
   'dashboard.eyebrow': 'మీ సమావేశ ఫీడ్',
   'dashboard.loadError': 'డాష్‌బోర్డ్ లోడ్ చేయడంలో విఫలమైంది.',
+  'dashboard.noActions': 'యాక్షన్లు లేవు',
   'dashboard.recentHeading': 'ఇటీవలి సమావేశాలు',
   'dashboard.recordCta': 'రికార్డ్ సమావేశం',
   'dashboard.stat.actions': 'కార్యాచరణ అంశాలు',
@@ -38,6 +50,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} మీరు చివరిసారి చూసినప్పటి నుండి చదవని సారాంశాలు. మర్మర్ ప్రతి పదాన్ని సంగ్రహించింది — ఇదిగో పునఃసమీక్ష.',
   'dashboard.viewCalendar': 'క్యాలెండర్‌ను వీక్షించండి →',
+  'footer.linksLabel': 'ఫుటర్',
   'forgot.failed': 'రీసెట్ ఇమెయిల్ పంపలేకపోయాము.',
   'forgot.sentBody': 'ఖాతా ఉంటే {{email}} మీకు త్వరలో రీసెట్ లింక్ వస్తుంది.',
   'forgot.sentSubheading': 'రీసెట్ లింక్ కోసం మీ ఇన్‌బాక్స్‌ను తనిఖీ చేయండి.',
@@ -48,14 +61,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'మర్మర్ స్వయంచాలకంగా చేరడానికి క్యాలెండర్‌లు మరియు వీడియో ప్లాట్‌ఫారమ్‌లను అనుసంధానించండి.',
   'integrations.updateError': 'అప్‌డేట్ విఫలమైంది.',
+  'landing.ctaBody':
+    'ప్రతి నెల మొదటి 5 మీటింగ్లకు ఉచితం. క్రెడిట్ కార్డ్ అవసరం లేదు. ఒక నిమిషంలోపు Google Calendar ను కనెక్ట్ చేయండి.',
   'landing.ctaButton': 'ప్రారంభించండి — ఇది ఉచితం',
   'landing.ctaHeading': 'నోట్స్ తీసుకోవడం ఆపండి. నిర్ణయాలు తీసుకోవడం మొదలుపెట్టండి.',
+  'landing.demo.aiBody':
+    'ఆప్స్ స్టాఫింగ్కు చోటు ఇవ్వడానికి లాంచ్ మే 5 → మే 12 కు వాయిదా పడింది. డాష్బోర్డ్ రీడిజైన్ మే 26 కు వేరు చేయబడింది.',
   'landing.demo.aiLabel': 'AI సారాంశం, ప్రత్యక్షంగా రూపొందించబడింది',
   'landing.demo.recording': 'రికార్డింగ్ · ప్రత్యక్ష ప్రసారం',
   'landing.eyebrow': 'AI మరియు మేధస్సుల కలయిక',
   'landing.featuresHeading': 'సమావేశం ముగిసిన తర్వాత మీ బృందానికి అవసరమైనవన్నీ',
+  'landing.featuresSubheading':
+    'ఇక "అయ్యా, ఇది ఎవరి బాధ్యత?" అనే ప్రశ్న లేదు. కాల్ డిస్కనెక్ట్ అయ్యేలోపే {{appName}} రీక్యాప్ను పంపుతుంది.',
   'landing.getStarted': 'ఉచితంగా ప్రయత్నించండి',
   'landing.heroSecondary': '90-సెకన్ల పర్యటనను చూడండి',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} మీ కాల్లలో చేరి, ప్రతి మాటను స్పీకర్ లేబుల్లతో ట్రాన్స్క్రైబ్ చేస్తుంది, మీటింగ్ ముగిసిన వెంటనే AI సారాంశాలు మరియు బాధ్యతలతో కూడిన యాక్షన్ ఐటమ్లను అందిస్తుంది.',
   'landing.heroTitle': 'ప్రతి సమావేశాన్ని నమోదు చేయండి. ముఖ్యమైన విషయాలను వెలికితీయండి.',
   'login.altPrompt': 'మర్మర్‌కు కొత్తగా వచ్చారా?',
   'login.failed': 'లాగిన్ కాలేకపోయారు. మీ ఇమెయిల్ మరియు పాస్‌వర్డ్‌ను సరిచూసుకోండి.',
@@ -63,6 +84,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'కార్యాచరణ అంశాలు',
   'meetingDetail.back': 'అన్ని సమావేశాలు',
   'meetingDetail.decisionsHeading': 'నిర్ణయాలు',
+  'meetingDetail.dueDate': 'గడువు {{date}}',
   'meetingDetail.followupsHeading': 'తదుపరి చర్యలు',
   'meetingDetail.loadError': 'సమావేశాన్ని లోడ్ చేయడంలో విఫలమైంది.',
   'meetingDetail.noActions': 'చర్య అంశాలు ఏవీ కనుగొనబడలేదు.',
@@ -76,7 +98,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'ఇంకా సమావేశాలు జరగలేదు',
   'meetings.heading': 'సమావేశాలు',
   'meetings.loadError': 'సమావేశాలను లోడ్ చేయడంలో విఫలమైంది.',
+  'meetings.recordCta': 'రికార్డ్ సమావేశం',
   'meetings.subheading': 'రికార్డ్ చేయబడిన, అప్‌లోడ్ చేయబడిన మరియు సింక్ చేయబడిన ప్రతి సమావేశం.',
+  'murmurLayout.closeMenu': 'నావిగేషన్ మెనూను మూసివేయండి',
   'murmurLayout.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'murmurLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
   'nav.legal': 'చట్టపరమైన',
@@ -101,7 +125,13 @@ export const ui: UiTranslations = {
   'profile.loading': 'లోడ్ అవుతోంది…',
   'profile.navLabel': 'ప్రొఫైల్ విభాగాలు',
   'profile.notifications.assignments': 'నాకు కేటాయించిన కార్యాచరణ అంశాలు',
+  'profile.notifications.assignmentsHint': 'మీ కోసం ఒక యాక్షన్ ఐటమ్ నమోదైనప్పుడు తెలియజేయండి.',
+  'profile.notifications.mentions': 'ట్రాన్స్క్రిప్ట్లలో ప్రస్తావనలు',
+  'profile.notifications.mentionsHint': 'ఎవరైనా మిమ్మల్ని @-మెన్షన్ చేసినప్పుడు ఇమెయిల్ + పుష్.',
+  'profile.notifications.subheading': 'ఏ {{appName}} ఈవెంట్లు మీకు చేరాలో ఎంచుకోండి.',
   'profile.notifications.summaries': 'వారపు సారాంశం',
+  'profile.notifications.summariesHint': 'గత వారంలోని ప్రతి మీటింగ్ యొక్క సోమవారం రీక్యాప్.',
+  'profile.preferences.speakerColor': 'డిఫాల్ట్ స్పీకర్ రంగు',
   'profile.preferences.subheading': 'మీరు చేరే ప్రతి రికార్డింగ్‌కు వర్తించే డిఫాల్ట్‌లు.',
   'profile.preferences.timezone': 'సమయ మండలం',
   'profile.preferences.title': 'ఉద్యోగ శీర్షిక',
@@ -113,17 +143,22 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'మీ బ్రౌజర్ రికార్డింగ్‌కు మద్దతు ఇవ్వదు. Chrome, Edge, లేదా Safariని ప్రయత్నించండి.',
   'record.error.upload': 'అప్‌లోడ్ విఫలమైంది. మళ్ళీ ప్రయత్నించండి.',
+  'record.errorLabel': 'ఏదో తప్పు జరిగింది',
   'record.heading': 'రికార్డ్',
   'record.idleLabel': 'రికార్డింగ్ ప్రారంభించడానికి నొక్కండి',
   'record.processingLabel': 'విస్పర్‌తో లిప్యంతరీకరణ, క్లాడ్‌తో సారాంశం…',
+  'record.recordingLabel': 'రికార్డ్ చేస్తోంది…',
   'record.retryCta': 'మళ్ళీ ప్రయత్నించండి',
   'record.subheading':
     'ప్రారంభించడానికి మైక్‌ను నొక్కండి. మర్మర్ ఆడియోను సంగ్రహించి, విస్పర్ ద్వారా లిప్యంతరీకరణ చేసి, క్లాడ్ సహాయంతో సారాంశాన్ని రాస్తుంది.',
+  'record.titlePlaceholder': 'మీటింగ్ శీర్షిక (ఐచ్ఛికం)',
+  'reset.altPrompt': 'మనసు మార్చుకున్నారా?',
   'reset.hint': 'అక్షరాలు మరియు సంఖ్యల మిశ్రమంతో కనీసం 8 అక్షరాలను ఉపయోగించండి.',
   'reset.missingToken':
     'రీసెట్ లింక్ కనిపించడం లేదు లేదా గడువు ముగిసింది. కొత్త దాని కోసం అభ్యర్థించండి.',
   'reset.newPassword': 'కొత్త పాస్‌వర్డ్',
   'reset.subheading': 'మీరు మరెక్కడా ఉపయోగించని పాస్‌వర్డ్‌ను ఎంచుకోండి.',
+  'reset.tooShort': 'పాస్‌వర్డ్ కనీసం 8 అక్షరాల పొడవు ఉండాలి.',
   'search.empty': 'ట్రాన్స్క్రిప్ట్‌లను శోధించడానికి టైప్ చేయండి.',
   'search.loadError': 'శోధన విఫలమైంది. మళ్ళీ ప్రయత్నించండి.',
   'search.noResults': 'ఫలితాలు లేవు {{q}} ”',
@@ -139,7 +174,10 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'ఆడియోను ఉంచండి',
   'settings.retention.heading': 'నిలుపుదల',
   'settings.retention.transcript': 'ట్రాన్స్క్రిప్ట్‌లను ఉంచండి',
+  'settings.revokeDeviceWarning':
+    'ఈ పరికరం యొక్క యాక్సెస్ త్వరలో రద్దు చేయబడుతుంది. సైన్ అవుట్ చేయాలా?',
   'settings.saveError': 'సేవ్ విఫలమైంది.',
+  'settings.security.subheading': 'సైన్ ఇన్ చేయడానికి మీరు ఉపయోగించే పాస్వర్డ్ను అప్డేట్ చేయండి.',
   'settings.sharing.exportFormat': 'ఎగుమతి ఫార్మాట్',
   'settings.sharing.heading': 'డిఫాల్ట్‌లను పంచుకోవడం',
   'settings.sharing.scope': 'డిఫాల్ట్ షేర్ స్కోప్',
@@ -157,6 +195,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'సహచరుడిని ఆహ్వానించండి',
   'team.invitedAs': 'ఆహ్వానించబడినట్లుగా {{role}}',
   'team.inviteFailed': 'ఆహ్వానాన్ని పంపలేకపోయాము.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'ఆహ్వానం పంపండి',
   'team.inviteSubtitle': 'వారికి చేరడానికి ఒక లింక్‌తో కూడిన ఇమెయిల్ వస్తుంది.',
   'team.inviteTitle': 'సహచరుడిని ఆహ్వానించండి',

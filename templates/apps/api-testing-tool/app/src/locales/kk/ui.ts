@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Қате таптыңыз ба, мүмкіндік сұрағыңыз бар ма, әлде келесіде нені жасауымызды айтқыңыз келе ме? hello@pylon.dev мекенжайына жазыңыз — әрбір хабарлама командадағы нақты инженерге жетеді.',
   'about.contactTitle': 'Бізбен байланысыңыз',
+  'about.intro':
+    '{{app}} — терминалда өмір сүретін инженерлерге арналған жылдам, пернетақтаға бейімделген API тестілеу құралы: Postman стиліндегі сұраныстар, коллекциялар, орталар және тарих, артық салмақсыз.',
+  'about.missionBody':
+    'API — заманауи бағдарламалық жасақтаманың тірегі, бірақ оларды сынау құралдары баяу, ауыр және тінтуірге тәуелді. {{app}} әзірлеушілерге өткір, жылдам, терминал деңгейіндегі құрал беру үшін бар: сұраныстар жіберіңіз, сенімділік қалыптастырыңыз және пернетақтадан кетпей-ақ шығарыңыз.',
+  'about.missionTitle': 'Біздің миссиямыз',
   'about.pageTitle': '{{app}} туралы',
   'authShell.statusLabel': 'онлайн жүгірушілер',
   'collections.createError': 'Жинақ жасалмады.',
   'collections.defaultName': 'Атауы жоқ жинақ {{n}}',
+  'collections.empty':
+    'Әзірге коллекциялар жоқ — алғашқы қалтаңызды жасау үшін «Жаңа коллекция» түймесін басыңыз.',
   'collections.eyebrow': '$ пилон коллекциялары --tree',
   'collections.fetchError': 'Жинақтар жүктелмеді.',
   'collections.heading': 'Жинақтар',
   'collections.loading': 'Жинақтар жүктелуде…',
+  'collections.metric.allGreen': 'Барлығы жасыл',
   'collections.metric.collections': 'Жинақтар',
   'collections.metric.failing': 'Сәтсіздік',
   'collections.metric.failingCaption': 'Соңғы жарыс сәтсіз аяқталды',
@@ -24,6 +34,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Айнымалылар',
   'environments.createError': 'Ортаны жасау мүмкін болмады.',
   'environments.defaultName': 'Атауы жоқ орта {{n}}',
+  'environments.empty': 'Әзірге орталар жоқ — қосу үшін «Жаңа орта» түймесін басыңыз.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'Орталарды жүктеу мүмкін болмады.',
   'environments.heading': 'Орталар',
@@ -31,8 +42,11 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Жаңа орта',
   'environments.subheading':
     'Жіберу уақытында сұраныстарға ауысатын айнымалылар. Әр жұмыс кеңістігіне бір белсенді орта.',
+  'forgotPassword.statusLabel': 'қалпына келтіру · қауіпсіз туннель',
   'forgotPassword.success':
     'Егер сол электрондық пошта үшін тіркелгі болса, қалпына келтіру сілтемесі жолда. Кіріс жәшігіңіздегі поштаны тексеріңіз.',
+  'history.empty':
+    'Мұнда әзірге ештеңе жоқ — алғашқы сұранысыңызды Жұмыс кеңістігі қойындысынан жіберіңіз.',
   'history.eyebrow': '$ пилон тарихы --tail',
   'history.fetchError': 'Тарих жүктелмеді.',
   'history.heading': 'Іске қосу тарихы',
@@ -41,9 +55,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Соңғы 50',
+  'history.realtime': 'нақты уақыт',
   'history.subheading':
     'Әрбір сұраныс осы жұмыс кеңістігінде күйі, кідірісі және пайдалы жүктеме өлшемі көрсетіліп іске қосылды.',
   'landing.choosePlan': 'Жоспарды таңдаңыз',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Сенімділік қалыптастырыңыз.',
   'landing.ctaBody':
     'Несие картасы қажет емес. Платформа инженері қажет емес. ⌘K ашып, алғашқы сұранысыңызды бес минут ішінде жіберіңіз.',
   'landing.ctaHeading': 'Сенімділікті нығайтыңыз.',
@@ -85,6 +101,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Орташа кідіріс',
   'mocks.metric.live': 'Қоғамдық',
   'mocks.metric.servers': 'Жалған сөздер',
+  'mocks.ms': 'Ханым',
   'mocks.newMock': 'Жаңа макет',
   'mocks.online': 'Қоғамдық',
   'mocks.paused': 'Жеке',
@@ -109,9 +126,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Денсаулыққа пайдалы',
   'monitors.metric.uptime': 'Орташа жұмыс уақыты',
   'monitors.newMonitor': 'Жаңа монитор',
+  'monitors.paused': 'кідіртілді',
   'monitors.run': 'Жүгіру',
   'monitors.runError': 'Желілік қатемен аяқталды: {{error}}',
+  'monitors.runFailed': 'Іске қосу сәтсіз аяқталды.',
   'monitors.running': 'Жүгіруде…',
+  'monitors.runSuccess': '{{status}} іске қосылды — жоғары ағын {{ms}}мс ішінде {{code}} қайтарды.',
   'monitors.sparkLabel': 'Кідіріс үрдісі',
   'monitors.subheading':
     'Сақталған кез келген тестті сұраныс бойынша тексереді. Тестті байланыстырыңыз, «Іске қосу» түймесін басыңыз және әрбір өрт кезінде 24 сағаттық сәттілік көрсеткішінің жаңартылуын көріңіз.',
@@ -120,27 +140,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Жұмыс уақыты · 24 сағат',
   'nav.legal': 'Заңды',
   'notFound.backToWorkspace': 'Жұмыс орнына оралу',
+  'notFound.body':
+    '{{app}} осы URL үшін сұраныс жіберді, бірақ жауап қайтпады. Маршрутты қайта тексеріңіз немесе жұмыс кеңістігіне оралыңыз.',
   'notFound.eyebrow': '$ пилон шешімі --strict',
   'notFound.title': 'Бағыт табылмады',
+  'planUpdated.body':
+    'Төлем өзгерісіңіз енді белсенді. Жоспарыңызды төлем бетінен кез келген уақытта басқара аласыз.',
+  'planUpdated.retry': 'Қайталап көріңіз',
+  'planUpdated.verifyFailed': 'Төлеміңізді әзірге растай алмадық.',
+  'planUpdated.verifyFailedBody':
+    'Төлеміңіз әлі өңделуде болуы мүмкін. Біраздан кейін қайталап көріңіз.',
   'planUpdated.verifying': 'Төлеміңіз расталуда…',
+  'pricing.advancedFeatures': 'Кеңейтілген мүмкіндіктер: {{yes}}',
+  'pricing.canExport': 'Деректерді экспорттау: {{yes}}',
+  'pricing.heading': '{{app}} жоспарын таңдаңыз',
+  'pricing.maxCollections': '{{count}} коллекция',
+  'pricing.maxEnvironments': '{{count}} орта',
+  'pricing.maxHistory': '{{count}} тарих жазбасы',
+  'pricing.maxRequests': '{{count}} сұраныстар',
   'privacy.collect.account':
     'Тіркелгі: электрондық поштаңыз, хэштелген құпия сөзіңіз, көрсетілетін атыңыз және соңғы кіру уақытыңыздың белгісі.',
+  'privacy.intro':
+    '{{app}} құпиялылығыңызды құрметтейді. Бұл бет біз жинайтын деректерді, оларды не үшін жинайтынымызды және оларды қалай жоюға болатынын қысқаша сипаттайды.',
   'privacy.rights.body':
     'Сіз кез келген уақытта жинақтарыңызды + орталарыңызды экспорттай аласыз немесе 30 күн ішінде барлық деректерді біржола жою үшін тіркелгіңізді Параметрлерден жоя аласыз.',
   'privacy.share.body':
     'Тек сіз. Біз сіздің жұмыс кеңістігіңіздің мазмұнын ешқашан үшінші тараптарға сатпаймыз, бөліспейміз немесе жалға бермейміз. Сервер журналдары оқиғаға жауап беру үшін 30 күн бойы сақталады, содан кейін жойылады.',
   'privacy.title': 'Құпиялылық туралы ескерту',
+  'profile.bio':
+    'Жеке {{app}} жұмыс кеңістігіңіз — коллекцияларды бекітіңіз, орталармен бөлісіңіз және өнім шығаратын API-лерді бақылаңыз.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'қосылды {{when}}',
+  'profile.metric.collections': 'Жинақтар',
   'profile.metric.monitors': 'Мониторлар',
   'profile.metric.requests': 'Сақталған сұраулар',
+  'profile.noActivity':
+    'Әзірге ешбір сұраныс жіберілмеді — жасау үшін Жұмыс кеңістігі қойындысына өтіңіз.',
   'profile.signedOut': 'Профиліңізді көру үшін жүйеге кіріңіз',
   'pylonShell.primaryNavLabel': 'Негізгі навигация',
+  'resetPassword.passwordLabel': 'Жаңа құпия сөз',
+  'resetPassword.statusLabel': 'қалпына келтіру · токен тексерілді',
   'resetPassword.subtitle': 'Бұрын қолданбаған күшті құпия сөзді таңдаңыз.',
   'resetPassword.tokenPlaceholder': 'электрондық поштадан қою',
+  'settings.accountManagement.desc':
+    'Электрондық поштаңыз бен құпия сөзіңізді жаңартыңыз, хабарламалар мен құрылғыларды басқарыңыз, шығыңыз немесе тіркелгіңізді жойыңыз.',
+  'settings.accountManagement.title': 'Тіркелгі және қауіпсіздік',
   'settings.eyebrow': '$ pylon параметрлері --edit',
   'settings.fetchError': 'Параметрлерді жүктеу мүмкін болмады.',
   'settings.language.title': 'Тіл',
+  'settings.seeding': 'Деректер дайындалуда…',
   'settings.seedStarter': 'Тұқым бастаушысының құрамы',
   'settings.starterCollection': 'Бастапқы жинақ',
   'settings.starterCollectionDesc': 'Параметрлерден жасалған {{ts}}',
@@ -154,6 +202,8 @@ export const ui: UiTranslations = {
     'Құпия сөзіңізді қорғауға сіз жауаптысыз. Тегін немесе Pro жоспарларында бір тіркелгіні бірнеше адаммен ортақ пайдалануға рұқсат етілмейді — ортақ жұмыс кеңістіктері үшін Team жазылымын сатып алыңыз.',
   'terms.billing.body':
     'Ақылы жазылымдар әрбір төлем кезеңінде автоматты түрде жаңартылады. Кез келген уақытта Параметрлерден бас тартуға болады; сіздің кіру мүмкіндігіңіз ағымдағы кезеңнің соңына дейін жалғасады.',
+  'terms.intro':
+    '{{app}} тіркелгісін жасау арқылы сіз төмендегі шарттармен келісесіз. Оларды бір рет оқыңыз; біз сізді кейінге қалдырылған өзгерістермен таңқалдырмаймыз.',
   'terms.title': 'Қызмет көрсету шарттары',
   'terms.usage.body':
     'Pylon қызметін сізге тиесілі емес немесе тексеруге нақты рұқсаты жоқ қызметтерге сұраныс жіберу үшін пайдаланбаңыз. Pylon қызметін тариф шектеулерін айналып өту немесе алаяқтық жасау үшін пайдаланбаңыз.',
@@ -174,16 +224,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Іске қосылмаған',
   'testRunner.metric.passed': 'Өтті',
   'testRunner.never': 'Ешқашан іске қосылма',
+  'testRunner.newTest': 'Жаңа тест',
   'testRunner.noAssertions': 'Бұл сынақ бойынша әлі ешқандай мәлімдеме жоқ.',
+  'testRunner.noRunsYet':
+    'Әзірге ешбір іске қосу жазылмаған — тарихты толтыру үшін «Барлығын іске қосу» түймесін басыңыз.',
   'testRunner.passed': 'өту',
+  'testRunner.recentRuns': 'Соңғы жүгірістер',
   'testRunner.runAll': 'Барлығын іске қосыңыз',
   'testRunner.running': 'Жүгіруде…',
   'testRunner.runOne': 'Жүгіру',
   'testRunner.subheading': 'Suite нәтижелері, бекіту айырмашылықтары және соңғы 50 іске қосу.',
+  'testRunner.suites': 'Жинақтар',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Кірген пайдаланушы:',
   'workspace.auth.keyName': 'Тақырып атауы',
   'workspace.auth.keyValue': 'Кілт мәні',
+  'workspace.auth.noneHint': 'Бұл сұраныспен бірге авторизация тақырыбы жіберілмейді.',
   'workspace.auth.password': 'Құпия сөз',
   'workspace.auth.username': 'Пайдаланушы аты',
   'workspace.authOption.apikey': 'API кілті',
@@ -193,13 +249,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Түрі',
   'workspace.authTypeLabel': 'Авторизация түрі',
+  'workspace.body.contentLabel': 'Сұраныстың негізгі бөлігі',
+  'workspace.body.hint':
+    '{{envVars}} сұраныс жіберілмес бұрын ауыстырылады. Денелер POST/PUT/PATCH/DELETE кезінде жіберіледі.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Жоқ',
+  'workspace.body.noneHint':
+    'Ешбір сұраныс денесі жіберілмейді. Қосу үшін JSON немесе шикі мәтінді таңдаңыз.',
   'workspace.body.text': 'Шикі мәтін',
   'workspace.body.type': 'Түрі',
   'workspace.environment': 'Конверт жоқ',
   'workspace.envVar': 'қоршаған орта айнымалысы',
   'workspace.eyebrow': '$ pylon жұмыс кеңістігі --pane split',
+  'workspace.failedCount': '{{count}} сәтсіз аяқталды',
+  'workspace.idle': 'Бос режимде',
   'workspace.kv.addHeader': 'Тақырып қосу',
   'workspace.kv.addParam': 'Параметр қосу',
   'workspace.kv.headerKey': 'Тақырып атауы',
@@ -212,12 +275,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP әдісі',
   'workspace.metric.latency': 'Кідіріс',
   'workspace.metric.latencyCaption': 'Осы жүгірістен кейін екі жаққа сапар',
+  'workspace.metric.size': 'Пайдалы жүктеме',
   'workspace.metric.sizeCaption': 'Жауап денесінің байттары',
   'workspace.metric.statusCaption': 'Соңғы жауап',
   'workspace.metric.tests': 'Тесттер',
+  'workspace.metric.testsAllPassing': 'Барлық тексерулер жасыл',
   'workspace.metric.testsFailing': '{{count}} сәтсіздікке ұшырады',
+  'workspace.metric.testsIdle': 'Бағалау үшін сұраныс жіберіңіз',
   'workspace.noAssertions': 'Кірістірілген тұжырымдарды бағалау үшін сұранысты іске қосыңыз.',
   'workspace.noResponseYet': 'Әлі жауап жоқ',
+  'workspace.passedCount': '{{count}} өтті',
   'workspace.responseHint': '// Сұранысты іске қосу және жауапты алу үшін Жіберу түймесін басыңыз.',
   'workspace.saveError': 'Сұрау сақталмады.',
   'workspace.statusError': 'Сұрау жіберілмеді.',
@@ -226,10 +293,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Сұрау жазыңыз, оны орындаңыз, содан кейін жауапты растаңыз — барлығы бір панельде.',
   'workspace.testResults': 'Тест нәтижелері',
+  'workspace.tests.autoHint':
+    'Күй тобы, кідіріс, дене өлшемі және тасымалдау денсаулығы автоматты түрде тексеріледі — нәтижелер жауап панеліндегі «Тест нәтижелері» бөлімінде көрсетіледі.',
+  'workspace.tests.autoTitle': 'Кірістірілген тексерулер әрбір жауапта орындалады',
   'workspace.token': 'Токен',
   'workspace.tokenHint':
     'Авторизация ретінде жіберілді: Тасымалдаушы<token> осы жинақтағы әрбір сұраныс бойынша.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Атауы жоқ сұрау',
+  'workspace.urlLabel': 'Сұрау URL мекенжайы',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

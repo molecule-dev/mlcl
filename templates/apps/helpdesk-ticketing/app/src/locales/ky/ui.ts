@@ -1,9 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '{{app}} тууралуу суроолоруңуз, пикириңиз барбы же демо көргүңүз келеби? hello@{{app}}.example дарегине жазыңыз же иш мейкиндигиңизден билет ачыңыз — ар бир билдирүү командадагы чыныгы адамга жетет.',
   'about.contactTitle': 'Байланышка чыгыңыз',
   'about.eyebrow': 'Жөнүндө',
+  'about.intro':
+    '{{app}} — колдоо көрсөтүү командалары үчүн helpdesk жана билеттерди башкаруу платформасы — электрондук кат, чат жана форма аркылуу келген сурамдарды тартипке салынган билеттерге айландырып, командаңыз маселелерди тезирээк чечип, кардарларды ыраазы кылат.',
+  'about.missionBody':
+    'Мыкты колдоо — тез жооп берүү, эч бир сурамды таштап кетпөө жана ар бир сүйлөшүүдөн сабак алуу. {{app}} билеттерди, SLAларды, билим базасын жана автоматташтырууну бир жерге чогултат, ошондуктан колдоо өлчөнүүчү, туруктуу жана адамгерчиликтүү болот — операторлоруңуз үчүн да, кардарларыңыз үчүн да.',
+  'about.missionTitle': 'Биздин миссиябыз',
   'about.title': '{{app}} жөнүндө',
+  'about.whatYouGet': 'Эмне аласыз',
   'activeAgentsCard.agent1AvatarAlt':
     'Заманбап кеңседе жылмаюу менен жылмайган аял колдоо агентинин кесипкөй сүрөтү',
   'activeAgentsCard.agent2AvatarAlt':
@@ -11,15 +19,19 @@ export const ui: UiTranslations = {
   'activeAgentsCard.agent3AvatarAlt':
     'Жумуш ордундагы жөнөкөй чөйрөдө көңүл топтогон жаш жигиттин портрети',
   'activeAgentsCard.agentName': '{{name}}',
+  'activeAgentsCard.ticketsHandled': '{{count}} билет иштетилди',
   'activeAgentsCard.title': 'Активдүү агенттер',
+  'agentPerformanceTable.columnAvgTime': 'Орточо убакыт',
   'agentPerformanceTable.columnSatisfactionRating': 'Канааттануу рейтинги',
   'agentPerformanceTable.columnTicketsResolved': 'Билеттер чечилди',
+  'agentPerformanceTable.empty': 'Издөөңүзгө ылайыктуу агент жок.',
   'agentPerformanceTable.searchPlaceholder': 'Издөө агенттери...',
   'agentPerformanceTable.title': 'Агенттин иштеши',
   'app.name': 'Зенит',
   'app.tagline': 'Колдоо кызматы',
   'common.appName': 'Зенит колдоо кызматы',
   'common.avatar': 'Аватар',
+  'common.copyright': '© {{year}} {{appName}} Колдоо',
   'common.days.fri': 'Fri',
   'common.days.mon': 'Mon',
   'common.days.sat': 'Sat',
@@ -55,29 +67,51 @@ export const ui: UiTranslations = {
   'dashboardKpiRow.openTrend': '{{change}} %',
   'dashboardKpiRow.ratingMax': '/ {{max}}',
   'dashboardKpiRow.resolutionRateValue': '{{rate}} %',
+  'dashboardKpiRow.responseTimeValue': '{{value}} ч',
   'dashboardKpiRow.responseTrend': '{{change}} ч',
   'dashboardKpiRow.satisfactionTrend': '{{change}}',
+  'dashboardKpiRow.satisfactionValue': '{{value}}',
+  'dashboardKpiRow.slaCompliance': 'SLA шайкештиги',
   'dashboardKpiRow.slaTrend': '{{change}} %',
+  'demo.actionNotWired': 'Бул демо көрүнүштө жеткиликсиз.',
+  'demoTicket.article.billingExcerpt':
+    'Эсептешүү администраторлору үчүн ролдор, укуктар жана аудит журналдары.',
+  'demoTicket.article.billingTitle': 'Эсептешүү порталына кирүүнү башкаруу',
+  'demoTicket.article.loginExcerpt':
+    'Сессияларды баштапкы абалга келтирүү, кэшти тазалоо жана SSO метаберилиштерин текшерүү.',
   'demoTicket.article.loginTitle': 'Кирүү көйгөйлөрүн чечүү',
   'demoTicket.plan.enterprise': 'Ишкана',
+  'demoTicket.team.billing': 'Эсептешүү колдоосу',
+  'demoTicket.thread.agent':
+    'Салам, аккаунтуңуз коопсуздук текшерүүсү үчүн белгиленгенин көрүп турам. Белгини алып салдым — кайра кирүүгө аракет кылыңыз.',
   'demoTicket.thread.customer':
     'Кечээ сырсөзүмдү кайра койдум, эми эсеп-фактура порталына кире албай жатам. Жардам бере аласызбы?',
+  'demoTicket.thread.system': 'Билет Эсептешүү командасына жогорулатылды',
+  'demoTicket.thread.systemAuthor': 'Система',
   'floatingHelp.contactSupport': 'Колдоо кызматына кайрылыңыз',
+  'footer.copyright': '© {{year}} {{appName}} Колдоо',
   'forgotPassword.error':
     'Баштапкы абалга келтирүү электрондук каты жөнөтүлгөн жок. Кайра аракет кылып көрүңүз.',
   'forgotPassword.rememberPassword': 'Сырсөзүңүздү эстейсизби?',
   'forgotPassword.subheading':
     'Электрондук почтаңызды киргизиңиз, биз сизге сырсөзүңүздү калыбына келтирүү үчүн шилтеме жөнөтөбүз.',
+  'forgotPassword.successMessage':
+    'Баштапкы абалга келтирүү шилтемеси үчүн электрондук почтаңызды текшериңиз.',
   'knowledgeArticleItem.daysAgo': '{{count}} күн мурун',
   'knowledgeArticleItem.defaultCategory': 'генерал',
+  'knowledgeArticleItem.hoursAgo': '{{count}} саат мурун',
   'knowledgeArticleItem.minutesAgo': '{{count}} м мурун',
   'knowledgeArticleItem.noViews': '—',
+  'knowledgeArticleItem.viewCountCompact': '{{count}}к',
   'knowledgeArticleItem.viewsLabel': 'Көрүүлөр',
   'knowledgeBase.loadError': 'Макалалар жүктөлбөй калды',
   'knowledgeBase.noResults': 'Эч кандай макала табылган жок.',
+  'knowledgeBaseNew.bodyLabel': 'Макаланын негизги бөлүгү (Markdown)',
   'knowledgeBaseNew.bodyPlaceholder': '1-кадам — жөндөөлөргө өтүңүз...',
   'knowledgeBaseNew.categoryLabel': 'Категория (милдеттүү эмес)',
+  'knowledgeBaseNew.categoryPlaceholder': 'getting-started, account-billing, troubleshooting',
   'knowledgeBaseNew.error': 'Макала түзүлбөй койду. Кайра аракет кылыңыз.',
+  'knowledgeBaseNew.statusDraft': 'Каралама — мага гана көрүнөт',
   'knowledgeBaseNew.statusPublished': 'Жарыяланган — жардам борборунда көрүнөт',
   'knowledgeBaseNew.submit': 'Макаланы жарыялоо',
   'knowledgeBaseNew.subtitle':
@@ -87,14 +121,24 @@ export const ui: UiTranslations = {
   'knowledgeCategoriesHeader.eyebrow': 'Тема боюнча карап чыгуу',
   'knowledgeCategoriesHeader.heading': 'Жардам категориялары',
   'knowledgeCategoriesHeader.viewAll': 'Бардык категорияларды көрүү',
+  'knowledgeCategoryCard.accountBillingDescription':
+    'Пландар, эсеп-фактуралар, төлөм ыкмалары жана жазылуу өзгөртүүлөрү.',
   'knowledgeCategoryCard.accountBillingTitle': 'Аккаунт жана эсептешүү',
+  'knowledgeCategoryCard.apiIntegrationsDescription':
+    'Webhooks, аутентификация, чектөөлөр жана SDK шилтемелери.',
   'knowledgeCategoryCard.apiIntegrationsTitle': 'API жана интеграциялар',
   'knowledgeCategoryCard.articleCount': '{{count}} Макалалар',
   'knowledgeCategoryCard.description':
     'Zenith менен жаңы таанышып жатасызбы? Негизги нерселерди үйрөнүп, колдоо чөйрөңүздү бир нече мүнөттүн ичинде орнотуңуз.',
   'knowledgeCategoryCard.title': 'Баштоо',
+  'knowledgeCategoryCard.troubleshootingDescription':
+    'Каталарды, иштебей калууларды жана интеграциядагы кеңири таралган көйгөйлөрдү диагностикалоо.',
+  'knowledgeCategoryCard.troubleshootingTitle': 'Көйгөйлөрдү чечүү',
   'knowledgeHeroSearch.heading': 'Бүгүн сизге кантип жардам бере алабыз?',
+  'knowledgeHeroSearch.searchPlaceholder':
+    'Макалаларды, колдонмолорду же көйгөйлөрдү чечүү боюнча кеңештерди издөө...',
   'knowledgeRecentArticlesHeader.title': 'Акыркы макалалар',
+  'knowledgeRecentArticlesHeader.updatedFilter': 'Жакында жаңыртылды',
   'knowledgeTopNavBar.articles': 'Макалалар',
   'knowledgeTopNavBar.createArticle': 'Макала түзүү',
   'knowledgeTopNavBar.profileAndAccount': 'Профиль жана аккаунт',
@@ -106,6 +150,7 @@ export const ui: UiTranslations = {
   'login.pageTitle': 'Кирүү — Zenith колдоо кызматы',
   'login.showPassword': 'Сырсөздү көрсөтүү',
   'login.welcomeSubheading': 'Колдоо көрсөтүүчү башкаруу панелиңизге кириңиз',
+  'loginFooter.copyright': '© {{year}} {{appName}} Колдоо',
   'mobileNav.closeMenu': 'Навигацияны жабуу',
   'mobileNav.menu': 'Навигация',
   'mobileNav.openMenu': 'Навигацияны ачуу',
@@ -120,6 +165,7 @@ export const ui: UiTranslations = {
   'operatorDock.commandSearch': 'Буйрук издөө',
   'operatorDock.newReport': 'Жаңы отчет',
   'operatorDock.systemOnline': 'Система онлайн',
+  'planUpdated.pageTitle': 'План жаңыртылды — {{appName}} Колдоо',
   'planUpdated.subtitle': 'Рахмат',
   'planUpdated.title': 'План жаңыртылды',
   'pricing.agents': 'агенттер',
@@ -138,6 +184,8 @@ export const ui: UiTranslations = {
   'privacy.contact.body':
     'Суроолоруңуз же өтүнүчтөрүңүз барбы? Электрондук почта аркылуу privacy@ аркылуу жөнөтүңүз. {{колдонмо}} .example же колдонмодогу пикир каналын колдонуңуз; экөө тең бир эле почта кутусуна жетет.',
   'privacy.eyebrow': 'Юридикалык',
+  'privacy.intro':
+    'Бул саясат {{app}} командаңыз биздин helpdesk платформабызды колдонгондо кандай маалымат чогултканын, аны кантип колдонгонубузду жана сиздин тандоо мүмкүнчүлүктөрүңүздү түшүндүрөт.',
   'privacy.lastUpdated': 'Акыркы жолу жаңыртылган: 2026-05-01',
   'privacy.retention.body':
     'Билеттер, жооптор, макалалар, макростар жана SLA саясаттары сиз аларды жок кылганга же жумуш мейкиндигин жапканга чейин сакталат. Каттоо эсебинин жазуулары жок кылынгандан кийин кайтарып алууга мүмкүндүк берүү үчүн 30 күн сакталат, андан кийин биротоло тазаланат. Камдык көчүрмөлөр андан 30 күндөн кийин кайра жүктөлөт.',
@@ -153,7 +201,10 @@ export const ui: UiTranslations = {
   'recentTicketsTable.colSubject': 'Тема',
   'recentTicketsTable.colTicketId': 'Билет №',
   'recentTicketsTable.colUpdated': 'Жаңыртылды',
+  'recentTicketsTable.empty': 'Көрсөтүү үчүн жакында билеттер жок.',
   'recentTicketsTable.ticketId': '# {{id}}',
+  'recentTicketsTable.timeDaysAgo': '{{count}} күн мурун',
+  'recentTicketsTable.timeHoursAgo': '{{count}} саат мурун',
   'recentTicketsTable.timeJustNow': 'Азыр эле',
   'recentTicketsTable.timeMinutesAgo': '{{count}} м мурун',
   'recentTicketsTable.title': 'Акыркы билеттер',
@@ -164,6 +215,7 @@ export const ui: UiTranslations = {
   'reportsTicketVolumeChart.title': 'Билеттердин көлөмү',
   'resetPassword.error':
     'Баштапкы абалга келтирүү ишке ашкан жок. Шилтеменин мөөнөтү бүтүп калган болушу мүмкүн.',
+  'resetPassword.newPassword': 'Жаңы сыр сөз',
   'resetPassword.subheading': 'Жаңы сырсөзүңүздү төмөндө киргизиңиз',
   'resetPassword.successSubtitle': 'Сырсөзүңүз ийгиликтүү баштапкы абалга келтирилди.',
   'resetPassword.successTitle': 'Сырсөздү кайра коюу!',
@@ -177,6 +229,7 @@ export const ui: UiTranslations = {
   'settings.notificationsSaveSuccess': 'Эскертменин жөндөөлөрү ийгиликтүү жаңыртылды.',
   'settings.profileSaveError': 'Профиль жаңыртылбай калды.',
   'settings.profileSaveSuccess': 'Профиль ийгиликтүү жаңыртылды.',
+  'settingsAppearance.compactModeDescription': 'Маалыматтын тыгыздыгын максималдаштыруу',
   'settingsAppearance.compactModeLabel': 'Компакт режим',
   'settingsAppearance.languageLabel': 'Системанын тили',
   'settingsAppearance.themeDark': 'Караңгы',
@@ -187,23 +240,39 @@ export const ui: UiTranslations = {
   'settingsDangerZone.deactivateDescription':
     'Аккаунтуңузду убактылуу өчүрүп, профилиңизди жашырыңыз.',
   'settingsDangerZone.deactivateTitle': 'Аккаунтту өчүрүү',
+  'settingsDangerZone.deactivating': 'Өчүрүлүүдө...',
   'settingsDangerZone.heading': 'Коркунучтуу аймак',
   'settingsNotifications.dailySummaryLabel': 'Күнүмдүк жаңыртуулардын кыскача баяндамасы',
+  'settingsNotifications.digestFrequency.daily': 'Күнүнө бир жолу {{time}}',
+  'settingsNotifications.digestFrequency.hourly': 'Ар бир саат',
+  'settingsNotifications.digestFrequency.twiceDaily': 'Күнүнө эки жолу',
+  'settingsNotifications.digestFrequencyLabel': 'Дайджест жыштыгы',
   'settingsNotifications.emailSectionTitle': 'Электрондук почта эскертмелери',
   'settingsNotifications.mentionsLabel': 'Эскертүүлөр жана ички эскертүүлөр',
   'settingsNotifications.newTicketsLabel': 'Мага жаңы билеттер дайындалды',
+  'settingsNotifications.pushSectionTitle': 'Push эскертмелер',
   'settingsNotifications.sectionTitle': 'Эскертме жөндөөлөрү',
+  'settingsNotifications.slaBreachLabel': 'SLA бузулуу эскертүүлөрү',
   'settingsNotifications.urgentEscalationsLabel': 'Шашылыш түрдө билеттерди кымбаттатуу',
+  'settingsPageHeader.description':
+    '{{appName}} Колдоо чөйрөсү үчүн жеке тандоолоруңузду, аккаунт коопсуздугун жана команда укуктарын башкарыңыз.',
   'settingsProfile.avatarAlt': 'Аватарды жүктөө',
   'settingsProfile.changeAvatar': 'Аватарды өзгөртүү',
   'settingsProfile.displayNameLabel': 'Көрсөтүлүүчү ат',
   'settingsProfile.emailLabel': 'Электрондук почта дареги',
   'settingsProfile.jobTitleLabel': 'Кызмат орду',
   'settingsProfile.title': 'Профиль жөндөөлөрү',
+  'settingsSecurity.passwordSummaryBody':
+    '/forgot-password аркылуу сырсөзүңүздү кайра коюңуз — Mailgun аркылуу бир жолу колдонулуучу шилтеме келет.',
   'settingsSecurity.passwordSummaryTitle': 'Сырсөздү аутентификациялоо',
   'settingsSecurity.secureConnection': 'Коопсуз байланыш',
+  'settingsSecurity.sessionSummaryBody':
+    "Бул түзмөктөн чыгуу JWT'ни жергиликтүү тазалайт; сервер тараптагы сессиялардын тизмеси планда бар.",
+  'settingsSecurity.sessionSummaryTitle': 'Сессияны башкаруу',
   'settingsSecurity.title': 'Коопсуздук жана мүмкүндүк алуу',
   'settingsTeamSection.currentRoleLabel': 'Учурдагы ролуңуз',
+  'settingsTeamSection.roleDescription':
+    'Система жөндөөлөрүнө, команданы башкарууга, эсептешүүгө жана отчеттуулук модулдарына толук кирүү.',
   'settingsTeamSection.roleName': 'Администратор',
   'settingsTeamSection.title': 'Команда жана уруксаттар',
   'sideNav.brandName': 'Зенит',
@@ -219,11 +288,13 @@ export const ui: UiTranslations = {
   'signup.continueWithGitHub': 'GitHub менен улантуу',
   'signup.continueWithGoogle': 'Google менен улантуу',
   'signup.continueWithSSO': 'SSO менен улантуу',
+  'signup.copyright': '© {{year}} {{appName}} Колдоо',
   'signup.error': 'Катталуу ишке ашкан жок',
   'signup.hidePassword': 'Сырсөздү жашыруу',
   'signup.orContinueWith': 'же улантуу',
   'signup.showPassword': 'Сырсөздү көрсөтүү',
   'signup.subheading': 'Колдоо көрсөтүүчү башкаруу панелиңизди орнотуңуз',
+  'slaComplianceKpiCard.percentage': '{{percent}} %',
   'slaComplianceKpiCard.title': 'SLA шайкештиги',
   'terms.account.body':
     'Сиз агентиңиздин эсептик маалыматтарын купуя сактоого жана ал аккаунттардын астында болуп жаткан иш-аракеттерге жооптуусуз. Жумуш мейкиндигинин ээлери каалаган убакта Жөндөөлөрдөн бүтүндөй жумуш мейкиндигин жок кыла алышат; жок кылуу ошол жумуш мейкиндигине байланышкан бардык билеттерди, жоопторду, билим базасынын макалаларын, макросторду жана SLA саясаттарын жок кылат.',
@@ -234,6 +305,8 @@ export const ui: UiTranslations = {
   'terms.customerData.body':
     'Сиз түзгөн билеттер, жооптор, тиркемелер жана билим базасына негизделген макалалар сиздин менчигиңизде калат. Биз аларды сиздин атыңыздан кызмат көрсөтүү үчүн иштетебиз жана эч качан сатпайбыз. Сактоо терезелери жана кошумча иштетүүчүлөрдүн тизмеси үчүн Купуялык саясатын караңыз.',
   'terms.eyebrow': 'Юридикалык',
+  'terms.intro':
+    'Бул шарттар командаңыздын {{app}}, биздин helpdesk билеттерди башкаруу платформабызды колдонуусун жөнгө салат. Аккаунт түзүү же агенттерди чакыруу менен сиз аларды уюмуңуздун атынан кабыл аласыз.',
   'terms.lastUpdated': 'Акыркы жолу жаңыртылган: 2026-05-01',
   'terms.privacyLink': 'Купуялык саясаты',
   'terms.sla.body':
@@ -245,8 +318,10 @@ export const ui: UiTranslations = {
   'ticketAgentMessage.agentName': '{{аты}}',
   'ticketAgentMessage.agentRole': 'Агент',
   'ticketBreadcrumbHeader.tickets': 'Билеттер',
+  'ticketBreadcrumbHeader.title': '{{id}}: {{subject}}',
   'ticketConversationThread.empty': 'Азырынча билдирүү жок — биринчи болуп жооп бериңиз.',
   'ticketConversationThread.internalNoteDate': '• {{date}}',
+  'ticketConversationThread.messageDate': '{{date}}',
   'ticketConversationThread.unknownAuthorInitials': '?',
   'ticketCustomerInfoCard.previousTickets': 'Мурунку билеттер',
   'ticketCustomerInfoCard.satisfaction': 'Канааттануу',
@@ -282,6 +357,7 @@ export const ui: UiTranslations = {
   'ticketNew.priority.low': 'Төмөн',
   'ticketNew.priority.medium': 'Medium',
   'ticketNew.priority.urgent': 'Шашылыш',
+  'ticketNew.subjectLabel': 'Тема',
   'ticketNew.subjectPlaceholder': 'Маселенин кыскача мазмуну',
   'ticketNew.submit': 'Билет түзүү',
   'ticketNew.subtitle':
@@ -311,6 +387,9 @@ export const ui: UiTranslations = {
   'ticketRow.title': 'Маалымат базасына туташуу өндүрүштө иштебей жатат {{node}}',
   'tickets.pageTitle': 'Билеттер — Зенит колдоо кызматы',
   'ticketsFab.newTicket': 'Жаңы билет',
+  'ticketsFilterBar.allAssignees': 'Бардык дайындалгандар',
+  'ticketsFilterBar.allPriorities': 'Бардык артыкчылыктар',
+  'ticketsFilterBar.allStatuses': 'Бардык статустар',
   'ticketsFilterBar.assigneeLabel': 'Тапшыруучу:',
   'ticketsFilterBar.clearFilters': 'Чыпкаларды тазалоо',
   'ticketsFilterBar.dateRangeDemoHint':
@@ -318,6 +397,7 @@ export const ui: UiTranslations = {
   'ticketsFilterBar.filterByAssignee': 'Дайындоочу боюнча чыпкалоо',
   'ticketsFilterBar.filterByPriority': 'Артыкчылык боюнча чыпкалоо',
   'ticketsFilterBar.filterByStatus': 'Статусу боюнча чыпкалоо',
+  'ticketsFilterBar.lastNDays': 'Акыркы {{days}} Күндөр',
   'ticketsFilterBar.priorityHigh': 'Жогорку',
   'ticketsFilterBar.priorityLabel': 'Артыкчылык:',
   'ticketsFilterBar.priorityLow': 'Төмөн',
@@ -330,6 +410,8 @@ export const ui: UiTranslations = {
   'ticketsPagination.showingRange':
     'Көрсөтүлүүдө {{start}} чейин {{end}} ...нын {{total}} билеттер',
   'ticketsTable.assigneeAvatarAlt': 'Аватар',
+  'ticketsTable.emptyBody': 'Фильтрди тазалоону аракет кылыңыз же жаңы билет түзүңүз.',
+  'ticketsTable.emptyTitle': 'Бул фильтрлерге ылайыктуу билеттер жок',
   'ticketsTable.selectRow': 'Билетти тандаңыз {{id}}',
   'ticketsTable.sla.closed': 'Жабык',
   'ticketsTable.sla.expired': 'МӨӨНӨТҮ ЖОК',

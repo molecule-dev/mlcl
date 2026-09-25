@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ai feedback, ai găsit un bug sau plănuiești ceva ambițios? Scrie-ne din setările contului — fiecare mesaj ajunge la un om real din echipă.',
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Rezervările într-o singură casă de e-mail — confirmările pentru zboruri, hoteluri și activități ajung exact în ziua în care le este locul.',
+  'about.featureCollab':
+    'Colaborare în timp real — invită până la cinci călători per călătorie, cu fiecare modificare sincronizată live și comentarii în fir sub fiecare oprire.',
+  'about.featureMapsBudget':
+    'Hărți, destinații și un buget comun — vezi întreaga călătorie pe hartă, descoperă destinații selectate de editori și urmărește cheltuielile ca nimeni să nu depășească bugetul.',
+  'about.featureTimelines':
+    'Cronologii zi cu zi — trage opririle pentru a le reordona, adaugă segmente de transport și urmărește cum itinerariul se recalculează ca un singur document viu.',
+  'about.intro':
+    '{{app}} transformă un dosar plin de planuri pe jumătate conturate într-o singură călătorie comună pe care tot grupul o poate urmări cu adevărat. Construiește un itinerariu zi cu zi, adaugă zboruri și hoteluri, pune fiecare oprire pe hartă și urmărește bugetul — toate într-un singur loc liniștit, în loc de o duzină de file și un chat de grup.',
+  'about.missionBody':
+    'Planificarea călătoriei ar trebui să dea senzația că vacanța devine deja mai bună, nu ca o temă pentru acasă. {{app}} există pentru a face călătoriile în colaborare fără efort — astfel încât fiecare călător să vină știind planul, iar fiecare oprire să spună o poveste demnă de amintit.',
+  'about.missionTitle': 'Misiunea noastră',
   'about.pageTitle': 'Despre {{app}}',
   'auth.legalConsent': 'Continuând, ești de acord cu',
   'bookings.empty.body': 'Adaugă un zbor, un hotel sau o activitate pentru a deschide inbox-ul.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Hotel',
   'bookings.type.other': 'Alte',
   'budgetSpendCard.budgetTotal': 'de {{total}} planificat',
+  'budgetSpendCard.overBy': '{{amount}} peste buget',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} recente',
+  'budgetSpendCard.remaining': '{{amount}} rămase',
   'calendar.eyebrow': 'Anul care urmează',
   'calendar.heading': 'Fiecare călătorie într-un singur calendar.',
   'calendar.legendHeading': 'Călătorii în această lună',
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'și',
   'common.goToDashboard': 'Mergi la Tabloul de bord',
   'dashboard.budgetHeading': 'Pulsul bugetar',
+  'dashboard.empty.body':
+    'Planifică-ți prima călătorie și panoul tău se va umple cu cronologii zi cu zi, pulsul bugetului și rezervări.',
+  'dashboard.empty.cta': 'Planifică-ți prima călătorie',
   'dashboard.empty.heading': 'Nicio călătorie încă — atlasul tău este gol.',
   'dashboard.eyebrow': 'Controlul misiunii',
   'dashboard.heading': 'Următoarea ta aventură, într-un colț liniștit.',
   'dashboard.newTripCta': 'Începeți o nouă călătorie',
+  'dashboard.subheading':
+    'O numărătoare inversă până la următoarea călătorie, pulsul cheltuielilor de azi și o privire rapidă la fiecare itinerariu în desfășurare.',
   'dashboard.tripsHeading': 'Călătorii în mișcare',
   'dashboard.viewAllExpenses': 'Vizualizați fiecare cheltuială',
   'dashboard.viewAllTrips': 'Vezi fiecare călătorie',
   'dayTimelineRow.category.accommodation': 'Şedere',
+  'dayTimelineRow.category.food': 'Mâncare și băutură',
+  'dayTimelineRow.category.sightseeing': 'Obiective turistice',
   'dayTimelineRow.category.transport': 'Transport',
   'destinationOrbCard.exploreCta': 'Adăugați la o călătorie',
   'destinationOrbCard.tripCount': '{{count}} călătorii',
+  'destinations.empty.body': 'Revino la Toate și descoperirile editorilor vor reapărea.',
   'destinations.empty.heading': 'Nicio destinație încă.',
+  'destinations.emptyFiltered.heading': 'Încă nimic etichetat astfel.',
   'destinations.errors.load': 'Nu s-au putut încărca destinațiile.',
   'destinations.eyebrow': 'Unde urmează',
   'destinations.heading': 'Colțuri salvate și descoperiri ale editorului.',
@@ -70,7 +98,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Furnizor',
   'expenses.formHeading': 'Cheltuieli jurnal pentru {{trip}}',
   'expenses.heading': 'Unde se cheltuiește de fapt bugetul călătoriei.',
+  'expenses.heroBudget': '{{pct}}% din {{total}} planificat',
   'expenses.heroEyebrow': '{{trip}} Instantaneu de buget',
+  'expenses.heroNoBudget': 'Niciun buget setat încă pentru această călătorie.',
   'expenses.noTrips.body':
     'Planifică mai întâi o călătorie - cheltuielile sunt aferente bugetului unei călătorii.',
   'expenses.noTrips.heading': 'Nicio călătorie încă.',
@@ -83,12 +113,16 @@ export const ui: UiTranslations = {
     'Fiecare chitanță și confirmare se încadrează în categoria corectă aici, nu este nevoie de o foaie de calcul.',
   'forgotPassword.eyebrow': 'Recuperează-ți itinerariul',
   'forgotPassword.heading': 'Ați uitat parola?',
+  'forgotPassword.subheading':
+    'Introdu e-mailul folosit pentru {{appName}} și îți vom trimite un link pentru resetarea parolei.',
   'forgotPassword.submit': 'Trimiteți e-mailul de recuperare',
   'forgotPassword.submitPending': 'Se trimite e-mailul de recuperare…',
   'forgotPassword.successHint':
     'Încă nu ai e-mail? Verifică folderul de spam sau încearcă din nou cu o altă adresă.',
   'forgotPassword.successSubheading':
     'Am trimis un link de recuperare către {{email}} Linkul este valabil timp de 30 de minute.',
+  'forgotPassword.tryAgain': 'Trimite la alt e-mail',
+  'landing.cta.eyebrow': 'Începe cu planul gratuit',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Creați un cont gratuit',
   'landing.cta.subheading':
@@ -100,8 +134,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Începeți o călătorie gratuită',
   'landing.hero.ctaSecondary': 'Vedeți un exemplu de călătorie',
+  'landing.hero.eyebrow': 'Planificator de călătorii · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint transformă un dosar plin de planuri neformate într-un itinerar comun, zilnic, pe care grupul tău îl poate urma - cu rezervări, hărți și buget urmărite într-un singur loc.',
+  'landing.hero.title': 'Planifică-l o dată. Pășește-l împreună.',
   'landing.nav.join': 'Începeți o călătorie gratuită',
   'landing.nav.preview': 'Punct de referință interior',
   'landing.preview.cta': 'Planifică-ți unul',
@@ -109,6 +145,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Câteva călătorii pe care călătorii le fac acum',
   'login.eyebrow': 'Zona membrilor',
   'login.heading': 'Bine ai revenit, călător',
+  'login.noAccount': 'Nou în Tessera?',
   'login.signupLink': 'Creați un cont gratuit',
   'login.subheading':
     'Conectați-vă pentru a gestiona călătoriile, planurile zilnice, rezervările și intrările în jurnal pe care le-ați început deja.',
@@ -119,6 +156,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Nu s-a putut actualiza notificarea.',
   'notifications.heading': 'Ce s-a schimbat în călătoriile tale de astăzi.',
   'notifications.markUnread': 'Marchează ca necitit',
+  'notifications.subheading':
+    '{{count}} noi \\u2014 confirmări de rezervare, note de la colaboratori, scăderi de tarife și memento-uri.',
   'notifications.time.daysAgo': 'acum {{count}}z',
   'notifications.time.hoursAgo': 'acum {{count}}h',
   'notifications.time.justNow': 'chiar acum',
@@ -137,6 +176,7 @@ export const ui: UiTranslations = {
     'Servicii conectate, monedă, notificări push și datele de autentificare cu care vă conectați.',
   'signup.and': 'și',
   'signup.eyebrow': 'Alătură-te punctului de referință',
+  'signup.haveAccount': 'Deja hoinărești?',
   'signup.heading': 'Planifică-l o dată. Pășește-l împreună.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -148,6 +188,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Deschideți itinerariul',
   'tripCountdownHeroCard.ctaSecondary': 'Planificați o altă călătorie',
   'tripCountdownHeroCard.daysLabel': '{{days}} zile rămase',
+  'tripCountdownHeroCard.eyebrow': 'Următoarea aventură · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} nopți — itinerariul tău este gata de călătorie.',
   'tripCoverCard.stops': '{{count}} opriri',
   'tripCoverCard.travelers': '{{count}} călători',
   'tripDetail.addActivity': 'Adăugați activitate',
@@ -157,6 +200,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Titlul activității',
   'tripDetail.adding': 'Se adaugă…',
   'tripDetail.backToTrips': 'Înapoi la toate călătoriile',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Călătorii',
   'tripDetail.dayLabel': 'Zi {{day}}',
   'tripDetail.empty': 'Nicio activitate încă — adăugați una pentru a începe cronologia.',
@@ -167,14 +211,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Itinerariu • {{country}}',
   'tripDetail.invite': 'Invita',
   'tripDetail.inviteLabel': 'Invitați prin e-mail',
+  'tripDetail.invitePlaceholder': 'cineva@exemplu.com',
   'tripDetail.inviteSent': 'Invitație trimisă la {{email}}.',
   'tripDetail.inviting': 'Se trimite…',
   'tripDetail.loading': 'Se încarcă cursa…',
   'tripDetail.noCollaborators': 'Doar tu, deocamdată.',
+  'tripDetail.notesHeading': 'Note de călătorie',
   'tripDetail.notesPlaceholder': 'Nicio notă încă.',
   'tripDetail.notFound.heading': 'Călătoria nu a fost găsită',
   'tripDetail.openBookings': 'Deschideți inboxul pentru rezervări',
   'tripDetail.shareCopied': 'Linkul de partajare a fost copiat în clipboard:',
+  'tripDetail.shareReady': 'Link de partajare gata:',
   'tripDetail.stops': '{{count}} opriri',
   'tripDetail.timelineEyebrow': 'Cronologia zilei',
   'tripDetail.timelineHeading': 'Planul zilnic',
@@ -192,6 +239,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Călătorii',
   'tripPlanner.heading': 'Schițează o călătorie în mai puțin de un minut.',
   'tripPlanner.preview.eyebrow': 'Previzualizare live',
+  'tripPlanner.preview.placeholderCountry': 'Alege o țară',
   'tripPlanner.preview.placeholderDestination': 'Următoarea ta aventură',
   'tripPlanner.section1.title': 'Unde și când',
   'tripPlanner.section2.title': 'Călătorii și buget',
@@ -200,10 +248,14 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Zi {{day}} Adăugați opriri, transport și rezervări aici.',
   'tripPlanner.section3.day2': 'Zi {{day}} Adăugați opriri, transport și rezervări aici.',
   'tripPlanner.section3.day3': 'Zi {{day}} Adăugați opriri, transport și rezervări aici.',
+  'tripPlanner.section3.title': 'Șablon de plan zilnic',
   'tripPlanner.subheading':
     'Adaugă informațiile de bază mai jos: poți oricând să inviți colaboratori, să adaugi opriri și să redirecționezi rezervările mai târziu.',
   'tripPlanner.submit': 'Creați o călătorie',
   'tripPlanner.submitting': 'Se creează…',
+  'trips.empty.body':
+    'Revino la Toate călătoriile sau începe să-ți planifici următoarea hoinăreală.',
+  'trips.empty.cta': 'Planifică o călătorie',
   'trips.empty.heading': 'Nimic nu se potrivește încă cu acel filtru.',
   'trips.eyebrow': 'Atlasul',
   'trips.filterLabel': 'Filtrați călătoriile după stare',
@@ -215,6 +267,12 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Nicio călătorie încă.',
   'trips.pastHeading': 'Aventurile trecute',
   'trips.subheading': '{{count}} itinerarii — trecut, prezent și cândva.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading':
+    'Planifică o dată. Hoinăriți împreună. Amintiți-vă pentru totdeauna.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · {{appName}} membri din 2024',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} a transformat o călătorie agitată de 3 săptămâni prin patru țări în cel mai relaxat itinerariu pe care l-am împărtășit vreodată.',
   'waypointLayout.mobileNavClose': 'Închide meniul de navigare',
   'waypointLayout.primaryNavLabel': 'Navigare principală',
 }

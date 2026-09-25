@@ -1,28 +1,43 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ar mhaith leat eispéireas fáiltithe níos teo a chur ar fáil do do fhoireann, fuair tú fabht, nó an bhfuil aiseolas agat? Déan teagmháil linn ó shocruithe do chuntais — téann gach teachtaireacht chuig duine fíor atá in ann cabhrú.',
   'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
+  'about.missionTitle': 'Ár misean',
   'auth.forgotPassword.emailPlaceholder': 'ainm@dochuideachta.com',
   'auth.forgotPassword.heading': 'Athshocraigh do phasfhocal.',
+  'auth.forgotPassword.panel.body':
+    'Tógann an t-athshocrú 30 soicind — tá dul chun cinn do sheicliosta ag fanacht leat.',
+  'auth.forgotPassword.panel.headline': "Ar ais go díreach san áit a d'fhág tú.",
+  'auth.forgotPassword.subheading':
+    'Cuir isteach do ríomhphost oibre agus seolfaimid nasc athshocraithe chugat.',
   'auth.forgotPassword.successSubheading':
     'Seiceáil do bhosca isteach — tá treoracha athshocraithe seolta againn.',
   'auth.login.emailPlaceholder': 'ainm@dochuideachta.com',
   'auth.login.heading': 'Fáilte ar ais.',
   'auth.login.passwordPlaceholder': 'Do phasfhocal',
+  'auth.login.signupPrompt': 'Nua ar do fhoireann?',
   'auth.login.subheading':
     'Sínigh isteach chun leanúint ar aghaidh le do thuras ionduchtaithe san áit ar stop tú.',
   'auth.login.submit': 'Lean ar aghaidh le do thuras',
+  'auth.panel.body':
+    'Do sheicliosta phearsanta, clocha míle oiliúna, agus seisiúin fáiltithe foirne — ar fad in aon áit chiúin amháin.',
   'auth.panel.footnote': '© Embark — ag tabhairt tús áite do dhaoine ó inniu.',
   'auth.panel.headline': 'Tosaíonn chéad 90 lá muiníneach anseo.',
   'auth.resetPassword.heading': 'Socraigh pasfhocal nua.',
   'auth.resetPassword.newPasswordLabel': 'Pasfhocal nua',
+  'auth.resetPassword.panel.body':
+    'Sábháil focal faire nua agus cuirfimid ar ais tú go díreach i do thuras fáiltithe.',
+  'auth.resetPassword.panel.headline': 'Beagnach ar ais istigh.',
   'auth.resetPassword.subheading':
     'Roghnaigh rud éigin a chuimhneoidh tú — 8 gcarachtar ar a laghad.',
   'auth.signup.emailPlaceholder': 'ainm@dochuideachta.com',
   'auth.signup.heading': 'Fáilte romhat chuig do chéad 90 lá.',
   'auth.signup.panel.body':
     'Liosta seiceála treoraithe, oiliúint feasach ar róil, agus réamhrá daonna — réidh sula siúlann tú isteach.',
+  'auth.signup.panel.headline': 'An chéad lá, ar an gcéad lá.',
   'auth.signup.subheading':
     'Cruthaigh do chuntas Embark chun tús a chur le do thuras treoraithe ionduchtaithe.',
   'checklist.empty.body': 'Athraigh an scagaire chun tascanna eile a fheiceáil.',
@@ -30,6 +45,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'Clárú Isteach · Liosta Seiceála',
   'checklist.loading': 'Ag lódáil do sheicliosta…',
   'checklist.stat.actionNeeded': 'Gníomh ag teastáil',
+  'checklist.stat.completion': 'Críochnú',
+  'checklist.stat.inProgress': 'Ar siúl',
   'checklist.stat.inProgressHelper': 'Lean ar aghaidh san áit ar fhág tú é',
   'checklist.stat.overdueHelper': 'Faigh greim ar na rudaí seo ar dtús',
   'checklist.subtitle':
@@ -61,6 +78,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Gan aon doiciméid fós',
   'documents.eyebrow': 'Clárú · Doiciméid',
   'documents.loading': 'Ag lódáil doiciméid…',
+  'documents.stat.actionNeeded': 'Sínigh anois',
+  'documents.stat.all': 'Gach doiciméad',
   'documents.stat.allHelper': 'Trasna catagóirí',
   'documents.stat.pending': 'Sínithe ar feitheamh',
   'documents.stat.pendingHelper': 'Riachtanach le haghaidh comhlánaithe',
@@ -68,6 +87,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Stóráilte go slán',
   'documents.status.optional': 'Roghnach',
   'documents.status.required': 'Riachtanach',
+  'documents.status.signed': 'Sínithe',
   'documents.subtitle':
     'Do lámhleabhar, foirmeacha, agus comhaontuithe sínithe — ar fad in aon áit amháin.',
   'documents.title': 'Gach rud a theastaíonn uait a léamh & a shíniú.',
@@ -75,10 +95,14 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'Amharcóir',
   'documentViewer.breadcrumbDocs': 'Doiciméid',
   'documentViewer.downloadMeta': 'Íoslódáil meiteashonraí',
+  'documentViewer.helpBody':
+    'Freagraíonn People & Culture ceisteanna faoin lámhleabhar in #ask-people ar Slack.',
   'documentViewer.helpEyebrow': 'An bhfuil cabhair uait?',
   'documentViewer.loadError': 'Ní raibh muid in ann an doiciméad seo a luchtú.',
   'documentViewer.loading': 'Ag lódáil an doiciméad…',
   'documentViewer.notFound': 'Níor aimsíodh an doiciméad',
+  'documentViewer.previewBody':
+    'Nuair a bheidh uaslódálacha cumraithe taispeánfaimid an comhad go hinlíne. Faoi láthair, ligeann an íoslódáil meiteashonraí duit a dhearbhú go bhfuil an taifead fíor.',
   'documentViewer.previewBodyExternal':
     'Bain úsáid as an gcnaipe íoslódála chun an comhad a oscailt i gcluaisín nua.',
   'documentViewer.previewTitle': 'Réamhamharc doiciméad',
@@ -86,6 +110,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Léigh an doiciméad, ansin cliceáil thíos chun é a shíniú agus a admháil.',
   'documentViewer.signatureHeading': 'Síniú ag teastáil',
+  'documentViewer.signed': '✓ Sínithe & comhdaithe',
   'documentViewer.signing': 'Ag síniú…',
   'documentViewer.uploadedRecently': 'Uaslódáilte le déanaí',
   'landing.closing.body':
@@ -95,10 +120,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Tá cuntas agam cheana féin',
   'landing.feature1.body':
     'Gach tasc — páipéarachas, cuntais, réamhrá — réamhullmhaithe le dátaí dlite agus an t-úinéir ceart.',
+  'landing.feature1.title': 'Seicliosta treoraithe',
   'landing.feature2.body':
     'Díghlasáiltear modúil ag 30/60/90 cloch mhíle, agus iad coigeartaithe don ról agus don fhoireann a bhfuil fostaí ag dul isteach ann.',
+  'landing.feature2.title': 'Oiliúint de réir róil',
   'landing.feature3.body':
     'Cairde, bainisteoirí, agus réamhrá trasfheidhmeach sceidealaithe — ionas nach dtosóidh aon duine ina aonar.',
+  'landing.feature3.title': 'Fíorfháiltithe',
   'landing.featureEyebrow': 'Cén Fáth Dul ar Bord',
   'landing.featureHeadline': 'Trí bhealach a thuilleann Embark muinín ar an gcéad lá.',
   'landing.footer.rights': 'Gach ceart ar cosaint.',
@@ -108,6 +136,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Ar aghaidh: Buail le do chara le haghaidh comhrá caife 30 nóiméad — Dé Máirt 10:00 AM.',
   'landing.preview.eyebrow': 'Lá 14 de 90 — painéal samplach',
+  'landing.preview.headline': 'Fáilte ar ais, a Mhaya.',
   'landing.proof.spec': 'Réidh le haghaidh SOC 2 + GDPR',
   'landing.proof.teams': 'Tógtha do fhoirne de 50–5,000',
   'landing.proof.time': 'Triail saor in aisce 14 lá',
@@ -124,16 +153,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Tá tú réidh.',
   'planUpdated.preparing': 'Ag nuashonrú do phlean…',
+  'planUpdated.retry': 'Déan iarracht arís',
+  'planUpdated.verifyFailed': 'Ní raibh muid in ann d’íocaíocht a dheimhniú go fóill.',
+  'planUpdated.verifyFailedBody':
+    'B’fhéidir go bhfuil d’íocaíocht fós á próiseáil. Bain triail eile as i gceann nóiméid.',
   'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'pricing.documentsLabel': 'doiciméid',
   'pricing.onboardingsLabel': 'clárúcháin',
   'pricing.tasksLabel': 'tascanna',
   'profile.dayNumber': 'Lá',
   'profile.detailsHeading': 'Sonraí maidir le clárú',
+  'profile.encouragementBody':
+    'Coinnigh do chara agus do bhainisteoir ar an eolas — tagann céimeanna beaga le chéile.',
   'profile.milestones': 'Clocha míle',
   'profile.progressEyebrow': 'Dul chun cinn maidir le clárú',
   'profile.tasks': 'Tascanna',
   'profile.unknownName': 'Fáilte',
+  'settings.appearance.description': 'Athraigh idir mód geal agus dorcha.',
+  'settings.appearance.title': 'Dealramh',
+  'settings.subtitle':
+    'Mínigh fógraí, slándáil, feistí, agus onnmhairiú sonraí — fanann gach rud anseo, ar do théarmaí féin.',
   'settings.title': 'Socruithe & sainroghanna.',
   'taskDetail.backToChecklist': 'Ar ais chuig an liosta seiceála',
   'taskDetail.breadcrumbChecklist': 'Liosta seiceála',
@@ -145,7 +184,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'Gan dáta dlite',
   'taskDetail.notFound': 'Níor aimsíodh an tasc',
   'taskDetail.notFoundBody': 'B’fhéidir gur scriosadh an tasc seo nó gur le húsáideoir eile é.',
+  'taskDetail.tipBody':
+    'Má tá tú stoptha, seol teachtaireacht chuig do chara fáiltithe ar Slack — is é do chéad líne cabhrach é.',
   'taskDetail.tipEyebrow': 'Leid thapa',
+  'team.empty.body': 'Bain triail as cuardach níos leithne nó roghnaigh roinn eile.',
   'team.empty.title': 'Níl aon chluiche ag aon chomhghleacaithe',
   'team.eyebrow': 'Ionduchtú · Daoine',
   'team.loading': 'Comhghleacaithe á lódáil…',
@@ -168,14 +210,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Clocha míle',
   'timeline.stat.current': 'Cloch mhíle reatha',
   'timeline.stat.next': 'Díghlasáil an chéad uair eile',
+  'timeline.stat.progress': 'Foriomlán',
   'timeline.subtitle':
     'Díghlasálann gach cloch mhíle modúil nua, réamhrá agus comhráite fáis. Gan aon bhrú - ach dul chun cinn.',
+  'timeline.tipBody':
+    'Socraigh machnamh 30 nóiméad ag laethanta 30, 60, agus 90 le do bhainisteoir — déanann sé sin an t-aiseolas nithiúil agus an dul chun cinn sofheicthe.',
   'timeline.tipEyebrow': 'Leid an bhainisteora',
+  'timeline.tipTitle': 'Cuir am san fhéilire do na clocha míle.',
   'timeline.title': 'Do thuras 30 / 60 / 90.',
   'training.badge.notStarted': 'Níor tosaíodh',
   'training.empty': 'Gan aon mhodúil oiliúna fós.',
   'training.eyebrow': 'Ionduchtú · Oiliúint',
   'training.loading': 'Modúil á lódáil…',
+  'training.stat.all': 'Modúil sannta',
   'training.subtitle':
     'Díghlasálfar modúil ag 30/60/90 chun freastal ar do ról. Tagann na cinn riachtanacha ar dtús.',
   'training.title': 'Scileanna, uirlisí agus scéalta — ag do luas féin.',
@@ -188,9 +235,12 @@ export const ui: UiTranslations = {
   'trainingModule.quizBody':
     'Scór 80% nó níos mó a bhaint amach chun an modúl seo a mharcáil mar chríochnaithe.',
   'trainingModule.quizHeading': 'Tráth na gCeist ag deireadh an mhodúil',
+  'trainingModule.quizLocked': 'Tosaigh an modúl ar dtús',
   'trainingModule.quizNone': 'Níl aon tráth na gceist ar an modúl seo.',
   'trainingModule.quizRetry': 'Déan iarracht arís',
+  'trainingModule.quizStart': 'Tosaigh an tráth na gceist',
   'trainingModule.quizSubmit': 'Cuir isteach freagraí',
+  'trainingModule.start': 'Tosaigh an modúl',
   'trainingModule.statusNotStarted': 'Níor tosaíodh',
   'welcomeHeroCard.completeLabel': 'Críochnaithe',
   'welcomeHeroCard.milestonesLabel': 'Clocha míle',

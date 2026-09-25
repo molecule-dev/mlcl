@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Oes gennych gwestiwn, wedi dod o hyd i fyg, neu eisiau symud eich llyfrau drosodd? Cysylltwch â'r tîm {{app}} yn hello@{{app}}.example — mae rhywun go iawn yn darllen pob neges.",
   'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Ynglŷn â',
+  'about.intro':
+    "Mae {{app}} yn gyfrifyddiaeth busnesau bach sy'n cadw cyfrif o bob ceiniog — anfonebau, treuliau, taliadau ac adroddiadau mewn un lle tawel i berchnogion, cadwyr llyfrau a chyfrifyddion.",
+  'about.missionBody':
+    "Ni ddylai rhedeg busnes olygu ofni eich llyfrau. Mae {{app}} yn disodli'r taenlenni di-drefn â rhifau clir y gallwch weithredu arnynt, fel eich bod yn treulio llai o amser yn cysoni a mwy o amser yn gwneud y gwaith y gwnaethoch ddechrau'r busnes i'w wneud.",
+  'about.missionTitle': 'Ein cenhadaeth',
   'about.title': 'Ynghylch {{app}}',
   'accounts.count': '{{count}} cyfrifon',
+  'accounts.emptyBody':
+    'Mae cyfrifon llyfr yn olrhain ble mae arian yn byw ac yn symud. Byddant yn ymddangos yma unwaith y bydd eich cadwr llyfrau neu integreiddiad yn eu gosod.',
   'accounts.emptyTitle': 'Dim cyfrifon eto',
   'accounts.heading': 'Siart cyfrifon',
   'accounts.kpi.accounts': 'Accounts',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     "Pob cyfrif llyfr y tu ôl i'ch anfonebau, treuliau a thaliadau, wedi'u grwpio yn ôl math.",
   'accounts.tag.inactive': 'anactif',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Prif Swyddog Ariannol, Horizon Tech',
   'authBrandPanel.eyebrow': 'Ymddiriedir gan dimau cyllid',
   'authBrandPanel.label': 'Arddangosfa brand',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Pob cwsmer',
   'customerDetail.invoiceMeta': "Wedi'i gyhoeddi {{issued}} · Yn ddyledus {{due}}",
   'customerDetail.loadError': "Methwyd llwytho'r cwsmer.",
+  'customerDetail.missingBody':
+    "Nid oedd modd llwytho'r cofnod cwsmer a ofynnwyd amdano. Efallai ei fod wedi'i ddileu, neu efallai nad oes gennych fynediad ato.",
   'customerDetail.missingHeading': 'Cofnod cwsmer ar gael',
+  'customerDetail.missingHelp':
+    'Defnyddiwch y ddolen nôl uchod i ddychwelyd at y rhestr o gwsmeriaid, neu dewiswch gofnod gwahanol oddi yno.',
+  'customerDetail.noInvoices': 'Dim anfonebau eto.',
   'customerDetail.notesEmpty': 'Dim nodiadau eto.',
   'customerDetail.paymentsEmpty': "Dim taliadau wedi'u cofnodi.",
   'customerDetail.paymentTerms': 'Telerau talu',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Didyniadadwy',
   'expenseDetail.detailsHeading': 'Manylion trafodiad',
   'expenseDetail.loadError': "Methwyd llwytho'r gost.",
+  'expenseDetail.matched': "Wedi'i baru · {{description}}",
   'expenseDetail.missingBody':
     "Ni ellid llwytho'r gost a ofynnwyd amdani. Efallai ei bod wedi'i thynnu, neu efallai nad oes gennych fynediad iddi.",
   'expenseDetail.missingHeading': 'Nid yw cofnod treuliau ar gael',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Derbynneb',
   'expenseDetail.receiptHeading': 'Derbynneb',
   'expenseDetail.reconciled': "Wedi'i gymodi",
+  'expenseDetail.unreconciled': 'Heb ei gymodi',
   'expenses.empty': 'Dim treuliau eto.',
   'expenses.heading': 'Treuliau',
   'expenses.kpi.deductible': 'Didyniadadwy',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Methwyd llwytho anfonebau.',
   'invoices.searchPlaceholder': 'Chwiliwch am rif anfoneb neu gwsmer…',
   'invoices.summary.paid': "Wedi'i dalu yn y cyfnod hwn",
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     "Am ddim am 30 diwrnod. Dim cerdyn. Dewch â'ch cyfrifydd — byddant yn diolch i chi.",
   'landing.ctaTitle': 'Symudwch eich llyfrau i le tawelach.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Cyfrifon derbyniadwy',
   'ledgerStatTriad.eyebrow.mtd': 'Mis hyd yma',
   'ledgerStatTriad.netSub': 'Net {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} yn hwyr',
   'ledgerStatTriad.revenueLabel': 'Refeniw',
   'login.failed': 'Methodd mewngofnodi.',
   'login.hidePassword': "Cuddio'r cyfrinair",
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Mewngofnodi',
   'nav.legal': 'Cyfreithiol',
   'newExpense.back': 'Treuliau',
+  'newExpense.clearReceiptCta': 'Dileu derbynneb sydd ynghlwm',
   'newExpense.deductible': 'Treth ddidynadwy',
   'newExpense.dropPrompt': "Gollyngwch lun neu PDF o'r dderbynneb yma i'w atodi.",
   'newExpense.failed': 'Methu arbed treuliau.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Methwyd llwytho taliadau.',
   'payments.unmatchedTag': 'heb ei ail',
   'planUpdated.pageLabel': "Cadarnhad wedi'i ddiweddaru gan y cynllun",
+  'pricing.advancedFeatures': 'Nodweddion uwch: {{yes}}',
+  'pricing.canExport': 'Allgludo data: {{yes}}',
+  'pricing.heading': 'Dewis eich cynllun {{app}}',
+  'pricing.maxAccounts': '{{count}} cyfrifon',
+  'pricing.maxExpenses': '{{count}} treuliau',
+  'pricing.maxInvoices': '{{count}} anfoneb',
+  'privacy.intro':
+    "Mae'r Polisi Preifatrwydd hwn yn disgrifio sut mae {{app}} yn casglu, defnyddio a datgelu gwybodaeth am fusnesau sy'n defnyddio'r gwasanaeth.",
   'privacy.lastUpdated': 'Diweddarwyd ddiwethaf: {{dyddiad}}',
   'privacy.section.collected.body':
     "Rydym yn casglu manylion cyfrif (enw, e-bost, cwmni), y cofnodion ariannol rydych chi'n eu lanlwytho (anfonebau, treuliau, cwsmeriaid, taliadau), a logiau gweithredu gwasanaeth safonol (IP, asiant defnyddiwr, stampiau amser).",
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     "Defnyddir gwybodaeth i weithredu'r gwasanaeth, cynhyrchu'r adroddiadau a'r ffeiliau PDF rydych chi'n gofyn amdanynt, anfon e-bost trafodion trwy Mailgun, a phrosesu taliadau trwy Stripe. Nid ydym yn gwerthu nac yn rhentu gwybodaeth bersonol.",
   'recentInvoicesCard.dueMeta': 'Dyledus {{date}}',
+  'recentInvoicesCard.empty': "Dim anfonebau'n cyfateb.",
   'recentInvoicesCard.eyebrow': 'Cyfrifon derbyniadwy',
   'recentInvoicesCard.searchAriaLabel': 'Chwilio anfonebau',
+  'recentInvoicesCard.searchPlaceholder': 'Chwilio anfonebau…',
   'recentInvoicesCard.title': 'Anfonebau diweddar',
   'recentInvoicesCard.viewAll': 'Gweld pob anfoneb →',
   'reports.assets': 'Asedau',
@@ -181,15 +211,20 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Elw a cholled (12 mis)',
   'resetPassword.backToLogin': '← Yn ôl i Mewngofnodi',
   'resetPassword.hidePassword': "Cuddio'r cyfrinair",
+  'resetPassword.passwordLabel': 'Cyfrinair newydd',
   'resetPassword.showPassword': 'Dangos cyfrinair',
+  'resetPassword.subheading': 'Dewiswch gyfrinair cryf — o leiaf wyth nod.',
   'resetPassword.submit': 'Ailosod Cyfrinair',
   'resetPassword.tooShort': "Rhaid i'r cyfrinair fod o leiaf 8 nod.",
   'settings.account.changePassword': 'Newid cyfrinair',
   'settings.account.changingPassword': 'Yn newid…',
   'settings.account.currentPassword': 'Cyfrinair cyfredol',
+  'settings.account.dangerZone': 'Parth perygl',
   'settings.account.deleteAccount': 'Dileu cyfrif',
   'settings.account.deleteDescription': "Dileu eich cyfrif a'r holl ddata cysylltiedig yn barhaol.",
   'settings.account.deleteError': 'Methwyd dileu cyfrif.',
+  'settings.account.deleteWarning':
+    'Bydd hyn yn dileu eich cyfrif yn barhaol ac ni ellir ei ddadwneud. Rhowch eich cyfrinair i gadarnhau.',
   'settings.account.deleting': 'Yn dileu…',
   'settings.account.devices': 'Dyfeisiau',
   'settings.account.email': 'E-bost',
@@ -200,6 +235,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Cyfrinair',
   'settings.account.passwordError': 'Methwyd newid y cyfrinair.',
   'settings.account.pushNotifications': 'Hysbysiadau gwthio ar y ddyfais hon',
+  'settings.account.revokeDeviceWarning':
+    'Bydd mynediad y ddyfais hon yn cael ei ddirwyn yn fuan. Ei allgofnodi?',
   'settings.account.saveError': "Methwyd diweddaru'r proffil.",
   'settings.account.security': 'Diogelwch',
   'settings.account.signOutDevice': 'Allgofnodi',
@@ -207,12 +244,19 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Dilysu dau ffactor',
   'settings.account.twoFactorCode': 'Cod dilysu',
   'settings.account.twoFactorDisable': 'Analluogi',
+  'settings.account.twoFactorDisableTitle': 'Analluogi dilysu dau ffactor',
   'settings.account.twoFactorEnable': 'Galluogi',
+  'settings.account.twoFactorEnableTitle': 'Galluogi dilysu dau ffactor',
   'settings.account.twoFactorInvalidCode': 'Cod annilys',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'Cod QR dau ffactor',
+  'settings.account.twoFactorScan':
+    "Sganiwch y cod QR hwn gyda'ch ap dilysu, yna rhowch y cod 6 digid.",
+  'settings.account.twoFactorUnavailable': 'Nid yw dilysu dau ffactor ar gael ar gyfer yr ap hwn.',
   'settings.account.twoFactorVerify': 'Dilysu a galluogi',
   'settings.account.unknownDevice': 'Dyfais anhysbys',
   'settings.company.email': 'E-bost bilio',
+  'settings.company.heading': 'Cwmni a threth',
   'settings.company.name': 'Enw cyfreithiol',
   'settings.company.saveButton': 'Cadw proffil y cwmni',
   'settings.company.taxId': 'ID Treth / EIN',
@@ -255,6 +299,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Amcangyfrif chwarterol',
   'taxes.kpi.owed': 'Dyledus',
   'taxes.loadError': 'Methwyd llwytho crynodeb treth.',
+  'taxes.remittedPct': "({{pct}}% wedi'i drosglwyddo)",
+  'terms.intro':
+    "Mae'r Telerau Gwasanaeth hyn (\"y Telerau\") yn llywodraethu eich mynediad at {{app}} a'ch defnydd ohono. Trwy greu cyfrif neu ddefnyddio'r gwasanaeth rydych yn cytuno i gael eich rhwymo ganddynt.",
   'terms.lastUpdated': 'Diweddarwyd ddiwethaf: {{dyddiad}}',
   'terms.section.acceptable.body':
     "Rydych yn cytuno i beidio â defnyddio'r gwasanaeth i dorri unrhyw gyfraith, torri hawliau eiddo deallusol, trosglwyddo meddalwedd faleisus, na cheisio cael mynediad heb awdurdod i gyfrifon eraill neu'n seilwaith.",

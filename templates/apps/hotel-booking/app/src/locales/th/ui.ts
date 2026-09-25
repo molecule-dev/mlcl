@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'มีคำถามเกี่ยวกับการจอง ข้อเสนอแนะ หรือที่พักที่คุณคิดว่าควรอยู่บน {{app}} หรือไม่? ติดต่อทีมของเราจากบัญชีของคุณ — ทุกข้อความส่งถึงคนจริงที่พร้อมช่วยเหลือ',
+  'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับเรา',
+  'about.featureLoyalty':
+    'อัตราสำหรับสมาชิกเท่านั้นและโปรแกรมสะสมแต้มที่ได้รับคะแนน เช็คเอาท์สาย และอัปเกรดห้องพักในทุกการจอง',
+  'about.featureReviews':
+    'รีวิวจากผู้เข้าพักที่ผ่านการยืนยันและคัดเลือกโดยทีมบรรณาธิการ เพื่อให้คุณมั่นใจในที่พักก่อนเดินทางถึง',
+  'about.featureRooms':
+    'เปรียบเทียบห้องพัก อัตรา และสิ่งอำนวยความสะดวกแบบเคียงข้างกัน ด้วยราคารวมที่โปร่งใส — รวมภาษีและค่าธรรมเนียมรีสอร์ตก่อนชำระเงิน',
+  'about.featureSearch':
+    'ค้นหาแบบเรียลไทม์จากโรงแรมที่ผ่านการตรวจสอบ พร้อมสถานะว่างแบบสด มุมมองแผนที่ และแกลเลอรีรูปภาพที่สมบูรณ์',
+  'about.featureTrips':
+    'รายการโปรดที่บันทึกไว้และแดชบอร์ด Trips ที่เก็บทุกการจอง แผนการเดินทาง และการยืนยันไว้ในที่เดียว',
+  'about.intro':
+    '{{app}} เป็นแพลตฟอร์มจองโรงแรมสำหรับนักเดินทางที่ใส่ใจคุณภาพ ที่พักทุกแห่งผ่านการตรวจสอบโดยทีมบรรณาธิการของเราเป็นการส่วนตัว — ไม่มีสินค้าจากผู้รวบรวม ไม่มีประกาศหลอกลวง ค้นหาสถานะว่างจริง เปรียบเทียบห้องพัก อัตรา และสิ่งอำนวยความสะดวกแบบเคียงข้างกัน แล้วจองได้ในไม่กี่แตะด้วยราคารวมที่ชัดเจน',
+  'about.missionBody':
+    'การจองที่พักควรให้ความรู้สึกสงบและซื่อตรง เราจัดแสดงอัตราที่โปร่งใสพร้อมภาษีและค่าธรรมเนียมรีสอร์ตไว้ล่วงหน้า ให้รางวัลแก่ผู้เข้าพักประจำแทนการคิดเงินทีละเล็กทีละน้อย และจัดอันดับที่พักที่คุ้มค่ากับเงินของคุณไว้ก่อน — เพื่อให้คุณใช้เวลาเปรียบเทียบแท็บน้อยลง และใช้เวลากับทริปมากขึ้น',
+  'about.missionTitle': 'พันธกิจของเรา',
+  'about.subtitle': 'วิธีที่คัดสรรและโปร่งใสในการค้นหาและจองโรงแรมที่ใช่',
   'account.loyalty.activitySummary': '{{nights}} กลางคืน · {{spend}} ใช้เวลาในปีนี้',
+  'account.loyalty.benefitsHeading': 'สิทธิประโยชน์ของคุณ',
   'account.loyalty.heading': 'ความภักดี',
   'account.loyalty.loading': 'กำลังโหลดข้อมูลสมาชิก…',
-  'account.loyalty.pointsTowardNext': '{{คะแนน}} / {{ต่อไป}} คะแนนไปยัง {{nextTier}}',
+  'account.loyalty.maxTier': 'ระดับสูงสุด — เพลิดเพลินกับสิทธิประโยชน์ของคุณ',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} แต้มถึง {{nextTier}}',
   'account.loyalty.tier': 'ระดับปัจจุบัน',
   'account.loyalty.unavailable': 'ข้อมูลโปรแกรมสะสมแต้มไม่พร้อมใช้งาน',
   'account.navLabel': 'ส่วนบัญชี',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'ยืนยันการจอง · {{total}}',
   'bookingCheckout.datesRequired': 'โปรดเลือกวันที่เช็คอินและเช็คเอาท์',
   'bookingCheckout.guestHeading': 'แขกคนสำคัญ',
+  'bookingCheckout.heading': 'ยืนยันและจอง',
   'bookingCheckout.loadError': 'ไม่สามารถโหลดข้อมูลคุณสมบัติได้',
   'bookingCheckout.nights': '{{rate}} × {{count}} กลางคืน',
   'bookingCheckout.notFound': 'ไม่พบที่พัก',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'ภาษีและค่าธรรมเนียม',
   'bookingCheckout.tripHeading': 'การเดินทางของคุณ',
   'bookingConfirmation.allTripsCta': 'การเดินทางทั้งหมด',
+  'bookingConfirmation.confNumber': 'หมายเลขยืนยัน: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'กำลังดำเนินการจองของคุณ',
   'bookingConfirmation.heading': 'การจองได้รับการยืนยันแล้ว',
   'bookingConfirmation.loading': 'กำลังโหลดข้อมูลการจองของคุณ…',
   'bookingConfirmation.searchMoreCta': 'ดูที่พักเพิ่มเติม',
   'bookingConfirmation.subheadingForTrip':
-    '{{คุณสมบัติ}} ใน {{เมือง}} , {{ประเทศ}} แล้วพบกันใหม่ {{เช็คอิน}} .',
+    '{{property}} ใน {{city}}, {{country}} แล้วพบกันวันที่ {{checkIn}}',
   'bookingConfirmation.total': 'ทั้งหมด {{total}}',
   'bookingConfirmation.viewTripCta': 'ดูรายละเอียดการเดินทาง',
   'common.goToDashboard': 'ไปที่แดชบอร์ด',
@@ -46,12 +71,15 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'ไม่สามารถโหลดรายการโปรดได้',
   'favorites.pricePerNight': '{{price}} / กลางคืน',
   'favorites.removeCta': 'ยกเลิกการบันทึก',
+  'favorites.removing': 'กำลังลบ…',
   'forgotPassword.subheading': 'ป้อนอีเมลในบัญชีของคุณ แล้วเราจะส่งลิงก์รีเซ็ตที่ปลอดภัยให้คุณ',
   'forgotPassword.successBody':
     'เราได้ส่งคำแนะนำในการรีเซ็ตไปให้แล้ว {{email}} ลิงก์นี้จะหมดอายุใน 30 นาที',
   'landing.cta.eyebrow': 'สมาชิก Auberge',
   'landing.cta.heading': 'ราคาพิเศษสำหรับสมาชิกเท่านั้น ทุกการจอง ทุกครั้ง',
   'landing.cta.signup': 'สร้างบัญชีฟรี',
+  'landing.cta.subheading':
+    'สะสมแต้มทุกการเข้าพัก ปลดล็อกเช็คเอาท์สายและอัปเกรดห้องพัก และเข้าถึงที่พักใหม่ก่อนใครก่อนประกาศต่อสาธารณะ',
   'landing.destinations.eyebrow': 'ต่อไปจะไปที่ไหน',
   'landing.destinations.heading': 'สถานที่ท่องเที่ยวแนะนำ',
   'landing.destinations.seeAll': 'ดูจุดหมายปลายทางทั้งหมด',
@@ -60,13 +88,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'เรื่องราวที่คุ้มค่าแก่การพกพาไปฟัง',
   'landing.nav.join': 'เข้าร่วม Auberge',
   'landing.nav.search': 'การค้นหายังคงอยู่',
+  'landing.preview.browseAll': 'เรียกดูคอลเลกชันทั้งหมด',
   'landing.preview.eyebrow': 'แอบดูข้างใน',
   'landing.preview.heading': 'ที่พักแนะนำประจำเดือนนี้',
+  'landing.preview.subheading':
+    'ที่พักทุกแห่งบน {{appName}} ผ่านการตรวจสอบโดยทีมบรรณาธิการของเราเป็นการส่วนตัว — ไม่มีสินค้าจากผู้รวบรวม ไม่มีประกาศหลอกลวง',
   'login.eyebrow': 'พื้นที่สำหรับสมาชิก',
+  'login.noAccount': 'เพิ่งใช้บริการ Tessera เป็นครั้งแรกใช่ไหม?',
   'login.signupLink': 'สร้างบัญชีฟรี',
   'login.subheading':
     'ลงชื่อเข้าใช้เพื่อจัดการการเดินทาง ดูการยืนยัน และดำเนินการต่อจากจุดที่คุณหยุดไว้',
+  'loyaltyTierBadge.points': '{{points}} คะแนน',
   'planUpdated.heading': 'แผนได้รับการปรับปรุงแล้ว',
+  'planUpdated.retry': 'ลองอีกครั้ง',
+  'planUpdated.verifyFailed': 'เรายังไม่สามารถยืนยันการชำระเงินของคุณได้',
+  'planUpdated.verifyFailedBody':
+    'การชำระเงินของคุณอาจยังอยู่ในระหว่างดำเนินการ โปรดลองอีกครั้งในภายหลัง',
   'planUpdated.verifying': 'กำลังยืนยันการชำระเงินของคุณ…',
   'pricing.limit.advancedFeatures': 'คุณสมบัติขั้นสูง:',
   'pricing.limit.canExport': 'การส่งออกข้อมูล:',
@@ -78,7 +115,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'สถานที่แห่งนี้มีอะไรบ้าง',
   'propertyDetail.backLink': 'กลับไปที่หน้าค้นหา',
   'propertyDetail.bookCta': 'จอง',
+  'propertyDetail.bookmarkAria': 'บันทึกคุณสมบัติ',
   'propertyDetail.bookmarkAriaSaved': 'ลบออกจากคุณสมบัติที่บันทึกไว้',
+  'propertyDetail.galleryImageAlt': 'รูปที่ {{name}} จาก {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} ภาพถ่ายฮีโร่',
   'propertyDetail.hidePhotos': 'ซ่อนรูปภาพ',
   'propertyDetail.lineCleaning': 'ค่าธรรมเนียมการทำความสะอาด',
@@ -88,6 +127,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'กลางคืน',
   'propertyDetail.noChargeYet': 'คุณจะยังไม่ถูกเรียกเก็บเงิน',
   'propertyDetail.notFound': 'ไม่พบที่พัก',
+  'propertyDetail.perNight': '/ คืน',
+  'propertyDetail.pickDatesHint': 'เลือกวันที่ของคุณเพื่อดูรายละเอียดราคาทั้งหมด',
   'propertyDetail.reviewCount': '( {{count}} รีวิว)',
   'propertyDetail.reviewsHeading': 'รีวิวล่าสุด',
   'propertyDetail.roomCapacity': 'นอนหลับ {{count}}',
@@ -100,6 +141,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'รหัสผ่านใหม่',
   'resetPassword.subheading':
     'เลือกตั้งรหัสผ่านใหม่สำหรับบัญชี Auberge ของคุณ ควรใช้รหัสผ่านที่มีความยาวอย่างน้อย 8 ตัวอักษร เราขอแนะนำให้ใช้รหัสผ่านแบบวลี',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'ไม่มีที่พักใดตรงกับผลการค้นหาของคุณ',
   'searchResults.emptyHint':
     'ลองขยายขอบเขตการกรองหรือลบข้อจำกัดด้านราคาออก — Auberge มีที่พักใน 14 ประเทศ',
@@ -107,19 +149,26 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'ที่พักที่คัดสรรมาเป็นพิเศษ',
   'searchResults.headingForQuery': 'พักเป็นเวลา " {{q}} "',
   'searchResults.loadError': 'ไม่สามารถโหลดคุณสมบัติได้',
+  'searchResults.mapHint': 'วางเมาส์บนการ์ดเพื่อไฮไลต์บนแผนที่ ไทล์ Mapbox แบบสดในสภาพแวดล้อมจริง',
   'searchResults.mapPinAria': '{{name}} — {{price}} ต่อคืน',
   'searchResults.sortLabel': 'เรียงลำดับตาม',
   'searchResults.subheading': '{{count}} คุณสมบัติ · {{guests}} แขก',
   'signup.eyebrow': 'สมัครสมาชิก',
   'signup.subheading':
     'สมัครสมาชิก Auberge เพื่อรับสิทธิพิเศษสำหรับสมาชิก เช่น อัตราค่าห้องพักสุดคุ้ม การเช็คเอาท์ล่าช้า และสิทธิ์ในการเข้าพักที่พักใหม่ก่อนใคร',
+  'sojournAuthShell.brand.eyebrow': 'พักในที่ที่พิเศษกว่า',
+  'sojournAuthShell.brand.heading': 'คอลเลกชันที่พักที่คัดสรร — นำเสนออย่างสวยงาม ราคาโปร่งใส',
   'sojournHeroSearchCard.checkInAria': 'วันที่เช็คอิน',
   'sojournHeroSearchCard.checkOutAria': 'วันที่เช็คเอาท์',
+  'sojournHeroSearchCard.destAria': 'ปลายทาง',
+  'sojournHeroSearchCard.destLabel': 'ที่ไหน',
   'sojournHeroSearchCard.destPlaceholder': 'เมือง ภูมิภาค หรืออสังหาริมทรัพย์',
   'sojournHeroSearchCard.eyebrow': 'ที่พักที่คัดสรรมาเป็นพิเศษ · ราคาพิเศษสำหรับสมาชิกเท่านั้น',
   'sojournHeroSearchCard.guestsOption': '{{n}} แขก',
   'sojournHeroSearchCard.subtitle':
     'รวมโรงแรมบูติก ที่พักดีไซน์ล้ำสมัย และที่พักหายากไว้มากมาย ในราคาที่โปร่งใสและตกแต่งอย่างสวยงาม',
+  'sojournHeroSearchCard.title': 'พักในที่ที่พิเศษกว่า',
+  'sojournHeroSearchCard.trustLoyalty': 'สะสมแต้มทุกการเข้าพัก',
   'sojournHeroSearchCard.trustNoFees': 'ไม่มีค่าธรรมเนียมแอบแฝงใดๆ ทั้งสิ้น',
   'sojournHeroSearchCard.trustVetted': 'คัดสรรเฉพาะที่พักที่ผ่านการตรวจสอบอย่างละเอียดเท่านั้น',
   'sojournLayout.primaryNavLabel': 'การนำทางหลัก',

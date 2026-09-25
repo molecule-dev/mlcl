@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'មានមតិកែលម្អ រកឃើញកំហុស ឬចង់នាំយក {{app}} ទៅសាលារៀន ឬក្រុមរបស់អ្នក? យើងអានសារទាំងអស់ — ទាក់ទងមកពីការកំណត់គណនីរបស់អ្នក ហើយមនុស្សពិតប្រាកដនឹងឆ្លើយតប។',
   'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពី',
+  'about.intro':
+    '{{app}} គឺជាល្បែងផ្គុំពាក្យប្រចាំថ្ងៃ។ ទាយពាក្យប្រាំអក្សរក្នុងរយៈពេលប្រាំមួយដង រក្សាជ័យជម្នះជាប់ៗគ្នារបស់អ្នក ចែករំលែកតារាងអេម៉ូជីរបស់អ្នក និងមើលថាអ្នកផ្សេងទៀតជាប់ពាក្យថ្ងៃនេះយ៉ាងណា។',
+  'about.missionBody':
+    'ល្បែងផ្គុំពាក្យល្អគឺជាជ័យជម្នះតូចមួយប្រចាំថ្ងៃ។ {{app}} ត្រូវបានបង្កើតឡើងជុំវិញពាក្យរួមមួយក្នុងមួយថ្ងៃ — លឿនគ្រប់គ្រាន់សម្រាប់ការសម្រាកញ៉ាំកាហ្វេ និងគួរឱ្យចាប់អារម្មណ៍គ្រប់គ្រាន់ដើម្បីត្រលប់មកវិញនៅថ្ងៃស្អែក។',
+  'about.missionTitle': 'បេសកកម្មរបស់យើង',
   'about.title': 'អំពី {{app}}',
   'archive.loadError': 'មិនអាចផ្ទុកបណ្ណសារបានទេ។',
   'archive.missed': 'បានខកខាន',
   'archive.notPlayed': 'មិនបានលេង',
+  'archive.subhead':
+    'លេងឡើងវិញថ្ងៃណាមួយកន្លងមកជាការអនុវត្ត — គ្មានជ័យជម្នះជាប់ៗគ្នា គ្មានស្ថិតិ តែកម្សាន្តពេញលេញ។',
   'archive.title': 'បណ្ណសារ',
   'auth.backToHome': 'ត្រឡប់ទៅទំព័រដើម',
   'auth.backToHomeArrow': '← ត្រឡប់ទៅទំព័រដើម',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'ភ្លេចពាក្យសម្ងាត់?',
   'auth.login.loggingIn': 'កំពុងចូល…',
   'auth.login.logIn': 'លេងពាក្យថ្ងៃនេះ',
+  'auth.login.noAccount': 'ទើបតែស្គាល់ Tessera?',
   'auth.login.or': 'ឬបន្តជាមួយ',
   'auth.login.password': 'ពាក្យសម្ងាត់',
   'auth.login.signInButton': 'ចូល',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'កំពុងរក្សាទុក…',
   'common.sendingEllipsis': 'កំពុងផ្ញើ…',
   'common.startingEllipsis': 'កំពុងចាប់ផ្តើម…',
+  'forgotPassword.subhead':
+    'សូមបញ្ចូលអ៊ីមែលរបស់អ្នក ហើយយើងនឹងផ្ញើតំណភ្ជាប់ទៅអ្នកដើម្បីកំណត់ឡើងវិញ។',
+  'forgotPassword.success.body':
+    'ប្រសិនបើមានគណនីសម្រាប់ {{email}} អ្នកនឹងទទួលបានតំណភ្ជាប់កំណត់ឡើងវិញក្នុងរយៈពេលពីរបីនាទីទៀត។',
+  'forgotPassword.success.title': 'សូមពិនិត្យមើលប្រអប់សំបុត្ររបស់អ្នក។',
   'form.name': 'ឈ្មោះ',
   'howToPlay.cta.home': 'ត្រឡប់ទៅផ្ទះវិញ',
   'howToPlay.cta.play': 'លេងល្បែងថ្ងៃនេះ',
@@ -68,10 +83,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'ស្ទ្រីកដែលអ្នកស្អប់បំបែក',
   'leaderboard.daily.title': 'ការដោះស្រាយថ្ងៃនេះ',
   'leaderboard.loadError': 'មិនអាចផ្ទុកតារាងឈ្នះបានទេ។',
+  'leaderboard.streaks.empty': 'មិនទាន់មានជ័យជម្នះជាប់ៗគ្នាទេ — ក្លាយជាអ្នកដំបូង។',
+  'leaderboard.streaks.subhead': 'ជ័យជម្នះជាប់ៗគ្នាយូរបំផុតគ្រប់ពេល។',
   'leaderboard.streaks.title': 'អ្នកនាំមុខស្ទ្រីក',
+  'leaderboard.subhead':
+    'អ្នកផ្សេងទៀតជាប់ពាក្យថ្ងៃនេះយ៉ាងណា និងអ្នកណាកំពុងកាន់ជ័យជម្នះជាប់ៗគ្នាយូរបំផុត។',
   'leaderboard.title': 'តារាងឈ្នះ',
   'login.headline': 'សូមស្វាគមន៍ការត្រឡប់មកវិញ។',
   'login.streakPill': 'ស្ទ្រីក {{days}} ថ្ងៃកំពុងរង់ចាំ',
+  'login.subhead': 'ចូលដើម្បីរក្សាជ័យជម្នះជាប់ៗគ្នារបស់អ្នក និងមើលថាអ្នកជាប់ពាក្យថ្ងៃនេះយ៉ាងណា។',
   'nav.archive': 'បណ្ណសារ',
   'nav.editProfile': 'កែសម្រួលប្រវត្តិរូប',
   'nav.getStarted': 'ចាប់ផ្តើម',
@@ -89,6 +109,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · គ្មានពាក្យបែបនេះ',
   'notFound.title': 'ផ្លូវនោះទទេ។',
   'planUpdated.message': 'គម្រោងរបស់អ្នកដំណើរការហើយ។',
+  'planUpdated.retry': 'ព្យាយាមម្តងទៀត',
+  'planUpdated.verifyFailed': 'យើងមិនទាន់អាចបញ្ជាក់ការទូទាត់របស់អ្នកបាននៅឡើយទេ។',
+  'planUpdated.verifyFailedBody':
+    'ការទូទាត់របស់អ្នកប្រហែលជានៅតែកំពុងដំណើរការ។ សូមព្យាយាមម្តងទៀតនៅពេលបន្តិចទៀត។',
   'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
   'play.alreadyFinished': 'អ្នកបានបញ្ចប់ល្បែងនេះរួចហើយ',
   'play.answerWas': 'ពាក្យគឺ',
@@ -104,6 +128,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'ល្បែងអនុវត្ត',
   'play.tooShort': 'អក្សរមិនគ្រប់',
   'play.won': 'ដោះស្រាយបានហើយ!',
+  'pricing.advancedStats': 'ស្ថិតិកម្រិតខ្ពស់៖ {{yes}}',
+  'pricing.archiveHistory': 'ប្រវត្តិបណ្ណសារ {{count}} ថ្ងៃ',
+  'pricing.archivePlays': 'ការលេងបណ្ណសារឡើងវិញ {{count}} ដង/ថ្ងៃ',
+  'pricing.archiveUnlimited': 'ប្រវត្តិបណ្ណសារគ្មានដែនកំណត់',
+  'pricing.canExport': 'នាំចេញទិន្នន័យ៖ {{yes}}',
+  'pricing.checkoutError': 'មិនអាចចាប់ផ្តើមទូទាត់ប្រាក់បានទេ។ សូមព្យាយាមម្តងទៀត។',
   'pricing.dailyWord': 'ពាក្យប្រចាំថ្ងៃ',
   'pricing.heading': 'ជ្រើសរើសគម្រោង {{app}} របស់អ្នក',
   'pricing.included': 'រួមបញ្ចូល',
@@ -111,7 +141,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'ពាក្យប្រចាំថ្ងៃឥតគិតថ្លៃជានិច្ច។ ធ្វើបច្ចុប្បន្នភាពសម្រាប់លេងបណ្ណសារឡើងវិញគ្មានដែនកំណត់ និងស្ថិតិស៊ីជម្រៅ។',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} គោរពភាពឯកជនរបស់អ្នក។ ទំព័រនេះសង្ខេបទិន្នន័យដែលយើងរក្សាទុក ហេតុអ្វីយើងរក្សាទុក និងរបៀបលុបវាចេញ។',
   'privacy.title': 'ការជូនដំណឹងឯកជនភាព',
+  'resetPassword.subhead': 'ជ្រើសរើសពាក្យសម្ងាត់ថ្មីដើម្បីត្រលប់ទៅជ័យជម្នះជាប់ៗគ្នារបស់អ្នកវិញ។',
   'settings.account': 'គណនី',
   'settings.danger.body': 'លុបចោលជាអចិន្ត្រៃយ៍គណនី {{appName}} និងប្រវត្តិល្បែងទាំងអស់របស់អ្នក។',
   'settings.danger.confirm': 'បាទ/ចាស លុបជារៀងរហូត',
@@ -120,17 +153,24 @@ export const ui: UiTranslations = {
   'settings.guest': 'ភ្ញៀវ',
   'settings.language.title': 'ភាសា',
   'settings.subhead': 'កែសម្រួលប្រវត្តិរូប សំឡេង និងរបៀបអ្នកបង្ហាញនៅលើតារាងឈ្នះ។',
+  'settings.unnamed': 'កីឡាករ Sparq',
   'settings.upgrade': 'ធ្វើបច្ចុប្បន្នភាព',
   'signup.eyebrow': 'ឥតគិតថ្លៃជារៀងរហូត — ពាក្យមួយក្នុងមួយថ្ងៃ',
   'signup.headline': 'ចាប់ផ្តើមស្ទ្រីករបស់អ្នក។',
+  'signup.subhead':
+    'បង្កើតគណនី {{appName}} ដើម្បីលេងពាក្យប្រចាំថ្ងៃ បង្កើតជ័យជម្នះជាប់ៗគ្នា និងឡើងតារាងចំណាត់ថ្នាក់។',
   'stats.currentStreak': 'ស្ទ្រីក',
   'stats.distribution.title': 'ការបែងចែកការទាយ',
   'stats.loadError': 'មិនអាចផ្ទុកស្ថិតិរបស់អ្នកបានទេ។',
   'stats.maxStreak': 'ស្ទ្រីកអតិបរមា',
   'stats.played': 'បានលេង',
   'stats.playToday': 'លេងល្បែងថ្ងៃនេះ',
+  'stats.subhead':
+    'ល្បែងផ្គុំពាក្យប្រចាំថ្ងៃដែលមានចំណាត់ថ្នាក់តែប៉ុណ្ណោះ — ការអនុវត្តតាមបណ្ណសារមិនរាប់បញ្ចូលទេ។',
   'stats.title': 'ស្ថិតិរបស់អ្នក',
   'stats.winRate': 'អត្រាឈ្នះ',
   'status.monthly': 'ប្រចាំខែ',
+  'terms.intro':
+    'ដោយប្រើ {{app}} អ្នកយល់ព្រមតាមច្បាប់ខាងក្រោម។ ប្រសិនបើអ្នកមិនអាចទទួលយកបានទេ សូមកុំប្រើសេវាកម្មនេះ។',
   'terms.title': 'លក្ខខណ្ឌនៃសេវាកម្ម',
 }

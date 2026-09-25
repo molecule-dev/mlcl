@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഫീഡ്ബാക്ക് ഉണ്ടോ, ഒരു ബഗ് കണ്ടെത്തിയോ, അല്ലെങ്കിൽ ജേണലിംഗ് നിങ്ങളെ എങ്ങനെ സഹായിച്ചു എന്ന് ഞങ്ങളോട് പറയാൻ താൽപ്പര്യമുണ്ടോ? ഞങ്ങൾ എല്ലാ സന്ദേശവും വായിക്കുന്നു — എപ്പോൾ വേണമെങ്കിലും ബന്ധപ്പെടുക, ഒരു യഥാർത്ഥ വ്യക്തി നിങ്ങളോട് മറുപടി നൽകും.',
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
+  'about.featureInsights':
+    'നിങ്ങളുടെ ശബ്ദം നഷ്ടപ്പെടുത്താതെ ട്രിഗറുകളും തീമുകളും കൃതജ്ഞതകളും സൌമ്യമായി എടുത്തുകാണിക്കുന്ന AI-അധിഷ്ഠിത ചിന്തകൾ.',
+  'about.featureMood':
+    'നിങ്ങളെ വളരാൻ സഹായിക്കുന്നത് കണ്ടെത്തുന്ന കലണ്ടർ കാഴ്ചയും ട്രെൻഡ് ചാർട്ടുകളുമുള്ള മൂഡ്, പ്രവർത്തന ട്രാക്കിംഗ്.',
+  'about.featurePrivacy':
+    'എൻഡ്-ടു-എൻഡ് എൻക്രിപ്ഷൻ, ഒരു പാസ്കോഡ് ലോക്ക്, പൂർണ്ണ CSV എക്സ്പോർട്ട് — നിങ്ങളുടെ ചിന്തകൾ സ്വകാര്യവും കൊണ്ടുപോകാവുന്നതുമായി നിലനിർത്താൻ.',
+  'about.featurePrompts':
+    'എപ്പോഴും തുടങ്ങാൻ ഒരിടം ലഭിക്കാൻ സൌമ്യമായ ദൈനംദിന പ്രോംപ്റ്റുകൾ — ഒരിക്കലും ശൂന്യമായ പേജ് അല്ല.',
+  'about.intro':
+    '{{app}} ദൈനംദിന ചിന്തയ്ക്കും മൂഡ് ട്രാക്കിംഗിനും കൃതജ്ഞതയ്ക്കുമുള്ള ഒരു സൌമ്യവും സ്വകാര്യവുമായ മാനസികാരോഗ്യ ജേണലാണ്. ചിന്താപൂർവ്വമായ പ്രോംപ്റ്റുകൾ ശൂന്യമായ പേജിനെ മാറ്റിസ്ഥാപിക്കുന്നു, ശാന്തമായ പാറ്റേൺ കണ്ടെത്തൽ നിങ്ങളുടെ വികാരങ്ങളെ എന്ത് സ്വാധീനിക്കുന്നു എന്ന് മനസ്സിലാക്കാൻ സഹായിക്കുന്നു, എൻഡ്-ടു-എൻഡ് എൻക്രിപ്ഷൻ നിങ്ങളുടെ വാക്കുകൾ നിങ്ങളുടേതായി നിലനിർത്തുന്നു.',
+  'about.missionBody':
+    'സ്വയം പരിശോധിക്കുന്നത് ശാന്തമായിരിക്കണം, ഒരിക്കലും ക്ലിനിക്കൽ ആയിരിക്കരുത് — നിങ്ങളുടെ ശ്രദ്ധ ആവശ്യപ്പെടുന്ന മറ്റൊരു ആപ്പ് പോലെയും അല്ല. {{app}} സഹായിക്കാൻ വേണ്ടി നിർമ്മിച്ചതാണ്, ശല്യപ്പെടുത്താൻ അല്ല: ദിവസത്തിൽ കുറച്ച് ശാന്തമായ മിനിറ്റുകൾ — നിങ്ങളുടെ മൂഡ് ശ്രദ്ധിക്കാനും സത്യസന്ധമായി എഴുതാനും പതിയെ സ്വയം കൂടുതൽ വ്യക്തമായി കാണാനും.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'about.pageTitle': '{{app}} നെക്കുറിച്ച്',
   'authShell.encryptionBadge': 'നിങ്ങളുടെ എൻട്രികൾ എൻഡ്-ടു-എൻഡ് എൻക്രിപ്റ്റ് ചെയ്തിരിക്കുന്നു.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'ദിവസം {{day}} — എൻട്രി ഇല്ല',
   'calendar.cellMood': 'ദിവസം {{day}} — {{mood}}',
   'calendar.distributionHeading': 'ഈ മാസം ഒറ്റനോട്ടത്തിൽ',
   'calendar.eyebrow': 'മാനസികാവസ്ഥ ഒറ്റനോട്ടത്തിൽ',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'ട്രാക്ക് ചെയ്‌തു {{tracked}} യുടെ {{total}} ഈ മാസത്തെ ദിവസങ്ങൾ.',
   'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'common.tryAgain': 'വീണ്ടും ശ്രമിക്കുക',
+  'entryComposer.bodyPlaceholder':
+    'സത്യസന്ധമെന്ന് തോന്നുന്നതെന്തും എഴുതുക. മറ്റാരും ഇത് വായിക്കില്ല.',
   'entryComposer.cancel': 'ജേണലിലേക്ക് മടങ്ങുക',
   'entryComposer.heading': 'ഇന്നത്തെ ധ്യാനം',
   'entryComposer.moodLabel': 'നിനക്ക് എങ്ങനെയിരിക്കുന്നു?',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'നീക്കം ചെയ്യുക {{tag}}',
   'entryComposer.save': 'പ്രതിഫലനം സംരക്ഷിക്കുക',
   'entryComposer.saveError': 'നിങ്ങളുടെ എൻട്രി സംരക്ഷിക്കാൻ കഴിഞ്ഞില്ല.',
+  'entryComposer.tagPlaceholder': 'ഒരു ടാഗ് ചേർത്ത് എന്റർ അമർത്തുക',
   'entryComposer.titlePlaceholder': 'ഈ പ്രതിഫലനത്തിന് ഒരു പേര് നൽകുക...',
   'entryDetail.back': 'ജേണലിലേക്ക് മടങ്ങുക',
   'entryDetail.delete': 'ഈ എൻട്രി ഇല്ലാതാക്കുക',
@@ -36,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'പ്രതിഫലനം ലോഡ് ചെയ്യുന്നു…',
   'entryDetail.notFound': 'എൻട്രി കണ്ടെത്തിയില്ല.',
   'entryDetail.reflectionsHeading': 'AI പ്രതിഫലനങ്ങൾ',
+  'forgotPassword.continueButton': 'റീസെറ്റ് കോഡ് നൽകുക',
   'forgotPassword.eyebrow': 'വിഷമിക്കേണ്ടതില്ല',
   'forgotPassword.subheading':
     'നിങ്ങളുടെ ഇമെയിലിലേക്ക് ഞങ്ങൾ ഒരു സൗമ്യമായ പുനഃസജ്ജീകരണ ലിങ്ക് അയയ്ക്കും.',
@@ -59,14 +80,22 @@ export const ui: UiTranslations = {
     'ഇതുവരെ തീമുകളൊന്നുമില്ല — നിങ്ങളുടെ എൻട്രികളിൽ ഒന്നോ രണ്ടോ ടാഗുകൾ ചേർക്കുക, അവ ഇവിടെ ഒത്തുചേരും.',
   'insights.themesHeading': 'മുൻനിര തീമുകൾ',
   'insights.triggerFrequency': 'ശ്രദ്ധിച്ചു {{count}} × ഈ മാസം',
+  'insights.triggersEmpty':
+    'ഇതുവരെ ശ്രദ്ധിക്കാൻ ഒന്നുമില്ല. കുറച്ച് ദിവസങ്ങളിലായി കുറച്ച് എൻട്രികൾ നിങ്ങളുടെ പാറ്റേണുകൾ കാണിക്കും.',
   'insights.triggersHeading': 'നിങ്ങളുടെ മാനസികാവസ്ഥയെ ചലിപ്പിക്കുന്ന പാറ്റേണുകൾ',
+  'journal.empty':
+    'പൊരുത്തപ്പെടുന്ന ചിന്തകളില്ല — മറ്റൊരു ഫിൽട്ടർ പരീക്ഷിക്കുകയോ പുതിയ എൻട്രി എഴുതുകയോ ചെയ്യുക.',
   'journal.eyebrow': 'നിങ്ങളുടെ ചിന്തകൾ',
   'journal.heading': 'ജേണൽ',
   'journal.loadError': 'എൻട്രികൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
   'journal.loading': 'എൻട്രികൾ ലോഡ് ചെയ്യുന്നു...',
+  'journal.newEntry': 'പുതിയ എൻട്രി',
   'journal.searchPlaceholder': 'ഒരു വികാരം, ഒരു പേര്, ഒരു നിമിഷം എന്നിവ തിരയുക...',
   'journal.subheading': '{{count}} എൻട്രികൾ - സൂക്ഷിക്കാൻ കൊള്ളാവുന്ന ഓരോന്നും.',
   'journalEntryCard.encryptedLabel': 'എൻക്രിപ്റ്റ് ചെയ്‌തു',
+  'landing.ctaBody':
+    'തുടങ്ങാൻ സൌജന്യം. ഡാറ്റ എക്സ്പോർട്ട്, വലിയ ജേണൽ, ഒരു വർഷത്തെ മുഴുവൻ ചരിത്രം എന്നിവ Pro അൺലോക്ക് ചെയ്യുന്നു.',
+  'landing.ctaButton': 'നിങ്ങളുടെ ആദ്യ എൻട്രി ആരംഭിക്കുക',
   'landing.ctaTitle': 'ദിവസത്തിൽ കുറച്ച് നിശബ്ദ നിമിഷങ്ങൾ. അത്രമാത്രം.',
   'landing.eyebrow': 'സൗമ്യമായ ഒരു ദൈനംദിന പരിശീലനം',
   'landing.featuresBody':
@@ -85,6 +114,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'ദൈനംദിന ധ്യാനത്തിന് അനുയോജ്യമായ ഒരു സൗമ്യമായ ഇടം.',
   'mentalHealthJournalLayout.closeMenu': 'മെനു അടയ്ക്കുക',
   'mentalHealthJournalLayout.openMenu': 'മെനു തുറക്കുക',
+  'mentalHealthJournalLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
+  'moodHeroCard.entriesThisWeek': '{{count}} ഈ ആഴ്ച',
   'moodHeroCard.streakSuffix': 'ദിവസ സ്‌ട്രീക്ക്',
   'moodHeroCard.title': 'ഇന്നത്തെ ധ്യാനം',
   'moodTrendChart.aiBadge': 'AI ഇൻസൈറ്റ് തയ്യാറാണ്',
@@ -95,11 +126,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'നിങ്ങളുടെ യാത്ര',
   'profile.fallbackName': 'പ്രതിഫലനം',
   'profile.loadError': 'സ്ഥിതിവിവരക്കണക്കുകൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
+  'profile.loading': 'നിങ്ങളുടെ സ്ഥിതിവിവരക്കണക്കുകൾ പുതുക്കുന്നു…',
   'profile.longestStreak': 'ഏറ്റവും ദൈർഘ്യമേറിയ സ്ട്രീക്ക്',
   'profile.memberSince': 'മുതൽ പ്രതിഫലിക്കുന്നു {{date}}',
   'profile.milestones': 'നാഴികക്കല്ലുകൾ',
   'profile.milestonesEmpty':
     'നിങ്ങളുടെ ആദ്യ നാഴികക്കല്ല് ഒരു എൻട്രി അകലെയാണ് - നിങ്ങൾക്ക് തയ്യാറാകുമെന്ന് തോന്നുമ്പോഴെല്ലാം എഴുതുക.',
+  'profile.moodMix': 'ഈ സീസണിലെ നിങ്ങളുടെ മൂഡ് മിശ്രിതം',
   'profile.streakValue': '{{days}} ഡി',
   'profile.totalEntries': 'ചിന്തകൾ',
   'profile.totalWords': 'എഴുതിയ വാക്കുകൾ',
@@ -112,6 +145,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'ഇതിനെക്കുറിച്ച് എഴുതുക',
   'resetPassword.eyebrow': 'ഒരു പുതിയ തുടക്കം',
   'resetPassword.mismatchError': 'പാസ്‌വേഡുകൾ പൊരുത്തപ്പെടുന്നില്ല.',
+  'resetPassword.passwordLabel': 'പുതിയ പാസ്വേഡ്',
   'resetPassword.subheading':
     'സുരക്ഷിതമായ എന്തെങ്കിലും തിരഞ്ഞെടുക്കുക - നിങ്ങളുടെ ചിന്തകൾ അത് അർഹിക്കുന്നു.',
   'resetPassword.tokenPlaceholder': 'ഇമെയിലിൽ നിന്നുള്ള കോഡ് പുനഃസജ്ജമാക്കുക',
@@ -125,11 +159,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     'നിങ്ങളുടെ വാക്കുകൾ എപ്പോഴും നിങ്ങളുടേതാണ്. എപ്പോൾ വേണമെങ്കിലും ഒരു പകർപ്പ് ഡൗൺലോഡ് ചെയ്യൂ.',
   'settings.exportDone': 'കയറ്റുമതി ചെയ്തു {{format}}.',
+  'settings.exportError': 'കയറ്റുമതി പരാജയപ്പെട്ടു.',
+  'settings.exportHeading': 'നിങ്ങളുടെ ചിന്തകൾ എക്സ്പോർട്ട് ചെയ്യുക',
   'settings.exportLoading': 'തയ്യാറാക്കുന്നു...',
   'settings.eyebrow': 'നിങ്ങളുടെ ഇടം, നിങ്ങളുടെ നിയമങ്ങൾ',
   'settings.languageHeading': 'ഭാഷ',
   'settings.privacyHeading': 'സ്വകാര്യതയും എൻക്രിപ്ഷനും',
   'settings.remindersHeading': 'ദിവസേനയുള്ള ഓർമ്മപ്പെടുത്തൽ',
+  'settings.reminderToggleAria': 'ദൈനംദിന ഓർമ്മപ്പെടുത്തൽ ടോഗിൾ ചെയ്യുക',
   'settings.reminderToggleDescription':
     'നിങ്ങൾ തിരഞ്ഞെടുക്കുന്ന സമയത്ത് ഒരു ശാന്തമായ ഓർമ്മപ്പെടുത്തൽ. ബാഡ്ജുകളോ കുറ്റബോധമോ ഇല്ല.',
   'settings.reminderToggleLabel': 'ഒരു മൃദുവായ തള്ളൽ അയയ്ക്കുക',
@@ -142,6 +179,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'ജേണൽ സൃഷ്ടിക്കുന്നു...',
   'signup.subheading': 'നിങ്ങളുടെ ചിന്തകൾക്ക് സുരക്ഷിതമായ ഇടം.',
   'wellnessRingsTriad.mindfulnessCaption': 'ലക്ഷ്യം {{goal}} ഇന്ന് മിനിറ്റ്',
+  'wellnessRingsTriad.mindfulnessLabel': 'മൈൻഡ്ഫുൾനെസ്',
   'wellnessRingsTriad.sleepCaption': 'ലക്ഷ്യം {{goal}} മണിക്കൂർ / രാത്രി',
   'wellnessRingsTriad.sleepLabel': 'ഉറക്കം',
+  'wellnessRingsTriad.sleepValue': '{{hours}}h',
+  'wellnessRingsTriad.streakCaption': 'ലക്ഷ്യം {{goal}} ദിവസം',
+  'wellnessRingsTriad.streakLabel': 'ജേണൽ സ്ട്രീക്ക്',
+  'wellnessRingsTriad.streakValue': '{{days}} ഡി',
 }

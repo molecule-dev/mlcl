@@ -1,17 +1,35 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'प्रश्न, अभिप्राय किंवा वैशिष्ट्य विनंती आहे? सेटिंग्ज → सूचना मधून {{app}} टीमशी संपर्क साधा, किंवा कधीही आम्हाला लिहा — प्रत्येक संदेश खऱ्या माणसापर्यंत पोहोचतो.',
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
   'about.eyebrow': 'बद्दल',
+  'about.featureCapture': 'फोटो अपलोडसह पावती कॅप्चर, जी योग्य खर्चाला ओळीनुसार प्रतिमा जोडते.',
+  'about.featureExport':
+    'प्रत्येक अहवाल, खर्च आणि मंजुरी स्थितीचे ऑडिटयोग्य CSV निर्यात — तुमच्या लेखा टीमसाठी तयार.',
+  'about.featurePolicy':
+    'धोरण मार्गदर्शक तत्त्वे — दैनिक मर्यादा, प्रत्येक श्रेणीची मर्यादा आणि पावती आवश्यक असलेली उंबरठे सबमिशनच्या वेळी लागू.',
+  'about.featureWorkflow':
+    'पुनरावलोकनकर्त्याच्या टिपा, धोरण-उल्लंघन ध्वज आणि एका टॅपमध्ये परतावा चिन्हांकित करण्यासह दोन-स्तरीय मंजुरी कार्यप्रवाह.',
+  'about.intro':
+    '{{app}} हे वित्त संघांसाठी आणि त्यांनी परतावा दिल्या जाणाऱ्या लोकांसाठी खर्च व्यवस्थापन प्लॅटफॉर्म आहे. पावती कॅप्चर करा, खर्च नोंदवा, अहवाल मंजुरीसाठी पाठवा आणि प्रत्येक परतावा ट्रॅक करा — स्प्रेडशीटच्या औपचारिकतेशिवाय.',
+  'about.missionBody':
+    'परतावा जलद, न्याय्य आणि ऑडिटयोग्य असावा. आम्ही {{app}} तयार केले जेणेकरून सबमिट करणाऱ्यांना तगादा न लावता पैसे परत मिळतील, मंजुरी देणाऱ्यांना ते नेमके कशाला मंजुरी देत आहेत हे दिसेल आणि वित्त विभागाकडे प्रत्येक रुपयाचा स्वच्छ मागोवा असेल — धोरण तपासणीसह.',
+  'about.missionTitle': 'आमचे ध्येय',
   'approvals.approve': 'Approve',
   'approvals.approving': 'मंजूर करत आहे…',
   'approvals.confirmReject': 'नाकारण्याची पुष्टी करा',
+  'approvals.empty': 'तुम्ही सर्व पूर्ण केले आहे — कोणतेही अहवाल प्रतीक्षेत नाहीत.',
   'approvals.eyebrow': 'व्यवस्थापक रांग',
   'approvals.kpi.flaggedLabel': 'धोरण ध्वजांकित केले',
+  'approvals.kpi.queueLabel': 'पुनरावलोकनाच्या प्रतीक्षेत',
   'approvals.kpi.totalLabel': 'प्रलंबित मूल्य',
   'approvals.lineCount': '{{count}} खर्च',
   'approvals.queueFallback': 'थेट रांग उपलब्ध नाही — निवडक डेमो डेटा दाखवला जात आहे.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'नाकारत आहे…',
+  'approvals.rejectPlaceholder': 'कारण (आवश्यक)',
   'approvals.rejectPrompt': 'तुम्ही हा अहवाल का नाकारत आहात?',
   'approvals.review': 'पुनरावलोकन',
   'approvals.title': 'मंजुरी प्रलंबित',
@@ -24,11 +42,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+१८%',
   'dashboard.kpi.approvedLabel': 'मंजूर · एमटीडी',
   'dashboard.kpi.pendingDelta': 'या आठवड्यात +२',
+  'dashboard.kpi.pendingLabel': 'पुनरावलोकन प्रलंबित आहे',
   'dashboard.kpi.receiptsDelta': 'आवश्यक कारवाई',
   'dashboard.kpi.receiptsLabel': 'पावत्यांची वाट पाहत आहे',
   'dashboard.kpi.reimbursedDelta': '+$२.४ हजार',
   'dashboard.kpi.reimbursedLabel': 'परतफेड · एमटीडी',
   'dashboard.newReport': 'नवीन अहवाल',
+  'dashboard.recent.empty': 'अद्याप कोणतेही अहवाल नाहीत — वर तुमचा पहिला सुरू करा.',
   'dashboard.recent.title': 'अलीकडील अहवाल',
   'dashboard.recent.viewAll': 'सर्व अहवाल पहा',
   'dashboard.summaryFallback': 'थेट सारांश उपलब्ध नाही — निवडक डेमो डेटा दाखवला जात आहे.',
@@ -38,11 +58,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'पावत्या आणि परतफेड करण्यायोग्य बाबी',
   'expenses.listFallback': 'थेट सूची उपलब्ध नाही — निवडक डेमो डेटा दाखवला जात आहे.',
   'expenses.searchPlaceholder': 'व्यापारी किंवा श्रेणी शोधा…',
+  'expenses.subtotal': '{{count}} खर्च · उपबेरीज',
   'expenses.title': 'खर्च',
+  'forgotPassword.continue': 'माझ्याकडे कोड आहे · सुरू ठेवा',
+  'forgotPassword.subheading':
+    'तुमचा कामाचा ईमेल टाका आणि नवीन पासवर्ड सेट करण्यासाठी आम्ही लिंक पाठवू.',
   'forgotPassword.successBody':
     'जर खाते अस्तित्वात असेल तर {{email}} पुढील काही मिनिटांत तुम्हाला एक रीसेट लिंक मिळेल.',
+  'landing.copyright': '© {{year}} {{app}}. Molecule.dev ने बनवलेले.',
+  'landing.ctaBody':
+    'दर महिन्याच्या पहिल्या 25 खर्चांसाठी मोफत. क्रेडिट कार्ड नाही, अंमलबजावणी कॉल नाही.',
   'landing.ctaHeading': 'तुमच्या संघाला देय असलेली रक्कम वसूल करण्यास तयार आहात का?',
   'landing.eyebrow': 'वित्त विभागासाठी खर्चाचे अहवाल',
+  'landing.featuresHeading': 'परतावा, एका शांत कार्यक्षेत्रात',
   'landing.heroSubtitle':
     'स्प्रेडशीटच्या किचकट प्रक्रियेविना व्यावसायिक खर्च सादर करा, मंजूर करा आणि परतफेड मिळवा. पावती OCR, धोरणांची तपासणी आणि पारदर्शक मंजुरीची कालमर्यादा — हे सर्व एकाच शांत कार्यक्षेत्रात.',
   'landing.heroTitle': 'प्रत्येक पावती परत मिळवली.',
@@ -60,10 +88,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'नोंदी',
   'newExpense.descriptionPlaceholder':
     'हा खर्च व्यवसायाशी संबंधित का होता (तुमच्या मंजूर करणाऱ्याला दिसणारा).',
+  'newExpense.eyebrow': 'परतावा पात्र बाब',
   'newExpense.merchant': 'व्यापारी',
   'newExpense.merchantPlaceholder': 'हॉटेल ॲडलॉन केम्पिन्स्की',
   'newExpense.policyHint':
     'सूचना: दररोज $80 पेक्षा जास्त किमतीच्या जेवणासाठी किंवा $255 पेक्षा जास्त किमतीच्या कोणत्याही वस्तूसाठी समर्थन पत्र आवश्यक आहे.',
+  'newExpense.receipt': 'पावती',
+  'newExpense.receiptHint': 'JPG, PNG किंवा PDF · कमाल 10 MB',
   'newExpense.receiptOcrHint': 'OCR फील्ड्स आधीच भरते',
   'newExpense.receiptPrompt': 'येथे फोटो किंवा पीडीएफ टाका, किंवा पाहण्यासाठी क्लिक करा.',
   'newExpense.receiptUploadFailed':
@@ -73,17 +104,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'पावतीचा फोटो काढा किंवा अपलोड करा आणि रिकूप आपोआप व्यापारी, तारीख आणि एकूण रक्कम भरेल. सेव्ह करण्यापूर्वी खालील सर्व माहितीची पुष्टी करा.',
   'newExpense.title': 'खर्च जोडा',
+  'newReport.approverHint': 'तुम्ही हा अहवाल पुनरावलोकनासाठी सबमिट कराल तेव्हा त्यांना ईमेल मिळेल.',
   'newReport.approverLabel': 'मंजूर करणाऱ्याचा ईमेल (ऐच्छिक)',
   'newReport.approverPlaceholder': 'व्यवस्थापक@तुमच्याकंपनी.कॉम',
   'newReport.availableExpenses': 'उपलब्ध खर्च',
   'newReport.createFailed': 'अहवाल तयार करता आला नाही. कृपया पुन्हा प्रयत्न करा.',
   'newReport.draftsFallback':
     'थेट खर्चांची यादी उपलब्ध नाही — निवडक प्रात्यक्षिक डेटा दाखवला जात आहे.',
+  'newReport.eyebrow': 'खर्च गटबद्ध करा · मंजुरीसाठी सबमिट करा',
   'newReport.includedCount': '{{count}} समाविष्ट केले',
   'newReport.purposeLabel': 'व्यवसायाचा उद्देश',
   'newReport.purposePlaceholder':
     'हे खर्च ज्या सहलीशी किंवा प्रकल्पाशी संबंधित आहेत त्याचे वर्णन करा (जे तुमच्या मंजुरी देणाऱ्या अधिकाऱ्याला आणि वित्त विभागाला दिसेल).',
   'newReport.saveDraft': 'मसुदा म्हणून जतन करा',
+  'newReport.saveDraftFailed': 'मसुदा जतन करता आला नाही. कृपया पुन्हा प्रयत्न करा.',
   'newReport.submit': 'मंजुरीसाठी सादर करा',
   'newReport.submitFailed': 'अहवाल सादर करता आला नाही. कृपया पुन्हा प्रयत्न करा.',
   'newReport.summary': 'अहवाल सारांश',
@@ -97,16 +131,23 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'थेट प्रक्षेपण उपलब्ध नाही — निवडक प्रात्यक्षिक डेटा दाखवला जात आहे.',
   'notifications.openReport': 'अहवाल उघडा ›',
+  'pricing.approvalsLabel': 'मंजुऱ्या',
   'pricing.expensesLabel': 'खर्च',
   'pricing.heading': 'मंजुरी',
   'pricing.policiesLabel': 'धोरणे',
   'pricing.receiptsLabel': 'पावत्या',
   'recoveredAmountHeroCard.label': 'परतफेड वसूल झाली · वर्षातील आतापर्यंत',
+  'recoveredAmountHeroCard.pending':
+    'सर्व मंजुरी देणाऱ्यांमध्ये सध्या {{count}} अहवाल पुनरावलोकनासाठी प्रलंबित आहेत.',
+  'reports.approvalFlow': 'मंजुरी प्रवाह',
   'reports.backToList': 'अहवालांकडे परत जा',
   'reports.detailFallback': 'थेट अहवाल उपलब्ध नाही — निवडक डेमो डेटा दाखवला जात आहे.',
   'reports.lineItems': 'ओळीतील वस्तू',
   'reports.lineItemsCount': '{{count}} खर्च',
+  'reports.lineItemsEmpty': 'या अहवालावर अद्याप कोणतेही खर्च नाहीत.',
+  'reports.openLibrary': 'अहवाल लायब्ररी उघडा',
   'reports.policyTitle': 'धोरण ध्वज',
+  'reports.selectPrompt': 'त्याचे तपशील पाहण्यासाठी लायब्ररीतून अहवाल निवडा.',
   'reports.summary.lineCount': 'ओळीतील वस्तू',
   'reports.summary.reimbursable': 'परतफेड करण्यायोग्य',
   'reports.summary.total': 'नोंदवलेले एकूण',
@@ -115,6 +156,7 @@ export const ui: UiTranslations = {
   'reportsList.lineItems': '{{count}} खर्च',
   'reportsList.listFallback': 'थेट सूची उपलब्ध नाही — निवडक डेमो डेटा दाखवला जात आहे.',
   'reportsList.newReport': 'नवीन अहवाल',
+  'reportsList.submittedOn': '{{date}} रोजी सबमिट केले',
   'reportsList.title': 'अहवाल लायब्ररी',
   'resetPassword.hidePassword': 'पासवर्ड लपवा',
   'resetPassword.newPasswordLabel': 'नवीन पासवर्ड',
@@ -140,6 +182,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'जतन केले ✓',
   'settings.profileSaveFailed': 'प्रोफाइल अद्ययावत करता आले नाही. कृपया पुन्हा प्रयत्न करा.',
   'signup.heading': 'तुमचे रिकूप खाते तयार करा',
+  'signup.hidePassword': 'पासवर्ड लपवा',
   'signup.namePlaceholder': 'माया ओकाफोर',
   'signup.showPassword': 'पासवर्ड दाखवा',
   'signup.subheading': 'दरमहा २५ खर्चांसाठी मोफत — क्रेडिट कार्डची आवश्यकता नाही.',

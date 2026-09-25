@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.eyebrow': 'সম্পর্কে',
+  'about.featureConnections':
+    'একটি কানেকশন ম্যানেজার যা আপনার ডেটাবেসগুলো নিরাপদে সংরক্ষণ করে এবং রঙ-কোড করে — ক্রেডেনশিয়ালগুলো এনক্রিপ্টেড অবস্থায় সংরক্ষিত থাকে, কখনোই প্লেইনটেক্সটে নয়।',
+  'about.featureMonitoring':
+    'কোয়েরি পারফরম্যান্স এবং ডেটাবেস অ্যাক্টিভিটির লাইভ মনিটরিং, সাথে কীবোর্ড শর্টকাট ও কমান্ড প্যালেট যা সবকিছু হ্যান্ডস-ফ্রি চালায়।',
+  'about.featurePlans':
+    'আপনার সাথে বেড়ে চলা প্ল্যান — একক কাজের জন্য ফ্রি, আরও কানেকশন, দীর্ঘ কোয়েরি রিটেনশন, এক্সপোর্ট এবং অ্যাডভান্সড ফিচারের জন্য Pro ও Team।',
+  'about.featureQueryEditor':
+    'কোয়েরি হিস্ট্রি, সংরক্ষিত কোয়েরি এবং এক ক্লিকে ফলাফলের CSV এক্সপোর্টসহ Monaco-চালিত SQL এডিটর।',
+  'about.featureSchema':
+    'ডেটাবেস, টেবিল ও কলাম নেভিগেট করার জন্য একটি স্কিমা এক্সপ্লোরার ও টেবিল ব্রাউজার, তারপর সারিগুলো ব্রাউজ, ফিল্টার এবং ইনলাইন এডিট করুন।',
+  'about.missionTitle': 'আমাদের লক্ষ্য',
   'authShell.commands': 'কমান্ড',
   'authShell.ssoSupported': 'SSO সমর্থিত',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'প্রশ্ন',
   'connections.schema': 'স্কিমা',
   'connections.subtitle': 'আপনার ডাটাবেস সংযোগগুলি পরিচালনা করুন।',
+  'connections.test': 'পরীক্ষা',
   'databaseAdminLayout.adminRole': 'প্রশাসকের ভূমিকা',
   'databaseAdminLayout.commandPalette': 'কমান্ড প্যালেট',
   'databaseAdminLayout.commands': 'কমান্ড',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'নতুন সংযোগ',
   'databaseAdminLayout.queries': 'প্রশ্ন',
   'databaseAdminLayout.ready': 'প্রস্তুত',
+  'databaseAdminLayout.searchPlaceholder': '⌘K কমান্ড, কোয়েরি, টেবিল খুঁজুন…',
   'databaseAdminLayout.user': 'ব্যবহারকারী',
   'editConnection.confirmDelete': 'এই সংযোগটি মুছে ফেলবেন?',
   'editConnection.deleteButton': 'সংযোগ মুছুন',
+  'editConnection.newPassword': 'নতুন পাসওয়ার্ড (অপরিবর্তিত রাখতে ফাঁকা রাখুন)',
   'editConnection.saved': 'সংযোগ সংরক্ষিত হয়েছে।',
   'editConnection.title': 'সংযোগ সম্পাদনা করুন',
   'forgotPassword.success':
@@ -47,6 +62,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'সাফল্য',
   'monitoring.title': 'পর্যবেক্ষণ',
   'monitoring.totalQueries': 'মোট কোয়েরি',
+  'nav.schema': 'স্কিমা',
   'newConnection.database': 'ডাটাবেস',
   'newConnection.engine': 'ইঞ্জিন',
   'newConnection.host': 'হোস্ট',
@@ -82,6 +98,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'এই স্নিপেটের সাথে কোনো সংযোগ সংযুক্ত নেই।',
   'savedQuery.notBound': 'আবদ্ধ নয়',
   'savedQuery.title': 'সংরক্ষিত কোয়েরি',
+  'schema.columns': 'কলাম',
   'schema.foreignKeys': 'বিদেশী চাবি',
   'schema.indexes': 'সূচক',
   'schemaExplorer.browseRows': 'সারিগুলি ব্রাউজ করুন',
@@ -90,14 +107,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'নালযোগ্য',
   'schemaExplorer.colType': 'প্রকার',
   'schemaExplorer.noColumns': 'কোনো কলাম নেই।',
+  'schemaExplorer.noForeignKeys': 'কোনো ফরেন কী নেই।',
   'schemaExplorer.noIndexes': 'কোন সূচী নেই।',
   'schemaExplorer.noTables': 'কোন টেবিল নেই',
   'schemaExplorer.pickATable': 'সাইডবার থেকে একটি টেবিল বাছাই করুন।',
   'schemaExplorer.tables': 'টেবিল',
   'schemaExplorer.title': 'স্কিমা এক্সপ্লোরার',
+  'settings.session': 'অধিবেশন',
   'settings.subtitle': 'আপনার অ্যাকাউন্ট ও প্ল্যান পরিচালনা করুন।',
   'signup.heading': 'আপনার কোয়ারি অ্যাকাউন্ট তৈরি করুন',
   'signup.tagline': 'এক মিনিটেরও কম সময়ে অ্যাক্সেস চালু করুন।',
   'tableBrowser.noRows': 'এই টেবিলে এখনও কোনো সারি নেই।',
+  'tableBrowser.subtitle': 'আপনার রিমোট ডেটাবেস থেকে সারি ব্রাউজ করা হচ্ছে।',
   'tableBrowser.title': 'আপনার রিমোট ডেটাবেস থেকে সারি ব্রাউজ করা হচ্ছে।',
 }

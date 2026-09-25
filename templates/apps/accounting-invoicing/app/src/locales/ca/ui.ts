@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens alguna pregunta, has trobat un error o vols traslladar els teus llibres? Contacta amb l'equip de {{app}} a hello@{{app}}.example — una persona real llegeix cada missatge.",
   'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre',
+  'about.intro':
+    '{{app}} és comptabilitat per a petites empreses que té en compte cada cèntim — factures, despeses, pagaments i informes en un sol lloc tranquil per a propietaris, comptables i assessors fiscals.',
+  'about.missionBody':
+    'Dirigir un negoci no hauria de significar témer els teus llibres. {{app}} substitueix el desgavell de fulls de càlcul per xifres clares sobre les quals pots actuar, de manera que dediques menys temps a quadrar comptes i més a fer la feina per la qual vas crear el negoci.',
+  'about.missionTitle': 'La nostra missió',
   'about.title': 'Sobre {{app}}',
   'accounts.count': '{{count}} comptes',
+  'accounts.emptyBody':
+    'Els comptes del llibre major registren on és i on es mou els diners. Apareixen aquí quan el teu comptable o una integració els configura.',
   'accounts.emptyTitle': 'Encara no hi ha cap compte',
   'accounts.heading': 'Pla de comptes',
   'accounts.kpi.accounts': 'Accounts',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Tots els comptes comptables que hi ha darrere de les vostres factures, despeses i pagaments, agrupats per tipus.',
   'accounts.tag.inactive': 'inactiu',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Director financer, Horizon Tech',
   'authBrandPanel.eyebrow': 'Confiança dels equips financers',
   'authBrandPanel.label': 'Aparador de marca',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Tots els clients',
   'customerDetail.invoiceMeta': 'Emès {{issued}} · Vençut {{due}}',
   'customerDetail.loadError': "No s'ha pogut carregar el client.",
+  'customerDetail.missingBody':
+    "No s'ha pogut carregar el registre de client sol·licitat. Potser s'ha eliminat o potser no hi tens accés.",
   'customerDetail.missingHeading': 'Registre de client no disponible',
+  'customerDetail.missingHelp':
+    "Utilitza l'enllaç de tornada de dalt per tornar a la llista de clients o tria un altre registre des d'allà.",
+  'customerDetail.noInvoices': 'Encara no hi ha factures.',
   'customerDetail.notesEmpty': 'Encara no hi ha cap nota.',
   'customerDetail.paymentsEmpty': "No s'han registrat pagaments.",
   'customerDetail.paymentTerms': 'Condicions de pagament',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Franquícia',
   'expenseDetail.detailsHeading': 'Detalls de la transacció',
   'expenseDetail.loadError': "No s'ha pogut carregar la despesa.",
+  'expenseDetail.matched': 'Coincidència · {{description}}',
   'expenseDetail.missingBody':
     "No s'ha pogut carregar la despesa sol·licitada. Potser s'ha eliminat o potser no hi teniu accés.",
   'expenseDetail.missingHeading': 'Registre de despeses no disponible',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Rebut',
   'expenseDetail.receiptHeading': 'Rebut',
   'expenseDetail.reconciled': 'Reconciliat',
+  'expenseDetail.unreconciled': 'No reconciliat',
   'expenses.empty': 'Encara no hi ha despeses.',
   'expenses.heading': 'Despeses',
   'expenses.kpi.deductible': 'Franquícia',
@@ -101,6 +118,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': "No s'han pogut carregar les factures.",
   'invoices.searchPlaceholder': 'Cerca número de factura o client…',
   'invoices.summary.paid': 'Pagat aquest període',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'Gratuït durant 30 dies. Sense targeta. Porteu el vostre comptable: us ho agrairà.',
   'landing.ctaTitle': 'Trasllada els llibres a un lloc més tranquil.',
@@ -115,6 +133,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Comptes a cobrar',
   'ledgerStatTriad.eyebrow.mtd': 'Mes fins ara',
   'ledgerStatTriad.netSub': 'Xarxa {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} vençut',
   'ledgerStatTriad.revenueLabel': 'Ingressos',
   'login.failed': "No s'ha pogut iniciar la sessió.",
   'login.hidePassword': 'Amaga la contrasenya',
@@ -125,6 +144,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Inicia la sessió',
   'nav.legal': 'Legal',
   'newExpense.back': 'Despeses',
+  'newExpense.clearReceiptCta': 'Esborra el rebut adjunt',
   'newExpense.deductible': "Deduïble d'impostos",
   'newExpense.dropPrompt': 'Deixa anar una foto o un PDF del rebut aquí per adjuntar-lo.',
   'newExpense.failed': "No s'ha pogut estalviar despeses.",
@@ -153,6 +173,14 @@ export const ui: UiTranslations = {
   'payments.loadError': "No s'han pogut carregar els pagaments.",
   'payments.unmatchedTag': 'inigualable',
   'planUpdated.pageLabel': 'Confirmació actualitzada del pla',
+  'pricing.advancedFeatures': 'Funcions avançades: {{yes}}',
+  'pricing.canExport': 'Exportació de dades: {{yes}}',
+  'pricing.heading': 'Tria el teu pla de {{app}}',
+  'pricing.maxAccounts': '{{count}} comptes',
+  'pricing.maxExpenses': '{{count}} despeses',
+  'pricing.maxInvoices': '{{count}} factures',
+  'privacy.intro':
+    'Aquesta Política de privadesa descriu com {{app}} recull, utilitza i divulga informació sobre les empreses que utilitzen el servei.',
   'privacy.lastUpdated': 'Darrera actualització: {{data}}',
   'privacy.section.collected.body':
     "Recopilem les dades del compte (nom, correu electrònic, empresa), els registres financers que pengeu (factures, despeses, clients, pagaments) i els registres estàndard d'operacions de servei (IP, agent d'usuari, marques de temps).",
@@ -165,8 +193,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     "La informació s'utilitza per operar el servei, generar els informes i els PDF que sol·liciteu, enviar correus electrònics transaccionals a través de Mailgun i processar pagaments a través de Stripe. No venem ni lloguem informació personal.",
   'recentInvoicesCard.dueMeta': 'Venciment {{date}}',
+  'recentInvoicesCard.empty': 'No hi ha cap factura coincident.',
   'recentInvoicesCard.eyebrow': 'Comptes a cobrar',
   'recentInvoicesCard.searchAriaLabel': 'Cerca factures',
+  'recentInvoicesCard.searchPlaceholder': 'Cerca factures…',
   'recentInvoicesCard.title': 'Factures recents',
   'recentInvoicesCard.viewAll': 'Veure totes les factures →',
   'reports.assets': 'Actius',
@@ -182,16 +212,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Beneficis i pèrdues (12 mesos)',
   'resetPassword.backToLogin': '← Torna a Inicia la sessió',
   'resetPassword.hidePassword': 'Amaga la contrasenya',
+  'resetPassword.passwordLabel': 'Nova contrasenya',
   'resetPassword.showPassword': 'Mostra la contrasenya',
+  'resetPassword.subheading': 'Tria una contrasenya segura: mínim vuit caràcters.',
   'resetPassword.submit': 'Restablir contrasenya',
   'resetPassword.tooShort': 'La contrasenya ha de tenir com a mínim 8 caràcters.',
   'settings.account.changePassword': 'Canvia la contrasenya',
   'settings.account.changingPassword': 'Canviant…',
   'settings.account.currentPassword': 'Contrasenya actual',
+  'settings.account.dangerZone': 'Zona de perill',
   'settings.account.deleteAccount': 'Suprimeix el compte',
   'settings.account.deleteDescription':
     'Suprimeix permanentment el teu compte i totes les dades associades.',
   'settings.account.deleteError': "No s'ha pogut eliminar el compte.",
+  'settings.account.deleteWarning':
+    'Això elimina permanentment el teu compte i no es pot desfer. Introdueix la teva contrasenya per confirmar-ho.',
   'settings.account.deleting': "S'està suprimint…",
   'settings.account.devices': 'Dispositius',
   'settings.account.email': 'Correu electrònic',
@@ -202,6 +237,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Contrasenya',
   'settings.account.passwordError': "No s'ha pogut canviar la contrasenya.",
   'settings.account.pushNotifications': 'Notificacions push en aquest dispositiu',
+  'settings.account.revokeDeviceWarning':
+    "L'accés d'aquest dispositiu es revocarà aviat. Voleu tancar la sessió?",
   'settings.account.saveError': "No s'ha pogut actualitzar el perfil.",
   'settings.account.security': 'Seguretat',
   'settings.account.signOutDevice': 'Tanca la sessió',
@@ -209,12 +246,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Autenticació de dos factors',
   'settings.account.twoFactorCode': "Codi d'autenticació",
   'settings.account.twoFactorDisable': 'Desactiva',
+  'settings.account.twoFactorDisableTitle': "Desactiva l'autenticació de dos factors",
   'settings.account.twoFactorEnable': 'Activa',
+  'settings.account.twoFactorEnableTitle': "Activa l'autenticació de dos factors",
   'settings.account.twoFactorInvalidCode': 'Codi no vàlid',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'Codi QR de dos factors',
+  'settings.account.twoFactorScan':
+    "Escaneja aquest codi QR amb la teva aplicació d'autenticació i després introdueix el codi de 6 dígits.",
+  'settings.account.twoFactorUnavailable':
+    "L'autenticació de dos factors no està disponible per a aquesta aplicació.",
   'settings.account.twoFactorVerify': 'Verifica i activa',
   'settings.account.unknownDevice': 'Dispositiu desconegut',
   'settings.company.email': 'Correu electrònic de facturació',
+  'settings.company.heading': 'Empresa i impostos',
   'settings.company.name': 'Nom legal',
   'settings.company.saveButton': "Desa el perfil de l'empresa",
   'settings.company.taxId': 'Identificador fiscal / EIN',
@@ -258,6 +303,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Estimat trimestralment',
   'taxes.kpi.owed': 'Degut',
   'taxes.loadError': "No s'ha pogut carregar el resum d'impostos.",
+  'taxes.remittedPct': '({{pct}}% remès)',
+  'terms.intro':
+    'Aquestes Condicions del servei ("Condicions") regeixen el teu accés i ús de {{app}}. En crear un compte o utilitzar el servei, acceptes quedar-te\'n vinculat.',
   'terms.lastUpdated': 'Darrera actualització: {{data}}',
   'terms.section.acceptable.body':
     'Accepteu no utilitzar el servei per violar cap llei, infringir els drets de propietat intel·lectual, transmetre programari maliciós ni intentar obtenir accés no autoritzat a altres comptes o a la nostra infraestructura.',

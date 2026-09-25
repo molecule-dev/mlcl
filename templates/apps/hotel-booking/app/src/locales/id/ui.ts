@@ -1,10 +1,31 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Punya pertanyaan tentang pemesanan, masukan, atau properti yang menurut Anda layak ada di {{app}}? Hubungi tim kami dari akun Anda — setiap pesan diterima oleh manusia sungguhan yang siap membantu.',
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang kami',
+  'about.featureLoyalty':
+    'Tarif khusus anggota dan program loyalitas yang memberi poin, check-out larut, dan upgrade kamar di setiap pemesanan.',
+  'about.featureReviews':
+    'Ulasan tamu terverifikasi dan pilihan editor agar Anda yakin dengan penginapan sebelum tiba.',
+  'about.featureRooms':
+    'Bandingkan kamar, tarif, dan fasilitas secara berdampingan dengan harga menyeluruh yang transparan — pajak dan biaya resor sudah termasuk sebelum Anda membayar.',
+  'about.featureSearch':
+    'Pencarian real-time di hotel-hotel terkurasi dengan ketersediaan langsung, tampilan peta, dan galeri foto yang lengkap.',
+  'about.featureTrips':
+    'Favorit tersimpan dan dasbor Trips yang menyimpan setiap reservasi, itinerary, dan konfirmasi di satu tempat.',
+  'about.intro':
+    '{{app}} adalah platform pemesanan hotel untuk pelancong yang mengutamakan kualitas. Setiap properti dikurasi langsung oleh tim editorial kami — tanpa inventaris agregator, tanpa listing umpan-umpan. Cari ketersediaan nyata, bandingkan kamar, tarif, dan fasilitas secara berdampingan, lalu pesan dalam beberapa ketukan dengan harga menyeluruh yang jelas.',
+  'about.missionBody':
+    'Memesan tempat menginap seharusnya terasa tenang dan jujur. Kami menampilkan tarif transparan dengan pajak dan biaya resor di muka, memberi imbalan kepada tamu setia alih-alih membebani mereka dengan biaya kecil, dan mengutamakan penginapan yang layak untuk uang Anda — agar Anda bisa lebih sedikit membandingkan tab dan lebih banyak menikmati perjalanan itu sendiri.',
+  'about.missionTitle': 'Misi kami',
+  'about.subtitle': 'Cara terkurasi dan transparan untuk menemukan dan memesan hotel yang tepat.',
   'account.loyalty.activitySummary': '{{nights}} malam · {{spend}} dibelanjakan tahun ini',
+  'account.loyalty.benefitsHeading': 'Keuntungan Anda',
   'account.loyalty.heading': 'Loyalitas',
   'account.loyalty.loading': 'Memuat loyalitas…',
+  'account.loyalty.maxTier': 'Tingkat tertinggi — nikmati keuntungan Anda.',
   'account.loyalty.pointsTowardNext': '{{points}} / {{next}} poin menuju {{nextTier}}',
   'account.loyalty.tier': 'Tingkat saat ini',
   'account.loyalty.unavailable': 'Informasi loyalitas tidak tersedia.',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Konfirmasi pemesanan · {{total}}',
   'bookingCheckout.datesRequired': 'Silakan pilih tanggal check-in dan check-out Anda.',
   'bookingCheckout.guestHeading': 'Tamu utama',
+  'bookingCheckout.heading': 'Konfirmasi dan pesan',
   'bookingCheckout.loadError': 'Gagal memuat properti.',
   'bookingCheckout.nights': '{{rate}} × {{count}} malam',
   'bookingCheckout.notFound': 'Properti tidak ditemukan.',
@@ -32,6 +54,9 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Pajak & biaya',
   'bookingCheckout.tripHeading': 'Perjalanan Anda',
   'bookingConfirmation.allTripsCta': 'Semua perjalanan',
+  'bookingConfirmation.confNumber': 'Nomor konfirmasi: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Reservasi Anda sedang diproses.',
   'bookingConfirmation.heading': 'Pemesanan dikonfirmasi',
   'bookingConfirmation.loading': 'Memuat reservasi Anda…',
   'bookingConfirmation.searchMoreCta': 'Telusuri penginapan lainnya',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Gagal memuat favorit.',
   'favorites.pricePerNight': '{{price}} / malam',
   'favorites.removeCta': 'Hapus simpan',
+  'favorites.removing': 'Sedang menghapus…',
   'forgotPassword.subheading':
     'Masukkan email pada akun Anda dan kami akan mengirim tautan pengaturan ulang yang aman.',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Anggota Auberge',
   'landing.cta.heading': 'Tarif khusus anggota. Setiap pemesanan, setiap saat.',
   'landing.cta.signup': 'Buat akun gratis',
+  'landing.cta.subheading':
+    'Dapatkan poin loyalitas di setiap menginap, buka check-out larut dan upgrade kamar, serta dapatkan akses pertama ke properti baru sebelum tayang publik.',
   'landing.destinations.eyebrow': 'Ke mana selanjutnya',
   'landing.destinations.heading': 'Destinasi pilihan',
   'landing.destinations.seeAll': 'Lihat semua destinasi',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Kisah yang layak untuk dibawa',
   'landing.nav.join': 'Gabung Auberge',
   'landing.nav.search': 'Cari penginapan',
+  'landing.preview.browseAll': 'Jelajahi seluruh koleksi',
   'landing.preview.eyebrow': 'Sekilas di dalam',
   'landing.preview.heading': 'Penginapan pilihan bulan ini',
+  'landing.preview.subheading':
+    'Setiap properti di {{appName}} dikurasi langsung oleh tim editorial kami — tanpa inventaris agregator, tanpa listing umpan-umpan.',
   'login.eyebrow': 'Area anggota',
+  'login.noAccount': 'Baru di Tessera?',
   'login.signupLink': 'Buat akun gratis',
   'login.subheading':
     'Masuk untuk mengelola perjalanan, melihat konfirmasi, dan melanjutkan dari tempat Anda berhenti.',
+  'loyaltyTierBadge.points': '{{points}} poin',
   'planUpdated.heading': 'Paket diperbarui',
+  'planUpdated.retry': 'Coba lagi',
+  'planUpdated.verifyFailed': 'Kami belum dapat mengkonfirmasi pembayaran Anda.',
+  'planUpdated.verifyFailedBody':
+    'Pembayaran Anda mungkin masih diproses. Coba lagi sebentar lagi.',
   'planUpdated.verifying': 'Mengonfirmasi pembayaran Anda…',
   'pricing.limit.advancedFeatures': 'Fitur lanjutan:',
   'pricing.limit.canExport': 'Ekspor data:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Yang ditawarkan tempat ini',
   'propertyDetail.backLink': 'Kembali ke pencarian',
   'propertyDetail.bookCta': 'Pesan',
+  'propertyDetail.bookmarkAria': 'Simpan properti',
   'propertyDetail.bookmarkAriaSaved': 'Hapus dari properti tersimpan',
+  'propertyDetail.galleryImageAlt': 'Foto {{name}} dari {{number}}',
   'propertyDetail.heroImageAlt': 'Foto utama {{name}}',
   'propertyDetail.hidePhotos': 'Sembunyikan foto',
   'propertyDetail.lineCleaning': 'Biaya kebersihan',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'malam',
   'propertyDetail.noChargeYet': 'Anda belum akan dikenakan biaya',
   'propertyDetail.notFound': 'Properti tidak ditemukan.',
+  'propertyDetail.perNight': '/ malam',
+  'propertyDetail.pickDatesHint': 'Pilih tanggal Anda untuk melihat rincian harga lengkap.',
   'propertyDetail.reviewCount': '({{count}} ulasan)',
   'propertyDetail.reviewsHeading': 'Ulasan terbaru',
   'propertyDetail.roomCapacity': 'Untuk {{count}}',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Kata sandi baru',
   'resetPassword.subheading':
     'Pilih kata sandi baru untuk akun Auberge Anda. Gunakan minimal 8 karakter; kami merekomendasikan frasa sandi.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Tidak ada properti yang cocok dengan pencarian Anda.',
   'searchResults.emptyHint':
     'Coba perluas filter atau hapus batas harga — Auberge memiliki penginapan di 14 negara.',
@@ -108,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Penginapan pilihan',
   'searchResults.headingForQuery': 'Penginapan untuk "{{q}}"',
   'searchResults.loadError': 'Gagal memuat properti.',
+  'searchResults.mapHint':
+    'Arahkan kursor ke kartu untuk menyorotnya di peta. Ubin Mapbox langsung di produksi.',
   'searchResults.mapPinAria': '{{name}} — {{price}} per malam',
   'searchResults.sortLabel': 'Urutkan berdasarkan',
   'searchResults.subheading': '{{count}} properti · {{guests}} tamu',
   'signup.eyebrow': 'Jadi anggota',
   'signup.subheading':
     'Gabung Auberge untuk membuka kunci tarif khusus anggota, check-out terlambat, dan akses pertama ke properti baru.',
+  'sojournAuthShell.brand.eyebrow': 'Menginap di tempat yang luar biasa',
+  'sojournAuthShell.brand.heading':
+    'Koleksi properti terkurasi — disajikan dengan indah, dengan harga transparan.',
   'sojournHeroSearchCard.checkInAria': 'Tanggal check-in',
   'sojournHeroSearchCard.checkOutAria': 'Tanggal check-out',
+  'sojournHeroSearchCard.destAria': 'Tujuan',
+  'sojournHeroSearchCard.destLabel': 'Di mana',
   'sojournHeroSearchCard.destPlaceholder': 'Kota, wilayah, atau properti',
   'sojournHeroSearchCard.eyebrow': 'Penginapan pilihan · Tarif khusus anggota',
   'sojournHeroSearchCard.guestsOption': '{{n}} tamu',
   'sojournHeroSearchCard.subtitle':
     'Koleksi pilihan hotel butik, properti berorientasi desain, dan tempat peristirahatan langka — dihargai dengan transparan, disajikan dengan indah.',
+  'sojournHeroSearchCard.title': 'Menginap di tempat yang luar biasa',
+  'sojournHeroSearchCard.trustLoyalty': 'Dapatkan poin di setiap menginap',
   'sojournHeroSearchCard.trustNoFees': 'Tidak ada biaya tersembunyi, sama sekali',
   'sojournHeroSearchCard.trustVetted': 'Hanya properti yang diperiksa dengan tangan',
   'sojournLayout.primaryNavLabel': 'Navigasi utama',

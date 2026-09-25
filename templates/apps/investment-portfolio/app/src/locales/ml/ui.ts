@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഫീഡ്ബാക്ക് ഉണ്ടോ, ബഗ് കണ്ടെത്തിയോ, അല്ലെങ്കിൽ ഒരു ഫീച്ചർ വേണോ? നിങ്ങളുടെ അക്കൗണ്ട് സെറ്റിംഗ്സിൽ നിന്ന് ബന്ധപ്പെടുക — ഓരോ സന്ദേശവും ടീമിലെ ഒരു യഥാർത്ഥ വ്യക്തിയിലേക്ക് എത്തുന്നു. ശ്രദ്ധിക്കുക: ഇവിടെയുള്ളതൊന്നും നിക്ഷേപ ഉപദേശമല്ല; ഓരോ ട്രേഡിന്റെയും നിയന്ത്രണം നിങ്ങളുടെ കൈയിലാണ്.',
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
+  'about.featureAttribution':
+    'പെർഫോമൻസ് അട്ട്രിബ്യൂഷൻ — സെക്ടർ, പ്രദേശം, അസറ്റ് ക്ലാസ് എന്നിവ പ്രകാരം റിട്ടേണുകൾ വിഭജിച്ച്, ഏത് കാലയളവിലും ബെഞ്ച്മാർക്ക് ചെയ്യുക.',
+  'about.featureRebalance':
+    'അനുശാസനാത്മക റീബാലൻസിംഗ് — ടാർഗെറ്റ് അലോക്കേഷനുകളും ടോളറൻസ് ബാൻഡുകളും സജ്ജമാക്കുക, ഡ്രിഫ്റ്റ് നേരത്തേ കണ്ടെത്തുക, നിങ്ങളെ വീണ്ടും പാതയിലെത്തിക്കുന്ന ട്രേഡുകൾ നേടുക.',
+  'about.featureTax':
+    'നികുതി രേഖകളുടെ ക്രമം — റിയലൈസ്ഡ്, അൺറിയലൈസ്ഡ് ഗെയിനുകൾ, ഡിവിഡന്റുകൾ, 1099 രേഖകൾ എന്നിവയെല്ലാം ഒരിടത്ത്, വാഷ്-സെയിൽ ഫ്ലാഗുകളുൾപ്പെടെ.',
+  'about.featureUnified':
+    'ഒരു ഏകീകൃത പോർട്ട്ഫോളിയോ — ഓഹരികൾ, ETF-കൾ, മ്യൂച്വൽ ഫണ്ടുകൾ, ബോണ്ടുകൾ തുടങ്ങിയവ, എല്ലാ ബ്രോക്കറേജ് അക്കൗണ്ടുകളിൽ നിന്നുമായി ഒരുമിച്ച്.',
+  'about.featureWatchlist':
+    'വാച്ച്ലിസ്റ്റുകൾ, വാർത്തകൾ, വില മുന്നറിയിപ്പുകൾ — ബഹളമില്ലാതെ പ്രധാനപ്പെട്ട കാര്യങ്ങളിൽ നിങ്ങൾക്ക് പ്രവർത്തിക്കാം.',
+  'about.intro':
+    '{{app}} വ്യക്തിഗത നിക്ഷേപകർക്കും സ്വതന്ത്ര ഉപദേശകർക്കുമുള്ള ഒരു മൾട്ടി-അസറ്റ് പോർട്ട്ഫോളിയോ ഡാഷ്ബോർഡാണ്. ഓഹരികൾ, ETF-കൾ, മ്യൂച്വൽ ഫണ്ടുകൾ, ബോണ്ടുകൾ, റിയൽ എസ്റ്റേറ്റ്, പണം — എല്ലാ അക്കൗണ്ടുകളിലെയും ഓരോ ഹോൾഡിംഗും, ഒരു പ്രൊഫഷണൽ ഡെസ്കിന്റെ അനുശാസനത്തോടെ, ഒരിടത്ത്.',
+  'about.missionBody':
+    'നല്ല നിക്ഷേപം മിക്കവാറും അനുശാസനമാണ്: വ്യക്തമായ ടാർഗെറ്റ് അലോക്കേഷൻ, സത്യസന്ധമായ പെർഫോമൻസ് അട്ട്രിബ്യൂഷൻ, ക്രമമായ നികുതി രേഖകൾ. ആ സ്ഥാപനപരമായ ശീലങ്ങൾ {{app}} എല്ലാവരിലേക്കും എത്തിക്കുന്നു, അതുവഴി ആവേശത്തിനു പകരം ഉദ്ദേശ്യപൂർവ്വം നിങ്ങൾക്ക് റീബാലൻസ് ചെയ്യാം — നിങ്ങളുടെ പോർട്ട്ഫോളിയോ യഥാർത്ഥത്തിൽ എന്തു ചെയ്യുന്നു എന്നത് ഒരിക്കലും കാഴ്ചവിടാതെ.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'about.pageTitle': '{{app}} നെക്കുറിച്ച്',
   'argentAuthShell.brandEyebrow': 'അർജന്റ് · വെൽത്ത് ടൂളിംഗ്',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . നിക്ഷേപ ഉപദേശമല്ല.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'അച്ചടക്കമുള്ള പുനഃസന്തുലിതാവസ്ഥ, മികച്ച പ്രകടന ആട്രിബ്യൂഷൻ, നികുതി രേഖ ശുചിത്വം എന്നിവ ആഗ്രഹിക്കുന്ന വ്യക്തിഗത നിക്ഷേപകർക്കും ഉപദേശകർക്കും വേണ്ടിയുള്ള ഒരു പോർട്ട്‌ഫോളിയോ ഡാഷ്‌ബോർഡ് - ബഹളമില്ലാതെ.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · കഴിഞ്ഞ പ്രകടനം ഭാവി ഫലങ്ങൾക്ക് ഉറപ്പുനൽകുന്നില്ല.',
   'argentAuthShell.sampleChange': 'ഇന്ന് +$2,841 (+0.28%)',
+  'argentAuthShell.sampleLabel': 'പോർട്ട്ഫോളിയോ മൂല്യം',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'assetAllocationDonut.heading': 'നിങ്ങളുടെ പണം എങ്ങനെ നിക്ഷേപിക്കപ്പെടുന്നു',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'ഇന്ന്',
   'assetDetail.txEmpty': 'ഈ ടിക്കറിന് ഇടപാടുകളൊന്നുമില്ല.',
   'assetDetail.txHeading': 'നിങ്ങളുടെ ഇടപാടുകൾ',
+  'auth.legalConsent.prefix': 'തുടരുന്നതിലൂടെ, നിങ്ങൾ {{appName}}ന്റെ',
   'common.and': 'ഒപ്പം',
   'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'ഇന്ന്',
   'dashboard.topHoldings.heading': 'നിങ്ങളുടെ പണം എവിടെയാണ് പ്രവർത്തിക്കുന്നത്',
   'dashboard.topHoldings.label': 'മുൻനിര ഹോൾഡിംഗുകൾ',
+  'forgotPassword.gotLinkCta': 'എനിക്ക് ഒരു റീസെറ്റ് ലിങ്ക് ഉണ്ട് →',
+  'forgotPassword.subheading':
+    'നിങ്ങളുടെ Gavl അക്കൗണ്ടിൽ ഇമെയിൽ നൽകുക, ഞങ്ങൾ നിങ്ങൾക്ക് ഒരു സുരക്ഷിത റീസെറ്റ് ലിങ്ക് അയയ്ക്കും.',
   'forgotPassword.successBody':
     'കുറച്ച് മിനിറ്റിനുള്ളിൽ അത് കാണുന്നില്ലെങ്കിൽ, നിങ്ങളുടെ സ്പാം ഫോൾഡർ പരിശോധിക്കുകയോ മറ്റൊരു ഇമെയിൽ പരീക്ഷിക്കുകയോ ചെയ്യുക.',
   'forgotPassword.successSubheading':
     'പരിശോധിക്കുക {{email}} റീസെറ്റ് ലിങ്കിനായി. ഇത് 60 മിനിറ്റിനുള്ളിൽ കാലഹരണപ്പെടും.',
+  'forgotPassword.successTitle': 'റീസെറ്റ് ഇമെയിൽ വഴിയിൽ',
   'holdingHighlightRow.todayLabel': 'ഇന്ന്',
   'holdings.addCta': 'വാങ്ങുക',
   'holdings.col.allocation': 'അനുവദിക്കുക',
@@ -58,6 +87,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . നിക്ഷേപ ഉപദേശമല്ല. മുൻകാല പ്രകടനം ഭാവി ഫലങ്ങൾ ഉറപ്പുനൽകുന്നില്ല.',
   'landing.eyebrow': 'അർജന്റ് · ഒരു സമ്പത്ത് ഉപകരണ പ്ലാറ്റ്‌ഫോം',
   'landing.features.heading': 'ഒരു ഉപദേഷ്ടാവ് സ്വയം നിർമ്മിക്കുന്നതെല്ലാം.',
+  'landing.finalCta.body':
+    'രണ്ട് ക്ലിക്കിൽ നിങ്ങളുടെ ബ്രോക്കറേജ് ബന്ധിപ്പിക്കുക. ബാക്കിയെല്ലാം {{appName}} ചെയ്യും.',
+  'landing.finalCta.cta': 'നിങ്ങളുടെ അർജന്റ് അക്കൗണ്ട് തുറക്കുക',
   'landing.finalCta.heading': 'നിങ്ങളുടെ പോർട്ട്‌ഫോളിയോയിൽ അച്ചടക്കം തിരികെ കൊണ്ടുവരിക.',
   'landing.footerSignup': 'ഒരു അക്കൗണ്ട് തുറക്കുക',
   'landing.getStarted': 'ഒരു അക്കൗണ്ട് തുറക്കുക',
@@ -65,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'വിലനിർണ്ണയം കാണുക',
   'landing.heroSubtitle':
     'അച്ചടക്കമുള്ള പുനഃസന്തുലിതാവസ്ഥ, മികച്ച പ്രകടന ആട്രിബ്യൂഷൻ, നികുതി രേഖ ശുചിത്വം എന്നിവ ആഗ്രഹിക്കുന്ന വ്യക്തിഗത നിക്ഷേപകർക്കും ഉപദേശകർക്കും വേണ്ടിയുള്ള ഒരു പോർട്ട്‌ഫോളിയോ ഡാഷ്‌ബോർഡ് - ബഹളമില്ലാതെ.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'ഒരു പ്രതിനിധി പോർട്ട്‌ഫോളിയോയിൽ നിന്നുള്ള ഒരു തത്സമയ പ്രിവ്യൂ',
   'login.heading': 'അർജന്റീനയിൽ സൈൻ ഇൻ ചെയ്യുക',
   'login.subheading':
@@ -76,6 +109,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} മണിക്കൂർ മുമ്പ്',
   'news.justNow': 'ഇപ്പോൾ തന്നെ',
   'news.loadError': 'വാർത്തകൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
+  'planUpdated.body':
+    'നിങ്ങളുടെ ബില്ലിംഗ് മാറ്റം ഇപ്പോൾ സജീവമാണ്. ബില്ലിംഗ് പേജിൽ നിന്ന് എപ്പോൾ വേണമെങ്കിലും നിങ്ങളുടെ പ്ലാൻ മാനേജ് ചെയ്യാം.',
+  'planUpdated.retry': 'വീണ്ടും ശ്രമിക്കുക',
+  'planUpdated.verifyFailed': 'നിങ്ങളുടെ പേയ്‌മെന്റ് ഞങ്ങൾക്ക് ഇതുവരെ സ്ഥിരീകരിക്കാൻ കഴിഞ്ഞില്ല.',
+  'planUpdated.verifyFailedBody':
+    'നിങ്ങളുടെ പേയ്‌മെന്റ് ഇപ്പോഴും പ്രോസസ്സ് ചെയ്തുകൊണ്ടിരിക്കുകയായിരിക്കാം. അൽപ്പസമയത്തിനുള്ളിൽ വീണ്ടും ശ്രമിക്കുക.',
   'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'portfolioHeroCard.label': 'പോർട്ട്ഫോളിയോ മൂല്യം',
   'pricing.holdingsLabel': 'ഹോൾഡിംഗുകൾ',
@@ -86,12 +125,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'അലോക്കേഷൻ ഡ്രിഫ്റ്റ്',
   'rebalance.empty': 'ഇതുവരെ ലക്ഷ്യങ്ങളൊന്നും നിശ്ചയിച്ചിട്ടില്ല.',
   'rebalance.executeCta': 'സ്ഥലം {{count}} ട്രേഡുകൾ',
+  'rebalance.executeError': 'ട്രേഡുകൾ നടത്താൻ കഴിഞ്ഞില്ല.',
   'rebalance.executeOk': 'സ്ഥാപിച്ചു {{count}} ഇടപാടുകൾ. ഇടപാടുകൾ പേജിൽ അവ കാണുക.',
+  'rebalance.executing': 'നടത്തുന്നു…',
   'rebalance.eyebrow': 'റീബാലൻസ് · അർജന്റ് ഉപദേഷ്ടാവ്',
   'rebalance.heading': 'നിങ്ങളുടെ പോർട്ട്‌ഫോളിയോയെ വീണ്ടും അച്ചടക്കത്തിലേക്ക് കൊണ്ടുവരിക',
   'rebalance.loadError': 'റീബാലൻസ് പ്ലാൻ ലോഡ് ചെയ്യാനായില്ല.',
+  'rebalance.plan.driftLine': 'നിലവിൽ {{current}}% · ടാർഗെറ്റ് {{target}}%',
   'rebalance.planHeading': 'അർജന്റ് ടിക്കറ്റ് — ടിക്കറ്റ് നൽകുന്നതിന് മുമ്പ് അവലോകനം ചെയ്യുക',
   'rebalance.planLabel': 'നിർദ്ദേശിക്കപ്പെട്ട വ്യാപാര പദ്ധതി',
+  'rebalance.subheading':
+    'ടോളറൻസ് ബാൻഡിന് പുറത്തുള്ള വരികൾ ട്രേഡ് നിർദ്ദേശങ്ങൾ ഉണ്ടാക്കുന്നു. നിങ്ങളുടെ സ്ഥിരീകരണത്തിൽ മാത്രമേ {{appName}} പ്രവർത്തിക്കൂ.',
   'rebalance.summary.buyLabel': 'വാങ്ങുന്നു',
   'rebalance.summary.buySub': 'ടോപ്പ് അപ്പ് ചെയ്യാനുള്ള സ്ഥാനങ്ങൾ',
   'rebalance.summary.driftLabel': 'ബാൻഡിന് പുറത്തുള്ളത്',
@@ -100,6 +144,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'നിർദ്ദേശിക്കപ്പെട്ട ട്രേഡുകളിലുടനീളം',
   'rebalance.summary.sellLabel': 'വിൽക്കുന്നു',
   'rebalance.summary.sellSub': 'ട്രിം ചെയ്യാനുള്ള പൊസിഷനുകൾ',
+  'rebalanceDriftCard.drift': 'ഡ്രിഫ്റ്റ് {{sign}}{{pct}}% · ബാൻഡ് ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'ലക്ഷ്യം {{pct}} %',
   'reports.attributionHeading': 'പ്രകടന ആട്രിബ്യൂഷൻ (1Y)',
   'reports.col.alpha': 'ആൽഫ',
@@ -113,37 +158,68 @@ export const ui: UiTranslations = {
   'reports.col.year': 'വർഷം',
   'reports.gainsHeading': 'നേടിയതും നേടാത്തതുമായ നേട്ടങ്ങൾ',
   'reports.noAttribution': 'ഇതുവരെ ആട്രിബ്യൂഷൻ ഡാറ്റയൊന്നുമില്ല.',
+  'reports.noGains': 'ഇതുവരെ റിയലൈസ്ഡ്/അൺറിയലൈസ്ഡ് ഗെയിൻ ഡാറ്റയില്ല.',
   'reports.noPerformance': 'ഇതുവരെ പ്രകടന ഡാറ്റകളൊന്നുമില്ല.',
   'reports.noTaxDocs': 'ഇതുവരെ നികുതി രേഖകളൊന്നുമില്ല.',
   'reports.performanceHeading': 'പ്രകടനം vs ബെഞ്ച്മാർക്ക്',
   'reports.taxHeading': 'നികുതി രേഖകൾ',
   'resetPassword.heading': 'ശക്തമായ ഒരു പുതിയ പാസ്‌വേഡ് തിരഞ്ഞെടുക്കുക',
+  'resetPassword.passwordPlaceholder': 'പുതിയ പാസ്വേഡ്',
   'resetPassword.subheading':
     'നിങ്ങളുടെ പാസ്‌വേഡ് സജ്ജീകരിച്ചുകഴിഞ്ഞാൽ അർജന്റീന നിങ്ങളെ സ്വയമേവ സൈൻ ഇൻ ചെയ്യും.',
   'resetPassword.tokenPlaceholder': 'ഇമെയിലിൽ നിന്ന് ടോക്കൺ പുനഃസജ്ജമാക്കുക',
+  'settings.appearance.description': 'ലൈറ്റ്, ഡാർക്ക് മോഡുകൾക്കിടയിൽ ടോഗിൾ ചെയ്യുക.',
   'settings.appearance.title': 'രൂപഭാവം',
+  'settings.devices.body': 'നിങ്ങളുടെ അക്കൗണ്ടിലേക്ക് നിലവിൽ സൈൻ ഇൻ ചെയ്‌തിരിക്കുന്ന ഉപകരണങ്ങൾ.',
+  'settings.devices.empty': 'ഉപകരണങ്ങളൊന്നും കണ്ടെത്തിയില്ല.',
   'settings.devices.heading': 'ഉപകരണങ്ങൾ',
+  'settings.devices.revokeWarning':
+    'ഈ ഉപകരണത്തിന്റെ ആക്‌സസ് ഉടൻ പിൻവലിക്കപ്പെടും. സൈൻ ഔട്ട് ചെയ്യണോ?',
   'settings.devices.signOut': 'സൈൻ ഔട്ട്',
   'settings.devices.thisDevice': 'ഈ ഉപകരണം',
   'settings.devices.unknown': 'അജ്ഞാത ഉപകരണം',
   'settings.linked.body':
     'ബ്രോക്കറേജ് സമന്വയത്തിന് ഒരു മൂന്നാം കക്ഷി കണക്റ്റർ (Plaid, Yodlee, മുതലായവ) ആവശ്യമാണ്. യാന്ത്രിക-ഇറക്കുമതി പ്രാപ്തമാക്കുന്നതിന് നിങ്ങളുടെ പരിതസ്ഥിതിയിൽ നിങ്ങളുടെ ദാതാവിനെ കോൺഫിഗർ ചെയ്യുക.',
   'settings.linked.heading': 'ലിങ്ക് ചെയ്‌ത ബ്രോക്കറേജ് അക്കൗണ്ടുകൾ',
+  'settings.linked.placeholder': 'അക്കൗണ്ടുകളൊന്നും ഇതുവരെ ലിങ്ക് ചെയ്തിട്ടില്ല.',
+  'settings.notifications.dividendsPaid': 'നൽകിയ ഡിവിഡന്റുകൾ',
   'settings.notifications.error': 'മുൻഗണന അപ്ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'settings.notifications.priceAlerts': 'വില അലേർട്ടുകൾ',
+  'settings.notifications.rebalanceDrift': 'റീബാലൻസ് ഡ്രിഫ്റ്റ്',
+  'settings.notifications.taxDocsReady': 'നികുതി രേഖകൾ തയ്യാർ',
   'settings.profile.advisor': 'ഉപദേഷ്ടാവിന്റെ ഇമെയിൽ (ഓപ്ഷണൽ)',
   'settings.profile.heading': 'പ്രൊഫൈൽ',
   'settings.security.changePassword': 'പാസ്വേഡ് മാറ്റുക',
+  'settings.security.changePasswordTitle': 'പാസ്വേഡ് മാറ്റുക',
   'settings.security.changing': 'മാറ്റുന്നു...',
+  'settings.security.confirmPassword': 'പാസ്‌വേഡ്',
+  'settings.security.currentPassword': 'നിലവിലെ പാസ്വേഡ്',
   'settings.security.deleteAccount': 'അക്കൗണ്ട് ഇല്ലാതാക്കുക',
   'settings.security.deleteError': 'അക്കൗണ്ട് ഇല്ലാതാക്കാൻ കഴിഞ്ഞില്ല.',
   'settings.security.deleteHeading': 'അക്കൗണ്ട് ഇല്ലാതാക്കുക',
+  'settings.security.deleteModalWarning':
+    'ഇത് നിങ്ങളുടെ അക്കൗണ്ടും ഡാറ്റയും ശാശ്വതമായി ഇല്ലാതാക്കും. സ്ഥിരീകരിക്കാൻ നിങ്ങളുടെ പാസ്വേഡ് നൽകുക.',
+  'settings.security.deleteWarning':
+    'നിങ്ങളുടെ അക്കൗണ്ടും ബന്ധപ്പെട്ട എല്ലാ ഡാറ്റയും ശാശ്വതമായി ഇല്ലാതാക്കുക. ഇത് പഴയപടിയാക്കാൻ കഴിയില്ല.',
   'settings.security.deleting': 'ഇല്ലാതാക്കുന്നു...',
   'settings.security.heading': 'സുരക്ഷ',
   'settings.security.newPassword': 'പുതിയ പാസ്വേഡ്',
   'settings.security.password': 'പാസ്‌വേഡ്',
+  'settings.security.passwordError': 'പാസ്‌വേഡ് മാറ്റാൻ കഴിഞ്ഞില്ല.',
+  'settings.security.passwordHint': 'സൈൻ ഇൻ ചെയ്യാൻ നിങ്ങൾ ഉപയോഗിക്കുന്ന പാസ്വേഡ് മാറ്റുക.',
+  'settings.security.twoFactor': 'രണ്ട്-ഘടക പ്രാമാണീകരണം',
+  'settings.security.twoFactorCode': 'പ്രാമാണീകരണ കോഡ്',
+  'settings.security.twoFactorDisable': 'പ്രവർത്തനരഹിതമാക്കുക',
+  'settings.security.twoFactorDisableTitle': 'ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ പ്രവർത്തനരഹിതമാക്കുക',
   'settings.security.twoFactorEnable': 'പ്രാപ്തമാക്കുക',
+  'settings.security.twoFactorEnableTitle': 'ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ പ്രവർത്തനക്ഷമമാക്കുക',
+  'settings.security.twoFactorHint': 'നിങ്ങളുടെ അക്കൗണ്ടിന് അധിക സുരക്ഷാ പാളി ചേർക്കുക.',
   'settings.security.twoFactorInvalidCode': 'കോഡ് അസാധുവാണ്',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'രണ്ട്-ഘടക QR കോഡ്',
+  'settings.security.twoFactorScan':
+    'നിങ്ങളുടെ ഓതന്റിക്കേറ്റർ ആപ്പ് ഉപയോഗിച്ച് ഈ QR കോഡ് സ്കാൻ ചെയ്യുക, തുടർന്ന് 6 അക്ക കോഡ് നൽകുക.',
+  'settings.security.twoFactorUnavailable': 'ഈ ആപ്പിന് ടു-ഫാക്ടർ പ്രാമാണീകരണം ലഭ്യമല്ല.',
   'settings.security.twoFactorVerify': 'പരിശോധിച്ചുറപ്പിക്കുക, പ്രാപ്തമാക്കുക',
   'settings.tax.error': 'നികുതി രീതി അപ്ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'settings.tax.heading': 'നികുതി ലോട്ട് അക്കൗണ്ടിംഗ്',
@@ -154,6 +230,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'നികുതി രീതി സംരക്ഷിച്ചു.',
   'signup.eyebrow': 'ഒരു അക്കൗണ്ട് തുറക്കുക',
   'signup.heading': 'നിങ്ങളുടെ അർജന്റ് അക്കൗണ്ട് തുറക്കുക',
+  'signup.legalPrefix': 'ഒരു അക്കൗണ്ട് സൃഷ്ടിക്കുന്നതിലൂടെ നിങ്ങൾ {{appName}} അംഗീകരിക്കുന്നു',
   'signup.subheading': '30 ദിവസത്തേക്ക് സൗജന്യം. കാർഡ് ആവശ്യമില്ല. എപ്പോൾ വേണമെങ്കിലും റദ്ദാക്കാം.',
   'signup.terms':
     'ഒരു അക്കൗണ്ട് സൃഷ്ടിക്കുന്നതിലൂടെ നിങ്ങൾ അർജന്റീന സേവന നിബന്ധനകളും സ്വകാര്യതാ നയവും അംഗീകരിക്കുന്നു.',

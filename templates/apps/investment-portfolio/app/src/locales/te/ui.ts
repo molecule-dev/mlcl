@@ -1,10 +1,33 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ఫీడ్‌బ్యాక్ ఉందా, బగ్ కనుగొన్నారా లేదా ఫీచర్ కావాలా? మీ ఖాతా సెట్టింగ్‌ల నుండి సంప్రదించండి — ప్రతి సందేశం టీమ్‌లోని నిజమైన వ్యక్తికి చేరుతుంది. గమనిక: ఇక్కడ ఏదీ పెట్టుబడి సలహా కాదు; ప్రతి ట్రేడ్‌పై నియంత్రణ మీ చేతుల్లోనే ఉంటుంది.',
+  'about.contactTitle': 'మాతో మాట్లాడండి',
+  'about.featureAttribution':
+    'పనితీరు ఆపాదన — రాబడులను రంగం, ప్రాంతం మరియు ఆస్తి తరగతి ప్రకారం విభజించి, ఏ విండోలోనైనా బెంచ్‌మార్క్ చేయండి.',
+  'about.featureRebalance':
+    'క్రమశిక్షణతో కూడిన రీబ్యాలెన్సింగ్ — లక్ష్య కేటాయింపులు మరియు టాలరెన్స్ బ్యాండ్‌లను సెట్ చేయండి, డ్రిఫ్ట్ ముందుగానే ఫ్లాగ్ అవ్వడం చూడండి, మిమ్మల్ని తిరిగి సరిచేసే ట్రేడ్‌లను పొందండి.',
+  'about.featureTax':
+    'పన్ను పత్రాల పరిశుభ్రత — వాస్తవ మరియు వాస్తవేతర లాభాలు, డివిడెండ్‌లు మరియు 1099 పత్రాలు ఒకే చోట, వాష్-సేల్ ఫ్లాగ్‌లతో సహా.',
+  'about.featureUnified':
+    'ఒకే ఏకీకృత పోర్ట్‌ఫోలియో — ఈక్విటీలు, ETFలు, మ్యూచువల్ ఫండ్‌లు, బాండ్‌లు మరియు మరిన్ని, ప్రతి బ్రోకరేజ్ ఖాతా నుండి ఒకచోట చేర్చబడ్డాయి.',
+  'about.featureWatchlist':
+    'వాచ్‌లిస్ట్‌లు, వార్తలు మరియు ధర హెచ్చరికలు — శబ్దం లేకుండా ముఖ్యమైన వాటిపై చర్య తీసుకోవడానికి.',
+  'about.intro':
+    '{{app}} అనేది వ్యక్తిగత పెట్టుబడిదారులు మరియు స్వతంత్ర సలహాదారుల కోసం బహుళ-ఆస్తి పోర్ట్‌ఫోలియో డాష్‌బోర్డ్. ఈక్విటీలు, ETFలు, మ్యూచువల్ ఫండ్‌లు, బాండ్‌లు, రియల్ ఎస్టేట్ మరియు నగదు — ప్రతి ఖాతాలోని ప్రతి హోల్డింగ్, ఒకే చోట, ప్రొఫెషనల్ డెస్క్ క్రమశిక్షణతో.',
+  'about.missionBody':
+    'మంచి పెట్టుబడి అనేది ఎక్కువగా క్రమశిక్షణ: స్పష్టమైన లక్ష్య కేటాయింపు, నిజాయితీగల పనితీరు ఆపాదన, మరియు చక్కటి పన్ను రికార్డులు. {{app}} ఆ సంస్థాగత అలవాట్లను ఎవరికైనా అందిస్తుంది, తద్వారా మీరు ప్రేరణతో కాకుండా ఉద్దేశపూర్వకంగా రీబ్యాలెన్స్ చేయవచ్చు — మరియు మీ పోర్ట్‌ఫోలియో వాస్తవంగా ఏమి చేస్తోందో ఎప్పుడూ మరచిపోకండి.',
+  'about.missionTitle': 'మా లక్ష్యం',
   'about.pageTitle': '{{app}} గురించి',
   'argentAuthShell.brandEyebrow': 'అర్జెంట్ · వెల్త్ టూలింగ్',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . పెట్టుబడి సలహా కాదు.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'క్రమబద్ధమైన రీబ్యాలెన్సింగ్, స్పష్టమైన పనితీరు ఆపాదన, మరియు పన్ను పత్రాల పరిశుభ్రతను కోరుకునే వ్యక్తిగత పెట్టుబడిదారులు మరియు సలహాదారుల కోసం - అనవసరమైన గందరగోళం లేకుండా రూపొందించిన పోర్ట్‌ఫోలియో డాష్‌బోర్డ్.',
+  'argentAuthShell.formFooter': '© {{year}} {{app}} · గత పనితీరు భవిష్యత్ ఫలితాలకు హామీ ఇవ్వదు.',
   'argentAuthShell.sampleChange': 'ఈరోజు +$2,841 (+0.28%)',
+  'argentAuthShell.sampleLabel': 'పోర్ట్‌ఫోలియో విలువ',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
   'assetAllocationDonut.heading': 'మీ డబ్బు ఎలా పెట్టుబడి పెట్టబడుతుంది',
@@ -26,6 +49,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'ఈరోజు',
   'assetDetail.txEmpty': 'ఈ టిక్కర్‌కు లావాదేవీలు లేవు.',
   'assetDetail.txHeading': 'మీ లావాదేవీలు',
+  'auth.legalConsent.prefix': 'కొనసాగించడం ద్వారా, మీరు {{appName}}’s నిబంధనలకు అంగీకరిస్తున్నారు',
   'common.and': 'మరియు',
   'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'common.no': '—',
@@ -37,10 +61,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'ఈరోజు',
   'dashboard.topHoldings.heading': 'మీ డబ్బు ఎక్కడ పని చేస్తుందో',
   'dashboard.topHoldings.label': 'టాప్ హోల్డింగ్స్',
+  'forgotPassword.gotLinkCta': 'నాకు రీసెట్ లింక్ ఉంది →',
+  'forgotPassword.subheading':
+    'మీ Gavl ఖాతాలోని ఇమెయిల్‌ను నమోదు చేయండి, మేము మీకు సురక్షితమైన రీసెట్ లింక్‌ను పంపుతాము.',
   'forgotPassword.successBody':
     'కొన్ని నిమిషాల్లో మీకు అది కనిపించకపోతే, మీ స్పామ్ ఫోల్డర్‌ను తనిఖీ చేయండి లేదా వేరే ఇమెయిల్‌ను ప్రయత్నించండి.',
   'forgotPassword.successSubheading':
     'తనిఖీ చేయండి {{email}} రీసెట్ లింక్ కోసం. దీని గడువు 60 నిమిషాలలో ముగుస్తుంది.',
+  'forgotPassword.successTitle': 'రీసెట్ ఇమెయిల్ పంపబడుతోంది',
   'holdingHighlightRow.todayLabel': 'ఈరోజు',
   'holdings.addCta': 'కొనండి',
   'holdings.col.allocation': 'కేటాయింపు',
@@ -58,6 +86,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . ఇది పెట్టుబడి సలహా కాదు. గత పనితీరు భవిష్యత్ ఫలితాలకు హామీ ఇవ్వదు.',
   'landing.eyebrow': 'అర్జెంట్ · ఒక సంపద-సాధన వేదిక',
   'landing.features.heading': 'ఒక సలహాదారుడు తమ కోసం నిర్మించుకునే ప్రతిదీ.',
+  'landing.finalCta.body':
+    'రెండు క్లిక్‌లలో మీ బ్రోకరేజ్‌ను కనెక్ట్ చేయండి. మిగతాది {{appName}} చూసుకుంటుంది.',
+  'landing.finalCta.cta': 'మీ అర్జెంట్ ఖాతాను తెరవండి',
   'landing.finalCta.heading': 'మీ పోర్ట్‌ఫోలియోకు తిరిగి క్రమశిక్షణను తీసుకురండి.',
   'landing.footerSignup': 'ఖాతాను తెరవండి',
   'landing.getStarted': 'ఖాతాను తెరవండి',
@@ -65,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'ధరలను చూడండి',
   'landing.heroSubtitle':
     'క్రమబద్ధమైన రీబ్యాలెన్సింగ్, స్పష్టమైన పనితీరు ఆపాదన, మరియు పన్ను పత్రాల పరిశుభ్రతను కోరుకునే వ్యక్తిగత పెట్టుబడిదారులు మరియు సలహాదారుల కోసం - అనవసరమైన గందరగోళం లేకుండా రూపొందించిన పోర్ట్‌ఫోలియో డాష్‌బోర్డ్.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'ప్రతినిధి పోర్ట్‌ఫోలియో నుండి ప్రత్యక్ష ప్రివ్యూ',
   'login.heading': 'అర్జెంట్‌లోకి సైన్ ఇన్ చేయండి',
   'login.subheading':
@@ -76,6 +108,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} గంటల క్రితం',
   'news.justNow': 'ఇప్పుడే',
   'news.loadError': 'వార్తలను లోడ్ చేయడంలో విఫలమైంది.',
+  'planUpdated.body':
+    'మీ బిల్లింగ్ మార్పు ఇప్పుడు యాక్టివ్గా ఉంది. మీ ప్లాన్ను బిల్లింగ్ పేజీ నుండి ఎప్పుడైనా నిర్వహించవచ్చు.',
+  'planUpdated.retry': 'మళ్ళీ ప్రయత్నించండి',
+  'planUpdated.verifyFailed': 'మేము మీ చెల్లింపును ఇంకా ధృవీకరించలేకపోయాము.',
+  'planUpdated.verifyFailedBody':
+    'మీ చెల్లింపు ఇంకా ప్రాసెస్ అవుతూ ఉండవచ్చు. కాసేపటి తర్వాత మళ్ళీ ప్రయత్నించండి.',
   'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'portfolioHeroCard.label': 'పోర్ట్‌ఫోలియో విలువ',
   'pricing.holdingsLabel': 'హోల్డింగ్స్',
@@ -86,12 +124,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'కేటాయింపు విచలనం',
   'rebalance.empty': 'ఇంకా లక్ష్యాలు నిర్దేశించలేదు.',
   'rebalance.executeCta': 'స్థలం {{count}} వ్యాపారాలు',
+  'rebalance.executeError': 'ట్రేడ్‌లు ప్లేస్ చేయడం విఫలమైంది.',
   'rebalance.executeOk': 'ఉంచబడింది {{count}} ట్రేడ్‌లు. వాటిని లావాదేవీల పేజీలో చూడండి.',
+  'rebalance.executing': 'ప్లేస్ చేస్తోంది…',
   'rebalance.eyebrow': 'రీబ్యాలెన్స్ · అర్జెంట్ అడ్వైజర్',
   'rebalance.heading': 'మీ పోర్ట్‌ఫోలియోను తిరిగి క్రమపద్ధతిలోకి తీసుకురండి',
   'rebalance.loadError': 'రీబ్యాలెన్స్ ప్లాన్‌ను లోడ్ చేయడంలో విఫలమైంది.',
+  'rebalance.plan.driftLine': 'ప్రస్తుతం {{current}}% · లక్ష్యం {{target}}%',
   'rebalance.planHeading': 'అర్జెంట్ టికెట్ — పెట్టే ముందు సమీక్షించండి',
   'rebalance.planLabel': 'సూచించిన వాణిజ్య ప్రణాళిక',
+  'rebalance.subheading':
+    'తమ టాలరెన్స్ బ్యాండ్ వెలుపల ఉన్న వరుసలు ట్రేడ్ సూచనలను ప్రేరేపిస్తాయి. {{appName}} మీ నిర్ధారణపై మాత్రమే చర్య తీసుకుంటుంది.',
   'rebalance.summary.buyLabel': 'కొనుగోళ్లు',
   'rebalance.summary.buySub': 'టాప్ అప్ చేయడానికి స్థానాలు',
   'rebalance.summary.driftLabel': 'బ్యాండ్ వెలుపల',
@@ -100,6 +143,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'సూచించిన వ్యాపారాల అంతటా',
   'rebalance.summary.sellLabel': 'అమ్ముతుంది',
   'rebalance.summary.sellSub': 'కత్తిరించడానికి స్థానాలు',
+  'rebalanceDriftCard.drift': 'డ్రిఫ్ట్ {{sign}}{{pct}}% · బ్యాండ్ ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'లక్ష్యం {{pct}} %',
   'reports.attributionHeading': 'పనితీరు ఆపాదన (1 సంవత్సరం)',
   'reports.col.alpha': 'ఆల్ఫా',
@@ -113,37 +157,68 @@ export const ui: UiTranslations = {
   'reports.col.year': 'సంవత్సరం',
   'reports.gainsHeading': 'గ్రహించిన మరియు గ్రహించని లాభాలు',
   'reports.noAttribution': 'ఇంకా అట్రిబ్యూషన్ డేటా లేదు.',
+  'reports.noGains': 'ఇంకా వాస్తవ/వాస్తవేతర లాభాల డేటా లేదు.',
   'reports.noPerformance': 'ఇంకా పనితీరు డేటా లేదు.',
   'reports.noTaxDocs': 'ఇంకా పన్ను పత్రాలు లేవు.',
   'reports.performanceHeading': 'పనితీరు వర్సెస్ బెంచ్‌మార్క్',
   'reports.taxHeading': 'పన్ను పత్రాలు',
   'resetPassword.heading': 'బలమైన కొత్త పాస్‌వర్డ్‌ను ఎంచుకోండి',
+  'resetPassword.passwordPlaceholder': 'కొత్త పాస్‌వర్డ్',
   'resetPassword.subheading':
     'మీరు మీ పాస్‌వర్డ్‌ను సెట్ చేసిన తర్వాత, అర్జెంట్ మిమ్మల్ని స్వయంచాలకంగా సైన్ ఇన్ చేస్తుంది.',
   'resetPassword.tokenPlaceholder': 'ఇమెయిల్ నుండి టోకెన్‌ను రీసెట్ చేయండి',
+  'settings.appearance.description': 'లైట్ మరియు డార్క్ మోడ్‌ల మధ్య మారండి.',
   'settings.appearance.title': 'స్వరూపం',
+  'settings.devices.body': 'ప్రస్తుతం మీ ఖాతాకు సైన్ ఇన్ చేయబడిన పరికరాలు.',
+  'settings.devices.empty': 'పరికరాలు ఏవీ కనుగొనబడలేదు.',
   'settings.devices.heading': 'పరికరాలు',
+  'settings.devices.revokeWarning':
+    'ఈ పరికరం యొక్క యాక్సెస్ త్వరలో రద్దు చేయబడుతుంది. సైన్ అవుట్ చేయాలా?',
   'settings.devices.signOut': 'సైన్ అవుట్',
   'settings.devices.thisDevice': 'ఈ పరికరం',
   'settings.devices.unknown': 'తెలియని పరికరం',
   'settings.linked.body':
     'బ్రోకరేజ్ సింకింగ్‌కు థర్డ్-పార్టీ కనెక్టర్ (ప్లాయిడ్, యోడ్లీ, మొదలైనవి) అవసరం. ఆటో-ఇంపోర్ట్‌ను ఎనేబుల్ చేయడానికి మీ ఎన్విరాన్‌మెంట్‌లో మీ ప్రొవైడర్‌ను కాన్ఫిగర్ చేయండి.',
   'settings.linked.heading': 'అనుసంధానించబడిన బ్రోకరేజ్ ఖాతాలు',
+  'settings.linked.placeholder': 'ఇంకా ఏ ఖాతాలూ అనుసంధానించబడలేదు.',
+  'settings.notifications.dividendsPaid': 'చెల్లించిన డివిడెండ్‌లు',
   'settings.notifications.error': 'ప్రాధాన్యతను నవీకరించలేకపోయింది.',
   'settings.notifications.priceAlerts': 'ధర హెచ్చరికలు',
+  'settings.notifications.rebalanceDrift': 'రీబ్యాలెన్స్ డ్రిఫ్ట్',
+  'settings.notifications.taxDocsReady': 'పన్ను పత్రాలు సిద్ధం',
   'settings.profile.advisor': 'సలహాదారు ఇమెయిల్ (ఐచ్ఛికం)',
   'settings.profile.heading': 'ప్రొఫైల్',
   'settings.security.changePassword': 'పాస్‌వర్డ్‌ను మార్చండి',
+  'settings.security.changePasswordTitle': 'పాస్‌వర్డ్‌ను మార్చండి',
   'settings.security.changing': 'మారుతోంది…',
+  'settings.security.confirmPassword': 'పాస్‌వర్డ్',
+  'settings.security.currentPassword': 'ప్రస్తుత పాస్‌వర్డ్',
   'settings.security.deleteAccount': 'ఖాతాను తొలగించండి',
   'settings.security.deleteError': 'ఖాతాను తొలగించలేకపోయాను.',
   'settings.security.deleteHeading': 'ఖాతాను తొలగించండి',
+  'settings.security.deleteModalWarning':
+    'ఇది మీ ఖాతా మరియు డేటాను శాశ్వతంగా తొలగిస్తుంది. నిర్ధారించడానికి మీ పాస్‌వర్డ్ నమోదు చేయండి.',
+  'settings.security.deleteWarning':
+    'మీ ఖాతాను మరియు సంబంధిత డేటా మొత్తాన్ని శాశ్వతంగా తొలగించండి. దీన్ని వెనక్కి తిప్పలేము.',
   'settings.security.deleting': 'తొలగిస్తోంది…',
   'settings.security.heading': 'భద్రత',
   'settings.security.newPassword': 'కొత్త పాస్‌వర్డ్',
   'settings.security.password': 'పాస్‌వర్డ్',
+  'settings.security.passwordError': 'పాస్‌వర్డ్‌ను మార్చలేకపోయాను.',
+  'settings.security.passwordHint': 'సైన్ ఇన్ చేయడానికి మీరు ఉపయోగించే పాస్వర్డ్ను మార్చండి.',
+  'settings.security.twoFactor': 'రెండు-కారకాల ప్రమాణీకరణ',
+  'settings.security.twoFactorCode': 'ప్రమాణీకరణ కోడ్',
+  'settings.security.twoFactorDisable': 'నిలిపివేయండి',
+  'settings.security.twoFactorDisableTitle': 'రెండు-కారకాల ప్రామాణీకరణను నిలిపివేయండి',
   'settings.security.twoFactorEnable': 'ప్రారంభించండి',
+  'settings.security.twoFactorEnableTitle': 'రెండు-కారకాల ప్రామాణీకరణను ప్రారంభించండి',
+  'settings.security.twoFactorHint': 'మీ ఖాతాకు అదనపు రక్షణ పొరను జోడించండి.',
   'settings.security.twoFactorInvalidCode': 'చెల్లని కోడ్',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'రెండు-కారకాల QR కోడ్',
+  'settings.security.twoFactorScan':
+    'మీ ప్రామాణీకరణ యాప్తో ఈ QR కోడ్ను స్కాన్ చేయండి, ఆపై 6-అంకెల కోడ్ను నమోదు చేయండి.',
+  'settings.security.twoFactorUnavailable': 'ఈ యాప్‌కు టూ-ఫ్యాక్టర్ అథెంటికేషన్ అందుబాటులో లేదు.',
   'settings.security.twoFactorVerify': 'ధృవీకరించి, ప్రారంభించండి',
   'settings.tax.error': 'పన్ను పద్ధతిని నవీకరించలేకపోయింది.',
   'settings.tax.heading': 'పన్ను లాట్ అకౌంటింగ్',
@@ -154,6 +229,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'పన్ను విధానం సేవ్ చేయబడింది.',
   'signup.eyebrow': 'ఖాతాను తెరవండి',
   'signup.heading': 'మీ అర్జెంట్ ఖాతాను తెరవండి',
+  'signup.legalPrefix': 'ఖాతా సృష్టించడం ద్వారా మీరు {{appName}}కు అంగీకరిస్తున్నారు',
   'signup.subheading': '30 రోజుల పాటు ఉచితం. కార్డు అవసరం లేదు. ఎప్పుడైనా రద్దు చేసుకోవచ్చు.',
   'signup.terms':
     'ఖాతాను సృష్టించడం ద్వారా మీరు అర్జెంట్ సేవా నిబంధనలు మరియు గోప్యతా విధానానికి అంగీకరిస్తున్నారు.',

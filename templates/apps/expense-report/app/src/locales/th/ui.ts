@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'มีคำถาม ข้อเสนอแนะ หรือต้องการฟีเจอร์ใหม่? ติดต่อทีม {{app}} ได้จาก การตั้งค่า → การแจ้งเตือน หรือเขียนมาหาเราได้ทุกเมื่อ — ทุกข้อความถึงมือคนจริง ๆ',
+  'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับ',
+  'about.featureCapture':
+    'การบันทึกใบเสร็จด้วยการอัปโหลดรูปภาพที่แนบรูปเข้ากับค่าใช้จ่ายที่ถูกต้องได้ทีละรายการ',
+  'about.featureExport':
+    'การส่งออก CSV ที่ตรวจสอบได้ของทุก报告 ทุกค่าใช้จ่าย และทุกสถานะการอนุมัติ — พร้อมสำหรับทีมบัญชีของคุณ',
+  'about.featurePolicy':
+    'แนวป้องกันตามนโยบาย — วงเงินรายวัน ขีดจำกัดตามหมวดหมู่ และเกณฑ์บังคับแนบใบเสร็จที่บังคับใช้ตอนส่ง',
+  'about.featureWorkflow':
+    'ขั้นตอนการอนุมัติสองระดับ พร้อมบันทึกของผู้ตรวจสอบ ธงเตือนการละเมิดนโยบาย และการทำเครื่องหมายเบิกคืนได้ในแตะเดียว',
+  'about.intro':
+    '{{app}} เป็นแพลตฟอร์มจัดการค่าใช้จ่ายสำหรับทีมการเงินและคนที่พวกเขาจ่ายคืน บันทึกใบเสร็จ ยื่นค่าใช้จ่าย ส่งรายงานเข้าสู่การอนุมัติ และติดตามการเบิกคืนทุกครั้ง — โดยไม่ต้องมีพิธีกรรมสเปรดชีต',
+  'about.missionBody':
+    'การเบิกคืนควรเร็ว ยุติธรรม และตรวจสอบได้ เราสร้าง {{app}} เพื่อให้ผู้ส่งได้รับเงินคืนโดยไม่ต้องทวง ผู้อนุมัติเห็นชัดเจนว่ากำลังอนุมัติอะไร และฝ่ายการเงินมีเส้นทางที่ชัดเจนสำหรับทุกบาททุกสตางค์ — พร้อมการตรวจสอบนโยบายครบถ้วน',
+  'about.missionTitle': 'พันธกิจของเรา',
   'approvals.approve': 'Approve',
   'approvals.approving': 'กำลังอนุมัติ…',
   'approvals.confirmReject': 'ยืนยันการปฏิเสธ',
+  'approvals.empty': 'คุณจัดการครบหมดแล้ว — ไม่มีรายงานที่รออยู่',
   'approvals.eyebrow': 'คิวผู้จัดการ',
   'approvals.kpi.flaggedLabel': 'นโยบายถูกตั้งข้อสังเกต',
+  'approvals.kpi.queueLabel': 'รอการตรวจสอบ',
   'approvals.kpi.totalLabel': 'มูลค่าที่รอดำเนินการ',
   'approvals.lineCount': '{{count}} ค่าใช้จ่าย',
   'approvals.queueFallback':
     'ไม่สามารถใช้งานคิวแบบเรียลไทม์ได้ — แสดงข้อมูลตัวอย่างที่คัดสรรมาแล้ว',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'ปฏิเสธ…',
+  'approvals.rejectPlaceholder': 'เหตุผล (จำเป็น)',
   'approvals.rejectPrompt': 'เหตุใดคุณจึงปฏิเสธรายงานฉบับนี้?',
   'approvals.review': 'ทบทวน',
   'approvals.title': 'รอการอนุมัติ',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'อนุมัติแล้ว · MTD',
   'dashboard.kpi.pendingDelta': '+2 ในสัปดาห์นี้',
+  'dashboard.kpi.pendingLabel': 'อยู่ระหว่างการตรวจสอบ',
   'dashboard.kpi.receiptsDelta': 'จำเป็นต้องดำเนินการ',
   'dashboard.kpi.receiptsLabel': 'กำลังรอใบเสร็จรับเงิน',
   'dashboard.kpi.reimbursedDelta': '+2.4 พันดอลลาร์',
   'dashboard.kpi.reimbursedLabel': 'ได้รับเงินคืน · MTD',
   'dashboard.newReport': 'รายงานฉบับใหม่',
+  'dashboard.recent.empty': 'ยังไม่มีรายงาน — เริ่มรายงานแรกของคุณด้านบน',
   'dashboard.recent.title': 'รายงานล่าสุด',
   'dashboard.recent.viewAll': 'ดูรายงานทั้งหมด',
   'dashboard.summaryFallback':
@@ -40,11 +61,18 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'ใบเสร็จรับเงินและรายการที่สามารถขอคืนเงินได้',
   'expenses.listFallback': 'รายการแบบเรียลไทม์ไม่พร้อมใช้งาน — แสดงข้อมูลตัวอย่างที่คัดสรรแล้ว',
   'expenses.searchPlaceholder': 'ค้นหาร้านค้าหรือหมวดหมู่…',
+  'expenses.subtotal': 'ค่าใช้จ่าย {{count}} รายการ · ยอดรวมย่อย',
   'expenses.title': 'ค่าใช้จ่าย',
+  'forgotPassword.continue': 'ฉันมีโค้ด · ดำเนินการต่อ',
+  'forgotPassword.subheading': 'กรอกอีเมลที่ทำงานของคุณ แล้วเราจะส่งลิงก์เพื่อตั้งรหัสผ่านใหม่',
   'forgotPassword.successBody':
     'หากมีบัญชีอยู่แล้วสำหรับ {{email}} คุณจะได้รับลิงก์สำหรับรีเซ็ตในอีกไม่กี่นาทีข้างหน้า',
+  'landing.copyright': '© {{year}} {{app}} สร้างด้วย Molecule.dev',
+  'landing.ctaBody':
+    'ฟรีสำหรับ 25 ค่าใช้จ่ายแรกในแต่ละเดือน ไม่ต้องใช้บัตรเครดิต ไม่ต้องนัดประชุมติดตั้ง',
   'landing.ctaHeading': 'พร้อมที่จะทวงคืนสิ่งที่ทีมของคุณควรได้รับแล้วหรือยัง?',
   'landing.eyebrow': 'รายงานค่าใช้จ่ายสำหรับทีมการเงิน',
+  'landing.featuresHeading': 'การเบิกคืน ในพื้นที่ทำงานเดียวที่สงบ',
   'landing.heroSubtitle':
     'ส่ง อนุมัติ และเบิกจ่ายค่าใช้จ่ายทางธุรกิจได้โดยไม่ต้องยุ่งยากกับการใช้สเปรดชีต ระบบอ่านใบเสร็จด้วย OCR การตรวจสอบนโยบาย และไทม์ไลน์การอนุมัติที่โปร่งใส ทั้งหมดนี้รวมอยู่ในพื้นที่ทำงานที่สงบสุขแห่งเดียว',
   'landing.heroTitle': 'ใบเสร็จทุกใบ ถูกกู้คืนแล้ว',
@@ -62,10 +90,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'หมายเหตุ',
   'newExpense.descriptionPlaceholder':
     'เหตุใดค่าใช้จ่ายนี้จึงเกี่ยวข้องกับธุรกิจ (ผู้มีอำนาจอนุมัติสามารถเห็นได้)',
+  'newExpense.eyebrow': 'รายการที่เบิกคืนได้',
   'newExpense.merchant': 'พ่อค้า',
   'newExpense.merchantPlaceholder': 'โรงแรมแอดลอน เคมปินสกี',
   'newExpense.policyHint':
     'หมายเหตุ: ค่าอาหารที่เกิน 80 ดอลลาร์ต่อวัน หรือสินค้าใดๆ ที่เกิน 250 ดอลลาร์ ต้องมีบันทึกชี้แจงเหตุผล',
+  'newExpense.receipt': 'ใบเสร็จ',
+  'newExpense.receiptHint': 'JPG, PNG หรือ PDF · สูงสุด 10 MB',
   'newExpense.receiptOcrHint': 'OCR จะกรอกข้อมูลในช่องต่างๆ ล่วงหน้า',
   'newExpense.receiptPrompt': 'วางรูปภาพหรือไฟล์ PDF ที่นี่ หรือคลิกเพื่อเรียกดู',
   'newExpense.receiptUploadFailed':
@@ -76,17 +107,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'ถ่ายรูปหรืออัปโหลดใบเสร็จ แล้ว Recoup จะกรอกข้อมูลร้านค้า วันที่ และยอดรวมให้โดยอัตโนมัติ ตรวจสอบความถูกต้องทั้งหมดด้านล่างก่อนบันทึก',
   'newExpense.title': 'เพิ่มค่าใช้จ่าย',
+  'newReport.approverHint': 'พวกเขาจะได้รับอีเมลเมื่อคุณส่งรายงานนี้เพื่อตรวจสอบ',
   'newReport.approverLabel': 'อีเมลผู้อนุมัติ (ไม่บังคับ)',
   'newReport.approverPlaceholder': 'ผู้จัดการ@บริษัทของคุณ',
   'newReport.availableExpenses': 'ค่าใช้จ่ายที่มีอยู่',
   'newReport.createFailed': 'ไม่สามารถสร้างรายงานได้ โปรดลองอีกครั้ง',
   'newReport.draftsFallback':
     'รายการค่าใช้จ่ายแบบเรียลไทม์ไม่พร้อมใช้งาน — แสดงข้อมูลตัวอย่างที่คัดสรรแล้ว',
+  'newReport.eyebrow': 'จัดกลุ่มค่าใช้จ่าย · ส่งเพื่ออนุมัติ',
   'newReport.includedCount': '{{count}} รวมอยู่ด้วย',
   'newReport.purposeLabel': 'วัตถุประสงค์ทางธุรกิจ',
   'newReport.purposePlaceholder':
     'อธิบายรายละเอียดของทริปหรือโครงการที่เกี่ยวข้องกับค่าใช้จ่ายเหล่านี้ (ให้ผู้มีอำนาจอนุมัติและฝ่ายการเงินเห็น)',
   'newReport.saveDraft': 'บันทึกเป็นฉบับร่าง',
+  'newReport.saveDraftFailed': 'บันทึกร่างไม่สำเร็จ กรุณาลองอีกครั้ง',
   'newReport.submit': 'ส่งเพื่อขออนุมัติ',
   'newReport.submitFailed': 'ไม่สามารถส่งรายงานได้ โปรดลองอีกครั้ง',
   'newReport.summary': 'สรุปรายงาน',
@@ -99,16 +133,23 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'กิจกรรมในพื้นที่ทำงาน',
   'notifications.feedFallback': 'ไม่สามารถรับชมข้อมูลสดได้ — แสดงข้อมูลตัวอย่างที่คัดสรรมาแล้ว',
   'notifications.openReport': 'เปิดรายงาน ›',
+  'pricing.approvalsLabel': 'การอนุมัติ',
   'pricing.expensesLabel': 'ค่าใช้จ่าย',
   'pricing.heading': 'การอนุมัติ',
   'pricing.policiesLabel': 'นโยบาย',
   'pricing.receiptsLabel': 'รายรับ',
   'recoveredAmountHeroCard.label': 'เงินคืนที่ได้รับแล้ว · ตั้งแต่ต้นปีจนถึงปัจจุบัน',
+  'recoveredAmountHeroCard.pending':
+    'มีรายงาน {{count}} ฉบับที่รอการตรวจสอบอยู่ในขณะนี้จากผู้อนุมัติทั้งหมด',
+  'reports.approvalFlow': 'ขั้นตอนการอนุมัติ',
   'reports.backToList': 'กลับไปที่รายงาน',
   'reports.detailFallback': 'รายงานสดไม่พร้อมใช้งาน — แสดงข้อมูลตัวอย่างที่คัดสรรแล้ว',
   'reports.lineItems': 'รายการสินค้า',
   'reports.lineItemsCount': '{{count}} ค่าใช้จ่าย',
+  'reports.lineItemsEmpty': 'ยังไม่มีค่าใช้จ่ายในรายงานนี้',
+  'reports.openLibrary': 'เปิดคลังรายงาน',
   'reports.policyTitle': 'ธงนโยบาย',
+  'reports.selectPrompt': 'เลือกรายงานจากคลังเพื่อดูรายละเอียด',
   'reports.summary.lineCount': 'รายการสินค้า',
   'reports.summary.reimbursable': 'สามารถขอคืนเงินได้',
   'reports.summary.total': 'รายงานยอดรวม',
@@ -117,6 +158,7 @@ export const ui: UiTranslations = {
   'reportsList.lineItems': '{{count}} ค่าใช้จ่าย',
   'reportsList.listFallback': 'รายการแบบเรียลไทม์ไม่พร้อมใช้งาน — แสดงข้อมูลตัวอย่างที่คัดสรรแล้ว',
   'reportsList.newReport': 'รายงานฉบับใหม่',
+  'reportsList.submittedOn': 'ส่งเมื่อ {{date}}',
   'reportsList.title': 'ห้องสมุดรายงาน',
   'resetPassword.hidePassword': 'ซ่อนรหัสผ่าน',
   'resetPassword.newPasswordLabel': 'รหัสผ่านใหม่',
@@ -141,6 +183,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'บันทึกแล้ว ✓',
   'settings.profileSaveFailed': 'ไม่สามารถอัปเดตโปรไฟล์ได้ โปรดลองอีกครั้ง',
   'signup.heading': 'สร้างบัญชี Recoup ของคุณ',
+  'signup.hidePassword': 'ซ่อนรหัสผ่าน',
   'signup.namePlaceholder': 'มายา โอคาฟอร์',
   'signup.showPassword': 'แสดงรหัสผ่าน',
   'signup.subheading': 'ฟรีสำหรับค่าใช้จ่าย 25 รายการต่อเดือน — ไม่ต้องใช้บัตรเครดิต',

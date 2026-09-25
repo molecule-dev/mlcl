@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Turite atsiliepimų, radote klaidą ar norite, kad {{app}} atsirastų jūsų mokykloje ar komandoje? Skaitome kiekvieną žinutę — susisiekite per savo paskyros nustatymus ir atsakys tikras žmogus.',
   'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
+  'about.intro':
+    '{{app}} – tai kasdienė žodžių mįslė. Atspėkite penkių raidžių žodį per šešis bandymus, išlaikykite savo seriją, pasidalykite savo emoji tinkleliu ir pažiūrėkite, kaip sekėsi visiems su šios dienos žodžiu.',
+  'about.missionBody':
+    'Gera mįslė – tai maža kasdienė pergalė. {{app}} sukurta aplink vieną bendrą žodį per dieną — pakankamai greita pertraukėlei prie kavos, pakankamai įdomi, kad sugrįžtumėte ir rytoj.',
+  'about.missionTitle': 'Mūsų misija',
   'about.title': 'Apie {{app}}',
   'archive.loadError': 'Nepavyko įkelti archyvo.',
   'archive.missed': 'Praleista',
   'archive.notPlayed': 'Nežaista',
+  'archive.subhead':
+    'Peržaiskite bet kurią praėjusią dieną kaip treniruotę — jokių serijų, jokios statistikos, tik visas smagumas.',
   'archive.title': 'Archyvas',
   'auth.backToHome': 'Atgal į pradžią',
   'auth.backToHomeArrow': '← Atgal į pradžią',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Pamiršote slaptažodį?',
   'auth.login.loggingIn': 'Prisijungiama…',
   'auth.login.logIn': 'Žaisti šiandienos žodį',
+  'auth.login.noAccount': 'Naujokas „Tessera“?',
   'auth.login.or': 'arba tęsti su',
   'auth.login.password': 'Slaptažodis',
   'auth.login.signInButton': 'Prisijungti',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Saugoma…',
   'common.sendingEllipsis': 'Siunčiama…',
   'common.startingEllipsis': 'Pradedama…',
+  'forgotPassword.subhead':
+    'Įveskite savo el. pašto adresą ir mes atsiųsime jums nuorodą, kad galėtumėte atkurti duomenis.',
+  'forgotPassword.success.body':
+    'Jei paskyra egzistuoja {{email}} , po kelių minučių gausite nustatymo iš naujo nuorodą.',
+  'forgotPassword.success.title': 'Patikrinkite savo pašto dėžutę.',
   'form.name': 'Vardas',
   'howToPlay.cta.home': 'Grįžimas į namus',
   'howToPlay.cta.play': 'Žaisti šiandienos galvosūkį',
@@ -68,10 +83,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Serijos, kurių nesinori nutraukti',
   'leaderboard.daily.title': 'Šiandienos sprendimai',
   'leaderboard.loadError': 'Nepavyko įkelti lyderių lentelės.',
+  'leaderboard.streaks.empty': 'Kol kas nėra serijų — būkite pirmas.',
+  'leaderboard.streaks.subhead': 'Ilgiausios visų laikų pergalių serijos.',
   'leaderboard.streaks.title': 'Serijų lyderiai',
+  'leaderboard.subhead': 'Kaip šiandien sekėsi visiems ir kas turi ilgiausias serijas.',
   'leaderboard.title': 'Lyderių lentelė',
   'login.headline': 'Sveiki sugrįžę.',
   'login.streakPill': 'Laukia {{days}} dienų serija',
+  'login.subhead':
+    'Prisijunkite, kad išlaikytumėte savo seriją ir pamatytumėte, kaip jums sekėsi su šios dienos žodžiu.',
   'nav.archive': 'Archyvas',
   'nav.editProfile': 'Redaguoti profilį',
   'nav.getStarted': 'Pradėkite',
@@ -89,6 +109,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Tokio žodžio nėra',
   'notFound.title': 'Šis kelias tuščias.',
   'planUpdated.message': 'Jūsų planas aktyvus.',
+  'planUpdated.retry': 'Pabandyk dar kartą',
+  'planUpdated.verifyFailed': 'Mes dar negalėjome patvirtinti jūsų mokėjimo.',
+  'planUpdated.verifyFailedBody':
+    'Jūsų mokėjimas vis dar gali būti apdorojamas. Bandykite dar kartą po akimirkos.',
   'planUpdated.verifying': 'Patvirtinamas mokėjimas…',
   'play.alreadyFinished': 'Jau išsprendėte šį galvosūkį',
   'play.answerWas': 'Žodis buvo',
@@ -104,6 +128,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Pratybų galvosūkis',
   'play.tooShort': 'Nepakanka raidžių',
   'play.won': 'Išspręsta!',
+  'pricing.advancedStats': 'Išsami statistika: {{yes}}',
+  'pricing.archiveHistory': '{{count}} dienų archyvo istorija',
+  'pricing.archivePlays': '{{count}} archyvo peržaidimų / dieną',
+  'pricing.archiveUnlimited': 'Neribota archyvo istorija',
+  'pricing.canExport': 'Duomenų eksportas: {{yes}}',
+  'pricing.checkoutError': 'Nepavyko pradėti atsiskaitymo. Bandykite dar kartą.',
   'pricing.dailyWord': 'Kasdieninis žodis',
   'pricing.heading': 'Pasirinkite savo {{app}} planą',
   'pricing.included': 'Įtraukta',
@@ -111,7 +141,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Kasdieninis žodis visada nemokamas. Atnaujinkite, kad gautumėte neribotą archyvo pakartojimą ir išsamesnę statistiką.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} gerbia jūsų privatumą. Šiame puslapyje apžvelgiami duomenys, kuriuos saugome, kodėl juos saugome ir kaip juos pašalinti.',
   'privacy.title': 'Privatumo pranešimas',
+  'resetPassword.subhead': 'Pasirinkite naują slaptažodį, kad grįžtumėte prie savo serijos.',
   'settings.account': 'Paskyra',
   'settings.danger.body':
     'Visam laikui pašalinti jūsų {{appName}} paskyrą ir visą galvosūkių istoriją.',
@@ -121,17 +154,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'Svečias',
   'settings.language.title': 'Kalba',
   'settings.subhead': 'Sureguliuokite profilį, garsą ir kaip atrodote lyderių lentelėje.',
+  'settings.unnamed': '„Sparq“ žaidėjas',
   'settings.upgrade': 'Atnaujinti',
   'signup.eyebrow': 'Nemokamai visam laikui — vienas žodis per dieną',
   'signup.headline': 'Pradėkite savo seriją.',
+  'signup.subhead':
+    'Sukurkite {{appName}} paskyrą, kad galėtumėte žaisti kasdienį žodį, kurti seriją ir kilti lyderių lentelėje.',
   'stats.currentStreak': 'Serija',
   'stats.distribution.title': 'Spėjimų pasiskirstymas',
   'stats.loadError': 'Nepavyko įkelti jūsų statistikos.',
   'stats.maxStreak': 'Maksimali serija',
   'stats.played': 'Žaista',
   'stats.playToday': 'Žaisti šiandienos galvosūkį',
+  'stats.subhead': 'Tik reitinguojamos kasdienės mįslės — archyvo treniruotės niekada nesiskaito.',
   'stats.title': 'Jūsų statistika',
   'stats.winRate': 'Laimėjimų procentas',
   'status.monthly': 'Mėnesinis',
+  'terms.intro':
+    'Naudodami {{app}} sutinkate su toliau pateiktomis taisyklėmis. Jei negalite jų priimti, prašome nesinaudoti paslauga.',
   'terms.title': 'Paslaugų teikimo sąlygos',
 }

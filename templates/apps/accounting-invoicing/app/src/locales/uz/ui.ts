@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Savolingiz bormi, xatolik topdingizmi yoki kitoblaringizni ko'chirmoqchimisiz? {{app}} jamoasiga hello@{{app}}.example manzili orqali murojaat qiling — har bir xabarni haqiqiy inson o'qiydi.",
   'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
+  'about.intro':
+    "{{app}} — har bir tiyinni hisobga oladigan kichik biznes uchun buxgalteriya: hisob-fakturalar, xarajatlar, to'lovlar va hisobotlar egalar, buxgalterlar va hisobchilar uchun bir joyda.",
+  'about.missionBody':
+    "Biznes yuritish kitoblaringizdan qo'rqish degani emas. {{app}} jadval chalkashligini o'rniga amal qilishingiz mumkin bo'lgan aniq raqamlar bilan almashtiradi, shunda siz solishtirishga kamroq, biznesni boshlash maqsadidagi ishga ko'proq vaqt ajratasiz.",
+  'about.missionTitle': 'Bizning vazifamiz',
   'about.title': '{{app}} haqida',
   'accounts.count': '{{count}} hisoblar',
+  'accounts.emptyBody':
+    "Buxgalteriya hisoblari pul qayerda saqlanishi va qanday harakatlanishini kuzatadi. Ular buxgalteringiz yoki integratsiya ularni sozlagach shu yerda paydo bo'ladi.",
   'accounts.emptyTitle': "Hali hisoblar yo'q",
   'accounts.heading': 'Hisoblar jadvali',
   'accounts.kpi.accounts': 'Hisoblar',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     "Fakturalaringiz, xarajatlaringiz va to'lovlaringiz ortidagi har bir daftar hisobi, turi bo'yicha guruhlangan.",
   'accounts.tag.inactive': 'faol emas',
   'authBrandPanel.attributionName': 'Sara Jenkins',
+  'authBrandPanel.attributionRole': 'Bosh moliyaviy direktor, Horizon Tech',
   'authBrandPanel.eyebrow': 'Moliyaviy guruhlar tomonidan ishonchli',
   'authBrandPanel.label': 'Brend namoyishi',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Barcha mijozlar',
   'customerDetail.invoiceMeta': 'Berilgan {{issued}} · Muddati {{due}}',
   'customerDetail.loadError': "Mijozni yuklab bo'lmadi.",
+  'customerDetail.missingBody':
+    "So'ralgan mijoz yozuvi yuklanmadi. U o'chirilgan bo'lishi yoki sizda unga ruxsat bo'lmasligi mumkin.",
   'customerDetail.missingHeading': 'Mijoz yozuvi mavjud emas',
+  'customerDetail.missingHelp':
+    "Mijozlar ro'yxatiga qaytish uchun yuqoridagi orqaga havolasidan foydalaning yoki u yerdan boshqa yozuvni tanlang.",
+  'customerDetail.noInvoices': "Hali schyot-fakturalar yo'q.",
   'customerDetail.notesEmpty': "Hali hech qanday eslatma yo'q.",
   'customerDetail.paymentsEmpty': "To'lovlar qayd etilmagan.",
   'customerDetail.paymentTerms': "To'lov shartlari",
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Chegirma',
   'expenseDetail.detailsHeading': 'Tranzaksiya tafsilotlari',
   'expenseDetail.loadError': "Xarajatlarni yuklab bo'lmadi.",
+  'expenseDetail.matched': 'Mos keldi · {{description}}',
   'expenseDetail.missingBody':
     "So'ralgan xarajatni yuklab bo'lmadi. U olib tashlangan bo'lishi mumkin yoki siz unga kirish huquqiga ega bo'lmasligingiz mumkin.",
   'expenseDetail.missingHeading': 'Xarajatlar yozuvi mavjud emas',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Chek',
   'expenseDetail.receiptHeading': 'Chek',
   'expenseDetail.reconciled': 'Yarashdi',
+  'expenseDetail.unreconciled': 'Yarashmagan',
   'expenses.empty': "Hali xarajatlar yo'q.",
   'expenses.heading': 'Xarajatlar',
   'expenses.kpi.deductible': 'Chegirma',
@@ -101,6 +118,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': "Hisob-fakturalarni yuklab bo'lmadi.",
   'invoices.searchPlaceholder': 'Faktura raqamini yoki mijozni qidirish…',
   'invoices.summary.paid': "Bu davr uchun to'langan",
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     "30 kun davomida bepul. Karta yo'q. Buxgalteringizni olib keling — ular sizga rahmat aytishadi.",
   'landing.ctaTitle': "Kitoblaringizni tinchroq joyga ko'chiring.",
@@ -115,6 +133,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Kutilgan tushim',
   'ledgerStatTriad.eyebrow.mtd': 'Oy boshidan hozirga vaqtgacha',
   'ledgerStatTriad.netSub': 'Tarmoq {{amount}}',
+  'ledgerStatTriad.overdueSub': "{{amount}} muddati o'tgan",
   'ledgerStatTriad.revenueLabel': 'Daromad',
   'login.failed': 'Kirish amalga oshmadi.',
   'login.hidePassword': 'Parolni yashirish',
@@ -125,6 +144,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Tizimga kirish',
   'nav.legal': 'Huquqiy',
   'newExpense.back': 'Xarajatlar',
+  'newExpense.clearReceiptCta': 'Biriktirilgan kvitansiyani tozalash',
   'newExpense.deductible': 'Soliqdan chegirma',
   'newExpense.dropPrompt': 'Ilova qilish uchun chek fotosurati yoki PDF faylini bu yerga tashlang.',
   'newExpense.failed': "Xarajatlarni tejashning iloji bo'lmadi.",
@@ -153,6 +173,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Toʻlovlarni yuklab boʻlmadi.',
   'payments.unmatchedTag': 'tengsiz',
   'planUpdated.pageLabel': 'Reja yangilanganligini tasdiqlash',
+  'pricing.advancedFeatures': 'Kengaytirilgan funksiyalar: {{yes}}',
+  'pricing.canExport': "Ma'lumotlarni eksport qilish: {{yes}}",
+  'pricing.heading': '{{app}} rejasini tanlang',
+  'pricing.maxAccounts': '{{count}} hisoblar',
+  'pricing.maxExpenses': '{{count}} xarajatlar',
+  'pricing.maxInvoices': '{{count}} hisob-faktura',
+  'privacy.intro':
+    "Ushbu Maxfiylik siyosati {{app}} xizmatdan foydalanuvchi bizneslar haqidagi ma'lumotlarni qanday to'plashi, ishlatishi va oshkor qilishini tavsiflaydi.",
   'privacy.lastUpdated': 'Oxirgi yangilanish: {{sana}}',
   'privacy.section.collected.body':
     "Biz hisob ma'lumotlarini (ism, elektron pochta, kompaniya), siz yuklagan moliyaviy yozuvlarni (schyot-fakturalar, xarajatlar, mijozlar, to'lovlar) va standart xizmat ko'rsatish jurnallarini (IP, foydalanuvchi agenti, vaqt belgilari) to'playmiz.",
@@ -165,8 +193,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     "Ma'lumotlar xizmatni boshqarish, siz so'ragan hisobotlar va PDF-fayllarni yaratish, Mailgun orqali tranzaksiya elektron pochta xabarlarini yuborish va Stripe orqali to'lovlarni amalga oshirish uchun ishlatiladi. Biz shaxsiy ma'lumotlarni sotmaymiz yoki ijaraga bermaymiz.",
   'recentInvoicesCard.dueMeta': "To'lov muddati {{date}}",
+  'recentInvoicesCard.empty': 'Hech qanday mos keladigan faktura topilmadi.',
   'recentInvoicesCard.eyebrow': 'Kutilgan tushim',
   'recentInvoicesCard.searchAriaLabel': 'Fakturalarni qidirish',
+  'recentInvoicesCard.searchPlaceholder': 'Hisob-fakturalarni qidirish…',
   'recentInvoicesCard.title': "So'nggi fakturalar",
   'recentInvoicesCard.viewAll': "Barcha fakturalarni ko'rish →",
   'reports.assets': 'Aktivlar',
@@ -182,16 +212,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Foyda va zarar (12 oy)',
   'resetPassword.backToLogin': '← Kirish sahifasiga qaytish',
   'resetPassword.hidePassword': 'Parolni yashirish',
+  'resetPassword.passwordLabel': 'Yangi parol',
   'resetPassword.showPassword': "Parolni ko'rsatish",
+  'resetPassword.subheading': 'Kuchli parol tanlang — kamida sakkiz belgi.',
   'resetPassword.submit': 'Parolni tiklash',
   'resetPassword.tooShort': "Parol kamida 8 ta belgidan iborat bo'lishi kerak.",
   'settings.account.changePassword': "Parolni o'zgartirish",
   'settings.account.changingPassword': "O'zgarmoqda…",
   'settings.account.currentPassword': 'Joriy parol',
+  'settings.account.dangerZone': 'Xavfli zona',
   'settings.account.deleteAccount': "Hisobni o'chirish",
   'settings.account.deleteDescription':
     "Hisobingizni va unga bog'liq barcha ma'lumotlarni butunlay o'chirib tashlang.",
   'settings.account.deleteError': "Hisobni o'chirib bo'lmadi.",
+  'settings.account.deleteWarning':
+    "Bu hisobingizni butunlay o'chiradi va uni qaytarib bo'lmaydi. Tasdiqlash uchun parolingizni kiriting.",
   'settings.account.deleting': "O'chirilmoqda…",
   'settings.account.devices': 'Qurilmalar',
   'settings.account.email': 'Elektron pochta',
@@ -202,6 +237,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Parol',
   'settings.account.passwordError': "Parolni o'zgartirib bo'lmadi.",
   'settings.account.pushNotifications': 'Ushbu qurilmada push-bildirishnomalar',
+  'settings.account.revokeDeviceWarning':
+    'Bu qurilmaning kirish huquqi tez orada bekor qilinadi. Uni chiqarasizmi?',
   'settings.account.saveError': 'Profilni yangilashda xatolik yuz berdi.',
   'settings.account.security': 'Xavfsizlik',
   'settings.account.signOutDevice': 'tizimdan chiqish',
@@ -209,12 +246,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Ikki faktorli autentifikatsiya',
   'settings.account.twoFactorCode': 'Autentifikatsiya kodi',
   'settings.account.twoFactorDisable': "O'chirish",
+  'settings.account.twoFactorDisableTitle': "Ikki faktorli autentifikatsiyani o'chirish",
   'settings.account.twoFactorEnable': 'Yoqish',
+  'settings.account.twoFactorEnableTitle': 'Ikki faktorli autentifikatsiyani yoqish',
   'settings.account.twoFactorInvalidCode': "Noto'g'ri kod",
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'Ikki faktorli QR kod',
+  'settings.account.twoFactorScan':
+    "Ushbu QR kodni autentifikator ilovangiz bilan skanerlang, so'ng 6 xonali kodni kiriting.",
+  'settings.account.twoFactorUnavailable':
+    'Ushbu ilova uchun ikki faktorli autentifikatsiya mavjud emas.',
   'settings.account.twoFactorVerify': 'Tasdiqlash va yoqish',
   'settings.account.unknownDevice': "Noma'lum qurilma",
   'settings.company.email': "To'lov elektron pochtasi",
+  'settings.company.heading': 'Kompaniya va soliq',
   'settings.company.name': 'Yuridik nomi',
   'settings.company.saveButton': 'Kompaniya profilini saqlash',
   'settings.company.taxId': 'Soliq identifikatori / EIN',
@@ -258,6 +303,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Taxminiy choraklik',
   'taxes.kpi.owed': 'Qarzdor',
   'taxes.loadError': 'Soliq xulosasini yuklashda xatolik yuz berdi.',
+  'taxes.remittedPct': "({{pct}}% to'langan)",
+  'terms.intro':
+    'Ushbu Foydalanish shartlari ("Shartlar") {{app}} ga kirishingiz va undan foydalanishingizni tartibga soladi. Hisob yaratish yoki xizmatdan foydalanish orqali siz ularga rioya qilishga rozilik bildirasiz.',
   'terms.lastUpdated': 'Oxirgi yangilanish: {{sana}}',
   'terms.section.acceptable.body':
     'Siz xizmatdan biron bir qonunni buzish, intellektual mulk huquqlarini buzish, zararli dasturlarni uzatish yoki boshqa hisoblarga yoki bizning infratuzilmamizga ruxsatsiz kirishga urinish uchun foydalanmaslikka rozilik bildirasiz.',

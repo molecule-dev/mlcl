@@ -1,12 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May mga tanong, feedback, o ideya sa partnership? I-email ang {{appName}} team sa hello@nimbus.example — binabasa namin ang bawat mensahe.',
   'about.contactTitle': 'Makipag-ugnayan',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'about.highlightsTitle': 'Ano ang matatanggap ninyo',
   'about.intro':
     'Ang Nimbus ay isang tahimik at maingat na tahanan para sa mga file na talagang gusto mong mahanap. Mag-upload, magbahagi, at mag-recover nang may bilis ng desktop at tibay ng cloud.',
+  'about.mission':
+    'Simple ang aming misyon: gawing magaan ang cloud storage. Walang kalat, walang spinner, walang hula kung saan napunta ang file — kalinawan lang, para sa mga indibidwal at team.',
+  'about.subtitle': 'Ang magaan na archive para sa iyong digital na buhay.',
   'about.title': 'Tungkol sa Nimbus',
   'authShell.copyright': '© {{year}} Nimbus Archive',
+  'authShell.footer': 'Secure na cloud storage · End-to-end encrypted',
   'common.goToDashboard': 'Pumunta sa Dashboard',
   'fileDetail.about.eyebrow': 'Tungkol sa file na ito',
   'fileDetail.actions.delete': 'Ilipat sa basurahan',
@@ -39,18 +46,24 @@ export const ui: UiTranslations = {
     'Ilagay ang iyong email at magpapadala kami ng link para pumili ng bago.',
   'forgotPassword.successSubheading':
     'Nagpadala kami ng password reset link sa {{email}}. Ang link ay valid sa loob ng 60 minuto.',
+  'help.backHome': '← Bumalik sa {{appName}} home',
   'help.contactBody':
     'Mag-email sa support@nimbus.example at susugunan namin sa loob ng isang araw ng trabaho. Ang mga planong Pro at Team ay may priority na pagtrato.',
+  'help.contactTitle': 'Kailangan ng tao?',
   'help.eyebrow': 'Suporta',
   'help.intro':
     'Karamihan sa mga sagot ay isang click lamang. I-drag ang mga file sa upload tray para idagdag ang mga ito, i-click ang Ibahagi sa anumang row para gumawa ng link, at bisitahin ang Basurahan para i-restore ang anumang tinanggal mo sa loob ng 30 araw.',
+  'help.subtitle': 'Mga sagot sa karaniwang tanong tungkol sa {{appName}}.',
   'help.title': 'Tulong at Suporta',
   'landing.cta.body':
     'Magsimula nang may 15 GB na libre. Mag-upgrade sa Pro para sa 200 GB o imbitahan ang iyong team sa shared space — lahat ng may parehong maayos na karanasan ng Nimbus.',
   'landing.cta.primary': 'Gumawa ng iyong archive',
   'landing.cta.title': 'Alisin ang kaguluhan. Panatilihin ang trabaho.',
+  'landing.features.body':
+    'Ginawa para sa mga indibidwal at team na gustong maging magaan ang kanilang mga file — mabilis hanapin, ligtas i-share, at masaya ayusin.',
   'landing.features.eyebrow': 'Bakit Nimbus',
   'landing.features.title': 'Storage na hindi humahadlang.',
+  'landing.footer.copyright': '© {{year}} {{appName}}. Ginawa para sa magaan.',
   'landing.hero.body':
     'Ang magaan na archive para sa iyong digital na buhay. Pinag-isang cloud storage na parang sariwa ng hangin. Walang kalituhan, purong linaw.',
   'landing.hero.eyebrow': 'Ipinapakilala ang Nimbus v2',
@@ -69,6 +82,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Ipakita ang password',
   'login.subheading': 'Mag-sign in para ma-access ang iyong archive.',
   'myFiles.breadcrumb.folder': 'Folder',
+  'myFiles.breadcrumb.home': 'Tessera',
   'myFiles.breadcrumb.myFiles': 'Aking mga File',
   'myFiles.fetchError': 'Hindi ma-load ang iyong mga file.',
   'myFiles.files.col.modified': 'Binago',
@@ -82,12 +96,17 @@ export const ui: UiTranslations = {
   'myFiles.folders.justCreated': 'Kakalikha lang',
   'myFiles.folders.seeAll': 'Tingnan lahat',
   'myFiles.folders.title': 'Mga Folder',
+  'myFiles.hero.bodyDynamic': '{{files}} file na na-sync — {{used}} ang nagamit sa ngayon.',
+  'myFiles.hero.bodyEmpty':
+    'Mag-upload ng file para makapagsimula — magsi-sync ang iyong archive sa lahat ng device.',
   'myFiles.hero.eyebrow': 'Ang iyong archive',
   'myFiles.hero.recentCta': 'Tingnan ang kamakailang aktibidad',
   'myFiles.hero.title': 'Maligayang pagbabalik, {{name}}.',
   'myFiles.hero.uploadCta': 'Mag-upload ng mga file',
   'myFiles.hero.youFallback': 'doon',
   'myFiles.refresh': 'I-refresh',
+  'myFiles.stats.collaboratorsDetail': 'Sa mga shared file',
+  'myFiles.stats.foldersDetail': 'Sa iyong archive',
   'myFiles.stats.totalFilesDetail': '{{count}} na may bituin',
   'myFiles.stats.usageDetail': 'ng {{total}} sa Pro',
   'myFiles.time.daysAgo': '{{count}}a nakalipas',
@@ -108,6 +127,7 @@ export const ui: UiTranslations = {
   'nimbusSideNav.upgradeCta': 'Mag-upgrade ng plano',
   'nimbusStorageMeter.ariaLabel': 'Ginamit na storage',
   'nimbusStorageMeter.compactLabel': 'Storage',
+  'nimbusStorageMeter.compactSummary': '{{used}} ng {{total}} ang ginamit',
   'nimbusStorageMeter.percentUsed': '{{percent}}%',
   'nimbusStorageMeter.usedLabel': 'Ginamit na storage',
   'nimbusStorageMeter.usedOfTotal': '{{used}} ng {{total}}',
@@ -116,10 +136,21 @@ export const ui: UiTranslations = {
   'notFound.code': '404',
   'notFound.heading': 'Ang file na ito ay wala sa iyong archive.',
   'notFound.primaryCta': 'Buksan ang Aking mga File',
+  'planUpdated.currentPlan': 'Kasalukuyan kang nasa {{plan}} plano.',
+  'planUpdated.retry': 'Subukan muli',
+  'planUpdated.verifyFailed': 'Hindi pa namin makumpirma ang iyong bayad.',
+  'planUpdated.verifyFailedBody':
+    'Maaaring pinoproseso pa rin ang iyong bayad. Subukan muli maya-maya.',
   'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
+  'pricing.limit.advancedFeatures': 'Mga advanced na tampok:',
   'pricing.limit.canExport': 'Pag-export ng data:',
+  'pricing.limit.files': '{{count}} na file',
+  'pricing.limit.folders': '{{count}} folder',
+  'pricing.limit.shares': '{{count}} share',
   'privacy.intro':
     'Kinokolekta namin ang pinakamababang impormasyon na kailangan para patakbuhin ang Nimbus: ang email ng iyong account, ang mga file na ina-upload mo, at ang metadata na kailangan para ipakita at hanapin ang mga ito. Hindi namin kailanman ibinebenta ang iyong data.',
+  'privacy.subtitle':
+    'Paano pinangangasiwaan ng {{appName}} ang iyong mga file at personal na impormasyon.',
   'recent.activity.empty': 'Wala pang ipapakita.',
   'recent.activity.youInitials': 'I',
   'recent.crumbs.home': 'Nimbus',
@@ -138,15 +169,18 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Minimum 8 character',
   'resetPassword.signIn': 'Mag-sign in sa Nimbus',
   'resetPassword.subheading': 'Pumili ng matibay na password — hindi bababa sa 8 character.',
+  'resetPassword.successHeading': 'Pag-reset ng password',
   'resetPassword.successSubheading':
     'Maaari ka na ngayong mag-sign in gamit ang iyong bagong password.',
   'search.backToFiles': 'Bumalik sa lahat ng file',
   'search.clearLabel': 'I-clear ang paghahanap',
   'search.crumbs.home': 'Nimbus',
+  'search.emptyNoQuery': 'Mag-type ng query sa itaas para maghanap sa iyong archive.',
   'search.emptyWithQuery': 'Walang file na tumutugma sa "{{query}}".',
   'search.fetchError': 'Hindi ma-load ang mga file.',
   'search.hero.body':
     'Mag-filter ayon sa uri para mag-focus. I-tap ang anumang resulta para buksan ito.',
+  'search.hero.titleEmpty': 'Hanapin sa iyong archive',
   'search.hero.titleWithQuery': '{{count}} resulta para sa "{{query}}"',
   'search.input.placeholder': 'Maghanap sa Nimbus…',
   'search.section.allFiles': 'Mga katugmang file',
@@ -162,9 +196,12 @@ export const ui: UiTranslations = {
   'shared.empty':
     'Wala pang mga ibinabahaging file. Buksan ang anumang file at i-tap ang Ibahagi para magpadala ng link.',
   'shared.fetchError': 'Hindi ma-load ang mga ibinabahaging file.',
+  'shared.hero.body':
+    'Lalabas dito ang bawat file na ini-share mo via link o invite. I-toggle ang isang permission para makita kung anong access ang naibigay.',
   'shared.hero.title': '{{count}} na file na may mga aktibong link',
   'shared.list.subtitle': '{{count}} na file',
   'shared.list.title': 'Kamakailan lang na ibinabahagi',
+  'shared.row.sharedSummary': '{{count}} link',
   'shared.time.daysAgo': '{{count}}a nakalipas',
   'shared.time.hoursAgo': '{{count}}o nakalipas',
   'shared.time.minutesAgo': '{{count}} min nakalipas',
@@ -174,6 +211,7 @@ export const ui: UiTranslations = {
   'sharePublic.eyebrow': 'Ibinabahagi sa pamamagitan ng Nimbus',
   'sharePublic.fetchError': 'Hindi ma-load ang ibinabahaging file.',
   'sharePublic.home': 'Bumalik sa Nimbus home',
+  'sharePublic.loading': 'Nire-resolve ang share link…',
   'sharePublic.missingToken': 'Walang ibinigay na share token.',
   'sharePublic.notFound': 'Hindi nahanap ang share link o nag-expire na ito.',
   'sharePublic.permission': '{{permission}}',
@@ -188,7 +226,10 @@ export const ui: UiTranslations = {
   'starred.empty':
     'Wala pang may bituin. I-tap ang bituin sa anumang file para mapanatili itong malapit.',
   'starred.fetchError': 'Hindi ma-load ang mga file na may bituin.',
+  'starred.hero.body':
+    'I-star ang anumang babalikan mo. Ipinapakita namin ito sa bawat device, bawat workspace, sa lahat ng oras.',
   'starred.hero.title': '{{count}} na paboritong handa na',
+  'starred.row.meta': '{{size}} · {{modified}}',
   'starred.time.daysAgo': '{{count}}a nakalipas',
   'starred.time.hoursAgo': '{{count}}o nakalipas',
   'starred.time.minutesAgo': '{{count}} min nakalipas',
@@ -198,7 +239,10 @@ export const ui: UiTranslations = {
   'storage.crumbs.home': 'Nimbus',
   'storage.crumbs.storage': 'Storage',
   'storage.fetchError': 'Hindi ma-load ang storage.',
+  'storage.hero.body':
+    'Marami pang espasyo para lumago. Aabisuhan ka namin kapag lumampas ka sa 75% — at muli sa 90% — para maalis mo ang mabibigat na bagay bago pa nito pabagalin ang sinuman.',
   'storage.hero.eyebrow': 'Pangkalahatang-ideya ng storage',
+  'storage.hero.headroom': '{{headroom}} headroom',
   'storage.hero.meterLabel': '{{percent}}% ng plano',
   'storage.hero.title': '{{used}} ng {{total}} ang ginamit',
   'storage.plans.body':
@@ -206,11 +250,14 @@ export const ui: UiTranslations = {
   'storage.plans.choose': 'Piliin ang {{name}}',
   'storage.plans.included': '{{storage}} na kasama',
   'storage.plans.maxFiles': '{{count}} na file',
+  'storage.plans.maxFolders': '{{count}} folder',
+  'storage.plans.maxShares': '{{count}} share',
   'storage.plans.title': 'Mga planong lumalaki kasabay mo',
   'storage.plans.unavailable': 'Lalabas dito ang impormasyon ng plano kapag na-configure na.',
   'storage.plans.youreOn': 'Nandoon ka sa planong ito',
   'terms.intro':
     'Sa paggamit ng Nimbus, sumasang-ayon ka na panatilihing kumpidensyal ang iyong mga kredensyal ng account at mag-upload lamang ng content na may karapatan kang iimbak at ibahagi.',
+  'terms.subtitle': 'Ang mga kundisyon kung saan maaari mong gamitin ang {{appName}}.',
   'trash.actions.emptyAll': 'Linisin ang basurahan',
   'trash.actions.emptyConfirm': 'Oo, walang laman',
   'trash.actions.emptyConfirmPrompt': 'Permanenteng burahin lahat?',
@@ -229,7 +276,9 @@ export const ui: UiTranslations = {
   'trash.restoreError': 'Hindi ma-restore ang file.',
   'trash.row.daysAgo': '{{count}}a nakalipas',
   'trash.row.deleteConfirm': 'Burahin',
+  'trash.row.deleteConfirmPrompt': 'Burahin nang tuluyan?',
   'trash.row.deleteForever': 'Tanggalin nang permanente',
+  'trash.row.expires': '{{days}} araw na lang ang natitira',
   'trash.row.hoursAgo': '{{count}}o nakalipas',
   'trash.row.meta': 'Tinanggal {{deletedAt}}',
   'trash.row.minutesAgo': '{{count}} min nakalipas',
@@ -249,6 +298,7 @@ export const ui: UiTranslations = {
   'upload.progress.error': 'Nabigo ang pag-upload.',
   'upload.progress.uploadFailed': 'Nabigo ang pag-upload.',
   'upload.progress.uploading': 'Nag-a-upload ng bytes…',
+  'upload.queue.clearDone': 'Clear synced',
   'upload.queue.emptyHint':
     'I-drop ang mga file sa lugar sa itaas o gamitin ang mga button na Pumili para magsimula.',
   'upload.queue.idle': 'Walang aktibong upload.',

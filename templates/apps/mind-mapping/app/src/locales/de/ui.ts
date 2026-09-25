@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Hast du Feedback, einen Bug gefunden oder möchtest uns erzählen, wie du deine Ideen abbildest? Wir lesen jede Nachricht — melde dich jederzeit, und ein echter Mensch aus dem Team wird sich bei dir zurückmelden.',
+  'about.contactTitle': 'Sprechen Sie uns an',
   'about.eyebrow': 'Über',
+  'about.featureCanvas':
+    'Eine unendliche Leinwand mit verschiebbaren Knoten, geschwungenen Verbindungen und flüssigem Zoomen und Verschieben.',
+  'about.featureCollab':
+    'Echtzeit-Zusammenarbeit mit Live-Cursorn, damit dein Team parallel mit dir verzweigen kann, statt warten zu müssen.',
+  'about.featurePricing':
+    'Für immer kostenlos für Solo-Denker; die Tarife Pro und Team bieten mehr Maps, mehr Knoten, erweiterte Funktionen und Datenexport.',
+  'about.featureTemplates':
+    'Eine Bibliothek mit Vorlagen zum Einstieg plus vollständiger Versionsverlauf, damit du eine Map schnell starten und jede Änderung rückgängig machen kannst.',
+  'about.intro':
+    '{{app}} ist eine großzügige, unendliche Leinwand für Mindmapping — Brainstormings, Konzeptdiagramme, SWOTs und Projektpläne. Verschiebe Knoten überallhin, verbinde Ideen mit fließenden Links, zoome und verschiebe, ohne an Ränder zu stoßen, und lass die Map mit deinem Denken wachsen.',
+  'about.missionBody':
+    'Lautes Denken sollte mühelos und gemeinsam sein. Wir bauen Tools, die nicht im Weg stehen — keine starren Raster, keine einengenden Vorlagen, keine ablenkende UI —, damit Einzelpersonen und Teams Ideen im Moment ihres Entstehens festhalten und gemeinsam formen können.',
+  'about.missionTitle': 'Unsere Mission',
   'about.pageTitle': 'Über „{{app}}“',
   'auth.brandEyebrow': 'Wo Ideen sich verzweigen',
   'auth.brandStatement':
@@ -13,19 +29,26 @@ export const ui: UiTranslations = {
   'billing.feature.export': 'Export als SVG / PNG',
   'billing.feature.maps': '{{count}} Karten',
   'billing.feature.nodes': '{{count}} Knoten pro Karte',
+  'billing.freeNoticeBody':
+    'Wähle oben einen kostenpflichtigen Tarif, um mehr Maps freizuschalten.',
   'billing.loadError': 'Abrechnungsstatus konnte nicht geladen werden.',
+  'billing.loading': 'Abrechnung wird geladen…',
   'billing.perMonth': ' / Monat',
   'billing.plansTitle': 'Pläne',
+  'billing.priceMissing': 'Stripe-Preis-ID nicht konfiguriert.',
   'billing.starting': 'Bezahlvorgang wird gestartet…',
   'billing.title': 'Abrechnung & Plan',
   'billing.unavailableTier':
     'Diese Stufe ist noch nicht für den Bezahlvorgang konfiguriert — setzen Sie die Stripe-Preis-ID in Ihrer Umgebung.',
   'billing.unlimited': 'Unbegrenzt',
   'billing.upgradeMonthly': 'Auf {{name}} aktualisieren (monatlich)',
+  'billing.upgradeYearly': 'Jährlich zahlen · {{price}}',
   'brand.tagline': 'Wo Ideen sich verzweigen',
   'common.and': 'und',
   'common.goToDashboard': 'Zum Dashboard',
   'dashboard.activityAction': 'aktualisierte',
+  'dashboard.activityEmpty':
+    'Noch keine Aktivität — bearbeite eine Map, um deine Zeitleiste zu starten.',
   'dashboard.daysAgo': 'vor {{count}}T',
   'dashboard.empty.body':
     'Erstellen Sie eine Karte, um Ideen zu verzweigen. Vorlagen erleichtern den Start.',
@@ -44,26 +67,35 @@ export const ui: UiTranslations = {
   'dendriteHero.activeMaps': 'Aktive Karten',
   'dendriteHero.eyebrow': 'Heute auf der Leinwand',
   'dendriteHero.greeting': 'Verzweigen Sie neue Ideen, {{name}}',
+  'dendriteHero.greetingAnon': 'Neue Ideen verzweigen',
   'dendriteHero.openMaps': 'Meine Karten öffnen',
   'dendriteHero.subtitle':
     'Ziehen, verbinden und lassen Sie Ihr Denken wachsen. Jeder Funke ist nur einen Knoten vom nächsten entfernt.',
   'dendriteHero.weeklyChange': '{{sign}}{{count}} diese Woche',
+  'forgotPassword.brandStatement':
+    'Deine Maps sind sicher. Wir bringen dich gleich zu deinen Verzweigungen zurück.',
   'forgotPassword.subheading':
     'Geben Sie Ihre E-Mail ein und wir senden Ihnen einen neuen Zurücksetzungslink.',
   'forgotPassword.success':
     'Falls ein Konto mit dieser E-Mail existiert, ist ein Zurücksetzungslink unterwegs.',
   'landing.cta.body':
     'Für Solo-Denker für immer kostenlos. Aktualisieren Sie erst, wenn Ihr Team mit Ihnen verzweigt.',
+  'landing.cta.button': 'Erstelle deine erste Map',
   'landing.cta.title': 'Pflanzen Sie heute Ihre erste Idee.',
   'landing.feature.branch.body':
     'Ziehen Sie einen Knoten von jedem anderen — Verbindungen fließen als weiche Kurven, kein starres Raster nötig.',
+  'landing.feature.branch.title': 'Organisches Verzweigen',
   'landing.feature.canvas.body':
     'Verschieben, zoomen und lassen Sie die Karte wachsen, ohne an Ränder zu stoßen. Ihr Denken verdient Raum zum Atmen.',
   'landing.feature.canvas.title': 'Unendliche Leinwand',
   'landing.feature.collab.body':
     'Sehen Sie Teammitglieder in Echtzeit neben Ihnen verzweigen. Brainstormen gemeinsam, nicht nacheinander.',
+  'landing.feature.collab.title': 'Kollaborative Cursor',
   'landing.feature.shortcuts.body':
     'Tab für ein Kind, Enter für ein Geschwister, ⌘K, um irgendwohin zu springen. Power-User bleiben im Fluss.',
+  'landing.feature.shortcuts.title': 'Tastatur zuerst',
+  'landing.featuresBody':
+    'Symbolleisten, Panels und Tastenkürzel wirken wie selbstverständlich — da, wenn du sie brauchst, unsichtbar, wenn nicht.',
   'landing.featuresEyebrow': 'Für Denker gemacht',
   'landing.featuresTitle': 'Jede Interaktion verdient ihren Platz auf der Leinwand',
   'landing.footer.copyright': '© {{year}} {{appName}} . Erstellt mit Molecule.dev.',
@@ -71,6 +103,7 @@ export const ui: UiTranslations = {
     '{{appName}} ist eine großzügige, unendliche Arbeitsfläche für Brainstorming, Konzeptdiagramme und SWOT-Analysen. Per Drag & Drop verbinden Sie Elemente und lassen die Karte mit Ihren Bedürfnissen wachsen – ohne starre Raster oder vorgegebene Vorlagen.',
   'landing.hero.ctaPrimary': 'Kostenlos verzweigen',
   'landing.hero.eyebrow': 'Mind Mapping für Designer und Denker',
+  'landing.hero.title': 'Wo Ideen sich verzweigen.',
   'landing.nav.start': 'Verzweigen beginnen',
   'landing.proof.export': 'Export als PNG, SVG oder Markdown',
   'landing.proof.free': 'Kostenlos für 3 Karten',
@@ -78,6 +111,7 @@ export const ui: UiTranslations = {
   'layout.closeMenu': 'Navigationsmenü schließen',
   'layout.openMenu': 'Navigationsmenü öffnen',
   'layout.searchPlaceholder': 'Karten, Vorlagen oder Knoten suchen…',
+  'login.noAccount': 'Neu hier?',
   'login.signIn': 'Bei Nimbus anmelden',
   'login.subheading': 'Melden Sie sich an, um dort weiter zu verzweigen, wo Sie aufgehört haben.',
   'login.twoFactor': 'Zwei-Faktor-Token (falls aktiviert)',
@@ -96,9 +130,11 @@ export const ui: UiTranslations = {
     'Wählen Sie das +-Werkzeug und klicken Sie irgendwo, um Ihren ersten Knoten hinzuzufügen',
   'mapEditor.export': 'Exportieren',
   'mapEditor.exportError': 'Die Karte konnte nicht exportiert werden.',
+  'mapEditor.exportLocked': 'Exportieren ist eine Pro-Funktion.',
   'mapEditor.exportMarkdown': 'Markdown (.md)',
   'mapEditor.exportPng': 'Bild (.png)',
   'mapEditor.exportSvg': 'Vektor (.svg)',
+  'mapEditor.exportUpgrade': 'Upgrade zum Exportieren →',
   'mapEditor.hint.add': 'Klicken Sie auf die Leinwand, um einen Knoten zu platzieren',
   'mapEditor.hint.connectSource': 'Quellknoten anklicken…',
   'mapEditor.hint.connectTarget': 'Zielknoten anklicken…',
@@ -107,6 +143,7 @@ export const ui: UiTranslations = {
   'mapEditor.loading': 'Leinwand wird geladen…',
   'mapEditor.newNodeText': 'Neue Idee',
   'mapEditor.panel.color': 'Farbe',
+  'mapEditor.panel.eyebrow': 'Ausgewählter Knoten',
   'mapEditor.panel.nodes': 'Knoten',
   'mapEditor.panel.noSelection': 'Klicken Sie auf einen Knoten, um ihn zu bearbeiten.',
   'mapEditor.panel.stats': 'Kartenstatistiken',
@@ -147,11 +184,18 @@ export const ui: UiTranslations = {
   'notifications.accept': 'Annehmen',
   'notifications.acceptAndOpen': 'Akzeptieren & öffnen',
   'notifications.acceptedInvite': 'Sie sind {{title}} beigetreten.',
+  'notifications.acceptError': 'Einladung konnte nicht angenommen werden.',
   'notifications.empty.body': 'Wenn Teammitglieder Sie zu Karten einladen, erscheinen sie hier.',
   'notifications.empty.title': 'Keine ausstehenden Einladungen',
+  'notifications.inviteBody': 'Gesendet an {{email}}',
   'notifications.inviteTitle': 'Als {{role}} zu "{{title}}" eingeladen',
   'notifications.subtitle': '{{count}} ausstehende Einladungen.',
   'notifications.view': 'Ansehen',
+  'pricing.limit.advanced': 'Erweiterte Funktionen: {{state}}',
+  'pricing.limit.connections': '{{count}} Verbindungen',
+  'pricing.limit.export': 'Datenexport: {{state}}',
+  'pricing.limit.maps': '{{count}} Karten',
+  'pricing.limit.nodes': '{{count}} Knoten pro Karte',
   'profile.loading': 'Ihre Statistiken werden geladen…',
   'profile.stat.collabs': 'Zusammenarbeiten',
   'profile.stat.maps': 'Erstellte Karten',
@@ -163,25 +207,37 @@ export const ui: UiTranslations = {
   'publicMap.loadError': 'Diese Karte wird nicht mehr geteilt, oder der Link ist ungültig.',
   'publicMap.loading': 'Karte wird geladen…',
   'publicMap.notFound': 'Karte nicht gefunden.',
+  'resetPassword.newPassword': 'Neues Passwort',
   'resetPassword.subheading':
     'Wählen Sie etwas Einprägsames. Wir melden Sie automatisch wieder an.',
   'resetPassword.submit': 'Passwort zurücksetzen & anmelden',
   'resetPassword.tokenPlaceholder': 'Aus Ihrer E-Mail eingefügt',
   'settings.account.subtitle': 'Aktualisieren Sie Ihren Anzeigenamen und Ihre E-Mail-Adresse.',
+  'settings.field.currentPassword': 'Aktuelles Passwort',
   'settings.field.newPassword': 'Neues Passwort',
   'settings.password.subtitle': 'Wählen Sie ein starkes Passwort (mindestens 8 Zeichen).',
   'settings.passwordError':
     'Passwort konnte nicht geändert werden. Überprüfen Sie Ihr aktuelles Passwort.',
+  'settings.passwordMismatch': 'Neue Passwörter stimmen nicht überein.',
   'settings.passwordSaved': 'Passwort erfolgreich geändert.',
   'settings.passwordTooShort': 'Das Passwort muss mindestens 8 Zeichen lang sein.',
   'settings.profileError': 'Profiländerungen konnten nicht gespeichert werden.',
   'settings.subtitle': 'Passen Sie Ihr Konto und Ihre Sicherheit an.',
   'settings.twoFactorCode': 'Authentifizierungscode',
   'settings.twoFactorDisable': 'Deaktivieren',
+  'settings.twoFactorDisableTitle': 'Zwei-Faktor-Authentifizierung deaktivieren',
   'settings.twoFactorEnable': 'Aktivieren',
+  'settings.twoFactorEnableTitle': 'Zwei-Faktor-Authentifizierung aktivieren',
   'settings.twoFactorInvalidCode': 'Ungültiger Code. Bitte versuchen Sie es erneut.',
+  'settings.twoFactorOffLine': 'Zwei-Faktor-Authentifizierung ist aus.',
+  'settings.twoFactorOnLine': 'Zwei-Faktor-Authentifizierung ist an.',
+  'settings.twoFactorQrAlt': 'Zwei-Faktor-QR-Code',
+  'settings.twoFactorScan':
+    'Scannen Sie diesen QR-Code mit Ihrer Authentifizierungs-App und geben Sie dann den 6-stelligen Code ein.',
   'settings.twoFactorSubtitle':
     'Fügen Sie zusätzlich zu Ihrem Passwort einen Einmalcode von Ihrer Authentifizierungs-App hinzu.',
+  'settings.twoFactorUnavailable':
+    'Die Zwei-Faktor-Authentifizierung ist für diese App nicht verfügbar.',
   'settings.twoFactorVerify': 'Überprüfen & aktivieren',
   'share.accepted': 'Angenommen',
   'share.backToMap': 'Zurück zur Karte',
@@ -192,7 +248,10 @@ export const ui: UiTranslations = {
   'share.copySuccess': 'Link kopiert.',
   'share.invite.button': 'Einladen',
   'share.invite.title': 'Per E-Mail einladen',
+  'share.inviteError': 'Einladung konnte nicht gesendet werden.',
   'share.inviteSuccess': '{{email}} eingeladen.',
+  'share.link.disabledHint':
+    'Aktiviere dies, um einen öffentlichen, schreibgeschützten Link zu dieser Map zu erstellen.',
   'share.link.title': 'Öffentlicher Link',
   'share.loadError': 'Freigabeeinstellungen konnten nicht geladen werden.',
   'share.pending': 'Ausstehende Einladung',
@@ -204,13 +263,19 @@ export const ui: UiTranslations = {
   'share.roleError': 'Rolle konnte nicht aktualisiert werden.',
   'share.title': 'Diese Karte teilen',
   'share.unnamedCollaborator': 'Ausstehende Einladung',
+  'signup.brandStatement':
+    'Eine Leinwand, weit genug für das kühnste Brainstorming — und ruhig genug zum Denken.',
+  'signup.haveAccount': 'Bereits Mitglied?',
   'signup.heading': 'Pflanzen Sie Ihre erste Idee',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.subheading': 'Für immer kostenlos für 3 Karten. Keine Kreditkarte erforderlich.',
   'templateDetail.backToTemplates': 'Alle Vorlagen',
   'templateDetail.browseMore': 'Mehr durchsuchen',
+  'templateDetail.editableHint':
+    'Jeder Knoten und jede Kante ist vollständig bearbeitbar, sobald du die Vorlage instanziierst.',
   'templateDetail.instantiateError': 'Aus dieser Vorlage konnte keine Karte erstellt werden.',
   'templateDetail.loadError': 'Diese Vorlage konnte nicht geladen werden.',
+  'templateDetail.loading': 'Vorlage wird geladen…',
   'templateDetail.nodes': 'Vorgefertigte Knoten',
   'templateDetail.notFound': 'Vorlage nicht gefunden.',
   'templateDetail.systemEyebrow': 'Integrierte Vorlage',
@@ -233,6 +298,7 @@ export const ui: UiTranslations = {
   'trash.empty.body': 'Nichts wartet darauf, geleert zu werden. Ihre Verzweigungen sind sicher.',
   'trash.empty.title': 'Der Papierkorb ist leer',
   'trash.loadError': 'Gelöschte Karten konnten nicht geladen werden.',
+  'trash.loading': 'Papierkorb wird geladen…',
   'trash.restore': 'Wiederherstellen',
   'trash.restoreError': 'Karte konnte nicht wiederhergestellt werden.',
   'trash.subtitle': 'Karten bleiben {{days}} Tage hier, bevor sie endgültig gelöscht werden.',
@@ -240,11 +306,13 @@ export const ui: UiTranslations = {
   'versionHistory.backToMap': 'Zurück zur Karte',
   'versionHistory.empty':
     'Noch keine Schnappschüsse. Speichern Sie Ihren ersten, um einen Kontrollpunkt zu halten.',
+  'versionHistory.emptyDetail': 'Speichere einen Schnappschuss, um deine Zeitleiste zu starten.',
   'versionHistory.loadError': 'Versionsverlauf konnte nicht geladen werden.',
   'versionHistory.nodeCount': 'Knoten',
   'versionHistory.restoreButton': 'Diese Version wiederherstellen',
   'versionHistory.restoreError': 'Schnappschuss konnte nicht wiederhergestellt werden.',
   'versionHistory.restoreSuccess': 'Schnappschuss wiederhergestellt.',
+  'versionHistory.selectHint': 'Wähle einen Schnappschuss aus, um ihn anzusehen.',
   'versionHistory.snapshotDefault': 'Manueller Schnappschuss',
   'versionHistory.snapshotError': 'Schnappschuss konnte nicht gespeichert werden.',
   'versionHistory.snapshotEyebrow': 'Schnappschuss',

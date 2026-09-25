@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχετε ερωτήσεις, αιτήματα για λειτουργίες ή έναν μετρητή που θα θέλατε να υποστηρίζουμε; Επικοινωνήστε με την ομάδα του {{appName}} από τις ρυθμίσεις του λογαριασμού σας — κάθε μήνυμα πηγαίνει σε πραγματικό άνθρωπο.',
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.featuresTitle': 'Τι αποκτάτε',
+  'about.intro':
+    'Το {{appName}} είναι παρακολούθηση ισχύος σε πραγματικό χρόνο για σπίτια με ηλιακά και ομάδες εγκαταστάσεων. Μετατρέπουμε τον χείμαρρο δεδομένων από μετρητές, inverters και μπαταρίες σε μια ήρεμη εικόνα αίθουσας ελέγχου — ζωντανά watt, ηλιακή παραγωγή, κόστος ανά ζώνη χρέωσης και ειδοποιήσεις, όλα σε ένα περιβάλλον.',
+  'about.missionBody':
+    'Η ενέργεια που βλέπεις είναι ενέργεια που μπορείς να διαχειριστείς. Πιστεύουμε ότι όποιος διαχειρίζεται έναν μετρητή — ένα νοικοκυριό με ηλιακά στη στέγη ή μια ομάδα που παρακολουθεί ένα κτίριο — αξίζει πληροφόρηση επιπέδου εταιρείας κοινής ωφέλειας χωρίς συμβόλαιο εταιρείας κοινής ωφέλειας. Κάθε λειτουργία είναι φτιαγμένη ώστε η επόμενη κιλοβατώρα να είναι συνειδητή επιλογή, όχι έκπληξη στον λογαριασμό.',
+  'about.missionTitle': 'Η αποστολή μας',
   'about.pageTitle': 'Σχετικά με {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Άκ',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@yourdomain.com',
   'alertRule.eyebrow': 'Νέος κανόνας',
   'alertRule.heading': 'Πρόλαβε την κορύφωση πριν σου κοστίσει',
+  'alertRule.nameLabel': 'Όνομα κανόνα',
   'alertRule.namePlaceholder': 'π.χ. παρακολούθηση HVAC μετά το ωράριο λειτουργίας',
   'alertRule.subheading':
     'Επιλέξτε μια μέτρηση, ένα όριο και πού θα στείλετε την ειδοποίηση. Μπορείτε να την επεξεργαστείτε ή να την θέσετε σε παύση ανά πάσα στιγμή.',
   'alertRule.submit': 'Αποθήκευση κανόνα',
   'alertRule.submitError': 'Δεν ήταν δυνατή η αποθήκευση του κανόνα.',
   'alertRule.thresholdLabel': 'Κατώφλι',
+  'alertRule.typeLabel': 'Τύπος εναύσματος',
   'alerts.checking': 'Έλεγχος…',
   'alerts.confirmDelete': 'Επιβεβαίωση διαγραφής',
+  'alerts.empty': 'Δεν υπάρχει τίποτα να εμφανιστεί — καμία ειδοποίηση σε αυτή την κατάσταση.',
   'alerts.emptyNoRules':
     'Δεν υπάρχουν ακόμη ειδοποιήσεις — προσθέστε έναν κανόνα και, στη συνέχεια, κάντε κλικ στην επιλογή «Αξιολόγηση τώρα» για να τον δοκιμάσετε.',
   'alerts.errorAck': 'Δεν μπόρεσα να αναγνωρίσω.',
@@ -42,12 +53,15 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Αξιολογήστε τώρα',
   'alerts.subheading':
     'Ειδοποιήσεις κατωφλίου και μοτίβων που ενεργοποιούνται στους μετρητές σας, καθώς και οι κανόνες που τις διέπουν.',
+  'billing.activeBlurb': 'Η συνδρομή σας είναι ενεργή. Διαχειριστείτε την οποιαδήποτε στιγμή.',
   'billing.cancelError': 'Δεν ήταν δυνατή η ακύρωση της συνδρομής.',
   'billing.cancelling': 'Ακύρωση…',
   'billing.currentBadge': 'Τρέχον',
   'billing.freeBlurb':
     'Βρίσκεστε στο Δωρεάν πρόγραμμα. Αναβαθμίστε για περισσότερους μετρητές, μεγαλύτερο ιστορικό και περισσότερους κανόνες ειδοποιήσεων.',
   'billing.heading': 'Πλάνα και χρέωση',
+  'billing.historyEmpty':
+    'Οι εξοφλημένα τιμολόγια θα εμφανίζονται εδώ μόλις χρεώνεται η συνδρομή σας.',
   'billing.historyHeading': 'Ιστορικό τιμολογίων',
   'billing.loadError': 'Δεν ήταν δυνατή η φόρτωση της χρέωσης.',
   'billing.loading': 'Φόρτωση σχεδίων…',
@@ -59,17 +73,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Επικοινωνήστε με το τμήμα πωλήσεων',
   'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} kWh ζώνης αιχμής · {{offPeak}} kWh εκτός αιχμής',
   'dailyCostMeter.runningLabel': 'Τρέχον σύνολο',
   'dailyCostMeter.title': 'Κόστος μέχρι στιγμής σήμερα',
   'dailyCostMeter.utilizationLabel': 'Του ημερήσιου προϋπολογισμού',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Προσθήκη μετρητή',
   'dashboard.alertsHeading': 'Ενεργές ειδοποιήσεις',
   'dashboard.devicesHeading': 'Κορυφαίες πίστες αυτή τη στιγμή',
   'dashboard.empty.body':
     'Προσθέστε έναν έξυπνο μετρητή ή έναν ηλιακό μετατροπέα για να ξεκινήσετε την παρακολούθηση της ζωντανής λήψης και παραγωγής.',
+  'dashboard.empty.title': 'Δεν υπάρχουν ακόμη μετρητές',
   'dashboard.eyebrow': 'Αίθουσα ελέγχου Voltrace',
   'dashboard.heading': 'Ζωντανή στιγμιότυπο ενέργειας',
   'dashboard.loadError': 'Δεν ήταν δυνατή η φόρτωση ζωντανών μετρήσεων.',
   'dashboard.loading': 'Συντονισμός με τους μετρητές σας…',
+  'dashboard.noAlerts': 'Όλα ήσυχα — τίποτα δεν ξεπερνά τα όριά σας.',
   'dashboard.noAlertsAndNoMeters':
     'Μόλις συνδέσετε έναν μετρητή, εδώ θα εμφανίζονται ειδοποιήσεις με βάση τα όριά σας.',
   'dashboard.noCircuits':
@@ -78,6 +97,7 @@ export const ui: UiTranslations = {
     'Ολοκληρωμένη άντληση ενέργειας από το σπίτι, παραγωγή ηλιακής ενέργειας και κόστος μέχρι στιγμής σήμερα.',
   'dashboard.viewAllAlerts': 'Διαχείριση ειδοποιήσεων →',
   'dashboard.viewAllDevices': 'Κάθε συσκευή →',
+  'deviceDetail.activeTokens': 'Ενεργά tokens εισαγωγής δεδομένων',
   'deviceDetail.alreadyOff': 'Ήδη σε παύση',
   'deviceDetail.back': 'Όλα τα κυκλώματα',
   'deviceDetail.confirmDelete': 'Επιβεβαίωση διαγραφής',
@@ -118,22 +138,34 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Δεν ήταν δυνατή η φόρτωση των μετρητών.',
   'devices.loading': 'Σφυγμομέτρηση κάθε μετρητή…',
   'devices.newRule': 'Νέος κανόνας ειδοποίησης',
+  'devices.noResults': 'Κανένα κύκλωμα δεν ταιριάζει με αυτό το φίλτρο.',
   'devices.placeholder.location': 'π.χ. μηχανολογικός χώρος',
   'devices.placeholder.name': 'π.χ. υποπίνακας γκαράζ',
   'devices.subheading':
     'Ζωντανή ισχύς και σημερινές kWh σε κάθε κύκλωμα που μπορεί να δει η Voltrace.',
+  'deviceWattageRow.todayKwh': '{{kwh}} kWh σήμερα',
+  'deviceWattageRow.watts': '{{watts}} Δ',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Μενού',
+  'energyMonitoringLayout.primaryNavLabel': 'Κύρια πλοήγηση',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    'Το {{appName}} συνεργάζεται με τους περισσότερους μετρητές επιπέδου κοινής ωφέλειας, ηλιακούς inverters και συστοιχίες μπαταριών — ενσύρματα ή μέσω WiFi.',
   'landing.ctaHeading': 'Συνδέστε τον μετρητή σας, δείτε τα watt σε λίγα λεπτά',
   'landing.eyebrow': 'Ενεργειακή ευφυΐα σε πραγματικό χρόνο',
+  'landing.featuresHeading': 'Κάθε watt, κάθε λεπτό, σε ένα περιβάλλον',
   'landing.getStarted': 'Συνδέστε το Voltrace στην πρίζα',
   'landing.heroCta': 'Συνδέστε το Voltrace στην πρίζα',
+  'landing.heroSubtitle':
+    'Ζωντανά watt, ηλιακή παραγωγή, κόστος ανά ζώνη χρέωσης και ειδοποιήσεις υψηλής κατανάλωσης σε ένα περιβάλλον αίθουσας ελέγχου, φτιαγμένο για σπίτια με ηλιακά και ομάδες εγκαταστάσεων.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Κλήρωση για ολόκληρο το σπίτι',
   'landing.sampleSolar': '+3.820 W ηλιακή ενέργεια',
   'landing.sampleSummary': 'Εξαγωγή 1.680 W στο δίκτυο · 18,4 kWh σήμερα',
   'landing.sampleWatts': '2.140 Δ',
   'powerHeroCard.solar': '+ {{watts}} Δ ηλιακή ενέργεια',
   'powerHeroCard.title': 'Κλήρωση για ολόκληρο το σπίτι',
+  'powerHeroCard.todayKwh': '{{kwh}} kWh σήμερα',
   'powerHeroCard.watts': '{{watts}} Δ',
   'pricing.choose': 'Επιλογή {{name}}',
   'pricing.contact': 'Χρειάζεστε κάτι προσαρμοσμένο;',
@@ -147,6 +179,7 @@ export const ui: UiTranslations = {
   'pricing.unavailable':
     'Αυτό το πρόγραμμα δεν είναι διαθέσιμο αυτήν τη στιγμή — Το Stripe δεν έχει ρυθμιστεί.',
   'profile.errorGeneric': 'Δεν ήταν δυνατή η αποθήκευση αλλαγών προφίλ.',
+  'profile.errorGoal': 'Ο μηνιαίος στόχος kWh πρέπει να είναι θετικός αριθμός.',
   'profile.errorHousehold': 'Το μέγεθος του νοικοκυριού πρέπει να είναι θετικός αριθμός.',
   'profile.householdHeading': 'Νοικοκυριό & στόχοι',
   'profile.householdSize': 'Μέγεθος νοικοκυριού',
@@ -164,9 +197,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'Συγκεντρωτικά μετρήσεων…',
   'reports.subheading':
     'Ημερήσια σύνολα για κατανάλωση, παραγωγή και κόστος — αναλυτικά ανά ημερομηνία.',
+  'reports.tableHeading': 'Ημερήσια ανάλυση',
   'settings.currency': 'Νόμισμα',
   'settings.errorFlat': 'Η σταθερή τιμή πρέπει να είναι ≥ 0.',
   'settings.errorNotify': 'Δεν ήταν δυνατή η αποθήκευση των προτιμήσεων ειδοποιήσεων.',
+  'settings.errorSave': 'Δεν ήταν δυνατή η αποθήκευση του προγράμματος χρέωσης.',
   'settings.errorTou': 'Απαιτούνται χρεώσεις αιχμής/εκτός αιχμής και ένα έγκυρο παράθυρο αιχμής.',
   'settings.exportBody':
     'Κατεβάστε ένα αρχείο CSV με τα ημερήσια σύνολα των τελευταίων 30 ημερών ή αποκτήστε ένα διακριτικό εισαγωγής από οποιαδήποτε σελίδα λεπτομερειών μετρητή για να προωθήσετε τις μετρήσεις μέσω προγραμματισμού.',
@@ -186,10 +221,21 @@ export const ui: UiTranslations = {
   'settings.saving': 'Αποθήκευση…',
   'settings.securityHeading': 'Έλεγχος ταυτότητας δύο παραγόντων',
   'settings.subheading': 'Τιμές, ειδοποιήσεις και εξαγωγή δεδομένων.',
+  'settings.twoFactorBody':
+    'Απαιτήστε έναν κωδικό μίας χρήσης από την εφαρμογή authenticator κάθε φορά που συνδέεστε.',
   'settings.twoFactorCode': 'Κωδικός ελέγχου ταυτότητας',
   'settings.twoFactorDisable': 'Απενεργοποίηση',
+  'settings.twoFactorDisableTitle': 'Απενεργοποίηση ελέγχου ταυτότητας δύο παραγόντων',
   'settings.twoFactorEnable': 'Ενεργοποίηση',
+  'settings.twoFactorEnableTitle': 'Ενεργοποίηση ελέγχου ταυτότητας δύο παραγόντων',
   'settings.twoFactorInvalidCode': 'Μη έγκυρος κώδικας',
+  'settings.twoFactorOAuth':
+    'Ο λογαριασμός σας συνδέεται μέσω παρόχου, οπότε ο έλεγχος ταυτότητας δύο παραγόντων διαχειρίζεται εκεί.',
   'settings.twoFactorOn': 'Στις',
+  'settings.twoFactorQrAlt': 'Κωδικός QR ταυτοποίησης δύο παραγόντων',
+  'settings.twoFactorScan':
+    'Σαρώστε αυτόν τον κωδικό QR με την εφαρμογή ελέγχου ταυτότητας και, στη συνέχεια, εισαγάγετε τον 6ψήφιο κωδικό.',
+  'settings.twoFactorUnavailable':
+    'Ο έλεγχος ταυτότητας δύο παραγόντων δεν είναι διαθέσιμος για αυτήν την εφαρμογή.',
   'settings.twoFactorVerify': 'Επαλήθευση και ενεργοποίηση',
 }

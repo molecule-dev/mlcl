@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Spørsmål om en booking, tilbakemelding, eller en eiendom du mener hører hjemme på {{app}}? Kontakt teamet vårt fra kontoen din — hver melding går til et ekte menneske som kan hjelpe.',
+  'about.contactTitle': 'Snakk med oss',
   'about.eyebrow': 'Om oss',
+  'about.featureLoyalty':
+    'Medlemspriser og et lojalitetsprogram som gir poeng, sen utsjekking og romoppgraderinger ved hver booking.',
+  'about.featureReviews':
+    'Verifiserte gjesteanmeldelser og redaksjonelle utvalg, så du kan stole på oppholdet før du ankommer.',
+  'about.featureRooms':
+    'Rom, priser og fasiliteter side om side med åpen, alt-inkludert prising — skatter og resortgebyrer inkludert før du betaler.',
+  'about.featureSearch':
+    'Sanntidssøk på tvers av kvalitetssikrede hoteller med ledig kapasitet i sanntid, kartvisning og rike bildegallerier.',
+  'about.featureTrips':
+    'Lagrede favoritter og et Reiser-dashbord som samler hver reservasjon, reiserute og bekreftelse på ett sted.',
+  'about.intro':
+    '{{app}} er en hotellbookingplattform for reisende som bryr seg om kvalitet. Hver eiendom er personlig kvalitetssikret av vår redaksjonelle team — ingen aggregatorbeholdning, ingen lokketilbud. Søk etter reell ledig kapasitet, sammenlign rom, priser og fasiliteter side om side, og book med noen få trykk til en tydelig, alt-inkludert pris.',
+  'about.missionBody':
+    'Å booke et sted å bo bør føles rolig og ærlig. Vi viser åpne priser med skatter og resortgebyrer på forhånd, belønner lojale gjester i stedet for å flå dem, og setter oppholdene som er verdt pengene dine først — så du kan bruke mindre tid på å sammenligne faner og mer tid på selve reisen.',
+  'about.missionTitle': 'Vårt oppdrag',
+  'about.subtitle': 'En kuratert, åpen måte å finne og booke det rette hotellet på.',
   'account.loyalty.activitySummary': '{{nights}} netter · {{spend}} brukte dette året',
+  'account.loyalty.benefitsHeading': 'Dine fordeler',
   'account.loyalty.heading': 'Lojalitet',
   'account.loyalty.loading': 'Laster inn lojalitetsbonus …',
-  'account.loyalty.pointsTowardNext': '{{poeng}} / {{neste}} peker til {{nextTier}}',
+  'account.loyalty.maxTier': 'Toppnivå — nyt fordelene dine.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} poeng til {{nextTier}}',
   'account.loyalty.tier': 'Nåværende nivå',
   'account.loyalty.unavailable': 'Lojalitetsinformasjon er ikke tilgjengelig.',
   'account.navLabel': 'Kontoseksjoner',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Bekreft bestilling · {{total}}',
   'bookingCheckout.datesRequired': 'Vennligst velg innsjekkings- og utsjekkingsdatoer.',
   'bookingCheckout.guestHeading': 'Hovedgjest',
+  'bookingCheckout.heading': 'Bekreft og book',
   'bookingCheckout.loadError': 'Kunne ikke laste inn egenskapen.',
   'bookingCheckout.nights': '{{rate}} × {{count}} netter',
   'bookingCheckout.notFound': 'Eiendommen ble ikke funnet.',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Skatter og avgifter',
   'bookingCheckout.tripHeading': 'Reisen din',
   'bookingConfirmation.allTripsCta': 'Alle turer',
+  'bookingConfirmation.confNumber': 'Bekreftelsesnummer: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Reservasjonen din behandles.',
   'bookingConfirmation.heading': 'Bestilling bekreftet',
   'bookingConfirmation.loading': 'Laster inn reservasjonen din …',
   'bookingConfirmation.searchMoreCta': 'Se flere opphold',
   'bookingConfirmation.subheadingForTrip':
-    '{{eiendom}} i {{by}} , {{land}} Vi sees på {{sjekk inn}} .',
+    '{{property}} i {{city}}, {{country}}. Vi ser deg {{checkIn}}.',
   'bookingConfirmation.total': 'Total {{total}}',
   'bookingConfirmation.viewTripCta': 'Se turen',
   'common.goToDashboard': 'Gå til oversikt',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Kunne ikke laste inn favoritter.',
   'favorites.pricePerNight': '{{price}} / natt',
   'favorites.removeCta': 'Fjern lagring',
+  'favorites.removing': 'Fjerner…',
   'forgotPassword.subheading':
     'Skriv inn e-postadressen for kontoen din, så sender vi deg en sikker tilbakestillingslenke.',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Auberge-medlemmer',
   'landing.cta.heading': 'Medlemspriser. Hver bestilling, hver gang.',
   'landing.cta.signup': 'Opprett gratis konto',
+  'landing.cta.subheading':
+    'Tjen lojalitetspoeng ved hvert opphold, lås opp sen utsjekking og romoppgraderinger, og få først tilgang til nye eiendommer før de listes offentlig.',
   'landing.destinations.eyebrow': 'Hvor skal vi videre',
   'landing.destinations.heading': 'Utvalgte reisemål',
   'landing.destinations.seeAll': 'Se alle reisemål',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Historier verdt å pakke for',
   'landing.nav.join': 'Bli med på Auberge',
   'landing.nav.search': 'Søk etter opphold',
+  'landing.preview.browseAll': 'Utforsk hele samlingen',
   'landing.preview.eyebrow': 'En titt inn',
   'landing.preview.heading': 'Håndplukkede opphold denne måneden',
+  'landing.preview.subheading':
+    'Hver eiendom på {{appName}} er personlig kvalitetssikret av vår redaksjonelle team — ingen aggregatorbeholdning, ingen lokketilbud.',
   'login.eyebrow': 'Medlemsområde',
+  'login.noAccount': 'Ny på Tessera?',
   'login.signupLink': 'Opprett en gratis konto',
   'login.subheading':
     'Logg inn for å administrere reisene dine, se bekreftelser og fortsette der du slapp.',
+  'loyaltyTierBadge.points': '{{points}} poeng',
   'planUpdated.heading': 'Abonnement oppdatert',
+  'planUpdated.retry': 'Prøv igjen',
+  'planUpdated.verifyFailed': 'Vi kunne ikke bekrefte betalingen din ennå.',
+  'planUpdated.verifyFailedBody':
+    'Betalingen din kan fortsatt være under behandling. Prøv igjen om et øyeblikk.',
   'planUpdated.verifying': 'Bekrefter betalingen din…',
   'pricing.limit.advancedFeatures': 'Avanserte funksjoner:',
   'pricing.limit.canExport': 'Dataeksport:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Hva dette stedet tilbyr',
   'propertyDetail.backLink': 'Tilbake til søket',
   'propertyDetail.bookCta': 'Reservere',
+  'propertyDetail.bookmarkAria': 'Lagre eiendom',
   'propertyDetail.bookmarkAriaSaved': 'Fjern fra lagrede egenskaper',
+  'propertyDetail.galleryImageAlt': '{{name}} bilde {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} heltefotografi',
   'propertyDetail.hidePhotos': 'Skjul bilder',
   'propertyDetail.lineCleaning': 'Rengjøringsgebyr',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'natt',
   'propertyDetail.noChargeYet': 'Du blir ikke belastet ennå',
   'propertyDetail.notFound': 'Eiendommen ble ikke funnet.',
+  'propertyDetail.perNight': '/ natt',
+  'propertyDetail.pickDatesHint': 'Velg datoene dine for å se hele prisoversikten.',
   'propertyDetail.reviewCount': '( {{count}} anmeldelser)',
   'propertyDetail.reviewsHeading': 'Siste anmeldelser',
   'propertyDetail.roomCapacity': 'Sover {{count}}',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Nytt passord',
   'resetPassword.subheading':
     'Velg et nytt passord for Auberge-kontoen din. Bruk minst 8 tegn; vi anbefaler en passordfrase.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Ingen eiendommer samsvarer med søket ditt.',
   'searchResults.emptyHint':
     'Prøv å utvide filtrene dine eller fjern pristaket – Auberge har opphold i 14 land.',
@@ -108,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Kuraterte opphold',
   'searchResults.headingForQuery': 'Blir i " {{q}} "',
   'searchResults.loadError': 'Kunne ikke laste inn egenskaper.',
+  'searchResults.mapHint':
+    'Hold markøren over et kort for å utheve det på kartet. Live Mapbox-fliser i produksjon.',
   'searchResults.mapPinAria': '{{name}} — {{price}} per natt',
   'searchResults.sortLabel': 'Sorter etter',
   'searchResults.subheading': '{{count}} eiendommer · {{guests}} gjester',
   'signup.eyebrow': 'Bli medlem',
   'signup.subheading':
     'Bli med i Auberge for å få tilgang til medlemspriser, sen utsjekking og førstegangs tilgang til nye overnattingssteder.',
+  'sojournAuthShell.brand.eyebrow': 'Bo et ekstraordinært sted',
+  'sojournAuthShell.brand.heading':
+    'En kuratert samling av eiendommer — vakkert presentert, åpent priset.',
   'sojournHeroSearchCard.checkInAria': 'Innsjekkingsdato',
   'sojournHeroSearchCard.checkOutAria': 'Utsjekkingsdato',
+  'sojournHeroSearchCard.destAria': 'Destinasjon',
+  'sojournHeroSearchCard.destLabel': 'Hvor',
   'sojournHeroSearchCard.destPlaceholder': 'By, region eller eiendom',
   'sojournHeroSearchCard.eyebrow': 'Utvalgte opphold · Medlemspriser',
   'sojournHeroSearchCard.guestsOption': '{{n}} gjester',
   'sojournHeroSearchCard.subtitle':
     'En kuratert samling av boutiquehoteller, design-fremme eiendommer og sjeldne retreater – transparent priset, vakkert presentert.',
+  'sojournHeroSearchCard.title': 'Bo et ekstraordinært sted',
+  'sojournHeroSearchCard.trustLoyalty': 'Tjen poeng ved hvert opphold',
   'sojournHeroSearchCard.trustNoFees': 'Ingen skjulte avgifter, noensinne',
   'sojournHeroSearchCard.trustVetted': 'Kun håndkontrollerte eiendommer',
   'sojournLayout.primaryNavLabel': 'Primær navigasjon',

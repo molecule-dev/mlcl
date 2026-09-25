@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Maswali, maoni, au ombi la kipengele? Wasiliana na timu ya {{app}} kutoka Mipangilio → Arifa, au tuandikie wakati wowote — kila ujumbe humfikia mtu halisi.',
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
+  'about.featureCapture':
+    'Upigaji picha wa risiti kwa kupakia picha unaoambatanisha picha kwenye gharama sahihi, mstari kwa mstari.',
+  'about.featureExport':
+    'Usafirishaji wa CSV unaoweza kukaguliwa wa kila ripoti, gharama, na hali ya uidhinishaji — tayari kwa timu yako ya uhasibu.',
+  'about.featurePolicy':
+    'Vikwazo vya sera — viwango vya juu vya kila siku, mipaka ya kila kategoria, na viwango vinavyohitaji risiti vinavyotekelezwa wakati wa kuwasilisha.',
+  'about.featureWorkflow':
+    'Mtiririko wa uidhinishaji wa ngazi mbili wenye maelezo ya mkaguzi, alama za ukiukaji wa sera, na uwekaji alama wa malipo kwa mguso mmoja.',
+  'about.intro':
+    '{{app}} ni jukwaa la usimamizi wa gharama kwa timu za fedha na watu wanaolipwa nao. Piga picha ya risiti, wasilisha gharama, tuma ripoti kupitia uidhinishaji, na fuatilia kila malipo — bila usumbufu wa lahajedwali.',
+  'about.missionBody':
+    'Malipo yanapaswa kuwa ya haraka, ya haki, na yanayoweza kukaguliwa. Tulijenga {{app}} ili wawasilishaji walipwe bila kusumbuliwa, waidhinishaji waone kwa uhakika kile wanachoidhinisha, na fedha ziwe na rekodi safi kwa kila dola — ukaguzi wa sera na vyote.',
+  'about.missionTitle': 'Dhamira yetu',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Inaidhinisha…',
   'approvals.confirmReject': 'Thibitisha kukataliwa',
+  'approvals.empty': 'Umekamilisha yote — hakuna ripoti zinazosubiri.',
   'approvals.eyebrow': 'Foleni ya meneja',
   'approvals.kpi.flaggedLabel': 'Sera imetiwa alama',
+  'approvals.kpi.queueLabel': 'Inasubiri ukaguzi',
   'approvals.kpi.totalLabel': 'Thamani inayosubiriwa',
   'approvals.lineCount': '{{count}} gharama',
   'approvals.queueFallback':
     'Foleni ya moja kwa moja haipatikani — inaonyesha data ya onyesho iliyoratibiwa.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Inakataa…',
+  'approvals.rejectPlaceholder': 'Sababu (inahitajika)',
   'approvals.rejectPrompt': 'Kwa nini unakataa ripoti hii?',
   'approvals.review': 'Mapitio',
   'approvals.title': 'Idhini zinazosubiriwa',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Imeidhinishwa · MTD',
   'dashboard.kpi.pendingDelta': '+2 wiki hii',
+  'dashboard.kpi.pendingLabel': 'Uhakiki unaosubiriwa',
   'dashboard.kpi.receiptsDelta': 'Hatua inahitajika',
   'dashboard.kpi.receiptsLabel': 'Inasubiri risiti',
   'dashboard.kpi.reimbursedDelta': '+$2.4k',
   'dashboard.kpi.reimbursedLabel': 'Imerejeshwa · MTD',
   'dashboard.newReport': 'Ripoti mpya',
+  'dashboard.recent.empty': 'Hakuna ripoti bado — anza ripoti yako ya kwanza hapo juu.',
   'dashboard.recent.title': 'Ripoti za hivi karibuni',
   'dashboard.recent.viewAll': 'Tazama ripoti zote',
   'dashboard.summaryFallback':
@@ -41,11 +62,19 @@ export const ui: UiTranslations = {
   'expenses.listFallback':
     'Orodha ya moja kwa moja haipatikani — inayoonyesha data ya onyesho iliyoratibiwa.',
   'expenses.searchPlaceholder': 'Tafuta mfanyabiashara au kategoria…',
+  'expenses.subtotal': 'Gharama {{count}} · jumla ndogo',
   'expenses.title': 'Gharama',
+  'forgotPassword.continue': 'Nina msimbo · Endelea',
+  'forgotPassword.subheading':
+    'Weka barua pepe yako ya kazi na tutakutumia kiungo cha kuweka nenosiri jipya.',
   'forgotPassword.successBody':
     'Ikiwa akaunti ipo kwa {{email}} utapokea kiungo cha kuweka upya katika dakika chache zijazo.',
+  'landing.copyright': '© {{year}} {{app}}. Imeundwa na Molecule.dev.',
+  'landing.ctaBody':
+    'Bila malipo kwa gharama 25 za kwanza kila mwezi. Hakuna kadi ya mkopo, hakuna simu ya utekelezaji.',
   'landing.ctaHeading': 'Uko tayari kurejesha kile ambacho timu yako inadaiwa?',
   'landing.eyebrow': 'Ripoti za gharama kwa timu za fedha',
+  'landing.featuresHeading': 'Malipo, katika eneo moja tulivu la kazi',
   'landing.heroSubtitle':
     'Tuma, idhinishe, na ulipe gharama za biashara bila sherehe ya lahajedwali. OCR ya risiti, ukaguzi wa sera, na ratiba ya uidhinishaji iliyo wazi — yote katika nafasi moja tulivu ya kazi.',
   'landing.heroTitle': 'Kila risiti, imepatikana.',
@@ -63,10 +92,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Vidokezo',
   'newExpense.descriptionPlaceholder':
     'Kwa nini gharama hii ilihusiana na biashara (inaonekana kwa idhini yako).',
+  'newExpense.eyebrow': 'Kipengele kinacholipwa',
   'newExpense.merchant': 'Mfanyabiashara',
   'newExpense.merchantPlaceholder': 'Hoteli Adlon Kempinski',
   'newExpense.policyHint':
     'Kikumbusho: milo inayozidi $80/siku au bidhaa yoyote inayozidi $250 inahitaji maelezo ya uhalalishaji.',
+  'newExpense.receipt': 'Risiti',
+  'newExpense.receiptHint': 'JPG, PNG, au PDF · 10 MB kwa juu',
   'newExpense.receiptOcrHint': 'Sehemu za kujaza mapema za OCR',
   'newExpense.receiptPrompt': 'Andika picha au PDF hapa, au bofya ili kuvinjari',
   'newExpense.receiptUploadFailed':
@@ -77,17 +109,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Piga au pakia risiti na Recoup itajaza mfanyabiashara, tarehe, na jumla mapema. Thibitisha kila kitu kilicho hapa chini kabla ya kuhifadhi.',
   'newExpense.title': 'Ongeza gharama',
+  'newReport.approverHint': 'Watapokea barua pepe utakapowasilisha ripoti hii kwa ukaguzi.',
   'newReport.approverLabel': 'Barua pepe ya idhini (si lazima)',
   'newReport.approverPlaceholder': 'meneja@yourcompany.com',
   'newReport.availableExpenses': 'Gharama zinazopatikana',
   'newReport.createFailed': 'Haikuweza kuunda ripoti. Tafadhali jaribu tena.',
   'newReport.draftsFallback':
     'Orodha ya gharama za moja kwa moja haipatikani — inayoonyesha data ya onyesho iliyoratibiwa.',
+  'newReport.eyebrow': 'Panga gharama · wasilisha kwa uidhinishaji',
   'newReport.includedCount': '{{count}} imejumuishwa',
   'newReport.purposeLabel': 'Kusudi la biashara',
   'newReport.purposePlaceholder':
     'Eleza safari au mradi unaohusiana na gharama hizi (zinaonekana kwa idhini na fedha zako).',
   'newReport.saveDraft': 'Hifadhi kama rasimu',
+  'newReport.saveDraftFailed': 'Imeshindwa kuhifadhi rasimu. Tafadhali jaribu tena.',
   'newReport.submit': 'Wasilisha kwa idhini',
   'newReport.submitFailed': 'Haikuweza kuwasilisha ripoti. Tafadhali jaribu tena.',
   'newReport.summary': 'Muhtasari wa ripoti',
@@ -101,17 +136,24 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Mlisho wa moja kwa moja haupatikani — unaoonyesha data ya onyesho iliyoratibiwa.',
   'notifications.openReport': 'Ripoti iliyo wazi ›',
+  'pricing.approvalsLabel': 'uidhinishaji',
   'pricing.expensesLabel': 'gharama',
   'pricing.heading': 'vibali',
   'pricing.policiesLabel': 'sera',
   'pricing.receiptsLabel': 'risiti',
   'recoveredAmountHeroCard.label': 'Marejesho yamepatikana · YTD',
+  'recoveredAmountHeroCard.pending':
+    'Ripoti {{count}} kwa sasa zinasubiri ukaguzi kwa waidhinishaji wote.',
+  'reports.approvalFlow': 'Mtiririko wa uidhinishaji',
   'reports.backToList': 'Rudi kwenye ripoti',
   'reports.detailFallback':
     'Ripoti ya moja kwa moja haipatikani — inaonyesha data ya onyesho iliyoratibiwa.',
   'reports.lineItems': 'Vipengee vya mstari',
   'reports.lineItemsCount': '{{count}} gharama',
+  'reports.lineItemsEmpty': 'Hakuna gharama kwenye ripoti hii bado.',
+  'reports.openLibrary': 'Fungua maktaba ya ripoti',
   'reports.policyTitle': 'Bendera ya sera',
+  'reports.selectPrompt': 'Chagua ripoti kutoka maktaba ili kuona maelezo yake.',
   'reports.summary.lineCount': 'Vipengee vya mstari',
   'reports.summary.reimbursable': 'Inalipwa',
   'reports.summary.total': 'Jumla iliyoripotiwa',
@@ -121,6 +163,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Orodha ya moja kwa moja haipatikani — inayoonyesha data ya onyesho iliyoratibiwa.',
   'reportsList.newReport': 'Ripoti mpya',
+  'reportsList.submittedOn': 'Imewasilishwa {{date}}',
   'reportsList.title': 'Maktaba ya ripoti',
   'resetPassword.hidePassword': 'Ficha nenosiri',
   'resetPassword.newPasswordLabel': 'Nenosiri jipya',
@@ -146,6 +189,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Imehifadhiwa ✓',
   'settings.profileSaveFailed': 'Haikuweza kusasisha wasifu. Tafadhali jaribu tena.',
   'signup.heading': 'Fungua akaunti yako ya Recoup',
+  'signup.hidePassword': 'Ficha nenosiri',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Onyesha nenosiri',
   'signup.subheading': 'Bila malipo kwa gharama 25 kila mwezi — hakuna kadi ya mkopo.',

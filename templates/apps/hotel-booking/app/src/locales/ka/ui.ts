@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'გაქვთ შეკითხვები ჯავშანზე, გამოხმაურება ან ფიქრობთ, რომ რომელიმე ობიექტი {{app}}-ზე უნდა იყოს? დაუკავშირდით ჩვენს გუნდს თქვენი ანგარიშიდან — ყველა შეტყობინება ხვდება რეალურ ადამიანს, რომელსაც შეუძლია დაგეხმაროთ.',
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'ჩვენს შესახებ',
+  'about.featureLoyalty':
+    'ფასდაკლებები მხოლოდ წევრებისთვის და ლოიალობის პროგრამა, რომელიც ქულებს, გვიან გასვლას და ოთახის განახლებას გაძლევთ ყოველ ჯავშანზე.',
+  'about.featureReviews':
+    'დადასტურებული სტუმრების შეფასებები და რედაქციის შერჩევა, რომ დარწმუნებული იყოთ სტუმრობაში ჩასვლამდე.',
+  'about.featureRooms':
+    'ოთახები, ფასები და კეთილმოწყობა გვერდიგვერდ, გამჭვირვალე, სრული ფასით — გადასახადები და კურორტის მოსაკრებლები ფასში შედის გადახდამდე.',
+  'about.featureSearch':
+    'რეალურ დროში ძებნა შემოწმებულ სასტუმროებში ცოცხალი ხელმისაწვდომობით, რუკის ხედით და მდიდარი ფოტოგალერეებით.',
+  'about.featureTrips':
+    'შენახული ფავორიტები და მოგზაურობების დაფა, რომელიც ყველა ჯავშანს, მარშრუტს და დადასტურებას ერთ ადგილას ინახავს.',
+  'about.intro':
+    '{{app}} არის სასტუმროს დაჯავშნის პლატფორმა მოგზაურებისთვის, რომლებსაც ხარისხი ადარდებთ. ყველა ობიექტს პირადად ამოწმებს ჩვენი რედაქციის გუნდი — არავითარი აგრეგატორის მარაგი, არავითარი მატყუარა განცხადება. მოძებნეთ რეალური ხელმისაწვდომობა, შეადარეთ ოთახები, ფასები და კეთილმოწყობა გვერდიგვერდ, შემდეგ დაჯავშნეთ რამდენიმე შეხებით, გასაგები, სრული ფასით.',
+  'about.missionBody':
+    'საცხოვრებლის დაჯავშნა მშვიდი და პატიოსანი უნდა იყოს. ჩვენ ვაჩვენებთ გამჭვირვალე ფასებს გადასახადებითა და კურორტის მოსაკრებლებით წინასწარ, ვაჯილდოებთ ერთგულ სტუმრებს და არ ვწოვთ მათ ყოველ წვრილმანზე, და პირველ ადგილზე ვაყენებთ ღირსეულ სტუმრობას — რომ ნაკლები დრო დახარჯოთ ჩანართების შედარებაზე და მეტი — თავად მოგზაურობაზე.',
+  'about.missionTitle': 'ჩვენი მისია',
+  'about.subtitle': 'შერჩეული, გამჭვირვალე გზა სწორი სასტუმროს მოსაძებნად და დასაჯავშნად.',
   'account.loyalty.activitySummary': '{{nights}} ღამეები · {{spend}} წელს დახარჯული',
+  'account.loyalty.benefitsHeading': 'თქვენი შეღავათები',
   'account.loyalty.heading': 'ლოიალობა',
   'account.loyalty.loading': 'ლოიალობის სერვისი იტვირთება…',
-  'account.loyalty.pointsTowardNext': '{{პუნქტები}} / {{შემდეგი}} მიუთითებს {{შემდეგი დონე}}',
+  'account.loyalty.maxTier': 'უმაღლესი დონე — ისარგებლეთ თქვენი შეღავათებით.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} ქულა {{nextTier}}-მდე',
   'account.loyalty.tier': 'მიმდინარე დონე',
   'account.loyalty.unavailable': 'ლოიალობის შესახებ ინფორმაცია მიუწვდომელია.',
   'account.navLabel': 'ანგარიშის სექციები',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'დაჯავშნის დადასტურება · {{total}}',
   'bookingCheckout.datesRequired': 'გთხოვთ, აირჩიოთ თქვენი შესვლის და გასვლის თარიღები.',
   'bookingCheckout.guestHeading': 'წამყვანი სტუმარი',
+  'bookingCheckout.heading': 'დადასტურება და დაჯავშნა',
   'bookingCheckout.loadError': 'თვისების ჩატვირთვა ვერ მოხერხდა.',
   'bookingCheckout.nights': '{{rate}} × {{count}} ღამეები',
   'bookingCheckout.notFound': 'ქონება ვერ მოიძებნა.',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'გადასახადები და მოსაკრებლები',
   'bookingCheckout.tripHeading': 'თქვენი მოგზაურობა',
   'bookingConfirmation.allTripsCta': 'ყველა მოგზაურობა',
+  'bookingConfirmation.confNumber': 'დადასტურების ნომერი: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'თქვენი ჯავშანი მუშავდება.',
   'bookingConfirmation.heading': 'ჯავშანი დადასტურებულია',
   'bookingConfirmation.loading': 'თქვენი ჯავშნის ჩატვირთვა…',
   'bookingConfirmation.searchMoreCta': 'დაათვალიერეთ მეტი საცხოვრებელი',
   'bookingConfirmation.subheadingForTrip':
-    '{{ქონება}} ში {{ქალაქი}} , {{ქვეყანა}} შევხვდებით {{შეამოწმეთ}} .',
+    '{{property}} {{city}}-ში, {{country}}. შევხვდებით {{checkIn}}-ს.',
   'bookingConfirmation.total': 'სულ {{total}}',
   'bookingConfirmation.viewTripCta': 'მოგზაურობის ნახვა',
   'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'ფავორიტების ჩატვირთვა ვერ მოხერხდა.',
   'favorites.pricePerNight': '{{price}} / ღამე',
   'favorites.removeCta': 'შენახვის გაუქმება',
+  'favorites.removing': 'მიმდინარეობს წაშლა…',
   'forgotPassword.subheading':
     'შეიყვანეთ თქვენს ანგარიშზე მითითებული ელ. ფოსტა და ჩვენ გამოგიგზავნით უსაფრთხო გადატვირთვის ბმულს.',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'სოჟორნის წევრები',
   'landing.cta.heading': 'მხოლოდ წევრებისთვის განკუთვნილი ტარიფები. ყველა დაჯავშნა, ყოველთვის.',
   'landing.cta.signup': 'შექმენით უფასო ანგარიში',
+  'landing.cta.subheading':
+    'მოიპოვეთ ლოიალობის ქულები ყოველ სტუმრობაზე, განბლოკეთ გვიან გასვლა და ოთახის განახლება, და მიიღეთ პირველი წვდომა ახალ ობიექტებზე საჯაროდ გამოქვეყნებამდე.',
   'landing.destinations.eyebrow': 'სად წავიდეთ შემდეგ',
   'landing.destinations.heading': 'რეკომენდებული მიმართულებები',
   'landing.destinations.seeAll': 'იხილეთ ყველა მიმართულება',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'ისტორიები, რომელთა ჩალაგებაც ღირს.',
   'landing.nav.join': 'შემოგვიერთდით Auberge-ში',
   'landing.nav.search': 'ძიება რჩება',
+  'landing.preview.browseAll': 'დაათვალიერეთ სრული კოლექცია',
   'landing.preview.eyebrow': 'შიგნით ჩახედვა',
   'landing.preview.heading': 'ამ თვეში ხელით შერჩეული საცხოვრებლები',
+  'landing.preview.subheading':
+    'ყველა ობიექტს {{appName}}-ზე პირადად ამოწმებს ჩვენი რედაქციის გუნდი — არავითარი აგრეგატორის მარაგი, არავითარი მატყუარა განცხადება.',
   'login.eyebrow': 'წევრების ზონა',
+  'login.noAccount': 'Tessera-ს ახალი მომხმარებელი ხართ?',
   'login.signupLink': 'შექმენით უფასო ანგარიში',
   'login.subheading':
     'შედით სისტემაში თქვენი მგზავრობების სამართავად, დადასტურებების სანახავად და იქიდან გასაგრძელებლად, სადაც შეჩერდით.',
+  'loyaltyTierBadge.points': '{{points}} ქულები',
   'planUpdated.heading': 'გეგმა განახლდა',
+  'planUpdated.retry': 'ხელახლა სცადეთ',
+  'planUpdated.verifyFailed': 'თქვენი გადახდის დადასტურება ჯერ ვერ შევძელით.',
+  'planUpdated.verifyFailedBody':
+    'შესაძლოა, თქვენი გადახდა ჯერ კიდევ მუშავდება. სცადეთ ხელახლა ცოტა ხანში.',
   'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'pricing.limit.advancedFeatures': 'გაფართოებული ფუნქციები:',
   'pricing.limit.canExport': 'მონაცემთა ექსპორტი:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'რას გთავაზობთ ეს ადგილი',
   'propertyDetail.backLink': 'ძიებაზე დაბრუნება',
   'propertyDetail.bookCta': 'რეზერვი',
+  'propertyDetail.bookmarkAria': 'ქონების შენახვა',
   'propertyDetail.bookmarkAriaSaved': 'შენახული თვისებებიდან წაშლა',
+  'propertyDetail.galleryImageAlt': '{{name}} ფოტო {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} გმირის ფოტო',
   'propertyDetail.hidePhotos': 'ფოტოების დამალვა',
   'propertyDetail.lineCleaning': 'დასუფთავების საფასური',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'ღამე',
   'propertyDetail.noChargeYet': 'თანხა ჯერ არ ჩამოგეჭრებათ',
   'propertyDetail.notFound': 'ქონება ვერ მოიძებნა.',
+  'propertyDetail.perNight': '/ ღამე',
+  'propertyDetail.pickDatesHint': 'აირჩიეთ თარიღები სრული ფასის დეტალების სანახავად.',
   'propertyDetail.reviewCount': '( {{count}} მიმოხილვები)',
   'propertyDetail.reviewsHeading': 'ბოლო მიმოხილვები',
   'propertyDetail.roomCapacity': 'სძინავს {{count}}',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'ახალი პაროლი',
   'resetPassword.subheading':
     'აირჩიეთ ახალი პაროლი თქვენი Auberge ანგარიშისთვის. გამოიყენეთ მინიმუმ 8 სიმბოლო; ჩვენ გირჩევთ საშინაო ფრაზას.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'თქვენს ძიებას არცერთი თვისება არ შეესაბამება.',
   'searchResults.emptyHint':
     'სცადეთ ფილტრების გაფართოება ან ფასის ჭერის მოხსნა — Auberge-ს 14 ქვეყანაში აქვს სასტუმროები.',
@@ -108,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'შერჩეული საცხოვრებლები',
   'searchResults.headingForQuery': 'რჩება " {{q}} „',
   'searchResults.loadError': 'თვისებების ჩატვირთვა ვერ მოხერხდა.',
+  'searchResults.mapHint':
+    'გადაატარეთ კურსორი ბარათს რუკაზე გამოსაკვეთად. ცოცხალი Mapbox ფილები პროდაქშენში.',
   'searchResults.mapPinAria': '{{name}} — {{price}} ღამეში',
   'searchResults.sortLabel': 'დალაგება',
   'searchResults.subheading': '{{count}} თვისებები · {{guests}} სტუმრები',
   'signup.eyebrow': 'გახდი წევრი',
   'signup.subheading':
     'შემოგვიერთდით Auberge-ში, რათა ისარგებლოთ მხოლოდ წევრებისთვის განკუთვნილი ტარიფებით, დაგვიანებული შეკვეთებით და ახალი უძრავი ქონების პირველი წვდომით.',
+  'sojournAuthShell.brand.eyebrow': 'დარჩით არაჩვეულებრივ ადგილას',
+  'sojournAuthShell.brand.heading':
+    'ობიექტების შერჩეული კოლექცია — ლამაზად წარმოდგენილი, გამჭვირვალე ფასებით.',
   'sojournHeroSearchCard.checkInAria': 'რეგისტრაციის თარიღი',
   'sojournHeroSearchCard.checkOutAria': 'გასვლის თარიღი',
+  'sojournHeroSearchCard.destAria': 'დანიშნულების ადგილი',
+  'sojournHeroSearchCard.destLabel': 'სად',
   'sojournHeroSearchCard.destPlaceholder': 'ქალაქი, რეგიონი ან ქონება',
   'sojournHeroSearchCard.eyebrow': 'შერჩეული სტუმრები · მხოლოდ წევრებისთვის განკუთვნილი ტარიფები',
   'sojournHeroSearchCard.guestsOption': '{{n}} სტუმრები',
   'sojournHeroSearchCard.subtitle':
     'ბუტიკ-სასტუმროების, თანამედროვე დიზაინის მქონე ქონებისა და იშვიათი აღმოჩენების მქონე დასასვენებელი სახლების შერჩეული კოლექცია — გამჭვირვალე ფასებით, ლამაზად წარმოდგენილი.',
+  'sojournHeroSearchCard.title': 'დარჩით არაჩვეულებრივ ადგილას',
+  'sojournHeroSearchCard.trustLoyalty': 'მოიპოვეთ ქულები ყოველ სტუმრობაზე',
   'sojournHeroSearchCard.trustNoFees': 'ფარული გადასახადები არასდროს',
   'sojournHeroSearchCard.trustVetted': 'მხოლოდ ხელით შემოწმებული ქონება',
   'sojournLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',

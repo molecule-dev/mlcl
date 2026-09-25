@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Una swali, umepata hitilafu, au unataka kuhamisha vitabu vyako? Wasiliana na timu ya {{app}} kwa hello@{{app}}.example — mtu halisi husoma kila ujumbe.',
   'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
+  'about.intro':
+    '{{app}} ni uhasibu wa biashara ndogo unaofuatilia kila senti — ankara, gharama, malipo, na ripoti katika sehemu moja tulivu kwa wamiliki, wahasibu wa vitabu, na wahasibu.',
+  'about.missionBody':
+    'Kuendesha biashara hakupaswi kumaanisha kuogopa vitabu vyako. {{app}} hubadilisha msongamano wa lahajedwali na nambari wazi unazoweza kuchukua hatua, ili utumie muda mchache kupatanisha na muda mwingi kufanya kazi uliyoanzisha biashara kwa ajili yake.',
+  'about.missionTitle': 'Dhamira yetu',
   'about.title': 'Kuhusu {{app}}',
   'accounts.count': 'Akaunti {{count}}',
+  'accounts.emptyBody':
+    'Akaunti za leja hufuatilia mahali pesa zilipo na zinapohama. Zinaonekana hapa mara mhasibu wako wa vitabu au muunganisho anapozisanidi.',
   'accounts.emptyTitle': 'Hakuna akaunti bado',
   'accounts.heading': 'Chati ya akaunti',
   'accounts.kpi.accounts': 'Accounts',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Kila akaunti ya leja iliyo nyuma ya ankara zako, gharama, na malipo, ikiwa imepangwa kwa aina.',
   'accounts.tag.inactive': 'haitumiki',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Afisa Mkuu wa Fedha, Horizon Tech',
   'authBrandPanel.eyebrow': 'Inaaminika na timu za fedha',
   'authBrandPanel.label': 'Onyesho la chapa',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Wateja wote',
   'customerDetail.invoiceMeta': 'Imetolewa {{issued}} · Inastahili {{due}}',
   'customerDetail.loadError': 'Imeshindwa kupakia mteja.',
+  'customerDetail.missingBody':
+    'Rekodi ya mteja iliyoombwa haikuweza kupakiwa. Huenda iliondolewa, au huenda huna uwezo wa kuifikia.',
   'customerDetail.missingHeading': 'Rekodi ya mteja haipatikani',
+  'customerDetail.missingHelp':
+    'Tumia kiungo cha kurudi kilicho juu kurudi kwenye orodha ya wateja, au chagua rekodi nyingine kutoka hapo.',
+  'customerDetail.noInvoices': 'Hakuna ankara bado.',
   'customerDetail.notesEmpty': 'Hakuna madokezo bado.',
   'customerDetail.paymentsEmpty': 'Hakuna malipo yaliyorekodiwa.',
   'customerDetail.paymentTerms': 'Masharti ya malipo',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Inaweza kupunguzwa',
   'expenseDetail.detailsHeading': 'Maelezo ya muamala',
   'expenseDetail.loadError': 'Imeshindwa kupakia gharama.',
+  'expenseDetail.matched': 'Imelingana · {{description}}',
   'expenseDetail.missingBody':
     'Gharama iliyoombwa haikuweza kupakiwa. Huenda imeondolewa, au huenda huna uwezo wa kuifikia.',
   'expenseDetail.missingHeading': 'Rekodi ya gharama haipatikani',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Risiti',
   'expenseDetail.receiptHeading': 'Risiti',
   'expenseDetail.reconciled': 'Imeunganishwa',
+  'expenseDetail.unreconciled': 'Hazijapatanishwa',
   'expenses.empty': 'Hakuna gharama bado.',
   'expenses.heading': 'Gharama',
   'expenses.kpi.deductible': 'Inaweza kupunguzwa',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Imeshindwa kupakia ankara.',
   'invoices.searchPlaceholder': 'Tafuta nambari ya ankara au mteja…',
   'invoices.summary.paid': 'Imelipwa kipindi hiki',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle': 'Bila malipo kwa siku 30. Hakuna kadi. Mlete mhasibu wako — atakushukuru.',
   'landing.ctaTitle': 'Hamisha vitabu vyako mahali pa utulivu zaidi.',
   'landing.eyebrow': 'Uhasibu wa biashara ndogo, uliobuniwa upya',
@@ -113,6 +131,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Akaunti zinazoweza kupokelewa',
   'ledgerStatTriad.eyebrow.mtd': 'Mwezi hadi sasa',
   'ledgerStatTriad.netSub': 'Mtandao {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} imechelewa',
   'ledgerStatTriad.revenueLabel': 'Mapato',
   'login.failed': 'Kuingia hakukufaulu.',
   'login.hidePassword': 'Ficha nenosiri',
@@ -123,6 +142,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Ingia',
   'nav.legal': 'Kisheria',
   'newExpense.back': 'Gharama',
+  'newExpense.clearReceiptCta': 'Futa risiti iliyoambatishwa',
   'newExpense.deductible': 'Inakatwa kodi',
   'newExpense.dropPrompt': 'Weka picha ya risiti au PDF hapa ili kuambatanisha.',
   'newExpense.failed': 'Haikuweza kuokoa gharama.',
@@ -151,6 +171,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Imeshindwa kupakia malipo.',
   'payments.unmatchedTag': 'isiyo na kifani',
   'planUpdated.pageLabel': 'Uthibitisho uliosasishwa wa mpango',
+  'pricing.advancedFeatures': 'Vipengele vya hali ya juu: {{yes}}',
+  'pricing.canExport': 'Usafirishaji wa data: {{yes}}',
+  'pricing.heading': 'Chagua mpango wako wa {{app}}',
+  'pricing.maxAccounts': 'Akaunti {{count}}',
+  'pricing.maxExpenses': '{{count}} gharama',
+  'pricing.maxInvoices': 'Ankara {{count}}',
+  'privacy.intro':
+    'Sera hii ya Faragha inaeleza jinsi {{app}} inakusanya, kutumia, na kufichua taarifa kuhusu biashara zinazotumia huduma hii.',
   'privacy.lastUpdated': 'Ilisasishwa mara ya mwisho: {{tarehe}}',
   'privacy.section.collected.body':
     'Tunakusanya maelezo ya akaunti (jina, barua pepe, kampuni), rekodi za kifedha unazopakia (ankara, gharama, wateja, malipo), na kumbukumbu za kawaida za uendeshaji wa huduma (IP, wakala wa mtumiaji, mihuri ya muda).',
@@ -163,8 +191,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Taarifa hutumika kuendesha huduma, kutoa ripoti na PDF unazoomba, kutuma barua pepe za miamala kupitia Mailgun, na kusindika malipo kupitia Stripe. Hatuuzi au kukodisha taarifa binafsi.',
   'recentInvoicesCard.dueMeta': 'Inastahili {{date}}',
+  'recentInvoicesCard.empty': 'Hakuna ankara zinazolingana.',
   'recentInvoicesCard.eyebrow': 'Akaunti zinazoweza kupokelewa',
   'recentInvoicesCard.searchAriaLabel': 'Tafuta ankara',
+  'recentInvoicesCard.searchPlaceholder': 'Tafuta ankara…',
   'recentInvoicesCard.title': 'Ankara za hivi karibuni',
   'recentInvoicesCard.viewAll': 'Tazama ankara zote →',
   'reports.assets': 'Mali',
@@ -180,15 +210,20 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Faida na hasara (miezi 12)',
   'resetPassword.backToLogin': '← Rudi kwenye Ingia',
   'resetPassword.hidePassword': 'Ficha nenosiri',
+  'resetPassword.passwordLabel': 'Nenosiri jipya',
   'resetPassword.showPassword': 'Onyesha nenosiri',
+  'resetPassword.subheading': 'Chagua nenosiri imara — herufi nane kwa chini.',
   'resetPassword.submit': 'Weka upya Nenosiri',
   'resetPassword.tooShort': 'Nenosiri lazima liwe na angalau herufi 8.',
   'settings.account.changePassword': 'Badilisha nenosiri',
   'settings.account.changingPassword': 'Inabadilika…',
   'settings.account.currentPassword': 'Nenosiri la sasa',
+  'settings.account.dangerZone': 'Eneo la hatari',
   'settings.account.deleteAccount': 'Futa akaunti',
   'settings.account.deleteDescription': 'Futa akaunti yako kabisa na data yote inayohusiana.',
   'settings.account.deleteError': 'Imeshindwa kufuta akaunti.',
+  'settings.account.deleteWarning':
+    'Hii hufuta akaunti yako kabisa na haiwezi kutenduliwa. Weka nenosiri lako kuthibitisha.',
   'settings.account.deleting': 'Inafuta…',
   'settings.account.devices': 'Vifaa',
   'settings.account.email': 'Barua pepe',
@@ -199,6 +234,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Nenosiri',
   'settings.account.passwordError': 'Imeshindwa kubadilisha nenosiri.',
   'settings.account.pushNotifications': 'Arifa za kusukuma kwenye kifaa hiki',
+  'settings.account.revokeDeviceWarning':
+    'Ufikiaji wa kifaa hiki utabatilishwa hivi karibuni. Kiondoe?',
   'settings.account.saveError': 'Imeshindwa kusasisha wasifu.',
   'settings.account.security': 'Usalama',
   'settings.account.signOutDevice': 'Toka',
@@ -206,12 +243,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Uthibitishaji wa vipengele viwili',
   'settings.account.twoFactorCode': 'Nambari ya uthibitishaji',
   'settings.account.twoFactorDisable': 'Zima',
+  'settings.account.twoFactorDisableTitle': 'Zima uthibitishaji wa hatua mbili',
   'settings.account.twoFactorEnable': 'Washa',
+  'settings.account.twoFactorEnableTitle': 'Washa uthibitishaji wa hatua mbili',
   'settings.account.twoFactorInvalidCode': 'Nambari batili',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'Msimbo wa QR wa hatua mbili',
+  'settings.account.twoFactorScan':
+    'Skani msimbo huu wa QR kwa programu yako ya uthibitishaji, kisha weka msimbo wa tarakimu 6.',
+  'settings.account.twoFactorUnavailable':
+    'Uthibitishaji wa vipengele viwili haupatikani kwa programu hii.',
   'settings.account.twoFactorVerify': 'Thibitisha na uwashe',
   'settings.account.unknownDevice': 'Kifaa kisichojulikana',
   'settings.company.email': 'Barua pepe ya malipo',
+  'settings.company.heading': 'Kampuni na kodi',
   'settings.company.name': 'Jina halali',
   'settings.company.saveButton': 'Hifadhi wasifu wa kampuni',
   'settings.company.taxId': 'Kitambulisho cha Ushuru / EIN',
@@ -255,6 +300,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Makadirio ya robo mwaka',
   'taxes.kpi.owed': 'Inadaiwa',
   'taxes.loadError': 'Imeshindwa kupakia muhtasari wa kodi.',
+  'taxes.remittedPct': '({{pct}}% imetumwa)',
+  'terms.intro':
+    'Masharti haya ya Huduma ("Masharti") yanatawala ufikiaji wako na matumizi yako ya {{app}}. Kwa kuunda akaunti au kutumia huduma unakubali kufungwa nayo.',
   'terms.lastUpdated': 'Ilisasishwa mara ya mwisho: {{tarehe}}',
   'terms.section.acceptable.body':
     'Unakubali kutotumia huduma hii kukiuka sheria yoyote, kukiuka haki za miliki miliki, kusambaza programu hasidi, au kujaribu kupata ufikiaji usioidhinishwa kwa akaunti zingine au miundombinu yetu.',

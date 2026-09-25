@@ -1,11 +1,33 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Pyetje për një rezervim, komente, ose një pronë që mendoni se i përket {{app}}? Kontaktoni ekipin tonë nga llogaria juaj — çdo mesazh shkon te një njeri i vërtetë që mund t'ju ndihmojë.",
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth nesh',
+  'about.featureLoyalty':
+    'Çmime vetëm për anëtarët dhe një program besnikërie që fiton pikë, çek-out të vonuar dhe përmirësime dhomash në çdo rezervim.',
+  'about.featureReviews':
+    "Vlerësime të verifikuara nga mysafirët dhe përzgjedhje editoriale, që të mund t'i besoni qëndrimit para se të mbërrini.",
+  'about.featureRooms':
+    'Dhoma, çmime dhe pajisje krah për krah me çmime transparente, gjithçka të përfshirë — taksat dhe tarifat e resortit të përfshira para se të paguani.',
+  'about.featureSearch':
+    'Kërkim në kohë reale nëpër hotele të verifikuara me disponueshmëri të drejtpërdrejtë, pamje harte dhe galeri të pasura fotografish.',
+  'about.featureTrips':
+    'Të preferuarat e ruajtura dhe një panel Udhëtimesh që mban çdo rezervim, itinerar dhe konfirmim në një vend të vetëm.',
+  'about.intro':
+    '{{app}} është një platformë rezervimi hotelesh për udhëtarët që kujdesen për cilësinë. Çdo pronë verifikohet personalisht nga ekipi ynë editorial — pa inventar agregatorësh, pa listime mashtruese. Kërkoni disponueshmëri reale, krahasoni dhomat, çmimet dhe pajisjet krah për krah, më pas rezervoni me disa trokitje me një çmim të qartë, gjithçka të përfshirë.',
+  'about.missionBody':
+    "Rezervimi i një vendi për të qëndruar duhet të ndihet i qetë dhe i ndershëm. Ne shfaqim çmime transparente me taksat dhe tarifat e resortit që në fillim, i shpërblejmë mysafirët besnikë në vend që t'u marrim para për gjithçka, dhe vëmë të parat qëndrimet që ia vlen paratë tuaja — që të shpenzoni më pak kohë duke krahasuar skeda dhe më shumë kohë në vetë udhëtimin.",
+  'about.missionTitle': 'Misioni ynë',
+  'about.subtitle':
+    'Një mënyrë e kuruar dhe transparente për të gjetur dhe rezervuar hotelin e duhur.',
   'account.loyalty.activitySummary': '{{nights}} netë · {{spend}} kaloi këtë vit',
+  'account.loyalty.benefitsHeading': 'Përfitimet tuaja',
   'account.loyalty.heading': 'Besnikëria',
   'account.loyalty.loading': 'Duke ngarkuar besnikërinë…',
-  'account.loyalty.pointsTowardNext': '{{pikë}} / {{tjetër}} tregon për {{NextTier}}',
+  'account.loyalty.maxTier': 'Niveli më i lartë — shijoni përfitimet tuaja.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} pikë për {{nextTier}}',
   'account.loyalty.tier': 'Niveli aktual',
   'account.loyalty.unavailable': 'Informacioni mbi besnikërinë nuk është i disponueshëm.',
   'account.navLabel': 'Seksionet e llogarisë',
@@ -22,6 +44,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Konfirmo rezervimin · {{total}}',
   'bookingCheckout.datesRequired': 'Ju lutemi zgjidhni datat e hyrjes dhe daljes.',
   'bookingCheckout.guestHeading': 'Mysafir kryesor',
+  'bookingCheckout.heading': 'Konfirmo dhe rezervo',
   'bookingCheckout.loadError': 'Dështoi në ngarkimin e pronës.',
   'bookingCheckout.nights': '{{rate}} × {{count}} netë',
   'bookingCheckout.notFound': 'Prona nuk u gjet.',
@@ -32,11 +55,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Taksa dhe tarifa',
   'bookingCheckout.tripHeading': 'Udhëtimi juaj',
   'bookingConfirmation.allTripsCta': 'Të gjitha udhëtimet',
+  'bookingConfirmation.confNumber': 'Numri i konfirmimit: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Rezervimi juaj po përpunohet.',
   'bookingConfirmation.heading': 'Rezervimi u konfirmua',
   'bookingConfirmation.loading': 'Duke ngarkuar rezervimin tuaj…',
   'bookingConfirmation.searchMoreCta': 'Shfletoni më shumë qëndrime',
   'bookingConfirmation.subheadingForTrip':
-    '{{pronë}} në {{qytet}} , {{vend}} Do të shihemi më {{checkIn}} .',
+    '{{property}} në {{city}}, {{country}}. Shihemi më {{checkIn}}.',
   'bookingConfirmation.total': 'Totali {{total}}',
   'bookingConfirmation.viewTripCta': 'Shiko udhëtimin',
   'common.goToDashboard': 'Shko te paneli',
@@ -46,6 +72,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Ngarkimi i të preferuarave dështoi.',
   'favorites.pricePerNight': '{{price}} / natë',
   'favorites.removeCta': 'Hiq ruajtjen',
+  'favorites.removing': 'Duke hequr…',
   'forgotPassword.subheading':
     "Vendosni email-in në llogarinë tuaj dhe ne do t'ju dërgojmë një lidhje të sigurt rivendosjeje.",
   'forgotPassword.successBody':
@@ -53,6 +80,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Anëtarët e qëndrimit',
   'landing.cta.heading': 'Tarifa vetëm për anëtarët. Çdo rezervim, çdo herë.',
   'landing.cta.signup': 'Krijo një llogari falas',
+  'landing.cta.subheading':
+    'Fitoni pikë besnikërie në çdo qëndrim, zhbllokoni çek-out të vonuar dhe përmirësime dhomash, dhe merrni akses të parë në pronat e reja përpara se të listohen publikisht.',
   'landing.destinations.eyebrow': 'Ku të shkosh më pas',
   'landing.destinations.heading': 'Destinacione të spikatura',
   'landing.destinations.seeAll': 'Shiko të gjitha destinacionet',
@@ -61,13 +90,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Histori që ia vlen të mblidhen për të mbledhur.',
   'landing.nav.join': 'Bashkohuni me Auberge',
   'landing.nav.search': 'Kërkimi qëndron',
+  'landing.preview.browseAll': 'Shfletoni koleksionin e plotë',
   'landing.preview.eyebrow': 'Një vështrim brenda',
   'landing.preview.heading': 'Vendqëndrime të zgjedhura me kujdes këtë muaj',
+  'landing.preview.subheading':
+    'Çdo pronë në {{appName}} verifikohet personalisht nga ekipi ynë editorial — pa inventar agregatorësh, pa listime mashtruese.',
   'login.eyebrow': 'Zona e anëtarëve',
+  'login.noAccount': 'I ri në Tessera?',
   'login.signupLink': 'Krijo një llogari falas',
   'login.subheading':
     'Hyni për të menaxhuar udhëtimet tuaja, për të parë konfirmimet dhe për të vazhduar nga vendi ku e keni lënë.',
+  'loyaltyTierBadge.points': '{{points}} pikë',
   'planUpdated.heading': 'Plani u përditësua',
+  'planUpdated.retry': 'Provo përsëri',
+  'planUpdated.verifyFailed': 'Nuk mundëm ta konfirmonim ende pagesën tuaj.',
+  'planUpdated.verifyFailedBody':
+    'Pagesa juaj mund të jetë ende duke u përpunuar. Provoni përsëri pas pak.',
   'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'pricing.limit.advancedFeatures': 'Karakteristika të avancuara:',
   'pricing.limit.canExport': 'Eksporti i të dhënave:',
@@ -79,7 +117,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Çfarë ofron ky vend',
   'propertyDetail.backLink': 'Kthehu te kërkimi',
   'propertyDetail.bookCta': 'Rezervo',
+  'propertyDetail.bookmarkAria': 'Ruaj pronën',
   'propertyDetail.bookmarkAriaSaved': 'Hiq nga vetitë e ruajtura',
+  'propertyDetail.galleryImageAlt': '{{name}} foto {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} fotografi heroi',
   'propertyDetail.hidePhotos': 'Fshih fotot',
   'propertyDetail.lineCleaning': 'Tarifa e pastrimit',
@@ -89,6 +129,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'natë',
   'propertyDetail.noChargeYet': 'Nuk do të faturohesh ende',
   'propertyDetail.notFound': 'Prona nuk u gjet.',
+  'propertyDetail.perNight': '/ natë',
+  'propertyDetail.pickDatesHint': 'Zgjidhni datat tuaja për të parë zbërthimin e plotë të çmimit.',
   'propertyDetail.reviewCount': '( {{count}} vlerësime)',
   'propertyDetail.reviewsHeading': 'Vlerësimet e fundit',
   'propertyDetail.roomCapacity': 'Fle {{count}}',
@@ -101,6 +143,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Fjalëkalim i ri',
   'resetPassword.subheading':
     'Zgjidh një fjalëkalim të ri për llogarinë tënde Auberge. Përdor të paktën 8 karaktere; ne rekomandojmë një fjalëkalim.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Asnjë pronë nuk përputhet me kërkimin tuaj.',
   'searchResults.emptyHint':
     'Provoni të zgjeroni filtrat ose të hiqni çmimin maksimal — Auberge ofron qëndrime në 14 vende.',
@@ -108,19 +151,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Qëndrime të kuruara',
   'searchResults.headingForQuery': 'Qëndron për " {{q}} "',
   'searchResults.loadError': 'Dështoi në ngarkimin e vetive.',
+  'searchResults.mapHint':
+    'Kaloni kursorin mbi një kartë për ta theksuar në hartë. Pllaka Mapbox në kohë reale në prodhim.',
   'searchResults.mapPinAria': '{{name}} — {{price}} për natë',
   'searchResults.sortLabel': 'Rendit sipas',
   'searchResults.subheading': '{{count}} vetitë · {{guests}} mysafirë',
   'signup.eyebrow': 'Bëhu anëtar',
   'signup.subheading':
     'Bashkohuni me Auberge për të zhbllokuar tarifa vetëm për anëtarët, arkëtime të vona dhe akses të parë në pronat e reja.',
+  'sojournAuthShell.brand.eyebrow': 'Qëndroni diku të jashtëzakonshme',
+  'sojournAuthShell.brand.heading':
+    'Një koleksion i kuruar pronash — të paraqitura bukur, me çmime transparente.',
   'sojournHeroSearchCard.checkInAria': 'Data e regjistrimit',
   'sojournHeroSearchCard.checkOutAria': 'Data e largimit',
+  'sojournHeroSearchCard.destAria': 'Destinacioni',
+  'sojournHeroSearchCard.destLabel': 'Ku',
   'sojournHeroSearchCard.destPlaceholder': 'Qyteti, rajoni ose prona',
   'sojournHeroSearchCard.eyebrow': 'Qëndrime të kuruara · Tarifa vetëm për anëtarë',
   'sojournHeroSearchCard.guestsOption': '{{n}} mysafirë',
   'sojournHeroSearchCard.subtitle':
     'Një koleksion i kuruar hotelesh butik, pronash me dizajn modern dhe vende pushimi të rralla — me çmime transparente, të prezantuara bukur.',
+  'sojournHeroSearchCard.title': 'Qëndroni diku të jashtëzakonshme',
+  'sojournHeroSearchCard.trustLoyalty': 'Fitoni pikë në çdo qëndrim',
   'sojournHeroSearchCard.trustNoFees': 'Pa tarifa të fshehura, kurrë',
   'sojournHeroSearchCard.trustVetted': 'Vetëm prona të verifikuara me dorë',
   'sojournLayout.primaryNavLabel': 'Navigimi kryesor',

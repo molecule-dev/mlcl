@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ada maklum balas, jumpa pepijat, atau ingin membawa {{app}} ke sekolah atau pasukan anda? Kami baca setiap mesej — hubungi kami dari tetapan akaun anda dan manusia sebenar akan membalas.',
   'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.intro':
+    '{{app}} ialah teka-teki perkataan harian. Teka perkataan lima huruf dalam enam percubaan, kekalkan rentetan kemenangan anda, kongsi grid emoji anda, dan lihat prestasi semua pemain pada perkataan hari ini.',
+  'about.missionBody':
+    'Teka-teki yang baik ialah kemenangan kecil harian. {{app}} dibina sekitar satu perkataan yang dikongsi setiap hari — cukup pantas untuk rehat minum kopi, cukup menarik untuk kembali esok.',
+  'about.missionTitle': 'Misi kami',
   'about.title': 'Tentang {{app}}',
   'archive.loadError': 'Tidak dapat memuatkan arkib.',
   'archive.missed': 'Terlepas',
   'archive.notPlayed': 'Belum dimainkan',
+  'archive.subhead':
+    'Main semula mana-mana hari lepas sebagai latihan — tiada rentetan, tiada statistik, semua keseronokan.',
   'archive.title': 'Arkib',
   'auth.backToHome': 'Kembali ke laman utama',
   'auth.backToHomeArrow': '← Kembali ke laman utama',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Lupa kata laluan?',
   'auth.login.loggingIn': 'Sedang log masuk…',
   'auth.login.logIn': 'Main perkataan hari ini',
+  'auth.login.noAccount': 'Baru di Tessera?',
   'auth.login.or': 'atau teruskan dengan',
   'auth.login.password': 'Kata laluan',
   'auth.login.signInButton': 'Log masuk',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Sedang menyimpan…',
   'common.sendingEllipsis': 'Sedang menghantar…',
   'common.startingEllipsis': 'Sedang memulakan…',
+  'forgotPassword.subhead':
+    'Masukkan emel anda dan kami akan menghantar pautan untuk menetapkan semula.',
+  'forgotPassword.success.body':
+    'Jika akaun wujud untuk {{email}} , anda akan mendapat pautan tetapan semula dalam beberapa minit.',
+  'forgotPassword.success.title': 'Semak peti masuk anda.',
   'form.name': 'Nama',
   'howToPlay.cta.home': 'Kembali ke laman utama',
   'howToPlay.cta.play': 'Main teka-teki hari ini',
@@ -68,10 +83,16 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Streak yang tak sampai hati diputuskan',
   'leaderboard.daily.title': 'Penyelesaian hari ini',
   'leaderboard.loadError': 'Tidak dapat memuatkan papan pendahulu.',
+  'leaderboard.streaks.empty': 'Belum ada rentetan — jadilah yang pertama.',
+  'leaderboard.streaks.subhead': 'Rentetan kemenangan terpanjang sepanjang masa.',
   'leaderboard.streaks.title': 'Pendahulu streak',
+  'leaderboard.subhead':
+    'Prestasi semua pemain hari ini, dan siapa yang memegang rentetan terpanjang.',
   'leaderboard.title': 'Papan pendahulu',
   'login.headline': 'Selamat kembali.',
   'login.streakPill': 'Streak {{days}} hari menanti',
+  'login.subhead':
+    'Log masuk untuk kekalkan rentetan anda dan lihat prestasi anda pada perkataan hari ini.',
   'nav.archive': 'Arkib',
   'nav.editProfile': 'Edit profil',
   'nav.getStarted': 'Mulakan',
@@ -89,6 +110,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Tiada perkataan sedemikian',
   'notFound.title': 'Laluan itu kosong.',
   'planUpdated.message': 'Pelan anda sudah aktif.',
+  'planUpdated.retry': 'Cuba lagi',
+  'planUpdated.verifyFailed': 'Kami belum dapat mengesahkan pembayaran anda.',
+  'planUpdated.verifyFailedBody':
+    'Pembayaran anda mungkin masih diproses. Cuba lagi sebentar lagi.',
   'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
   'play.alreadyFinished': 'Anda sudah selesaikan teka-teki ini',
   'play.answerWas': 'Perkataannya ialah',
@@ -104,6 +129,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Teka-teki latihan',
   'play.tooShort': 'Huruf tidak mencukupi',
   'play.won': 'Berjaya selesaikan!',
+  'pricing.advancedStats': 'Statistik lanjutan: {{yes}}',
+  'pricing.archiveHistory': '{{count}} hari sejarah arkib',
+  'pricing.archivePlays': '{{count}} main semula arkib / hari',
+  'pricing.archiveUnlimited': 'Sejarah arkib tanpa had',
+  'pricing.canExport': 'Eksport data: {{yes}}',
+  'pricing.checkoutError': 'Tidak dapat memulakan daftar keluar. Sila cuba lagi.',
   'pricing.dailyWord': 'Perkataan harian',
   'pricing.heading': 'Pilih pelan {{app}} anda',
   'pricing.included': 'Disertakan',
@@ -111,7 +142,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Perkataan harian sentiasa percuma. Naik taraf untuk main semula arkib tanpa had dan statistik lebih mendalam.',
   'pricing.yearly': 'Tahunan',
+  'privacy.intro':
+    '{{app}} menghormati privasi anda. Halaman ini merumuskan data yang kami simpan, sebab kami menyimpannya, dan cara untuk memadamnya.',
   'privacy.title': 'Notis privasi',
+  'resetPassword.subhead': 'Pilih kata laluan baharu untuk kembali ke rentetan anda.',
   'settings.account': 'Akaun',
   'settings.danger.body': 'Buang akaun {{appName}} anda dan semua sejarah teka-teki secara kekal.',
   'settings.danger.confirm': 'Ya, padam selama-lamanya',
@@ -120,17 +154,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'Tetamu',
   'settings.language.title': 'Bahasa',
   'settings.subhead': 'Laraskan profil, bunyi, dan bagaimana anda muncul di papan pendahulu.',
+  'settings.unnamed': 'Pemain Sparq',
   'settings.upgrade': 'Naik taraf',
   'signup.eyebrow': 'Percuma selama-lamanya — satu perkataan sehari',
   'signup.headline': 'Mulakan streak anda.',
+  'signup.subhead':
+    'Cipta akaun {{appName}} untuk bermain perkataan harian, bina rentetan, dan naik carta pendahulu.',
   'stats.currentStreak': 'Streak',
   'stats.distribution.title': 'Taburan tekaan',
   'stats.loadError': 'Tidak dapat memuatkan statistik anda.',
   'stats.maxStreak': 'Streak maksimum',
   'stats.played': 'Dimainkan',
   'stats.playToday': 'Main teka-teki hari ini',
+  'stats.subhead': 'Teka-teki harian berkedudukan sahaja — latihan arkib tidak pernah dikira.',
   'stats.title': 'Statistik anda',
   'stats.winRate': 'Kadar menang',
   'status.monthly': 'Bulanan',
+  'terms.intro':
+    'Dengan menggunakan {{app}} anda bersetuju dengan peraturan di bawah. Jika anda tidak dapat menerimanya, sila jangan gunakan perkhidmatan ini.',
   'terms.title': 'Terma perkhidmatan',
 }

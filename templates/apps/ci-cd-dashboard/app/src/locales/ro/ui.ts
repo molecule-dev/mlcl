@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ai întrebări, feedback sau vrei o demonstrație pentru echipa ta? Scrie-ne la hello@conduit.dev — fiecare mesaj ajunge la o persoană reală din echipă.',
   'about.contactHeading': 'Contactați-ne',
   'about.eyebrow': 'Despre',
+  'about.featuresHeading': 'Ce primiți',
+  'about.introBody':
+    '{{app}} aduce livrarea continuă în stil GitHub Actions într-un singur dashboard rapid: pipeline-uri, jurnale de build, artefacte, insigne de status și medii de implementare pentru toate depozitele tale într-un singur loc. Fără sărituri între file, fără să ghicești ce build s-a stricat — fiecare rulare, linie de jurnal și implementare este la un clic distanță.',
+  'about.introHeading': 'Ce este {{app}}',
+  'about.missionBody':
+    'Livrarea de software ar trebui să fie calmă și previzibilă, nu o sursă de groază. Construim pipeline-urile, jurnalele și instrumentele de implementare astfel încât drumul de la commit la producție să fie rapid, vizibil și de încredere — primul build verde în cinci minute, iar fiecare build după el la fel de clar.',
+  'about.missionHeading': 'Misiunea noastră',
+  'about.subtitle':
+    '{{app}} este un dashboard CI/CD pentru echipele care vor să monitorizeze build-urile, implementările și mediile din fiecare depozit — și să livreze cu certitudine.',
   'artifacts.empty': 'Niciun artefact deocamdată.',
   'artifacts.heading': 'Artefacte',
   'artifacts.loadError': 'Încărcarea artefactelor a eșuat.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Medii',
   'environments.loadError': 'Încărcarea mediilor a eșuat.',
+  'environments.loading': 'Se încarcă mediile…',
   'environments.subheading': 'Starea deployment în timp real pe toate țintele.',
   'forgotPassword.runnerStatus': 'resetare · tunel securizat',
+  'forgotPassword.success':
+    'Dacă există un cont pentru acel e-mail, un link de resetare este în drum. Verificați-vă căsuța de e-mail.',
   'insights.changeFailureRate': 'Rata de eșec a modificărilor',
   'insights.deployFrequency': 'Deployuri / zi',
   'insights.empty': 'Nu există suficiente date deocamdată.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Încărcarea analizei a eșuat.',
   'insights.meanP95': 'medie {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Cele mai lente etape de pipeline',
   'insights.successRateHeading': 'Rata de succes a pipeline (ultimele 14 zile)',
   'landing.choosePlan': 'Alege planul',
+  'landing.copyright': '© {{year}} {{app}}. Livrează cu certitudine.',
   'landing.ctaBody':
     'Fără card de credit. Fără inginer de platformă necesar. Pune primul pipeline pe verde în cinci minute.',
   'landing.ctaHeading': 'Livrează cu certitudine.',
   'landing.featuresEyebrow': '// platform features',
   'landing.featuresHeading': 'Construit de livratori, pentru livratori',
+  'landing.heroSubtitle':
+    'Pipeline-uri care se termină în câteva secunde. Jurnale pe care le poți citi. Implementări în care poți avea încredere.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Prețuri simple și previzibile',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'În desfășurare acum',
   'pipelines.metric.successCaption': '{{count}} din {{total}} rulări',
   'pipelines.metric.successRate': 'Rată de succes',
+  'pipelines.realtimeOn': 'în timp real',
   'pipelines.subheading': 'Actualizări în timp real din toate depozitele monitorizate.',
+  'pricing.advancedFeatures': 'Funcții avansate: {{mark}}',
+  'pricing.canExport': 'Export de date: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artefacte',
+  'pricing.maxBuilds': '{{count}} build-uri',
+  'pricing.maxPipelines': '{{count}} pipeline-uri',
   'privacy.dataAccount': 'Cont: nume, e-mail, parolă hash, nivel plan.',
   'privacy.intro':
     '{{app}} colectează doar datele minime necesare pentru a gestiona contul tău de livrare continuă: e-mailul tău, depozitele pe care le conectezi, commit-urile și metadatele build produse de runnerii tăi și secretele pe care alegi să le stochezi la noi. Nu citim niciodată codul sursă în afara runnerului build; artefactele build sunt stocate în bucket-ul tău S3 când este configurat.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Folosim Stripe pentru facturare, Mailgun pentru e-mailuri tranzacționale și AWS S3 pentru stocarea artefactelor build. Fiecare este legat contractual la domeniul minim de date necesar pentru a livra serviciul.',
   'privacy.rightsBody':
     'Poți exporta fiecare octet din datele tale, poți șterge contul în orice moment din Setări și poți solicita o înregistrare a fiecărei livrări de webhook în contul tău. Răspundem solicitărilor GDPR / CCPA în termen de 30 de zile.',
+  'privacy.subtitle':
+    'Cum {{app}} colectează, stochează și îți protejează datele în timp ce rulăm pipeline-urile tale.',
   'privacy.title': 'Politica de confidențialitate',
   'repositories.empty': 'Niciun depozit conectat.',
   'repositories.heading': 'Depozite',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Toate depozitele',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Încărcarea depozitului a eșuat.',
+  'repositoryDetail.meanDuration': 'Durata medie',
   'repositoryDetail.notFound': 'Depozit negăsit.',
+  'repositoryDetail.successRate': 'Rată de succes',
   'repositoryDetail.totalBuilds': 'Total builturi',
   'repositoryDetail.webhookActive': 'activ',
   'repositoryDetail.webhookPaused': 'întrerupt',
   'repositoryDetail.webhooksHeading': 'Webhooks',
+  'resetPassword.passwordLabel': 'Parolă nouă',
   'resetPassword.runnerStatus': 'resetare · token verificat',
   'resetPassword.subtitle': 'Alege o parolă puternică pe care nu ai mai folosit-o.',
   'resetPassword.tokenPlaceholder': 'lipește din e-mail',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Depozitele pe care Conduit le monitorizează. Deconectează-te de la furnizorul VCS pentru a opri primirea evenimentelor.',
   'settings.repositories.empty': 'Niciun depozit conectat deocamdată.',
+  'settings.repositories.heading': 'Conexiuni la depozite',
   'settings.repositories.loadError': 'Încărcarea depozitelor a eșuat.',
   'settings.secrets.addCta': 'Adaugă secret',
   'settings.secrets.addError': 'Nu s-a putut adăuga secretul.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Nu s-a putut șterge secretul.',
   'settings.secrets.empty': 'Niciun secret stocat.',
   'settings.secrets.heading': 'Secrete',
+  'settings.secrets.lastUsed': 'ultima utilizare {{date}}',
   'settings.secrets.loadError': 'Încărcarea secretelor a eșuat.',
   'settings.secrets.neverUsed': 'niciodată folosit',
   'settings.secrets.rotateCta': 'Rotește',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Nu s-a putut actualiza webhook-ul.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'nivel gratuit · 1.000 min build/lună',
+  'terms.intro':
+    'Prin crearea unui cont {{app}} ești de acord cu acești termeni. Aceștia acoperă utilizarea acceptabilă a runnerelor de build, limitele SLA-ului nostru și condițiile în care îți putem suspenda sau închide contul pentru sarcini abuzive.',
   'terms.slaBody':
     'Planurile Pro și Team vizează 99,95% uptime lunar pentru API și pool-ul de runneri. Planul gratuit este furnizat ca atare. Întreruperile sunt raportate pe status.conduit.dev și creditate conform formulei din factura ta.',
   'terms.terminationBody':

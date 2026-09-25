@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ёсць водгук, знайшлі памылку ці хочаце {{app}} для сваёй студыі або каманды? Напішыце нам з налад акаўнта — кожнае паведамленне трапляе да рэальнага чалавека з каманды.',
   'about.contactTitle': 'Звяжыцеся з намі',
+  'about.intro':
+    '{{app}} — гэта студыя сумеснага пісьма, дзе рэдактары, аўтары і каманды працуюць над тэкстам разам у рэжыме рэальнага часу. Адкрыйце дакумент — і старонка становіцца агульнай: курсоры рухаюцца, каментарыі збіраюцца на палях, а кожная рэдакцыя надзейна захоўваецца ў гісторыі.',
+  'about.missionBody':
+    'Мы верым, што доўгія тэксты заслугоўваюць спакойнага, засяроджанага месца — створанага вакол рукапісу, а не сустрэчы ці ўваходнай пошты. Наш рэдактар, прысутнасць у рэальным часе і гісторыя версій распрацаваны так, каб суаўтары маглі хутка рухацца разам, не губляючы ні абзаца, ні думкі.',
+  'about.missionTitle': 'Наша місія',
+  'about.subtitle': 'Думайце разам, пішыце вечна.',
   'about.title': 'Пра {{app}}',
   'comments.addFailed': 'Не атрымалася апублікаваць каментар.',
   'comments.backToDoc': 'Вярнуцца да рукапісу',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Тэмы каментарыяў',
   'comments.loading': 'Загрузка ланцужкоў…',
   'comments.newPlaceholder': 'Дадаць каментар да рукапісу…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Зноў адкрыць',
   'comments.reopenFailed': 'Не атрымалася зноў адкрыць.',
   'comments.replyFailed': 'Не атрымалася апублікаваць адказ.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Нядаўнія чарнавікі, агульныя працы і рэдагаванні за дзень.',
   'dashboard.viewFeed': 'Стужка →',
   'editor.back': 'Вярнуцца да рукапісаў',
+  'editor.bodyLabel': 'Тэкст дакумента',
   'editor.bodyPlaceholder': 'Пачніце з месца, дзе міргае курсор.',
   'editor.comments': 'Каментарыі',
   'editor.createFailed': 'Не атрымалася стварыць дакумент.',
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Калі ўліковы запіс існуе для {{email}} , спасылка для скіду налад ужо ў дарозе.',
+  'forgotPassword.sentHeading': 'Праверце сваю электронную пошту',
+  'forgotPassword.submitting': 'Адпраўка\\u2026',
   'forgotPassword.subtitle': 'Мы дашлем вам спасылку для скіду налад па электроннай пошце.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Створана з дапамогай Molecule.',
+  'landing.ctaBody':
+    'Бясплатна для аўтараў-адзіночак. Планы Studio для каманд рэдактараў, літаратурных неграў і рэцэнзентаў.',
   'landing.ctaHeading': 'Адкрыйце старонку. Пачніце рухацца курсорам.',
   'landing.ctaPrimary': 'Адкрыйце студыю',
   'landing.eyebrow': 'Для аўтараў, рэдактараў і каманд',
   'landing.featuresEyebrow': 'Што вы атрымліваеце',
   'landing.featuresHeading': 'Студыя для доўгатэрміновага чарнавіка.',
+  'landing.featuresSubtitle':
+    '{{appName}} створаны вакол рукапісу — не сустрэчы, не ўваходнай пошты.',
   'landing.getStarted': 'Адкрыйце студыю',
   'landing.heroCta': 'Пачніце пісаць',
   'landing.heroSubtitle':
@@ -95,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} непрачытаныя · каментарыі, згадкі, запрашэнні на сумеснае выкарыстанне і запыты на прапановы.',
   'presenceAvatars.label': '{{count}} супрацоўнікі',
+  'privacy.intro': 'Як мы збіраем, выкарыстоўваем і абараняем вашу інфармацыю.',
   'privacy.title': 'Палітыка прыватнасці',
   'profile.about.description':
     'Кароткая біяграфія для вашага публічнага профілю і старонак аўтараў.',
@@ -108,7 +125,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Прысутнасць',
   'profile.pronouns': 'Займеннікі',
   'profile.publicToggle': 'Паказаць профіль таварышам па камандзе',
+  'profile.role': 'Роля / пасада',
   'profile.subtitle': 'Як вы выглядаеце ў вачах сваіх калег.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} аўтары, якія працуюць у студыі',
   'quillonAuthBrandPanel.quote':
     '«Пісьменства — гэта адзінае, што я раблю, калі не адчуваю, што павінен рабіць нечым іншым».',
@@ -116,6 +135,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Адкрыць →',
   'quillonKpiCard.trend': 'Нядаўняя тэндэнцыя',
   'quillonLayout.menu': 'Меню',
+  'quillonLayout.mobileNavLabel': 'Мабільная навігацыя',
   'quillonLayout.primaryNavLabel': 'Асноўная навігацыя',
   'quillonStudioHero.collab': 'Супрацоўнікі',
   'quillonStudioHero.docs': 'Дакументы, якіх датычыліся',
@@ -124,7 +144,9 @@ export const ui: UiTranslations = {
   'quillonStudioHero.subtitle': 'Вазьміце рукапіс, пакіньце каментар, прасуньце абзац наперад.',
   'quillonStudioHero.words': 'Словы сёння',
   'resetPassword.confirmPlaceholder': 'Паўтарыце новы пароль',
+  'resetPassword.passwordLabel': 'Новы пароль',
   'resetPassword.passwordPlaceholder': 'Увядзіце новы пароль',
+  'resetPassword.submitting': 'Скід…',
   'resetPassword.subtitle': 'Выберыце надзейны пароль — не менш за 12 сімвалаў.',
   'settings.account.description': 'Як вы ўваходзіце ў сістэму.',
   'settings.billing.canceled': 'Падпіска адменена.',
@@ -133,7 +155,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Не настроена',
   'settings.billing.updated': 'План абноўлены.',
   'settings.editor.description': 'Як паводзіць сябе палатно падчас напісання.',
+  'settings.editor.title': 'Налады рэдактара',
   'settings.eyebrow': 'Налады Студыі',
+  'settings.language.title': 'Мова',
   'settings.notifications.${n.key}.description': 'Мова',
   'settings.notifications.description':
     'Выберыце, якія паведамленні будуць трапляць у вашу паштовую скрыню.',
@@ -144,6 +168,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Падзяліліся са мной',
   'shared.loadFailed': 'Не атрымалася загрузіць агульныя дакументы.',
   'shared.subtitle': 'Рукапісы, кароткія звесткі і нататкі з астатніх супрацоўнікаў студыі.',
+  'signup.brandAttribution': 'Anaïs Park — рэдактар, The Quarterly',
   'signup.brandQuote':
     '\\u201cВаш першы рукапіс — самы складаны. Кільён робіць яго менш самотным.\\u201d',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -151,6 +176,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Анаіс',
   'signup.heading': 'Стварыце свой уліковы запіс Quillon',
   'signup.lastNamePlaceholder': 'Парк',
+  'signup.submitting': 'Адкрываем вашу студыю\\u2026',
   'signup.subtitle':
     'Ціхі стол, атмасферныя супрацоўнікі і рэдактар доўгіх тэкстаў, які не перашкаджае.',
   'templates.blank.subtitle': 'Чыстая старонка. Пачынаецца курсор.',
@@ -163,11 +189,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Пачніце з прадуманай структуры. Наладжвайце бясконца.',
   'templates.useFailed': 'Не атрымалася пачаць стварэнне дакумента з гэтага шаблону.',
   'templates.useTemplate': 'Выкарыстоўваць гэты шаблон',
+  'terms.intro': 'Умовы, на якіх вы можаце карыстацца гэтым сэрвісам.',
   'terms.title': 'Умовы абслугоўвання',
   'time.daysAgo': '{{days}} д. таму',
   'time.hoursAgo': '{{hours}} г. таму',
   'time.justNow': 'толькі што',
   'trash.confirmDelete': 'Пацвердзіць выдаленне',
+  'trash.confirmEmpty': 'Пацвердзіць — выдаліць усё',
   'trash.deleteFailed': 'Не атрымалася выдаліць.',
   'trash.deleteForever': 'Выдаліць назаўсёды',
   'trash.empty': 'Няма чаго аднаўляць.',
@@ -181,7 +209,9 @@ export const ui: UiTranslations = {
   'versionHistory.backToDoc': 'Вярнуцца да рукапісу',
   'versionHistory.empty': 'Пакуль няма рэдакцый — захавайце дакумент, каб пачаць яго гісторыю.',
   'versionHistory.heading': 'Гісторыя версій',
+  'versionHistory.latest': 'Апошнія',
   'versionHistory.loadFailed': 'Не атрымалася загрузіць гісторыю.',
+  'versionHistory.noContent': 'Для гэтай версіі не захавана ніякага зместу.',
   'versionHistory.previewing': 'Папярэдні прагляд',
   'versionHistory.restore': 'Аднавіць гэту версію',
   'versionHistory.restoreFailed': 'Аднаўленне не атрымалася.',

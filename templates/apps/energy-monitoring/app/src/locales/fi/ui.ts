@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kysymyksiä, ominaisuustoiveita tai mittari, jota meidän pitäisi tukea? Tavoita {{appName}}-tiimi tilisi asetuksista — jokainen viesti menee oikealle henkilölle.',
   'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
+  'about.featuresTitle': 'Mitä saat',
+  'about.intro':
+    '{{appName}} on reaaliaikainen energianseuranta aurinkokodeille ja kiinteistötiimeille. Muunnamme mittari-, invertteri- ja akkudatan tulvan rauhalliseksi valvomonäkymäksi — reaaliaikainen teho, aurinkotuotanto, vuorokausihintainen kustannus ja hälytykset, kaikki yhdessä näkymässä.',
+  'about.missionBody':
+    'Energia, jonka näet, on energiaa, jota voit hallita. Uskomme, että jokainen mittaria käyttävä — aurinkopaneelikoti tai rakennusta seuraava tiimi — ansaitsee sähköyhtiötason oivallukset ilman sähköyhtiötason sopimusta. Jokainen ominaisuus on rakennettu tekemään seuraavasta kilowattitunnista tietoinen valinta, ei yllätys laskussa.',
+  'about.missionTitle': 'Missiomme',
   'about.pageTitle': 'Tietoja {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Ack',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@omaverkkotunnus.com',
   'alertRule.eyebrow': 'Uusi sääntö',
   'alertRule.heading': 'Nappaa piikki ennen kuin se maksaa sinulle',
+  'alertRule.nameLabel': 'Säännön nimi',
   'alertRule.namePlaceholder': 'esim. LVI-valvonta aukioloaikojen ulkopuolella',
   'alertRule.subheading':
     'Valitse mittari, kynnysarvo ja mihin hälytys lähetetään. Voit muokata tai keskeyttää sen milloin tahansa.',
   'alertRule.submit': 'Tallenna sääntö',
   'alertRule.submitError': 'Sääntöä ei voitu tallentaa.',
   'alertRule.thresholdLabel': 'Kynnys',
+  'alertRule.typeLabel': 'Laukaisijan tyyppi',
   'alerts.checking': 'Tarkistetaan…',
   'alerts.confirmDelete': 'Vahvista poisto',
+  'alerts.empty': 'Ei näytettävää — ei hälytyksiä tässä tilassa.',
   'alerts.emptyNoRules':
     'Ei vielä hälytyksiä — lisää sääntö ja testaa sitä napsauttamalla "Arvioi nyt".',
   'alerts.errorAck': 'Ei voinut kuitata.',
@@ -41,12 +52,14 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Arvioi nyt',
   'alerts.subheading':
     'Mittariesi käynnistyvät kynnys- ja kaavahälytykset sekä niitä ohjaavat säännöt.',
+  'billing.activeBlurb': 'Tilauksesi on voimassa. Hallinnoi sitä milloin tahansa.',
   'billing.cancelError': 'Tilausta ei voitu peruuttaa.',
   'billing.cancelling': 'Peruutetaan…',
   'billing.currentBadge': 'Nykyinen',
   'billing.freeBlurb':
     'Käytät ilmaista pakettia. Päivitä saadaksesi enemmän mittareita, pidemmän historian ja lisää hälytyssääntöjä.',
   'billing.heading': 'Tilaukset ja laskutus',
+  'billing.historyEmpty': 'Maksetut laskut näkyvät täällä, kun tilauksesi laskutetaan.',
   'billing.historyHeading': 'Laskuhistoria',
   'billing.loadError': 'Laskutusta ei voitu ladata.',
   'billing.loading': 'Ladataan suunnitelmia…',
@@ -58,17 +71,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Ota yhteyttä myyntiin',
   'common.goToDashboard': 'Siirry etusivulle',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} huippu · {{offPeak}} off-peak kWh',
   'dailyCostMeter.runningLabel': 'Juokseva kokonaissumma',
   'dailyCostMeter.title': 'Hinta tähän mennessä tänään',
   'dailyCostMeter.utilizationLabel': 'Päiväbudjetista',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Lisää mittari',
   'dashboard.alertsHeading': 'Aktiiviset hälytykset',
   'dashboard.devicesHeading': 'Parhaat piirit juuri nyt',
   'dashboard.empty.body':
     'Lisää älymittari tai aurinkoinvertteri aloittaaksesi reaaliaikaisen kulutuksen ja tuotannon seurannan.',
+  'dashboard.empty.title': 'Ei vielä mittareita',
   'dashboard.eyebrow': 'Voltracen valvomo',
   'dashboard.heading': 'Live-energiatilanne',
   'dashboard.loadError': 'Live-lukemia ei voitu ladata.',
   'dashboard.loading': 'Mittarien tarkkailu…',
+  'dashboard.noAlerts': 'Kaikki rauhallista — mikään ei ylitä raja-arvojasi.',
   'dashboard.noAlertsAndNoMeters':
     'Kun olet kytkenyt mittarin, kynnysarvoihisi perustuvat hälytykset näkyvät täällä.',
   'dashboard.noCircuits': 'Ei vielä näytettäviä piirejä — lisää mittari aloittaaksesi.',
@@ -76,6 +94,7 @@ export const ui: UiTranslations = {
     'Koko kodin sähkönkulutus, aurinkoenergian tuotanto ja kustannukset tähän mennessä.',
   'dashboard.viewAllAlerts': 'Hallinnoi hälytyksiä →',
   'dashboard.viewAllDevices': 'Jokainen laite →',
+  'deviceDetail.activeTokens': 'Aktiiviset ingest-tokenit',
   'deviceDetail.alreadyOff': 'Jo keskeytetty',
   'deviceDetail.back': 'Kaikki piirit',
   'deviceDetail.confirmDelete': 'Vahvista poisto',
@@ -116,22 +135,34 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Mittareita ei voitu ladata.',
   'devices.loading': 'Mittarin kysely…',
   'devices.newRule': 'Uusi hälytyssääntö',
+  'devices.noResults': 'Yksikään piiri ei vastaa tätä suodatinta.',
   'devices.placeholder.location': 'esim. konehuone',
   'devices.placeholder.name': 'esim. autotallin alapaneeli',
   'devices.subheading':
     'Reaaliaikainen teho ja tämän päivän kWh-arvot jokaisesta Voltracen näkemästä piiristä.',
+  'deviceWattageRow.todayKwh': '{{kwh}} kWh tänään',
+  'deviceWattageRow.watts': '{{watts}} Länsi',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Valikko',
+  'energyMonitoringLayout.primaryNavLabel': 'Päänavigaatio',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    '{{appName}} keskustelee useimpien sähköyhtiötason mittareiden, aurinkoinvertterien ja akkujärjestelmien kanssa — johdolla tai WiFi:n yli.',
   'landing.ctaHeading': 'Yhdistä mittarisi ja katso wattimäärä minuuteissa',
   'landing.eyebrow': 'Reaaliaikainen energiatiedustelu',
+  'landing.featuresHeading': 'Jokainen watti, jokainen minuutti, yhdessä näkymässä',
   'landing.getStarted': 'Kytke Voltrace-virtalähde',
   'landing.heroCta': 'Kytke Voltrace-virtalähde',
+  'landing.heroSubtitle':
+    'Reaaliaikainen teho, aurinkotuotanto, vuorokausihintainen kustannus ja korkean kulutuksen hälytykset valvomonäkymässä, joka on rakennettu aurinkokodeille ja kiinteistötiimeille.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Koko kodin tasapeli',
   'landing.sampleSolar': '+3 820 W aurinkoenergiaa',
   'landing.sampleSummary': '1 680 W sähköverkkoon · 18,4 kWh tänään',
   'landing.sampleWatts': '2 140 W',
   'powerHeroCard.solar': '+ {{watts}} W-aurinko',
   'powerHeroCard.title': 'Koko kodin tasapeli',
+  'powerHeroCard.todayKwh': '{{kwh}} kWh tänään',
   'powerHeroCard.watts': '{{watts}} Länsi',
   'pricing.choose': 'Valitse {{name}}',
   'pricing.contact': 'Tarvitsetko jotain räätälöityä?',
@@ -145,6 +176,7 @@ export const ui: UiTranslations = {
   'pricing.unavailable':
     'Tämä paketti ei ole tällä hetkellä saatavilla — Stripeä ei ole määritetty.',
   'profile.errorGeneric': 'Profiilimuutosten tallentaminen epäonnistui.',
+  'profile.errorGoal': 'Kuukausittaisen kWh-tavoitteen on oltava positiivinen luku.',
   'profile.errorHousehold': 'Kotitalouden koon on oltava positiivinen luku.',
   'profile.householdHeading': 'Kotitalous ja tavoitteet',
   'profile.householdSize': 'Kotitalouden koko',
@@ -161,9 +193,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'Lukemien yhdistäminen…',
   'reports.subheading':
     'Päivittäiset kokonaismäärät kulutukselle, tuotannolle ja kustannuksille – päivämäärän mukaan jaoteltuna.',
+  'reports.tableHeading': 'Päiväkohtainen erittely',
   'settings.currency': 'Valuutta',
   'settings.errorFlat': 'Kiinteän hinnan on oltava ≥ 0.',
   'settings.errorNotify': 'Ilmoitusasetusten tallentaminen epäonnistui.',
+  'settings.errorSave': 'Hintasuunnitelmaa ei voitu tallentaa.',
   'settings.errorTou':
     'Ruuhka- ja hiljaisen ajan hinnat sekä kelvollinen ruuhka-aikaikkuna vaaditaan.',
   'settings.exportBody':
@@ -184,10 +218,21 @@ export const ui: UiTranslations = {
   'settings.saving': 'Tallennetaan…',
   'settings.securityHeading': 'Kaksivaiheinen todennus',
   'settings.subheading': 'Hinnat, ilmoitukset ja datan vienti.',
+  'settings.twoFactorBody':
+    'Vaadi kertakäyttökoodi todennussovelluksestasi joka kerta, kun kirjaudut sisään.',
   'settings.twoFactorCode': 'Todennuskoodi',
   'settings.twoFactorDisable': 'Poista käytöstä',
+  'settings.twoFactorDisableTitle': 'Poista kaksivaiheinen tunnistautuminen käytöstä',
   'settings.twoFactorEnable': 'Ota käyttöön',
+  'settings.twoFactorEnableTitle': 'Ota kaksivaiheinen tunnistautuminen käyttöön',
   'settings.twoFactorInvalidCode': 'Virheellinen koodi',
+  'settings.twoFactorOAuth':
+    'Tilisi kirjautuu sisään yhdistetyn palveluntarjoajan kautta, joten kaksivaiheinen tunnistautuminen hallitaan siellä.',
   'settings.twoFactorOn': 'Päivämäärä',
+  'settings.twoFactorQrAlt': 'Kaksivaiheisen QR-koodi',
+  'settings.twoFactorScan':
+    'Skannaa tämä QR-koodi tunnistautumissovelluksellasi ja syötä sitten 6-numeroinen koodi.',
+  'settings.twoFactorUnavailable':
+    'Kaksivaiheinen todennus ei ole käytettävissä tälle sovellukselle.',
   'settings.twoFactorVerify': 'Vahvista ja ota käyttöön',
 }

@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Знайшлі баг, маеце прапанову ці хочаце сказаць нам, што рабіць далей? Напішыце на hello@pylon.dev — кожнае паведамленне трапляе да рэальнага інжынера каманды.',
   'about.contactTitle': 'Звяжыцеся з намі',
+  'about.intro':
+    '{{app}} — гэта хуткі, кіраваны з клавіятуры інструмент для тэставання API для інжынераў, якія жывуць у тэрмінале — запыты ў стылі Postman, калекцыі, асяроддзі і гісторыя без залішняй вагі.',
+  'about.missionBody':
+    'API — гэта аснова сучаснага праграмнага забеспячэння, але інструменты для працы з імі павольныя, раздутыя і кіруюцца мышшу. {{app}} існуе, каб даць распрацоўшчыкам востры, хуткі інструмент узроўню тэрмінала: адпраўляйце запыты, набывайце ўпэўненасць і выпускайце прадукты, не адрываючыся ад клавіятуры.',
+  'about.missionTitle': 'Наша місія',
   'about.pageTitle': 'Пра {{app}}',
   'authShell.statusLabel': 'бегуны онлайн',
   'collections.createError': 'Не атрымалася стварыць калекцыю.',
   'collections.defaultName': 'Калекцыя без назвы {{n}}',
+  'collections.empty':
+    'Калекцый пакуль няма — націсніце «Новая калекцыя», каб стварыць першую папку.',
   'collections.eyebrow': '$ pylon калекцыі --tree',
   'collections.fetchError': 'Не атрымалася загрузіць калекцыі.',
   'collections.heading': 'Калекцыі',
   'collections.loading': 'Загрузка калекцый…',
+  'collections.metric.allGreen': 'Усё зялёнае',
   'collections.metric.collections': 'Калекцыі',
   'collections.metric.failing': 'Не атрымалася',
   'collections.metric.failingCaption': 'Апошні запуск меў няўдачы',
@@ -24,6 +34,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Зменныя',
   'environments.createError': 'Не атрымалася стварыць асяроддзе.',
   'environments.defaultName': 'Безназоўнае асяроддзе {{n}}',
+  'environments.empty': 'Асяроддзяў пакуль няма — націсніце «Новае асяроддзе», каб дадаць адно.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'Не атрымалася загрузіць асяроддзі.',
   'environments.heading': 'Асяроддзі',
@@ -31,8 +42,11 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Новае асяроддзе',
   'environments.subheading':
     'Зменныя, якія пераўтвараюцца ў запыты падчас адпраўкі. Адно актыўнае асяроддзе на працоўную прастору.',
+  'forgotPassword.statusLabel': 'скінуць · бяспечны тунэль',
   'forgotPassword.success':
     'Калі для гэтага адраса электроннай пошты існуе ўліковы запіс, спасылка для скіду ўжо ў дарозе. Праверце сваю паштовую скрыню.',
+  'history.empty':
+    'Тут пакуль нічога няма — адпраўце свой першы запыт з укладкі «Працоўная прастора».',
   'history.eyebrow': 'Гісторыя $pylon --tail',
   'history.fetchError': 'Не атрымалася загрузіць гісторыю.',
   'history.heading': 'Гісторыя забегаў',
@@ -41,9 +55,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Апошнія 50',
+  'history.realtime': 'у рэальным часе',
   'history.subheading':
     'Кожны запыт, выкананы ў гэтай працоўнай прасторы, з указаннем статусу, затрымкі і памеру карыснай нагрузкі.',
   'landing.choosePlan': 'Выберыце план',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Forge confidence.',
   'landing.ctaBody':
     'Няма крэдытнай карты. Не патрабуецца інжынер платформы. Адкрыйце ⌘K і адпраўце свой першы запыт менш чым за пяць хвілін.',
   'landing.ctaHeading': 'Выбудоўвайце ўпэўненасць.',
@@ -85,6 +101,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Сярэдняя затрымка',
   'mocks.metric.live': 'Публічнае',
   'mocks.metric.servers': 'Здзекуецца',
+  'mocks.ms': 'мс',
   'mocks.newMock': 'Новы макет',
   'mocks.online': 'Публічнае',
   'mocks.paused': 'Прыватнае',
@@ -108,9 +125,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Здаровы',
   'monitors.metric.uptime': 'Сярэдні час бесперабойнай працы',
   'monitors.newMonitor': 'Новы манітор',
+  'monitors.paused': 'прыпынена',
   'monitors.run': 'Бегчы',
   'monitors.runError': 'Выкананне завершана з-за памылкі сеткі: {{error}}',
+  'monitors.runFailed': 'Запуск не ўдаўся.',
   'monitors.running': 'Выконваецца…',
+  'monitors.runSuccess': 'Запуск {{status}} — крыніца вярнула {{code}} за {{ms}}мс.',
   'monitors.sparkLabel': 'Тэндэнцыя затрымкі',
   'monitors.subheading':
     'Праверка па патрабаванні на наяўнасць любога захаванага тэсту. Прывяжыце тэст, націсніце «Выканаць» і назірайце за абнаўленнем паказчыка поспеху за 24 гадзіны пры кожным запуске.',
@@ -119,27 +139,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Час бесперабойнай працы · 24 гадзіны',
   'nav.legal': 'Юрыдычная інфармацыя',
   'notFound.backToWorkspace': 'Назад да працоўнай прасторы',
+  'notFound.body':
+    '{{app}} адправіў запыт па гэтым URL і не атрымаў адказу. Пераправерце маршрут або вярніцеся ў працоўную прастору.',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Маршрут не знойдзены',
+  'planUpdated.body':
+    'Змена білінгу цяпер актыўная. Вы можаце кіраваць сваім тарыфам у любы час са старонкі білінгу.',
+  'planUpdated.retry': 'Паспрабуйце яшчэ раз',
+  'planUpdated.verifyFailed': 'Нам пакуль не ўдалося пацвердзіць ваш плацёж.',
+  'planUpdated.verifyFailedBody':
+    'Магчыма, ваш плацёж усё яшчэ апрацоўваецца. Паўтарыце спробу праз хвіліну.',
   'planUpdated.verifying': 'Пацвярджэнне аплаты…',
+  'pricing.advancedFeatures': 'Пашыраныя функцыі: {{yes}}',
+  'pricing.canExport': 'Экспарт даных: {{yes}}',
+  'pricing.heading': 'Выберыце свой план {{app}}',
+  'pricing.maxCollections': '{{count}} калекцый',
+  'pricing.maxEnvironments': '{{count}} асяроддзяў',
+  'pricing.maxHistory': '{{count}} запісаў гісторыі',
+  'pricing.maxRequests': '{{count}} запыты',
   'privacy.collect.account':
     'Уліковы запіс: ваш адрас электроннай пошты, хэшаваны пароль, імя карыстальніка і часовая метка вашага апошняга ўваходу ў сістэму.',
+  'privacy.intro':
+    '{{app}} паважае вашу прыватнасць. На гэтай старонцы апісана, якія даныя мы збіраем, навошта і як іх выдаліць.',
   'privacy.rights.body':
     'Вы можаце экспартаваць свае калекцыі + асяроддзі ў любы час або выдаліць свой уліковы запіс з налад, каб назаўсёды выдаліць усе дадзеныя на працягу 30 дзён.',
   'privacy.share.body':
     'Толькі вы. Мы ніколі не прадаем, не перадаем і не здаем у арэнду кантэнт вашай працоўнай прасторы трэцім асобам. Журналы сервера захоўваюцца на працягу 30 дзён для рэагавання на інцыдэнты, а затым выдаляюцца.',
   'privacy.title': 'Паведамленне аб прыватнасці',
+  'profile.bio':
+    'Ваша асабістая працоўная прастора {{app}} — замацоўвайце калекцыі, дзяліцеся асяроддзямі і маніторце API, якія забяспечваюць выпуск прадуктаў.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'далучыўся {{when}}',
+  'profile.metric.collections': 'Калекцыі',
   'profile.metric.monitors': 'Маніторы',
   'profile.metric.requests': 'Захаваныя запыты',
+  'profile.noActivity':
+    'Запытаў яшчэ не было — перайдзіце ва ўкладку «Працоўная прастора», каб зрабіць яго.',
   'profile.signedOut': 'Увайдзіце, каб праглядзець свой профіль',
   'pylonShell.primaryNavLabel': 'Асноўная навігацыя',
+  'resetPassword.passwordLabel': 'Новы пароль',
+  'resetPassword.statusLabel': 'скінуць · токен правераны',
   'resetPassword.subtitle': 'Выберыце надзейны пароль, якім вы раней не карысталіся.',
   'resetPassword.tokenPlaceholder': 'уставіць з электроннай пошты',
+  'settings.accountManagement.desc':
+    'Абнавіце электронную пошту і пароль, кіруйце апавяшчэннямі і прыладамі, выйдзіце або выдаліце ўліковы запіс.',
+  'settings.accountManagement.title': 'Уліковы запіс і бяспека',
   'settings.eyebrow': '$ налады пілона --рэдагаваць',
   'settings.fetchError': 'Не атрымалася загрузіць налады.',
   'settings.language.title': 'Мова',
+  'settings.seeding': 'Запаўненне…',
   'settings.seedStarter': 'Змест стартавай пасевы',
   'settings.starterCollection': 'Пачатковая калекцыя',
   'settings.starterCollectionDesc': 'Створана з налад {{ts}}',
@@ -154,6 +202,8 @@ export const ui: UiTranslations = {
     'Вы нясеце адказнасць за абарону свайго пароля. Сумеснае выкарыстанне аднаго ўліковага запісу з некалькімі людзьмі не дазваляецца на бясплатных або прафесійных тарыфных планах — купіце падпіску Team для агульных працоўных прастор.',
   'terms.billing.body':
     'Платныя падпіскі аўтаматычна падаўжаюцца ў кожны разліковы перыяд. Адмяніць падпіску можна ў любы час у наладах; ваш доступ будзе захаваны да канца бягучага перыяду.',
+  'terms.intro':
+    'Ствараючы ўліковы запіс {{app}}, вы згаджаецеся з умовамі ніжэй. Прачытайце іх адзін раз; мы не будзем здзіўляць вас рэтраактыўнымі зменамі.',
   'terms.title': 'Умовы абслугоўвання',
   'terms.usage.body':
     'Не выкарыстоўвайце Pylon для адпраўкі запытаў у сэрвісы, якімі вы не валодаеце або на якія не маеце відавочнага дазволу на тэставанне. Не выкарыстоўвайце Pylon для абыходу абмежаванняў хуткасці або здзяйснення махлярства.',
@@ -174,16 +224,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Не запускаецца',
   'testRunner.metric.passed': 'Здадзена',
   'testRunner.never': 'Ніколі не бегайце',
+  'testRunner.newTest': 'Новы тэст',
   'testRunner.noAssertions': 'Пакуль што ніякіх заяў наконт гэтага тэсту няма.',
+  'testRunner.noRunsYet':
+    'Запускаў пакуль не запісана — націсніце «Запусціць усе», каб запоўніць гісторыю.',
   'testRunner.passed': 'праходжанне',
+  'testRunner.recentRuns': 'Нядаўнія прабежкі',
   'testRunner.runAll': 'Выканаць усё',
   'testRunner.running': 'Выконваецца…',
   'testRunner.runOne': 'Бегчы',
   'testRunner.subheading': 'Вынікі набору, адрозненні ў сцвярджэннях і апошнія 50 прагонаў.',
+  'testRunner.suites': 'Наборы',
   'userMenu.shortcut': '⌘Л',
   'userMenu.signedInAs': 'Увайшоў як',
   'workspace.auth.keyName': 'Назва загалоўка',
   'workspace.auth.keyValue': 'Ключавое значэнне',
+  'workspace.auth.noneHint': 'Загаловак аўтарызацыі не будзе адпраўлены з гэтым запытам.',
   'workspace.auth.password': 'Пароль',
   'workspace.auth.username': 'Імя карыстальніка',
   'workspace.authOption.apikey': 'Ключ API',
@@ -193,13 +249,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Тып',
   'workspace.authTypeLabel': 'Тып аўтарызацыі',
+  'workspace.body.contentLabel': 'Тэкст запыту',
+  'workspace.body.hint':
+    '{{envVars}} падстаўляюцца перад адпраўкай запыту. Целы адпраўляюцца пры POST/PUT/PATCH/DELETE.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Няма',
+  'workspace.body.noneHint':
+    'Цела запыту не будзе адпраўлена. Выберыце JSON або звычайны тэкст, каб дадаць яго.',
   'workspace.body.text': 'Неапрацаваны тэкст',
   'workspace.body.type': 'Тып',
   'workspace.environment': 'Няма асяроддзя',
   'workspace.envVar': 'зменная асяроддзя',
   'workspace.eyebrow': '$ pylon workspace --pane падзяліць',
+  'workspace.failedCount': '{{count}} не атрымалася',
+  'workspace.idle': 'Бяздзейнасць',
   'workspace.kv.addHeader': 'Дадаць загаловак',
   'workspace.kv.addParam': 'Дадаць параметр',
   'workspace.kv.headerKey': 'Назва загалоўка',
@@ -212,12 +275,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'Метад HTTP',
   'workspace.metric.latency': 'Затрымка',
   'workspace.metric.latencyCaption': 'Паездка туды і назад з гэтага маршруту',
+  'workspace.metric.size': 'Карысная нагрузка',
   'workspace.metric.sizeCaption': 'Байты цела адказу',
   'workspace.metric.statusCaption': 'Апошні адказ',
   'workspace.metric.tests': 'Тэсты',
+  'workspace.metric.testsAllPassing': 'Усе праверкі зялёныя',
   'workspace.metric.testsFailing': '{{count}} няўдача',
+  'workspace.metric.testsIdle': 'Адпраўце запыт для ацэнкі',
   'workspace.noAssertions': 'Выканайце запыт для ацэнкі ўбудаваных сцвярджэнняў.',
   'workspace.noResponseYet': 'Пакуль няма адказу',
+  'workspace.passedCount': '{{count}} прайшоў',
   'workspace.responseHint': '// Націсніце «Адправіць», каб адправіць запыт і атрымаць адказ.',
   'workspace.saveError': 'Не ўдалося захаваць запыт.',
   'workspace.statusError': 'Не атрымалася адправіць запыт.',
@@ -226,10 +293,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Складзіце запыт, запусціце яго, а затым пацвердзіце адказ — усё ў адной панэлі.',
   'workspace.testResults': 'Вынікі тэстаў',
+  'workspace.tests.autoHint':
+    "Сямейства статусаў, затрымка, памер цела і стан транспарту правяраюцца аўтаматычна — вынікі з'яўляюцца ў раздзеле «Вынікі тэстаў» на панэлі адказу.",
+  'workspace.tests.autoTitle': 'Убудаваныя праверкі выконваюцца для кожнага адказу',
   'workspace.token': 'Токен',
   'workspace.tokenHint':
     "Адпраўлена як аўтарызацыя: На прад'яўніка<token> па кожным запыце ў гэтай калекцыі.",
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Запыт без назвы',
+  'workspace.urlLabel': 'URL-адрас запыту',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

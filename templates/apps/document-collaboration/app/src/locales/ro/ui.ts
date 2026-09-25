@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ai feedback, ai găsit o eroare sau vrei {{app}} pentru studioul sau echipa ta? Scrie-ne din setările contului — fiecare mesaj ajunge la o persoană reală din echipă.',
   'about.contactTitle': 'Contactează-ne',
+  'about.intro':
+    '{{app}} este un studio de scriere colaborativă unde editorii, autorii și echipele redactează împreună în timp real. Deschide un document și pagina devine partajată — cursoarele se mișcă, comentariile se înlănțuie pe margine, iar fiecare revizuire este păstrată în siguranță în istoric.',
+  'about.missionBody':
+    'Credem că scrisul de lungă durată merită un spațiu calm și concentrat — unul construit în jurul manuscrisului, nu al ședinței sau al căsuței de e-mail. Editorul nostru, prezența în timp real și istoricul versiunilor sunt toate concepute astfel încât colaboratorii să avanseze rapid împreună fără ca cineva să piardă un paragraf sau o idee.',
+  'about.missionTitle': 'Misiunea noastră',
+  'about.subtitle': 'Gândiți împreună, scrieți pentru totdeauna.',
   'about.title': 'Despre {{app}}',
   'comments.addFailed': 'Nu s-a putut posta comentariul.',
   'comments.backToDoc': 'Înapoi la manuscris',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Secțiuni de comentarii',
   'comments.loading': 'Se încarcă subiectele…',
   'comments.newPlaceholder': 'Adaugă un comentariu la manuscris…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Redeschidere',
   'comments.reopenFailed': 'Nu s-a putut redeschide.',
   'comments.replyFailed': 'Nu s-a putut posta răspunsul.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Proiectele recente, lucrările partajate și modificările din ziua de azi.',
   'dashboard.viewFeed': 'Feed →',
   'editor.back': 'Înapoi la manuscrise',
+  'editor.bodyLabel': 'Conținutul documentului',
   'editor.bodyPlaceholder': 'Începe de la locul unde clipește cursorul.',
   'editor.comments': 'Comentarii',
   'editor.createFailed': 'Nu s-a putut crea documentul.',
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Dacă există un cont pentru adresa {{email}}, îți vom trimite în curând un link de resetare.',
+  'forgotPassword.sentHeading': 'Verificați e-mailul',
+  'forgotPassword.submitting': 'Se trimite\\u2026',
   'forgotPassword.subtitle': 'Îți vom trimite prin e-mail un link de resetare.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Construit cu Molecule.',
+  'landing.ctaBody':
+    'Gratuit pentru autorii individuali. Planuri Studio pentru echipe de editori, ghostwriteri și recenzori.',
   'landing.ctaHeading': 'Deschide pagina. Lasă cursorul să pornească.',
   'landing.ctaPrimary': 'Deschide un studio',
   'landing.eyebrow': 'Pentru scriitori, editori și echipe',
   'landing.featuresEyebrow': 'Ce primiți',
   'landing.featuresHeading': 'Un spațiu dedicat redactării textelor de lungă durată.',
+  'landing.featuresSubtitle':
+    '{{appName}} este construit în jurul manuscrisului — nu al ședinței, nu al căsuței de e-mail.',
   'landing.getStarted': 'Deschideți studioul',
   'landing.heroCta': 'Începeți să scrieți',
   'landing.heroSubtitle':
@@ -95,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} necitite · comentarii, mențiuni, invitații de partajare și cereri de sugestii.',
   'presenceAvatars.label': '{{count}} colaboratori',
+  'privacy.intro': 'Cum colectăm, folosim și protejăm informațiile tale.',
   'privacy.title': 'Politică de confidențialitate',
   'profile.about.description':
     'O scurtă biografie pentru profilul tău public și paginile dedicate colaboratorilor.',
@@ -107,7 +124,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Prezență',
   'profile.pronouns': 'Pronumele',
   'profile.publicToggle': 'Afișează profilul colegilor de echipă',
+  'profile.role': 'Rol / titlu',
   'profile.subtitle': 'Cum te percep colaboratorii tăi.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} scriitori care activează în cadrul studioului',
   'quillonAuthBrandPanel.quote':
     '„Scrierea este singurul lucru pe care, atunci când îl fac, nu simt că ar trebui să fac altceva.”',
@@ -115,6 +134,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Deschide →',
   'quillonKpiCard.trend': 'Tendința actuală',
   'quillonLayout.menu': 'Meniu',
+  'quillonLayout.mobileNavLabel': 'Navigare mobilă',
   'quillonLayout.primaryNavLabel': 'Navigare principală',
   'quillonStudioHero.collab': 'Colaboratori',
   'quillonStudioHero.docs': 'Documente modificate',
@@ -124,7 +144,9 @@ export const ui: UiTranslations = {
     'Ia manuscrisul, lasă un comentariu, continuă cu următorul paragraf.',
   'quillonStudioHero.words': 'Cuvinte de astăzi',
   'resetPassword.confirmPlaceholder': 'Repetați noua parolă',
+  'resetPassword.passwordLabel': 'Parolă nouă',
   'resetPassword.passwordPlaceholder': 'Introduceți o nouă parolă',
+  'resetPassword.submitting': 'Resetare…',
   'resetPassword.subtitle': 'Alegeți o parolă puternică — de cel puțin 12 caractere.',
   'settings.account.description': 'Cum te autentifici.',
   'settings.billing.canceled': 'Abonament anulat.',
@@ -134,7 +156,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Nu este configurat',
   'settings.billing.updated': 'Planul a fost actualizat.',
   'settings.editor.description': 'Cum se comportă pânza în timp ce scrii.',
+  'settings.editor.title': 'Preferințe editor',
   'settings.eyebrow': 'Preferințe studio',
+  'settings.language.title': 'Limbă',
   'settings.notifications.${n.key}.description': 'Limbă',
   'settings.notifications.description': 'Alege ce primești în căsuța de e-mail.',
   'settings.subtitle': 'Configurează notificările, zona de editare și setările contului tău.',
@@ -143,6 +167,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Mi-a fost trimis',
   'shared.loadFailed': 'Nu s-au putut încărca documentele partajate.',
   'shared.subtitle': 'Manuscrise, rezumate și note din restul studioului.',
+  'signup.brandAttribution': 'Anaïs Park — Editor, The Quarterly',
   'signup.brandQuote':
     '„Primul manuscris este cel mai greu. Quillon te ajută să te simți mai puțin singur.”',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -150,6 +175,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Anaïs',
   'signup.heading': 'Creează-ți contul Quillon',
   'signup.lastNamePlaceholder': 'Parc',
+  'signup.submitting': 'Se deschide studioul tău\\u2026',
   'signup.subtitle':
     'Un birou liniștit, colegi prietenoși și un editor de texte lungi care nu te deranjează.',
   'templates.blank.subtitle': 'O pagină goală. Cursorul este gata.',
@@ -162,11 +188,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Începe cu o structură bine gândită. Personalizează-o după bunul plac.',
   'templates.useFailed': 'Nu s-a putut deschide un document pe baza acestui șablon.',
   'templates.useTemplate': 'Folosiți acest șablon',
+  'terms.intro': 'Condițiile în care poți utiliza acest serviciu.',
   'terms.title': 'Termeni de serviciu',
   'time.daysAgo': 'acum {{days}}z',
   'time.hoursAgo': 'acum {{hours}}h',
   'time.justNow': 'chiar acum',
   'trash.confirmDelete': 'Confirmă ștergerea',
+  'trash.confirmEmpty': 'Confirmă — șterge tot',
   'trash.deleteFailed': 'Nu s-a putut șterge.',
   'trash.deleteForever': 'Șterge definitiv',
   'trash.empty': 'Nu este nimic de recuperat.',
@@ -182,7 +210,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'Nu există încă modificări — salvați documentul pentru a crea istoricul acestuia.',
   'versionHistory.heading': 'Istoric versiuni',
+  'versionHistory.latest': 'Ultimele noutăți',
   'versionHistory.loadFailed': 'Istoricul nu a putut fi încărcat.',
+  'versionHistory.noContent': 'Nu s-a capturat niciun conținut pentru această revizuire.',
   'versionHistory.previewing': 'Previzualizare',
   'versionHistory.restore': 'Restaurează această versiune',
   'versionHistory.restoreFailed': 'Restaurarea a eșuat.',

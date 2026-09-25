@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Ang Dendrite ay isang platform ng workflow automation na nagkokonekta ng mga trigger, kondisyon ng AI, at multi-step na aksyon para makapaglipat ang mga team ng trabaho sa pagitan ng mga sistema nang hindi nagsusulat ng glue code.',
+  'about.philosophy':
+    'Ang bawat workflow ay isang graph ng maliliit, napapansing mga hakbang. Itinatala ng bawat hakbang ang mga input, output, at timing nito para masuri, ma-replay, o ma-roll back. Isama ang mga ito nang biswal, i-version tulad ng code.',
   'about.title': 'Tungkol sa Dendrite',
   'authShell.brand': 'Dendrite',
   'authShell.support': 'Suporta',
@@ -15,9 +17,14 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Baguhin ang plano',
   'billing.description':
     'Subaybayan ang paggamit, pamahalaan ang iyong plano, at kumuha ng mga invoice para sa accounting.',
+  'billing.eyebrow': 'Account · Plano at paggamit',
+  'billing.failedLabel': 'Mga nabigong run · 24h',
+  'billing.invoicesEmpty':
+    'Wala pang invoice. Lalabas ang mga ito dito pagkatapos ng iyong unang bayad na renewal.',
   'billing.invoicesTitle': 'Kasaysayan ng invoice',
   'billing.planNoteFree':
     'Libreng antas — {{runs}} na run at {{workflows}} na aktibong workflow. Mag-upgrade para sa mas mataas na limitasyon.',
+  'billing.planNotePaid': 'Bayad na plano — {{runs}} run at {{workflows}} aktibong workflow.',
   'billing.runsLabel': 'Mga run sa nakaraang 24 na oras',
   'billing.tiersBlurb':
     'Ikumpara ang bawat antas — mga run, aktibong workflow, advanced na feature, at suporta — sa dedicated na pahina ng pagpepresyo.',
@@ -35,10 +42,14 @@ export const ui: UiTranslations = {
     'Walang nairehistrong integrasyon. I-configure ang mga provider key para ma-enable ang mga bond.',
   'connections.error': 'Hindi ma-load ang mga koneksyon.',
   'connections.eyebrow': 'Mga integrasyon · {{connected}} nakakonekta',
+  'connections.loading': 'Nilo-load ang mga integration…',
+  'connections.openEnv':
+    'Para ikonekta ang provider na ito, itakda ang API key nito sa api/.env at i-restart ang server.',
   'dashboard.description':
     '{{active}} na workflow ang aktibo. {{failed}} nabigo sa nakaraang 24 na oras.',
   'dashboard.error': 'Hindi ma-load ang dashboard.',
   'dashboard.eyebrow': 'Mga operasyon · live',
+  'dashboard.hero.label': 'Mga run ngayong araw',
   'dashboard.hero.medianLatency': 'Latency na p50',
   'dashboard.hero.queue': 'Lalim ng pila',
   'dashboard.hero.success': 'Tagumpay',
@@ -46,14 +57,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Median na tagal',
   'dashboard.kpi.failedRuns': 'Nabigo · 24h',
   'dashboard.kpi.outOf': 'sa {{total}} kabuuan',
+  'dashboard.kpi.successRate': 'Success rate · 24h',
   'dashboard.loading': 'Nilo-load ang dashboard…',
   'dashboard.recentRuns.empty':
     'Wala pang run. Mag-trigger ng workflow para mapuno ang feed na ito.',
   'dashboard.recentRuns.title': 'Mga kamakailang run',
   'dashboard.recentRuns.viewAll': 'Buksan ang mga execution →',
+  'dashboard.recentWorkflows.browse': 'Mag-browse ng mga template →',
   'dashboard.recentWorkflows.empty':
     'Wala pang workflow. Mag-install ng template o gumawa mula sa simula.',
   'dashboard.recentWorkflows.title': 'Kamakailan lamang na na-run',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'Nagsimula',
   'dashboard.run.col.trigger': 'Trigger',
   'dashboard.run.col.workflow': 'Workflow',
@@ -89,6 +103,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Workflow',
   'executions.description':
     'Bawat run ng workflow, bawat retry, bawat output ng hakbang — lahat ay masusubaybayan.',
+  'executions.empty.filter': 'Walang run na tumutugma sa filter na ito.',
   'executions.empty.first':
     'Wala pang run — mag-trigger ng workflow para mapuno ang listahang ito.',
   'executions.error': 'Hindi ma-load ang mga execution.',
@@ -99,30 +114,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Nilo-load ang kasaysayan ng run…',
   'executions.title': 'Mga execution',
   'forgotPassword.confirmation': 'Reset link na ipinadala sa {{email}}.',
+  'forgotPassword.subhead': 'Ilagay ang inyong email para makatanggap ng link para sa pag-reset.',
   'forgotPassword.successSubhead':
     'Nagpadala kami ng reset link sa {{email}}. Mag-e-expire ito sa loob ng 30 minuto.',
   'help.connections.body':
     'Ang mga hakbang ng AI, email, at storage ay nangangailangan ng mga provider key na naka-set sa api/.env na file. Kapag na-configure ang isang key, ang kaukulang integrasyon ay lilitaw bilang nakakonekta sa pahina ng Mga Koneksyon.',
+  'help.connections.cta': 'Buksan ang mga koneksyon →',
   'help.connections.title': 'Pagkonekta sa mga provider',
   'help.gettingStarted.body':
     'Ang mga bagong workflow ay maaaring i-install mula sa library ng template o itayo mula sa simula sa workflow builder. Ang bawat workflow ay may trigger (manual, webhook, o cron) at isang pagkakasunud-sunod ng mga hakbang na tumatakbo sa pagkakasunud-sunod.',
+  'help.gettingStarted.cta': 'I-browse ang library ng template →',
+  'help.gettingStarted.title': 'Pagsisimula',
   'help.intro':
     'Hanapin ang mga sagot sa mga karaniwang tanong tungkol sa pagbuo ng mga workflow, pag-configure ng mga koneksyon, at pag-interpret ng output ng run. Ang mga pinakakaraniwang paksa ay nakalista sa ibaba; para sa anumang hindi natatakpan, makipag-ugnayan sa iyong workspace administrator.',
   'help.runs.body':
     'Bawat run ay nag-log ng bawat hakbang nang nakapag-iisa na may status (tagumpay, kabiguan, nilaktawan) at isang snippet ng output. Ang pahina ng detalye ng execution ay nagpapakita ng buong hakbang-hakbang na trace kasama ang mga inferred na metric.',
+  'help.runs.cta': 'Buksan ang mga execution →',
   'help.runs.title': 'Pagbabasa ng output ng run',
   'help.title': 'Help center',
   'integrationCard.manage': 'Pamahalaan',
   'landing.brand': 'Dendrite',
   'landing.demo.action.subtitle': 'Round-robin · teritoryo',
+  'landing.demo.action.title': 'Abisuhan ang rep',
   'landing.demo.condition.subtitle': 'AI intent classifier',
+  'landing.demo.condition.title': 'Score ≥ medium?',
   'landing.demo.trigger.subtitle': 'POST /forms/contact',
   'landing.demo.trigger.title': 'Papasok na webhook',
+  'landing.features.body':
+    'Nagti-trigger ang mga trigger. Nagsasanga ang mga kondisyon. Nagpapadala ng trabaho ang mga aksyon. Isama ang mga ito nang biswal, i-version tulad ng code.',
   'landing.features.heading': 'Tatlong uri ng node. Walang limitasyong hugis.',
   'landing.footer.help': 'Tulong',
   'landing.footer.tagline': 'Katalinuhan sa kilos',
+  'landing.hero.body':
+    'Ang {{appName}} ay ang workflow engine para sa mga ops team na lumampas na sa Zapier. Trigger, kondisyon, aksyon — konektado sa bawat system na aktwal mong ginagamit.',
   'landing.hero.eyebrow': 'Katalinuhan sa kilos',
   'landing.hero.headline': 'I-wire ang iyong stack. Hayaang mangyari ang trabaho.',
+  'landing.hero.primaryCta': 'Buuin ang iyong unang workflow',
   'landing.hero.proof.ai': 'Mga AI node na built-in',
   'landing.hero.proof.free': 'Libre para sa 1k run/buwan',
   'landing.hero.proof.soc2': 'SOC 2 Type II',
@@ -130,10 +157,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Magbayad para sa mga run, hindi sa mga upuan.',
   'landing.templates.body':
     'Mga pre-wired na workflow para sa bawat team — benta, suporta, devops, finance. I-install sa isang click; baguhin ang anuman.',
+  'landing.templates.cta': 'Mag-sign up para mag-browse ng mga template →',
   'landing.templates.eyebrow': 'Magsimula sa loob ng ilang segundo',
   'landing.templates.heading': 'Isang library ng mga sinubukang recipe.',
   'landing.templates.signupHint': 'Mag-sign up para mag-install',
   'login.hidePassword': 'Itago ang password',
+  'login.noAccount': 'Bago sa Tessera?',
   'login.showPassword': 'Ipakita ang password',
   'login.subhead': 'Mag-sign in para mapanatiling tumatakbo ang iyong mga automation.',
   'mobileNav.drawerLabel': 'Pangunahing nabigasyon',
@@ -149,8 +178,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Magpatakbo ng workflow para magsimulang mapuno ang feed na ito.',
   'notifications.empty.title': 'Wala kang napalampas',
   'notifications.eyebrow': '{{n}} hindi nabasa',
+  'planUpdated.body':
+    'Aktibo na ang pagbabago sa iyong billing. Maaari mong pamahalaan ang iyong plano anumang oras mula sa billing page.',
+  'planUpdated.retry': 'Subukan muli',
+  'planUpdated.verifyFailed': 'Hindi pa namin makumpirma ang iyong bayad.',
+  'planUpdated.verifyFailedBody':
+    'Maaaring pinoproseso pa rin ang iyong bayad. Subukan muli maya-maya.',
   'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'pricing.heading': 'mga run',
+  'pricing.runsSuffix': 'run',
   'pricing.workflowsSuffix': 'mga workflow',
   'privacy.collect.body':
     'Kinokolekta namin ang email address na ginagamit mo sa pag-sign up, ang mga workflow na iyong kino-configure, at metadata tungkol sa bawat run (oras ng simula, oras ng pagtatapos, status). Hindi namin kailanman kinokolekta o itinatago ang mga nilalaman ng payload mula sa mga trigger o output ng hakbang lampas sa kinakailangan para maipakita sa run viewer ng may-ari ng workspace.',
@@ -166,12 +202,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Hindi ma-update ang password.',
   'resetPassword.newPassword': 'Bagong password',
   'resetPassword.subhead': 'Pumili ng bagay na ikaw lang ang mahuhulaan.',
+  'settings.appearance.description': 'Mag-toggle sa pagitan ng light at dark mode.',
+  'settings.appearance.title': 'Hitsura',
   'settings.billingShortcut.cta': 'Buksan ang billing',
   'settings.billingShortcut.description':
     'Ang plano, paggamit, at mga invoice ay nasa dedicated na pahina ng billing.',
   'settings.danger.confirm':
     'Sigurado ka ba? Ipapapila nito ang iyong workspace para sa pagtanggal.',
   'settings.danger.confirmYes': 'Oo, ilagay sa pila para tanggalin',
+  'settings.danger.deleteWorkspace.cta': 'Tanggalin ang workspace',
   'settings.danger.deleteWorkspace.hint':
     'Tinatanggal ang lahat ng workflow, run, at koneksyon pagkatapos ng 14-araw na grace period.',
   'settings.danger.deleteWorkspace.title': 'Tanggalin ang workspace',
@@ -183,10 +222,14 @@ export const ui: UiTranslations = {
     'Pamahalaan ang iyong account, workspace, mga integrasyon, at billing sa isang lugar.',
   'settings.notifications.description':
     'Piliin kung aling mga kaganapan ang nagbibigay-abiso sa iyo, nagpapadala ng email, o nananatiling tahimik.',
+  'settings.notifications.failures.hint': 'Email at in-app notification sa bawat nabigong run.',
+  'settings.notifications.failures.title': 'Mga pagkabigo ng workflow',
   'settings.notifications.product.hint':
     'Paminsan-minsang email tungkol sa mga bagong template at feature.',
+  'settings.notifications.product.title': 'Mga update sa produkto',
   'settings.notifications.weekly.hint':
     'Lunes ng umaga na buod ng mga run at naipon noong nakaraang linggo.',
+  'settings.notifications.weekly.title': 'Lingguhang digest',
   'settings.profile.description':
     'Kung paano ka lumitaw sa loob ng workflow runner. Ginagamit sa aktibidad ng workspace.',
   'settings.profile.noEmail': 'Walang email sa rekord',
@@ -195,12 +238,24 @@ export const ui: UiTranslations = {
   'settings.profile.unnamedUser': 'Hindi pinangalanang gumagamit',
   'settings.security.audit.hint':
     'I-stream ang bawat aksyon sa iyong SIEM sa pamamagitan ng webhook.',
+  'settings.security.audit.title': 'Pagpapasa ng audit log',
   'settings.security.description': 'Two-factor authentication, SSO, at mga aktibong session.',
   'settings.security.sso.hint': 'Available sa Scale at Enterprise na mga plano.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'Kailangan para sa anumang aksyon ng workspace owner.',
+  'settings.security.totp.title': 'Two-factor authentication (TOTP)',
   'settings.twoFactorCode': 'Kodigo ng pagpapatunay',
   'settings.twoFactorDisable': 'I-disable',
+  'settings.twoFactorDisableTitle': 'I-disable ang two-factor authentication',
   'settings.twoFactorEnable': 'I-enable',
+  'settings.twoFactorEnableTitle': 'I-enable ang two-factor authentication',
   'settings.twoFactorInvalidCode': 'Hindi wastong code',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Two-factor QR code',
+  'settings.twoFactorScan':
+    'I-scan ang QR code na ito gamit ang iyong authenticator app, pagkatapos ay ilagay ang 6-digit na code.',
+  'settings.twoFactorUnavailable':
+    'Hindi available ang two-factor authentication para sa app na ito.',
   'settings.twoFactorVerify': 'I-verify at paganahin',
   'settings.workspace.description':
     'Shared na pagkakakilanlan, rehiyon, at mga default ng run para sa iyong team.',
@@ -229,6 +284,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Template',
   'templates.description':
     'Mga pre-built na blueprint para sa pinakakaraniwang automation. Fork, i-customize, ipadala.',
+  'templates.empty.filter': 'Walang template na tumutugma sa iyong paghahanap.',
   'templates.empty.first': 'Walang available na template ngayon.',
   'templates.error': 'Hindi ma-load ang mga template.',
   'templates.installs': 'mga install',
@@ -254,6 +310,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'I-disable',
   'workflowBuilder.enable': 'I-enable',
   'workflowBuilder.error': 'Hindi ma-load ang workflow.',
+  'workflowBuilder.inspector.config': 'Config',
+  'workflowBuilder.inspector.cron': 'Cron expression',
+  'workflowBuilder.inspector.disabled': 'Naka-disable — hindi awtomatikong tatakbo.',
   'workflowBuilder.inspector.enabled': 'Naka-enable — tumatakbo sa trigger.',
   'workflowBuilder.inspector.eyebrow': 'Inspector',
   'workflowBuilder.inspector.id': 'ID',
@@ -272,19 +331,26 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Nabigo ang toggle.',
   'workflowBuilder.workflow': 'Workflow · v{{v}}',
   'workflowBuilder.zoom.in': 'Mag-zoom in',
+  'workflowBuilder.zoom.label': 'Mga kontrol sa zoom ng canvas',
+  'workflowBuilder.zoom.out': 'Mag-zoom out',
   'workflowCard.lastRun': 'Huling na-run {{when}}',
   'workflowCard.runs': '{{count}} run',
+  'workflowCard.success': '{{rate}}% tagumpay',
   'workflowHeroCard.last24h': 'Huling 24h',
+  'workflows.browseTemplates': 'Mag-browse ng mga template →',
   'workflows.description':
     'Lahat ng automation sa iyong workspace, na may kalusugan at kamakailang aktibidad sa isang tingin.',
+  'workflows.empty.body': 'Subukang i-clear ang filter o magsimula sa isang template.',
   'workflows.empty.firstBody':
     'Mag-install ng template para makapagsimula sa loob ng ilang segundo.',
   'workflows.empty.firstTitle': 'Wala pang workflow',
   'workflows.empty.title': 'Walang workflow ang nagtugma',
   'workflows.error': 'Hindi ma-load ang mga workflow.',
   'workflows.eyebrow': 'Library · {{count}} kabuuan',
+  'workflows.loading': 'Naglo-load ng mga workflow…',
   'workflows.newFromTemplate': 'Bago mula sa template',
   'workflows.searchPlaceholder': 'Maghanap ng mga workflow…',
+  'workflows.title': 'Mga workflow',
   'workflowSidebar.brand': 'Dendrite',
   'workflowSidebar.status': 'Lahat ng sistema ay tumatakbo',
   'workflowSidebar.tagline': 'Katalinuhan sa kilos',

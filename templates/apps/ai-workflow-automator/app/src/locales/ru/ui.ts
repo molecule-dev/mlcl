@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite — это платформа автоматизации рабочих процессов, которая связывает триггеры, условия ИИ и многоэтапные действия, позволяя командам перемещать задачи между системами без написания вспомогательного кода.',
+  'about.philosophy':
+    'Каждый рабочий процесс — это граф небольших наблюдаемых шагов. Каждый шаг фиксирует свои входы, выходы и время выполнения, чтобы его можно было проверить, воспроизвести или откатить. Собирайте их визуально, версионируйте как код.',
   'about.title': 'О дендрите',
   'authShell.brand': 'Дендрит',
   'authShell.support': 'Поддержка',
@@ -14,9 +16,14 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Изменить тарифный план',
   'billing.description':
     'Отслеживайте использование, управляйте своим тарифным планом и формируйте счета для бухгалтерского учета.',
+  'billing.eyebrow': 'Аккаунт · Тариф и использование',
+  'billing.failedLabel': 'Неудачные запуски · 24 ч',
+  'billing.invoicesEmpty': 'Счетов пока нет. Они появятся здесь после первого платного продления.',
   'billing.invoicesTitle': 'История счетов',
   'billing.planNoteFree':
     'Бесплатный уровень — {{runs}} бежит и {{workflows}} Активные рабочие процессы. Для увеличения лимитов требуется обновление.',
+  'billing.planNotePaid':
+    'Платный тариф — {{runs}} запусков и {{workflows}} активных рабочих процессов.',
   'billing.runsLabel': 'Результаты за последние 24 часа',
   'billing.tiersBlurb':
     'Сравните все тарифные планы — количество запусков, активные рабочие процессы, расширенные функции и поддержку — на специальной странице с ценами.',
@@ -34,10 +41,14 @@ export const ui: UiTranslations = {
     'Интеграции не зарегистрированы. Настройте ключи поставщика для включения агрегирования.',
   'connections.error': 'Не удалось загрузить соединения.',
   'connections.eyebrow': 'Интеграции · {{connected}} подключенный',
+  'connections.loading': 'Загрузка интеграций…',
+  'connections.openEnv':
+    'Чтобы подключить этого провайдера, укажите его API-ключ в api/.env и перезапустите сервер.',
   'dashboard.description':
     '{{active}} Активны рабочие процессы. {{failed}} Не удалось за последние 24 часа.',
   'dashboard.error': 'Не удалось загрузить панель мониторинга.',
   'dashboard.eyebrow': 'Операции · в прямом эфире',
+  'dashboard.hero.label': 'Запусков сегодня',
   'dashboard.hero.medianLatency': 'латентность p50',
   'dashboard.hero.queue': 'Глубина очереди',
   'dashboard.hero.success': 'Успех',
@@ -45,13 +56,16 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Медианная продолжительность',
   'dashboard.kpi.failedRuns': 'Сбой · 24 ч',
   'dashboard.kpi.outOf': 'из {{total}} общий',
+  'dashboard.kpi.successRate': 'Успешность · 24 ч',
   'dashboard.loading': 'Загрузка панели управления…',
   'dashboard.recentRuns.empty': 'Пока нет запусков. Запуск рабочего процесса заполнит эту ленту.',
   'dashboard.recentRuns.title': 'Недавние забеги',
   'dashboard.recentRuns.viewAll': 'Открытые исполнения →',
+  'dashboard.recentWorkflows.browse': 'Просмотреть шаблоны →',
   'dashboard.recentWorkflows.empty':
     'Рабочие процессы пока отсутствуют. Установите шаблон или создайте его с нуля.',
   'dashboard.recentWorkflows.title': 'Недавно запущено',
+  'dashboard.run.col.run': 'Запустить',
   'dashboard.run.col.started': 'Началось',
   'dashboard.run.col.trigger': 'Триггер',
   'dashboard.run.col.workflow': 'Рабочий процесс',
@@ -87,6 +101,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Рабочий процесс',
   'executions.description':
     'Каждый запуск рабочего процесса, каждая повторная попытка, каждый результат шага — всё это поддаётся наблюдению.',
+  'executions.empty.filter': 'Нет запусков, соответствующих этому фильтру.',
   'executions.empty.first':
     'Пока нет запусков — запустите рабочий процесс, чтобы заполнить этот список.',
   'executions.error': 'Не удалось загрузить результаты выполнения.',
@@ -97,30 +112,43 @@ export const ui: UiTranslations = {
   'executions.loading': 'Загрузка истории запусков…',
   'executions.title': 'Казни',
   'forgotPassword.confirmation': 'Ссылка для сброса отправлена на {{email}} .',
+  'forgotPassword.subhead':
+    'Введите свой адрес электронной почты, чтобы получить ссылку для сброса пароля.',
   'forgotPassword.successSubhead':
     'Мы отправили ссылку для сброса настроек. {{email}} Срок действия истекает через 30 минут.',
   'help.connections.body':
     'Для этапов, связанных с ИИ, электронной почтой и хранилищем, необходимо указать ключи поставщика в файле api/.env. После настройки ключа соответствующая интеграция отображается как подключенная на странице «Подключения».',
+  'help.connections.cta': 'Открыть подключения →',
   'help.connections.title': 'Подключение поставщиков',
   'help.gettingStarted.body':
     'Новые рабочие процессы можно установить из библиотеки шаблонов или создать с нуля в конструкторе рабочих процессов. Каждый рабочий процесс имеет триггер (ручной, веб-перехватчик или cron) и последовательность шагов, которые выполняются последовательно.',
+  'help.gettingStarted.cta': 'Перейти в библиотеку шаблонов →',
+  'help.gettingStarted.title': 'Начало работы',
   'help.intro':
     'Здесь вы найдете ответы на часто задаваемые вопросы о создании рабочих процессов, настройке подключений и интерпретации результатов выполнения. Ниже перечислены наиболее распространенные темы; по любым вопросам, не охваченным в данном разделе, обратитесь к администратору вашей рабочей области.',
   'help.runs.body':
     'В каждом запуске каждый шаг регистрируется отдельно с указанием статуса (успех, неудача, пропущено) и фрагментом выходных данных. На странице с подробной информацией о выполнении отображается полная пошаговая трассировка, а также полученные метрики.',
+  'help.runs.cta': 'Открытые исполнения →',
   'help.runs.title': 'Чтение результатов выполнения',
   'help.title': 'Справочный центр',
   'integrationCard.manage': 'Управлять',
   'landing.brand': 'Дендрит',
   'landing.demo.action.subtitle': 'Круговой турнир · территория',
+  'landing.demo.action.title': 'Уведомить представителя',
   'landing.demo.condition.subtitle': 'Классификатор намерений ИИ',
+  'landing.demo.condition.title': 'Оценка ≥ средней?',
   'landing.demo.trigger.subtitle': 'POST /forms/contact',
   'landing.demo.trigger.title': 'Входящий веб-хук',
+  'landing.features.body':
+    'Триггеры срабатывают. Условия разветвляют. Действия выполняют работу. Собирайте их визуально, версионируйте как код.',
   'landing.features.heading': 'Три типа узлов. Бесконечное количество форм.',
   'landing.footer.help': 'Помощь',
   'landing.footer.tagline': 'Интеллект в движении',
+  'landing.hero.body':
+    '{{appName}} — это движок рабочих процессов для операционных команд, переросших Zapier. Триггер, условие, действие — с интеграцией во все системы, которыми вы реально пользуетесь.',
   'landing.hero.eyebrow': 'Интеллект в движении',
   'landing.hero.headline': 'Соедините компоненты стека. Пусть работа идёт своим чередом.',
+  'landing.hero.primaryCta': 'Создайте свой первый рабочий процесс',
   'landing.hero.proof.ai': 'Встроенные узлы ИИ',
   'landing.hero.proof.free': 'Бесплатно при пробеге 1000 км в месяц.',
   'landing.hero.proof.soc2': 'SOC 2 Тип II',
@@ -128,10 +156,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Платите за заезды, а не за места.',
   'landing.templates.body':
     'Предварительно настроенные рабочие процессы для каждой команды — продаж, поддержки, DevOps, финансов. Установка одним щелчком мыши; можно настраивать что угодно.',
+  'landing.templates.cta': 'Зарегистрируйтесь, чтобы просмотреть шаблоны →',
   'landing.templates.eyebrow': 'Запуск за секунды',
   'landing.templates.heading': 'Библиотека проверенных рецептов.',
   'landing.templates.signupHint': 'Зарегистрируйтесь для установки',
   'login.hidePassword': 'Скрыть пароль',
+  'login.noAccount': 'Впервые пользуетесь Tessera?',
   'login.showPassword': 'Показать пароль',
   'login.subhead': 'Войдите в систему, чтобы ваши автоматизированные процессы продолжали работать.',
   'mobileNav.drawerLabel': 'Главная навигация',
@@ -147,8 +177,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Запустите рабочий процесс, чтобы начать заполнять этот канал.',
   'notifications.empty.title': 'Вы уже всё наверстали',
   'notifications.eyebrow': '{{n}} непрочитано',
+  'planUpdated.body':
+    'Изменение тарифа активировано. Вы можете управлять своим планом в любое время на странице оплаты.',
+  'planUpdated.retry': 'Попробуйте ещё раз',
+  'planUpdated.verifyFailed': 'Мы пока не можем подтвердить ваш платеж.',
+  'planUpdated.verifyFailedBody':
+    'Ваш платеж, возможно, еще обрабатывается. Попробуйте еще раз через минуту.',
   'planUpdated.verifying': 'Подтверждение платежа…',
   'pricing.heading': 'пробеги',
+  'pricing.runsSuffix': 'запусков',
   'pricing.workflowsSuffix': 'рабочие процессы',
   'privacy.collect.body':
     'Мы собираем адрес электронной почты, который вы указываете при регистрации, настроенные вами рабочие процессы и метаданные о каждом запуске (время начала, время окончания, статус). Мы никогда не собираем и не храним содержимое полезных нагрузок из триггеров или выходных данных шагов, за исключением того, что необходимо для отображения в средстве просмотра запусков для владельца рабочей области.',
@@ -164,12 +201,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Не удалось обновить пароль.',
   'resetPassword.newPassword': 'Новый пароль',
   'resetPassword.subhead': 'Выберите что-нибудь, что могли бы предположить только вы.',
+  'settings.appearance.description': 'Переключайтесь между светлым и темным режимом.',
+  'settings.appearance.title': 'Появление',
   'settings.billingShortcut.cta': 'Открытая оплата',
   'settings.billingShortcut.description':
     'Информация о тарифах, использовании и счетах доступна на специальной странице выставления счетов.',
   'settings.danger.confirm':
     'Вы уверены? Это поставит ваше рабочее пространство в очередь на удаление.',
   'settings.danger.confirmYes': 'Да, удаление очереди.',
+  'settings.danger.deleteWorkspace.cta': 'Удалить рабочее пространство',
   'settings.danger.deleteWorkspace.hint':
     'Удаляет все рабочие процессы, запуски и соединения по истечении 14-дневного льготного периода.',
   'settings.danger.deleteWorkspace.title': 'Удалить рабочее пространство',
@@ -180,10 +220,15 @@ export const ui: UiTranslations = {
     'Управляйте своей учетной записью, рабочим пространством, интеграциями и выставлением счетов в одном месте.',
   'settings.notifications.description':
     'Выберите, какие мероприятия будут оповещать вас по электронной почте, отправлять вам сообщения или оставаться в режиме молчания.',
+  'settings.notifications.failures.hint':
+    'Уведомление по email и в приложении при каждом неудачном запуске.',
+  'settings.notifications.failures.title': 'Сбои рабочих процессов',
   'settings.notifications.product.hint':
     'Периодически приходят электронные письма о новых шаблонах и функциях.',
+  'settings.notifications.product.title': 'Обновления продукта',
   'settings.notifications.weekly.hint':
     'Утренний обзор событий прошлой недели и накоплений в понедельник.',
+  'settings.notifications.weekly.title': 'Еженедельный дайджест',
   'settings.profile.description':
     'Как вы отображаетесь внутри средства выполнения рабочих процессов. Используется в разделе «Активность в рабочем пространстве».',
   'settings.profile.noEmail': 'В базе данных нет электронных писем.',
@@ -192,13 +237,24 @@ export const ui: UiTranslations = {
   'settings.profile.unnamedUser': 'Неизвестный пользователь',
   'settings.security.audit.hint':
     'Передайте каждое действие в вашу SIEM-систему через веб-перехватчик.',
+  'settings.security.audit.title': 'Пересылка журнала аудита',
   'settings.security.description':
     'Двухфакторная аутентификация, единый вход (SSO) и активные сессии.',
   'settings.security.sso.hint': 'Доступно в тарифных планах Scale и Enterprise.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'Требуется для любого действия владельца рабочего пространства.',
+  'settings.security.totp.title': 'Двухфакторная аутентификация (TOTP)',
   'settings.twoFactorCode': 'Код аутентификации',
   'settings.twoFactorDisable': 'Отключить',
+  'settings.twoFactorDisableTitle': 'Отключить двухфакторную аутентификацию',
   'settings.twoFactorEnable': 'Включить',
+  'settings.twoFactorEnableTitle': 'Включить двухфакторную аутентификацию',
   'settings.twoFactorInvalidCode': 'Неверный код',
+  'settings.twoFactorOn': 'О',
+  'settings.twoFactorQrAlt': 'QR-код для двухфакторной аутентификации',
+  'settings.twoFactorScan':
+    'Отсканируйте этот QR-код в приложении-аутентификаторе, затем введите 6-значный код.',
+  'settings.twoFactorUnavailable': 'Двухфакторная аутентификация для этого приложения недоступна.',
   'settings.twoFactorVerify': 'Проверить и включить',
   'settings.workspace.description':
     'Настройки по умолчанию для вашей команды: общий доступ к учетной записи, регион и параметры запуска.',
@@ -227,6 +283,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Шаблон',
   'templates.description':
     'Готовые шаблоны для наиболее распространенных сценариев автоматизации. Создайте форк, настройте, запустите.',
+  'templates.empty.filter': 'Нет шаблонов, соответствующих вашему поиску.',
   'templates.empty.first': 'В данный момент шаблоны недоступны.',
   'templates.error': 'Не удалось загрузить шаблоны.',
   'templates.installs': 'устанавливает',
@@ -252,6 +309,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Отключить',
   'workflowBuilder.enable': 'Включить',
   'workflowBuilder.error': 'Не удалось загрузить рабочий процесс.',
+  'workflowBuilder.inspector.config': 'Конфигурация',
+  'workflowBuilder.inspector.cron': 'Cron-выражение',
+  'workflowBuilder.inspector.disabled': 'Отключено — не будет запускаться автоматически.',
   'workflowBuilder.inspector.enabled': 'Включено — запускается по триггеру.',
   'workflowBuilder.inspector.eyebrow': 'Инспектор',
   'workflowBuilder.inspector.id': 'Идентификатор',
@@ -270,18 +330,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Переключение не удалось.',
   'workflowBuilder.workflow': 'Рабочий процесс · v {{v}}',
   'workflowBuilder.zoom.in': 'Увеличить масштаб',
+  'workflowBuilder.zoom.label': 'Элементы управления масштабом холста',
+  'workflowBuilder.zoom.out': 'Отдалиться',
   'workflowCard.lastRun': 'Последний забег {{when}}',
   'workflowCard.runs': '{{count}} пробеги',
+  'workflowCard.success': 'Успешность {{rate}}%',
   'workflowHeroCard.last24h': 'Последние 24 часа',
+  'workflows.browseTemplates': 'Просмотреть шаблоны →',
   'workflows.description':
     'Вся автоматизация в вашем рабочем пространстве: состояние и недавняя активность с первого взгляда.',
+  'workflows.empty.body': 'Попробуйте очистить фильтр или начать с шаблона.',
   'workflows.empty.firstBody': 'Установите шаблон, чтобы начать работу за считанные секунды.',
   'workflows.empty.firstTitle': 'Рабочие процессы пока отсутствуют.',
   'workflows.empty.title': 'Нет совпадений в рабочих процессах',
   'workflows.error': 'Не удалось загрузить рабочие процессы.',
   'workflows.eyebrow': 'Библиотека · {{count}} общий',
+  'workflows.loading': 'Загрузка рабочих процессов…',
   'workflows.newFromTemplate': 'Новый из шаблона',
   'workflows.searchPlaceholder': 'Поисковые процессы…',
+  'workflows.title': 'Рабочие процессы',
   'workflowSidebar.brand': 'Дендрит',
   'workflowSidebar.status': 'Все системы работают.',
   'workflowSidebar.tagline': 'Интеллект в движении',

@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'An aiseolas agat, aimsíodh fabht, nó ar mhaith leat a insint dúinn conas a chabhraigh an dialann leat? Léimid gach teachtaireacht — déan teagmháil am ar bith agus freagróidh duine fíor thú.',
+  'about.contactTitle': 'Labhair linn',
+  'about.featureInsights':
+    'Machnamh cumhachtaithe ag AI a tharraingíonn aird go réidh ar spreagthaigh, ar théamaí agus ar bhuíochas — gan do ghuth a chailleadh.',
+  'about.featureMood':
+    'Rianú giúmar agus gníomhaíochta le hamharc féilire agus cairteacha treochta a thaispeánann an rud a chabhraíonn leat rathú.',
+  'about.featurePrivacy':
+    'Criptiú ó cheann go ceann, glas paschóid, agus onnmhairiú CSV iomlán ionas go bhfanann do mhachnamh príobháideach agus iniompartha.',
+  'about.featurePrompts':
+    'Spreagthaí laethúla cineálta ionas go mbeidh áit éigin agat le tosú i gcónaí — riamh leathanach bán.',
+  'about.intro':
+    'Is dialann mheabhairshláinte chiúin, phríobháideach é {{app}} le haghaidh machnaimh laethúil, rianú giúmar agus buíochais. Tógann spreagthaí smaointeacha áit an leathanaigh bháin, cabhraíonn aimsiú patrún ciúin leat tuiscint a fháil ar an rud a théann i bhfeidhm ar do mhothúcháin, agus coinníonn criptiú ó cheann go ceann do chuid focal agatsa.',
+  'about.missionBody':
+    "Creidimid gur cheart go mbeadh sé socair dul i dteagmháil leat féin, riamh cliniciúil — agus riamh cosúil le haip eile ag éileamh d'aird. Tá {{app}} tógtha le cabhrú, ní le bheith ag crá: cúpla nóiméad ciúin in aghaidh an lae chun d'giúmar a thabhairt faoi deara, scríobh go hionraic, agus tú féin a fheiceáil níos soiléire de réir a chéile.",
+  'about.missionTitle': 'Ár misean',
   'about.pageTitle': 'Faoi {{app}}',
   'authShell.encryptionBadge': 'Tá do iontrálacha criptithe ó cheann ceann.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Lá {{day}} — gan iontráil',
   'calendar.cellMood': 'Lá {{day}} — {{mood}}',
   'calendar.distributionHeading': 'An mhí seo go hachomair',
   'calendar.eyebrow': 'Giúmar ar an toirt',
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Rianaithe {{tracked}} de {{total}} laethanta an mhí seo.',
   'common.goToDashboard': 'Téigh chuig an Deais',
   'common.tryAgain': 'Déan iarracht arís',
+  'entryComposer.bodyPlaceholder': 'Scríobh a bhfuil ionraic. Ní léifidh aon duine eile é seo.',
   'entryComposer.cancel': 'Ar ais chuig an iris',
   'entryComposer.heading': 'Machnamh an lae inniu',
   'entryComposer.moodLabel': 'Cén chaoi a bhfuil tú ag mothú?',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Bain {{tag}}',
   'entryComposer.save': 'Sábháil machnamh',
   'entryComposer.saveError': 'Níorbh fhéidir d’iontráil a shábháil.',
+  'entryComposer.tagPlaceholder': 'Cuir clib leis agus brúigh enter',
   'entryComposer.titlePlaceholder': 'Tabhair ainm don machnamh seo…',
   'entryDetail.back': 'Ar ais chuig an iris',
   'entryDetail.delete': 'Scrios an iontráil seo',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Ag lódáil machnamh…',
   'entryDetail.notFound': 'Iontráil gan teacht.',
   'entryDetail.reflectionsHeading': 'Machnaimh AI',
+  'forgotPassword.continueButton': 'Iontráil cód athshocraithe',
   'forgotPassword.eyebrow': 'Gan aon imní',
   'forgotPassword.subheading': 'Seolfaimid nasc athshocraithe réidh chuig do r-phost.',
   'forgotPassword.successBody':
@@ -58,14 +78,22 @@ export const ui: UiTranslations = {
     'Gan aon téamaí fós — cuir clib nó dhó le do chuid iontrálacha agus bailítear anseo iad.',
   'insights.themesHeading': 'Príomhthéamaí',
   'insights.triggerFrequency': 'faoi deara {{count}} × an mhí seo',
+  'insights.triggersEmpty':
+    'Níl aon rud le tabhairt faoi deara fós. Taispeánfaidh cúpla iontráil thar roinnt laethanta do phatrúin.',
   'insights.triggersHeading': 'Patrúin a athraíonn do ghiúmar',
+  'journal.empty':
+    'Níl aon mhachnamh ag teacht leis — bain triail as scagaire eile nó scríobh iontráil nua.',
   'journal.eyebrow': 'Do machnaimh',
   'journal.heading': 'Irisleabhar',
   'journal.loadError': 'Theip ar na hiontrálacha a lódáil.',
   'journal.loading': 'Ag lódáil iontrálacha…',
+  'journal.newEntry': 'Iontráil nua',
   'journal.searchPlaceholder': 'Cuardaigh mothúchán, ainm, nóiméad…',
   'journal.subheading': '{{count}} iontrálacha — gach ceann acu fiú a choinneáil.',
   'journalEntryCard.encryptedLabel': 'Criptithe',
+  'landing.ctaBody':
+    'Saor in aisce le tosú. Díghlónn Pro onnmhairiú sonraí, dialann níos mó, agus bliain iomlán de stair.',
+  'landing.ctaButton': 'Tosaigh do chéad iontráil',
   'landing.ctaTitle': 'Cúpla nóiméad ciúine sa lá. Sin uile.',
   'landing.eyebrow': 'Cleachtadh laethúil bog',
   'landing.featuresBody':
@@ -84,6 +112,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Spás bog le haghaidh machnaimh laethúil.',
   'mentalHealthJournalLayout.closeMenu': 'Dún an roghchlár',
   'mentalHealthJournalLayout.openMenu': 'Oscail an roghchlár',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Príomh-loingseoireacht',
+  'moodHeroCard.entriesThisWeek': '{{count}} an tseachtain seo',
   'moodHeroCard.streakSuffix': 'sraith lae',
   'moodHeroCard.title': 'Machnamh an lae inniu',
   'moodTrendChart.aiBadge': 'Léargas AI réidh',
@@ -94,11 +124,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Do thuras',
   'profile.fallbackName': 'Frithchaiteoir',
   'profile.loadError': 'Theip ar staitisticí a lódáil.',
+  'profile.loading': 'Do staitisticí á n-athnuachan…',
   'profile.longestStreak': 'An tsraith is faide',
   'profile.memberSince': 'Ag machnamh ó shin {{date}}',
   'profile.milestones': 'Clocha míle',
   'profile.milestonesEmpty':
     'Tá do chéad chloch mhíle iontráil amháin uait — scríobh nuair a bhraitheann tú réidh.',
+  'profile.moodMix': 'Do mheascán giúmar an séasúr seo',
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'Machnaimh',
   'profile.totalWords': 'Focail scríofa',
@@ -111,6 +143,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Scríobh faoi seo',
   'resetPassword.eyebrow': 'Tús úr',
   'resetPassword.mismatchError': 'Ní hionann na pasfhocail.',
+  'resetPassword.passwordLabel': 'Pasfhocal nua',
   'resetPassword.subheading': 'Roghnaigh rud éigin sábháilte — tuillte ag do machnaimh é.',
   'resetPassword.tokenPlaceholder': 'Athshocraigh an cód ón ríomhphost',
   'settings.dangerDescription':
@@ -122,11 +155,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'Níorbh fhéidir an cuntas a scriosadh.',
   'settings.exportDescription': 'Is leatsa do chuid focal i gcónaí. Íoslódáil cóip am ar bith.',
   'settings.exportDone': 'Easpórtáilte {{format}}.',
+  'settings.exportError': 'Theip ar an easpórtáil.',
+  'settings.exportHeading': 'Onnmhairigh do mhachnamh',
   'settings.exportLoading': 'Ag ullmhú…',
   'settings.eyebrow': 'Do spás, do rialacha',
   'settings.languageHeading': 'Teanga',
   'settings.privacyHeading': 'Príobháideacht & criptiú',
   'settings.remindersHeading': 'Meabhrúchán laethúil',
+  'settings.reminderToggleAria': 'Scoránaigh meabhrúchán laethúil',
   'settings.reminderToggleDescription':
     'Meabhrúchán socair amháin ag an am is mian leat. Gan suaitheantais ná aon chiontacht.',
   'settings.reminderToggleLabel': 'Seol brú beag',
@@ -139,6 +175,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Dialann á cruthú…',
   'signup.subheading': 'Spás sábháilte do do chuid smaointe.',
   'wellnessRingsTriad.mindfulnessCaption': 'Sprioc {{goal}} nóim inniu',
+  'wellnessRingsTriad.mindfulnessLabel': 'Aireachas',
   'wellnessRingsTriad.sleepCaption': 'Sprioc {{goal}} u / oíche',
   'wellnessRingsTriad.sleepLabel': 'Codladh',
+  'wellnessRingsTriad.sleepValue': '{{hours}}u',
+  'wellnessRingsTriad.streakCaption': 'Sprioc {{goal}} lá',
+  'wellnessRingsTriad.streakLabel': 'Sraith dialainne',
+  'wellnessRingsTriad.streakValue': '{{days}} d',
 }

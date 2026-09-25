@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'გაქვთ გამოხმაურება, იპოვეთ ხარვეზი ან გსურთ ახალი ფუნქცია? მოგვწერეთ ანგარიშის პარამეტრებიდან — ყველა შეტყობინება გუნდის რეალურ ადამიანამდე აღწევს.',
   'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
+  'about.intro':
+    '{{app}} არის AI საწერი სტუდია მწერლებისთვის, რომლებსაც თავიანთი ტექსტი ძალიან უყვართ. ის აერთიანებს გრძელი ფორმატის AI გენერაციას მშვიდ რედაქტორთან, SEO შეფასებასთან და სურათების გენერაციასთან, რომ ნაწარმოები ცარიელი გვერდიდან გამოქვეყნებამდე მიიყვანოთ — საკუთარი ხმის დაკარგვის გარეშე.',
+  'about.missionBody':
+    'ჩვენ გვჯერა, რომ AI თქვენ გვერდით უნდა წერდეს და არა თქვენ ნაცვლად. {{app}} შემოთავაზებებს თქვენი სიტყვებისგან აშკარად გამოყოფს, ყველა შექმნილი დოკუმენტის მფლობელად თქვენ გტოვებთ და ხელსაწყოებს წერის გზიდან აშორებს.',
+  'about.missionTitle': 'ჩვენი მისია',
   'about.pageTitle': '{{app}}-ის შესახებ',
   'aiSuggestionCard.applied': 'შეთავაზება გამოყენებულია',
   'aiSuggestionCard.apply': 'გამოყენება',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'ტრაფიკის წყაროები',
   'billing.activePlan': 'გამოწერა აქტიურია.',
   'billing.aiWordsLabel': 'ხელოვნური ინტელექტის თაობები შედის',
+  'billing.cancelFailed': 'გამოწერის გაუქმება ვერ მოხერხდა.',
   'billing.cancelPlan': 'გეგმის გაუქმება',
+  'billing.cancelPlanConfirm': 'გავაუქმოთ?',
   'billing.cancelSuccess': 'გამოწერა გაუქმდა. განაახლეთ გეგმის განახლებისთვის.',
   'billing.changePlan': 'გეგმის შეცვლა',
   'billing.col.invoice': 'ინვოისი',
@@ -43,26 +52,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'გეგმების ნახვა',
   'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'dashboard.continueWriting': 'განაგრძეთ წერა',
+  'dashboard.createFirst': 'დოკუმენტის შექმნა',
   'dashboard.days.sat': 'Sat',
   'dashboard.days.sun': 'Sun',
   'dashboard.defaultWriterName': 'მწერალი',
   'dashboard.greeting': 'დილა მშვიდობისა, {{name}}',
   'dashboard.loadError': 'თქვენი საინფორმაციო დაფის ჩატვირთვა ვერ მოხერხდა.',
+  'dashboard.loading': 'თქვენი სტუდია იტვირთება…',
   'dashboard.loadingDocs': 'ბოლო დოკუმენტების ჩატვირთვა…',
   'dashboard.noDocuments': 'დოკუმენტები ჯერ არ არის — დაიწყეთ პირველი.',
   'dashboard.startWriting': 'ახალი დოკუმენტის დაწყება',
+  'dashboard.streakBody': 'ამ კვირაში {{words}} სიტყვა დაწერეთ.',
   'dashboard.streakTitle': '{{count}} -დღიანი სერია',
+  'dashboard.subgreeting': 'თქვენს ბიბლიოთეკაში {{count}} დოკუმენტია — გააგრძელეთ იმავე ტემპით.',
+  'documentCard.seoScoreTitle': 'SEO ქულა: {{score}}/100',
+  'documents.createNew': 'ახალი დოკუმენტის შექმნა',
   'documents.empty': 'თქვენი ბიბლიოთეკა გელოდებათ — დაიწყეთ თქვენი პირველი დოკუმენტი.',
+  'documents.emptyFiltered': 'ჯერ არცერთი დოკუმენტი არ ემთხვევა თქვენს ფილტრებს.',
   'documents.loadError': 'დოკუმენტების ჩატვირთვა ვერ მოხერხდა.',
   'documents.loading': 'თქვენი ბიბლიოთეკა იტვირთება…',
   'documents.new': 'ახალი დოკუმენტი',
+  'documents.searchAriaLabel': 'დოკუმენტების ძიება',
   'documents.searchPlaceholder': 'დოკუმენტების ძიება…',
   'documents.subtitle': '{{count}} დოკუმენტები თქვენს ბიბლიოთეკაში.',
   'documents.title': 'დოკუმენტები',
   'editor.aiPanelTitle': 'ღრუბლის ინტელექტი',
+  'editor.aiSuggestion.empty':
+    'აქტიური გაუმჯობესებები არ არის. სთხოვეთ {{appName}}-ს შემოთავაზება, როცა მეორე თვალის საჭიროება გაქვთ.',
   'editor.aiSuggestion.failed': 'ამჟამად შემოთავაზებების ჩატვირთვა ვერ მოხერხდა.',
   'editor.aiSuggestion.loadingBody': 'სიცხადის დახვეწის გენერირება…',
   'editor.backToDocuments': 'ყველა დოკუმენტი',
+  'editor.bodyAriaLabel': 'დოკუმენტის ტექსტი',
   'editor.closeAiPanel': 'ხელოვნური ინტელექტის პანელის დახურვა',
   'editor.createFailed': 'დოკუმენტის შექმნა ვერ მოხერხდა.',
   'editor.exported': 'ექსპორტირებულია როგორც {{format}} .',
@@ -78,18 +98,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'დახვეწის მოთხოვნა',
   'editor.saveBeforePublish': 'შეინახეთ დოკუმენტი გამოქვეყნებამდე.',
   'editor.status.chars': '{{count}} პერსონაჟები',
+  'editor.status.readTime': '{{minutes}} წთ. წაკითხვა',
   'editor.status.savedAt': 'შენახულია {{time}}',
   'editor.status.saveError': 'შენახვა ვერ მოხერხდა',
+  'editor.status.unsaved': 'ჯერ არ არის შენახული',
   'editor.titleAriaLabel': 'დოკუმენტის სათაური',
   'editor.titlePlaceholder': 'უსათაურო დოკუმენტი',
   'editor.toggleAiPanel': 'ხელოვნური ინტელექტის პანელის გადართვა',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'ავტორი@example.com',
+  'forgotPassword.sent': 'თუ {{email}} სისტემაშია, აღდგენის ბმული უკვე გზაშია.',
   'imageGenerator.failed': 'სურათის გენერირება ვერ მოხერხდა.',
   'imageGenerator.generate': 'სურათის გენერირება',
   'imageGenerator.generating': 'გენერირება...',
   'imageGenerator.placeholder': 'აღწერეთ სურათი, რომლის შექმნაც გსურთ...',
+  'imageGenerator.promptAriaLabel': 'სურათის მოთხოვნა',
+  'imageGenerator.subtitle': 'აღწერეთ გარეკანის სურათი და მიეცით AI-ს მისი დახატვის საშუალება.',
   'imageGenerator.title': 'ხელოვნური ინტელექტის გამოსახულების გენერატორი',
+  'landing.aiSuggestionBody':
+    '42-ე სართულის აივანზე დგას, ელიასი ქალაქის წნეხს გრძნობდა — ქარი ატმოსფერულ ხმაურს აცილებდა და მას მბზინავი ბადის ზემოთ ყინულოვან, უხმო სიცარიელეში აკიდებდა.',
   'landing.eyebrow': 'ხელოვნური ინტელექტის წერის სტუდია სერიოზული მწერლებისთვის',
   'landing.featuresHeading': 'ხელსაწყოები, რომლებიც ხელს გიშლიან',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -99,14 +126,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'სტუდია შექმნილი მწერლებისთვის, რომლებიც ზრუნავენ თავიანთ პროზაზე, ტემპსა და სიზუსტეზე. Plume თქვენს გვერდით წერს ნახატებს — არასდროს თქვენს ნაცვლად.',
   'landing.heroTitle.eloquence': 'მჭევრმეტყველება',
+  'landing.heroTitle.intelligence': 'ინტელექტი ხვდება ',
   'landing.nav.testimonials': 'რეკომენდაციები',
   'landing.plan.cta': 'დაიწყეთ ამ გეგმით',
   'landing.plan.popular': 'ყველაზე საყვარელი',
   'landing.pricingEyebrow': 'ფასები',
   'landing.pricingHeading': 'აირჩიეთ ის, რაც თქვენს პრაქტიკას შეესაბამება',
   'landing.sampleDocTitle': 'სიჩუმის არქიტექტურა',
+  'landing.sampleParagraph1':
+    'ქალაქი არასოდეს ყოფილა ნამდვილად მშვიდი. ღამის ყველაზე ღრმა საათებშიც კი ბეტონის საძირკვლებში დაბალი ხმაური ვიბრირებდა — მეტროს მატარებლებისა და ვენტილაციის შახტების მექანიკური გულისცემა.',
+  'landing.sampleParagraph2.after': ' მინაზე.',
+  'landing.sampleParagraph2.before': 'მაგრამ ',
   'landing.sampleParagraph2.highlight':
     '42-ე სართულის აივანზე მდგომმა ელიასმა ღრმა იზოლაციის განცდა იგრძნო.',
+  'landing.showcaseBody':
+    'მონიშნეთ წინადადება და {{appName}} გაუმჯობესებას შემოგთავაზებთ. მიიღეთ, შეასწორეთ ან უგულებელყავით. შემოთავაზებები ყოველთვის იისფრად არის შეფერილი, რომ იცოდეთ, რა დაწერეთ თქვენ და რა შემოგთავაზეს.',
+  'landing.showcaseHeading': 'მეორე თვალი — არასოდეს მეორე ავტორი.',
   'landing.startWriting': 'დაიწყეთ წერა',
   'login.emailPlaceholder': 'ავტორი@example.com',
   'login.failed': 'შესვლა ვერ მოხერხდა',
@@ -121,8 +156,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'გახსენით დაფა',
   'notFound.title': 'ეს თავი ჯერ არ დაწერილა.',
   'plumeSidebarLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
+  'pricing.maxDocuments': '{{count}} დოკუმენტები',
+  'pricing.maxGenerate': '{{count}} AI გენერაცია',
+  'pricing.maxImages': '{{count}} სურათის გენერაცია',
   'privacy.data':
     'თქვენი ანგარიშის ელ. ფოსტა და ჰეშირებული პაროლი. თქვენს მიერ შექმნილი დოკუმენტები და შაბლონები. ხელოვნური ინტელექტის შემოთავაზებების ჟურნალები (შეყვანა + გამოტანა) ბილინგისა და ანალიტიკისთვის. Stripe მომხმარებლის + გამოწერის იდენტიფიკატორები; ჩვენ არასდროს ვინახავთ ბარათის სრულ ნომრებს.',
+  'privacy.intro':
+    'ჩვენ ვაგროვებთ მხოლოდ იმ მონაცემებს, რაც {{app}}-ის მუშაობისთვისაა საჭირო: თქვენი ელფოსტა, შექმნილი დოკუმენტები და გაკეთებული AI მოთხოვნები. ჩვენ არასოდეს ვყიდით თქვენს ტექსტს ან პრომპტებს.',
   'profile.loadError': 'თქვენი პროფილის ჩატვირთვა ვერ მოხერხდა.',
   'profile.loading': 'თქვენი პროფილი იტვირთება…',
   'profile.loadingPublished': 'გამოქვეყნებული დოკუმენტები იტვირთება…',
@@ -134,7 +174,13 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'ახალი პაროლი',
   'seoAnalysis.backToEditor': 'რედაქტორთან დაბრუნება',
   'seoAnalysis.eyebrow': 'SEO ანალიზი',
+  'seoAnalysis.heroBody':
+    '{{count}} შემოთავაზება გამოსაყენებლად. თითოეული სტრუქტურული ან საკვანძო სიტყვების გაუმჯობესებაა და არა წითელი დროშების კედელი.',
+  'seoAnalysis.heroBodyEmpty':
+    'დააჭირეთ "ანალიზის გაშვებას" წაკითხვადობის, საკვანძო სიტყვების სიმჭიდროვისა და სტრუქტურის შესაფასებლად.',
   'seoAnalysis.heroEmpty': 'ანალიზი ჯერ არ არის. ჩაატარეთ ერთი ამ დრაფტის შესაფასებლად.',
+  'seoAnalysis.heroNeedsWork': 'ზოგიერთი სტრუქტურული გაუმჯობესება მიღწევადობას გაზრდის.',
+  'seoAnalysis.heroStrong': 'ძლიერი ნაწარმოები — სრულყოფილებამდე ცოტაღა აკლია.',
   'seoAnalysis.historyEmpty': 'წინა ანალიზები არ არის დაფიქსირებული.',
   'seoAnalysis.historyTitle': 'ანალიზის ისტორია',
   'seoAnalysis.keywordEmpty':
@@ -161,8 +207,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'დაარეგულირეთ Plume თქვენი წერის სტილთან შესაბამისობაში.',
   'settings.toggleIntegrationFailed': 'ინტეგრაციის განახლება ვერ მოხერხდა.',
   'settings.writing.aiSuggestions': 'აკრეფის დროს ხელოვნური ინტელექტის ჩაშენებული შემოთავაზებები',
+  'settings.writing.aiSuggestionsBody':
+    'გაწერისას გაუმჯობესებებს გაჩვენებთ. შემოთავაზებები ყოველთვის თითო წინადადებით მიიღება.',
   'settings.writing.autoSave': 'ავტომატური შენახვა ყოველ 30 წამში',
+  'settings.writing.autoSaveBody':
+    '{{appName}} ინახავს თქვენი მონახაზის სნეპშოტს, რომ ნებისმიერი ჩანართიდან აღადგინოთ.',
   'settings.writing.notifyEmail': 'ყოველკვირეული წერის რეზიუმეები გამომიგზავნეთ ელ.ფოსტით',
+  'settings.writing.notifyEmailBody':
+    'კვირის მოკლე დაიჯესტი სერიების, მონახაზებისა და SEO გაუმჯობესებების შესახებ.',
   'settings.writing.title': 'წერის პარამეტრები',
   'settings.writing.tone': 'ნაგულისხმევი ტონის წინასწარ დაყენება',
   'signup.emailPlaceholder': 'ავტორი@example.com',
@@ -174,8 +226,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'აღწერა არ არის მოცემული.',
   'templates.subtitle':
     'დაიწყეთ ბრძოლებში გამოცდილი რედაქციული ჩარჩოდან, შემდეგ კი შექმენით ის თქვენი საკუთარი.',
+  'terms.intro':
+    'ეს პირობები არეგულირებს {{app}}-ის გამოყენებას. ანგარიშის შექმნით თქვენ ეთანხმებით სერვისის კანონიერი წერისთვის გამოყენებას და ანგარიშის მონაცემების კონფიდენციალურობის დაცვას.',
   'terms.license':
     'თქვენ ინარჩუნებთ თქვენს მიერ შექმნილ ყველა დოკუმენტზე, შაბლონსა და ხელოვნური ინტელექტის თაობაზე საკუთრების უფლებას. ჩვენ გვჭირდება არაექსკლუზიური ლიცენზია თქვენი ნამუშევრის ჰოსტინგისა და თქვენთვის მიწოდებისთვის, ასევე ხელოვნური ინტელექტის მოთხოვნების დასამუშავებლად თქვენს მიერ არჩეული გარანტირებული პროვაიდერების მეშვეობით.',
   'writingStreakHeroCard.change': '{{sign}} {{amount}} სიტყვები',
   'writingStreakHeroCard.greeting': 'კარგი დღეა, {{name}}',
+  'writingStreakHeroCard.subtitle': 'ამ კვირაში დაწერილი სიტყვები — {{count}}-დღიანი სერია',
+  'writingStreakHeroCard.tagline': 'დღეში ერთი გვერდი მუზას აფხიზლებს.',
 }

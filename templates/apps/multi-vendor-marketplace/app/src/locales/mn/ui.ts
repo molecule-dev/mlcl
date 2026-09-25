@@ -1,16 +1,40 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Дэлгүүр нээх, асуудал мэдэгдэх эсвэл зүгээр л мэндлэх үү? Тусламжийн төвөөс бидэнтэй холбогдоорой — мессеж бүр багийн жинхэнэ хүнд хүрдэг.',
+  'about.contactTitle': 'Бидэнтэй холбогдох',
+  'about.featureNotifications':
+    'Шинэ захиалга, хүргэлтийн шинэчлэл, сэтгэгдлийн бодит цагийн мэдэгдэл, мөн худалдан авагч болон худалдагчийн хэрэгслийг тусгаарладаг дүрд суурилсан эрх.',
+  'about.featurePayments':
+    'Stripe-д суурилсан аюулгүй төлбөр, автомат шимтгэлийн хуваарилалт, товлосон төлбөр — худалдагчид хэдийг олсноо үргэлж тодорхой мэддэг.',
+  'about.featureShop':
+    'Мянга мянган бие даасан худалдагчийг хамарсан хайлт хийх боломжтой каталог, баталгаажсан дэлгүүр, үнэлгээ, сэтгэгдэлтэй тул итгэлтэй худалдан авалт хийх боломжтой.',
+  'about.featureVendor':
+    'Бүрэн худалдагчийн хэрэгсэл: брэндлэсэн дэлгүүр, бүтээгдэхүүн болон нөөцийн удирдлага, зураг байршуулалт, захиалгын биелэлт — бүгд нэг хяналтын самбарт.',
+  'about.intro':
+    '{{name}} бол бие даасан урчууд өөрсдийн дэлгүүрээ нээдэг, худалдан авагчид өөр хаана ч олдохгүй барааг нээдэг сонгомол зах зээл юм. Гараар хийсэн шаазангаас эхлээд хэвлэмэл нэхмэл хүртэл, бүх зар нь ард нь түүхтэй жинхэнэ худалдагчаас гардаг.',
+  'about.missionBody':
+    'Урчууд гар урлалаа өөрсдийнх нь болгодог зүйлээ хадгалах ёстой гэж бид үздэг. {{name}} нэг ижил, ил тод шимтгэл авч, долоо хоног бүр найдвартай төлж, худалдагч бүрд бүрэн хяналттай дэлгүүр өгдөг — тэд ажилдаа төвлөрч, зах зээлийг бид удирддаг.',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
   'about.pageTitle': 'Тухай {{name}}',
   'cart.checkoutCta': 'Төлбөр тооцоогоо үргэлжлүүлэх',
   'cart.decreaseAria': 'Тоо хэмжээг багасгах',
+  'cart.deliveryEstimate': 'Хүргэлтийн тооцоо {{range}}',
   'cart.empty.body': 'Каталогийг үзэж, цүнхэндээ хэдэн үйлдвэрлэгч нэмээрэй.',
+  'cart.empty.cta': 'Каталогийг үзэх',
   'cart.empty.title': 'Таны сагс хоосон байна',
   'cart.eyebrow': 'Таны сагс',
+  'cart.increaseAria': 'Тоо хэмжээг нэмэгдүүлэх',
   'cart.loadError': 'Таны сагсыг ачаалж чадсангүй. Дахин оролдоно уу.',
   'cart.loading': 'Сагсаа ачаалж байна…',
+  'cart.protectionNote':
+    '{{appName}} захиалга бүрийг хамгаалдаг. 30 хоногийн дотор үнэгүй буцаалт.',
   'cart.removeError': 'Зүйлийг устгаж чадсангүй.',
   'cart.shippingFromVendor': 'Энэ худалдагчаас хүргэлт: {{amount}}',
+  'cart.subtitle':
+    'Худалдагч бүр өөрөө илгээдэг — та зөвхөн нэг удаа төлбөрөө хийнэ. Үлдсэнийг {{appName}} хариуцна.',
+  'cart.subtotalGroup': 'Дэд нийлбэр {{amount}}',
   'cart.summaryItems': 'Зүйлс',
   'cart.summaryShipping': 'Тээвэрлэлт (хосолсон)',
   'cart.title': 'Сагс · {{count}} -с авсан зүйлс {{vendorCount}} худалдагчид',
@@ -23,6 +47,7 @@ export const ui: UiTranslations = {
   'catalog.featuredVendors': 'Онцлох дэлгүүрүүд',
   'catalog.loading': 'Бүтээгдэхүүнүүдийг ачаалж байна…',
   'catalog.resultCount': '{{count}} бүтээгдэхүүнүүд',
+  'catalog.searchAria': 'Каталогаас хайх',
   'catalog.searchPlaceholder': 'Бүтээгдэхүүн, борлуулагч эсвэл шошго хайх...',
   'catalog.sortBy': 'Эрэмбэлэх',
   'catalog.subtitle':
@@ -30,6 +55,7 @@ export const ui: UiTranslations = {
   'catalog.title': 'Vendry дээрх бүх дэлгүүрийг үзэх',
   'checkout.emptyCta': 'Каталогийг үзэх',
   'checkout.emptyTitle': 'Таны сагс хоосон байна.',
+  'checkout.eyebrow': 'Аюулгүй төлбөр тооцоо',
   'checkout.loadError': 'Таны сагсыг ачаалж чадсангүй. Дахин оролдоно уу.',
   'checkout.loading': 'Сагсаа ачаалж байна…',
   'checkout.payment.testNote':
@@ -39,12 +65,14 @@ export const ui: UiTranslations = {
   'checkout.placingOrder': 'Захиалга өгч байна...',
   'checkout.review.shipTo': 'Хүргэлт',
   'checkout.review.subtotal': 'Нийлүүлэгчийн нийлбэр дүн',
+  'checkout.review.title': 'Захиалгаа худалдагч тус бүрээр шалгаарай',
   'checkout.shipping.title': 'Бид хаашаа тээвэрлэх ёстой вэ?',
   'checkout.shippingValidation': 'Шаардлагатай бүх тээвэрлэлтийн талбаруудыг бөглөнө үү.',
   'checkout.summary.shipping': 'Тээвэрлэлт',
   'checkout.summary.tax': 'Тооцоолсон татвар',
   'checkout.title': 'Нэг удаагийн төлбөр тооцоо, олон үйлдвэрлэгч',
   'common.and': 'мөн',
+  'forgotPassword.continue': 'Надад дахин тохируулах код байна',
   'forgotPassword.emailLabel': 'Бүртгэлийн имэйл',
   'forgotPassword.heading': 'Нууц үгээ мартсан уу?',
   'forgotPassword.subheading':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'forgotPassword.submit': 'Имэйл дахин тохируулах холбоос',
   'forgotPassword.success':
     'Шалгах {{email}} дахин тохируулах холбоосын хувьд - энэ нь дараагийн 30 минутын турш сайн байна.',
+  'landing.featured.cta': 'Бүх худалдагчийг үзэх',
   'landing.featured.eyebrow': 'Онцлох дэлгүүрүүд',
   'landing.featured.title': 'Энэ сард худалдаачид давалгаа үүсгэж байна',
   'landing.footer.becomeVendor': 'Худалдагч болох',
@@ -61,6 +90,9 @@ export const ui: UiTranslations = {
   'landing.nav.sell': 'Vendry дээр зарах',
   'landing.nav.shop': 'Дэлгүүр',
   'landing.nav.signUp': 'Нэгдэх',
+  'landing.sellPitch.cta': 'Зарах хүсэлт гаргах',
+  'landing.sellPitch.description':
+    'Нэг ижил 8% шимтгэл, Баасан гараг бүр төлбөр, таны дэлгүүр, таны түүх. Бид зах зээлийг удирддаг; та гар урлалдаа үлдэнэ.',
   'landing.sellPitch.eyebrow': 'Үйлдвэрлэгчдэд зориулсан',
   'landing.sellPitch.title': 'Дэлгүүр нээ. Өөрийнх нь болгодог зүйлийг өөртөө үлдээ.',
   'landing.trending.cta': 'Каталогоос худалдан авалт хийх',
@@ -69,6 +101,7 @@ export const ui: UiTranslations = {
   'login.accountTypeAria': 'Дансны төрөл',
   'login.heading': 'Vendry-д дахин тавтай морилно уу',
   'login.legalPrefix': 'Нэвтрэн орсноор та манайхыг зөвшөөрч байна',
+  'login.signupPrompt': 'Тессератай шинээр танилцаж байна уу?',
   'login.subheading':
     'Худалдан авалтаа үргэлжлүүлэхийн тулд нэвтэрнэ үү эсвэл дэлгүүртээ буцаж орно уу.',
   'login.submitShopper': 'Дэлгүүр хэсэхийн тулд нэвтэрнэ үү',
@@ -85,36 +118,50 @@ export const ui: UiTranslations = {
   'notifications.markAllError': 'Бүгдийг нь уншсан гэж тэмдэглэж чадсангүй.',
   'notifications.read': 'Унших',
   'notifications.time.daysAgo': '{{count}} days ago',
+  'notifications.time.hourAgo': '1 цагийн өмнө',
+  'notifications.time.hoursAgo': '{{count}} цагийн өмнө',
   'notifications.time.justNow': 'дөнгөж сая',
+  'notifications.time.minutesAgo': '{{count}} min ago',
+  'notifications.time.yesterday': 'Өчигдөр',
   'orderDetail.backToOrders': 'Бүх захиалга руу буцах',
   'orderDetail.eyebrow': 'Захиалгын дэлгэрэнгүй мэдээлэл',
   'orderDetail.helpBody': 'Vendry дэмжлэг нь амралтын өдрүүдэд ч гэсэн 4 цагийн дотор хариу өгдөг.',
+  'orderDetail.helpCta': 'Дэмжлэгтэй холбоо барих',
   'orderDetail.helpTitle': 'Энэ захиалгад ямар нэгэн зүйл буруу байна уу?',
   'orderDetail.summary':
     'Байршуулсан {{date}} · {{vendorCount}} борлуулагч(ууд) · олон борлуулагчийн гүйцэтгэл',
+  'orderDetail.timelineTitle': 'Захиалгын замнал',
   'orders.empty': 'Энэ шүүлтүүртэй тохирох захиалга одоогоор алга байна.',
   'orders.emptyTitle': 'Энд одоогоор захиалга алга',
   'orders.eyebrow': 'Таны худалдан авалтууд',
   'orders.subtitle':
     'Хэн юу илгээснийг харж, борлуулагч бүрийн хяналтыг дагаж, дахин хэзээ ч илгээмжийг алдахгүй.',
   'orders.title': 'Захиалгыг нийлүүлэгчээр бүлэглэсэн',
+  'planUpdated.retry': 'Дахин оролдоно уу',
+  'planUpdated.verifyFailed': 'Бид таны төлбөрийг хараахан баталгаажуулж чадсангүй.',
+  'planUpdated.verifyFailedBody':
+    'Таны төлбөрийг боловсруулж байж магадгүй. Хэсэг хугацааны дараа дахин оролдоно уу.',
   'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'productDetail.addToCart': 'Сагсанд нэмэх',
   'productDetail.addToCartError': 'Сагсанд нэмж чадсангүй.',
   'productDetail.addToCartSuccess': '" {{name}} "Таны сагсанд нэмэгдлээ."',
   'productDetail.backToCatalog': 'Каталог руу буцах',
   'productDetail.breadcrumbCatalog': 'Каталог',
+  'productDetail.colorLabel': 'Өнгө · {{name}}',
   'productDetail.decreaseAria': 'Тоо хэмжээг багасгах',
   'productDetail.description': 'Vendry дээрх бие даасан үйлдвэрлэгчийн хийсэн.',
   'productDetail.featuredBadge': 'Онцлох үйлдвэрлэгч',
   'productDetail.galleryThumbAria': 'Зураг харуулах {{index}}',
+  'productDetail.increaseAria': 'Тоо хэмжээг нэмэгдүүлэх',
   'productDetail.loading': 'Бүтээгдэхүүнийг ачаалж байна…',
   'productDetail.notFound': 'Бүтээгдэхүүн олдсонгүй.',
   'productDetail.relatedTitle': 'Энэ үйлдвэрлэгчийн бусад бүтээгдэхүүнүүд',
   'productDetail.reviewsTitle': 'Худалдан авагчдын хэлсэн зүйл',
   'productDetail.trust.protection': 'Худалдааны хамгаалалт',
+  'productDetail.trust.returns': '30 хоногийн буцаалт',
   'productDetail.trust.shipping': '2 хоногийн дотор хүргэлттэй',
   'productDetail.verifiedAria': 'Баталгаажсан борлуулагч',
+  'resetPassword.didntGetCode': 'Код аваагүй юу?',
   'resetPassword.emailLabel': 'Бүртгэлийн имэйл',
   'resetPassword.mismatch': 'Нууц үгнүүд хараахан таарахгүй байна.',
   'resetPassword.newPasswordLabel': 'Шинэ нууц үг',
@@ -123,8 +170,10 @@ export const ui: UiTranslations = {
     'Бидний танд имэйлээр илгээсэн кодыг оруулаад, дараа нь буцаж нэвтрэх үйлдлийг дуусгахын тулд шинэ нууц үг сонгоно уу.',
   'resetPassword.submit': 'Дахин тохируулах болон нэвтрэх',
   'resetPassword.submitting': 'Нууц үгийг шинэчилж байна…',
+  'settings.appearance.description': 'Гэрэл болон харанхуй горимын хооронд шилжих/унтраах.',
   'settings.appearance.title': 'Гадаад төрх',
   'settings.language.description': 'Зах зээл дээр ашиглагдаж буй хэлийг сонгоно уу.',
+  'settings.payouts.accountLabel': 'Дансны дугаар / IBAN',
   'settings.payouts.body':
     'Vendry нь Баасан гараг бүр таны орон нутгийн мөнгөн тэмдэгтээр 8%-ийн шимтгэлийг хассан төлбөрийг хийдэг.',
   'settings.payouts.save': 'Төлбөрийн дэлгэрэнгүй мэдээллийг хадгалах',
@@ -143,6 +192,7 @@ export const ui: UiTranslations = {
   'signup.mismatch': 'Нууц үгнүүд хараахан таарахгүй байна.',
   'signup.subheading':
     '4000+ бие даасан үйлдвэрлэгчдийг үзэх эсвэл өөрийн гэсэн дэлгүүр нээгээрэй.',
+  'signup.submit': 'Зах зээлд нэгдээрэй',
   'status.delivered': 'Хүргэгдсэн',
   'status.refunded': 'Буцаан олголт',
   'userMenu.marketplaceSettings': 'Зах зээлийн тохиргоо',
@@ -152,18 +202,28 @@ export const ui: UiTranslations = {
   'vendorDashboard.heroCaption':
     '{{payout}} Вендригийн комиссын дараа төлбөрийг барагдуулна. Дараагийн төлбөр Баасан гарагт болно.',
   'vendorDashboard.heroLabel': 'Нийт борлуулалт · сүүлийн 30 хоног',
+  'vendorDashboard.kpi.conversion': 'Хөрвүүлэлт',
   'vendorDashboard.kpi.conversionCaption': 'Энэ долоо хоногт захиалга өгөхөөр зочлоорой',
   'vendorDashboard.kpi.netPayout': 'Цэвэр төлбөр',
   'vendorDashboard.kpi.netPayoutCaption': '8%-ийн хямдралтай үнээр худалдаалсны дараа',
   'vendorDashboard.kpi.orders': 'Захиалга',
   'vendorDashboard.kpi.ordersCaption': 'сүүлийн 30 хоногтой харьцуулахад',
+  'vendorDashboard.kpi.pendingPayout': 'Хүлээгдэж буй төлбөр',
   'vendorDashboard.kpi.pendingPayoutCaption': 'Энэ Баасан гарагт худалдаанд гарна',
   'vendorDashboard.newProductCta': 'Шинэ бүтээгдэхүүн',
   'vendorDashboard.payoutsCta': 'Төлбөрийг харах',
   'vendorDashboard.recentOrders.cta': 'Бүх захиалгыг харах →',
+  'vendorDashboard.recentOrders.emptyBody':
+    'Харилцагчид төлбөрөө хиймэгц таны дэлгүүрийн захиалгууд энд харагдана.',
+  'vendorDashboard.recentOrders.emptyCta': 'Эхний бүтээгдэхүүнээ нэмэх',
+  'vendorDashboard.recentOrders.emptyTitle': 'Одоогоор захиалга алга',
   'vendorDashboard.recentOrders.title': 'Саяхны захиалга',
+  'vendorDashboard.subtitle': 'Энэ долоо хоногт таны дэлгүүр хэрхэн ажиллаж байгааг энд харуулав.',
+  'vendorDashboard.title': 'Тавтай морил, {{name}}',
   'vendorOnboarding.about': 'Дэлгүүрийнхээ талаар бидэнд ярьж өгөөч',
   'vendorOnboarding.aboutPlaceholder': 'Та хаана хийдэг вэ, юу хийдэг вэ, яагаад чухал вэ.',
+  'vendorOnboarding.bankLabel': 'Банкны данс / IBAN',
+  'vendorOnboarding.categoriesHint': 'Тохирох бүгдийг сонгоорой — дараа нь өөрчилж болно.',
   'vendorOnboarding.currencyLabel': 'Валютаар тооцоо хийх',
   'vendorOnboarding.errors.shopName': 'Дэлгүүрийн нэр шаардлагатай.',
   'vendorOnboarding.errors.submit': 'Таны өргөдлийг илгээж чадсангүй.',
@@ -172,8 +232,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.field.shopName': 'Дэлгүүрийн нэр',
   'vendorOnboarding.heroBody':
     '8%-ийн тогтмол шимтгэл, Баасан гараг бүр төлбөр, танай дэлгүүрийн лангуу, танай түүх. Дэлгүүрийнхээ талаар бага зэрэг яриач, бид 48 цагийн дотор тантай холбогдох болно.',
+  'vendorOnboarding.review.categories': 'Categories',
   'vendorOnboarding.review.contact': 'Холбоо барих',
   'vendorOnboarding.review.currency': 'Валют',
+  'vendorOnboarding.review.point1':
+    '{{appName}} нэг ижил 8% шимтгэл авдаг — зар байршуулах хураамжгүй, далд төлбөргүй.',
+  'vendorOnboarding.review.point2':
+    'Төлбөр Баасан гараг бүр таны орон нутгийн валютaар тооцогдоно.',
+  'vendorOnboarding.review.point3': 'Та дэлгүүрээ хүссэн үедээ түр зогсоох эсвэл устгаж болно.',
   'vendorOnboarding.review.tagline': 'уриа лоозон',
   'vendorOnboarding.review.website': 'Вэбсайт',
   'vendorOnboarding.reviewBody':
@@ -184,6 +250,8 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'Өргөдлийг илгээлээ! Бид танай дэлгүүрийг хянаж үзээд 48 цагийн дотор танд имэйл илгээх болно.',
   'vendorOnboarding.taxIdLabel': 'Татварын дугаар',
+  'vendorOrders.emptyBody':
+    'Харилцагчид таны бүтээгдэхүүнийг худалдан авах үед тэдний захиалгууд энд харагдана.',
   'vendorOrders.emptyTitle': 'Одоогоор биелүүлэх захиалга алга',
   'vendorOrders.eyebrow': 'Худалдагчийн админ',
   'vendorOrders.kpi.awaiting': 'Биелэлтийг хүлээж байна',
@@ -191,6 +259,8 @@ export const ui: UiTranslations = {
   'vendorOrders.subtitle':
     'Вендригээс гаралгүйгээр шошго хэвлэж, биелсэн гэж тэмдэглэж, асуултанд хариулна уу.',
   'vendorOrders.title': 'Ирж буй захиалга',
+  'vendorPayouts.emptyBody':
+    'Борлуулалт 8% шимтгэлээс гарсны дараа төлбөр Баасан гараг бүр олгогдоно.',
   'vendorPayouts.emptyTitle': 'Төлбөр хараахан хийгдээгүй байна',
   'vendorPayouts.eyebrow': 'Нийлүүлэгчийн санхүү',
   'vendorPayouts.heroCaption': 'Banco BPI-д суурьшсан {{account}} · 1–2 ажлын өдөр',
@@ -216,6 +286,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.images.body':
     '8 хүртэлх зургийг чирж тавина уу. Эхний зураг нь дэлгүүрийн нүүр хуудас болно.',
   'vendorProductForm.images.cta': 'Зургуудыг энд чирэх эсвэл үзэх',
+  'vendorProductForm.images.hint': 'PNG / JPG · тус бүр хамгийн ихдээ 8MB',
   'vendorProductForm.images.title': 'Зураг',
   'vendorProductForm.nameLabel': 'Бүтээгдэхүүний нэр',
   'vendorProductForm.preview.namePlaceholder': 'Бүтээгдэхүүний нэр',
@@ -225,6 +296,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.title': 'Худалдан авагчдад өөрийн бүтээгдэхүүний талаар хэлээрэй',
   'vendorProductForm.variants.colInventory': 'Бараа материал',
   'vendorProductForm.variants.colVariant': 'Хувилбар',
+  'vendorProductForm.variants.title': 'Хувилбар & нөөц',
   'vendorProducts.eyebrow': 'Худалдагчийн админ',
   'vendorProducts.kpi.draft': 'Ноорог',
   'vendorProducts.kpi.lowStock': 'Бага нөөцтэй',
@@ -251,6 +323,7 @@ export const ui: UiTranslations = {
     'Дэлгүүрээ удирдах, бүх борлуулагчдын захиалгыг хянах, бие даасан үйлдвэрлэгчдийн тод цуглуулгуудыг нээхийн тулд нэвтэрнэ үү.',
   'vendryAuthShell.sampleVendorMeta': 'Баталгаажсан · 4.9 ★ · 1,240 борлуулалт',
   'vendryAuthShell.sampleVendorName': 'Мира ба Ко. Керамик',
+  'vendryAuthShell.sampleVendorTag': 'Онцолсон',
   'vendryMarketHero.description':
     'Өөрсдөд нь чин сэтгэлээсээ ханддаг хүмүүсийн удирддаг мянга мянган бие даасан борлуулагч, гараар бүтээсэн цуглуулга, дэлгүүрийн лангуунуудыг нээж илрүүлээрэй. Зоригтой худалдан авалт хийж, жинхэнэ үйлдвэрлэгчдийг дэмжээрэй.',
   'vendryMarketHero.eyebrow': 'Сонгосон зах зээл · 2026 оны цуглуулга',
@@ -259,11 +332,13 @@ export const ui: UiTranslations = {
   'vendryMarketHero.stat1Label': 'Бие даасан бүтээгчид',
   'vendryMarketHero.stat2Label': 'Сонгосон бүтээгдэхүүнүүд',
   'vendryMarketHero.stat3Label': 'Дундаж үнэлгээ',
+  'vendryMarketHero.title': 'Урчууд бүгд, нэг зах зээл.',
   'vendryOrderCard.idLabel': 'Захиалга',
   'vendryOrderCard.placedOn': 'Байршуулсан {{date}}',
   'vendryOrderCard.qty': 'Тоо ширхэг {{count}}',
   'vendryOrderCard.vendorCount': '{{count}} энэ дарааллаарх нийлүүлэгч(үүд)',
   'vendryOrderCard.verifiedAria': 'Баталгаажсан борлуулагч',
+  'vendryOrderCard.viewDetails': 'Дэлгэрэнгүй мэдээллийг харах',
   'vendryProductCard.favoriteAria': 'Дуртай зүйлс рүү хадгалах',
   'vendryProductCard.saleBadge': 'Хямдрал',
   'vendryProductCard.verified': 'Баталгаажсан борлуулагч',

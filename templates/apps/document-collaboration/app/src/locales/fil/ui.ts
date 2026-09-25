@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May feedback ka, may nahanap kang bug, o gusto mo ng {{app}} para sa iyong studio o team? Makipag-ugnayan mula sa settings ng iyong account — bawat mensahe ay napupunta sa isang tunay na tao sa team.',
   'about.contactTitle': 'Makipag-ugnayan sa amin',
+  'about.intro':
+    'Ang {{app}} ay isang collaborative writing studio kung saan ang mga editor, manunulat, at team ay sabay-sabay na nagda-draft sa real time. Buksan ang isang dokumento at ang pahina ay magiging shared — gumagalaw ang mga cursor, nag-uusap ang mga komento sa gilid, at bawat revision ay ligtas na nakatago sa history.',
+  'about.missionBody':
+    'Naniniwala kami na ang long-form na pagsusulat ay nararapat sa isang kalmado at pokus na tahanan — isang itinayo para sa manuskrito, hindi para sa meeting o inbox. Ang aming editor, real-time presence, at version history ay dinisenyo upang ang mga collaborator ay mabilis na makasabay nang sabay-sabay nang walang nawawalang talata o ideya.',
+  'about.missionTitle': 'Ang aming misyon',
+  'about.subtitle': 'Mag-isip nang sabay, magsulat nang walang hanggan.',
   'about.title': 'Tungkol sa {{app}}',
   'comments.addFailed': 'Hindi makapag-post ng komento.',
   'comments.backToDoc': 'Balik sa manuskrito',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Mga thread ng komento',
   'comments.loading': 'Naglo-load ng mga thread…',
   'comments.newPlaceholder': 'Magdagdag ng komento sa manuskrito...',
+  'comments.newSubmit': 'Mag-post',
   'comments.reopen': 'Muling buksan',
   'comments.reopenFailed': 'Hindi mabuksan muli.',
   'comments.replyFailed': 'Hindi makapag-post ng tugon.',
@@ -39,6 +48,7 @@ export const ui: UiTranslations = {
     'Mga kamakailang draft, mga ibinahaging gawa, at mga pag-edit noong araw na iyon.',
   'dashboard.viewFeed': 'Feed →',
   'editor.back': 'Balik sa mga manuskrito',
+  'editor.bodyLabel': 'Katawan ng dokumento',
   'editor.bodyPlaceholder': 'Magsimula kung saan kumikislap ang cursor.',
   'editor.comments': 'Mga Komento',
   'editor.createFailed': 'Hindi malikha ang dokumento.',
@@ -64,13 +74,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Kung mayroong account para sa {{email}} , may paparating nang link para sa pag-reset.',
+  'forgotPassword.sentHeading': 'Tingnan ang inyong email',
+  'forgotPassword.submitting': 'Nagpapadala',
   'forgotPassword.subtitle': 'Mag-e-email kami sa iyo ng link sa pag-reset.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Ginawa gamit ang Molecule.',
+  'landing.ctaBody':
+    'Libre para sa solo na manunulat. May Studio plans para sa mga team ng editor, ghostwriter, at reviewer.',
   'landing.ctaHeading': 'Buksan ang pahina. Simulan ang cursor.',
   'landing.ctaPrimary': 'Magbukas ng studio',
   'landing.eyebrow': 'Para sa mga manunulat, editor, at mga koponan',
   'landing.featuresEyebrow': 'Ano ang matatanggap ninyo',
   'landing.featuresHeading': 'Isang studio para sa long-form draft.',
+  'landing.featuresSubtitle':
+    'Ang {{appName}} ay itinayo para sa manuskrito — hindi para sa meeting, hindi para sa inbox.',
   'landing.getStarted': 'Buksan ang studio',
   'landing.heroCta': 'Magsimulang sumulat',
   'landing.heroSubtitle':
@@ -96,6 +112,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} mga hindi pa nababasang · komento, pagbanggit, imbitasyon sa pagbabahagi, at mga kahilingan sa mungkahi.',
   'presenceAvatars.label': '{{count}} mga kolaborator',
+  'privacy.intro': 'Paano namin kinokolekta, ginagamit, at pinoprotektahan ang iyong impormasyon.',
   'privacy.title': 'Patakaran sa privacy',
   'profile.about.description':
     'Isang maikling talambuhay para sa iyong pampublikong profile at mga pahina ng kontribyutor.',
@@ -109,7 +126,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Presensya',
   'profile.pronouns': 'Mga Panghalip',
   'profile.publicToggle': 'Ipakita ang profile sa mga kasamahan sa koponan',
+  'profile.role': 'Role / title',
   'profile.subtitle': 'Kung paano ka nakikita ng iyong mga katrabaho.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} mga manunulat na aktibo sa studio',
   'quillonAuthBrandPanel.quote':
     '"Ang pagsusulat lang ang tanging bagay na kapag ginagawa ko ito, pakiramdam ko ay wala na akong dapat gawin pang iba."',
@@ -117,6 +136,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Buksan →',
   'quillonKpiCard.trend': 'Kamakailang uso',
   'quillonLayout.menu': 'Menu',
+  'quillonLayout.mobileNavLabel': 'Mobile navigation',
   'quillonLayout.primaryNavLabel': 'Pangunahing navigation',
   'quillonStudioHero.collab': 'Mga Kolaborator',
   'quillonStudioHero.docs': 'Mga dokumentong nahawakan',
@@ -125,7 +145,9 @@ export const ui: UiTranslations = {
   'quillonStudioHero.subtitle': 'Kunin ang manuskrito, magkomento, at isulong ang isang talata.',
   'quillonStudioHero.words': 'Mga salita ngayon',
   'resetPassword.confirmPlaceholder': 'Ulitin ang bagong password',
+  'resetPassword.passwordLabel': 'Bagong password',
   'resetPassword.passwordPlaceholder': 'Maglagay ng bagong password',
+  'resetPassword.submitting': 'Pag-reset…',
   'resetPassword.subtitle': 'Pumili ng matibay na password — hindi bababa sa 12 karakter.',
   'settings.account.description': 'Paano ka nagsa-sign in.',
   'settings.billing.canceled': 'Subscription nakansela na.',
@@ -135,7 +157,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Hindi na-configure',
   'settings.billing.updated': 'Na-update na ang plano.',
   'settings.editor.description': 'Paano kumikilos ang canvas habang nagsusulat ka.',
+  'settings.editor.title': 'Mga kagustuhan ng editor',
   'settings.eyebrow': 'Mga kagustuhan sa studio',
+  'settings.language.title': 'Wika',
   'settings.notifications.${n.key}.description': 'Wika',
   'settings.notifications.description': 'Piliin kung ano ang makakarating sa iyong inbox.',
   'settings.subtitle':
@@ -146,6 +170,7 @@ export const ui: UiTranslations = {
   'shared.loadFailed': 'Hindi ma-load ang mga nakabahaging dokumento.',
   'shared.subtitle':
     'Mga manuskrito, maikling paliwanag, at mga tala mula sa iba pang bahagi ng studio.',
+  'signup.brandAttribution': 'Anaïs Park — Editor, The Quarterly',
   'signup.brandQuote':
     'Ang una mong manuskrito ang pinakamahirap. Ginagawa ito ni Quillon na hindi gaanong malungkot.',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -153,6 +178,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Anaïs',
   'signup.heading': 'Gumawa ng iyong Quillon account',
   'signup.lastNamePlaceholder': 'Parke',
+  'signup.submitting': 'Binubuksan ang iyong studio\\u2026',
   'signup.subtitle':
     'Isang tahimik na mesa, mga nakapaligid na kolaborator, at isang long-form editor na hindi makakaabala sa iyo.',
   'templates.blank.subtitle': 'Isang malinis na pahina. Nagsisimula na ang cursor.',
@@ -166,11 +192,13 @@ export const ui: UiTranslations = {
     'Magsimula sa isang maalalahanin na istruktura. I-customize nang walang katapusan.',
   'templates.useFailed': 'Hindi masimulan ang isang dokumento mula sa template na ito.',
   'templates.useTemplate': 'Gamitin ang template na ito',
+  'terms.intro': 'Ang mga kundisyon kung saan maaari mong gamitin ang serbisyong ito.',
   'terms.title': 'Mga tuntunin ng serbisyo',
   'time.daysAgo': '{{days}}d ang nakaraan',
   'time.hoursAgo': '{{hours}}h ang nakaraan',
   'time.justNow': 'ngayon lang',
   'trash.confirmDelete': 'Kumpirmahin ang pagbura',
+  'trash.confirmEmpty': 'Kumpirmahin — burahin ang lahat',
   'trash.deleteFailed': 'Hindi mabura.',
   'trash.deleteForever': 'Tanggalin nang permanente',
   'trash.empty': 'Walang dapat ibangon.',
@@ -186,7 +214,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'Wala pang mga rebisyon — i-save ang dokumento upang simulan ang kasaysayan nito.',
   'versionHistory.heading': 'Kasaysayan ng bersyon',
+  'versionHistory.latest': 'Pinakabago',
   'versionHistory.loadFailed': 'Hindi ma-load ang kasaysayan.',
+  'versionHistory.noContent': 'Walang content na na-capture para sa revision na ito.',
   'versionHistory.previewing': 'Pag-preview',
   'versionHistory.restore': 'Ibalik ang bersyong ito',
   'versionHistory.restoreFailed': 'Nabigo ang pag-restore.',

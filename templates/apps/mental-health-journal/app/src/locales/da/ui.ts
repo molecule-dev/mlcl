@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du feedback, har du fundet en fejl, eller vil du fortælle os, hvordan journaling har hjulpet? Vi læser hver eneste besked — ræk ud når som helst, og et rigtigt menneske vender tilbage til dig.',
+  'about.contactTitle': 'Kontakt os',
+  'about.featureInsights':
+    'AI-drevne refleksioner, der nænsomt fremhæver triggere, temaer og ting du er taknemmelig for — uden at miste din stemme.',
+  'about.featureMood':
+    'Humør- og aktivitetssporing med kalendervisning og trendgrafer, der viser, hvad der hjælper dig med at trives.',
+  'about.featurePrivacy':
+    'End-to-end-kryptering, adgangskodelås og fuld CSV-eksport, så dine refleksioner forbliver private og portable.',
+  'about.featurePrompts':
+    'Nænsomme daglige prompts, så du altid har et sted at begynde — aldrig en tom side.',
+  'about.intro':
+    '{{app}} er en nænsom og privat mental sundhedsjournal til daglig refleksion, humørsporing og taknemmelighed. Gennemtænkte prompts erstatter den tomme side, stille mønsterfinding hjælper dig med at forstå, hvad der påvirker, hvordan du har det, og end-to-end-kryptering holder dine ord dine.',
+  'about.missionBody':
+    'Vi mener, at det at tjekke ind hos sig selv skal føles roligt, aldrig klinisk — og aldrig som endnu en app, der kræver din opmærksomhed. {{app}} er bygget til at hjælpe, ikke til at plage: et par stille minutter om dagen til at mærke dit humør, skrive ærligt og langsomt se dig selv tydeligere.',
+  'about.missionTitle': 'Vores mission',
   'about.pageTitle': 'Om {{app}}',
   'authShell.encryptionBadge': 'Dine indtastninger er end-to-end-krypterede.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Dag {{day}} — ingen post',
   'calendar.cellMood': 'Dag {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Denne måned i et overblik',
   'calendar.eyebrow': 'Stemning i korte træk',
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Sporet {{tracked}} af {{total}} dage i denne måned.',
   'common.goToDashboard': 'Gå til Dashboard',
   'common.tryAgain': 'Prøv igen',
+  'entryComposer.bodyPlaceholder': 'Skriv lige det, der føles ærligt. Ingen andre vil læse dette.',
   'entryComposer.cancel': 'Tilbage til journalen',
   'entryComposer.heading': 'Dagens refleksion',
   'entryComposer.moodLabel': 'Hvordan har du det?',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Fjerne {{tag}}',
   'entryComposer.save': 'Gem refleksion',
   'entryComposer.saveError': 'Dit indlæg kunne ikke gemmes.',
+  'entryComposer.tagPlaceholder': 'Tilføj et tag, og tryk enter',
   'entryComposer.titlePlaceholder': 'Giv denne refleksion et navn…',
   'entryDetail.back': 'Tilbage til journalen',
   'entryDetail.delete': 'Slet denne post',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Indlæser refleksion…',
   'entryDetail.notFound': 'Indtastning ikke fundet.',
   'entryDetail.reflectionsHeading': 'AI-refleksioner',
+  'forgotPassword.continueButton': 'Indtast nulstillingskode',
   'forgotPassword.eyebrow': 'Ingen bekymringer',
   'forgotPassword.subheading': 'Vi sender et forsigtigt nulstillingslink til din e-mail.',
   'forgotPassword.successBody':
@@ -58,14 +78,21 @@ export const ui: UiTranslations = {
     'Ingen temaer endnu — tilføj et eller to tags til dine bidrag, så samles de her.',
   'insights.themesHeading': 'Toptemaer',
   'insights.triggerFrequency': 'bemærket {{count}} × denne måned',
+  'insights.triggersEmpty':
+    'Der er ikke noget at bemærke endnu. Et par poster over nogle dage vil vise dine mønstre.',
   'insights.triggersHeading': 'Mønstre der ændrer dit humør',
+  'journal.empty': 'Ingen refleksioner matcher — prøv et andet filter, eller skriv en ny post.',
   'journal.eyebrow': 'Dine refleksioner',
   'journal.heading': 'Tidsskrift',
   'journal.loadError': 'Kunne ikke indlæse poster.',
   'journal.loading': 'Indlæser indtastninger…',
+  'journal.newEntry': 'Ny indtastning',
   'journal.searchPlaceholder': 'Søg efter en følelse, et navn, et øjeblik…',
   'journal.subheading': '{{count}} opslag — alle værd at gemme.',
   'journalEntryCard.encryptedLabel': 'Krypteret',
+  'landing.ctaBody':
+    'Gratis at komme i gang. Pro låser dataeksport, en større journal og et helt års historik op.',
+  'landing.ctaButton': 'Start din første indtastning',
   'landing.ctaTitle': 'Et par stille minutter om dagen. Det er alt.',
   'landing.eyebrow': 'En blid daglig øvelse',
   'landing.featuresBody':
@@ -84,6 +111,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Et blidt rum til daglig refleksion.',
   'mentalHealthJournalLayout.closeMenu': 'Luk menu',
   'mentalHealthJournalLayout.openMenu': 'Åbn menu',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Primær navigation',
+  'moodHeroCard.entriesThisWeek': '{{count}} denne uge',
   'moodHeroCard.streakSuffix': 'dagsrække',
   'moodHeroCard.title': 'Dagens refleksion',
   'moodTrendChart.aiBadge': 'Klar til AI-indsigt',
@@ -94,10 +123,12 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Din rejse',
   'profile.fallbackName': 'Reflektor',
   'profile.loadError': 'Statistikken kunne ikke indlæses.',
+  'profile.loading': 'Opdaterer dine statistikker…',
   'profile.longestStreak': 'Længste række',
   'profile.memberSince': 'Reflekterer siden {{date}}',
   'profile.milestones': 'Milepæle',
   'profile.milestonesEmpty': 'Din første milepæl er én post væk – skriv, når du føler dig klar.',
+  'profile.moodMix': 'Dit humørmiks i denne sæson',
   'profile.streakValue': '{{days}}d',
   'profile.totalEntries': 'Refleksioner',
   'profile.totalWords': 'Ord skrevet',
@@ -110,6 +141,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Skriv om dette',
   'resetPassword.eyebrow': 'En frisk start',
   'resetPassword.mismatchError': 'Adgangskoderne stemmer ikke overens.',
+  'resetPassword.passwordLabel': 'Ny adgangskode',
   'resetPassword.subheading': 'Vælg noget sikkert – dine refleksioner fortjener det.',
   'resetPassword.tokenPlaceholder': 'Nulstil kode fra e-mail',
   'settings.dangerDescription':
@@ -121,11 +153,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'Kunne ikke slette konto.',
   'settings.exportDescription': 'Dine ord tilhører altid dig. Download en kopi når som helst.',
   'settings.exportDone': 'Eksporteret {{format}}.',
+  'settings.exportError': 'Eksport mislykkedes.',
+  'settings.exportHeading': 'Eksportér dine refleksioner',
   'settings.exportLoading': 'Forbereder…',
   'settings.eyebrow': 'Dit rum, dine regler',
   'settings.languageHeading': 'Sprog',
   'settings.privacyHeading': 'Privatliv og kryptering',
   'settings.remindersHeading': 'Daglig påmindelse',
+  'settings.reminderToggleAria': 'Slå daglig påmindelse til/fra',
   'settings.reminderToggleDescription':
     'En enkelt rolig påmindelse på det tidspunkt, du vælger. Ingen badges eller skyldfølelse.',
   'settings.reminderToggleLabel': 'Send et blidt puf',
@@ -138,6 +173,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Opretter journal…',
   'signup.subheading': 'Et trygt rum for dine tanker.',
   'wellnessRingsTriad.mindfulnessCaption': 'Mål {{goal}} min i dag',
+  'wellnessRingsTriad.mindfulnessLabel': 'Mindfulness',
   'wellnessRingsTriad.sleepCaption': 'Mål {{goal}} t/nat',
   'wellnessRingsTriad.sleepLabel': 'Sove',
+  'wellnessRingsTriad.sleepValue': '{{hours}}t',
+  'wellnessRingsTriad.streakCaption': 'Mål {{goal}} dage',
+  'wellnessRingsTriad.streakLabel': 'Journalstreak',
+  'wellnessRingsTriad.streakValue': '{{days}}d',
 }

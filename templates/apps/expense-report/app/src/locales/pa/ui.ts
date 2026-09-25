@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ਸਵਾਲ, ਫੀਡਬੈਕ, ਜਾਂ ਫੀਚਰ ਬੇਨਤੀ? ਸੈਟਿੰਗਾਂ → ਨੋਟੀਫਿਕੇਸ਼ਨਾਂ ਤੋਂ {{app}} ਟੀਮ ਨਾਲ ਸੰਪਰਕ ਕਰੋ, ਜਾਂ ਕਿਸੇ ਵੀ ਸਮੇਂ ਸਾਨੂੰ ਲਿਖੋ — ਹਰ ਸੁਨੇਹਾ ਇੱਕ ਅਸਲੀ ਇਨਸਾਨ ਤੱਕ ਪਹੁੰਚਦਾ ਹੈ।',
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'about.eyebrow': 'ਬਾਰੇ',
+  'about.featureCapture':
+    'ਫੋਟੋ ਅੱਪਲੋਡ ਨਾਲ ਰਸੀਦ ਕੈਪਚਰ ਜੋ ਤਸਵੀਰਾਂ ਨੂੰ ਸਹੀ ਖਰਚੇ ਨਾਲ, ਲਾਈਨ ਦਰ ਲਾਈਨ ਜੋੜਦਾ ਹੈ।',
+  'about.featureExport':
+    'ਹਰ ਰਿਪੋਰਟ, ਖਰਚੇ, ਅਤੇ ਮਨਜ਼ੂਰੀ ਸਥਿਤੀ ਦੇ ਆਡਿਟਯੋਗ CSV ਐਕਸਪੋਰਟ — ਤੁਹਾਡੀ ਅਕਾਊਂਟਿੰਗ ਟੀਮ ਲਈ ਤਿਆਰ।',
+  'about.featurePolicy':
+    'ਪਾਲਿਸੀ ਗਾਰਡਰੇਲ — ਰੋਜ਼ਾਨਾ ਕੈਪਾਂ, ਪ੍ਰਤੀ-ਸ਼੍ਰੇਣੀ ਸੀਮਾਵਾਂ, ਅਤੇ ਰਸੀਦ ਲਾਜ਼ਮੀ ਥ੍ਰੈਸ਼ਹੋਲਡ ਜਮ੍ਹਾਂ ਕਰਨ ਸਮੇਂ ਲਾਗੂ।',
+  'about.featureWorkflow':
+    'ਸਮੀਖਿਅਕ ਨੋਟਾਂ, ਪਾਲਿਸੀ-ਉਲੰਘਣਾ ਫਲੈਗਾਂ, ਅਤੇ ਇੱਕ-ਟੈਪ ਰੀਇੰਬਰਸਮੈਂਟ ਮਾਰਕਿੰਗ ਵਾਲਾ ਦੋ-ਪੱਧਰੀ ਮਨਜ਼ੂਰੀ ਵਰਕਫਲੋ।',
+  'about.intro':
+    '{{app}} ਵਿੱਤ ਟੀਮਾਂ ਅਤੇ ਉਹਨਾਂ ਵੱਲੋਂ ਰੀਇੰਬਰਸ ਕੀਤੇ ਜਾਂਦੇ ਲੋਕਾਂ ਲਈ ਇੱਕ ਖਰਚ ਪ੍ਰਬੰਧਨ ਪਲੇਟਫਾਰਮ ਹੈ। ਇੱਕ ਰਸੀਦ ਕੈਪਚਰ ਕਰੋ, ਇੱਕ ਖਰਚਾ ਦਰਜ ਕਰੋ, ਇੱਕ ਰਿਪੋਰਟ ਮਨਜ਼ੂਰੀ ਲਈ ਭੇਜੋ, ਅਤੇ ਹਰ ਰੀਇੰਬਰਸਮੈਂਟ ਟਰੈਕ ਕਰੋ — ਸਪ੍ਰੈਡਸ਼ੀਟ ਦੀ ਰਸਮ ਤੋਂ ਬਿਨਾਂ।',
+  'about.missionBody':
+    'ਰੀਇੰਬਰਸਮੈਂਟ ਤੇਜ਼, ਨਿਰਪੱਖ, ਅਤੇ ਆਡਿਟਯੋਗ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ। ਅਸੀਂ {{app}} ਬਣਾਇਆ ਤਾਂ ਜੋ ਜਮ੍ਹਾਂ ਕਰਨ ਵਾਲਿਆਂ ਨੂੰ ਬਿਨਾਂ ਤੰਗ ਕੀਤੇ ਭੁਗਤਾਨ ਮਿਲੇ, ਮਨਜ਼ੂਰੀ ਦੇਣ ਵਾਲੇ ਬਿਲਕੁਲ ਦੇਖ ਸਕਣ ਕਿ ਉਹ ਕੀ ਮਨਜ਼ੂਰ ਕਰ ਰਹੇ ਹਨ, ਅਤੇ ਵਿੱਤ ਵਿਭਾਗ ਕੋਲ ਹਰ ਡਾਲਰ ਲਈ ਸਾਫ਼ ਟ੍ਰੇਲ ਹੋਵੇ — ਪਾਲਿਸੀ ਜਾਂਚਾਂ ਸਮੇਤ।',
+  'about.missionTitle': 'ਸਾਡਾ ਮਿਸ਼ਨ',
   'approvals.approve': 'Approve',
   'approvals.approving': 'ਮਨਜ਼ੂਰੀ ਦਿੱਤੀ ਜਾ ਰਹੀ ਹੈ...',
   'approvals.confirmReject': 'ਅਸਵੀਕਾਰ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ',
+  'approvals.empty': 'ਤੁਸੀਂ ਪੂਰੀ ਤਰ੍ਹਾਂ ਅੱਪ-ਟੂ-ਡੇਟ ਹੋ — ਕੋਈ ਰਿਪੋਰਟ ਉਡੀਕ ਵਿੱਚ ਨਹੀਂ।',
   'approvals.eyebrow': 'ਮੈਨੇਜਰ ਕਤਾਰ',
   'approvals.kpi.flaggedLabel': 'ਨੀਤੀ ਨੂੰ ਫਲੈਗ ਕੀਤਾ ਗਿਆ',
+  'approvals.kpi.queueLabel': 'ਸਮੀਖਿਆ ਦੀ ਉਡੀਕ ਵਿੱਚ',
   'approvals.kpi.totalLabel': 'ਬਕਾਇਆ ਮੁੱਲ',
   'approvals.lineCount': '{{count}} ਖਰਚੇ',
   'approvals.queueFallback': 'ਲਾਈਵ ਕਤਾਰ ਉਪਲਬਧ ਨਹੀਂ ਹੈ — ਕਿਉਰੇਟਿਡ ਡੈਮੋ ਡੇਟਾ ਦਿਖਾ ਰਿਹਾ ਹੈ।',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'ਅਸਵੀਕਾਰ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...',
+  'approvals.rejectPlaceholder': 'ਕਾਰਨ (ਲਾਜ਼ਮੀ)',
   'approvals.rejectPrompt': 'ਤੁਸੀਂ ਇਸ ਰਿਪੋਰਟ ਨੂੰ ਕਿਉਂ ਰੱਦ ਕਰ ਰਹੇ ਹੋ?',
   'approvals.review': 'ਸਮੀਖਿਆ',
   'approvals.title': 'ਮਨਜ਼ੂਰੀਆਂ ਲੰਬਿਤ ਹਨ',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'ਮਨਜ਼ੂਰਸ਼ੁਦਾ · ਐਮਟੀਡੀ',
   'dashboard.kpi.pendingDelta': 'ਇਸ ਹਫ਼ਤੇ +2',
+  'dashboard.kpi.pendingLabel': 'ਸਮੀਖਿਆ ਵਿਚਾਰ-ਅਧੀਨ ਹੈ',
   'dashboard.kpi.receiptsDelta': 'ਕਾਰਵਾਈ ਲੋੜੀਂਦੀ ਹੈ',
   'dashboard.kpi.receiptsLabel': 'ਰਸੀਦਾਂ ਦੀ ਉਡੀਕ ਹੈ',
   'dashboard.kpi.reimbursedDelta': '+$2.4 ਹਜ਼ਾਰ',
   'dashboard.kpi.reimbursedLabel': 'ਵਾਪਸੀ · ਐਮਟੀਡੀ',
   'dashboard.newReport': 'ਨਵੀਂ ਰਿਪੋਰਟ',
+  'dashboard.recent.empty': 'ਹਾਲੇ ਕੋਈ ਰਿਪੋਰਟ ਨਹੀਂ — ਉੱਪਰ ਆਪਣੀ ਪਹਿਲੀ ਸ਼ੁਰੂ ਕਰੋ।',
   'dashboard.recent.title': 'ਹਾਲੀਆ ਰਿਪੋਰਟਾਂ',
   'dashboard.recent.viewAll': 'ਸਾਰੀਆਂ ਰਿਪੋਰਟਾਂ ਵੇਖੋ',
   'dashboard.summaryFallback': 'ਲਾਈਵ ਸਾਰਾਂਸ਼ ਉਪਲਬਧ ਨਹੀਂ ਹੈ — ਕਿਉਰੇਟ ਕੀਤਾ ਡੈਮੋ ਡੇਟਾ ਦਿਖਾ ਰਿਹਾ ਹੈ।',
@@ -38,11 +59,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'ਰਸੀਦਾਂ ਅਤੇ ਅਦਾਇਗੀਯੋਗ ਵਸਤੂਆਂ',
   'expenses.listFallback': 'ਲਾਈਵ ਸੂਚੀ ਉਪਲਬਧ ਨਹੀਂ ਹੈ — ਕਿਉਰੇਟਿਡ ਡੈਮੋ ਡੇਟਾ ਦਿਖਾ ਰਿਹਾ ਹੈ।',
   'expenses.searchPlaceholder': 'ਵਪਾਰੀ ਜਾਂ ਸ਼੍ਰੇਣੀ ਖੋਜੋ…',
+  'expenses.subtotal': '{{count}} ਖਰਚੇ · ਉਪ-ਜੋੜ',
   'expenses.title': 'ਖਰਚੇ',
+  'forgotPassword.continue': 'ਮੇਰੇ ਕੋਲ ਕੋਡ ਹੈ · ਜਾਰੀ ਰੱਖੋ',
+  'forgotPassword.subheading':
+    'ਆਪਣਾ ਕੰਮ ਵਾਲਾ ਈਮੇਲ ਦਰਜ ਕਰੋ ਅਤੇ ਅਸੀਂ ਨਵਾਂ ਪਾਸਵਰਡ ਸੈੱਟ ਕਰਨ ਲਈ ਲਿੰਕ ਭੇਜਾਂਗੇ।',
   'forgotPassword.successBody':
     'ਜੇਕਰ ਕੋਈ ਖਾਤਾ ਮੌਜੂਦ ਹੈ {{email}} ਤੁਹਾਨੂੰ ਅਗਲੇ ਕੁਝ ਮਿੰਟਾਂ ਵਿੱਚ ਇੱਕ ਰੀਸੈਟ ਲਿੰਕ ਪ੍ਰਾਪਤ ਹੋਵੇਗਾ।',
+  'landing.copyright': '© {{year}} {{app}}। Molecule.dev ਨਾਲ ਬਣਾਇਆ।',
+  'landing.ctaBody':
+    'ਹਰ ਮਹੀਨੇ ਪਹਿਲੇ 25 ਖਰਚਿਆਂ ਲਈ ਮੁਫ਼ਤ। ਕੋਈ ਕ੍ਰੈਡਿਟ ਕਾਰਡ ਨਹੀਂ, ਕੋਈ ਇੰਪਲੀਮੈਂਟੇਸ਼ਨ ਕਾਲ ਨਹੀਂ।',
   'landing.ctaHeading': 'ਕੀ ਤੁਸੀਂ ਆਪਣੀ ਟੀਮ ਦਾ ਕਰਜ਼ਾ ਵਸੂਲਣ ਲਈ ਤਿਆਰ ਹੋ?',
   'landing.eyebrow': 'ਵਿੱਤ ਟੀਮਾਂ ਲਈ ਖਰਚੇ ਦੀਆਂ ਰਿਪੋਰਟਾਂ',
+  'landing.featuresHeading': 'ਰੀਇੰਬਰਸਮੈਂਟ, ਇੱਕ ਸ਼ਾਂਤ ਵਰਕਸਪੇਸ ਵਿੱਚ',
   'landing.heroSubtitle':
     'ਸਪ੍ਰੈਡਸ਼ੀਟ ਸਮਾਰੋਹ ਤੋਂ ਬਿਨਾਂ ਕਾਰੋਬਾਰੀ ਖਰਚਿਆਂ ਨੂੰ ਜਮ੍ਹਾਂ ਕਰੋ, ਮਨਜ਼ੂਰ ਕਰੋ ਅਤੇ ਵਾਪਸ ਕਰੋ। ਰਸੀਦ OCR, ਨੀਤੀ ਜਾਂਚਾਂ, ਅਤੇ ਇੱਕ ਪਾਰਦਰਸ਼ੀ ਪ੍ਰਵਾਨਗੀ ਸਮਾਂ-ਰੇਖਾ - ਇਹ ਸਭ ਇੱਕ ਸ਼ਾਂਤ ਵਰਕਸਪੇਸ ਵਿੱਚ।',
   'landing.heroTitle': 'ਹਰ ਰਸੀਦ, ਬਰਾਮਦ।',
@@ -60,10 +89,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'ਨੋਟਸ',
   'newExpense.descriptionPlaceholder':
     'ਇਹ ਖਰਚਾ ਕਾਰੋਬਾਰ ਨਾਲ ਸਬੰਧਤ ਕਿਉਂ ਸੀ (ਤੁਹਾਡੇ ਮਨਜ਼ੂਰਕਰਤਾ ਨੂੰ ਦਿਖਾਈ ਦੇ ਰਿਹਾ ਹੈ)।',
+  'newExpense.eyebrow': 'ਰੀਇੰਬਰਸ ਕਰਨ ਯੋਗ ਆਈਟਮ',
   'newExpense.merchant': 'ਵਪਾਰੀ',
   'newExpense.merchantPlaceholder': 'ਹੋਟਲ ਐਡਲਨ ਕੇਮਪਿੰਸਕੀ',
   'newExpense.policyHint':
     'ਯਾਦ-ਪੱਤਰ: $80/ਦਿਨ ਤੋਂ ਵੱਧ ਦੇ ਖਾਣੇ ਜਾਂ $250 ਤੋਂ ਵੱਧ ਦੀ ਕਿਸੇ ਵੀ ਚੀਜ਼ ਲਈ ਇੱਕ ਜਾਇਜ਼ ਨੋਟ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ।',
+  'newExpense.receipt': 'ਰਸੀਦ',
+  'newExpense.receiptHint': 'JPG, PNG, ਜਾਂ PDF · ਵੱਧ ਤੋਂ ਵੱਧ 10 MB',
   'newExpense.receiptOcrHint': 'OCR ਖੇਤਰਾਂ ਨੂੰ ਪਹਿਲਾਂ ਤੋਂ ਭਰਦਾ ਹੈ',
   'newExpense.receiptPrompt': 'ਇੱਥੇ ਇੱਕ ਫੋਟੋ ਜਾਂ PDF ਪਾਓ, ਜਾਂ ਬ੍ਰਾਊਜ਼ ਕਰਨ ਲਈ ਕਲਿੱਕ ਕਰੋ',
   'newExpense.receiptUploadFailed':
@@ -74,16 +106,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'ਰਸੀਦ ਲਓ ਜਾਂ ਅਪਲੋਡ ਕਰੋ ਅਤੇ ਰਿਕੂਪ ਵਪਾਰੀ, ਤਾਰੀਖ ਅਤੇ ਕੁੱਲ ਰਕਮ ਪਹਿਲਾਂ ਤੋਂ ਭਰ ਦੇਵੇਗਾ। ਸੇਵ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਹੇਠਾਂ ਦਿੱਤੀ ਹਰ ਚੀਜ਼ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ।',
   'newExpense.title': 'ਖਰਚਾ ਸ਼ਾਮਲ ਕਰੋ',
+  'newReport.approverHint':
+    'ਜਦੋਂ ਤੁਸੀਂ ਇਸ ਰਿਪੋਰਟ ਨੂੰ ਸਮੀਖਿਆ ਲਈ ਜਮ੍ਹਾਂ ਕਰੋਗੇ ਤਾਂ ਉਹਨਾਂ ਨੂੰ ਇੱਕ ਈਮੇਲ ਮਿਲੇਗੀ।',
   'newReport.approverLabel': 'ਮਨਜ਼ੂਰਕਰਤਾ ਦਾ ਈਮੇਲ (ਵਿਕਲਪਿਕ)',
   'newReport.approverPlaceholder': 'ਮੈਨੇਜਰ@yourcompany.com',
   'newReport.availableExpenses': 'ਉਪਲਬਧ ਖਰਚੇ',
   'newReport.createFailed': 'ਰਿਪੋਰਟ ਨਹੀਂ ਬਣਾਈ ਜਾ ਸਕੀ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
   'newReport.draftsFallback': 'ਲਾਈਵ ਖਰਚ ਸੂਚੀ ਉਪਲਬਧ ਨਹੀਂ ਹੈ — ਕਿਉਰੇਟਿਡ ਡੈਮੋ ਡੇਟਾ ਦਿਖਾ ਰਿਹਾ ਹੈ।',
+  'newReport.eyebrow': 'ਖਰਚੇ ਗਰੁੱਪ ਕਰੋ · ਮਨਜ਼ੂਰੀ ਲਈ ਜਮ੍ਹਾਂ ਕਰੋ',
   'newReport.includedCount': '{{count}} ਸ਼ਾਮਲ',
   'newReport.purposeLabel': 'ਕਾਰੋਬਾਰੀ ਉਦੇਸ਼',
   'newReport.purposePlaceholder':
     'ਉਸ ਯਾਤਰਾ ਜਾਂ ਪ੍ਰੋਜੈਕਟ ਦਾ ਵਰਣਨ ਕਰੋ ਜਿਸ ਨਾਲ ਇਹ ਖਰਚੇ ਸਬੰਧਤ ਹਨ (ਤੁਹਾਡੇ ਮਨਜ਼ੂਰਕਰਤਾ ਅਤੇ ਵਿੱਤ ਨੂੰ ਦਿਖਾਈ ਦੇਣ ਵਾਲੇ)।',
   'newReport.saveDraft': 'ਡਰਾਫਟ ਵਜੋਂ ਸੇਵ ਕਰੋ',
+  'newReport.saveDraftFailed': 'ਡਰਾਫਟ ਸੇਵ ਨਹੀਂ ਹੋ ਸਕਿਆ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
   'newReport.submit': 'ਪ੍ਰਵਾਨਗੀ ਲਈ ਸਪੁਰਦ ਕਰੋ',
   'newReport.submitFailed': 'ਰਿਪੋਰਟ ਸਪੁਰਦ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
   'newReport.summary': 'ਰਿਪੋਰਟ ਦਾ ਸਾਰ',
@@ -96,16 +132,23 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'ਵਰਕਸਪੇਸ ਗਤੀਵਿਧੀ',
   'notifications.feedFallback': 'ਲਾਈਵ ਫੀਡ ਉਪਲਬਧ ਨਹੀਂ ਹੈ — ਕਿਉਰੇਟਿਡ ਡੈਮੋ ਡੇਟਾ ਦਿਖਾ ਰਿਹਾ ਹੈ।',
   'notifications.openReport': 'ਰਿਪੋਰਟ ਖੋਲ੍ਹੋ ›',
+  'pricing.approvalsLabel': 'ਮਨਜ਼ੂਰੀਆਂ',
   'pricing.expensesLabel': 'ਖਰਚੇ',
   'pricing.heading': 'ਪ੍ਰਵਾਨਗੀਆਂ',
   'pricing.policiesLabel': 'ਨੀਤੀਆਂ',
   'pricing.receiptsLabel': 'ਰਸੀਦਾਂ',
   'recoveredAmountHeroCard.label': 'ਵਾਪਸੀ ਦੀ ਰਕਮ ਵਸੂਲੀ ਗਈ · YTD',
+  'recoveredAmountHeroCard.pending':
+    'ਸਾਰੇ ਮਨਜ਼ੂਰੀ ਦੇਣ ਵਾਲਿਆਂ ਵਿੱਚ ਇਸ ਸਮੇਂ {{count}} ਰਿਪੋਰਟਾਂ ਸਮੀਖਿਆ ਲਈ ਲੰਬਿਤ ਹਨ।',
+  'reports.approvalFlow': 'ਮਨਜ਼ੂਰੀ ਫਲੋ',
   'reports.backToList': "ਰਿਪੋਰਟਾਂ 'ਤੇ ਵਾਪਸ ਜਾਓ",
   'reports.detailFallback': 'ਲਾਈਵ ਰਿਪੋਰਟ ਉਪਲਬਧ ਨਹੀਂ ਹੈ — ਕਿਉਰੇਟਿਡ ਡੈਮੋ ਡੇਟਾ ਦਿਖਾ ਰਿਹਾ ਹੈ।',
   'reports.lineItems': 'ਲਾਈਨ ਆਈਟਮਾਂ',
   'reports.lineItemsCount': '{{count}} ਖਰਚੇ',
+  'reports.lineItemsEmpty': "ਇਸ ਰਿਪੋਰਟ 'ਤੇ ਹਾਲੇ ਕੋਈ ਖਰਚਾ ਨਹੀਂ।",
+  'reports.openLibrary': 'ਰਿਪੋਰਟ ਲਾਇਬ੍ਰੇਰੀ ਖੋਲ੍ਹੋ',
   'reports.policyTitle': 'ਨੀਤੀ ਫਲੈਗ',
+  'reports.selectPrompt': 'ਇਸਦਾ ਵੇਰਵਾ ਦੇਖਣ ਲਈ ਲਾਇਬ੍ਰੇਰੀ ਤੋਂ ਇੱਕ ਰਿਪੋਰਟ ਚੁਣੋ।',
   'reports.summary.lineCount': 'ਲਾਈਨ ਆਈਟਮਾਂ',
   'reports.summary.reimbursable': 'ਅਦਾਇਗੀਯੋਗ',
   'reports.summary.total': 'ਰਿਪੋਰਟ ਕੀਤਾ ਕੁੱਲ',
@@ -114,6 +157,7 @@ export const ui: UiTranslations = {
   'reportsList.lineItems': '{{count}} ਖਰਚੇ',
   'reportsList.listFallback': 'ਲਾਈਵ ਸੂਚੀ ਉਪਲਬਧ ਨਹੀਂ ਹੈ — ਕਿਉਰੇਟਿਡ ਡੈਮੋ ਡੇਟਾ ਦਿਖਾ ਰਿਹਾ ਹੈ।',
   'reportsList.newReport': 'ਨਵੀਂ ਰਿਪੋਰਟ',
+  'reportsList.submittedOn': '{{date}} ਨੂੰ ਜਮ੍ਹਾਂ ਕੀਤਾ ਗਿਆ',
   'reportsList.title': 'ਲਾਇਬ੍ਰੇਰੀ ਦੀ ਰਿਪੋਰਟ ਕਰੋ',
   'resetPassword.hidePassword': 'ਪਾਸਵਰਡ ਲੁਕਾਓ',
   'resetPassword.newPasswordLabel': 'ਨਵਾਂ ਪਾਸਵਰਡ',
@@ -139,6 +183,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'ਸੇਵ ਕੀਤਾ ✓',
   'settings.profileSaveFailed': 'ਪ੍ਰੋਫਾਈਲ ਅੱਪਡੇਟ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
   'signup.heading': 'ਆਪਣਾ Recoup ਖਾਤਾ ਬਣਾਓ',
+  'signup.hidePassword': 'ਪਾਸਵਰਡ ਲੁਕਾਓ',
   'signup.namePlaceholder': 'ਮਾਇਆ ਓਕਾਫੋਰ',
   'signup.showPassword': 'ਪਾਸਵਰਡ ਦਿਖਾਓ',
   'signup.subheading': 'ਹਰ ਮਹੀਨੇ 25 ਖਰਚਿਆਂ ਲਈ ਮੁਫ਼ਤ — ਕੋਈ ਕ੍ਰੈਡਿਟ ਕਾਰਡ ਨਹੀਂ।',

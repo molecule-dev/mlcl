@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Fikr-mulohaza bildirmoqchimisiz, xatolik topdingizmi yoki funksiya kerakmi? Hisob sozlamalaridan murojaat qiling — har bir xabar jamoamizdagi haqiqiy insonga yetib boradi. Eslatma: bu yerda hech narsa investitsiya maslahati emas; har bir savdo ustidan nazorat sizda qoladi.',
+  'about.contactTitle': "Biz bilan bog'laning",
+  'about.featureAttribution':
+    'Samaradorlik tahlili — daromadlarni sektor, hudud va aktiv sinfi bo‘yicha ajratib ko‘rsating va istalgan davr bo‘yicha taqqoslang.',
+  'about.featureRebalance':
+    'Intizomli qayta balanslash — maqsadli taqsimot va tolerantlik chegaralarini belgilang, chetlanish erta aniqlanishini ko‘ring va sizni yo‘lga qaytaradigan savdolarni oling.',
+  'about.featureTax':
+    'Soliq hujjatlari tartibi — realizatsiya qilingan va qilinmagan daromadlar, dividendlardan va 1099 hujjatlari bir joyda, wash-sale belgilari bilan birga.',
+  'about.featureUnified':
+    'Yagona portfel — aksiyalar, ETFlar, investitsiya fondlari, obligatsiyalar va boshqalar har bir brokerlik hisobi bo‘ylab birlashtirilgan.',
+  'about.featureWatchlist':
+    'Kuzatuv ro‘yxatlari, yangiliklar va narx ogohlantirishlari — shovqinsiz muhim narsalarga amal qilishingiz uchun.',
+  'about.intro':
+    '{{app}} — xususiy investorlar va mustaqil maslahatchilar uchun ko‘p aktivli portfel paneli. Aksiyalar, ETFlar, investitsiya fondlari, obligatsiyalar, ko‘chmas mulk va naqd pul — har bir hisobdagi har bir aktiv bir joyda, professional ish stoli intizomi bilan.',
+  'about.missionBody':
+    'Yaxshi investitsiya asosan intizomdir: aniq maqsadli taqsimot, halol samaradorlik tahlili va tartibli soliq yozuvlari. {{app}} bu institutsional odatlarni hammaga olib keladi, shunda siz impuls bilan emas, ataylab qayta balanslashingiz mumkin — va portfelingiz aslida nima qilayotganini hech qachon ko‘zdan qochirmaysiz.',
+  'about.missionTitle': 'Bizning vazifamiz',
   'about.pageTitle': '{{app}} haqida',
   'argentAuthShell.brandEyebrow': 'Argent · Boylik vositalari',
   'argentAuthShell.brandFootnote': "© {{year}} {{app}} . Investitsiya bo'yicha maslahat emas.",
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Shovqinsiz, intizomli qayta muvozanatlash, aniq ish faoliyatini baholash va soliq hujjatlari gigienasini istagan yakka tartibdagi investorlar va maslahatchilar uchun portfel boshqaruv paneli.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · O‘tgan natijalar kelajakdagi natijalarni kafolatlamaydi.',
   'argentAuthShell.sampleChange': 'Bugun +$2,841 (+0.28%)',
+  'argentAuthShell.sampleLabel': 'Portfel qiymati',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'assetAllocationDonut.heading': 'Pulingiz qanday investitsiya qilinadi',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'bugun',
   'assetDetail.txEmpty': 'Ushbu tiker uchun hech qanday tranzaksiya yo’q.',
   'assetDetail.txHeading': 'Sizning tranzaksiyalaringiz',
+  'auth.legalConsent.prefix': 'Davom etish bilan siz {{appName}} shartlariga rozilik bildirasiz',
   'common.and': 'va',
   'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'bugun',
   'dashboard.topHoldings.heading': 'Pulingiz qayerda ishlaydi',
   'dashboard.topHoldings.label': 'Eng yaxshi xoldinglar',
+  'forgotPassword.gotLinkCta': 'Menda tiklash havolasi bor →',
+  'forgotPassword.subheading':
+    'Gavl hisobingizdagi elektron pochta manzilini kiriting va biz sizga xavfsiz tiklash havolasini yuboramiz.',
   'forgotPassword.successBody':
     'Agar uni bir necha daqiqada ko’rmasangiz, spam papkangizni tekshiring yoki boshqa elektron pochta manzilini sinab ko’ring.',
   'forgotPassword.successSubheading':
     'Tekshirish {{email}} qayta tiklash havolasi uchun. Uning amal qilish muddati 60 daqiqada tugaydi.',
+  'forgotPassword.successTitle': 'Tiklash xati yo‘lda',
   'holdingHighlightRow.todayLabel': 'bugun',
   'holdings.addCta': 'Sotib olish',
   'holdings.col.allocation': 'Ajratish',
@@ -58,6 +87,9 @@ export const ui: UiTranslations = {
     "© {{year}} {{app}} . Investitsiya bo'yicha maslahat emas. O'tmishdagi natijalar kelajakdagi natijalarni kafolatlamaydi.",
   'landing.eyebrow': 'Argent · Boylik vositalarini yaratish platformasi',
   'landing.features.heading': 'Maslahatchi o’zi uchun quradigan hamma narsa.',
+  'landing.finalCta.body':
+    'Brokerlik hisobingizni ikki bosishda ulang. Qolganini {{appName}} bajaradi.',
+  'landing.finalCta.cta': 'Argent hisobingizni oching',
   'landing.finalCta.heading': 'Portfelingizga intizomni qaytaring.',
   'landing.footerSignup': 'Hisob ochish',
   'landing.getStarted': 'Hisob ochish',
@@ -65,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Narxlarni ko’ring',
   'landing.heroSubtitle':
     'Shovqinsiz, intizomli qayta muvozanatlash, aniq ish faoliyatini baholash va soliq hujjatlari gigienasini istagan yakka tartibdagi investorlar va maslahatchilar uchun portfel boshqaruv paneli.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Vakillik portfelidan jonli ko’rib chiqish',
   'login.heading': 'Argent’ga kirish',
   'login.subheading':
@@ -76,6 +109,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} soat oldin',
   'news.justNow': 'hozirgina',
   'news.loadError': 'Yangiliklarni yuklab bo’lmadi.',
+  'planUpdated.body':
+    "Hisob-kitob o'zgarishingiz endi faol. Tarifingizni istalgan vaqtda hisob-kitob sahifasidan boshqarishingiz mumkin.",
+  'planUpdated.retry': 'Qayta urinib ko’ring',
+  'planUpdated.verifyFailed': "To'lovingizni hali tasdiqlay olmadik.",
+  'planUpdated.verifyFailedBody':
+    "To'lovingiz hali ham amalga oshirilayotgan bo'lishi mumkin. Birozdan keyin qayta urinib ko'ring.",
   'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'portfolioHeroCard.label': 'Portfel qiymati',
   'pricing.holdingsLabel': 'xoldinglar',
@@ -86,13 +125,18 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Taqsimotning o’zgarishi',
   'rebalance.empty': 'Hali maqsadlar qo’yilmagan.',
   'rebalance.executeCta': 'Joy {{count}} savdolar',
+  'rebalance.executeError': 'Savdolarni joylashtirib bo‘lmadi.',
   'rebalance.executeOk':
     'Joylashtirilgan {{count}} savdolar. Ularni Tranzaksiyalar sahifasida ko’ring.',
+  'rebalance.executing': 'Joylashtirilmoqda…',
   'rebalance.eyebrow': 'Qayta balanslash · Argent maslahatchisi',
   'rebalance.heading': 'Portfelingizni intizomga qaytaring',
   'rebalance.loadError': 'Qayta balanslash rejasini yuklashda xatolik yuz berdi.',
+  'rebalance.plan.driftLine': 'hozir {{current}}% · maqsad {{target}}%',
   'rebalance.planHeading': 'Argent chiptasi — joylashtirishdan oldin ko’rib chiqing',
   'rebalance.planLabel': 'Tavsiya etilgan savdo rejasi',
+  'rebalance.subheading':
+    'Tolerantlik chegarasidan tashqaridagi qatorlar savdo takliflarini ishga soladi. {{appName}} faqat siz tasdiqlaganingizda harakat qiladi.',
   'rebalance.summary.buyLabel': 'Xaridlar',
   'rebalance.summary.buySub': 'to’ldirish uchun lavozimlar',
   'rebalance.summary.driftLabel': 'Guruhdan tashqarida',
@@ -101,6 +145,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'tavsiya etilgan savdolar bo’yicha',
   'rebalance.summary.sellLabel': 'Sotadi',
   'rebalance.summary.sellSub': 'qirqish uchun pozitsiyalar',
+  'rebalanceDriftCard.drift': 'chetlanish {{sign}}{{pct}}% · chegara ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'nishon {{pct}} %',
   'reports.attributionHeading': 'Ishlash ko’rsatkichi (1Y)',
   'reports.col.alpha': 'Alfa',
@@ -114,37 +159,69 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Yil',
   'reports.gainsHeading': 'Amalga oshirilgan va amalga oshirilmagan yutuqlar',
   'reports.noAttribution': 'Hozircha mualliflik ma’lumotlari yo’q.',
+  'reports.noGains': 'Hozircha realizatsiya qilingan/qilinmagan daromadlar ma’lumoti yo‘q.',
   'reports.noPerformance': 'Hozircha unumdorlik ma’lumotlari yo’q.',
   'reports.noTaxDocs': 'Soliq hujjatlari hali yo’q.',
   'reports.performanceHeading': 'Ishlash va etalon',
   'reports.taxHeading': 'Soliq hujjatlari',
   'resetPassword.heading': 'Kuchli yangi parol tanlang',
+  'resetPassword.passwordPlaceholder': 'Yangi parol',
   'resetPassword.subheading':
     'Parolingiz o’rnatilgandan so’ng, Argent sizni avtomatik ravishda tizimga kiritadi.',
   'resetPassword.tokenPlaceholder': 'Elektron pochtadan tokenni tiklash',
+  'settings.appearance.description': "Yorug'lik va qorong'u rejimlar o'rtasida almashinish.",
   'settings.appearance.title': "Tashqi ko'rinish",
+  'settings.devices.body': 'Hozirda hisobingizga kirgan qurilmalar.',
+  'settings.devices.empty': 'Qurilmalar topilmadi.',
   'settings.devices.heading': 'Qurilmalar',
+  'settings.devices.revokeWarning':
+    'Bu qurilmaning kirish huquqi tez orada bekor qilinadi. Uni chiqarasizmi?',
   'settings.devices.signOut': 'tizimdan chiqish',
   'settings.devices.thisDevice': 'Ushbu qurilma',
   'settings.devices.unknown': "Noma'lum qurilma",
   'settings.linked.body':
     'Brokerlik sinxronizatsiyasi uchun uchinchi tomon ulagichi (Plaid, Yodlee va boshqalar) talab qilinadi. Avtomatik importni yoqish uchun provayderingizni muhitingizda sozlang.',
   'settings.linked.heading': 'Bog’langan brokerlik hisoblari',
+  'settings.linked.placeholder': "Hali hech qanday hisob bog'lanmagan.",
+  'settings.notifications.dividendsPaid': 'To‘langan dividendlardan',
   'settings.notifications.error': 'Sozlamalarni yangilab bo’lmadi.',
   'settings.notifications.priceAlerts': 'Narxlar haqida ogohlantirishlar',
+  'settings.notifications.rebalanceDrift': 'Qayta balanslash chetlanishi',
+  'settings.notifications.taxDocsReady': 'Soliq hujjatlari tayyor',
   'settings.profile.advisor': 'Maslahatchi elektron pochtasi (ixtiyoriy)',
   'settings.profile.heading': 'Profil',
   'settings.security.changePassword': "Parolni o'zgartirish",
+  'settings.security.changePasswordTitle': "Parolni o'zgartirish",
   'settings.security.changing': "O'zgarmoqda…",
+  'settings.security.confirmPassword': 'Parol',
+  'settings.security.currentPassword': 'Joriy parol',
   'settings.security.deleteAccount': "Hisobni o'chirish",
   'settings.security.deleteError': "Hisobni o'chirib bo'lmadi.",
   'settings.security.deleteHeading': "Hisobni o'chirish",
+  'settings.security.deleteModalWarning':
+    'Bu hisobingiz va ma’lumotlaringizni butunlay o‘chiradi. Tasdiqlash uchun parolingizni kiriting.',
+  'settings.security.deleteWarning':
+    "Hisobingizni va unga tegishli barcha ma'lumotlarni butunlay o'chiring. Buni ortga qaytarib bo'lmaydi.",
   'settings.security.deleting': "O'chirilmoqda…",
   'settings.security.heading': 'Xavfsizlik',
   'settings.security.newPassword': 'Yangi parol',
   'settings.security.password': 'Parol',
+  'settings.security.passwordError': "Parolni o'zgartirib bo'lmadi.",
+  'settings.security.passwordHint': 'Tizimga kirish uchun ishlatadigan parolingizni o‘zgartiring.',
+  'settings.security.twoFactor': 'Ikki faktorli autentifikatsiya',
+  'settings.security.twoFactorCode': 'Autentifikatsiya kodi',
+  'settings.security.twoFactorDisable': "O'chirish",
+  'settings.security.twoFactorDisableTitle': "Ikki faktorli autentifikatsiyani o'chirish",
   'settings.security.twoFactorEnable': 'Yoqish',
+  'settings.security.twoFactorEnableTitle': 'Ikki faktorli autentifikatsiyani yoqish',
+  'settings.security.twoFactorHint': 'Hisobingizga qo‘shimcha himoya qatlami qo‘shing.',
   'settings.security.twoFactorInvalidCode': "Noto'g'ri kod",
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'Ikki faktorli QR kod',
+  'settings.security.twoFactorScan':
+    "Ushbu QR kodni autentifikator ilovangiz bilan skanerlang, so'ng 6 xonali kodni kiriting.",
+  'settings.security.twoFactorUnavailable':
+    'Ushbu ilova uchun ikki faktorli autentifikatsiya mavjud emas.',
   'settings.security.twoFactorVerify': 'Tasdiqlash va yoqish',
   'settings.tax.error': 'Soliq usulini yangilab bo’lmadi.',
   'settings.tax.heading': 'Soliq uchastkasini hisobga olish',
@@ -155,6 +232,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Soliq usuli saqlandi.',
   'signup.eyebrow': 'Hisob ochish',
   'signup.heading': 'Argent hisobingizni oching',
+  'signup.legalPrefix': 'Hisob yaratish bilan siz {{appName}} ga rozilik bildirasiz',
   'signup.subheading':
     '30 kun davomida bepul. Karta talab qilinmaydi. Istalgan vaqtda bekor qilish mumkin.',
   'signup.terms':

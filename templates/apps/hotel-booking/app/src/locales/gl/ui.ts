@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tes dúbidas sobre unha reserva, comentarios ou un aloxamento que cres que debería estar en {{app}}? Contacta co noso equipo desde a túa conta — cada mensaxe chega a unha persoa real que pode axudarche.',
+  'about.contactTitle': 'Fala connosco',
   'about.eyebrow': 'Sobre nós',
+  'about.featureLoyalty':
+    'Tarifas exclusivas para membros e un programa de fidelidade que acumula puntos, saídas máis tarde e melloras de habitación en cada reserva.',
+  'about.featureReviews':
+    'Opinións verificadas de hóspedes e seleccións editoriais para que poidas confiar na estancia antes de chegar.',
+  'about.featureRooms':
+    'Habitacións, tarifas e servizos comparados lado a lado con prezos transparentes e todo incluído — impostos e taxas do resort incluídos antes de pagar.',
+  'about.featureSearch':
+    'Busca en tempo real entre hoteis verificados con dispoñibilidade en directo, vista de mapa e galerías de fotos completas.',
+  'about.featureTrips':
+    'Favoritos gardados e un panel de Viaxes que reúne cada reserva, itinerario e confirmación nun só lugar.',
+  'about.intro':
+    '{{app}} é unha plataforma de reserva de hoteis para viaxeiros que valoran a calidade. Cada aloxamento é verificado persoalmente polo noso equipo editorial — sen inventario de agregadores nin anuncios enganosos. Busca dispoñibilidade real, compara habitacións, tarifas e servizos lado a lado e reserva en poucos toques cun prezo claro e todo incluído.',
+  'about.missionBody':
+    'Reservar un lugar onde aloxarse debería ser tranquilo e honesto. Mostramos tarifas transparentes con impostos e taxas do resort por adiantado, recompensamos os hóspedes fieis en vez de cobrarlles por todo e poñemos primeiro as estancias que valen o teu diñeiro — para que dediques menos tempo a comparar pestanas e máis á viaxe en si.',
+  'about.missionTitle': 'A nosa misión',
+  'about.subtitle': 'Unha forma seleccionada e transparente de atopar e reservar o hotel axeitado.',
   'account.loyalty.activitySummary': '{{nights}} noites · {{spend}} gastou este ano',
+  'account.loyalty.benefitsHeading': 'Os teus beneficios',
   'account.loyalty.heading': 'Lealdade',
   'account.loyalty.loading': 'Cargando fidelización…',
-  'account.loyalty.pointsTowardNext': '{{puntos}} / {{seguinte}} apunta a {{nextTier}}',
+  'account.loyalty.maxTier': 'Nivel máximo — goza dos teus beneficios.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} puntos a {{nextTier}}',
   'account.loyalty.tier': 'Nivel actual',
   'account.loyalty.unavailable': 'Información de fidelización non dispoñible.',
   'account.navLabel': 'Seccións da conta',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Confirmar reserva · {{total}}',
   'bookingCheckout.datesRequired': 'Escolle as datas de entrada e saída.',
   'bookingCheckout.guestHeading': 'Convidado principal',
+  'bookingCheckout.heading': 'Confirmar e reservar',
   'bookingCheckout.loadError': 'Non se puido cargar a propiedade.',
   'bookingCheckout.nights': '{{rate}} × {{count}} noites',
   'bookingCheckout.notFound': 'Propiedade non atopada.',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Impostos e taxas',
   'bookingCheckout.tripHeading': 'A túa viaxe',
   'bookingConfirmation.allTripsCta': 'Todas as viaxes',
+  'bookingConfirmation.confNumber': 'Número de confirmación: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'A túa reserva está a procesarse.',
   'bookingConfirmation.heading': 'Reserva confirmada',
   'bookingConfirmation.loading': 'Cargando a túa reserva…',
   'bookingConfirmation.searchMoreCta': 'Explora máis aloxamentos',
   'bookingConfirmation.subheadingForTrip':
-    '{{propiedade}} en {{cidade}} , {{país}} Vémonos en {{rexistro de entrada}} .',
+    '{{property}} en {{city}}, {{country}}. Vémonos o {{checkIn}}.',
   'bookingConfirmation.total': 'Total {{total}}',
   'bookingConfirmation.viewTripCta': 'Ver viaxe',
   'common.goToDashboard': 'Ir ao panel',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Non se puideron cargar os favoritos.',
   'favorites.pricePerNight': '{{price}} / noite',
   'favorites.removeCta': 'Non gardar',
+  'favorites.removing': 'Eliminando…',
   'forgotPassword.subheading':
     'Introduce o correo electrónico da túa conta e enviarémosche unha ligazón de restablecemento seguro.',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Membros de Auberge',
   'landing.cta.heading': 'Tarifas só para membros. En todas as reservas, sempre.',
   'landing.cta.signup': 'Crear unha conta gratuíta',
+  'landing.cta.subheading':
+    'Acumula puntos de fidelidade en cada estancia, desbloquea saídas máis tarde e melloras de habitación, e accede primeiro aos novos aloxamentos antes de que se publiquen.',
   'landing.destinations.eyebrow': 'Onde imos despois?',
   'landing.destinations.heading': 'Destinos destacados',
   'landing.destinations.seeAll': 'Ver todos os destinos',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Historias que paga a pena ler',
   'landing.nav.join': 'Únete a Auberge',
   'landing.nav.search': 'Buscar estadías',
+  'landing.preview.browseAll': 'Explora a colección completa',
   'landing.preview.eyebrow': 'Unha ollada ao interior',
   'landing.preview.heading': 'Estancias escollidas a dedo este mes',
+  'landing.preview.subheading':
+    'Cada aloxamento en {{appName}} é verificado persoalmente polo noso equipo editorial — sen inventario de agregadores nin anuncios enganosos.',
   'login.eyebrow': 'Área de membros',
+  'login.noAccount': 'Novo en Tessera?',
   'login.signupLink': 'Crear unha conta gratuíta',
   'login.subheading':
     'Inicia sesión para xestionar as túas viaxes, ver confirmacións e continuar onde as deixaches.',
+  'loyaltyTierBadge.points': '{{points}} puntos',
   'planUpdated.heading': 'Plan actualizado',
+  'planUpdated.retry': 'Téntao de novo',
+  'planUpdated.verifyFailed': 'Aínda non puidemos confirmar o teu pagamento.',
+  'planUpdated.verifyFailedBody':
+    'É posible que o teu pago aínda estea procesándose. Téntao de novo nun momento.',
   'planUpdated.verifying': 'Confirmando o teu pago…',
   'pricing.limit.advancedFeatures': 'Funcións avanzadas:',
   'pricing.limit.canExport': 'Exportación de datos:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'O que ofrece este lugar',
   'propertyDetail.backLink': 'Volver á busca',
   'propertyDetail.bookCta': 'Reserva',
+  'propertyDetail.bookmarkAria': 'Gardar propiedade',
   'propertyDetail.bookmarkAriaSaved': 'Eliminar das propiedades gardadas',
+  'propertyDetail.galleryImageAlt': '{{name}} foto {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} fotografía heroica',
   'propertyDetail.hidePhotos': 'Ocultar fotos',
   'propertyDetail.lineCleaning': 'Tarifa de limpeza',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'noite',
   'propertyDetail.noChargeYet': 'Aínda non se che cobrará',
   'propertyDetail.notFound': 'Propiedade non atopada.',
+  'propertyDetail.perNight': '/ noite',
+  'propertyDetail.pickDatesHint': 'Escolle as túas datas para ver o desglose completo do prezo.',
   'propertyDetail.reviewCount': '( {{count}} reseñas)',
   'propertyDetail.reviewsHeading': 'Recensións recentes',
   'propertyDetail.roomCapacity': 'Dorme {{count}}',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Novo contrasinal',
   'resetPassword.subheading':
     'Escolle un novo contrasinal para a túa conta de Auberge. Usa polo menos 8 caracteres; recomendámosche unha frase de contrasinal.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Non hai propiedades que coincidan coa túa busca.',
   'searchResults.emptyHint':
     'Tenta ampliar os filtros ou eliminar o límite de prezos: Auberge ten estadías en 14 países.',
@@ -108,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Estancias seleccionadas',
   'searchResults.headingForQuery': 'Estancias para " {{q}} "',
   'searchResults.loadError': 'Non se puideron cargar as propiedades.',
+  'searchResults.mapHint':
+    'Pasa o rato por unha tarxeta para destacala no mapa. Teselas de Mapbox en directo en produción.',
   'searchResults.mapPinAria': '{{name}} — {{price}} por noite',
   'searchResults.sortLabel': 'Ordenar por',
   'searchResults.subheading': '{{count}} propiedades · {{guests}} convidados',
   'signup.eyebrow': 'Faite membro',
   'signup.subheading':
     'Únete a Auberge para desbloquear tarifas só para membros, saídas tardías e acceso preferente a novas propiedades.',
+  'sojournAuthShell.brand.eyebrow': 'Alóxate nun lugar extraordinario',
+  'sojournAuthShell.brand.heading':
+    'Unha colección seleccionada de aloxamentos — presentados con beleza e con prezos transparentes.',
   'sojournHeroSearchCard.checkInAria': 'Data de entrada',
   'sojournHeroSearchCard.checkOutAria': 'Data de saída',
+  'sojournHeroSearchCard.destAria': 'Destino',
+  'sojournHeroSearchCard.destLabel': 'Onde',
   'sojournHeroSearchCard.destPlaceholder': 'Cidade, rexión ou propiedade',
   'sojournHeroSearchCard.eyebrow': 'Estancias seleccionadas · Tarifas só para membros',
   'sojournHeroSearchCard.guestsOption': '{{n}} convidados',
   'sojournHeroSearchCard.subtitle':
     'Unha colección coidadosamente seleccionada de hoteis boutique, propiedades de deseño vangardista e retiros pouco comúns, con prezos transparentes e unha presentación fermosa.',
+  'sojournHeroSearchCard.title': 'Alóxate nun lugar extraordinario',
+  'sojournHeroSearchCard.trustLoyalty': 'Acumula puntos en cada estancia',
   'sojournHeroSearchCard.trustNoFees': 'Sen taxas ocultas, nunca',
   'sojournHeroSearchCard.trustVetted': 'Só propiedades revisadas manualmente',
   'sojournLayout.primaryNavLabel': 'Navegación principal',

@@ -1,11 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχεις σχόλια, βρήκες κάποιο σφάλμα ή θέλεις να προτείνεις μια λειτουργία; Κάθε μήνυμα φτάνει σε ένα πραγματικό άτομο στην ομάδα του {{app}} — θα χαρούμε πολύ να μάθουμε τι ανακαλύπτεις.',
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά με το {{app}}',
+  'about.intro':
+    'Το {{app}} είναι μια εφαρμογή καρτών flash με επανάληψη σε διαστήματα, για ανθρώπους που θέλουν η γνώση να μένει πραγματικά. Είτε μαθαίνεις μια γλώσσα, είτε αποστηθίζεις τύπους, είτε εξασκείς έννοιες για μια εξέταση, προγραμματίζει κάθε κάρτα την ακριβή στιγμή που πρόκειται να την ξεχάσεις — τον πιο αποδοτικό τρόπο που έχει βρει η επιστήμη της μνήμης για να μεταφέρει γεγονότα στη μακροπρόθεσμη ανάκληση.',
+  'about.missionBody':
+    'Τα περισσότερα εργαλεία μελέτης βελτιστοποιούν τον χρόνο που αφιερώνεις, όχι τη γνώση που συγκρατείς. Το {{app}} βελτιστοποιεί το αντίθετο: τις λιγότερες δυνατές επαναλήψεις που κρατούν ό,τι έχει σημασία στο μυαλό σου. Πιστεύουμε ότι η μάθηση πρέπει να είναι ήρεμη, μετρήσιμη και δική σου — ανοιχτά δεδομένα, χωρίς σκοτεινά μοτίβα και μια συνήθεια που μπορείς να διατηρήσεις για χρόνια.',
+  'about.missionTitle': 'Η αποστολή μας',
   'about.pageTitle': '{{tagline}}.',
   'authShell.sampleBack': 'Βίλνιους — ανακλήθηκε σε 1,2 δευτερόλεπτα.',
   'authShell.sampleEyebrow': 'Μια κάρτα από την μελλοντική σας τράπουλα',
+  'authShell.sampleFront': '«Η πρωτεύουσα της Λιθουανίας.»',
+  'authShell.sampleRetention': '{{pct}}% συγκράτηση',
   'authShell.sampleStreak': '{{days}} -ημερήσια σειρά',
   'cardEdit.title': 'Επεξεργασία κάρτας flash',
   'cardEditor.backLink': 'Επιστροφή στο κατάστρωμα',
@@ -36,6 +45,8 @@ export const ui: UiTranslations = {
   'dashboard.kpi.days': 'ημέρες',
   'deckDetail.backLink': 'Όλες οι τράπουλες',
   'deckDetail.deleteError': 'Η διαγραφή της τράπουλας απέτυχε.',
+  'deckDetail.empty.body': 'Πρόσθεσε την πρώτη σου κάρτα για να αρχίσεις να χτίζεις μνήμη.',
+  'deckDetail.empty.cta': 'Πρόσθεσε την πρώτη σου κάρτα',
   'deckDetail.empty.heading': 'Δεν υπάρχουν κάρτες σε αυτήν την τράπουλα ακόμα',
   'deckDetail.filterEmpty': 'Δεν υπάρχουν κάρτες που να αντιστοιχούν σε αυτό το φίλτρο κατάστασης.',
   'deckDetail.filterLabel': 'Φιλτράρισμα καρτών ανά πολιτεία',
@@ -48,7 +59,10 @@ export const ui: UiTranslations = {
   'deckDetail.stat.total': 'Καρτέλλες',
   'deckDetail.studyDueLabel': 'Μελέτη {{count}} οφειλόμενος',
   'deckProgressCard.cardCount': '{{count}} κάρτες',
+  'deckProgressCard.masteredTooltip': '{{count}} κατακτημένες',
   'deckProgressCard.studyCta': 'Μελέτη {{count}}',
+  'decks.confirmDelete':
+    'Να διαγραφεί αυτή η τράπουλα και όλες οι κάρτες της; Αυτό δεν μπορεί να αναιρεθεί.',
   'decks.create.heading': 'Δημιουργήστε μια τράπουλα',
   'decks.create.nameLabel': 'Όνομα τράπουλας',
   'decks.create.submit': 'Δημιουργία τράπουλας',
@@ -59,6 +73,7 @@ export const ui: UiTranslations = {
   'decks.heading': 'Τράπουλες',
   'decks.loadError': 'Αποτυχία φόρτωσης τράπουλας.',
   'decks.loading': 'Φόρτωση…',
+  'decks.newDeckLabel': 'Νέα τράπουλα',
   'decks.retention': 'Διατηρώ',
   'decks.studyArrow': 'Μελέτη →',
   'decks.subheading': '{{count}} τράπουλες · έλεγχος και διαχείριση',
@@ -82,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Έχω ήδη έναν λογαριασμό',
   'landing.heroSubtitle':
     'Η επανάληψη σε διαστήματα κάνει τη διαφορά μεταξύ της απομνημόνευσης και της συνέχισης της διαδικασίας. Πέντε λεπτά την ημέρα, χρόνο με το χρόνο, και η γλώσσα μένει ζωντανή.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.proof.export': 'Ανοιχτά δεδομένα, χωρίς κλειδώματα',
   'landing.proof.free': 'Δωρεάν για πάντα για προσωπική χρήση',
   'landing.proof.import': 'Εισαγωγή .apkg / CSV',
@@ -96,12 +112,16 @@ export const ui: UiTranslations = {
   'login.heading': 'Καλώς ήρθατε πίσω στα καταστρώματά σας',
   'login.orDivider': 'ή συνεχίστε με',
   'login.signupLink': 'Ξεκινήστε να σπουδάζετε δωρεάν',
+  'login.signupPrompt': 'Νέος εδώ;',
   'login.subtitle': 'Συνεχίστε από εκεί που σταματήσατε — το σερί σας περιμένει.',
   'mobileNav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
   'mobileNav.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'notifications.markAllReadError': 'Αποτυχία επισήμανσης όλων ως αναγνωσμένων.',
   'pricing.heading': 'κάρτες',
+  'pricing.limits.cards': 'κάρτες',
   'pricing.limits.decks': 'τράπουλες',
+  'pricing.limits.historyDays': 'Ιστορικό επαναλήψεων {{days}} ημερών',
+  'pricing.limits.historyUnlimited': 'Απεριόριστο ιστορικό επαναλήψεων',
   'pricing.limits.stats': 'στατιστικά στοιχεία',
   'pricing.limits.study': 'μελέτη',
   'resetPassword.passwordLabel': 'Νέος κωδικός πρόσβασης',
@@ -113,17 +133,30 @@ export const ui: UiTranslations = {
   'sessionSummary.heading': 'Μπράβο.',
   'sessionSummary.label': 'Η συνεδρία ολοκληρώθηκε',
   'settings.changePasswordError': 'Δεν ήταν δυνατή η αλλαγή του κωδικού πρόσβασης.',
+  'settings.confirmPassword': 'Επιβεβαιώστε τον κωδικό πρόσβασής σας',
   'settings.currentPassword': 'Τρέχων κωδικός',
+  'settings.dangerZone': 'Επικίνδυνη ζώνη',
+  'settings.deleteAccountHint':
+    'Διαγραφή του λογαριασμού σου και όλων των δεδομένων μελέτης οριστικά. Αυτό δεν μπορεί να αναιρεθεί.',
+  'settings.deleteAccountWarning':
+    'Αυτό διαγράφει οριστικά τον λογαριασμό σου και όλες τις τράπουλες, τις κάρτες και το ιστορικό μελέτης. Αυτό δεν μπορεί να αναιρεθεί.',
   'settings.deleteError':
     'Η διαγραφή του λογαριασμού απέτυχε. Ελέγξτε τον κωδικό πρόσβασής σας και δοκιμάστε ξανά.',
   'settings.deleting': 'Διαγραφή…',
+  'settings.devicesHint': 'Συσκευές που είναι αυτή τη στιγμή καταχωρισμένες στον λογαριασμό σας.',
   'settings.newPassword': 'Νέος κωδικός πρόσβασης',
   'settings.password': 'Κωδικός πρόσβασης',
   'settings.passwordChanged': 'Ο κωδικός ενημερώθηκε.',
+  'settings.passwordHint': 'Άλλαξε τον κωδικό πρόσβασης που χρησιμοποιείς για να συνδεθείς.',
   'settings.reminders.atRisk': 'Ειδοποίηση κινδύνου σειρών (μετά τις 8:00 μ.μ.)',
+  'settings.reminders.daily': 'Καθημερινή υπενθύμιση (8:00 π.μ.)',
   'settings.reminders.heading': 'Υπενθυμίσεις',
+  'settings.reminders.milestones': 'Γιορτές ορόσημων',
   'settings.reminders.note':
     'Αποθηκεύτηκε σε αυτήν τη συσκευή. Ενεργοποιήστε/απενεργοποιήστε ποια μελέτη εμφανίζει αυτό το πρόγραμμα περιήγησης. Οι προτιμήσεις συγχρονίζονται κατά την επαναφόρτωση.',
+  'settings.reminders.weekly': 'Εβδομαδιαία σύνοψη συγκράτησης (Κυριακές)',
+  'settings.revokeDeviceWarning':
+    'Η πρόσβαση αυτής της συσκευής θα ανακληθεί σύντομα. Να γίνει αποσύνδεση;',
   'settings.saved': 'Αποθηκεύτηκε.',
   'settings.saveError': 'Αποτυχία αποθήκευσης.',
   'settings.saving': 'Αποθήκευση…',
@@ -139,6 +172,7 @@ export const ui: UiTranslations = {
   'signup.legal':
     'Δημιουργώντας έναν λογαριασμό, συμφωνείτε με τους Όρους και την Πολιτική Απορρήτου μας.',
   'signup.nameLabel': 'Το όνομά σας (προαιρετικό)',
+  'signup.orDivider': 'ή εγγραφείτε με',
   'signup.subtitle': 'Πέντε λεπτά την ημέρα. Ένας μελλοντικός εαυτός που θυμάται.',
   'stats.byStateHeading': 'Κάρτες ανά πολιτεία',
   'stats.dailyHeading': 'Κριτικές ανά ημέρα (τελευταίες 30 ημέρες)',
@@ -175,5 +209,6 @@ export const ui: UiTranslations = {
   'todayHeroCard.goalLabel': 'Ημερήσιος στόχος',
   'todayHeroCard.goalProgress': '{{reviewed}} / {{goal}}',
   'todayHeroCard.streakBadge': '{{days}} -ημερήσια σειρά',
+  'todayHeroCard.studyCta': 'Ξεκίνα τη μελέτη',
   'userMenu.stats': 'Τα στατιστικά μου',
 }

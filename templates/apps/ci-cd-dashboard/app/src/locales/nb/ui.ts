@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Spørsmål, tilbakemeldinger eller ønsker du en demo for teamet ditt? Send oss en e-post på hello@conduit.dev — hver melding når en ekte person på teamet.',
   'about.contactHeading': 'Ta kontakt',
   'about.eyebrow': 'Om',
+  'about.featuresHeading': 'Det du får',
+  'about.introBody':
+    '{{app}} bringer kontinuerlig levering i GitHub Actions-stil inn i ett raskt dashbord: pipelines, byggelogger, artifakter, statusmerker og distribusjonsmiljøer for alle repositoriene dine på ett sted. Ingen hopping mellom faner, ingen gjetting på hvilket bygg som feilet — hver kjøring, logglinje og distribusjon er ett klikk unna.',
+  'about.introHeading': 'Hva {{app}} er',
+  'about.missionBody':
+    'Å levere programvare bør være rolig og forutsigbart, ikke en kilde til frykt. Vi bygger pipelinenе, loggene og distribusjonsverktøyene slik at veien fra commit til produksjon er rask, synlig og pålitelig — det første grønne bygget på fem minutter, og hvert bygg etter det like tydelig.',
+  'about.missionHeading': 'Vårt oppdrag',
+  'about.subtitle':
+    '{{app}} er et CI/CD-dashbord for team som vil overvåke bygg, distribusjoner og miljøer på tvers av alle repositorier — og levere med sikkerhet.',
   'artifacts.empty': 'Ingen artefakter ennå.',
   'artifacts.heading': 'Artefakter',
   'artifacts.loadError': 'Kunne ikke laste artefakter.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Miljøer',
   'environments.loadError': 'Kunne ikke laste miljøer.',
+  'environments.loading': 'Laster miljøer…',
   'environments.subheading': 'Sanntids deployment-status på tvers av alle mål.',
   'forgotPassword.runnerStatus': 'tilbakestill · sikker tunnel',
+  'forgotPassword.success':
+    'Hvis det finnes en konto for den e-posten, er en tilbakestillingslenke på vei. Sjekk innboksen din.',
   'insights.changeFailureRate': 'Endringssviktrate',
   'insights.deployFrequency': 'Deploys / dag',
   'insights.empty': 'Ikke nok data ennå.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Kunne ikke laste innsikt.',
   'insights.meanP95': 'gjennomsnitt {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Tregeste pipelinetrinn',
   'insights.successRateHeading': 'Pipeline-suksessrate (siste 14 dager)',
   'landing.choosePlan': 'Velg plan',
+  'landing.copyright': '© {{year}} {{app}}. Lever med sikkerhet.',
   'landing.ctaBody':
     'Ingen kredittkort. Ingen plattformutvikler nødvendig. Få den første pipelinen grønn på fem minutter.',
   'landing.ctaHeading': 'Lever med sikkerhet.',
   'landing.featuresEyebrow': '// platform features',
   'landing.featuresHeading': 'Bygget av shippere, for shippere',
+  'landing.heroSubtitle':
+    'Pipelines som fullføres på sekunder. Logger du kan lese. Distribusjoner du kan stole på.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Enkel, forutsigbar prising',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Pågår nå',
   'pipelines.metric.successCaption': '{{count}} av {{total}} kjøringer',
   'pipelines.metric.successRate': 'Suksessrate',
+  'pipelines.realtimeOn': 'sanntid',
   'pipelines.subheading': 'Sanntidsoppdateringer fra alle overvåkede repositories.',
+  'pricing.advancedFeatures': 'Avanserte funksjoner: {{mark}}',
+  'pricing.canExport': 'Dataeksport: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artifakter',
+  'pricing.maxBuilds': '{{count}} bygg',
+  'pricing.maxPipelines': '{{count}} pipelines',
   'privacy.dataAccount': 'Konto: navn, e-post, hashet passord, plantrinn.',
   'privacy.intro':
     '{{app}} samler kun minimumsdata vi trenger for å drifte din continuous-delivery-konto: e-posten din, repositoriene du kobler til, commits og build-metadata dine runners produserer, og hemmelighetene du velger å lagre hos oss. Vi leser aldri kildekoden din utenfor build-runneren; build-artefakter lagres i din S3-bucket når det er konfigurert.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Vi bruker Stripe for fakturering, Mailgun for transaksjons-e-post og AWS S3 for lagring av build-artefakter. Hver er kontraktsmessig bundet til minimalt dataomfang som trengs for å levere tjenesten.',
   'privacy.rightsBody':
     'Du kan eksportere hver byte av dataene dine, slette kontoen din når som helst fra Innstillinger og be om en oversikt over alle webhook-leveringer på kontoen din. Vi svarer på GDPR-/CCPA-forespørsler innen 30 dager.',
+  'privacy.subtitle':
+    'Hvordan {{app}} samler inn, lagrer og beskytter dataene dine mens vi kjører pipelinenе dine.',
   'privacy.title': 'Personvernpolicy',
   'repositories.empty': 'Ingen repositories tilkoblet.',
   'repositories.heading': 'Repositories',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Alle repositories',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Kunne ikke laste repository.',
+  'repositoryDetail.meanDuration': 'Gjennomsnittlig varighet',
   'repositoryDetail.notFound': 'Repository ikke funnet.',
+  'repositoryDetail.successRate': 'Suksessrate',
   'repositoryDetail.totalBuilds': 'Totale builds',
   'repositoryDetail.webhookActive': 'aktiv',
   'repositoryDetail.webhookPaused': 'satt på pause',
   'repositoryDetail.webhooksHeading': 'Webhooks',
+  'resetPassword.passwordLabel': 'Nytt passord',
   'resetPassword.runnerStatus': 'tilbakestill · token bekreftet',
   'resetPassword.subtitle': 'Velg et sterkt passord du ikke har brukt før.',
   'resetPassword.tokenPlaceholder': 'lim inn fra e-post',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Repositories som Conduit overvåker. Koble fra VCS-leverandøren din for å stoppe innhenting av hendelser.',
   'settings.repositories.empty': 'Ingen repositories tilkoblet ennå.',
+  'settings.repositories.heading': 'Repositorietilkoblinger',
   'settings.repositories.loadError': 'Kunne ikke laste repositories.',
   'settings.secrets.addCta': 'Legg til hemmelighet',
   'settings.secrets.addError': 'Det gikk ikke å legge til hemmeligheten.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Det gikk ikke å slette hemmeligheten.',
   'settings.secrets.empty': 'Ingen hemmeligheter lagret.',
   'settings.secrets.heading': 'Hemmeligheter',
+  'settings.secrets.lastUsed': 'sist brukt {{date}}',
   'settings.secrets.loadError': 'Kunne ikke laste hemmeligheter.',
   'settings.secrets.neverUsed': 'aldri brukt',
   'settings.secrets.rotateCta': 'Roter',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Det gikk ikke å oppdatere webhooken.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'gratis nivå · 1 000 build-min/md',
+  'terms.intro':
+    'Ved å opprette en {{app}}-konto godtar du disse vilkårene. De dekker akseptabel bruk av byggemaskinene, grensene for vår SLA og vilkårene for når vi kan suspendere eller avslutte kontoen din ved misbruk av arbeidsbelastninger.',
   'terms.slaBody':
     'Pro- og Team-planer sikter mot 99,95 % månedlig oppetid for API og runner-pool. Gratisplanen leveres som den er. Nedetid rapporteres på status.conduit.dev og krediteres etter formelen i fakturaen din.',
   'terms.terminationBody':

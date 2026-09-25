@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Маєте запитання, знайшли помилку або хочете перенести свої книги? Зв'яжіться з командою {{app}} за адресою hello@{{app}}.example — кожне повідомлення читає справжня людина.",
   'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
+  'about.intro':
+    '{{app}} — це бухгалтерія для малого бізнесу, яка бере до уваги кожну копійку — рахунки, витрати, платежі та звіти в одному спокійному місці для власників, бухгалтерів і аудиторів.',
+  'about.missionBody':
+    'Вести бізнес не означає боятися своїх книг. {{app}} замінює хаос електронних таблиць чіткими цифрами, на які можна діяти, тож ви витрачаєте менше часу на звіряння й більше — на роботу, заради якої й започаткували бізнес.',
+  'about.missionTitle': 'Наша місія',
   'about.title': 'Про {{app}}',
   'accounts.count': '{{count}} рахунки',
+  'accounts.emptyBody':
+    "Рахунки в головній книзі відстежують, де зберігаються й переміщуються гроші. Вони з'являться тут, щойно ваш бухгалтер або інтеграція їх налаштує.",
   'accounts.emptyTitle': 'Ще немає облікових записів',
   'accounts.heading': 'План рахунків',
   'accounts.kpi.accounts': 'Рахунки',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Усі рахунки в бухгалтерській книзі, пов’язані з вашими рахунками-фактурами, витратами та платежами, згруповані за типами.',
   'accounts.tag.inactive': 'неактивний',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Фінансовий директор, Horizon Tech',
   'authBrandPanel.eyebrow': 'Довіряють фінансові команди',
   'authBrandPanel.label': 'Демонстрація бренду',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Усі клієнти',
   'customerDetail.invoiceMeta': 'Дата видачі{{issued}} · Термін повернення{{due}}',
   'customerDetail.loadError': 'Не вдалося завантажити клієнта.',
+  'customerDetail.missingBody':
+    'Не вдалося завантажити запитаний запис клієнта. Можливо, його видалено або у вас немає до нього доступу.',
   'customerDetail.missingHeading': 'Запис клієнта недоступний',
+  'customerDetail.missingHelp':
+    'Скористайтеся посиланням «Назад» вище, щоб повернутися до списку клієнтів, або виберіть там інший запис.',
+  'customerDetail.noInvoices': 'Поки що немає рахунків.',
   'customerDetail.notesEmpty': 'Ще немає нотаток.',
   'customerDetail.paymentsEmpty': 'Жодних зареєстрованих платежів.',
   'customerDetail.paymentTerms': 'Умови оплати',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Відрахування',
   'expenseDetail.detailsHeading': 'Деталі транзакції',
   'expenseDetail.loadError': 'Не вдалося завантажити витрату.',
+  'expenseDetail.matched': 'Зіставлено · {{description}}',
   'expenseDetail.missingBody':
     'Запитану витрату не вдалося завантажити. Можливо, її було видалено, або у Вас немає доступу.',
   'expenseDetail.missingHeading': 'Запис витрати недоступний',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Квитанція',
   'expenseDetail.receiptHeading': 'Квитанція',
   'expenseDetail.reconciled': 'Звірено',
+  'expenseDetail.unreconciled': 'Не звірено',
   'expenses.empty': 'Ще немає витрат.',
   'expenses.heading': 'Витрати',
   'expenses.kpi.deductible': 'Відрахування',
@@ -101,6 +118,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Не вдалося завантажити рахунки.',
   'invoices.searchPlaceholder': 'Шукати № рахунку або клієнта…',
   'invoices.summary.paid': 'Оплачено за цей період',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'Безкоштовно 30 днів. Без картки. Запросіть свого бухгалтера — він Вас подякує.',
   'landing.ctaTitle': 'Перемістіть свої книги в спокійніше місце.',
@@ -115,6 +133,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Дебіторська заборгованість',
   'ledgerStatTriad.eyebrow.mtd': 'Місяць до поточної дати',
   'ledgerStatTriad.netSub': 'Нетто {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} прострочено',
   'ledgerStatTriad.revenueLabel': 'Дохід',
   'login.failed': 'Вхід не вдався.',
   'login.hidePassword': 'Сховати пароль',
@@ -125,6 +144,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Увійти',
   'nav.legal': 'Юридична інформація',
   'newExpense.back': 'Витрати',
+  'newExpense.clearReceiptCta': 'Очистити прикріплений чек',
   'newExpense.deductible': 'Податкове відрахування',
   'newExpense.dropPrompt': 'Перетягніть сюди фото квитанції або PDF для прикріплення.',
   'newExpense.failed': 'Не вдалося зберегти витрату.',
@@ -153,6 +173,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Не вдалося завантажити платежі.',
   'payments.unmatchedTag': 'неперевершений',
   'planUpdated.pageLabel': 'Підтвердження оновлення плану',
+  'pricing.advancedFeatures': 'Розширені функції: {{yes}}',
+  'pricing.canExport': 'Експорт даних: {{yes}}',
+  'pricing.heading': 'Оберіть тариф {{app}}',
+  'pricing.maxAccounts': '{{count}} рахунки',
+  'pricing.maxExpenses': '{{count}} витрати',
+  'pricing.maxInvoices': '{{count}} рахунків',
+  'privacy.intro':
+    'Ця Політика конфіденційності описує, як {{app}} збирає, використовує та розкриває інформацію про бізнеси, які користуються сервісом.',
   'privacy.lastUpdated': 'Останнє оновлення: {{date}}',
   'privacy.section.collected.body':
     "Ми збираємо дані облікового запису (ім'я, електронна пошта, компанія), фінансові записи, які Ви завантажуєте (рахунки, витрати, клієнти, платежі), та стандартні журнали роботи сервісу (IP, user-agent, часові мітки).",
@@ -165,8 +193,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Інформація використовується для роботи сервісу, формування запитуваних звітів і PDF-файлів, надсилання транзакційних листів через Mailgun та обробки платежів через Stripe. Ми не продаємо і не здаємо в оренду особисту інформацію.',
   'recentInvoicesCard.dueMeta': 'Термін {{date}}',
+  'recentInvoicesCard.empty': 'Рахунки не знайдені.',
   'recentInvoicesCard.eyebrow': 'Дебіторська заборгованість',
   'recentInvoicesCard.searchAriaLabel': 'Пошук рахунків',
+  'recentInvoicesCard.searchPlaceholder': 'Пошук рахунків…',
   'recentInvoicesCard.title': 'Останні рахунки',
   'recentInvoicesCard.viewAll': 'Переглянути всі рахунки →',
   'reports.assets': 'Активи',
@@ -182,16 +212,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Прибутки і збитки (12 місяців)',
   'resetPassword.backToLogin': '← Назад до входу',
   'resetPassword.hidePassword': 'Сховати пароль',
+  'resetPassword.passwordLabel': 'Новий пароль',
   'resetPassword.showPassword': 'Показати пароль',
+  'resetPassword.subheading': 'Виберіть надійний пароль — щонайменше вісім символів.',
   'resetPassword.submit': 'Скинути пароль',
   'resetPassword.tooShort': 'Пароль має містити щонайменше 8 символів.',
   'settings.account.changePassword': 'Змінити пароль',
   'settings.account.changingPassword': 'Зміна…',
   'settings.account.currentPassword': 'Поточний пароль',
+  'settings.account.dangerZone': 'Небезпечна зона',
   'settings.account.deleteAccount': 'Видалити рахунок',
   'settings.account.deleteDescription':
     'Остаточно видалити ваш обліковий запис та всі пов’язані з ним дані.',
   'settings.account.deleteError': 'Не вдалося видалити обліковий запис.',
+  'settings.account.deleteWarning':
+    'Це назавжди видалить ваш обліковий запис, і скасувати цю дію неможливо. Введіть пароль для підтвердження.',
   'settings.account.deleting': 'Видалення…',
   'settings.account.devices': 'Пристрої',
   'settings.account.email': 'Електронна пошта',
@@ -202,6 +237,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Пароль',
   'settings.account.passwordError': 'Не вдалося змінити пароль.',
   'settings.account.pushNotifications': 'Push-сповіщення на цьому пристрої',
+  'settings.account.revokeDeviceWarning':
+    'Доступ цього пристрою буде скасовано найближчим часом. Вийти з нього?',
   'settings.account.saveError': 'Не вдалося оновити профіль.',
   'settings.account.security': 'Безпека',
   'settings.account.signOutDevice': 'Вийти',
@@ -209,12 +246,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Двофакторна автентифікація',
   'settings.account.twoFactorCode': 'Код аутентифікації',
   'settings.account.twoFactorDisable': 'Вимкнути',
+  'settings.account.twoFactorDisableTitle': 'Вимкнути двофакторну автентифікацію',
   'settings.account.twoFactorEnable': 'Увімкнути',
+  'settings.account.twoFactorEnableTitle': 'Увімкнути двофакторну автентифікацію',
   'settings.account.twoFactorInvalidCode': 'Неправильний код',
   'settings.account.twoFactorOn': 'Про',
+  'settings.account.twoFactorQrAlt': 'QR-код двофакторної автентифікації',
+  'settings.account.twoFactorScan':
+    'Відскануйте цей QR-код у своєму застосунку-автентифікаторі, а потім введіть 6-значний код.',
+  'settings.account.twoFactorUnavailable':
+    'Двофакторна автентифікація недоступна для цього додатка.',
   'settings.account.twoFactorVerify': 'Перевірити та увімкнути',
   'settings.account.unknownDevice': 'Невідомий пристрій',
   'settings.company.email': 'Електронна пошта для виставлення рахунків',
+  'settings.company.heading': 'Компанія та податки',
   'settings.company.name': 'Юридична назва',
   'settings.company.saveButton': 'Зберегти профіль компанії',
   'settings.company.taxId': 'ІПН / ЄДРПОУ',
@@ -258,6 +303,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Очікуваний квартальний',
   'taxes.kpi.owed': 'До сплати',
   'taxes.loadError': 'Не вдалося завантажити зведення по податках.',
+  'taxes.remittedPct': '({{pct}}% сплачено)',
+  'terms.intro':
+    'Ці Умови надання послуг («Умови») регулюють ваш доступ до {{app}} та його використання. Створюючи обліковий запис або користуючись сервісом, ви погоджуєтеся дотримуватися їх.',
   'terms.lastUpdated': 'Останнє оновлення: {{date}}',
   'terms.section.acceptable.body':
     'Ви погоджуєтесь не використовувати сервіс для порушення законів, порушення прав інтелектуальної власності, поширення шкідливого програмного забезпечення або спроб отримати несанкціонований доступ до інших облікових записів чи нашої інфраструктури.',

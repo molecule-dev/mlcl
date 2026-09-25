@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'सवाल, फ़ीडबैक, या अपनी टीम के लिए डेमो चाहते हैं? हमें hello@conduit.dev पर ईमेल करें — हर संदेश टीम के किसी असली व्यक्ति तक पहुँचता है।',
   'about.contactHeading': 'संपर्क करें',
   'about.eyebrow': 'परिचय',
+  'about.featuresHeading': 'आपको क्या मिलता है',
+  'about.introBody':
+    '{{app}} GitHub Actions-शैली की continuous delivery को एक तेज़ डैशबोर्ड में लाता है: आपके सभी रिपॉज़िटरी के लिए pipelines, build logs, artifacts, status badges और deployment environments एक ही जगह। न टैब बदलने की ज़रूरत, न यह अनुमान लगाने की कि कौन-सा build टूटा — हर run, log line और deploy एक क्लिक की दूरी पर।',
+  'about.introHeading': '{{app}} क्या है',
+  'about.missionBody':
+    'सॉफ़्टवेयर शिप करना शांत और अनुमानित होना चाहिए, डर का कारण नहीं। हम pipelines, logs और deploy टूलिंग बनाते हैं ताकि commit से production तक का रास्ता तेज़, दृश्यमान और भरोसेमंद हो — पहला green build पाँच मिनट में, और उसके बाद हर build उतना ही स्पष्ट।',
+  'about.missionHeading': 'हमारा विशेष कार्य',
+  'about.subtitle':
+    '{{app}} उन टीमों के लिए एक CI/CD डैशबोर्ड है जो हर रिपॉज़िटरी में builds, deployments और environments की निगरानी करना चाहती हैं — और निश्चितता के साथ शिप करना चाहती हैं।',
   'artifacts.empty': 'अभी तक कोई आर्टिफ़ैक्ट नहीं।',
   'artifacts.heading': 'आर्टिफ़ैक्ट',
   'artifacts.loadError': 'आर्टिफ़ैक्ट लोड करने में विफल।',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'पर्यावरण',
   'environments.loadError': 'पर्यावरण लोड करने में विफल।',
+  'environments.loading': 'एनवायरनमेंट लोड हो रहे हैं…',
   'environments.subheading': 'हर लक्ष्य में लाइव डिप्लॉयमेंट स्थिति।',
   'forgotPassword.runnerStatus': 'रीसेट · सुरक्षित टनल',
+  'forgotPassword.success':
+    'यदि उस ईमेल के लिए कोई खाता मौजूद है, तो रीसेट लिंक रास्ते में है। कृपया अपना इनबॉक्स देखें।',
   'insights.changeFailureRate': 'परिवर्तन विफलता दर',
   'insights.deployFrequency': 'डिप्लॉय / दिन',
   'insights.empty': 'अभी पर्याप्त डेटा नहीं है।',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'अंतर्दृष्टि लोड करने में विफल।',
   'insights.meanP95': 'औसत {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'सबसे धीमे pipeline चरण',
   'insights.successRateHeading': 'पाइपलाइन सफलता दर (पिछले 14 दिन)',
   'landing.choosePlan': 'योजना चुनें',
+  'landing.copyright': '© {{year}} {{app}}. निश्चितता के साथ शिप करें।',
   'landing.ctaBody':
     'कोई क्रेडिट कार्ड नहीं। कोई प्लेटफ़ॉर्म इंजीनियर ज़रूरी नहीं। पाँच मिनट में पहली पाइपलाइन हरी करें।',
   'landing.ctaHeading': 'विश्वास के साथ शिप करें।',
   'landing.featuresEyebrow': '// प्लेटफ़ॉर्म सुविधाएँ',
   'landing.featuresHeading': 'शिपर्स के लिए, शिपर्स द्वारा निर्मित',
+  'landing.heroSubtitle':
+    'सेकंडों में पूरे होने वाले pipelines। पढ़ने लायक logs। भरोसेमंद deploys।',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'सरल, पूर्वानुमेय मूल्य निर्धारण',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'अभी चालू',
   'pipelines.metric.successCaption': '{{count}} में से {{total}} रन',
   'pipelines.metric.successRate': 'सफलता दर',
+  'pipelines.realtimeOn': 'रीयलटाइम',
   'pipelines.subheading': 'हर देखी जा रही रिपॉज़िटरी से लाइव अपडेट।',
+  'pricing.advancedFeatures': 'उन्नत सुविधाएँ: {{mark}}',
+  'pricing.canExport': 'डेटा निर्यात: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artifacts',
+  'pricing.maxBuilds': '{{count}} builds',
+  'pricing.maxPipelines': '{{count}} pipelines',
   'privacy.dataAccount': 'खाता: नाम, ईमेल, हैश किया गया पासवर्ड, योजना स्तर।',
   'privacy.intro':
     '{{app}} आपके निरंतर-डिलीवरी खाते को संचालित करने के लिए केवल न्यूनतम आवश्यक डेटा एकत्र करता है: आपका ईमेल, आपके द्वारा कनेक्ट की गई रिपॉज़िटरी, आपके रनर्स द्वारा उत्पन्न कमिट और बिल्ड मेटाडेटा, और जो सीक्रेट्स आप हमारे साथ संग्रहीत करना चुनते हैं। हम बिल्ड रनर के बाहर आपके सोर्स कोड को कभी नहीं पढ़ते; कॉन्फ़िगर होने पर बिल्ड आर्टिफ़ैक्ट आपके S3 बकेट में संग्रहीत होते हैं।',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'हम बिलिंग के लिए Stripe, ट्रांज़ैक्शनल ईमेल के लिए Mailgun, और बिल्ड आर्टिफ़ैक्ट स्टोरेज के लिए AWS S3 का उपयोग करते हैं। प्रत्येक अपनी सेवा प्रदान करने के लिए आवश्यक न्यूनतम डेटा स्कोप तक अनुबंधित रूप से बाध्य है।',
   'privacy.rightsBody':
     'आप अपने डेटा का हर एक बाइट एक्सपोर्ट कर सकते हैं, सेटिंग्स से कभी भी अपना अकाउंट डिलीट कर सकते हैं और अपने अकाउंट पर हुई हर वेबहुक डिलीवरी का रिकॉर्ड मांग सकते हैं। हम GDPR/CCPA से संबंधित अनुरोधों का जवाब 30 दिनों के भीतर देते हैं।',
+  'privacy.subtitle':
+    '{{app}} आपके pipelines चलाते समय आपका डेटा कैसे एकत्र, संग्रहीत और सुरक्षित करता है।',
   'privacy.title': 'गोपनीयता नीति',
   'repositories.empty': 'कोई रिपॉज़िटरी कनेक्ट नहीं है।',
   'repositories.heading': 'रिपॉज़िटरी',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'सभी रिपॉज़िटरी',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'रिपॉज़िटरी लोड करने में विफल।',
+  'repositoryDetail.meanDuration': 'औसत अवधि',
   'repositoryDetail.notFound': 'रिपॉज़िटरी नहीं मिली।',
+  'repositoryDetail.successRate': 'सफलता दर',
   'repositoryDetail.totalBuilds': 'कुल बिल्ड',
   'repositoryDetail.webhookActive': 'सक्रिय',
   'repositoryDetail.webhookPaused': 'रुका हुआ',
   'repositoryDetail.webhooksHeading': 'वेबहुक',
+  'resetPassword.passwordLabel': 'नया पासवर्ड',
   'resetPassword.runnerStatus': 'रीसेट · टोकन सत्यापित',
   'resetPassword.subtitle': 'एक मज़बूत पासवर्ड चुनें जो आपने पहले उपयोग नहीं किया है।',
   'resetPassword.tokenPlaceholder': 'ईमेल से चिपकाएँ',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Conduit जिन रिपॉज़िटरी पर नज़र रखता है। इवेंट्स प्राप्त करना बंद करने के लिए अपने VCS प्रदाता से डिस्कनेक्ट करें।',
   'settings.repositories.empty': 'अभी तक कोई रिपॉज़िटरी कनेक्ट नहीं है।',
+  'settings.repositories.heading': 'रिपॉज़िटरी कनेक्शन',
   'settings.repositories.loadError': 'रिपॉज़िटरी लोड करने में विफल।',
   'settings.secrets.addCta': 'सीक्रेट जोड़ें',
   'settings.secrets.addError': 'गुप्त जानकारी जोड़ने में विफल।',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'गुप्त जानकारी को हटाने में विफल।',
   'settings.secrets.empty': 'कोई सीक्रेट संग्रहीत नहीं।',
   'settings.secrets.heading': 'सीक्रेट्स',
+  'settings.secrets.lastUsed': 'अंतिम बार {{date}} उपयोग किया गया',
   'settings.secrets.loadError': 'सीक्रेट्स लोड करने में विफल।',
   'settings.secrets.neverUsed': 'कभी उपयोग नहीं किया गया',
   'settings.secrets.rotateCta': 'रोटेट करें',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'वेबहुक को अपडेट करने में विफलता।',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'मुफ़्त स्तर · 1,000 बिल्ड मिनट/माह',
+  'terms.intro':
+    '{{app}} खाता बनाकर आप इन शर्तों से सहमत होते हैं। ये build runners के स्वीकार्य उपयोग, हमारे SLA की सीमाओं, और उन स्थितियों को कवर करती हैं जिनके तहत हम दुरुपयोग वाले workloads के लिए आपका खाता निलंबित या समाप्त कर सकते हैं।',
   'terms.slaBody':
     'Pro और Team योजनाएँ API और रनर पूल के लिए 99.95% मासिक अपटाइम लक्षित करती हैं। Free योजना जैसी है वैसी प्रदान की जाती है। आउटेज status.conduit.dev पर रिपोर्ट किए जाते हैं और आपके चालान के सूत्र के अनुसार क्रेडिट किए जाते हैं।',
   'terms.terminationBody':

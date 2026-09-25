@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite нь триггер, хиймэл оюун ухааны нөхцөл байдал болон олон шатлалт үйлдлүүдийг хооронд нь холбодог ажлын урсгалын автоматжуулалтын платформ бөгөөд багууд цавуу код бичихгүйгээр системийг хооронд нь шилжүүлэх боломжтой.',
+  'about.philosophy':
+    'Ажлын урсгал бүр жижиг, ажиглагдах алхмуудын граф юм. Алхам бүр өөрийн оролт, гаралт, хугацааг бүртгэдэг тул шалгах, дахин тоглуулах, буцаах боломжтой. Тэдгээрийг визуалаар зохиож, кодын адил хувилбарлаарай.',
   'about.title': 'Дендритийн тухай',
   'authShell.brand': 'Дендрит',
   'authShell.support': 'Дэмжлэг',
@@ -15,9 +17,15 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Төлөвлөгөө өөрчлөх',
   'billing.description':
     'Хэрэглээгээ хянаж, төлөвлөгөөгөө удирдаж, нягтлан бодох бүртгэлийн нэхэмжлэхийг татаж аваарай.',
+  'billing.eyebrow': 'Аккаунт · Багц ба хэрэглээ',
+  'billing.failedLabel': 'Амжилтгүй ажиллагаа · 24ц',
+  'billing.invoicesEmpty':
+    'Одоогоор нэхэмжлэл байхгүй. Эхний төлбөртэй сунгалтын дараа энд харагдана.',
   'billing.invoicesTitle': 'Нэхэмжлэхийн түүх',
   'billing.planNoteFree':
     'Чөлөөт түвшин — {{runs}} гүйлтүүд болон {{workflows}} Идэвхтэй ажлын урсгалууд. Илүү өндөр хязгаарт хүрэхийн тулд шинэчилнэ үү.',
+  'billing.planNotePaid':
+    'Төлбөртэй багц — {{runs}} ажиллагаа, {{workflows}} идэвхтэй ажлын урсгал.',
   'billing.runsLabel': 'Сүүлийн 24 цагийн дотор гүйлтүүд',
   'billing.tiersBlurb':
     'Тусгай үнийн хуудсан дээр бүх шатлалыг — гүйлтүүд, идэвхтэй ажлын урсгалууд, дэвшилтэт функцууд болон дэмжлэгүүдийг — харьцуулж үзээрэй.',
@@ -35,10 +43,14 @@ export const ui: UiTranslations = {
     'Бүртгэгдсэн интеграци байхгүй. Бондуудыг идэвхжүүлэхийн тулд үйлчилгээ үзүүлэгчийн түлхүүрүүдийг тохируулна уу.',
   'connections.error': 'Холболтуудыг ачаалж чадсангүй.',
   'connections.eyebrow': 'Интеграцчилал · {{connected}} холбогдсон',
+  'connections.loading': 'Интеграцийг ачаалж байна…',
+  'connections.openEnv':
+    'Энэ үйлчилгээ үзүүлэгчийг холбохын тулд API түлхүүрийг api/.env дотор тохируулаад серверийг дахин эхлүүлнэ үү.',
   'dashboard.description':
     '{{active}} ажлын урсгалууд идэвхтэй байна. {{failed}} сүүлийн 24 цагийн дотор амжилтгүй болсон.',
   'dashboard.error': 'Хяналтын самбарыг ачаалж чадсангүй.',
   'dashboard.eyebrow': 'Үйл ажиллагаа · шууд',
+  'dashboard.hero.label': 'Өнөөдрийн ажиллагаа',
   'dashboard.hero.medianLatency': 'p50 хоцрогдол',
   'dashboard.hero.queue': 'Дарааллын гүн',
   'dashboard.hero.success': 'Амжилт',
@@ -46,14 +58,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Дундаж үргэлжлэх хугацаа',
   'dashboard.kpi.failedRuns': 'Амжилтгүй болсон · 24 цаг',
   'dashboard.kpi.outOf': '-ын {{total}} нийт',
+  'dashboard.kpi.successRate': 'Амжилтын хувь · 24ц',
   'dashboard.loading': 'Хяналтын самбарыг ачаалж байна…',
   'dashboard.recentRuns.empty':
     'Одоогоор ажиллуулалт хийгдээгүй байна. Ажлын урсгалыг идэвхжүүлснээр энэ тэжээлийг дүүргэх болно.',
   'dashboard.recentRuns.title': 'Саяхны гүйлтүүд',
   'dashboard.recentRuns.viewAll': 'Нээлттэй цаазаар авах ял →',
+  'dashboard.recentWorkflows.browse': 'Загваруудыг үзэх →',
   'dashboard.recentWorkflows.empty':
     'Ажлын урсгал хараахан алга байна. Загвар суулгах эсвэл эхнээс нь бүтээнэ үү.',
   'dashboard.recentWorkflows.title': 'Саяхан ажиллуулсан',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'Эхлүүлсэн',
   'dashboard.run.col.trigger': 'Триггер',
   'dashboard.run.col.workflow': 'Ажлын урсгал',
@@ -89,6 +104,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Ажлын урсгал',
   'executions.description':
     'Ажлын урсгалын ажиллагаа, дахин оролдлого, гаралтын алхам бүр - бүгдийг нь ажиглаж болно.',
+  'executions.empty.filter': 'Энэ шүүлтүүрт тохирох ажиллагаа байхгүй.',
   'executions.empty.first':
     'Одоогоор ажил алга — энэ жагсаалтыг бөглөхийн тулд ажлын урсгалыг идэвхжүүлнэ үү.',
   'executions.error': 'Гүйцэтгэлийг ачаалж чадсангүй.',
@@ -99,30 +115,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Ажиллалтын түүхийг ачаалж байна…',
   'executions.title': 'Цаазаар авах ял',
   'forgotPassword.confirmation': 'Дахин тохируулах холбоос илгээгдсэн {{email}} .',
+  'forgotPassword.subhead': 'Дахин тохируулах холбоос авахын тулд имэйл хаягаа оруулна уу.',
   'forgotPassword.successSubhead':
     'Бид дахин тохируулах холбоос илгээсэн {{email}} Энэ нь 30 минутын дараа хугацаа нь дуусна.',
   'help.connections.body':
     'Хиймэл оюун ухаан, имэйл болон хадгалалтын алхмууд нь үйлчилгээ үзүүлэгчийн түлхүүрүүдийг api/.env файлд тохируулахыг шаарддаг. Түлхүүрийг тохируулсны дараа харгалзах интеграц нь Холболтын хуудсан дээр холбогдсон гэж гарч ирнэ.',
+  'help.connections.cta': 'Холболтуудыг нээх →',
   'help.connections.title': 'Үйлчилгээ үзүүлэгчдийг холбож байна',
   'help.gettingStarted.body':
     'Шинэ ажлын урсгалуудыг загварын сангаас суулгах эсвэл ажлын урсгал үүсгэгч дээр эхнээс нь бүтээж болно. Ажлын урсгал бүр нь триггер (гарын авлага, вэбхук эсвэл крон) болон дарааллаар нь ажилладаг алхмуудын дараалалтай байдаг.',
+  'help.gettingStarted.cta': 'Загварын сангаас үзэх →',
+  'help.gettingStarted.title': 'Эхлэх',
   'help.intro':
     'Ажлын урсгалыг бий болгох, холболтыг тохируулах, ажиллуулах гаралтыг тайлбарлахтай холбоотой түгээмэл асуултуудын хариултыг олоорой. Хамгийн түгээмэл сэдвүүдийг доор жагсаав; хамрагдаагүй аливаа сэдвийн талаар ажлын талбарын админтайгаа холбогдоно уу.',
   'help.runs.body':
     'Ажиллагаа бүр алхам бүрийг статус (амжилт, алдаа, алгассан) болон гаралтын хэсэгчлэлээр тус тусад нь бүртгэдэг. Гүйцэтгэлийн дэлгэрэнгүй хуудсанд алхам алхмаар бүрэн ул мөр болон таамагласан үзүүлэлтүүдийг харуулдаг.',
+  'help.runs.cta': 'Нээлттэй цаазаар авах ял →',
   'help.runs.title': 'Ажиллах гаралтыг унших',
   'help.title': 'Тусламжийн төв',
   'integrationCard.manage': 'Удирдах',
   'landing.brand': 'Дендрит',
   'landing.demo.action.subtitle': 'Тойрог тойрог · нутаг дэвсгэр',
+  'landing.demo.action.title': 'Төлөөлөгчид мэдэгдэх',
   'landing.demo.condition.subtitle': 'Хиймэл оюун ухааны зорилгын ангилагч',
+  'landing.demo.condition.title': 'Оноо ≥ дунд уу?',
   'landing.demo.trigger.subtitle': 'ШУУДАН /маягтууд/холбоо барих',
   'landing.demo.trigger.title': 'Дотогшоо вэбхук',
+  'landing.features.body':
+    'Триггерүүд асна. Нөхцөлүүд салбарлана. Үйлдлүүд ажлыг гүйцэтгэнэ. Тэдгээрийг визуалаар зохиож, кодын адил хувилбарлаарай.',
   'landing.features.heading': 'Гурван төрлийн зангилаа. Хязгааргүй дүрс.',
   'landing.footer.help': 'Тусламж',
   'landing.footer.tagline': 'Хөдөлгөөн дэх оюун ухаан',
+  'landing.hero.body':
+    '{{appName}} бол Zapier-ээс хальсан операцийн багуудад зориулсан ажлын урсгалын хөдөлгүүр юм. Триггер, нөхцөл, үйлдэл — таны үнэхээр ашигладаг бүх системд холбогдсон.',
   'landing.hero.eyebrow': 'Хөдөлгөөн дэх оюун ухаан',
   'landing.hero.headline': 'Самбараа холбоно уу. Ажлаа дуусга.',
+  'landing.hero.primaryCta': 'Эхний ажлын урсгалаа үүсгэх',
   'landing.hero.proof.ai': 'Суурилуулсан хиймэл оюун ухааны зангилаанууд',
   'landing.hero.proof.free': 'Сард 1 мянган гүйлт үнэгүй',
   'landing.hero.proof.soc2': 'SOC 2 II төрөл',
@@ -130,10 +158,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Суудлын төлбөр биш, гүйлтийн төлбөрийг төл.',
   'landing.templates.body':
     'Баг бүрт зориулсан урьдчилан тохируулсан ажлын урсгалууд - борлуулалт, дэмжлэг, хөгжүүлэлт, санхүү. Нэг товшилтоор суулгаж, юуг ч өөрчлөх боломжтой.',
+  'landing.templates.cta': 'Загваруудыг үзэхийн тулд бүртгүүлэх →',
   'landing.templates.eyebrow': 'Хэдхэн секундын дотор эхэлнэ үү',
   'landing.templates.heading': 'Баталгаажсан жоруудын номын сан.',
   'landing.templates.signupHint': 'Суулгахын тулд бүртгүүлнэ үү',
   'login.hidePassword': 'Нууц үгийг нуух',
+  'login.noAccount': 'Тессератай шинээр танилцаж байна уу?',
   'login.showPassword': 'Нууц үгийг харуулах',
   'login.subhead': 'Автоматжуулалтаа хэвийн ажиллуулахын тулд нэвтэрнэ үү.',
   'mobileNav.drawerLabel': 'Үндсэн навигаци',
@@ -149,8 +179,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Энэ тэжээлийг дүүргэж эхлэхийн тулд ажлын урсгалыг ажиллуулна уу.',
   'notifications.empty.title': 'Та бүгдийг нь дуусгалаа',
   'notifications.eyebrow': '{{n}} уншаагүй',
+  'planUpdated.body':
+    'Таны төлбөрийн өөрчлөлт идэвхжлээ. Та төлбөрийн хуудаснаас төлөвлөгөөгөө хүссэн үедээ удирдах боломжтой.',
+  'planUpdated.retry': 'Дахин оролдоно уу',
+  'planUpdated.verifyFailed': 'Бид таны төлбөрийг хараахан баталгаажуулж чадсангүй.',
+  'planUpdated.verifyFailedBody':
+    'Таны төлбөрийг боловсруулж байж магадгүй. Хэсэг хугацааны дараа дахин оролдоно уу.',
   'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'pricing.heading': 'гүйлт',
+  'pricing.runsSuffix': 'ажиллагаа',
   'pricing.workflowsSuffix': 'ажлын урсгалууд',
   'privacy.collect.body':
     'Бид таны бүртгүүлсэн имэйл хаяг, тохируулсан ажлын урсгал болон ажиллуулах бүрийн мета өгөгдлийг (эхлэх цаг, дуусах цаг, төлөв) цуглуулдаг. Бид ажлын талбарын эзэмшигчийн ажиллуулах үзүүлэгч дээр харуулахад шаардлагатай хэмжээнээс хэтэрсэн триггер эсвэл алхамын гаралтаас ашигтай ачааллын агуулгыг хэзээ ч цуглуулдаггүй эсвэл хадгалдаггүй.',
@@ -166,12 +203,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Нууц үгийг шинэчилж чадсангүй.',
   'resetPassword.newPassword': 'Шинэ нууц үг',
   'resetPassword.subhead': 'Зөвхөн таны таамаглаж болох зүйлийг сонгоорой.',
+  'settings.appearance.description': 'Гэрэл болон харанхуй горимын хооронд шилжих/унтраах.',
+  'settings.appearance.title': 'Гадаад төрх',
   'settings.billingShortcut.cta': 'Нээлттэй төлбөр тооцоо',
   'settings.billingShortcut.description':
     'Төлөвлөгөө, хэрэглээ болон нэхэмжлэхүүд нь зориулалтын төлбөрийн хуудсан дээр шууд харагдана.',
   'settings.danger.confirm':
     'Та итгэлтэй байна уу? Энэ нь таны ажлын талбарыг устгах дараалалд оруулна.',
   'settings.danger.confirmYes': 'Тийм ээ, дарааллыг устгасан',
+  'settings.danger.deleteWorkspace.cta': 'Ажлын талбарыг устгах',
   'settings.danger.deleteWorkspace.hint':
     '14 хоногийн хөнгөлөлтийн хугацааны дараа бүх ажлын урсгал, гүйлт болон холболтуудыг устгана.',
   'settings.danger.deleteWorkspace.title': 'Ажлын талбарыг устгах',
@@ -182,10 +222,15 @@ export const ui: UiTranslations = {
     'Өөрийн бүртгэл, ажлын талбар, интеграцчилал болон төлбөр тооцоогоо нэг дороос удирдаарай.',
   'settings.notifications.description':
     'Аль үйл явдлыг танд хуудас болгон илгээх, имэйл илгээх эсвэл чимээгүй байхаа сонгоно уу.',
+  'settings.notifications.failures.hint':
+    'Амжилтгүй ажиллагаа бүрт имэйл болон апп доторх мэдэгдэл.',
+  'settings.notifications.failures.title': 'Ажлын урсгалын алдаа',
   'settings.notifications.product.hint':
     'Шинэ загвар болон функцуудын талаар хааяа имэйл илгээдэг.',
+  'settings.notifications.product.title': 'Бүтээгдэхүүний шинэчлэлтүүд',
   'settings.notifications.weekly.hint':
     'Өнгөрсөн долоо хоногийн гүйлт болон хэмнэлтийн талаарх Даваа гарагийн өглөөний тойм.',
+  'settings.notifications.weekly.title': 'Долоо хоногийн тойм',
   'settings.profile.description':
     'Ажлын урсгалын ажиллуулагч дотор та хэрхэн харагдах вэ. Ажлын талбарын үйл ажиллагаанд ашиглагддаг.',
   'settings.profile.noEmail': 'Имэйл бүртгэлд байхгүй',
@@ -193,13 +238,25 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Профайлын өөрчлөлтийг хадгалж чадсангүй.',
   'settings.profile.unnamedUser': 'Нэргүй хэрэглэгч',
   'settings.security.audit.hint': 'Вэбхукаар дамжуулан бүх үйлдлийг SIEM руугаа дамжуул.',
+  'settings.security.audit.title': 'Аудитын лог дамжуулах',
   'settings.security.description':
     'Хоёр хүчин зүйлийн баталгаажуулалт, SSO болон идэвхтэй сессүүд.',
   'settings.security.sso.hint': 'Scale болон Enterprise төлөвлөгөөнд ашиглах боломжтой.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'Ажлын орчны эзэмшигчийн аливаа үйлдэлд шаардлагатай.',
+  'settings.security.totp.title': 'Хоёр шатлалт баталгаажуулалт (TOTP)',
   'settings.twoFactorCode': 'Баталгаажуулах код',
   'settings.twoFactorDisable': 'Идэвхгүй болгох',
+  'settings.twoFactorDisableTitle': 'Хоёр шатлалт баталгаажуулалтыг идэвхгүй болгох',
   'settings.twoFactorEnable': 'Идэвхжүүлэх',
+  'settings.twoFactorEnableTitle': 'Хоёр шатлалт баталгаажуулалтыг идэвхжүүлэх',
   'settings.twoFactorInvalidCode': 'Буруу код',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Хоёр хүчин зүйлийн QR код',
+  'settings.twoFactorScan':
+    'Энэ QR кодыг баталгаажуулагч аппаараа сканнердаж, дараа нь 6 оронтой кодыг оруулна уу.',
+  'settings.twoFactorUnavailable':
+    'Энэ аппликейшнд хоёр хүчин зүйлийн баталгаажуулалт боломжгүй байна.',
   'settings.twoFactorVerify': 'Баталгаажуулах ба идэвхжүүлэх',
   'settings.workspace.description':
     'Танай багийн хуваалцсан таних тэмдэг, бүс нутаг болон ажиллуулах анхдагч тохиргоонууд.',
@@ -228,6 +285,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Загвар',
   'templates.description':
     'Хамгийн түгээмэл автоматжуулалтын урьдчилан бэлтгэсэн зураг төсөл. Сэрээ, тохируулга, тээвэрлэлт.',
+  'templates.empty.filter': 'Хайлтад тохирох загвар байхгүй.',
   'templates.empty.first': 'Одоогоор загвар байхгүй байна.',
   'templates.error': 'Загваруудыг ачаалж чадсангүй.',
   'templates.installs': 'суулгалтууд',
@@ -253,6 +311,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Идэвхгүй болгох',
   'workflowBuilder.enable': 'Идэвхжүүлэх',
   'workflowBuilder.error': 'Ажлын урсгалыг ачаалж чадсангүй.',
+  'workflowBuilder.inspector.config': 'Тохиргоо',
+  'workflowBuilder.inspector.cron': 'Cron илэрхийлэл',
+  'workflowBuilder.inspector.disabled': 'Идэвхгүй — автоматаар ажиллахгүй.',
   'workflowBuilder.inspector.enabled': 'Идэвхжүүлсэн — триггер дээр ажилладаг.',
   'workflowBuilder.inspector.eyebrow': 'Байцаагч',
   'workflowBuilder.inspector.id': 'ID',
@@ -270,18 +331,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Унтраах/унтраах амжилтгүй боллоо.',
   'workflowBuilder.workflow': 'Ажлын урсгал · v {{v}}',
   'workflowBuilder.zoom.in': 'Томруулж харах',
+  'workflowBuilder.zoom.label': 'Канвасын томруулах удирдлага',
+  'workflowBuilder.zoom.out': 'Жижигрүүлэх',
   'workflowCard.lastRun': 'Сүүлийн гүйлт {{when}}',
   'workflowCard.runs': '{{count}} гүйлт',
+  'workflowCard.success': '{{rate}}% амжилт',
   'workflowHeroCard.last24h': 'Сүүлийн 24 цаг',
+  'workflows.browseTemplates': 'Загваруудыг үзэх →',
   'workflows.description':
     'Ажлын байрныхаа бүх автоматжуулалт, эрүүл мэнд болон сүүлийн үеийн үйл ажиллагаануудыг нэг дор харуулав.',
+  'workflows.empty.body': 'Шүүлтүүрийг цэвэрлэх эсвэл загвараас эхлэж үзээрэй.',
   'workflows.empty.firstBody': 'Хэдхэн секундын дотор эхлүүлэхийн тулд загвар суулгана уу.',
   'workflows.empty.firstTitle': 'Ажлын урсгал хараахан алга',
   'workflows.empty.title': 'Ажлын урсгалын тохироо байхгүй',
   'workflows.error': 'Ажлын урсгалыг ачаалж чадсангүй.',
   'workflows.eyebrow': 'Номын сан · {{count}} нийт',
+  'workflows.loading': 'Ажлын урсгалуудыг ачаалж байна…',
   'workflows.newFromTemplate': 'Загвараас шинээр',
   'workflows.searchPlaceholder': 'Ажлын урсгалыг хайх...',
+  'workflows.title': 'Ажлын урсгалууд',
   'workflowSidebar.brand': 'Дендрит',
   'workflowSidebar.status': 'Ажиллаж буй бүх системүүд',
   'workflowSidebar.tagline': 'Хөдөлгөөн дэх оюун ухаан',

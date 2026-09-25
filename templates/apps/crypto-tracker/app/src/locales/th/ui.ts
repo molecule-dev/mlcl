@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับ',
+  'about.featureAlerts':
+    'การแจ้งเตือนราคาตามเงื่อนไขที่คุณให้ความสำคัญ ส่งถึงคุณทางอีเมลและพุช เพื่อไม่ให้พลาดทุกความเคลื่อนไหว',
+  'about.featureMarkets':
+    'ข้อมูลตลาดแบบเรียลไทม์และกราฟราคาของเหรียญนับพัน จัดอันดับตามมูลค่าตลาด ปริมาณซื้อขาย และโมเมนตัม',
+  'about.featurePortfolio':
+    'ติดตามพอร์ตโฟลิโอพร้อมกำไรขาดทุนจริง ต้นทุน และสัดส่วนการลงทุน — เชื่อมต่อกับประวัติธุรกรรมของคุณ',
+  'about.featureWatchlist':
+    'วอตช์ลิสต์ส่วนตัวและข่าวคริปโตที่คัดสรร พร้อมสัญญาณของสินทรัพย์ที่คุณติดตาม',
+  'about.missionTitle': 'พันธกิจของเรา',
+  'alertConditionCard.armedSince': 'พร้อมใช้งานตั้งแต่ {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'ถูกกระตุ้น {{เมื่อไร}}',
   'alertConditionCard.confirmDelete': 'ยืนยันการลบ',
+  'alertConditionCard.deleteAriaLabel': 'ลบการแจ้งเตือน',
   'alertConditionCard.pauseAriaLabel': 'หยุดการแจ้งเตือน',
   'alertConditionCard.resumeAriaLabel': 'แจ้งเตือนประวัติย่อ',
+  'alertConditionCard.triggeredAt': 'ทริกเกอร์เมื่อ {{when}}',
   'alertNew.condition': 'เงื่อนไข',
   'alertNew.createCta': 'สร้างการแจ้งเตือน',
   'alertNew.error': 'ไม่สามารถสร้างการแจ้งเตือนได้',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'ยังไม่มีการแจ้งเตือนใดๆ',
   'alerts.eyebrow': 'กับดักสัญลักษณ์',
   'alerts.loadError': 'ไม่สามารถโหลดการแจ้งเตือนได้',
+  'alerts.newCta': '+ ทริปไวร์ใหม่',
   'alerts.subheading':
     'รับการแจ้งเตือนเมื่อราคา การเปลี่ยนแปลง หรือปริมาณการซื้อขายเกินขีดจำกัดที่คุณกำหนด',
   'alerts.summary.armed': 'ติดอาวุธ',
@@ -24,6 +38,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'สถิติสูงสุดตลอดกาล',
   'coinDetail.allTimeLow': 'ระดับต่ำสุดตลอดกาล',
   'coinDetail.back': 'ตลาดทั้งหมด',
+  'coinDetail.chartAriaLabel': 'กราฟราคา {{name}} ย้อนหลัง 30 วัน',
   'coinDetail.chartHeading': 'ราคา · 30 วันที่ผ่านมา',
   'coinDetail.circulating': 'อุปทานหมุนเวียน',
   'coinDetail.fdv': 'การประเมินมูลค่าแบบเจือจางเต็มที่',
@@ -60,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'รีเซ็ตการเชื่อมต่อแบบใช้สาย',
   'login.eyebrow': 'ก้าวเข้าไปในอาคารผู้โดยสาร',
   'login.heading': 'ยินดีต้อนรับกลับมาครับ เจ้าหน้าที่ส่งสัญญาณ',
+  'login.noAccountQuestion': 'เพิ่งใช้บริการ Tessera เป็นครั้งแรกใช่ไหม?',
   'login.secureNote': '🔒 เข้ารหัสระหว่างการส่ง',
   'login.signingInCta': 'อ่านเทปแล้ว…',
   'login.signupLink': 'เปิดบัญชี →',
@@ -94,6 +110,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'เส้นทางที่คุณสแกนไม่พบเหรียญหรือหน้าเว็บที่รู้จัก โปรดตรวจสอบสัญลักษณ์อีกครั้งแล้วลองใหม่อีกครั้ง',
   'notFound.browseMarkets': 'เยี่ยมชมตลาด',
+  'notFound.eyebrow': 'สัญญาณ {{appName}} ขาดหาย',
+  'notFound.heading': 'สัญญาณนี้อยู่นอกช่วง',
+  'planUpdated.body':
+    'การเปลี่ยนแปลงการเรียกเก็บเงินของคุณมีผลแล้ว คุณสามารถจัดการแพ็กเกจได้ทุกเมื่อจากหน้าการเรียกเก็บเงิน',
+  'planUpdated.retry': 'ลองอีกครั้ง',
+  'planUpdated.verifyFailed': 'เรายังไม่สามารถยืนยันการชำระเงินของคุณได้',
+  'planUpdated.verifyFailedBody':
+    'การชำระเงินของคุณอาจยังอยู่ในระหว่างดำเนินการ โปรดลองอีกครั้งในภายหลัง',
   'planUpdated.verifying': 'กำลังยืนยันการชำระเงินของคุณ…',
   'portfolio.addError': 'ป้อนสัญลักษณ์ จำนวนเงินที่เป็นบวก และราคา',
   'portfolio.addHoldingCta': '+ เพิ่มการยึด',
@@ -117,11 +141,13 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'มูลค่าพอร์ตโฟลิโอรวม',
   'portfolioHeroCard.totalPnl': 'กำไร/ขาดทุนรวม',
   'pricing.heading': 'การแจ้งเตือน',
+  'pricing.limit.alerts': 'การแจ้งเตือน',
   'pricing.limit.coins': 'เหรียญ',
   'pricing.limit.market': 'ตลาด',
   'pricing.limit.portfolio': 'พอร์ตโฟลิโอ',
   'resetPassword.eyebrow': 'รหัสลับใหม่',
   'resetPassword.missingToken': 'ลิงก์สำหรับรีเซ็ตนี้หายไปหรือใช้งานไม่ได้ โปรดขอลิงก์ใหม่',
+  'resetPassword.passwordPlaceholder': 'รหัสผ่านใหม่',
   'resetPassword.subheading': 'เลือกสิ่งที่คุณคนเดียวเท่านั้นที่สามารถถอดรหัสได้',
   'settings.apiKeys.body':
     'คีย์แบบอ่านอย่างเดียวสำหรับนำเข้าประวัติการทำธุรกรรม เชื่อมต่อผ่าน OAuth จาก /pricing หลังจากสมัครสมาชิกแล้ว',
@@ -133,18 +159,32 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'อ้างอิงสกุลเงิน',
   'settings.preferences.locale': 'ท้องถิ่น',
   'settings.preferences.push': 'ดัน',
+  'settings.preferences.refresh': 'รีเฟรชราคา (วินาที)',
   'settings.preferences.sms': 'เอสเอ็ม',
+  'settings.revokeDeviceWarning': 'การเข้าถึงของอุปกรณ์นี้จะถูกเพิกถอนในไม่ช้า ออกจากระบบหรือไม่?',
   'settings.security.body':
     'รหัสผ่านและการตั้งค่าการตรวจสอบสิทธิ์แบบสองขั้นตอนจะได้รับการจัดการผ่านบัญชีของคุณ',
   'settings.signOutDevice': 'ออกจากระบบ',
   'settings.twoFactorCode': 'รหัสยืนยันตัวตน',
   'settings.twoFactorDisable': 'ปิดใช้งาน',
+  'settings.twoFactorDisableTitle': 'ปิดใช้งานการยืนยันตัวตนแบบสองขั้นตอน',
   'settings.twoFactorEnable': 'เปิดใช้งาน',
+  'settings.twoFactorEnableTitle': 'เปิดใช้งานการยืนยันตัวตนแบบสองขั้นตอน',
   'settings.twoFactorInvalidCode': 'รหัสไม่ถูกต้อง',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'QR code การยืนยันสองขั้นตอน',
+  'settings.twoFactorScan': 'สแกนคิวอาร์โค้ดนี้ด้วยแอปยืนยันตัวตนของคุณ จากนั้นป้อนรหัส 6 หลัก',
+  'settings.twoFactorUnavailable': 'แอปนี้ไม่รองรับการยืนยันตัวตนแบบสองขั้นตอน',
   'settings.twoFactorVerify': 'ตรวจสอบและเปิดใช้งาน',
   'sigilAuthShell.backHomeCta': '← กลับไปที่สัญลักษณ์',
+  'sigilAuthShell.brandBody':
+    'ราคาเรียลไทม์ กำไรขาดทุนของพอร์ต และการเฝ้าระวังตามเงื่อนไขที่คุณให้ความสำคัญ — ทั้งหมดในเทอร์มินัลเดียว',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — ขับเคลื่อนด้วย Molecule',
+  'sigilAuthShell.brandHeadline': 'ถอดรหัสทุกสัญญาณทั่วทั้งเล็ดเจอร์',
+  'sigilAuthShell.samplePortfolio': 'พอร์ตตัวอย่าง',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'การนำทางหลัก',
+  'signup.creating': 'กำลังเปิดเทอร์มินัลของคุณ…',
   'signup.eyebrow': 'เปิดเทอร์มินัล',
   'signup.heading': 'สร้างสัญลักษณ์ของคุณ',
   'signup.subheading': 'ติดตามทุกเหรียญ ป้องกันทุกการพลาดเป้า เริ่มเล่นได้ฟรี',
@@ -161,6 +201,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'ไม่สามารถโหลดรายการธุรกรรมได้',
   'watchlist.addCta': 'เยี่ยมชมตลาด',
   'watchlist.col.change24h': '24 ชั่วโมง',
+  'watchlist.col.coin': 'เหรียญ',
   'watchlist.col.marketCap': 'มูลค่าตลาด',
   'watchlist.empty':
     'ไม่มีเหรียญในรายการเฝ้าดูของคุณ — เพิ่มเหรียญดาวจาก /markets เพื่อเพิ่มลงในรายการ',

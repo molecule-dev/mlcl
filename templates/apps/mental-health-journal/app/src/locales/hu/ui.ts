@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Van visszajelzésed, hibát találtál, vagy el szeretnéd mondani, hogyan segített neked a naplóírás? Minden üzenetet elolvasunk — írj bármikor, és egy igazi ember fog válaszolni.',
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
+  'about.featureInsights':
+    'AI-alapú reflexiók, amelyek finoman rámutatnak a kiváltó okokra, a témákra és a hálára — anélkül, hogy elveszítenéd a saját hangodat.',
+  'about.featureMood':
+    'Hangulat- és tevékenységkövetés naptárnézettel és trendgrafikonokkal, amelyek megmutatják, mi segít, hogy jól érezd magad.',
+  'about.featurePrivacy':
+    'Végponttól végpontig terjedő titkosítás, jelkódzár és teljes CSV-export, hogy a gondolataid privátak és hordozhatók maradjanak.',
+  'about.featurePrompts':
+    'Finom napi kérdések, hogy mindig legyen honnan elindulnod — soha ne legyen üres a lap.',
+  'about.intro':
+    'A {{app}} egy finom, privát mentális egészségnapló a napi reflexióhoz, a hangulatkövetéshez és a hálához. Az átgondolt kérdések felváltják az üres lapot, a csendes mintafelismerés segít megérteni, mi befolyásolja az érzéseidet, a végponttól végpontig terjedő titkosítás pedig megőrzi a szavaidat a magadénak.',
+  'about.missionBody':
+    'Hiszünk abban, hogy az önmagunkkal való kapcsolattartásnak nyugodtnak kell lennie, soha nem klinikainak — és soha nem olyannak, mint egy újabb alkalmazás, amely a figyelmedet követeli. A {{app}} segíteni akar, nem zaklatni: néhány csendes perc naponta, hogy észrevedd a hangulatodat, őszintén írj, és lassan tisztábban lásd önmagadat.',
+  'about.missionTitle': 'Küldetésünk',
   'about.pageTitle': 'A {{app}} névjegye',
   'authShell.encryptionBadge': 'A bejegyzéseid végponttól végpontig titkosítva vannak.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': '{{day}}. nap — nincs bejegyzés',
   'calendar.cellMood': 'Nap {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Ez a hónap egy pillantásra',
   'calendar.eyebrow': 'Hangulat egy pillantásra',
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Lánctalpas {{tracked}} a {{total}} nap ebben a hónapban.',
   'common.goToDashboard': 'Ugrás a műszerfalra',
   'common.tryAgain': 'Próbálja újra',
+  'entryComposer.bodyPlaceholder': 'Írj, ahogy őszintének érzed. Senki más nem fogja elolvasni.',
   'entryComposer.cancel': 'Vissza a naplóhoz',
   'entryComposer.heading': 'Mai elmélkedés',
   'entryComposer.moodLabel': 'Hogy érzed magad?',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Eltávolítás {{tag}}',
   'entryComposer.save': 'Tükörkép mentése',
   'entryComposer.saveError': 'Nem sikerült menteni a bejegyzést.',
+  'entryComposer.tagPlaceholder': 'Adj hozzá címkét, és nyomd meg az entert',
   'entryComposer.titlePlaceholder': 'Adj nevet ennek a tükörképnek…',
   'entryDetail.back': 'Vissza a naplóhoz',
   'entryDetail.delete': 'Törölje ezt a bejegyzést',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Tükörkép betöltése…',
   'entryDetail.notFound': 'A bejegyzés nem található.',
   'entryDetail.reflectionsHeading': 'AI-reflexiók',
+  'forgotPassword.continueButton': 'Írd be a visszaállítási kódot',
   'forgotPassword.eyebrow': 'Nincsenek gondok',
   'forgotPassword.subheading': 'Küldünk egy finom visszaállítási linket az e-mail címedre.',
   'forgotPassword.successBody':
@@ -58,14 +78,22 @@ export const ui: UiTranslations = {
     'Még nincsenek témák – adj hozzá egy-két címkét a bejegyzéseidhez, és azok itt fognak gyűlni.',
   'insights.themesHeading': 'Legnépszerűbb témák',
   'insights.triggerFrequency': 'észrevettem {{count}} × ebben a hónapban',
+  'insights.triggersEmpty':
+    'Még nincs mit észrevenni. Néhány bejegyzés néhány nap alatt megmutatja a mintázataidat.',
   'insights.triggersHeading': 'Minták, amelyek megváltoztatják a hangulatodat',
+  'journal.empty':
+    'Nincs a szűrőnek megfelelő bejegyzés — próbálj másik szűrőt, vagy írj új bejegyzést.',
   'journal.eyebrow': 'A gondolataid',
   'journal.heading': 'Folyóirat',
   'journal.loadError': 'Nem sikerült betölteni a bejegyzéseket.',
   'journal.loading': 'Bejegyzések betöltése…',
+  'journal.newEntry': 'Új bejegyzés',
   'journal.searchPlaceholder': 'Keress egy érzést, egy nevet, egy pillanatot…',
   'journal.subheading': '{{count}} bejegyzések – mindegyiket érdemes megőrizni.',
   'journalEntryCard.encryptedLabel': 'Titkosított',
+  'landing.ctaBody':
+    'A kezdés ingyenes. A Pro feloldja az adatexportot, a nagyobb naplót és egy teljes év előzményeit.',
+  'landing.ctaButton': 'Kezdje el az első bejegyzést',
   'landing.ctaTitle': 'Naponta néhány csendes perc. Ennyi az egész.',
   'landing.eyebrow': 'Egy gyengéd napi gyakorlat',
   'landing.featuresBody':
@@ -84,6 +112,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Egy könnyed tér a mindennapi elmélkedéshez.',
   'mentalHealthJournalLayout.closeMenu': 'Menü bezárása',
   'mentalHealthJournalLayout.openMenu': 'Menü megnyitása',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Elsődleges navigáció',
+  'moodHeroCard.entriesThisWeek': '{{count}} ezen a héten',
   'moodHeroCard.streakSuffix': 'napi sorozat',
   'moodHeroCard.title': 'Mai elmélkedés',
   'moodTrendChart.aiBadge': 'AI-betekintésre kész',
@@ -94,11 +124,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Az utazásod',
   'profile.fallbackName': 'Reflektor',
   'profile.loadError': 'Nem sikerült betölteni a statisztikákat.',
+  'profile.loading': 'Statisztikáid frissítése…',
   'profile.longestStreak': 'Leghosszabb sorozat',
   'profile.memberSince': 'Visszatekintve azóta {{date}}',
   'profile.milestones': 'Mérföldkövek',
   'profile.milestonesEmpty':
     'Az első mérföldkő már csak egy bejegyzésnyire van – írj, amikor készen állsz.',
+  'profile.moodMix': 'Hangulatod ebben a szezonban',
   'profile.streakValue': '{{days}} nap',
   'profile.totalEntries': 'Tükörképek',
   'profile.totalWords': 'Írott szavak',
@@ -111,6 +143,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Írj erről',
   'resetPassword.eyebrow': 'Egy új kezdet',
   'resetPassword.mismatchError': 'A jelszavak nem egyeznek.',
+  'resetPassword.passwordLabel': 'Új jelszó',
   'resetPassword.subheading': 'Válassz valami biztonságosat – a gondolataid megérdemlik.',
   'resetPassword.tokenPlaceholder': 'Kód visszaállítása e-mailből',
   'settings.dangerDescription':
@@ -122,11 +155,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'Nem sikerült törölni a fiókot.',
   'settings.exportDescription': 'A szavaid mindig a tiéid. Bármikor letölthetsz egy példányt.',
   'settings.exportDone': 'Exportálva {{format}}.',
+  'settings.exportError': 'Az export sikertelen.',
+  'settings.exportHeading': 'Naplóbejegyzések exportálása',
   'settings.exportLoading': 'Előkészítés…',
   'settings.eyebrow': 'A te tered, a te szabályaid',
   'settings.languageHeading': 'Nyelv',
   'settings.privacyHeading': 'Adatvédelem és titkosítás',
   'settings.remindersHeading': 'Napi emlékeztető',
+  'settings.reminderToggleAria': 'Napi emlékeztető be- és kikapcsolása',
   'settings.reminderToggleDescription':
     'Egyetlen nyugodt emlékeztető az általad választott időpontban. Nincsenek kitűzők vagy bűntudat.',
   'settings.reminderToggleLabel': 'Küldj egy gyengéd lökést',
@@ -139,6 +175,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Napló létrehozása…',
   'signup.subheading': 'Biztonságos tér a gondolataidnak.',
   'wellnessRingsTriad.mindfulnessCaption': 'Cél {{goal}} perc ma',
+  'wellnessRingsTriad.mindfulnessLabel': 'Tudatosság',
   'wellnessRingsTriad.sleepCaption': 'Cél {{goal}} óra / éjszaka',
   'wellnessRingsTriad.sleepLabel': 'Alvás',
+  'wellnessRingsTriad.sleepValue': '{{hours}} óra',
+  'wellnessRingsTriad.streakCaption': 'Cél {{goal}} nap',
+  'wellnessRingsTriad.streakLabel': 'Naplózási sorozat',
+  'wellnessRingsTriad.streakValue': '{{days}} nap',
 }

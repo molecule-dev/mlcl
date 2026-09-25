@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite er sjálfvirknivæðingarvettvangur fyrir vinnuflæði sem tengir saman kveikjur, gervigreindarskilyrði og fjölþrepa aðgerðir svo teymi geti flutt vinnu á milli kerfa án þess að skrifa límkóða.',
+  'about.philosophy':
+    'Hvert vinnuflæði er graf af litlum, sýnilegum skrefum. Hvert skref skráir inntak, úttak og tímasetningu svo hægt sé að skoða það, endurspila eða afturkalla. Setjið þau saman myndrænt, útgáfustýrið eins og kóða.',
   'about.title': 'Um dendrit',
   'authShell.brand': 'Dendrit',
   'authShell.support': 'Stuðningur',
@@ -15,9 +17,14 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Breyta áætlun',
   'billing.description':
     'Fylgstu með notkun, stjórnaðu áætlun þinni og sæktu reikninga fyrir bókhald.',
+  'billing.eyebrow': 'Reikningur · Áskrift og notkun',
+  'billing.failedLabel': 'Misheppnuð keyrslur · 24 klst',
+  'billing.invoicesEmpty':
+    'Engir reikningar ennþá. Þeir birtast hér eftir fyrstu greiðslu endurnýjunar.',
   'billing.invoicesTitle': 'Reikningssaga',
   'billing.planNoteFree':
     'Ókeypis stig — {{runs}} hleypur og {{workflows}} Virk vinnuflæði. Uppfærðu til að fá hærri mörk.',
+  'billing.planNotePaid': 'Greidd áskrift — {{runs}} keyrslur og {{workflows}} virk vinnuflæði.',
   'billing.runsLabel': 'Keyrir síðustu 24 klst.',
   'billing.tiersBlurb':
     'Berðu saman öll stig — keyrslur, virk vinnuflæði, ítarlega eiginleika og stuðning — á sérstakri verðlagningarsíðu.',
@@ -35,10 +42,14 @@ export const ui: UiTranslations = {
     'Engar samþættingar skráðar. Stilltu lykla veitanda til að virkja skuldbindingar.',
   'connections.error': 'Gat ekki hlaðið tengingum.',
   'connections.eyebrow': 'Samþættingar · {{connected}} tengdur',
+  'connections.loading': 'Hleður inn samþættingar…',
+  'connections.openEnv':
+    'Til að tengja þennan veitanda skaltu setja API-lykilinn í api/.env og endurræsa netþjóninn.',
   'dashboard.description':
     '{{active}} vinnuflæði virk. {{failed}} mistókst síðustu 24 klukkustundirnar.',
   'dashboard.error': 'Ekki tókst að hlaða mælaborðinu.',
   'dashboard.eyebrow': 'Aðgerðir · í beinni',
+  'dashboard.hero.label': 'Keyrslur í dag',
   'dashboard.hero.medianLatency': 'p50 seinkun',
   'dashboard.hero.queue': 'Dýpt biðröð',
   'dashboard.hero.success': 'Árangur',
@@ -46,14 +57,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Miðgildi tímalengdar',
   'dashboard.kpi.failedRuns': 'Mistókst · 24 klst.',
   'dashboard.kpi.outOf': 'af {{total}} samtals',
+  'dashboard.kpi.successRate': 'Árangurshlutfall · 24 klst',
   'dashboard.loading': 'Hleður mælaborð…',
   'dashboard.recentRuns.empty':
     'Engar keyrslur ennþá. Þessi straumur verður fylltur út ef verkflæði er ræst.',
   'dashboard.recentRuns.title': 'Nýlegar keyrslur',
   'dashboard.recentRuns.viewAll': 'Opnar aftökur →',
+  'dashboard.recentWorkflows.browse': 'Skoða sniðmát →',
   'dashboard.recentWorkflows.empty':
     'Engin vinnuflæði ennþá. Settu upp sniðmát eða búðu til eitt frá grunni.',
   'dashboard.recentWorkflows.title': 'Nýlega keyrt',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'Byrjaði',
   'dashboard.run.col.trigger': 'Kveikja',
   'dashboard.run.col.workflow': 'Verkflæði',
@@ -89,6 +103,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Verkflæði',
   'executions.description':
     'Hver einasta verkflæðiskeyrsla, hver endurtekning, hvert skref sem kemur út - allt sýnilegt.',
+  'executions.empty.filter': 'Engar keyrslur passa við þennan síu.',
   'executions.empty.first': 'Engar keyrslur ennþá — ræsa verkflæði til að fylla út þennan lista.',
   'executions.error': 'Ekki tókst að hlaða keyrslum.',
   'executions.eyebrow': 'Keyrslusaga',
@@ -98,30 +113,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Hleður keyrslusögu…',
   'executions.title': 'Aftökur',
   'forgotPassword.confirmation': 'Endurstilla tengil sem sendur var til {{email}} .',
+  'forgotPassword.subhead': 'Sláðu inn netfangið þitt til að fá endurstillingarhlekk.',
   'forgotPassword.successSubhead':
     'Við sendum endurstillingarhlekk til {{email}} Það rennur út eftir 30 mínútur.',
   'help.connections.body':
     'Skref sem tengjast gervigreind, tölvupósti og geymslu krefjast þess að lyklar fyrir veitendur séu stilltir í api/.env skránni. Þegar lykill hefur verið stilltur birtist samsvarandi samþætting sem tengd á Tengingarsíðunni.',
+  'help.connections.cta': 'Opna tengingar →',
   'help.connections.title': 'Tengingaraðilar',
   'help.gettingStarted.body':
     'Hægt er að setja upp ný verkflæði úr sniðmátabókasafninu eða smíða þau frá grunni í verkflæðisbyggirnum. Hvert verkflæði hefur kveikju (handvirkt, vefhring eða cron) og röð skrefa sem keyra í réttri röð.',
+  'help.gettingStarted.cta': 'Skoða sniðmátasafnið →',
+  'help.gettingStarted.title': 'Að byrja',
   'help.intro':
     'Finndu svör við algengum spurningum um að byggja upp verkflæði, stilla tengingar og túlka keyrsluúttak. Algengustu efnin eru talin upp hér að neðan; ef um er að ræða eitthvað sem ekki er fjallað um skaltu hafa samband við vinnusvæðisstjórann þinn.',
   'help.runs.body':
     'Hver keyrsla skráir hvert skref fyrir sig með stöðu (vel heppnað, misheppnað, sleppt) og bút af úttaki. Upplýsingar um keyrslusíðan sýna alla skref-fyrir-skref rakningu ásamt ályktuðum mælikvörðum.',
+  'help.runs.cta': 'Opnar aftökur →',
   'help.runs.title': 'Lestur keyrsluúttaks',
   'help.title': 'Hjálparmiðstöð',
   'integrationCard.manage': 'Stjórna',
   'landing.brand': 'Dendrit',
   'landing.demo.action.subtitle': 'Round-robin · svæði',
+  'landing.demo.action.title': 'Láta sölumann vita',
   'landing.demo.condition.subtitle': 'Flokkun ásetnings fyrir gervigreind',
+  'landing.demo.condition.title': 'Stig ≥ miðlungs?',
   'landing.demo.trigger.subtitle': 'PÓSTUR /eyðublöð/hafa samband',
   'landing.demo.trigger.title': 'Innleiðandi vefkrókur',
+  'landing.features.body':
+    'Kveikjur kvikna. Skilyrði greinast. Aðgerðir senda verkið. Setjið þau saman myndrænt, útgáfustýrið eins og kóða.',
   'landing.features.heading': 'Þrjár gerðir hnúta. Óendanlegar form.',
   'landing.footer.help': 'Hjálp',
   'landing.footer.tagline': 'Greind í hreyfingu',
+  'landing.hero.body':
+    '{{appName}} er vinnuflæðisvél fyrir rekstrarteymi sem hafa vaxið út fyrir Zapier. Kveikja, skilyrði, aðgerð — tengt við hvert kerfi sem þú notar í raun.',
   'landing.hero.eyebrow': 'Greind í hreyfingu',
   'landing.hero.headline': 'Tengdu staflann saman með vírum. Leyfðu verkinu að gerast.',
+  'landing.hero.primaryCta': 'Byggðu þitt fyrsta vinnuflæði',
   'landing.hero.proof.ai': 'Innbyggðir gervigreindarhnútar',
   'landing.hero.proof.free': 'Ókeypis fyrir 1.000 hlaup á mánuði',
   'landing.hero.proof.soc2': 'SOC 2 Tegund II',
@@ -129,10 +156,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Borga fyrir ferðir, ekki sæti.',
   'landing.templates.body':
     'Fyrirfram tengd vinnuflæði fyrir hvert teymi — sölu, þjónustudeild, þróunardeild, fjármál. Setjið upp með einum smelli; fínstillið hvað sem er.',
+  'landing.templates.cta': 'Skráðu þig til að skoða sniðmát →',
   'landing.templates.eyebrow': 'Byrjaðu á nokkrum sekúndum',
   'landing.templates.heading': 'Safn af völdum uppskriftum.',
   'landing.templates.signupHint': 'Skráðu þig til að setja upp',
   'login.hidePassword': 'Fela lykilorð',
+  'login.noAccount': 'Nýr/ný í Tessera?',
   'login.showPassword': 'Sýna lykilorð',
   'login.subhead': 'Skráðu þig inn til að halda sjálfvirknivæðingunum gangandi.',
   'mobileNav.drawerLabel': 'Aðalflakk',
@@ -148,8 +177,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Keyrðu verkflæði til að byrja að fylla út þennan straum.',
   'notifications.empty.title': 'Þið eruð öll með í ráðum',
   'notifications.eyebrow': '{{n}} ólesið',
+  'planUpdated.body':
+    'Greiðslubreytingin þín er nú virk. Þú getur stýrt áskriftinni þinni hvenær sem er á greiðslusíðunni.',
+  'planUpdated.retry': 'Reyndu aftur',
+  'planUpdated.verifyFailed': 'Við gátum ekki staðfest greiðsluna þína ennþá.',
+  'planUpdated.verifyFailedBody':
+    'Greiðslan þín gæti enn verið í vinnslu. Reyndu aftur eftir smástund.',
   'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'pricing.heading': 'hlaup',
+  'pricing.runsSuffix': 'keyrslur',
   'pricing.workflowsSuffix': 'vinnuflæði',
   'privacy.collect.body':
     'Við söfnum netfanginu sem þú skráir þig með, verkflæðunum sem þú stillir og lýsigögnum um hverja keyrslu (upphafstíma, lokatíma, stöðu). Við söfnum aldrei eða geymum innihald gagna frá kveikjum eða skrefúttaki umfram það sem nauðsynlegt er til að birta í keyrsluskoðaranum fyrir eiganda vinnusvæðisins.',
@@ -165,11 +201,14 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Gat ekki uppfært lykilorðið.',
   'resetPassword.newPassword': 'Nýtt lykilorð',
   'resetPassword.subhead': 'Veldu eitthvað sem aðeins þú myndir giska á.',
+  'settings.appearance.description': 'Skipta á milli ljóss og dökks stillingar.',
+  'settings.appearance.title': 'Útlit',
   'settings.billingShortcut.cta': 'Opna reikningagerð',
   'settings.billingShortcut.description':
     'Áætlun, notkun og reikningar eru birtir á sérstakri reikningssíðu.',
   'settings.danger.confirm': 'Ertu viss? Þetta mun setja vinnusvæðið þitt í biðröð til eyðingar.',
   'settings.danger.confirmYes': 'Já, biðröð eytt',
+  'settings.danger.deleteWorkspace.cta': 'Eyða vinnusvæði',
   'settings.danger.deleteWorkspace.hint':
     'Fjarlægir öll verkflæði, keyrslur og tengingar eftir 14 daga frest.',
   'settings.danger.deleteWorkspace.title': 'Eyða vinnusvæði',
@@ -181,9 +220,14 @@ export const ui: UiTranslations = {
     'Hafðu stjórn á reikningnum þínum, vinnusvæði, samþættingum og reikningsfærslu á einum stað.',
   'settings.notifications.description':
     'Veldu hvaða viðburðir birta síðuna þína, senda þér tölvupóst eða þegja.',
+  'settings.notifications.failures.hint':
+    'Tilkynning í tölvupósti og í forritinu við hverja misheppnaða keyrslu.',
+  'settings.notifications.failures.title': 'Vinnuflæðisvillur',
   'settings.notifications.product.hint': 'Stundum sendar tölvupóstar um ný sniðmát og eiginleika.',
+  'settings.notifications.product.title': 'Vöruuppfærslur',
   'settings.notifications.weekly.hint':
     'Yfirlit yfir hlaup og sparnað síðustu viku á mánudagsmorgni.',
+  'settings.notifications.weekly.title': 'Vikuleg samantekt',
   'settings.profile.description':
     'Hvernig þú birtist inni í verkflæðisforritinu. Notað í vinnusvæðisvirkni.',
   'settings.profile.noEmail': 'Enginn tölvupóstur skráður',
@@ -191,12 +235,23 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Gat ekki vistað breytingar á prófílnum.',
   'settings.profile.unnamedUser': 'Nafnlaus notandi',
   'settings.security.audit.hint': 'Streymdu öllum aðgerðum í SIEM-kerfið þitt í gegnum webhook.',
+  'settings.security.audit.title': 'Endursending á endurskoðunarskrá',
   'settings.security.description': 'Tvíþátta auðkenning, SSO og virkar lotur.',
   'settings.security.sso.hint': 'Fáanlegt í Scale og Enterprise áætlunum.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'Nauðsynlegt fyrir allar aðgerðir eiganda vinnusvæðis.',
+  'settings.security.totp.title': 'Tvíþátta auðkenning (TOTP)',
   'settings.twoFactorCode': 'Auðkenningarkóði',
   'settings.twoFactorDisable': 'Slökkva',
+  'settings.twoFactorDisableTitle': 'Slökkva á tveggja þátta auðkenningu',
   'settings.twoFactorEnable': 'Virkja',
+  'settings.twoFactorEnableTitle': 'Kveikja á tveggja þátta auðkenningu',
   'settings.twoFactorInvalidCode': 'Ógildur kóði',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Tveggja þátta QR kóði',
+  'settings.twoFactorScan':
+    'Skannaðu þennan QR-kóða með auðkenningarforritinu þínu og sláðu síðan inn 6 stafa kóðann.',
+  'settings.twoFactorUnavailable': 'Tvíþátta auðkenning er ekki í boði fyrir þetta forrit.',
   'settings.twoFactorVerify': 'Staðfesta og virkja',
   'settings.workspace.description':
     'Sameiginleg auðkenni, svæði og sjálfgefin keyrslustillingar fyrir teymið þitt.',
@@ -225,6 +280,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Sniðmát',
   'templates.description':
     'Fyrirframgerðar teikningar fyrir algengustu sjálfvirkni. Skipta um kerfi, sérsníða, senda.',
+  'templates.empty.filter': 'Engin sniðmát passa við leitina þína.',
   'templates.empty.first': 'Engin sniðmát tiltæk eins og er.',
   'templates.error': 'Gat ekki hlaðið sniðmátum.',
   'templates.installs': 'uppsetningar',
@@ -250,6 +306,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Slökkva',
   'workflowBuilder.enable': 'Virkja',
   'workflowBuilder.error': 'Gat ekki hlaðið verkflæði.',
+  'workflowBuilder.inspector.config': 'Stillingar',
+  'workflowBuilder.inspector.cron': 'Cron-tjáning',
+  'workflowBuilder.inspector.disabled': 'Óvirkt — keyrir ekki sjálfkrafa.',
   'workflowBuilder.inspector.enabled': 'Virkt — keyrir við kveikju.',
   'workflowBuilder.inspector.eyebrow': 'Eftirlitsmaður',
   'workflowBuilder.inspector.id': 'Auðkenni',
@@ -267,18 +326,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Skipta mistókst.',
   'workflowBuilder.workflow': 'Verkflæði · v {{v}}',
   'workflowBuilder.zoom.in': 'Aðdráttur',
+  'workflowBuilder.zoom.label': 'Aðdráttarstýringar á striga',
+  'workflowBuilder.zoom.out': 'Aðdráttur',
   'workflowCard.lastRun': 'Síðasta hlaup {{when}}',
   'workflowCard.runs': '{{count}} hlaup',
+  'workflowCard.success': '{{rate}}% árangur',
   'workflowHeroCard.last24h': 'Síðustu 24 klst.',
+  'workflows.browseTemplates': 'Skoða sniðmát →',
   'workflows.description':
     'Allar sjálfvirkniupplýsingar á vinnusvæðinu þínu, með yfirliti yfir heilsu og nýlega virkni.',
+  'workflows.empty.body': 'Prófaðu að hreinsa síuna eða byrjaðu frá sniðmáti.',
   'workflows.empty.firstBody': 'Settu upp sniðmát til að byrja á nokkrum sekúndum.',
   'workflows.empty.firstTitle': 'Engin vinnuflæði ennþá',
   'workflows.empty.title': 'Engin verkflæði passa saman',
   'workflows.error': 'Ekki tókst að hlaða verkflæði.',
   'workflows.eyebrow': 'Bókasafn · {{count}} samtals',
+  'workflows.loading': 'Hleð vinnuflæðum…',
   'workflows.newFromTemplate': 'Nýtt úr sniðmáti',
   'workflows.searchPlaceholder': 'Leita að verkflæðum…',
+  'workflows.title': 'Vinnuflæði',
   'workflowSidebar.brand': 'Dendrit',
   'workflowSidebar.status': 'Öll kerfi í gangi',
   'workflowSidebar.tagline': 'Greind í hreyfingu',

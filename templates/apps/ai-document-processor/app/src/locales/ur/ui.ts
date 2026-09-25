@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'کوئی سوال ہے، کوئی بگ ملا ہے، یا اپنی ٹیم کے لیے ڈیمو چاہتے ہیں؟ اپنی اکاؤنٹ سیٹنگز سے رابطہ کریں — ہر پیغام ٹیم کے کسی حقیقی فرد تک پہنچتا ہے۔',
   'about.contactTitle': 'رابطہ کریں۔',
+  'about.intro':
+    '{{app}} اسکین شدہ دستاویزات اور PDFs کے ڈھیروں کو منظم، قابلِ تلاش، فائل شدہ ڈیٹا میں بدل دیتا ہے۔ انوائسز، رسیدیں، معاہدے یا فارم ڈالیں اور AI کو پڑھنے، نکالنے، درجہ بندی کرنے اور فائل کرنے دیں — اعتماد کے رنگوں کے ساتھ تاکہ آپ کی ٹیم صرف وہی جائزہ لے جسے واقعی انسانی توجہ چاہیے۔',
+  'about.missionBody':
+    'دستاویزی معمولی کام آپ کی ٹیم کا دن نہیں کھا جانے چاہیے۔ ہمارا ماننا ہے کہ ہر نکالی گئی قدر قابلِ وضاحت اور قابلِ آڈٹ ہونی چاہیے — تاکہ آپ کاغذی ریکارڈ کھوئے بغیر آٹومیشن پر بھروسا کر سکیں۔ {{app}} ہر ڈھیر پر گھنٹے بچانے کے لیے بنایا گیا ہے اور جہاں اہم ہو وہاں انسان کو شامل رکھتا ہے۔',
+  'about.missionTitle': 'ہمارا مشن',
+  'about.subtitle': 'آپ کی دستاویزات کے لیے OCR، AI نکالنا، درجہ بندی، اور خودکار فائلنگ۔',
   'about.title': '{{app}} کے بارے میں',
+  'about.whatYouGetTitle': 'جو آپ کو ملتا ہے۔',
   'authShell.backToLanding': '← واپس لینڈنگ پر',
   'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'آج · آپریشنز کا جائزہ',
   'dashboard.heading': 'دستاویزی ذہانت',
+  'dashboard.metric.accuracy': 'اوسط درستگی',
   'dashboard.metric.filed': 'آج جمع کرایا',
   'dashboard.metric.filedCaption': 'دائر کرنے کے قوانین کی طرف سے روٹ',
   'dashboard.metric.processed': 'آج کارروائی کی گئی۔',
@@ -23,11 +33,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'دستاویز',
   'dashboard.recent.col.uploaded': 'اپ لوڈ کیا گیا',
   'dashboard.recent.heading': 'حالیہ دستاویزات',
+  'dashboard.recent.typeUnknown': 'درجہ بندی کا انتظار',
   'dashboard.subheading':
     'ہر صفحہ کی درجہ بندی کی گئی، نکالی گئی، اور فائل کی گئی — اعتماد کے رنگوں کے ساتھ تاکہ جائزہ پر توجہ مرکوز رہے۔',
   'documentDetail.audit.heading': 'آڈٹ ٹائم لائن',
+  'documentDetail.audit.subheading': 'اس دستاویز پر اٹھایا گیا ہر قدم، متعلقہ ذمہ دار کے ساتھ۔',
   'documentDetail.back': 'تمام دستاویزات',
   'documentDetail.downloadHint': 'اصل فائل کو کھولنے کے لیے ڈاؤن لوڈ کا استعمال کریں۔',
+  'documentDetail.extracted.empty': 'ابھی کوئی فیلڈ نکالی نہیں گئی۔',
   'documentDetail.extracted.heading': 'نکالے گئے فیلڈز',
   'documentDetail.extracted.subheading':
     '{{count}} فیلڈز · صفحہ پر نمایاں کرنے کے لیے کسی بھی فیلڈ پر کلک کریں۔',
@@ -55,13 +68,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'دستاویزات تلاش کریں…',
   'documents.subheading': '{{count}} آپ کی لائبریری میں موجود دستاویزات، پہلے تازہ ترین ترتیب دیں۔',
   'documents.uploadCta': 'دستاویزات اپ لوڈ کریں۔',
+  'documentTypeBreakdown.barAria': 'قسم کے لحاظ سے دستاویز کی ترکیب',
   'documentTypeBreakdown.empty': 'ابھی تک کسی دستاویزات پر کارروائی نہیں ہوئی۔',
   'documentTypeBreakdown.subtitle': '{{total}} عملدرآمد',
   'documentTypeBreakdown.title': 'دستاویز کی تشکیل',
+  'forgotPassword.backToSignIn': '← واپس سائن ان کریں۔',
   'forgotPassword.checkEmail': 'اپنا ای میل چیک کریں۔',
   'forgotPassword.tip': 'نہیں ملا؟ اسپام چیک کریں یا کوئی دوسرا پتہ آزمائیں۔',
+  'landing.copyright':
+    '© {{year}} {{app}}۔ ایسی آپس ٹیموں کے لیے بنایا گیا جو ہر صفحے کا آڈٹ کرتی ہیں۔',
+  'landing.ctaBody':
+    '14 دن کا ٹرائل۔ کارڈ کی ضرورت نہیں۔ کسی بھی وقت منسوخ کریں۔ ایسی آپس ٹیموں کے لیے بنایا گیا جو تیز چلتی ہیں اور آہستہ آڈٹ کرتی ہیں۔',
   'landing.ctaHeading': 'رسیدیں ٹائپ کرنا بند کریں۔ انہیں فائل کرنا شروع کریں۔',
   'landing.eyebrow': 'OCR · نکالنا · AI فائلنگ',
+  'landing.featuresHeading': 'دستاویزی ذہانت جو خود وضاحت کرتی ہے',
+  'landing.heroSubtitle':
+    'انوائسز، رسیدوں، معاہدوں یا فارمز کا ڈھیر ڈالیں۔ {{app}} ان کی درجہ بندی، استخراج اور فائلنگ کرتا ہے — اعتماد کے رنگوں کے ساتھ تاکہ آپ کی ٹیم صرف وہی جائزہ لے جسے واقعی انسانی توجہ چاہیے۔',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'روزانہ حجم · گزشتہ 7 دن',
   'landing.sampleCardLabel': 'دستاویزات پر آج کارروائی کی گئی۔',
   'landing.sampleCardSubtitle': 'انوائسز، رسیدوں اور فارمز میں 96.2% اوسط درستگی۔',
   'login.hidePassword': 'پاس ورڈ چھپائیں۔',
@@ -74,6 +98,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'لینڈنگ پیج کھولیں۔',
   'notFound.title': 'وہ صفحہ فائل میں نہیں ہے۔',
+  'parcelaHeroCard.accuracy': 'تمام استخراجات میں اوسط درستگی {{value}}%',
   'parcelaHeroCard.change': '{{sign}} {{amount}} کل بمقابلہ %',
   'parcelaHeroCard.title': 'دستاویزات پر آج کارروائی کی گئی۔',
   'parcelaLayout.primaryNavLabel': 'بنیادی نیویگیشن',
@@ -81,6 +106,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'دستاویزات',
   'pricing.processingLabel': 'پروسیسنگ کے کام',
   'resetPassword.confirmPlaceholder': 'نیا پاس ورڈ دہرائیں۔',
+  'resetPassword.hidePassword': 'پاس ورڈ چھپائیں۔',
   'resetPassword.passwordLabel': 'نیا پاس ورڈ',
   'resetPassword.showPassword': 'پاس ورڈ دکھائیں۔',
   'resetPassword.subtitle': 'کم از کم 8 حروف لمبی کوئی چیز منتخب کریں۔',
@@ -98,10 +124,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'قواعد لوڈ کرنے میں ناکام۔',
   'rules.loading': 'قواعد لوڈ ہو رہے ہیں…',
   'rules.matched30d': '{{count}} پچھلے 30 دنوں میں مماثل دستاویزات',
+  'rules.neverUsed': 'کبھی استعمال نہیں کیا۔',
   'rules.newRule': 'نیا اصول',
   'rules.saveError': 'اصول محفوظ کرنے میں ناکام۔',
   'rules.subheading':
     'سسٹم کو بتائیں کہ ہر قسم کی دستاویز کو کہاں جانا چاہیے۔ حالات کا سلسلہ اوپر سے نیچے تک — پہلا میچ جیتتا ہے۔',
+  'rules.templatesEmpty': 'ابھی کوئی استخراجی ٹیمپلیٹ نہیں۔',
   'rules.templatesHeading': 'نکالنے کے ٹیمپلیٹس',
   'rules.templatesSubheading':
     'فیلڈ اسکیموں کو ایکسٹریکٹر ہر دستاویز کی قسم کے لیے استعمال کرتا ہے۔',
@@ -110,17 +138,24 @@ export const ui: UiTranslations = {
   'settings.account.error': 'محفوظ کرنے میں ناکام۔',
   'settings.account.nameLabel': 'ورک اسپیس کا نام',
   'settings.account.subheading': 'اطلاعات اور آڈٹ کی تاریخ کے لیے نام اور بنیادی ای میل دکھائیں۔',
+  'settings.api.confirmRevoke': 'تصدیق کریں؟',
   'settings.api.copyOnce': 'اس کلید کو کاپی کریں - اسے دوبارہ نہیں دکھایا جائے گا۔',
   'settings.api.createdOn': 'بنایا {{date}}',
   'settings.api.empty': 'ابھی تک کوئی API کیز نہیں ہیں۔ اوپر سے ایک بنائیں۔',
   'settings.api.error': 'کلید بنانے میں ناکام۔',
+  'settings.api.generating': 'بنائی جا رہی ہے…',
+  'settings.api.heading': 'API کیز',
   'settings.api.labelPlaceholder': 'کلیدی لیبل (جیسے CI اپ لوڈر)',
+  'settings.api.loading': 'کنجیاں لوڈ ہو رہی ہیں…',
   'settings.api.newKey': 'کلید بنائیں',
   'settings.api.subheading':
     'اسکرپٹ یا اپنے ERP سے دستاویزات کو آگے بڑھانے کے لیے ان کا استعمال کریں۔ کسی بھی وقت کسی بھی کلید کو گھمائیں۔',
   'settings.integrations.heading': 'فائلنگ انضمام',
   'settings.integrations.subheading':
     'فائل کردہ دستاویزات کلاؤڈ ڈرائیو یا چیٹ ٹول پر بھیجیں جس میں آپ کی ٹیم پہلے سے رہتی ہے۔',
+  'settings.subheading':
+    'اپنے {{app}} ورک اسپیس کے لیے اکاؤنٹ، API کنجیاں، اور فائلنگ انٹیگریشنز کا نظم کریں۔',
+  'signup.hidePassword': 'پاس ورڈ چھپائیں۔',
   'signup.identityPrompt': 'ہم آپ کو کیسے مخاطب کریں؟',
   'signup.showPassword': 'پاس ورڈ دکھائیں۔',
   'signup.subtitle': '14 دن مفت، کارڈ کی ضرورت نہیں۔',
@@ -128,6 +163,7 @@ export const ui: UiTranslations = {
   'upload.error': 'اپ لوڈ ناکام ہو گیا۔',
   'upload.eyebrow': 'ادخال',
   'upload.heading': 'دستاویزات اپ لوڈ کریں۔',
+  'upload.queue.clear': 'مکمل شدہ صاف کریں',
   'upload.queue.col.confidence': 'اعتماد',
   'upload.queue.col.file': 'فائل',
   'upload.queue.detecting': 'پتہ لگا رہا ہے…',
@@ -140,5 +176,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'یا بیچ نکالنے، درجہ بندی، اور فائلنگ کے لیے ایک ساتھ متعدد فائلوں کو ڈراپ کریں۔',
   'uploadDropZone.cta': 'فائلوں کا انتخاب کریں۔',
+  'uploadDropZone.maxSize': 'فی فائل زیادہ سے زیادہ 25 MB · اینڈ ٹو اینڈ انکرپٹڈ',
   'uploadDropZone.title': 'پروسیسنگ شروع کرنے کے لیے دستاویزات چھوڑیں۔',
 }

@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite ni jukwaa la otomatiki la mtiririko wa kazi ambalo huanzisha waya, hali za akili bandia, na vitendo vya hatua nyingi pamoja ili timu ziweze kuhamisha kazi kati ya mifumo bila kuandika msimbo wa gundi.',
+  'about.philosophy':
+    'Kila mtiririko wa kazi ni grafu ya hatua ndogo zinazoonekana. Kila hatua hurekodi pembejeo, matokeo na muda wake ili iweze kuchunguzwa, kuchezwa tena au kurudishwa nyuma. Ziunganishe kwa picha, zifanye toleo kama msimbo.',
   'about.title': 'Kuhusu Dendrite',
   'authShell.brand': 'Dendriti',
   'authShell.support': 'Usaidizi',
@@ -15,9 +17,15 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Mpango wa mabadiliko',
   'billing.description':
     'Fuatilia matumizi, dhibiti mpango wako, na toa ankara kwa ajili ya uhasibu.',
+  'billing.eyebrow': 'Akaunti · Mpango na matumizi',
+  'billing.failedLabel': 'Mizunguko iliyoshindwa · saa 24',
+  'billing.invoicesEmpty':
+    'Hakuna ankara bado. Zitaonekana hapa baada ya upyaji wako wa kwanza wa malipo.',
   'billing.invoicesTitle': 'Historia ya ankara',
   'billing.planNoteFree':
     'Daraja la bure — {{runs}} anaendesha na {{workflows}} kazi zinazoendelea. Boresha kwa ajili ya mipaka ya juu zaidi.',
+  'billing.planNotePaid':
+    'Mpango wa malipo — mizunguko {{runs}} na mitiririko inayotumika {{workflows}}.',
   'billing.runsLabel': 'Imefanyika katika saa 24 zilizopita',
   'billing.tiersBlurb':
     'Linganisha kila ngazi — uendeshaji, mtiririko wa kazi unaotumika, vipengele vya hali ya juu, na usaidizi — kwenye ukurasa maalum wa bei.',
@@ -35,10 +43,14 @@ export const ui: UiTranslations = {
     'Hakuna miunganisho iliyosajiliwa. Sanidi funguo za mtoa huduma ili kuwezesha vifungo.',
   'connections.error': 'Haikuweza kupakia miunganisho.',
   'connections.eyebrow': 'Ujumuishaji · {{connected}} imeunganishwa',
+  'connections.loading': 'Inapakia miunganisho…',
+  'connections.openEnv':
+    'Ili kuunganisha mtoa huduma huyu, weka ufunguo wake wa API katika api/.env na uanzishe tena seva.',
   'dashboard.description':
     '{{active}} mtiririko wa kazi unafanya kazi. {{failed}} imeshindwa katika saa 24 zilizopita.',
   'dashboard.error': 'Haikuweza kupakia dashibodi.',
   'dashboard.eyebrow': 'Operesheni · moja kwa moja',
+  'dashboard.hero.label': 'Mizunguko leo',
   'dashboard.hero.medianLatency': 'ucheleweshaji wa p50',
   'dashboard.hero.queue': 'Kina cha foleni',
   'dashboard.hero.success': 'Mafanikio',
@@ -46,14 +58,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Muda wa wastani',
   'dashboard.kpi.failedRuns': 'Imeshindwa · saa 24',
   'dashboard.kpi.outOf': 'ya {{total}} jumla',
+  'dashboard.kpi.successRate': 'Kiwango cha mafanikio · saa 24',
   'dashboard.loading': 'Inapakia dashibodi...',
   'dashboard.recentRuns.empty':
     'Hakuna utekelezaji bado. Kuanzisha mtiririko wa kazi kutajaza mlisho huu.',
   'dashboard.recentRuns.title': 'Michuano ya hivi karibuni',
   'dashboard.recentRuns.viewAll': 'Utekelezaji wa wazi →',
+  'dashboard.recentWorkflows.browse': 'Vinjari violezo →',
   'dashboard.recentWorkflows.empty':
     'Hakuna mtiririko wa kazi bado. Sakinisha kiolezo au ujenge kimoja kuanzia mwanzo.',
   'dashboard.recentWorkflows.title': 'Imeendeshwa hivi karibuni',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'Imeanza',
   'dashboard.run.col.trigger': 'Kichocheo',
   'dashboard.run.col.workflow': 'Mtiririko wa kazi',
@@ -89,6 +104,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Mtiririko wa kazi',
   'executions.description':
     'Kila mtiririko wa kazi unaendelea, kila jaribio jipya, kila matokeo ya hatua — yote yanaonekana.',
+  'executions.empty.filter': 'Hakuna mizunguko inayolingana na kichujio hiki.',
   'executions.empty.first':
     'Hakuna utekelezaji bado — anzisha mtiririko wa kazi ili kujaza orodha hii.',
   'executions.error': 'Haikuweza kupakia utekelezaji.',
@@ -99,30 +115,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Inapakia historia ya utekelezaji…',
   'executions.title': 'Utekelezaji',
   'forgotPassword.confirmation': 'Weka upya kiungo kilichotumwa kwa {{email}} .',
+  'forgotPassword.subhead': 'Ingiza barua pepe yako ili kupokea kiungo cha kuweka upya.',
   'forgotPassword.successSubhead':
     'Tulituma kiungo cha kuweka upya kwa {{email}} Inaisha baada ya dakika 30.',
   'help.connections.body':
     'Hatua za AI, barua pepe, na hifadhi zinahitaji funguo za mtoa huduma ziwekwe katika faili ya api/.env. Mara tu ufunguo unapowekwa, muunganisho unaolingana unaonekana kama umeunganishwa kwenye ukurasa wa Miunganisho.',
+  'help.connections.cta': 'Fungua miunganisho →',
   'help.connections.title': 'Kuunganisha watoa huduma',
   'help.gettingStarted.body':
     'Mifumo mipya ya kazi inaweza kusakinishwa kutoka kwa maktaba ya violezo au kujengwa kuanzia mwanzo katika kijenzi cha mtiririko wa kazi. Kila mtiririko wa kazi una kichocheo (cha mwongozo, cha wavuti, au cha cron) na mfuatano wa hatua zinazoendeshwa kwa mpangilio.',
+  'help.gettingStarted.cta': 'Vinjari maktaba ya violezo →',
+  'help.gettingStarted.title': 'Kuanza',
   'help.intro':
     'Pata majibu ya maswali ya kawaida kuhusu kujenga mifumo ya kazi, kusanidi miunganisho, na kutafsiri matokeo ya utekelezaji. Mada zinazojulikana zaidi zimeorodheshwa hapa chini; kwa chochote ambacho hakijashughulikiwa, wasiliana na msimamizi wako wa nafasi ya kazi.',
   'help.runs.body':
     'Kila kukimbia kunarekodi kila hatua kwa kujitegemea na hali (mafanikio, kushindwa, kuruka) na kipande cha matokeo. Ukurasa wa maelezo ya utekelezaji unaonyesha ufuatiliaji kamili wa hatua kwa hatua pamoja na vipimo vilivyokadiriwa.',
+  'help.runs.cta': 'Utekelezaji wa wazi →',
   'help.runs.title': 'Kusoma matokeo ya kukimbia',
   'help.title': 'Kituo cha usaidizi',
   'integrationCard.manage': 'Dhibiti',
   'landing.brand': 'Dendriti',
   'landing.demo.action.subtitle': 'Robini ya mviringo · eneo',
+  'landing.demo.action.title': 'Mjulishe mwakilishi',
   'landing.demo.condition.subtitle': 'Kiainishaji cha nia ya AI',
+  'landing.demo.condition.title': 'Alama ≥ wastani?',
   'landing.demo.trigger.subtitle': 'POST /fomu/mawasiliano',
   'landing.demo.trigger.title': 'Mtandao unaoingia',
+  'landing.features.body':
+    'Vichocheo huwaka. Masharti hutawanya. Vitendo husafirisha kazi. Ziunganishe kwa picha, zifanye toleo kama msimbo.',
   'landing.features.heading': 'Aina tatu za nodi. Maumbo yasiyo na kikomo.',
   'landing.footer.help': 'Msaada',
   'landing.footer.tagline': 'Akili inayoendelea',
+  'landing.hero.body':
+    '{{appName}} ni injini ya mitiririko ya kazi kwa timu za uendeshaji zilizokua kupita Zapier. Kichocheo, sharti, kitendo — vimeunganishwa na kila mfumo unaoutumia kweli.',
   'landing.hero.eyebrow': 'Akili inayoendelea',
   'landing.hero.headline': 'Unganisha rundo lako pamoja. Acha kazi ifanyike.',
+  'landing.hero.primaryCta': 'Jenga mtiririko wako wa kwanza wa kazi',
   'landing.hero.proof.ai': 'Nodi za AI zilizojengewa ndani',
   'landing.hero.proof.free': 'Bure kwa kukimbia 1k/mwezi',
   'landing.hero.proof.soc2': 'SOC 2 Aina ya II',
@@ -130,10 +158,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Lipa kwa ajili ya mbio, si viti.',
   'landing.templates.body':
     'Mtiririko wa kazi uliounganishwa awali kwa kila timu — mauzo, usaidizi, watengenezaji, fedha. Sakinisha kwa mbofyo mmoja; rekebisha chochote.',
+  'landing.templates.cta': 'Jisajili ili kuvinjari violezo →',
   'landing.templates.eyebrow': 'Anza kwa sekunde',
   'landing.templates.heading': 'Maktaba ya mapishi yaliyothibitishwa.',
   'landing.templates.signupHint': 'Jisajili ili usakinishe',
   'login.hidePassword': 'Ficha nenosiri',
+  'login.noAccount': 'Mgeni kwa Tessera?',
   'login.showPassword': 'Onyesha nenosiri',
   'login.subhead': 'Ingia ili uendelee kufanya kazi otomatiki.',
   'mobileNav.drawerLabel': 'Urambazaji mkuu',
@@ -149,8 +179,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Endesha mtiririko wa kazi ili kuanza kujaza mlisho huu.',
   'notifications.empty.title': 'Nyote mmeshaelewa',
   'notifications.eyebrow': '{{n}} haijasomwa',
+  'planUpdated.body':
+    'Mabadiliko yako ya malipo sasa yanafanya kazi. Unaweza kusimamia mpango wako wakati wowote kutoka ukurasa wa malipo.',
+  'planUpdated.retry': 'Jaribu tena',
+  'planUpdated.verifyFailed': 'Hatukuweza kuthibitisha malipo yako bado.',
+  'planUpdated.verifyFailedBody':
+    'Huenda malipo yako bado yanashughulikiwa. Jaribu tena baada ya muda mfupi.',
   'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'pricing.heading': 'mbio',
+  'pricing.runsSuffix': 'mizunguko',
   'pricing.workflowsSuffix': 'mtiririko wa kazi',
   'privacy.collect.body':
     'Tunakusanya anwani ya barua pepe unayojisajili nayo, mtiririko wa kazi unaosanidi, na metadata kuhusu kila utekelezaji (muda wa kuanza, muda wa kumaliza, hali). Hatukusanyi au kuhifadhi maudhui ya mzigo kutoka kwa vichocheo au matokeo ya hatua zaidi ya kile kinachohitajika kuonyeshwa kwenye kitazamaji cha utekelezaji kwa mmiliki wa nafasi ya kazi.',
@@ -166,12 +203,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Haikuweza kusasisha nenosiri.',
   'resetPassword.newPassword': 'Nenosiri jipya',
   'resetPassword.subhead': 'Chagua kitu ambacho ungekisia tu.',
+  'settings.appearance.description': 'Badilisha kati ya hali ya mwanga na giza.',
+  'settings.appearance.title': 'Muonekano',
   'settings.billingShortcut.cta': 'Malipo ya wazi',
   'settings.billingShortcut.description':
     'Mpango, matumizi na ankara huonyeshwa moja kwa moja kwenye ukurasa maalum wa bili.',
   'settings.danger.confirm':
     'Una uhakika? Hii itaweka nafasi yako ya kazi kwenye foleni kwa ajili ya kufutwa.',
   'settings.danger.confirmYes': 'Ndiyo, kufuta foleni',
+  'settings.danger.deleteWorkspace.cta': 'Futa nafasi ya kazi',
   'settings.danger.deleteWorkspace.hint':
     'Huondoa mtiririko wote wa kazi, uendeshaji, na miunganisho baada ya kipindi cha neema cha siku 14.',
   'settings.danger.deleteWorkspace.title': 'Futa nafasi ya kazi',
@@ -182,10 +222,15 @@ export const ui: UiTranslations = {
     'Dhibiti akaunti yako, nafasi ya kazi, ujumuishaji, na utozaji katika sehemu moja.',
   'settings.notifications.description':
     'Chagua ni matukio gani yatakayokujia kwenye ukurasa wako, kukutumia barua pepe, au kukaa kimya.',
+  'settings.notifications.failures.hint':
+    'Arifa kwa barua pepe na ndani ya programu kwa kila mzunguko ulioshindwa.',
+  'settings.notifications.failures.title': 'Kushindwa kwa mitiririko ya kazi',
   'settings.notifications.product.hint':
     'Barua pepe za mara kwa mara kuhusu violezo na vipengele vipya.',
+  'settings.notifications.product.title': 'Masasisho ya bidhaa',
   'settings.notifications.weekly.hint':
     'Muhtasari wa Jumatatu asubuhi wa mbio na akiba za wiki iliyopita.',
+  'settings.notifications.weekly.title': 'Muhtasari wa kila wiki',
   'settings.profile.description':
     'Jinsi unavyoonekana ndani ya kirushi cha mtiririko wa kazi. Hutumika katika shughuli za nafasi ya kazi.',
   'settings.profile.noEmail': 'Hakuna barua pepe iliyorekodiwa',
@@ -193,13 +238,25 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Haikuweza kuhifadhi mabadiliko ya wasifu.',
   'settings.profile.unnamedUser': 'Mtumiaji asiye na jina',
   'settings.security.audit.hint': 'Tiririsha kila kitendo kwenye SIEM yako kupitia webhook.',
+  'settings.security.audit.title': 'Usambazaji wa kumbukumbu za ukaguzi',
   'settings.security.description':
     'Uidhinishaji wa vipengele viwili, SSO, na vipindi vinavyoendelea.',
   'settings.security.sso.hint': 'Inapatikana kwa Mipango ya Kiwango na Biashara.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'Inahitajika kwa hatua yoyote ya mmiliki wa nafasi ya kazi.',
+  'settings.security.totp.title': 'Uthibitishaji wa hatua mbili (TOTP)',
   'settings.twoFactorCode': 'Nambari ya uthibitishaji',
   'settings.twoFactorDisable': 'Zima',
+  'settings.twoFactorDisableTitle': 'Zima uthibitishaji wa hatua mbili',
   'settings.twoFactorEnable': 'Washa',
+  'settings.twoFactorEnableTitle': 'Washa uthibitishaji wa hatua mbili',
   'settings.twoFactorInvalidCode': 'Nambari batili',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Msimbo wa QR wa hatua mbili',
+  'settings.twoFactorScan':
+    'Skani msimbo huu wa QR kwa programu yako ya uthibitishaji, kisha weka msimbo wa tarakimu 6.',
+  'settings.twoFactorUnavailable':
+    'Uthibitishaji wa vipengele viwili haupatikani kwa programu hii.',
   'settings.twoFactorVerify': 'Thibitisha na uwashe',
   'settings.workspace.description':
     'Utambulisho ulioshirikiwa, eneo, na chaguo-msingi za uendeshaji kwa timu yako.',
@@ -228,6 +285,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Kiolezo',
   'templates.description':
     'Ramani zilizojengwa tayari kwa ajili ya otomatiki za kawaida. Uma, badilisha, safirisha.',
+  'templates.empty.filter': 'Hakuna violezo vinavyolingana na utafutaji wako.',
   'templates.empty.first': 'Hakuna templeti zinazopatikana kwa sasa.',
   'templates.error': 'Haikuweza kupakia violezo.',
   'templates.installs': 'usakinishaji',
@@ -253,6 +311,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Zima',
   'workflowBuilder.enable': 'Washa',
   'workflowBuilder.error': 'Haikuweza kupakia mtiririko wa kazi.',
+  'workflowBuilder.inspector.config': 'Mipangilio',
+  'workflowBuilder.inspector.cron': 'Usemi wa Cron',
+  'workflowBuilder.inspector.disabled': 'Imezimwa — haitaendeshwa kiotomatiki.',
   'workflowBuilder.inspector.enabled': 'Imewashwa — inafanya kazi kwenye kichocheo.',
   'workflowBuilder.inspector.eyebrow': 'Mkaguzi',
   'workflowBuilder.inspector.id': 'Kitambulisho',
@@ -270,18 +331,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Kubadilisha hakukufaulu.',
   'workflowBuilder.workflow': 'Mtiririko wa kazi · v {{v}}',
   'workflowBuilder.zoom.in': 'Kuza karibu',
+  'workflowBuilder.zoom.label': 'Vidhibiti vya kukuza turubai',
+  'workflowBuilder.zoom.out': 'Zoom nje',
   'workflowCard.lastRun': 'Mbio ya mwisho {{when}}',
   'workflowCard.runs': '{{count}} mbio',
+  'workflowCard.success': '{{rate}}% mafanikio',
   'workflowHeroCard.last24h': 'Saa 24 zilizopita',
+  'workflows.browseTemplates': 'Vinjari violezo →',
   'workflows.description':
     'Kila otomatiki katika nafasi yako ya kazi, pamoja na afya na shughuli za hivi karibuni kwa muhtasari.',
+  'workflows.empty.body': 'Jaribu kufuta kichujio au kuanza kutoka kwa kiolezo.',
   'workflows.empty.firstBody': 'Sakinisha kiolezo ili kuanza kwa sekunde chache.',
   'workflows.empty.firstTitle': 'Hakuna mtiririko wa kazi bado',
   'workflows.empty.title': 'Hakuna mtiririko wa kazi unaolingana',
   'workflows.error': 'Haikuweza kupakia mtiririko wa kazi.',
   'workflows.eyebrow': 'Maktaba · {{count}} jumla',
+  'workflows.loading': 'Inapakia mitiririko ya kazi…',
   'workflows.newFromTemplate': 'Mpya kutoka kwa kiolezo',
   'workflows.searchPlaceholder': 'Mifumo ya utafutaji…',
+  'workflows.title': 'Mitiririko ya kazi',
   'workflowSidebar.brand': 'Dendriti',
   'workflowSidebar.status': 'Mifumo yote inayofanya kazi',
   'workflowSidebar.tagline': 'Akili inayoendelea',

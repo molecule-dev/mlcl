@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Van visszajelzésed, hibát találtál, vagy {{app}} szeretnél a stúdiód vagy a csapatod számára? Írj nekünk a fiókbeállításaidból — minden üzenet eljut a csapat egy valódi tagjához.',
   'about.contactTitle': 'Lépj velünk kapcsolatba',
+  'about.intro':
+    'A {{app}} egy együttműködésre épülő íróstúdió, ahol szerkesztők, írók és csapatok valós időben dolgoznak együtt a szövegeken. Nyiss meg egy dokumentumot, és az oldal máris közös lesz — a kurzorok mozognak, a megjegyzések a margón futnak, és minden módosítás biztonságban megőrződik az előzményekben.',
+  'about.missionBody':
+    'Hiszünk abban, hogy a hosszú formátumú írásnak nyugodt, fókuszált otthon jár — olyan, amely a kézirat köré épül, nem a megbeszélések vagy a beérkező levelek köré. A szerkesztőnk, a valós idejű jelenlét és a verzióelőzmények mind azt szolgálják, hogy az együttműködők gyorsan haladhassanak együtt anélkül, hogy bárki elveszítene egy bekezdést vagy egy gondolatot.',
+  'about.missionTitle': 'Küldetésünk',
+  'about.subtitle': 'Gondolkodjatok együtt, írjatok örökké.',
   'about.title': 'A {{app}} névjegye',
   'comments.addFailed': 'Nem sikerült hozzászólást küldeni.',
   'comments.backToDoc': 'Vissza a kézirathoz',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Hozzászólás-szálak',
   'comments.loading': 'Szálak betöltése…',
   'comments.newPlaceholder': 'Hozzászólás hozzáadása a kézirathoz…',
+  'comments.newSubmit': 'Bejegyzés',
   'comments.reopen': 'Újra megnyitás',
   'comments.reopenFailed': 'Nem sikerült újra megnyitni.',
   'comments.replyFailed': 'Nem sikerült elküldeni a választ.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Legutóbbi vázlatok, megosztott munkák és a mai szerkesztések.',
   'dashboard.viewFeed': 'Hírcsatorna →',
   'editor.back': 'Vissza a kéziratokhoz',
+  'editor.bodyLabel': 'Dokumentum törzse',
   'editor.bodyPlaceholder': 'Kezdje ott, ahol a kurzor villog.',
   'editor.comments': 'Megjegyzések',
   'editor.createFailed': 'A dokumentum létrehozása nem sikerült.',
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Ha létezik fiókja a {{email}} címen, hamarosan megkapja a jelszó-visszaállítási linket.',
+  'forgotPassword.sentHeading': 'Ellenőrizze e-mailjét',
+  'forgotPassword.submitting': 'Küldés\\u2026',
   'forgotPassword.subtitle': 'Küldünk Önnek egy visszaállítási linket e-mailben.',
   'landing.copyright': '\\u00a9 {{year}} {{app}}. A Molecule segítségével készült.',
+  'landing.ctaBody':
+    'Ingyenes egyéni íróknak. Stúdiócsomagok szerkesztőkből, szellemírókból és lektorokból álló csapatoknak.',
   'landing.ctaHeading': 'Nyissa meg az oldalt. Indítsa el a kurzort.',
   'landing.ctaPrimary': 'Stúdió megnyitása',
   'landing.eyebrow': 'Íróknak, szerkesztőknek és csapatoknak',
   'landing.featuresEyebrow': 'Amit kap',
   'landing.featuresHeading': 'Egy stúdió a hosszú formátumú vázlatokhoz.',
+  'landing.featuresSubtitle':
+    'A {{appName}} a kézirat köré épül — nem a megbeszélés, nem a beérkező levelek köré.',
   'landing.getStarted': 'Nyisd meg a stúdiót',
   'landing.heroCta': 'Kezdjen el írni',
   'landing.heroSubtitle':
@@ -95,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} olvasatlan · hozzászólások, említések, megosztási meghívók és javaslatkérések.',
   'presenceAvatars.label': '{{count}} munkatársak',
+  'privacy.intro': 'Hogyan gyűjtjük, használjuk és védjük az adataidat.',
   'privacy.title': 'Adatvédelmi szabályzat',
   'profile.about.description':
     'Egy rövid bemutatkozás a nyilvános profilodhoz és a közreműködők oldalához.',
@@ -107,7 +124,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Jelenlét',
   'profile.pronouns': 'Névmások',
   'profile.publicToggle': 'Profil megjelenítése a csapattársak számára',
+  'profile.role': 'Szerep / beosztás',
   'profile.subtitle': 'Hogyan látnak téged a munkatársaid.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} a stúdióban dolgozó írók',
   'quillonAuthBrandPanel.quote':
     '„Az írás az egyetlen dolog, amitől – amikor csinálom – nem érzem úgy, hogy valami mást kellene csinálnom.”',
@@ -115,6 +134,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Nyitás →',
   'quillonKpiCard.trend': 'Legújabb trend',
   'quillonLayout.menu': 'Menü',
+  'quillonLayout.mobileNavLabel': 'Mobilnavigáció',
   'quillonLayout.primaryNavLabel': 'Elsődleges navigáció',
   'quillonStudioHero.collab': 'Közreműködők',
   'quillonStudioHero.docs': 'Érintett dokumentumok',
@@ -124,7 +144,9 @@ export const ui: UiTranslations = {
     'Vedd kézbe a kéziratot, írd meg a véleményedet, és lépj tovább a következő bekezdéshez.',
   'quillonStudioHero.words': 'A mai szavak',
   'resetPassword.confirmPlaceholder': 'Ismételje meg az új jelszót',
+  'resetPassword.passwordLabel': 'Új jelszó',
   'resetPassword.passwordPlaceholder': 'Írjon be egy új jelszót',
+  'resetPassword.submitting': 'Visszaállítás…',
   'resetPassword.subtitle': 'Válasszon egy erős jelszót – legalább 12 karakterből állót.',
   'settings.account.description': 'Hogyan jelentkezzen be.',
   'settings.billing.canceled': 'Előfizetés lemondva.',
@@ -133,7 +155,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Nincs beállítva',
   'settings.billing.updated': 'A terv frissítve.',
   'settings.editor.description': 'Hogyan viselkedik a vászon írás közben.',
+  'settings.editor.title': 'Szerkesztői beállítások',
   'settings.eyebrow': 'Stúdióbeállítások',
+  'settings.language.title': 'Nyelv',
   'settings.notifications.${n.key}.description': 'Nyelv',
   'settings.notifications.description': 'Válaszd ki, mi kerüljön a beérkező levelek mappádba.',
   'settings.subtitle': 'Állítsd be az értesítéseket, a szerkesztőfelületet és a fiókbeállításokat.',
@@ -142,6 +166,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Megosztotta velem',
   'shared.loadFailed': 'A megosztott dokumentumok betöltése nem sikerült.',
   'shared.subtitle': 'Kéziratok, összefoglalók és jegyzetek a stúdió többi részéből.',
+  'signup.brandAttribution': 'Anaïs Park — szerkesztő, The Quarterly',
   'signup.brandQuote':
     '„Az első kézirat a legnehezebb. A Quillon segít, hogy ne érezzük magunkat annyira egyedül.”',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -149,6 +174,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Anaïs',
   'signup.heading': 'Hozzon létre Quillon-fiókot',
   'signup.lastNamePlaceholder': 'Park',
+  'signup.submitting': 'A stúdió megnyitása\\u2026',
   'signup.subtitle':
     'Egy csendes íróasztal, barátságos munkatársak és egy olyan szövegszerkesztő, amely nem zavar a munkában.',
   'templates.blank.subtitle': 'Egy üres oldal. A kurzor a lap elején áll.',
@@ -162,11 +188,13 @@ export const ui: UiTranslations = {
     'Kezdje egy átgondolt felépítéssel! Számtalan lehetőség a személyre szabásra!',
   'templates.useFailed': 'Nem sikerült dokumentumot létrehozni ebből a sablonból.',
   'templates.useTemplate': 'Használja ezt a sablont',
+  'terms.intro': 'A feltételek, amelyek mellett használhatod ezt a szolgáltatást.',
   'terms.title': 'Szolgáltatási feltételek',
   'time.daysAgo': '{{days}} napja',
   'time.hoursAgo': '{{hours}} órája',
   'time.justNow': 'épp most',
   'trash.confirmDelete': 'Törlés megerősítése',
+  'trash.confirmEmpty': 'Megerősítés — minden törlése',
   'trash.deleteFailed': 'Nem sikerült törölni.',
   'trash.deleteForever': 'Végleges törlés',
   'trash.empty': 'Nincs mit helyreállítani.',
@@ -181,7 +209,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'Még nincs módosítás – mentse el a dokumentumot a változáselőzmények megkezdéséhez.',
   'versionHistory.heading': 'Verziótörténet',
+  'versionHistory.latest': 'Legfrissebb',
   'versionHistory.loadFailed': 'Az előzményeket nem sikerült betölteni.',
+  'versionHistory.noContent': 'Ehhez a verzióhoz nem rögzült tartalom.',
   'versionHistory.previewing': 'Előnézet',
   'versionHistory.restore': 'Ezt a verziót állítsa vissza',
   'versionHistory.restoreFailed': 'A visszaállítás nem sikerült.',

@@ -1,14 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Mistoqsijiet, feedback, jew tixtieq walkthrough għat-tim tal-ingaġġ tiegħek? Ibgħat email lil hello@example.com u persuna reali mit-tim terġa' lura lejk fi żmien jumejn tax-xogħol.",
   'about.contactHeading': 'Ikkuntattjana',
+  'about.intro':
+    "{{app}} huwa sistema ta' traċċar tal-applikanti għal recruiters u hiring managers li jridu sinjal, mhux storbju — pipeline nadif, screening bl-AI li jispjega lilu nnifsu, u analitika tal-ingaġġ, kollha f'post wieħed.",
+  'about.missionBody':
+    'L-ingaġġ huwa waħda mid-deċiżjonijiet l-aktar kritiċi li jieħu tim, iżda l-biċċa l-kbira tiegħu għadha tgħix fi spreadsheets imxerrdin u threads tal-email. {{app}} iġib iċ-ċiklu kollu fuq board wieħed sabiex kull kandidat jiġi traċċat, kull intervista tkun strutturata, u kull deċiżjoni tkun ġusta, mgħaġġla, u spjegabbli.',
+  'about.missionHeading': 'Il-missjoni tagħna',
   'auth.legalConsent': 'Billi tkompli, taqbel mal-',
   'billing.cardExp': 'Jiskadi {{exp}}',
+  'billing.cardLinkError': 'Ma setax jibda l-fluss tal-aġġornament tal-karta.',
   'billing.cardLinkSent': 'Il-fluss tal-aġġornament tal-karta beda — iċċekkja l-email tiegħek.',
+  'billing.cardLinkUnavailable':
+    "L-aġġornamenti tal-karta mhumiex disponibbli — dan id-deployment m'għandux payment provider ikkonfigurat.",
   'billing.cardMissing': 'L-ebda karta fil-fajl',
   'billing.col.invoice': 'Fattura',
   'billing.downloadUnavailable': '—',
   'billing.editCard': 'Aġġorna l-karta',
+  'billing.eyebrow': 'Pjan u użu',
   'billing.invoiceHeading': 'Fatturi riċenti',
   'billing.invoicesEmpty': "Għad m'hemm l-ebda fattura.",
   'billing.invoicesLoading': 'Qed jitgħabbew il-fatturi…',
@@ -17,11 +28,12 @@ export const ui: UiTranslations = {
   'billing.nextChargeHint': 'Mixgħul {{date}}',
   'billing.nextChargeLabel': 'Ħlas li jmiss',
   'billing.planLoading': 'Pjan tat-tagħbija…',
-  'billing.planSummary': '{{kull Post}} / siġġu · {{siġġijiet}} siġġijiet · {{total}} / xahar',
+  'billing.planSummary': '{{perSeat}} / seat · {{seats}} seats · {{total}} / mo',
   'billing.seatsAdded': 'L-għadd tas-siġġijiet ġie aġġornat.',
   'billing.seatsError':
     "Dan il-pjan huwa għal post wieħed. Aġġorna għal Team għal użu b'ħafna postijiet.",
   'billing.seatsHint': "{{used}} ta' {{max}} inkluż",
+  'billing.seatsLabel': 'Seats attivi',
   'billing.spentLabel': "Imqatta' mis-sena sal-lum",
   'billing.subheading': 'Abbonament, postijiet, użu tal-iskrinjar bl-AI, u fatturi.',
   'billing.unlimited': 'Illimitat',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'candidateDetail.advanceError': 'Ma setax jiġi aġġornat l-istadju.',
   'candidateDetail.advanceFinal': 'Diġà fl-istadju finali.',
   'candidateDetail.advanceHeading': 'Mexxi għall-palk',
+  'candidateDetail.appliedOn': "Applikat {{date}} permezz ta' {{source}}.",
   'candidateDetail.back': 'Il-kandidati kollha',
   'candidateDetail.loadError': "Ma rnexxiex ittella' l-kandidat.",
   'candidateDetail.noInterviews': "Għad m'hemm l-ebda intervisti.",
@@ -46,8 +59,14 @@ export const ui: UiTranslations = {
   'candidateDetail.notePlaceholder':
     'Aqsam feedback, impressjonijiet tal-intervista, il-passi li jmiss...',
   'candidateDetail.noteSave': 'Issejvja n-nota',
+  'candidateDetail.panel': 'Panel: {{panel}}',
+  'candidateDetail.panelScore': 'Punteġġ tal-panel: {{score}}/100',
+  'candidateDetail.resumeMissing':
+    "Għad m'hemmx preview tar-resume disponibbli għal dan il-kandidat.",
   'candidateDetail.scheduleError': 'Ma stajtx niskeda intervista.',
+  'candidateDetail.scheduleHeading': 'Iskeda intervista',
   'candidateDetail.scheduleInterviewer': 'Intervistatur',
+  'candidateDetail.scheduleInterviewerPlaceholder': 'Isem l-intervistatur',
   'candidateDetail.scheduleMinutes': "Tul ta' żmien (min)",
   'candidateDetail.scheduleMissing': 'Agħżel data u ħin l-ewwel.',
   'candidateDetail.scoreEmpty': 'Qed nistennew evalwazzjoni tal-AI.',
@@ -70,6 +89,7 @@ export const ui: UiTranslations = {
   'candidates.heading': 'Kandidati',
   'candidates.loadError': "Ma rnexxilniex intella' l-kandidati.",
   'candidates.searchPlaceholder': 'Fittex kandidat, rwol, jew xogħol\\u2026',
+  'candidates.sourceLabel': 'Sors',
   'candidates.sourcePlaceholder': 'Sors (LinkedIn, Referenza…)',
   'candidates.subheading':
     "Database ta' kandidati għal diversi impjiegi b'punteġġ tal-AI u attribuzzjoni tas-sors.",
@@ -84,6 +104,7 @@ export const ui: UiTranslations = {
   'dashboard.kpi.interviews': 'Intervisti din il-ġimgħa',
   'dashboard.kpi.openJobs': 'Impjiegi miftuħa',
   'dashboard.loading': 'Qed jitgħabba\\u2026',
+  'dashboard.newJobCta': 'Ippubblika xogħol',
   'dashboard.subheading': "Saħħa tal-pipeline, tagħbija ta' intervisti, u offerti li għaddejjin.",
   'dashboard.topEmpty': "Għad m'hemm l-ebda kandidat.",
   'dashboard.topEyebrow': 'L-aqwa logħbiet tal-AI',
@@ -104,6 +125,7 @@ export const ui: UiTranslations = {
   'jobDetail.back': 'L-impjiegi kollha',
   'jobDetail.descriptionEyebrow': 'Deskrizzjoni tar-rwol',
   'jobDetail.descriptionMissing': 'Għadha ma ngħatat l-ebda deskrizzjoni.',
+  'jobDetail.employmentType': "Tip ta' impjieg: {{type}}",
   'jobDetail.empty': "Għad m'hemm l-ebda applikant.",
   'jobDetail.funnelEyebrow': 'Lembut tal-palk',
   'jobDetail.funnelHeading': 'Fejn tinsab l-applikanti',
@@ -112,6 +134,7 @@ export const ui: UiTranslations = {
   'jobDetail.kpi.hires': 'Impjiegi',
   'jobDetail.kpi.inInterview': 'Fl-intervista',
   'jobDetail.loadError': 'Ma rnexxiex it-tagħbija tax-xogħol.',
+  'jobDetail.requirementsHeading': 'Rekwiżiti',
   'jobDetail.topEyebrow': 'L-aqwa applikanti',
   'jobDetail.topHeading': 'L-ewwel imqabbel mal-AI',
   'jobDetail.unavailable': "Din ix-xogħol m'għadhiex elenkata.",
@@ -127,6 +150,7 @@ export const ui: UiTranslations = {
   'jobs.heading': 'Impjiegi',
   'jobs.loadError': 'Ma rnexxiex it-tagħbija tax-xogħlijiet.',
   'jobs.newCta': 'Ippubblika xogħol',
+  'landing.copyright': '© {{year}} {{app}} Mibni bil-Molecule.',
   'landing.eyebrow': 'Kiri assistit mill-AI · v2',
   'landing.featuresEyebrow': 'Kif jaħdem',
   'landing.featuresHeading': 'Sinjal — mhux spreadsheets.',
@@ -135,8 +159,11 @@ export const ui: UiTranslations = {
   'landing.heroCta': "Ibda b'xejn għal 30 jum",
   'landing.heroProof': "Ebda karta ta' kreditu. Ikkanċella meta trid. SSO disponibbli fuq Pro.",
   'landing.heroSecondary': 'Ara l-prezzijiet →',
+  'landing.heroSubtitle':
+    'Pipeline kanban nadif, screening bl-AI li jispjega lilu nnifsu, u analitika tal-ġustizzja skont l-istadju. Mibni għal recruiters u hiring managers li jridu sinjal — mhux storbju.',
   'landing.heroTitle': "Kiri b'ċarezza.",
   'landing.previewHeading': 'Inġinier Anzjan tal-Backend',
+  'landing.previewLabel': 'Pipeline · Inġinerija',
   'landing.pricingEyebrow': 'Prezzijiet',
   'landing.pricingHeading': "Pjanijiet għal kull daqs ta' tim.",
   'landing.socialEyebrow': "Użat minn timijiet ta' reklutaġġ f'",
@@ -152,6 +179,9 @@ export const ui: UiTranslations = {
   'loginBrandPanel.headlineLine2': 'ċarezza.',
   'loginBrandPanel.stage.interview': 'Intervista',
   'loginBrandPanel.stage.screening': 'Skrinjar',
+  'loginBrandPanel.stage.sourced': 'Sourced',
+  'loginBrandPanel.subtext':
+    'Iġbed il-kandidati minn Sourced → Screening → Interview → Offer → Hired. L-AI tagħmel screening. Il-fairness pulse iżomm kull stadju onest.',
   'nav.closeMenu': 'Agħlaq il-menù',
   'nav.legal': 'Legali',
   'nav.openMenu': 'Iftaħ il-menù',
@@ -160,6 +190,7 @@ export const ui: UiTranslations = {
     'Is-CVs huma kklassifikati skont ir-rekwiżiti; ir-reklutatur jirrevedi l-aqwa postijiet l-ewwel.',
   'newJob.aiToggle': 'Agħti punteġġ awtomatiku lill-applikanti l-ġodda',
   'newJob.back': 'Lura għall-impjiegi',
+  'newJob.basicsHeading': 'Bażi tar-rwol',
   'newJob.compHeading': 'Kumpens',
   'newJob.departmentLabel': 'Dipartiment',
   'newJob.descHeading': 'Deskrizzjoni u rekwiżiti',
@@ -169,6 +200,7 @@ export const ui: UiTranslations = {
   'newJob.failed': 'Ma setax jiġi salvat ix-xogħol.',
   'newJob.heading': 'Ippubblika xogħol',
   'newJob.publish': 'Ippubblika xogħol',
+  'newJob.reqLabel': "Rekwiżiti (waħda f'kull linja)",
   'newJob.salaryMax': 'Salarju massimu (USD)',
   'newJob.salaryMin': 'Salarju minimu (USD)',
   'newJob.stagesHeading': 'Stadji tal-pipeline',
@@ -184,6 +216,7 @@ export const ui: UiTranslations = {
   'newJob.type.fullTime': 'Full-time',
   'newJob.type.partTime': 'Part-time',
   'newJob.typeLabel': "Tip ta' impjieg",
+  'pipeline.advanceTo': 'Avvanza',
   'pipeline.allRoles': 'Ir-rwoli kollha',
   'pipeline.daysInStage': '{{days}} d',
   'pipeline.empty': 'L-ebda kandidat',
@@ -197,13 +230,22 @@ export const ui: UiTranslations = {
     'Mexxi l-kandidati bejn l-istadji. Il-punteġġ tal-AI u l-jiem fl-istadju huma murija fuq kull karta.',
   'pipeline.viewTable': 'Veduta tat-tabella →',
   'pipelineFunnelHero.totalLabel': 'Fil-moviment',
+  'planUpdated.body':
+    "Il-bidla fil-billing tiegħek issa hija attiva. Tista' timmaniġġja l-pjan tiegħek fi kwalunkwe ħin mill-paġna tal-billing.",
+  'planUpdated.retry': 'Erġa’ pprova',
+  'planUpdated.verifyFailed': 'Għadna ma stajniex nikkonfermaw il-ħlas tiegħek.',
+  'planUpdated.verifyFailedBody':
+    "Jista' jkun li l-ħlas tiegħek għadu qed jiġi pproċessat. Erġa' pprova fi ftit ħin.",
   'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'pricing.heading': 'applikazzjonijiet',
+  'pricing.limits.applications': 'applikazzjonijiet',
   'pricing.limits.candidates': 'kandidati',
   'pricing.limits.jobs': 'impjiegi',
   'pricing.limits.scorecards': 'karti tal-punteġġ',
   'privacy.dataBody':
     'L-email tal-kont, il-password hashed, il-metadata tal-profil, u r-rekords tal-kandidati/impjiegi li toħloq. Aħna qatt ma nbigħu jew naqsmu din id-dejta.',
+  'privacy.intro':
+    "{{app}} jipproċessa data tal-ingaġġ f'isem il-klijenti. Aħna nittrattaw rekords tal-kandidati, resumes, u komunikazzjonijiet tat-tim tal-ingaġġ bħala kunfidenzjali u naħżnuhom encrypted at rest.",
   'privacy.retentionBody':
     "Tista' tħassar il-kont tiegħek fi kwalunkwe ħin mis-Settings. Aħna nnaddfu r-rekords assoċjati fi żmien 30 jum, ħlief fejn iż-żamma hija meħtieġa bil-liġi.",
   'privacy.title': 'Politika tal-privatezza',
@@ -213,6 +255,7 @@ export const ui: UiTranslations = {
     'Ħalli l-kandidati u l-applikanti jaraw ismek u r-rwol tiegħek fuq il-postijiet tax-xogħol.',
   'profile.publicLabel': 'Profil pubbliku',
   'profile.publicOff': 'Moħbi',
+  'profile.publicOn': 'Viżibbli',
   'profile.recentEmpty': "Għad m'hemm l-ebda tqegħid.",
   'profile.recentError': 'Ma setgħux jitgħabbew il-pożizzjonijiet riċenti.',
   'profile.recentEyebrow': 'Kollokamenti riċenti',
@@ -238,9 +281,14 @@ export const ui: UiTranslations = {
   'resetPassword.missingFields': 'Agħżel u kkonferma password ġdida.',
   'resetPassword.missingToken': 'Il-link tar-reset huwa nieqes jew skada — itlob wieħed ġdid.',
   'resetPassword.passwordLabel': 'Password ġdida',
+  'resetPassword.signInCta': 'Idħol →',
+  'resetPassword.signInPrompt': 'Uża l-password il-ġdida tiegħek biex tidħol.',
   'resetPassword.subheading':
     "Agħżel password b'saħħitha — mill-inqas 12-il karattru b'taħlita ta' ittri żgħar u żgħar.",
+  'settings.appearance.description': 'Aqleb bejn il-modalità ċara u skura.',
   'settings.appearance.title': 'Dehra',
+  'settings.deleteAccountModal.confirm':
+    'Daħħal il-password tiegħek biex tikkonferma. Din l-azzjoni hija permanenti.',
   'settings.emailTemplates.empty': "Għad m'hemm l-ebda mudell ikkonfigurat.",
   'settings.emailTemplates.heading': 'Mudelli tal-email',
   'settings.emailTemplates.loadError': 'Ma setgħux jitgħabbew il-mudelli.',
@@ -251,10 +299,17 @@ export const ui: UiTranslations = {
   'settings.integrations.statusDisconnected': 'Mhux konness',
   'settings.integrations.updateError': 'Ma setgħetx tiġi aġġornata l-integrazzjoni.',
   'settings.name': 'Isem',
+  'settings.passwordHelp': 'Aġġorna l-password li tuża biex tidħol.',
+  'settings.revokeDeviceWarning':
+    "L-aċċess ta' dan l-apparat se jiġi rrevokat dalwaqt. Oħroġ minnu?",
   'settings.saveEmail': 'Issejvja l-email',
   'settings.signOutDevice': 'Oħroġ',
   'settings.stages.empty': "Għad m'hemm l-ebda stadji kkonfigurati.",
+  'settings.stages.heading': 'Stadji tal-pipeline',
+  'settings.stages.help':
+    'L-istadji li jgħaddu minnhom il-kandidati. Neħħi kwalunkwe waħda li ma tużax.',
   'settings.stages.loadError': 'Ma setgħux jitgħabbew l-istadji.',
+  'settings.stages.loading': 'Qed jitgħabbew l-istadji…',
   'settings.stages.removeAria': 'Neħħi {{name}} stadju',
   'settings.stages.removeError': 'Ma setgħetx titneħħa l-palk.',
   'settings.team.empty': "Għad m'hemm l-ebda sieħeb fit-tim — stieden lill-ewwel wieħed hawn taħt.",
@@ -270,9 +325,16 @@ export const ui: UiTranslations = {
   'settings.team.removeError': 'Ma setax jitneħħa l-membru.',
   'settings.twoFactorCode': "Kodiċi ta' awtentikazzjoni",
   'settings.twoFactorDisable': 'Iddiżattiva',
+  'settings.twoFactorDisableTitle': "Itfi l-awtentikazzjoni b'żewġ fatturi",
   'settings.twoFactorEnable': 'Ippermetti',
+  'settings.twoFactorEnableTitle': "Ixgħel l-awtentikazzjoni b'żewġ fatturi",
   'settings.twoFactorInvalidCode': 'Kodiċi invalidu',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Kodiċi QR taż-żewġ fatturi',
+  'settings.twoFactorScan':
+    "Skennja dan il-kodiċi QR bl-app tal-awtentikatur tiegħek, imbagħad daħħal il-kodiċi ta' 6 ċifri.",
+  'settings.twoFactorUnavailable':
+    "L-awtentikazzjoni b'żewġ fatturi mhijiex disponibbli għal din l-app.",
   'settings.twoFactorVerify': 'Ivverifika u attiva',
   'settings.unknownDevice': 'Apparat mhux magħruf',
   'signup.confirmPlaceholder': "Erġa' daħħal il-password tiegħek",
@@ -282,6 +344,8 @@ export const ui: UiTranslations = {
   'signup.subheading': "Dawwar bord tal-kiri f'60 sekonda. Stieden lit-tim aktar tard.",
   'terms.acceptableUseBody':
     'Mhux se tabbuża mis-servizz, tħaddem scraping awtomatizzat, tipprova tikser is-sigurtà, jew tużah biex tiddiskrimina kontra klassijiet protetti.',
+  'terms.intro':
+    "Billi tuża {{app}} taqbel ma' dawn it-termini. Is-servizz jiġi pprovdut fuq bażi as-is bl-obbligi u l-limitazzjonijiet deskritti hawn taħt.",
   'terms.subscriptionBody':
     "Il-pjanijiet imħallsa jiġġeddu kull xahar sakemm jiġu kkanċellati. Tista' tikkanċella mill-Billing fi kwalunkwe ħin; il-pjan tiegħek jibqa' attiv sal-aħħar tal-perjodu attwali.",
   'terms.title': 'Termini tas-servizz',

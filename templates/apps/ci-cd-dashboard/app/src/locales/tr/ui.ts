@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Sorularınız mı var, geri bildirim mi vermek istiyorsunuz ya da ekibiniz için demo mu istiyorsunuz? Bize hello@conduit.dev adresinden e-posta gönderin — her mesaj ekibimizdeki gerçek bir kişiye ulaşır.',
   'about.contactHeading': 'İletişime geçin',
   'about.eyebrow': 'Hakkında',
+  'about.featuresHeading': 'Neler elde edersiniz',
+  'about.introBody':
+    '{{app}}, GitHub Actions tarzı sürekli teslimatı tek ve hızlı bir panoya taşır: tüm depolarınız için işlem hatları, derleme günlükleri, yapıtlar, durum rozetleri ve dağıtım ortamları tek bir yerde. Sekme sekme dolaşmak yok, hangi derlemenin bozulduğunu tahmin etmek yok — her çalıştırma, günlük satırı ve dağıtım bir tık uzağınızda.',
+  'about.introHeading': '{{app}} nedir',
+  'about.missionBody':
+    "Yazılım teslim etmek korku kaynağı değil, sakin ve öngörülebilir olmalı. İşlem hatlarını, günlükleri ve dağıtım araçlarını biz kuruyoruz ki commit'ten üretime giden yol hızlı, görünür ve güvenilir olsun — ilk yeşil derleme beş dakikada, sonraki her derleme de aynı netlikte.",
+  'about.missionHeading': 'Misyonumuz',
+  'about.subtitle':
+    '{{app}}, tüm depolarındaki derlemeleri, dağıtımları ve ortamları izlemek ve kesinlikle teslim etmek isteyen ekipler için bir CI/CD panosudur.',
   'artifacts.empty': 'Henüz hiçbir yapıt yok.',
   'artifacts.heading': 'Yapıtlar',
   'artifacts.loadError': 'Yapıtlar yüklenemedi.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Ortamlar',
   'environments.loadError': 'Ortamlar yüklenemedi.',
+  'environments.loading': 'Ortamlar yükleniyor…',
   'environments.subheading': 'Her hedefte canlı dağıtım durumu.',
   'forgotPassword.runnerStatus': 'sıfırlama · güvenli tünel',
+  'forgotPassword.success':
+    'Bu e-posta için bir hesap varsa, sıfırlama bağlantısı yolda. Lütfen gelen kutunuzu kontrol edin.',
   'insights.changeFailureRate': 'Değişiklik hata oranı',
   'insights.deployFrequency': 'Günlük dağıtım',
   'insights.empty': 'Henüz yeterli veri yok.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Öngörüler yüklenemedi.',
   'insights.meanP95': 'ortalama {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'En yavaş işlem hattı adımları',
   'insights.successRateHeading': 'Boru hattı başarı oranı (son 14 gün)',
   'landing.choosePlan': 'Plan seçin',
+  'landing.copyright': '© {{year}} {{app}}. Kesinlikle teslim edin.',
   'landing.ctaBody':
     'Kredi kartı gerekmez. Platform mühendisi gerekmez. İlk boru hattını beş dakikada yeşile çevirin.',
   'landing.ctaHeading': 'Güvenle yayınlayın.',
   'landing.featuresEyebrow': '// platform özellikleri',
   'landing.featuresHeading': 'Yayıncılar için, yayıncılar tarafından geliştirildi',
+  'landing.heroSubtitle':
+    'Saniyeler içinde biten işlem hatları. Okuyabildiğiniz günlükler. Güvenebildiğiniz dağıtımlar.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Basit, öngörülebilir fiyatlandırma',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Şu anda devam ediyor',
   'pipelines.metric.successCaption': '{{count}} çalıştırmadan {{total}} tanesi',
   'pipelines.metric.successRate': 'Başarı oranı',
+  'pipelines.realtimeOn': 'gerçek zamanlı',
   'pipelines.subheading': 'İzlenen her depodan canlı güncellemeler.',
+  'pricing.advancedFeatures': 'Gelişmiş özellikler: {{mark}}',
+  'pricing.canExport': 'Veri dışa aktarma: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} yapıtı',
+  'pricing.maxBuilds': '{{count}} derlemesi',
+  'pricing.maxPipelines': '{{count}} işlem hattı',
   'privacy.dataAccount': 'Hesap: ad, e-posta, karma parola, plan kademesi.',
   'privacy.intro':
     '{{app}} sürekli dağıtım hesabınızı işletmek için yalnızca ihtiyaç duyduğumuz minimum veriyi toplar: e-postanız, bağladığınız depolar, çalışanlarınızın ürettiği kayıtlar ve yapım üst verileri ve bizimle saklamayı seçtiğiniz sırlar. Kaynak kodunuzu yapım çalıştırıcısının dışında asla okumayız; yapılandırıldığında yapım yapıtları sizin S3 kovanızda saklanır.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Faturalandırma için Stripe, işlemsel e-posta için Mailgun ve yapım yapıtı depolama için AWS S3 kullanıyoruz. Her biri hizmetini sağlamak için gereken minimum veri kapsamına sözleşmeyle bağlıdır.',
   'privacy.rightsBody':
     'Verilerinizin her baytını dışa aktarabilir, Ayarlar bölümünden istediğiniz zaman hesabınızı silebilir ve hesabınızdaki her webhook teslimatının kaydını talep edebilirsiniz. GDPR / CCPA taleplerine 30 gün içinde yanıt veriyoruz.',
+  'privacy.subtitle':
+    'İşlem hatlarınızı çalıştırırken {{app}} verilerinizi nasıl toplar, saklar ve korur.',
   'privacy.title': 'Gizlilik politikası',
   'repositories.empty': 'Bağlı depo yok.',
   'repositories.heading': 'Depolar',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Tüm depolar',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Depo yüklenemedi.',
+  'repositoryDetail.meanDuration': 'Ortalama süre',
   'repositoryDetail.notFound': 'Depo bulunamadı.',
+  'repositoryDetail.successRate': 'Başarı oranı',
   'repositoryDetail.totalBuilds': 'Toplam yapım',
   'repositoryDetail.webhookActive': 'aktif',
   'repositoryDetail.webhookPaused': 'duraklatıldı',
   'repositoryDetail.webhooksHeading': 'Web kancaları',
+  'resetPassword.passwordLabel': 'Yeni şifre',
   'resetPassword.runnerStatus': 'sıfırlama · jeton doğrulandı',
   'resetPassword.subtitle': 'Daha önce kullanmadığınız güçlü bir parola seçin.',
   'resetPassword.tokenPlaceholder': 'e-postadan yapıştırın',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     "Conduit'in izlediği depolar. Olayları almayı durdurmak için VCS sağlayıcınızdan bağlantıyı kesin.",
   'settings.repositories.empty': 'Henüz bağlı depo yok.',
+  'settings.repositories.heading': 'Depo bağlantıları',
   'settings.repositories.loadError': 'Depolar yüklenemedi.',
   'settings.secrets.addCta': 'Sır ekle',
   'settings.secrets.addError': 'Gizli anahtar eklenemedi.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Gizli bilgi silinemedi.',
   'settings.secrets.empty': 'Saklanmış sır yok.',
   'settings.secrets.heading': 'Sırlar',
+  'settings.secrets.lastUsed': 'son kullanım {{date}}',
   'settings.secrets.loadError': 'Sırlar yüklenemedi.',
   'settings.secrets.neverUsed': 'hiç kullanılmadı',
   'settings.secrets.rotateCta': 'Döndür',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Webhook güncellenemedi.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'ücretsiz kademe · ayda 1.000 yapım dak',
+  'terms.intro':
+    "Bir {{app}} hesabı oluşturarak bu koşulları kabul etmiş olursunuz. Bu koşullar, derleme çalıştırıcılarının kabul edilebilir kullanımını, SLA'mızın sınırlarını ve kötüye kullanım içeren iş yükleri nedeniyle hesabınızı askıya alabileceğimiz veya sonlandırabileceğimiz durumları kapsar.",
   'terms.slaBody':
     "Pro ve Team planları, API ve çalışan havuzu için %99,95 aylık çalışma süresi hedefler. Free planı olduğu gibi sağlanır. Kesintiler status.conduit.dev'de raporlanır ve faturanızdaki formüle göre kredilendirilir.",
   'terms.terminationBody':

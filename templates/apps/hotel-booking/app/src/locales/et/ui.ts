@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kas sul on küsimusi broneeringu, tagasiside või majutuskoha kohta, mis sinu arvates võiks olla saidil {{app}}? Võta meie tiimiga ühendust oma kontolt — iga sõnum jõuab päris inimeseni, kes saab aidata.',
+  'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Meist',
+  'about.featureLoyalty':
+    'Ainult liikmetele mõeldud hinnad ja lojaalsusprogramm, mis teenib punkte, hilisemaid väljaregistreerimisi ja toa uuendusi igal broneeringul.',
+  'about.featureReviews':
+    'Kinnitatud külaliste arvustused ja toimetuse valikud, et saaksid enne kohalejõudmist ööbimises kindel olla.',
+  'about.featureRooms':
+    'Kõrvuti võrreldavad toad, hinnad ja mugavused läbipaistva lõpphinnaga — maksud ja kuurorditasud on enne maksmist hinna sees.',
+  'about.featureSearch':
+    'Reaalajas otsing üle kontrollitud hotellide koos reaalajas saadavusega, kaardivaatega ja rikkalike fotogaleriidega.',
+  'about.featureTrips':
+    'Salvestatud lemmikud ja Trips-armatuurlaud, mis hoiab kõik broneeringud, marsruudid ja kinnitused ühes kohas.',
+  'about.intro':
+    '{{app}} on hotellibroneerimise platvorm reisijatele, kes hindavad kvaliteeti. Iga majutuskoht on meie toimetuse tiimi poolt isiklikult kontrollitud — ei agregaatorite laoseisu ega peibutuspakkumisi. Otsi tegelikku saadavust, võrdle tube, hindu ja mugavusi kõrvuti ning broneeri mõne puudutusega selge lõpphinnaga.',
+  'about.missionBody':
+    'Ööbimiskoha broneerimine peaks olema rahulik ja aus. Näitame läbipaistvaid hindu koos maksude ja kuurorditasudega juba ette, premeerime lojaalseid külalisi selle asemel, et neilt iga asja eest raha küsida, ning toome esile ööbimised, mis on sinu raha väärt — nii jääb sul vähem aega vahekaartide võrdlemiseks ja rohkem aega reisi nautimiseks.',
+  'about.missionTitle': 'Meie missioon',
+  'about.subtitle': 'Kureeritud ja läbipaistev viis õige hotelli leidmiseks ja broneerimiseks.',
   'account.loyalty.activitySummary': '{{nights}} ööd · {{spend}} sel aastal veedetud',
+  'account.loyalty.benefitsHeading': 'Sinu hüved',
   'account.loyalty.heading': 'Lojaalsus',
   'account.loyalty.loading': 'Lojaalsusprogrammi laadimine…',
-  'account.loyalty.pointsTowardNext': '{{punkti}} / {{järgmine}} osutab {{järgmine aste}}',
+  'account.loyalty.maxTier': 'Kõrgeim tase — naudi oma hüvesid.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} punkti kuni {{nextTier}}',
   'account.loyalty.tier': 'Praegune tase',
   'account.loyalty.unavailable': 'Lojaalsusinfo pole saadaval.',
   'account.navLabel': 'Konto jaotised',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Kinnita broneering · {{total}}',
   'bookingCheckout.datesRequired': 'Palun valige oma saabumise ja lahkumise kuupäevad.',
   'bookingCheckout.guestHeading': 'Peamine külaline',
+  'bookingCheckout.heading': 'Kinnita ja broneeri',
   'bookingCheckout.loadError': 'Omandi laadimine ebaõnnestus.',
   'bookingCheckout.nights': '{{rate}} × {{count}} ööd',
   'bookingCheckout.notFound': 'Kinnisvara ei leitud.',
@@ -32,11 +54,15 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Maksud ja tasud',
   'bookingCheckout.tripHeading': 'Teie reis',
   'bookingConfirmation.allTripsCta': 'Kõik reisid',
+  'bookingConfirmation.confNumber': 'Kinnitusnumber: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Sinu broneeringut töödeldakse.',
   'bookingConfirmation.heading': 'Broneering kinnitatud',
   'bookingConfirmation.loading': 'Broneeringu laadimine…',
   'bookingConfirmation.searchMoreCta': 'Sirvi rohkem majutusvõimalusi',
   'bookingConfirmation.subheadingForTrip':
-    '{{omadus}} sisse {{linn}} , {{riik}} Näeme siis Sisseregistreerimine .',
+    '{{property}} asukohas {{city}}, {{country}}. Näeme sind {{checkIn}}.',
+  'bookingConfirmation.total': 'Kokku {{total}}',
   'bookingConfirmation.viewTripCta': 'Vaata reisi',
   'common.goToDashboard': 'Mine töölauani',
   'destinationDiscoveryCard.exploreCta': 'Avasta majutusi',
@@ -45,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Lemmikute laadimine ebaõnnestus.',
   'favorites.pricePerNight': '{{price}} / öö',
   'favorites.removeCta': 'Tühista salvestamine',
+  'favorites.removing': 'Eemaldamine…',
   'forgotPassword.subheading':
     'Sisesta oma konto e-posti aadress ja me saadame sulle turvalise lähtestamise lingi.',
   'forgotPassword.successBody':
@@ -52,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Viibivad liikmed',
   'landing.cta.heading': 'Liikmetele mõeldud hinnad. Iga broneering, iga kord.',
   'landing.cta.signup': 'Loo tasuta konto',
+  'landing.cta.subheading':
+    'Teeni lojaalsuspunkte igal ööbimisel, ava hilisemad väljaregistreerimised ja toa uuendused ning saa esimesena ligipääs uutele majutuskohtadele enne nende avalikku nimekirja lisamist.',
   'landing.destinations.eyebrow': 'Kuhu edasi',
   'landing.destinations.heading': 'Soovitatud sihtkohad',
   'landing.destinations.seeAll': 'Vaata kõiki sihtkohti',
@@ -60,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Pakkimist väärt lood',
   'landing.nav.join': 'Liitu Aubergeiga',
   'landing.nav.search': 'Otsi majutusi',
+  'landing.preview.browseAll': 'Sirvi kogu kollektsiooni',
   'landing.preview.eyebrow': 'Pilguheit sisse',
   'landing.preview.heading': 'Selle kuu hoolikalt valitud majutused',
+  'landing.preview.subheading':
+    'Iga majutuskoht saidil {{appName}} on meie toimetuse tiimi poolt isiklikult kontrollitud — ei agregaatorite laoseisu ega peibutuspakkumisi.',
   'login.eyebrow': 'Liikmete ala',
+  'login.noAccount': 'Kas oled Tesseras uus?',
   'login.signupLink': 'Loo tasuta konto',
   'login.subheading':
     'Logi sisse, et hallata oma reise, vaadata kinnitusi ja jätkata sealt, kus pooleli jäi.',
+  'loyaltyTierBadge.points': '{{points}} punktid',
   'planUpdated.heading': 'Plaani uuendati',
+  'planUpdated.retry': 'Proovi uuesti',
+  'planUpdated.verifyFailed': 'Me ei saanud teie makset veel kinnitada.',
+  'planUpdated.verifyFailedBody':
+    'Teie makse võib olla veel töötlemisel. Proovige uuesti hetke pärast.',
   'planUpdated.verifying': 'Kinnitan makse…',
   'pricing.limit.advancedFeatures': 'Täiustatud funktsioonid:',
   'pricing.limit.canExport': 'Andmete eksport:',
@@ -78,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Mida see koht pakub',
   'propertyDetail.backLink': 'Tagasi otsingusse',
   'propertyDetail.bookCta': 'Reserv',
+  'propertyDetail.bookmarkAria': 'Salvesta vara',
   'propertyDetail.bookmarkAriaSaved': 'Eemalda salvestatud omaduste hulgast',
+  'propertyDetail.galleryImageAlt': '{{name}} foto {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} kangelase foto',
   'propertyDetail.hidePhotos': 'Peida fotod',
   'propertyDetail.lineCleaning': 'Koristustasu',
@@ -88,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'öö',
   'propertyDetail.noChargeYet': 'Teilt ei võeta veel tasu',
   'propertyDetail.notFound': 'Kinnisvara ei leitud.',
+  'propertyDetail.perNight': '/ öö',
+  'propertyDetail.pickDatesHint': 'Vali kuupäevad, et näha täielikku hinnajaotust.',
   'propertyDetail.reviewCount': '( {{count}} arvustused)',
   'propertyDetail.reviewsHeading': 'Viimased arvustused',
   'propertyDetail.roomCapacity': 'Magab {{count}}',
@@ -100,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Uus parool',
   'resetPassword.subheading':
     'Valige oma Auberge kontole uus parool. Kasutage vähemalt 8 tähemärki; soovitame paroolifraasi.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Ükski kinnisvara ei vasta teie otsingule.',
   'searchResults.emptyHint':
     'Proovige oma filtreid laiendada või hinnalagi eemaldada – Auberge pakub majutusi 14 riigis.',
@@ -107,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Kureeritud majutused',
   'searchResults.headingForQuery': 'Jääb " {{q}} "',
   'searchResults.loadError': 'Atribuutide laadimine ebaõnnestus.',
+  'searchResults.mapHint':
+    'Hõlju kaardi kohal, et seda kaardil esile tõsta. Reaalajas Mapboxi paanid tootmises.',
   'searchResults.mapPinAria': '{{name}} — {{price}} öö kohta',
   'searchResults.sortLabel': 'Sorteeri',
   'searchResults.subheading': '{{count}} omadused · {{guests}} külalised',
   'signup.eyebrow': 'Liitu liikmeks',
   'signup.subheading':
     'Liitu Aubergeiga, et avada liikmetele mõeldud hinnad, hiline väljaregistreerimine ja esimene juurdepääs uutele majutuskohtadele.',
+  'sojournAuthShell.brand.eyebrow': 'Peatu kusagil erakordsel',
+  'sojournAuthShell.brand.heading':
+    'Kureeritud majutuskohtade kollektsioon — kaunilt esitatud, läbipaistva hinnaga.',
   'sojournHeroSearchCard.checkInAria': 'Sisseregistreerimise kuupäev',
   'sojournHeroSearchCard.checkOutAria': 'Väljaregistreerimise kuupäev',
+  'sojournHeroSearchCard.destAria': 'Sihtkoht',
+  'sojournHeroSearchCard.destLabel': 'Kus',
   'sojournHeroSearchCard.destPlaceholder': 'Linn, piirkond või kinnisvara',
   'sojournHeroSearchCard.eyebrow': 'Valitud majutused · Liikmetele mõeldud hinnad',
   'sojournHeroSearchCard.guestsOption': '{{n}} külalised',
   'sojournHeroSearchCard.subtitle':
     'Kuraatori poolt valitud butiikhotellide, disainilt inspireeritud majutuskohtade ja haruldaste puhkepaikade valik – läbipaistvate hindadega, kaunilt esitletud.',
+  'sojournHeroSearchCard.title': 'Peatu kusagil erakordsel',
+  'sojournHeroSearchCard.trustLoyalty': 'Teeni punkte igal ööbimisel',
   'sojournHeroSearchCard.trustNoFees': 'Varjatud tasusid pole kunagi',
   'sojournHeroSearchCard.trustVetted': 'Ainult käsitsi kontrollitud kinnisvaraobjektid',
   'sojournLayout.primaryNavLabel': 'Peamine navigeerimine',

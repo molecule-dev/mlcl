@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Van visszajelzésed, hibát találtál, vagy funkciót szeretnél? Írj nekünk a fiókbeállításokból — minden üzenet a csapat egy valódi tagjához kerül. Megjegyzés: itt semmi nem befektetési tanács; minden kereskedés felett te maradsz az irányításban.',
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
+  'about.featureAttribution':
+    'Teljesítmény-attribúció — bontsd fel a hozamokat ágazat, régió és eszközosztály szerint, és hasonlítsd össze bármely időszakban.',
+  'about.featureRebalance':
+    'Fegyelmezett újrasúlyozás — állíts be célallokációkat és tűréshatárokat, lásd előre a jelzett eltérést, és kapd meg azokat a kereskedéseket, amelyek visszahoznak a célhoz.',
+  'about.featureTax':
+    'Adóbizonylat-rend — realizált és nem realizált nyereség, osztalékok és 1099-es dokumentumok egy helyen, a wash-sale jelzésekkel együtt.',
+  'about.featureUnified':
+    'Egy egységes portfólió — részvények, ETF-ek, befektetési alapok, kötvények és egyebek, minden brókerszámláról egybegyűjtve.',
+  'about.featureWatchlist':
+    'Figyelőlisták, hírek és árfolyamriasztások, hogy a lényeges dolgokra tudj cselekedni a zaj nélkül.',
+  'about.intro':
+    'A {{app}} többeszközös portfólió-irányítópult magánbefektetők és független tanácsadók számára. Részvények, ETF-ek, befektetési alapok, kötvények, ingatlan és készpénz — minden pozíció minden számlán, egy helyen, egy professzionális kereskedési asztal fegyelmével.',
+  'about.missionBody':
+    'A jó befektetés nagyrészt fegyelem: világos célallokáció, őszinte teljesítmény-attribúció és rendezett adónyilvántartás. A {{app}} ezeket az intézményi szokásokat hozza el bárkinek, hogy szándékosan súlyozz újra, ne impulzusból — és soha ne veszítsd szem elől, mit tesz valójában a portfóliód.',
+  'about.missionTitle': 'Küldetésünk',
   'about.pageTitle': 'A {{app}} névjegye',
   'argentAuthShell.brandEyebrow': 'Ezüst · Vagyonkezelő eszközök',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Nem befektetési tanácsadás.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Portfólió-kezelőfelület egyéni befektetők és tanácsadók számára, akik fegyelmezett re-kiegyensúlyozást, pontos teljesítmény-hozzárendelést és adódokumentációs higiéniát szeretnének – zajmentesen.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · A múltbeli teljesítmény nem garantálja a jövőbeli eredményeket.',
   'argentAuthShell.sampleChange': '+2841 dollár (+0,28%) ma',
+  'argentAuthShell.sampleLabel': 'Portfólió értéke',
   'argentAuthShell.sampleValue': '1 032 251 dollár',
   'argentLayout.primaryNavLabel': 'Elsődleges navigáció',
   'assetAllocationDonut.heading': 'Hogyan fektetik be a pénzed',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'ma',
   'assetDetail.txEmpty': 'Nincsenek tranzakciók ehhez a tőzsdéhez.',
   'assetDetail.txHeading': 'A tranzakcióid',
+  'auth.legalConsent.prefix': 'A folytatással elfogadod a következő feltételeit: {{appName}}',
   'common.and': 'és',
   'common.goToDashboard': 'Ugrás a műszerfalra',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'ma',
   'dashboard.topHoldings.heading': 'Ahol a pénzed dolgozik',
   'dashboard.topHoldings.label': 'Legfontosabb holdingok',
+  'forgotPassword.gotLinkCta': 'Van visszaállítási linkem →',
+  'forgotPassword.subheading':
+    'Adja meg Gavl-fiókjához tartozó e-mail-címét, és biztonságos visszaállítási linket küldünk.',
   'forgotPassword.successBody':
     'Ha néhány percen belül nem találod, ellenőrizd a spam mappádat, vagy próbálj meg másik e-mailt küldeni.',
   'forgotPassword.successSubheading':
     'Ellenőrzés {{email}} egy visszaállító linkhez. 60 perc múlva lejár.',
+  'forgotPassword.successTitle': 'A visszaállítási e-mail úton van',
   'holdingHighlightRow.todayLabel': 'ma',
   'holdings.addCta': 'Vétel',
   'holdings.col.allocation': 'Kiosztás',
@@ -58,6 +87,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Nem befektetési tanácsadás. A múltbeli teljesítmény nem garantálja a jövőbeni eredményeket.',
   'landing.eyebrow': 'Argent · Vagyonkezelő platform',
   'landing.features.heading': 'Minden, amit egy tanácsadó magának építene.',
+  'landing.finalCta.body':
+    'Kösd össze a brókerét két kattintással. A {{appName}} elvégzi a többit.',
+  'landing.finalCta.cta': 'Nyisd meg az Argent számládat',
   'landing.finalCta.heading': 'Hozd vissza a fegyelmet a portfóliódba.',
   'landing.footerSignup': 'Számla nyitása',
   'landing.getStarted': 'Számla nyitása',
@@ -65,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Árazás megtekintése',
   'landing.heroSubtitle':
     'Portfólió-kezelőfelület egyéni befektetők és tanácsadók számára, akik fegyelmezett re-kiegyensúlyozást, pontos teljesítmény-hozzárendelést és adódokumentációs higiéniát szeretnének – zajmentesen.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Élő előzetes egy reprezentatív portfólióból',
   'login.heading': 'Bejelentkezés az Argent-be',
   'login.subheading':
@@ -76,6 +109,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}}ó ezelőtt',
   'news.justNow': 'épp most',
   'news.loadError': 'Nem sikerült betölteni a híreket.',
+  'planUpdated.body':
+    'A számlázási módosításod mostantól aktív. A csomagodat bármikor kezelheted a számlázási oldalon.',
+  'planUpdated.retry': 'Próbálja újra',
+  'planUpdated.verifyFailed': 'Még nem tudtuk megerősíteni a fizetését.',
+  'planUpdated.verifyFailedBody':
+    'Lehetséges, hogy a fizetése még feldolgozás alatt áll. Próbálja újra egy pillanat múlva.',
   'planUpdated.verifying': 'Fizetésed megerősítése…',
   'portfolioHeroCard.label': 'Portfólió értéke',
   'pricing.holdingsLabel': 'holdingok',
@@ -86,13 +125,18 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Elosztási eltolódás',
   'rebalance.empty': 'Még nincsenek kitűzött célok.',
   'rebalance.executeCta': 'Hely {{count}} kereskedések',
+  'rebalance.executeError': 'Nem sikerült megadni a kereskedéseket.',
   'rebalance.executeOk':
     'Helyezett {{count}} kereskedések. Tekintse meg őket a Tranzakciók oldalon.',
+  'rebalance.executing': 'Megadás…',
   'rebalance.eyebrow': 'Újraegyensúlyozás · Argent tanácsadó',
   'rebalance.heading': 'Hozza vissza portfólióját a megfelelő helyre',
   'rebalance.loadError': 'Nem sikerült betölteni az újraegyensúlyozási tervet.',
+  'rebalance.plan.driftLine': 'jelenleg {{current}}% · cél {{target}}%',
   'rebalance.planHeading': 'Argent jegy – ellenőrizze a jegy elhelyezése előtt',
   'rebalance.planLabel': 'Javasolt kereskedelmi terv',
+  'rebalance.subheading':
+    'A tűréshatárukon kívül eső sorok kereskedési javaslatokat indítanak el. A {{appName}} csak a te megerősítésedre cselekszik.',
   'rebalance.summary.buyLabel': 'Vásárlások',
   'rebalance.summary.buySub': 'feltöltendő pozíciók',
   'rebalance.summary.driftLabel': 'Sávon kívüli',
@@ -101,6 +145,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'javasolt kereskedések között',
   'rebalance.summary.sellLabel': 'Eladja',
   'rebalance.summary.sellSub': 'vágandó pozíciók',
+  'rebalanceDriftCard.drift': 'eltérés {{sign}}{{pct}}% · sáv ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'cél {{pct}} %',
   'reports.attributionHeading': 'Teljesítmény-hozzárendelés (1 év)',
   'reports.col.alpha': 'Alfa',
@@ -114,37 +159,69 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Év',
   'reports.gainsHeading': 'Realizált és nem realizált nyereségek',
   'reports.noAttribution': 'Még nincsenek attribúciós adatok.',
+  'reports.noGains': 'Még nincs realizált/nem realizált nyereség adat.',
   'reports.noPerformance': 'Még nincsenek teljesítményadatok.',
   'reports.noTaxDocs': 'Még nincsenek adódokumentumok.',
   'reports.performanceHeading': 'Teljesítmény vs. benchmark',
   'reports.taxHeading': 'Adózási dokumentumok',
   'resetPassword.heading': 'Válasszon egy erős új jelszót',
+  'resetPassword.passwordPlaceholder': 'Új jelszó',
   'resetPassword.subheading':
     'Az Argent automatikusan bejelentkezteti Önt, miután beállította a jelszavát.',
   'resetPassword.tokenPlaceholder': 'Token visszaállítása e-mailből',
+  'settings.appearance.description': 'Váltás a világos és sötét mód között.',
   'settings.appearance.title': 'Megjelenés',
+  'settings.devices.body': 'Azok az eszközök, amelyekkel jelenleg bejelentkezve van a fiókjába.',
+  'settings.devices.empty': 'Nem található eszköz.',
   'settings.devices.heading': 'Eszközök',
+  'settings.devices.revokeWarning':
+    'Az eszköz hozzáférése hamarosan visszavonásra kerül. Kijelentkezteted?',
   'settings.devices.signOut': 'Kijelentkezés',
   'settings.devices.thisDevice': 'Ez az eszköz',
   'settings.devices.unknown': 'Ismeretlen eszköz',
   'settings.linked.body':
     'A közvetítői szinkronizáláshoz külső csatlakozóra van szükség (Plaid, Yodlee stb.). Konfigurálja a szolgáltatót a környezetében az automatikus importálás engedélyezéséhez.',
   'settings.linked.heading': 'Kapcsolódó brókerszámlák',
+  'settings.linked.placeholder': 'Még nincs csatolt számla.',
+  'settings.notifications.dividendsPaid': 'Kifizetett osztalékok',
   'settings.notifications.error': 'Nem sikerült frissíteni a beállítást.',
   'settings.notifications.priceAlerts': 'Árfigyelmeztetések',
+  'settings.notifications.rebalanceDrift': 'Újrasúlyozási eltérés',
+  'settings.notifications.taxDocsReady': 'Adóbizonylatok készen',
   'settings.profile.advisor': 'Tanácsadó e-mail címe (opcionális)',
   'settings.profile.heading': 'Profil',
   'settings.security.changePassword': 'Jelszó módosítása',
+  'settings.security.changePasswordTitle': 'Jelszó módosítása',
   'settings.security.changing': 'Változó…',
+  'settings.security.confirmPassword': 'Jelszó',
+  'settings.security.currentPassword': 'Jelenlegi jelszó',
   'settings.security.deleteAccount': 'Számla törlése',
   'settings.security.deleteError': 'Nem sikerült törölni a fiókot.',
   'settings.security.deleteHeading': 'Számla törlése',
+  'settings.security.deleteModalWarning':
+    'Ez véglegesen törli a fiókodat és az adataidat. A megerősítéshez írd be a jelszavadat.',
+  'settings.security.deleteWarning':
+    'Véglegesen törli a fiókját és az összes kapcsolódó adatot. Ez nem vonható vissza.',
   'settings.security.deleting': 'Törlés…',
   'settings.security.heading': 'Biztonság',
   'settings.security.newPassword': 'Új jelszó',
   'settings.security.password': 'Jelszó',
+  'settings.security.passwordError': 'Nem sikerült megváltoztatni a jelszót.',
+  'settings.security.passwordHint': 'Módosítsd a bejelentkezéshez használt jelszavadat.',
+  'settings.security.twoFactor': 'Kétfaktoros hitelesítés',
+  'settings.security.twoFactorCode': 'Hitelesítési kód',
+  'settings.security.twoFactorDisable': 'Letiltás',
+  'settings.security.twoFactorDisableTitle': 'Kétfaktoros hitelesítés kikapcsolása',
   'settings.security.twoFactorEnable': 'Engedélyezés',
+  'settings.security.twoFactorEnableTitle': 'Kétfaktoros hitelesítés bekapcsolása',
+  'settings.security.twoFactorHint': 'Adj egy extra védelmi réteget a fiókodhoz.',
   'settings.security.twoFactorInvalidCode': 'Érvénytelen kód',
+  'settings.security.twoFactorOn': 'A',
+  'settings.security.twoFactorQrAlt': 'Kétfaktoros QR-kód',
+  'settings.security.twoFactorScan':
+    'Olvasd be ezt a QR-kódot a hitelesítő alkalmazásoddal, majd add meg a 6 jegyű kódot.',
+  'settings.security.twoFactorUnavailable':
+    'A kétfaktoros hitelesítés nem érhető el ehhez az alkalmazáshoz.',
   'settings.security.twoFactorVerify': 'Ellenőrzés és engedélyezés',
   'settings.tax.error': 'Nem sikerült frissíteni az adózási módot.',
   'settings.tax.heading': 'Adótétel-számvitel',
@@ -155,6 +232,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Adózási mód mentve.',
   'signup.eyebrow': 'Számla nyitása',
   'signup.heading': 'Nyisd meg az Argent számládat',
+  'signup.legalPrefix': 'Fiók létrehozásával elfogadod a {{appName}}',
   'signup.subheading': '30 napig ingyenes. Kártya nem szükséges. Bármikor lemondható.',
   'signup.terms':
     'Fiók létrehozásával Ön elfogadja az Argent Szolgáltatási Feltételeit és Adatvédelmi Szabályzatát.',

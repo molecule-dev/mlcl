@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'ഗ്ലൂ കോഡ് എഴുതാതെ തന്നെ ടീമുകൾക്ക് സിസ്റ്റങ്ങൾക്കിടയിൽ ജോലി നീക്കാൻ കഴിയുന്ന തരത്തിൽ ട്രിഗറുകൾ, AI അവസ്ഥകൾ, മൾട്ടി-സ്റ്റെപ്പ് പ്രവർത്തനങ്ങൾ എന്നിവ ഒരുമിച്ച് വയർ ചെയ്യുന്ന ഒരു വർക്ക്ഫ്ലോ ഓട്ടോമേഷൻ പ്ലാറ്റ്‌ഫോമാണ് ഡെൻഡ്രൈറ്റ്.',
+  'about.philosophy':
+    'ഓരോ വർക്ക്ഫ്ലോയും ചെറിയതും നിരീക്ഷിക്കാവുന്നതുമായ ഘട്ടങ്ങളുടെ ഒരു ഗ്രാഫ് ആണ്. ഓരോ ഘട്ടവും അതിന്റെ ഇൻപുട്ടുകളും ഔട്ട്പുട്ടുകളും സമയവും രേഖപ്പെടുത്തുന്നു, അതുവഴി അത് പരിശോധിക്കാനും വീണ്ടും പ്രവർത്തിപ്പിക്കാനും പിൻവലിക്കാനും കഴിയും. അവ ദൃശ്യമായി ചേർത്തുണ്ടാക്കുക, കോഡ് പോലെ വേർഷൻ ചെയ്യുക.',
   'about.title': 'ഡെൻഡ്രൈറ്റിനെക്കുറിച്ച്',
   'authShell.brand': 'ഡെൻഡ്രൈറ്റ്',
   'authShell.support': 'പിന്തുണ',
@@ -15,9 +17,14 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'പ്ലാൻ മാറ്റുക',
   'billing.description':
     'ഉപയോഗം ട്രാക്ക് ചെയ്യുക, നിങ്ങളുടെ പ്ലാൻ കൈകാര്യം ചെയ്യുക, അക്കൗണ്ടിംഗിനായി ഇൻവോയ്‌സുകൾ പിൻവലിക്കുക.',
+  'billing.eyebrow': 'അക്കൗണ്ട് · പ്ലാൻ & ഉപയോഗം',
+  'billing.failedLabel': 'പരാജയപ്പെട്ട റൺസ് · 24h',
+  'billing.invoicesEmpty':
+    'ഇതുവരെ ഇൻവോയ്സുകളില്ല. നിങ്ങളുടെ ആദ്യ പെയ്ഡ് പുതുക്കലിന് ശേഷം അവ ഇവിടെ കാണാം.',
   'billing.invoicesTitle': 'ഇൻവോയ്സ് ചരിത്രം',
   'billing.planNoteFree':
     'സൗജന്യ ശ്രേണി — {{runs}} ഓടുകയും {{workflows}} സജീവമായ വർക്ക്ഫ്ലോകൾ. ഉയർന്ന പരിധികൾക്കായി അപ്‌ഗ്രേഡ് ചെയ്യുക.',
+  'billing.planNotePaid': 'പെയ്ഡ് പ്ലാൻ — {{runs}} റൺസും {{workflows}} സജീവ വർക്ക്ഫ്ലോകളും.',
   'billing.runsLabel': 'കഴിഞ്ഞ 24 മണിക്കൂറിനുള്ളിൽ പ്രവർത്തിച്ചു',
   'billing.tiersBlurb':
     'സമർപ്പിത വിലനിർണ്ണയ പേജിൽ ഓരോ നിരയും - റൺസ്, സജീവ വർക്ക്ഫ്ലോകൾ, വിപുലമായ സവിശേഷതകൾ, പിന്തുണ - താരതമ്യം ചെയ്യുക.',
@@ -35,10 +42,14 @@ export const ui: UiTranslations = {
     'സംയോജനങ്ങളൊന്നും രജിസ്റ്റർ ചെയ്തിട്ടില്ല. ബോണ്ടുകൾ പ്രവർത്തനക്ഷമമാക്കാൻ ദാതാവിന്റെ കീകൾ കോൺഫിഗർ ചെയ്യുക.',
   'connections.error': 'കണക്ഷനുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'connections.eyebrow': 'സംയോജനങ്ങൾ · {{connected}} ബന്ധിപ്പിച്ചു',
+  'connections.loading': 'സംയോജനങ്ങൾ ലോഡ് ചെയ്യുന്നു…',
+  'connections.openEnv':
+    'ഈ പ്രൊവൈഡർ ബന്ധിപ്പിക്കാൻ, അതിന്റെ API കീ api/.env-ൽ സെറ്റ് ചെയ്ത് സെർവർ റീസ്റ്റാർട്ട് ചെയ്യുക.',
   'dashboard.description':
     '{{active}} വർക്ക്ഫ്ലോകൾ സജീവമാണ്. {{failed}} കഴിഞ്ഞ 24 മണിക്കൂറിനുള്ളിൽ പരാജയപ്പെട്ടു.',
   'dashboard.error': 'ഡാഷ്‌ബോർഡ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'dashboard.eyebrow': 'പ്രവർത്തനങ്ങൾ · തത്സമയം',
+  'dashboard.hero.label': 'ഇന്നത്തെ റൺസ്',
   'dashboard.hero.medianLatency': 'p50 ലേറ്റൻസി',
   'dashboard.hero.queue': 'ക്യൂ ഡെപ്ത്',
   'dashboard.hero.success': 'വിജയം',
@@ -46,14 +57,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'ശരാശരി ദൈർഘ്യം',
   'dashboard.kpi.failedRuns': 'പരാജയപ്പെട്ടു · 24 മണിക്കൂർ',
   'dashboard.kpi.outOf': 'യുടെ {{total}} ആകെ',
+  'dashboard.kpi.successRate': 'വിജയ നിരക്ക് · 24h',
   'dashboard.loading': 'ഡാഷ്‌ബോർഡ് ലോഡ് ചെയ്യുന്നു...',
   'dashboard.recentRuns.empty':
     'ഇതുവരെ റണ്ണുകളൊന്നുമില്ല. ഒരു വർക്ക്ഫ്ലോ ട്രിഗർ ചെയ്യുന്നത് ഈ ഫീഡ് പൂരിപ്പിക്കും.',
   'dashboard.recentRuns.title': 'സമീപകാല റൺസ്',
   'dashboard.recentRuns.viewAll': 'ഓപ്പൺ എക്സിക്യൂഷനുകൾ →',
+  'dashboard.recentWorkflows.browse': 'ടെംപ്ലേറ്റുകൾ ബ്രൗസ് ചെയ്യുക →',
   'dashboard.recentWorkflows.empty':
     'ഇതുവരെ വർക്ക്ഫ്ലോകളൊന്നുമില്ല. ഒരു ടെംപ്ലേറ്റ് ഇൻസ്റ്റാൾ ചെയ്യുക അല്ലെങ്കിൽ ആദ്യം മുതൽ ഒന്ന് നിർമ്മിക്കുക.',
   'dashboard.recentWorkflows.title': 'അടുത്തിടെ പ്രവർത്തിച്ചത്',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'ആരംഭിച്ചു',
   'dashboard.run.col.trigger': 'ട്രിഗർ',
   'dashboard.run.col.workflow': 'വർക്ക്ഫ്ലോ',
@@ -89,6 +103,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'വർക്ക്ഫ്ലോ',
   'executions.description':
     'ഓരോ വർക്ക്ഫ്ലോ റൺ, ഓരോ പുനഃശ്രമം, ഓരോ ഘട്ട ഔട്ട്പുട്ട് - എല്ലാം നിരീക്ഷിക്കാവുന്നതാണ്.',
+  'executions.empty.filter': 'ഈ ഫിൽട്ടറുമായി പൊരുത്തപ്പെടുന്ന റൺസ് ഇല്ല.',
   'executions.empty.first':
     'ഇതുവരെ റണ്ണുകളൊന്നുമില്ല — ഈ ലിസ്റ്റ് പൂരിപ്പിക്കുന്നതിന് ഒരു വർക്ക്ഫ്ലോ ട്രിഗർ ചെയ്യുക.',
   'executions.error': 'എക്സിക്യൂഷനുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
@@ -99,30 +114,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'റൺ ചരിത്രം ലോഡ് ചെയ്യുന്നു...',
   'executions.title': 'വധശിക്ഷകൾ',
   'forgotPassword.confirmation': 'ലിങ്ക് പുനഃസജ്ജമാക്കൽ ഇതിലേക്ക് അയച്ചു {{email}} .',
+  'forgotPassword.subhead': 'റീസെറ്റ് ലിങ്ക് ലഭിക്കാൻ നിങ്ങളുടെ ഇമെയിൽ നൽകുക.',
   'forgotPassword.successSubhead':
     'ഞങ്ങൾ ഒരു റീസെറ്റ് ലിങ്ക് അയച്ചു {{email}} . ഇത് 30 മിനിറ്റിനുള്ളിൽ കാലഹരണപ്പെടും.',
   'help.connections.body':
     'AI, ഇമെയിൽ, സംഭരണ ഘട്ടങ്ങൾ എന്നിവയ്ക്ക് api/.env ഫയലിൽ ദാതാവിന്റെ കീകൾ സജ്ജീകരിക്കേണ്ടതുണ്ട്. ഒരു കീ കോൺഫിഗർ ചെയ്‌തുകഴിഞ്ഞാൽ, അനുബന്ധ സംയോജനം കണക്ഷനുകൾ പേജിൽ കണക്റ്റുചെയ്‌തതായി ദൃശ്യമാകും.',
+  'help.connections.cta': 'തുറന്ന കണക്ഷനുകൾ →',
   'help.connections.title': 'ദാതാക്കളെ ബന്ധിപ്പിക്കുന്നു',
   'help.gettingStarted.body':
     'ടെംപ്ലേറ്റുകൾ ലൈബ്രറിയിൽ നിന്ന് പുതിയ വർക്ക്ഫ്ലോകൾ ഇൻസ്റ്റാൾ ചെയ്യാം അല്ലെങ്കിൽ വർക്ക്ഫ്ലോ ബിൽഡറിൽ ആദ്യം മുതൽ നിർമ്മിക്കാം. ഓരോ വർക്ക്ഫ്ലോയ്ക്കും ഒരു ട്രിഗറും (മാനുവൽ, വെബ്‌ഹുക്ക് അല്ലെങ്കിൽ ക്രോൺ) ക്രമത്തിൽ പ്രവർത്തിക്കുന്ന ഘട്ടങ്ങളുടെ ഒരു ശ്രേണിയും ഉണ്ട്.',
+  'help.gettingStarted.cta': 'ടെംപ്ലേറ്റ് ലൈബ്രറി ബ്രൗസ് ചെയ്യുക →',
+  'help.gettingStarted.title': 'ആരംഭിക്കാം',
   'help.intro':
     'വർക്ക്ഫ്ലോകൾ നിർമ്മിക്കൽ, കണക്ഷനുകൾ കോൺഫിഗർ ചെയ്യൽ, റൺ ഔട്ട്പുട്ട് വ്യാഖ്യാനിക്കൽ എന്നിവയെക്കുറിച്ചുള്ള പൊതുവായ ചോദ്യങ്ങൾക്ക് ഉത്തരം കണ്ടെത്തുക. ഏറ്റവും സാധാരണമായ വിഷയങ്ങൾ ചുവടെ പട്ടികപ്പെടുത്തിയിരിക്കുന്നു; ഉൾപ്പെടുത്തിയിട്ടില്ലാത്ത എന്തിനും, നിങ്ങളുടെ വർക്ക്‌സ്‌പെയ്‌സ് അഡ്മിനിസ്ട്രേറ്ററെ ബന്ധപ്പെടുക.',
   'help.runs.body':
     'ഓരോ റൺ ഓരോ ഘട്ടവും സ്റ്റാറ്റസും (വിജയം, പരാജയം, ഒഴിവാക്കിയത്) ഔട്ട്‌പുട്ടിന്റെ ഒരു സ്‌നിപ്പെറ്റും ഉപയോഗിച്ച് സ്വതന്ത്രമായി രേഖപ്പെടുത്തുന്നു. എക്സിക്യൂഷൻ വിശദാംശ പേജ് പൂർണ്ണമായ ഘട്ടം ഘട്ടമായുള്ള ട്രെയ്‌സും അനുമാനിച്ച മെട്രിക്കുകളും കാണിക്കുന്നു.',
+  'help.runs.cta': 'ഓപ്പൺ എക്സിക്യൂഷനുകൾ →',
   'help.runs.title': 'റൺ ഔട്ട്പുട്ട് വായിക്കുന്നു',
   'help.title': 'സഹായ കേന്ദ്രം',
   'integrationCard.manage': 'കൈകാര്യം ചെയ്യുക',
   'landing.brand': 'ഡെൻഡ്രൈറ്റ്',
   'landing.demo.action.subtitle': 'റൗണ്ട്-റോബിൻ · പ്രദേശം',
+  'landing.demo.action.title': 'പ്രതിനിധിയെ അറിയിക്കുക',
   'landing.demo.condition.subtitle': 'AI ഇന്റന്റ് ക്ലാസിഫയർ',
+  'landing.demo.condition.title': 'സ്കോർ ≥ ഇടത്തരം?',
   'landing.demo.trigger.subtitle': 'പോസ്റ്റ് /ഫോമുകൾ/കോൺടാക്റ്റ്',
   'landing.demo.trigger.title': 'ഇൻബൗണ്ട് വെബ്‌ഹുക്ക്',
+  'landing.features.body':
+    'ട്രിഗറുകൾ പ്രവർത്തിക്കുന്നു. കണ്ടീഷനുകൾ ശാഖപിരിയുന്നു. ആക്ഷനുകൾ ജോലി പൂർത്തിയാക്കുന്നു. അവ ദൃശ്യമായി ചേർത്തുണ്ടാക്കുക, കോഡ് പോലെ വേർഷൻ ചെയ്യുക.',
   'landing.features.heading': 'മൂന്ന് നോഡ് തരങ്ങൾ. അനന്തമായ ആകൃതികൾ.',
   'landing.footer.help': 'സഹായം',
   'landing.footer.tagline': 'ചലനത്തിലുള്ള ബുദ്ധിശക്തി',
+  'landing.hero.body':
+    'Zapier-ൽ നിന്ന് വളർന്ന ഓപ്സ് ടീമുകൾക്കുള്ള വർക്ക്ഫ്ലോ എൻജിൻ ആണ് {{appName}}. ട്രിഗർ, കണ്ടീഷൻ, ആക്ഷൻ — നിങ്ങൾ യഥാർത്ഥത്തിൽ ഉപയോഗിക്കുന്ന എല്ലാ സിസ്റ്റത്തിലും ബന്ധിപ്പിച്ചിരിക്കുന്നു.',
   'landing.hero.eyebrow': 'ചലനത്തിലുള്ള ബുദ്ധിശക്തി',
   'landing.hero.headline': 'നിങ്ങളുടെ സ്റ്റാക്ക് വയർ ഉപയോഗിച്ച് ബന്ധിപ്പിക്കുക. ജോലി നടക്കട്ടെ.',
+  'landing.hero.primaryCta': 'നിങ്ങളുടെ ആദ്യ വർക്ക്ഫ്ലോ നിർമ്മിക്കുക',
   'landing.hero.proof.ai': 'അന്തർനിർമ്മിത AI നോഡുകൾ',
   'landing.hero.proof.free': 'പ്രതിമാസം 1000 റൺസിന് സൗജന്യം',
   'landing.hero.proof.soc2': 'എസ്‌ഒസി 2 ടൈപ്പ് II',
@@ -130,10 +157,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'സീറ്റുകൾക്കല്ല, റൺസിനാണ് പണം നൽകേണ്ടത്.',
   'landing.templates.body':
     'ഓരോ ടീമിനും വേണ്ടിയുള്ള പ്രീ-വയർഡ് വർക്ക്ഫ്ലോകൾ - വിൽപ്പന, പിന്തുണ, ഡെവലപ്‌മെന്റുകൾ, ധനകാര്യം. ഒറ്റ ക്ലിക്കിൽ ഇൻസ്റ്റാൾ ചെയ്യുക; എന്തും മെച്ചപ്പെടുത്തുക.',
+  'landing.templates.cta': 'ടെംപ്ലേറ്റുകൾ ബ്രൗസ് ചെയ്യാൻ സൈൻ അപ്പ് ചെയ്യുക →',
   'landing.templates.eyebrow': 'സെക്കൻഡുകൾക്കുള്ളിൽ ആരംഭിക്കുക',
   'landing.templates.heading': 'പരിശോധിച്ച പാചകക്കുറിപ്പുകളുടെ ഒരു ലൈബ്രറി.',
   'landing.templates.signupHint': 'ഇൻസ്റ്റാൾ ചെയ്യാൻ സൈൻ അപ്പ് ചെയ്യുക',
   'login.hidePassword': 'പാസ്‌വേഡ് മറയ്ക്കുക',
+  'login.noAccount': 'ടെസേറയിൽ പുതിയ ആളാണോ?',
   'login.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
   'login.subhead': 'നിങ്ങളുടെ ഓട്ടോമേഷനുകൾ സുഗമമായി നടക്കാൻ സൈൻ ഇൻ ചെയ്യുക.',
   'mobileNav.drawerLabel': 'പ്രധാന നാവിഗേഷൻ',
@@ -150,8 +179,15 @@ export const ui: UiTranslations = {
     'ഈ ഫീഡ് പോപ്പുലേറ്റ് ചെയ്യാൻ ആരംഭിക്കുന്നതിന് ഒരു വർക്ക്ഫ്ലോ പ്രവർത്തിപ്പിക്കുക.',
   'notifications.empty.title': 'നിങ്ങൾ എല്ലാം വായിച്ചു കഴിഞ്ഞു.',
   'notifications.eyebrow': '{{n}} വായിക്കാത്തത്',
+  'planUpdated.body':
+    'നിങ്ങളുടെ ബില്ലിംഗ് മാറ്റം ഇപ്പോൾ സജീവമാണ്. ബില്ലിംഗ് പേജിൽ നിന്ന് എപ്പോൾ വേണമെങ്കിലും നിങ്ങളുടെ പ്ലാൻ മാനേജ് ചെയ്യാം.',
+  'planUpdated.retry': 'വീണ്ടും ശ്രമിക്കുക',
+  'planUpdated.verifyFailed': 'നിങ്ങളുടെ പേയ്‌മെന്റ് ഞങ്ങൾക്ക് ഇതുവരെ സ്ഥിരീകരിക്കാൻ കഴിഞ്ഞില്ല.',
+  'planUpdated.verifyFailedBody':
+    'നിങ്ങളുടെ പേയ്‌മെന്റ് ഇപ്പോഴും പ്രോസസ്സ് ചെയ്തുകൊണ്ടിരിക്കുകയായിരിക്കാം. അൽപ്പസമയത്തിനുള്ളിൽ വീണ്ടും ശ്രമിക്കുക.',
   'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'pricing.heading': 'ഓടുന്നു',
+  'pricing.runsSuffix': 'റൺസ്',
   'pricing.workflowsSuffix': 'വർക്ക്ഫ്ലോകൾ',
   'privacy.collect.body':
     'നിങ്ങൾ സൈൻ അപ്പ് ചെയ്യുന്ന ഇമെയിൽ വിലാസം, നിങ്ങൾ കോൺഫിഗർ ചെയ്യുന്ന വർക്ക്ഫ്ലോകൾ, ഓരോ റണ്ണിനെക്കുറിച്ചുമുള്ള മെറ്റാഡാറ്റ (ആരംഭ സമയം, അവസാന സമയം, സ്റ്റാറ്റസ്) എന്നിവ ഞങ്ങൾ ശേഖരിക്കുന്നു. വർക്ക്‌സ്‌പെയ്‌സ് ഉടമയ്‌ക്കായി റൺ വ്യൂവറിൽ പ്രദർശിപ്പിക്കുന്നതിന് ആവശ്യമായതിലും അപ്പുറം ട്രിഗറുകളിൽ നിന്നോ സ്റ്റെപ്പ് ഔട്ട്‌പുട്ടുകളിൽ നിന്നോ പേലോഡ് ഉള്ളടക്കങ്ങൾ ഞങ്ങൾ ഒരിക്കലും ശേഖരിക്കുകയോ സംഭരിക്കുകയോ ചെയ്യില്ല.',
@@ -167,12 +203,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'പാസ്‌വേഡ് അപ്ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'resetPassword.newPassword': 'പുതിയ പാസ്വേഡ്',
   'resetPassword.subhead': 'നിങ്ങൾക്ക് ഊഹിക്കാൻ മാത്രം കഴിയുന്ന എന്തെങ്കിലും തിരഞ്ഞെടുക്കുക.',
+  'settings.appearance.description': 'ലൈറ്റ്, ഡാർക്ക് മോഡുകൾക്കിടയിൽ ടോഗിൾ ചെയ്യുക.',
+  'settings.appearance.title': 'രൂപഭാവം',
   'settings.billingShortcut.cta': 'ബില്ലിംഗ് തുറക്കുക',
   'settings.billingShortcut.description':
     'പ്ലാൻ, ഉപയോഗം, ഇൻവോയ്‌സുകൾ എന്നിവ സമർപ്പിത ബില്ലിംഗ് പേജിൽ തത്സമയം ലഭ്യമാണ്.',
   'settings.danger.confirm':
     'ഉറപ്പാണോ? ഇത് നിങ്ങളുടെ വർക്ക്‌സ്‌പെയ്‌സിനെ ഇല്ലാതാക്കുന്നതിനായി ക്യൂവിൽ നിർത്തും.',
   'settings.danger.confirmYes': 'അതെ, ക്യൂ ഇല്ലാതാക്കൽ',
+  'settings.danger.deleteWorkspace.cta': 'വർക്ക്‌സ്‌പെയ്‌സ് ഇല്ലാതാക്കുക',
   'settings.danger.deleteWorkspace.hint':
     '14 ദിവസത്തെ ഗ്രേസ് പിരീഡിന് ശേഷം എല്ലാ വർക്ക്ഫ്ലോകളും, റണ്ണുകളും, കണക്ഷനുകളും നീക്കംചെയ്യുന്നു.',
   'settings.danger.deleteWorkspace.title': 'വർക്ക്‌സ്‌പെയ്‌സ് ഇല്ലാതാക്കുക',
@@ -184,10 +223,14 @@ export const ui: UiTranslations = {
     'നിങ്ങളുടെ അക്കൗണ്ട്, വർക്ക്‌സ്‌പെയ്‌സ്, സംയോജനങ്ങൾ, ബില്ലിംഗ് എന്നിവ ഒരിടത്ത് കൈകാര്യം ചെയ്യുക.',
   'settings.notifications.description':
     'നിങ്ങൾക്ക് ഏത് ഇവന്റ് പേജ് വേണമെന്ന് തിരഞ്ഞെടുക്കുക, നിങ്ങൾക്ക് ഇമെയിൽ അയയ്ക്കുക അല്ലെങ്കിൽ നിശബ്ദത പാലിക്കുക.',
+  'settings.notifications.failures.hint': 'ഓരോ പരാജയപ്പെട്ട റണ്ണിലും ഇമെയിൽ, ഇൻ-ആപ്പ് അറിയിപ്പ്.',
+  'settings.notifications.failures.title': 'വർക്ക്ഫ്ലോ പരാജയങ്ങൾ',
   'settings.notifications.product.hint':
     'പുതിയ ടെംപ്ലേറ്റുകളെയും സവിശേഷതകളെയും കുറിച്ചുള്ള ഇടയ്ക്കിടെ ഇമെയിലുകൾ.',
+  'settings.notifications.product.title': 'ഉൽപ്പന്ന അപ്ഡേറ്റുകൾ',
   'settings.notifications.weekly.hint':
     'കഴിഞ്ഞ ആഴ്ചയിലെ ഓട്ടങ്ങളുടെയും സമ്പാദ്യങ്ങളുടെയും തിങ്കളാഴ്ച രാവിലെയുള്ള ഒരു സംഗ്രഹം.',
+  'settings.notifications.weekly.title': 'ആഴ്ചതോറുമുള്ള ഡൈജസ്റ്റ്',
   'settings.profile.description':
     'വർക്ക്ഫ്ലോ റണ്ണറിനുള്ളിൽ നിങ്ങൾ എങ്ങനെ ദൃശ്യമാകും. വർക്ക്‌സ്‌പെയ്‌സ് പ്രവർത്തനത്തിൽ ഉപയോഗിക്കുന്നു.',
   'settings.profile.noEmail': 'രേഖപ്പെടുത്തിയിട്ടില്ലാത്ത ഇമെയിൽ വിലാസം',
@@ -196,12 +239,23 @@ export const ui: UiTranslations = {
   'settings.profile.unnamedUser': 'പേരില്ലാത്ത ഉപയോക്താവ്',
   'settings.security.audit.hint':
     'വെബ്‌ഹുക്ക് വഴി നിങ്ങളുടെ SIEM-ലേക്ക് എല്ലാ പ്രവർത്തനങ്ങളും സ്ട്രീം ചെയ്യുക.',
+  'settings.security.audit.title': 'ഓഡിറ്റ് ലോഗ് ഫോർവേഡിംഗ്',
   'settings.security.description': 'ടു-ഫാക്ടർ ഓത്ത്, SSO, സജീവ സെഷനുകൾ.',
   'settings.security.sso.hint': 'സ്കെയിൽ, എന്റർപ്രൈസ് പ്ലാനുകളിൽ ലഭ്യമാണ്.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'ഏതൊരു വർക്ക്സ്പേസ് ഉടമയുടെയും പ്രവർത്തനത്തിന് ആവശ്യമാണ്.',
+  'settings.security.totp.title': 'ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ (TOTP)',
   'settings.twoFactorCode': 'പ്രാമാണീകരണ കോഡ്',
   'settings.twoFactorDisable': 'പ്രവർത്തനരഹിതമാക്കുക',
+  'settings.twoFactorDisableTitle': 'ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ പ്രവർത്തനരഹിതമാക്കുക',
   'settings.twoFactorEnable': 'പ്രാപ്തമാക്കുക',
+  'settings.twoFactorEnableTitle': 'ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ പ്രവർത്തനക്ഷമമാക്കുക',
   'settings.twoFactorInvalidCode': 'കോഡ് അസാധുവാണ്',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'രണ്ട്-ഘടക QR കോഡ്',
+  'settings.twoFactorScan':
+    'നിങ്ങളുടെ ഓതന്റിക്കേറ്റർ ആപ്പ് ഉപയോഗിച്ച് ഈ QR കോഡ് സ്കാൻ ചെയ്യുക, തുടർന്ന് 6 അക്ക കോഡ് നൽകുക.',
+  'settings.twoFactorUnavailable': 'ഈ ആപ്പിന് ടു-ഫാക്ടർ പ്രാമാണീകരണം ലഭ്യമല്ല.',
   'settings.twoFactorVerify': 'പരിശോധിച്ചുറപ്പിക്കുക, പ്രാപ്തമാക്കുക',
   'settings.workspace.description': 'നിങ്ങളുടെ ടീമിനായി പങ്കിട്ട ഐഡന്റിറ്റി, മേഖല, റൺ ഡിഫോൾട്ടുകൾ.',
   'settings.workspace.maxRuns': 'കൺകറന്റ് റൺസ് ക്യാപ്',
@@ -229,6 +283,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'ടെംപ്ലേറ്റ്',
   'templates.description':
     'ഏറ്റവും സാധാരണമായ ഓട്ടോമേഷനുകൾക്കായി മുൻകൂട്ടി നിർമ്മിച്ച ബ്ലൂപ്രിന്റുകൾ. ഫോർക്ക് ചെയ്യുക, ഇഷ്ടാനുസൃതമാക്കുക, ഷിപ്പ് ചെയ്യുക.',
+  'templates.empty.filter': 'നിങ്ങളുടെ തിരയലുമായി പൊരുത്തപ്പെടുന്ന ടെംപ്ലേറ്റുകളില്ല.',
   'templates.empty.first': 'ഇപ്പോൾ ടെംപ്ലേറ്റുകളൊന്നും ലഭ്യമല്ല.',
   'templates.error': 'ടെംപ്ലേറ്റുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'templates.installs': 'ഇൻസ്റ്റാൾ ചെയ്യുന്നു',
@@ -254,6 +309,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'പ്രവർത്തനരഹിതമാക്കുക',
   'workflowBuilder.enable': 'പ്രാപ്തമാക്കുക',
   'workflowBuilder.error': 'വർക്ക്ഫ്ലോ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
+  'workflowBuilder.inspector.config': 'കോൺഫിഗ്',
+  'workflowBuilder.inspector.cron': 'ക്രോൺ എക്സ്പ്രഷൻ',
+  'workflowBuilder.inspector.disabled': 'അപ്രാപ്തമാക്കി — സ്വയമേവ പ്രവർത്തിക്കില്ല.',
   'workflowBuilder.inspector.enabled': 'പ്രാപ്തമാക്കി — ട്രിഗറിൽ പ്രവർത്തിക്കുന്നു.',
   'workflowBuilder.inspector.eyebrow': 'ഇൻസ്പെക്ടർ',
   'workflowBuilder.inspector.id': 'ഐഡി',
@@ -272,18 +330,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'മാറ്റാനായില്ല.',
   'workflowBuilder.workflow': 'വർക്ക്ഫ്ലോ · v {{v}} എന്ന വാക്യം',
   'workflowBuilder.zoom.in': 'സൂം ഇൻ ചെയ്യുക',
+  'workflowBuilder.zoom.label': 'കാൻവാസ് സൂം നിയന്ത്രണങ്ങൾ',
+  'workflowBuilder.zoom.out': 'സൂം ഔട്ട് ചെയ്യുക',
   'workflowCard.lastRun': 'അവസാന ഓട്ടം {{when}}',
   'workflowCard.runs': '{{count}} ഓടുന്നു',
+  'workflowCard.success': '{{rate}}% വിജയം',
   'workflowHeroCard.last24h': 'കഴിഞ്ഞ 24 മണിക്കൂർ',
+  'workflows.browseTemplates': 'ടെംപ്ലേറ്റുകൾ ബ്രൗസ് ചെയ്യുക →',
   'workflows.description':
     'നിങ്ങളുടെ ജോലിസ്ഥലത്തെ എല്ലാ ഓട്ടോമേഷനും, ആരോഗ്യവും സമീപകാല പ്രവർത്തനങ്ങളും ഒറ്റനോട്ടത്തിൽ.',
+  'workflows.empty.body': 'ഫിൽട്ടർ മായ്ക്കുകയോ ഒരു ടെംപ്ലേറ്റിൽ നിന്ന് ആരംഭിക്കുകയോ ചെയ്യുക.',
   'workflows.empty.firstBody': 'നിമിഷങ്ങൾക്കുള്ളിൽ ആരംഭിക്കാൻ ഒരു ടെംപ്ലേറ്റ് ഇൻസ്റ്റാൾ ചെയ്യുക.',
   'workflows.empty.firstTitle': 'ഇതുവരെ വർക്ക്ഫ്ലോകളൊന്നുമില്ല',
   'workflows.empty.title': 'പൊരുത്തപ്പെടുന്ന വർക്ക്ഫ്ലോകളൊന്നുമില്ല',
   'workflows.error': 'വർക്ക്ഫ്ലോകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'workflows.eyebrow': 'ലൈബ്രറി · {{count}} ആകെ',
+  'workflows.loading': 'വർക്ക്ഫ്ലോകൾ ലോഡ് ചെയ്യുന്നു…',
   'workflows.newFromTemplate': 'ടെംപ്ലേറ്റിൽ നിന്നുള്ള പുതിയത്',
   'workflows.searchPlaceholder': 'വർക്ക്ഫ്ലോകൾ തിരയുക...',
+  'workflows.title': 'വർക്ക്ഫ്ലോകൾ',
   'workflowSidebar.brand': 'ഡെൻഡ്രൈറ്റ്',
   'workflowSidebar.status': 'എല്ലാ സിസ്റ്റങ്ങളും പ്രവർത്തിക്കുന്നു',
   'workflowSidebar.tagline': 'ചലനത്തിലുള്ള ബുദ്ധിശക്തി',

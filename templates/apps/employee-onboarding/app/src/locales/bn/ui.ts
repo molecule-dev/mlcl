@@ -1,27 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'আপনার টিমের জন্য আরও উষ্ণ অনবোর্ডিং চালু করতে চান, কোনো বাগ পেয়েছেন, নাকি মতামত আছে? আপনার অ্যাকাউন্ট সেটিংস থেকে যোগাযোগ করুন — প্রতিটি বার্তা একজন সত্যিকারের মানুষের কাছে পৌঁছায় যিনি সাহায্য করতে পারেন।',
   'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.eyebrow': 'সম্পর্কে',
+  'about.missionTitle': 'আমাদের লক্ষ্য',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'আপনার পাসওয়ার্ড পুনরায় সেট করুন।',
+  'auth.forgotPassword.panel.body':
+    'রিসেট করতে ৩০ সেকেন্ড লাগে — আপনার চেকলিস্টের অগ্রগতি অপেক্ষা করছে।',
+  'auth.forgotPassword.panel.headline': 'ঠিক যেখানে ছেড়েছিলেন সেখানেই ফিরে।',
+  'auth.forgotPassword.subheading': 'আপনার কাজের ইমেইল দিন, আমরা আপনাকে একটি রিসেট লিংক পাঠাব।',
   'auth.forgotPassword.successSubheading':
     'আপনার ইনবক্স দেখুন — আমরা রিসেট করার নির্দেশাবলী পাঠিয়ে দিয়েছি।',
   'auth.login.emailPlaceholder': 'name@yourcompany.com',
   'auth.login.heading': 'আবার স্বাগতম।',
   'auth.login.passwordPlaceholder': 'আপনার পাসওয়ার্ড',
+  'auth.login.signupPrompt': 'আপনার টিমে নতুন?',
   'auth.login.subheading':
     'আপনার অনবোর্ডিং যাত্রাটি যেখান থেকে ছেড়েছিলেন, সেখান থেকে আবার শুরু করতে সাইন ইন করুন।',
   'auth.login.submit': 'আপনার যাত্রা চালিয়ে যান',
+  'auth.panel.body':
+    'আপনার ব্যক্তিগত চেকলিস্ট, প্রশিক্ষণের মাইলফলক এবং টিম পরিচিতি — সব এক শান্ত জায়গায়।',
   'auth.panel.footnote': '© এমবার্ক — আজ থেকেই মানুষকে অন্তর্ভুক্ত করার ক্ষেত্রে আমরাই প্রথম।',
   'auth.panel.headline': 'আত্মবিশ্বাসী প্রথম ৯০ দিন এখান থেকেই শুরু হয়।',
   'auth.resetPassword.heading': 'একটি নতুন পাসওয়ার্ড সেট করুন।',
   'auth.resetPassword.newPasswordLabel': 'নতুন পাসওয়ার্ড',
+  'auth.resetPassword.panel.body':
+    'একটি নতুন পাসওয়ার্ড সেভ করুন, আমরা আপনাকে সরাসরি আপনার অনবোর্ডিং যাত্রায় ফিরিয়ে নিয়ে যাব।',
+  'auth.resetPassword.panel.headline': 'প্রায় ফিরেই এসেছেন।',
   'auth.resetPassword.subheading': 'এমন কিছু বেছে নিন যা আপনার মনে থাকবে — কমপক্ষে ৮টি অক্ষর।',
   'auth.signup.emailPlaceholder': 'name@yourcompany.com',
   'auth.signup.heading': 'আপনার প্রথম ৯০ দিনে স্বাগতম।',
   'auth.signup.panel.body':
     'আপনার প্রবেশের আগেই প্রস্তুত থাকবে একটি নির্দেশিত চেকলিস্ট, ভূমিকা-ভিত্তিক প্রশিক্ষণ এবং ব্যক্তিগত পরিচিতি পর্ব।',
+  'auth.signup.panel.headline': 'প্রথম দিনেই প্রথম দিনের মতো।',
   'auth.signup.subheading':
     'আপনার নির্দেশিত অনবোর্ডিং যাত্রা শুরু করতে আপনার এমবার্ক অ্যাকাউন্ট তৈরি করুন।',
   'checklist.empty.body': 'অন্যান্য কাজগুলো দেখতে ফিল্টারটি পরিবর্তন করুন।',
@@ -29,6 +43,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'অনবোর্ডিং · চেকলিস্ট',
   'checklist.loading': 'আপনার চেকলিস্ট লোড হচ্ছে…',
   'checklist.stat.actionNeeded': 'পদক্ষেপ নেওয়া প্রয়োজন',
+  'checklist.stat.completion': 'সমাপ্তি',
+  'checklist.stat.inProgress': 'চলমান',
   'checklist.stat.inProgressHelper': 'যেখান থেকে শেষ করেছিলেন সেখান থেকে আবার শুরু করুন।',
   'checklist.stat.overdueHelper': 'প্রথমে এগুলো ধরে ফেলুন।',
   'checklist.subtitle':
@@ -60,6 +76,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'এখনো কোনো নথি নেই',
   'documents.eyebrow': 'অনবোর্ডিং · নথি',
   'documents.loading': 'নথি লোড হচ্ছে…',
+  'documents.stat.actionNeeded': 'এখনই সাইন করুন',
+  'documents.stat.all': 'সমস্ত নথি',
   'documents.stat.allHelper': 'বিভিন্ন বিভাগ জুড়ে',
   'documents.stat.pending': 'স্বাক্ষর বাকি',
   'documents.stat.pendingHelper': 'সম্পূর্ণ করার জন্য প্রয়োজন',
@@ -67,22 +85,28 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'নিরাপদে সংরক্ষণ করা হয়েছে',
   'documents.status.optional': 'ঐচ্ছিক',
   'documents.status.required': 'প্রয়োজনীয়',
+  'documents.status.signed': 'স্বাক্ষরিত',
   'documents.subtitle': 'আপনার হ্যান্ডবুক, ফর্ম এবং স্বাক্ষরিত চুক্তিপত্র — সবকিছু এক জায়গায়।',
   'documents.title': 'আপনাকে সবকিছু পড়তে ও স্বাক্ষর করতে হবে।',
   'documents.uploadedRecently': 'সম্প্রতি আপলোড করা হয়েছে',
   'documentViewer.breadcrumbCurrent': 'দর্শক',
   'documentViewer.breadcrumbDocs': 'নথি',
   'documentViewer.downloadMeta': 'মেটাডেটা ডাউনলোড করুন',
+  'documentViewer.helpBody':
+    'People & Culture স্ল্যাকের #ask-people-এ হ্যান্ডবুকের প্রশ্নের উত্তর দেয়।',
   'documentViewer.helpEyebrow': 'সাহায্য প্রয়োজন?',
   'documentViewer.loadError': 'আমরা এই নথিটি লোড করতে পারিনি।',
   'documentViewer.loading': 'ডকুমেন্ট লোড হচ্ছে…',
   'documentViewer.notFound': 'নথিটি খুঁজে পাওয়া যায়নি',
+  'documentViewer.previewBody':
+    'আপলোড কনফিগার করা থাকলে আমরা ফাইলটি ইনলাইন দেখাই। আপাতত, মেটাডেটা ডাউনলোড দিয়ে আপনি নিশ্চিত করতে পারেন রেকর্ডটি সত্যিকারের।',
   'documentViewer.previewBodyExternal':
     'ফাইলটি নতুন ট্যাবে খোলার জন্য ডাউনলোড বাটনটি ব্যবহার করুন।',
   'documentViewer.previewTitle': 'ডকুমেন্ট প্রিভিউ',
   'documentViewer.sign': 'স্বাক্ষর করুন এবং স্বীকার করুন',
   'documentViewer.signatureBody': 'নথিটি পড়ুন, তারপর স্বাক্ষর ও স্বীকৃতি জানাতে নিচে ক্লিক করুন।',
   'documentViewer.signatureHeading': 'স্বাক্ষর প্রয়োজন',
+  'documentViewer.signed': '✓ স্বাক্ষরিত ও দাখিলকৃত',
   'documentViewer.signing': 'স্বাক্ষর করা…',
   'documentViewer.uploadedRecently': 'সম্প্রতি আপলোড করা হয়েছে',
   'landing.closing.body':
@@ -92,10 +116,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'আমার ইতিমধ্যেই একটি অ্যাকাউন্ট আছে।',
   'landing.feature1.body':
     'প্রতিটি কাজ — কাগজপত্র, হিসাবপত্র, পরিচিতি পর্ব — নির্দিষ্ট সময়সীমা এবং সঠিক দায়িত্বপ্রাপ্ত ব্যক্তিসহ আগে থেকেই প্রস্তুত রাখা হয়।',
+  'landing.feature1.title': 'একটি নির্দেশিত চেকলিস্ট',
   'landing.feature2.body':
     'নতুন নিয়োগপ্রাপ্ত ব্যক্তির ভূমিকা এবং দলের ওপর ভিত্তি করে ৩০/৬০/৯০ মাইলস্টোনে মডিউলগুলো আনলক হয়।',
+  'landing.feature2.title': 'ভূমিকা-সচেতন প্রশিক্ষণ',
   'landing.feature3.body':
     'বন্ধু, ম্যানেজার এবং বিভিন্ন বিভাগের সাথে পরিচিতি পর্বের আয়োজন করা হয়েছে — যাতে কেউ একা শুরু না করে।',
+  'landing.feature3.title': 'সত্যিকারের পরিচিতি',
   'landing.featureEyebrow': 'কেন যাত্রা শুরু করবেন',
   'landing.featureHeadline': 'প্রথম দিনেই আস্থা অর্জনের তিনটি উপায়।',
   'landing.footer.rights': 'সর্বস্বত্ব সংরক্ষিত।',
@@ -105,6 +132,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'এরপর: আপনার বন্ধুর সাথে ৩০ মিনিটের কফি আড্ডার জন্য দেখা করুন — মঙ্গলবার সকাল ১০:০০ টায়।',
   'landing.preview.eyebrow': '৯০ দিনের মধ্যে ১৪তম দিন — নমুনা ড্যাশবোর্ড',
+  'landing.preview.headline': 'স্বাগতম ফিরে, Maya।',
   'landing.proof.spec': 'SOC 2 + GDPR প্রস্তুত',
   'landing.proof.teams': '৫০ থেকে ৫,০০০ জনের দলের জন্য নির্মিত',
   'landing.proof.time': '১৪ দিনের বিনামূল্যে ট্রায়াল',
@@ -121,16 +149,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'গতকাল',
   'planUpdated.message': 'আপনি সম্পূর্ণ প্রস্তুত।',
   'planUpdated.preparing': 'আপনার পরিকল্পনা আপডেট করা হচ্ছে…',
+  'planUpdated.retry': 'আবার চেষ্টা করুন',
+  'planUpdated.verifyFailed': 'আমরা এখনও আপনার পেমেন্ট নিশ্চিত করতে পারিনি।',
+  'planUpdated.verifyFailedBody':
+    'আপনার পেমেন্টটি এখনও প্রক্রিয়াধীন থাকতে পারে। কিছুক্ষণ পর আবার চেষ্টা করুন।',
   'planUpdated.verifying': 'আপনার পেমেন্ট নিশ্চিত করা হচ্ছে…',
   'pricing.documentsLabel': 'নথিপত্র',
   'pricing.onboardingsLabel': 'অনবোর্ডিং',
   'pricing.tasksLabel': 'কাজগুলি',
   'profile.dayNumber': 'দিন',
   'profile.detailsHeading': 'অনবোর্ডিং বিবরণ',
+  'profile.encouragementBody':
+    'আপনার বাডি ও ম্যানেজারকে জানিয়ে রাখুন — ছোট পদক্ষেপেই বড় পরিবর্তন আসে।',
   'profile.milestones': 'মাইলফলক',
   'profile.progressEyebrow': 'অনবোর্ডিং অগ্রগতি',
   'profile.tasks': 'কাজ',
   'profile.unknownName': 'স্বাগতম',
+  'settings.appearance.description': 'লাইট ও ডার্ক মোডের মধ্যে পরিবর্তন করুন।',
+  'settings.appearance.title': 'চেহারা',
+  'settings.subtitle':
+    'নোটিফিকেশন, নিরাপত্তা, ডিভাইস এবং ডেটা এক্সপোর্ট সাজান — সবকিছু এখানেই থাকবে, আপনার শর্তে।',
   'settings.title': 'সেটিংস ও পছন্দসমূহ।',
   'taskDetail.backToChecklist': 'চেকলিস্টে ফিরে যান',
   'taskDetail.breadcrumbChecklist': 'চেকলিস্ট',
@@ -142,7 +180,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'কোনো নির্ধারিত তারিখ নেই',
   'taskDetail.notFound': 'টাস্কটি খুঁজে পাওয়া যায়নি',
   'taskDetail.notFoundBody': 'এই কাজটি হয়তো মুছে ফেলা হয়েছে অথবা এটি অন্য কোনো ব্যবহারকারীর।',
+  'taskDetail.tipBody':
+    'আটকে গেলে স্ল্যাকে আপনার অনবোর্ডিং বাডিকে মেসেজ করুন — তারাই আপনার প্রথম সহায়তা।',
   'taskDetail.tipEyebrow': 'দ্রুত টিপস',
+  'team.empty.body': 'আরও বিস্তৃত অনুসন্ধান করুন বা অন্য বিভাগ বেছে নিন।',
   'team.empty.title': 'কোনো সতীর্থের মিল নেই',
   'team.eyebrow': 'অনবোর্ডিং · লোকজন',
   'team.loading': 'সতীর্থদের লোড করা হচ্ছে…',
@@ -165,14 +206,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'মাইলফলক',
   'timeline.stat.current': 'বর্তমান মাইলফলক',
   'timeline.stat.next': 'পরবর্তী আনলক',
+  'timeline.stat.progress': 'সামগ্রিকভাবে',
   'timeline.subtitle':
     'প্রতিটি মাইলফলক নতুন মডিউল, পরিচিতি এবং অগ্রগতির আলোচনা উন্মোচন করে। কোনো চাপ নেই — শুধু অগ্রগতি।',
+  'timeline.tipBody':
+    'আপনার ম্যানেজারের সাথে ৩০, ৬০ ও ৯০ দিনে ৩০ মিনিটের একটি রিফ্লেকশন শিডিউল করুন — এতে মতামত নির্দিষ্ট হয় ও অগ্রগতি দৃশ্যমান হয়।',
   'timeline.tipEyebrow': 'ম্যানেজারের পরামর্শ',
+  'timeline.tipTitle': 'মাইলফলকগুলোর জন্য ক্যালেন্ডারে সময় ব্লক করুন।',
   'timeline.title': 'আপনার ৩০ / ৬০ / ৯০ বছরের যাত্রা।',
   'training.badge.notStarted': 'শুরু হয়নি',
   'training.empty': 'এখনো কোনো প্রশিক্ষণ মডিউল নেই।',
   'training.eyebrow': 'অনবোর্ডিং · প্রশিক্ষণ',
   'training.loading': 'মডিউলগুলো লোড হচ্ছে…',
+  'training.stat.all': 'মডিউল অ্যাসাইন করা হয়েছে',
   'training.subtitle':
     'আপনার ভূমিকার সাথে মিলিয়ে মডিউলগুলো ৩০/৬০/৯০ লেভেলে আনলক হয়। প্রয়োজনীয়গুলো প্রথমে আসে।',
   'training.title': 'দক্ষতা, সরঞ্জাম এবং গল্প — আপনার নিজস্ব গতিতে।',
@@ -184,9 +230,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'মডিউলটি খুঁজে পাওয়া যায়নি',
   'trainingModule.quizBody': 'এই মডিউলটি সম্পূর্ণ করতে ৮০% বা তার বেশি নম্বর পেতে হবে।',
   'trainingModule.quizHeading': 'মডিউল-শেষের কুইজ',
+  'trainingModule.quizLocked': 'প্রথমে মডিউল শুরু করুন',
   'trainingModule.quizNone': 'এই মডিউলে কোনো কুইজ নেই।',
   'trainingModule.quizRetry': 'আবার চেষ্টা করুন',
+  'trainingModule.quizStart': 'কুইজ শুরু করুন',
   'trainingModule.quizSubmit': 'উত্তর জমা দিন',
+  'trainingModule.start': 'মডিউল শুরু করুন',
   'trainingModule.statusNotStarted': 'শুরু হয়নি',
   'welcomeHeroCard.completeLabel': 'সম্পূর্ণ',
   'welcomeHeroCard.milestonesLabel': 'মাইলফলক',

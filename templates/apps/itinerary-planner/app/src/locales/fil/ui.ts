@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May feedback ka, may nahanap kang bug, o may pinaplanong ambisyoso? Makipag-ugnayan sa amin mula sa settings ng iyong account — bawat mensahe ay napupunta sa isang tunay na tao sa team.',
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Mga booking sa isang inbox — ang mga kumpirmasyon ng flight, hotel, at aktibidad ay dumarating sa eksaktong araw na dapat nilang mapuntahan.',
+  'about.featureCollab':
+    'Real-time na kolaborasyon — mag-imbita ng hanggang limang manlalakbay bawat trip, na may bawat pagbabago na nagsi-sync nang live at mga komento na naka-thread sa ilalim ng bawat stop.',
+  'about.featureMapsBudget':
+    'Mga mapa, destinasyon, at shared na budget — tingnan ang buong trip sa mapa, tumuklas ng mga destinasyong na-curate ng editor, at i-track ang mga gastos para walang sumobra sa gastos.',
+  'about.featureTimelines':
+    'Araw-araw na timeline — i-drag ang mga stop para muling ayusin, mag-drop ng mga transport segment, at panoorin ang itinerary na muling kalkulahin bilang isang buhay na dokumento.',
+  'about.intro':
+    'Ginagawang {{app}} ang isang folder na puno ng mga hindi pa buong plano tungo sa isang solong, shared na trip na talagang masusundan ng buong grupo mo. Gumawa ng araw-araw na itinerary, mag-drop ng mga flight at hotel, i-map ang bawat stop, at i-track ang budget — lahat sa isang kalmadong lugar sa halip na dose-dosenang tab at isang group chat.',
+  'about.missionBody':
+    'Ang pagpaplano ng paglalakbay ay dapat maramdaman na parang gumaganda na ang trip, hindi parang homework. Umiiral ang {{app}} para gawing walang kahirap-hirap ang mga collaborative na trip — para ang bawat manlalakbay ay dumating na alam ang plano, at bawat stop ay nagkukuwento ng kuwentong dapat tandaan.',
+  'about.missionTitle': 'Ang aming misyon',
   'about.pageTitle': 'Tungkol sa {{app}}',
   'auth.legalConsent': 'Sa pagpapatuloy, sumasang-ayon ka sa aming',
   'bookings.empty.body': 'Magdagdag ng flight, hotel, o aktibidad para simulan ang inbox.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Hotel',
   'bookings.type.other': 'Iba pa',
   'budgetSpendCard.budgetTotal': 'ng {{total}} pinaplano',
+  'budgetSpendCard.overBy': '{{amount}} lampas sa budget',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} kamakailan',
+  'budgetSpendCard.remaining': '{{amount}} natitira',
   'calendar.eyebrow': 'Ang taon na darating',
   'calendar.heading': 'Bawat biyahe ay nasa iisang kalendaryo.',
   'calendar.legendHeading': 'Mga biyahe ngayong buwan',
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'at',
   'common.goToDashboard': 'Pumunta sa Dashboard',
   'dashboard.budgetHeading': 'Pulso ng badyet',
+  'dashboard.empty.body':
+    'Plano ang iyong unang trip at mapupuno ang iyong dashboard ng araw-araw na timeline, budget pulse, at mga booking.',
+  'dashboard.empty.cta': 'Plano ang iyong unang trip',
   'dashboard.empty.heading': 'Wala pang mga biyahe — blangko ang iyong atlas.',
   'dashboard.eyebrow': 'Kontrol ng misyon',
   'dashboard.heading': 'Ang susunod mong pakikipagsapalaran, sa isang tahimik na sulok.',
   'dashboard.newTripCta': 'Magsimula ng bagong biyahe',
+  'dashboard.subheading':
+    'Isang countdown sa susunod na trip, ang spending pulse ngayong araw, at isang sulyap sa bawat itinerary na tumatakbo.',
   'dashboard.tripsHeading': 'Mga biyaheng gumagalaw',
   'dashboard.viewAllExpenses': 'Tingnan ang bawat gastos',
   'dashboard.viewAllTrips': 'Tingnan ang bawat biyahe',
   'dayTimelineRow.category.accommodation': 'Manatili',
+  'dayTimelineRow.category.food': 'Pagkain at inumin',
+  'dayTimelineRow.category.sightseeing': 'Sightseeing',
   'dayTimelineRow.category.transport': 'Transportasyon',
   'destinationOrbCard.exploreCta': 'Idagdag sa isang biyahe',
   'destinationOrbCard.tripCount': '{{count}} mga biyahe',
+  'destinations.empty.body': 'Bumalik sa All at muling lalabas ang mga nahanap ng editor.',
   'destinations.empty.heading': 'Wala pang destinasyon.',
+  'destinations.emptyFiltered.heading': 'Wala pang naka-tag nang ganoon.',
   'destinations.errors.load': 'Hindi ma-load ang mga destinasyon.',
   'destinations.eyebrow': 'Saan susunod',
   'destinations.heading': 'Mga na-save na sulok at mga natuklasan ng editor.',
@@ -71,7 +99,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Nagtitinda',
   'expenses.formHeading': 'Gastos sa pag-log para sa {{trip}}',
   'expenses.heading': 'Kung saan talaga napupunta ang budget ng biyahe.',
+  'expenses.heroBudget': '{{pct}}% ng {{total}} ang nakaplano',
   'expenses.heroEyebrow': '{{trip}} snapshot ng badyet',
+  'expenses.heroNoBudget': 'Wala pang nakatakdang budget sa trip na ito.',
   'expenses.noTrips.body': 'Magplano muna ng biyahe — isama ang mga gastusin sa badyet ng biyahe.',
   'expenses.noTrips.heading': 'Wala pang mga biyahe.',
   'expenses.receiptCount': '{{count}} mga resibo',
@@ -83,12 +113,16 @@ export const ui: UiTranslations = {
     'Ang bawat resibo at kumpirmasyon ay nasa tamang kategorya dito — hindi na kailangan ng spreadsheet.',
   'forgotPassword.eyebrow': 'Ibalik ang iyong itineraryo',
   'forgotPassword.heading': 'Nakalimutan mo ba ang iyong password?',
+  'forgotPassword.subheading':
+    'Ilagay ang email na ginamit mo para sa {{appName}} at magpapadala kami ng link para i-reset ang iyong password.',
   'forgotPassword.submit': 'Magpadala ng email sa pagbawi',
   'forgotPassword.submitPending': 'Nagpapadala ng email sa pagbawi…',
   'forgotPassword.successHint':
     'Wala pang email? Tingnan ang iyong spam folder, o subukan muli gamit ang ibang address.',
   'forgotPassword.successSubheading':
     'Nagpadala kami ng link sa pagbawi sa {{email}} Ang link ay may bisa sa loob ng 30 minuto.',
+  'forgotPassword.tryAgain': 'Magpadala sa ibang email',
+  'landing.cta.eyebrow': 'Magsimula sa free plan',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Gumawa ng libreng account',
   'landing.cta.subheading':
@@ -100,8 +134,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Magsimula ng libreng biyahe',
   'landing.hero.ctaSecondary': 'Tingnan ang isang halimbawang biyahe',
+  'landing.hero.eyebrow': 'Trip planner · {{tagline}}',
   'landing.hero.subtitle':
     'Ginagawang isang nakabahaging itinerary araw-araw ng iyong grupo ang isang folder na puno ng mga planong hindi pa tapos ang pagkakagawa gamit ang Waypoint — gamit ang mga booking, mapa, at badyet na sinusubaybayan sa iisang lugar.',
+  'landing.hero.title': 'Planuhin ito nang isang beses. Maglakad-lakad nang magkasama.',
   'landing.nav.join': 'Magsimula ng libreng biyahe',
   'landing.nav.preview': 'Panloob na Waypoint',
   'landing.preview.cta': 'Magplano ng isa sa iyo',
@@ -109,6 +145,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Ilang biyahe na nililiwaliw ngayon ng mga manlalakbay',
   'login.eyebrow': 'Lugar ng mga Miyembro',
   'login.heading': 'Maligayang pagbabalik, manlalakbay',
+  'login.noAccount': 'Bago sa Tessera?',
   'login.signupLink': 'Gumawa ng libreng account',
   'login.subheading':
     'Mag-sign in para pamahalaan ang iyong mga biyahe, plano sa araw, booking, at mga entry sa journal na nasimulan mo na.',
@@ -119,6 +156,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Hindi ma-update ang notification.',
   'notifications.heading': 'Ano ang mga nagbago sa mga biyahe mo ngayon.',
   'notifications.markUnread': 'Markahan bilang hindi pa nababasa',
+  'notifications.subheading':
+    '{{count}} bago — mga kumpirmasyon ng booking, tala ng collaborator, pagbaba ng pamasahe, at mga paalala.',
   'notifications.time.daysAgo': '{{count}}a nakalipas',
   'notifications.time.hoursAgo': '{{count}}o nakalipas',
   'notifications.time.justNow': 'ngayon lang',
@@ -137,6 +176,7 @@ export const ui: UiTranslations = {
     'Mga konektadong serbisyo, pera, mga push notification, at mga kredensyal na ginagamit mo sa pag-sign in.',
   'signup.and': 'at',
   'signup.eyebrow': 'Sumali sa Waypoint',
+  'signup.haveAccount': 'Naglalakbay na ba?',
   'signup.heading': 'Planuhin ito nang isang beses. Maglakad-lakad nang magkasama.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -148,6 +188,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Bukas na itineraryo',
   'tripCountdownHeroCard.ctaSecondary': 'Magplano ng isa pang biyahe',
   'tripCountdownHeroCard.daysLabel': '{{days}} mga araw na lang',
+  'tripCountdownHeroCard.eyebrow': 'Susunod na pakikipagsapalaran · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} gabi — handa nang maglakbay ang iyong itinerary.',
   'tripCoverCard.stops': '{{count}} mga hinto',
   'tripCoverCard.travelers': '{{count}} mga manlalakbay',
   'tripDetail.addActivity': 'Magdagdag ng aktibidad',
@@ -157,6 +200,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Pamagat ng aktibidad',
   'tripDetail.adding': 'Pagdaragdag',
   'tripDetail.backToTrips': 'Balik sa lahat ng biyahe',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Mga Manlalakbay',
   'tripDetail.dayLabel': 'Araw {{day}}',
   'tripDetail.empty': 'Wala pang aktibidad — magdagdag ng isa para simulan ang timeline.',
@@ -167,14 +211,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Itineraryo • {{country}}',
   'tripDetail.invite': 'Imbitahan',
   'tripDetail.inviteLabel': 'Mag-imbita sa pamamagitan ng email',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'Naipadala ang imbitasyon sa {{email}}.',
   'tripDetail.inviting': 'Nagpapadala',
   'tripDetail.loading': 'Naglo-load ng biyahe',
   'tripDetail.noCollaborators': 'Ikaw lang, sa ngayon.',
+  'tripDetail.notesHeading': 'Mga tala sa trip',
   'tripDetail.notesPlaceholder': 'Wala pang tala.',
   'tripDetail.notFound.heading': 'Hindi natagpuan ang biyahe',
   'tripDetail.openBookings': 'Buksan ang inbox ng mga booking',
   'tripDetail.shareCopied': 'Nakopya na ang link ng pagbabahagi sa clipboard:',
+  'tripDetail.shareReady': 'Handa na ang share link:',
   'tripDetail.stops': '{{count}} mga hinto',
   'tripDetail.timelineEyebrow': 'Timeline ng araw',
   'tripDetail.timelineHeading': 'Plano sa araw-araw',
@@ -192,6 +239,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Mga Manlalakbay',
   'tripPlanner.heading': 'Gumuhit ng isang biyahe sa loob ng wala pang isang minuto.',
   'tripPlanner.preview.eyebrow': 'Live na preview',
+  'tripPlanner.preview.placeholderCountry': 'Pumili ng bansa',
   'tripPlanner.preview.placeholderDestination': 'Ang iyong susunod na pakikipagsapalaran',
   'tripPlanner.section1.title': 'Saan at kailan',
   'tripPlanner.section2.title': 'Mga manlalakbay at badyet',
@@ -203,10 +251,14 @@ export const ui: UiTranslations = {
     'Araw {{day}} — magdagdag ng mga hintuan, transportasyon, at mga booking dito.',
   'tripPlanner.section3.day3':
     'Araw {{day}} — magdagdag ng mga hintuan, transportasyon, at mga booking dito.',
+  'tripPlanner.section3.title': 'Day plan starter',
   'tripPlanner.subheading':
     'Ilagay ang mga pangunahing kaalaman sa ibaba — maaari kang mag-imbita ng mga collaborator anumang oras, mag-drag ng mga stop, at i-forward ang mga booking sa ibang pagkakataon.',
   'tripPlanner.submit': 'Gumawa ng biyahe',
   'tripPlanner.submitting': 'Paglikha…',
+  'trips.empty.body':
+    'Bumalik sa All trips o simulan ang pagpaplano ng iyong susunod na paglalakbay.',
+  'trips.empty.cta': 'Magplano ng biyahe',
   'trips.empty.heading': 'Wala pang tumutugma sa filter na iyan.',
   'trips.eyebrow': 'Ang atlas',
   'trips.filterLabel': 'Salain ang mga biyahe ayon sa status',
@@ -218,6 +270,12 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Wala pang mga biyahe.',
   'trips.pastHeading': 'Mga nakaraang pakikipagsapalaran',
   'trips.subheading': '{{count}} mga itineraryo — nakaraan, kasalukuyan, at balang araw.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading':
+    'Plano ito nang isang beses. Lakbayin ito nang sama-sama. Tandaan ito magpakailanman.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · {{appName}} miyembro mula 2024',
+  'waypointAuthShell.testimonial.quote':
+    'Ginawang {{appName}} ang isang abalang 3-linggong trip sa apat na bansa tungo sa pinaka-relaks na itinerary na naibahagi namin.',
   'waypointLayout.mobileNavClose': 'Isara ang menu ng nabigasyon',
   'waypointLayout.primaryNavLabel': 'Pangunahing navigation',
 }

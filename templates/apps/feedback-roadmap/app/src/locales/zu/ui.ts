@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Unombono, uthole iphutha, noma ufuna ibhodi yakho ku-{{appName}}? Vula Izilungiselelo zakho ukuze uxhumane neqembu — yonke imiyalezo ifinyelela kumuntu wangempela oyifundayo.',
+  'about.contactTitle': 'Xoxa nathi',
+  'about.featureModeration':
+    'I-roadmap yomphakathi enezikhathi zekota, i-changelog eguqula umsebenzi osewenziwe ube ngamanothi okukhishwa, kanye nedashibhodi ekhombisa lokho umphakathi okufuna kakhulu.',
+  'about.featurePricing':
+    'Mahhala ukuqhuba amabhodi ambalwa; izinhlelo ze-Pro ne-Team zivula amabhodi engeziwe, imikhawulo ephezulu, kanye nokuthunyelwa kwedatha ngaphandle.',
+  'about.featureThreads':
+    'Amabhodi ombono womphakathi ahlelwe ngesihloko, anokuhlanganiswa kwezinto eziphindayo okuhlanganisa amavoti abe yisignali eyodwa eqotho yezidingo.',
+  'about.featureVoting':
+    'Ukuvota okukodwa kumsebenzisi ngamunye ngohlelo oluphelele lwesimo — kuvuliwe, kuhleliwe, kuyasebenza, kuthunyelwe, noma kunqatshiwe — kanye nempendulo esemthethweni esinqumweni ngasinye.',
+  'about.intro':
+    'I-{{appName}} iyipulatifomu yombono womkhiqizo — amabhodi omphakathi lapho amakhasimende ethumela izicelo, evotela lokho akudingayo, futhi elandela umqondo ngamunye kusukela kuhleliwe kuze kufike kuthunyelwe. Amaqembu ayeka ukuqagela ukuthi yini okufanele bayakhe ngokulandelayo ngoba isidingo sizibeka ngezinga ngokwaso.',
+  'about.missionBody':
+    'Sikholelwa ukuthi izinqumo ezingcono kakhulu zomkhiqizo zithathwa obala. I-{{appName}} inika iqembu ngalinye ibhodi lomphakathi lezicelo ezivotiwe, i-roadmap esemthethweni enamakota okuqondiswa, kanye ne-changelog evala umjikelezo — ukuze amakhasimende abone umthelela wawo namaqembu abone igunya lawo.',
+  'about.missionTitle': 'Umsebenzi wethu',
   'admin.backToBoards': 'Buyela emabhodi',
   'admin.denied': 'Abaphathi kuphela.',
   'admin.eyebrow': 'Ithimba lomkhiqizo',
@@ -11,6 +27,8 @@ export const ui: UiTranslations = {
   'admin.title': 'Ideshibhodi yempendulo',
   'admin.topOpen': 'Izicelo ezivulekile eziphezulu',
   'admin.totalVotes': '{{count}} isamba',
+  'admin.votesChartLabel':
+    'Ishadi lamabha lamavoti akhishwe ngesonto kumasonto ayisishiyagalombili edlule',
   'admin.votesOverTime': 'Amavoti ngokuhamba kwesikhathi',
   'auth.forgotPassword.email': 'I-imeyili',
   'auth.forgotPassword.sendResetLink': 'Thumela isixhumanisi sokusetha kabusha',
@@ -30,7 +48,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Dala i-akhawunti yakho',
   'auth.username': 'Igama lomsebenzisi',
   'authShell.communities': 'Imiphakathi',
+  'authShell.copyright': 'I-{{appName}} — wonke umuntu ubalulekile.',
   'authShell.trending': 'Okuthandwayo',
+  'boardCard.postCount': 'Okuthunyelwe okungu-{{count}}',
   'boardDetail.allBoards': 'Wonke amabhodi',
   'boardDetail.backToBoards': 'Buyela emabhodi',
   'boardDetail.empty': 'Akukho okuthunyelwe okufana nalezi zihlungi okwamanje.',
@@ -54,6 +74,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Yonke into yangaphakathi yaqala njengesicelo esivotiwe. Abavoti bakubona kuhamba; lapha yilapho kwahlala khona.',
   'changelog.title': 'Kuthunyelelwe, kuneziqinisekiso',
+  'changelog.voteCount': 'Amavoti angu-{{count}} enze lokhu kwakhiwa',
   'common.atLeast8Characters': 'Okungenani izinhlamvu eziyi-8',
   'common.checkYourInbox': 'Bheka ibhokisi lakho lokungenayo',
   'common.loadingEllipsis': 'Iyalayisha…',
@@ -64,6 +85,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Iyathumela…',
   'footer.about': 'Mayelana no-{{appName}}',
   'footer.language': 'Ulimi',
+  'forgotPassword.description':
+    'Faka i-imeyili yakho bese sizokuthumelela isixhumanisi sokusetha kabusha.',
+  'forgotPassword.successBody':
+    'Sithumele isixhumanisi sokusetha kabusha ku- {{email}} Iphelelwa yisikhathi ngemizuzu engama-30.',
   'forgotPassword.tryAnother': 'Zama i-imeyili ehlukile',
   'form.displayName': 'Igama lokubonisa',
   'form.firstName': 'Igama',
@@ -74,6 +99,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'Ihlelo lomsebenzi lakho, lisekelwe ngamavoti.',
   'landing.heroCtaPrimary': 'Qala ukuqoqa amavoti',
   'landing.heroCtaSecondary': 'Bona ibhodi eliphilayo',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Yeka ukuqagela. Thumela lokho abakuvotelayo.',
+  'landing.heroLede':
+    'I-{{appName}} iguqula izicelo zezici ezihlakazekile zibe ibhodi lomphakathi lemibono evotiwe, i-roadmap esemthethweni, kanye ne-changelog amakhasimende akho ayifundayo ngempela.',
   'landing.heroStat1': '3,200+',
   'landing.heroStat1Label': 'Amathimba alalalela',
   'landing.heroStat2': '1.4m',
@@ -85,9 +114,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Uhlu lwezinguquko',
   'landing.navJoin': 'Joyina i-{{appName}}',
   'landing.navRoadmap': 'Ihlelo lomsebenzi',
+  'landing.step1Body':
+    'Amakhasimende athumela imibono kumabhodi omphakathi. Okuphendayo kuyahlanganiswa, amavoti ahlangana, futhi isidingo sizibeka ngezinga ngokwaso.',
   'landing.step1Title': 'Qoqa',
+  'landing.step2Body':
+    'Maka izicelo njengezihleliwe noma ezisebenzayo ngekota eqondiwe — i-roadmap iyazibuyekeza ngokushesha uma wenza lokho.',
+  'landing.step2Title': 'Ukuzibophezela',
   'landing.step3Body':
     'Okuthunyelwe okuthunyelelwe kuba yizingeno zohlu lwezinguquko, futhi wonke umvoti ubona umphumela ohlwini lwakhe.',
+  'landing.step3Title': 'Thumela',
   'landing.topSubtitle': 'Kuphila kule bhodi — ngena ngemvume ukuze ungeze ivoti lakho.',
   'landing.topTitle': 'Okucela abasebenzisi okwamanje',
   'landing.topViewAll': 'Wonke amabhodi',
@@ -95,14 +130,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Okuyinhloko',
   'layout.signUp': 'bhalisela',
   'layout.submit': 'Thumela impendulo',
+  'login.description': 'Qhubeka lapho ingxoxo igcine khona.',
+  'login.heading': 'Ngena ngemvume ku-Nimbus',
+  'login.noAccount': 'Kusha lapha?',
   'login.passwordPlaceholder': 'Iphasiwedi yakho',
   'login.twoFactorLabel': 'Ikhodi ye-2FA (ongakhetha ukuyisebenzisa)',
   'login.twoFactorPlaceholder': 'Ikhodi yamadijithi ayi-6',
+  'login.twoFactorRequiredHint':
+    'Le akhawunti inokufakazela ubuqiniso kwezinto ezimbili kusebenza. Faka ikhodi enamadijithi angu-6 evela kuhlelo lwakho lokufakazela ubuqiniso ukuze uqhubeke.',
   'login.twoFactorRequiredLabel': 'Faka ikhodi yakho ye-2FA',
+  'myActivity.browseCta': 'Phequlula amabhodi',
+  'myActivity.emptyPosts': 'Awukathumeli sicelo okwamanje.',
+  'myActivity.emptyVotes': 'Akukho okwamanje — phendla amabhodi futhi usekele umbono.',
   'myActivity.eyebrow': 'Umsebenzi wakho',
   'myActivity.loadError': 'Ayikwazanga ukulayisha umsebenzi wakho.',
   'myActivity.postsTitle': 'Izicelo ozithumulile',
+  'myActivity.shippedNote': '{{count}} kuzo zithunyelwe — ngiyabonga ngokukhuthaza.',
   'myActivity.submitCta': 'Thumela isicelo',
+  'myActivity.tabLabel': 'Buka',
   'myActivity.tabPosts': 'Okuthunyelwe kwami',
   'myActivity.tabVotes': 'Amavoti ami',
   'myActivity.votesTitle': 'Izicelo ozivotele',
@@ -138,8 +183,13 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Okuthunyelwe akutholakalanga',
   'postsAdmin.backToDashboard': 'Ideshibhodi',
   'postsAdmin.eyebrow': 'Ithimba lomkhiqizo',
+  'postsAdmin.mergeApplied':
+    'Kuhlanganisiwe — amavoti angu-{{votes}} namazwana angu-{{comments}} kusiwe.',
   'postsAdmin.mergeApply': 'Hlanganisa & hambisa amavoti',
   'postsAdmin.mergeChoose': 'Khetha okuthunyelwe okuyisikhombe…',
+  'postsAdmin.mergeFailed': 'Ukuhlanganisa kwehlulekile.',
+  'postsAdmin.mergeHint':
+    'Amavoti ayahlangana (elilodwa kumsebenzisi ngamunye), amazwana ayasuswa, futhi le posi ithola inothi elithi "kusiwe".',
   'postsAdmin.mergeLabel': 'Hlanganisa okuphindaphindayo kuya ku',
   'postsAdmin.responseLabel': 'Impendulo esemthethweni',
   'postsAdmin.responsePlaceholder':
@@ -155,7 +205,13 @@ export const ui: UiTranslations = {
     'Setha isimo esisemthethweni, phendula esidlangalaleni, lebula ikota yehlelo lomsebenzi, futhi hlanganisa okuphindaphindayo.',
   'postsAdmin.title': 'Phatha okuthunyelwe kwempendulo',
   'postsAdmin.votes': '{{count}} amavoti',
+  'pricing.limits.advancedFeatures': 'Izici ezithuthukisiwe:',
+  'pricing.limits.boards': '{{count}} amabhodi',
   'pricing.limits.export': 'Ukuthekelisa idatha:',
+  'pricing.limits.posts': 'Amaposi ombono angu-{{count}}',
+  'pricing.limits.votes': '{{count}} amavoti',
+  'resetPassword.description':
+    'Khetha eqinile. Sizokungenisa ngemvume uma ukusetha kabusha sekuphumelele.',
   'resetPassword.newPasswordLabel': 'Iphasiwedi entsha',
   'resetPassword.tokenPlaceholder': 'Namathisela ithokheni yesixhumanisi',
   'roadmap.cardMeta': 'ngu-{{author}} · {{board}}',
@@ -172,6 +228,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'Thayipha umbuzo ukuze uthole izicelo ezikhona ngaphambi kokuthumela okuphindaphindayo.',
   'search.loadError': 'Ukusesha kuhlulekile — zama futhi.',
+  'search.searching': 'Iyasesha…',
   'search.submit': 'Sesha',
   'search.submitNew': 'Kuthumele njengesicelo esisha',
   'search.title': 'Sesha impendulo',
@@ -180,12 +237,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'Ukukhokha',
   'settings.displaySubtitle': 'Khetha ukuthi izindaba zizwa kanjani.',
   'settings.displayTitle': 'Ukubonisa',
+  'settings.emailDigestDesc': 'Izicelo ezivulekile ezivotelwa phezulu njalo ngoMsombuluko.',
+  'settings.emailDigestLabel': 'Inhlolovo yamasonto onke',
+  'settings.emailMentionsDesc': 'Uma othile ephendula iposi olilandelayo.',
+  'settings.emailMentionsLabel': 'Ngithumele i-imeyili lapho ngikhulunywa',
+  'settings.emailRepliesDesc': 'Izingxoxo oziqalile noma oziphendulile.',
+  'settings.emailRepliesLabel': 'Ngithumelele i-imeyili uma uphendula',
   'settings.loadError': 'Akukwazanga ukulayisha i-akhawunti yakho.',
   'settings.loading': 'Kulayisha izilungiselelo zakho…',
   'settings.notifications': 'Izaziso',
   'settings.notificationsSubtitle':
     'Nquma ukuthi yini efinyelela ebhokisini lakho lokungenayo vs idivayisi yakho yokuphushelayo.',
+  'settings.pushRepliesLabel': 'Push for replies',
+  'settings.pushVotesDesc': 'Umsindo womkhawulo ku-100, 500, 1000.',
+  'settings.pushVotesLabel': 'Cindezela ukuthola amaphuzu abalulekile okuvota',
   'settings.saveAccount': 'Londoloza i-akhawunti',
+  'settings.showFlair': 'Bonisa amachiphu ebhodi kumaposi',
+  'settings.showThumbnails': 'Bonisa izithonjana zesixhumanisi/isithombe',
   'settings.usernamePlaceholder': 'Khetha igama lokubamba',
   'signup.confirmPlaceholder': 'Thayipha futhi',
   'signup.description': 'Bopa esikwakhayo okulandelayo.',

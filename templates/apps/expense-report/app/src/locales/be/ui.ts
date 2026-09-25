@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пытанні, водгукі ці пажаданні да функцый? Звяжыцеся з камандай {{app}} праз Налады → Апавяшчэнні або напішыце нам у любы час — кожнае паведамленне трапляе да жывога чалавека.',
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
+  'about.featureCapture':
+    'Захоп чэкаў з загрузкай фота, якая далучае выявы да патрэбнай выдаткі, радок за радком.',
+  'about.featureExport':
+    'Аўдытаваныя экспарты CSV кожнай справаздачы, выдаткі і стану зацвярджэння — гатовыя для вашай бухгалтэрыі.',
+  'about.featurePolicy':
+    'Абмежаванні палітыкі — дзённыя ліміты, ліміты па катэгорыях і парогі абавязковага чэка, якія правяраюцца падчас падачы.',
+  'about.featureWorkflow':
+    'Двухузроўневы працэс зацвярджэння з заўвагамі рэцэнзента, сцяжкамі парушэння палітыкі і адзначэннем кампенсацыі ў адно дотыкам.',
+  'about.intro':
+    '{{app}} — гэта платформа кіравання выдаткамі для фінансавых каманд і людзей, якім яны кампенсуюць выдаткі. Захапіце чэк, аформіце выдаткі, адпраўце справаздачу на зацвярджэнне і адсочвайце кожную кампенсацыю — без цырымоніі з табліцамі.',
+  'about.missionBody':
+    'Кампенсацыя павінна быць хуткай, справядлівай і аўдытаванай. Мы стварылі {{app}}, каб тыя, хто падае, атрымлівалі грошы назад без нагадванняў, зацвярджальнікі бачылі менавіта тое, што падпісваюць, а фінансы мелі чысты след для кожнага долара — з праверкамі палітыкі і ўсім астатнім.',
+  'about.missionTitle': 'Наша місія',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Ухваленне…',
   'approvals.confirmReject': 'Пацвердзіць адхіленне',
+  'approvals.empty': 'Вы ўсё разгледзелі — няма справаздач, якія чакаюць.',
   'approvals.eyebrow': 'Чарга мэнэджара',
   'approvals.kpi.flaggedLabel': 'Палітыка пазначана як пазначаная',
+  'approvals.kpi.queueLabel': 'Чакае разгляду',
   'approvals.kpi.totalLabel': 'Чакаецца значэнне',
   'approvals.lineCount': '{{count}} выдаткі',
   'approvals.queueFallback':
     'Чарга жывога відэа недаступная — паказваюцца адмыслова падабраныя дэманстрацыйныя дадзеныя.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Адхіленне…',
+  'approvals.rejectPlaceholder': 'Прычына (абавязкова)',
   'approvals.rejectPrompt': 'Чаму вы адхіляеце гэты даклад?',
   'approvals.review': 'Агляд',
   'approvals.title': 'Чакаюць зацвярджэнняў',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Зацверджана · MTD',
   'dashboard.kpi.pendingDelta': '+2 на гэтым тыдні',
+  'dashboard.kpi.pendingLabel': 'Чакаецца разгляду',
   'dashboard.kpi.receiptsDelta': 'Патрабуюцца дзеянні',
   'dashboard.kpi.receiptsLabel': 'Чакаюцца квітанцыі',
   'dashboard.kpi.reimbursedDelta': '+2,4 тыс. долараў ЗША',
   'dashboard.kpi.reimbursedLabel': 'Кампенсавана · MTD',
   'dashboard.newReport': 'Новая справаздача',
+  'dashboard.recent.empty': 'Пакуль няма справаздач — стварыце першую вышэй.',
   'dashboard.recent.title': 'Нядаўнія справаздачы',
   'dashboard.recent.viewAll': 'Паглядзець усе справаздачы',
   'dashboard.summaryFallback':
@@ -41,11 +62,19 @@ export const ui: UiTranslations = {
   'expenses.listFallback':
     'Спіс у рэжыме рэальнага часу недаступны — паказваюцца адмыслова падабраныя дэма-дадзеныя.',
   'expenses.searchPlaceholder': 'Пошук прадаўца або катэгорыі…',
+  'expenses.subtotal': 'Выдаткі {{count}} · субітал',
   'expenses.title': 'Выдаткі',
+  'forgotPassword.continue': 'У мяне ёсць код · Працягнуць',
+  'forgotPassword.subheading':
+    'Увядзіце сваю працоўную пошту, і мы дашлём спасылку для ўсталявання новага пароля.',
   'forgotPassword.successBody':
     'Калі ўліковы запіс існуе для {{email}} Вы атрымаеце спасылку для скіду налад праз некалькі хвілін.',
+  'landing.copyright': '© {{year}} {{app}}. Створана з Molecule.dev.',
+  'landing.ctaBody':
+    'Бясплатна для першых 25 выдаткаў кожны месяц. Без крэдытнай карты, без установачнага званка.',
   'landing.ctaHeading': 'Гатовыя вярнуць запазычанасць вашай камандзе?',
   'landing.eyebrow': 'Справаздачы аб выдатках для фінансавых каманд',
+  'landing.featuresHeading': 'Кампенсацыя ў адной спакойнай прасторы',
   'landing.heroSubtitle':
     'Адпраўка, зацвярджэнне і кампенсацыя бізнес-выдаткаў без цырымоніі з электроннымі табліцамі. Аптычнае распазнаванне сімвалаў, праверкі палітык і празрысты графік зацвярджэння — усё ў адным спакойным працоўным месцы.',
   'landing.heroTitle': 'Кожны чэк быў вернуты.',
@@ -63,10 +92,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Заўвагі',
   'newExpense.descriptionPlaceholder':
     'Чаму гэтыя выдаткі былі звязаныя з бізнесам (бачна вашаму зацвярджальніку).',
+  'newExpense.eyebrow': 'Кампенсаваная пазіцыя',
   'newExpense.merchant': 'Прадавец',
   'newExpense.merchantPlaceholder': 'Гатэль Адлон Кемпінскі',
   'newExpense.policyHint':
     'Напамін: для абедаў коштам больш за 80 долараў ЗША ў дзень або любых тавараў коштам больш за 250 долараў ЗША патрабуецца абгрунтаванне.',
+  'newExpense.receipt': 'Квітанцыя',
+  'newExpense.receiptHint': 'JPG, PNG або PDF · макс. 10 МБ',
   'newExpense.receiptOcrHint': 'OCR папярэдне запаўняе палі',
   'newExpense.receiptPrompt': 'Перацягніце сюды фота ці PDF-файл, альбо націсніце, каб праглядзець',
   'newExpense.receiptUploadFailed':
@@ -77,17 +109,21 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Зрабіце здымак або загрузіце чэк, і Recoup загадзя запоўніць інфармацыю пра прадаўца, дату і агульную суму. Пацвердзіце ўсё ніжэй перад захаваннем.',
   'newExpense.title': 'Дадаць выдаткі',
+  'newReport.approverHint':
+    'Яны атрымаюць электронны ліст, калі вы адправіце гэтую справаздачу на разгляд.',
   'newReport.approverLabel': 'Адрас электроннай пошты асобы, якая зацвярджае (неабавязкова)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'Даступныя выдаткі',
   'newReport.createFailed': 'Не атрымалася стварыць справаздачу. Паўтарыце спробу.',
   'newReport.draftsFallback':
     'Спіс выдаткаў у рэжыме рэальнага часу недаступны — паказваюцца падабраныя дэма-дадзеныя.',
+  'newReport.eyebrow': 'Групаваць выдаткі · адправіць на зацвярджэнне',
   'newReport.includedCount': '{{count}} уключаны',
   'newReport.purposeLabel': 'Дзелавая мэта',
   'newReport.purposePlaceholder':
     'Апішыце паездку або праект, да якога адносяцца гэтыя выдаткі (гэта павінна быць бачна вашай асобе, якая зацвярджае выдаткі, і фінансоваму аддзелу).',
   'newReport.saveDraft': 'Захаваць як чарнавік',
+  'newReport.saveDraftFailed': 'Не ўдалося захаваць чарнавік. Паспрабуйце яшчэ раз.',
   'newReport.submit': 'Адправіць на зацвярджэнне',
   'newReport.submitFailed': 'Не атрымалася адправіць справаздачу. Паўтарыце спробу.',
   'newReport.summary': 'Кароткі змест справаздачы',
@@ -101,17 +137,24 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Жывая стужка недаступная — паказваюцца падабраныя дэманстрацыйныя дадзеныя.',
   'notifications.openReport': 'Адкрыць справаздачу ›',
+  'pricing.approvalsLabel': 'зацвярджэнні',
   'pricing.expensesLabel': 'выдаткі',
   'pricing.heading': 'зацвярджэнні',
   'pricing.policiesLabel': 'палітыка',
   'pricing.receiptsLabel': 'квітанцыі',
   'recoveredAmountHeroCard.label': 'Кампенсацыя спагнана · з пачатку года',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} справаздач(ы) зараз чакаюць разгляду ў усіх зацвярджальнікаў.',
+  'reports.approvalFlow': 'Працэс зацвярджэння',
   'reports.backToList': 'Назад да справаздач',
   'reports.detailFallback':
     'Справаздача ў рэжыме рэальнага часу недаступная — паказваюцца падабраныя дэманстрацыйныя дадзеныя.',
   'reports.lineItems': 'Пазіцыі',
   'reports.lineItemsCount': '{{count}} выдаткі',
+  'reports.lineItemsEmpty': 'На гэтай справаздачы пакуль няма выдаткаў.',
+  'reports.openLibrary': 'Адкрыць бібліятэку справаздач',
   'reports.policyTitle': 'Палітычны сцяг',
+  'reports.selectPrompt': 'Выберыце справаздачу з бібліятэкі, каб убачыць яе дэталі.',
   'reports.summary.lineCount': 'Пазіцыі',
   'reports.summary.reimbursable': 'Кампенсуецца',
   'reports.summary.total': 'Паведамляецца агульная сума',
@@ -121,6 +164,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Спіс у рэжыме рэальнага часу недаступны — паказваюцца адмыслова падабраныя дэма-дадзеныя.',
   'reportsList.newReport': 'Новая справаздача',
+  'reportsList.submittedOn': 'Адпраўлена {{date}}',
   'reportsList.title': 'Бібліятэка справаздач',
   'resetPassword.hidePassword': 'Схаваць пароль',
   'resetPassword.newPasswordLabel': 'Новы пароль',
@@ -146,6 +190,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Захавана ✓',
   'settings.profileSaveFailed': 'Не атрымалася абнавіць профіль. Паўтарыце спробу.',
   'signup.heading': 'Стварыце свой уліковы запіс Recoup',
+  'signup.hidePassword': 'Схаваць пароль',
   'signup.namePlaceholder': 'Мая Окафор',
   'signup.showPassword': 'Паказаць пароль',
   'signup.subheading': 'Бясплатна 25 выдаткаў штомесяц — без крэдытнай карты.',

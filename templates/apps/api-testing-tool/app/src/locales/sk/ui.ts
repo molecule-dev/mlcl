@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Našli ste chybu, máte návrh na funkciu alebo nám chcete povedať, čo máme vytvoriť ďalej? Napíšte na hello@pylon.dev — každá správa sa dostane k skutočnému inžinierovi v tíme.',
   'about.contactTitle': 'Kontaktujte nás',
+  'about.intro':
+    '{{app}} je rýchly, na klávesnici orientovaný nástroj na testovanie API pre inžinierov, ktorí žijú v termináli — požiadavky v štýle Postman, kolekcie, prostredia a história bez zbytočností.',
+  'about.missionBody':
+    'API sú chrbtovou kosťou moderného softvéru, no nástroje na ich testovanie sú pomalé, preplácané a ovládané myšou. {{app}} existuje, aby dal vývojárom ostrý, rýchly nástroj na úrovni terminálu: odosielajte požiadavky, získajte istotu a nasadzujte bez opustenia klávesnice.',
+  'about.missionTitle': 'Naše poslanie',
   'about.pageTitle': 'O aplikácii {{app}}',
   'authShell.statusLabel': 'bežci online',
   'collections.createError': 'Nepodarilo sa vytvoriť kolekciu.',
   'collections.defaultName': 'Nepomenovaná kolekcia {{n}}',
+  'collections.empty':
+    'Zatiaľ žiadne kolekcie — kliknutím na „Nová kolekcia“ vytvorte svoj prvý priečinok.',
   'collections.eyebrow': '$ pylon kolekcie --tree',
   'collections.fetchError': 'Nepodarilo sa načítať kolekcie.',
   'collections.heading': 'Kolekcie',
   'collections.loading': 'Načítavajú sa kolekcie…',
+  'collections.metric.allGreen': 'Všetko v poriadku',
   'collections.metric.collections': 'Kolekcie',
   'collections.metric.failing': 'Zlyhanie',
   'collections.metric.failingCaption': 'Posledný beh mal zlyhania',
@@ -24,6 +34,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Premenné',
   'environments.createError': 'Nepodarilo sa vytvoriť prostredie.',
   'environments.defaultName': 'Nepomenované prostredie {{n}}',
+  'environments.empty': 'Zatiaľ žiadne prostredia — kliknutím na „Nové prostredie“ pridajte jedno.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'Nepodarilo sa načítať prostredia.',
   'environments.heading': 'Prostredia',
@@ -31,8 +42,11 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Nové prostredie',
   'environments.subheading':
     'Premenné, ktoré sa pri odosielaní premieňajú na požiadavky. Jedno aktívne prostredie na pracovný priestor.',
+  'forgotPassword.statusLabel': 'vynulovať · zabezpečený tunel',
   'forgotPassword.success':
     'Ak pre daný e-mail existuje účet, odkaz na obnovenie je už na ceste. Skontrolujte si doručenú poštu.',
+  'history.empty':
+    'Zatiaľ tu nič nie je — odošlite svoju prvú požiadavku na karte Pracovný priestor.',
   'history.eyebrow': 'história $ pylonu --tail',
   'history.fetchError': 'Nepodarilo sa načítať históriu.',
   'history.heading': 'História behov',
@@ -41,9 +55,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Posledných 50',
+  'history.realtime': 'v reálnom čase',
   'history.subheading':
     'Každá požiadavka spustená v tomto pracovnom priestore so stavom, latenciou a veľkosťou užitočného zaťaženia.',
   'landing.choosePlan': 'Vyberte si balík',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Forge confidence.',
   'landing.ctaBody':
     'Žiadna kreditná karta. Nie je potrebný žiadny platformový inžinier. Otvorte ⌘K a odošlite svoju prvú požiadavku za menej ako päť minút.',
   'landing.ctaHeading': 'Vytvorte si sebavedomie.',
@@ -86,6 +102,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Priemerná latencia',
   'mocks.metric.live': 'Verejné',
   'mocks.metric.servers': 'Výsmechy',
+  'mocks.ms': 'pani',
   'mocks.newMock': 'Nový maketa',
   'mocks.online': 'Verejné',
   'mocks.paused': 'Súkromné',
@@ -110,9 +127,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Zdravé',
   'monitors.metric.uptime': 'Priemerná doba prevádzkyschopnosti',
   'monitors.newMonitor': 'Nový monitor',
+  'monitors.paused': 'pozastavené',
   'monitors.run': 'Spustiť',
   'monitors.runError': 'Spustenie bolo ukončené so sieťovou chybou: {{error}}',
+  'monitors.runFailed': 'Spustenie zlyhalo.',
   'monitors.running': 'Beží…',
+  'monitors.runSuccess': 'Spustenie {{status}} — upstream vrátil {{code}} za {{ms}} ms.',
   'monitors.sparkLabel': 'Trend latencie',
   'monitors.subheading':
     'Kontroly na požiadanie pre všetky uložené testy. Vytvorte väzbu testu, kliknite na Spustiť a sledujte 24-hodinovú aktualizáciu miery úspešnosti pri každom spustení.',
@@ -121,27 +141,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Dostupnosť · 24 hodín',
   'nav.legal': 'Právne',
   'notFound.backToWorkspace': 'Späť do pracovného priestoru',
+  'notFound.body':
+    '{{app}} odoslal požiadavku na túto URL a nič nedostal späť. Skontrolujte trasu alebo sa vráťte do pracovného priestoru.',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Trasa sa nenašla',
+  'planUpdated.body':
+    'Zmena fakturácie je teraz aktívna. Svoj plán môžete kedykoľvek spravovať na stránke fakturácie.',
+  'planUpdated.retry': 'Skúste to znova',
+  'planUpdated.verifyFailed': 'Vašu platbu sme zatiaľ nemohli potvrdiť.',
+  'planUpdated.verifyFailedBody':
+    'Vaša platba sa možno stále spracováva. Skúste to znova o chvíľu.',
   'planUpdated.verifying': 'Potvrdzujem vašu platbu…',
+  'pricing.advancedFeatures': 'Rozšírené funkcie: {{yes}}',
+  'pricing.canExport': 'Export údajov: {{yes}}',
+  'pricing.heading': 'Vyberte si svoj {{app}} plán',
+  'pricing.maxCollections': '{{count}} kolekcií',
+  'pricing.maxEnvironments': '{{count}} prostredí',
+  'pricing.maxHistory': '{{count}} záznamov histórie',
+  'pricing.maxRequests': '{{count}} žiadosti',
   'privacy.collect.account':
     'Účet: váš e-mail, hašované heslo, zobrazované meno a časová pečiatka vášho posledného prihlásenia.',
+  'privacy.intro':
+    '{{app}} rešpektuje vaše súkromie. Táto stránka zhrňuje údaje, ktoré zhromažďujeme, prečo ich zhromažďujeme a ako ich odstrániť.',
   'privacy.rights.body':
     'Svoje kolekcie a prostredia môžete kedykoľvek exportovať alebo svoj účet môžete odstrániť z nastavení, čím natrvalo odstránite všetky údaje do 30 dní.',
   'privacy.share.body':
     'Iba vy. Obsah vášho pracovného priestoru nikdy nepredávame, nezdieľame ani neprenajímame tretím stranám. Serverové protokoly sa uchovávajú 30 dní pre účely reakcie na incidenty a potom sa vymažú.',
   'privacy.title': 'Oznámenie o ochrane osobných údajov',
+  'profile.bio':
+    'Váš osobný pracovný priestor {{app}} — pripnite kolekcie, zdieľajte prostredia a monitorujte API, ktoré dodávajú produkt.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'pridal sa {{when}}',
+  'profile.metric.collections': 'Kolekcie',
   'profile.metric.monitors': 'Monitory',
   'profile.metric.requests': 'Uložené žiadosti',
+  'profile.noActivity':
+    'Zatiaľ nebola odoslaná žiadna požiadavka — prejdite na kartu Pracovný priestor a vytvorte ju.',
   'profile.signedOut': 'Prihláste sa pre zobrazenie svojho profilu',
   'pylonShell.primaryNavLabel': 'Hlavná navigácia',
+  'resetPassword.passwordLabel': 'Nové heslo',
+  'resetPassword.statusLabel': 'vynulovať · token overený',
   'resetPassword.subtitle': 'Zvoľte si silné heslo, ktoré ste doteraz nepoužívali.',
   'resetPassword.tokenPlaceholder': 'text z e-mailu',
+  'settings.accountManagement.desc':
+    'Aktualizujte svoj e-mail a heslo, spravujte oznámenia a zariadenia, odhláste sa alebo odstráňte svoj účet.',
+  'settings.accountManagement.title': 'Účet a zabezpečenie',
   'settings.eyebrow': '$ nastavenia pylonu --upraviť',
   'settings.fetchError': 'Nepodarilo sa načítať nastavenia.',
   'settings.language.title': 'Jazyk',
+  'settings.seeding': 'Inicializuje sa…',
   'settings.seedStarter': 'Obsah štartéra',
   'settings.starterCollection': 'Štartovacia kolekcia',
   'settings.starterCollectionDesc': 'Vytvorené z nastavení dňa {{ts}}',
@@ -155,6 +203,8 @@ export const ui: UiTranslations = {
     'Zodpovedáte za ochranu svojho hesla. Zdieľanie jedného účtu s viacerými ľuďmi nie je povolené v rámci plánov Free alebo Pro – pre zdieľané pracovné priestory si zakúpte tímové predplatné.',
   'terms.billing.body':
     'Platené predplatné sa automaticky obnovuje v každom fakturačnom období. Môžete ho kedykoľvek zrušiť v Nastaveniach; váš prístup zostáva do konca aktuálneho obdobia.',
+  'terms.intro':
+    'Vytvorením účtu {{app}} súhlasíte s nižšie uvedenými podmienkami. Prečítajte si ich raz; neprekvapíme vás spätnými zmenami.',
   'terms.title': 'Podmienky používania',
   'terms.usage.body':
     'Nepoužívajte Pylon na odosielanie požiadaviek na služby, ktoré nevlastníte alebo na ich testovanie nemáte výslovné povolenie. Nepoužívajte Pylon na obchádzanie limitov frekvencie alebo na páchanie podvodov.',
@@ -175,16 +225,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Nespustené',
   'testRunner.metric.passed': 'Schválené',
   'testRunner.never': 'Nikdy nebehať',
+  'testRunner.newTest': 'Nový test',
   'testRunner.noAssertions': 'Zatiaľ žiadne tvrdenia o tomto teste.',
+  'testRunner.noRunsYet':
+    'Zatiaľ žiadne spustenia — kliknutím na „Spustiť všetko“ naplňte históriu.',
   'testRunner.passed': 'prechádzajúci',
+  'testRunner.recentRuns': 'Nedávne behy',
   'testRunner.runAll': 'Spustiť všetko',
   'testRunner.running': 'Beží…',
   'testRunner.runOne': 'Spustiť',
   'testRunner.subheading': 'Výsledky balíka, rozdiely v tvrdeniach a posledných 50 behov.',
+  'testRunner.suites': 'Sady',
   'userMenu.shortcut': '⌘Ľ',
   'userMenu.signedInAs': 'Prihlásený ako',
   'workspace.auth.keyName': 'Názov záhlavia',
   'workspace.auth.keyValue': 'Hodnota kľúča',
+  'workspace.auth.noneHint': 'S touto požiadavkou nebude odoslaná žiadna autorizačná hlavička.',
   'workspace.auth.password': 'Heslo',
   'workspace.auth.username': 'Používateľské meno',
   'workspace.authOption.apikey': 'Kľúč API',
@@ -194,13 +250,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Typ',
   'workspace.authTypeLabel': 'Typ autorizácie',
+  'workspace.body.contentLabel': 'Telo požiadavky',
+  'workspace.body.hint':
+    '{{envVars}} sa nahradia pred odoslaním požiadavky. Telá sa odosielajú pri POST/PUT/PATCH/DELETE.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Žiadne',
+  'workspace.body.noneHint':
+    'Nebude odoslané žiadne telo požiadavky. Vyberte JSON alebo surový text a pridajte ho.',
   'workspace.body.text': 'Neformátovaný text',
   'workspace.body.type': 'Typ',
   'workspace.environment': 'Žiadne prostredie',
   'workspace.envVar': 'premenná prostredia',
   'workspace.eyebrow': '$ pylon pracovný priestor --rozdeliť panel',
+  'workspace.failedCount': '{{count}} neúspešný',
+  'workspace.idle': 'Nečinnosť',
   'workspace.kv.addHeader': 'Pridať hlavičku',
   'workspace.kv.addParam': 'Pridať parameter',
   'workspace.kv.headerKey': 'Názov záhlavia',
@@ -213,12 +276,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'Metóda HTTP',
   'workspace.metric.latency': 'Oneskorenie',
   'workspace.metric.latencyCaption': 'Spiatočná cesta z tejto jazdy',
+  'workspace.metric.size': 'Payload',
   'workspace.metric.sizeCaption': 'Bajty tela odpovede',
   'workspace.metric.statusCaption': 'Posledná odpoveď',
   'workspace.metric.tests': 'Testy',
+  'workspace.metric.testsAllPassing': 'Všetky tvrdenia v poriadku',
   'workspace.metric.testsFailing': '{{count}} zlyhanie',
+  'workspace.metric.testsIdle': 'Odoslaním požiadavky spustíte vyhodnotenie',
   'workspace.noAssertions': 'Spustite požiadavku na vyhodnotenie vstavaných tvrdení.',
   'workspace.noResponseYet': 'Zatiaľ žiadna odpoveď',
+  'workspace.passedCount': '{{count}} schválené',
   'workspace.responseHint':
     '// Stlačením tlačidla Odoslať spustíte požiadavku a zachytíte odpoveď.',
   'workspace.saveError': 'Žiadosť sa nepodarilo uložiť.',
@@ -228,10 +295,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Vytvorte požiadavku, spustite ju a potom potvrďte odpoveď – všetko v jednom paneli.',
   'workspace.testResults': 'Výsledky testov',
+  'workspace.tests.autoHint':
+    'Rodina stavov, latencia, veľkosť tela a zdravie prenosu sa overujú automaticky — výsledky sa zobrazia v časti „Výsledky testov“ v paneli odpovede.',
+  'workspace.tests.autoTitle': 'Vstavané tvrdenia sa spúšťajú pri každej odpovedi',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Odoslané ako autorizácia: Doručiteľ<token> na každú požiadavku v tejto kolekcii.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Žiadosť bez názvu',
+  'workspace.urlLabel': 'URL požiadavky',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

@@ -5,7 +5,13 @@ export const ui: UiTranslations = {
     "Oes gennych chi adborth, cais am nodwedd, neu wedi dod o hyd i nam? Cysylltwch â thîm {{app}} drwy'r ddolen gymorth yn newislen eich cyfrif — mae pob neges yn mynd at fod dynol go iawn.",
   'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Ynglŷn â',
+  'about.intro':
+    "Mae {{app}} yn gynorthwyydd AI lleisiol brodorol. Siaradwch yn naturiol, gwyliwch eich geiriau'n troi'n destun, a chewch atebion llafar yn ôl — fel y gallwch feddwl yn uchel yn lle teipio popeth.",
+  'about.missionBody':
+    "Mae teipio'n rhwystr rhwng eich syniadau a'u cael allan. Mae {{app}} yn bodoli i'w ddileu: ffordd law-rydd, sgwrsiol i gynllunio, drafftio a phenderfynu — wedi'i bweru gan fodelau lleferydd a rhesymu o'r radd flaenaf, gyda'ch data'n cael ei gadw'n breifat.",
+  'about.missionTitle': 'Ein cenhadaeth',
   'agentDetail.back': 'Pob asiant',
+  'agentDetail.behavior': 'Ymddygiad',
   'agentDetail.capabilities': 'Galluoedd',
   'agentDetail.delete': 'Dileu persona',
   'agentDetail.deleteConfirm': "Dileu'r persona hwn? Ni ellir dadwneud hyn.",
@@ -38,15 +44,20 @@ export const ui: UiTranslations = {
   'agents.subtitle':
     'Mae gan bob asiant ei naws, tempo ac arbenigedd ei hun. Newidiwch unrhyw bryd yng nghanol sgwrs.',
   'agents.title': 'Dewiswch lais i feddwl ag ef.',
+  'authShell.tagline': '{{tagline}} — {{brand}}',
+  'billing.cardNoneBody':
+    "Ychwanegwch un pan fyddwch yn uwchraddio — Stripe sy'n ymdrin â'r holl storio.",
   'billing.cardNoneTitle': 'Dim cerdyn ar ffeil',
   'billing.choose': 'Newid',
   'billing.currentPlan': 'Eich cynllun',
   'billing.currentPlanReadout': '{{plan}} cynllun',
   'billing.eyebrow': 'Cynllun a defnydd',
   'billing.fetchError': 'Methwyd llwytho gwybodaeth bilio.',
+  'billing.loadingStatus': 'Yn llwytho statws…',
   'billing.noTiers': 'Dim cynlluniau ar gael ar hyn o bryd.',
   'billing.plansTitle': 'Cynlluniau',
   'billing.switching': 'Yn newid…',
+  'billing.updateAcknowledged': "Diweddariad wedi'i gydnabod am {{time}}",
   'billing.updateError': "Methwyd dechrau'r diweddariad.",
   'billing.usageHeading': 'Defnydd llais y cylch hwn',
   'chatBubble.source.text': 'testun',
@@ -65,12 +76,14 @@ export const ui: UiTranslations = {
   'conversation.title': 'Siaradwch amdano',
   'conversation.toggleMic': 'Togglo meicroffon',
   'conversation.toggleVoicePlayback': 'Chwarae llais',
+  'conversation.transcribeError': 'Methu trawsgrifio sain.',
   'conversation.transcriptionEmpty':
     'Doedden ni ddim yn gallu clywed dim. Rhowch gynnig arall arni?',
   'conversation.voiceOff': 'Llais i ffwrdd',
   'conversation.voiceOn': 'Llais ymlaen',
   'conversationDetail.assistant': 'Cynorthwyydd',
   'conversationDetail.back': 'Yn ôl i hanes',
+  'conversationDetail.elapsed': '00:00 / {{duration}}',
   'conversationDetail.empty': 'Dim negeseuon yn y sgwrs hon eto.',
   'conversationDetail.eyebrow': 'Trawsgrifiad',
   'conversationDetail.fetchError': "Methwyd llwytho'r trawsgrifiad.",
@@ -81,6 +94,7 @@ export const ui: UiTranslations = {
   'conversationDetail.setSpeed': 'Gosodwch gyflymder chwarae i {{speed}}',
   'conversationDetail.system': 'System',
   'conversationDetail.untitled': 'Sgwrs ddi-deitl',
+  'conversationListItem.messageCount': '{{count}} neges',
   'forgotPassword.subheading':
     'Rhowch eich cyfeiriad e-bost a byddwn yn anfon dolen ailosod atoch.',
   'forgotPassword.successBody': 'Rydym newydd anfon dolen ailosod i {{email}} .',
@@ -97,6 +111,10 @@ export const ui: UiTranslations = {
   'history.voiceOnly': 'Llais yn unig',
   'landing.copyright': '© {{year}} {{brand}} Meddyliwch yn uchel.',
   'landing.demoMessage1': 'Helo Sarah — yn barod i ystyried yr ymgyrch newydd?',
+  'landing.demoMessage2':
+    'Ie — gadewch i ni ganolbwyntio ar strategaethau twf organig ar gyfer Q3.',
+  'landing.demoMessage3':
+    "Gwych. Byddwn yn dechrau gyda menter dan arweiniad y gymuned. Eisiau i mi amlinellu'r camau?",
   'landing.eyebrow': "AI brodorol i'r llais",
   'landing.featuresSubtitle':
     "Wedi'i adeiladu ar gyfer deialog naturiol — yn addasu i'ch cyflymder, tôn a chyd-destun.",
@@ -126,10 +144,12 @@ export const ui: UiTranslations = {
   'parlanceLayout.openMenu': 'Agor y ddewislen lywio',
   'parlanceLayout.primaryNavLabel': 'Prif lywio',
   'pricing.conversations': '{{count}} sgyrsiau',
+  'pricing.cta.start': 'Dewiswch {{tierName}}',
   'pricing.cta.startFree': 'Dechreuwch am ddim',
   'pricing.cta.upgrade': 'Uwchraddio i {{tierName}}',
   'pricing.empty': 'Dim cynlluniau ar gael ar hyn o bryd.',
   'pricing.error': "Methwyd llwytho'r prisio. Rhowch gynnig arall arni yn nes ymlaen.",
+  'pricing.speech': 'lleferydd {{count}}',
   'pricing.subtitle':
     "Dewiswch gynllun sy'n addas i ba mor aml rydych chi'n siarad â'ch cynorthwyydd.",
   'privacy.collection.account': 'E-bost ac enw arddangos eich cyfrif',
@@ -138,6 +158,8 @@ export const ui: UiTranslations = {
   'privacy.deletion.body':
     "Gallwch ddileu sgwrs, persona, neu glip sain ar unrhyw adeg o'r dudalen berthnasol. Mae dileu eich cyfrif o Gosodiadau yn cael gwared ar bob sgwrs, trawsgrifiad, a rhes persona sy'n gysylltiedig â'ch gweithle.",
   'privacy.eyebrow': 'Cyfreithiol',
+  'privacy.intro':
+    "Mae {{app}} yn storio'r sgyrsiau a'r clipiau llais rydych yn eu creu dim ond cyhyd ag sy'n angenrheidiol i ddarparu'r profiad cynorthwyydd. Nid ydym byth yn gwerthu eich data, ac nid ydym byth yn defnyddio sain na thrawsgrifiadau cwsmeriaid i hyfforddi modelau AI allanol.",
   'privacy.lastUpdated': 'Diweddarwyd ddiwethaf: 2026-05-01',
   'privacy.processors.body':
     "Pan fyddwch chi'n siarad â'ch cynorthwyydd, rydym yn anfon eich sain ymlaen i OpenAI Whisper i'w drawsgrifio, eich trawsgrifiad i Anthropic (Claude) i gael yr ateb, a'r ateb i ElevenLabs neu OpenAI ar gyfer synthesis llais. Mae pob darparwr wedi'i rwymo gan ei delerau prosesu data ei hun; ni chedwir dim ar gyfer ailhyfforddi.",
@@ -158,13 +180,19 @@ export const ui: UiTranslations = {
   'resetPassword.newPassword': 'Cyfrinair newydd',
   'resetPassword.subheading': 'Dewiswch gyfrinair newydd i barhau i siarad.',
   'search.agentPreview': 'Dim disgrifiad',
+  'search.emptyBody': 'Rhowch gynnig ar air allweddol gwahanol neu dywedwch ef yn uchel.',
   'search.emptyTitle': 'Dim gemau',
   'search.eyebrow': 'Palet gorchymyn',
   'search.fetchError': 'Methwyd llwytho mynegai chwilio.',
+  'search.static.billing.preview': 'Cynlluniau, dull talu, a anfonebau',
+  'search.static.billing.title': 'Bilio',
   'search.static.profile.preview': 'Enw arddangos, enw defnyddiwr, bywgraffiad',
+  'search.static.profile.title': 'Proffil',
+  'search.static.voice.preview': 'Dewisiadau llais ac iaith diofyn',
   'search.static.voice.title': 'Llais',
   'search.title': 'Chwilio Iaith',
   'search.transcriptPreview': 'Agor trawsgrifiad',
+  'settings.appearance.description': 'Newid rhwng modd golau a thywyll.',
   'settings.appearance.title': 'Ymddangosiad',
   'settings.loadError': 'Methwyd llwytho gosodiadau.',
   'settings.privacy.${row.key}.label': 'Hysbysiadau',
@@ -181,6 +209,8 @@ export const ui: UiTranslations = {
   'terms.changes.body':
     "Byddwn yn rhoi gwybod i chi yn yr ap os bydd y telerau hyn yn newid yn sylweddol; mae parhau i'w defnyddio ar ôl rhybudd yn golygu eich bod yn derbyn y diweddariadau.",
   'terms.eyebrow': 'Cyfreithiol',
+  'terms.intro':
+    "Mae'r telerau hyn yn llywodraethu eich defnydd o {{app}}. Trwy greu cyfrif rydych yn cytuno iddynt.",
   'terms.lastUpdated': 'Diweddarwyd ddiwethaf: 2026-05-01',
   'terms.title': 'Telerau gwasanaeth',
   'terms.usage.body':

@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
+  'about.featureConnections':
+    'Verilənlər bazalarınızı təhlükəsiz şəkildə saxlayan və rəng kodları ilə işarələyən bağlantı meneceri — etimadnamələr istirahət zamanı şifrələnir, heç vaxt açıq mətn şəklində saxlanılmır.',
+  'about.featureMonitoring':
+    'Sorğu performansının və verilənlər bazası fəaliyyətinin canlı monitorinqi, klaviatura qısayolları və əmr palitrası ilə hər şeyi əllərinizdən istifadə etmədən idarə edin.',
+  'about.featurePlans':
+    'Sizinlə birlikdə böyüyən planlar — Fərdi iş üçün Pulsuz, daha çox bağlantı, daha uzun sorğu saxlanması, ixrac və qabaqcıl funksiyalar üçün Pro və Team.',
+  'about.featureQueryEditor':
+    'Sorğu tarixçəsi, yadda saxlanılan sorğular və nəticələrinizin bir kliklə CSV ixracı olan Monaco ilə işləyən SQL redaktoru.',
+  'about.featureSchema':
+    'Verilənlər bazalarını, cədvəlləri və sütunları gəzmək, sonra sətirləri yerindəcə gözdən keçirmək, filtrləmək və redaktə etmək üçün sxem kəşfiyyatçısı və cədvəl brauzeri.',
+  'about.missionTitle': 'Missiyamız',
   'authShell.commands': 'Əmrlər',
   'authShell.ssoSupported': 'SSO dəstəklənir',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Sorğular',
   'connections.schema': 'Sxem',
   'connections.subtitle': 'Verilənlər bazası bağlantılarınızı idarə edin.',
+  'connections.test': 'Test',
   'databaseAdminLayout.adminRole': 'Admin rolu',
   'databaseAdminLayout.commandPalette': 'Əmr palitrası',
   'databaseAdminLayout.commands': 'əmrlər',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Yeni əlaqə',
   'databaseAdminLayout.queries': 'Sorğular',
   'databaseAdminLayout.ready': 'Hazır',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Əmrləri, sorğuları, cədvəlləri axtar…',
   'databaseAdminLayout.user': 'İstifadəçi',
   'editConnection.confirmDelete': 'Bu bağlantı silinsin?',
   'editConnection.deleteButton': 'Bağlantını silin',
+  'editConnection.newPassword': 'Yeni şifrə (saxlamaq üçün boş buraxın)',
   'editConnection.saved': 'Bağlantı yadda saxlanıldı.',
   'editConnection.title': 'Bağlantını redaktə edin',
   'forgotPassword.success': 'Əgər həmin hesab mövcuddursa, sıfırlama linki yoldadır.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Uğurlar',
   'monitoring.title': 'Monitorinq',
   'monitoring.totalQueries': 'Ümumi sorğular',
+  'nav.schema': 'Sxem',
   'newConnection.database': 'Verilənlər bazası',
   'newConnection.engine': 'Mühərrik',
   'newConnection.host': 'Ev sahibi',
@@ -82,6 +98,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Bu parçaya heç bir əlaqə yoxdur.',
   'savedQuery.notBound': 'Bağlı deyil',
   'savedQuery.title': 'Yadda saxlanılan sorğu',
+  'schema.columns': 'Sütunlar',
   'schema.foreignKeys': 'Xarici açarlar',
   'schema.indexes': 'İndekslər',
   'schemaExplorer.browseRows': 'Sətirlərə baxın',
@@ -90,14 +107,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'null edilə bilən',
   'schemaExplorer.colType': 'tip',
   'schemaExplorer.noColumns': 'Sütun yoxdur.',
+  'schemaExplorer.noForeignKeys': 'Xarici açarlar yoxdur.',
   'schemaExplorer.noIndexes': 'İndeks yoxdur.',
   'schemaExplorer.noTables': 'Masa yoxdur',
   'schemaExplorer.pickATable': 'Yan paneldən bir masa seçin.',
   'schemaExplorer.tables': 'Masalar',
   'schemaExplorer.title': 'Sxem tədqiqatçısı',
+  'settings.session': 'Sessiya',
   'settings.subtitle': 'Hesabınızı və planınızı idarə edin.',
   'signup.heading': 'Quarry hesabınızı yaradın',
   'signup.tagline': 'Bir dəqiqədən az müddətdə girişi artırın.',
   'tableBrowser.noRows': 'Bu cədvəldə hələlik sətir yoxdur.',
+  'tableBrowser.subtitle': 'Uzaq verilənlər bazanızdan sətirlərə baxış.',
   'tableBrowser.title': 'Uzaq verilənlər bazanızdan sətirlərə baxılır.',
 }

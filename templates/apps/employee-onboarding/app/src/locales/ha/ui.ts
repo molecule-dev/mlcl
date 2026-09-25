@@ -1,26 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Kana son fara tsarin maraba mai daɗi ga ƙungiyarka, ka sami matsala, ko kana da ra'ayi? Tuntuɓe mu daga saitunan asusunka — kowane saƙo yana zuwa ga ainihin mutum wanda zai iya taimaka.",
   'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da',
+  'about.missionTitle': 'Manufarmu',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Sake saita kalmar sirrinka.',
+  'auth.forgotPassword.panel.body':
+    'Sake saitawa yana ɗaukar daƙiƙa 30 — ci gaban jerin abubuwanka yana jira.',
+  'auth.forgotPassword.panel.headline': 'An dawo daidai inda ka tsaya.',
+  'auth.forgotPassword.subheading':
+    'Shigar da imel ɗin aikinka kuma za mu aika maka hanyar sake saitawa.',
   'auth.forgotPassword.successSubheading':
     'Duba akwatin saƙonka — mun aika da umarnin sake saitawa.',
   'auth.login.emailPlaceholder': 'name@yourcompany.com',
   'auth.login.heading': 'Barka da dawowa.',
   'auth.login.passwordPlaceholder': 'Kalmar sirrinka',
+  'auth.login.signupPrompt': 'Sabon shiga ƙungiyarka?',
   'auth.login.subheading': 'Shiga don fara tafiyarka ta shiga jirgi daga inda ka tsaya.',
   'auth.login.submit': 'Ci gaba da tafiyarka',
+  'auth.panel.body':
+    'Jerin abubuwanka na sirri, matakan horo, da gabatarwar ƙungiya — duk a wuri ɗaya mai kwanciyar hankali.',
   'auth.panel.footnote': '© Embark — shigar da mutane - tun daga yau.',
   'auth.panel.headline': 'Kwanaki 90 na farko masu ƙarfin gwiwa suna farawa a nan.',
   'auth.resetPassword.heading': 'Saita sabuwar kalmar sirri.',
   'auth.resetPassword.newPasswordLabel': 'Sabuwar kalmar sirri',
+  'auth.resetPassword.panel.body':
+    'Ajiye sabon kalmar sirri kuma za mu mayar da kai kai tsaye cikin tafiyar marabarka.',
+  'auth.resetPassword.panel.headline': 'An kusa dawowa.',
   'auth.resetPassword.subheading': 'Zaɓi wani abu da za ku tuna - aƙalla haruffa 8.',
   'auth.signup.emailPlaceholder': 'name@yourcompany.com',
   'auth.signup.heading': 'Barka da zuwa kwanaki 90 na farko.',
   'auth.signup.panel.body':
     'Jerin abubuwan da aka tsara, horo mai zurfi game da rawar da mutum ke takawa, da kuma gabatarwar ɗan adam — a shirye kafin a fara.',
+  'auth.signup.panel.headline': 'Rana ta farko, a ranar farko.',
   'auth.signup.subheading':
     'Ƙirƙiri asusun Embark ɗinku don fara tafiyar shiga jirgin ku da aka shirya.',
   'checklist.empty.body': 'Canja matatar don ganin wasu ayyuka.',
@@ -28,6 +43,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'Shigarwa · Jerin Dubawa',
   'checklist.loading': 'Ana loda jerin abubuwan da kake nema…',
   'checklist.stat.actionNeeded': 'Ana buƙatar aiki',
+  'checklist.stat.completion': 'Kammalawa',
+  'checklist.stat.inProgress': 'Ana kai',
   'checklist.stat.inProgressHelper': 'Ci gaba daga inda ka tsaya',
   'checklist.stat.overdueHelper': 'Kama waɗannan da farko',
   'checklist.subtitle':
@@ -59,6 +76,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Babu takardu tukuna',
   'documents.eyebrow': 'Shigarwa · Takardu',
   'documents.loading': 'Ana loda takardu…',
+  'documents.stat.actionNeeded': 'Sa hannu yanzu',
+  'documents.stat.all': 'Duk takardu',
   'documents.stat.allHelper': 'A cikin rukuni-rukuni',
   'documents.stat.pending': 'Sa hannu da ake jira',
   'documents.stat.pendingHelper': 'Ana buƙata don kammalawa',
@@ -66,6 +85,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'An adana shi cikin aminci',
   'documents.status.optional': 'Zaɓi',
   'documents.status.required': 'Ana buƙata',
+  'documents.status.signed': 'An sanya hannu',
   'documents.subtitle':
     'Littafin jagorarka, fom, da yarjejeniyoyi da aka sanya hannu — duk a wuri ɗaya.',
   'documents.title': 'Duk abin da kuke buƙatar karantawa da sanya hannu.',
@@ -73,10 +93,14 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'Mai Kallo',
   'documentViewer.breadcrumbDocs': 'Takardu',
   'documentViewer.downloadMeta': 'Zazzage bayanai masu yawa',
+  'documentViewer.helpBody':
+    'People & Culture suna amsa tambayoyin littafin jagora a #ask-people a Slack.',
   'documentViewer.helpEyebrow': 'Kuna buƙatar taimako?',
   'documentViewer.loadError': 'Ba mu iya loda wannan takardar ba.',
   'documentViewer.loading': 'Ana loda takarda…',
   'documentViewer.notFound': 'Ba a sami takarda ba',
+  'documentViewer.previewBody':
+    'Idan an saita ɗorawa muna nuna fayil ɗin kai tsaye. A yanzu, saukar da bayanan metadata yana ba ka damar tabbatar da cewa rikodin na gaske ne.',
   'documentViewer.previewBodyExternal':
     'Yi amfani da maɓallin saukewa don buɗe fayil ɗin a cikin sabon shafin.',
   'documentViewer.previewTitle': 'Samfotin daftarin aiki',
@@ -84,6 +108,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Karanta takardar, sannan ka danna ƙasa don sanya hannu ka kuma amince.',
   'documentViewer.signatureHeading': 'Ana buƙatar sa hannu',
+  'documentViewer.signed': '✓ An sa hannu & an ajiye',
   'documentViewer.signing': 'Sa hannu…',
   'documentViewer.uploadedRecently': 'An ɗora kwanan nan',
   'landing.closing.body':
@@ -93,10 +118,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Ina da asusu',
   'landing.feature1.body':
     'Kowace aiki - takardu, asusu, gabatarwa - an riga an shirya ta tare da kwanakin ƙarshe da kuma mai shi nagari.',
+  'landing.feature1.title': 'Jerin abubuwa mai jagora',
   'landing.feature2.body':
     'Modules suna buɗewa a matakai 30/60/90, suna daidaita da rawar da ƙungiyar da haya za ta shiga.',
+  'landing.feature2.title': 'Horo da ya dace da matsayi',
   'landing.feature3.body':
     'Abokai, manajoji, da gabatarwar da aka tsara — don haka babu wanda ya fara shi kaɗai.',
+  'landing.feature3.title': 'Gabatarwa ta gaske',
   'landing.featureEyebrow': 'Me yasa za a hau jirgin sama',
   'landing.featureHeadline': 'Hanyoyi uku da Embark ke samun amincewa a rana ta farko.',
   'landing.footer.rights': 'An kiyaye duk haƙƙoƙi.',
@@ -106,6 +134,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Na gaba: Ku haɗu da abokin ku don yin hira ta minti 30 a kofi — Talata 10:00 na safe.',
   'landing.preview.eyebrow': 'Rana ta 14 cikin 90 - samfurin dashboard',
+  'landing.preview.headline': 'Barka da dawowa, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR a shirye',
   'landing.proof.teams': 'An gina don ƙungiyoyi 50-5,000',
   'landing.proof.time': 'Gwaji kyauta na kwanaki 14',
@@ -122,16 +151,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Kun shirya tsaf.',
   'planUpdated.preparing': 'Ana sabunta shirinka…',
+  'planUpdated.retry': 'Gwada kuma',
+  'planUpdated.verifyFailed': 'Ba mu iya tabbatar da biyan kuɗin ku ba tukuna.',
+  'planUpdated.verifyFailedBody':
+    'Ana iya ci gaba da aiwatar da biyan kuɗin ku. Gwada kuma nan ba da jimawa ba.',
   'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'pricing.documentsLabel': 'takardu',
   'pricing.onboardingsLabel': 'shigarwa',
   'pricing.tasksLabel': 'ayyuka',
   'profile.dayNumber': 'Rana',
   'profile.detailsHeading': 'Cikakkun bayanai game da shigarwa',
+  'profile.encouragementBody':
+    'Ci gaba da sanar da abokinka da manajanka — ƙananan matakai suna taruwa.',
   'profile.milestones': 'Muhimman abubuwa',
   'profile.progressEyebrow': 'Ci gaban shigarwa',
   'profile.tasks': 'Ayyuka',
   'profile.unknownName': 'Maraba da zuwa',
+  'settings.appearance.description': 'Canja tsakanin yanayin haske da duhu.',
+  'settings.appearance.title': 'Bayyanar',
+  'settings.subtitle':
+    "Daidaita sanarwa, tsaro, na'urori, da fitar da bayanai — komai yana nan, bisa sharuɗɗanka.",
   'settings.title': 'Saituna & abubuwan da ake so.',
   'taskDetail.backToChecklist': 'Koma zuwa jerin abubuwan da aka lissafa',
   'taskDetail.breadcrumbChecklist': 'Jerin Abubuwan da Aka Duba',
@@ -144,7 +183,10 @@ export const ui: UiTranslations = {
   'taskDetail.notFound': 'Ba a sami aiki ba',
   'taskDetail.notFoundBody':
     'Wannan aikin yana iya zama an goge shi ko kuma na wani mai amfani ne.',
+  'taskDetail.tipBody':
+    'Idan an hana ka, aika wa abokin tafiyar marabarka a Slack — su ne layin taimako na farko.',
   'taskDetail.tipEyebrow': 'Shawara mai sauri',
+  'team.empty.body': 'Gwada bincike mai faɗi ko zaɓi wata sashe dabam.',
   'team.empty.title': 'Babu abokin wasa da ya dace',
   'team.eyebrow': 'Shigarwa · Mutane',
   'team.loading': 'Ana loda abokan wasa…',
@@ -167,14 +209,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Muhimman abubuwa',
   'timeline.stat.current': 'Matsayin da ake buƙata a yanzu',
   'timeline.stat.next': 'Buɗewa ta gaba',
+  'timeline.stat.progress': 'Jimilla',
   'timeline.subtitle':
     'Kowace nasara tana buɗe sabbin kayayyaki, gabatarwa, da tattaunawa kan ci gaba. Babu matsin lamba - kawai ci gaba.',
+  'timeline.tipBody':
+    "Tsara taro na minti 30 na tunani a ranaku 30, 60, da 90 tare da manajanka — yana sa ra'ayi ya zama takamaimai kuma ci gaba a bayyane.",
   'timeline.tipEyebrow': 'Nasiha ga manaja',
+  'timeline.tipTitle': 'Ajiye lokaci a kalanda don matakan.',
   'timeline.title': 'Tafiyar ku ta 30/60/90.',
   'training.badge.notStarted': 'Ba a fara ba',
   'training.empty': 'Babu kayan horo tukuna.',
   'training.eyebrow': 'Shigarwa · Horarwa',
   'training.loading': 'Ana loda kayayyaki…',
+  'training.stat.all': 'An sanya modules',
   'training.subtitle':
     'Modules suna buɗewa a 30/60/90 don dacewa da rawar da kake takawa. Waɗanda ake buƙata sun zo na farko.',
   'training.title': 'Kwarewa, kayan aiki, da labarai — gwargwadon yadda kake so.',
@@ -186,9 +233,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'Ba a sami module ɗin ba',
   'trainingModule.quizBody': 'Yi maki 80% ko fiye don nuna cewa wannan ɓangaren ya cika.',
   'trainingModule.quizHeading': 'Tambayoyin Ƙarshen Module',
+  'trainingModule.quizLocked': 'Fara module ɗin tukuna',
   'trainingModule.quizNone': 'Babu tambayoyi a kan wannan module.',
   'trainingModule.quizRetry': 'Gwada kuma',
+  'trainingModule.quizStart': 'Fara quiz',
   'trainingModule.quizSubmit': 'Aika amsoshi',
+  'trainingModule.start': 'Fara module',
   'trainingModule.statusNotStarted': 'Ba a fara ba',
   'welcomeHeroCard.completeLabel': 'Kammalawa',
   'welcomeHeroCard.milestonesLabel': 'Muhimman abubuwa',

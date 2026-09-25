@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.featureAlerts':
+    'Peringatan harga pada kondisi yang penting, dikirim lewat email dan push agar Anda tidak pernah melewatkan pergerakan.',
+  'about.featureMarkets':
+    'Data pasar langsung dan grafik harga untuk ribuan koin, diperingkat berdasarkan kapitalisasi pasar, volume, dan momentum.',
+  'about.featurePortfolio':
+    'Pelacakan portofolio dengan laba-rugi nyata, dasar biaya, dan alokasi — terhubung ke riwayat transaksi Anda.',
+  'about.featureWatchlist':
+    'Daftar pantau pribadi dan berita kripto pilihan dengan sinyal pada aset yang Anda ikuti.',
+  'about.missionTitle': 'Misi kami',
+  'alertConditionCard.armedSince': 'Aktif sejak {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'Terpicu {{when}}',
   'alertConditionCard.confirmDelete': 'Konfirmasi penghapusan',
+  'alertConditionCard.deleteAriaLabel': 'Hapus peringatan',
   'alertConditionCard.pauseAriaLabel': 'Jeda peringatan',
   'alertConditionCard.resumeAriaLabel': 'Lanjutkan peringatan',
+  'alertConditionCard.triggeredAt': 'Terpicu {{when}}',
   'alertNew.condition': 'Kondisi',
   'alertNew.createCta': 'Buat peringatan',
   'alertNew.error': 'Peringatan tidak dapat dibuat.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Belum ada peringatan.',
   'alerts.eyebrow': 'Pemicu Bourse',
   'alerts.loadError': 'Gagal memuat peringatan.',
+  'alerts.newCta': '+ Tripwire Baru',
   'alerts.subheading':
     'Dapatkan notifikasi saat harga, perubahan, atau volume melampaui batas Anda.',
   'alerts.summary.armed': 'Aktif',
@@ -24,6 +38,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Tertinggi sepanjang masa',
   'coinDetail.allTimeLow': 'Terendah sepanjang masa',
   'coinDetail.back': 'Semua pasar',
+  'coinDetail.chartAriaLabel': 'Grafik harga {{name}}, 30 hari terakhir',
   'coinDetail.chartHeading': 'Harga · 30 hari terakhir',
   'coinDetail.circulating': 'Pasokan beredar',
   'coinDetail.fdv': 'Valuasi terdilusi penuh',
@@ -60,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Tautan atur ulang terkirim.',
   'login.eyebrow': 'Masuk ke terminal',
   'login.heading': 'Selamat datang kembali, signaller.',
+  'login.noAccountQuestion': 'Baru di Tessera?',
   'login.secureNote': '🔒 Terenkripsi saat transit',
   'login.signingInCta': 'Membaca tape…',
   'login.signupLink': 'Buka akun →',
@@ -94,6 +110,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Rute yang Anda pindai tidak mengarah ke koin atau halaman yang dikenal. Periksa simbol dan coba lagi.',
   'notFound.browseMarkets': 'Jelajahi pasar',
+  'notFound.eyebrow': 'Sinyal {{appName}} hilang',
+  'notFound.heading': 'Sinyal ini di luar jangkauan',
+  'planUpdated.body':
+    'Perubahan tagihan Anda kini aktif. Anda dapat mengelola paket kapan saja dari halaman tagihan.',
+  'planUpdated.retry': 'Coba lagi',
+  'planUpdated.verifyFailed': 'Kami belum dapat mengkonfirmasi pembayaran Anda.',
+  'planUpdated.verifyFailedBody':
+    'Pembayaran Anda mungkin masih diproses. Coba lagi sebentar lagi.',
   'planUpdated.verifying': 'Mengonfirmasi pembayaran Anda…',
   'portfolio.addError': 'Masukkan simbol, jumlah positif, dan biaya.',
   'portfolio.addHoldingCta': '+ Tambah kepemilikan',
@@ -117,11 +141,13 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Total nilai portofolio',
   'portfolioHeroCard.totalPnl': 'Total L/R',
   'pricing.heading': 'peringatan',
+  'pricing.limit.alerts': 'peringatan',
   'pricing.limit.coins': 'koin',
   'pricing.limit.market': 'pasar',
   'pricing.limit.portfolio': 'portofolio',
   'resetPassword.eyebrow': 'Sandi baru',
   'resetPassword.missingToken': 'Tautan atur ulang ini hilang atau tidak valid. Minta yang baru.',
+  'resetPassword.passwordPlaceholder': 'Kata sandi baru',
   'resetPassword.subheading': 'Pilih sesuatu yang hanya Anda yang dapat mendekodekan.',
   'settings.apiKeys.body':
     'Kunci hanya-baca untuk mengimpor riwayat transaksi. Hubungkan melalui OAuth dari /pricing setelah berlangganan.',
@@ -133,17 +159,32 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Mata uang kuotasi',
   'settings.preferences.locale': 'Lokal',
   'settings.preferences.push': 'Push',
+  'settings.preferences.refresh': 'Penyegaran harga (detik)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning': 'Akses perangkat ini akan segera dicabut. Keluarkan?',
   'settings.security.body': 'Kata sandi dan pengaturan dua faktor dikelola oleh akun Anda.',
   'settings.signOutDevice': 'Keluar',
   'settings.twoFactorCode': 'Kode otentikasi',
   'settings.twoFactorDisable': 'Nonaktifkan',
+  'settings.twoFactorDisableTitle': 'Nonaktifkan autentikasi dua faktor',
   'settings.twoFactorEnable': 'Aktifkan',
+  'settings.twoFactorEnableTitle': 'Aktifkan autentikasi dua faktor',
   'settings.twoFactorInvalidCode': 'Kode tidak valid',
   'settings.twoFactorOn': 'Pada',
+  'settings.twoFactorQrAlt': 'Kode QR dua faktor',
+  'settings.twoFactorScan':
+    'Pindai kode QR ini dengan aplikasi autentikator Anda, lalu masukkan kode 6 digit.',
+  'settings.twoFactorUnavailable': 'Autentikasi dua faktor tidak tersedia untuk aplikasi ini.',
   'settings.twoFactorVerify': 'Verifikasi & aktifkan',
   'sigilAuthShell.backHomeCta': '← Kembali ke Bourse',
+  'sigilAuthShell.brandBody':
+    'Harga realtime, P/L portofolio, dan ward aktif pada kondisi yang penting — semua di satu terminal.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — dibangun di atas Molecule',
+  'sigilAuthShell.brandHeadline': 'Urai setiap sinyal di seluruh ledger.',
+  'sigilAuthShell.samplePortfolio': 'Contoh portofolio',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Navigasi utama',
+  'signup.creating': 'Membuka terminal Anda…',
   'signup.eyebrow': 'Buka terminal',
   'signup.heading': 'Buat Bourse Anda',
   'signup.subheading':
@@ -161,6 +202,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Gagal memuat transaksi.',
   'watchlist.addCta': 'Jelajahi pasar',
   'watchlist.col.change24h': '24 jam',
+  'watchlist.col.coin': 'Koin',
   'watchlist.col.marketCap': 'Kap pasar',
   'watchlist.empty':
     'Tidak ada koin di daftar pantau — bintangi koin dari /markets untuk menambahkan.',

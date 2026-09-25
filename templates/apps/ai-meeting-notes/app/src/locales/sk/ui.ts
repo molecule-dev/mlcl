@@ -1,19 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Máte otázky, spätnú väzbu alebo nápad na funkciu? Napíšte tímu na hello@murmur.app — každá správa sa dostane k skutočnému človeku, ktorý na produkte pracuje.',
   'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
+  'about.intro':
+    '{{app}} je meeting intelligence pre tímy, ktoré radšej rozhodujú, než si robia poznámky. Pripojí sa k vašim hovorom, prepíše každé slovo s označením rečníkov a hneď po skončení stretnutia doručí AI zhrnutie a priradené úlohy.',
+  'about.missionBody':
+    'Stretnutia sú miestom, kde tímy rozhodujú — a kde sa tieto rozhodnutia strácajú. {{app}} existuje preto, aby práca, ktorá vznikne v rozhovore, prežila samotný rozhovor: verný záznam, jasné zhrnutie a zodpovedné ďalšie kroky, automaticky.',
+  'about.missionTitle': 'Naše poslanie',
   'actions.empty': 'Nenašli sa žiadne úlohy.',
   'actions.heading': 'Úlohy',
   'actions.loadError': 'Načítanie úloh sa nepodarilo.',
   'actions.subheading': 'Súhrn za všetky stretnutia. Pre zúženie výberu filtrujte podľa stavu.',
   'actions.toggleDoneLabel': 'Označiť ako hotové',
   'actions.toggleReopenLabel': 'Označiť ako otvorené',
+  'auth.footer': '© {{year}} {{app}}. Každé slovo, destilované.',
   'calendar.heading': 'Kalendár',
   'calendar.joinCta': 'Pripojte sa',
   'calendar.loadError': 'Načítanie kalendára sa nepodarilo.',
   'calendar.nextMonth': 'Budúci mesiac',
   'calendar.noEventsForDay': 'Na tento deň nie sú naplánované žiadne stretnutia.',
+  'calendar.noUpcomingEvents':
+    'Žiadne nadchádzajúce stretnutia. Pripojte kalendár v Integráciách a naplňte tento zoznam.',
   'calendar.previousMonth': 'Predchádzajúci mesiac',
   'calendar.recent': 'Nedávne',
   'common.daysAgo': '{{count}} pred d',
@@ -25,9 +35,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} úlohy',
   'dashboard.empty.body':
     'Spustite nahrávanie alebo prepojte službu Google Kalendár, aby sa aplikácia Murmur automaticky pripojila k vašej ďalšej schôdzke.',
+  'dashboard.empty.cta': 'Spustiť nahrávanie',
   'dashboard.empty.heading': 'Zatiaľ nie sú naplánované žiadne stretnutia',
   'dashboard.eyebrow': 'Váš kanál zo stretnutia',
   'dashboard.loadError': 'Načítanie informačného panela zlyhalo.',
+  'dashboard.noActions': 'Žiadne úlohy',
   'dashboard.recentHeading': 'Posledné stretnutia',
   'dashboard.recordCta': 'Záznam zo stretnutia',
   'dashboard.stat.actions': 'Úlohy',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} neprečítané súhrny od vášho posledného prihlásenia. Murmur zachytil každé slovo – tu je zhrnutie.',
   'dashboard.viewCalendar': 'Zobraziť kalendár →',
+  'footer.linksLabel': 'Päta',
   'forgot.failed': 'Nepodarilo sa odoslať e-mail s odkazom na obnovenie hesla.',
   'forgot.sentBody':
     'Ak existuje účet s adresou {{email}}, čoskoro dostanete odkaz na obnovenie hesla.',
@@ -48,14 +61,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Prepojte kalendáre a videoplatformy, aby sa Murmur pripojil automaticky.',
   'integrations.updateError': 'Aktualizácia zlyhala.',
+  'landing.ctaBody':
+    'Prvých 5 stretnutí každý mesiac zadarmo. Bez kreditnej karty. Pripojte Google Calendar za menej ako minútu.',
   'landing.ctaButton': 'Začnite – je to zadarmo',
   'landing.ctaHeading': 'Prestaňte si robiť poznámky. Začnite sa rozhodovať.',
+  'landing.demo.aiBody':
+    'Spustenie posunuté z 5. mája → 12. mája, aby mal tím priestor na personálne zabezpečenie. Redizajn dashboardu oddelený na 26. mája.',
   'landing.demo.aiLabel': 'Súhrn vygenerovaný umelou inteligenciou v reálnom čase',
   'landing.demo.recording': 'Nahrávanie · naživo',
   'landing.eyebrow': 'Inteligentné riešenia pre stretnutia s využitím umelej inteligencie',
   'landing.featuresHeading': 'Všetko, čo váš tím potrebuje po skončení stretnutia',
+  'landing.featuresSubheading':
+    'Koniec otázok „počkať, kto je za to zodpovedný?“ {{appName}} doručí zhrnutie skôr, než sa hovor odpojí.',
   'landing.getStarted': 'Vyskúšajte zadarmo',
   'landing.heroSecondary': 'Pozrite si 90-sekundovú prehliadku',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} sa pripojí k vašim hovorom, prepíše každé slovo s označením rečníkov a hneď po skončení stretnutia doručí AI zhrnutia a priradené úlohy.',
   'landing.heroTitle': 'Zaznamenávajte každé stretnutie. Zameriavajte sa na to podstatné.',
   'login.altPrompt': 'Ste na Murmur prvýkrát?',
   'login.failed': 'Nepodarilo sa prihlásiť. Skontrolujte si e-mailovú adresu a heslo.',
@@ -63,6 +84,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Úlohy',
   'meetingDetail.back': 'Všetky stretnutia',
   'meetingDetail.decisionsHeading': 'Rozhodnutia',
+  'meetingDetail.dueDate': 'termín {{date}}',
   'meetingDetail.followupsHeading': 'Ďalšie kroky',
   'meetingDetail.loadError': 'Načítanie stretnutia sa nepodarilo.',
   'meetingDetail.noActions': 'Neboli zistené žiadne úlohy na vykonanie.',
@@ -76,7 +98,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Zatiaľ nie sú naplánované žiadne stretnutia',
   'meetings.heading': 'Stretnutia',
   'meetings.loadError': 'Načítanie stretnutí sa nepodarilo.',
+  'meetings.recordCta': 'Záznam zo stretnutia',
   'meetings.subheading': 'Každá zaznamenaná, nahratá a synchronizovaná schôdza.',
+  'murmurLayout.closeMenu': 'Zatvoriť navigačné menu',
   'murmurLayout.openMenu': 'Otvoriť navigačné menu',
   'murmurLayout.primaryNavLabel': 'Hlavná navigácia',
   'nav.legal': 'Právne',
@@ -102,7 +126,14 @@ export const ui: UiTranslations = {
   'profile.loading': 'Načítava sa…',
   'profile.navLabel': 'Profilové profily',
   'profile.notifications.assignments': 'Úlohy, ktoré mi boli pridelené',
+  'profile.notifications.assignmentsHint': 'Upozorniť, keď sa pre vás zachytí úloha.',
+  'profile.notifications.mentions': 'Zmienky v prepisoch',
+  'profile.notifications.mentionsHint': 'E-mail + push, keď vás niekto @-zmieni.',
+  'profile.notifications.subheading': 'Vyberte, ktoré udalosti {{appName}} sa k vám majú dostať.',
   'profile.notifications.summaries': 'Týždenný prehľad',
+  'profile.notifications.summariesHint':
+    'Pondelňové zhrnutie všetkých stretnutí z minulého týždňa.',
+  'profile.preferences.speakerColor': 'Predvolená farba rečníka',
   'profile.preferences.subheading':
     'Predvolené nastavenia, ktoré sa vzťahujú na každý záznam, do ktorého sa zapojíte.',
   'profile.preferences.timezone': 'Časové pásmo',
@@ -115,16 +146,21 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Váš prehliadač nepodporuje nahrávanie. Skúste prehliadač Chrome, Edge alebo Safari.',
   'record.error.upload': 'Nahratie sa nepodarilo. Skúste to znovu.',
+  'record.errorLabel': 'Niečo sa pokazilo',
   'record.heading': 'Záznam',
   'record.idleLabel': 'Kliknite na tlačidlo pre spustenie nahrávania',
   'record.processingLabel': 'Prepisovanie pomocou Whisper, vytváranie súhrnov pomocou Claude…',
+  'record.recordingLabel': 'Zaznamenáva sa…',
   'record.retryCta': 'Skúste to znova',
   'record.subheading':
     'Stlačte tlačidlo mikrofónu na spustenie. Aplikácia Murmur nahraje zvuk, prepisuje ho prostredníctvom služby Whisper a vygeneruje súhrn pomocou modelu Claude.',
+  'record.titlePlaceholder': 'Názov stretnutia (voliteľné)',
+  'reset.altPrompt': 'Rozmysleli ste si to?',
   'reset.hint': 'Použite aspoň 8 znakov, ktoré obsahujú kombináciu písmen a číslic.',
   'reset.missingToken': 'Odkaz na obnovenie chýba alebo vypršala jeho platnosť. Požiadajte o nový.',
   'reset.newPassword': 'Nové heslo',
   'reset.subheading': 'Zvoľte si heslo, ktoré nikde inde nepoužívate.',
+  'reset.tooShort': 'Heslo musí mať minimálne 8 znakov.',
   'search.empty': 'Napíšte text, ktorý chcete vyhľadať v prepisoch.',
   'search.loadError': 'Vyhľadávanie sa nepodarilo. Skúste to znova.',
   'search.noResults': 'Nenašli sa žiadne výsledky pre „{{q}}“.',
@@ -140,7 +176,9 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Zachovať zvuk pre',
   'settings.retention.heading': 'Udržiavanie',
   'settings.retention.transcript': 'Uchovávajte výpisy',
+  'settings.revokeDeviceWarning': 'Prístup tohto zariadenia bude čoskoro zrušený. Odhlásiť ho?',
   'settings.saveError': 'Uloženie zlyhalo.',
+  'settings.security.subheading': 'Aktualizujte heslo, ktoré používate na prihlásenie.',
   'settings.sharing.exportFormat': 'Formát exportu',
   'settings.sharing.heading': 'Predvolené nastavenia zdieľania',
   'settings.sharing.scope': 'Predvolený rozsah zdieľania',
@@ -158,6 +196,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Pozvi spoluhráča',
   'team.invitedAs': 'Pozvaný ako „{{role}}“',
   'team.inviteFailed': 'Nepodarilo sa odoslať pozvánku.',
+  'team.invitePlaceholder': 'kolega@firma.com',
   'team.inviteSubmit': 'Poslať pozvánku',
   'team.inviteSubtitle': 'Dostanú e-mail s odkazom na registráciu.',
   'team.inviteTitle': 'Pozvi spoluhráča',

@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du feedback, fundet en fejl, eller vil du have dit eget board på {{appName}}? Åbn dine Indstillinger for at komme i kontakt med teamet — hver besked går til et rigtigt menneske, der læser den.',
+  'about.contactTitle': 'Kontakt os',
+  'about.featureModeration':
+    'Et offentligt roadmap med kvartalsmærkater, en changelog der forvandler leveret arbejde til udgivelsesnoter, og et dashboard der viser, hvad flokken ønsker sig mest.',
+  'about.featurePricing':
+    'Gratis at køre et par boards; Pro- og Team-planer låser op for flere boards, højere grænser og dataeksport.',
+  'about.featureThreads':
+    'Offentlige feedback-boards organiseret efter emne, med fletning af dubletter der samler stemmer til ét ærligt efterspørgselssignal.',
+  'about.featureVoting':
+    'Én stemme per bruger med en fuld statusworkflow — åben, planlagt, i gang, leveret eller afvist — og et officielt svar på hver beslutning.',
+  'about.intro':
+    '{{appName}} er en platform til produktfeedback — offentlige boards hvor kunder poster ønsker, stemmer på det de har brug for, og følger hver idé fra planlagt til leveret. Teams slipper for at gætte på, hvad de skal bygge næste gang, fordi efterspørgslen rangerer sig selv.',
+  'about.missionBody':
+    'Vi mener, at de bedste produktbeslutninger træffes åbent. {{appName}} giver hvert team et offentligt board med stemte ønsker, et officielt roadmap med målsatte kvartaler og en changelog der lukker cirklen — så kunderne ser deres indflydelse, og teamene ser deres mandat.',
+  'about.missionTitle': 'Vores mission',
   'admin.backToBoards': 'Tilbage til boards',
   'admin.denied': 'Kun admins.',
   'admin.eyebrow': 'Produktteam',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'admin.title': 'Feedback-dashboard',
   'admin.topOpen': 'Vigtigste åbne anmodninger',
   'admin.totalVotes': '{{count}} i alt',
+  'admin.votesChartLabel': 'Søjlediagram over afgivne stemmer per uge de sidste otte uger',
   'admin.votesOverTime': 'Stemmer over tid',
   'auth.forgotPassword.email': 'E-mail',
   'auth.forgotPassword.sendResetLink': 'Send nulstillingslink',
@@ -30,7 +47,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Opret din konto',
   'auth.username': 'Brugernavn',
   'authShell.communities': 'Fællesskaber',
+  'authShell.copyright': '{{appName}} — hver stemme tæller.',
   'authShell.trending': 'Populært',
+  'boardCard.postCount': '{{count}} opslag',
   'boardDetail.allBoards': 'Alle boards',
   'boardDetail.backToBoards': 'Tilbage til boards',
   'boardDetail.empty': 'Ingen opslag matcher disse filtre endnu.',
@@ -54,6 +73,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Hvert indlæg startede som en stemt anmodning. Vælgerne så det bevæge sig; her er hvor det landede.',
   'changelog.title': 'Sendt, med kvitteringer',
+  'changelog.voteCount': '{{count}} stemmer fik dette bygget',
   'common.atLeast8Characters': 'Mindst 8 tegn',
   'common.checkYourInbox': 'Tjek din indbakke',
   'common.loadingEllipsis': 'Indlæser…',
@@ -64,6 +84,9 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Indsender…',
   'footer.about': 'Om {{appName}}',
   'footer.language': 'Sprog',
+  'forgotPassword.description': 'Indtast din e-mail, så sender vi dig et link til nulstilling.',
+  'forgotPassword.successBody':
+    'Vi sendte et nulstillingslink til {{email}}. Det udløber om 30 minutter.',
   'forgotPassword.tryAnother': 'Prøv en anden e-mail',
   'form.displayName': 'Visningsnavn',
   'form.firstName': 'Fornavn',
@@ -74,6 +97,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'Dit roadmap, bakket op af stemmer.',
   'landing.heroCtaPrimary': 'Begynd at samle stemmer',
   'landing.heroCtaSecondary': 'Se et live board',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Stop med at gætte. Lever det, de stemmer for.',
+  'landing.heroLede':
+    '{{appName}} forvandler spredte feature-ønsker til et offentligt board med stemte idéer, et officielt roadmap og en changelog, som dine kunder faktisk læser.',
   'landing.heroStat1': '3.200+',
   'landing.heroStat1Label': 'Teams lytter',
   'landing.heroStat2': '1,4m',
@@ -85,9 +112,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Changelog',
   'landing.navJoin': 'Tilmeld dig {{appName}}',
   'landing.navRoadmap': 'Roadmap',
+  'landing.step1Body':
+    'Kunder poster idéer på offentlige boards. Dubletter flettes, stemmer samles, og efterspørgslen rangerer sig selv.',
   'landing.step1Title': 'Indsaml',
+  'landing.step2Body':
+    'Markér ønsker som planlagt eller i gang med et målsat kvartal — roadmappet opdateres i samme øjeblik.',
+  'landing.step2Title': 'Begå',
   'landing.step3Body':
     'Sendte opslag bliver changelog-indlæg, og hver vælger ser resultatet på deres egen liste.',
+  'landing.step3Title': 'Lever',
   'landing.topSubtitle': 'Live fra dette board — log ind for at tilføje din stemme.',
   'landing.topTitle': 'Hvad brugere spørger om lige nu',
   'landing.topViewAll': 'Alle boards',
@@ -95,14 +128,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Grundskole',
   'layout.signUp': 'Tilmeld dig',
   'layout.submit': 'Indsend feedback',
+  'login.description': 'Fortsæt hvor samtalen sluttede.',
+  'login.heading': 'Log ind på Nimbus',
+  'login.noAccount': 'Ny her?',
   'login.passwordPlaceholder': 'Din adgangskode',
   'login.twoFactorLabel': '2FA-kode (valgfri)',
   'login.twoFactorPlaceholder': '6-cifret kode',
+  'login.twoFactorRequiredHint':
+    'Denne konto har to-faktor-godkendelse aktiveret. Indtast den 6-cifrede kode fra din authenticator-app for at fortsætte.',
   'login.twoFactorRequiredLabel': 'Indtast din 2FA-kode',
+  'myActivity.browseCta': 'Gennemse opslagstavler',
+  'myActivity.emptyPosts': 'Du har endnu ikke postet et ønske.',
+  'myActivity.emptyVotes': 'Intet endnu — gennemse boardene og bak op om en idé.',
   'myActivity.eyebrow': 'Din aktivitet',
   'myActivity.loadError': 'Det var ikke muligt at indlæse din aktivitet.',
   'myActivity.postsTitle': 'Anmodninger du har indsendt',
+  'myActivity.shippedNote': '{{count}} af dem blev leveret — tak for skubbet.',
   'myActivity.submitCta': 'Indsend en anmodning',
+  'myActivity.tabLabel': 'Vis',
   'myActivity.tabPosts': 'Mine opslag',
   'myActivity.tabVotes': 'Mine stemmer',
   'myActivity.votesTitle': 'Anmodninger du har stemt på',
@@ -137,8 +180,12 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Opslag ikke fundet',
   'postsAdmin.backToDashboard': 'Oversigt',
   'postsAdmin.eyebrow': 'Produktteam',
+  'postsAdmin.mergeApplied': 'Flettet — {{votes}} stemmer og {{comments}} kommentarer flyttet.',
   'postsAdmin.mergeApply': 'Flet & flyt stemmer',
   'postsAdmin.mergeChoose': 'Vælg et målopslag…',
+  'postsAdmin.mergeFailed': 'Fletning mislykkedes.',
+  'postsAdmin.mergeHint':
+    'Stemmer samles (én per bruger), kommentarer flyttes, og dette opslag får en "flyttet"-note.',
   'postsAdmin.mergeLabel': 'Flet dublet ind i',
   'postsAdmin.responseLabel': 'Officielt svar',
   'postsAdmin.responsePlaceholder':
@@ -153,7 +200,13 @@ export const ui: UiTranslations = {
     'Indstil den officielle status, svar offentligt, etiket roadmap-kvartalet og flet dubletter.',
   'postsAdmin.title': 'Administrer feedback-opslag',
   'postsAdmin.votes': '{{count}} stemmer',
+  'pricing.limits.advancedFeatures': 'Avancerede funktioner:',
+  'pricing.limits.boards': '{{count}} brædder',
   'pricing.limits.export': 'Dataeksport:',
+  'pricing.limits.posts': '{{count}} feedback-opslag',
+  'pricing.limits.votes': '{{count}} stemmer',
+  'resetPassword.description':
+    'Vælg en stærk en. Vi logger dig ind, når nulstillingen er lykkedes.',
   'resetPassword.newPasswordLabel': 'Ny adgangskode',
   'resetPassword.tokenPlaceholder': 'Indsæt link-token',
   'roadmap.cardMeta': 'af {{author}} · {{board}}',
@@ -170,6 +223,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'Skriv en søgning for at finde eksisterende anmodninger før du indsender en dublet.',
   'search.loadError': 'Søgningen mislykkedes — prøv igen.',
+  'search.searching': 'Søger…',
   'search.submit': 'Søg',
   'search.submitNew': 'Indsend det som en ny anmodning',
   'search.title': 'Søg feedback',
@@ -178,11 +232,22 @@ export const ui: UiTranslations = {
   'settings.billing': 'Fakturering',
   'settings.displaySubtitle': 'Vælg hvor tætte feeds føles.',
   'settings.displayTitle': 'Visning',
+  'settings.emailDigestDesc': 'De mest stemte åbne ønsker hver mandag.',
+  'settings.emailDigestLabel': 'Ugentlig oversigt',
+  'settings.emailMentionsDesc': 'Når nogen svarer på et opslag, du følger.',
+  'settings.emailMentionsLabel': 'Send mig en e-mail ved omtaler',
+  'settings.emailRepliesDesc': 'Tråde, du har startet eller svaret i.',
+  'settings.emailRepliesLabel': 'Send mig en e-mail ved svar',
   'settings.loadError': 'Kunne ikke indlæse din konto.',
   'settings.loading': 'Indlæser dine indstillinger…',
   'settings.notifications': 'Notifikationer',
   'settings.notificationsSubtitle': 'Beslut hvad der når din indbakke vs din push-enhed.',
+  'settings.pushRepliesLabel': 'Push ved svar',
+  'settings.pushVotesDesc': 'Tærskelnotifikation ved 100, 500, 1000.',
+  'settings.pushVotesLabel': 'Pres på milepæle for at opnå positive stemmer',
   'settings.saveAccount': 'Gem konto',
+  'settings.showFlair': 'Vis board-mærkater på opslag',
+  'settings.showThumbnails': 'Vis miniaturebilleder til links/billeder',
   'settings.usernamePlaceholder': 'Vælg et brugernavn',
   'signup.confirmPlaceholder': 'Skriv det igen',
   'signup.description': 'Form hvad vi bygger næste gang.',

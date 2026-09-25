@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
+  'about.featureAlerts':
+    'Ценовые оповещения по важным условиям — на email и в push, чтобы вы не пропустили движение.',
+  'about.featureMarkets':
+    'Живые рыночные данные и графики цен по тысячам монет с рейтингом по капитализации, объёму и импульсу.',
+  'about.featurePortfolio':
+    'Отслеживание портфеля с реальным P&L, базой затрат и распределением — в связке с историей транзакций.',
+  'about.featureWatchlist':
+    'Личный список наблюдения и подборка криптоновостей с сигналами по интересующим вас активам.',
+  'about.missionTitle': 'Наша миссия',
+  'alertConditionCard.armedSince': 'На страже с {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'Сработал {{когда}}',
   'alertConditionCard.confirmDelete': 'Подтвердить удаление',
+  'alertConditionCard.deleteAriaLabel': 'Удалить оповещение',
   'alertConditionCard.pauseAriaLabel': 'Предупреждение о паузе',
   'alertConditionCard.resumeAriaLabel': 'Предупреждение о возобновлении',
+  'alertConditionCard.triggeredAt': 'Сработало {{when}}',
   'alertNew.condition': 'Состояние',
   'alertNew.createCta': 'Создать оповещение',
   'alertNew.error': 'Не удалось создать оповещение.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Пока нет оповещений.',
   'alerts.eyebrow': 'Сигнальные растяжки',
   'alerts.loadError': 'Не удалось загрузить оповещения.',
+  'alerts.newCta': '+ Новый триггер',
   'alerts.subheading':
     'Получайте уведомления, когда цена, изменение или объем товара превышают установленный вами порог.',
   'alerts.summary.armed': 'Вооружен',
@@ -24,6 +38,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Рекорд за всю историю',
   'coinDetail.allTimeLow': 'Исторический минимум',
   'coinDetail.back': 'Все рынки',
+  'coinDetail.chartAriaLabel': 'График цены {{name}}, последние 30 дней',
   'coinDetail.chartHeading': 'Цена · за последние 30 дней',
   'coinDetail.circulating': 'Циркуляционное снабжение',
   'coinDetail.fdv': 'Оценка с учетом полного разводнения',
@@ -60,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Сброс проводного соединения.',
   'login.eyebrow': 'Зайдите в терминал',
   'login.heading': 'С возвращением, сигнальщик.',
+  'login.noAccountQuestion': 'Впервые пользуетесь Tessera?',
   'login.secureNote': '🔒 Зашифровано при передаче',
   'login.signingInCta': 'Читаю запись…',
   'login.signupLink': 'Открыть счёт →',
@@ -95,6 +111,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Просканированный вами маршрут не соответствует известной монете или странице. Перепроверьте символ и попробуйте снова.',
   'notFound.browseMarkets': 'Просмотрите рынки',
+  'notFound.eyebrow': 'Сигнал {{appName}} потерян',
+  'notFound.heading': 'Этот сигнал вне зоны действия',
+  'planUpdated.body':
+    'Изменение тарифа активировано. Вы можете управлять своим планом в любое время на странице оплаты.',
+  'planUpdated.retry': 'Попробуйте ещё раз',
+  'planUpdated.verifyFailed': 'Мы пока не можем подтвердить ваш платеж.',
+  'planUpdated.verifyFailedBody':
+    'Ваш платеж, возможно, еще обрабатывается. Попробуйте еще раз через минуту.',
   'planUpdated.verifying': 'Подтверждение платежа…',
   'portfolio.addError': 'Введите символ, положительную сумму и стоимость.',
   'portfolio.addHoldingCta': '+ Добавить удержание',
@@ -118,12 +142,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Общая стоимость портфеля',
   'portfolioHeroCard.totalPnl': 'Общая прибыль/убыток',
   'pricing.heading': 'оповещения',
+  'pricing.limit.alerts': 'оповещения',
   'pricing.limit.coins': 'монеты',
   'pricing.limit.market': 'рынок',
   'pricing.limit.portfolio': 'портфель',
   'resetPassword.eyebrow': 'Новый шифр',
   'resetPassword.missingToken':
     'Эта ссылка для сброса отсутствует или недействительна. Запросите новую.',
+  'resetPassword.passwordPlaceholder': 'Новый пароль',
   'resetPassword.subheading': 'Выберите что-нибудь, что сможете расшифровать только вы.',
   'settings.apiKeys.body':
     'Ключи только для чтения для импорта истории транзакций. Подключение через OAuth из раздела /pricing после оформления подписки.',
@@ -135,18 +161,33 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Котировка валюты',
   'settings.preferences.locale': 'Местоположение',
   'settings.preferences.push': 'Толкать',
+  'settings.preferences.refresh': 'Обновление цены (секунды)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning': 'Доступ этого устройства скоро будет отозван. Выйти?',
   'settings.security.body':
     'Настройки пароля и двухфакторной аутентификации управляются вашей учетной записью.',
   'settings.signOutDevice': 'выход',
   'settings.twoFactorCode': 'Код аутентификации',
   'settings.twoFactorDisable': 'Отключить',
+  'settings.twoFactorDisableTitle': 'Отключить двухфакторную аутентификацию',
   'settings.twoFactorEnable': 'Включить',
+  'settings.twoFactorEnableTitle': 'Включить двухфакторную аутентификацию',
   'settings.twoFactorInvalidCode': 'Неверный код',
   'settings.twoFactorOn': 'О',
+  'settings.twoFactorQrAlt': 'QR-код для двухфакторной аутентификации',
+  'settings.twoFactorScan':
+    'Отсканируйте этот QR-код в приложении-аутентификаторе, затем введите 6-значный код.',
+  'settings.twoFactorUnavailable': 'Двухфакторная аутентификация для этого приложения недоступна.',
   'settings.twoFactorVerify': 'Проверить и включить',
   'sigilAuthShell.backHomeCta': '← Назад к Сигилу',
+  'sigilAuthShell.brandBody':
+    'Цены в реальном времени, P&L портфеля и постоянные дозоры по важным условиям — всё на одном терминале.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — на базе Molecule',
+  'sigilAuthShell.brandHeadline': 'Расшифруйте каждый сигнал по всему реестру.',
+  'sigilAuthShell.samplePortfolio': 'Пример портфеля',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Основная навигация',
+  'signup.creating': 'Открываем ваш терминал…',
   'signup.eyebrow': 'Откройте терминал',
   'signup.heading': 'Создайте свой сигил',
   'signup.subheading':
@@ -164,6 +205,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Не удалось загрузить транзакции.',
   'watchlist.addCta': 'Просмотрите рынки',
   'watchlist.col.change24h': '24 ч',
+  'watchlist.col.coin': 'Монета',
   'watchlist.col.marketCap': 'Рыночная капитализация',
   'watchlist.empty':
     'В вашем списке наблюдения нет отслеживаемых монет — добавьте их, отметив монеты звездочкой на странице /markets.',

@@ -1,14 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Сұрақтарыңыз, пікіріңіз немесе жалдау тобыңызға шолу жасатқыңыз келе ме? hello@example.com мекенжайына жазыңыз, командадағы нақты адам екі жұмыс күні ішінде жауап береді.',
   'about.contactHeading': 'Байланыс',
+  'about.intro':
+    '{{app}} — шу емес, нақты сигнал қалайтын рекрутерлер мен жалдау менеджерлеріне арналған кандидаттарды бақылау жүйесі: таза pipeline, өзін түсіндіретін AI скринингі және жалдау аналитикасы — бәрі бір жерде.',
+  'about.missionBody':
+    'Жалдау — команда қабылдайтын ең жауапты шешімдердің бірі, алайда оның көбі әлі де бытыраңқы электрондық кестелер мен хаттар тізбегінде жүр. {{app}} бүкіл циклді бір тақтаға жинайды: әр кандидат бақыланады, әр сұхбат құрылымдалған, әр шешім әділ, жылдам және түсіндіріледі.',
+  'about.missionHeading': 'Біздің миссиямыз',
   'auth.legalConsent': 'Жалғастыра отырып, сіз біздің келісесіз',
   'billing.cardExp': 'Мерзімі бітеді {{exp}}',
+  'billing.cardLinkError': 'Картаны жаңарту ағынын бастау мүмкін болмады.',
   'billing.cardLinkSent': 'Картаны жаңарту ағыны басталды — электрондық поштаңызды тексеріңіз.',
+  'billing.cardLinkUnavailable':
+    'Картаны жаңарту қолжетімсіз — бұл орналастыруда төлем провайдері конфигурацияланбаған.',
   'billing.cardMissing': 'Картада карта жоқ',
   'billing.col.invoice': 'Шот-фактура',
   'billing.downloadUnavailable': '—',
   'billing.editCard': 'Картаны жаңарту',
+  'billing.eyebrow': 'Жоспар және пайдалану',
   'billing.invoiceHeading': 'Соңғы шот-фактуралар',
   'billing.invoicesEmpty': 'Әлі шот-фактуралар жоқ.',
   'billing.invoicesLoading': 'Шот-фактуралар жүктелуде…',
@@ -17,11 +28,12 @@ export const ui: UiTranslations = {
   'billing.nextChargeHint': 'Қосулы {{date}}',
   'billing.nextChargeLabel': 'Келесі төлем',
   'billing.planLoading': 'Жоспар жүктелуде…',
-  'billing.planSummary': '{{perSeat}} / орындық · {{орындықтар}} орындықтар · {{жалпы}} / ай',
+  'billing.planSummary': '{{perSeat}} / орын · {{seats}} орын · {{total}} / ай',
   'billing.seatsAdded': 'Орындар саны жаңартылды.',
   'billing.seatsError':
     'Бұл жоспар бір орындық. Көп орындықты пайдалану үшін Team нұсқасына жаңартыңыз.',
   'billing.seatsHint': '{{used}} -ның {{max}} қосылған',
+  'billing.seatsLabel': 'Белсенді орындар',
   'billing.spentLabel': 'Жыл басынан бері жұмсалған уақыт',
   'billing.subheading':
     'Жазылым, орындар, жасанды интеллект скринингін пайдалану және шот-фактуралар.',
@@ -38,6 +50,7 @@ export const ui: UiTranslations = {
   'candidateDetail.advanceError': 'Кезеңді жаңарту мүмкін болмады.',
   'candidateDetail.advanceFinal': 'Қазірдің өзінде соңғы кезеңде.',
   'candidateDetail.advanceHeading': 'Сахнаға өту',
+  'candidateDetail.appliedOn': '{{source}} арқылы {{date}} өтінім берілді.',
   'candidateDetail.back': 'Барлық кандидаттар',
   'candidateDetail.loadError': 'Кандидат жүктелмеді.',
   'candidateDetail.noInterviews': 'Әзірге сұхбат жоқ.',
@@ -47,8 +60,13 @@ export const ui: UiTranslations = {
   'candidateDetail.notePlaceholder':
     'Пікірлеріңізбен, сұхбаттан алған әсерлеріңізбен, келесі қадамдарыңызбен бөлісіңіз...',
   'candidateDetail.noteSave': 'Ескертпені сақтау',
+  'candidateDetail.panel': 'Панель: {{panel}}',
+  'candidateDetail.panelScore': 'Панель ұпайы: {{score}}/100',
+  'candidateDetail.resumeMissing': 'Бұл кандидат үшін түйіндеме алдын ала қарауы әзірге жоқ.',
   'candidateDetail.scheduleError': 'Сұхбат жоспарлау мүмкін болмады.',
+  'candidateDetail.scheduleHeading': 'Сұхбат жоспарлау',
   'candidateDetail.scheduleInterviewer': 'Сұхбат алушы',
+  'candidateDetail.scheduleInterviewerPlaceholder': 'Сұхбат алушының аты',
   'candidateDetail.scheduleMinutes': 'Ұзақтығы (мин)',
   'candidateDetail.scheduleMissing': 'Алдымен күн мен уақытты таңдаңыз.',
   'candidateDetail.scoreEmpty': 'Жасанды интеллект бағалауы күтілуде.',
@@ -72,6 +90,7 @@ export const ui: UiTranslations = {
   'candidates.heading': 'Кандидаттар',
   'candidates.loadError': 'Кандидаттар жүктелмеді.',
   'candidates.searchPlaceholder': 'Кандидат, рөл немесе жұмыс іздеу',
+  'candidates.sourceLabel': 'Дереккөз',
   'candidates.sourcePlaceholder': 'Дереккөз (LinkedIn, сілтеме…)',
   'candidates.subheading':
     'Жасанды интеллект бойынша бағалау және дереккөзді анықтау мүмкіндігі бар әртүрлі жұмыс орындарына арналған кандидаттар дерекқоры.',
@@ -86,6 +105,7 @@ export const ui: UiTranslations = {
   'dashboard.kpi.interviews': 'Осы аптадағы сұхбаттар',
   'dashboard.kpi.openJobs': 'Бос жұмыс орындары',
   'dashboard.loading': 'Жүктелуде…',
+  'dashboard.newJobCta': 'Жұмыс орнын жариялау',
   'dashboard.subheading':
     'Құбыр желісінің жұмыс істеуі, сұхбат жүктемесі және ұсыныстардың қозғалысы.',
   'dashboard.topEmpty': 'Әзірге кандидаттар жоқ.',
@@ -107,6 +127,7 @@ export const ui: UiTranslations = {
   'jobDetail.back': 'Барлық жұмыс орындары',
   'jobDetail.descriptionEyebrow': 'Рөлдің сипаттамасы',
   'jobDetail.descriptionMissing': 'Әзірге ешқандай сипаттама берілмеген.',
+  'jobDetail.employmentType': 'Жұмыс түрі: {{type}}',
   'jobDetail.empty': 'Әзірге өтініш берушілер жоқ.',
   'jobDetail.funnelEyebrow': 'Сахналық воронка',
   'jobDetail.funnelHeading': 'Өтініш берушілер тұрған жер',
@@ -115,6 +136,7 @@ export const ui: UiTranslations = {
   'jobDetail.kpi.hires': 'Жалдау',
   'jobDetail.kpi.inInterview': 'Сұхбатта',
   'jobDetail.loadError': 'Тапсырма жүктелмеді.',
+  'jobDetail.requirementsHeading': 'Талаптар',
   'jobDetail.topEyebrow': 'Ең үздік үміткерлер',
   'jobDetail.topHeading': 'Алдымен жасанды интеллектпен сәйкестендірілді',
   'jobDetail.unavailable': 'Бұл жұмыс енді тізімде жоқ.',
@@ -130,6 +152,7 @@ export const ui: UiTranslations = {
   'jobs.heading': 'Жұмыс орындары',
   'jobs.loadError': 'Тапсырмалар жүктелмеді.',
   'jobs.newCta': 'Жұмыстан кейінгі лауазым',
+  'landing.copyright': '© {{year}} {{app}} Молекуламен жасалған.',
   'landing.eyebrow': 'Жасанды интеллект көмегімен жұмысқа алу · v2',
   'landing.featuresEyebrow': 'Ол қалай жұмыс істейді',
   'landing.featuresHeading': 'Сигнал — электрондық кестелер емес.',
@@ -139,8 +162,11 @@ export const ui: UiTranslations = {
   'landing.heroProof':
     'Несие картасы қажет емес. Кез келген уақытта бас тартыңыз. SSO Pro нұсқасында қолжетімді.',
   'landing.heroSecondary': 'Бағасын қараңыз →',
+  'landing.heroSubtitle':
+    'Таза канбан pipeline, өзін түсіндіретін AI скринингі және кезеңдер бойынша әділдік аналитикасы. Шу емес — нақты сигнал қалайтын рекрутерлер мен жалдау менеджерлеріне арналған.',
   'landing.heroTitle': 'Анықтықпен жалдаңыз.',
   'landing.previewHeading': 'Аға артқы инженер',
+  'landing.previewLabel': 'Pipeline · Engineering',
   'landing.pricingEyebrow': 'Баға белгілеу',
   'landing.pricingHeading': 'Әрбір команданың өлшеміне арналған жоспарлар.',
   'landing.socialEyebrow': 'Жалдау топтары пайдаланады',
@@ -156,6 +182,9 @@ export const ui: UiTranslations = {
   'loginBrandPanel.headlineLine2': 'айқындық.',
   'loginBrandPanel.stage.interview': 'Сұхбат',
   'loginBrandPanel.stage.screening': 'Скрининг',
+  'loginBrandPanel.stage.sourced': 'Іздестірілген',
+  'loginBrandPanel.subtext':
+    'Кандидаттарды Іздестірілген → Скрининг → Сұхбат → Ұсыныс → Жалданды кезеңдері арқылы сүйреңіз. AI скрининг жасайды. Әділдік пульсі әр кезеңді адал ұстайды.',
   'nav.closeMenu': 'Мәзірді жабу',
   'nav.legal': 'Заңды',
   'nav.openMenu': 'Мәзірді ашу',
@@ -164,6 +193,7 @@ export const ui: UiTranslations = {
     'Түйіндемелер талаптарға сәйкес бағаланады; жалдаушы ең жақсы сәйкестіктерді алдымен бағалайды.',
   'newJob.aiToggle': 'Жаңа үміткерлерді автоматты түрде бағалау',
   'newJob.back': 'Жұмыс орындарына оралу',
+  'newJob.basicsHeading': 'Рөл негіздері',
   'newJob.compHeading': 'Өтемақы',
   'newJob.departmentLabel': 'Департамент',
   'newJob.descHeading': 'Сипаттама және талаптар',
@@ -173,6 +203,7 @@ export const ui: UiTranslations = {
   'newJob.failed': 'Жұмысты сақтау мүмкін болмады.',
   'newJob.heading': 'Жұмыс орнын жариялау',
   'newJob.publish': 'Жұмысты жариялау',
+  'newJob.reqLabel': 'Талаптар (әр жолға біреу)',
   'newJob.salaryMax': 'Ең жоғары жалақы (АҚШ доллары)',
   'newJob.salaryMin': 'Ең төменгі жалақы (АҚШ доллары)',
   'newJob.stagesHeading': 'Құбыр құбырларының сатылары',
@@ -188,6 +219,7 @@ export const ui: UiTranslations = {
   'newJob.type.fullTime': 'Толық уақыт',
   'newJob.type.partTime': 'Жарты күн',
   'newJob.typeLabel': 'Жұмыспен қамту түрі',
+  'pipeline.advanceTo': 'Алға жылжыту',
   'pipeline.allRoles': 'Барлық рөлдер',
   'pipeline.daysInStage': '{{days}} d',
   'pipeline.empty': 'Кандидаттар жоқ',
@@ -200,13 +232,22 @@ export const ui: UiTranslations = {
     'Кандидаттарды кезеңдерге сүйреңіз. Әрбір картада жасанды интеллект ұпайы және кезеңдегі күндер көрсетілген.',
   'pipeline.viewTable': 'Кесте көрінісі →',
   'pipelineFunnelHero.totalLabel': 'Қозғалыста',
+  'planUpdated.body':
+    'Төлем өзгерісіңіз енді белсенді. Жоспарыңызды төлем бетінен кез келген уақытта басқара аласыз.',
+  'planUpdated.retry': 'Қайталап көріңіз',
+  'planUpdated.verifyFailed': 'Төлеміңізді әзірге растай алмадық.',
+  'planUpdated.verifyFailedBody':
+    'Төлеміңіз әлі өңделуде болуы мүмкін. Біраздан кейін қайталап көріңіз.',
   'planUpdated.verifying': 'Төлеміңіз расталуда…',
   'pricing.heading': 'қолданбалар',
+  'pricing.limits.applications': 'өтінімдер',
   'pricing.limits.candidates': 'кандидаттар',
   'pricing.limits.jobs': 'жұмыс орындары',
   'pricing.limits.scorecards': 'ұпай карталары',
   'privacy.dataBody':
     'Тіркелгі электрондық поштасы, хэштелген құпия сөз, профиль метадеректері және сіз жасаған кандидат/жұмыс жазбалары. Біз бұл деректерді ешқашан сатпаймыз немесе бөліспейміз.',
+  'privacy.intro':
+    '{{app}} тұтынушылардың атынан жалдау деректерін өңдейді. Біз кандидат жазбаларын, түйіндемелерді және жалдау тобының хат-хабарын құпия деп санаймыз және оларды сақтау кезінде шифрлаймыз.',
   'privacy.retentionBody':
     'Тіркелгіңізді кез келген уақытта Параметрлерден жоя аласыз. Заң бойынша сақтау талап етілетін жағдайларды қоспағанда, біз байланысты жазбаларды 30 күн ішінде жоямыз.',
   'privacy.title': 'Құпиялылық саясаты',
@@ -216,6 +257,7 @@ export const ui: UiTranslations = {
     'Кандидаттар мен үміткерлерге жұмыс орындарындағы сіздің атыңыз бен лауазымыңызды көруге рұқсат етіңіз.',
   'profile.publicLabel': 'Жалпы профиль',
   'profile.publicOff': 'Жасырын',
+  'profile.publicOn': 'Көрінетін',
   'profile.recentEmpty': 'Әзірге орналастырулар жоқ.',
   'profile.recentError': 'Соңғы орналастыруларды жүктеу мүмкін болмады.',
   'profile.recentEyebrow': 'Соңғы орналастырулар',
@@ -242,8 +284,13 @@ export const ui: UiTranslations = {
   'resetPassword.missingToken':
     'Қалпына келтіру сілтемесі жоқ немесе мерзімі өтіп кеткен — жаңасын сұраңыз.',
   'resetPassword.passwordLabel': 'Жаңа құпия сөз',
+  'resetPassword.signInCta': 'Кіру →',
+  'resetPassword.signInPrompt': 'Жаңа құпия сөзіңізбен жүйеге кіріңіз.',
   'resetPassword.subheading': 'Күшті құпия сөзді таңдаңыз — аралас регистрмен кемінде 12 таңба.',
+  'settings.appearance.description': 'Жарық және қараңғы режимдер арасында ауысу.',
   'settings.appearance.title': 'Сыртқы түрі',
+  'settings.deleteAccountModal.confirm':
+    'Растау үшін құпия сөзіңізді енгізіңіз. Бұл әрекет қайтымсыз.',
   'settings.emailTemplates.empty': 'Әлі ешқандай үлгі конфигурацияланбаған.',
   'settings.emailTemplates.heading': 'Электрондық пошта үлгілері',
   'settings.emailTemplates.loadError': 'Шаблондарды жүктеу мүмкін болмады.',
@@ -254,10 +301,16 @@ export const ui: UiTranslations = {
   'settings.integrations.statusDisconnected': 'Қосылған жоқ',
   'settings.integrations.updateError': 'Интеграцияны жаңарту мүмкін болмады.',
   'settings.name': 'Аты',
+  'settings.passwordHelp': 'Кіру үшін пайдаланатын құпия сөзіңізді жаңартыңыз.',
+  'settings.revokeDeviceWarning':
+    'Бұл құрылғының кіруі жақын арада қайтарып алынады. Оны шығаруға келісесіз бе?',
   'settings.saveEmail': 'Электрондық поштаны сақтау',
   'settings.signOutDevice': 'Шығу',
   'settings.stages.empty': 'Әлі ешқандай кезеңдер конфигурацияланбаған.',
+  'settings.stages.heading': 'Құбыр құбырларының сатылары',
+  'settings.stages.help': 'Кандидаттар өтетін кезеңдер. Пайдаланбайтындарыңызды жойыңыз.',
   'settings.stages.loadError': 'Кезеңдерді жүктеу мүмкін болмады.',
+  'settings.stages.loading': 'Кезеңдер жүктелуде…',
   'settings.stages.removeAria': 'Алып тастау {{name}} сахна',
   'settings.stages.removeError': 'Кезеңді жою мүмкін болмады.',
   'settings.team.empty': 'Әзірге командаластар жоқ — төмендегі біріншісін шақырыңыз.',
@@ -273,9 +326,15 @@ export const ui: UiTranslations = {
   'settings.team.removeError': 'Мүшені жою мүмкін болмады.',
   'settings.twoFactorCode': 'Аутентификация коды',
   'settings.twoFactorDisable': 'Өшіру',
+  'settings.twoFactorDisableTitle': 'Екі факторлы аутентификацияны өшіру',
   'settings.twoFactorEnable': 'Қосу',
+  'settings.twoFactorEnableTitle': 'Екі факторлы аутентификацияны қосу',
   'settings.twoFactorInvalidCode': 'Жарамсыз код',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Екі факторлы QR коды',
+  'settings.twoFactorScan':
+    'Осы QR кодын аутентификатор қолданбасымен сканерлеңіз, содан кейін 6 таңбалы кодты енгізіңіз.',
+  'settings.twoFactorUnavailable': 'Бұл қолданба үшін екі факторлы аутентификация қолжетімді емес.',
   'settings.twoFactorVerify': 'Тексеру және қосу',
   'settings.unknownDevice': 'Белгісіз құрылғы',
   'signup.confirmPlaceholder': 'Құпия сөзіңізді қайта енгізіңіз',
@@ -286,6 +345,8 @@ export const ui: UiTranslations = {
     '60 секунд ішінде жұмысқа қабылдау тақтасын жасаңыз. Команданы кейінірек шақырыңыз.',
   'terms.acceptableUseBody':
     'Сіз қызметті теріс пайдаланбайсыз, автоматтандырылған скрапингті іске қоспайсыз, қауіпсіздікті бұзуға тырыспайсыз немесе оны қорғалған сыныптарға қарсы кемсітушілік үшін пайдаланбайсыз.',
+  'terms.intro':
+    '{{app}} пайдалану арқылы сіз осы шарттармен келісесіз. Қызмет төменде сипатталған міндеттемелер мен шектеулермен бірге сол қалпында ұсынылады.',
   'terms.subscriptionBody':
     'Ақылы жоспарлар тоқтатылғанға дейін ай сайын жаңартылып отырады. Сіз кез келген уақытта төлем жүйесінен бас тарта аласыз; сіздің жоспарыңыз ағымдағы кезеңнің соңына дейін белсенді болып қалады.',
   'terms.title': 'Қызмет көрсету шарттары',

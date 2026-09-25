@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Есть отзыв, нашли баг или хотите собственную доску на {{appName}}? Откройте настройки, чтобы связаться с командой — каждое сообщение читает живой человек.',
+  'about.contactTitle': 'Свяжитесь с нами',
+  'about.featureModeration':
+    'Публичный роадмап с разбивкой по кварталам, чейнджлог, превращающий выпущенную работу в заметки о релизе, и дашборд, показывающий, что больше всего хотят пользователи.',
+  'about.featurePricing':
+    'Бесплатно можно вести пару досок; тарифы Pro и Team открывают больше досок, повышенные лимиты и экспорт данных.',
+  'about.featureThreads':
+    'Публичные доски отзывов, организованные по темам, с объединением дубликатов, которое собирает голоса в один честный сигнал спроса.',
+  'about.featureVoting':
+    'Один голос на пользователя с полным циклом статусов — открыто, запланировано, в работе, выпущено или отклонено — и официальный ответ по каждому решению.',
+  'about.intro':
+    '{{appName}} — платформа для отзывов о продукте: публичные доски, где клиенты публикуют запросы, голосуют за то, что им нужно, и следят за каждой идеей от «запланировано» до «выпущено». Команды перестают угадывать, что делать дальше, потому что спрос ранжируется сам.',
+  'about.missionBody':
+    'Мы верим, что лучшие продуктовые решения принимаются открыто. {{appName}} даёт каждой команде публичную доску запросов с голосованием, официальный роадмап с целевыми кварталами и чейнджлог, замыкающий цикл, — так клиенты видят своё влияние, а команды — свой мандат.',
+  'about.missionTitle': 'Наша миссия',
   'admin.backToBoards': 'Вернуться к доскам',
   'admin.denied': 'Только для администраторов.',
   'admin.eyebrow': 'Команда продукта',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'admin.title': 'Панель отзывов',
   'admin.topOpen': 'Топ открытых запросов',
   'admin.totalVotes': '{{count}} всего',
+  'admin.votesChartLabel': 'Столбчатая диаграмма голосов за неделю за последние восемь недель',
   'admin.votesOverTime': 'Голоса за период',
   'auth.forgotPassword.email': 'Email',
   'auth.forgotPassword.sendResetLink': 'Отправить ссылку для сброса',
@@ -30,7 +47,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Создайте аккаунт',
   'auth.username': 'Имя пользователя',
   'authShell.communities': 'Сообщества',
+  'authShell.copyright': '{{appName}} — каждый голос важен.',
   'authShell.trending': 'Популярное',
+  'boardCard.postCount': '{{count}} публикаций',
   'boardDetail.allBoards': 'Все доски',
   'boardDetail.backToBoards': 'Вернуться к доскам',
   'boardDetail.empty': 'Нет публикаций по этим фильтрам.',
@@ -54,6 +73,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Каждая запись началась с запроса с голосами. Голосовавшие видели движение; здесь то, где оно завершилось.',
   'changelog.title': 'Отправлено, с подтверждениями',
+  'changelog.voteCount': '{{count}} голосов помогли это выпустить',
   'common.atLeast8Characters': 'Минимум 8 символов',
   'common.checkYourInbox': 'Проверьте почту',
   'common.loadingEllipsis': 'Загрузка…',
@@ -64,6 +84,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Отправка…',
   'footer.about': 'О {{appName}}',
   'footer.language': 'Язык',
+  'forgotPassword.description':
+    'Введите свой адрес электронной почты, и мы вышлем вам ссылку для сброса настроек.',
+  'forgotPassword.successBody':
+    'Мы отправили ссылку для сброса настроек. {{email}} Срок действия истекает через 30 минут.',
   'forgotPassword.tryAnother': 'Попробуйте другой email',
   'form.displayName': 'Отображаемое имя',
   'form.firstName': 'Имя',
@@ -74,6 +98,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'Ваша дорожная карта на основе голосов.',
   'landing.heroCtaPrimary': 'Начать собирать голоса',
   'landing.heroCtaSecondary': 'Увидеть живую доску',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Хватит угадывать. Выпускайте то, за что голосуют.',
+  'landing.heroLede':
+    '{{appName}} превращает разрозненные запросы функций в публичную доску идей с голосованием, официальный роадмап и чейнджлог, который ваши клиенты действительно читают.',
   'landing.heroStat1': '3 200+',
   'landing.heroStat1Label': 'Команд слушают',
   'landing.heroStat2': '1,4 млн',
@@ -85,9 +113,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Журнал изменений',
   'landing.navJoin': 'Присоединиться к {{appName}}',
   'landing.navRoadmap': 'Дорожная карта',
+  'landing.step1Body':
+    'Клиенты публикуют идеи на публичных досках. Дубликаты объединяются, голоса суммируются, и спрос ранжируется сам.',
   'landing.step1Title': 'Собирайте',
+  'landing.step2Body':
+    'Отмечайте запросы как запланированные или в работе с целевым кварталом — роадмап обновляется сразу.',
+  'landing.step2Title': 'Совершить',
   'landing.step3Body':
     'Отправленные публикации становятся записями в журнале изменений, и каждый голосовавший видит результат в своём списке.',
+  'landing.step3Title': 'Выпустить',
   'landing.topSubtitle': 'Прямо с этой доски — войдите, чтобы добавить свой голос.',
   'landing.topTitle': 'Что просят пользователи прямо сейчас',
   'landing.topViewAll': 'Все доски',
@@ -95,14 +129,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Начальная школа',
   'layout.signUp': 'Зарегистрироваться',
   'layout.submit': 'Отправить отзыв',
+  'login.description': 'Продолжите разговор с того места, где он закончился.',
+  'login.heading': 'Войдите в Nimbus',
+  'login.noAccount': 'Вы здесь впервые?',
   'login.passwordPlaceholder': 'Ваш пароль',
   'login.twoFactorLabel': 'Код 2FA (опционально)',
   'login.twoFactorPlaceholder': '6-значный код',
+  'login.twoFactorRequiredHint':
+    'В этом аккаунте включена двухфакторная аутентификация. Введите 6-значный код из приложения-аутентификатора, чтобы продолжить.',
   'login.twoFactorRequiredLabel': 'Введите код 2FA',
+  'myActivity.browseCta': 'Просмотрите доски',
+  'myActivity.emptyPosts': 'Вы ещё не публиковали запрос.',
+  'myActivity.emptyVotes': 'Пока ничего — просмотрите доски и поддержите идею.',
   'myActivity.eyebrow': 'Ваша активность',
   'myActivity.loadError': 'Не удалось загрузить вашу активность.',
   'myActivity.postsTitle': 'Запросы, которые вы отправили',
+  'myActivity.shippedNote': '{{count}} из них выпущено — спасибо за напоминание.',
   'myActivity.submitCta': 'Опубликовать запрос',
+  'myActivity.tabLabel': 'Просмотр',
   'myActivity.tabPosts': 'Мои публикации',
   'myActivity.tabVotes': 'Мои голоса',
   'myActivity.votesTitle': 'Запросы, за которые вы проголосовали',
@@ -137,8 +181,13 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Публикация не найдена',
   'postsAdmin.backToDashboard': 'Панель',
   'postsAdmin.eyebrow': 'Команда продукта',
+  'postsAdmin.mergeApplied':
+    'Объединено — перенесено {{votes}} голосов и {{comments}} комментариев.',
   'postsAdmin.mergeApply': 'Объединить и перенести голоса',
   'postsAdmin.mergeChoose': 'Выберите целевую публикацию…',
+  'postsAdmin.mergeFailed': 'Не удалось объединить.',
+  'postsAdmin.mergeHint':
+    'Голоса суммируются (по одному на пользователя), комментарии переносятся, а у этого поста появляется пометка «перенесено».',
   'postsAdmin.mergeLabel': 'Объединить дубликат с',
   'postsAdmin.responseLabel': 'Официальный ответ',
   'postsAdmin.responsePlaceholder':
@@ -153,7 +202,13 @@ export const ui: UiTranslations = {
     'Установите официальный статус, ответьте публично, отметьте квартал дорожной карты и объедините дубликаты.',
   'postsAdmin.title': 'Управление публикациями отзывов',
   'postsAdmin.votes': '{{count}} голосов',
+  'pricing.limits.advancedFeatures': 'Расширенные возможности:',
+  'pricing.limits.boards': '{{count}} доски',
   'pricing.limits.export': 'Экспорт данных:',
+  'pricing.limits.posts': '{{count}} отзывов',
+  'pricing.limits.votes': '{{count}} голосов',
+  'resetPassword.description':
+    'Выберите надежный вариант. Мы войдем в систему после успешного сброса настроек.',
   'resetPassword.newPasswordLabel': 'Новый пароль',
   'resetPassword.tokenPlaceholder': 'Вставьте токен из ссылки',
   'roadmap.cardMeta': 'от {{author}} · {{board}}',
@@ -170,6 +225,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'Введите запрос, чтобы найти существующие запросы, прежде чем публиковать дубликат.',
   'search.loadError': 'Поиск не удался — попробуйте ещё раз.',
+  'search.searching': 'Идет поиск…',
   'search.submit': 'Поиск',
   'search.submitNew': 'Опубликовать как новый запрос',
   'search.title': 'Поиск отзывов',
@@ -178,11 +234,22 @@ export const ui: UiTranslations = {
   'settings.billing': 'Оплата',
   'settings.displaySubtitle': 'Выберите плотность лент.',
   'settings.displayTitle': 'Отображение',
+  'settings.emailDigestDesc': 'Самые популярные открытые запросы каждый понедельник.',
+  'settings.emailDigestLabel': 'Еженедельный дайджест',
+  'settings.emailMentionsDesc': 'Когда кто-то отвечает на пост, за которым вы следите.',
+  'settings.emailMentionsLabel': 'Уведомлять по email об упоминаниях',
+  'settings.emailRepliesDesc': 'Обсуждения, которые вы начали или в которых отвечали.',
+  'settings.emailRepliesLabel': 'Напишите мне на электронную почту, если ответите.',
   'settings.loadError': 'Не удалось загрузить аккаунт.',
   'settings.loading': 'Загрузка настроек…',
   'settings.notifications': 'Уведомления',
   'settings.notificationsSubtitle': 'Решите, что попадает в почту, а что на устройство.',
+  'settings.pushRepliesLabel': 'Push-уведомления об ответах',
+  'settings.pushVotesDesc': 'Уведомление при достижении 100, 500, 1000.',
+  'settings.pushVotesLabel': 'Нажимайте на этапы для получения положительных голосов.',
   'settings.saveAccount': 'Сохранить аккаунт',
+  'settings.showFlair': 'Показывать метки досок на постах',
+  'settings.showThumbnails': 'Показывать миниатюры ссылок и изображений',
   'settings.usernamePlaceholder': 'Выберите псевдоним',
   'signup.confirmPlaceholder': 'Введите ещё раз',
   'signup.description': 'Влияйте на то, что мы создаём дальше.',

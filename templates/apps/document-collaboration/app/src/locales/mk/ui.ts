@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Имате повратна информација, најдовте грешка или сакате {{app}} за вашето студио или тим? Обратете се од поставките на вашата сметка — секоја порака стигнува до вистинска личност од тимот.',
   'about.contactTitle': 'Контактирајте не',
+  'about.intro':
+    '{{app}} е колаборативно студио за пишување каде уредници, писатели и тимови пишуваат заедно во реално време. Отворете документ и страницата станува споделена — курсорите се движат, коментарите се нижат во маргината, а секоја ревизија е безбедно зачувана во историјата.',
+  'about.missionBody':
+    'Веруваме дека долгот форматуван текст заслужува смирен, фокусиран дом — изграден околу ракописот, а не околу состанокот или сандачето. Нашиот уредувач, присуството во реално време и историјата на верзии се дизајнирани така што соработниците можат брзо да работат заедно, без никој да изгуби пасус или мисла.',
+  'about.missionTitle': 'Нашата мисија',
+  'about.subtitle': 'Мислете заедно, пишувајте засекогаш.',
   'about.title': 'За {{app}}',
   'comments.addFailed': 'Не може да се објави коментар.',
   'comments.backToDoc': 'Назад кон ракописот',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Нишки за коментари',
   'comments.loading': 'Се вчитуваат нишки…',
   'comments.newPlaceholder': 'Додај коментар на ракописот…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Повторно отвори',
   'comments.reopenFailed': 'Не можеше повторно да се отвори.',
   'comments.replyFailed': 'Не можеше да се објави одговорот.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Неодамнешни нацрти, споделени дела и уредувањата од денот.',
   'dashboard.viewFeed': 'Фид →',
   'editor.back': 'Назад кон ракописите',
+  'editor.bodyLabel': 'Содржина на документот',
   'editor.bodyPlaceholder': 'Започнете од местото каде што трепка курсорот.',
   'editor.comments': 'Коментари',
   'editor.createFailed': 'Не можев да го креирам документот.',
@@ -62,13 +72,19 @@ export const ui: UiTranslations = {
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'писател@studio.com',
   'forgotPassword.sentBody': 'Ако постои сметка за {{email}} , линк за ресетирање е на пат.',
+  'forgotPassword.sentHeading': 'Проверете ја вашата е-пошта',
+  'forgotPassword.submitting': 'Се испраќа\\u2026',
   'forgotPassword.subtitle': 'Ќе ви испратиме е-пошта со линк за ресетирање.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Изградено со Molecule.',
+  'landing.ctaBody':
+    'Бесплатно за самостојни писатели. Студио планови за тимови од уредници, писатели-сенки и рецензенти.',
   'landing.ctaHeading': 'Отворете ја страницата. Нека курсорот почне.',
   'landing.ctaPrimary': 'Отвори студио',
   'landing.eyebrow': 'За писатели, уредници и тимови',
   'landing.featuresEyebrow': 'Што добивате',
   'landing.featuresHeading': 'Студио за долгата драфт верзија.',
+  'landing.featuresSubtitle':
+    '{{appName}} е изграден околу ракописот — не околу состанокот, не околу сандачето.',
   'landing.getStarted': 'Отворете го студиото',
   'landing.heroCta': 'Започнете со пишување',
   'landing.heroSubtitle':
@@ -94,6 +110,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} непрочитани · коментари, споменувања, покани за споделување и барања за предлози.',
   'presenceAvatars.label': '{{count}} соработници',
+  'privacy.intro': 'Како ги собираме, користиме и заштитуваме вашите информации.',
   'privacy.title': 'Политика за приватност',
   'profile.about.description':
     'Кратка биографија за вашиот јавен профил и страниците на соработниците.',
@@ -107,7 +124,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Присуство',
   'profile.pronouns': 'Заменки',
   'profile.publicToggle': 'Прикажи профил на соиграчите',
+  'profile.role': 'Улога / звање',
   'profile.subtitle': 'Како изгледате пред вашите соработници.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} сценаристи активни во студиото',
   'quillonAuthBrandPanel.quote':
     '„Пишувањето е единственото нешто за кое, кога го правам, не чувствувам дека треба да правам нешто друго.“',
@@ -115,6 +134,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Отвори →',
   'quillonKpiCard.trend': 'Неодамнешен тренд',
   'quillonLayout.menu': 'Мени',
+  'quillonLayout.mobileNavLabel': 'Мобилна навигација',
   'quillonLayout.primaryNavLabel': 'Примарна навигација',
   'quillonStudioHero.collab': 'Соработници',
   'quillonStudioHero.docs': 'Документи допрени',
@@ -123,7 +143,9 @@ export const ui: UiTranslations = {
   'quillonStudioHero.subtitle': 'Земи го ракописот, остави коментар, помести еден пасус напред.',
   'quillonStudioHero.words': 'Зборови денес',
   'resetPassword.confirmPlaceholder': 'Повторете ја новата лозинка',
+  'resetPassword.passwordLabel': 'Нова лозинка',
   'resetPassword.passwordPlaceholder': 'Внесете нова лозинка',
+  'resetPassword.submitting': 'Ресетирање…',
   'resetPassword.subtitle': 'Изберете силна лозинка - најмалку 12 знаци.',
   'settings.account.description': 'Како се најавувате.',
   'settings.billing.canceled': 'Претплатата е откажана.',
@@ -132,7 +154,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Не е конфигурирано',
   'settings.billing.updated': 'Планот е ажуриран.',
   'settings.editor.description': 'Како се однесува платното додека пишувате.',
+  'settings.editor.title': 'Преференции на уредникот',
   'settings.eyebrow': 'Преференции за студио',
+  'settings.language.title': 'Јазик',
   'settings.notifications.${n.key}.description': 'Јазик',
   'settings.notifications.description': 'Изберете што ќе ви стигне во сандачето.',
   'settings.subtitle':
@@ -142,6 +166,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Споделено со мене',
   'shared.loadFailed': 'Не можеше да се вчитаат споделените документи.',
   'shared.subtitle': 'Ракописи, кратки извештаи и белешки од остатокот од студиото.',
+  'signup.brandAttribution': 'Anaïs Park — уредник, The Quarterly',
   'signup.brandQuote':
     '\\u201cВашиот прв ракопис е најтежок. Кијон го прави помалку осамен.\\u201c',
   'signup.emailPlaceholder': 'писател@studio.com',
@@ -149,6 +174,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Анаис',
   'signup.heading': 'Креирајте ја вашата сметка на Quillon',
   'signup.lastNamePlaceholder': 'Парк',
+  'signup.submitting': 'Го отвораме вашето студио\\u2026',
   'signup.subtitle':
     'Тивка маса, амбиентални соработници и уредник за долги програми што ви се трга од патот.',
   'templates.blank.subtitle': 'Чиста страница. Курсорот почнува.',
@@ -161,11 +187,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Започнете со внимателно осмислена структура. Прилагодувајте бесконечно.',
   'templates.useFailed': 'Не можев да започнам документ од овој шаблон.',
   'templates.useTemplate': 'Користете го овој шаблон',
+  'terms.intro': 'Условите под кои можете да ја користите оваа услуга.',
   'terms.title': 'Услови за користење',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'токму сега',
   'trash.confirmDelete': 'Потврди бришење',
+  'trash.confirmEmpty': 'Потврди — избриши сè',
   'trash.deleteFailed': 'Не можеше да се избрише.',
   'trash.deleteForever': 'Избриши засекогаш',
   'trash.empty': 'Ништо за враќање.',
@@ -181,7 +209,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'Сè уште нема ревизии — зачувајте го документот за да ја започнете неговата историја.',
   'versionHistory.heading': 'Историја на верзии',
+  'versionHistory.latest': 'Најново',
   'versionHistory.loadFailed': 'Не можеше да се вчита историјата.',
+  'versionHistory.noContent': 'Нема зачувана содржина за оваа ревизија.',
   'versionHistory.previewing': 'Преглед',
   'versionHistory.restore': 'Врати ја оваа верзија',
   'versionHistory.restoreFailed': 'Враќањето не успеа.',

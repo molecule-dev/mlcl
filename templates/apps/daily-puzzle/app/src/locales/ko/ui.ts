@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '피드백이 있거나, 버그를 발견했거나, {{app}}을(를) 학교나 팀에 도입하고 싶으신가요? 모든 메시지를 읽습니다 — 계정 설정에서 연락해 주시면 실제 사람이 답변해 드립니다.',
   'about.contactTitle': '문의하기',
   'about.eyebrow': '소개',
+  'about.intro':
+    '{{app}}은(는) 매일 즐기는 단어 퍼즐입니다. 여섯 번의 시도 안에 다섯 글자 단어를 맞히고, 연속 기록을 이어가고, 이모지 그리드를 공유하고, 오늘의 단어에서 모두가 어떤 성적을 냈는지 확인해 보세요.',
+  'about.missionBody':
+    '좋은 퍼즐은 매일의 작은 성취입니다. {{app}}은(는) 하루에 하나의 공유 단어를 중심으로 만들어졌습니다 — 커피 한 잔의 휴식에 딱 맞을 만큼 짧고, 내일 다시 찾게 될 만큼 흥미롭습니다.',
+  'about.missionTitle': '우리의 사명',
   'about.title': '{{app}} 소개',
   'archive.loadError': '아카이브를 불러올 수 없습니다.',
   'archive.missed': '놓침',
   'archive.notPlayed': '플레이 안 함',
+  'archive.subhead':
+    '지난 날짜를 연습으로 다시 플레이하세요 — 연속 기록도, 통계도 없이, 재미만 가득합니다.',
   'archive.title': '보관',
   'auth.backToHome': '홈으로 돌아가기',
   'auth.backToHomeArrow': '← 홈으로 돌아가기',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': '비밀번호를 잊으셨나요?',
   'auth.login.loggingIn': '로그인 중…',
   'auth.login.logIn': '오늘의 단어 플레이',
+  'auth.login.noAccount': 'Tessera가 처음이신가요?',
   'auth.login.or': '또는 다음으로 계속',
   'auth.login.password': '비밀번호',
   'auth.login.signInButton': '로그인',
@@ -32,6 +42,10 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': '저장 중…',
   'common.sendingEllipsis': '전송 중…',
   'common.startingEllipsis': '시작 중…',
+  'forgotPassword.subhead': '이메일을 입력하시면 재설정 링크를 보내드리겠습니다.',
+  'forgotPassword.success.body':
+    '{{email}} 계정이 존재한다면 잠시 후 재설정 링크를 받으실 수 있습니다.',
+  'forgotPassword.success.title': '받은편지함을 확인하세요.',
   'form.name': '이름',
   'howToPlay.cta.home': '홈으로 돌아가기',
   'howToPlay.cta.play': '오늘의 퍼즐 플레이',
@@ -68,10 +82,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': '끊기 싫은 연속 기록',
   'leaderboard.daily.title': '오늘의 성공',
   'leaderboard.loadError': '리더보드를 불러올 수 없습니다.',
+  'leaderboard.streaks.empty': '아직 연속 기록이 없습니다 — 첫 번째가 되어 보세요.',
+  'leaderboard.streaks.subhead': '역대 최장 연속 승리 기록.',
   'leaderboard.streaks.title': '연속 기록 리더',
+  'leaderboard.subhead':
+    '오늘 모두가 어떤 성적을 냈는지, 그리고 누가 가장 긴 연속 기록을 이어가고 있는지.',
   'leaderboard.title': '리더보드',
   'login.headline': '다시 오신 것을 환영합니다.',
   'login.streakPill': '{{days}}일 연속 기록이 기다리고 있습니다',
+  'login.subhead': '로그인하고 연속 기록을 이어가며 오늘의 단어에서 어떤 성적을 냈는지 확인하세요.',
   'nav.archive': '보관',
   'nav.editProfile': '프로필 편집',
   'nav.getStarted': '시작하기',
@@ -89,6 +108,9 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · 해당 단어 없음',
   'notFound.title': '해당 경로가 비어 있습니다.',
   'planUpdated.message': '플랜이 활성화되었습니다.',
+  'planUpdated.retry': '다시 시도',
+  'planUpdated.verifyFailed': '아직 결제 확인이 완료되지 않았습니다.',
+  'planUpdated.verifyFailedBody': '결제가 아직 처리 중일 수 있습니다. 잠시 후 다시 시도해 주세요.',
   'planUpdated.verifying': '결제 확인 중…',
   'play.alreadyFinished': '이미 이 퍼즐을 완료했습니다',
   'play.answerWas': '단어는',
@@ -104,6 +126,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': '연습 퍼즐',
   'play.tooShort': '글자가 부족합니다',
   'play.won': '해결했습니다!',
+  'pricing.advancedStats': '고급 통계: {{yes}}',
+  'pricing.archiveHistory': '{{count}}일의 아카이브 기록',
+  'pricing.archivePlays': '하루 {{count}}회 아카이브 다시 플레이',
+  'pricing.archiveUnlimited': '무제한 아카이브 기록',
+  'pricing.canExport': '데이터 내보내기: {{yes}}',
+  'pricing.checkoutError': '결제를 시작할 수 없습니다. 다시 시도해 주세요.',
   'pricing.dailyWord': '매일의 단어',
   'pricing.heading': '{{app}} 플랜 선택',
   'pricing.included': '포함됨',
@@ -111,7 +139,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     '매일의 단어는 항상 무료입니다. 업그레이드하면 아카이브 무제한 재플레이와 더 자세한 통계를 이용할 수 있습니다.',
   'pricing.yearly': '연간',
+  'privacy.intro':
+    '{{app}}은(는) 개인정보를 존중합니다. 이 페이지에서는 우리가 저장하는 데이터, 저장하는 이유, 삭제하는 방법을 요약합니다.',
   'privacy.title': '개인정보 보호 정책',
+  'resetPassword.subhead': '연속 기록으로 돌아가려면 새 비밀번호를 선택하세요.',
   'settings.account': '계정',
   'settings.danger.body': '{{appName}} 계정과 모든 퍼즐 기록을 영구적으로 삭제합니다.',
   'settings.danger.confirm': '네, 영구 삭제합니다',
@@ -120,17 +151,24 @@ export const ui: UiTranslations = {
   'settings.guest': '게스트',
   'settings.language.title': '언어',
   'settings.subhead': '프로필, 소리, 리더보드 표시 방식을 조정하세요.',
+  'settings.unnamed': 'Sparq 플레이어',
   'settings.upgrade': '업그레이드',
   'signup.eyebrow': '영원히 무료 — 하루에 한 단어',
   'signup.headline': '연속 기록을 시작하세요.',
+  'signup.subhead':
+    '{{appName}} 계정을 만들어 매일의 단어를 플레이하고, 연속 기록을 쌓고, 리더보드에 올라가세요.',
   'stats.currentStreak': '연속 기록',
   'stats.distribution.title': '추측 분포',
   'stats.loadError': '통계를 불러올 수 없습니다.',
   'stats.maxStreak': '최대 연속 기록',
   'stats.played': '플레이',
   'stats.playToday': '오늘의 퍼즐 플레이',
+  'stats.subhead':
+    '순위가 매겨지는 것은 매일의 퍼즐뿐입니다 — 아카이브 연습은 절대 집계되지 않습니다.',
   'stats.title': '내 통계',
   'stats.winRate': '승률',
   'status.monthly': '월간',
+  'terms.intro':
+    '{{app}}을(를) 사용하면 아래 규칙에 동의하는 것입니다. 동의할 수 없다면 서비스를 사용하지 마세요.',
   'terms.title': '서비스 약관',
 }

@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Bron, fikr-mulohaza yoki {{app}} ga tegishli deb hisoblagan mehmonxona haqida savollaringiz bormi? Hisobingizdan jamoamizga murojaat qiling — har bir xabar yordam bera oladigan haqiqiy insonga yetib boradi.',
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Biz haqimizda',
+  'about.featureLoyalty':
+    "Faqat a'zolar uchun narxlar va har bir bron uchun ball, kech chiqish va xona yangilanishlarini taqdim etuvchi sodiqlik dasturi.",
+  'about.featureReviews':
+    "Tasdiqlangan mehmon sharhlari va tahririyat tanlovlari — kelishingizdan oldin turar joyga ishonchingiz komil bo'ladi.",
+  'about.featureRooms':
+    "Xonalar, narxlar va qulayliklarni yonma-yon, shaffof, hammasi ichida narx bilan — to'lashdan oldin soliqlar va kurort to'lovlari kiritilgan.",
+  'about.featureSearch':
+    "Tekshirilgan mehmonxonalar bo'ylab real vaqtda qidiruv: jonli mavjudlik, xarita ko'rinishi va boy foto galereyalar.",
+  'about.featureTrips':
+    'Saqlangan sevimlilar va barcha bronlar, marshrutlar va tasdiqlarni bir joyda saqlovchi Trips paneli.',
+  'about.intro':
+    "{{app}} — sifatga e'tibor beradigan sayohatchilar uchun mehmonxona bron qilish platformasi. Har bir mehmonxona tahririyat jamoamiz tomonidan shaxsan tekshiriladi — agregator inventari yo'q, aldamchi e'lonlar yo'q. Haqiqiy mavjudlikni qidiring, xonalar, narxlar va qulayliklarni yonma-yon solishtiring, so'ng aniq, hammasi ichida narx bilan bir necha bosishda bron qiling.",
+  'about.missionBody':
+    "Turar joy bron qilish xotirjam va halol bo'lishi kerak. Biz soliqlar va kurort to'lovlari bilan shaffof narxlarni oldindan ko'rsatamiz, sodiq mehmonlarni mayda-chuyda to'lovlar bilan qiynamasdan mukofotlaymiz va pulingizga arziydigan turar joylarni birinchi o'ringa qo'yamiz — shunda siz varaqlarni solishtirishga kamroq, sayohatning o'ziga ko'proq vaqt ajratasiz.",
+  'about.missionTitle': 'Bizning vazifamiz',
+  'about.subtitle': "To'g'ri mehmonxonani topish va bron qilishning saralangan, shaffof usuli.",
   'account.loyalty.activitySummary': '{{nights}} kechalar · {{spend}} bu yil sarfladi',
+  'account.loyalty.benefitsHeading': 'Sizning imtiyozlaringiz',
   'account.loyalty.heading': 'Sadoqat',
   'account.loyalty.loading': 'Sadoqat yuklanmoqda…',
-  'account.loyalty.pointsTowardNext': '{{ball}} / {{Keyingisi}} ishora qiladi {{keyingiTier}}',
+  'account.loyalty.maxTier': "Eng yuqori daraja — imtiyozlaringizdan bahramand bo'ling.",
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} balldan {{nextTier}} gacha',
   'account.loyalty.tier': 'Joriy daraja',
   'account.loyalty.unavailable': "Sadoqat haqida ma'lumot mavjud emas.",
   'account.navLabel': "Hisob bo'limlari",
@@ -23,6 +44,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Buyurtmani tasdiqlash · {{total}}',
   'bookingCheckout.datesRequired': "Iltimos, ro'yxatdan o'tish va chiqish sanalarini tanlang.",
   'bookingCheckout.guestHeading': 'Bosh mehmon',
+  'bookingCheckout.heading': 'Tasdiqlash va bron qilish',
   'bookingCheckout.loadError': "Xususiyatni yuklab bo'lmadi.",
   'bookingCheckout.nights': '{{rate}} × {{count}} kechalar',
   'bookingCheckout.notFound': 'Mulk topilmadi.',
@@ -33,11 +55,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': "Soliqlar va to'lovlar",
   'bookingCheckout.tripHeading': 'Sayohatingiz',
   'bookingConfirmation.allTripsCta': 'Barcha sayohatlar',
+  'bookingConfirmation.confNumber': 'Tasdiqlash raqami: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': "Broningiz ko'rib chiqilmoqda.",
   'bookingConfirmation.heading': 'Bronlash tasdiqlandi',
   'bookingConfirmation.loading': 'Buyurtmangiz yuklanmoqda…',
   'bookingConfirmation.searchMoreCta': "Boshqa turar joylarni ko'rib chiqing",
   'bookingConfirmation.subheadingForTrip':
-    "{{mulk}} ichida {{shahar}} , {{mamlakat}} Ko'rishguncha {{belgilanish}} .",
+    "{{city}}, {{country}} da {{property}}. {{checkIn}} kuni ko'rishguncha.",
   'bookingConfirmation.total': 'Jami {{total}}',
   'bookingConfirmation.viewTripCta': "Sayohatni ko'rish",
   'common.goToDashboard': "Boshqaruv paneliga o'tish",
@@ -47,6 +72,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': "Sevimlilar ro'yxatini yuklab bo'lmadi.",
   'favorites.pricePerNight': '{{price}} / kecha',
   'favorites.removeCta': 'Saqlanmagan',
+  'favorites.removing': 'Olib tashlanmoqda…',
   'forgotPassword.subheading':
     'Hisobingizdagi elektron pochta manzilini kiriting va biz sizga xavfsiz tiklash havolasini yuboramiz.',
   'forgotPassword.successBody':
@@ -54,6 +80,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': "Auberge a'zolari",
   'landing.cta.heading': "Faqat a'zolar uchun narxlar. Har bir buyurtma, har safar.",
   'landing.cta.signup': 'Bepul hisob yarating',
+  'landing.cta.subheading':
+    "Har bir turar joy uchun sodiqlik ballari to'plang, kech chiqish va xona yangilanishlarini oching hamda yangi mehmonxonalarga ommaga e'lon qilinishidan oldin birinchi bo'lib kirish imkoniyatiga ega bo'ling.",
   'landing.destinations.eyebrow': 'Keyingi qayerga',
   'landing.destinations.heading': "Tavsiya etilgan yo'nalishlar",
   'landing.destinations.seeAll': "Barcha manzillarni ko'rish",
@@ -62,13 +90,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': "O'zingizga joylashga arziydigan hikoyalar",
   'landing.nav.join': "Aubergega qo'shiling",
   'landing.nav.search': 'Qidiruv qoladi',
+  'landing.preview.browseAll': "To'liq to'plamni ko'rib chiqing",
   'landing.preview.eyebrow': 'Ichkariga bir nazar',
   'landing.preview.heading': "Bu oyda qo'lda tanlangan turar joylar",
+  'landing.preview.subheading':
+    "{{appName}} dagi har bir mehmonxona tahririyat jamoamiz tomonidan shaxsan tekshiriladi — agregator inventari yo'q, aldamchi e'lonlar yo'q.",
   'login.eyebrow': "A'zolar maydoni",
+  'login.noAccount': 'Tesserada yangimisiz?',
   'login.signupLink': 'Bepul hisob yarating',
   'login.subheading':
     "Sayohatlaringizni boshqarish, tasdiqlarni ko'rish va qolgan joyingizdan davom ettirish uchun tizimga kiring.",
+  'loyaltyTierBadge.points': '{{points}} ball',
   'planUpdated.heading': 'Reja yangilandi',
+  'planUpdated.retry': 'Qayta urinib ko’ring',
+  'planUpdated.verifyFailed': "To'lovingizni hali tasdiqlay olmadik.",
+  'planUpdated.verifyFailedBody':
+    "To'lovingiz hali ham amalga oshirilayotgan bo'lishi mumkin. Birozdan keyin qayta urinib ko'ring.",
   'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'pricing.limit.advancedFeatures': 'Kengaytirilgan xususiyatlar:',
   'pricing.limit.canExport': "Ma'lumotlarni eksport qilish:",
@@ -80,7 +117,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Bu joy nimani taklif qiladi',
   'propertyDetail.backLink': 'Qidiruvga qaytish',
   'propertyDetail.bookCta': 'Bron qilish',
+  'propertyDetail.bookmarkAria': 'Mulkni saqlang',
   'propertyDetail.bookmarkAriaSaved': 'Saqlangan xususiyatlardan olib tashlash',
+  'propertyDetail.galleryImageAlt': '{{name}} foto {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} qahramon fotosurati',
   'propertyDetail.hidePhotos': 'Rasmlarni yashirish',
   'propertyDetail.lineCleaning': 'Tozalash narxi',
@@ -90,6 +129,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'kecha',
   'propertyDetail.noChargeYet': "Sizdan hali to'lov olinmaydi",
   'propertyDetail.notFound': 'Mulk topilmadi.',
+  'propertyDetail.perNight': '/ kecha',
+  'propertyDetail.pickDatesHint': "To'liq narx taqsimotini ko'rish uchun sanalarni tanlang.",
   'propertyDetail.reviewCount': '( {{count}} sharhlar)',
   'propertyDetail.reviewsHeading': "So'nggi sharhlar",
   'propertyDetail.roomCapacity': 'Uxlaydi {{count}}',
@@ -102,6 +143,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Yangi parol',
   'resetPassword.subheading':
     'Auberge hisobingiz uchun yangi parol tanlang. Kamida 8 ta belgidan foydalaning; biz parolni tavsiya qilamiz.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Qidiruvingizga hech qanday mulk mos kelmadi.',
   'searchResults.emptyHint':
     'Filtrlaringizni kengaytirishga yoki narx chegarasini olib tashlashga harakat qiling — Auberge 14 mamlakatda turar joylarga ega.',
@@ -109,19 +151,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Tanlangan turar joylar',
   'searchResults.headingForQuery': '"Uchun qoladi" {{q}} "',
   'searchResults.loadError': "Xususiyatlarni yuklab bo'lmadi.",
+  'searchResults.mapHint':
+    "Xaritada ajratib ko'rsatish uchun kartaga kursorni olib keling. Ishlab chiqarishda jonli Mapbox plitkalari.",
   'searchResults.mapPinAria': '{{name}} — {{price}} bir kecha uchun',
   'searchResults.sortLabel': 'Saralash turi',
   'searchResults.subheading': '{{count}} mulklar · {{guests}} mehmonlar',
   'signup.eyebrow': "A'zo bo'ling",
   'signup.subheading':
     "Faqat a'zolar uchun narxlarni ochish, kechikib buyurtma berish va yangi mulklarga birinchi bo'lib kirish imkoniyatini olish uchun Aubergega qo'shiling.",
+  'sojournAuthShell.brand.eyebrow': "G'ayrioddiy joyda qoling",
+  'sojournAuthShell.brand.heading':
+    "Saralangan mehmonxonalar to'plami — chiroyli taqdim etilgan, shaffof narxlangan.",
   'sojournHeroSearchCard.checkInAria': "Ro'yxatdan o'tish sanasi",
   'sojournHeroSearchCard.checkOutAria': 'Chiqish sanasi',
+  'sojournHeroSearchCard.destAria': 'Manzil',
+  'sojournHeroSearchCard.destLabel': 'Qayerda',
   'sojournHeroSearchCard.destPlaceholder': 'Shahar, viloyat yoki mulk',
   'sojournHeroSearchCard.eyebrow': "Tanlangan turar joylar · Faqat a'zolar uchun narxlar",
   'sojournHeroSearchCard.guestsOption': '{{n}} mehmonlar',
   'sojournHeroSearchCard.subtitle':
     "Butik mehmonxonalar, dizaynga asoslangan turar joylar va noyob topilmalarga ega dam olish maskanlarining tanlab olingan to'plami — shaffof narxlarda va chiroyli taqdimot.",
+  'sojournHeroSearchCard.title': "G'ayrioddiy joyda qoling",
+  'sojournHeroSearchCard.trustLoyalty': "Har bir turar joy uchun ball to'plang",
   'sojournHeroSearchCard.trustNoFees': "Hech qachon yashirin to'lovlar yo'q",
   'sojournHeroSearchCard.trustVetted': "Faqat qo'lda tekshirilgan mulklar",
   'sojournLayout.primaryNavLabel': 'Asosiy navigatsiya',

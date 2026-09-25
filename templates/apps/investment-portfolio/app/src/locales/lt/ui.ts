@@ -1,10 +1,33 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Turite atsiliepimų, radote klaidą ar norite funkcijos? Susisiekite per savo paskyros nustatymus — kiekviena žinutė pasiekia tikrą komandos narį. Pastaba: niekas čia nėra investavimo patarimas; jūs kontroliuojate kiekvieną sandorį.',
+  'about.contactTitle': 'Susisiekite su mumis',
+  'about.featureAttribution':
+    'Veiklos priskyrimas — suskaidykite grąžą pagal sektorių, regioną ir turto klasę bei palyginkite su etalonu bet kuriuo laikotarpiu.',
+  'about.featureRebalance':
+    'Drausmingas portfelio subalansavimas — nustatykite tikslinius paskirstymus ir tolerancijos ribas, laiku pastebėkite nukrypimus ir gaukite sandorius, kurie grąžina jus į pusiausvyrą.',
+  'about.featureTax':
+    'Mokestinių dokumentų tvarka — realizuotas ir nerealizuotas pelnas, dividendai ir 1099 dokumentai vienoje vietoje, su wash-sale žymomis.',
+  'about.featureUnified':
+    'Vienas suvienytas portfelis — akcijos, ETF, investiciniai fondai, obligacijos ir daugiau, surinkti iš visų tarpininkavimo sąskaitų.',
+  'about.featureWatchlist':
+    'Stebimieji sąrašai, naujienos ir kainų perspėjimai, kad galėtumėte veikti pagal tai, kas svarbu, be triukšmo.',
+  'about.intro':
+    '{{app}} yra kelių turto klasių portfelio suvestinė individualiems investuotojams ir nepriklausomiems konsultantams. Akcijos, ETF, investiciniai fondai, obligacijos, nekilnojamasis turtas ir grynieji pinigai — kiekviena pozicija visose sąskaitose vienoje vietoje, su profesionalaus prekybos stalo drausme.',
+  'about.missionBody':
+    'Geras investavimas daugiausia yra drausmė: aiškus tikslinis paskirstymas, sąžiningas veiklos priskyrimas ir tvarkingi mokesčių įrašai. {{app}} suteikia šiuos institucinius įpročius kiekvienam, kad galėtumėte subalansuoti portfelį sąmoningai, o ne impulsyviai — ir niekada nepamestumėte iš akių, ką jūsų portfelis iš tikrųjų daro.',
+  'about.missionTitle': 'Mūsų misija',
   'about.pageTitle': 'Apie {{app}}',
   'argentAuthShell.brandEyebrow': 'Argentas · Turto įrankiai',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Ne investavimo patarimas.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Portfelio ataskaitų suvestinė individualiems investuotojams ir patarėjams, norintiems drausmingo perbalansavimo, tikslaus rezultatų priskyrimo ir tvarkingos mokesčių dokumentacijos – be jokio triukšmo.',
+  'argentAuthShell.formFooter': '© {{year}} {{app}} · Buvusi veikla negarantuoja būsimų rezultatų.',
   'argentAuthShell.sampleChange': '+2 841 USD (+0,28 %) šiandien',
+  'argentAuthShell.sampleLabel': 'Portfelio vertė',
   'argentAuthShell.sampleValue': '1 032 251 USD',
   'argentLayout.primaryNavLabel': 'Pagrindinė navigacija',
   'assetAllocationDonut.heading': 'Kaip investuojami jūsų pinigai',
@@ -26,6 +49,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'šiandien',
   'assetDetail.txEmpty': 'Šiai biržai netaikoma jokių operacijų.',
   'assetDetail.txHeading': 'Jūsų operacijos',
+  'auth.legalConsent.prefix': 'Tęsdami sutinkate su {{appName}}',
   'common.and': 'ir',
   'common.goToDashboard': 'Eiti į suvestinę',
   'common.no': '—',
@@ -37,10 +61,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'šiandien',
   'dashboard.topHoldings.heading': 'Kur veikia jūsų pinigai',
   'dashboard.topHoldings.label': 'Didžiausios investicijos',
+  'forgotPassword.gotLinkCta': 'Turiu slaptažodžio atkūrimo nuorodą →',
+  'forgotPassword.subheading':
+    'Įveskite savo „Gavl“ paskyros el. pašto adresą ir mes atsiųsime jums saugią atstatymo nuorodą.',
   'forgotPassword.successBody':
     'Jei po kelių minučių jo nematysite, patikrinkite šlamšto aplanką arba pabandykite siųsti kitą el. laišką.',
   'forgotPassword.successSubheading':
     'Patikrinkite {{email}} nuorodai atkurti. Ji galioja 60 minučių.',
+  'forgotPassword.successTitle': 'Atkūrimo el. laiškas jau pakeliui',
   'holdingHighlightRow.todayLabel': 'šiandien',
   'holdings.addCta': 'Pirkti',
   'holdings.col.allocation': 'Paskirstymas',
@@ -58,6 +86,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Tai ne investavimo patarimas. Ankstesni rezultatai negarantuoja būsimų rezultatų.',
   'landing.eyebrow': 'Argent · Turto valdymo platforma',
   'landing.features.heading': 'Viskas, ką patarėjas pats sukurtų.',
+  'landing.finalCta.body':
+    'Prijunkite savo tarpininką dviem paspaudimais. {{appName}} padarys visa kita.',
+  'landing.finalCta.cta': 'Atidarykite savo Argent sąskaitą',
   'landing.finalCta.heading': 'Grąžinkite discipliną į savo portfelį.',
   'landing.footerSignup': 'Atidaryti sąskaitą',
   'landing.getStarted': 'Atidaryti sąskaitą',
@@ -65,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Žr. kainas',
   'landing.heroSubtitle':
     'Portfelio ataskaitų suvestinė individualiems investuotojams ir patarėjams, norintiems drausmingo perbalansavimo, tikslaus rezultatų priskyrimo ir tvarkingos mokesčių dokumentacijos – be jokio triukšmo.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Tiesioginė reprezentatyvaus portfelio peržiūra',
   'login.heading': 'Prisijungti prie Argent',
   'login.subheading':
@@ -76,6 +108,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} prieš val.',
   'news.justNow': 'ką tik',
   'news.loadError': 'Nepavyko įkelti naujienų.',
+  'planUpdated.body':
+    'Jūsų mokėjimo pakeitimas dabar aktyvus. Savo planą galite tvarkyti bet kada mokėjimų puslapyje.',
+  'planUpdated.retry': 'Pabandyk dar kartą',
+  'planUpdated.verifyFailed': 'Mes dar negalėjome patvirtinti jūsų mokėjimo.',
+  'planUpdated.verifyFailedBody':
+    'Jūsų mokėjimas vis dar gali būti apdorojamas. Bandykite dar kartą po akimirkos.',
   'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'portfolioHeroCard.label': 'Portfelio vertė',
   'pricing.holdingsLabel': 'valdos',
@@ -86,12 +124,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Paskirstymo poslinkis',
   'rebalance.empty': 'Tikslai dar nenustatyti.',
   'rebalance.executeCta': 'Vieta {{count}} prekyba',
+  'rebalance.executeError': 'Nepavyko pateikti sandorių.',
   'rebalance.executeOk': 'Padėtas {{count}} sandoriai. Peržiūrėkite juos puslapyje „Operacijos“.',
+  'rebalance.executing': 'Pateikiama…',
   'rebalance.eyebrow': 'Subalansavimas · Argento patarėjas',
   'rebalance.heading': 'Grąžinkite savo portfelį į tvarką',
   'rebalance.loadError': 'Nepavyko įkelti pakartotinio balansavimo plano.',
+  'rebalance.plan.driftLine': 'šiuo metu {{current}} % · tikslas {{target}} %',
   'rebalance.planHeading': 'Argent bilietas – peržiūrėkite prieš pateikdami',
   'rebalance.planLabel': 'Siūlomas prekybos planas',
+  'rebalance.subheading':
+    'Eilutės, viršijančios tolerancijos ribą, sugeneruoja sandorių pasiūlymus. {{appName}} veikia tik gavusi jūsų patvirtinimą.',
   'rebalance.summary.buyLabel': 'Pirkimai',
   'rebalance.summary.buySub': 'papildytinų pozicijų',
   'rebalance.summary.driftLabel': 'Už juostos ribų',
@@ -100,6 +143,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'siūlomuose sandoriuose',
   'rebalance.summary.sellLabel': 'Parduoda',
   'rebalance.summary.sellSub': 'apkirpimo pozicijos',
+  'rebalanceDriftCard.drift': 'nukrypimas {{sign}}{{pct}} % · riba ±{{tolerance}} %',
   'rebalanceDriftCard.targetLabel': 'taikinys {{pct}} %',
   'reports.attributionHeading': 'Našumo priskyrimas (1 metai)',
   'reports.col.alpha': 'Alfa',
@@ -113,37 +157,68 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Metai',
   'reports.gainsHeading': 'Realizuotas ir nerealizuotas pelnas',
   'reports.noAttribution': 'Priskyrimo duomenų dar nėra.',
+  'reports.noGains': 'Dar nėra realizuoto/nerealizuoto pelno duomenų.',
   'reports.noPerformance': 'Kol kas nėra našumo duomenų.',
   'reports.noTaxDocs': 'Mokesčių dokumentų dar nėra.',
   'reports.performanceHeading': 'Našumas, palyginti su etalonu',
   'reports.taxHeading': 'Mokesčių dokumentai',
   'resetPassword.heading': 'Pasirinkite naują stiprų slaptažodį',
+  'resetPassword.passwordPlaceholder': 'Naujas slaptažodis',
   'resetPassword.subheading':
     '„Argent“ jus prijungs automatiškai, kai tik bus nustatytas slaptažodis.',
   'resetPassword.tokenPlaceholder': 'Atkurti prieigos raktą iš el. laiško',
+  'settings.appearance.description': 'Perjungti šviesų ir tamsų režimus.',
   'settings.appearance.title': 'Išvaizda',
+  'settings.devices.body': 'Įrenginiai, kuriais šiuo metu prisijungta prie jūsų paskyros.',
+  'settings.devices.empty': 'Nerasta jokių įrenginių.',
   'settings.devices.heading': 'Įrenginiai',
+  'settings.devices.revokeWarning': 'Šio įrenginio prieiga netrukus bus atšaukta. Atjungti jį?',
   'settings.devices.signOut': 'Atsijungti',
   'settings.devices.thisDevice': 'Šis įrenginys',
   'settings.devices.unknown': 'Nežinomas įrenginys',
   'settings.linked.body':
     'Tarpininkavimo sinchronizavimui reikalinga trečiosios šalies jungtis („Plaid“, „Yodlee“ ir kt.). Konfigūruokite savo teikėją savo aplinkoje, kad būtų įjungtas automatinis importavimas.',
   'settings.linked.heading': 'Susietos tarpininkavimo sąskaitos',
+  'settings.linked.placeholder': 'Kol kas nėra susietų paskyrų.',
+  'settings.notifications.dividendsPaid': 'Išmokėti dividendai',
   'settings.notifications.error': 'Nepavyko atnaujinti nuostatos.',
   'settings.notifications.priceAlerts': 'Kainų įspėjimai',
+  'settings.notifications.rebalanceDrift': 'Subalansavimo nukrypimas',
+  'settings.notifications.taxDocsReady': 'Mokesčių dokumentai paruošti',
   'settings.profile.advisor': 'Patarėjo el. pašto adresas (neprivaloma)',
   'settings.profile.heading': 'Profilis',
   'settings.security.changePassword': 'Keisti slaptažodį',
+  'settings.security.changePasswordTitle': 'Keisti slaptažodį',
   'settings.security.changing': 'Keičiasi…',
+  'settings.security.confirmPassword': 'Slaptažodis',
+  'settings.security.currentPassword': 'Dabartinis slaptažodis',
   'settings.security.deleteAccount': 'Ištrinti paskyrą',
   'settings.security.deleteError': 'Nepavyko ištrinti paskyros.',
   'settings.security.deleteHeading': 'Ištrinti paskyrą',
+  'settings.security.deleteModalWarning':
+    'Tai visam laikui ištrins jūsų paskyrą ir duomenis. Įveskite slaptažodį, kad patvirtintumėte.',
+  'settings.security.deleteWarning':
+    'Visam laikui ištrinti savo paskyrą ir visus susijusius duomenis. Šio veiksmo atšaukti negalima.',
   'settings.security.deleting': 'Ištrinama…',
   'settings.security.heading': 'Saugumas',
   'settings.security.newPassword': 'Naujas slaptažodis',
   'settings.security.password': 'Slaptažodis',
+  'settings.security.passwordError': 'Nepavyko pakeisti slaptažodžio.',
+  'settings.security.passwordHint': 'Pakeiskite slaptažodį, kuriuo prisijungiate.',
+  'settings.security.twoFactor': 'Dviejų veiksnių autentifikavimas',
+  'settings.security.twoFactorCode': 'Autentifikavimo kodas',
+  'settings.security.twoFactorDisable': 'Išjungti',
+  'settings.security.twoFactorDisableTitle': 'Išjungti dviejų veiksnių autentifikavimą',
   'settings.security.twoFactorEnable': 'Įjungti',
+  'settings.security.twoFactorEnableTitle': 'Įjungti dviejų veiksnių autentifikavimą',
+  'settings.security.twoFactorHint': 'Pridėkite papildomą apsaugos sluoksnį savo paskyrai.',
   'settings.security.twoFactorInvalidCode': 'Neteisingas kodas',
+  'settings.security.twoFactorOn': 'Dėl',
+  'settings.security.twoFactorQrAlt': 'Dviejų veiksnių QR kodas',
+  'settings.security.twoFactorScan':
+    'Nuskaitykite šį QR kodą su autentifikavimo programa, tada įveskite 6 skaitmenų kodą.',
+  'settings.security.twoFactorUnavailable':
+    'Dviejų veiksnių autentifikavimas šiai programai negalimas.',
   'settings.security.twoFactorVerify': 'Patikrinti ir įjungti',
   'settings.tax.error': 'Nepavyko atnaujinti mokesčių metodo.',
   'settings.tax.heading': 'Mokesčių sklypų apskaita',
@@ -154,6 +229,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Mokesčių metodas išsaugotas.',
   'signup.eyebrow': 'Atidaryti sąskaitą',
   'signup.heading': 'Atidarykite savo Argent sąskaitą',
+  'signup.legalPrefix': 'Kurdami paskyrą sutinkate su {{appName}}',
   'signup.subheading': '30 dienų nemokamai. Kortelės nereikia. Atšaukite bet kuriuo metu.',
   'signup.terms':
     'Sukurdami paskyrą, jūs sutinkate su „Argent“ paslaugų teikimo sąlygomis ir privatumo politika.',

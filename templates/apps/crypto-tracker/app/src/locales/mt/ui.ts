@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwar',
+  'about.featureAlerts':
+    'Twissijiet dwar il-prezzijiet fuq il-kundizzjonijiet li jimpurtaw, mibgħuta bl-email u bil-push biex qatt ma titlef moviment.',
+  'about.featureMarkets':
+    "Data tal-merkat ħajja u graffs tal-prezzijiet fuq eluf ta' muniti, ikklassifikati skont il-kapitalizzazzjoni tas-suq, il-volum u l-momentum.",
+  'about.featurePortfolio':
+    'Traċċar tal-portafoll bi profitt u telf reali, bażi tal-ispiża u allokazzjoni — konnessi mal-istorja tat-transazzjonijiet tiegħek.',
+  'about.featureWatchlist':
+    "Watchlist personali u aħbarijiet kripto magħżula b'sinjali fuq l-assi li ssegwi.",
+  'about.missionTitle': 'Il-missjoni tagħna',
+  'alertConditionCard.armedSince': 'Armat minn {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'Imqanqal {{meta}}',
   'alertConditionCard.confirmDelete': 'Ikkonferma t-tħassir',
+  'alertConditionCard.deleteAriaLabel': 'Ħassar l-allert',
   'alertConditionCard.pauseAriaLabel': 'Pawża l-allert',
   'alertConditionCard.resumeAriaLabel': 'Erġa’ ibda l-allert',
+  'alertConditionCard.triggeredAt': 'Attivat {{when}}',
   'alertNew.condition': 'Kundizzjoni',
   'alertNew.createCta': 'Oħloq twissija',
   'alertNew.error': 'Ma setgħetx tinħoloq twissija.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': "Għad m'hemm l-ebda allerti.",
   'alerts.eyebrow': 'Wajers tat-tripwires tas-Bourse',
   'alerts.loadError': "Ma rnexxilniex intella' t-twissijiet.",
+  'alerts.newCta': '+ Tripwire ġdid',
   'alerts.subheading': 'Irċievi ping meta l-prezz, il-bidla, jew il-volum jaqbżu l-linja tiegħek.',
   'alerts.summary.armed': 'Armati',
   'alerts.summary.triggered': 'Imqanqal',
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': "L-ogħla livell ta' kull żmien",
   'coinDetail.allTimeLow': "L-inqas livell ta' kull żmien",
   'coinDetail.back': 'Is-swieq kollha',
+  'coinDetail.chartAriaLabel': "Graff tal-prezz ta' {{name}}, l-aħħar 30 jum",
   'coinDetail.chartHeading': 'Prezz · l-aħħar 30 jum',
   'coinDetail.circulating': 'Provvista li tiċċirkola',
   'coinDetail.fdv': 'Valutazzjoni kompletament dilwita',
@@ -59,6 +74,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Irrisettja l-konnessjoni bil-wajer.',
   'login.eyebrow': 'Idħol fit-terminal',
   'login.heading': 'Merħba lura, sinjalatur.',
+  'login.noAccountQuestion': "Ġdid f'Tessera?",
   'login.secureNote': '🔒 Kriptat waqt it-transitu',
   'login.signingInCta': 'Qed naqra t-tejp…',
   'login.signupLink': 'Iftaħ kont →',
@@ -93,6 +109,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     "Ir-rotta li skennjajt ma tirriżolvix għal munita jew paġna magħrufa. Erġa' ċċekkja s-simbolu u erġa' pprova.",
   'notFound.browseMarkets': 'Fittex fis-swieq',
+  'notFound.eyebrow': "Sinjal ta' {{appName}} mitluf",
+  'notFound.heading': 'Dan is-sinjal huwa barra mill-firxa',
+  'planUpdated.body':
+    "Il-bidla fil-billing tiegħek issa hija attiva. Tista' timmaniġġja l-pjan tiegħek fi kwalunkwe ħin mill-paġna tal-billing.",
+  'planUpdated.retry': 'Erġa’ pprova',
+  'planUpdated.verifyFailed': 'Għadna ma stajniex nikkonfermaw il-ħlas tiegħek.',
+  'planUpdated.verifyFailedBody':
+    "Jista' jkun li l-ħlas tiegħek għadu qed jiġi pproċessat. Erġa' pprova fi ftit ħin.",
   'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'portfolio.addError': 'Daħħal is-simbolu, l-ammont pożittiv, u l-ispiża.',
   'portfolio.addHoldingCta': '+ Żid azjenda',
@@ -116,12 +140,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Valur totali tal-portafoll',
   'portfolioHeroCard.totalPnl': 'Total P/L',
   'pricing.heading': 'allerti',
+  'pricing.limit.alerts': 'twissijiet',
   'pricing.limit.coins': 'muniti',
   'pricing.limit.market': 'suq',
   'pricing.limit.portfolio': 'portafoll',
   'resetPassword.eyebrow': 'Ċifra ġdida',
   'resetPassword.missingToken':
     'Din il-link tar-reset hija nieqsa jew invalida. Itlob waħda ġdida.',
+  'resetPassword.passwordPlaceholder': 'Password ġdida',
   'resetPassword.subheading': "Agħżel xi ħaġa li int biss tista' tiddekodifika.",
   'settings.apiKeys.body':
     "Ċwievet li jinqraw biss biex jimportaw l-istorja tat-tranżazzjonijiet. Qabbad permezz ta' OAuth minn /prezzijiet ladarba tkun abbonat.",
@@ -133,18 +159,35 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Munita tal-kwotazzjoni',
   'settings.preferences.locale': 'Lokali',
   'settings.preferences.push': 'Imbotta',
+  'settings.preferences.refresh': 'Aġġornament tal-prezz (sekondi)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning':
+    "L-aċċess ta' dan l-apparat se jiġi rrevokat dalwaqt. Oħroġ minnu?",
   'settings.security.body':
     "Il-password u s-settings b'żewġ fatturi huma ġestiti mill-kont tiegħek.",
   'settings.signOutDevice': 'Oħroġ',
   'settings.twoFactorCode': "Kodiċi ta' awtentikazzjoni",
   'settings.twoFactorDisable': 'Iddiżattiva',
+  'settings.twoFactorDisableTitle': "Itfi l-awtentikazzjoni b'żewġ fatturi",
   'settings.twoFactorEnable': 'Ippermetti',
+  'settings.twoFactorEnableTitle': "Ixgħel l-awtentikazzjoni b'żewġ fatturi",
   'settings.twoFactorInvalidCode': 'Kodiċi invalidu',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Kodiċi QR taż-żewġ fatturi',
+  'settings.twoFactorScan':
+    "Skennja dan il-kodiċi QR bl-app tal-awtentikatur tiegħek, imbagħad daħħal il-kodiċi ta' 6 ċifri.",
+  'settings.twoFactorUnavailable':
+    "L-awtentikazzjoni b'żewġ fatturi mhijiex disponibbli għal din l-app.",
   'settings.twoFactorVerify': 'Ivverifika u attiva',
   'sigilAuthShell.backHomeCta': '← Lura għal Bourse',
+  'sigilAuthShell.brandBody':
+    "Prezzijiet f'ħin reali, P/L tal-portafoll u għases permanenti fuq il-kundizzjonijiet li jimpurtaw — kollha fuq terminal wieħed.",
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — mibni fuq Molecule',
+  'sigilAuthShell.brandHeadline': 'Iddekkodja kull sinjal fil-ledger kollu.',
+  'sigilAuthShell.samplePortfolio': 'Portafoll tal-kampjun',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Navigazzjoni primarja',
+  'signup.creating': 'Qed niftaħ it-terminal tiegħek…',
   'signup.eyebrow': 'Iftaħ terminal',
   'signup.heading': 'Oħloq is-Bourse tiegħek',
   'signup.subheading': 'Traċċa kull munita, evita kull telf. Ħieles biex tibda.',
@@ -161,6 +204,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Ma rnexxilniex nitgħabbew it-tranżazzjonijiet.',
   'watchlist.addCta': 'Fittex fis-swieq',
   'watchlist.col.change24h': '24 siegħa',
+  'watchlist.col.coin': 'Munita',
   'watchlist.col.marketCap': 'Kappa tas-suq',
   'watchlist.empty':
     "M'hemm l-ebda muniti fuq il-lista ta' osservazzjoni tiegħek — żid muniti minn /markets biex iżżidhom.",

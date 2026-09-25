@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ചോദ്യങ്ങളോ ഫീഡ്ബാക്കോ, അല്ലെങ്കിൽ മോഡലിനെ കുഴപ്പിച്ച ഒരു ഡാറ്റാസെറ്റോ? ഇൻ-ആപ്പ് സഹായ മെനുവിൽ നിന്ന് {{app}} ടീമിനെ സമീപിക്കൂ — ഓരോ സന്ദേശവും ഉൽപ്പന്നത്തിൽ പ്രവർത്തിക്കുന്ന ഒരു യഥാർത്ഥ വ്യക്തിയിലേക്കാണ് പോകുന്നത്.',
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
+  'about.intro':
+    '{{app}} ഒരു AI ഡാറ്റ അനലിസ്റ്റാണ്, അസംസ്കൃത ഡാറ്റയെ ഉത്തരങ്ങളാക്കി മാറ്റുന്നു. ഒരു CSV അപ്‌ലോഡ് ചെയ്യുകയോ ഒരു വെയർഹൗസ് കണക്റ്റ് ചെയ്യുകയോ ചെയ്ത്, ലളിതമായ ഇംഗ്ലീഷിൽ ഒരു ചോദ്യം ചോദിക്കൂ, ശരിയായ ചാർട്ടും, അതിനെ പിന്തുണയ്ക്കുന്ന ടേബിളും, അത് നിർമ്മിച്ച SQL-ഉം ലഭിക്കും — {{tagline}}.',
+  'about.missionBody':
+    'അനലിറ്റിക്സിന് ഒരു ബാക്ക്ലോഗ് ടിക്കറ്റും ഒരാഴ്ചത്തെ കാത്തിരിപ്പും ആവശ്യമാകരുത്. {{app}} ഒരു ടെക്സ്റ്റ് ബോക്സിന് പിന്നിൽ ഒരു മികച്ച അനലിസ്റ്റിനെ നൽകുന്നു, അതുവഴി പ്രൊഡക്റ്റ്, ഓപ്സ്, ഫിനാൻസ് ടീമുകൾക്ക് മിനിറ്റുകൾക്കുള്ളിൽ അവരുടെ സ്വന്തം ചോദ്യങ്ങൾക്ക് ഉത്തരം നൽകാം — ഓരോ ഫലവും പുനർനിർമ്മിക്കാവുന്നതും ഓഡിറ്റ് ചെയ്യാവുന്നതുമായി നിലനിർത്തിക്കൊണ്ട്.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'about.pageTitle': '{{app}} നെക്കുറിച്ച്',
+  'about.whatYouGet': 'നിങ്ങൾക്ക് ലഭിക്കുന്നത്',
+  'askClarionBar.ariaLabel': '{{appName}}-നോട് ഒരു ചോദ്യം ചോദിക്കൂ',
   'askClarionBar.askCta': 'ചോദിക്കുക',
   'askClarionBar.placeholder':
     'നിങ്ങളുടെ ഡാറ്റയെക്കുറിച്ച് ഒരു ചോദ്യം ചോദിക്കുക — ഉദാ: “Q3 വരുമാനത്തിലെ മികച്ച 10 ഉപഭോക്താക്കൾ”',
@@ -20,16 +30,21 @@ export const ui: UiTranslations = {
   'dashboard.insightsHeading': 'സമീപകാല ഉൾക്കാഴ്ചകൾ',
   'dashboard.noInsights':
     'ഇതുവരെ ഉൾക്കാഴ്ചകളൊന്നുമില്ല — ആരംഭിക്കാൻ ഒരു ഡാറ്റാസെറ്റ് അപ്‌ലോഡ് ചെയ്യുക.',
+  'dashboard.subhead':
+    'ഇന്നലെ മുതൽ മൂന്ന് പുതിയ ഉൾക്കാഴ്ചകൾ. സൂക്ഷ്മമായി പരിശോധിക്കേണ്ട ഒരു അനോമലി.',
   'dashboard.uploadCta': 'ഡാറ്റ അപ്‌ലോഡ് ചെയ്യുക',
   'datasetCard.analyzedPrefix': 'വിശകലനം ചെയ്തു {{when}}',
   'datasetCard.cols': 'കോളങ്ങൾ',
   'datasetCard.rows': 'വരികൾ',
+  'datasetDetail.aiHeading': 'AI ഉൾക്കാഴ്ചകൾ',
   'datasetDetail.back': 'ഡാറ്റാസെറ്റുകൾ',
   'datasetDetail.col.example': 'ഉദാഹരണം',
   'datasetDetail.col.name': 'Field',
   'datasetDetail.col.nullable': 'അസാധുവാക്കാവുന്ന',
   'datasetDetail.col.unique': 'അതുല്യമായത്',
   'datasetDetail.cols': 'നിരകൾ',
+  'datasetDetail.lineageEmpty':
+    'അപ്‌ലോഡിൽ നിന്ന് ഇമ്പോർട്ട് ചെയ്തത് — അപ്‌സ്ട്രീം ട്രാൻസ്ഫോമുകൾ ഇല്ല.',
   'datasetDetail.loadError': 'ഡാറ്റാസെറ്റ് ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
   'datasetDetail.notFound': 'ഡാറ്റാസെറ്റ് കണ്ടെത്തിയില്ല.',
   'datasetDetail.queriesEmpty': 'ഈ ഡാറ്റാസെറ്റിൽ ഇതുവരെ സംരക്ഷിച്ച ചോദ്യങ്ങളൊന്നുമില്ല.',
@@ -43,17 +58,22 @@ export const ui: UiTranslations = {
   'datasetDetail.tab.${tk}': 'Field',
   'datasets.empty': 'ഇതുവരെ ഡാറ്റാസെറ്റുകളൊന്നുമില്ല — ആരംഭിക്കാൻ ഒന്ന് അപ്‌ലോഡ് ചെയ്യുക.',
   'datasets.eyebrow': '{{count}} ഡാറ്റാസെറ്റുകൾ · {{rows}} വരികൾ',
+  'datasets.heading': 'ഡാറ്റാസെറ്റുകൾ',
   'datasets.loadError': 'ഡാറ്റാസെറ്റുകൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
   'datasets.subhead':
     'ഫയലുകൾ ക്ലാരിയൻ ഇൻഡെക്സ് ചെയ്ത് അന്വേഷിക്കാവുന്നതാക്കി. സ്കീമ, സ്ഥിതിവിവരക്കണക്കുകൾ, വംശപരമ്പര എന്നിവ പരിശോധിക്കാൻ ഒരു കാർഡിൽ ക്ലിക്കുചെയ്യുക.',
   'datasets.uploadCta': 'ഡാറ്റാസെറ്റ് അപ്‌ലോഡ് ചെയ്യുക',
+  'forgotPassword.backPrompt': 'എല്ലാം കഴിഞ്ഞിട്ടും ഓർമ്മയുണ്ടോ? ',
   'forgotPassword.checkSpam':
     'ഒരു മിനിറ്റിനുള്ളിൽ അത് കണ്ടില്ലെങ്കിൽ, നിങ്ങളുടെ സ്പാം ഫോൾഡർ പരിശോധിക്കുകയോ വീണ്ടും അയയ്ക്കാൻ ശ്രമിക്കുകയോ ചെയ്യുക.',
   'forgotPassword.emailRequired': 'ഇമെയിൽ ആവശ്യമാണ്',
+  'forgotPassword.resend': 'വീണ്ടും അയയ്ക്കുക',
   'forgotPassword.sendError': 'പുനഃസജ്ജീകരണ ഇമെയിൽ അയയ്ക്കാൻ കഴിഞ്ഞില്ല.',
   'forgotPassword.sentHeading': 'നിങ്ങളുടെ ഇമെയിൽ പരിശോധിക്കുക',
   'forgotPassword.sentSubheading':
     'ഞങ്ങൾ ഒരു റീസെറ്റ് ലിങ്ക് അയച്ചു {{email}} . ലിങ്ക് 30 മിനിറ്റിനുള്ളിൽ കാലഹരണപ്പെടും.',
+  'forgotPassword.subheading':
+    'നിങ്ങളുടെ വർക്ക് ഇമെയിൽ നൽകൂ, പുതിയ പാസ്‌വേഡ് സെറ്റ് ചെയ്യാനുള്ള ഒരു ലിങ്ക് ഞങ്ങൾ അയയ്ക്കാം.',
   'googleSignInButton.label': 'Google-ൽ തുടരുക',
   'insightFeedCard.viewCta': 'കാണുക',
   'insightHeroCard.subtitle':
@@ -62,30 +82,47 @@ export const ui: UiTranslations = {
   'kpiTileGrid.momSuffix': 'കഴിഞ്ഞ മാസവുമായുള്ള താരതമ്യം',
   'landing.closing.cta': 'ക്ലാരിയോൺ സൗജന്യമായി പരീക്ഷിച്ചു നോക്കൂ',
   'landing.closing.heading': 'ഡാഷ്‌ബോർഡുകൾ നിർമ്മിക്കുന്നത് നിർത്തൂ. ചോദ്യങ്ങൾ ചോദിക്കാൻ തുടങ്ങൂ.',
+  'landing.closing.subhead':
+    '14 ദിവസത്തേക്ക് സൗജന്യം. ഒരു CSV കൊണ്ടുവരൂ, അഞ്ച് മിനിറ്റിനുള്ളിൽ നിങ്ങളുടെ ആദ്യ മൂന്ന് ഉൾക്കാഴ്ചകൾ നേടൂ.',
   'landing.features.eyebrow': 'ക്ലാരിയോൺ എങ്ങനെ പ്രവർത്തിക്കുന്നു',
   'landing.features.heading': 'ഒരു CSV ഇടുക. ഒരു ചോദ്യം ചോദിക്കുക. ഉത്തരം നേടുക.',
+  'landing.features.subhead':
+    'SQL ആവശ്യമില്ല. ഡാഷ്ബോർഡ് കൂട്ടം ഇല്ല. ഓരോ ഉത്തരവും ഒരു ചാർട്ടും, ഒരു ടേബിളും, പ്രവർത്തിച്ച SQL-ഉം ആണ് — ഒരു ക്ലിക്കിൽ എക്സ്പോർട്ട് ചെയ്യാം.',
   'landing.hero.eyebrow': 'ഉൽപ്പന്ന, ഓപ്‌സ് ടീമുകൾക്കായുള്ള AI ഡാറ്റ അനലിസ്റ്റ്.',
   'landing.hero.primaryCta': '14 ദിവസത്തേക്ക് ക്ലാരിയോൺ സൗജന്യമായി പരീക്ഷിക്കൂ',
   'landing.hero.secondaryCta': 'ഒരു സാമ്പിൾ ചോദ്യം കാണുക',
   'landing.hero.subtitle':
     'ഒരു ഡാറ്റാസെറ്റ് അപ്‌ലോഡ് ചെയ്യുക, പ്ലെയിൻ ഇംഗ്ലീഷിൽ ചോദ്യങ്ങൾ ചോദിക്കുക, ശരിയായ ചാർട്ട് തിരികെ നേടുക. ക്ലാരിയോൺ SQL, സ്കീമ ഡിസ്കവറി, ലൈനേജ് എന്നിവ കൈകാര്യം ചെയ്യുന്നു - അതിനാൽ വിശകലനക്കാർക്ക് 10× വേഗത്തിൽ ഷിപ്പ് ചെയ്യാൻ കഴിയും.',
+  'landing.hero.title': '{{tagline}}.',
   'landing.hero.trust1': 'ക്രെഡിറ്റ് കാർഡ് ഇല്ല',
   'landing.hero.trust2': 'എസ്‌ഒസി 2 തരം II',
   'landing.hero.trust3': 'എല്ലാ ചാർട്ടിലും വംശാവലി',
   'landing.nav.tryFree': 'സൗജന്യമായി പരീക്ഷിക്കൂ',
+  'landing.preview.cta': 'ഒരു ക്വറി പരീക്ഷിക്കൂ',
   'landing.preview.label': 'ഈ മാസം ഉൾക്കാഴ്ചകൾ പുറത്തുവന്നു',
   'landing.proof.heading': 'ഗൗരവമുള്ള അനലിറ്റിക്സ് ടീമുകൾക്കായി നിർമ്മിച്ചത്.',
   'login.hidePassword': 'പാസ്‌വേഡ് മറയ്ക്കുക',
+  'login.newUserPrompt': '{{appName}}-ൽ പുതിയതാണോ? ',
   'login.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
   'login.subheading':
     'നിങ്ങളുടെ ഡാറ്റയെക്കുറിച്ച് മികച്ച ചോദ്യങ്ങൾ ചോദിച്ചുകൊണ്ടിരിക്കാൻ സൈൻ ഇൻ ചെയ്യുക.',
+  'login.trialCta': 'നിങ്ങളുടെ {{days}}-ദിവസ ട്രയൽ ആരംഭിക്കൂ',
   'mobileNav.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
   'mobileNav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
+  'planUpdated.body':
+    'നിങ്ങളുടെ ബില്ലിംഗ് മാറ്റം ഇപ്പോൾ സജീവമാണ്. ബില്ലിംഗ് പേജിൽ നിന്ന് എപ്പോൾ വേണമെങ്കിലും നിങ്ങളുടെ പ്ലാൻ മാനേജ് ചെയ്യാം.',
+  'planUpdated.retry': 'വീണ്ടും ശ്രമിക്കുക',
+  'planUpdated.verifyFailed': 'നിങ്ങളുടെ പേയ്‌മെന്റ് ഞങ്ങൾക്ക് ഇതുവരെ സ്ഥിരീകരിക്കാൻ കഴിഞ്ഞില്ല.',
+  'planUpdated.verifyFailedBody':
+    'നിങ്ങളുടെ പേയ്‌മെന്റ് ഇപ്പോഴും പ്രോസസ്സ് ചെയ്തുകൊണ്ടിരിക്കുകയായിരിക്കാം. അൽപ്പസമയത്തിനുള്ളിൽ വീണ്ടും ശ്രമിക്കുക.',
   'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
+  'pricing.limits.advanced': 'വിപുലമായ സവിശേഷതകൾ',
   'queryEditor.aiBadge': 'AI സൃഷ്ടിച്ചത്',
   'queryEditor.aiSummary': 'AI സംഗ്രഹം',
   'queryEditor.copyFailed': 'ക്ലിപ്പ്ബോർഡിലേക്ക് പകർത്താൻ കഴിഞ്ഞില്ല.',
   'queryEditor.dataHeading': 'ഡാറ്റ',
+  'queryEditor.emptyBody':
+    '{{appName}} മൂന്ന് ഭാഗങ്ങളായി ഉത്തരം നൽകുന്നു: ഒരു ചാർട്ട്, അടിസ്ഥാന ഡാറ്റ ടേബിൾ, പ്രവർത്തിച്ച SQL.',
   'queryEditor.emptyHeading':
     'ഒരു നിർദ്ദേശം തിരഞ്ഞെടുക്കുകയോ നിങ്ങളുടേതായ ഒന്ന് ടൈപ്പ് ചെയ്യുകയോ ചെയ്യുക',
   'queryEditor.emptyResult': 'ഉത്തരമൊന്നും ലഭിച്ചില്ല. മറ്റൊരു ചോദ്യം പരീക്ഷിച്ചുനോക്കൂ.',
@@ -93,6 +130,7 @@ export const ui: UiTranslations = {
   'queryEditor.eyebrow': 'ക്ലാരിയനോട് ചോദിക്കുക · സ്വാഭാവിക ഭാഷാ അന്വേഷണം',
   'queryEditor.heading': 'നിങ്ങൾക്ക് എന്താണ് അറിയേണ്ടത്?',
   'queryEditor.questionEyebrow': 'നീ ചോദിച്ചു.',
+  'queryEditor.runFailed': 'ആ ക്വറി പ്രവർത്തിപ്പിക്കാനായില്ല. വീണ്ടും ശ്രമിക്കുക.',
   'queryEditor.sqlHeading': 'സൃഷ്ടിച്ച SQL',
   'queryEditor.subhead':
     'ഒരു ചോദ്യം പ്ലെയിൻ ഇംഗ്ലീഷിൽ ടൈപ്പ് ചെയ്യുക. ക്ലാരിയോൺ ചാർട്ട് തിരഞ്ഞെടുക്കുന്നു, SQL പ്രവർത്തിപ്പിക്കുന്നു, വംശപരമ്പര കാണിക്കുന്നു.',
@@ -110,8 +148,11 @@ export const ui: UiTranslations = {
   'reports.subhead':
     'സംരക്ഷിച്ച വിശകലനങ്ങൾ നിങ്ങൾക്ക് പങ്കിടാനും ഷെഡ്യൂൾ ചെയ്യാനും കയറ്റുമതി ചെയ്യാനും കഴിയും. പൂർണ്ണ റിപ്പോർട്ട് തുറക്കാൻ ഏതെങ്കിലും ലഘുചിത്രത്തിൽ ക്ലിക്കുചെയ്യുക.',
   'reportThumbnailCard.onDemand': 'ആവശ്യപ്പെടുന്നതനുസരിച്ച്',
+  'reportThumbnailCard.runPrefix': '{{when}} പ്രവർത്തിപ്പിക്കൂ',
+  'resetPassword.hidePassword': 'പാസ്‌വേഡ് മറയ്ക്കുക',
   'resetPassword.newPasswordLabel': 'പുതിയ പാസ്വേഡ്',
   'resetPassword.newPasswordPlaceholder': 'പുതിയ പാസ്വേഡ്',
+  'resetPassword.passwordTooShort': 'പാസ്വേഡിന് കുറഞ്ഞത് {{min}} പ്രതീകങ്ങൾ ഉണ്ടായിരിക്കണം',
   'resetPassword.resetFailed': 'പുനഃസജ്ജമാക്കൽ പരാജയപ്പെട്ടു',
   'resetPassword.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
   'resetPassword.subheading':
@@ -127,40 +168,56 @@ export const ui: UiTranslations = {
   'settings.apiKeys.createCta': 'സൃഷ്ടിക്കുക',
   'settings.apiKeys.created': 'പുതിയ API കീ സൃഷ്ടിച്ചു.',
   'settings.apiKeys.createError': 'API കീ സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല.',
+  'settings.apiKeys.creating': 'സൃഷ്‌ടിക്കുന്നു…',
   'settings.apiKeys.deleted': 'API കീ റദ്ദാക്കി.',
   'settings.apiKeys.deleteError': 'API കീ പിൻവലിക്കാൻ കഴിഞ്ഞില്ല.',
+  'settings.apiKeys.empty': 'ഇതുവരെ API കീകൾ ഇല്ല — മുകളിൽ ഒന്ന് ജനറേറ്റ് ചെയ്യൂ.',
   'settings.apiKeys.heading': 'API കീകൾ',
   'settings.apiKeys.namePlaceholder': 'കീ നാമം (ഉദാ. CI ബോട്ട്)',
   'settings.apiKeys.rotateCta': 'തിരിക്കുക',
   'settings.apiKeys.rotated': 'API കീ തിരിച്ചു. നിങ്ങളുടെ സംയോജനങ്ങൾ അപ്ഡേറ്റ് ചെയ്യുക.',
+  'settings.apiKeys.rotateError': 'API കീ റൊട്ടേറ്റ് ചെയ്യാനായില്ല.',
+  'settings.appearance.description': 'ലൈറ്റ്, ഡാർക്ക് മോഡുകൾക്കിടയിൽ ടോഗിൾ ചെയ്യുക.',
   'settings.appearance.title': 'രൂപഭാവം',
   'settings.dangerZone': 'അപകട മേഖല',
   'settings.integrations.body':
     'ഫയലുകൾ അപ്‌ലോഡ് ചെയ്യുന്നതിന് പകരം തത്സമയ ഡാറ്റ അന്വേഷിക്കാൻ ഒരു വെയർഹൗസ് ബന്ധിപ്പിക്കുക.',
   'settings.integrations.connected': 'ഇതിനുള്ള കണക്ഷൻ അപ്ഡേറ്റ് ചെയ്തു {{source}} .',
   'settings.integrations.connectedTag': 'ബന്ധിപ്പിച്ചു',
+  'settings.integrations.error': 'സംയോജനം അപ്ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'settings.integrations.heading': 'ഡാറ്റ ഉറവിടങ്ങൾ',
+  'settings.revokeDeviceWarning':
+    'ഈ ഉപകരണത്തിന്റെ ആക്‌സസ് ഉടൻ പിൻവലിക്കപ്പെടും. സൈൻ ഔട്ട് ചെയ്യണോ?',
   'settings.security.heading': 'സുരക്ഷ',
   'settings.signOutDevice': 'സൈൻ ഔട്ട്',
   'settings.team.empty': 'ഇതുവരെ സഹതാരങ്ങളൊന്നുമില്ല - സഹകരിച്ച് പ്രവർത്തിക്കാൻ ഒരാളെ ക്ഷണിക്കുക.',
   'settings.team.removed': 'ടീം അംഗത്തെ നീക്കം ചെയ്തു.',
   'settings.twoFactorCode': 'പ്രാമാണീകരണ കോഡ്',
   'settings.twoFactorDisable': 'പ്രവർത്തനരഹിതമാക്കുക',
+  'settings.twoFactorDisableTitle': 'ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ പ്രവർത്തനരഹിതമാക്കുക',
   'settings.twoFactorEnable': 'പ്രാപ്തമാക്കുക',
+  'settings.twoFactorEnableTitle': 'ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ പ്രവർത്തനക്ഷമമാക്കുക',
   'settings.twoFactorInvalidCode': 'കോഡ് അസാധുവാണ്',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'രണ്ട്-ഘടക QR കോഡ്',
+  'settings.twoFactorScan':
+    'നിങ്ങളുടെ ഓതന്റിക്കേറ്റർ ആപ്പ് ഉപയോഗിച്ച് ഈ QR കോഡ് സ്കാൻ ചെയ്യുക, തുടർന്ന് 6 അക്ക കോഡ് നൽകുക.',
+  'settings.twoFactorUnavailable': 'ഈ ആപ്പിന് ടു-ഫാക്ടർ പ്രാമാണീകരണം ലഭ്യമല്ല.',
   'settings.twoFactorVerify': 'പരിശോധിച്ചുറപ്പിക്കുക, പ്രാപ്തമാക്കുക',
   'sideNavBar.appSubtitle': 'AI ഡാറ്റ അനലിസ്റ്റ്',
   'sideNavBar.datasets': 'ഡാറ്റാസെറ്റുകൾ',
   'sideNavBar.newAnalysis': 'പുതിയ വിശകലനം',
   'sideNavBar.queries': 'ചോദ്യങ്ങൾ',
   'signup.failed': 'സൈൻ അപ്പ് പരാജയപ്പെട്ടു',
+  'signup.haveAccount': 'ഇതിനകം ഒരു അക്കൗണ്ട് ഉണ്ടോ? ',
+  'signup.hidePassword': 'പാസ്‌വേഡ് മറയ്ക്കുക',
   'signup.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
   'signup.subheading':
     '14 ദിവസം സൗജന്യം. ക്രെഡിറ്റ് കാർഡ് വേണ്ട. ഒരു CSV കൊണ്ടുവരിക - ബാക്കി ക്ലാരിയൻ ചെയ്യും.',
   'topNavBar.help': 'സഹായം',
   'topNavBar.lastDays': 'അവസാനത്തെ {{ദിവസം}} ദിവസങ്ങളിൽ',
   'topNavBar.userProfileAlt': 'ഉപയോക്തൃ പ്രൊഫൈൽ',
+  'upload.dropPrompt': 'ഒരു ഫയൽ ഇവിടെ ഇടുക, അല്ലെങ്കിൽ ബ്രൗസ് ചെയ്യാൻ ക്ലിക്കുചെയ്യുക.',
   'upload.maxSize': 'പരമാവധി {{size}}',
   'upload.noRecent': 'ഇതുവരെ അപ്‌ലോഡുകളൊന്നുമില്ല.',
   'upload.recentHeading': 'സമീപകാല അപ്‌ലോഡുകൾ',
@@ -171,9 +228,13 @@ export const ui: UiTranslations = {
   'upload.uploading': 'അപ്‌ലോഡ് ചെയ്യുന്നു...',
   'upload.viewCta': 'ഡാറ്റാസെറ്റുകൾ →',
   'uploadDropZone.eyebrow': 'ഒരു ഫയൽ ഇടുക · അല്ലെങ്കിൽ ബ്രൗസ് ചെയ്യാൻ ക്ലിക്ക് ചെയ്യുക',
+  'uploadDropZone.fileInputLabel': 'അപ്‌ലോഡ് ചെയ്യാൻ ഒരു ഫയൽ തിരഞ്ഞെടുക്കൂ',
+  'uploadDropZone.maxSize':
+    'പരമാവധി ഫയൽ വലുപ്പം {{size}} · ഏറ്റവും വലിയ ഡാറ്റാസെറ്റുകൾക്ക് CSV തിരഞ്ഞെടുക്കുന്നതാണ് നല്ലത്',
   'uploadDropZone.readyEyebrow': 'വിശകലനം ചെയ്യാൻ തയ്യാറാണ്',
   'uploadDropZone.subtitle':
     'നിങ്ങളുടെ ഫയൽ ലാൻഡ് ചെയ്യുന്ന നിമിഷം മുതൽ ക്ലാരിയോൺ സ്കീമ സ്വയമേവ കണ്ടെത്തുകയും സ്ഥിതിവിവരക്കണക്കുകൾ പ്രവർത്തിപ്പിക്കുകയും അപാകതകൾ പ്രതലമാക്കുകയും ചെയ്യുന്നു.',
+  'uploadDropZone.title': 'നിങ്ങളുടെ ഡാറ്റാസെറ്റ് അപ്‌ലോഡ് ചെയ്യൂ',
   'uploadDropZone.unknownType': 'അജ്ഞാത തരം',
   'userMenu.datasets': 'എന്റെ ഡാറ്റാസെറ്റുകൾ',
 }

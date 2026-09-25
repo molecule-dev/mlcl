@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du feedback, hittat en bugg eller vill berätta hur journaling har hjälpt dig? Vi läser varje meddelande — hör av dig när som helst så svarar en riktig person.',
+  'about.contactTitle': 'Kontakta oss',
+  'about.featureInsights':
+    'AI-drivna reflektioner som varsamt lyfter fram triggers, teman och tacksamhet — utan att tappa din röst.',
+  'about.featureMood':
+    'Humör- och aktivitetsloggning med kalendervy och trenddiagram som visar vad som får dig att må bra.',
+  'about.featurePrivacy':
+    'End-to-end-kryptering, en kodlåsning och full CSV-export så att dina reflektioner förblir privata och flyttbara.',
+  'about.featurePrompts':
+    'Varsamma dagliga prompter så att du alltid har något att börja med — aldrig en tom sida.',
+  'about.intro':
+    '{{app}} är en varsam och privat mentalvårdsdagbok för daglig reflektion, humörloggning och tacksamhet. Genomtänkta prompter ersätter den tomma sidan, tyst mönsterigenkänning hjälper dig förstå vad som påverkar hur du mår, och end-to-end-kryptering håller dina ord dina.',
+  'about.missionBody':
+    'Vi tycker att det ska kännas lugnt att stämma av med sig själv, aldrig kliniskt — och aldrig som ännu en app som kräver din uppmärksamhet. {{app}} är byggd för att hjälpa, inte tjata: några tysta minuter om dagen för att lägga märke till ditt humör, skriva ärligt och sakta se dig själv tydligare.',
+  'about.missionTitle': 'Vårt uppdrag',
   'about.pageTitle': 'Om {{app}}',
   'authShell.encryptionBadge': 'Dina inlägg är end-to-end-krypterade.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Dag {{day}} — ingen anteckning',
   'calendar.cellMood': 'Dag {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Den här månaden i korthet',
   'calendar.eyebrow': 'Humör i överblick',
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Spårade {{tracked}} av {{total}} dagar den här månaden.',
   'common.goToDashboard': 'Gå till översikt',
   'common.tryAgain': 'Försök igen',
+  'entryComposer.bodyPlaceholder': 'Skriv vad som känns ärligt. Ingen annan kommer att läsa detta.',
   'entryComposer.cancel': 'Tillbaka till journalen',
   'entryComposer.heading': 'Dagens reflektion',
   'entryComposer.moodLabel': 'Hur mår du?',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Ta bort {{tag}}',
   'entryComposer.save': 'Spara reflektion',
   'entryComposer.saveError': 'Kunde inte spara ditt inlägg.',
+  'entryComposer.tagPlaceholder': 'Lägg till en tagg och tryck på enter',
   'entryComposer.titlePlaceholder': 'Ge den här reflektionen ett namn…',
   'entryDetail.back': 'Tillbaka till journalen',
   'entryDetail.delete': 'Ta bort den här posten',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Laddar reflektion…',
   'entryDetail.notFound': 'Inlägg hittades inte.',
   'entryDetail.reflectionsHeading': 'AI-reflektioner',
+  'forgotPassword.continueButton': 'Ange återställningskod',
   'forgotPassword.eyebrow': 'Inga problem',
   'forgotPassword.subheading': 'Vi skickar en mild återställningslänk till din e-post.',
   'forgotPassword.successBody': 'Om ett konto finns för {{email}} är en återställningslänk på väg.',
@@ -57,14 +77,22 @@ export const ui: UiTranslations = {
     'Inga teman ännu — lägg till en eller två taggar till dina inlägg så samlas de här.',
   'insights.themesHeading': 'Främsta teman',
   'insights.triggerFrequency': 'noterat {{count}}× den här månaden',
+  'insights.triggersEmpty':
+    'Inget att lägga märke till ännu. Några anteckningar över några dagar visar dina mönster.',
   'insights.triggersHeading': 'Mönster som påverkar ditt humör',
+  'journal.empty':
+    'Inga reflektioner matchar — prova ett annat filter eller skriv en ny anteckning.',
   'journal.eyebrow': 'Dina reflektioner',
   'journal.heading': 'Journal',
   'journal.loadError': 'Kunde inte ladda inlägg.',
   'journal.loading': 'Laddar inlägg…',
+  'journal.newEntry': 'Nytt inlägg',
   'journal.searchPlaceholder': 'Sök en känsla, ett namn, ett ögonblick…',
   'journal.subheading': '{{count}} inlägg — varje ett värt att behålla.',
   'journalEntryCard.encryptedLabel': 'Krypterat',
+  'landing.ctaBody':
+    'Gratis att komma igång. Pro låser upp dataexport, en större dagbok och ett helt års historik.',
+  'landing.ctaButton': 'Börja ditt första inlägg',
   'landing.ctaTitle': 'Några stilla minuter om dagen. Det är allt.',
   'landing.eyebrow': 'En mild daglig praktik',
   'landing.featuresBody':
@@ -83,6 +111,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Ett mildt utrymme för daglig reflektion.',
   'mentalHealthJournalLayout.closeMenu': 'Stäng menyn',
   'mentalHealthJournalLayout.openMenu': 'Öppna meny',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Huvudnavigering',
+  'moodHeroCard.entriesThisWeek': '{{count}} denna vecka',
   'moodHeroCard.streakSuffix': 'dagars svit',
   'moodHeroCard.title': 'Dagens reflektion',
   'moodTrendChart.aiBadge': 'AI-insikt redo',
@@ -93,11 +123,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Din resa',
   'profile.fallbackName': 'Reflekterare',
   'profile.loadError': 'Kunde inte ladda statistik.',
+  'profile.loading': 'Uppdaterar din statistik…',
   'profile.longestStreak': 'Längsta svit',
   'profile.memberSince': 'Reflekterar sedan {{date}}',
   'profile.milestones': 'Milstolpar',
   'profile.milestonesEmpty':
     'Din första milstolpe är ett inlägg bort – skriv när du känner dig redo.',
+  'profile.moodMix': 'Din humörblandning den här säsongen',
   'profile.streakValue': '{{days}}d',
   'profile.totalEntries': 'Reflektioner',
   'profile.totalWords': 'Skrivna ord',
@@ -110,6 +142,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Skriv om detta',
   'resetPassword.eyebrow': 'En ny start',
   'resetPassword.mismatchError': 'Lösenorden matchar inte.',
+  'resetPassword.passwordLabel': 'Nytt lösenord',
   'resetPassword.subheading': 'Välj något säkert — dina reflektioner förtjänar det.',
   'resetPassword.tokenPlaceholder': 'Återställningskod från e-post',
   'settings.dangerDescription':
@@ -121,11 +154,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'Kunde inte radera kontot.',
   'settings.exportDescription': 'Dina ord tillhör alltid dig. Ladda ner en kopia när som helst.',
   'settings.exportDone': 'Exporterade {{format}}.',
+  'settings.exportError': 'Export misslyckades.',
+  'settings.exportHeading': 'Exportera dina reflektioner',
   'settings.exportLoading': 'Förbereder…',
   'settings.eyebrow': 'Ditt utrymme, dina regler',
   'settings.languageHeading': 'Språk',
   'settings.privacyHeading': 'Integritet & kryptering',
   'settings.remindersHeading': 'Daglig påminnelse',
+  'settings.reminderToggleAria': 'Växla daglig påminnelse',
   'settings.reminderToggleDescription':
     'En enda lugn påminnelse på den tid du väljer. Inga märken eller sviktskuld.',
   'settings.reminderToggleLabel': 'Skicka en mild knuff',
@@ -138,6 +174,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Skapar journal…',
   'signup.subheading': 'Ett tryggt utrymme för dina tankar.',
   'wellnessRingsTriad.mindfulnessCaption': 'Mål {{goal}} min idag',
+  'wellnessRingsTriad.mindfulnessLabel': 'Mindfulness',
   'wellnessRingsTriad.sleepCaption': 'Mål {{goal}}h / natt',
   'wellnessRingsTriad.sleepLabel': 'Sömn',
+  'wellnessRingsTriad.sleepValue': '{{hours}} h',
+  'wellnessRingsTriad.streakCaption': 'Mål {{goal}} dagar',
+  'wellnessRingsTriad.streakLabel': 'Journalstreak',
+  'wellnessRingsTriad.streakValue': '{{days}}d',
 }

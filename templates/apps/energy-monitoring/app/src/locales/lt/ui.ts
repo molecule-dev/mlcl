@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Turite klausimų, funkcijų pageidavimų ar norite, kad palaikytume konkretų skaitiklį? Susisiekite su {{appName}} komanda per savo paskyros nustatymus — kiekviena žinutė pasiekia realų žmogų.',
   'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
+  'about.featuresTitle': 'Ką gausite',
+  'about.intro':
+    '{{appName}} – tai realaus laiko energijos stebėjimas saulės energiją naudojantiems namams ir objektų komandoms. Mes paverčiame didžiulį skaitiklių, inverterių ir baterijų duomenų srautą į ramią valdymo pulto peržiūrą — momentinė galia, saulės generacija, laiko tarifų kaina ir įspėjimai, visa vienoje aplinkoje.',
+  'about.missionBody':
+    'Energija, kurią matote, yra energija, kurią galite valdyti. Tikime, kad kiekvienas, naudojantis skaitiklį — namų ūkis su stogo saulės elektrine ar pastatą stebinti komanda — nusipelno komunalinių paslaugų lygio įžvalgų be komunalinių paslaugų lygio sutarties. Kiekviena funkcija sukurta taip, kad kita kilovatvalandė būtų sąmoningas pasirinkimas, o ne netikėtumas sąskaitoje.',
+  'about.missionTitle': 'Mūsų misija',
   'about.pageTitle': 'Apie {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Ack',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@yourdomain.com',
   'alertRule.eyebrow': 'Nauja taisyklė',
   'alertRule.heading': 'Pagauk smaigalį, kol jis tau nekainuos',
+  'alertRule.nameLabel': 'Taisyklės pavadinimas',
   'alertRule.namePlaceholder': 'pvz., ŠVOK stebėjimas po darbo valandų',
   'alertRule.subheading':
     'Pasirinkite metriką, slenkstį ir kur siųsti įspėjimą. Galite jį bet kada redaguoti arba pristabdyti.',
   'alertRule.submit': 'Išsaugoti taisyklę',
   'alertRule.submitError': 'Nepavyko išsaugoti taisyklės.',
   'alertRule.thresholdLabel': 'Slenkstis',
+  'alertRule.typeLabel': 'Trigerio tipas',
   'alerts.checking': 'Tikrinama…',
   'alerts.confirmDelete': 'Patvirtinti ištrynimą',
+  'alerts.empty': 'Nėra ką rodyti — šioje būsenoje įspėjimų nėra.',
   'alerts.emptyNoRules':
     'Kol kas nėra įspėjimų – pridėkite taisyklę, tada spustelėkite „Įvertinti dabar“, kad ją išbandytumėte.',
   'alerts.errorAck': 'Negalėjo pripažinti.',
@@ -41,12 +52,15 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Įvertinkite dabar',
   'alerts.subheading':
     'Jūsų skaitikliuose įsijungiantys slenkstiniai ir šabloniniai įspėjimai bei juos valdančios taisyklės.',
+  'billing.activeBlurb': 'Jūsų prenumerata aktyvi. Galite ją tvarkyti bet kada.',
   'billing.cancelError': 'Nepavyko atšaukti prenumeratos.',
   'billing.cancelling': 'Atšaukiama…',
   'billing.currentBadge': 'Dabartinis',
   'billing.freeBlurb':
     'Naudojate nemokamą planą. Atnaujinkite, kad gautumėte daugiau skaitiklių, ilgesnę istoriją ir daugiau įspėjimų taisyklių.',
   'billing.heading': 'Planai ir atsiskaitymas',
+  'billing.historyEmpty':
+    'Apmokėtos sąskaitos bus rodomos čia, kai bus išrašyta prenumeratos sąskaita.',
   'billing.historyHeading': 'Sąskaitų istorija',
   'billing.loadError': 'Nepavyko įkelti atsiskaitymo.',
   'billing.loading': 'Įkeliami planai…',
@@ -58,17 +72,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Susisiekite su pardavimų vadybininku',
   'common.goToDashboard': 'Eiti į suvestinę',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} piko · {{offPeak}} ne piko kWh',
   'dailyCostMeter.runningLabel': 'Bendra suma',
   'dailyCostMeter.title': 'Kaina iki šiol šiandien',
   'dailyCostMeter.utilizationLabel': 'Dienos biudžeto',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Pridėti skaitiklį',
   'dashboard.alertsHeading': 'Aktyvūs įspėjimai',
   'dashboard.devicesHeading': 'Geriausios grandinės dabar',
   'dashboard.empty.body':
     'Pridėkite išmanųjį skaitiklį arba saulės energijos keitiklį, kad pradėtumėte stebėti realiuoju laiku tiekiamą energiją ir gamybą.',
+  'dashboard.empty.title': 'Kol kas nėra skaitiklių',
   'dashboard.eyebrow': 'Voltrace valdymo kambarys',
   'dashboard.heading': 'Tiesioginė energijos momentinė nuotrauka',
   'dashboard.loadError': 'Nepavyko įkelti tiesioginių rodmenų.',
   'dashboard.loading': 'Įsiklausoma į skaitiklius…',
+  'dashboard.noAlerts': 'Viskas tylu — niekas neviršija jūsų slenksčių.',
   'dashboard.noAlertsAndNoMeters':
     'Prijungus skaitiklį, čia bus rodomi įspėjimai, pagrįsti jūsų ribinėmis vertėmis.',
   'dashboard.noCircuits': 'Kol kas nėra rodomų grandinių – pridėkite skaitiklį, kad pradėtumėte.',
@@ -76,6 +95,7 @@ export const ui: UiTranslations = {
     'Viso namo energijos suvartojimas, saulės energijos gamyba ir kaina iki šiol.',
   'dashboard.viewAllAlerts': 'Tvarkyti įspėjimus →',
   'dashboard.viewAllDevices': 'Kiekvienas įrenginys →',
+  'deviceDetail.activeTokens': 'Aktyvūs duomenų priėmimo raktai',
   'deviceDetail.alreadyOff': 'Jau pristabdyta',
   'deviceDetail.back': 'Visos grandinės',
   'deviceDetail.confirmDelete': 'Patvirtinti ištrynimą',
@@ -116,22 +136,34 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Nepavyko įkelti skaitiklių.',
   'devices.loading': 'Apklausiamas kiekvienas skaitiklis…',
   'devices.newRule': 'Nauja įspėjimo taisyklė',
+  'devices.noResults': 'Joks circuit neatitinka šio filtro.',
   'devices.placeholder.location': 'pvz., mechanikos kambarys',
   'devices.placeholder.name': 'pvz., garažo poskyris',
   'devices.subheading':
     'Tiesioginė galia ir šiandienos kWh kiekvienoje grandinėje, kurią gali matyti „Voltace“.',
+  'deviceWattageRow.todayKwh': '{{kwh}} kWh šiandien',
+  'deviceWattageRow.watts': '{{watts}} V',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Meniu',
+  'energyMonitoringLayout.primaryNavLabel': 'Pagrindinė navigacija',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    '{{appName}} palaiko daugumą komunalinių skaitiklių, saulės inverterių ir baterijų sistemų — laidiniu ryšiu arba per WiFi.',
   'landing.ctaHeading': 'Susiekite skaitiklį ir matykite vatus per kelias minutes',
   'landing.eyebrow': 'Energetikos išmanymas realiuoju laiku',
+  'landing.featuresHeading': 'Kiekvienas vatas, kiekviena minutė, vienoje aplinkoje',
   'landing.getStarted': 'Įjunkite „Voltrace“',
   'landing.heroCta': 'Įjunkite „Voltrace“',
+  'landing.heroSubtitle':
+    'Momentinė galia, saulės generacija, laiko tarifų kaina ir didelio suvartojimo įspėjimai valdymo pulto aplinkoje, sukurtoje saulės energiją naudojantiems namams ir objektų komandoms.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Visų namų lygiosios',
   'landing.sampleSolar': '+3 820 W saulės',
   'landing.sampleSummary': 'Į tinklą eksportuojama 1 680 W · 18,4 kWh šiandien',
   'landing.sampleWatts': '2140 W',
   'powerHeroCard.solar': '+ {{watts}} Saulės energija',
   'powerHeroCard.title': 'Visų namų lygiosios',
+  'powerHeroCard.todayKwh': '{{kwh}} kWh šiandien',
   'powerHeroCard.watts': '{{watts}} V',
   'pricing.choose': 'Pasirinkite {{name}}',
   'pricing.contact': 'Reikia kažko individualaus?',
@@ -144,6 +176,7 @@ export const ui: UiTranslations = {
     'Pradėkite nemokamai. Atnaujinkite, kai reikia daugiau skaitiklių, ilgesnės istorijos ar daugiau įspėjimų taisyklių.',
   'pricing.unavailable': 'Šis planas šiuo metu negalimas – „Stripe“ nesukonfigūruota.',
   'profile.errorGeneric': 'Nepavyko išsaugoti profilio pakeitimų.',
+  'profile.errorGoal': 'Mėnesio kWh tikslas turi būti teigiamas skaičius.',
   'profile.errorHousehold': 'Namų ūkio dydis turi būti teigiamas skaičius.',
   'profile.householdHeading': 'Namų ūkis ir tikslai',
   'profile.householdSize': 'Namų ūkio dydis',
@@ -161,9 +194,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'Apibendrinami rodmenys…',
   'reports.subheading':
     'Dienos sumos apie suvartojimą, gamybą ir sąnaudas – suskirstytos pagal datą.',
+  'reports.tableHeading': 'Dienos suskirstymas',
   'settings.currency': 'Valiuta',
   'settings.errorFlat': 'Fiksuotas tarifas turi būti ≥ 0.',
   'settings.errorNotify': 'Nepavyko išsaugoti pranešimų nustatymų.',
+  'settings.errorSave': 'Nepavyko išsaugoti tarifų plano.',
   'settings.errorTou': 'Reikalingi piko / ne piko tarifai ir galiojantis piko langas.',
   'settings.exportBody':
     'Atsisiųskite paskutinių 30 dienų dienos duomenų CSV failą arba iš bet kurio skaitiklio informacijos puslapio paimkite įkėlimo prieigos raktą, kad programiškai pateiktumėte rodmenis.',
@@ -183,10 +218,20 @@ export const ui: UiTranslations = {
   'settings.saving': 'Išsaugoma…',
   'settings.securityHeading': 'Dviejų veiksnių autentifikavimas',
   'settings.subheading': 'Įkainiai, pranešimai ir duomenų eksportas.',
+  'settings.twoFactorBody':
+    'Reikalauti vienkartinio kodo iš autentifikavimo programėlės kiekvieną kartą prisijungus.',
   'settings.twoFactorCode': 'Autentifikavimo kodas',
   'settings.twoFactorDisable': 'Išjungti',
+  'settings.twoFactorDisableTitle': 'Išjungti dviejų veiksnių autentifikavimą',
   'settings.twoFactorEnable': 'Įjungti',
+  'settings.twoFactorEnableTitle': 'Įjungti dviejų veiksnių autentifikavimą',
   'settings.twoFactorInvalidCode': 'Neteisingas kodas',
+  'settings.twoFactorOAuth':
+    'Jūsų paskyra prisijungia per prijungtą teikėją, todėl dviejų veiksnių autentifikavimas valdomas ten.',
   'settings.twoFactorOn': 'Dėl',
+  'settings.twoFactorQrAlt': 'Dviejų veiksnių QR kodas',
+  'settings.twoFactorScan':
+    'Nuskaitykite šį QR kodą su autentifikavimo programa, tada įveskite 6 skaitmenų kodą.',
+  'settings.twoFactorUnavailable': 'Dviejų veiksnių autentifikavimas šiai programai negalimas.',
   'settings.twoFactorVerify': 'Patvirtinti ir įgalinti',
 }

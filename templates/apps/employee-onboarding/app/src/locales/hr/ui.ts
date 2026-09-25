@@ -1,26 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Želite li svom timu pripremiti topliji onboarding, pronašli ste grešku ili imate povratne informacije? Javite nam se iz postavki računa — svaka poruka stiže stvarnoj osobi koja može pomoći.',
   'about.contactTitle': 'Razgovarajte s nama',
   'about.eyebrow': 'Oko',
+  'about.missionTitle': 'Naša misija',
   'auth.forgotPassword.emailPlaceholder': 'ime@vasatvrtka.com',
   'auth.forgotPassword.heading': 'Resetirajte lozinku.',
+  'auth.forgotPassword.panel.body':
+    'Ponovno postavljanje traje 30 sekundi — napredak vaše liste čeka.',
+  'auth.forgotPassword.panel.headline': 'Točno tamo gdje ste stali.',
+  'auth.forgotPassword.subheading':
+    'Unesite svoj poslovni e-mail i poslat ćemo vam poveznicu za ponovno postavljanje lozinke.',
   'auth.forgotPassword.successSubheading':
     'Provjerite pristiglu poštu - poslali smo upute za resetiranje.',
   'auth.login.emailPlaceholder': 'ime@vasatvrtka.com',
   'auth.login.heading': 'Dobrodošli natrag.',
   'auth.login.passwordPlaceholder': 'Vaša lozinka',
+  'auth.login.signupPrompt': 'Novi ste u timu?',
   'auth.login.subheading': 'Prijavite se kako biste nastavili s uvođenjem tamo gdje ste stali.',
   'auth.login.submit': 'Nastavite svoje putovanje',
+  'auth.panel.body':
+    'Vaša osobna lista, trening prekretnice i predstavljanja tima — sve na jednom mirnom mjestu.',
   'auth.panel.footnote': '© Embark — od danas uvođenje ljudi na prvo mjesto.',
   'auth.panel.headline': 'Ovdje počinje samouvjerenih prvih 90 dana.',
   'auth.resetPassword.heading': 'Postavite novu lozinku.',
   'auth.resetPassword.newPasswordLabel': 'Nova lozinka',
+  'auth.resetPassword.panel.body':
+    'Spremite novu lozinku i odmah ćemo vas vratiti u vaš onboarding.',
+  'auth.resetPassword.panel.headline': 'Skoro ste ponovno unutra.',
   'auth.resetPassword.subheading': 'Odaberite nešto što ćete zapamtiti - barem 8 znakova.',
   'auth.signup.emailPlaceholder': 'ime@vasatvrtka.com',
   'auth.signup.heading': 'Dobrodošli u vaših prvih 90 dana.',
   'auth.signup.panel.body':
     'Vođena kontrolna lista, obuka svjesna uloga i predstavljanje od strane ljudi — sve spremno prije nego što uđete.',
+  'auth.signup.panel.headline': 'Prvi dan, već prvog dana.',
   'auth.signup.subheading':
     'Izradite svoj Embark račun kako biste započeli svoje vođeno putovanje uvođenja.',
   'checklist.empty.body': 'Promijenite filter da biste vidjeli ostale zadatke.',
@@ -28,6 +43,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'Uvođenje · Kontrolna lista',
   'checklist.loading': 'Učitavanje vaše kontrolne liste…',
   'checklist.stat.actionNeeded': 'Potrebna je akcija',
+  'checklist.stat.completion': 'Završetak',
+  'checklist.stat.inProgress': 'U tijeku',
   'checklist.stat.inProgressHelper': 'Nastavite tamo gdje ste stali',
   'checklist.stat.overdueHelper': 'Prvo ovo shvatite',
   'checklist.subtitle':
@@ -59,6 +76,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Još nema dokumenata',
   'documents.eyebrow': 'Uvođenje u posao · Dokumenti',
   'documents.loading': 'Učitavanje dokumenata…',
+  'documents.stat.actionNeeded': 'Potpiši sada',
+  'documents.stat.all': 'Svi dokumenti',
   'documents.stat.allHelper': 'U svim kategorijama',
   'documents.stat.pending': 'Potpisi na čekanju',
   'documents.stat.pendingHelper': 'Potrebno za dovršetak',
@@ -66,16 +85,21 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Sigurno pohranjeno',
   'documents.status.optional': 'Izborno',
   'documents.status.required': 'Potreban',
+  'documents.status.signed': 'Potpisano',
   'documents.subtitle': 'Vaš priručnik, obrasci i potpisani ugovori — sve na jednom mjestu.',
   'documents.title': 'Sve što trebate pročitati i potpisati.',
   'documents.uploadedRecently': 'Nedavno preneseno',
   'documentViewer.breadcrumbCurrent': 'Gledatelj',
   'documentViewer.breadcrumbDocs': 'Dokumenti',
   'documentViewer.downloadMeta': 'Preuzimanje metapodataka',
+  'documentViewer.helpBody':
+    'People & Culture odgovara na pitanja iz priručnika u #ask-people na Slacku.',
   'documentViewer.helpEyebrow': 'Trebate pomoć?',
   'documentViewer.loadError': 'Nismo mogli učitati ovaj dokument.',
   'documentViewer.loading': 'Učitavanje dokumenta…',
   'documentViewer.notFound': 'Dokument nije pronađen',
+  'documentViewer.previewBody':
+    'Kada su prijenosi konfigurirani, datoteku prikazujemo u pregledniku. Za sada preuzimanje metapodataka omogućuje potvrdu da je zapis stvaran.',
   'documentViewer.previewBodyExternal':
     'Pomoću gumba za preuzimanje otvorite datoteku u novoj kartici.',
   'documentViewer.previewTitle': 'Pregled dokumenta',
@@ -83,6 +107,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Pročitajte dokument, a zatim kliknite dolje za potpis i potvrdu.',
   'documentViewer.signatureHeading': 'Potreban potpis',
+  'documentViewer.signed': '✓ Potpisano i pohranjeno',
   'documentViewer.signing': 'Potpisivanje…',
   'documentViewer.uploadedRecently': 'Nedavno preneseno',
   'landing.closing.body':
@@ -92,10 +117,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Već imam račun',
   'landing.feature1.body':
     'Svaki zadatak - papirologija, računi, predstavljanje - unaprijed je pripremljen s rokovima i pravim vlasnikom.',
+  'landing.feature1.title': 'Vođena lista',
   'landing.feature2.body':
     'Moduli se otključavaju na 30/60/90 prekretnica, prilagođenih ulozi i timu kojem se zaposlenik pridružuje.',
+  'landing.feature2.title': 'Trening prema ulozi',
   'landing.feature3.body':
     'Prijatelji, menadžeri i međufunkcionalna upoznavanja su zakazana - tako da nitko ne počinje sam.',
+  'landing.feature3.title': 'Stvarna predstavljanja',
   'landing.featureEyebrow': 'Zašto se ukrcati',
   'landing.featureHeadline': 'Tri načina na koje Embark zaslužuje povjerenje od prvog dana.',
   'landing.footer.rights': 'Sva prava pridržana.',
@@ -105,6 +133,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Sljedeće: Nađite se s prijateljem na 30-minutnom razgovoru uz kavu — uto 10:00.',
   'landing.preview.eyebrow': '14. dan od 90 — primjer nadzorne ploče',
+  'landing.preview.headline': 'Dobro došli natrag, Maya.',
   'landing.proof.spec': 'Spremno za SOC 2 + GDPR',
   'landing.proof.teams': 'Napravljeno za timove od 50 do 5000 ljudi',
   'landing.proof.time': '14-dnevno besplatno probno razdoblje',
@@ -121,16 +150,25 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Spremni ste.',
   'planUpdated.preparing': 'Ažuriranje vašeg plana…',
+  'planUpdated.retry': 'Pokušajte ponovno',
+  'planUpdated.verifyFailed': 'Još nismo mogli potvrditi vašu uplatu.',
+  'planUpdated.verifyFailedBody':
+    'Vaše plaćanje se možda još uvijek obrađuje. Pokušajte ponovno za trenutak.',
   'planUpdated.verifying': 'Potvrda vaše uplate…',
   'pricing.documentsLabel': 'dokumenti',
   'pricing.onboardingsLabel': 'uvođenja',
   'pricing.tasksLabel': 'zadaci',
   'profile.dayNumber': 'Dan',
   'profile.detailsHeading': 'Detalji o uvođenju',
+  'profile.encouragementBody': 'Držite svog buddyja i voditelja u toku — mali koraci se zbrajaju.',
   'profile.milestones': 'Prekretnice',
   'profile.progressEyebrow': 'Napredak u uvođenju',
   'profile.tasks': 'Zadaci',
   'profile.unknownName': 'Dobrodošli',
+  'settings.appearance.description': 'Prebacivanje između svijetlog i tamnog načina rada.',
+  'settings.appearance.title': 'Izgled',
+  'settings.subtitle':
+    'Podesite obavijesti, sigurnost, uređaje i izvoz podataka — sve ostaje ovdje, po vašim uvjetima.',
   'settings.title': 'Postavke i preferencije.',
   'taskDetail.backToChecklist': 'Natrag na kontrolnu listu',
   'taskDetail.breadcrumbChecklist': 'Kontrolni popis',
@@ -142,7 +180,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'Nema roka',
   'taskDetail.notFound': 'Zadatak nije pronađen',
   'taskDetail.notFoundBody': 'Ovaj zadatak je možda izbrisan ili pripada drugom korisniku.',
+  'taskDetail.tipBody':
+    'Ako zapnete, pišite svom onboarding buddyju na Slacku — on vam je prva linija pomoći.',
   'taskDetail.tipEyebrow': 'Brzi savjet',
+  'team.empty.body': 'Pokušajte širu pretragu ili odaberite drugi odjel.',
   'team.empty.title': 'Nema podudaranja suigrača',
   'team.eyebrow': 'Uvođenje u posao · Ljudi',
   'team.loading': 'Učitavanje suigrača…',
@@ -165,14 +206,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Prekretnice',
   'timeline.stat.current': 'Trenutna prekretnica',
   'timeline.stat.next': 'Sljedeće otključavanje',
+  'timeline.stat.progress': 'Ukupno',
   'timeline.subtitle':
     'Svaka prekretnica otključava nove module, uvode i razgovore o rastu. Nema pritiska - samo napredak.',
+  'timeline.tipBody':
+    'Zakažite 30-minutni razgovor 30., 60. i 90. dana sa svojim voditeljem — tako povratne informacije postaju konkretne, a napredak vidljiv.',
   'timeline.tipEyebrow': 'Napojnica za menadžera',
+  'timeline.tipTitle': 'Blokirajte vrijeme u kalendaru za prekretnice.',
   'timeline.title': 'Vaše putovanje 30 / 60 / 90.',
   'training.badge.notStarted': 'Nije započeto',
   'training.empty': 'Još nema modula za obuku.',
   'training.eyebrow': 'Uvođenje u posao · Obuka',
   'training.loading': 'Učitavanje modula…',
+  'training.stat.all': 'Moduli dodijeljeni',
   'training.subtitle':
     'Moduli se otključavaju na 30/60/90 kako bi odgovarali vašoj ulozi. Obavezni dolaze prvi.',
   'training.title': 'Vještine, alati i priče — vašim tempom.',
@@ -185,9 +231,12 @@ export const ui: UiTranslations = {
   'trainingModule.quizBody':
     'Ostvarite 80% ili više bodova kako biste ovaj modul označili kao završen.',
   'trainingModule.quizHeading': 'Kviz na kraju modula',
+  'trainingModule.quizLocked': 'Prvo pokrenite modul',
   'trainingModule.quizNone': 'Nema kviza na ovom modulu.',
   'trainingModule.quizRetry': 'Pokušajte ponovno',
+  'trainingModule.quizStart': 'Pokreni kviz',
   'trainingModule.quizSubmit': 'Pošalji odgovore',
+  'trainingModule.start': 'Pokreni modul',
   'trainingModule.statusNotStarted': 'Nije započeto',
   'welcomeHeroCard.completeLabel': 'Završeno',
   'welcomeHeroCard.milestonesLabel': 'Prekretnice',

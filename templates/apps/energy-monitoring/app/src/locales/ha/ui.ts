@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tambayoyi, buƙatun fasali, ko mita da ya kamata mu tallafa? Tuntuɓi ƙungiyar {{appName}} daga saitunan asusunka — kowane saƙo yana zuwa ga mutum na gaske.',
   'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da',
+  'about.featuresTitle': 'Abin da za ku samu',
+  'about.intro':
+    '{{appName}} shine sa ido kan wutar lantarki na ainihin lokaci don gidaje masu amfani da hasken rana da ƙungiyoyin cibiyoyi. Muna juya ɗimbin bayanan mita, inverter, da baturi zuwa yanayin kula mai natsuwa — wutar lantarki kai tsaye, samar da hasken rana, kuɗin amfani bisa lokaci, da faɗakarwa, duk a wuri ɗaya.',
+  'about.missionBody':
+    'Ƙarfin da za ka iya gani shi ne ƙarfin da za ka iya sarrafawa. Mun yi imani kowa da ke amfani da mita — gida mai hasken rana a rufin ko ƙungiya da ke lura da gini — ya cancanci fahimtar matakin kamfanin wutar lantarki ba tare da kwangilar kamfanin wutar lantarki ba. An gina kowane fasali don sa kilowatt-hour na gaba ya zama zaɓi mai ilimi, ba abin mamaki a lissafin ba.',
+  'about.missionTitle': 'Manufarmu',
   'about.pageTitle': 'Game da {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Ack',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@yourdomain.com',
   'alertRule.eyebrow': 'Sabuwar doka',
   'alertRule.heading': 'Ka yi ƙoƙarin rage farashin kafin ka yi nasara',
+  'alertRule.nameLabel': 'Sunan doka',
   'alertRule.namePlaceholder': 'misali agogon HVAC na bayan aiki',
   'alertRule.subheading':
     "Zaɓi ma'auni, iyaka, da kuma inda za a aika faɗakarwar. Kuna iya gyara ko dakatar da shi a kowane lokaci.",
   'alertRule.submit': 'Ajiye doka',
   'alertRule.submitError': 'Ban iya adana dokar ba.',
   'alertRule.thresholdLabel': 'Bakin iyaka',
+  'alertRule.typeLabel': "Nau'in abin jan hankali",
   'alerts.checking': 'Ana dubawa…',
   'alerts.confirmDelete': 'Tabbatar da gogewa',
+  'alerts.empty': 'Babu abin da za a nuna — babu faɗakarwa a wannan yanayin.',
   'alerts.emptyNoRules':
     'Babu faɗakarwa tukuna - ƙara doka, sannan danna "Kimanta yanzu" don gwada shi.',
   'alerts.errorAck': 'Ban iya amincewa ba.',
@@ -41,12 +52,15 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Kimanta yanzu',
   'alerts.subheading':
     "Sanarwa game da tsayin daka da tsarin da ke tashi a kan mitoci, da kuma ƙa'idodin da ke tuƙi.",
+  'billing.activeBlurb': 'Biyan kuɗin ku na aiki. Kuna iya sarrafa shi kowane lokaci.',
   'billing.cancelError': 'Ba a iya soke biyan kuɗi ba.',
   'billing.cancelling': 'Sokewa…',
   'billing.currentBadge': 'Na yanzu',
   'billing.freeBlurb':
     "Kana kan shirin Kyauta. Haɓakawa don ƙarin mita, tarihin da ya fi tsayi, da ƙarin ƙa'idodin faɗakarwa.",
   'billing.heading': 'Tsare-tsare & lissafin kuɗi',
+  'billing.historyEmpty':
+    'Da zarar an biya kuɗin biyan ku, takardun kuɗi da aka biya za su bayyana a nan.',
   'billing.historyHeading': 'Tarihin lissafin kuɗi',
   'billing.loadError': 'Ba za a iya loda lissafin kuɗi ba.',
   'billing.loading': 'Ana loda tsare-tsare…',
@@ -58,17 +72,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Tuntuɓi tallace-tallace',
   'common.goToDashboard': 'Je zuwa Dashboard',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} kololuwa · {{offPeak}} kWh mara kololuwa',
   'dailyCostMeter.runningLabel': 'Jimillar gudu',
   'dailyCostMeter.title': 'Kudin da aka kashe zuwa yanzu a yau',
   'dailyCostMeter.utilizationLabel': 'Na kasafin kuɗi na yau da kullun',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Ƙara mita',
   'dashboard.alertsHeading': 'Sanarwa masu aiki',
   'dashboard.devicesHeading': "Manyan da'irori a yanzu",
   'dashboard.empty.body':
     "Ƙara na'urar aunawa mai wayo ko na'urar canza hasken rana don fara bin diddigin zane kai tsaye da samarwa.",
+  'dashboard.empty.title': 'Babu mita tukuna',
   'dashboard.eyebrow': 'Dakin sarrafa wutar lantarki',
   'dashboard.heading': 'Hoton makamashi kai tsaye',
   'dashboard.loadError': 'Ba za a iya loda karatun kai tsaye ba.',
   'dashboard.loading': 'Gyaran mitar ku…',
+  'dashboard.noAlerts': 'Duk shiru — babu abin da ya ketare iyakokinka.',
   'dashboard.noAlertsAndNoMeters':
     "Da zarar ka haɗa na'urar auna mita, faɗakarwa bisa ga iyakokinka za ta bayyana a nan.",
   'dashboard.noCircuits': "Babu da'irori da za a nuna tukuna — ƙara mita don farawa.",
@@ -76,6 +95,7 @@ export const ui: UiTranslations = {
     'Zane-zanen gida gaba ɗaya, samar da hasken rana, da kuma farashin da ya zuwa yanzu.',
   'dashboard.viewAllAlerts': 'Sarrafa faɗakarwa →',
   'dashboard.viewAllDevices': "Kowace na'ura →",
+  'deviceDetail.activeTokens': 'Alamun shigar da aiki',
   'deviceDetail.alreadyOff': 'An riga an dakatar da shi',
   'deviceDetail.back': "Duk da'irori",
   'deviceDetail.confirmDelete': 'Tabbatar da gogewa',
@@ -115,22 +135,34 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Ba a iya ɗora mita ba.',
   'devices.loading': 'Zaɓe a kowace mita…',
   'devices.newRule': "Sabuwar ƙa'idar faɗakarwa",
+  'devices.noResults': "Babu da'ira da ta dace da wannan tacewa.",
   'devices.placeholder.location': 'misali ɗakin injina',
   'devices.placeholder.name': 'misali ƙaramin faifan gareji',
   'devices.subheading':
     "Wutar lantarki mai rai da kuma kWh ta yau a kowace da'ira da Voltrace zai iya gani.",
+  'deviceWattageRow.todayKwh': '{{kwh}} kWh yau',
+  'deviceWattageRow.watts': '{{watts}} W',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Menu',
+  'energyMonitoringLayout.primaryNavLabel': 'Babban kewayawa',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    '{{appName}} yana magana da yawancin mita na matakin kamfanin wutar lantarki, inverter na hasken rana, da tarin baturi — ta waya ko ta WiFi.',
   'landing.ctaHeading': 'Haɗa mitar ku, ku ga watts a cikin mintuna',
   'landing.eyebrow': 'Hankalin makamashi na ainihin lokaci',
+  'landing.featuresHeading': 'Kowane watt, kowane minti, a wuri ɗaya',
   'landing.getStarted': 'Toshe a cikin Voltrace',
   'landing.heroCta': 'Toshe a cikin Voltrace',
+  'landing.heroSubtitle':
+    'Wutar lantarki kai tsaye, samar da hasken rana, kuɗin amfani bisa lokaci, da faɗakarwar amfani mai yawa a cikin yanayin kula da aka gina don gidaje masu hasken rana da ƙungiyoyin cibiyoyi.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Zane na gida gaba ɗaya',
   'landing.sampleSolar': '+3,820 W hasken rana',
   'landing.sampleSummary': 'Ana fitar da 1,680 W zuwa grid · 18.4 kWh a yau',
   'landing.sampleWatts': '2,140 W',
   'powerHeroCard.solar': '+ {{watts}} W hasken rana',
   'powerHeroCard.title': 'Zane na gida gaba ɗaya',
+  'powerHeroCard.todayKwh': '{{kwh}} kWh yau',
   'powerHeroCard.watts': '{{watts}} W',
   'pricing.choose': 'Zaɓi {{name}}',
   'pricing.contact': 'Kuna buƙatar wani abu na musamman?',
@@ -143,6 +175,7 @@ export const ui: UiTranslations = {
     "Fara kyauta. Haɓakawa lokacin da kake buƙatar ƙarin mita, tarihin da ya fi tsayi, ko ƙarin ƙa'idodin faɗakarwa.",
   'pricing.unavailable': 'Wannan shirin ba ya samuwa a yanzu — Ba a saita Stripe ba.',
   'profile.errorGeneric': 'Ba za a iya adana canje-canjen bayanin martaba ba.',
+  'profile.errorGoal': 'Manufar kWh ta wata dole ta zama tabbataccen lamba.',
   'profile.errorHousehold': 'Girman gida dole ne ya zama lamba mai kyau.',
   'profile.householdHeading': 'Gida & manufofi',
   'profile.householdSize': 'Girman gida',
@@ -160,9 +193,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'Tattara karatu…',
   'reports.subheading':
     'Jimillar amfani da yau da kullum, samarwa, da kuma farashi — an raba su bisa ga kwanan wata.',
+  'reports.tableHeading': 'Rarrabuwar yau da kullum',
   'settings.currency': 'Kudin Kuɗi',
   'settings.errorFlat': 'Dole ne ƙimar da aka ƙayyade ta kasance ≥0.',
   'settings.errorNotify': 'Ba za a iya adana sanarwar prefs ba.',
+  'settings.errorSave': 'Ba a iya ajiye shirin kuɗi ba.',
   'settings.errorTou':
     'Ana buƙatar ƙimar kololuwa/babu kololuwa da kuma tagar kololuwa mai inganci.',
   'settings.exportBody':
@@ -183,10 +218,20 @@ export const ui: UiTranslations = {
   'settings.saving': 'Ana adanawa…',
   'settings.securityHeading': 'Tantancewa ta abu biyu',
   'settings.subheading': 'Farashi, sanarwa, da kuma fitar da bayanai.',
+  'settings.twoFactorBody':
+    'Buƙaci lambar lokaci ɗaya daga manhajar tabbatarwa a duk lokacin da kuka shiga.',
   'settings.twoFactorCode': 'Lambar tabbatarwa',
   'settings.twoFactorDisable': 'A kashe',
+  'settings.twoFactorDisableTitle': 'Kashe tabbatarwa ta matakai biyu',
   'settings.twoFactorEnable': 'Kunna',
+  'settings.twoFactorEnableTitle': 'Kunna tabbatarwa ta matakai biyu',
   'settings.twoFactorInvalidCode': 'Lambar da ba ta aiki ba',
+  'settings.twoFactorOAuth':
+    'Asusunka yana shiga ta hanyar mai bayarwa da aka haɗa, don haka ana sarrafa tabbaci biyu a can.',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Lambar QR ta matakai biyu',
+  'settings.twoFactorScan':
+    'Duba wannan lambar QR da manhajar tabbatarwa, sannan shigar da lambar mai lambobi 6.',
+  'settings.twoFactorUnavailable': 'Ba a samun tantance abubuwa biyu don wannan app ɗin ba.',
   'settings.twoFactorVerify': 'Tabbatar & kunna',
 }

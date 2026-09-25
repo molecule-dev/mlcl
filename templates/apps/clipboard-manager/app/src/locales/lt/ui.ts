@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Radote klaidą, norite pasiūlyti funkciją ar tiesiog norite pasisveikinti? Susisiekite per Nustatymų puslapį — kiekviena žinutė pasiekia tikrą komandos narį.',
   'about.contactTitle': 'Susisiekite',
   'about.eyebrow': 'Apie',
+  'about.missionTitle': 'Mūsų misija',
   'authShell.proTipPrefix': 'Profesionalo patarimas:',
   'authShell.proTipSuffix': 'atidaro komandų paletę',
   'authShell.version': '2.1.0 versija',
@@ -12,6 +15,8 @@ export const ui: UiTranslations = {
   'billing.downgradeCta': 'Atšaukti mokamą planą',
   'billing.heading': 'Pasirinkite planą, kuris tinka jūsų rankoms.',
   'billing.limit.snippets': '{{count}} klipai',
+  'billing.loading': 'Įkeliami planai…',
+  'billing.notAvailable': 'Nėra',
   'billing.period.${p}': 'Įkeliami planai…',
   'billing.perMonth': '/mėn.',
   'billing.perYear': '/metus',
@@ -19,6 +24,8 @@ export const ui: UiTranslations = {
   'billing.summaryFree':
     'Nėra kortelės. Atnaujinkite aukščiau, kad pradėtumėte sinchronizuoti įrenginiuose.',
   'billing.summaryHeading': 'Jūsų prenumerata',
+  'billing.summaryPaid':
+    'Tvarkykite mokėjimo būdą arba atšaukite prenumeratą savo Stripe valdymo pulte.',
   'billing.upgradeCta': 'Nėra',
   'categories.colorLabel': 'Spalva',
   'categories.create': 'Sukurti kategoriją',
@@ -39,6 +46,7 @@ export const ui: UiTranslations = {
   'clips.copyAction': 'Kopijuoti klipą',
   'clips.deleteAction': 'Ištrinti klipą',
   'clips.deleteConfirmAction': 'Patvirtinti ištrynimą',
+  'clips.detailEmpty': 'Pasirinkite įrašą kairėje, kad jį pamatytumėte čia.',
   'clips.empty': 'Nėra šio filtro atitinkančių klipų.',
   'clips.emptyAll':
     'Niekas dar nenukopijuota. Paspauskite „Naujas įrašas“ arba nukopijuokite ką nors.',
@@ -61,6 +69,7 @@ export const ui: UiTranslations = {
   'commandPalette.footerNavigate': 'naršyti',
   'commandPalette.footerPaste': 'įklijuoti',
   'commandPalette.heading': 'Komandų paletė',
+  'commandPalette.shortcutsHeading': 'Kiekvienas veiksmas turi spartųjį klavišą',
   'commandPalette.tryItHint': 'pabandyk ant tikros klaviatūros',
   'common.confirmDelete': 'Patvirtinti?',
   'common.goToDashboard': 'Eiti į suvestinę',
@@ -70,14 +79,20 @@ export const ui: UiTranslations = {
     'Kiekvienas įrenginys, prie kurio prisijungta prie jūsų paskyros, su sinchronizavimo būsena ir paskutiniu aktyvumu. Atsijunkite nuo įrenginio, kad atšauktumėte jo sesiją.',
   'devices.eyebrow': 'Sinchronizavimas',
   'devices.heading': 'Prijungti įrenginiai',
+  'devices.lastSeen': 'Paskutinį kartą matytas {{date}}',
   'devices.loadError': 'Nepavyko įkelti įrenginių.',
+  'devices.loading': 'Įrenginiai įkeliami…',
   'devices.revoke': 'Atsijungti',
   'devices.revokeError': 'Nepavyko atsijungti nuo įrenginio.',
   'devices.statusBody': '{{count}} aktyvus(-ūs) įrenginys(-iai)',
   'devices.statusHeading': 'Sinchronizavimo būsena',
+  'devices.syncedHoursAgo': 'Sinchronizuota prieš {{count}} val.',
+  'devices.syncedMinutesAgo': 'Sinchronizuota prieš {{count}} min.',
   'devices.thisDevice': 'Šis įrenginys',
+  'devices.unknownDevice': 'Nežinomas įrenginys',
   'forgotPassword.body':
     'Įveskite savo el. pašto adresą – atsiųsime jums vienkartinę nustatymo iš naujo nuorodą.',
+  'forgotPassword.brandSubtitle': 'Nukopijuok vieną kartą, rask amžinai.',
   'forgotPassword.brandSubtitleSent':
     'Patikrinkite savo pašto dėžutę, ar nėra nustatymo iš naujo nuorodos.',
   'forgotPassword.sentMessage': 'Siuntėme nuorodą paskyrai atkurti adresu {{email}}.',
@@ -87,6 +102,8 @@ export const ui: UiTranslations = {
   'landing.ctaHeading': 'Liaukis medžiojęs tą vieną fragmentą.',
   'landing.demoItemCount': '1 284 prekės',
   'landing.denseHeading': 'Beprotiškai tankus, juokingai greitas.',
+  'landing.denseSubheading':
+    'Jokių tinklelio rodinių. Jokios švaistomos vietos. Tik jūsų iškarpos.',
   'landing.eyebrow': 'Iškarpų tvarkyklė · 2.1 versija',
   'landing.featuresEyebrow': 'Sukurta patyrusiems vartotojams',
   'landing.featuresHeading':
@@ -103,6 +120,7 @@ export const ui: UiTranslations = {
   'login.body': 'Prisijunkite, kad sinchronizuotumėte iškarpinę visuose įrenginiuose.',
   'login.brandSubtitle': 'Nukopijuok vieną kartą, rask amžinai.',
   'login.hidePassword': 'Paslėpti slaptažodį',
+  'login.noAccount': 'Pirmą kartą čia?',
   'login.showPassword': 'Rodyti slaptažodį',
   'mobileNav.closeMenu': 'Uždaryti navigacijos meniu',
   'mobileNav.openMenu': 'Atidaryti navigacijos meniu',
@@ -112,16 +130,27 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': 'HTTP 404',
   'notFound.heading': 'Iškarpinėje nėra nieko tam keliui.',
   'notFound.landingLink': 'Arba apsilankykite nukreipimo puslapyje',
+  'planUpdated.retry': 'Pabandyk dar kartą',
+  'planUpdated.verifyFailed': 'Mes dar negalėjome patvirtinti jūsų mokėjimo.',
+  'planUpdated.verifyFailedBody':
+    'Jūsų mokėjimas vis dar gali būti apdorojamas. Bandykite dar kartą po akimirkos.',
   'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
+  'pricing.limits.maxCategories': '{{count}} kategorijos',
+  'pricing.limits.maxClips': '{{count}} klipai',
+  'pricing.limits.maxPinned': '{{count}} prisegti',
   'profile.description': 'Jūsų tapatybė, saugumas ir aktyvūs seansai.',
   'profile.noSessions': 'Kol kas nėra aktyvių sesijų.',
   'profile.unnamed': 'Bevardis',
   'profile.webSession': 'Internetinė sesija',
+  'resetPassword.body': 'Pasirinkite naują slaptažodį savo „Reverie“ paskyrai.',
   'resetPassword.brandSubtitle': 'Nustatykite naują slaptažodį ir grįžkite prie kopijavimo.',
+  'resetPassword.hidePassword': 'Paslėpti slaptažodį',
+  'resetPassword.passwordLabel': 'Naujas slaptažodis',
   'resetPassword.showPassword': 'Rodyti slaptažodį',
   'settings.description':
     'Tinkinkite sparčiuosius klavišus, sinchronizavimą, šifravimą ir tai, kaip „Yank“ rodomas jūsų kompiuteryje.',
   'settings.exportData': 'Eksportuoti visus klipus',
+  'settings.exportError': 'Eksportuoti nepavyko.',
   'settings.exportFeedback': 'Eksportuota {{count}} klipai.',
   'settings.language.title': 'Kalba',
   'settings.planHint':
@@ -132,12 +161,14 @@ export const ui: UiTranslations = {
   'settings.savedFeedback': 'Nustatymas išsaugotas.',
   'settings.saveError': 'Nepavyko išsaugoti nustatymo.',
   'settings.shortcutsHeading': 'Spartieji klavišai',
+  'settings.viewBilling': 'Peržiūrėti atsiskaitymus',
   'settings.wipeAll': 'Išvalykite vietinę talpyklą',
   'settings.wipeFeedback': 'Vietinė talpykla išvalyta.',
   'signup.body':
     'Sinchronizuokite kiekvieną fragmentą visuose įrenginiuose – užšifruotą, su paieškos funkcija ir akimirksniu atkuriamą.',
   'signup.brandSubtitle': 'Nukopijuok vieną kartą, rask amžinai.',
   'signup.heading': 'Sukurkite savo „Yank“ paskyrą',
+  'signup.hidePassword': 'Paslėpti slaptažodį',
   'signup.namePlaceholder': 'Aleksas Morganas',
   'signup.showPassword': 'Rodyti slaptažodį',
   'time.activeNow': 'Aktyvus dabar',

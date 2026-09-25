@@ -1,12 +1,33 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഒരു ബുക്കിംഗിനെക്കുറിച്ചുള്ള ചോദ്യങ്ങളോ ഫീഡ്ബാക്കോ, അല്ലെങ്കിൽ {{app}}-ൽ ഉണ്ടായിരിക്കേണ്ടതെന്ന് നിങ്ങൾ കരുതുന്ന ഒരു പ്രോപ്പർട്ടിയോ? നിങ്ങളുടെ അക്കൗണ്ടിൽ നിന്ന് ഞങ്ങളുടെ ടീമിനെ സമീപിക്കുക — ഓരോ സന്ദേശവും സഹായിക്കാൻ കഴിയുന്ന ഒരു യഥാർത്ഥ മനുഷ്യനിലേക്കാണ് പോകുന്നത്.',
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'ഞങ്ങളേക്കുറിച്ച്',
+  'about.featureLoyalty':
+    'അംഗങ്ങൾക്ക് മാത്രമുള്ള നിരക്കുകളും ഓരോ ബുക്കിംഗിലും പോയിന്റുകൾ, വൈകിയ ചെക്കൗട്ടുകൾ, റൂം അപ്ഗ്രേഡുകൾ എന്നിവ നേടിത്തരുന്ന ഒരു ലോയൽറ്റി പ്രോഗ്രാമും.',
+  'about.featureReviews':
+    'നിങ്ങൾ എത്തുന്നതിന് മുമ്പ് താമസം വിശ്വസിക്കാൻ കഴിയുന്നതിനായി സ്ഥിരീകരിച്ച അതിഥി അവലോകനങ്ങളും എഡിറ്റോറിയൽ തിരഞ്ഞെടുപ്പുകളും.',
+  'about.featureRooms':
+    'സുതാര്യവും എല്ലാം ഉൾപ്പെടുന്നതുമായ വിലനിർണ്ണയത്തോടെ — നിങ്ങൾ പണമടയ്ക്കുന്നതിന് മുമ്പ് നികുതികളും റിസോർട്ട് ഫീസുകളും ഉൾപ്പെടെ — മുറികളും നിരക്കുകളും സൗകര്യങ്ങളും അരികുചേർത്ത്.',
+  'about.featureSearch':
+    'പരിശോധിച്ച ഹോട്ടലുകളിലുടനീളം തത്സമയ തിരയൽ, ലൈവ് ലഭ്യത, മാപ്പ് കാഴ്ച, സമ്പന്നമായ ഫോട്ടോ ഗാലറികൾ.',
+  'about.featureTrips':
+    'സേവ് ചെയ്ത പ്രിയപ്പെട്ടവയും എല്ലാ റിസർവേഷനുകളും യാത്രാപരിപാടികളും സ്ഥിരീകരണങ്ങളും ഒരിടത്ത് സൂക്ഷിക്കുന്ന ഒരു Trips ഡാഷ്ബോർഡും.',
+  'about.intro':
+    'ഗുണനിലവാരം പ്രധാനമായി കാണുന്ന യാത്രക്കാർക്കുള്ള ഒരു ഹോട്ടൽ-ബുക്കിംഗ് പ്ലാറ്റ്ഫോമാണ് {{app}}. ഓരോ പ്രോപ്പർട്ടിയും ഞങ്ങളുടെ എഡിറ്റോറിയൽ ടീം വ്യക്തിപരമായി പരിശോധിച്ചതാണ് — അഗ്രിഗേറ്റർ ഇൻവെന്ററിയില്ല, വഞ്ചനാപരമായ ലിസ്റ്റിംഗുകളുമില്ല. യഥാർത്ഥ ലഭ്യത തിരയുക, മുറികളും നിരക്കുകളും സൗകര്യങ്ങളും അരികുചേർത്ത് താരതമ്യം ചെയ്യുക, എന്നിട്ട് വ്യക്തവും എല്ലാം ഉൾപ്പെടുന്നതുമായ വിലയിൽ കുറച്ച് ടാപ്പുകളിൽ ബുക്ക് ചെയ്യുക.',
+  'about.missionBody':
+    'താമസിക്കാൻ ഒരിടം ബുക്ക് ചെയ്യുന്നത് ശാന്തവും സത്യസന്ധവുമായി തോന്നണം. ഞങ്ങൾ നികുതികളും റിസോർട്ട് ഫീസുകളും മുൻകൂട്ടി ഉൾപ്പെടുത്തിയ സുതാര്യമായ നിരക്കുകൾ കാണിക്കുന്നു, വിശ്വസ്ത അതിഥികളെ ചെറിയ ചെലവുകളിൽ കുടുക്കുന്നതിനുപകരം പ്രതിഫലം നൽകുന്നു, നിങ്ങളുടെ പണത്തിന് അർഹമായ താമസങ്ങൾക്ക് മുൻഗണന നൽകുന്നു — അതുവഴി ടാബുകൾ താരതമ്യം ചെയ്യുന്നതിൽ കുറച്ച് സമയവും യാത്രയിൽ കൂടുതൽ സമയവും ചെലവഴിക്കാം.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
+  'about.subtitle':
+    'ശരിയായ ഹോട്ടൽ കണ്ടെത്താനും ബുക്ക് ചെയ്യാനുമുള്ള ക്യൂറേറ്റ് ചെയ്തതും സുതാര്യവുമായ ഒരു മാർഗം.',
   'account.loyalty.activitySummary': '{{nights}} രാത്രികൾ · {{spend}} ഈ വർഷം ചെലവഴിച്ചത്',
+  'account.loyalty.benefitsHeading': 'നിങ്ങളുടെ ആനുകൂല്യങ്ങൾ',
   'account.loyalty.heading': 'വിശ്വസ്തത',
   'account.loyalty.loading': 'ലോയൽറ്റി ലോഡ് ചെയ്യുന്നു...',
-  'account.loyalty.pointsTowardNext':
-    '{{പോയിന്റുകൾ}} / {{അടുത്തത്}} ചൂണ്ടിക്കാണിക്കുന്നത് {{അടുത്ത ടയർ}}',
+  'account.loyalty.maxTier': 'ഉയർന്ന നില — നിങ്ങളുടെ ആനുകൂല്യങ്ങൾ ആസ്വദിക്കുക.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} പോയിന്റുകൾ {{nextTier}}-ലേക്ക്',
   'account.loyalty.tier': 'നിലവിലെ ടയർ',
   'account.loyalty.unavailable': 'ലോയൽറ്റി വിവരങ്ങൾ ലഭ്യമല്ല.',
   'account.navLabel': 'അക്കൗണ്ട് വിഭാഗങ്ങൾ',
@@ -24,6 +45,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.datesRequired':
     'ദയവായി നിങ്ങളുടെ ചെക്ക്-ഇൻ, ചെക്ക്-ഔട്ട് തീയതികൾ തിരഞ്ഞെടുക്കുക.',
   'bookingCheckout.guestHeading': 'മുഖ്യ അതിഥി',
+  'bookingCheckout.heading': 'സ്ഥിരീകരിച്ച് ബുക്ക് ചെയ്യുക',
   'bookingCheckout.loadError': 'പ്രോപ്പർട്ടി ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
   'bookingCheckout.nights': '{{rate}} × {{count}} രാത്രികൾ',
   'bookingCheckout.notFound': 'പ്രോപ്പർട്ടി കണ്ടെത്തിയില്ല.',
@@ -34,11 +56,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'നികുതികളും ഫീസും',
   'bookingCheckout.tripHeading': 'നിങ്ങളുടെ യാത്ര',
   'bookingConfirmation.allTripsCta': 'എല്ലാ യാത്രകളും',
+  'bookingConfirmation.confNumber': 'സ്ഥിരീകരണ നമ്പർ: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'നിങ്ങളുടെ റിസർവേഷൻ പ്രോസസ്സ് ചെയ്യുന്നു.',
   'bookingConfirmation.heading': 'ബുക്കിംഗ് സ്ഥിരീകരിച്ചു',
   'bookingConfirmation.loading': 'നിങ്ങളുടെ റിസർവേഷൻ ലോഡ് ചെയ്യുന്നു...',
   'bookingConfirmation.searchMoreCta': 'കൂടുതൽ താമസ സ്ഥലങ്ങൾ ബ്രൗസ് ചെയ്യുക',
   'bookingConfirmation.subheadingForTrip':
-    '{{സ്വത്ത്}} ഇൻ {{നഗരം}} , {{രാജ്യം}} . നമുക്ക് കാണാം {{ചെക്ക് - ഇൻ ചെയ്യുക}} .',
+    '{{city}}-ലെ {{property}}, {{country}}. {{checkIn}}-ന് നിങ്ങളെ കാണാം.',
   'bookingConfirmation.total': 'ആകെ {{total}}',
   'bookingConfirmation.viewTripCta': 'യാത്ര കാണുക',
   'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
@@ -48,6 +73,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'പ്രിയപ്പെട്ടവ ലോഡ് ചെയ്യാനായില്ല.',
   'favorites.pricePerNight': '{{price}} / രാത്രി',
   'favorites.removeCta': 'സേവ് ചെയ്തത് മാറ്റുക',
+  'favorites.removing': 'നീക്കം ചെയ്യുന്നു...',
   'forgotPassword.subheading':
     'നിങ്ങളുടെ അക്കൗണ്ടിൽ ഇമെയിൽ നൽകുക, ഞങ്ങൾ നിങ്ങൾക്ക് ഒരു സുരക്ഷിത റീസെറ്റ് ലിങ്ക് അയയ്ക്കും.',
   'forgotPassword.successBody':
@@ -55,6 +81,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'താമസ അംഗങ്ങൾ',
   'landing.cta.heading': 'അംഗങ്ങൾക്ക് മാത്രമുള്ള നിരക്കുകൾ. എല്ലാ ബുക്കിംഗിലും, എല്ലാ സമയത്തും.',
   'landing.cta.signup': 'സൗജന്യ അക്കൗണ്ട് സൃഷ്ടിക്കുക',
+  'landing.cta.subheading':
+    'ഓരോ താമസത്തിലും ലോയൽറ്റി പോയിന്റുകൾ നേടുക, വൈകിയ ചെക്കൗട്ടുകളും റൂം അപ്ഗ്രേഡുകളും അൺലോക്ക് ചെയ്യുക, പുതിയ പ്രോപ്പർട്ടികൾ പൊതുവായി ലിസ്റ്റ് ചെയ്യുന്നതിന് മുമ്പ് ആദ്യ ആക്സസ് നേടുക.',
   'landing.destinations.eyebrow': 'അടുത്തതായി എവിടേക്ക് പോകണം',
   'landing.destinations.heading': 'തിരഞ്ഞെടുത്ത ലക്ഷ്യസ്ഥാനങ്ങൾ',
   'landing.destinations.seeAll': 'എല്ലാ ലക്ഷ്യസ്ഥാനങ്ങളും കാണുക',
@@ -63,13 +91,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'പാക്ക് ചെയ്യാൻ പറ്റിയ കഥകൾ',
   'landing.nav.join': 'സോജേർണിൽ ചേരുക',
   'landing.nav.search': 'തിരയൽ സ്റ്റേകൾ',
+  'landing.preview.browseAll': 'മുഴുവൻ ശേഖരവും ബ്രൗസ് ചെയ്യുക',
   'landing.preview.eyebrow': 'ഉള്ളിലേക്ക് ഒരു എത്തിനോട്ടം',
   'landing.preview.heading': 'ഈ മാസം തിരഞ്ഞെടുത്ത താമസസ്ഥലങ്ങൾ',
+  'landing.preview.subheading':
+    '{{appName}}-ലെ ഓരോ പ്രോപ്പർട്ടിയും ഞങ്ങളുടെ എഡിറ്റോറിയൽ ടീം വ്യക്തിപരമായി പരിശോധിച്ചതാണ് — അഗ്രിഗേറ്റർ ഇൻവെന്ററിയില്ല, വഞ്ചനാപരമായ ലിസ്റ്റിംഗുകളുമില്ല.',
   'login.eyebrow': 'അംഗങ്ങളുടെ ഏരിയ',
+  'login.noAccount': 'ടെസേറയിൽ പുതിയ ആളാണോ?',
   'login.signupLink': 'ഒരു സൗജന്യ അക്കൗണ്ട് സൃഷ്ടിക്കുക',
   'login.subheading':
     'നിങ്ങളുടെ യാത്രകൾ മാനേജ് ചെയ്യാനും, സ്ഥിരീകരണങ്ങൾ കാണാനും, നിർത്തിയിടത്ത് നിന്ന് തുടരാനും സൈൻ ഇൻ ചെയ്യുക.',
+  'loyaltyTierBadge.points': '{{points}} പോയിന്റുകൾ',
   'planUpdated.heading': 'പ്ലാൻ അപ്ഡേറ്റ് ചെയ്തു',
+  'planUpdated.retry': 'വീണ്ടും ശ്രമിക്കുക',
+  'planUpdated.verifyFailed': 'നിങ്ങളുടെ പേയ്‌മെന്റ് ഞങ്ങൾക്ക് ഇതുവരെ സ്ഥിരീകരിക്കാൻ കഴിഞ്ഞില്ല.',
+  'planUpdated.verifyFailedBody':
+    'നിങ്ങളുടെ പേയ്‌മെന്റ് ഇപ്പോഴും പ്രോസസ്സ് ചെയ്തുകൊണ്ടിരിക്കുകയായിരിക്കാം. അൽപ്പസമയത്തിനുള്ളിൽ വീണ്ടും ശ്രമിക്കുക.',
   'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'pricing.limit.advancedFeatures': 'വിപുലമായ സവിശേഷതകൾ:',
   'pricing.limit.canExport': 'ഡാറ്റ കയറ്റുമതി:',
@@ -81,7 +118,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'ഈ സ്ഥലം എന്താണ് വാഗ്ദാനം ചെയ്യുന്നത്',
   'propertyDetail.backLink': 'തിരയലിലേക്ക് മടങ്ങുക',
   'propertyDetail.bookCta': 'റിസർവ് ചെയ്യുക',
+  'propertyDetail.bookmarkAria': 'പ്രോപ്പർട്ടി സംരക്ഷിക്കുക',
   'propertyDetail.bookmarkAriaSaved': 'സംരക്ഷിച്ച പ്രോപ്പർട്ടികളിൽ നിന്ന് നീക്കം ചെയ്യുക',
+  'propertyDetail.galleryImageAlt': '{{name}} ഫോട്ടോ {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} ഹീറോ ഫോട്ടോ',
   'propertyDetail.hidePhotos': 'ഫോട്ടോകൾ മറയ്ക്കുക',
   'propertyDetail.lineCleaning': 'ക്ലീനിംഗ് ഫീസ്',
@@ -91,6 +130,9 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'രാത്രി',
   'propertyDetail.noChargeYet': 'നിങ്ങളിൽ നിന്ന് ഇതുവരെ നിരക്ക് ഈടാക്കില്ല.',
   'propertyDetail.notFound': 'പ്രോപ്പർട്ടി കണ്ടെത്തിയില്ല.',
+  'propertyDetail.perNight': '/ രാത്രി',
+  'propertyDetail.pickDatesHint':
+    'മുഴുവൻ വില വിശദാംശങ്ങളും കാണാൻ നിങ്ങളുടെ തീയതികൾ തിരഞ്ഞെടുക്കുക.',
   'propertyDetail.reviewCount': '( {{count}} അവലോകനങ്ങൾ)',
   'propertyDetail.reviewsHeading': 'സമീപകാല അവലോകനങ്ങൾ',
   'propertyDetail.roomCapacity': 'ഉറങ്ങുന്നു {{count}}',
@@ -103,6 +145,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'പുതിയ പാസ്വേഡ്',
   'resetPassword.subheading':
     'നിങ്ങളുടെ Auberge അക്കൗണ്ടിന് പുതിയൊരു പാസ്‌വേഡ് തിരഞ്ഞെടുക്കുക. കുറഞ്ഞത് 8 പ്രതീകങ്ങളെങ്കിലും ഉപയോഗിക്കുക; ഞങ്ങൾ ഒരു പാസ്‌ഫ്രെയ്‌സ് ശുപാർശ ചെയ്യുന്നു.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'നിങ്ങളുടെ തിരയലുമായി പൊരുത്തപ്പെടുന്ന പ്രോപ്പർട്ടികളൊന്നുമില്ല.',
   'searchResults.emptyHint':
     'നിങ്ങളുടെ ഫിൽട്ടറുകൾ വിശാലമാക്കുകയോ വില പരിധി നീക്കം ചെയ്യുകയോ ചെയ്യാൻ ശ്രമിക്കുക - സോജേണിന് 14 രാജ്യങ്ങളിൽ സ്റ്റേകളുണ്ട്.',
@@ -110,19 +153,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'ക്യുറേറ്റഡ് സ്റ്റേകൾ',
   'searchResults.headingForQuery': '"" താമസിക്കും. {{q}} "',
   'searchResults.loadError': 'പ്രോപ്പർട്ടികൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
+  'searchResults.mapHint':
+    'മാപ്പിൽ ഹൈലൈറ്റ് ചെയ്യാൻ ഒരു കാർഡിന് മേൽ ഹോവർ ചെയ്യുക. പ്രൊഡക്ഷനിൽ ലൈവ് Mapbox ടൈലുകൾ.',
   'searchResults.mapPinAria': '{{name}} — ഒരു രാത്രിക്ക് {{price}}',
   'searchResults.sortLabel': 'ഇങ്ങനെ അടുക്കുക',
   'searchResults.subheading': '{{count}} പ്രോപ്പർട്ടികൾ · {{guests}} അതിഥികൾ',
   'signup.eyebrow': 'അംഗമാകുക',
   'signup.subheading':
     'അംഗങ്ങൾക്ക് മാത്രമുള്ള നിരക്കുകൾ, വൈകിയുള്ള ചെക്ക്ഔട്ടുകൾ, പുതിയ പ്രോപ്പർട്ടികളിലേക്കുള്ള ആദ്യ ആക്‌സസ് എന്നിവ അൺലോക്ക് ചെയ്യുന്നതിന് സോജേണിൽ ചേരുക.',
+  'sojournAuthShell.brand.eyebrow': 'അസാധാരണമായ ഒരിടത്ത് താമസിക്കുക',
+  'sojournAuthShell.brand.heading':
+    'ക്യൂറേറ്റ് ചെയ്ത ഒരു പ്രോപ്പർട്ടി ശേഖരം — മനോഹരമായി അവതരിപ്പിച്ചത്, സുതാര്യമായി വിലയിട്ടത്.',
   'sojournHeroSearchCard.checkInAria': 'ചെക്ക്-ഇൻ തീയതി',
   'sojournHeroSearchCard.checkOutAria': 'ചെക്ക്-ഔട്ട് തീയതി',
+  'sojournHeroSearchCard.destAria': 'ലക്ഷ്യസ്ഥാനം',
+  'sojournHeroSearchCard.destLabel': 'എവിടെ',
   'sojournHeroSearchCard.destPlaceholder': 'നഗരം, മേഖല അല്ലെങ്കിൽ സ്വത്ത്',
   'sojournHeroSearchCard.eyebrow': 'ക്യുറേറ്റഡ് സ്റ്റേകൾ · അംഗങ്ങൾക്ക് മാത്രമുള്ള നിരക്കുകൾ',
   'sojournHeroSearchCard.guestsOption': '{{n}} അതിഥികൾ',
   'sojournHeroSearchCard.subtitle':
     'ബുട്ടീക്ക് ഹോട്ടലുകൾ, ഡിസൈൻ-ഫോർവേഡ് പ്രോപ്പർട്ടികൾ, അപൂർവ കണ്ടെത്തലുകൾ എന്നിവയുടെ ഒരു ക്യൂറേറ്റഡ് ശേഖരം - സുതാര്യമായ വില, മനോഹരമായി അവതരിപ്പിച്ചിരിക്കുന്നു.',
+  'sojournHeroSearchCard.title': 'അസാധാരണമായ ഒരിടത്ത് താമസിക്കുക',
+  'sojournHeroSearchCard.trustLoyalty': 'ഓരോ താമസത്തിലും പോയിന്റുകൾ നേടുക',
   'sojournHeroSearchCard.trustNoFees': 'മറഞ്ഞിരിക്കുന്ന ഫീസുകളൊന്നുമില്ല, ഒരിക്കലും',
   'sojournHeroSearchCard.trustVetted': 'കൈകൊണ്ട് പരിശോധിച്ച പ്രോപ്പർട്ടികൾ മാത്രം',
   'sojournLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',

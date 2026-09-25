@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ṣé o ní èrò kan, ṣe o rí àṣìṣe kan, tàbí o fẹ́ {{app}} fún studio tàbí ẹgbẹ́ rẹ? Kàn sí wa láti inú ètò àkọsílẹ̀ rẹ — gbogbo ìṣẹ́ ni ó ń lọ sí ọwọ́ ẹnìkan gidi nínú ẹgbẹ́ náà.',
   'about.contactTitle': 'Bá wa sọ̀rọ̀',
+  'about.intro':
+    '{{app}} jẹ́ studio ìkọ̀wé àjọṣepọ̀ níbi tí àwọn olóòtú, àwọn òǹkọ̀wé, àti àwọn ẹgbẹ́ ti ń kọ̀wé papọ̀ ní àkókò gidi. Ṣí ìwé kan, ojú-ìwé náà yóò di èyí tí a pín — àwọn kọsọ́ ń lọ, àwọn àlàyé ń di okùn ní ẹ̀gbẹ́ ojú-ìwé, àti gbogbo àtúnṣe ni a tọ́jú ní ààbò nínú ìtàn.',
+  'about.missionBody':
+    'A gbà gbọ́ pé ìkọ̀wé gígùn tọ́ sí ibùdó tí ó ní ìbàlẹ̀ ọkàn, tí ó dá lórí ìwé-ìkọ̀wé, kì í ṣe ìpàdé tàbí àpò ìṣẹ́. Olóòtú wa, ìwàláàyè ní àkókò gidi, àti ìtàn ẹ̀yà ni a ṣe é fún àwọn alájọṣepọ̀ láti lè yára papọ̀ láìsí ẹni tí yóò pàdánù ìpínrọ̀ tàbí èrò kan.',
+  'about.missionTitle': 'Iṣẹ́ àwa',
+  'about.subtitle': 'Ronú papọ̀, kọ̀wé títí láé.',
   'about.title': 'Nípa {{app}}',
   'comments.addFailed': 'Kò le fi ọ̀rọ̀ síta.',
   'comments.backToDoc': 'Pada si iwe afọwọkọ',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Àwọn ọ̀rọ̀ àkíyèsí',
   'comments.loading': 'N n gbe awọn okun soke…',
   'comments.newPlaceholder': 'Fi àkíyèsí kún ìwé àfọwọ́kọ náà…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Tún ṣí i',
   'comments.reopenFailed': 'Kò le ṣí i.',
   'comments.replyFailed': 'Kò le fi esi ranṣẹ.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Àwọn àkọsílẹ̀ tuntun, àwọn iṣẹ́ tí a pín, àti àwọn àtúnṣe ọjọ́ náà.',
   'dashboard.viewFeed': 'Ìbẹ̀rẹ̀ →',
   'editor.back': 'Pada si awọn iwe afọwọkọ',
+  'editor.bodyLabel': 'Ara ìwé',
   'editor.bodyPlaceholder': 'Bẹ̀rẹ̀ níbi tí kọ́sọ̀ náà ti ń tàn.',
   'editor.comments': 'Àwọn ọ̀rọ̀-àkíyèsí',
   'editor.createFailed': 'Kò le ṣẹ̀dá ìwé náà.',
@@ -62,13 +72,18 @@ export const ui: UiTranslations = {
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody': 'Tí àkọọ́lẹ̀ kan bá wà fún {{email}} , ìjápọ̀ àtúntò kan ń bọ̀.',
+  'forgotPassword.sentHeading': 'Ṣàyẹ̀wò ìmeeli rẹ',
+  'forgotPassword.submitting': 'Fífiranṣẹ\\u2026',
   'forgotPassword.subtitle': 'A ó fi ìméèlì ránṣẹ́ sí ọ láti ṣe àtúntò ìjápọ̀.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . A fi Molekulu kọ́ ọ.',
+  'landing.ctaBody':
+    'Ọ̀fẹ́ fún àwọn òǹkọ̀wé nìkan. Àwọn ètò Studio fún àwọn ẹgbẹ́ olóòtú, àwọn òǹkọ̀wé-ìtàn, àti àwọn olùṣàyẹ̀wò.',
   'landing.ctaHeading': 'Ṣí ojú ìwé náà. Jẹ́ kí kọ́sọ̀ náà bẹ̀rẹ̀.',
   'landing.ctaPrimary': 'Ṣí sítọ́ọ̀dù kan',
   'landing.eyebrow': 'Fún àwọn òǹkọ̀wé, àwọn olóòtú, àti àwọn ẹgbẹ́',
   'landing.featuresEyebrow': 'Ohun tí o gbà',
   'landing.featuresHeading': 'Ilé ìtura fún àwọn àkọlé gígùn.',
+  'landing.featuresSubtitle': '{{appName}} ni a kọ́ yí ìwé-ìkọ̀wé — kì í ṣe ìpàdé, kì í ṣe àpò ìṣẹ́.',
   'landing.getStarted': 'Ṣí studio náà',
   'landing.heroCta': 'Bẹ̀rẹ̀ sí í kọ',
   'landing.heroSubtitle':
@@ -95,6 +110,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} Àwọn àkíyèsí tí a kò kà · àwọn àkíyèsí, àwọn ìdámọ̀ràn, pín àwọn ìkésíni, àti àwọn ìbéèrè àbá.',
   'presenceAvatars.label': '{{count}} àwọn alábáṣiṣẹpọ̀',
+  'privacy.intro': 'Bí a ṣe ń gba, lo, àti dáàbò bo ìsọfúnni rẹ.',
   'privacy.title': 'Ètò ìpamọ́',
   'profile.about.description': 'Ìtàn kúkúrú kan fún ìwífún gbogbogbò rẹ àti àwọn ojú ìwé olùkópa.',
   'profile.eyebrow': 'Idanimọ ile iṣere naa',
@@ -106,7 +122,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Wíwà',
   'profile.pronouns': 'Àwọn ọ̀rọ̀ arọ́pò',
   'profile.publicToggle': 'Fi profaili han si awọn ẹlẹgbẹ ẹgbẹ',
+  'profile.role': 'Ipa / orúkọ iṣẹ́',
   'profile.subtitle': 'Bí o ṣe rí sí àwọn alábàáṣiṣẹpọ̀ rẹ.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} àwọn òǹkọ̀wé tó ń ṣiṣẹ́ nínú studio náà',
   'quillonAuthBrandPanel.quote':
     '“Kíkọ ni ohun kan ṣoṣo tí, nígbà tí mo bá ṣe é, mi ò nímọ̀lára pé ó yẹ kí n máa ṣe nǹkan mìíràn.”',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Ṣí →',
   'quillonKpiCard.trend': 'Àṣà tuntun',
   'quillonLayout.menu': 'Àtòjọ oúnjẹ',
+  'quillonLayout.mobileNavLabel': 'Ìtọ́sọ́nà alágbèéká',
   'quillonLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
   'quillonStudioHero.collab': 'Àwọn alábáṣiṣẹpọ̀',
   'quillonStudioHero.docs': 'Àwọn ìwé tí a fọwọ́ kan',
@@ -122,7 +141,9 @@ export const ui: UiTranslations = {
   'quillonStudioHero.subtitle': 'Gbé ìwé àfọwọ́kọ náà, kọ ọ̀rọ̀ sílẹ̀, kí o sì tẹ ìpínrọ̀ kan síwájú.',
   'quillonStudioHero.words': 'Awọn ọrọ loni',
   'resetPassword.confirmPlaceholder': 'Tun ọrọ igbaniwọle tuntun ṣe',
+  'resetPassword.passwordLabel': 'Ọrọ aṣina Tuntun',
   'resetPassword.passwordPlaceholder': 'Tẹ ọrọ igbaniwọle tuntun sii',
+  'resetPassword.submitting': 'Ṣíṣe àtúntò…',
   'resetPassword.subtitle': 'Yan ọrọ igbaniwọle to lagbara — o kere ju awọn ohun kikọ 12 lọ.',
   'settings.account.description': 'Bí o ṣe wọlé.',
   'settings.billing.canceled': 'Fagilé ìforúkọsílẹ̀.',
@@ -131,7 +152,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'A ko ṣeto',
   'settings.billing.updated': 'Ètò tí a ti ṣe àtúnṣe sí.',
   'settings.editor.description': 'Bí àwòrán náà ṣe ń hùwà nígbà tí o ń kọ̀wé.',
+  'settings.editor.title': 'Àwọn ohun tí olóòtú fẹ́',
   'settings.eyebrow': 'Àwọn ohun tí wọ́n fẹ́ràn sítídíò',
+  'settings.language.title': 'Èdè',
   'settings.notifications.${n.key}.description': 'Èdè',
   'settings.notifications.description': 'Yan ohun tí ó dé inú àpótí ìforúkọsílẹ̀ rẹ.',
   'settings.subtitle':
@@ -142,6 +165,7 @@ export const ui: UiTranslations = {
   'shared.loadFailed': 'Kò le gbé àwọn ìwé tí a pín sórí ayélujára.',
   'shared.subtitle':
     'Àwọn ìwé àfọwọ́kọ, àwọn ìwé àkójọpọ̀, àti àwọn àkọsílẹ̀ láti inú àwọn ilé iṣẹ́ ìkẹ́ẹ̀kọ́ náà.',
+  'signup.brandAttribution': 'Anaïs Park — Olóòtú, The Quarterly',
   'signup.brandQuote':
     '\\u201cÌwé àfọwọ́kọ àkọ́kọ́ rẹ ló ṣòro jùlọ. Quillon mú kí ó má dá nìkan wà.\\u201d',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -149,6 +173,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Anaïs',
   'signup.heading': 'Ṣẹda akọọlẹ Quillon rẹ',
   'signup.lastNamePlaceholder': 'Páàkì',
+  'signup.submitting': 'Ṣíṣí studio rẹ\\u2026',
   'signup.subtitle':
     'Tabili idakẹjẹẹ, awọn alabaṣiṣẹpọ ayika, ati olootu ti o ni irisi gigun ti o ṣe pataki fun ọ.',
   'templates.blank.subtitle': 'Ojú ìwé mímọ́. Kọ́sọ̀ náà bẹ̀rẹ̀.',
@@ -161,11 +186,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Bẹ̀rẹ̀ pẹ̀lú ètò tó ní èrò inú. Ṣe àtúnṣe sí i láìlópin.',
   'templates.useFailed': 'Kò le bẹ̀rẹ̀ ìwé láti inú àdàkọ yìí.',
   'templates.useTemplate': 'Lo àdàkọ yìí',
+  'terms.intro': 'Àwọn ipò tí o lè fi lo iṣẹ́ yìí.',
   'terms.title': 'Àwọn Àdéhùn Iṣẹ́',
   'time.daysAgo': '{{days}} ọdun sẹyin',
   'time.hoursAgo': '{{hours}} h ti o ti kọja',
   'time.justNow': 'ni bayi',
   'trash.confirmDelete': 'Jẹ́rìí sí píparẹ́',
+  'trash.confirmEmpty': 'Ìjẹ́rìí — pa gbogbo rẹ̀ rẹ́',
   'trash.deleteFailed': 'Kò le paarẹ.',
   'trash.deleteForever': 'Paarẹ́ títí láé',
   'trash.empty': 'Kò sí ohun tí a lè gbà padà.',
@@ -180,7 +207,9 @@ export const ui: UiTranslations = {
   'versionHistory.backToDoc': 'Pada si iwe afọwọkọ',
   'versionHistory.empty': 'Kò sí àtúnṣe kankan síbẹ̀ — fi ìwé náà pamọ́ láti bẹ̀rẹ̀ ìtàn rẹ̀.',
   'versionHistory.heading': 'Ìtàn ẹ̀yà náà',
+  'versionHistory.latest': 'Tuntun',
   'versionHistory.loadFailed': 'Kò le gbé ìtàn jáde.',
+  'versionHistory.noContent': 'Kò sí àkóónú tí a gbà fún àtúnṣe yìí.',
   'versionHistory.previewing': 'Ṣíṣe àyẹ̀wò',
   'versionHistory.restore': 'Ṣe àtúnṣe ẹ̀yà yìí',
   'versionHistory.restoreFailed': 'Àtúnṣe kò ṣeéṣe.',

@@ -1,27 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'तपाईंको टोलीका लागि न्यानो अनबोर्डिङ सुरु गर्न चाहनुहुन्छ, बग भेट्नुभयो, वा प्रतिक्रिया छ? तपाईंको खाता सेटिङबाट सम्पर्क गर्नुहोस् — हरेक सन्देश सहयोग गर्न सक्ने वास्तविक व्यक्तिसम्म पुग्छ।',
   'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'about.eyebrow': 'बारेमा',
+  'about.missionTitle': 'हाम्रो मिशन',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com मा जानुहोस्',
   'auth.forgotPassword.heading': 'आफ्नो पासवर्ड रिसेट गर्नुहोस्।',
+  'auth.forgotPassword.panel.body':
+    'रिसेट गर्न ३० सेकेन्ड लाग्छ — तपाईंको चेकलिस्ट प्रगति पर्खिरहेको छ।',
+  'auth.forgotPassword.panel.headline': 'तपाईंले छोडेको ठाउँमै फर्किनुभयो।',
+  'auth.forgotPassword.subheading': 'तपाईंको कार्य इमेल हाल्नुहोस्, हामी रिसेट लिंक पठाउनेछौं।',
   'auth.forgotPassword.successSubheading':
     'आफ्नो इनबक्स जाँच गर्नुहोस् — हामीले रिसेट निर्देशनहरू पठाएका छौं।',
   'auth.login.emailPlaceholder': 'name@yourcompany.com मा जानुहोस्',
   'auth.login.heading': 'स्वागत छ।',
   'auth.login.passwordPlaceholder': 'तपाईंको पासवर्ड',
+  'auth.login.signupPrompt': 'तपाईंको टोलीमा नयाँ हुनुहुन्छ?',
   'auth.login.subheading':
     'आफ्नो अनबोर्डिङ यात्रा जहाँ छोड्नुभएको थियो त्यहीँबाट सुरु गर्न साइन इन गर्नुहोस्।',
   'auth.login.submit': 'आफ्नो यात्रा जारी राख्नुहोस्',
+  'auth.panel.body':
+    'तपाईंको व्यक्तिगत चेकलिस्ट, तालिमका कोसेढुंगा, र टोली परिचय — सबै एक शान्त ठाउँमा।',
   'auth.panel.footnote': '© Embark — आजदेखि मानिसहरूलाई पहिले नै भित्र्याउँदै।',
   'auth.panel.headline': 'आत्मविश्वासी पहिलो ९० दिन यहाँबाट सुरु हुन्छ।',
   'auth.resetPassword.heading': 'नयाँ पासवर्ड सेट गर्नुहोस्।',
   'auth.resetPassword.newPasswordLabel': 'नयाँ पासवर्ड',
+  'auth.resetPassword.panel.body':
+    'नयाँ पासवर्ड सुरक्षित गर्नुहोस् र हामी तपाईंलाई सिधै तपाईंको अनबोर्डिङ यात्रामा फर्काउनेछौं।',
+  'auth.resetPassword.panel.headline': 'लगभग फर्किइयो।',
   'auth.resetPassword.subheading': 'तपाईंलाई याद आउने कुरा छान्नुहोस् — कम्तिमा ८ वर्ण।',
   'auth.signup.emailPlaceholder': 'name@yourcompany.com मा जानुहोस्',
   'auth.signup.heading': 'तपाईंको पहिलो ९० दिनमा स्वागत छ।',
   'auth.signup.panel.body':
     'निर्देशित चेकलिस्ट, भूमिका-सचेत प्रशिक्षण, र मानव परिचय - तपाईं भित्र पस्नु अघि तयार।',
+  'auth.signup.panel.headline': 'पहिलो दिन, पहिलो दिनमै।',
   'auth.signup.subheading':
     'तपाईंको निर्देशित अनबोर्डिङ यात्रा सुरु गर्न आफ्नो Embark खाता सिर्जना गर्नुहोस्।',
   'checklist.empty.body': 'अन्य कार्यहरू हेर्न फिल्टर स्विच गर्नुहोस्।',
@@ -29,6 +43,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'अनबोर्डिङ · चेकलिस्ट',
   'checklist.loading': 'तपाईंको चेकलिस्ट लोड गर्दै...',
   'checklist.stat.actionNeeded': 'कारबाही आवश्यक छ',
+  'checklist.stat.completion': 'पूरा',
+  'checklist.stat.inProgress': 'प्रगतिमा छ',
   'checklist.stat.inProgressHelper': 'छोडेको ठाउँबाट सुरु गर्नुहोस्',
   'checklist.stat.overdueHelper': 'पहिले यी कुराहरू समात्नुहोस्',
   'checklist.subtitle':
@@ -60,6 +76,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'अहिलेसम्म कुनै कागजात छैन',
   'documents.eyebrow': 'अनबोर्डिङ · कागजातहरू',
   'documents.loading': 'कागजातहरू लोड गर्दै...',
+  'documents.stat.actionNeeded': 'अहिले नै साइन इन गर्नुहोस्',
+  'documents.stat.all': 'सबै कागजातहरू',
   'documents.stat.allHelper': 'विभिन्न कोटीहरूमा',
   'documents.stat.pending': 'विचाराधीन हस्ताक्षरहरू',
   'documents.stat.pendingHelper': 'पूरा गर्न आवश्यक छ',
@@ -67,6 +85,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'सुरक्षित रूपमा भण्डारण गरिएको',
   'documents.status.optional': 'वैकल्पिक',
   'documents.status.required': 'आवश्यक छ',
+  'documents.status.signed': 'हस्ताक्षर गरियो',
   'documents.subtitle':
     'तपाईंको पुस्तिका, फारमहरू, र हस्ताक्षर गरिएका सम्झौताहरू - सबै एकै ठाउँमा।',
   'documents.title': 'तपाईंले पढ्न र हस्ताक्षर गर्न आवश्यक पर्ने सबै कुरा।',
@@ -74,16 +93,21 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'दर्शक',
   'documentViewer.breadcrumbDocs': 'कागजातहरू',
   'documentViewer.downloadMeta': 'मेटाडेटा डाउनलोड गर्नुहोस्',
+  'documentViewer.helpBody':
+    'People & Culture ले Slack को #ask-people मा ह्यान्डबुकका प्रश्नहरूको जवाफ दिन्छ।',
   'documentViewer.helpEyebrow': 'सहयोग चाहियो?',
   'documentViewer.loadError': 'हामीले यो कागजात लोड गर्न सकेनौं।',
   'documentViewer.loading': 'कागजात लोड गर्दै...',
   'documentViewer.notFound': 'कागजात भेटिएन',
+  'documentViewer.previewBody':
+    'अपलोड कन्फिगर गरिएपछि हामी फाइल इनलाइन देखाउँछौं। अहिलेका लागि, मेटाडाटा डाउनलोडले रेकर्ड वास्तविक छ भनी पुष्टि गर्न दिन्छ।',
   'documentViewer.previewBodyExternal': 'नयाँ ट्याबमा फाइल खोल्न डाउनलोड बटन प्रयोग गर्नुहोस्।',
   'documentViewer.previewTitle': 'कागजात पूर्वावलोकन',
   'documentViewer.sign': 'हस्ताक्षर गर्नुहोस् र स्वीकार गर्नुहोस्',
   'documentViewer.signatureBody':
     'कागजात पढ्नुहोस्, त्यसपछि हस्ताक्षर र स्वीकृति दिन तल क्लिक गर्नुहोस्।',
   'documentViewer.signatureHeading': 'हस्ताक्षर आवश्यक छ',
+  'documentViewer.signed': '✓ हस्ताक्षर गरी दर्ता गरियो',
   'documentViewer.signing': 'हस्ताक्षर गर्दै...',
   'documentViewer.uploadedRecently': 'हालसालै अपलोड गरिएको',
   'landing.closing.body':
@@ -93,10 +117,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'मेरो पहिले नै खाता छ।',
   'landing.feature1.body':
     'प्रत्येक कार्य - कागजी कार्य, हिसाब, परिचय - निर्धारित मिति र सही मालिकको साथ पूर्व-चरण गरिएको।',
+  'landing.feature1.title': 'निर्देशित चेकलिस्ट',
   'landing.feature2.body':
     'मोड्युलहरू ३०/६०/९० कोसेढुङ्गामा अनलक हुन्छन्, भूमिका र भाडामा लिइएको टोलीमा ट्युन हुन्छन्।',
+  'landing.feature2.title': 'भूमिका-अनुकूल तालिम',
   'landing.feature3.body':
     'साथीहरू, प्रबन्धकहरू, र क्रस-फंक्शनल परिचयहरू तालिकाबद्ध छन् — त्यसैले कोही पनि एक्लै सुरु गर्दैनन्।',
+  'landing.feature3.title': 'वास्तविक परिचय',
   'landing.featureEyebrow': 'किन सुरु गर्ने?',
   'landing.featureHeadline': 'पहिलो दिनमा एम्बार्कले विश्वास कमाउने तीन तरिकाहरू।',
   'landing.footer.rights': 'सबै अधिकार सुरक्षित।',
@@ -106,6 +133,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'अर्को: आफ्नो साथीलाई ३० मिनेटको कफी च्याटको लागि भेट्नुहोस् — मंगलबार बिहान १०:०० बजे।',
   'landing.preview.eyebrow': '९० मध्ये १४ दिन — नमूना ड्यासबोर्ड',
+  'landing.preview.headline': 'स्वागत छ, Maya।',
   'landing.proof.spec': 'SOC २ + GDPR तयार छ',
   'landing.proof.teams': '५०-५,००० जनाको टोलीका लागि निर्मित',
   'landing.proof.time': '१४-दिनको नि:शुल्क परीक्षण',
@@ -122,16 +150,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'हिजो',
   'planUpdated.message': 'तिमी तयार छौ।',
   'planUpdated.preparing': 'तपाईंको योजना अद्यावधिक गर्दै...',
+  'planUpdated.retry': 'फेरि प्रयास गर्नुहोस्',
+  'planUpdated.verifyFailed': 'हामीले तपाईंको भुक्तानी अझै पुष्टि गर्न सकेनौं।',
+  'planUpdated.verifyFailedBody':
+    'तपाईंको भुक्तानी अझै पनि प्रशोधन भइरहेको हुन सक्छ। केही बेरमा फेरि प्रयास गर्नुहोस्।',
   'planUpdated.verifying': 'तपाईंको भुक्तानी पुष्टि गर्दै…',
   'pricing.documentsLabel': 'कागजातहरू',
   'pricing.onboardingsLabel': 'अनबोर्डिङहरू',
   'pricing.tasksLabel': 'कार्यहरू',
   'profile.dayNumber': 'दिन',
   'profile.detailsHeading': 'अनबोर्डिङ विवरणहरू',
+  'profile.encouragementBody':
+    'तपाईंको बडी र म्यानेजरलाई जानकारीमा राख्नुहोस् — साना कदमहरूले ठूलो फरक पार्छन्।',
   'profile.milestones': 'माइलस्टोनहरू',
   'profile.progressEyebrow': 'अनबोर्डिङ प्रगति',
   'profile.tasks': 'कार्यहरू',
   'profile.unknownName': 'स्वागत छ',
+  'settings.appearance.description': 'लाइट र डार्क मोड बीच टगल गर्नुहोस्।',
+  'settings.appearance.title': 'उपस्थिति',
+  'settings.subtitle':
+    'सूचना, सुरक्षा, यन्त्र, र डाटा निर्यात मिलाउनुहोस् — सबै यहीँ रहन्छ, तपाईंको सर्तमा।',
   'settings.title': 'सेटिङहरू र प्राथमिकताहरू।',
   'taskDetail.backToChecklist': 'चेकलिस्टमा फर्कनुहोस्',
   'taskDetail.breadcrumbChecklist': 'चेकलिस्ट',
@@ -143,7 +181,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'कुनै म्याद छैन',
   'taskDetail.notFound': 'कार्य फेला परेन',
   'taskDetail.notFoundBody': 'यो कार्य मेटाइएको हुन सक्छ वा अर्को प्रयोगकर्ताको हुन सक्छ।',
+  'taskDetail.tipBody':
+    'यदि तपाईं अड्किनुभयो भने, Slack मा तपाईंको अनबोर्डिङ बडीलाई सन्देश पठाउनुहोस् — उनीहरू तपाईंको पहिलो सहयोग हुन्।',
   'taskDetail.tipEyebrow': 'द्रुत सुझाव',
+  'team.empty.body': 'फराकिलो खोजी प्रयास गर्नुहोस् वा फरक विभाग छान्नुहोस्।',
   'team.empty.title': 'कुनै पनि टोलीका साथीहरू मिलेनन्',
   'team.eyebrow': 'अनबोर्डिङ · मान्छेहरू',
   'team.loading': 'टोलीका साथीहरू लोड गर्दै...',
@@ -166,14 +207,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'माइलस्टोनहरू',
   'timeline.stat.current': 'हालको कोसेढुङ्गा',
   'timeline.stat.next': 'अर्को अनलक',
+  'timeline.stat.progress': 'समग्रमा',
   'timeline.subtitle':
     'प्रत्येक कोसेढुङ्गाले नयाँ मोड्युल, परिचय र वृद्धि वार्तालापहरू अनलक गर्छ। कुनै दबाब छैन - केवल प्रगति।',
+  'timeline.tipBody':
+    'दिन ३०, ६०, र ९० मा तपाईंको म्यानेजरसँग ३० मिनेटको समीक्षा तय गर्नुहोस् — यसले प्रतिक्रिया विशिष्ट र प्रगति देखिने बनाउँछ।',
   'timeline.tipEyebrow': 'प्रबन्धकको सुझाव',
+  'timeline.tipTitle': 'कोसेढुंगाका लागि क्यालेन्डरमा समय राख्नुहोस्।',
   'timeline.title': 'तपाईंको ३०/६०/९० को यात्रा।',
   'training.badge.notStarted': 'सुरु भएको छैन',
   'training.empty': 'अहिलेसम्म कुनै तालिम मोड्युल छैन।',
   'training.eyebrow': 'अनबोर्डिङ · तालिम',
   'training.loading': 'मोड्युलहरू लोड गर्दै...',
+  'training.stat.all': 'मोड्युल तोकिए',
   'training.subtitle':
     'तपाईंको भूमिकासँग मेल खाने मोड्युलहरू ३०/६०/९० मा अनलक हुन्छन्। आवश्यक पर्नेहरू पहिले आउँछन्।',
   'training.title': 'सीप, उपकरण र कथाहरू — तपाईंको गतिमा।',
@@ -186,9 +232,12 @@ export const ui: UiTranslations = {
   'trainingModule.quizBody':
     'यो मोड्युल पूरा भएको चिन्ह लगाउन ८०% वा सोभन्दा बढी अंक प्राप्त गर्नुहोस्।',
   'trainingModule.quizHeading': 'मोड्युलको अन्त्यको प्रश्नोत्तरी',
+  'trainingModule.quizLocked': 'पहिले मोड्युल सुरु गर्नुहोस्',
   'trainingModule.quizNone': 'यस मोड्युलमा कुनै प्रश्नोत्तरी छैन।',
   'trainingModule.quizRetry': 'फेरि प्रयास गर्नुहोस्',
+  'trainingModule.quizStart': 'क्विज सुरु गर्नुहोस्',
   'trainingModule.quizSubmit': 'उत्तरहरू बुझाउनुहोस्',
+  'trainingModule.start': 'मोड्युल सुरु गर्नुहोस्',
   'trainingModule.statusNotStarted': 'सुरु भएको छैन',
   'welcomeHeroCard.completeLabel': 'पूरा',
   'welcomeHeroCard.milestonesLabel': 'माइलस्टोनहरू',

@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Van visszajelzésed, hibát találtál, vagy valami nagyba kezdenél? Írj nekünk a fiókbeállításaidból — minden üzenet a csapat egy igazi tagjához kerül.',
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Foglalások egy postaládában — a járat-, szállás- és program-visszaigazolások pont arra a napra érkeznek, ahová tartoznak.',
+  'about.featureCollab':
+    'Valós idejű együttműködés — hívj meg utazásonként akár öt utazót, minden változás azonnal szinkronizálódik, a megjegyzések pedig az egyes állomások alatt szálazódnak.',
+  'about.featureMapsBudget':
+    'Térképek, úti célok és közös büdzsé — lásd az egész utazást a térképen, fedezz fel szerkesztőink által válogatott úti célokat, és kövesd a kiadásokat, hogy senki ne költekezzen túl.',
+  'about.featureTimelines':
+    'Napról napra haladó idővonalak — húzd át az állomásokat az átrendezéshez, illeszd be a közlekedési szakaszokat, és nézd, ahogy az útvonal egy élő dokumentumként újraszámolódik.',
+  'about.intro':
+    'A {{app}} egy félig kész tervekkel teli mappából egyetlen, közös utazást varázsol, amelyet az egész csapatod tényleg követni tud. Építs napról napra haladó útvonalat, illeszd be a járatokat és szállásokat, térképezd fel az összes állomást, és kövesd a büdzsét — mindezt egy nyugodt helyen, egy tucat böngészőfül és egy csoportos csevegés helyett.',
+  'about.missionBody':
+    'Az utazástervezésnek olyannak kell lennie, mintha az utazás máris jobb lenne, nem pedig házifeladatnak. A {{app}} azért létezik, hogy a közös utazások könnyedén menjenek — hogy minden utazó úgy érkezzen meg, hogy ismeri a tervet, és minden állomás egy emlékezetes történetet meséljen el.',
+  'about.missionTitle': 'Küldetésünk',
   'about.pageTitle': 'A {{app}} névjegye',
   'auth.legalConsent': 'A folytatással elfogadod a',
   'bookings.empty.body':
@@ -31,7 +47,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Szálloda',
   'bookings.type.other': 'Más',
   'budgetSpendCard.budgetTotal': 'a {{total}} tervezett',
+  'budgetSpendCard.overBy': '{{amount}} a büdzsé felett',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} legutóbbi',
+  'budgetSpendCard.remaining': '{{amount}} maradt',
   'calendar.eyebrow': 'Az előttünk álló év',
   'calendar.heading': 'Minden utazás egyetlen naptárban.',
   'calendar.legendHeading': 'Kirándulások ebben a hónapban',
@@ -42,18 +61,28 @@ export const ui: UiTranslations = {
   'common.and': 'és',
   'common.goToDashboard': 'Ugrás a műszerfalra',
   'dashboard.budgetHeading': 'Költségvetési impulzus',
+  'dashboard.empty.body':
+    'Tervezd meg az első utazásod, és az irányítópultod megtelik napról napra haladó idővonalakkal, büdzséjelzéssel és foglalásokkal.',
+  'dashboard.empty.cta': 'Tervezd meg az első utazásod',
   'dashboard.empty.heading': 'Még nincsenek utazások – az atlaszod üres.',
   'dashboard.eyebrow': 'Misszióirányítás',
   'dashboard.heading': 'A következő kalandod, egy csendes zugban.',
   'dashboard.newTripCta': 'Új utazás indítása',
+  'dashboard.subheading':
+    'Visszaszámlálás a következő utazásig, a mai költés jelzése, és egy gyors pillantás minden mozgásban lévő útvonalra.',
   'dashboard.tripsHeading': 'Mozgásban lévő utazások',
   'dashboard.viewAllExpenses': 'Tekintse meg az összes költséget',
   'dashboard.viewAllTrips': 'Minden utazás megtekintése',
   'dayTimelineRow.category.accommodation': 'Marad',
+  'dayTimelineRow.category.food': 'Étel & ital',
+  'dayTimelineRow.category.sightseeing': 'Városnézés',
   'dayTimelineRow.category.transport': 'Szállítás',
   'destinationOrbCard.exploreCta': 'Hozzáadás egy utazáshoz',
   'destinationOrbCard.tripCount': '{{count}} utazások',
+  'destinations.empty.body':
+    'Válts vissza az Összesre, és a szerkesztői találatok újra megjelennek.',
   'destinations.empty.heading': 'Még nincsenek úti célok.',
+  'destinations.emptyFiltered.heading': 'Még nincs ilyen címkével ellátott elem.',
   'destinations.errors.load': 'Nem sikerült betölteni az úti célokat.',
   'destinations.eyebrow': 'Merre tovább',
   'destinations.heading': 'Mentett sarkok és szerkesztői leletek.',
@@ -72,7 +101,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Eladó',
   'expenses.formHeading': 'Naplóköltség a következőhöz: {{trip}}',
   'expenses.heading': 'Mire megy el valójában az utazás költségvetése.',
+  'expenses.heroBudget': '{{pct}}% a tervezett {{total}}-ból/-ből',
   'expenses.heroEyebrow': '{{trip}} • költségvetés pillanatképe',
+  'expenses.heroNoBudget': 'Ezen az utazáson még nincs beállítva büdzsé.',
   'expenses.noTrips.body':
     'Először tervezd meg az utazást – a költségeket csatold az utazás költségvetéséhez.',
   'expenses.noTrips.heading': 'Még nincsenek kirándulások.',
@@ -85,12 +116,16 @@ export const ui: UiTranslations = {
     'Minden nyugta és visszaigazolás a megfelelő kategóriába sorolható itt — nincs szükség táblázatra.',
   'forgotPassword.eyebrow': 'Útiterv visszaállítása',
   'forgotPassword.heading': 'Elfelejtette jelszavát?',
+  'forgotPassword.subheading':
+    'Add meg azt az e-mail-címet, amelyet a {{appName}}-hoz használtál, és küldünk egy linket a jelszavad visszaállításához.',
   'forgotPassword.submit': 'Helyreállító e-mail küldése',
   'forgotPassword.submitPending': 'Helyreállító e-mail küldése…',
   'forgotPassword.successHint':
     'Még nincs e-mail címed? Ellenőrizd a spam mappádat, vagy próbáld újra egy másik címmel.',
   'forgotPassword.successSubheading':
     'Elküldtünk egy helyreállítási linket ide: {{email}} A link 30 percig érvényes.',
+  'forgotPassword.tryAgain': 'Küldés másik e-mail-címre',
+  'landing.cta.eyebrow': 'Kezdj az ingyenes csomaggal',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Ingyenes fiók létrehozása',
   'landing.cta.subheading':
@@ -102,8 +137,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Ingyenes utazás indítása',
   'landing.hero.ctaSecondary': 'Tekintsen meg egy mintautat',
+  'landing.hero.eyebrow': 'Útitervező · {{tagline}}',
   'landing.hero.subtitle':
     'A Waypoint egy félig kész terveket tartalmazó mappát egy megosztott, napi útvonallá alakít, amelyet a csoportod ténylegesen követhet – a foglalások, térképek és a költségvetés egy helyen nyomon követhető.',
+  'landing.hero.title': 'Tervezzétek meg egyszer. Barangoljátok be együtt.',
   'landing.nav.join': 'Ingyenes utazás indítása',
   'landing.nav.preview': 'Útponton belül',
   'landing.preview.cta': 'Tervezzen egyet saját maga',
@@ -111,6 +148,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Néhány út, amin az utazók most barangolnak',
   'login.eyebrow': 'Tagoknak fenntartott terület',
   'login.heading': 'Isten hozott ismét, utazó',
+  'login.noAccount': 'Új a Tesserában?',
   'login.signupLink': 'Hozz létre egy ingyenes fiókot',
   'login.subheading':
     'Jelentkezz be, hogy kezelhesd az utazásaidat, napi terveidet, foglalásaidat és a már megkezdett naplóbejegyzéseidet.',
@@ -121,6 +159,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Nem sikerült frissíteni az értesítést.',
   'notifications.heading': 'Mi változott a mai utazásaid során?',
   'notifications.markUnread': 'Megjelölés olvasatlanként',
+  'notifications.subheading':
+    '{{count}} új \\u2014 foglalási visszaigazolások, közreműködői megjegyzések, viteldíjcsökkenések és emlékeztetők.',
   'notifications.time.daysAgo': '{{count}}n ezelőtt',
   'notifications.time.hoursAgo': '{{count}}ó ezelőtt',
   'notifications.time.justNow': 'épp most',
@@ -139,6 +179,7 @@ export const ui: UiTranslations = {
     'Kapcsolódó szolgáltatások, pénznem, push értesítések és a bejelentkezéshez használt hitelesítő adatok.',
   'signup.and': 'és',
   'signup.eyebrow': 'Csatlakozás útponthoz',
+  'signup.haveAccount': 'Már úton vagy?',
   'signup.heading': 'Tervezzétek meg egyszer. Barangoljátok be együtt.',
   'signup.namePlaceholder': 'Írisz Larsen',
   'signup.subheading':
@@ -150,6 +191,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Útiterv megnyitása',
   'tripCountdownHeroCard.ctaSecondary': 'Tervezzen egy másik utat',
   'tripCountdownHeroCard.daysLabel': '{{days}} napok vannak hátra',
+  'tripCountdownHeroCard.eyebrow': 'Következő kaland · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} éjszaka — az útvonalad készen áll az utazásra.',
   'tripCoverCard.stops': '{{count}} megállók',
   'tripCoverCard.travelers': '{{count}} utazók',
   'tripDetail.addActivity': 'Tevékenység hozzáadása',
@@ -159,6 +203,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Tevékenység címe',
   'tripDetail.adding': 'Hozzáadás…',
   'tripDetail.backToTrips': 'Vissza az összes utazáshoz',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Utazók',
   'tripDetail.dayLabel': 'Nap {{day}}',
   'tripDetail.empty': 'Még nincsenek tevékenységek — adj hozzá egyet az idővonal elindításához.',
@@ -169,14 +214,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Útvonalterv • {{country}}',
   'tripDetail.invite': 'Meghív',
   'tripDetail.inviteLabel': 'Meghívás e-mailben',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'Meghívó elküldve: {{email}}.',
   'tripDetail.inviting': 'Küldés…',
   'tripDetail.loading': 'Útvonal betöltése…',
   'tripDetail.noCollaborators': 'Csak te, egyelőre.',
+  'tripDetail.notesHeading': 'Utazási jegyzetek',
   'tripDetail.notesPlaceholder': 'Még nincs megjegyzés.',
   'tripDetail.notFound.heading': 'Az utazás nem található',
   'tripDetail.openBookings': 'Nyissa meg a foglalási postafiókját',
   'tripDetail.shareCopied': 'A vágólapra másolt megosztási link:',
+  'tripDetail.shareReady': 'A megosztási link készen áll:',
   'tripDetail.stops': '{{count}} megállók',
   'tripDetail.timelineEyebrow': 'Napi idővonal',
   'tripDetail.timelineHeading': 'Napról napra terv',
@@ -194,6 +242,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Utazók',
   'tripPlanner.heading': 'Rajzolj egy utazást kevesebb mint egy perc alatt.',
   'tripPlanner.preview.eyebrow': 'Élő előnézet',
+  'tripPlanner.preview.placeholderCountry': 'Válassz országot',
   'tripPlanner.preview.placeholderDestination': 'A következő kalandod',
   'tripPlanner.section1.title': 'Hol és mikor',
   'tripPlanner.section2.title': 'Utazók és költségvetés',
@@ -205,10 +254,14 @@ export const ui: UiTranslations = {
     'Nap {{day}} — Itt adhatsz hozzá megállókat, közlekedést és foglalásokat.',
   'tripPlanner.section3.day3':
     'Nap {{day}} — Itt adhatsz hozzá megállókat, közlekedést és foglalásokat.',
+  'tripPlanner.section3.title': 'Napitervezet-indító',
   'tripPlanner.subheading':
     'Írd be az alapokat alább — később is meghívhatsz együttműködőket, behúzhatsz megállókat, és előre is ütemezheted a foglalásokat.',
   'tripPlanner.submit': 'Utazás létrehozása',
   'tripPlanner.submitting': 'Létrehozás…',
+  'trips.empty.body':
+    'Válts vissza az Összes utazásra, vagy kezdd el tervezni a következő barangolásodat.',
+  'trips.empty.cta': 'Útvonal tervezése',
   'trips.empty.heading': 'Még semmi sem felel meg a szűrőnek.',
   'trips.eyebrow': 'Az atlasz',
   'trips.filterLabel': 'Utazások szűrése állapot szerint',
@@ -219,6 +272,12 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Még nincsenek kirándulások.',
   'trips.pastHeading': 'Korábbi kalandok',
   'trips.subheading': '{{count}} útvonalak – múlt, jelen és valamikor.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading':
+    'Tervezd meg egyszer. Barangoljátok be együtt. Emlékezzetek rá örökké.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · {{appName}} tag 2024 óta',
+  'waypointAuthShell.testimonial.quote':
+    'A {{appName}} egy négy országon átívelő, mozgalmas 3 hetes utazást változtatott a valaha megosztott legnyugodtabb útvonallá.',
   'waypointLayout.mobileNavClose': 'A navigációs menü bezárása',
   'waypointLayout.primaryNavLabel': 'Elsődleges navigáció',
 }

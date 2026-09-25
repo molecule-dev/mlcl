@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May feedback ka, may nahanap kang bug, o gusto mong sabihin sa amin kung paano nakatulong sa iyo ang pag-journal? Binabasa namin ang bawat mensahe — makipag-ugnayan anumang oras at may tunay na tao na sasagot sa iyo.',
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
+  'about.featureInsights':
+    'Mga pagninilay na pinapagana ng AI na banayad na nagtatampok ng mga trigger, tema, at pasasalamat — nang hindi nawawala ang sarili mong tinig.',
+  'about.featureMood':
+    'Pagsubaybay ng mood at aktibidad na may view ng kalendaryo at mga chart ng trend na nagpapakita ng tumutulong sa iyong umunlad.',
+  'about.featurePrivacy':
+    'End-to-end encryption, passcode lock, at buong CSV export para manatiling pribado at madaling dalhin ang iyong mga pagninilay.',
+  'about.featurePrompts':
+    'Banayad na araw-araw na prompt para laging may masisimulan ka — hindi kailanman blangkong pahina.',
+  'about.intro':
+    'Ang {{app}} ay isang banayad at pribadong journal para sa kalusugang pangkaisipan para sa araw-araw na pagninilay, pagsubaybay ng mood, at pasasalamat. Pinapalitan ng mga maalalahaning prompt ang blangkong pahina, tinutulungan ka ng tahimik na paghahanap ng pattern na maunawaan kung ano ang nakakaapekto sa nararamdaman mo, at pinapanatili ng end-to-end encryption na sa iyo ang iyong mga salita.',
+  'about.missionBody':
+    'Naniniwala kami na ang pag-check in sa sarili mo ay dapat kalmado, hindi kailanman klinikal — at hindi kailanman parang isa pang app na humihingi ng atensyon mo. Ang {{app}} ay ginawa para tumulong, hindi mangulit: ilang tahimik na minuto sa isang araw para mapansin ang mood mo, magsulat nang tapat, at dahan-dahang makita ang sarili mo nang mas malinaw.',
+  'about.missionTitle': 'Ang aming misyon',
   'about.pageTitle': 'Tungkol sa {{app}}',
   'authShell.encryptionBadge': 'Ang iyong mga entry ay naka-encrypt mula dulo hanggang dulo.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Araw {{day}} — walang entry',
   'calendar.cellMood': 'Araw {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Sa isang sulyap ngayong buwan',
   'calendar.eyebrow': 'Isang sulyap sa mood',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Sinusubaybayan {{tracked}} ng {{total}} mga araw ngayong buwan.',
   'common.goToDashboard': 'Pumunta sa Dashboard',
   'common.tryAgain': 'Subukan muli',
+  'entryComposer.bodyPlaceholder':
+    'Isulat ang anumang tapat na nararamdaman. Walang ibang makakabasa nito.',
   'entryComposer.cancel': 'Balik sa journal',
   'entryComposer.heading': 'Repleksyon ngayon',
   'entryComposer.moodLabel': 'Kumusta ang pakiramdam mo?',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Alisin {{tag}}',
   'entryComposer.save': 'I-save ang repleksyon',
   'entryComposer.saveError': 'Hindi ma-save ang iyong entry.',
+  'entryComposer.tagPlaceholder': 'Magdagdag ng tag at pindutin ang enter',
   'entryComposer.titlePlaceholder': 'Bigyan ng pangalan ang repleksyong ito...',
   'entryDetail.back': 'Balik sa journal',
   'entryDetail.delete': 'Burahin ang entry na ito',
@@ -36,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Naglo-load ng repleksyon…',
   'entryDetail.notFound': 'Hindi natagpuan ang entry.',
   'entryDetail.reflectionsHeading': 'Mga repleksyon ng AI',
+  'forgotPassword.continueButton': 'Ilagay ang reset code',
   'forgotPassword.eyebrow': 'Walang alalahanin',
   'forgotPassword.subheading': 'Magpapadala kami ng banayad na link sa pag-reset sa iyong email.',
   'forgotPassword.successBody':
@@ -58,14 +79,22 @@ export const ui: UiTranslations = {
     'Wala pang mga tema — magdagdag ng isa o dalawang tag sa iyong mga entry at magkikita-kita ang mga ito rito.',
   'insights.themesHeading': 'Mga nangungunang tema',
   'insights.triggerFrequency': 'napansin {{count}} × ngayong buwan',
+  'insights.triggersEmpty':
+    'Wala pang mapapansin. Ang ilang entry sa ilang araw ay magpapakita ng iyong mga pattern.',
   'insights.triggersHeading': 'Mga pattern na nagpapabago sa iyong mood',
+  'journal.empty':
+    'Walang tumutugmang pagninilay — subukan ang ibang filter o magsulat ng bagong entry.',
   'journal.eyebrow': 'Ang iyong mga repleksyon',
   'journal.heading': 'Dyornal',
   'journal.loadError': 'Nabigong i-load ang mga entry.',
   'journal.loading': 'Nino-load ang mga entry…',
+  'journal.newEntry': 'Bagong entry',
   'journal.searchPlaceholder': 'Maghanap ng isang pakiramdam, isang pangalan, isang sandali...',
   'journal.subheading': '{{count}} mga entry — bawat isa ay karapat-dapat itago.',
   'journalEntryCard.encryptedLabel': 'Naka-encrypt',
+  'landing.ctaBody':
+    'Libreng magsimula. Binubuksan ng Pro ang data export, mas malaking journal, at buong taon ng kasaysayan.',
+  'landing.ctaButton': 'Simulan ang iyong unang entry',
   'landing.ctaTitle': 'Ilang tahimik na minuto sa isang araw. Iyon lang.',
   'landing.eyebrow': 'Isang banayad na pang-araw-araw na pagsasanay',
   'landing.featuresBody':
@@ -84,6 +113,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Isang banayad na espasyo para sa pang-araw-araw na pagninilay-nilay.',
   'mentalHealthJournalLayout.closeMenu': 'Isara ang menu',
   'mentalHealthJournalLayout.openMenu': 'Buksan ang menu',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Pangunahing navigation',
+  'moodHeroCard.entriesThisWeek': '{{count}} ngayong linggo',
   'moodHeroCard.streakSuffix': 'sunod-sunod na araw',
   'moodHeroCard.title': 'Repleksyon ngayon',
   'moodTrendChart.aiBadge': 'Handa na ang AI insight',
@@ -94,11 +125,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Ang iyong paglalakbay',
   'profile.fallbackName': 'Reflektor',
   'profile.loadError': 'Nabigong i-load ang mga istatistika.',
+  'profile.loading': 'Ina-update ang iyong stats…',
   'profile.longestStreak': 'Pinakamahabang guhit',
   'profile.memberSince': 'Nagninilay-nilay simula noon {{date}}',
   'profile.milestones': 'Mga Milestone',
   'profile.milestonesEmpty':
     'Isang entry na lang ang kailangan mo para sa unang milestone mo — magsulat ka na kahit kailan mo gustong-gusto.',
+  'profile.moodMix': 'Ang mood mix mo ngayong season',
   'profile.streakValue': '{{days}}d',
   'profile.totalEntries': 'Mga Repleksyon',
   'profile.totalWords': 'Mga salitang isinulat',
@@ -111,6 +144,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Sumulat tungkol dito',
   'resetPassword.eyebrow': 'Isang panibagong simula',
   'resetPassword.mismatchError': 'Hindi magkatugma ang mga password.',
+  'resetPassword.passwordLabel': 'Bagong password',
   'resetPassword.subheading':
     'Pumili ng isang bagay na ligtas — nararapat dito ang iyong mga repleksyon.',
   'resetPassword.tokenPlaceholder': 'I-reset ang code mula sa email',
@@ -124,11 +158,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     'Ang mga salita mo ay palaging sa iyo. Mag-download ng kopya anumang oras.',
   'settings.exportDone': 'Na-export {{format}}.',
+  'settings.exportError': 'Nabigo ang pag-export.',
+  'settings.exportHeading': 'I-export ang iyong mga pagninilay',
   'settings.exportLoading': 'Naghahanda…',
   'settings.eyebrow': 'Ang iyong espasyo, ang iyong mga patakaran',
   'settings.languageHeading': 'Wika',
   'settings.privacyHeading': 'Pagkapribado at pag-encrypt',
   'settings.remindersHeading': 'Pang-araw-araw na paalala',
+  'settings.reminderToggleAria': 'I-toggle ang araw-araw na paalala',
   'settings.reminderToggleDescription':
     'Isang paalala na magpapakalma sa oras na iyong pipiliin. Walang badge o streak guilt.',
   'settings.reminderToggleLabel': 'Magpadala ng banayad na suntok',
@@ -141,6 +178,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Gumagawa ng journal…',
   'signup.subheading': 'Isang ligtas na espasyo para sa iyong mga iniisip.',
   'wellnessRingsTriad.mindfulnessCaption': 'Layunin {{goal}} minuto ngayon',
+  'wellnessRingsTriad.mindfulnessLabel': 'Mindfulness',
   'wellnessRingsTriad.sleepCaption': 'Layunin {{goal}} oras / gabi',
   'wellnessRingsTriad.sleepLabel': 'Tulog',
+  'wellnessRingsTriad.sleepValue': '{{hours}}o',
+  'wellnessRingsTriad.streakCaption': 'Layunin {{goal}} araw',
+  'wellnessRingsTriad.streakLabel': 'Journal streak',
+  'wellnessRingsTriad.streakValue': '{{days}}d',
 }

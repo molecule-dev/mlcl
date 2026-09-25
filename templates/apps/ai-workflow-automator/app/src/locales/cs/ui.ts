@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite je platforma pro automatizaci pracovních postupů, která propojuje spouštěče, podmínky AI a vícekrokové akce, aby týmy mohly přesouvat práci mezi systémy bez psaní propojovacího kódu.',
+  'about.philosophy':
+    'Každý pracovní postup je graf malých, pozorovatelných kroků. Každý krok zaznamenává své vstupy, výstupy a časování, takže jej lze prohlížet, přehrát nebo vrátit zpět. Sestavujte je vizuálně, verzujte je jako kód.',
   'about.title': 'O aplikaci Dendrite',
   'authShell.brand': 'Dendrite',
   'authShell.support': 'Podpora',
@@ -13,9 +15,14 @@ export const ui: UiTranslations = {
   'billing.cancelPlan': 'Zrušit plán',
   'billing.changePlan': 'Změnit plán',
   'billing.description': 'Sledujte využití, spravujte plán a stahujte faktury pro účetnictví.',
+  'billing.eyebrow': 'Účet · Tarif a využití',
+  'billing.failedLabel': 'Neúspěšná spuštění · 24 h',
+  'billing.invoicesEmpty': 'Zatím žádné faktury. Objeví se zde po vaší první placené obnově.',
   'billing.invoicesTitle': 'Historie faktur',
   'billing.planNoteFree':
     'Bezplatná úroveň — {{runs}} spuštění a {{workflows}} aktivních pracovních postupů. Upgradujte pro vyšší limity.',
+  'billing.planNotePaid':
+    'Placený tarif — {{runs}} spuštění a {{workflows}} aktivních pracovních postupů.',
   'billing.runsLabel': 'Spuštění za posledních 24 h',
   'billing.tiersBlurb':
     'Porovnejte všechny úrovně — spuštění, aktivní pracovní postupy, pokročilé funkce a podporu — na vyhrazené stránce s cenami.',
@@ -33,10 +40,14 @@ export const ui: UiTranslations = {
     'Žádné integrace nejsou registrovány. Nakonfigurujte klíče poskytovatele pro aktivaci vazeb.',
   'connections.error': 'Nepodařilo se načíst připojení.',
   'connections.eyebrow': 'Integrace · {{connected}} připojeno',
+  'connections.loading': 'Načítání integrací…',
+  'connections.openEnv':
+    'Chcete-li tohoto poskytovatele připojit, nastavte jeho API klíč v api/.env a restartujte server.',
   'dashboard.description':
     '{{active}} aktivních pracovních postupů. {{failed}} selhalo za posledních 24 hodin.',
   'dashboard.error': 'Nepodařilo se načíst řídicí panel.',
   'dashboard.eyebrow': 'Provoz · živě',
+  'dashboard.hero.label': 'Spuštění dnes',
   'dashboard.hero.medianLatency': 'latence p50',
   'dashboard.hero.queue': 'Hloubka fronty',
   'dashboard.hero.success': 'Úspěch',
@@ -44,14 +55,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Medián doby trvání',
   'dashboard.kpi.failedRuns': 'Selhání · 24 h',
   'dashboard.kpi.outOf': 'z {{total}} celkem',
+  'dashboard.kpi.successRate': 'Míra úspěšnosti · 24 h',
   'dashboard.loading': 'Načítání řídicího panelu…',
   'dashboard.recentRuns.empty':
     'Zatím žádná spuštění. Spusťte pracovní postup a naplňte tento přehled.',
   'dashboard.recentRuns.title': 'Nedávná spuštění',
   'dashboard.recentRuns.viewAll': 'Otevřít spuštění →',
+  'dashboard.recentWorkflows.browse': 'Procházet šablony →',
   'dashboard.recentWorkflows.empty':
     'Zatím žádné pracovní postupy. Nainstalujte šablonu nebo vytvořte vlastní.',
   'dashboard.recentWorkflows.title': 'Nedávno spuštěné',
+  'dashboard.run.col.run': 'Spustit',
   'dashboard.run.col.started': 'Zahájeno',
   'dashboard.run.col.trigger': 'Spouštěč',
   'dashboard.run.col.workflow': 'Pracovní postup',
@@ -87,6 +101,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Pracovní postup',
   'executions.description':
     'Každé spuštění pracovního postupu, každý pokus, každý výstup kroku — vše pozorovatelné.',
+  'executions.empty.filter': 'Tomuto filtru neodpovídají žádná spuštění.',
   'executions.empty.first':
     'Zatím žádná spuštění — spusťte pracovní postup a naplňte tento seznam.',
   'executions.error': 'Nepodařilo se načíst spuštění.',
@@ -97,29 +112,41 @@ export const ui: UiTranslations = {
   'executions.loading': 'Načítání historie spuštění…',
   'executions.title': 'Spuštění',
   'forgotPassword.confirmation': 'Odkaz pro obnovení odeslán na {{email}}.',
+  'forgotPassword.subhead': 'Zadejte svůj e-mail a obdržíte odkaz pro obnovení.',
   'forgotPassword.successSubhead': 'Odeslali jsme odkaz pro obnovení na {{email}}. Platí 30 minut.',
   'help.connections.body':
     'Kroky AI, e-mailu a úložiště vyžadují, aby byly klíče poskytovatele nastaveny v souboru api/.env. Po nakonfigurování klíče se odpovídající integrace zobrazí jako připojená na stránce Připojení.',
+  'help.connections.cta': 'Otevřít připojení →',
   'help.connections.title': 'Připojení poskytovatelů',
   'help.gettingStarted.body':
     'Nové pracovní postupy lze instalovat z knihovny šablon nebo vytvořit od začátku v nástroji pro tvorbu pracovních postupů. Každý pracovní postup má spouštěč (ruční, webhook nebo cron) a sekvenci kroků, které se spouštějí v pořadí.',
+  'help.gettingStarted.cta': 'Procházet knihovnu šablon →',
+  'help.gettingStarted.title': 'Začínáme',
   'help.intro':
     'Najděte odpovědi na běžné otázky o vytváření pracovních postupů, konfiguraci připojení a interpretaci výstupů spuštění. Nejčastější témata jsou uvedena níže; pro vše ostatní se obraťte na správce pracovního prostoru.',
   'help.runs.body':
     'Každé spuštění protokoluje každý krok nezávisle se stavem (úspěch, selhání, přeskočeno) a výstřižkem výstupu. Stránka s podrobnostmi spuštění zobrazuje úplný krokový záznam i odvozené metriky.',
+  'help.runs.cta': 'Otevřít spuštění →',
   'help.runs.title': 'Čtení výstupů spuštění',
   'help.title': 'Centrum nápovědy',
   'integrationCard.manage': 'Spravovat',
   'landing.brand': 'Dendrite',
   'landing.demo.action.subtitle': 'Round-robin · území',
+  'landing.demo.action.title': 'Upozornit obchodníka',
   'landing.demo.condition.subtitle': 'Klasifikátor záměru AI',
+  'landing.demo.condition.title': 'Skóre ≥ střední?',
   'landing.demo.trigger.subtitle': 'POST /forms/contact',
   'landing.demo.trigger.title': 'Příchozí webhook',
+  'landing.features.body':
+    'Spouštěče se aktivují. Podmínky větví. Akce odesílají práci. Sestavujte je vizuálně, verzujte je jako kód.',
   'landing.features.heading': 'Tři typy uzlů. Nekonečné tvary.',
   'landing.footer.help': 'Nápověda',
   'landing.footer.tagline': 'Inteligence v pohybu',
+  'landing.hero.body':
+    '{{appName}} je engine pracovních postupů pro provozní týmy, které přerostly Zapier. Spouštěč, podmínka, akce — propojeno s každým systémem, který skutečně používáte.',
   'landing.hero.eyebrow': 'Inteligence v pohybu',
   'landing.hero.headline': 'Propojte svůj zásobník. Nechte práci běžet.',
+  'landing.hero.primaryCta': 'Vytvořte svůj první pracovní postup',
   'landing.hero.proof.ai': 'Uzly AI jsou vestavěné',
   'landing.hero.proof.free': 'Zdarma pro 1 000 spuštění/měs.',
   'landing.hero.proof.soc2': 'SOC 2 Type II',
@@ -127,10 +154,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Plaťte za spuštění, ne za místa.',
   'landing.templates.body':
     'Předpřipravené pracovní postupy pro každý tým — prodej, podpora, devops, finance. Instalace jedním klikem; upravte cokoliv.',
+  'landing.templates.cta': 'Zaregistrujte se a procházejte šablony →',
   'landing.templates.eyebrow': 'Začněte během sekund',
   'landing.templates.heading': 'Knihovna ověřených receptů.',
   'landing.templates.signupHint': 'Zaregistrujte se pro instalaci',
   'login.hidePassword': 'Skrýt heslo',
+  'login.noAccount': 'Jste na Tesseře nováčkem?',
   'login.showPassword': 'Zobrazit heslo',
   'login.subhead': 'Přihlaste se a udržujte svá automatizace v chodu.',
   'mobileNav.drawerLabel': 'Hlavní navigace',
@@ -146,8 +175,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Spusťte pracovní postup pro naplnění tohoto přehledu.',
   'notifications.empty.title': 'Jste zcela v obraze',
   'notifications.eyebrow': '{{n}} nepřečtených',
+  'planUpdated.body':
+    'Změna fakturace je nyní aktivní. Svůj tarif můžete kdykoli spravovat na stránce fakturace.',
+  'planUpdated.retry': 'Zkusit znovu',
+  'planUpdated.verifyFailed': 'Vaši platbu jsme zatím nemohli potvrdit.',
+  'planUpdated.verifyFailedBody':
+    'Vaše platba se možná stále zpracovává. Zkuste to znovu za chvíli.',
   'planUpdated.verifying': 'Potvrzování platby…',
   'pricing.heading': 'spuštění',
+  'pricing.runsSuffix': 'spuštění',
   'pricing.workflowsSuffix': 'pracovní postupy',
   'privacy.collect.body':
     'Shromažďujeme e-mailovou adresu, se kterou se registrujete, pracovní postupy, které konfigurujete, a metadata o každém spuštění (čas zahájení, čas ukončení, stav). Nikdy neshromažďujeme ani neukládáme obsah datové části ze spouštěčů nebo výstupů kroků nad rámec toho, co je nezbytné pro zobrazení v prohlížeči spuštění pro vlastníka pracovního prostoru.',
@@ -163,12 +199,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Heslo se nepodařilo aktualizovat.',
   'resetPassword.newPassword': 'Nové heslo',
   'resetPassword.subhead': 'Zvolte něco, co byste uhodli jen vy.',
+  'settings.appearance.description': 'Přepínejte mezi světlým a tmavým režimem.',
+  'settings.appearance.title': 'Vzhled',
   'settings.billingShortcut.cta': 'Otevřít fakturaci',
   'settings.billingShortcut.description':
     'Plán, využití a faktury najdete na vyhrazené stránce fakturace.',
   'settings.danger.confirm':
     'Jste si jisti? Tím se váš pracovní prostor zařadí do fronty ke smazání.',
   'settings.danger.confirmYes': 'Ano, zařadit do fronty ke smazání',
+  'settings.danger.deleteWorkspace.cta': 'Smazat pracovní prostor',
   'settings.danger.deleteWorkspace.hint':
     'Odstraní všechny pracovní postupy, spuštění a připojení po 14denní lhůtě.',
   'settings.danger.deleteWorkspace.title': 'Smazat pracovní prostor',
@@ -179,8 +218,13 @@ export const ui: UiTranslations = {
     'Spravujte účet, pracovní prostor, integrace a fakturaci na jednom místě.',
   'settings.notifications.description':
     'Vyberte, které události vás upozorní, pošlou e-mail nebo zůstanou tiché.',
+  'settings.notifications.failures.hint':
+    'E-mailové a v aplikaci zobrazené oznámení při každém neúspěšném spuštění.',
+  'settings.notifications.failures.title': 'Selhání pracovních postupů',
   'settings.notifications.product.hint': 'Příležitostné e-maily o nových šablonách a funkcích.',
+  'settings.notifications.product.title': 'Novinky produktu',
   'settings.notifications.weekly.hint': 'Pondělní ranní přehled spuštění a úspor z minulého týdne.',
+  'settings.notifications.weekly.title': 'Týdenní přehled',
   'settings.profile.description':
     'Jak se zobrazujete v nástroji pro spouštění pracovních postupů. Používá se v aktivitě pracovního prostoru.',
   'settings.profile.noEmail': 'Žádný e-mail v záznamu',
@@ -188,12 +232,23 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Nepodařilo se uložit změny profilu.',
   'settings.profile.unnamedUser': 'Nepojmenovaný uživatel',
   'settings.security.audit.hint': 'Streamujte každou akci do svého SIEM přes webhook.',
+  'settings.security.audit.title': 'Předávání auditního protokolu',
   'settings.security.description': 'Dvoufaktorové ověření, SSO a aktivní relace.',
   'settings.security.sso.hint': 'Dostupné v plánech Scale a Enterprise.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'Vyžadováno pro jakoukoli akci vlastníka pracovního prostoru.',
+  'settings.security.totp.title': 'Dvoufaktorové ověřování (TOTP)',
   'settings.twoFactorCode': 'Ověřovací kód',
   'settings.twoFactorDisable': 'Zakázat',
+  'settings.twoFactorDisableTitle': 'Vypnout dvoufaktorové ověřování',
   'settings.twoFactorEnable': 'Povolit',
+  'settings.twoFactorEnableTitle': 'Zapnout dvoufaktorové ověřování',
   'settings.twoFactorInvalidCode': 'Neplatný kód',
+  'settings.twoFactorOn': 'Dne',
+  'settings.twoFactorQrAlt': 'QR kód pro dvoufázové ověření',
+  'settings.twoFactorScan':
+    'Naskenujte tento QR kód aplikací pro ověřování a poté zadejte šestimístný kód.',
+  'settings.twoFactorUnavailable': 'Dvoufázové ověřování není pro tuto aplikaci k dispozici.',
   'settings.twoFactorVerify': 'Ověřit a povolit',
   'settings.workspace.description':
     'Sdílená identita, region a výchozí nastavení spuštění pro váš tým.',
@@ -222,6 +277,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Šablona',
   'templates.description':
     'Předpřipravené plány pro nejběžnější automatizace. Forknout, přizpůsobit, dodat.',
+  'templates.empty.filter': 'Vašemu hledání neodpovídají žádné šablony.',
   'templates.empty.first': 'Momentálně nejsou dostupné žádné šablony.',
   'templates.error': 'Nepodařilo se načíst šablony.',
   'templates.installs': 'instalací',
@@ -247,6 +303,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Zakázat',
   'workflowBuilder.enable': 'Povolit',
   'workflowBuilder.error': 'Nepodařilo se načíst pracovní postup.',
+  'workflowBuilder.inspector.config': 'Konfigurace',
+  'workflowBuilder.inspector.cron': 'Výraz cron',
+  'workflowBuilder.inspector.disabled': 'Zakázáno — nebude se spouštět automaticky.',
   'workflowBuilder.inspector.enabled': 'Povoleno — spustí se při triggeru.',
   'workflowBuilder.inspector.eyebrow': 'Inspektor',
   'workflowBuilder.inspector.id': 'ID',
@@ -264,18 +323,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Přepnutí selhalo.',
   'workflowBuilder.workflow': 'Pracovní postup · v{{v}}',
   'workflowBuilder.zoom.in': 'Přiblížit',
+  'workflowBuilder.zoom.label': 'Ovládací prvky přiblížení plátna',
+  'workflowBuilder.zoom.out': 'Oddálit',
   'workflowCard.lastRun': 'Naposledy spuštěno {{when}}',
   'workflowCard.runs': '{{count}} spuštění',
+  'workflowCard.success': '{{rate}}% úspěšnost',
   'workflowHeroCard.last24h': 'Posledních 24 h',
+  'workflows.browseTemplates': 'Procházet šablony →',
   'workflows.description':
     'Všechny automatizace ve vašem pracovním prostoru s přehledem stavu a nedávné aktivity na první pohled.',
+  'workflows.empty.body': 'Zkuste vymazat filtr nebo začít ze šablony.',
   'workflows.empty.firstBody': 'Nainstalujte šablonu a začněte během sekund.',
   'workflows.empty.firstTitle': 'Zatím žádné pracovní postupy',
   'workflows.empty.title': 'Žádné pracovní postupy neodpovídají',
   'workflows.error': 'Nepodařilo se načíst pracovní postupy.',
   'workflows.eyebrow': 'Knihovna · {{count}} celkem',
+  'workflows.loading': 'Načítání pracovních postupů…',
   'workflows.newFromTemplate': 'Nový ze šablony',
   'workflows.searchPlaceholder': 'Hledat pracovní postupy…',
+  'workflows.title': 'Pracovní postupy',
   'workflowSidebar.brand': 'Dendrite',
   'workflowSidebar.status': 'Všechny systémy jsou v provozu',
   'workflowSidebar.tagline': 'Inteligence v pohybu',

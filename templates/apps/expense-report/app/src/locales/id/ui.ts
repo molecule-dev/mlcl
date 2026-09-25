@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ada pertanyaan, masukan, atau permintaan fitur? Hubungi tim {{app}} dari Pengaturan → Notifikasi, atau kirim pesan kapan saja — setiap pesan dibaca oleh manusia sungguhan.',
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.featureCapture':
+    'Tangkap struk dengan unggah foto yang melampirkan gambar ke pengeluaran yang tepat, baris per baris.',
+  'about.featureExport':
+    'Ekspor CSV yang dapat diaudit untuk setiap laporan, pengeluaran, dan status persetujuan — siap untuk tim akuntansi Anda.',
+  'about.featurePolicy':
+    'Pagar kebijakan — batas harian, batas per kategori, dan ambang wajib struk yang diberlakukan saat pengajuan.',
+  'about.featureWorkflow':
+    'Alur persetujuan dua tingkat dengan catatan peninjau, tanda pelanggaran kebijakan, dan penandaan penggantian dengan satu ketukan.',
+  'about.intro':
+    '{{app}} adalah platform manajemen pengeluaran untuk tim keuangan dan orang-orang yang mereka ganti. Tangkap struk, ajukan pengeluaran, kirim laporan melalui persetujuan, dan lacak setiap penggantian — tanpa ritual spreadsheet.',
+  'about.missionBody':
+    'Penggantian harus cepat, adil, dan dapat diaudit. Kami membangun {{app}} agar pengaju dibayar kembali tanpa harus menagih, penyetuju melihat persis apa yang mereka setujui, dan keuangan memiliki jejak yang rapi untuk setiap dolar — lengkap dengan pemeriksaan kebijakan.',
+  'about.missionTitle': 'Misi kami',
   'approvals.approve': 'Setujui',
   'approvals.approving': 'Menyetujui…',
   'approvals.confirmReject': 'Konfirmasi penolakan',
+  'approvals.empty': 'Anda sudah menyelesaikan semuanya — tidak ada laporan yang menunggu.',
   'approvals.eyebrow': 'Antrean manajer',
   'approvals.kpi.flaggedLabel': 'Ditandai kebijakan',
+  'approvals.kpi.queueLabel': 'Menunggu peninjauan',
   'approvals.kpi.totalLabel': 'Nilai tertunda',
   'approvals.lineCount': '{{count}} pengeluaran',
   'approvals.queueFallback':
     'Antrean langsung tidak tersedia — menampilkan data demo yang dikurasi.',
   'approvals.reject': 'Tolak',
   'approvals.rejecting': 'Menolak…',
+  'approvals.rejectPlaceholder': 'Alasan (wajib)',
   'approvals.rejectPrompt': 'Mengapa Anda menolak laporan ini?',
   'approvals.review': 'Tinjau',
   'approvals.title': 'Persetujuan tertunda',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Disetujui · BSI',
   'dashboard.kpi.pendingDelta': '+2 minggu ini',
+  'dashboard.kpi.pendingLabel': 'Menunggu peninjauan',
   'dashboard.kpi.receiptsDelta': 'Tindakan diperlukan',
   'dashboard.kpi.receiptsLabel': 'Menunggu kuitansi',
   'dashboard.kpi.reimbursedDelta': '+$2,4k',
   'dashboard.kpi.reimbursedLabel': 'Diganti · BSI',
   'dashboard.newReport': 'Laporan baru',
+  'dashboard.recent.empty': 'Belum ada laporan — mulai laporan pertama Anda di atas.',
   'dashboard.recent.title': 'Laporan terbaru',
   'dashboard.recent.viewAll': 'Lihat semua laporan',
   'dashboard.summaryFallback':
@@ -40,11 +61,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'Kuitansi dan item yang dapat diganti',
   'expenses.listFallback': 'Daftar langsung tidak tersedia — menampilkan data demo yang dikurasi.',
   'expenses.searchPlaceholder': 'Cari pedagang atau kategori…',
+  'expenses.subtotal': '{{count}} pengeluaran · subtotal',
   'expenses.title': 'Pengeluaran',
+  'forgotPassword.continue': 'Saya punya kode · Lanjutkan',
+  'forgotPassword.subheading':
+    'Masukkan email kerja Anda dan kami akan mengirim tautan untuk mengatur kata sandi baru.',
   'forgotPassword.successBody':
     'Jika akun ada untuk {{email}}, Anda akan menerima tautan atur ulang dalam beberapa menit ke depan.',
+  'landing.copyright': '© {{year}} {{app}}. Dibuat dengan Molecule.dev.',
+  'landing.ctaBody':
+    'Gratis untuk 25 pengeluaran pertama setiap bulan. Tanpa kartu kredit, tanpa panggilan implementasi.',
   'landing.ctaHeading': 'Siap memulihkan apa yang menjadi hak tim Anda?',
   'landing.eyebrow': 'Laporan pengeluaran untuk tim keuangan',
+  'landing.featuresHeading': 'Penggantian, dalam satu ruang kerja yang tenang',
   'landing.heroSubtitle':
     'Ajukan, setujui, dan ganti rugi biaya bisnis tanpa perlu repot dengan spreadsheet. OCR tanda terima, pengecekan kebijakan, dan jadwal persetujuan yang transparan — semuanya dalam satu ruang kerja yang tenang.',
   'landing.heroTitle': 'Semua struk pembelian berhasil ditemukan kembali.',
@@ -62,10 +91,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Catatan',
   'newExpense.descriptionPlaceholder':
     'Mengapa pengeluaran ini terkait bisnis (terlihat oleh penyetuju Anda).',
+  'newExpense.eyebrow': 'Item yang dapat diganti',
   'newExpense.merchant': 'Pedagang',
   'newExpense.merchantPlaceholder': 'Hotel Adlon Kempinski',
   'newExpense.policyHint':
     'Pengingat: makanan lebih dari $80/hari atau item apa pun lebih dari $250 memerlukan catatan justifikasi.',
+  'newExpense.receipt': 'Kuitansi',
+  'newExpense.receiptHint': 'JPG, PNG, atau PDF · maks 10 MB',
   'newExpense.receiptOcrHint': 'OCR mengisi kolom secara otomatis.',
   'newExpense.receiptPrompt': 'Letakkan foto atau PDF di sini, atau klik untuk menelusuri',
   'newExpense.receiptUploadFailed':
@@ -75,17 +107,21 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Foto atau unggah kuitansi dan Recoup akan mengisi otomatis pedagang, tanggal, dan total. Konfirmasi semuanya di bawah sebelum menyimpan.',
   'newExpense.title': 'Tambahkan pengeluaran',
+  'newReport.approverHint':
+    'Mereka akan menerima email saat Anda mengirimkan laporan ini untuk ditinjau.',
   'newReport.approverLabel': 'Email penyetuju (opsional)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'Pengeluaran tersedia',
   'newReport.createFailed': 'Tidak dapat membuat laporan. Silakan coba lagi.',
   'newReport.draftsFallback':
     'Daftar pengeluaran langsung tidak tersedia — menampilkan data demo yang telah dikurasi.',
+  'newReport.eyebrow': 'Kelompokkan pengeluaran · kirim untuk persetujuan',
   'newReport.includedCount': '{{count}} disertakan',
   'newReport.purposeLabel': 'Tujuan bisnis',
   'newReport.purposePlaceholder':
     'Jelaskan perjalanan atau proyek yang terkait dengan pengeluaran ini (terlihat oleh penyetuju Anda dan keuangan).',
   'newReport.saveDraft': 'Simpan sebagai draf',
+  'newReport.saveDraftFailed': 'Tidak dapat menyimpan draf. Silakan coba lagi.',
   'newReport.submit': 'Ajukan untuk persetujuan',
   'newReport.submitFailed': 'Tidak dapat mengajukan laporan. Silakan coba lagi.',
   'newReport.summary': 'Ringkasan laporan',
@@ -99,17 +135,24 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Umpan langsung tidak tersedia — menampilkan data demo yang dikurasi.',
   'notifications.openReport': 'Buka laporan ›',
+  'pricing.approvalsLabel': 'persetujuan',
   'pricing.expensesLabel': 'pengeluaran',
   'pricing.heading': 'persetujuan',
   'pricing.policiesLabel': 'kebijakan',
   'pricing.receiptsLabel': 'kuitansi',
   'recoveredAmountHeroCard.label': 'Penggantian biaya dipulihkan · YTD',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} laporan saat ini menunggu peninjauan di semua penyetuju.',
+  'reports.approvalFlow': 'Alur persetujuan',
   'reports.backToList': 'Kembali ke laporan',
   'reports.detailFallback':
     'Laporan langsung tidak tersedia — menampilkan data demo yang dikurasi.',
   'reports.lineItems': 'Item baris',
   'reports.lineItemsCount': '{{count}} pengeluaran',
+  'reports.lineItemsEmpty': 'Belum ada pengeluaran pada laporan ini.',
+  'reports.openLibrary': 'Buka pustaka laporan',
   'reports.policyTitle': 'Tanda kebijakan',
+  'reports.selectPrompt': 'Pilih laporan dari pustaka untuk melihat detailnya.',
   'reports.summary.lineCount': 'Item baris',
   'reports.summary.reimbursable': 'Dapat diganti',
   'reports.summary.total': 'Total yang dilaporkan',
@@ -119,6 +162,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Daftar langsung tidak tersedia — menampilkan data demo yang dikurasi.',
   'reportsList.newReport': 'Laporan baru',
+  'reportsList.submittedOn': 'Dikirim {{date}}',
   'reportsList.title': 'Pustaka laporan',
   'resetPassword.hidePassword': 'Sembunyikan kata sandi',
   'resetPassword.newPasswordLabel': 'Kata sandi baru',
@@ -144,6 +188,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Tersimpan ✓',
   'settings.profileSaveFailed': 'Tidak dapat memperbarui profil. Silakan coba lagi.',
   'signup.heading': 'Buat akun Recoup Anda',
+  'signup.hidePassword': 'Sembunyikan kata sandi',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Tampilkan kata sandi',
   'signup.subheading': 'Gratis untuk 25 pengeluaran setiap bulan — tanpa kartu kredit.',

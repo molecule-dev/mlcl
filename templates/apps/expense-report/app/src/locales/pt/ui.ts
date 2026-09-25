@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Dúvidas, feedback ou um pedido de funcionalidade? Fale com a equipe do {{app}} em Configurações → Notificações, ou escreva para nós a qualquer momento — toda mensagem chega a uma pessoa de verdade.',
+  'about.contactTitle': 'Fale connosco',
   'about.eyebrow': 'Sobre',
+  'about.featureCapture':
+    'Captura de recibos com envio de foto que anexa as imagens à despesa certa, linha por linha.',
+  'about.featureExport':
+    'Exportações CSV auditáveis de cada relatório, despesa e estado de aprovação — prontas para a sua equipe de contabilidade.',
+  'about.featurePolicy':
+    'Trava de políticas — limites diários, limites por categoria e exigência de recibo aplicados no momento do envio.',
+  'about.featureWorkflow':
+    'Um fluxo de aprovação em dois níveis com observações do revisor, sinalizações de violação de política e marcação de reembolso com um toque.',
+  'about.intro':
+    'O {{app}} é uma plataforma de gestão de despesas para equipes financeiras e para as pessoas que elas reembolsam. Capture um recibo, registre uma despesa, envie um relatório para aprovação e acompanhe cada reembolso — sem a burocracia da planilha.',
+  'about.missionBody':
+    'Reembolso deve ser rápido, justo e auditável. Criamos o {{app}} para que quem envia receba de volta sem precisar cobrar, quem aprova veja exatamente o que está aprovando e o financeiro tenha um histórico limpo de cada centavo — com verificações de política e tudo.',
+  'about.missionTitle': 'Nossa missão',
   'approvals.approve': 'Aprovar',
   'approvals.approving': 'Aprovando…',
   'approvals.confirmReject': 'Confirmar rejeição',
+  'approvals.empty': 'Você está em dia — nenhum relatório aguardando.',
   'approvals.eyebrow': 'Fila do gerente',
   'approvals.kpi.flaggedLabel': 'Sinalizado pela política',
+  'approvals.kpi.queueLabel': 'Aguardando revisão',
   'approvals.kpi.totalLabel': 'Valor pendente',
   'approvals.lineCount': '{{count}} despesas',
   'approvals.queueFallback': 'Fila ao vivo indisponível — exibindo dados de demonstração.',
   'approvals.reject': 'Rejeitar',
   'approvals.rejecting': 'Rejeitando…',
+  'approvals.rejectPlaceholder': 'Motivo (obrigatório)',
   'approvals.rejectPrompt': 'Por que você está rejeitando este relatório?',
   'approvals.review': 'Revisar',
   'approvals.title': 'Aprovações pendentes',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Aprovado · MTD',
   'dashboard.kpi.pendingDelta': '+2 esta semana',
+  'dashboard.kpi.pendingLabel': 'Pendentes de revisão',
   'dashboard.kpi.receiptsDelta': 'Ação necessária',
   'dashboard.kpi.receiptsLabel': 'Aguardando recibos',
   'dashboard.kpi.reimbursedDelta': '+US$ 2,4 mil',
   'dashboard.kpi.reimbursedLabel': 'Reembolsado · MTD',
   'dashboard.newReport': 'Novo relatório',
+  'dashboard.recent.empty': 'Nenhum relatório ainda — comece o primeiro acima.',
   'dashboard.recent.title': 'Relatórios recentes',
   'dashboard.recent.viewAll': 'Ver todos os relatórios',
   'dashboard.summaryFallback': 'Resumo ao vivo indisponível — exibindo dados de demonstração.',
@@ -38,11 +59,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'Recibos e itens reembolsáveis',
   'expenses.listFallback': 'Lista ao vivo indisponível — exibindo dados de demonstração.',
   'expenses.searchPlaceholder': 'Pesquisar comerciante ou categoria…',
+  'expenses.subtotal': 'Despesas de {{count}} · subtotal',
   'expenses.title': 'Despesas',
+  'forgotPassword.continue': 'Tenho um código · Continuar',
+  'forgotPassword.subheading':
+    'Informe seu e-mail de trabalho e enviaremos um link para definir uma nova senha.',
   'forgotPassword.successBody':
     'Se houver uma conta para {{email}}, você receberá um link de redefinição nos próximos minutos.',
+  'landing.copyright': '© {{year}} {{app}}. Feito com Molecule.dev.',
+  'landing.ctaBody':
+    'Grátis para as primeiras 25 despesas de cada mês. Sem cartão de crédito, sem call de implementação.',
   'landing.ctaHeading': 'Pronto para recuperar o que sua equipe tem a receber?',
   'landing.eyebrow': 'Relatórios de despesas para equipes financeiras',
+  'landing.featuresHeading': 'Reembolso, em um só espaço tranquilo',
   'landing.heroSubtitle':
     'Envie, aprove e reembolse despesas comerciais sem a burocracia das planilhas. Reconhecimento óptico de caracteres (OCR) de recibos, verificação de políticas e um cronograma de aprovação transparente — tudo em um único espaço de trabalho organizado.',
   'landing.heroTitle': 'Todos os recibos foram recuperados.',
@@ -60,10 +89,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Notas',
   'newExpense.descriptionPlaceholder':
     'Por que esta despesa era relacionada ao trabalho (visível para seu aprovador).',
+  'newExpense.eyebrow': 'Item reembolsável',
   'newExpense.merchant': 'Comerciante',
   'newExpense.merchantPlaceholder': 'Hotel Adlon Kempinski',
   'newExpense.policyHint':
     'Lembrete: refeições acima de US$ 80/dia ou qualquer item acima de US$ 250 exigem uma justificativa.',
+  'newExpense.receipt': 'Recibo',
+  'newExpense.receiptHint': 'JPG, PNG ou PDF · máx. 10 MB',
   'newExpense.receiptOcrHint': 'O OCR preenche automaticamente os campos.',
   'newExpense.receiptPrompt': 'Arraste uma foto ou PDF aqui, ou clique para navegar',
   'newExpense.receiptUploadFailed':
@@ -74,17 +106,21 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Tire uma foto ou envie um recibo e a Recoup preencherá o comerciante, a data e o total. Confirme tudo abaixo antes de salvar.',
   'newExpense.title': 'Adicionar despesa',
+  'newReport.approverHint':
+    'A pessoa receberá um e-mail quando você enviar este relatório para revisão.',
   'newReport.approverLabel': 'E-mail do aprovador (opcional)',
   'newReport.approverPlaceholder': 'gerente@suaempresa.com',
   'newReport.availableExpenses': 'Despesas disponíveis',
   'newReport.createFailed': 'Não foi possível criar o relatório. Tente novamente.',
   'newReport.draftsFallback':
     'Lista de despesas em tempo real indisponível — exibindo dados de demonstração selecionados.',
+  'newReport.eyebrow': 'Agrupar despesas · enviar para aprovação',
   'newReport.includedCount': '{{count}} incluídos',
   'newReport.purposeLabel': 'Finalidade comercial',
   'newReport.purposePlaceholder':
     'Descreva a viagem ou projeto a que estas despesas se referem (visível para seu aprovador e para o financeiro).',
   'newReport.saveDraft': 'Salvar como rascunho',
+  'newReport.saveDraftFailed': 'Não foi possível salvar o rascunho. Tente novamente.',
   'newReport.submit': 'Enviar para aprovação',
   'newReport.submitFailed': 'Não foi possível enviar o relatório. Tente novamente.',
   'newReport.summary': 'Resumo do relatório',
@@ -97,16 +133,23 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'Atividade do espaço',
   'notifications.feedFallback': 'Feed ao vivo indisponível — exibindo dados de demonstração.',
   'notifications.openReport': 'Abrir relatório ›',
+  'pricing.approvalsLabel': 'aprovações',
   'pricing.expensesLabel': 'despesas',
   'pricing.heading': 'aprovações',
   'pricing.policiesLabel': 'políticas',
   'pricing.receiptsLabel': 'recibos',
   'recoveredAmountHeroCard.label': 'Reembolso recuperado · YTD',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} relatório(s) aguardando revisão no momento, entre todos os aprovadores.',
+  'reports.approvalFlow': 'Fluxo de aprovação',
   'reports.backToList': 'Voltar aos relatórios',
   'reports.detailFallback': 'Relatório ao vivo indisponível — exibindo dados de demonstração.',
   'reports.lineItems': 'Itens',
   'reports.lineItemsCount': '{{count}} despesas',
+  'reports.lineItemsEmpty': 'Ainda não há despesas neste relatório.',
+  'reports.openLibrary': 'Abrir biblioteca de relatórios',
   'reports.policyTitle': 'Sinalização de política',
+  'reports.selectPrompt': 'Selecione um relatório da biblioteca para ver os detalhes.',
   'reports.summary.lineCount': 'Itens',
   'reports.summary.reimbursable': 'Reembolsável',
   'reports.summary.total': 'Total relatado',
@@ -115,6 +158,7 @@ export const ui: UiTranslations = {
   'reportsList.lineItems': '{{count}} despesas',
   'reportsList.listFallback': 'Lista ao vivo indisponível — exibindo dados de demonstração.',
   'reportsList.newReport': 'Novo relatório',
+  'reportsList.submittedOn': 'Submetido a {{date}}',
   'reportsList.title': 'Biblioteca de relatórios',
   'resetPassword.hidePassword': 'Ocultar senha',
   'resetPassword.newPasswordLabel': 'Nova senha',
@@ -140,6 +184,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Salvo ✓',
   'settings.profileSaveFailed': 'Não foi possível atualizar o perfil. Tente novamente.',
   'signup.heading': 'Crie sua conta Recoup',
+  'signup.hidePassword': 'Ocultar senha',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Mostrar senha',
   'signup.subheading': 'Grátis para 25 despesas por mês — sem cartão de crédito.',

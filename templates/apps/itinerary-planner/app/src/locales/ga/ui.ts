@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Aiseolas agat, fabht aimsithe, nó rud éigin uaillmhianach á phleanáil agat? Déan teagmháil linn ó shocruithe do chuntais — téann gach teachtaireacht chuig duine fíor ar an bhfoireann.',
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Áirithintí in aon bhosca isteach amháin — tagann deimhnithe eitiltí, óstán agus gníomhaíochtaí ar an lá cruinn lena mbaineann siad.',
+  'about.featureCollab':
+    'Comhoibriú fíor-ama — tabhair cuireadh do suas le cúig thaistealaí in aghaidh an turais, gach athrú á shioncronú beo agus na tráchtanna snáithithe faoi gach stad.',
+  'about.featureMapsBudget':
+    'Léarscáileanna, cinn scríbe agus buiséad comhroinnte — féach an turas iomlán ar léarscáil, aimsigh cinn scríbe atá coimeádaithe ag eagarthóirí, agus rianaigh caiteachas ionas nach gcaitheann éinne an iomarca.',
+  'about.featureTimelines':
+    'Amlínte ó lá go lá — tarraing staideanna chun iad a athordú, cuir isteach codanna iompair, agus féach ar an gclár ama ag athríomh mar aon doiciméad beo.',
+  'about.intro':
+    'Iompaíonn {{app}} fillteán lán de phleananna leathchruthaithe ina aon turas comhroinnte ar féidir le do ghrúpa iomlán é a leanúint i ndáiríre. Tóg clár ama ó lá go lá, cuir isteach eitiltí agus óstáin, déan gach stad a mhapáil, agus rianaigh an buiséad — go léir in aon áit chiúin amháin in ionad dosaen cluaisín agus comhrá grúpa.',
+  'about.missionBody':
+    'Ba chóir go mbraithfeadh pleanáil taistil amhail is go bhfuil an turas ag éirí níos fearr cheana féin, ní amhail obair bhaile. Tá {{app}} ann chun turais chomhoibríocha a dhéanamh gan stró — ionas go dtagann gach taistealaí agus an plean ar eolas acu, agus go n-insíonn gach stad scéal is fiú a mheabhrú.',
+  'about.missionTitle': 'Ár misean',
   'about.pageTitle': 'Faoi {{app}}',
   'auth.legalConsent': 'Trí leanúint ar aghaidh, aontaíonn tú lenár',
   'bookings.empty.body': 'Cuir eitilt, óstán, nó gníomhaíocht leis chun an bosca isteach a thosú.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Óstán',
   'bookings.type.other': 'Eile',
   'budgetSpendCard.budgetTotal': 'de {{total}} pleanáilte',
+  'budgetSpendCard.overBy': '{{amount}} thar buiséad',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} le déanaí',
+  'budgetSpendCard.remaining': '{{amount}} fágtha',
   'calendar.eyebrow': 'An bhliain atá romhainn',
   'calendar.heading': 'Gach turas ar fhéilire amháin.',
   'calendar.legendHeading': 'Turais an mhí seo',
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'agus',
   'common.goToDashboard': 'Téigh chuig an Deais',
   'dashboard.budgetHeading': 'Cuisle buiséid',
+  'dashboard.empty.body':
+    'Pleanáil do chéad turas agus líonfaidh do dheaischlár le hamlínte ó lá go lá, cuisle buiséid agus áirithintí.',
+  'dashboard.empty.cta': 'Pleanáil do chéad turas',
   'dashboard.empty.heading': "Gan aon turais fós — tá d'atlas bán.",
   'dashboard.eyebrow': 'Rialú misean',
   'dashboard.heading': 'Do chéad eachtra eile, i gcúinne amháin ciúin.',
   'dashboard.newTripCta': 'Tosaigh turas nua',
+  'dashboard.subheading':
+    'Comhaireamh síos chuig an gcéad turas eile, cuisle chaiteachais an lae inniu, agus spléachadh tapa ar gach clár ama atá ar siúl.',
   'dashboard.tripsHeading': 'Turais i ngluaiseacht',
   'dashboard.viewAllExpenses': 'Féach ar gach costas',
   'dashboard.viewAllTrips': 'Féach ar gach turas',
   'dayTimelineRow.category.accommodation': 'Fan',
+  'dayTimelineRow.category.food': 'Bia & deoch',
+  'dayTimelineRow.category.sightseeing': 'Féachtaí',
   'dayTimelineRow.category.transport': 'Iompar',
   'destinationOrbCard.exploreCta': 'Cuir le turas',
   'destinationOrbCard.tripCount': '{{count}} turais',
+  'destinations.empty.body': 'Athraigh ar ais go All agus taispeánfar torthaí an eagarthóra arís.',
   'destinations.empty.heading': 'Gan aon cheann scríbe fós.',
+  'destinations.emptyFiltered.heading': 'Níl aon rud clibeáilte mar sin fós.',
   'destinations.errors.load': 'Níorbh fhéidir na cinn scríbe a lódáil.',
   'destinations.eyebrow': 'Cá háit le dul ina dhiaidh seo',
   'destinations.heading': 'Coirnéil shábháilte agus aimsithe ag an eagarthóir.',
@@ -70,7 +98,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Díoltóir',
   'expenses.formHeading': 'Costas logála le haghaidh {{trip}}',
   'expenses.heading': 'Cá dtéann buiséad an turais i ndáiríre.',
+  'expenses.heroBudget': '{{pct}}% de {{total}} pleanáilte',
   'expenses.heroEyebrow': '{{trip}} léargas buiséid •',
+  'expenses.heroNoBudget': 'Níl aon bhuiséad socraithe ar an turas seo fós.',
   'expenses.noTrips.body': 'Pleanáil turas ar dtús agus baineann costais le buiséad an turais.',
   'expenses.noTrips.heading': 'Gan aon turais fós.',
   'expenses.receiptCount': '{{count}} admhálacha',
@@ -82,12 +112,16 @@ export const ui: UiTranslations = {
     'Cuirtear gach admháil agus dearbhú san áireamh sa chatagóir cheart anseo — níl gá le scarbhileog.',
   'forgotPassword.eyebrow': 'Aisghabháil do chlár taistil',
   'forgotPassword.heading': 'An ndearna tú dearmad ar do phasfhocal?',
+  'forgotPassword.subheading':
+    "Cuir isteach an ríomhphost a d'úsáid tú le haghaidh {{appName}} agus seolfaimid nasc chun do phasfhocal a athshocrú.",
   'forgotPassword.submit': 'Seol ríomhphost aisghabhála',
   'forgotPassword.submitPending': 'Ag seoladh ríomhphoist aisghabhála…',
   'forgotPassword.successHint':
     "Gan ríomhphost fós? Seiceáil d'fhillteán turscair, nó déan iarracht arís le seoladh difriúil.",
   'forgotPassword.successSubheading':
     'Chuireamar nasc aisghabhála chuig {{email}} Tá an nasc bailí ar feadh 30 nóiméad.',
+  'forgotPassword.tryAgain': 'Seol chuig ríomhphost eile',
+  'landing.cta.eyebrow': 'Tosaigh ar an bplean saor in aisce',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Cruthaigh cuntas saor in aisce',
   'landing.cta.subheading':
@@ -99,8 +133,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Tosaigh turas saor in aisce',
   'landing.hero.ctaSecondary': 'Féach ar thuras samplach',
+  'landing.hero.eyebrow': 'Pleanálaí turais · {{tagline}}',
   'landing.hero.subtitle':
     'Déanann Waypoint fillteán atá lán de phleananna leathdhéanta a thiontú ina chlár taistil comhroinnte, laethúil ar féidir le do ghrúpa a leanúint i ndáiríre - le háirithintí, léarscáileanna, agus buiséad á rianú in aon áit amháin.',
+  'landing.hero.title': 'Pleanáil é uair amháin. Siúl le chéile é.',
   'landing.nav.join': 'Tosaigh turas saor in aisce',
   'landing.nav.preview': 'Bealachphointe Taobh Istigh',
   'landing.preview.cta': 'Pleanáil ceann de do chuid féin',
@@ -108,6 +144,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Cúpla turas atá taistealaithe ag déanamh faoi láthair',
   'login.eyebrow': 'Limistéar na mball',
   'login.heading': 'Fáilte ar ais, a thaistealaí',
+  'login.noAccount': 'Nua i dTessera?',
   'login.signupLink': 'Cruthaigh cuntas saor in aisce',
   'login.subheading':
     'Sínigh isteach chun do thurais, do phleananna lae, d’áirithintí agus na hiontrálacha dialainne atá tosaithe agat cheana féin a bhainistiú.',
@@ -118,6 +155,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Níorbh fhéidir an fógra a nuashonrú.',
   'notifications.heading': "Cad a d'athraigh ar do thurais inniu.",
   'notifications.markUnread': 'Marcáil mar neamhléite',
+  'notifications.subheading':
+    '{{count}} nua \\u2014 deimhnithe áirithinte, nótaí comhoibritheora, titimí táille agus meabhrúcháin.',
   'notifications.time.daysAgo': '{{count}} lá ó shin',
   'notifications.time.hoursAgo': '{{count}} uair an chloig ó shin',
   'notifications.time.justNow': 'díreach anois',
@@ -136,6 +175,7 @@ export const ui: UiTranslations = {
     'Seirbhísí ceangailte, airgeadra, fógraí brú, agus na dintiúir a úsáideann tú chun síniú isteach.',
   'signup.and': 'agus',
   'signup.eyebrow': 'Bígí Linn ar an Waypoint',
+  'signup.haveAccount': 'Ag fánaíocht cheana féin?',
   'signup.heading': 'Pleanáil é uair amháin. Siúl le chéile é.',
   'signup.namePlaceholder': 'Íris Larsen',
   'signup.subheading':
@@ -147,6 +187,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Oscail an clár taistil',
   'tripCountdownHeroCard.ctaSecondary': 'Pleanáil turas eile',
   'tripCountdownHeroCard.daysLabel': '{{days}} laethanta le dul',
+  'tripCountdownHeroCard.eyebrow': 'An chéad eachtra eile · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} oíche — tá do chlár ama réidh le taisteal.',
   'tripCoverCard.stops': '{{count}} stadanna',
   'tripCoverCard.travelers': '{{count}} taistealaithe',
   'tripDetail.addActivity': 'Cuir gníomhaíocht leis',
@@ -156,6 +199,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Teideal na gníomhaíochta',
   'tripDetail.adding': 'Ag cur leis…',
   'tripDetail.backToTrips': 'Ar ais chuig na turais uile',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Taistealaithe',
   'tripDetail.dayLabel': 'Lá {{day}}',
   'tripDetail.empty': 'Gan aon ghníomhaíochtaí fós — cuir ceann leis chun an amlíne a thosú.',
@@ -166,14 +210,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Clár Bealaigh • {{country}}',
   'tripDetail.invite': 'Cuireadh',
   'tripDetail.inviteLabel': 'Cuireadh trí ríomhphost',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'Cuireadh seolta chuig {{email}} .',
   'tripDetail.inviting': 'Ag seoladh…',
   'tripDetail.loading': 'Ag lódáil an turas…',
   'tripDetail.noCollaborators': 'Tusa amháin, faoi láthair.',
+  'tripDetail.notesHeading': 'Nótaí turais',
   'tripDetail.notesPlaceholder': 'Gan nótaí fós.',
   'tripDetail.notFound.heading': 'Níor aimsíodh an turas',
   'tripDetail.openBookings': 'Oscail bosca isteach na n-áirithintí',
   'tripDetail.shareCopied': 'Nasc comhroinnte cóipeáilte chuig an ghearrthaisce:',
+  'tripDetail.shareReady': 'Nasc comhroinnte réidh:',
   'tripDetail.stops': '{{count}} stadanna',
   'tripDetail.timelineEyebrow': 'Amlíne an lae',
   'tripDetail.timelineHeading': 'Plean lae ar lá',
@@ -191,6 +238,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Taistealaithe',
   'tripPlanner.heading': 'Sceitseáil turas i níos lú ná nóiméad.',
   'tripPlanner.preview.eyebrow': 'Réamhamharc beo',
+  'tripPlanner.preview.placeholderCountry': 'Roghnaigh tír',
   'tripPlanner.preview.placeholderDestination': 'Do chéad eachtra eile',
   'tripPlanner.section1.title': 'Cá & cathain',
   'tripPlanner.section2.title': 'Taistealaithe & buiséad',
@@ -199,10 +247,14 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Lá {{day}} cuir stadanna, iompar agus áirithintí leis anseo.',
   'tripPlanner.section3.day2': 'Lá {{day}} cuir stadanna, iompar agus áirithintí leis anseo.',
   'tripPlanner.section3.day3': 'Lá {{day}} cuir stadanna, iompar agus áirithintí leis anseo.',
+  'tripPlanner.section3.title': 'Tús plean lae',
   'tripPlanner.subheading':
     'Scríobh na bunghnéithe thíos — is féidir leat comhoibritheoirí a thabhairt cuireadh i gcónaí, stadanna a tharraingt isteach, agus áirithintí a chur ar aghaidh níos déanaí.',
   'tripPlanner.submit': 'Cruthaigh turas',
   'tripPlanner.submitting': 'Ag cruthú…',
+  'trips.empty.body':
+    'Athraigh ar ais go All trips nó tosaigh ag pleanáil do chéad fánaíocht eile.',
+  'trips.empty.cta': 'Pleanáil turas',
   'trips.empty.heading': 'Níl aon rud a oireann don scagaire sin go fóill.',
   'trips.eyebrow': 'An t-atlas',
   'trips.filterLabel': 'Scag turais de réir stádais',
@@ -214,6 +266,12 @@ export const ui: UiTranslations = {
   'trips.pastHeading': 'Eachtraí san am atá thart',
   'trips.subheading':
     '{{count}} cláir taistil — san am atá thart, san am i láthair, agus lá éigin.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading':
+    'Pleanáil uair amháin é. Fánaigh le chéile é. Cuimhnigh air go deo.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · {{appName}} ball ó 2024',
+  'waypointAuthShell.testimonial.quote':
+    "D'athraigh {{appName}} turas gnóthach 3 seachtaine thar cheithre thír ina chlár ama is suaimhní a roinn muid riamh.",
   'waypointLayout.mobileNavClose': 'Dún an roghchlár nascleanúna',
   'waypointLayout.primaryNavLabel': 'Príomh-loingseoireacht',
 }

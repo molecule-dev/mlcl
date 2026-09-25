@@ -1,15 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Есть вопросы, отзывы или хотите провести обучение для вашей команды найма? Напишите на hello@example.com, и реальный человек из команды ответит вам в течение двух рабочих дней.',
   'about.contactHeading': 'Свяжитесь с нами',
+  'about.intro':
+    '{{app}} — это система отслеживания кандидатов для рекрутеров и нанимающих менеджеров, которым нужен сигнал, а не шум: чистый пайплайн, ИИ-скрининг, который объясняет себя, и аналитика найма — всё в одном месте.',
+  'about.missionBody':
+    'Найм — одно из самых ответственных решений команды, но большая его часть до сих пор живёт в разрозненных таблицах и почтовых цепочках. {{app}} переносит весь цикл на одну доску, чтобы каждый кандидат был отслежен, каждое интервью структурировано, а каждое решение было справедливым, быстрым и объяснимым.',
+  'about.missionHeading': 'Наша миссия',
   'auth.legalConsent': 'Продолжая, вы соглашаетесь с нашими',
   'billing.cardExp': 'Срок действия истекает {{exp}}',
+  'billing.cardLinkError': 'Не удалось запустить процесс обновления карты.',
   'billing.cardLinkSent':
     'Процесс обновления данных карты запущен — проверьте свою электронную почту.',
+  'billing.cardLinkUnavailable':
+    'Обновление карт недоступно — в этом развёртывании не настроен платёжный провайдер.',
   'billing.cardMissing': 'Карта не сохранена.',
   'billing.col.invoice': 'Счет-фактура',
   'billing.downloadUnavailable': '—',
   'billing.editCard': 'Обновление карты',
+  'billing.eyebrow': 'Планирование и использование',
   'billing.invoiceHeading': 'Последние счета',
   'billing.invoicesEmpty': 'Счетов пока нет.',
   'billing.invoicesLoading': 'Загрузка счетов…',
@@ -18,11 +29,12 @@ export const ui: UiTranslations = {
   'billing.nextChargeHint': 'На {{date}}',
   'billing.nextChargeLabel': 'Следующая зарядка',
   'billing.planLoading': 'Загрузка плана…',
-  'billing.planSummary': '{{perSeat}} / сиденье · {{места}} места · {{общий}} / м',
+  'billing.planSummary': '{{perSeat}} / место · {{seats}} мест · {{total}} / мес',
   'billing.seatsAdded': 'Количество мест обновлено.',
   'billing.seatsError':
     'Этот тарифный план рассчитан на одного пользователя. Для использования несколькими пользователями необходимо перейти на тарифный план Team.',
   'billing.seatsHint': '{{used}} из {{max}} включено',
+  'billing.seatsLabel': 'Активные места',
   'billing.spentLabel': 'Потрачено с начала года',
   'billing.subheading': 'Подписка, места, использование ИИ-просмотра и счета-фактуры.',
   'billing.unlimited': 'Без ограничений',
@@ -38,6 +50,7 @@ export const ui: UiTranslations = {
   'candidateDetail.advanceError': 'Не удалось обновить этап.',
   'candidateDetail.advanceFinal': 'Уже на заключительном этапе.',
   'candidateDetail.advanceHeading': 'Переход на сцену',
+  'candidateDetail.appliedOn': 'Откликнулся {{date}} через {{source}}.',
   'candidateDetail.back': 'Все кандидаты',
   'candidateDetail.loadError': 'Не удалось загрузить кандидата.',
   'candidateDetail.noInterviews': 'Интервью пока не проводились.',
@@ -47,8 +60,13 @@ export const ui: UiTranslations = {
   'candidateDetail.notePlaceholder':
     'Поделитесь отзывами, впечатлениями от собеседования, планами на будущее…',
   'candidateDetail.noteSave': 'Сохранить заметку',
+  'candidateDetail.panel': 'Панель: {{panel}}',
+  'candidateDetail.panelScore': 'Оценка панели: {{score}}/100',
+  'candidateDetail.resumeMissing': 'Предпросмотр резюме для этого кандидата пока недоступен.',
   'candidateDetail.scheduleError': 'Не удалось назначить собеседование.',
+  'candidateDetail.scheduleHeading': 'Запланировать интервью',
   'candidateDetail.scheduleInterviewer': 'Интервьюер',
+  'candidateDetail.scheduleInterviewerPlaceholder': 'Имя интервьюера',
   'candidateDetail.scheduleMinutes': 'Продолжительность (мин)',
   'candidateDetail.scheduleMissing': 'Сначала выберите дату и время.',
   'candidateDetail.scoreEmpty': 'Ожидается оценка ИИ.',
@@ -71,6 +89,7 @@ export const ui: UiTranslations = {
   'candidates.heading': 'Кандидаты',
   'candidates.loadError': 'Не удалось загрузить кандидатов.',
   'candidates.searchPlaceholder': 'Поиск кандидатов, должностей или вакансий™',
+  'candidates.sourceLabel': 'Источник',
   'candidates.sourcePlaceholder': 'Источник (LinkedIn, рекомендации…)',
   'candidates.subheading':
     'База данных кандидатов на различные вакансии с оценкой на основе ИИ и указанием источников.',
@@ -85,6 +104,7 @@ export const ui: UiTranslations = {
   'dashboard.kpi.interviews': 'Собеседования на этой неделе',
   'dashboard.kpi.openJobs': 'Открытые вакансии',
   'dashboard.loading': 'Загрузка…',
+  'dashboard.newJobCta': 'Разместить вакансию',
   'dashboard.subheading':
     'Состояние кадрового резерва, количество собеседований и статус предложений о работе.',
   'dashboard.topEmpty': 'Кандидатов пока нет.',
@@ -107,6 +127,7 @@ export const ui: UiTranslations = {
   'jobDetail.back': 'Все вакансии',
   'jobDetail.descriptionEyebrow': 'Описание роли',
   'jobDetail.descriptionMissing': 'Описание пока отсутствует.',
+  'jobDetail.employmentType': 'Тип занятости: {{type}}',
   'jobDetail.empty': 'Заявок пока нет.',
   'jobDetail.funnelEyebrow': 'Сценическая воронка',
   'jobDetail.funnelHeading': 'Положение кандидатов',
@@ -115,6 +136,7 @@ export const ui: UiTranslations = {
   'jobDetail.kpi.hires': 'Нанимает',
   'jobDetail.kpi.inInterview': 'В интервью',
   'jobDetail.loadError': 'Не удалось загрузить задание.',
+  'jobDetail.requirementsHeading': 'Требования',
   'jobDetail.topEyebrow': 'Лучшие кандидаты',
   'jobDetail.topHeading': 'Первый, подобранный с помощью ИИ.',
   'jobDetail.unavailable': 'Данная вакансия больше не размещена.',
@@ -130,6 +152,7 @@ export const ui: UiTranslations = {
   'jobs.heading': 'Работа',
   'jobs.loadError': 'Не удалось загрузить задания.',
   'jobs.newCta': 'Разместить вакансию',
+  'landing.copyright': '© {{year}} {{app}} Создано с помощью Molecule.',
   'landing.eyebrow': 'Наём персонала с помощью ИИ · версия 2',
   'landing.featuresEyebrow': 'Как это работает',
   'landing.featuresHeading': 'Сигнал, а не электронные таблицы.',
@@ -139,8 +162,11 @@ export const ui: UiTranslations = {
   'landing.heroProof':
     'Кредитная карта не требуется. Отмена в любое время. Единый вход (SSO) доступен на версии Pro.',
   'landing.heroSecondary': 'Посмотреть цены →',
+  'landing.heroSubtitle':
+    'Чистый канбан-пайплайн, ИИ-скрининг, который объясняет себя, и аналитика справедливости по этапам. Создано для рекрутеров и нанимающих менеджеров, которым нужен сигнал — а не шум.',
   'landing.heroTitle': 'Принимайте на работу, руководствуясь четкими принципами.',
   'landing.previewHeading': 'Старший бэкенд-разработчик',
+  'landing.previewLabel': 'Пайплайн · Разработка',
   'landing.pricingEyebrow': 'Цены',
   'landing.pricingHeading': 'Планы для команд любого размера.',
   'landing.socialEyebrow': 'Используется командами по найму персонала в',
@@ -157,6 +183,9 @@ export const ui: UiTranslations = {
   'loginBrandPanel.headlineLine2': 'ясность.',
   'loginBrandPanel.stage.interview': 'Интервью',
   'loginBrandPanel.stage.screening': 'Скрининг',
+  'loginBrandPanel.stage.sourced': 'Найден',
+  'loginBrandPanel.subtext':
+    'Перетаскивайте кандидатов через этапы Найден → Скрининг → Интервью → Оффер → Нанят. ИИ проводит скрининг. Пульс справедливости держит каждый этап честным.',
   'nav.closeMenu': 'Закрыть меню',
   'nav.legal': 'Юридические',
   'nav.openMenu': 'Открыть меню',
@@ -165,6 +194,7 @@ export const ui: UiTranslations = {
     'Резюме ранжируются по соответствию требованиям; рекрутер в первую очередь рассматривает наиболее подходящие кандидатуры.',
   'newJob.aiToggle': 'Автоматическая оценка новых кандидатов',
   'newJob.back': 'Вернуться к вакансиям',
+  'newJob.basicsHeading': 'Основы роли',
   'newJob.compHeading': 'Компенсация',
   'newJob.departmentLabel': 'Отделение',
   'newJob.descHeading': 'Описание и требования',
@@ -174,6 +204,7 @@ export const ui: UiTranslations = {
   'newJob.failed': 'Не удалось сохранить работу.',
   'newJob.heading': 'Разместить вакансию',
   'newJob.publish': 'Опубликовать вакансию',
+  'newJob.reqLabel': 'Требования (по одному в строке)',
   'newJob.salaryMax': 'Максимальная заработная плата (в долларах США)',
   'newJob.salaryMin': 'Минимальная заработная плата (доллары США)',
   'newJob.stagesHeading': 'Этапы трубопровода',
@@ -189,6 +220,7 @@ export const ui: UiTranslations = {
   'newJob.type.fullTime': 'На постоянной основе',
   'newJob.type.partTime': 'Неполная занятость',
   'newJob.typeLabel': 'Тип занятости',
+  'pipeline.advanceTo': 'Продвинуть',
   'pipeline.allRoles': 'Все роли',
   'pipeline.daysInStage': '{{days}} д',
   'pipeline.empty': 'Кандидатов нет.',
@@ -202,13 +234,22 @@ export const ui: UiTranslations = {
     'Перетаскивайте кандидатов между этапами. Оценка ИИ и количество дней на этапе отображаются на каждой карточке.',
   'pipeline.viewTable': 'Табличный вид →',
   'pipelineFunnelHero.totalLabel': 'В движении',
+  'planUpdated.body':
+    'Изменение тарифа активировано. Вы можете управлять своим планом в любое время на странице оплаты.',
+  'planUpdated.retry': 'Попробуйте ещё раз',
+  'planUpdated.verifyFailed': 'Мы пока не можем подтвердить ваш платеж.',
+  'planUpdated.verifyFailedBody':
+    'Ваш платеж, возможно, еще обрабатывается. Попробуйте еще раз через минуту.',
   'planUpdated.verifying': 'Подтверждение платежа…',
   'pricing.heading': 'приложения',
+  'pricing.limits.applications': 'откликов',
   'pricing.limits.candidates': 'кандидаты',
   'pricing.limits.jobs': 'работа',
   'pricing.limits.scorecards': 'оценочные таблицы',
   'privacy.dataBody':
     'Адрес электронной почты учетной записи, хешированный пароль, метаданные профиля и созданные вами записи о кандидатах/вакансиях. Мы никогда не продаем и не передаем эти данные третьим лицам.',
+  'privacy.intro':
+    '{{app}} обрабатывает данные о найме от имени клиентов. Мы считаем записи кандидатов, резюме и переписку команды найма конфиденциальными и храним их в зашифрованном виде.',
   'privacy.retentionBody':
     'Вы можете удалить свою учетную запись в любое время в разделе «Настройки». Мы удаляем связанные с ней записи в течение 30 дней, за исключением случаев, когда хранение данных требуется по закону.',
   'privacy.title': 'Политика конфиденциальности',
@@ -218,6 +259,7 @@ export const ui: UiTranslations = {
     'Разрешите кандидатам и соискателям видеть ваше имя и должность в объявлениях о вакансиях.',
   'profile.publicLabel': 'Публичный профиль',
   'profile.publicOff': 'Скрытый',
+  'profile.publicOn': 'Видимый',
   'profile.recentEmpty': 'Пока нет мест для трудоустройства.',
   'profile.recentError': 'Не удалось загрузить информацию о последних местах работы.',
   'profile.recentEyebrow': 'Недавние стажировки',
@@ -243,9 +285,14 @@ export const ui: UiTranslations = {
   'resetPassword.missingFields': 'Выберите и подтвердите новый пароль.',
   'resetPassword.missingToken': 'Ссылка для сброса отсутствует или устарела — запросите новую.',
   'resetPassword.passwordLabel': 'Новый пароль',
+  'resetPassword.signInCta': 'Войти →',
+  'resetPassword.signInPrompt': 'Войдите, используя новый пароль.',
   'resetPassword.subheading':
     'Выберите надежный пароль — не менее 12 символов, с использованием символов разного регистра.',
+  'settings.appearance.description': 'Переключайтесь между светлым и темным режимом.',
   'settings.appearance.title': 'Появление',
+  'settings.deleteAccountModal.confirm':
+    'Введите пароль для подтверждения. Это действие необратимо.',
   'settings.emailTemplates.empty': 'Шаблоны пока не настроены.',
   'settings.emailTemplates.heading': 'Шаблоны электронных писем',
   'settings.emailTemplates.loadError': 'Не удалось загрузить шаблоны.',
@@ -256,10 +303,16 @@ export const ui: UiTranslations = {
   'settings.integrations.statusDisconnected': 'Нет подключения',
   'settings.integrations.updateError': 'Не удалось обновить интеграцию.',
   'settings.name': 'Имя',
+  'settings.passwordHelp': 'Обновите пароль, который вы используете для входа.',
+  'settings.revokeDeviceWarning': 'Доступ этого устройства скоро будет отозван. Выйти?',
   'settings.saveEmail': 'Сохранить адрес электронной почты',
   'settings.signOutDevice': 'выход',
   'settings.stages.empty': 'Этапы пока не настроены.',
+  'settings.stages.heading': 'Этапы трубопровода',
+  'settings.stages.help':
+    'Этапы, через которые проходят кандидаты. Удалите те, которые не используете.',
   'settings.stages.loadError': 'Не удалось загрузить этапы.',
+  'settings.stages.loading': 'Загрузка этапов…',
   'settings.stages.removeAria': 'Удалять {{name}} этап',
   'settings.stages.removeError': 'Не удалось удалить этап.',
   'settings.team.empty':
@@ -276,9 +329,15 @@ export const ui: UiTranslations = {
   'settings.team.removeError': 'Не удалось удалить участника.',
   'settings.twoFactorCode': 'Код аутентификации',
   'settings.twoFactorDisable': 'Отключить',
+  'settings.twoFactorDisableTitle': 'Отключить двухфакторную аутентификацию',
   'settings.twoFactorEnable': 'Включить',
+  'settings.twoFactorEnableTitle': 'Включить двухфакторную аутентификацию',
   'settings.twoFactorInvalidCode': 'Неверный код',
   'settings.twoFactorOn': 'О',
+  'settings.twoFactorQrAlt': 'QR-код для двухфакторной аутентификации',
+  'settings.twoFactorScan':
+    'Отсканируйте этот QR-код в приложении-аутентификаторе, затем введите 6-значный код.',
+  'settings.twoFactorUnavailable': 'Двухфакторная аутентификация для этого приложения недоступна.',
   'settings.twoFactorVerify': 'Проверить и включить',
   'settings.unknownDevice': 'Неизвестное устройство',
   'signup.confirmPlaceholder': 'Повторно введите свой пароль',
@@ -289,6 +348,8 @@ export const ui: UiTranslations = {
     'Создайте доску объявлений о вакансиях за 60 секунд. Пригласите команду позже.',
   'terms.acceptableUseBody':
     'Вы обязуетесь не злоупотреблять сервисом, не запускать автоматизированный сбор данных, не пытаться нарушить безопасность и не использовать его для дискриминации в отношении защищенных групп населения.',
+  'terms.intro':
+    'Используя {{app}}, вы соглашаетесь с этими условиями. Сервис предоставляется на условиях «как есть» с обязательствами и ограничениями, описанными ниже.',
   'terms.subscriptionBody':
     'Платные тарифные планы продлеваются ежемесячно до момента отмены. Вы можете отменить подписку в любое время через раздел «Оплата»; ваш тарифный план остается активным до конца текущего периода.',
   'terms.title': 'Условия предоставления услуг',

@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vous avez des commentaires, vous avez trouvé un bug, ou vous voulez nous raconter comment le journal vous a aidé ? Nous lisons chaque message — écrivez-nous quand vous voulez et une vraie personne vous répondra.',
+  'about.contactTitle': 'Contactez-nous',
+  'about.featureInsights':
+    'Des réflexions assistées par IA qui mettent doucement en lumière vos déclencheurs, vos thèmes et vos gratitudes — sans jamais effacer votre voix.',
+  'about.featureMood':
+    "Suivi de l'humeur et de l'activité avec une vue calendrier et des graphiques de tendance qui révèlent ce qui vous aide à vous épanouir.",
+  'about.featurePrivacy':
+    'Chiffrement de bout en bout, verrouillage par code et export CSV complet pour que vos réflexions restent privées et portables.',
+  'about.featurePrompts':
+    'Des invitations quotidiennes en douceur pour toujours avoir un point de départ — jamais de page blanche.',
+  'about.intro':
+    "{{app}} est un journal de santé mentale doux et privé pour la réflexion quotidienne, le suivi de l'humeur et la gratitude. Des invitations réfléchies remplacent la page blanche, une recherche discrète de vos tendances vous aide à comprendre ce qui influence ce que vous ressentez, et le chiffrement de bout en bout garde vos mots pour vous.",
+  'about.missionBody':
+    'Nous pensons que faire le point avec soi-même devrait être apaisant, jamais clinique — et jamais comme une appli de plus qui réclame votre attention. {{app}} est conçu pour aider, pas pour harceler : quelques minutes tranquilles par jour pour remarquer votre humeur, écrire honnêtement et, peu à peu, vous voir plus clairement.',
+  'about.missionTitle': 'Notre mission',
   'about.pageTitle': 'À propos de {{app}}',
   'authShell.encryptionBadge': 'Vos données sont chiffrées de bout en bout.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Jour {{day}} — aucune entrée',
   'calendar.cellMood': 'Jour {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Aperçu du mois',
   'calendar.eyebrow': 'Humeur en un coup d’œil',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Suivi de {{tracked}} sur {{total}} jours ce mois-ci.',
   'common.goToDashboard': 'Aller au tableau de bord',
   'common.tryAgain': 'Réessayer',
+  'entryComposer.bodyPlaceholder':
+    "Écrivez ce qui vous semble honnête. Personne d'autre ne lira ceci.",
   'entryComposer.cancel': 'Retour au journal',
   'entryComposer.heading': 'Réflexion du jour',
   'entryComposer.moodLabel': 'Comment vous sentez-vous ?',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Supprimer {{tag}}',
   'entryComposer.save': 'Enregistrer la réflexion',
   'entryComposer.saveError': 'Impossible d’enregistrer votre entrée.',
+  'entryComposer.tagPlaceholder': 'Ajoutez une étiquette et appuyez sur entrée',
   'entryComposer.titlePlaceholder': 'Donnez un nom à cette réflexion…',
   'entryDetail.back': 'Retour au journal',
   'entryDetail.delete': 'Supprimer cette entrée',
@@ -36,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Chargement de la réflexion…',
   'entryDetail.notFound': 'Entrée introuvable.',
   'entryDetail.reflectionsHeading': 'Réflexions IA',
+  'forgotPassword.continueButton': 'Saisir le code de réinitialisation',
   'forgotPassword.eyebrow': 'Pas d’inquiétude',
   'forgotPassword.subheading': 'Nous vous enverrons un lien de réinitialisation tout en douceur.',
   'forgotPassword.successBody':
@@ -58,14 +79,22 @@ export const ui: UiTranslations = {
     'Pas encore de thème ? Ajoutez une ou deux étiquettes à vos articles et ils seront regroupés ici.',
   'insights.themesHeading': 'Thèmes principaux',
   'insights.triggerFrequency': 'remarqué {{count}}× ce mois-ci',
+  'insights.triggersEmpty':
+    "Rien à remarquer pour l'instant. Quelques entrées sur plusieurs jours révéleront vos tendances.",
   'insights.triggersHeading': 'Schémas qui influencent votre humeur',
+  'journal.empty':
+    'Aucune réflexion ne correspond — essayez un autre filtre ou écrivez une nouvelle entrée.',
   'journal.eyebrow': 'Vos réflexions',
   'journal.heading': 'Journal',
   'journal.loadError': 'Échec du chargement des entrées.',
   'journal.loading': 'Chargement des entrées…',
+  'journal.newEntry': 'Nouvelle entrée',
   'journal.searchPlaceholder': 'Recherchez un sentiment, un nom, un moment…',
   'journal.subheading': '{{count}} entrées — chacune vaut la peine d’être gardée.',
   'journalEntryCard.encryptedLabel': 'Chiffré',
+  'landing.ctaBody':
+    "Gratuit pour commencer. Pro débloque l'export des données, un journal plus grand et une année complète d'historique.",
+  'landing.ctaButton': 'Commencez votre première entrée',
   'landing.ctaTitle': 'Quelques minutes paisibles par jour. C’est tout.',
   'landing.eyebrow': 'Une pratique quotidienne en douceur',
   'landing.featuresBody':
@@ -84,6 +113,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Un espace doux pour la réflexion quotidienne.',
   'mentalHealthJournalLayout.closeMenu': 'Fermer le menu',
   'mentalHealthJournalLayout.openMenu': 'Ouvrir le menu',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Navigation principale',
+  'moodHeroCard.entriesThisWeek': '{{count}} cette semaine',
   'moodHeroCard.streakSuffix': 'jours d’affilée',
   'moodHeroCard.title': 'Réflexion du jour',
   'moodTrendChart.aiBadge': 'Analyse IA prête',
@@ -94,11 +125,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Votre cheminement',
   'profile.fallbackName': 'Réflecteur',
   'profile.loadError': 'Échec du chargement des statistiques.',
+  'profile.loading': 'Actualisation de vos statistiques…',
   'profile.longestStreak': 'Plus longue série',
   'profile.memberSince': 'Réflexions depuis le {{date}}',
   'profile.milestones': 'Étapes clés',
   'profile.milestonesEmpty':
     'Votre premier jalon est à portée de main — écrivez dès que vous vous sentez prêt.',
+  'profile.moodMix': "Votre palette d'humeurs cette saison",
   'profile.streakValue': '{{days}}j',
   'profile.totalEntries': 'Réflexions',
   'profile.totalWords': 'Mots écrits',
@@ -111,6 +144,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Écrire à ce sujet',
   'resetPassword.eyebrow': 'Un nouveau départ',
   'resetPassword.mismatchError': 'Les mots de passe ne correspondent pas.',
+  'resetPassword.passwordLabel': 'Nouveau mot de passe',
   'resetPassword.subheading': 'Choisissez quelque chose de sûr — vos réflexions le méritent.',
   'resetPassword.tokenPlaceholder': 'Code de réinitialisation reçu par e-mail',
   'settings.dangerDescription':
@@ -123,11 +157,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     'Vos mots vous appartiennent toujours. Téléchargez une copie quand vous voulez.',
   'settings.exportDone': 'Exporté en {{format}}.',
+  'settings.exportError': "Échec de l'export.",
+  'settings.exportHeading': 'Exportez vos réflexions',
   'settings.exportLoading': 'Préparation…',
   'settings.eyebrow': 'Votre espace, vos règles',
   'settings.languageHeading': 'Langue',
   'settings.privacyHeading': 'Confidentialité et chiffrement',
   'settings.remindersHeading': 'Rappel quotidien',
+  'settings.reminderToggleAria': 'Activer/désactiver le rappel quotidien',
   'settings.reminderToggleDescription':
     'Un seul rappel calme à l’heure que vous choisissez. Pas de badges ni de culpabilité de série.',
   'settings.reminderToggleLabel': 'Envoyer un rappel doux',
@@ -140,6 +177,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Création du journal…',
   'signup.subheading': 'Un espace sûr pour vos pensées.',
   'wellnessRingsTriad.mindfulnessCaption': 'Objectif {{goal}} min aujourd’hui',
+  'wellnessRingsTriad.mindfulnessLabel': 'Pleine conscience',
   'wellnessRingsTriad.sleepCaption': 'Objectif {{goal}}h / nuit',
   'wellnessRingsTriad.sleepLabel': 'Sommeil',
+  'wellnessRingsTriad.sleepValue': '{{hours}} h',
+  'wellnessRingsTriad.streakCaption': 'Objectif {{goal}} jours',
+  'wellnessRingsTriad.streakLabel': 'Série de journal',
+  'wellnessRingsTriad.streakValue': '{{days}} j',
 }

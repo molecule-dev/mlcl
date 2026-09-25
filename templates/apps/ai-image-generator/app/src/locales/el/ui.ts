@@ -1,14 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχεις σχόλια, αντιμετώπισες κάποιο πρόβλημα ή θέλεις να μας πεις τι να φτιάξουμε μετά; Επικοινώνησε με την ομάδα στο hello@reverie.app — κάθε μήνυμα φτάνει σε έναν πραγματικό άνθρωπο που φτιάχνει το προϊόν.',
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.missionTitle': 'Η αποστολή μας',
   'auth.fields.newPassword': 'Νέος κωδικός πρόσβασης',
   'collectionDetail.addImage': 'Δημιουργία για τη συλλογή',
   'collectionDetail.backCta': 'Πίσω στις συλλογές',
   'collectionDetail.coverNote': 'Επιμελημένο moodboard με {{count}} εικόνες.',
   'collectionDetail.editName': 'Όνομα συλλογής',
+  'collectionDetail.empty':
+    'Δεν υπάρχουν ακόμη εικόνες σε αυτή τη συλλογή — δημιούργησε κάτι για να προσθέσεις.',
   'collectionDetail.loading': 'Φόρτωση συλλογής…',
   'collectionDetail.loadingImages': 'Φόρτωση εικόνων…',
+  'collectionDetail.notFoundBody': 'Αυτή η συλλογή έχει αφαιρεθεί ή είναι ιδιωτική.',
   'collectionDetail.notFoundTitle': 'Συλλογή μη διαθέσιμη',
   'collectionDetail.shared': 'Η ορατότητα άλλαξε',
   'collections.create': 'Νέα συλλογή',
@@ -16,6 +22,7 @@ export const ui: UiTranslations = {
     'Δεν υπάρχουν ακόμα συλλογές. Δημιουργήστε μία για να αρχίσετε να επιμελείστε τη δουλειά σας.',
   'collections.imageCount': '{{count}} εικόνες',
   'collections.loading': 'Φόρτωση συλλογών…',
+  'collections.noDescription': 'Δεν υπάρχει περιγραφή ακόμη — άνοιξέ την για να προσθέσεις μία.',
   'collections.subtitle': 'Moodboards, brief και τρέχουσες σειρές',
   'collections.title': 'Συλλογές',
   'collections.untitled': 'Χωρίς τίτλο · {{stamp}}',
@@ -55,6 +62,8 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'Εισαγάγετε το email που είναι συνδεδεμένο με τον λογαριασμό σας Reverie και θα σας στείλουμε έναν σύνδεσμο επαναφοράς.',
   'forgot.successBody': "Ένας σύνδεσμος επαναφοράς είναι καθ' οδόν προς {{email}}.",
+  'gallery.empty.body':
+    'Δοκίμασε διαφορετική κατάσταση ή δημιούργησε μια νέα παρτίδα από το studio.',
   'gallery.empty.title': 'Τίποτα δεν ταιριάζει με αυτό το φίλτρο',
   'gallery.exportAll': 'Εξαγωγή όλων',
   'gallery.exported': 'Εξαγωγή σε ουρά',
@@ -77,12 +86,15 @@ export const ui: UiTranslations = {
   'generate.controls.title': 'Ρυθμίστε το όνειρο',
   'generate.defaultPrompt': 'Ένα νέο όνειρο',
   'generate.progress': 'Βήμα {{step}} / {{total}}',
+  'generate.submitFailed':
+    'Η δημιουργία δεν μπόρεσε να μπει στην ουρά — έλεγξε τη σύνδεσή σου και δοκίμασε ξανά.',
   'generate.subtitle': 'Συνθέστε ένα prompt, ρυθμίστε τα στοιχεία ελέγχου, δημιουργήστε παραλλαγές',
   'generate.title': 'Στούντιο',
   'generation.created': '{{when}}',
   'imageDetail.acting': 'Εργασία…',
   'imageDetail.actionFailed': 'Η ενέργεια απέτυχε.',
   'imageDetail.actions': 'Ενέργειες εικόνας',
+  'imageDetail.downloadStarted': 'Η λήψη ξεκίνησε.',
   'imageDetail.downloadUnavailable': 'Δεν υπάρχει ακόμα διαθέσιμη εικόνα για λήψη.',
   'imageDetail.fields.aspect': 'Λόγος',
   'imageDetail.fields.created': 'Δημιουργήθηκε',
@@ -93,11 +105,17 @@ export const ui: UiTranslations = {
   'imageDetail.notFoundTitle': 'Εικόνα μη διαθέσιμη',
   'imageDetail.noVariations': 'Δεν υπάρχουν ακόμα παραλλαγές — ζητήστε μία παραπάνω.',
   'imageDetail.openEditor': 'Άνοιγμα στον επεξεργαστή',
+  'imageDetail.tips.lockSeed':
+    'Κλείδωσε το seed για να πειραματιστείς με τον φωτισμό χωρίς να χάσεις τη σύνθεση.',
+  'imageDetail.tips.upscale':
+    'Εκτέλεσε upscale 4× πριν την εξαγωγή για ποιότητα έτοιμη για εκτύπωση.',
   'imageDetail.tipsTitle': 'Βελτιώστε το όνειρο',
+  'imageDetail.title': 'Εικών',
   'imageDetail.upscaleQueued': 'Η αναβάθμιση σε ουρά',
   'imageDetail.variations': 'Παραλλαγές',
   'imageDetail.variationsQueued': 'Παραλλαγές σε ουρά',
   'imageDetail.visibilityToggled': 'Η ορατότητα ενημερώθηκε',
+  'landing.copyright': '© {{year}} {{appName}} Labs. Κατασκευασμένο με Molecule.dev.',
   'landing.cta': 'Ξεκινήστε να δημιουργείτε',
   'landing.eyebrow': 'Τώρα σερβίρει το Reverie XL v3',
   'landing.featuresEyebrow': 'Γιατί Reverie',
@@ -138,8 +156,18 @@ export const ui: UiTranslations = {
     'Η δραστηριότητα δημιουργίας, η κοινοποίηση και οι ειδοποιήσεις credits θα εμφανιστούν εδώ.',
   'notifications.empty.title': 'Τίποτα προς αναφορά',
   'notifications.subtitle': 'Συμβάντα δημιουργίας ομαδοποιημένα ανά ημέρα',
+  'planUpdated.confirmed': 'Το πρόγραμμά σου {{planKey}} είναι ενεργό και έχουν προστεθεί credits.',
+  'planUpdated.error':
+    'Δεν μπορέσαμε να επιβεβαιώσουμε αυτόματα την αναβάθμισή σου. Επικοινώνησε με την υποστήριξη.',
+  'planUpdated.retry': 'Δοκιμάστε ξανά',
+  'planUpdated.unpaid':
+    'Η συνεδρία πληρωμής σου δεν έχει πληρωθεί. Δοκίμασε ξανά από τις Ρυθμίσεις.',
+  'planUpdated.verifyFailed': 'Δεν μπορέσαμε να επιβεβαιώσουμε ακόμη την πληρωμή σας.',
+  'planUpdated.verifyFailedBody':
+    'Η πληρωμή σας ενδέχεται να βρίσκεται ακόμη υπό επεξεργασία. Δοκιμάστε ξανά σε λίγο.',
   'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'pricing.limits.gallery': '{{count}} συλλογή',
+  'pricing.limits.generations': '{{count}} δημιουργίες',
   'privacy.collect.body':
     'Όταν εγγραφείτε, συλλέγουμε το όνομά σας, τη διεύθυνση email σας και έναν κωδικό πρόσβασης σε μορφή hash. Όταν χρησιμοποιείτε το Reverie, αποθηκεύουμε τα prompts που υποβάλλετε, τις εικόνες που δημιουργούμε για εσάς, τα στυλ και τις συλλογές που αποθηκεύετε, καθώς και μεταδεδομένα όπως το μοντέλο που χρησιμοποιήθηκε, τις χρονοσφραγίδες δημιουργίας και το υπόλοιπο credits.',
   'privacy.cookies.body':
@@ -153,6 +181,8 @@ export const ui: UiTranslations = {
   'profile.followedBio': 'Ξεκινήσατε να ακολουθείτε έναν δημιουργό μόλις τώρα',
   'profile.following': 'Ακολούθηση…',
   'profile.loadingWorks': 'Φόρτωση δημόσιων έργων…',
+  'profile.noPublicWorks':
+    'Δεν υπάρχουν δημόσια έργα ακόμη — μοιράσου μια εικόνα για να γεμίσεις αυτή τη συλλογή.',
   'profile.notFoundTitle': 'Προφίλ μη διαθέσιμο',
   'profile.publicWorks': 'Δημόσια έργα',
   'profile.subtitle': '@{{handle}} · δημόσιο προφίλ δημιουργού',
@@ -165,6 +195,7 @@ export const ui: UiTranslations = {
   'prompts.empty.cta': 'Άνοιγμα στούντιο',
   'prompts.empty.title': 'Δεν αντιστοιχούν αποθηκευμένα prompts',
   'prompts.lastUsed': 'Χρησιμοποιήθηκε {{when}}',
+  'prompts.loading': 'Φόρτωση μηνυμάτων προτροπής…',
   'prompts.negativeLabel': 'ΑΡΝ',
   'prompts.runAgain': 'Εκτέλεση',
   'prompts.running': 'Εκτέλεση…',
@@ -180,6 +211,7 @@ export const ui: UiTranslations = {
   'settings.account.saveFailed': 'Δεν ήταν δυνατή η αποθήκευση του προφίλ',
   'settings.account.title': 'Προφίλ δημιουργού',
   'settings.accountSecurity': 'Λογαριασμός και ασφάλεια',
+  'settings.accountSecurity.title': 'Σύνδεση, συσκευές & λογαριασμός',
   'settings.api.empty':
     'Δεν υπάρχουν ακόμα κλειδιά API — δημιουργήστε ένα για να ξεκινήσετε την ενσωμάτωση.',
   'settings.api.loading': 'Φόρτωση κλειδιών API…',
@@ -199,12 +231,16 @@ export const ui: UiTranslations = {
   'sidebar.secondary': 'Δευτερεύουσα πλοήγηση',
   'signup.failed': 'Η εγγραφή απέτυχε. Δοκιμάστε ξανά.',
   'signup.firstNamePlaceholder': 'Άρια',
+  'signup.haveAccount': 'Είσαι ήδη ονειροπόλος;',
   'signup.heading': 'Ξεκινήστε το όνειρό σας',
   'signup.lastNamePlaceholder': 'Λιν',
   'signup.subheading': 'Δημιουργήστε λογαριασμό και διεκδικήστε 120 δωρεάν credits.',
+  'styles.body':
+    'Κάθε preset συνδυάζει το δικό του μοντέλο, sampler, δομή prompt και style chips. Ενεργοποίησε ένα για να κλειδώσεις όλο το studio σε αυτή τη διάθεση — ιδανικό για εργασία σε σειρές.',
   'styles.empty': 'Δεν υπάρχουν ακόμα προεπιλογές στυλ — θα εμφανιστούν μετά την πρώτη σύνδεση.',
   'styles.eyebrow': 'Επιμελημένα',
   'styles.headline': 'Δημιουργήστε πιο γρήγορα με επαναχρησιμοποιήσιμες οπτικές προεπιλογές',
+  'styles.loading': 'Φόρτωση βιβλιοθήκης στυλ…',
   'styles.subtitle': 'Επιμελημένες οπτικές προεπιλογές από την ομάδα του στούντιο Reverie',
   'styles.title': 'Βιβλιοθήκη στυλ',
   'terms.acceptableUse.body':

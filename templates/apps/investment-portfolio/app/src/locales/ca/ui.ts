@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens comentaris, has trobat un error o vols una funció? Escriu-nos des de la configuració del teu compte: cada missatge arriba a una persona real de l'equip. Nota: res d'aquí no és assessorament d'inversió; tu mantens el control de cada operació.",
+  'about.contactTitle': 'Parla amb nosaltres',
+  'about.featureAttribution':
+    "Atribució del rendiment: desglossa els rendiments per sector, regió i classe d'actius, i compara'ls amb un índex de referència en qualsevol període.",
+  'about.featureRebalance':
+    'Rebalanceig disciplinat: defineix assignacions objectiu i franges de tolerància, veu la desviació detectada aviat i obtén les operacions que et tornen a la senda.',
+  'about.featureTax':
+    'Higiene de documents fiscals: guanys realitzats i no realitzats, dividends i documents 1099 en un sol lloc, amb indicadors de vendes per pèrdues (wash-sale) inclosos.',
+  'about.featureUnified':
+    "Una cartera unificada: accions, ETF, fons d'inversió, bons i molt més, reunits de tots els comptes de corretatge.",
+  'about.featureWatchlist':
+    'Llistes de seguiment, notícies i alertes de preus perquè puguis actuar sobre el que importa sense soroll.',
+  'about.intro':
+    "{{app}} és un tauler de carteres multiactiu per a inversors individuals i assessors independents. Accions, ETF, fons d'inversió, bons, immobles i efectiu: totes les posicions de tots els comptes, en un sol lloc, amb la disciplina d'una taula professional.",
+  'about.missionBody':
+    'Invertir bé és sobretot disciplina: una assignació objectiu clara, una atribució del rendiment honesta i uns registres fiscals endreçats. {{app}} porta aquests hàbits institucionals a tothom, perquè puguis rebalancejar a propòsit i no per impuls, i no perdis mai de vista què està fent realment la teva cartera.',
+  'about.missionTitle': 'La nostra missió',
   'about.pageTitle': 'Sobre {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Eines de riquesa',
   'argentAuthShell.brandFootnote': "© {{year}} {{app}} . No és assessorament d'inversions.",
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Un quadre de comandament de cartera per a inversors individuals i assessors que volen un reequilibri disciplinat, una atribució precisa del rendiment i higiene fiscal, sense soroll.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · El rendiment passat no garanteix resultats futurs.',
   'argentAuthShell.sampleChange': '+2.841 $ (+0,28 %) avui',
+  'argentAuthShell.sampleLabel': 'Valor de la cartera',
   'argentAuthShell.sampleValue': '1.032.251 dòlars',
   'argentLayout.primaryNavLabel': 'Navegació principal',
   'assetAllocationDonut.heading': 'Com s’inverteixen els teus diners',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'avui',
   'assetDetail.txEmpty': 'No hi ha transaccions per a aquest ticker.',
   'assetDetail.txHeading': 'Les teves transaccions',
+  'auth.legalConsent.prefix': 'En continuar, acceptes les {{appName}} de',
   'common.and': 'i',
   'common.goToDashboard': 'Anar al panell',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'avui',
   'dashboard.topHoldings.heading': 'On treballen els teus diners',
   'dashboard.topHoldings.label': 'Principals participacions',
+  'forgotPassword.gotLinkCta': 'Tinc un enllaç de restabliment →',
+  'forgotPassword.subheading':
+    "Introdueix el correu electrònic del teu compte de Gavl i t'enviarem un enllaç de restabliment segur.",
   'forgotPassword.successBody':
     'Si no ho veieu en uns minuts, reviseu la carpeta de correu brossa o proveu amb un altre correu electrònic.',
   'forgotPassword.successSubheading':
     'Comprovar {{email}} per a un enllaç de restabliment. Caduca en 60 minuts.',
+  'forgotPassword.successTitle': 'Correu de restabliment en camí',
   'holdingHighlightRow.todayLabel': 'avui',
   'holdings.addCta': 'Comprar',
   'holdings.col.allocation': 'Assignació',
@@ -58,6 +87,8 @@ export const ui: UiTranslations = {
     "© {{year}} {{app}} . No és assessorament d'inversions. El rendiment passat no garanteix els resultats futurs.",
   'landing.eyebrow': 'Argent · Una plataforma d’eines per a la riquesa',
   'landing.features.heading': 'Tot el que un assessor construiria per si mateix.',
+  'landing.finalCta.body': 'Connecta el teu corretatge en dos clics. {{appName}} fa la resta.',
+  'landing.finalCta.cta': 'Obre el teu compte Argent',
   'landing.finalCta.heading': 'Retorna la disciplina al teu portafoli.',
   'landing.footerSignup': 'Obre un compte',
   'landing.getStarted': 'Obre un compte',
@@ -65,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Veure preus',
   'landing.heroSubtitle':
     'Un quadre de comandament de cartera per a inversors individuals i assessors que volen un reequilibri disciplinat, una atribució precisa del rendiment i higiene fiscal, sense soroll.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Una vista prèvia en directe d’un portafoli representatiu',
   'login.heading': 'Inicia la sessió a Argent',
   'login.subheading':
@@ -76,6 +108,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} fa h',
   'news.justNow': 'ara mateix',
   'news.loadError': 'No s’han pogut carregar les notícies.',
+  'planUpdated.body':
+    'El canvi de facturació ja és actiu. Pots gestionar el teu pla en qualsevol moment des de la pàgina de facturació.',
+  'planUpdated.retry': 'Torna-ho a intentar',
+  'planUpdated.verifyFailed': 'Encara no hem pogut confirmar el vostre pagament.',
+  'planUpdated.verifyFailedBody':
+    "És possible que el vostre pagament encara s'estigui processant. Torneu-ho a provar en un moment.",
   'planUpdated.verifying': 'Confirmant el teu pagament…',
   'portfolioHeroCard.label': 'Valor de la cartera',
   'pricing.holdingsLabel': 'participacions',
@@ -86,13 +124,18 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Desviació de l’assignació',
   'rebalance.empty': 'Encara no s’han fixat objectius.',
   'rebalance.executeCta': 'Lloc {{count}} comerços',
+  'rebalance.executeError': "No s'han pogut col·locar les operacions.",
   'rebalance.executeOk':
     'Col·locat {{count}} operacions. Visualitzeu-les a la pàgina Transaccions.',
+  'rebalance.executing': 'Col·locant…',
   'rebalance.eyebrow': 'Reequilibri · Assessor d’Argent',
   'rebalance.heading': 'Retorna la disciplina al teu portafoli',
   'rebalance.loadError': 'No s’ha pogut carregar el pla de reequilibri.',
+  'rebalance.plan.driftLine': 'actualment {{current}}% · objectiu {{target}}%',
   'rebalance.planHeading': 'Tiquet Argent: revisió abans de col·locar-lo',
   'rebalance.planLabel': 'Pla comercial suggerit',
+  'rebalance.subheading':
+    "Les files fora de la seva franja de tolerància generen suggeriments d'operacions. {{appName}} només actua amb la teva confirmació.",
   'rebalance.summary.buyLabel': 'Compres',
   'rebalance.summary.buySub': 'posicions per completar',
   'rebalance.summary.driftLabel': 'Fora de banda',
@@ -101,6 +144,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'a través de les operacions suggerides',
   'rebalance.summary.sellLabel': 'Ven',
   'rebalance.summary.sellSub': 'posicions per retallar',
+  'rebalanceDriftCard.drift': 'desviació {{sign}}{{pct}}% · franja ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'objectiu {{pct}} %',
   'reports.attributionHeading': 'Atribució de rendiment (1 any)',
   'reports.col.alpha': 'Alfa',
@@ -114,37 +158,69 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Any',
   'reports.gainsHeading': 'Guanys realitzats i no realitzats',
   'reports.noAttribution': 'Encara no hi ha dades d’atribució.',
+  'reports.noGains': 'Encara no hi ha dades de guanys realitzats/no realitzats.',
   'reports.noPerformance': 'Encara no hi ha dades de rendiment.',
   'reports.noTaxDocs': 'Encara no hi ha documents fiscals.',
   'reports.performanceHeading': 'Rendiment vs. punt de referència',
   'reports.taxHeading': 'Documents fiscals',
   'resetPassword.heading': 'Trieu una contrasenya nova i segura',
+  'resetPassword.passwordPlaceholder': 'Nova contrasenya',
   'resetPassword.subheading':
     'Argent iniciarà la sessió automàticament un cop definida la contrasenya.',
   'resetPassword.tokenPlaceholder': 'Restableix el testimoni del correu electrònic',
+  'settings.appearance.description': 'Alterna entre el mode clar i el mode fosc.',
   'settings.appearance.title': 'Aspecte',
+  'settings.devices.body': 'Dispositius que actualment tenen la sessió iniciada al vostre compte.',
+  'settings.devices.empty': "No s'han trobat dispositius.",
   'settings.devices.heading': 'Dispositius',
+  'settings.devices.revokeWarning':
+    "L'accés d'aquest dispositiu es revocarà aviat. Voleu tancar la sessió?",
   'settings.devices.signOut': 'Tanca la sessió',
   'settings.devices.thisDevice': 'Aquest dispositiu',
   'settings.devices.unknown': 'Dispositiu desconegut',
   'settings.linked.body':
     'La sincronització de brokers requereix un connector de tercers (Plaid, Yodlee, etc.). Configureu el proveïdor al vostre entorn per habilitar la importació automàtica.',
   'settings.linked.heading': 'Comptes de corretatge vinculats',
+  'settings.linked.placeholder': 'Encara no hi ha cap compte enllaçat.',
+  'settings.notifications.dividendsPaid': 'Dividends pagats',
   'settings.notifications.error': 'No s’ha pogut actualitzar la preferència.',
   'settings.notifications.priceAlerts': 'Alertes de preus',
+  'settings.notifications.rebalanceDrift': 'Desviació del rebalanceig',
+  'settings.notifications.taxDocsReady': 'Documents fiscals a punt',
   'settings.profile.advisor': 'Correu electrònic de l’assessor (opcional)',
   'settings.profile.heading': 'Perfil',
   'settings.security.changePassword': 'Canvia la contrasenya',
+  'settings.security.changePasswordTitle': 'Canvia la contrasenya',
   'settings.security.changing': 'Canviant…',
+  'settings.security.confirmPassword': 'Contrasenya',
+  'settings.security.currentPassword': 'Contrasenya actual',
   'settings.security.deleteAccount': 'Suprimeix el compte',
   'settings.security.deleteError': "No s'ha pogut eliminar el compte.",
   'settings.security.deleteHeading': 'Suprimeix el compte',
+  'settings.security.deleteModalWarning':
+    'Això elimina permanentment el teu compte i les teves dades. Introdueix la contrasenya per confirmar-ho.',
+  'settings.security.deleteWarning':
+    'Suprimeix permanentment el teu compte i totes les dades associades. Aquesta acció no es pot desfer.',
   'settings.security.deleting': "S'està suprimint…",
   'settings.security.heading': 'Seguretat',
   'settings.security.newPassword': 'Nova contrasenya',
   'settings.security.password': 'Contrasenya',
+  'settings.security.passwordError': "No s'ha pogut canviar la contrasenya.",
+  'settings.security.passwordHint': 'Canvia la contrasenya que utilitzes per iniciar sessió.',
+  'settings.security.twoFactor': 'Autenticació de dos factors',
+  'settings.security.twoFactorCode': "Codi d'autenticació",
+  'settings.security.twoFactorDisable': 'Desactiva',
+  'settings.security.twoFactorDisableTitle': "Desactiva l'autenticació de dos factors",
   'settings.security.twoFactorEnable': 'Activa',
+  'settings.security.twoFactorEnableTitle': "Activa l'autenticació de dos factors",
+  'settings.security.twoFactorHint': 'Afegeix una capa extra de protecció al teu compte.',
   'settings.security.twoFactorInvalidCode': 'Codi no vàlid',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'Codi QR de dos factors',
+  'settings.security.twoFactorScan':
+    "Escaneja aquest codi QR amb la teva aplicació d'autenticació i després introdueix el codi de 6 dígits.",
+  'settings.security.twoFactorUnavailable':
+    "L'autenticació de dos factors no està disponible per a aquesta aplicació.",
   'settings.security.twoFactorVerify': 'Verifica i activa',
   'settings.tax.error': 'No s’ha pogut actualitzar el mètode impositiu.',
   'settings.tax.heading': 'Comptabilitat de lots d’impostos',
@@ -155,6 +231,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Mètode fiscal desat.',
   'signup.eyebrow': 'Obre un compte',
   'signup.heading': 'Obre el teu compte Argent',
+  'signup.legalPrefix': 'En crear un compte, acceptes les {{appName}}',
   'signup.subheading': 'Gratuït durant 30 dies. No cal targeta. Cancel·la quan vulguis.',
   'signup.terms':
     'En crear un compte, acceptes els Termes de servei i la Política de privadesa d’Argent.',

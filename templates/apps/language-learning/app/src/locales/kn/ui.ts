@@ -1,12 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ಪ್ರಶ್ನೆಗಳು, ಪ್ರತಿಕ್ರಿಯೆ ಅಥವಾ ವರದಿ ಮಾಡಲು ದೋಷವಿದೆಯೇ? ನಿಮ್ಮ ಖಾತೆ ಸೆಟ್ಟಿಂಗ್ಗಳಿಂದ ತಂಡವನ್ನು ಸಂಪರ್ಕಿಸಿ — ಪ್ರತಿ ಸಂದೇಶವೂ ಭಾಷೆಗಳನ್ನು ಕಲಿಯುವ ನಿಜವಾದ ಮನುಷ್ಯನ ಬಳಿಗೆ ತಲುಪುತ್ತದೆ.',
   'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
+  'about.whatYouGet': 'ನೀವು ಏನು ಪಡೆಯುತ್ತೀರಿ',
   'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'common.logout': 'ಲಾಗ್ಔಟ್',
+  'dailyStatsTriad.heartsHint': 'ಪ್ರತಿ ಪಾಠದ ಆರಂಭದಲ್ಲಿ ಮರುಪೂರಣ',
   'dailyStatsTriad.heartsLabel': 'ಹೃದಯಗಳು',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
+  'dailyStatsTriad.minutesHint': 'ಇಂದಿನ ವ್ಯಾಯಾಮಗಳಿಂದ',
   'dailyStatsTriad.minutesLabel': 'ಇಂದಿನ ನಿಮಿಷಗಳು',
   'dailyStatsTriad.minutesValue': '{{count}} ನಿಮಿಷ',
   'dailyStatsTriad.wordsLabel': 'ಪದಗಳನ್ನು ಕರಗತ ಮಾಡಿಕೊಂಡರು',
@@ -15,18 +21,29 @@ export const ui: UiTranslations = {
   'dashboard.heading': 'ಬ್ಯೂನಸ್ ಡಿಯಾಸ್, {{name}} .',
   'dashboard.loadError':
     'ಇತ್ತೀಚಿನ ಪ್ರಗತಿಯನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ — ಕ್ಯಾಶ್ ಮಾಡಿದ ಮೌಲ್ಯಗಳನ್ನು ತೋರಿಸುತ್ತಿದೆ.',
+  'dashboard.loading': 'ರಿಫ್ರೆಶ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'dashboard.noLessons': 'ಇನ್ನೂ ಯಾವುದೇ ಪಾಠಗಳು ಲಭ್ಯವಿಲ್ಲ — ಶೀಘ್ರದಲ್ಲೇ ಮತ್ತೆ ಪರಿಶೀಲಿಸಿ.',
+  'dashboard.startPractice': 'ಮಾತನಾಡುವ ಅಭ್ಯಾಸ ಪ್ರಾರಂಭಿಸಿ',
+  'dashboard.subheading':
+    'ನೀವು ನಿಲ್ಲಿಸಿದಲ್ಲಿಂದ ಮುಂದುವರಿಸಿ — ಮೂರು ಸಣ್ಣ ಅವಧಿಗಳಲ್ಲಿ ಇಂದಿನ ಗುರಿ ತಲುಪುತ್ತೀರಿ.',
   'dashboard.viewAllLessons': 'ಎಲ್ಲಾ ಪಾಠಗಳು →',
+  'forgotPassword.subheading': 'ನಿಮ್ಮ ಇಮೇಲ್ ಹಾಕಿ, ನಾವು ರೀಸೆಟ್ ಲಿಂಕ್ ಕಳುಹಿಸುತ್ತೇವೆ.',
   'forgotPassword.successBody':
     'ನಿಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್ ಪರಿಶೀಲಿಸಿ — ಅದನ್ನು ಮರುಹೊಂದಿಸಲು ನಾವು ಲಿಂಕ್ ಕಳುಹಿಸಿದ್ದೇವೆ.',
   'forgotPassword.successHint':
     'ಒಂದು ವೇಳೆ {{email}} ಖಾತೆಗೆ ಹೊಂದಿಕೆಯಾಗುತ್ತಿದ್ದರೆ, ಲಿಂಕ್ ಒಂದು ನಿಮಿಷದೊಳಗೆ ಬರುತ್ತದೆ.',
+  'landing.copyright': '© {{year}} {{app}}. ವಯಸ್ಕ ಕಲಿಯುವವರಿಗಾಗಿ ನಿರ್ಮಿಸಲಾಗಿದೆ.',
   'landing.ctaBody':
     'ಕಾರ್ಡ್ ಅಗತ್ಯವಿಲ್ಲ. ನಿಮ್ಮ ಇಮೇಲ್ ಕಳುಹಿಸಿ, ಭಾಷೆಯನ್ನು ಆರಿಸಿ, ನಾಳೆಯಿಂದ ಪ್ರಾರಂಭಿಸಿ.',
   'landing.ctaHeading': 'ನಿಮ್ಮ ಉಚ್ಚಾರಣೆಯನ್ನು ಹುಡುಕಲು ಸಿದ್ಧರಿದ್ದೀರಾ?',
   'landing.eyebrow': 'ವಯಸ್ಕರಿಗೆ ದೈನಂದಿನ ಭಾಷಾ ಅಭ್ಯಾಸ',
   'landing.featuresHeading': 'ನಿಮ್ಮ ಸಮಯವನ್ನು ಗೌರವಿಸುವ ಅಭ್ಯಾಸ ಲೂಪ್',
+  'landing.featuresSubheading':
+    'ದಿನಕ್ಕೆ ಮೂವತ್ತು ನಿಮಿಷ, ವಾರಕ್ಕೆ ಮೂವತ್ತು ಗಂಟೆ ಅಲ್ಲ — ವಯಸ್ಕರಿಗಾಗಿ ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ.',
   'landing.heroCta': '7 ದಿನಗಳ ಸರಣಿಯನ್ನು ಪ್ರಾರಂಭಿಸಿ',
+  'landing.heroSubtitle':
+    'ಕಾಫಿ ವಿರಾಮಕ್ಕೆ ಸರಿಹೊಂದುವ ಐದು ನಿಮಿಷದ ಪಾಠಗಳು. ಡ್ರಿಲ್ಗಳು, ಪದಸಂಪತ್ತು, ಮಾತು — ಎಲ್ಲವೂ ನೀವು ನಿಜವಾಗಿಯೂ ಉಳಿಸಿಕೊಳ್ಳುವ ಸ್ಟ್ರೀಕ್ನಲ್ಲಿ.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.languagesEyebrow': 'ಭಾಷೆಯನ್ನು ಆರಿಸಿ',
   'landing.languagesHeading': 'ಹದಿನಾಲ್ಕು ಭಾಷೆಗಳು, ಒಂದು ದೈನಂದಿನ ಅಭ್ಯಾಸ',
   'landing.proof.languages': '{{count}} ಭಾಷೆಗಳು',
@@ -41,10 +58,17 @@ export const ui: UiTranslations = {
   'leaderboard.heading': 'ಲೀಡರ್‌ಬೋರ್ಡ್',
   'leaderboard.loadError': 'ಲೀಡರ್‌ಬೋರ್ಡ್ ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'leaderboard.loading': 'ಲೀಡರ್‌ಬೋರ್ಡ್ ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
+  'leaderboard.rewardBody':
+    'ಸತತ ಮೂರು ವಾರ ಚಿನ್ನ ಹಿಡಿದರೆ ನಿಮ್ಮನ್ನು ಡೈಮಂಡ್ಗೆ ಬಡ್ತಿ ಮಾಡಲಾಗುತ್ತದೆ. ಸ್ನೇಹಪರ ಪಂತಗಳಷ್ಟೇ.',
+  'leaderboard.rewardEyebrow': 'ಈ ವಾರದ ಬಹುಮಾನ',
+  'leaderboard.rewardHeading': 'ಟಾಪ್ {{count}} ಚಿನ್ನದ ಲೀಗ್ ಬ್ಯಾಡ್ಜ್ ಗೆಲ್ಲುತ್ತಾರೆ',
   'leaderboard.subheading': 'ಈ ವಾರ XP. ನಿಮ್ಮ ಸ್ಥಳೀಯ ಸಮಯ ಭಾನುವಾರ ಮಧ್ಯರಾತ್ರಿ ಮರುಹೊಂದಿಸುತ್ತದೆ.',
   'leaderboard.weeklyPeriod': 'ಈ ವಾರ · ಸ್ನೇಹಿತರು',
+  'leaderboardPanel.rankSuffix': 'ಶ್ರೇಣಿ # {{rank}}',
   'leaderboardPanel.title': 'ಸ್ನೇಹಿತರ ಲೀಡರ್‌ಬೋರ್ಡ್',
+  'leaderboardPanel.xp': '{{xp}} XP',
   'leaderboardPanel.you': '(ನೀವು)',
+  'lessonCard.continue': 'ಮುಂದುವರಿಸಿ →',
   'lessonCard.duration': '{{min}} ನಿಮಿಷ',
   'lessonCard.level': 'ಮಟ್ಟ {{level}}',
   'lessonCard.progressPercent': '{{percent}} % ಪೂರ್ಣಗೊಂಡಿದೆ',
@@ -53,14 +77,17 @@ export const ui: UiTranslations = {
   'lessonDetail.check': 'ಪರಿಶೀಲಿಸಿ',
   'lessonDetail.checking': 'ಪರಿಶೀಲಿಸಲಾಗುತ್ತಿದೆ...',
   'lessonDetail.correct': 'ಅದ್ಭುತ!',
+  'lessonDetail.correctHint': '+{{xp}} XP. ಮುಂದುವರಿಸಿ.',
   'lessonDetail.empty': 'ಈ ಪಾಠದಲ್ಲಿ ಯಾವುದೇ ವ್ಯಾಯಾಮಗಳಿಲ್ಲ.',
   'lessonDetail.exit': 'ಪಾಠದಿಂದ ನಿರ್ಗಮಿಸಿ',
   'lessonDetail.fillBlank': 'ಬಿಟ್ಟ ಜಾಗವನ್ನು ಭರ್ತಿ ಮಾಡಿ',
   'lessonDetail.finish': 'ಪಾಠ ಮುಗಿಸಿ',
   'lessonDetail.incorrect': 'ಸರಿಯಾಗಿಲ್ಲ — “ {{answer}} ”',
+  'lessonDetail.incorrectHint': 'ಇದನ್ನು ನಾಳೆಯ ಪುನರಾವಲೋಕನದಲ್ಲಿ ಮತ್ತೆ ನೋಡುತ್ತೀರಿ.',
   'lessonDetail.lessonId': 'ಪಾಠ · {{id}}',
   'lessonDetail.loadError': 'ವ್ಯಾಯಾಮಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'lessonDetail.loading': 'ಪಾಠವನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
+  'lessonDetail.pronunciation': 'ಸರಿಯಾದ ಉಚ್ಚಾರಣೆ ಆಯ್ಕೆಮಾಡಿ',
   'lessonDetail.submitError': 'ಉತ್ತರವನ್ನು ಸಲ್ಲಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'lessonDetail.translation': 'ವಾಕ್ಯವನ್ನು ಅನುವಾದಿಸಿ',
   'lessonDetail.xpEarned': 'XP ಗಳಿಸಲಾಗಿದೆ · {{xp}}',
@@ -79,6 +106,12 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'parlanceLayout.nav.profile': 'ಪ್ರೊಫೈಲ್',
   'parlanceLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
+  'planUpdated.body':
+    'ನಿಮ್ಮ ಬಿಲ್ಲಿಂಗ್ ಬದಲಾವಣೆ ಈಗ ಸಕ್ರಿಯವಾಗಿದೆ. ಬಿಲ್ಲಿಂಗ್ ಪುಟದಿಂದ ಯಾವಾಗ ಬೇಕಾದರೂ ನಿಮ್ಮ ಯೋಜನೆಯನ್ನು ನಿರ್ವಹಿಸಬಹುದು.',
+  'planUpdated.retry': 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ',
+  'planUpdated.verifyFailed': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ನಮಗೆ ಇನ್ನೂ ಖಚಿತಪಡಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'planUpdated.verifyFailedBody':
+    'ನಿಮ್ಮ ಪಾವತಿ ಇನ್ನೂ ಪ್ರಕ್ರಿಯೆಗೊಳ್ಳುತ್ತಿರಬಹುದು. ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'practice.empty': 'ಇನ್ನೂ ಯಾವುದೇ ನುಡಿಗಟ್ಟುಗಳು ಲಭ್ಯವಿಲ್ಲ.',
   'practice.eyebrow': 'ಮಾತನಾಡುವ ಅಭ್ಯಾಸ',
@@ -102,6 +135,9 @@ export const ui: UiTranslations = {
   'pricing.limits.progress': 'ಪ್ರಗತಿ ನಮೂದುಗಳು',
   'profile.anonymous': 'ಕಲಿಯುವವರು',
   'profile.avatarAlt': '{{name}} \\u2019 ರ ಅವತಾರ',
+  'profile.eyebrow': '{{joined}} ರಿಂದ ಸದಸ್ಯ',
+  'profile.eyebrowNew': 'ಹೊಸ ಕಲಿಯುವವರು',
+  'profile.langLessonCount': '{{count}} ಪಾಠಗಳು',
   'profile.langLevel': 'ಮಟ್ಟ {{level}}',
   'profile.languages': 'ಭಾಷೆಗಳು',
   'profile.languagesHeading': 'ಪ್ರಗತಿಯಲ್ಲಿರುವ ಭಾಷೆಗಳು',
@@ -110,6 +146,7 @@ export const ui: UiTranslations = {
   'profile.streak': 'ಸ್ಟ್ರೀಕ್',
   'profile.totalXp': 'ಒಟ್ಟು XP',
   'resetPassword.confirmPlaceholder': 'ಮತ್ತೊಮ್ಮೆ ಟೈಪ್ ಮಾಡಿ',
+  'resetPassword.mismatch': 'ಪಾಸ್‌ವರ್ಡ್‌ಗಳು ಹೊಂದಿಕೆಯಾಗುತ್ತಿಲ್ಲ.',
   'resetPassword.newPasswordLabel': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'resetPassword.newPasswordPlaceholder': 'ಎಂಟು ಅಥವಾ ಹೆಚ್ಚಿನ ಅಕ್ಷರಗಳು',
   'resetPassword.subheading': 'ಎಂಟು ಅಥವಾ ಹೆಚ್ಚಿನ ಅಕ್ಷರಗಳನ್ನು ಒಳಗೊಂಡ ಸ್ಮರಣೀಯವಾದದ್ದನ್ನು ಆರಿಸಿ.',
@@ -117,6 +154,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'ಅಭ್ಯಾಸದ ಆದ್ಯತೆಗಳು',
   'settings.goalBody':
     'ನೀವು ಪ್ರತಿದಿನ ಎಷ್ಟು XP ಗುರಿ ಹೊಂದಿದ್ದೀರಿ. ನೀವು ಗುರಿ ತಲುಪಿದಾಗಲೆಲ್ಲಾ ಗೆರೆಗಳನ್ನು ಇಡಲಾಗುತ್ತದೆ.',
+  'settings.goalHeading': 'ದೈನಂದಿನ ಗುರಿ',
   'settings.goalMinutes': '~ {{min}} ನಿಮಿಷ/ದಿನ',
   'settings.language.description':
     'ಅಪ್ಲಿಕೇಶನ್ ಮೆನುಗಳು ಮತ್ತು ಲೇಬಲ್‌ಗಳಲ್ಲಿ ಬಳಸಲಾಗುವ ಭಾಷೆಯನ್ನು ಆರಿಸಿ.',

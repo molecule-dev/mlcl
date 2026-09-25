@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Küsimused, tagasiside või funktsioonisoov? Võtke ühendust {{app}} tiimiga jaotises Seaded → Teavitused või kirjutage meile igal ajal — iga sõnum jõuab päris inimeseni.',
+  'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Teave',
+  'about.featureCapture':
+    'Kviitungite pildistamine koos fotode üleslaadimisega, mis lisab pildid õige kuluni, rida-realt.',
+  'about.featureExport':
+    'Auditeeritavad CSV-väljavõtted igast aruandest, kulust ja kinnituse olekust — valmis teie raamatupidamisosakonnale.',
+  'about.featurePolicy':
+    'Poliitika piirangud — päevased ülempiirid, kategooriapõhised limiidid ja kviitungi nõude lävendid, mida rakendatakse esitamise hetkel.',
+  'about.featureWorkflow':
+    'Kahetasandiline kinnitusvoog koos ülevaataja märkustega, poliitika rikkumise märgetega ja ühe puudutusega hüvitise märgistamisega.',
+  'about.intro':
+    '{{app}} on kuluhaldusplatvorm finantsmeeskondadele ja inimestele, kellele nad hüvitist maksavad. Pildista kviitung, esita kulu, saada aruanne kinnitamiseks ja jälgi iga hüvitist — ilma tabelimängudeta.',
+  'about.missionBody':
+    'Hüvitamine peaks olema kiire, õiglane ja auditeeritav. Lõime {{app}}, et esitajad saaksid raha tagasi ilma nurumiseta, kinnitajad näeksid täpselt, mida nad kinnitavad, ja finantsosakonnal oleks iga dollari kohta puhas jälg — koos poliitikakontrollidega.',
+  'about.missionTitle': 'Meie missioon',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Kinnitamine…',
   'approvals.confirmReject': 'Kinnita tagasilükkamine',
+  'approvals.empty': 'Olete kõigega kursis — ükski aruanne ei oota.',
   'approvals.eyebrow': 'Juhi järjekord',
   'approvals.kpi.flaggedLabel': 'Poliitika märgistatud',
+  'approvals.kpi.queueLabel': 'Ootab ülevaatamist',
   'approvals.kpi.totalLabel': 'Ootel väärtus',
   'approvals.lineCount': '{{count}} kulud',
   'approvals.queueFallback':
     'Reaalajas järjekord pole saadaval — kuvatakse kureeritud demoandmeid.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Keeldub…',
+  'approvals.rejectPlaceholder': 'Põhjus (nõutud)',
   'approvals.rejectPrompt': 'Miks te seda raportit tagasi lükkate?',
   'approvals.review': 'Arvustus',
   'approvals.title': 'Ootel olevad kinnitused',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Heaks kiidetud · MTD',
   'dashboard.kpi.pendingDelta': '+2 sel nädalal',
+  'dashboard.kpi.pendingLabel': 'Ootab läbivaatamist',
   'dashboard.kpi.receiptsDelta': 'Vajalik on toiming',
   'dashboard.kpi.receiptsLabel': 'Ootan kviitungeid',
   'dashboard.kpi.reimbursedDelta': '+2,4 tuhat dollarit',
   'dashboard.kpi.reimbursedLabel': 'Hüvitatud · MTD',
   'dashboard.newReport': 'Uus aruanne',
+  'dashboard.recent.empty': 'Aruandeid veel pole — alustage esimest ülal.',
   'dashboard.recent.title': 'Hiljutised aruanded',
   'dashboard.recent.viewAll': 'Kuva kõik aruanded',
   'dashboard.summaryFallback':
@@ -40,11 +61,17 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'Kviitungid ja hüvitatavad esemed',
   'expenses.listFallback': 'Aktiivloend pole saadaval — kuvatakse kureeritud demoandmeid.',
   'expenses.searchPlaceholder': 'Otsi kaupmeest või kategooriat…',
+  'expenses.subtotal': '{{count}} kulu · vahesumma',
   'expenses.title': 'Kulud',
+  'forgotPassword.continue': 'Mul on kood · Jätka',
+  'forgotPassword.subheading': 'Sisesta oma töömeil ja saadame lingi uue parooli seadmiseks.',
   'forgotPassword.successBody':
     'Kui konto on olemas {{email}} Saate järgmise paari minuti jooksul lähtestamislingi.',
+  'landing.copyright': '© {{year}} {{app}}. Ehitatud Molecule.dev abil.',
+  'landing.ctaBody': 'Tasuta esimese 25 kulu eest igal kuul. Ei krediitkaarti, ei juurutamiskõnet.',
   'landing.ctaHeading': 'Kas olete valmis oma meeskonnale võlgnetava summa sisse nõudma?',
   'landing.eyebrow': 'Kuluaruanded finantsmeeskondadele',
+  'landing.featuresHeading': 'Hüvitamine, ühes rahulikus tööruumis',
   'landing.heroSubtitle':
     'Esitage, kinnitage ja hüvitage ärikulusid ilma arvutustabelite tseremooniata. Kviitungite OCR, poliitikakontrollid ja läbipaistev kinnitamise ajakava – kõik ühes rahulikus tööruumis.',
   'landing.heroTitle': 'Iga kviitung, kätte saadud.',
@@ -62,10 +89,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Märkused',
   'newExpense.descriptionPlaceholder':
     'Miks see kulu oli ettevõtlusega seotud (nähtav teie kinnitajale).',
+  'newExpense.eyebrow': 'Hüvitatav üksus',
   'newExpense.merchant': 'Kaupmees',
   'newExpense.merchantPlaceholder': 'Hotell Adlon Kempinski',
   'newExpense.policyHint':
     'Meeldetuletus: üle 80 dollari päevas maksvate einete või üle 250 dollari maksvate toiduainete puhul on vaja põhjendust.',
+  'newExpense.receipt': 'Kviitung',
+  'newExpense.receiptHint': 'JPG, PNG või PDF · kuni 10 MB',
   'newExpense.receiptOcrHint': 'OCR eeltäidab väljad',
   'newExpense.receiptPrompt': 'Lohista foto või PDF siia või klõpsa sirvimiseks',
   'newExpense.receiptUploadFailed':
@@ -76,17 +106,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Laadige või klõpsake kviitung üles ja Recoup eelsisestab kaupmehe, kuupäeva ja kogusumma. Enne salvestamist kinnitage kõik allpool.',
   'newExpense.title': 'Lisa kulu',
+  'newReport.approverHint': 'Nad saavad e-kirja, kui esitate selle aruande ülevaatamiseks.',
   'newReport.approverLabel': 'Kinnitaja e-posti aadress (valikuline)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'Saadaval olevad kulud',
   'newReport.createFailed': 'Aruande loomine ebaõnnestus. Palun proovige uuesti.',
   'newReport.draftsFallback':
     'Reaalajas kulude loend pole saadaval — kuvatakse kureeritud demoandmeid.',
+  'newReport.eyebrow': 'Rühmita kulud · esita kinnitamiseks',
   'newReport.includedCount': '{{count}} kaasatud',
   'newReport.purposeLabel': 'Äriline eesmärk',
   'newReport.purposePlaceholder':
     'Kirjeldage reisi või projekti, millega need kulud on seotud (nähtav teie kinnitajale ja rahandusele).',
   'newReport.saveDraft': 'Salvesta mustandina',
+  'newReport.saveDraftFailed': 'Mustandit ei õnnestunud salvestada. Palun proovige uuesti.',
   'newReport.submit': 'Esita kinnitamiseks',
   'newReport.submitFailed': 'Aruannet ei õnnestunud esitada. Palun proovige uuesti.',
   'newReport.summary': 'Aruande kokkuvõte',
@@ -99,16 +132,23 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'Tööruumi tegevus',
   'notifications.feedFallback': 'Otseülekanne pole saadaval — kuvatakse kureeritud demoandmeid.',
   'notifications.openReport': 'Ava aruanne ›',
+  'pricing.approvalsLabel': 'kinnitused',
   'pricing.expensesLabel': 'kulud',
   'pricing.heading': 'kinnitused',
   'pricing.policiesLabel': 'poliitikad',
   'pricing.receiptsLabel': 'kviitungid',
   'recoveredAmountHeroCard.label': 'Hüvitis tagasi saadud · Aasta algusest',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} aruannet ootab praegu ülevaatamist kõigi kinnitajate lõikes.',
+  'reports.approvalFlow': 'Kinnitusvoog',
   'reports.backToList': 'Tagasi aruannete juurde',
   'reports.detailFallback': 'Reaalajas aruanne pole saadaval — kuvatakse kureeritud demoandmeid.',
   'reports.lineItems': 'Reaüksused',
   'reports.lineItemsCount': '{{count}} kulud',
+  'reports.lineItemsEmpty': 'Sellel aruandel pole veel kulusid.',
+  'reports.openLibrary': 'Ava aruandekogu',
   'reports.policyTitle': 'Poliitika lipp',
+  'reports.selectPrompt': 'Valige kogust aruanne, et näha selle üksikasju.',
   'reports.summary.lineCount': 'Reaüksused',
   'reports.summary.reimbursable': 'Hüvitatav',
   'reports.summary.total': 'Esitatud kogusumma',
@@ -117,6 +157,7 @@ export const ui: UiTranslations = {
   'reportsList.lineItems': '{{count}} kulud',
   'reportsList.listFallback': 'Aktiivloend pole saadaval — kuvatakse kureeritud demoandmeid.',
   'reportsList.newReport': 'Uus aruanne',
+  'reportsList.submittedOn': 'Esitatud {{date}}',
   'reportsList.title': 'Aruannete kogu',
   'resetPassword.hidePassword': 'Peida parool',
   'resetPassword.newPasswordLabel': 'Uus parool',
@@ -141,6 +182,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Salvestatud ✓',
   'settings.profileSaveFailed': 'Profiili ei õnnestunud uuendada. Palun proovi uuesti.',
   'signup.heading': 'Looge oma hüvitamise konto',
+  'signup.hidePassword': 'Peida parool',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Näita parooli',
   'signup.subheading': '25 kulutuse eest kuus tasuta – krediitkaarti pole vaja.',

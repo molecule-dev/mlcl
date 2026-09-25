@@ -5,7 +5,13 @@ export const ui: UiTranslations = {
     'An bhfuil aiseolas agat, iarratas gné nó fabht aimsithe agat? Téigh i dteagmháil le foireann {{app}} tríd an nasc tacaíochta i roghchlár do chuntais — téann gach teachtaireacht chuig fíordhuine.',
   'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
+  'about.intro':
+    'Is cúntóir AI guthdhúchasach é {{app}}. Labhair go nádúrtha, féach ar do chuid focal ag iompú ina dtéacs, agus faigh freagraí labhartha ar ais — ionas gur féidir leat smaoineamh os ard in ionad gach rud a chlóscríobh.',
+  'about.missionBody':
+    'Is bacainn í an chlóscríobh idir do chuid smaointe agus iad a chur amach. Tá {{app}} ann chun é a bhaint: bealach comhráiteach saorlámhach chun smaointeoireacht, dréachtú agus cinneadh a dhéanamh — faoi thiomáint ag na samhlacha cainte agus réasúnaíochta is fearr, agus do chuid sonraí coinnithe go príobháideach.',
+  'about.missionTitle': 'Ár misean',
   'agentDetail.back': 'Gach gníomhaire',
+  'agentDetail.behavior': 'Iompar',
   'agentDetail.capabilities': 'Cumais',
   'agentDetail.delete': 'Scrios pearsa',
   'agentDetail.deleteConfirm': 'Scrios an phearsa seo? Ní féidir é seo a chealú.',
@@ -39,15 +45,20 @@ export const ui: UiTranslations = {
   'agents.subtitle':
     'Tá a thón, a luas agus a speisialtacht féin ag gach gníomhaire. Athraigh am ar bith i lár comhrá.',
   'agents.title': 'Roghnaigh guth le smaoineamh leis.',
+  'authShell.tagline': '{{tagline}} — {{brand}}',
+  'billing.cardNoneBody':
+    'Cuir ceann leis nuair a uasghrádaíonn tú — láimhseálann Stripe an stóráil go léir.',
   'billing.cardNoneTitle': 'Níl aon chárta ar chomhad',
   'billing.choose': 'Athraigh',
   'billing.currentPlan': 'Do phlean',
   'billing.currentPlanReadout': '{{plan}} plean',
   'billing.eyebrow': 'Plean & úsáid',
   'billing.fetchError': 'Níorbh fhéidir faisnéis billeála a lódáil.',
+  'billing.loadingStatus': 'Stádas á lódáil…',
   'billing.noTiers': 'Níl aon phleananna ar fáil faoi láthair.',
   'billing.plansTitle': 'Pleananna',
   'billing.switching': 'Ag athrú…',
+  'billing.updateAcknowledged': 'Admhaíodh an nuashonrú ag {{time}}',
   'billing.updateError': 'Níorbh fhéidir an nuashonrú a thosú.',
   'billing.usageHeading': 'Úsáid gutha an timthriall seo',
   'chatBubble.source.text': 'téacs',
@@ -67,11 +78,13 @@ export const ui: UiTranslations = {
   'conversation.title': 'Labhair faoi',
   'conversation.toggleMic': 'Athraigh an micreafón',
   'conversation.toggleVoicePlayback': 'Athsheinm gutha',
+  'conversation.transcribeError': 'Níorbh fhéidir an fuaim a thrascríobh.',
   'conversation.transcriptionEmpty': 'Níor chuala muid aon rud. Déan iarracht eile?',
   'conversation.voiceOff': 'Guth múchta',
   'conversation.voiceOn': 'Guth ar siúl',
   'conversationDetail.assistant': 'Cúntóir',
   'conversationDetail.back': 'Ar ais go dtí an stair',
+  'conversationDetail.elapsed': '00:00 / {{duration}}',
   'conversationDetail.empty': 'Níl aon teachtaireachtaí sa chomhrá seo go fóill.',
   'conversationDetail.eyebrow': 'Tras-scríbhinn',
   'conversationDetail.fetchError': 'Níorbh fhéidir an trascríbhinn a lódáil.',
@@ -82,6 +95,7 @@ export const ui: UiTranslations = {
   'conversationDetail.setSpeed': 'Socraigh luas athsheinm go {{speed}}',
   'conversationDetail.system': 'Córas',
   'conversationDetail.untitled': 'Comhrá gan teideal',
+  'conversationListItem.messageCount': '{{count}} teachtaireacht',
   'forgotPassword.subheading':
     'Cuir isteach do sheoladh ríomhphoist agus cuirfimid nasc athshocraithe chugat.',
   'forgotPassword.successBody': 'Chuireamar nasc athshocraithe chuig {{email}} .',
@@ -98,6 +112,9 @@ export const ui: UiTranslations = {
   'history.voiceOnly': 'Guth amháin',
   'landing.copyright': '© {{year}} {{brand}} Smaoinigh os ard.',
   'landing.demoMessage1': 'Haigh, a Shárá — réidh le smaointe a bhailiú faoin bhfeachtas nua?',
+  'landing.demoMessage2': 'Sea — dírímid ar straitéisí fáis orgánaigh do R3.',
+  'landing.demoMessage3':
+    'Go hiontach. Thosóinn le tionscnamh faoi stiúir an phobail. Ar mhaith leat dom na céimeanna a leagan amach?',
   'landing.eyebrow': 'AI dúchasach gutha',
   'landing.featuresSubtitle':
     'Tógtha le haghaidh idirphlé nádúrtha — oiriúnaíonn sé do do luas, do thón agus do chomhthéacs.',
@@ -127,10 +144,12 @@ export const ui: UiTranslations = {
   'parlanceLayout.openMenu': 'Oscail an roghchlár nascleanúna',
   'parlanceLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'pricing.conversations': '{{count}} comhráite',
+  'pricing.cta.start': 'Roghnaigh {{tierName}}',
   'pricing.cta.startFree': 'Tosaigh saor in aisce',
   'pricing.cta.upgrade': 'Uasghrádaigh go {{tierName}}',
   'pricing.empty': 'Níl aon phleananna ar fáil faoi láthair.',
   'pricing.error': 'Níorbh fhéidir an praghsáil a lódáil. Déan iarracht arís ar ball.',
+  'pricing.speech': 'caint {{count}}',
   'pricing.subtitle': 'Roghnaigh plean a oireann do cé chomh minic a labhraíonn tú le do chúntóir.',
   'privacy.collection.account': 'Seoladh ríomhphoist agus ainm taispeána do chuntais',
   'privacy.contact.body':
@@ -138,6 +157,8 @@ export const ui: UiTranslations = {
   'privacy.deletion.body':
     'Is féidir leat comhrá, pearsa, nó gearrthóg fuaime a scriosadh am ar bith ón leathanach ábhartha. Má scriosann tú do chuntas ó na Socruithe, glantar gach comhrá, tras-scríbhinn, agus ró pearsa atá ceangailte le do spás oibre.',
   'privacy.eyebrow': 'Dlíthiúil',
+  'privacy.intro':
+    'Ní stórálann {{app}} na comhráite agus na gearrthóga gutha a chruthaíonn tú ach amháin chomh fada agus is gá chun an t-eispéireas cúntóra a sholáthar. Ní dhíolaimid do chuid sonraí riamh, agus ní úsáidimid fuaim ná trascríbhinní custaiméara riamh chun samhlacha AI seachtracha a oiliúint.',
   'privacy.lastUpdated': 'Nuashonraithe go deireanach: 2026-05-01',
   'privacy.processors.body':
     'Nuair a labhraíonn tú le do chúntóir, cuirimid do chuid fuaime ar aghaidh chuig OpenAI Whisper le haghaidh trascríobh, do thrascríbhinn chuig Anthropic (Claude) le haghaidh freagra, agus an freagra chuig ElevenLabs nó OpenAI le haghaidh sintéis gutha. Tá gach soláthraí faoi cheangal ag a théarmaí próiseála sonraí féin; ní choimeádtar aon rud le haghaidh athoiliúna.',
@@ -159,13 +180,19 @@ export const ui: UiTranslations = {
   'resetPassword.newPassword': 'Pasfhocal nua',
   'resetPassword.subheading': 'Roghnaigh pasfhocal úr le leanúint ar aghaidh ag caint.',
   'search.agentPreview': 'Gan cur síos',
+  'search.emptyBody': 'Bain triail as eochairfhocal difriúil nó abair os ard é.',
   'search.emptyTitle': 'Gan aon mheaitseálacha',
   'search.eyebrow': 'Pailéad orduithe',
   'search.fetchError': 'Níorbh fhéidir innéacs cuardaigh a lódáil.',
+  'search.static.billing.preview': 'Pleananna, modh íocaíochta agus sonraisc',
+  'search.static.billing.title': 'Billeáil',
   'search.static.profile.preview': 'Ainm taispeána, láimhseáil, beathaisnéis',
+  'search.static.profile.title': 'Próifíl',
+  'search.static.voice.preview': 'Sainroghanna gutha agus teanga réamhshocraithe',
   'search.static.voice.title': 'Guth',
   'search.title': 'Cuardaigh Teanga',
   'search.transcriptPreview': 'Oscail an tras-scríbhinn',
+  'settings.appearance.description': 'Athraigh idir mód geal agus dorcha.',
   'settings.appearance.title': 'Dealramh',
   'settings.loadError': 'Níorbh fhéidir na socruithe a lódáil.',
   'settings.privacy.${row.key}.label': 'Fógraí',
@@ -182,6 +209,8 @@ export const ui: UiTranslations = {
   'terms.changes.body':
     'Cuirfimid ar an eolas thú san aip má athraíonn na téarmaí seo go hábhartha; ciallaíonn úsáid leanúnach tar éis fógra go nglacann tú leis na nuashonruithe.',
   'terms.eyebrow': 'Dlíthiúil',
+  'terms.intro':
+    "Rialaíonn na téarmaí seo d'úsáid {{app}}. Trí chuntas a chruthú aontaíonn tú leo.",
   'terms.lastUpdated': 'Nuashonraithe go deireanach: 2026-05-01',
   'terms.title': 'Téarmaí seirbhíse',
   'terms.usage.body':

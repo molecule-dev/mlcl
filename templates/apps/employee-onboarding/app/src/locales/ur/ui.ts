@@ -1,33 +1,50 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'اپنی ٹیم کے لیے ایک پُرتپاک آن بورڈنگ شروع کرنا چاہتے ہیں، کوئی بگ ملا ہے، یا کوئی رائے دینا چاہتے ہیں؟ اپنی اکاؤنٹ سیٹنگز سے رابطہ کریں — ہر پیغام ایک حقیقی انسان تک پہنچتا ہے جو مدد کر سکتا ہے۔',
   'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'کے بارے میں',
+  'about.missionTitle': 'ہمارا مشن',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'اپنا پاس ورڈ دوبارہ ترتیب دیں۔',
+  'auth.forgotPassword.panel.body':
+    'ری سیٹ میں 30 سیکنڈ لگتے ہیں — آپ کی چیک لسٹ کی پیش رفت منتظر ہے۔',
+  'auth.forgotPassword.panel.headline': 'بالکل وہیں جہاں آپ نے چھوڑا تھا۔',
+  'auth.forgotPassword.subheading':
+    'اپنا کام کا ای میل درج کریں اور ہم آپ کو ری سیٹ لنک بھیجیں گے۔',
   'auth.forgotPassword.successSubheading':
     'اپنا ان باکس چیک کریں — ہم نے دوبارہ ترتیب دینے کی ہدایات بھیج دی ہیں۔',
   'auth.login.emailPlaceholder': 'name@yourcompany.com',
   'auth.login.heading': 'دوبارہ خوش آمدید۔',
   'auth.login.passwordPlaceholder': 'آپ کا پاس ورڈ',
+  'auth.login.signupPrompt': 'اپنی ٹیم میں نئے ہیں؟',
   'auth.login.subheading':
     'اپنا آن بورڈنگ سفر وہیں سے شروع کرنے کے لیے سائن ان کریں جہاں آپ نے چھوڑا تھا۔',
   'auth.login.submit': 'اپنا سفر جاری رکھیں',
+  'auth.panel.body':
+    'آپ کی ذاتی چیک لسٹ، تربیتی سنگ میل، اور ٹیم سے تعارف — سب ایک پُرسکون جگہ پر۔',
   'auth.panel.footnote': '© Embark — لوگوں کو آن بورڈ کرنا- آج سے پہلے۔',
   'auth.panel.headline': 'ایک پراعتماد پہلے 90 دن یہاں سے شروع ہوتے ہیں۔',
   'auth.resetPassword.heading': 'نیا پاس ورڈ سیٹ کریں۔',
   'auth.resetPassword.newPasswordLabel': 'نیا پاس ورڈ',
+  'auth.resetPassword.panel.body':
+    'نیا پاس ورڈ محفوظ کریں اور ہم آپ کو سیدھا آپ کے آن بورڈنگ سفر میں واپس لے آئیں گے۔',
+  'auth.resetPassword.panel.headline': 'تقریباً واپس آ گئے۔',
   'auth.resetPassword.subheading': 'کوئی ایسی چیز چنیں جو آپ کو یاد ہو — کم از کم 8 حروف۔',
   'auth.signup.emailPlaceholder': 'name@yourcompany.com',
   'auth.signup.heading': 'آپ کے پہلے 90 دنوں میں خوش آمدید۔',
   'auth.signup.panel.body':
     'ایک گائیڈڈ چیک لسٹ، کردار سے آگاہی کی تربیت، اور انسانی تعارف — آپ کے اندر جانے سے پہلے تیار ہے۔',
+  'auth.signup.panel.headline': 'پہلا دن، پہلے ہی دن۔',
   'auth.signup.subheading': 'اپنا گائیڈڈ آن بورڈنگ سفر شروع کرنے کے لیے اپنا ایمارک اکاؤنٹ بنائیں۔',
   'checklist.empty.body': 'دوسرے کام دیکھنے کے لیے فلٹر کو سوئچ کریں۔',
   'checklist.empty.title': 'ابھی یہاں کچھ نہیں ہے۔',
   'checklist.eyebrow': 'آن بورڈنگ · چیک لسٹ',
   'checklist.loading': 'آپ کی چیک لسٹ لوڈ ہو رہی ہے…',
   'checklist.stat.actionNeeded': 'کارروائی کی ضرورت ہے۔',
+  'checklist.stat.completion': 'تکمیل',
+  'checklist.stat.inProgress': 'جاری ہے۔',
   'checklist.stat.inProgressHelper': 'وہیں سے شروع کریں جہاں آپ نے چھوڑا تھا۔',
   'checklist.stat.overdueHelper': 'پہلے ان کو پکڑو',
   'checklist.subtitle':
@@ -59,6 +76,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'ابھی تک کوئی دستاویزات نہیں ہیں۔',
   'documents.eyebrow': 'آن بورڈنگ · دستاویزات',
   'documents.loading': 'دستاویزات لوڈ ہو رہی ہیں…',
+  'documents.stat.actionNeeded': 'ابھی سائن کریں۔',
+  'documents.stat.all': 'تمام دستاویزات',
   'documents.stat.allHelper': 'زمروں میں',
   'documents.stat.pending': 'زیر التواء دستخط',
   'documents.stat.pendingHelper': 'تکمیل کے لیے درکار ہے۔',
@@ -66,16 +85,21 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'محفوظ طریقے سے ذخیرہ کیا گیا ہے۔',
   'documents.status.optional': 'اختیاری',
   'documents.status.required': 'درکار ہے۔',
+  'documents.status.signed': 'دستخط شدہ',
   'documents.subtitle': 'آپ کی ہینڈ بک، فارمز، اور دستخط شدہ معاہدے — سب ایک جگہ پر۔',
   'documents.title': 'ہر وہ چیز جو آپ کو پڑھنے اور دستخط کرنے کی ضرورت ہے۔',
   'documents.uploadedRecently': 'حال ہی میں اپ لوڈ کیا گیا۔',
   'documentViewer.breadcrumbCurrent': 'دیکھنے والا',
   'documentViewer.breadcrumbDocs': 'دستاویزات',
   'documentViewer.downloadMeta': 'میٹا ڈیٹا ڈاؤن لوڈ کریں۔',
+  'documentViewer.helpBody':
+    'People & Culture ہینڈ بک کے سوالات Slack پر #ask-people میں جواب دیتا ہے۔',
   'documentViewer.helpEyebrow': 'مدد کی ضرورت ہے؟',
   'documentViewer.loadError': 'ہم اس دستاویز کو لوڈ نہیں کر سکے۔',
   'documentViewer.loading': 'دستاویز لوڈ ہو رہی ہے…',
   'documentViewer.notFound': 'دستاویز نہیں ملی',
+  'documentViewer.previewBody':
+    'جب اپ لوڈز کنفیگر ہوں تو ہم فائل کو ان لائن دکھاتے ہیں۔ فی الحال، میٹا ڈیٹا ڈاؤن لوڈ آپ کو ریکارڈ کے حقیقی ہونے کی تصدیق کرنے دیتا ہے۔',
   'documentViewer.previewBodyExternal':
     'فائل کو نئے ٹیب میں کھولنے کے لیے ڈاؤن لوڈ بٹن کا استعمال کریں۔',
   'documentViewer.previewTitle': 'دستاویز کا پیش نظارہ',
@@ -83,6 +107,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'دستاویز کو پڑھیں، پھر دستخط کرنے اور تسلیم کرنے کے لیے نیچے کلک کریں۔',
   'documentViewer.signatureHeading': 'دستخط درکار ہیں۔',
+  'documentViewer.signed': '✓ دستخط شدہ اور محفوظ',
   'documentViewer.signing': 'دستخط ہو رہا ہے…',
   'documentViewer.uploadedRecently': 'حال ہی میں اپ لوڈ کیا گیا۔',
   'landing.closing.body':
@@ -92,10 +117,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'میرے پاس پہلے سے ہی ایک اکاؤنٹ ہے۔',
   'landing.feature1.body':
     'ہر کام — کاغذی کارروائی، اکاؤنٹس، تعارف — مقررہ تاریخوں اور صحیح مالک کے ساتھ پہلے سے طے شدہ۔',
+  'landing.feature1.title': 'ایک رہنمائی والی چیک لسٹ',
   'landing.feature2.body':
     'ماڈیولز 30/60/90 سنگ میل پر غیر مقفل ہوتے ہیں، کردار اور ٹیم میں شامل ہونے کے مطابق ہوتے ہیں۔',
+  'landing.feature2.title': 'کردار کے مطابق تربیت',
   'landing.feature3.body':
     'بڈیز، مینیجرز، اور کراس فنکشنل تعارف طے شدہ — اس لیے کوئی بھی تنہا آغاز نہیں کرتا ہے۔',
+  'landing.feature3.title': 'حقیقی تعارف',
   'landing.featureEyebrow': 'کیوں سوار',
   'landing.featureHeadline': 'تین طریقے Embark پہلے دن اعتماد حاصل کرتا ہے۔',
   'landing.footer.rights': 'جملہ حقوق محفوظ ہیں۔',
@@ -104,6 +132,7 @@ export const ui: UiTranslations = {
   'landing.headlineLine2': 'ایک گرمجوشی سے استقبال.',
   'landing.preview.body': 'اگلا: 30 منٹ کی کافی چیٹ کے لیے اپنے دوست سے ملیں — منگل صبح 10:00 بجے۔',
   'landing.preview.eyebrow': '90 کا 14 دن — نمونہ ڈیش بورڈ',
+  'landing.preview.headline': 'خوش آمدید، Maya۔',
   'landing.proof.spec': 'SOC 2 + GDPR تیار ہے۔',
   'landing.proof.teams': '50-5,000 کی ٹیموں کے لیے بنایا گیا ہے۔',
   'landing.proof.time': '14 دن کی مفت آزمائش',
@@ -120,16 +149,25 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'کل',
   'planUpdated.message': 'آپ بالکل تیار ہیں۔',
   'planUpdated.preparing': 'آپ کا پلان اپ ڈیٹ ہو رہا ہے…',
+  'planUpdated.retry': 'دوبارہ کوشش کریں۔',
+  'planUpdated.verifyFailed': 'ہم ابھی تک آپ کی ادائیگی کی تصدیق نہیں کر سکے۔',
+  'planUpdated.verifyFailedBody':
+    'ہو سکتا ہے آپ کی ادائیگی پر ابھی بھی کارروائی ہو رہی ہو۔ ایک لمحے میں دوبارہ کوشش کریں۔',
   'planUpdated.verifying': 'آپ کی ادائیگی کی تصدیق ہو رہی ہے…',
   'pricing.documentsLabel': 'دستاویزات',
   'pricing.onboardingsLabel': 'آن بورڈنگ',
   'pricing.tasksLabel': 'کام',
   'profile.dayNumber': 'دن',
   'profile.detailsHeading': 'آن بورڈنگ کی تفصیلات',
+  'profile.encouragementBody': 'اپنے بڈی اور مینیجر کو باخبر رکھیں — چھوٹے قدم بڑا فرق ڈالتے ہیں۔',
   'profile.milestones': 'سنگ میل',
   'profile.progressEyebrow': 'آن بورڈنگ کی پیشرفت',
   'profile.tasks': 'کام',
   'profile.unknownName': 'خوش آمدید',
+  'settings.appearance.description': 'لائٹ اور ڈارک موڈ کے درمیان ٹوگل کریں۔',
+  'settings.appearance.title': 'ظاہری شکل',
+  'settings.subtitle':
+    'اطلاعات، سیکیورٹی، ڈیوائسز، اور ڈیٹا ایکسپورٹ کو ترتیب دیں — سب کچھ یہیں رہتا ہے، آپ کی شرائط پر۔',
   'settings.title': 'ترتیبات اور ترجیحات۔',
   'taskDetail.backToChecklist': 'چیک لسٹ پر واپس جائیں۔',
   'taskDetail.breadcrumbChecklist': 'چیک لسٹ',
@@ -141,7 +179,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'کوئی مقررہ تاریخ نہیں۔',
   'taskDetail.notFound': 'کام نہیں ملا',
   'taskDetail.notFoundBody': 'ہو سکتا ہے یہ کام حذف کر دیا گیا ہو یا کسی دوسرے صارف کا ہو۔',
+  'taskDetail.tipBody':
+    'اگر آپ رک گئے ہیں تو Slack پر اپنے آن بورڈنگ بڈی کو پیغام بھیجیں — وہ آپ کی پہلی مدد ہیں۔',
   'taskDetail.tipEyebrow': 'فوری ٹپ',
+  'team.empty.body': 'کوئی وسیع تر تلاش آزمائیں یا کوئی مختلف شعبہ منتخب کریں۔',
   'team.empty.title': 'کوئی ساتھی میچ نہیں',
   'team.eyebrow': 'آن بورڈنگ · لوگ',
   'team.loading': 'ٹیم کے ساتھی لوڈ ہو رہے ہیں…',
@@ -164,14 +205,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'سنگ میل',
   'timeline.stat.current': 'موجودہ سنگ میل',
   'timeline.stat.next': 'اگلا انلاک',
+  'timeline.stat.progress': 'مجموعی طور پر',
   'timeline.subtitle':
     'ہر سنگ میل نئے ماڈیولز، تعارف اور ترقی کی گفتگو کو کھولتا ہے۔ کوئی دباؤ نہیں - صرف ترقی۔',
+  'timeline.tipBody':
+    'دن 30، 60، اور 90 پر اپنے مینیجر کے ساتھ 30 منٹ کی غور و فکر کا وقت طے کریں — اس سے رائے مخصوص اور پیش رفت نمایاں ہوتی ہے۔',
   'timeline.tipEyebrow': 'مینیجر ٹپ',
+  'timeline.tipTitle': 'سنگ میل کے لیے کیلنڈر میں وقت بلاک کریں۔',
   'timeline.title': 'آپ کا 30/60/90 کا سفر۔',
   'training.badge.notStarted': 'شروع نہیں ہوا۔',
   'training.empty': 'ابھی تک کوئی تربیتی ماڈیول نہیں ہے۔',
   'training.eyebrow': 'آن بورڈنگ · ٹریننگ',
   'training.loading': 'ماڈیولز لوڈ ہو رہے ہیں…',
+  'training.stat.all': 'ماڈیولز تفویض شدہ',
   'training.subtitle':
     'آپ کے کردار سے ملنے کے لیے ماڈیولز 30/60/90 پر غیر مقفل ہوتے ہیں۔ مطلوبہ پہلے آتے ہیں۔',
   'training.title': 'ہنر، ٹولز اور کہانیاں — آپ کی رفتار سے۔',
@@ -183,9 +229,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'ماڈیول نہیں ملا',
   'trainingModule.quizBody': 'اس ماڈیول کو مکمل نشان زد کرنے کے لیے 80% یا اس سے زیادہ اسکور کریں۔',
   'trainingModule.quizHeading': 'ماڈیول کا اختتام کوئز',
+  'trainingModule.quizLocked': 'پہلے ماڈیول شروع کریں',
   'trainingModule.quizNone': 'اس ماڈیول پر کوئز نہیں ہے۔',
   'trainingModule.quizRetry': 'دوبارہ کوشش کریں۔',
+  'trainingModule.quizStart': 'کوئز شروع کریں',
   'trainingModule.quizSubmit': 'جوابات جمع کروائیں۔',
+  'trainingModule.start': 'ماڈیول شروع کریں',
   'trainingModule.statusNotStarted': 'شروع نہیں ہوا۔',
   'welcomeHeroCard.completeLabel': 'مکمل',
   'welcomeHeroCard.milestonesLabel': 'سنگ میل',

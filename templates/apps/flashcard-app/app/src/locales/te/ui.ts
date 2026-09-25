@@ -1,11 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'అభిప్రాయం ఉందా, బగ్ కనుగొన్నారా, లేదా ఫీచర్ సూచించాలనుకుంటున్నారా? ప్రతి సందేశం {{app}} టీమ్లోని నిజమైన వ్యక్తికి చేరుతుంది — మీరు ఏమి నేర్చుకుంటున్నారో వినాలని మేము ఆసక్తిగా ఉన్నాము.',
   'about.contactTitle': 'సంప్రదించండి',
   'about.eyebrow': '{{app}} గురించి',
+  'about.intro':
+    '{{app}} అనేది జ్ఞానం నిజంగా గుర్తుండిపోవాలనుకునే వారి కోసం ఒక స్పేస్డ్-రిపిటిషన్ ఫ్లాష్కార్డ్ యాప్. మీరు భాష నేర్చుకుంటున్నా, సూత్రాలు బట్టీ పడుతున్నా, లేదా పరీక్ష కోసం భావనలను సాధన చేస్తున్నా, మీరు మరచిపోబోయే సరైన క్షణంలోనే అది ప్రతి కార్డును షెడ్యూల్ చేస్తుంది — వాస్తవాలను దీర్ఘకాలిక జ్ఞాపకంలోకి తరలించడానికి జ్ఞాపక శాస్త్రం కనుగొన్న అత్యంత సమర్థవంతమైన మార్గం ఇది.',
+  'about.missionBody':
+    'చాలా స్టడీ టూల్స్ గడిపిన సమయం కోసం ఆప్టిమైజ్ చేస్తాయి, నిలిచిన జ్ఞానం కోసం కాదు. {{app}} దీనికి వ్యతిరేకంగా ఆప్టిమైజ్ చేస్తుంది: ముఖ్యమైనవి మీ తలలో ఉంచే అతి తక్కువ సమీక్షలు. నేర్చుకోవడం ప్రశాంతంగా, కొలవదగినదిగా, మీ సొంతంగా ఉండాలని మేము నమ్ముతాము — ఓపెన్ డేటా, డార్క్ ప్యాటర్న్లు లేవు, మరియు సంవత్సరాల తరబడి కొనసాగించగల అలవాటు.',
+  'about.missionTitle': 'మా లక్ష్యం',
   'about.pageTitle': '{{tagline}}.',
   'authShell.sampleBack': 'విల్నియస్ — 1.2 సెకన్లలో తిరిగి పిలిపించబడింది.',
   'authShell.sampleEyebrow': 'మీ భవిష్యత్తు డెక్ నుండి ఒక కార్డు',
+  'authShell.sampleFront': '“లిథువేనియా రాజధాని.”',
+  'authShell.sampleRetention': '{{pct}}% నిలిచిన జ్ఞాపకం',
   'authShell.sampleStreak': '{{days}} -రోజుల పరంపర',
   'cardEdit.title': 'ఫ్లాష్‌కార్డ్‌ను సవరించండి',
   'cardEditor.backLink': 'డెక్‌కు తిరిగి వెళ్లండి',
@@ -35,6 +44,8 @@ export const ui: UiTranslations = {
   'dashboard.kpi.days': 'రోజులు',
   'deckDetail.backLink': 'అన్ని డెక్స్',
   'deckDetail.deleteError': 'డెక్‌ను తొలగించడంలో విఫలమయ్యాను.',
+  'deckDetail.empty.body': 'జ్ఞాపకాన్ని నిర్మించడం ప్రారంభించడానికి మీ మొదటి కార్డును జోడించండి.',
+  'deckDetail.empty.cta': 'మీ మొదటి కార్డును జోడించండి',
   'deckDetail.empty.heading': 'ఈ డెక్‌లో ఇంకా కార్డులు లేవు',
   'deckDetail.filterEmpty': 'ఈ రాష్ట్ర ఫిల్టర్‌కు సరిపోయే కార్డులు ఏవీ లేవు.',
   'deckDetail.filterLabel': 'రాష్ట్రం వారీగా కార్డ్‌లను ఫిల్టర్ చేయండి',
@@ -47,7 +58,9 @@ export const ui: UiTranslations = {
   'deckDetail.stat.total': 'కార్డులు',
   'deckDetail.studyDueLabel': 'అధ్యయనం {{count}} కారణంగా',
   'deckProgressCard.cardCount': '{{count}} కార్డులు',
+  'deckProgressCard.masteredTooltip': '{{count}} నేర్చుకున్నారు',
   'deckProgressCard.studyCta': 'అధ్యయనం {{count}}',
+  'decks.confirmDelete': 'ఈ డెక్ మరియు దాని కార్డులన్నీ తొలగించాలా? ఇది వెనక్కి తిరిగి చేయలేము.',
   'decks.create.heading': 'డెక్ సృష్టించండి',
   'decks.create.nameLabel': 'డెక్ పేరు',
   'decks.create.submit': 'డెక్ సృష్టించండి',
@@ -58,6 +71,7 @@ export const ui: UiTranslations = {
   'decks.heading': 'డెక్స్',
   'decks.loadError': 'డెక్‌లను లోడ్ చేయడంలో విఫలమైంది.',
   'decks.loading': 'లోడ్ అవుతోంది…',
+  'decks.newDeckLabel': 'కొత్త డెక్',
   'decks.retention': 'నిలుపుకోండి',
   'decks.studyArrow': 'అధ్యయనం →',
   'decks.subheading': '{{count}} డెక్స్ · సమీక్ష మరియు నిర్వహణ',
@@ -79,6 +93,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'నాకు ఇప్పటికే ఒక ఖాతా ఉంది',
   'landing.heroSubtitle':
     'విరామ పునరావృత్తి అనేది బట్టి పట్టడానికి, గుర్తుంచుకోవడానికి మధ్య తేడాను చూపిస్తుంది. రోజుకు ఐదు నిమిషాలు, ఏళ్ల తరబడి చేస్తే, భాష మనసులో నిలిచిపోతుంది.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.proof.export': 'బహిరంగ డేటా, పరిమితులు లేవు',
   'landing.proof.free': 'వ్యక్తిగత ఉపయోగం కోసం ఎప్పటికీ ఉచితం',
   'landing.proof.import': '.apkg / CSV ని దిగుమతి చేయండి',
@@ -93,12 +108,16 @@ export const ui: UiTranslations = {
   'login.heading': 'మీ డెక్‌లకు తిరిగి స్వాగతం',
   'login.orDivider': 'లేదా కొనసాగించండి',
   'login.signupLink': 'ఉచితంగా చదువు ప్రారంభించండి',
+  'login.signupPrompt': 'ఇక్కడికి కొత్తగా వచ్చారా?',
   'login.subtitle': 'మీరు ఎక్కడ ఆపారో అక్కడి నుండే కొనసాగించండి — మీ విజయ పరంపర మీ కోసం వేచి ఉంది.',
   'mobileNav.closeMenu': 'నావిగేషన్ మెనూను మూసివేయండి',
   'mobileNav.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
   'notifications.markAllReadError': 'అన్నింటినీ చదివినట్లుగా గుర్తించడంలో విఫలమయ్యాను.',
   'pricing.heading': 'కార్డులు',
+  'pricing.limits.cards': 'కార్డులు',
   'pricing.limits.decks': 'డెక్స్',
+  'pricing.limits.historyDays': '{{days}} రోజుల సమీక్ష చరిత్ర',
+  'pricing.limits.historyUnlimited': 'అపరిమిత సమీక్ష చరిత్ర',
   'pricing.limits.stats': 'గణాంకాలు',
   'pricing.limits.study': 'అధ్యయనం',
   'resetPassword.passwordLabel': 'కొత్త పాస్‌వర్డ్',
@@ -110,17 +129,30 @@ export const ui: UiTranslations = {
   'sessionSummary.heading': 'చాలా బాగా చేసారు.',
   'sessionSummary.label': 'సెషన్ పూర్తయింది',
   'settings.changePasswordError': 'పాస్‌వర్డ్‌ను మార్చలేకపోయాను.',
+  'settings.confirmPassword': 'మీ పాస్‌వర్డ్‌ను నిర్ధారించండి',
   'settings.currentPassword': 'ప్రస్తుత పాస్‌వర్డ్',
+  'settings.dangerZone': 'ప్రమాదకర ప్రాంతం',
+  'settings.deleteAccountHint':
+    'మీ ఖాతా మరియు మొత్తం స్టడీ డేటాను శాశ్వతంగా తొలగించండి. ఇది వెనక్కి తిరిగి చేయలేము.',
+  'settings.deleteAccountWarning':
+    'ఇది మీ ఖాతా మరియు అన్ని డెక్లు, కార్డులు, స్టడీ చరిత్రను శాశ్వతంగా తొలగిస్తుంది. ఇది వెనక్కి తిరిగి చేయలేము.',
   'settings.deleteError':
     'ఖాతాను తొలగించడంలో విఫలమయ్యారు. మీ పాస్‌వర్డ్‌ను తనిఖీ చేసి, మళ్లీ ప్రయత్నించండి.',
   'settings.deleting': 'తొలగిస్తోంది…',
+  'settings.devicesHint': 'మీ ఖాతాకు ప్రస్తుతం నమోదైన పరికరాలు.',
   'settings.newPassword': 'కొత్త పాస్‌వర్డ్',
   'settings.password': 'పాస్‌వర్డ్',
   'settings.passwordChanged': 'పాస్‌వర్డ్ నవీకరించబడింది.',
+  'settings.passwordHint': 'సైన్ ఇన్ చేయడానికి మీరు ఉపయోగించే పాస్వర్డ్ను మార్చండి.',
   'settings.reminders.atRisk': 'స్ట్రీక్ ప్రమాద హెచ్చరిక (రాత్రి 8:00 గంటల తర్వాత)',
+  'settings.reminders.daily': 'రోజువారీ రిమైండర్ (ఉదయం 8:00)',
   'settings.reminders.heading': 'రిమైండర్లు',
+  'settings.reminders.milestones': 'మైలురాయి వేడుకలు',
   'settings.reminders.note':
     'ఈ పరికరంలో నిల్వ చేయబడింది. ఏ అధ్యయనం ఈ బ్రౌజర్ ఉపరితలాలను కదిలిస్తుందో టోగుల్ చేయండి; రీలోడ్ అంతటా ప్రాధాన్యతలు సమకాలీకరించబడతాయి.',
+  'settings.reminders.weekly': 'వారపు నిలిచిన జ్ఞాపక సారాంశం (ఆదివారాలు)',
+  'settings.revokeDeviceWarning':
+    'ఈ పరికరం యొక్క యాక్సెస్ త్వరలో రద్దు చేయబడుతుంది. సైన్ అవుట్ చేయాలా?',
   'settings.saved': 'సేవ్ చేయబడింది.',
   'settings.saveError': 'సేవ్ చేయడంలో విఫలమయ్యాను.',
   'settings.saving': 'సేవ్ అవుతోంది…',
@@ -136,6 +168,7 @@ export const ui: UiTranslations = {
   'signup.legal':
     'ఖాతాను సృష్టించడం ద్వారా మీరు మా నిబంధనలు మరియు గోప్యతా విధానానికి అంగీకరిస్తున్నారు.',
   'signup.nameLabel': 'మీ పేరు (ఐచ్ఛికం)',
+  'signup.orDivider': 'లేదా ఇలా సైన్ అప్ చేయండి',
   'signup.subtitle': 'రోజుకు ఐదు నిమిషాలు. గుర్తుంచుకునే భవిష్యత్ స్వరూపం.',
   'stats.byStateHeading': 'రాష్ట్రాల వారీగా కార్డులు',
   'stats.dailyHeading': 'రోజుకు సమీక్షలు (గత 30 రోజులు)',
@@ -160,6 +193,7 @@ export const ui: UiTranslations = {
   'study.gradeError': 'మీ సమీక్షను సేవ్ చేయలేకపోయాము. మళ్ళీ ప్రయత్నించండి.',
   'study.gradeKeyHint': 'ఫ్లిప్ తర్వాత గ్రేడ్',
   'study.loadError': 'స్టడీ సెషన్ లోడ్ చేయడంలో విఫలమైంది.',
+  'study.progressLabel': '{{reviewed}} / {{total}}',
   'study.summary.body':
     '{{reviewed}} కార్డులు · మళ్ళీ {{again}} · కఠినమైన {{hard}} · మంచి {{good}} · సులభమైన {{easy}}',
   'study.summary.done': 'పూర్తి సారాంశాన్ని చూడండి',
@@ -169,6 +203,8 @@ export const ui: UiTranslations = {
   'todayHeroCard.dueValue': '{{count}} కార్డులు రావలసి ఉంది',
   'todayHeroCard.eyebrow': 'ఈరోజు · {{date}}',
   'todayHeroCard.goalLabel': 'రోజువారీ లక్ష్యం',
+  'todayHeroCard.goalProgress': '{{reviewed}} / {{goal}}',
   'todayHeroCard.streakBadge': '{{days}} -రోజుల పరంపర',
+  'todayHeroCard.studyCta': 'అధ్యయనం ప్రారంభించండి',
   'userMenu.stats': 'నా గణాంకాలు',
 }

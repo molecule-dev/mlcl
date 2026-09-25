@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'فیڈبیک ہے، کوئی بگ ملا ہے، یا {{app}} کو اپنے اسکول یا ٹیم تک لے جانا چاہتے ہیں؟ ہم ہر پیغام پڑھتے ہیں — اپنی اکاؤنٹ سیٹنگز سے رابطہ کریں اور ایک حقیقی انسان جواب دے گا۔',
   'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'کے بارے میں',
+  'about.intro':
+    '{{app}} ایک روزانہ ورڈ پزل ہے۔ چھ کوششوں میں پانچ حروف کا لفظ پہچانیں، اپنی اسٹریک برقرار رکھیں، اپنا ایموجی گرڈ شیئر کریں، اور دیکھیں کہ آج کے لفظ پر سب کا کیا حال رہا۔',
+  'about.missionBody':
+    'اچھی پزل روزانہ کی ایک چھوٹی سی جیت ہے۔ {{app}} ایک مشترکہ روزانہ لفظ کے گرد بنایا گیا ہے — کافی بریک کے لیے کافی تیز، اور کل دوبارہ آنے کے لیے کافی دلچسپ۔',
+  'about.missionTitle': 'ہمارا مشن',
   'about.title': '{{app}} کے بارے میں',
   'archive.loadError': 'آرکائیو لوڈ نہیں ہو سکا۔',
   'archive.missed': 'چھوٹ گیا',
   'archive.notPlayed': 'نہیں کھیلا',
+  'archive.subhead':
+    'مشق کے طور پر کوئی بھی پچھلا دن دوبارہ کھیلیں — نہ اسٹریک، نہ اعداد و شمار، بس سارا مزہ۔',
   'archive.title': 'محفوظ شدہ دستاویزات',
   'auth.backToHome': 'ہوم پر واپس',
   'auth.backToHomeArrow': '← ہوم پر واپس',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'پاس ورڈ بھول گئے؟',
   'auth.login.loggingIn': 'آپ کو سائن ان کیا جا رہا ہے…',
   'auth.login.logIn': 'آج کا لفظ کھیلیں',
+  'auth.login.noAccount': 'Tessera میں نئے ہیں؟',
   'auth.login.or': 'یا اس کے ساتھ جاری رکھیں',
   'auth.login.password': 'پاس ورڈ',
   'auth.login.signInButton': 'سائن ان کریں',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'محفوظ کیا جا رہا ہے…',
   'common.sendingEllipsis': 'بھیجا جا رہا ہے…',
   'common.startingEllipsis': 'شروع کیا جا رہا ہے…',
+  'forgotPassword.subhead':
+    'اپنا ای میل درج کریں اور ہم آپ کو دوبارہ ترتیب دینے کے لیے ایک لنک بھیجیں گے۔',
+  'forgotPassword.success.body':
+    'اگر کوئی اکاؤنٹ موجود ہے۔ {{email}} ، آپ کو چند منٹوں میں دوبارہ ترتیب دینے کا لنک مل جائے گا۔',
+  'forgotPassword.success.title': 'اپنا ان باکس چیک کریں۔',
   'form.name': 'نام',
   'howToPlay.cta.home': 'گھر واپس',
   'howToPlay.cta.play': 'آج کا پہیلی کھیلیں',
@@ -68,10 +83,14 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'سٹریکس جنہیں توڑنے سے نفرت ہے',
   'leaderboard.daily.title': 'آج کے حل',
   'leaderboard.loadError': 'لیڈر بورڈ لوڈ نہیں ہو سکا۔',
+  'leaderboard.streaks.empty': 'ابھی کوئی اسٹریک نہیں — پہلے بنیں۔',
+  'leaderboard.streaks.subhead': 'اب تک کی سب سے طویل جیت کی اسٹریک۔',
   'leaderboard.streaks.title': 'سٹریک لیڈرز',
+  'leaderboard.subhead': 'آج سب کا کیا حال رہا، اور سب سے طویل اسٹریک کس کی ہے۔',
   'leaderboard.title': 'لیڈر بورڈ',
   'login.headline': 'خوش آمدید۔',
   'login.streakPill': '{{days}} دن کا سٹریک انتظار میں',
+  'login.subhead': 'اپنی اسٹریک برقرار رکھنے اور آج کے لفظ پر اپنا حال دیکھنے کے لیے سائن ان کریں۔',
   'nav.archive': 'محفوظ شدہ دستاویزات',
   'nav.editProfile': 'پروفائل میں ترمیم کریں',
   'nav.getStarted': 'شروع کریں',
@@ -89,6 +108,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · ایسا کوئی لفظ نہیں',
   'notFound.title': 'وہ راستہ خالی ہے۔',
   'planUpdated.message': 'آپ کا منصوبہ لائیو ہے۔',
+  'planUpdated.retry': 'دوبارہ کوشش کریں۔',
+  'planUpdated.verifyFailed': 'ہم ابھی تک آپ کی ادائیگی کی تصدیق نہیں کر سکے۔',
+  'planUpdated.verifyFailedBody':
+    'ہو سکتا ہے آپ کی ادائیگی پر ابھی بھی کارروائی ہو رہی ہو۔ ایک لمحے میں دوبارہ کوشش کریں۔',
   'planUpdated.verifying': 'آپ کی ادائیگی کی تصدیق کی جا رہی ہے…',
   'play.alreadyFinished': 'آپ یہ پہیلی پہلے ہی ختم کر چکے ہیں',
   'play.answerWas': 'لفظ تھا',
@@ -104,6 +127,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'مشقی پہیلی',
   'play.tooShort': 'کافی حروف نہیں',
   'play.won': 'حل ہو گیا!',
+  'pricing.advancedStats': 'اعلیٰ درجے کے اعداد و شمار: {{yes}}',
+  'pricing.archiveHistory': '{{count}} دن کی آرکائیو تاریخ',
+  'pricing.archivePlays': '{{count}} آرکائیو ری پلے / دن',
+  'pricing.archiveUnlimited': 'لامحدود آرکائیو تاریخ',
+  'pricing.canExport': 'ڈیٹا ایکسپورٹ: {{yes}}',
+  'pricing.checkoutError': 'چیک آؤٹ شروع نہیں کیا جا سکا۔ براہ کرم دوبارہ کوشش کریں۔',
   'pricing.dailyWord': 'روزانہ کا لفظ',
   'pricing.heading': 'اپنا {{app}} منصوبہ منتخب کریں',
   'pricing.included': 'شامل ہے',
@@ -111,7 +140,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'روزانہ کا لفظ ہمیشہ مفت ہے۔ لامحدود آرکائیو ری پلے اور گہرے اعداد و شمار کے لیے اپ گریڈ کریں۔',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} آپ کی پرائیویسی کا احترام کرتا ہے۔ یہ صفحہ بتاتا ہے کہ ہم کون سا ڈیٹا محفوظ کرتے ہیں، کیوں کرتے ہیں، اور اسے کیسے ہٹایا جائے۔',
   'privacy.title': 'رازداری کا نوٹس',
+  'resetPassword.subhead': 'اپنی اسٹریک پر واپس جانے کے لیے نیا پاس ورڈ منتخب کریں۔',
   'settings.account': 'اکاؤنٹ',
   'settings.danger.body': 'اپنا {{appName}} اکاؤنٹ اور تمام پہیلیوں کی تاریخ مستقل طور پر ہٹا دیں۔',
   'settings.danger.confirm': 'ہاں، ہمیشہ کے لیے حذف کریں',
@@ -120,17 +152,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'مہمان',
   'settings.language.title': 'زبان',
   'settings.subhead': 'اپنا پروفائل، آواز، اور لیڈر بورڈ پر اپنی ظاہری شکل کو ایڈجسٹ کریں۔',
+  'settings.unnamed': 'اسپارک پلیئر',
   'settings.upgrade': 'اپ گریڈ کریں',
   'signup.eyebrow': 'ہمیشہ کے لیے مفت — ایک دن میں ایک لفظ',
   'signup.headline': 'اپنا سٹریک شروع کریں۔',
+  'signup.subhead':
+    'روزانہ کا لفظ کھیلنے، اسٹریک بنانے، اور لیڈر بورڈ پر چڑھنے کے لیے {{appName}} اکاؤنٹ بنائیں۔',
   'stats.currentStreak': 'سٹریک',
   'stats.distribution.title': 'اندازے کی تقسیم',
   'stats.loadError': 'آپ کے اعداد و شمار لوڈ نہیں ہو سکے۔',
   'stats.maxStreak': 'زیادہ سے زیادہ سٹریک',
   'stats.played': 'کھیلا گیا',
   'stats.playToday': 'آج کا پہیلی کھیلیں',
+  'stats.subhead': 'صرف درجہ بند روزانہ پزل — آرکائیو مشق کبھی شمار نہیں ہوتی۔',
   'stats.title': 'آپ کے اعداد و شمار',
   'stats.winRate': 'جیت کی شرح',
   'status.monthly': 'ماہانہ',
+  'terms.intro':
+    '{{app}} استعمال کر کے آپ نیچے دیے گئے قواعد سے اتفاق کرتے ہیں۔ اگر آپ انہیں قبول نہیں کر سکتے تو براہ کرم سروس استعمال نہ کریں۔',
   'terms.title': 'خدمت کی شرائط',
 }

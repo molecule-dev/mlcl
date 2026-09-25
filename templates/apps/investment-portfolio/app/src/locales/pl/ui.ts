@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Masz opinię, znalazłeś błąd lub chcesz nową funkcję? Napisz do nas w ustawieniach konta — każda wiadomość trafia do prawdziwej osoby z zespołu. Uwaga: nic tutaj nie jest poradą inwestycyjną; każdą transakcję kontrolujesz sam.',
+  'about.contactTitle': 'Skontaktuj się z nami',
+  'about.featureAttribution':
+    'Atrybucja wyników — rozłóż stopy zwrotu według sektora, regionu i klasy aktywów oraz porównaj z benchmarkiem w dowolnym okresie.',
+  'about.featureRebalance':
+    'Zdyscyplinowane rebalansowanie — ustaw docelowe alokacje i progi tolerancji, zobacz wcześnie wykryte odchylenia i otrzymaj transakcje, które przywrócą ci równowagę.',
+  'about.featureTax':
+    'Porządek w dokumentach podatkowych — zrealizowane i niezrealizowane zyski, dywidendy i dokumenty 1099 w jednym miejscu, z uwzględnieniem flag wash-sale.',
+  'about.featureUnified':
+    'Jeden spójny portfel — akcje, ETF-y, fundusze inwestycyjne, obligacje i nie tylko, zebrane ze wszystkich rachunków maklerskich.',
+  'about.featureWatchlist':
+    'Listy obserwowanych, wiadomości i alerty cenowe, dzięki którym działasz na tym, co ważne, bez szumu.',
+  'about.intro':
+    '{{app}} to panel portfela wieloaktywowego dla inwestorów indywidualnych i niezależnych doradców. Akcje, ETF-y, fundusze inwestycyjne, obligacje, nieruchomości i gotówka — każda pozycja na każdym rachunku, w jednym miejscu, z dyscypliną profesjonalnego biura.',
+  'about.missionBody':
+    'Dobre inwestowanie to głównie dyscyplina: jasna docelowa alokacja, rzetelna atrybucja wyników i uporządkowane dokumenty podatkowe. {{app}} przenosi te instytucjonalne nawyki na każdego, abyś rebalansował świadomie, a nie pod wpływem impulsu — i nigdy nie tracił z oczu tego, co naprawdę robi twój portfel.',
+  'about.missionTitle': 'Nasza misja',
   'about.pageTitle': 'O {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Narzędzia do zarządzania majątkiem',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Nie stanowi porady inwestycyjnej.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Pulpit portfela dla inwestorów indywidualnych i doradców, którzy chcą zdyscyplinowanego rebalansowania, precyzyjnej atrybucji wyników i schludnej higieny dokumentów podatkowych — bez szumu.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · Wyniki z przeszłości nie gwarantują przyszłych rezultatów.',
   'argentAuthShell.sampleChange': '+$2 841 (+0,28%) dziś',
+  'argentAuthShell.sampleLabel': 'Wartość portfela',
   'argentAuthShell.sampleValue': '$1 032 251',
   'argentLayout.primaryNavLabel': 'Nawigacja główna',
   'assetAllocationDonut.heading': 'Jak są zainwestowane Pana/Pani środki',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'dziś',
   'assetDetail.txEmpty': 'Brak transakcji dla tego tickera.',
   'assetDetail.txHeading': 'Pana/Pani transakcje',
+  'auth.legalConsent.prefix': 'Kontynuując, akceptujesz {{appName}}',
   'common.and': 'i',
   'common.goToDashboard': 'Przejdź do panelu',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'dziś',
   'dashboard.topHoldings.heading': 'Gdzie pracują Pana/Pani środki',
   'dashboard.topHoldings.label': 'Czołowe pozycje',
+  'forgotPassword.gotLinkCta': 'Mam link do resetowania →',
+  'forgotPassword.subheading':
+    'Proszę wprowadzić e-mail powiązany z kontem Gavl, a wyślemy bezpieczny link resetujący.',
   'forgotPassword.successBody':
     'Jeśli w ciągu kilku minut wiadomość nie nadejdzie, proszę sprawdzić folder spamu lub spróbować z innym adresem.',
   'forgotPassword.successSubheading':
     'Proszę sprawdzić {{email}} w poszukiwaniu linku do resetu. Wygaśnie za 60 minut.',
+  'forgotPassword.successTitle': 'E-mail resetujący w drodze',
   'holdingHighlightRow.todayLabel': 'dziś',
   'holdings.addCta': 'Kup',
   'holdings.col.allocation': 'Alok.',
@@ -58,6 +87,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Nie stanowi porady inwestycyjnej. Wyniki osiągnięte w przeszłości nie gwarantują wyników w przyszłości.',
   'landing.eyebrow': 'Argent · Platforma do zarządzania majątkiem',
   'landing.features.heading': 'Wszystko, co doradca zbudowałby dla siebie.',
+  'landing.finalCta.body':
+    'Połącz swoje konto maklerskie w dwóch kliknięciach. Resztą zajmie się {{appName}}.',
+  'landing.finalCta.cta': 'Załóż konto Argent',
   'landing.finalCta.heading': 'Przywróć portfelowi dyscyplinę.',
   'landing.footerSignup': 'Załóż konto',
   'landing.getStarted': 'Załóż konto',
@@ -65,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Zobacz cennik',
   'landing.heroSubtitle':
     'Pulpit portfela dla inwestorów indywidualnych i doradców, którzy chcą zdyscyplinowanego rebalansowania, precyzyjnej atrybucji wyników i schludnej higieny dokumentów podatkowych — bez szumu.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Podgląd na żywo z reprezentatywnego portfela',
   'login.heading': 'Zaloguj się do Argent',
   'login.subheading':
@@ -76,6 +109,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} godz. temu',
   'news.justNow': 'przed chwilą',
   'news.loadError': 'Nie udało się załadować wiadomości.',
+  'planUpdated.body':
+    'Zmiana rozliczeń jest już aktywna. Możesz zarządzać swoim planem w dowolnym momencie na stronie rozliczeń.',
+  'planUpdated.retry': 'Spróbuj ponownie',
+  'planUpdated.verifyFailed': 'Nie mogliśmy jeszcze potwierdzić Twojej płatności.',
+  'planUpdated.verifyFailedBody':
+    'Twoja płatność może być nadal przetwarzana. Spróbuj ponownie za chwilę.',
   'planUpdated.verifying': 'Potwierdzanie płatności…',
   'portfolioHeroCard.label': 'Wartość portfela',
   'pricing.holdingsLabel': 'zasoby',
@@ -86,12 +125,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Odchylenie alokacji',
   'rebalance.empty': 'Nie ustawiono jeszcze celów.',
   'rebalance.executeCta': 'Złóż {{count}} zleceń',
+  'rebalance.executeError': 'Nie udało się złożyć transakcji.',
   'rebalance.executeOk': 'Złożono {{count}} zleceń. Widoczne na stronie Transakcje.',
+  'rebalance.executing': 'Składanie…',
   'rebalance.eyebrow': 'Rebalans · Doradca Argent',
   'rebalance.heading': 'Przywróć portfelowi dyscyplinę',
   'rebalance.loadError': 'Nie udało się załadować planu rebalansu.',
+  'rebalance.plan.driftLine': 'obecnie {{current}}% · cel {{target}}%',
   'rebalance.planHeading': 'Zlecenie Argent — proszę zweryfikować przed złożeniem',
   'rebalance.planLabel': 'Sugerowany plan transakcji',
+  'rebalance.subheading':
+    'Wiersze poza progiem tolerancji wywołują propozycje transakcji. {{appName}} działa tylko po twoim potwierdzeniu.',
   'rebalance.summary.buyLabel': 'Kupna',
   'rebalance.summary.buySub': 'pozycje do uzupełnienia',
   'rebalance.summary.driftLabel': 'Poza pasmem',
@@ -100,6 +144,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'łącznie dla sugerowanych transakcji',
   'rebalance.summary.sellLabel': 'Sprzedaże',
   'rebalance.summary.sellSub': 'pozycje do redukcji',
+  'rebalanceDriftCard.drift': 'odchylenie {{sign}}{{pct}}% · próg ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'cel {{pct}}%',
   'reports.attributionHeading': 'Atrybucja wyników (1R)',
   'reports.col.alpha': 'Alfa',
@@ -113,36 +158,67 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Rok',
   'reports.gainsHeading': 'Zyski zrealizowane i niezrealizowane',
   'reports.noAttribution': 'Brak danych o atrybucji.',
+  'reports.noGains': 'Brak danych o zrealizowanych/niezrealizowanych zyskach.',
   'reports.noPerformance': 'Brak danych o wynikach.',
   'reports.noTaxDocs': 'Brak dokumentów podatkowych.',
   'reports.performanceHeading': 'Wyniki vs benchmark',
   'reports.taxHeading': 'Dokumenty podatkowe',
   'resetPassword.heading': 'Proszę wybrać silne nowe hasło',
+  'resetPassword.passwordPlaceholder': 'Nowe hasło',
   'resetPassword.subheading': 'Argent zaloguje Pana/Panią automatycznie po ustawieniu hasła.',
   'resetPassword.tokenPlaceholder': 'Token resetu z e-maila',
+  'settings.appearance.description': 'Przełączaj między trybem jasnym i ciemnym.',
   'settings.appearance.title': 'Wygląd',
+  'settings.devices.body': 'Urządzenia obecnie zalogowane do konta.',
+  'settings.devices.empty': 'Nie znaleziono urządzeń.',
   'settings.devices.heading': 'Urządzenia',
+  'settings.devices.revokeWarning': 'Dostęp tego urządzenia zostanie wkrótce cofnięty. Wylogować?',
   'settings.devices.signOut': 'Wyloguj się',
   'settings.devices.thisDevice': 'To urządzenie',
   'settings.devices.unknown': 'Nieznane urządzenie',
   'settings.linked.body':
     'Synchronizacja z maklerem wymaga zewnętrznego konektora (Plaid, Yodlee itd.). Proszę skonfigurować dostawcę w środowisku, aby włączyć automatyczny import.',
   'settings.linked.heading': 'Powiązane rachunki maklerskie',
+  'settings.linked.placeholder': 'Brak połączonych kont.',
+  'settings.notifications.dividendsPaid': 'Wypłacone dywidendy',
   'settings.notifications.error': 'Nie udało się zaktualizować preferencji.',
   'settings.notifications.priceAlerts': 'Alerty cenowe',
+  'settings.notifications.rebalanceDrift': 'Odchylenie rebalansu',
+  'settings.notifications.taxDocsReady': 'Dokumenty podatkowe gotowe',
   'settings.profile.advisor': 'E-mail doradcy (opcjonalnie)',
   'settings.profile.heading': 'Profil',
   'settings.security.changePassword': 'Zmień hasło',
+  'settings.security.changePasswordTitle': 'Zmień hasło',
   'settings.security.changing': 'Zmiana…',
+  'settings.security.confirmPassword': 'Hasło',
+  'settings.security.currentPassword': 'Obecne hasło',
   'settings.security.deleteAccount': 'Usuń konto',
   'settings.security.deleteError': 'Nie udało się usunąć konta.',
   'settings.security.deleteHeading': 'Usuń konto',
+  'settings.security.deleteModalWarning':
+    'To trwale usuwa twoje konto i dane. Wpisz hasło, aby potwierdzić.',
+  'settings.security.deleteWarning':
+    'Trwale usuń swoje konto i wszystkie powiązane dane. Tej operacji nie można cofnąć.',
   'settings.security.deleting': 'Usuwanie…',
   'settings.security.heading': 'Bezpieczeństwo',
   'settings.security.newPassword': 'Nowe hasło',
   'settings.security.password': 'Hasło',
+  'settings.security.passwordError': 'Nie udało się zmienić hasła.',
+  'settings.security.passwordHint': 'Zmień hasło używane do logowania.',
+  'settings.security.twoFactor': 'Uwierzytelnianie dwuskładnikowe',
+  'settings.security.twoFactorCode': 'Kod uwierzytelniający',
+  'settings.security.twoFactorDisable': 'Wyłącz',
+  'settings.security.twoFactorDisableTitle': 'Wyłącz uwierzytelnianie dwuskładnikowe',
   'settings.security.twoFactorEnable': 'Włącz',
+  'settings.security.twoFactorEnableTitle': 'Włącz uwierzytelnianie dwuskładnikowe',
+  'settings.security.twoFactorHint': 'Dodaj dodatkową warstwę ochrony do swojego konta.',
   'settings.security.twoFactorInvalidCode': 'Nieprawidłowy kod',
+  'settings.security.twoFactorOn': 'W dniu',
+  'settings.security.twoFactorQrAlt': 'Kod QR uwierzytelniania dwuskładnikowego',
+  'settings.security.twoFactorScan':
+    'Zeskanuj ten kod QR w aplikacji uwierzytelniającej, a następnie wpisz 6-cyfrowy kod.',
+  'settings.security.twoFactorUnavailable':
+    'Uwierzytelnianie dwuskładnikowe nie jest dostępne w tej aplikacji.',
   'settings.security.twoFactorVerify': 'Zweryfikuj i włącz',
   'settings.tax.error': 'Nie udało się zaktualizować metody podatkowej.',
   'settings.tax.heading': 'Księgowanie lotów podatkowych',
@@ -153,6 +229,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Metoda podatkowa zapisana.',
   'signup.eyebrow': 'Załóż konto',
   'signup.heading': 'Załóż konto Argent',
+  'signup.legalPrefix': 'Tworząc konto, akceptujesz {{appName}}',
   'signup.subheading':
     '30 dni bezpłatnie. Karta nie jest wymagana. Można anulować w dowolnym momencie.',
   'signup.terms':

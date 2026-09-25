@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ertu með endurgjöf, fannst þú villu eða vilt þú koma {{app}} í skólann þinn eða lið? Við lesum hverja skilaboð — hafðu samband í gegnum reikningsstillingarnar þínar og alvöru manneskja mun svara.',
   'about.contactTitle': 'Hafðu samband',
   'about.eyebrow': 'Um',
+  'about.intro':
+    '{{app}} er dagleg orðgáta. Giskaðu á fimm stafa orðið í sex tilraunum, haltu röðinni þinni lifandi, deildu emoji-netinu þínu og sjáðu hvernig allir stóðu sig á orði dagsins.',
+  'about.missionBody':
+    'Góð gáta er lítill daglegur sigur. {{app}} er byggt í kringum eitt sameiginlegt orð á dag — nógu fljótt fyrir kaffihlé, nógu skarpt til að koma aftur á morgun.',
+  'about.missionTitle': 'Markmið okkar',
   'about.title': 'Um {{app}}',
   'archive.loadError': 'Ekki tókst að hlaða safninu.',
   'archive.missed': 'Misst af',
   'archive.notPlayed': 'Ekki spilað',
+  'archive.subhead':
+    'Spilaðu hvaða liðinn dag sem er aftur sem æfingu — engar raðir, engar tölfræði, allt skemmtilegt.',
   'archive.title': 'Skjalasafn',
   'auth.backToHome': 'Til baka heim',
   'auth.backToHomeArrow': '← Til baka heim',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Gleymt lykilorð?',
   'auth.login.loggingIn': 'Skrái þig inn…',
   'auth.login.logIn': 'Spila orð dagsins',
+  'auth.login.noAccount': 'Nýr/ný í Tessera?',
   'auth.login.or': 'eða halda áfram með',
   'auth.login.password': 'Lykilorð',
   'auth.login.signInButton': 'Skrá inn',
@@ -32,6 +42,10 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Vista…',
   'common.sendingEllipsis': 'Sendi…',
   'common.startingEllipsis': 'Byrja…',
+  'forgotPassword.subhead': 'Sláðu inn netfangið þitt og við sendum þér tengil til að endurstilla.',
+  'forgotPassword.success.body':
+    'Ef reikningur er til staðar fyrir {{email}} , þú færð endurstillingarhlekk eftir nokkrar mínútur.',
+  'forgotPassword.success.title': 'Kíktu á pósthólfið þitt.',
   'form.name': 'Nafn',
   'howToPlay.cta.home': 'Heim',
   'howToPlay.cta.play': 'Spila þrautina í dag',
@@ -68,10 +82,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Raðir sem þú hatar að brjóta',
   'leaderboard.daily.title': 'Lausnir dagsins',
   'leaderboard.loadError': 'Ekki tókst að hlaða stigatöflunni.',
+  'leaderboard.streaks.empty': 'Engar raðir ennþá — vertu fyrstur.',
+  'leaderboard.streaks.subhead': 'Lengstu sigurraðir allra tíma.',
   'leaderboard.streaks.title': 'Raðarleiðtogar',
+  'leaderboard.subhead': 'Hvernig allir stóðu sig í dag og hver heldur lengstu röðunum.',
   'leaderboard.title': 'Stigatafla',
   'login.headline': 'Velkomin aftur.',
   'login.streakPill': '{{days}} daga röð bíður',
+  'login.subhead':
+    'Skráðu þig inn til að halda röðinni þinni lifandi og sjá hvernig þér gekk á orði dagsins.',
   'nav.archive': 'Skjalasafn',
   'nav.editProfile': 'Breyta prófíl',
   'nav.getStarted': 'Byrjaðu',
@@ -89,6 +108,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Ekkert slíkt orð',
   'notFound.title': 'Þessi leið er tóm.',
   'planUpdated.message': 'Áskriftin þín er virk.',
+  'planUpdated.retry': 'Reyndu aftur',
+  'planUpdated.verifyFailed': 'Við gátum ekki staðfest greiðsluna þína ennþá.',
+  'planUpdated.verifyFailedBody':
+    'Greiðslan þín gæti enn verið í vinnslu. Reyndu aftur eftir smástund.',
   'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'play.alreadyFinished': 'Þú hefur nú þegar klárað þessa þraut',
   'play.answerWas': 'Orðið var',
@@ -104,6 +127,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Æfingaþraut',
   'play.tooShort': 'Ekki nógu margir stafir',
   'play.won': 'Leyst!',
+  'pricing.advancedStats': 'Ítarleg tölfræði: {{yes}}',
+  'pricing.archiveHistory': '{{count}} dagar af sögu safnsins',
+  'pricing.archivePlays': '{{count}} endursýningar safns / dag',
+  'pricing.archiveUnlimited': 'Ótakmörkuð saga safns',
+  'pricing.canExport': 'Útflutningur gagna: {{yes}}',
+  'pricing.checkoutError': 'Gat ekki hafið greiðslu. Vinsamlegast reyndu aftur.',
   'pricing.dailyWord': 'Orð dagsins',
   'pricing.heading': 'Veldu {{app}} áskriftina þína',
   'pricing.included': 'Innifalið',
@@ -111,7 +140,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Orð dagsins er alltaf ókeypis. Uppfærðu fyrir ótakmarkaðar endurupptökur úr safni og dýpri tölfræði.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} virðir friðhelgi þína. Þessi síða dregur saman gögnin sem við geymum, hvers vegna við geymum þau og hvernig á að eyða þeim.',
   'privacy.title': 'Persónuverndartilkynning',
+  'resetPassword.subhead': 'Veldu nýtt lykilorð til að komast aftur í röðina þína.',
   'settings.account': 'Aðgangur',
   'settings.danger.body': 'Fjarlægðu varanlega {{appName}} aðganginn þinn og alla þrautasögu.',
   'settings.danger.confirm': 'Já, eyða fyrir alltaf',
@@ -120,17 +152,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'Gestur',
   'settings.language.title': 'Tungumál',
   'settings.subhead': 'Stilltu prófílinn þinn, hljóð og hvernig þú birtist á stigatöflunni.',
+  'settings.unnamed': 'Sparq spilari',
   'settings.upgrade': 'Uppfæra',
   'signup.eyebrow': 'Ókeypis að eilífu — eitt orð á dag',
   'signup.headline': 'Byrjaðu röðina þína.',
+  'signup.subhead':
+    'Búðu til {{appName}} reikning til að spila orð dagsins, byggja upp röð og klifra upp stigatöfluna.',
   'stats.currentStreak': 'Röð',
   'stats.distribution.title': 'Giskadreifing',
   'stats.loadError': 'Ekki tókst að hlaða tölfræðinni þinni.',
   'stats.maxStreak': 'Lengsta röð',
   'stats.played': 'Spilað',
   'stats.playToday': 'Spila þrautina í dag',
+  'stats.subhead': 'Aðeins raðaðar daglegar gátur — æfing í safninu telur aldrei.',
   'stats.title': 'Tölfræðin þín',
   'stats.winRate': 'Sigurhlutfall',
   'status.monthly': 'Mánaðarlega',
+  'terms.intro':
+    'Með því að nota {{app}} samþykkir þú reglurnar hér að neðan. Ef þú getur ekki samþykkt þær skaltu ekki nota þjónustuna.',
   'terms.title': 'Þjónustuskilmálar',
 }

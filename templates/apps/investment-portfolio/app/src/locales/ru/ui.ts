@@ -1,10 +1,33 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Есть отзыв, нашли баг или хотите новую функцию? Напишите нам в настройках аккаунта — каждое сообщение попадает к реальному человеку из команды. Примечание: здесь нет инвестиционных советов; вы контролируете каждую сделку.',
+  'about.contactTitle': 'Свяжитесь с нами',
+  'about.featureAttribution':
+    'Атрибуция доходности — разложите доходность по секторам, регионам и классам активов и сравнивайте с бенчмарком за любой период.',
+  'about.featureRebalance':
+    'Дисциплинированное ребалансирование — задайте целевые доли и допустимые отклонения, заранее замечайте дрейф и получайте сделки, которые возвращают вас к цели.',
+  'about.featureTax':
+    'Порядок в налоговых документах — реализованные и нереализованные прибыли, дивиденды и документы 1099 в одном месте, с отметками о wash-sale.',
+  'about.featureUnified':
+    'Единый портфель — акции, ETF, паевые фонды, облигации и другое, собранные со всех брокерских счетов.',
+  'about.featureWatchlist':
+    'Списки наблюдения, новости и оповещения о ценах, чтобы вы реагировали на важное без лишнего шума.',
+  'about.intro':
+    '{{app}} — это панель мультиактивного портфеля для частных инвесторов и независимых советников. Акции, ETF, паевые фонды, облигации, недвижимость и денежные средства — все активы на всех счетах в одном месте, с дисциплиной профессионального трейдинг-деска.',
+  'about.missionBody':
+    'Хорошее инвестирование — это в основном дисциплина: чёткая целевая структура, честная атрибуция доходности и аккуратные налоговые записи. {{app}} привносит эти институциональные привычки каждому, чтобы вы ребалансировали осознанно, а не импульсивно — и никогда не упускали из виду, что на самом деле делает ваш портфель.',
+  'about.missionTitle': 'Наша миссия',
   'about.pageTitle': 'О {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Инструменты управления капиталом',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Не является инвестиционной рекомендацией.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Панель управления портфелем для индивидуальных инвесторов и консультантов, которые хотят обеспечить дисциплинированную ребалансировку, точную оценку доходности и упорядоченное оформление налоговой документации — без лишней информации.',
+  'argentAuthShell.formFooter': '© {{year}} {{app}} · Прошлые результаты не гарантируют будущих.',
   'argentAuthShell.sampleChange': '+2 841 долл. США (+0,28%) сегодня',
+  'argentAuthShell.sampleLabel': 'Стоимость портфеля',
   'argentAuthShell.sampleValue': '1 032 251 долл. США',
   'argentLayout.primaryNavLabel': 'Основная навигация',
   'assetAllocationDonut.heading': 'Как инвестируются ваши деньги',
@@ -26,6 +49,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'сегодня',
   'assetDetail.txEmpty': 'По данному тикеру нет транзакций.',
   'assetDetail.txHeading': 'Ваши транзакции',
+  'auth.legalConsent.prefix': 'Продолжая, вы соглашаетесь с {{appName}}',
   'common.and': 'и',
   'common.goToDashboard': 'Перейти к панели',
   'common.no': '—',
@@ -37,10 +61,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'сегодня',
   'dashboard.topHoldings.heading': 'Куда ваши деньги идут на пользу',
   'dashboard.topHoldings.label': 'Крупнейшие активы',
+  'forgotPassword.gotLinkCta': 'У меня есть ссылка для сброса →',
+  'forgotPassword.subheading':
+    'Введите адрес электронной почты, указанный в вашем аккаунте Gavl, и мы вышлем вам защищенную ссылку для сброса пароля.',
   'forgotPassword.successBody':
     'Если вы не увидите письмо через несколько минут, проверьте папку «Спам» или попробуйте отправить его на другой адрес электронной почты.',
   'forgotPassword.successSubheading':
     'Проверять {{email}} Ссылка для сброса. Срок её действия истекает через 60 минут.',
+  'forgotPassword.successTitle': 'Письмо для сброса уже в пути',
   'holdingHighlightRow.todayLabel': 'сегодня',
   'holdings.addCta': 'Купить',
   'holdings.col.allocation': 'Аллок',
@@ -58,6 +86,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Не является инвестиционной рекомендацией. Результаты прошлых лет не гарантируют результатов будущих лет.',
   'landing.eyebrow': 'Argent · Платформа для управления капиталом',
   'landing.features.heading': 'Всё то, что консультант мог бы построить для себя сам.',
+  'landing.finalCta.body':
+    'Подключите свой брокерский счёт в два клика. {{appName}} сделает остальное.',
+  'landing.finalCta.cta': 'Откройте свой счет в Argent.',
   'landing.finalCta.heading': 'Верните дисциплину в управление своим инвестиционным портфелем.',
   'landing.footerSignup': 'Откройте счёт',
   'landing.getStarted': 'Откройте счёт',
@@ -65,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Цены указаны для ознакомления.',
   'landing.heroSubtitle':
     'Панель управления портфелем для индивидуальных инвесторов и консультантов, которые хотят обеспечить дисциплинированную ребалансировку, точную оценку доходности и упорядоченное оформление налоговой документации — без лишней информации.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption':
     'Предварительный просмотр образцов из репрезентативного портфолио в режиме реального времени.',
   'login.heading': 'Войдите в Argent',
@@ -77,6 +109,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} х назад',
   'news.justNow': 'только что',
   'news.loadError': 'Не удалось загрузить новости.',
+  'planUpdated.body':
+    'Изменение тарифа активировано. Вы можете управлять своим планом в любое время на странице оплаты.',
+  'planUpdated.retry': 'Попробуйте ещё раз',
+  'planUpdated.verifyFailed': 'Мы пока не можем подтвердить ваш платеж.',
+  'planUpdated.verifyFailedBody':
+    'Ваш платеж, возможно, еще обрабатывается. Попробуйте еще раз через минуту.',
   'planUpdated.verifying': 'Подтверждение платежа…',
   'portfolioHeroCard.label': 'Стоимость портфеля',
   'pricing.holdingsLabel': 'владения',
@@ -87,13 +125,18 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'дрейф распределения',
   'rebalance.empty': 'Цели пока не установлены.',
   'rebalance.executeCta': 'Место {{count}} сделки',
+  'rebalance.executeError': 'Не удалось разместить сделки.',
   'rebalance.executeOk':
     'Размещено {{count}} Сделки. Просмотреть их можно на странице «Транзакции».',
+  'rebalance.executing': 'Размещение…',
   'rebalance.eyebrow': 'Перебалансировка · Советник Argent',
   'rebalance.heading': 'Приведите свой инвестиционный портфель в порядок.',
   'rebalance.loadError': 'Не удалось загрузить план перебалансировки.',
+  'rebalance.plan.driftLine': 'сейчас {{current}}% · цель {{target}}%',
   'rebalance.planHeading': 'Билет Argent — проверьте перед оформлением',
   'rebalance.planLabel': 'Предложенный торговый план',
+  'rebalance.subheading':
+    'Строки за пределами допустимого отклонения вызывают предложения сделок. {{appName}} действует только после вашего подтверждения.',
   'rebalance.summary.buyLabel': 'Покупает',
   'rebalance.summary.buySub': 'позиции для пополнения',
   'rebalance.summary.driftLabel': 'Внеполосный',
@@ -102,6 +145,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'по предлагаемым видам торговли',
   'rebalance.summary.sellLabel': 'Продаёт',
   'rebalance.summary.sellSub': 'позиции для обрезки',
+  'rebalanceDriftCard.drift': 'дрейф {{sign}}{{pct}}% · диапазон ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'цель {{pct}} %',
   'reports.attributionHeading': 'Атрибуция эффективности (1Y)',
   'reports.col.alpha': 'Альфа',
@@ -115,37 +159,68 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Год',
   'reports.gainsHeading': 'Реализованная и нереализованная прибыль',
   'reports.noAttribution': 'Данные об источниках пока отсутствуют.',
+  'reports.noGains': 'Пока нет данных о реализованных/нереализованных прибылях.',
   'reports.noPerformance': 'Данные о производительности пока отсутствуют.',
   'reports.noTaxDocs': 'Налоговых документов пока нет.',
   'reports.performanceHeading': 'Производительность по сравнению с эталонными показателями',
   'reports.taxHeading': 'Налоговые документы',
   'resetPassword.heading': 'Выберите новый надежный пароль',
+  'resetPassword.passwordPlaceholder': 'Новый пароль',
   'resetPassword.subheading':
     'После установки пароля Argent автоматически выполнит вход в систему.',
   'resetPassword.tokenPlaceholder': 'Сбросить токен из электронной почты',
+  'settings.appearance.description': 'Переключайтесь между светлым и темным режимом.',
   'settings.appearance.title': 'Появление',
+  'settings.devices.body': 'Устройства, которые в данный момент подключены к вашей учетной записи.',
+  'settings.devices.empty': 'Устройства не найдены.',
   'settings.devices.heading': 'Устройства',
+  'settings.devices.revokeWarning': 'Доступ этого устройства скоро будет отозван. Выйти?',
   'settings.devices.signOut': 'выход',
   'settings.devices.thisDevice': 'Это устройство',
   'settings.devices.unknown': 'Неизвестное устройство',
   'settings.linked.body':
     'Для синхронизации брокерских данных требуется сторонний коннектор (Plaid, Yodlee и т. д.). Настройте свой провайдер в вашей среде, чтобы включить автоматический импорт.',
   'settings.linked.heading': 'Связанные брокерские счета',
+  'settings.linked.placeholder': 'Пока ни один аккаунт не привязан.',
+  'settings.notifications.dividendsPaid': 'Выплаченные дивиденды',
   'settings.notifications.error': 'Не удалось обновить настройки.',
   'settings.notifications.priceAlerts': 'Уведомления о ценах',
+  'settings.notifications.rebalanceDrift': 'Дрейф ребалансировки',
+  'settings.notifications.taxDocsReady': 'Налоговые документы готовы',
   'settings.profile.advisor': 'Адрес электронной почты консультанта (необязательно)',
   'settings.profile.heading': 'Профиль',
   'settings.security.changePassword': 'Изменить пароль',
+  'settings.security.changePasswordTitle': 'Изменить пароль',
   'settings.security.changing': 'Изменения…',
+  'settings.security.confirmPassword': 'Пароль',
+  'settings.security.currentPassword': 'Текущий пароль',
   'settings.security.deleteAccount': 'Удалить аккаунт',
   'settings.security.deleteError': 'Не удалось удалить учетную запись.',
   'settings.security.deleteHeading': 'Удалить аккаунт',
+  'settings.security.deleteModalWarning':
+    'Это навсегда удалит ваш аккаунт и данные. Введите пароль для подтверждения.',
+  'settings.security.deleteWarning':
+    'Безвозвратно удалить ваш аккаунт и все связанные данные. Это действие нельзя отменить.',
   'settings.security.deleting': 'Удаление…',
   'settings.security.heading': 'Безопасность',
   'settings.security.newPassword': 'Новый пароль',
   'settings.security.password': 'Пароль',
+  'settings.security.passwordError': 'Не удалось изменить пароль.',
+  'settings.security.passwordHint': 'Измените пароль, который вы используете для входа.',
+  'settings.security.twoFactor': 'Двухфакторная аутентификация',
+  'settings.security.twoFactorCode': 'Код аутентификации',
+  'settings.security.twoFactorDisable': 'Отключить',
+  'settings.security.twoFactorDisableTitle': 'Отключить двухфакторную аутентификацию',
   'settings.security.twoFactorEnable': 'Включить',
+  'settings.security.twoFactorEnableTitle': 'Включить двухфакторную аутентификацию',
+  'settings.security.twoFactorHint': 'Добавьте дополнительный уровень защиты вашего аккаунта.',
   'settings.security.twoFactorInvalidCode': 'Неверный код',
+  'settings.security.twoFactorOn': 'О',
+  'settings.security.twoFactorQrAlt': 'QR-код для двухфакторной аутентификации',
+  'settings.security.twoFactorScan':
+    'Отсканируйте этот QR-код в приложении-аутентификаторе, затем введите 6-значный код.',
+  'settings.security.twoFactorUnavailable':
+    'Двухфакторная аутентификация для этого приложения недоступна.',
   'settings.security.twoFactorVerify': 'Проверить и включить',
   'settings.tax.error': 'Не удалось обновить метод расчета налога.',
   'settings.tax.heading': 'Учет налоговых лотов',
@@ -156,6 +231,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Метод налогообложения сохранен.',
   'signup.eyebrow': 'Откройте счёт',
   'signup.heading': 'Откройте свой счет в Argent.',
+  'signup.legalPrefix': 'Создавая аккаунт, вы соглашаетесь с {{appName}}',
   'signup.subheading':
     'Бесплатно в течение 30 дней. Карта не требуется. Отменить можно в любое время.',
   'signup.terms':

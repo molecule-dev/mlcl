@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Kuna da ra'ayi, kun sami kuskure, ko kuna son allonku a {{appName}}? Buɗe Saitunanku don isa ga ƙungiyar — kowane saƙo yana zuwa ga ɗan adam na gaske wanda yake karanta shi.",
+  'about.contactTitle': 'Yi magana da mu',
+  'about.featureModeration':
+    "Taswirar hanya ta jama'a mai lakabin kwata, lissafin canje-canje da ke juya aikin da aka aika zuwa bayanan saki, da dashboard da ke nuna abin da jama'a suka fi so.",
+  'about.featurePricing':
+    'Kyauta don gudanar da alluna biyu; shirye-shiryen Pro da Team suna buɗe ƙarin alluna, ƙarin iyaka, da fitar da bayanai.',
+  'about.featureThreads':
+    "Allunan ra'ayi na jama'a da aka tsara bisa jigo, tare da haɗa kwafi wanda ke tara ƙuri'u zuwa siginar buƙata guda ɗaya ta gaskiya.",
+  'about.featureVoting':
+    "Ƙuri'a ɗaya ga kowane mai amfani tare da cikakken tsarin matsayi — buɗe, an shirya, ana aiki, an aika, ko an ƙi — da amsa ta hukuma kan kowane shawara.",
+  'about.intro':
+    "{{appName}} dandali ne na ra'ayin samfur — allunan jama'a inda abokan ciniki ke aika buƙatu, su zaɓi abin da suke buƙata, kuma su bi kowane ra'ayi daga shirye-shirye zuwa aikawa. Ƙungiyoyi sun daina hasashen abin da za su gina na gaba saboda buƙatar tana jerin kanta.",
+  'about.missionBody':
+    "Mun yi imani cewa mafi kyawun shawarwarin samfur ana yin su a fili. {{appName}} yana ba kowace ƙungiya allon jama'a na buƙatun da aka zaɓa, taswirar hanya ta hukuma mai kwata da aka yi niyya, da lissafin canje-canje da ke rufe madauki — don abokan ciniki su ga tasirin su kuma ƙungiyoyi su ga umarninsu.",
+  'about.missionTitle': 'Manufarmu',
   'admin.backToBoards': 'Koma zuwa allunan',
   'admin.denied': 'Masu gudanarwa kawai.',
   'admin.eyebrow': 'Ƙungiyar samfur',
@@ -11,6 +27,8 @@ export const ui: UiTranslations = {
   'admin.title': "Allon ra'ayi",
   'admin.topOpen': 'Manyan buƙatun buɗewa',
   'admin.totalVotes': 'Jimlar {{count}}',
+  'admin.votesChartLabel':
+    "Jadawalin ginshiƙi na ƙuri'un da aka jefa a kowane mako cikin makonni takwas da suka gabata",
   'admin.votesOverTime': "Ƙuri'u cikin lokaci",
   'auth.forgotPassword.email': 'Imel',
   'auth.forgotPassword.sendResetLink': 'Aika hanyar sake saiti',
@@ -30,7 +48,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Ƙirƙiri asusun ku',
   'auth.username': 'Sunan mai amfani',
   'authShell.communities': "Al'ummomi",
+  'authShell.copyright': '{{appName}} — kowace murya tana da muhimmanci.',
   'authShell.trending': "Mafi yawan al'amari",
+  'boardCard.postCount': 'Rubuce-rubuce {{count}}',
   'boardDetail.allBoards': 'Dukkan allunan',
   'boardDetail.backToBoards': 'Koma zuwa allunan',
   'boardDetail.empty': 'Babu saƙonni da suka dace da waɗannan tacewa tukuna.',
@@ -54,6 +74,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     "Kowace shigarwa ta fara ne a matsayin buƙata mai ƙuri'u. Masu jefa ƙuri'a sun gan motsi; anan ne ya ƙare.",
   'changelog.title': 'An jigila, tare da rasitin',
+  'changelog.voteCount': "{{count}} ƙuri'u ne suka sa an gina wannan",
   'common.atLeast8Characters': 'Aƙalla haruffa 8',
   'common.checkYourInbox': 'Duba akwatin saƙon ku',
   'common.loadingEllipsis': 'Ana ɗaukawa…',
@@ -64,6 +85,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Ana turawa…',
   'footer.about': 'Game da {{appName}}',
   'footer.language': 'Harshe',
+  'forgotPassword.description':
+    'Shigar da imel ɗinka kuma za mu aiko maka da hanyar haɗi don sake saitawa.',
+  'forgotPassword.successBody':
+    'Mun aika hanyar haɗin sake saitawa zuwa {{email}} Zai ƙare cikin mintuna 30.',
   'forgotPassword.tryAnother': 'Gwada wani imel daban',
   'form.displayName': 'Sunan nunawa',
   'form.firstName': 'Suna na farko',
@@ -74,6 +99,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': "Tsarin aikin ku, goyan bayan ƙuri'u.",
   'landing.heroCtaPrimary': "Fara tattara ƙuri'u",
   'landing.heroCtaSecondary': 'Duba allon kai tsaye',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Daina hasashe. Aika abin da suka zaɓa.',
+  'landing.heroLede':
+    "{{appName}} yana juya buƙatun fasali da suka warwatse zuwa allon jama'a na ra'ayoyin da aka zaɓa, taswirar hanya ta hukuma, da lissafin canje-canje da abokan cinikinku suke karantawa da gaske.",
   'landing.heroStat1': '3,200+',
   'landing.heroStat1Label': 'Ƙungiyoyi suna saurare',
   'landing.heroStat2': '1.4m',
@@ -85,9 +114,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Jerin canje-canje',
   'landing.navJoin': 'Shiga {{appName}}',
   'landing.navRoadmap': 'Tsarin aiki',
+  'landing.step1Body':
+    "Abokan ciniki suna aika ra'ayoyi zuwa allunan jama'a. Ana haɗa kwafi, ƙuri'u suna taruwa, kuma buƙatar tana jerin kanta.",
   'landing.step1Title': 'Tattara',
+  'landing.step2Body':
+    'Yi wa buƙatu alama an shirya ko ana aiki tare da kwatan da aka yi niyya — taswirar hanya tana sabuntawa da zarar ka yi haka.',
+  'landing.step2Title': 'Tabbatar',
   'landing.step3Body':
     "Saƙonni da aka jigila suna zama shigowar jerin canje-canje, kuma kowane mai jefa ƙuri'a yana ganin sakamakon akan jerinsa.",
+  'landing.step3Title': 'Aika',
   'landing.topSubtitle': "Kai tsaye daga wannan allon — shiga don ƙara ƙuri'ar ku.",
   'landing.topTitle': 'Abin da masu amfani ke nema a yanzu',
   'landing.topViewAll': 'Dukkan allunan',
@@ -95,14 +130,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Babban Firamare',
   'layout.signUp': 'Yi rajista',
   'layout.submit': "Tura ra'ayi",
+  'login.description': 'Ci gaba daga inda tattaunawar ta tsaya.',
+  'login.heading': 'Shiga cikin Nimbus',
+  'login.noAccount': 'Sabo a nan?',
   'login.passwordPlaceholder': 'Kalmar sirrin ku',
   'login.twoFactorLabel': 'Lambar 2FA (na zaɓi)',
   'login.twoFactorPlaceholder': 'Lambar 6-digit',
+  'login.twoFactorRequiredHint':
+    'Wannan asusun yana da tabbatarwa ta mataki biyu a kunne. Shigar da lambar lambobi 6 daga manhajar tabbatarwa don ci gaba.',
   'login.twoFactorRequiredLabel': 'Shigar da lambar 2FA',
+  'myActivity.browseCta': 'Bincika allunan',
+  'myActivity.emptyPosts': 'Ba ka aika buƙata ba tukuna.',
+  'myActivity.emptyVotes': "Babu komai tukuna — bincika allunan ka goyi bayan ra'ayi.",
   'myActivity.eyebrow': 'Ayyukan ku',
   'myActivity.loadError': 'Ba za a iya ɗora ayyukanka ba.',
   'myActivity.postsTitle': 'Buƙatun da kuka tura',
+  'myActivity.shippedNote': '{{count}} daga cikinsu an aika — na gode da turawa.',
   'myActivity.submitCta': 'Buga buƙata',
+  'myActivity.tabLabel': 'Duba',
   'myActivity.tabPosts': 'Saƙonnina',
   'myActivity.tabVotes': "Ƙuri'una",
   'myActivity.votesTitle': "Buƙatun da kuka jefa ƙuri'a",
@@ -138,8 +183,12 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Ba a sami saƙon ba',
   'postsAdmin.backToDashboard': 'Allon allo',
   'postsAdmin.eyebrow': 'Ƙungiyar samfur',
+  'postsAdmin.mergeApplied': "An haɗa — an matsar da ƙuri'u {{votes}} da sharhi {{comments}}.",
   'postsAdmin.mergeApply': "Haɗa & motsa ƙuri'u",
   'postsAdmin.mergeChoose': 'Zaɓi saƙon maƙasudin…',
+  'postsAdmin.mergeFailed': 'Haɗawa ya kasa.',
+  'postsAdmin.mergeHint':
+    'Ƙuri\'u suna taruwa (ɗaya ga kowane mai amfani), sharhi suna motsi, kuma wannan post ɗin yana samun bayanin "an matsar".',
   'postsAdmin.mergeLabel': 'Haɗa kwafi cikin',
   'postsAdmin.responseLabel': 'Martanin hukuma',
   'postsAdmin.responsePlaceholder':
@@ -154,7 +203,13 @@ export const ui: UiTranslations = {
     "Saita matsayin hukuma, amsa a bainar jama'a, yi alamar kwatan tsarin aiki, kuma haɗa kwafi.",
   'postsAdmin.title': "Sarrafa saƙonni na ra'ayi",
   'postsAdmin.votes': "Ƙuri'u {{count}}",
+  'pricing.limits.advancedFeatures': 'Sifofi masu ci gaba:',
+  'pricing.limits.boards': '{{count}} alluna',
   'pricing.limits.export': 'Fitar da bayanai:',
+  'pricing.limits.posts': "{{count}} post ɗin ra'ayi",
+  'pricing.limits.votes': "Ƙuri'u {{count}}",
+  'resetPassword.description':
+    'Zaɓi ɗaya mai ƙarfi. Za mu sanya hannu a kai da zarar an yi nasarar sake saitawa.',
   'resetPassword.newPasswordLabel': 'Sabuwar kalmar sirri',
   'resetPassword.tokenPlaceholder': 'Manna alamar hanyar haɗin',
   'roadmap.cardMeta': 'ta {{author}} · {{board}}',
@@ -170,6 +225,7 @@ export const ui: UiTranslations = {
   'search.empty': 'Babu buƙatun da suka dace da wannan binciken.',
   'search.hint': 'Rubuta tambaya don nemo buƙatun da ke akwai kafin buga kwafi.',
   'search.loadError': 'Bincike ya gaza — sake gwadawa.',
+  'search.searching': 'Ana nema…',
   'search.submit': 'Bincika',
   'search.submitNew': 'Buga shi a matsayin sabuwar buƙata',
   'search.title': "Bincika ra'ayi",
@@ -178,12 +234,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'Biyan kuɗi',
   'settings.displaySubtitle': 'Zaɓi yadda ciyawar ke ji.',
   'settings.displayTitle': 'Nunawa',
+  'settings.emailDigestDesc': 'Manyan buƙatun da aka fi zaɓa a kowace Litinin.',
+  'settings.emailDigestLabel': 'Bayani na mako-mako',
+  'settings.emailMentionsDesc': 'Lokacin da wani ya amsa post ɗin da kake bi.',
+  'settings.emailMentionsLabel': 'Aiko mini imel kan ambato',
+  'settings.emailRepliesDesc': 'Zaren da ka fara ko ka amsa.',
+  'settings.emailRepliesLabel': 'Aika min da imel idan ana neman amsoshi',
   'settings.loadError': 'Ba a iya ɗaukar asusun ku ba.',
   'settings.loading': 'Ana ɗaukar saitunan ku…',
   'settings.notifications': 'Sanarwa',
   'settings.notificationsSubtitle':
     "Yanke shawarar abin da ya kai akwatin saƙon ku da na'urar turawa.",
+  'settings.pushRepliesLabel': 'Tura don amsoshi',
+  'settings.pushVotesDesc': 'Ƙararrawa ta ƙofa a 100, 500, 1000.',
+  'settings.pushVotesLabel': 'Tura don samun maki masu kyau a zaɓen',
   'settings.saveAccount': 'Adana asusu',
+  'settings.showFlair': 'Nuna guntun alluna kan posts',
+  'settings.showThumbnails': 'Nuna hotunan haɗi/hoto',
   'settings.usernamePlaceholder': 'Zaɓi sunan hannu',
   'signup.confirmPlaceholder': 'Rubuta shi kuma',
   'signup.description': 'Tsara abin da muke ginawa na gaba.',

@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Kuna da ra'ayi, kun sami matsala, ko kuna son gaya mana yadda rubutun tunani ya taimaka? Muna karanta kowane saƙo — tuntuɓe mu kowane lokaci kuma mutum na gaske zai amsa maka.",
+  'about.contactTitle': 'Yi magana da mu',
+  'about.featureInsights':
+    'Tunani mai amfani da AI wanda ke nuna abubuwan da ke tayar da hankali, jigogi, da godiya a hankali — ba tare da rasa muryarka ba.',
+  'about.featureMood':
+    'Bin yanayi da ayyuka tare da kallon kalanda da jadawalin yanayin da ke nuna abin da ke taimaka maka bunƙasa.',
+  'about.featurePrivacy':
+    'Sirrin sirri daga ƙarshe zuwa ƙarshe, makullin lambar sirri, da fitar da CSV cikakke domin tunaninka su kasance na sirri kuma mai sauƙin ɗauka.',
+  'about.featurePrompts':
+    'Tunatarwa mai taushi ta yau da kullum domin ka sami wurin farawa koyaushe — ba shafi mara komai ba.',
+  'about.intro':
+    '{{app}} mujallar lafiyar kwakwalwa ce mai taushi kuma ta sirri domin tunani na yau da kullum, bin yanayi, da godiya. Tunatarwa mai zurfi suna maye gurbin shafi mara komai, gano tsarin a hankali yana taimaka maka fahimtar abin da ke shafar yadda kake ji, kuma sirrin sirri daga ƙarshe zuwa ƙarshe yana kiyaye kalmominka naka.',
+  'about.missionBody':
+    'Mun yi imani cewa duba kanka ya kamata ya kasance cikin kwanciyar hankali, ba na asibiti ba — kuma ba kamar wata manhaja da ke neman hankalinka ba. An gina {{app}} don taimakawa, ba don damuwa ba: ƴan mintuna na shiru a rana don lura da yanayinka, rubuta gaskiya, kuma sannu a hankali ka fara ganin kanka sarai.',
+  'about.missionTitle': 'Manufarmu',
   'about.pageTitle': 'Game da {{app}}',
   'authShell.encryptionBadge': 'An ɓoye bayananka daga ƙarshe zuwa ƙarshe.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Rana {{day}} — babu rubutu',
   'calendar.cellMood': 'Rana {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Duba a wannan watan',
   'calendar.eyebrow': 'Kallo ɗaya kawai',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'An bi diddiginsa {{tracked}} na {{total}} kwanaki a wannan watan.',
   'common.goToDashboard': 'Je zuwa Dashboard',
   'common.tryAgain': 'Gwada kuma',
+  'entryComposer.bodyPlaceholder':
+    'Rubuta duk abin da ya ji gaskiya. Babu wanda zai karanta wannan.',
   'entryComposer.cancel': 'Komawa ga mujallar',
   'entryComposer.heading': 'Tunani na yau',
   'entryComposer.moodLabel': 'Yaya kake ji?',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Cire {{tag}}',
   'entryComposer.save': 'Ajiye tunani',
   'entryComposer.saveError': 'An kasa adana shigarwar ku.',
+  'entryComposer.tagPlaceholder': 'Ƙara alama sannan danna enter',
   'entryComposer.titlePlaceholder': 'Ba wa wannan tunani suna…',
   'entryDetail.back': 'Komawa ga mujallar',
   'entryDetail.delete': 'Share wannan shigarwar',
@@ -36,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Ana loda tunani…',
   'entryDetail.notFound': 'Ba a sami shigarwar ba.',
   'entryDetail.reflectionsHeading': 'Tunani na AI',
+  'forgotPassword.continueButton': 'Shigar da lambar sake saiti',
   'forgotPassword.eyebrow': 'Ba damuwa',
   'forgotPassword.subheading': 'Za mu aika hanyar haɗin sake saitawa mai sauƙi zuwa imel ɗinku.',
   'forgotPassword.successBody':
@@ -58,14 +79,21 @@ export const ui: UiTranslations = {
     'Babu jigogi tukuna — ƙara alama ɗaya ko biyu a cikin shigarwar ku kuma za su taru a nan.',
   'insights.themesHeading': 'Manyan jigogi',
   'insights.triggerFrequency': 'an lura {{count}} × wannan watan',
+  'insights.triggersEmpty':
+    'Babu abin lura tukuna. Ɗan rubutu kaɗan cikin wasu kwanaki zai nuna tsarinka.',
   'insights.triggersHeading': 'Alamu da ke motsa yanayin ku',
+  'journal.empty': 'Babu tunani da ya dace — gwada wani tacewa ko rubuta sabon rubutu.',
   'journal.eyebrow': 'Tunaninka',
   'journal.heading': 'Mujallar Jarida',
   'journal.loadError': 'An kasa loda shigarwar.',
   'journal.loading': 'Ana loda shigarwar…',
+  'journal.newEntry': 'Sabon shigarwa',
   'journal.searchPlaceholder': 'Bincika ji, suna, daƙiƙa…',
   'journal.subheading': '{{count}} shigarwar - duk wanda ya cancanci a kiyaye.',
   'journalEntryCard.encryptedLabel': 'An ɓoye',
+  'landing.ctaBody':
+    'Kyauta don farawa. Pro yana buɗe fitar da bayanai, babbar mujalla, da cikakken shekara na tarihi.',
+  'landing.ctaButton': 'Fara shigarwar farko',
   'landing.ctaTitle': "'Yan mintuna kaɗan a rana. Shi ke nan.",
   'landing.eyebrow': 'Aiki mai sauƙi na yau da kullun',
   'landing.featuresBody':
@@ -84,6 +112,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Wuri mai laushi don yin tunani a kowace rana.',
   'mentalHealthJournalLayout.closeMenu': 'Rufe menu',
   'mentalHealthJournalLayout.openMenu': 'Buɗe menu',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Babban kewayawa',
+  'moodHeroCard.entriesThisWeek': '{{count}} wannan makon',
   'moodHeroCard.streakSuffix': 'jerin rana',
   'moodHeroCard.title': 'Tunani na yau',
   'moodTrendChart.aiBadge': 'Cikakken fahimtar AI a shirye',
@@ -94,11 +124,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Tafiyarku',
   'profile.fallbackName': 'Mai nuna haske',
   'profile.loadError': 'An kasa loda kididdiga.',
+  'profile.loading': 'Ana sabunta ƙididdiganka…',
   'profile.longestStreak': 'Mafi tsayi a jere',
   'profile.memberSince': 'Tunani tun daga lokacin {{date}}',
   'profile.milestones': 'Muhimman abubuwa',
   'profile.milestonesEmpty':
     'Matakin farko da za ka ɗauka shine shiga ɗaya kawai - rubuta duk lokacin da ka ji a shirye.',
+  'profile.moodMix': 'Haɗin yanayinka a wannan kakar',
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'Tunani',
   'profile.totalWords': 'Kalmomi da aka rubuta',
@@ -111,6 +143,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Rubuta game da wannan',
   'resetPassword.eyebrow': 'Sabon farawa',
   'resetPassword.mismatchError': 'Kalmomin sirri ba su dace ba.',
+  'resetPassword.passwordLabel': 'Sabuwar kalmar sirri',
   'resetPassword.subheading': 'Zaɓi wani abu mai aminci - tunaninka ya cancanci hakan.',
   'resetPassword.tokenPlaceholder': 'Sake saita lambar daga imel',
   'settings.dangerDescription':
@@ -122,11 +155,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'Ba a iya goge asusu ba.',
   'settings.exportDescription': 'Kalmominka naka ne koyaushe. Sauke kwafin kowane lokaci.',
   'settings.exportDone': 'An fitar {{format}}.',
+  'settings.exportError': 'Fitar da kaya ta gaza.',
+  'settings.exportHeading': 'Fitar da tunaninka',
   'settings.exportLoading': 'Ana shiryawa…',
   'settings.eyebrow': 'Sararinka, dokokinka',
   'settings.languageHeading': 'Harshe',
   'settings.privacyHeading': 'Sirri & ɓoyewa',
   'settings.remindersHeading': 'Tunatarwa ta yau da kullun',
+  'settings.reminderToggleAria': 'Kunna tunatarwa ta yau da kullum',
   'settings.reminderToggleDescription':
     'Tunatarwa ɗaya tilo a lokacin da ka zaɓa. Babu alamun laifi ko kuma laifin da ya wuce gona da iri.',
   'settings.reminderToggleLabel': 'Aika wata irin lallashi',
@@ -139,6 +175,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Ƙirƙirar mujallar…',
   'signup.subheading': 'Wuri mai aminci don tunaninka.',
   'wellnessRingsTriad.mindfulnessCaption': 'ƙwallo {{goal}} minti na yau',
+  'wellnessRingsTriad.mindfulnessLabel': 'Hankali',
   'wellnessRingsTriad.sleepCaption': 'ƙwallo {{goal}} h / dare',
   'wellnessRingsTriad.sleepLabel': 'Barci',
+  'wellnessRingsTriad.sleepValue': '{{hours}}a',
+  'wellnessRingsTriad.streakCaption': 'Manufa {{goal}} kwanaki',
+  'wellnessRingsTriad.streakLabel': 'Jerin rubutun tunani',
+  'wellnessRingsTriad.streakValue': '{{days}} d',
 }

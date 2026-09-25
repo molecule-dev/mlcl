@@ -1,17 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Θέλετε να ανοίξετε κατάστημα, να αναφέρετε ένα πρόβλημα ή απλώς να πείτε ένα γεια; Επικοινωνήστε μαζί μας από το Κέντρο βοήθειας — κάθε μήνυμα φτάνει σε ένα πραγματικό μέλος της ομάδας.',
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.featureNotifications':
+    'Ειδοποιήσεις σε πραγματικό χρόνο για νέες παραγγελίες, ενημερώσεις αποστολής και κριτικές, καθώς και δικαιώματα βάσει ρόλων που κρατούν ξεχωριστά τα εργαλεία αγοραστών και πωλητών.',
+  'about.featurePayments':
+    'Ασφαλής πληρωμή μέσω Stripe, αυτόματη κατανομή προμηθειών και προγραμματισμένες πληρωμές — οι πωλητές ξέρουν πάντα ακριβώς τι έχουν κερδίσει.',
+  'about.featureShop':
+    'Ένας κατάλογος με δυνατότητα αναζήτησης που καλύπτει χιλιάδες ανεξάρτητους πωλητές, με επαληθευμένα καταστήματα, βαθμολογίες και κριτικές, ώστε να αγοράζετε με σιγουριά.',
+  'about.featureVendor':
+    'Μια πλήρης εργαλειοθήκη πωλητή: επώνυμη βιτρίνα, διαχείριση προϊόντων και αποθέματος, μεταφορτώσεις εικόνων και εκτέλεση παραγγελιών σε έναν πίνακα ελέγχου.',
+  'about.intro':
+    'Το {{name}} είναι μια επιμελημένη αγορά όπου ανεξάρτητοι δημιουργοί ανοίγουν τα δικά τους καταστήματα και οι αγοραστές ανακαλύπτουν προϊόντα που δεν βρίσκουν πουθενά αλλού. Από χειροποίητα κεραμικά μέχρι υφάσματα με στάμπα — κάθε καταχώριση προέρχεται από έναν πραγματικό πωλητή με μια ιστορία πίσω της.',
+  'about.missionBody':
+    'Πιστεύουμε ότι οι δημιουργοί πρέπει να κρατούν αυτό που κάνει τη δουλειά τους δική τους. Το {{name}} χρεώνει μια σταθερή, διαφανή προμήθεια, πληρώνει αξιόπιστα κάθε εβδομάδα και δίνει σε κάθε πωλητή μια βιτρίνα που ελέγχει πλήρως — ώστε να μπορεί να μένει συγκεντρωμένος στη δουλειά του ενώ εμείς διαχειριζόμαστε την αγορά.',
+  'about.missionTitle': 'Η αποστολή μας',
   'about.pageTitle': 'Για {{name}}',
   'cart.checkoutCta': 'Συνέχεια στο ταμείο',
   'cart.decreaseAria': 'Μείωση ποσότητας',
+  'cart.deliveryEstimate': 'Εκτιμώμενη παράδοση {{range}}',
   'cart.empty.body':
     'Περιηγηθείτε στον κατάλογο και προσθέστε μερικούς κατασκευαστές στην τσάντα σας.',
+  'cart.empty.cta': 'Περιηγηθείτε στον κατάλογο',
   'cart.empty.title': 'Το καλάθι σας είναι άδειο',
   'cart.eyebrow': 'Το καλάθι σας',
+  'cart.increaseAria': 'Αύξηση ποσότητας',
   'cart.loadError': 'Δεν ήταν δυνατή η φόρτωση του καλαθιού σας. Δοκιμάστε ξανά.',
   'cart.loading': 'Φόρτωση του καλαθιού σας…',
+  'cart.protectionNote':
+    'Το {{appName}} προστατεύει κάθε παραγγελία. Δωρεάν επιστροφές εντός 30 ημερών.',
   'cart.removeError': 'Δεν ήταν δυνατή η κατάργηση του στοιχείου.',
   'cart.shippingFromVendor': 'Αποστολή από αυτόν τον προμηθευτή: {{amount}}',
+  'cart.subtitle':
+    'Κάθε πωλητής αποστέλλει μόνος του — εσείς ολοκληρώνετε την αγορά μία φορά. Το {{appName}} αναλαμβάνει τα υπόλοιπα.',
+  'cart.subtotalGroup': 'Υποσύνολο {{amount}}',
   'cart.summaryItems': 'Αντικείμενα',
   'cart.summaryShipping': 'Αποστολή (συνδυασμένη)',
   'cart.title': 'Καλάθι · {{count}} αντικείμενα από {{vendorCount}} πωλητές',
@@ -24,6 +48,7 @@ export const ui: UiTranslations = {
   'catalog.featuredVendors': 'Προτεινόμενα καταστήματα',
   'catalog.loading': 'Φόρτωση προϊόντων…',
   'catalog.resultCount': '{{count}} προϊόντα',
+  'catalog.searchAria': 'Αναζήτηση στον κατάλογο',
   'catalog.searchPlaceholder': 'Αναζήτηση προϊόντων, προμηθευτών ή ετικετών…',
   'catalog.sortBy': 'Ταξινόμηση κατά',
   'catalog.subtitle':
@@ -31,6 +56,7 @@ export const ui: UiTranslations = {
   'catalog.title': 'Περιηγηθείτε σε κάθε κατάστημα στο Vendry',
   'checkout.emptyCta': 'Περιηγηθείτε στον κατάλογο',
   'checkout.emptyTitle': 'Το καλάθι σας είναι άδειο.',
+  'checkout.eyebrow': 'Ασφαλής ολοκλήρωση αγοράς',
   'checkout.loadError': 'Δεν ήταν δυνατή η φόρτωση του καλαθιού σας. Δοκιμάστε ξανά.',
   'checkout.loading': 'Φόρτωση του καλαθιού σας…',
   'checkout.payment.testNote':
@@ -40,12 +66,14 @@ export const ui: UiTranslations = {
   'checkout.placingOrder': 'Υποβολή παραγγελίας…',
   'checkout.review.shipTo': 'Αποστολή σε',
   'checkout.review.subtotal': 'Μερικό σύνολο προμηθευτή',
+  'checkout.review.title': 'Ελέγξτε την παραγγελία σας, πωλητή προς πωλητή',
   'checkout.shipping.title': 'Πού πρέπει να στείλουμε;',
   'checkout.shippingValidation': 'Παρακαλούμε συμπληρώστε όλα τα υποχρεωτικά πεδία αποστολής.',
   'checkout.summary.shipping': 'Αποστολή',
   'checkout.summary.tax': 'Εκτιμώμενος φόρος',
   'checkout.title': 'Ένα ταμείο, πολλοί κατασκευαστές',
   'common.and': 'και',
+  'forgotPassword.continue': 'Έχω τον κωδικό επαναφοράς μου',
   'forgotPassword.emailLabel': 'Ηλεκτρονικό ταχυδρομείο λογαριασμού',
   'forgotPassword.heading': 'Ξεχάσατε τον κωδικό πρόσβασής σας;',
   'forgotPassword.subheading':
@@ -53,6 +81,7 @@ export const ui: UiTranslations = {
   'forgotPassword.submit': 'Σύνδεσμος επαναφοράς email',
   'forgotPassword.success':
     'Ελεγχος {{email}} για έναν σύνδεσμο επαναφοράς — ισχύει για τα επόμενα 30 λεπτά.',
+  'landing.featured.cta': 'Περιήγηση σε όλους τους πωλητές',
   'landing.featured.eyebrow': 'Καταστήματα Spotlight',
   'landing.featured.title': 'Οι πωλητές κάνουν αίσθηση αυτόν τον μήνα',
   'landing.footer.becomeVendor': 'Γίνετε προμηθευτής',
@@ -62,6 +91,9 @@ export const ui: UiTranslations = {
   'landing.nav.sell': 'Πουλήστε στο Vendry',
   'landing.nav.shop': 'Κατάστημα',
   'landing.nav.signUp': 'Συμμετοχή',
+  'landing.sellPitch.cta': 'Αίτηση για πώληση',
+  'landing.sellPitch.description':
+    'Σταθερή προμήθεια 8%, πληρωμές κάθε Παρασκευή, η βιτρίνα σας, η ιστορία σας. Εμείς διαχειριζόμαστε την αγορά· εσείς μένετε στη δημιουργία σας.',
   'landing.sellPitch.eyebrow': 'Για τους κατασκευαστές',
   'landing.sellPitch.title': 'Άνοιξε ένα μαγαζί. Κράτησε ό,τι το κάνει δικό σου.',
   'landing.trending.cta': 'Ψωνίστε από τον κατάλογο',
@@ -70,6 +102,7 @@ export const ui: UiTranslations = {
   'login.accountTypeAria': 'Τύπος λογαριασμού',
   'login.heading': 'Καλώς ήρθατε πίσω στο Vendry',
   'login.legalPrefix': 'Με την είσοδό σας, συμφωνείτε με τους όρους μας',
+  'login.signupPrompt': 'Νέος στο Tessera;',
   'login.subheading': 'Συνδεθείτε για να συνεχίσετε τα ψώνια σας ή επιστρέψτε στο κατάστημά σας.',
   'login.submitShopper': 'Συνδεθείτε για να ψωνίσετε',
   'login.submitVendor': 'Σύνδεση στο κατάστημά μου',
@@ -85,36 +118,50 @@ export const ui: UiTranslations = {
   'notifications.markAllError': 'Δεν ήταν δυνατή η επισήμανση όλων ως αναγνωσμένων.',
   'notifications.read': 'Αναγνωσμένα',
   'notifications.time.daysAgo': '{{count}} μέρες πριν',
+  'notifications.time.hourAgo': 'Πριν 1 ώρα',
+  'notifications.time.hoursAgo': '{{count}} ώρες πριν',
   'notifications.time.justNow': 'μόλις τώρα',
+  'notifications.time.minutesAgo': '{{count}} λεπτά πριν',
+  'notifications.time.yesterday': 'Χθες',
   'orderDetail.backToOrders': 'Πίσω σε όλες τις παραγγελίες',
   'orderDetail.eyebrow': 'Λεπτομέρειες παραγγελίας',
   'orderDetail.helpBody': 'Η υποστήριξη Vendry απαντά εντός 4 ωρών, ακόμα και τα Σαββατοκύριακα.',
+  'orderDetail.helpCta': 'Επικοινωνήστε με την υποστήριξη',
   'orderDetail.helpTitle': 'Υπάρχει κάποιο πρόβλημα με αυτήν την παραγγελία;',
   'orderDetail.summary':
     'Τοποθετήθηκε {{date}} · {{vendorCount}} προμηθευτής(-είς) · εκπλήρωση παραγγελιών από πολλαπλούς προμηθευτές',
+  'orderDetail.timelineTitle': 'Πορεία παραγγελίας',
   'orders.empty': 'Δεν υπάρχουν ακόμη παραγγελίες που να ταιριάζουν με αυτό το φίλτρο.',
   'orders.emptyTitle': 'Δεν υπάρχουν παραγγελίες εδώ ακόμα',
   'orders.eyebrow': 'Οι αγορές σας',
   'orders.subtitle':
     'Δείτε ποιος έστειλε τι, ακολουθήστε την παρακολούθηση ανά προμηθευτή και μην χάσετε ποτέ ξανά δέμα.',
   'orders.title': 'Παραγγελίες, ομαδοποιημένες ανά προμηθευτή',
+  'planUpdated.retry': 'Δοκιμάστε ξανά',
+  'planUpdated.verifyFailed': 'Δεν μπορέσαμε να επιβεβαιώσουμε ακόμη την πληρωμή σας.',
+  'planUpdated.verifyFailedBody':
+    'Η πληρωμή σας ενδέχεται να βρίσκεται ακόμη υπό επεξεργασία. Δοκιμάστε ξανά σε λίγο.',
   'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'productDetail.addToCart': 'Προσθήκη στο καλάθι',
   'productDetail.addToCartError': 'Δεν ήταν δυνατή η προσθήκη στο καλάθι.',
   'productDetail.addToCartSuccess': '« {{name}} "προστέθηκε στο καλάθι σας.',
   'productDetail.backToCatalog': 'Επιστροφή στον κατάλογο',
   'productDetail.breadcrumbCatalog': 'Κατάλογος',
+  'productDetail.colorLabel': 'Χρώμα · {{name}}',
   'productDetail.decreaseAria': 'Μείωση ποσότητας',
   'productDetail.description': 'Κατασκευασμένο από ανεξάρτητο κατασκευαστή στο Vendry.',
   'productDetail.featuredBadge': 'Προτεινόμενος δημιουργός',
   'productDetail.galleryThumbAria': 'Εμφάνιση εικόνας {{index}}',
+  'productDetail.increaseAria': 'Αύξηση ποσότητας',
   'productDetail.loading': 'Φόρτωση προϊόντος…',
   'productDetail.notFound': 'Το προϊόν δεν βρέθηκε.',
   'productDetail.relatedTitle': 'Περισσότερα από αυτόν τον κατασκευαστή',
   'productDetail.reviewsTitle': 'Τι είπαν οι αγοραστές',
   'productDetail.trust.protection': 'Προστασία πωλητών',
+  'productDetail.trust.returns': 'Επιστροφές 30 ημερών',
   'productDetail.trust.shipping': 'Αποστέλλεται σε 2 ημέρες',
   'productDetail.verifiedAria': 'Επαληθευμένος προμηθευτής',
+  'resetPassword.didntGetCode': 'Δεν λάβατε κωδικό;',
   'resetPassword.emailLabel': 'Ηλεκτρονικό ταχυδρομείο λογαριασμού',
   'resetPassword.mismatch': 'Οι κωδικοί πρόσβασης δεν ταιριάζουν ακόμα.',
   'resetPassword.newPasswordLabel': 'Νέος κωδικός πρόσβασης',
@@ -123,8 +170,10 @@ export const ui: UiTranslations = {
     'Εισαγάγετε τον κωδικό που σας στείλαμε μέσω email και, στη συνέχεια, επιλέξτε έναν νέο κωδικό πρόσβασης για να ολοκληρώσετε την εκ νέου σύνδεση.',
   'resetPassword.submit': 'Επαναφορά και σύνδεση',
   'resetPassword.submitting': 'Ενημέρωση κωδικού πρόσβασης…',
+  'settings.appearance.description': 'Εναλλαγή μεταξύ φωτεινής και σκοτεινής λειτουργίας.',
   'settings.appearance.title': 'Εμφάνιση',
   'settings.language.description': 'Επιλέξτε τη γλώσσα που χρησιμοποιείται σε όλη την αγορά.',
+  'settings.payouts.accountLabel': 'Αριθμός λογαριασμού / IBAN',
   'settings.payouts.body':
     'Η Vendry πληρώνει κάθε Παρασκευή στο τοπικό σας νόμισμα, μείον την προμήθεια 8%.',
   'settings.payouts.save': 'Αποθήκευση λεπτομερειών πληρωμής',
@@ -143,6 +192,7 @@ export const ui: UiTranslations = {
   'signup.mismatch': 'Οι κωδικοί πρόσβασης δεν ταιριάζουν ακόμα.',
   'signup.subheading':
     'Περιηγηθείτε σε 4.000+ ανεξάρτητους κατασκευαστές ή ανοίξτε ένα δικό σας κατάστημα.',
+  'signup.submit': 'Γίνετε μέλος της αγοράς',
   'status.delivered': 'Παραδόθηκε',
   'status.refunded': 'Επιστράφηκε',
   'userMenu.marketplaceSettings': 'Ρυθμίσεις αγοράς',
@@ -152,18 +202,29 @@ export const ui: UiTranslations = {
   'vendorDashboard.heroCaption':
     '{{payout}} Εκκαθάριση μετά την προμήθεια Vendry. Επόμενη πληρωμή την Παρασκευή.',
   'vendorDashboard.heroLabel': 'Ακαθάριστες πωλήσεις · τελευταίες 30 ημέρες',
+  'vendorDashboard.kpi.conversion': 'Μετατροπή',
   'vendorDashboard.kpi.conversionCaption': 'Επίσκεψη για παραγγελία αυτήν την εβδομάδα',
   'vendorDashboard.kpi.netPayout': 'Καθαρή πληρωμή',
   'vendorDashboard.kpi.netPayoutCaption': 'Μετά από προμήθεια πώλησης 8%',
   'vendorDashboard.kpi.orders': 'Παραγγελίες',
   'vendorDashboard.kpi.ordersCaption': 'σε σύγκριση με τις τελευταίες 30 ημέρες',
+  'vendorDashboard.kpi.pendingPayout': 'Εκκρεμής πληρωμή',
   'vendorDashboard.kpi.pendingPayoutCaption': 'Κυκλοφορεί αυτή την Παρασκευή',
   'vendorDashboard.newProductCta': 'Νέο προϊόν',
   'vendorDashboard.payoutsCta': 'Δείτε τις πληρωμές',
   'vendorDashboard.recentOrders.cta': 'Δείτε όλες τις παραγγελίες →',
+  'vendorDashboard.recentOrders.emptyBody':
+    'Οι παραγγελίες για το κατάστημά σας θα εμφανιστούν εδώ μόλις οι πελάτες ολοκληρώσουν την αγορά.',
+  'vendorDashboard.recentOrders.emptyCta': 'Προσθέστε το πρώτο σας προϊόν',
+  'vendorDashboard.recentOrders.emptyTitle': 'Δεν υπάρχουν ακόμη παραγγελίες',
   'vendorDashboard.recentOrders.title': 'Πρόσφατες παραγγελίες',
+  'vendorDashboard.subtitle': 'Δείτε πώς τα πάει το κατάστημά σας αυτή την εβδομάδα.',
+  'vendorDashboard.title': 'Καλώς ορίσατε ξανά, {{name}}',
   'vendorOnboarding.about': 'Πείτε μας για το κατάστημά σας',
   'vendorOnboarding.aboutPlaceholder': 'Πού φτιάχνεις, τι φτιάχνεις, γιατί έχει σημασία.',
+  'vendorOnboarding.bankLabel': 'Τραπεζικός λογαριασμός / IBAN',
+  'vendorOnboarding.categoriesHint':
+    'Επιλέξτε ό,τι σας ταιριάζει — μπορείτε να το αλλάξετε αργότερα.',
   'vendorOnboarding.currencyLabel': 'Εξόφληση σε νόμισμα',
   'vendorOnboarding.errors.shopName': 'Απαιτείται το όνομα του καταστήματος.',
   'vendorOnboarding.errors.submit': 'Δεν ήταν δυνατή η υποβολή της αίτησής σας.',
@@ -172,8 +233,15 @@ export const ui: UiTranslations = {
   'vendorOnboarding.field.shopName': 'Όνομα καταστήματος',
   'vendorOnboarding.heroBody':
     'Μια σταθερή προμήθεια 8%, πληρωμές κάθε Παρασκευή, η βιτρίνα σας, η ιστορία σας. Πείτε μας λίγα πράγματα για το κατάστημά σας και θα επικοινωνήσουμε μαζί σας εντός 48 ωρών.',
+  'vendorOnboarding.review.categories': 'Κατηγορίες',
   'vendorOnboarding.review.contact': 'Επικοινωνία',
   'vendorOnboarding.review.currency': 'Νόμισμα',
+  'vendorOnboarding.review.point1':
+    'Το {{appName}} χρεώνει σταθερή προμήθεια 8% — χωρίς τέλη καταχώρισης, χωρίς κρυφές χρεώσεις.',
+  'vendorOnboarding.review.point2':
+    'Οι πληρωμές εκκαθαρίζονται κάθε Παρασκευή στο τοπικό σας νόμισμα.',
+  'vendorOnboarding.review.point3':
+    'Μπορείτε να παύσετε το κατάστημά σας ή να το αφαιρέσετε οποιαδήποτε στιγμή.',
   'vendorOnboarding.review.tagline': 'Σλόγκαν',
   'vendorOnboarding.review.website': 'Δικτυακός τόπος',
   'vendorOnboarding.reviewBody':
@@ -184,6 +252,8 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'Η αίτηση υποβλήθηκε! Θα εξετάσουμε το κατάστημά σας και θα σας στείλουμε email εντός 48 ωρών.',
   'vendorOnboarding.taxIdLabel': 'ΑΦΜ',
+  'vendorOrders.emptyBody':
+    'Όταν οι πελάτες αγοράζουν τα προϊόντα σας, οι παραγγελίες τους θα εμφανίζονται εδώ.',
   'vendorOrders.emptyTitle': 'Δεν υπάρχουν ακόμη παραγγελίες προς εκτέλεση',
   'vendorOrders.eyebrow': 'Διαχειριστής προμηθευτή',
   'vendorOrders.kpi.awaiting': 'Αναμονή εκπλήρωσης',
@@ -191,6 +261,8 @@ export const ui: UiTranslations = {
   'vendorOrders.subtitle':
     'Εκτυπώστε ετικέτες, σημειώστε την ολοκλήρωση και απαντήστε σε ερωτήσεις — όλα αυτά χωρίς να φύγετε από το Vendry.',
   'vendorOrders.title': 'Εισερχόμενες παραγγελίες',
+  'vendorPayouts.emptyBody':
+    'Οι πληρωμές αποδίδονται κάθε Παρασκευή μόλις οι πωλήσεις σας καλύψουν την προμήθεια του 8%.',
   'vendorPayouts.emptyTitle': 'Δεν υπάρχουν ακόμη πληρωμές',
   'vendorPayouts.eyebrow': 'Χρηματοδότηση προμηθευτών',
   'vendorPayouts.heroCaption': 'Εγκαθίσταται στην Banco BPI {{account}} · 1–2 εργάσιμες ημέρες',
@@ -215,6 +287,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.images.body':
     'Σύρετε και αποθέστε έως και 8 εικόνες. Η πρώτη φωτογραφία γίνεται το εξώφυλλο της βιτρίνας.',
   'vendorProductForm.images.cta': 'Σύρετε φωτογραφίες εδώ ή περιηγηθείτε',
+  'vendorProductForm.images.hint': 'PNG / JPG · έως 8MB το καθένα',
   'vendorProductForm.images.title': 'Φωτογραφίες',
   'vendorProductForm.nameLabel': 'Όνομα προϊόντος',
   'vendorProductForm.preview.namePlaceholder': 'Όνομα προϊόντος',
@@ -225,6 +298,7 @@ export const ui: UiTranslations = {
     'Ενημερώστε τους αγοραστές για το προϊόν σας στους δικούς τους αγοραστές.',
   'vendorProductForm.variants.colInventory': 'Καταγραφή εμπορευμάτων',
   'vendorProductForm.variants.colVariant': 'Παραλαγή',
+  'vendorProductForm.variants.title': 'Παραλλαγές & απόθεμα',
   'vendorProducts.eyebrow': 'Διαχειριστής προμηθευτή',
   'vendorProducts.kpi.draft': 'Προσχέδια',
   'vendorProducts.kpi.lowStock': 'Χαμηλό απόθεμα',
@@ -251,6 +325,7 @@ export const ui: UiTranslations = {
     'Συνδεθείτε για να διαχειριστείτε το κατάστημά σας, να παρακολουθείτε παραγγελίες σε κάθε προμηθευτή και να ανακαλύψετε εντυπωσιακές συλλογές από ανεξάρτητους κατασκευαστές.',
   'vendryAuthShell.sampleVendorMeta': 'Επαληθευμένο · 4,9 ★ · 1.240 πωλήσεις',
   'vendryAuthShell.sampleVendorName': 'Mira & Co. Κεραμικά',
+  'vendryAuthShell.sampleVendorTag': 'Προτεινόμενα',
   'vendryMarketHero.description':
     'Ανακαλύψτε χιλιάδες ανεξάρτητους προμηθευτές, συλλογές που έχουν επιμεληθεί οι ίδιοι και καταστήματα που διαχειρίζονται από ανθρώπους που τους δίνουν την ψυχή τους. Ψωνίστε με θάρρος, στηρίξτε τους πραγματικούς κατασκευαστές.',
   'vendryMarketHero.eyebrow': 'Επιλεγμένη αγορά · Συλλογή 2026',
@@ -259,11 +334,13 @@ export const ui: UiTranslations = {
   'vendryMarketHero.stat1Label': 'Ανεξάρτητοι κατασκευαστές',
   'vendryMarketHero.stat2Label': 'Επιλεγμένα προϊόντα',
   'vendryMarketHero.stat3Label': 'Μέση βαθμολογία',
+  'vendryMarketHero.title': 'Κάθε δημιουργός, μία αγορά.',
   'vendryOrderCard.idLabel': 'Παραγγελία',
   'vendryOrderCard.placedOn': 'Τοποθετήθηκε {{date}}',
   'vendryOrderCard.qty': 'Ποσότητα {{count}}',
   'vendryOrderCard.vendorCount': '{{count}} προμηθευτή(-ών) σε αυτήν την παραγγελία',
   'vendryOrderCard.verifiedAria': 'Επαληθευμένος προμηθευτής',
+  'vendryOrderCard.viewDetails': 'Προβολή λεπτομερειών',
   'vendryProductCard.favoriteAria': 'Αποθήκευση στα αγαπημένα',
   'vendryProductCard.saleBadge': 'Πώληση',
   'vendryProductCard.verified': 'Επαληθευμένος προμηθευτής',

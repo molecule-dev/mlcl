@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Питання, пропозиції щодо функцій або лічильник, який ми маємо підтримувати? Зв’яжіться з командою {{appName}} у налаштуваннях облікового запису — кожне повідомлення потрапляє до реальної людини.',
   'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
+  'about.featuresTitle': 'Що Ви отримаєте',
+  'about.intro':
+    '{{appName}} — це моніторинг електроенергії в реальному часі для сонячних домогосподарств і команд об’єктів. Ми перетворюємо потік даних із лічильників, інверторів і батарей на спокійний вигляд диспетчерської — поточна потужність, виробництво сонячної енергії, вартість за тарифами часу доби та сповіщення, усе в одній оболонці.',
+  'about.missionBody':
+    'Енергія, яку ви бачите, — це енергія, якою ви можете керувати. Ми віримо, що кожен, хто має лічильник — домогосподарство з даховою сонячною станцією чи команда, що стежить за будівлею, — заслуговує на аналітику рівня комунального підприємства без контракту такого рівня. Кожна функція створена, щоб наступна кіловат-година була усвідомленим вибором, а не сюрпризом у рахунку.',
+  'about.missionTitle': 'Наша місія',
   'about.pageTitle': 'Про {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Підтвердження',
@@ -14,6 +22,7 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@yourdomain.com',
   'alertRule.eyebrow': 'Нове правило',
   'alertRule.heading': 'Спіймай шип, перш ніж він тобі дорого коштуватиме',
+  'alertRule.nameLabel': 'Назва правила',
   'alertRule.namePlaceholder':
     'наприклад, спостереження за системою опалення, вентиляції та кондиціонування повітря після робочого часу',
   'alertRule.subheading':
@@ -21,8 +30,10 @@ export const ui: UiTranslations = {
   'alertRule.submit': 'Зберегти правило',
   'alertRule.submitError': 'Не вдалося зберегти правило.',
   'alertRule.thresholdLabel': 'Поріг',
+  'alertRule.typeLabel': 'Тип тригера',
   'alerts.checking': 'Перевірка…',
   'alerts.confirmDelete': 'Підтвердити видалення',
+  'alerts.empty': 'Немає що показати — у цьому стані немає сповіщень.',
   'alerts.emptyNoRules':
     'Поки що немає сповіщень — додайте правило, а потім натисніть «Оцінити зараз», щоб перевірити його.',
   'alerts.errorAck': 'Не міг визнати.',
@@ -42,12 +53,14 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Оцініть зараз',
   'alerts.subheading':
     'Сповіщення про порогові значення та шаблони, що спрацьовують на ваших глюкометрах, а також правила, які ними керують.',
+  'billing.activeBlurb': 'Ваша підписка активна. Керуйте нею будь-коли.',
   'billing.cancelError': 'Не вдалося скасувати підписку.',
   'billing.cancelling': 'Скасування…',
   'billing.currentBadge': 'Поточний',
   'billing.freeBlurb':
     'Ви користуєтеся безкоштовним планом. Оновіть його, щоб отримати більше лічильників, довшу історію та більше правил сповіщень.',
   'billing.heading': 'Плани та виставлення рахунків',
+  'billing.historyEmpty': "Оплачені рахунки з'являться тут після виставлення рахунку за підписку.",
   'billing.historyHeading': 'Історія рахунків',
   'billing.loadError': 'Не вдалося завантажити платіжну інформацію.',
   'billing.loading': 'Завантаження планів…',
@@ -59,17 +72,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': "Зв'яжіться з відділом продажів",
   'common.goToDashboard': 'До панелі',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} пік · {{offPeak}} позапікові кВт·год',
   'dailyCostMeter.runningLabel': 'Поточний підсумок',
   'dailyCostMeter.title': 'Вартість на сьогодні',
   'dailyCostMeter.utilizationLabel': 'Щоденного бюджету',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Додати лічильник',
   'dashboard.alertsHeading': 'Активні сповіщення',
   'dashboard.devicesHeading': 'Найкращі схеми зараз',
   'dashboard.empty.body':
     'Додайте розумний лічильник або сонячний інвертор, щоб почати відстежувати споживання та виробництво електроенергії в реальному часі.',
+  'dashboard.empty.title': 'Лічильників ще немає',
   'dashboard.eyebrow': 'диспетчерська Voltrace',
   'dashboard.heading': 'Знімок живої енергії',
   'dashboard.loadError': 'Не вдалося завантажити показники в реальному часі.',
   'dashboard.loading': 'Налаштовуюся на свої вимірювачі…',
+  'dashboard.noAlerts': 'Усе тихо — ніщо не перевищує ваші пороги.',
   'dashboard.noAlertsAndNoMeters':
     'Після підключення лічильника тут з’являтимуться сповіщення на основі ваших порогових значень.',
   'dashboard.noCircuits': 'Поки що немає кіл для відображення — додайте лічильник, щоб розпочати.',
@@ -77,6 +95,7 @@ export const ui: UiTranslations = {
     'Споживання електроенергії всім будинком, виробництво сонячної енергії та вартість на сьогоднішній день.',
   'dashboard.viewAllAlerts': 'Керування сповіщеннями →',
   'dashboard.viewAllDevices': 'Кожен пристрій →',
+  'deviceDetail.activeTokens': 'Активні токени приймання даних',
   'deviceDetail.alreadyOff': 'Вже призупинено',
   'deviceDetail.back': 'Усі схеми',
   'deviceDetail.confirmDelete': 'Підтвердити видалення',
@@ -117,22 +136,34 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Не вдалося завантажити лічильники.',
   'devices.loading': 'Опитування кожного лічильника…',
   'devices.newRule': 'Нове правило сповіщень',
+  'devices.noResults': 'Жодне коло не відповідає цьому фільтру.',
   'devices.placeholder.location': 'наприклад, механічна кімната',
   'devices.placeholder.name': 'наприклад, підпанель гаража',
   'devices.subheading':
     'Потужність у реальному часі та кВт⋅год на кожному колі, яке може бачити Voltrace.',
+  'deviceWattageRow.todayKwh': '{{kwh}} кВт·год сьогодні',
+  'deviceWattageRow.watts': '{{watts}} В',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Меню',
+  'energyMonitoringLayout.primaryNavLabel': 'Основна навігація',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    '{{appName}} працює з більшістю лічильників рівня комунальних підприємств, сонячних інверторів і батарейних систем — дротово або через WiFi.',
   'landing.ctaHeading': 'Підключіть свій лічильник, щоб бачити вати за лічені хвилини',
   'landing.eyebrow': 'Енергетичний аналіз у режимі реального часу',
+  'landing.featuresHeading': 'Кожен ват, кожна хвилина, в одній оболонці',
   'landing.getStarted': 'Підключіть Voltrace',
   'landing.heroCta': 'Підключіть Voltrace',
+  'landing.heroSubtitle':
+    'Поточна потужність, виробництво сонячної енергії, вартість за тарифами часу доби та сповіщення про високе споживання в оболонці диспетчерської, створеній для сонячних домогосподарств і команд об’єктів.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Розіграш всього дому',
   'landing.sampleSolar': '+3 820 Вт сонячної енергії',
   'landing.sampleSummary': 'Експорт 1680 Вт до мережі · 18,4 кВт⋅год сьогодні',
   'landing.sampleWatts': '2140 Вт',
   'powerHeroCard.solar': '+ {{watts}} Сонячна енергія W',
   'powerHeroCard.title': 'Розіграш всього дому',
+  'powerHeroCard.todayKwh': '{{kwh}} кВт·год сьогодні',
   'powerHeroCard.watts': '{{watts}} В',
   'pricing.choose': 'Обрати {{name}}',
   'pricing.contact': 'Потрібно щось на замовлення?',
@@ -145,6 +176,7 @@ export const ui: UiTranslations = {
     'Почніть безкоштовно. Оновіть підписку, якщо вам потрібно більше лічильників, довша історія або більше правил сповіщень.',
   'pricing.unavailable': 'Цей план зараз недоступний — Stripe не налаштовано.',
   'profile.errorGeneric': 'Не вдалося зберегти зміни профілю.',
+  'profile.errorGoal': 'Місячна мета в кВт·год має бути додатним числом.',
   'profile.errorHousehold': 'Розмір домогосподарства має бути додатним числом.',
   'profile.householdHeading': 'Дім та цілі',
   'profile.householdSize': 'Розмір домогосподарства',
@@ -162,9 +194,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'Агрегування показників…',
   'reports.subheading':
     'Щоденні підсумки споживання, виробництва та собівартості — з розбивкою за датами.',
+  'reports.tableHeading': 'Розбивка за днями',
   'settings.currency': 'Валюта',
   'settings.errorFlat': 'Фіксована ставка має бути ≥ 0.',
   'settings.errorNotify': 'Не вдалося зберегти налаштування сповіщень.',
+  'settings.errorSave': 'Не вдалося зберегти тарифний план.',
   'settings.errorTou':
     'Потрібні тарифи для пікових/непікових годин та дійсний період пікових годин.',
   'settings.exportBody':
@@ -185,10 +219,20 @@ export const ui: UiTranslations = {
   'settings.saving': 'Збереження…',
   'settings.securityHeading': 'Двофакторна автентифікація',
   'settings.subheading': 'Тарифи, сповіщення та експорт даних.',
+  'settings.twoFactorBody':
+    'Вимагати одноразовий код із застосунку-автентифікатора щоразу під час входу.',
   'settings.twoFactorCode': 'Код аутентифікації',
   'settings.twoFactorDisable': 'Вимкнути',
+  'settings.twoFactorDisableTitle': 'Вимкнути двофакторну автентифікацію',
   'settings.twoFactorEnable': 'Увімкнути',
+  'settings.twoFactorEnableTitle': 'Увімкнути двофакторну автентифікацію',
   'settings.twoFactorInvalidCode': 'Неправильний код',
+  'settings.twoFactorOAuth':
+    'Ваш обліковий запис входить через під’єднаного постачальника, тож двофакторна автентифікація керується там.',
   'settings.twoFactorOn': 'Про',
+  'settings.twoFactorQrAlt': 'QR-код двофакторної автентифікації',
+  'settings.twoFactorScan':
+    'Відскануйте цей QR-код у своєму застосунку-автентифікаторі, а потім введіть 6-значний код.',
+  'settings.twoFactorUnavailable': 'Двофакторна автентифікація недоступна для цього додатка.',
   'settings.twoFactorVerify': 'Перевірити та увімкнути',
 }

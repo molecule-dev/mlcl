@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Masz pytania, uwagi lub chcesz zobaczyć demo dla swojego zespołu? Napisz do nas na hello@conduit.dev — każda wiadomość trafia do prawdziwej osoby z zespołu.',
   'about.contactHeading': 'Skontaktuj się',
   'about.eyebrow': 'O nas',
+  'about.featuresHeading': 'Co Pan/Pani otrzymuje',
+  'about.introBody':
+    '{{app}} przenosi ciągłe dostarczanie w stylu GitHub Actions do jednego szybkiego panelu: potoki, dzienniki kompilacji, artefakty, plakietki statusu i środowiska wdrożeniowe dla wszystkich Twoich repozytoriów w jednym miejscu. Bez przeskakiwania między kartami, bez zgadywania, która kompilacja się zepsuła — każde uruchomienie, wiersz dziennika i wdrożenie jest o jedno kliknięcie.',
+  'about.introHeading': 'Czym jest {{app}}',
+  'about.missionBody':
+    'Wydawanie oprogramowania powinno być spokojne i przewidywalne, a nie źródłem lęku. Tworzymy potoki, dzienniki i narzędzia wdrożeniowe, aby droga od commita do produkcji była szybka, przejrzysta i godna zaufania — pierwsza zielona kompilacja w pięć minut, a każda kolejna równie czytelna.',
+  'about.missionHeading': 'Nasza misja',
+  'about.subtitle':
+    '{{app}} to panel CI/CD dla zespołów, które chcą monitorować kompilacje, wdrożenia i środowiska we wszystkich repozytoriach — i wdrażać z pewnością.',
   'artifacts.empty': 'Brak artefaktów.',
   'artifacts.heading': 'Artefakty',
   'artifacts.loadError': 'Nie udało się załadować artefaktów.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Środowiska',
   'environments.loadError': 'Nie udało się załadować środowisk.',
+  'environments.loading': 'Ładowanie środowisk…',
   'environments.subheading': 'Status wdrożenia w czasie rzeczywistym dla każdego celu.',
   'forgotPassword.runnerStatus': 'reset · bezpieczny tunel',
+  'forgotPassword.success':
+    'Jeśli dla tego adresu e-mail istnieje konto, link resetujący jest już w drodze. Proszę sprawdzić skrzynkę odbiorczą.',
   'insights.changeFailureRate': 'Wskaźnik niepowodzeń zmian',
   'insights.deployFrequency': 'Deploye / dzień',
   'insights.empty': 'Za mało danych.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Nie udało się załadować statystyk.',
   'insights.meanP95': 'średnia {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Najwolniejsze kroki potoku',
   'insights.successRateHeading': "Wskaźnik powodzenia pipeline'u (ostatnie 14 dni)",
   'landing.choosePlan': 'Wybierz plan',
+  'landing.copyright': '© {{year}} {{app}}. Wdrażaj z pewnością.',
   'landing.ctaBody':
     'Bez karty kredytowej. Bez inżyniera platformy. Pierwszy pipeline zakończony sukcesem w pięć minut.',
   'landing.ctaHeading': 'Wdrażaj z pewnością.',
   'landing.featuresEyebrow': '// funkcje platformy',
   'landing.featuresHeading': 'Stworzone przez wdrażających, dla wdrażających',
+  'landing.heroSubtitle':
+    'Potoki, które kończą się w sekundach. Dzienniki, które da się czytać. Wdrożenia, którym można zaufać.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Prosta, przewidywalna cena',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Trwa teraz',
   'pipelines.metric.successCaption': '{{count}} z {{total}} uruchomień',
   'pipelines.metric.successRate': 'Wskaźnik powodzenia',
+  'pipelines.realtimeOn': 'w czasie rzeczywistym',
   'pipelines.subheading': 'Aktualizacje na żywo z każdego obserwowanego repozytorium.',
+  'pricing.advancedFeatures': 'Funkcje zaawansowane: {{mark}}',
+  'pricing.canExport': 'Eksport danych: {{mark}}',
+  'pricing.maxArtifacts': 'Artefakty: {{count}}',
+  'pricing.maxBuilds': 'Kompilacje: {{count}}',
+  'pricing.maxPipelines': 'Potoki: {{count}}',
   'privacy.dataAccount': 'Konto: nazwa, e-mail, zhashowane hasło, poziom planu.',
   'privacy.intro':
     "{{app}} zbiera wyłącznie minimum danych potrzebnych do obsługi konta continuous delivery: adres e-mail, podłączone repozytoria, commity i metadane buildów generowane przez runnery oraz sekrety, które Pan/Pani u nas zapisze. Nigdy nie odczytujemy kodu źródłowego poza runnerem buildów; artefakty buildu są przechowywane w Pana/Pani bucket'cie S3, jeśli został skonfigurowany.",
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Korzystamy ze Stripe do rozliczeń, Mailgun do e-maili transakcyjnych i AWS S3 do przechowywania artefaktów buildu. Każdy z nich jest umownie zobowiązany do minimalnego zakresu danych niezbędnych do świadczenia swojej usługi.',
   'privacy.rightsBody':
     'Możesz wyeksportować każdy bajt swoich danych, usunąć konto w dowolnym momencie w Ustawieniach i zażądać zapisu każdego webhooka dostarczonego na Twoim koncie. Na zapytania dotyczące RODO/CCPA odpowiadamy w ciągu 30 dni.',
+  'privacy.subtitle':
+    'Jak {{app}} gromadzi, przechowuje i chroni Twoje dane, gdy uruchamiamy Twoje potoki.',
   'privacy.title': 'Polityka prywatności',
   'repositories.empty': 'Brak podłączonych repozytoriów.',
   'repositories.heading': 'Repozytoria',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Wszystkie repozytoria',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Nie udało się załadować repozytorium.',
+  'repositoryDetail.meanDuration': 'Średni czas trwania',
   'repositoryDetail.notFound': 'Nie znaleziono repozytorium.',
+  'repositoryDetail.successRate': 'Wskaźnik sukcesu',
   'repositoryDetail.totalBuilds': 'Łącznie buildów',
   'repositoryDetail.webhookActive': 'aktywne',
   'repositoryDetail.webhookPaused': 'wstrzymany',
   'repositoryDetail.webhooksHeading': 'Webhooki',
+  'resetPassword.passwordLabel': 'Nowe hasło',
   'resetPassword.runnerStatus': 'reset · token zweryfikowany',
   'resetPassword.subtitle': 'Proszę wybrać silne hasło, którego Pan/Pani wcześniej nie używał(a).',
   'resetPassword.tokenPlaceholder': 'wklej z e-maila',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Repozytoria obserwowane przez Conduit. Proszę rozłączyć dostawcę VCS, aby przerwać odbieranie zdarzeń.',
   'settings.repositories.empty': 'Brak podłączonych repozytoriów.',
+  'settings.repositories.heading': 'Połączenia z repozytoriami',
   'settings.repositories.loadError': 'Nie udało się załadować repozytoriów.',
   'settings.secrets.addCta': 'Dodaj sekret',
   'settings.secrets.addError': 'Nie udało się dodać klucza tajnego.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Nie udało się usunąć klucza tajnego.',
   'settings.secrets.empty': 'Brak zapisanych sekretów.',
   'settings.secrets.heading': 'Sekrety',
+  'settings.secrets.lastUsed': 'ostatnio używane {{date}}',
   'settings.secrets.loadError': 'Nie udało się załadować sekretów.',
   'settings.secrets.neverUsed': 'nigdy nieużywany',
   'settings.secrets.rotateCta': 'Rotuj',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Nie udało się zaktualizować webhooka.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'plan darmowy · 1000 min buildu/mies.',
+  'terms.intro':
+    'Tworząc konto {{app}}, akceptujesz niniejsze warunki. Obejmują one dopuszczalne korzystanie z runnerów kompilacji, granice naszego SLA oraz warunki, na jakich możemy zawiesić lub zamknąć Twoje konto z powodu obciążających zasoby nadużyć.',
   'terms.slaBody':
     'Plany Pro i Team zakładają miesięczny uptime 99,95% dla API i puli runnerów. Plan Free jest dostarczany w stanie „tak jak jest". Awarie są raportowane na status.conduit.dev i kredytowane zgodnie ze wzorem na fakturze.',
   'terms.terminationBody':

@@ -1,20 +1,44 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens comentaris, has trobat un error o vols crear una comunitat a {{appName}}? Obre la configuració per contactar amb l'equip: cada missatge arriba a una persona real que el llegeix.",
+  'about.contactTitle': 'Parla amb nosaltres',
+  'about.featureModeration':
+    'Una cua de moderació integrada i eines de denúncia perquè cada comunitat es mantingui sana i es governi per si mateixa.',
+  'about.featurePricing':
+    "És gratuït unir-s'hi i participar-hi; els plans Pro i Team desbloquegen límits més alts, moderació avançada i exportació de dades.",
+  'about.featureThreads':
+    'Comunitats i categories organitzades amb debats en fils i amb format markdown, fàcils de seguir i de cercar.',
+  'about.featureVoting':
+    'Vots positius i negatius i un sistema de reputació guanyada que destaca els col·laboradors més útils i les millors respostes.',
+  'about.intro':
+    "{{appName}} és una plataforma de debat centrada en la comunitat: fils a l'estil de Reddit, vots i reputació, pensada per a qui prefereix una bona conversa que no pas anar darrere d'un feed. Cada veu compta, i les millors idees s'imposen pel seu mèrit, no pel volum.",
+  'about.missionBody':
+    'Creiem que el debat en línia hauria de premiar la reflexió, no la indignació. {{appName}} dona a cada comunitat les eines per mantenir-se civilitzada i autogovernar-se —votació transparent, reputació guanyada i una moderació que posa el control en mans dels membres de confiança— perquè els fils es converteixin en alguna cosa que val la pena recuperar.',
+  'about.missionTitle': 'La nostra missió',
   'authShell.communities': 'Comunitats',
+  'authShell.copyright': '{{appName}} — cada veu compta.',
   'authShell.trending': 'Tendències',
+  'categories.emptyFilter': 'No hi ha cap comunitat per mostrar.',
+  'categories.emptySubscribed': "Encara no t'has subscrit a cap comunitat.",
+  'categories.emptySubscribedHint':
+    'Obre una comunitat i fes clic a Subscriu-te per afegir-la aquí.',
   'categories.eyebrow': 'Comunitats',
   'categories.loadError': "No s'han pogut carregar les comunitats.",
   'categories.loading': "S'estan carregant les comunitats…",
   'categories.subtitle':
     "Navega per les comunitats de Agora per activitat, tema i el seu volum. Subscriu-te per afegir un canal a la teva pàgina d'inici.",
   'categories.title': 'Troba la teva habitació',
+  'categoryCard.activeNow': '{{count}} actiu',
   'categoryCard.namePrefix': 'c/',
   'categoryCard.subscribers': '{{count}} membres',
   'categoryDetail.empty': 'Encara no hi ha fils aquí.',
   'categoryDetail.namePrefix': 'c/',
   'categoryDetail.newPost': 'Nova publicació',
   'categoryDetail.ruleBeKind': 'Sigues amable. Parla de la feina, no de la persona.',
+  'categoryDetail.ruleNoSpam': 'Sense correu brossa ni enllaços de botigues.',
+  'categoryDetail.ruleStayOnTopic': "Mantén-te dins del tema d'aquesta comunitat.",
   'categoryDetail.startFirst': 'Comença el primer fil →',
   'categoryDetail.subscribe': 'Subscriu-te',
   'categoryDetail.subscribed': 'Subscrit',
@@ -34,6 +58,7 @@ export const ui: UiTranslations = {
   'compose.eyebrow': 'Inicia un fil',
   'compose.flairLabel': 'Toc (opcional)',
   'compose.imageUrlPrompt': 'URL de la imatge',
+  'compose.insertUrl': 'Insereix',
   'compose.linkUrlPrompt': "URL de l'enllaç",
   'compose.markdownHint': 'Markdown compatible.',
   'compose.publishFailed': "No s'ha pogut publicar el fil.",
@@ -51,11 +76,18 @@ export const ui: UiTranslations = {
   'feed.empty': 'Encara no hi ha fils.',
   'feed.emptyHint': 'Sigues el primer a iniciar una discussió: vés a Redactar.',
   'feed.loadError': "No s'ha pogut carregar el feed.",
+  'feed.metaCommunityDescription':
+    'La comunitat meta per a tothom qui dona forma a {{appName}}: votacions, governança i debats sobre funcions.',
+  'feed.ruleBeCivil': 'Sigues civilitzat. Sempre.',
   'feed.ruleBeCivilDesc':
     'Discrepar sense deshumanitzar. Els moderadors intensifiquen ràpidament els atacs personals.',
+  'feed.ruleCiteSources': 'Enllaça allò a què estàs reaccionant.',
+  'feed.ruleOnePerWeek': 'Una publicació meta per setmana i compte.',
   'feed.subtitle':
     "Fils de les comunitats que segueixes, a més d'algunes que potser seguiràs. Vota per ensenyar l'algoritme.",
   'feed.title': 'El vostre feed',
+  'forgotPassword.description':
+    "Introdueix el teu correu electrònic i t'enviarem un enllaç per restablir-lo.",
   'forgotPassword.successBody':
     'Hem enviat un enllaç de restabliment a {{email}} Caduca en 30 minuts.',
   'forgotPassword.tryAnother': 'Prova un correu electrònic diferent',
@@ -65,9 +97,15 @@ export const ui: UiTranslations = {
   'forumLayout.openMenu': 'Obre el menú de navegació',
   'landing.communitiesSubtitle': 'Guanya karma, comparteix la feina, fes millors preguntes.',
   'landing.communitiesTitle': 'Comunitats per començar',
+  'landing.ctaBody':
+    "Registra't gratis. Construeix reputació en els temes que t'importen i ajuda la resta a pensar una mica més clarament.",
   'landing.ctaEyebrow': 'A punt quan ho siguis',
   'landing.ctaHeadline': 'Troba la teva comunitat. Fes sentir la teva veu.',
   'landing.heroCtaSecondary': 'Navega per les comunitats',
+  'landing.heroEyebrow': 'Benvingut a {{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Debats que es consoliden en lloc de desaparèixer.',
+  'landing.heroLede':
+    '{{appName}} és un fòrum a foc lent per a aficionats, creadors i experts amb opinions discretes. Guanya prestigi, bon fil a bon fil.',
   'landing.heroStat1': '847k',
   'landing.heroStat2': '2.180',
   'landing.heroStat2Label': 'Comunitats',
@@ -82,13 +120,17 @@ export const ui: UiTranslations = {
   'landing.trendingViewAll': 'Veure-ho tot',
   'login.description': 'Reprendre la conversa on va acabar.',
   'login.heading': 'Inicia la sessió a Agora',
+  'login.noAccount': 'Ets nou aquí?',
   'login.passwordPlaceholder': 'La teva contrasenya',
   'login.twoFactorLabel': 'Codi 2FA (opcional)',
   'login.twoFactorPlaceholder': 'Codi de 6 dígits',
+  'login.twoFactorRequiredHint':
+    "Aquest compte té l'autenticació de dos factors activada. Introdueix el codi de 6 dígits de la teva aplicació d'autenticació per continuar.",
   'login.twoFactorRequiredLabel': 'Introdueix el teu codi 2FA',
   'modQueue.automodEmpty':
     "Encara no hi ha cap regla d'automodificació configurada per a aquesta comunitat.",
   'modQueue.automodTitle': 'Activitat de modificació automàtica (últimes 24 hores)',
+  'modQueue.empty': "Safata d'entrada a zero. No hi ha res pendent.",
   'modQueue.eyebrow': 'Moderació',
   'modQueue.kindThread': 'Fil',
   'modQueue.loadError': "No s'han pogut carregar els informes.",
@@ -115,8 +157,12 @@ export const ui: UiTranslations = {
   'notifications.mentionedYouIn': "t'ha esmentat a",
   'notifications.repliedTo': 'va respondre a',
   'notifications.subtitle': 'Tens {{count}} notificacions no llegides.',
+  'pricing.limits.advancedFeatures': 'Funcions avançades:',
   'pricing.limits.categories': '{{count}} categories',
   'pricing.limits.export': 'Exportació de dades:',
+  'pricing.limits.moderation': 'Accions de moderació de {{count}}',
+  'pricing.limits.threads': '{{count}} fils',
+  'pricing.limits.votes': '{{count}} vots',
   'profile.noComments': 'Encara no hi ha comentaris.',
   'profile.noPosts': 'Encara no hi ha cap publicació.',
   'profile.noSaved': 'Encara no hi ha cap publicació desada.',
@@ -127,6 +173,7 @@ export const ui: UiTranslations = {
     "Tria'n un de fort. Iniciarem la sessió quan el restabliment s'hagi completat correctament.",
   'resetPassword.newPasswordLabel': 'Nova contrasenya',
   'resetPassword.tokenPlaceholder': "Enganxa el testimoni d'enllaç",
+  'search.clear': 'Clar',
   'search.communitiesEmpty': 'No hi ha comunitats coincidents.',
   'search.communitiesHeading': 'Comunitats',
   'search.empty': 'No hi ha cap fil coincident.',
@@ -139,19 +186,27 @@ export const ui: UiTranslations = {
   'settings.displayTitle': 'Pantalla',
   'settings.emailDigestDesc':
     'Els principals fils de discussió de les comunitats a les quals esteu subscrits cada dilluns.',
+  'settings.emailDigestLabel': 'Resum setmanal',
+  'settings.emailMentionsDesc': 'Quan algú et menciona amb @ en un fil o un comentari.',
+  'settings.emailMentionsLabel': "Envia'm un correu quan em mencionin",
+  'settings.emailRepliesDesc': 'Fils que has iniciat o als quals has respost.',
   'settings.emailRepliesLabel': "Envia'm un correu electrònic quan hi hagi respostes.",
   'settings.loadError': "No s'ha pogut carregar el teu compte.",
   'settings.loading': "S'està carregant la configuració…",
   'settings.notificationsSubtitle':
     "Decideix què arriba a la teva safata d'entrada en comparació amb el teu dispositiu push.",
+  'settings.pushRepliesLabel': 'Notificació push per a les respostes',
+  'settings.pushVotesDesc': 'Avís en arribar a 100, 500, 1000.',
   'settings.pushVotesLabel': 'Impulsar els fites dels vots positius',
   'settings.saveAccount': 'Desa el compte',
   'settings.showFlair': "Mostra l'estil de la categoria als fils de discussió",
+  'settings.showThumbnails': "Mostra les miniatures d'enllaços i imatges",
   'settings.usernamePlaceholder': 'Trieu una nansa',
   'signup.confirmPlaceholder': 'Torna-ho a escriure',
   'signup.description': "Guanya't posicions fil a fil.",
   'signup.eyebrow': 'Uneix-te a la sala',
   'threadRow.authorPrefix': 'u/',
+  'threadRow.commentCount': '{{count}} comentaris',
   'threadRow.statusFlagged': 'En revisió',
   'threadRow.statusHot': 'Calent',
   'threadRow.statusLocked': 'Bloquejat',
@@ -173,6 +228,7 @@ export const ui: UiTranslations = {
   'threadView.lockedNotice': 'Aquest fil està bloquejat. Les noves respostes estan desactivades.',
   'threadView.modActionFailed': "L'acció del moderador ha fallat.",
   'threadView.modTools': 'Eines de modificació',
+  'threadView.noComments': 'Encara no hi ha comentaris. Sigues el primer.',
   'threadView.notFound': "No s'ha trobat el fil.",
   'threadView.pin': 'Fixar',
   'threadView.pinned': 'Fixat',

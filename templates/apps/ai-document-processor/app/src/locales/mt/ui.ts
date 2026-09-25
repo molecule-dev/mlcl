@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Għandek mistoqsija, sibt bug, jew trid demo għat-tim tiegħek? Ikkuntattjana mill-issettjar tal-kont tiegħek — kull messaġġ jasal għand persuna reali fit-tim.',
   'about.contactTitle': 'Ikkuntattjana',
+  'about.intro':
+    "{{app}} ibiddel munzelli ta' dokumenti skennjati u PDFs f'data strutturata, tiftixxabbli u arkivjata. Iddaħħal fatturi, irċevuti, kuntratti, jew formoli u ħalli l-AI taqrahom, testraihom, tikklassifikahom u tarkivjahom — b'kuluri ta' kunfidenza sabiex it-tim tiegħek jirrevedi biss dak li verament jeħtieġ bniedem.",
+  'about.missionBody':
+    "Ix-xogħol tad-dokumenti m'għandux jiekol il-ġurnata tat-tim tiegħek. Aħna nemmnu li kull valur estratt għandu jkun spjegabbli u verifikabbli — sabiex tkun tista' tafda l-awtomazzjoni mingħajr ma titlef il-karta tal-karta. {{app}} inbena biex jiffranka sigħat għal kull munzell filwaqt li jżomm bniedem fil-loop fejn jgħodd.",
+  'about.missionTitle': 'Il-missjoni tagħna',
+  'about.subtitle':
+    'OCR, estrazzjoni bl-AI, klassifikazzjoni, u arkivar awtomatiku għad-dokumenti tiegħek.',
   'about.title': 'Dwar {{app}}',
+  'about.whatYouGetTitle': 'Dak li tikseb',
   'authShell.backToLanding': '← Lura għall-inżul',
   'common.goToDashboard': 'Mur għad-Dashboard',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Illum · Ħarsa ġenerali lejn l-operazzjonijiet',
   'dashboard.heading': 'Intelliġenza tad-dokumenti',
+  'dashboard.metric.accuracy': 'Preċiżjoni medja',
   'dashboard.metric.filed': 'Ippreżentat illum',
   'dashboard.metric.filedCaption': 'Immexxija mir-regoli tal-preżentazzjoni',
   'dashboard.metric.processed': 'Ipproċessat illum',
@@ -23,11 +34,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': "Imtella'",
   'dashboard.recent.heading': 'Dokumenti riċenti',
+  'dashboard.recent.typeUnknown': 'Qed jistenna l-klassifikazzjoni',
   'dashboard.subheading':
     "Kull paġna hija kklassifikata, estratta, u ffajljata — b'kuluri kunfidenti sabiex ir-reviżjoni tibqa' ffukata.",
   'documentDetail.audit.heading': 'Kronoloġija tal-awditjar',
+  'documentDetail.audit.subheading':
+    'Kull pass magħmul fuq dan id-dokument, bl-attur responsabbli.',
   'documentDetail.back': 'Id-dokumenti kollha',
   'documentDetail.downloadHint': 'Uża Niżżel biex tiftaħ il-fajl oriġinali.',
+  'documentDetail.extracted.empty': 'Għadhom ma ġew estratti l-ebda oqsma.',
   'documentDetail.extracted.heading': 'Oqsma estratti',
   'documentDetail.extracted.subheading':
     '{{count}} oqsma · ikklikkja kwalunkwe qasam biex tenfasizza fil-paġna',
@@ -56,13 +71,24 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} dokumenti fil-librerija tiegħek, magħżula mill-aktar ġodda l-ewwel.',
   'documents.uploadCta': "Tella' dokumenti",
+  'documentTypeBreakdown.barAria': 'Kompożizzjoni tad-dokument skont it-tip',
   'documentTypeBreakdown.empty': 'Għadu ma ġew ipproċessati l-ebda dokumenti.',
   'documentTypeBreakdown.subtitle': '{{total}} ipproċessat',
   'documentTypeBreakdown.title': 'Kompożizzjoni tad-dokument',
+  'forgotPassword.backToSignIn': '← Lura għall-login',
   'forgotPassword.checkEmail': 'Iċċekkja l-email tiegħek',
   'forgotPassword.tip': 'Ma rċevejtx? Iċċekkja l-ispam jew ipprova indirizz ieħor.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Mibni għal timijiet operattivi li jivverifikaw kull paġna.',
+  'landing.ctaBody':
+    "Prova ta' 14-il jum. L-ebda karta meħtieġa. Ikkanċella meta trid. Mibni għal timijiet operattivi li jimxu malajr u jivverifikaw bil-mod.",
   'landing.ctaHeading': 'Ieqaf tittajpja r-riċevuti. Ibda iffajljahom.',
   'landing.eyebrow': 'OCR · Estrazzjoni · Fajljar bl-AI',
+  'landing.featuresHeading': 'Intelliġenza tad-dokumenti li tispjega lilha nnifisha',
+  'landing.heroSubtitle':
+    "Iddaħħal munzell ta' fatturi, irċevuti, kuntratti, jew formoli. {{app}} tikklassifika, testrai u tarkivja — b'kuluri ta' kunfidenza sabiex it-tim tiegħek jirrevedi biss dak li verament jeħtieġ bniedem.",
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': "Volum ta' kuljum · l-aħħar 7 ijiem",
   'landing.sampleCardLabel': 'Dokumenti pproċessati llum',
   'landing.sampleCardSubtitle': "Preċiżjoni medja ta' 96.2% fil-fatturi, ir-riċevuti u l-formoli.",
   'login.hidePassword': 'Aħbi l-password',
@@ -75,6 +101,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Iftaħ il-paġna tal-inżul',
   'notFound.title': 'Dik il-paġna mhix fil-fajl',
+  'parcelaHeroCard.accuracy': 'Preċiżjoni medja {{value}}% fl-estrazzjonijiet kollha',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % meta mqabbel mal-bieraħ',
   'parcelaHeroCard.title': 'Dokumenti pproċessati llum',
   'parcelaLayout.primaryNavLabel': 'Navigazzjoni primarja',
@@ -82,6 +109,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'dokumenti',
   'pricing.processingLabel': 'impjiegi tal-ipproċessar',
   'resetPassword.confirmPlaceholder': 'Irrepeti l-password il-ġdida',
+  'resetPassword.hidePassword': 'Aħbi l-password',
   'resetPassword.passwordLabel': 'Password ġdida',
   'resetPassword.showPassword': 'Uri l-password',
   'resetPassword.subtitle': 'Agħżel xi ħaġa twila mill-inqas 8 karattri.',
@@ -98,10 +126,12 @@ export const ui: UiTranslations = {
   'rules.loadError': "Ma rnexxiex ittella' r-regoli.",
   'rules.loading': 'Qed jitgħabbew ir-regoli…',
   'rules.matched30d': '{{count}} dokumenti mqabbla fl-aħħar 30 jum',
+  'rules.neverUsed': 'Qatt ma ntuża',
   'rules.newRule': 'Regola ġdida',
   'rules.saveError': 'Ma rnexxiex issalva r-regola.',
   'rules.subheading':
     "Għid lis-sistema fejn għandu jmur kull tip ta' dokument. Katina tal-kundizzjonijiet minn fuq għal isfel — l-ewwel tqabbil jirbaħ.",
+  'rules.templatesEmpty': "Għadhom ma hemm l-ebda mudelli ta' estrazzjoni.",
   'rules.templatesHeading': "Mudelli ta' estrazzjoni",
   'rules.templatesSubheading': "Skemi tal-oqsma li juża l-estrattur għal kull tip ta' dokument.",
   'rules.then': 'Imbagħad',
@@ -110,17 +140,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Isem tal-ispazju tax-xogħol',
   'settings.account.subheading':
     'Isem tal-wiri u indirizz elettroniku primarju għan-notifiki u l-istorja tal-awditjar.',
+  'settings.api.confirmRevoke': 'Tikkonferma?',
   'settings.api.copyOnce': "Ikkopja din iċ-ċavetta — mhux se terġa' tintwera",
   'settings.api.createdOn': 'Maħluq {{date}}',
   'settings.api.empty': "Għad m'hemm l-ebda ċwievet tal-API. Iġġenera waħda hawn fuq.",
   'settings.api.error': 'Ma rnexxiex tinħoloq iċ-ċavetta.',
+  'settings.api.generating': 'Qed jiġġenera…',
+  'settings.api.heading': 'Ċwievet tal-API',
   'settings.api.labelPlaceholder': 'Tikketta ewlenija (eż. uploader tas-CI)',
+  'settings.api.loading': 'Qed jitgħabbew iċ-ċwievet…',
   'settings.api.newKey': 'Iġġenera ċavetta',
   'settings.api.subheading':
     "Uża dawn biex tibgħat dokumenti minn skript jew mill-ERP tiegħek. Dawwar kwalunkwe ċavetta f'kull ħin.",
   'settings.integrations.heading': 'Integrazzjonijiet tal-iffajljar',
   'settings.integrations.subheading':
     'Ibgħat dokumenti ffajljati lill-cloud drive jew lill-għodda taċ-chat li t-tim tiegħek diġà jgħix fiha.',
+  'settings.subheading':
+    'Immaniġġja l-kont, iċ-ċwievet API, u l-integrazzjonijiet tal-arkivjar għall-workspace {{app}} tiegħek.',
+  'signup.hidePassword': 'Aħbi l-password',
   'signup.identityPrompt': 'Kif għandna nindirizzawk?',
   'signup.showPassword': 'Uri l-password',
   'signup.subtitle': "14-il jum b'xejn, l-ebda karta mhi meħtieġa.",
@@ -128,6 +165,7 @@ export const ui: UiTranslations = {
   'upload.error': 'It-tlugħ falla.',
   'upload.eyebrow': 'Inġestjoni',
   'upload.heading': "Tella' dokumenti",
+  'upload.queue.clear': 'Neħħi l-kompluti',
   'upload.queue.col.confidence': 'Kunfidenza',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Qed jinstab…',
@@ -140,5 +178,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     "Jew inkella poġġi diversi fajls f'daqqa għall-estrazzjoni, il-klassifikazzjoni u l-iffajljar f'lottijiet.",
   'uploadDropZone.cta': 'Agħżel fajls',
+  'uploadDropZone.maxSize': 'Massimu 25 MB għal kull fajl · Ikkriptat minn tarf sa tarf',
   'uploadDropZone.title': "Waqqa' d-dokumenti biex tibda l-ipproċessar",
 }

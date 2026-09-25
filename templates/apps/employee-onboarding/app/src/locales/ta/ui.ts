@@ -1,29 +1,44 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'உங்கள் குழுவிற்கு அன்பான ஒரு வரவேற்பை அறிமுகப்படுத்த விரும்புகிறீர்களா, ஒரு பிழை கண்டீர்களா, அல்லது கருத்து தெரிவிக்க வேண்டுமா? உங்கள் கணக்கு அமைப்புகளிலிருந்து எங்களை அணுகவும் — ஒவ்வொரு செய்தியும் உதவக்கூடிய ஒரு உண்மையான மனிதரையே சென்றடையும்.',
   'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'உங்கள் கடவுச்சொல்லை மீட்டமைக்கவும்.',
+  'auth.forgotPassword.panel.body':
+    'மீட்டமைக்க 30 வினாடிகள் ஆகும் — உங்கள் சரிபார்ப்புப் பட்டியல் முன்னேற்றம் காத்திருக்கிறது.',
+  'auth.forgotPassword.panel.headline': 'நீங்கள் நிறுத்திய இடத்திற்கே திரும்பி விட்டீர்கள்.',
+  'auth.forgotPassword.subheading':
+    'உங்கள் வேலை மின்னஞ்சலை உள்ளிடவும், மீட்டமைப்பு இணைப்பை அனுப்புகிறோம்.',
   'auth.forgotPassword.successSubheading':
     'உங்கள் இன்பாக்ஸைச் சரிபார்க்கவும் — மீட்டமைப்பு வழிமுறைகளை நாங்கள் அனுப்பியுள்ளோம்.',
   'auth.login.emailPlaceholder': 'name@yourcompany.com',
   'auth.login.heading': 'மீண்டும் வருக.',
   'auth.login.passwordPlaceholder': 'உங்கள் கடவுச்சொல்',
+  'auth.login.signupPrompt': 'உங்கள் குழுவுக்குப் புதியவரா?',
   'auth.login.subheading':
     'நீங்கள் விட்ட இடத்திலிருந்து உங்கள் பணியமர்வுப் பயணத்தைத் தொடர உள்நுழையவும்.',
   'auth.login.submit': 'உங்கள் பயணத்தைத் தொடருங்கள்',
+  'auth.panel.body':
+    'உங்கள் தனிப்பட்ட சரிபார்ப்புப் பட்டியல், பயிற்சி மைல்கற்கள், குழு அறிமுகங்கள் — அனைத்தும் ஒரே அமைதியான இடத்தில்.',
   'auth.panel.footnote':
     '© எம்பார்க் — இன்றிலிருந்து பணியாளர்களுக்கு முன்னுரிமை அளித்து அவர்களை பணியில் அமர்த்துகிறது.',
   'auth.panel.headline': 'நம்பிக்கையான முதல் 90 நாட்கள் இங்கிருந்து தொடங்குகிறது.',
   'auth.resetPassword.heading': 'புதிய கடவுச்சொல்லை அமைக்கவும்.',
   'auth.resetPassword.newPasswordLabel': 'புதிய கடவுச்சொல்',
+  'auth.resetPassword.panel.body':
+    'புதிய கடவுச்சொல்லைச் சேமிக்கவும், உங்கள் வரவேற்புப் பயணத்திற்கே உங்களை உடனே அழைத்துச் செல்கிறோம்.',
+  'auth.resetPassword.panel.headline': 'கிட்டத்தட்ட திரும்பி விட்டீர்கள்.',
   'auth.resetPassword.subheading':
     'உங்களுக்கு நினைவில் நிற்கக்கூடிய ஒன்றை, குறைந்தபட்சம் 8 எழுத்துக்களில் தேர்ந்தெடுங்கள்.',
   'auth.signup.emailPlaceholder': 'name@yourcompany.com',
   'auth.signup.heading': 'உங்களின் முதல் 90 நாட்களுக்கு நல்வரவு.',
   'auth.signup.panel.body':
     'வழிகாட்டப்பட்ட சரிபார்ப்புப் பட்டியல், உங்கள் பணி சார்ந்த பயிற்சி, மற்றும் நேரடி அறிமுகங்கள் — நீங்கள் உள்ளே நுழைவதற்கு முன்பே தயாராக இருக்கும்.',
+  'auth.signup.panel.headline': 'முதல் நாளே, முதல் நாளில்.',
   'auth.signup.subheading':
     'உங்கள் வழிகாட்டப்பட்ட பணியமர்வுப் பயணத்தைத் தொடங்க, உங்கள் எம்பார்க் கணக்கை உருவாக்கவும்.',
   'checklist.empty.body': 'மற்ற பணிகளைக் காண வடிப்பானை மாற்றவும்.',
@@ -31,6 +46,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'பணியமர்த்தல் · சரிபார்ப்புப் பட்டியல்',
   'checklist.loading': 'உங்கள் சரிபார்ப்புப் பட்டியல் ஏற்றப்படுகிறது…',
   'checklist.stat.actionNeeded': 'நடவடிக்கை தேவை',
+  'checklist.stat.completion': 'நிறைவு',
+  'checklist.stat.inProgress': 'செயல்பாட்டில் உள்ளது',
   'checklist.stat.inProgressHelper': 'நீங்கள் விட்ட இடத்திலிருந்து தொடருங்கள்.',
   'checklist.stat.overdueHelper': 'முதலில் இவற்றைப் படித்து முடிக்கவும்',
   'checklist.subtitle':
@@ -62,6 +79,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'இன்னும் ஆவணங்கள் இல்லை',
   'documents.eyebrow': 'பணியமர்த்தல் · ஆவணங்கள்',
   'documents.loading': 'ஆவணங்கள் ஏற்றப்படுகின்றன…',
+  'documents.stat.actionNeeded': 'இப்போதே பதிவு செய்யுங்கள்',
+  'documents.stat.all': 'அனைத்து ஆவணங்களும்',
   'documents.stat.allHelper': 'பிரிவுகள் முழுவதும்',
   'documents.stat.pending': 'நிலுவையில் உள்ள கையொப்பங்கள்',
   'documents.stat.pendingHelper': 'பூர்த்தி செய்வதற்குத் தேவைப்படுகிறது',
@@ -69,6 +88,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'பாதுகாப்பாக சேமிக்கப்பட்டது',
   'documents.status.optional': 'விருப்பத்தேர்வு',
   'documents.status.required': 'தேவைப்படும்',
+  'documents.status.signed': 'கையொப்பமிடப்பட்டது',
   'documents.subtitle':
     'உங்கள் கையேடு, படிவங்கள் மற்றும் கையொப்பமிடப்பட்ட ஒப்பந்தங்கள் அனைத்தும் ஒரே இடத்தில்.',
   'documents.title': 'நீங்கள் படித்து கையொப்பமிட வேண்டிய அனைத்தும்.',
@@ -76,10 +96,14 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'பார்வையாளர்',
   'documentViewer.breadcrumbDocs': 'ஆவணங்கள்',
   'documentViewer.downloadMeta': 'மெட்டாடேட்டாவைப் பதிவிறக்கவும்',
+  'documentViewer.helpBody':
+    'கையேடு தொடர்பான கேள்விகளுக்கு Slack-இல் #ask-people-இல் People & Culture பதிலளிக்கிறது.',
   'documentViewer.helpEyebrow': 'உதவி தேவையா?',
   'documentViewer.loadError': 'இந்த ஆவணத்தை எங்களால் ஏற்ற முடியவில்லை.',
   'documentViewer.loading': 'ஆவணம் ஏற்றப்படுகிறது…',
   'documentViewer.notFound': 'ஆவணம் காணப்படவில்லை',
+  'documentViewer.previewBody':
+    'பதிவேற்றங்கள் அமைக்கப்பட்டிருக்கும்போது கோப்பை நேரடியாகக் காட்டுகிறோம். இப்போதைக்கு, மெட்டாடேட்டா பதிவிறக்கம் பதிவு உண்மையானது என்பதை உறுதிப்படுத்த உதவுகிறது.',
   'documentViewer.previewBodyExternal':
     'கோப்பை ஒரு புதிய தாவலில் திறக்க, பதிவிறக்கப் பொத்தானைப் பயன்படுத்தவும்.',
   'documentViewer.previewTitle': 'ஆவண முன்னோட்டம்',
@@ -87,6 +111,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'ஆவணத்தைப் படித்துவிட்டு, கையொப்பமிட்டு ஒப்புக்கொள்வதற்கு கீழே சொடுக்கவும்.',
   'documentViewer.signatureHeading': 'கையொப்பம் தேவை',
+  'documentViewer.signed': '✓ கையொப்பமிட்டு பதிவு செய்யப்பட்டது',
   'documentViewer.signing': 'கையொப்பமிடுதல்…',
   'documentViewer.uploadedRecently': 'சமீபத்தில் பதிவேற்றப்பட்டது',
   'landing.closing.body':
@@ -96,10 +121,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'எனக்கு ஏற்கனவே ஒரு கணக்கு உள்ளது',
   'landing.feature1.body':
     'ஆவணப் பணிகள், கணக்குகள், அறிமுகங்கள் என ஒவ்வொரு பணியும், அதற்கான காலக்கெடு மற்றும் சரியான பொறுப்பாளருடன் முன்கூட்டியே தயார் நிலையில் வைக்கப்படுகிறது.',
+  'landing.feature1.title': 'வழிகாட்டப்பட்ட சரிபார்ப்புப் பட்டியல்',
   'landing.feature2.body':
     'பணியாளர் சேரும் பணி மற்றும் குழுவிற்கு ஏற்றவாறு, தொகுதிகள் 30/60/90 மைல்கற்களில் திறக்கப்படும்.',
+  'landing.feature2.title': 'பங்கு அறிந்த பயிற்சி',
   'landing.feature3.body':
     'நண்பர்கள், மேலாளர்கள் மற்றும் பல்துறை அறிமுகங்கள் திட்டமிடப்பட்டுள்ளன — அதனால் யாரும் தனியாகத் தொடங்குவதில்லை.',
+  'landing.feature3.title': 'உண்மையான அறிமுகங்கள்',
   'landing.featureEyebrow': 'ஏன் தொடங்க வேண்டும்?',
   'landing.featureHeadline': 'முதல் நாளிலேயே எம்பார்க் நம்பிக்கையைப் பெறும் மூன்று வழிகள்.',
   'landing.footer.rights': 'அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.',
@@ -109,6 +137,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'அடுத்து: உங்கள் நண்பருடன் 30 நிமிட காபி உரையாடலில் இணையுங்கள் — செவ்வாய் காலை 10:00 மணி.',
   'landing.preview.eyebrow': '90 நாட்களில் 14-வது நாள் — மாதிரி டாஷ்போர்டு',
+  'landing.preview.headline': 'மீண்டும் வருக, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR தயார்',
   'landing.proof.teams': '50 முதல் 5,000 பேர் கொண்ட குழுக்களுக்காக உருவாக்கப்பட்டது',
   'landing.proof.time': '14 நாள் இலவச சோதனை',
@@ -125,16 +154,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'நேற்று',
   'planUpdated.message': 'நீங்கள் தயாராகிவிட்டீர்கள்.',
   'planUpdated.preparing': 'உங்கள் திட்டத்தைப் புதுப்பித்தல்…',
+  'planUpdated.retry': 'மீண்டும் முயற்சிக்கவும்',
+  'planUpdated.verifyFailed': 'உங்கள் கட்டணத்தை எங்களால் இன்னும் உறுதிப்படுத்த முடியவில்லை.',
+  'planUpdated.verifyFailedBody':
+    'உங்கள் கட்டணம் இன்னும் செயலாக்கத்தில் இருக்கலாம். சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.',
   'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'pricing.documentsLabel': 'ஆவணங்கள்',
   'pricing.onboardingsLabel': 'பணியமர்த்தல்கள்',
   'pricing.tasksLabel': 'பணிகள்',
   'profile.dayNumber': 'வாரம்',
   'profile.detailsHeading': 'பணியமர்த்தல் விவரங்கள்',
+  'profile.encouragementBody':
+    'உங்கள் நண்பரையும் மேலாளரையும் தெரியப்படுத்துங்கள் — சிறிய படிகள் பெரிய பலனைத் தரும்.',
   'profile.milestones': 'மைல்கற்கள்',
   'profile.progressEyebrow': 'பணியமர்த்தல் முன்னேற்றம்',
   'profile.tasks': 'பணிகள்',
   'profile.unknownName': 'வரவேற்கிறோம்',
+  'settings.appearance.description': 'ஒளி மற்றும் இருண்ட பயன்முறைகளுக்கு இடையே மாறவும்.',
+  'settings.appearance.title': 'தோற்றம்',
+  'settings.subtitle':
+    'அறிவிப்புகள், பாதுகாப்பு, சாதனங்கள், தரவு ஏற்றுமதி — அனைத்தும் இங்கேயே, உங்கள் விதிமுறைகளின்படி.',
   'settings.title': 'அமைப்புகள் மற்றும் விருப்பத்தேர்வுகள்.',
   'taskDetail.backToChecklist': 'சரிபார்ப்புப் பட்டியலுக்குத் திரும்பு',
   'taskDetail.breadcrumbChecklist': 'சரிபார்ப்புப் பட்டியல்',
@@ -147,7 +186,10 @@ export const ui: UiTranslations = {
   'taskDetail.notFound': 'பணி காணப்படவில்லை',
   'taskDetail.notFoundBody':
     'இந்தப் பணி நீக்கப்பட்டிருக்கலாம் அல்லது வேறொரு பயனருக்குச் சொந்தமானதாக இருக்கலாம்.',
+  'taskDetail.tipBody':
+    'நீங்கள் தடைபட்டால், Slack-இல் உங்கள் வரவேற்பு நண்பருக்கு செய்தி அனுப்புங்கள் — அவர்களே உங்கள் முதல் உதவி.',
   'taskDetail.tipEyebrow': 'விரைவான குறிப்பு',
+  'team.empty.body': 'பரந்த தேடலை முயற்சிக்கவும் அல்லது வேறு துறையைத் தேர்ந்தெடுக்கவும்.',
   'team.empty.title': 'அணி வீரர்கள் இல்லாத போட்டி',
   'team.eyebrow': 'பணியில் சேர்ப்பு · மக்கள்',
   'team.loading': 'அணி வீரர்களை ஏற்றுகிறது…',
@@ -170,14 +212,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'மைல்கற்கள்',
   'timeline.stat.current': 'தற்போதைய மைல்கல்',
   'timeline.stat.next': 'அடுத்த திறப்பு',
+  'timeline.stat.progress': 'ஒட்டுமொத்தமாக',
   'timeline.subtitle':
     'ஒவ்வொரு மைல்கல்லும் புதிய பாடப்பிரிவுகள், அறிமுகங்கள் மற்றும் வளர்ச்சி உரையாடல்களைத் திறக்கிறது. எந்த அழுத்தமும் இல்லை — முன்னேற்றம் மட்டுமே.',
+  'timeline.tipBody':
+    '30, 60, 90 ஆம் நாட்களில் உங்கள் மேலாளருடன் 30 நிமிட சிந்தனைக்கு நேரம் ஒதுக்குங்கள் — இது கருத்துகளைத் துல்லியமாக்கி முன்னேற்றத்தைத் தெரியவைக்கும்.',
   'timeline.tipEyebrow': 'மேலாளர் குறிப்பு',
+  'timeline.tipTitle': 'மைல்கற்களுக்கு நாட்காட்டியில் நேரம் ஒதுக்குங்கள்.',
   'timeline.title': 'உங்கள் 30 / 60 / 90 பயணம்.',
   'training.badge.notStarted': 'தொடங்கவில்லை',
   'training.empty': 'இன்னும் பயிற்சி தொகுதிகள் எதுவும் இல்லை.',
   'training.eyebrow': 'பணியில் சேர்ப்பு · பயிற்சி',
   'training.loading': 'தொகுதிகள் ஏற்றப்படுகின்றன…',
+  'training.stat.all': 'தொகுதிகள் ஒதுக்கப்பட்டன',
   'training.subtitle':
     'உங்கள் பாத்திரத்திற்கு ஏற்றவாறு, தொகுதிகள் 30/60/90 என்ற நிலைகளில் திறக்கப்படும். அவசியமானவை முதலில் வரும்.',
   'training.title': 'திறன்கள், கருவிகள் மற்றும் கதைகள் — உங்கள் வேகத்தில்.',
@@ -190,9 +237,12 @@ export const ui: UiTranslations = {
   'trainingModule.quizBody':
     '80% அல்லது அதற்கு மேல் மதிப்பெண் பெற்றால் இந்தப் பாடப்பிரிவு நிறைவடைந்ததாகக் கருதலாம்.',
   'trainingModule.quizHeading': 'தொகுதி இறுதி வினாடி வினா',
+  'trainingModule.quizLocked': 'முதலில் தொகுதியைத் தொடங்கு',
   'trainingModule.quizNone': 'இந்தப் பாடப்பிரிவில் வினாடி வினா இல்லை.',
   'trainingModule.quizRetry': 'மீண்டும் முயற்சிக்கவும்',
+  'trainingModule.quizStart': 'வினாடி வினாவைத் தொடங்கு',
   'trainingModule.quizSubmit': 'பதில்களைச் சமர்ப்பிக்கவும்',
+  'trainingModule.start': 'தொகுதியைத் தொடங்கு',
   'trainingModule.statusNotStarted': 'தொடங்கவில்லை',
   'welcomeHeroCard.completeLabel': 'முழுமையான',
   'welcomeHeroCard.milestonesLabel': 'மைல்கற்கள்',

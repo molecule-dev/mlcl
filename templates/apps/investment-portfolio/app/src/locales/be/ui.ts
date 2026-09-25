@@ -1,11 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ёсць водгук, знайшлі памылку ці хочаце новую функцыю? Напішыце нам з налад акаўнта — кожнае паведамленне трапляе да рэальнага чалавека з каманды. Заўвага: тут няма інвестыцыйных парад; вы кантралюеце кожную здзелку.',
+  'about.contactTitle': 'Звяжыцеся з намі',
+  'about.featureAttribution':
+    'Атрыбуцыя вынікаў — раскладзіце даходнасць па сектарах, рэгіёнах і класах актываў і параўноўвайце з бенчмаркам за любы перыяд.',
+  'about.featureRebalance':
+    'Дысцыплінаванае рэбалансаванне — задайце мэтавыя долі і дапушчальныя дыяпазоны, бачце адхіленні загадзя і атрымлівайце здзейкі, якія вяртаюць вас да мэты.',
+  'about.featureTax':
+    'Парадак у падатковых дакументах — рэалізаваныя і нереалізаваныя прыбыткі, дывідэнды і дакументы 1099 у адным месцы, з пазнакамі wash-sale.',
+  'about.featureUnified':
+    'Адзіны партфель — акцыі, ETF, узаемныя фонды, аблігацыі і іншае, сабраныя з усіх брокерскіх рахункаў.',
+  'about.featureWatchlist':
+    'Спісы назірання, навіны і апавяшчэнні аб цэнах, каб вы рэагавалі на важнае без шуму.',
+  'about.intro':
+    '{{app}} — гэта панэль шматкласавага партфеля для прыватных інвестараў і незалежных дарадцаў. Акцыі, ETF, узаемныя фонды, аблігацыі, нерухомасць і грошы — усе пазіцыі з усіх рахункаў у адным месцы, з дысцыплінай прафесійнага стала.',
+  'about.missionBody':
+    'Добрае інвеставанне — гэта пераважна дысцыпліна: ясная мэтавая структура, сумленная атрыбуцыя вынікаў і акуратныя падатковыя запісы. {{app}} прыносіць гэтыя інстытуцыйныя звычкі кожнаму, каб вы рабілі рэбалансаванне свядома, а не імпульсіўна — і ніколі не гублялі з вачэй, што насамрэч робіць ваш партфель.',
+  'about.missionTitle': 'Наша місія',
   'about.pageTitle': 'Пра {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Інструменты для багацця',
   'argentAuthShell.brandFootnote':
     "© {{year}} {{app}} . Не з'яўляецца інвестыцыйнай кансультацыяй.",
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Панэль кіравання партфелем для індывідуальных інвестараў і кансультантаў, якія жадаюць дысцыплінаванага перабалансавання, дакладнай атрыбуцыі прадукцыйнасці і чысціні падатковых дакументаў — без лішняга шуму.',
+  'argentAuthShell.formFooter': '© {{year}} {{app}} · Мінулыя вынікі не гарантуюць будучых.',
   'argentAuthShell.sampleChange': '+$2 841 (+0,28%) сёння',
+  'argentAuthShell.sampleLabel': 'Кошт партфеля',
   'argentAuthShell.sampleValue': '1 032 251 долар ЗША',
   'argentLayout.primaryNavLabel': 'Асноўная навігацыя',
   'assetAllocationDonut.heading': 'Як інвестуюцца вашы грошы',
@@ -27,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'сёння',
   'assetDetail.txEmpty': 'Няма транзакцый для гэтага тыкера.',
   'assetDetail.txHeading': 'Вашы транзакцыі',
+  'auth.legalConsent.prefix': 'Працягваючы, вы згаджаецеся з {{appName}}',
   'common.and': 'і',
   'common.goToDashboard': 'Перайсці да панэлі',
   'common.no': '—',
@@ -38,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'сёння',
   'dashboard.topHoldings.heading': 'Дзе працуюць вашы грошы',
   'dashboard.topHoldings.label': 'Найбуйнейшыя холдынгі',
+  'forgotPassword.gotLinkCta': 'У мяне ёсць спасылка для скіду →',
+  'forgotPassword.subheading':
+    'Увядзіце адрас электроннай пошты вашага ўліковага запісу Gavl, і мы дашлем вам бяспечную спасылку для скіду налад.',
   'forgotPassword.successBody':
     'Калі вы не ўбачыце яго праз некалькі хвілін, праверце папку са спамам або паспрабуйце іншы адрас электроннай пошты.',
   'forgotPassword.successSubheading':
     'Праверце {{email}} для спасылкі для скіду. Яна дзейнічае 60 хвілін.',
+  'forgotPassword.successTitle': 'Ліст для скіду пароля ўжо ў шляху',
   'holdingHighlightRow.todayLabel': 'сёння',
   'holdings.addCta': 'Купіць',
   'holdings.col.allocation': 'Распределенне',
@@ -59,6 +87,8 @@ export const ui: UiTranslations = {
     "© {{year}} {{app}} . Не з'яўляецца інвестыцыйнай кансультацыяй. Мінулыя вынікі не гарантуюць будучых вынікаў.",
   'landing.eyebrow': 'Argent · Платформа для стварэння багацця',
   'landing.features.heading': 'Усё, што кансультант пабудаваў бы для сябе сам.',
+  'landing.finalCta.body': 'Падключыце свайго брокера ў два клікі. {{appName}} зробіць астатняе.',
+  'landing.finalCta.cta': 'Адкрыйце свой рахунак Argent',
   'landing.finalCta.heading': 'Вярніце дысцыпліну ў сваё партфоліо.',
   'landing.footerSignup': 'Адкрыйце рахунак',
   'landing.getStarted': 'Адкрыйце рахунак',
@@ -66,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Глядзіце цэны',
   'landing.heroSubtitle':
     'Панэль кіравання партфелем для індывідуальных інвестараў і кансультантаў, якія жадаюць дысцыплінаванага перабалансавання, дакладнай атрыбуцыі прадукцыйнасці і чысціні падатковых дакументаў — без лішняга шуму.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Анонс прадстаўнічага партфоліа ў рэжыме рэальнага часу',
   'login.heading': 'Увайсці ў Argent',
   'login.subheading':
@@ -77,6 +108,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} г. таму',
   'news.justNow': 'толькі што',
   'news.loadError': 'Не атрымалася загрузіць навіны.',
+  'planUpdated.body':
+    'Змена білінгу цяпер актыўная. Вы можаце кіраваць сваім тарыфам у любы час са старонкі білінгу.',
+  'planUpdated.retry': 'Паспрабуйце яшчэ раз',
+  'planUpdated.verifyFailed': 'Нам пакуль не ўдалося пацвердзіць ваш плацёж.',
+  'planUpdated.verifyFailedBody':
+    'Магчыма, ваш плацёж усё яшчэ апрацоўваецца. Паўтарыце спробу праз хвіліну.',
   'planUpdated.verifying': 'Пацвярджэнне аплаты…',
   'portfolioHeroCard.label': 'Кошт партфеля',
   'pricing.holdingsLabel': 'холдынгі',
@@ -87,12 +124,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Зрушэнне размеркавання',
   'rebalance.empty': 'Пакуль што мэтаў няма.',
   'rebalance.executeCta': 'Месца {{count}} здзелкі',
+  'rebalance.executeError': 'Не ўдалося размясціць здзейкі.',
   'rebalance.executeOk': 'Размешчана {{count}} здзелкі. Праглядзіце іх на старонцы «Транзакцыі».',
+  'rebalance.executing': 'Размяшчаем…',
   'rebalance.eyebrow': 'Рэбалансаванне · Argent кансультант',
   'rebalance.heading': 'Прывядзіце сваё партфоліо ў парадак',
   'rebalance.loadError': 'Не атрымалася загрузіць план рэбалансавання.',
+  'rebalance.plan.driftLine': 'зараз {{current}}% · мэта {{target}}%',
   'rebalance.planHeading': 'Білет Argent — праверце перад размяшчэннем',
   'rebalance.planLabel': 'Прапанаваны гандлёвы план',
+  'rebalance.subheading':
+    'Радкі, што выйшлі за межы дапушчальнага дыяпазону, запускаюць прапановы здзелак. {{appName}} дзейнічае толькі пасля вашага пацверджання.',
   'rebalance.summary.buyLabel': 'Купляе',
   'rebalance.summary.buySub': 'пазіцыі для папаўнення',
   'rebalance.summary.driftLabel': 'Па-за паласой',
@@ -101,6 +143,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'па прапанаваных здзелках',
   'rebalance.summary.sellLabel': 'Прадае',
   'rebalance.summary.sellSub': 'пазіцыі для абрэзкі',
+  'rebalanceDriftCard.drift': 'адхіленне {{sign}}{{pct}}% · дыяпазон ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'мэта {{pct}} %',
   'reports.attributionHeading': 'Атрыбуцыя прадукцыйнасці (1 год)',
   'reports.col.alpha': 'Альфа',
@@ -114,36 +157,67 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Год',
   'reports.gainsHeading': 'Рэалізаваныя і нерэалізаваныя прыбыткі',
   'reports.noAttribution': 'Пакуль няма дадзеных аб атрыбуцыі.',
+  'reports.noGains': 'Пакуль няма даных пра рэалізаваныя/нереалізаваныя прыбыткі.',
   'reports.noPerformance': 'Пакуль няма дадзеных аб прадукцыйнасці.',
   'reports.noTaxDocs': 'Падатковых дакументаў пакуль няма.',
   'reports.performanceHeading': 'Прадукцыйнасць супраць эталонаў',
   'reports.taxHeading': 'Падатковыя дакументы',
   'resetPassword.heading': 'Выберыце новы надзейны пароль',
+  'resetPassword.passwordPlaceholder': 'Новы пароль',
   'resetPassword.subheading': 'Argent аўтаматычна ўвойдзе ў сістэму пасля ўсталёўкі пароля.',
   'resetPassword.tokenPlaceholder': 'Скінуць токен з электроннай пошты',
+  'settings.appearance.description': 'Пераключэнне паміж светлым і цёмным рэжымамі.',
   'settings.appearance.title': 'Знешні выгляд',
+  'settings.devices.body': 'Прылады, на якіх вы ўвайшлі ў свой уліковы запіс.',
+  'settings.devices.empty': 'Прылад не знойдзена.',
   'settings.devices.heading': 'Прылады',
+  'settings.devices.revokeWarning': 'Доступ гэтай прылады хутка будзе адкліканы. Выйсці?',
   'settings.devices.signOut': 'Выйсці',
   'settings.devices.thisDevice': 'Гэтая прылада',
   'settings.devices.unknown': 'Невядомая прылада',
   'settings.linked.body':
     'Для сінхранізацыі брокерскіх сістэм патрабуецца старонні канектор (Plaid, Yodlee і г.д.). Наладзьце пастаўшчыка ў сваім асяроддзі, каб уключыць аўтаматычны імпарт.',
   'settings.linked.heading': 'Звязаныя брокерскія рахункі',
+  'settings.linked.placeholder': 'Пакуль што няма звязаных уліковых запісаў.',
+  'settings.notifications.dividendsPaid': 'Выплачаныя дывідэнды',
   'settings.notifications.error': 'Не атрымалася абнавіць налады.',
   'settings.notifications.priceAlerts': 'Папярэджанні аб цэнах',
+  'settings.notifications.rebalanceDrift': 'Адхіленне пры рэбалансаванні',
+  'settings.notifications.taxDocsReady': 'Падатковыя дакументы гатовыя',
   'settings.profile.advisor': 'Адрас электроннай пошты кансультанта (неабавязкова)',
   'settings.profile.heading': 'Профіль',
   'settings.security.changePassword': 'Змяніць пароль',
+  'settings.security.changePasswordTitle': 'Змяніць пароль',
   'settings.security.changing': 'Змяняецца…',
+  'settings.security.confirmPassword': 'Пароль',
+  'settings.security.currentPassword': 'Бягучы пароль',
   'settings.security.deleteAccount': 'Выдаліць уліковы запіс',
   'settings.security.deleteError': 'Не атрымалася выдаліць уліковы запіс.',
   'settings.security.deleteHeading': 'Выдаліць уліковы запіс',
+  'settings.security.deleteModalWarning':
+    'Гэта назаўсёды выдаліць ваш акаўнт і даныя. Увядзіце пароль для пацверджання.',
+  'settings.security.deleteWarning':
+    'Назаўсёды выдаліць ваш акаўнт і ўсе звязаныя даныя. Гэта нельга адмяніць.',
   'settings.security.deleting': 'Выдаленне…',
   'settings.security.heading': 'Бяспека',
   'settings.security.newPassword': 'Новы пароль',
   'settings.security.password': 'Пароль',
+  'settings.security.passwordError': 'Не атрымалася змяніць пароль.',
+  'settings.security.passwordHint': 'Змяніце пароль, які вы выкарыстоўваеце для ўваходу.',
+  'settings.security.twoFactor': 'Двухфактарная аўтэнтыфікацыя',
+  'settings.security.twoFactorCode': 'Код аўтэнтыфікацыі',
+  'settings.security.twoFactorDisable': 'Адключыць',
+  'settings.security.twoFactorDisableTitle': 'Адключыць двухфактарную аўтэнтыфікацыю',
   'settings.security.twoFactorEnable': 'Уключыць',
+  'settings.security.twoFactorEnableTitle': 'Уключыць двухфактарную аўтэнтыфікацыю',
+  'settings.security.twoFactorHint': 'Дадайце дадатковы ўзровень абароны вашага акаўнта.',
   'settings.security.twoFactorInvalidCode': 'Няправільны код',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'QR-код двухфактарнай аўтэнтыфікацыі',
+  'settings.security.twoFactorScan':
+    'Адсканіруйце гэты QR-код у сваёй праграме аўтэнтыфікацыі, затым увядзіце 6-значны код.',
+  'settings.security.twoFactorUnavailable':
+    'Двухфактарная аўтэнтыфікацыя недаступная для гэтай праграмы.',
   'settings.security.twoFactorVerify': 'Праверыць і ўключыць',
   'settings.tax.error': 'Не атрымалася абнавіць метад падаткаабкладання.',
   'settings.tax.heading': 'Падатковы ўлік',
@@ -154,6 +228,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Спосаб падаткаабкладання захаваны.',
   'signup.eyebrow': 'Адкрыйце рахунак',
   'signup.heading': 'Адкрыйце свой рахунак Argent',
+  'signup.legalPrefix': 'Ствараючы ўліковы запіс, вы згаджаецеся з {{appName}}',
   'signup.subheading':
     'Бясплатна на працягу 30 дзён. Картка не патрэбна. Адмяніць можна ў любы час.',
   'signup.terms':

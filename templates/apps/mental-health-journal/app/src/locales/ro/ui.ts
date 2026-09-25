@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ai feedback, ai găsit o eroare sau vrei să ne spui cum te-a ajutat jurnalizarea? Citim fiecare mesaj — scrie-ne oricând și îți va răspunde o persoană reală.',
+  'about.contactTitle': 'Contactează-ne',
+  'about.featureInsights':
+    'Reflecții generate de AI care evidențiază delicat declanșatori, teme și motive de recunoștință — fără să-ți pierzi vocea.',
+  'about.featureMood':
+    'Urmărirea stării de spirit și a activității cu vizualizare de calendar și grafice de tendințe care scot la iveală ce te ajută să te dezvolți.',
+  'about.featurePrivacy':
+    'Criptare end-to-end, blocare cu cod de acces și export complet în CSV, ca reflecțiile tale să rămână private și portabile.',
+  'about.featurePrompts':
+    'Îndemnuri zilnice blânde, ca să ai mereu de unde începe — niciodată o pagină goală.',
+  'about.intro':
+    '{{app}} este un jurnal blând și privat de sănătate mintală pentru reflecție zilnică, urmărirea stării de spirit și recunoștință. Îndemnurile gândite înlocuiesc pagina goală, descoperirea discretă a tiparelor te ajută să înțelegi ce îți influențează starea, iar criptarea end-to-end păstrează cuvintele tale doar ale tale.',
+  'about.missionBody':
+    'Credem că o verificare a stării tale ar trebui să fie calmă, niciodată clinică — și niciodată ca o altă aplicație care îți cere atenția. {{app}} este creat să ajute, nu să insiste: câteva minute liniștite pe zi pentru a-ți observa starea, a scrie sincer și a te vedea treptat mai clar.',
+  'about.missionTitle': 'Misiunea noastră',
   'about.pageTitle': 'Despre {{app}}',
   'authShell.encryptionBadge': 'Intrările tale sunt criptate end-to-end.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Ziua {{day}} — nicio intrare',
   'calendar.cellMood': 'Zi {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Luna aceasta pe scurt',
   'calendar.eyebrow': 'Starea de spirit dintr-o privire',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Urmărit {{tracked}} de {{total}} zile în această lună.',
   'common.goToDashboard': 'Mergi la Tabloul de bord',
   'common.tryAgain': 'Încercați din nou',
+  'entryComposer.bodyPlaceholder':
+    'Scrie orice simți că e sincer. Nimeni altcineva nu va citi asta.',
   'entryComposer.cancel': 'Înapoi la jurnal',
   'entryComposer.heading': 'Reflecția de astăzi',
   'entryComposer.moodLabel': 'Cum te simti?',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Elimina {{tag}}',
   'entryComposer.save': 'Salvați reflecția',
   'entryComposer.saveError': 'Nu s-a putut salva intrarea.',
+  'entryComposer.tagPlaceholder': 'Adaugă o etichetă și apasă enter',
   'entryComposer.titlePlaceholder': 'Dă un nume acestei reflecții…',
   'entryDetail.back': 'Înapoi la jurnal',
   'entryDetail.delete': 'Ștergeți această intrare',
@@ -36,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Se încarcă reflexia…',
   'entryDetail.notFound': 'Intrare negăsită.',
   'entryDetail.reflectionsHeading': 'Reflecții ale inteligenței artificiale',
+  'forgotPassword.continueButton': 'Introdu codul de resetare',
   'forgotPassword.eyebrow': 'Nu vă faceți griji',
   'forgotPassword.subheading': 'Îți vom trimite un link de resetare discretă pe adresa de e-mail.',
   'forgotPassword.successBody':
@@ -58,14 +79,22 @@ export const ui: UiTranslations = {
     'Încă nu există teme — adaugă una sau două etichete la intrările tale și acestea se vor aduna aici.',
   'insights.themesHeading': 'Teme de top',
   'insights.triggerFrequency': 'observat {{count}} × luna aceasta',
+  'insights.triggersEmpty':
+    'Încă nimic de observat. Câteva intrări pe parcursul mai multor zile îți vor arăta tiparele.',
   'insights.triggersHeading': 'Modele care îți schimbă starea de spirit',
+  'journal.empty':
+    'Nicio reflecție nu corespunde — încearcă un alt filtru sau scrie o intrare nouă.',
   'journal.eyebrow': 'Reflecțiile tale',
   'journal.heading': 'Jurnal',
   'journal.loadError': 'Nu s-au putut încărca intrările.',
   'journal.loading': 'Se încarcă înregistrările…',
+  'journal.newEntry': 'Intrare nouă',
   'journal.searchPlaceholder': 'Caută un sentiment, un nume, un moment…',
   'journal.subheading': '{{count}} intrări — fiecare merită păstrată.',
   'journalEntryCard.encryptedLabel': 'Criptat',
+  'landing.ctaBody':
+    'Gratuit pentru început. Pro deblochează exportul de date, un jurnal mai mare și un an întreg de istoric.',
+  'landing.ctaButton': 'Începeți prima intrare',
   'landing.ctaTitle': 'Câteva minute de liniște pe zi. Asta e tot.',
   'landing.eyebrow': 'O practică zilnică blândă',
   'landing.featuresBody':
@@ -84,6 +113,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Un spațiu blând pentru reflecție zilnică.',
   'mentalHealthJournalLayout.closeMenu': 'Închide meniul',
   'mentalHealthJournalLayout.openMenu': 'Deschideți meniul',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Navigare principală',
+  'moodHeroCard.entriesThisWeek': '{{count}} în această săptămână',
   'moodHeroCard.streakSuffix': 'serie de zile',
   'moodHeroCard.title': 'Reflecția de astăzi',
   'moodTrendChart.aiBadge': 'Informații despre inteligența artificială pregătite pentru utilizare',
@@ -94,11 +125,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Călătoria ta',
   'profile.fallbackName': 'Reflector',
   'profile.loadError': 'Statisticile nu au putut fi încărcate.',
+  'profile.loading': 'Se actualizează statisticile…',
   'profile.longestStreak': 'Cea mai lungă serie',
   'profile.memberSince': 'Reflectând de atunci {{date}}',
   'profile.milestones': 'Repere',
   'profile.milestonesEmpty':
     'Prima ta etapă importantă este la o singură intrare distanță — scrie oricând te simți pregătit/ă.',
+  'profile.moodMix': 'Amestecul tău de stări din acest sezon',
   'profile.streakValue': '{{days}}z',
   'profile.totalEntries': 'Reflecții',
   'profile.totalWords': 'Cuvinte scrise',
@@ -111,6 +144,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Scrie despre asta',
   'resetPassword.eyebrow': 'Un nou început',
   'resetPassword.mismatchError': 'Parolele nu se potrivesc.',
+  'resetPassword.passwordLabel': 'Parolă nouă',
   'resetPassword.subheading': 'Alege ceva sigur — reflecțiile tale merită asta.',
   'resetPassword.tokenPlaceholder': 'Resetează codul din e-mail',
   'settings.dangerDescription':
@@ -122,11 +156,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'Nu s-a putut șterge contul.',
   'settings.exportDescription': 'Cuvintele tale îți aparțin întotdeauna. Descarcă o copie oricând.',
   'settings.exportDone': 'Exportat {{format}}.',
+  'settings.exportError': 'Exportul a eșuat.',
+  'settings.exportHeading': 'Exportă reflecțiile tale',
   'settings.exportLoading': 'Pregătire…',
   'settings.eyebrow': 'Spațiul tău, regulile tale',
   'settings.languageHeading': 'Limbă',
   'settings.privacyHeading': 'Confidențialitate și criptare',
   'settings.remindersHeading': 'Memento zilnic',
+  'settings.reminderToggleAria': 'Comută memento-ul zilnic',
   'settings.reminderToggleDescription':
     'O singură reamintire calmă la momentul ales de tine. Fără insigne sau sentimente de vinovăție.',
   'settings.reminderToggleLabel': 'Trimite un ghiont ușor',
@@ -139,6 +176,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Se creează jurnalul…',
   'signup.subheading': 'Un spațiu sigur pentru gândurile tale.',
   'wellnessRingsTriad.mindfulnessCaption': 'Gol {{goal}} min astăzi',
+  'wellnessRingsTriad.mindfulnessLabel': 'Mindfulness',
   'wellnessRingsTriad.sleepCaption': 'Gol {{goal}} oră / noapte',
   'wellnessRingsTriad.sleepLabel': 'Dormi',
+  'wellnessRingsTriad.sleepValue': '{{hours}} h',
+  'wellnessRingsTriad.streakCaption': 'Obiectiv {{goal}} zile',
+  'wellnessRingsTriad.streakLabel': 'Serie de jurnalizare',
+  'wellnessRingsTriad.streakValue': '{{days}}z',
 }

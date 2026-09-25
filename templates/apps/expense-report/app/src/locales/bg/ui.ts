@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Въпроси, обратна връзка или заявка за функция? Свържете се с екипа на {{app}} от Настройки → Известия или ни пишете по всяко време — всяко съобщение стига до истински човек.',
+  'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'Относно',
+  'about.featureCapture':
+    'Сканиране на касови бележки със снимка, което прикачва изображенията към правилния разход, ред по ред.',
+  'about.featureExport':
+    'Одитируеми CSV експорти на всеки отчет, разход и статус на одобрение — готови за вашия счетоводен екип.',
+  'about.featurePolicy':
+    'Правила за политиката — дневни лимити, ограничения по категории и прагове, изискващи касова бележка, наложени при подаване.',
+  'about.featureWorkflow':
+    'Двустепенен процес на одобрение с бележки от проверяващия, сигнали за нарушение на политиката и маркиране на възстановяване с едно докосване.',
+  'about.intro':
+    '{{app}} е платформа за управление на разходи за финансови екипи и хората, на които те възстановяват средства. Сканирайте касова бележка, подайте разход, изпратете отчет за одобрение и проследявайте всяко възстановяване — без табличната церемония.',
+  'about.missionBody':
+    'Възстановяването трябва да е бързо, справедливо и одитируемо. Създадохме {{app}}, за да получават подаващите парите си обратно без досаждане, одобряващите да виждат точно какво подписват, а финансите да имат чист отчет за всеки долар — с проверки на политиката и всичко останало.',
+  'about.missionTitle': 'Нашата мисия',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Одобряване…',
   'approvals.confirmReject': 'Потвърждаване на отхвърляне',
+  'approvals.empty': 'Всичко е прегледано — няма отчети в изчакване.',
   'approvals.eyebrow': 'Опашка на мениджъра',
   'approvals.kpi.flaggedLabel': 'Сигнализирано е за нарушение',
+  'approvals.kpi.queueLabel': 'Очаква преглед',
   'approvals.kpi.totalLabel': 'Чакаща стойност',
   'approvals.lineCount': '{{count}} разходи',
   'approvals.queueFallback':
     'Опашката за показване на живо не е налична — показват се подбрани демо данни.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Отхвърляне…',
+  'approvals.rejectPlaceholder': 'Причина (задължително)',
   'approvals.rejectPrompt': 'Защо отхвърляте този доклад?',
   'approvals.review': 'Преглед',
   'approvals.title': 'Чакащи одобрения',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Одобрено · MTD',
   'dashboard.kpi.pendingDelta': '+2 тази седмица',
+  'dashboard.kpi.pendingLabel': 'В очакване на преглед',
   'dashboard.kpi.receiptsDelta': 'Необходимо действие',
   'dashboard.kpi.receiptsLabel': 'Очакват се касови бележки',
   'dashboard.kpi.reimbursedDelta': '+2,4 хиляди долара',
   'dashboard.kpi.reimbursedLabel': 'Възстановено · MTD',
   'dashboard.newReport': 'Нов отчет',
+  'dashboard.recent.empty': 'Още няма отчети — започнете първия си по-горе.',
   'dashboard.recent.title': 'Последни доклади',
   'dashboard.recent.viewAll': 'Вижте всички отчети',
   'dashboard.summaryFallback':
@@ -41,11 +62,19 @@ export const ui: UiTranslations = {
   'expenses.listFallback':
     'Списъкът с активни потребители не е наличен — показват се подбрани демо данни.',
   'expenses.searchPlaceholder': 'Търсене на търговец или категория…',
+  'expenses.subtotal': '{{count}} разходи · междинна сума',
   'expenses.title': 'Разходи',
+  'forgotPassword.continue': 'Имам код · Продължи',
+  'forgotPassword.subheading':
+    'Въведете служебния си имейл и ще ви изпратим връзка за задаване на нова парола.',
   'forgotPassword.successBody':
     'Ако съществува акаунт за {{email}} Ще получите линк за нулиране през следващите няколко минути.',
+  'landing.copyright': '© {{year}} {{app}}. Създадено с Molecule.dev.',
+  'landing.ctaBody':
+    'Безплатно за първите 25 разхода всеки месец. Без кредитна карта, без разговор за внедряване.',
   'landing.ctaHeading': 'Готови ли сте да възстановите дължимото на екипа си?',
   'landing.eyebrow': 'Отчети за разходи за финансови екипи',
+  'landing.featuresHeading': 'Възстановяване на разходи, в едно спокойно работно пространство',
   'landing.heroSubtitle':
     'Подавайте, одобрявайте и възстановявайте бизнес разходи без церемонията по електронните таблици. OCR на касовите бележки, проверки на политиките и прозрачен график за одобрение — всичко в едно спокойно работно пространство.',
   'landing.heroTitle': 'Всяка касова бележка, възстановена.',
@@ -63,10 +92,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Бележки',
   'newExpense.descriptionPlaceholder':
     'Защо този разход е свързан с бизнеса (видимо за вашия одобряващ).',
+  'newExpense.eyebrow': 'Артикул за възстановяване',
   'newExpense.merchant': 'Търговец',
   'newExpense.merchantPlaceholder': 'Хотел Адлон Кемпински',
   'newExpense.policyHint':
     'Напомняне: за хранения над $80/ден или за всеки артикул над $250 се изисква обосновка.',
+  'newExpense.receipt': 'Разписка',
+  'newExpense.receiptHint': 'JPG, PNG или PDF · максимум 10 MB',
   'newExpense.receiptOcrHint': 'OCR предварително попълва полета',
   'newExpense.receiptPrompt': 'Пуснете снимка или PDF файл тук или кликнете, за да разгледате',
   'newExpense.receiptUploadFailed':
@@ -77,17 +109,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Снимете или качете касова бележка и Recoup ще попълни предварително търговеца, датата и общата сума. Потвърдете всичко по-долу, преди да запазите.',
   'newExpense.title': 'Добавяне на разход',
+  'newReport.approverHint': 'Те ще получат имейл, когато изпратите този отчет за преглед.',
   'newReport.approverLabel': 'Имейл на одобряващия (по избор)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'Налични разходи',
   'newReport.createFailed': 'Не можа да се създаде отчет. Моля, опитайте отново.',
   'newReport.draftsFallback':
     'Списъкът с разходи на живо не е наличен — показват се подбрани демо данни.',
+  'newReport.eyebrow': 'Групови разходи · изпращане за одобрение',
   'newReport.includedCount': '{{count}} включен',
   'newReport.purposeLabel': 'Бизнес цел',
   'newReport.purposePlaceholder':
     'Опишете пътуването или проекта, за който се отнасят тези разходи (видно за вашия одобряващ и финансов служител).',
   'newReport.saveDraft': 'Запазване като чернова',
+  'newReport.saveDraftFailed': 'Черновата не можа да бъде запазена. Моля, опитайте отново.',
   'newReport.submit': 'Изпрати за одобрение',
   'newReport.submitFailed': 'Не можа да се изпрати отчет. Моля, опитайте отново.',
   'newReport.summary': 'Обобщение на доклада',
@@ -100,16 +135,23 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'Дейност на работното пространство',
   'notifications.feedFallback': 'Емисията на живо не е налична — показват се подбрани демо данни.',
   'notifications.openReport': 'Отваряне на отчета ›',
+  'pricing.approvalsLabel': 'одобрения',
   'pricing.expensesLabel': 'разходи',
   'pricing.heading': 'одобрения',
   'pricing.policiesLabel': 'политики',
   'pricing.receiptsLabel': 'касови бележки',
   'recoveredAmountHeroCard.label': 'Възстановено обезщетение · от началото на годината',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} отчет(и) в момента чакат преглед от всички одобряващи.',
+  'reports.approvalFlow': 'Процес на одобрение',
   'reports.backToList': 'Обратно към отчетите',
   'reports.detailFallback': 'Не е наличен отчет на живо — показват се подбрани демо данни.',
   'reports.lineItems': 'Договорени елементи',
   'reports.lineItemsCount': '{{count}} разходи',
+  'reports.lineItemsEmpty': 'Все още няма разходи в този отчет.',
+  'reports.openLibrary': 'Отвори библиотеката с отчети',
   'reports.policyTitle': 'Флаг за политика',
+  'reports.selectPrompt': 'Изберете отчет от библиотеката, за да видите подробностите му.',
   'reports.summary.lineCount': 'Договорени елементи',
   'reports.summary.reimbursable': 'Възстановимо',
   'reports.summary.total': 'Отчетена обща сума',
@@ -119,6 +161,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Списъкът с активни потребители не е наличен — показват се подбрани демо данни.',
   'reportsList.newReport': 'Нов отчет',
+  'reportsList.submittedOn': 'Изпратено на {{date}}',
   'reportsList.title': 'Библиотека с отчети',
   'resetPassword.hidePassword': 'Скрий паролата',
   'resetPassword.newPasswordLabel': 'Нова парола',
@@ -145,6 +188,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Запазено ✓',
   'settings.profileSaveFailed': 'Не можа да се актуализира профилът. Моля, опитайте отново.',
   'signup.heading': 'Създайте своя акаунт за възстановяване',
+  'signup.hidePassword': 'Скрий паролата',
   'signup.namePlaceholder': 'Мая Окафор',
   'signup.showPassword': 'Покажи паролата',
   'signup.subheading': 'Безплатно за 25 разходи всеки месец — без кредитна карта.',

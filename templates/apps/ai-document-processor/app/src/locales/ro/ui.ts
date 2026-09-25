@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ai o întrebare, ai găsit o eroare sau vrei o demonstrație pentru echipa ta? Scrie-ne din setările contului — fiecare mesaj ajunge la o persoană reală din echipă.',
   'about.contactTitle': 'Contactați-ne',
+  'about.intro':
+    '{{app}} transformă teancuri de documente scanate și PDF-uri în date structurate, căutabile și arhivate. Adaugă facturi, chitanțe, contracte sau formulare și lasă AI-ul să le citească, să extragă, să clasifice și să le arhiveze — cu culori de încredere, astfel încât echipa ta să verifice doar ce chiar are nevoie de un om.',
+  'about.missionBody':
+    'Munca plictisitoare cu documente nu ar trebui să consume ziua echipei tale. Credem că fiecare valoare extrasă trebuie să fie explicabilă și auditabilă — astfel încât să poți avea încredere în automatizare fără a pierde urma documentelor. {{app}} este creat să economisească ore pentru fiecare teanc, păstrând un om în buclă acolo unde contează.',
+  'about.missionTitle': 'Misiunea noastră',
+  'about.subtitle': 'OCR, extragere AI, clasificare și arhivare automată pentru documentele tale.',
   'about.title': 'Despre {{app}}',
+  'about.whatYouGetTitle': 'Ce primiți',
   'authShell.backToLanding': '← Înapoi la pagina principală',
   'common.goToDashboard': 'Mergi la Tabloul de bord',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Astăzi · Privire de ansamblu operațională',
   'dashboard.heading': 'Inteligență de documente',
+  'dashboard.metric.accuracy': 'Acuratețe medie',
   'dashboard.metric.filed': 'Arhivate astăzi',
   'dashboard.metric.filedCaption': 'Direcționate prin reguli de arhivare',
   'dashboard.metric.processed': 'Procesate astăzi',
@@ -23,11 +33,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'Încărcat',
   'dashboard.recent.heading': 'Documente recente',
+  'dashboard.recent.typeUnknown': 'Se așteaptă clasificarea',
   'dashboard.subheading':
     'Fiecare pagină este clasificată, extrasă și arhivată — cu culori de încredere pentru ca revizuirea dvs. să rămână concentrată.',
   'documentDetail.audit.heading': 'Cronologie audit',
+  'documentDetail.audit.subheading':
+    'Fiecare pas făcut pe acest document, cu persoana responsabilă.',
   'documentDetail.back': 'Toate documentele',
   'documentDetail.downloadHint': 'Folosiți Descarcă pentru a deschide fișierul original.',
+  'documentDetail.extracted.empty': 'Nu s-au extras încă câmpuri.',
   'documentDetail.extracted.heading': 'Câmpuri extrase',
   'documentDetail.extracted.subheading':
     '{{count}} câmpuri · faceți clic pe orice câmp pentru a-l evidenția pe pagină',
@@ -56,13 +70,24 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} documente în biblioteca dvs., sortate cu cele mai noi primele.',
   'documents.uploadCta': 'Încarcă documente',
+  'documentTypeBreakdown.barAria': 'Compoziția documentelor după tip',
   'documentTypeBreakdown.empty': 'Niciun document procesat încă.',
   'documentTypeBreakdown.subtitle': '{{total}} procesate',
   'documentTypeBreakdown.title': 'Compoziție document',
+  'forgotPassword.backToSignIn': '← Înapoi la autentificare',
   'forgotPassword.checkEmail': 'Verificați-vă e-mailul',
   'forgotPassword.tip': 'Nu l-ați primit? Verificați spam-ul sau încercați o altă adresă.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Creat pentru echipele de operațiuni care auditează fiecare pagină.',
+  'landing.ctaBody':
+    'Probă de 14 zile. Fără card. Anulezi oricând. Creat pentru echipele de operațiuni care se mișcă repede și auditează încet.',
   'landing.ctaHeading': 'Nu mai tastați chitanțe. Începeți să le arhivați.',
   'landing.eyebrow': 'OCR · Extragere · Arhivare AI',
+  'landing.featuresHeading': 'Inteligență documentară care se explică singură',
+  'landing.heroSubtitle':
+    'Adaugă un teanc de facturi, chitanțe, contracte sau formulare. {{app}} le clasifică, extrage și arhivează — cu culori de încredere, astfel încât echipa ta să verifice doar ce chiar are nevoie de un om.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Volum zilnic · ultimele 7 zile',
   'landing.sampleCardLabel': 'Documente procesate astăzi',
   'landing.sampleCardSubtitle': 'Acuratețe medie de 96,2 % pe facturi, chitanțe și formulare.',
   'login.hidePassword': 'Ascunde parola',
@@ -75,6 +100,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Deschide pagina principală',
   'notFound.title': 'Acea pagină nu este în arhivă',
+  'parcelaHeroCard.accuracy': 'Acuratețe medie {{value}}% pentru toate extragerile',
   'parcelaHeroCard.change': '{{sign}}{{amount}} % față de ieri',
   'parcelaHeroCard.title': 'Documente procesate astăzi',
   'parcelaLayout.primaryNavLabel': 'Navigare principală',
@@ -82,6 +108,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'documente',
   'pricing.processingLabel': 'sarcini de procesare',
   'resetPassword.confirmPlaceholder': 'Repetați noua parolă',
+  'resetPassword.hidePassword': 'Ascundeți parola',
   'resetPassword.passwordLabel': 'Parolă nouă',
   'resetPassword.showPassword': 'Arată parola',
   'resetPassword.subtitle': 'Alegeți ceva de cel puțin 8 caractere.',
@@ -98,10 +125,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Regulile nu au putut fi încărcate.',
   'rules.loading': 'Se încarcă regulile…',
   'rules.matched30d': '{{count}} documente potrivite în ultimele 30 de zile',
+  'rules.neverUsed': 'Niciodată folosit',
   'rules.newRule': 'Regulă nouă',
   'rules.saveError': 'Regula nu a putut fi salvată.',
   'rules.subheading':
     'Spuneți sistemului unde ar trebui să meargă fiecare tip de document. Condițiile se înlănțuie de sus în jos — prima potrivire câștigă.',
+  'rules.templatesEmpty': 'Nu există încă șabloane de extragere.',
   'rules.templatesHeading': 'Șabloane de extragere',
   'rules.templatesSubheading':
     'Scheme de câmpuri pe care le folosește extractorul pentru fiecare tip de document.',
@@ -111,17 +140,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Numele spațiului de lucru',
   'settings.account.subheading':
     'Numele afișat și e-mailul principal pentru notificări și istoricul auditului.',
+  'settings.api.confirmRevoke': 'Confirmați?',
   'settings.api.copyOnce': 'Copiați această cheie — nu va mai fi afișată',
   'settings.api.createdOn': 'Creată {{date}}',
   'settings.api.empty': 'Încă nu există chei API. Generați una mai sus.',
   'settings.api.error': 'Nu s-a putut crea cheia.',
+  'settings.api.generating': 'Se generează…',
+  'settings.api.heading': 'Chei API',
   'settings.api.labelPlaceholder': 'Etichetă cheie (ex. încărcător CI)',
+  'settings.api.loading': 'Se încarcă cheile…',
   'settings.api.newKey': 'Generează cheie',
   'settings.api.subheading':
     'Folosiți-le pentru a împinge documente dintr-un script sau din ERP-ul dvs. Rotiți orice cheie oricând.',
   'settings.integrations.heading': 'Integrări de arhivare',
   'settings.integrations.subheading':
     'Trimiteți documentele arhivate către unitatea cloud sau instrumentul de chat folosit deja de echipa dvs.',
+  'settings.subheading':
+    'Gestionează contul, cheile API și integrările de arhivare pentru spațiul tău de lucru {{app}}.',
+  'signup.hidePassword': 'Ascundeți parola',
   'signup.identityPrompt': 'Cum ar trebui să vă adresăm?',
   'signup.showPassword': 'Arată parola',
   'signup.subtitle': '14 zile gratuit, fără card.',
@@ -129,6 +165,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Încărcarea a eșuat.',
   'upload.eyebrow': 'Ingestie',
   'upload.heading': 'Încarcă documente',
+  'upload.queue.clear': 'Șterge finalizate',
   'upload.queue.col.confidence': 'Încredere',
   'upload.queue.col.file': 'Fișier',
   'upload.queue.detecting': 'Se detectează…',
@@ -141,5 +178,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Sau aruncați mai multe fișiere simultan pentru extragere, clasificare și arhivare în lot.',
   'uploadDropZone.cta': 'Alegeți fișiere',
+  'uploadDropZone.maxSize': 'Max. 25 MB per fișier · Criptare end-to-end',
   'uploadDropZone.title': 'Aruncați documente pentru a începe procesarea',
 }

@@ -1,16 +1,39 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vrei să deschizi un magazin, să raportezi o problemă sau doar să ne saluți? Ne poți contacta din Centrul de ajutor — fiecare mesaj ajunge la o persoană reală din echipă.',
+  'about.contactTitle': 'Contactează-ne',
+  'about.featureNotifications':
+    'Notificări în timp real pentru comenzi noi, actualizări de livrare și recenzii, plus permisiuni bazate pe roluri care separă instrumentele cumpărătorilor de cele ale vânzătorilor.',
+  'about.featurePayments':
+    'Plată securizată prin Stripe, împărțire automată a comisionului și plăți programate — vânzătorii știu mereu exact cât au câștigat.',
+  'about.featureShop':
+    'Un catalog căutabil cu mii de vânzători independenți, cu magazine verificate, evaluări și recenzii, ca să cumperi cu încredere.',
+  'about.featureVendor':
+    'Un set complet de instrumente pentru vânzători: vitrină personalizată, gestionarea produselor și a stocurilor, încărcare de imagini și onorarea comenzilor într-un singur panou.',
+  'about.intro':
+    '{{name}} este o piață curatoriată unde creatorii independenți își deschid propriile magazine, iar cumpărătorii descoperă produse pe care nu le găsesc nicăieri altundeva. De la ceramică modelată manual la textile imprimate manual, fiecare anunț provine de la un vânzător real cu o poveste în spate.',
+  'about.missionBody':
+    'Credem că creatorii ar trebui să păstreze ceea ce face ca meșteșugul lor să fie al lor. {{name}} percepe un comision fix și transparent, plătește în mod fiabil în fiecare săptămână și oferă fiecărui vânzător o vitrină pe care o controlează pe deplin — ca să se poată concentra asupra muncii lor în timp ce noi administrăm piața.',
+  'about.missionTitle': 'Misiunea noastră',
   'about.pageTitle': 'Despre {{name}}',
   'cart.checkoutCta': 'Continuați la finalizarea comenzii',
   'cart.decreaseAria': 'Reduceți cantitatea',
+  'cart.deliveryEstimate': 'Livrare estimată {{range}}',
   'cart.empty.body': 'Răsfoiți catalogul și adăugați câțiva producători în coșul dvs.',
+  'cart.empty.cta': 'Răsfoiți catalogul',
   'cart.empty.title': 'Coșul tău este gol',
   'cart.eyebrow': 'Coșul dvs.',
+  'cart.increaseAria': 'Măriți cantitatea',
   'cart.loadError': 'Nu s-a putut încărca coșul. Vă rugăm să încercați din nou.',
   'cart.loading': 'Se încarcă coșul…',
+  'cart.protectionNote': '{{appName}} protejează fiecare comandă. Retururi gratuite în 30 de zile.',
   'cart.removeError': 'Nu s-a putut elimina elementul.',
   'cart.shippingFromVendor': 'Livrare de la acest furnizor: {{amount}}',
+  'cart.subtitle':
+    'Fiecare vânzător livrează pe cont propriu — finalizezi comanda o singură dată. {{appName}} se ocupă de restul.',
+  'cart.subtotalGroup': 'Subtotal {{amount}}',
   'cart.summaryItems': 'Articole',
   'cart.summaryShipping': 'Livrare (combinată)',
   'cart.title': 'Coș · {{count}} articole din {{vendorCount}} furnizori',
@@ -23,6 +46,7 @@ export const ui: UiTranslations = {
   'catalog.featuredVendors': 'Magazine recomandate',
   'catalog.loading': 'Se încarcă produsele…',
   'catalog.resultCount': '{{count}} produse',
+  'catalog.searchAria': 'Caută în catalog',
   'catalog.searchPlaceholder': 'Căutați produse, furnizori sau etichete…',
   'catalog.sortBy': 'Sortați după',
   'catalog.subtitle':
@@ -30,6 +54,7 @@ export const ui: UiTranslations = {
   'catalog.title': 'Răsfoiește fiecare magazin de pe Vendry',
   'checkout.emptyCta': 'Răsfoiți catalogul',
   'checkout.emptyTitle': 'Coșul tău este gol.',
+  'checkout.eyebrow': 'Plată securizată',
   'checkout.loadError': 'Nu s-a putut încărca coșul. Vă rugăm să încercați din nou.',
   'checkout.loading': 'Se încarcă coșul…',
   'checkout.payment.testNote':
@@ -39,6 +64,7 @@ export const ui: UiTranslations = {
   'checkout.placingOrder': 'Plasarea comenzii…',
   'checkout.review.shipTo': 'Livrare către',
   'checkout.review.subtotal': 'Subtotal furnizor',
+  'checkout.review.title': 'Verifică-ți comanda, vânzător cu vânzător',
   'checkout.shipping.title': 'Unde ar trebui să expediem?',
   'checkout.shippingValidation':
     'Vă rugăm să completați toate câmpurile obligatorii pentru livrare.',
@@ -46,6 +72,7 @@ export const ui: UiTranslations = {
   'checkout.summary.tax': 'Taxă estimată',
   'checkout.title': 'O singură casă, mulți producători',
   'common.and': 'și',
+  'forgotPassword.continue': 'Am codul meu de resetare',
   'forgotPassword.emailLabel': 'Adresă de e-mail a contului',
   'forgotPassword.heading': 'Ați uitat parola?',
   'forgotPassword.subheading':
@@ -53,6 +80,7 @@ export const ui: UiTranslations = {
   'forgotPassword.submit': 'Link de resetare a adresei de e-mail',
   'forgotPassword.success':
     'Verifica {{email}} pentru un link de resetare — este valabil pentru următoarele 30 de minute.',
+  'landing.featured.cta': 'Vezi toți vânzătorii',
   'landing.featured.eyebrow': 'Magazinele Spotlight',
   'landing.featured.title': 'Vânzătorii fac furori luna aceasta',
   'landing.footer.becomeVendor': 'Devino furnizor',
@@ -62,6 +90,9 @@ export const ui: UiTranslations = {
   'landing.nav.sell': 'Vindeți pe Vendry',
   'landing.nav.shop': 'Magazin',
   'landing.nav.signUp': 'Alăturați-vă',
+  'landing.sellPitch.cta': 'Aplică pentru a vinde',
+  'landing.sellPitch.description':
+    'Un comision fix de 8%, plăți în fiecare vineri, vitrina ta, povestea ta. Noi ne ocupăm de piață; tu rămâi la meșteșugul tău.',
   'landing.sellPitch.eyebrow': 'Pentru producători',
   'landing.sellPitch.title': 'Deschide un magazin. Păstrează ceea ce îl face al tău.',
   'landing.trending.cta': 'Cumpără din catalog',
@@ -70,6 +101,7 @@ export const ui: UiTranslations = {
   'login.accountTypeAria': 'Tipul contului',
   'login.heading': 'Bine ați revenit la Vendry',
   'login.legalPrefix': 'Prin conectare, sunteți de acord cu',
+  'login.signupPrompt': 'Nou în Tessera?',
   'login.subheading':
     'Conectați-vă pentru a continua cumpărăturile sau pentru a reveni la magazinul dvs.',
   'login.submitShopper': 'Conectați-vă pentru a cumpăra',
@@ -86,37 +118,51 @@ export const ui: UiTranslations = {
   'notifications.markAllError': 'Nu s-au putut marca toate ca citite.',
   'notifications.read': 'Citit',
   'notifications.time.daysAgo': '{{count}} acum câteva zile',
+  'notifications.time.hourAgo': 'Acum o oră',
+  'notifications.time.hoursAgo': '{{count}} acum câteva ore',
   'notifications.time.justNow': 'chiar acum',
+  'notifications.time.minutesAgo': 'acum {{count}} min',
+  'notifications.time.yesterday': 'Ieri',
   'orderDetail.backToOrders': 'Înapoi la toate comenzile',
   'orderDetail.eyebrow': 'Detalii comandă',
   'orderDetail.helpBody':
     'Asistența furnizorilor răspunde în termen de 4 ore, chiar și în weekend.',
+  'orderDetail.helpCta': 'Contactați asistența',
   'orderDetail.helpTitle': 'E ceva în neregulă cu această comandă?',
   'orderDetail.summary':
     'Plasat {{date}} · {{vendorCount}} furnizor(i) · îndeplinire a comenzilor cu mai mulți furnizori',
+  'orderDetail.timelineTitle': 'Parcursul comenzii',
   'orders.empty': 'Nicio comandă nu corespunde încă acestui filtru.',
   'orders.emptyTitle': 'Nu există încă comenzi aici',
   'orders.eyebrow': 'Achizițiile dumneavoastră',
   'orders.subtitle':
     'Vezi cine a expediat ce, urmărește urmărirea în funcție de furnizor și nu mai pierde niciodată un colet.',
   'orders.title': 'Comenzi, grupate după furnizor',
+  'planUpdated.retry': 'Încercați din nou',
+  'planUpdated.verifyFailed': 'Nu am putut încă să vă confirmăm plata.',
+  'planUpdated.verifyFailedBody':
+    'Este posibil ca plata dvs. să fie încă în curs de procesare. Încercați din nou imediat.',
   'planUpdated.verifying': 'Se confirmă plata…',
   'productDetail.addToCart': 'Adaugă in coş',
   'productDetail.addToCartError': 'Nu s-a putut adăuga în coș.',
   'productDetail.addToCartSuccess': '„ {{name}} „adăugat în coșul tău.”',
   'productDetail.backToCatalog': 'Înapoi la catalog',
   'productDetail.breadcrumbCatalog': 'Catalog',
+  'productDetail.colorLabel': 'Culoare · {{name}}',
   'productDetail.decreaseAria': 'Reduceți cantitatea',
   'productDetail.description': 'Fabricat de un producător independent pe Vendry.',
   'productDetail.featuredBadge': 'Producător recomandat',
   'productDetail.galleryThumbAria': 'Afișați imaginea {{index}}',
+  'productDetail.increaseAria': 'Măriți cantitatea',
   'productDetail.loading': 'Se încarcă produsul…',
   'productDetail.notFound': 'Produs negăsit.',
   'productDetail.relatedTitle': 'Mai multe de la acest creator',
   'productDetail.reviewsTitle': 'Ce au spus cumpărătorii',
   'productDetail.trust.protection': 'Protecția furnizorilor',
+  'productDetail.trust.returns': 'Retururi în 30 de zile',
   'productDetail.trust.shipping': 'Se livrează în 2 zile',
   'productDetail.verifiedAria': 'Furnizor verificat',
+  'resetPassword.didntGetCode': 'Nu ai primit un cod?',
   'resetPassword.emailLabel': 'Adresă de e-mail a contului',
   'resetPassword.mismatch': 'Parolele nu se potrivesc încă.',
   'resetPassword.newPasswordLabel': 'Parolă nouă',
@@ -125,8 +171,10 @@ export const ui: UiTranslations = {
     'Introdu codul pe care ți l-am trimis prin e-mail, apoi alege o parolă nouă pentru a finaliza conectarea din nou.',
   'resetPassword.submit': 'Resetare și conectare',
   'resetPassword.submitting': 'Se actualizează parola…',
+  'settings.appearance.description': 'Comutați între modul luminos și întunecat.',
   'settings.appearance.title': 'Aspect',
   'settings.language.description': 'Alegeți limba utilizată pe piață.',
+  'settings.payouts.accountLabel': 'Număr de cont / IBAN',
   'settings.payouts.body':
     'Vendry plătește în fiecare vineri în moneda locală, minus comisionul de 8%.',
   'settings.payouts.save': 'Salvați detaliile plății',
@@ -145,6 +193,7 @@ export const ui: UiTranslations = {
   'signup.mismatch': 'Parolele nu se potrivesc încă.',
   'signup.subheading':
     'Răsfoiește peste 4.000 de producători independenți sau deschide-ți propriul magazin.',
+  'signup.submit': 'Alătură-te pieței',
   'status.delivered': 'Livrat',
   'status.refunded': 'Rambursat',
   'userMenu.marketplaceSettings': 'Setările Marketplace',
@@ -154,18 +203,28 @@ export const ui: UiTranslations = {
   'vendorDashboard.heroCaption':
     '{{payout}} Plata este valabilă după comisionul de vânzare. Următoarea plată este vineri.',
   'vendorDashboard.heroLabel': 'Vânzări brute · ultimele 30 de zile',
+  'vendorDashboard.kpi.conversion': 'Conversie',
   'vendorDashboard.kpi.conversionCaption': 'Vizită pentru comandă săptămâna aceasta',
   'vendorDashboard.kpi.netPayout': 'Plată netă',
   'vendorDashboard.kpi.netPayoutCaption': 'După comisionul de vânzare de 8%',
   'vendorDashboard.kpi.orders': 'Comenzi',
   'vendorDashboard.kpi.ordersCaption': 'față de ultimele 30 de zile',
+  'vendorDashboard.kpi.pendingPayout': 'Plată în așteptare',
   'vendorDashboard.kpi.pendingPayoutCaption': 'Lansări vinerea aceasta',
   'vendorDashboard.newProductCta': 'Produs nou',
   'vendorDashboard.payoutsCta': 'Vizualizați plățile',
   'vendorDashboard.recentOrders.cta': 'Vezi toate comenzile →',
+  'vendorDashboard.recentOrders.emptyBody':
+    'Comenzile pentru magazinul tău vor apărea aici imediat ce clienții finalizează comanda.',
+  'vendorDashboard.recentOrders.emptyCta': 'Adaugă primul tău produs',
+  'vendorDashboard.recentOrders.emptyTitle': 'Nicio comandă încă',
   'vendorDashboard.recentOrders.title': 'Comenzi recente',
+  'vendorDashboard.subtitle': 'Iată cum se descurcă magazinul tău săptămâna aceasta.',
+  'vendorDashboard.title': 'Bine ați revenit, {{name}}',
   'vendorOnboarding.about': 'Povestește-ne despre magazinul tău',
   'vendorOnboarding.aboutPlaceholder': 'Unde produci, ce produci, de ce contează.',
+  'vendorOnboarding.bankLabel': 'Cont bancar / IBAN',
+  'vendorOnboarding.categoriesHint': 'Alege tot ce ți se potrivește — poți ajusta mai târziu.',
   'vendorOnboarding.currencyLabel': 'Decontare în valută',
   'vendorOnboarding.errors.shopName': 'Numele magazinului este obligatoriu.',
   'vendorOnboarding.errors.submit': 'Nu s-a putut trimite aplicația.',
@@ -174,8 +233,13 @@ export const ui: UiTranslations = {
   'vendorOnboarding.field.shopName': 'Numele magazinului',
   'vendorOnboarding.heroBody':
     'Un comision fix de 8%, plăți în fiecare vineri, vitrina ta, povestea ta. Spune-ne puțin despre magazinul tău și te vom contacta în termen de 48 de ore.',
+  'vendorOnboarding.review.categories': 'Categorii',
   'vendorOnboarding.review.contact': 'Contact',
   'vendorOnboarding.review.currency': 'Monedă',
+  'vendorOnboarding.review.point1':
+    '{{appName}} percepe un comision fix de 8% — fără taxe de listare, fără costuri ascunse.',
+  'vendorOnboarding.review.point2': 'Plățile se decontează în fiecare vineri, în moneda ta locală.',
+  'vendorOnboarding.review.point3': 'Poți suspenda sau elimina magazinul oricând.',
   'vendorOnboarding.review.tagline': 'Slogan',
   'vendorOnboarding.review.website': 'Site web',
   'vendorOnboarding.reviewBody':
@@ -186,6 +250,7 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'Cerere trimisă! Vom analiza magazinul dvs. și vă vom trimite un e-mail în termen de 48 de ore.',
   'vendorOnboarding.taxIdLabel': 'Cod fiscal',
+  'vendorOrders.emptyBody': 'Când clienții îți cumpără produsele, comenzile lor vor apărea aici.',
   'vendorOrders.emptyTitle': 'Nicio comandă de îndeplinit încă',
   'vendorOrders.eyebrow': 'Administrator furnizor',
   'vendorOrders.kpi.awaiting': 'În așteptarea împlinirii',
@@ -193,6 +258,8 @@ export const ui: UiTranslations = {
   'vendorOrders.subtitle':
     'Imprimați etichete, marcați comenzile finalizate și răspundeți la întrebări — toate fără a părăsi Vendry.',
   'vendorOrders.title': 'Comenzi primite',
+  'vendorPayouts.emptyBody':
+    'Plățile sunt eliberate în fiecare vineri, după ce vânzările acoperă comisionul de 8%.',
   'vendorPayouts.emptyTitle': 'Nicio plată încă',
   'vendorPayouts.eyebrow': 'Finanțarea furnizorilor',
   'vendorPayouts.heroCaption': 'Se decontează către Banco BPI {{account}} · 1–2 zile lucrătoare',
@@ -217,6 +284,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.images.body':
     'Trageți și plasați până la 8 imagini. Prima fotografie devine coperta magazinului.',
   'vendorProductForm.images.cta': 'Trageți fotografiile aici sau răsfoiți',
+  'vendorProductForm.images.hint': 'PNG / JPG · max 8MB fiecare',
   'vendorProductForm.images.title': 'Fotografii',
   'vendorProductForm.nameLabel': 'Numele produsului',
   'vendorProductForm.preview.namePlaceholder': 'Numele produsului',
@@ -226,6 +294,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.title': 'Spune-le cumpărătorilor despre piesa ta',
   'vendorProductForm.variants.colInventory': 'Inventar',
   'vendorProductForm.variants.colVariant': 'Variantă',
+  'vendorProductForm.variants.title': 'Variante și stocuri',
   'vendorProducts.eyebrow': 'Administrator furnizor',
   'vendorProducts.kpi.draft': 'Schițe',
   'vendorProducts.kpi.lowStock': 'Stoc redus',
@@ -251,6 +320,7 @@ export const ui: UiTranslations = {
     'Conectează-te pentru a-ți gestiona magazinul, a urmări comenzile de la fiecare furnizor și a descoperi colecții îndrăznețe de la producători independenți.',
   'vendryAuthShell.sampleVendorMeta': 'Verificat · 4,9 ★ · 1.240 vânzări',
   'vendryAuthShell.sampleVendorName': 'Mira & Co. Ceramics',
+  'vendryAuthShell.sampleVendorTag': 'Recomandate',
   'vendryMarketHero.description':
     'Descoperă mii de furnizori independenți, colecții atent selecționate și vitrine administrate de oameni care le dedică suflet. Cumpără cu îndrăzneală, susține creatorii adevărați.',
   'vendryMarketHero.eyebrow': 'Piață de produse atent selecționată · Colecția 2026',
@@ -259,11 +329,13 @@ export const ui: UiTranslations = {
   'vendryMarketHero.stat1Label': 'Producători independenți',
   'vendryMarketHero.stat2Label': 'Produse selectate',
   'vendryMarketHero.stat3Label': 'Evaluare medie',
+  'vendryMarketHero.title': 'Fiecare creator, o singură piață.',
   'vendryOrderCard.idLabel': 'Comanda',
   'vendryOrderCard.placedOn': 'Plasat {{date}}',
   'vendryOrderCard.qty': 'Cant. {{count}}',
   'vendryOrderCard.vendorCount': '{{count}} furnizor(i) în această comandă',
   'vendryOrderCard.verifiedAria': 'Furnizor verificat',
+  'vendryOrderCard.viewDetails': 'Vedeți detaliile',
   'vendryProductCard.favoriteAria': 'Salvați la favorite',
   'vendryProductCard.saleBadge': 'Vânzare',
   'vendryProductCard.verified': 'Furnizor verificat',

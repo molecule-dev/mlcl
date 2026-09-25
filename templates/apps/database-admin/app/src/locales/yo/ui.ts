@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'about.eyebrow': 'Nípa',
+  'about.featureConnections':
+    'Olùṣàkóso ìsopọ̀ tí ń tọ́jú àwọn databésì rẹ ní ààbò pẹ̀lú àwọ̀ tí ó yàtọ̀ fún ọ̀kọ̀ọ̀kan — àwọn ẹ̀rí ìdánimọ̀ ni a fi ààbò pamọ́, kì í ṣe ọ̀rọ̀ tààrà rárá.',
+  'about.featureMonitoring':
+    'Ìbójútó àkókò gidi ti iṣẹ́ àdàwò query àti ìgbòkègbodò databésì, pẹ̀lú àwọn ọ̀nà àbáwọlé kọ́ńpútà àti command palette láti darí gbogbo rẹ̀ láìfi ọwọ́ kàn.',
+  'about.featurePlans':
+    'Àwọn ètò tí ó ń tẹ̀síwájú pẹ̀lú rẹ — Ọ̀fẹ́ fún iṣẹ́ ẹnìkan, Pro àti Team fún àwọn ìsopọ̀ púpọ̀ sí i, ìdádúró query pípẹ́, àwọn ìkójáde, àti àwọn ẹ̀yà tí ó ti tẹ̀síwájú.',
+  'about.featureQueryEditor':
+    'Olùṣàtúnṣe SQL tí Monaco ń ṣiṣẹ́, pẹ̀lú ìtàn query, àwọn query tí a ti fipamọ́, àti ìkójáde CSV ní tẹ̀ ni ẹ̀ẹ̀kan ti àwọn èsì rẹ.',
+  'about.featureSchema':
+    'Olùṣàwárí schema àti aṣàwò table láti lọ káàkiri àwọn databésì, table, àti ọ̀wọ̀n, lẹ́yìn náà wo, ṣe àlẹ̀mọ́, kí o sì ṣàtúnṣe àwọn ìlà ní tààrà.',
+  'about.missionTitle': 'Iṣẹ́ àwa',
   'authShell.commands': 'Àwọn àṣẹ',
   'authShell.ssoSupported': 'SSO ni atilẹyin',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Àwọn ìbéèrè',
   'connections.schema': 'Àwòrán',
   'connections.subtitle': 'Ṣàkóso àwọn ìsopọ̀ ibi ìpamọ́ dátà rẹ.',
+  'connections.test': 'Idanwo',
   'databaseAdminLayout.adminRole': 'Ipò Àkóso',
   'databaseAdminLayout.commandPalette': 'Páálítì àṣẹ',
   'databaseAdminLayout.commands': 'awọn aṣẹ',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Ìsopọ̀ tuntun',
   'databaseAdminLayout.queries': 'Àwọn ìbéèrè',
   'databaseAdminLayout.ready': 'Ṣetán',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Wá àwọn àṣẹ, query, table…',
   'databaseAdminLayout.user': 'Olùlò',
   'editConnection.confirmDelete': 'Pa asopọ yii rẹ́?',
   'editConnection.deleteButton': 'Pa ìsopọ̀ rẹ́',
+  'editConnection.newPassword': 'Ọ̀rọ̀ ìpamọ́ tuntun (fi sílẹ̀ ní òfo láti pa a mọ́)',
   'editConnection.saved': 'A ti fi ìsopọ̀mọ́ra pamọ́.',
   'editConnection.title': 'Ṣe àtúnṣe ìsopọ̀',
   'forgotPassword.success': 'Tí àkọọ́lẹ̀ yẹn bá wà, ìjápọ̀ àtúntò kan ń bọ̀.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Àwọn àṣeyọrí',
   'monitoring.title': 'Àbójútó',
   'monitoring.totalQueries': 'Àpapọ̀ àwọn ìbéèrè',
+  'nav.schema': 'Àwòrán',
   'newConnection.database': 'Ibi ipamọ data',
   'newConnection.engine': 'Ẹ̀rọ',
   'newConnection.host': 'Olùgbàlejò',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Kò sí ìsopọ̀ kankan tó so mọ́ àkójọpọ̀ yìí.',
   'savedQuery.notBound': 'Kò dè é mọ́lẹ̀',
   'savedQuery.title': 'Ìbéèrè tí a fipamọ́',
+  'schema.columns': 'Àwọn ọ̀wọ́n',
   'schema.foreignKeys': 'Àwọn kọ́kọ́rọ́ àjèjì',
   'schema.indexes': 'Àwọn àtọ́ka',
   'schemaExplorer.browseRows': 'Ṣawari awọn ila',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'aileyipada',
   'schemaExplorer.colType': 'iru',
   'schemaExplorer.noColumns': 'Ko si awọn ọwọn.',
+  'schemaExplorer.noForeignKeys': 'Kò sí àwọn kọ́kọ̀rọ̀ àjèjì.',
   'schemaExplorer.noIndexes': 'Ko si awọn atọka.',
   'schemaExplorer.noTables': 'Ko si awọn tabili',
   'schemaExplorer.pickATable': 'Yan tabili kan lati ẹgbẹ ẹgbẹ.',
   'schemaExplorer.tables': 'Àwọn Tábìlì',
   'schemaExplorer.title': 'Olùṣàwárí Schema',
+  'settings.session': 'Ìpàdé',
   'settings.subtitle': 'Ṣakoso akọọlẹ rẹ ati gbero.',
   'signup.heading': 'Ṣẹda akọọlẹ Quarry rẹ',
   'signup.tagline': 'Yipada wiwọle sii laarin iṣẹju kan.',
   'tableBrowser.noRows': 'Tábìlì yìí kò ní ìlà kankan síbẹ̀.',
+  'tableBrowser.subtitle': 'Ń wo àwọn ìlà láti inú databésì rẹ tí ó wà ní ọ̀nà jínjìn.',
   'tableBrowser.title': 'Nlọ kiri awọn ila lati ibi ipamọ data latọna jijin rẹ.',
 }

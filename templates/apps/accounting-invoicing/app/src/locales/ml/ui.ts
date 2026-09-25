@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഒരു ചോദ്യമുണ്ടോ, ഒരു ബഗ് കണ്ടെത്തിയോ, അല്ലെങ്കിൽ നിങ്ങളുടെ പുസ്തകങ്ങൾ ഇവിടേക്ക് മാറ്റണോ? hello@{{app}}.example എന്ന വിലാസത്തിൽ {{app}} ടീമിനെ സമീപിക്കുക — ഓരോ സന്ദേശവും ഒരു യഥാർത്ഥ വ്യക്തി വായിക്കുന്നു.',
   'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
+  'about.intro':
+    'ഓരോ പൈസയും കണക്കിൽ സൂക്ഷിക്കുന്ന ചെറുകിട ബിസിനസ് അക്കൗണ്ടിംഗാണ് {{app}} — ഇൻവോയ്സുകൾ, ചെലവുകൾ, പേയ്മെന്റുകൾ, റിപ്പോർട്ടുകൾ എന്നിവ ഉടമകൾക്കും ബുക്ക് കീപ്പർമാർക്കും അക്കൗണ്ടന്റുമാർക്കും വേണ്ടി ഒരു ശാന്തമായ ഇടത്തിൽ.',
+  'about.missionBody':
+    'ഒരു ബിസിനസ് നടത്തുന്നത് നിങ്ങളുടെ കണക്കുകളെ ഭയപ്പെടുന്നതായിരിക്കരുത്. സ്പ്രെഡ്ഷീറ്റ് കൂമ്പാരത്തിനു പകരം നിങ്ങൾക്ക് പ്രവർത്തിക്കാവുന്ന വ്യക്തമായ സംഖ്യകൾ {{app}} നൽകുന്നു, അതിനാൽ കണക്ക് ഒപ്പിക്കുന്നതിൽ കുറച്ച് സമയവും ബിസിനസ് തുടങ്ങാൻ നിങ്ങൾ ഉദ്ദേശിച്ച യഥാർത്ഥ ജോലി ചെയ്യുന്നതിൽ കൂടുതൽ സമയവും ചെലവഴിക്കാം.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'about.title': '{{app}} നെക്കുറിച്ച്',
   'accounts.count': '{{count}} അക്കൗണ്ടുകൾ',
+  'accounts.emptyBody':
+    'പണം എവിടെയുണ്ടെന്നും എങ്ങനെ ചലിക്കുന്നുവെന്നും ലെഡ്ജർ അക്കൗണ്ടുകൾ ട്രാക്ക് ചെയ്യുന്നു. നിങ്ങളുടെ ബുക്ക് കീപ്പറോ ഇന്റഗ്രേഷനോ അവ സെറ്റ് ചെയ്തുകഴിഞ്ഞാൽ അവ ഇവിടെ കാണാം.',
   'accounts.emptyTitle': 'ഇതുവരെ അക്കൗണ്ടുകളൊന്നുമില്ല',
   'accounts.heading': 'അക്കൗണ്ടുകളുടെ ചാർട്ട്',
   'accounts.kpi.accounts': 'അക്കൗണ്ടുകൾ',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'നിങ്ങളുടെ ഇൻവോയ്‌സുകൾ, ചെലവുകൾ, പേയ്‌മെന്റുകൾ എന്നിവയ്‌ക്ക് പിന്നിലുള്ള ഓരോ ലെഡ്ജർ അക്കൗണ്ടും തരം അനുസരിച്ച് തരം തിരിച്ചിരിക്കുന്നു.',
   'accounts.tag.inactive': 'നിഷ്ക്രിയം',
   'authBrandPanel.attributionName': 'സാറാ ജെങ്കിൻസ്',
+  'authBrandPanel.attributionRole': 'ചീഫ് ഫിനാൻഷ്യൽ ഓഫീസർ, ഹൊറൈസൺ ടെക്',
   'authBrandPanel.eyebrow': 'ധനകാര്യ ടീമുകളുടെ വിശ്വാസം',
   'authBrandPanel.label': 'ബ്രാൻഡ് പ്രദർശനം',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'എല്ലാ ഉപഭോക്താക്കളും',
   'customerDetail.invoiceMeta': 'ഇഷ്യൂ ചെയ്‌തത് {{issued}} · നൽകേണ്ട {{due}}',
   'customerDetail.loadError': 'ഉപഭോക്താവിനെ ലോഡ് ചെയ്യാനായില്ല.',
+  'customerDetail.missingBody':
+    'അഭ്യർത്ഥിച്ച കസ്റ്റമർ റെക്കോർഡ് ലോഡ് ചെയ്യാനായില്ല. അത് നീക്കം ചെയ്യപ്പെട്ടിരിക്കാം, അല്ലെങ്കിൽ നിങ്ങൾക്ക് അതിലേക്ക് ആക്സസ് ഇല്ലായിരിക്കാം.',
   'customerDetail.missingHeading': 'ഉപഭോക്തൃ റെക്കോർഡ് ലഭ്യമല്ല.',
+  'customerDetail.missingHelp':
+    'കസ്റ്റമർമാരുടെ പട്ടികയിലേക്ക് മടങ്ങാൻ മുകളിലുള്ള ബാക്ക് ലിങ്ക് ഉപയോഗിക്കുക, അല്ലെങ്കിൽ അവിടെ നിന്ന് മറ്റൊരു റെക്കോർഡ് തിരഞ്ഞെടുക്കുക.',
+  'customerDetail.noInvoices': 'ഇതുവരെ ഇൻവോയ്‌സുകളൊന്നുമില്ല.',
   'customerDetail.notesEmpty': 'ഇതുവരെ കുറിപ്പുകളൊന്നുമില്ല.',
   'customerDetail.paymentsEmpty': 'പണമടയ്ക്കലുകളൊന്നും രേഖപ്പെടുത്തിയിട്ടില്ല.',
   'customerDetail.paymentTerms': 'പേയ്‌മെന്റ് നിബന്ധനകൾ',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'കിഴിവ് ലഭിക്കാവുന്നത്',
   'expenseDetail.detailsHeading': 'ഇടപാട് വിശദാംശങ്ങൾ',
   'expenseDetail.loadError': 'ചെലവ് ലോഡ് ചെയ്യാനായില്ല.',
+  'expenseDetail.matched': 'പൊരുത്തപ്പെട്ടു · {{description}}',
   'expenseDetail.missingBody':
     'അഭ്യർത്ഥിച്ച ചെലവ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല. അത് നീക്കം ചെയ്‌തിരിക്കാം, അല്ലെങ്കിൽ നിങ്ങൾക്ക് അതിലേക്ക് ആക്‌സസ് ഇല്ലായിരിക്കാം.',
   'expenseDetail.missingHeading': 'ചെലവ് രേഖ ലഭ്യമല്ല.',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'രസീത്',
   'expenseDetail.receiptHeading': 'രസീത്',
   'expenseDetail.reconciled': 'പുനഃക്രമീകരിച്ചു',
+  'expenseDetail.unreconciled': 'പൊരുത്തപ്പെടാത്തത്',
   'expenses.empty': 'ഇതുവരെ ചെലവുകളൊന്നുമില്ല.',
   'expenses.heading': 'ചെലവുകൾ',
   'expenses.kpi.deductible': 'കിഴിവ് ലഭിക്കാവുന്നത്',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'ഇൻവോയ്‌സുകൾ ലോഡ് ചെയ്യാനായില്ല.',
   'invoices.searchPlaceholder': 'ഇൻവോയ്‌സ് # അല്ലെങ്കിൽ ഉപഭോക്താവിനെ തിരയുക...',
   'invoices.summary.paid': 'ഈ കാലയളവിൽ പണമടച്ചു',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     '30 ദിവസത്തേക്ക് സൗജന്യം. കാർഡ് വേണ്ട. നിങ്ങളുടെ അക്കൗണ്ടന്റിനെ കൊണ്ടുവരിക - അവർ നന്ദി പറയും.',
   'landing.ctaTitle': 'നിങ്ങളുടെ പുസ്തകങ്ങൾ ശാന്തമായ ഒരു സ്ഥലത്തേക്ക് മാറ്റുക.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'സ്വീകരിക്കാവുന്ന അക്കൗണ്ടുകൾ',
   'ledgerStatTriad.eyebrow.mtd': 'നിലവിലെ മാസത്തിൽ തുടങ്ങി ഇന്നത്തെ തീയതി വരെ',
   'ledgerStatTriad.netSub': 'നെറ്റ് {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} കാലതാമസം',
   'ledgerStatTriad.revenueLabel': 'വരുമാനം',
   'login.failed': 'സൈൻ ഇൻ പരാജയപ്പെട്ടു.',
   'login.hidePassword': 'പാസ്‌വേഡ് മറയ്ക്കുക',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'സൈൻ ഇൻ',
   'nav.legal': 'നിയമപരമായ',
   'newExpense.back': 'ചെലവുകൾ',
+  'newExpense.clearReceiptCta': 'അറ്റാച്ച് ചെയ്ത രസീത് മായ്ക്കുക',
   'newExpense.deductible': 'നികുതി ഇളവ് ലഭിക്കും',
   'newExpense.dropPrompt': 'അറ്റാച്ചുചെയ്യാൻ രസീത് ഫോട്ടോ അല്ലെങ്കിൽ PDF ഇവിടെ ഇടുക.',
   'newExpense.failed': 'ചെലവ് ലാഭിക്കാൻ കഴിഞ്ഞില്ല.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'പേയ്‌മെന്റുകൾ ലോഡ് ചെയ്യാനായില്ല.',
   'payments.unmatchedTag': 'സമാനതകളില്ലാത്ത',
   'planUpdated.pageLabel': 'പ്ലാൻ അപ്ഡേറ്റ് ചെയ്ത സ്ഥിരീകരണം',
+  'pricing.advancedFeatures': 'വിപുലമായ സവിശേഷതകൾ: {{yes}}',
+  'pricing.canExport': 'ഡാറ്റ എക്സ്പോർട്ട്: {{yes}}',
+  'pricing.heading': 'നിങ്ങളുടെ {{app}} പ്ലാൻ തിരഞ്ഞെടുക്കുക',
+  'pricing.maxAccounts': '{{count}} അക്കൗണ്ടുകൾ',
+  'pricing.maxExpenses': '{{count}} ചെലവുകൾ',
+  'pricing.maxInvoices': '{{count}} ഇൻവോയ്സുകൾ',
+  'privacy.intro':
+    'ഈ സേവനം ഉപയോഗിക്കുന്ന ബിസിനസുകളെക്കുറിച്ചുള്ള വിവരങ്ങൾ {{app}} എങ്ങനെ ശേഖരിക്കുന്നു, ഉപയോഗിക്കുന്നു, വെളിപ്പെടുത്തുന്നു എന്ന് ഈ സ്വകാര്യതാ നയം വിവരിക്കുന്നു.',
   'privacy.lastUpdated': 'അവസാനം അപ്ഡേറ്റ് ചെയ്തത്: {{തീയതി}}',
   'privacy.section.collected.body':
     'ഞങ്ങൾ അക്കൗണ്ട് വിശദാംശങ്ങൾ (പേര്, ഇമെയിൽ, കമ്പനി), നിങ്ങൾ അപ്‌ലോഡ് ചെയ്യുന്ന സാമ്പത്തിക രേഖകൾ (ഇൻവോയ്‌സുകൾ, ചെലവുകൾ, ഉപഭോക്താക്കൾ, പേയ്‌മെന്റുകൾ), സ്റ്റാൻഡേർഡ് സർവീസ്-ഓപ്പറേഷൻ ലോഗുകൾ (ഐപി, യൂസർ-ഏജന്റ്, ടൈംസ്റ്റാമ്പുകൾ) എന്നിവ ശേഖരിക്കുന്നു.',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'സേവനം പ്രവർത്തിപ്പിക്കുന്നതിനും, നിങ്ങൾ അഭ്യർത്ഥിക്കുന്ന റിപ്പോർട്ടുകളും PDF-കളും സൃഷ്ടിക്കുന്നതിനും, മെയിൽഗൺ വഴി ഇടപാട് ഇമെയിൽ അയയ്ക്കുന്നതിനും, സ്ട്രൈപ്പ് വഴി പേയ്‌മെന്റുകൾ പ്രോസസ്സ് ചെയ്യുന്നതിനും വിവരങ്ങൾ ഉപയോഗിക്കുന്നു. ഞങ്ങൾ വ്യക്തിഗത വിവരങ്ങൾ വിൽക്കുകയോ വാടകയ്ക്ക് നൽകുകയോ ചെയ്യുന്നില്ല.',
   'recentInvoicesCard.dueMeta': 'കാരണം {{date}}',
+  'recentInvoicesCard.empty': 'പൊരുത്തപ്പെടുന്ന ഇൻവോയ്‌സുകളൊന്നുമില്ല.',
   'recentInvoicesCard.eyebrow': 'സ്വീകരിക്കാവുന്ന അക്കൗണ്ടുകൾ',
   'recentInvoicesCard.searchAriaLabel': 'ഇൻവോയ്‌സുകൾ തിരയുക',
+  'recentInvoicesCard.searchPlaceholder': 'ഇൻവോയ്സുകൾ തിരയുക…',
   'recentInvoicesCard.title': 'സമീപകാല ഇൻവോയ്‌സുകൾ',
   'recentInvoicesCard.viewAll': 'എല്ലാ ഇൻവോയ്‌സുകളും കാണുക →',
   'reports.assets': 'ആസ്തികൾ',
@@ -181,16 +211,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'ലാഭനഷ്ടം (12 മാസം)',
   'resetPassword.backToLogin': '← സൈൻ ഇൻ എന്നതിലേക്ക് മടങ്ങുക',
   'resetPassword.hidePassword': 'പാസ്‌വേഡ് മറയ്ക്കുക',
+  'resetPassword.passwordLabel': 'പുതിയ പാസ്വേഡ്',
   'resetPassword.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
+  'resetPassword.subheading': 'ശക്തമായ ഒരു പാസ്വേഡ് തിരഞ്ഞെടുക്കുക — കുറഞ്ഞത് എട്ട് പ്രതീകങ്ങൾ.',
   'resetPassword.submit': 'പാസ്‌വേഡ് പുനഃക്രമീകരിക്കുക',
   'resetPassword.tooShort': 'പാസ്‌വേഡിൽ കുറഞ്ഞത് 8 പ്രതീകങ്ങളെങ്കിലും ഉണ്ടായിരിക്കണം.',
   'settings.account.changePassword': 'പാസ്വേഡ് മാറ്റുക',
   'settings.account.changingPassword': 'മാറ്റുന്നു...',
   'settings.account.currentPassword': 'നിലവിലെ പാസ്വേഡ്',
+  'settings.account.dangerZone': 'അപകട മേഖല',
   'settings.account.deleteAccount': 'അക്കൗണ്ട് ഇല്ലാതാക്കുക',
   'settings.account.deleteDescription':
     'നിങ്ങളുടെ അക്കൗണ്ടും അനുബന്ധ ഡാറ്റയും ശാശ്വതമായി ഇല്ലാതാക്കുക.',
   'settings.account.deleteError': 'അക്കൗണ്ട് ഇല്ലാതാക്കാനായില്ല.',
+  'settings.account.deleteWarning':
+    'ഇത് നിങ്ങളുടെ അക്കൗണ്ട് ശാശ്വതമായി ഇല്ലാതാക്കും, പഴയപടിയാക്കാൻ കഴിയില്ല. സ്ഥിരീകരിക്കാൻ നിങ്ങളുടെ പാസ്വേഡ് നൽകുക.',
   'settings.account.deleting': 'ഇല്ലാതാക്കുന്നു...',
   'settings.account.devices': 'ഉപകരണങ്ങൾ',
   'settings.account.email': 'ഇമെയിൽ',
@@ -201,6 +236,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'പാസ്‌വേഡ്',
   'settings.account.passwordError': 'പാസ്‌വേഡ് മാറ്റുന്നതിൽ പരാജയപ്പെട്ടു.',
   'settings.account.pushNotifications': 'ഈ ഉപകരണത്തിൽ പുഷ് അറിയിപ്പുകൾ',
+  'settings.account.revokeDeviceWarning':
+    'ഈ ഉപകരണത്തിന്റെ ആക്‌സസ് ഉടൻ പിൻവലിക്കപ്പെടും. സൈൻ ഔട്ട് ചെയ്യണോ?',
   'settings.account.saveError': 'പ്രൊഫൈൽ അപ്ഡേറ്റ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
   'settings.account.security': 'സുരക്ഷ',
   'settings.account.signOutDevice': 'സൈൻ ഔട്ട്',
@@ -208,12 +245,19 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'രണ്ട്-ഘടക പ്രാമാണീകരണം',
   'settings.account.twoFactorCode': 'പ്രാമാണീകരണ കോഡ്',
   'settings.account.twoFactorDisable': 'പ്രവർത്തനരഹിതമാക്കുക',
+  'settings.account.twoFactorDisableTitle': 'ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ പ്രവർത്തനരഹിതമാക്കുക',
   'settings.account.twoFactorEnable': 'പ്രാപ്തമാക്കുക',
+  'settings.account.twoFactorEnableTitle': 'ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ പ്രവർത്തനക്ഷമമാക്കുക',
   'settings.account.twoFactorInvalidCode': 'കോഡ് അസാധുവാണ്',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'രണ്ട്-ഘടക QR കോഡ്',
+  'settings.account.twoFactorScan':
+    'നിങ്ങളുടെ ഓതന്റിക്കേറ്റർ ആപ്പ് ഉപയോഗിച്ച് ഈ QR കോഡ് സ്കാൻ ചെയ്യുക, തുടർന്ന് 6 അക്ക കോഡ് നൽകുക.',
+  'settings.account.twoFactorUnavailable': 'ഈ ആപ്പിന് ടു-ഫാക്ടർ പ്രാമാണീകരണം ലഭ്യമല്ല.',
   'settings.account.twoFactorVerify': 'പരിശോധിച്ചുറപ്പിക്കുക, പ്രാപ്തമാക്കുക',
   'settings.account.unknownDevice': 'അജ്ഞാത ഉപകരണം',
   'settings.company.email': 'ബില്ലിംഗ് ഇമെയിൽ',
+  'settings.company.heading': 'കമ്പനിയും നികുതിയും',
   'settings.company.name': 'നിയമപരമായ പേര്',
   'settings.company.saveButton': 'കമ്പനി പ്രൊഫൈൽ സംരക്ഷിക്കുക',
   'settings.company.taxId': 'ടാക്സ് ഐഡി / EIN',
@@ -257,6 +301,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'ത്രൈമാസികമായി കണക്കാക്കുന്നത്',
   'taxes.kpi.owed': 'കടപ്പെട്ടിരിക്കുന്നു',
   'taxes.loadError': 'നികുതി സംഗ്രഹം ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
+  'taxes.remittedPct': '({{pct}}% അയച്ചു)',
+  'terms.intro':
+    'ഈ സേവന നിബന്ധനകൾ ("നിബന്ധനകൾ") {{app}} ലേക്കുള്ള നിങ്ങളുടെ ആക്സസും ഉപയോഗവും നിയന്ത്രിക്കുന്നു. ഒരു അക്കൗണ്ട് സൃഷ്ടിക്കുകയോ സേവനം ഉപയോഗിക്കുകയോ ചെയ്യുന്നതിലൂടെ അവയാൽ ബന്ധിക്കപ്പെടാൻ നിങ്ങൾ സമ്മതിക്കുന്നു.',
   'terms.lastUpdated': 'അവസാനം അപ്ഡേറ്റ് ചെയ്തത്: {{തീയതി}}',
   'terms.section.acceptable.body':
     'ഏതെങ്കിലും നിയമം ലംഘിക്കുന്നതിനോ, ബൗദ്ധിക സ്വത്തവകാശം ലംഘിക്കുന്നതിനോ, മാൽവെയർ കൈമാറുന്നതിനോ, മറ്റ് അക്കൗണ്ടുകളിലേക്കോ ഞങ്ങളുടെ അടിസ്ഥാന സൗകര്യങ്ങളിലേക്കോ അനധികൃത ആക്‌സസ് നേടാൻ ശ്രമിക്കുന്നതിനോ സേവനം ഉപയോഗിക്കില്ലെന്ന് നിങ്ങൾ സമ്മതിക്കുന്നു.',

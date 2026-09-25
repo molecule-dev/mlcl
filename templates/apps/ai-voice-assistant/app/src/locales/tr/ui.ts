@@ -5,7 +5,13 @@ export const ui: UiTranslations = {
     'Geri bildiriminiz mi var, bir özellik talebiniz mi var ya da bir hata mı buldunuz? Hesap menünüzdeki destek bağlantısı üzerinden {{app}} ekibine ulaşabilirsiniz — her mesaj gerçek bir kişiye ulaşır.',
   'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkında',
+  'about.intro':
+    '{{app}} sesli çalışan yerel bir yapay zeka asistanıdır. Doğal bir şekilde konuşun, sözcüklerinizin metne dönüşmesini izleyin ve yanıtları sesli olarak alın — böylece her şeyi yazmak yerine yüksek sesle düşünebilirsiniz.',
+  'about.missionBody':
+    'Yazmak, fikirlerinizle onları ortaya koymanız arasında bir darboğazdır. {{app}} bunu ortadan kaldırmak için var: en iyi konuşma ve akıl yürütme modelleriyle desteklenen, verileriniz gizli tutulan, eller serbest, sohbet eder gibi fikir üretme, taslak oluşturma ve karar verme yolu.',
+  'about.missionTitle': 'Misyonumuz',
   'agentDetail.back': 'Tüm ajanlar',
+  'agentDetail.behavior': 'Davranış',
   'agentDetail.capabilities': 'Yetenekler',
   'agentDetail.delete': 'Karakteri sil',
   'agentDetail.deleteConfirm': 'Bu karakter silinsin mi? Bu işlem geri alınamaz.',
@@ -39,15 +45,20 @@ export const ui: UiTranslations = {
   'agents.subtitle':
     'Her ajanın kendine özgü tonu, temposu ve uzmanlığı vardır. Konuşma sırasında istediğiniz zaman geçiş yapın.',
   'agents.title': 'Birlikte düşüneceğiniz bir ses seçin.',
+  'authShell.tagline': '{{tagline}} — {{brand}}',
+  'billing.cardNoneBody':
+    'Yükseltme yaptığınızda bir tane ekleyin — tüm depolamayı Stripe yönetir.',
   'billing.cardNoneTitle': 'Kayıtlı kart yok',
   'billing.choose': 'Değiştir',
   'billing.currentPlan': 'Planınız',
   'billing.currentPlanReadout': '{{plan}} planı',
   'billing.eyebrow': 'Plan ve kullanım',
   'billing.fetchError': 'Faturalama bilgileri yüklenemedi.',
+  'billing.loadingStatus': 'Durum yükleniyor…',
   'billing.noTiers': 'Şu anda kullanılabilir plan yok.',
   'billing.plansTitle': 'Planlar',
   'billing.switching': 'Geçiş yapılıyor…',
+  'billing.updateAcknowledged': 'Güncelleme {{time}} tarihinde alındı',
   'billing.updateError': 'Güncelleme başlatılamadı.',
   'billing.usageHeading': 'Bu dönemdeki ses kullanımı',
   'chatBubble.source.text': 'metin',
@@ -66,11 +77,13 @@ export const ui: UiTranslations = {
   'conversation.title': 'Konuşarak çözün',
   'conversation.toggleMic': 'Mikrofonu değiştir',
   'conversation.toggleVoicePlayback': 'Ses oynatma',
+  'conversation.transcribeError': 'Ses dönüştürülemedi.',
   'conversation.transcriptionEmpty': 'Hiçbir şey duyamadık. Tekrar denemek ister misiniz?',
   'conversation.voiceOff': 'Ses kapalı',
   'conversation.voiceOn': 'Ses açık',
   'conversationDetail.assistant': 'Asistan',
   'conversationDetail.back': 'Geçmişe dön',
+  'conversationDetail.elapsed': '00:00 / {{duration}}',
   'conversationDetail.empty': 'Bu konuşmada henüz mesaj yok.',
   'conversationDetail.eyebrow': 'Döküm',
   'conversationDetail.fetchError': 'Döküm yüklenemedi.',
@@ -81,6 +94,7 @@ export const ui: UiTranslations = {
   'conversationDetail.setSpeed': 'Oynatma hızını {{speed}} olarak ayarla',
   'conversationDetail.system': 'Sistem',
   'conversationDetail.untitled': 'Adsız konuşma',
+  'conversationListItem.messageCount': '{{count}} mesaj',
   'forgotPassword.subheading':
     'E-posta adresinizi girin, size bir sıfırlama bağlantısı gönderelim.',
   'forgotPassword.successBody': 'Az önce {{email}} adresine bir sıfırlama bağlantısı gönderdik.',
@@ -97,6 +111,9 @@ export const ui: UiTranslations = {
   'history.voiceOnly': 'Yalnızca ses',
   'landing.copyright': '© {{year}} {{brand}}. Sesli düşünün.',
   'landing.demoMessage1': 'Merhaba Sarah — yeni kampanya için beyin fırtınasına hazır mısın?',
+  'landing.demoMessage2': 'Evet — Q3 için organik büyüme stratejilerine odaklanalım.',
+  'landing.demoMessage3':
+    'Harika. Topluluk öncülüğünde bir girişimle başlardım. Aşamaları ana hatlarıyla belirtmemi ister misin?',
   'landing.eyebrow': 'Sese odaklı yapay zekâ',
   'landing.featuresSubtitle':
     'Doğal diyalog için tasarlandı — hızınıza, tonunuza ve bağlamınıza uyum sağlar.',
@@ -126,10 +143,12 @@ export const ui: UiTranslations = {
   'parlanceLayout.openMenu': 'Gezinti menüsünü aç',
   'parlanceLayout.primaryNavLabel': 'Birincil gezinme',
   'pricing.conversations': '{{count}} konuşma',
+  'pricing.cta.start': '{{tierName}} seç',
   'pricing.cta.startFree': 'Ücretsiz başlayın',
   'pricing.cta.upgrade': '{{tierName}} planına yükseltin',
   'pricing.empty': 'Şu anda kullanılabilir plan yok.',
   'pricing.error': 'Fiyatlandırma yüklenemedi. Daha sonra tekrar deneyin.',
+  'pricing.speech': '{{count}} konuşma',
   'pricing.subtitle': 'Asistanınızla ne sıklıkla konuştuğunuza uygun bir plan seçin.',
   'privacy.collection.account': 'Hesap e-postanız ve görünen adınız',
   'privacy.contact.body':
@@ -137,6 +156,8 @@ export const ui: UiTranslations = {
   'privacy.deletion.body':
     'İlgili sayfadan istediğiniz zaman bir konuşmayı, karakteri veya ses klibini silebilirsiniz. Ayarlardan hesabınızı silmek, çalışma alanınıza bağlı her konuşma, döküm ve karakter satırını temizler.',
   'privacy.eyebrow': 'Hukuki',
+  'privacy.intro':
+    '{{app}}, oluşturduğunuz konuşmaları ve ses kliplerini yalnızca asistan deneyimini sunmak için gereken süre boyunca saklar. Verilerinizi asla satmayız ve müşteri seslerini veya dökümlerini harici yapay zeka modellerini eğitmek için asla kullanmayız.',
   'privacy.lastUpdated': 'Son güncelleme: 2026-05-01',
   'privacy.processors.body':
     "Asistanınızla konuştuğunuzda sesinizi döküme almak için OpenAI Whisper'a, dökümünüzü yanıt için Anthropic (Claude)'a ve yanıtı ses sentezi için ElevenLabs veya OpenAI'ye iletiriz. Her sağlayıcı kendi veri işleme koşullarına bağlıdır; yeniden eğitim için hiçbir şey saklanmaz.",
@@ -158,13 +179,19 @@ export const ui: UiTranslations = {
   'resetPassword.newPassword': 'Yeni parola',
   'resetPassword.subheading': 'Konuşmaya devam etmek için yeni bir parola seçin.',
   'search.agentPreview': 'Açıklama yok',
+  'search.emptyBody': 'Farklı bir anahtar kelime deneyin veya yüksek sesle söyleyin.',
   'search.emptyTitle': 'Eşleşme yok',
   'search.eyebrow': 'Komut paleti',
   'search.fetchError': 'Arama dizini yüklenemedi.',
+  'search.static.billing.preview': 'Planlar, ödeme yöntemi ve faturalar',
+  'search.static.billing.title': 'Faturalandırma',
   'search.static.profile.preview': 'Görünen ad, kullanıcı adı, tanıtım metni',
+  'search.static.profile.title': 'Profil',
+  'search.static.voice.preview': 'Varsayılan ses ve dil tercihleri',
   'search.static.voice.title': 'Ses',
   'search.title': "Vox'te arayın",
   'search.transcriptPreview': 'Dökümü aç',
+  'settings.appearance.description': 'Açık ve koyu mod arasında geçiş yapın.',
   'settings.appearance.title': 'Görünüm',
   'settings.loadError': 'Ayarlar yüklenemedi.',
   'settings.privacy.${row.key}.label': 'Bildirimler',
@@ -181,6 +208,8 @@ export const ui: UiTranslations = {
   'terms.changes.body':
     'Bu koşullar önemli ölçüde değişirse uygulama içinde size bildireceğiz; bildirimden sonra kullanmaya devam etmek, güncellemeleri kabul ettiğiniz anlamına gelir.',
   'terms.eyebrow': 'Hukuki',
+  'terms.intro':
+    'Bu koşullar {{app}} kullanımınızı düzenler. Hesap oluşturarak bunları kabul etmiş olursunuz.',
   'terms.lastUpdated': 'Son güncelleme: 2026-05-01',
   'terms.title': 'Hizmet koşulları',
   'terms.usage.body':

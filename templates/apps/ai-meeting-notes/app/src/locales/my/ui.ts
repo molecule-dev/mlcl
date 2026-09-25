@@ -1,19 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'မေးခွန်းများ၊ အကြံပြုချက်များ သို့မဟုတ် အင်္ဂါရပ်တောင်းဆိုချက်ရှိပါသလား။ hello@murmur.app သို့ အီးမေးလ်ပို့၍ အဖွဲ့ထံ ဆက်သွယ်ပါ — မက်ဆေ့ခ်ျတိုင်း ထုတ်ကုန်ကို လုပ်ဆောင်နေသော လူတစ်ဦးထံ အမှန်တကယ် ရောက်ရှိပါသည်။',
   'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'ကြှနျုပျတို့အကွောငျး',
+  'about.intro':
+    '{{app}} သည် မှတ်စုမှတ်ခြင်းထက် ဆုံးဖြတ်ချက်ချခြင်းကို ပိုနှစ်သက်သော အဖွဲ့များအတွက် အစည်းအဝေး ဉာဏ်ရည်ဖြစ်သည်။ ၎င်းသည် သင့်ခေါ်ဆိုမှုများတွင် ပါဝင်ကာ စကားပြောသူ အမှတ်အသားများဖြင့် စကားလုံးတိုင်းကို စာသားပြောင်းပြီး အစည်းအဝေး ပြီးဆုံးသည်နှင့် AI အနှစ်ချုပ်နှင့် တာဝန်ရှိသော လုပ်ဆောင်ရမည့်အချက်များကို ပေးပို့ပါသည်။',
+  'about.missionBody':
+    'အစည်းအဝေးများသည် အဖွဲ့များ ဆုံးဖြတ်ချက်ချသည့်နေရာဖြစ်ပြီး ထိုဆုံးဖြတ်ချက်များ ပျောက်ဆုံးသွားသည့်နေရာလည်းဖြစ်သည်။ {{app}} သည် စကားဝိုင်းတစ်ခုတွင် ဖြစ်ပွားသော အလုပ်သည် ထိုစကားဝိုင်းထက် ကြာရှည်ခံရန် သေချာစေရန် တည်ရှိသည် — သစ္စာရှိသော မှတ်တမ်း၊ ရှင်းလင်းသော ပြန်လည်သုံးသပ်ချက်နှင့် တာဝန်ခံနိုင်သော နောက်ဆက်တွဲအဆင့်များကို အလိုအလျောက် ပေးပါသည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'actions.empty': 'ကိုက်ညီသော လုပ်ဆောင်ချက်များ မရှိပါ။',
   'actions.heading': 'လုပ်ဆောင်ချက်ပစ္စည်းများ',
   'actions.loadError': 'လုပ်ဆောင်ချက်ပစ္စည်းများကို တင်၍မရပါ။',
   'actions.subheading': 'အစည်းအဝေးတိုင်းတွင် စုစည်းထားသည်။ အဓိကထားရန် အခြေအနေအလိုက် စစ်ထုတ်ပါ။',
   'actions.toggleDoneLabel': 'ပြီးပြီဟု မှတ်သားပါ',
   'actions.toggleReopenLabel': 'ဖွင့်ထားသည်ဟု မှတ်သားပါ',
+  'auth.footer': '© {{year}} {{app}}။ စကားလုံးတိုင်း၊ အနှစ်ချုပ်။',
   'calendar.heading': 'ပြက္ခဒိန်',
   'calendar.joinCta': 'ဝင်ရောက်ပါ',
   'calendar.loadError': 'ပြက္ခဒိန်ကို တင်၍မရပါ။',
   'calendar.nextMonth': 'နောက်လ',
   'calendar.noEventsForDay': 'ယနေ့အတွက် အစည်းအဝေးများ စီစဉ်ထားခြင်း မရှိပါ။',
+  'calendar.noUpcomingEvents':
+    'လာမည့် အစည်းအဝေးများ မရှိပါ။ ဤစာရင်းကို ဖြည့်ရန် Integrations မှ ပြက္ခဒိန်တစ်ခုကို ချိတ်ဆက်ပါ။',
   'calendar.previousMonth': 'ယခင်လ',
   'calendar.recent': 'မကြာသေးမီက',
   'common.daysAgo': '{{count}} လွန်ခဲ့သော ရက်',
@@ -25,9 +35,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} လုပ်ဆောင်ချက်ပစ္စည်းများ',
   'dashboard.empty.body':
     'Murmur က သင့်ရဲ့ နောက်အစည်းအဝေးကို အလိုအလျောက် တက်ရောက်နိုင်အောင် မှတ်တမ်းတင်မှုတစ်ခု စတင်ပါ ဒါမှမဟုတ် Google Calendar ကို ချိတ်ဆက်ပါ။',
+  'dashboard.empty.cta': 'မှတ်တမ်းတင်ခြင်း စတင်ပါ',
   'dashboard.empty.heading': 'အစည်းအဝေးတွေ မရှိသေးပါ',
   'dashboard.eyebrow': 'သင့်ရဲ့ အစည်းအဝေး feed',
   'dashboard.loadError': 'ဒက်ရှ်ဘုတ်ကို တင်၍မရပါ။',
+  'dashboard.noActions': 'လုပ်ဆောင်ရမည့်အချက်များ မရှိပါ',
   'dashboard.recentHeading': 'မကြာသေးမီက အစည်းအဝေးများ',
   'dashboard.recordCta': 'အစည်းအဝေးကို မှတ်တမ်းတင်ပါ',
   'dashboard.stat.actions': 'လုပ်ဆောင်ချက်ပစ္စည်းများ',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} သင်နောက်ဆုံးစစ်ဆေးပြီးကတည်းက မဖတ်ရသေးသော အကျဉ်းချုပ်များ။ Murmur သည် စကားလုံးတိုင်းကို ဖမ်းယူထားသည် — ဤတွင် အကျဉ်းချုပ်ဖြစ်သည်။',
   'dashboard.viewCalendar': 'ပြက္ခဒိန်ကိုကြည့်ရန် →',
+  'footer.linksLabel': 'အောက်ခြေ',
   'forgot.failed': 'ပြန်လည်သတ်မှတ်သည့် အီးမေးလ်ကို ပို့၍မရပါ။',
   'forgot.sentBody': 'အကောင့်တစ်ခုရှိနေပါက {{email}}, မကြာမီ reset link ကို ရရှိပါမည်။',
   'forgot.sentSubheading': 'ပြန်လည်သတ်မှတ်ရန်လင့်ခ်အတွက် သင့် inbox ကို စစ်ဆေးပါ။',
@@ -47,14 +60,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Murmur အလိုအလျောက် ပါဝင်လာစေရန်အတွက် ပြက္ခဒိန်များနှင့် ဗီဒီယိုပလက်ဖောင်းများကို ချိတ်ဆက်ပါ။',
   'integrations.updateError': 'အပ်ဒိတ် မအောင်မြင်ပါ။',
+  'landing.ctaBody':
+    'လစဉ် ပထမဆုံး အစည်းအဝေး ၅ ခုအတွက် အခမဲ့။ ခရက်ဒစ်ကတ် မလိုပါ။ Google Calendar ကို တစ်မိနစ်အတွင်း ချိတ်ဆက်ပါ။',
   'landing.ctaButton': 'စတင်လိုက်ပါ — အခမဲ့ပါ',
   'landing.ctaHeading': 'မှတ်စုယူတာ ရပ်လိုက်ပါ။ ဆုံးဖြတ်ချက်တွေ ချတာကို စလုပ်ပါ။',
+  'landing.demo.aiBody':
+    'လုပ်ငန်းလည်ပတ်ရေး ဝန်ထမ်းခန့်အပ်မှု အခွင့်အလမ်းအတွက် မေလ ၅ ရက်မှ မေလ ၁၂ ရက်သို့ စတင်မှုကို ရွှေ့ဆိုင်းခဲ့သည်။ Dashboard ပြန်လည်ဒီဇိုင်းကို မေလ ၂၆ ရက်သို့ ခွဲထုတ်ခဲ့သည်။',
   'landing.demo.aiLabel': 'AI အကျဉ်းချုပ်၊ တိုက်ရိုက်ရေးဆွဲခြင်း',
   'landing.demo.recording': 'မှတ်တမ်းတင်ခြင်း · တိုက်ရိုက်',
   'landing.eyebrow': 'AI အစည်းအဝေး ထောက်လှမ်းရေး',
   'landing.featuresHeading': 'အစည်းအဝေးပြီးဆုံးပြီးနောက် သင့်အဖွဲ့လိုအပ်သမျှ',
+  'landing.featuresSubheading':
+    '"ဒါကို ဘယ်သူ တာဝန်ယူလဲ" ဆိုတာ မရှိတော့ပါ။ ခေါ်ဆိုမှု မပြတ်မီ {{appName}} သည် ပြန်လည်သုံးသပ်ချက်ကို ပေးပို့ပါသည်။',
   'landing.getStarted': 'အခမဲ့စမ်းသုံးကြည့်ပါ',
   'landing.heroSecondary': 'စက္ကန့် ၉၀ ကြာ ခရီးစဉ်ကို ကြည့်ရှုပါ',
+  'landing.heroSubtitle':
+    '{{tagline}}။ {{appName}} သည် သင့်ခေါ်ဆိုမှုများတွင် ပါဝင်ကာ စကားပြောသူ အမှတ်အသားများဖြင့် စကားလုံးတိုင်းကို စာသားပြောင်းပြီး အစည်းအဝေး ပြီးဆုံးသည်နှင့် AI အနှစ်ချုပ်များနှင့် တာဝန်ရှိသော လုပ်ဆောင်ရမည့်အချက်များကို ပေးပို့ပါသည်။',
   'landing.heroTitle': 'အစည်းအဝေးတိုင်းကို မှတ်တမ်းတင်ပါ။ အရေးကြီးတာတွေကို ဖော်ပြပါ။',
   'login.altPrompt': 'Murmur ကို အသစ်လား။',
   'login.failed': 'လက်မှတ်ထိုးဝင်၍မရပါ။ သင့်အီးမေးလ်နှင့် စကားဝှက်ကို စစ်ဆေးပါ။',
@@ -62,6 +83,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'လုပ်ဆောင်ချက်ပစ္စည်းများ',
   'meetingDetail.back': 'အစည်းအဝေးအားလုံး',
   'meetingDetail.decisionsHeading': 'ဆုံးဖြတ်ချက်များ',
+  'meetingDetail.dueDate': '{{date}} တွင်ရောက်မည်',
   'meetingDetail.followupsHeading': 'နောက်ဆက်တွဲများ',
   'meetingDetail.loadError': 'အစည်းအဝေးကို ဖွင့်၍မရပါ။',
   'meetingDetail.noActions': 'လုပ်ဆောင်ချက်တစ်ခုမျှ မတွေ့ရှိပါ။',
@@ -75,8 +97,10 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'အစည်းအဝေးတွေ မရှိသေးပါ',
   'meetings.heading': 'အစည်းအဝေးများ',
   'meetings.loadError': 'အစည်းအဝေးများကို တင်၍မရပါ။',
+  'meetings.recordCta': 'အစည်းအဝေးကို မှတ်တမ်းတင်ပါ',
   'meetings.subheading':
     'မှတ်တမ်းတင်ထားသော၊ အပ်လုဒ်လုပ်ထားသော နှင့် စင့်ခ်လုပ်ထားသော အစည်းအဝေးတိုင်း။',
+  'murmurLayout.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
   'murmurLayout.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'murmurLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'nav.legal': 'ဥပဒေရေးရာ',
@@ -103,7 +127,17 @@ export const ui: UiTranslations = {
   'profile.navLabel': 'ပရိုဖိုင်ကဏ္ဍများ',
   'profile.notifications.assignments':
     'လုပ်ဆောင်ချက်ပစ္စည်းများကို ကျွန်ုပ်အား သတ်မှတ်ပေးထားပြီးပါပြီ',
+  'profile.notifications.assignmentsHint':
+    'သင့်အတွက် လုပ်ဆောင်ရမည့်အချက် တစ်ခု ဖမ်းယူခံရသောအခါ အသိပေးပါ။',
+  'profile.notifications.mentions': 'စာသားမှတ်တမ်းများတွင် ဖော်ပြချက်များ',
+  'profile.notifications.mentionsHint':
+    'တစ်စုံတစ်ဦးက သင့်ကို @-ဖော်ပြသောအခါ အီးမေးလ် + push ပို့ပါ။',
+  'profile.notifications.subheading':
+    'မည်သည့် {{appName}} ဖြစ်ရပ်များ သင့်ထံ ရောက်ရှိသင့်သည်ကို ရွေးချယ်ပါ။',
   'profile.notifications.summaries': 'အပတ်စဉ် အကျဉ်းချုပ်',
+  'profile.notifications.summariesHint':
+    'ပြီးခဲ့သည့် သီတင်းပတ်မှ အစည်းအဝေးတိုင်း၏ တနင်္လာနေ့ အနှစ်ချုပ်။',
+  'profile.preferences.speakerColor': 'မူရင်း စကားပြောသူ အရောင်',
   'profile.preferences.subheading':
     'သင်ပါဝင်သည့် မှတ်တမ်းတင်မှုတိုင်းနှင့် သက်ဆိုင်သည့် မူရင်းများ။',
   'profile.preferences.timezone': 'အချိန်ဇုန်',
@@ -116,17 +150,22 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'သင့်ဘရောက်ဆာသည် မှတ်တမ်းတင်ခြင်းကို မပံ့ပိုးပါ။ Chrome၊ Edge သို့မဟုတ် Safari ကို စမ်းကြည့်ပါ။',
   'record.error.upload': 'အပ်လုဒ်လုပ်၍မရပါ။ ထပ်ကြိုးစားပါ။',
+  'record.errorLabel': 'တစ်စုံတစ်ခု မှားယွင်းသွားပါသည်',
   'record.heading': 'မှတ်တမ်းတင်ပါ',
   'record.idleLabel': 'မှတ်တမ်းတင်ရန် နှိပ်ပါ',
   'record.processingLabel': 'Whisper ဖြင့် ကူးယူဖော်ပြခြင်း၊ Claude ဖြင့် အကျဉ်းချုပ်ခြင်း…',
+  'record.recordingLabel': 'မှတ်တမ်းတင်နေသည်…',
   'record.retryCta': 'ထပ်ကြိုးစားပါ',
   'record.subheading':
     'စတင်ရန် မိုက်ခရိုဖုန်းကို နှိပ်ပါ။ Murmur သည် အသံကို ဖမ်းယူပြီး Whisper မှတစ်ဆင့် စာသားပြောင်းကာ Claude မှ ပံ့ပိုးပေးသော အနှစ်ချုပ်ကို ရေးသားသည်။',
+  'record.titlePlaceholder': 'အစည်းအဝေး ခေါင်းစဉ် (ရွေးချယ်နိုင်သည်)',
+  'reset.altPrompt': 'စိတ်ပြောင်းသွားပါသလား။',
   'reset.hint': 'အနည်းဆုံး အက္ခရာ ၈ လုံးပါသော အက္ခရာနှင့် ဂဏန်းများ ရောနှောအသုံးပြုပါ။',
   'reset.missingToken':
     'ပြန်လည်သတ်မှတ်ရန်လင့်ခ် ပျောက်ဆုံးနေ သို့မဟုတ် သက်တမ်းကုန်ဆုံးသွားပါပြီ။ အသစ်တစ်ခု တောင်းဆိုပါ။',
   'reset.newPassword': 'စကားဝှက်အသစ်',
   'reset.subheading': 'အခြားနေရာတွင် အသုံးမပြုသော စကားဝှက်တစ်ခုကို ရွေးချယ်ပါ။',
+  'reset.tooShort': 'စကားဝှက်သည် အနည်းဆုံး စာလုံး ၈ လုံး ရှိရမည်။',
   'search.empty': 'မှတ်တမ်းများကို ရှာဖွေရန် စာရိုက်ပါ။',
   'search.loadError': 'ရှာဖွေမှု မအောင်မြင်ပါ။ ထပ်ကြိုးစားပါ။',
   'search.noResults': '"အတွက် ရလဒ်မရှိပါ {{q}} "။',
@@ -142,7 +181,9 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'အသံဖိုင်ကို သိမ်းဆည်းထားပါ',
   'settings.retention.heading': 'ထိန်းသိမ်းမှု',
   'settings.retention.transcript': 'မှတ်တမ်းများကို သိမ်းဆည်းထားပါ',
+  'settings.revokeDeviceWarning': 'ဤစက်ပစ္စည်း၏ ဝင်ခွင့်ကို မကြာမီ ပယ်ဖျက်ပါမည်။ ထွက်မည်လား?',
   'settings.saveError': 'သိမ်းဆည်းမှု မအောင်မြင်ပါ။',
+  'settings.security.subheading': 'သင်ဝင်ရောက်ရန် အသုံးပြုသော စကားဝှက်ကို အပ်ဒိတ်လုပ်ပါ။',
   'settings.sharing.exportFormat': 'တင်ပို့ဖော်မတ်',
   'settings.sharing.heading': 'မျှဝေခြင်း မူရင်းများ',
   'settings.sharing.scope': 'မူရင်းမျှဝေမှုအတိုင်းအတာ',
@@ -160,6 +201,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'အသင်းဖော်ကို ဖိတ်ခေါ်ပါ',
   'team.invitedAs': 'ဖိတ်ကြားခံရသည့်အနေဖြင့် {{role}}',
   'team.inviteFailed': 'ဖိတ်ကြားချက် ပို့၍မရပါ။',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'ဖိတ်ကြားချက်ပို့ပါ',
   'team.inviteSubtitle': 'သူတို့သည် ဝင်ရောက်ရန်လင့်ခ်ပါရှိသော အီးမေးလ်တစ်စောင်ကို လက်ခံရရှိပါမည်။',
   'team.inviteTitle': 'အသင်းဖော်တစ်ယောက်ကို ဖိတ်ခေါ်ပါ',

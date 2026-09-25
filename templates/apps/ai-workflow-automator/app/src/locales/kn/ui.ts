@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'ಡೆಂಡ್ರೈಟ್ ಒಂದು ವರ್ಕ್‌ಫ್ಲೋ ಆಟೊಮೇಷನ್ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್ ಆಗಿದ್ದು, ಇದು ಟ್ರಿಗ್ಗರ್‌ಗಳು, AI ಪರಿಸ್ಥಿತಿಗಳು ಮತ್ತು ಬಹು-ಹಂತದ ಕ್ರಿಯೆಗಳನ್ನು ಒಟ್ಟಿಗೆ ವೈರ್ ಮಾಡುತ್ತದೆ, ಇದರಿಂದಾಗಿ ತಂಡಗಳು ಅಂಟು ಕೋಡ್ ಬರೆಯದೆಯೇ ವ್ಯವಸ್ಥೆಗಳ ನಡುವೆ ಕೆಲಸವನ್ನು ಚಲಿಸಬಹುದು.',
+  'about.philosophy':
+    'ಪ್ರತಿಯೊಂದು ವರ್ಕ್ಫ್ಲೋ ಸಣ್ಣ, ಗಮನಿಸಬಹುದಾದ ಹಂತಗಳ ಗ್ರಾಫ್ ಆಗಿದೆ. ಪ್ರತಿ ಹಂತವು ತನ್ನ ಇನ್ಪುಟ್ಗಳನ್ನು, ಔಟ್ಪುಟ್ಗಳನ್ನು ಮತ್ತು ಸಮಯವನ್ನು ದಾಖಲಿಸುತ್ತದೆ, ಇದರಿಂದ ಅದನ್ನು ಪರಿಶೀಲಿಸಬಹುದು, ಮರುಪ್ಲೇ ಮಾಡಬಹುದು ಅಥವಾ ರೋಲ್ಬ್ಯಾಕ್ ಮಾಡಬಹುದು. ಅವುಗಳನ್ನು ದೃಶ್ಯವಾಗಿ ಸಂಯೋಜಿಸಿ, ಕೋಡ್ನಂತೆ ಆವೃತ್ತಿ ಮಾಡಿ.',
   'about.title': 'ಡೆಂಡ್ರೈಟ್ ಬಗ್ಗೆ',
   'authShell.brand': 'ಡೆಂಡ್ರೈಟ್',
   'authShell.support': 'ಬೆಂಬಲ',
@@ -15,9 +17,15 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'ಯೋಜನೆಯನ್ನು ಬದಲಾಯಿಸಿ',
   'billing.description':
     'ಬಳಕೆಯನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ, ನಿಮ್ಮ ಯೋಜನೆಯನ್ನು ನಿರ್ವಹಿಸಿ ಮತ್ತು ಲೆಕ್ಕಪತ್ರ ನಿರ್ವಹಣೆಗಾಗಿ ಇನ್‌ವಾಯ್ಸ್‌ಗಳನ್ನು ಎಳೆಯಿರಿ.',
+  'billing.eyebrow': 'ಖಾತೆ · ಯೋಜನೆ ಮತ್ತು ಬಳಕೆ',
+  'billing.failedLabel': 'ವಿಫಲ ರನ್ಗಳು · 24ಗಂ',
+  'billing.invoicesEmpty':
+    'ಇನ್ನೂ ಯಾವುದೇ ಇನ್ವಾಯ್ಸ್ಗಳಿಲ್ಲ. ನಿಮ್ಮ ಮೊದಲ ಪಾವತಿಸಿದ ನವೀಕರಣದ ನಂತರ ಅವು ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತವೆ.',
   'billing.invoicesTitle': 'ಇನ್‌ವಾಯ್ಸ್ ಇತಿಹಾಸ',
   'billing.planNoteFree':
     'ಉಚಿತ ಶ್ರೇಣಿ — {{runs}} ಓಡುತ್ತದೆ ಮತ್ತು {{workflows}} ಸಕ್ರಿಯ ಕೆಲಸದ ಹರಿವುಗಳು. ಹೆಚ್ಚಿನ ಮಿತಿಗಳಿಗಾಗಿ ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ.',
+  'billing.planNotePaid':
+    'ಪಾವತಿಸಿದ ಯೋಜನೆ — {{runs}} ರನ್ಗಳು ಮತ್ತು {{workflows}} ಸಕ್ರಿಯ ವರ್ಕ್ಫ್ಲೋಗಳು.',
   'billing.runsLabel': 'ಕಳೆದ 24 ಗಂಟೆಗಳಲ್ಲಿ ರನ್ ಆಗಿದೆ',
   'billing.tiersBlurb':
     'ಮೀಸಲಾದ ಬೆಲೆ ಪುಟದಲ್ಲಿ ಪ್ರತಿಯೊಂದು ಹಂತವನ್ನು - ರನ್‌ಗಳು, ಸಕ್ರಿಯ ಕೆಲಸದ ಹರಿವುಗಳು, ಸುಧಾರಿತ ವೈಶಿಷ್ಟ್ಯಗಳು ಮತ್ತು ಬೆಂಬಲ - ಹೋಲಿಕೆ ಮಾಡಿ.',
@@ -35,10 +43,14 @@ export const ui: UiTranslations = {
     'ಯಾವುದೇ ಸಂಯೋಜನೆಗಳನ್ನು ನೋಂದಾಯಿಸಲಾಗಿಲ್ಲ. ಬಾಂಡ್‌ಗಳನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲು ಪೂರೈಕೆದಾರರ ಕೀಗಳನ್ನು ಕಾನ್ಫಿಗರ್ ಮಾಡಿ.',
   'connections.error': 'ಸಂಪರ್ಕಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'connections.eyebrow': 'ಸಂಯೋಜನೆಗಳು · {{connected}} ಸಂಪರ್ಕಗೊಂಡಿದೆ',
+  'connections.loading': 'ಸಂಯೋಜನೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
+  'connections.openEnv':
+    'ಈ ಪೂರೈಕೆದಾರರನ್ನು ಸಂಪರ್ಕಿಸಲು, api/.env ನಲ್ಲಿ ಅದರ API ಕೀ ಅನ್ನು ಹೊಂದಿಸಿ ಮತ್ತು ಸರ್ವರ್ ಅನ್ನು ಮರುಪ್ರಾರಂಭಿಸಿ.',
   'dashboard.description':
     '{{active}} ಕೆಲಸದ ಹರಿವುಗಳು ಸಕ್ರಿಯವಾಗಿವೆ. {{failed}} ಕಳೆದ 24 ಗಂಟೆಗಳಲ್ಲಿ ವಿಫಲವಾಗಿದೆ.',
   'dashboard.error': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'dashboard.eyebrow': 'ಕಾರ್ಯಾಚರಣೆಗಳು · ಲೈವ್',
+  'dashboard.hero.label': 'ಇಂದಿನ ರನ್ಗಳು',
   'dashboard.hero.medianLatency': 'p50 ವಿಳಂಬ',
   'dashboard.hero.queue': 'ಸರತಿಯ ಆಳ',
   'dashboard.hero.success': 'ಯಶಸ್ಸು',
@@ -46,14 +58,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'ಮಧ್ಯದ ಅವಧಿ',
   'dashboard.kpi.failedRuns': 'ವಿಫಲವಾಗಿದೆ · 24 ಗಂಟೆಗಳು',
   'dashboard.kpi.outOf': 'ನ {{total}} ಒಟ್ಟು',
+  'dashboard.kpi.successRate': 'ಯಶಸ್ಸಿನ ದರ · 24ಗಂ',
   'dashboard.loading': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
   'dashboard.recentRuns.empty':
     'ಇನ್ನೂ ಯಾವುದೇ ರನ್‌ಗಳಿಲ್ಲ. ವರ್ಕ್‌ಫ್ಲೋ ಅನ್ನು ಟ್ರಿಗ್ಗರ್ ಮಾಡುವುದರಿಂದ ಈ ಫೀಡ್ ಅನ್ನು ತುಂಬಿಸಲಾಗುತ್ತದೆ.',
   'dashboard.recentRuns.title': 'ಇತ್ತೀಚಿನ ಓಟಗಳು',
   'dashboard.recentRuns.viewAll': 'ಮುಕ್ತ ಮರಣದಂಡನೆಗಳು →',
+  'dashboard.recentWorkflows.browse': 'ಟೆಂಪ್ಲೇಟ್‌ಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ →',
   'dashboard.recentWorkflows.empty':
     'ಇನ್ನೂ ಯಾವುದೇ ಕೆಲಸದ ಹರಿವುಗಳಿಲ್ಲ. ಟೆಂಪ್ಲೇಟ್ ಅನ್ನು ಸ್ಥಾಪಿಸಿ ಅಥವಾ ಮೊದಲಿನಿಂದ ಒಂದನ್ನು ನಿರ್ಮಿಸಿ.',
   'dashboard.recentWorkflows.title': 'ಇತ್ತೀಚೆಗೆ ನಡೆಸಲಾಗಿದೆ',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'ಪ್ರಾರಂಭಿಸಲಾಗಿದೆ',
   'dashboard.run.col.trigger': 'ಟ್ರಿಗ್ಗರ್',
   'dashboard.run.col.workflow': 'ಕೆಲಸದ ಹರಿವು',
@@ -89,6 +104,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'ಕೆಲಸದ ಹರಿವು',
   'executions.description':
     'ಪ್ರತಿಯೊಂದು ಕೆಲಸದ ಹರಿವಿನ ಓಟ, ಪ್ರತಿ ಮರುಪ್ರಯತ್ನ, ಪ್ರತಿ ಹಂತದ ಔಟ್‌ಪುಟ್ - ಎಲ್ಲವನ್ನೂ ಗಮನಿಸಬಹುದು.',
+  'executions.empty.filter': 'ಈ ಫಿಲ್ಟರ್ಗೆ ಯಾವುದೇ ರನ್ಗಳು ಹೊಂದಿಕೆಯಾಗುತ್ತಿಲ್ಲ.',
   'executions.empty.first':
     'ಇನ್ನೂ ಯಾವುದೇ ರನ್‌ಗಳಿಲ್ಲ — ಈ ಪಟ್ಟಿಯನ್ನು ತುಂಬಲು ಕೆಲಸದ ಹರಿವನ್ನು ಪ್ರಚೋದಿಸಿ.',
   'executions.error': 'ಕಾರ್ಯಗತಗೊಳಿಸುವಿಕೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
@@ -99,30 +115,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'ರನ್ ಇತಿಹಾಸವನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'executions.title': 'ಮರಣದಂಡನೆಗಳು',
   'forgotPassword.confirmation': 'ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಇಲ್ಲಿಗೆ ಕಳುಹಿಸಲಾಗಿದೆ {{email}} .',
+  'forgotPassword.subhead': 'ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಸ್ವೀಕರಿಸಲು ನಿಮ್ಮ ಇಮೇಲ್ ಅನ್ನು ನಮೂದಿಸಿ.',
   'forgotPassword.successSubhead':
     'ನಾವು ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಇಲ್ಲಿಗೆ ಕಳುಹಿಸಿದ್ದೇವೆ {{email}} . ಇದು 30 ನಿಮಿಷಗಳಲ್ಲಿ ಮುಕ್ತಾಯಗೊಳ್ಳುತ್ತದೆ.',
   'help.connections.body':
     'AI, ಇಮೇಲ್ ಮತ್ತು ಶೇಖರಣಾ ಹಂತಗಳಿಗೆ api/.env ಫೈಲ್‌ನಲ್ಲಿ ಪೂರೈಕೆದಾರರ ಕೀಗಳನ್ನು ಹೊಂದಿಸಬೇಕಾಗುತ್ತದೆ. ಒಮ್ಮೆ ಕೀಯನ್ನು ಕಾನ್ಫಿಗರ್ ಮಾಡಿದ ನಂತರ, ಅನುಗುಣವಾದ ಏಕೀಕರಣವು ಸಂಪರ್ಕಗಳ ಪುಟದಲ್ಲಿ ಸಂಪರ್ಕಗೊಂಡಂತೆ ಗೋಚರಿಸುತ್ತದೆ.',
+  'help.connections.cta': 'ತೆರೆದ ಸಂಪರ್ಕಗಳು →',
   'help.connections.title': 'ಪೂರೈಕೆದಾರರನ್ನು ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ',
   'help.gettingStarted.body':
     'ಹೊಸ ವರ್ಕ್‌ಫ್ಲೋಗಳನ್ನು ಟೆಂಪ್ಲೇಟ್‌ಗಳ ಲೈಬ್ರರಿಯಿಂದ ಸ್ಥಾಪಿಸಬಹುದು ಅಥವಾ ವರ್ಕ್‌ಫ್ಲೋ ಬಿಲ್ಡರ್‌ನಲ್ಲಿ ಮೊದಲಿನಿಂದ ನಿರ್ಮಿಸಬಹುದು. ಪ್ರತಿಯೊಂದು ವರ್ಕ್‌ಫ್ಲೋ ಒಂದು ಟ್ರಿಗ್ಗರ್ (ಹಸ್ತಚಾಲಿತ, ವೆಬ್‌ಹುಕ್ ಅಥವಾ ಕ್ರಾನ್) ಮತ್ತು ಕ್ರಮಬದ್ಧವಾಗಿ ಚಲಿಸುವ ಹಂತಗಳ ಅನುಕ್ರಮವನ್ನು ಹೊಂದಿರುತ್ತದೆ.',
+  'help.gettingStarted.cta': 'ಟೆಂಪ್ಲೇಟ್ಗಳ ಗ್ರಂಥಾಲಯವನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ →',
+  'help.gettingStarted.title': 'ಪ್ರಾರಂಭಿಸುವುದು',
   'help.intro':
     'ಕೆಲಸದ ಹರಿವುಗಳನ್ನು ನಿರ್ಮಿಸುವುದು, ಸಂಪರ್ಕಗಳನ್ನು ಕಾನ್ಫಿಗರ್ ಮಾಡುವುದು ಮತ್ತು ರನ್ ಔಟ್‌ಪುಟ್ ಅನ್ನು ಅರ್ಥೈಸುವ ಬಗ್ಗೆ ಸಾಮಾನ್ಯ ಪ್ರಶ್ನೆಗಳಿಗೆ ಉತ್ತರಗಳನ್ನು ಹುಡುಕಿ. ಸಾಮಾನ್ಯ ವಿಷಯಗಳನ್ನು ಕೆಳಗೆ ಪಟ್ಟಿ ಮಾಡಲಾಗಿದೆ; ಒಳಗೊಳ್ಳದ ಯಾವುದಕ್ಕೂ, ನಿಮ್ಮ ಕಾರ್ಯಸ್ಥಳ ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ.',
   'help.runs.body':
     'ಪ್ರತಿಯೊಂದು ರನ್, ಸ್ಥಿತಿ (ಯಶಸ್ಸು, ವೈಫಲ್ಯ, ಬಿಟ್ಟುಬಿಡಲಾಗಿದೆ) ಮತ್ತು ಔಟ್‌ಪುಟ್‌ನ ತುಣುಕಿನೊಂದಿಗೆ ಸ್ವತಂತ್ರವಾಗಿ ಪ್ರತಿ ಹಂತವನ್ನು ದಾಖಲಿಸುತ್ತದೆ. ಕಾರ್ಯಗತಗೊಳಿಸುವಿಕೆಯ ವಿವರ ಪುಟವು ಪೂರ್ಣ ಹಂತ-ಹಂತದ ಟ್ರೇಸ್ ಜೊತೆಗೆ ನಿರ್ಣಯಿಸಲಾದ ಮೆಟ್ರಿಕ್‌ಗಳನ್ನು ತೋರಿಸುತ್ತದೆ.',
+  'help.runs.cta': 'ಮುಕ್ತ ಮರಣದಂಡನೆಗಳು →',
   'help.runs.title': 'ರನ್ ಔಟ್‌ಪುಟ್ ಓದಲಾಗುತ್ತಿದೆ',
   'help.title': 'ಸಹಾಯ ಕೇಂದ್ರ',
   'integrationCard.manage': 'ನಿರ್ವಹಿಸಿ',
   'landing.brand': 'ಡೆಂಡ್ರೈಟ್',
   'landing.demo.action.subtitle': 'ರೌಂಡ್-ರಾಬಿನ್ · ಪ್ರದೇಶ',
+  'landing.demo.action.title': 'ಪ್ರತಿನಿಧಿಗೆ ತಿಳಿಸಿ',
   'landing.demo.condition.subtitle': 'AI ಉದ್ದೇಶ ವರ್ಗೀಕರಣಕಾರಕ',
+  'landing.demo.condition.title': 'ಸ್ಕೋರ್ ≥ ಮಧ್ಯಮವೇ?',
   'landing.demo.trigger.subtitle': 'ಪೋಸ್ಟ್ /ಫಾರ್ಮ್‌ಗಳು/ಸಂಪರ್ಕ',
   'landing.demo.trigger.title': 'ಒಳಬರುವ ವೆಬ್‌ಹುಕ್',
+  'landing.features.body':
+    'ಟ್ರಿಗರ್ಗಳು ಚಾಲನೆಯಾಗುತ್ತವೆ. ಷರತ್ತುಗಳು ಕವಲೊಡೆಯುತ್ತವೆ. ಕ್ರಿಯೆಗಳು ಕೆಲಸವನ್ನು ಪೂರ್ಣಗೊಳಿಸುತ್ತವೆ. ಅವುಗಳನ್ನು ದೃಶ್ಯವಾಗಿ ಸಂಯೋಜಿಸಿ, ಕೋಡ್ನಂತೆ ಆವೃತ್ತಿ ಮಾಡಿ.',
   'landing.features.heading': 'ಮೂರು ನೋಡ್ ಪ್ರಕಾರಗಳು. ಅನಂತ ಆಕಾರಗಳು.',
   'landing.footer.help': 'ಸಹಾಯ',
   'landing.footer.tagline': 'ಚಲನೆಯಲ್ಲಿರುವ ಬುದ್ಧಿಮತ್ತೆ',
+  'landing.hero.body':
+    'Zapier ಅನ್ನು ಮೀರಿದ ಕಾರ್ಯಾಚರಣೆ ತಂಡಗಳಿಗೆ {{appName}} ಒಂದು ವರ್ಕ್ಫ್ಲೋ ಎಂಜಿನ್ ಆಗಿದೆ. ಟ್ರಿಗರ್, ಷರತ್ತು, ಕ್ರಿಯೆ — ನೀವು ನಿಜವಾಗಿ ಬಳಸುವ ಪ್ರತಿಯೊಂದು ವ್ಯವಸ್ಥೆಗೂ ಸಂಪರ್ಕಿಸಲಾಗಿದೆ.',
   'landing.hero.eyebrow': 'ಚಲನೆಯಲ್ಲಿರುವ ಬುದ್ಧಿಮತ್ತೆ',
   'landing.hero.headline': 'ನಿಮ್ಮ ಸ್ಟ್ಯಾಕ್ ಅನ್ನು ಒಟ್ಟಿಗೆ ಜೋಡಿಸಿ. ಕೆಲಸ ನಡೆಯಲಿ.',
+  'landing.hero.primaryCta': 'ನಿಮ್ಮ ಮೊದಲ ವರ್ಕ್ಫ್ಲೋವನ್ನು ನಿರ್ಮಿಸಿ',
   'landing.hero.proof.ai': 'ಅಂತರ್ನಿರ್ಮಿತ AI ನೋಡ್‌ಗಳು',
   'landing.hero.proof.free': 'ತಿಂಗಳಿಗೆ 1 ಸಾವಿರ ರನ್‌ಗಳಿಗೆ ಉಚಿತ',
   'landing.hero.proof.soc2': 'SOC 2 ವಿಧ II',
@@ -130,10 +158,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'ಸೀಟುಗಳಿಗೆ ಅಲ್ಲ, ರನ್‌ಗಳಿಗೆ ಹಣ ಪಾವತಿಸಿ.',
   'landing.templates.body':
     'ಪ್ರತಿ ತಂಡಕ್ಕೂ ಪೂರ್ವ-ವೈರ್ಡ್ ಕೆಲಸದ ಹರಿವುಗಳು — ಮಾರಾಟ, ಬೆಂಬಲ, ಅಭಿವೃದ್ಧಿ, ಹಣಕಾಸು. ಒಂದೇ ಕ್ಲಿಕ್‌ನಲ್ಲಿ ಸ್ಥಾಪಿಸಿ; ಯಾವುದನ್ನಾದರೂ ಟ್ವೀಕ್ ಮಾಡಿ.',
+  'landing.templates.cta': 'ಟೆಂಪ್ಲೇಟ್ಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಲು ಸೈನ್ ಅಪ್ ಮಾಡಿ →',
   'landing.templates.eyebrow': 'ಸೆಕೆಂಡುಗಳಲ್ಲಿ ಪ್ರಾರಂಭಿಸಿ',
   'landing.templates.heading': 'ಪರಿಶೀಲಿಸಿದ ಪಾಕವಿಧಾನಗಳ ಗ್ರಂಥಾಲಯ.',
   'landing.templates.signupHint': 'ಸ್ಥಾಪಿಸಲು ಸೈನ್ ಅಪ್ ಮಾಡಿ',
   'login.hidePassword': 'ಪಾಸ್‌ವರ್ಡ್ ಮರೆಮಾಡಿ',
+  'login.noAccount': 'ಟೆಸ್ಸೆರಾಗೆ ಹೊಸಬರೇ?',
   'login.showPassword': 'ಪಾಸ್‌ವರ್ಡ್ ತೋರಿಸಿ',
   'login.subhead': 'ನಿಮ್ಮ ಆಟೋಮೇಷನ್‌ಗಳು ಸರಾಗವಾಗಿ ನಡೆಯುವಂತೆ ಸೈನ್ ಇನ್ ಮಾಡಿ.',
   'mobileNav.drawerLabel': 'ಮುಖ್ಯ ಸಂಚರಣೆ',
@@ -149,8 +179,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'ಈ ಫೀಡ್ ಅನ್ನು ತುಂಬಲು ಪ್ರಾರಂಭಿಸಲು ಕೆಲಸದ ಹರಿವನ್ನು ರನ್ ಮಾಡಿ.',
   'notifications.empty.title': 'ನೀವು ಎಲ್ಲವನ್ನೂ ಓದಿದ್ದೀರಿ.',
   'notifications.eyebrow': '{{n}} ಓದದಿರುವುದು',
+  'planUpdated.body':
+    'ನಿಮ್ಮ ಬಿಲ್ಲಿಂಗ್ ಬದಲಾವಣೆ ಈಗ ಸಕ್ರಿಯವಾಗಿದೆ. ಬಿಲ್ಲಿಂಗ್ ಪುಟದಿಂದ ಯಾವಾಗ ಬೇಕಾದರೂ ನಿಮ್ಮ ಯೋಜನೆಯನ್ನು ನಿರ್ವಹಿಸಬಹುದು.',
+  'planUpdated.retry': 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ',
+  'planUpdated.verifyFailed': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ನಮಗೆ ಇನ್ನೂ ಖಚಿತಪಡಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'planUpdated.verifyFailedBody':
+    'ನಿಮ್ಮ ಪಾವತಿ ಇನ್ನೂ ಪ್ರಕ್ರಿಯೆಗೊಳ್ಳುತ್ತಿರಬಹುದು. ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'pricing.heading': 'ಓಡುತ್ತದೆ',
+  'pricing.runsSuffix': 'ರನ್ಗಳು',
   'pricing.workflowsSuffix': 'ಕೆಲಸದ ಹರಿವುಗಳು',
   'privacy.collect.body':
     'ನೀವು ಸೈನ್ ಅಪ್ ಮಾಡುವ ಇಮೇಲ್ ವಿಳಾಸ, ನೀವು ಕಾನ್ಫಿಗರ್ ಮಾಡುವ ವರ್ಕ್‌ಫ್ಲೋಗಳು ಮತ್ತು ಪ್ರತಿ ರನ್ ಬಗ್ಗೆ ಮೆಟಾಡೇಟಾ (ಪ್ರಾರಂಭ ಸಮಯ, ಮುಕ್ತಾಯ ಸಮಯ, ಸ್ಥಿತಿ) ವನ್ನು ನಾವು ಸಂಗ್ರಹಿಸುತ್ತೇವೆ. ಕಾರ್ಯಸ್ಥಳದ ಮಾಲೀಕರಿಗೆ ರನ್ ವೀಕ್ಷಕದಲ್ಲಿ ಪ್ರದರ್ಶಿಸಲು ಅಗತ್ಯವಿರುವ ಮೊತ್ತಕ್ಕಿಂತ ಹೆಚ್ಚಿನದನ್ನು ನಾವು ಎಂದಿಗೂ ಟ್ರಿಗ್ಗರ್‌ಗಳು ಅಥವಾ ಹಂತದ ಔಟ್‌ಪುಟ್‌ಗಳಿಂದ ಪೇಲೋಡ್ ವಿಷಯಗಳನ್ನು ಸಂಗ್ರಹಿಸುವುದಿಲ್ಲ ಅಥವಾ ಸಂಗ್ರಹಿಸುವುದಿಲ್ಲ.',
@@ -166,11 +203,14 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'ಪಾಸ್‌ವರ್ಡ್ ನವೀಕರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'resetPassword.newPassword': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'resetPassword.subhead': 'ನೀವು ಮಾತ್ರ ಊಹಿಸುವ ಯಾವುದನ್ನಾದರೂ ಆರಿಸಿ.',
+  'settings.appearance.description': 'ಬೆಳಕು ಮತ್ತು ಕತ್ತಲೆ ಮೋಡ್ ನಡುವೆ ಟಾಗಲ್ ಮಾಡಿ.',
+  'settings.appearance.title': 'ಗೋಚರತೆ',
   'settings.billingShortcut.cta': 'ಬಿಲ್ಲಿಂಗ್ ತೆರೆಯಿರಿ',
   'settings.billingShortcut.description':
     'ಯೋಜನೆ, ಬಳಕೆ ಮತ್ತು ಇನ್‌ವಾಯ್ಸ್‌ಗಳು ಮೀಸಲಾದ ಬಿಲ್ಲಿಂಗ್ ಪುಟದಲ್ಲಿ ಲೈವ್ ಆಗಿರುತ್ತವೆ.',
   'settings.danger.confirm': 'ಖಚಿತವೇ? ಇದು ನಿಮ್ಮ ಕಾರ್ಯಸ್ಥಳವನ್ನು ಅಳಿಸುವಿಕೆಗಾಗಿ ಸರದಿಯಲ್ಲಿರಿಸುತ್ತದೆ.',
   'settings.danger.confirmYes': 'ಹೌದು, ಸರದಿ ಅಳಿಸುವಿಕೆ',
+  'settings.danger.deleteWorkspace.cta': 'ಕಾರ್ಯಸ್ಥಳವನ್ನು ಅಳಿಸಿ',
   'settings.danger.deleteWorkspace.hint':
     '14 ದಿನಗಳ ಗ್ರೇಸ್ ಅವಧಿಯ ನಂತರ ಎಲ್ಲಾ ಕೆಲಸದ ಹರಿವುಗಳು, ರನ್‌ಗಳು ಮತ್ತು ಸಂಪರ್ಕಗಳನ್ನು ತೆಗೆದುಹಾಕುತ್ತದೆ.',
   'settings.danger.deleteWorkspace.title': 'ಕಾರ್ಯಸ್ಥಳವನ್ನು ಅಳಿಸಿ',
@@ -181,9 +221,13 @@ export const ui: UiTranslations = {
     'ನಿಮ್ಮ ಖಾತೆ, ಕಾರ್ಯಸ್ಥಳ, ಏಕೀಕರಣಗಳು ಮತ್ತು ಬಿಲ್ಲಿಂಗ್ ಅನ್ನು ಒಂದೇ ಸ್ಥಳದಲ್ಲಿ ನಿರ್ವಹಿಸಿ.',
   'settings.notifications.description':
     'ನೀವು ಯಾವ ಈವೆಂಟ್‌ಗಳ ಪುಟವನ್ನು ಆರಿಸಿಕೊಳ್ಳಿ, ನಿಮಗೆ ಇಮೇಲ್ ಮಾಡಿ ಅಥವಾ ಮೌನವಾಗಿರಿ.',
+  'settings.notifications.failures.hint': 'ಪ್ರತಿ ವಿಫಲ ರನ್ಗೂ ಇಮೇಲ್ ಮತ್ತು ಇನ್-ಆ್ಯಪ್ ಅಧಿಸೂಚನೆ.',
+  'settings.notifications.failures.title': 'ವರ್ಕ್ಫ್ಲೋ ವೈಫಲ್ಯಗಳು',
   'settings.notifications.product.hint':
     'ಹೊಸ ಟೆಂಪ್ಲೇಟ್‌ಗಳು ಮತ್ತು ವೈಶಿಷ್ಟ್ಯಗಳ ಕುರಿತು ಸಾಂದರ್ಭಿಕ ಇಮೇಲ್‌ಗಳು.',
+  'settings.notifications.product.title': 'ಉತ್ಪನ್ನ ನವೀಕರಣಗಳು',
   'settings.notifications.weekly.hint': 'ಸೋಮವಾರ ಬೆಳಿಗ್ಗೆ ಕಳೆದ ವಾರದ ಓಟಗಳು ಮತ್ತು ಉಳಿತಾಯದ ಸಾರಾಂಶ.',
+  'settings.notifications.weekly.title': 'ವಾರದ ಡೈಜೆಸ್ಟ್',
   'settings.profile.description':
     'ಕೆಲಸದ ಹರಿವಿನ ರನ್ನರ್ ಒಳಗೆ ನೀವು ಹೇಗೆ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತೀರಿ. ಕಾರ್ಯಸ್ಥಳದ ಚಟುವಟಿಕೆಯಲ್ಲಿ ಬಳಸಲಾಗುತ್ತದೆ.',
   'settings.profile.noEmail': 'ಯಾವುದೇ ಇಮೇಲ್ ದಾಖಲೆಯಲ್ಲಿಲ್ಲ.',
@@ -192,12 +236,23 @@ export const ui: UiTranslations = {
   'settings.profile.unnamedUser': 'ಹೆಸರಿಸದ ಬಳಕೆದಾರ',
   'settings.security.audit.hint':
     'ವೆಬ್‌ಹುಕ್ ಮೂಲಕ ನಿಮ್ಮ SIEM ಗೆ ಪ್ರತಿಯೊಂದು ಕ್ರಿಯೆಯನ್ನು ಸ್ಟ್ರೀಮ್ ಮಾಡಿ.',
+  'settings.security.audit.title': 'ಆಡಿಟ್ ಲಾಗ್ ಫಾರ್ವರ್ಡಿಂಗ್',
   'settings.security.description': 'ಎರಡು ಅಂಶಗಳ ದೃಢೀಕರಣ, SSO, ಮತ್ತು ಸಕ್ರಿಯ ಅವಧಿಗಳು.',
   'settings.security.sso.hint': 'ಸ್ಕೇಲ್ ಮತ್ತು ಎಂಟರ್‌ಪ್ರೈಸ್ ಯೋಜನೆಗಳಲ್ಲಿ ಲಭ್ಯವಿದೆ.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'ಯಾವುದೇ ವರ್ಕ್ಸ್ಪೇಸ್ ಮಾಲೀಕರ ಕ್ರಿಯೆಗೆ ಅಗತ್ಯವಿದೆ.',
+  'settings.security.totp.title': 'ಎರಡು-ಅಂಶ ದೃಢೀಕರಣ (TOTP)',
   'settings.twoFactorCode': 'ದೃಢೀಕರಣ ಕೋಡ್',
   'settings.twoFactorDisable': 'ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ',
+  'settings.twoFactorDisableTitle': 'ಎರಡು-ಅಂಶ ದೃಢೀಕರಣವನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ',
   'settings.twoFactorEnable': 'ಸಕ್ರಿಯಗೊಳಿಸಿ',
+  'settings.twoFactorEnableTitle': 'ಎರಡು-ಅಂಶ ದೃಢೀಕರಣವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ',
   'settings.twoFactorInvalidCode': 'ಅಮಾನ್ಯ ಕೋಡ್',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'ಎರಡು-ಅಂಶ QR ಕೋಡ್',
+  'settings.twoFactorScan':
+    'ನಿಮ್ಮ ದೃಢೀಕರಣ ಅಪ್ಲಿಕೇಶನ್ನಿಂದ ಈ QR ಕೋಡ್ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ, ನಂತರ 6-ಅಂಕಿಯ ಕೋಡ್ ನಮೂದಿಸಿ.',
+  'settings.twoFactorUnavailable': 'ಈ ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಎರಡು ಅಂಶದ ದೃಢೀಕರಣ ಲಭ್ಯವಿಲ್ಲ.',
   'settings.twoFactorVerify': 'ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಸಕ್ರಿಯಗೊಳಿಸಿ',
   'settings.workspace.description':
     'ನಿಮ್ಮ ತಂಡಕ್ಕಾಗಿ ಹಂಚಿಕೊಂಡ ಗುರುತು, ಪ್ರದೇಶ ಮತ್ತು ಡೀಫಾಲ್ಟ್‌ಗಳನ್ನು ಚಲಾಯಿಸಿ.',
@@ -227,6 +282,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'ಟೆಂಪ್ಲೇಟ್',
   'templates.description':
     'ಸಾಮಾನ್ಯ ಯಾಂತ್ರೀಕೃತಗೊಂಡ ಯಂತ್ರಗಳಿಗೆ ಪೂರ್ವ ನಿರ್ಮಿತ ನೀಲನಕ್ಷೆಗಳು. ಫೋರ್ಕ್, ಕಸ್ಟಮೈಸ್, ಹಡಗು.',
+  'templates.empty.filter': 'ನಿಮ್ಮ ಹುಡುಕಾಟಕ್ಕೆ ಯಾವುದೇ ಟೆಂಪ್ಲೇಟ್ಗಳು ಹೊಂದಿಕೆಯಾಗುತ್ತಿಲ್ಲ.',
   'templates.empty.first': 'ಇದೀಗ ಯಾವುದೇ ಟೆಂಪ್ಲೇಟ್‌ಗಳು ಲಭ್ಯವಿಲ್ಲ.',
   'templates.error': 'ಟೆಂಪ್ಲೇಟ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'templates.installs': 'ಸ್ಥಾಪಿಸುತ್ತದೆ',
@@ -252,6 +308,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ',
   'workflowBuilder.enable': 'ಸಕ್ರಿಯಗೊಳಿಸಿ',
   'workflowBuilder.error': 'ಕೆಲಸದ ಹರಿವನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'workflowBuilder.inspector.config': 'ಕಾನ್ಫಿಗ್',
+  'workflowBuilder.inspector.cron': 'Cron ಅಭಿವ್ಯಕ್ತಿ',
+  'workflowBuilder.inspector.disabled': 'ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ — ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಚಲಿಸುವುದಿಲ್ಲ.',
   'workflowBuilder.inspector.enabled': 'ಸಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ — ಟ್ರಿಗ್ಗರ್‌ನಲ್ಲಿ ಚಲಿಸುತ್ತದೆ.',
   'workflowBuilder.inspector.eyebrow': 'ಇನ್ಸ್‌ಪೆಕ್ಟರ್',
   'workflowBuilder.inspector.id': 'ಐಡಿ',
@@ -270,18 +329,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'ಟಾಗಲ್ ವಿಫಲವಾಗಿದೆ.',
   'workflowBuilder.workflow': 'ಕೆಲಸದ ಹರಿವು · v {{v}}',
   'workflowBuilder.zoom.in': 'ಜೂಮ್ ಇನ್ ಮಾಡಿ',
+  'workflowBuilder.zoom.label': 'ಕ್ಯಾನ್ವಾಸ್ ಜೂಮ್ ನಿಯಂತ್ರಣಗಳು',
+  'workflowBuilder.zoom.out': 'ಜೂಮ್ ಔಟ್ ಮಾಡಿ',
   'workflowCard.lastRun': 'ಕೊನೆಯ ಓಟ {{when}}',
   'workflowCard.runs': '{{count}} ಓಡುತ್ತದೆ',
+  'workflowCard.success': '{{rate}}% ಯಶಸ್ಸು',
   'workflowHeroCard.last24h': 'ಕಳೆದ 24 ಗಂಟೆಗಳು',
+  'workflows.browseTemplates': 'ಟೆಂಪ್ಲೇಟ್‌ಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ →',
   'workflows.description':
     'ನಿಮ್ಮ ಕಾರ್ಯಸ್ಥಳದಲ್ಲಿನ ಪ್ರತಿಯೊಂದು ಯಾಂತ್ರೀಕೃತಗೊಂಡ, ಆರೋಗ್ಯ ಮತ್ತು ಇತ್ತೀಚಿನ ಚಟುವಟಿಕೆಯ ಒಂದು ನೋಟ.',
+  'workflows.empty.body': 'ಫಿಲ್ಟರ್ ಅನ್ನು ತೆರವುಗೊಳಿಸಿ ಅಥವಾ ಟೆಂಪ್ಲೇಟ್ನಿಂದ ಪ್ರಾರಂಭಿಸಿ.',
   'workflows.empty.firstBody': 'ಕೆಲವೇ ಸೆಕೆಂಡುಗಳಲ್ಲಿ ಪ್ರಾರಂಭಿಸಲು ಟೆಂಪ್ಲೇಟ್ ಅನ್ನು ಸ್ಥಾಪಿಸಿ.',
   'workflows.empty.firstTitle': 'ಇನ್ನೂ ಯಾವುದೇ ಕೆಲಸದ ಹರಿವುಗಳಿಲ್ಲ',
   'workflows.empty.title': 'ಯಾವುದೇ ಕೆಲಸದ ಹರಿವುಗಳು ಹೊಂದಿಕೆಯಾಗುವುದಿಲ್ಲ',
   'workflows.error': 'ಕೆಲಸದ ಹರಿವುಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'workflows.eyebrow': 'ಗ್ರಂಥಾಲಯ · {{count}} ಒಟ್ಟು',
+  'workflows.loading': 'ವರ್ಕ್ಫ್ಲೋಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ…',
   'workflows.newFromTemplate': 'ಟೆಂಪ್ಲೇಟ್‌ನಿಂದ ಹೊಸದು',
   'workflows.searchPlaceholder': 'ಕಾರ್ಯಪ್ರವಾಹಗಳನ್ನು ಹುಡುಕಿ...',
+  'workflows.title': 'ವರ್ಕ್ಫ್ಲೋಗಳು',
   'workflowSidebar.brand': 'ಡೆಂಡ್ರೈಟ್',
   'workflowSidebar.status': 'ಎಲ್ಲಾ ವ್ಯವಸ್ಥೆಗಳು ಚಾಲನೆಯಲ್ಲಿವೆ',
   'workflowSidebar.tagline': 'ಚಲನೆಯಲ್ಲಿರುವ ಬುದ್ಧಿಮತ್ತೆ',

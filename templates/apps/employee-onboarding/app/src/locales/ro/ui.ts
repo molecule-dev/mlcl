@@ -1,26 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vrei să oferi echipei tale o integrare mai caldă, ai găsit o eroare sau ai sugestii? Scrie-ne din setările contului — fiecare mesaj ajunge la o persoană reală care te poate ajuta.',
   'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
+  'about.missionTitle': 'Misiunea noastră',
   'auth.forgotPassword.emailPlaceholder': 'nume@companiatavoastră.com',
   'auth.forgotPassword.heading': 'Resetează-ți parola.',
+  'auth.forgotPassword.panel.body':
+    'Resetarea durează 30 de secunde — progresul listei tale te așteaptă.',
+  'auth.forgotPassword.panel.headline': 'Exact de unde ai rămas.',
+  'auth.forgotPassword.subheading':
+    'Introdu e-mailul de serviciu și îți trimitem un link de resetare.',
   'auth.forgotPassword.successSubheading':
     'Verifică-ți căsuța poștală — ți-am trimis instrucțiuni de resetare.',
   'auth.login.emailPlaceholder': 'nume@companiatavoastră.com',
   'auth.login.heading': 'Bine ai revenit.',
   'auth.login.passwordPlaceholder': 'Parola dumneavoastră',
+  'auth.login.signupPrompt': 'Ești nou în echipă?',
   'auth.login.subheading': 'Conectează-te pentru a relua procesul de integrare de unde ai rămas.',
   'auth.login.submit': 'Continuă-ți călătoria',
+  'auth.panel.body':
+    'Lista ta personală, etapele de formare și prezentările echipei — toate într-un singur loc liniștit.',
   'auth.panel.footnote': '© Embark — integrăm oamenii pe primul loc încă de astăzi.',
   'auth.panel.headline': 'Primele 90 de zile pline de încredere încep aici.',
   'auth.resetPassword.heading': 'Stabilește o nouă parolă.',
   'auth.resetPassword.newPasswordLabel': 'Parolă nouă',
+  'auth.resetPassword.panel.body':
+    'Salvează o parolă nouă și te readucem direct în parcursul tău de integrare.',
+  'auth.resetPassword.panel.headline': 'Aproape ai revenit.',
   'auth.resetPassword.subheading': 'Alege ceva ce îți vei aminti — cel puțin 8 caractere.',
   'auth.signup.emailPlaceholder': 'nume@companiatavoastră.com',
   'auth.signup.heading': 'Bine ați venit în primele 90 de zile.',
   'auth.signup.panel.body':
     'O listă de verificare ghidată, instruire bazată pe roluri și prezentări umane — gata înainte de a intra.',
+  'auth.signup.panel.headline': 'Prima zi, chiar în prima zi.',
   'auth.signup.subheading':
     'Creează-ți contul Embark pentru a începe călătoria ta ghidată de integrare.',
   'checklist.empty.body': 'Schimbă filtrul pentru a vedea alte sarcini.',
@@ -28,6 +43,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'Listă de verificare pentru integrare',
   'checklist.loading': 'Se încarcă lista de verificare…',
   'checklist.stat.actionNeeded': 'Acțiune necesară',
+  'checklist.stat.completion': 'Finalizare',
+  'checklist.stat.inProgress': 'În curs',
   'checklist.stat.inProgressHelper': 'Continuă de unde ai rămas',
   'checklist.stat.overdueHelper': 'Prinde-le mai întâi',
   'checklist.subtitle':
@@ -59,6 +76,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Încă nu există documente',
   'documents.eyebrow': 'Integrare · Documente',
   'documents.loading': 'Se încarcă documentele…',
+  'documents.stat.actionNeeded': 'Semnează acum',
+  'documents.stat.all': 'Toate documentele',
   'documents.stat.allHelper': 'În toate categoriile',
   'documents.stat.pending': 'Semnături în așteptare',
   'documents.stat.pendingHelper': 'Necesar pentru finalizare',
@@ -66,16 +85,21 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Depozitat în siguranță',
   'documents.status.optional': 'Opțional',
   'documents.status.required': 'Necesar',
+  'documents.status.signed': 'Semnat',
   'documents.subtitle': 'Manualul, formularele și acordurile semnate — toate într-un singur loc.',
   'documents.title': 'Tot ce trebuie să citești și să semnezi.',
   'documents.uploadedRecently': 'Încărcate recent',
   'documentViewer.breadcrumbCurrent': 'Vizualizator',
   'documentViewer.breadcrumbDocs': 'Documente',
   'documentViewer.downloadMeta': 'Descărcați metadatele',
+  'documentViewer.helpBody':
+    'People & Culture răspunde la întrebări despre manual în #ask-people pe Slack.',
   'documentViewer.helpEyebrow': 'Ai nevoie de ajutor?',
   'documentViewer.loadError': 'Nu am putut încărca acest document.',
   'documentViewer.loading': 'Se încarcă documentul…',
   'documentViewer.notFound': 'Document negăsit',
+  'documentViewer.previewBody':
+    'Când încărcările sunt configurate, afișăm fișierul direct în pagină. Deocamdată, descărcarea metadatelor te ajută să confirmi că înregistrarea este reală.',
   'documentViewer.previewBodyExternal':
     'Folosește butonul de descărcare pentru a deschide fișierul într-o filă nouă.',
   'documentViewer.previewTitle': 'Previzualizare document',
@@ -83,6 +107,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Citiți documentul, apoi faceți clic mai jos pentru a semna și a confirma.',
   'documentViewer.signatureHeading': 'Semnătură necesară',
+  'documentViewer.signed': '✓ Semnat și arhivat',
   'documentViewer.signing': 'Semnare…',
   'documentViewer.uploadedRecently': 'Încărcate recent',
   'landing.closing.body':
@@ -92,10 +117,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Am deja un cont',
   'landing.feature1.body':
     'Fiecare sarcină — documente, conturi, prezentări — este pre-pregătită cu date scadente și proprietarul potrivit.',
+  'landing.feature1.title': 'O listă ghidată',
   'landing.feature2.body':
     'Modulele se deblochează la atingerea a 30/60/90 de etape, în funcție de rolul și echipa la care se alătură angajatul.',
+  'landing.feature2.title': 'Formare în funcție de rol',
   'landing.feature3.body':
     'Prieteni, manageri și prezentări interfuncționale programate — astfel încât nimeni să nu înceapă singur.',
+  'landing.feature3.title': 'Prezentări reale',
   'landing.featureEyebrow': 'De ce să te îmbarci',
   'landing.featureHeadline': 'Trei moduri în care Embark câștigă încredere încă din prima zi.',
   'landing.footer.rights': 'Toate drepturile rezervate.',
@@ -105,6 +133,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Următorul lucru: Întâlnește-te cu prietenul tău pentru o discuție de 30 de minute la o cafea — marți, ora 10:00.',
   'landing.preview.eyebrow': 'Ziua 14 din 90 — exemplu de tablou de bord',
+  'landing.preview.headline': 'Bine ai revenit, Maya.',
   'landing.proof.spec': 'Pregătit pentru SOC 2 + GDPR',
   'landing.proof.teams': 'Construit pentru echipe de 50–5.000 de persoane',
   'landing.proof.time': 'Perioadă de încercare gratuită de 14 zile',
@@ -121,16 +150,25 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'ieri',
   'planUpdated.message': 'Ești gata.',
   'planUpdated.preparing': 'Se actualizează planul…',
+  'planUpdated.retry': 'Încercați din nou',
+  'planUpdated.verifyFailed': 'Nu am putut încă să vă confirmăm plata.',
+  'planUpdated.verifyFailedBody':
+    'Este posibil ca plata dvs. să fie încă în curs de procesare. Încercați din nou imediat.',
   'planUpdated.verifying': 'Se confirmă plata…',
   'pricing.documentsLabel': 'documente',
   'pricing.onboardingsLabel': 'integrări',
   'pricing.tasksLabel': 'sarcini',
   'profile.dayNumber': 'Zi',
   'profile.detailsHeading': 'Detalii privind integrarea',
+  'profile.encouragementBody': 'Ține-ți buddy-ul și managerul la curent — pașii mici se adună.',
   'profile.milestones': 'Repere',
   'profile.progressEyebrow': 'Progresul în procesul de integrare',
   'profile.tasks': 'Sarcini',
   'profile.unknownName': 'Bun venit',
+  'settings.appearance.description': 'Comutați între modul luminos și întunecat.',
+  'settings.appearance.title': 'Aspect',
+  'settings.subtitle':
+    'Reglează notificările, securitatea, dispozitivele și exportul datelor — totul rămâne aici, după regulile tale.',
   'settings.title': 'Setări și preferințe.',
   'taskDetail.backToChecklist': 'Înapoi la lista de verificare',
   'taskDetail.breadcrumbChecklist': 'Listă de verificare',
@@ -143,7 +181,10 @@ export const ui: UiTranslations = {
   'taskDetail.notFound': 'Sarcina nu a fost găsită',
   'taskDetail.notFoundBody':
     'Este posibil ca această sarcină să fi fost ștearsă sau să aparțină unui alt utilizator.',
+  'taskDetail.tipBody':
+    'Dacă ești blocat, scrie-i buddy-ului tău de integrare pe Slack — el este primul tău sprijin.',
   'taskDetail.tipEyebrow': 'Sfat rapid',
+  'team.empty.body': 'Încearcă o căutare mai largă sau alege alt departament.',
   'team.empty.title': 'Niciun coechipier nu se potrivește',
   'team.eyebrow': 'Integrare · Persoane',
   'team.loading': 'Se încarcă coechipierii…',
@@ -166,14 +207,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Repere',
   'timeline.stat.current': 'Etapa actuală',
   'timeline.stat.next': 'Următoarea deblocare',
+  'timeline.stat.progress': 'General',
   'timeline.subtitle':
     'Fiecare etapă importantă deblochează noi module, introduceri și conversații despre dezvoltare. Fără presiune - doar progres.',
+  'timeline.tipBody':
+    'Programează o discuție de 30 de minute în zilele 30, 60 și 90 cu managerul tău — astfel feedbackul devine concret, iar progresul vizibil.',
   'timeline.tipEyebrow': 'Sfat pentru manager',
+  'timeline.tipTitle': 'Blochează timp în calendar pentru etape.',
   'timeline.title': 'Călătoria ta de 30/60/90.',
   'training.badge.notStarted': 'Neînceput',
   'training.empty': 'Încă nu există module de instruire.',
   'training.eyebrow': 'Integrare · Instruire',
   'training.loading': 'Se încarcă modulele…',
+  'training.stat.all': 'Module atribuite',
   'training.subtitle':
     'Modulele se deblochează la 30/60/90 pentru a se potrivi rolului tău. Cele obligatorii sunt primele.',
   'training.title': 'Abilități, instrumente și povești — în ritmul tău.',
@@ -186,9 +232,12 @@ export const ui: UiTranslations = {
   'trainingModule.quizBody':
     'Obțineți un scor de 80% sau mai mult pentru a considera acest modul finalizat.',
   'trainingModule.quizHeading': 'Test de sfârșit de modul',
+  'trainingModule.quizLocked': 'Începe mai întâi modulul',
   'trainingModule.quizNone': 'Nu există test pentru acest modul.',
   'trainingModule.quizRetry': 'Încercați din nou',
+  'trainingModule.quizStart': 'Începe testul',
   'trainingModule.quizSubmit': 'Trimiteți răspunsurile',
+  'trainingModule.start': 'Începe modulul',
   'trainingModule.statusNotStarted': 'Neînceput',
   'welcomeHeroCard.completeLabel': 'Complet',
   'welcomeHeroCard.milestonesLabel': 'Repere',

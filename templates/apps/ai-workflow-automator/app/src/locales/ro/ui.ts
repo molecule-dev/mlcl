@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite este o platformă de automatizare a fluxurilor de lucru care conectează declanșatoare, condiții AI și acțiuni în mai mulți pași, astfel încât echipele să poată muta munca între sisteme fără a scrie cod de legătură.',
+  'about.philosophy':
+    'Fiecare flux de lucru este un graf de pași mici și observabili. Fiecare pas își înregistrează intrările, ieșirile și durata, astfel încât să poată fi inspectat, reluat sau anulat. Compune-le vizual, versionează-le ca pe cod.',
   'about.title': 'Despre Dendrite',
   'authShell.brand': 'Dendrite',
   'authShell.support': 'Asistență',
@@ -15,9 +17,14 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Schimbă planul',
   'billing.description':
     'Urmăriți utilizarea, gestionați planul și descărcați facturi pentru contabilitate.',
+  'billing.eyebrow': 'Cont · Plan și utilizare',
+  'billing.failedLabel': 'Execuții eșuate · 24h',
+  'billing.invoicesEmpty': 'Încă nu există facturi. Vor apărea aici după prima reînnoire plătită.',
   'billing.invoicesTitle': 'Istoricul facturilor',
   'billing.planNoteFree':
     'Nivel gratuit — {{runs}} rulări și {{workflows}} fluxuri de lucru active. Faceți upgrade pentru limite mai mari.',
+  'billing.planNotePaid':
+    'Plan plătit — {{runs}} execuții și {{workflows}} fluxuri de lucru active.',
   'billing.runsLabel': 'Rulări în ultimele 24 de ore',
   'billing.tiersBlurb':
     'Comparați fiecare nivel — rulări, fluxuri de lucru active, funcții avansate și asistență — pe pagina de prețuri dedicată.',
@@ -35,10 +42,14 @@ export const ui: UiTranslations = {
     'Nicio integrare înregistrată. Configurați cheile furnizorilor pentru a activa legăturile.',
   'connections.error': 'Nu s-au putut încărca conexiunile.',
   'connections.eyebrow': 'Integrări · {{connected}} conectate',
+  'connections.loading': 'Se încarcă integrările…',
+  'connections.openEnv':
+    'Pentru a conecta acest furnizor, setează cheia sa API în api/.env și repornește serverul.',
   'dashboard.description':
     '{{active}} fluxuri de lucru active. {{failed}} au eșuat în ultimele 24 de ore.',
   'dashboard.error': 'Nu s-a putut încărca tabloul de bord.',
   'dashboard.eyebrow': 'Operațiuni · live',
+  'dashboard.hero.label': 'Execuții astăzi',
   'dashboard.hero.medianLatency': 'Latență p50',
   'dashboard.hero.queue': 'Adâncimea cozii',
   'dashboard.hero.success': 'Succes',
@@ -46,14 +57,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Durată mediană',
   'dashboard.kpi.failedRuns': 'Eșuate · 24 h',
   'dashboard.kpi.outOf': 'din {{total}} total',
+  'dashboard.kpi.successRate': 'Rată de succes · 24h',
   'dashboard.loading': 'Se încarcă tabloul de bord…',
   'dashboard.recentRuns.empty':
     'Nicio rulare încă. Declanșați un flux de lucru pentru a popula acest flux.',
   'dashboard.recentRuns.title': 'Rulări recente',
   'dashboard.recentRuns.viewAll': 'Deschide execuțiile →',
+  'dashboard.recentWorkflows.browse': 'Răsfoiți șabloanele →',
   'dashboard.recentWorkflows.empty':
     'Niciun flux de lucru încă. Instalați un șablon sau construiți unul de la zero.',
   'dashboard.recentWorkflows.title': 'Recent rulate',
+  'dashboard.run.col.run': 'Alergați',
   'dashboard.run.col.started': 'Pornit',
   'dashboard.run.col.trigger': 'Declanșator',
   'dashboard.run.col.workflow': 'Flux de lucru',
@@ -89,6 +103,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Flux de lucru',
   'executions.description':
     'Fiecare rulare a fluxului de lucru, fiecare reîncercare, fiecare ieșire a pasului — toate observabile.',
+  'executions.empty.filter': 'Nicio execuție nu corespunde acestui filtru.',
   'executions.empty.first':
     'Nicio rulare încă — declanșați un flux de lucru pentru a popula această listă.',
   'executions.error': 'Nu s-au putut încărca execuțiile.',
@@ -99,30 +114,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Se încarcă istoricul rulărilor…',
   'executions.title': 'Execuții',
   'forgotPassword.confirmation': 'Link de resetare trimis la {{email}}.',
+  'forgotPassword.subhead': 'Introduceți adresa de email pentru a primi un link de resetare.',
   'forgotPassword.successSubhead':
     'Am trimis un link de resetare la {{email}}. Expiră în 30 de minute.',
   'help.connections.body':
     'Pașii AI, e-mail și stocare necesită ca cheile furnizorilor să fie setate în fișierul api/.env. Odată ce o cheie este configurată, integrarea corespunzătoare apare ca conectată pe pagina Conexiuni.',
+  'help.connections.cta': 'Deschide conexiunile →',
   'help.connections.title': 'Conectarea furnizorilor',
   'help.gettingStarted.body':
     'Noile fluxuri de lucru pot fi instalate din biblioteca de șabloane sau construite de la zero în generatorul de fluxuri de lucru. Fiecare flux de lucru are un declanșator (manual, webhook sau cron) și o secvență de pași care se execută în ordine.',
+  'help.gettingStarted.cta': 'Răsfoiește biblioteca de șabloane →',
+  'help.gettingStarted.title': 'Primii pași',
   'help.intro':
     'Găsiți răspunsuri la întrebări frecvente despre construirea fluxurilor de lucru, configurarea conexiunilor și interpretarea rezultatelor rulărilor. Cele mai frecvente subiecte sunt enumerate mai jos; pentru orice altceva, contactați administratorul spațiului de lucru.',
   'help.runs.body':
     'Fiecare rulare înregistrează fiecare pas independent cu starea (succes, eșec, sărit) și un fragment din ieșire. Pagina de detalii a execuției afișează urmărirea completă pas cu pas plus metrici deduse.',
+  'help.runs.cta': 'Deschide execuțiile →',
   'help.runs.title': 'Citirea rezultatelor rulărilor',
   'help.title': 'Centru de ajutor',
   'integrationCard.manage': 'Gestionează',
   'landing.brand': 'Dendrite',
   'landing.demo.action.subtitle': 'Round-robin · teritoriu',
+  'landing.demo.action.title': 'Anunță reprezentantul',
   'landing.demo.condition.subtitle': 'Clasificator de intenție AI',
+  'landing.demo.condition.title': 'Scor ≥ mediu?',
   'landing.demo.trigger.subtitle': 'POST /forms/contact',
   'landing.demo.trigger.title': 'Webhook de intrare',
+  'landing.features.body':
+    'Declanșatorii pornesc. Condițiile ramifică. Acțiunile livrează munca. Compune-le vizual, versionează-le ca pe cod.',
   'landing.features.heading': 'Trei tipuri de noduri. Forme infinite.',
   'landing.footer.help': 'Ajutor',
   'landing.footer.tagline': 'Inteligență în mișcare',
+  'landing.hero.body':
+    '{{appName}} este motorul de fluxuri de lucru pentru echipele de operațiuni care au depășit Zapier. Declanșator, condiție, acțiune — conectate la fiecare sistem pe care îl folosești cu adevărat.',
   'landing.hero.eyebrow': 'Inteligență în mișcare',
   'landing.hero.headline': 'Conectați-vă stiva. Lăsați munca să se întâmple.',
+  'landing.hero.primaryCta': 'Creează primul tău flux de lucru',
   'landing.hero.proof.ai': 'Noduri AI încorporate',
   'landing.hero.proof.free': 'Gratuit pentru 1.000 de rulări/lună',
   'landing.hero.proof.soc2': 'SOC 2 Type II',
@@ -130,10 +157,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Plătiți pentru rulări, nu pentru locuri.',
   'landing.templates.body':
     'Fluxuri de lucru pre-configurate pentru orice echipă — vânzări, asistență, devops, finanțe. Instalați cu un clic; personalizați orice.',
+  'landing.templates.cta': 'Înscrie-te pentru a răsfoi șabloanele →',
   'landing.templates.eyebrow': 'Începeți în câteva secunde',
   'landing.templates.heading': 'O bibliotecă de rețete verificate.',
   'landing.templates.signupHint': 'Înregistrați-vă pentru a instala',
   'login.hidePassword': 'Ascundeți parola',
+  'login.noAccount': 'Nou în Tessera?',
   'login.showPassword': 'Afișați parola',
   'login.subhead': 'Autentificați-vă pentru a vă menține automatizările în funcțiune.',
   'mobileNav.drawerLabel': 'Navigare principală',
@@ -149,8 +178,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Rulați un flux de lucru pentru a începe să populați acest flux.',
   'notifications.empty.title': 'Sunteți la zi',
   'notifications.eyebrow': '{{n}} necitite',
+  'planUpdated.body':
+    'Modificarea facturării este acum activă. Îți poți gestiona planul oricând din pagina de facturare.',
+  'planUpdated.retry': 'Încercați din nou',
+  'planUpdated.verifyFailed': 'Nu am putut încă să vă confirmăm plata.',
+  'planUpdated.verifyFailedBody':
+    'Este posibil ca plata dvs. să fie încă în curs de procesare. Încercați din nou imediat.',
   'planUpdated.verifying': 'Se confirmă plata…',
   'pricing.heading': 'rulări',
+  'pricing.runsSuffix': 'execuții',
   'pricing.workflowsSuffix': 'fluxuri de lucru',
   'privacy.collect.body':
     'Colectăm adresa de e-mail cu care vă înregistrați, fluxurile de lucru pe care le configurați și metadatele despre fiecare rulare (ora de început, ora de sfârșit, starea). Nu colectăm și nu stocăm niciodată conținutul din declanșatoare sau ieșiri de pași dincolo de ceea ce este necesar pentru afișarea în vizualizatorul de rulări pentru proprietarul spațiului de lucru.',
@@ -166,12 +202,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Nu s-a putut actualiza parola.',
   'resetPassword.newPassword': 'Parolă nouă',
   'resetPassword.subhead': 'Alegeți ceva pe care numai dvs. l-ați ghici.',
+  'settings.appearance.description': 'Comutați între modul luminos și întunecat.',
+  'settings.appearance.title': 'Aspect',
   'settings.billingShortcut.cta': 'Deschideți facturarea',
   'settings.billingShortcut.description':
     'Planul, utilizarea și facturile se găsesc pe pagina dedicată de facturare.',
   'settings.danger.confirm':
     'Sunteți sigur? Aceasta va pune spațiul dvs. de lucru în coada de ștergere.',
   'settings.danger.confirmYes': 'Da, pune în coada de ștergere',
+  'settings.danger.deleteWorkspace.cta': 'Ștergeți spațiul de lucru',
   'settings.danger.deleteWorkspace.hint':
     'Elimină toate fluxurile de lucru, rulările și conexiunile după o perioadă de grație de 14 zile.',
   'settings.danger.deleteWorkspace.title': 'Ștergeți spațiul de lucru',
@@ -183,9 +222,14 @@ export const ui: UiTranslations = {
     'Gestionați contul, spațiul de lucru, integrările și facturarea într-un singur loc.',
   'settings.notifications.description':
     'Alegeți ce evenimente vă notifică, vă trimit e-mail sau rămân silențioase.',
+  'settings.notifications.failures.hint':
+    'Notificare prin e-mail și în aplicație la fiecare execuție eșuată.',
+  'settings.notifications.failures.title': 'Eșecuri ale fluxurilor de lucru',
   'settings.notifications.product.hint': 'E-mailuri ocazionale despre șabloane și funcții noi.',
+  'settings.notifications.product.title': 'Actualizări de produs',
   'settings.notifications.weekly.hint':
     'Rezumat de luni dimineața al rulărilor și economiilor din săptămâna anterioară.',
+  'settings.notifications.weekly.title': 'Rezumat săptămânal',
   'settings.profile.description':
     'Cum apăreați în executorul de fluxuri de lucru. Utilizat în activitatea spațiului de lucru.',
   'settings.profile.noEmail': 'Niciun e-mail înregistrat',
@@ -193,12 +237,25 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Nu s-au putut salva modificările profilului.',
   'settings.profile.unnamedUser': 'Utilizator fără nume',
   'settings.security.audit.hint': 'Transmiteți fiecare acțiune către SIEM-ul dvs. prin webhook.',
+  'settings.security.audit.title': 'Redirecționarea jurnalului de audit',
   'settings.security.description': 'Autentificare cu doi factori, SSO și sesiuni active.',
   'settings.security.sso.hint': 'Disponibil în planurile Scale și Enterprise.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint':
+    'Necesară pentru orice acțiune a proprietarului spațiului de lucru.',
+  'settings.security.totp.title': 'Autentificare în doi factori (TOTP)',
   'settings.twoFactorCode': 'Cod de autentificare',
   'settings.twoFactorDisable': 'Dezactivați',
+  'settings.twoFactorDisableTitle': 'Dezactivează autentificarea în doi factori',
   'settings.twoFactorEnable': 'Activați',
+  'settings.twoFactorEnableTitle': 'Activează autentificarea în doi factori',
   'settings.twoFactorInvalidCode': 'Cod nevalid',
+  'settings.twoFactorOn': 'Pe',
+  'settings.twoFactorQrAlt': 'Cod QR pentru autentificare în doi pași',
+  'settings.twoFactorScan':
+    'Scanează acest cod QR cu aplicația ta de autentificare, apoi introdu codul din 6 cifre.',
+  'settings.twoFactorUnavailable':
+    'Autentificarea cu doi factori nu este disponibilă pentru această aplicație.',
   'settings.twoFactorVerify': 'Verifică și activează',
   'settings.workspace.description':
     'Identitate comună, regiune și valori implicite pentru rulare pentru echipa dvs.',
@@ -227,6 +284,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Șablon',
   'templates.description':
     'Planuri pre-construite pentru cele mai comune automatizări. Bifurcați, personalizați, livrați.',
+  'templates.empty.filter': 'Niciun șablon nu corespunde căutării tale.',
   'templates.empty.first': 'Niciun șablon disponibil momentan.',
   'templates.error': 'Nu s-au putut încărca șabloanele.',
   'templates.installs': 'instalări',
@@ -252,6 +310,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Dezactivați',
   'workflowBuilder.enable': 'Activați',
   'workflowBuilder.error': 'Nu s-a putut încărca fluxul de lucru.',
+  'workflowBuilder.inspector.config': 'Config',
+  'workflowBuilder.inspector.cron': 'Expresie cron',
+  'workflowBuilder.inspector.disabled': 'Dezactivat — nu va rula automat.',
   'workflowBuilder.inspector.enabled': 'Activat — rulează la declanșare.',
   'workflowBuilder.inspector.eyebrow': 'Inspector',
   'workflowBuilder.inspector.id': 'ID',
@@ -269,18 +330,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Comutarea a eșuat.',
   'workflowBuilder.workflow': 'Flux de lucru · v{{v}}',
   'workflowBuilder.zoom.in': 'Mărește',
+  'workflowBuilder.zoom.label': 'Controale de zoom ale planșei',
+  'workflowBuilder.zoom.out': 'Micșorează',
   'workflowCard.lastRun': 'Ultima rulare {{when}}',
   'workflowCard.runs': '{{count}} rulări',
+  'workflowCard.success': '{{rate}}% succes',
   'workflowHeroCard.last24h': 'Ultimele 24 h',
+  'workflows.browseTemplates': 'Răsfoiți șabloanele →',
   'workflows.description':
     'Toate automatizările din spațiul dvs. de lucru, cu starea de sănătate și activitatea recentă dintr-o privire.',
+  'workflows.empty.body': 'Încearcă să ștergi filtrul sau pornește de la un șablon.',
   'workflows.empty.firstBody': 'Instalați un șablon pentru a începe în câteva secunde.',
   'workflows.empty.firstTitle': 'Niciun flux de lucru încă',
   'workflows.empty.title': 'Niciun flux de lucru nu se potrivește',
   'workflows.error': 'Nu s-au putut încărca fluxurile de lucru.',
   'workflows.eyebrow': 'Bibliotecă · {{count}} total',
+  'workflows.loading': 'Se încarcă fluxurile de lucru…',
   'workflows.newFromTemplate': 'Nou din șablon',
   'workflows.searchPlaceholder': 'Căutați fluxuri de lucru…',
+  'workflows.title': 'Fluxuri de lucru',
   'workflowSidebar.brand': 'Dendrite',
   'workflowSidebar.status': 'Toate sistemele funcționează',
   'workflowSidebar.tagline': 'Inteligență în mișcare',

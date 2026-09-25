@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
+  'about.featureConnections':
+    'Yhteyksien hallinta, joka tallentaa tietokantasi turvallisesti ja värikoodaa ne — tunnukset salataan levossa, ei koskaan selkokielisinä.',
+  'about.featureMonitoring':
+    'Kyselyjen suorituskyvyn ja tietokantatoiminnan reaaliaikainen seuranta, sekä pikanäppäimet ja komentopaletti, joilla kaikkea voi ohjata koskematta hiireen.',
+  'about.featurePlans':
+    'Suunnitelmat, jotka kasvavat kanssasi — Free itsenäiseen työhön, Pro ja Team useampiin yhteyksiin, pidempään kyselyhistoriaan, vientiin ja edistyneisiin ominaisuuksiin.',
+  'about.featureQueryEditor':
+    'Monaco-pohjainen SQL-editori, jossa on kyselyhistoria, tallennetut kyselyt ja tulosten CSV-vienti yhdellä napsautuksella.',
+  'about.featureSchema':
+    'Skeeman selain ja tauluselain tietokantojen, taulujen ja sarakkeiden selaamiseen sekä rivien selaamiseen, suodattamiseen ja muokkaamiseen suoraan.',
+  'about.missionTitle': 'Missiomme',
   'authShell.commands': 'Komennot',
   'authShell.ssoSupported': 'SSO-tuki',
   'common.run': 'Suorita',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Kyselyt',
   'connections.schema': 'Kaavio',
   'connections.subtitle': 'Hallitse tietokantayhteyksiäsi.',
+  'connections.test': 'Testi',
   'databaseAdminLayout.adminRole': 'Järjestelmänvalvojan rooli',
   'databaseAdminLayout.commandPalette': 'Komentopaletti',
   'databaseAdminLayout.commands': 'komennot',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Uusi yhteys',
   'databaseAdminLayout.queries': 'Kyselyt',
   'databaseAdminLayout.ready': 'Valmis',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Hae komentoja, kyselyitä, tauluja…',
   'databaseAdminLayout.user': 'Käyttäjä',
   'editConnection.confirmDelete': 'Poistetaanko tämä yhteys?',
   'editConnection.deleteButton': 'Poista yhteys',
+  'editConnection.newPassword': 'Uusi salasana (jätä tyhjäksi säilyttääksesi)',
   'editConnection.saved': 'Yhteys on tallennettu.',
   'editConnection.title': 'Muokkaa yhteyttä',
   'forgotPassword.success': 'Jos kyseinen tili on olemassa, nollauslinkki lähetetään sinulle pian.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Menestykset',
   'monitoring.title': 'Seuranta',
   'monitoring.totalQueries': 'Yhteensä kyselyitä',
+  'nav.schema': 'Kaavio',
   'newConnection.database': 'Tietokanta',
   'newConnection.engine': 'Moottori',
   'newConnection.host': 'Isäntä',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Tähän koodinpätkään ei ole liitetty yhteyttä.',
   'savedQuery.notBound': 'Ei sidottu',
   'savedQuery.title': 'Tallennettu kysely',
+  'schema.columns': 'Sarakkeet',
   'schema.foreignKeys': 'Vierasilmukat',
   'schema.indexes': 'Hakemistot',
   'schemaExplorer.browseRows': 'Selaa rivejä',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'nollattavissa oleva',
   'schemaExplorer.colType': 'tyyppi',
   'schemaExplorer.noColumns': 'Ei sarakkeita.',
+  'schemaExplorer.noForeignKeys': 'Ei vieraita avaimia.',
   'schemaExplorer.noIndexes': 'Ei hakemistoja.',
   'schemaExplorer.noTables': 'Ei taulukoita',
   'schemaExplorer.pickATable': 'Valitse taulukko sivupalkista.',
   'schemaExplorer.tables': 'Taulukot',
   'schemaExplorer.title': 'Skeemanselain',
+  'settings.session': 'Istunto',
   'settings.subtitle': 'Hallinnoi tiliäsi ja pakettiasi.',
   'signup.heading': 'Luo Quarry-tili',
   'signup.tagline': 'Käynnistä palvelu alle minuutissa.',
   'tableBrowser.noRows': 'Tässä taulukossa ei ole vielä rivejä.',
+  'tableBrowser.subtitle': 'Selataan rivejä etätietokannastasi.',
   'tableBrowser.title': 'Etätietokannan rivien selaaminen.',
 }

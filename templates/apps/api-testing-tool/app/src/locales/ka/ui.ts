@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'იპოვეთ ხარვეზი, გაქვთ ფუნქციის მოთხოვნა, ან გვინდა გითხრათ, რა უნდა ავაშენოთ შემდეგ? მოგვწერეთ hello@pylon.dev-ზე — ყველა შეტყობინება ხვდება გუნდის რეალურ ინჟინერს.',
   'about.contactTitle': 'დაგვიკავშირდით',
+  'about.intro':
+    '{{app}} არის სწრაფი, კლავიატურაზე ორიენტირებული API ტესტირების სამუშაო სივრცე ინჟინრებისთვის, რომლებიც ტერმინალში ცხოვრობენ — Postman-ის სტილის მოთხოვნები, კოლექციები, გარემოები და ისტორია ზედმეტი სიმძიმის გარეშე.',
+  'about.missionBody':
+    'API-ები თანამედროვე პროგრამული უზრუნველყოფის ხერხემალია, მაგრამ მათი გამოყენების ხელსაწყოები ნელი, მძიმე და მაუსზე დამოკიდებულია. {{app}} არსებობს, რომ დეველოპერებს მისცეს მკვეთრი, სწრაფი, ტერმინალის დონის სამუშაო სივრცე: გაუშვით მოთხოვნები, გაიძლიერეთ ნდობა და გამოუშვით პროდუქტი კლავიატურის დატოვების გარეშე.',
+  'about.missionTitle': 'ჩვენი მისია',
   'about.pageTitle': '{{app}}-ის შესახებ',
   'authShell.statusLabel': 'მორბენლები ონლაინ',
   'collections.createError': 'კოლექციის შექმნა ვერ მოხერხდა.',
   'collections.defaultName': 'უსათაურო კოლექცია {{n}}',
+  'collections.empty':
+    'ჯერ კოლექციები არ არის — დააჭირეთ „ახალი კოლექცია“, რომ შექმნათ თქვენი პირველი საქაღალდე.',
   'collections.eyebrow': '$ პილონის კოლექციები --tree',
   'collections.fetchError': 'კოლექციების ჩატვირთვა ვერ მოხერხდა.',
   'collections.heading': 'კოლექციები',
   'collections.loading': 'კოლექციების ჩატვირთვა…',
+  'collections.metric.allGreen': 'ყველაფერი მწვანეა',
   'collections.metric.collections': 'კოლექციები',
   'collections.metric.failing': 'წარუმატებლობა',
   'collections.metric.failingCaption': 'ბოლო გაშვება წარუმატებლობებით დასრულდა',
@@ -24,6 +34,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'ცვლადები',
   'environments.createError': 'გარემოს შექმნა ვერ მოხერხდა.',
   'environments.defaultName': 'უსათაურო გარემო {{n}}',
+  'environments.empty': 'ჯერ გარემოები არ არის — დააჭირეთ „ახალი გარემო“, რომ დაამატოთ ერთი.',
   'environments.eyebrow': '$ პილონის გარემო --switch',
   'environments.fetchError': 'გარემოების ჩატვირთვა ვერ მოხერხდა.',
   'environments.heading': 'გარემო',
@@ -31,8 +42,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'ახალი გარემო',
   'environments.subheading':
     'ცვლადები, რომლებიც გაგზავნის დროს მოთხოვნებად გადაიქცევა. თითო აქტიური გარემო თითო სამუშაო სივრცეზე.',
+  'forgotPassword.statusLabel': 'გადატვირთვა · უსაფრთხო გვირაბი',
   'forgotPassword.success':
     'თუ ამ ელფოსტისთვის ანგარიში არსებობს, გადატვირთვის ბმული უკვე გამოგეგზავნებათ. შეამოწმეთ თქვენი შემოსულები.',
+  'history.empty': 'აქ ჯერ არაფერია — გაუშვით თქვენი პირველი მოთხოვნა სამუშაო სივრცის ჩანართიდან.',
   'history.eyebrow': '$ პილონის ისტორია --tail',
   'history.fetchError': 'ისტორიის ჩატვირთვა ვერ მოხერხდა.',
   'history.heading': 'გაშვების ისტორია',
@@ -41,9 +54,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'ბოლო 50',
+  'history.realtime': 'რეალურ დროში',
   'history.subheading':
     'ამ სამუშაო სივრცეში გაგზავნილი ყველა მოთხოვნა, სტატუსით, შეყოვნებითა და დატვირთვის ზომით.',
   'landing.choosePlan': 'გეგმის არჩევა',
+  'landing.copyright': '© {{year}} {{app}} Engineering. გაიძლიერეთ ნდობა.',
   'landing.ctaBody':
     'საკრედიტო ბარათი არ არის საჭირო. პლატფორმის ინჟინერი არ არის საჭირო. გახსენით ⌘K და გააგზავნეთ თქვენი პირველი მოთხოვნა ხუთ წუთზე ნაკლებ დროში.',
   'landing.ctaHeading': 'გამოიმუშავეთ თავდაჯერებულობა.',
@@ -85,6 +100,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'საშუალო ლატენტობა',
   'mocks.metric.live': 'საჯარო',
   'mocks.metric.servers': 'მაკეტები',
+  'mocks.ms': 'მილიმეტრი',
   'mocks.newMock': 'ახალი მაკეტი',
   'mocks.online': 'საჯარო',
   'mocks.paused': 'კერძო',
@@ -108,9 +124,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'ჯანმრთელი',
   'monitors.metric.uptime': 'საშუალო უწყვეტი მუშაობის დრო',
   'monitors.newMonitor': 'ახალი მონიტორი',
+  'monitors.paused': 'შეჩერებულია',
   'monitors.run': 'სირბილი',
   'monitors.runError': 'გაშვება დასრულდა ქსელის შეცდომით: {{error}}',
+  'monitors.runFailed': 'გაშვება ვერ მოხერხდა.',
   'monitors.running': 'სირბილი…',
+  'monitors.runSuccess': 'გაუშვით {{status}} — upstream-მა დააბრუნა {{code}} {{ms}}ms-ში.',
   'monitors.sparkLabel': 'შეყოვნების ტენდენცია',
   'monitors.subheading':
     'ნებისმიერი შენახული ტესტის მოთხოვნისამებრ შემოწმება. დააკავშირეთ ტესტი, დააჭირეთ ღილაკს „გაშვება“ და უყურეთ წარმატების მაჩვენებლის 24-საათიან განახლებას ყოველი ხანძრის შემდეგ.',
@@ -119,27 +138,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'უწყვეტი მუშაობის დრო · 24 სთ',
   'nav.legal': 'იურიდიული',
   'notFound.backToWorkspace': 'სამუშაო სივრცეში დაბრუნება',
+  'notFound.body':
+    '{{app}}-მა გაუშვა მოთხოვნა ამ URL-ისთვის და ვერაფერი მიიღო. გადაამოწმეთ მარშრუტი ან დაბრუნდით სამუშაო სივრცეში.',
   'notFound.eyebrow': '$ პილონის გადაწყვეტა --strict',
   'notFound.title': 'მარშრუტი ვერ მოიძებნა',
+  'planUpdated.body':
+    'თქვენი ბილინგის ცვლილება ახლა აქტიურია. გეგმის მართვა ნებისმიერ დროს შეგიძლიათ ბილინგის გვერდიდან.',
+  'planUpdated.retry': 'ხელახლა სცადეთ',
+  'planUpdated.verifyFailed': 'თქვენი გადახდის დადასტურება ჯერ ვერ შევძელით.',
+  'planUpdated.verifyFailedBody':
+    'შესაძლოა, თქვენი გადახდა ჯერ კიდევ მუშავდება. სცადეთ ხელახლა ცოტა ხანში.',
   'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
+  'pricing.advancedFeatures': 'დამატებითი ფუნქციები: {{yes}}',
+  'pricing.canExport': 'მონაცემების ექსპორტი: {{yes}}',
+  'pricing.heading': 'აირჩიეთ თქვენი {{app}} ტარიფი',
+  'pricing.maxCollections': '{{count}} კოლექცია',
+  'pricing.maxEnvironments': '{{count}} გარემო',
+  'pricing.maxHistory': '{{count}} ისტორიის ჩანაწერი',
+  'pricing.maxRequests': '{{count}} მოთხოვნები',
   'privacy.collect.account':
     'ანგარიში: თქვენი ელ. ფოსტა, ჰეშირებული პაროლი, საჩვენებელი სახელი და თქვენი ბოლო შესვლის დროის ნიშნული.',
+  'privacy.intro':
+    '{{app}} პატივს სცემს თქვენს კონფიდენციალურობას. ეს გვერდი აჯამებს, რა მონაცემებს ვაგროვებთ, რატომ ვაგროვებთ და როგორ წავშალოთ ისინი.',
   'privacy.rights.body':
     'შეგიძლიათ ნებისმიერ დროს ექსპორტირება მოახდინოთ თქვენს კოლექციებსა და გარემოში, ან წაშალოთ თქვენი ანგარიში პარამეტრებიდან, რათა სამუდამოდ წაშალოთ ყველა მონაცემი 30 დღის განმავლობაში.',
   'privacy.share.body':
     'მხოლოდ თქვენ. ჩვენ არასდროს ვყიდით, არ ვუზიარებთ და არ ვაქირავებთ თქვენი სამუშაო სივრცის კონტენტს მესამე მხარეებს. სერვერის ჟურნალები ინახება 30 დღის განმავლობაში ინციდენტებზე რეაგირებისთვის და შემდეგ იშლება.',
   'privacy.title': 'კონფიდენციალურობის შეტყობინება',
+  'profile.bio':
+    'თქვენი პირადი {{app}} სამუშაო სივრცე — მიამაგრეთ კოლექციები, გააზიარეთ გარემოები და აკონტროლეთ API-ები, რომლებიც პროდუქტს უშვებენ.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'შეუერთდა {{when}}',
+  'profile.metric.collections': 'კოლექციები',
   'profile.metric.monitors': 'მონიტორები',
   'profile.metric.requests': 'შენახული მოთხოვნები',
+  'profile.noActivity':
+    'ჯერ არცერთი მოთხოვნა არ გაშვებულა — გადადით სამუშაო სივრცის ჩანართზე, რომ გააკეთოთ ერთი.',
   'profile.signedOut': 'შედით თქვენი პროფილის სანახავად',
   'pylonShell.primaryNavLabel': 'ძირითადი ნავიგაცია',
+  'resetPassword.passwordLabel': 'ახალი პაროლი',
+  'resetPassword.statusLabel': 'გადატვირთვა · ტოკენი დადასტურებულია',
   'resetPassword.subtitle': 'აირჩიეთ ძლიერი პაროლი, რომელიც აქამდე არ გამოგიყენებიათ.',
   'resetPassword.tokenPlaceholder': 'ჩასმა ელფოსტიდან',
+  'settings.accountManagement.desc':
+    'განაახლეთ ელფოსტა და პაროლი, მართეთ შეტყობინებები და მოწყობილობები, გამოდით ან წაშალეთ თქვენი ანგარიში.',
+  'settings.accountManagement.title': 'ანგარიში და უსაფრთხოება',
   'settings.eyebrow': '$ პილონის პარამეტრები --რედაქტირება',
   'settings.fetchError': 'პარამეტრების ჩატვირთვა ვერ მოხერხდა.',
   'settings.language.title': 'ენა',
+  'settings.seeding': 'იწყება…',
   'settings.seedStarter': 'თესლის საწყისი შინაარსი',
   'settings.starterCollection': 'საწყისი კოლექცია',
   'settings.starterCollectionDesc': 'შექმნილია პარამეტრებიდან {{ts}}',
@@ -154,6 +201,8 @@ export const ui: UiTranslations = {
     'თქვენი პაროლის დაცვაზე პასუხისმგებლობა თქვენ გეკისრებათ. ერთი ანგარიშის რამდენიმე ადამიანთან გაზიარება უფასო ან Pro გეგმებზე დაუშვებელია — საერთო სამუშაო სივრცეებისთვის შეიძინეთ Team-ის გამოწერა.',
   'terms.billing.body':
     'ფასიანი გამოწერები ავტომატურად განახლდება ყოველი გადახდის პერიოდის განმავლობაში. გააუქმეთ პარამეტრებიდან ნებისმიერ დროს; თქვენი წვდომა გაგრძელდება მიმდინარე პერიოდის დასრულებამდე.',
+  'terms.intro':
+    '{{app}} ანგარიშის შექმნით თქვენ ეთანხმებით ქვემოთ მოცემულ პირობებს. წაიკითხეთ ერთხელ; ჩვენ არ მოგაუმზადებთ მოულოდნელობას უკუძალის მქონე ცვლილებებით.',
   'terms.title': 'მომსახურების პირობები',
   'terms.usage.body':
     'არ გამოიყენოთ Pylon იმ სერვისებისთვის მოთხოვნების გასაგზავნად, რომელთა მფლობელობა ან ტესტირების ნებართვა არ გაქვთ. არ გამოიყენოთ Pylon ტარიფების ლიმიტების გვერდის ავლით ან თაღლითობის ჩასადენად.',
@@ -174,16 +223,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'არ არის გაშვებული',
   'testRunner.metric.passed': 'გავიდა',
   'testRunner.never': 'არასდროს გაუშვა',
+  'testRunner.newTest': 'ახალი ტესტი',
   'testRunner.noAssertions': 'ამ ტესტზე ჯერ არანაირი განცხადება არ არის.',
+  'testRunner.noRunsYet':
+    'ჯერ არცერთი გაშვება არ ჩაწერილა — დააჭირეთ „ყველას გაშვებას“, რომ შეავსოთ ისტორია.',
   'testRunner.passed': 'გავლა',
+  'testRunner.recentRuns': 'ბოლოდროინდელი გარბენი',
   'testRunner.runAll': 'გაუშვით ყველა',
   'testRunner.running': 'სირბილი…',
   'testRunner.runOne': 'სირბილი',
   'testRunner.subheading': 'სუიტის შედეგები, მტკიცების განსხვავებები და ბოლო 50 გაშვება.',
+  'testRunner.suites': 'კრებულები',
   'userMenu.shortcut': '⌘ლ',
   'userMenu.signedInAs': 'შესულია, როგორც',
   'workspace.auth.keyName': 'სათაურის სახელი',
   'workspace.auth.keyValue': 'გასაღების მნიშვნელობა',
+  'workspace.auth.noneHint': 'ამ მოთხოვნასთან ერთად ავტორიზაციის header არ გაიგზავნება.',
   'workspace.auth.password': 'პაროლი',
   'workspace.auth.username': 'მომხმარებლის სახელი',
   'workspace.authOption.apikey': 'API გასაღები',
@@ -193,13 +248,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'ტიპი',
   'workspace.authTypeLabel': 'ავტორიზაციის ტიპი',
+  'workspace.body.contentLabel': 'მოთხოვნის ტექსტი',
+  'workspace.body.hint':
+    '{{envVars}} ჩანაცვლდება მოთხოვნის გაშვებამდე. Body-ები იგზავნება POST/PUT/PATCH/DELETE-ზე.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'არცერთი',
+  'workspace.body.noneHint':
+    'მოთხოვნის body არ გაიგზავნება. აირჩიეთ JSON ან ჩვეულებრივი ტექსტი, რომ დაამატოთ ერთი.',
   'workspace.body.text': 'ნედლი ტექსტი',
   'workspace.body.type': 'ტიპი',
   'workspace.environment': 'გარემოს გარეშე',
   'workspace.envVar': 'env ცვლადი',
   'workspace.eyebrow': '$ პილონის სამუშაო სივრცე --პანელის გაყოფა',
+  'workspace.failedCount': '{{count}} წარუმატებელი',
+  'workspace.idle': 'უმოქმედო',
   'workspace.kv.addHeader': 'სათაურის დამატება',
   'workspace.kv.addParam': 'პარამეტრის დამატება',
   'workspace.kv.headerKey': 'სათაურის სახელი',
@@ -212,12 +274,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP მეთოდი',
   'workspace.metric.latency': 'შეყოვნება',
   'workspace.metric.latencyCaption': 'ორმხრივი მგზავრობა ამ მარშრუტიდან',
+  'workspace.metric.size': 'Payload',
   'workspace.metric.sizeCaption': 'პასუხის ძირითადი ბაიტები',
   'workspace.metric.statusCaption': 'ბოლო პასუხი',
   'workspace.metric.tests': 'ტესტები',
+  'workspace.metric.testsAllPassing': 'ყველა შემოწმება მწვანეა',
   'workspace.metric.testsFailing': '{{count}} წარუმატებლობა',
+  'workspace.metric.testsIdle': 'გაგზავნეთ მოთხოვნა შესაფასებლად',
   'workspace.noAssertions': 'ჩაშენებული მტკიცებების შესაფასებლად მოთხოვნის გაშვება.',
   'workspace.noResponseYet': 'პასუხი ჯერ არ არის',
+  'workspace.passedCount': '{{count}} გავიდა',
   'workspace.responseHint':
     '// მოთხოვნის გასააქტიურებლად და პასუხის აღსაწერად დააჭირეთ ღილაკს „გაგზავნა“.',
   'workspace.saveError': 'მოთხოვნის შენახვა ვერ მოხერხდა.',
@@ -227,10 +293,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'შეადგინეთ მოთხოვნა, გაააქტიურეთ და შემდეგ დაადასტურეთ პასუხი — ყველაფერი ერთ პანელში.',
   'workspace.testResults': 'ტესტის შედეგები',
+  'workspace.tests.autoHint':
+    'სტატუსის ოჯახი, ლატენტურობა, body-ის ზომა და ტრანსპორტის ჯანმრთელობა ავტომატურად მოწმდება — შედეგები ჩნდება „ტესტის შედეგების“ ქვეშ პასუხის პანელში.',
+  'workspace.tests.autoTitle': 'ჩაშენებული შემოწმებები ყველა პასუხზე მუშაობს',
   'workspace.token': 'ჟეტონი',
   'workspace.tokenHint':
     'ავტორიზაციის სახით გაგზავნილია: მატარებელი<token> ამ კოლექციის ყველა მოთხოვნაზე.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'უსათაურო მოთხოვნა',
+  'workspace.urlLabel': 'URL-ის მოთხოვნა',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

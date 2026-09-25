@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'டென்ட்ரைட் என்பது ஒரு பணிப்பாய்வு தானியக்கத் தளமாகும். இது தூண்டல்கள், செயற்கை நுண்ணறிவு நிபந்தனைகள் மற்றும் பல-படிச் செயல்பாடுகளை ஒன்றாக இணைப்பதால், குழுக்கள் இணைப்பு குறியீட்டை எழுதாமலேயே அமைப்புகளுக்கு இடையில் பணிகளை நகர்த்த முடியும்.',
+  'about.philosophy':
+    'ஒவ்வொரு பணிப்பாய்வும் சிறிய, கண்காணிக்கக்கூடிய படிகளின் வரைபடம். ஒவ்வொரு படியும் அதன் உள்ளீடுகள், வெளியீடுகள் மற்றும் நேரத்தைப் பதிவு செய்கிறது, எனவே அதை ஆய்வு செய்யலாம், மீண்டும் இயக்கலாம் அல்லது பின்னோக்கிச் செல்லலாம். அவற்றை காட்சி முறையில் இணைத்து, குறியீட்டைப் போல பதிப்பு செய்யுங்கள்.',
   'about.title': 'டென்ட்ரைட் பற்றி',
   'authShell.brand': 'டென்ட்ரைட்',
   'authShell.support': 'ஆதரவு',
@@ -15,7 +17,15 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'திட்டத்தை மாற்றவும்',
   'billing.description':
     'பயன்பாட்டைக் கண்காணிக்கவும், உங்கள் திட்டத்தை நிர்வகிக்கவும், கணக்கியலுக்கான விலைப்பட்டியல்களைப் பெறவும்.',
+  'billing.eyebrow': 'கணக்கு · திட்டம் & பயன்பாடு',
+  'billing.failedLabel': 'தோல்வியடைந்த இயக்கங்கள் · 24ம',
+  'billing.invoicesEmpty':
+    'இன்னும் விலைப்பட்டியல்கள் இல்லை. உங்கள் முதல் கட்டண புதுப்பித்தலுக்குப் பிறகு அவை இங்கே தோன்றும்.',
   'billing.invoicesTitle': 'விலைப்பட்டியல் வரலாறு',
+  'billing.planNoteFree':
+    'இலவச திட்டம் — {{runs}} இயக்கங்கள் மற்றும் {{workflows}} செயலில் உள்ள பணிப்பாய்வுகள். அதிக வரம்புகளுக்கு மேம்படுத்துங்கள்.',
+  'billing.planNotePaid':
+    'கட்டண திட்டம் — {{runs}} இயக்கங்கள் மற்றும் {{workflows}} செயலில் உள்ள பணிப்பாய்வுகள்.',
   'billing.runsLabel': 'கடந்த 24 மணி நேரத்தில் நடந்தவை',
   'billing.tiersBlurb':
     'பிரத்யேக விலை நிர்ணயப் பக்கத்தில், செயல்பாடுகள், செயலில் உள்ள பணிப்பாய்வுகள், மேம்பட்ட அம்சங்கள் மற்றும் ஆதரவு ஆகிய ஒவ்வொரு நிலையையும் ஒப்பிட்டுப் பாருங்கள்.',
@@ -32,8 +42,15 @@ export const ui: UiTranslations = {
   'connections.empty':
     'ஒருங்கிணைப்புகள் எதுவும் பதிவு செய்யப்படவில்லை. பிணைப்புகளைச் செயல்படுத்த வழங்குநர் சாவிகளை உள்ளமைக்கவும்.',
   'connections.error': 'இணைப்புகளை ஏற்ற முடியவில்லை.',
+  'connections.eyebrow': 'ஒருங்கிணைப்புகள் · {{connected}} இணைக்கப்பட்டது',
+  'connections.loading': 'ஒருங்கிணைப்புகள் ஏற்றப்படுகின்றன…',
+  'connections.openEnv':
+    'இந்த வழங்குநரை இணைக்க, அதன் API விசையை api/.env இல் அமைத்து சேவையகத்தை மறுதொடக்கம் செய்யுங்கள்.',
+  'dashboard.description':
+    '{{active}} பணிப்பாய்வுகள் செயலில். கடந்த 24 மணி நேரத்தில் {{failed}} தோல்வியடைந்தது.',
   'dashboard.error': 'டாஷ்போர்டை ஏற்ற முடியவில்லை.',
   'dashboard.eyebrow': 'செயல்பாடுகள் · நேரலை',
+  'dashboard.hero.label': 'இன்றைய இயக்கங்கள்',
   'dashboard.hero.medianLatency': 'p50 தாமதம்',
   'dashboard.hero.queue': 'வரிசை ஆழம்',
   'dashboard.hero.success': 'வெற்றி',
@@ -41,14 +58,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'சராசரி கால அளவு',
   'dashboard.kpi.failedRuns': 'தோல்வி · 24 மணிநேரம்',
   'dashboard.kpi.outOf': 'இன் {{total}} மொத்தம்',
+  'dashboard.kpi.successRate': 'வெற்றி விகிதம் · 24ம',
   'dashboard.loading': 'டாஷ்போர்டு ஏற்றப்படுகிறது…',
   'dashboard.recentRuns.empty':
     'இன்னும் இயக்கங்கள் எதுவும் இல்லை. ஒரு பணிப்பாய்வைத் தூண்டுவது இந்தப் பதிவேடை நிரப்பும்.',
   'dashboard.recentRuns.title': 'சமீபத்திய ஓட்டங்கள்',
   'dashboard.recentRuns.viewAll': 'திறந்த செயல்பாடுகள் →',
+  'dashboard.recentWorkflows.browse': 'வார்ப்புருக்களை உலாவுக →',
   'dashboard.recentWorkflows.empty':
     'இன்னும் பணிப்பாய்வுகள் இல்லை. ஒரு வார்ப்புருவை நிறுவவும் அல்லது புதிதாக ஒன்றை உருவாக்கவும்.',
   'dashboard.recentWorkflows.title': 'சமீபத்தில் ஓடியது',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'தொடங்கப்பட்டது',
   'dashboard.run.col.trigger': 'தூண்டுதல்',
   'dashboard.run.col.workflow': 'பணிப்பாய்வு',
@@ -84,6 +104,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'பணிப்பாய்வு',
   'executions.description':
     'ஒவ்வொரு பணிப்பாய்வு இயக்கமும், ஒவ்வொரு மறுமுயற்சியும், ஒவ்வொரு படிநிலை வெளியீடும் — அனைத்தும் கண்காணிக்கக்கூடியவை.',
+  'executions.empty.filter': 'இந்த வடிகட்டலுக்கு எந்த இயக்கங்களும் பொருந்தவில்லை.',
   'executions.empty.first':
     'இன்னும் இயக்கப்படவில்லை — இந்தப் பட்டியலை நிரப்ப ஒரு பணிப்பாய்வைத் தூண்டவும்.',
   'executions.error': 'செயல்பாடுகளை ஏற்ற முடியவில்லை.',
@@ -94,30 +115,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'இயக்க வரலாறு ஏற்றப்படுகிறது…',
   'executions.title': 'மரணதண்டனைகள்',
   'forgotPassword.confirmation': 'மீட்டமை இணைப்பு அனுப்பப்பட்டது {{email}} .',
+  'forgotPassword.subhead': 'மீட்டமைப்பு இணைப்பைப் பெற உங்கள் மின்னஞ்சலை உள்ளிடவும்.',
   'forgotPassword.successSubhead':
     'நாங்கள் ஒரு மீட்டமைப்பு இணைப்பை அனுப்பினோம் {{email}} இது 30 நிமிடங்களில் காலாவதியாகிவிடும்.',
   'help.connections.body':
     'செயற்கை நுண்ணறிவு, மின்னஞ்சல் மற்றும் சேமிப்பகப் படிநிலைகளுக்கு, api/.env கோப்பில் வழங்குநர் சாவிகளை அமைக்க வேண்டும். ஒரு சாவி உள்ளமைக்கப்பட்டவுடன், அதனுடன் தொடர்புடைய ஒருங்கிணைப்பு, இணைப்புகள் பக்கத்தில் இணைக்கப்பட்டதாகத் தோன்றும்.',
+  'help.connections.cta': 'இணைப்புகளைத் திற →',
   'help.connections.title': 'வழங்குநர்களை இணைத்தல்',
   'help.gettingStarted.body':
     'புதிய பணிப்பாய்வுகளை வார்ப்புருக்கள் நூலகத்திலிருந்து நிறுவலாம் அல்லது பணிப்பாய்வு உருவாக்குனரில் புதிதாக உருவாக்கலாம். ஒவ்வொரு பணிப்பாய்வும் ஒரு தூண்டியையும் (கையேடு, வெப்ஹூக் அல்லது க்ரான்) மற்றும் வரிசையாக இயங்கும் படிநிலைகளின் தொடர்ச்சியையும் கொண்டுள்ளது.',
+  'help.gettingStarted.cta': 'டெம்ப்ளேட் நூலகத்தை உலாவு →',
+  'help.gettingStarted.title': 'தொடங்குதல்',
   'help.intro':
     'பணிப்பாய்வுகளை உருவாக்குதல், இணைப்புகளை உள்ளமைத்தல் மற்றும் இயக்க வெளியீட்டைப் புரிந்துகொள்ளுதல் ஆகியவை தொடர்பான பொதுவான கேள்விகளுக்கான பதில்களைக் கண்டறியுங்கள். மிகவும் பொதுவான தலைப்புகள் கீழே பட்டியலிடப்பட்டுள்ளன; இதில் உள்ளடக்கப்படாத எதற்கேனும், உங்கள் பணிச்சூழல் நிர்வாகியைத் தொடர்புகொள்ளவும்.',
   'help.runs.body':
     'ஒவ்வொரு இயக்கமும் ஒவ்வொரு படியையும் அதன் நிலை (வெற்றி, தோல்வி, தவிர்க்கப்பட்டது) மற்றும் வெளியீட்டின் ஒரு சிறு பகுதியுடன் தனித்தனியாகப் பதிவு செய்கிறது. செயலாக்க விவரப் பக்கம் முழுமையான படிவாரியான தடயத்தையும், ஊகிக்கப்பட்ட அளவீடுகளையும் காட்டுகிறது.',
+  'help.runs.cta': 'திறந்த செயல்பாடுகள் →',
   'help.runs.title': 'இயக்க வெளியீட்டைப் படித்தல்',
   'help.title': 'உதவி மையம்',
   'integrationCard.manage': 'நிர்வகிக்கவும்',
   'landing.brand': 'டென்ட்ரைட்',
   'landing.demo.action.subtitle': 'சுற்றுமுறை · பிரதேசம்',
+  'landing.demo.action.title': 'பிரதிநிதிக்கு அறிவி',
   'landing.demo.condition.subtitle': 'AI நோக்க வகைப்படுத்தி',
+  'landing.demo.condition.title': 'மதிப்பெண் ≥ நடுத்தரமா?',
   'landing.demo.trigger.subtitle': 'POST /forms/contact',
   'landing.demo.trigger.title': 'உள்வரும் வலை இணைப்பு',
+  'landing.features.body':
+    'தூண்டுதல்கள் இயங்கும். நிபந்தனைகள் கிளை பிரிக்கும். செயல்கள் வேலையை முடிக்கும். அவற்றை காட்சி முறையில் இணைத்து, குறியீட்டைப் போல பதிப்பு செய்யுங்கள்.',
   'landing.features.heading': 'மூன்று கணு வகைகள். முடிவற்ற வடிவங்கள்.',
   'landing.footer.help': 'உதவி',
   'landing.footer.tagline': 'இயக்கத்தில் உள்ள நுண்ணறிவு',
+  'landing.hero.body':
+    'Zapier-ஐ தாண்டிய செயல்பாட்டுக் குழுக்களுக்கான பணிப்பாய்வு இயந்திரம் {{appName}}. தூண்டுதல், நிபந்தனை, செயல் — நீங்கள் உண்மையில் பயன்படுத்தும் ஒவ்வொரு அமைப்புடனும் இணைக்கப்பட்டது.',
   'landing.hero.eyebrow': 'இயக்கத்தில் உள்ள நுண்ணறிவு',
   'landing.hero.headline': 'உங்கள் ஸ்டேக்கை ஒன்றாக இணைக்கவும். வேலை நடக்கட்டும்.',
+  'landing.hero.primaryCta': 'உங்கள் முதல் பணிப்பாய்வை உருவாக்குங்கள்',
   'landing.hero.proof.ai': 'உள்ளமைக்கப்பட்ட AI முனைகள்',
   'landing.hero.proof.free': 'மாதத்திற்கு 1000 ரன்களுக்கு இலவசம்',
   'landing.hero.proof.soc2': 'SOC 2 வகை II',
@@ -125,10 +158,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'இருக்கைகளுக்கு அல்ல, ஓட்டங்களுக்குப் பணம் செலுத்துங்கள்.',
   'landing.templates.body':
     'விற்பனை, ஆதரவு, டெவ்-ஆப்ஸ், நிதி என ஒவ்வொரு குழுவிற்கும் முன்பே வடிவமைக்கப்பட்ட பணிப்பாய்வுகள். ஒரே கிளிக்கில் நிறுவலாம்; எதையும் மாற்றியமைக்கலாம்.',
+  'landing.templates.cta': 'டெம்ப்ளேட்டுகளை உலாவ பதிவு செய்யுங்கள் →',
   'landing.templates.eyebrow': 'நொடிகளில் தொடங்குங்கள்',
   'landing.templates.heading': 'சரிபார்க்கப்பட்ட சமையல் குறிப்புகளின் தொகுப்பு.',
   'landing.templates.signupHint': 'நிறுவ பதிவு செய்யவும்',
   'login.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
+  'login.noAccount': 'டெஸ்ஸெராவுக்குப் புதியவரா?',
   'login.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'login.subhead': 'உங்கள் தானியக்கங்கள் தடையின்றி நடைபெற உள்நுழையுங்கள்.',
   'mobileNav.drawerLabel': 'முதன்மை வழிசெலுத்தல்',
@@ -144,8 +179,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'இந்த ஊட்டத்தை நிரப்பத் தொடங்க ஒரு பணிப்பாய்வை இயக்கவும்.',
   'notifications.empty.title': 'நீங்கள் அனைத்தையும் தெரிந்து கொண்டீர்கள்',
   'notifications.eyebrow': '{{n}} படிக்காத',
+  'planUpdated.body':
+    'உங்கள் பில்லிங் மாற்றம் இப்போது செயலில் உள்ளது. பில்லிங் பக்கத்திலிருந்து எப்போது வேண்டுமானாலும் உங்கள் திட்டத்தை நிர்வகிக்கலாம்.',
+  'planUpdated.retry': 'மீண்டும் முயற்சிக்கவும்',
+  'planUpdated.verifyFailed': 'உங்கள் கட்டணத்தை எங்களால் இன்னும் உறுதிப்படுத்த முடியவில்லை.',
+  'planUpdated.verifyFailedBody':
+    'உங்கள் கட்டணம் இன்னும் செயலாக்கத்தில் இருக்கலாம். சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.',
   'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'pricing.heading': 'ஓட்டங்கள்',
+  'pricing.runsSuffix': 'இயக்கங்கள்',
   'pricing.workflowsSuffix': 'பணிப்பாய்வுகள்',
   'privacy.collect.body':
     'நீங்கள் பதிவுசெய்யப் பயன்படுத்தும் மின்னஞ்சல் முகவரி, நீங்கள் கட்டமைக்கும் பணிப்பாய்வுகள் மற்றும் ஒவ்வொரு இயக்கத்தைப் பற்றிய மெட்டாடேட்டா (தொடக்க நேரம், முடிவு நேரம், நிலை) ஆகியவற்றை நாங்கள் சேகரிக்கிறோம். பணித்தள உரிமையாளருக்கான இயக்கப் பார்வையாளரில் காண்பிக்கத் தேவையானதைத் தவிர, தூண்டிகள் அல்லது படிநிலை வெளியீடுகளிலிருந்து வரும் பேலோட் உள்ளடக்கங்களை நாங்கள் ஒருபோதும் சேகரிப்பதோ சேமிப்பதோ இல்லை.',
@@ -161,12 +203,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'கடவுச்சொல்லைப் புதுப்பிக்க முடியவில்லை.',
   'resetPassword.newPassword': 'புதிய கடவுச்சொல்',
   'resetPassword.subhead': 'உங்களால் மட்டுமே யூகிக்கக்கூடிய ஒன்றை தேர்ந்தெடுங்கள்.',
+  'settings.appearance.description': 'ஒளி மற்றும் இருண்ட பயன்முறைகளுக்கு இடையே மாறவும்.',
+  'settings.appearance.title': 'தோற்றம்',
   'settings.billingShortcut.cta': 'திறந்த பில்லிங்',
   'settings.billingShortcut.description':
     'திட்டம், பயன்பாடு மற்றும் விலைப்பட்டியல்கள் பிரத்யேக கட்டணப் பக்கத்தில் இடம்பெற்றுள்ளன.',
   'settings.danger.confirm':
     'உறுதியாக இருக்கிறீர்களா? இது உங்கள் பணித்தளத்தை நீக்குவதற்காக வரிசைப்படுத்தும்.',
   'settings.danger.confirmYes': 'ஆம், வரிசை நீக்கம்',
+  'settings.danger.deleteWorkspace.cta': 'பணியிடத்தை நீக்கு',
   'settings.danger.deleteWorkspace.hint':
     '14 நாள் சலுகைக் காலத்திற்குப் பிறகு அனைத்து பணிப்பாய்வுகள், இயக்கங்கள் மற்றும் இணைப்புகளை நீக்குகிறது.',
   'settings.danger.deleteWorkspace.title': 'பணியிடத்தை நீக்கு',
@@ -178,10 +223,15 @@ export const ui: UiTranslations = {
     'உங்கள் கணக்கு, பணிச்சூழல், ஒருங்கிணைப்புகள் மற்றும் கட்டண விவரங்களை ஒரே இடத்தில் நிர்வகிக்கவும்.',
   'settings.notifications.description':
     'எந்த நிகழ்வுகள் உங்களுக்குப் பக்கம், எந்த மின்னஞ்சல் உங்களுக்கு வரும் என்பதைத் தேர்வுசெய்யுங்கள் அல்லது அமைதியாக இருங்கள்.',
+  'settings.notifications.failures.hint':
+    'ஒவ்வொரு தோல்வியடைந்த இயக்கத்திற்கும் மின்னஞ்சல் மற்றும் ஆப்-உள் அறிவிப்பு.',
+  'settings.notifications.failures.title': 'பணிப்பாய்வு தோல்விகள்',
   'settings.notifications.product.hint':
     'புதிய டெம்ப்ளேட்கள் மற்றும் அம்சங்கள் குறித்த அவ்வப்போதைய மின்னஞ்சல்கள்.',
+  'settings.notifications.product.title': 'தயாரிப்பு புதுப்பிப்புகள்',
   'settings.notifications.weekly.hint':
     'கடந்த வாரத்தின் செயல்பாடுகள் மற்றும் சேமிப்புகள் குறித்த திங்கட்கிழமை காலைத் தொகுப்பு.',
+  'settings.notifications.weekly.title': 'வாராந்திர தொகுப்பு',
   'settings.profile.description':
     'பணிப்பாய்வு இயக்கியில் நீங்கள் தோன்றும் விதம். பணியிடச் செயல்பாட்டில் பயன்படுத்தப்படுகிறது.',
   'settings.profile.noEmail': 'பதிவில் மின்னஞ்சல் இல்லை',
@@ -190,12 +240,23 @@ export const ui: UiTranslations = {
   'settings.profile.unnamedUser': 'பெயரிடப்படாத பயனர்',
   'settings.security.audit.hint':
     'ஒவ்வொரு செயலையும் வெப்ஹூக் வழியாக உங்கள் SIEM-க்கு அனுப்புங்கள்.',
+  'settings.security.audit.title': 'தணிக்கை பதிவு அனுப்புதல்',
   'settings.security.description': 'இரு காரணி அங்கீகாரம், SSO மற்றும் செயலில் உள்ள அமர்வுகள்.',
   'settings.security.sso.hint': 'ஸ்கேல் மற்றும் என்டர்பிரைஸ் திட்டங்களில் கிடைக்கும்.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'எந்த பணியிட உரிமையாளர் செயலுக்கும் தேவை.',
+  'settings.security.totp.title': 'இரு-காரணி அங்கீகாரம் (TOTP)',
   'settings.twoFactorCode': 'அங்கீகாரக் குறியீடு',
   'settings.twoFactorDisable': 'முடக்கு',
+  'settings.twoFactorDisableTitle': 'இரு-காரணி அங்கீகாரத்தை முடக்கு',
   'settings.twoFactorEnable': 'இயக்கு',
+  'settings.twoFactorEnableTitle': 'இரு-காரணி அங்கீகாரத்தை இயக்கு',
   'settings.twoFactorInvalidCode': 'தவறான குறியீடு',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'இரு-காரணி QR குறியீடு',
+  'settings.twoFactorScan':
+    'உங்கள் அங்கீகரிப்பு செயலியில் இந்த QR குறியீட்டை ஸ்கேன் செய்து, 6 இலக்கக் குறியீட்டை உள்ளிடவும்.',
+  'settings.twoFactorUnavailable': 'இந்த செயலியில் இரு காரணி அங்கீகாரம் கிடைக்காது.',
   'settings.twoFactorVerify': 'சரிபார்த்து இயக்கு',
   'settings.workspace.description':
     'உங்கள் குழுவிற்கான பகிரப்பட்ட அடையாளம், பிராந்தியம் மற்றும் இயக்க இயல்புநிலைகள்.',
@@ -225,6 +286,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'வார்ப்புரு',
   'templates.description':
     'மிகவும் பொதுவான தானியக்கங்களுக்கான முன் உருவாக்கப்பட்ட வரைபடங்கள். பிரித்து, தனிப்பயனாக்கி, வெளியிடுங்கள்.',
+  'templates.empty.filter': 'உங்கள் தேடலுக்கு எந்த டெம்ப்ளேட்டுகளும் பொருந்தவில்லை.',
   'templates.empty.first': 'தற்போது வார்ப்புருக்கள் எதுவும் கிடைக்கவில்லை.',
   'templates.error': 'வார்ப்புருக்களை ஏற்ற முடியவில்லை.',
   'templates.installs': 'நிறுவல்கள்',
@@ -251,6 +313,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'முடக்கு',
   'workflowBuilder.enable': 'இயக்கு',
   'workflowBuilder.error': 'பணிப்பாய்வுகளை ஏற்ற முடியவில்லை.',
+  'workflowBuilder.inspector.config': 'கட்டமைப்பு',
+  'workflowBuilder.inspector.cron': 'Cron வெளிப்பாடு',
+  'workflowBuilder.inspector.disabled': 'முடக்கப்பட்டது — தானாக இயங்காது.',
   'workflowBuilder.inspector.enabled': 'இயக்கப்பட்டது — தூண்டப்படும்போது இயங்கும்.',
   'workflowBuilder.inspector.eyebrow': 'ஆய்வாளர்',
   'workflowBuilder.inspector.id': 'ஐடி',
@@ -269,18 +334,26 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'நிலைமாற்றம் தோல்வியடைந்தது.',
   'workflowBuilder.workflow': 'பணிப்பாய்வு · v {{v}}',
   'workflowBuilder.zoom.in': 'பெரிதாக்கு',
+  'workflowBuilder.zoom.label': 'கேன்வாஸ் பெரிதாக்கக் கட்டுப்பாடுகள்',
+  'workflowBuilder.zoom.out': 'பெரிதாக்கிக் காட்டு',
   'workflowCard.lastRun': 'கடைசி ஓட்டம் {{when}}',
   'workflowCard.runs': '{{count}} ஓட்டங்கள்',
+  'workflowCard.success': '{{rate}}% வெற்றி',
   'workflowHeroCard.last24h': 'கடந்த 24 மணி நேரம்',
+  'workflows.browseTemplates': 'வார்ப்புருக்களை உலாவுக →',
   'workflows.description':
     'உங்கள் பணியிடத்தில் உள்ள ஒவ்வொரு தானியக்கமும், அதன் நிலை மற்றும் சமீபத்திய செயல்பாடுகளுடன் ஒரே பார்வையில் தெரியவரும்.',
+  'workflows.empty.body':
+    'வடிகட்டலை அழிக்க முயற்சிக்கவும் அல்லது ஒரு டெம்ப்ளேட்டில் இருந்து தொடங்கவும்.',
   'workflows.empty.firstBody': 'நொடிகளில் தொடங்க ஒரு டெம்ப்ளேட்டை நிறுவவும்.',
   'workflows.empty.firstTitle': 'இன்னும் பணிப்பாய்வுகள் இல்லை',
   'workflows.empty.title': 'பணிப்பாய்வுகள் எதுவும் பொருந்தவில்லை',
   'workflows.error': 'பணிப்பாய்வுகளை ஏற்ற முடியவில்லை.',
   'workflows.eyebrow': 'நூலகம் · {{count}} மொத்தம்',
+  'workflows.loading': 'பணிப்பாய்வுகள் ஏற்றப்படுகின்றன…',
   'workflows.newFromTemplate': 'வார்ப்புருவிலிருந்து புதியது',
   'workflows.searchPlaceholder': 'தேடல் பணிப்பாய்வுகள்…',
+  'workflows.title': 'பணிப்பாய்வுகள்',
   'workflowSidebar.brand': 'டென்ட்ரைட்',
   'workflowSidebar.status': 'அனைத்து அமைப்புகளும் இயங்குகின்றன',
   'workflowSidebar.tagline': 'இயக்கத்தில் உள்ள நுண்ணறிவு',

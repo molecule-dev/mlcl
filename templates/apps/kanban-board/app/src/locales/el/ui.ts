@@ -1,11 +1,27 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχεις σχόλια, βρήκες κάποιο σφάλμα ή θέλεις μια νέα λειτουργία; Επικοινώνησε από τις ρυθμίσεις του λογαριασμού σου — κάθε μήνυμα φτάνει σε έναν πραγματικό άνθρωπο της ομάδας.',
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.featureBoards':
+    'Πίνακες, λίστες και κάρτες με σειρά drag-and-drop, ετικέτες, ημερομηνίες παράδοσης, προτεραιότητες, λίστες ελέγχου και συνημμένα.',
+  'about.featureKeyboard':
+    'Αίσθηση που βασίζεται στο πληκτρολόγιο: παλέτα εντολών Mod+K, πλοήγηση με συντομεύσεις και απόκριση κάτω από 100ms, φτιαγμένη για power users.',
+  'about.featurePermissions':
+    'Δικαιώματα επιπέδου χώρου εργασίας με ρόλους ιδιοκτήτη, διαχειριστή, μέλους και θεατή ανά πίνακα, καθώς και αρχείο δραστηριότητας σε κάθε αλλαγή.',
+  'about.featureRealtime':
+    'Συνεργασία σε πραγματικό χρόνο — βλέπεις τους συμπαίκτες σου να μετακινούν κάρτες, να αφήνουν σχόλια και να ενημερώνουν λίστες ελέγχου με ζωντανή παρουσία.',
+  'about.missionTitle': 'Η αποστολή μας',
+  'activityFeedItem.time': '{{value}}',
   'auth.legalConsent': 'Συνεχίζοντας, συμφωνείτε με τους',
+  'backlog.create.error': 'Δεν ήταν δυνατή η προσθήκη του προϊόντος.',
   'backlog.create.needBoard':
     'Δημιουργήστε πρώτα έναν πίνακα για να προσθέσετε στοιχεία εκκρεμότητας.',
   'backlog.create.placeholder': 'π.χ. Διερεύνηση του αργού ερωτήματος στον πίνακα ελέγχου',
+  'backlog.create.submit': 'Προσθήκη στο backlog',
   'backlog.create.title': 'Νέο στοιχείο εκκρεμότητας',
+  'backlog.empty.cta': 'Προσθήκη στοιχείου backlog',
   'backlog.empty.heading': 'Το ανεκτέλεστο αρχείο είναι κενό',
   'backlog.empty.noBoards': 'Δημιουργήστε πρώτα έναν πίνακα.',
   'backlog.empty.subline':
@@ -17,25 +33,31 @@ export const ui: UiTranslations = {
   'backlog.loading': 'Φόρτωση εκκρεμοτήτων…',
   'backlog.newItem': 'Νέο στοιχείο',
   'backlog.noBoards': 'Δημιουργήστε πρώτα έναν πίνακα για να χρησιμοποιήσετε το εκκρεμές.',
+  'backlog.subline': '{{count}} κάρτες περιμένουν να αναληφθούν.',
   'backlog.upgradeRequired': 'Έχετε φτάσει το όριο της κάρτας του προγράμματός σας.',
   'boardDetail.addListCta': 'Προσθήκη λίστας',
   'boardDetail.back': 'Όλες οι σανίδες',
   'boardDetail.backToBoards': 'Επιστροφή στους πίνακες',
   'boardDetail.card.archive': 'Κάρτα αρχειοθέτησης',
+  'boardDetail.card.createError': 'Δεν ήταν δυνατή η δημιουργία της κάρτας.',
   'boardDetail.card.menu': 'Ενέργειες κάρτας',
   'boardDetail.card.moveTo': 'Μετακίνηση σε',
   'boardDetail.column.add': 'Προσθήκη κάρτας',
   'boardDetail.column.empty': 'Δεν υπάρχουν κάρτες ακόμα.',
   'boardDetail.createCard.placeholder': 'π.χ. Διερεύνηση της αναφοράς σφάλματος',
+  'boardDetail.createCard.submit': 'Προσθήκη κάρτας',
   'boardDetail.createCard.title': 'Προσθήκη κάρτας σε {{listName}}',
+  'boardDetail.createCard.titleLabel': 'Τίτλος κάρτας',
   'boardDetail.createList.nameLabel': 'Όνομα λίστας',
   'boardDetail.createList.placeholder': 'π.χ. Εκκρεμότητες',
   'boardDetail.createList.submit': 'Προσθήκη λίστας',
   'boardDetail.createList.title': 'Προσθήκη λίστας',
+  'boardDetail.empty.cta': 'Προσθέστε την πρώτη σας λίστα',
   'boardDetail.empty.heading': 'Δεν υπάρχουν ακόμη λίστες',
   'boardDetail.empty.subline':
     'Προσθέστε μια λίστα (στήλη) για να ξεκινήσετε την οργάνωση των καρτών.',
   'boardDetail.list.confirmDelete': 'Διαγραφή αυτής της λίστας και όλων των καρτών της;',
+  'boardDetail.list.createError': 'Δεν ήταν δυνατή η δημιουργία της λίστας.',
   'boardDetail.list.delete': 'Διαγραφή λίστας',
   'boardDetail.loadError': 'Αποτυχία φόρτωσης πλακέτας.',
   'boardDetail.loading': 'Φόρτωση πλακέτας…',
@@ -60,7 +82,10 @@ export const ui: UiTranslations = {
   'boards.allHeading': 'Όλες οι σανίδες',
   'boards.create.nameLabel': 'Όνομα συμβουλίου',
   'boards.create.namePlaceholder': 'π.χ. κυκλοφορία προϊόντος στο τρίτο τρίμηνο',
+  'boards.create.submit': 'Δημιουργία πίνακα',
   'boards.create.title': 'Δημιουργήστε έναν νέο πίνακα',
+  'boards.createError': 'Δεν ήταν δυνατή η δημιουργία του πίνακα. Δοκιμάστε ξανά.',
+  'boards.empty.cta': 'Δημιουργήστε τον πρώτο σας πίνακα',
   'boards.empty.heading': 'Δεν υπάρχουν ακόμη πίνακες',
   'boards.empty.subline':
     'Δημιουργήστε τον πρώτο σας πίνακα για να ξεκινήσετε την παρακολούθηση της εργασίας.',
@@ -81,7 +106,9 @@ export const ui: UiTranslations = {
   'cardDetail.backToBoards': 'Επιστροφή στους πίνακες',
   'cardDetail.comment.error': 'Δεν ήταν δυνατή η δημοσίευση του σχολίου.',
   'cardDetail.comments.empty': 'Δεν υπάρχουν σχόλια ακόμα — γίνετε ο πρώτος.',
+  'cardDetail.comments.heading': 'Σχόλια',
   'cardDetail.comments.placeholder': 'Γράψτε ένα σχόλιο…',
+  'cardDetail.comments.posting': 'Δημοσίευση…',
   'cardDetail.deleteConfirm': 'Να διαγραφεί οριστικά αυτή η κάρτα;',
   'cardDetail.editDescription': 'Επεξεργασία περιγραφής',
   'cardDetail.editDescriptionDialog.title': 'Επεξεργασία περιγραφής',
@@ -99,6 +126,10 @@ export const ui: UiTranslations = {
   'dashboard.boards.updated': 'Ενημερώθηκε {{ago}}',
   'dashboard.create.nameLabel': 'Όνομα συμβουλίου',
   'dashboard.create.namePlaceholder': 'π.χ. κυκλοφορία προϊόντος στο τρίτο τρίμηνο',
+  'dashboard.create.submit': 'Δημιουργία πίνακα',
+  'dashboard.create.title': 'Δημιουργήστε έναν νέο πίνακα',
+  'dashboard.createError': 'Δεν ήταν δυνατή η δημιουργία του πίνακα. Δοκιμάστε ξανά.',
+  'dashboard.empty.cta': 'Δημιουργήστε τον πρώτο σας πίνακα',
   'dashboard.empty.heading': 'Καλώς ορίσατε στο Driftboard',
   'dashboard.empty.subline':
     'Δημιουργήστε τον πρώτο σας πίνακα για να ξεκινήσετε την παρακολούθηση της εργασίας.',
@@ -110,9 +141,13 @@ export const ui: UiTranslations = {
   'dashboard.loadError': 'Δεν ήταν δυνατή η φόρτωση του πίνακα ελέγχου σας.',
   'dashboard.loading': 'Φόρτωση…',
   'dashboard.newBoardCta': 'Νέος πίνακας',
+  'dashboard.recent.empty':
+    'Δεν υπάρχουν κάρτες ακόμη — προσθέστε μια κάρτα σε έναν πίνακα για να δείτε δραστηριότητα.',
   'dashboard.recent.heading': 'Πρόσφατες κάρτες',
+  'dashboard.recent.shipped': 'Παραδόθηκε',
   'dashboard.recent.sub': 'Οι τελευταίες αλλαγές στους πίνακές σας.',
   'dashboard.recent.unknownBoard': 'Άγνωστος πίνακας',
+  'dashboard.subline': '{{open}} ανοιχτές κάρτες σε {{boards}} ενεργούς πίνακες.',
   'dashboard.subline.empty': 'Δημιουργήστε τον πρώτο σας πίνακα για να ξεκινήσετε.',
   'dashboard.upgradeRequired':
     'Έχετε φτάσει το όριο χωρητικότητας του προγράμματός σας. Αναβαθμίστε για να προσθέσετε περισσότερα.',
@@ -124,6 +159,8 @@ export const ui: UiTranslations = {
   'driftboardLayout.closeNav': 'Κλείσιμο μενού πλοήγησης',
   'driftboardLayout.nav.backlog': 'Απόθεμα',
   'driftboardLayout.nav.boards': 'Πίνακες',
+  'driftboardLayout.openNav': 'Άνοιγμα μενού πλοήγησης',
+  'driftboardLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'forgotPassword.continueCta': 'Έχω τον κωδικό επαναφοράς μου',
   'forgotPassword.eyebrow': 'Driftboard · Ανάκτηση λογαριασμού',
   'forgotPassword.formSubtitle':
@@ -139,16 +176,20 @@ export const ui: UiTranslations = {
   'kpiTile.context': '{{label}} μετρικός',
   'landing.cta.body':
     'Δωρεάν για ομάδες έως πέντε ατόμων. Δεν απαιτείται πιστωτική κάρτα. Φέρτε τις σανίδες σας ή ξεκινήστε από την αρχή.',
+  'landing.cta.button': 'Δημιουργία του χώρου εργασίας μου',
   'landing.cta.heading': 'Στείλτε το επόμενο πράγμα.',
   'landing.features.eyebrow': 'Γιατί οι ομάδες αλλάζουν πορεία',
   'landing.features.heading': 'Φτιαγμένο για το έργο, όχι για το μετα-έργο.',
   'landing.hero.eyebrow': 'Σχεδιασμένο για ομάδες προϊόντων + μηχανικών',
   'landing.hero.headlineAccent': 'αβίαστα.',
+  'landing.hero.headlineLeading': 'Προχωρήστε τη δουλειά,',
   'landing.hero.primaryCta': 'Ξεκινήστε τον πρώτο σας πίνακα',
   'landing.hero.secondaryCta': 'Έχω ήδη έναν λογαριασμό',
+  'landing.hero.socialProof': '4.200+ ομάδες προϊόντων παραδίδουν με το {{appName}}',
   'landing.hero.subline':
     'Πίνακες, λίστες, κάρτες, λωρίδες κολύμβησης, όρια εργασιών σε εξέλιξη — κάθε πρωταρχικό στοιχείο που εμπιστεύεται ήδη η ομάδα σας, με συνεργασία σε πραγματικό χρόνο και αίσθηση προτεραιότητας στο πληκτρολόγιο.',
   'landing.preview.boardName': 'Κυκλοφορία προϊόντος για το δεύτερο τρίμηνο',
+  'landing.preview.workspace': 'Acme Engineering',
   'login.eyebrow': 'Καλώς ήρθατε πίσω στο Driftboard',
   'login.formSubtitle':
     'Χρησιμοποιήστε το email της εργασίας σας ή οποιονδήποτε συνδεδεμένο πάροχο.',
@@ -166,14 +207,26 @@ export const ui: UiTranslations = {
   'notifications.loadError': 'Δεν ήταν δυνατή η φόρτωση των εισερχομένων σας.',
   'notifications.loading': 'Φόρτωση εισερχομένων…',
   'notifications.subline': '{{count}} μη αναγνωσμένες ενημερώσεις.',
+  'planUpdated.body':
+    'Η αλλαγή χρέωσής σας είναι πλέον ενεργή. Μπορείτε να διαχειρίζεστε το πλάνο σας οποιαδήποτε στιγμή από τη σελίδα χρέωσης.',
+  'planUpdated.retry': 'Δοκιμάστε ξανά',
+  'planUpdated.verifyFailed': 'Δεν μπορέσαμε να επιβεβαιώσουμε ακόμη την πληρωμή σας.',
+  'planUpdated.verifyFailedBody':
+    'Η πληρωμή σας ενδέχεται να βρίσκεται ακόμη υπό επεξεργασία. Δοκιμάστε ξανά σε λίγο.',
   'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
+  'pricing.heading': 'Επιλέξτε το πλάνο {{app}} σας',
+  'pricing.limit.advanced': 'Προηγμένες λειτουργίες',
   'resetPassword.eyebrow': 'Driftboard · Τελικό βήμα',
+  'resetPassword.formSubtitle':
+    'Επικολλήστε τον κωδικό ανάκτησης από το email σας και επιλέξτε νέο κωδικό πρόσβασης.',
   'resetPassword.headline': 'Ορίστε έναν νέο κωδικό πρόσβασης.',
   'resetPassword.newPassword': 'Νέος κωδικός πρόσβασης',
+  'resetPassword.remember': 'Τελικά το θυμηθήκατε;',
   'resetPassword.subline':
     'Διαλέξτε κάτι αξιομνημόνευτο. Θα σας συνδέσουμε ξανά στον χώρο εργασίας σας μόλις οριστεί.',
   'resetPassword.submit': 'Επαναφορά κωδικού πρόσβασης και σύνδεση',
   'resetPassword.token': 'Κωδικός ανάκτησης',
+  'resetPassword.tokenPlaceholder': 'επικόλληση από το email σας',
   'settings.eyebrow': 'Ρυθμίσεις Driftboard',
   'settings.heading': 'Ρυθμίσεις λογαριασμού',
   'settings.plan.manage': 'Διαχείριση προγράμματος',
@@ -187,6 +240,8 @@ export const ui: UiTranslations = {
     'Θα αναδιαμορφώσουμε αυτόματα τον χώρο εργασίας σας και τον πρώτο σας πίνακα.',
   'signup.headline': 'Πίνακες, λίστες, κάρτες. Ξεκινήστε σε 60 δευτερόλεπτα.',
   'signup.passwordHint': 'Τουλάχιστον 8 χαρακτήρες.',
+  'signup.subline':
+    'Δωρεάν για ομάδες έως πέντε ατόμων — χωρίς πιστωτική κάρτα. Φέρτε τους πίνακές σας ή ξεκινήστε από την αρχή.',
   'signup.submit': 'Δημιουργία του χώρου εργασίας μου',
   'team.directory.heading': 'Τηλεφωνικός κατάλογος',
   'team.directory.totalCards': '{{count}} κάρτες που ανήκουν',
@@ -196,6 +251,8 @@ export const ui: UiTranslations = {
   'team.kpis.open': 'Ανοιχτές κάρτες',
   'team.kpis.shipped': 'Οι κάρτες αποστέλλονται',
   'team.kpis.total': 'Σύνολο μελών',
+  'team.loadError': 'Δεν ήταν δυνατή η φόρτωση των στατιστικών της ομάδας.',
+  'team.loading': 'Φόρτωση καταλόγου…',
   'team.noEmail': 'Ιδιοκτήτης',
   'team.roleOwner': 'Ιδιοκτήτης',
   'team.subline':

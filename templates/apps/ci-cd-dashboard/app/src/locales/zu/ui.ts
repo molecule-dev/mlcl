@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Imibuzo, impendulo, noma ufuna idemo yeqembu lakho? Sithumele i-imeyili ku-hello@conduit.dev — yonke imilayezo ifinyelela umuntu wangempela eqenjini.',
   'about.contactHeading': 'Xhumana nathi',
   'about.eyebrow': 'Mayelana',
+  'about.featuresHeading': 'Lokho okutholayo',
+  'about.introBody':
+    'I-{{app}} iletha ukulethwa okuqhubekayo okufana ne-GitHub Actions kudashibhodi eyodwa esheshayo: amapayipilini, amalogi okwakha, ama-artifact, amabheji esimo, nezindawo zokusabalalisa kuyo yonke imisebenzi yakho endaweni eyodwa. Akukho ukugxuma phakathi kwamathebhu, akukho ukuqagela ukuthi yikuphi ukwakha okwephukile — yonke imisebenzi, umugqa wokugcina, nokusabalalisa kukanye nje ngokuchofoza.',
+  'about.introHeading': 'Yini i-{{app}}',
+  'about.missionBody':
+    'Ukuthumela isofthiwe kufanele kube nokuzola nokulindelekile, hhayi into esabekayo. Sakha amapayipilini, amalogi, namathuluzi okusabalalisa ukuze indlela esuka kukhomithi iye ekukhiqizeni isheshe, ibonakale, futhi ithembeke — ukwakha okuluhlaza kokuqala ngemizuzu emihlanu, nakho konke ukwakha okulandela lokho kucace ngendlela efanayo.',
+  'about.missionHeading': 'Umsebenzi wethu',
+  'about.subtitle':
+    'I-{{app}} iyidashibhodi ye-CI/CD yamathimba afuna ukuqapha ukwakha, ukusabalalisa, nezindawo kuyo yonke imisebenzi — futhi bathumele ngokuqiniseka.',
   'artifacts.empty': 'Azikho izinto zobuciko okwamanje.',
   'artifacts.heading': 'Izinto zobuciko',
   'artifacts.loadError': 'Yehlulekile ukulayisha izinto ezisetshenzisiwe.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ i-conduit env --list',
   'environments.heading': 'Izindawo',
   'environments.loadError': 'Yehlulekile ukulayisha izindawo.',
+  'environments.loading': 'Ilayisha izindawo…',
   'environments.subheading': 'Isimo sokuthunyelwa bukhoma kuwo wonke ama-target.',
   'forgotPassword.runnerStatus': 'setha kabusha · umhubhe ovikelekile',
+  'forgotPassword.success':
+    'Uma kukhona i-akhawunti yaleyo imeyili, isixhumanisi sokusetha kabusha sisendleleni. Hlola ibhokisi lakho lokungenayo.',
   'insights.changeFailureRate': 'Izinga lokwehluleka kokushintsha',
   'insights.deployFrequency': 'Ukuthunyelwa / usuku',
   'insights.empty': 'Idatha enganele okwamanje.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Yehlulekile ukulayisha imininingwane.',
   'insights.meanP95': 'okubi {{mean}} · ikhasi 95 {{p95}}',
   'insights.mttr': 'I-MTTR',
+  'insights.slowestStepsHeading': 'Izinyathelo zepayipilini ehamba kancane',
   'insights.successRateHeading': 'Izinga lempumelelo yepayipi (izinsuku ezingu-14 ezedlule)',
   'landing.choosePlan': 'Khetha uhlelo',
+  'landing.copyright': '© {{year}} {{app}}. Thumela ngokuqiniseka.',
   'landing.ctaBody':
     'Akukho khadi lesikweletu. Akudingeki unjiniyela weplatifomu. Thola ipayipi lokuqala eliluhlaza ngemizuzu emihlanu.',
   'landing.ctaHeading': 'Thumela ngokuqiniseka.',
   'landing.featuresEyebrow': '// izici zeplatifomu',
   'landing.featuresHeading': 'Yakhelwe abathumeli, ngabathumeli',
+  'landing.heroSubtitle':
+    'Amapayipilini aqeda ngemizuzwana. Amalogi ongawafunda. Ukusabalalisa ongakuthemba.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit faka --ngokuphephile',
   'landing.pricingEyebrow': '// $ intengo --plain',
   'landing.pricingHeading': 'Amanani alula, angabikezelwa',
@@ -84,8 +103,14 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Sendiza manje',
   'pipelines.metric.successCaption': '{{count}} kwe {{total}} ukugijima',
   'pipelines.metric.successRate': 'Izinga lempumelelo',
+  'pipelines.realtimeOn': 'isikhathi sangempela',
   'pipelines.subheading':
     'Izibuyekezo ezibukhoma ezivela kuzo zonke izindawo zokugcina ezibukwayo.',
+  'pricing.advancedFeatures': 'Izici ezithuthukile: {{mark}}',
+  'pricing.canExport': 'Ukuthunyelwa kwedatha: {{mark}}',
+  'pricing.maxArtifacts': 'Ama-artifact angu-{{count}}',
+  'pricing.maxBuilds': 'Ukwakha okungu-{{count}}',
+  'pricing.maxPipelines': 'Amapayipilini angu-{{count}}',
   'privacy.dataAccount': 'I-akhawunti: igama, i-imeyili, iphasiwedi esheshisiwe, isigaba sohlelo.',
   'privacy.intro':
     '{{uhlelo lokusebenza}} iqoqa idatha encane kuphela esiyidingayo ukuze sisebenzise i-akhawunti yakho yokulethwa okuqhubekayo: i-imeyili yakho, izindawo zokugcina ozixhumayo, i-commits kanye ne-build metadata ezikhiqizwa yi-runners yakho, kanye nezimfihlo okhetha ukuzigcina nathi. Asikaze sifunde ikhodi yakho yomthombo ngaphandle kwe-build runner; i-build artifacts igcinwa ebhakedeni lakho le-S3 uma ilungiselelwe.',
@@ -93,6 +118,8 @@ export const ui: UiTranslations = {
     'Sisebenzisa i-Stripe ekukhokhiseni, i-Mailgun ye-imeyili yokuthengiselana, kanye ne-AWS S3 yokugcina izinto zokwakha. Ngayinye ibophezelwe ngokwesivumelwano kububanzi obuncane bedatha edingekayo ukuze ilethe isevisi yayo.',
   'privacy.rightsBody':
     'Ungathumela yonke idatha yakho, ususe i-akhawunti yakho nganoma yisiphi isikhathi kusuka kuzilungiselelo, futhi ucele irekhodi lakho konke ukulethwa kwe-webhook ku-akhawunti yakho. Siphendula izicelo ze-GDPR / CCPA zingakapheli izinsuku ezingu-30.',
+  'privacy.subtitle':
+    'Indlela i-{{app}} eqoqa, egcina, futhi evikela ngayo idatha yakho ngenkathi siqhubeka namapayipilini akho.',
   'privacy.title': 'Inqubomgomo yobumfihlo',
   'repositories.empty': 'Azikho izindawo zokugcina ezixhunyiwe.',
   'repositories.heading': 'Izindawo zokugcina izinto',
@@ -101,11 +128,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Zonke izindawo zokugcina impahla',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Yehlulekile ukulayisha indawo yokugcina.',
+  'repositoryDetail.meanDuration': 'Isikhathi esimaphakathi',
   'repositoryDetail.notFound': 'Indawo yokugcina ayitholakalanga.',
+  'repositoryDetail.successRate': 'Izinga lempumelelo',
   'repositoryDetail.totalBuilds': 'Ingqikithi yokwakhiwa',
   'repositoryDetail.webhookActive': 'esebenzayo',
   'repositoryDetail.webhookPaused': 'kumiswe okwesikhashana',
   'repositoryDetail.webhooksHeading': 'Ama-Webhooks',
+  'resetPassword.passwordLabel': 'Iphasiwedi Entsha',
   'resetPassword.runnerStatus': 'setha kabusha · ithokheni iqinisekisiwe',
   'resetPassword.subtitle': 'Khetha iphasiwedi eqinile ongakaze uyisebenzise ngaphambili.',
   'resetPassword.tokenPlaceholder': 'namathisela kusuka ku-imeyili',
@@ -118,6 +148,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Ama-Repositories Amawashi e-Conduit. Nqamula kumhlinzeki wakho we-VCS ukuze uyeke ukudla imicimbi.',
   'settings.repositories.empty': 'Azikho izindawo zokugcina ezixhunyiwe okwamanje.',
+  'settings.repositories.heading': 'Ukuxhumana kwemisebenzi',
   'settings.repositories.loadError': 'Yehlulekile ukulayisha ama-repositories.',
   'settings.secrets.addCta': 'Engeza imfihlo',
   'settings.secrets.addError': 'Yehlulekile ukwengeza imfihlo.',
@@ -125,6 +156,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Yehlulekile ukususa imfihlo.',
   'settings.secrets.empty': 'Azikho izimfihlo ezigciniwe.',
   'settings.secrets.heading': 'Izimfihlo',
+  'settings.secrets.lastUsed': 'igcine ukusetshenziswa {{date}}',
   'settings.secrets.loadError': 'Yehlulekile ukulayisha izimfihlo.',
   'settings.secrets.neverUsed': 'akukaze kusetshenziswe',
   'settings.secrets.rotateCta': 'Zungezisa',
@@ -148,6 +180,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Yehlulekile ukubuyekeza i-webhook.',
   'signup.namePlaceholder': 'Ipaki laseRiley',
   'signup.runnerStatus': 'izinga lamahhala · Ukwakhiwa okungu-1,000 min/ngenyanga',
+  'terms.intro':
+    'Ngokwakha i-akhawunti ye-{{app}} uvuma le migomo. Ihlanganisa ukusetshenziswa okwamukelekayo kwama-build runner, imingcele ye-SLA yethu, nezimo esingamisa ngazo noma siqede i-akhawunti yakho ngemisebenzi yokuhlukumeza.',
   'terms.slaBody':
     'Izinhlelo ze-Pro kanye ne-Team zihlose u-99.95% wesikhathi sokusebenza sanyanga zonke se-API kanye neqembu labagijimi. Uhlelo lwamahhala lunikezwa njengoba lunjalo. Ukuphazamiseka kubikwa ku-status.conduit.dev futhi kufakwa i-akhawunti ngokwefomula eku-invoyisi yakho.',
   'terms.terminationBody':

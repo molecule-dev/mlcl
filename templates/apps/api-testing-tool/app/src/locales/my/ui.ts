@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ဘੱਗ တွေ့ပါသလား၊ အင်္ဂါရပ် တောင်းဆိုချင် ပါသလား၊ ဒါမှမဟုတ် နောက်ထပ် ဘာ တည်ဆောက်စေချင် လဲ ပြောချင် ပါသလား။ hello@pylon.dev သို့ အီးမေးလ် ပို့ပါ — မက်ဆေ့ခ်ျ တိုင်း အဖွဲ့ ထဲ ရှိ အင်ဂျင်နီယာ တစ် ဦး ဆီ ရောက် ပါတယ်။',
   'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
+  'about.intro':
+    '{{app}} သည် terminal တွင် အလုပ် လုပ် သော အင်ဂျင်နီယာ များ အတွက် လျင်မြန် ပြီး ကီးဘုတ် ဖြင့် အဓိက အသုံးပြု နိုင် သော API စမ်းသပ်ရေး workbench တစ် ခု ဖြစ် သည် — Postman ပုံစံ request များ၊ collection များ၊ environment များ နှင့် history များ ကို ပိုလျှံ မှု မရှိ ဘဲ ရရှိ နိုင် သည်။',
+  'about.missionBody':
+    'API များ သည် ခေတ်သစ် ဆော့ဖ်ဝဲ ၏ ကျောရိုး ဖြစ် သော်လည်း ၎င်း တို့ ကို အသုံးပြု ရန် ကိရိယာ များ သည် နှေး ပြီး ပိုလျှံ ကာ မောက်စ် ဖြင့် သာ အသုံးပြု ရ သည်။ {{app}} သည် developer များ အတွက် ထက် မြက် လျင်မြန် သော terminal အဆင့် workbench တစ် ခု ပေး ရန် တည်ရှိ သည် — request များ ပစ် လွှတ် ပါ၊ ယုံကြည်မှု တည်ဆောက် ပါ၊ ကီးဘုတ် မှ မထွက် ဘဲ ship လုပ် ပါ။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'about.pageTitle': '{{app}} အကြောင်း',
   'authShell.statusLabel': 'အွန်လိုင်းပြေးသမားများ',
   'collections.createError': 'စုစည်းမှုကို ဖန်တီး၍မရပါ။',
   'collections.defaultName': 'ခေါင်းစဉ်မဲ့ စုစည်းမှု {{n}}',
+  'collections.empty':
+    'collection များ မရှိ သေး ပါ — သင် ၏ ပထမ folder ကို စတင် ရန် “New collection” ကို နှိပ် ပါ။',
   'collections.eyebrow': '$ pylon စုစည်းမှုများ --tree',
   'collections.fetchError': 'စုစည်းမှုများကို တင်၍မရပါ။',
   'collections.heading': 'စုစည်းမှုများ',
   'collections.loading': 'စုစည်းမှုများကို တင်နေသည်…',
+  'collections.metric.allGreen': 'အားလုံး အစိမ်း',
   'collections.metric.collections': 'စုစည်းမှုများ',
   'collections.metric.failing': 'မအောင်မြင်ခြင်း',
   'collections.metric.failingCaption': 'ပြီးခဲ့တဲ့ပြိုင်ပွဲမှာ ကျရှုံးမှုတွေရှိခဲ့ပါတယ်',
@@ -24,6 +34,8 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'ကိန်းရှင်များ',
   'environments.createError': 'ပတ်ဝန်းကျင်ကို မဖန်တီးနိုင်ခဲ့ဘူး။',
   'environments.defaultName': 'ခေါင်းစဉ်မဲ့ပတ်ဝန်းကျင် {{n}}',
+  'environments.empty':
+    'environment များ မရှိ သေး ပါ — တစ် ခု ထည့် ရန် “New environment” ကို နှိပ် ပါ။',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'ပတ်ဝန်းကျင်များကို တင်၍မရပါ။',
   'environments.heading': 'ပတ်ဝန်းကျင်များ',
@@ -31,8 +43,11 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'ပတ်ဝန်းကျင်အသစ်',
   'environments.subheading':
     'ပေးပို့ချိန်တွင် တောင်းဆိုမှုများအဖြစ်သို့ ပြောင်းလဲသွားသော variable များ။ workspace တစ်ခုလျှင် active environment တစ်ခု။',
+  'forgotPassword.statusLabel': 'ပြန်လည်သတ်မှတ်ခြင်း · လုံခြုံသောဥမင်လိုဏ်ခေါင်း',
   'forgotPassword.success':
     'အဲဒီအီးမေးလ်အတွက် အကောင့်တစ်ခုရှိနေရင် reset link တစ်ခု ပို့ပေးပါမယ်။ သင့်ရဲ့ inbox ကို စစ်ဆေးကြည့်ပါ။',
+  'history.empty':
+    'ဒီ မှာ ဘာ မှ မရှိ သေး ပါ — Workspace tab မှ သင် ၏ ပထမ request ကို ပစ် လွှတ် ပါ။',
   'history.eyebrow': '$ pylon history --tail',
   'history.fetchError': 'မှတ်တမ်းကို တင်၍မရပါ။',
   'history.heading': 'လည်ပတ်မှုမှတ်တမ်း',
@@ -41,9 +56,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '၄xx + ၅xx',
   'history.metric.success': '၂xx',
   'history.metric.total': 'နောက်ဆုံး ၅၀',
+  'history.realtime': 'အချိန်နှင့်တပြေးညီ',
   'history.subheading':
     'ဤ workspace တွင် request တိုင်းကို status၊ latency နှင့် payload size တို့ဖြင့် fire လုပ်သည်။',
   'landing.choosePlan': 'အစီအစဉ် ရွေးချယ်ပါ',
+  'landing.copyright': '© {{year}} {{app}} Engineering။ ယုံကြည်မှု တည်ဆောက် ပါ။',
   'landing.ctaBody':
     'ခရက်ဒစ်ကတ် မလိုအပ်ပါ။ ပလက်ဖောင်း အင်ဂျင်နီယာ မလိုအပ်ပါ။ ⌘K ကိုဖွင့်ပြီး သင့်ပထမဆုံး တောင်းဆိုချက်ကို ငါးမိနစ်အတွင်း ပေးပို့ပါ။',
   'landing.ctaHeading': 'ယုံကြည်မှုကို ဖော်ဆောင်ပါ။',
@@ -85,6 +102,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'ပျမ်းမျှ နှောင့်နှေးမှု',
   'mocks.metric.live': 'အများပြည်သူ',
   'mocks.metric.servers': 'အတုအယောင်များ',
+  'mocks.ms': 'ဒေါ်',
   'mocks.newMock': 'အတုအယောင်အသစ်',
   'mocks.online': 'အများပြည်သူ',
   'mocks.paused': 'သီးသန့်',
@@ -109,9 +127,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'ကျန်းမာရေးနဲ့ညီညွတ်တဲ့',
   'monitors.metric.uptime': 'ပျမ်းမျှ အလုပ်လုပ်ချိန်',
   'monitors.newMonitor': 'မော်နီတာအသစ်',
+  'monitors.paused': 'ခေတ္တရပ်ထားသည်',
   'monitors.run': 'ပြေးပါ',
   'monitors.runError': 'ကွန်ရက်အမှားဖြင့် ပြီးဆုံးသွားသော လုပ်ဆောင်မှု- {{error}}',
+  'monitors.runFailed': 'Run မအောင်မြင်ပါ။',
   'monitors.running': 'ပြေးနေသည်…',
+  'monitors.runSuccess': 'Run {{status}} — upstream သည် {{ms}}ms အတွင်း {{code}} ပြန်ပေးခဲ့သည်။',
   'monitors.sparkLabel': 'နှောင့်နှေးမှု လမ်းကြောင်း',
   'monitors.subheading':
     'သိမ်းဆည်းထားသော မည်သည့်စမ်းသပ်မှုအတွက်မဆို လိုအပ်သလို စစ်ဆေးနိုင်ပါသည်။ စမ်းသပ်မှုတစ်ခုကို ချိတ်ဆက်ပါ၊ Run ကို နှိပ်ပြီး မီးလောင်မှုတိုင်းနှင့်အတူ ၂၄ နာရီ အောင်မြင်မှုနှုန်း အပ်ဒိတ်ကို ကြည့်ရှုပါ။',
@@ -120,27 +141,54 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'ဖွင့်ချိန် · ၂၄ နာရီ',
   'nav.legal': 'ဥပဒေရေးရာ',
   'notFound.backToWorkspace': 'အလုပ်ခွင်သို့ ပြန်သွားပါ',
+  'notFound.body':
+    '{{app}} သည် ဤ URL အတွက် request တစ် ခု ပစ် လွှတ် ခဲ့ ပြီး ဘာ မှ ပြန်မရ ခဲ့ ပါ။ route ကို ပြန်စစ် ပါ သို့မဟုတ် workspace သို့ ပြန်သွား ပါ။',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'လမ်းကြောင်း ရှာမတွေ့ပါ',
+  'planUpdated.body':
+    'သင့်ငွေတောင်းခံမှု ပြောင်းလဲမှုသည် ယခု အသက်ဝင်နေပါပြီ။ သင့်အစီအစဉ်ကို ငွေတောင်းခံမှုစာမျက်နှာမှ မည်သည့်အချိန်တွင်မဆို စီမံနိုင်ပါသည်။',
+  'planUpdated.retry': 'ထပ်ကြိုးစားပါ',
+  'planUpdated.verifyFailed': 'သင့်ငွေပေးချေမှုကို ကျွန်ုပ်တို့ အတည်မပြုနိုင်သေးပါ။',
+  'planUpdated.verifyFailedBody':
+    'သင့်ငွေပေးချေမှုကို လုပ်ဆောင်နေဆဲဖြစ်နိုင်ပါသည်။ ခဏအကြာတွင် ထပ်မံကြိုးစားပါ။',
   'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
+  'pricing.advancedFeatures': 'အဆင့်မြင့်အင်္ဂါရပ်များ — {{yes}}',
+  'pricing.canExport': 'ဒေတာထုတ်ယူခြင်း — {{yes}}',
+  'pricing.heading': 'သင့် {{app}} အစီအစဉ် ရွေးချယ်ပါ',
+  'pricing.maxCollections': '{{count}} collection များ',
+  'pricing.maxEnvironments': '{{count}} environment များ',
+  'pricing.maxHistory': '{{count}} history entry များ',
+  'pricing.maxRequests': '{{count}} တောင်းဆိုချက်များ',
   'privacy.collect.account':
     'အကောင့်- သင့်အီးမေးလ်၊ hash လုပ်ထားသော စကားဝှက်၊ ပြသထားသောအမည်နှင့် သင်နောက်ဆုံးဝင်ရောက်ခဲ့သည့် အချိန်တံဆိပ်။',
+  'privacy.intro':
+    '{{app}} သည် သင် ၏ ကိုယ်ရေးကိုယ်တာ လုံခြုံမှု ကို လေးစား သည်။ ဤ စာမျက်နှာ သည် ကျွန်ုပ် တို့ စုဆောင်း သော ဒေတာ၊ အဘယ်ကြောင့် စုဆောင်း သည် နှင့် ၎င်း ကို မည်သို့ ဖယ်ရှား ရ မည် ကို အကျဉ်းချုပ် ဖော်ပြ သည်။',
   'privacy.rights.body':
     'သင်၏ စုစည်းမှုများ + ပတ်ဝန်းကျင်များကို အချိန်မရွေး ထုတ်ယူနိုင်သည်၊ သို့မဟုတ် ရက် ၃၀ အတွင်း ဒေတာအားလုံးကို အပြီးအပိုင်ဖယ်ရှားရန် သင်၏အကောင့်ကို ဆက်တင်များမှ ဖျက်နိုင်သည်။',
   'privacy.share.body':
     'သင်တစ်ဦးတည်းသာ။ ကျွန်ုပ်တို့သည် သင်၏ အလုပ်ခွင်အကြောင်းအရာကို ပြင်ပအဖွဲ့အစည်းများထံ ရောင်းချခြင်း၊ မျှဝေခြင်း သို့မဟုတ် ငှားရမ်းခြင်း မပြုလုပ်ပါ။ ဆာဗာမှတ်တမ်းများကို ဖြစ်ရပ်တုံ့ပြန်မှုအတွက် ရက် ၃၀ ကြာ သိမ်းဆည်းထားပြီး ဖျက်ပစ်ပါသည်။',
   'privacy.title': 'ကိုယ်ရေးကိုယ်တာအချက်အလက်သတိပေးချက်',
+  'profile.bio':
+    'သင် ၏ ကိုယ်ပိုင် {{app}} workspace — collection များ ကို pin လုပ် ပါ၊ environment များ မျှဝေ ပါ၊ ထုတ်ကုန် ship လုပ် သော API များ ကို စောင့်ကြည့် ပါ။',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'ပူးပေါင်းခဲ့သည် {{when}}',
+  'profile.metric.collections': 'စုစည်းမှုများ',
   'profile.metric.monitors': 'မော်နီတာများ',
   'profile.metric.requests': 'သိမ်းဆည်းထားသော တောင်းဆိုချက်များ',
+  'profile.noActivity': 'request များ မရှိ သေး ပါ — တစ် ခု ပြုလုပ် ရန် Workspace tab သို့ သွား ပါ။',
   'profile.signedOut': 'သင့်ပရိုဖိုင်ကိုကြည့်ရန် အကောင့်ဝင်ပါ',
   'pylonShell.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
+  'resetPassword.passwordLabel': 'စကားဝှက်အသစ်',
+  'resetPassword.statusLabel': 'ပြန်လည်သတ်မှတ်ခြင်း · တိုကင် အတည်ပြုပြီး',
   'resetPassword.subtitle': 'သင်ယခင်က အသုံးမပြုဖူးသော ခိုင်မာသည့် စကားဝှက်တစ်ခုကို ရွေးချယ်ပါ။',
   'resetPassword.tokenPlaceholder': 'အီးမေးလ်မှ ကူးထည့်ပါ',
+  'settings.accountManagement.desc':
+    'သင် ၏ အီးမေးလ် နှင့် စကားဝှက် ကို အပ်ဒိတ် လုပ် ပါ၊ အသိပေးချက် များ နှင့် device များ ကို စီမံ ပါ၊ sign out လုပ် ပါ သို့မဟုတ် သင် ၏ account ကို ဖျက် ပါ။',
+  'settings.accountManagement.title': 'အကောင့်နှင့် လုံခြုံရေး',
   'settings.eyebrow': '$ pylon ဆက်တင်များ --ပြင်ဆင်ရန်',
   'settings.fetchError': 'ဆက်တင်များကို တင်၍မရပါ။',
   'settings.language.title': 'ဘာသာစကား',
+  'settings.seeding': 'ပြင်ဆင်နေသည်…',
   'settings.seedStarter': 'မျိုးစေ့စတင်သူ အကြောင်းအရာ',
   'settings.starterCollection': 'အစပြုစုဆောင်းမှု',
   'settings.starterCollectionDesc': 'ဆက်တင်များမှ ဖန်တီးထားသည် {{ts}}',
@@ -154,6 +202,8 @@ export const ui: UiTranslations = {
     'သင့်စကားဝှက်ကို ကာကွယ်ရန် သင့်တွင် တာဝန်ရှိပါသည်။ Free သို့မဟုတ် Pro အစီအစဉ်များတွင် အကောင့်တစ်ခုကို လူများစွာနှင့် မျှဝေသုံးစွဲခွင့်မပြုပါ — မျှဝေထားသော အလုပ်ခွင်များအတွက် Team စာရင်းသွင်းမှုကို ဝယ်ယူပါ။',
   'terms.billing.body':
     'ငွေပေးချေရသည့် စာရင်းသွင်းမှုများကို ငွေတောင်းခံသည့်ကာလတိုင်းတွင် အလိုအလျောက် သက်တမ်းတိုးပါသည်။ ဆက်တင်များမှ အချိန်မရွေး ပယ်ဖျက်နိုင်ပါသည်။ လက်ရှိကာလ ကုန်ဆုံးသည်အထိ သင်၏ဝင်ရောက်ခွင့်သည် ဆက်လက်တည်ရှိနေပါသည်။',
+  'terms.intro':
+    '{{app}} account တစ် ခု ဖန်တီး ခြင်း ဖြင့် သင်သည် အောက်ပါ စည်းကမ်းချက် များ ကို သဘောတူ သည်။ တစ် ကြိမ် ဖတ် ပါ၊ နောက်ကြောင်း ပြောင်းလဲမှု များ ဖြင့် ကျွန်ုပ် တို့ သင့် ကို အံ့အားသင့် စေ မည် မဟုတ် ပါ။',
   'terms.title': 'ဝန်ဆောင်မှုဆိုင်ရာ စည်းကမ်းချက်များ',
   'terms.usage.body':
     'သင်မပိုင်ဆိုင်သော သို့မဟုတ် စမ်းသပ်ရန် ရှင်းလင်းစွာခွင့်ပြုချက်မရှိသော ဝန်ဆောင်မှုများတွင် တောင်းဆိုမှုများ ပြုလုပ်ရန် Pylon ကို အသုံးမပြုပါနှင့်။ နှုန်းထားကန့်သတ်ချက်များကို ရှောင်ကွင်းရန် သို့မဟုတ် လိမ်လည်မှုကျူးလွန်ရန် Pylon ကို အသုံးမပြုပါနှင့်။',
@@ -174,17 +224,23 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'မပြေးပါ',
   'testRunner.metric.passed': 'အောင်မြင်ပြီး',
   'testRunner.never': 'ဘယ်တော့မှ မပြေးပါနဲ့',
+  'testRunner.newTest': 'စမ်းသပ်မှု အသစ်',
   'testRunner.noAssertions': 'ဒီစမ်းသပ်မှုနဲ့ ပတ်သက်ပြီး အတည်ပြုချက် မရှိသေးပါဘူး။',
+  'testRunner.noRunsYet':
+    'run များ မှတ်တမ်း တင် ထား ခြင်း မရှိ သေး ပါ — history ဖြည့် ရန် “Run all” ကို နှိပ် ပါ။',
   'testRunner.passed': 'ဖြတ်သန်းခြင်း',
+  'testRunner.recentRuns': 'မကြာသေးမီက ပြေးမှုများ',
   'testRunner.runAll': 'အားလုံးကို လုပ်ဆောင်ပါ',
   'testRunner.running': 'ပြေးနေသည်…',
   'testRunner.runOne': 'ပြေးပါ',
   'testRunner.subheading':
     'Suite ရလဒ်များ၊ အခိုင်အမာပြောဆိုချက် ကွာခြားချက်များနှင့် နောက်ဆုံး ရမှတ် ၅၀။',
+  'testRunner.suites': 'Suite များ',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'အဖြစ် လက်မှတ်ထိုးဝင်ထားသည်',
   'workspace.auth.keyName': 'ခေါင်းစဉ်အမည်',
   'workspace.auth.keyValue': 'သော့ချက်တန်ဖိုး',
+  'workspace.auth.noneHint': 'ဤ request နှင့် အတူ authorization header ပို့ မည် မဟုတ် ပါ။',
   'workspace.auth.password': 'စကားဝှက်',
   'workspace.auth.username': 'အသုံးပြုသူအမည်',
   'workspace.authOption.apikey': 'API ကီး',
@@ -194,13 +250,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth ၂.၀',
   'workspace.authType': 'အမျိုးအစား',
   'workspace.authTypeLabel': 'ခွင့်ပြုချက်အမျိုးအစား',
+  'workspace.body.contentLabel': 'တောင်းဆိုချက် ကိုယ်ထည်',
+  'workspace.body.hint':
+    'request မ လွှတ် မီ {{envVars}} များ အစားထိုး ခံ ရ သည်။ Body များ ကို POST/PUT/PATCH/DELETE တွင် ပို့ သည်။',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'မရှိပါ',
+  'workspace.body.noneHint':
+    'request body ပို့ မည် မဟုတ် ပါ။ တစ် ခု ထည့် ရန် JSON သို့မဟုတ် raw text ကို ရွေး ပါ။',
   'workspace.body.text': 'စာသားမပြည့်စုံ',
   'workspace.body.type': 'အမျိုးအစား',
   'workspace.environment': 'env မရှိပါ',
   'workspace.envVar': 'env ကိန်းရှင်',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.failedCount': '{{count}} မအောင်မြင်',
+  'workspace.idle': 'အားလပ်ချိန်',
   'workspace.kv.addHeader': 'ခေါင်းစီးထည့်ပါ',
   'workspace.kv.addParam': 'ပါရာမီရာ ထည့်ပါ',
   'workspace.kv.headerKey': 'ခေါင်းစဉ်အမည်',
@@ -213,12 +276,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP နည်းလမ်း',
   'workspace.metric.latency': 'နှောင့်နှေးမှု',
   'workspace.metric.latencyCaption': 'ဤပြေးလမ်းမှ အသွားအပြန်',
+  'workspace.metric.size': 'Payload',
   'workspace.metric.sizeCaption': 'တုံ့ပြန်မှု ခန္ဓာကိုယ် ဘိုက်များ',
   'workspace.metric.statusCaption': 'နောက်ဆုံးတုံ့ပြန်မှု',
   'workspace.metric.tests': 'စမ်းသပ်မှုများ',
+  'workspace.metric.testsAllPassing': 'assertion အားလုံး အစိမ်း',
   'workspace.metric.testsFailing': '{{count}} မအောင်မြင်ခြင်း',
+  'workspace.metric.testsIdle': 'အကဲဖြတ် ရန် request တစ် ခု ပို့ ပါ',
   'workspace.noAssertions': 'built-in assertions များကို အကဲဖြတ်ရန် request တစ်ခုကို run ပါ။',
   'workspace.noResponseYet': 'တုံ့ပြန်မှု မရှိသေးပါ',
+  'workspace.passedCount': '{{count}} အောင်မြင်ပြီး',
   'workspace.responseHint': '// တောင်းဆိုမှုကို စတင်ပြီး တုံ့ပြန်မှုကို ဖမ်းယူရန် Send ကိုနှိပ်ပါ။',
   'workspace.saveError': 'တောင်းဆိုချက်ကို သိမ်းဆည်း၍မရပါ။',
   'workspace.statusError': 'တောင်းဆိုချက်ကို ပို့၍မရပါ။',
@@ -227,10 +294,15 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'တောင်းဆိုချက်တစ်ခု ရေးသားပါ၊ စတင်ပါ၊ ထို့နောက် တုံ့ပြန်မှုကို အတည်ပြုပါ — အားလုံးကို တစ်နေရာတည်းတွင် ပြုလုပ်ပါ။',
   'workspace.testResults': 'စမ်းသပ်မှုရလဒ်များ',
+  'workspace.tests.autoHint':
+    'Status family၊ latency၊ body size နှင့် transport health ကို အလိုအလျောက် စစ်ဆေး သည် — ရလဒ် များ သည် response panel ရှိ “Test results” အောက် တွင် ပေါ်လာ သည်။',
+  'workspace.tests.autoTitle':
+    'အလိုအလျောက် ပါဝင် သော assertion များ သည် response တိုင်း တွင် အလုပ် လုပ် သည်',
   'workspace.token': 'တိုကင်',
   'workspace.tokenHint':
     'ခွင့်ပြုချက်အဖြစ် ပေးပို့သည်- ကိုင်ဆောင်သူ<token> ဤစုစည်းမှုတွင် တောင်းဆိုမှုတိုင်းတွင်။',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'ခေါင်းစဉ်မဲ့ တောင်းဆိုချက်',
+  'workspace.urlLabel': 'URL တောင်းဆိုပါ',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

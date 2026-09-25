@@ -1,12 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Прашања, повратни информации или грешка за пријавување? Контактирајте го тимот од поставките на вашата сметка — секоја порака стигнува до вистински човек кој исто така учи јазици.',
   'about.contactTitle': 'Контактирајте не',
   'about.eyebrow': 'За нас',
+  'about.missionTitle': 'Нашата мисија',
+  'about.whatYouGet': 'Што добивате',
   'common.goToDashboard': 'Оди до контролна табла',
   'common.logout': 'Одјави се',
+  'dailyStatsTriad.heartsHint': 'Дополни на почетокот на секој час',
   'dailyStatsTriad.heartsLabel': 'Срца',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
+  'dailyStatsTriad.minutesHint': 'Од денешните вежби',
   'dailyStatsTriad.minutesLabel': 'Минути денес',
   'dailyStatsTriad.minutesValue': '{{count}} мин',
   'dailyStatsTriad.wordsLabel': 'Зборови совладани',
@@ -15,18 +21,29 @@ export const ui: UiTranslations = {
   'dashboard.heading': 'Буенос дијас, {{name}} .',
   'dashboard.loadError':
     'Не може да се вчита најновиот напредок — се прикажуваат кешираните вредности.',
+  'dashboard.loading': 'Освежува…',
   'dashboard.noLessons': 'Сè уште нема достапни лекции - проверете повторно наскоро.',
+  'dashboard.startPractice': 'Започни вежбање говор',
+  'dashboard.subheading':
+    'Продолжи од каде што застана — три кратки сесии и ќе ја постигнеш денешната цел.',
   'dashboard.viewAllLessons': 'Сите лекции →',
+  'forgotPassword.subheading': 'Внеси ја својата е-пошта и ќе ти испратиме линк за ресетирање.',
   'forgotPassword.successBody':
     'Проверете го вашето сандаче — ви испративме линк за да го ресетирате.',
   'forgotPassword.successHint':
     'Ако {{email}} се совпаѓа со сметка, врската ќе пристигне во рок од една минута.',
+  'landing.copyright': '© {{year}} {{app}}. Создадено за возрасни ученици.',
   'landing.ctaBody':
     'Не е потребна картичка. Оставете ја вашата е-пошта, изберете јазик, започнете утре.',
   'landing.ctaHeading': 'Подготвени сте да го пронајдете вашиот акцент?',
   'landing.eyebrow': 'Дневна јазична вежба за возрасни',
   'landing.featuresHeading': 'Вежбачка јамка што го почитува вашето време',
+  'landing.featuresSubheading':
+    'Дизајнирано за возрасни со триесет минути дневно, не триесет часа неделно.',
   'landing.heroCta': 'Започнете 7-дневна низа',
+  'landing.heroSubtitle':
+    'Петминутни часови што се вклопуваат во пауза за кафе. Вежби, вокабулар, говор — сè завиткано во низа што навистина ќе ја одржуваш.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.languagesEyebrow': 'Изберете јазик',
   'landing.languagesHeading': 'Четиринаесет јазици, една дневна навика',
   'landing.proof.languages': '{{count}} јазици',
@@ -41,11 +58,18 @@ export const ui: UiTranslations = {
   'leaderboard.heading': 'Табела со резултати',
   'leaderboard.loadError': 'Не можеше да се вчита табелата со водачи.',
   'leaderboard.loading': 'Се вчитува табелата со водачи…',
+  'leaderboard.rewardBody':
+    'Одржување на злато три недели по ред те промовира во дијамант. Само пријателски влог.',
+  'leaderboard.rewardEyebrow': 'Овонеделната награда',
+  'leaderboard.rewardHeading': 'Најдобрите {{count}} ја добиваат значката за златна лига',
   'leaderboard.subheading':
     'XP оваа недела. Се ресетира во недела на полноќ по ваше локално време.',
   'leaderboard.weeklyPeriod': 'Оваа недела · пријатели',
+  'leaderboardPanel.rankSuffix': 'Ранг # {{rank}}',
   'leaderboardPanel.title': 'Табела со најдобри пријатели',
+  'leaderboardPanel.xp': '{{xp}} XP',
   'leaderboardPanel.you': '(Ти)',
+  'lessonCard.continue': 'Продолжи →',
   'lessonCard.duration': '{{min}} мин',
   'lessonCard.level': 'Ниво {{level}}',
   'lessonCard.progressPercent': '{{percent}} % завршено',
@@ -54,14 +78,17 @@ export const ui: UiTranslations = {
   'lessonDetail.check': 'Проверка',
   'lessonDetail.checking': 'Се проверува…',
   'lessonDetail.correct': 'Бриљантно!',
+  'lessonDetail.correctHint': '+{{xp}} XP. Продолжи така.',
   'lessonDetail.empty': 'Нема вежби во оваа лекција.',
   'lessonDetail.exit': 'Излез од лекцијата',
   'lessonDetail.fillBlank': 'Пополнете го празното место',
   'lessonDetail.finish': 'Заврши лекција',
   'lessonDetail.incorrect': 'Не баш — “ {{answer}} „',
+  'lessonDetail.incorrectHint': 'Оваа ќе ја видиш повторно во утрешното повторување.',
   'lessonDetail.lessonId': 'Лекција · {{id}}',
   'lessonDetail.loadError': 'Не можеше да се вчитаат вежбите.',
   'lessonDetail.loading': 'Се вчитува лекцијата…',
+  'lessonDetail.pronunciation': 'Избери го точниот изговор',
   'lessonDetail.submitError': 'Не можеше да се испрати одговорот.',
   'lessonDetail.translation': 'Преведете ја фразата',
   'lessonDetail.xpEarned': 'Заработени XP · {{xp}}',
@@ -80,6 +107,12 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'Отвори мени за навигација',
   'parlanceLayout.nav.profile': 'Профил',
   'parlanceLayout.primaryNavLabel': 'Примарна навигација',
+  'planUpdated.body':
+    'Промената на наплатата е сега активна. Можете да го управувате планот во секое време од страницата за наплата.',
+  'planUpdated.retry': 'Обидете се повторно',
+  'planUpdated.verifyFailed': 'Сè уште не можевме да ја потврдиме вашата уплата.',
+  'planUpdated.verifyFailedBody':
+    'Вашето плаќање можеби сè уште се обработува. Обидете се повторно за момент.',
   'planUpdated.verifying': 'Се потврдува вашата уплата…',
   'practice.empty': 'Сè уште нема достапни фрази.',
   'practice.eyebrow': 'Вежбање на говор',
@@ -103,6 +136,9 @@ export const ui: UiTranslations = {
   'pricing.limits.progress': 'записи за напредок',
   'profile.anonymous': 'Ученик',
   'profile.avatarAlt': '{{name}} Аватарот на \\u2019s',
+  'profile.eyebrow': 'Член од {{joined}}',
+  'profile.eyebrowNew': 'Нов ученик',
+  'profile.langLessonCount': '{{count}} лекции',
   'profile.langLevel': 'Ниво {{level}}',
   'profile.languages': 'Јазици',
   'profile.languagesHeading': 'Јазици во тек',
@@ -111,6 +147,7 @@ export const ui: UiTranslations = {
   'profile.streak': 'Редија',
   'profile.totalXp': 'Вкупно XP',
   'resetPassword.confirmPlaceholder': 'Напиши го повторно',
+  'resetPassword.mismatch': 'Лозинките не се совпаѓаат.',
   'resetPassword.newPasswordLabel': 'Нова лозинка',
   'resetPassword.newPasswordPlaceholder': 'Осум или повеќе карактери',
   'resetPassword.subheading': 'Изберете нешто незаборавно, осум или повеќе ликови.',
@@ -118,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Преференции за вежбање',
   'settings.goalBody':
     'Колку XP се стремите секој ден. Сериите се одржуваат секогаш кога ќе ја постигнете целта.',
+  'settings.goalHeading': 'Дневна цел',
   'settings.goalMinutes': '~ {{min}} мин/ден',
   'settings.language.description':
     'Изберете го јазикот што ќе се користи низ менијата и етикетите на апликацијата.',

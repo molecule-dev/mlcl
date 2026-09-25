@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.eyebrow': 'সম্পর্কে',
+  'about.featureAlerts':
+    'গুরুত্বপূর্ণ শর্তে মূল্য সতর্কতা, ইমেইল ও পুশে পাঠানো হয় যাতে কোনো পরিবর্তন মিস না হয়।',
+  'about.featureMarkets':
+    'হাজার হাজার কয়েনের লাইভ মার্কেট ডেটা ও মূল্য চার্ট, মার্কেট ক্যাপ, ভলিউম ও মোমেন্টাম অনুযায়ী র‍্যাঙ্ক করা।',
+  'about.featurePortfolio':
+    'আসল লাভ-ক্ষতি, ক্রয়মূল্য ও বিনিয়োগ বিভাজনসহ পোর্টফোলিও ট্র্যাকিং — আপনার লেনদেনের ইতিহাসের সাথে সংযুক্ত।',
+  'about.featureWatchlist':
+    'একটি ব্যক্তিগত ওয়াচলিস্ট এবং আপনার অনুসরণ করা সম্পদ সম্পর্কে সংকেতসহ নির্বাচিত ক্রিপ্টো সংবাদ।',
+  'about.missionTitle': 'আমাদের লক্ষ্য',
+  'alertConditionCard.armedSince': '{{when}} থেকে সক্রিয়',
   'alertConditionCard.condition.${alert.condition}': 'ট্রিগার করা হয়েছে যখন',
   'alertConditionCard.confirmDelete': 'মুছে ফেলা নিশ্চিত করুন',
+  'alertConditionCard.deleteAriaLabel': 'সতর্কতা মুছুন',
   'alertConditionCard.pauseAriaLabel': 'বিরতি সতর্কতা',
   'alertConditionCard.resumeAriaLabel': 'জীবনবৃত্তান্ত সতর্কতা',
+  'alertConditionCard.triggeredAt': '{{when}} ট্রিগার হয়েছে',
   'alertNew.condition': 'অবস্থা',
   'alertNew.createCta': 'সতর্কতা তৈরি করুন',
   'alertNew.error': 'অ্যালার্ট তৈরি করা যায়নি।',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'এখনো কোনো সতর্কতা বার্তা আসেনি।',
   'alerts.eyebrow': 'সিগিল ট্রিপওয়্যার',
   'alerts.loadError': 'অ্যালার্ট লোড করা সম্ভব হয়নি।',
+  'alerts.newCta': '+ নতুন ট্রিপওয়্যার',
   'alerts.subheading':
     'মূল্য, পরিবর্তন বা পরিমাণ আপনার নির্ধারিত সীমা অতিক্রম করলে আপনাকে জানানো হবে।',
   'alerts.summary.armed': 'সশস্ত্র',
@@ -24,6 +38,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'সর্বকালের সর্বোচ্চ',
   'coinDetail.allTimeLow': 'সর্বকালের সর্বনিম্ন',
   'coinDetail.back': 'সমস্ত বাজার',
+  'coinDetail.chartAriaLabel': '{{name}} মূল্য চার্ট, গত ৩০ দিন',
   'coinDetail.chartHeading': 'মূল্য · গত ৩০ দিন',
   'coinDetail.circulating': 'সঞ্চালন সরবরাহ',
   'coinDetail.fdv': 'সম্পূর্ণরূপে হ্রাসকৃত মূল্যায়ন',
@@ -60,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'তারযুক্ত সংযোগ পুনরায় সেট করুন।',
   'login.eyebrow': 'টার্মিনালে প্রবেশ করুন',
   'login.heading': 'সিগন্যালার, আপনাকে আবার স্বাগতম।',
+  'login.noAccountQuestion': 'টেসেরা-তে নতুন?',
   'login.secureNote': '🔒 স্থানান্তরের সময় এনক্রিপ্ট করা হয়েছে',
   'login.signingInCta': 'টেপটি পড়া হচ্ছে…',
   'login.signupLink': 'একটি অ্যাকাউন্ট খুলুন →',
@@ -95,6 +111,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'আপনি যে রুটটি স্ক্যান করেছেন তা কোনো পরিচিত মুদ্রা বা পৃষ্ঠায় পৌঁছাচ্ছে না। প্রতীকটি পুনরায় পরীক্ষা করে আবার চেষ্টা করুন।',
   'notFound.browseMarkets': 'বাজার ব্রাউজ করুন',
+  'notFound.eyebrow': '{{appName}} সংকেত হারিয়ে গেছে',
+  'notFound.heading': 'এই সংকেত পরিসরের বাইরে',
+  'planUpdated.body':
+    'আপনার বিলিং পরিবর্তন এখন সক্রিয়। বিলিং পেজ থেকে যেকোনো সময় আপনার প্ল্যান পরিচালনা করতে পারেন।',
+  'planUpdated.retry': 'আবার চেষ্টা করুন',
+  'planUpdated.verifyFailed': 'আমরা এখনও আপনার পেমেন্ট নিশ্চিত করতে পারিনি।',
+  'planUpdated.verifyFailedBody':
+    'আপনার পেমেন্টটি এখনও প্রক্রিয়াধীন থাকতে পারে। কিছুক্ষণ পর আবার চেষ্টা করুন।',
   'planUpdated.verifying': 'আপনার পেমেন্ট নিশ্চিত করা হচ্ছে…',
   'portfolio.addError': 'প্রতীক, ধনাত্মক পরিমাণ এবং খরচ লিখুন।',
   'portfolio.addHoldingCta': '+ হোল্ডিং যোগ করুন',
@@ -118,12 +142,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'মোট পোর্টফোলিও মূল্য',
   'portfolioHeroCard.totalPnl': 'মোট লাভ/ক্ষতি',
   'pricing.heading': 'সতর্কতা',
+  'pricing.limit.alerts': 'সতর্কতা',
   'pricing.limit.coins': 'মুদ্রা',
   'pricing.limit.market': 'বাজার',
   'pricing.limit.portfolio': 'পোর্টফোলিও',
   'resetPassword.eyebrow': 'নতুন সাইফার',
   'resetPassword.missingToken':
     'এই রিসেট লিঙ্কটি অনুপস্থিত বা অবৈধ। একটি নতুন লিঙ্কের জন্য অনুরোধ করুন।',
+  'resetPassword.passwordPlaceholder': 'নতুন পাসওয়ার্ড',
   'resetPassword.subheading': 'এমন কিছু বেছে নিন যা কেবল আপনিই বুঝতে পারবেন।',
   'settings.apiKeys.body':
     'লেনদেনের ইতিহাস ইম্পোর্ট করার জন্য শুধুমাত্র পঠনযোগ্য কী। সাবস্ক্রাইব করার পর /pricing থেকে OAuth এর মাধ্যমে সংযোগ করুন।',
@@ -135,18 +161,34 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'মুদ্রা উদ্ধৃত করুন',
   'settings.preferences.locale': 'অবস্থান',
   'settings.preferences.push': 'ধাক্কা দিন',
+  'settings.preferences.refresh': 'মূল্য রিফ্রেশ (সেকেন্ড)',
   'settings.preferences.sms': 'এসএমএস',
+  'settings.revokeDeviceWarning':
+    'এই ডিভাইসের অ্যাক্সেস শীঘ্রই প্রত্যাহার করা হবে। এটি সাইন আউট করবেন?',
   'settings.security.body':
     'পাসওয়ার্ড এবং টু-ফ্যাক্টর সেটিংস আপনার অ্যাকাউন্ট দ্বারা পরিচালিত হয়।',
   'settings.signOutDevice': 'সাইন আউট',
   'settings.twoFactorCode': 'প্রমাণীকরণ কোড',
   'settings.twoFactorDisable': 'অক্ষম করুন',
+  'settings.twoFactorDisableTitle': 'দুই-ধাপ প্রমাণীকরণ বন্ধ করুন',
   'settings.twoFactorEnable': 'সক্ষম করুন',
+  'settings.twoFactorEnableTitle': 'দুই-ধাপ প্রমাণীকরণ চালু করুন',
   'settings.twoFactorInvalidCode': 'অবৈধ কোড',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'টু-ফ্যাক্টর QR কোড',
+  'settings.twoFactorScan':
+    'আপনার অথেনটিকেটর অ্যাপ দিয়ে এই QR কোডটি স্ক্যান করুন, তারপর ৬ সংখ্যার কোডটি লিখুন।',
+  'settings.twoFactorUnavailable': 'এই অ্যাপটির জন্য দ্বি-স্তরীয় প্রমাণীকরণ উপলব্ধ নেই।',
   'settings.twoFactorVerify': 'যাচাই ও সক্রিয় করুন',
   'sigilAuthShell.backHomeCta': '← সিজিলে ফিরে যান',
+  'sigilAuthShell.brandBody':
+    'রিয়েলটাইম মূল্য, পোর্টফোলিও লাভ/ক্ষতি এবং গুরুত্বপূর্ণ শর্তে সক্রিয় ওয়ার্ড — সব এক টার্মিনালে।',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — Molecule-এ নির্মিত',
+  'sigilAuthShell.brandHeadline': 'সম্পূর্ণ লেজার জুড়ে প্রতিটি সংকেত ডিকোড করুন।',
+  'sigilAuthShell.samplePortfolio': 'নমুনা পোর্টফোলিও',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
+  'signup.creating': 'আপনার টার্মিনাল খোলা হচ্ছে…',
   'signup.eyebrow': 'একটি টার্মিনাল খুলুন',
   'signup.heading': 'আপনার সিজিল তৈরি করুন',
   'signup.subheading': 'প্রতিটি মুদ্রার হিসাব রাখুন, প্রতিটি ভুল এড়ান। বিনামূল্যে শুরু করুন।',
@@ -163,6 +205,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'লেনদেনগুলো লোড করা সম্ভব হয়নি।',
   'watchlist.addCta': 'বাজার ব্রাউজ করুন',
   'watchlist.col.change24h': '২৪ ঘন্টা',
+  'watchlist.col.coin': 'মুদ্রা',
   'watchlist.col.marketCap': 'এমকেটি ক্যাপ',
   'watchlist.empty':
     'আপনার ওয়াচলিস্টে কোনো কয়েন নেই — সেগুলো যোগ করতে /markets থেকে স্টার কয়েনগুলো যোগ করুন।',

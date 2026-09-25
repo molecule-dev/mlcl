@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ertu með endurgjöf, fannst þú villu eða vilt þú segja okkur hvernig dagbókarritun hefur hjálpað þér? Við lesum hverja einustu skilaboð — hafðu samband hvenær sem er og alvöru manneskja svarar þér.',
+  'about.contactTitle': 'Hafðu samband við okkur',
+  'about.featureInsights':
+    'AI-knúnar íhuganir sem draga varlega fram kveikjur, þemu og þakklæti — án þess að þú missir þína rödd.',
+  'about.featureMood':
+    'Skráning á skapi og virkni með dagatalssýn og þróunargröfum sem sýna hvað hjálpar þér að dafna.',
+  'about.featurePrivacy':
+    'Enda-til-enda dulkóðun, aðgangskóðalás og full CSV-útflutningur svo íhuganir þínar haldist persónulegar og flytjanlegar.',
+  'about.featurePrompts':
+    'Blíðir daglegir hvatar svo þú hafir alltaf eitthvað til að byrja með — aldrei auð síða.',
+  'about.intro':
+    '{{app}} er blíð, persónuleg geðheilbrigðisdagbók fyrir daglega íhugun, skapsskráningu og þakklæti. Hugulsamir hvatar koma í stað auðrar síðu, hljóðlát mynsturgreining hjálpar þér að skilja hvað hefur áhrif á líðan þína og enda-til-enda dulkóðun heldur orðum þínum þínum.',
+  'about.missionBody':
+    'Við teljum að það að kíkja inn á sjálfa sig eigi að vera rólegt, aldrei klínískt — og aldrei eins og enn eitt appið sem krefst athygli þinnar. {{app}} er byggt til að hjálpa, ekki nöldra: nokkrar rólegar mínútur á dag til að taka eftir skapinu þínu, skrifa heiðarlega og sjá sjálfa þig smám saman skýrar.',
+  'about.missionTitle': 'Markmið okkar',
   'about.pageTitle': 'Um {{app}}',
   'authShell.encryptionBadge': 'Færslur þínar eru dulkóðaðar frá upphafi til enda.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Dagur {{day}} — engin færsla',
   'calendar.cellMood': 'Dagur {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Yfirlit yfir þennan mánuð',
   'calendar.eyebrow': 'Stemning í fljótu bragði',
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Rekt {{tracked}} af {{total}} daga í þessum mánuði.',
   'common.goToDashboard': 'Fara á yfirlit',
   'common.tryAgain': 'Reyndu aftur',
+  'entryComposer.bodyPlaceholder': 'Skrifaðu það sem er heiðarlegt. Enginn annar mun lesa þetta.',
   'entryComposer.cancel': 'Til baka í dagbókina',
   'entryComposer.heading': 'Hugleiðing dagsins',
   'entryComposer.moodLabel': 'Hvernig líður þér?',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Fjarlægja {{tag}}',
   'entryComposer.save': 'Vista speglun',
   'entryComposer.saveError': 'Gat ekki vistað færsluna þína.',
+  'entryComposer.tagPlaceholder': 'Bættu við merki og ýttu á enter',
   'entryComposer.titlePlaceholder': 'Gefðu þessari speglun nafn…',
   'entryDetail.back': 'Til baka í dagbókina',
   'entryDetail.delete': 'Eyða þessari færslu',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Hleður speglun…',
   'entryDetail.notFound': 'Færsla fannst ekki.',
   'entryDetail.reflectionsHeading': 'Speglun gervigreindar',
+  'forgotPassword.continueButton': 'Sláðu inn endurstillingarkóða',
   'forgotPassword.eyebrow': 'Engar áhyggjur',
   'forgotPassword.subheading':
     'Við munum senda þér tengil til að endurstilla reikninginn á einfaldan hátt.',
@@ -59,14 +79,21 @@ export const ui: UiTranslations = {
     'Engin þemu ennþá — bættu við einum eða tveimur merkjum við færslurnar þínar og þær munu safnast saman hér.',
   'insights.themesHeading': 'Vinsælustu þemu',
   'insights.triggerFrequency': 'tók eftir {{count}} × í þessum mánuði',
+  'insights.triggersEmpty':
+    'Ekkert að taka eftir ennþá. Nokkrar færslur yfir nokkra daga munu sýna mynstrin þín.',
   'insights.triggersHeading': 'Mynstur sem breyta skapi þínu',
+  'journal.empty': 'Engar íhuganir passa — prófaðu annan síu eða skrifaðu nýja færslu.',
   'journal.eyebrow': 'Hugleiðingar þínar',
   'journal.heading': 'Tímarit',
   'journal.loadError': 'Mistókst að hlaða færslum.',
   'journal.loading': 'Hleður inn færslur…',
+  'journal.newEntry': 'Ný færsla',
   'journal.searchPlaceholder': 'Leitaðu að tilfinningu, nafni, augnabliki…',
   'journal.subheading': '{{count}} færslur — hver og ein þeirra er þess virði að geyma.',
   'journalEntryCard.encryptedLabel': 'Dulkóðað',
+  'landing.ctaBody':
+    'Ókeypis að byrja. Pro opnar útflutning gagna, stærri dagbók og heilt ár af sögu.',
+  'landing.ctaButton': 'Byrjaðu fyrstu færsluna þína',
   'landing.ctaTitle': 'Nokkrar kyrrðarstundir á dag. Það er allt og sumt.',
   'landing.eyebrow': 'Létt dagleg æfing',
   'landing.featuresBody':
@@ -85,6 +112,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Mjúkt rými fyrir daglega íhugun.',
   'mentalHealthJournalLayout.closeMenu': 'Loka valmynd',
   'mentalHealthJournalLayout.openMenu': 'Opna valmynd',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Aðalflakk',
+  'moodHeroCard.entriesThisWeek': '{{count}} í þessari viku',
   'moodHeroCard.streakSuffix': 'dagsröð',
   'moodHeroCard.title': 'Hugleiðing dagsins',
   'moodTrendChart.aiBadge': 'Tilbúin fyrir innsýn í gervigreind',
@@ -95,11 +124,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Ferðalag þitt',
   'profile.fallbackName': 'Endurskinsmerki',
   'profile.loadError': 'Mistókst að hlaða tölfræði.',
+  'profile.loading': 'Hressi við tölfræðina þína…',
   'profile.longestStreak': 'Lengsta röðin',
   'profile.memberSince': 'Að velta fyrir sér síðan {{date}}',
   'profile.milestones': 'Áfangar',
   'profile.milestonesEmpty':
     'Fyrsta áfanganum þínum er aðeins einni færslu frá — skrifaðu þegar þér líður vel.',
+  'profile.moodMix': 'Skapblendingur þinn á þessu tímabili',
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'Hugleiðingar',
   'profile.totalWords': 'Orð skrifuð',
@@ -112,6 +143,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Skrifaðu um þetta',
   'resetPassword.eyebrow': 'Ný byrjun',
   'resetPassword.mismatchError': 'Lykilorðin stemma ekki.',
+  'resetPassword.passwordLabel': 'Nýtt lykilorð',
   'resetPassword.subheading': 'Veldu eitthvað öruggt — vangaveltur þínar eiga það skilið.',
   'resetPassword.tokenPlaceholder': 'Endurstilla kóða úr tölvupósti',
   'settings.dangerDescription':
@@ -123,11 +155,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'Gat ekki eytt reikningnum.',
   'settings.exportDescription': 'Orð þín tilheyra þér alltaf. Sæktu eintak hvenær sem er.',
   'settings.exportDone': 'Útflutt {{format}}.',
+  'settings.exportError': 'Útflutningur mistókst.',
+  'settings.exportHeading': 'Flyttu út íhuganir þínar',
   'settings.exportLoading': 'Undirbúningur…',
   'settings.eyebrow': 'Þitt rými, þínar reglur',
   'settings.languageHeading': 'Tungumál',
   'settings.privacyHeading': 'Persónuvernd og dulkóðun',
   'settings.remindersHeading': 'Dagleg áminning',
+  'settings.reminderToggleAria': 'Virkja daglega áminningu',
   'settings.reminderToggleDescription':
     'Ein róleg áminning þegar þú velur. Engin merki eða sektarkennd.',
   'settings.reminderToggleLabel': 'Senda blíðlegan hnapp',
@@ -140,6 +175,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Býr til dagbók…',
   'signup.subheading': 'Öruggt rými fyrir hugsanir þínar.',
   'wellnessRingsTriad.mindfulnessCaption': 'Markmið {{goal}} mín í dag',
+  'wellnessRingsTriad.mindfulnessLabel': 'Núvitund',
   'wellnessRingsTriad.sleepCaption': 'Markmið {{goal}} klst. / nótt',
   'wellnessRingsTriad.sleepLabel': 'Svefn',
+  'wellnessRingsTriad.sleepValue': '{{hours}}klst',
+  'wellnessRingsTriad.streakCaption': 'Markmið {{goal}} dagar',
+  'wellnessRingsTriad.streakLabel': 'Dagbókarstreak',
+  'wellnessRingsTriad.streakValue': '{{days}} d',
 }

@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Имате обратна връзка, открихте бъг или планирате нещо амбициозно? Пишете ни от настройките на акаунта си — всяко съобщение стига до реален човек от екипа.',
+  'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Резервации в една пощенска кутия — потвържденията за полети, хотели и активности пристигат точно на деня, за който се отнасят.',
+  'about.featureCollab':
+    'Съвместна работа в реално време — поканете до петима пътешественици на пътуване, като всяка промяна се синхронизира на живо, а коментарите се подреждат под всяка спирка.',
+  'about.featureMapsBudget':
+    'Карти, дестинации и споделен бюджет — вижте цялото пътуване на карта, открийте подбрани от редакторите дестинации и следете разходите, за да не похарчи никой повече, отколкото трябва.',
+  'about.featureTimelines':
+    'Ден по ден — плъзгайте спирки, за да ги пренаредите, добавяйте транспортни отсечки и гледайте как маршрутът се преизчислява като един жив документ.',
+  'about.intro':
+    '{{app}} превръща папка, пълна с недовършени планове, в едно споделено пътуване, което цялата ви група наистина може да следва. Създайте маршрут ден по ден, добавете полети и хотели, нанесете всяка спирка на картата и следете бюджета — всичко на едно спокойно място вместо в дузина раздели и групов чат.',
+  'about.missionBody':
+    'Планирането на пътуване трябва да носи усещането, че пътуването вече става по-хубаво, а не да е като домашно. {{app}} съществува, за да направи съвместните пътувания лесни — така всеки пътешественик пристига, знаейки плана, и всяка спирка разказва история, която си струва да се помни.',
+  'about.missionTitle': 'Нашата мисия',
   'about.pageTitle': 'За {{app}}',
   'auth.legalConsent': 'Продължавайки, вие се съгласявате с нашите',
   'bookings.empty.body': 'Добавете полет, хотел или дейност, за да стартирате входящата поща.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Хотел',
   'bookings.type.other': 'Друго',
   'budgetSpendCard.budgetTotal': 'от {{total}} планиран',
+  'budgetSpendCard.overBy': '{{amount}} над бюджета',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} скорошни',
+  'budgetSpendCard.remaining': '{{amount}} оставащи',
   'calendar.eyebrow': 'Предстоящата година',
   'calendar.heading': 'Всяко пътуване в един календар.',
   'calendar.legendHeading': 'Пътувания този месец',
@@ -41,18 +60,28 @@ export const ui: UiTranslations = {
   'common.and': 'и',
   'common.goToDashboard': 'Към таблото',
   'dashboard.budgetHeading': 'Бюджетен пулс',
+  'dashboard.empty.body':
+    'Планирайте първото си пътуване и таблото ви ще се напълни с маршрути ден по ден, пулс на бюджета и резервации.',
+  'dashboard.empty.cta': 'Планирайте първото си пътуване',
   'dashboard.empty.heading': 'Все още няма пътувания — атласът ви е празен.',
   'dashboard.eyebrow': 'Контрол на мисията',
   'dashboard.heading': 'Следващото ви приключение, в един тих ъгъл.',
   'dashboard.newTripCta': 'Започнете ново пътуване',
+  'dashboard.subheading':
+    'Отброяване до следващото пътуване, днешният пулс на разходите и бърз поглед към всеки маршрут в движение.',
   'dashboard.tripsHeading': 'Пътувания в движение',
   'dashboard.viewAllExpenses': 'Преглед на всеки разход',
   'dashboard.viewAllTrips': 'Вижте всяко пътуване',
   'dayTimelineRow.category.accommodation': 'Останете',
+  'dayTimelineRow.category.food': 'Храна и напитки',
+  'dayTimelineRow.category.sightseeing': 'Забележителности',
   'dayTimelineRow.category.transport': 'Транспорт',
   'destinationOrbCard.exploreCta': 'Добавяне към пътуване',
   'destinationOrbCard.tripCount': '{{count}} пътувания',
+  'destinations.empty.body':
+    'Върнете се на Всички и предложенията на редактора ще се появят отново.',
   'destinations.empty.heading': 'Все още няма дестинации.',
+  'destinations.emptyFiltered.heading': 'Още няма нищо с такъв етикет.',
   'destinations.errors.load': 'Не можаха да се заредят дестинациите.',
   'destinations.eyebrow': 'Накъде следва',
   'destinations.heading': 'Запазени ъгли и находки на редактора.',
@@ -71,7 +100,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Доставчик',
   'expenses.formHeading': 'Разход за дневник за {{trip}}',
   'expenses.heading': 'Къде всъщност отива бюджетът за пътуване.',
+  'expenses.heroBudget': '{{pct}}% от {{total}} планирани',
   'expenses.heroEyebrow': '{{trip}} • моментна снимка на бюджета',
+  'expenses.heroNoBudget': 'Още няма зададен бюджет за това пътуване.',
   'expenses.noTrips.body':
     'Планирайте пътуването си първо — разходите са свързани с бюджета на пътуването.',
   'expenses.noTrips.heading': 'Все още няма пътувания.',
@@ -84,12 +115,16 @@ export const ui: UiTranslations = {
     'Всяка касова бележка и потвърждение се събират в правилната категория тук — не е необходима електронна таблица.',
   'forgotPassword.eyebrow': 'Възстановете маршрута си',
   'forgotPassword.heading': 'Забравена парола?',
+  'forgotPassword.subheading':
+    'Въведете имейла, който използвахте за {{appName}}, и ще ви изпратим връзка за нулиране на паролата.',
   'forgotPassword.submit': 'Изпрати имейл за възстановяване',
   'forgotPassword.submitPending': 'Изпраща се имейл за възстановяване…',
   'forgotPassword.successHint':
     'Все още нямате имейл? Проверете папката си за спам или опитайте отново с друг адрес.',
   'forgotPassword.successSubheading':
     'Изпратихме линк за възстановяване до {{email}} Линкът е валиден 30 минути.',
+  'forgotPassword.tryAgain': 'Изпрати на друг имейл',
+  'landing.cta.eyebrow': 'Започнете с безплатния план',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Създайте безплатен акаунт',
   'landing.cta.subheading':
@@ -101,8 +136,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Започнете безплатно пътуване',
   'landing.hero.ctaSecondary': 'Вижте примерно пътуване',
+  'landing.hero.eyebrow': 'Планировчик на пътувания · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint превръща папка, пълна с полуформулирани планове, в споделен, ежедневен маршрут, който вашата група може реално да следва – с резервации, карти и бюджет, проследявани на едно място.',
+  'landing.hero.title': 'Планирайте го веднъж. Разходете се заедно.',
   'landing.nav.join': 'Започнете безплатно пътуване',
   'landing.nav.preview': 'Вътрешна точка',
   'landing.preview.cta': 'Планирайте свой собствен',
@@ -110,6 +147,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Няколко пътувания, по които пътешествениците се скитат в момента',
   'login.eyebrow': 'Зона за членове',
   'login.heading': 'Добре дошъл отново, пътешествениче',
+  'login.noAccount': 'Нови ли сте в Тесера?',
   'login.signupLink': 'Създайте безплатен акаунт',
   'login.subheading':
     'Влезте, за да управлявате пътуванията, дневните си планове, резервациите и вече започнатите записи в дневника.',
@@ -120,6 +158,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Не можа да се актуализира известието.',
   'notifications.heading': 'Какво се промени по време на пътуванията ви днес.',
   'notifications.markUnread': 'Маркирай като непрочетено',
+  'notifications.subheading':
+    '{{count}} нови — потвърждения за резервации, бележки от сътрудници, спадове в цените и напомняния.',
   'notifications.time.daysAgo': '{{count}} преди дни',
   'notifications.time.hoursAgo': '{{count}} преди ч',
   'notifications.time.justNow': 'току-що',
@@ -137,6 +177,7 @@ export const ui: UiTranslations = {
     'Свързани услуги, валута, push известия и идентификационни данни, с които влизате.',
   'signup.and': 'и',
   'signup.eyebrow': 'Присъединяване към точка',
+  'signup.haveAccount': 'Вече сте на път?',
   'signup.heading': 'Планирайте го веднъж. Разходете се заедно.',
   'signup.namePlaceholder': 'Ирис Ларсен',
   'signup.subheading':
@@ -148,6 +189,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Отвори маршрут',
   'tripCountdownHeroCard.ctaSecondary': 'Планирайте друго пътуване',
   'tripCountdownHeroCard.daysLabel': '{{days}} оставащи дни',
+  'tripCountdownHeroCard.eyebrow': 'Следващо приключение · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} нощувки — маршрутът ви е готов за път.',
   'tripCoverCard.stops': '{{count}} спирки',
   'tripCoverCard.travelers': '{{count}} пътешественици',
   'tripDetail.addActivity': 'Добавяне на активност',
@@ -157,6 +201,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Заглавие на дейността',
   'tripDetail.adding': 'Добавяне…',
   'tripDetail.backToTrips': 'Обратно към всички пътувания',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Пътешественици',
   'tripDetail.dayLabel': 'Ден {{day}}',
   'tripDetail.empty': 'Все още няма дейности — добавете такава, за да започнете хронологията.',
@@ -167,14 +212,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Маршрут • {{country}}',
   'tripDetail.invite': 'Покани',
   'tripDetail.inviteLabel': 'Поканете по имейл',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'Поканата е изпратена до {{email}} .',
   'tripDetail.inviting': 'Изпраща се…',
   'tripDetail.loading': 'Зареждане на пътуването…',
   'tripDetail.noCollaborators': 'Само ти, засега.',
+  'tripDetail.notesHeading': 'Бележки за пътуването',
   'tripDetail.notesPlaceholder': 'Все още няма бележки.',
   'tripDetail.notFound.heading': 'Пътуването не е намерено',
   'tripDetail.openBookings': 'Отваряне на пощенската кутия за резервации',
   'tripDetail.shareCopied': 'Връзката за споделяне е копирана в буферната памет:',
+  'tripDetail.shareReady': 'Връзката за споделяне е готова:',
   'tripDetail.stops': '{{count}} спирки',
   'tripDetail.timelineEyebrow': 'Дневна хронология',
   'tripDetail.timelineHeading': 'План ден по ден',
@@ -192,6 +240,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Пътешественици',
   'tripPlanner.heading': 'Начертайте пътуване за по-малко от минута.',
   'tripPlanner.preview.eyebrow': 'Преглед на живо',
+  'tripPlanner.preview.placeholderCountry': 'Изберете държава',
   'tripPlanner.preview.placeholderDestination': 'Вашето следващо приключение',
   'tripPlanner.section1.title': 'Къде и кога',
   'tripPlanner.section2.title': 'Пътници и бюджет',
@@ -200,10 +249,14 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Ден {{day}} — добавете спирки, транспорт и резервации тук.',
   'tripPlanner.section3.day2': 'Ден {{day}} — добавете спирки, транспорт и резервации тук.',
   'tripPlanner.section3.day3': 'Ден {{day}} — добавете спирки, транспорт и резервации тук.',
+  'tripPlanner.section3.title': 'Начален план за деня',
   'tripPlanner.subheading':
     'Пуснете основните неща по-долу - винаги можете да поканите сътрудници, да влачите спирки и да препращате резервации по-късно.',
   'tripPlanner.submit': 'Създаване на пътуване',
   'tripPlanner.submitting': 'Създаване…',
+  'trips.empty.body':
+    'Върнете се на Всички пътувания или започнете да планирате следващото си пътешествие.',
+  'trips.empty.cta': 'Планирай пътуване',
   'trips.empty.heading': 'Все още нищо не съответства на този филтър.',
   'trips.eyebrow': 'Атласът',
   'trips.filterLabel': 'Филтриране на пътувания по статус',
@@ -214,6 +267,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Все още няма пътувания.',
   'trips.pastHeading': 'Минали приключения',
   'trips.subheading': '{{count}} маршрути - минали, настоящи и някогашни.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Планирайте веднъж. Пътувайте заедно. Помнете завинаги.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · {{appName}} членове от 2024 г.',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} превърна натоварено 3-седмично пътуване през четири държави в най-спокойния маршрут, който някога сме споделяли.',
   'waypointLayout.mobileNavClose': 'Затвори менюто за навигация',
   'waypointLayout.primaryNavLabel': 'Основна навигация',
 }

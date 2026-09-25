@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Суроолоруңуз, пикириңиз же командаңыз үчүн демо көргүңүз келеби? Бизге hello@conduit.dev дарегине жазыңыз — ар бир билдирүү командадагы чыныгы адамга жетет.',
   'about.contactHeading': 'Байланышка чыгыңыз',
   'about.eyebrow': 'Жөнүндө',
+  'about.featuresHeading': 'Эмне аласыз',
+  'about.introBody':
+    '{{app}} GitHub Actions стилиндеги үзгүлтүксүз жеткирүүнү бир ылдам башкаруу панелине алып келет: бардык репозиторийлериңиз үчүн пайплайндар, куруу журналдары, артефакттар, статус белгилери жана жайгаштыруу чөйрөлөрү бир жерде. Өтмөк баскычтарын басуу жок, кайсы куруу бузулганын табуу жок — ар бир иштетүү, журнал сабы жана жайгаштыруу бир чыкылдатуу алыстыкта.',
+  'about.introHeading': '{{app}} эмне',
+  'about.missionBody':
+    'Программалык камсыздоону жеткирүү тынч жана болжолдуу болушу керек, коркунуч булагы эмес. Биз пайплайндарды, журналдарды жана жайгаштыруу куралдарын курабыз, ошондо коммиттен өндүрүшкө чейинки жол ылдам, көрүнүктүү жана ишенимдүү болот — биринчи жашыл куруу беш мүнөттө, ал эми андан кийинки ар бир куруу дагы ушундай айкын.',
+  'about.missionHeading': 'Биздин миссиябыз',
+  'about.subtitle':
+    '{{app}} — ар бир репозиторий боюнча курууларды, жайгаштырууларды жана чөйрөлөрдү көзөмөлдөгүсү келген жана ишенимдүү жеткиргиси келген командалар үчүн CI/CD башкаруу панели.',
   'artifacts.empty': 'Азырынча эч кандай артефакт жок.',
   'artifacts.heading': 'Артефакттар',
   'artifacts.loadError': 'Артефакттар жүктөлбөй калды.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ өткөргүч айланасы --тизме',
   'environments.heading': 'Айлана-чөйрөлөр',
   'environments.loadError': 'Чөйрөлөр жүктөлбөй калды.',
+  'environments.loading': 'Чөйрөлөр жүктөлүүдө…',
   'environments.subheading': 'Ар бир максат боюнча түз жайылтуунун абалы.',
   'forgotPassword.runnerStatus': 'баштапкы абалга келтирүү · коопсуз туннель',
+  'forgotPassword.success':
+    'Эгер ал электрондук почта үчүн аккаунт бар болсо, баштапкы абалга келтирүү шилтемеси жөнөтүлүүдө. Келген каттар кутучаңызды текшериңиз.',
   'insights.changeFailureRate': 'Иштебей калуу көрсөткүчүн өзгөртүү',
   'insights.deployFrequency': 'Жайгаштыруу / күн',
   'insights.empty': 'Азырынча маалымат жетиштүү эмес.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Статистика жүктөлбөй калды.',
   'insights.meanP95': 'мааниси {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Эң жай пайплайн кадамдары',
   'insights.successRateHeading': 'Түтүктөрдүн ийгиликтүү иштешинин көрсөткүчү (акыркы 14 күн)',
   'landing.choosePlan': 'План тандаңыз',
+  'landing.copyright': '© {{year}} {{app}}. Ишенимдүү жеткир.',
   'landing.ctaBody':
     'Кредиттик карта жок. Платформа инженери талап кылынбайт. Беш мүнөттүн ичинде биринчи түтүктү жашылдандырыңыз.',
   'landing.ctaHeading': 'Ишенимдүү жөнөтүңүз.',
   'landing.featuresEyebrow': '// платформанын өзгөчөлүктөрү',
   'landing.featuresHeading': 'Жүк ташуучулар үчүн, жүк ташуучулар тарабынан курулган',
+  'landing.heroSubtitle':
+    'Секунддарда бүткөн пайплайндар. Окуй алган журналдар. Ишене алган жайгаштыруулар.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit жайгаштыруу --коопсуз',
   'landing.pricingEyebrow': '// $ баалоо --жөнөкөй',
   'landing.pricingHeading': 'Жөнөкөй, алдын ала айтууга боло турган баа',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Азыр учууда',
   'pipelines.metric.successCaption': '{{count}} ...нын {{total}} чуркоолор',
   'pipelines.metric.successRate': 'Ийгилик көрсөткүчү',
+  'pipelines.realtimeOn': 'реалдуу убакыт',
   'pipelines.subheading': 'Көрүлгөн ар бир репозиторийден түз эфирдеги жаңыртуулар.',
+  'pricing.advancedFeatures': 'Кеңейтилген функциялар: {{mark}}',
+  'pricing.canExport': 'Маалыматтарды экспорттоо: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} артефакт',
+  'pricing.maxBuilds': '{{count}} куруу',
+  'pricing.maxPipelines': '{{count}} пайплайн',
   'privacy.dataAccount':
     'Каттоо эсеби: аты-жөнү, электрондук почтасы, хэштелген сырсөз, план деңгээли.',
   'privacy.intro':
@@ -93,6 +118,8 @@ export const ui: UiTranslations = {
     'Биз эсеп-фактуралар үчүн Stripe, транзакциялык электрондук почта үчүн Mailgun жана артефакттарды сактоо үчүн AWS S3 колдонобуз. Ар бири келишим боюнча өз кызматын көрсөтүү үчүн керектүү маалыматтардын минималдуу көлөмүнө милдеттүү.',
   'privacy.rightsBody':
     'Сиз дайындарыңыздын ар бир байтын экспорттой аласыз, каалаган убакта Жөндөөлөрдөн аккаунтуңузду өчүрө аласыз жана аккаунтуңуздагы ар бир вебхуктун жеткирилишинин жазуусун сурай аласыз. Биз GDPR / CCPA сурамдарына 30 күндүн ичинде жооп беребиз.',
+  'privacy.subtitle':
+    '{{app}} биз сиздин пайплайндарыңызды иштетип жатканда маалыматтарыңызды кантип чогултат, сактайт жана коргойт.',
   'privacy.title': 'Купуялык саясаты',
   'repositories.empty': 'Эч кандай репозиторийлер туташкан эмес.',
   'repositories.heading': 'Репозиторийлер',
@@ -101,11 +128,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Бардык репозиторийлер',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Репозиторий жүктөлбөй калды.',
+  'repositoryDetail.meanDuration': 'Орточо узактык',
   'repositoryDetail.notFound': 'Репозиторий табылган жок.',
+  'repositoryDetail.successRate': 'Ийгилик көрсөткүчү',
   'repositoryDetail.totalBuilds': 'Жалпы курулмалар',
   'repositoryDetail.webhookActive': 'активдүү',
   'repositoryDetail.webhookPaused': 'тындырылды',
   'repositoryDetail.webhooksHeading': 'Вебхуктар',
+  'resetPassword.passwordLabel': 'Жаңы сыр сөз',
   'resetPassword.runnerStatus': 'баштапкы абалга келтирүү · Токен текшерилди',
   'resetPassword.subtitle': 'Мурда колдонбогон күчтүү сырсөз тандаңыз.',
   'resetPassword.tokenPlaceholder': 'электрондук почтадан чаптоо',
@@ -118,6 +148,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Репозиторийлер Кондуит сааттары. Иш-чараларды өткөрүүнү токтотуу үчүн VCS провайдериңизден ажыратыңыз.',
   'settings.repositories.empty': 'Азырынча эч кандай репозиторий туташкан жок.',
+  'settings.repositories.heading': 'Репозиторий байланыштары',
   'settings.repositories.loadError': 'Репозиторийлер жүктөлбөй калды.',
   'settings.secrets.addCta': 'Жашыруун сыр кошуу',
   'settings.secrets.addError': 'Купуя маалымат кошулган жок.',
@@ -125,6 +156,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Жашыруун маалымат өчүрүлгөн жок.',
   'settings.secrets.empty': 'Эч кандай сыр сакталган эмес.',
   'settings.secrets.heading': 'Сырлар',
+  'settings.secrets.lastUsed': 'акыркы жолу колдонулган {{date}}',
   'settings.secrets.loadError': 'Сырларды жүктөө ишке ашкан жок.',
   'settings.secrets.neverUsed': 'эч качан колдонулган эмес',
   'settings.secrets.rotateCta': 'Айландыруу',
@@ -148,6 +180,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Вебхук жаңыртылбай калды.',
   'signup.namePlaceholder': 'Райли паркы',
   'signup.runnerStatus': 'бекер деңгээл · айына 1000 куруу минимуму',
+  'terms.intro':
+    '{{app}} аккаунтун түзүү менен сиз ушул шарттарга макул болосуз. Алар куруу жүргүзгүчтөрүн кабыл алынуучу пайдаланууну, биздин SLA чегин жана террористтик жүктөр үчүн аккаунтуңузду токтотуу же жоюу шарттарын камтыйт.',
   'terms.slaBody':
     'Pro жана Team пландары API жана Runner пулу үчүн ай сайын 99,95% иштөө убактысын камсыз кылууга багытталган. Акысыз план кандай болсо, ошондой берилет. Үзгүлтүккө учуроолор status.conduit.dev дарегинде кабарланат жана эсеп-фактураңыздагы формулага ылайык эсептелет.',
   'terms.terminationBody':

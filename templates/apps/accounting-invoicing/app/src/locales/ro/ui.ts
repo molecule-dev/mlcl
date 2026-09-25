@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ai o întrebare, ai găsit o eroare sau vrei să-ți muți cărțile? Contactează echipa {{app}} la hello@{{app}}.example — o persoană reală citește fiecare mesaj.',
   'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
+  'about.intro':
+    '{{app}} este contabilitate pentru întreprinderi mici care ține evidența fiecărui ban — facturi, cheltuieli, plăți și rapoarte într-un singur loc liniștit pentru proprietari, contabili și experți contabili.',
+  'about.missionBody':
+    'Să conduci o afacere nu ar trebui să însemne să te temi de contabilitate. {{app}} înlocuiește haosul foilor de calcul cu cifre clare pe care le poți folosi, astfel încât să petreci mai puțin timp făcând reconcilierea și mai mult timp făcând munca pentru care ai pornit afacerea.',
+  'about.missionTitle': 'Misiunea noastră',
   'about.title': 'Despre {{app}}',
   'accounts.count': '{{count}} conturi',
+  'accounts.emptyBody':
+    'Conturile de registru urmăresc unde se află și se mișcă banii. Apar aici după ce contabilul tău sau integrarea le configurează.',
   'accounts.emptyTitle': 'Niciun cont încă',
   'accounts.heading': 'Planul de conturi',
   'accounts.kpi.accounts': 'Conturi',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Toate conturile contabile care stau la baza facturilor, cheltuielilor și plăților dumneavoastră, grupate pe tipuri.',
   'accounts.tag.inactive': 'inactiv',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Director financiar, Horizon Tech',
   'authBrandPanel.eyebrow': 'De încredere pentru echipele financiare',
   'authBrandPanel.label': 'Prezentare brand',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Toți clienții',
   'customerDetail.invoiceMeta': 'Data emiterii{{issued}} · Data scadenței{{due}}',
   'customerDetail.loadError': 'Clientul nu a putut fi încărcat.',
+  'customerDetail.missingBody':
+    'Înregistrarea clientului solicitată nu a putut fi încărcată. Este posibil să fi fost eliminată sau să nu ai acces la ea.',
   'customerDetail.missingHeading': 'Înregistrare client indisponibilă',
+  'customerDetail.missingHelp':
+    'Folosește linkul de întoarcere de mai sus pentru a reveni la lista de clienți sau alege o altă înregistrare de acolo.',
+  'customerDetail.noInvoices': 'Nicio factură încă.',
   'customerDetail.notesEmpty': 'Nicio notă încă.',
   'customerDetail.paymentsEmpty': 'Nicio plată înregistrată.',
   'customerDetail.paymentTerms': 'Termeni de plată',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Deductibil',
   'expenseDetail.detailsHeading': 'Detalii tranzacție',
   'expenseDetail.loadError': 'Cheltuiala nu a putut fi încărcată.',
+  'expenseDetail.matched': 'Potrivit · {{description}}',
   'expenseDetail.missingBody':
     'Cheltuiala solicitată nu a putut fi încărcată. Este posibil să fi fost eliminată sau să nu aveți acces la ea.',
   'expenseDetail.missingHeading': 'Înregistrare cheltuială indisponibilă',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Chitanță',
   'expenseDetail.receiptHeading': 'Chitanță',
   'expenseDetail.reconciled': 'Reconciliat',
+  'expenseDetail.unreconciled': 'Nereconciliat',
   'expenses.empty': 'Nicio cheltuială încă.',
   'expenses.heading': 'Cheltuieli',
   'expenses.kpi.deductible': 'Deductibil',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Facturile nu au putut fi încărcate.',
   'invoices.searchPlaceholder': 'Căutați nr. factură sau client…',
   'invoices.summary.paid': 'Plătit în această perioadă',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'Gratuit timp de 30 de zile. Fără card. Aduceți-vă contabilul — vă va mulțumi.',
   'landing.ctaTitle': 'Mutați-vă contabilitatea într-un loc mai liniștit.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Creanțe',
   'ledgerStatTriad.eyebrow.mtd': 'Lună până în prezent',
   'ledgerStatTriad.netSub': 'Net {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} restante',
   'ledgerStatTriad.revenueLabel': 'Venituri',
   'login.failed': 'Autentificarea a eșuat.',
   'login.hidePassword': 'Ascundeți parola',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Autentificare',
   'nav.legal': 'Legal',
   'newExpense.back': 'Cheltuieli',
+  'newExpense.clearReceiptCta': 'Șterge chitanța atașată',
   'newExpense.deductible': 'Deductibil fiscal',
   'newExpense.dropPrompt': 'Trageți aici o fotografie a chitanței sau un PDF pentru a o atașa.',
   'newExpense.failed': 'Cheltuiala nu a putut fi salvată.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Plățile nu au putut fi încărcate.',
   'payments.unmatchedTag': 'de neegalat',
   'planUpdated.pageLabel': 'Confirmare actualizată a planului',
+  'pricing.advancedFeatures': 'Funcții avansate: {{yes}}',
+  'pricing.canExport': 'Export de date: {{yes}}',
+  'pricing.heading': 'Alege planul {{app}}',
+  'pricing.maxAccounts': '{{count}} conturi',
+  'pricing.maxExpenses': '{{count}} cheltuieli',
+  'pricing.maxInvoices': '{{count}} facturi',
+  'privacy.intro':
+    'Această Politică de confidențialitate descrie modul în care {{app}} colectează, utilizează și divulgă informații despre afacerile care utilizează serviciul.',
   'privacy.lastUpdated': 'Ultima actualizare: {{date}}',
   'privacy.section.collected.body':
     'Colectăm detalii ale contului (nume, email, companie), înregistrările financiare pe care le încărcați (facturi, cheltuieli, clienți, plăți) și jurnale standard de operare a serviciului (IP, user-agent, marcaje de timp).',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Informațiile sunt utilizate pentru a opera serviciul, a genera rapoartele și PDF-urile pe care le solicitați, a trimite email tranzacțional prin Mailgun și a procesa plăți prin Stripe. Nu vindem și nu închiriem informații personale.',
   'recentInvoicesCard.dueMeta': 'Scadent {{date}}',
+  'recentInvoicesCard.empty': 'Nicio factură nu corespunde.',
   'recentInvoicesCard.eyebrow': 'Creanțe',
   'recentInvoicesCard.searchAriaLabel': 'Căutare facturi',
+  'recentInvoicesCard.searchPlaceholder': 'Caută facturi…',
   'recentInvoicesCard.title': 'Facturi recente',
   'recentInvoicesCard.viewAll': 'Vizualizați toate facturile →',
   'reports.assets': 'Active',
@@ -181,16 +211,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Profit și pierdere (12 luni)',
   'resetPassword.backToLogin': '← Înapoi la autentificare',
   'resetPassword.hidePassword': 'Ascundeți parola',
+  'resetPassword.passwordLabel': 'Parolă nouă',
   'resetPassword.showPassword': 'Afișați parola',
+  'resetPassword.subheading': 'Alege o parolă puternică — minimum opt caractere.',
   'resetPassword.submit': 'Resetare parolă',
   'resetPassword.tooShort': 'Parola trebuie să aibă cel puțin 8 caractere.',
   'settings.account.changePassword': 'Schimbați parola',
   'settings.account.changingPassword': 'Schimbarea…',
   'settings.account.currentPassword': 'Parola actuală',
+  'settings.account.dangerZone': 'Zonă periculoasă',
   'settings.account.deleteAccount': 'Șterge contul',
   'settings.account.deleteDescription':
     'Șterge definitiv contul tău și toate datele asociate acestuia.',
   'settings.account.deleteError': 'Ștergerea contului a eșuat.',
+  'settings.account.deleteWarning':
+    'Aceasta îți șterge definitiv contul și nu poate fi anulată. Introdu parola pentru a confirma.',
   'settings.account.deleting': 'Se șterge…',
   'settings.account.devices': 'Dispozitive',
   'settings.account.email': 'E-mail',
@@ -201,6 +236,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Parolă',
   'settings.account.passwordError': 'Parola nu a putut fi schimbată.',
   'settings.account.pushNotifications': 'Notificări push pe acest dispozitiv',
+  'settings.account.revokeDeviceWarning':
+    'Accesul acestui dispozitiv va fi revocat în curând. Îl deconectezi?',
   'settings.account.saveError': 'Nu s-a putut actualiza profilul.',
   'settings.account.security': 'Securitate',
   'settings.account.signOutDevice': 'Deconectați-vă',
@@ -208,12 +245,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Autentificare cu doi factori',
   'settings.account.twoFactorCode': 'Cod de autentificare',
   'settings.account.twoFactorDisable': 'Dezactivați',
+  'settings.account.twoFactorDisableTitle': 'Dezactivează autentificarea în doi factori',
   'settings.account.twoFactorEnable': 'Activați',
+  'settings.account.twoFactorEnableTitle': 'Activează autentificarea în doi factori',
   'settings.account.twoFactorInvalidCode': 'Cod nevalid',
   'settings.account.twoFactorOn': 'Pe',
+  'settings.account.twoFactorQrAlt': 'Cod QR pentru autentificare în doi pași',
+  'settings.account.twoFactorScan':
+    'Scanează acest cod QR cu aplicația ta de autentificare, apoi introdu codul din 6 cifre.',
+  'settings.account.twoFactorUnavailable':
+    'Autentificarea cu doi factori nu este disponibilă pentru această aplicație.',
   'settings.account.twoFactorVerify': 'Verifică și activează',
   'settings.account.unknownDevice': 'Dispozitiv necunoscut',
   'settings.company.email': 'Email de facturare',
+  'settings.company.heading': 'Companie și taxe',
   'settings.company.name': 'Denumire legală',
   'settings.company.saveButton': 'Salvează profilul companiei',
   'settings.company.taxId': 'CIF / CUI',
@@ -257,6 +302,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Est. trimestrial',
   'taxes.kpi.owed': 'De plătit',
   'taxes.loadError': 'Rezumatul fiscal nu a putut fi încărcat.',
+  'taxes.remittedPct': '({{pct}}% virat)',
+  'terms.intro':
+    'Acești Termeni de utilizare („Termeni”) reglementează accesul tău la {{app}} și utilizarea acestuia. Prin crearea unui cont sau utilizarea serviciului, ești de acord să respecți acești termeni.',
   'terms.lastUpdated': 'Ultima actualizare: {{date}}',
   'terms.section.acceptable.body':
     'Sunteți de acord să nu utilizați serviciul pentru a încălca orice lege, a încălca drepturi de proprietate intelectuală, a transmite malware sau a încerca să obțineți acces neautorizat la alte conturi sau la infrastructura noastră.',

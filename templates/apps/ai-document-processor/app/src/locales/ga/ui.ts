@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'An bhfuil ceist agat, an bhfuair tú fabht, nó ar mhaith leat taispeántas do do fhoireann? Déan teagmháil linn ó shocruithe do chuntais — téann gach teachtaireacht chuig duine fíor ar an bhfoireann.',
   'about.contactTitle': 'Téigh i dteagmháil',
+  'about.intro':
+    'Claochlaíonn {{app}} cruacha de dhoiciméid scanáilte agus PDFanna ina sonraí struchtúrtha, inchuardaithe, comhdaithe. Scaoil isteach sonraisc, admhálacha, conarthaí nó foirmeacha agus lig don AI iad a léamh, a bhaint amach, a aicmiú agus a chomhdú — le dathanna muiníne ionas nach ndéanann do fhoireann athbhreithniú ach ar an méid a dteastaíonn duine uaidh i ndáiríre.',
+  'about.missionBody':
+    "Níor cheart go n-itheadh obair bhréige doiciméad lá d'fhoirne. Creidimid gur cheart gach luach a bhaintear amach a bheith mínitheach agus inchíoraithe — ionas gur féidir leat muinín a bheith agat as an uathoibriú gan an rian páipéir a chailleadh. Tá {{app}} tógtha chun uaireanta a shábháil in aghaidh gach cruach agus duine a choinneáil sa lúb áit a bhfuil sé tábhachtach.",
+  'about.missionTitle': 'Ár misean',
+  'about.subtitle': 'OCR, baint amach AI, aicmiú agus comhdú uathoibrithe do do dhoiciméid.',
   'about.title': 'Faoi {{app}}',
+  'about.whatYouGetTitle': 'Cad a gheobhaidh tú',
   'authShell.backToLanding': '← Ar ais go dtí an tuirlingt',
   'common.goToDashboard': 'Téigh chuig an Deais',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Inniu · Forbhreathnú ar oibríochtaí',
   'dashboard.heading': 'Faisnéis doiciméad',
+  'dashboard.metric.accuracy': 'Meánchruinneas',
   'dashboard.metric.filed': 'Comhdaithe inniu',
   'dashboard.metric.filedCaption': 'Treoraithe ag rialacha comhdaithe',
   'dashboard.metric.processed': 'Próiseáilte inniu',
@@ -23,11 +33,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'Uaslódáilte',
   'dashboard.recent.heading': 'Doiciméid le déanaí',
+  'dashboard.recent.typeUnknown': 'Ag fanacht le haicmiú',
   'dashboard.subheading':
     'Gach leathanach rangaithe, bainte amach, agus comhdaithe — le dathanna muiníne ionas go bhfanann an t-athbhreithniú dírithe.',
   'documentDetail.audit.heading': 'Amlíne iniúchta',
+  'documentDetail.audit.subheading':
+    'Gach céim a tógadh ar an doiciméad seo, leis an ngníomhaí atá freagrach.',
   'documentDetail.back': 'Gach doiciméad',
   'documentDetail.downloadHint': 'Úsáid Íoslódáil chun an comhad bunaidh a oscailt.',
+  'documentDetail.extracted.empty': 'Níl aon réimsí bainte amach go fóill.',
   'documentDetail.extracted.heading': 'Réimsí eastósctha',
   'documentDetail.extracted.subheading':
     '{{count}} réimsí · cliceáil ar aon réimse le haibhsiú ar an leathanach',
@@ -56,14 +70,25 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} doiciméid i do leabharlann, sórtáilte leis na cinn is nuaí ar dtús.',
   'documents.uploadCta': 'Uaslódáil doiciméid',
+  'documentTypeBreakdown.barAria': 'Comhdhéanamh doiciméad de réir cineáil',
   'documentTypeBreakdown.empty': 'Níl aon doiciméid próiseáilte fós.',
   'documentTypeBreakdown.subtitle': '{{total}} próiseáilte',
   'documentTypeBreakdown.title': 'Comhdhéanamh an doiciméid',
+  'forgotPassword.backToSignIn': '← Ar ais chuig an logáil isteach',
   'forgotPassword.checkEmail': 'Seiceáil do ríomhphost',
   'forgotPassword.tip':
     'Nach bhfuair tú é? Seiceáil an turscar nó bain triail as seoladh difriúil.',
+  'landing.copyright':
+    "© {{year}} {{app}}. Tógtha d'fhoirne oibríochta a dhéanann iniúchadh ar gach leathanach.",
+  'landing.ctaBody':
+    "Triail 14 lá. Ní gá cárta. Cealaigh am ar bith. Tógtha d'fhoirne oibríochta a ghluaiseann go tapa agus a dhéanann iniúchadh go mall.",
   'landing.ctaHeading': 'Stop ag clóscríobh admhálacha. Tosaigh ag comhdú iad.',
   'landing.eyebrow': 'OCR · Eastóscadh · Comhdú AI',
+  'landing.featuresHeading': 'Faisnéis doiciméad a mhíníonn í féin',
+  'landing.heroSubtitle':
+    "Scaoil isteach cruach de shonraisc, d'admhálacha, de chonarthaí nó d'fhoirmeacha. Aicmíonn {{app}}, baineann sé amach agus comhdaíonn sé iad — le dathanna muiníne ionas nach ndéanann do fhoireann athbhreithniú ach ar an méid a dteastaíonn duine uaidh i ndáiríre.",
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Toirt laethúil · na 7 lá seo caite',
   'landing.sampleCardLabel': 'Doiciméid próiseáilte inniu',
   'landing.sampleCardSubtitle': 'Meánchruinneas 96.2% ar fud sonraisc, admhálacha agus foirmeacha.',
   'login.hidePassword': 'Folaigh an focal faire',
@@ -76,6 +101,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Oscail leathanach tuirlingthe',
   'notFound.title': 'Níl an leathanach sin ar chomhad',
+  'parcelaHeroCard.accuracy': 'Meánchruinneas {{value}}% thar gach baint amach',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % i gcomparáid le inné',
   'parcelaHeroCard.title': 'Doiciméid próiseáilte inniu',
   'parcelaLayout.primaryNavLabel': 'Príomh-loingseoireacht',
@@ -83,6 +109,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'doiciméid',
   'pricing.processingLabel': 'poist phróiseála',
   'resetPassword.confirmPlaceholder': 'Athdhéan an focal faire nua',
+  'resetPassword.hidePassword': 'Folaigh an focal faire',
   'resetPassword.passwordLabel': 'Pasfhocal nua',
   'resetPassword.showPassword': 'Taispeáin an focal faire',
   'resetPassword.subtitle': 'Roghnaigh rud éigin atá 8 gcarachtar ar a laghad ar fhad.',
@@ -99,10 +126,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Theip ar rialacha a lódáil.',
   'rules.loading': 'Rialacha á lódáil…',
   'rules.matched30d': '{{count}} doiciméid a mheaitseáladh le 30 lá anuas',
+  'rules.neverUsed': 'Níor úsáideadh riamh',
   'rules.newRule': 'Riail nua',
   'rules.saveError': 'Theip ar an riail a shábháil.',
   'rules.subheading':
     'Inis don chóras cá háit ar cheart gach cineál doiciméid a chur. Slabhraítear na coinníollacha ó bhun go barr — buafaidh an chéad chluiche.',
+  'rules.templatesEmpty': 'Níl aon teimpléid bhainte amach ann go fóill.',
   'rules.templatesHeading': 'Teimpléid eastósctha',
   'rules.templatesSubheading':
     'Scéimeanna réimse a úsáideann an eastóscóir do gach cineál doiciméid.',
@@ -112,17 +141,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Ainm an spáis oibre',
   'settings.account.subheading':
     'Ainm taispeána agus príomh-ríomhphost le haghaidh fógraí agus stair iniúchóireachta.',
+  'settings.api.confirmRevoke': 'Deimhnigh?',
   'settings.api.copyOnce': 'Cóipeáil an eochair seo — ní thaispeánfar arís í',
   'settings.api.createdOn': 'Cruthaithe {{date}}',
   'settings.api.empty': 'Gan aon eochracha API fós. Gin ceann thuas.',
   'settings.api.error': 'Theip ar chruthú eochair.',
+  'settings.api.generating': 'Á ghiniúint…',
+  'settings.api.heading': 'Eochracha API',
   'settings.api.labelPlaceholder': 'Lipéad eochrach (m.sh. uaslódálaí CI)',
+  'settings.api.loading': 'Eochracha á lódáil…',
   'settings.api.newKey': 'Gin eochair',
   'settings.api.subheading':
     'Bain úsáid astu seo chun doiciméid a bhrú ó script nó ó do ERP. Rothlaigh aon eochair ag am ar bith.',
   'settings.integrations.heading': 'Comhtháthú comhdaithe',
   'settings.integrations.subheading':
     'Seol doiciméid chomhdaithe chuig an tiomántán scamall nó an uirlis comhrá ina bhfuil do fhoireann cheana féin.',
+  'settings.subheading':
+    'Bainistigh do chuntas, eochracha API agus comhtháthuithe comhdaithe do do spás oibre {{app}}.',
+  'signup.hidePassword': 'Folaigh an focal faire',
   'signup.identityPrompt': 'Conas ba chóir dúinn labhairt leat?',
   'signup.showPassword': 'Taispeáin an focal faire',
   'signup.subtitle': '14 lá saor in aisce, níl cárta ag teastáil.',
@@ -130,6 +166,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Theip ar an uaslódáil.',
   'upload.eyebrow': 'Ionghabháil',
   'upload.heading': 'Uaslódáil doiciméid',
+  'upload.queue.clear': 'Glan iad siúd atá críochnaithe',
   'upload.queue.col.confidence': 'Muinín',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Ag braith…',
@@ -142,5 +179,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Nó scaoil roinnt comhad ag an am céanna le haghaidh eastóscadh baisce, aicmiú agus comhdú.',
   'uploadDropZone.cta': 'Roghnaigh comhaid',
+  'uploadDropZone.maxSize': 'Uasmhéid 25 MB in aghaidh an chomhaid · Criptithe ó cheann go ceann',
   'uploadDropZone.title': 'Scaoil doiciméid chun tús a chur le próiseáil',
 }

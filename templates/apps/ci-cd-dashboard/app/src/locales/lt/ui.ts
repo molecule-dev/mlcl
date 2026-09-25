@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Turite klausimų, atsiliepimų ar norite savo komandai demonstracijos? Rašykite mums adresu hello@conduit.dev — kiekvieną žinutę perskaito tikras komandos narys.',
   'about.contactHeading': 'Susisiekite',
   'about.eyebrow': 'Apie',
+  'about.featuresHeading': 'Ką gausite',
+  'about.introBody':
+    '{{app}} sujungia „GitHub Actions“ stiliaus nuolatinį pristatymą į vieną greitą prietaisų skydelį: visų jūsų saugyklų vykdymo grandinės, kūrimo žurnalai, artefaktai, būsenos ženkleliai ir diegimo aplinkos vienoje vietoje. Jokių skirtukų šokinėjimo, jokio spėliojimo, kuri kūrimo eiga sugedo — kiekvienas vykdymas, žurnalo eilutė ir diegimas pasiekiami vienu paspaudimu.',
+  'about.introHeading': 'Kas yra {{app}}',
+  'about.missionBody':
+    'Programinės įrangos pristatymas turi būti ramus ir nuspėjamas, o ne baimės šaltinis. Kuriame vykdymo grandines, žurnalus ir diegimo priemones, kad kelias nuo pakeitimo įtraukimo iki produkcijos būtų greitas, matomas ir patikimas — pirmasis sėkmingas kūrimas per penkias minutes, o kiekvienas po jo toks pat aiškus.',
+  'about.missionHeading': 'Mūsų misija',
+  'about.subtitle':
+    '{{app}} yra CI/CD prietaisų skydelis komandoms, kurios nori stebėti kūrimą, diegimus ir aplinkas visose saugyklose — ir pristatyti užtikrintai.',
   'artifacts.empty': 'Kol kas nėra jokių artefaktų.',
   'artifacts.heading': 'Artefaktai',
   'artifacts.loadError': 'Nepavyko įkelti artefaktų.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Aplinkos',
   'environments.loadError': 'Nepavyko įkelti aplinkų.',
+  'environments.loading': 'Įkeliamos aplinkos…',
   'environments.subheading': 'Tikrasis diegimo statusas visuose tiksluose.',
   'forgotPassword.runnerStatus': 'atstatyti · saugus tunelis',
+  'forgotPassword.success':
+    'Jei tam el. pašto adresui jau sukurta paskyra, jai jau išsiųsta nustatymo iš naujo nuoroda. Patikrinkite savo gautuosius.',
   'insights.changeFailureRate': 'Pakeisti gedimų dažnį',
   'insights.deployFrequency': 'Įdiegimų skaičius per dieną',
   'insights.empty': 'Duomenų kol kas nepakanka.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Nepavyko įkelti statistikos duomenų.',
   'insights.meanP95': 'žr. {{mean}} · p95 {{p95}}',
   'insights.mttr': 'Vidutinė remonto trukmė',
+  'insights.slowestStepsHeading': 'Lėčiausi vykdymo grandinės žingsniai',
   'insights.successRateHeading': 'Pardavimo proceso sėkmės rodiklis (per pastarąsias 14 dienų)',
   'landing.choosePlan': 'Pasirinkite planą',
+  'landing.copyright': '© {{year}} {{app}}. Pristatykite užtikrintai.',
   'landing.ctaBody':
     'Nereikia kredito kortelės. Nereikia platformos inžinieriaus. Pirmasis procesų srautas bus parengtas per penkias minutes.',
   'landing.ctaHeading': 'Siųskite be jokių abejonių.',
   'landing.featuresEyebrow': '// platformos funkcijos',
   'landing.featuresHeading': 'Sukurta siuntėjų, siuntėjų',
+  'landing.heroSubtitle':
+    'Vykdymo grandinės, pasibaigiančios per sekundes. Žurnalai, kuriuos galima skaityti. Diegimai, kuriais galima pasitikėti.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ kainos --paprastas',
   'landing.pricingHeading': 'Paprasta ir aiški kainodara',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Šiuo metu skrendame',
   'pipelines.metric.successCaption': '{{count}} „{{total}}“ bėgimų',
   'pipelines.metric.successRate': 'Sėkmės rodiklis',
+  'pipelines.realtimeOn': 'realusis laikas',
   'pipelines.subheading': 'Tiesioginiai atnaujinimai iš kiekvieno stebimo repozitorijaus.',
+  'pricing.advancedFeatures': 'Išplėstinės funkcijos: {{mark}}',
+  'pricing.canExport': 'Duomenų eksportas: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artefaktai',
+  'pricing.maxBuilds': '{{count}} kūrimai',
+  'pricing.maxPipelines': '{{count}} vykdymo grandinės',
   'privacy.dataAccount': 'Paskyra: vardas, el. paštas, užšifruotas slaptažodis, plano lygis.',
   'privacy.intro':
     '{{app}} renkame tik minimalius duomenis, reikalingus jūsų nuolatinio pristatymo paskyros veikimui: jūsų el. pašto adresą, jūsų prijungtus repozitorijus, jūsų vykdytojų sukurtus įrašus ir kompiliacijos metaduomenis, taip pat paslaptis, kurias nusprendžiate saugoti pas mus. Mes niekada neskaitome jūsų šaltinio kodo už kompiliacijos vykdytojo ribų; kompiliacijos artefaktai, jei taip sukonfigūruota, saugomi jūsų S3 talpykloje.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Atsiskaitymams naudojame „Stripe“, sandorių patvirtinimo laiškams – „Mailgun“, o kompiliacijos rezultatų saugojimui – „AWS S3“. Kiekviena iš šių paslaugų sutartyse yra įsipareigojusi apdoroti tik minimalų duomenų kiekį, reikalingą paslaugai teikti.',
   'privacy.rightsBody':
     'Galite eksportuoti visus savo duomenų baitus, bet kuriuo metu ištrinti savo paskyrą meniu „Nustatymai“ ir paprašyti pateikti visų į jūsų paskyrą gautų „webhook“ pranešimų sąrašą. Į BDAR / CCPA prašymus atsakome per 30 dienų.',
+  'privacy.subtitle':
+    'Kaip {{app}} renka, saugo ir apsaugo jūsų duomenis, kol vykdome jūsų vykdymo grandines.',
   'privacy.title': 'Privatumo politika',
   'repositories.empty': 'Nėra prijungtų saugyklų.',
   'repositories.heading': 'Repozitoriai',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Visi archyvai',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Nepavyko įkelti saugyklos.',
+  'repositoryDetail.meanDuration': 'Vidutinė trukmė',
   'repositoryDetail.notFound': 'Repozitorijaus nerasta.',
+  'repositoryDetail.successRate': 'Sėkmės rodiklis',
   'repositoryDetail.totalBuilds': 'Iš viso sukurtų versijų',
   'repositoryDetail.webhookActive': 'aktyvus',
   'repositoryDetail.webhookPaused': 'pristabdyta',
   'repositoryDetail.webhooksHeading': 'Webhookai',
+  'resetPassword.passwordLabel': 'Naujas slaptažodis',
   'resetPassword.runnerStatus': 'atstatyti · patvirtintas žetonas',
   'resetPassword.subtitle': 'Pasirinkite saugų slaptažodį, kurio dar nenaudojote.',
   'resetPassword.tokenPlaceholder': 'įklijuoti iš el. laiško',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     '„Conduit“ stebi saugyklas. Atsijunkite nuo savo VCS teikėjo, kad būtų nutrauktas įvykių įkėlimas.',
   'settings.repositories.empty': 'Dar nėra prijungta jokių saugyklų.',
+  'settings.repositories.heading': 'Saugyklų ryšiai',
   'settings.repositories.loadError': 'Nepavyko įkelti saugyklų.',
   'settings.secrets.addCta': 'Pridėti slaptažodį',
   'settings.secrets.addError': 'Nepavyko pridėti slaptažodžio.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Nepavyko ištrinti slaptažodžio.',
   'settings.secrets.empty': 'Jokių paslapčių nesaugoma.',
   'settings.secrets.heading': 'Paslaptys',
+  'settings.secrets.lastUsed': 'paskutinį kartą naudota {{date}}',
   'settings.secrets.loadError': 'Nepavyko įkelti slaptažodžių.',
   'settings.secrets.neverUsed': 'niekada nenaudotas',
   'settings.secrets.rotateCta': 'Pasukti',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Nepavyko atnaujinti „webhook“.',
   'signup.namePlaceholder': 'Riley Parkas',
   'signup.runnerStatus': 'nemokamas planas · 1 000 kompiliacijų per mėnesį',
+  'terms.intro':
+    'Kurdami {{app}} paskyrą sutinkate su šiomis sąlygomis. Jos apima priimtiną kūrimo vykdyklų naudojimą, mūsų SLA ribas ir sąlygas, kuriomis galime sustabdyti ar panaikinti jūsų paskyrą dėl piktnaudžiavimo darbo krūviais.',
   'terms.slaBody':
     '„Pro“ ir „Team“ planuose numatytas 99,95 % API ir vykdytojų grupės veikimo laikas per mėnesį. Nemokamas planas teikiamas „kaip yra“. Apie veikimo sutrikimus pranešama svetainėje status.conduit.dev, o kompensacija skaičiuojama pagal sąskaitoje nurodytą formulę.',
   'terms.terminationBody':

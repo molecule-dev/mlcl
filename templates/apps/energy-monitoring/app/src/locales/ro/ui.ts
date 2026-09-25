@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Întrebări, solicitări de funcții sau un contor pe care ar trebui să-l acceptăm? Contactează echipa {{appName}} din setările contului tău — fiecare mesaj ajunge la o persoană reală.',
   'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
+  'about.featuresTitle': 'Ce primiți',
+  'about.intro':
+    '{{appName}} este monitorizare de energie în timp real pentru locuințe cu panouri solare și echipe de facility management. Transformăm fluxul continuu de date de la contoare, invertoare și baterii într-o vedere calmă de sală de control — putere instantanee, producție solară, cost pe intervale orare și alerte, toate într-o singură interfață.',
+  'about.missionBody':
+    'Energia pe care o vezi este energia pe care o poți gestiona. Credem că oricine administrează un contor — o gospodărie cu panouri solare pe acoperiș sau o echipă care supraveghează o clădire — merită informații de nivel utilitar fără un contract de nivel utilitar. Fiecare funcție este creată pentru ca următorul kilowatt-oră să fie o alegere informată, nu o surpriză pe factură.',
+  'about.missionTitle': 'Misiunea noastră',
   'about.pageTitle': 'Despre {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Ack',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@domeniuldvs.com',
   'alertRule.eyebrow': 'Regulă nouă',
   'alertRule.heading': 'Prinde țepușa înainte să te coste',
+  'alertRule.nameLabel': 'Nume regulă',
   'alertRule.namePlaceholder': 'de exemplu, supraveghere HVAC după orele de program',
   'alertRule.subheading':
     'Alegeți o metrică, un prag și unde să trimiteți alerta. O puteți edita sau întrerupe oricând.',
   'alertRule.submit': 'Salvează regula',
   'alertRule.submitError': 'Nu s-a putut salva regula.',
   'alertRule.thresholdLabel': 'Prag',
+  'alertRule.typeLabel': 'Tipul declanșatorului',
   'alerts.checking': 'Se verifică…',
   'alerts.confirmDelete': 'Confirmă ștergerea',
+  'alerts.empty': 'Nimic de afișat — nicio alertă în această stare.',
   'alerts.emptyNoRules':
     'Încă nu există alerte — adăugați o regulă, apoi faceți clic pe „Evaluați acum” pentru a o testa.',
   'alerts.errorAck': 'Nu s-a putut confirma.',
@@ -41,12 +52,15 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Evaluează acum',
   'alerts.subheading':
     'Alertele de prag și model care se declanșează pe contoarele dvs., plus regulile care le definesc.',
+  'billing.activeBlurb': 'Abonamentul tău este activ. Îl poți administra oricând.',
   'billing.cancelError': 'Nu s-a putut anula abonamentul.',
   'billing.cancelling': 'Anulare…',
   'billing.currentBadge': 'Curent',
   'billing.freeBlurb':
     'Ai abonamentul gratuit. Fă upgrade pentru mai multe contoare, un istoric mai lung și mai multe reguli de alertă.',
   'billing.heading': 'Planuri și facturare',
+  'billing.historyEmpty':
+    'Facturile plătite vor apărea aici după ce abonamentul tău va fi facturat.',
   'billing.historyHeading': 'Istoric facturi',
   'billing.loadError': 'Nu s-a putut încărca facturarea.',
   'billing.loading': 'Planuri de încărcare…',
@@ -58,17 +72,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Contactați echipa de vânzări',
   'common.goToDashboard': 'Mergi la Tabloul de bord',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} vârf · {{offPeak}} kWh în afara vârfului',
   'dailyCostMeter.runningLabel': 'Total curent',
   'dailyCostMeter.title': 'Costul de până acum astăzi',
   'dailyCostMeter.utilizationLabel': 'Din bugetul zilnic',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Adaugă un contor',
   'dashboard.alertsHeading': 'Alerte active',
   'dashboard.devicesHeading': 'Circuite de top în acest moment',
   'dashboard.empty.body':
     'Adăugați un contor inteligent sau un invertor solar pentru a începe urmărirea consumului și a producției în timp real.',
+  'dashboard.empty.title': 'Încă niciun contor',
   'dashboard.eyebrow': 'Camera de control Voltrace',
   'dashboard.heading': 'Instantaneu energetic live',
   'dashboard.loadError': 'Nu s-au putut încărca citirile live.',
   'dashboard.loading': 'Acordarea la contoare…',
+  'dashboard.noAlerts': 'Totul e liniștit — nimic nu-ți depășește pragurile.',
   'dashboard.noAlertsAndNoMeters':
     'După ce conectați un contor, aici vor apărea alerte bazate pe pragurile dvs.',
   'dashboard.noCircuits': 'Încă nu există circuite de afișat — adăugați un contor pentru a începe.',
@@ -76,6 +95,7 @@ export const ui: UiTranslations = {
     'Consumul de energie pentru întreaga locuință, producția de energie solară și costul de până acum.',
   'dashboard.viewAllAlerts': 'Gestionați alertele →',
   'dashboard.viewAllDevices': 'Fiecare dispozitiv →',
+  'deviceDetail.activeTokens': 'Tokenuri active de ingestie',
   'deviceDetail.alreadyOff': 'Deja întrerupt',
   'deviceDetail.back': 'Toate circuitele',
   'deviceDetail.confirmDelete': 'Confirmă ștergerea',
@@ -116,22 +136,34 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Nu s-au putut încărca contoarele.',
   'devices.loading': 'Interogarea fiecărui contor…',
   'devices.newRule': 'Noua regulă de alertă',
+  'devices.noResults': 'Niciun circuit nu corespunde acestui filtru.',
   'devices.placeholder.location': 'de exemplu, camera mecanică',
   'devices.placeholder.name': 'de exemplu, subpanou Garaj',
   'devices.subheading':
     'Puterea în wați și kWh-urile de astăzi prin fiecare circuit pe care Voltrace îl poate vedea.',
+  'deviceWattageRow.todayKwh': '{{kwh}} kWh astăzi',
+  'deviceWattageRow.watts': '{{watts}} V',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Meniu',
+  'energyMonitoringLayout.primaryNavLabel': 'Navigare principală',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    '{{appName}} comunică cu majoritatea contoarelor de nivel utilitar, invertoarelor solare și stivele de baterii — prin cablu sau prin WiFi.',
   'landing.ctaHeading': 'Asociați contorul, vedeți wații în minute',
   'landing.eyebrow': 'Inteligență energetică în timp real',
+  'landing.featuresHeading': 'Fiecare watt, fiecare minut, într-o singură interfață',
   'landing.getStarted': 'Conectați Voltrace',
   'landing.heroCta': 'Conectați Voltrace',
+  'landing.heroSubtitle':
+    'Putere instantanee, producție solară, cost pe intervale orare și alerte de consum ridicat într-o interfață de sală de control creată pentru locuințe cu panouri solare și echipe de facility management.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Remiză pentru întreaga casă',
   'landing.sampleSolar': '+3.820 W solar',
   'landing.sampleSummary': 'Exportul a 1.680 W în rețea · 18,4 kWh astăzi',
   'landing.sampleWatts': '2.140 W',
   'powerHeroCard.solar': '+ {{watts}} W solar',
   'powerHeroCard.title': 'Remiză pentru întreaga casă',
+  'powerHeroCard.todayKwh': '{{kwh}} kWh astăzi',
   'powerHeroCard.watts': '{{watts}} V',
   'pricing.choose': 'Alege {{name}}',
   'pricing.contact': 'Ai nevoie de ceva personalizat?',
@@ -144,6 +176,7 @@ export const ui: UiTranslations = {
     'Începeți gratuit. Faceți upgrade când aveți nevoie de mai multe contoare, un istoric mai lung sau mai multe reguli de alertă.',
   'pricing.unavailable': 'Acest plan nu este disponibil momentan — Stripe nu este configurat.',
   'profile.errorGeneric': 'Nu s-au putut salva modificările profilului.',
+  'profile.errorGoal': 'Obiectivul lunar de kWh trebuie să fie un număr pozitiv.',
   'profile.errorHousehold': 'Mărimea gospodăriei trebuie să fie un număr pozitiv.',
   'profile.householdHeading': 'Gospodărie și obiective',
   'profile.householdSize': 'Mărimea gospodăriei',
@@ -160,9 +193,11 @@ export const ui: UiTranslations = {
   'reports.loadError': 'Nu s-au putut încărca rapoartele.',
   'reports.loading': 'Se citesc datele agregate…',
   'reports.subheading': 'Totaluri zilnice pentru consum, producție și costuri — defalcate pe dată.',
+  'reports.tableHeading': 'Defalcare zilnică',
   'settings.currency': 'Monedă',
   'settings.errorFlat': 'Rata fixă trebuie să fie ≥ 0.',
   'settings.errorNotify': 'Nu s-au putut salva preferințele de notificare.',
+  'settings.errorSave': 'Planul tarifar nu a putut fi salvat.',
   'settings.errorTou':
     'Sunt necesare tarife de vârf/în afara orelor de vârf și o fereastră de vârf validă.',
   'settings.exportBody':
@@ -183,10 +218,21 @@ export const ui: UiTranslations = {
   'settings.saving': 'Se salvează…',
   'settings.securityHeading': 'Autentificare cu doi factori',
   'settings.subheading': 'Tarife, notificări și export de date.',
+  'settings.twoFactorBody':
+    'Solicită un cod unic de la aplicația ta de autentificare de fiecare dată când te conectezi.',
   'settings.twoFactorCode': 'Cod de autentificare',
   'settings.twoFactorDisable': 'Dezactivați',
+  'settings.twoFactorDisableTitle': 'Dezactivează autentificarea în doi factori',
   'settings.twoFactorEnable': 'Activați',
+  'settings.twoFactorEnableTitle': 'Activează autentificarea în doi factori',
   'settings.twoFactorInvalidCode': 'Cod nevalid',
+  'settings.twoFactorOAuth':
+    'Contul tău se autentifică printr-un furnizor conectat, așa că autentificarea în doi pași este gestionată acolo.',
   'settings.twoFactorOn': 'Pe',
+  'settings.twoFactorQrAlt': 'Cod QR pentru autentificare în doi pași',
+  'settings.twoFactorScan':
+    'Scanează acest cod QR cu aplicația ta de autentificare, apoi introdu codul din 6 cifre.',
+  'settings.twoFactorUnavailable':
+    'Autentificarea cu doi factori nu este disponibilă pentru această aplicație.',
   'settings.twoFactorVerify': 'Verificați și activați',
 }

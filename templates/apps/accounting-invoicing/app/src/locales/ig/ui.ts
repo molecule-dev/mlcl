@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Ị nwere ajụjụ, ị hụrụ nsogbu, ma ọ bụ chọrọ ibufe akwụkwọ gị? Kpọtụrụ ndị otu {{app}} na hello@{{app}}.example — mmadụ n'ezie na-agụ ozi ọ bụla.",
   'about.contactTitle': 'Gwa anyị okwu',
   'about.eyebrow': 'Banyere',
+  'about.intro':
+    "{{app}} bụ ndekọ ego azụmahịa obere nke na-edobe kwa kọb ọ bụla — akwụkwọ ọnụahịa, mmefu, ịkwụ ụgwọ, na akụkọ n'otu ebe dị jụụ maka ndị nwe ụlọ ọrụ, ndị na-edekọ ego, na ndị na-ahụ maka ndekọ ego.",
+  'about.missionBody':
+    'Ịzụ ahịa ekwesịghị ịbụ ihe na-eme ka ị tụọ egwu maka akwụkwọ ego gị. {{app}} na-eji ọnụọgụ doro anya dochie mgbasa akwụkwọ mgbasa, nke ị nwere ike ime ihe na ya, ka i were obere oge na-eme ka ihe kwekọọ ma werekwuo oge na-arụ ọrụ ị malitere azụmahịa maka ya.',
+  'about.missionTitle': 'Ọrụ anyị',
   'about.title': 'Gbasara {{app}}',
   'accounts.count': 'Akaụntụ {{count}}',
+  'accounts.emptyBody':
+    'Akaụntụ ndekọ ego na-egosi ebe ego dị na ebe ọ na-aga. Ha na-apụta ebe a ozugbo onye na-edekọ ego gị ma ọ bụ njikọ setịpụrụ ha.',
   'accounts.emptyTitle': 'Enwebeghị akaụntụ ugbu a',
   'accounts.heading': 'Chaatị nke akaụntụ',
   'accounts.kpi.accounts': 'Akaụntụ',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     "Akaụntụ akwụkwọ ndekọ ego ọ bụla dị n'azụ akwụkwọ ọnụahịa gị, mmefu, na ịkwụ ụgwọ gị, nke a haziri site na ụdị.",
   'accounts.tag.inactive': 'anaghị arụ ọrụ',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Onye isi ọrụ ego, Horizon Tech',
   'authBrandPanel.eyebrow': 'Ndị otu ego tụkwasịrị obi',
   'authBrandPanel.label': 'Ihe ngosi ika',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Ndị ahịa niile',
   'customerDetail.invoiceMeta': 'E bipụtara {{issued}} · Oge eruola {{due}}',
   'customerDetail.loadError': 'Enweghị ike ibuli onye ahịa.',
+  'customerDetail.missingBody':
+    'Enweghị ike ibudata ndekọ onye ahịa a rịọrọ. O nwere ike iwepụ ya, ma ọ bụ ị nwere ike ịnweghị ohere ịnweta ya.',
   'customerDetail.missingHeading': 'Ndekọ ndị ahịa adịghị',
+  'customerDetail.missingHelp':
+    "Jiri njikọ azụ dị n'elu laghachi na ndepụta ndị ahịa, ma ọ bụ họrọ ndekọ ọzọ site ebe ahụ.",
+  'customerDetail.noInvoices': 'Enweghị akwụkwọ ọnụahịa ugbu a.',
   'customerDetail.notesEmpty': 'Enweghị ihe ndetu ọ bụla.',
   'customerDetail.paymentsEmpty': 'E dekọghị ụgwọ ọ bụla.',
   'customerDetail.paymentTerms': 'Usoro ịkwụ ụgwọ',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'A na-ewepụ ihe',
   'expenseDetail.detailsHeading': 'Nkọwa azụmahịa',
   'expenseDetail.loadError': 'Enweghị ike ibufe ego.',
+  'expenseDetail.matched': 'Ekwenyere · {{description}}',
   'expenseDetail.missingBody':
     'Enweghị ike ibuli ego a rịọrọ. O nwere ike ewepụla ya, ma ọ bụ na ị gaghị enweta ya.',
   'expenseDetail.missingHeading': 'Ndekọ mmefu adịghị',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Risiti',
   'expenseDetail.receiptHeading': 'Risiti',
   'expenseDetail.reconciled': 'Emekọrịtara',
+  'expenseDetail.unreconciled': 'Enweghị nkwekọrịta',
   'expenses.empty': 'Enweghị mmefu ọ bụla.',
   'expenses.heading': 'Mmefu',
   'expenses.kpi.deductible': 'A na-ewepụ ihe',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Itinye akwụkwọ ọnụahịa agaghị arụ ọrụ.',
   'invoices.searchPlaceholder': 'Chọọ nọmba akwụkwọ ọnụahịa ma ọ bụ onye ahịa…',
   'invoices.summary.paid': "A kwụrụ ụgwọ n'oge a",
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     "N'efu ruo ụbọchị iri atọ. Enweghị kaadị. Kpọta akaụnta ego gị — ha ga-ekele gị.",
   'landing.ctaTitle': 'Bufee akwụkwọ gị gaa ebe dị jụụ karị.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Akaụntụ nnabata',
   'ledgerStatTriad.eyebrow.mtd': 'Ọnwa ruo taa',
   'ledgerStatTriad.netSub': 'Net {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} gafere oge',
   'ledgerStatTriad.revenueLabel': 'Ego E Si Enweta',
   'login.failed': 'Nbanye agaghị arụ ọrụ.',
   'login.hidePassword': 'Zoo paswọọdụ',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Banye',
   'nav.legal': 'Iwu kwadoro',
   'newExpense.back': 'Mmefu',
+  'newExpense.clearReceiptCta': 'Kpochapụ akwụkwọ nnata agbakwunyere',
   'newExpense.deductible': 'Mbelata ụtụ isi',
   'newExpense.dropPrompt': 'Debe foto nnata ma ọ bụ PDF ebe a iji tinye.',
   'newExpense.failed': 'Enweghị m ike ịchekwa mmefu.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Akwụsịghị itinye ụgwọ.',
   'payments.unmatchedTag': 'enweghị atụ',
   'planUpdated.pageLabel': 'Nkwenye emelitere atụmatụ',
+  'pricing.advancedFeatures': 'Atụmatụ ndị dị elu: {{yes}}',
+  'pricing.canExport': 'Mbupụ data: {{yes}}',
+  'pricing.heading': 'Họrọ atụmatụ {{app}} gị',
+  'pricing.maxAccounts': 'Akaụntụ {{count}}',
+  'pricing.maxExpenses': '{{count}} mmefu',
+  'pricing.maxInvoices': '{{count}} akwụkwọ ọnụahịa',
+  'privacy.intro':
+    'Amụma Nzuzo a na-akọwa otú {{app}} si anakọta, jiri, na kpughee ozi gbasara azụmahịa ndị na-eji ọrụ ahụ.',
   'privacy.lastUpdated': 'Emelitere ikpeazụ: {{ụbọchị}}',
   'privacy.section.collected.body':
     'Anyị na-anakọta nkọwa akaụntụ (aha, email, ụlọ ọrụ), ndekọ ego ị bugoro (akwụkwọ ọnụahịa, mmefu, ndị ahịa, ịkwụ ụgwọ), na ndekọ ọrụ ọkọlọtọ (IP, onye nnọchi anya onye ọrụ, stampụ oge).',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'A na-eji ozi eme ihe iji rụọ ọrụ ahụ, mepụta akụkọ na PDF ị rịọrọ, ziga ozi-e azụmahịa site na Mailgun, ma hazie ịkwụ ụgwọ site na Stripe. Anyị anaghị ere ma ọ bụ gbazite ozi nkeonwe.',
   'recentInvoicesCard.dueMeta': 'A ga-akwụ {{date}}',
+  'recentInvoicesCard.empty': 'Enweghị akwụkwọ ọnụahịa dakọtara.',
   'recentInvoicesCard.eyebrow': 'Akaụntụ nnabata',
   'recentInvoicesCard.searchAriaLabel': 'Chọọ akwụkwọ ọnụahịa',
+  'recentInvoicesCard.searchPlaceholder': 'Chọọ akwụkwọ ọnụahịa…',
   'recentInvoicesCard.title': 'Akwụkwọ ọnụahịa ndị na-adịbeghị anya',
   'recentInvoicesCard.viewAll': 'Lee akwụkwọ ọnụahịa niile →',
   'reports.assets': 'Akụ',
@@ -181,15 +211,20 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Uru na mfu (ọnwa iri na abụọ)',
   'resetPassword.backToLogin': '← Laghachi na Nbanye',
   'resetPassword.hidePassword': 'Zoo paswọọdụ',
+  'resetPassword.passwordLabel': 'Okwuntughe Ọhụrụ',
   'resetPassword.showPassword': 'Gosi paswọọdụ',
+  'resetPassword.subheading': 'Họrọ paswọọdụ siri ike — opekata mpe mkpụrụedemede asatọ.',
   'resetPassword.submit': 'Tọgharịa Paswọọdụ',
   'resetPassword.tooShort': 'Paswọọdụ ga-abụrịrị ma ọ dịkarịa ala mkpụrụedemede 8.',
   'settings.account.changePassword': 'Gbanwee okwuntughe',
   'settings.account.changingPassword': 'Na-agbanwe...',
   'settings.account.currentPassword': 'Okwuntughe Ugbu a',
+  'settings.account.dangerZone': 'Mpaghara ihe egwu',
   'settings.account.deleteAccount': 'Hichapụ akaụntụ',
   'settings.account.deleteDescription': 'Hichapụ akaụntụ gị na data niile metụtara ya kpamkpam.',
   'settings.account.deleteError': 'Enweghị ike ihichapụ akaụntụ.',
+  'settings.account.deleteWarning':
+    'Nke a na-ehichapụ akaụntụ gị kpamkpam na enweghị ike ịlaghachi azụ. Tinye paswọọdụ gị iji kwado.',
   'settings.account.deleting': 'Na-ehichapụ…',
   'settings.account.devices': 'Ngwaọrụ',
   'settings.account.email': 'Ozi-e',
@@ -200,6 +235,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Okwuntughe',
   'settings.account.passwordError': 'Enweghị ike ịgbanwe okwuntughe.',
   'settings.account.pushNotifications': 'Pịa ọkwa na ngwaọrụ a',
+  'settings.account.revokeDeviceWarning':
+    "A ga-ewepụ ohere ngwaọrụ a n'oge na-adịghị anya. Pụọ ya?",
   'settings.account.saveError': 'Emeliteghị profaịlụ ahụ.',
   'settings.account.security': 'Nchekwa',
   'settings.account.signOutDevice': 'Pụọ',
@@ -207,12 +244,19 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Nyocha ihe abụọ',
   'settings.account.twoFactorCode': 'Koodu nyocha',
   'settings.account.twoFactorDisable': 'Gbanyụọ',
+  'settings.account.twoFactorDisableTitle': 'Gbanyụọ nkwenye ihe abụọ',
   'settings.account.twoFactorEnable': 'Mee ka ọ rụọ ọrụ',
+  'settings.account.twoFactorEnableTitle': 'Gbanye nkwenye ihe abụọ',
   'settings.account.twoFactorInvalidCode': 'Koodu na-ezighi ezi',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'Koodu QR nke abụọ',
+  'settings.account.twoFactorScan':
+    'Jiri ngwa nyocha gị nyochaa koodu QR a, wee tinye koodu nwere ọnụọgụ isii.',
+  'settings.account.twoFactorUnavailable': 'Nyocha ihe abụọ adịghị maka ngwa a.',
   'settings.account.twoFactorVerify': 'Nyochaa ma mee ka ọ rụọ ọrụ',
   'settings.account.unknownDevice': 'Ngwaọrụ amaghị ama',
   'settings.company.email': 'Ozi ịntanetị ịkwụ ụgwọ',
+  'settings.company.heading': 'Ụlọ ọrụ na ụtụ isi',
   'settings.company.name': 'Aha iwu',
   'settings.company.saveButton': 'Chekwaa profaịlụ ụlọ ọrụ',
   'settings.company.taxId': 'NJ Ụtụ Isi / EIN',
@@ -255,6 +299,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': "E hiwere ya n'otu ụzọ n'ụzọ anọ nke ọnwa atọ (3rd).",
   'taxes.kpi.owed': 'E ji ụgwọ',
   'taxes.loadError': 'Ebulighị nchịkọta ụtụ isi.',
+  'taxes.remittedPct': '({{pct}}% ezigara)',
+  'terms.intro':
+    'Usoro Ọrụ Ndị a ("Usoro") na-achịkwa ohere gị na ojiji gị nke {{app}}. Site n\'imepụta akaụntụ ma ọ bụ iji ọrụ ahụ, ị na-ekwenye na ha ga-ejide gị.',
   'terms.lastUpdated': 'Emelitere ikpeazụ: {{ụbọchị}}',
   'terms.section.acceptable.body':
     'I kwenyere na ị gaghị eji ọrụ ahụ mebie iwu ọ bụla, mebie ikike ihe onwunwe ọgụgụ isi, izipu malware, ma ọ bụ nwaa ịnweta ohere na-enweghị ikike na akaụntụ ndị ọzọ ma ọ bụ akụrụngwa anyị.',

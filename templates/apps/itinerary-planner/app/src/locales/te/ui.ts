@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ఫీడ్‌బ్యాక్ ఉందా, బగ్ కనిపించిందా, లేదా ఏదైనా పెద్ద ప్రణాళిక ఉందా? మీ ఖాతా సెట్టింగ్‌ల నుండి మమ్మల్ని సంప్రదించండి — ప్రతి సందేశం టీమ్‌లోని నిజమైన వ్యక్తికే చేరుతుంది.',
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'బుకింగ్‌లన్నీ ఒకే ఇన్‌బాక్స్‌లో — విమానాలు, హోటళ్లు, యాక్టివిటీ కన్ఫర్మేషన్‌లు అవి చెందాల్సిన సరైన రోజునే చేరుతాయి.',
+  'about.featureCollab':
+    'రియల్-టైమ్ సహకారం — ప్రతి ట్రిప్‌కు ఐదుగురు ప్రయాణికుల వరకు ఆహ్వానించండి, ప్రతి మార్పు లైవ్‌గా సింక్ అవుతుంది, ప్రతి స్టాప్ కింద కామెంట్లు థ్రెడ్ అవుతాయి.',
+  'about.featureMapsBudget':
+    'మ్యాప్‌లు, గమ్యస్థానాలు, షేర్డ్ బడ్జెట్ — మొత్తం ట్రిప్‌ను మ్యాప్‌లో చూడండి, ఎడిటర్ ఎంపిక చేసిన గమ్యస్థానాలను కనుగొనండి, ఖర్చులను ట్రాక్ చేయండి — ఎవరూ ఎక్కువ ఖర్చు చేయకూడదు.',
+  'about.featureTimelines':
+    'రోజువారీ టైమ్‌లైన్‌లు — స్టాప్‌లను లాగి క్రమం మార్చండి, రవాణా విభాగాలను జోడించండి, ఒక జీవంతమైన డాక్యుమెంట్‌లా ఇటినరరీ మళ్లీ లెక్కించబడటం చూడండి.',
+  'about.intro':
+    '{{app}} సగం సిద్ధమైన ప్రణాళికలతో నిండిన ఫోల్డర్‌ను మీ మొత్తం గ్రూప్ నిజంగా అనుసరించగల ఒకే షేర్డ్ ట్రిప్‌గా మారుస్తుంది. రోజువారీ ఇటినరరీ రూపొందించండి, విమానాలు, హోటళ్లు జోడించండి, ప్రతి స్టాప్‌ను మ్యాప్ చేయండి, బడ్జెట్ ట్రాక్ చేయండి — డజన్ల కొద్దీ ట్యాబ్‌లు, గ్రూప్ చాట్‌కు బదులు ఇవన్నీ ఒకే ప్రశాంతమైన చోట.',
+  'about.missionBody':
+    'ప్రయాణ ప్రణాళిక అనేది హోంవర్క్‌లా కాకుండా, ట్రిప్ ఇప్పటికే మెరుగవుతున్నట్లు అనిపించాలి. సహకార ప్రయాణాలను సులభతరం చేయడానికే {{app}} ఉంది — ప్రతి ప్రయాణికుడు ప్లాన్ తెలుసుకుని వస్తాడు, ప్రతి స్టాప్ గుర్తుంచుకోదగిన కథ చెబుతుంది.',
+  'about.missionTitle': 'మా లక్ష్యం',
   'about.pageTitle': '{{app}} గురించి',
   'auth.legalConsent': 'కొనసాగడం ద్వారా, మీరు మా నిబంధనలకు అంగీకరిస్తున్నారు',
   'bookings.empty.body':
@@ -31,7 +47,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'హోటల్',
   'bookings.type.other': 'ఇతరం',
   'budgetSpendCard.budgetTotal': 'యొక్క {{total}} ప్రణాళిక',
+  'budgetSpendCard.overBy': '{{amount}} బడ్జెట్ మించింది',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} ఇటీవలి',
+  'budgetSpendCard.remaining': '{{amount}} మిగిలింది',
   'calendar.eyebrow': 'రాబోయే సంవత్సరం',
   'calendar.heading': 'ఒకే క్యాలెండర్‌లో ప్రతి ప్రయాణం.',
   'calendar.legendHeading': 'ఈ నెలలో పర్యటనలు',
@@ -42,18 +61,27 @@ export const ui: UiTranslations = {
   'common.and': 'మరియు',
   'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'dashboard.budgetHeading': 'బడ్జెట్ పల్స్',
+  'dashboard.empty.body':
+    'మీ మొదటి ట్రిప్ ప్లాన్ చేయండి — మీ డాష్‌బోర్డ్ రోజువారీ టైమ్‌లైన్‌లు, బడ్జెట్ పల్స్, బుకింగ్‌లతో నిండుతుంది.',
+  'dashboard.empty.cta': 'మీ మొదటి ట్రిప్ ప్లాన్ చేయండి',
   'dashboard.empty.heading': 'ఇంకా ప్రయాణాలు ఏమీ లేవు — మీ అట్లాస్ ఖాళీగా ఉంది.',
   'dashboard.eyebrow': 'మిషన్ నియంత్రణ',
   'dashboard.heading': 'మీ తదుపరి సాహసం, ఒక ప్రశాంతమైన మూలలో.',
   'dashboard.newTripCta': 'కొత్త ప్రయాణాన్ని ప్రారంభించండి',
+  'dashboard.subheading':
+    'తదుపరి ట్రిప్ కౌంట్‌డౌన్, ఈరోజు ఖర్చుల పల్స్, జరుగుతున్న ప్రతి ఇటినరరీపై ఒక చిన్న చూపు.',
   'dashboard.tripsHeading': 'ప్రయాణంలో ప్రయాణాలు',
   'dashboard.viewAllExpenses': 'ప్రతి ఖర్చును వీక్షించండి',
   'dashboard.viewAllTrips': 'ప్రతి యాత్రను చూడండి',
   'dayTimelineRow.category.accommodation': 'ఉండు',
+  'dayTimelineRow.category.food': 'ఆహారం & పానీయాలు',
+  'dayTimelineRow.category.sightseeing': 'పర్యటన',
   'dayTimelineRow.category.transport': 'రవాణా',
   'destinationOrbCard.exploreCta': 'ప్రయాణానికి జోడించండి',
   'destinationOrbCard.tripCount': '{{count}} పర్యటనలు',
+  'destinations.empty.body': 'All కి తిరిగి మారండి — ఎడిటర్ ఫలితాలు మళ్లీ కనిపిస్తాయి.',
   'destinations.empty.heading': 'ఇంకా గమ్యస్థానాలు నిర్ణయించలేదు.',
+  'destinations.emptyFiltered.heading': 'అలా ట్యాగ్ చేసినవి ఇంకా ఏమీ లేవు.',
   'destinations.errors.load': 'గమ్యస్థానాలను లోడ్ చేయలేకపోయింది.',
   'destinations.eyebrow': 'తరువాత ఎక్కడికి',
   'destinations.heading': 'సేవ్ చేసిన మూలలు మరియు ఎడిటర్ కనుగొన్నవి.',
@@ -71,7 +99,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'విక్రేత',
   'expenses.formHeading': 'ఖర్చును నమోదు చేయండి {{trip}}',
   'expenses.heading': 'ప్రయాణ బడ్జెట్ వాస్తవానికి ఎక్కడికి వెళ్తుంది.',
+  'expenses.heroBudget': '{{total}}లో {{pct}}% ప్లాన్ చేయబడింది',
   'expenses.heroEyebrow': '{{trip}} • బడ్జెట్ స్నాప్‌షాట్',
+  'expenses.heroNoBudget': 'ఈ ట్రిప్‌లో ఇంకా బడ్జెట్ సెట్ చేయలేదు.',
   'expenses.noTrips.body':
     'ముందుగా ప్రయాణాన్ని ప్లాన్ చేసుకోండి – ఖర్చులు ప్రయాణ బడ్జెట్‌కు అనుసంధానించబడి ఉంటాయి.',
   'expenses.noTrips.heading': 'ఇంకా ప్రయాణాలు ఏమీ లేవు.',
@@ -84,12 +114,16 @@ export const ui: UiTranslations = {
     'ప్రతి రసీదు మరియు నిర్ధారణ ఇక్కడ సరైన వర్గంలోకి వస్తుంది — స్ప్రెడ్‌షీట్ అవసరం లేదు.',
   'forgotPassword.eyebrow': 'మీ ప్రయాణ ప్రణాళికను పునరుద్ధరించండి',
   'forgotPassword.heading': 'మీ పాస్‌వర్డ్‌ను మర్చిపోయారా?',
+  'forgotPassword.subheading':
+    '{{appName}} కోసం మీరు ఉపయోగించిన ఇమెయిల్ నమోదు చేయండి — మీ పాస్‌వర్డ్ రీసెట్ చేయడానికి లింక్ పంపుతాము.',
   'forgotPassword.submit': 'రికవరీ ఇమెయిల్ పంపండి',
   'forgotPassword.submitPending': 'రికవరీ ఇమెయిల్ పంపబడుతోంది…',
   'forgotPassword.successHint':
     'ఇంకా ఇమెయిల్ రాలేదా? మీ స్పామ్ ఫోల్డర్‌ను తనిఖీ చేయండి లేదా వేరే చిరునామాతో మళ్లీ ప్రయత్నించండి.',
   'forgotPassword.successSubheading':
     'మేము రికవరీ లింక్‌ను పంపాము {{email}} ఈ లింక్ 30 నిమిషాల పాటు చెల్లుబాటులో ఉంటుంది.',
+  'forgotPassword.tryAgain': 'వేరే ఇమెయిల్‌కు పంపండి',
+  'landing.cta.eyebrow': 'ఉచిత ప్లాన్‌తో ప్రారంభించండి',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'ఉచిత ఖాతాను సృష్టించండి',
   'landing.cta.subheading':
@@ -101,8 +135,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'ఉచిత ప్రయాణాన్ని ప్రారంభించండి',
   'landing.hero.ctaSecondary': 'నమూనా పర్యటనను చూడండి',
+  'landing.hero.eyebrow': 'ట్రిప్ ప్లానర్ · {{tagline}}',
   'landing.hero.subtitle':
     'వేపాయింట్, సగం సగం ప్రణాళికలతో నిండిన ఫోల్డర్‌ను, మీ బృందం వాస్తవంగా అనుసరించగలిగే భాగస్వామ్య రోజువారీ ప్రయాణ ప్రణాళికగా మారుస్తుంది — దీనిలో బుకింగ్‌లు, మ్యాప్‌లు మరియు బడ్జెట్ అన్నీ ఒకే చోట ట్రాక్ చేయబడతాయి.',
+  'landing.hero.title': 'ఒకసారి ప్రణాళిక వేసుకోండి. కలిసి పర్యటించండి.',
   'landing.nav.join': 'ఉచిత ప్రయాణాన్ని ప్రారంభించండి',
   'landing.nav.preview': 'వే పాయింట్ లోపల',
   'landing.preview.cta': 'మీ స్వంతంగా ఒకదాన్ని ప్లాన్ చేసుకోండి',
@@ -110,6 +146,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'ప్రస్తుతం ప్రయాణికులు ఆలోచిస్తున్న కొన్ని పర్యటనలు',
   'login.eyebrow': 'సభ్యుల ప్రాంతం',
   'login.heading': 'తిరిగి స్వాగతం, యాత్రికుడా.',
+  'login.noAccount': 'టెస్సెరాకు కొత్తవారా?',
   'login.signupLink': 'ఉచిత ఖాతాను సృష్టించండి',
   'login.subheading':
     'మీ ప్రయాణాలు, రోజువారీ ప్రణాళికలు, బుకింగ్‌లు మరియు మీరు ఇప్పటికే ప్రారంభించిన జర్నల్ ఎంట్రీలను నిర్వహించడానికి సైన్ ఇన్ చేయండి.',
@@ -120,6 +157,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'నోటిఫికేషన్‌ను అప్‌డేట్ చేయలేకపోయింది.',
   'notifications.heading': 'ఈరోజు మీ ప్రయాణాలలో ఏమేమి మార్పులు వచ్చాయి?',
   'notifications.markUnread': 'చదవనిదిగా గుర్తించండి',
+  'notifications.subheading':
+    '{{count}} కొత్తవి — బుకింగ్ కన్ఫర్మేషన్‌లు, సహకారుల నోట్స్, ధరల తగ్గుదలలు, రిమైండర్‌లు.',
   'notifications.time.daysAgo': '{{count}} డి క్రితం',
   'notifications.time.hoursAgo': '{{count}} గంటల క్రితం',
   'notifications.time.justNow': 'ఇప్పుడే',
@@ -138,6 +177,7 @@ export const ui: UiTranslations = {
     'కనెక్ట్ చేయబడిన సేవలు, కరెన్సీ, పుష్ నోటిఫికేషన్‌లు మరియు మీరు సైన్ ఇన్ చేసే ఆధారాలు.',
   'signup.and': 'మరియు',
   'signup.eyebrow': 'వేపాయింట్‌లో చేరండి',
+  'signup.haveAccount': 'ఇప్పటికే తిరుగుతున్నారా?',
   'signup.heading': 'ఒకసారి ప్రణాళిక వేసుకోండి. కలిసి పర్యటించండి.',
   'signup.namePlaceholder': 'ఐరిస్ లార్సెన్',
   'signup.subheading':
@@ -149,6 +189,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'బహిరంగ ప్రయాణ ప్రణాళిక',
   'tripCountdownHeroCard.ctaSecondary': 'మరో యాత్రకు ప్రణాళిక వేయండి',
   'tripCountdownHeroCard.daysLabel': '{{days}} మిగిలిన రోజులు',
+  'tripCountdownHeroCard.eyebrow': 'తదుపరి సాహసం · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} రాత్రులు — మీ ఇటినరరీ ప్రయాణానికి సిద్ధం.',
   'tripCoverCard.stops': '{{count}} ఆగుతుంది',
   'tripCoverCard.travelers': '{{count}} ప్రయాణికులు',
   'tripDetail.addActivity': 'కార్యాచరణను జోడించండి',
@@ -158,6 +201,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'కార్యాచరణ శీర్షిక',
   'tripDetail.adding': 'జోడింపు™',
   'tripDetail.backToTrips': 'అన్ని ప్రయాణాలకు తిరిగి వెళ్లండి',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'ప్రయాణికులు',
   'tripDetail.dayLabel': 'రోజు {{day}}',
   'tripDetail.empty': 'ఇంకా కార్యకలాపాలు లేవు – టైమ్‌లైన్‌ను ప్రారంభించడానికి ఒకదాన్ని జోడించండి.',
@@ -168,14 +212,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'ప్రయాణ ప్రణాళిక • {{country}}',
   'tripDetail.invite': 'ఆహ్వానించండి',
   'tripDetail.inviteLabel': 'ఇమెయిల్ ద్వారా ఆహ్వానించండి',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'ఆహ్వానం పంపబడింది {{email}} .',
   'tripDetail.inviting': 'పంపుతోంది',
   'tripDetail.loading': 'లోడింగ్ ట్రిప్™',
   'tripDetail.noCollaborators': 'ప్రస్తుతానికి నువ్వు మాత్రమే.',
+  'tripDetail.notesHeading': 'ట్రిప్ నోట్స్',
   'tripDetail.notesPlaceholder': 'ఇంకా గమనికలు ఏమీ లేవు.',
   'tripDetail.notFound.heading': 'ప్రయాణం కనుగొనబడలేదు',
   'tripDetail.openBookings': 'బుకింగ్‌లను తెరవండి ఇన్‌బాక్స్',
   'tripDetail.shareCopied': 'క్లిప్‌బోర్డ్‌కు కాపీ చేయబడిన షేర్ లింక్:',
+  'tripDetail.shareReady': 'షేర్ లింక్ సిద్ధం:',
   'tripDetail.stops': '{{count}} ఆగుతుంది',
   'tripDetail.timelineEyebrow': 'రోజువారీ కాలక్రమం',
   'tripDetail.timelineHeading': 'రోజువారీ ప్రణాళిక',
@@ -193,6 +240,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'ప్రయాణికులు',
   'tripPlanner.heading': 'ఒక నిమిషంలోపు ప్రయాణాన్ని గీయండి.',
   'tripPlanner.preview.eyebrow': 'ప్రత్యక్ష ప్రివ్యూ',
+  'tripPlanner.preview.placeholderCountry': 'ఒక దేశాన్ని ఎంచుకోండి',
   'tripPlanner.preview.placeholderDestination': 'మీ తదుపరి సాహసం',
   'tripPlanner.section1.title': 'ఎక్కడ మరియు ఎప్పుడు',
   'tripPlanner.section2.title': 'ప్రయాణికులు & బడ్జెట్',
@@ -201,10 +249,13 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'రోజు {{day}} • ఇక్కడ స్టాప్‌లు, రవాణా మరియు బుకింగ్‌లను జోడించండి.',
   'tripPlanner.section3.day2': 'రోజు {{day}} • ఇక్కడ స్టాప్‌లు, రవాణా మరియు బుకింగ్‌లను జోడించండి.',
   'tripPlanner.section3.day3': 'రోజు {{day}} • ఇక్కడ స్టాప్‌లు, రవాణా మరియు బుకింగ్‌లను జోడించండి.',
+  'tripPlanner.section3.title': 'రోజు ప్లాన్ స్టార్టర్',
   'tripPlanner.subheading':
     'ప్రాథమిక వివరాలను కింద పొందుపరచండి — మీరు ఎప్పుడైనా సహకారులను ఆహ్వానించవచ్చు, స్టాప్‌లను డ్రాగ్ చేసి చేర్చవచ్చు మరియు బుకింగ్‌లను తర్వాత ఫార్వార్డ్ చేయవచ్చు.',
   'tripPlanner.submit': 'ప్రయాణాన్ని సృష్టించండి',
   'tripPlanner.submitting': 'సృష్టించడం™',
+  'trips.empty.body': 'All trips కి తిరిగి మారండి లేదా మీ తదుపరి ప్రయాణాన్ని ప్లాన్ చేయండి.',
+  'trips.empty.cta': 'ప్రయాణం ప్లాన్ చేయండి',
   'trips.empty.heading': 'ఇంకా ఆ ఫిల్టర్‌కు సరిపోయేది ఏదీ లేదు.',
   'trips.eyebrow': 'అట్లాస్',
   'trips.filterLabel': 'స్థితి ప్రకారం ప్రయాణాలను ఫిల్టర్ చేయండి',
@@ -216,6 +267,12 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'ఇంకా ప్రయాణాలు ఏమీ లేవు.',
   'trips.pastHeading': 'గత సాహసాలు',
   'trips.subheading': '{{count}} ప్రయాణ ప్రణాళికలు — గతం, వర్తమానం మరియు భవిష్యత్తు.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading':
+    'ఒకసారి ప్లాన్ చేయండి. కలిసి తిరగండి. ఎప్పటికీ గుర్తుంచుకోండి.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · 2024 నుండి {{appName}} సభ్యులు',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} నాలుగు దేశాల్లో మూడు వారాల హడావిడి ట్రిప్‌ను మేము ఇప్పటివరకు పంచుకున్న అత్యంత ప్రశాంతమైన ఇటినరరీగా మార్చింది.',
   'waypointLayout.mobileNavClose': 'నావిగేషన్ మెనూను మూసివేయండి',
   'waypointLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
 }

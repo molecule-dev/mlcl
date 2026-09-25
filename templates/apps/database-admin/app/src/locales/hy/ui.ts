@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
+  'about.featureConnections':
+    'Միացումների կառավարիչ, որը ապահով կերպով պահում և գունային կոդավորմամբ նշում է ձեր տվյալների բազաները — հավատարմագրերը կոդավորված են պահվում, երբեք՝ բաց տեքստով։',
+  'about.featureMonitoring':
+    'Հարցումների արդյունավետության և տվյալների բազայի ակտիվության իրական ժամանակի մոնիտորինգ՝ ստեղնաշարի դյուրանցումներով և հրամանների պալիտրայով, որոնք թույլ են տալիս ամեն ինչ կառավարել առանց ձեռքերի։',
+  'about.featurePlans':
+    'Պլաններ, որոնք աճում են ձեզ հետ — Free՝ անհատական աշխատանքի համար, Pro և Team՝ ավելի շատ միացումների, հարցումների ավելի երկար պահպանման, արտահանումների և առաջադեմ հնարավորությունների համար։',
+  'about.featureQueryEditor':
+    'Monaco-ի վրա հիմնված SQL խմբագրիչ՝ հարցումների պատմությամբ, պահված հարցումներով և արդյունքների մեկ սեղմումով CSV արտահանմամբ։',
+  'about.featureSchema':
+    'Սխեմայի ուսումնասիրիչ և աղյուսակների դիտարկիչ՝ տվյալների բազաներում, աղյուսակներում և սյունակներում նավարկելու, ապա տողերը տեղում դիտելու, զտելու և խմբագրելու համար։',
+  'about.missionTitle': 'Մեր առաքելությունը',
   'authShell.commands': 'Հրամաններ',
   'authShell.ssoSupported': 'Աջակցվում է SSO-ն',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Հարցումներ',
   'connections.schema': 'Սխեմա',
   'connections.subtitle': 'Կառավարեք ձեր տվյալների բազայի կապերը։',
+  'connections.test': 'Փորձարկում',
   'databaseAdminLayout.adminRole': 'Ադմինիստրատորի դեր',
   'databaseAdminLayout.commandPalette': 'Հրամանների պալիտրա',
   'databaseAdminLayout.commands': 'հրամաններ',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Նոր կապ',
   'databaseAdminLayout.queries': 'Հարցումներ',
   'databaseAdminLayout.ready': 'Պատրաստ է',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Որոնել հրամաններ, հարցումներ, աղյուսակներ…',
   'databaseAdminLayout.user': 'Օգտատեր',
   'editConnection.confirmDelete': 'Ջնջե՞լ այս կապը։',
   'editConnection.deleteButton': 'Ջնջել կապը',
+  'editConnection.newPassword': 'Նոր գաղտնաբառ (թողեք դատարկ՝ պահելու համար)',
   'editConnection.saved': 'Կապը պահպանված է։',
   'editConnection.title': 'Խմբագրել կապը',
   'forgotPassword.success': 'Եթե այդ հաշիվը գոյություն ունի, վերակայման հղումը ճանապարհին է։',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Հաջողություններ',
   'monitoring.title': 'Մոնիթորինգ',
   'monitoring.totalQueries': 'Հարցումների ընդհանուր թիվը',
+  'nav.schema': 'Սխեմա',
   'newConnection.database': 'Տվյալների բազա',
   'newConnection.engine': 'Շարժիչ',
   'newConnection.host': 'Հոսթինգ',
@@ -82,6 +98,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Այս հատվածի հետ կապ չկա։',
   'savedQuery.notBound': 'Անսահմանափակ',
   'savedQuery.title': 'Պահպանված հարցում',
+  'schema.columns': 'Սյունակներ',
   'schema.foreignKeys': 'Արտաքին բանալիներ',
   'schema.indexes': 'Ինդեքսներ',
   'schemaExplorer.browseRows': 'Զննել տողերը',
@@ -90,14 +107,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'անվավեր',
   'schemaExplorer.colType': 'տեսակ',
   'schemaExplorer.noColumns': 'Սյուներ չկան։',
+  'schemaExplorer.noForeignKeys': 'Արտաքին բանալիներ չկան։',
   'schemaExplorer.noIndexes': 'Ինդեքսներ չկան։',
   'schemaExplorer.noTables': 'Սեղաններ չկան',
   'schemaExplorer.pickATable': 'Ընտրեք աղյուսակ կողային վահանակից։',
   'schemaExplorer.tables': 'Սեղաններ',
   'schemaExplorer.title': 'Սխեմաների հետազոտող',
+  'settings.session': 'Սեսիա',
   'settings.subtitle': 'Կառավարեք ձեր հաշիվը և պլանավորեք։',
   'signup.heading': 'Ստեղծեք ձեր Quarry հաշիվը',
   'signup.tagline': 'Ավելացրեք մուտքը մեկ րոպեից էլ քիչ ժամանակում։',
   'tableBrowser.noRows': 'Այս աղյուսակը դեռևս տողեր չունի։',
+  'tableBrowser.subtitle': 'Ձեր հեռավոր տվյալների բազայից տողերի դիտարկում։',
   'tableBrowser.title': 'Ձեր հեռակա տվյալների բազայից տողերի դիտում։',
 }

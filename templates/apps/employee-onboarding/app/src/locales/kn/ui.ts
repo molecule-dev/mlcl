@@ -1,27 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ನಿಮ್ಮ ತಂಡಕ್ಕೆ ಹೆಚ್ಚು ಆತ್ಮೀಯ ಸ್ವಾಗತವನ್ನು ಜಾರಿಗೆ ತರಲು ಬಯಸುವಿರಾ, ದೋಷ ಕಂಡುಬಂದಿದೆಯೇ, ಅಥವಾ ಪ್ರತಿಕ್ರಿಯೆ ಇದೆಯೇ? ನಿಮ್ಮ ಖಾತೆ ಸೆಟ್ಟಿಂಗ್ಗಳಿಂದ ಸಂಪರ್ಕಿಸಿ — ಪ್ರತಿ ಸಂದೇಶವೂ ಸಹಾಯ ಮಾಡಬಲ್ಲ ನಿಜವಾದ ವ್ಯಕ್ತಿಗೆ ತಲುಪುತ್ತದೆ.',
   'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
   'auth.forgotPassword.emailPlaceholder': 'ಹೆಸರು@ನಿಮ್ಮಕಂಪನಿ.ಕಾಮ್',
   'auth.forgotPassword.heading': 'ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಮರುಹೊಂದಿಸಿ.',
+  'auth.forgotPassword.panel.body':
+    'ಮರುಹೊಂದಿಸಲು 30 ಸೆಕೆಂಡುಗಳಷ್ಟೇ — ನಿಮ್ಮ ಪರಿಶೀಲನಾ ಪಟ್ಟಿಯ ಪ್ರಗತಿ ಕಾಯುತ್ತಿದೆ.',
+  'auth.forgotPassword.panel.headline': 'ನೀವು ನಿಲ್ಲಿಸಿದಲ್ಲೇ ಮತ್ತೆ.',
+  'auth.forgotPassword.subheading':
+    'ನಿಮ್ಮ ಕೆಲಸದ ಇಮೇಲ್ ನಮೂದಿಸಿ, ನಾವು ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಕಳುಹಿಸುತ್ತೇವೆ.',
   'auth.forgotPassword.successSubheading':
     'ನಿಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್ ಪರಿಶೀಲಿಸಿ — ನಾವು ಮರುಹೊಂದಿಸುವ ಸೂಚನೆಗಳನ್ನು ಕಳುಹಿಸಿದ್ದೇವೆ.',
   'auth.login.emailPlaceholder': 'ಹೆಸರು@ನಿಮ್ಮಕಂಪನಿ.ಕಾಮ್',
   'auth.login.heading': 'ಮರಳಿ ಸ್ವಾಗತ.',
   'auth.login.passwordPlaceholder': 'ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್',
+  'auth.login.signupPrompt': 'ನಿಮ್ಮ ತಂಡಕ್ಕೆ ಹೊಸಬರೇ?',
   'auth.login.subheading':
     'ನೀವು ನಿಲ್ಲಿಸಿದ ಸ್ಥಳದಿಂದ ನಿಮ್ಮ ಆನ್‌ಬೋರ್ಡಿಂಗ್ ಪ್ರಯಾಣವನ್ನು ಪ್ರಾರಂಭಿಸಲು ಸೈನ್ ಇನ್ ಮಾಡಿ.',
   'auth.login.submit': 'ನಿಮ್ಮ ಪ್ರಯಾಣವನ್ನು ಮುಂದುವರಿಸಿ',
+  'auth.panel.body':
+    'ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಪರಿಶೀಲನಾ ಪಟ್ಟಿ, ತರಬೇತಿ ಮೈಲಿಗಲ್ಲುಗಳು ಮತ್ತು ತಂಡದ ಪರಿಚಯಗಳು — ಎಲ್ಲವೂ ಒಂದೇ ಶಾಂತ ಸ್ಥಳದಲ್ಲಿ.',
   'auth.panel.footnote': '© ಎಂಬಾರ್ಕ್ — ಇಂದಿನಿಂದ ಮೊದಲು ಜನರನ್ನು ಆನ್‌ಬೋರ್ಡಿಂಗ್ ಮಾಡಿ.',
   'auth.panel.headline': 'ಆತ್ಮವಿಶ್ವಾಸದ ಮೊದಲ 90 ದಿನಗಳು ಇಲ್ಲಿಂದ ಪ್ರಾರಂಭವಾಗುತ್ತವೆ.',
   'auth.resetPassword.heading': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಹೊಂದಿಸಿ.',
   'auth.resetPassword.newPasswordLabel': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
+  'auth.resetPassword.panel.body':
+    'ಹೊಸ ಪಾಸ್ವರ್ಡ್ ಉಳಿಸಿ, ನಾವು ನಿಮ್ಮನ್ನು ನೇರವಾಗಿ ನಿಮ್ಮ ಸ್ವಾಗತ ಪ್ರಯಾಣಕ್ಕೆ ಮರಳಿ ಕರೆದೊಯ್ಯುತ್ತೇವೆ.',
+  'auth.resetPassword.panel.headline': 'ಬಹುತೇಕ ಮರಳಿ ಬಂದಿದ್ದೀರಿ.',
   'auth.resetPassword.subheading': 'ನಿಮಗೆ ನೆನಪಿರುವ ಯಾವುದನ್ನಾದರೂ ಆರಿಸಿ — ಕನಿಷ್ಠ 8 ಅಕ್ಷರಗಳು.',
   'auth.signup.emailPlaceholder': 'ಹೆಸರು@ನಿಮ್ಮಕಂಪನಿ.ಕಾಮ್',
   'auth.signup.heading': 'ನಿಮ್ಮ ಮೊದಲ 90 ದಿನಗಳಿಗೆ ಸುಸ್ವಾಗತ.',
   'auth.signup.panel.body':
     'ಮಾರ್ಗದರ್ಶಿ ಪರಿಶೀಲನಾಪಟ್ಟಿ, ಪಾತ್ರ-ಅರಿವು ತರಬೇತಿ ಮತ್ತು ಮಾನವ ಪರಿಚಯಗಳು - ನೀವು ಒಳಗೆ ಹೋಗುವ ಮೊದಲು ಸಿದ್ಧವಾಗಿವೆ.',
+  'auth.signup.panel.headline': 'ಮೊದಲ ದಿನವೇ, ಮೊದಲ ದಿನದಂತೆ.',
   'auth.signup.subheading':
     'ನಿಮ್ಮ ಮಾರ್ಗದರ್ಶಿ ಆನ್‌ಬೋರ್ಡಿಂಗ್ ಪ್ರಯಾಣವನ್ನು ಪ್ರಾರಂಭಿಸಲು ನಿಮ್ಮ ಎಂಬಾರ್ಕ್ ಖಾತೆಯನ್ನು ರಚಿಸಿ.',
   'checklist.empty.body': 'ಇತರ ಕಾರ್ಯಗಳನ್ನು ನೋಡಲು ಫಿಲ್ಟರ್ ಅನ್ನು ಬದಲಾಯಿಸಿ.',
@@ -29,6 +44,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'ಆನ್‌ಬೋರ್ಡಿಂಗ್ · ಪರಿಶೀಲನಾಪಟ್ಟಿ',
   'checklist.loading': 'ನಿಮ್ಮ ಪರಿಶೀಲನಾಪಟ್ಟಿಯನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'checklist.stat.actionNeeded': 'ಕ್ರಮ ಅಗತ್ಯವಿದೆ',
+  'checklist.stat.completion': 'ಪೂರ್ಣಗೊಳಿಸುವಿಕೆ',
+  'checklist.stat.inProgress': 'ಪ್ರಗತಿಯಲ್ಲಿದೆ',
   'checklist.stat.inProgressHelper': 'ನೀವು ನಿಲ್ಲಿಸಿದ ಸ್ಥಳದಿಂದ ಮುಂದುವರಿಸಿ',
   'checklist.stat.overdueHelper': 'ಮೊದಲು ಇವುಗಳನ್ನು ಹಿಡಿಯಿರಿ',
   'checklist.subtitle':
@@ -60,6 +77,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'ಇನ್ನೂ ಯಾವುದೇ ದಾಖಲೆಗಳಿಲ್ಲ',
   'documents.eyebrow': 'ಆನ್‌ಬೋರ್ಡಿಂಗ್ · ದಾಖಲೆಗಳು',
   'documents.loading': 'ದಾಖಲೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
+  'documents.stat.actionNeeded': 'ಈಗಲೇ ಸಹಿ ಮಾಡಿ',
+  'documents.stat.all': 'ಎಲ್ಲಾ ದಾಖಲೆಗಳು',
   'documents.stat.allHelper': 'ವರ್ಗಗಳಾದ್ಯಂತ',
   'documents.stat.pending': 'ಬಾಕಿ ಇರುವ ಸಹಿಗಳು',
   'documents.stat.pendingHelper': 'ಪೂರ್ಣಗೊಳಿಸಲು ಅಗತ್ಯವಿದೆ',
@@ -67,22 +86,28 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'ಸುರಕ್ಷಿತವಾಗಿ ಸಂಗ್ರಹಿಸಲಾಗಿದೆ',
   'documents.status.optional': 'ಐಚ್ಛಿಕ',
   'documents.status.required': 'ಅಗತ್ಯವಿದೆ',
+  'documents.status.signed': 'ಸಹಿ ಮಾಡಲಾಗಿದೆ',
   'documents.subtitle': 'ನಿಮ್ಮ ಕೈಪಿಡಿ, ನಮೂನೆಗಳು ಮತ್ತು ಸಹಿ ಮಾಡಿದ ಒಪ್ಪಂದಗಳು - ಎಲ್ಲವೂ ಒಂದೇ ಸ್ಥಳದಲ್ಲಿ.',
   'documents.title': 'ನೀವು ಓದಲು ಮತ್ತು ಸಹಿ ಮಾಡಲು ಬೇಕಾಗಿರುವುದು ಎಲ್ಲವೂ.',
   'documents.uploadedRecently': 'ಇತ್ತೀಚೆಗೆ ಅಪ್‌ಲೋಡ್ ಮಾಡಲಾಗಿದೆ',
   'documentViewer.breadcrumbCurrent': 'ವೀಕ್ಷಕ',
   'documentViewer.breadcrumbDocs': 'ದಾಖಲೆಗಳು',
   'documentViewer.downloadMeta': 'ಮೆಟಾಡೇಟಾ ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ',
+  'documentViewer.helpBody':
+    'People & Culture ತಂಡವು Slack ನಲ್ಲಿ #ask-people ನಲ್ಲಿ ಕೈಪಿಡಿ ಪ್ರಶ್ನೆಗಳಿಗೆ ಉತ್ತರಿಸುತ್ತದೆ.',
   'documentViewer.helpEyebrow': 'ಸಹಾಯ ಬೇಕೇ?',
   'documentViewer.loadError': 'ನಮಗೆ ಈ ಡಾಕ್ಯುಮೆಂಟ್ ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'documentViewer.loading': 'ಡಾಕ್ಯುಮೆಂಟ್ ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
   'documentViewer.notFound': 'ಡಾಕ್ಯುಮೆಂಟ್ ಕಂಡುಬಂದಿಲ್ಲ.',
+  'documentViewer.previewBody':
+    'ಅಪ್ಲೋಡ್ಗಳನ್ನು ಕಾನ್ಫಿಗರ್ ಮಾಡಿದಾಗ ನಾವು ಫೈಲ್ ಅನ್ನು ಇನ್ಲೈನ್ನಲ್ಲಿ ತೋರಿಸುತ್ತೇವೆ. ಸದ್ಯಕ್ಕೆ, ಮೆಟಾಡೇಟಾ ಡೌನ್ಲೋಡ್ ದಾಖಲೆ ನಿಜವೆಂದು ಖಚಿತಪಡಿಸಲು ನಿಮಗೆ ಅನುಮತಿಸುತ್ತದೆ.',
   'documentViewer.previewBodyExternal': 'ಹೊಸ ಟ್ಯಾಬ್‌ನಲ್ಲಿ ಫೈಲ್ ತೆರೆಯಲು ಡೌನ್‌ಲೋಡ್ ಬಟನ್ ಬಳಸಿ.',
   'documentViewer.previewTitle': 'ಡಾಕ್ಯುಮೆಂಟ್ ಪೂರ್ವವೀಕ್ಷಣೆ',
   'documentViewer.sign': 'ಸಹಿ ಮಾಡಿ ಮತ್ತು ಅಂಗೀಕರಿಸಿ',
   'documentViewer.signatureBody':
     'ಡಾಕ್ಯುಮೆಂಟ್ ಅನ್ನು ಓದಿ, ನಂತರ ಸಹಿ ಮಾಡಲು ಮತ್ತು ಅಂಗೀಕರಿಸಲು ಕೆಳಗೆ ಕ್ಲಿಕ್ ಮಾಡಿ.',
   'documentViewer.signatureHeading': 'ಸಹಿ ಅಗತ್ಯವಿದೆ',
+  'documentViewer.signed': '✓ ಸಹಿ ಮಾಡಿ ದಾಖಲಿಸಲಾಗಿದೆ',
   'documentViewer.signing': 'ಸಹಿ ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'documentViewer.uploadedRecently': 'ಇತ್ತೀಚೆಗೆ ಅಪ್‌ಲೋಡ್ ಮಾಡಲಾಗಿದೆ',
   'landing.closing.body':
@@ -92,10 +117,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'ನನಗೆ ಈಗಾಗಲೇ ಖಾತೆ ಇದೆ.',
   'landing.feature1.body':
     'ಪ್ರತಿಯೊಂದು ಕೆಲಸ - ಕಾಗದಪತ್ರಗಳು, ಲೆಕ್ಕಪತ್ರಗಳು, ಪರಿಚಯಗಳು - ನಿಗದಿತ ದಿನಾಂಕಗಳು ಮತ್ತು ಸರಿಯಾದ ಮಾಲೀಕರೊಂದಿಗೆ ಪೂರ್ವ-ಹಂತವಾಗಿ ನಿಗದಿಪಡಿಸಲಾಗಿದೆ.',
+  'landing.feature1.title': 'ಮಾರ್ಗದರ್ಶಿ ಪರಿಶೀಲನಾ ಪಟ್ಟಿ',
   'landing.feature2.body':
     '30/60/90 ಮೈಲಿಗಲ್ಲುಗಳಲ್ಲಿ ಮಾಡ್ಯೂಲ್‌ಗಳು ಅನ್‌ಲಾಕ್ ಆಗುತ್ತವೆ, ಪಾತ್ರಕ್ಕೆ ಟ್ಯೂನ್ ಆಗುತ್ತವೆ ಮತ್ತು ನೇಮಕಗೊಂಡವರು ಸೇರುತ್ತಿರುವ ತಂಡಕ್ಕೆ ಅನುಗುಣವಾಗಿರುತ್ತವೆ.',
+  'landing.feature2.title': 'ಪಾತ್ರ-ಅರಿವಿನ ತರಬೇತಿ',
   'landing.feature3.body':
     'ಸ್ನೇಹಿತರು, ವ್ಯವಸ್ಥಾಪಕರು ಮತ್ತು ವಿವಿಧ ಕಾರ್ಯಗಳ ಪರಿಚಯಗಳನ್ನು ನಿಗದಿಪಡಿಸಲಾಗಿದೆ - ಆದ್ದರಿಂದ ಯಾರೂ ಒಬ್ಬಂಟಿಯಾಗಿ ಪ್ರಾರಂಭಿಸುವುದಿಲ್ಲ.',
+  'landing.feature3.title': 'ನಿಜವಾದ ಪರಿಚಯಗಳು',
   'landing.featureEyebrow': 'ಏಕೆ ಪ್ರಾರಂಭಿಸಬೇಕು',
   'landing.featureHeadline': 'ಎಂಬಾರ್ಕ್ ಮೊದಲ ದಿನವೇ ವಿಶ್ವಾಸ ಗಳಿಸುವ ಮೂರು ಮಾರ್ಗಗಳು.',
   'landing.footer.rights': 'ಎಲ್ಲ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.',
@@ -105,6 +133,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'ಮುಂದೆ: 30 ನಿಮಿಷಗಳ ಕಾಫಿ ಚಾಟ್‌ಗಾಗಿ ನಿಮ್ಮ ಸ್ನೇಹಿತರನ್ನು ಭೇಟಿ ಮಾಡಿ - ಮಂಗಳವಾರ ಬೆಳಿಗ್ಗೆ 10:00 ಕ್ಕೆ.',
   'landing.preview.eyebrow': '90 ರಲ್ಲಿ 14 ನೇ ದಿನ — ಮಾದರಿ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್',
+  'landing.preview.headline': 'ಮತ್ತೆ ಸ್ವಾಗತ, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR ಸಿದ್ಧವಾಗಿದೆ',
   'landing.proof.teams': '50–5,000 ತಂಡಗಳಿಗಾಗಿ ನಿರ್ಮಿಸಲಾಗಿದೆ',
   'landing.proof.time': '14-ದಿನಗಳ ಉಚಿತ ಪ್ರಯೋಗ',
@@ -121,16 +150,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'ನಿನ್ನೆ',
   'planUpdated.message': 'ನೀವು ಸಿದ್ಧರಾಗಿದ್ದೀರಿ.',
   'planUpdated.preparing': 'ನಿಮ್ಮ ಯೋಜನೆಯನ್ನು ನವೀಕರಿಸಲಾಗುತ್ತಿದೆ...',
+  'planUpdated.retry': 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ',
+  'planUpdated.verifyFailed': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ನಮಗೆ ಇನ್ನೂ ಖಚಿತಪಡಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'planUpdated.verifyFailedBody':
+    'ನಿಮ್ಮ ಪಾವತಿ ಇನ್ನೂ ಪ್ರಕ್ರಿಯೆಗೊಳ್ಳುತ್ತಿರಬಹುದು. ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'pricing.documentsLabel': 'ದಾಖಲೆಗಳು',
   'pricing.onboardingsLabel': 'ಆನ್‌ಬೋರ್ಡಿಂಗ್‌ಗಳು',
   'pricing.tasksLabel': 'ಕಾರ್ಯಗಳು',
   'profile.dayNumber': 'ದಿನ',
   'profile.detailsHeading': 'ಆನ್‌ಬೋರ್ಡಿಂಗ್ ವಿವರಗಳು',
+  'profile.encouragementBody':
+    'ನಿಮ್ಮ ಬಡ್ಡಿ ಮತ್ತು ಮ್ಯಾನೇಜರ್ ಅನ್ನು ಮಾಹಿತಿಯಲ್ಲಿಡಿ — ಸಣ್ಣ ಹೆಜ್ಜೆಗಳು ಒಟ್ಟಾಗಿ ದೊಡ್ಡದಾಗುತ್ತವೆ.',
   'profile.milestones': 'ಮೈಲಿಗಲ್ಲುಗಳು',
   'profile.progressEyebrow': 'ಸೇರ್ಪಡೆ ಪ್ರಗತಿಯಲ್ಲಿದೆ',
   'profile.tasks': 'ಕಾರ್ಯಗಳು',
   'profile.unknownName': 'ಸ್ವಾಗತ',
+  'settings.appearance.description': 'ಬೆಳಕು ಮತ್ತು ಕತ್ತಲೆ ಮೋಡ್ ನಡುವೆ ಟಾಗಲ್ ಮಾಡಿ.',
+  'settings.appearance.title': 'ಗೋಚರತೆ',
+  'settings.subtitle':
+    'ಅಧಿಸೂಚನೆಗಳು, ಭದ್ರತೆ, ಸಾಧನಗಳು ಮತ್ತು ಡೇಟಾ ರಫ್ತನ್ನು ಟ್ಯೂನ್ ಮಾಡಿ — ಎಲ್ಲವೂ ಇಲ್ಲಿಯೇ, ನಿಮ್ಮ ನಿಯಮಗಳ ಪ್ರಕಾರ ಉಳಿಯುತ್ತದೆ.',
   'settings.title': 'ಸೆಟ್ಟಿಂಗ್‌ಗಳು ಮತ್ತು ಆದ್ಯತೆಗಳು.',
   'taskDetail.backToChecklist': 'ಪರಿಶೀಲನಾಪಟ್ಟಿಗೆ ಹಿಂತಿರುಗಿ',
   'taskDetail.breadcrumbChecklist': 'ಪರಿಶೀಲನಾಪಟ್ಟಿ',
@@ -142,7 +181,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'ಅಂತಿಮ ದಿನಾಂಕವಿಲ್ಲ.',
   'taskDetail.notFound': 'ಕಾರ್ಯ ಕಂಡುಬಂದಿಲ್ಲ',
   'taskDetail.notFoundBody': 'ಈ ಕಾರ್ಯವು ಅಳಿಸಲ್ಪಟ್ಟಿರಬಹುದು ಅಥವಾ ಬೇರೆ ಬಳಕೆದಾರರಿಗೆ ಸೇರಿರಬಹುದು.',
+  'taskDetail.tipBody':
+    'ನಿಮಗೆ ಅಡ್ಡಿಯಾದರೆ, Slack ನಲ್ಲಿ ನಿಮ್ಮ ಸ್ವಾಗತ ಬಡ್ಡಿಗೆ ಸಂದೇಶ ಕಳುಹಿಸಿ — ಅವರೇ ನಿಮ್ಮ ಮೊದಲ ಸಹಾಯ ಸಾಲು.',
   'taskDetail.tipEyebrow': 'ತ್ವರಿತ ಸಲಹೆ',
+  'team.empty.body': 'ವಿಶಾಲವಾದ ಹುಡುಕಾಟವನ್ನು ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ಬೇರೆ ಇಲಾಖೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ.',
   'team.empty.title': 'ಯಾವುದೇ ತಂಡದ ಸದಸ್ಯರು ಹೊಂದಾಣಿಕೆಯಾಗುವುದಿಲ್ಲ',
   'team.eyebrow': 'ಆನ್‌ಬೋರ್ಡಿಂಗ್ · ಜನರು',
   'team.loading': 'ತಂಡದ ಸದಸ್ಯರನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
@@ -165,14 +207,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'ಮೈಲಿಗಲ್ಲುಗಳು',
   'timeline.stat.current': 'ಪ್ರಸ್ತುತ ಮೈಲಿಗಲ್ಲು',
   'timeline.stat.next': 'ಮುಂದಿನ ಅನ್‌ಲಾಕ್',
+  'timeline.stat.progress': 'ಒಟ್ಟಾರೆ',
   'timeline.subtitle':
     'ಪ್ರತಿಯೊಂದು ಮೈಲಿಗಲ್ಲು ಹೊಸ ಮಾಡ್ಯೂಲ್‌ಗಳು, ಪರಿಚಯಗಳು ಮತ್ತು ಬೆಳವಣಿಗೆಯ ಸಂಭಾಷಣೆಗಳನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡುತ್ತದೆ. ಯಾವುದೇ ಒತ್ತಡವಿಲ್ಲ - ಕೇವಲ ಪ್ರಗತಿ.',
+  'timeline.tipBody':
+    '30, 60 ಮತ್ತು 90 ದಿನಗಳಲ್ಲಿ ನಿಮ್ಮ ಮ್ಯಾನೇಜರ್ನೊಂದಿಗೆ 30 ನಿಮಿಷಗಳ ಚಿಂತನೆಯನ್ನು ನಿಗದಿಪಡಿಸಿ — ಇದು ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ನಿರ್ದಿಷ್ಟಗೊಳಿಸುತ್ತದೆ ಮತ್ತು ಪ್ರಗತಿಯನ್ನು ಗೋಚರವಾಗಿಸುತ್ತದೆ.',
   'timeline.tipEyebrow': 'ವ್ಯವಸ್ಥಾಪಕ ಸಲಹೆ',
+  'timeline.tipTitle': 'ಮೈಲಿಗಲ್ಲುಗಳಿಗಾಗಿ ಕ್ಯಾಲೆಂಡರ್ನಲ್ಲಿ ಸಮಯವನ್ನು ಬ್ಲಾಕ್ ಮಾಡಿ.',
   'timeline.title': 'ನಿಮ್ಮ 30 / 60 / 90 ಪ್ರಯಾಣ.',
   'training.badge.notStarted': 'ಪ್ರಾರಂಭಿಸಿಲ್ಲ',
   'training.empty': 'ಇನ್ನೂ ಯಾವುದೇ ತರಬೇತಿ ಮಾಡ್ಯೂಲ್‌ಗಳು ಬಂದಿಲ್ಲ.',
   'training.eyebrow': 'ಆನ್‌ಬೋರ್ಡಿಂಗ್ · ತರಬೇತಿ',
   'training.loading': 'ಮಾಡ್ಯೂಲ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
+  'training.stat.all': 'ಮಾಡ್ಯೂಲ್ಗಳನ್ನು ನಿಗದಿಪಡಿಸಲಾಗಿದೆ',
   'training.subtitle':
     'ನಿಮ್ಮ ಪಾತ್ರಕ್ಕೆ ಹೊಂದಿಕೆಯಾಗುವಂತೆ ಮಾಡ್ಯೂಲ್‌ಗಳು 30/60/90 ಕ್ಕೆ ಅನ್‌ಲಾಕ್ ಆಗುತ್ತವೆ. ಅಗತ್ಯವಿರುವವುಗಳು ಮೊದಲು ಬರುತ್ತವೆ.',
   'training.title': 'ಕೌಶಲ್ಯಗಳು, ಪರಿಕರಗಳು ಮತ್ತು ಕಥೆಗಳು - ನಿಮ್ಮ ವೇಗದಲ್ಲಿ.',
@@ -185,9 +232,12 @@ export const ui: UiTranslations = {
   'trainingModule.quizBody':
     'ಈ ಮಾಡ್ಯೂಲ್ ಪೂರ್ಣಗೊಂಡಿದೆ ಎಂದು ಗುರುತಿಸಲು 80% ಅಥವಾ ಹೆಚ್ಚಿನ ಅಂಕಗಳನ್ನು ಗಳಿಸಿ.',
   'trainingModule.quizHeading': 'ಮಾಡ್ಯೂಲ್ ಅಂತ್ಯದ ರಸಪ್ರಶ್ನೆ',
+  'trainingModule.quizLocked': 'ಮೊದಲು ಮಾಡ್ಯೂಲ್ ಪ್ರಾರಂಭಿಸಿ',
   'trainingModule.quizNone': 'ಈ ಮಾಡ್ಯೂಲ್‌ನಲ್ಲಿ ಯಾವುದೇ ರಸಪ್ರಶ್ನೆ ಇಲ್ಲ.',
   'trainingModule.quizRetry': 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ',
+  'trainingModule.quizStart': 'ರಸಪ್ರಶ್ನೆ ಪ್ರಾರಂಭಿಸಿ',
   'trainingModule.quizSubmit': 'ಉತ್ತರಗಳನ್ನು ಸಲ್ಲಿಸಿ',
+  'trainingModule.start': 'ಮಾಡ್ಯೂಲ್ ಪ್ರಾರಂಭಿಸಿ',
   'trainingModule.statusNotStarted': 'ಪ್ರಾರಂಭಿಸಿಲ್ಲ',
   'welcomeHeroCard.completeLabel': 'ಪೂರ್ಣಗೊಂಡಿದೆ',
   'welcomeHeroCard.milestonesLabel': 'ಮೈಲಿಗಲ್ಲುಗಳು',

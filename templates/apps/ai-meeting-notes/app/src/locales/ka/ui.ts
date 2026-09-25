@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'კითხვები, გამოხმაურება ან ფუნქციის მოთხოვნა? მოგვწერეთ გუნდს hello@murmur.app-ზე — ყველა შეტყობინება ხვდება რეალურ ადამიანს, რომელიც პროდუქტზე მუშაობს.',
   'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'ჩვენს შესახებ',
+  'about.intro':
+    '{{app}} არის შეხვედრების ინტელექტი გუნდებისთვის, რომლებსაც ურჩევნიათ გადაწყვეტილებების მიღება, ვიდრე ჩანაწერების წარმოება. ის უერთდება თქვენს ზარებს, ტრანსკრიბირებს ყოველ სიტყვას მოსაუბრეთა ნიშნებით და შეხვედრის დასრულებისთანავე აწვდის AI-შეჯამებას და დავალებებს პასუხისმგებელ პირებთან ერთად.',
+  'about.missionBody':
+    'შეხვედრები არის ადგილი, სადაც გუნდები წყვეტენ საკითხებს — და სადაც ეს გადაწყვეტილებები იკარგება. {{app}} არსებობს იმისთვის, რომ საუბრის დროს შესრულებული სამუშაო საუბარზე დიდხანს იცოცხლოს: ზუსტი ჩანაწერი, მკაფიო შეჯამება და პასუხისმგებლიანი შემდეგი ნაბიჯები, ავტომატურად.',
+  'about.missionTitle': 'ჩვენი მისია',
   'actions.empty': 'არცერთი მოქმედების ერთეული არ ემთხვევა.',
   'actions.heading': 'მოქმედების ელემენტები',
   'actions.loadError': 'მოქმედების ერთეულების ჩატვირთვა ვერ მოხერხდა.',
@@ -10,11 +17,14 @@ export const ui: UiTranslations = {
     'აგრეგირებულია ყველა შეხვედრაზე. გაფილტრეთ სტატუსის მიხედვით ფოკუსირებისთვის.',
   'actions.toggleDoneLabel': 'დასრულებულად მონიშვნა',
   'actions.toggleReopenLabel': 'მონიშნეთ, როგორც გახსნილი',
+  'auth.footer': '© {{year}} {{app}}. ყოველი სიტყვა, გამოხდილი.',
   'calendar.heading': 'კალენდარი',
   'calendar.joinCta': 'გაწევრიანება',
   'calendar.loadError': 'კალენდრის ჩატვირთვა ვერ მოხერხდა.',
   'calendar.nextMonth': 'შემდეგი თვე',
   'calendar.noEventsForDay': 'ამ დღისთვის შეხვედრები დაგეგმილი არ არის.',
+  'calendar.noUpcomingEvents':
+    'მომავალი შეხვედრები არ არის. დააკავშირეთ კალენდარი ინტეგრაციებიდან ამ სიის შესავსებად.',
   'calendar.previousMonth': 'წინა თვე',
   'calendar.recent': 'ბოლო',
   'common.daysAgo': '{{count}} დღის წინ',
@@ -26,9 +36,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} მოქმედების ელემენტები',
   'dashboard.empty.body':
     'დაიწყეთ ჩაწერა ან დააკავშირეთ Google Calendar-თან, რათა Murmur ავტომატურად შეუერთდეს თქვენს შემდეგ შეხვედრას.',
+  'dashboard.empty.cta': 'ჩაწერის დაწყება',
   'dashboard.empty.heading': 'შეხვედრები ჯერ არ არის',
   'dashboard.eyebrow': 'თქვენი შეხვედრის არხი',
   'dashboard.loadError': 'დაფის ჩატვირთვა ვერ მოხერხდა.',
+  'dashboard.noActions': 'მოქმედებები არ არის',
   'dashboard.recentHeading': 'ბოლო შეხვედრები',
   'dashboard.recordCta': 'შეხვედრის ჩანაწერი',
   'dashboard.stat.actions': 'მოქმედების ელემენტები',
@@ -38,6 +50,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} ბოლო შემოწმების შემდეგ წაუკითხავი რეზიუმეები. წუწუნმა ყველა სიტყვა აღბეჭდა — აქ არის რეზიუმე.',
   'dashboard.viewCalendar': 'კალენდრის ნახვა →',
+  'footer.linksLabel': 'ქვედა ნავიგაცია',
   'forgot.failed': 'გადატვირთვის ელფოსტის გაგზავნა ვერ მოხერხდა.',
   'forgot.sentBody': 'თუ ანგარიში არსებობს {{email}}, თქვენ მალე მიიღებთ გადატვირთვის ბმულს.',
   'forgot.sentSubheading': 'გადატვირთვის ბმულისთვის შეამოწმეთ თქვენი შემოსულები.',
@@ -48,14 +61,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'დააკავშირეთ კალენდრები და ვიდეო პლატფორმები, რათა Murmur ავტომატურად შეუერთდეს.',
   'integrations.updateError': 'განახლება ვერ მოხერხდა.',
+  'landing.ctaBody':
+    'უფასოა ყოველთვიურად პირველი 5 შეხვედრისთვის. საკრედიტო ბარათი არ საჭიროებს. დააკავშირეთ Google Calendar ერთ წუთზე ნაკლებ დროში.',
   'landing.ctaButton': 'დაიწყეთ — ეს უფასოა',
   'landing.ctaHeading': 'შეწყვიტე ჩანაწერების გაკეთება. დაიწყე გადაწყვეტილებების მიღება.',
+  'landing.demo.aiBody':
+    'გაშვება გადაიდო 5 მაისიდან → 12 მაისამდე, რომ ოპერაციებს პერსონალის დაკომპლექტების დრო მიეცეს. დაფის რედიზაინი გამოეყო 26 მაისს.',
   'landing.demo.aiLabel': 'ხელოვნური ინტელექტის შეჯამება, დრაფტი პირდაპირ ეთერში',
   'landing.demo.recording': 'ჩაწერა · ცოცხალი',
   'landing.eyebrow': 'ხელოვნური ინტელექტის შეხვედრების ინტელექტი',
   'landing.featuresHeading': 'ყველაფერი, რაც თქვენს გუნდს შეხვედრის დასრულების შემდეგ დასჭირდება',
+  'landing.featuresSubheading':
+    'აღარ იქნება „მოიცადე, ვის ეკუთვნის ეს?“ {{appName}} შეჯამებას ზარის გათიშვამდე აგზავნის.',
   'landing.getStarted': 'სცადეთ უფასოდ',
   'landing.heroSecondary': '90-წამიანი ტურის ყურება',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} უერთდება თქვენს ზარებს, ტრანსკრიბირებს ყოველ სიტყვას მოსაუბრეთა ნიშნებით და შეხვედრის დასრულებისთანავე აწვდის AI-შეჯამებებს და დავალებებს პასუხისმგებელ პირებთან ერთად.',
   'landing.heroTitle': 'აღბეჭდეთ ყველა შეხვედრა. გამოავლინეთ მნიშვნელოვანი.',
   'login.altPrompt': 'ახალი ხარ მურმურში?',
   'login.failed': 'შესვლა ვერ მოხერხდა. შეამოწმეთ თქვენი ელ. ფოსტა და პაროლი.',
@@ -63,6 +84,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'მოქმედების ელემენტები',
   'meetingDetail.back': 'ყველა შეხვედრა',
   'meetingDetail.decisionsHeading': 'გადაწყვეტილებები',
+  'meetingDetail.dueDate': 'ვადა {{date}}',
   'meetingDetail.followupsHeading': 'შემდგომი ქმედებები',
   'meetingDetail.loadError': 'შეხვედრის ჩატვირთვა ვერ მოხერხდა.',
   'meetingDetail.noActions': 'მოქმედების ელემენტები არ არის აღმოჩენილი.',
@@ -76,7 +98,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'შეხვედრები ჯერ არ არის',
   'meetings.heading': 'შეხვედრები',
   'meetings.loadError': 'შეხვედრების ჩატვირთვა ვერ მოხერხდა.',
+  'meetings.recordCta': 'შეხვედრის ჩანაწერი',
   'meetings.subheading': 'ყველა ჩაწერილი, ატვირთული და სინქრონიზებული შეხვედრა.',
+  'murmurLayout.closeMenu': 'ნავიგაციის მენიუს დახურვა',
   'murmurLayout.openMenu': 'ნავიგაციის მენიუს გახსნა',
   'murmurLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
   'nav.legal': 'იურიდიული',
@@ -102,7 +126,14 @@ export const ui: UiTranslations = {
   'profile.loading': 'იტვირთება…',
   'profile.navLabel': 'პროფილის სექციები',
   'profile.notifications.assignments': 'ჩემთვის მინიჭებული მოქმედების ელემენტები',
+  'profile.notifications.assignmentsHint': 'შეტყობინება, როცა თქვენთვის დავალება დაფიქსირდება.',
+  'profile.notifications.mentions': 'ხსენიებები ტრანსკრიპტებში',
+  'profile.notifications.mentionsHint': 'ელფოსტა + push, როცა ვინმე @-ით გხსენიებთ.',
+  'profile.notifications.subheading': 'აირჩიეთ, რომელი {{appName}} მოვლენები უნდა მოგაღწიოთ.',
   'profile.notifications.summaries': 'ყოველკვირეული დაიჯესტი',
+  'profile.notifications.summariesHint':
+    'ორშაბათის შეჯამება გასული კვირის ყველა შეხვედრის შესახებ.',
+  'profile.preferences.speakerColor': 'ნაგულისხმევი მოსაუბრის ფერი',
   'profile.preferences.subheading':
     'ნაგულისხმევი პარამეტრები, რომლებიც ვრცელდება ყველა ჩანაწერზე, რომელსაც შეუერთდებით.',
   'profile.preferences.timezone': 'დროის სარტყელი',
@@ -115,16 +146,21 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'თქვენი ბრაუზერი ჩაწერას არ უჭერს მხარს. სცადეთ Chrome, Edge ან Safari.',
   'record.error.upload': 'ატვირთვა ვერ მოხერხდა. სცადეთ ხელახლა.',
+  'record.errorLabel': 'რაღაც არასწორია',
   'record.heading': 'ჩანაწერი',
   'record.idleLabel': 'შეეხეთ ჩაწერის დასაწყებად',
   'record.processingLabel': 'ტრანსკრიფცია Whisper-თან, შეჯამება კლოდთან…',
+  'record.recordingLabel': 'ფიქსირდება…',
   'record.retryCta': 'ხელახლა სცადეთ',
   'record.subheading':
     'დასაწყებად დააჭირეთ მიკროფონს. Murmur იწერს აუდიოს, ტრანსკრიფციას უკეთებს Whisper-ის მეშვეობით და წერს Claude-ის მხარდაჭერით შეჯამებას.',
+  'record.titlePlaceholder': 'შეხვედრის სათაური (არასავალდებულო)',
+  'reset.altPrompt': 'გადაიფიქრეთ?',
   'reset.hint': 'გამოიყენეთ მინიმუმ 8 სიმბოლო ასოებისა და ციფრების ნაზავით.',
   'reset.missingToken': 'გადატვირთვის ბმული დაკარგულია ან ვადაგასულია. მოითხოვეთ ახალი.',
   'reset.newPassword': 'ახალი პაროლი',
   'reset.subheading': 'აირჩიეთ პაროლი, რომელსაც სხვაგან არსად იყენებთ.',
+  'reset.tooShort': 'პაროლი უნდა იყოს მინიმუმ 8 სიმბოლო.',
   'search.empty': 'ტრანსკრიპტების მოსაძებნად აკრიფეთ.',
   'search.loadError': 'ძიება ვერ მოხერხდა. სცადეთ ხელახლა.',
   'search.noResults': '„“-სთვის შედეგები არ არის {{q}} „.',
@@ -140,7 +176,9 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'აუდიოს შენახვა',
   'settings.retention.heading': 'შენარჩუნება',
   'settings.retention.transcript': 'ტრანსკრიპტების შენახვა',
+  'settings.revokeDeviceWarning': 'ამ მოწყობილობის წვდომა მალე გაუქმდება. გასვლა?',
   'settings.saveError': 'შენახვა ვერ მოხერხდა.',
+  'settings.security.subheading': 'განაახლეთ პაროლი, რომელსაც შესვლისთვის იყენებთ.',
   'settings.sharing.exportFormat': 'ექსპორტის ფორმატი',
   'settings.sharing.heading': 'გაზიარების ნაგულისხმევი პარამეტრები',
   'settings.sharing.scope': 'ნაგულისხმევი გაზიარების არეალი',
@@ -158,6 +196,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'მოიწვიე თანაგუნდელი',
   'team.invitedAs': 'მოწვეული, როგორც {{role}}',
   'team.inviteFailed': 'მოწვევის გაგზავნა ვერ მოხერხდა.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'მოწვევის გაგზავნა',
   'team.inviteSubtitle': 'ისინი მიიღებენ ელფოსტას გაწევრიანების ბმულით.',
   'team.inviteTitle': 'მოიწვიე თანაგუნდელი',

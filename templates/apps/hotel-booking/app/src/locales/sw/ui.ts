@@ -1,12 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Una maswali kuhusu uhifadhi, maoni, au nyumba unayofikiri inapaswa kuwa kwenye {{app}}? Wasiliana na timu yetu kutoka kwenye akaunti yako — kila ujumbe unafika kwa mtu halisi anayeweza kusaidia.',
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu sisi',
+  'about.featureLoyalty':
+    'Bei za wanachama pekee na programu ya uaminifu inayokusanya pointi, kuondoka kwa kuchelewa, na kuboreshwa kwa chumba kwa kila uhifadhi.',
+  'about.featureReviews':
+    'Maoni yaliyothibitishwa ya wageni na chaguo za wahariri ili uweze kuamini malazi kabla ya kufika.',
+  'about.featureRooms':
+    'Vyumba, bei, na huduma kwa kulinganisha bega kwa bega na bei ya jumla iliyo wazi — kodi na ada za mapumziko zimejumuishwa kabla ya kulipa.',
+  'about.featureSearch':
+    'Utafutaji wa wakati halisi katika hoteli zilizothibitishwa na upatikanaji wa moja kwa moja, mwonekano wa ramani, na picha nyingi za kuvutia.',
+  'about.featureTrips':
+    'Vipendwa vilivyohifadhiwa na dashibodi ya Safari inayoweka kila uhifadhi, ratiba, na uthibitisho mahali pamoja.',
+  'about.intro':
+    '{{app}} ni jukwaa la kuhifadhi hoteli kwa wasafiri wanaojali ubora. Kila nyumba inathibitishwa kibinafsi na timu yetu ya wahariri — hakuna orodha za wakusanyaji, hakuna matangazo ya udanganyifu. Tafuta upatikanaji halisi, linganisha vyumba, bei, na huduma bega kwa bega, kisha hifadhi kwa miguso michache kwa bei ya jumla iliyo wazi.',
+  'about.missionBody':
+    'Kuhifadhi mahali pa kulala kunapaswa kuwa tulivu na waaminifu. Tunaonyesha bei zilizo wazi na kodi na ada za mapumziko mbele, tunawapa zawadi wageni waaminifu badala ya kuwatoza kila kitu, na tunaweka mbele malazi yanayostahili pesa zako — ili utumie muda mchache kulinganisha tabo na muda mwingi kwenye safari yenyewe.',
+  'about.missionTitle': 'Dhamira yetu',
+  'about.subtitle': 'Njia iliyoratibiwa na iliyo wazi ya kupata na kuhifadhi hoteli sahihi.',
   'account.loyalty.activitySummary': '{{nights}} usiku · {{spend}} alitumia mwaka huu',
+  'account.loyalty.benefitsHeading': 'Faida zako',
   'account.loyalty.heading': 'Uaminifu',
   'account.loyalty.loading': 'Inapakia uaminifu…',
-  'account.loyalty.pointsTowardNext':
-    '{{pointi}} / {{ijayo}} inaelekeza kwenye {{Awamu inayofuata}}',
+  'account.loyalty.maxTier': 'Daraja la juu — furahia faida zako.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} pointi hadi {{nextTier}}',
   'account.loyalty.tier': 'Daraja la sasa',
   'account.loyalty.unavailable': 'Taarifa za uaminifu hazipatikani.',
   'account.navLabel': 'Sehemu za akaunti',
@@ -23,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Thibitisha uhifadhi · {{total}}',
   'bookingCheckout.datesRequired': 'Tafadhali chagua tarehe zako za kuingia na kuondoka.',
   'bookingCheckout.guestHeading': 'Mgeni Kiongozi',
+  'bookingCheckout.heading': 'Thibitisha na hifadhi',
   'bookingCheckout.loadError': 'Imeshindwa kupakia sifa.',
   'bookingCheckout.nights': '{{rate}} × {{count}} usiku',
   'bookingCheckout.notFound': 'Mali haipatikani.',
@@ -33,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Kodi na ada',
   'bookingCheckout.tripHeading': 'Safari yako',
   'bookingConfirmation.allTripsCta': 'Safari zote',
+  'bookingConfirmation.confNumber': 'Namba ya uthibitisho: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Uhifadhi wako unashughulikiwa.',
   'bookingConfirmation.heading': 'Uhifadhi umethibitishwa',
   'bookingConfirmation.loading': 'Inapakia nafasi yako…',
   'bookingConfirmation.searchMoreCta': 'Vinjari sehemu zaidi za kukaa',
   'bookingConfirmation.subheadingForTrip':
-    '{{mali}} katika {{jiji}} , {{nchi}} Tutaonana kwenye {{checkIn}} .',
+    '{{property}} katika {{city}}, {{country}}. Tutakuona {{checkIn}}.',
   'bookingConfirmation.total': 'Jumla {{total}}',
   'bookingConfirmation.viewTripCta': 'Tazama safari',
   'common.goToDashboard': 'Nenda kwenye Dashibodi',
@@ -47,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Imeshindwa kupakia vipendwa.',
   'favorites.pricePerNight': '{{price}} / usiku',
   'favorites.removeCta': 'Ondoa hifadhi',
+  'favorites.removing': 'Inaondoa…',
   'forgotPassword.subheading':
     'Ingiza barua pepe kwenye akaunti yako nasi tutakutumia kiungo salama cha kuweka upya.',
   'forgotPassword.successBody':
@@ -54,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Washiriki wa kaa nje',
   'landing.cta.heading': 'Viwango vya wanachama pekee. Kila nafasi, kila wakati.',
   'landing.cta.signup': 'Fungua akaunti ya bure',
+  'landing.cta.subheading':
+    'Pata pointi za uaminifu kwa kila malazi, fungua kuondoka kwa kuchelewa na kuboreshwa kwa chumba, na upate ufikiaji wa kwanza wa nyumba mpya kabla hazijatangazwa hadharani.',
   'landing.destinations.eyebrow': 'Wapi pa kwenda baadaye',
   'landing.destinations.heading': 'Maeneo yaliyoangaziwa',
   'landing.destinations.seeAll': 'Tazama maeneo yote unayoenda',
@@ -62,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Hadithi zinazofaa kupakiwa',
   'landing.nav.join': 'Jiunge na Usafiri',
   'landing.nav.search': 'Tafuta kukaa',
+  'landing.preview.browseAll': 'Vinjari mkusanyiko kamili',
   'landing.preview.eyebrow': 'Kuchungulia ndani',
   'landing.preview.heading': 'Makaazi yaliyochaguliwa kwa mikono mwezi huu',
+  'landing.preview.subheading':
+    'Kila nyumba kwenye {{appName}} inathibitishwa kibinafsi na timu yetu ya wahariri — hakuna orodha za wakusanyaji, hakuna matangazo ya udanganyifu.',
   'login.eyebrow': 'Eneo la wanachama',
+  'login.noAccount': 'Mgeni kwa Tessera?',
   'login.signupLink': 'Fungua akaunti ya bure',
   'login.subheading':
     'Ingia ili kudhibiti safari zako, angalia uthibitisho, na uendelee ulipoishia.',
+  'loyaltyTierBadge.points': '{{points}} pointi',
   'planUpdated.heading': 'Mpango umesasishwa',
+  'planUpdated.retry': 'Jaribu tena',
+  'planUpdated.verifyFailed': 'Hatukuweza kuthibitisha malipo yako bado.',
+  'planUpdated.verifyFailedBody':
+    'Huenda malipo yako bado yanashughulikiwa. Jaribu tena baada ya muda mfupi.',
   'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'pricing.limit.advancedFeatures': 'Vipengele vya hali ya juu:',
   'pricing.limit.canExport': 'Usafirishaji wa data:',
@@ -80,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Kile kinachotolewa na eneo hili',
   'propertyDetail.backLink': 'Rudi kwenye utafutaji',
   'propertyDetail.bookCta': 'Hifadhi',
+  'propertyDetail.bookmarkAria': 'Hifadhi mali',
   'propertyDetail.bookmarkAriaSaved': 'Ondoa kwenye sifa zilizohifadhiwa',
+  'propertyDetail.galleryImageAlt': 'Picha {{name}} ya {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} picha ya shujaa',
   'propertyDetail.hidePhotos': 'Ficha picha',
   'propertyDetail.lineCleaning': 'Ada ya kusafisha',
@@ -90,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'usiku',
   'propertyDetail.noChargeYet': 'Hutatozwa bado',
   'propertyDetail.notFound': 'Mali haipatikani.',
+  'propertyDetail.perNight': '/ usiku',
+  'propertyDetail.pickDatesHint': 'Chagua tarehe zako ili kuona mchanganuo kamili wa bei.',
   'propertyDetail.reviewCount': '( {{count}} mapitio)',
   'propertyDetail.reviewsHeading': 'Mapitio ya hivi karibuni',
   'propertyDetail.roomCapacity': 'Kulala {{count}}',
@@ -102,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Nenosiri jipya',
   'resetPassword.subheading':
     'Chagua nenosiri jipya kwa ajili ya akaunti yako ya Auberge. Tumia angalau herufi 8; tunapendekeza nenosiri.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Hakuna sifa zinazolingana na utafutaji wako.',
   'searchResults.emptyHint':
     'Jaribu kupanua vichujio vyako au kuondoa kikomo cha bei — Auberge ina vizuizi katika nchi 14.',
@@ -109,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Kukaa kwa mpangilio',
   'searchResults.headingForQuery': 'Anakaa kwa ajili ya " {{q}} "',
   'searchResults.loadError': 'Imeshindwa kupakia sifa.',
+  'searchResults.mapHint':
+    'Elea juu ya kadi ili kuangazia kwenye ramani. Tiles za Mapbox za moja kwa moja katika uzalishaji.',
   'searchResults.mapPinAria': '{{name}} — {{price}} kwa usiku',
   'searchResults.sortLabel': 'Panga kulingana na',
   'searchResults.subheading': '{{count}} mali · {{guests}} wageni',
   'signup.eyebrow': 'Kuwa mwanachama',
   'signup.subheading':
     'Jiunge na Auberge ili kufungua viwango vya wanachama pekee, malipo ya kuchelewa, na ufikiaji wa kwanza wa mali mpya.',
+  'sojournAuthShell.brand.eyebrow': 'Kaa mahali pa kipekee',
+  'sojournAuthShell.brand.heading':
+    'Mkusanyiko ulioratibiwa wa nyumba — uliowasilishwa kwa uzuri, kwa bei iliyo wazi.',
   'sojournHeroSearchCard.checkInAria': 'Tarehe ya kuingia',
   'sojournHeroSearchCard.checkOutAria': 'Tarehe ya kuondoka',
+  'sojournHeroSearchCard.destAria': 'Mahali pa kwenda',
+  'sojournHeroSearchCard.destLabel': 'Wapi',
   'sojournHeroSearchCard.destPlaceholder': 'Mji, eneo, au mali',
   'sojournHeroSearchCard.eyebrow': 'Kukaa kumepangwa · Viwango vya wanachama pekee',
   'sojournHeroSearchCard.guestsOption': '{{n}} wageni',
   'sojournHeroSearchCard.subtitle':
     'Mkusanyiko uliopangwa wa hoteli za kifahari, majengo ya usanifu wa kisasa, na maeneo ya mapumziko yasiyopatikana kwa urahisi — kwa bei iliyo wazi, iliyowasilishwa kwa uzuri.',
+  'sojournHeroSearchCard.title': 'Kaa mahali pa kipekee',
+  'sojournHeroSearchCard.trustLoyalty': 'Pata pointi kwa kila malazi',
   'sojournHeroSearchCard.trustNoFees': 'Hakuna ada zilizofichwa, kamwe',
   'sojournHeroSearchCard.trustVetted': 'Mali zilizopimwa kwa mkono pekee',
   'sojournLayout.primaryNavLabel': 'Usogezaji mkuu',

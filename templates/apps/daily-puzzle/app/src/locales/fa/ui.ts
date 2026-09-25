@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'بازخوردی دارید، باگی پیدا کرده‌اید، یا می‌خواهید {{app}} را به مدرسه یا تیم خود بیاورید؟ ما هر پیامی را می‌خوانیم — از تنظیمات حساب خود با ما در تماس باشید و یک انسان واقعی پاسخ می‌دهد.',
   'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': 'درباره',
+  'about.intro':
+    '{{app}} یک پازل کلمه روزانه است. کلمه پنج‌حرفی را در شش تلاش حدس بزنید، رشته پیروزی‌تان را حفظ کنید، جدول ایموجی‌تان را به اشتراک بگذارید و ببینید همه در کلمه امروز چه عملکردی داشتند.',
+  'about.missionBody':
+    'یک پازل خوب، یک پیروزی کوچک روزانه است. {{app}} حول یک کلمه مشترک در روز ساخته شده — به‌قدری سریع که در وقت استراحت قهوه حل شود و به‌قدری جذاب که فردا هم برگردید.',
+  'about.missionTitle': 'ماموریت ما',
   'about.title': 'درباره {{app}}',
   'archive.loadError': 'بارگذاری بایگانی امکان‌پذیر نبود.',
   'archive.missed': 'از دست رفته',
   'archive.notPlayed': 'بازی نشده',
+  'archive.subhead':
+    'هر روز گذشته را به‌عنوان تمرین دوباره بازی کنید — بدون رشته پیروزی، بدون آمار، با تمام لذت.',
   'archive.title': 'بایگانی',
   'auth.backToHome': 'بازگشت به خانه',
   'auth.backToHomeArrow': '→ بازگشت به خانه',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'رمز عبور را فراموش کرده‌اید؟',
   'auth.login.loggingIn': 'در حال ورود شما…',
   'auth.login.logIn': 'کلمه امروز را بازی کنید',
+  'auth.login.noAccount': 'تازه با تسرا آشنا شدید؟',
   'auth.login.or': 'یا ادامه با',
   'auth.login.password': 'رمز عبور',
   'auth.login.signInButton': 'ورود',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'در حال ذخیره…',
   'common.sendingEllipsis': 'در حال ارسال…',
   'common.startingEllipsis': 'در حال شروع…',
+  'forgotPassword.subhead':
+    'ایمیل خود را وارد کنید و ما لینکی برای تنظیم مجدد برای شما ارسال خواهیم کرد.',
+  'forgotPassword.success.body':
+    'اگر حسابی برای {{email}} ، تا چند دقیقه دیگر لینک بازنشانی دریافت خواهید کرد.',
+  'forgotPassword.success.title': 'صندوق ورودی خود را بررسی کنید.',
   'form.name': 'نام',
   'howToPlay.cta.home': 'بازگشت به خانه',
   'howToPlay.cta.play': 'پازل امروز را بازی کنید',
@@ -68,10 +83,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'رکوردهایی که دوست ندارید بشکنند',
   'leaderboard.daily.title': 'حل‌شده‌های امروز',
   'leaderboard.loadError': 'بارگذاری جدول رتبه‌بندی امکان‌پذیر نبود.',
+  'leaderboard.streaks.empty': 'هنوز رشته پیروزی‌ای نیست — اولین نفر باشید.',
+  'leaderboard.streaks.subhead': 'طولانی‌ترین رشته‌های پیروزی در تمام دوران.',
   'leaderboard.streaks.title': 'رهبران رکورد',
+  'leaderboard.subhead': 'عملکرد امروز همه و اینکه چه کسی طولانی‌ترین رشته‌های پیروزی را دارد.',
   'leaderboard.title': 'جدول رتبه‌بندی',
   'login.headline': 'خوش برگشتید.',
   'login.streakPill': 'رکورد {{days}} روزه منتظر است',
+  'login.subhead':
+    'وارد شوید تا رشته پیروزی‌تان را حفظ کنید و ببینید در کلمه امروز چه عملکردی داشتید.',
   'nav.archive': 'بایگانی',
   'nav.editProfile': 'ویرایش پروفایل',
   'nav.getStarted': 'شروع کنید',
@@ -89,6 +109,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · چنین کلمه‌ای وجود ندارد',
   'notFound.title': 'این مسیر خالی است.',
   'planUpdated.message': 'پلن شما فعال است.',
+  'planUpdated.retry': 'دوباره امتحان کنید',
+  'planUpdated.verifyFailed': 'ما هنوز نتوانستیم پرداخت شما را تأیید کنیم.',
+  'planUpdated.verifyFailedBody':
+    'ممکن است پرداخت شما هنوز در حال پردازش باشد. چند لحظه دیگر دوباره امتحان کنید.',
   'planUpdated.verifying': 'در حال تأیید پرداخت شما…',
   'play.alreadyFinished': 'این پازل را قبلاً تمام کرده‌اید',
   'play.answerWas': 'کلمه این بود',
@@ -104,6 +128,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'پازل تمرینی',
   'play.tooShort': 'حروف کافی نیست',
   'play.won': 'حل شد!',
+  'pricing.advancedStats': 'آمار پیشرفته: {{yes}}',
+  'pricing.archiveHistory': '{{count}} روز تاریخچه آرشیو',
+  'pricing.archivePlays': '{{count}} بازپخش آرشیو در روز',
+  'pricing.archiveUnlimited': 'تاریخچه آرشیو نامحدود',
+  'pricing.canExport': 'خروجی داده: {{yes}}',
+  'pricing.checkoutError': 'پرداخت شروع نشد. لطفا دوباره امتحان کنید.',
   'pricing.dailyWord': 'کلمه روزانه',
   'pricing.heading': 'پلن {{app}} خود را انتخاب کنید',
   'pricing.included': 'شامل',
@@ -111,7 +141,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'کلمه روزانه همیشه رایگان است. برای بازپخش نامحدود بایگانی و آمار دقیق‌تر ارتقا دهید.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} به حریم خصوصی شما احترام می‌گذارد. این صفحه داده‌هایی را که ذخیره می‌کنیم، دلیل ذخیره آن‌ها و نحوه حذفشان را خلاصه می‌کند.',
   'privacy.title': 'اطلاعیه حریم خصوصی',
+  'resetPassword.subhead': 'برای بازگشت به رشته پیروزی‌تان یک رمز عبور جدید انتخاب کنید.',
   'settings.account': 'حساب کاربری',
   'settings.danger.body': 'حذف دائمی حساب {{appName}} و تمام تاریخچه پازل‌ها.',
   'settings.danger.confirm': 'بله، حذف شود برای همیشه',
@@ -120,17 +153,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'مهمان',
   'settings.language.title': 'زبان',
   'settings.subhead': 'پروفایل، صدا و نحوه نمایش خود در جدول رتبه‌بندی را تنظیم کنید.',
+  'settings.unnamed': 'بازیکن اسپارک',
   'settings.upgrade': 'ارتقا',
   'signup.eyebrow': 'برای همیشه رایگان — روزی یک کلمه',
   'signup.headline': 'رکورد خود را شروع کنید.',
+  'signup.subhead':
+    'یک حساب {{appName}} بسازید تا کلمه روزانه را بازی کنید، رشته پیروزی بسازید و در جدول امتیازات بالا بروید.',
   'stats.currentStreak': 'رکورد',
   'stats.distribution.title': 'توزیع حدس‌ها',
   'stats.loadError': 'بارگذاری آمار شما امکان‌پذیر نبود.',
   'stats.maxStreak': 'بیشترین رکورد',
   'stats.played': 'بازی شده',
   'stats.playToday': 'پازل امروز را بازی کنید',
+  'stats.subhead': 'فقط پازل‌های روزانه رتبه‌بندی‌شده — تمرین آرشیو هرگز حساب نمی‌شود.',
   'stats.title': 'آمار شما',
   'stats.winRate': 'نرخ برد',
   'status.monthly': 'ماهانه',
+  'terms.intro':
+    'با استفاده از {{app}}، قوانین زیر را می‌پذیرید. اگر نمی‌توانید آن‌ها را بپذیرید، لطفاً از این سرویس استفاده نکنید.',
   'terms.title': 'شرایط خدمات',
 }

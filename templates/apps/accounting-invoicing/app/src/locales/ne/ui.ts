@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'प्रश्न छ, बग भेटियो, वा तपाईंका पुस्तकहरू सार्न चाहनुहुन्छ? {{app}} टोलीलाई hello@{{app}}.example मा सम्पर्क गर्नुहोस् — हरेक सन्देश एक वास्तविक व्यक्तिले पढ्छ।',
   'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'about.eyebrow': 'बारेमा',
+  'about.intro':
+    '{{app}} साना व्यवसायका लागि लेखा प्रणाली हो जसले हरेक पैसाको हिसाब राख्छ — इनभ्वाइस, खर्च, भुक्तानी, र प्रतिवेदनहरू मालिक, बुककिपर, र लेखापालका लागि एउटै शान्त ठाउँमा।',
+  'about.missionBody':
+    'व्यवसाय चलाउनु भनेको आफ्ना हिसाबकिताबदेखि डराउनु हुनु हुँदैन। {{app}} ले स्प्रेडसिटको अस्तव्यस्ततालाई स्पष्ट अंकहरूले प्रतिस्थापन गर्छ जसलाई तपाईं कार्यान्वयन गर्न सक्नुहुन्छ, जसले गर्दा तपाईं मिलानमा कम समय र व्यवसाय सुरु गर्नुको वास्तविक उद्देश्यको काममा बढी समय खर्च गर्नुहुन्छ।',
+  'about.missionTitle': 'हाम्रो मिशन',
   'about.title': '{{app}} बारे',
   'accounts.count': '{{count}} खाताहरू',
+  'accounts.emptyBody':
+    'लेजर खाताहरूले पैसा कहाँ रहन्छ र कहाँ सर्छ भन्ने ट्र्याक गर्छन्। तपाईंको बुककिपर वा इन्टिग्रेसनले तिनीहरू सेटअप गरेपछि यहाँ देखिन्छन्।',
   'accounts.emptyTitle': 'अहिलेसम्म कुनै खाता छैन',
   'accounts.heading': 'खाताहरूको चार्ट',
   'accounts.kpi.accounts': 'खाताहरू',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'प्रकार अनुसार समूहबद्ध गरिएको तपाईंको बीजक, खर्च र भुक्तानी पछाडिको प्रत्येक खाता खाता।',
   'accounts.tag.inactive': 'निष्क्रिय',
   'authBrandPanel.attributionName': 'सारा जेनकिन्स',
+  'authBrandPanel.attributionRole': 'प्रमुख वित्तीय अधिकृत, होराइजन टेक',
   'authBrandPanel.eyebrow': 'वित्त टोलीहरू द्वारा विश्वसनीय',
   'authBrandPanel.label': 'ब्रान्ड प्रदर्शन',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'सबै ग्राहकहरू',
   'customerDetail.invoiceMeta': 'जारी गरिएको {{issued}} · बाँकी {{due}}',
   'customerDetail.loadError': 'ग्राहक लोड गर्न असफल भयो।',
+  'customerDetail.missingBody':
+    'अनुरोध गरिएको ग्राहक रेकर्ड लोड गर्न सकिएन। यो हटाइएको हुन सक्छ, वा तपाईंसँग यसमा पहुँच नहुन सक्छ।',
   'customerDetail.missingHeading': 'ग्राहक रेकर्ड उपलब्ध छैन',
+  'customerDetail.missingHelp':
+    'ग्राहकहरूको सूचीमा फर्कन माथिको ब्याक लिंक प्रयोग गर्नुहोस्, वा त्यहाँबाट फरक रेकर्ड छान्नुहोस्।',
+  'customerDetail.noInvoices': 'अहिलेसम्म कुनै पनि बीजक छैन।',
   'customerDetail.notesEmpty': 'अहिलेसम्म कुनै नोट छैन।',
   'customerDetail.paymentsEmpty': 'कुनै भुक्तानी रेकर्ड गरिएको छैन।',
   'customerDetail.paymentTerms': 'भुक्तानी सर्तहरू',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'कटौती योग्य',
   'expenseDetail.detailsHeading': 'कारोबार विवरणहरू',
   'expenseDetail.loadError': 'खर्च लोड गर्न सकिएन।',
+  'expenseDetail.matched': 'मिलान भयो · {{description}}',
   'expenseDetail.missingBody':
     'अनुरोध गरिएको खर्च लोड गर्न सकिएन। यो हटाइएको हुन सक्छ, वा तपाईंसँग यसमा पहुँच नहुन सक्छ।',
   'expenseDetail.missingHeading': 'खर्चको रेकर्ड उपलब्ध छैन',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'रसिद',
   'expenseDetail.receiptHeading': 'रसिद',
   'expenseDetail.reconciled': 'मिलाप भयो',
+  'expenseDetail.unreconciled': 'मिलाप नभएको',
   'expenses.empty': 'अहिलेसम्म कुनै खर्च छैन।',
   'expenses.heading': 'खर्चहरू',
   'expenses.kpi.deductible': 'कटौती योग्य',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'बीजकहरू लोड गर्न सकिएन।',
   'invoices.searchPlaceholder': 'बीजक # वा ग्राहक खोज्नुहोस्...',
   'invoices.summary.paid': 'यस अवधिमा भुक्तानी गरिएको',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     '३० दिनको लागि नि:शुल्क। कार्ड छैन। आफ्नो लेखापाल लिएर आउनुहोस् — तिनीहरूले तपाईंलाई धन्यवाद दिनेछन्।',
   'landing.ctaTitle': 'आफ्ना किताबहरू शान्त ठाउँमा सार्नुहोस्।',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'प्राप्य खाताहरू',
   'ledgerStatTriad.eyebrow.mtd': 'महिनादेखि मितिसम्म',
   'ledgerStatTriad.netSub': 'नेट {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} म्याद नाघेको',
   'ledgerStatTriad.revenueLabel': 'राजस्व',
   'login.failed': 'साइन इन असफल भयो।',
   'login.hidePassword': 'पासवर्ड लुकाउनुहोस्',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'साइन इन गर्नुहोस्',
   'nav.legal': 'कानुनी',
   'newExpense.back': 'खर्चहरू',
+  'newExpense.clearReceiptCta': 'संलग्न रसिद हटाउनुहोस्',
   'newExpense.deductible': 'कर कटौती योग्य',
   'newExpense.dropPrompt': 'संलग्न गर्न रसिदको फोटो वा PDF यहाँ छोड्नुहोस्।',
   'newExpense.failed': 'खर्च जोगाउन सकिएन।',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'भुक्तानीहरू लोड गर्न सकिएन।',
   'payments.unmatchedTag': 'अतुलनीय',
   'planUpdated.pageLabel': 'योजना अद्यावधिक गरिएको पुष्टिकरण',
+  'pricing.advancedFeatures': 'उन्नत सुविधाहरू: {{yes}}',
+  'pricing.canExport': 'डेटा निर्यात: {{yes}}',
+  'pricing.heading': 'आफ्नो {{app}} योजना छनोट गर्नुहोस्',
+  'pricing.maxAccounts': '{{count}} खाताहरू',
+  'pricing.maxExpenses': '{{count}} खर्च',
+  'pricing.maxInvoices': '{{count}} इनभ्वाइसहरू',
+  'privacy.intro':
+    'यो गोपनीयता नीतिले {{app}} ले सेवा प्रयोग गर्ने व्यवसायहरूबारे जानकारी कसरी संकलन, प्रयोग, र खुलासा गर्छ भन्ने वर्णन गर्छ।',
   'privacy.lastUpdated': 'पछिल्लो पटक अद्यावधिक गरिएको: {{मिति}}',
   'privacy.section.collected.body':
     'हामी खाता विवरणहरू (नाम, इमेल, कम्पनी), तपाईंले अपलोड गर्ने वित्तीय रेकर्डहरू (बीजकहरू, खर्चहरू, ग्राहकहरू, भुक्तानीहरू), र मानक सेवा-सञ्चालन लगहरू (आईपी, प्रयोगकर्ता-एजेन्ट, टाइमस्ट्याम्पहरू) सङ्कलन गर्छौं।',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'जानकारी सेवा सञ्चालन गर्न, तपाईंले अनुरोध गर्नुभएको रिपोर्ट र PDF हरू उत्पन्न गर्न, Mailgun मार्फत लेनदेन इमेल पठाउन र Stripe मार्फत भुक्तानीहरू प्रशोधन गर्न प्रयोग गरिन्छ। हामी व्यक्तिगत जानकारी बेच्दैनौं वा भाडामा दिँदैनौं।',
   'recentInvoicesCard.dueMeta': 'बाँकी {{date}}',
+  'recentInvoicesCard.empty': 'कुनै पनि बीजक मेल खाएन।',
   'recentInvoicesCard.eyebrow': 'प्राप्य खाताहरू',
   'recentInvoicesCard.searchAriaLabel': 'बीजकहरू खोज्नुहोस्',
+  'recentInvoicesCard.searchPlaceholder': 'इनभ्वाइसहरू खोज्नुहोस्…',
   'recentInvoicesCard.title': 'हालसालैका बीजकहरू',
   'recentInvoicesCard.viewAll': 'सबै बीजकहरू हेर्नुहोस् →',
   'reports.assets': 'सम्पत्तिहरू',
@@ -181,15 +211,20 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'नाफा र नोक्सान (१२ महिना)',
   'resetPassword.backToLogin': '← साइन इन मा फर्कनुहोस्',
   'resetPassword.hidePassword': 'पासवर्ड लुकाउनुहोस्',
+  'resetPassword.passwordLabel': 'नयाँ पासवर्ड',
   'resetPassword.showPassword': 'पासवर्ड देखाउनुहोस्',
+  'resetPassword.subheading': 'बलियो पासवर्ड छान्नुहोस् — कम्तीमा आठ अक्षर।',
   'resetPassword.submit': 'पासवर्ड रिसेट गर्नुहोस्',
   'resetPassword.tooShort': 'पासवर्ड कम्तिमा ८ वर्णको हुनुपर्छ।',
   'settings.account.changePassword': 'पासवर्ड परिवर्तन गर्नुहोस्',
   'settings.account.changingPassword': 'परिवर्तन हुँदै...',
   'settings.account.currentPassword': 'हालको पासवर्ड',
+  'settings.account.dangerZone': 'खतरा क्षेत्र',
   'settings.account.deleteAccount': 'खाता मेटाउनुहोस्',
   'settings.account.deleteDescription': 'आफ्नो खाता र सम्बन्धित सबै डेटा स्थायी रूपमा मेटाउनुहोस्।',
   'settings.account.deleteError': 'खाता मेटाउन असफल भयो।',
+  'settings.account.deleteWarning':
+    'यसले तपाईंको खाता स्थायी रूपमा मेटाउँछ र यसलाई फिर्ता गर्न सकिँदैन। पुष्टि गर्न आफ्नो पासवर्ड लेख्नुहोस्।',
   'settings.account.deleting': 'मेटाउँदै...',
   'settings.account.devices': 'उपकरणहरू',
   'settings.account.email': 'इमेल',
@@ -200,6 +235,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'पासवर्ड',
   'settings.account.passwordError': 'पासवर्ड परिवर्तन गर्न असफल भयो।',
   'settings.account.pushNotifications': 'यस उपकरणमा पुश सूचनाहरू',
+  'settings.account.revokeDeviceWarning':
+    'यो उपकरणको पहुँच छिट्टै रद्द हुनेछ। यसलाई साइन आउट गर्ने?',
   'settings.account.saveError': 'प्रोफाइल अद्यावधिक गर्न असफल भयो।',
   'settings.account.security': 'सुरक्षा',
   'settings.account.signOutDevice': 'साइन आउट गर्नुहोस्',
@@ -207,12 +244,19 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'दुई-कारक प्रमाणीकरण',
   'settings.account.twoFactorCode': 'प्रमाणीकरण कोड',
   'settings.account.twoFactorDisable': 'असक्षम पार्नुहोस्',
+  'settings.account.twoFactorDisableTitle': 'दुई-कारक प्रमाणीकरण अक्षम गर्नुहोस्',
   'settings.account.twoFactorEnable': 'सक्षम पार्नुहोस्',
+  'settings.account.twoFactorEnableTitle': 'दुई-कारक प्रमाणीकरण सक्षम गर्नुहोस्',
   'settings.account.twoFactorInvalidCode': 'अमान्य कोड',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'दुई-कारक QR कोड',
+  'settings.account.twoFactorScan':
+    'यो QR कोड आफ्नो प्रमाणीकरण एपले स्क्यान गर्नुहोस्, त्यसपछि ६ अंकको कोड लेख्नुहोस्।',
+  'settings.account.twoFactorUnavailable': 'यो एपमा दुई-कारक प्रमाणीकरण उपलब्ध छैन।',
   'settings.account.twoFactorVerify': 'प्रमाणित गर्नुहोस् र सक्षम गर्नुहोस्',
   'settings.account.unknownDevice': 'अज्ञात यन्त्र',
   'settings.company.email': 'बिलिङ इमेल',
+  'settings.company.heading': 'कम्पनी र कर',
   'settings.company.name': 'कानुनी नाम',
   'settings.company.saveButton': 'कम्पनी प्रोफाइल सेभ गर्नुहोस्',
   'settings.company.taxId': 'कर ID / EIN',
@@ -256,6 +300,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'अनुमानित त्रैमासिक',
   'taxes.kpi.owed': 'ऋणी',
   'taxes.loadError': 'कर सारांश लोड गर्न असफल भयो।',
+  'taxes.remittedPct': '({{pct}}% पठाइयो)',
+  'terms.intro':
+    'यी सेवाका सर्तहरू ("सर्तहरू") ले {{app}} मा तपाईंको पहुँच र प्रयोगलाई नियन्त्रण गर्छन्। खाता खोलेर वा सेवा प्रयोग गरेर तपाईं यिनै सर्तहरूद्वारा बाँधिन स्वीकार गर्नुहुन्छ।',
   'terms.lastUpdated': 'पछिल्लो पटक अद्यावधिक गरिएको: {{मिति}}',
   'terms.section.acceptable.body':
     'तपाईं कुनै पनि कानून उल्लङ्घन गर्न, बौद्धिक-सम्पत्ति अधिकार उल्लङ्घन गर्न, मालवेयर प्रसारण गर्न, वा अन्य खाताहरू वा हाम्रो पूर्वाधारमा अनधिकृत पहुँच प्राप्त गर्ने प्रयास गर्न सेवा प्रयोग नगर्न सहमत हुनुहुन्छ।',

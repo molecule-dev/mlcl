@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'មានសំណួរ បានរកឃើញកំហុស ឬចង់ផ្លាស់ប្តូរសៀវភៅរបស់អ្នកមកទីនេះ? ទាក់ទងក្រុម {{app}} តាម hello@{{app}}.example — មនុស្សពិតប្រាកដអានរាល់សារ។',
   'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពី',
+  'about.intro':
+    '{{app}} គឺជាគណនេយ្យសម្រាប់អាជីវកម្មខ្នាតតូច ដែលតាមដានរាល់កាក់ប្រាក់ — វិក្កយបត្រ ចំណាយ ការទូទាត់ និងរបាយការណ៍ នៅកន្លែងតែមួយដ៏ស្ងប់ស្ងាត់ សម្រាប់ម្ចាស់អាជីវកម្ម អ្នកកត់ត្រាគណនេយ្យ និងគណនេយ្យករ។',
+  'about.missionBody':
+    'ការប្រកបអាជីវកម្មមិនគួរធ្វើឱ្យអ្នកភ័យខ្លាចសៀវភៅគណនេយ្យរបស់អ្នកទេ។ {{app}} ជំនួសភាពច្របូកច្របល់នៃសៀវភៅបញ្ជី ដោយលេខច្បាស់លាស់ដែលអ្នកអាចធ្វើសកម្មភាពបាន ដូច្នេះអ្នកចំណាយពេលតិចលើការផ្ទៀងផ្ទាត់ និងពេលច្រើនលើការងារដែលអ្នកពិតជាចាប់ផ្តើមអាជីវកម្មដើម្បីធ្វើ។',
+  'about.missionTitle': 'បេសកកម្មរបស់យើង',
   'about.title': 'អំពី {{app}}',
   'accounts.count': 'គណនី {{count}}',
+  'accounts.emptyBody':
+    'គណនីសៀវភៅធំតាមដានកន្លែងដែលប្រាក់ស្ថិតនៅ និងផ្លាស់ទី។ ពួកវានឹងបង្ហាញនៅទីនេះ នៅពេលអ្នកកត់ត្រាគណនេយ្យ ឬការភ្ជាប់របស់អ្នករៀបចំវារួច។',
   'accounts.emptyTitle': 'មិនទាន់មានគណនីនៅឡើយទេ',
   'accounts.heading': 'តារាង​គណនេយ្យ',
   'accounts.kpi.accounts': 'គណនី',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'គណនី​សៀវភៅ​បញ្ជី​នីមួយៗ​នៅ​ពីក្រោយ​វិក្កយបត្រ ការចំណាយ និង​ការទូទាត់​របស់​អ្នក ដែល​ត្រូវ​បាន​ដាក់ជាក្រុម​តាមប្រភេទ។',
   'accounts.tag.inactive': 'អសកម្ម',
   'authBrandPanel.attributionName': 'សារ៉ា ជេនឃីនស៍',
+  'authBrandPanel.attributionRole': 'ប្រធានផ្នែកហិរញ្ញវត្ថុ, Horizon Tech',
   'authBrandPanel.eyebrow': 'ទទួលបានការទុកចិត្តពីក្រុមហិរញ្ញវត្ថុ',
   'authBrandPanel.label': 'ការតាំងបង្ហាញម៉ាកយីហោ',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'អតិថិជនទាំងអស់',
   'customerDetail.invoiceMeta': 'បានចេញ {{issued}} · ដល់កំណត់ {{due}}',
   'customerDetail.loadError': 'បរាជ័យក្នុងការផ្ទុកអតិថិជន។',
+  'customerDetail.missingBody':
+    'មិនអាចផ្ទុកកំណត់ត្រាអតិថិជនដែលបានស្នើបានទេ។ វាអាចត្រូវបានលុបចេញ ឬអ្នកអាចមិនមានសិទ្ធិចូលប្រើវា។',
   'customerDetail.missingHeading': 'កំណត់ត្រាអតិថិជនមិនមានទេ',
+  'customerDetail.missingHelp':
+    'ប្រើតំណថយក្រោយខាងលើ ដើម្បីត្រឡប់ទៅបញ្ជីអតិថិជន ឬជ្រើសរើសកំណត់ត្រាផ្សេងពីទីនោះ។',
+  'customerDetail.noInvoices': 'មិនទាន់មានវិក្កយបត្រនៅឡើយទេ។',
   'customerDetail.notesEmpty': 'មិនទាន់មានកំណត់ចំណាំនៅឡើយទេ។',
   'customerDetail.paymentsEmpty': 'គ្មានការទូទាត់ត្រូវបានកត់ត្រាទុកទេ។',
   'customerDetail.paymentTerms': 'លក្ខខណ្ឌទូទាត់',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'អាចកាត់កងបាន',
   'expenseDetail.detailsHeading': 'ព័ត៌មានលម្អិតអំពីប្រតិបត្តិការ',
   'expenseDetail.loadError': 'បរាជ័យក្នុងការផ្ទុកការចំណាយ។',
+  'expenseDetail.matched': 'បានផ្គូផ្គង · {{description}}',
   'expenseDetail.missingBody':
     'មិនអាចផ្ទុកការចំណាយដែលបានស្នើសុំបានទេ។ វាអាចត្រូវបានដកចេញ ឬអ្នកប្រហែលជាមិនមានលទ្ធភាពចូលប្រើវាទេ។',
   'expenseDetail.missingHeading': 'កំណត់ត្រាចំណាយមិនមានទេ',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'បង្កាន់ដៃ',
   'expenseDetail.receiptHeading': 'បង្កាន់ដៃ',
   'expenseDetail.reconciled': 'បានផ្សះផ្សា',
+  'expenseDetail.unreconciled': 'មិនទាន់ផ្សះផ្សា',
   'expenses.empty': 'មិនទាន់មានការចំណាយនៅឡើយទេ។',
   'expenses.heading': 'ការចំណាយ',
   'expenses.kpi.deductible': 'អាចកាត់កងបាន',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'បរាជ័យក្នុងការផ្ទុកវិក្កយបត្រ។',
   'invoices.searchPlaceholder': 'ស្វែងរកលេខវិក្កយបត្រ ឬលេខអតិថិជន...',
   'invoices.summary.paid': 'បានបង់ប្រាក់រយៈពេលនេះ',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'ឥតគិតថ្លៃរយៈពេល 30 ថ្ងៃ។ មិនបាច់ប្រើកាតទេ។ សូមយកគណនេយ្យកររបស់អ្នកមក — ពួកគេនឹងអរគុណអ្នក។',
   'landing.ctaTitle': 'ផ្លាស់ទីសៀវភៅរបស់អ្នកទៅកន្លែងស្ងប់ស្ងាត់ជាង។',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'គណនី​ទទួល​បាន',
   'ledgerStatTriad.eyebrow.mtd': 'ខែដល់បច្ចុប្បន្ន',
   'ledgerStatTriad.netSub': 'សុទ្ធ {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} ហួសកំណត់',
   'ledgerStatTriad.revenueLabel': 'ប្រាក់ចំណូល',
   'login.failed': 'ចូលមិនបានជោគជ័យទេ។',
   'login.hidePassword': 'លាក់ពាក្យសម្ងាត់',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'ចូល',
   'nav.legal': 'ផ្នែកច្បាប់',
   'newExpense.back': 'ការចំណាយ',
+  'newExpense.clearReceiptCta': 'សម្អាតបង្កាន់ដៃភ្ជាប់',
   'newExpense.deductible': 'ពន្ធដែលអាចកាត់កងបាន',
   'newExpense.dropPrompt': 'សូមដាក់រូបថតបង្កាន់ដៃ ឬឯកសារ PDF នៅទីនេះដើម្បីភ្ជាប់។',
   'newExpense.failed': 'មិនអាចសន្សំការចំណាយបានទេ។',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'បរាជ័យក្នុងការផ្ទុកការទូទាត់។',
   'payments.unmatchedTag': 'មិនអាចប្រៀបផ្ទឹមបាន',
   'planUpdated.pageLabel': 'ការបញ្ជាក់​អំពី​ការ​ធ្វើ​បច្ចុប្បន្នភាព​ផែនការ',
+  'pricing.advancedFeatures': 'មុខងារកម្រិតខ្ពស់៖ {{yes}}',
+  'pricing.canExport': 'នាំចេញទិន្នន័យ៖ {{yes}}',
+  'pricing.heading': 'ជ្រើសរើសគម្រោង {{app}} របស់អ្នក',
+  'pricing.maxAccounts': 'គណនី {{count}}',
+  'pricing.maxExpenses': '{{count}} ការចំណាយ',
+  'pricing.maxInvoices': 'វិក្កយបត្រ {{count}}',
+  'privacy.intro':
+    'គោលនយោបាយឯកជនភាពនេះ ពិពណ៌នាអំពីរបៀបដែល {{app}} ប្រមូល ប្រើប្រាស់ និងបង្ហាញព័ត៌មានអំពីអាជីវកម្មដែលប្រើសេវាកម្មនេះ។',
   'privacy.lastUpdated': 'បានធ្វើបច្ចុប្បន្នភាពចុងក្រោយ៖ {{កាលបរិច្ឆេទ}}',
   'privacy.section.collected.body':
     'យើងប្រមូលព័ត៌មានលម្អិតអំពីគណនី (ឈ្មោះ អ៊ីមែល ក្រុមហ៊ុន) កំណត់ត្រាហិរញ្ញវត្ថុដែលអ្នកផ្ទុកឡើង (វិក្កយបត្រ ការចំណាយ អតិថិជន ការទូទាត់) និងកំណត់ហេតុប្រតិបត្តិការសេវាកម្មស្តង់ដារ (IP ភ្នាក់ងារអ្នកប្រើប្រាស់ ត្រាពេលវេលា)។',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'ព័ត៌មានត្រូវបានប្រើដើម្បីដំណើរការសេវាកម្ម បង្កើតរបាយការណ៍ និង PDF ដែលអ្នកស្នើសុំ ផ្ញើអ៊ីមែលប្រតិបត្តិការតាមរយៈ Mailgun និងដំណើរការការទូទាត់តាមរយៈ Stripe។ យើងមិនលក់ ឬជួលព័ត៌មានផ្ទាល់ខ្លួនទេ។',
   'recentInvoicesCard.dueMeta': 'ដល់កំណត់ {{date}}',
+  'recentInvoicesCard.empty': 'គ្មានវិក្កយបត្រដែលត្រូវគ្នាទេ។',
   'recentInvoicesCard.eyebrow': 'គណនី​ទទួល​បាន',
   'recentInvoicesCard.searchAriaLabel': 'ស្វែងរកវិក្កយបត្រ',
+  'recentInvoicesCard.searchPlaceholder': 'ស្វែងរកវិក្កយបត្រ…',
   'recentInvoicesCard.title': 'វិក្កយបត្រថ្មីៗ',
   'recentInvoicesCard.viewAll': 'មើលវិក្កយបត្រទាំងអស់ →',
   'reports.assets': 'ទ្រព្យសកម្ម',
@@ -181,15 +211,20 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'ប្រាក់ចំណេញ និងការខាតបង់ (១២ ខែ)',
   'resetPassword.backToLogin': '← ត្រឡប់ទៅចូលវិញ',
   'resetPassword.hidePassword': 'លាក់ពាក្យសម្ងាត់',
+  'resetPassword.passwordLabel': 'ពាក្យសម្ងាត់ថ្មី',
   'resetPassword.showPassword': 'បង្ហាញពាក្យសម្ងាត់',
+  'resetPassword.subheading': 'ជ្រើសរើសពាក្យសម្ងាត់ដ៏រឹងមាំ — យ៉ាងតិចប្រាំបីតួអក្សរ។',
   'resetPassword.submit': 'កំណត់ពាក្យសម្ងាត់ឡើងវិញ',
   'resetPassword.tooShort': 'ពាក្យសម្ងាត់ត្រូវតែមានយ៉ាងហោចណាស់ ៨ តួអក្សរ។',
   'settings.account.changePassword': 'ប្តូរពាក្យសម្ងាត់',
   'settings.account.changingPassword': 'កំពុងផ្លាស់ប្តូរ…',
   'settings.account.currentPassword': 'ពាក្យសម្ងាត់បច្ចុប្បន្ន',
+  'settings.account.dangerZone': 'តំបន់គ្រោះថ្នាក់',
   'settings.account.deleteAccount': 'លុបគណនី',
   'settings.account.deleteDescription': 'លុបគណនីរបស់អ្នក និងទិន្នន័យពាក់ព័ន្ធទាំងអស់ជាអចិន្ត្រៃយ៍។',
   'settings.account.deleteError': 'បរាជ័យក្នុងការលុបគណនី។',
+  'settings.account.deleteWarning':
+    'ការនេះលុបគណនីរបស់អ្នកជាអចិន្ត្រៃយ៍ ហើយមិនអាចត្រឡប់វិញបានទេ។ បញ្ចូលពាក្យសម្ងាត់របស់អ្នកដើម្បីបញ្ជាក់។',
   'settings.account.deleting': 'កំពុងលុប…',
   'settings.account.devices': 'ឧបករណ៍',
   'settings.account.email': 'អ៊ីមែល',
@@ -200,6 +235,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'ពាក្យសម្ងាត់',
   'settings.account.passwordError': 'បរាជ័យក្នុងការប្តូរពាក្យសម្ងាត់។',
   'settings.account.pushNotifications': 'ការជូនដំណឹងជំរុញនៅលើឧបករណ៍នេះ',
+  'settings.account.revokeDeviceWarning':
+    'ការចូលប្រើរបស់ឧបករណ៍នេះនឹងត្រូវបានដកហូតក្នុងពេលឆាប់ៗ។ ចាកចេញវា?',
   'settings.account.saveError': 'បរាជ័យក្នុងការធ្វើបច្ចុប្បន្នភាពប្រវត្តិរូប។',
   'settings.account.security': 'សន្តិសុខ',
   'settings.account.signOutDevice': 'ចាកចេញ',
@@ -207,12 +244,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'ការផ្ទៀងផ្ទាត់ពីរកត្តា',
   'settings.account.twoFactorCode': 'លេខកូដផ្ទៀងផ្ទាត់',
   'settings.account.twoFactorDisable': 'បិទ',
+  'settings.account.twoFactorDisableTitle': 'បិទការផ្ទៀងផ្ទាត់ពីរជាន់',
   'settings.account.twoFactorEnable': 'បើកដំណើរការ',
+  'settings.account.twoFactorEnableTitle': 'បើកការផ្ទៀងផ្ទាត់ពីរជាន់',
   'settings.account.twoFactorInvalidCode': 'លេខកូដមិនត្រឹមត្រូវ',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'កូដ QR ការផ្ទៀងផ្ទាត់ពីរកត្តា',
+  'settings.account.twoFactorScan':
+    'ស្កេនកូដ QR នេះដោយកម្មវិធីផ្ទៀងផ្ទាត់របស់អ្នក បន្ទាប់មកបញ្ចូលកូដ 6 ខ្ទង់។',
+  'settings.account.twoFactorUnavailable':
+    'ការផ្ទៀងផ្ទាត់ពីរកត្តាមិនអាចប្រើសម្រាប់កម្មវិធីនេះបានទេ។',
   'settings.account.twoFactorVerify': 'ផ្ទៀងផ្ទាត់ និងបើក',
   'settings.account.unknownDevice': 'ឧបករណ៍មិនស្គាល់',
   'settings.company.email': 'អ៊ីមែល​សម្រាប់​ការ​គិត​ប្រាក់',
+  'settings.company.heading': 'ក្រុមហ៊ុន និងពន្ធ',
   'settings.company.name': 'ឈ្មោះស្របច្បាប់',
   'settings.company.saveButton': 'រក្សាទុកប្រវត្តិរូបក្រុមហ៊ុន',
   'settings.company.taxId': 'លេខសម្គាល់ពន្ធ / EIN',
@@ -256,6 +301,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'ប៉ាន់ស្មានប្រចាំត្រីមាស',
   'taxes.kpi.owed': 'ជំពាក់',
   'taxes.loadError': 'មិនអាចផ្ទុកសេចក្ដីសង្ខេបពន្ធបានទេ។',
+  'taxes.remittedPct': '(បានបង់ {{pct}}%)',
+  'terms.intro':
+    'លក្ខខណ្ឌប្រើប្រាស់សេវាកម្មទាំងនេះ ("លក្ខខណ្ឌ") គ្រប់គ្រងការចូលប្រើ និងការប្រើប្រាស់ {{app}} របស់អ្នក។ ដោយបង្កើតគណនី ឬប្រើសេវាកម្ម អ្នកយល់ព្រមចងភ្ជាប់ដោយលក្ខខណ្ឌទាំងនេះ។',
   'terms.lastUpdated': 'បានធ្វើបច្ចុប្បន្នភាពចុងក្រោយ៖ {{កាលបរិច្ឆេទ}}',
   'terms.section.acceptable.body':
     'អ្នកយល់ព្រមមិនប្រើប្រាស់សេវាកម្មនេះដើម្បីរំលោភលើច្បាប់ណាមួយ រំលោភលើសិទ្ធិកម្មសិទ្ធិបញ្ញា បញ្ជូនមេរោគ ឬព្យាយាមចូលប្រើប្រាស់ដោយគ្មានការអនុញ្ញាតទៅកាន់គណនីផ្សេងទៀត ឬហេដ្ឋារចនាសម្ព័ន្ធរបស់យើងឡើយ។',

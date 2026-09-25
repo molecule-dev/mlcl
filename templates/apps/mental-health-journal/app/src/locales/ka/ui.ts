@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'გაქვთ გამოხმაურება, იპოვეთ ხარვეზი, ან გსურთ გვითხრათ, როგორ დაგეხმარათ დღიურის წერა? ჩვენ ყველა შეტყობინებას ვკითხულობთ — დაგვიკავშირდით ნებისმიერ დროს და რეალური ადამიანი გიპასუხებთ.',
+  'about.contactTitle': 'დაგვიკავშირდით',
+  'about.featureInsights':
+    'AI-ზე დაფუძნებული რეფლექსიები, რომლებიც ნაზად გამოკვეთს ტრიგერებს, თემებსა და მადლიერებას — თქვენი ხმის დაკარგვის გარეშე.',
+  'about.featureMood':
+    'განწყობისა და აქტივობის თვალყურის დევნება კალენდრის ხედითა და ტენდენციების გრაფიკებით, რომლებიც ავლენს, რა გეხმარებათ აყვავებაში.',
+  'about.featurePrivacy':
+    'ბოლოდან ბოლომდე დაშიფვრა, პაროლის საკეტი და სრული CSV ექსპორტი, რომ თქვენი რეფლექსიები დარჩეს პირადი და გადატანადი.',
+  'about.featurePrompts':
+    'ნაზი ყოველდღიური შეხსენებები, რომ ყოველთვის გქონდეთ საიდან დაწყოთ — არასოდეს ცარიელი გვერდი.',
+  'about.intro':
+    '{{app}} არის ნაზი, პირადი ფსიქიკური ჯანმრთელობის დღიური ყოველდღიური რეფლექსიისთვის, განწყობის თვალყურის დევნებისა და მადლიერებისთვის. გააზრებული შეხსენებები ცვლის ცარიელ გვერდს, მშვიდი კანონზომიერებების ძიება გეხმარებათ გაიგოთ, რა მოქმედებს თქვენს განწყობაზე, ხოლო ბოლოდან ბოლომდე დაშიფვრა თქვენს სიტყვებს თქვენთან ინახავს.',
+  'about.missionBody':
+    'ჩვენ გვჯერა, რომ საკუთარ თავთან კონტაქტი მშვიდი უნდა იყოს, არასოდეს კლინიკური — და არასოდეს ისეთი, თითქოს კიდევ ერთი აპი ითხოვს თქვენს ყურადღებას. {{app}} შექმნილია დასახმარებლად და არა მოსაბეზრებლად: რამდენიმე მშვიდი წუთი დღეში, რომ შეამჩნიოთ თქვენი განწყობა, გულახდილად დაწეროთ და ნელ-ნელა უფრო ნათლად დაინახოთ საკუთარი თავი.',
+  'about.missionTitle': 'ჩვენი მისია',
   'about.pageTitle': '{{app}}-ის შესახებ',
   'authShell.encryptionBadge': 'თქვენი ჩანაწერები ბოლომდე დაშიფრულია.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'დღე {{day}} — ჩანაწერი არ არის',
   'calendar.cellMood': 'დღე {{day}} — {{mood}}',
   'calendar.distributionHeading': 'ამ თვის ერთი შეხედვით',
   'calendar.eyebrow': 'განწყობა ერთი შეხედვით',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'თვალყურის დევნება {{tracked}} -ის {{total}} დღეები ამ თვეში.',
   'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'common.tryAgain': 'ხელახლა სცადეთ',
+  'entryComposer.bodyPlaceholder':
+    'დაწერეთ ისე, როგორც გულახდილად მოგეჩვენებათ. სხვა არავინ წაიკითხავს ამას.',
   'entryComposer.cancel': 'ჟურნალში დაბრუნება',
   'entryComposer.heading': 'დღევანდელი რეფლექსია',
   'entryComposer.moodLabel': 'როგორ გრძნობ თავს?',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'წაშლა {{tag}}',
   'entryComposer.save': 'ანარეკლის შენახვა',
   'entryComposer.saveError': 'თქვენი ჩანაწერის შენახვა ვერ მოხერხდა.',
+  'entryComposer.tagPlaceholder': 'დაამატეთ ტეგი და დააჭირეთ Enter-ს',
   'entryComposer.titlePlaceholder': 'დაარქვით ამ ანარეკლს სახელი…',
   'entryDetail.back': 'ჟურნალში დაბრუნება',
   'entryDetail.delete': 'ამ ჩანაწერის წაშლა',
@@ -36,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'ანარეკლის ჩატვირთვა…',
   'entryDetail.notFound': 'ჩანაწერი ვერ მოიძებნა.',
   'entryDetail.reflectionsHeading': 'ხელოვნური ინტელექტის ანარეკლები',
+  'forgotPassword.continueButton': 'შეიყვანე აღდგენის კოდი',
   'forgotPassword.eyebrow': 'არ ინერვიულო',
   'forgotPassword.subheading': 'თქვენს ელფოსტაზე გამოგიგზავნით პარამეტრების შეცვლის ბმულს.',
   'forgotPassword.successBody': 'თუ ანგარიში არსებობს {{email}}, გადატვირთვის ბმული გზაშია.',
@@ -57,14 +78,21 @@ export const ui: UiTranslations = {
     'თემები ჯერ არ არის — დაამატეთ ერთი ან ორი თეგი თქვენს ჩანაწერებს და ისინი აქ შეგროვდება.',
   'insights.themesHeading': 'ყველაზე პოპულარული თემები',
   'insights.triggerFrequency': 'შენიშნა {{count}} × ამ თვეში',
+  'insights.triggersEmpty':
+    'ჯერ არაფერია შესამჩნევი. რამდენიმე ჩანაწერი რამდენიმე დღის განმავლობაში გაჩვენებთ თქვენს კანონზომიერებებს.',
   'insights.triggersHeading': 'ნიმუშები, რომლებიც თქვენს განწყობას ცვლის',
+  'journal.empty': 'რეფლექსიები არ ემთხვევა — სცადეთ სხვა ფილტრი ან დაწერეთ ახალი ჩანაწერი.',
   'journal.eyebrow': 'თქვენი ანარეკლები',
   'journal.heading': 'ჟურნალი',
   'journal.loadError': 'ჩანაწერების ჩატვირთვა ვერ მოხერხდა.',
   'journal.loading': 'ჩანაწერები იტვირთება…',
+  'journal.newEntry': 'ახალი ჩანაწერი',
   'journal.searchPlaceholder': 'მოძებნე გრძნობა, სახელი, მომენტი...',
   'journal.subheading': '{{count}} ჩანაწერები — თითოეული მათგანის შენახვა ღირს.',
   'journalEntryCard.encryptedLabel': 'დაშიფრული',
+  'landing.ctaBody':
+    'დაწყება უფასოა. Pro ხსნის მონაცემების ექსპორტს, უფრო დიდ დღიურს და სრული წლის ისტორიას.',
+  'landing.ctaButton': 'დაიწყეთ თქვენი პირველი ჩანაწერი',
   'landing.ctaTitle': 'დღეში რამდენიმე წუთი სიჩუმე. სულ ესაა.',
   'landing.eyebrow': 'ნაზი ყოველდღიური პრაქტიკა',
   'landing.featuresBody':
@@ -83,6 +111,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'ნაზი სივრცე ყოველდღიური რეფლექსიისთვის.',
   'mentalHealthJournalLayout.closeMenu': 'მენიუს დახურვა',
   'mentalHealthJournalLayout.openMenu': 'მენიუს გახსნა',
+  'mentalHealthJournalLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
+  'moodHeroCard.entriesThisWeek': '{{count}} ამ კვირაში',
   'moodHeroCard.streakSuffix': 'დღის სერია',
   'moodHeroCard.title': 'დღევანდელი რეფლექსია',
   'moodTrendChart.aiBadge': 'ხელოვნური ინტელექტის ანალიზი მზადაა',
@@ -93,11 +123,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'თქვენი მოგზაურობა',
   'profile.fallbackName': 'რეფლექტორი',
   'profile.loadError': 'სტატისტიკის ჩატვირთვა ვერ მოხერხდა.',
+  'profile.loading': 'თქვენი სტატისტიკა ახლდება…',
   'profile.longestStreak': 'ყველაზე გრძელი სერია',
   'profile.memberSince': 'რეფლექსია მას შემდეგ, რაც {{date}}',
   'profile.milestones': 'ეტაპები',
   'profile.milestonesEmpty':
     'თქვენი პირველი ეტაპი ერთი ნაბიჯით არის დაშორებული — დაწერეთ, როცა თავს მზად იგრძნობთ.',
+  'profile.moodMix': 'თქვენი განწყობის ნაზავი ამ სეზონში',
   'profile.streakValue': '{{days}} დ',
   'profile.totalEntries': 'ანარეკლები',
   'profile.totalWords': 'დაწერილი სიტყვები',
@@ -111,6 +143,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'დაწერეთ ამის შესახებ',
   'resetPassword.eyebrow': 'ახალი დასაწყისი',
   'resetPassword.mismatchError': 'პაროლები არ ემთხვევა.',
+  'resetPassword.passwordLabel': 'ახალი პაროლი',
   'resetPassword.subheading': 'აირჩიეთ რაიმე უსაფრთხო - თქვენი რეფლექსიები ამას იმსახურებს.',
   'resetPassword.tokenPlaceholder': 'კოდის გადატვირთვა ელფოსტიდან',
   'settings.dangerDescription':
@@ -122,11 +155,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'ანგარიშის წაშლა ვერ მოხერხდა.',
   'settings.exportDescription': 'შენი სიტყვები ყოველთვის შენია. ჩამოტვირთეთ ასლი ნებისმიერ დროს.',
   'settings.exportDone': 'ექსპორტირებული {{format}}.',
+  'settings.exportError': 'ექსპორტი ვერ მოხერხდა.',
+  'settings.exportHeading': 'გაიტანეთ თქვენი რეფლექსიები',
   'settings.exportLoading': 'მზადდება…',
   'settings.eyebrow': 'შენი სივრცე, შენი წესები',
   'settings.languageHeading': 'ენა',
   'settings.privacyHeading': 'კონფიდენციალურობა და დაშიფვრა',
   'settings.remindersHeading': 'ყოველდღიური შეხსენება',
+  'settings.reminderToggleAria': 'ყოველდღიური შეხსენების ჩართვა/გამორთვა',
   'settings.reminderToggleDescription':
     'ერთი მშვიდი შეხსენება თქვენთვის სასურველ დროს. არანაირი ნიშანი ან დანაშაულის გრძნობა.',
   'settings.reminderToggleLabel': 'ნაზი ხელის შეხება გაუგზავნეთ',
@@ -139,6 +175,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'ჟურნალის შექმნა…',
   'signup.subheading': 'უსაფრთხო სივრცე თქვენი ფიქრებისთვის.',
   'wellnessRingsTriad.mindfulnessCaption': 'მიზანი {{goal}} წუთი დღეს',
+  'wellnessRingsTriad.mindfulnessLabel': 'მინდფულნესი',
   'wellnessRingsTriad.sleepCaption': 'მიზანი {{goal}} სთ / ღამე',
   'wellnessRingsTriad.sleepLabel': 'ძილი',
+  'wellnessRingsTriad.sleepValue': '{{hours}}სთ',
+  'wellnessRingsTriad.streakCaption': 'მიზანი {{goal}} დღე',
+  'wellnessRingsTriad.streakLabel': 'დღიურის სერია',
+  'wellnessRingsTriad.streakValue': '{{days}} დ',
 }

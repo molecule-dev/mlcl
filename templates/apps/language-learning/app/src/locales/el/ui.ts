@@ -1,12 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ερωτήσεις, σχόλια ή κάποιο σφάλμα για αναφορά; Επικοινώνησε με την ομάδα από τις ρυθμίσεις του λογαριασμού σου — κάθε μήνυμα φτάνει σε έναν πραγματικό άνθρωπο που μαθαίνει κι αυτός γλώσσες.',
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά με εμάς',
+  'about.missionTitle': 'Η αποστολή μας',
+  'about.whatYouGet': 'Τι αποκτάτε',
   'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'common.logout': 'Αποσύνδεση',
+  'dailyStatsTriad.heartsHint': 'Ανανέωση στην αρχή κάθε μαθήματος',
   'dailyStatsTriad.heartsLabel': 'Καρδιές',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
+  'dailyStatsTriad.minutesHint': 'Από τις σημερινές ασκήσεις',
   'dailyStatsTriad.minutesLabel': 'Λεπτά σήμερα',
   'dailyStatsTriad.minutesValue': '{{count}} λεπτά',
   'dailyStatsTriad.wordsLabel': 'Κατακτημένες λέξεις',
@@ -15,18 +21,29 @@ export const ui: UiTranslations = {
   'dashboard.heading': 'Μπουένος Ντίας, {{name}} .',
   'dashboard.loadError':
     'Δεν ήταν δυνατή η φόρτωση της τελευταίας προόδου — εμφάνιση τιμών που είναι αποθηκευμένες στην προσωρινή μνήμη.',
+  'dashboard.loading': 'Δροσιστικός…',
   'dashboard.noLessons': 'Δεν υπάρχουν ακόμη διαθέσιμα μαθήματα — ελέγξτε ξανά σύντομα.',
+  'dashboard.startPractice': 'Ξεκίνα εξάσκηση ομιλίας',
+  'dashboard.subheading':
+    'Συνέχισε από εκεί που σταμάτησες — τρεις σύντομες συνεδρίες και θα φτάσεις τον σημερινό στόχο.',
   'dashboard.viewAllLessons': 'Όλα τα μαθήματα →',
+  'forgotPassword.subheading': 'Άφησε το email σου και θα σου στείλουμε σύνδεσμο επαναφοράς.',
   'forgotPassword.successBody':
     'Ελέγξτε τα εισερχόμενά σας — στείλαμε έναν σύνδεσμο για να το επαναφέρετε.',
   'forgotPassword.successHint':
     'Αν {{email}} ταιριάζει με έναν λογαριασμό, ο σύνδεσμος θα φτάσει μέσα σε ένα λεπτό.',
+  'landing.copyright': '© {{year}} {{app}}. Φτιαγμένο για ενήλικες μαθητές.',
   'landing.ctaBody':
     'Δεν χρειάζεται κάρτα. Αφήστε το email σας, επιλέξτε μια γλώσσα και ξεκινήστε αύριο.',
   'landing.ctaHeading': 'Είστε έτοιμοι να βρείτε την προφορά σας;',
   'landing.eyebrow': 'Καθημερινή γλωσσική εξάσκηση για ενήλικες',
   'landing.featuresHeading': 'Ένας κύκλος εξάσκησης που σέβεται τον χρόνο σας',
+  'landing.featuresSubheading':
+    'Σχεδιασμένο για ενήλικες με τριάντα λεπτά την ημέρα, όχι τριάντα ώρες την εβδομάδα.',
   'landing.heroCta': 'Ξεκινήστε ένα σερί 7 ημερών',
+  'landing.heroSubtitle':
+    'Πεντάλεπτα μαθήματα που χωρούν σε ένα διάλειμμα για καφέ. Ασκήσεις, λεξιλόγιο, ομιλία — όλα μέσα σε ένα σερί που θα κρατήσεις πραγματικά.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.languagesEyebrow': 'Επιλέξτε μια γλώσσα',
   'landing.languagesHeading': 'Δεκατέσσερις γλώσσες, μία καθημερινή συνήθεια',
   'landing.proof.languages': '{{count}} γλώσσες',
@@ -41,11 +58,18 @@ export const ui: UiTranslations = {
   'leaderboard.heading': 'Πίνακας κατάταξης',
   'leaderboard.loadError': 'Δεν ήταν δυνατή η φόρτωση του πίνακα κατάταξης.',
   'leaderboard.loading': 'Φόρτωση πίνακα κατάταξης…',
+  'leaderboard.rewardBody':
+    'Το να κρατάς χρυσό τρεις εβδομάδες στη σειρά σε ανεβάζει σε διαμάντι. Μόνο φιλικό στοίχημα.',
+  'leaderboard.rewardEyebrow': 'Το έπαθλο αυτής της εβδομάδας',
+  'leaderboard.rewardHeading': 'Οι κορυφαίοι {{count}} κερδίζουν το σήμα του χρυσού πρωταθλήματος',
   'leaderboard.subheading':
     'XP αυτήν την εβδομάδα. Επαναφορά την Κυριακή τα μεσάνυχτα στην τοπική σας ώρα.',
   'leaderboard.weeklyPeriod': 'Αυτή την εβδομάδα · φίλοι',
+  'leaderboardPanel.rankSuffix': 'Κατάταξη # {{rank}}',
   'leaderboardPanel.title': 'Πίνακας κατάταξης φίλων',
+  'leaderboardPanel.xp': '{{xp}} XP',
   'leaderboardPanel.you': '(Εσείς)',
+  'lessonCard.continue': 'Συνέχεια →',
   'lessonCard.duration': '{{min}} λεπτά',
   'lessonCard.level': 'Επίπεδο {{level}}',
   'lessonCard.progressPercent': '{{percent}} % ολοκλήρωσης',
@@ -54,14 +78,17 @@ export const ui: UiTranslations = {
   'lessonDetail.check': 'Ελεγχος',
   'lessonDetail.checking': 'Ελεγχος…',
   'lessonDetail.correct': 'Εξαιρετικό!',
+  'lessonDetail.correctHint': '+{{xp}} XP. Συνέχισε.',
   'lessonDetail.empty': 'Δεν υπάρχουν ασκήσεις σε αυτό το μάθημα.',
   'lessonDetail.exit': 'Έξοδος από το μάθημα',
   'lessonDetail.fillBlank': 'Συμπληρώστε το κενό',
   'lessonDetail.finish': 'Ολοκλήρωση μαθήματος',
   'lessonDetail.incorrect': 'Όχι ακριβώς — « {{answer}} "',
+  'lessonDetail.incorrectHint': 'Θα το ξαναδείς στην αυριανή επανάληψη.',
   'lessonDetail.lessonId': 'Μάθημα · {{id}}',
   'lessonDetail.loadError': 'Δεν ήταν δυνατή η φόρτωση ασκήσεων.',
   'lessonDetail.loading': 'Φόρτωση μαθήματος…',
+  'lessonDetail.pronunciation': 'Διάλεξε τη σωστή προφορά',
   'lessonDetail.submitError': 'Δεν ήταν δυνατή η υποβολή της απάντησης.',
   'lessonDetail.translation': 'Μεταφράστε τη φράση',
   'lessonDetail.xpEarned': 'XP που κερδίσατε · {{xp}}',
@@ -80,6 +107,12 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'parlanceLayout.nav.profile': 'Προφίλ',
   'parlanceLayout.primaryNavLabel': 'Κύρια πλοήγηση',
+  'planUpdated.body':
+    'Η αλλαγή χρέωσής σας είναι πλέον ενεργή. Μπορείτε να διαχειρίζεστε το πλάνο σας οποιαδήποτε στιγμή από τη σελίδα χρέωσης.',
+  'planUpdated.retry': 'Δοκιμάστε ξανά',
+  'planUpdated.verifyFailed': 'Δεν μπορέσαμε να επιβεβαιώσουμε ακόμη την πληρωμή σας.',
+  'planUpdated.verifyFailedBody':
+    'Η πληρωμή σας ενδέχεται να βρίσκεται ακόμη υπό επεξεργασία. Δοκιμάστε ξανά σε λίγο.',
   'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'practice.empty': 'Δεν υπάρχουν ακόμη διαθέσιμες φράσεις.',
   'practice.eyebrow': 'Πρακτική ομιλίας',
@@ -103,6 +136,9 @@ export const ui: UiTranslations = {
   'pricing.limits.progress': 'καταχωρίσεις προόδου',
   'profile.anonymous': 'Μαθητής',
   'profile.avatarAlt': '{{name}} Το άβαταρ του',
+  'profile.eyebrow': 'Μέλος από {{joined}}',
+  'profile.eyebrowNew': 'Νέος μαθητής',
+  'profile.langLessonCount': '{{count}} μαθήματα',
   'profile.langLevel': 'Επίπεδο {{level}}',
   'profile.languages': 'Γλώσσες',
   'profile.languagesHeading': 'Γλώσσες σε εξέλιξη',
@@ -112,6 +148,7 @@ export const ui: UiTranslations = {
   'profile.streak': 'Σειρά',
   'profile.totalXp': 'Συνολική εμπειρία',
   'resetPassword.confirmPlaceholder': 'Πληκτρολογήστε το ξανά',
+  'resetPassword.mismatch': 'Οι κωδικοί δεν ταιριάζουν.',
   'resetPassword.newPasswordLabel': 'Νέος κωδικός πρόσβασης',
   'resetPassword.newPasswordPlaceholder': 'Οκτώ ή περισσότεροι χαρακτήρες',
   'resetPassword.subheading': 'Διάλεξε κάτι αξέχαστο, οκτώ ή περισσότερους χαρακτήρες.',
@@ -119,6 +156,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Προτιμήσεις εξάσκησης',
   'settings.goalBody':
     'Πόσα XP στοχεύετε κάθε μέρα. Τα σερί διατηρούνται κάθε φορά που πετυχαίνετε τον στόχο.',
+  'settings.goalHeading': 'Ημερήσιος στόχος',
   'settings.goalMinutes': '~ {{min}} λεπτά/ημέρα',
   'settings.language.description':
     'Επιλέξτε τη γλώσσα που θα χρησιμοποιείται σε όλα τα μενού και τις ετικέτες της εφαρμογής.',

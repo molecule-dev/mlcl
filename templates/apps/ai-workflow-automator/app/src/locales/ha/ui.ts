@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite wani dandamali ne na sarrafa aiki wanda ke haɗa abubuwan da ke haifar da aiki, yanayin AI, da ayyuka masu matakai da yawa tare don ƙungiyoyi su iya motsa aiki tsakanin tsarin ba tare da rubuta lambar manne ba.',
+  'about.philosophy':
+    'Kowane tsarin aiki jadawali ne na ƙananan matakai masu iya lura. Kowane mataki yana rubuta abubuwan da ya shigar, abubuwan da ya fitar, da lokacinsa domin a iya duba shi, sake kunna shi, ko mayar da shi baya. Haɗa su a gani, yi musu siga kamar code.',
   'about.title': 'Game da Dendrite',
   'authShell.brand': 'Dendrite',
   'authShell.support': 'Tallafi',
@@ -15,9 +17,15 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Canza tsarin',
   'billing.description':
     'Bibiyar yadda ake amfani da shi, sarrafa tsarin ku, da kuma jawo takardar lissafin kuɗi don lissafin kuɗi.',
+  'billing.eyebrow': 'Asusu · Tsari da amfani',
+  'billing.failedLabel': 'Gudanarwar da ta kasa · awa 24',
+  'billing.invoicesEmpty':
+    'Babu daftari tukuna. Za su bayyana nan bayan sabuntawar ku ta farko da aka biya.',
   'billing.invoicesTitle': 'Tarihin lissafin kuɗi',
   'billing.planNoteFree':
     'Daraja kyauta — {{runs}} gudu da kuma {{workflows}} ayyukan aiki masu aiki. Haɓakawa don manyan iyakoki.',
+  'billing.planNotePaid':
+    'Tsarin da aka biya — gudanarwa {{runs}} da ayyukan da ke aiki {{workflows}}.',
   'billing.runsLabel': 'Ya gudana a cikin awanni 24 da suka gabata',
   'billing.tiersBlurb':
     'Kwatanta kowane mataki - gudu, ayyukan aiki masu aiki, fasaloli na ci gaba, da tallafi - a shafin farashi na musamman.',
@@ -35,10 +43,14 @@ export const ui: UiTranslations = {
     'Babu haɗin kai da aka yi rijista. Saita maɓallan mai bada sabis don kunna haɗin gwiwa.',
   'connections.error': 'Ba a iya loda hanyoyin haɗi ba.',
   'connections.eyebrow': 'Haɗawa · {{connected}} an haɗa',
+  'connections.loading': 'Ana loda haɗin kai…',
+  'connections.openEnv':
+    'Domin haɗa wannan mai bayarwa, saita maɓallin API ɗinsa a api/.env sannan ka sake kunna uwar garken.',
   'dashboard.description':
     '{{active}} ayyukan aiki suna aiki. {{failed}} ya gaza a cikin awanni 24 da suka gabata.',
   'dashboard.error': 'Ba a iya loda dashboard ba.',
   'dashboard.eyebrow': 'Ayyuka · kai tsaye',
+  'dashboard.hero.label': 'Gudanarwa yau',
   'dashboard.hero.medianLatency': 'Lalacewar p50',
   'dashboard.hero.queue': 'Zurfin layi',
   'dashboard.hero.success': 'Nasara',
@@ -46,13 +58,16 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Matsakaicin tsawon lokaci',
   'dashboard.kpi.failedRuns': 'Ba a yi nasara ba · awanni 24',
   'dashboard.kpi.outOf': 'na {{total}} jimilla',
+  'dashboard.kpi.successRate': 'Adadin nasara · awa 24',
   'dashboard.loading': 'Ana loda dashboard…',
   'dashboard.recentRuns.empty': 'Babu gudu tukuna. Fara aiki zai cika wannan ciyarwar.',
   'dashboard.recentRuns.title': 'Gudun da aka yi kwanan nan',
   'dashboard.recentRuns.viewAll': 'Za a iya aiwatar da hukuncin kisa a bude →',
+  'dashboard.recentWorkflows.browse': 'Duba samfura →',
   'dashboard.recentWorkflows.empty':
     'Babu tsarin aiki tukuna. Shigar da samfuri ko gina ɗaya daga farko.',
   'dashboard.recentWorkflows.title': 'An gudanar da shi kwanan nan',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'An fara',
   'dashboard.run.col.trigger': 'Abin kunna',
   'dashboard.run.col.workflow': 'Tsarin aiki',
@@ -88,6 +103,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Tsarin aiki',
   'executions.description':
     'Kowace aiki da ake gudanarwa, kowace sake gwadawa, kowace matakin fitarwa - duk ana iya gani.',
+  'executions.empty.filter': 'Babu gudanarwa da ya dace da wannan tacewa.',
   'executions.empty.first': 'Babu gudu tukuna - fara tsarin aiki don cike wannan jerin.',
   'executions.error': 'Ba za a iya ɗora aiwatarwa ba.',
   'executions.eyebrow': 'Gudanar da tarihin',
@@ -97,30 +113,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Ana loda tarihin gudu…',
   'executions.title': 'Zartar da hukuncin kisa',
   'forgotPassword.confirmation': 'An aika da hanyar haɗin sake saitawa zuwa {{email}} .',
+  'forgotPassword.subhead': 'Shigar da imel ɗinka don karɓar hanyar haɗin sake saitawa.',
   'forgotPassword.successSubhead':
     'Mun aika hanyar haɗin sake saitawa zuwa {{email}} Zai ƙare cikin mintuna 30.',
   'help.connections.body':
     'Matakan AI, imel, da ajiya suna buƙatar a saita maɓallan mai bayarwa a cikin fayil ɗin api/.env. Da zarar an saita maɓalli, haɗin da ya dace yana bayyana kamar an haɗa shi a shafin Haɗin.',
+  'help.connections.cta': 'Buɗe haɗin kai →',
   'help.connections.title': 'Masu samar da haɗin kai',
   'help.gettingStarted.body':
     'Ana iya shigar da sabbin hanyoyin aiki daga ɗakin karatu na samfura ko kuma a gina su daga farko a cikin ginin tsarin aiki. Kowace tsarin aiki tana da abin jawowa (hannu, webhook, ko cron) da kuma jerin matakai da ke gudana cikin tsari.',
+  'help.gettingStarted.cta': 'Bincika ɗakin karatu na samfuri →',
+  'help.gettingStarted.title': 'Farawa',
   'help.intro':
     'Nemo amsoshin tambayoyin da aka saba yi game da gina hanyoyin aiki, daidaita hanyoyin haɗi, da fassara fitowar gudu. Batutuwan da aka fi sani an jera su a ƙasa; don duk abin da ba a rufe ba, tuntuɓi mai kula da wurin aikin ku.',
   'help.runs.body':
     "Kowace gudu tana yin rikodin kowane mataki daban-daban tare da matsayi (nasara, gazawa, tsallakewa) da ɗan taƙaitaccen sakamako. Shafin cikakkun bayanai na aiwatarwa yana nuna cikakken bin diddigin mataki-mataki tare da ma'aunin da aka yi hasashe.",
+  'help.runs.cta': 'Za a iya aiwatar da hukuncin kisa a bude →',
   'help.runs.title': 'Fitowar gudanar da karatu',
   'help.title': 'Cibiyar taimako',
   'integrationCard.manage': 'Sarrafa',
   'landing.brand': 'Dendrite',
   'landing.demo.action.subtitle': 'Zagaye-zagaye · yanki',
+  'landing.demo.action.title': 'Sanar da wakili',
   'landing.demo.condition.subtitle': 'Mai rarraba manufar AI',
+  'landing.demo.condition.title': 'Maki ≥ matsakaici?',
   'landing.demo.trigger.subtitle': 'POST /fom/contact',
   'landing.demo.trigger.title': 'Kugiyar yanar gizo mai shigowa',
+  'landing.features.body':
+    'Abubuwan jan hankali suna kunna. Sharuɗɗa suna reshe. Ayyuka suna aika aikin. Haɗa su a gani, yi musu siga kamar code.',
   'landing.features.heading': "Nau'ikan ƙusoshi guda uku. Sifofi marasa iyaka.",
   'landing.footer.help': 'Taimako',
   'landing.footer.tagline': 'Hankali yana motsi',
+  'landing.hero.body':
+    '{{appName}} injin gudanar da ayyuka ne ga ƙungiyoyin gudanarwa da suka fi ƙarfin Zapier. Jan hankali, sharadi, aiki — an haɗa su da kowane tsarin da kuke amfani da shi da gaske.',
   'landing.hero.eyebrow': 'Hankali yana motsi',
   'landing.hero.headline': 'Haɗa kayanka. Bari aikin ya gudana.',
+  'landing.hero.primaryCta': 'Gina tsarin aikinku na farko',
   'landing.hero.proof.ai': 'An gina nodes na AI a ciki',
   'landing.hero.proof.free': 'Kyauta don gudu 1k/wata',
   'landing.hero.proof.soc2': "Nau'in SOC 2 II",
@@ -128,10 +156,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Biya don gudu, ba kujeru ba.',
   'landing.templates.body':
     'Tsarin aiki da aka riga aka haɗa don kowace ƙungiya - tallace-tallace, tallafi, haɓaka-ops, da kuɗi. Shigarwa da dannawa ɗaya; gyara komai.',
+  'landing.templates.cta': 'Yi rajista don bincika samfuri →',
   'landing.templates.eyebrow': 'Fara cikin daƙiƙa',
   'landing.templates.heading': 'Ɗakin karatu na girke-girke da aka tantance.',
   'landing.templates.signupHint': 'Yi rijista don shigarwa',
   'login.hidePassword': 'Ɓoye kalmar sirri',
+  'login.noAccount': 'Sabo ne ga Tessera?',
   'login.showPassword': 'Nuna kalmar sirri',
   'login.subhead': 'Shiga don ci gaba da gudanar da ayyukan sarrafa kansa naka.',
   'mobileNav.drawerLabel': 'Babban kewayawa',
@@ -147,8 +177,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Gudanar da tsarin aiki don fara cika wannan ciyarwar.',
   'notifications.empty.title': 'Kun kama komai',
   'notifications.eyebrow': '{{n}} ba a karanta ba',
+  'planUpdated.body':
+    'Canjin lissafin ku yana aiki yanzu. Kuna iya sarrafa shirin ku kowane lokaci daga shafin lissafi.',
+  'planUpdated.retry': 'Gwada kuma',
+  'planUpdated.verifyFailed': 'Ba mu iya tabbatar da biyan kuɗin ku ba tukuna.',
+  'planUpdated.verifyFailedBody':
+    'Ana iya ci gaba da aiwatar da biyan kuɗin ku. Gwada kuma nan ba da jimawa ba.',
   'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'pricing.heading': 'gudu',
+  'pricing.runsSuffix': 'gudanarwa',
   'pricing.workflowsSuffix': 'hanyoyin aiki',
   'privacy.collect.body':
     'Muna tattara adireshin imel ɗin da kuka yi rajista da shi, ayyukan da kuka tsara, da kuma bayanai game da kowane gudu (lokacin farawa, lokacin ƙarewa, matsayi). Ba ma taɓa tattarawa ko adana abubuwan da ke ɗauke da abubuwan da ke haifar da matsala ko sakamakon matakai fiye da abin da ake buƙata don nunawa a cikin mai duba aiki.',
@@ -164,12 +201,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Ba za a iya sabunta kalmar sirri ba.',
   'resetPassword.newPassword': 'Sabuwar kalmar sirri',
   'resetPassword.subhead': 'Zaɓi wani abu da za ku yi tsammani kawai.',
+  'settings.appearance.description': 'Canja tsakanin yanayin haske da duhu.',
+  'settings.appearance.title': 'Bayyanar',
   'settings.billingShortcut.cta': 'Buɗe lissafin kuɗi',
   'settings.billingShortcut.description':
     'Tsarin, amfani da rasit kai tsaye a shafin biyan kuɗi na musamman.',
   'settings.danger.confirm':
     'Shin ka tabbata? Wannan zai sa wurin aikinka ya kasance a shirye don gogewa.',
   'settings.danger.confirmYes': 'Ee, goge layi',
+  'settings.danger.deleteWorkspace.cta': 'Share wurin aiki',
   'settings.danger.deleteWorkspace.hint':
     'Yana cire duk ayyukan aiki, gudu, da haɗi bayan lokacin alheri na kwanaki 14.',
   'settings.danger.deleteWorkspace.title': 'Share wurin aiki',
@@ -179,10 +219,15 @@ export const ui: UiTranslations = {
   'settings.description': 'Sarrafa asusunka, wurin aiki, haɗakarwa, da lissafin kuɗi a wuri ɗaya.',
   'settings.notifications.description':
     'Zaɓi waɗanne abubuwan da suka faru kuke so, ku aiko mana da imel, ko ku yi shiru.',
+  'settings.notifications.failures.hint':
+    'Sanarwa ta imel da ta cikin manhaja a duk gudanarwar da ta kasa.',
+  'settings.notifications.failures.title': 'Kasawar aikin',
   'settings.notifications.product.hint':
     'Imel na lokaci-lokaci game da sabbin samfura da fasaloli.',
+  'settings.notifications.product.title': 'Sabbin abubuwan samfur',
   'settings.notifications.weekly.hint':
     'Takaitaccen bayani game da gudu da tanadin makon da ya gabata da safiyar Litinin.',
+  'settings.notifications.weekly.title': 'Bayani na mako-mako',
   'settings.profile.description':
     'Yadda kake bayyana a cikin mai gudanar da aikin aiki. Ana amfani da shi a cikin ayyukan wurin aiki.',
   'settings.profile.noEmail': 'Babu imel a rubuce',
@@ -190,12 +235,23 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Ba za a iya adana canje-canjen bayanin martaba ba.',
   'settings.profile.unnamedUser': 'Mai amfani mara suna',
   'settings.security.audit.hint': 'Yaɗa kowane aiki zuwa SIEM ɗinku ta hanyar webhook.',
+  'settings.security.audit.title': 'Aika bayanan dubawa',
   'settings.security.description': 'Mai ba da izini mai matakai biyu, SSO, da zaman aiki.',
   'settings.security.sso.hint': 'Akwai shi akan tsare-tsaren Scale da Enterprise.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'Ana buƙata don duk wani aikin mai gudanar da wurin aiki.',
+  'settings.security.totp.title': 'Tabbatarwa ta mataki biyu (TOTP)',
   'settings.twoFactorCode': 'Lambar tabbatarwa',
   'settings.twoFactorDisable': 'A kashe',
+  'settings.twoFactorDisableTitle': 'Kashe tabbatarwa ta matakai biyu',
   'settings.twoFactorEnable': 'Kunna',
+  'settings.twoFactorEnableTitle': 'Kunna tabbatarwa ta matakai biyu',
   'settings.twoFactorInvalidCode': 'Lambar da ba ta aiki ba',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Lambar QR ta matakai biyu',
+  'settings.twoFactorScan':
+    'Duba wannan lambar QR da manhajar tabbatarwa, sannan shigar da lambar mai lambobi 6.',
+  'settings.twoFactorUnavailable': 'Ba a samun tantance abubuwa biyu don wannan app ɗin ba.',
   'settings.twoFactorVerify': 'Tabbatar & kunna',
   'settings.workspace.description':
     'Asalin da aka raba, yanki, da kuma tsarin gudanarwa na ƙungiyar ku.',
@@ -224,6 +280,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Samfuri',
   'templates.description':
     'Tsarin zane-zane da aka riga aka gina don sarrafa kansa da aka fi sani. Yanke, keɓance, aika.',
+  'templates.empty.filter': 'Babu samfuri da ya dace da bincikenku.',
   'templates.empty.first': 'Babu samfura da ake samu a yanzu.',
   'templates.error': 'Ba za a iya loda samfura ba.',
   'templates.installs': 'shigarwa',
@@ -249,6 +306,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'A kashe',
   'workflowBuilder.enable': 'Kunna',
   'workflowBuilder.error': 'Ba za a iya loda tsarin aiki ba.',
+  'workflowBuilder.inspector.config': 'Saiti',
+  'workflowBuilder.inspector.cron': 'Maganar Cron',
+  'workflowBuilder.inspector.disabled': 'An kashe — ba zai gudana kai tsaye ba.',
   'workflowBuilder.inspector.enabled': 'An kunna - yana aiki akan abin kunna.',
   'workflowBuilder.inspector.eyebrow': 'Sufeto',
   'workflowBuilder.inspector.id': 'ID',
@@ -266,18 +326,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Canja wurin ya gaza.',
   'workflowBuilder.workflow': 'Tsarin aiki · v {{v}}',
   'workflowBuilder.zoom.in': 'Zuƙowa ciki',
+  'workflowBuilder.zoom.label': 'Kayan sarrafa zuƙowa na zane',
+  'workflowBuilder.zoom.out': 'A rage girman',
   'workflowCard.lastRun': 'Gudu na ƙarshe {{when}}',
   'workflowCard.runs': '{{count}} gudu',
+  'workflowCard.success': '{{rate}}% nasara',
   'workflowHeroCard.last24h': 'Awanni 24 da suka gabata',
+  'workflows.browseTemplates': 'Duba samfura →',
   'workflows.description':
     "Kowace na'urar sarrafa kansa a wurin aikinka, tare da duba lafiya da ayyukan da aka yi kwanan nan.",
+  'workflows.empty.body': 'Gwada share tacewar ko fara daga samfuri.',
   'workflows.empty.firstBody': 'Shigar da samfuri don farawa cikin daƙiƙa kaɗan.',
   'workflows.empty.firstTitle': 'Babu ayyukan aiki tukuna',
   'workflows.empty.title': 'Babu daidaito tsakanin tsarin aiki',
   'workflows.error': 'Ba za a iya loda ayyukan aiki ba.',
   'workflows.eyebrow': 'Laburare · {{count}} jimilla',
+  'workflows.loading': 'Ana loda ayyukan…',
   'workflows.newFromTemplate': 'Sabo daga samfuri',
   'workflows.searchPlaceholder': 'Binciken hanyoyin aiki…',
+  'workflows.title': 'Ayyuka',
   'workflowSidebar.brand': 'Dendrite',
   'workflowSidebar.status': 'Duk tsarin suna aiki',
   'workflowSidebar.tagline': 'Hankali yana motsi',

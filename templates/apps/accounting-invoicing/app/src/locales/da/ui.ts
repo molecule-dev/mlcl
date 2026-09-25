@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du et spørgsmål, fundet en fejl eller vil du flytte dine bøger over? Kontakt {{app}}-teamet på hello@{{app}}.example — en rigtig person læser hver besked.',
   'about.contactTitle': 'Kontakt os',
   'about.eyebrow': 'Om',
+  'about.intro':
+    '{{app}} er regnskabsprogram til små virksomheder, der holder styr på hver en øre — fakturaer, udgifter, betalinger og rapporter på ét roligt sted for ejere, bogholdere og revisorer.',
+  'about.missionBody':
+    'At drive virksomhed bør ikke betyde, at du gruer for regnskabet. {{app}} erstatter regnearkskaos med klare tal, du kan handle på, så du bruger mindre tid på afstemning og mere tid på det arbejde, du faktisk startede virksomheden for at lave.',
+  'about.missionTitle': 'Vores mission',
   'about.title': 'Om {{app}}',
   'accounts.count': '{{count}} konti',
+  'accounts.emptyBody':
+    'Finanskonti sporer, hvor pengene er, og hvor de flytter hen. De vises her, når din bogholder eller integration har oprettet dem.',
   'accounts.emptyTitle': 'Ingen konti endnu',
   'accounts.heading': 'Kontoplan',
   'accounts.kpi.accounts': 'Konti',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Alle hovedbogsposter, der ligger til grund for dine fakturaer, udgifter og betalinger, opdelt efter type.',
   'accounts.tag.inactive': 'inaktiv',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Økonomidirektør, Horizon Tech',
   'authBrandPanel.eyebrow': 'Betroet af finansteams',
   'authBrandPanel.label': 'Brandvisning',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Alle kunder',
   'customerDetail.invoiceMeta': 'Udstedt{{issued}} · Forfald{{due}}',
   'customerDetail.loadError': 'Kunden kunne ikke indlæses.',
+  'customerDetail.missingBody':
+    'Den ønskede kundepost kunne ikke indlæses. Den er muligvis blevet fjernet, eller også har du ikke adgang til den.',
   'customerDetail.missingHeading': 'Kundepost utilgængelig',
+  'customerDetail.missingHelp':
+    'Brug linket ovenfor til at vende tilbage til listen over kunder, eller vælg en anden post derfra.',
+  'customerDetail.noInvoices': 'Ingen fakturaer endnu.',
   'customerDetail.notesEmpty': 'Ingen noter endnu.',
   'customerDetail.paymentsEmpty': 'Ingen betalinger registreret.',
   'customerDetail.paymentTerms': 'Betalingsbetingelser',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Fradragsberettiget',
   'expenseDetail.detailsHeading': 'Transaktionsdetaljer',
   'expenseDetail.loadError': 'Udgiften kunne ikke indlæses.',
+  'expenseDetail.matched': 'Matchet · {{description}}',
   'expenseDetail.missingBody':
     'Den ønskede udgift kunne ikke indlæses. Den er muligvis blevet fjernet, eller du har ikke adgang til den.',
   'expenseDetail.missingHeading': 'Udgiftspost utilgængelig',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Kvittering',
   'expenseDetail.receiptHeading': 'Kvittering',
   'expenseDetail.reconciled': 'Afstemt',
+  'expenseDetail.unreconciled': 'Ikke afstemt',
   'expenses.empty': 'Ingen udgifter endnu.',
   'expenses.heading': 'Udgifter',
   'expenses.kpi.deductible': 'Fradragsberettiget',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Fakturaer kunne ikke indlæses.',
   'invoices.searchPlaceholder': 'Søg faktura-nr. eller kunde…',
   'invoices.summary.paid': 'Betalt i denne periode',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle': 'Gratis i 30 dage. Intet kort. Tag din revisor med — de vil takke dig.',
   'landing.ctaTitle': 'Flyt dit regnskab et roligere sted hen.',
   'landing.eyebrow': 'Regnskab for små virksomheder, gentænkt',
@@ -113,6 +131,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Tilgodehavender',
   'ledgerStatTriad.eyebrow.mtd': 'Måned til dato',
   'ledgerStatTriad.netSub': 'Netto {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} forfalden',
   'ledgerStatTriad.revenueLabel': 'Omsætning',
   'login.failed': 'Log ind mislykkedes.',
   'login.hidePassword': 'Skjul adgangskode',
@@ -123,6 +142,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Log ind',
   'nav.legal': 'Juridisk',
   'newExpense.back': 'Udgifter',
+  'newExpense.clearReceiptCta': 'Ryd vedhæftet kvittering',
   'newExpense.deductible': 'Fradragsberettiget',
   'newExpense.dropPrompt': 'Slip et kvitteringsbillede eller en PDF her for at vedhæfte.',
   'newExpense.failed': 'Udgiften kunne ikke gemmes.',
@@ -151,6 +171,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Betalinger kunne ikke indlæses.',
   'payments.unmatchedTag': 'uovertruffen',
   'planUpdated.pageLabel': 'Bekræftelse af opdateret plan',
+  'pricing.advancedFeatures': 'Avancerede funktioner: {{yes}}',
+  'pricing.canExport': 'Dataeksport: {{yes}}',
+  'pricing.heading': 'Vælg din {{app}}-plan',
+  'pricing.maxAccounts': '{{count}} konti',
+  'pricing.maxExpenses': '{{count}} udgifter',
+  'pricing.maxInvoices': '{{count}} fakturaer',
+  'privacy.intro':
+    'Denne privatlivspolitik beskriver, hvordan {{app}} indsamler, bruger og videregiver oplysninger om virksomheder, der bruger tjenesten.',
   'privacy.lastUpdated': 'Sidst opdateret: {{date}}',
   'privacy.section.collected.body':
     'Vi indsamler kontooplysninger (navn, e-mail, virksomhed), de finansielle data du uploader (fakturaer, udgifter, kunder, betalinger) og almindelige driftslogfiler (IP, user-agent, tidsstempler).',
@@ -163,8 +191,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     "Oplysninger bruges til at drive tjenesten, generere de rapporter og PDF'er du anmoder om, sende transaktionsmails via Mailgun og behandle betalinger via Stripe. Vi sælger eller udlejer ikke personlige oplysninger.",
   'recentInvoicesCard.dueMeta': 'Forfald {{date}}',
+  'recentInvoicesCard.empty': 'Ingen fakturaer matcher.',
   'recentInvoicesCard.eyebrow': 'Tilgodehavender',
   'recentInvoicesCard.searchAriaLabel': 'Søg fakturaer',
+  'recentInvoicesCard.searchPlaceholder': 'Søg i fakturaer…',
   'recentInvoicesCard.title': 'Seneste fakturaer',
   'recentInvoicesCard.viewAll': 'Se alle fakturaer →',
   'reports.assets': 'Aktiver',
@@ -180,15 +210,20 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Resultatopgørelse (12 måneder)',
   'resetPassword.backToLogin': '← Tilbage til log ind',
   'resetPassword.hidePassword': 'Skjul adgangskode',
+  'resetPassword.passwordLabel': 'Ny adgangskode',
   'resetPassword.showPassword': 'Vis adgangskode',
+  'resetPassword.subheading': 'Vælg en stærk adgangskode — mindst otte tegn.',
   'resetPassword.submit': 'Nulstil adgangskode',
   'resetPassword.tooShort': 'Adgangskoden skal være mindst 8 tegn.',
   'settings.account.changePassword': 'Skift adgangskode',
   'settings.account.changingPassword': 'Ændring…',
   'settings.account.currentPassword': 'Nuværende adgangskode',
+  'settings.account.dangerZone': 'Farezone',
   'settings.account.deleteAccount': 'Slet konto',
   'settings.account.deleteDescription': 'Slet din konto og alle tilknyttede data permanent.',
   'settings.account.deleteError': 'Kontoen kunne ikke slettes.',
+  'settings.account.deleteWarning':
+    'Dette sletter din konto permanent og kan ikke fortrydes. Indtast din adgangskode for at bekræfte.',
   'settings.account.deleting': 'Sletter…',
   'settings.account.devices': 'Enheder',
   'settings.account.email': 'E-mail',
@@ -199,6 +234,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Adgangskode',
   'settings.account.passwordError': 'Kunne ikke ændre adgangskode.',
   'settings.account.pushNotifications': 'Push-beskeder på denne enhed',
+  'settings.account.revokeDeviceWarning':
+    'Denne enheds adgang vil blive tilbagekaldt om kort tid. Log den ud?',
   'settings.account.saveError': 'Profilen kunne ikke opdateres.',
   'settings.account.security': 'Sikkerhed',
   'settings.account.signOutDevice': 'Log ud',
@@ -206,12 +243,19 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Tofaktorgodkendelse',
   'settings.account.twoFactorCode': 'Godkendelseskode',
   'settings.account.twoFactorDisable': 'Deaktivér',
+  'settings.account.twoFactorDisableTitle': 'Deaktiver to-faktor-godkendelse',
   'settings.account.twoFactorEnable': 'Aktivér',
+  'settings.account.twoFactorEnableTitle': 'Aktivér to-faktor-godkendelse',
   'settings.account.twoFactorInvalidCode': 'Ugyldig kode',
   'settings.account.twoFactorOn': 'Den',
+  'settings.account.twoFactorQrAlt': 'To-faktor QR-kode',
+  'settings.account.twoFactorScan':
+    'Scan denne QR-kode med din godkendelsesapp, og indtast derefter den 6-cifrede kode.',
+  'settings.account.twoFactorUnavailable': 'Tofaktorgodkendelse er ikke tilgængelig for denne app.',
   'settings.account.twoFactorVerify': 'Bekræft og aktiver',
   'settings.account.unknownDevice': 'Ukendt enhed',
   'settings.company.email': 'Faktureringsmail',
+  'settings.company.heading': 'Virksomhed og skat',
   'settings.company.name': 'Juridisk navn',
   'settings.company.saveButton': 'Gem virksomhedsprofil',
   'settings.company.taxId': 'CVR / Skat-ID',
@@ -255,6 +299,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Est. kvartalsvis',
   'taxes.kpi.owed': 'Skyldigt',
   'taxes.loadError': 'Skatteoversigten kunne ikke indlæses.',
+  'taxes.remittedPct': '({{pct}}% indbetalt)',
+  'terms.intro':
+    'Disse servicevilkår ("Vilkårene") regulerer din adgang til og brug af {{app}}. Ved at oprette en konto eller bruge tjenesten accepterer du at være bundet af dem.',
   'terms.lastUpdated': 'Sidst opdateret: {{date}}',
   'terms.section.acceptable.body':
     'Du accepterer ikke at bruge tjenesten til at overtræde lovgivning, krænke intellektuelle ejendomsrettigheder, overføre malware eller forsøge at få uautoriseret adgang til andre konti eller vores infrastruktur.',

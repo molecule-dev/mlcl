@@ -1,12 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'မေးခွန်းများ၊ အကြံပြုချက်များ သို့မဟုတ် အမှားတစ်ခု တင်ပြလိုပါသလား။ သင့်အကောင့်ဆက်တင်များမှ အဖွဲ့ကို ဆက်သွယ်ပါ — မက်ဆေ့ခ်ျတိုင်း ဘာသာစကားများကိုလည်း သင်ယူနေတဲ့ လူတစ်ဦးဆီ ရောက်ပါတယ်။',
   'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'ကြှနျုပျတို့အကွောငျး',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
+  'about.whatYouGet': 'သင်ရရှိသောအရာ',
   'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'common.logout': 'လော့ဂ်အောက်',
+  'dailyStatsTriad.heartsHint': 'သင်ခန်းစာတစ်ခုစတိုင်း ပြန်ဖြည့်ပါ',
   'dailyStatsTriad.heartsLabel': 'နှလုံးသားများ',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
+  'dailyStatsTriad.minutesHint': 'ယနေ့လေ့ကျင့်ခန်းများမှ',
   'dailyStatsTriad.minutesLabel': 'ယနေ့ မိနစ်',
   'dailyStatsTriad.minutesValue': '{{count}} မိနစ်',
   'dailyStatsTriad.wordsLabel': 'စကားလုံးတွေကို ကျွမ်းကျင်အောင် လုပ်တတ်လာတယ်',
@@ -15,18 +21,30 @@ export const ui: UiTranslations = {
   'dashboard.heading': 'ဘူအီနိုဒီယာစ်၊ {{name}} ။',
   'dashboard.loadError':
     'ကက်ရှ်လုပ်ထားသော တန်ဖိုးများကို ပြသနေသည် — နောက်ဆုံးတိုးတက်မှုကို တင်၍မရပါ။',
+  'dashboard.loading': 'လန်းဆန်းစေသည်…',
   'dashboard.noLessons': 'သင်ခန်းစာများ မရှိသေးပါ — မကြာမီ ပြန်လည်စစ်ဆေးပါ။',
+  'dashboard.startPractice': 'စကားပြောလေ့ကျင့်မှု စတင်ပါ',
+  'dashboard.subheading':
+    'သင်ရပ်ထားတဲ့နေရာကနေ ဆက်လုပ်ပါ — သင်ခန်းစာတိုသုံးခုဆိုရင် ယနေ့ပန်းတိုင်ကို ရောက်ပါပြီ။',
   'dashboard.viewAllLessons': 'သင်ခန်းစာအားလုံး →',
+  'forgotPassword.subheading':
+    'သင့်အီးမေးလ်ထည့်ပါ၊ ကျွန်ုပ်တို့ ပြန်လည်သတ်မှတ်ရန် လင့်ခ်ပို့ပေးပါမည်။',
   'forgotPassword.successBody':
     'သင့်ဝင်စာပုံးကို စစ်ဆေးပါ — ၎င်းကို ပြန်လည်သတ်မှတ်ရန် လင့်ခ်တစ်ခု ကျွန်ုပ်တို့ ပေးပို့ထားပါသည်။',
   'forgotPassword.successHint':
     'အကယ်၍ {{email}} အကောင့်တစ်ခုနှင့် ကိုက်ညီပါက လင့်ခ်သည် တစ်မိနစ်အတွင်း ရောက်ရှိပါမည်။',
+  'landing.copyright': '© {{year}} {{app}}။ အရွယ်ရောက်သင်ယူသူများအတွက် ဖန်တီးထားသည်။',
   'landing.ctaBody':
     'ကတ်မလိုအပ်ပါ။ သင့်အီးမေးလ်ကို ချန်ထားခဲ့ပါ၊ ဘာသာစကားတစ်ခုကို ရွေးချယ်ပါ၊ မနက်ဖြန် စတင်လိုက်ပါ။',
   'landing.ctaHeading': 'သင့်ရဲ့ လေယူလေသိမ်းကို ရှာဖွေဖို့ အဆင်သင့်ဖြစ်ပြီလား။',
   'landing.eyebrow': 'လူကြီးများအတွက် နေ့စဉ်ဘာသာစကားလေ့ကျင့်ခြင်း',
   'landing.featuresHeading': 'သင့်အချိန်ကိုလေးစားသော လေ့ကျင့်ခန်းကွင်းဆက်',
+  'landing.featuresSubheading':
+    'တစ်ပတ်လျှင် သုံးဆယ်နာရီမဟုတ်ဘဲ တစ်နေ့လျှင် သုံးဆယ်မိနစ်ရှိသော အရွယ်ရောက်သူများအတွက် ဒီဇိုင်းထုတ်ထားသည်။',
   'landing.heroCta': '၇ ရက်ကြာ ဆက်တိုက်စတင်ပါ',
+  'landing.heroSubtitle':
+    'ကော်ဖီအနားယူချိန်မှာ ဆံ့တဲ့ ငါးမိနစ်သင်ခန်းစာများ။ လေ့ကျင့်ခန်းများ၊ ဝေါဟာရ၊ စကားပြော — အားလုံးကို သင်အမှန်တကယ် ဆက်ထိန်းနိုင်မယ့် streak နဲ့ ချုပ်ထားသည်။',
+  'landing.heroTitle': '{{tagline}}',
   'landing.languagesEyebrow': 'ဘာသာစကားတစ်ခု ရွေးချယ်ပါ',
   'landing.languagesHeading': 'ဘာသာစကား ဆယ့်လေးမျိုး၊ နေ့စဉ် အလေ့အထ တစ်ခု',
   'landing.proof.languages': '{{count}} ဘာသာစကားများ',
@@ -41,11 +59,18 @@ export const ui: UiTranslations = {
   'leaderboard.heading': 'ဦးဆောင်သူစာရင်း',
   'leaderboard.loadError': 'ဦးဆောင်သူစာရင်းကို တင်၍မရပါ။',
   'leaderboard.loading': 'ဦးဆောင်သူစာရင်းကို တင်နေသည်…',
+  'leaderboard.rewardBody':
+    'သုံးပတ်ဆက်တိုက် ရွှေရရှိထားခြင်းက သင့်ကို စိန်အဆင့်သို့ တင်မြှောက်သည်။ ခင်မင်ရင်းနှီးသော အလောင်းအစားများသာ။',
+  'leaderboard.rewardEyebrow': 'ဒီအပတ်ရဲ့ ဆု',
+  'leaderboard.rewardHeading': 'ထိပ်တန်း {{count}} ဦးက ရွှေလိဂ်တံဆိပ် ရရှိသည်',
   'leaderboard.subheading':
     'ဒီအပတ် XP။ သင့်ဒေသစံတော်ချိန် တနင်္ဂနွေနေ့ သန်းခေါင်ယံတွင် ပြန်လည်သတ်မှတ်ပါမည်။',
   'leaderboard.weeklyPeriod': 'ဒီအပတ် · သူငယ်ချင်းများ',
+  'leaderboardPanel.rankSuffix': 'အဆင့် # {{rank}}',
   'leaderboardPanel.title': 'သူငယ်ချင်းများ ဦးဆောင်သူစာရင်း',
+  'leaderboardPanel.xp': '{{xp}} XP',
   'leaderboardPanel.you': '(မင်း)',
+  'lessonCard.continue': 'ဆက်လုပ်ရန် →',
   'lessonCard.duration': '{{min}} မိနစ်',
   'lessonCard.level': 'အဆင့် {{level}}',
   'lessonCard.progressPercent': '{{percent}} % ပြီးမြောက်ပါပြီ',
@@ -54,14 +79,17 @@ export const ui: UiTranslations = {
   'lessonDetail.check': 'စစ်ဆေးပါ',
   'lessonDetail.checking': 'စစ်ဆေးနေသည်…',
   'lessonDetail.correct': 'အံ့မခန်းပဲ!',
+  'lessonDetail.correctHint': '+{{xp}} XP။ ဆက်လုပ်ပါ။',
   'lessonDetail.empty': 'ဒီသင်ခန်းစာမှာ လေ့ကျင့်ခန်းတွေ မပါဘူး။',
   'lessonDetail.exit': 'သင်ခန်းစာမှ ထွက်ခွာရန်',
   'lessonDetail.fillBlank': 'ကွက်လပ်ဖြည့်ပါ',
   'lessonDetail.finish': 'သင်ခန်းစာကို အပြီးသတ်ပါ',
   'lessonDetail.incorrect': 'မဟုတ်လောက်ပါဘူး — “ {{answer}} "',
+  'lessonDetail.incorrectHint': 'ဒီတစ်ခုကို မနက်ဖြန် ပြန်လည်သုံးသပ်မှုမှာ ထပ်တွေ့ပါမည်။',
   'lessonDetail.lessonId': 'သင်ခန်းစာ · {{id}}',
   'lessonDetail.loadError': 'လေ့ကျင့်ခန်းများကို တင်၍မရပါ။',
   'lessonDetail.loading': 'သင်ခန်းစာကို တင်နေသည်…',
+  'lessonDetail.pronunciation': 'မှန်ကန်သော အသံထွက်ကို ရွေးပါ',
   'lessonDetail.submitError': 'အဖြေတင်သွင်း၍မရပါ။',
   'lessonDetail.translation': 'စကားစုကို ဘာသာပြန်ပါ',
   'lessonDetail.xpEarned': 'ရရှိထားသော XP · {{xp}}',
@@ -80,6 +108,12 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'parlanceLayout.nav.profile': 'ပရိုဖိုင်',
   'parlanceLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
+  'planUpdated.body':
+    'သင့်ငွေတောင်းခံမှု ပြောင်းလဲမှုသည် ယခု အသက်ဝင်နေပါပြီ။ သင့်အစီအစဉ်ကို ငွေတောင်းခံမှုစာမျက်နှာမှ မည်သည့်အချိန်တွင်မဆို စီမံနိုင်ပါသည်။',
+  'planUpdated.retry': 'ထပ်ကြိုးစားပါ',
+  'planUpdated.verifyFailed': 'သင့်ငွေပေးချေမှုကို ကျွန်ုပ်တို့ အတည်မပြုနိုင်သေးပါ။',
+  'planUpdated.verifyFailedBody':
+    'သင့်ငွေပေးချေမှုကို လုပ်ဆောင်နေဆဲဖြစ်နိုင်ပါသည်။ ခဏအကြာတွင် ထပ်မံကြိုးစားပါ။',
   'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'practice.empty': 'လောလောဆယ်တွင် မည်သည့်စကားစုမျှ မရှိသေးပါ။',
   'practice.eyebrow': 'စကားပြောလေ့ကျင့်ခန်း',
@@ -103,6 +137,9 @@ export const ui: UiTranslations = {
   'pricing.limits.progress': 'တိုးတက်မှုမှတ်တမ်းများ',
   'profile.anonymous': 'သင်ယူသူ',
   'profile.avatarAlt': '{{name}} ၏ ရုပ်ပုံ',
+  'profile.eyebrow': 'အဖွဲ့ဝင်ဖြစ်ခဲ့သည့်အချိန် {{joined}}',
+  'profile.eyebrowNew': 'သင်ယူသူအသစ်',
+  'profile.langLessonCount': '{{count}} သင်ခန်းစာများ',
   'profile.langLevel': 'အဆင့် {{level}}',
   'profile.languages': 'ဘာသာစကားများ',
   'profile.languagesHeading': 'တိုးတက်နေသော ဘာသာစကားများ',
@@ -111,6 +148,7 @@ export const ui: UiTranslations = {
   'profile.streak': 'အစင်းကြောင်း',
   'profile.totalXp': 'စုစုပေါင်း XP',
   'resetPassword.confirmPlaceholder': 'ပြန်လည်ရိုက်ပါ',
+  'resetPassword.mismatch': 'စကားဝှက်များ မကိုက်ညီပါ။',
   'resetPassword.newPasswordLabel': 'စကားဝှက်အသစ်',
   'resetPassword.newPasswordPlaceholder': 'စာလုံးရှစ်လုံး သို့မဟုတ် ထို့ထက်ပိုသော',
   'resetPassword.subheading':
@@ -119,6 +157,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'လေ့ကျင့်ခန်း ဦးစားပေးမှုများ',
   'settings.goalBody':
     'သင်နေ့စဉ် XP မည်မျှရည်မှန်းထားသနည်း။ ပန်းတိုင်ရောက်တိုင်း အမှတ်စဉ်များကို သိမ်းဆည်းထားသည်။',
+  'settings.goalHeading': 'နေ့စဉ်ရည်မှန်းချက်',
   'settings.goalMinutes': '~ {{min}} မိနစ်/တစ်ရက်',
   'settings.language.description':
     'အက်ပ်မီနူးများနှင့် အညွှန်းများတစ်လျှောက်တွင် အသုံးပြုသည့် ဘာသာစကားကို ရွေးချယ်ပါ။',

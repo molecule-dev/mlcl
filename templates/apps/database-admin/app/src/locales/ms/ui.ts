@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.featureConnections':
+    'Pengurus sambungan yang menyimpan pangkalan data anda dengan selamat dan memberi kod warna — kelayakan disulitkan semasa rehat, tidak pernah dalam teks biasa.',
+  'about.featureMonitoring':
+    'Pemantauan langsung prestasi pertanyaan dan aktiviti pangkalan data, dengan pintasan papan kekunci dan palet arahan untuk mengendalikan semuanya tanpa tangan.',
+  'about.featurePlans':
+    'Pelan yang berkembang bersama anda — Percuma untuk kerja solo, Pro dan Team untuk lebih banyak sambungan, penyimpanan pertanyaan lebih lama, eksport dan ciri lanjutan.',
+  'about.featureQueryEditor':
+    'Editor SQL berkuasa Monaco dengan sejarah pertanyaan, pertanyaan tersimpan dan eksport CSV hasil anda dengan satu klik.',
+  'about.featureSchema':
+    'Penjelajah skema dan pelayar jadual untuk menavigasi pangkalan data, jadual dan lajur, kemudian melayari, menapis dan mengedit baris secara terus.',
+  'about.missionTitle': 'Misi kami',
   'authShell.commands': 'Perintah',
   'authShell.ssoSupported': 'SSO disokong',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Pertanyaan',
   'connections.schema': 'Skema',
   'connections.subtitle': 'Urus sambungan pangkalan data anda.',
+  'connections.test': 'Ujian',
   'databaseAdminLayout.adminRole': 'Peranan pentadbir',
   'databaseAdminLayout.commandPalette': 'Palet arahan',
   'databaseAdminLayout.commands': 'arahan',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Sambungan baharu',
   'databaseAdminLayout.queries': 'Pertanyaan',
   'databaseAdminLayout.ready': 'Sedia',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Cari arahan, pertanyaan, jadual…',
   'databaseAdminLayout.user': 'Pengguna',
   'editConnection.confirmDelete': 'Padamkan sambungan ini?',
   'editConnection.deleteButton': 'Padam sambungan',
+  'editConnection.newPassword': 'Kata laluan baharu (biarkan kosong untuk kekalkan)',
   'editConnection.saved': 'Sambungan disimpan.',
   'editConnection.title': 'Edit sambungan',
   'forgotPassword.success': 'Jika akaun itu wujud, pautan tetapan semula sedang dalam proses.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Kejayaan',
   'monitoring.title': 'Pemantauan',
   'monitoring.totalQueries': 'Jumlah pertanyaan',
+  'nav.schema': 'Skema',
   'newConnection.database': 'Pangkalan Data',
   'newConnection.engine': 'Enjin',
   'newConnection.host': 'Hos',
@@ -82,6 +98,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Tiada sambungan terikat dengan coretan ini.',
   'savedQuery.notBound': 'Tidak terikat',
   'savedQuery.title': 'Pertanyaan disimpan',
+  'schema.columns': 'Lajur',
   'schema.foreignKeys': 'Kunci asing',
   'schema.indexes': 'Indeks',
   'schemaExplorer.browseRows': 'Layari baris',
@@ -90,14 +107,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'boleh dibatalkan',
   'schemaExplorer.colType': 'jenis',
   'schemaExplorer.noColumns': 'Tiada lajur.',
+  'schemaExplorer.noForeignKeys': 'Tiada kunci asing.',
   'schemaExplorer.noIndexes': 'Tiada indeks.',
   'schemaExplorer.noTables': 'Tiada meja',
   'schemaExplorer.pickATable': 'Pilih jadual dari bar sisi.',
   'schemaExplorer.tables': 'Meja',
   'schemaExplorer.title': 'Penjelajah skema',
+  'settings.session': 'Sesi',
   'settings.subtitle': 'Urus akaun dan rancang anda.',
   'signup.heading': 'Cipta akaun Kuari anda',
   'signup.tagline': 'Tingkatkan akses dalam masa kurang seminit.',
   'tableBrowser.noRows': 'Jadual ini belum mempunyai baris.',
+  'tableBrowser.subtitle': 'Melayari baris daripada pangkalan data jauh anda.',
   'tableBrowser.title': 'Melayari baris daripada pangkalan data jauh anda.',
 }

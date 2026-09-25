@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.featureConnections':
+    'உங்கள் தரவுத்தளங்களை பாதுகாப்பாக சேமித்து நிற-குறியீடு செய்யும் இணைப்பு மேலாளர் — சான்றுகள் ஓய்வு நிலையில் மறையாக்கப்படும், ஒருபோதும் வெளிப்படையாக இருக்காது.',
+  'about.featureMonitoring':
+    'வினவல் செயல்திறன் மற்றும் தரவுத்தள செயல்பாட்டின் நேரடி கண்காணிப்பு, அனைத்தையும் கை-இல்லாமல் இயக்க உதவும் விசைப்பலகை குறுக்குவழிகள் மற்றும் கட்டளை தட்டுடன்.',
+  'about.featurePlans':
+    'உங்களுடன் வளரும் திட்டங்கள் — தனிநபர் வேலைக்கு இலவசம், அதிக இணைப்புகள், நீண்ட வினவல் தக்கவைப்பு, ஏற்றுமதிகள் மற்றும் மேம்பட்ட அம்சங்களுக்கு Pro மற்றும் Team.',
+  'about.featureQueryEditor':
+    'வினவல் வரலாறு, சேமித்த வினவல்கள் மற்றும் உங்கள் முடிவுகளை ஒரே கிளிக்கில் CSV ஏற்றுமதி செய்யும் வசதியுடன் Monaco-இயக்கப்படும் SQL எடிட்டர்.',
+  'about.featureSchema':
+    'தரவுத்தளங்கள், அட்டவணைகள் மற்றும் நெடுவரிசைகளை வழிசெலுத்தி, வரிசைகளை உள்ளமைவாக உலாவ, வடிகட்ட மற்றும் திருத்த ஒரு ஸ்கீமா எக்ஸ்ப்ளோரர் மற்றும் அட்டவணை உலாவி.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'authShell.commands': 'கட்டளைகள்',
   'authShell.ssoSupported': 'SSO ஆதரித்தது',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'வினவல்கள்',
   'connections.schema': 'ஸ்கீமா',
   'connections.subtitle': 'உங்கள் தரவுத்தள இணைப்புகளை நிர்வகிக்கவும்.',
+  'connections.test': 'சோதனை',
   'databaseAdminLayout.adminRole': 'நிர்வாகப் பங்கு',
   'databaseAdminLayout.commandPalette': 'கட்டளைத் தட்டு',
   'databaseAdminLayout.commands': 'கட்டளைகள்',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'புதிய இணைப்பு',
   'databaseAdminLayout.queries': 'வினவல்கள்',
   'databaseAdminLayout.ready': 'தயார்',
+  'databaseAdminLayout.searchPlaceholder': '⌘K கட்டளைகள், வினவல்கள், அட்டவணைகளைத் தேடுங்கள்…',
   'databaseAdminLayout.user': 'பயனர்',
   'editConnection.confirmDelete': 'இந்த இணைப்பை நீக்கவா?',
   'editConnection.deleteButton': 'இணைப்பை நீக்கு',
+  'editConnection.newPassword': 'புதிய கடவுச்சொல் (தக்கவைக்க காலியாக விடவும்)',
   'editConnection.saved': 'இணைப்பு சேமிக்கப்பட்டது.',
   'editConnection.title': 'இணைப்பைத் திருத்து',
   'forgotPassword.success':
@@ -48,6 +63,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'வெற்றிகள்',
   'monitoring.title': 'கண்காணிப்பு',
   'monitoring.totalQueries': 'மொத்த வினவல்கள்',
+  'nav.schema': 'ஸ்கீமா',
   'newConnection.database': 'தரவுத்தளம்',
   'newConnection.engine': 'இயந்திரம்',
   'newConnection.host': 'ஹோஸ்ட்',
@@ -84,6 +100,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'இந்தத் துணுக்குடன் எந்த இணைப்பும் பிணைக்கப்படவில்லை.',
   'savedQuery.notBound': 'கட்டுப்படுத்தப்படவில்லை',
   'savedQuery.title': 'சேமிக்கப்பட்ட வினவல்',
+  'schema.columns': 'நெடுவரிசைகள்',
   'schema.foreignKeys': 'வெளிநாட்டு விசைகள்',
   'schema.indexes': 'குறியீடுகள்',
   'schemaExplorer.browseRows': 'வரிசைகளை உலாவுக',
@@ -92,14 +109,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'பூஜ்யமாக்கக்கூடிய',
   'schemaExplorer.colType': 'வகை',
   'schemaExplorer.noColumns': 'நெடுவரிசைகள் இல்லை.',
+  'schemaExplorer.noForeignKeys': 'வெளிநாட்டு விசைகள் இல்லை.',
   'schemaExplorer.noIndexes': 'குறியீடுகள் இல்லை.',
   'schemaExplorer.noTables': 'மேசைகள் இல்லை',
   'schemaExplorer.pickATable': 'பக்கப் பட்டியில் இருந்து ஒரு அட்டவணையைத் தேர்ந்தெடுக்கவும்.',
   'schemaExplorer.tables': 'அட்டவணைகள்',
   'schemaExplorer.title': 'ஸ்கீமா எக்ஸ்ப்ளோரர்',
+  'settings.session': 'அமர்வு',
   'settings.subtitle': 'உங்கள் கணக்கையும் திட்டத்தையும் நிர்வகிக்கவும்.',
   'signup.heading': 'உங்கள் குவாரி கணக்கை உருவாக்கவும்',
   'signup.tagline': 'ஒரு நிமிடத்திற்கும் குறைவான நேரத்தில் அணுகலைத் தொடங்குங்கள்.',
   'tableBrowser.noRows': 'இந்த அட்டவணையில் இன்னும் வரிசைகள் இல்லை.',
+  'tableBrowser.subtitle': 'உங்கள் தொலைநிலை தரவுத்தளத்திலிருந்து வரிசைகளை உலாவுதல்.',
   'tableBrowser.title': 'உங்கள் தொலைநிலை தரவுத்தளத்திலிருந்து வரிசைகளை உலாவுதல்.',
 }

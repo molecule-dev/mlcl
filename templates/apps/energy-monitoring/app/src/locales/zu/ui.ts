@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Imibuzo, izicelo zezici, noma imitha okufanele siyisekele? Xhumana neqembu le-{{appName}} kusuka kuzilungiselelo ze-akhawunti yakho — yonke imiyalezo ifinyelela kumuntu wangempela.',
   'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
+  'about.featuresTitle': 'Lokho okutholayo',
+  'about.intro':
+    'I-{{appName}} iwukuqapha kwamandla kwesikhathi sangempela kwemizi yelanga namathimba ezikhungo. Siguqula inqwaba yedatha yemitha, i-inverter, nebhethri ibe umbono ozolile wekamu lokulawula — amandla aphilayo, ukukhiqizwa kwelanga, izindleko zokusebenzisa isikhathi, nezexwayiso, konke endaweni eyodwa.',
+  'about.missionBody':
+    'Amandla owabonayo yiwona amandla ongawaphatha. Sikholelwa ukuthi wonke umuntu osebenzisa imitha — umuzi onelanga eluphahleni noma ithimba elibheka isakhiwo — ufanelwe ukuqonda okusezingeni lezinsiza ngaphandle kwenkontileka esezingeni lezinsiza. Zonke izici zakhiwe ukwenza i-kilowatt-hour elandelayo ibe yisinqumo esinolwazi, hhayi isimangaliso esivela ebhilini.',
+  'about.missionTitle': 'Umsebenzi wethu',
   'about.pageTitle': 'Mayelana {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'I-Ack',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'izexwayiso@yourdomain.com',
   'alertRule.eyebrow': 'Umthetho omusha',
   'alertRule.heading': 'Bamba i-spike ngaphambi kokuba ikubize',
+  'alertRule.nameLabel': 'Igama lomthetho',
   'alertRule.namePlaceholder': 'isib. Iwashi le-HVAC langemva kwamahora okusebenza',
   'alertRule.subheading':
     'Khetha i-metric, umkhawulo, nokuthi ungasithumela kuphi isexwayiso. Ungasihlela noma usimise okwesikhashana noma nini.',
   'alertRule.submit': 'Londoloza umthetho',
   'alertRule.submitError': 'Ayikwazanga ukulondoloza umthetho.',
   'alertRule.thresholdLabel': 'Umkhawulo',
+  'alertRule.typeLabel': 'Uhlobo lwe-trigger',
   'alerts.checking': 'Ukuhlola...',
   'alerts.confirmDelete': 'Qinisekisa ukususa',
+  'alerts.empty': 'Akukho okuboniswayo — azikho izexwayiso kulesi simo.',
   'alerts.emptyNoRules':
     'Azikho izexwayiso okwamanje — engeza umthetho, bese uchofoza okuthi “Hlola manje” ukuze uwuhlole.',
   'alerts.errorAck': 'Ayikwazanga ukuvuma.',
@@ -41,12 +52,15 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Hlola manje',
   'alerts.subheading':
     'Izexwayiso zomphetho kanye nephethini ezidubula kumamitha akho, kanye nemithetho ewaqhubayo.',
+  'billing.activeBlurb': 'Ukubhalisa kwakho kuyasebenza. Kukuphatha noma nini.',
   'billing.cancelError': 'Ayikwazanga ukukhansela okubhalisele.',
   'billing.cancelling': 'Iyakhansela...',
   'billing.currentBadge': 'Okwamanje',
   'billing.freeBlurb':
     'Usehlelweni lamahhala. Thuthukisa ukuze uthole amamitha engeziwe, umlando omude, kanye nemithetho eminingi yokuxwayisa.',
   'billing.heading': 'Amacebo kanye nokukhokhisa',
+  'billing.historyEmpty':
+    'Ama-invoyisi akhokhelwayo azovela lapha uma ukubhalisa kwakho sekukhokhwa.',
   'billing.historyHeading': 'Umlando werisidi',
   'billing.loadError': 'Ayikwazanga ukulayisha inkokhelo.',
   'billing.loading': 'Izinhlelo zokulayisha...',
@@ -58,17 +72,23 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Xhumana nokuthengisa',
   'common.goToDashboard': 'Yiya ku-Dashboard',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit':
+    '{{peak}} kWh ngesikhathi esiphakeme · {{offPeak}} kWh ngesikhathi esingaphandle kwesiphakeme',
   'dailyCostMeter.runningLabel': 'Inani eliphelele lokugijima',
   'dailyCostMeter.title': 'Izindleko kuze kube manje',
   'dailyCostMeter.utilizationLabel': 'Yesabelomali sansuku zonke',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Engeza imitha',
   'dashboard.alertsHeading': 'Izexwayiso ezisebenzayo',
   'dashboard.devicesHeading': 'Amasekethe aphezulu njengamanje',
   'dashboard.empty.body':
     'Engeza imitha ehlakaniphile noma i-inverter yelanga ukuze uqale ukulandelela ukudonsa nokukhiqiza bukhoma.',
+  'dashboard.empty.title': 'Awekho amamitha okwamanje',
   'dashboard.eyebrow': 'Igumbi lokulawula i-Voltrace',
   'dashboard.heading': 'Isithombe samandla abukhoma',
   'dashboard.loadError': 'Ayikwazanga ukulayisha ukufundwa okubukhoma.',
   'dashboard.loading': 'Ukulungisa amamitha akho…',
+  'dashboard.noAlerts': 'Kuthule konke — akukho okweqa imikhawulo yakho.',
   'dashboard.noAlertsAndNoMeters':
     'Uma usufake intambo kumitha, izexwayiso ezisekelwe emikhawulweni yakho zizovela lapha.',
   'dashboard.noCircuits':
@@ -77,6 +97,7 @@ export const ui: UiTranslations = {
     'Ukudonsa indlu yonke, ukukhiqizwa kwelanga, kanye nezindleko kuze kube manje.',
   'dashboard.viewAllAlerts': 'Phatha izexwayiso →',
   'dashboard.viewAllDevices': 'Yonke idivayisi →',
+  'deviceDetail.activeTokens': 'Amathokheni okungenisa asebenzayo',
   'deviceDetail.alreadyOff': 'Sekuvele kumisiwe okwesikhashana',
   'deviceDetail.back': 'Zonke izifunda',
   'deviceDetail.confirmDelete': 'Qinisekisa ukususa',
@@ -117,22 +138,34 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Ayikwazanga ukulayisha amamitha.',
   'devices.loading': 'Ukuvota ngemitha ngayinye…',
   'devices.newRule': 'Umthetho omusha wesexwayiso',
+  'devices.noResults': 'Awekho amasekhethi ahambisana nalesi sihlungi.',
   'devices.placeholder.location': 'isib. Igumbi lemishini',
   'devices.placeholder.name': 'isib. Iphaneli encane yegaraji',
   'devices.subheading':
     'Amandla kagesi abukhoma kanye ne-kWh yanamuhla kuyo yonke isekethe i-Voltrace engayibona.',
+  'deviceWattageRow.todayKwh': '{{kwh}} kWh namuhla',
+  'deviceWattageRow.watts': '{{watts}} W',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Imenyu',
+  'energyMonitoringLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    'I-{{appName}} ixhumana namamitha amaningi asezingeni lezinsiza, ama-inverter elanga, namabhethri amaningi — ngentambo noma nge-WiFi.',
   'landing.ctaHeading': 'Hlanganisa imitha yakho, ubone ama-watt ngemizuzu',
   'landing.eyebrow': 'Ubuhlakani bamandla besikhathi sangempela',
+  'landing.featuresHeading': 'Wonke ama-watt, yonke iminithi, endaweni eyodwa',
   'landing.getStarted': 'Xhuma i-Voltrace',
   'landing.heroCta': 'Xhuma i-Voltrace',
+  'landing.heroSubtitle':
+    'Amandla aphilayo, ukukhiqizwa kwelanga, izindleko zokusebenzisa isikhathi, nezexwayiso zokusetshenziswa okuphezulu endaweni yokulawula eyakhelwe imizi yelanga namathimba ezikhungo.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Ukudweba indlu yonke',
   'landing.sampleSolar': '+3,820 W amandla elanga',
   'landing.sampleSummary': 'Kuthunyelwa ngaphandle ama-W angu-1,680 kugridi · 18.4 kWh namuhla',
   'landing.sampleWatts': '2,140 W',
   'powerHeroCard.solar': '+ {{watts}} Ilanga elingu-W',
   'powerHeroCard.title': 'Ukudweba indlu yonke',
+  'powerHeroCard.todayKwh': '{{kwh}} kWh namuhla',
   'powerHeroCard.watts': '{{watts}} W',
   'pricing.choose': 'Khetha {{name}}',
   'pricing.contact': 'Udinga okuthile okwenziwe ngokwezifiso?',
@@ -145,6 +178,7 @@ export const ui: UiTranslations = {
     'Qala mahhala. Thuthukisa uma udinga amamitha engeziwe, umlando omude, noma imithetho eminingi yokuxwayisa.',
   'pricing.unavailable': 'Lolu hlelo alutholakali njengamanje — i-Stripe ayilungiselelwe.',
   'profile.errorGeneric': 'Ayikwazanga ukulondoloza izinguquko zephrofayela.',
+  'profile.errorGoal': 'Injongo yekhW yanyanga zonke kufanele ibe inombolo enhle.',
   'profile.errorHousehold': 'Usayizi womndeni kumele ube inombolo eqondile.',
   'profile.householdHeading': 'Indlu kanye nemigomo',
   'profile.householdSize': 'Usayizi wendlu',
@@ -161,9 +195,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'Ukufundwa okuhlanganisiwe...',
   'reports.subheading':
     'Isamba sansuku zonke sokusetshenziswa, ukukhiqizwa, kanye nezindleko — sihlukaniswe ngosuku.',
+  'reports.tableHeading': 'Ukuhlukaniswa kwansuku zonke',
   'settings.currency': 'Uhlobo lwemali',
   'settings.errorFlat': 'Izinga elilinganiselwe kumele libe ngu-≥ 0.',
   'settings.errorNotify': 'Ayikwazanga ukulondoloza izinketho zesaziso.',
+  'settings.errorSave': 'Ayikwazanga ukulondoloza uhlelo lwenani.',
   'settings.errorTou':
     'Kudingeka amazinga aphezulu/angewona aphezulu kanye nefasitela elivumelekile lokufinyelela phezulu.',
   'settings.exportBody':
@@ -184,10 +220,21 @@ export const ui: UiTranslations = {
   'settings.saving': 'Ilondoloza...',
   'settings.securityHeading': 'Ukuqinisekiswa kwezinto ezimbili',
   'settings.subheading': 'Amanani, izaziso, kanye nokuthunyelwa kwedatha.',
+  'settings.twoFactorBody':
+    'Dinga ikhodi yesikhathi esisodwa evela kuhlelo lwakho lokufakazela ubuqiniso njalo uma ungena.',
   'settings.twoFactorCode': 'Ikhodi yokuqinisekisa',
   'settings.twoFactorDisable': 'Khubaza',
+  'settings.twoFactorDisableTitle': 'Vala ukufakazela ubuwena ngezinto ezimbili',
   'settings.twoFactorEnable': 'Nika amandla',
+  'settings.twoFactorEnableTitle': 'Vula ukufakazela ubuwena ngezinto ezimbili',
   'settings.twoFactorInvalidCode': 'Ikhodi engavumelekile',
+  'settings.twoFactorOAuth':
+    'I-akhawunti yakho ingena ngomhlinzeki oxhunyiwe, ngakho izinto ezimbili zilawulwa lapho.',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Ikhodi ye-QR yezigaba ezimbili',
+  'settings.twoFactorScan':
+    'Skena le khodi ye-QR ngohlelo lwakho lokufakazela ubuwena, bese ufaka ikhodi enezinombolo eziyisithupha.',
+  'settings.twoFactorUnavailable':
+    'Ukuqinisekiswa kwezinto ezimbili akutholakali kulolu hlelo lokusebenza.',
   'settings.twoFactorVerify': 'Qinisekisa futhi unike amandla',
 }

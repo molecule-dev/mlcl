@@ -5,7 +5,13 @@ export const ui: UiTranslations = {
     'Санал хүсэлт, функцийн хүсэлт эсвэл алдаа олсон уу? Бүртгэлийнхээ цэсэн дэх дэмжлэгийн холбоосоор дамжуулан {{app}} багтай холбогдоорой — мессеж бүр жинхэнэ хүнд очно.',
   'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
+  'about.intro':
+    '{{app}} бол дуу хоолойд суурилсан AI туслах юм. Байгалийн жамаар ярьж, үгсээ текст болохыг харж, хариултыг дуугаар аваарай — ингэснээр бүгдийг бичихийн оронд чанга бодож болно.',
+  'about.missionBody':
+    'Бичих нь таны санаа, түүнийгээ илэрхийлэх хоорондын саад тотгор юм. {{app}} үүнийг арилгахын тулд бий болсон: гар ашиглахгүй, ярианы хэлбэрээр санаагаа цуглуулж, ноорог бичиж, шийдвэр гаргах боломж — шилдэг яриа болон сэтгэн бодох загваруудаар ажилладаг бөгөөд таны өгөгдөл нууцлагдсан хэвээр байна.',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
   'agentDetail.back': 'Бүх агентууд',
+  'agentDetail.behavior': 'Зан төлөв',
   'agentDetail.capabilities': 'Чадварууд',
   'agentDetail.delete': 'Хувь хүнийг устгах',
   'agentDetail.deleteConfirm': 'Энэ дүрийг устгах уу? Үүнийг буцаах боломжгүй.',
@@ -39,15 +45,19 @@ export const ui: UiTranslations = {
   'agents.subtitle':
     'Агент бүр өөрийн гэсэн өнгө аяс, хэмнэл, онцлогтой байдаг. Харилцан ярианы дундуур хүссэн үедээ сольж болно.',
   'agents.title': 'Бодох дуу хоолойгоо сонгоорой.',
+  'authShell.tagline': '{{tagline}} — {{brand}}',
+  'billing.cardNoneBody': 'Дээшлүүлэх үед нэгийг нэмээрэй — хадгалалтыг Stripe бүрэн хариуцна.',
   'billing.cardNoneTitle': 'Файлд карт байхгүй',
   'billing.choose': 'Сэлгүүр',
   'billing.currentPlan': 'Таны төлөвлөгөө',
   'billing.currentPlanReadout': '{{plan}} төлөвлөгөө',
   'billing.eyebrow': 'Төлөвлөгөө ба хэрэглээ',
   'billing.fetchError': 'Төлбөрийн мэдээллийг ачаалж чадсангүй.',
+  'billing.loadingStatus': 'Статус ачааллаж байна…',
   'billing.noTiers': 'Одоогоор төлөвлөгөө байхгүй байна.',
   'billing.plansTitle': 'Төлөвлөгөө',
   'billing.switching': 'Шилжүүлж байна…',
+  'billing.updateAcknowledged': 'Шинэчлэлтийг {{time}}-д хүлээн авлаа',
   'billing.updateError': 'Шинэчлэлтийг эхлүүлж чадсангүй.',
   'billing.usageHeading': 'Энэ мөчлөгт дуу хоолойн хэрэглээ',
   'chatBubble.source.text': 'текст',
@@ -67,11 +77,13 @@ export const ui: UiTranslations = {
   'conversation.title': 'Үүнийг ярилц',
   'conversation.toggleMic': 'Микрофоныг асаах/унтраах',
   'conversation.toggleVoicePlayback': 'Дуу тоглуулах',
+  'conversation.transcribeError': 'Аудиог транскрипцлэх боломжгүй.',
   'conversation.transcriptionEmpty': 'Бид юу ч сонсож чадсангүй. Дахин оролдох уу?',
   'conversation.voiceOff': 'Дуу хоолой унтраалттай',
   'conversation.voiceOn': 'Дуу хоолой асаалттай',
   'conversationDetail.assistant': 'Туслах',
   'conversationDetail.back': 'Түүх рүү буцах',
+  'conversationDetail.elapsed': '00:00 / {{duration}}',
   'conversationDetail.empty': 'Энэ харилцан ярианд одоогоор мессеж алга байна.',
   'conversationDetail.eyebrow': 'Хуулбар',
   'conversationDetail.fetchError': 'Транскрипцийг ачаалж чадсангүй.',
@@ -82,6 +94,7 @@ export const ui: UiTranslations = {
   'conversationDetail.setSpeed': 'Тоглуулах хурдыг дараах байдлаар тохируулах {{speed}}',
   'conversationDetail.system': 'Систем',
   'conversationDetail.untitled': 'Гарчиггүй харилцан яриа',
+  'conversationListItem.messageCount': '{{count}} мессеж',
   'forgotPassword.subheading':
     'Имэйл хаягаа оруулна уу, бид танд дахин тохируулах холбоос илгээх болно.',
   'forgotPassword.successBody': 'Бид дөнгөж сая дахин тохируулах холбоос илгээлээ {{email}} .',
@@ -99,6 +112,9 @@ export const ui: UiTranslations = {
   'landing.copyright': '© {{year}} {{brand}} Чанга бодож үзээрэй.',
   'landing.demoMessage1':
     'Сайн уу Сара — шинэ кампанит ажлын талаар санаа бодлоо хуваалцахад бэлэн үү?',
+  'landing.demoMessage2': 'Тийм — Q3-ын органик өсөлтийн стратегид анхаарлаа хандуулъя.',
+  'landing.demoMessage3':
+    'Гайхалтай. Би нийгэмлэгээс удирдуулсан санаачилгаар эхлэх байсан. Үе шатуудыг тодорхойлж өгөх үү?',
   'landing.eyebrow': 'Дуу хоолойгоор ажилладаг хиймэл оюун ухаан',
   'landing.featuresSubtitle':
     'Байгалийн харилцан ярианд зориулагдсан — таны хурд, өнгө аяс, нөхцөл байдалд тохируулан бүтээгдсэн.',
@@ -128,10 +144,12 @@ export const ui: UiTranslations = {
   'parlanceLayout.openMenu': 'Навигацийн цэсийг нээх',
   'parlanceLayout.primaryNavLabel': 'Үндсэн навигаци',
   'pricing.conversations': '{{count}} харилцан яриа',
+  'pricing.cta.start': '{{tierName}}-г сонгоно уу',
   'pricing.cta.startFree': 'Үнэгүй эхлүүлээрэй',
   'pricing.cta.upgrade': 'Шинэчлэх {{tierName}}',
   'pricing.empty': 'Одоогоор төлөвлөгөө байхгүй байна.',
   'pricing.error': 'Үнийг ачаалж чадсангүй. Дараа дахин оролдоно уу.',
+  'pricing.speech': '{{count}} яриа',
   'pricing.subtitle': 'Туслахтайгаа хэр олон удаа ярилцдагтаа тохирсон төлөвлөгөөг сонгоорой.',
   'privacy.collection.account': 'Таны бүртгэлийн имэйл хаяг болон дэлгэцийн нэр',
   'privacy.contact.body':
@@ -139,6 +157,8 @@ export const ui: UiTranslations = {
   'privacy.deletion.body':
     'Та холбогдох хуудаснаас хүссэн үедээ харилцан яриа, хувийн мэдээлэл эсвэл аудио бичлэгийг устгаж болно. Тохиргооноос бүртгэлээ устгаснаар таны ажлын талбарт холбогдсон бүх харилцан яриа, бичлэг болон хувийн мэдээлэл арилна.',
   'privacy.eyebrow': 'Хууль эрх зүйн',
+  'privacy.intro':
+    '{{app}} нь таны үүсгэсэн яриа болон дууны клипүүдийг туслахын туршлагыг хүргэхэд шаардлагатай хугацаанд л хадгална. Бид таны өгөгдлийг хэзээ ч зардаггүй, мөн хэрэглэгчийн аудио эсвэл транскрипцийг гадаад AI загваруудыг сургахад хэзээ ч ашигладаггүй.',
   'privacy.lastUpdated': 'Сүүлд шинэчилсэн: 2026-05-01',
   'privacy.processors.body':
     'Та туслахтайгаа ярих үед бид таны аудиог транскрипц хийх зорилгоор OpenAI Whisper руу, транскрипцийг хариу авах зорилгоор Anthropic (Claude) руу, хариултыг дуут синтез хийх зорилгоор ElevenLabs эсвэл OpenAI руу дамжуулдаг. Үйлчилгээ үзүүлэгч бүр өөрийн өгөгдөл боловсруулах нөхцөлөөр хязгаарлагддаг; давтан сургалтад юу ч хадгалдаггүй.',
@@ -159,13 +179,19 @@ export const ui: UiTranslations = {
   'resetPassword.newPassword': 'Шинэ нууц үг',
   'resetPassword.subheading': 'Ярилцаж үргэлжлүүлэхийн тулд шинэ нууц үг сонгоно уу.',
   'search.agentPreview': 'Тайлбар байхгүй',
+  'search.emptyBody': 'Өөр түлхүүр үг туршаад үзээрэй эсвэл чанга хэлээрэй.',
   'search.emptyTitle': 'Тохирох зүйл алга',
   'search.eyebrow': 'Командын палитр',
   'search.fetchError': 'Хайлтын индексийг ачаалж чадсангүй.',
+  'search.static.billing.preview': 'Төлөвлөгөө, төлбөрийн арга, нэхэмжлэх',
+  'search.static.billing.title': 'Төлбөр тооцоо',
   'search.static.profile.preview': 'Дэлгэцийн нэр, хаяг, намтар',
+  'search.static.profile.title': 'Профайл',
+  'search.static.voice.preview': 'Анхдагч дуу хоолой болон хэлний тохиргоо',
   'search.static.voice.title': 'Дуу хоолой',
   'search.title': 'Хайлтын хэл',
   'search.transcriptPreview': 'Нээлттэй хуулбар',
+  'settings.appearance.description': 'Гэрэл болон харанхуй горимын хооронд шилжих/унтраах.',
   'settings.appearance.title': 'Гадаад төрх',
   'settings.loadError': 'Тохиргоог ачаалж чадсангүй.',
   'settings.privacy.${row.key}.label': 'Мэдэгдэл',
@@ -182,6 +208,8 @@ export const ui: UiTranslations = {
   'terms.changes.body':
     'Эдгээр нөхцөлүүд мэдэгдэхүйц өөрчлөгдсөн тохиолдолд бид танд апп дотор мэдэгдэх болно; мэдэгдлийн дараа үргэлжлүүлэн ашиглах нь та шинэчлэлтийг хүлээн зөвшөөрч байна гэсэн үг юм.',
   'terms.eyebrow': 'Хууль эрх зүйн',
+  'terms.intro':
+    'Эдгээр нөхцөл нь {{app}}-г ашиглахыг зохицуулна. Бүртгэл үүсгэснээр та тэдгээрийг зөвшөөрч байна.',
   'terms.lastUpdated': 'Сүүлд шинэчилсэн: 2026-05-01',
   'terms.title': 'Үйлчилгээний нөхцөл',
   'terms.usage.body':

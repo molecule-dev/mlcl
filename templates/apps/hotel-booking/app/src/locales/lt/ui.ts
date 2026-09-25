@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Turite klausimų apie rezervaciją, atsiliepimą ar norite pasiūlyti objektą, kuris, jūsų nuomone, turėtų būti {{app}}? Susisiekite su mūsų komanda iš savo paskyros — kiekviena žinutė pasiekia tikrą žmogų, galintį padėti.',
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie mus',
+  'about.featureLoyalty':
+    'Tik nariams skirti tarifai ir lojalumo programa, už kurią kaupiate taškus, vėlyvą išsiregistravimą ir kambario atnaujinimus už kiekvieną rezervaciją.',
+  'about.featureReviews':
+    'Patvirtinti svečių atsiliepimai ir redakcijos atrinkti variantai, kad galėtumėte pasitikėti viešnage dar prieš atvykdami.',
+  'about.featureRooms':
+    'Kambariai, tarifai ir patogumai lyginami vienas šalia kito su skaidria, viską įskaičiuojančia kaina — mokesčiai ir kurorto rinkliavos įtraukti prieš mokant.',
+  'about.featureSearch':
+    'Realiojo laiko paieška patikrintuose viešbučiuose su gyvu prieinamumu, žemėlapio rodiniu ir turtingomis nuotraukų galerijomis.',
+  'about.featureTrips':
+    'Išsaugoti mėgstamiausi kelionių objektai ir kelionių suvestinė, kurioje vienoje vietoje laikomos visos rezervacijos, maršrutai ir patvirtinimai.',
+  'about.intro':
+    '{{app}} — viešbučių rezervavimo platforma keliautojams, kuriems rūpi kokybė. Kiekvieną objektą asmeniškai patikrina mūsų redakcijos komanda — jokių agregatorių atsargų, jokių apgaulingų skelbimų. Ieškokite tikro prieinamumo, lyginkite kambarius, tarifus ir patogumus vieną šalia kito, tada rezervuokite keliais paspaudimais su aiškia, viską įskaičiuojančia kaina.',
+  'about.missionBody':
+    'Rezervuoti nakvynės vietą turėtų būti ramu ir sąžininga. Rodome skaidrius tarifus su mokesčiais ir kurorto rinkliavomis iš anksto, apdovanojame lojalius svečius, o ne lupame iš jų po centą, ir pirmiausia rodome viešnages, vertas jūsų pinigų — kad galėtumėte mažiau laiko praleisti lygindami skirtukus, o daugiau — pačioje kelionėje.',
+  'about.missionTitle': 'Mūsų misija',
+  'about.subtitle': 'Kuruotas, skaidrus būdas rasti ir rezervuoti tinkamą viešbutį.',
   'account.loyalty.activitySummary': '{{nights}} naktys · {{spend}} šiais metais praleido',
+  'account.loyalty.benefitsHeading': 'Jūsų privilegijos',
   'account.loyalty.heading': 'Lojalumas',
   'account.loyalty.loading': 'Kraunama lojalumo programa…',
-  'account.loyalty.pointsTowardNext': '{{taškai}} / {{toliau}} nurodo į {{kitasPakopa}}',
+  'account.loyalty.maxTier': 'Aukščiausias lygis — mėgaukitės savo privilegijomis.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} taškų iki {{nextTier}}',
   'account.loyalty.tier': 'Dabartinis lygis',
   'account.loyalty.unavailable': 'Lojalumo informacija nepasiekiama.',
   'account.navLabel': 'Paskyros skyriai',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Patvirtinkite rezervaciją · {{total}}',
   'bookingCheckout.datesRequired': 'Prašome pasirinkti atvykimo ir išvykimo datas.',
   'bookingCheckout.guestHeading': 'Pagrindinis svečias',
+  'bookingCheckout.heading': 'Patvirtinti ir rezervuoti',
   'bookingCheckout.loadError': 'Nepavyko įkelti ypatybės.',
   'bookingCheckout.nights': '{{rate}} × {{count}} naktys',
   'bookingCheckout.notFound': 'Nerasta nuosavybė.',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Mokesčiai ir rinkliavos',
   'bookingCheckout.tripHeading': 'Jūsų kelionė',
   'bookingConfirmation.allTripsCta': 'Visos kelionės',
+  'bookingConfirmation.confNumber': 'Patvirtinimo numeris: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Jūsų rezervacija apdorojama.',
   'bookingConfirmation.heading': 'Užsakymas patvirtintas',
   'bookingConfirmation.loading': 'Kraunama jūsų rezervacija…',
   'bookingConfirmation.searchMoreCta': 'Naršyti daugiau apgyvendinimo vietų',
   'bookingConfirmation.subheadingForTrip':
-    '{{nuosavybė}} į {{miestas}} , {{šalis}} Pasimatysime {{checkIn}} .',
+    '{{property}} {{city}}, {{country}}. Pasimatysime {{checkIn}}.',
   'bookingConfirmation.total': 'Iš viso {{total}}',
   'bookingConfirmation.viewTripCta': 'Peržiūrėti kelionę',
   'common.goToDashboard': 'Eiti į suvestinę',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Nepavyko įkelti mėgstamiausių.',
   'favorites.pricePerNight': '{{price}} / naktis',
   'favorites.removeCta': 'Atšaukti išsaugojimą',
+  'favorites.removing': 'Šalinama…',
   'forgotPassword.subheading':
     'Įveskite savo paskyros el. pašto adresą ir mes atsiųsime jums saugią atstatymo nuorodą.',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Nuolatiniai nariai',
   'landing.cta.heading': 'Kainos tik nariams. Kiekvienas užsakymas, kiekvieną kartą.',
   'landing.cta.signup': 'Sukurkite nemokamą paskyrą',
+  'landing.cta.subheading':
+    'Kaupkite lojalumo taškus už kiekvieną viešnagę, atrakinkite vėlyvą išsiregistravimą ir kambario atnaujinimus bei gaukite pirmumo teisę į naujus objektus prieš juos paskelbiant viešai.',
   'landing.destinations.eyebrow': 'Kur toliau',
   'landing.destinations.heading': 'Rekomenduojamos kryptys',
   'landing.destinations.seeAll': 'Žiūrėti visas kryptis',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Istorijos, dėl kurių verta susikrauti daiktus',
   'landing.nav.join': 'Prisijunkite prie „Auberge“',
   'landing.nav.search': 'Ieškoti viešnagės',
+  'landing.preview.browseAll': 'Peržiūrėti visą kolekciją',
   'landing.preview.eyebrow': 'Žvilgsnis į vidų',
   'landing.preview.heading': 'Šį mėnesį atrinktos viešnagės',
+  'landing.preview.subheading':
+    'Kiekvieną objektą {{appName}} asmeniškai patikrina mūsų redakcijos komanda — jokių agregatorių atsargų, jokių apgaulingų skelbimų.',
   'login.eyebrow': 'Narių zona',
+  'login.noAccount': 'Naujokas „Tessera“?',
   'login.signupLink': 'Sukurkite nemokamą paskyrą',
   'login.subheading':
     'Prisijunkite, kad galėtumėte tvarkyti savo keliones, peržiūrėti patvirtinimus ir tęsti ten, kur baigėte.',
+  'loyaltyTierBadge.points': '{{points}} taškai',
   'planUpdated.heading': 'Planas atnaujintas',
+  'planUpdated.retry': 'Pabandyk dar kartą',
+  'planUpdated.verifyFailed': 'Mes dar negalėjome patvirtinti jūsų mokėjimo.',
+  'planUpdated.verifyFailedBody':
+    'Jūsų mokėjimas vis dar gali būti apdorojamas. Bandykite dar kartą po akimirkos.',
   'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'pricing.limit.advancedFeatures': 'Išplėstinės funkcijos:',
   'pricing.limit.canExport': 'Duomenų eksportas:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Ką ši vieta siūlo',
   'propertyDetail.backLink': 'Grįžti į paiešką',
   'propertyDetail.bookCta': 'Rezervas',
+  'propertyDetail.bookmarkAria': 'Išsaugoti nuosavybę',
   'propertyDetail.bookmarkAriaSaved': 'Pašalinti iš išsaugotų ypatybių',
+  'propertyDetail.galleryImageAlt': '{{name}} nuotrauka {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} herojaus nuotrauka',
   'propertyDetail.hidePhotos': 'Slėpti nuotraukas',
   'propertyDetail.lineCleaning': 'Valymo mokestis',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'naktis',
   'propertyDetail.noChargeYet': 'Jums dar nebus nuskaičiuoti mokesčiai',
   'propertyDetail.notFound': 'Nerasta nuosavybė.',
+  'propertyDetail.perNight': '/ naktis',
+  'propertyDetail.pickDatesHint': 'Pasirinkite datas, kad pamatytumėte visą kainos suskirstymą.',
   'propertyDetail.reviewCount': '( {{count}} atsiliepimai)',
   'propertyDetail.reviewsHeading': 'Naujausi atsiliepimai',
   'propertyDetail.roomCapacity': 'Miega {{count}}',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Naujas slaptažodis',
   'resetPassword.subheading':
     'Pasirinkite naują slaptažodį savo „Auberge“ paskyrai. Naudokite bent 8 simbolius; rekomenduojame slaptafrazę.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Nėra jokių objektų, atitinkančių jūsų paiešką.',
   'searchResults.emptyHint':
     'Pabandykite praplėsti filtrus arba pašalinti kainų lubas – „Auberge“ apsistojo 14 šalių.',
@@ -108,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Kuruojamos viešnagės',
   'searchResults.headingForQuery': 'Pasilieka " {{q}} "',
   'searchResults.loadError': 'Nepavyko įkelti ypatybių.',
+  'searchResults.mapHint':
+    'Užveskite pelę ant kortelės, kad ji būtų paryškinta žemėlapyje. Produkcinėje aplinkoje naudojamos tiesioginės Mapbox plytelės.',
   'searchResults.mapPinAria': '{{name}} — {{price}} už naktį',
   'searchResults.sortLabel': 'Rūšiuoti pagal',
   'searchResults.subheading': '{{count}} savybės · {{guests}} svečiai',
   'signup.eyebrow': 'Tapkite nariu',
   'signup.subheading':
     'Prisijunkite prie „Auberge“, kad galėtumėte pasinaudoti tik nariams skirtomis kainomis, vėlyvu išsiregistravimu ir pirmieji apžiūrėti naujus objektus.',
+  'sojournAuthShell.brand.eyebrow': 'Apsistokite kažkur nepaprastame',
+  'sojournAuthShell.brand.heading':
+    'Kuruota objektų kolekcija — gražiai pateikta, skaidriai įkainota.',
   'sojournHeroSearchCard.checkInAria': 'Atvykimo data',
   'sojournHeroSearchCard.checkOutAria': 'Išvykimo data',
+  'sojournHeroSearchCard.destAria': 'Kelionės tikslas',
+  'sojournHeroSearchCard.destLabel': 'Kur',
   'sojournHeroSearchCard.destPlaceholder': 'Miestas, regionas arba nuosavybė',
   'sojournHeroSearchCard.eyebrow': 'Kuruojami apsistojimai · Kainos tik nariams',
   'sojournHeroSearchCard.guestsOption': '{{n}} svečiai',
   'sojournHeroSearchCard.subtitle':
     'Kruopščiai atrinkta butikinių viešbučių, išskirtinio dizaino objektų ir retų vietų kolekcija – skaidrios kainos, gražiai pristatyta.',
+  'sojournHeroSearchCard.title': 'Apsistokite kažkur nepaprastame',
+  'sojournHeroSearchCard.trustLoyalty': 'Kaupkite taškus už kiekvieną viešnagę',
   'sojournHeroSearchCard.trustNoFees': 'Jokių paslėptų mokesčių',
   'sojournHeroSearchCard.trustVetted': 'Tik rankiniu būdu patikrintos nuosavybės',
   'sojournLayout.primaryNavLabel': 'Pagrindinė navigacija',

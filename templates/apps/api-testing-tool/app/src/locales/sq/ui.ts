@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Gjete një gabim, ke një kërkesë për veçori të re, apo dëshiron të na tregosh çfarë të ndërtojmë më pas? Dërgo email në hello@pylon.dev — çdo mesazh arrin te një inxhinier i vërtetë i ekipit.',
   'about.contactTitle': 'Kontaktoni me ne',
+  'about.intro':
+    '{{app}} është një stol pune i shpejtë dhe me tastierë për testimin e API-ve, për inxhinierët që jetojnë në terminal — kërkesa në stilin Postman, koleksione, mjedise dhe historik pa fryrje.',
+  'about.missionBody':
+    "API-të janë shtylla kurrizore e softuerit modern, por mjetet për t'i ushtruar ato janë të ngadalta, të fryra dhe të drejtuara nga miu. {{app}} ekziston për t'u dhënë zhvilluesve një stol pune të mprehtë, të shpejtë dhe të nivelit të terminalit: dërgo kërkesa, forco besimin dhe dërgo në prodhim pa u larguar nga tastiera.",
+  'about.missionTitle': 'Misioni ynë',
   'about.pageTitle': 'Rreth {{app}}',
   'authShell.statusLabel': 'vrapues në internet',
   'collections.createError': 'Nuk mundi të krijonte koleksionin.',
   'collections.defaultName': 'Koleksion pa titull {{n}}',
+  'collections.empty':
+    'Nuk ka ende koleksione — kliko “Koleksion i ri” për të krijuar dosjen tënde të parë.',
   'collections.eyebrow': 'koleksione pylonësh $ --tree',
   'collections.fetchError': 'Koleksionet nuk mund të ngarkoheshin.',
   'collections.heading': 'Koleksione',
   'collections.loading': 'Duke ngarkuar koleksionet…',
+  'collections.metric.allGreen': 'Të gjitha në rregull',
   'collections.metric.collections': 'Koleksione',
   'collections.metric.failing': 'Dështim',
   'collections.metric.failingCaption': 'Gara e fundit pati dështime',
@@ -24,6 +34,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Variablat',
   'environments.createError': 'Nuk mundi të krijonte mjedis.',
   'environments.defaultName': 'Mjedis pa titull {{n}}',
+  'environments.empty': 'Nuk ka ende mjedise — kliko “Mjedis i ri” për të shtuar një të tillë.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'Nuk mund të ngarkoheshin mjediset.',
   'environments.heading': 'Mjediset',
@@ -31,8 +42,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Mjedis i ri',
   'environments.subheading':
     'Variabla që shkëmbehen në kërkesa në kohën e dërgimit. Një mjedis aktiv për hapësirë pune.',
+  'forgotPassword.statusLabel': 'rivendos · tunel i sigurt',
   'forgotPassword.success':
     'Nëse ekziston një llogari për atë email, një lidhje rivendosjeje është duke ardhur. Kontrolloni kutinë tuaj postare.',
+  'history.empty': 'Asgjë këtu për momentin — dërgo kërkesën tënde të parë nga skeda Workspace.',
   'history.eyebrow': 'historia e pilonit $ --tail',
   'history.fetchError': 'Nuk mund të ngarkohej historiku.',
   'history.heading': 'Historiku i ekzekutimit',
@@ -41,9 +54,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': '50 të fundit',
+  'history.realtime': 'në kohë reale',
   'history.subheading':
     'Çdo kërkesë e lëshuar në këtë hapësirë pune, me statusin, vonesën dhe madhësinë e ngarkesës.',
   'landing.choosePlan': 'Zgjidh planin',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Forco besimin.',
   'landing.ctaBody':
     'Pa kartë krediti. Nuk kërkohet inxhinier platforme. Hapni ⌘K dhe dërgoni kërkesën tuaj të parë në më pak se pesë minuta.',
   'landing.ctaHeading': 'Krijo vetëbesim.',
@@ -85,6 +100,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Latencia mesatare',
   'mocks.metric.live': 'Publik',
   'mocks.metric.servers': 'Tallje',
+  'mocks.ms': 'ms',
   'mocks.newMock': 'Simulim i ri',
   'mocks.online': 'Publik',
   'mocks.paused': 'Privat',
@@ -108,9 +124,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'I shëndetshëm',
   'monitors.metric.uptime': 'Koha mesatare e funksionimit',
   'monitors.newMonitor': 'Monitor i ri',
+  'monitors.paused': 'i ndaluar',
   'monitors.run': 'Vrapo',
   'monitors.runError': 'Ekzekutimi përfundoi me një gabim rrjeti: {{error}}',
+  'monitors.runFailed': 'Ekzekutimi dështoi.',
   'monitors.running': 'Duke vrapuar…',
+  'monitors.runSuccess': 'Ekzekuto {{status}} — burimi i sipërm ktheu {{code}} në {{ms}}ms.',
   'monitors.sparkLabel': 'Trendi i latencës',
   'monitors.subheading':
     'Kontrolle sipas kërkesës për çdo test të ruajtur. Lidh një test, shtyp Run dhe shiko përditësimin 24-orësh të shkallës së suksesit me çdo zjarr.',
@@ -119,27 +138,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Kohëzgjatja e funksionimit · 24 orë',
   'nav.legal': 'Ligjore',
   'notFound.backToWorkspace': 'Kthehu te hapësira e punës',
+  'notFound.body':
+    '{{app}} dërgoi një kërkesë për këtë URL dhe nuk mori asgjë mbrapsht. Kontrollo dy herë rrugën ose kthehu te hapësira e punës.',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Itinerari nuk u gjet',
+  'planUpdated.body':
+    'Ndryshimi i faturimit tani është aktiv. Mund ta menaxhoni planin tuaj në çdo kohë nga faqja e faturimit.',
+  'planUpdated.retry': 'Provo përsëri',
+  'planUpdated.verifyFailed': 'Nuk mundëm ta konfirmonim ende pagesën tuaj.',
+  'planUpdated.verifyFailedBody':
+    'Pagesa juaj mund të jetë ende duke u përpunuar. Provoni përsëri pas pak.',
   'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
+  'pricing.advancedFeatures': 'Veçori të avancuara: {{yes}}',
+  'pricing.canExport': 'Eksportimi i të dhënave: {{yes}}',
+  'pricing.heading': 'Zgjidhni planin tuaj {{app}}',
+  'pricing.maxCollections': '{{count}} koleksione',
+  'pricing.maxEnvironments': '{{count}} mjedise',
+  'pricing.maxHistory': '{{count}} zëra historiku',
+  'pricing.maxRequests': '{{count}} kërkesa',
   'privacy.collect.account':
     'Llogaria: email-i juaj, fjalëkalimi i hashuar, emri i shfaqur dhe vula kohore e hyrjes suaj të fundit.',
+  'privacy.intro':
+    "{{app}} respekton privatësinë tënde. Kjo faqe përmbledh të dhënat që mbledhim, pse i mbledhim dhe si t'i fshish ato.",
   'privacy.rights.body':
     'Mund t’i eksportoni koleksionet dhe mjediset tuaja në çdo kohë ose të fshini llogarinë tuaj nga Cilësimet për të hequr përgjithmonë të gjitha të dhënat brenda 30 ditëve.',
   'privacy.share.body':
     'Vetëm ju. Ne kurrë nuk e shesim, ndajmë ose japim me qira përmbajtjen e hapësirës suaj të punës palëve të treta. Regjistrat e serverit ruhen për 30 ditë për reagim ndaj incidenteve dhe më pas fshihen.',
   'privacy.title': 'Njoftim për privatësinë',
+  'profile.bio':
+    'Hapësira jote personale e punës {{app}} — fikso koleksione, ndaj mjedise dhe monitoro API-të që dërgojnë produktin në treg.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'u bashkua {{when}}',
+  'profile.metric.collections': 'Koleksione',
   'profile.metric.monitors': 'Monitorët',
   'profile.metric.requests': 'Kërkesat e ruajtura',
+  'profile.noActivity':
+    'Nuk është dërguar ende asnjë kërkesë — shko te skeda Workspace për të bërë një të tillë.',
   'profile.signedOut': 'Hyr për të parë profilin tënd',
   'pylonShell.primaryNavLabel': 'Navigimi kryesor',
+  'resetPassword.passwordLabel': 'Fjalëkalim i ri',
+  'resetPassword.statusLabel': 'rivendos · tokeni i verifikuar',
   'resetPassword.subtitle': 'Zgjidhni një fjalëkalim të fortë që nuk e keni përdorur më parë.',
   'resetPassword.tokenPlaceholder': 'ngjit nga emaili',
+  'settings.accountManagement.desc':
+    'Përditëso emailin dhe fjalëkalimin, menaxho njoftimet dhe pajisjet, dil nga llogaria ose fshij llogarinë tënde.',
+  'settings.accountManagement.title': 'Llogaria dhe siguria',
   'settings.eyebrow': '$ cilësimet e pylonit --edit',
   'settings.fetchError': 'Nuk mund të ngarkoheshin cilësimet.',
   'settings.language.title': 'Gjuha',
+  'settings.seeding': 'Po mbillet…',
   'settings.seedStarter': 'Përmbajtja e filluesit të farës',
   'settings.starterCollection': 'Koleksioni fillestar',
   'settings.starterCollectionDesc': 'Krijuar nga Cilësimet në {{ts}}',
@@ -154,6 +201,8 @@ export const ui: UiTranslations = {
     'Ju jeni përgjegjës për mbrojtjen e fjalëkalimit tuaj. Ndarja e një llogarie me shumë njerëz nuk lejohet në planet Falas ose Pro — blini një abonim në Team për hapësira pune të përbashkëta.',
   'terms.billing.body':
     'Abonimet me pagesë rinovohen automatikisht në çdo periudhë faturimi. Anulojeni nga Cilësimet në çdo kohë; qasja juaj vazhdon deri në fund të periudhës aktuale.',
+  'terms.intro':
+    'Duke krijuar një llogari {{app}}, ti pranon kushtet më poshtë. Lexoji një herë; nuk do të të befasojmë me ndryshime retroaktive.',
   'terms.title': 'Kushtet e shërbimit',
   'terms.usage.body':
     "Mos e përdorni Pylon për të dërguar kërkesa në shërbime që nuk i zotëroni ose nuk keni leje të qartë për t'i testuar. Mos e përdorni Pylon për të anashkaluar kufijtë e tarifave ose për të kryer mashtrime.",
@@ -174,17 +223,23 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Nuk ekzekutohet',
   'testRunner.metric.passed': 'Kaloi',
   'testRunner.never': 'Mos vrapo kurrë',
+  'testRunner.newTest': 'Test i ri',
   'testRunner.noAssertions': 'Ende nuk ka asnjë pohim në lidhje me këtë test.',
+  'testRunner.noRunsYet':
+    'Nuk është regjistruar ende asnjë ekzekutim — kliko “Ekzekuto të gjitha” për të mbushur historikun.',
   'testRunner.passed': 'kalim',
+  'testRunner.recentRuns': 'Vrapimet e fundit',
   'testRunner.runAll': 'Ekzekutoni të gjitha',
   'testRunner.running': 'Duke vrapuar…',
   'testRunner.runOne': 'Vrapo',
   'testRunner.subheading':
     'Rezultatet e suitës, ndryshimet e pohimeve dhe 50 ekzekutimet e fundit.',
+  'testRunner.suites': 'Grupe testesh',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'I identifikuar si',
   'workspace.auth.keyName': 'Emri i kokës së faqes',
   'workspace.auth.keyValue': 'Vlera kryesore',
+  'workspace.auth.noneHint': 'Nuk do të dërgohet asnjë header autorizimi me këtë kërkesë.',
   'workspace.auth.password': 'Fjalëkalimi',
   'workspace.auth.username': 'Emri i përdoruesit',
   'workspace.authOption.apikey': 'Çelësi API',
@@ -194,13 +249,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Lloji',
   'workspace.authTypeLabel': 'Lloji i autorizimit',
+  'workspace.body.contentLabel': 'Trupi i kërkesës',
+  'workspace.body.hint':
+    '{{envVars}} zëvendësohen përpara se kërkesa të dërgohet. Trupat dërgohen në POST/PUT/PATCH/DELETE.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Asnjë',
+  'workspace.body.noneHint':
+    'Nuk do të dërgohet asnjë trup kërkese. Zgjidh JSON ose tekst të papërpunuar për të shtuar një të tillë.',
   'workspace.body.text': 'Tekst i papërpunuar',
   'workspace.body.type': 'Lloji',
   'workspace.environment': 'Pa mjedis',
   'workspace.envVar': 'variabli i env-së',
   'workspace.eyebrow': '$ hapësira e punës së pylonit --ndarja e panelit',
+  'workspace.failedCount': '{{count}} dështoi',
+  'workspace.idle': 'Në gjendje joaktive',
   'workspace.kv.addHeader': 'Shto kokën e faqes',
   'workspace.kv.addParam': 'Shto parametër',
   'workspace.kv.headerKey': 'Emri i kokës së faqes',
@@ -213,12 +275,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'Metoda HTTP',
   'workspace.metric.latency': 'Latencia',
   'workspace.metric.latencyCaption': 'Udhëtim vajtje-ardhje nga kjo vrapim',
+  'workspace.metric.size': 'Ngarkesa',
   'workspace.metric.sizeCaption': 'Bajtet e trupit të përgjigjes',
   'workspace.metric.statusCaption': 'Përgjigja e fundit',
   'workspace.metric.tests': 'Testet',
+  'workspace.metric.testsAllPassing': 'Të gjitha pohimet në rregull',
   'workspace.metric.testsFailing': '{{count}} dështim',
+  'workspace.metric.testsIdle': 'Dërgo një kërkesë për të vlerësuar',
   'workspace.noAssertions': 'Ekzekutoni një kërkesë për të vlerësuar pohimet e integruara.',
   'workspace.noResponseYet': 'Ende pa përgjigje',
+  'workspace.passedCount': '{{count}} kaloi',
   'workspace.responseHint':
     '// Shtypni Dërgo për të aktivizuar kërkesën dhe për të kapur përgjigjen.',
   'workspace.saveError': 'Kërkesa nuk mund të ruhej.',
@@ -228,9 +294,13 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Shkruani një kërkesë, aktivizojeni atë dhe më pas jepni përgjigjen — të gjitha në një panel të vetëm.',
   'workspace.testResults': 'Rezultatet e testit',
+  'workspace.tests.autoHint':
+    'Familja e statusit, vonesa, madhësia e trupit dhe shëndeti i transportit verifikohen automatikisht — rezultatet shfaqen te “Rezultatet e testit” në panelin e përgjigjes.',
+  'workspace.tests.autoTitle': 'Pohimet e integruara ekzekutohen për çdo përgjigje',
   'workspace.token': 'Token',
   'workspace.tokenHint': 'Dërguar si Autorizim: Mbajtësi<token> në çdo kërkesë në këtë koleksion.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Kërkesë pa titull',
+  'workspace.urlLabel': 'Kërkesë URL',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

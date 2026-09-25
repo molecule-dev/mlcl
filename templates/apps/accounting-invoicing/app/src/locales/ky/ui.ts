@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Сурооңуз барбы, ката таптыңызбы же китептериңизди көчүргүңүз келеби? {{app}} командасына hello@{{app}}.example дареги аркылуу кайрылыңыз — ар бир билдирүүнү чыныгы адам окуйт.',
   'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Жөнүндө',
+  'about.intro':
+    '{{app}} — бул чакан бизнес үчүн бухгалтерия, ар бир тыйынды эсепке алат — эсеп-фактуралар, чыгымдар, төлөмдөр жана отчеттор ээлер, бухгалтерлер жана эсепчилер үчүн бир тынч жерде.',
+  'about.missionBody':
+    'Бизнес жүргүзүү китебиңизден коркуу дегенди билдирбеши керек. {{app}} электрондук таблицалардын башаламандыгын так сандар менен алмаштырат, аларга таянып иш кылсаңыз болот, ошондуктан жарашууга азыраак убакыт, ал эми бизнести баштоо үчүн чындап келген ишиңизге көбүрөөк убакыт жумшайсыз.',
+  'about.missionTitle': 'Биздин миссиябыз',
   'about.title': '{{app}} жөнүндө',
   'accounts.count': '{{count}} аккаунт',
+  'accounts.emptyBody':
+    'Реестр эсептери акча кайда жашап, кайда жылып жатканын көзөмөлдөйт. Аларды сиздин бухгалтериңиз же интеграция орноткондон кийин бул жерде пайда болот.',
   'accounts.emptyTitle': 'Азырынча аккаунттар жок',
   'accounts.heading': 'Эсептер планы',
   'accounts.kpi.accounts': 'Аккаунттар',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Эсеп-фактураларыңыздын, чыгымдарыңыздын жана төлөмдөрүңүздүн артындагы ар бир бухгалтердик эсеп, түрү боюнча топтоштурулган.',
   'accounts.tag.inactive': 'активдүү эмес',
   'authBrandPanel.attributionName': 'Сара Дженкинс',
+  'authBrandPanel.attributionRole': 'Башкы каржы директору, Horizon Tech',
   'authBrandPanel.eyebrow': 'Каржы топторунун ишенимине ээ',
   'authBrandPanel.label': 'Брендди көрсөтүү',
   'authBrandPanel.quote': '«Ledger кирешени көзөмөлдөө ыкмабызды өзгөрттү. Эң мыкты тактык».',
@@ -30,7 +40,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Бардык кардарлар',
   'customerDetail.invoiceMeta': 'Берилген күнү: {{issued}} · Мөөнөтү: {{due}}',
   'customerDetail.loadError': 'Кардар жүктөлбөй калды.',
+  'customerDetail.missingBody':
+    'Суралган кардар жазуусун жүктөө мүмкүн болбоду. Ал өчүрүлгөн болушу мүмкүн же сизде ага кирүү укугу жок болушу мүмкүн.',
   'customerDetail.missingHeading': 'Кардардын жазуусу жеткиликсиз',
+  'customerDetail.missingHelp':
+    'Кардарлардын тизмесине кайтуу үчүн жогорку кайтуу шилтемесин колдонуңуз же ал жерден башка жазууну тандаңыз.',
+  'customerDetail.noInvoices': 'Азырынча эсеп-фактуралар жок.',
   'customerDetail.notesEmpty': 'Азырынча эч кандай жазуу жок.',
   'customerDetail.paymentsEmpty': 'Төлөмдөр катталган жок.',
   'customerDetail.paymentTerms': 'Төлөм шарттары',
@@ -57,6 +72,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Франшиза',
   'expenseDetail.detailsHeading': 'Транзакциянын чоо-жайы',
   'expenseDetail.loadError': 'Чыгым жүктөлбөй калды.',
+  'expenseDetail.matched': 'Дал келди · {{description}}',
   'expenseDetail.missingBody':
     'Суралган чыгым жүктөлбөй койду. Ал алынып салынган болушу мүмкүн же сиз ага кире албайсыз.',
   'expenseDetail.missingHeading': 'Чыгымдар жөнүндө маалымат жок',
@@ -64,6 +80,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Квитанция',
   'expenseDetail.receiptHeading': 'Квитанция',
   'expenseDetail.reconciled': 'Элдешти',
+  'expenseDetail.unreconciled': 'Элдешпеген',
   'expenses.empty': 'Азырынча чыгымдар жок.',
   'expenses.heading': 'Чыгымдар',
   'expenses.kpi.deductible': 'Франшиза',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Эсеп-фактуралар жүктөлбөй калды.',
   'invoices.searchPlaceholder': 'Эсеп-фактуранын номерин же кардарды издөө…',
   'invoices.summary.paid': 'Бул мезгилге төлөндү',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     '30 күн бекер. Карта жок. Бухгалтериңизди ала келиңиз — алар сизге рахмат айтышат.',
   'landing.ctaTitle': 'Китептериңизди тынчыраак жерге жылдырыңыз.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Дебитордук карыздар',
   'ledgerStatTriad.eyebrow.mtd': 'Ай башынан бери',
   'ledgerStatTriad.netSub': 'Тор {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} мөөнөтү өттү',
   'ledgerStatTriad.revenueLabel': 'Киреше',
   'login.failed': 'Кирүү ишке ашкан жок.',
   'login.hidePassword': 'Сырсөздү жашыруу',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Кирүү',
   'nav.legal': 'Юридикалык',
   'newExpense.back': 'Чыгымдар',
+  'newExpense.clearReceiptCta': 'Тиркелген квитанцияны тазалоо',
   'newExpense.deductible': 'Салыктан чегерүү',
   'newExpense.dropPrompt': 'Тиркеме үчүн квитанциянын сүрөтүн же PDF файлын бул жерге таштаңыз.',
   'newExpense.failed': 'Чыгымдарды үнөмдөй алган жокмун.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Төлөмдөр жүктөлбөй калды.',
   'payments.unmatchedTag': 'теңдешсиз',
   'planUpdated.pageLabel': 'План жаңыртылды',
+  'pricing.advancedFeatures': 'Кеңейтилген функциялар: {{yes}}',
+  'pricing.canExport': 'Маалыматтарды экспорттоо: {{yes}}',
+  'pricing.heading': '{{app}} тарифиңизди тандаңыз',
+  'pricing.maxAccounts': '{{count}} аккаунт',
+  'pricing.maxExpenses': '{{count}} чыгымдар',
+  'pricing.maxInvoices': '{{count}} эсеп-фактура',
+  'privacy.intro':
+    'Бул Купуялык саясаты {{app}} кызматты колдонгон бизнес жөнүндө маалыматты кантип чогултаарын, колдонорун жана ачаарын сүрөттөйт.',
   'privacy.lastUpdated': 'Акыркы жолу жаңыртылган: {{дат}}',
   'privacy.section.collected.body':
     'Биз эсептин чоо-жайын (аты-жөнү, электрондук почта дареги, компания), сиз жүктөгөн каржылык жазууларды (эсеп-фактуралар, чыгымдар, кардарлар, төлөмдөр) жана стандарттуу тейлөө операцияларынын журналдарын (IP, колдонуучу-агент, убакыт белгилери) чогултабыз.',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Маалымат кызматты иштетүү, сиз сураган отчетторду жана PDF файлдарын түзүү, Mailgun аркылуу транзакциялык электрондук каттарды жөнөтүү жана Stripe аркылуу төлөмдөрдү иштетүү үчүн колдонулат. Биз жеке маалыматты сатпайбыз же ижарага бербейбиз.',
   'recentInvoicesCard.dueMeta': 'Төлөнө турган сумма {{date}}',
+  'recentInvoicesCard.empty': 'Эч кандай эсеп-фактура дал келген жок.',
   'recentInvoicesCard.eyebrow': 'Дебитордук карыздар',
   'recentInvoicesCard.searchAriaLabel': 'Эсеп-фактураларды издөө',
+  'recentInvoicesCard.searchPlaceholder': 'Эсеп-фактураларды издөө…',
   'recentInvoicesCard.title': 'Акыркы эсеп-фактуралар',
   'recentInvoicesCard.viewAll': 'Бардык эсеп-фактураларды көрүү →',
   'reports.assets': 'Активдер',
@@ -181,16 +211,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Пайда жана чыгым (12 ай)',
   'resetPassword.backToLogin': '← Кирүүгө кайтуу',
   'resetPassword.hidePassword': 'Сырсөздү жашыруу',
+  'resetPassword.passwordLabel': 'Жаңы сыр сөз',
   'resetPassword.showPassword': 'Сырсөздү көрсөтүү',
+  'resetPassword.subheading': 'Күчтүү сырсөз тандаңыз — эң аз сегиз белги.',
   'resetPassword.submit': 'Сырсөздү баштапкы абалга келтирүү',
   'resetPassword.tooShort': 'Сырсөз кеминде 8 белгиден турушу керек.',
   'settings.account.changePassword': 'Сырсөздү өзгөртүү',
   'settings.account.changingPassword': 'Өзгөрүүдө…',
   'settings.account.currentPassword': 'Учурдагы сырсөз',
+  'settings.account.dangerZone': 'Коркунучтуу аймак',
   'settings.account.deleteAccount': 'Аккаунтту өчүрүү',
   'settings.account.deleteDescription':
     'Аккаунтуңузду жана ага байланыштуу бардык маалыматтарды биротоло жок кылыңыз.',
   'settings.account.deleteError': 'Аккаунтту өчүрүү ишке ашкан жок.',
+  'settings.account.deleteWarning':
+    'Бул аккаунтуңузду биротоло өчүрөт жана артка кайтарылбайт. Ырастоо үчүн сырсөзүңүздү киргизиңиз.',
   'settings.account.deleting': 'Жок кылынууда…',
   'settings.account.devices': 'Түзмөктөр',
   'settings.account.email': 'Электрондук почта',
@@ -201,6 +236,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Сырсөз',
   'settings.account.passwordError': 'Сырсөздү өзгөртүү ишке ашкан жок.',
   'settings.account.pushNotifications': 'Бул түзмөктөгү push-билдирмелер',
+  'settings.account.revokeDeviceWarning':
+    'Бул түзмөктүн кирүү укугу жакында жокко чыгарылат. Чыгарылсынбы?',
   'settings.account.saveError': 'Профиль жаңыртылбай калды.',
   'settings.account.security': 'Коопсуздук',
   'settings.account.signOutDevice': 'Чыгуу',
@@ -208,12 +245,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Эки факторлуу аутентификация',
   'settings.account.twoFactorCode': 'Аутентификация коду',
   'settings.account.twoFactorDisable': 'Өчүрүү',
+  'settings.account.twoFactorDisableTitle': 'Эки факторлуу аутентификацияны өчүрүү',
   'settings.account.twoFactorEnable': 'Иштетүү',
+  'settings.account.twoFactorEnableTitle': 'Эки факторлуу аутентификацияны күйгүзүү',
   'settings.account.twoFactorInvalidCode': 'Жараксыз код',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'Эки факторлуу QR код',
+  'settings.account.twoFactorScan':
+    'Бул QR кодду аутентификатор колдонмоңуз менен скандаңыз, анан 6 орундуу кодду киргизиңиз.',
+  'settings.account.twoFactorUnavailable':
+    'Бул колдонмо үчүн эки факторлуу аутентификация жеткиликтүү эмес.',
   'settings.account.twoFactorVerify': 'Текшерүү жана иштетүү',
   'settings.account.unknownDevice': 'Белгисиз түзмөк',
   'settings.company.email': 'Эсеп-кысап электрондук почтасы',
+  'settings.company.heading': 'Компания жана салык',
   'settings.company.name': 'Юридикалык аталышы',
   'settings.company.saveButton': 'Компаниянын профилин сактоо',
   'settings.company.taxId': 'Салык төлөөчүнүн идентификациялык номери / EIN',
@@ -257,6 +302,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Болжолдуу түрдө квартал сайын',
   'taxes.kpi.owed': 'Карыз',
   'taxes.loadError': 'Салыктын кыскача баяндамасы жүктөлбөй калды.',
+  'taxes.remittedPct': '({{pct}}% төлөндү)',
+  'terms.intro':
+    'Бул Кызмат көрсөтүү шарттары ("Шарттар") {{app}} кызматына кирүүңүздү жана аны колдонууңузду жөнгө салат. Аккаунт түзүү же кызматты колдонуу менен сиз аларга баш ийүүгө макул болосуз.',
   'terms.lastUpdated': 'Акыркы жолу жаңыртылган: {{дат}}',
   'terms.section.acceptable.body':
     'Сиз кызматты кандайдыр бир мыйзамды бузуу, интеллектуалдык менчик укуктарын бузуу, зыяндуу программаларды жөнөтүү же башка аккаунттарга же биздин инфраструктурага уруксатсыз кирүү аракетин жасоо үчүн колдонбоого макул болосуз.',

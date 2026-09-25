@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'មានសំណួរ មតិកែលម្អ ឬសំណើមុខងារ? ទាក់ទងក្រុម {{app}} ពី Settings → Notifications ឬសរសេរមកយើងខ្ញុំគ្រប់ពេល — រាល់សារទាំងអស់ត្រូវបានផ្ញើទៅមនុស្សពិតប្រាកដ។',
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពី',
+  'about.featureCapture':
+    'ការថតបង្កាន់ដៃជាមួយការផ្ទុករូបថត ដែលភ្ជាប់រូបភាពទៅនឹងចំណាយត្រឹមត្រូវ តាមបន្ទាត់ម្តងមួយ។',
+  'about.featureExport':
+    'ការនាំចេញ CSV ដែលអាចផ្ទៀងផ្ទាត់បាន នៃរបាយការណ៍ ចំណាយ និងស្ថានភាពអនុម័តទាំងអស់ — រួចរាល់សម្រាប់ក្រុមគណនេយ្យរបស់អ្នក។',
+  'about.featurePolicy':
+    'ខ្សែការពារគោលនយោបាយ — ដែនកំណត់ប្រចាំថ្ងៃ ដែនកំណត់តាមប្រភេទ និងកម្រិតតម្រូវឱ្យមានបង្កាន់ដៃ ត្រូវបានអនុវត្តនៅពេលដាក់ស្នើ។',
+  'about.featureWorkflow':
+    'លំហូរការអនុម័តពីរកម្រិត ជាមួយកំណត់សម្គាល់អ្នកត្រួតពិនិត្យ សញ្ញាបំពានគោលនយោបាយ និងការសម្គាល់សងប្រាក់វិញដោយចុចតែម្តង។',
+  'about.intro':
+    '{{app}} គឺជាវេទិកាគ្រប់គ្រងចំណាយសម្រាប់ក្រុមហិរញ្ញវត្ថុ និងអ្នកដែលពួកគេសងប្រាក់វិញ។ ថតបង្កាន់ដៃ ដាក់ចំណាយ ផ្ញើរបាយការណ៍តាមការអនុម័ត និងតាមដានរាល់ការសងប្រាក់វិញ — ដោយមិនចាំបាច់មានភាពរញ៉េរញ៉ៃជាមួយសៀវភៅបញ្ជី។',
+  'about.missionBody':
+    'ការសងប្រាក់វិញគួរតែលឿន យុត្តិធម៌ និងអាចផ្ទៀងផ្ទាត់បាន។ យើងបានបង្កើត {{app}} ដើម្បីឱ្យអ្នកដាក់ស្នើទទួលបានប្រាក់សងវិញដោយមិនចាំបាច់ទទូច អ្នកអនុម័តឃើញច្បាស់ពីអ្វីដែលពួកគេកំពុងអនុម័ត ហើយផ្នែកហិរញ្ញវត្ថុមានកំណត់ត្រាច្បាស់លាស់សម្រាប់រាល់ដុល្លារ — រួមទាំងការត្រួតពិនិត្យគោលនយោបាយ។',
+  'about.missionTitle': 'បេសកកម្មរបស់យើង',
   'approvals.approve': 'Approve',
   'approvals.approving': 'កំពុងអនុម័ត…',
   'approvals.confirmReject': 'បញ្ជាក់ការបដិសេធ',
+  'approvals.empty': 'អ្នកបានធ្វើរួចរាល់ហើយ — គ្មានរបាយការណ៍រង់ចាំទេ។',
   'approvals.eyebrow': 'ជួរអ្នកគ្រប់គ្រង',
   'approvals.kpi.flaggedLabel': 'បាន​ដាក់​ទង់​គោលនយោបាយ',
+  'approvals.kpi.queueLabel': 'កំពុងរង់ចាំការត្រួតពិនិត្យ',
   'approvals.kpi.totalLabel': 'តម្លៃដែលកំពុងរង់ចាំ',
   'approvals.lineCount': '{{count}} ការចំណាយ',
   'approvals.queueFallback':
     'ជួរបន្តផ្ទាល់មិនអាចប្រើបានទេ — កំពុងបង្ហាញទិន្នន័យសាកល្បងដែលបានរៀបចំ។',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'កំពុងបដិសេធ…',
+  'approvals.rejectPlaceholder': 'មូលហេតុ (តម្រូវឱ្យបំពេញ)',
   'approvals.rejectPrompt': 'ហេតុអ្វីបានជាអ្នកបដិសេធរបាយការណ៍នេះ?',
   'approvals.review': 'ពិនិត្យឡើងវិញ',
   'approvals.title': 'ការអនុម័តដែលកំពុងរង់ចាំ',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+១៨%',
   'dashboard.kpi.approvedLabel': 'យល់ព្រម · MTD',
   'dashboard.kpi.pendingDelta': '+២ សប្តាហ៍នេះ',
+  'dashboard.kpi.pendingLabel': 'កំពុងរង់ចាំការពិនិត្យឡើងវិញ',
   'dashboard.kpi.receiptsDelta': 'តម្រូវឲ្យមានសកម្មភាព',
   'dashboard.kpi.receiptsLabel': 'កំពុងរង់ចាំបង្កាន់ដៃ',
   'dashboard.kpi.reimbursedDelta': '+២,៤ពាន់ដុល្លារ',
   'dashboard.kpi.reimbursedLabel': 'បានសងប្រាក់វិញ · MTD',
   'dashboard.newReport': 'របាយការណ៍ថ្មី',
+  'dashboard.recent.empty': 'មិនទាន់មានរបាយការណ៍ — ចាប់ផ្តើមរបស់អ្នកដំបូងខាងលើ។',
   'dashboard.recent.title': 'របាយការណ៍ថ្មីៗ',
   'dashboard.recent.viewAll': 'មើលរបាយការណ៍ទាំងអស់',
   'dashboard.summaryFallback':
@@ -41,11 +62,19 @@ export const ui: UiTranslations = {
   'expenses.listFallback':
     'បញ្ជីផ្សាយផ្ទាល់មិនអាចប្រើបានទេ — កំពុងបង្ហាញទិន្នន័យសាកល្បងដែលបានរៀបចំ។',
   'expenses.searchPlaceholder': 'ស្វែងរកអាជីវករ ឬប្រភេទ…',
+  'expenses.subtotal': 'ចំណាយ {{count}} · សរុបរង',
   'expenses.title': 'ការចំណាយ',
+  'forgotPassword.continue': 'ខ្ញុំមានកូដ · បន្ត',
+  'forgotPassword.subheading':
+    'បញ្ចូលអ៊ីមែលការងាររបស់អ្នក ហើយយើងនឹងផ្ញើតំណដើម្បីកំណត់ពាក្យសម្ងាត់ថ្មី។',
   'forgotPassword.successBody':
     'ប្រសិនបើមានគណនីសម្រាប់ {{email}} អ្នកនឹងទទួលបានតំណភ្ជាប់កំណត់ឡើងវិញក្នុងរយៈពេលប៉ុន្មាននាទីខាងមុខ។',
+  'landing.copyright': '© {{year}} {{app}}។ បង្កើតឡើងដោយ Molecule.dev។',
+  'landing.ctaBody':
+    'ឥតគិតថ្លៃសម្រាប់ចំណាយ 25 ដំបូងជារៀងរាល់ខែ។ គ្មានកាតឥណទាន គ្មានការហៅអនុវត្តទេ។',
   'landing.ctaHeading': 'ត្រៀមខ្លួនរួចរាល់ហើយឬនៅ ដើម្បីទាមទារយកមកវិញនូវអ្វីដែលក្រុមរបស់អ្នកជំពាក់?',
   'landing.eyebrow': 'របាយការណ៍ចំណាយសម្រាប់ក្រុមហិរញ្ញវត្ថុ',
+  'landing.featuresHeading': 'ការសងប្រាក់វិញ ក្នុងកន្លែងធ្វើការតែមួយដ៏ស្ងប់ស្ងាត់',
   'landing.heroSubtitle':
     'ដាក់ស្នើ អនុម័ត និងសងប្រាក់វិញនូវការចំណាយអាជីវកម្មដោយមិនចាំបាច់ធ្វើពិធីសៀវភៅបញ្ជី។ បង្កាន់ដៃ OCR ការត្រួតពិនិត្យគោលនយោបាយ និងពេលវេលាអនុម័តដែលមានតម្លាភាព — ទាំងអស់ស្ថិតនៅក្នុងកន្លែងធ្វើការដ៏ស្ងប់ស្ងាត់មួយ។',
   'landing.heroTitle': 'បង្កាន់ដៃនីមួយៗត្រូវបានយកមកវិញ។',
@@ -63,10 +92,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'កំណត់ចំណាំ',
   'newExpense.descriptionPlaceholder':
     'ហេតុអ្វីបានជាការចំណាយនេះទាក់ទងនឹងអាជីវកម្ម (អាចមើលឃើញដោយអ្នកអនុម័តរបស់អ្នក)។',
+  'newExpense.eyebrow': 'ធាតុដែលអាចសងប្រាក់វិញ',
   'newExpense.merchant': 'អាជីវករ',
   'newExpense.merchantPlaceholder': 'សណ្ឋាគារ Adlon Kempinski',
   'newExpense.policyHint':
     'ការរំលឹក៖ អាហារលើសពី ៨០ ដុល្លារ/ថ្ងៃ ឬរបស់របរណាមួយលើសពី ២៥០ ដុល្លារ តម្រូវឱ្យមានកំណត់សម្គាល់បញ្ជាក់ហេតុផល។',
+  'newExpense.receipt': 'បង្កាន់ដៃ',
+  'newExpense.receiptHint': 'JPG, PNG, ឬ PDF · អតិបរមា 10 MB',
   'newExpense.receiptOcrHint': 'វាលបំពេញជាមុន OCR',
   'newExpense.receiptPrompt': 'ទម្លាក់រូបថត ឬ PDF នៅទីនេះ ឬចុចដើម្បីរកមើល',
   'newExpense.receiptUploadFailed':
@@ -77,16 +109,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'ថត ឬផ្ទុកឡើងបង្កាន់ដៃ ហើយ Recoup នឹងបំពេញជាមុននូវអាជីវករ កាលបរិច្ឆេទ និងចំនួនសរុប។ សូមបញ្ជាក់អ្វីៗគ្រប់យ៉ាងខាងក្រោមមុនពេលរក្សាទុក។',
   'newExpense.title': 'បន្ថែមការចំណាយ',
+  'newReport.approverHint':
+    'ពួកគេនឹងទទួលបានអ៊ីមែល នៅពេលអ្នកដាក់ស្នើរបាយការណ៍នេះសម្រាប់ការត្រួតពិនិត្យ។',
   'newReport.approverLabel': 'អ៊ីមែលអ្នកអនុម័ត (ស្រេចចិត្ត)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'ការចំណាយដែលមាន',
   'newReport.createFailed': 'មិនអាចបង្កើតរបាយការណ៍បានទេ។ សូមព្យាយាមម្តងទៀត។',
   'newReport.draftsFallback': 'បញ្ជីចំណាយផ្ទាល់មិនមានទេ — កំពុងបង្ហាញទិន្នន័យសាកល្បងដែលបានរៀបចំ។',
+  'newReport.eyebrow': 'ដាក់ចំណាយជាក្រុម · ដាក់ស្នើសម្រាប់ការអនុម័ត',
   'newReport.includedCount': '{{count}} រួមបញ្ចូល',
   'newReport.purposeLabel': 'គោលបំណងអាជីវកម្ម',
   'newReport.purposePlaceholder':
     'សូមពិពណ៌នាអំពីដំណើរកម្សាន្ត ឬគម្រោងដែលការចំណាយទាំងនេះទាក់ទងនឹង (អាចមើលឃើញដោយអ្នកអនុម័ត និងហិរញ្ញវត្ថុរបស់អ្នក)។',
   'newReport.saveDraft': 'រក្សាទុកជាសេចក្តីព្រាង',
+  'newReport.saveDraftFailed': 'មិនអាចរក្សាទុកសេចក្តីព្រាងបានទេ។ សូមព្យាយាមម្តងទៀត។',
   'newReport.submit': 'ដាក់ស្នើសម្រាប់ការអនុម័ត',
   'newReport.submitFailed': 'មិនអាចដាក់ស្នើរបាយការណ៍បានទេ។ សូមព្យាយាមម្តងទៀត។',
   'newReport.summary': 'សេចក្តីសង្ខេបរបាយការណ៍',
@@ -100,17 +136,24 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'ការផ្សាយផ្ទាល់មិនអាចប្រើបានទេ — កំពុងបង្ហាញទិន្នន័យសាកល្បងដែលបានរៀបចំ។',
   'notifications.openReport': 'បើករបាយការណ៍ ›',
+  'pricing.approvalsLabel': 'ការអនុម័ត',
   'pricing.expensesLabel': 'ការចំណាយ',
   'pricing.heading': 'ការអនុម័ត',
   'pricing.policiesLabel': 'គោលនយោបាយ',
   'pricing.receiptsLabel': 'បង្កាន់ដៃ',
   'recoveredAmountHeroCard.label': 'សំណង​ត្រូវ​បាន​ប្រមូល​បាន · YTD',
+  'recoveredAmountHeroCard.pending':
+    'របាយការណ៍ {{count}} កំពុងរង់ចាំការត្រួតពិនិត្យពីអ្នកអនុម័តទាំងអស់។',
+  'reports.approvalFlow': 'លំហូរការអនុម័ត',
   'reports.backToList': 'ត្រឡប់ទៅរបាយការណ៍វិញ',
   'reports.detailFallback':
     'របាយការណ៍ផ្ទាល់មិនអាចប្រើបានទេ — កំពុងបង្ហាញទិន្នន័យសាកល្បងដែលបានរៀបចំ។',
   'reports.lineItems': 'ធាតុ​ជួរ',
   'reports.lineItemsCount': '{{count}} ការចំណាយ',
+  'reports.lineItemsEmpty': 'មិនទាន់មានចំណាយនៅក្នុងរបាយការណ៍នេះទេ។',
+  'reports.openLibrary': 'បើកបណ្ណាល័យរបាយការណ៍',
   'reports.policyTitle': 'ទង់គោលនយោបាយ',
+  'reports.selectPrompt': 'ជ្រើសរើសរបាយការណ៍ពីបណ្ណាល័យ ដើម្បីមើលព័ត៌មានលម្អិតរបស់វា។',
   'reports.summary.lineCount': 'ធាតុ​ជួរ',
   'reports.summary.reimbursable': 'អាចសងប្រាក់វិញបាន',
   'reports.summary.total': 'សរុបដែលបានរាយការណ៍',
@@ -120,6 +163,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'បញ្ជីផ្សាយផ្ទាល់មិនអាចប្រើបានទេ — កំពុងបង្ហាញទិន្នន័យសាកល្បងដែលបានរៀបចំ។',
   'reportsList.newReport': 'របាយការណ៍ថ្មី',
+  'reportsList.submittedOn': 'ដាក់ស្នើ {{date}}',
   'reportsList.title': 'បណ្ណាល័យរបាយការណ៍',
   'resetPassword.hidePassword': 'លាក់ពាក្យសម្ងាត់',
   'resetPassword.newPasswordLabel': 'ពាក្យសម្ងាត់ថ្មី',
@@ -144,6 +188,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'បានរក្សាទុក ✓',
   'settings.profileSaveFailed': 'មិនអាចធ្វើបច្ចុប្បន្នភាពប្រវត្តិរូបបានទេ។ សូមព្យាយាមម្តងទៀត។',
   'signup.heading': 'បង្កើតគណនី Recoup របស់អ្នក',
+  'signup.hidePassword': 'លាក់ពាក្យសម្ងាត់',
   'signup.namePlaceholder': 'ម៉ាយ៉ា អូកាហ្វ័រ',
   'signup.showPassword': 'បង្ហាញពាក្យសម្ងាត់',
   'signup.subheading': 'ឥតគិតថ្លៃសម្រាប់ការចំណាយចំនួន 25 ក្នុងមួយខែ — មិនប្រើកាតឥណទាន។',

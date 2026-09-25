@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пікіріңіз бар ма, қате таптыңыз ба, әлде күнделік жүргізудің сізге қалай көмектескенін айтқыңыз келе ме? Біз әрбір хабарламаны оқимыз — кез келген уақытта хабарласыңыз, нақты адам сізге жауап береді.',
+  'about.contactTitle': 'Бізбен байланысыңыз',
+  'about.featureInsights':
+    'Триггерлерді, тақырыптарды және ризашылықтарды жұмсақ түрде көрсететін AI негізіндегі ой толғаулар — өз дауысыңызды жоғалтпай.',
+  'about.featureMood':
+    'Күнтізбе көрінісі мен сізге гүлденуге көмектесетінін анықтайтын тренд графиктері бар көңіл-күй мен белсенділікті бақылау.',
+  'about.featurePrivacy':
+    'Ұштан ұшқа шифрлау, құпия сөз құлпы және толық CSV экспорты — ойларыңыз құпия әрі тасымалданатын болып қалады.',
+  'about.featurePrompts':
+    'Күнделікті жұмсақ нұсқаулар — әрқашан бастайтын жеріңіз бар, бос бет ешқашан болмайды.',
+  'about.intro':
+    '{{app}} — күнделікті ой толғау, көңіл-күйді бақылау және ризашылық үшін жұмсақ, құпия психикалық денсаулық күнделігі. Ойластырылған нұсқаулар бос бетті алмастырады, тыныш заңдылықтарды табу сезіміңізге не әсер ететінін түсінуге көмектеседі, ал ұштан ұшқа шифрлау сөздеріңізді өзіңізде сақтайды.',
+  'about.missionBody':
+    'Біз өзіңізбен байланысудың тыныш болуы керек деп санаймыз, ешқашан клиникалық емес — және назарыңызды талап ететін тағы бір қолданба сияқты ешқашан болмауы керек. {{app}} көмектесу үшін жасалған, мазалау үшін емес: күніне бірнеше тыныш минут — көңіл-күйіңізді байқап, шынайы жазып, өзіңізді біртіндеп анық көру үшін.',
+  'about.missionTitle': 'Біздің миссиямыз',
   'about.pageTitle': '{{app}} туралы',
   'authShell.encryptionBadge': 'Жазбаларыңыз толық шифрланған.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': '{{day}}-күн — жазба жоқ',
   'calendar.cellMood': 'Күн {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Осы айға қысқаша шолу',
   'calendar.eyebrow': 'Көңіл-күйді бір қарағанда',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Бақыланған {{tracked}} -ның {{total}} осы айдағы күндер.',
   'common.goToDashboard': 'Бақылау тақтасына өту',
   'common.tryAgain': 'Қайтадан байқап көріңіз',
+  'entryComposer.bodyPlaceholder':
+    'Шынайы сезінетін нәрсені жаз. Мұны сізден басқа ешкім оқымайды.',
   'entryComposer.cancel': 'Күнделікке оралу',
   'entryComposer.heading': 'Бүгінгі ой толғау',
   'entryComposer.moodLabel': 'Өзіңізді қалай сезінесіз?',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Алып тастау {{tag}}',
   'entryComposer.save': 'Рефлексияны сақтау',
   'entryComposer.saveError': 'Жазбаңызды сақтау мүмкін болмады.',
+  'entryComposer.tagPlaceholder': 'Тег қосып, Enter пернесін басыңыз',
   'entryComposer.titlePlaceholder': 'Бұл көрініске атау беріңіз...',
   'entryDetail.back': 'Күнделікке оралу',
   'entryDetail.delete': 'Бұл жазбаны жою',
@@ -36,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Шағылыс жүктелуде…',
   'entryDetail.notFound': 'Жазба табылмады.',
   'entryDetail.reflectionsHeading': 'Жасанды интеллекттің шағылысулары',
+  'forgotPassword.continueButton': 'Қалпына келтіру кодын енгізіңіз',
   'forgotPassword.eyebrow': 'Уайымдама',
   'forgotPassword.subheading':
     'Біз сіздің электрондық поштаңызға ақырын қалпына келтіру сілтемесін жібереміз.',
@@ -59,14 +80,22 @@ export const ui: UiTranslations = {
     'Әзірге тақырыптар жоқ — жазбаларыңызға бір-екі тег қосыңыз, сонда олар осында жиналады.',
   'insights.themesHeading': 'Ең танымал тақырыптар',
   'insights.triggerFrequency': 'байқады {{count}} × осы айда',
+  'insights.triggersEmpty':
+    'Әзірге байқайтын ештеңе жоқ. Бірнеше күндегі бірнеше жазба заңдылықтарыңызды көрсетеді.',
   'insights.triggersHeading': 'Көңіл-күйіңізді өзгертетін үлгілер',
+  'journal.empty':
+    'Сәйкес келетін ой толғау жоқ — басқа сүзгіні қолданып көріңіз немесе жаңа жазба жазыңыз.',
   'journal.eyebrow': 'Сіздің ойларыңыз',
   'journal.heading': 'Күнделік',
   'journal.loadError': 'Жазбаларды жүктеу сәтсіз аяқталды.',
   'journal.loading': 'Жазбалар жүктелуде…',
+  'journal.newEntry': 'Жаңа жазба',
   'journal.searchPlaceholder': 'Сезімді, есімді, сәтті іздеңіз...',
   'journal.subheading': '{{count}} жазбалар — әрқайсысын сақтауға тұрарлық.',
   'journalEntryCard.encryptedLabel': 'Шифрланған',
+  'landing.ctaBody':
+    'Тегін бастауға болады. Pro деректер экспортын, үлкенірек күнделікті және толық бір жылдық тарихты ашады.',
+  'landing.ctaButton': 'Алғашқы жазбаңызды бастаңыз',
   'landing.ctaTitle': 'Күніне бірнеше минут тыныштық. Болды сол.',
   'landing.eyebrow': 'Күнделікті жұмсақ жаттығу',
   'landing.featuresBody':
@@ -85,6 +114,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Күнделікті ойлануға арналған жайлы кеңістік.',
   'mentalHealthJournalLayout.closeMenu': 'Мәзірді жабу',
   'mentalHealthJournalLayout.openMenu': 'Мәзірді ашу',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Негізгі навигация',
+  'moodHeroCard.entriesThisWeek': '{{count}} осы аптада',
   'moodHeroCard.streakSuffix': 'күндік серия',
   'moodHeroCard.title': 'Бүгінгі ой толғау',
   'moodTrendChart.aiBadge': 'Жасанды интеллект дайын',
@@ -95,10 +126,12 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Сіздің сапарыңыз',
   'profile.fallbackName': 'Шағылыстырғыш',
   'profile.loadError': 'Статистиканы жүктеу сәтсіз аяқталды.',
+  'profile.loading': 'Статистикаңыз жаңартылуда…',
   'profile.longestStreak': 'Ең ұзақ серия',
   'profile.memberSince': 'Содан бері ой елегінен өткізу {{date}}',
   'profile.milestones': 'Кезеңдер',
   'profile.milestonesEmpty': 'Алғашқы кезеңіңіз бір қадам ғана қалды — дайын болған кезде жазыңыз.',
+  'profile.moodMix': 'Осы маусымдағы көңіл-күй қоспаңыз',
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'Ой толғаулар',
   'profile.totalWords': 'Жазылған сөздер',
@@ -111,6 +144,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Бұл туралы жазыңыз',
   'resetPassword.eyebrow': 'Жаңа бастама',
   'resetPassword.mismatchError': 'Құпия сөздер сәйкес келмейді.',
+  'resetPassword.passwordLabel': 'Жаңа құпия сөз',
   'resetPassword.subheading': 'Қауіпсіз нәрсені таңдаңыз - сіздің ойларыңыз соған лайық.',
   'resetPassword.tokenPlaceholder': 'Электрондық поштадан кодты қалпына келтіру',
   'settings.dangerDescription':
@@ -123,11 +157,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     'Сөздеріңіз әрқашан сізге тиесілі. Кез келген уақытта көшірмесін жүктеп алыңыз.',
   'settings.exportDone': 'Экспортталды {{format}}.',
+  'settings.exportError': 'Экспорттау сәтсіз аяқталды.',
+  'settings.exportHeading': 'Ой толғауларыңызды экспорттаңыз',
   'settings.exportLoading': 'Дайындалуда…',
   'settings.eyebrow': 'Сіздің кеңістігіңіз, сіздің ережелеріңіз',
   'settings.languageHeading': 'Тіл',
   'settings.privacyHeading': 'Құпиялылық және шифрлау',
   'settings.remindersHeading': 'Күнделікті еске салғыш',
+  'settings.reminderToggleAria': 'Күнделікті еске салғышты қосу/өшіру',
   'settings.reminderToggleDescription':
     'Таңдаған уақытта бір ғана тыныштық еске салғышы. Белгілер немесе кінә сезімі жоқ.',
   'settings.reminderToggleLabel': 'Ақырын түрткі жіберіңіз',
@@ -140,6 +177,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Журнал жасалуда…',
   'signup.subheading': 'Ойларыңыз үшін қауіпсіз кеңістік.',
   'wellnessRingsTriad.mindfulnessCaption': 'Мақсат {{goal}} бүгін мин',
+  'wellnessRingsTriad.mindfulnessLabel': 'Зейінділік',
   'wellnessRingsTriad.sleepCaption': 'Мақсат {{goal}} сағат / түн',
   'wellnessRingsTriad.sleepLabel': 'Ұйқы',
+  'wellnessRingsTriad.sleepValue': '{{hours}} сағ',
+  'wellnessRingsTriad.streakCaption': 'Мақсат {{goal}} күн',
+  'wellnessRingsTriad.streakLabel': 'Күнделік сериясы',
+  'wellnessRingsTriad.streakValue': '{{days}} d',
 }

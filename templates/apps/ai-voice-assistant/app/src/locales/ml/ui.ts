@@ -5,7 +5,13 @@ export const ui: UiTranslations = {
     'ഫീഡ്‌ബാക്ക് ഉണ്ടോ, ഫീച്ചർ അഭ്യർത്ഥനയുണ്ടോ, അല്ലെങ്കിൽ ഒരു ബഗ് കണ്ടെത്തിയോ? നിങ്ങളുടെ അക്കൗണ്ട് മെനുവിലെ പിന്തുണ ലിങ്ക് വഴി {{app}} ടീമിനെ ബന്ധപ്പെടുക — എല്ലാ സന്ദേശങ്ങളും ഒരു യഥാർത്ഥ മനുഷ്യനിലേക്ക് പോകുന്നു.',
   'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
+  'about.intro':
+    '{{app}} ഒരു വോയ്സ്-നേറ്റീവ് AI അസിസ്റ്റന്റാണ്. സ്വാഭാവികമായി സംസാരിക്കൂ, നിങ്ങളുടെ വാക്കുകൾ ടെക്സ്റ്റായി മാറുന്നത് കാണൂ, സംസാരിച്ച ഉത്തരങ്ങൾ തിരികെ ലഭിക്കൂ — അതിനാൽ എല്ലാം ടൈപ്പ് ചെയ്യുന്നതിനുപകരം ഉറക്കെ ചിന്തിക്കാം.',
+  'about.missionBody':
+    'നിങ്ങളുടെ ആശയങ്ങളും അവ പുറത്തെടുക്കലും തമ്മിലുള്ള ഒരു തടസ്സമാണ് ടൈപ്പിംഗ്. അത് ഒഴിവാക്കാനാണ് {{app}} ഉള്ളത്: ബ്രെയിൻസ്റ്റോം ചെയ്യാനും ഡ്രാഫ്റ്റ് ചെയ്യാനും തീരുമാനമെടുക്കാനുമുള്ള ഒരു ഹാൻഡ്സ്-ഫ്രീ, സംഭാഷണാധിഷ്ഠിത മാർഗം — മികച്ച സ്പീച്ച്, റീസണിംഗ് മോഡലുകളാൽ പ്രവർത്തിക്കുന്നു, നിങ്ങളുടെ ഡാറ്റ സ്വകാര്യമായി സൂക്ഷിക്കുന്നു.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'agentDetail.back': 'എല്ലാ ഏജന്റുമാരും',
+  'agentDetail.behavior': 'പെരുമാറ്റം',
   'agentDetail.capabilities': 'ശേഷികൾ',
   'agentDetail.delete': 'വ്യക്തിത്വം ഇല്ലാതാക്കുക',
   'agentDetail.deleteConfirm': 'ഈ വ്യക്തിത്വം ഇല്ലാതാക്കണോ? ഇത് പഴയപടിയാക്കാൻ കഴിയില്ല.',
@@ -39,15 +45,20 @@ export const ui: UiTranslations = {
   'agents.subtitle':
     'ഓരോ ഏജന്റിനും അവരുടേതായ സ്വരവും, താളവും, പ്രത്യേകതയും ഉണ്ട്. സംഭാഷണത്തിനിടയിൽ ഏത് സമയത്തും മാറ്റുക.',
   'agents.title': 'ചിന്തിക്കാൻ ഒരു ശബ്ദം തിരഞ്ഞെടുക്കുക.',
+  'authShell.tagline': '{{tagline}} — {{brand}}',
+  'billing.cardNoneBody':
+    'അപ്ഗ്രേഡ് ചെയ്യുമ്പോൾ ഒന്ന് ചേർക്കൂ — സ്റ്റോറേജ് മുഴുവൻ Stripe കൈകാര്യം ചെയ്യുന്നു.',
   'billing.cardNoneTitle': 'ഫയലിൽ കാർഡ് ഇല്ല.',
   'billing.choose': 'മാറുക',
   'billing.currentPlan': 'നിങ്ങളുടെ പ്ലാൻ',
   'billing.currentPlanReadout': '{{plan}} പദ്ധതി',
   'billing.eyebrow': 'പ്ലാനും ഉപയോഗവും',
   'billing.fetchError': 'ബില്ലിംഗ് വിവരങ്ങൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
+  'billing.loadingStatus': 'സ്റ്റാറ്റസ് ലോഡ് ചെയ്യുന്നു…',
   'billing.noTiers': 'ഇപ്പോൾ പ്ലാനുകളൊന്നും ലഭ്യമല്ല.',
   'billing.plansTitle': 'പദ്ധതികൾ',
   'billing.switching': 'മാറുന്നു...',
+  'billing.updateAcknowledged': '{{time}}-ൽ അപ്ഡേറ്റ് സ്വീകരിച്ചു',
   'billing.updateError': 'അപ്ഡേറ്റ് ആരംഭിക്കാൻ കഴിഞ്ഞില്ല.',
   'billing.usageHeading': 'ഈ സൈക്കിളിൽ ശബ്‌ദ ഉപയോഗം',
   'chatBubble.source.text': 'വാചകം',
@@ -67,11 +78,13 @@ export const ui: UiTranslations = {
   'conversation.title': 'കാര്യങ്ങൾ തുറന്നു പറയുക',
   'conversation.toggleMic': 'മൈക്രോഫോൺ ടോഗിൾ ചെയ്യുക',
   'conversation.toggleVoicePlayback': 'വോയ്‌സ് പ്ലേബാക്ക്',
+  'conversation.transcribeError': 'ഓഡിയോ ട്രാൻസ്ക്രൈബ് ചെയ്യാനായില്ല.',
   'conversation.transcriptionEmpty': 'ഞങ്ങൾക്ക് ഒന്നും കേൾക്കാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കണോ?',
   'conversation.voiceOff': 'വോയ്‌സ് ഓഫാണ്',
   'conversation.voiceOn': 'വോയ്‌സ് ഓൺ',
   'conversationDetail.assistant': 'അസിസ്റ്റന്റ്',
   'conversationDetail.back': 'ചരിത്രത്തിലേക്ക് മടങ്ങുക',
+  'conversationDetail.elapsed': '00:00 / {{duration}}',
   'conversationDetail.empty': 'ഈ സംഭാഷണത്തിൽ ഇതുവരെ സന്ദേശങ്ങളൊന്നുമില്ല.',
   'conversationDetail.eyebrow': 'ട്രാൻസ്ക്രിപ്റ്റ്',
   'conversationDetail.fetchError': 'ട്രാൻസ്ക്രിപ്റ്റ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
@@ -82,6 +95,7 @@ export const ui: UiTranslations = {
   'conversationDetail.setSpeed': 'പ്ലേബാക്ക് വേഗത {{speed}}',
   'conversationDetail.system': 'സിസ്റ്റം',
   'conversationDetail.untitled': 'പേരില്ലാത്ത സംഭാഷണം',
+  'conversationListItem.messageCount': '{{count}} സന്ദേശം',
   'forgotPassword.subheading':
     'നിങ്ങളുടെ ഇമെയിൽ നൽകുക, ഞങ്ങൾ നിങ്ങൾക്ക് ഒരു റീസെറ്റ് ലിങ്ക് അയയ്ക്കും.',
   'forgotPassword.successBody': 'ഞങ്ങൾ ഇപ്പോൾ ഒരു റീസെറ്റ് ലിങ്ക് അയച്ചു {{email}} .',
@@ -99,6 +113,9 @@ export const ui: UiTranslations = {
   'history.voiceOnly': 'ശബ്ദം മാത്രം',
   'landing.copyright': '© {{year}} {{brand}} . ഉറക്കെ ചിന്തിക്കൂ.',
   'landing.demoMessage1': 'ഹായ് സാറ — പുതിയ കാമ്പെയ്‌നിനെക്കുറിച്ച് ചിന്തിക്കാൻ തയ്യാറാണോ?',
+  'landing.demoMessage2': 'അതെ — Q3-ലെ ഓർഗാനിക് ഗ്രോത്ത് സ്ട്രാറ്റജികളിൽ ശ്രദ്ധിക്കാം.',
+  'landing.demoMessage3':
+    'കൊള്ളാം. ഞാൻ ഒരു കമ്മ്യൂണിറ്റി-നേതൃത്വത്തിലുള്ള സംരംഭത്തിൽ തുടങ്ങും. ഘട്ടങ്ങൾ ഞാൻ രൂപരേഖയാക്കണോ?',
   'landing.eyebrow': 'ശബ്ദ-നേറ്റീവ് AI',
   'landing.featuresSubtitle':
     'സ്വാഭാവിക സംഭാഷണത്തിനായി നിർമ്മിച്ചത് — നിങ്ങളുടെ വേഗത, സ്വരവും സന്ദർഭവും എന്നിവയുമായി പൊരുത്തപ്പെടുന്നു.',
@@ -128,10 +145,12 @@ export const ui: UiTranslations = {
   'parlanceLayout.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'parlanceLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'pricing.conversations': '{{count}} സംഭാഷണങ്ങൾ',
+  'pricing.cta.start': '{{tierName}} തിരഞ്ഞെടുക്കുക',
   'pricing.cta.startFree': 'സൗജന്യമായി ആരംഭിക്കൂ',
   'pricing.cta.upgrade': 'ഇതിലേക്ക് അപ്‌ഗ്രേഡ് ചെയ്യുക {{tierName}}',
   'pricing.empty': 'ഇപ്പോൾ പ്ലാനുകളൊന്നും ലഭ്യമല്ല.',
   'pricing.error': 'വിലനിർണ്ണയം ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല. പിന്നീട് വീണ്ടും ശ്രമിക്കുക.',
+  'pricing.speech': '{{count}} സ്പീച്ച്',
   'pricing.subtitle':
     'നിങ്ങളുടെ അസിസ്റ്റന്റിനോട് എത്ര തവണ സംസാരിക്കുന്നു എന്നതിന് അനുയോജ്യമായ ഒരു പ്ലാൻ തിരഞ്ഞെടുക്കുക.',
   'privacy.collection.account': 'നിങ്ങളുടെ അക്കൗണ്ട് ഇമെയിലും പ്രദർശന നാമവും',
@@ -140,6 +159,8 @@ export const ui: UiTranslations = {
   'privacy.deletion.body':
     'നിങ്ങൾക്ക് എപ്പോൾ വേണമെങ്കിലും ഒരു സംഭാഷണം, വ്യക്തിത്വം അല്ലെങ്കിൽ ഓഡിയോ ക്ലിപ്പ് പ്രസക്തമായ പേജിൽ നിന്ന് ഇല്ലാതാക്കാൻ കഴിയും. ക്രമീകരണങ്ങളിൽ നിന്ന് നിങ്ങളുടെ അക്കൗണ്ട് ഇല്ലാതാക്കുന്നത് നിങ്ങളുടെ വർക്ക്‌സ്‌പെയ്‌സുമായി ബന്ധപ്പെട്ടിരിക്കുന്ന എല്ലാ സംഭാഷണങ്ങളും ട്രാൻസ്‌ക്രിപ്റ്റും വ്യക്തിത്വ വരിയും ശുദ്ധീകരിക്കുന്നു.',
   'privacy.eyebrow': 'നിയമപരമായ',
+  'privacy.intro':
+    'അസിസ്റ്റന്റ് അനുഭവം നൽകാൻ ആവശ്യമായ കാലയളവിൽ മാത്രമേ നിങ്ങൾ സൃഷ്ടിക്കുന്ന സംഭാഷണങ്ങളും വോയ്സ് ക്ലിപ്പുകളും {{app}} സൂക്ഷിക്കൂ. ഞങ്ങൾ നിങ്ങളുടെ ഡാറ്റ ഒരിക്കലും വിൽക്കുന്നില്ല, കസ്റ്റമർ ഓഡിയോയോ ട്രാൻസ്ക്രിപ്റ്റുകളോ ബാഹ്യ AI മോഡലുകൾ പരിശീലിപ്പിക്കാൻ ഞങ്ങൾ ഒരിക്കലും ഉപയോഗിക്കുന്നുമില്ല.',
   'privacy.lastUpdated': 'അവസാനം അപ്ഡേറ്റ് ചെയ്തത്: 2026-05-01',
   'privacy.processors.body':
     'നിങ്ങൾ അസിസ്റ്റന്റിനോട് സംസാരിക്കുമ്പോൾ, നിങ്ങളുടെ ഓഡിയോ ട്രാൻസ്ക്രിപ്ഷനായി OpenAI Whisper-നും, മറുപടിക്കായി നിങ്ങളുടെ ട്രാൻസ്ക്രിപ്റ്റ് ആന്ത്രോപിക് (ക്ലോഡ്)-നും, വോയ്‌സ് സിന്തസിസിനായി ElevenLabs-നോ OpenAI-ക്കോ മറുപടി ഞങ്ങൾ ഫോർവേഡ് ചെയ്യുന്നു. ഓരോ ദാതാവും അതിന്റേതായ ഡാറ്റ പ്രോസസ്സിംഗ് നിബന്ധനകളാൽ ബന്ധിതമാണ്; വീണ്ടും പരിശീലിപ്പിക്കുന്നതിനായി ഒന്നും നിലനിർത്തുന്നില്ല.',
@@ -160,13 +181,19 @@ export const ui: UiTranslations = {
   'resetPassword.newPassword': 'പുതിയ പാസ്വേഡ്',
   'resetPassword.subheading': 'സംസാരിച്ചുകൊണ്ടിരിക്കാൻ ഒരു പുതിയ പാസ്‌വേഡ് തിരഞ്ഞെടുക്കുക.',
   'search.agentPreview': 'വിവരണമില്ല',
+  'search.emptyBody': 'മറ്റൊരു കീവേഡ് പരീക്ഷിക്കുകയോ ഉറക്കെ പറയുകയോ ചെയ്യൂ.',
   'search.emptyTitle': 'പൊരുത്തങ്ങളൊന്നുമില്ല',
   'search.eyebrow': 'കമാൻഡ് പാലറ്റ്',
   'search.fetchError': 'തിരയൽ സൂചിക ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
+  'search.static.billing.preview': 'പ്ലാനുകൾ, പേയ്മെന്റ് രീതി, ഇൻവോയ്സുകൾ',
+  'search.static.billing.title': 'ബില്ലിംഗ്',
   'search.static.profile.preview': 'പ്രദർശന നാമം, ഹാൻഡിൽ, ബയോ',
+  'search.static.profile.title': 'പ്രൊഫൈൽ',
+  'search.static.voice.preview': 'സ്ഥിരസ്ഥിതി വോയ്സ് & ഭാഷാ മുൻഗണനകൾ',
   'search.static.voice.title': 'ശബ്ദം',
   'search.title': 'തിരയൽ പദാവലി',
   'search.transcriptPreview': 'ട്രാൻസ്ക്രിപ്റ്റ് തുറക്കുക',
+  'settings.appearance.description': 'ലൈറ്റ്, ഡാർക്ക് മോഡുകൾക്കിടയിൽ ടോഗിൾ ചെയ്യുക.',
   'settings.appearance.title': 'രൂപഭാവം',
   'settings.loadError': 'ക്രമീകരണങ്ങൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'settings.privacy.${row.key}.label': 'അറിയിപ്പുകൾ',
@@ -183,6 +210,8 @@ export const ui: UiTranslations = {
   'terms.changes.body':
     'ഈ നിബന്ധനകളിൽ കാര്യമായ മാറ്റമുണ്ടെങ്കിൽ ഞങ്ങൾ നിങ്ങളെ ആപ്പിൽ അറിയിക്കും; അറിയിപ്പിന് ശേഷവും ഉപയോഗം തുടരുക എന്നതിനർത്ഥം നിങ്ങൾ അപ്‌ഡേറ്റുകൾ അംഗീകരിക്കുന്നു എന്നാണ്.',
   'terms.eyebrow': 'നിയമപരമായ',
+  'terms.intro':
+    '{{app}} ഉപയോഗിക്കുന്നതിനെ ഈ നിബന്ധനകൾ നിയന്ത്രിക്കുന്നു. ഒരു അക്കൗണ്ട് സൃഷ്ടിക്കുന്നതിലൂടെ നിങ്ങൾ അവ അംഗീകരിക്കുന്നു.',
   'terms.lastUpdated': 'അവസാനം അപ്ഡേറ്റ് ചെയ്തത്: 2026-05-01',
   'terms.title': 'സേവന നിബന്ധനകൾ',
   'terms.usage.body':

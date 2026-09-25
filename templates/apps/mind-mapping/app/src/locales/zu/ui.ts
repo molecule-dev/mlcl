@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Unombono, uthole iphutha, noma ufuna ukusitshela ukuthi uhlela kanjani imibono yakho? Sifunda wonke umbhalo — xhumana nathi noma nini futhi umuntu wangempela eqenjini uzokubuyisela.',
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
+  'about.featureCanvas':
+    'Indawo engenamkhawulo enamaphuzu adonswayo, ukuxhumana ngamajika abushelelezi, kanye nokukhulisa nokuhambisa okushelelayo.',
+  'about.featureCollab':
+    'Ukusebenzisana kwesikhathi sangempela ngamakhukhasi abukhoma, ukuze iqembu lakho likwazi ukuhlukanisa nawe esikhundleni sokulinda ithuba lalo.',
+  'about.featurePricing':
+    'Mahhala unomphela kubacabangi bodwa; izinhlelo ze-Pro ne-Team zengeza amamephu amaningi, amaphuzu amaningi, izici ezithuthukile, kanye nokukhipha idatha.',
+  'about.featureTemplates':
+    'Umtapo wamasifanekiso okuqala kanye nomlando ogcwele wezinguqulo, ukuze uqalise imephu futhi ubuyisele noma yiluphi ushintsho.',
+  'about.intro':
+    'I-{{app}} iyindawo ebanzi, engenamkhawulo yokwenza imephu yengqondo — ama-brainstorm, imidwebo yemiqondo, ama-SWOT, nezinhlelo zamaphrojekthi. Donsa amaphuzu noma kuphi, xhuma imibono ngezixhumanisi ezigelezayo, khulisa futhi uhambise ngaphandle kokushayisana emikhawulweni, futhi vumela imephu ikhule nokucabanga kwakho.',
+  'about.missionBody':
+    'Ukucabanga ngokuzwakalayo kufanele kube lula futhi kwabiwe. Sakha amathuluzi angaphazamisi — awekho amagridi aqinile, awekho amasifanekiso avaliwe, ayikho i-UI edonsa ukunaka — ukuze abantu ngabanye namaqembu bakwazi ukubamba imibono ngaso leso sikhathi futhi bayilolonge ndawonye.',
+  'about.missionTitle': 'Umsebenzi wethu',
   'about.pageTitle': 'Mayelana ne-{{app}}',
   'auth.brandEyebrow': 'Lapho imibono ihlangana khona',
   'auth.brandStatement':
@@ -13,19 +29,25 @@ export const ui: UiTranslations = {
   'billing.feature.export': 'Thumela ku-SVG / PNG',
   'billing.feature.maps': '{{count}} amamephu',
   'billing.feature.nodes': '{{count}} ama-node ngemephu ngayinye',
+  'billing.freeNoticeBody': 'Khetha uhlelo olukhokhelwayo ngenhla ukuze uvule amamephu amaningi.',
   'billing.loadError': 'Ayikwazanga ukulayisha isimo sokukhokha.',
+  'billing.loading': 'Ilayisha inkokhelo…',
   'billing.perMonth': ' / inyanga',
   'billing.plansTitle': 'Amacebo',
+  'billing.priceMissing': 'I-ID yentengo ye-Stripe ayilungiselelwe.',
   'billing.starting': 'Iqala ukukhokha…',
   'billing.title': 'Ukukhokhisa kanye nohlelo',
   'billing.unavailableTier':
     'Lesi sigaba asikalungiselelwanga ukukhokha okwamanje — setha i-Stripe price ID endaweni yakho.',
   'billing.unlimited': 'Okungenamkhawulo',
   'billing.upgradeMonthly': 'Thuthukela ku- {{name}} (njalo ngenyanga)',
+  'billing.upgradeYearly': 'Khokha ngonyaka · {{price}}',
   'brand.tagline': 'Lapho imibono ihlangana khona',
   'common.and': 'futhi',
   'common.goToDashboard': 'Yiya ku-Dashboard',
   'dashboard.activityAction': 'kubuyekeziwe',
+  'dashboard.activityEmpty':
+    'Akukho umsebenzi okwamanje — hlela imephu ukuze uqale umugqa wakho wesikhathi.',
   'dashboard.daysAgo': '{{count}} kudala',
   'dashboard.empty.body':
     'Dala imephu ukuze uqale ukuhlanganisa imibono. Amathempulethi enza kube lula ukuqala.',
@@ -44,26 +66,35 @@ export const ui: UiTranslations = {
   'dendriteHero.activeMaps': 'Amamephu asebenzayo',
   'dendriteHero.eyebrow': 'Namuhla kukhanvasi',
   'dendriteHero.greeting': 'Hlukanisa imibono emisha, {{name}}',
+  'dendriteHero.greetingAnon': 'Hlukanisa imibono emisha',
   'dendriteHero.openMaps': 'Vula amamephu ami',
   'dendriteHero.subtitle':
     'Hudula, xhuma, bese uvumela ukucabanga kwakho kukhule. Inhlansi ngayinye ikude nengxenye eyodwa.',
   'dendriteHero.weeklyChange': '{{sign}} {{count}} kuleli viki',
+  'forgotPassword.brandStatement':
+    'Amamephu akho aphephile. Sizokubuyisela emagatsheni akho ngomzuzwana.',
   'forgotPassword.subheading':
     'Faka i-imeyili yakho bese sizokuthumela isixhumanisi esisha sokusetha kabusha.',
   'forgotPassword.success':
     'Uma kukhona i-akhawunti enaleyo imeyili, isixhumanisi sokusetha kabusha sisendleleni.',
   'landing.cta.body':
     'Kumahhala kuze kube phakade kubantu abacabanga bodwa. Thuthukisa kuphela uma ithimba lakho liqala ukuhlangana nawe.',
+  'landing.cta.button': 'Dala imephu yakho yokuqala',
   'landing.cta.title': 'Tshala umbono wakho wokuqala namuhla.',
   'landing.feature.branch.body':
     'Hudula i-node kusuka kunoma iyiphi enye i-node — ukuxhumana kuhamba njengama-curve abushelelezi, akukho grid eqinile edingekayo.',
+  'landing.feature.branch.title': 'Ukuhlukanisa kwemvelo',
   'landing.feature.canvas.body':
     'Yenza i-pan, zoom bese uvumela imephu ikhule ngaphandle kokungqubuzana nezinhlangothi. Ukucabanga kwakho kufanele kube nendawo yokuphefumula.',
   'landing.feature.canvas.title': 'Ikhanvasi engenamkhawulo',
   'landing.feature.collab.body':
     'Bona ozakwethu behlangana nawe ngesikhathi sangempela. Xoxani ndawonye, hhayi ngokulandelana.',
+  'landing.feature.collab.title': 'Amakhukhasi okusebenzisana',
   'landing.feature.shortcuts.body':
     'Ithebhu yokwengeza ingane, Faka ukuze ingane yakini ithole ingane, ⌘K ukuze igxume noma kuphi. Abasebenzisi bamandla bahlala besebenza.',
+  'landing.feature.shortcuts.title': 'Ikhibhodi-kuqala',
+  'landing.featuresBody':
+    'Amathuluzi, amaphaneli, nezinqamuleli zizwakala ziseduze — zikhona lapho uzidinga khona, azibonakali lapho ungazidingi khona.',
   'landing.featuresEyebrow': 'Yakhelwe abacabangi',
   'landing.featuresTitle': 'Konke ukusebenzisana kuthola indawo yako kukhanvasi',
   'landing.footer.copyright': '© {{year}} {{appName}} . Yakhiwe nge-Molecule.dev.',
@@ -71,6 +102,7 @@ export const ui: UiTranslations = {
     '{{appName}} iyikhanvasi ebanzi engenamkhawulo yokucabanga ngemicabango, imidwebo yomqondo, kanye nama-SWOT. Hudula, xhuma, bese uvumela imephu ikhule nawe — akukho grid eqinile, akukho zithombe ezifakwe ebhokisini.',
   'landing.hero.ctaPrimary': 'Qala ukuhlanganisa amagatsha mahhala',
   'landing.hero.eyebrow': 'Imephu yengqondo yabaklami nabacabangi',
+  'landing.hero.title': 'Lapho imibono ihlukanisela khona.',
   'landing.nav.start': 'Qala ukuhlanganisa',
   'landing.proof.export': 'Thumela ku-PNG, SVG, noma ku-Markdown',
   'landing.proof.free': 'Kumahhala kumamephu angu-3',
@@ -78,6 +110,7 @@ export const ui: UiTranslations = {
   'layout.closeMenu': 'Vala imenyu yokuzulazula',
   'layout.openMenu': 'Vula imenyu yokuzulazula',
   'layout.searchPlaceholder': 'Sesha amamephu, amathempulethi, noma ama-node…',
+  'login.noAccount': 'Kusha lapha?',
   'login.signIn': 'Ngena ngemvume ku-Nimbus',
   'login.subheading': 'Ngena ngemvume ukuze uqhubeke nokuhlanganisa lapho ugcine khona.',
   'login.twoFactor': 'Ithokheni yezici ezimbili (uma ivuliwe)',
@@ -96,9 +129,11 @@ export const ui: UiTranslations = {
     'Khetha ithuluzi elithi +, bese uchofoza noma kuphi ukuze ungeze i-node yakho yokuqala',
   'mapEditor.export': 'Thumela ngaphandle',
   'mapEditor.exportError': 'Ayikwazanga ukuthumela imephu.',
+  'mapEditor.exportLocked': 'Ukukhipha kuyisici se-Pro.',
   'mapEditor.exportMarkdown': 'I-Markdown (.md)',
   'mapEditor.exportPng': 'Isithombe (.png)',
   'mapEditor.exportSvg': 'Ivektha (.svg)',
+  'mapEditor.exportUpgrade': 'Thuthukela ukuze ukhiphe →',
   'mapEditor.hint.add': 'Chofoza i-canvas ukuze ulahle i-node',
   'mapEditor.hint.connectSource': 'Chofoza i-node yomthombo…',
   'mapEditor.hint.connectTarget': 'Chofoza i-node eqondiwe…',
@@ -107,6 +142,7 @@ export const ui: UiTranslations = {
   'mapEditor.loading': 'Ilayisha ikhanvasi...',
   'mapEditor.newNodeText': 'New idea',
   'mapEditor.panel.color': 'Umbala',
+  'mapEditor.panel.eyebrow': 'Iphuzu elikhethiwe',
   'mapEditor.panel.nodes': 'Ama-Node',
   'mapEditor.panel.noSelection': 'Chofoza i-node ukuze uyihlele.',
   'mapEditor.panel.stats': 'Izibalo zemephu',
@@ -146,11 +182,18 @@ export const ui: UiTranslations = {
   'notifications.accept': 'Yamukela',
   'notifications.acceptAndOpen': 'Yamukela futhi uvule',
   'notifications.acceptedInvite': 'Ujoyine {{title}}.',
+  'notifications.acceptError': 'Ayikwazanga ukwamukela isimemo.',
   'notifications.empty.body': 'Uma ozakwethu beqembu bekumema kumamephu, bazovela lapha.',
   'notifications.empty.title': 'Azikho izimemo ezilindile',
+  'notifications.inviteBody': 'Kuthunyelwe ku-{{email}}',
   'notifications.inviteTitle': 'Umenywe njengo {{role}}"kuya"{{title}}"',
   'notifications.subtitle': '{{count}} izimemo ezilindile.',
   'notifications.view': 'Buka',
+  'pricing.limit.advanced': 'Izici ezithuthukile: {{state}}',
+  'pricing.limit.connections': '{{count}} izixhumanisi',
+  'pricing.limit.export': 'Ukukhipha idatha: {{state}}',
+  'pricing.limit.maps': '{{count}} amamephu',
+  'pricing.limit.nodes': '{{count}} ama-node ngemephu ngayinye',
   'profile.loading': 'Ilayisha izibalo zakho…',
   'profile.stat.collabs': 'Ukubambisana',
   'profile.stat.maps': 'Amamephu adaliwe',
@@ -162,23 +205,35 @@ export const ui: UiTranslations = {
   'publicMap.loadError': 'Le mephu ayisabiwa, noma isixhumanisi asivumelekile.',
   'publicMap.loading': 'Ilayisha imephu…',
   'publicMap.notFound': 'Imephu ayitholakalanga.',
+  'resetPassword.newPassword': 'Iphasiwedi Entsha',
   'resetPassword.subheading': 'Khetha into ekhumbulekayo. Sizokungenisa ngokuzenzakalelayo.',
   'resetPassword.submit': 'Setha kabusha iphasiwedi bese ungena ngemvume',
   'resetPassword.tokenPlaceholder': 'Kunamathiselwe kusuka ku-imeyili yakho',
   'settings.account.subtitle': 'Buyekeza igama lakho lokubonisa kanye nekheli le-imeyili.',
+  'settings.field.currentPassword': 'I-password Yamanje',
   'settings.field.newPassword': 'Iphasiwedi Entsha',
   'settings.password.subtitle': 'Khetha iphasiwedi eqinile (okungenani izinhlamvu ezingu-8).',
   'settings.passwordError': 'Ayikwazanga ukushintsha iphasiwedi. Hlola iphasiwedi yakho yamanje.',
+  'settings.passwordMismatch': 'Amaphasiwedi amasha awafani.',
   'settings.passwordSaved': 'Iphasiwedi ishintshwe ngempumelelo.',
   'settings.passwordTooShort': 'Iphasiwedi kumele okungenani ibe nezinhlamvu ezingu-8.',
   'settings.profileError': 'Ayikwazanga ukulondoloza izinguquko zephrofayela.',
   'settings.subtitle': 'Lungisa i-akhawunti yakho kanye nokuphepha.',
   'settings.twoFactorCode': 'Ikhodi yokuqinisekisa',
   'settings.twoFactorDisable': 'Khubaza',
+  'settings.twoFactorDisableTitle': 'Vala ukufakazela ubuwena ngezinto ezimbili',
   'settings.twoFactorEnable': 'Nika amandla',
+  'settings.twoFactorEnableTitle': 'Vula ukufakazela ubuwena ngezinto ezimbili',
   'settings.twoFactorInvalidCode': 'Ikhodi engavumelekile. Sicela uzame futhi.',
+  'settings.twoFactorOffLine': 'Ukuqinisekisa kabili kucishiwe.',
+  'settings.twoFactorOnLine': 'Ukuqinisekisa kabili kuvuliwe.',
+  'settings.twoFactorQrAlt': 'Ikhodi ye-QR yezigaba ezimbili',
+  'settings.twoFactorScan':
+    'Skena le khodi ye-QR ngohlelo lwakho lokufakazela ubuwena, bese ufaka ikhodi enezinombolo eziyisithupha.',
   'settings.twoFactorSubtitle':
     'Engeza ikhodi yesikhathi esisodwa evela kuhlelo lwakho lokusebenza lokufakazela ubuqiniso phezu kwephasiwedi yakho.',
+  'settings.twoFactorUnavailable':
+    'Ukuqinisekiswa kwezinto ezimbili akutholakali kulolu hlelo lokusebenza.',
   'settings.twoFactorVerify': 'Qinisekisa futhi unike amandla',
   'share.accepted': 'Kwamukelwe',
   'share.backToMap': 'Buyela kumephu',
@@ -189,7 +244,10 @@ export const ui: UiTranslations = {
   'share.copySuccess': 'Isixhumanisi sikopishiwe.',
   'share.invite.button': 'Mema',
   'share.invite.title': 'Mema nge-imeyili',
+  'share.inviteError': 'Ayikwazanga ukuthumela isimemo.',
   'share.inviteSuccess': 'Umenyiwe {{email}}.',
+  'share.link.disabledHint':
+    'Vula ukuze wakhe isixhumanisi somphakathi sokufunda kuphela sale mephu.',
   'share.link.title': 'Isixhumanisi somphakathi',
   'share.loadError': 'Ayikwazanga ukulayisha izilungiselelo zokwabelana.',
   'share.pending': 'Isimemo esilindile',
@@ -201,14 +259,20 @@ export const ui: UiTranslations = {
   'share.roleError': 'Ayikwazanga ukubuyekeza indima.',
   'share.title': 'Yabelana ngale mephu',
   'share.unnamedCollaborator': 'Isimemo esilindile',
+  'signup.brandStatement':
+    'Indawo ebanzi ngokwanele ukuhlangabezana ne-brainstorm elinesibindi — futhi ethule ngokwanele ukucabanga.',
+  'signup.haveAccount': 'Usuvele uyilungu?',
   'signup.heading': 'Tshala umbono wakho wokuqala',
   'signup.namePlaceholder': 'U-Avery Chen',
   'signup.subheading':
     'Kumahhala kuze kube phakade kumamephu angu-3. Akudingeki ikhadi lesikweletu.',
   'templateDetail.backToTemplates': 'Zonke izifanekiso',
   'templateDetail.browseMore': 'Phequlula okwengeziwe',
+  'templateDetail.editableHint':
+    'Wonke umkhawulo nomphetho kuhlelwa ngokugcwele uma ususebenzisa isifanekiso.',
   'templateDetail.instantiateError': 'Ayikwazanga ukudala imephu kusukela kulesi sifanekiso.',
   'templateDetail.loadError': 'Ayikwazanga ukulayisha lesi sifanekiso.',
+  'templateDetail.loading': 'Ilayisha ithempulethi…',
   'templateDetail.nodes': 'Ama-node atshalwe kusengaphambili',
   'templateDetail.notFound': 'Ithempulethi ayitholakalanga.',
   'templateDetail.systemEyebrow': 'Ithempulethi eyakhelwe ngaphakathi',
@@ -231,6 +295,7 @@ export const ui: UiTranslations = {
   'trash.empty.body': 'Akukho lutho olulindele ukusulwa. Amagatsha akho aphephile.',
   'trash.empty.title': 'Udoti awunalutho',
   'trash.loadError': 'Ayikwazanga ukulayisha amamephu alahliwe.',
+  'trash.loading': 'Ilayisha udoti…',
   'trash.restore': 'Buyisela',
   'trash.restoreError': 'Ayikwazanga ukubuyisela imephu.',
   'trash.subtitle':
@@ -239,11 +304,13 @@ export const ui: UiTranslations = {
   'versionHistory.backToMap': 'Buyela kumephu',
   'versionHistory.empty':
     'Azikho izithombe okwamanje. Londoloza eyokuqala ukuze ugcine indawo yokuhlola.',
+  'versionHistory.emptyDetail': 'Gcina isithombe ukuze uqale umugqa wakho wesikhathi.',
   'versionHistory.loadError': 'Ayikwazanga ukulayisha umlando wenguqulo.',
   'versionHistory.nodeCount': 'Ama-Node',
   'versionHistory.restoreButton': 'Buyisela le nguqulo',
   'versionHistory.restoreError': 'Ayikwazanga ukubuyisela isithombe-skrini.',
   'versionHistory.restoreSuccess': 'Isithombe esifingqiwe sibuyiselwe.',
+  'versionHistory.selectHint': 'Khetha isithombe ukuze usibone.',
   'versionHistory.snapshotDefault': 'Isithombe esenziwe ngesandla',
   'versionHistory.snapshotError': 'Ayikwazanga ukulondoloza isithombe-skrini.',
   'versionHistory.snapshotEyebrow': 'Isithombe Esifingqiwe',

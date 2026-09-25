@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ප්‍රශ්නයක් තිබේද, දෝෂයක් හමු වුණාද, නැතහොත් ඔබේ පොත් මෙහි ගෙන එන්න අවශ්‍යද? hello@{{app}}.example හරහා {{app}} කණ්ඩායම හමුවන්න — සෑම පණිවිඩයක්ම සැබෑ පුද්ගලයෙක් කියවයි.',
   'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
+  'about.intro':
+    '{{app}} යනු සෑම සතයක්ම ගිණුම්ගත කරන කුඩා ව්‍යාපාර ගිණුම්කරණයකි — ඉන්වොයිස්, වියදම්, ගෙවීම් සහ වාර්තා එකම සන්සුන් තැනක හිමිකරුවන්ට, පොත් තබන්නන්ට සහ ගණකාධිකාරීවරුන්ට.',
+  'about.missionBody':
+    'ව්‍යාපාරයක් කරනවා කියන්නේ ඔබේ පොත් ගැන බයෙන් සිටීම නොවිය යුතුය. {{app}} පැතුරුම්පත් විසිරීම වෙනුවට ඔබට ක්‍රියා කළ හැකි පැහැදිලි සංඛ්‍යා ලබා දෙයි, එමගින් සැසඳීමට අඩු කාලයක් සහ ඔබ ව්‍යාපාරය ආරම්භ කළ ඇත්ත කාර්යය කිරීමට වැඩි කාලයක් ඔබට ලැබේ.',
+  'about.missionTitle': 'අපගේ මෙහෙවර',
   'about.title': '{{app}} පිළිබඳව',
   'accounts.count': 'ගිණුම් {{count}}',
+  'accounts.emptyBody':
+    'ලෙජර් ගිණුම් මගින් මුදල් තිබෙන සහ ගමන් කරන තැන නිරීක්ෂණය කරයි. ඔබේ පොත් තබන්නා හෝ ඒකාබද්ධ කිරීම මගින් ඒවා සකසන විට ඒවා මෙහි දිස්වේ.',
   'accounts.emptyTitle': 'තවම ගිණුම් නැත.',
   'accounts.heading': 'ගිණුම් සටහන',
   'accounts.kpi.accounts': 'ගිණුම්',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'ඔබේ ඉන්වොයිසි, වියදම් සහ ගෙවීම් පිටුපස ඇති සෑම ලෙජර් ගිණුමක්ම, වර්ගය අනුව කාණ්ඩ කර ඇත.',
   'accounts.tag.inactive': 'අක්‍රිය',
   'authBrandPanel.attributionName': 'සාරා ජෙන්කින්ස්',
+  'authBrandPanel.attributionRole': 'ප්‍රධාන මූල්‍ය නිලධාරී, Horizon Tech',
   'authBrandPanel.eyebrow': 'මූල්‍ය කණ්ඩායම් විසින් විශ්වාස කෙරේ',
   'authBrandPanel.label': 'වෙළඳ නාම ප්‍රදර්ශනය',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'සියලුම ගනුදෙනුකරුවන්',
   'customerDetail.invoiceMeta': 'නිකුත් කරන ලදී {{issued}} · නියමිත {{due}}',
   'customerDetail.loadError': 'පාරිභෝගිකයා පූරණය කිරීමට අසමත් විය.',
+  'customerDetail.missingBody':
+    'ඉල්ලූ පාරිභෝගික වාර්තාව පූරණය කළ නොහැකි විය. එය ඉවත් කර තිබිය හැක, නැතහොත් ඔබට එයට ප්‍රවේශය නොතිබිය හැක.',
   'customerDetail.missingHeading': 'පාරිභෝගික වාර්තාව නොමැත.',
+  'customerDetail.missingHelp':
+    'පාරිභෝගික ලැයිස්තුවට ආපසු යාමට ඉහත ආපසු සබැඳිය භාවිත කරන්න, නැතහොත් එතැනින් වෙනත් වාර්තාවක් තෝරන්න.',
+  'customerDetail.noInvoices': 'තවම ඉන්වොයිසි නැත.',
   'customerDetail.notesEmpty': 'තවම සටහන් නැත.',
   'customerDetail.paymentsEmpty': 'ගෙවීම් කිසිවක් වාර්තා කර නොමැත.',
   'customerDetail.paymentTerms': 'ගෙවීම් නියමයන්',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'අඩු කළ හැකි',
   'expenseDetail.detailsHeading': 'ගනුදෙනු විස්තර',
   'expenseDetail.loadError': 'වියදම පූරණය කිරීමට අසමත් විය.',
+  'expenseDetail.matched': 'ගැළපුණි · {{description}}',
   'expenseDetail.missingBody':
     'ඉල්ලා සිටි වියදම පූරණය කළ නොහැකි විය. එය ඉවත් කර තිබිය හැකිය, නැතහොත් ඔබට එයට ප්‍රවේශය නොමැති විය හැකිය.',
   'expenseDetail.missingHeading': 'වියදම් වාර්තාව නොමැත.',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'රිසිට්පත',
   'expenseDetail.receiptHeading': 'රිසිට්පත',
   'expenseDetail.reconciled': 'නැවත සමථයකට පත් කරන ලදී',
+  'expenseDetail.unreconciled': 'නොගැලපෙන',
   'expenses.empty': 'තවම වියදම් නැහැ.',
   'expenses.heading': 'වියදම්',
   'expenses.kpi.deductible': 'අඩු කළ හැකි',
@@ -101,6 +118,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'ඉන්වොයිසි පූරණය කිරීමට අසමත් විය.',
   'invoices.searchPlaceholder': 'ඉන්වොයිසිය # හෝ පාරිභෝගිකයා සොයන්න...',
   'invoices.summary.paid': 'මෙම කාල පරිච්ඡේදය ගෙවන ලදී',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'දින 30ක් නොමිලේ. කාඩ්පතක් නැත. ඔබේ ගණකාධිකාරීවරයා රැගෙන එන්න - ඔවුන් ඔබට ස්තූති කරනු ඇත.',
   'landing.ctaTitle': 'ඔබේ පොත් වඩාත් සන්සුන් ස්ථානයකට ගෙන යන්න.',
@@ -115,6 +133,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'ලැබිය යුතු ගිණුම්',
   'ledgerStatTriad.eyebrow.mtd': 'මාස වලින් දිනවලට',
   'ledgerStatTriad.netSub': 'ශුද්ධ {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} කල් ඉකුත්',
   'ledgerStatTriad.revenueLabel': 'ආදායම',
   'login.failed': 'පුරනය වීම අසාර්ථක විය.',
   'login.hidePassword': 'මුරපදය සඟවන්න',
@@ -125,6 +144,7 @@ export const ui: UiTranslations = {
   'login.submit': 'පුරන්න',
   'nav.legal': 'නීතිමය',
   'newExpense.back': 'වියදම්',
+  'newExpense.clearReceiptCta': 'අමුණන ලද රිසිට්පත ඉවත් කරන්න',
   'newExpense.deductible': 'බදු අඩු කළ හැකි',
   'newExpense.dropPrompt': 'ඇමිණීම සඳහා රිසිට්පතේ ඡායාරූපයක් හෝ PDF එකක් මෙහි දමන්න.',
   'newExpense.failed': 'වියදම ඉතිරි කර ගැනීමට නොහැකි විය.',
@@ -153,6 +173,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'ගෙවීම් පූරණය කිරීමට අසමත් විය.',
   'payments.unmatchedTag': 'අසමසම',
   'planUpdated.pageLabel': 'සැලැස්ම යාවත්කාලීන කළ තහවුරු කිරීම',
+  'pricing.advancedFeatures': 'උසස් විශේෂාංග: {{yes}}',
+  'pricing.canExport': 'දත්ත නිර්යාත කිරීම: {{yes}}',
+  'pricing.heading': 'ඔබේ {{app}} සැලැස්ම තෝරන්න',
+  'pricing.maxAccounts': 'ගිණුම් {{count}}',
+  'pricing.maxExpenses': '{{count}} වියදම්',
+  'pricing.maxInvoices': 'ඉන්වොයිස් {{count}}',
+  'privacy.intro':
+    'මෙම රහස්‍යතා ප්‍රතිපත්තිය මගින් සේවාව භාවිතා කරන ව්‍යාපාර පිළිබඳ තොරතුරු {{app}} රැස් කරන, භාවිතා කරන සහ හෙළිදරව් කරන ආකාරය විස්තර කරයි.',
   'privacy.lastUpdated': 'අවසන් වරට යාවත්කාලීන කළේ: {{දිනය}}',
   'privacy.section.collected.body':
     'අපි ගිණුම් විස්තර (නම, විද්‍යුත් තැපෑල, සමාගම), ඔබ උඩුගත කරන මූල්‍ය වාර්තා (ඉන්වොයිසි, වියදම්, ගනුදෙනුකරුවන්, ගෙවීම්) සහ සම්මත සේවා-මෙහෙයුම් ලොග් (IP, පරිශීලක-නියෝජිත, වේලා මුද්‍රා) රැස් කරන්නෙමු.',
@@ -165,8 +193,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'සේවාව ක්‍රියාත්මක කිරීමට, ඔබ ඉල්ලා සිටින වාර්තා සහ PDF ජනනය කිරීමට, Mailgun හරහා ගනුදෙනු විද්‍යුත් තැපෑල යැවීමට සහ Stripe හරහා ගෙවීම් සැකසීමට තොරතුරු භාවිතා කරයි. අපි පුද්ගලික තොරතුරු විකුණන්නේ හෝ කුලියට ගන්නේ නැත.',
   'recentInvoicesCard.dueMeta': 'නියමිතයි {{date}}',
+  'recentInvoicesCard.empty': 'ඉන්වොයිසි කිසිවක් නොගැලපේ.',
   'recentInvoicesCard.eyebrow': 'ලැබිය යුතු ගිණුම්',
   'recentInvoicesCard.searchAriaLabel': 'ඉන්වොයිසි සොයන්න',
+  'recentInvoicesCard.searchPlaceholder': 'ඉන්වොයිස් සොයන්න…',
   'recentInvoicesCard.title': 'මෑත ඉන්වොයිසි',
   'recentInvoicesCard.viewAll': 'සියලුම ඉන්වොයිසි බලන්න →',
   'reports.assets': 'වත්කම්',
@@ -182,15 +212,20 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'ලාභ අලාභ (මාස 12)',
   'resetPassword.backToLogin': '← නැවත පුරනය වීමට',
   'resetPassword.hidePassword': 'මුරපදය සඟවන්න',
+  'resetPassword.passwordLabel': 'නව මුරපදය',
   'resetPassword.showPassword': 'මුරපදය පෙන්වන්න',
+  'resetPassword.subheading': 'ශක්තිමත් මුරපදයක් තෝරන්න — අවම අක්ෂර අටක්.',
   'resetPassword.submit': 'මුරපදය යළි පිහිටුවන්න',
   'resetPassword.tooShort': 'මුරපදය අවම වශයෙන් අක්ෂර 8 ක් විය යුතුය.',
   'settings.account.changePassword': 'මුරපදය වෙනස් කරන්න',
   'settings.account.changingPassword': 'වෙනස් වෙමින්...',
   'settings.account.currentPassword': 'වත්මන් මුර පදය',
+  'settings.account.dangerZone': 'අවදානම් කලාපය',
   'settings.account.deleteAccount': 'ගිණුම මකන්න',
   'settings.account.deleteDescription': 'ඔබගේ ගිණුම සහ ඒ ආශ්‍රිත සියලු දත්ත ස්ථිරවම මකන්න.',
   'settings.account.deleteError': 'ගිණුම මැකීමට අසමත් විය.',
+  'settings.account.deleteWarning':
+    'මෙය ඔබේ ගිණුම ස්ථිරවම මකා දමන අතර නැවත යථා තත්ත්වයට පත් කළ නොහැක. තහවුරු කිරීමට ඔබේ මුරපදය ඇතුළත් කරන්න.',
   'settings.account.deleting': 'මකමින්...',
   'settings.account.devices': 'උපාංග',
   'settings.account.email': 'විද්යුත් තැපෑල',
@@ -201,6 +236,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'මුරපදය',
   'settings.account.passwordError': 'මුරපදය වෙනස් කිරීමට අසමත් විය.',
   'settings.account.pushNotifications': 'මෙම උපාංගයේ තල්ලු දැනුම්දීම්',
+  'settings.account.revokeDeviceWarning':
+    'මෙම උපාංගයේ ප්‍රවේශය ඉක්මනින් අහෝසි වනු ඇත. එයින් පිටවෙන්න ද?',
   'settings.account.saveError': 'පැතිකඩ යාවත්කාලීන කිරීමට අසමත් විය.',
   'settings.account.security': 'ආරක්ෂාව',
   'settings.account.signOutDevice': 'වරන්න',
@@ -208,12 +245,19 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'ද්වි-සාධක සත්‍යාපනය',
   'settings.account.twoFactorCode': 'සත්‍යාපන කේතය',
   'settings.account.twoFactorDisable': 'අබල කරන්න',
+  'settings.account.twoFactorDisableTitle': 'ද්වි-සාධක සත්‍යාපනය අක්‍රීය කරන්න',
   'settings.account.twoFactorEnable': 'සක්‍රීය කරන්න',
+  'settings.account.twoFactorEnableTitle': 'ද්වි-සාධක සත්‍යාපනය සක්‍රීය කරන්න',
   'settings.account.twoFactorInvalidCode': 'අවලංගු කේතයකි',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'ද්වි-සාධක QR කේතය',
+  'settings.account.twoFactorScan':
+    'ඔබේ සත්‍යාපන යෙදුමෙන් මෙම QR කේතය පරිලෝකනය කර, පසුව අංක 6ක කේතය ඇතුළත් කරන්න.',
+  'settings.account.twoFactorUnavailable': 'මෙම යෙදුම සඳහා ද්වි-සාධක සත්‍යාපනය ලබා ගත නොහැක.',
   'settings.account.twoFactorVerify': 'සත්‍යාපනය කර සබල කරන්න',
   'settings.account.unknownDevice': 'නොදන්නා උපාංගයකි',
   'settings.company.email': 'බිල්පත් ඊමේල්',
+  'settings.company.heading': 'සමාගම සහ බදු',
   'settings.company.name': 'නීතිමය නම',
   'settings.company.saveButton': 'සමාගම් පැතිකඩ සුරකින්න',
   'settings.company.taxId': 'බදු හැඳුනුම්පත / EIN',
@@ -257,6 +301,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'ඇස්තමේන්තුගත කාර්තුමය',
   'taxes.kpi.owed': 'හිමි',
   'taxes.loadError': 'බදු සාරාංශය පූරණය කිරීමට අසමත් විය.',
+  'taxes.remittedPct': '({{pct}}% ගෙවා ඇත)',
+  'terms.intro':
+    'මෙම සේවා කොන්දේසි ("කොන්දේසි") මගින් {{app}} වෙත ඔබේ ප්‍රවේශය සහ භාවිතය පාලනය කරයි. ගිණුමක් සාදා හෝ සේවාව භාවිතා කිරීමෙන් ඔබ ඒවාට බැඳී සිටීමට එකඟ වේ.',
   'terms.lastUpdated': 'අවසන් වරට යාවත්කාලීන කළේ: {{දිනය}}',
   'terms.section.acceptable.body':
     'කිසිදු නීතියක් උල්ලංඝනය කිරීමට, බුද්ධිමය-දේපල අයිතිවාසිකම් උල්ලංඝනය කිරීමට, අනිෂ්ට මෘදුකාංග සම්ප්‍රේෂණය කිරීමට හෝ වෙනත් ගිණුම් හෝ අපගේ යටිතල පහසුකම් වෙත අනවසර ප්‍රවේශය ලබා ගැනීමට උත්සාහ නොකිරීමට ඔබ සේවාව භාවිතා නොකරන බවට එකඟ වේ.',

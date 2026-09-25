@@ -5,7 +5,13 @@ export const ui: UiTranslations = {
     'Ունե՞ք արձագանք, գործառույթի հարցում կամ գտե՞լ եք սխալ: Կապվեք {{app}} թիմի հետ ձեր հաշվի ցանկում գտնվող աջակցության հղման միջոցով. յուրաքանչյուր հաղորդագրություն հասնում է իրական մարդու:',
   'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
+  'about.intro':
+    '{{app}}-ը ձայնային AI օգնական է։ Խոսեք բնականորեն, տեսեք, թե ինչպես են ձեր խոսքերը վերածվում տեքստի և ստացեք ձայնային պատասխաններ, որպեսզի կարողանաք բարձրաձայն մտածել՝ ամեն ինչ մուտքագրելու փոխարեն։',
+  'about.missionBody':
+    'Մուտքագրումը խոչընդոտ է ձեր գաղափարների և դրանք արտահայտելու միջև։ {{app}}-ը գոյություն ունի այն վերացնելու համար՝ ձեռքերն ազատ, զրույցի ձևով ուղեղային գրոհելու, սևագրելու և որոշումներ կայացնելու միջոց՝ հիմնված լավագույն խոսքի և դատողության մոդելների վրա, իսկ ձեր տվյալները մնում են գաղտնի։',
+  'about.missionTitle': 'Մեր առաքելությունը',
   'agentDetail.back': 'Բոլոր գործակալները',
+  'agentDetail.behavior': 'Վարքագիծ',
   'agentDetail.capabilities': 'Հնարավորություններ',
   'agentDetail.delete': 'Ջնջել կերպարը',
   'agentDetail.deleteConfirm': 'Ջնջե՞լ այս անձը։ Սա հնարավոր չէ հետարկել։',
@@ -38,15 +44,20 @@ export const ui: UiTranslations = {
   'agents.subtitle':
     'Յուրաքանչյուր գործակալ ունի իր տոնը, տեմպը և մասնագիտացումը: Փոխեք այն ցանկացած պահի զրույցի ընթացքում:',
   'agents.title': 'Ընտրեք ձայն՝ մտածելու համար։',
+  'authShell.tagline': '{{tagline}} — {{brand}}',
+  'billing.cardNoneBody':
+    'Ավելացրեք մեկը, երբ բարելավեք ձեր փաթեթը՝ Stripe-ը կառավարում է ամբողջ պահոցը։',
   'billing.cardNoneTitle': 'Քարտ չկա',
   'billing.choose': 'Փոխարկիչ',
   'billing.currentPlan': 'Ձեր պլանը',
   'billing.currentPlanReadout': '{{plan}} պլան',
   'billing.eyebrow': 'Պլան և օգտագործում',
   'billing.fetchError': 'Չհաջողվեց բեռնել վճարային տեղեկությունները։',
+  'billing.loadingStatus': 'Բեռնվում է կարգավիճակը…',
   'billing.noTiers': 'Այս պահին պլաններ չկան։',
   'billing.plansTitle': 'Պլաններ',
   'billing.switching': 'Փոխարկում…',
+  'billing.updateAcknowledged': 'Թարմացումը հաստատվել է {{time}}-ին',
   'billing.updateError': 'Հնարավոր չէ սկսել թարմացումը։',
   'billing.usageHeading': 'Ձայնի օգտագործումը այս ցիկլում',
   'chatBubble.source.text': 'տեքստ',
@@ -66,11 +77,13 @@ export const ui: UiTranslations = {
   'conversation.title': 'Քննարկեք այն',
   'conversation.toggleMic': 'Միացնել/անջատել միկրոֆոնը',
   'conversation.toggleVoicePlayback': 'Ձայնային վերարտադրություն',
+  'conversation.transcribeError': 'Չհաջողվեց արտագրել աուդիոն։',
   'conversation.transcriptionEmpty': 'Մենք ոչինչ չէինք լսում։ Կրկին փորձե՞լ։',
   'conversation.voiceOff': 'Ձայնը անջատված է',
   'conversation.voiceOn': 'Ձայնը միացված է',
   'conversationDetail.assistant': 'Օգնական',
   'conversationDetail.back': 'Վերադառնալ պատմությանը',
+  'conversationDetail.elapsed': '00:00 / {{duration}}',
   'conversationDetail.empty': 'Այս զրույցում դեռևս հաղորդագրություններ չկան։',
   'conversationDetail.eyebrow': 'Տառադարձություն',
   'conversationDetail.fetchError': 'Հնարավոր չէ բեռնել տառադարձումը։',
@@ -81,6 +94,7 @@ export const ui: UiTranslations = {
   'conversationDetail.setSpeed': 'Սահմանեք նվագարկման արագությունը {{speed}}',
   'conversationDetail.system': 'Համակարգ',
   'conversationDetail.untitled': 'Անվերնագիր զրույց',
+  'conversationListItem.messageCount': '{{count}} հաղորդագրություն',
   'forgotPassword.subheading': 'Մուտքագրեք ձեր էլ. փոստը, և մենք ձեզ կուղարկենք վերակայման հղում։',
   'forgotPassword.successBody':
     'Մենք հենց նոր ուղարկեցինք վերագործարկման հղումը հետևյալ հասցեին՝ {{email}} .',
@@ -97,6 +111,9 @@ export const ui: UiTranslations = {
   'history.voiceOnly': 'Միայն ձայն',
   'landing.copyright': '© {{year}} {{brand}} Մտածեք բարձրաձայն։',
   'landing.demoMessage1': 'Բարև Սառա, պատրա՞ստ ես գաղափարներ մշակել նոր արշավի շուրջ։',
+  'landing.demoMessage2': 'Այո — եկեք կենտրոնանանք Q3-ի օրգանական աճի ռազմավարությունների վրա։',
+  'landing.demoMessage3':
+    'Հիանալի։ Ես կսկսեի համայնքային նախաձեռնությունից։ Ուզու՞մ եք, որ ուրվագծեմ փուլերը։',
   'landing.eyebrow': 'Ձայնային ինտելեկտ',
   'landing.featuresSubtitle':
     'Ստեղծված է բնական երկխոսության համար՝ հարմարվում է ձեր տեմպին, տոնին և համատեքստին։',
@@ -125,10 +142,12 @@ export const ui: UiTranslations = {
   'parlanceLayout.openMenu': 'Բացել նավիգացիոն ցանկը',
   'parlanceLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
   'pricing.conversations': '{{count}} զրույցներ',
+  'pricing.cta.start': 'Ընտրեք {{tierName}}',
   'pricing.cta.startFree': 'Սկսեք անվճար',
   'pricing.cta.upgrade': 'Թարմացնել մինչև {{tierName}}',
   'pricing.empty': 'Այս պահին պլաններ չկան։',
   'pricing.error': 'Չհաջողվեց բեռնել գնագոյացումը։ Փորձեք կրկին ավելի ուշ։',
+  'pricing.speech': '{{count}} խոսք',
   'pricing.subtitle':
     'Ընտրեք մի պլան, որը համապատասխանում է ձեր օգնականի հետ խոսելու հաճախականությանը։',
   'privacy.collection.account': 'Ձեր հաշվի էլ․ հասցեն և ցուցադրվող անունը',
@@ -137,6 +156,8 @@ export const ui: UiTranslations = {
   'privacy.deletion.body':
     'Դուք կարող եք ցանկացած պահի ջնջել զրույցը, անձնավորությունը կամ աուդիոհոդվածը համապատասխան էջից: Ձեր հաշիվը «Կարգավորումներ» բաժնից ջնջելը կջնջի ձեր աշխատանքային տարածքին կապված բոլոր զրույցները, տառադարձումները և անձնավորությունների տողերը:',
   'privacy.eyebrow': 'Իրավական',
+  'privacy.intro':
+    '{{app}}-ը պահում է ձեր ստեղծած զրույցներն ու ձայնային հոլովակները միայն այնքան, որքան անհրաժեշտ է օգնականի փորձառությունը մատուցելու համար։ Մենք երբեք չենք վաճառում ձեր տվյալները և երբեք չենք օգտագործում հաճախորդի աուդիոն կամ արտագրությունները արտաքին AI մոդելներ վարժեցնելու համար։',
   'privacy.lastUpdated': 'Վերջին թարմացումը՝ 2026-05-01',
   'privacy.processors.body':
     'Երբ դուք խոսում եք ձեր օգնականի հետ, մենք ձեր աուդիոն ուղարկում ենք OpenAI Whisper-ին՝ տառադարձման համար, ձեր տառադարձությունը՝ Anthropic (Claude)-ին՝ պատասխանի համար, իսկ պատասխանը՝ ElevenLabs-ին կամ OpenAI-ին՝ ձայնային սինթեզի համար: Յուրաքանչյուր մատակարար պարտավորված է իր սեփական տվյալների մշակման պայմաններով. ոչինչ չի պահպանվում վերապատրաստման համար:',
@@ -157,13 +178,19 @@ export const ui: UiTranslations = {
   'resetPassword.newPassword': 'Նոր գաղտնաբառ',
   'resetPassword.subheading': 'Ընտրեք նոր գաղտնաբառ՝ խոսելը շարունակելու համար։',
   'search.agentPreview': 'Նկարագրություն չկա',
+  'search.emptyBody': 'Փորձեք այլ հիմնաբառ կամ արտասանեք այն բարձրաձայն։',
   'search.emptyTitle': 'Համընկնումներ չկան',
   'search.eyebrow': 'Հրամանների պալիտրա',
   'search.fetchError': 'Հնարավոր չէ բեռնել որոնման ինդեքսը։',
+  'search.static.billing.preview': 'Փաթեթներ, վճարման եղանակ և հաշիվ-ապրանքագրեր',
+  'search.static.billing.title': 'Հաշվառում',
   'search.static.profile.preview': 'Ցուցադրվող անուն, դիմային նշան, կենսագրություն',
+  'search.static.profile.title': 'Պրոֆիլ',
+  'search.static.voice.preview': 'Լռելյայն ձայնի և լեզվի նախընտրություններ',
   'search.static.voice.title': 'Ձայն',
   'search.title': 'Որոնել բառապաշար',
   'search.transcriptPreview': 'Բացել տառադարձումը',
+  'settings.appearance.description': 'Անցնել բաց և մութ ռեժիմների միջև։',
   'settings.appearance.title': 'Արտաքին տեսք',
   'settings.loadError': 'Չհաջողվեց բեռնել կարգավորումները։',
   'settings.privacy.${row.key}.label': 'Ծանուցումներ',
@@ -180,6 +207,8 @@ export const ui: UiTranslations = {
   'terms.changes.body':
     'Մենք ձեզ կտեղեկացնենք հավելվածում, եթե այս պայմանները էականորեն փոխվեն։ Ծանուցումից հետո շարունակական օգտագործումը նշանակում է, որ դուք ընդունում եք թարմացումները։',
   'terms.eyebrow': 'Իրավական',
+  'terms.intro':
+    'Այս պայմանները կարգավորում են ձեր {{app}}-ի օգտագործումը։ Հաշիվ ստեղծելով՝ դուք համաձայնում եք դրանց հետ։',
   'terms.lastUpdated': 'Վերջին թարմացումը՝ 2026-05-01',
   'terms.title': 'Ծառայության պայմաններ',
   'terms.usage.body':

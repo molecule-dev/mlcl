@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tens comentaris, has trobat un error o vols portar {{app}} a la teva escola o equip? Llegim tots els missatges: escriu-nos des de la configuració del teu compte i et respondrà una persona de veritat.',
   'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre',
+  'about.intro':
+    "{{app}} és un trencaclosques diari de paraules. Endevina la paraula de cinc lletres en sis intents, mantén la ratxa, comparteix la graella d'emojis i mira com se n'ha sortit tothom amb la paraula d'avui.",
+  'about.missionBody':
+    "Un bon trencaclosques és una petita victòria diària. {{app}} gira al voltant d'una paraula compartida al dia: prou ràpid per a una pausa pel cafè, prou engrescador per tornar-hi demà.",
+  'about.missionTitle': 'La nostra missió',
   'about.title': 'Sobre {{app}}',
   'archive.loadError': "No s'ha pogut carregar l'arxiu.",
   'archive.missed': 'Perdut',
   'archive.notPlayed': 'No jugat',
+  'archive.subhead':
+    'Torna a jugar qualsevol dia passat com a pràctica: sense ratxes, sense estadístiques, amb tota la diversió.',
   'archive.title': 'Arxiu',
   'auth.backToHome': "Torna a l'inici",
   'auth.backToHomeArrow': "← Torna a l'inici",
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Has oblidat la contrasenya?',
   'auth.login.loggingIn': 'Iniciant sessió…',
   'auth.login.logIn': "Juga la paraula d'avui",
+  'auth.login.noAccount': 'Ets nou a Tessera?',
   'auth.login.or': 'o continua amb',
   'auth.login.password': 'Contrasenya',
   'auth.login.signInButton': 'Iniciar sessió',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Desant…',
   'common.sendingEllipsis': 'Enviant…',
   'common.startingEllipsis': 'Iniciant…',
+  'forgotPassword.subhead':
+    "Introdueix el teu correu electrònic i t'enviarem un enllaç per restablir-lo.",
+  'forgotPassword.success.body':
+    'Si existeix un compte per a {{email}} , rebràs un enllaç de restabliment en pocs minuts.',
+  'forgotPassword.success.title': "Revisa la teva safata d'entrada.",
   'form.name': 'Nom',
   'howToPlay.cta.home': 'Tornada a casa',
   'howToPlay.cta.play': "Juga el puzle d'avui",
@@ -68,10 +83,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Ratxes que no vols trencar',
   'leaderboard.daily.title': 'Resolts avui',
   'leaderboard.loadError': "No s'ha pogut carregar la classificació.",
+  'leaderboard.streaks.empty': 'Encara no hi ha ratxes: sigues el primer.',
+  'leaderboard.streaks.subhead': 'Les ratxes de victòries més llargues de tots els temps.',
   'leaderboard.streaks.title': 'Líders en ratxes',
+  'leaderboard.subhead': "Com se n'ha sortit tothom avui i qui té les ratxes més llargues.",
   'leaderboard.title': 'Classificació',
   'login.headline': 'Benvingut de nou.',
   'login.streakPill': 'Ratxa de {{days}} dies esperant',
+  'login.subhead':
+    "Inicia sessió per mantenir la ratxa i veure com te n'has sortit amb la paraula d'avui.",
   'nav.archive': 'Arxiu',
   'nav.editProfile': 'Editar perfil',
   'nav.getStarted': 'Començar',
@@ -89,6 +109,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · No existeix aquesta paraula',
   'notFound.title': 'Aquesta ruta és buida.',
   'planUpdated.message': 'El teu pla està actiu.',
+  'planUpdated.retry': 'Torna-ho a intentar',
+  'planUpdated.verifyFailed': 'Encara no hem pogut confirmar el vostre pagament.',
+  'planUpdated.verifyFailedBody':
+    "És possible que el vostre pagament encara s'estigui processant. Torneu-ho a provar en un moment.",
   'planUpdated.verifying': 'Confirmant el teu pagament…',
   'play.alreadyFinished': 'Ja has acabat aquest trencaclosques',
   'play.answerWas': 'La paraula era',
@@ -104,6 +128,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Trencaclosques de pràctica',
   'play.tooShort': 'Falten lletres',
   'play.won': 'Resolt!',
+  'pricing.advancedStats': 'Estadístiques avançades: {{yes}}',
+  'pricing.archiveHistory': "{{count}} dies d'historial d'arxiu",
+  'pricing.archivePlays': "{{count}} repeticions d'arxiu / dia",
+  'pricing.archiveUnlimited': "Historial d'arxiu il·limitat",
+  'pricing.canExport': 'Exportació de dades: {{yes}}',
+  'pricing.checkoutError': "No s'ha pogut iniciar el procés de compra. Torna-ho a provar.",
   'pricing.dailyWord': 'La paraula diària',
   'pricing.heading': 'Tria el teu pla de {{app}}',
   'pricing.included': 'Inclòs',
@@ -111,7 +141,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     "La paraula diària sempre és gratuïta. Millora per a repeticions il·limitades de l'arxiu i estadístiques més detallades.",
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} respecta la teva privacitat. Aquesta pàgina resumeix les dades que emmagatzemem, per què les emmagatzemem i com eliminar-les.',
   'privacy.title': 'Avís de privadesa',
+  'resetPassword.subhead': 'Tria una contrasenya nova per recuperar la teva ratxa.',
   'settings.account': 'Compte',
   'settings.danger.body':
     "Elimina permanentment el teu compte de {{appName}} i tot l'historial de puzles.",
@@ -121,17 +154,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'Convidat',
   'settings.language.title': 'Llengua',
   'settings.subhead': 'Ajusta el teu perfil, el so i com apareixes a la classificació.',
+  'settings.unnamed': 'Jugador de Sparq',
   'settings.upgrade': 'Millorar',
   'signup.eyebrow': 'Gratuït per sempre: una paraula al dia',
   'signup.headline': 'Comença la teva ratxa.',
+  'signup.subhead':
+    'Crea un compte a {{appName}} per jugar la paraula diària, construir una ratxa i pujar a la classificació.',
   'stats.currentStreak': 'Ratxa',
   'stats.distribution.title': "Distribució d'intents",
   'stats.loadError': "No s'han pogut carregar les teves estadístiques.",
   'stats.maxStreak': 'Ratxa màxima',
   'stats.played': 'Jugades',
   'stats.playToday': "Juga el puzle d'avui",
+  'stats.subhead': "Només els trencaclosques diaris puntuen — la pràctica de l'arxiu mai compta.",
   'stats.title': 'Les teves estadístiques',
   'stats.winRate': 'Percentatge de victòries',
   'status.monthly': 'Mensual',
+  'terms.intro':
+    'En utilitzar {{app}} acceptes les regles següents. Si no les pots acceptar, no utilitzis el servei.',
   'terms.title': 'Termes del servei',
 }

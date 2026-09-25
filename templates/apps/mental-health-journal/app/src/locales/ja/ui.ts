@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'フィードバックやバグの報告、ジャーナリングが役立った体験談などがあればお聞かせください。すべてのメッセージに目を通しています — いつでもご連絡ください。担当者から返信いたします。',
+  'about.contactTitle': 'お気軽にお問い合わせください',
+  'about.featureInsights':
+    'AIによる振り返りが、あなたらしさを失うことなく、きっかけやテーマ、感謝の気持ちをそっと浮かび上がらせます。',
+  'about.featureMood':
+    '気分と活動の記録をカレンダー表示とトレンドグラフで可視化し、あなたが輝ける要因を見つけます。',
+  'about.featurePrivacy':
+    'エンドツーエンド暗号化、パスコードロック、完全なCSVエクスポートで、あなたの振り返りはプライベートかつ持ち運び可能に。',
+  'about.featurePrompts':
+    '毎日のやさしいプロンプトがあるので、いつでも書き始められます — 空白のページになることはありません。',
+  'about.intro':
+    '{{app}}は、毎日の振り返り、気分の記録、感謝のための、やさしくプライベートなメンタルヘルスジャーナルです。思いやりのあるプロンプトが空白のページに代わり、静かなパターン発見が気分に影響することを理解する手助けをし、エンドツーエンド暗号化があなたの言葉をあなただけのものにします。',
+  'about.missionBody':
+    '自分自身と向き合う時間は、診断的ではなく穏やかであるべきだと考えています — そして、あなたの注意を求める別のアプリのようであってはなりません。{{app}}は、せかすのではなく助けるために作られています。1日数分の静かな時間で気分に気づき、正直に書き、ゆっくりと自分をより明確に見つめられます。',
+  'about.missionTitle': '私たちの使命',
   'about.pageTitle': '{{app}}について',
   'authShell.encryptionBadge': '入力内容はエンドツーエンドで暗号化されています。',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': '{{day}}日目 — 記録なし',
   'calendar.cellMood': '{{day}}日 — {{mood}}',
   'calendar.distributionHeading': '今月の概要',
   'calendar.eyebrow': '気分をひと目で',
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': '今月は{{tracked}}日のうち{{total}}日を記録しました。',
   'common.goToDashboard': 'ダッシュボードへ',
   'common.tryAgain': 'もう一度試す',
+  'entryComposer.bodyPlaceholder': '正直に感じたことを書いてください。他の誰もこれを読みません。',
   'entryComposer.cancel': 'ジャーナルに戻る',
   'entryComposer.heading': '今日の振り返り',
   'entryComposer.moodLabel': '今日の気分は？',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': '{{tag}}を削除',
   'entryComposer.save': '振り返りを保存',
   'entryComposer.saveError': 'エントリーを保存できませんでした。',
+  'entryComposer.tagPlaceholder': 'タグを追加してEnterを押してください',
   'entryComposer.titlePlaceholder': 'この振り返りに名前をつけてください…',
   'entryDetail.back': 'ジャーナルに戻る',
   'entryDetail.delete': 'このエントリを削除',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': '振り返りを読み込み中…',
   'entryDetail.notFound': 'エントリーが見つかりません。',
   'entryDetail.reflectionsHeading': 'AIの振り返り',
+  'forgotPassword.continueButton': 'リセットコードを入力',
   'forgotPassword.eyebrow': 'ご安心ください',
   'forgotPassword.subheading': 'やさしいリセットリンクをメールで送信します。',
   'forgotPassword.successBody':
@@ -57,14 +77,22 @@ export const ui: UiTranslations = {
     'まだテーマは設定されていません。投稿にタグを1つか2つ追加すると、ここにまとめて表示されます。',
   'insights.themesHeading': '主なテーマ',
   'insights.triggerFrequency': '今月{{count}}回気づきました',
+  'insights.triggersEmpty':
+    'まだ気づくことはありません。数日間いくつか記録すると、パターンが見えてきます。',
   'insights.triggersHeading': '気分を動かすパターン',
+  'journal.empty':
+    '一致する振り返りがありません — 別のフィルターを試すか、新しい記録を書いてください。',
   'journal.eyebrow': 'あなたの振り返り',
   'journal.heading': 'ジャーナル',
   'journal.loadError': 'エントリーを読み込めませんでした。',
   'journal.loading': 'エントリーを読み込み中…',
+  'journal.newEntry': '新しいエントリー',
   'journal.searchPlaceholder': '気持ち、名前、瞬間を検索…',
   'journal.subheading': '{{count}}件のエントリー — どれも大切なものです。',
   'journalEntryCard.encryptedLabel': '暗号化済み',
+  'landing.ctaBody':
+    '無料で始められます。Proではデータエクスポート、より大きなジャーナル、1年分の履歴が利用できます。',
+  'landing.ctaButton': '最初のエントリーを始める',
   'landing.ctaTitle': '1日に静かな数分。それだけです。',
   'landing.eyebrow': 'やさしい毎日の習慣',
   'landing.featuresBody':
@@ -83,6 +111,8 @@ export const ui: UiTranslations = {
   'login.subheading': '毎日の振り返りのためのやさしい空間。',
   'mentalHealthJournalLayout.closeMenu': 'メニューを閉じる',
   'mentalHealthJournalLayout.openMenu': 'メニューを開く',
+  'mentalHealthJournalLayout.primaryNavLabel': 'メインナビゲーション',
+  'moodHeroCard.entriesThisWeek': '今週{{count}}件',
   'moodHeroCard.streakSuffix': '日連続',
   'moodHeroCard.title': '今日の振り返り',
   'moodTrendChart.aiBadge': 'AIインサイト準備完了',
@@ -93,11 +123,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'あなたの歩み',
   'profile.fallbackName': 'リフレクター',
   'profile.loadError': '統計を読み込めませんでした。',
+  'profile.loading': '統計を更新中…',
   'profile.longestStreak': '最長記録',
   'profile.memberSince': '{{date}}から振り返り中',
   'profile.milestones': 'マイルストーン',
   'profile.milestonesEmpty':
     '最初の目標達成まであと一歩です。準備ができたらいつでも書き始めてください。',
+  'profile.moodMix': '今シーズンの気分の内訳',
   'profile.streakValue': '{{days}}日',
   'profile.totalEntries': '振り返り',
   'profile.totalWords': '書いた語数',
@@ -110,6 +142,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'これについて書く',
   'resetPassword.eyebrow': '新しい始まり',
   'resetPassword.mismatchError': 'パスワードが一致しません。',
+  'resetPassword.passwordLabel': '新しいパスワード',
   'resetPassword.subheading': '安全なものをお選びください — あなたの振り返りにふさわしいものを。',
   'resetPassword.tokenPlaceholder': 'メールに記載されたリセットコード',
   'settings.dangerDescription':
@@ -122,11 +155,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     'あなたの言葉は常にあなたのものです。いつでもコピーをダウンロードできます。',
   'settings.exportDone': '{{format}}をエクスポートしました。',
+  'settings.exportError': 'エクスポートに失敗しました。',
+  'settings.exportHeading': '振り返りをエクスポート',
   'settings.exportLoading': '準備中…',
   'settings.eyebrow': 'あなたの空間、あなたのルール',
   'settings.languageHeading': '言語',
   'settings.privacyHeading': 'プライバシーと暗号化',
   'settings.remindersHeading': '毎日のリマインダー',
+  'settings.reminderToggleAria': '毎日のリマインダーを切り替え',
   'settings.reminderToggleDescription':
     'ご希望の時間に1つだけ穏やかなリマインダーをお送りします。バッジや連続記録のプレッシャーはありません。',
   'settings.reminderToggleLabel': 'やさしい合図を送る',
@@ -139,6 +175,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'ジャーナルを作成中…',
   'signup.subheading': 'あなたの考えのための安全な空間。',
   'wellnessRingsTriad.mindfulnessCaption': '今日の目標 {{goal}}分',
+  'wellnessRingsTriad.mindfulnessLabel': 'マインドフルネス',
   'wellnessRingsTriad.sleepCaption': '目標 {{goal}}時間 / 夜',
   'wellnessRingsTriad.sleepLabel': '睡眠',
+  'wellnessRingsTriad.sleepValue': '{{hours}}時間',
+  'wellnessRingsTriad.streakCaption': '目標{{goal}}日',
+  'wellnessRingsTriad.streakLabel': 'ジャーナル連続記録',
+  'wellnessRingsTriad.streakValue': '{{days}}日',
 }

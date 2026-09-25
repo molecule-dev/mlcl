@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Có câu hỏi, góp ý hay muốn đề xuất tính năng? Liên hệ với đội ngũ {{app}} từ Cài đặt → Thông báo, hoặc viết cho chúng tôi bất cứ lúc nào — mọi tin nhắn đều đến tay người thật.',
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Giới thiệu',
+  'about.featureCapture':
+    'Chụp hóa đơn kèm tải ảnh lên, gắn ảnh vào đúng khoản chi theo từng dòng.',
+  'about.featureExport':
+    'Xuất CSV có thể kiểm toán cho mọi báo cáo, khoản chi và trạng thái phê duyệt — sẵn sàng cho đội kế toán của bạn.',
+  'about.featurePolicy':
+    'Rào chắn chính sách — hạn mức theo ngày, giới hạn theo danh mục và ngưỡng bắt buộc có hóa đơn được áp dụng ngay khi gửi.',
+  'about.featureWorkflow':
+    'Quy trình phê duyệt hai cấp với ghi chú của người duyệt, cờ vi phạm chính sách và đánh dấu hoàn tiền chỉ với một chạm.',
+  'about.intro':
+    '{{app}} là nền tảng quản lý chi phí cho đội ngũ tài chính và những người họ hoàn tiền. Chụp hóa đơn, tạo khoản chi, gửi báo cáo qua phê duyệt và theo dõi mọi khoản hoàn tiền — không cần nghi thức bảng tính.',
+  'about.missionBody':
+    'Hoàn tiền nên nhanh chóng, công bằng và có thể kiểm toán. Chúng tôi xây dựng {{app}} để người gửi được hoàn tiền mà không phải nhắc nhở, người duyệt thấy rõ chính xác điều họ đang phê duyệt, và tài chính có dấu vết rõ ràng cho từng đồng — kèm cả kiểm tra chính sách.',
+  'about.missionTitle': 'Sứ mệnh của chúng tôi',
   'approvals.approve': 'Phê duyệt',
   'approvals.approving': 'Đang phê duyệt…',
   'approvals.confirmReject': 'Xác nhận từ chối',
+  'approvals.empty': 'Bạn đã xử lý hết — không có báo cáo nào đang chờ.',
   'approvals.eyebrow': 'Hàng đợi của quản lý',
   'approvals.kpi.flaggedLabel': 'Bị chính sách đánh dấu',
+  'approvals.kpi.queueLabel': 'Đang chờ duyệt',
   'approvals.kpi.totalLabel': 'Giá trị đang chờ',
   'approvals.lineCount': '{{count}} chi phí',
   'approvals.queueFallback':
     'Hàng đợi trực tiếp không khả dụng — đang hiển thị dữ liệu demo được tuyển chọn.',
   'approvals.reject': 'Từ chối',
   'approvals.rejecting': 'Đang từ chối…',
+  'approvals.rejectPlaceholder': 'Lý do (bắt buộc)',
   'approvals.rejectPrompt': 'Vì sao quý vị từ chối báo cáo này?',
   'approvals.review': 'Xem xét',
   'approvals.title': 'Phê duyệt đang chờ',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Đã duyệt · trong tháng',
   'dashboard.kpi.pendingDelta': '+2 trong tuần này',
+  'dashboard.kpi.pendingLabel': 'Đang chờ xem xét',
   'dashboard.kpi.receiptsDelta': 'Cần xử lý',
   'dashboard.kpi.receiptsLabel': 'Đang chờ biên lai',
   'dashboard.kpi.reimbursedDelta': '+$2,4k',
   'dashboard.kpi.reimbursedLabel': 'Đã hoàn trả · trong tháng',
   'dashboard.newReport': 'Báo cáo mới',
+  'dashboard.recent.empty': 'Chưa có báo cáo nào — hãy bắt đầu báo cáo đầu tiên ở trên.',
   'dashboard.recent.title': 'Báo cáo gần đây',
   'dashboard.recent.viewAll': 'Xem tất cả báo cáo',
   'dashboard.summaryFallback':
@@ -41,11 +62,19 @@ export const ui: UiTranslations = {
   'expenses.listFallback':
     'Danh sách trực tiếp không khả dụng — đang hiển thị dữ liệu demo được tuyển chọn.',
   'expenses.searchPlaceholder': 'Tìm nhà cung cấp hoặc danh mục…',
+  'expenses.subtotal': '{{count}} khoản chi · tạm tính',
   'expenses.title': 'Chi phí',
+  'forgotPassword.continue': 'Tôi có mã · Tiếp tục',
+  'forgotPassword.subheading':
+    'Nhập email công việc của bạn và chúng tôi sẽ gửi liên kết để đặt mật khẩu mới.',
   'forgotPassword.successBody':
     'Nếu một tài khoản tồn tại cho {{email}}, quý vị sẽ nhận được liên kết đặt lại trong vài phút tới.',
+  'landing.copyright': '© {{year}} {{app}}. Được xây dựng với Molecule.dev.',
+  'landing.ctaBody':
+    'Miễn phí cho 25 khoản chi đầu tiên mỗi tháng. Không cần thẻ tín dụng, không cần gọi triển khai.',
   'landing.ctaHeading': 'Sẵn sàng thu hồi những gì nhóm của quý vị đáng được nhận?',
   'landing.eyebrow': 'Báo cáo chi phí dành cho nhóm tài chính',
+  'landing.featuresHeading': 'Hoàn tiền, trong một không gian làm việc êm ả',
   'landing.heroSubtitle':
     'Nộp, phê duyệt và hoàn trả chi phí kinh doanh mà không cần thủ tục rườm rà với bảng tính. Nhận diện ký tự quang học (OCR), kiểm tra chính sách và quy trình phê duyệt minh bạch — tất cả trong một không gian làm việc dễ sử dụng.',
   'landing.heroTitle': 'Đã thu hồi được tất cả hóa đơn.',
@@ -63,10 +92,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Ghi chú',
   'newExpense.descriptionPlaceholder':
     'Lý do chi phí này liên quan đến công việc (hiển thị cho người phê duyệt).',
+  'newExpense.eyebrow': 'Khoản được hoàn tiền',
   'newExpense.merchant': 'Nhà cung cấp',
   'newExpense.merchantPlaceholder': 'Hotel Adlon Kempinski',
   'newExpense.policyHint':
     'Nhắc nhở: bữa ăn vượt quá $80/ngày hoặc bất kỳ khoản nào trên $250 cần có ghi chú lý do.',
+  'newExpense.receipt': 'Biên lai',
+  'newExpense.receiptHint': 'JPG, PNG hoặc PDF · tối đa 10 MB',
   'newExpense.receiptOcrHint': 'OCR điền trước các trường',
   'newExpense.receiptPrompt': 'Thả ảnh hoặc PDF tại đây, hoặc nhấp để duyệt',
   'newExpense.receiptUploadFailed':
@@ -76,17 +108,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Chụp hoặc tải lên biên lai và Recoup sẽ điền sẵn nhà cung cấp, ngày và tổng. Xác nhận mọi thông tin bên dưới trước khi lưu.',
   'newExpense.title': 'Thêm chi phí',
+  'newReport.approverHint': 'Họ sẽ nhận được email khi bạn gửi báo cáo này để duyệt.',
   'newReport.approverLabel': 'Email người phê duyệt (tùy chọn)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'Chi phí có sẵn',
   'newReport.createFailed': 'Không thể tạo báo cáo. Vui lòng thử lại.',
   'newReport.draftsFallback':
     'Danh sách chi phí trực tiếp hiện không khả dụng — hiển thị dữ liệu demo đã được chọn lọc.',
+  'newReport.eyebrow': 'Nhóm khoản chi · gửi để phê duyệt',
   'newReport.includedCount': '{{count}} được bao gồm',
   'newReport.purposeLabel': 'Mục đích công việc',
   'newReport.purposePlaceholder':
     'Mô tả chuyến đi hoặc dự án mà các chi phí này liên quan đến (hiển thị cho người phê duyệt và bộ phận tài chính).',
   'newReport.saveDraft': 'Lưu làm bản nháp',
+  'newReport.saveDraftFailed': 'Không thể lưu bản nháp. Vui lòng thử lại.',
   'newReport.submit': 'Gửi để phê duyệt',
   'newReport.submitFailed': 'Không thể gửi báo cáo. Vui lòng thử lại.',
   'newReport.summary': 'Tóm tắt báo cáo',
@@ -100,17 +135,23 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Nguồn cấp trực tiếp không khả dụng — đang hiển thị dữ liệu demo được tuyển chọn.',
   'notifications.openReport': 'Mở báo cáo ›',
+  'pricing.approvalsLabel': 'phê duyệt',
   'pricing.expensesLabel': 'chi phí',
   'pricing.heading': 'phê duyệt',
   'pricing.policiesLabel': 'chính sách',
   'pricing.receiptsLabel': 'biên lai',
   'recoveredAmountHeroCard.label': 'Hoàn trả đã thu hồi · từ đầu năm',
+  'recoveredAmountHeroCard.pending': '{{count}} báo cáo đang chờ duyệt trên tất cả người duyệt.',
+  'reports.approvalFlow': 'Luồng phê duyệt',
   'reports.backToList': 'Quay lại danh sách báo cáo',
   'reports.detailFallback':
     'Báo cáo trực tiếp không khả dụng — đang hiển thị dữ liệu demo được tuyển chọn.',
   'reports.lineItems': 'Các mục',
   'reports.lineItemsCount': '{{count}} chi phí',
+  'reports.lineItemsEmpty': 'Chưa có khoản chi nào trong báo cáo này.',
+  'reports.openLibrary': 'Mở thư viện báo cáo',
   'reports.policyTitle': 'Cờ chính sách',
+  'reports.selectPrompt': 'Chọn một báo cáo từ thư viện để xem chi tiết.',
   'reports.summary.lineCount': 'Các mục',
   'reports.summary.reimbursable': 'Có thể hoàn trả',
   'reports.summary.total': 'Tổng đã báo cáo',
@@ -120,6 +161,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Danh sách trực tiếp không khả dụng — đang hiển thị dữ liệu demo được tuyển chọn.',
   'reportsList.newReport': 'Báo cáo mới',
+  'reportsList.submittedOn': 'Đã gửi {{date}}',
   'reportsList.title': 'Thư viện báo cáo',
   'resetPassword.hidePassword': 'Ẩn mật khẩu',
   'resetPassword.newPasswordLabel': 'Mật khẩu mới',
@@ -144,6 +186,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Đã lưu ✓',
   'settings.profileSaveFailed': 'Không thể cập nhật hồ sơ. Vui lòng thử lại.',
   'signup.heading': 'Tạo tài khoản Recoup của quý vị',
+  'signup.hidePassword': 'Ẩn mật khẩu',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Hiện mật khẩu',
   'signup.subheading': 'Miễn phí cho 25 chi phí mỗi tháng — không cần thẻ tín dụng.',

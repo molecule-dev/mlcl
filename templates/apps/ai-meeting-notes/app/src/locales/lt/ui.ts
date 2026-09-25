@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Turite klausimų, atsiliepimų ar norite pasiūlyti funkciją? Parašykite komandai adresu hello@murmur.app — kiekviena žinutė pasiekia tikrą žmogų, dirbantį prie produkto.',
   'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie mus',
+  'about.intro':
+    '{{app}} – susitikimų intelektas komandoms, kurios nori priimti sprendimus, o ne rašyti protokolus. Jis prisijungia prie jūsų skambučių, transkribuoja kiekvieną žodį su kalbėtojų žymomis ir pateikia AI santrauką bei priskirtas veiksmų užduotis vos pasibaigus susitikimui.',
+  'about.missionBody':
+    'Susitikimai – vieta, kur komandos priima sprendimus, ir kur tie sprendimai pasimeta. {{app}} egzistuoja tam, kad pokalbio metu atliktas darbas išliktų ilgiau nei pats pokalbis: tikslus įrašas, aiški santrauka ir atsakingi tolesni žingsniai – automatiškai.',
+  'about.missionTitle': 'Mūsų misija',
   'actions.empty': 'Nerasta atitinkančių užduočių.',
   'actions.heading': 'Veiksmai',
   'actions.loadError': 'Nepavyko įkelti veiksmų sąrašo.',
@@ -10,11 +17,14 @@ export const ui: UiTranslations = {
     'Suvesti duomenys iš visų susitikimų. Filtruokite pagal būseną, kad susitelktumėte į svarbiausią informaciją.',
   'actions.toggleDoneLabel': 'Pažymėti kaip atlikta',
   'actions.toggleReopenLabel': 'Pažymėti kaip atvirą',
+  'auth.footer': '© {{year}} {{app}}. Kiekvienas žodis – koncentruotai.',
   'calendar.heading': 'Kalendorius',
   'calendar.joinCta': 'Prisijunkite',
   'calendar.loadError': 'Nepavyko įkelti kalendoriaus.',
   'calendar.nextMonth': 'Kitą mėnesį',
   'calendar.noEventsForDay': 'Šiandien susitikimų nenumatyta.',
+  'calendar.noUpcomingEvents':
+    'Nėra būsimų susitikimų. Prijunkite kalendorių per Integracijas, kad šis sąrašas būtų užpildytas.',
   'calendar.previousMonth': 'Praėjusį mėnesį',
   'calendar.recent': 'Naujausi',
   'common.daysAgo': '{{count}} prieš d.',
@@ -26,9 +36,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} veiksmai',
   'dashboard.empty.body':
     'Pradėkite įrašymą arba susiekite su „Google“ kalendoriumi, kad „Murmur“ automatiškai prisijungtų prie jūsų kito susitikimo.',
+  'dashboard.empty.cta': 'Pradėti įrašymą',
   'dashboard.empty.heading': 'Susitikimų dar nėra',
   'dashboard.eyebrow': 'Jūsų susitikimų srautas',
   'dashboard.loadError': 'Nepavyko įkelti prietaisų skydelio.',
+  'dashboard.noActions': 'Nėra veiksmų',
   'dashboard.recentHeading': 'Naujausi susitikimai',
   'dashboard.recordCta': 'Susitikimo protokolas',
   'dashboard.stat.actions': 'Veiksmai',
@@ -38,6 +50,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} Neskaityti santraukos nuo paskutinio apsilankymo. „Murmur“ užfiksavo kiekvieną žodį – štai santrauka.',
   'dashboard.viewCalendar': 'Peržiūrėti kalendorių →',
+  'footer.linksLabel': 'Poraštė',
   'forgot.failed': 'Nepavyko išsiųsti laiško su atkūrimo nuoroda.',
   'forgot.sentBody':
     'Jei yra sukurtas paskyros adresas {{email}}, netrukus gausite nuorodą, kuria galėsite atkurti slaptažodį.',
@@ -51,14 +64,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Susiekite kalendorius ir vaizdo platformas, kad „Murmur“ prisijungtų automatiškai.',
   'integrations.updateError': 'Atnaujinti nepavyko.',
+  'landing.ctaBody':
+    'Nemokama pirmiems 5 susitikimams kas mėnesį. Nereikia kreditinės kortelės. Prijunkite Google Calendar per mažiau nei minutę.',
   'landing.ctaButton': 'Pradėkite — tai nemokama',
   'landing.ctaHeading': 'Nustokite daryti užrašus. Pradėkite priimti sprendimus.',
+  'landing.demo.aiBody':
+    'Paleidimas nukeltas iš gegužės 5 d. į gegužės 12 d., kad operacijų komanda turėtų daugiau laiko. Valdymo skydelio pertvarkymas atskirtas į gegužės 26 d.',
   'landing.demo.aiLabel': 'AI santrauka, parengta realiuoju laiku',
   'landing.demo.recording': 'Įrašas · gyvai',
   'landing.eyebrow': 'Dirbtinio intelekto susitikimų analizė',
   'landing.featuresHeading': 'Viskas, ko jūsų komandai prireiks pasibaigus susitikimui',
+  'landing.featuresSubheading':
+    'Jokių daugiau „palauk, kas už tai atsakingas?“ {{appName}} pateikia santrauką dar nepabaigus skambučiui.',
   'landing.getStarted': 'Išbandykite nemokamai',
   'landing.heroSecondary': 'Peržiūrėkite 90 sekundžių trukmės ekskursiją',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} prisijungia prie jūsų skambučių, transkribuoja kiekvieną žodį su kalbėtojų žymomis ir pateikia AI santraukas bei priskirtas veiksmų užduotis vos pasibaigus susitikimui.',
   'landing.heroTitle': 'Įrašykite kiekvieną susitikimą. Išryškinkite tai, kas svarbu.',
   'login.altPrompt': 'Pirmą kartą lankotės „Murmur“?',
   'login.failed': 'Nepavyko prisijungti. Patikrinkite savo el. pašto adresą ir slaptažodį.',
@@ -66,6 +87,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Veiksmai',
   'meetingDetail.back': 'Visi susitikimai',
   'meetingDetail.decisionsHeading': 'Sprendimai',
+  'meetingDetail.dueDate': 'terminas {{date}}',
   'meetingDetail.followupsHeading': 'Tolesni veiksmai',
   'meetingDetail.loadError': 'Nepavyko įkelti susitikimo.',
   'meetingDetail.noActions': 'Nenustatyta jokių veiksmų, kuriuos reikia atlikti.',
@@ -79,7 +101,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Susitikimų dar nėra',
   'meetings.heading': 'Susitikimai',
   'meetings.loadError': 'Nepavyko įkelti susitikimų.',
+  'meetings.recordCta': 'Susitikimo protokolas',
   'meetings.subheading': 'Kiekvienas įrašytas, įkeltas ir sinchronizuotas susitikimas.',
+  'murmurLayout.closeMenu': 'Uždaryti navigacijos meniu',
   'murmurLayout.openMenu': 'Atidaryti navigacijos meniu',
   'murmurLayout.primaryNavLabel': 'Pagrindinė navigacija',
   'nav.legal': 'Teisinis',
@@ -105,7 +129,14 @@ export const ui: UiTranslations = {
   'profile.loading': 'Kraunama…',
   'profile.navLabel': 'Profilio skyriai',
   'profile.notifications.assignments': 'Man priskirti uždaviniai',
+  'profile.notifications.assignmentsHint': 'Pranešti, kai jums priskiriama veiksmų užduotis.',
+  'profile.notifications.mentions': 'Paminėjimai transkripcijose',
+  'profile.notifications.mentionsHint': 'El. paštu ir pranešimu, kai kas nors jus @-pamini.',
+  'profile.notifications.subheading': 'Pasirinkite, kurie {{appName}} įvykiai turėtų jus pasiekti.',
   'profile.notifications.summaries': 'Savaitės apžvalga',
+  'profile.notifications.summariesHint':
+    'Pirmadienio visų praėjusios savaitės susitikimų santrauka.',
+  'profile.preferences.speakerColor': 'Numatytoji kalbėtojo spalva',
   'profile.preferences.subheading':
     'Numatytieji nustatymai, taikomi kiekvienam įrašui, prie kurio prisijungiate.',
   'profile.preferences.timezone': 'Laiko juosta',
@@ -118,18 +149,23 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Jūsų naršyklė nepalaiko įrašymo funkcijos. Išbandykite „Chrome“, „Edge“ arba „Safari“.',
   'record.error.upload': 'Įkėlimas nepavyko. Bandykite dar kartą.',
+  'record.errorLabel': 'Kažkas nepavyko',
   'record.heading': 'Įrašas',
   'record.idleLabel': 'Bakstelėkite, kad pradėtumėte įrašyti',
   'record.processingLabel':
     'Transkribavimas naudojant „Whisper“, santraukos rengimas naudojant „Claude“…',
+  'record.recordingLabel': 'Įrašoma…',
   'record.retryCta': 'Pabandyk dar kartą',
   'record.subheading':
     'Paspauskite mikrofoną, kad pradėtumėte. „Murmur“ įrašo garsą, perrašo jį naudodama „Whisper“ ir parengia „Claude“ sukurtą santrauką.',
+  'record.titlePlaceholder': 'Susitikimo pavadinimas (nebūtina)',
+  'reset.altPrompt': 'Persigalvojote?',
   'reset.hint': 'Naudokite ne mažiau kaip 8 simbolius, derindami raides ir skaičius.',
   'reset.missingToken':
     'Trūksta atkūrimo nuorodos arba jos galiojimo laikas pasibaigęs. Paprašykite naujos.',
   'reset.newPassword': 'Naujas slaptažodis',
   'reset.subheading': 'Pasirinkite slaptažodį, kurio nenaudojate niekur kitur.',
+  'reset.tooShort': 'Slaptažodis turi būti ne trumpesnis kaip 8 simbolių.',
   'search.empty': 'Įveskite tekstą, kad ieškotumėte transkripcijų.',
   'search.loadError': 'Paieška nepavyko. Bandykite dar kartą.',
   'search.noResults': 'Nerasta rezultatų pagal užklausą „{{q}}“.',
@@ -145,7 +181,9 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Išsaugoti garso įrašą',
   'settings.retention.heading': 'Išsaugojimas',
   'settings.retention.transcript': 'Saugokite pažymėjimus',
+  'settings.revokeDeviceWarning': 'Šio įrenginio prieiga netrukus bus atšaukta. Atjungti jį?',
   'settings.saveError': 'Išsaugoti nepavyko.',
+  'settings.security.subheading': 'Atnaujinkite slaptažodį, kurį naudojate prisijungdami.',
   'settings.sharing.exportFormat': 'Eksporto formatas',
   'settings.sharing.heading': 'Numatytieji nustatymai',
   'settings.sharing.scope': 'Numatytasis bendrinimo taikymo sritis',
@@ -163,6 +201,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Pakviesk komandos narį',
   'team.invitedAs': 'Pakviestas kaip „{{role}}“',
   'team.inviteFailed': 'Nepavyko išsiųsti kvietimo.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'Siųsti kvietimą',
   'team.inviteSubtitle': 'Jie gaus el. laišką su nuoroda prisijungimui.',
   'team.inviteTitle': 'Pakviesk komandos narį',

@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Imibuzo, impendulo, noma isicelo sesici? Xhumana neqembu lakwa-{{app}} kusuka kokuthi Amasethingi → Izaziso, noma usibhalele noma nini — yonke imiyalezo ifinyelela kumuntu wangempela.',
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
+  'about.featureCapture':
+    'Ukuthwebula amarisidi ngesithombe esilayishwayo esinamathisela izithombe kusihlupho esifanele, umugqa ngomugqa.',
+  'about.featureExport':
+    'Ukuthunyelwa kwama-CSV okuhlolwayo kwayo yonke imibiko, izindleko, nesimo sokugunyazwa — kulungele ithimba lakho lezimali.',
+  'about.featurePolicy':
+    'Imikhawulo yenqubomgomo — imikhawulo yansuku zonke, imikhawulo yesigaba ngasinye, kanye nemikhawulo edinga irisidi ephoqelelwa ngesikhathi sokuthumela.',
+  'about.featureWorkflow':
+    'Uhlelo lokugunyazwa olunezigaba ezimbili olunamanothi abahloli, izimpawu zokuphulwa kwenqubomgomo, nokumaka ukubuyiselwa ngokuthepha kanye.',
+  'about.intro':
+    'I-{{app}} iyinkundla yokuphathwa kwezindleko yamathimba ezezimali kanye nabantu ababuyiselwayo. Thwebula irisidi, fakisa isindleko, thumela umbiko ukuze ugunyazwe, futhi ulandelele konke ukubuyiselwa — ngaphandle kwenkambiso yespredishithi.',
+  'about.missionBody':
+    'Ukubuyiselwa kufanele kusheshe, kube nobulungisa, futhi kuhlolwe. Sakha i-{{app}} ukuze abathumeli bakhokhelwe ngaphandle kokugxeka, abagunyazi babone kahle lokho abakugunyazayo, futhi ezezimali zibe nomkhondo ohlanzekile wayo yonke idola — ukuhlolwa kwenqubomgomo nakho konke.',
+  'about.missionTitle': 'Umsebenzi wethu',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Iyavumela…',
   'approvals.confirmReject': 'Qinisekisa ukwenqaba',
+  'approvals.empty': 'Usubambe konke — azikho izibiko ezilindile.',
   'approvals.eyebrow': 'Ulayini womphathi',
   'approvals.kpi.flaggedLabel': 'Inqubomgomo ihlatshwe umkhosi',
+  'approvals.kpi.queueLabel': 'Ilinde ukuhlolwa',
   'approvals.kpi.totalLabel': 'Inani elilindile',
   'approvals.lineCount': '{{count}} izindleko',
   'approvals.queueFallback': 'Umugqa obukhoma awutholakali — okubonisa idatha yedemo ekhethiwe.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Iyenqaba…',
+  'approvals.rejectPlaceholder': 'Isizathu (siyadingeka)',
   'approvals.rejectPrompt': 'Kungani wenqaba lo mbiko?',
   'approvals.review': 'Isibuyekezo',
   'approvals.title': 'Ukuvunyelwa okulindile',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Kuvunyiwe · i-MTD',
   'dashboard.kpi.pendingDelta': '+2 kuleli sonto',
+  'dashboard.kpi.pendingLabel': 'Isibuyekezo esilindile',
   'dashboard.kpi.receiptsDelta': 'Kudingeka isinyathelo',
   'dashboard.kpi.receiptsLabel': 'Kulindelwe amarisidi',
   'dashboard.kpi.reimbursedDelta': '+$2.4k',
   'dashboard.kpi.reimbursedLabel': 'Kubuyiselwe imali · MTD',
   'dashboard.newReport': 'Umbiko omusha',
+  'dashboard.recent.empty': 'Azikho izibiko okwamanje — qala eyakho yokuqala ngenhla.',
   'dashboard.recent.title': 'Imibiko yakamuva',
   'dashboard.recent.viewAll': 'Buka yonke imibiko',
   'dashboard.summaryFallback':
@@ -39,11 +60,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'Amarisidi nezinto ezibuyiselwayo',
   'expenses.listFallback': 'Uhlu olubukhoma alutholakali — lubonisa idatha yedemo ekhethiwe.',
   'expenses.searchPlaceholder': 'Sesha umthengisi noma isigaba…',
+  'expenses.subtotal': 'Izindleko ezingu-{{count}} · isamba esincane',
   'expenses.title': 'Izindleko',
+  'forgotPassword.continue': 'Nginayo ikhodi · Qhubeka',
+  'forgotPassword.subheading':
+    'Faka i-imeyili yakho yomsebenzi futhi sizokuthumelela isixhumanisi sokuhlela iphasiwedi entsha.',
   'forgotPassword.successBody':
     'Uma kukhona i-akhawunti ye- {{email}} uzothola isixhumanisi sokusetha kabusha emizuzwini embalwa ezayo.',
+  'landing.copyright': '© {{year}} {{app}}. Yakhiwe nge-Molecule.dev.',
+  'landing.ctaBody':
+    'Mahhala kuzindleko zokuqala ezingu-25 nyanga zonke. Ayikho ikhadi lesikweletu, ayikho ingcinga yokuqalisa.',
   'landing.ctaHeading': 'Ukulungele ukubuyisa lokho okukweletwa yiqembu lakho?',
   'landing.eyebrow': 'Imibiko yezindleko zamaqembu ezezimali',
+  'landing.featuresHeading': 'Ukubuyiselwa, endaweni eyodwa ezolile',
   'landing.heroSubtitle':
     'Thumela, vumela, futhi ubuyisele izindleko zebhizinisi ngaphandle komcimbi wespredishithi. Irisidi le-OCR, ukuhlolwa kwenqubomgomo, kanye nesikhathi sokugunyazwa esisobala — konke endaweni eyodwa yokusebenzela ezolile.',
   'landing.heroTitle': 'Irisidi ngalinye, litholiwe.',
@@ -61,10 +90,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Amanothi',
   'newExpense.descriptionPlaceholder':
     'Kungani le ndleko yayihlobene nebhizinisi (ibonakala kumuntu ogunyazayo).',
+  'newExpense.eyebrow': 'Into ebuyiselwayo',
   'newExpense.merchant': 'Umthengisi',
   'newExpense.merchantPlaceholder': 'Ihhotela i-Adlon Kempinski',
   'newExpense.policyHint':
     'Isikhumbuzo: ukudla okungaphezu kuka-$80 ngosuku noma noma iyiphi into engaphezu kuka-$250 kudinga inothi yokuzithethelela.',
+  'newExpense.receipt': 'Irisidi',
+  'newExpense.receiptHint': 'JPG, PNG, noma PDF · ubukhulu obungu-10 MB',
   'newExpense.receiptOcrHint': 'Izinkambu zokugcwalisa kusengaphambili ze-OCR',
   'newExpense.receiptPrompt': 'Beka isithombe noma i-PDF lapha, noma chofoza ukuze uphequlule',
   'newExpense.receiptUploadFailed':
@@ -75,17 +107,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Thatha noma ulayishe irisidi bese i-Recoup izogcwalisa kusengaphambili umthengisi, usuku, kanye nesamba. Qinisekisa konke okungezansi ngaphambi kokulondoloza.',
   'newExpense.title': 'Engeza izindleko',
+  'newReport.approverHint': 'Bazothola i-imeyili lapho uthumela lo mbiko ukuze uhlolwe.',
   'newReport.approverLabel': 'I-imeyili yokuvuma (ongakukhetha)',
   'newReport.approverPlaceholder': 'umphathi@yourcompany.com',
   'newReport.availableExpenses': 'Izindleko ezitholakalayo',
   'newReport.createFailed': 'Ayikwazanga ukudala umbiko. Sicela uzame futhi.',
   'newReport.draftsFallback':
     'Uhlu lwezindleko ezibukhoma alutholakali — lubonisa idatha yedemo ekhethiwe.',
+  'newReport.eyebrow': 'Hlukanisa izindleko · thumela ukuze kugunyazwe',
   'newReport.includedCount': '{{count}} kufakiwe',
   'newReport.purposeLabel': 'Inhloso yebhizinisi',
   'newReport.purposePlaceholder':
     'Chaza uhambo noma iphrojekthi lezi zindleko eziphathelene nayo (zibonakala kumuntu ogunyazayo kanye nezimali zakho).',
   'newReport.saveDraft': 'Londoloza njengokusalungiswa',
+  'newReport.saveDraftFailed': 'Ayikwazanga ukugcina okusalungiswa. Sicela uzame futhi.',
   'newReport.submit': 'Thumela ukuze kuvunywe',
   'newReport.submitFailed': 'Ayikwazanga ukuthumela umbiko. Sicela uzame futhi.',
   'newReport.summary': 'Isifinyezo sombiko',
@@ -99,16 +134,23 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Okuphakelayo okubukhoma akutholakali — okubonisa idatha yedemo ekhethiwe.',
   'notifications.openReport': 'Umbiko ovulekile ›',
+  'pricing.approvalsLabel': 'ukugunyazwa',
   'pricing.expensesLabel': 'izindleko',
   'pricing.heading': 'ukuvunyelwa',
   'pricing.policiesLabel': 'izinqubomgomo',
   'pricing.receiptsLabel': 'amarisidi',
   'recoveredAmountHeroCard.label': 'Imbuyiselo itholiwe · YTD',
+  'recoveredAmountHeroCard.pending':
+    'Imibiko engu-{{count}} elindile ukuhlolwa kubo bonke abagunyazi.',
+  'reports.approvalFlow': 'Uhlelo lokugunyazwa',
   'reports.backToList': 'Buyela emibikweni',
   'reports.detailFallback': 'Umbiko obukhoma awutholakali — ubonisa idatha yedemo ekhethiwe.',
   'reports.lineItems': 'Izinto zomugqa',
   'reports.lineItemsCount': '{{count}} izindleko',
+  'reports.lineItemsEmpty': 'Azikho izindleko kulo mbiko okwamanje.',
+  'reports.openLibrary': 'Vula umtapo wemibiko',
   'reports.policyTitle': 'Ifulegi lenqubomgomo',
+  'reports.selectPrompt': 'Khetha umbiko emtapweni ukuze ubone imininingwane yawo.',
   'reports.summary.lineCount': 'Izinto zomugqa',
   'reports.summary.reimbursable': 'Imbuyiselo',
   'reports.summary.total': 'Inani eliphelele elibikiwe',
@@ -117,6 +159,7 @@ export const ui: UiTranslations = {
   'reportsList.lineItems': '{{count}} izindleko',
   'reportsList.listFallback': 'Uhlu olubukhoma alutholakali — lubonisa idatha yedemo ekhethiwe.',
   'reportsList.newReport': 'Umbiko omusha',
+  'reportsList.submittedOn': 'Kuthunyelwe ngo-{{date}}',
   'reportsList.title': 'Bika umtapo wolwazi',
   'resetPassword.hidePassword': 'Fihla iphasiwedi',
   'resetPassword.newPasswordLabel': 'Iphasiwedi Entsha',
@@ -142,6 +185,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Kugciniwe ✓',
   'settings.profileSaveFailed': 'Ayikwazanga ukubuyekeza iphrofayela. Sicela uzame futhi.',
   'signup.heading': 'Dala i-akhawunti yakho ye-Recoup',
+  'signup.hidePassword': 'Fihla iphasiwedi',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Bonisa iphasiwedi',
   'signup.subheading':

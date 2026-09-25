@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Spurningar, endurgjöf eða beiðni um nýja eiginleika? Hafðu samband við {{app}} teymið í Stillingar → Tilkynningar, eða skrifaðu okkur hvenær sem er — hver skilaboð fara til raunverulegrar manneskju.',
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um',
+  'about.featureCapture':
+    'Kvittanamyndun með myndaupphleðslu sem hengir myndir við réttan útgjaldalið, línu fyrir línu.',
+  'about.featureExport':
+    'Endurskoðanleg CSV-útflutningur á hverri skýrslu, útgjaldi og samþykktarstöðu — tilbúið fyrir bókhaldsteymið þitt.',
+  'about.featurePolicy':
+    'Stefnuskorður — dagleg mörk, mörk eftir flokkum og kvittunarskylduþröskuldar framfylgt við innsendingu.',
+  'about.featureWorkflow':
+    'Tveggja þrepa samþykktarferli með athugasemdum yfirferðaraðila, merkingum um stefnubrot og einn-smell merkingu endurgreiðslu.',
+  'about.intro':
+    '{{app}} er útgjaldastjórnunarkerfi fyrir fjármálateymi og fólkið sem þau endurgreiða. Skráðu kvittun, skilaðu útgjaldi, sendu skýrslu í samþykkt og fylgstu með hverri endurgreiðslu — án töflureiknissýningarinnar.',
+  'about.missionBody':
+    'Endurgreiðsla á að vera hröð, sanngjörn og endurskoðanleg. Við byggðum {{app}} svo innsendendur fái greitt án nags, samþykktaraðilar sjái nákvæmlega hvað þeir eru að samþykkja og fjármáladeildin hafi hreina slóð fyrir hvern dollar — stefnuathuganir og allt.',
+  'about.missionTitle': 'Markmið okkar',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Samþykkir…',
   'approvals.confirmReject': 'Staðfesta höfnun',
+  'approvals.empty': 'Þú ert á núllpunkti — engar skýrslur bíða.',
   'approvals.eyebrow': 'Biðröð stjórnanda',
   'approvals.kpi.flaggedLabel': 'Stefna merkt',
+  'approvals.kpi.queueLabel': 'Bíður yfirferðar',
   'approvals.kpi.totalLabel': 'Biðgildi',
   'approvals.lineCount': '{{count}} útgjöld',
   'approvals.queueFallback': 'Rafræn biðröð ekki tiltæk — sýnir valin sýnigögn.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Hafna…',
+  'approvals.rejectPlaceholder': 'Ástæða (nauðsynleg)',
   'approvals.rejectPrompt': 'Hvers vegna hafnið þið þessari skýrslu?',
   'approvals.review': 'Umsögn',
   'approvals.title': 'Bíður samþykkis',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Samþykkt · MTD',
   'dashboard.kpi.pendingDelta': '+2 í þessari viku',
+  'dashboard.kpi.pendingLabel': 'Bíður endurskoðunar',
   'dashboard.kpi.receiptsDelta': 'Aðgerð krafist',
   'dashboard.kpi.receiptsLabel': 'Bíður eftir kvittunum',
   'dashboard.kpi.reimbursedDelta': '+2,4 þúsund dollarar',
   'dashboard.kpi.reimbursedLabel': 'Endurgreitt · MTD',
   'dashboard.newReport': 'Ný skýrsla',
+  'dashboard.recent.empty': 'Engar skýrslur enn — byrjaðu þína fyrstu hér að ofan.',
   'dashboard.recent.title': 'Nýlegar skýrslur',
   'dashboard.recent.viewAll': 'Skoða allar skýrslur',
   'dashboard.summaryFallback': 'Lifandi samantekt ekki tiltæk — sýnir valin sýnigögn.',
@@ -38,11 +59,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'Kvittanir og endurgreiðsluhæf atriði',
   'expenses.listFallback': 'Listi í beinni útsendingu ekki tiltækur — sýnir valin kynningargögn.',
   'expenses.searchPlaceholder': 'Leita að söluaðila eða flokki…',
+  'expenses.subtotal': '{{count}} útgjöld · millisamtala',
   'expenses.title': 'Útgjöld',
+  'forgotPassword.continue': 'Ég er með kóða · Halda áfram',
+  'forgotPassword.subheading':
+    'Sláðu inn vinnunetfangið þitt og við sendum þér hlekk til að setja nýtt lykilorð.',
   'forgotPassword.successBody':
     'Ef reikningur er til staðar fyrir {{email}} Þú munt fá endurstillingarhlekk innan næstu mínútna.',
+  'landing.copyright': '© {{year}} {{app}}. Byggt með Molecule.dev.',
+  'landing.ctaBody':
+    'Ókeypis fyrir fyrstu 25 útgjöldin í hverjum mánuði. Engin kreditkort, ekkert innleiðingarviðtal.',
   'landing.ctaHeading': 'Tilbúinn að endurheimta það sem liðinu þínu ber skuld?',
   'landing.eyebrow': 'Kostnaðarskýrslur fyrir fjármálateymi',
+  'landing.featuresHeading': 'Endurgreiðsla, í einu rólegu vinnusvæði',
   'landing.heroSubtitle':
     'Senda inn, samþykkja og endurgreiða rekstrarkostnað án þess að þurfa að nota töflureikni. Kvittanir með OCR, stefnuathuganir og gagnsæ tímalína fyrir samþykktir – allt á einum rólegum vinnustað.',
   'landing.heroTitle': 'Sérhver kvittun, endurheimt.',
@@ -59,10 +88,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Athugasemdir',
   'newExpense.descriptionPlaceholder':
     'Hvers vegna þessi kostnaður tengdist rekstri (sýnilegt samþykkjanda þínum).',
+  'newExpense.eyebrow': 'Endurgreiðanlegur liður',
   'newExpense.merchant': 'Kaupmaður',
   'newExpense.merchantPlaceholder': 'Hótel Adlon Kempinski',
   'newExpense.policyHint':
     'Áminning: Máltíðir yfir $80 á dag eða hvaða vara sem er yfir $250 krefjast rökstuðnings.',
+  'newExpense.receipt': 'Kvittun',
+  'newExpense.receiptHint': 'JPG, PNG eða PDF · að hámarki 10 MB',
   'newExpense.receiptOcrHint': 'OCR fyllir út reiti fyrirfram',
   'newExpense.receiptPrompt': 'Settu mynd eða PDF skjal hér eða smelltu til að skoða',
   'newExpense.receiptUploadFailed':
@@ -73,16 +105,19 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Taktu mynd af kvittun eða sendu inn hana og Recoup mun fylla út söluaðila, dagsetningu og heildarupphæð fyrirfram. Staðfestu allt hér að neðan áður en þú vistar.',
   'newExpense.title': 'Bæta við kostnaði',
+  'newReport.approverHint': 'Þau fá tölvupóst þegar þú sendir þessa skýrslu til yfirferðar.',
   'newReport.approverLabel': 'Netfang samþykkjanda (valfrjálst)',
   'newReport.approverPlaceholder': 'framkvæmdastjóri@þittfyrirtæki.com',
   'newReport.availableExpenses': 'Tiltækur kostnaður',
   'newReport.createFailed': 'Ekki tókst að búa til skýrslu. Vinsamlegast reyndu aftur.',
   'newReport.draftsFallback': 'Lifandi kostnaðarlisti ekki tiltækur — sýnir valin sýnigögn.',
+  'newReport.eyebrow': 'Flokka útgjöld · senda til samþykktar',
   'newReport.includedCount': '{{count}} innifalið',
   'newReport.purposeLabel': 'Tilgangur viðskipta',
   'newReport.purposePlaceholder':
     'Lýstu ferðinni eða verkefninu sem þessir útgjöld tengjast (sýnilegt samþykkjanda þínum og fjármálastjóra).',
   'newReport.saveDraft': 'Vista sem drög',
+  'newReport.saveDraftFailed': 'Gat ekki vistað drög. Vinsamlegast reyndu aftur.',
   'newReport.submit': 'Senda inn til samþykktar',
   'newReport.submitFailed': 'Ekki tókst að senda inn skýrslu. Vinsamlegast reyndu aftur.',
   'newReport.summary': 'Yfirlit skýrslunnar',
@@ -95,16 +130,23 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'Virkni á vinnusvæði',
   'notifications.feedFallback': 'Bein útsending ekki tiltæk — sýnir valin kynningargögn.',
   'notifications.openReport': 'Opna skýrslu ›',
+  'pricing.approvalsLabel': 'samþykktir',
   'pricing.expensesLabel': 'útgjöld',
   'pricing.heading': 'samþykki',
   'pricing.policiesLabel': 'stefnur',
   'pricing.receiptsLabel': 'kvittanir',
   'recoveredAmountHeroCard.label': 'Endurgreiðsla innheimt · Það sem af er ári',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} skýrsla/skýrslur bíða yfirferðar hjá öllum samþykktaraðilum.',
+  'reports.approvalFlow': 'Samþykktarferli',
   'reports.backToList': 'Til baka í skýrslur',
   'reports.detailFallback': 'Skýrsla í beinni ekki tiltæk — sýnir valin sýnigögn.',
   'reports.lineItems': 'Línuatriði',
   'reports.lineItemsCount': '{{count}} útgjöld',
+  'reports.lineItemsEmpty': 'Engin útgjöld á þessari skýrslu enn.',
+  'reports.openLibrary': 'Opna skýrslusafn',
   'reports.policyTitle': 'Stefnuflagg',
+  'reports.selectPrompt': 'Veldu skýrslu úr safninu til að sjá nánari upplýsingar.',
   'reports.summary.lineCount': 'Línuatriði',
   'reports.summary.reimbursable': 'Endurgreiðanlegt',
   'reports.summary.total': 'Tilkynnt heildarfjöldi',
@@ -114,6 +156,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Listi í beinni útsendingu ekki tiltækur — sýnir valin kynningargögn.',
   'reportsList.newReport': 'Ný skýrsla',
+  'reportsList.submittedOn': 'Sent inn {{date}}',
   'reportsList.title': 'Skýrslusafn',
   'resetPassword.hidePassword': 'Fela lykilorð',
   'resetPassword.newPasswordLabel': 'Nýtt lykilorð',
@@ -139,6 +182,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Vistað ✓',
   'settings.profileSaveFailed': 'Gat ekki uppfært prófílinn. Reyndu aftur.',
   'signup.heading': 'Búðu til endurheimtarreikninginn þinn',
+  'signup.hidePassword': 'Fela lykilorð',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Sýna lykilorð',
   'signup.subheading': 'Ókeypis fyrir 25 útgjöld í hverjum mánuði — ekkert kreditkort.',

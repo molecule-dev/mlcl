@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'တုံ့ပြန်ချက် ရှိပါသလား၊ ချို့ယွင်းချက် တွေ့ပါသလား၊ ဒါမှမဟုတ် ဂျာနယ်ရေးသားခြင်းက သင့်ကို ဘယ်လိုကူညီခဲ့သလဲ ပြောပြချင်ပါသလား။ မက်ဆေ့ခ်ျတိုင်းကို ကျွန်ုပ်တို့ ဖတ်ပါတယ် — အချိန်မရွေး ဆက်သွယ်လိုက်ပါ၊ လူတစ်ဦးက သင့်ကို ပြန်လည်ဆက်သွယ်ပါလိမ့်မယ်။',
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
+  'about.featureInsights':
+    'သင့်အသံကို မဆုံးရှုံးစေဘဲ စိတ်ခံစားချက်များ၊ အကြောင်းအရာများနှင့် ကျေးဇူးတင်စရာများကို ညင်သာစွာ ဖော်ပြပေးသော AI စွမ်းအားသုံး ဆင်ခြင်သုံးသပ်ချက်များ။',
+  'about.featureMood':
+    'သင့်ကို ရှင်သန်စေသော အရာများကို ဖော်ထုတ်ပြသော ပြက္ခဒိန်မြင်ကွင်းနှင့် လမ်းကြောင်းဂရပ်များဖြင့် စိတ်ခံစားချက်နှင့် လှုပ်ရှားမှု ခြေရာခံခြင်း။',
+  'about.featurePrivacy':
+    'သင့်ဆင်ခြင်သုံးသပ်ချက်များ သီးသန့်ဖြစ်ပြီး သယ်ဆောင်နိုင်စေရန် အဆုံးမှအဆုံး စာဝှက်ခြင်း၊ လျှို့ဝှက်ကုဒ်သော့နှင့် CSV အပြည့်အစုံ ထုတ်ယူခြင်း။',
+  'about.featurePrompts':
+    'နေ့စဉ် ညင်သာသော လမ်းညွှန်ချက်များဖြင့် စတင်ရန် နေရာတစ်ခု အမြဲရှိစေပါ — စာမျက်နှာ အလွတ်ကြီး ဘယ်တော့မှ မဖြစ်စေရပါ။',
+  'about.intro':
+    '{{app}} သည် နေ့စဉ် ဆင်ခြင်သုံးသပ်ခြင်း၊ စိတ်ခံစားချက် ခြေရာခံခြင်းနှင့် ကျေးဇူးတင်ခြင်းအတွက် ညင်သာပြီး သီးသန့်ဖြစ်သော စိတ်ကျန်းမာရေး ဂျာနယ်တစ်ခု ဖြစ်သည်။ စေ့စေ့စပ်စပ် ရေးသားထားသော လမ်းညွှန်ချက်များက စာမျက်နှာအလွတ်ကို အစားထိုးပေးပြီး တိတ်ဆိတ်စွာ ပုံစံရှာဖွေခြင်းက သင့်ခံစားချက်ကို ဘာတွေ သက်ရောက်နေသလဲ နားလည်စေရန် ကူညီပေးကာ အဆုံးမှအဆုံး စာဝှက်ခြင်းက သင့်စကားလုံးများကို သင့်ဆီမှာသာ ထားရှိပေးသည်။',
+  'about.missionBody':
+    'မိမိကိုယ်ကို ပြန်လည်စစ်ဆေးခြင်းသည် အေးချမ်းစွာ ခံစားရစေသင့်သည်၊ ဆေးခန်းဆန်ဆန် ဘယ်တော့မှ မဖြစ်သင့်ပါ — သင့်အာရုံကို တောင်းဆိုနေသော အခြားအက်ပ်တစ်ခုလိုလည်း ဘယ်တော့မှ မဖြစ်သင့်ပါ။ {{app}} သည် ကူညီရန် တည်ဆောက်ထားသည်၊ နှောင့်ယှက်ရန် မဟုတ်ပါ — တစ်နေ့လျှင် တိတ်ဆိတ်သော မိနစ်အနည်းငယ်ဖြင့် သင့်စိတ်ခံစားချက်ကို သတိပြုမိရန်၊ ရိုးသားစွာ ရေးသားရန်နှင့် သင့်ကိုယ်သင် ပိုမိုရှင်းလင်းစွာ မြင်လာရန် ဖြစ်သည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'about.pageTitle': '{{app}} အကြောင်း',
   'authShell.encryptionBadge': 'သင့် entries များကို end-to-end encrypted လုပ်ထားသည်။',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'နေ့ {{day}} — မှတ်တမ်းမရှိပါ',
   'calendar.cellMood': 'နေ့ {{day}} — {{mood}}',
   'calendar.distributionHeading': 'ယခုလကို ခြုံငုံသုံးသပ်ချက်',
   'calendar.eyebrow': 'တစ်ချက်ကြည့်လိုက်ရုံနဲ့ စိတ်ဓာတ်',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'ခြေရာခံထားသည် {{tracked}} ၏ {{total}} ဒီလမှာ ရက်တွေ။',
   'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'common.tryAgain': 'ထပ်ကြိုးစားပါ',
+  'entryComposer.bodyPlaceholder':
+    'ရိုးသားသည်ဟု ခံစားရသမျှ ရေးလိုက်ပါ။ ဒါကို အခြားမည်သူမှ ဖတ်မည်မဟုတ်ပါ။',
   'entryComposer.cancel': 'ဂျာနယ်သို့ ပြန်သွားရန်',
   'entryComposer.heading': 'ယနေ့ ဆင်ခြင်သုံးသပ်ချက်',
   'entryComposer.moodLabel': 'ဘယ်လိုနေလဲ။',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'ဖယ်ရှားပါ {{tag}}',
   'entryComposer.save': 'ရောင်ပြန်ဟပ်မှုကို သိမ်းဆည်းပါ',
   'entryComposer.saveError': 'သင့်မှတ်တမ်းကို သိမ်းဆည်း၍မရပါ။',
+  'entryComposer.tagPlaceholder': 'တက်ဂ်တစ်ခု ထည့်ပြီး enter နှိပ်ပါ',
   'entryComposer.titlePlaceholder': 'ဒီရောင်ပြန်ဟပ်မှုကို နာမည်တစ်ခုပေးပါ...',
   'entryDetail.back': 'ဂျာနယ်သို့ ပြန်သွားရန်',
   'entryDetail.delete': 'ဤထည့်သွင်းမှုကို ဖျက်ပါ',
@@ -36,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'ရောင်ပြန်ဟပ်မှုကို တင်နေသည်…',
   'entryDetail.notFound': 'ထည့်သွင်းမှု မတွေ့ပါ။',
   'entryDetail.reflectionsHeading': 'AI ရောင်ပြန်ဟပ်မှုများ',
+  'forgotPassword.continueButton': 'ပြန်လည်သတ်မှတ် ကုဒ် ထည့်ပါ',
   'forgotPassword.eyebrow': 'စိတ်မပူပါနှင့်',
   'forgotPassword.subheading':
     'ကျွန်ုပ်တို့သည် သင့်အီးမေးလ်သို့ ညင်သာစွာပြန်လည်သတ်မှတ်ရန်လင့်ခ်ကို ပေးပို့ပါမည်။',
@@ -58,14 +79,22 @@ export const ui: UiTranslations = {
     'အပြင်အဆင်တွေ မရှိသေးပါ — သင့်ရဲ့ entries တွေမှာ tag တစ်ခု ဒါမှမဟုတ် နှစ်ခု ထည့်ထားရင် ဒီမှာ စုစည်းပေးပါလိမ့်မယ်။',
   'insights.themesHeading': 'ထိပ်တန်း အပြင်အဆင်များ',
   'insights.triggerFrequency': 'သတိပြုမိသည် {{count}} × ယခုလ',
+  'insights.triggersEmpty':
+    'သတိပြုမိစရာ မရှိသေးပါ။ ရက်အနည်းငယ်အတွင်း မှတ်တမ်းအနည်းငယ် ရေးပါက သင့်ပုံစံများကို ပြပါလိမ့်မယ်။',
   'insights.triggersHeading': 'သင့်စိတ်ခံစားချက်ကို လှုံ့ဆော်ပေးသော ပုံစံများ',
+  'journal.empty':
+    'ကိုက်ညီသော ဆင်ခြင်သုံးသပ်ချက် မရှိပါ — အခြားစစ်ထုတ်မှုတစ်ခု စမ်းကြည့်ပါ သို့မဟုတ် မှတ်တမ်းအသစ်တစ်ခု ရေးပါ။',
   'journal.eyebrow': 'မင်းရဲ့ ဆင်ခြင်တုံတရားတွေ',
   'journal.heading': 'ဂျာနယ်',
   'journal.loadError': 'မှတ်တမ်းများကို တင်၍မရပါ။',
   'journal.loading': 'မှတ်တမ်းများကို တင်နေသည်…',
+  'journal.newEntry': 'အသစ်ဝင်ရောက်မှု',
   'journal.searchPlaceholder': 'ခံစားချက်တစ်ခု၊ နာမည်တစ်ခု၊ အခိုက်အတန့်တစ်ခုကို ရှာဖွေပါ...',
   'journal.subheading': '{{count}} မှတ်တမ်းများ — သိမ်းဆည်းထားထိုက်သော မှတ်တမ်းတိုင်း။',
   'journalEntryCard.encryptedLabel': 'ကုဒ်ဝှက်ထားသည်',
+  'landing.ctaBody':
+    'စတင်ရန် အခမဲ့။ Pro ဖြင့် ဒေတာထုတ်ယူခြင်း၊ ပိုကြီးသော ဂျာနယ်နှင့် တစ်နှစ်စာ မှတ်တမ်းမှတ်ရာ အပြည့်အစုံကို သုံးနိုင်သည်။',
+  'landing.ctaButton': 'သင့်ရဲ့ ပထမဆုံး ဝင်ခွင့်ကို စတင်လိုက်ပါ',
   'landing.ctaTitle': 'တစ်နေ့ကို မိနစ်အနည်းငယ် တိတ်ဆိတ်ငြိမ်သက်စွာနေပါ။ ဒါပါပဲ။',
   'landing.eyebrow': 'နေ့စဉ် ပေါ့ပေါ့ပါးပါး လေ့ကျင့်ခန်း',
   'landing.featuresBody':
@@ -84,6 +113,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'နေ့စဉ် ဆင်ခြင်သုံးသပ်ရန်အတွက် နူးညံ့သိမ်မွေ့သော နေရာတစ်ခု။',
   'mentalHealthJournalLayout.closeMenu': 'မီနူးကို ပိတ်ပါ',
   'mentalHealthJournalLayout.openMenu': 'မီနူးဖွင့်ပါ',
+  'mentalHealthJournalLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
+  'moodHeroCard.entriesThisWeek': '{{count}} ဒီတစ်ပတ်',
   'moodHeroCard.streakSuffix': 'နေ့စဉ် စီးရီး',
   'moodHeroCard.title': 'ယနေ့ ဆင်ခြင်သုံးသပ်ချက်',
   'moodTrendChart.aiBadge': 'AI ထိုးထွင်းသိမြင်မှု အသင့်ဖြစ်ပါပြီ',
@@ -94,11 +125,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'မင်းရဲ့ခရီး',
   'profile.fallbackName': 'ရောင်ပြန်ဟပ်ကိရိယာ',
   'profile.loadError': 'စာရင်းအင်းများကို တင်၍မရပါ။',
+  'profile.loading': 'သင့်စာရင်းအင်းများကို ပြန်လည်ဆန်းသစ်နေသည်…',
   'profile.longestStreak': 'အရှည်ဆုံး လမ်းကြောင်း',
   'profile.memberSince': 'ကတည်းက ဆင်ခြင်သုံးသပ်ခြင်း {{date}}',
   'profile.milestones': 'မှတ်တိုင်များ',
   'profile.milestonesEmpty':
     'သင့်ရဲ့ ပထမဆုံးမှတ်တိုင်က တစ်ကြိမ်ပဲ လိုတော့တယ် — အဆင်သင့်ဖြစ်ပြီလို့ ခံစားရတိုင်း ရေးပါ။',
+  'profile.moodMix': 'ဒီရာသီ သင့်စိတ်ခံစားချက် အရောအနှော',
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'ဆင်ခြင်သုံးသပ်ချက်များ',
   'profile.totalWords': 'ရေးသားထားသော စကားလုံးများ',
@@ -112,6 +145,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'ဒီအကြောင်းရေးပါ',
   'resetPassword.eyebrow': 'အသစ်တစ်ဖန် စတင်ခြင်း',
   'resetPassword.mismatchError': 'စကားဝှက်များ မကိုက်ညီပါ။',
+  'resetPassword.passwordLabel': 'စကားဝှက်အသစ်',
   'resetPassword.subheading':
     'ဘေးကင်းတဲ့အရာတစ်ခုကို ရွေးချယ်ပါ - မင်းရဲ့ ဆင်ခြင်တုံတရားတွေက အဲဒါကို ထိုက်တန်ပါတယ်။',
   'resetPassword.tokenPlaceholder': 'အီးမေးလ်မှ ကုဒ်ကို ပြန်လည်သတ်မှတ်ပါ',
@@ -125,11 +159,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     'သင့်စကားများသည် သင့်အပိုင်ဖြစ်သည်။ အချိန်မရွေး မိတ္တူကူးယူနိုင်ပါသည်။',
   'settings.exportDone': 'တင်ပို့ပြီး {{format}} ။',
+  'settings.exportError': 'တင်ပို့မှု မအောင်မြင်ပါ။',
+  'settings.exportHeading': 'သင့်ဆင်ခြင်သုံးသပ်ချက်များကို ထုတ်ယူပါ',
   'settings.exportLoading': 'ပြင်ဆင်နေသည်…',
   'settings.eyebrow': 'မင်းရဲ့နေရာ၊ မင်းရဲ့စည်းမျဉ်းတွေ',
   'settings.languageHeading': 'ဘာသာစကား',
   'settings.privacyHeading': 'လျှို့ဝှက်ရေးနှင့် ကုဒ်ဝှက်ခြင်း',
   'settings.remindersHeading': 'နေ့စဉ်သတိပေးချက်',
+  'settings.reminderToggleAria': 'နေ့စဉ် သတိပေးချက် ဖွင့်/ပိတ်',
   'settings.reminderToggleDescription':
     'သင်ရွေးချယ်တဲ့အချိန်မှာ တည်ငြိမ်တဲ့သတိပေးချက်တစ်ခု။ တံဆိပ်တွေ ဒါမှမဟုတ် အပြစ်ရှိသလို အမှတ်အသားတွေ မပါဘူး။',
   'settings.reminderToggleLabel': 'ညင်သာစွာ တွန်းပို့ပါ',
@@ -142,6 +179,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'ဂျာနယ်ဖန်တီးနေသည်…',
   'signup.subheading': 'မင်းရဲ့အတွေးတွေအတွက် လုံခြုံတဲ့နေရာတစ်ခု။',
   'wellnessRingsTriad.mindfulnessCaption': 'ရည်မှန်းချက် {{goal}} မိနစ် ဒီနေ့',
+  'wellnessRingsTriad.mindfulnessLabel': 'သတိတရား',
   'wellnessRingsTriad.sleepCaption': 'ရည်မှန်းချက် {{goal}} နာရီ / ည',
   'wellnessRingsTriad.sleepLabel': 'အိပ်စက်ခြင်း',
+  'wellnessRingsTriad.sleepValue': '{{hours}} နာရီ',
+  'wellnessRingsTriad.streakCaption': 'ပန်းတိုင် {{goal}} ရက်',
+  'wellnessRingsTriad.streakLabel': 'ဂျာနယ် ဆက်တိုက်ရေးမှု',
+  'wellnessRingsTriad.streakValue': '{{days}} d',
 }

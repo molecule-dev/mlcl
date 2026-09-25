@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Oes gennych adborth, wedi dod o hyd i fyg, neu eisiau nodwedd? Cysylltwch o'ch gosodiadau cyfrif — mae pob neges yn mynd at berson go iawn ar y tîm.",
   'about.contactTitle': 'Cysylltwch â ni',
   'about.eyebrow': 'Ynglŷn â',
+  'about.intro':
+    "Mae {{app}} yn stiwdio ysgrifennu AI ar gyfer ysgrifenwyr sy'n poeni'n fawr am eu rhyddiaith. Mae'n cyfuno cynhyrchu AI hirffurf â golygydd tawel, sgorio SEO, a chynhyrchu delweddau fel y gallwch fynd â darn o dudalen wag i'w gyhoeddi — heb golli eich llais byth.",
+  'about.missionBody':
+    "Credwn y dylai AI ddrafftio wrth eich ochr, byth yn eich lle. Mae {{app}} yn cadw awgrymiadau'n amlwg wahanol i'ch geiriau eich hun, yn gadael perchnogaeth pob dogfen a grëwch gennych, ac yn symud yr offer allan o ffordd yr ysgrifennu.",
+  'about.missionTitle': 'Ein cenhadaeth',
   'about.pageTitle': 'Ynghylch {{app}}',
   'aiSuggestionCard.applied': "Awgrym wedi'i gymhwyso",
   'aiSuggestionCard.apply': 'Gwneud cais',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Ffynonellau traffig',
   'billing.activePlan': 'Tanysgrifiad yn weithredol.',
   'billing.aiWordsLabel': "cenedlaethau AI wedi'u cynnwys",
+  'billing.cancelFailed': "Methwyd canslo'r tanysgrifiad.",
   'billing.cancelPlan': "Canslo'r cynllun",
+  'billing.cancelPlanConfirm': 'Cadarnhau canslo?',
   'billing.cancelSuccess': "Tanysgrifiad wedi'i ganslo. Ail-lwythwch i ddiweddaru'r cynllun.",
   'billing.changePlan': 'Newid cynllun',
   'billing.col.invoice': 'Anfoneb',
@@ -43,26 +52,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'Gweld cynlluniau',
   'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'dashboard.continueWriting': 'Parhau i ysgrifennu',
+  'dashboard.createFirst': 'Creu dogfen',
   'dashboard.days.sat': 'Sat',
   'dashboard.days.sun': 'Sun',
   'dashboard.defaultWriterName': 'Ysgrifennwr',
   'dashboard.greeting': 'Bore da, {{name}}',
   'dashboard.loadError': 'Methwyd llwytho eich dangosfwrdd.',
+  'dashboard.loading': "Wrthi'n llwytho eich stiwdio…",
   'dashboard.loadingDocs': "Wrthi'n llwytho dogfennau diweddar…",
   'dashboard.noDocuments': 'Dim dogfennau eto — dechreuwch eich un cyntaf.',
   'dashboard.startWriting': 'Dechrau dogfen newydd',
+  'dashboard.streakBody': 'Rydych wedi ysgrifennu {{words}} gair yr wythnos hon.',
   'dashboard.streakTitle': '{{count}} cyfres -dydd',
+  'dashboard.subgreeting': '{{count}} dogfen yn eich llyfrgell — cadwch y momentwm i fynd.',
+  'documentCard.seoScoreTitle': 'Sgôr SEO: {{score}}/100',
+  'documents.createNew': 'Creu dogfen newydd',
   'documents.empty': 'Mae eich llyfrgell yn aros — dechreuwch eich dogfen gyntaf.',
+  'documents.emptyFiltered': "Nid oes unrhyw ddogfennau'n cyfateb i'ch hidlwyr eto.",
   'documents.loadError': 'Methwyd llwytho dogfennau.',
   'documents.loading': "Wrthi'n llwytho eich llyfrgell…",
   'documents.new': 'Dogfen newydd',
+  'documents.searchAriaLabel': 'Chwilio dogfennau',
   'documents.searchPlaceholder': 'Chwilio dogfennau…',
   'documents.subtitle': '{{count}} dogfennau yn eich llyfrgell.',
   'documents.title': 'Dogfennau',
   'editor.aiPanelTitle': 'Deallusrwydd Plume',
+  'editor.aiSuggestion.empty':
+    'Dim mireinio gweithredol. Gofynnwch i {{appName}} am awgrym pan fyddwch eisiau ail bâr o lygaid.',
   'editor.aiSuggestion.failed': 'Methwyd llwytho awgrymiadau ar hyn o bryd.',
   'editor.aiSuggestion.loadingBody': 'Cynhyrchu mireinio eglurder…',
   'editor.backToDocuments': 'Pob dogfen',
+  'editor.bodyAriaLabel': 'Corff y ddogfen',
   'editor.closeAiPanel': "Cau'r panel AI",
   'editor.createFailed': 'Methwyd creu dogfen.',
   'editor.exported': 'Allforiwyd fel {{format}} .',
@@ -79,18 +99,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'Gofyn am fireinio',
   'editor.saveBeforePublish': 'Cadwch y ddogfen cyn ei chyhoeddi.',
   'editor.status.chars': '{{count}} cymeriadau',
+  'editor.status.readTime': '{{minutes}} darlleniad munud',
   'editor.status.savedAt': "Wedi'i gadw {{time}}",
   'editor.status.saveError': 'Methodd y cadw',
+  'editor.status.unsaved': 'Heb ei chadw eto',
   'editor.titleAriaLabel': 'Teitl y ddogfen',
   'editor.titlePlaceholder': 'Dogfen ddi-deitl',
   'editor.toggleAiPanel': 'Togglo panel AI',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'awdur@enghraifft.com',
+  'forgotPassword.sent': 'Os yw {{email}} ar ffeil, mae dolen ailosod ar ei ffordd.',
   'imageGenerator.failed': 'Methodd cynhyrchu delweddau.',
   'imageGenerator.generate': 'Cynhyrchu Delwedd',
   'imageGenerator.generating': 'Yn cynhyrchu...',
   'imageGenerator.placeholder': 'Disgrifiwch y ddelwedd rydych chi am ei chreu...',
+  'imageGenerator.promptAriaLabel': 'Anogwr delwedd',
+  'imageGenerator.subtitle': 'Disgrifiwch ddelwedd clawr a gadewch i AI ei darlunio.',
   'imageGenerator.title': 'Cynhyrchydd Delweddau AI',
+  'landing.aiSuggestionBody':
+    "yn sefyll ar falconi'r 42ain llawr, teimlai Elias y ddinas yn pwyso yn ei erbyn — roedd y gwynt yn cneifio'r sŵn amgylchynol i ffwrdd, gan ei adael yn hongian mewn gwagle oer, distaw uwchben y grid disglair.",
   'landing.eyebrow': 'Stiwdio ysgrifennu AI ar gyfer awduron difrifol',
   'landing.featuresHeading': "Offer sy'n mynd allan o'r ffordd",
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -100,14 +127,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     "Stiwdio wedi'i chreu ar gyfer awduron sy'n poeni am eu rhyddiaith, eu cyflymder a'u cywirdeb. Drafftiau Plume wrth eich ochr - byth yn eich lle chi.",
   'landing.heroTitle.eloquence': 'huodledd',
+  'landing.heroTitle.intelligence': 'Mae deallusrwydd yn cwrdd â ',
   'landing.nav.testimonials': 'Tystebau',
   'landing.plan.cta': "Dechreuwch gyda'r cynllun hwn",
   'landing.plan.popular': 'Mwyaf annwyl',
   'landing.pricingEyebrow': 'Prisio',
   'landing.pricingHeading': "Dewiswch beth sy'n addas i'ch ymarfer",
   'landing.sampleDocTitle': 'Pensaernïaeth y Tawelwch',
+  'landing.sampleParagraph1':
+    "Nid oedd y ddinas byth yn dawel go iawn. Hyd yn oed yn oriau dyfnaf y nos, roedd sŵn isel yn dirgrynu drwy'r sylfeini concrit — curiad calon mecanyddol trenau tanddaearol a siafftiau awyru.",
+  'landing.sampleParagraph2.after': ' yn erbyn y gwydr.',
+  'landing.sampleParagraph2.before': 'Ond ',
   'landing.sampleParagraph2.highlight':
     "yn sefyll ar falconi'r 42ain llawr, teimlai Elias ymdeimlad dwfn o unigedd",
+  'landing.showcaseBody':
+    "Amlygwch frawddeg ac mae {{appName}} yn cynnig mireiniad. Derbyniwch ef, addaswch ef, neu ei wrthod. Mae awgrymiadau bob amser wedi'u lliwio'n borffor fel eich bod yn gwybod beth ysgrifennoch chi a beth a gynigiwyd.",
+  'landing.showcaseHeading': 'Ail bâr o lygaid — byth ail awdur.',
   'landing.startWriting': 'Dechrau ysgrifennu',
   'login.emailPlaceholder': 'awdur@enghraifft.com',
   'login.failed': 'Methodd mewngofnodi',
@@ -122,8 +157,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Agor y dangosfwrdd',
   'notFound.title': "Nid yw'r bennod hon wedi'i hysgrifennu eto.",
   'plumeSidebarLayout.primaryNavLabel': 'Prif lywio',
+  'pricing.maxDocuments': '{{count}} dogfennau',
+  'pricing.maxGenerate': '{{count}} cenhedlaeth AI',
+  'pricing.maxImages': '{{count}} cenhedlaeth delwedd',
   'privacy.data':
     "E-bost eich cyfrif a chyfrinair wedi'i hasio. Dogfennau a thempledi rydych chi'n eu creu. Logiau awgrymiadau AI (mewnbwn + allbwn) ar gyfer bilio a dadansoddeg. Dynodwyr cwsmeriaid + tanysgrifiadau Stripe; nid ydym byth yn storio rhifau cerdyn llawn.",
+  'privacy.intro':
+    "Rydym yn casglu dim ond y data sydd ei angen i weithredu {{app}}: eich e-bost, y dogfennau a grëwch, a'r ceisiadau AI a wnewch. Nid ydym byth yn gwerthu eich ysgrifennu na'ch anogwyr.",
   'profile.loadError': 'Methwyd llwytho eich proffil.',
   'profile.loading': "Wrthi'n llwytho eich proffil…",
   'profile.loadingPublished': "Wrthi'n llwytho dogfennau cyhoeddedig…",
@@ -134,7 +174,13 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Cyfrinair newydd',
   'seoAnalysis.backToEditor': "Yn ôl i'r golygydd",
   'seoAnalysis.eyebrow': 'Dadansoddiad SEO',
+  'seoAnalysis.heroBody':
+    "{{count}} awgrym i'w cymhwyso. Mae pob un yn hwb strwythurol neu allweddair, nid wal o faneri coch.",
+  'seoAnalysis.heroBodyEmpty':
+    'Cliciwch "Rhedeg dadansoddiad" i sgorio darllenadwyedd, dwysedd allweddair, a strwythur.',
   'seoAnalysis.heroEmpty': "Dim dadansoddiad eto. Rhedeg un i sgorio'r drafft hwn.",
+  'seoAnalysis.heroNeedsWork': 'Bydd rhai hwb strwythurol yn cynyddu cyrhaeddiad.',
+  'seoAnalysis.heroStrong': 'Darn cryf — ychydig o hwb i ffwrdd o ragoriaeth.',
   'seoAnalysis.historyEmpty': "Dim dadansoddiadau blaenorol wedi'u cofnodi.",
   'seoAnalysis.historyTitle': 'Hanes dadansoddi',
   'seoAnalysis.keywordEmpty':
@@ -161,8 +207,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': "Tiwniwch Plume i gyd-fynd â sut rydych chi'n ysgrifennu.",
   'settings.toggleIntegrationFailed': 'Methodd y diweddariad integreiddio.',
   'settings.writing.aiSuggestions': 'Awgrymiadau AI mewnol wrth deipio',
+  'settings.writing.aiSuggestionsBody':
+    'Yn dangos mireiniadau wrth i chi ysgrifennu. Mae awgrymiadau bob amser yn ddewisol fesul brawddeg.',
   'settings.writing.autoSave': "Cadw'n awtomatig bob 30 eiliad",
+  'settings.writing.autoSaveBody':
+    "Mae {{appName}} yn cadw ciplun o'ch drafft fel y gallwch adfer o unrhyw dab.",
   'settings.writing.notifyEmail': 'E-bostiwch grynodebau ysgrifennu wythnosol ataf',
+  'settings.writing.notifyEmailBody':
+    'Crynodeb byr ddydd Sul o rediadau, drafftiau, a gwelliannau SEO.',
   'settings.writing.title': 'Dewisiadau ysgrifennu',
   'settings.writing.tone': 'Rhagosodiad tôn diofyn',
   'signup.emailPlaceholder': 'awdur@enghraifft.com',
@@ -174,8 +226,13 @@ export const ui: UiTranslations = {
   'templates.noDescription': "Dim disgrifiad wedi'i ddarparu.",
   'templates.subtitle':
     "Dechreuwch o fframwaith olygyddol sydd wedi'i brofi mewn brwydr, yna gwnewch hi'n eiddo i chi'ch hun.",
+  'terms.intro':
+    "Mae'r telerau hyn yn llywodraethu eich defnydd o {{app}}. Trwy greu cyfrif rydych yn cytuno i ddefnyddio'r gwasanaeth ar gyfer ysgrifennu cyfreithlon ac i gadw eich manylion mewngofnodi'n gyfrinachol.",
   'terms.license':
     "Rydych chi'n cadw perchnogaeth ar bob dogfen, templed, a chynhyrchu AI rydych chi'n ei greu. Mae angen trwydded an-gyfyngedig arnom i gynnal a chyflwyno eich gwaith yn ôl i chi, ac i brosesu ceisiadau AI trwy'r darparwyr bondiedig rydych chi'n eu dewis.",
   'writingStreakHeroCard.change': '{{sign}} {{amount}} geiriau',
   'writingStreakHeroCard.greeting': 'Diwrnod da, {{name}}',
+  'writingStreakHeroCard.subtitle':
+    'Geiriau a ysgrifennwyd yr wythnos hon — rhediad {{count}} diwrnod',
+  'writingStreakHeroCard.tagline': "Mae tudalen y dydd yn cadw'r awen yn gysylltiedig.",
 }

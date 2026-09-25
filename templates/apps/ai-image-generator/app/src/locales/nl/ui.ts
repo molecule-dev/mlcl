@@ -1,20 +1,27 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Heb je feedback, loop je ergens tegenaan of wil je ons vertellen wat we hierna moeten bouwen? Bereik het team via hello@reverie.app — elk bericht komt bij een echt persoon die het product maakt.',
   'about.contactTitle': 'Neem contact met ons op',
+  'about.missionTitle': 'Onze missie',
   'auth.fields.newPassword': 'Nieuw wachtwoord',
   'collectionDetail.addImage': 'Oproepen voor collectie',
   'collectionDetail.backCta': 'Terug naar collecties',
   'collectionDetail.coverNote': 'Samengesteld moodboard met {{count}} afbeeldingen.',
   'collectionDetail.editName': 'Naam van de collectie',
+  'collectionDetail.empty':
+    'Nog geen afbeeldingen in deze collectie — genereer iets om toe te voegen.',
   'collectionDetail.loading': 'Collectie laden…',
   'collectionDetail.loadingImages': 'Afbeeldingen laden…',
+  'collectionDetail.notFoundBody': 'Deze collectie is verwijderd of is privé.',
   'collectionDetail.notFoundTitle': 'Collectie niet beschikbaar',
   'collectionDetail.shared': 'Zichtbaarheid gewijzigd',
   'collections.create': 'Nieuwe collectie',
   'collections.empty': 'Nog geen collecties. Maak er een om uw werk te beginnen samenstellen.',
   'collections.imageCount': '{{count}} afbeeldingen',
   'collections.loading': 'Collecties laden…',
+  'collections.noDescription': 'Nog geen beschrijving — open om er een toe te voegen.',
   'collections.subtitle': 'Moodboards, briefings en lopende series',
   'collections.title': 'Collecties',
   'collections.untitled': 'Naamloos · {{stamp}}',
@@ -53,6 +60,7 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'Voer het e-mailadres in dat aan uw Reverie-account is gekoppeld en wij sturen een herstellink.',
   'forgot.successBody': 'Een herstellink is onderweg naar {{email}}.',
+  'gallery.empty.body': 'Probeer een andere staat of genereer een nieuwe batch vanuit de studio.',
   'gallery.empty.title': 'Niets voldoet aan dat filter',
   'gallery.exportAll': 'Alles exporteren',
   'gallery.exported': 'Export in wachtrij geplaatst',
@@ -75,12 +83,15 @@ export const ui: UiTranslations = {
   'generate.controls.title': 'De droom afstemmen',
   'generate.defaultPrompt': 'Een nieuwe droom',
   'generate.progress': 'Stap {{step}} / {{total}}',
+  'generate.submitFailed':
+    'De generatie kon niet in de wachtrij worden geplaatst — controleer je verbinding en probeer het opnieuw.',
   'generate.subtitle': 'Stel een prompt op, draai aan de knoppen, roep varianten op',
   'generate.title': 'Studio',
   'generation.created': '{{when}}',
   'imageDetail.acting': 'Bezig…',
   'imageDetail.actionFailed': 'Actie mislukt.',
   'imageDetail.actions': 'Afbeeldingsacties',
+  'imageDetail.downloadStarted': 'Download gestart.',
   'imageDetail.downloadUnavailable': 'Nog geen afbeelding beschikbaar om te downloaden.',
   'imageDetail.fields.aspect': 'Verhouding',
   'imageDetail.fields.created': 'Aangemaakt',
@@ -91,11 +102,17 @@ export const ui: UiTranslations = {
   'imageDetail.notFoundTitle': 'Afbeelding niet beschikbaar',
   'imageDetail.noVariations': 'Nog geen variaties — vraag er hierboven een aan.',
   'imageDetail.openEditor': 'In editor openen',
+  'imageDetail.tips.lockSeed':
+    'Vergrendel de seed om te variëren met belichting zonder de compositie te verliezen.',
+  'imageDetail.tips.upscale':
+    'Voer upscale 4× uit voordat je exporteert voor printklare kwaliteit.',
   'imageDetail.tipsTitle': 'De droom verfijnen',
+  'imageDetail.title': 'Afbeelding',
   'imageDetail.upscaleQueued': 'Opschalen in wachtrij',
   'imageDetail.variations': 'Variaties',
   'imageDetail.variationsQueued': 'Variaties in wachtrij',
   'imageDetail.visibilityToggled': 'Zichtbaarheid bijgewerkt',
+  'landing.copyright': '© {{year}} {{appName}} Labs. Gebouwd met Molecule.dev.',
   'landing.cta': 'Begin met creëren',
   'landing.eyebrow': 'Nu met Reverie XL v3',
   'landing.featuresEyebrow': 'Waarom Reverie',
@@ -134,8 +151,18 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Generatieactiviteit, delen en credit-meldingen verschijnen hier.',
   'notifications.empty.title': 'Niets te melden',
   'notifications.subtitle': 'Generatie-evenementen gegroepeerd per dag',
+  'planUpdated.confirmed': 'Je {{planKey}}-abonnement is actief en er zijn credits toegevoegd.',
+  'planUpdated.error':
+    'We konden je upgrade niet automatisch bevestigen. Neem contact op met support.',
+  'planUpdated.retry': 'Opnieuw proberen',
+  'planUpdated.unpaid':
+    'Je afrekeningssessie is niet betaald. Probeer het opnieuw via Instellingen.',
+  'planUpdated.verifyFailed': 'We hebben uw betaling nog niet kunnen bevestigen.',
+  'planUpdated.verifyFailedBody':
+    'Uw betaling wordt mogelijk nog verwerkt. Probeer het over een moment opnieuw.',
   'planUpdated.verifying': 'Je betaling bevestigen…',
   'pricing.limits.gallery': '{{count}} galerij',
+  'pricing.limits.generations': '{{count}} generaties',
   'privacy.collect.body':
     'Wanneer u zich aanmeldt verzamelen we uw naam, e-mailadres en een gehasht wachtwoord. Wanneer u Reverie gebruikt slaan we de prompts op die u indient, de afbeeldingen die we voor u genereren, de stijlen en collecties die u opslaat, en metadata zoals het gebruikte model, generatietijdstempels en creditsaldo.',
   'privacy.cookies.body':
@@ -149,6 +176,8 @@ export const ui: UiTranslations = {
   'profile.followedBio': 'Heeft zojuist een maker gevolgd',
   'profile.following': 'Volgen…',
   'profile.loadingWorks': 'Openbaar werk laden…',
+  'profile.noPublicWorks':
+    'Nog geen openbare werken — deel een afbeelding om deze galerij te vullen.',
   'profile.notFoundTitle': 'Profiel niet beschikbaar',
   'profile.publicWorks': 'Openbaar werk',
   'profile.subtitle': '@{{handle}} · openbaar makersprofiel',
@@ -160,6 +189,7 @@ export const ui: UiTranslations = {
   'prompts.empty.cta': 'Studio openen',
   'prompts.empty.title': 'Geen opgeslagen prompts komen overeen',
   'prompts.lastUsed': 'Gebruikt {{when}}',
+  'prompts.loading': 'Vragen laden…',
   'prompts.negativeLabel': 'NEG',
   'prompts.runAgain': 'Uitvoeren',
   'prompts.running': 'Uitvoeren…',
@@ -175,6 +205,7 @@ export const ui: UiTranslations = {
   'settings.account.saveFailed': 'Kon profiel niet opslaan',
   'settings.account.title': 'Makersprofiel',
   'settings.accountSecurity': 'Account en beveiliging',
+  'settings.accountSecurity.title': 'Inloggen, apparaten en account',
   'settings.api.empty': 'Nog geen API-sleutels — maak er een om met integreren te beginnen.',
   'settings.api.loading': 'API-sleutels laden…',
   'settings.api.revoked': 'API-sleutel ingetrokken',
@@ -193,12 +224,16 @@ export const ui: UiTranslations = {
   'sidebar.secondary': 'Secundaire navigatie',
   'signup.failed': 'Aanmelden mislukt. Probeer opnieuw.',
   'signup.firstNamePlaceholder': 'Aria',
+  'signup.haveAccount': 'Al een dreamer?',
   'signup.heading': 'Begin uw reverie',
   'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Maak een account en claim 120 gratis credits.',
+  'styles.body':
+    'Elke preset bundelt zijn eigen model, sampler, prompt-opbouw en stijlchips. Activeer er een om de hele studio in die sfeer te zetten — perfect voor serieel werk.',
   'styles.empty': 'Nog geen stijlpresets — ze verschijnen na het eerste inloggen.',
   'styles.eyebrow': 'Samengesteld',
   'styles.headline': 'Sneller oproepen met herbruikbare visuele presets',
+  'styles.loading': 'Stijlbibliotheek laden…',
   'styles.subtitle': 'Samengestelde visuele presets gemaakt door het Reverie-studioteam',
   'styles.title': 'Stijlbibliotheek',
   'terms.acceptableUse.body':

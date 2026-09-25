@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'გაქვთ გამოხმაურება, იპოვეთ ხარვეზი ან გსურთ ახალი ფუნქცია? მოგვმართეთ ანგარიშის პარამეტრებიდან — ყველა შეტყობინება გუნდის რეალურ ადამიანამდე აღწევს. შენიშვნა: აქ მოცემული არაფერია საინვესტიციო რჩევა; ყოველი ტრანზაქციის კონტროლი თქვენ გაქვთ.',
+  'about.contactTitle': 'დაგვიკავშირდით',
+  'about.featureAttribution':
+    'შედეგების ატრიბუცია — დაშალეთ შემოსავლები სექტორის, რეგიონისა და აქტივების კლასის მიხედვით და შეადარეთ ნებისმიერ პერიოდს.',
+  'about.featureRebalance':
+    'დისციპლინირებული რებალანსირება — დააყენეთ სამიზნე განაწილება და დასაშვები დიაპაზონები, ადრევე დაინახეთ გადახრა და მიიღეთ ტრანზაქციები, რომლებიც წონასწორობას დაგიბრუნებთ.',
+  'about.featureTax':
+    'საგადასახადო დოკუმენტაციის სისუფთავე — რეალიზებული და არარეალიზებული მოგება, დივიდენდები და 1099 დოკუმენტები ერთ ადგილას, wash-sale ნიშნების ჩათვლით.',
+  'about.featureUnified':
+    'ერთიანი პორტფელი — აქციები, ETF-ები, ურთიერთდახმარების ფონდები, ობლიგაციები და სხვა, თავმოყრილი ყველა საბროკერო ანგარიშიდან.',
+  'about.featureWatchlist':
+    'საყურადღებო სიები, სიახლეები და ფასების შეტყობინებები, რომ იმოქმედოთ მნიშვნელოვანზე ზედმეტი ხმაურის გარეშე.',
+  'about.intro':
+    '{{app}} მრავალაქტივიანი პორტფელის დაფაა ინდივიდუალური ინვესტორებისა და დამოუკიდებელი მრჩევლებისთვის. აქციები, ETF-ები, ურთიერთდახმარების ფონდები, ობლიგაციები, უძრავი ქონება და ნაღდი ფული — ყველა აქტივი ყველა ანგარიშიდან, ერთ ადგილას, პროფესიონალური დესკის დისციპლინით.',
+  'about.missionBody':
+    'კარგი ინვესტირება ძირითადად დისციპლინაა: მკაფიო სამიზნე განაწილება, სამართლიანი შედეგების ატრიბუცია და მოწესრიგებული საგადასახადო ჩანაწერები. {{app}} ამ ინსტიტუციურ ჩვევებს ყველასთვის ხელმისაწვდომს ხდის, რომ რებალანსირება გააზრებულად, და არა იმპულსურად, გააკეთოთ — და ვერასოდეს დაკარგოთ თვალთახედვიდან, რას აკეთებს სინამდვილეში თქვენი პორტფელი.',
+  'about.missionTitle': 'ჩვენი მისია',
   'about.pageTitle': '{{app}}-ის შესახებ',
   'argentAuthShell.brandEyebrow': 'Argent · სიმდიდრის ინსტრუმენტები',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . არ წარმოადგენს საინვესტიციო რჩევას.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'პორტფელის პანელი ინდივიდუალური ინვესტორებისა და მრჩევლებისთვის, რომლებსაც სურთ დისციპლინირებული რებალანსირება, შესრულების მკვეთრი ატრიბუცია და საგადასახადო დოკუმენტაციის ჰიგიენა — ხმაურის გარეშე.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · წარსული შედეგები მომავალ შედეგებს არ იძლევა გარანტიას.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) დღეს',
+  'argentAuthShell.sampleLabel': 'პორტფელის ღირებულება',
   'argentAuthShell.sampleValue': '1,032,251 აშშ დოლარი',
   'argentLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
   'assetAllocationDonut.heading': 'როგორ ხდება თქვენი ფულის ინვესტირება',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'დღეს',
   'assetDetail.txEmpty': 'ამ ტიკერისთვის ტრანზაქციები არ არის.',
   'assetDetail.txHeading': 'თქვენი ტრანზაქციები',
+  'auth.legalConsent.prefix': 'გაგრძელებით თქვენ ეთანხმებით {{appName}}-ის',
   'common.and': 'და',
   'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'დღეს',
   'dashboard.topHoldings.heading': 'სად მუშაობს თქვენი ფული',
   'dashboard.topHoldings.label': 'ტოპ ჰოლდინგები',
+  'forgotPassword.gotLinkCta': 'მაქვს აღდგენის ბმული →',
+  'forgotPassword.subheading':
+    'შეიყვანეთ თქვენს Gavl ანგარიშზე მითითებული ელ. ფოსტა და ჩვენ გამოგიგზავნით უსაფრთხო გადატვირთვის ბმულს.',
   'forgotPassword.successBody':
     'თუ რამდენიმე წუთში ვერ ნახავთ, შეამოწმეთ სპამის საქაღალდე ან სცადეთ სხვა ელ. ფოსტა.',
   'forgotPassword.successSubheading':
     'შემოწმება {{email}} გადატვირთვის ბმულისთვის. მისი ვადა 60 წუთში იწურება.',
+  'forgotPassword.successTitle': 'აღდგენის ელფოსტა გზაშია',
   'holdingHighlightRow.todayLabel': 'დღეს',
   'holdings.addCta': 'ყიდვა',
   'holdings.col.allocation': 'ალოკ',
@@ -58,6 +87,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . ეს არ წარმოადგენს საინვესტიციო რჩევას. წარსული შედეგები არ იძლევა მომავლის შედეგების გარანტიას.',
   'landing.eyebrow': 'Argent · სიმდიდრის მოზიდვის პლატფორმა',
   'landing.features.heading': 'ყველაფერი, რასაც მრჩეველი თავად ააშენებდა.',
+  'landing.finalCta.body':
+    'დააკავშირეთ თქვენი საბროკერო ორ დაწკაპუნებაში. დანარჩენს {{appName}} გააკეთებს.',
+  'landing.finalCta.cta': 'გახსენით თქვენი Argent ანგარიში',
   'landing.finalCta.heading': 'დააბრუნეთ დისციპლინა თქვენს პორტფოლიოში.',
   'landing.footerSignup': 'ანგარიშის გახსნა',
   'landing.getStarted': 'ანგარიშის გახსნა',
@@ -65,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'იხილეთ ფასები',
   'landing.heroSubtitle':
     'პორტფელის პანელი ინდივიდუალური ინვესტორებისა და მრჩევლებისთვის, რომლებსაც სურთ დისციპლინირებული რებალანსირება, შესრულების მკვეთრი ატრიბუცია და საგადასახადო დოკუმენტაციის ჰიგიენა — ხმაურის გარეშე.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'წარმომადგენლობითი პორტფოლიოს პირდაპირი მიმოხილვა',
   'login.heading': 'შესვლა Argent-ში',
   'login.subheading':
@@ -76,6 +109,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} საათის წინ',
   'news.justNow': 'ახლახან',
   'news.loadError': 'სიახლეების ჩატვირთვა ვერ მოხერხდა.',
+  'planUpdated.body':
+    'თქვენი ბილინგის ცვლილება ახლა აქტიურია. გეგმის მართვა ნებისმიერ დროს შეგიძლიათ ბილინგის გვერდიდან.',
+  'planUpdated.retry': 'ხელახლა სცადეთ',
+  'planUpdated.verifyFailed': 'თქვენი გადახდის დადასტურება ჯერ ვერ შევძელით.',
+  'planUpdated.verifyFailedBody':
+    'შესაძლოა, თქვენი გადახდა ჯერ კიდევ მუშავდება. სცადეთ ხელახლა ცოტა ხანში.',
   'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'portfolioHeroCard.label': 'პორტფელის ღირებულება',
   'pricing.holdingsLabel': 'სამფლობელოები',
@@ -86,12 +125,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'განაწილების დრიფტი',
   'rebalance.empty': 'ჯერ არ არის დასახული მიზნები.',
   'rebalance.executeCta': 'ადგილი {{count}} ვაჭრობა',
+  'rebalance.executeError': 'ტრანზაქციების განთავსება ვერ მოხერხდა.',
   'rebalance.executeOk': 'განთავსებული {{count}} ტრანზაქციები. იხილეთ ისინი ტრანზაქციების გვერდზე.',
+  'rebalance.executing': 'მიმდინარეობს განთავსება…',
   'rebalance.eyebrow': 'რებალანსირება · არგენტის მრჩეველი',
   'rebalance.heading': 'დაუბრუნეთ თქვენი პორტფოლიო დისციპლინას',
   'rebalance.loadError': 'რესაბლანსირების გეგმის ჩატვირთვა ვერ მოხერხდა.',
+  'rebalance.plan.driftLine': 'ამჟამად {{current}}% · სამიზნე {{target}}%',
   'rebalance.planHeading': 'არგენტის ბილეთი — გადახედეთ განთავსებამდე',
   'rebalance.planLabel': 'შემოთავაზებული სავაჭრო გეგმა',
+  'rebalance.subheading':
+    'დასაშვები დიაპაზონის გარეთ მყოფი პოზიციები ტრანზაქციის შემოთავაზებებს იწვევს. {{appName}} მოქმედებს მხოლოდ თქვენი დადასტურებით.',
   'rebalance.summary.buyLabel': 'ყიდვები',
   'rebalance.summary.buySub': 'შესავსები პოზიციები',
   'rebalance.summary.driftLabel': 'დიაპაზონის გარეთ',
@@ -100,6 +144,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'შემოთავაზებული გარიგებების მიხედვით',
   'rebalance.summary.sellLabel': 'ყიდის',
   'rebalance.summary.sellSub': 'დასაკეცი პოზიციები',
+  'rebalanceDriftCard.drift': 'გადახრა {{sign}}{{pct}}% · დიაპაზონი ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'სამიზნე {{pct}} %',
   'reports.attributionHeading': 'შესრულების ატრიბუცია (1 წელი)',
   'reports.col.alpha': 'ალფა',
@@ -113,36 +158,67 @@ export const ui: UiTranslations = {
   'reports.col.year': 'წელი',
   'reports.gainsHeading': 'რეალიზებული და არარეალიზებული მოგება',
   'reports.noAttribution': 'ატრიბუციის მონაცემები ჯერ არ არის.',
+  'reports.noGains': 'ჯერ არ არის რეალიზებული/არარეალიზებული მოგების მონაცემები.',
   'reports.noPerformance': 'შესრულების მონაცემები ჯერ არ არის.',
   'reports.noTaxDocs': 'საგადასახადო დოკუმენტები ჯერ არ არის.',
   'reports.performanceHeading': 'შესრულება vs საორიენტაციო მაჩვენებელი',
   'reports.taxHeading': 'საგადასახადო დოკუმენტები',
   'resetPassword.heading': 'აირჩიეთ ახალი, ძლიერი პაროლი',
+  'resetPassword.passwordPlaceholder': 'ახალი პაროლი',
   'resetPassword.subheading': 'Argent ავტომატურად შეგიყვანთ სისტემაში პაროლის დაყენების შემდეგ.',
   'resetPassword.tokenPlaceholder': 'ელფოსტიდან ტოკენის გადატვირთვა',
+  'settings.appearance.description': 'გადართვა ღია და ბნელ რეჟიმებს შორის.',
   'settings.appearance.title': 'გარეგნობა',
+  'settings.devices.body': 'მოწყობილობები, რომლებიც ამჟამად შესულია თქვენს ანგარიშში.',
+  'settings.devices.empty': 'მოწყობილობები ვერ მოიძებნა.',
   'settings.devices.heading': 'მოწყობილობები',
+  'settings.devices.revokeWarning': 'ამ მოწყობილობის წვდომა მალე გაუქმდება. გასვლა?',
   'settings.devices.signOut': 'გასვლა',
   'settings.devices.thisDevice': 'ეს მოწყობილობა',
   'settings.devices.unknown': 'უცნობი მოწყობილობა',
   'settings.linked.body':
     'ბროკერის სინქრონიზაციას სჭირდება მესამე მხარის კონექტორი (Plaid, Yodlee და ა.შ.). ავტომატური იმპორტის ჩასართავად დააკონფიგურირეთ თქვენი პროვაიდერი თქვენს გარემოში.',
   'settings.linked.heading': 'დაკავშირებული საბროკერო ანგარიშები',
+  'settings.linked.placeholder': 'ჯერ არ არის დაკავშირებული ანგარიშები.',
+  'settings.notifications.dividendsPaid': 'გადახდილი დივიდენდები',
   'settings.notifications.error': 'პარამეტრის განახლება ვერ მოხერხდა.',
   'settings.notifications.priceAlerts': 'ფასების შეტყობინებები',
+  'settings.notifications.rebalanceDrift': 'რებალანსირების გადახრა',
+  'settings.notifications.taxDocsReady': 'საგადასახადო დოკუმენტები მზადაა',
   'settings.profile.advisor': 'მრჩევლის ელ. ფოსტა (არასავალდებულო)',
   'settings.profile.heading': 'პროფილი',
   'settings.security.changePassword': 'პაროლის შეცვლა',
+  'settings.security.changePasswordTitle': 'პაროლის შეცვლა',
   'settings.security.changing': 'იცვლება…',
+  'settings.security.confirmPassword': 'პაროლი',
+  'settings.security.currentPassword': 'მიმდინარე პაროლი',
   'settings.security.deleteAccount': 'ანგარიშის წაშლა',
   'settings.security.deleteError': 'ანგარიშის წაშლა ვერ მოხერხდა.',
   'settings.security.deleteHeading': 'ანგარიშის წაშლა',
+  'settings.security.deleteModalWarning':
+    'ეს სამუდამოდ შლის თქვენს ანგარიშსა და მონაცემებს. დასადასტურებლად შეიყვანეთ პაროლი.',
+  'settings.security.deleteWarning':
+    'სამუდამოდ წაშალეთ თქვენი ანგარიში და ყველა დაკავშირებული მონაცემი. ამის გაუქმება შეუძლებელია.',
   'settings.security.deleting': 'წაშლა…',
   'settings.security.heading': 'უსაფრთხოება',
   'settings.security.newPassword': 'ახალი პაროლი',
   'settings.security.password': 'პაროლი',
+  'settings.security.passwordError': 'პაროლის შეცვლა ვერ მოხერხდა.',
+  'settings.security.passwordHint': 'შეცვალეთ პაროლი, რომელსაც შესვლისას იყენებთ.',
+  'settings.security.twoFactor': 'ორფაქტორიანი ავთენტიფიკაცია',
+  'settings.security.twoFactorCode': 'ავტორიზაციის კოდი',
+  'settings.security.twoFactorDisable': 'გამორთვა',
+  'settings.security.twoFactorDisableTitle': 'ორფაქტორიანი ავთენტიფიკაციის გამორთვა',
   'settings.security.twoFactorEnable': 'ჩართვა',
+  'settings.security.twoFactorEnableTitle': 'ორფაქტორიანი ავთენტიფიკაციის ჩართვა',
+  'settings.security.twoFactorHint': 'დაამატეთ დაცვის დამატებითი ფენა თქვენს ანგარიშს.',
   'settings.security.twoFactorInvalidCode': 'არასწორი კოდი',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'ორფაქტორიანი QR კოდი',
+  'settings.security.twoFactorScan':
+    'დაასკანერეთ ეს QR კოდი ავთენტიფიკატორის აპით, შემდეგ შეიყვანეთ 6-ნიშნა კოდი.',
+  'settings.security.twoFactorUnavailable':
+    'ორფაქტორიანი ავთენტიფიკაცია ამ აპლიკაციისთვის მიუწვდომელია.',
   'settings.security.twoFactorVerify': 'დადასტურება და ჩართვა',
   'settings.tax.error': 'გადასახადის მეთოდის განახლება ვერ მოხერხდა.',
   'settings.tax.heading': 'საგადასახადო აღრიცხვა',
@@ -153,6 +229,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'გადასახადის მეთოდი შენახულია.',
   'signup.eyebrow': 'ანგარიშის გახსნა',
   'signup.heading': 'გახსენით თქვენი Argent ანგარიში',
+  'signup.legalPrefix': 'ანგარიშის შექმნით თქვენ ეთანხმებით {{appName}}',
   'signup.subheading':
     'უფასოა 30 დღის განმავლობაში. ბარათი საჭირო არ არის. გააუქმეთ ნებისმიერ დროს.',
   'signup.terms':

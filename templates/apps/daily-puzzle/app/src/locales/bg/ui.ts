@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Имате обратна връзка, открихте бъг или искате да донесете {{app}} в училището или екипа си? Четем всяко съобщение — пишете ни от настройките на акаунта си и истински човек ще отговори.',
   'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'Относно',
+  'about.intro':
+    '{{app}} е ежедневна пъзел игра с думи. Познайте петбуквената дума в шест опита, запазете серията си, споделете емоджи решетката си и вижте как се справиха всички с днешната дума.',
+  'about.missionBody':
+    'Добрият пъзел е малка ежедневна победа. {{app}} е изграден около една обща дума на ден — достатъчно бързо за кафе пауза, достатъчно завладяващо, за да се върнете и утре.',
+  'about.missionTitle': 'Нашата мисия',
   'about.title': 'Относно {{app}}',
   'archive.loadError': 'Архивът не можа да се зареди.',
   'archive.missed': 'Пропуснати',
   'archive.notPlayed': 'Неизиграни',
+  'archive.subhead':
+    'Повторете всеки минал ден като тренировка — без серии, без статистики, само забавлението.',
   'archive.title': 'Архив',
   'auth.backToHome': 'Обратно към начало',
   'auth.backToHomeArrow': '← Обратно към начало',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Забравена парола?',
   'auth.login.loggingIn': 'Влизате...',
   'auth.login.logIn': 'Играйте днешната дума',
+  'auth.login.noAccount': 'Нови ли сте в Тесера?',
   'auth.login.or': 'или продължете с',
   'auth.login.password': 'Парола',
   'auth.login.signInButton': 'Вход',
@@ -32,6 +42,10 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Запазва се...',
   'common.sendingEllipsis': 'Изпраща се...',
   'common.startingEllipsis': 'Стартира се...',
+  'forgotPassword.subhead': 'Въведете имейл адреса си и ще ви изпратим линк за нулиране.',
+  'forgotPassword.success.body':
+    'Ако съществува акаунт за {{email}} , ще получите линк за нулиране след няколко минути.',
+  'forgotPassword.success.title': 'Проверете пощенската си кутия.',
   'form.name': 'Име',
   'howToPlay.cta.home': 'Обратно към дома',
   'howToPlay.cta.play': 'Играй днешния пъзел',
@@ -68,10 +82,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Серии, които не искате да прекъснете',
   'leaderboard.daily.title': 'Днешни решения',
   'leaderboard.loadError': 'Класацията не можа да се зареди.',
+  'leaderboard.streaks.empty': 'Още няма серии — бъдете първият.',
+  'leaderboard.streaks.subhead': 'Най-дълги серии от победи за всички времена.',
   'leaderboard.streaks.title': 'Лидери по серии',
+  'leaderboard.subhead': 'Как се справиха всички днес и кой държи най-дългите серии.',
   'leaderboard.title': 'Класация',
   'login.headline': 'Добре дошли отново.',
   'login.streakPill': '{{days}}-дневна серия ви очаква',
+  'login.subhead':
+    'Влезте, за да запазите серията си и да видите как се справихте с днешната дума.',
   'nav.archive': 'Архив',
   'nav.editProfile': 'Редактирай профила',
   'nav.getStarted': 'Започнете',
@@ -89,6 +108,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Няма такава дума',
   'notFound.title': 'Този маршрут е празен.',
   'planUpdated.message': 'Планът ви е активен.',
+  'planUpdated.retry': 'Опитайте отново',
+  'planUpdated.verifyFailed': 'Все още не успяхме да потвърдим плащането ви.',
+  'planUpdated.verifyFailedBody':
+    'Възможно е плащането ви все още да се обработва. Опитайте отново след малко.',
   'planUpdated.verifying': 'Потвърждава се плащането...',
   'play.alreadyFinished': 'Вече завършихте този пъзел',
   'play.answerWas': 'Думата беше',
@@ -104,6 +127,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Тренировъчен пъзел',
   'play.tooShort': 'Недостатъчно букви',
   'play.won': 'Решихте го!',
+  'pricing.advancedStats': 'Разширена статистика: {{yes}}',
+  'pricing.archiveHistory': '{{count}} дни история на архива',
+  'pricing.archivePlays': '{{count}} повторения на архив на ден',
+  'pricing.archiveUnlimited': 'Неограничена история на архива',
+  'pricing.canExport': 'Експорт на данни: {{yes}}',
+  'pricing.checkoutError': 'Плащането не можа да започне. Моля, опитайте отново.',
   'pricing.dailyWord': 'Ежедневната дума',
   'pricing.heading': 'Изберете {{app}} план',
   'pricing.included': 'Включено',
@@ -111,7 +140,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Ежедневната дума винаги е безплатна. Надградете за неограничени преигравания от архива и задълбочени статистики.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} зачита поверителността ви. Тази страница обобщава какви данни съхраняваме, защо ги съхраняваме и как да ги премахнете.',
   'privacy.title': 'Политика за поверителност',
+  'resetPassword.subhead': 'Изберете нова парола, за да се върнете към серията си.',
   'settings.account': 'Профил',
   'settings.danger.body':
     'Премахнете окончателно профила си в {{appName}} и цялата история на пъзелите.',
@@ -121,17 +153,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'Гост',
   'settings.language.title': 'Език',
   'settings.subhead': 'Настройте профила, звука и как се показвате в класацията.',
+  'settings.unnamed': 'Играч на Sparq',
   'settings.upgrade': 'Надграждане',
   'signup.eyebrow': 'Безплатно завинаги — една дума дневно',
   'signup.headline': 'Започнете серията си.',
+  'signup.subhead':
+    'Създайте акаунт в {{appName}}, за да играете ежедневната дума, да изградите серия и да се изкачите в класацията.',
   'stats.currentStreak': 'Серия',
   'stats.distribution.title': 'Разпределение на опитите',
   'stats.loadError': 'Статистиките не можаха да се заредят.',
   'stats.maxStreak': 'Макс серия',
   'stats.played': 'Изиграни',
   'stats.playToday': 'Играй днешния пъзел',
+  'stats.subhead': 'Само класирани ежедневни пъзели — тренировката в архива не се брои.',
   'stats.title': 'Вашите статистики',
   'stats.winRate': 'Процент успех',
   'status.monthly': 'Месечно',
+  'terms.intro':
+    'С използването на {{app}} се съгласявате с правилата по-долу. Ако не можете да ги приемете, моля, не използвайте услугата.',
   'terms.title': 'Условия за ползване',
 }

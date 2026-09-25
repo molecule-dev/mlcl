@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கேள்விகள், கருத்துகள் அல்லது நீங்கள் தொடர்ந்து இருக்க உதவும் ஒரு யோசனை உள்ளதா? உங்கள் கணக்கு அமைப்புகளிலிருந்து எங்களை அணுகவும் — ஒவ்வொரு செய்தியும் குழுவில் உள்ள ஒரு உண்மையான நபரைச் சென்றடையும்.',
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.featureAdherence':
+    'கடைப்பிடிப்பு அறிக்கைகள் — வாராந்திர மற்றும் மாதாந்திர வரைபடங்கள், மேலும் டோஸ் வாரியான வரலாற்றை ஏற்றுமதி செய்து உங்கள் பராமரிப்புக் குழுவுடன் பகிரலாம்.',
+  'about.featureCaregivers':
+    'பராமரிப்பாளர் பகிர்வு — குடும்பத்தினர் அல்லது மருத்துவர்களை படிக்க-மட்டும் பார்வைக்கு அழைக்கவும், அவர்கள் எதைப் பார்க்கலாம் என்பதை நீங்களே தீர்மானிக்கவும்.',
+  'about.featureRefills':
+    'மறுநிரப்பு எச்சரிக்கைகள் — நிகழ்நேர மாத்திரை எண்ணிக்கை, எனவே தீர்ந்துபோவதற்கு பல நாட்களுக்கு முன்பே எச்சரிக்கை கிடைக்கும், பின்பல்ல.',
+  'about.featureReminders':
+    'உங்களை மதிக்கும் நினைவூட்டல்கள் — ஒத்திவைக்கக்கூடிய புஷ் அறிவிப்புகள், ஒரு டோஸ் தவறினால் பராமரிப்பாளருக்கு அனுப்பப்படலாம்.',
+  'about.featureSchedules':
+    'நெகிழ்வான அட்டவணைகள் — தினசரி, இடைவெளி அல்லது குறிப்பிட்ட நாட்கள், ஒரு நாளைக்கு பல நேரங்கள் மற்றும் உணவுடன் எடுக்கும் நினைவூட்டல்களுடன்.',
+  'about.featuresTitle': 'நீங்கள் பெறுவது',
+  'about.missionBody':
+    'ஒரு டோஸ் தவறுவது மறந்துபோன அலாரம் அல்லது காலியான பாட்டிலைப் பொறுத்ததாக இருக்கக்கூடாது. சிகிச்சைத் திட்டத்தைக் கடைப்பிடிப்பதை எளிதாக்கும் அமைதியான, நம்பகமான கருவிகளை நாங்கள் உருவாக்குகிறோம் — மேலும் நீங்கள் அனுமதிக்கும் அளவுக்கே குடும்பத்தினரையும் மருத்துவர்களையும் அமைதியாக இணைக்கிறோம்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
+  'about.subtitle':
+    'ஒவ்வொரு டோஸும், சரியான நேரத்தில் — உங்களைப் பற்றி அக்கறை கொள்ளும் அனைவரும் வட்டத்தில்.',
   'addMedication.avoidAlcohol': 'மது அருந்துவதைத் தவிர்க்கவும்',
   'addMedication.backLink': 'அனைத்து மருந்துகளும்',
   'addMedication.doseAmount': 'மருந்தளவு (உதாரணமாக 10 மி.கி)',
@@ -12,6 +31,7 @@ export const ui: UiTranslations = {
   'addMedication.pillColor': 'மாத்திரையின் நிறம் (காட்சி அடையாளத்திற்காக)',
   'addMedication.saveError': 'சேமிக்க முடியவில்லை.',
   'addMedication.saveLabel': 'மருந்தை சேமிக்கவும்',
+  'addMedication.takeWithFood': 'உணவுடன் எடுக்கவும்',
   'addMedication.warningsLabel': 'எச்சரிக்கைகள் (பொருந்தக்கூடியவற்றைத் தேர்ந்தெடுக்கவும்)',
   'adherence.byMedEmpty':
     'இன்னும் மருந்துகள் எதுவும் இல்லை — ஒவ்வொரு மருந்துப் பயன்பாட்டு ஒழுங்கைக் காண, ஒன்றைச் சேர்க்கவும்.',
@@ -34,15 +54,26 @@ export const ui: UiTranslations = {
     'கடந்த 30 நாட்கள் · பயனுள்ளதாக இருந்தால் உங்கள் பராமரிப்புக் குழுவினருடன் பகிரவும்',
   'adherence.taken': 'எடுக்கப்பட்டது',
   'adherence.title': 'இணக்க அறிக்கை',
+  'adherenceTriad.refills.eyebrow': 'மறு நிரப்பல்கள்',
   'adherenceTriad.refills.meta': 'மறு நிரப்பல்களை நிர்வகிக்கவும் →',
+  'adherenceTriad.refills.unit': 'விரைவில்',
   'adherenceTriad.refills.value': '{{count}}',
   'adherenceTriad.streak.eyebrow': 'தொடர்',
   'adherenceTriad.streak.meta': 'மிக நீளமானது: {{days}} நாட்கள்',
+  'adherenceTriad.streak.unit': 'நாட்கள்',
   'adherenceTriad.streak.value': '{{days}}',
   'adherenceTriad.today.meta': '{{count}} இன்னும் முன்னால்',
+  'adherenceTriad.today.unit': 'எடுக்கப்பட்ட டோஸ்கள்',
+  'adherenceTriad.today.value': '{{taken}}/{{total}}',
+  'auth.forgotPassword.subtitle':
+    'உங்கள் மின்னஞ்சலை உள்ளிடவும், நாங்கள் உங்களுக்கு மீட்டமைப்பு இணைப்பை அனுப்புவோம்.',
+  'auth.resetPassword.subtitle':
+    'உங்கள் கணக்கை மீட்டெடுப்பதை முடிக்க புதிய கடவுச்சொல்லை அமைக்கவும்.',
   'capsivaLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
+  'caregivers.email': 'பராமரிப்பாளர் மின்னஞ்சல்',
   'caregivers.empty': 'பராமரிப்பாளர்கள் யாரும் சேர்க்கப்படவில்லை. உதவ ஒருவரை அழைக்கவும்.',
   'caregivers.heading': 'பராமரிப்பாளர்கள்',
+  'caregivers.invitedOn': '{{when}} அழைக்கப்பட்டார்',
   'caregivers.inviteError': 'அழைப்பிதழை அனுப்ப முடியவில்லை.',
   'caregivers.inviteFormLabel': 'பராமரிப்பாளரை அழைக்கும் படிவம்',
   'caregivers.inviteIncomplete':
@@ -64,6 +95,11 @@ export const ui: UiTranslations = {
   'dashboard.timelineHeading': 'இன்றைய அளவுகள்',
   'doseRow.markTaken': 'எடுத்துக்கொள்',
   'doseRow.subline': '{{dose}} · {{time}}',
+  'landing.about': '{{app}} பற்றி',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. உங்கள் வழக்கத்தைப் பராமரிக்கிறோம்.',
+  'landing.ctaButton': 'தொடங்குங்கள் — இது இலவசம்',
+  'landing.ctaSubtitle':
+    'இலவசமாகத் தொடங்கலாம். எப்போது வேண்டுமானாலும் பராமரிப்பாளர்களைச் சேர்க்கவும். அமைப்புகளிலிருந்து ரத்து செய்யவும்.',
   'landing.ctaTitle': 'உங்கள் முதல் நினைவூட்டலை இரண்டு நிமிடங்களில் அமைக்கவும்',
   'landing.eyebrow': 'மருந்து உட்கொள்ளல் ஒழுங்கு, அக்கறையுடன் செய்யப்பட்டது',
   'landing.featureEyebrow': 'நீங்கள் பெறுவது',
@@ -76,7 +112,10 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'கால அட்டவணைகள், நினைவூட்டல்கள், மீண்டும் நிரப்புதல்கள் மற்றும் உங்கள் மீது அக்கறை கொண்டவர்களுடன் நீங்கள் பகிர்ந்துகொள்ளக்கூடிய நிகழ்நேரப் பயன்பாட்டுப் பதிவு.',
   'landing.heroTitle': '{{tagline}}',
+  'landing.sampleDate': 'ஞாயிறு, ஏப்ரல் 26',
   'medicationDetail.backLink': 'அனைத்து மருந்துகளும்',
+  'medicationDetail.confirmDeleteBody':
+    'இது மருந்து, அதன் அட்டவணை, டோஸ் வரலாறு மற்றும் நிலுவையில் உள்ள மறுநிரப்பு கோரிக்கைகளை நீக்கும். இதை மீளச் செய்ய முடியாது.',
   'medicationDetail.confirmDeleteHeading': 'நீக்கு {{name}} ?',
   'medicationDetail.confirmDeleteLabel': 'மருந்தை நீக்கு',
   'medicationDetail.deleteError': 'நீக்க முடியவில்லை.',
@@ -98,15 +137,30 @@ export const ui: UiTranslations = {
   'medicationDetail.stat.remaining': 'மாத்திரைகள் மீதம் இருந்தன',
   'medicationDetail.stat.taken': 'எடுத்துக்கொண்ட மருந்தளவுகள்',
   'medicationDetail.warningsHeading': 'எச்சரிக்கைகள்',
+  'medications.addLabel': 'மருந்தைச் சேர்க்கவும்',
   'medications.empty':
     'இன்னும் மருந்துகள் எதுவும் இல்லை. கண்காணிப்பைத் தொடங்க ஒன்றைச் சேர்க்கவும்.',
   'medications.heading': 'மருந்துகள்',
   'medications.loadError': 'மருந்துகளை ஏற்ற முடியவில்லை.',
   'medications.prescriber': 'மருந்துச்சீட்டு மூலம் {{name}}',
+  'medications.refillBy': '{{date}}க்குள் மறுநிரப்பு',
+  'medications.remaining': 'மீதமுள்ளது',
   'medications.subheading': '{{count}} செயலில் உள்ள மருந்துகள்',
   'notifications.heading': 'அறிவிப்புகள்',
+  'planUpdated.body':
+    'உங்கள் பில்லிங் மாற்றம் இப்போது செயலில் உள்ளது. பில்லிங் பக்கத்திலிருந்து எப்போது வேண்டுமானாலும் உங்கள் திட்டத்தை நிர்வகிக்கலாம்.',
+  'planUpdated.retry': 'மீண்டும் முயற்சிக்கவும்',
+  'planUpdated.verifyFailed': 'உங்கள் கட்டணத்தை எங்களால் இன்னும் உறுதிப்படுத்த முடியவில்லை.',
+  'planUpdated.verifyFailedBody':
+    'உங்கள் கட்டணம் இன்னும் செயலாக்கத்தில் இருக்கலாம். சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.',
   'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
+  'pricing.limits.advancedFeatures': 'மேம்பட்ட அம்சங்கள்:',
   'pricing.limits.canExport': 'தரவு ஏற்றுமதி:',
+  'pricing.limits.maxAdherence': '{{count}} கடைப்பிடிப்பு',
+  'pricing.limits.maxDoses': '{{count}} டோஸ்கள்',
+  'pricing.limits.maxMedications': '{{count}} மருந்துகள்',
+  'pricing.limits.maxRefills': '{{count}} மறுநிரப்புகள்',
+  'pricing.limits.maxSchedules': '{{count}} அட்டவணைகள்',
   'pricing.no': '—',
   'pricing.yes': '✓',
   'profile.emergency.heading': 'அவசர தொடர்பு',
@@ -126,6 +180,9 @@ export const ui: UiTranslations = {
   'profile.security.error': 'கடவுச்சொல்லை மாற்ற முடியவில்லை.',
   'profile.security.next': 'புதிய கடவுச்சொல்',
   'profile.security.tooShort': 'கடவுச்சொல் குறைந்தபட்சம் 8 எழுத்துகள் கொண்டதாக இருக்க வேண்டும்.',
+  'refillAlertCard.daysAt': 'நாட்கள் · {{count}} மாத்திரைகள்',
+  'refillAlertCard.pharmacyWithPhone': '{{pharmacy}} · {{phone}}',
+  'refillAlertCard.refillsRemaining': 'Rx-இல் {{count}} மறுநிரப்புகள் மீதம்',
   'refillAlertCard.request': 'கோரிக்கை',
   'refills.empty':
     'இன்னும் மருந்து நிரப்பல்கள் இல்லை. கண்காணிப்பைத் தொடங்க ஒரு மருந்தைச் சேர்க்கவும்.',
@@ -139,11 +196,15 @@ export const ui: UiTranslations = {
   'refills.tile.dueSoonNote': 'அடுத்த 30 நாட்களில் மீண்டும் நிரப்பவும்',
   'refills.tile.fine': 'ஆரோக்கியமான வழங்கல்',
   'refills.tile.fineNote': 'எந்த நடவடிக்கையும் தேவையில்லை',
+  'refills.tile.urgent': 'அவசரம்',
   'refills.tile.urgentNote': 'ஒரு வாரத்திற்குள் வெளியே',
   'schedule.heading': 'வாராந்திர அட்டவணை',
+  'schedule.legend':
+    'நிரப்பப்பட்ட வட்டங்கள் = எடுக்கப்பட்டது அல்லது வரவிருக்கும் · மங்கிய வெளிக்கோடு = தவறிய டோஸ்',
   'schedule.loadError': 'அட்டவணையை ஏற்ற முடியவில்லை.',
   'schedule.subheading': 'ஒவ்வொரு டோஸ், ஒவ்வொரு நாளும், ஒரே பார்வையில்.',
   'schedule.timeColumn': 'நேரம்',
+  'settings.appearance.description': 'ஒளி மற்றும் இருண்ட பயன்முறைகளுக்கு இடையே மாறவும்.',
   'settings.appearance.highContrast': 'அதிக மாறுபாடு கொண்ட வண்ணங்கள்',
   'settings.appearance.largeText': 'எல்லா இடங்களிலும் பெரிய எழுத்துக்களைப் பயன்படுத்தவும்',
   'settings.appearance.timeFormat': 'நேர வடிவம்',
@@ -169,15 +230,26 @@ export const ui: UiTranslations = {
   'settings.saving': 'சேமிப்பு…',
   'settings.signingOutDevice': 'வெளியேறுகிறது…',
   'settings.signOutDevice': 'வெளியேறு',
+  'settings.twoFactorBody':
+    'உங்கள் சுகாதாரத் தரவுக்கு கூடுதல் பாதுகாப்பு அடுக்குக்காக உள்நுழையும்போது அங்கீகரிப்பு செயலியிலிருந்து ஒரு முறை குறியீட்டைக் கோரவும்.',
   'settings.twoFactorCode': 'அங்கீகாரக் குறியீடு',
   'settings.twoFactorDisable': 'முடக்கு',
+  'settings.twoFactorDisableBody':
+    'இரு-காரணி அங்கீகாரத்தை அணைக்க உங்கள் அங்கீகரிப்பு செயலியிலிருந்து தற்போதைய குறியீட்டை உள்ளிடவும்.',
   'settings.twoFactorEnable': 'இயக்கு',
   'settings.twoFactorInvalidCode': 'தவறான குறியீடு.',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'இரு-காரணி QR குறியீடு',
+  'settings.twoFactorScan':
+    'உங்கள் அங்கீகரிப்பு செயலியில் இந்த QR குறியீட்டை ஸ்கேன் செய்து, 6 இலக்கக் குறியீட்டை உள்ளிடவும்.',
+  'settings.twoFactorUnavailable': 'இந்த செயலியில் இரு காரணி அங்கீகாரம் கிடைக்காது.',
   'settings.twoFactorVerify': 'சரிபார்த்து இயக்கு',
   'settings.unnamedDevice': 'பெயரிடப்படாத சாதனம்',
   'todayHeroCard.adherence': '{{pct}} %',
   'todayHeroCard.eyebrow': 'இன்று · {{date}}',
+  'todayHeroCard.streak': '{{days}} -நாள் தொடர்',
+  'todayHeroCard.summary':
+    '{{total}} டோஸ்களில் {{taken}} எடுக்கப்பட்டது · இன்று {{upcoming}} இன்னும் முன்னால் உள்ளது',
   'userMenu.caregivers': 'பராமரிப்பாளர்கள்',
   'userMenu.memberStatus': 'உங்கள் வழக்கத்தைப் பராமரித்தல்',
   'userMenu.profile': 'சுயவிவரம் மற்றும் மருத்துவத் தகவல்',

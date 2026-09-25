@@ -1,14 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Għandek feedback, ltqajt ma' xi intopp, jew trid tgħidilna x'għandna nibnu wara? Iltaqa' mat-tim fuq hello@reverie.app — kull messaġġ jasal għand persuna reali li tagħmel il-prodott.",
   'about.contactTitle': 'Kellem magħna',
+  'about.missionTitle': 'Il-missjoni tagħna',
   'auth.fields.newPassword': 'Password ġdida',
   'collectionDetail.addImage': 'Ikkonġura għall-ġbir',
   'collectionDetail.backCta': 'Lura għall-kollezzjonijiet',
   'collectionDetail.coverNote': "Mood-board ikkurat b' {{count}} immaġini.",
   'collectionDetail.editName': 'Isem tal-kollezzjoni',
+  'collectionDetail.empty':
+    "Għad m'hemmx immaġini f'din il-kollezzjoni — iġġenera xi ħaġa biex iżżid.",
   'collectionDetail.loading': 'Qed tiċċarġja l-kollezzjoni…',
   'collectionDetail.loadingImages': 'Qed jitgħabbew l-immaġini…',
+  'collectionDetail.notFoundBody': 'Din il-kollezzjoni tneħħiet jew hija privata.',
   'collectionDetail.notFoundTitle': 'Kollezzjoni mhux disponibbli',
   'collectionDetail.shared': 'Viżibilità attivata',
   'collections.create': 'Kollezzjoni ġdida',
@@ -16,6 +22,7 @@ export const ui: UiTranslations = {
     "Għad m'hemm l-ebda kollezzjoni. Oħloq waħda biex tibda tikkura x-xogħol tiegħek.",
   'collections.imageCount': '{{count}} immaġini',
   'collections.loading': 'Qed jitgħabbew il-kollezzjonijiet…',
+  'collections.noDescription': "Għad m'hemmx deskrizzjoni — iftaħ biex iżżid waħda.",
   'collections.subtitle': 'Mood-boards, briefs u serje li għaddejjin bħalissa',
   'collections.title': 'Kollezzjonijiet',
   'collections.untitled': 'Bla Titlu · {{stamp}}',
@@ -55,6 +62,7 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     "Daħħal l-email marbuta mal-kont Reverie tiegħek u aħna nibagħtulek link ta' reset.",
   'forgot.successBody': "Link ta' reset jinsab fi triqtu lejn {{email}} .",
+  'gallery.empty.body': 'Ipprova stat differenti jew iġġenera lott ġdid mill-istudjo.',
   'gallery.empty.title': "Xejn ma jaqbel ma' dak il-filtru",
   'gallery.exportAll': 'Esporta kollox',
   'gallery.exported': 'Esportazzjoni fil-kju',
@@ -78,12 +86,15 @@ export const ui: UiTranslations = {
   'generate.controls.title': 'Irfina l-ħolma',
   'generate.defaultPrompt': 'Ħolma ġdida',
   'generate.progress': 'Pass {{step}} / {{total}}',
+  'generate.submitFailed':
+    "Il-ġenerazzjoni ma setgħetx titqiegħed fil-kju — iċċekkja l-konnessjoni tiegħek u erġa' pprova.",
   'generate.subtitle': 'Ikteb prompt, iddawwar il-kontrolli, u ħoloq varjanti',
   'generate.title': 'Studio',
   'generation.created': '{{when}}',
   'imageDetail.acting': 'Naħdem…',
   'imageDetail.actionFailed': 'L-azzjoni falliet.',
   'imageDetail.actions': 'Azzjonijiet tal-immaġni',
+  'imageDetail.downloadStarted': 'It-tniżżil beda.',
   'imageDetail.downloadUnavailable': "Għad m'hemm l-ebda immaġni disponibbli biex titniżżel.",
   'imageDetail.fields.aspect': 'Aspett',
   'imageDetail.fields.created': 'Maħluq',
@@ -94,11 +105,17 @@ export const ui: UiTranslations = {
   'imageDetail.notFoundTitle': 'L-immaġni mhix disponibbli',
   'imageDetail.noVariations': "Għad m'hemm l-ebda varjazzjonijiet — itlob waħda hawn fuq.",
   'imageDetail.openEditor': 'Iftaħ fl-editur',
+  'imageDetail.tips.lockSeed':
+    'Iffissa ż-żerriegħa biex tkompli taħdem fuq id-dawl mingħajr ma titlef il-kompożizzjoni.',
+  'imageDetail.tips.upscale':
+    'Ħaddem l-upscale 4× qabel tesporta għal kwalità lesta għall-istampar.',
   'imageDetail.tipsTitle': 'Irfina l-ħolma',
+  'imageDetail.title': 'Image',
   'imageDetail.upscaleQueued': "Kju ta' kwalità għolja",
   'imageDetail.variations': 'Varjazzjonijiet',
   'imageDetail.variationsQueued': 'Varjazzjonijiet fil-kju',
   'imageDetail.visibilityToggled': 'Viżibilità aġġornata',
+  'landing.copyright': "© {{year}} {{appName}} Labs. Mibni b'Molecule.dev.",
   'landing.cta': 'Ibda toħloq',
   'landing.eyebrow': 'Issa qed inservi Reverie XL v3',
   'landing.featuresEyebrow': 'Għaliex Reverie',
@@ -139,8 +156,17 @@ export const ui: UiTranslations = {
     'L-attività tal-ġenerazzjoni, il-kondiviżjoni u t-twissijiet tal-kreditu se jidhru hawn.',
   'notifications.empty.title': "Xejn x'jirrapporta",
   'notifications.subtitle': "Avvenimenti ta' ġenerazzjoni miġbura skont il-jum",
+  'planUpdated.confirmed': 'Il-pjan {{planKey}} tiegħek huwa attiv u l-krediti ġew miżjuda.',
+  'planUpdated.error':
+    'Ma stajniex nikkonfermaw l-aġġornament tiegħek awtomatikament. Jekk jogħġbok ikkuntattja l-appoġġ.',
+  'planUpdated.retry': 'Erġa’ pprova',
+  'planUpdated.unpaid': "Is-sessjoni tal-ħlas tiegħek ma tħallsitx. Erġa' pprova mis-Settings.",
+  'planUpdated.verifyFailed': 'Għadna ma stajniex nikkonfermaw il-ħlas tiegħek.',
+  'planUpdated.verifyFailedBody':
+    "Jista' jkun li l-ħlas tiegħek għadu qed jiġi pproċessat. Erġa' pprova fi ftit ħin.",
   'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'pricing.limits.gallery': '{{count}} gallerija',
+  'pricing.limits.generations': '{{count}} ġenerazzjonijiet',
   'privacy.collect.body':
     'Meta tirreġistra niġbru ismek, l-indirizz elettroniku tiegħek, u password hashed. Hekk kif tuża Reverie naħżnu l-prontijiet li tissottometti, l-immaġini li niġġeneraw għalik, l-istili u l-kollezzjonijiet li ssalva, u metadata bħall-mudell użat, timestamps tal-ġenerazzjoni, u l-bilanċ tal-kreditu.',
   'privacy.cookies.body':
@@ -154,6 +180,8 @@ export const ui: UiTranslations = {
   'profile.followedBio': 'Segwejt kreatur issa',
   'profile.following': 'Wara…',
   'profile.loadingWorks': 'Qed jitgħabbew ix-xogħlijiet pubbliċi…',
+  'profile.noPublicWorks':
+    "Għad m'hemmx xogħlijiet pubbliċi — aqsam immaġini biex timla din il-gallerija.",
   'profile.notFoundTitle': 'Profil mhux disponibbli',
   'profile.publicWorks': 'Xogħlijiet pubbliċi',
   'profile.subtitle': '@ {{handle}} · profil pubbliku tal-kreatur',
@@ -165,6 +193,7 @@ export const ui: UiTranslations = {
   'prompts.empty.cta': 'Studio miftuħ',
   'prompts.empty.title': 'L-ebda prompts salvati ma jaqblu',
   'prompts.lastUsed': 'Użat {{when}}',
+  'prompts.loading': 'Qed jitgħabbew il-prompts…',
   'prompts.negativeLabel': 'NEG',
   'prompts.runAgain': 'Ġirja',
   'prompts.running': 'Ġiri…',
@@ -180,6 +209,7 @@ export const ui: UiTranslations = {
   'settings.account.saveFailed': 'Ma setax jiġi salvat il-profil',
   'settings.account.title': 'Profil tal-kreatur',
   'settings.accountSecurity': 'Kont u sigurtà',
+  'settings.accountSecurity.title': 'Id-dħul, l-apparati u l-kont',
   'settings.api.empty':
     "Għad m'hemm l-ebda ċwievet tal-API — oħloq waħda biex tibda l-integrazzjoni.",
   'settings.api.loading': 'Qed jitgħabbew iċ-ċwievet tal-API…',
@@ -199,12 +229,16 @@ export const ui: UiTranslations = {
   'sidebar.secondary': 'Navigazzjoni sekondarja',
   'signup.failed': "Ir-reġistrazzjoni falliet. Erġa' pprova.",
   'signup.firstNamePlaceholder': 'Arija',
+  'signup.haveAccount': 'Diġà ħolom?',
   'signup.heading': 'Ibda r-reverie tiegħek',
   'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': "Oħloq kont u itlob 120 kreditu b'xejn.",
+  'styles.body':
+    "Kull preset jiġbor fih il-mudell, is-sampler, l-iskafalding tal-prompt u ċ-ċipep tal-istil tiegħu stess. Attiva wieħed biex tissakkar l-istudjo kollu f'dak il-burdata — perfett għax-xogħol f'serje.",
   'styles.empty': "Għad m'hemm l-ebda presets tal-istil — dawn se jidhru wara l-ewwel login.",
   'styles.eyebrow': 'Kurat',
   'styles.headline': "Oħloq aktar malajr b'presets viżwali li jistgħu jerġgħu jintużaw",
+  'styles.loading': 'Qed tgħabbi l-librerija tal-istili…',
   'styles.subtitle': 'Presets viżwali kkurati mfassla mit-tim tal-istudjo Reverie',
   'styles.title': 'Librerija tal-istili',
   'terms.acceptableUse.body':

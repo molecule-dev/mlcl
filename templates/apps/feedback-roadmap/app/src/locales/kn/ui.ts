@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ಪ್ರತಿಕ್ರಿಯೆ ಇದೆಯೇ, ದೋಷ ಕಂಡುಬಂದಿದೆಯೇ, ಅಥವಾ {{appName}} ನಲ್ಲಿ ನಿಮ್ಮದೇ ಬೋರ್ಡ್ ಬೇಕೇ? ತಂಡವನ್ನು ತಲುಪಲು ನಿಮ್ಮ ಸೆಟ್ಟಿಂಗ್ಗಳನ್ನು ತೆರೆಯಿರಿ — ಪ್ರತಿ ಸಂದೇಶವೂ ಅದನ್ನು ಓದುವ ನಿಜವಾದ ಮನುಷ್ಯನ ಬಳಿಗೆ ಹೋಗುತ್ತದೆ.',
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
+  'about.featureModeration':
+    'ಕ್ವಾರ್ಟರ್ ಲೇಬಲ್ಗಳಿರುವ ಸಾರ್ವಜನಿಕ ರೋಡ್ಮ್ಯಾಪ್, ಸಾಗಿದ ಕೆಲಸವನ್ನು ಬಿಡುಗಡೆ ಟಿಪ್ಪಣಿಗಳಾಗಿ ಪರಿವರ್ತಿಸುವ ಚೇಂಜ್ಲಾಗ್, ಮತ್ತು ಜನರು ಯಾವುದನ್ನು ಹೆಚ್ಚು ಬಯಸುತ್ತಾರೆ ಎಂಬುದನ್ನು ತೋರಿಸುವ ಡ್ಯಾಶ್ಬೋರ್ಡ್.',
+  'about.featurePricing':
+    'ಎರಡು ಬೋರ್ಡ್ಗಳನ್ನು ಉಚಿತವಾಗಿ ನಡೆಸಬಹುದು; Pro ಮತ್ತು Team ಯೋಜನೆಗಳು ಹೆಚ್ಚು ಬೋರ್ಡ್ಗಳು, ಹೆಚ್ಚಿನ ಮಿತಿಗಳು ಮತ್ತು ಡೇಟಾ ರಫ್ತನ್ನು ಅನ್ಲಾಕ್ ಮಾಡುತ್ತವೆ.',
+  'about.featureThreads':
+    'ವಿಷಯದ ಪ್ರಕಾರ ಜೋಡಿಸಲಾದ ಸಾರ್ವಜನಿಕ ಪ್ರತಿಕ್ರಿಯೆ ಬೋರ್ಡ್ಗಳು, ನಕಲುಗಳನ್ನು ವಿಲೀನಗೊಳಿಸಿ ಮತಗಳನ್ನು ಒಂದೇ ಪ್ರಾಮಾಣಿಕ ಬೇಡಿಕೆ ಸೂಚನೆಯಾಗಿ ಸೇರಿಸುತ್ತವೆ.',
+  'about.featureVoting':
+    'ಪ್ರತಿ ಬಳಕೆದಾರರಿಗೆ ಒಂದು ಮತದ ಮತದಾನ ಮತ್ತು ಪೂರ್ಣ ಸ್ಥಿತಿ ಕಾರ್ಯಪ್ರವಾಹ — ತೆರೆದಿದೆ, ಯೋಜಿಸಲಾಗಿದೆ, ಪ್ರಗತಿಯಲ್ಲಿದೆ, ಸಾಗಿಸಲಾಗಿದೆ, ಅಥವಾ ತಿರಸ್ಕರಿಸಲಾಗಿದೆ — ಮತ್ತು ಪ್ರತಿ ನಿರ್ಧಾರದ ಮೇಲೂ ಅಧಿಕೃತ ಪ್ರತಿಕ್ರಿಯೆ.',
+  'about.intro':
+    '{{appName}} ಒಂದು ಉತ್ಪನ್ನ-ಪ್ರತಿಕ್ರಿಯೆ ವೇದಿಕೆ — ಗ್ರಾಹಕರು ವಿನಂತಿಗಳನ್ನು ಪೋಸ್ಟ್ ಮಾಡುವ, ತಮಗೆ ಬೇಕಾದುದಕ್ಕೆ ಮತ ಹಾಕುವ, ಮತ್ತು ಪ್ರತಿ ಕಲ್ಪನೆಯನ್ನು ಯೋಜಿತದಿಂದ ಸಾಗಿಸಿದವರೆಗೆ ಅನುಸರಿಸುವ ಸಾರ್ವಜನಿಕ ಬೋರ್ಡ್ಗಳು. ಬೇಡಿಕೆಯೇ ತನ್ನಷ್ಟಕ್ಕೇ ಶ್ರೇಣೀಕರಣಗೊಳ್ಳುವುದರಿಂದ ತಂಡಗಳು ಮುಂದೆ ಏನನ್ನು ನಿರ್ಮಿಸಬೇಕೆಂದು ಊಹಿಸುವುದನ್ನು ನಿಲ್ಲಿಸುತ್ತವೆ.',
+  'about.missionBody':
+    'ಅತ್ಯುತ್ತಮ ಉತ್ಪನ್ನ ನಿರ್ಧಾರಗಳು ಬಯಲಿನಲ್ಲಿ ತೆಗೆದುಕೊಳ್ಳಲ್ಪಡುತ್ತವೆ ಎಂದು ನಾವು ನಂಬುತ್ತೇವೆ. {{appName}} ಪ್ರತಿ ತಂಡಕ್ಕೂ ಮತ ಹಾಕಿದ ವಿನಂತಿಗಳ ಸಾರ್ವಜನಿಕ ಬೋರ್ಡ್, ಗುರಿ ಕ್ವಾರ್ಟರ್ಗಳಿರುವ ಅಧಿಕೃತ ರೋಡ್ಮ್ಯಾಪ್, ಮತ್ತು ಚಕ್ರವನ್ನು ಪೂರ್ಣಗೊಳಿಸುವ ಚೇಂಜ್ಲಾಗ್ ನೀಡುತ್ತದೆ — ಹೀಗಾಗಿ ಗ್ರಾಹಕರು ತಮ್ಮ ಪ್ರಭಾವವನ್ನು ನೋಡುತ್ತಾರೆ ಮತ್ತು ತಂಡಗಳು ತಮ್ಮ ಆದೇಶವನ್ನು ನೋಡುತ್ತವೆ.',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
   'admin.backToBoards': 'ಬೋರ್ಡ್‌ಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
   'admin.denied': 'ನಿರ್ವಾಹಕರು ಮಾತ್ರ.',
   'admin.eyebrow': 'ಉತ್ಪನ್ನ ತಂಡ',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'admin.title': 'ಪ್ರತಿಕ್ರಿಯೆ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್',
   'admin.topOpen': 'ಪ್ರಮುಖ ತೆರೆದ ವಿನಂತಿಗಳು',
   'admin.totalVotes': 'ಒಟ್ಟು {{count}}',
+  'admin.votesChartLabel': 'ಕಳೆದ ಎಂಟು ವಾರಗಳಲ್ಲಿ ವಾರಕ್ಕೆ ಹಾಕಲಾದ ಮತಗಳ ಬಾರ್ ಚಾರ್ಟ್',
   'admin.votesOverTime': 'ಕಾಲಾನುಕ್ರಮದಲ್ಲಿ ಮತಗಳು',
   'auth.forgotPassword.email': 'ಇಮೇಲ್',
   'auth.forgotPassword.sendResetLink': 'ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಕಳುಹಿಸಿ',
@@ -30,7 +47,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'ನಿಮ್ಮ ಖಾತೆಯನ್ನು ರಚಿಸಿ',
   'auth.username': 'ಬಳಕೆದಾರ ಹೆಸರು',
   'authShell.communities': 'ಸಮುದಾಯಗಳು',
+  'authShell.copyright': '{{appName}} — ಪ್ರತಿ ಧ್ವನಿಯೂ ಮುಖ್ಯ.',
   'authShell.trending': 'ಟ್ರೆಂಡಿಂಗ್',
+  'boardCard.postCount': '{{count}} ಪೋಸ್ಟ್ಗಳು',
   'boardDetail.allBoards': 'ಎಲ್ಲಾ ಬೋರ್ಡ್‌ಗಳು',
   'boardDetail.backToBoards': 'ಬೋರ್ಡ್‌ಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
   'boardDetail.empty': 'ಈ ಫಿಲ್ಟರ್‌ಗಳಿಗೆ ಯಾವುದೇ ಪೋಸ್ಟ್‌ಗಳು ಹೊಂದಾಣಿಕೆಯಾಗುತ್ತಿಲ್ಲ.',
@@ -54,6 +73,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'ಪ್ರತಿಯೊಂದು ನಮೂದು ಮತ ಪಡೆದ ವಿನಂತಿಯಾಗಿ ಪ್ರಾರಂಭವಾಯಿತು. ಮತದಾರರು ಅದರ ಚಲನೆಯನ್ನು ನೋಡಿದರು; ಅದು ಎಲ್ಲಿ ನೆಲೆಗೊಂಡಿದೆ ಎಂಬುದು ಇಲ್ಲಿದೆ.',
   'changelog.title': 'ರವಾನಿಸಲಾಗಿದೆ, ರಸೀದಿಗಳೊಂದಿಗೆ',
+  'changelog.voteCount': '{{count}} ಮತಗಳು ಇದನ್ನು ನಿರ್ಮಿಸಿದವು',
   'common.atLeast8Characters': 'ಕನಿಷ್ಠ 8 ಅಕ್ಷರಗಳು',
   'common.checkYourInbox': 'ನಿಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್ ಪರಿಶೀಲಿಸಿ',
   'common.loadingEllipsis': 'ಲೋಡ್ ಆಗುತ್ತಿದೆ…',
@@ -64,6 +84,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'ಸಲ್ಲಿಸುತ್ತಿದೆ…',
   'footer.about': '{{appName}} ಬಗ್ಗೆ',
   'footer.language': 'ಭಾಷೆ',
+  'forgotPassword.description':
+    'ನಿಮ್ಮ ಇಮೇಲ್ ಅನ್ನು ನಮೂದಿಸಿ ಮತ್ತು ಮರುಹೊಂದಿಸಲು ನಾವು ನಿಮಗೆ ಲಿಂಕ್ ಅನ್ನು ಕಳುಹಿಸುತ್ತೇವೆ.',
+  'forgotPassword.successBody':
+    'ನಾವು ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಇಲ್ಲಿಗೆ ಕಳುಹಿಸಿದ್ದೇವೆ {{email}} . ಇದು 30 ನಿಮಿಷಗಳಲ್ಲಿ ಮುಕ್ತಾಯಗೊಳ್ಳುತ್ತದೆ.',
   'forgotPassword.tryAnother': 'ಬೇರೆ ಇಮೇಲ್ ಪ್ರಯತ್ನಿಸಿ',
   'form.displayName': 'ಪ್ರದರ್ಶನ ಹೆಸರು',
   'form.firstName': 'ಮೊದಲ ಹೆಸರು',
@@ -74,6 +98,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'ನಿಮ್ಮ ರೋಡ್‌ಮ್ಯಾಪ್, ಮತಗಳಿಂದ ಬೆಂಬಲಿತ.',
   'landing.heroCtaPrimary': 'ಮತಗಳನ್ನು ಸಂಗ್ರಹಿಸಲು ಪ್ರಾರಂಭಿಸಿ',
   'landing.heroCtaSecondary': 'ನೇರ ಬೋರ್ಡ್ ವೀಕ್ಷಿಸಿ',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'ಊಹಿಸುವುದನ್ನು ನಿಲ್ಲಿಸಿ. ಅವರು ಮತ ಹಾಕಿದ್ದನ್ನು ಸಾಗಿಸಿ.',
+  'landing.heroLede':
+    '{{appName}} ಚದುರಿದ ವೈಶಿಷ್ಟ್ಯ ವಿನಂತಿಗಳನ್ನು ಮತ ಹಾಕಿದ ಕಲ್ಪನೆಗಳ ಸಾರ್ವಜನಿಕ ಬೋರ್ಡ್, ಅಧಿಕೃತ ರೋಡ್ಮ್ಯಾಪ್, ಮತ್ತು ನಿಮ್ಮ ಗ್ರಾಹಕರು ನಿಜವಾಗಿಯೂ ಓದುವ ಚೇಂಜ್ಲಾಗ್ ಆಗಿ ಪರಿವರ್ತಿಸುತ್ತದೆ.',
   'landing.heroStat1': '3,200+',
   'landing.heroStat1Label': 'ಆಲಿಸುತ್ತಿರುವ ತಂಡಗಳು',
   'landing.heroStat2': '1.4m',
@@ -85,9 +113,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'ಬದಲಾವಣೆ ದಾಖಲೆ',
   'landing.navJoin': '{{appName}} ಸೇರಿ',
   'landing.navRoadmap': 'ರೋಡ್‌ಮ್ಯಾಪ್',
+  'landing.step1Body':
+    'ಗ್ರಾಹಕರು ಸಾರ್ವಜನಿಕ ಬೋರ್ಡ್ಗಳಿಗೆ ಕಲ್ಪನೆಗಳನ್ನು ಪೋಸ್ಟ್ ಮಾಡುತ್ತಾರೆ. ನಕಲುಗಳು ವಿಲೀನಗೊಳ್ಳುತ್ತವೆ, ಮತಗಳು ಸೇರುತ್ತವೆ, ಮತ್ತು ಬೇಡಿಕೆಯೇ ತನ್ನಷ್ಟಕ್ಕೇ ಶ್ರೇಣೀಕರಣಗೊಳ್ಳುತ್ತದೆ.',
   'landing.step1Title': 'ಸಂಗ್ರಹಿಸಿ',
+  'landing.step2Body':
+    'ಗುರಿ ಕ್ವಾರ್ಟರ್ನೊಂದಿಗೆ ವಿನಂತಿಗಳನ್ನು ಯೋಜಿತ ಅಥವಾ ಪ್ರಗತಿಯಲ್ಲಿದೆ ಎಂದು ಗುರುತಿಸಿ — ನೀವು ಹಾಗೆ ಮಾಡಿದ ಕ್ಷಣವೇ ರೋಡ್ಮ್ಯಾಪ್ ನವೀಕರಣಗೊಳ್ಳುತ್ತದೆ.',
+  'landing.step2Title': 'ಬದ್ಧತೆ',
   'landing.step3Body':
     'ರವಾನಿಸಿದ ಪೋಸ್ಟ್‌ಗಳು ಬದಲಾವಣೆ ದಾಖಲೆ ನಮೂದುಗಳಾಗುತ್ತವೆ ಮತ್ತು ಪ್ರತಿ ಮತದಾರರು ತಮ್ಮ ಸ್ವಂತ ಪಟ್ಟಿಯಲ್ಲಿ ಫಲಿತಾಂಶವನ್ನು ನೋಡುತ್ತಾರೆ.',
+  'landing.step3Title': 'ಸಾಗಿಸಿ',
   'landing.topSubtitle': 'ಈ ಬೋರ್ಡ್‌ನಿಂದ ನೇರ — ನಿಮ್ಮ ಮತವನ್ನು ಸೇರಿಸಲು ಸೈನ್ ಇನ್ ಮಾಡಿ.',
   'landing.topTitle': 'ಬಳಕೆದಾರರು ಇದೀಗ ಏನು ಕೇಳುತ್ತಿದ್ದಾರೆ',
   'landing.topViewAll': 'ಎಲ್ಲಾ ಬೋರ್ಡ್‌ಗಳು',
@@ -95,14 +129,25 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'ಪ್ರಾಥಮಿಕ',
   'layout.signUp': 'ಸೈನ್ ಅಪ್ ಮಾಡಿ',
   'layout.submit': 'ಪ್ರತಿಕ್ರಿಯೆ ಸಲ್ಲಿಸಿ',
+  'login.description': 'ಸಂಭಾಷಣೆ ಎಲ್ಲಿ ನಿಂತಿತೋ ಅಲ್ಲಿಂದ ಮುಂದುವರಿಸಿ.',
+  'login.heading': 'Nimbus‌ಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ',
+  'login.noAccount': 'ಇಲ್ಲಿ ಹೊಸಬರೇ?',
   'login.passwordPlaceholder': 'ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್',
   'login.twoFactorLabel': '2FA ಕೋಡ್ (ಐಚ್ಛಿಕ)',
   'login.twoFactorPlaceholder': '6-ಅಂಕಿಯ ಕೋಡ್',
+  'login.twoFactorRequiredHint':
+    'ಈ ಖಾತೆಗೆ ಎರಡು-ಹಂತದ ದೃಢೀಕರಣ ಸಕ್ರಿಯವಾಗಿದೆ. ಮುಂದುವರಿಯಲು ನಿಮ್ಮ ದೃಢೀಕರಣ ಅಪ್ಲಿಕೇಶನ್ನಿಂದ 6-ಅಂಕಿಯ ಕೋಡ್ ನಮೂದಿಸಿ.',
   'login.twoFactorRequiredLabel': 'ನಿಮ್ಮ 2FA ಕೋಡ್ ನಮೂದಿಸಿ',
+  'myActivity.browseCta': 'ಬೋರ್ಡ್‌ಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ',
+  'myActivity.emptyPosts': 'ನೀವು ಇನ್ನೂ ಯಾವುದೇ ವಿನಂತಿಯನ್ನು ಪೋಸ್ಟ್ ಮಾಡಿಲ್ಲ.',
+  'myActivity.emptyVotes':
+    'ಇನ್ನೂ ಏನೂ ಇಲ್ಲ — ಬೋರ್ಡ್ಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ ಮತ್ತು ಒಂದು ಕಲ್ಪನೆಯನ್ನು ಬೆಂಬಲಿಸಿ.',
   'myActivity.eyebrow': 'ನಿಮ್ಮ ಚಟುವಟಿಕೆ',
   'myActivity.loadError': 'ನಿಮ್ಮ ಚಟುವಟಿಕೆಯನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'myActivity.postsTitle': 'ನೀವು ಸಲ್ಲಿಸಿದ ವಿನಂತಿಗಳು',
+  'myActivity.shippedNote': 'ಅವುಗಳಲ್ಲಿ {{count}} ಸಾಗಿವೆ — ನೆನಪಿಸಿದ್ದಕ್ಕೆ ಧನ್ಯವಾದಗಳು.',
   'myActivity.submitCta': 'ವಿನಂತಿಯನ್ನು ಪೋಸ್ಟ್ ಮಾಡಿ',
+  'myActivity.tabLabel': 'ವೀಕ್ಷಿಸಿ',
   'myActivity.tabPosts': 'ನನ್ನ ಪೋಸ್ಟ್‌ಗಳು',
   'myActivity.tabVotes': 'ನನ್ನ ಮತಗಳು',
   'myActivity.votesTitle': 'ನೀವು ಮತ ನೀಡಿದ ವಿನಂತಿಗಳು',
@@ -137,8 +182,13 @@ export const ui: UiTranslations = {
   'posts.notFound': 'ಪೋಸ್ಟ್ ಕಂಡುಬಂದಿಲ್ಲ',
   'postsAdmin.backToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್',
   'postsAdmin.eyebrow': 'ಉತ್ಪನ್ನ ತಂಡ',
+  'postsAdmin.mergeApplied':
+    'ವಿಲೀನಗೊಂಡಿದೆ — {{votes}} ಮತಗಳು ಮತ್ತು {{comments}} ಕಾಮೆಂಟ್ಗಳು ಸ್ಥಳಾಂತರಗೊಂಡಿವೆ.',
   'postsAdmin.mergeApply': 'ವಿಲೀನಗೊಳಿಸಿ ಮತ್ತು ಮತಗಳನ್ನು ಸರಿಸಿ',
   'postsAdmin.mergeChoose': 'ಗುರಿ ಪೋಸ್ಟ್ ಆಯ್ಕೆಮಾಡಿ…',
+  'postsAdmin.mergeFailed': 'ವಿಲೀನ ವಿಫಲವಾಯಿತು.',
+  'postsAdmin.mergeHint':
+    'ಮತಗಳು ಸೇರುತ್ತವೆ (ಪ್ರತಿ ಬಳಕೆದಾರರಿಗೆ ಒಂದು), ಕಾಮೆಂಟ್ಗಳು ಸ್ಥಳಾಂತರಗೊಳ್ಳುತ್ತವೆ, ಮತ್ತು ಈ ಪೋಸ್ಟ್ಗೆ "ಸ್ಥಳಾಂತರಗೊಂಡಿದೆ" ಟಿಪ್ಪಣಿ ಸಿಗುತ್ತದೆ.',
   'postsAdmin.mergeLabel': 'ನಕಲನ್ನು ಇದರಲ್ಲಿ ವಿಲೀನಗೊಳಿಸಿ',
   'postsAdmin.responseLabel': 'ಅಧಿಕೃತ ಪ್ರತಿಕ್ರಿಯೆ',
   'postsAdmin.responsePlaceholder':
@@ -153,7 +203,13 @@ export const ui: UiTranslations = {
     'ಅಧಿಕೃತ ಸ್ಥಿತಿಯನ್ನು ಹೊಂದಿಸಿ, ಸಾರ್ವಜನಿಕವಾಗಿ ಪ್ರತಿಕ್ರಿಯಿಸಿ, ರೋಡ್‌ಮ್ಯಾಪ್ ತ್ರೈಮಾಸಿಕವನ್ನು ಲೇಬಲ್ ಮಾಡಿ ಮತ್ತು ನಕಲುಗಳನ್ನು ವಿಲೀನಗೊಳಿಸಿ.',
   'postsAdmin.title': 'ಪ್ರತಿಕ್ರಿಯೆ ಪೋಸ್ಟ್‌ಗಳನ್ನು ನಿರ್ವಹಿಸಿ',
   'postsAdmin.votes': '{{count}} ಮತಗಳು',
+  'pricing.limits.advancedFeatures': 'ಸುಧಾರಿತ ವೈಶಿಷ್ಟ್ಯಗಳು:',
+  'pricing.limits.boards': '{{count}} ಬೋರ್ಡ್‌ಗಳು',
   'pricing.limits.export': 'ಡೇಟಾ ರಫ್ತು:',
+  'pricing.limits.posts': '{{count}} ಪ್ರತಿಕ್ರಿಯೆ ಪೋಸ್ಟ್ಗಳು',
+  'pricing.limits.votes': '{{count}} ಮತಗಳು',
+  'resetPassword.description':
+    'ಬಲವಾದದ್ದನ್ನು ಆರಿಸಿ. ಮರುಹೊಂದಿಸುವಿಕೆಯು ಯಶಸ್ವಿಯಾದ ನಂತರ ನಾವು ನಿಮ್ಮನ್ನು ಸೈನ್ ಇನ್ ಮಾಡುತ್ತೇವೆ.',
   'resetPassword.newPasswordLabel': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'resetPassword.tokenPlaceholder': 'ಲಿಂಕ್ ಟೋಕನ್ ಅಂಟಿಸಿ',
   'roadmap.cardMeta': '{{author}} · {{board}} ಮೂಲಕ',
@@ -170,6 +226,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'ನಕಲು ಪೋಸ್ಟ್ ಮಾಡುವ ಮೊದಲು ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ವಿನಂತಿಗಳನ್ನು ಹುಡುಕಲು ಪ್ರಶ್ನೆಯನ್ನು ಟೈಪ್ ಮಾಡಿ.',
   'search.loadError': 'ಹುಡುಕಾಟ ವಿಫಲವಾಗಿದೆ — ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
+  'search.searching': 'ಹುಡುಕಲಾಗುತ್ತಿದೆ...',
   'search.submit': 'ಹುಡುಕಿ Kannada',
   'search.submitNew': 'ಹೊಸ ವಿನಂತಿಯಾಗಿ ಪೋಸ್ಟ್ ಮಾಡಿ',
   'search.title': 'ಪ್ರತಿಕ್ರಿಯೆ ಹುಡುಕಿ',
@@ -178,12 +235,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'ಬಿಲ್ಲಿಂಗ್',
   'settings.displaySubtitle': 'ಫೀಡ್‌ಗಳು ಎಷ್ಟು ದಟ್ಟವಾಗಿ ಅನಿಸುತ್ತವೆ ಎಂಬುದನ್ನು ಆರಿಸಿ.',
   'settings.displayTitle': 'ಪ್ರದರ್ಶನ',
+  'settings.emailDigestDesc': 'ಪ್ರತಿ ಸೋಮವಾರ ಅತಿ ಹೆಚ್ಚು ಮತ ಪಡೆದ ತೆರೆದ ವಿನಂತಿಗಳು.',
+  'settings.emailDigestLabel': 'ವಾರದ ಡೈಜೆಸ್ಟ್',
+  'settings.emailMentionsDesc': 'ನೀವು ಅನುಸರಿಸುವ ಪೋಸ್ಟ್ಗೆ ಯಾರಾದರೂ ಪ್ರತ್ಯುತ್ತರಿಸಿದಾಗ.',
+  'settings.emailMentionsLabel': 'ಉಲ್ಲೇಖಗಳಲ್ಲಿ ನನಗೆ ಇಮೇಲ್ ಮಾಡಿ',
+  'settings.emailRepliesDesc': 'ನೀವು ಪ್ರಾರಂಭಿಸಿದ ಅಥವಾ ಪ್ರತ್ಯುತ್ತರಿಸಿದ ಥ್ರೆಡ್ಗಳು.',
+  'settings.emailRepliesLabel': 'ಪ್ರತ್ಯುತ್ತರಗಳಲ್ಲಿ ನನಗೆ ಇಮೇಲ್ ಮಾಡಿ',
   'settings.loadError': 'ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'settings.loading': 'ನಿಮ್ಮ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ…',
   'settings.notifications': 'ಅಧಿಸೂಚನೆಗಳು',
   'settings.notificationsSubtitle':
     'ನಿಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್ ಮತ್ತು ಪುಶ್ ಸಾಧನಕ್ಕೆ ಏನು ತಲುಪುತ್ತದೆ ಎಂಬುದನ್ನು ನಿರ್ಧರಿಸಿ.',
+  'settings.pushRepliesLabel': 'ಪ್ರತ್ಯುತ್ತರಗಳಿಗೆ ಪುಶ್',
+  'settings.pushVotesDesc': '100, 500, 1000 ನಲ್ಲಿ ಮಿತಿ ಪಿಂಗ್.',
+  'settings.pushVotesLabel': 'ಅಪ್‌ವೋಟ್ ಮೈಲಿಗಲ್ಲುಗಳಿಗಾಗಿ ಒತ್ತಾಯಿಸಿ',
   'settings.saveAccount': 'ಖಾತೆ ಉಳಿಸಿ',
+  'settings.showFlair': 'ಪೋಸ್ಟ್ಗಳಲ್ಲಿ ಬೋರ್ಡ್ ಚಿಪ್ಗಳನ್ನು ತೋರಿಸಿ',
+  'settings.showThumbnails': 'ಲಿಂಕ್/ಚಿತ್ರ ಥಂಬ್ನೇಲ್ಗಳನ್ನು ತೋರಿಸಿ',
   'settings.usernamePlaceholder': 'ಹ್ಯಾಂಡಲ್ ಆಯ್ಕೆಮಾಡಿ',
   'signup.confirmPlaceholder': 'ಅದನ್ನು ಮತ್ತೊಮ್ಮೆ ಟೈಪ್ ಮಾಡಿ',
   'signup.description': 'ನಾವು ಮುಂದೆ ಏನು ನಿರ್ಮಿಸುತ್ತೇವೆ ಎಂಬುದನ್ನು ರೂಪಿಸಿ.',

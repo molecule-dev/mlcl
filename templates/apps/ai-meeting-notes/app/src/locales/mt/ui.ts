@@ -1,19 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Mistoqsijiet, feedback, jew talba għal funzjoni ġdida? Ibgħat email lit-tim fuq hello@murmur.app — kull messaġġ jasal għand bniedem reali li jaħdem fuq il-prodott.',
   'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwarna',
+  'about.intro':
+    "{{app}} hija intelliġenza tal-laqgħat għal timijiet li jippreferu jieħdu deċiżjonijiet milli jieħdu noti. Tingħaqad mal-konversazzjonijiet tiegħek, tittraskrivi kull kelma b'tikketti tal-kelliem, u tibgħat sommarju tal-AI flimkien ma' azzjonijiet assenjati hekk kif tintemm il-laqgħa.",
+  'about.missionBody':
+    "Il-laqgħat huma fejn it-timijiet jiddeċiedu l-affarijiet — u fejn dawk id-deċiżjonijiet jintilfu. {{app}} teżisti biex tiżgura li x-xogħol li jsir f'konversazzjoni jibqa' ħaj aktar mill-konversazzjoni stess: rekord fidil, rikapitulazzjoni ċara, u passi li jmiss responsabbli, awtomatikament.",
+  'about.missionTitle': 'Il-missjoni tagħna',
   'actions.empty': 'L-ebda azzjoni ma taqbel.',
   'actions.heading': 'Oġġetti ta’ azzjoni',
   'actions.loadError': 'Ma rnexxiex jitgħabbew l-oġġetti ta’ azzjoni.',
   'actions.subheading': 'Aggregat f’kull laqgħa. Iffiltra skont l-istatus biex tiffoka.',
   'actions.toggleDoneLabel': 'Immarka bħala lest',
   'actions.toggleReopenLabel': 'Immarka bħala miftuħ',
+  'auth.footer': '© {{year}} {{app}}. Kull kelma, distillata.',
   'calendar.heading': 'Kalendarju',
   'calendar.joinCta': 'Ingħaqad',
   'calendar.loadError': 'Ma rnexxiex jitgħabba l-kalendarju.',
   'calendar.nextMonth': 'Ix-xahar id-dieħel',
   'calendar.noEventsForDay': 'M’hemm l-ebda laqgħat skedati għal din il-ġurnata.',
+  'calendar.noUpcomingEvents':
+    'L-ebda laqgħa li ġejja. Qabbad kalendarju mill-Integrazzjonijiet biex timla din il-lista.',
   'calendar.previousMonth': "Xahar ta' qabel",
   'calendar.recent': 'Riċenti',
   'common.daysAgo': '{{count}} jum ilu',
@@ -25,9 +35,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} punti ta’ azzjoni',
   'dashboard.empty.body':
     'Ibda reġistrazzjoni jew qabbad Google Calendar sabiex Murmur jingħaqad mal-laqgħa li jmiss tiegħek awtomatikament.',
+  'dashboard.empty.cta': 'Ibda r-reġistrazzjoni',
   'dashboard.empty.heading': 'Għad m’hemm l-ebda laqgħat',
   'dashboard.eyebrow': 'Il-feed tal-laqgħat tiegħek',
   'dashboard.loadError': "Ma rnexxiex ittella' d-dashboard.",
+  'dashboard.noActions': 'L-ebda azzjoni',
   'dashboard.recentHeading': 'Laqgħat riċenti',
   'dashboard.recordCta': 'Irrekordja l-laqgħa',
   'dashboard.stat.actions': 'Oġġetti ta’ azzjoni',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} sommarji mhux moqrija minn meta ċċekkjajt l-aħħar darba. Murmur qabad kull kelma — hawn ir-rikapitulazzjoni.',
   'dashboard.viewCalendar': 'Ara l-kalendarju →',
+  'footer.linksLabel': 'Footer',
   'forgot.failed': 'Ma stajtx nibgħat email ta’ reset.',
   'forgot.sentBody': 'Jekk jeżisti kont għal {{email}}, dalwaqt se tirċievi link ta’ reset.',
   'forgot.sentSubheading': 'Iċċekkja l-inbox tiegħek għal-link tar-reset.',
@@ -47,14 +60,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Qabbad il-kalendarji u l-pjattaformi tal-vidjow sabiex Murmur jingħaqad awtomatikament.',
   'integrations.updateError': 'Aġġornament falla.',
+  'landing.ctaBody':
+    "B'xejn għall-ewwel 5 laqgħat kull xahar. L-ebda karta tal-kreditu. Qabbad Google Calendar f'inqas minn minuta.",
   'landing.ctaButton': 'Ibda — huwa b’xejn',
   'landing.ctaHeading': 'Ieqaf tieħu noti. Ibda ħu deċiżjonijiet.',
+  'landing.demo.aiBody':
+    "It-tnedija ttardjat mill-5 ta' Mejju → it-12 ta' Mejju biex jingħata spazju lill-persunal tal-operazzjonijiet. Id-disinn mill-ġdid tad-Dashboard inqasam għas-26 ta' Mejju.",
   'landing.demo.aiLabel': 'Sommarju tal-AI, abbozzat live',
   'landing.demo.recording': 'Reġistrazzjoni · diretta',
   'landing.eyebrow': 'Intelliġenza tal-laqgħat tal-AI',
   'landing.featuresHeading': 'Dak kollu li t-tim tiegħek jeħtieġ wara li tintemm il-laqgħa',
+  'landing.featuresSubheading':
+    'Mhux aktar "stenna, ta\' min hi din?" {{appName}} tibgħat ir-rikapitulazzjoni qabel ma tinqata\' l-konversazzjoni.',
   'landing.getStarted': 'Ipprova b’xejn',
   'landing.heroSecondary': 'Ara tour ta’ 90 sekonda',
+  'landing.heroSubtitle':
+    "{{tagline}}. {{appName}} tingħaqad mal-konversazzjonijiet tiegħek, tittraskrivi kull kelma b'tikketti tal-kelliem, u tibgħat sommarji tal-AI flimkien ma' azzjonijiet assenjati hekk kif tintemm il-laqgħa.",
   'landing.heroTitle': 'Irrekordja kull laqgħa. Oħroġ dak li hu importanti.',
   'login.altPrompt': 'Ġdid f’Murmur?',
   'login.failed': 'Ma stajtx nidħol. Iċċekkja l-email u l-password tiegħek.',
@@ -62,6 +83,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Oġġetti ta’ azzjoni',
   'meetingDetail.back': 'Il-laqgħat kollha',
   'meetingDetail.decisionsHeading': 'Deċiżjonijiet',
+  'meetingDetail.dueDate': 'skadenza {{date}}',
   'meetingDetail.followupsHeading': 'Segwiti',
   'meetingDetail.loadError': 'Ma rnexxiex titgħabba l-laqgħa.',
   'meetingDetail.noActions': 'Ma nstabu l-ebda elementi ta’ azzjoni.',
@@ -75,7 +97,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Għad m’hemm l-ebda laqgħat',
   'meetings.heading': 'Laqgħat',
   'meetings.loadError': 'Ma rnexxilniex intella’ l-laqgħat.',
+  'meetings.recordCta': 'Irrekordja l-laqgħa',
   'meetings.subheading': 'Kull laqgħa rreġistrata, imtella’, u sinkronizzata.',
+  'murmurLayout.closeMenu': 'Agħlaq il-menù tan-navigazzjoni',
   'murmurLayout.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
   'murmurLayout.primaryNavLabel': 'Navigazzjoni primarja',
   'nav.legal': 'Legali',
@@ -101,7 +125,14 @@ export const ui: UiTranslations = {
   'profile.loading': 'Qed jitgħabba…',
   'profile.navLabel': 'Sezzjonijiet tal-profil',
   'profile.notifications.assignments': 'Oġġetti ta’ azzjoni assenjati lili',
+  'profile.notifications.assignmentsHint': 'Avviż meta tiġi rreġistrata azzjoni għalik.',
+  'profile.notifications.mentions': 'Tismijiet fit-traskrizzjonijiet',
+  'profile.notifications.mentionsHint': 'Email + notifika meta xi ħadd jissemmina @-mention.',
+  'profile.notifications.subheading': "Agħżel liema avvenimenti ta' {{appName}} għandhom jilħquk.",
   'profile.notifications.summaries': 'Diġest ta’ kull ġimgħa',
+  'profile.notifications.summariesHint':
+    "Rikapitulazzjoni tat-Tnejn ta' kull laqgħa mill-ġimgħa li għaddiet.",
+  'profile.preferences.speakerColor': 'Kulur tal-kelliem awtomatiku',
   'profile.preferences.subheading':
     'Defaults li japplikaw għal kull reġistrazzjoni li tingħaqad magħha.',
   'profile.preferences.timezone': 'Żona tal-ħin',
@@ -114,16 +145,21 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Il-brawżer tiegħek ma jappoġġjax ir-reġistrazzjoni. Ipprova Chrome, Edge, jew Safari.',
   'record.error.upload': 'It-tlugħ falla. Erġa’ pprova.',
+  'record.errorLabel': 'Xi ħaġa marret ħażin',
   'record.heading': 'Rekord',
   'record.idleLabel': 'Tektek biex tibda tirrekordja',
   'record.processingLabel': 'Traskrizzjoni ma’ Whisper, sommarju ma’ Claude...',
+  'record.recordingLabel': 'Qed jirreġistra…',
   'record.retryCta': 'Erġa’ pprova',
   'record.subheading':
     'Agħfas il-mikrofonu biex tibda. Murmur jaqbad l-awdjo, jittraskrivi permezz ta’ Whisper, u jikteb sommarju mħaddem minn Claude.',
+  'record.titlePlaceholder': 'Titlu tal-laqgħa (mhux obbligatorju)',
+  'reset.altPrompt': 'Bdilt fehmtek?',
   'reset.hint': 'Uża mill-inqas 8 karattri b’taħlita ta’ ittri u numri.',
   'reset.missingToken': 'Il-link tar-reset huwa nieqes jew skada. Itlob wieħed ġdid.',
   'reset.newPassword': 'Password ġdida',
   'reset.subheading': 'Agħżel password li ma tuża mkien ieħor.',
+  'reset.tooShort': "Il-password trid tkun ta' mill-inqas 8 karattri.",
   'search.empty': 'Ittajpja biex tfittex traskrizzjonijiet.',
   'search.loadError': "It-tfittxija falliet. Erġa' pprova.",
   'search.noResults': 'L-ebda riżultat għal “ {{q}} ".',
@@ -139,7 +175,10 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Żomm l-awdjo għal',
   'settings.retention.heading': 'Żamma',
   'settings.retention.transcript': 'Żomm it-traskrizzjonijiet għal',
+  'settings.revokeDeviceWarning':
+    "L-aċċess ta' dan l-apparat se jiġi rrevokat dalwaqt. Oħroġ minnu?",
   'settings.saveError': 'Is-salvataġġ falla.',
+  'settings.security.subheading': 'Aġġorna l-password li tuża biex tidħol.',
   'settings.sharing.exportFormat': 'Format tal-esportazzjoni',
   'settings.sharing.heading': 'Kondiviżjoni ta’ defaults',
   'settings.sharing.scope': 'Ambitu ta’ kondiviżjoni awtomatiku',
@@ -157,6 +196,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Stieden lil sieħeb fit-tim',
   'team.invitedAs': 'Mistieden bħala {{role}}',
   'team.inviteFailed': 'Ma stajtx nibgħat l-istedina.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'Ibgħat stedina',
   'team.inviteSubtitle': 'Huma se jirċievu email b’link biex jingħaqdu.',
   'team.inviteTitle': 'Stieden lil sieħeb fit-tim',

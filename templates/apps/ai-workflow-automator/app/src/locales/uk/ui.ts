@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite — це платформа автоматизації робочих процесів, яка поєднує тригери, умови ШІ та багатокрокові дії, щоб команди могли переміщати роботу між системами без написання склеювального коду.',
+  'about.philosophy':
+    'Кожен робочий процес — це граф із невеликих, спостережуваних кроків. Кожен крок фіксує свої вхідні дані, результати й час виконання, тож його можна переглянути, відтворити або відкотити. Створюйте їх візуально, версіонуйте як код.',
   'about.title': 'Про Dendrite',
   'authShell.brand': 'Dendrite',
   'authShell.support': 'Підтримка',
@@ -15,9 +17,15 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Змінити план',
   'billing.description':
     'Відстежуйте використання, керуйте планом і завантажуйте рахунки для бухгалтерії.',
+  'billing.eyebrow': 'Акаунт · Тариф і використання',
+  'billing.failedLabel': 'Невдалі запуски · 24 год',
+  'billing.invoicesEmpty':
+    "Рахунків ще немає. Вони з'являться тут після першого платного поновлення.",
   'billing.invoicesTitle': 'Історія рахунків',
   'billing.planNoteFree':
     'Безкоштовний рівень — {{runs}} запусків та {{workflows}} активних робочих процесів. Оновіть для вищих лімітів.',
+  'billing.planNotePaid':
+    'Платний тариф — {{runs}} запусків і {{workflows}} активних робочих процесів.',
   'billing.runsLabel': 'Запуски за останні 24 год',
   'billing.tiersBlurb':
     'Порівняйте всі рівні — запуски, активні робочі процеси, розширені функції та підтримку — на спеціальній сторінці цін.',
@@ -35,10 +43,14 @@ export const ui: UiTranslations = {
     "Немає зареєстрованих інтеграцій. Налаштуйте ключі постачальників для активації зв'язків.",
   'connections.error': 'Не вдалося завантажити підключення.',
   'connections.eyebrow': 'Інтеграції · {{connected}} підключено',
+  'connections.loading': 'Завантаження інтеграцій…',
+  'connections.openEnv':
+    "Щоб під'єднати цього провайдера, вкажіть його API-ключ у api/.env і перезапустіть сервер.",
   'dashboard.description':
     '{{active}} активних робочих процесів. {{failed}} не вдалося за останні 24 години.',
   'dashboard.error': 'Не вдалося завантажити панель.',
   'dashboard.eyebrow': 'Операції · наживо',
+  'dashboard.hero.label': 'Запуски сьогодні',
   'dashboard.hero.medianLatency': 'Затримка p50',
   'dashboard.hero.queue': 'Глибина черги',
   'dashboard.hero.success': 'Успіх',
@@ -46,14 +58,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Медіанна тривалість',
   'dashboard.kpi.failedRuns': 'Помилки · 24 год',
   'dashboard.kpi.outOf': 'з {{total}} усього',
+  'dashboard.kpi.successRate': 'Успішність · 24 год',
   'dashboard.loading': 'Завантаження панелі…',
   'dashboard.recentRuns.empty':
     'Поки немає запусків. Запустіть робочий процес, щоб заповнити цю стрічку.',
   'dashboard.recentRuns.title': 'Останні запуски',
   'dashboard.recentRuns.viewAll': 'Відкрити виконання →',
+  'dashboard.recentWorkflows.browse': 'Переглянути шаблони →',
   'dashboard.recentWorkflows.empty':
     'Поки немає робочих процесів. Встановіть шаблон або створіть із нуля.',
   'dashboard.recentWorkflows.title': 'Нещодавно запущені',
+  'dashboard.run.col.run': 'Запустити',
   'dashboard.run.col.started': 'Розпочато',
   'dashboard.run.col.trigger': 'Тригер',
   'dashboard.run.col.workflow': 'Робочий процес',
@@ -89,6 +104,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Робочий процес',
   'executions.description':
     'Кожен запуск робочого процесу, кожна повторна спроба, кожний вивід кроку — все спостережуване.',
+  'executions.empty.filter': 'Жоден запуск не відповідає цьому фільтру.',
   'executions.empty.first':
     'Поки немає запусків — запустіть робочий процес, щоб заповнити цей список.',
   'executions.error': 'Не вдалося завантажити виконання.',
@@ -99,30 +115,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Завантаження історії запусків…',
   'executions.title': 'Виконання',
   'forgotPassword.confirmation': 'Посилання для скидання надіслано на {{email}}.',
+  'forgotPassword.subhead': 'Введіть свою електронну адресу, щоб отримати посилання для скидання.',
   'forgotPassword.successSubhead':
     'Ми надіслали посилання для скидання на {{email}}. Воно дійсне 30 хвилин.',
   'help.connections.body':
     'Кроки ШІ, електронної пошти та зберігання вимагають, щоб ключі постачальників були встановлені у файлі api/.env. Після налаштування ключа відповідна інтеграція відображається як підключена на сторінці Підключення.',
+  'help.connections.cta': 'Відкриті підключення →',
   'help.connections.title': 'Підключення постачальників',
   'help.gettingStarted.body':
     'Нові робочі процеси можна встановити з бібліотеки шаблонів або створити з нуля в конструкторі робочих процесів. Кожен робочий процес має тригер (ручний, webhook або cron) і послідовність кроків, які виконуються по черзі.',
+  'help.gettingStarted.cta': 'Переглянути бібліотеку шаблонів →',
+  'help.gettingStarted.title': 'Початок роботи',
   'help.intro':
     'Знайдіть відповіді на поширені запитання про побудову робочих процесів, налаштування підключень та інтерпретацію результатів запусків. Найпоширеніші теми перераховані нижче; для всього іншого зверніться до адміністратора робочого простору.',
   'help.runs.body':
     'Кожен запуск фіксує кожен крок незалежно зі статусом (успіх, помилка, пропущено) та фрагментом виводу. Сторінка з деталями виконання показує повне покрокове трасування та виведені метрики.',
+  'help.runs.cta': 'Відкрити виконання →',
   'help.runs.title': 'Читання результатів запусків',
   'help.title': 'Центр допомоги',
   'integrationCard.manage': 'Керувати',
   'landing.brand': 'Dendrite',
   'landing.demo.action.subtitle': 'Round-robin · територія',
+  'landing.demo.action.title': 'Повідомити представника',
   'landing.demo.condition.subtitle': 'Класифікатор намірів ШІ',
+  'landing.demo.condition.title': 'Оцінка ≥ середньої?',
   'landing.demo.trigger.subtitle': 'POST /forms/contact',
   'landing.demo.trigger.title': 'Вхідний webhook',
+  'landing.features.body':
+    'Тригери запускаються. Умови розгалужують. Дії виконують роботу. Створюйте їх візуально, версіонуйте як код.',
   'landing.features.heading': 'Три типи вузлів. Безмежні форми.',
   'landing.footer.help': 'Допомога',
   'landing.footer.tagline': 'Інтелект у русі',
+  'landing.hero.body':
+    "{{appName}} — це рушій робочих процесів для операційних команд, які переросли Zapier. Тригер, умова, дія — під'єднані до всіх систем, якими ви справді користуєтесь.",
   'landing.hero.eyebrow': 'Інтелект у русі',
   'landing.hero.headline': "З'єднайте свій стек. Дозвольте роботі відбуватися.",
+  'landing.hero.primaryCta': 'Створіть свій перший робочий процес',
   'landing.hero.proof.ai': 'Вбудовані вузли ШІ',
   'landing.hero.proof.free': 'Безкоштовно для 1 000 запусків/міс',
   'landing.hero.proof.soc2': 'SOC 2 Type II',
@@ -130,10 +158,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Платіть за запуски, а не за місця.',
   'landing.templates.body':
     'Готові робочі процеси для кожної команди — продажі, підтримка, devops, фінанси. Встановіть одним кліком; налаштуйте що завгодно.',
+  'landing.templates.cta': 'Зареєструйтеся, щоб переглянути шаблони →',
   'landing.templates.eyebrow': 'Почніть за секунди',
   'landing.templates.heading': 'Бібліотека перевірених рецептів.',
   'landing.templates.signupHint': 'Зареєструйтесь для встановлення',
   'login.hidePassword': 'Приховати пароль',
+  'login.noAccount': 'Вперше в Tessera?',
   'login.showPassword': 'Показати пароль',
   'login.subhead': 'Увійдіть, щоб ваші автоматизації продовжували працювати.',
   'mobileNav.drawerLabel': 'Головна навігація',
@@ -149,8 +179,14 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Запустіть робочий процес, щоб почати заповнення цієї стрічки.',
   'notifications.empty.title': 'Ви повністю в курсі',
   'notifications.eyebrow': '{{n}} непрочитаних',
+  'planUpdated.body':
+    'Зміну оплати активовано. Ви можете керувати своїм планом будь-коли на сторінці оплати.',
+  'planUpdated.retry': 'Спробувати ще раз',
+  'planUpdated.verifyFailed': 'Нам ще не вдалося підтвердити ваш платіж.',
+  'planUpdated.verifyFailedBody': 'Можливо, ваш платіж ще обробляється. Спробуйте ще раз за мить.',
   'planUpdated.verifying': 'Підтвердження платежу…',
   'pricing.heading': 'запусків',
+  'pricing.runsSuffix': 'запусків',
   'pricing.workflowsSuffix': 'робочих процесів',
   'privacy.collect.body':
     'Ми збираємо адресу електронної пошти, з якою ви реєструєтесь, налаштовані вами робочі процеси та метадані кожного запуску (час початку, час завершення, статус). Ми ніколи не збираємо та не зберігаємо вміст корисного навантаження з тригерів або вихідних даних кроків понад те, що необхідно для відображення у переглядачі запусків для власника робочого простору.',
@@ -166,11 +202,14 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Не вдалося оновити пароль.',
   'resetPassword.newPassword': 'Новий пароль',
   'resetPassword.subhead': 'Виберіть щось, що тільки ви могли б вгадати.',
+  'settings.appearance.description': 'Перемикання між світлим і темним режимом.',
+  'settings.appearance.title': 'Зовнішній вигляд',
   'settings.billingShortcut.cta': 'Відкрити білінг',
   'settings.billingShortcut.description':
     'План, використання та рахунки знаходяться на спеціальній сторінці білінгу.',
   'settings.danger.confirm': 'Ви впевнені? Це поставить ваш робочий простір у чергу на видалення.',
   'settings.danger.confirmYes': 'Так, поставити в чергу на видалення',
+  'settings.danger.deleteWorkspace.cta': 'Видалити робочий простір',
   'settings.danger.deleteWorkspace.hint':
     'Видаляє всі робочі процеси, запуски та підключення після 14-денного пільгового періоду.',
   'settings.danger.deleteWorkspace.title': 'Видалити робочий простір',
@@ -181,10 +220,15 @@ export const ui: UiTranslations = {
     'Керуйте обліковим записом, робочим простором, інтеграціями та білінгом в одному місці.',
   'settings.notifications.description':
     'Виберіть, які події сповіщають вас, надсилають електронні листи або залишаються тихими.',
+  'settings.notifications.failures.hint':
+    'Сповіщення електронною поштою та в застосунку про кожен невдалий запуск.',
+  'settings.notifications.failures.title': 'Збої робочих процесів',
   'settings.notifications.product.hint':
     'Час від часу електронні листи про нові шаблони та функції.',
+  'settings.notifications.product.title': 'Оновлення продукту',
   'settings.notifications.weekly.hint':
     'Понеділковий ранковий підсумок запусків та заощаджень за минулий тиждень.',
+  'settings.notifications.weekly.title': 'Щотижневий дайджест',
   'settings.profile.description':
     'Як ви відображаєтесь у виконавці робочих процесів. Використовується в активності робочого простору.',
   'settings.profile.noEmail': 'Немає електронної пошти в записах',
@@ -192,12 +236,23 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Не вдалося зберегти зміни профілю.',
   'settings.profile.unnamedUser': 'Безіменний користувач',
   'settings.security.audit.hint': 'Транслюйте кожну дію до вашого SIEM через webhook.',
+  'settings.security.audit.title': 'Пересилання журналу аудиту',
   'settings.security.description': 'Двофакторна автентифікація, SSO та активні сесії.',
   'settings.security.sso.hint': 'Доступно в планах Scale та Enterprise.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'Потрібно для будь-якої дії власника робочого простору.',
+  'settings.security.totp.title': 'Двофакторна автентифікація (TOTP)',
   'settings.twoFactorCode': 'Код аутентифікації',
   'settings.twoFactorDisable': 'Вимкнути',
+  'settings.twoFactorDisableTitle': 'Вимкнути двофакторну автентифікацію',
   'settings.twoFactorEnable': 'Увімкнути',
+  'settings.twoFactorEnableTitle': 'Увімкнути двофакторну автентифікацію',
   'settings.twoFactorInvalidCode': 'Неправильний код',
+  'settings.twoFactorOn': 'Про',
+  'settings.twoFactorQrAlt': 'QR-код двофакторної автентифікації',
+  'settings.twoFactorScan':
+    'Відскануйте цей QR-код у своєму застосунку-автентифікаторі, а потім введіть 6-значний код.',
+  'settings.twoFactorUnavailable': 'Двофакторна автентифікація недоступна для цього додатка.',
   'settings.twoFactorVerify': 'Перевірити та увімкнути',
   'settings.workspace.description':
     'Спільна ідентичність, регіон та стандартні налаштування запуску для вашої команди.',
@@ -226,6 +281,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Шаблон',
   'templates.description':
     'Готові схеми для найпоширеніших автоматизацій. Форкніть, налаштуйте, запустіть.',
+  'templates.empty.filter': 'Жоден шаблон не відповідає вашому пошуку.',
   'templates.empty.first': 'Наразі немає доступних шаблонів.',
   'templates.error': 'Не вдалося завантажити шаблони.',
   'templates.installs': 'встановлень',
@@ -251,6 +307,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Вимкнути',
   'workflowBuilder.enable': 'Увімкнути',
   'workflowBuilder.error': 'Не вдалося завантажити робочий процес.',
+  'workflowBuilder.inspector.config': 'Конфігурація',
+  'workflowBuilder.inspector.cron': 'Вираз Cron',
+  'workflowBuilder.inspector.disabled': 'Вимкнено — не запускатиметься автоматично.',
   'workflowBuilder.inspector.enabled': 'Увімкнено — запускається за тригером.',
   'workflowBuilder.inspector.eyebrow': 'Інспектор',
   'workflowBuilder.inspector.id': 'Ідентифікатор',
@@ -268,18 +327,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Перемикання не вдалося.',
   'workflowBuilder.workflow': 'Робочий процес · v{{v}}',
   'workflowBuilder.zoom.in': 'Збільшити',
+  'workflowBuilder.zoom.label': 'Елементи керування масштабом полотна',
+  'workflowBuilder.zoom.out': 'Зменшити',
   'workflowCard.lastRun': 'Останній запуск {{when}}',
   'workflowCard.runs': '{{count}} запусків',
+  'workflowCard.success': '{{rate}}% успішних',
   'workflowHeroCard.last24h': 'Останні 24 год',
+  'workflows.browseTemplates': 'Переглянути шаблони →',
   'workflows.description':
     "Всі автоматизації у вашому робочому просторі зі станом здоров'я та останньою активністю на одному екрані.",
+  'workflows.empty.body': 'Спробуйте очистити фільтр або почніть із шаблону.',
   'workflows.empty.firstBody': 'Встановіть шаблон, щоб розпочати за секунди.',
   'workflows.empty.firstTitle': 'Поки немає робочих процесів',
   'workflows.empty.title': 'Немає відповідних робочих процесів',
   'workflows.error': 'Не вдалося завантажити робочі процеси.',
   'workflows.eyebrow': 'Бібліотека · {{count}} усього',
+  'workflows.loading': 'Завантаження робочих процесів…',
   'workflows.newFromTemplate': 'Новий із шаблону',
   'workflows.searchPlaceholder': 'Пошук робочих процесів…',
+  'workflows.title': 'Робочі процеси',
   'workflowSidebar.brand': 'Dendrite',
   'workflowSidebar.status': 'Всі системи працюють',
   'workflowSidebar.tagline': 'Інтелект у русі',

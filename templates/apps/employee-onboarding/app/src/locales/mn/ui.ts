@@ -1,27 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Багийнхаа онбордингийг илүү дулаан болгохыг хүсэж байна уу, алдаа олсон уу, эсвэл санал хүсэлт байна уу? Бүртгэлийн тохиргооноосоо холбогдоорой — мессеж бүр танд туслах жинхэнэ хүнд хүрдэг.',
   'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Нууц үгээ дахин тохируулна уу.',
+  'auth.forgotPassword.panel.body':
+    'Дахин тохируулахад 30 секунд л хангалттай — таны чеклистийн явц таныг хүлээж байна.',
+  'auth.forgotPassword.panel.headline': 'Яг орхисон газраасаа үргэлжлүүлээрэй.',
+  'auth.forgotPassword.subheading':
+    'Ажлын имэйлээ оруулаарай, бид танд дахин тохируулах холбоос илгээнэ.',
   'auth.forgotPassword.successSubheading':
     'Ирсэн имэйлээ шалгана уу — бид дахин тохируулах зааврыг илгээсэн.',
   'auth.login.emailPlaceholder': 'name@yourcompany.com',
   'auth.login.heading': 'Эргээд тавтай морил.',
   'auth.login.passwordPlaceholder': 'Таны нууц үг',
+  'auth.login.signupPrompt': 'Багийнхаа шинэ гишүүн үү?',
   'auth.login.subheading':
     'Зогссон газраасаа эхлэн суралцах аялалаа үргэлжлүүлэхийн тулд нэвтэрнэ үү.',
   'auth.login.submit': 'Аяллаа үргэлжлүүлээрэй',
+  'auth.panel.body':
+    'Таны хувийн чеклист, сургалтын үе шатууд, багийн танилцуулга — бүгд нэг тайван газарт.',
   'auth.panel.footnote': '© Embark — өнөөдрөөс эхлэн хүмүүсийг нэн тэргүүнд ажилд оруулж байна.',
   'auth.panel.headline': 'Өөртөө итгэлтэй эхний 90 хоног эндээс эхэлнэ.',
   'auth.resetPassword.heading': 'Шинэ нууц үг тохируулна уу.',
   'auth.resetPassword.newPasswordLabel': 'Шинэ нууц үг',
+  'auth.resetPassword.panel.body':
+    'Шинэ нууц үг хадгалаарай, бид таныг онбордингийн аялалд чинь шууд буцаана.',
+  'auth.resetPassword.panel.headline': 'Бараг буцаж ирлээ.',
   'auth.resetPassword.subheading': 'Санаж явах зүйлээ сонгоорой - дор хаяж 8 тэмдэгт.',
   'auth.signup.emailPlaceholder': 'name@yourcompany.com',
   'auth.signup.heading': 'Эхний 90 хоногтоо тавтай морилно уу.',
   'auth.signup.panel.body':
     'Таныг орохоос өмнө зааварчилгаатай шалгах хуудас, дүрд тохирсон сургалт, хүмүүсийг танилцуулах үйлчилгээ бэлэн болно.',
+  'auth.signup.panel.headline': 'Эхний өдөр, эхний өдөртөө.',
   'auth.signup.subheading':
     'Хөтөчтэй дасан зохицох аялалаа эхлүүлэхийн тулд Embark бүртгэлээ үүсгэнэ үү.',
   'checklist.empty.body': 'Бусад ажлуудыг харахын тулд шүүлтүүрийг сольно уу.',
@@ -29,6 +44,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'Шинээр элсүүлэх · Шалгах хуудас',
   'checklist.loading': 'Таны шалгах хуудсыг ачаалж байна…',
   'checklist.stat.actionNeeded': 'Үйлдэл шаардлагатай',
+  'checklist.stat.completion': 'Дуусгах',
+  'checklist.stat.inProgress': 'Үргэлжилж байна',
   'checklist.stat.inProgressHelper': 'Орхисон газраасаа үргэлжлүүлээрэй',
   'checklist.stat.overdueHelper': 'Эхлээд эдгээрийг гүйцээгээрэй',
   'checklist.subtitle':
@@ -60,6 +77,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Одоогоор баримт бичиг алга',
   'documents.eyebrow': 'Дасан зохицох · Баримт бичиг',
   'documents.loading': 'Баримт бичгүүдийг ачаалж байна…',
+  'documents.stat.actionNeeded': 'Одоо гарын үсэг зурна уу',
+  'documents.stat.all': 'Бүх баримт бичиг',
   'documents.stat.allHelper': 'Ангилалуудаар',
   'documents.stat.pending': 'Хүлээгдэж буй гарын үсэг',
   'documents.stat.pendingHelper': 'Дуусгахад шаардлагатай',
@@ -67,6 +86,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Аюулгүй хадгалагдсан',
   'documents.status.optional': 'Заавал биш',
   'documents.status.required': 'Шаардлагатай',
+  'documents.status.signed': 'Гарын үсэг зурсан',
   'documents.subtitle':
     'Таны гарын авлага, маягт болон гарын үсэг зурсан гэрээнүүд — бүгд нэг дор.',
   'documents.title': 'Уншиж, гарын үсэг зурахад хэрэгтэй бүх зүйл.',
@@ -74,10 +94,14 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'Үзэгч',
   'documentViewer.breadcrumbDocs': 'Баримт бичиг',
   'documentViewer.downloadMeta': 'Мета өгөгдлийг татаж авах',
+  'documentViewer.helpBody':
+    'People & Culture баг Slack-ийн #ask-people сувагт гарын авлагын асуултад хариулдаг.',
   'documentViewer.helpEyebrow': 'Тусламж хэрэгтэй байна уу?',
   'documentViewer.loadError': 'Бид энэ баримт бичгийг ачаалж чадсангүй.',
   'documentViewer.loading': 'Баримт бичгийг ачаалж байна…',
   'documentViewer.notFound': 'Баримт бичиг олдсонгүй',
+  'documentViewer.previewBody':
+    'Байршуулалт тохируулагдсан үед бид файлыг шууд харуулдаг. Одоогоор мета өгөгдлийг татаж авах нь бичлэг бодитой эсэхийг баталгаажуулах боломж олгоно.',
   'documentViewer.previewBodyExternal':
     'Файлыг шинэ таб дээр нээхийн тулд татаж авах товчийг ашиглана уу.',
   'documentViewer.previewTitle': 'Баримт бичгийн урьдчилсан тойм',
@@ -85,6 +109,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Баримт бичгийг уншаад, доор дарж гарын үсэг зурж, баталгаажуулна уу.',
   'documentViewer.signatureHeading': 'Гарын үсэг шаардлагатай',
+  'documentViewer.signed': '✓ Гарын үсэг зурж, бүртгэсэн',
   'documentViewer.signing': 'Гарын үсэг зурж байна...',
   'documentViewer.uploadedRecently': 'Саяхан байршуулсан',
   'landing.closing.body':
@@ -94,10 +119,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Би аль хэдийн бүртгэлтэй болсон',
   'landing.feature1.body':
     'Бүх ажил - бичиг цаасны ажил, данс тооцоо, танилцуулга - хугацаа болон зөв эзэмшигчийн хамт урьдчилан үе шаттайгаар хийгдсэн.',
+  'landing.feature1.title': 'Удирдамжтай чеклист',
   'landing.feature2.body':
     'Модулиуд нь 30/60/90 үе шатанд нээгдэж, ажилд авсан ажилтны үүрэг болон багт тохируулагдана.',
+  'landing.feature2.title': 'Үүрэгт тохирсон сургалт',
   'landing.feature3.body':
     'Найзууд, менежерүүд болон олон талт танилцуулга төлөвлөгдсөн тул хэн ч ганцаараа эхлэхгүй.',
+  'landing.feature3.title': 'Жинхэнэ танилцуулга',
   'landing.featureEyebrow': 'Яагаад онгоцонд суух вэ?',
   'landing.featureHeadline': 'Embark эхний өдрөөсөө итгэлийг олж авах гурван арга зам.',
   'landing.footer.rights': 'Бүх эрх хуулиар хамгаалагдсан.',
@@ -107,6 +135,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Дараагийнх нь: Мягмар гарагийн өглөөний 10:00 цагт найзтайгаа уулзаж, 30 минутын кофе уунгаа ярилцаарай.',
   'landing.preview.eyebrow': '90-ээд оны 14 дэх өдөр — жишээ хяналтын самбар',
+  'landing.preview.headline': 'Тавтай морил, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR бэлэн байна',
   'landing.proof.teams': '50-5000 хүний бүрэлдэхүүнтэй багуудад зориулан бүтээгдсэн',
   'landing.proof.time': '14 хоногийн үнэгүй туршилт',
@@ -123,16 +152,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Та бэлэн боллоо.',
   'planUpdated.preparing': 'Таны төлөвлөгөөг шинэчилж байна…',
+  'planUpdated.retry': 'Дахин оролдоно уу',
+  'planUpdated.verifyFailed': 'Бид таны төлбөрийг хараахан баталгаажуулж чадсангүй.',
+  'planUpdated.verifyFailedBody':
+    'Таны төлбөрийг боловсруулж байж магадгүй. Хэсэг хугацааны дараа дахин оролдоно уу.',
   'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'pricing.documentsLabel': 'баримт бичиг',
   'pricing.onboardingsLabel': 'элсэлт',
   'pricing.tasksLabel': 'даалгаварууд',
   'profile.dayNumber': 'Өдөр',
   'profile.detailsHeading': 'Элсэлтийн дэлгэрэнгүй мэдээлэл',
+  'profile.encouragementBody':
+    'Ахлах найз болон менежерээ мэдээлэлтэй байлгаарай — жижиг алхмууд хуримтлагддаг.',
   'profile.milestones': 'Гол үе шатууд',
   'profile.progressEyebrow': 'Элсэлтийн явц',
   'profile.tasks': 'Даалгаварууд',
   'profile.unknownName': 'Тавтай морилно уу',
+  'settings.appearance.description': 'Гэрэл болон харанхуй горимын хооронд шилжих/унтраах.',
+  'settings.appearance.title': 'Гадаад төрх',
+  'settings.subtitle':
+    'Мэдэгдэл, аюулгүй байдал, төхөөрөмж, өгөгдөл экспортлохыг тохируулаарай — бүгд энд, таны нөхцлөөр үлдэнэ.',
   'settings.title': 'Тохиргоо ба сонголтууд.',
   'taskDetail.backToChecklist': 'Шалгах хуудас руу буцах',
   'taskDetail.breadcrumbChecklist': 'Шалгах хуудас',
@@ -144,7 +183,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'Хугацаа дуусаагүй',
   'taskDetail.notFound': 'Даалгавар олдсонгүй',
   'taskDetail.notFoundBody': 'Энэ даалгавар устгагдсан эсвэл өөр хэрэглэгчийнх байж магадгүй.',
+  'taskDetail.tipBody':
+    'Хэрэв гацсан бол Slack дээр онбордингийн ахлах найздаа мессеж бичээрэй — тэр таны анхны тусламж юм.',
   'taskDetail.tipEyebrow': 'Түргэн зөвлөгөө',
+  'team.empty.body': 'Илүү өргөн хайлт хийж үзээрэй эсвэл өөр хэлтэс сонгоорой.',
   'team.empty.title': 'Багийн тоглогчдын тоглолт байхгүй',
   'team.eyebrow': 'Шинээр элсүүлэх · Хүмүүс',
   'team.loading': 'Багийн гишүүдийг ачаалж байна…',
@@ -168,14 +210,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Гол үе шатууд',
   'timeline.stat.current': 'Одоогийн чухал үе шат',
   'timeline.stat.next': 'Дараагийн түгжээ тайлах',
+  'timeline.stat.progress': 'Нийт',
   'timeline.subtitle':
     'Үе шат бүр шинэ модулиуд, танилцуулга, өсөлтийн яриа хэлэлцээг нээж өгдөг. Дарамт шахалт байхгүй - зүгээр л ахиц дэвшил.',
+  'timeline.tipBody':
+    '30, 60, 90 дэх өдрүүдэд менежертэйгээ 30 минутын эргэцүүлэл товлоорой — энэ нь санал хүсэлтийг тодорхой, явцыг харагдахуйц болгоно.',
   'timeline.tipEyebrow': 'Менежерийн зөвлөгөө',
+  'timeline.tipTitle': 'Үе шатуудад зориулж хуанли дээр цаг блоклоорой.',
   'timeline.title': 'Таны 30/60/90 аялал.',
   'training.badge.notStarted': 'Эхлээгүй байна',
   'training.empty': 'Одоогоор сургалтын модулиуд байхгүй байна.',
   'training.eyebrow': 'Дасан зохицох · Сургалт',
   'training.loading': 'Модулиудыг ачаалж байна…',
+  'training.stat.all': 'Модулиуд оноогдсон',
   'training.subtitle':
     'Таны үүрэгт тохирохын тулд модулиуд 30/60/90-д түгжээг тайлдаг. Шаардлагатай модулиуд эхлээд ирдэг.',
   'training.title': 'Ур чадвар, багаж хэрэгсэл, түүхүүд — таны хурдаар.',
@@ -188,9 +235,12 @@ export const ui: UiTranslations = {
   'trainingModule.quizBody':
     'Энэ модулийг дууссан гэж тэмдэглэхийн тулд 80% ба түүнээс дээш оноо авна уу.',
   'trainingModule.quizHeading': 'Модулийн төгсгөлийн асуулт хариулт',
+  'trainingModule.quizLocked': 'Эхлээд модулийг эхлүүлэх',
   'trainingModule.quizNone': 'Энэ модуль дээр асуулт хариулт байхгүй.',
   'trainingModule.quizRetry': 'Дахин оролдоно уу',
+  'trainingModule.quizStart': 'Шалгалт эхлүүлэх',
   'trainingModule.quizSubmit': 'Хариултуудыг илгээх',
+  'trainingModule.start': 'Модуль эхлүүлэх',
   'trainingModule.statusNotStarted': 'Эхлээгүй байна',
   'welcomeHeroCard.completeLabel': 'Дууссан',
   'welcomeHeroCard.milestonesLabel': 'Гол үе шатууд',

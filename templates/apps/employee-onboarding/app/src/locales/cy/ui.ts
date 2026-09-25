@@ -1,26 +1,40 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Eisiau cyflwyno profiad ymgartrefu cynhesach i'ch tîm, wedi dod o hyd i fyg, neu oes gennych adborth? Cysylltwch o'ch gosodiadau cyfrif — mae pob neges yn mynd at berson go iawn a all helpu.",
   'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Ynglŷn â',
+  'about.missionTitle': 'Ein cenhadaeth',
   'auth.forgotPassword.emailPlaceholder': 'enw@eichcwmni.com',
   'auth.forgotPassword.heading': 'Ailosod eich cyfrinair.',
+  'auth.forgotPassword.panel.body':
+    'Mae ailosod yn cymryd 30 eiliad — mae cynnydd eich rhestr wirio yn aros amdanoch.',
+  'auth.forgotPassword.panel.headline': 'Yn ôl yn union lle gwnaethoch stopio.',
+  'auth.forgotPassword.subheading': 'Rhowch eich e-bost gwaith ac fe anfonwn ddolen ailosod atoch.',
   'auth.forgotPassword.successSubheading':
     'Gwiriwch eich mewnflwch — rydym wedi anfon cyfarwyddiadau ailosod.',
   'auth.login.emailPlaceholder': 'enw@eichcwmni.com',
   'auth.login.heading': 'Croeso nôl.',
   'auth.login.passwordPlaceholder': 'Eich cyfrinair',
+  'auth.login.signupPrompt': "Yn newydd i'ch tîm?",
   'auth.login.subheading': "Mewngofnodwch i barhau â'ch taith ymsefydlu lle gwnaethoch chi adael.",
   'auth.login.submit': "Parhewch â'ch taith",
+  'auth.panel.body':
+    'Eich rhestr wirio bersonol, cerrig milltir hyfforddi, a chyflwyniadau tîm — i gyd mewn un lle tawel.',
   'auth.panel.footnote': '© Embark — rhoi pobl yn gyntaf ar y bwrdd ers heddiw.',
   'auth.panel.headline': 'Mae 90 diwrnod cyntaf hyderus yn dechrau yma.',
   'auth.resetPassword.heading': 'Gosodwch gyfrinair newydd.',
   'auth.resetPassword.newPasswordLabel': 'Cyfrinair newydd',
+  'auth.resetPassword.panel.body':
+    "Cadwch gyfrinair newydd ac fe'ch dychwelwn yn syth i'ch taith ymgartrefu.",
+  'auth.resetPassword.panel.headline': 'Bron yn ôl i mewn.',
   'auth.resetPassword.subheading': "Dewiswch rywbeth y byddwch chi'n ei gofio — o leiaf 8 nod.",
   'auth.signup.emailPlaceholder': 'enw@eichcwmni.com',
   'auth.signup.heading': "Croeso i'ch 90 diwrnod cyntaf.",
   'auth.signup.panel.body':
     'Rhestr wirio dan arweiniad, hyfforddiant ymwybodol o rolau, a chyflwyniadau dynol — yn barod cyn i chi gerdded i mewn.',
+  'auth.signup.panel.headline': 'Diwrnod un, ar ddiwrnod un.',
   'auth.signup.subheading':
     'Crëwch eich cyfrif Embark i ddechrau eich taith ymsefydlu dan arweiniad.',
   'checklist.empty.body': 'Newidiwch y hidlydd i weld tasgau eraill.',
@@ -28,6 +42,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'Ymsefydlu · Rhestr wirio',
   'checklist.loading': "Wrthi'n llwytho eich rhestr wirio…",
   'checklist.stat.actionNeeded': 'Angen gweithredu',
+  'checklist.stat.completion': 'Cwblhau',
+  'checklist.stat.inProgress': 'Ar y gweill',
   'checklist.stat.inProgressHelper': 'Parhewch o ble wnaethoch chi adael',
   'checklist.stat.overdueHelper': 'Daliwch y rhain i fyny yn gyntaf',
   'checklist.subtitle':
@@ -59,6 +75,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Dim dogfennau eto',
   'documents.eyebrow': 'Ymsefydlu · Dogfennau',
   'documents.loading': "Wrthi'n llwytho dogfennau…",
+  'documents.stat.actionNeeded': 'Arwyddwch nawr',
+  'documents.stat.all': 'Pob dogfen',
   'documents.stat.allHelper': 'Ar draws categorïau',
   'documents.stat.pending': "Llofnodau sy'n aros",
   'documents.stat.pendingHelper': "Angenrheidiol i'w gwblhau",
@@ -66,6 +84,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': "Wedi'i storio'n ddiogel",
   'documents.status.optional': 'Dewisol',
   'documents.status.required': 'Angenrheidiol',
+  'documents.status.signed': "Wedi'i lofnodi",
   'documents.subtitle':
     "Eich llawlyfr, ffurflenni, a chytundebau wedi'u llofnodi — i gyd mewn un lle.",
   'documents.title': "Popeth sydd angen i chi ei ddarllen a'i lofnodi.",
@@ -73,16 +92,21 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'Gwyliwr',
   'documentViewer.breadcrumbDocs': 'Dogfennau',
   'documentViewer.downloadMeta': 'Lawrlwytho metadata',
+  'documentViewer.helpBody':
+    "Mae Pobl a Diwylliant yn ateb cwestiynau'r llawlyfr yn #ask-people ar Slack.",
   'documentViewer.helpEyebrow': 'Angen help?',
   'documentViewer.loadError': "Ni allem lwytho'r ddogfen hon.",
   'documentViewer.loading': "Wrthi'n llwytho dogfen…",
   'documentViewer.notFound': 'Ni chanfuwyd y ddogfen',
+  'documentViewer.previewBody':
+    "Pan fydd uwchlwythiadau wedi'u ffurfweddu, byddwn yn dangos y ffeil yn fewnol. Am y tro, mae'r lawrlwytho metadata yn gadael i chi gadarnhau bod y cofnod yn real.",
   'documentViewer.previewBodyExternal':
     'Defnyddiwch y botwm lawrlwytho i agor y ffeil mewn tab newydd.',
   'documentViewer.previewTitle': "Rhagolwg o'r ddogfen",
   'documentViewer.sign': 'Llofnodwch a chydnabyddir',
   'documentViewer.signatureBody': 'Darllenwch y ddogfen, yna cliciwch isod i lofnodi a chydnabod.',
   'documentViewer.signatureHeading': 'Mae angen llofnod',
+  'documentViewer.signed': "✓ Wedi'i lofnodi a'i ffeilio",
   'documentViewer.signing': 'Yn llofnodi…',
   'documentViewer.uploadedRecently': "Wedi'i uwchlwytho'n ddiweddar",
   'landing.closing.body':
@@ -92,10 +116,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Mae gen i gyfrif eisoes',
   'landing.feature1.body':
     "Pob tasg — gwaith papur, cyfrifon, cyflwyniadau — wedi'i chynllunio ymlaen llaw gyda dyddiadau dyledus a'r perchennog cywir.",
+  'landing.feature1.title': 'Rhestr wirio dan arweiniad',
   'landing.feature2.body':
     "Mae modiwlau'n datgloi ar 30/60/90 o gerrig milltir, wedi'u haddasu i'r rôl a'r tîm y mae gweithiwr cyflogedig yn ymuno ag ef.",
+  'landing.feature2.title': "Hyfforddiant sy'n ymwybodol o'r rôl",
   'landing.feature3.body':
     "Cyfeillion, rheolwyr, a chyflwyniadau traws-swyddogaethol wedi'u trefnu — felly does neb yn dechrau ar ei ben ei hun.",
+  'landing.feature3.title': 'Cyflwyniadau go iawn',
   'landing.featureEyebrow': 'Pam Cychwyn',
   'landing.featureHeadline': 'Tri ffordd mae Embark yn ennill ymddiriedaeth ar y diwrnod cyntaf.',
   'landing.footer.rights': 'Cedwir pob hawl.',
@@ -104,6 +131,7 @@ export const ui: UiTranslations = {
   'landing.headlineLine2': 'croeso cynnesach.',
   'landing.preview.body': "Nesaf: Cwrdd â'ch ffrind am sgwrs goffi 30 munud — Mawrth 10:00 AM.",
   'landing.preview.eyebrow': 'Diwrnod 14 o 90 — dangosfwrdd enghreifftiol',
+  'landing.preview.headline': "Croeso'n ôl, Maya.",
   'landing.proof.spec': 'Yn barod ar gyfer SOC 2 + GDPR',
   'landing.proof.teams': "Wedi'i adeiladu ar gyfer timau o 50–5,000",
   'landing.proof.time': 'Treial am ddim 14 diwrnod',
@@ -120,16 +148,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': "Rydych chi'n barod.",
   'planUpdated.preparing': 'Yn diweddaru eich cynllun…',
+  'planUpdated.retry': 'Rhowch gynnig arall arni',
+  'planUpdated.verifyFailed': 'Ni allem gadarnhau eich taliad eto.',
+  'planUpdated.verifyFailedBody':
+    "Mae'n bosibl bod eich taliad yn dal i gael ei brosesu. Rhowch gynnig arall arni ymhen eiliad.",
   'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'pricing.documentsLabel': 'dogfennau',
   'pricing.onboardingsLabel': 'ymsefydliadau',
   'pricing.tasksLabel': 'tasgau',
   'profile.dayNumber': 'Dydd',
   'profile.detailsHeading': 'Manylion ymsefydlu',
+  'profile.encouragementBody':
+    "Cadwch eich ffrind a'ch rheolwr yn y ddolen — mae camau bach yn cronni.",
   'profile.milestones': 'Cerrig milltir',
   'profile.progressEyebrow': 'Cynnydd ymsefydlu',
   'profile.tasks': 'Tasgau',
   'profile.unknownName': 'Croeso',
+  'settings.appearance.description': 'Newid rhwng modd golau a thywyll.',
+  'settings.appearance.title': 'Ymddangosiad',
+  'settings.subtitle':
+    'Addaswch hysbysiadau, diogelwch, dyfeisiau, ac allforio data — mae popeth yn aros yma, ar eich telerau.',
   'settings.title': 'Gosodiadau a dewisiadau.',
   'taskDetail.backToChecklist': "Yn ôl i'r rhestr wirio",
   'taskDetail.breadcrumbChecklist': 'Rhestr wirio',
@@ -142,7 +180,10 @@ export const ui: UiTranslations = {
   'taskDetail.notFound': 'Ni chanfuwyd y dasg',
   'taskDetail.notFoundBody':
     "Efallai bod y dasg hon wedi'i dileu neu ei bod yn perthyn i ddefnyddiwr arall.",
+  'taskDetail.tipBody':
+    "Os ydych wedi'ch rhwystro, anfonwch neges at eich ffrind ymgartrefu ar Slack — nhw yw eich llinell gymorth gyntaf.",
   'taskDetail.tipEyebrow': 'Awgrym cyflym',
+  'team.empty.body': 'Rhowch gynnig ar chwiliad ehangach neu ddewiswch adran wahanol.',
   'team.empty.title': 'Dim gêm rhwng tîm tîm',
   'team.eyebrow': 'Ymsefydlu · Pobl',
   'team.loading': "Wrthi'n llwytho tîm tîm…",
@@ -165,14 +206,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Cerrig milltir',
   'timeline.stat.current': 'Carreg filltir gyfredol',
   'timeline.stat.next': 'Datgloi nesaf',
+  'timeline.stat.progress': 'Cyffredinol',
   'timeline.subtitle':
     'Mae pob carreg filltir yn datgloi modiwlau, cyflwyniadau a sgyrsiau twf newydd. Dim pwysau - dim ond cynnydd.',
+  'timeline.tipBody':
+    "Trefnwch fyfyrdod 30 munud ar ddyddiau 30, 60, a 90 gyda'ch rheolwr — mae'n gwneud adborth yn benodol a chynnydd yn weladwy.",
   'timeline.tipEyebrow': 'Awgrym rheolwr',
+  'timeline.tipTitle': 'Blociwch amser yn y calendr ar gyfer y cerrig milltir.',
   'timeline.title': 'Eich taith 30 / 60 / 90.',
   'training.badge.notStarted': 'Heb ei ddechrau',
   'training.empty': 'Dim modiwlau hyfforddi eto.',
   'training.eyebrow': 'Ymsefydlu · Hyfforddiant',
   'training.loading': "Wrthi'n llwytho modiwlau…",
+  'training.stat.all': "Modiwlau wedi'u neilltuo",
   'training.subtitle':
     "Mae modiwlau'n datgloi ar 30/60/90 i gyd-fynd â'ch rôl. Daw'r rhai gofynnol yn gyntaf.",
   'training.title': 'Sgiliau, offer, a straeon — ar eich cyflymder eich hun.',
@@ -184,9 +230,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'Modiwl heb ei ganfod',
   'trainingModule.quizBody': "Sgoriwch 80% neu fwy i farcio'r modiwl hwn wedi'i gwblhau.",
   'trainingModule.quizHeading': 'Cwis diwedd modiwl',
+  'trainingModule.quizLocked': 'Dechreuwch y modiwl yn gyntaf',
   'trainingModule.quizNone': 'Dim cwis ar y modiwl hwn.',
   'trainingModule.quizRetry': 'Rhowch gynnig arall arni',
+  'trainingModule.quizStart': 'Dechrau cwis',
   'trainingModule.quizSubmit': 'Cyflwyno atebion',
+  'trainingModule.start': 'Dechrau modiwl',
   'trainingModule.statusNotStarted': 'Heb ei ddechrau',
   'welcomeHeroCard.completeLabel': 'Cwblhawyd',
   'welcomeHeroCard.milestonesLabel': 'Cerrig milltir',

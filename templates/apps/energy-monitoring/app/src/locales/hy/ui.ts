@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Հարցեր, ֆունկցիայի առաջարկներ կամ սարք, որը պետք է աջակցենք։ Կապվեք {{appName}} թիմի հետ ձեր հաշվի կարգավորումներից — յուրաքանչյուր հաղորդագրություն հասնում է իրական մարդու։',
   'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
+  'about.featuresTitle': 'Ինչ եք ստանում',
+  'about.intro':
+    '{{appName}}-ը իրական ժամանակի էներգիայի մոնիտորինգ է արևային տներով և հաստատությունների թիմերի համար։ Մենք սարքերի, ինվերտորների և մարտկոցների տվյալների հոսքը վերածում ենք հանգիստ կառավարման սենյակի տեսքի՝ ուղիղ հզորություն, արևային արտադրություն, ժամանակի ըստ սակագնի արժեք և ծանուցումներ՝ բոլորը մեկ պատյանում։',
+  'about.missionBody':
+    'Էներգիան, որը տեսնում ես, էներգիա է, որը կարող ես կառավարել։ Մենք հավատում ենք, որ յուրաքանչյուրը, ով սարք է աշխատեցնում՝ տանիքի արևային վահանակներով տնային տնտեսություն կամ շենքին հետևող թիմ, արժանի է կոմունալ մակարդակի պատկերացումների՝ առանց կոմունալ մակարդակի պայմանագրի։ Յուրաքանչյուր ֆունկցիա ստեղծված է, որպեսզի հաջորդ կիլովատ-ժամը դառնա տեղեկացված ընտրություն, այլ ոչ թե անակնկալ հաշվին։',
+  'about.missionTitle': 'Մեր առաքելությունը',
   'about.pageTitle': 'Մասին {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Ակ',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@yourdomain.com',
   'alertRule.eyebrow': 'Նոր կանոն',
   'alertRule.heading': 'Բռնեք կտրուկ աճը, նախքան դա ձեզ վրա թանկ կազդի',
+  'alertRule.nameLabel': 'Կանոնի անվանումը',
   'alertRule.namePlaceholder': 'օրինակ՝ HVAC-ի հսկողություն աշխատանքային ժամերից հետո',
   'alertRule.subheading':
     'Ընտրեք չափանիշ, շեմ և որտեղ ուղարկել ծանուցումը: Կարող եք այն խմբագրել կամ դադարեցնել ցանկացած պահի:',
   'alertRule.submit': 'Պահպանել կանոնը',
   'alertRule.submitError': 'Չհաջողվեց պահպանել կանոնը։',
   'alertRule.thresholdLabel': 'Շեմ',
+  'alertRule.typeLabel': 'Տրիգերի տեսակը',
   'alerts.checking': 'Ստուգվում է…',
   'alerts.confirmDelete': 'Հաստատեք ջնջումը',
+  'alerts.empty': 'Ցուցադրելու բան չկա — այս վիճակում ծանուցումներ չկան։',
   'alerts.emptyNoRules':
     'Դեռևս ծանուցումներ չկան. ավելացրեք կանոն, այնուհետև սեղմեք «Գնահատել հիմա»՝ այն փորձարկելու համար։',
   'alerts.errorAck': 'Չկարողացավ խոստովանել։',
@@ -41,12 +52,14 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Գնահատեք հիմա',
   'alerts.subheading':
     'Ձեր հաշվիչներին ակտիվացող շեմային և օրինաչափական ազդանշաններ, գումարած դրանք կարգավորող կանոնները։',
+  'billing.activeBlurb': 'Ձեր բաժանորդագրությունն ակտիվ է։ Կառավարեք այն ցանկացած պահի։',
   'billing.cancelError': 'Անհնար էր չեղարկել բաժանորդագրությունը։',
   'billing.cancelling': 'Չեղարկվում է…',
   'billing.currentBadge': 'Ընթացիկ',
   'billing.freeBlurb':
     'Դուք անվճար պլանում եք։ Թարմացրեք՝ ավելի շատ հաշվիչներ, ավելի երկար պատմություն և ավելի շատ ծանուցումների կանոններ ստանալու համար։',
   'billing.heading': 'Պլաններ և հաշվառում',
+  'billing.historyEmpty': 'Վճարված հաշիվները կհայտնվեն այստեղ, երբ ձեր բաժանորդագրությունը գանձվի։',
   'billing.historyHeading': 'Հաշիվ-ապրանքագրերի պատմություն',
   'billing.loadError': 'Չհաջողվեց բեռնել հաշիվ-ապրանքագիրը։',
   'billing.loading': 'Բեռնվում են պլանները…',
@@ -58,17 +71,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Կապվեք վաճառքի հետ',
   'common.goToDashboard': 'Անցնել վահանակ',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} պիկ · {{offPeak}} ոչ պիկ կՎտժ',
   'dailyCostMeter.runningLabel': 'Վազքի ընդհանուր թիվը',
   'dailyCostMeter.title': 'Արժեքը մինչ օրս՝ այսօր',
   'dailyCostMeter.utilizationLabel': 'Օրական բյուջեի մասին',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Ավելացնել սարք',
   'dashboard.alertsHeading': 'Ակտիվ ծանուցումներ',
   'dashboard.devicesHeading': 'Առաջատար մրցուղիները հենց հիմա',
   'dashboard.empty.body':
     'Ավելացրեք խելացի հաշվիչ կամ արևային ինվերտոր՝ իրական ժամանակում սպառման և արտադրության հետևումը սկսելու համար։',
+  'dashboard.empty.title': 'Դեռ սարքեր չկան',
   'dashboard.eyebrow': 'Voltrace կառավարման սենյակ',
   'dashboard.heading': 'Էներգիայի ուղիղ հեռարձակում',
   'dashboard.loadError': 'Չհաջողվեց բեռնել իրական ժամանակի ցուցմունքները։',
   'dashboard.loading': 'Ձեր չափիչները կարգավորելը…',
+  'dashboard.noAlerts': 'Ամեն ինչ հանգիստ է — ոչինչ չի գերազանցում ձեր շեմերը։',
   'dashboard.noAlertsAndNoMeters':
     'Հաշվիչը միացնելուց հետո այստեղ կհայտնվեն ձեր շեմերի վրա հիմնված ծանուցումներ։',
   'dashboard.noCircuits': 'Դեռևս ցուցադրելու սխեմաներ չկան՝ սկսելու համար ավելացրեք հաշվիչ։',
@@ -76,6 +94,7 @@ export const ui: UiTranslations = {
     'Ամբողջ տան էլեկտրաէներգիայի սպառումը, արևային էներգիայի արտադրությունը և այսօրվա արժեքը։',
   'dashboard.viewAllAlerts': 'Կառավարել ծանուցումները →',
   'dashboard.viewAllDevices': 'Յուրաքանչյուր սարք →',
+  'deviceDetail.activeTokens': 'Ակտիվ ընդունման նշաններ',
   'deviceDetail.alreadyOff': 'Արդեն դադարեցված է',
   'deviceDetail.back': 'Բոլոր շղթաները',
   'deviceDetail.confirmDelete': 'Հաստատեք ջնջումը',
@@ -116,22 +135,34 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Չհաջողվեց բեռնել հաշվիչները։',
   'devices.loading': 'Յուրաքանչյուր հաշվիչի հարցում…',
   'devices.newRule': 'Նոր զգոնության կանոն',
+  'devices.noResults': 'Այս ֆիլտրին ոչ մի շղթա չի համապատասխանում։',
   'devices.placeholder.location': 'օրինակ՝ մեխանիկական սենյակ',
   'devices.placeholder.name': 'օրինակ՝ Գարաժի ենթավահանակ',
   'devices.subheading':
     'Կենդանի վատտ հզորությունը և այսօրվա կՎտժ-ը՝ Voltrace-ի տեսանելի յուրաքանչյուր շղթայում։',
+  'deviceWattageRow.todayKwh': '{{kwh}} կՎտժ այսօր',
+  'deviceWattageRow.watts': '{{watts}} Վ',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Մենյու',
+  'energyMonitoringLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
+  'landing.copyright': '© {{year}} {{app}}։ {{tagline}}։',
+  'landing.ctaBody':
+    '{{appName}}-ը կապվում է կոմունալ մակարդակի սարքերի, արևային ինվերտորների և մարտկոցների մեծ մասի հետ՝ լարով կամ WiFi-ով։',
   'landing.ctaHeading': 'Միացրեք ձեր հաշվիչը, տեսեք վատտերը րոպեների ընթացքում',
   'landing.eyebrow': 'Իրական ժամանակի էներգետիկ հետախուզություն',
+  'landing.featuresHeading': 'Ամեն վատ, ամեն րոպե, մեկ պատյանում',
   'landing.getStarted': 'Միացրեք Voltrace-ը',
   'landing.heroCta': 'Միացրեք Voltrace-ը',
+  'landing.heroSubtitle':
+    'Ուղիղ հզորություն, արևային արտադրություն, ժամանակի ըստ սակագնի արժեք և բարձր սպառման ծանուցումներ՝ արևային տների և հաստատությունների թիմերի համար ստեղծված կառավարման սենյակի պատյանում։',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Ամբողջ տան համար վիճակահանություն',
   'landing.sampleSolar': '+3,820 Վտ արևային էներգիա',
   'landing.sampleSummary': '1,680 Վտ արտահանում ցանց · 18.4 կՎտժ այսօր',
   'landing.sampleWatts': '2,140 Վտ',
   'powerHeroCard.solar': '+ {{watts}} Արևմտյան արևային',
   'powerHeroCard.title': 'Ամբողջ տան համար վիճակահանություն',
+  'powerHeroCard.todayKwh': '{{kwh}} կՎտժ այսօր',
   'powerHeroCard.watts': '{{watts}} Վ',
   'pricing.choose': 'Ընտրեք {{name}}',
   'pricing.contact': 'Ինչ-որ բան է պետք անհատականացված՞',
@@ -144,6 +175,7 @@ export const ui: UiTranslations = {
     'Սկսեք անվճար: Թարմացրեք, երբ ձեզ անհրաժեշտ են ավելի շատ հաշվիչներ, ավելի երկար պատմություն կամ ավելի շատ տագնապի կանոններ:',
   'pricing.unavailable': 'Այս պլանը ներկայումս հասանելի չէ. Stripe-ը կարգավորված չէ։',
   'profile.errorGeneric': 'Հնարավոր չէ պահպանել պրոֆիլի փոփոխությունները։',
+  'profile.errorGoal': 'Ամսական կՎտժ նպատակը պետք է լինի դրական թիվ։',
   'profile.errorHousehold': 'Տնային տնտեսության չափը պետք է դրական թիվ լինի։',
   'profile.householdHeading': 'Ընտանիք և նպատակներ',
   'profile.householdSize': 'Տնային տնտեսության չափը',
@@ -161,9 +193,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'Ցուցումների ամփոփում…',
   'reports.subheading':
     'Սպառման, արտադրության և ծախսերի օրական ընդհանուր ցուցանիշները՝ բաժանված ըստ ամսաթվի։',
+  'reports.tableHeading': 'Օրական բաշխում',
   'settings.currency': 'Արժույթ',
   'settings.errorFlat': 'Հաստատուն գինը պետք է լինի ≥ 0։',
   'settings.errorNotify': 'Չհաջողվեց պահպանել ծանուցումների նախընտրությունները։',
+  'settings.errorSave': 'Չհաջողվեց պահպանել սակագնային պլանը։',
   'settings.errorTou':
     'Պահանջվում են գագաթնակետային/ոչ գագաթնակետային սակագներ և վավեր գագաթնակետային պատուհան։',
   'settings.exportBody':
@@ -184,10 +218,20 @@ export const ui: UiTranslations = {
   'settings.saving': 'Պահպանվում է…',
   'settings.securityHeading': 'Երկփուլային նույնականացում',
   'settings.subheading': 'Գներ, ծանուցումներ և տվյալների արտահանում։',
+  'settings.twoFactorBody':
+    'Պահանջել մեկանգամյա կոդ ձեր իսկորոշիչ հավելվածից ամեն անգամ, երբ մուտք եք գործում։',
   'settings.twoFactorCode': 'Հաստատման կոդ',
   'settings.twoFactorDisable': 'Անջատել',
+  'settings.twoFactorDisableTitle': 'Անջատել երկգործոն նույնականացումը',
   'settings.twoFactorEnable': 'Միացնել',
+  'settings.twoFactorEnableTitle': 'Միացնել երկգործոն նույնականացումը',
   'settings.twoFactorInvalidCode': 'Անվավեր կոդ',
+  'settings.twoFactorOAuth':
+    'Ձեր հաշիվը մուտք է գործում միացված մատակարարի միջոցով, ուստի երկգործոն նույնականացումը կառավարվում է այնտեղ։',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Երկկարգի նույնականացման QR կոդ',
+  'settings.twoFactorScan':
+    'Սկանավորեք այս QR կոդը ձեր նույնականացման հավելվածով, ապա մուտքագրեք 6-նիշանոց կոդը։',
+  'settings.twoFactorUnavailable': 'Երկփուլային նույնականացումը հասանելի չէ այս հավելվածի համար։',
   'settings.twoFactorVerify': 'Հաստատել և միացնել',
 }

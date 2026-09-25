@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ṣé ó ní èrò kan, ṣe o rí àṣìṣe kan, tàbí ń gbèrò nǹkan tó ga? Kàn wá láti inú ètò àkọsílẹ̀ àkọọ́lẹ̀ rẹ — gbogbo ìṣẹ́ ni ó ń lọ sí ọwọ́ ènìyàn gidi kan nínú ẹgbẹ́ wa.',
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Àwọn ìpamọ́ nínú àpótí kan ṣoṣo — àwọn ìjẹ́rìí òfúrufú, ilé ìtura, àti ìgbòkègbodò ni wọ́n ń dé ní ọjọ́ tí wọ́n yẹ.',
+  'about.featureCollab':
+    'Ìfọwọ́sowọ́pọ̀ ní àkókò gidi — pe àwọn arìnrìn-àjò tó pọ̀ jù márùn-ún lórí ìrìn-àjò kọ̀ọ̀kan, pẹ̀lú gbogbo ìyípadà tí ń ṣiṣẹ́ lẹ́sẹẹsẹ, àwọn àlàyé sì wà lábẹ́ ibi tí wọ́n dúró.',
+  'about.featureMapsBudget':
+    'Àwọn maapu, àwọn ibi tí a ń lọ, àti ìsúná tí a pín — wo gbogbo ìrìn-àjò náà lórí maapu, ṣàwárí àwọn ibi tí olóòtú ṣàyẹ̀wò, kí o sì tọ́jú àwọn ìnáwó kí ẹnikẹ́ni má bàa ná jù.',
+  'about.featureTimelines':
+    'Àwọn àkókò ọjọ́-dé-ọjọ́ — fa àwọn ibi tí o dúró láti tún wọn ṣe, fi àwọn apá ọkọ̀ sí, kí o sì wo bí ìtòlẹ́sẹẹsẹ náà ṣe ń tún ara rẹ̀ ṣe gẹ́gẹ́ bí ìwé kan tí ń gbé.',
+  'about.intro':
+    '{{app}} yí àpò tí ó kún fún àwọn ètò tí kò tíì péjú padà sí ìrìn-àjò kan ṣoṣo, tí gbogbo ẹgbẹ́ rẹ lè tẹ̀lé. Kọ́ ìtòlẹ́sẹẹsẹ ọjọ́-dé-ọjọ́, fi àwọn òfúrufú àti ilé ìtura sí, ya maapu gbogbo ibi tí o dúró, kí o sì tọ́jú ìsúná — gbogbo rẹ̀ ní ibi kan tí ó dákẹ́ dípò àwọn tabì ọ̀pọ̀lọpọ̀ àti ìjíròrò ẹgbẹ́.',
+  'about.missionBody':
+    'Ìṣètò ìrìn-àjò yẹ kí ó dà bí ẹni pé ìrìn-àjò náà ti ń dára sí i, kì í ṣe iṣẹ́ ilé. {{app}} wà láti jẹ́ kí àwọn ìrìn-àjò àjọṣepọ̀ rọrùn — kí gbogbo arìnrìn-àjò lè dé pẹ̀lú ìmọ̀ ètò náà, kí gbogbo ibi tí wọ́n dúró sì sọ ìtàn tí ó yẹ láti rántí.',
+  'about.missionTitle': 'Iṣẹ́ àwa',
   'about.pageTitle': 'Nípa {{app}}',
   'auth.legalConsent': 'Nípa títẹ̀síwájú, o fara mọ́',
   'bookings.empty.body':
@@ -31,7 +47,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Hótẹ́ẹ̀lì',
   'bookings.type.other': 'Òmíràn',
   'budgetSpendCard.budgetTotal': 'ti {{total}} gbero',
+  'budgetSpendCard.overBy': '{{amount}} ju ìsúná lọ',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} àìpẹ́',
+  'budgetSpendCard.remaining': '{{amount}} tó kù',
   'calendar.eyebrow': 'Ọdún tó ń bọ̀',
   'calendar.heading': 'Gbogbo ìrìn àjò lórí kàlẹ́ńdà kan ṣoṣo.',
   'calendar.legendHeading': 'Àwọn ìrìnàjò ní oṣù yìí',
@@ -42,18 +61,27 @@ export const ui: UiTranslations = {
   'common.and': 'àti',
   'common.goToDashboard': 'Lọ sí Dashiboodu',
   'dashboard.budgetHeading': 'Isuna ọpọlọ',
+  'dashboard.empty.body':
+    'Ṣètò ìrìn-àjò rẹ àkọ́kọ́, pátákó rẹ yóò sì kún fún àwọn àkókò ọjọ́-dé-ọjọ́, ìsúná, àti àwọn ìpamọ́.',
+  'dashboard.empty.cta': 'Ṣètò ìrìn-àjò rẹ àkọ́kọ́',
   'dashboard.empty.heading': 'Kò sí ìrìnàjò kankan síbẹ̀ — àwòrán rẹ ti ṣófo.',
   'dashboard.eyebrow': 'Iṣakoso iṣẹ apinfunni',
   'dashboard.heading': 'Ìrìnàjò rẹ tó kàn, ní igun kan tó dákẹ́ jẹ́ẹ́.',
   'dashboard.newTripCta': 'Bẹ̀rẹ̀ ìrìnàjò tuntun',
+  'dashboard.subheading':
+    'Ìkàwé kíkà sí ìrìn-àjò tó ń bọ̀, ìnáwó òní, àti ìwòye kíákíá sí gbogbo ìtòlẹ́sẹẹsẹ tí ń lọ.',
   'dashboard.tripsHeading': 'Àwọn ìrìnàjò ní ìrìnàjò',
   'dashboard.viewAllExpenses': 'Wo gbogbo awọn inawo',
   'dashboard.viewAllTrips': 'Wo gbogbo irin ajo naa',
   'dayTimelineRow.category.accommodation': 'Dúró',
+  'dayTimelineRow.category.food': 'Oúnjẹ àti ohun mímu',
+  'dayTimelineRow.category.sightseeing': 'Ìwòran ibi',
   'dayTimelineRow.category.transport': 'Ìrìnnà',
   'destinationOrbCard.exploreCta': 'Fi kún ìrìn àjò kan',
   'destinationOrbCard.tripCount': '{{count}} awọn irin-ajo',
+  'destinations.empty.body': 'Padà sí Gbogbo, àwọn àtúnṣe olóòtú yóò sì tún farahàn.',
   'destinations.empty.heading': 'Kò sí àwọn ibi tí a ń lọ síbẹ̀.',
+  'destinations.emptyFiltered.heading': 'Kò sí nǹkan tí a fi àmì bẹ́ẹ̀ sí i.',
   'destinations.errors.load': 'Kò le gbé àwọn ibi tí a fẹ́ dé sórí fóònù.',
   'destinations.eyebrow': 'Ibi ti o le lọ tókàn',
   'destinations.heading': 'Àwọn igun tí a fipamọ́ àti àwọn ohun tí a rí lórí olóòtú.',
@@ -71,7 +99,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Olùtajà',
   'expenses.formHeading': 'Iye owo iforukọsilẹ fun {{trip}}',
   'expenses.heading': 'Ibi ti isuna irin-ajo naa lọ gan-an.',
+  'expenses.heroBudget': '{{pct}}% nínú {{total}} tí a ṣètò',
   'expenses.heroEyebrow': '{{trip}} • Àwòrán ìṣúná owó',
+  'expenses.heroNoBudget': 'A kò tíì ṣètò ìsúná lórí ìrìn-àjò yìí.',
   'expenses.noTrips.body': 'Ṣètò ìrìnàjò àkọ́kọ́, so àwọn ìnáwó pọ̀ mọ́ ìnáwó ìrìnàjò náà.',
   'expenses.noTrips.heading': 'Kò sí ìrìnàjò kankan síbẹ̀.',
   'expenses.receiptCount': '{{count}} awọn iwe-ẹri',
@@ -83,12 +113,16 @@ export const ui: UiTranslations = {
     'Gbogbo ìwé ẹ̀rí ìsanwó àti ìjẹ́rìísí yóò wọ inú ẹ̀ka tó tọ́ níbí — kò nílò ìwé àkọsílẹ̀.',
   'forgotPassword.eyebrow': 'Yi eto irin-ajo rẹ pada',
   'forgotPassword.heading': 'Gbagbe oruku abawole re?',
+  'forgotPassword.subheading':
+    'Tẹ ímeèlì tí o lò fún {{appName}}, a ó sì fi ọ̀nà ránṣẹ́ láti tún ọ̀rọ̀ ìkọ̀kọ̀ rẹ ṣe.',
   'forgotPassword.submit': 'Fi imeeli igbapada ranṣẹ',
   'forgotPassword.submitPending': 'N fi imeeli igbapada ranṣẹ…',
   'forgotPassword.successHint':
     'Kò tíì sí ìmeeli kankan? Ṣàyẹ̀wò fódà àwúrúju rẹ, tàbí gbìyànjú lẹ́ẹ̀kan síi pẹ̀lú àdírẹ́sì mìíràn.',
   'forgotPassword.successSubheading':
     'A fi ọna asopọ imularada ranṣẹ si {{email}} . Ìjápọ̀ náà wúlò fún ìṣẹ́jú 30.',
+  'forgotPassword.tryAgain': 'Fi ránṣẹ́ sí ímeèlì mìíràn',
+  'landing.cta.eyebrow': 'Bẹ̀rẹ̀ pẹ̀lú ètò ọ̀fẹ́',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Ṣẹ̀dá àkọọ́lẹ̀ ọ̀fẹ́',
   'landing.cta.subheading':
@@ -100,8 +134,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Bẹrẹ irin-ajo ọfẹ kan',
   'landing.hero.ctaSecondary': 'Wo apẹẹrẹ irin-ajo kan',
+  'landing.hero.eyebrow': 'Olùṣètò ìrìn-àjò · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint yí fáìlì kan tí ó kún fún àwọn ètò tí a ṣètò ààbọ̀ sí ìrìnàjò ojoojúmọ́ tí àwùjọ rẹ lè tẹ̀lé — pẹ̀lú àwọn ìforúkọsílẹ̀, àwọn máàpù, àti ìnáwó tí a tọ́pasẹ̀ ní ibi kan.',
+  'landing.hero.title': 'Gbé e kalẹ̀ lẹ́ẹ̀kan. Ẹ jọ rìn kiri.',
   'landing.nav.join': 'Bẹrẹ irin-ajo ọfẹ kan',
   'landing.nav.preview': 'Inu Ọ̀nà',
   'landing.preview.cta': 'Gbé ètò kan ti ara rẹ kalẹ̀',
@@ -109,6 +145,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Àwọn ìrìnàjò díẹ̀ tí àwọn arìnrìn-àjò ń rìn kiri báyìí',
   'login.eyebrow': 'Agbègbè àwọn ọmọ ẹgbẹ́',
   'login.heading': 'Kaabọ pada, aririn ajo',
+  'login.noAccount': 'Ṣe o jẹ tuntun si Tessera?',
   'login.signupLink': 'Ṣẹda akọọlẹ ọfẹ kan',
   'login.subheading':
     'Wọlé láti ṣàkóso àwọn ìrìnàjò rẹ, àwọn ètò ọjọ́, àwọn ìforúkọsílẹ̀, àti àwọn àkọsílẹ̀ ìwé àkọsílẹ̀ tí o ti bẹ̀rẹ̀.',
@@ -119,6 +156,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Kò le ṣe àtúnṣe ìfitónilétí.',
   'notifications.heading': 'Kí ni ó yípadà ní gbogbo ìrìnàjò rẹ lónìí.',
   'notifications.markUnread': 'Samisi bi eyi ti a ko ka',
+  'notifications.subheading':
+    '{{count}} tuntun — àwọn ìjẹ́rìí ìpamọ́, àwọn àkọsílẹ̀ alábàákẹ́gbẹ́, àwọn ìdínwó, àti àwọn ìránnilétí.',
   'notifications.time.daysAgo': '{{count}} ọdun sẹyin',
   'notifications.time.hoursAgo': '{{count}} h ti o ti kọja',
   'notifications.time.justNow': 'ni bayi',
@@ -137,6 +176,7 @@ export const ui: UiTranslations = {
     'Àwọn iṣẹ́ tí a so pọ̀ mọ́ra, owó, ìfitónilétí títẹ̀, àti àwọn ìwé ẹ̀rí tí o fi wọlé.',
   'signup.and': 'àti',
   'signup.eyebrow': 'Darapọ mọ Waypoint',
+  'signup.haveAccount': 'Ṣé o ti ń rìn kiri?',
   'signup.heading': 'Gbé e kalẹ̀ lẹ́ẹ̀kan. Ẹ jọ rìn kiri.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -148,6 +188,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Ìtòlẹ́sẹẹsẹ ṣíṣí',
   'tripCountdownHeroCard.ctaSecondary': 'Gbé ìrìn àjò mìíràn kalẹ̀',
   'tripCountdownHeroCard.daysLabel': '{{days}} awọn ọjọ lati lọ',
+  'tripCountdownHeroCard.eyebrow': 'Ìrìn-àjò tó ń bọ̀ · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} òru — ìtòlẹ́sẹẹsẹ rẹ ti ṣetán láti rìn.',
   'tripCoverCard.stops': '{{count}} awọn iduro',
   'tripCoverCard.travelers': '{{count}} àwọn arìnrìn-àjò',
   'tripDetail.addActivity': 'Fi ìgbòkègbodò kún un',
@@ -157,6 +200,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Àkọlé iṣẹ́ náà',
   'tripDetail.adding': 'Fifikun…',
   'tripDetail.backToTrips': 'Pada si gbogbo awọn irin-ajo',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Àwọn arìnrìn-àjò',
   'tripDetail.dayLabel': 'Ọjọ́ {{day}}',
   'tripDetail.empty': 'Kò sí ìgbòkègbodò kankan síbẹ̀ — fi ọ̀kan kún un láti bẹ̀rẹ̀ àkókò àkókò náà.',
@@ -167,14 +211,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Ìrìn Àjò • {{country}}',
   'tripDetail.invite': 'Pe',
   'tripDetail.inviteLabel': 'Pe wa nipasẹ imeeli',
+  'tripDetail.invitePlaceholder': 'ẹnìkan@àpẹẹrẹ.com',
   'tripDetail.inviteSent': 'A fi ìkésíni ránṣẹ́ sí {{email}} .',
   'tripDetail.inviting': 'Fífiranṣẹ…',
   'tripDetail.loading': 'N n gbe irin-ajo soke…',
   'tripDetail.noCollaborators': 'Ìwọ nìkan, fún ìgbà yìí.',
+  'tripDetail.notesHeading': 'Àwọn àkọsílẹ̀ ìrìn-àjò',
   'tripDetail.notesPlaceholder': 'Ko si akọsilẹ sibẹsibẹ.',
   'tripDetail.notFound.heading': 'A ko ri irin ajo naa',
   'tripDetail.openBookings': 'Ṣí àpótí ìforúkọsílẹ̀',
   'tripDetail.shareCopied': 'Ṣe àdàkọ ìjápọ̀ sí àtẹ ìpamọ́:',
+  'tripDetail.shareReady': 'Ọ̀nà ìpín ti ṣetán:',
   'tripDetail.stops': '{{count}} awọn iduro',
   'tripDetail.timelineEyebrow': 'Àkókò ọjọ́',
   'tripDetail.timelineHeading': 'Ètò ojoojúmọ́',
@@ -192,6 +239,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Àwọn arìnrìn-àjò',
   'tripPlanner.heading': 'Ṣe ìrìn àjò kan láàárín ìṣẹ́jú kan.',
   'tripPlanner.preview.eyebrow': 'Àwòrán àgbéyẹ̀wò lójú ayé',
+  'tripPlanner.preview.placeholderCountry': 'Yan orílẹ̀-èdè kan',
   'tripPlanner.preview.placeholderDestination': 'Ìrìnàjò rẹ tó ń bọ̀',
   'tripPlanner.section1.title': 'Nibo ati nigbawo',
   'tripPlanner.section2.title': 'Àwọn arìnrìn àjò àti ìnáwó',
@@ -203,10 +251,13 @@ export const ui: UiTranslations = {
     'Ọjọ́ {{day}} — fi awọn iduro, gbigbe ọkọ, ati awọn ifiṣura kun si ibi.',
   'tripPlanner.section3.day3':
     'Ọjọ́ {{day}} — fi awọn iduro, gbigbe ọkọ, ati awọn ifiṣura kun si ibi.',
+  'tripPlanner.section3.title': 'Ìbẹ̀rẹ̀ ètò ọjọ́',
   'tripPlanner.subheading':
     'Fi àwọn ìpìlẹ̀ sílẹ̀ ní ìsàlẹ̀ — o lè pe àwọn alábáṣiṣẹpọ̀ nígbà gbogbo, fa àwọn ìdádúró wọlé, kí o sì fi àwọn ìforúkọsílẹ̀ síwájú nígbà tó bá yá.',
   'tripPlanner.submit': 'Ṣẹ̀dá ìrìn àjò',
   'tripPlanner.submitting': 'Ṣíṣẹ̀dá…',
+  'trips.empty.body': 'Padà sí Gbogbo ìrìn-àjò tàbí bẹ̀rẹ̀ ìṣètò ìrìn-àjò rẹ tó ń bọ̀.',
+  'trips.empty.cta': 'Gbèrò ìrìnàjò',
   'trips.empty.heading': 'Kò sí ohun tó bá àlẹ̀mọ́ náà mu.',
   'trips.eyebrow': 'Àtẹ àwòrán',
   'trips.filterLabel': 'Àlẹ̀mọ́ ìrìnàjò nípasẹ̀ ipò',
@@ -217,6 +268,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Kò sí ìrìnàjò kankan síbẹ̀.',
   'trips.pastHeading': 'Àwọn ìrìn àjò tó ti kọjá',
   'trips.subheading': '{{count}} awọn ipa ọna - ti o ti kọja, lọwọlọwọ, ati ọjọ kan.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Ṣètò ẹ̀ẹ̀kan. Rìn kiri papọ̀. Rántí rẹ̀ títí láé.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · {{appName}} ọmọ ẹgbẹ́ láti 2024',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} yí ìrìn-àjò ọ̀sẹ̀ mẹ́ta tí ó rúpọ̀ káàkiri orílẹ̀-èdè mẹ́rin padà sí ìtòlẹ́sẹẹsẹ tí ó fẹ̀yìn jù tí a tíì pín.',
   'waypointLayout.mobileNavClose': 'Ti akojọ aṣayan lilọ kiri pa',
   'waypointLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
 }

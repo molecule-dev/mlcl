@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Radote klaidą, turite funkcijos pasiūlymą ar norite pasakyti, ką kurti toliau? Rašykite hello@pylon.dev — kiekviena žinutė pasiekia tikrą komandos inžinierių.',
   'about.contactTitle': 'Susisiekite su mumis',
+  'about.intro':
+    '{{app}} yra greita, klaviatūrai pritaikyta API testavimo darbo stotis inžinieriams, gyvenantiems terminale — Postman stiliaus užklausos, kolekcijos, aplinkos ir istorija be nereikalingo balasto.',
+  'about.missionBody':
+    'API yra šiuolaikinės programinės įrangos stuburas, tačiau jų testavimo įrankiai lėti, apkrauti ir valdomi pele. {{app}} sukurta suteikti kūrėjams ašrią, greitą, terminalo lygio darbo stotį: siųsk užklausas, įgyk pasitikėjimą ir paleisk, nepaleisdamas klaviatūros.',
+  'about.missionTitle': 'Mūsų misija',
   'about.pageTitle': 'Apie {{app}}',
   'authShell.statusLabel': 'bėgikai internete',
   'collections.createError': 'Nepavyko sukurti kolekcijos.',
   'collections.defaultName': 'Be pavadinimo kolekcija {{n}}',
+  'collections.empty':
+    'Kol kas nėra kolekcijų — spustelėkite „Nauja kolekcija“, kad sukurtumėte pirmąjį aplanką.',
   'collections.eyebrow': '$ pilono kolekcijos --medis',
   'collections.fetchError': 'Nepavyko įkelti kolekcijų.',
   'collections.heading': 'Kolekcijos',
   'collections.loading': 'Įkeliamos kolekcijos…',
+  'collections.metric.allGreen': 'Viskas gerai',
   'collections.metric.collections': 'Kolekcijos',
   'collections.metric.failing': 'Nesėkmė',
   'collections.metric.failingCaption': 'Paskutinis važiavimas turėjo nesėkmių',
@@ -24,6 +34,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Kintamieji',
   'environments.createError': 'Nepavyko sukurti aplinkos.',
   'environments.defaultName': 'Be pavadinimo aplinka {{n}}',
+  'environments.empty': 'Kol kas nėra aplinkų — spustelėkite „Nauja aplinka“, kad pridėtumėte.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'Nepavyko įkelti aplinkų.',
   'environments.heading': 'Aplinkos',
@@ -31,8 +42,11 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Nauja aplinka',
   'environments.subheading':
     'Kintamieji, kurie siuntimo metu virsta užklausomis. Viena aktyvi aplinka vienai darbo sričiai.',
+  'forgotPassword.statusLabel': 'atstatyti · saugus tunelis',
   'forgotPassword.success':
     'Jei tam el. pašto adresui jau sukurta paskyra, jai jau išsiųsta nustatymo iš naujo nuoroda. Patikrinkite savo gautuosius.',
+  'history.empty':
+    'Kol kas čia nieko nėra — paleiskite pirmąją užklausą iš darbo srities skirtuko.',
   'history.eyebrow': '$ pilono istorija --uodeg',
   'history.fetchError': 'Nepavyko įkelti istorijos.',
   'history.heading': 'Paleidimo istorija',
@@ -41,9 +55,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Paskutiniai 50',
+  'history.realtime': 'realusis laikas',
   'history.subheading':
     'Kiekviena šioje darbo srityje iššaukta užklausa su būsena, delsa ir naudingosios apkrovos dydžiu.',
   'landing.choosePlan': 'Pasirinkite planą',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Įgyk pasitikėjimą.',
   'landing.ctaBody':
     'Nereikia kreditinės kortelės. Nereikia platformos inžinieriaus. Atidarykite ⌘K ir išsiųskite savo pirmąją užklausą per mažiau nei penkias minutes.',
   'landing.ctaHeading': 'Ugdykite pasitikėjimą savimi.',
@@ -86,6 +102,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Vid. delsa',
   'mocks.metric.live': 'Viešas',
   'mocks.metric.servers': 'Išjuokimai',
+  'mocks.ms': 'p.',
   'mocks.newMock': 'Naujas maketas',
   'mocks.online': 'Viešas',
   'mocks.paused': 'Privatus',
@@ -110,9 +127,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Sveikas',
   'monitors.metric.uptime': 'Vidutinis veikimo laikas',
   'monitors.newMonitor': 'Naujas monitorius',
+  'monitors.paused': 'pristabdyta',
   'monitors.run': 'Paleisti',
   'monitors.runError': 'Paleidimas baigtas su tinklo klaida: {{error}}',
+  'monitors.runFailed': 'Paleidimas nepavyko.',
   'monitors.running': 'Bėgimas…',
+  'monitors.runSuccess': 'Paleisti {{status}} — priešingas taškas grąžino {{code}} per {{ms}} ms.',
   'monitors.sparkLabel': 'Latencijos tendencija',
   'monitors.subheading':
     'Bet kurio išsaugoto testo patikra pagal poreikį. Susiekite testą, paspauskite „Vykdyti“ ir stebėkite 24 valandų sėkmės rodiklio atnaujinimą su kiekvienu gaisru.',
@@ -121,27 +141,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Veikimo laikas · 24 val.',
   'nav.legal': 'Teisinis',
   'notFound.backToWorkspace': 'Atgal į darbo vietą',
+  'notFound.body':
+    '{{app}} išsiuntė šio URL užklausą ir negavo jokio atsakymo. Dar kartą patikrinkite maršrutą arba grįžkite į darbo sritį.',
   'notFound.eyebrow': '$ pylon sprendimas --strict',
   'notFound.title': 'Maršrutas nerastas',
+  'planUpdated.body':
+    'Jūsų mokėjimo pakeitimas dabar aktyvus. Savo planą galite tvarkyti bet kada mokėjimų puslapyje.',
+  'planUpdated.retry': 'Pabandyk dar kartą',
+  'planUpdated.verifyFailed': 'Mes dar negalėjome patvirtinti jūsų mokėjimo.',
+  'planUpdated.verifyFailedBody':
+    'Jūsų mokėjimas vis dar gali būti apdorojamas. Bandykite dar kartą po akimirkos.',
   'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
+  'pricing.advancedFeatures': 'Išplėstinės funkcijos: {{yes}}',
+  'pricing.canExport': 'Duomenų eksportas: {{yes}}',
+  'pricing.heading': 'Pasirinkite savo {{app}} planą',
+  'pricing.maxCollections': '{{count}} kolekcijų',
+  'pricing.maxEnvironments': '{{count}} aplinkų',
+  'pricing.maxHistory': '{{count}} istorijos įrašų',
+  'pricing.maxRequests': '{{count}} prašymai',
   'privacy.collect.account':
     'Paskyra: jūsų el. pašto adresas, maišos būdu gautas slaptažodis, rodomas vardas ir paskutinio prisijungimo laiko žyma.',
+  'privacy.intro':
+    '{{app}} gerbia jūsų privatumą. Šiame puslapyje apžvelgiama, kokius duomenis renkame, kodėl juos renkame ir kaip juos pašalinti.',
   'privacy.rights.body':
     'Savo kolekcijas ir aplinkas galite bet kada eksportuoti arba per 30 dienų ištrinti paskyrą nustatymuose, kad visam laikui pašalintumėte visus duomenis.',
   'privacy.share.body':
     'Tik jūs. Mes niekada neparduodame, nesidalijame ir nenuomojame jūsų darbo vietos turinio trečiosioms šalims. Serverio žurnalai saugomi 30 dienų incidentų reagavimo tikslais, o po to ištrinami.',
   'privacy.title': 'Privatumo pranešimas',
+  'profile.bio':
+    'Jūsų asmeninė {{app}} darbo sritis — prisekite kolekcijas, bendrinkite aplinkas ir stebėkite API, kurie kuria produktą.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'prisijungė {{when}}',
+  'profile.metric.collections': 'Kolekcijos',
   'profile.metric.monitors': 'Monitoriai',
   'profile.metric.requests': 'Išsaugotos užklausos',
+  'profile.noActivity':
+    'Dar nėra išsiųsta jokių užklausų — eikite į darbo srities skirtuką ir ją pateikite.',
   'profile.signedOut': 'Prisijunkite, kad peržiūrėtumėte savo profilį',
   'pylonShell.primaryNavLabel': 'Pagrindinė navigacija',
+  'resetPassword.passwordLabel': 'Naujas slaptažodis',
+  'resetPassword.statusLabel': 'atstatyti · patvirtintas žetonas',
   'resetPassword.subtitle': 'Pasirinkite saugų slaptažodį, kurio dar nenaudojote.',
   'resetPassword.tokenPlaceholder': 'įklijuoti iš el. laiško',
+  'settings.accountManagement.desc':
+    'Atnaujinkite el. paštą ir slaptažodį, tvarkykite pranešimus ir įrenginius, atsijunkite arba ištrinkite paskyrą.',
+  'settings.accountManagement.title': 'Paskyra ir saugumas',
   'settings.eyebrow': '$ pylon nustatymai --redaguoti',
   'settings.fetchError': 'Nepavyko įkelti nustatymų.',
   'settings.language.title': 'Kalba',
+  'settings.seeding': 'Pildoma…',
   'settings.seedStarter': 'Sėklų starterio turinys',
   'settings.starterCollection': 'Pradedančiųjų kolekcija',
   'settings.starterCollectionDesc': 'Sukurta iš nustatymų {{ts}}',
@@ -155,6 +203,8 @@ export const ui: UiTranslations = {
     'Jūs esate atsakingi už savo slaptažodžio apsaugą. Vienos paskyros bendrinimas su keliais žmonėmis neleidžiamas naudojantis „Free“ arba „Pro“ planais – įsigykite „Team“ prenumeratą, skirtą bendrinamoms darbo vietoms.',
   'terms.billing.body':
     'Mokamos prenumeratos automatiškai atnaujinamos kiekvieną atsiskaitymo laikotarpį. Jas galite bet kada atšaukti nustatymuose; prieiga liks iki dabartinio laikotarpio pabaigos.',
+  'terms.intro':
+    'Kurdami {{app}} paskyrą sutinkate su toliau pateiktomis sąlygomis. Perskaitykite jas kartą; nenustebinsime jūsų atgaline data taikomais pakeitimais.',
   'terms.title': 'Naudojimosi sąlygos',
   'terms.usage.body':
     'Nenaudokite „Pylon“ užklausoms siųsti į paslaugas, kurios jums nepriklauso arba kurių testavimui neturite aiškaus leidimo. Nenaudokite „Pylon“ greičio apribojimams apeiti ar sukčiauti.',
@@ -174,16 +224,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Neveikia',
   'testRunner.metric.passed': 'Priimta',
   'testRunner.never': 'Niekada nebėgiokite',
+  'testRunner.newTest': 'Naujas testas',
   'testRunner.noAssertions': 'Šiame teste kol kas nėra jokių teiginių.',
+  'testRunner.noRunsYet':
+    'Kol kas nėra įrašytų paleidimų — spustelėkite „Paleisti viską“, kad užpildytumėte istoriją.',
   'testRunner.passed': 'praeinant',
+  'testRunner.recentRuns': 'Naujausi bėgimai',
   'testRunner.runAll': 'Paleisti viską',
   'testRunner.running': 'Bėgimas…',
   'testRunner.runOne': 'Paleisti',
   'testRunner.subheading': 'Rinkinio rezultatai, teiginių skirtumai ir paskutiniai 50 paleidimų.',
+  'testRunner.suites': 'Rinkiniai',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Prisijungta kaip',
   'workspace.auth.keyName': 'Antraštės pavadinimas',
   'workspace.auth.keyValue': 'Pagrindinė reikšmė',
+  'workspace.auth.noneHint': 'Su šia užklausa nebus siunčiama jokia autorizacijos antraštė.',
   'workspace.auth.password': 'Slaptažodis',
   'workspace.auth.username': 'Vartotojo vardas',
   'workspace.authOption.apikey': 'API raktas',
@@ -193,13 +249,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Tipas',
   'workspace.authTypeLabel': 'Aut. tipas',
+  'workspace.body.contentLabel': 'Užklausos turinys',
+  'workspace.body.hint':
+    '{{envVars}} pakeičiami prieš išsiunčiant užklausą. Turinys siunčiamas su POST/PUT/PATCH/DELETE.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Nėra',
+  'workspace.body.noneHint':
+    'Nebus siunčiamas joks užklausos turinys. Pasirinkite JSON arba neapdorotą tekstą, kad jį pridėtumėte.',
   'workspace.body.text': 'Neapdorotas tekstas',
   'workspace.body.type': 'Tipas',
   'workspace.environment': 'Nėra aplinkos',
   'workspace.envVar': 'aplinkos kintamasis',
   'workspace.eyebrow': '$ pylon darbo sritis --pane padalinta',
+  'workspace.failedCount': '{{count}} nepavyko',
+  'workspace.idle': 'Neveikimo režimas',
   'workspace.kv.addHeader': 'Pridėti antraštę',
   'workspace.kv.addParam': 'Pridėti parametrą',
   'workspace.kv.headerKey': 'Antraštės pavadinimas',
@@ -212,12 +275,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP metodas',
   'workspace.metric.latency': 'Vėlavimas',
   'workspace.metric.latencyCaption': 'Kelionė pirmyn ir atgal iš šio maršruto',
+  'workspace.metric.size': 'Turinys',
   'workspace.metric.sizeCaption': 'Atsakymo turinio baitai',
   'workspace.metric.statusCaption': 'Paskutinis atsakymas',
   'workspace.metric.tests': 'Testai',
+  'workspace.metric.testsAllPassing': 'Visos patikros sėkmingos',
   'workspace.metric.testsFailing': '{{count}} nesėkmingas',
+  'workspace.metric.testsIdle': 'Siųskite užklausą, kad būtų įvertinta',
   'workspace.noAssertions': 'Paleiskite užklausą, kad įvertintumėte integruotus teiginius.',
   'workspace.noResponseYet': 'Kol kas nėra atsakymo',
+  'workspace.passedCount': '{{count}} priimtas',
   'workspace.responseHint':
     '// Paspauskite „Siųsti“, kad vykdytumėte užklausą ir užfiksuotumėte atsakymą.',
   'workspace.saveError': 'Nepavyko išsaugoti užklausos.',
@@ -227,10 +294,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Sukurkite užklausą, ją vykdykite, tada pateikite atsakymą – visa tai vienoje srityje.',
   'workspace.testResults': 'Tyrimų rezultatai',
+  'workspace.tests.autoHint':
+    'Būsenos šeima, delsą, turinio dydis ir transporto būklė tikrinami automatiškai — rezultatai rodomi skiltyje „Testų rezultatai“ atsakymo skydelyje.',
+  'workspace.tests.autoTitle': 'Integruotos patikros vykdomos su kiekvienu atsakymu',
   'workspace.token': 'Žetonas',
   'workspace.tokenHint':
     'Išsiųsta kaip įgaliojimas: Turėtojas<token> kiekvienam šios kolekcijos prašymui.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Be pavadinimo užklausa',
+  'workspace.urlLabel': 'Užklausos URL',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

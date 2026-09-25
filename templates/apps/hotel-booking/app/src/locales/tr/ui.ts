@@ -1,10 +1,31 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Rezervasyon, geri bildirim veya {{app}}'ta yer alması gerektiğini düşündüğünüz bir tesis hakkında sorularınız mı var? Hesabınızdan ekibimize ulaşın — her mesaj yardımcı olabilecek gerçek bir insana gider.",
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkımızda',
+  'about.featureLoyalty':
+    'Yalnızca üyelere özel fiyatlar ve her rezervasyonda puan, geç çıkış ve oda yükseltmesi kazandıran bir sadakat programı.',
+  'about.featureReviews':
+    'Doğrulanmış misafir yorumları ve editör seçkileriyle, varmadan önce konaklamanıza güvenebilirsiniz.',
+  'about.featureRooms':
+    'Yan yana odalar, fiyatlar ve olanaklar; şeffaf, her şey dahil fiyatlandırmayla — ödeme yapmadan önce vergiler ve tesis ücretleri dahil.',
+  'about.featureSearch':
+    'Seçilmiş oteller genelinde gerçek zamanlı arama; canlı müsaitlik, harita görünümü ve zengin fotoğraf galerileri.',
+  'about.featureTrips':
+    'Kaydedilen favoriler ve her rezervasyonu, seyahat planını ve onayı tek bir yerde tutan bir Trips panosu.',
+  'about.intro':
+    '{{app}}, kaliteye önem veren gezginler için bir otel rezervasyon platformudur. Her tesis editör ekibimiz tarafından bizzat incelenir — aracı envanteri yok, aldatıcı ilanlar yok. Gerçek müsaitliği arayın, odaları, fiyatları ve olanakları yan yana karşılaştırın, ardından net, her şey dahil bir fiyatla birkaç dokunuşla rezervasyon yapın.',
+  'about.missionBody':
+    'Konaklayacak bir yer ayırtmak sakin ve dürüst hissettirmeli. Vergiler ve tesis ücretleriyle birlikte şeffaf fiyatları baştan gösterir, sadık misafirleri her şeyden kısmak yerine ödüllendirir ve paranıza değer konaklamaları öne çıkarırız — böylece sekmeleri karşılaştırmaya daha az, seyahatin kendisine daha çok zaman ayırırsınız.',
+  'about.missionTitle': 'Misyonumuz',
+  'about.subtitle': 'Doğru oteli bulmanın ve rezervasyon yapmanın özenle seçilmiş, şeffaf yolu.',
   'account.loyalty.activitySummary': '{{nights}} gece · bu yıl {{spend}} harcandı',
+  'account.loyalty.benefitsHeading': 'Avantajlarınız',
   'account.loyalty.heading': 'Sadakat',
   'account.loyalty.loading': 'Sadakat yükleniyor…',
+  'account.loyalty.maxTier': 'En üst seviye — avantajlarınızın keyfini çıkarın.',
   'account.loyalty.pointsTowardNext': '{{points}} / {{next}} puan, {{nextTier}} seviyesine',
   'account.loyalty.tier': 'Mevcut seviye',
   'account.loyalty.unavailable': 'Sadakat bilgisi mevcut değil.',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Rezervasyonu onayla · {{total}}',
   'bookingCheckout.datesRequired': 'Lütfen giriş ve çıkış tarihlerinizi seçin.',
   'bookingCheckout.guestHeading': 'Ana misafir',
+  'bookingCheckout.heading': 'Onayla ve rezervasyon yap',
   'bookingCheckout.loadError': 'Mülk yüklenemedi.',
   'bookingCheckout.nights': '{{rate}} × {{count}} gece',
   'bookingCheckout.notFound': 'Mülk bulunamadı.',
@@ -32,6 +54,9 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Vergiler ve ücretler',
   'bookingCheckout.tripHeading': 'Seyahatiniz',
   'bookingConfirmation.allTripsCta': 'Tüm seyahatler',
+  'bookingConfirmation.confNumber': 'Onay numarası: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Rezervasyonunuz işleniyor.',
   'bookingConfirmation.heading': 'Rezervasyon onaylandı',
   'bookingConfirmation.loading': 'Rezervasyonunuz yükleniyor…',
   'bookingConfirmation.searchMoreCta': 'Daha fazla konaklama göster',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Favoriler yüklenemedi.',
   'favorites.pricePerNight': '{{price}} / gece',
   'favorites.removeCta': 'Kaldır',
+  'favorites.removing': 'Kaldırılıyor…',
   'forgotPassword.subheading':
     'Hesabınızdaki e-postayı girin, size güvenli bir sıfırlama bağlantısı gönderelim.',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Auberge üyeleri',
   'landing.cta.heading': 'Yalnızca üyelere özel fiyatlar. Her rezervasyonda, her seferinde.',
   'landing.cta.signup': 'Ücretsiz hesap oluştur',
+  'landing.cta.subheading':
+    'Her konaklamada sadakat puanı kazanın, geç çıkış ve oda yükseltmelerinin kilidini açın ve yeni tesislere herkese açık şekilde listelenmeden önce ilk siz erişin.',
   'landing.destinations.eyebrow': 'Bir sonraki nereye',
   'landing.destinations.heading': 'Öne çıkan destinasyonlar',
   'landing.destinations.seeAll': 'Tüm destinasyonları gör',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Bavul hazırlamaya değer hikayeler',
   'landing.nav.join': "Auberge'a katılın",
   'landing.nav.search': 'Konaklama ara',
+  'landing.preview.browseAll': 'Tüm koleksiyona göz atın',
   'landing.preview.eyebrow': 'İçeriden bir bakış',
   'landing.preview.heading': 'Bu ay özenle seçilmiş konaklamalar',
+  'landing.preview.subheading':
+    "{{appName}}'taki her tesis editör ekibimiz tarafından bizzat incelenir — aracı envanteri yok, aldatıcı ilanlar yok.",
   'login.eyebrow': 'Üye alanı',
+  'login.noAccount': "Tessera'da yeni misiniz?",
   'login.signupLink': 'Ücretsiz hesap oluşturun',
   'login.subheading':
     'Seyahatlerinizi yönetmek, onayları görüntülemek ve kaldığınız yerden devam etmek için giriş yapın.',
+  'loyaltyTierBadge.points': '{{points}} puan',
   'planUpdated.heading': 'Plan güncellendi',
+  'planUpdated.retry': 'Tekrar dene',
+  'planUpdated.verifyFailed': 'Ödemenizi henüz onaylayamadık.',
+  'planUpdated.verifyFailedBody':
+    'Ödemeniz hala işleniyor olabilir. Lütfen biraz sonra tekrar deneyin.',
   'planUpdated.verifying': 'Ödemeniz onaylanıyor…',
   'pricing.limit.advancedFeatures': 'Gelişmiş özellikler:',
   'pricing.limit.canExport': 'Veri dışa aktarımı:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Bu mekânın sunduğu olanaklar',
   'propertyDetail.backLink': 'Aramaya dön',
   'propertyDetail.bookCta': 'Rezervasyon yap',
+  'propertyDetail.bookmarkAria': 'Mülkü kaydet',
   'propertyDetail.bookmarkAriaSaved': 'Kaydedilen mülklerden kaldır',
+  'propertyDetail.galleryImageAlt': '{{name}} fotoğraf {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} ana fotoğrafı',
   'propertyDetail.hidePhotos': 'Fotoğrafları gizle',
   'propertyDetail.lineCleaning': 'Temizlik ücreti',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'gece',
   'propertyDetail.noChargeYet': 'Sizden henüz ücret alınmayacak',
   'propertyDetail.notFound': 'Mülk bulunamadı.',
+  'propertyDetail.perNight': '/ gece',
+  'propertyDetail.pickDatesHint': 'Tam fiyat dökümünü görmek için tarihlerinizi seçin.',
   'propertyDetail.reviewCount': '({{count}} yorum)',
   'propertyDetail.reviewsHeading': 'Son yorumlar',
   'propertyDetail.roomCapacity': '{{count}} kişilik',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Yeni şifre',
   'resetPassword.subheading':
     'Auberge hesabınız için yeni bir şifre seçin. En az 8 karakter kullanın; bir parola ifadesi öneririz.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Aramanızla eşleşen mülk yok.',
   'searchResults.emptyHint':
     'Filtrelerinizi genişletmeyi veya fiyat sınırını kaldırmayı deneyin — Auberge 14 ülkede konaklama sunar.',
@@ -108,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Seçilmiş konaklamalar',
   'searchResults.headingForQuery': '"{{q}}" için konaklamalar',
   'searchResults.loadError': 'Mülkler yüklenemedi.',
+  'searchResults.mapHint':
+    'Haritada vurgulamak için bir kartın üzerine gelin. Üretimde canlı Mapbox döşemeleri.',
   'searchResults.mapPinAria': '{{name}} — {{price}} gecelik',
   'searchResults.sortLabel': 'Sırala',
   'searchResults.subheading': '{{count}} mülk · {{guests}} misafir',
   'signup.eyebrow': 'Üye olun',
   'signup.subheading':
     "Yalnızca üyelere özel fiyatların, geç çıkışların ve yeni mülklere ilk erişimin kilidini açmak için Auberge'a katılın.",
+  'sojournAuthShell.brand.eyebrow': 'Olağanüstü bir yerde konaklayın',
+  'sojournAuthShell.brand.heading':
+    'Özenle seçilmiş bir tesis koleksiyonu — güzel sunulmuş, şeffaf fiyatlandırılmış.',
   'sojournHeroSearchCard.checkInAria': 'Giriş tarihi',
   'sojournHeroSearchCard.checkOutAria': 'Çıkış tarihi',
+  'sojournHeroSearchCard.destAria': 'Hedef',
+  'sojournHeroSearchCard.destLabel': 'Nerede',
   'sojournHeroSearchCard.destPlaceholder': 'Şehir, bölge veya mülk',
   'sojournHeroSearchCard.eyebrow': 'Seçilmiş konaklamalar · Yalnızca üyelere özel fiyatlar',
   'sojournHeroSearchCard.guestsOption': '{{n}} misafir',
   'sojournHeroSearchCard.subtitle':
     'Butik otellerin, tasarım odaklı mülklerin ve nadir bulunan inziva köşelerinin seçilmiş bir koleksiyonu — şeffaf fiyatlandırma, güzel sunum.',
+  'sojournHeroSearchCard.title': 'Olağanüstü bir yerde konaklayın',
+  'sojournHeroSearchCard.trustLoyalty': 'Her konaklamada puan kazanın',
   'sojournHeroSearchCard.trustNoFees': 'Asla gizli ücret yok',
   'sojournHeroSearchCard.trustVetted': 'Yalnızca elden incelenmiş mülkler',
   'sojournLayout.primaryNavLabel': 'Birincil gezinme',

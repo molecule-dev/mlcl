@@ -1,14 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Асуулт, санал хүсэлт байна уу, эсвэл ажилд авах багтаа танилцуулга хийлгэхийг хүсэж байна уу? hello@example.com хаягаар имэйл илгээгээрэй, багийн бодит хүн хоёр ажлын өдрийн дотор танд хариу өгөх болно.',
   'about.contactHeading': 'Холбоо барих',
+  'about.intro':
+    '{{app}} нь чимээ биш, дохио хүсдэг рекрутер, ажилд авах менежерүүдэд зориулсан өргөдөл хянах систем юм — цэвэрхэн урсгал, өөрөө тайлбарладаг AI шүүлт, ажилд авах аналитик — бүгд нэг дор.',
+  'about.missionBody':
+    'Ажилд авах нь багийн гаргадаг хамгийн өндөр эрсдэлтэй шийдвэрүүдийн нэг боловч ихэнх нь одоо ч тархай бутархай хүснэгт, имэйлийн хэлхээнд л байдаг. {{app}} бүх үйл явцыг нэг самбарт нэгтгэснээр өргөдөл бүр бүртгэгдэж, ярилцлага бүр бүтэцтэй явагдаж, шийдвэр бүр шударга, хурдан, тайлбарлах боломжтой болно.',
+  'about.missionHeading': 'Бидний эрхэм зорилго',
   'auth.legalConsent': 'Үргэлжлүүлснээр та манай',
   'billing.cardExp': 'Хугацаа дуусах {{exp}}',
+  'billing.cardLinkError': 'Карт шинэчлэх урсгалыг эхлүүлж чадсангүй.',
   'billing.cardLinkSent': 'Картын шинэчлэлтийн урсгал эхэлсэн — имэйлээ шалгана уу.',
+  'billing.cardLinkUnavailable':
+    'Карт шинэчлэх боломжгүй — энэ суулгацад төлбөрийн үйлчилгээ үзүүлэгч тохируулаагүй байна.',
   'billing.cardMissing': 'Файлд карт байхгүй',
   'billing.col.invoice': 'Нэхэмжлэх',
   'billing.downloadUnavailable': '—',
   'billing.editCard': 'Картыг шинэчлэх',
+  'billing.eyebrow': 'Төлөвлөгөө ба хэрэглээ',
   'billing.invoiceHeading': 'Саяхны нэхэмжлэхүүд',
   'billing.invoicesEmpty': 'Одоогоор нэхэмжлэх байхгүй байна.',
   'billing.invoicesLoading': 'Нэхэмжлэхийг ачаалж байна…',
@@ -17,11 +28,12 @@ export const ui: UiTranslations = {
   'billing.nextChargeHint': 'Асаалттай {{date}}',
   'billing.nextChargeLabel': 'Дараагийн төлбөр',
   'billing.planLoading': 'Төлөвлөгөөг ачаалж байна…',
-  'billing.planSummary': '{{perSeat}} / суудал · {{суудал}} суудал · {{нийт}} / сар',
+  'billing.planSummary': '{{perSeat}} / суудал · {{seats}} суудал · {{total}} / сар',
   'billing.seatsAdded': 'Суудлын тоог шинэчилсэн.',
   'billing.seatsError':
     'Энэ төлөвлөгөө нь ганц хүний суудалтай. Олон хүний суудал ашиглахын тулд Team руу шинэчилнэ үү.',
   'billing.seatsHint': '{{used}} -ын {{max}} багтсан',
+  'billing.seatsLabel': 'Идэвхтэй суудал',
   'billing.spentLabel': 'Жилээс өнөөг хүртэл зарцуулсан',
   'billing.subheading': 'Захиалга, суудал, хиймэл оюун ухааны скрининг хэрэглээ болон нэхэмжлэх.',
   'billing.unlimited': 'Хязгааргүй',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'candidateDetail.advanceError': 'Үе шатыг шинэчилж чадсангүй.',
   'candidateDetail.advanceFinal': 'Эцсийн шатандаа аль хэдийнээ явж байна.',
   'candidateDetail.advanceHeading': 'Тайз руу шилжих',
+  'candidateDetail.appliedOn': '{{date}}-д {{source}}-ээр өргөдөл гаргасан.',
   'candidateDetail.back': 'Бүх нэр дэвшигчид',
   'candidateDetail.loadError': 'Кандидатыг ачаалж чадсангүй.',
   'candidateDetail.noInterviews': 'Одоогоор ярилцлага өгөөгүй байна.',
@@ -46,8 +59,14 @@ export const ui: UiTranslations = {
   'candidateDetail.notePlaceholder':
     'Санал хүсэлт, ярилцлагын сэтгэгдэл, дараагийн алхмуудыг хуваалцах...',
   'candidateDetail.noteSave': 'Тэмдэглэл хадгалах',
+  'candidateDetail.panel': 'Панел: {{panel}}',
+  'candidateDetail.panelScore': 'Панелийн оноо: {{score}}/100',
+  'candidateDetail.resumeMissing':
+    'Энэ өргөдөлд зориулсан CV-ийн урьдчилсан харагдац хараахан байхгүй.',
   'candidateDetail.scheduleError': 'Ярилцлага товлож чадсангүй.',
+  'candidateDetail.scheduleHeading': 'Ярилцлага товлох',
   'candidateDetail.scheduleInterviewer': 'Ярилцлага авагч',
+  'candidateDetail.scheduleInterviewerPlaceholder': 'Ярилцлага авч буй хүний нэр',
   'candidateDetail.scheduleMinutes': 'Үргэлжлэх хугацаа (мин)',
   'candidateDetail.scheduleMissing': 'Эхлээд огноо, цагийг сонгоно уу.',
   'candidateDetail.scoreEmpty': 'Хиймэл оюун ухааны үнэлгээг хүлээж байна.',
@@ -70,6 +89,7 @@ export const ui: UiTranslations = {
   'candidates.heading': 'Нэр дэвшигчид',
   'candidates.loadError': 'Кандидатуудыг ачаалж чадсангүй.',
   'candidates.searchPlaceholder': 'Нэр дэвшигч, үүрэг эсвэл ажил хайх',
+  'candidates.sourceLabel': 'Эх сурвалж',
   'candidates.sourcePlaceholder': 'Эх сурвалж (LinkedIn, Referral…)',
   'candidates.subheading':
     'Хиймэл оюун ухааны оноо болон эх сурвалжийн хамаарал бүхий олон ажлын байрны нэр дэвшигчдийн мэдээллийн сан.',
@@ -84,6 +104,7 @@ export const ui: UiTranslations = {
   'dashboard.kpi.interviews': 'Энэ долоо хоногийн ярилцлагууд',
   'dashboard.kpi.openJobs': 'Нээлттэй ажлын байрууд',
   'dashboard.loading': 'Ачааллаж байна…',
+  'dashboard.newJobCta': 'Ажлын байр байршуулах',
   'dashboard.subheading':
     'Шугам хоолойн эрүүл мэнд, ярилцлагын ачаалал, саналууд хөдөлгөөнд орж байна.',
   'dashboard.topEmpty': 'Одоогоор нэр дэвшигчид алга.',
@@ -104,6 +125,7 @@ export const ui: UiTranslations = {
   'jobDetail.back': 'Бүх ажлын байр',
   'jobDetail.descriptionEyebrow': 'Үүргийн тодорхойлолт',
   'jobDetail.descriptionMissing': 'Одоогоор тайлбар өгөөгүй байна.',
+  'jobDetail.employmentType': 'Ажлын төрөл: {{type}}',
   'jobDetail.empty': 'Одоогоор өргөдөл гаргагч байхгүй байна.',
   'jobDetail.funnelEyebrow': 'Тайзны юүлүүр',
   'jobDetail.funnelHeading': 'Өргөдөл гаргагчдын байр суурь',
@@ -112,6 +134,7 @@ export const ui: UiTranslations = {
   'jobDetail.kpi.hires': 'Ажилд авах',
   'jobDetail.kpi.inInterview': 'Ярилцлагад',
   'jobDetail.loadError': 'Ажлыг ачаалж чадсангүй.',
+  'jobDetail.requirementsHeading': 'Шаардлагууд',
   'jobDetail.topEyebrow': 'Шилдэг өргөдөл гаргагчид',
   'jobDetail.topHeading': 'Хиймэл оюун ухаантай таарсан эхлэл',
   'jobDetail.unavailable': 'Энэ ажил жагсаалтад байхгүй болсон.',
@@ -127,6 +150,7 @@ export const ui: UiTranslations = {
   'jobs.heading': 'Ажлын байр',
   'jobs.loadError': 'Ажлуудыг ачаалж чадсангүй.',
   'jobs.newCta': 'Ажлын байрны дараа',
+  'landing.copyright': '© {{year}} {{app}} Молекулаар бүтээгдсэн.',
   'landing.eyebrow': 'Хиймэл оюун ухааны тусламжтайгаар ажилд авах · v2',
   'landing.featuresEyebrow': 'Энэ хэрхэн ажилладаг вэ',
   'landing.featuresHeading': 'Дохио - хүснэгт биш.',
@@ -135,8 +159,11 @@ export const ui: UiTranslations = {
   'landing.heroCta': '30 хоногийн турш үнэгүй эхлүүлээрэй',
   'landing.heroProof': 'Кредит карт байхгүй. Хүссэн үедээ цуцална уу. SSO нь Pro дээр боломжтой.',
   'landing.heroSecondary': 'Үнийг харах →',
+  'landing.heroSubtitle':
+    'Цэвэрхэн канбан урсгал, өөрөө тайлбарладаг AI шүүлт, үе шат тус бүрийн шударга байдлын аналитик. Чимээ биш — дохио хүсдэг рекрутер, ажилд авах менежерүүдэд зориулав.',
   'landing.heroTitle': 'Тодорхой байдлаар ажилд авна.',
   'landing.previewHeading': 'Ахлах арын инженер',
+  'landing.previewLabel': 'Урсгал · Инженерчлэл',
   'landing.pricingEyebrow': 'Үнэ',
   'landing.pricingHeading': 'Багийн хэмжээ бүрт зориулсан төлөвлөгөө.',
   'landing.socialEyebrow': 'Ажилд авах багуудад ашигладаг',
@@ -152,6 +179,9 @@ export const ui: UiTranslations = {
   'loginBrandPanel.headlineLine2': 'тодорхой байдал.',
   'loginBrandPanel.stage.interview': 'Ярилцлага',
   'loginBrandPanel.stage.screening': 'Шалгалт',
+  'loginBrandPanel.stage.sourced': 'Эх сурвалжаас',
+  'loginBrandPanel.subtext':
+    'Өргөдөл гаргагчдыг Эх сурвалжаас → Шүүлт → Ярилцлага → Санал → Ажилд авсан гэсэн үе шатаар чирж шилжүүлээрэй. AI шүүнэ. Шударга байдлын импульс үе шат бүрийг шударга байлгана.',
   'nav.closeMenu': 'Цэсийг хаах',
   'nav.legal': 'Хууль эрх зүйн',
   'nav.openMenu': 'Цэсийг нээх',
@@ -160,6 +190,7 @@ export const ui: UiTranslations = {
     'Анкетуудыг шаардлагын дагуу эрэмбэлдэг; ажилд авагч нь шилдэг тохиролцоог эхлээд үнэлдэг.',
   'newJob.aiToggle': 'Шинэ өргөдөл гаргагчдыг автоматаар оноолох',
   'newJob.back': 'Ажлын байр руу буцах',
+  'newJob.basicsHeading': 'Ажлын үндсэн мэдээлэл',
   'newJob.compHeading': 'Нөхөн олговор',
   'newJob.departmentLabel': 'Хэлтэс',
   'newJob.descHeading': 'Тайлбар ба шаардлага',
@@ -169,6 +200,7 @@ export const ui: UiTranslations = {
   'newJob.failed': 'Ажлыг хадгалж чадсангүй.',
   'newJob.heading': 'Ажлын байр байршуулах',
   'newJob.publish': 'Ажлыг нийтлэх',
+  'newJob.reqLabel': 'Шаардлагууд (мөр бүрт нэг)',
   'newJob.salaryMax': 'Хамгийн их цалин (ам.доллар)',
   'newJob.salaryMin': 'Хамгийн бага цалин (ам.доллар)',
   'newJob.stagesHeading': 'Шугам хоолойн үе шатууд',
@@ -184,6 +216,7 @@ export const ui: UiTranslations = {
   'newJob.type.fullTime': 'Бүтэн цагаар',
   'newJob.type.partTime': 'Хагас цагийн',
   'newJob.typeLabel': 'Ажил эрхлэлтийн төрөл',
+  'pipeline.advanceTo': 'Урагшлуулах',
   'pipeline.allRoles': 'Бүх дүрүүд',
   'pipeline.daysInStage': '{{days}} д',
   'pipeline.empty': 'Нэр дэвшигч байхгүй',
@@ -197,13 +230,22 @@ export const ui: UiTranslations = {
     'Шатуудын хооронд нэр дэвшигчдийг чирнэ үү. Хиймэл оюун ухааны оноо болон шатны өдрүүдийг карт бүр дээр харуулав.',
   'pipeline.viewTable': 'Хүснэгт харах →',
   'pipelineFunnelHero.totalLabel': 'Хөдөлгөөнд',
+  'planUpdated.body':
+    'Таны төлбөрийн өөрчлөлт идэвхжлээ. Та төлбөрийн хуудаснаас төлөвлөгөөгөө хүссэн үедээ удирдах боломжтой.',
+  'planUpdated.retry': 'Дахин оролдоно уу',
+  'planUpdated.verifyFailed': 'Бид таны төлбөрийг хараахан баталгаажуулж чадсангүй.',
+  'planUpdated.verifyFailedBody':
+    'Таны төлбөрийг боловсруулж байж магадгүй. Хэсэг хугацааны дараа дахин оролдоно уу.',
   'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'pricing.heading': 'програмууд',
+  'pricing.limits.applications': 'өргөдөл',
   'pricing.limits.candidates': 'нэр дэвшигчид',
   'pricing.limits.jobs': 'ажлын байр',
   'pricing.limits.scorecards': 'онооны хуудас',
   'privacy.dataBody':
     'Бүртгэлийн имэйл, хэшлэгдсэн нууц үг, профайлын мета өгөгдөл болон таны үүсгэсэн нэр дэвшигч / ажлын бүртгэл. Бид энэ өгөгдлийг хэзээ ч зардаггүй эсвэл хуваалцдаггүй.',
+  'privacy.intro':
+    '{{app}} нь харилцагчдын өмнөөс ажилд авах мэдээллийг боловсруулдаг. Бид өргөдөл гаргагчийн бүртгэл, CV, ажилд авах багийн харилцааг нууц гэж үзэж, хадгалалтын үед шифрлэн хадгалдаг.',
   'privacy.retentionBody':
     'Та өөрийн бүртгэлийг Тохиргооноос хүссэн үедээ устгаж болно. Хуулиар хадгалах шаардлагатай тохиолдлоос бусад тохиолдолд бид холбогдох бүртгэлийг 30 хоногийн дотор устгана.',
   'privacy.title': 'Нууцлалын бодлого',
@@ -213,6 +255,7 @@ export const ui: UiTranslations = {
     'Ажлын байрны зарууд дээр таны нэр, үүргийг нэр дэвшигчид болон өргөдөл гаргагчдад харахыг зөвшөөр.',
   'profile.publicLabel': 'Олон нийтийн профайл',
   'profile.publicOff': 'Нуугдсан',
+  'profile.publicOn': 'Харагдах',
   'profile.recentEmpty': 'Одоогоор байршуулалт байхгүй байна.',
   'profile.recentError': 'Саяхны байршлуудыг ачаалж чадсангүй.',
   'profile.recentEyebrow': 'Саяхны байршуулалтууд',
@@ -239,9 +282,14 @@ export const ui: UiTranslations = {
   'resetPassword.missingToken':
     'Дахин тохируулах холбоос байхгүй эсвэл хугацаа нь дууссан байна — шинийг хүсэх.',
   'resetPassword.passwordLabel': 'Шинэ нууц үг',
+  'resetPassword.signInCta': 'Нэвтрэх →',
+  'resetPassword.signInPrompt': 'Шинэ нууц үгээрээ нэвтэрнэ үү.',
   'resetPassword.subheading':
     'Хүчтэй нууц үг сонгоно уу — хамгийн багадаа 12 тэмдэгт том, жижиг үсэг холилдсон байна.',
+  'settings.appearance.description': 'Гэрэл болон харанхуй горимын хооронд шилжих/унтраах.',
   'settings.appearance.title': 'Гадаад төрх',
+  'settings.deleteAccountModal.confirm':
+    'Баталгаажуулахын тулд нууц үгээ оруулна уу. Энэ үйлдэл буцаах боломжгүй.',
   'settings.emailTemplates.empty': 'Загвар хараахан тохируулагдаагүй байна.',
   'settings.emailTemplates.heading': 'Имэйл загварууд',
   'settings.emailTemplates.loadError': 'Загваруудыг ачаалж чадсангүй.',
@@ -252,10 +300,16 @@ export const ui: UiTranslations = {
   'settings.integrations.statusDisconnected': 'Холбогдоогүй байна',
   'settings.integrations.updateError': 'Интеграцийг шинэчилж чадсангүй.',
   'settings.name': 'Нэр',
+  'settings.passwordHelp': 'Нэвтрэхэд ашигладаг нууц үгээ шинэчилнэ үү.',
+  'settings.revokeDeviceWarning': 'Энэ төхөөрөмжийн хандалт удахгүй хаагдана. Гаргах уу?',
   'settings.saveEmail': 'Имэйл хадгалах',
   'settings.signOutDevice': 'Гарах',
   'settings.stages.empty': 'Одоогоор тохируулсан үе шат байхгүй байна.',
+  'settings.stages.heading': 'Шугам хоолойн үе шатууд',
+  'settings.stages.help':
+    'Өргөдөл гаргагчдын дамжин өнгөрөх үе шатууд. Ашиглахгүй үе шатаа устгаарай.',
   'settings.stages.loadError': 'Үе шатуудыг ачаалж чадсангүй.',
+  'settings.stages.loading': 'Үе шатуудыг ачаалж байна…',
   'settings.stages.removeAria': 'Хасах {{name}} тайз',
   'settings.stages.removeError': 'Тайзыг устгаж чадсангүй.',
   'settings.team.empty': 'Багийнхан хараахан алга байна — доорх эхнийхийг урь.',
@@ -271,9 +325,16 @@ export const ui: UiTranslations = {
   'settings.team.removeError': 'Гишүүнийг хасаж чадсангүй.',
   'settings.twoFactorCode': 'Баталгаажуулах код',
   'settings.twoFactorDisable': 'Идэвхгүй болгох',
+  'settings.twoFactorDisableTitle': 'Хоёр шатлалт баталгаажуулалтыг идэвхгүй болгох',
   'settings.twoFactorEnable': 'Идэвхжүүлэх',
+  'settings.twoFactorEnableTitle': 'Хоёр шатлалт баталгаажуулалтыг идэвхжүүлэх',
   'settings.twoFactorInvalidCode': 'Буруу код',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Хоёр хүчин зүйлийн QR код',
+  'settings.twoFactorScan':
+    'Энэ QR кодыг баталгаажуулагч аппаараа сканнердаж, дараа нь 6 оронтой кодыг оруулна уу.',
+  'settings.twoFactorUnavailable':
+    'Энэ аппликейшнд хоёр хүчин зүйлийн баталгаажуулалт боломжгүй байна.',
   'settings.twoFactorVerify': 'Баталгаажуулах ба идэвхжүүлэх',
   'settings.unknownDevice': 'Үл мэдэгдэх төхөөрөмж',
   'signup.confirmPlaceholder': 'Нууц үгээ дахин оруулна уу',
@@ -283,6 +344,8 @@ export const ui: UiTranslations = {
   'signup.subheading': '60 секундын дотор ажилд авах самбар үүсгээрэй. Багийг дараа нь урь.',
   'terms.acceptableUseBody':
     'Та үйлчилгээг буруугаар ашиглахгүй, автомат хусах ажиллагаа явуулахгүй, аюулгүй байдлыг эвдэхийг оролдохгүй, эсвэл хамгаалагдсан ангиудыг ялгаварлан гадуурхахын тулд ашиглахгүй.',
+  'terms.intro':
+    '{{app}}-г ашигласнаар та эдгээр нөхцөлийг зөвшөөрч байна. Үйлчилгээг доор тайлбарласан үүрэг, хязгаарлалтын хамт байгаа байдлаар нь үзүүлнэ.',
   'terms.subscriptionBody':
     'Төлбөртэй төлөвлөгөөг цуцлах хүртэл сар бүр шинэчилнэ. Та хүссэн үедээ Төлбөр тооцооноос цуцалж болно; таны төлөвлөгөө одоогийн хугацааны төгсгөл хүртэл идэвхтэй хэвээр байна.',
   'terms.title': 'Үйлчилгээний нөхцөл',

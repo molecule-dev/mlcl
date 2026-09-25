@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.featureAlerts':
+    'ಮುಖ್ಯವಾದ ಷರತ್ತುಗಳ ಮೇಲೆ ಬೆಲೆ ಎಚ್ಚರಿಕೆಗಳು, ಇಮೇಲ್ ಮತ್ತು ಪುಶ್ ಮೂಲಕ ತಲುಪಿಸಲಾಗುತ್ತದೆ, ಹಾಗಾಗಿ ಯಾವುದೇ ಚಲನೆಯನ್ನು ತಪ್ಪಿಸಿಕೊಳ್ಳಬೇಡಿ.',
+  'about.featureMarkets':
+    'ಸಾವಿರಾರು ನಾಣ್ಯಗಳಾದ್ಯಂತ ನೇರ ಮಾರುಕಟ್ಟೆ ಡೇಟಾ ಮತ್ತು ಬೆಲೆ ಚಾರ್ಟ್ಗಳು, ಮಾರುಕಟ್ಟೆ ಬಂಡವಾಳ, ಪರಿಮಾಣ ಮತ್ತು ವೇಗದಿಂದ ಶ್ರೇಣೀಕರಿಸಲಾಗಿದೆ.',
+  'about.featurePortfolio':
+    'ನಿಜವಾದ ಲಾಭ-ನಷ್ಟ, ವೆಚ್ಚದ ಆಧಾರ ಮತ್ತು ಹಂಚಿಕೆಯೊಂದಿಗೆ ಪೋರ್ಟ್ಫೋಲಿಯೊ ಟ್ರ್ಯಾಕಿಂಗ್ — ನಿಮ್ಮ ವಹಿವಾಟು ಇತಿಹಾಸಕ್ಕೆ ಸಂಪರ್ಕಿಸಲಾಗಿದೆ.',
+  'about.featureWatchlist':
+    'ವೈಯಕ್ತಿಕ ವಾಚ್ಲಿಸ್ಟ್ ಮತ್ತು ನೀವು ಅನುಸರಿಸುವ ಆಸ್ತಿಗಳ ಕುರಿತು ಸೂಚನೆಗಳೊಂದಿಗೆ ಆಯ್ದ ಕ್ರಿಪ್ಟೊ ಸುದ್ದಿ.',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
+  'alertConditionCard.armedSince': '{{when}} ರಿಂದ ಸಶಸ್ತ್ರ',
   'alertConditionCard.condition.${alert.condition}': 'ಪ್ರಚೋದಿಸಲಾಗಿದೆ {{ಯಾವಾಗ}}',
   'alertConditionCard.confirmDelete': 'ಅಳಿಸುವಿಕೆಯನ್ನು ದೃಢೀಕರಿಸಿ',
+  'alertConditionCard.deleteAriaLabel': 'ಎಚ್ಚರಿಕೆಯನ್ನು ಅಳಿಸಿ',
   'alertConditionCard.pauseAriaLabel': 'ಎಚ್ಚರಿಕೆಯನ್ನು ವಿರಾಮಗೊಳಿಸಿ',
   'alertConditionCard.resumeAriaLabel': 'ಎಚ್ಚರಿಕೆಯನ್ನು ಪುನರಾರಂಭಿಸಿ',
+  'alertConditionCard.triggeredAt': '{{when}} ಪ್ರಚೋದಿಸಲಾಗಿದೆ',
   'alertNew.condition': 'ಸ್ಥಿತಿ',
   'alertNew.createCta': 'ಎಚ್ಚರಿಕೆಯನ್ನು ರಚಿಸಿ',
   'alertNew.error': 'ಎಚ್ಚರಿಕೆಯನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಎಚ್ಚರಿಕೆಗಳಿಲ್ಲ.',
   'alerts.eyebrow': 'ಸಿಗಿಲ್ ಟ್ರಿಪ್‌ವೈರ್‌ಗಳು',
   'alerts.loadError': 'ಎಚ್ಚರಿಕೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
+  'alerts.newCta': '+ ಹೊಸ ಟ್ರಿಪ್ವೈರ್',
   'alerts.subheading': 'ಬೆಲೆ, ಬದಲಾವಣೆ ಅಥವಾ ಪರಿಮಾಣವು ನಿಮ್ಮ ಮಿತಿಯನ್ನು ದಾಟಿದಾಗ ಪಿಂಗ್ ಪಡೆಯಿರಿ.',
   'alerts.summary.armed': 'ಶಸ್ತ್ರಸಜ್ಜಿತ',
   'alerts.summary.triggered': 'ಪ್ರಚೋದಿಸಲಾಗಿದೆ',
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'ಸರ್ವಕಾಲಿಕ ಗರಿಷ್ಠ ಮಟ್ಟ',
   'coinDetail.allTimeLow': 'ಸಾರ್ವಕಾಲಿಕ ಕನಿಷ್ಠ ಮಟ್ಟ',
   'coinDetail.back': 'ಎಲ್ಲಾ ಮಾರುಕಟ್ಟೆಗಳು',
+  'coinDetail.chartAriaLabel': '{{name}} ಬೆಲೆ ಚಾರ್ಟ್, ಕಳೆದ 30 ದಿನಗಳು',
   'coinDetail.chartHeading': 'ಬೆಲೆ · ಕಳೆದ 30 ದಿನಗಳು',
   'coinDetail.circulating': 'ಪರಿಚಲನೆಗೊಳ್ಳುವ ಸರಬರಾಜು',
   'coinDetail.fdv': 'ಸಂಪೂರ್ಣವಾಗಿ ದುರ್ಬಲಗೊಳಿಸಿದ ಮೌಲ್ಯಮಾಪನ',
@@ -59,6 +74,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'ವೈರ್ಡ್ ಲಿಂಕ್ ಅನ್ನು ಮರುಹೊಂದಿಸಿ.',
   'login.eyebrow': 'ಟರ್ಮಿನಲ್‌ಗೆ ಹೋಗಿ',
   'login.heading': 'ಮತ್ತೆ ಸ್ವಾಗತ, ಸಿಗ್ನಲ್ಲರ್.',
+  'login.noAccountQuestion': 'ಟೆಸ್ಸೆರಾಗೆ ಹೊಸಬರೇ?',
   'login.secureNote': '🔒 ಸಾಗಣೆಯಲ್ಲಿ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಲಾಗಿದೆ',
   'login.signingInCta': 'ಟೇಪ್ ಓದುವುದು...',
   'login.signupLink': 'ಖಾತೆ ತೆರೆಯಿರಿ →',
@@ -94,6 +110,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'ನೀವು ಸ್ಕ್ಯಾನ್ ಮಾಡಿದ ಮಾರ್ಗವು ತಿಳಿದಿರುವ ನಾಣ್ಯ ಅಥವಾ ಪುಟಕ್ಕೆ ತಲುಪುತ್ತಿಲ್ಲ. ಚಿಹ್ನೆಯನ್ನು ಮತ್ತೊಮ್ಮೆ ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'notFound.browseMarkets': 'ಮಾರುಕಟ್ಟೆಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ',
+  'notFound.eyebrow': '{{appName}} ಸಿಗ್ನಲ್ ಕಳೆದುಹೋಗಿದೆ',
+  'notFound.heading': 'ಈ ಸಿಗ್ನಲ್ ವ್ಯಾಪ್ತಿಯಿಂದ ಹೊರಗಿದೆ',
+  'planUpdated.body':
+    'ನಿಮ್ಮ ಬಿಲ್ಲಿಂಗ್ ಬದಲಾವಣೆ ಈಗ ಸಕ್ರಿಯವಾಗಿದೆ. ಬಿಲ್ಲಿಂಗ್ ಪುಟದಿಂದ ಯಾವಾಗ ಬೇಕಾದರೂ ನಿಮ್ಮ ಯೋಜನೆಯನ್ನು ನಿರ್ವಹಿಸಬಹುದು.',
+  'planUpdated.retry': 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ',
+  'planUpdated.verifyFailed': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ನಮಗೆ ಇನ್ನೂ ಖಚಿತಪಡಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'planUpdated.verifyFailedBody':
+    'ನಿಮ್ಮ ಪಾವತಿ ಇನ್ನೂ ಪ್ರಕ್ರಿಯೆಗೊಳ್ಳುತ್ತಿರಬಹುದು. ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'portfolio.addError': 'ಚಿಹ್ನೆ, ಧನಾತ್ಮಕ ಮೊತ್ತ ಮತ್ತು ವೆಚ್ಚವನ್ನು ನಮೂದಿಸಿ.',
   'portfolio.addHoldingCta': '+ ಹೋಲ್ಡಿಂಗ್ ಸೇರಿಸಿ',
@@ -117,12 +141,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'ಒಟ್ಟು ಪೋರ್ಟ್‌ಫೋಲಿಯೊ ಮೌಲ್ಯ',
   'portfolioHeroCard.totalPnl': 'ಒಟ್ಟು ಲಾಭ/ನಷ್ಟ',
   'pricing.heading': 'ಎಚ್ಚರಿಕೆಗಳು',
+  'pricing.limit.alerts': 'ಎಚ್ಚರಿಕೆಗಳು',
   'pricing.limit.coins': 'ನಾಣ್ಯಗಳು',
   'pricing.limit.market': 'ಮಾರುಕಟ್ಟೆ',
   'pricing.limit.portfolio': 'ಬಂಡವಾಳ ಪಟ್ಟಿ',
   'resetPassword.eyebrow': 'ಹೊಸ ಸೈಫರ್',
   'resetPassword.missingToken':
     'ಈ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಕಾಣೆಯಾಗಿದೆ ಅಥವಾ ಅಮಾನ್ಯವಾಗಿದೆ. ಹೊಸದನ್ನು ವಿನಂತಿಸಿ.',
+  'resetPassword.passwordPlaceholder': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'resetPassword.subheading': 'ನೀವು ಮಾತ್ರ ಡಿಕೋಡ್ ಮಾಡಬಹುದಾದದ್ದನ್ನು ಆರಿಸಿ.',
   'settings.apiKeys.body':
     'ವಹಿವಾಟು ಇತಿಹಾಸವನ್ನು ಆಮದು ಮಾಡಿಕೊಳ್ಳಲು ಓದಲು-ಮಾತ್ರ ಕೀಗಳು. ಚಂದಾದಾರರಾದ ನಂತರ /pricing ನಿಂದ OAuth ಮೂಲಕ ಸಂಪರ್ಕಿಸಿ.',
@@ -134,18 +160,34 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'ಉಲ್ಲೇಖ ಕರೆನ್ಸಿ',
   'settings.preferences.locale': 'ಸ್ಥಳ',
   'settings.preferences.push': 'ತಳ್ಳು',
+  'settings.preferences.refresh': 'ಬೆಲೆ ರಿಫ್ರೆಶ್ (ಸೆಕೆಂಡುಗಳು)',
   'settings.preferences.sms': 'ಎಸ್‌ಎಂಎಸ್',
+  'settings.revokeDeviceWarning':
+    'ಈ ಸಾಧನದ ಪ್ರವೇಶವನ್ನು ಶೀಘ್ರದಲ್ಲೇ ರದ್ದುಗೊಳಿಸಲಾಗುತ್ತದೆ. ಅದನ್ನು ಸೈನ್ ಔಟ್ ಮಾಡುವುದೇ?',
   'settings.security.body':
     'ಪಾಸ್‌ವರ್ಡ್ ಮತ್ತು ಎರಡು ಅಂಶಗಳ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ನಿಮ್ಮ ಖಾತೆಯಿಂದ ನಿರ್ವಹಿಸಲಾಗುತ್ತದೆ.',
   'settings.signOutDevice': 'ಸೈನ್ ಔಟ್ ಮಾಡಿ',
   'settings.twoFactorCode': 'ದೃಢೀಕರಣ ಕೋಡ್',
   'settings.twoFactorDisable': 'ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ',
+  'settings.twoFactorDisableTitle': 'ಎರಡು-ಅಂಶ ದೃಢೀಕರಣವನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ',
   'settings.twoFactorEnable': 'ಸಕ್ರಿಯಗೊಳಿಸಿ',
+  'settings.twoFactorEnableTitle': 'ಎರಡು-ಅಂಶ ದೃಢೀಕರಣವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ',
   'settings.twoFactorInvalidCode': 'ಅಮಾನ್ಯ ಕೋಡ್',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'ಎರಡು-ಅಂಶ QR ಕೋಡ್',
+  'settings.twoFactorScan':
+    'ನಿಮ್ಮ ದೃಢೀಕರಣ ಅಪ್ಲಿಕೇಶನ್ನಿಂದ ಈ QR ಕೋಡ್ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ, ನಂತರ 6-ಅಂಕಿಯ ಕೋಡ್ ನಮೂದಿಸಿ.',
+  'settings.twoFactorUnavailable': 'ಈ ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಎರಡು ಅಂಶದ ದೃಢೀಕರಣ ಲಭ್ಯವಿಲ್ಲ.',
   'settings.twoFactorVerify': 'ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಸಕ್ರಿಯಗೊಳಿಸಿ',
   'sigilAuthShell.backHomeCta': '← ಸಿಗಿಲ್‌ಗೆ ಹಿಂತಿರುಗಿ',
+  'sigilAuthShell.brandBody':
+    'ನೇರ ಬೆಲೆಗಳು, ಪೋರ್ಟ್ಫೋಲಿಯೊ ಲಾಭ/ನಷ್ಟ, ಮತ್ತು ಮುಖ್ಯವಾದ ಷರತ್ತುಗಳ ಮೇಲೆ ನಿಂತಿರುವ ವಾರ್ಡ್ಗಳು — ಎಲ್ಲವೂ ಒಂದೇ ಟರ್ಮಿನಲ್ನಲ್ಲಿ.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — Molecule ನಲ್ಲಿ ನಿರ್ಮಿಸಲಾಗಿದೆ',
+  'sigilAuthShell.brandHeadline': 'ಇಡೀ ಲೆಡ್ಜರ್ನಾದ್ಯಂತ ಪ್ರತಿ ಸಿಗ್ನಲ್ ಅನ್ನು ಡಿಕೋಡ್ ಮಾಡಿ.',
+  'sigilAuthShell.samplePortfolio': 'ಮಾದರಿ ಪೋರ್ಟ್ಫೋಲಿಯೊ',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
+  'signup.creating': 'ನಿಮ್ಮ ಟರ್ಮಿನಲ್ ತೆರೆಯಲಾಗುತ್ತಿದೆ…',
   'signup.eyebrow': 'ಟರ್ಮಿನಲ್ ತೆರೆಯಿರಿ',
   'signup.heading': 'ನಿಮ್ಮ ಸೀಗಿಲ್ ರಚಿಸಿ',
   'signup.subheading':
@@ -163,6 +205,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'ವಹಿವಾಟುಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'watchlist.addCta': 'ಮಾರುಕಟ್ಟೆಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ',
   'watchlist.col.change24h': '24 ಗಂ',
+  'watchlist.col.coin': 'ನಾಣ್ಯ',
   'watchlist.col.marketCap': 'ಮಾರುಕಟ್ಟೆ ಬಂಡವಾಳ',
   'watchlist.empty':
     'ನಿಮ್ಮ ವೀಕ್ಷಣಾ ಪಟ್ಟಿಯಲ್ಲಿ ಯಾವುದೇ ನಾಣ್ಯಗಳಿಲ್ಲ — /ಮಾರುಕಟ್ಟೆಗಳಿಂದ ನಕ್ಷತ್ರ ನಾಣ್ಯಗಳನ್ನು ಸೇರಿಸಲು.',

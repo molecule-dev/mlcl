@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Маєте відгук, знайшли помилку або хочете розповісти, як щоденник допоміг вам? Ми читаємо кожне повідомлення — пишіть будь-коли, і вам відповість справжня людина.',
+  'about.contactTitle': "Зв'яжіться з нами",
+  'about.featureInsights':
+    'Роздуми на основі ШІ, які делікатно підсвічують тригери, теми та вдячності — не втрачаючи вашого голосу.',
+  'about.featureMood':
+    'Відстеження настрою й активності з календарем і графіками тенденцій, які показують, що допомагає вам процвітати.',
+  'about.featurePrivacy':
+    'Наскрізне шифрування, блокування кодом доступу та повний експорт у CSV, щоб ваші роздуми залишалися приватними й переносними.',
+  'about.featurePrompts':
+    'Делікатні щоденні підказки, щоб вам завжди було з чого почати — жодної порожньої сторінки.',
+  'about.intro':
+    "{{app}} — це делікатний приватний щоденник психічного здоров'я для щоденних роздумів, відстеження настрою та вдячності. Продумані підказки замінюють порожню сторінку, тихий пошук закономірностей допомагає зрозуміти, що впливає на ваші почуття, а наскрізне шифрування зберігає ваші слова тільки вашими.",
+  'about.missionBody':
+    'Ми віримо, що перевірка свого стану має відчуватися спокійно, а не клінічно — і аж ніяк не як ще один застосунок, що вимагає вашої уваги. {{app}} створено, щоб допомагати, а не докучати: кілька тихих хвилин на день, щоб помітити свій настрій, писати чесно й поступово бачити себе ясніше.',
+  'about.missionTitle': 'Наша місія',
   'about.pageTitle': 'Про {{app}}',
   'authShell.encryptionBadge': 'Ваші записи зашифровані від початку до кінця.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'День {{day}} — без запису',
   'calendar.cellMood': 'День {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Цей місяць одним поглядом',
   'calendar.eyebrow': 'Настрій з першого погляду',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Відстежується {{tracked}} з {{total}} днів цього місяця.',
   'common.goToDashboard': 'До панелі',
   'common.tryAgain': 'Спробувати ще раз',
+  'entryComposer.bodyPlaceholder':
+    'Пишіть так, як відчуваєте чесно. Ніхто інший цього не прочитає.',
   'entryComposer.cancel': 'Повернутися до журналу',
   'entryComposer.heading': 'Сьогоднішні роздуми',
   'entryComposer.moodLabel': 'Як ти себе почуваєш?',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Видалити {{tag}}',
   'entryComposer.save': 'Зберегти відображення',
   'entryComposer.saveError': 'Не вдалося зберегти ваш запис.',
+  'entryComposer.tagPlaceholder': 'Додайте тег і натисніть Enter',
   'entryComposer.titlePlaceholder': 'Дайте назву цьому відображенню…',
   'entryDetail.back': 'Повернутися до журналу',
   'entryDetail.delete': 'Видалити цей запис',
@@ -36,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Завантаження відображення…',
   'entryDetail.notFound': 'Запис не знайдено.',
   'entryDetail.reflectionsHeading': 'Роздуми ШІ',
+  'forgotPassword.continueButton': 'Введіть код скидання',
   'forgotPassword.eyebrow': 'Без турбот',
   'forgotPassword.subheading':
     'Ми надішлемо посилання для плавного скидання налаштувань на вашу електронну адресу.',
@@ -59,14 +80,21 @@ export const ui: UiTranslations = {
     'Поки що немає тем — додайте один або два теги до своїх записів, і вони зберуться тут.',
   'insights.themesHeading': 'Найпопулярніші теми',
   'insights.triggerFrequency': 'помітив {{count}} × цього місяця',
+  'insights.triggersEmpty':
+    'Поки що немає чого помічати. Кілька записів за кілька днів покажуть ваші закономірності.',
   'insights.triggersHeading': 'Візерунки, що змінюють ваш настрій',
+  'journal.empty': 'Жоден роздум не відповідає — спробуйте інший фільтр або напишіть новий запис.',
   'journal.eyebrow': 'Ваші роздуми',
   'journal.heading': 'Журнал',
   'journal.loadError': 'Не вдалося завантажити записи.',
   'journal.loading': 'Завантаження записів…',
+  'journal.newEntry': 'Новий запис',
   'journal.searchPlaceholder': "Шукайте почуття, ім'я, мить…",
   'journal.subheading': '{{count}} записи — кожен з них вартий того, щоб його зберегти.',
   'journalEntryCard.encryptedLabel': 'Зашифровано',
+  'landing.ctaBody':
+    'Почати безкоштовно. Pro відкриває експорт даних, більший щоденник і повний рік історії.',
+  'landing.ctaButton': 'Почніть свій перший запис',
   'landing.ctaTitle': 'Кілька хвилин тиші на день. От і все.',
   'landing.eyebrow': 'Ніжна щоденна практика',
   'landing.featuresBody':
@@ -85,6 +113,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Ніжний простір для щоденних роздумів.',
   'mentalHealthJournalLayout.closeMenu': 'Закрити меню',
   'mentalHealthJournalLayout.openMenu': 'Відкрити меню',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Основна навігація',
+  'moodHeroCard.entriesThisWeek': '{{count}} цього тижня',
   'moodHeroCard.streakSuffix': 'денна смуга',
   'moodHeroCard.title': 'Сьогоднішні роздуми',
   'moodTrendChart.aiBadge': 'Готовий до використання штучного інтелекту',
@@ -95,11 +125,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Ваша подорож',
   'profile.fallbackName': 'Відбивач',
   'profile.loadError': 'Не вдалося завантажити статистику.',
+  'profile.loading': 'Оновлюємо вашу статистику…',
   'profile.longestStreak': 'Найдовша серія',
   'profile.memberSince': 'Розмірковуючи з того часу {{date}}',
   'profile.milestones': 'Віхи',
   'profile.milestonesEmpty':
     'До вашої першої віхи відділяє лише один запис — пишіть, коли відчуєте себе готовими.',
+  'profile.moodMix': 'Ваше поєднання настроїв цього сезону',
   'profile.streakValue': '{{days}} дн.',
   'profile.totalEntries': 'Роздуми',
   'profile.totalWords': 'Написані слова',
@@ -113,6 +145,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Напишіть про це',
   'resetPassword.eyebrow': 'Новий початок',
   'resetPassword.mismatchError': 'Паролі не збігаються.',
+  'resetPassword.passwordLabel': 'Новий пароль',
   'resetPassword.subheading': 'Оберіть щось безпечне — ваші відображення цього заслуговують.',
   'resetPassword.tokenPlaceholder': 'Скинути код з електронної пошти',
   'settings.dangerDescription':
@@ -124,11 +157,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'Не вдалося видалити обліковий запис.',
   'settings.exportDescription': 'Ваші слова завжди належать вам. Завантажте копію будь-коли.',
   'settings.exportDone': 'Експортовано {{format}}.',
+  'settings.exportError': 'Помилка експорту.',
+  'settings.exportHeading': 'Експортуйте свої роздуми',
   'settings.exportLoading': 'Підготовка…',
   'settings.eyebrow': 'Твій простір, твої правила',
   'settings.languageHeading': 'Мова',
   'settings.privacyHeading': 'Конфіденційність та шифрування',
   'settings.remindersHeading': 'Щоденне нагадування',
+  'settings.reminderToggleAria': 'Перемкнути щоденне нагадування',
   'settings.reminderToggleDescription':
     'Одне спокійне нагадування у вибраний вами час. Без значків та смуг провини.',
   'settings.reminderToggleLabel': 'Надіслати легкий поштовх',
@@ -141,6 +177,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Створення журналу…',
   'signup.subheading': 'Безпечний простір для ваших думок.',
   'wellnessRingsTriad.mindfulnessCaption': 'Гол {{goal}} хв. сьогодні',
+  'wellnessRingsTriad.mindfulnessLabel': 'Усвідомленість',
   'wellnessRingsTriad.sleepCaption': 'Гол {{goal}} год/ніч',
   'wellnessRingsTriad.sleepLabel': 'Сон',
+  'wellnessRingsTriad.sleepValue': '{{hours}} год',
+  'wellnessRingsTriad.streakCaption': 'Ціль {{goal}} днів',
+  'wellnessRingsTriad.streakLabel': 'Серія щоденника',
+  'wellnessRingsTriad.streakValue': '{{days}} дн.',
 }

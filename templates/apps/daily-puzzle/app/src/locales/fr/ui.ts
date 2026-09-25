@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vous avez des commentaires, vous avez trouvé un bug, ou vous voulez amener {{app}} dans votre école ou votre équipe ? Nous lisons chaque message — écrivez-nous depuis les paramètres de votre compte et un vrai humain vous répondra.',
   'about.contactTitle': 'Contactez-nous',
   'about.eyebrow': 'À propos',
+  'about.intro':
+    "{{app}} est un puzzle de mots quotidien. Devinez le mot de cinq lettres en six essais, gardez votre série en vie, partagez votre grille d'emojis et découvrez comment tout le monde s'en est sorti sur le mot du jour.",
+  'about.missionBody':
+    "Un bon puzzle, c'est une petite victoire quotidienne. {{app}} est construit autour d'un mot partagé par jour — assez rapide pour une pause café, assez captivant pour revenir demain.",
+  'about.missionTitle': 'Notre mission',
   'about.title': 'À propos de {{app}}',
   'archive.loadError': 'Impossible de charger les archives.',
   'archive.missed': 'Manqué',
   'archive.notPlayed': 'Non joué',
+  'archive.subhead':
+    "Rejouez n'importe quel jour passé en mode entraînement — pas de séries, pas de stats, tout le plaisir.",
   'archive.title': 'Archiver',
   'auth.backToHome': "Retour à l'accueil",
   'auth.backToHomeArrow': "← Retour à l'accueil",
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Mot de passe oublié ?',
   'auth.login.loggingIn': 'Connexion en cours…',
   'auth.login.logIn': 'Jouer le mot du jour',
+  'auth.login.noAccount': 'Nouveau sur Tessera ?',
   'auth.login.or': 'ou continuer avec',
   'auth.login.password': 'Mot de passe',
   'auth.login.signInButton': 'Se connecter',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Enregistrement…',
   'common.sendingEllipsis': 'Envoi…',
   'common.startingEllipsis': 'Démarrage…',
+  'forgotPassword.subhead':
+    'Entrez votre e-mail et nous vous enverrons un lien de réinitialisation.',
+  'forgotPassword.success.body':
+    'Si un compte existe pour {{email}}, vous recevrez un lien de réinitialisation dans quelques minutes.',
+  'forgotPassword.success.title': 'Vérifiez votre boîte de réception.',
   'form.name': 'Nom',
   'howToPlay.cta.home': "Retour à l'accueil",
   'howToPlay.cta.play': 'Jouer le puzzle du jour',
@@ -68,10 +83,16 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Des séries que vous détesteriez briser',
   'leaderboard.daily.title': 'Résolutions du jour',
   'leaderboard.loadError': 'Impossible de charger le classement.',
+  'leaderboard.streaks.empty': 'Pas encore de série — soyez le premier.',
+  'leaderboard.streaks.subhead': 'Les plus longues séries de victoires de tous les temps.',
   'leaderboard.streaks.title': 'Leaders des séries',
+  'leaderboard.subhead':
+    "Comment tout le monde s'en est sorti aujourd'hui, et qui détient les plus longues séries.",
   'leaderboard.title': 'Classement',
   'login.headline': 'Bon retour.',
   'login.streakPill': 'Série de {{days}} jours qui vous attend',
+  'login.subhead':
+    'Connectez-vous pour garder votre série en vie et voir comment vous vous en êtes sorti sur le mot du jour.',
   'nav.archive': 'Archiver',
   'nav.editProfile': 'Modifier le profil',
   'nav.getStarted': 'Commencer',
@@ -89,6 +110,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Aucun mot trouvé',
   'notFound.title': 'Cette route est vide.',
   'planUpdated.message': 'Votre forfait est actif.',
+  'planUpdated.retry': 'Réessayer',
+  'planUpdated.verifyFailed': "Nous n'avons pas encore pu confirmer votre paiement.",
+  'planUpdated.verifyFailedBody':
+    'Votre paiement est peut-être encore en cours de traitement. Veuillez réessayer dans quelques instants.',
   'planUpdated.verifying': 'Confirmation de votre paiement…',
   'play.alreadyFinished': 'Vous avez déjà terminé ce puzzle',
   'play.answerWas': 'Le mot était',
@@ -104,6 +129,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': "Puzzle d'entraînement",
   'play.tooShort': 'Pas assez de lettres',
   'play.won': 'Résolu !',
+  'pricing.advancedStats': 'Statistiques avancées : {{yes}}',
+  'pricing.archiveHistory': "{{count}} jours d'historique d'archives",
+  'pricing.archivePlays': "{{count}} rejouements d'archives / jour",
+  'pricing.archiveUnlimited': "Historique d'archives illimité",
+  'pricing.canExport': 'Exportation des données : {{yes}}',
+  'pricing.checkoutError': 'Impossible de démarrer le paiement. Veuillez réessayer.',
   'pricing.dailyWord': 'Le mot quotidien',
   'pricing.heading': 'Choisissez votre forfait {{app}}',
   'pricing.included': 'Inclus',
@@ -111,7 +142,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Le mot du jour est toujours gratuit. Passez à la version premium pour rejouer les archives à volonté et accéder à des statistiques approfondies.',
   'pricing.yearly': 'Annuel',
+  'privacy.intro':
+    '{{app}} respecte votre vie privée. Cette page résume les données que nous stockons, pourquoi nous les stockons et comment les supprimer.',
   'privacy.title': 'Notice de confidentialité',
+  'resetPassword.subhead': 'Choisissez un nouveau mot de passe pour retrouver votre série.',
   'settings.account': 'Compte',
   'settings.danger.body':
     "Supprimer définitivement votre compte {{appName}} et tout l'historique de vos puzzles.",
@@ -121,17 +155,24 @@ export const ui: UiTranslations = {
   'settings.guest': 'Invité',
   'settings.language.title': 'Langue',
   'settings.subhead': 'Personnalisez votre profil, le son et votre apparence sur le classement.',
+  'settings.unnamed': 'Joueur Sparq',
   'settings.upgrade': 'Passer à la version supérieure',
   'signup.eyebrow': 'Gratuit pour toujours — un mot par jour',
   'signup.headline': 'Commencez votre série.',
+  'signup.subhead':
+    'Créez un compte {{appName}} pour jouer au mot du jour, bâtir une série et grimper au classement.',
   'stats.currentStreak': 'Série',
   'stats.distribution.title': 'Distribution des tentatives',
   'stats.loadError': 'Impossible de charger vos statistiques.',
   'stats.maxStreak': 'Série max',
   'stats.played': 'Joués',
   'stats.playToday': 'Jouer le puzzle du jour',
+  'stats.subhead':
+    "Puzzles quotidiens classés uniquement — l'entraînement sur les archives ne compte jamais.",
   'stats.title': 'Vos statistiques',
   'stats.winRate': 'Taux de victoire',
   'status.monthly': 'Mensuel',
+  'terms.intro':
+    'En utilisant {{app}}, vous acceptez les règles ci-dessous. Si vous ne pouvez pas les accepter, veuillez ne pas utiliser le service.',
   'terms.title': "Conditions d'utilisation",
 }

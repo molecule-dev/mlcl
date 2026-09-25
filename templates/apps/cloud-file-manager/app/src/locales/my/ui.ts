@@ -1,12 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'မေးခွန်းများ၊ အကြံပြုချက်များ သို့မဟုတ် ပူးပေါင်းဆောင်ရွက်မှု စိတ်ကူးများ ရှိပါသလား။ {{appName}} အဖွဲ့ကို hello@nimbus.example သို့ အီးမေးလ်ပို့ပါ — ကျွန်ုပ်တို့ မက်ဆေ့ခ်ျတိုင်းကို ဖတ်ပါသည်။',
   'about.contactTitle': 'ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.highlightsTitle': 'သင်ရရှိသောအရာ',
   'about.intro':
     'Nimbus သည် သင်အမှန်တကယ်ရှာဖွေလိုသော ဖိုင်များအတွက် တည်ငြိမ်ပြီး ထင်မြင်ယူဆချက်ရှိသော နေရာတစ်ခုဖြစ်သည်။ ဒက်စ်တော့၏ အမြန်နှုန်းနှင့် cloud ၏ တာရှည်ခံမှုဖြင့် အပ်လုဒ်လုပ်ခြင်း၊ မျှဝေခြင်းနှင့် ပြန်လည်ရယူခြင်းတို့ကို ပြုလုပ်နိုင်ပါသည်။',
+  'about.mission':
+    'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်က ရိုးရှင်းပါသည် — cloud သိုလှောင်မှုကို အလေးချိန်မဲ့သလို ခံစားရစေရန်။ ရှုပ်ထွေးမှုမရှိ၊ လှည့်နေသော စက်ဝိုင်းများမရှိ၊ ဖိုင်ဘယ်ရောက်သွားလဲ ခန့်မှန်းရမှုမရှိ — လူတစ်ဦးချင်းနှင့် အဖွဲ့များအတွက် ရှင်းလင်းမှုသာ။',
+  'about.subtitle': 'သင့်ဒစ်ဂျစ်တယ်ဘဝအတွက် အလေးချိန်မဲ့ မှတ်တမ်းတိုက်။',
   'about.title': 'နင်မ်ဘတ်စ်အကြောင်း',
   'authShell.copyright': '© {{year}} Nimbus မော်ကွန်းတိုက်',
+  'authShell.footer': 'လုံခြုံသော cloud သိုလှောင်မှု · အဆုံးမှအဆုံး ကုဒ်ဝှက်ထားသည်',
   'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'fileDetail.about.eyebrow': 'ဤဖိုင်အကြောင်း',
   'fileDetail.actions.delete': 'အမှိုက်ပုံးသို့ ရွှေ့ပါ',
@@ -39,18 +46,24 @@ export const ui: UiTranslations = {
     'သင့်အီးမေးလ်ကို ရိုက်ထည့်ပါ၊ အသစ်တစ်ခု ရွေးချယ်ရန် လင့်ခ်တစ်ခု ကျွန်ုပ်တို့ ပေးပို့ပါမည်။',
   'forgotPassword.successSubheading':
     'ကျွန်ုပ်တို့သည် စကားဝှက်ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ကို ပေးပို့လိုက်ပါပြီ {{email}} ။ လင့်ခ်သည် မိနစ် ၆၀ အတွင်း အကျုံးဝင်ပါသည်။',
+  'help.backHome': '← {{appName}} ပင်မစာမျက်နှာသို့ ပြန်သွားရန်',
   'help.contactBody':
     'support@nimbus.example သို့ အီးမေးလ်ပို့ပါ၊ ကျွန်ုပ်တို့သည် တစ်ရက်အတွင်း အကြောင်းပြန်ပါမည်။ Pro နှင့် Team အစီအစဉ်များသည် ဦးစားပေး routing ရရှိပါသည်။',
+  'help.contactTitle': 'လူတစ်ဦး လိုအပ်ပါသလား။',
   'help.eyebrow': 'ပံ့ပိုးမှု',
   'help.intro':
     'အဖြေအများစုကို တစ်ချက်နှိပ်ရုံဖြင့် ရရှိနိုင်ပါသည်။ ဖိုင်များကိုထည့်ရန် အပ်လုဒ်ဗန်းထဲသို့ ဆွဲယူပါ၊ လင့်ခ်တစ်ခုထည့်ရန် မည်သည့်အတန်းတွင်မဆို မျှဝေရန် နှိပ်ပါ၊ ပြီးခဲ့သော ၃၀ ရက်အတွင်း သင်ဖယ်ရှားလိုက်သည့်အရာများကို ပြန်လည်ရယူရန် အမှိုက်ပုံးသို့ ဝင်ရောက်ပါ။',
+  'help.subtitle': 'အဖြစ်များသော {{appName}} မေးခွန်းများအတွက် အဖြေများ။',
   'help.title': 'အကူအညီနှင့် ပံ့ပိုးမှု',
   'landing.cta.body':
     '15 GB အခမဲ့ဖြင့် စတင်လိုက်ပါ။ 200 GB အတွက် Pro သို့ အဆင့်မြှင့်တင်ပါ သို့မဟုတ် သင့်အဖွဲ့ကို မျှဝေအသုံးပြုသည့်နေရာသို့ ဖိတ်ခေါ်ပါ — အားလုံးသည် ချောမွေ့သော Nimbus အတွေ့အကြုံဖြင့်ဖြစ်သည်။',
   'landing.cta.primary': 'သင့်မှတ်တမ်းကို ဖန်တီးပါ',
   'landing.cta.title': 'ရှုပ်ပွနေတဲ့ပစ္စည်းတွေကို မြှောက်ပါ။ အလုပ်ကို သိမ်းထားပါ။',
+  'landing.features.body':
+    'ဖိုင်များကို အလေးချိန်မဲ့သလို ခံစားရစေလိုသော လူတစ်ဦးချင်းနှင့် အဖွဲ့များအတွက် ဖန်တီးထားသည် — လျင်မြန်စွာ ရှာတွေ့နိုင်၊ လုံခြုံစွာ မျှဝေနိုင်၊ စီစဉ်ရတာ ပျော်စရာ။',
   'landing.features.eyebrow': 'ဘာကြောင့် နင်မ်ဘတ်စ်',
   'landing.features.title': 'သင့်အတွက် မလိုအပ်သော သိုလှောင်မှု။',
+  'landing.footer.copyright': '© {{year}} {{appName}}။ အလေးချိန်မဲ့သူများအတွက် ဖန်တီးထားသည်။',
   'landing.hero.body':
     'သင့်ရဲ့ ဒစ်ဂျစ်တယ်ဘဝအတွက် အလေးချိန်မဲ့ မော်ကွန်းတိုက်။ လတ်ဆတ်တဲ့လေကို ရှူရှိုက်ရသလို ခံစားရစေမယ့် စုစည်းထားတဲ့ cloud storage။ ရှုပ်ပွနေတာမျိုး မရှိဘဲ၊ ရှင်းလင်းပြတ်သားမှုသာ ရှိပါတယ်။',
   'landing.hero.eyebrow': 'Nimbus v2 ကို မိတ်ဆက်ခြင်း',
@@ -69,6 +82,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'စကားဝှက်ပြပါ',
   'login.subheading': 'သင့်မှတ်တမ်းကို ဝင်ရောက်ရန် အကောင့်ဝင်ပါ။',
   'myFiles.breadcrumb.folder': 'ဖိုလ်ဒါ',
+  'myFiles.breadcrumb.home': 'တက်ဆီရာ',
   'myFiles.breadcrumb.myFiles': 'ကျွန်ုပ်၏ဖိုင်များ',
   'myFiles.fetchError': 'သင့်ဖိုင်များကို တင်၍မရပါ။',
   'myFiles.files.col.modified': 'ပြုပြင်ထားသော',
@@ -83,12 +97,18 @@ export const ui: UiTranslations = {
   'myFiles.folders.justCreated': 'အခုမှ ဖန်တီးထားတာ',
   'myFiles.folders.seeAll': 'အားလုံးကြည့်ရန်',
   'myFiles.folders.title': 'ဖိုလ်ဒါများ',
+  'myFiles.hero.bodyDynamic':
+    '{{files}} ဖိုင် စင့်ခ်လုပ်ပြီးပါပြီ — ယခုအထိ {{used}} အသုံးပြုထားသည်။',
+  'myFiles.hero.bodyEmpty':
+    'စတင်ရန် ဖိုင်တစ်ခု အပ်လုဒ်လုပ်ပါ — သင့်မှတ်တမ်းတိုက်သည် နေရာတိုင်းတွင် စင့်ခ်လုပ်ပါလိမ့်မည်။',
   'myFiles.hero.eyebrow': 'သင့်ရဲ့ မှတ်တမ်းဟောင်း',
   'myFiles.hero.recentCta': 'မကြာသေးမီက လုပ်ဆောင်ချက်ကို ကြည့်ပါ',
   'myFiles.hero.title': 'ကြိုဆိုပါတယ်, {{name}} ။',
   'myFiles.hero.uploadCta': 'ဖိုင်များ အပ်လုဒ်လုပ်ပါ',
   'myFiles.hero.youFallback': 'ဟိုမှာ',
   'myFiles.refresh': 'ပြန်လည်ဆန်းသစ်ရန်',
+  'myFiles.stats.collaboratorsDetail': 'မျှဝေထားသော ဖိုင်များတစ်လျှောက်',
+  'myFiles.stats.foldersDetail': 'သင့်မှတ်တမ်းတိုက်တစ်လျှောက်',
   'myFiles.stats.totalFilesDetail': '{{count}} ကြယ်ပွင့်ပြထားသော',
   'myFiles.stats.usageDetail': '၏ {{total}} Pro မှာ',
   'myFiles.time.daysAgo': '{{count}} လွန်ခဲ့သော ရက်',
@@ -109,6 +129,7 @@ export const ui: UiTranslations = {
   'nimbusSideNav.upgradeCta': 'အဆင့်မြှင့်တင်မှု အစီအစဉ်',
   'nimbusStorageMeter.ariaLabel': 'အသုံးပြုထားသော သိုလှောင်မှု',
   'nimbusStorageMeter.compactLabel': 'သိုလှောင်မှု',
+  'nimbusStorageMeter.compactSummary': '{{used}} ၏ {{total}} အသုံးပြုထားသော',
   'nimbusStorageMeter.percentUsed': '{{percent}} %',
   'nimbusStorageMeter.usedLabel': 'အသုံးပြုထားသော သိုလှောင်မှု',
   'nimbusStorageMeter.usedOfTotal': '{{used}} ၏ {{total}}',
@@ -117,10 +138,21 @@ export const ui: UiTranslations = {
   'notFound.code': '၄၀၄',
   'notFound.heading': 'ဤဖိုင်သည် သင့်မှတ်တမ်းတွင် မရှိပါ။',
   'notFound.primaryCta': 'ကျွန်ုပ်၏ဖိုင်များကိုဖွင့်ပါ',
+  'planUpdated.currentPlan': 'သင်သည် လက်ရှိတွင် አዲስተያየትንያየት� {{plan}} အစီအစဉ်။',
+  'planUpdated.retry': 'ထပ်ကြိုးစားပါ',
+  'planUpdated.verifyFailed': 'သင့်ငွေပေးချေမှုကို ကျွန်ုပ်တို့ အတည်မပြုနိုင်သေးပါ။',
+  'planUpdated.verifyFailedBody':
+    'သင့်ငွေပေးချေမှုကို လုပ်ဆောင်နေဆဲဖြစ်နိုင်ပါသည်။ ခဏအကြာတွင် ထပ်မံကြိုးစားပါ။',
   'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
+  'pricing.limit.advancedFeatures': 'အဆင့်မြင့်အင်္ဂါရပ်များ-',
   'pricing.limit.canExport': 'ဒေတာ ထုတ်ယူမှု-',
+  'pricing.limit.files': '{{count}} ဖိုင်များ',
+  'pricing.limit.folders': '{{count}} ဖိုလ်ဒါ',
+  'pricing.limit.shares': '{{count}} မျှဝေမှု',
   'privacy.intro':
     'Nimbus ကိုလည်ပတ်ရန် လိုအပ်သော အနည်းဆုံးအချက်အလက်များကို ကျွန်ုပ်တို့စုဆောင်းပါသည်- သင့်အကောင့်အီးမေးလ်၊ သင်အပ်လုဒ်လုပ်ထားသောဖိုင်များနှင့် ၎င်းတို့ကို render လုပ်ရန်နှင့်ရှာဖွေရန် လိုအပ်သော metadata တို့ဖြစ်သည်။ ကျွန်ုပ်တို့သည် သင့်ဒေတာကို ဘယ်သောအခါမှ ရောင်းချမည်မဟုတ်ပါ။',
+  'privacy.subtitle':
+    '{{appName}} သည် သင့်ဖိုင်များနှင့် ကိုယ်ရေးကိုယ်တာ အချက်အလက်များကို မည်သို့ ကိုင်တွယ်သည်။',
   'recent.activity.empty': 'ဘာမှပြစရာမရှိသေးပါဘူး။',
   'recent.activity.youInitials': 'Y',
   'recent.crumbs.home': 'Nimbus',
@@ -140,14 +172,17 @@ export const ui: UiTranslations = {
   'resetPassword.signIn': 'Nimbus မှာ အကောင့်ဝင်ပါ',
   'resetPassword.subheading':
     'အနည်းဆုံး စာလုံး ၈ လုံးပါသော ခိုင်မာသည့် စကားဝှက်တစ်ခုကို ရွေးချယ်ပါ။',
+  'resetPassword.successHeading': 'စကားဝှက် ပြန်လည်သတ်မှတ်ခြင်း',
   'resetPassword.successSubheading': 'ယခု သင်၏ စကားဝှက်အသစ်ဖြင့် လက်မှတ်ထိုးဝင်နိုင်ပါပြီ။',
   'search.backToFiles': 'ဖိုင်အားလုံးသို့ ပြန်သွားရန်',
   'search.clearLabel': 'ရှာဖွေမှုကို ရှင်းလင်းပါ',
   'search.crumbs.home': 'Nimbus',
+  'search.emptyNoQuery': 'သင့်မှတ်တမ်းတိုက်ကို ရှာဖွေရန် အပေါ်တွင် ရှာဖွေရေးစကားလုံး ရိုက်ထည့်ပါ။',
   'search.emptyWithQuery': '"ကိုက်ညီသောဖိုင်များ မရှိပါ။" {{query}} "။',
   'search.fetchError': 'ဖိုင်များကို တင်၍မရပါ။',
   'search.hero.body':
     'အာရုံစိုက်ရန် အမျိုးအစားအလိုက် စစ်ထုတ်ပါ။ ဖွင့်ရန် မည်သည့်ရလဒ်ကိုမဆို နှိပ်ပါ။',
+  'search.hero.titleEmpty': 'သင့်မှတ်တမ်းတိုက်ကို ရှာဖွေပါ',
   'search.hero.titleWithQuery': '{{count}} "အတွက် ရလဒ်များ {{query}} "',
   'search.input.placeholder': 'Nimbus ကို ရှာပါ…',
   'search.section.allFiles': 'ကိုက်ညီသောဖိုင်များ',
@@ -163,9 +198,12 @@ export const ui: UiTranslations = {
   'shared.empty':
     'မျှဝေထားသောဖိုင်များ မရှိသေးပါ။ လင့်ခ်ပို့ရန် မည်သည့်ဖိုင်ကိုမဆိုဖွင့်ပြီး မျှဝေရန်ကို နှိပ်ပါ။',
   'shared.fetchError': 'မျှဝေထားသောဖိုင်များကို တင်၍မရပါ။',
+  'shared.hero.body':
+    'လင့်ခ် သို့မဟုတ် ဖိတ်ကြားချက်ဖြင့် သင်မျှဝေသော ဖိုင်တိုင်းသည် ဤနေရာတွင် ပေါ်လာသည်။ ခွင့်ပြုချက်တစ်ခုကို ဖွင့်ကြည့်ပြီး မည်သည့် အသုံးပြုခွင့် ပေးထားသည်ကို ကြည့်ပါ။',
   'shared.hero.title': '{{count}} တက်ကြွသောလင့်ခ်များပါသောဖိုင်များ',
   'shared.list.subtitle': '{{count}} ဖိုင်များ',
   'shared.list.title': 'မကြာသေးမီက မျှဝေခဲ့သည်',
+  'shared.row.sharedSummary': '{{count}} လင့်ခ်',
   'shared.time.daysAgo': '{{count}} လွန်ခဲ့သော ရက်',
   'shared.time.hoursAgo': '{{count}} နာရီ ကြာပြီ',
   'shared.time.minutesAgo': '{{count}} မိနစ်အကြာက',
@@ -175,6 +213,7 @@ export const ui: UiTranslations = {
   'sharePublic.eyebrow': 'Nimbus မှတစ်ဆင့် မျှဝေထားသည်',
   'sharePublic.fetchError': 'မျှဝေထားသောဖိုင်ကို တင်၍မရပါ။',
   'sharePublic.home': 'Nimbus ပင်မစာမျက်နှာသို့ ပြန်သွားပါ',
+  'sharePublic.loading': 'မျှဝေလင့်ခ်ကို ဖြေရှင်းနေသည်…',
   'sharePublic.missingToken': 'ရှယ်ယာတိုကင် မပေးထားပါ။',
   'sharePublic.notFound': 'မျှဝေရန်လင့်ခ်ကို ရှာမတွေ့ပါ သို့မဟုတ် သက်တမ်းကုန်ဆုံးသွားပါပြီ။',
   'sharePublic.permission': '{{permission}}',
@@ -190,7 +229,10 @@ export const ui: UiTranslations = {
   'starred.empty':
     'ဘာမှ ကြယ်ပွင့်မတပ်ရသေးပါ။ အနီးအနားမှာ သိမ်းထားဖို့ ဘယ်ဖိုင်မဆိုပေါ်က ကြယ်ပွင့်ကို နှိပ်ပါ။',
   'starred.fetchError': 'ကြယ်ပွင့်ပြထားသော ဖိုင်များကို တင်၍မရပါ။',
+  'starred.hero.body':
+    'သင်ပြန်လာမည့် မည်သည့်အရာကိုမဆို ကြယ်ပွင့်ပေးပါ။ ကျွန်ုပ်တို့သည် ၎င်းကို စက်တိုင်း၊ အလုပ်ခွင်တိုင်း၊ အချိန်တိုင်းတွင် ပြသပါသည်။',
   'starred.hero.title': '{{count}} အကြိုက်ဆုံးများ၊ သွားရန်အဆင်သင့်ဖြစ်ပါပြီ',
+  'starred.row.meta': '{{size}} · {{modified}}',
   'starred.time.daysAgo': '{{count}} လွန်ခဲ့သော ရက်',
   'starred.time.hoursAgo': '{{count}} နာရီ ကြာပြီ',
   'starred.time.minutesAgo': '{{count}} မိနစ်အကြာက',
@@ -200,7 +242,10 @@ export const ui: UiTranslations = {
   'storage.crumbs.home': 'Nimbus',
   'storage.crumbs.storage': 'သိုလှောင်မှု',
   'storage.fetchError': 'သိုလှောင်မှုကို တင်၍မရပါ။',
+  'storage.hero.body':
+    'ကြီးထွားရန် နေရာ အများကြီးရှိသည်။ သင်သည် 75% ကျော်လွန်သောအခါ — နှင့် 90% တွင်ထပ်မံ — သတိပေးပါမည်၊ ထို့ကြောင့် လေးလံသောအရာများကို မည်သူ့ကိုမျှ နှေးကွေးမစေမီ ရှင်းလင်းနိုင်သည်။',
   'storage.hero.eyebrow': 'သိုလှောင်မှုခြုံငုံသုံးသပ်ချက်',
+  'storage.hero.headroom': '{{headroom}} လွတ်နေသောနေရာ',
   'storage.hero.meterLabel': '{{percent}} အစီအစဉ်၏ %',
   'storage.hero.title': '{{used}} ၏ {{total}} အသုံးပြုထားသော',
   'storage.plans.body':
@@ -208,12 +253,15 @@ export const ui: UiTranslations = {
   'storage.plans.choose': 'ရွေးချယ်ပါ {{name}}',
   'storage.plans.included': '{{storage}} ပါဝင်သည်',
   'storage.plans.maxFiles': '{{count}} ဖိုင်များ',
+  'storage.plans.maxFolders': '{{count}} ဖိုလ်ဒါ',
+  'storage.plans.maxShares': '{{count}} မျှဝေမှု',
   'storage.plans.title': 'သင်နှင့်အတူ ကြီးထွားလာမည့် အစီအစဉ်များ',
   'storage.plans.unavailable':
     'အစီအစဉ်အချက်အလက်ကို စီစဉ်သတ်မှတ်ပြီးသည်နှင့် ဤနေရာတွင် ပေါ်လာပါမည်။',
   'storage.plans.youreOn': 'မင်းဒီအစီအစဉ်မှာပါဝင်တယ်',
   'terms.intro':
     'Nimbus ကိုအသုံးပြုခြင်းအားဖြင့် သင့်အကောင့်အထောက်အထားများကို လျှို့ဝှက်ထားရန်နှင့် သင်သိမ်းဆည်းပြီး မျှဝေပိုင်ခွင့်ရှိသော အကြောင်းအရာများကိုသာ အပ်လုဒ်လုပ်ရန် သင်သဘောတူပါသည်။',
+  'terms.subtitle': '{{appName}} ကို သင်အသုံးပြုနိုင်သည့် အခြေအနေများ။',
   'trash.actions.emptyAll': 'အမှိုက်ပုံးကို ရှင်းပါ',
   'trash.actions.emptyConfirm': 'ဟုတ်ကဲ့၊ ဗလာ',
   'trash.actions.emptyConfirmPrompt': 'အားလုံးကို အပြီးဖျက်မလား။',
@@ -232,7 +280,9 @@ export const ui: UiTranslations = {
   'trash.restoreError': 'ဖိုင်ကို ပြန်လည်ရယူ၍မရပါ။',
   'trash.row.daysAgo': '{{count}} လွန်ခဲ့သော ရက်',
   'trash.row.deleteConfirm': 'ဖျက်ရန်',
+  'trash.row.deleteConfirmPrompt': 'အပြီးတိုင် ဖျက်ပစ်မလား။',
   'trash.row.deleteForever': 'အပြီးတိုင်ဖျက်ရန်',
+  'trash.row.expires': 'ကျန်တာ {{days}} ရက်',
   'trash.row.hoursAgo': '{{count}} နာရီ ကြာပြီ',
   'trash.row.meta': 'ဖျက်လိုက်ပါပြီ {{deletedAt}}',
   'trash.row.minutesAgo': '{{count}} မိနစ်အကြာက',
@@ -252,6 +302,7 @@ export const ui: UiTranslations = {
   'upload.progress.error': 'အပ်လုဒ်လုပ်၍မရပါ။',
   'upload.progress.uploadFailed': 'အပ်လုဒ်လုပ်၍မရပါ။',
   'upload.progress.uploading': 'ဘိုက်များ အပ်လုဒ်လုပ်နေသည်…',
+  'upload.queue.clearDone': 'စင့်ခ်လုပ်ပြီးပါပြီ',
   'upload.queue.emptyHint':
     'အထက်ပါနေရာတွင် ဖိုင်များကို ချပါ သို့မဟုတ် စတင်ရန် Choose ခလုတ်များကို အသုံးပြုပါ။',
   'upload.queue.idle': 'လက်ရှိအပ်လုဒ်များ မရှိပါ။',

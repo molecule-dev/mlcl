@@ -1,14 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May feedback ka, may naranasan kang problema, o gusto mong sabihin sa amin kung ano ang susunod na gawin? Maabot ang team sa hello@reverie.app — bawat mensahe ay napupunta sa isang tunay na tao na gumagawa ng produkto.',
   'about.contactTitle': 'Makipag-ugnayan sa amin',
+  'about.missionTitle': 'Ang aming misyon',
   'auth.fields.newPassword': 'Bagong password',
   'collectionDetail.addImage': 'Lumikha para sa koleksyon',
   'collectionDetail.backCta': 'Bumalik sa mga koleksyon',
   'collectionDetail.coverNote': 'Pinipiling mood-board na may {{count}} larawan po.',
   'collectionDetail.editName': 'Pangalan ng koleksyon',
+  'collectionDetail.empty':
+    'Wala pang mga larawan sa koleksyong ito — bumuo ng isang bagay para magdagdag.',
   'collectionDetail.loading': 'Naglo-load ng koleksyon…',
   'collectionDetail.loadingImages': 'Naglo-load ng mga larawan…',
+  'collectionDetail.notFoundBody': 'Inalis na ang koleksyong ito o pribado ito.',
   'collectionDetail.notFoundTitle': 'Hindi magamit ang koleksyon',
   'collectionDetail.shared': 'Na-toggle ang visibility',
   'collections.create': 'Bagong koleksyon',
@@ -16,6 +22,7 @@ export const ui: UiTranslations = {
     'Wala pang mga koleksyon po. Gumawa ng isa para simulan ang pag-curate ng inyong mga gawa.',
   'collections.imageCount': '{{count}} larawan',
   'collections.loading': 'Naglo-load ng mga koleksyon…',
+  'collections.noDescription': 'Wala pang paglalarawan — buksan para magdagdag ng isa.',
   'collections.subtitle': 'Mga mood-board, brief, at kasalukuyang serye',
   'collections.title': 'Mga koleksyon',
   'collections.untitled': 'Walang pamagat · {{stamp}}',
@@ -55,6 +62,7 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'Ilagay po ang email na nakaugnay sa inyong Reverie account at magpapadala kami ng reset link.',
   'forgot.successBody': 'Papunta na po ang reset link sa {{email}}.',
+  'gallery.empty.body': 'Subukan ang ibang estado o bumuo ng bagong batch mula sa studio.',
   'gallery.empty.title': 'Walang tumutugma sa filter na iyon',
   'gallery.exportAll': 'I-export lahat',
   'gallery.exported': 'Na-queue ang export',
@@ -77,12 +85,15 @@ export const ui: UiTranslations = {
   'generate.controls.title': 'I-tune ang panaginip',
   'generate.defaultPrompt': 'Isang bagong panaginip',
   'generate.progress': 'Hakbang {{step}} / {{total}}',
+  'generate.submitFailed':
+    'Hindi ma-queue ang pagbuo — suriin ang iyong koneksyon at subukang muli.',
   'generate.subtitle': 'Bumuo po ng prompt, i-adjust ang mga kontrol, lumikha ng mga variant',
   'generate.title': 'Studio',
   'generation.created': '{{when}}',
   'imageDetail.acting': 'Ginagawa…',
   'imageDetail.actionFailed': 'Nabigo ang aksyon.',
   'imageDetail.actions': 'Mga aksyon sa larawan',
+  'imageDetail.downloadStarted': 'Nagsimula na ang pag-download.',
   'imageDetail.downloadUnavailable': 'Wala pang available na larawan na maida-download.',
   'imageDetail.fields.aspect': 'Aspect',
   'imageDetail.fields.created': 'Nilikha',
@@ -93,11 +104,17 @@ export const ui: UiTranslations = {
   'imageDetail.notFoundTitle': 'Hindi magamit ang larawan',
   'imageDetail.noVariations': 'Wala pang variation po — humiling ng isa sa itaas.',
   'imageDetail.openEditor': 'Buksan sa editor',
+  'imageDetail.tips.lockSeed':
+    'I-lock ang seed para paulit-ulit na ayusin ang ilaw nang hindi nawawala ang komposisyon.',
+  'imageDetail.tips.upscale':
+    'Patakbuhin ang upscale 4× bago i-export para sa kalidad na handa sa print.',
   'imageDetail.tipsTitle': 'Pinuhin ang panaginip',
+  'imageDetail.title': 'Larawan',
   'imageDetail.upscaleQueued': 'Na-queue ang upscale',
   'imageDetail.variations': 'Mga variation',
   'imageDetail.variationsQueued': 'Na-queue ang mga variation',
   'imageDetail.visibilityToggled': 'Na-update ang visibility',
+  'landing.copyright': '© {{year}} {{appName}} Labs. Ginawa gamit ang Molecule.dev.',
   'landing.cta': 'Magsimula nang lumikha',
   'landing.eyebrow': 'Naghahain na ng Reverie XL v3',
   'landing.featuresEyebrow': 'Bakit Reverie',
@@ -138,8 +155,18 @@ export const ui: UiTranslations = {
     'Magpapakita rito ang aktibidad ng pagbuo, pagbabahagi, at mga alerto ng credit.',
   'notifications.empty.title': 'Walang maiulat',
   'notifications.subtitle': 'Mga pangyayari ng pagbuo na nakagrupo ayon sa araw',
+  'planUpdated.confirmed': 'Aktibo ang iyong {{planKey}} plan at naidagdag na ang mga credit.',
+  'planUpdated.error':
+    'Hindi namin awtomatikong makumpirma ang iyong upgrade. Mangyaring makipag-ugnayan sa support.',
+  'planUpdated.retry': 'Subukan muli',
+  'planUpdated.unpaid':
+    'Hindi pa bayad ang iyong checkout session. Subukang muli mula sa Settings.',
+  'planUpdated.verifyFailed': 'Hindi pa namin makumpirma ang iyong bayad.',
+  'planUpdated.verifyFailedBody':
+    'Maaaring pinoproseso pa rin ang iyong bayad. Subukan muli maya-maya.',
   'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'pricing.limits.gallery': '{{count}} gallery',
+  'pricing.limits.generations': '{{count}} na henerasyon',
   'privacy.collect.body':
     'Kapag nag-sign up po kayo, kinukolekta namin ang inyong pangalan, email address, at na-hash na password. Habang ginagamit ninyo ang Reverie, sini-save namin ang mga prompt na inihain ninyo, mga larawang binuo namin para sa inyo, mga style at koleksyon na sini-save ninyo, at metadata gaya ng modelong ginamit, mga timestamp ng pagbuo, at balanse ng credit.',
   'privacy.cookies.body':
@@ -153,6 +180,8 @@ export const ui: UiTranslations = {
   'profile.followedBio': 'Sinimulang sundan ang isang creator kanina lang',
   'profile.following': 'Sumusunod…',
   'profile.loadingWorks': 'Naglo-load ng mga public works…',
+  'profile.noPublicWorks':
+    'Wala pang pampublikong gawa — magbahagi ng larawan para mapuno ang gallery na ito.',
   'profile.notFoundTitle': 'Hindi magamit ang profile',
   'profile.publicWorks': 'Mga public works',
   'profile.subtitle': '@{{handle}} · public creator profile',
@@ -164,6 +193,7 @@ export const ui: UiTranslations = {
   'prompts.empty.cta': 'Buksan ang studio',
   'prompts.empty.title': 'Walang tumutugmang naka-save na prompt',
   'prompts.lastUsed': 'Ginamit {{when}}',
+  'prompts.loading': 'Naglo-load ng mga prompt…',
   'prompts.negativeLabel': 'NEG',
   'prompts.runAgain': 'Patakbuhin',
   'prompts.running': 'Tumatakbo…',
@@ -179,6 +209,7 @@ export const ui: UiTranslations = {
   'settings.account.saveFailed': 'Hindi nai-save ang profile',
   'settings.account.title': 'Creator profile',
   'settings.accountSecurity': 'Account at seguridad',
+  'settings.accountSecurity.title': 'Pag-sign-in, mga device at account',
   'settings.api.empty': 'Wala pang API keys — gumawa ng isa para simulan ang pag-integrate.',
   'settings.api.loading': 'Naglo-load ng mga API key…',
   'settings.api.revoked': 'Nabawi ang API key',
@@ -197,13 +228,17 @@ export const ui: UiTranslations = {
   'sidebar.secondary': 'Pangalawang navigation',
   'signup.failed': 'Nabigo ang pag-sign up. Subukan ulit.',
   'signup.firstNamePlaceholder': 'Aria',
+  'signup.haveAccount': 'Dreamer ka na ba?',
   'signup.heading': 'Simulan ang inyong panaginip',
   'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Gumawa po ng account at kumuha ng 120 libreng credits.',
+  'styles.body':
+    'Bawat preset ay may sariling modelo, sampler, prompt scaffolding at style chips. I-activate ang isa para i-lock ang buong studio sa mood na iyon — perpekto para sa seryeng trabaho.',
   'styles.empty':
     'Wala pang style presets — magpapakita po ang mga ito pagkatapos ng unang sign-in.',
   'styles.eyebrow': 'Pinili',
   'styles.headline': 'Lumikha nang mas mabilis gamit ang muling magagamit na biswal na presets',
+  'styles.loading': 'Naglo-load ng style library…',
   'styles.subtitle': 'Mga piling biswal na presets na ginawa ng Reverie studio team',
   'styles.title': 'Style library',
   'terms.acceptableUse.body':

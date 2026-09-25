@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "ਕੋਈ ਸਵਾਲ ਹੈ, ਬੱਗ ਮਿਲਿਆ ਹੈ, ਜਾਂ ਆਪਣੀਆਂ ਕਿਤਾਬਾਂ ਇੱਥੇ ਲਿਆਉਣਾ ਚਾਹੁੰਦੇ ਹੋ? {{app}} ਟੀਮ ਨਾਲ hello@{{app}}.example 'ਤੇ ਸੰਪਰਕ ਕਰੋ — ਹਰ ਸੁਨੇਹਾ ਇੱਕ ਅਸਲੀ ਵਿਅਕਤੀ ਪੜ੍ਹਦਾ ਹੈ।",
   'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'about.eyebrow': 'ਬਾਰੇ',
+  'about.intro':
+    "{{app}} ਛੋਟੇ ਕਾਰੋਬਾਰਾਂ ਲਈ ਲੇਖਾਕਾਰੀ ਹੈ ਜੋ ਹਰ ਪੈਸੇ ਦਾ ਹਿਸਾਬ ਰੱਖਦੀ ਹੈ — ਇਨਵੌਇਸ, ਖਰਚੇ, ਭੁਗਤਾਨ ਅਤੇ ਰਿਪੋਰਟਾਂ ਇੱਕ ਹੀ ਸ਼ਾਂਤ ਥਾਂ 'ਤੇ ਮਾਲਕਾਂ, ਬੁੱਕਕੀਪਰਾਂ ਅਤੇ ਲੇਖਾਕਾਰਾਂ ਲਈ।",
+  'about.missionBody':
+    "ਕਾਰੋਬਾਰ ਚਲਾਉਣ ਦਾ ਮਤਲਬ ਆਪਣੀਆਂ ਕਿਤਾਬਾਂ ਤੋਂ ਡਰਨਾ ਨਹੀਂ ਹੋਣਾ ਚਾਹੀਦਾ। {{app}} ਸਪ੍ਰੈਡਸ਼ੀਟ ਦੀ ਫੈਲਾਅ ਨੂੰ ਸਾਫ਼ ਅੰਕੜਿਆਂ ਨਾਲ ਬਦਲਦੀ ਹੈ ਜਿਨ੍ਹਾਂ 'ਤੇ ਤੁਸੀਂ ਕੰਮ ਕਰ ਸਕਦੇ ਹੋ, ਤਾਂ ਜੋ ਤੁਸੀਂ ਮਿਲਾਨ ਕਰਨ ਵਿੱਚ ਘੱਟ ਸਮਾਂ ਅਤੇ ਉਹ ਕੰਮ ਕਰਨ ਵਿੱਚ ਵੱਧ ਸਮਾਂ ਲਾਓ ਜਿਸ ਲਈ ਤੁਸੀਂ ਅਸਲ ਵਿੱਚ ਕਾਰੋਬਾਰ ਸ਼ੁਰੂ ਕੀਤਾ ਸੀ।",
+  'about.missionTitle': 'ਸਾਡਾ ਮਿਸ਼ਨ',
   'about.title': '{{app}} ਬਾਰੇ',
   'accounts.count': '{{count}} ਖਾਤੇ',
+  'accounts.emptyBody':
+    'ਲੇਜ਼ਰ ਖਾਤੇ ਇਹ ਟਰੈਕ ਕਰਦੇ ਹਨ ਕਿ ਪੈਸਾ ਕਿੱਥੇ ਰਹਿੰਦਾ ਹੈ ਅਤੇ ਕਿੱਥੇ ਜਾਂਦਾ ਹੈ। ਜਦੋਂ ਤੁਹਾਡਾ ਬੁੱਕਕੀਪਰ ਜਾਂ ਇੰਟੀਗ੍ਰੇਸ਼ਨ ਇਹਨਾਂ ਨੂੰ ਸੈੱਟ ਕਰਦਾ ਹੈ ਤਾਂ ਇਹ ਇੱਥੇ ਦਿਖਾਈ ਦਿੰਦੇ ਹਨ।',
   'accounts.emptyTitle': 'ਹਾਲੇ ਕੋਈ ਖਾਤੇ ਨਹੀਂ ਹਨ',
   'accounts.heading': 'ਖਾਤਿਆਂ ਦਾ ਚਾਰਟ',
   'accounts.kpi.accounts': 'ਖਾਤੇ',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'ਤੁਹਾਡੇ ਇਨਵੌਇਸਾਂ, ਖਰਚਿਆਂ ਅਤੇ ਭੁਗਤਾਨਾਂ ਦੇ ਪਿੱਛੇ ਹਰੇਕ ਲੇਜਰ ਖਾਤਾ, ਕਿਸਮ ਅਨੁਸਾਰ ਸਮੂਹਬੱਧ।',
   'accounts.tag.inactive': 'ਅਕਿਰਿਆਸ਼ੀਲ',
   'authBrandPanel.attributionName': 'ਸਾਰਾਹ ਜੇਨਕਿੰਸ',
+  'authBrandPanel.attributionRole': 'ਮੁੱਖ ਵਿੱਤ ਅਧਿਕਾਰੀ, ਹੋਰਾਈਜ਼ਨ ਟੈਕ',
   'authBrandPanel.eyebrow': 'ਵਿੱਤ ਟੀਮਾਂ ਦੁਆਰਾ ਭਰੋਸੇਯੋਗ',
   'authBrandPanel.label': 'ਬ੍ਰਾਂਡ ਪ੍ਰਦਰਸ਼ਨੀ',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'ਸਾਰੇ ਗਾਹਕ',
   'customerDetail.invoiceMeta': 'ਜਾਰੀ ਕੀਤਾ ਗਿਆ {{issued}} · ਆਖਰੀ {{due}}',
   'customerDetail.loadError': 'ਗਾਹਕ ਨੂੰ ਲੋਡ ਕਰਨਾ ਅਸਫਲ ਰਿਹਾ।',
+  'customerDetail.missingBody':
+    'ਬੇਨਤੀ ਕੀਤਾ ਗਾਹਕ ਰਿਕਾਰਡ ਲੋਡ ਨਹੀਂ ਹੋ ਸਕਿਆ। ਹੋ ਸਕਦਾ ਹੈ ਇਹ ਹਟਾ ਦਿੱਤਾ ਗਿਆ ਹੋਵੇ, ਜਾਂ ਤੁਹਾਨੂੰ ਇਸਦੀ ਪਹੁੰਚ ਨਾ ਹੋਵੇ।',
   'customerDetail.missingHeading': 'ਗਾਹਕ ਰਿਕਾਰਡ ਉਪਲਬਧ ਨਹੀਂ ਹੈ',
+  'customerDetail.missingHelp':
+    "ਗਾਹਕਾਂ ਦੀ ਸੂਚੀ 'ਤੇ ਵਾਪਸ ਜਾਣ ਲਈ ਉੱਪਰ ਦਿੱਤੇ ਬੈਕ ਲਿੰਕ ਦੀ ਵਰਤੋਂ ਕਰੋ, ਜਾਂ ਉੱਥੋਂ ਕੋਈ ਹੋਰ ਰਿਕਾਰਡ ਚੁਣੋ।",
+  'customerDetail.noInvoices': 'ਅਜੇ ਤੱਕ ਕੋਈ ਇਨਵੌਇਸ ਨਹੀਂ।',
   'customerDetail.notesEmpty': 'ਅਜੇ ਕੋਈ ਨੋਟਸ ਨਹੀਂ।',
   'customerDetail.paymentsEmpty': 'ਕੋਈ ਭੁਗਤਾਨ ਦਰਜ ਨਹੀਂ ਕੀਤਾ ਗਿਆ।',
   'customerDetail.paymentTerms': 'ਭੁਗਤਾਨ ਦੀਆਂ ਸ਼ਰਤਾਂ',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'ਕਟੌਤੀਯੋਗ',
   'expenseDetail.detailsHeading': 'ਲੈਣ-ਦੇਣ ਦੇ ਵੇਰਵੇ',
   'expenseDetail.loadError': 'ਖਰਚਾ ਲੋਡ ਕਰਨਾ ਅਸਫਲ ਰਿਹਾ।',
+  'expenseDetail.matched': 'ਮਿਲਾਨ · {{description}}',
   'expenseDetail.missingBody':
     'ਬੇਨਤੀ ਕੀਤਾ ਖਰਚਾ ਲੋਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ। ਹੋ ਸਕਦਾ ਹੈ ਕਿ ਇਸਨੂੰ ਹਟਾ ਦਿੱਤਾ ਗਿਆ ਹੋਵੇ, ਜਾਂ ਹੋ ਸਕਦਾ ਹੈ ਕਿ ਤੁਹਾਡੇ ਕੋਲ ਇਸ ਤੱਕ ਪਹੁੰਚ ਨਾ ਹੋਵੇ।',
   'expenseDetail.missingHeading': 'ਖਰਚ ਰਿਕਾਰਡ ਉਪਲਬਧ ਨਹੀਂ ਹੈ',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'ਰਸੀਦ',
   'expenseDetail.receiptHeading': 'ਰਸੀਦ',
   'expenseDetail.reconciled': 'ਸੁਲ੍ਹਾ ਕੀਤੀ ਗਈ',
+  'expenseDetail.unreconciled': 'ਮੇਲ ਨਾ ਹੋਇਆ',
   'expenses.empty': 'ਅਜੇ ਕੋਈ ਖਰਚਾ ਨਹੀਂ।',
   'expenses.heading': 'ਖਰਚੇ',
   'expenses.kpi.deductible': 'ਕਟੌਤੀਯੋਗ',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'ਇਨਵੌਇਸ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'invoices.searchPlaceholder': 'ਇਨਵੌਇਸ # ਜਾਂ ਗਾਹਕ ਖੋਜੋ...',
   'invoices.summary.paid': 'ਇਸ ਮਿਆਦ ਦਾ ਭੁਗਤਾਨ ਕੀਤਾ ਗਿਆ',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     '30 ਦਿਨਾਂ ਲਈ ਮੁਫ਼ਤ। ਕੋਈ ਕਾਰਡ ਨਹੀਂ। ਆਪਣਾ ਅਕਾਊਂਟੈਂਟ ਲਿਆਓ — ਉਹ ਤੁਹਾਡਾ ਧੰਨਵਾਦ ਕਰਨਗੇ।',
   'landing.ctaTitle': "ਆਪਣੀਆਂ ਕਿਤਾਬਾਂ ਨੂੰ ਕਿਸੇ ਸ਼ਾਂਤ ਜਗ੍ਹਾ 'ਤੇ ਲੈ ਜਾਓ।",
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'ਅਕਾਊਂਟਸ ਰੀਸੀਵੇਬਲ',
   'ledgerStatTriad.eyebrow.mtd': 'ਮਹੀਨਾ ਤੋਂ ਅੱਜ ਤੱਕ',
   'ledgerStatTriad.netSub': 'ਨੈੱਟ {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} ਬਕਾਇਆ',
   'ledgerStatTriad.revenueLabel': 'ਮਾਲੀਆ',
   'login.failed': 'ਸਾਈਨ ਇਨ ਅਸਫਲ ਰਿਹਾ।',
   'login.hidePassword': 'ਪਾਸਵਰਡ ਲੁਕਾਓ',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'ਸਾਈਨ - ਇਨ',
   'nav.legal': 'ਕਾਨੂੰਨੀ',
   'newExpense.back': 'ਖਰਚੇ',
+  'newExpense.clearReceiptCta': 'ਨੱਥੀ ਰਸੀਦ ਸਾਫ਼ ਕਰੋ',
   'newExpense.deductible': 'ਟੈਕਸ ਕਟੌਤੀਯੋਗ',
   'newExpense.dropPrompt': 'ਨੱਥੀ ਕਰਨ ਲਈ ਇੱਥੇ ਇੱਕ ਰਸੀਦ ਫੋਟੋ ਜਾਂ PDF ਪਾਓ।',
   'newExpense.failed': 'ਖਰਚਾ ਨਹੀਂ ਬਚਾ ਸਕਿਆ।',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'ਭੁਗਤਾਨ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'payments.unmatchedTag': 'ਬੇਮਿਸਾਲ',
   'planUpdated.pageLabel': 'ਪਲਾਨ ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ ਪੁਸ਼ਟੀਕਰਨ',
+  'pricing.advancedFeatures': 'ਉੱਨਤ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ: {{yes}}',
+  'pricing.canExport': 'ਡੇਟਾ ਐਕਸਪੋਰਟ: {{yes}}',
+  'pricing.heading': 'ਆਪਣੀ {{app}} ਯੋਜਨਾ ਚੁਣੋ',
+  'pricing.maxAccounts': '{{count}} ਖਾਤੇ',
+  'pricing.maxExpenses': '{{count}} ਖਰਚੇ',
+  'pricing.maxInvoices': '{{count}} ਇਨਵੌਇਸ',
+  'privacy.intro':
+    'ਇਹ ਗੋਪਨੀਯਤਾ ਨੀਤੀ ਦੱਸਦੀ ਹੈ ਕਿ {{app}} ਸੇਵਾ ਵਰਤਣ ਵਾਲੇ ਕਾਰੋਬਾਰਾਂ ਬਾਰੇ ਜਾਣਕਾਰੀ ਕਿਵੇਂ ਇਕੱਠੀ ਕਰਦੀ ਹੈ, ਵਰਤਦੀ ਹੈ ਅਤੇ ਪ੍ਰਗਟ ਕਰਦੀ ਹੈ।',
   'privacy.lastUpdated': 'ਆਖਰੀ ਵਾਰ ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ: {{ਮਿਤੀ}}',
   'privacy.section.collected.body':
     'ਅਸੀਂ ਖਾਤੇ ਦੇ ਵੇਰਵੇ (ਨਾਮ, ਈਮੇਲ, ਕੰਪਨੀ), ਤੁਹਾਡੇ ਦੁਆਰਾ ਅੱਪਲੋਡ ਕੀਤੇ ਗਏ ਵਿੱਤੀ ਰਿਕਾਰਡ (ਇਨਵੌਇਸ, ਖਰਚੇ, ਗਾਹਕ, ਭੁਗਤਾਨ), ਅਤੇ ਮਿਆਰੀ ਸੇਵਾ-ਸੰਚਾਲਨ ਲੌਗ (IP, ਉਪਭੋਗਤਾ-ਏਜੰਟ, ਟਾਈਮਸਟੈਂਪ) ਇਕੱਠੇ ਕਰਦੇ ਹਾਂ।',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     "ਜਾਣਕਾਰੀ ਦੀ ਵਰਤੋਂ ਸੇਵਾ ਨੂੰ ਚਲਾਉਣ, ਤੁਹਾਡੇ ਦੁਆਰਾ ਬੇਨਤੀ ਕੀਤੀਆਂ ਰਿਪੋਰਟਾਂ ਅਤੇ PDF ਤਿਆਰ ਕਰਨ, ਮੇਲਗਨ ਰਾਹੀਂ ਲੈਣ-ਦੇਣ ਸੰਬੰਧੀ ਈਮੇਲ ਭੇਜਣ ਅਤੇ ਸਟ੍ਰਾਈਪ ਰਾਹੀਂ ਭੁਗਤਾਨਾਂ ਦੀ ਪ੍ਰਕਿਰਿਆ ਕਰਨ ਲਈ ਕੀਤੀ ਜਾਂਦੀ ਹੈ। ਅਸੀਂ ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਵੇਚਦੇ ਜਾਂ ਕਿਰਾਏ 'ਤੇ ਨਹੀਂ ਦਿੰਦੇ।",
   'recentInvoicesCard.dueMeta': 'ਬਕਾਇਆ {{date}}',
+  'recentInvoicesCard.empty': 'ਕੋਈ ਇਨਵੌਇਸ ਮੇਲ ਨਹੀਂ ਖਾਂਦੇ।',
   'recentInvoicesCard.eyebrow': 'ਅਕਾਊਂਟਸ ਰੀਸੀਵੇਬਲ',
   'recentInvoicesCard.searchAriaLabel': 'ਇਨਵੌਇਸ ਖੋਜੋ',
+  'recentInvoicesCard.searchPlaceholder': 'ਇਨਵੌਇਸ ਖੋਜੋ…',
   'recentInvoicesCard.title': 'ਹਾਲੀਆ ਇਨਵੌਇਸ',
   'recentInvoicesCard.viewAll': 'ਸਾਰੇ ਇਨਵੌਇਸ ਵੇਖੋ →',
   'reports.assets': 'ਸੰਪਤੀਆਂ',
@@ -181,16 +211,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'ਲਾਭ ਅਤੇ ਨੁਕਸਾਨ (12 ਮਹੀਨੇ)',
   'resetPassword.backToLogin': "← ਸਾਈਨ ਇਨ 'ਤੇ ਵਾਪਸ ਜਾਓ",
   'resetPassword.hidePassword': 'ਪਾਸਵਰਡ ਲੁਕਾਓ',
+  'resetPassword.passwordLabel': 'ਨਵਾਂ ਪਾਸਵਰਡ',
   'resetPassword.showPassword': 'ਪਾਸਵਰਡ ਦਿਖਾਓ',
+  'resetPassword.subheading': 'ਮਜ਼ਬੂਤ ਪਾਸਵਰਡ ਚੁਣੋ — ਘੱਟੋ-ਘੱਟ ਅੱਠ ਅੱਖਰ।',
   'resetPassword.submit': 'ਪਾਸਵਰਡ ਰੀਸੈਟ ਕਰੋ',
   'resetPassword.tooShort': 'ਪਾਸਵਰਡ ਘੱਟੋ-ਘੱਟ 8 ਅੱਖਰਾਂ ਦਾ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ।',
   'settings.account.changePassword': 'ਪਾਸਵਰਡ ਬਦਲੋ',
   'settings.account.changingPassword': 'ਬਦਲ ਰਿਹਾ ਹੈ...',
   'settings.account.currentPassword': 'ਵਰਤਮਾਨ ਪਾਸਵਰਡ',
+  'settings.account.dangerZone': 'ਖ਼ਤਰੇ ਵਾਲਾ ਖੇਤਰ',
   'settings.account.deleteAccount': 'ਖਾਤਾ ਮਿਟਾਓ',
   'settings.account.deleteDescription':
     "ਆਪਣਾ ਖਾਤਾ ਅਤੇ ਇਸ ਨਾਲ ਸੰਬੰਧਿਤ ਸਾਰਾ ਡਾਟਾ ਸਥਾਈ ਤੌਰ 'ਤੇ ਮਿਟਾਓ।",
   'settings.account.deleteError': 'ਖਾਤਾ ਮਿਟਾਉਣਾ ਅਸਫਲ ਰਿਹਾ।',
+  'settings.account.deleteWarning':
+    'ਇਹ ਤੁਹਾਡਾ ਖਾਤਾ ਹਮੇਸ਼ਾ ਲਈ ਮਿਟਾ ਦੇਵੇਗਾ ਅਤੇ ਇਸਨੂੰ ਵਾਪਸ ਨਹੀਂ ਲਿਆ ਜਾ ਸਕਦਾ। ਪੁਸ਼ਟੀ ਲਈ ਆਪਣਾ ਪਾਸਵਰਡ ਦਰਜ ਕਰੋ।',
   'settings.account.deleting': 'ਮਿਟਾਇਆ ਜਾ ਰਿਹਾ ਹੈ…',
   'settings.account.devices': 'ਡਿਵਾਈਸਾਂ',
   'settings.account.email': 'ਈਮੇਲ',
@@ -201,6 +236,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'ਪਾਸਵਰਡ',
   'settings.account.passwordError': 'ਪਾਸਵਰਡ ਬਦਲਣ ਵਿੱਚ ਅਸਫਲ।',
   'settings.account.pushNotifications': "ਇਸ ਡਿਵਾਈਸ 'ਤੇ ਪੁਸ਼ ਸੂਚਨਾਵਾਂ",
+  'settings.account.revokeDeviceWarning':
+    'ਇਸ ਡਿਵਾਈਸ ਦੀ ਪਹੁੰਚ ਜਲਦੀ ਹੀ ਰੱਦ ਕਰ ਦਿੱਤੀ ਜਾਵੇਗੀ। ਇਸਨੂੰ ਸਾਈਨ ਆਊਟ ਕਰਨਾ ਹੈ?',
   'settings.account.saveError': 'ਪ੍ਰੋਫਾਈਲ ਅੱਪਡੇਟ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'settings.account.security': 'ਸੁਰੱਖਿਆ',
   'settings.account.signOutDevice': 'ਸਾਇਨ ਆਉਟ',
@@ -208,12 +245,19 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'ਦੋ-ਕਾਰਕ ਪ੍ਰਮਾਣਿਕਤਾ',
   'settings.account.twoFactorCode': 'ਪ੍ਰਮਾਣੀਕਰਨ ਕੋਡ',
   'settings.account.twoFactorDisable': 'ਅਯੋਗ ਕਰੋ',
+  'settings.account.twoFactorDisableTitle': 'ਦੋ-ਪੜਾਅ ਪ੍ਰਮਾਣਿਕਤਾ ਬੰਦ ਕਰੋ',
   'settings.account.twoFactorEnable': 'ਯੋਗ ਬਣਾਓ',
+  'settings.account.twoFactorEnableTitle': 'ਦੋ-ਪੜਾਅ ਪ੍ਰਮਾਣਿਕਤਾ ਚਾਲੂ ਕਰੋ',
   'settings.account.twoFactorInvalidCode': 'ਅਵੈਧ ਕੋਡ',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'ਦੋ-ਪੜਾਅ QR ਕੋਡ',
+  'settings.account.twoFactorScan':
+    'ਇਸ QR ਕੋਡ ਨੂੰ ਆਪਣੀ ਪ੍ਰਮਾਣਿਕਤਾ ਐਪ ਨਾਲ ਸਕੈਨ ਕਰੋ, ਫਿਰ 6-ਅੰਕਾਂ ਵਾਲਾ ਕੋਡ ਦਰਜ ਕਰੋ।',
+  'settings.account.twoFactorUnavailable': 'ਇਸ ਐਪ ਲਈ ਦੋ-ਕਾਰਕ ਪ੍ਰਮਾਣੀਕਰਨ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।',
   'settings.account.twoFactorVerify': 'ਪੁਸ਼ਟੀ ਕਰੋ ਅਤੇ ਸਮਰੱਥ ਬਣਾਓ',
   'settings.account.unknownDevice': 'ਅਗਿਆਤ ਡਿਵਾਈਸ',
   'settings.company.email': 'ਬਿਲਿੰਗ ਈਮੇਲ',
+  'settings.company.heading': 'ਕੰਪਨੀ ਅਤੇ ਟੈਕਸ',
   'settings.company.name': 'ਕਾਨੂੰਨੀ ਨਾਮ',
   'settings.company.saveButton': 'ਕੰਪਨੀ ਪ੍ਰੋਫਾਈਲ ਸੇਵ ਕਰੋ',
   'settings.company.taxId': 'ਟੈਕਸ ਆਈਡੀ / EIN',
@@ -256,6 +300,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'ਅੰਦਾਜ਼ਨ ਤਿਮਾਹੀ',
   'taxes.kpi.owed': 'ਦੇਣਦਾਰ',
   'taxes.loadError': 'ਟੈਕਸ ਸਾਰਾਂਸ਼ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
+  'taxes.remittedPct': '({{pct}}% ਭੇਜਿਆ ਗਿਆ)',
+  'terms.intro':
+    'ਇਹ ਸੇਵਾ ਦੀਆਂ ਸ਼ਰਤਾਂ ("ਸ਼ਰਤਾਂ") ਤੁਹਾਡੀ {{app}} ਤੱਕ ਪਹੁੰਚ ਅਤੇ ਵਰਤੋਂ ਨੂੰ ਨਿਯੰਤਰਿਤ ਕਰਦੀਆਂ ਹਨ। ਖਾਤਾ ਬਣਾ ਕੇ ਜਾਂ ਸੇਵਾ ਵਰਤ ਕੇ ਤੁਸੀਂ ਇਹਨਾਂ ਨਾਲ ਬੱਝਣ ਲਈ ਸਹਿਮਤ ਹੁੰਦੇ ਹੋ।',
   'terms.lastUpdated': 'ਆਖਰੀ ਵਾਰ ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ: {{ਮਿਤੀ}}',
   'terms.section.acceptable.body':
     'ਤੁਸੀਂ ਇਸ ਸੇਵਾ ਦੀ ਵਰਤੋਂ ਕਿਸੇ ਵੀ ਕਾਨੂੰਨ ਦੀ ਉਲੰਘਣਾ ਕਰਨ, ਬੌਧਿਕ-ਸੰਪੱਤੀ ਅਧਿਕਾਰਾਂ ਦੀ ਉਲੰਘਣਾ ਕਰਨ, ਮਾਲਵੇਅਰ ਸੰਚਾਰਿਤ ਕਰਨ, ਜਾਂ ਹੋਰ ਖਾਤਿਆਂ ਜਾਂ ਸਾਡੇ ਬੁਨਿਆਦੀ ਢਾਂਚੇ ਤੱਕ ਅਣਅਧਿਕਾਰਤ ਪਹੁੰਚ ਪ੍ਰਾਪਤ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰਨ ਲਈ ਨਹੀਂ ਕਰਨ ਲਈ ਸਹਿਮਤ ਹੋ।',

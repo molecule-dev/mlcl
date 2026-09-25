@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'سؤالی دارید، بازخوردی دارید، یا برای تیم‌تان دمو می‌خواهید؟ به hello@conduit.dev ایمیل بزنید — هر پیام به یک فرد واقعی در تیم می‌رسد.',
   'about.contactHeading': 'تماس بگیرید',
   'about.eyebrow': 'درباره',
+  'about.featuresHeading': 'آنچه به دست می‌آورید',
+  'about.introBody':
+    '{{app}} تحویل مداوم به سبک GitHub Actions را در یک داشبورد سریع گرد هم می‌آورد: پایپ‌لاین‌ها، لاگ‌های بیلد، آرتیفکت‌ها، نشان‌های وضعیت و محیط‌های استقرار برای همه مخزن‌های شما در یک جا. بدون جابه‌جایی بین تب‌ها، بدون حدس زدن اینکه کدام بیلد خراب شده — هر اجرا، هر خط لاگ و هر استقرار فقط یک کلیک فاصله دارد.',
+  'about.introHeading': '{{app}} چیست',
+  'about.missionBody':
+    'عرضه نرم‌افزار باید آرام و قابل پیش‌بینی باشد، نه منبع دلهره. ما پایپ‌لاین‌ها، لاگ‌ها و ابزارهای استقرار را می‌سازیم تا مسیر از کامیت تا پروداکشن سریع، شفاف و قابل اعتماد باشد — اولین بیلد سبز در پنج دقیقه، و هر بیلد بعدی هم به همان وضوح.',
+  'about.missionHeading': 'ماموریت ما',
+  'about.subtitle':
+    '{{app}} یک داشبورد CI/CD برای تیم‌هایی است که می‌خواهند بیلدها، استقرارها و محیط‌ها را در همه مخزن‌ها رصد کنند — و با اطمینان عرضه کنند.',
   'artifacts.empty': 'هنوز هیچ اثری یافت نشده است.',
   'artifacts.heading': 'مصنوعات',
   'artifacts.loadError': 'بارگذاری مصنوعات ناموفق بود.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ محفظه مجرا --لیست',
   'environments.heading': 'محیط‌ها',
   'environments.loadError': 'بارگیری محیط‌ها ناموفق بود.',
+  'environments.loading': 'بارگذاری محیط‌ها…',
   'environments.subheading': 'وضعیت استقرار زنده در هر هدف.',
   'forgotPassword.runnerStatus': 'تنظیم مجدد · تونل امن',
+  'forgotPassword.success':
+    'اگر برای آن ایمیل حساب کاربری وجود دارد، لینک بازنشانی در راه است. صندوق ورودی خود را بررسی کنید.',
   'insights.changeFailureRate': 'تغییر نرخ شکست',
   'insights.deployFrequency': 'مستقر / روز',
   'insights.empty': 'هنوز داده کافی نیست.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'بارگیری بینش‌ها ناموفق بود.',
   'insights.meanP95': 'معنی {{mean}} · پی۹۵ {{p95}}',
   'insights.mttr': 'ام تی آر',
+  'insights.slowestStepsHeading': 'کندترین مراحل پایپ‌لاین',
   'insights.successRateHeading': 'میزان موفقیت خط لوله (۱۴ روز گذشته)',
   'landing.choosePlan': 'طرح را انتخاب کنید',
+  'landing.copyright': '© {{year}} {{app}}. با اطمینان عرضه کنید.',
   'landing.ctaBody':
     'بدون نیاز به کارت اعتباری. بدون نیاز به مهندس سکو. اولین خط لوله را در عرض پنج دقیقه سبز کنید.',
   'landing.ctaHeading': 'با اطمینان خاطر ارسال کنید.',
   'landing.featuresEyebrow': '// ویژگی‌های پلتفرم',
   'landing.featuresHeading': 'ساخته شده برای ارسال‌کنندگان، توسط ارسال‌کنندگان',
+  'landing.heroSubtitle':
+    'پایپ‌لاین‌هایی که در چند ثانیه تمام می‌شوند. لاگ‌هایی که می‌توانید بخوانید. استقرارهایی که می‌توانید به آن‌ها اعتماد کنید.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit مستقر می‌شود --به‌طور ایمن',
   'landing.pricingEyebrow': '// قیمت‌گذاری $ --plain',
   'landing.pricingHeading': 'قیمت‌گذاری ساده و قابل پیش‌بینی',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'هم اکنون در حال پرواز',
   'pipelines.metric.successCaption': '{{count}} از {{total}} اجرا می‌شود',
   'pipelines.metric.successRate': 'میزان موفقیت',
+  'pipelines.realtimeOn': 'بلادرنگ',
   'pipelines.subheading': 'به‌روزرسانی‌های زنده از هر مخزن مشاهده‌شده.',
+  'pricing.advancedFeatures': 'ویژگی‌های پیشرفته: {{mark}}',
+  'pricing.canExport': 'خروجی داده: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} آرتیفکت',
+  'pricing.maxBuilds': '{{count}} بیلد',
+  'pricing.maxPipelines': '{{count}} پایپ‌لاین',
   'privacy.dataAccount': 'حساب کاربری: نام، ایمیل، رمز عبور هش شده، سطح طرح.',
   'privacy.intro':
     '{{برنامه}} فقط حداقل داده‌های مورد نیاز برای راه‌اندازی حساب تحویل مداوم شما را جمع‌آوری می‌کند: ایمیل شما، مخازنی که متصل می‌کنید، کامیت‌ها و فراداده‌های ساختی که اجراکننده‌های شما تولید می‌کنند، و رازهایی که شما برای ذخیره نزد ما انتخاب می‌کنید. ما هرگز کد منبع شما را خارج از اجراکننده ساخت نمی‌خوانیم؛ مصنوعات ساخت هنگام پیکربندی در سطل S3 شما ذخیره می‌شوند.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'ما از Stripe برای صورتحساب، Mailgun برای ایمیل‌های تراکنشی و AWS S3 برای ذخیره‌سازی مصنوعات ساخت استفاده می‌کنیم. هر کدام از این سرویس‌ها از نظر قراردادی به حداقل حجم داده‌های مورد نیاز برای ارائه خدمات خود متعهد هستند.',
   'privacy.rightsBody':
     'شما می‌توانید هر بایت از داده‌های خود را صادر کنید، حساب خود را در هر زمانی از تنظیمات حذف کنید و درخواست ثبت هر تحویل وب‌هوک در حساب خود را داشته باشید. ما ظرف 30 روز به درخواست‌های GDPR / CCPA پاسخ می‌دهیم.',
+  'privacy.subtitle':
+    'نحوه جمع‌آوری، ذخیره و محافظت {{app}} از داده‌های شما هنگام اجرای پایپ‌لاین‌ها.',
   'privacy.title': 'سیاست حفظ حریم خصوصی',
   'repositories.empty': 'هیچ مخزنی متصل نیست.',
   'repositories.heading': 'مخازن',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'همه مخازن',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'بارگیری مخزن ناموفق بود.',
+  'repositoryDetail.meanDuration': 'میانگین مدت',
   'repositoryDetail.notFound': 'مخزن پیدا نشد.',
+  'repositoryDetail.successRate': 'میزان موفقیت',
   'repositoryDetail.totalBuilds': 'کل ساخت و سازها',
   'repositoryDetail.webhookActive': 'فعال',
   'repositoryDetail.webhookPaused': 'مکث کرد',
   'repositoryDetail.webhooksHeading': 'وب هوک ها',
+  'resetPassword.passwordLabel': 'رمز عبور جدید',
   'resetPassword.runnerStatus': 'بازنشانی · توکن تأیید شد',
   'resetPassword.subtitle': 'یک رمز عبور قوی انتخاب کنید که قبلاً از آن استفاده نکرده باشید.',
   'resetPassword.tokenPlaceholder': 'چسباندن از ایمیل',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'مخازن Conduit watchs. برای جلوگیری از دریافت رویدادها، از ارائه‌دهنده VCS خود جدا شوید.',
   'settings.repositories.empty': 'هنوز هیچ مخزنی متصل نشده است.',
+  'settings.repositories.heading': 'اتصال‌های مخزن',
   'settings.repositories.loadError': 'بارگیری مخازن ناموفق بود.',
   'settings.secrets.addCta': 'راز اضافه کنید',
   'settings.secrets.addError': 'افزودن رمز ناموفق بود.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'حذف راز ناموفق بود.',
   'settings.secrets.empty': 'هیچ رازی ذخیره نشده است.',
   'settings.secrets.heading': 'اسرار',
+  'settings.secrets.lastUsed': 'آخرین استفاده {{date}}',
   'settings.secrets.loadError': 'بارگیری اسرار ناموفق بود.',
   'settings.secrets.neverUsed': 'هرگز استفاده نشده',
   'settings.secrets.rotateCta': 'چرخش',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'به‌روزرسانی وب‌هوک ناموفق بود.',
   'signup.namePlaceholder': 'پارک رایلی',
   'signup.runnerStatus': 'سطح رایگان · ۱۰۰۰ ساخت در دقیقه/ماه',
+  'terms.intro':
+    'با ساخت حساب {{app}}، شما با این شرایط موافقت می‌کنید. آن‌ها استفاده قابل قبول از رانرهای بیلد، مرزهای SLA ما و شرایطی را پوشش می‌دهند که تحت آن می‌توانیم حساب شما را به دلیل بارهای کاری سوءاستفاده‌آمیز معلق یا خاتمه دهیم.',
   'terms.slaBody':
     'طرح‌های حرفه‌ای و تیمی، آپتایم ماهانه ۹۹.۹۵٪ را برای API و runner pool هدف قرار می‌دهند. طرح رایگان به همان شکلی که هست ارائه می‌شود. قطعی‌ها در status.conduit.dev گزارش می‌شوند و طبق فرمول موجود در فاکتور شما، به حساب شما منظور می‌شوند.',
   'terms.terminationBody':

@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Punya masukan, menemukan bug, atau ingin bercerita bagaimana journaling membantumu? Kami membaca setiap pesan — hubungi kami kapan saja dan orang sungguhan akan membalasmu.',
+  'about.contactTitle': 'Hubungi kami',
+  'about.featureInsights':
+    'Refleksi berbasis AI yang dengan lembut menyoroti pemicu, tema, dan rasa syukur — tanpa kehilangan suaramu.',
+  'about.featureMood':
+    'Pelacakan suasana hati dan aktivitas dengan tampilan kalender dan grafik tren yang mengungkap apa yang membantumu berkembang.',
+  'about.featurePrivacy':
+    'Enkripsi end-to-end, kunci sandi, dan ekspor CSV penuh agar refleksimu tetap privat dan portabel.',
+  'about.featurePrompts':
+    'Pemicu harian yang lembut agar kamu selalu punya tempat untuk memulai — tak pernah halaman kosong.',
+  'about.intro':
+    '{{app}} adalah jurnal kesehatan mental yang lembut dan privat untuk refleksi harian, pelacakan suasana hati, dan rasa syukur. Pemicu yang penuh perhatian menggantikan halaman kosong, pencarian pola yang tenang membantumu memahami apa yang memengaruhi perasaanmu, dan enkripsi end-to-end menjaga kata-katamu tetap milikmu.',
+  'about.missionBody':
+    'Kami percaya memeriksa diri sendiri seharusnya terasa tenang, bukan seperti di klinik — dan tak pernah seperti aplikasi lain yang menuntut perhatianmu. {{app}} dirancang untuk membantu, bukan mengganggu: beberapa menit tenang setiap hari untuk menyadari suasana hatimu, menulis dengan jujur, dan perlahan melihat dirimu lebih jelas.',
+  'about.missionTitle': 'Misi kami',
   'about.pageTitle': 'Tentang {{app}}',
   'authShell.encryptionBadge': 'Entri Anda dienkripsi dari ujung ke ujung.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Hari {{day}} — belum ada entri',
   'calendar.cellMood': 'Hari {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Sekilas tentang bulan ini',
   'calendar.eyebrow': 'Suasana hati sekilas',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Tercatat {{tracked}} dari {{total}} hari bulan ini.',
   'common.goToDashboard': 'Ke Dashboard',
   'common.tryAgain': 'Coba lagi',
+  'entryComposer.bodyPlaceholder':
+    'Tulis apa pun yang terasa jujur. Tak ada orang lain yang akan membacanya.',
   'entryComposer.cancel': 'Kembali ke jurnal',
   'entryComposer.heading': 'Refleksi hari ini',
   'entryComposer.moodLabel': 'Bagaimana perasaan Anda?',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Hapus {{tag}}',
   'entryComposer.save': 'Simpan refleksi',
   'entryComposer.saveError': 'Tidak dapat menyimpan entri Anda.',
+  'entryComposer.tagPlaceholder': 'Tambahkan tag dan tekan enter',
   'entryComposer.titlePlaceholder': 'Beri nama refleksi ini…',
   'entryDetail.back': 'Kembali ke jurnal',
   'entryDetail.delete': 'Hapus entri ini',
@@ -36,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Memuat refleksi…',
   'entryDetail.notFound': 'Entri tidak ditemukan.',
   'entryDetail.reflectionsHeading': 'Refleksi AI',
+  'forgotPassword.continueButton': 'Masukkan kode reset',
   'forgotPassword.eyebrow': 'Jangan khawatir',
   'forgotPassword.subheading':
     'Kami akan mengirim tautan pengaturan ulang yang lembut ke email Anda.',
@@ -59,14 +80,21 @@ export const ui: UiTranslations = {
     'Belum ada tema — tambahkan satu atau dua tag pada entri Anda dan semuanya akan terkumpul di sini.',
   'insights.themesHeading': 'Tema teratas',
   'insights.triggerFrequency': 'diperhatikan {{count}}× bulan ini',
+  'insights.triggersEmpty':
+    'Belum ada yang bisa disadari. Beberapa entri selama beberapa hari akan menunjukkan polamu.',
   'insights.triggersHeading': 'Pola yang menggerakkan suasana hati Anda',
+  'journal.empty': 'Tidak ada refleksi yang cocok — coba filter lain atau tulis entri baru.',
   'journal.eyebrow': 'Refleksi Anda',
   'journal.heading': 'Jurnal',
   'journal.loadError': 'Gagal memuat entri.',
   'journal.loading': 'Memuat entri…',
+  'journal.newEntry': 'Entri baru',
   'journal.searchPlaceholder': 'Cari sebuah perasaan, sebuah nama, sebuah momen…',
   'journal.subheading': '{{count}} entri — setiap satunya layak disimpan.',
   'journalEntryCard.encryptedLabel': 'Terenkripsi',
+  'landing.ctaBody':
+    'Gratis untuk memulai. Pro membuka ekspor data, jurnal lebih besar, dan riwayat setahun penuh.',
+  'landing.ctaButton': 'Mulai entri pertama Anda',
   'landing.ctaTitle': 'Beberapa menit tenang sehari. Hanya itu saja.',
   'landing.eyebrow': 'Sebuah praktik harian yang lembut',
   'landing.featuresBody':
@@ -85,6 +113,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Ruang yang lembut untuk refleksi harian.',
   'mentalHealthJournalLayout.closeMenu': 'Tutup menu',
   'mentalHealthJournalLayout.openMenu': 'Buka menu',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Navigasi utama',
+  'moodHeroCard.entriesThisWeek': '{{count}} minggu ini',
   'moodHeroCard.streakSuffix': 'rangkaian hari',
   'moodHeroCard.title': 'Refleksi hari ini',
   'moodTrendChart.aiBadge': 'Wawasan AI siap',
@@ -95,11 +125,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Perjalanan Anda',
   'profile.fallbackName': 'Perenung',
   'profile.loadError': 'Gagal memuat statistik.',
+  'profile.loading': 'Menyegarkan statistikmu…',
   'profile.longestStreak': 'Rangkaian terpanjang',
   'profile.memberSince': 'Merefleksikan sejak {{date}}',
   'profile.milestones': 'Tonggak',
   'profile.milestonesEmpty':
     'Pencapaian pertama Anda hanya tinggal satu entri lagi — tulislah kapan pun Anda merasa siap.',
+  'profile.moodMix': 'Campuran suasana hatimu musim ini',
   'profile.streakValue': '{{days}}h',
   'profile.totalEntries': 'Refleksi',
   'profile.totalWords': 'Kata yang ditulis',
@@ -112,6 +144,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Tulis tentang ini',
   'resetPassword.eyebrow': 'Awal yang baru',
   'resetPassword.mismatchError': 'Kata sandi tidak cocok.',
+  'resetPassword.passwordLabel': 'Kata sandi baru',
   'resetPassword.subheading': 'Pilih sesuatu yang aman — refleksi Anda layak mendapatkannya.',
   'resetPassword.tokenPlaceholder': 'Kode pengaturan ulang dari email',
   'settings.dangerDescription':
@@ -123,11 +156,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'Tidak dapat menghapus akun.',
   'settings.exportDescription': 'Kata-kata Anda selalu milik Anda. Unduh salinan kapan saja.',
   'settings.exportDone': '{{format}} diekspor.',
+  'settings.exportError': 'Ekspor gagal.',
+  'settings.exportHeading': 'Ekspor refleksimu',
   'settings.exportLoading': 'Menyiapkan…',
   'settings.eyebrow': 'Ruang Anda, aturan Anda',
   'settings.languageHeading': 'Bahasa',
   'settings.privacyHeading': 'Privasi & enkripsi',
   'settings.remindersHeading': 'Pengingat harian',
+  'settings.reminderToggleAria': 'Alihkan pengingat harian',
   'settings.reminderToggleDescription':
     'Satu pengingat tenang pada waktu yang Anda pilih. Tanpa lencana atau rasa bersalah rangkaian.',
   'settings.reminderToggleLabel': 'Kirim dorongan lembut',
@@ -140,6 +176,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Membuat jurnal…',
   'signup.subheading': 'Ruang aman untuk pikiran Anda.',
   'wellnessRingsTriad.mindfulnessCaption': 'Target {{goal}} mnt hari ini',
+  'wellnessRingsTriad.mindfulnessLabel': 'Kesadaran penuh',
   'wellnessRingsTriad.sleepCaption': 'Target {{goal}}j / malam',
   'wellnessRingsTriad.sleepLabel': 'Tidur',
+  'wellnessRingsTriad.sleepValue': '{{hours}} jam',
+  'wellnessRingsTriad.streakCaption': 'Target {{goal}} hari',
+  'wellnessRingsTriad.streakLabel': 'Rentetan jurnal',
+  'wellnessRingsTriad.streakValue': '{{days}} hr',
 }

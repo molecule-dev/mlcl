@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Жөнүндө',
+  'about.featureConnections':
+    'Байланыштар менеджери — маалымат базаларыңызды коопсуз сактап, түстөр менен белгилейт; эсептик маалыматтар шифрленген түрдө сакталат, эч качан ачык текстте болбойт.',
+  'about.featureMonitoring':
+    'Сурамдардын аткарылышын жана маалымат базасынын активдүүлүгүн реалдуу убакытта көзөмөлдөө, клавиатура ыкчам ачкычтары жана командалар палитрасы менен баарын кол тийгизбей башкаруу.',
+  'about.featurePlans':
+    'Сиз менен өскөн пландар — жеке иш үчүн акысыз, Pro жана Team көбүрөөк байланыштар, сурамдарды узак сактоо, экспорт жана өркүндөтүлгөн функциялар үчүн.',
+  'about.featureQueryEditor':
+    'Monaco негизиндеги SQL редактору: сурамдар тарыхы, сакталган сурамдар жана жыйынтыктарды бир басуу менен CSV форматында экспорттоо.',
+  'about.featureSchema':
+    'Схема изилдөөчү жана таблицаларды серептөөчү — маалымат базаларын, таблицаларды жана мамычаларды изилдеп, саптарды түз эле серептеп, чыпкалап жана оңдой аласыз.',
+  'about.missionTitle': 'Биздин миссиябыз',
   'authShell.commands': 'Буйруктар',
   'authShell.ssoSupported': 'SSO колдоого алынат',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Суроолор',
   'connections.schema': 'Схема',
   'connections.subtitle': 'Маалымат базаңызга туташууларды башкарыңыз.',
+  'connections.test': 'Сыноо',
   'databaseAdminLayout.adminRole': 'Администратордун ролу',
   'databaseAdminLayout.commandPalette': 'Буйрук палитрасы',
   'databaseAdminLayout.commands': 'буйруктар',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Жаңы байланыш',
   'databaseAdminLayout.queries': 'Суроолор',
   'databaseAdminLayout.ready': 'Даяр',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Командаларды, сурамдарды, таблицаларды издөө…',
   'databaseAdminLayout.user': 'Колдонуучу',
   'editConnection.confirmDelete': 'Бул байланыш жок кылынсынбы?',
   'editConnection.deleteButton': 'Байланышты жок кылуу',
+  'editConnection.newPassword': 'Жаңы сырсөз (өзгөртпөө үчүн бош калтырыңыз)',
   'editConnection.saved': 'Байланыш сакталды.',
   'editConnection.title': 'Байланышты түзөтүү',
   'forgotPassword.success': 'Эгер ал аккаунт бар болсо, баштапкы абалга келтирүү шилтемеси жолдо.',
@@ -47,6 +62,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Ийгиликтер',
   'monitoring.title': 'Мониторинг',
   'monitoring.totalQueries': 'Жалпы сурамдар',
+  'nav.schema': 'Схема',
   'newConnection.database': 'Маалымат базасы',
   'newConnection.engine': 'Кыймылдаткыч',
   'newConnection.host': 'Хост',
@@ -83,6 +99,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Бул үзүндүгө эч кандай байланыш жок.',
   'savedQuery.notBound': 'Байланыштуу эмес',
   'savedQuery.title': 'Сакталган суроо',
+  'schema.columns': 'Мамычалар',
   'schema.foreignKeys': 'Чет элдик ачкычтар',
   'schema.indexes': 'Индекстер',
   'schemaExplorer.browseRows': 'Саптарды карап чыгуу',
@@ -91,14 +108,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'нөлгө барабар',
   'schemaExplorer.colType': 'түрү',
   'schemaExplorer.noColumns': 'Мамычалар жок.',
+  'schemaExplorer.noForeignKeys': 'Чет өлкөлүк ачкычтар жок.',
   'schemaExplorer.noIndexes': 'Индекстер жок.',
   'schemaExplorer.noTables': 'Столдор жок',
   'schemaExplorer.pickATable': 'Каптал тилкесинен стол тандаңыз.',
   'schemaExplorer.tables': 'Столдор',
   'schemaExplorer.title': 'Схема изилдөөчүсү',
+  'settings.session': 'Сессия',
   'settings.subtitle': 'Аккаунтуңузду жана планыңызды башкарыңыз.',
   'signup.heading': 'Quarry аккаунтуңузду түзүңүз',
   'signup.tagline': 'Бир мүнөттүн ичинде мүмкүнчүлүктү кеңейтиңиз.',
   'tableBrowser.noRows': 'Бул таблицада азырынча саптар жок.',
+  'tableBrowser.subtitle': 'Алыскы маалымат базаңыздан саптарды карап жатасыз.',
   'tableBrowser.title': 'Алыскы маалымат базаңыздан саптарды карап чыгуу.',
 }

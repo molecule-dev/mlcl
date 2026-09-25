@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Маєте запитання, знайшли помилку або хочете демо для своєї команди? Напишіть нам у налаштуваннях акаунта — кожне повідомлення потрапляє до реальної людини з команди.',
   'about.contactTitle': "Зв'яжіться з нами",
+  'about.intro':
+    '{{app}} перетворює стоси сканованих документів і PDF-файлів на структуровані, доступні для пошуку та впорядковані дані. Завантажте рахунки, квитанції, договори чи форми — і дозвольте ШІ прочитати, витягти, класифікувати та впорядкувати їх, із кольорами впевненості, щоб ваша команда перевіряла лише те, що справді потребує людини.',
+  'about.missionBody':
+    "Паперова рутина не повинна з'їдати день вашої команди. Ми віримо, що кожне витягнуте значення має бути пояснюваним і придатним для аудиту — щоб ви могли довіряти автоматизації, не втрачаючи документального сліду. {{app}} створено, щоб заощаджувати години на кожному стосі, зберігаючи людину в процесі там, де це важливо.",
+  'about.missionTitle': 'Наша місія',
+  'about.subtitle':
+    'OCR, витягування даних ШІ, класифікація та автоматичне впорядкування ваших документів.',
   'about.title': 'Про {{app}}',
+  'about.whatYouGetTitle': 'Що Ви отримаєте',
   'authShell.backToLanding': '← Назад на головну',
   'common.goToDashboard': 'До панелі',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Сьогодні · Огляд операцій',
   'dashboard.heading': 'Інтелект документів',
+  'dashboard.metric.accuracy': 'Середня точність',
   'dashboard.metric.filed': 'Заархівовано сьогодні',
   'dashboard.metric.filedCaption': 'Спрямовано правилами архівації',
   'dashboard.metric.processed': 'Оброблено сьогодні',
@@ -23,11 +34,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Документ',
   'dashboard.recent.col.uploaded': 'Завантажено',
   'dashboard.recent.heading': 'Нещодавні документи',
+  'dashboard.recent.typeUnknown': 'Очікує класифікації',
   'dashboard.subheading':
     'Кожна сторінка класифікована, оброблена та заархівована — з кольорами впевненості, щоб Ваш перегляд залишався сфокусованим.',
   'documentDetail.audit.heading': 'Хронологія аудиту',
+  'documentDetail.audit.subheading':
+    'Кожен крок, зроблений із цим документом, із зазначенням виконавця.',
   'documentDetail.back': 'Усі документи',
   'documentDetail.downloadHint': 'Використайте Завантажити, щоб відкрити оригінальний файл.',
+  'documentDetail.extracted.empty': 'Ще не витягнуто жодного поля.',
   'documentDetail.extracted.heading': 'Вилучені поля',
   'documentDetail.extracted.subheading':
     '{{count}} полів · клацніть будь-яке поле, щоб виділити його на сторінці',
@@ -55,13 +70,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Пошук документів…',
   'documents.subheading': '{{count}} документів у Вашій бібліотеці, відсортовано від найновіших.',
   'documents.uploadCta': 'Завантажити документи',
+  'documentTypeBreakdown.barAria': 'Склад документів за типом',
   'documentTypeBreakdown.empty': 'Ще не оброблено жодного документа.',
   'documentTypeBreakdown.subtitle': '{{total}} оброблено',
   'documentTypeBreakdown.title': 'Склад документів',
+  'forgotPassword.backToSignIn': '← Назад до входу',
   'forgotPassword.checkEmail': 'Перевірте свою електронну пошту',
   'forgotPassword.tip': 'Не отримали? Перевірте спам або спробуйте іншу адресу.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Створено для операційних команд, які перевіряють кожну сторінку.',
+  'landing.ctaBody':
+    '14-денна пробна версія. Картка не потрібна. Скасувати можна будь-коли. Створено для операційних команд, які швидко працюють і ретельно перевіряють.',
   'landing.ctaHeading': 'Припиніть вводити чеки. Почніть їх архівувати.',
   'landing.eyebrow': 'OCR · Вилучення · Архівація ШІ',
+  'landing.featuresHeading': 'Інтелект для документів, який сам усе пояснює',
+  'landing.heroSubtitle':
+    'Завантажте стос рахунків, квитанцій, договорів чи форм. {{app}} класифікує, витягує та впорядковує їх — із кольорами впевненості, щоб ваша команда перевіряла лише те, що справді потребує людини.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Щоденний обсяг · останні 7 днів',
   'landing.sampleCardLabel': 'Оброблено документів сьогодні',
   'landing.sampleCardSubtitle': '96,2 % середньої точності для рахунків, чеків і форм.',
   'login.hidePassword': 'Сховати пароль',
@@ -74,6 +100,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Відкрити головну сторінку',
   'notFound.title': 'Цієї сторінки немає в архіві',
+  'parcelaHeroCard.accuracy': 'Середня точність {{value}}% за всіма витягуваннями',
   'parcelaHeroCard.change': '{{sign}}{{amount}} % порівняно з учора',
   'parcelaHeroCard.title': 'Оброблено документів сьогодні',
   'parcelaLayout.primaryNavLabel': 'Основна навігація',
@@ -81,6 +108,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'документи',
   'pricing.processingLabel': 'завдань обробки',
   'resetPassword.confirmPlaceholder': 'Повторіть новий пароль',
+  'resetPassword.hidePassword': 'Сховати пароль',
   'resetPassword.passwordLabel': 'Новий пароль',
   'resetPassword.showPassword': 'Показати пароль',
   'resetPassword.subtitle': 'Виберіть щось довжиною принаймні 8 символів.',
@@ -97,10 +125,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Не вдалося завантажити правила.',
   'rules.loading': 'Завантаження правил…',
   'rules.matched30d': '{{count}} документів збіглися за останні 30 днів',
+  'rules.neverUsed': 'Ніколи не використовувався',
   'rules.newRule': 'Нове правило',
   'rules.saveError': 'Не вдалося зберегти правило.',
   'rules.subheading':
     'Скажіть системі, куди мають іти документи кожного типу. Умови ланцюгуються згори вниз — перший збіг перемагає.',
+  'rules.templatesEmpty': 'Ще немає шаблонів витягування.',
   'rules.templatesHeading': 'Шаблони вилучення',
   'rules.templatesSubheading':
     'Схеми полів, які екстрактор використовує для кожного типу документа.',
@@ -110,17 +140,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Назва робочої області',
   'settings.account.subheading':
     'Відображуване ім’я та основна електронна пошта для сповіщень та історії аудиту.',
+  'settings.api.confirmRevoke': 'Підтвердити?',
   'settings.api.copyOnce': 'Скопіюйте цей ключ — його більше не буде показано',
   'settings.api.createdOn': 'Створено {{date}}',
   'settings.api.empty': 'Ключів API ще немає. Згенеруйте один вище.',
   'settings.api.error': 'Не вдалося створити ключ.',
+  'settings.api.generating': 'Створення…',
+  'settings.api.heading': 'API-ключі',
   'settings.api.labelPlaceholder': 'Мітка ключа (напр., завантажувач CI)',
+  'settings.api.loading': 'Завантаження ключів…',
   'settings.api.newKey': 'Згенерувати ключ',
   'settings.api.subheading':
     'Використовуйте їх для надсилання документів зі скрипта або Вашого ERP. Ротуйте будь-який ключ у будь-який час.',
   'settings.integrations.heading': 'Інтеграції архівації',
   'settings.integrations.subheading':
     'Надсилайте заархівовані документи на хмарний диск або в чат-інструмент, яким Ваша команда вже користується.',
+  'settings.subheading':
+    'Керуйте акаунтом, API-ключами та інтеграціями впорядкування для вашого робочого простору {{app}}.',
+  'signup.hidePassword': 'Сховати пароль',
   'signup.identityPrompt': 'Як до Вас звертатися?',
   'signup.showPassword': 'Показати пароль',
   'signup.subtitle': '14 днів безкоштовно, картка не потрібна.',
@@ -128,6 +165,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Завантаження не вдалося.',
   'upload.eyebrow': 'Прийом',
   'upload.heading': 'Завантажте документи',
+  'upload.queue.clear': 'Очистити виконані',
   'upload.queue.col.confidence': 'Впевненість',
   'upload.queue.col.file': 'Файл',
   'upload.queue.detecting': 'Виявлення…',
@@ -140,5 +178,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Або закиньте кілька файлів одночасно для пакетного вилучення, класифікації та архівації.',
   'uploadDropZone.cta': 'Вибрати файли',
+  'uploadDropZone.maxSize': 'Макс. 25 МБ на файл · Наскрізне шифрування',
   'uploadDropZone.title': 'Закиньте документи, щоб розпочати обробку',
 }

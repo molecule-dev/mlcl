@@ -5,7 +5,13 @@ export const ui: UiTranslations = {
     'Имате повратни информации, барање за функција или пронајдовте грешка? Контактирајте го тимот на {{app}} преку линкот за поддршка во менито на вашата сметка - секоја порака оди до вистински човек.',
   'about.contactTitle': 'Контактирајте не',
   'about.eyebrow': 'За',
+  'about.intro':
+    '{{app}} е гласовен AI асистент. Зборувајте природно, гледајте како вашите зборови стануваат текст и добивајте гласовни одговори — за да можете да размислувате гласно наместо сето тоа да го пишувате.',
+  'about.missionBody':
+    'Пишувањето е тесно грло помеѓу вашите идеи и нивното остварување. {{app}} постои за да го отстрани: безрачен, разговорен начин да размислувате, да пишувате нацрти и да одлучувате — поткрепен со најдобрите модели за говор и размислување, а вашите податоци остануваат приватни.',
+  'about.missionTitle': 'Нашата мисија',
   'agentDetail.back': 'Сите агенти',
+  'agentDetail.behavior': 'Однесување',
   'agentDetail.capabilities': 'Способности',
   'agentDetail.delete': 'Избриши личност',
   'agentDetail.deleteConfirm': 'Да се избрише оваа личност? Ова не може да се врати.',
@@ -38,15 +44,20 @@ export const ui: UiTranslations = {
   'agents.subtitle':
     'Секој агент има свој тон, темпо и специјалност. Префрлете се во секое време за време на разговорот.',
   'agents.title': 'Изберете глас со кој ќе размислувате.',
+  'authShell.tagline': '{{tagline}} — {{brand}}',
+  'billing.cardNoneBody':
+    'Додајте еден кога ќе го надградите — Stripe го покрива целото складирање.',
   'billing.cardNoneTitle': 'Нема картичка во евиденцијата',
   'billing.choose': 'Прекинувач',
   'billing.currentPlan': 'Вашиот план',
   'billing.currentPlanReadout': '{{plan}} план',
   'billing.eyebrow': 'План и употреба',
   'billing.fetchError': 'Не може да се вчитаат информациите за наплата.',
+  'billing.loadingStatus': 'Се вчитува статусот…',
   'billing.noTiers': 'Нема достапни планови во моментов.',
   'billing.plansTitle': 'Планови',
   'billing.switching': 'Префрлување…',
+  'billing.updateAcknowledged': 'Ажурирањето е потврдено во {{time}}',
   'billing.updateError': 'Не можеше да се започне со ажурирање.',
   'billing.usageHeading': 'Користење на гласот во овој циклус',
   'chatBubble.source.text': 'текст',
@@ -65,11 +76,13 @@ export const ui: UiTranslations = {
   'conversation.title': 'Разговарајте за тоа',
   'conversation.toggleMic': 'Вклучи/исклучи микрофон',
   'conversation.toggleVoicePlayback': 'Репродукција на глас',
+  'conversation.transcribeError': 'Не можеше да се транскрибира аудиото.',
   'conversation.transcriptionEmpty': 'Не можевме ништо да чуеме. Да се обидеме повторно?',
   'conversation.voiceOff': 'Гласот е исклучен',
   'conversation.voiceOn': 'Гласот е вклучен',
   'conversationDetail.assistant': 'Асистент',
   'conversationDetail.back': 'Назад кон историјата',
+  'conversationDetail.elapsed': '00:00 / {{duration}}',
   'conversationDetail.empty': 'Сè уште нема пораки во овој разговор.',
   'conversationDetail.eyebrow': 'Транскрипт',
   'conversationDetail.fetchError': 'Не можеше да се вчита транскриптот.',
@@ -80,6 +93,7 @@ export const ui: UiTranslations = {
   'conversationDetail.setSpeed': 'Поставете ја брзината на репродукција на {{speed}}',
   'conversationDetail.system': 'Систем',
   'conversationDetail.untitled': 'Разговор без наслов',
+  'conversationListItem.messageCount': '{{count}} порака',
   'forgotPassword.subheading':
     'Внесете ја вашата е-пошта и ние ќе ви испратиме линк за ресетирање.',
   'forgotPassword.successBody': 'Тукушто испративме линк за ресетирање до {{email}} .',
@@ -96,6 +110,9 @@ export const ui: UiTranslations = {
   'history.voiceOnly': 'Само глас',
   'landing.copyright': '© {{year}} {{brand}} Размислувај гласно.',
   'landing.demoMessage1': 'Здраво Сара — подготвена си да размислуваш за новата кампања?',
+  'landing.demoMessage2': 'Да — да се фокусираме на стратегии за органски раст за Q3.',
+  'landing.demoMessage3':
+    'Одлично. Би почнал со иницијатива предводена од заедницата. Сакате ли да ги наведам фазите?',
   'landing.eyebrow': 'Гласовно-нативна вештачка интелигенција',
   'landing.featuresSubtitle':
     'Создадено за природен дијалог — се прилагодува на вашата брзина, тон и контекст.',
@@ -125,10 +142,12 @@ export const ui: UiTranslations = {
   'parlanceLayout.openMenu': 'Отвори мени за навигација',
   'parlanceLayout.primaryNavLabel': 'Примарна навигација',
   'pricing.conversations': '{{count}} разговори',
+  'pricing.cta.start': 'Изберете {{tierName}}',
   'pricing.cta.startFree': 'Започнете бесплатно',
   'pricing.cta.upgrade': 'Надгради на {{tierName}}',
   'pricing.empty': 'Нема достапни планови во моментов.',
   'pricing.error': 'Не може да се вчитаат цените. Обидете се повторно подоцна.',
+  'pricing.speech': '{{count}} говор',
   'pricing.subtitle':
     'Изберете план што одговара на тоа колку често разговарате со вашиот асистент.',
   'privacy.collection.account': 'Е-поштата и името за прикажување на вашата сметка',
@@ -137,6 +156,8 @@ export const ui: UiTranslations = {
   'privacy.deletion.body':
     'Можете да избришете разговор, личност или аудио клип во секое време од соодветната страница. Бришењето на вашата сметка од Поставки ги брише сите разговори, транскрипти и редови со личности поврзани со вашиот работен простор.',
   'privacy.eyebrow': 'Правни',
+  'privacy.intro':
+    '{{app}} ги чува разговорите и гласовните снимки што ги создавате само онолку долго колку што е потребно за да се обезбеди искуството со асистентот. Никогаш не ги продаваме вашите податоци и никогаш не користиме аудио или транскрипти од клиенти за обучување на надворешни AI модели.',
   'privacy.lastUpdated': 'Последна измена: 2026-05-01',
   'privacy.processors.body':
     'Кога разговарате со вашиот асистент, ние го проследуваме вашето аудио до OpenAI Whisper за транскрипција, вашиот транскрипт до Anthropic (Claude) за одговор, а одговорот до ElevenLabs или OpenAI за синтеза на глас. Секој давател на услуги е обврзан со своите услови за обработка на податоци; ништо не се задржува за преквалификација.',
@@ -157,13 +178,19 @@ export const ui: UiTranslations = {
   'resetPassword.newPassword': 'Нова лозинка',
   'resetPassword.subheading': 'Изберете нова лозинка за да продолжите да разговарате.',
   'search.agentPreview': 'Нема опис',
+  'search.emptyBody': 'Пробајте друг клучен збор или изговорете го гласно.',
   'search.emptyTitle': 'Нема совпаѓања',
   'search.eyebrow': 'Палета на команди',
   'search.fetchError': 'Не може да се вчита индексот на пребарување.',
+  'search.static.billing.preview': 'Планови, начин на плаќање и фактури',
+  'search.static.billing.title': 'Фактурирање',
   'search.static.profile.preview': 'Име за прикажување, рачка, биографија',
+  'search.static.profile.title': 'Профил',
+  'search.static.voice.preview': 'Стандардни поставки за глас и јазик',
   'search.static.voice.title': 'Глас',
   'search.title': 'Пребарај Парланс',
   'search.transcriptPreview': 'Отвори транскрипт',
+  'settings.appearance.description': 'Префрлувајте помеѓу светлиот и темниот режим.',
   'settings.appearance.title': 'Изглед',
   'settings.loadError': 'Не можеше да се вчитаат поставките.',
   'settings.privacy.${row.key}.label': 'Известувања',
@@ -180,6 +207,8 @@ export const ui: UiTranslations = {
   'terms.changes.body':
     'Ќе ве известиме во апликацијата доколку овие услови суштински се променат; продолжената употреба по известувањето значи дека ги прифаќате ажурирањата.',
   'terms.eyebrow': 'Правни',
+  'terms.intro':
+    'Овие услови го регулираат вашето користење на {{app}}. Со создавање сметка се согласувате со нив.',
   'terms.lastUpdated': 'Последна измена: 2026-05-01',
   'terms.title': 'Услови за користење',
   'terms.usage.body':

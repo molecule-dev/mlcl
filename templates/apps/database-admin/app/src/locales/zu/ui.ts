@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
+  'about.featureConnections':
+    'Umlawuli wokuxhumana ogcina ngokuphephile futhi ufake imibala kuzizindalwazi zakho — imininingwane yokungena ibethelwe lapho igcinwa khona, ayikaze ibe ngumbhalo ocacile.',
+  'about.featureMonitoring':
+    'Ukuqapha bukhoma kokusebenza kahle kwemibuzo nomsebenzi wezizindalwazi, nezinqamuleli zekhibhodi nephethri yemiyalo ukuze uqhubekise konke ngaphandle kwezandla.',
+  'about.featurePlans':
+    'Izinhlelo ezikhula nawe — Mahhala emsebenzini wedwa, i-Pro ne-Team ukuze uthole ukuxhumana okwengeziwe, ukugcinwa kwemibuzo isikhathi eside, ukuthunyelwa ngaphandle, nezici ezithuthukile.',
+  'about.featureQueryEditor':
+    'Umhleli we-SQL osebenza nge-Monaco onomlando wemibuzo, imibuzo egciniwe, nokuthunyelwa ngaphandle kwe-CSV ngokucindezela kanye kwemiphumela yakho.',
+  'about.featureSchema':
+    'Isihloli se-schema nesiphequluli sethebula ukuzulazula kuzizindalwazi, amathebula, namakholomu, bese uphequlula, uhlunga, futhi uhlele imigqa ngqo.',
+  'about.missionTitle': 'Umsebenzi wethu',
   'authShell.commands': 'Imiyalo',
   'authShell.ssoSupported': 'I-SSO isekelwe',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Imibuzo',
   'connections.schema': 'I-Schema',
   'connections.subtitle': 'Phatha ukuxhumana kwakho kwesizindalwazi.',
+  'connections.test': 'Ukuhlolwa',
   'databaseAdminLayout.adminRole': 'Indima yokuphatha',
   'databaseAdminLayout.commandPalette': 'Iphalethi yomyalo',
   'databaseAdminLayout.commands': 'imiyalo',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Uxhumano olusha',
   'databaseAdminLayout.queries': 'Imibuzo',
   'databaseAdminLayout.ready': 'Ukulungele',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Sesha imiyalo, imibuzo, amathebula…',
   'databaseAdminLayout.user': 'Umsebenzisi',
   'editConnection.confirmDelete': 'Susa lolu xhumano?',
   'editConnection.deleteButton': 'Susa uxhumano',
+  'editConnection.newPassword': 'Iphasiwedi entsha (shiya kungenalutho ukuze ugcine)',
   'editConnection.saved': 'Uxhumano lulondoloziwe.',
   'editConnection.title': 'Hlela uxhumano',
   'forgotPassword.success':
@@ -47,6 +62,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Impumelelo',
   'monitoring.title': 'Ukuqapha',
   'monitoring.totalQueries': 'Imibuzo iyonke',
+  'nav.schema': 'I-Schema',
   'newConnection.database': 'Isizindalwazi',
   'newConnection.engine': 'Injini',
   'newConnection.host': 'Umsingathi',
@@ -82,6 +98,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Akukho ukuxhumana okuboshelwe kulesi siqeshana.',
   'savedQuery.notBound': 'Akuboshiwe',
   'savedQuery.title': 'Umbuzo olondoloziwe',
+  'schema.columns': 'Amakholomu',
   'schema.foreignKeys': 'Izihluthulelo zakwamanye amazwe',
   'schema.indexes': 'Izinkomba',
   'schemaExplorer.browseRows': 'Phequlula imigqa',
@@ -90,14 +107,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'akunakwenzeka',
   'schemaExplorer.colType': 'uhlobo',
   'schemaExplorer.noColumns': 'Azikho izinhlu.',
+  'schemaExplorer.noForeignKeys': 'Awekho okhiye bangaphandle.',
   'schemaExplorer.noIndexes': 'Azikho izinkomba.',
   'schemaExplorer.noTables': 'Awekho amatafula',
   'schemaExplorer.pickATable': 'Khetha itafula kubha eseceleni.',
   'schemaExplorer.tables': 'Amathebula',
   'schemaExplorer.title': 'Umhloli we-schema',
+  'settings.session': 'Iseshini',
   'settings.subtitle': 'Phatha i-akhawunti yakho kanye nohlelo.',
   'signup.heading': 'Dala i-akhawunti yakho ye-Quarry',
   'signup.tagline': 'Khuphula ukufinyelela ngaphansi komzuzu.',
   'tableBrowser.noRows': 'Leli thebula alinawo imigqa okwamanje.',
+  'tableBrowser.subtitle': 'Uphequlula imigqa esuka kusizindalwazi sakho esikude.',
   'tableBrowser.title': 'Ukuphequlula imigqa kusuka kusizindalwazi sakho esikude.',
 }

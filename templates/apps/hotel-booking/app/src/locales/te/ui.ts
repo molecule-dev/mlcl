@@ -1,10 +1,31 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'బుకింగ్, ఫీడ్‌బ్యాక్ లేదా {{app}}లో ఉండాలని మీరు భావించే ప్రాపర్టీ గురించి ప్రశ్నలు ఉన్నాయా? మీ ఖాతా నుండి మా టీమ్‌ను సంప్రదించండి — ప్రతి సందేశం సహాయం చేయగల నిజమైన వ్యక్తికే చేరుతుంది.',
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'మా గురించి',
+  'about.featureLoyalty':
+    'సభ్యులకు మాత్రమే లభించే ధరలు మరియు ప్రతి బుకింగ్‌పై పాయింట్లు, లేట్ చెకౌట్‌లు, రూమ్ అప్‌గ్రేడ్‌లు సంపాదించే లాయల్టీ ప్రోగ్రామ్.',
+  'about.featureReviews':
+    'మీరు చేరుకునే ముందే ఆ బసను నమ్మగలిగేలా ధృవీకరించిన అతిథి సమీక్షలు మరియు ఎడిటోరియల్ ఎంపికలు.',
+  'about.featureRooms':
+    'పారదర్శకమైన, ఆల్-ఇన్ ధరతో పక్కపక్కనే రూమ్‌లు, ధరలు, సౌకర్యాల పోలిక — మీరు చెల్లించే ముందే పన్నులు మరియు రిసార్ట్ ఫీజులు చేర్చబడతాయి.',
+  'about.featureSearch':
+    'ధృవీకరించిన హోటళ్లలో లైవ్ అందుబాటు, మ్యాప్ వ్యూ మరియు సమృద్ధమైన ఫోటో గ్యాలరీలతో రియల్-టైమ్ శోధన.',
+  'about.featureTrips':
+    'సేవ్ చేసిన ఫేవరెట్‌లు మరియు ప్రతి రిజర్వేషన్, ఇటినరరీ, కన్ఫర్మేషన్‌ను ఒకే చోట ఉంచే Trips డాష్‌బోర్డ్.',
+  'about.intro':
+    '{{app}} అనేది నాణ్యతను పట్టించుకునే ప్రయాణికుల కోసం హోటల్-బుకింగ్ ప్లాట్‌ఫారమ్. ప్రతి ప్రాపర్టీని మా ఎడిటోరియల్ టీమ్ వ్యక్తిగతంగా ధృవీకరిస్తుంది — అగ్రిగేటర్ ఇన్వెంటరీ లేదు, బైట్-అండ్-స్విచ్ లిస్టింగ్‌లు లేవు. నిజమైన అందుబాటును శోధించండి, రూమ్‌లు, ధరలు, సౌకర్యాలను పక్కపక్కనే పోల్చండి, ఆపై స్పష్టమైన, ఆల్-ఇన్ ధరతో కొన్ని ట్యాప్‌లలో బుక్ చేయండి.',
+  'about.missionBody':
+    'ఉండడానికి చోటు బుక్ చేయడం ప్రశాంతంగా, నిజాయితీగా అనిపించాలి. మేము పన్నులు మరియు రిసార్ట్ ఫీజులతో పారదర్శక ధరలను ముందే చూపిస్తాము, నమ్మకమైన అతిథులను చిన్నచిన్న ఛార్జీలతో ఇబ్బంది పెట్టకుండా రివార్డ్ చేస్తాము, మరియు మీ డబ్బుకు తగిన బసలను ముందుంచుతాము — దీంతో ట్యాబ్‌లను పోల్చడంలో తక్కువ సమయం, ప్రయాణంలోనే ఎక్కువ సమయం గడపవచ్చు.',
+  'about.missionTitle': 'మా లక్ష్యం',
+  'about.subtitle': 'సరైన హోటల్‌ను కనుగొని బుక్ చేయడానికి ఒక క్యూరేటెడ్, పారదర్శక మార్గం.',
+  'account.loyalty.benefitsHeading': 'మీ ప్రయోజనాలు',
   'account.loyalty.heading': 'విశ్వాసం',
   'account.loyalty.loading': 'లాయల్టీ లోడ్ అవుతోంది…',
-  'account.loyalty.pointsTowardNext': '{{పాయింట్లు}} / {{తదుపరి}} పాయింట్లు {{nextTier}}',
+  'account.loyalty.maxTier': 'అత్యున్నత శ్రేణి — మీ ప్రయోజనాలను ఆస్వాదించండి.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} పాయింట్లు {{nextTier}}కు',
   'account.loyalty.tier': 'ప్రస్తుత శ్రేణి',
   'account.loyalty.unavailable': 'విశ్వసనీయత సమాచారం అందుబాటులో లేదు.',
   'account.navLabel': 'ఖాతా విభాగాలు',
@@ -21,6 +42,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'బుకింగ్‌ను నిర్ధారించండి · {{total}}',
   'bookingCheckout.datesRequired': 'దయచేసి మీ చెక్-ఇన్ మరియు చెక్-అవుట్ తేదీలను ఎంచుకోండి.',
   'bookingCheckout.guestHeading': 'ప్రధాన అతిథి',
+  'bookingCheckout.heading': 'నిర్ధారించి బుక్ చేయండి',
   'bookingCheckout.loadError': 'ప్రాపర్టీని లోడ్ చేయడంలో విఫలమైంది.',
   'bookingCheckout.nights': '{{rate}} × {{count}} రాత్రులు',
   'bookingCheckout.notFound': 'ఆస్తి కనుగొనబడలేదు.',
@@ -31,11 +53,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'పన్నులు & రుసుములు',
   'bookingCheckout.tripHeading': 'మీ ప్రయాణం',
   'bookingConfirmation.allTripsCta': 'అన్ని ప్రయాణాలు',
+  'bookingConfirmation.confNumber': 'కన్ఫర్మేషన్ నంబర్: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'మీ రిజర్వేషన్ ప్రాసెస్ అవుతోంది.',
   'bookingConfirmation.heading': 'బుకింగ్ నిర్ధారించబడింది',
   'bookingConfirmation.loading': 'మీ రిజర్వేషన్ లోడ్ అవుతోంది…',
   'bookingConfirmation.searchMoreCta': 'మరిన్ని బసలను బ్రౌజ్ చేయండి',
   'bookingConfirmation.subheadingForTrip':
-    '{{property}} లో {{నగరం}} , {{దేశం}} మేము మిమ్మల్ని కలుస్తాము {{చెక్ ఇన్}} .',
+    '{{city}}, {{country}}లో {{property}}. {{checkIn}}న మిమ్మల్ని కలుస్తాము.',
   'bookingConfirmation.total': 'మొత్తం {{total}}',
   'bookingConfirmation.viewTripCta': 'పర్యటనను వీక్షించండి',
   'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
@@ -45,6 +70,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'ఇష్టమైన వాటిని లోడ్ చేయడంలో విఫలమైంది.',
   'favorites.pricePerNight': '{{price}} రాత్రి',
   'favorites.removeCta': 'అన్‌సేవ్',
+  'favorites.removing': 'తొలగిస్తోంది…',
   'forgotPassword.subheading':
     'మీ ఖాతాలోని ఇమెయిల్‌ను నమోదు చేయండి, మేము మీకు సురక్షితమైన రీసెట్ లింక్‌ను పంపుతాము.',
   'forgotPassword.successBody':
@@ -52,6 +78,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'సోజర్న్ సభ్యులు',
   'landing.cta.heading': 'సభ్యులకు మాత్రమే ప్రత్యేక ధరలు. ప్రతి బుకింగ్‌కు, ప్రతిసారీ.',
   'landing.cta.signup': 'ఉచిత ఖాతాను సృష్టించండి',
+  'landing.cta.subheading':
+    'ప్రతి బసపై లాయల్టీ పాయింట్లు సంపాదించండి, లేట్ చెకౌట్‌లు మరియు రూమ్ అప్‌గ్రేడ్‌లను అన్‌లాక్ చేయండి, మరియు కొత్త ప్రాపర్టీలు పబ్లిక్‌గా లిస్ట్ అవ్వకముందే వాటికి మొదటి యాక్సెస్ పొందండి.',
   'landing.destinations.eyebrow': 'తరువాత ఎక్కడికి',
   'landing.destinations.heading': 'ప్రముఖ గమ్యస్థానాలు',
   'landing.destinations.seeAll': 'అన్ని గమ్యస్థానాలను చూడండి',
@@ -60,13 +88,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'తప్పక చదవాల్సిన కథలు',
   'landing.nav.join': 'సోజర్న్‌లో చేరండి',
   'landing.nav.search': 'శోధన కొనసాగుతుంది',
+  'landing.preview.browseAll': 'పూర్తి కలెక్షన్‌ను బ్రౌజ్ చేయండి',
   'landing.preview.eyebrow': 'లోపలికి తొంగిచూడటం',
   'landing.preview.heading': 'ఈ నెలలో ప్రత్యేకంగా ఎంపిక చేసిన బసలు',
+  'landing.preview.subheading':
+    '{{appName}}లోని ప్రతి ప్రాపర్టీని మా ఎడిటోరియల్ టీమ్ వ్యక్తిగతంగా ధృవీకరిస్తుంది — అగ్రిగేటర్ ఇన్వెంటరీ లేదు, బైట్-అండ్-స్విచ్ లిస్టింగ్‌లు లేవు.',
   'login.eyebrow': 'సభ్యుల ప్రాంతం',
+  'login.noAccount': 'టెస్సెరాకు కొత్తవారా?',
   'login.signupLink': 'ఉచిత ఖాతాను సృష్టించండి',
   'login.subheading':
     'మీ ప్రయాణాలను నిర్వహించడానికి, నిర్ధారణలను వీక్షించడానికి మరియు మీరు ఆపివేసిన చోట నుండి కొనసాగించడానికి సైన్ ఇన్ చేయండి.',
+  'loyaltyTierBadge.points': '{{points}} పాయింట్లు',
   'planUpdated.heading': 'ప్రణాళిక నవీకరించబడింది',
+  'planUpdated.retry': 'మళ్ళీ ప్రయత్నించండి',
+  'planUpdated.verifyFailed': 'మేము మీ చెల్లింపును ఇంకా ధృవీకరించలేకపోయాము.',
+  'planUpdated.verifyFailedBody':
+    'మీ చెల్లింపు ఇంకా ప్రాసెస్ అవుతూ ఉండవచ్చు. కాసేపటి తర్వాత మళ్ళీ ప్రయత్నించండి.',
   'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'pricing.limit.advancedFeatures': 'అధునాతన ఫీచర్లు:',
   'pricing.limit.canExport': 'డేటా ఎగుమతి:',
@@ -78,7 +115,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'ఈ ప్రదేశం అందించేవి',
   'propertyDetail.backLink': 'శోధనకు తిరిగి వెళ్లండి',
   'propertyDetail.bookCta': 'రిజర్వ్',
+  'propertyDetail.bookmarkAria': 'ఆస్తిని సేవ్ చేయండి',
   'propertyDetail.bookmarkAriaSaved': 'సేవ్ చేసిన ప్రాపర్టీల నుండి తొలగించండి',
+  'propertyDetail.galleryImageAlt': '{{name}} ఫోటో {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} హీరో ఫోటోగ్రాఫ్',
   'propertyDetail.hidePhotos': 'ఫోటోలను దాచండి',
   'propertyDetail.lineCleaning': 'శుభ్రపరిచే రుసుము',
@@ -88,6 +127,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'రాత్రి',
   'propertyDetail.noChargeYet': 'మీకు ఇంకా ఛార్జీ విధించబడదు',
   'propertyDetail.notFound': 'ఆస్తి కనుగొనబడలేదు.',
+  'propertyDetail.perNight': '/ రాత్రి',
+  'propertyDetail.pickDatesHint': 'పూర్తి ధర వివరాలను చూడటానికి మీ తేదీలను ఎంచుకోండి.',
   'propertyDetail.reviewCount': '( {{count}} సమీక్షలు)',
   'propertyDetail.reviewsHeading': 'ఇటీవలి సమీక్షలు',
   'propertyDetail.roomCapacity': 'నిద్రిస్తుంది {{count}}',
@@ -100,6 +141,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'కొత్త పాస్‌వర్డ్',
   'resetPassword.subheading':
     'మీ సోజర్న్ ఖాతా కోసం కొత్త పాస్‌వర్డ్‌ను ఎంచుకోండి. కనీసం 8 అక్షరాలను ఉపయోగించండి; మేము పాస్‌ఫ్రేజ్‌ను సిఫార్సు చేస్తున్నాము.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'మీ శోధనకు సరిపోలే ఆస్తులు ఏవీ లేవు.',
   'searchResults.emptyHint':
     'మీ ఫిల్టర్‌లను విస్తృతం చేయడానికి లేదా ధర పరిమితిని తొలగించడానికి ప్రయత్నించండి — సోజర్న్ 14 దేశాలలో బసలను అందిస్తుంది.',
@@ -107,19 +149,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'క్యూరేటెడ్ స్టేస్',
   'searchResults.headingForQuery': 'దీనికోసం ఉంటుంది {{q}} "',
   'searchResults.loadError': 'ప్రాపర్టీలను లోడ్ చేయడంలో విఫలమైంది.',
+  'searchResults.mapHint':
+    'మ్యాప్‌లో హైలైట్ చేయడానికి కార్డ్‌పై హోవర్ చేయండి. ప్రొడక్షన్‌లో లైవ్ Mapbox టైల్స్.',
   'searchResults.mapPinAria': '{{name}} — {{price}} ప్రతి రాత్రికి',
   'searchResults.sortLabel': 'క్రమబద్ధీకరించు',
   'searchResults.subheading': '{{count}} లక్షణాలు · {{guests}} అతిథులు',
   'signup.eyebrow': 'సభ్యుడిగా అవ్వండి',
   'signup.subheading':
     'సభ్యులకు మాత్రమే ప్రత్యేకమైన ధరలు, ఆలస్యంగా చెక్అవుట్‌లు మరియు కొత్త ప్రాపర్టీలలోకి మొదటి ప్రవేశం పొందడానికి సోజర్న్‌లో చేరండి.',
+  'sojournAuthShell.brand.eyebrow': 'అసాధారణమైన చోట ఉండండి',
+  'sojournAuthShell.brand.heading':
+    'ప్రాపర్టీల క్యూరేటెడ్ కలెక్షన్ — అందంగా ప్రదర్శించబడింది, పారదర్శక ధరతో.',
   'sojournHeroSearchCard.checkInAria': 'చెక్-ఇన్ తేదీ',
   'sojournHeroSearchCard.checkOutAria': 'చెక్-అవుట్ తేదీ',
+  'sojournHeroSearchCard.destAria': 'గమ్యస్థానం',
+  'sojournHeroSearchCard.destLabel': 'ఎక్కడ',
   'sojournHeroSearchCard.destPlaceholder': 'నగరం, ప్రాంతం లేదా ఆస్తి',
   'sojournHeroSearchCard.eyebrow': 'ఎంపిక చేసిన బసలు · సభ్యులకు మాత్రమే ప్రత్యేక ధరలు',
   'sojournHeroSearchCard.guestsOption': '{{n}} అతిథులు',
   'sojournHeroSearchCard.subtitle':
     'ఎంపిక చేసిన బొటిక్ హోటళ్లు, ఆధునిక డిజైన్ గల వసతులు, మరియు అరుదైన విడిది గృహాల సమాహారం — పారదర్శకమైన ధరలతో, అందంగా తీర్చిదిద్దబడింది.',
+  'sojournHeroSearchCard.title': 'అసాధారణమైన చోట ఉండండి',
+  'sojournHeroSearchCard.trustLoyalty': 'ప్రతి బసపై పాయింట్లు సంపాదించండి',
   'sojournHeroSearchCard.trustNoFees': 'ఎప్పటికీ దాచిన రుసుములు ఉండవు',
   'sojournHeroSearchCard.trustVetted': 'చేతితో పరిశీలించిన ఆస్తులు మాత్రమే',
   'sojournLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',

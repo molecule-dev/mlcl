@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'প্রশ্ন, মতামত, বা আপনার টিমের জন্য ডেমো চান? আমাদের hello@conduit.dev-এ ইমেইল করুন — প্রতিটি বার্তা টিমের একজন সত্যিকারের মানুষের কাছে পৌঁছায়।',
   'about.contactHeading': 'যোগাযোগ করুন',
   'about.eyebrow': 'সম্পর্কে',
+  'about.featuresHeading': 'আপনি যা পাবেন',
+  'about.introBody':
+    '{{app}} GitHub Actions-স্টাইলের কন্টিনিউয়াস ডেলিভারিকে একটি দ্রুত ড্যাশবোর্ডে নিয়ে আসে: আপনার সব রিপোজিটরির জন্য পাইপলাইন, বিল্ড লগ, আর্টিফ্যাক্ট, স্ট্যাটাস ব্যাজ এবং ডিপ্লয়মেন্ট এনভায়রনমেন্ট — সব এক জায়গায়। ট্যাব বদলাতে হবে না, কোন বিল্ড ভেঙেছে তা অনুমান করতে হবে না — প্রতিটি রান, লগ লাইন এবং ডিপ্লয় এক ক্লিক দূরে।',
+  'about.introHeading': '{{app}} কী',
+  'about.missionBody':
+    'সফটওয়্যার শিপিং হওয়া উচিত শান্ত ও পূর্বানুমেয়, আতঙ্কের উৎস নয়। আমরা পাইপলাইন, লগ এবং ডিপ্লয় টুলিং তৈরি করি যাতে কমিট থেকে প্রোডাকশন পর্যন্ত পথটি দ্রুত, দৃশ্যমান এবং বিশ্বাসযোগ্য হয় — পাঁচ মিনিটে প্রথম সবুজ বিল্ড, এবং তার পরের প্রতিটি বিল্ডও সমান স্পষ্ট।',
+  'about.missionHeading': 'আমাদের লক্ষ্য',
+  'about.subtitle':
+    '{{app}} এমন টিমের জন্য একটি CI/CD ড্যাশবোর্ড যারা প্রতিটি রিপোজিটরির বিল্ড, ডিপ্লয়মেন্ট এবং এনভায়রনমেন্ট মনিটর করতে চায় — এবং নিশ্চিতভাবে শিপ করতে চায়।',
   'artifacts.empty': 'এখনো কোনো প্রত্নবস্তু পাওয়া যায়নি।',
   'artifacts.heading': 'প্রত্নবস্তু',
   'artifacts.loadError': 'আর্টিফ্যাক্ট লোড করতে ব্যর্থ হয়েছে।',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'পরিবেশ',
   'environments.loadError': 'পরিবেশ লোড করতে ব্যর্থ হয়েছে।',
+  'environments.loading': 'পরিবেশ লোড হচ্ছে…',
   'environments.subheading': 'প্রতিটি টার্গেটে লাইভ ডেপ্লয়মেন্ট স্ট্যাটাস।',
   'forgotPassword.runnerStatus': 'রিসেট · সুরক্ষিত টানেল',
+  'forgotPassword.success':
+    'ওই ইমেইলের জন্য যদি কোনো অ্যাকাউন্ট থেকে থাকে, তাহলে একটি রিসেট লিঙ্ক পাঠানো হচ্ছে। আপনার ইনবক্স দেখুন।',
   'insights.changeFailureRate': 'পরিবর্তনের ব্যর্থতার হার',
   'insights.deployFrequency': 'প্রতিদিন মোতায়েন করা হয়',
   'insights.empty': 'এখনো পর্যাপ্ত তথ্য নেই।',
@@ -39,13 +53,17 @@ export const ui: UiTranslations = {
   'insights.loadError': 'তথ্য লোড করতে ব্যর্থ হয়েছে।',
   'insights.meanP95': 'মানে {{mean}} · পৃষ্ঠা ৯৫ {{p95}}',
   'insights.mttr': 'এমটিটিআর',
+  'insights.slowestStepsHeading': 'সবচেয়ে ধীর পাইপলাইন ধাপ',
   'insights.successRateHeading': 'পাইপলাইন সফলতার হার (গত ১৪ দিনে)',
   'landing.choosePlan': 'প্ল্যান বেছে নিন',
+  'landing.copyright': '© {{year}} {{app}}। নিশ্চিতভাবে শিপ করুন।',
   'landing.ctaBody':
     'কোনো ক্রেডিট কার্ড লাগবে না। কোনো প্ল্যাটফর্ম ইঞ্জিনিয়ারের প্রয়োজন নেই। পাঁচ মিনিটে প্রথম পাইপলাইনটি চালু করুন।',
   'landing.ctaHeading': 'নিশ্চিন্তে প্রেরণ করুন।',
   'landing.featuresEyebrow': '// প্ল্যাটফর্মের বৈশিষ্ট্য',
   'landing.featuresHeading': 'শিপারদের জন্য, শিপারদের দ্বারা নির্মিত',
+  'landing.heroSubtitle': 'সেকেন্ডে শেষ হওয়া পাইপলাইন। পড়ার মতো লগ। বিশ্বাস করার মতো ডিপ্লয়।',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ মূল্য নির্ধারণ --সাধারণ',
   'landing.pricingHeading': 'সহজ, অনুমানযোগ্য মূল্য নির্ধারণ',
@@ -84,7 +102,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'এখন ফ্লাইটে',
   'pipelines.metric.successCaption': '{{count}} এর {{total}} দৌড়',
   'pipelines.metric.successRate': 'সফলতার হার',
+  'pipelines.realtimeOn': 'রিয়েলটাইম',
   'pipelines.subheading': 'পর্যবেক্ষণাধীন প্রতিটি রিপোজিটরি থেকে সরাসরি আপডেট।',
+  'pricing.advancedFeatures': 'উন্নত ফিচার: {{mark}}',
+  'pricing.canExport': 'ডেটা এক্সপোর্ট: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} আর্টিফ্যাক্ট',
+  'pricing.maxBuilds': '{{count}} বিল্ড',
+  'pricing.maxPipelines': '{{count}} পাইপলাইন',
   'privacy.dataAccount': 'অ্যাকাউন্ট: নাম, ইমেইল, হ্যাশ করা পাসওয়ার্ড, প্ল্যানের স্তর।',
   'privacy.intro':
     '{{app}} আপনার কন্টিনিউয়াস-ডেলিভারি অ্যাকাউন্ট পরিচালনা করার জন্য আমরা শুধুমাত্র ন্যূনতম প্রয়োজনীয় ডেটা সংগ্রহ করি: আপনার ইমেল, আপনার সংযুক্ত করা রিপোজিটরিগুলো, আপনার রানার দ্বারা উৎপাদিত কমিট ও বিল্ড মেটাডেটা এবং আমাদের কাছে সংরক্ষণ করতে আপনার বেছে নেওয়া সিক্রেটগুলো। আমরা বিল্ড রানারের বাইরে আপনার সোর্স কোড কখনোই পড়ি না; কনফিগার করা থাকলে বিল্ড আর্টিফ্যাক্টগুলো আপনার S3 বাকেটে সংরক্ষণ করা হয়।',
@@ -92,6 +116,8 @@ export const ui: UiTranslations = {
     'আমরা বিলিংয়ের জন্য স্ট্রাইপ, লেনদেন সংক্রান্ত ইমেইলের জন্য মেইলগান এবং বিল্ড আর্টিফ্যাক্ট সংরক্ষণের জন্য AWS S3 ব্যবহার করি। এদের প্রত্যেকেই নিজ নিজ পরিষেবা প্রদানের জন্য প্রয়োজনীয় ন্যূনতম ডেটা পরিসরে চুক্তিবদ্ধভাবে আবদ্ধ।',
   'privacy.rightsBody':
     'আপনি আপনার ডেটার প্রতিটি বাইট এক্সপোর্ট করতে পারেন, সেটিংস থেকে যেকোনো সময় আপনার অ্যাকাউন্ট মুছে ফেলতে পারেন এবং আপনার অ্যাকাউন্টে প্রতিটি ওয়েবহুক ডেলিভারির রেকর্ডের জন্য অনুরোধ করতে পারেন। আমরা ৩০ দিনের মধ্যে GDPR / CCPA অনুরোধের জবাব দিই।',
+  'privacy.subtitle':
+    'আমরা আপনার পাইপলাইন চালানোর সময় {{app}} কীভাবে আপনার ডেটা সংগ্রহ, সংরক্ষণ এবং সুরক্ষা করে।',
   'privacy.title': 'গোপনীয়তা নীতি',
   'repositories.empty': 'কোনো রিপোজিটরি সংযুক্ত নেই।',
   'repositories.heading': 'সংগ্রহস্থল',
@@ -100,22 +126,27 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'সমস্ত সংগ্রহস্থল',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'রিপোজিটরি লোড করতে ব্যর্থ হয়েছে।',
+  'repositoryDetail.meanDuration': 'গড় সময়কাল',
   'repositoryDetail.notFound': 'রিপোজিটরি খুঁজে পাওয়া যায়নি।',
+  'repositoryDetail.successRate': 'সফলতার হার',
   'repositoryDetail.totalBuilds': 'মোট নির্মাণ',
   'repositoryDetail.webhookActive': 'সক্রিয়',
   'repositoryDetail.webhookPaused': 'থামানো',
   'repositoryDetail.webhooksHeading': 'ওয়েবহুক',
+  'resetPassword.passwordLabel': 'নতুন পাসওয়ার্ড',
   'resetPassword.runnerStatus': 'রিসেট · টোকেন যাচাই করা হয়েছে',
   'resetPassword.subtitle': 'এমন একটি শক্তিশালী পাসওয়ার্ড বেছে নিন যা আপনি আগে ব্যবহার করেননি।',
   'resetPassword.tokenPlaceholder': 'ইমেল থেকে পেস্ট করুন',
   'settings.account.loadError': 'প্রোফাইল লোড করা সম্ভব হয়নি।',
   'settings.account.loading': 'অ্যাকাউন্ট লোড হচ্ছে…',
+  'settings.account.plan': 'প্ল্যান: {{plan}}',
   'settings.account.saveError': 'প্রোফাইল সংরক্ষণ করা সম্ভব হয়নি।',
   'settings.appearance.description': 'লাইট ও ডার্ক মোডের মধ্যে পরিবর্তন করুন।',
   'settings.appearance.title': 'চেহারা',
   'settings.repositories.body':
     'রিপোজিটরি কনডুইট পর্যবেক্ষণ করে। ইভেন্ট গ্রহণ বন্ধ করতে আপনার VCS প্রোভাইডার থেকে সংযোগ বিচ্ছিন্ন করুন।',
   'settings.repositories.empty': 'এখনো কোনো রিপোজিটরি সংযুক্ত করা হয়নি।',
+  'settings.repositories.heading': 'রিপোজিটরি সংযোগ',
   'settings.repositories.loadError': 'রিপোজিটরিগুলো লোড করতে ব্যর্থ হয়েছে।',
   'settings.secrets.addCta': 'গোপন তথ্য যোগ করুন',
   'settings.secrets.addError': 'গোপনীয় তথ্য যোগ করা সম্ভব হয়নি।',
@@ -123,6 +154,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'গোপনীয় তথ্য মুছে ফেলা সম্ভব হয়নি।',
   'settings.secrets.empty': 'কোনো গোপনীয় তথ্য সংরক্ষিত নেই।',
   'settings.secrets.heading': 'গোপনীয়তা',
+  'settings.secrets.lastUsed': 'শেষ ব্যবহার {{date}}',
   'settings.secrets.loadError': 'গোপনীয় তথ্য লোড করতে ব্যর্থ হয়েছে।',
   'settings.secrets.neverUsed': 'কখনো ব্যবহার করা হয়নি',
   'settings.secrets.rotateCta': 'ঘোরান',
@@ -146,6 +178,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'ওয়েবহুক আপডেট করতে ব্যর্থ হয়েছে।',
   'signup.namePlaceholder': 'রাইলি পার্ক',
   'signup.runnerStatus': 'ফ্রি টিয়ার · প্রতি মাসে ন্যূনতম ১,০০০ বিল্ড',
+  'terms.intro':
+    'একটি {{app}} অ্যাকাউন্ট তৈরি করে আপনি এই শর্তাবলীতে সম্মত হচ্ছেন। এগুলো বিল্ড রানারগুলোর গ্রহণযোগ্য ব্যবহার, আমাদের SLA-এর সীমা, এবং অপব্যবহারমূলক ওয়ার্কলোডের কারণে আমরা আপনার অ্যাকাউন্ট স্থগিত বা বন্ধ করতে পারি এমন শর্তগুলো কভার করে।',
   'terms.slaBody':
     'প্রো এবং টিম প্ল্যানগুলোতে এপিআই এবং রানার পুলের জন্য মাসিক ৯৯.৯৫% আপটাইমের লক্ষ্যমাত্রা নির্ধারণ করা হয়েছে। ফ্রি প্ল্যানটি যেমন আছে তেমনই প্রদান করা হয়। বিভ্রাটের খবর status.conduit.dev-এ জানানো হয় এবং আপনার ইনভয়েসে থাকা সূত্র অনুযায়ী তার জন্য অর্থ জমা করা হয়।',
   'terms.terminationBody':

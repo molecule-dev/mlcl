@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Savollar, funksiya so'rovlari yoki qo'llab-quvvatlashimiz kerak bo'lgan hisoblagich bormi? Hisob sozlamalaringizdan {{appName}} jamoasiga murojaat qiling — har bir xabar haqiqiy odamga yetib boradi.",
   'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
+  'about.featuresTitle': 'Sizga nima beriladi',
+  'about.intro':
+    "{{appName}} — quyosh energiyasidan foydalanadigan uylar va muassasa jamoalari uchun real vaqtda quvvat monitoringi. Biz hisoblagich, inverter va batareya ma'lumotlarining katta oqimini xotirjam boshqaruv xonasi ko'rinishiga aylantiramiz — jonli vatt, quyosh ishlab chiqarishi, vaqtga qarab tarif narxi va ogohlantirishlar, barchasi bitta qobiqda.",
+  'about.missionBody':
+    "Ko'rinadigan energiyani boshqarish mumkin. Bizning fikrimizcha, hisoblagichdan foydalanadigan har bir kishi — tomida quyosh panellari bo'lgan uy xo'jaligi yoki binoni kuzatayotgan jamoa — kommunal darajadagi shartnomasiz kommunal darajadagi tushunchaga loyiq. Har bir funksiya keyingi kilovatt-soatni hisobdagi kutilmagan holat emas, balki ongli tanlovga aylantirish uchun yaratilgan.",
+  'about.missionTitle': 'Bizning vazifamiz',
   'about.pageTitle': 'Haqida {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Akk',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@yourdomain.com',
   'alertRule.eyebrow': 'Yangi qoida',
   'alertRule.heading': "Sizga qimmatga tushmasdan oldin, yuqori cho'qqini ushlang",
+  'alertRule.nameLabel': 'Qoida nomi',
   'alertRule.namePlaceholder': 'masalan, ish vaqtidan keyingi HVAC soati',
   'alertRule.subheading':
     "Ogohlantirishni yuborish uchun metrikani, chegarani va joyni tanlang. Uni istalgan vaqtda tahrirlashingiz yoki to'xtatib qo'yishingiz mumkin.",
   'alertRule.submit': 'Qoidani saqlash',
   'alertRule.submitError': "Qoidani saqlab bo'lmadi.",
   'alertRule.thresholdLabel': 'Ostona',
+  'alertRule.typeLabel': 'Trigger turi',
   'alerts.checking': 'Tekshirilmoqda…',
   'alerts.confirmDelete': "O'chirishni tasdiqlang",
+  'alerts.empty': "Ko'rsatadigan narsa yo'q — bu holatda ogohlantirishlar mavjud emas.",
   'alerts.emptyNoRules':
     "Hali hech qanday ogohlantirish yo'q — qoida qo'shing, so'ngra uni sinab ko'rish uchun \"Hozir baholash\" tugmasini bosing.",
   'alerts.errorAck': "Tan olishning iloji bo'lmadi.",
@@ -42,12 +53,15 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Hozir baholang',
   'alerts.subheading':
     "Hisoblagichlaringizga o't ochadigan chegara va naqsh ogohlantirishlari, shuningdek, ularni boshqaradigan qoidalar.",
+  'billing.activeBlurb': 'Obunangiz faol. Uni istalgan vaqtda boshqarishingiz mumkin.',
   'billing.cancelError': "Obunani bekor qilib bo'lmadi.",
   'billing.cancelling': 'Bekor qilinmoqda…',
   'billing.currentBadge': 'Hozirgi',
   'billing.freeBlurb':
     "Siz bepul rejadasiz. Ko'proq hisoblagichlar, uzoqroq tarix va ko'proq ogohlantirish qoidalari uchun yangilang.",
   'billing.heading': 'Rejalar va hisob-kitoblar',
+  'billing.historyEmpty':
+    'Obunangiz uchun to‘lovlar boshlangach, to‘langan hisob-fakturalar shu yerda ko‘rinadi.',
   'billing.historyHeading': 'Faktura tarixi',
   'billing.loadError': 'Hisob-faktura yuklanmadi.',
   'billing.loading': 'Rejalar yuklanmoqda…',
@@ -59,17 +73,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': "Savdo bilan bog'laning",
   'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} eng yuqori · {{offPeak}} eng past kWh',
   'dailyCostMeter.runningLabel': 'Yugurish jami',
   'dailyCostMeter.title': "Bugungi kungacha bo'lgan narx",
   'dailyCostMeter.utilizationLabel': 'Kundalik byudjetdan',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': "Hisoblagich qo'shish",
   'dashboard.alertsHeading': 'Faol ogohlantirishlar',
   'dashboard.devicesHeading': "Hozirda eng yaxshi aylanma yo'llar",
   'dashboard.empty.body':
     "Jonli tortish va ishlab chiqarishni kuzatishni boshlash uchun aqlli hisoblagich yoki quyosh invertorini qo'shing.",
+  'dashboard.empty.title': "Hali hisoblagichlar yo'q",
   'dashboard.eyebrow': 'Voltni boshqarish xonasi',
   'dashboard.heading': 'Jonli energiya lavhasi',
   'dashboard.loadError': "Jonli o'qishlarni yuklab bo'lmadi.",
   'dashboard.loading': 'Hisoblagichlaringiz sozlanmoqda…',
+  'dashboard.noAlerts': "Hammasi tinch — chegaralaringizni buzayotgan narsa yo'q.",
   'dashboard.noAlertsAndNoMeters':
     "Hisoblagichni ulab bo'lgach, bu yerda sizning chegaralaringizga asoslangan ogohlantirishlar paydo bo'ladi.",
   'dashboard.noCircuits':
@@ -78,6 +97,7 @@ export const ui: UiTranslations = {
     "Butun uy uchun suv olish, quyosh energiyasi ishlab chiqarish va bugungi kungacha bo'lgan narx.",
   'dashboard.viewAllAlerts': 'Ogohlantirishlarni boshqarish →',
   'dashboard.viewAllDevices': 'Har bir qurilma →',
+  'deviceDetail.activeTokens': 'Faol qabul tokenlari',
   'deviceDetail.alreadyOff': 'Allaqachon pauza qilingan',
   'deviceDetail.back': 'Barcha sxemalar',
   'deviceDetail.confirmDelete': "O'chirishni tasdiqlang",
@@ -118,22 +138,34 @@ export const ui: UiTranslations = {
   'devices.loadError': "Hisoblagichlarni yuklab bo'lmadi.",
   'devices.loading': "Har bir hisoblagichni so'roq qilish…",
   'devices.newRule': 'Yangi ogohlantirish qoidasi',
+  'devices.noResults': "Bu filtrga mos sxemalar yo'q.",
   'devices.placeholder.location': 'masalan, mexanik xona',
   'devices.placeholder.name': 'masalan, Garaj subpaneli',
   'devices.subheading':
     "Voltrace ko'ra oladigan har bir zanjir orqali jonli vatt va bugungi kVt/soat.",
+  'deviceWattageRow.todayKwh': 'Bugun {{kwh}} kWh',
+  'deviceWattageRow.watts': "{{watts}} G'arb",
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Menyu',
+  'energyMonitoringLayout.primaryNavLabel': 'Asosiy navigatsiya',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    "{{appName}} ko'plab kommunal darajadagi hisoblagichlar, quyosh inverterlari va batareya tizimlari bilan ishlaydi — simli yoki WiFi orqali.",
   'landing.ctaHeading': "Hisoblagichingizni ulang, vattlarni bir necha daqiqada ko'ring",
   'landing.eyebrow': 'Real vaqt rejimida energiya razvedkasi',
+  'landing.featuresHeading': 'Har bir vatt, har bir daqiqa, bitta qobiqda',
   'landing.getStarted': 'Voltrazni ulang',
   'landing.heroCta': 'Voltrazni ulang',
+  'landing.heroSubtitle':
+    "Quyosh energiyasidan foydalanadigan uylar va muassasa jamoalari uchun yaratilgan boshqaruv xonasi qobig'ida jonli vatt, quyosh ishlab chiqarishi, vaqtga qarab tarif narxi va yuqori iste'mol ogohlantirishlari.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': "Uyda to'liq durang",
   'landing.sampleSolar': '+3,820 Vt quyosh energiyasi',
   'landing.sampleSummary': "Bugun 1680 Vt elektr tarmog'iga eksport qilinmoqda · 18,4 kVt/soat",
   'landing.sampleWatts': '2140 Vt',
   'powerHeroCard.solar': '+ {{watts}} W quyosh energiyasi',
   'powerHeroCard.title': "Uyda to'liq durang",
+  'powerHeroCard.todayKwh': 'Bugun {{kwh}} kWh',
   'powerHeroCard.watts': "{{watts}} G'arb",
   'pricing.choose': 'Tanlang {{name}}',
   'pricing.contact': 'Maxsus narsa kerakmi?',
@@ -146,6 +178,7 @@ export const ui: UiTranslations = {
     "Bepul boshlang. Ko'proq hisoblagichlar, uzoqroq tarix yoki ko'proq ogohlantirish qoidalari kerak bo'lganda yangilang.",
   'pricing.unavailable': 'Bu reja hozirda mavjud emas — Stripe sozlanmagan.',
   'profile.errorGeneric': "Profil o'zgarishlarini saqlab bo'lmadi.",
+  'profile.errorGoal': "Oylik kWh maqsadi musbat son bo'lishi kerak.",
   'profile.errorHousehold': "Oila a'zolari soni musbat son bo'lishi kerak.",
   'profile.householdHeading': 'Oila va maqsadlar',
   'profile.householdSize': "Uy xo'jaligi hajmi",
@@ -163,9 +196,11 @@ export const ui: UiTranslations = {
   'reports.loading': "O'qishlar umumlashtirilmoqda…",
   'reports.subheading':
     "Iste'mol, ishlab chiqarish va xarajatlarning kunlik jami ko'rsatkichlari — sanalar bo'yicha taqsimlangan.",
+  'reports.tableHeading': 'Kunlik taqsimot',
   'settings.currency': 'Valyuta',
   'settings.errorFlat': "Yagona stavka ≥ 0 bo'lishi kerak.",
   'settings.errorNotify': "Bildirishnoma sozlamalarini saqlab bo'lmadi.",
+  'settings.errorSave': "Tarif rejasini saqlab bo'lmadi.",
   'settings.errorTou':
     "Eng yuqori/eng past narxlar va amaldagi eng yuqori vaqt oralig'i talab qilinadi.",
   'settings.exportBody':
@@ -186,10 +221,20 @@ export const ui: UiTranslations = {
   'settings.saving': 'Saqlanmoqda…',
   'settings.securityHeading': 'Ikki faktorli autentifikatsiya',
   'settings.subheading': "Narxlar, bildirishnomalar va ma'lumotlar eksporti.",
+  'settings.twoFactorBody':
+    'Har safar tizimga kirganingizda autentifikator ilovangizdan bir martalik kod talab qilinadi.',
   'settings.twoFactorCode': 'Autentifikatsiya kodi',
   'settings.twoFactorDisable': "O'chirish",
+  'settings.twoFactorDisableTitle': "Ikki faktorli autentifikatsiyani o'chirish",
   'settings.twoFactorEnable': 'Yoqish',
+  'settings.twoFactorEnableTitle': 'Ikki faktorli autentifikatsiyani yoqish',
   'settings.twoFactorInvalidCode': "Noto'g'ri kod",
+  'settings.twoFactorOAuth':
+    "Hisobingiz ulangan provayder orqali kiradi, shuning uchun ikki faktorli autentifikatsiya o'sha yerda boshqariladi.",
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Ikki faktorli QR kod',
+  'settings.twoFactorScan':
+    "Ushbu QR kodni autentifikator ilovangiz bilan skanerlang, so'ng 6 xonali kodni kiriting.",
+  'settings.twoFactorUnavailable': 'Ushbu ilova uchun ikki faktorli autentifikatsiya mavjud emas.',
   'settings.twoFactorVerify': 'Tasdiqlash va yoqish',
 }

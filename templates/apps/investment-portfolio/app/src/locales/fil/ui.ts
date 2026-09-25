@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May feedback ka, may nahanap kang bug, o may gusto kang feature? Makipag-ugnayan mula sa iyong account settings — bawat mensahe ay napupunta sa isang tunay na tao sa team. Paalala: wala rito ang investment advice; nasa iyo pa rin ang kontrol sa bawat trade.',
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
+  'about.featureAttribution':
+    'Performance attribution — i-decompose ang returns ayon sa sector, rehiyon at asset class, at i-benchmark sa anumang window.',
+  'about.featureRebalance':
+    'Disiplinadong rebalancing — magtakda ng target allocations at tolerance bands, makita agad ang drift, at makuha ang mga trade na magbabalik sa iyo.',
+  'about.featureTax':
+    'Malinis na tax documents — realized at unrealized gains, dividends at 1099 docs sa isang lugar, kasama ang wash-sale flags.',
+  'about.featureUnified':
+    'Isang pinag-isang portfolio — equities, ETFs, mutual funds, bonds at iba pa, pinagsama-sama mula sa bawat brokerage account.',
+  'about.featureWatchlist':
+    'Mga watchlist, balita at price alert para makakilos ka sa mahahalagang bagay nang walang ingay.',
+  'about.intro':
+    'Ang {{app}} ay isang multi-asset portfolio dashboard para sa mga indibidwal na investor at independent advisor. Equities, ETFs, mutual funds, bonds, real estate at cash — bawat holding sa bawat account, sa isang lugar, may disiplina ng isang propesyonal na desk.',
+  'about.missionBody':
+    'Ang magandang investing ay halos disiplina: malinaw na target allocation, tapat na performance attribution, at maayos na tax records. Dinadala ng {{app}} ang mga institutional habit na iyon sa kahit sino, para makapag-rebalance ka nang sadya at hindi padalos-dalos — at hindi mawawala sa paningin kung ano talaga ang ginagawa ng iyong portfolio.',
+  'about.missionTitle': 'Ang aming misyon',
   'about.pageTitle': 'Tungkol sa {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Paggawa ng mga kagamitan para sa kayamanan',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Hindi ito payo sa pamumuhunan.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Isang portfolio dashboard para sa mga indibidwal na mamumuhunan at tagapayo na nagnanais ng disiplinadong rebalancing, matalas na performance attribution, at kalinisan sa tax-doc — nang walang ingay.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · Ang nakaraang performance ay hindi garantiya ng future results.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) ngayon',
+  'argentAuthShell.sampleLabel': 'Halaga ng Portfolio',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Pangunahing navigation',
   'assetAllocationDonut.heading': 'Paano ipinupuhunan ang iyong pera',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'ngayon',
   'assetDetail.txEmpty': 'Walang transaksyon para sa ticker na ito.',
   'assetDetail.txHeading': 'Ang iyong mga transaksyon',
+  'auth.legalConsent.prefix': 'Sa pagpapatuloy, sumasang-ayon ka sa {{appName}}’s',
   'common.and': 'at',
   'common.goToDashboard': 'Pumunta sa Dashboard',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'ngayon',
   'dashboard.topHoldings.heading': 'Kung saan gumagana ang iyong pera',
   'dashboard.topHoldings.label': 'Mga Nangungunang Holdings',
+  'forgotPassword.gotLinkCta': 'May reset link ako →',
+  'forgotPassword.subheading':
+    'Ilagay ang email ng iyong Gavl account at magpapadala kami ng ligtas na reset link.',
   'forgotPassword.successBody':
     'Kung hindi mo ito makita sa loob ng ilang minuto, tingnan ang iyong spam folder o subukan ang ibang email.',
   'forgotPassword.successSubheading':
     'Suriin {{email}} para sa isang reset link. Mag-e-expire ito sa loob ng 60 minuto.',
+  'forgotPassword.successTitle': 'Papadala na ang reset email',
   'holdingHighlightRow.todayLabel': 'ngayon',
   'holdings.addCta': 'Bumili',
   'holdings.col.allocation': 'Alokasyon',
@@ -59,6 +88,9 @@ export const ui: UiTranslations = {
   'landing.eyebrow': 'Argent · Isang plataporma para sa pangangalakal ng kayamanan',
   'landing.features.heading':
     'Lahat ng bagay ay itatayo ng isang tagapayo para sa kanilang sarili.',
+  'landing.finalCta.body':
+    'I-connect ang iyong brokerage sa dalawang click. Ang {{appName}} na ang bahala sa iba.',
+  'landing.finalCta.cta': 'Buksan ang iyong Argent account',
   'landing.finalCta.heading': 'Ibalik ang disiplina sa iyong portfolio.',
   'landing.footerSignup': 'Magbukas ng account',
   'landing.getStarted': 'Magbukas ng account',
@@ -66,6 +98,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Tingnan ang presyo',
   'landing.heroSubtitle':
     'Isang portfolio dashboard para sa mga indibidwal na mamumuhunan at tagapayo na nagnanais ng disiplinadong rebalancing, matalas na performance attribution, at kalinisan sa tax-doc — nang walang ingay.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Isang live na preview mula sa isang kinatawang portfolio',
   'login.heading': 'Mag-sign in sa Argent',
   'login.subheading':
@@ -77,6 +110,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}}o nakalipas',
   'news.justNow': 'ngayon lang',
   'news.loadError': 'Nabigong i-load ang balita.',
+  'planUpdated.body':
+    'Aktibo na ang pagbabago sa iyong billing. Maaari mong pamahalaan ang iyong plano anumang oras mula sa billing page.',
+  'planUpdated.retry': 'Subukan muli',
+  'planUpdated.verifyFailed': 'Hindi pa namin makumpirma ang iyong bayad.',
+  'planUpdated.verifyFailedBody':
+    'Maaaring pinoproseso pa rin ang iyong bayad. Subukan muli maya-maya.',
   'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'portfolioHeroCard.label': 'Halaga ng Portfolio',
   'pricing.holdingsLabel': 'mga ari-arian',
@@ -87,13 +126,18 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Pag-aalis ng alokasyon',
   'rebalance.empty': 'Wala pang target na nakatakda.',
   'rebalance.executeCta': 'Lugar {{count}} mga kalakalan',
+  'rebalance.executeError': 'Nabigo ang paglalagay ng trades.',
   'rebalance.executeOk':
     'Inilagay {{count}} mga kalakalan. Tingnan ang mga ito sa pahina ng Mga Transaksyon.',
+  'rebalance.executing': 'Inilalagay…',
   'rebalance.eyebrow': 'Rebalance · Tagapayo sa Argent',
   'rebalance.heading': 'Ibalik ang disiplina sa iyong portfolio',
   'rebalance.loadError': 'Nabigong i-load ang plano ng rebalance.',
+  'rebalance.plan.driftLine': 'kasalukuyang {{current}}% · target {{target}}%',
   'rebalance.planHeading': 'Argent ticket — suriin bago ilagay',
   'rebalance.planLabel': 'Iminungkahing plano sa kalakalan',
+  'rebalance.subheading':
+    'Ang mga row na labas sa kanilang tolerance band ay nagti-trigger ng trade suggestions. Kumikilos lang ang {{appName}} sa iyong kumpirmasyon.',
   'rebalance.summary.buyLabel': 'Mga Binili',
   'rebalance.summary.buySub': 'mga posisyon para mag-top up',
   'rebalance.summary.driftLabel': 'Labas sa banda',
@@ -102,6 +146,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'sa mga iminungkahing kalakalan',
   'rebalance.summary.sellLabel': 'Nagbebenta',
   'rebalance.summary.sellSub': 'mga posisyon para sa pag-trim',
+  'rebalanceDriftCard.drift': 'drift {{sign}}{{pct}}% · band ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'target {{pct}} %',
   'reports.attributionHeading': 'Pagpapatungkol sa pagganap (1Y)',
   'reports.col.alpha': 'Alpha',
@@ -115,37 +160,69 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Taon',
   'reports.gainsHeading': 'Mga natanto at hindi natanto na mga kita',
   'reports.noAttribution': 'Wala pang datos ng pagpapatungkol.',
+  'reports.noGains': 'Wala pang realized/unrealized gains data.',
   'reports.noPerformance': 'Wala pang datos ng pagganap.',
   'reports.noTaxDocs': 'Wala pang mga dokumento sa buwis.',
   'reports.performanceHeading': 'Pagganap vs benchmark',
   'reports.taxHeading': 'Mga dokumento sa buwis',
   'resetPassword.heading': 'Pumili ng isang malakas na bagong password',
+  'resetPassword.passwordPlaceholder': 'Bagong password',
   'resetPassword.subheading':
     'Awtomatiko kang isa-sign in ng Argent kapag naitakda na ang iyong password.',
   'resetPassword.tokenPlaceholder': 'I-reset ang token mula sa email',
+  'settings.appearance.description': 'Mag-toggle sa pagitan ng light at dark mode.',
   'settings.appearance.title': 'Hitsura',
+  'settings.devices.body': 'Mga device na kasalukuyang naka-sign in sa iyong account.',
+  'settings.devices.empty': 'Walang nahanap na device.',
   'settings.devices.heading': 'Mga Kagamitan',
+  'settings.devices.revokeWarning':
+    'Mababawi ang access ng device na ito sa ilang sandali. I-sign out ito?',
   'settings.devices.signOut': 'Mag-sign out',
   'settings.devices.thisDevice': 'Ang device na ito',
   'settings.devices.unknown': 'Hindi kilalang aparato',
   'settings.linked.body':
     'Ang pag-sync ng brokerage ay nangangailangan ng third-party connector (Plaid, Yodlee, atbp.). I-configure ang iyong provider sa iyong environment para paganahin ang auto-import.',
   'settings.linked.heading': 'Mga naka-link na brokerage account',
+  'settings.linked.placeholder': 'Wala pang naka-link na account.',
+  'settings.notifications.dividendsPaid': 'Mga dividend na binayaran',
   'settings.notifications.error': 'Hindi ma-update ang kagustuhan.',
   'settings.notifications.priceAlerts': 'Mga alerto sa presyo',
+  'settings.notifications.rebalanceDrift': 'Rebalance drift',
+  'settings.notifications.taxDocsReady': 'Ready na ang tax docs',
   'settings.profile.advisor': 'Email ng tagapayo (opsyonal)',
   'settings.profile.heading': 'Profile',
   'settings.security.changePassword': 'Baguhin ang password',
+  'settings.security.changePasswordTitle': 'Baguhin ang password',
   'settings.security.changing': 'Nagbabago…',
+  'settings.security.confirmPassword': 'Password',
+  'settings.security.currentPassword': 'Kasalukuyang password',
   'settings.security.deleteAccount': 'Burahin ang account',
   'settings.security.deleteError': 'Hindi mabura ang account.',
   'settings.security.deleteHeading': 'Burahin ang account',
+  'settings.security.deleteModalWarning':
+    'Permanenteng buburahin nito ang iyong account at data. Ilagay ang iyong password para kumpirmahin.',
+  'settings.security.deleteWarning':
+    'Permanenteng tanggalin ang iyong account at lahat ng kaugnay na data. Hindi na ito maibabalik.',
   'settings.security.deleting': 'Binubura…',
   'settings.security.heading': 'Seguridad',
   'settings.security.newPassword': 'Bagong password',
   'settings.security.password': 'Password',
+  'settings.security.passwordError': 'Hindi mabago ang password.',
+  'settings.security.passwordHint': 'Palitan ang password na ginagamit mo sa pag-sign in.',
+  'settings.security.twoFactor': 'Dalawang-factor na pagpapatotoo',
+  'settings.security.twoFactorCode': 'Kodigo ng pagpapatunay',
+  'settings.security.twoFactorDisable': 'I-disable',
+  'settings.security.twoFactorDisableTitle': 'I-disable ang two-factor authentication',
   'settings.security.twoFactorEnable': 'I-enable',
+  'settings.security.twoFactorEnableTitle': 'I-enable ang two-factor authentication',
+  'settings.security.twoFactorHint': 'Magdagdag ng karagdagang proteksyon sa iyong account.',
   'settings.security.twoFactorInvalidCode': 'Hindi wastong code',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'Two-factor QR code',
+  'settings.security.twoFactorScan':
+    'I-scan ang QR code na ito gamit ang iyong authenticator app, pagkatapos ay ilagay ang 6-digit na code.',
+  'settings.security.twoFactorUnavailable':
+    'Hindi available ang two-factor authentication para sa app na ito.',
   'settings.security.twoFactorVerify': 'I-verify at paganahin',
   'settings.tax.error': 'Hindi ma-update ang paraan ng buwis.',
   'settings.tax.heading': 'Pagtutuos ng lote ng buwis',
@@ -156,6 +233,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Na-save na ang paraan ng buwis.',
   'signup.eyebrow': 'Magbukas ng account',
   'signup.heading': 'Buksan ang iyong Argent account',
+  'signup.legalPrefix': 'Sa paggawa ng account, sumasang-ayon ka sa {{appName}}',
   'signup.subheading':
     'Libre sa loob ng 30 araw. Hindi kailangan ng card. Kanselahin anumang oras.',
   'signup.terms':

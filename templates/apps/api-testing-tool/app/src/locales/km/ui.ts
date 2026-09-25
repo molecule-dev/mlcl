@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'រកឃើញកំហុស ចង់ស្នើសុំមុខងារថ្មី ឬចង់ប្រាប់យើងពីអ្វីដែលត្រូវសាងសង់បន្ទាប់? ផ្ញើអ៊ីមែលទៅ hello@pylon.dev — រាល់សារទាំងអស់ទៅដល់វិស្វករពិតប្រាកដក្នុងក្រុម។',
   'about.contactTitle': 'ទាក់ទងមកយើង',
+  'about.intro':
+    '{{app}} គឺជាកន្លែងធ្វើតេស្ត API លឿន ប្រើក្តារចុចជាចម្បង សម្រាប់វិស្វករដែលរស់នៅក្នុង terminal — សំណើបែប Postman, collections, environments និងប្រវត្តិ ដោយគ្មានភាពធ្ងន់ធ្ងរ។',
+  'about.missionBody':
+    'API គឺជាឆ្អឹងខ្នងនៃកម្មវិធីទំនើប ប៉ុន្តែឧបករណ៍សម្រាប់ប្រើប្រាស់ពួកវាគឺយឺត ធ្ងន់ និងប្រើកូនកណ្តុរ។ {{app}} មានវត្តមានដើម្បីផ្តល់ឱ្យអ្នកអភិវឌ្ឍន៍នូវកន្លែងធ្វើការដ៏មុតស្រួច លឿន កម្រិត terminal៖ បាញ់សំណើ បង្កើតទំនុកចិត្ត និងដឹកជញ្ជូនដោយមិនចាកចេញពីក្តារចុច។',
+  'about.missionTitle': 'បេសកកម្មរបស់យើង',
   'about.pageTitle': 'អំពី {{app}}',
   'authShell.statusLabel': 'អ្នករត់តាមអ៊ីនធឺណិត',
   'collections.createError': 'មិនអាចបង្កើតបណ្តុំបានទេ។',
   'collections.defaultName': 'ការប្រមូលផ្ដុំគ្មានចំណងជើង {{n}}',
+  'collections.empty':
+    'មិនទាន់មាន collection ណាមួយទេ — ចុច “New collection” ដើម្បីបង្កើតថតដំបូងរបស់អ្នក។',
   'collections.eyebrow': 'ការប្រមូល $ pylon --ដើមឈើ',
   'collections.fetchError': 'មិនអាចផ្ទុកបណ្តុំបានទេ។',
   'collections.heading': 'ការប្រមូលផ្ដុំ',
   'collections.loading': 'កំពុងផ្ទុកបណ្តុំ…',
+  'collections.metric.allGreen': 'ទាំងអស់ដំណើរការល្អ',
   'collections.metric.collections': 'ការប្រមូលផ្ដុំ',
   'collections.metric.failing': 'បរាជ័យ',
   'collections.metric.failingCaption': 'ការរត់ចុងក្រោយមានការបរាជ័យ',
@@ -23,6 +33,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'អថេរ',
   'environments.createError': 'មិនអាចបង្កើតបរិស្ថានបានទេ។',
   'environments.defaultName': 'បរិស្ថានគ្មានចំណងជើង {{n}}',
+  'environments.empty': 'មិនទាន់មាន environment ណាមួយទេ — ចុច “New environment” ដើម្បីបន្ថែមមួយ។',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'មិនអាចផ្ទុកបរិស្ថានបានទេ។',
   'environments.heading': 'បរិស្ថាន',
@@ -30,8 +41,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'បរិស្ថានថ្មី',
   'environments.subheading':
     'អថេរដែលប្តូរទៅជាសំណើនៅពេលផ្ញើ។ បរិស្ថានសកម្មមួយក្នុងមួយកន្លែងធ្វើការ។',
+  'forgotPassword.statusLabel': 'កំណត់ឡើងវិញ · ផ្លូវរូងក្រោមដីដែលមានសុវត្ថិភាព',
   'forgotPassword.success':
     'ប្រសិនបើមានគណនីសម្រាប់អ៊ីមែលនោះ តំណភ្ជាប់កំណត់ឡើងវិញនឹងមកដល់។ សូមពិនិត្យមើលប្រអប់សំបុត្ររបស់អ្នក។',
+  'history.empty': 'មិនទាន់មានអ្វីនៅទីនេះទេ — បាញ់សំណើដំបូងរបស់អ្នកពីផ្ទាំង Workspace។',
   'history.eyebrow': 'ប្រវត្តិ $ pylon --tail',
   'history.fetchError': 'មិនអាចផ្ទុកប្រវត្តិបានទេ។',
   'history.heading': 'ប្រវត្តិដំណើរការ',
@@ -40,9 +53,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '៤xx + ៥xx',
   'history.metric.success': '2xx',
   'history.metric.total': '៥០ ចុងក្រោយ',
+  'history.realtime': 'ពេលវេលាពិត',
   'history.subheading':
     'សំណើនីមួយៗត្រូវបានដំណើរការនៅក្នុងកន្លែងធ្វើការនេះ ជាមួយនឹងស្ថានភាព ភាពយឺតយ៉ាវ និងទំហំបន្ទុក។',
   'landing.choosePlan': 'ជ្រើសរើសផែនការ',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Forge confidence.',
   'landing.ctaBody':
     'មិន​ចាំបាច់​មាន​កាត​ឥណទាន​ទេ។ មិន​តម្រូវ​ឱ្យ​មាន​វិស្វករ​វេទិកា​ទេ។ បើក ⌘K ហើយ​ផ្ញើ​សំណើ​ដំបូង​របស់​អ្នក​ក្នុង​រយៈពេល​ក្រោម​ប្រាំ​នាទី។',
   'landing.ctaHeading': 'បង្ក​ទំនុកចិត្ត។',
@@ -85,6 +100,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'ភាពយឺតយ៉ាវជាមធ្យម',
   'mocks.metric.live': 'សាធារណៈ',
   'mocks.metric.servers': 'ការធ្វើត្រាប់តាម',
+  'mocks.ms': 'ម.ស.',
   'mocks.newMock': 'គំរូថ្មី',
   'mocks.online': 'សាធារណៈ',
   'mocks.paused': 'ឯកជន',
@@ -108,9 +124,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'មានសុខភាពល្អ',
   'monitors.metric.uptime': 'រយៈពេលដំណើរការជាមធ្យម',
   'monitors.newMonitor': 'ម៉ូនីទ័រថ្មី',
+  'monitors.paused': 'បានផ្អាក',
   'monitors.run': 'រត់',
   'monitors.runError': 'ការដំណើរការបានបញ្ចប់ដោយមានកំហុសបណ្តាញ៖ {{error}}',
+  'monitors.runFailed': 'ការដំណើរការបានបរាជ័យ។',
   'monitors.running': 'កំពុងរត់…',
+  'monitors.runSuccess': 'ដំណើរការ {{status}} — upstream បានត្រឡប់ {{code}} ក្នុងរយៈពេល {{ms}}ms។',
   'monitors.sparkLabel': 'និន្នាការ​ភាព​យឺតយ៉ាវ',
   'monitors.subheading':
     'ការត្រួតពិនិត្យតាមតម្រូវការសម្រាប់ការធ្វើតេស្តណាមួយដែលបានរក្សាទុក។ ភ្ជាប់ការធ្វើតេស្ត ចុច Run ហើយមើលការអាប់ដេតអត្រាជោគជ័យ 24 ម៉ោងជាមួយនឹងអគ្គីភ័យនីមួយៗ។',
@@ -119,27 +138,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'ពេលវេលាដំណើរការ · 24 ម៉ោង',
   'nav.legal': 'ផ្នែកច្បាប់',
   'notFound.backToWorkspace': 'ត្រឡប់ទៅកន្លែងធ្វើការវិញ',
+  'notFound.body':
+    '{{app}} បានបាញ់សំណើសម្រាប់ URL នេះ ហើយមិនបានទទួលអ្វីត្រឡប់មកវិញទេ។ ពិនិត្យផ្លូវម្តងទៀត ឬត្រឡប់ទៅ workspace វិញ។',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'រកមិនឃើញផ្លូវ',
+  'planUpdated.body':
+    'ការផ្លាស់ប្តូរវិក្កយបត្ររបស់អ្នកឥឡូវសកម្មហើយ។ អ្នកអាចគ្រប់គ្រងគម្រោងរបស់អ្នកបានគ្រប់ពេលពីទំព័រវិក្កយបត្រ។',
+  'planUpdated.retry': 'ព្យាយាមម្តងទៀត',
+  'planUpdated.verifyFailed': 'យើងមិនទាន់អាចបញ្ជាក់ការទូទាត់របស់អ្នកបាននៅឡើយទេ។',
+  'planUpdated.verifyFailedBody':
+    'ការទូទាត់របស់អ្នកប្រហែលជានៅតែកំពុងដំណើរការ។ សូមព្យាយាមម្តងទៀតនៅពេលបន្តិចទៀត។',
   'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
+  'pricing.advancedFeatures': 'មុខងារកម្រិតខ្ពស់៖ {{yes}}',
+  'pricing.canExport': 'នាំចេញទិន្នន័យ៖ {{yes}}',
+  'pricing.heading': 'ជ្រើសរើសគម្រោង {{app}} របស់អ្នក',
+  'pricing.maxCollections': '{{count}} collections',
+  'pricing.maxEnvironments': '{{count}} environments',
+  'pricing.maxHistory': '{{count}} កំណត់ត្រាប្រវត្តិ',
+  'pricing.maxRequests': '{{count}} សំណើ',
   'privacy.collect.account':
     'គណនី៖ អ៊ីមែលរបស់អ្នក ពាក្យសម្ងាត់ដែលបានអ៊ិនគ្រីប ឈ្មោះបង្ហាញ និងត្រាពេលវេលានៃការចូលចុងក្រោយរបស់អ្នក។',
+  'privacy.intro':
+    '{{app}} គោរពភាពឯកជនរបស់អ្នក។ ទំព័រនេះសង្ខេបទិន្នន័យដែលយើងប្រមូល ហេតុអ្វីយើងប្រមូលវា និងរបៀបលុបវាចេញ។',
   'privacy.rights.body':
     'អ្នកអាចនាំចេញបណ្តុំ + បរិស្ថានរបស់អ្នកនៅពេលណាក៏បាន ឬលុបគណនីរបស់អ្នកចេញពីការកំណត់ ដើម្បីលុបទិន្នន័យទាំងអស់ជាអចិន្ត្រៃយ៍ក្នុងរយៈពេល 30 ថ្ងៃ។',
   'privacy.share.body':
     'សម្រាប់តែអ្នកប៉ុណ្ណោះ។ យើងមិនដែលលក់ ចែករំលែក ឬជួលខ្លឹមសារកន្លែងធ្វើការរបស់អ្នកទៅឱ្យភាគីទីបីឡើយ។ កំណត់ហេតុម៉ាស៊ីនមេត្រូវបានរក្សាទុករយៈពេល 30 ថ្ងៃសម្រាប់ការឆ្លើយតបទៅនឹងឧប្បត្តិហេតុ ហើយបន្ទាប់មកត្រូវបានលុបចោល។',
   'privacy.title': 'ការជូនដំណឹងអំពីភាពឯកជន',
+  'profile.bio':
+    'កន្លែងធ្វើការ {{app}} ផ្ទាល់ខ្លួនរបស់អ្នក — បិទភ្ជាប់ collections ចែករំលែក environments និងត្រួតពិនិត្យ API ដែលដឹកជញ្ជូនផលិតផល។',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'បានចូលរួម {{when}}',
+  'profile.metric.collections': 'ការប្រមូលផ្ដុំ',
   'profile.metric.monitors': 'ម៉ូនីទ័រ',
   'profile.metric.requests': 'សំណើដែលបានរក្សាទុក',
+  'profile.noActivity':
+    'មិនទាន់មានសំណើណាមួយត្រូវបានបាញ់ទេ — ទៅកាន់ផ្ទាំង Workspace ដើម្បីបង្កើតមួយ។',
   'profile.signedOut': 'ចូលដើម្បីមើលប្រវត្តិរូបរបស់អ្នក',
   'pylonShell.primaryNavLabel': 'ការរុករកចម្បង',
+  'resetPassword.passwordLabel': 'ពាក្យសម្ងាត់ថ្មី',
+  'resetPassword.statusLabel': 'កំណត់ឡើងវិញ · បានផ្ទៀងផ្ទាត់សញ្ញាសម្ងាត់',
   'resetPassword.subtitle': 'សូមជ្រើសរើសពាក្យសម្ងាត់ដ៏រឹងមាំដែលអ្នកមិនធ្លាប់ប្រើពីមុនមក។',
   'resetPassword.tokenPlaceholder': 'បិទភ្ជាប់ពីអ៊ីមែល',
+  'settings.accountManagement.desc':
+    'ធ្វើបច្ចុប្បន្នភាពអ៊ីមែល និងពាក្យសម្ងាត់របស់អ្នក គ្រប់គ្រងការជូនដំណឹង និងឧបករណ៍ ចាកចេញ ឬលុបគណនីរបស់អ្នក។',
+  'settings.accountManagement.title': 'គណនី និងសុវត្ថិភាព',
   'settings.eyebrow': 'ការកំណត់ $ pylon --កែសម្រួល',
   'settings.fetchError': 'មិនអាចផ្ទុកការកំណត់បានទេ។',
   'settings.language.title': 'ភាសា',
+  'settings.seeding': 'កំពុងដំណើរការ…',
   'settings.seedStarter': 'ខ្លឹមសារនៃគ្រាប់ពូជចាប់ផ្តើម',
   'settings.starterCollection': 'ការប្រមូលផ្ដុំសម្រាប់អ្នកចាប់ផ្តើម',
   'settings.starterCollectionDesc': 'បង្កើតឡើងពីការកំណត់នៅលើ {{ts}}',
@@ -153,6 +200,8 @@ export const ui: UiTranslations = {
     'អ្នកទទួលខុសត្រូវក្នុងការការពារពាក្យសម្ងាត់របស់អ្នក។ ការចែករំលែកគណនីមួយជាមួយមនុស្សច្រើននាក់មិនត្រូវបានអនុញ្ញាតនៅលើផែនការឥតគិតថ្លៃ ឬ Pro ទេ — ទិញការជាវ Team សម្រាប់កន្លែងធ្វើការដែលបានចែករំលែក។',
   'terms.billing.body':
     'ការជាវបង់ប្រាក់នឹងបន្តដោយស្វ័យប្រវត្តិរៀងរាល់រយៈពេលគិតប្រាក់នីមួយៗ។ អ្នកអាចបោះបង់ពីការកំណត់នៅពេលណាក៏បាន។ ការចូលប្រើរបស់អ្នកនឹងបន្តរហូតដល់ចុងបញ្ចប់នៃរយៈពេលបច្ចុប្បន្ន។',
+  'terms.intro':
+    'ដោយបង្កើតគណនី {{app}} អ្នកយល់ព្រមនឹងលក្ខខណ្ឌខាងក្រោម។ អានវាម្តង; យើងនឹងមិនធ្វើឱ្យអ្នកភ្ញាក់ផ្អើលជាមួយការផ្លាស់ប្តូរបន្ថែមទេ។',
   'terms.title': 'លក្ខខណ្ឌនៃសេវាកម្ម',
   'terms.usage.body':
     'កុំប្រើ Pylon ដើម្បីដាក់សំណើនៅសេវាកម្មដែលអ្នកមិនមែនជាម្ចាស់ ឬមិនមានការអនុញ្ញាតច្បាស់លាស់ក្នុងការសាកល្បង។ កុំប្រើ Pylon ដើម្បីគេចវេះដែនកំណត់អត្រា ឬប្រព្រឹត្តការក្លែងបន្លំ។',
@@ -173,16 +222,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'មិនរត់',
   'testRunner.metric.passed': 'បានប្រឡងជាប់',
   'testRunner.never': 'កុំរត់',
+  'testRunner.newTest': 'ការធ្វើតេស្តថ្មី',
   'testRunner.noAssertions': 'មិនទាន់មានការអះអាងលើការធ្វើតេស្តនេះនៅឡើយទេ។',
+  'testRunner.noRunsYet':
+    'មិនទាន់មានការដំណើរការត្រូវបានកត់ត្រាទេ — ចុច “Run all” ដើម្បីបំពេញប្រវត្តិ។',
   'testRunner.passed': 'ឆ្លងកាត់',
+  'testRunner.recentRuns': 'ការរត់ថ្មីៗ',
   'testRunner.runAll': 'ដំណើរការទាំងអស់',
   'testRunner.running': 'កំពុងរត់…',
   'testRunner.runOne': 'រត់',
   'testRunner.subheading': 'លទ្ធផល​ស្វីត ភាពខុសគ្នា​នៃ​ការអះអាង និង​ការរត់ 50 លើកចុងក្រោយ។',
+  'testRunner.suites': 'ឈុតតេស្ត',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'បានចូលជា',
   'workspace.auth.keyName': 'ឈ្មោះ​បឋមកថា',
   'workspace.auth.keyValue': 'តម្លៃ​គន្លឹះ',
+  'workspace.auth.noneHint': 'គ្មាន authorization header នឹងត្រូវបានផ្ញើជាមួយសំណើនេះទេ។',
   'workspace.auth.password': 'ពាក្យសម្ងាត់',
   'workspace.auth.username': 'ឈ្មោះអ្នកប្រើប្រាស់',
   'workspace.authOption.apikey': 'សោ API',
@@ -192,13 +247,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'ប្រភេទ',
   'workspace.authTypeLabel': 'ប្រភេទ​នៃ​ការអនុញ្ញាត',
+  'workspace.body.contentLabel': 'សំណើ​សុំ​តួ​អត្ថបទ',
+  'workspace.body.hint':
+    '{{envVars}} ត្រូវបានជំនួសមុនពេលសំណើត្រូវបានបាញ់។ Bodies ត្រូវបានផ្ញើនៅលើ POST/PUT/PATCH/DELETE។',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'គ្មាន',
+  'workspace.body.noneHint':
+    'គ្មាន request body នឹងត្រូវបានផ្ញើទេ។ ជ្រើសរើស JSON ឬអត្ថបទធម្មតាដើម្បីបន្ថែមមួយ។',
   'workspace.body.text': 'អត្ថបទឆៅ',
   'workspace.body.type': 'ប្រភេទ',
   'workspace.environment': 'គ្មាន env',
   'workspace.envVar': 'អថេរ env',
   'workspace.eyebrow': 'កន្លែងធ្វើការ $ pylon --pane បំបែក',
+  'workspace.failedCount': '{{count}} បរាជ័យ',
+  'workspace.idle': 'អសកម្ម',
   'workspace.kv.addHeader': 'បន្ថែម​បឋមកថា',
   'workspace.kv.addParam': 'បន្ថែមប៉ារ៉ាម៉ែត្រ',
   'workspace.kv.headerKey': 'ឈ្មោះ​បឋមកថា',
@@ -211,12 +273,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'វិធីសាស្ត្រ HTTP',
   'workspace.metric.latency': 'ភាពយឺតយ៉ាវ',
   'workspace.metric.latencyCaption': 'ការធ្វើដំណើរទៅមកពីការរត់នេះ',
+  'workspace.metric.size': 'Payload',
   'workspace.metric.sizeCaption': 'បៃត៍​តួ​សារ​ឆ្លើយ​តប',
   'workspace.metric.statusCaption': 'ការឆ្លើយតបចុងក្រោយ',
   'workspace.metric.tests': 'ការធ្វើតេស្ត',
+  'workspace.metric.testsAllPassing': 'ការអះអាងទាំងអស់ជោគជ័យ',
   'workspace.metric.testsFailing': '{{count}} បរាជ័យ',
+  'workspace.metric.testsIdle': 'ផ្ញើសំណើដើម្បីវាយតម្លៃ',
   'workspace.noAssertions': 'ដំណើរការសំណើដើម្បីវាយតម្លៃការអះអាងដែលភ្ជាប់មកជាមួយ។',
   'workspace.noResponseYet': 'មិនទាន់មានការឆ្លើយតបនៅឡើយទេ',
+  'workspace.passedCount': '{{count}} បានប្រឡងជាប់',
   'workspace.responseHint': '// ចុច​ផ្ញើ​ដើម្បី​បញ្ឈប់​សំណើ​ និង​ចាប់យក​ការឆ្លើយតប។',
   'workspace.saveError': 'មិនអាចរក្សាទុកសំណើបានទេ។',
   'workspace.statusError': 'មិនអាចផ្ញើសំណើបានទេ។',
@@ -225,9 +291,13 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'សរសេរសំណើមួយ ចាប់ផ្ដើមវា បន្ទាប់មកអះអាងការឆ្លើយតប — ទាំងអស់នៅក្នុងផ្ទាំងតែមួយ។',
   'workspace.testResults': 'លទ្ធផលតេស្ត',
+  'workspace.tests.autoHint':
+    'ក្រុមស្ថានភាព ភាពយឺត ទំហំ body និងសុខភាព transport ត្រូវបានអះអាងដោយស្វ័យប្រវត្តិ — លទ្ធផលបង្ហាញនៅក្រោម “Test results” ក្នុងផ្ទាំងឆ្លើយតប។',
+  'workspace.tests.autoTitle': 'ការអះអាងដែលភ្ជាប់មកជាមួយដំណើរការលើរាល់ការឆ្លើយតប',
   'workspace.token': 'ថូខិន',
   'workspace.tokenHint': 'បានផ្ញើជាការអនុញ្ញាត៖ អ្នកកាន់<token> លើរាល់សំណើរនៅក្នុងបណ្តុំនេះ។',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'សំណើគ្មានចំណងជើង',
+  'workspace.urlLabel': 'ស្នើសុំ URL',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

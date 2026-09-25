@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ಪ್ರತಿಕ್ರಿಯೆ ಇದೆಯೇ, ದೋಷ ಕಂಡುಬಂದಿದೆಯೇ, ಅಥವಾ {{app}} ಅನ್ನು ನಿಮ್ಮ ಶಾಲೆ ಅಥವಾ ತಂಡಕ್ಕೆ ತರಲು ಬಯಸುವಿರಾ? ನಾವು ಪ್ರತಿ ಸಂದೇಶವನ್ನೂ ಓದುತ್ತೇವೆ — ನಿಮ್ಮ ಖಾತೆ ಸೆಟ್ಟಿಂಗ್ಗಳಿಂದ ಸಂಪರ್ಕಿಸಿ, ನಿಜವಾದ ವ್ಯಕ್ತಿಯೊಬ್ಬರು ಉತ್ತರಿಸುತ್ತಾರೆ.',
   'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಸಂಪರ್ಕಿಸಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.intro':
+    '{{app}} ಒಂದು ದೈನಂದಿನ ಪದ ಒಗಟು. ಆರು ಪ್ರಯತ್ನಗಳಲ್ಲಿ ಐದು ಅಕ್ಷರಗಳ ಪದವನ್ನು ಊಹಿಸಿ, ನಿಮ್ಮ ಸ್ಟ್ರೀಕ್ ಉಳಿಸಿಕೊಳ್ಳಿ, ನಿಮ್ಮ ಎಮೋಜಿ ಗ್ರಿಡ್ ಹಂಚಿಕೊಳ್ಳಿ, ಮತ್ತು ಇಂದಿನ ಪದದಲ್ಲಿ ಎಲ್ಲರೂ ಹೇಗೆ ಆಡಿದರು ಎಂದು ನೋಡಿ.',
+  'about.missionBody':
+    'ಉತ್ತಮ ಒಗಟು ಒಂದು ಸಣ್ಣ ದೈನಂದಿನ ಗೆಲುವು. {{app}} ಒಂದೇ ಹಂಚಿಕೊಂಡ ದಿನದ ಪದದ ಸುತ್ತ ಕಟ್ಟಲಾಗಿದೆ — ಕಾಫಿ ವಿರಾಮಕ್ಕೆ ಸಾಕಷ್ಟು ಚುರುಕು, ನಾಳೆಗೂ ಮತ್ತೆ ಬರುವಷ್ಟು ತೀಕ್ಷ್ಣ.',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
   'about.title': '{{app}} ಬಗ್ಗೆ',
   'archive.loadError': 'ಆರ್ಕೈವ್ ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'archive.missed': 'ತಪ್ಪಿಸಿಕೊಂಡದ್ದು',
   'archive.notPlayed': 'ಆಡಿಲ್ಲ',
+  'archive.subhead':
+    'ಯಾವುದೇ ಹಿಂದಿನ ದಿನವನ್ನು ಅಭ್ಯಾಸವಾಗಿ ಮತ್ತೆ ಆಡಿ — ಸ್ಟ್ರೀಕ್ ಇಲ್ಲ, ಅಂಕಿಅಂಶಗಳಿಲ್ಲ, ಆದರೆ ಪೂರ್ತಿ ಮಜಾ.',
   'archive.title': 'ಆರ್ಕೈವ್',
   'auth.backToHome': 'ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ',
   'auth.backToHomeArrow': '← ಮುಖಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'ಪಾಸ್‌ವರ್ಡ್ ಮರೆತಿರಾ?',
   'auth.login.loggingIn': 'ನಿಮ್ಮನ್ನು ಸೈನ್ ಇನ್ ಮಾಡಲಾಗುತ್ತಿದೆ…',
   'auth.login.logIn': 'ಇಂದಿನ ಪದವನ್ನು ಆಡಿ',
+  'auth.login.noAccount': 'ಟೆಸ್ಸೆರಾಗೆ ಹೊಸಬರೇ?',
   'auth.login.or': 'ಅಥವಾ ಇದರೊಂದಿಗೆ ಮುಂದುವರಿಸಿ',
   'auth.login.password': 'ಪಾಸ್‌ವರ್ಡ್',
   'auth.login.signInButton': 'ಸೈನ್ ಇನ್',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'ಉಳಿಸಲಾಗುತ್ತಿದೆ…',
   'common.sendingEllipsis': 'ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ…',
   'common.startingEllipsis': 'ಪ್ರಾರಂಭಿಸಲಾಗುತ್ತಿದೆ…',
+  'forgotPassword.subhead':
+    'ನಿಮ್ಮ ಇಮೇಲ್ ಅನ್ನು ನಮೂದಿಸಿ ಮತ್ತು ಮರುಹೊಂದಿಸಲು ನಾವು ನಿಮಗೆ ಲಿಂಕ್ ಅನ್ನು ಕಳುಹಿಸುತ್ತೇವೆ.',
+  'forgotPassword.success.body':
+    'ಖಾತೆ ಅಸ್ತಿತ್ವದಲ್ಲಿದ್ದರೆ {{email}} , ನೀವು ಕೆಲವು ನಿಮಿಷಗಳಲ್ಲಿ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಪಡೆಯುತ್ತೀರಿ.',
+  'forgotPassword.success.title': 'ನಿಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್ ಪರಿಶೀಲಿಸಿ.',
   'form.name': 'ಹೆಸರು',
   'howToPlay.cta.home': 'ಮನೆಗೆ ಹಿಂತಿರುಗಿ',
   'howToPlay.cta.play': 'ಇಂದಿನ ಪಝಲ್ ಆಡಿ',
@@ -68,10 +83,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'ಮುರಿಯಲು ನೀವು ದ್ವೇಷಿಸುವ ಸ್ಟ್ರೀಕ್‌ಗಳು',
   'leaderboard.daily.title': 'ಇಂದಿನ ಪರಿಹಾರಗಳು',
   'leaderboard.loadError': 'ಲೀಡರ್‌ಬೋರ್ಡ್ ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'leaderboard.streaks.empty': 'ಇನ್ನೂ ಸ್ಟ್ರೀಕ್ ಇಲ್ಲ — ಮೊದಲಿಗರಾಗಿ.',
+  'leaderboard.streaks.subhead': 'ಎಲ್ಲಾ ಕಾಲದ ಅತಿ ಉದ್ದದ ಗೆಲುವಿನ ಸ್ಟ್ರೀಕ್‌ಗಳು.',
   'leaderboard.streaks.title': 'ಸ್ಟ್ರೀಕ್ ಮುಂಚೂಣಿಯವರು',
+  'leaderboard.subhead': 'ಇಂದು ಎಲ್ಲರೂ ಹೇಗೆ ಆಡಿದರು, ಮತ್ತು ಯಾರು ಅತಿ ಉದ್ದದ ಸ್ಟ್ರೀಕ್ ಹೊಂದಿದ್ದಾರೆ.',
   'leaderboard.title': 'ಲೀಡರ್‌ಬೋರ್ಡ್',
   'login.headline': 'ಮತ್ತೆ ಸ್ವಾಗತ.',
   'login.streakPill': '{{days}}-ದಿನದ ಸ್ಟ್ರೀಕ್ ಕಾಯುತ್ತಿದೆ',
+  'login.subhead':
+    'ನಿಮ್ಮ ಸ್ಟ್ರೀಕ್ ಉಳಿಸಿಕೊಳ್ಳಲು ಮತ್ತು ಇಂದಿನ ಪದದಲ್ಲಿ ನೀವು ಹೇಗೆ ಆಡಿದಿರಿ ಎಂದು ನೋಡಲು ಸೈನ್ ಇನ್ ಮಾಡಿ.',
   'nav.archive': 'ಆರ್ಕೈವ್',
   'nav.editProfile': 'ಪ್ರೊಫೈಲ್ ಸಂಪಾದಿಸಿ',
   'nav.getStarted': 'ಪ್ರಾರಂಭಿಸಿ',
@@ -89,6 +109,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · ಅಂತಹ ಪದವಿಲ್ಲ',
   'notFound.title': 'ಆ ಮಾರ್ಗ ಖಾಲಿಯಾಗಿದೆ.',
   'planUpdated.message': 'ನಿಮ್ಮ ಯೋಜನೆ ಲೈವ್ ಆಗಿದೆ.',
+  'planUpdated.retry': 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ',
+  'planUpdated.verifyFailed': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ನಮಗೆ ಇನ್ನೂ ಖಚಿತಪಡಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'planUpdated.verifyFailedBody':
+    'ನಿಮ್ಮ ಪಾವತಿ ಇನ್ನೂ ಪ್ರಕ್ರಿಯೆಗೊಳ್ಳುತ್ತಿರಬಹುದು. ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'play.alreadyFinished': 'ನೀವು ಈಗಾಗಲೇ ಈ ಪಝಲ್ ಮುಗಿಸಿದ್ದೀರಿ',
   'play.answerWas': 'ಪದವು ಇತ್ತು',
@@ -104,6 +128,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'ಅಭ್ಯಾಸ ಪಝಲ್',
   'play.tooShort': 'ಸಾಕಷ್ಟು ಅಕ್ಷರಗಳಿಲ್ಲ',
   'play.won': 'ಪರಿಹರಿಸಿದ್ದೀರಿ!',
+  'pricing.advancedStats': 'ಸುಧಾರಿತ ಅಂಕಿಅಂಶಗಳು: {{yes}}',
+  'pricing.archiveHistory': '{{count}} ದಿನಗಳ ಆರ್ಕೈವ್ ಇತಿಹಾಸ',
+  'pricing.archivePlays': '{{count}} ಆರ್ಕೈವ್ ಮರುಪಂದ್ಯಗಳು / ದಿನ',
+  'pricing.archiveUnlimited': 'ಅಪರಿಮಿತ ಆರ್ಕೈವ್ ಇತಿಹಾಸ',
+  'pricing.canExport': 'ಡೇಟಾ ರಫ್ತು: {{yes}}',
+  'pricing.checkoutError': 'ಚೆಕ್ಔಟ್ ಪ್ರಾರಂಭಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'pricing.dailyWord': 'ದೈನಂದಿನ ಪದ',
   'pricing.heading': 'ನಿಮ್ಮ {{app}} ಯೋಜನೆಯನ್ನು ಆರಿಸಿ',
   'pricing.included': 'ಸೇರಿಸಲಾಗಿದೆ',
@@ -111,7 +141,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'ದೈನಂದಿನ ಪದ ಯಾವಾಗಲೂ ಉಚಿತವಾಗಿದೆ. ಅನಿಯಮಿತ ಆರ್ಕೈವ್ ಮರುಪಂದ್ಯಗಳು ಮತ್ತು ಆಳವಾದ ಅಂಕಿಅಂಶಗಳಿಗಾಗಿ ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} ನಿಮ್ಮ ಗೌಪ್ಯತೆಯನ್ನು ಗೌರವಿಸುತ್ತದೆ. ಈ ಪುಟವು ನಾವು ಸಂಗ್ರಹಿಸುವ ಡೇಟಾ, ಅದನ್ನು ಏಕೆ ಸಂಗ್ರಹಿಸುತ್ತೇವೆ ಮತ್ತು ಅದನ್ನು ಹೇಗೆ ತೆಗೆದುಹಾಕುವುದು ಎಂಬುದನ್ನು ಸಂಕ್ಷಿಪ್ತವಾಗಿ ತಿಳಿಸುತ್ತದೆ.',
   'privacy.title': 'ಗೌಪ್ಯತಾ ಸೂಚನೆ',
+  'resetPassword.subhead': 'ನಿಮ್ಮ ಸ್ಟ್ರೀಕ್‌ಗೆ ಮರಳಲು ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಆಯ್ಕೆಮಾಡಿ.',
   'settings.account': 'ಖಾತೆ',
   'settings.danger.body':
     'ನಿಮ್ಮ {{appName}} ಖಾತೆ ಮತ್ತು ಎಲ್ಲಾ ಪಝಲ್ ಇತಿಹಾಸವನ್ನು ಶಾಶ್ವತವಾಗಿ ತೆಗೆದುಹಾಕಿ.',
@@ -122,17 +155,23 @@ export const ui: UiTranslations = {
   'settings.language.title': 'ಭಾಷೆ',
   'settings.subhead':
     'ನಿಮ್ಮ ಪ್ರೊಫೈಲ್, ಧ್ವನಿ ಮತ್ತು ಲೀಡರ್‌ಬೋರ್ಡ್‌ನಲ್ಲಿ ನೀವು ಹೇಗೆ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತೀರಿ ಎಂಬುದನ್ನು ಟ್ಯೂನ್ ಮಾಡಿ.',
+  'settings.unnamed': 'ಸ್ಪಾರ್ಕ್ ಆಟಗಾರ',
   'settings.upgrade': 'ಅಪ್‌ಗ್ರೇಡ್',
   'signup.eyebrow': 'ಶಾಶ್ವತವಾಗಿ ಉಚಿತ — ದಿನಕ್ಕೆ ಒಂದು ಪದ',
   'signup.headline': 'ನಿಮ್ಮ ಸ್ಟ್ರೀಕ್ ಪ್ರಾರಂಭಿಸಿ.',
+  'signup.subhead':
+    'ದೈನಂದಿನ ಪದವನ್ನು ಆಡಲು, ಸ್ಟ್ರೀಕ್ ಕಟ್ಟಲು ಮತ್ತು ಲೀಡರ್‌ಬೋರ್ಡ್ ಏರಲು {{appName}} ಖಾತೆ ರಚಿಸಿ.',
   'stats.currentStreak': 'ಸ್ಟ್ರೀಕ್',
   'stats.distribution.title': 'ಊಹೆ ವಿತರಣೆ',
   'stats.loadError': 'ನಿಮ್ಮ ಅಂಕಿಅಂಶಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'stats.maxStreak': 'ಗರಿಷ್ಠ ಸ್ಟ್ರೀಕ್',
   'stats.played': 'ಆಡಲಾಗಿದೆ',
   'stats.playToday': 'ಇಂದಿನ ಪಝಲ್ ಆಡಿ',
+  'stats.subhead': 'ಶ್ರೇಣೀಕೃತ ದೈನಂದಿನ ಒಗಟುಗಳು ಮಾತ್ರ — ಆರ್ಕೈವ್ ಅಭ್ಯಾಸ ಎಂದಿಗೂ ಎಣಿಕೆಗೆ ಬರುವುದಿಲ್ಲ.',
   'stats.title': 'ನಿಮ್ಮ ಅಂಕಿಅಂಶಗಳು',
   'stats.winRate': 'ವಿನ್ ರೇಟ್',
   'status.monthly': 'ಮಾಸಿಕ',
+  'terms.intro':
+    '{{app}} ಬಳಸುವ ಮೂಲಕ ನೀವು ಕೆಳಗಿನ ನಿಯಮಗಳಿಗೆ ಒಪ್ಪುತ್ತೀರಿ. ಅವನ್ನು ಒಪ್ಪಿಕೊಳ್ಳಲು ಸಾಧ್ಯವಾಗದಿದ್ದರೆ, ದಯವಿಟ್ಟು ಸೇವೆಯನ್ನು ಬಳಸಬೇಡಿ.',
   'terms.title': 'ಸೇವಾ ನಿಯಮಗಳು',
 }

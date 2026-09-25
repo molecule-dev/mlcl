@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Turite atsiliepimų, radote klaidą ar norite {{app}} savo studijai ar komandai? Susisiekite per savo paskyros nustatymus — kiekviena žinutė pasiekia tikrą komandos narį.',
   'about.contactTitle': 'Susisiekite su mumis',
+  'about.intro':
+    '{{app}} yra bendro rašymo studija, kurioje redaktoriai, rašytojai ir komandos kuria kartu realiuoju laiku. Atidarykite dokumentą ir puslapis tampa bendras — žymekliai juda, komentarai rikiuojasi paraštėje, o kiekviena versija saugiai išlieka istorijoje.',
+  'about.missionBody':
+    'Tikime, kad ilgos formos rašymui reikia ramių, susikaupusių namų — sukurtų aplink rankraštį, o ne susitikimą ar pašto dėžutę. Mūsų redaktorius, realaus laiko buvimas ir versijų istorija suprojektuoti taip, kad bendradarbiai galėtų greitai judėti kartu niekam neprarandant pastraipos ar minties.',
+  'about.missionTitle': 'Mūsų misija',
+  'about.subtitle': 'Mąstykite kartu, rašykite amžinai.',
   'about.title': 'Apie {{app}}',
   'comments.addFailed': 'Nepavyko įkelti komentarą.',
   'comments.backToDoc': 'Grįžti prie rankraščio',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Komentarų srautai',
   'comments.loading': 'Įkeliama temų…',
   'comments.newPlaceholder': 'Pridėti komentarą prie rankraščio…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Atidaryti iš naujo',
   'comments.reopenFailed': 'Nepavyko atidaryti iš naujo.',
   'comments.replyFailed': 'Nepavyko paskelbti atsakymo.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Naujausi juodraščiai, bendri darbai ir šiandienos pakeitimai.',
   'dashboard.viewFeed': 'Naujienos →',
   'editor.back': 'Grįžti prie rankraščių',
+  'editor.bodyLabel': 'Dokumento turinys',
   'editor.bodyPlaceholder': 'Pradėkite nuo vietos, kur mirksi žymeklis.',
   'editor.comments': 'Komentarai',
   'editor.createFailed': 'Nepavyko sukurti dokumento.',
@@ -63,14 +73,20 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Jei turite paskyrą adresu {{email}}, netrukus gausite nuorodą, kuria galėsite atkurti slaptažodį.',
+  'forgotPassword.sentHeading': 'Patikrinkite savo el. paštą',
+  'forgotPassword.submitting': 'Siunčiama\\u2026',
   'forgotPassword.subtitle':
     'Jums elektroniniu paštu išsiųsime nuorodą, kuria galėsite atkurti slaptažodį.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Sukurta naudojant „Molecule“.',
+  'landing.ctaBody':
+    'Nemokama pavieniams rašytojams. Studijos planai redaktorių, šmėklaraščių ir recenzentų komandoms.',
   'landing.ctaHeading': 'Atidarykite puslapį. Pradėkite rašyti.',
   'landing.ctaPrimary': 'Atidaryti studiją',
   'landing.eyebrow': 'Rašytojams, redaktoriams ir komandoms',
   'landing.featuresEyebrow': 'Ką gausite',
   'landing.featuresHeading': 'Studija, skirta ilgų tekstų juodraščiams.',
+  'landing.featuresSubtitle':
+    '{{appName}} sukurta aplink rankraštį — ne susitikimą, ne pašto dėžutę.',
   'landing.getStarted': 'Atidaryti studiją',
   'landing.heroCta': 'Pradėkite rašyti',
   'landing.heroSubtitle':
@@ -96,6 +112,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} neskaityti · komentarai, paminėjimai, kvietimai pasidalinti ir prašymai pateikti pasiūlymus.',
   'presenceAvatars.label': '{{count}} bendradarbiai',
+  'privacy.intro': 'Kaip renkame, naudojame ir saugome jūsų informaciją.',
   'privacy.title': 'Privatumo politika',
   'profile.about.description':
     'Trumpas aprašymas, skirtas jūsų viešajam profiliui ir autorių puslapiams.',
@@ -109,7 +126,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Buvimas',
   'profile.pronouns': 'Vardikliai',
   'profile.publicToggle': 'Rodyti profilį komandos nariams',
+  'profile.role': 'Vaidmuo / pareigos',
   'profile.subtitle': 'Kaip jus mato jūsų kolegos.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} studijoje dirbantys rašytojai',
   'quillonAuthBrandPanel.quote':
     '„Rašymas yra vienintelis dalykas, kurį darydamas nejaučiu, kad turėčiau daryti ką nors kita.“',
@@ -117,6 +136,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Atidaryti →',
   'quillonKpiCard.trend': 'Naujausios tendencijos',
   'quillonLayout.menu': 'Meniu',
+  'quillonLayout.mobileNavLabel': 'Mobili navigacija',
   'quillonLayout.primaryNavLabel': 'Pagrindinė navigacija',
   'quillonStudioHero.collab': 'Bendradarbiai',
   'quillonStudioHero.docs': 'Peržiūrėti dokumentai',
@@ -126,7 +146,9 @@ export const ui: UiTranslations = {
     'Paimkite rankraštį, palikite komentarą, perkelkite pastraipą į priekį.',
   'quillonStudioHero.words': 'Šiandienos žodžiai',
   'resetPassword.confirmPlaceholder': 'Įveskite naują slaptažodį dar kartą',
+  'resetPassword.passwordLabel': 'Naujas slaptažodis',
   'resetPassword.passwordPlaceholder': 'Įveskite naują slaptažodį',
+  'resetPassword.submitting': 'Nustatoma iš naujo…',
   'resetPassword.subtitle': 'Pasirinkite saugų slaptažodį – ne trumpesnį kaip 12 simbolių.',
   'settings.account.description': 'Kaip prisijungti.',
   'settings.billing.canceled': 'Prenumerata atšaukta.',
@@ -135,7 +157,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Nenustatyta',
   'settings.billing.updated': 'Planas atnaujintas.',
   'settings.editor.description': 'Kaip elgiasi drobė, kai rašote.',
+  'settings.editor.title': 'Redaktoriaus nuostatos',
   'settings.eyebrow': 'Studijos nustatymai',
+  'settings.language.title': 'Kalba',
   'settings.notifications.${n.key}.description': 'Kalba',
   'settings.notifications.description': 'Pasirinkite, kas pateks į jūsų pašto dėžutę.',
   'settings.subtitle': 'Nustatykite pranešimus, redagavimo sritį ir savo paskyros parametrus.',
@@ -144,6 +168,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Pasidalino su manimi',
   'shared.loadFailed': 'Nepavyko įkelti bendrai naudojamų dokumentų.',
   'shared.subtitle': 'Rankraščiai, ataskaitos ir užrašai iš kitų studijos skyrių.',
+  'signup.brandAttribution': 'Anaïs Park — redaktorė, The Quarterly',
   'signup.brandQuote':
     '„Pirmasis rankraštis yra sunkiausias. Quillon padeda jaustis ne tokiu vienišu.“',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -151,6 +176,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Anaïs',
   'signup.heading': 'Susikurkite „Quillon“ paskyrą',
   'signup.lastNamePlaceholder': 'Parkas',
+  'signup.submitting': 'Atidaroma jūsų studija\\u2026',
   'signup.subtitle':
     'Tylus darbo stalas, draugiški kolegos ir ilgų tekstų redaktorius, kuris netrukdo dirbti.',
   'templates.blank.subtitle': 'Tuščias puslapis. Kursorius paruoštas.',
@@ -163,11 +189,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Pradėkite nuo gerai apgalvotos struktūros. Pritaikykite kaip tik norite.',
   'templates.useFailed': 'Nepavyko sukurti dokumento pagal šį šabloną.',
   'templates.useTemplate': 'Naudokite šį šabloną',
+  'terms.intro': 'Sąlygos, kuriomis galite naudotis šia paslauga.',
   'terms.title': 'Naudojimosi sąlygos',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'ką tik',
   'trash.confirmDelete': 'Patvirtinti ištrynimą',
+  'trash.confirmEmpty': 'Patvirtinti — ištrinti viską',
   'trash.deleteFailed': 'Nepavyko ištrinti.',
   'trash.deleteForever': 'Ištrinti visam laikui',
   'trash.empty': 'Nėra ką atkurti.',
@@ -182,7 +210,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'Kol kas nėra pakeitimų — išsaugokite dokumentą, kad būtų pradėta jo istorija.',
   'versionHistory.heading': 'Versijų istorija',
+  'versionHistory.latest': 'Naujausia informacija',
   'versionHistory.loadFailed': 'Nepavyko įkelti istorijos.',
+  'versionHistory.noContent': 'Šiai versijai turinys neužfiksuotas.',
   'versionHistory.previewing': 'Peržiūra',
   'versionHistory.restore': 'Atkurti šią versiją',
   'versionHistory.restoreFailed': 'Atkūrimas nepavyko.',

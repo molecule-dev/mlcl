@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '¿Tienes comentarios, encontraste un error o quieres llevar {{app}} a tu escuela o equipo? Leemos todos los mensajes: escríbenos desde la configuración de tu cuenta y te responderá una persona real.',
   'about.contactTitle': 'Habla con nosotros',
   'about.eyebrow': 'Acerca de',
+  'about.intro':
+    '{{app}} es un rompecabezas diario de palabras. Adivina la palabra de cinco letras en seis intentos, mantén viva tu racha, comparte tu cuadrícula de emojis y descubre cómo le fue a todos con la palabra de hoy.',
+  'about.missionBody':
+    'Un buen rompecabezas es una pequeña victoria diaria. {{app}} gira en torno a una palabra compartida al día: lo bastante rápida para un descanso y lo bastante interesante para volver mañana.',
+  'about.missionTitle': 'Nuestra misión',
   'about.title': 'Acerca de {{app}}',
   'archive.loadError': 'No se pudo cargar el archivo.',
   'archive.missed': 'Perdidos',
   'archive.notPlayed': 'No jugados',
+  'archive.subhead':
+    'Vuelve a jugar cualquier día pasado como práctica: sin rachas, sin estadísticas, con toda la diversión.',
   'archive.title': 'Archivar',
   'auth.backToHome': 'Volver al inicio',
   'auth.backToHomeArrow': '← Volver al inicio',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': '¿Olvidaste tu contraseña?',
   'auth.login.loggingIn': 'Iniciando sesión…',
   'auth.login.logIn': 'Juega la palabra de hoy',
+  'auth.login.noAccount': '¿Nuevo en Tessera?',
   'auth.login.or': 'o continúa con',
   'auth.login.password': 'Contraseña',
   'auth.login.signInButton': 'Iniciar sesión',
@@ -32,6 +42,10 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Guardando…',
   'common.sendingEllipsis': 'Enviando…',
   'common.startingEllipsis': 'Iniciando…',
+  'forgotPassword.subhead': 'Ingresa tu correo y te enviaremos un enlace para restablecerla.',
+  'forgotPassword.success.body':
+    'Si existe una cuenta para {{email}}, recibirás un enlace de restablecimiento en unos minutos.',
+  'forgotPassword.success.title': 'Revisa tu bandeja de entrada.',
   'form.name': 'Nombre',
   'howToPlay.cta.home': 'Volver al inicio',
   'howToPlay.cta.play': 'Juega el acertijo de hoy',
@@ -68,10 +82,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Rachas que no quieres romper',
   'leaderboard.daily.title': 'Resueltos hoy',
   'leaderboard.loadError': 'No se pudo cargar la tabla de clasificación.',
+  'leaderboard.streaks.empty': 'Aún no hay rachas: sé el primero.',
+  'leaderboard.streaks.subhead': 'Las rachas de victorias más largas de todos los tiempos.',
   'leaderboard.streaks.title': 'Líderes de rachas',
+  'leaderboard.subhead': 'Cómo le fue a todos hoy y quién tiene las rachas más largas.',
   'leaderboard.title': 'Tabla de clasificación',
   'login.headline': 'Bienvenido de nuevo.',
   'login.streakPill': 'Racha de {{days}} días esperando',
+  'login.subhead':
+    'Inicia sesión para mantener viva tu racha y ver cómo te fue con la palabra de hoy.',
   'nav.archive': 'Archivar',
   'nav.editProfile': 'Editar perfil',
   'nav.getStarted': 'Empezar',
@@ -89,6 +108,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · No existe tal palabra',
   'notFound.title': 'Esa ruta está vacía.',
   'planUpdated.message': 'Tu plan está activo.',
+  'planUpdated.retry': 'Intentar de nuevo',
+  'planUpdated.verifyFailed': 'Todavía no hemos podido confirmar su pago.',
+  'planUpdated.verifyFailedBody':
+    'Es posible que tu pago aún se esté procesando. Inténtalo de nuevo en un momento.',
   'planUpdated.verifying': 'Confirmando tu pago…',
   'play.alreadyFinished': 'Ya terminaste este acertijo',
   'play.answerWas': 'La palabra era',
@@ -104,6 +127,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Acertijo de práctica',
   'play.tooShort': 'Faltan letras',
   'play.won': '¡Lo resolviste!',
+  'pricing.advancedStats': 'Estadísticas avanzadas: {{yes}}',
+  'pricing.archiveHistory': '{{count}} días de historial de archivo',
+  'pricing.archivePlays': '{{count}} repeticiones del archivo / día',
+  'pricing.archiveUnlimited': 'Historial de archivo ilimitado',
+  'pricing.canExport': 'Exportación de datos: {{yes}}',
+  'pricing.checkoutError': 'No se pudo iniciar el pago. Inténtalo de nuevo.',
   'pricing.dailyWord': 'La palabra diaria',
   'pricing.heading': 'Elige tu plan de {{app}}',
   'pricing.included': 'Incluido',
@@ -111,7 +140,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'La palabra diaria siempre es gratis. Mejora para repeticiones ilimitadas del archivo y estadísticas más detalladas.',
   'pricing.yearly': 'Anual',
+  'privacy.intro':
+    '{{app}} respeta tu privacidad. Esta página resume los datos que almacenamos, por qué los almacenamos y cómo eliminarlos.',
   'privacy.title': 'Aviso de privacidad',
+  'resetPassword.subhead': 'Elige una nueva contraseña para volver a tu racha.',
   'settings.account': 'Cuenta',
   'settings.danger.body':
     'Elimina permanentemente tu cuenta de {{appName}} y todo el historial de acertijos.',
@@ -121,17 +153,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'Invitado',
   'settings.language.title': 'Idioma',
   'settings.subhead': 'Ajusta tu perfil, sonido y cómo apareces en la tabla de clasificación.',
+  'settings.unnamed': 'Jugador de Sparq',
   'settings.upgrade': 'Mejorar',
   'signup.eyebrow': 'Gratis para siempre: una palabra al día',
   'signup.headline': 'Inicia tu racha.',
+  'signup.subhead':
+    'Crea una cuenta de {{appName}} para jugar la palabra diaria, crear una racha y subir en la clasificación.',
   'stats.currentStreak': 'Racha',
   'stats.distribution.title': 'Distribución de intentos',
   'stats.loadError': 'No se pudieron cargar tus estadísticas.',
   'stats.maxStreak': 'Racha máxima',
   'stats.played': 'Jugados',
   'stats.playToday': 'Juega el acertijo de hoy',
+  'stats.subhead': 'Solo rompecabezas diarios clasificados: la práctica del archivo nunca cuenta.',
   'stats.title': 'Tus estadísticas',
   'stats.winRate': 'Tasa de victorias',
   'status.monthly': 'Mensual',
+  'terms.intro':
+    'Al usar {{app}} aceptas las reglas a continuación. Si no puedes aceptarlas, no uses el servicio.',
   'terms.title': 'Términos de servicio',
 }

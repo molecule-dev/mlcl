@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கருத்து உள்ளதா, பிழை கண்டீர்களா, அல்லது {{appName}}-இல் உங்கள் சொந்த போர்டு வேண்டுமா? குழுவை அணுக உங்கள் Settings-ஐத் திறக்கவும் — ஒவ்வொரு செய்தியும் அதைப் படிக்கும் உண்மையான மனிதரையே சென்றடைகிறது.',
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
+  'about.featureModeration':
+    'காலாண்டு லேபிள்களுடன் ஒரு பொது சாலை வரைபடம், வெளியிடப்பட்ட வேலையை வெளியீட்டுக் குறிப்புகளாக மாற்றும் ஒரு changelog, மற்றும் மக்கள் எதை அதிகம் விரும்புகிறார்கள் என்பதைக் காட்டும் ஒரு டாஷ்போர்டு.',
+  'about.featurePricing':
+    'சில போர்டுகளை இலவசமாக நடத்தலாம்; Pro மற்றும் Team திட்டங்கள் அதிக போர்டுகள், அதிக வரம்புகள், மற்றும் தரவு ஏற்றுமதியைத் திறக்கின்றன.',
+  'about.featureThreads':
+    'தலைப்பு வாரியாக ஒழுங்கமைக்கப்பட்ட பொது கருத்துப் போர்டுகள், நகல் இணைப்புடன் வாக்குகளை ஒரே நேர்மையான தேவை சமிக்ஞையாக ஒன்றிணைக்கின்றன.',
+  'about.featureVoting':
+    'ஒரு பயனருக்கு ஒரு வாக்கு எனும் வாக்களிப்பு, முழு நிலை பணிப்பாய்வுடன் — open, planned, in progress, shipped, அல்லது declined — மற்றும் ஒவ்வொரு முடிவுக்கும் ஒரு அதிகாரப்பூர்வ பதில்.',
+  'about.intro':
+    '{{appName}} ஒரு தயாரிப்பு-கருத்து தளம் — வாடிக்கையாளர்கள் கோரிக்கைகளை இடுகையிடும், தங்களுக்குத் தேவையானவற்றுக்கு வாக்களிக்கும், மற்றும் ஒவ்வொரு யோசனையையும் planned-இலிருந்து shipped வரை பின்தொடரும் பொது போர்டுகள். தேவை தானாகவே தரவரிசைப்படுத்துவதால், அடுத்து என்ன உருவாக்குவது என்ற ஊகத்தை குழுக்கள் நிறுத்துகின்றன.',
+  'about.missionBody':
+    'சிறந்த தயாரிப்பு முடிவுகள் வெளிப்படையாகவே எடுக்கப்படுகின்றன என நாங்கள் நம்புகிறோம். {{appName}} ஒவ்வொரு குழுவுக்கும் வாக்களிக்கப்பட்ட கோரிக்கைகளின் பொது போர்டு, இலக்கு காலாண்டுகளுடன் ஒரு அதிகாரப்பூர்வ சாலை வரைபடம், மற்றும் வளையத்தை மூடும் ஒரு changelog ஆகியவற்றை வழங்குகிறது — இதனால் வாடிக்கையாளர்கள் தங்கள் தாக்கத்தையும், குழுக்கள் தங்கள் ஆணையையும் காண்கின்றன.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'admin.backToBoards': 'பலகைகளுக்குத் திரும்பு',
   'admin.denied': 'நிர்வாகிகள் மட்டும்.',
   'admin.eyebrow': 'தயாரிப்பு குழு',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'admin.title': 'கருத்து டாஷ்போர்டு',
   'admin.topOpen': 'முக்கிய திறந்த கோரிக்கைகள்',
   'admin.totalVotes': 'மொத்தம் {{count}} வாக்குகள்',
+  'admin.votesChartLabel': 'கடந்த எட்டு வாரங்களில் வாரந்தோறும் பதிவான வாக்குகளின் பார் சார்ட்',
   'admin.votesOverTime': 'காலப்போக்கில் வாக்குகள்',
   'auth.forgotPassword.email': 'மின்னஞ்சல்',
   'auth.forgotPassword.sendResetLink': 'மீட்டமைப்பு இணைப்பை அனுப்பு',
@@ -30,7 +47,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'உங்கள் கணக்கை உருவாக்கவும்',
   'auth.username': 'பயனர்பெயர்',
   'authShell.communities': 'சமூகங்கள்',
+  'authShell.copyright': '{{appName}} — ஒவ்வொரு குரலும் கணக்கிடப்படுகிறது.',
   'authShell.trending': 'பிரபலமானவை',
+  'boardCard.postCount': '{{count}} இடுகைகள்',
   'boardDetail.allBoards': 'அனைத்து பலகைகள்',
   'boardDetail.backToBoards': 'பலகைகளுக்குத் திரும்பு',
   'boardDetail.empty': 'இந்த வடிப்பான்களுக்குப் பொருந்தும் இடுகைகள் இல்லை.',
@@ -54,6 +73,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'ஒவ்வொரு உள்ளீடும் வாக்களிக்கப்பட்ட கோரிக்கையாகத் தொடங்கியது. வாக்காளர்கள் அது நகர்வதைப் பார்த்தார்கள்; அது இங்கே வந்து சேர்ந்தது.',
   'changelog.title': 'ரசீதுகளுடன் வெளியிடப்பட்டது',
+  'changelog.voteCount': '{{count}} வாக்குகள் இதை உருவாக்கின',
   'common.atLeast8Characters': 'குறைந்தது 8 எழுத்துகள்',
   'common.checkYourInbox': 'உங்கள் இன்பாக்ஸைப் பாருங்கள்',
   'common.loadingEllipsis': 'ஏற்றுகிறது…',
@@ -64,6 +84,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'சமர்ப்பிக்கிறது…',
   'footer.about': '{{appName}} பற்றி',
   'footer.language': 'மொழி',
+  'forgotPassword.description':
+    'உங்கள் மின்னஞ்சலை உள்ளிடவும், மீட்டமைப்பதற்கான இணைப்பை நாங்கள் உங்களுக்கு அனுப்புவோம்.',
+  'forgotPassword.successBody':
+    'நாங்கள் ஒரு மீட்டமைப்பு இணைப்பை அனுப்பினோம் {{email}} இது 30 நிமிடங்களில் காலாவதியாகிவிடும்.',
   'forgotPassword.tryAnother': 'வேறு மின்னஞ்சலை முயற்சிக்கவும்',
   'form.displayName': 'காட்சிப் பெயர்',
   'form.firstName': 'முதற்பெயர்',
@@ -74,6 +98,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'உங்கள் சாலை வரைபடம், வாக்குகளால் ஆதரிக்கப்படுகிறது.',
   'landing.heroCtaPrimary': 'வாக்குகளைச் சேகரிக்கத் தொடங்கு',
   'landing.heroCtaSecondary': 'நேரலை பலகையைப் பார்க்கவும்',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'ஊகிப்பதை நிறுத்துங்கள். அவர்கள் வாக்களிப்பதை வெளியிடுங்கள்.',
+  'landing.heroLede':
+    '{{appName}} சிதறிய அம்சக் கோரிக்கைகளை வாக்களிக்கப்பட்ட யோசனைகளின் பொது போர்டாகவும், ஒரு அதிகாரப்பூர்வ சாலை வரைபடமாகவும், உங்கள் வாடிக்கையாளர்கள் உண்மையில் படிக்கும் changelog ஆகவும் மாற்றுகிறது.',
   'landing.heroStat1': '3,200+',
   'landing.heroStat1Label': 'கேட்கும் குழுக்கள்',
   'landing.heroStat2': '1.4m',
@@ -85,9 +113,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'மாற்றப் பதிவு',
   'landing.navJoin': '{{appName}} இல் சேரவும்',
   'landing.navRoadmap': 'சாலை வரைபடம்',
+  'landing.step1Body':
+    'வாடிக்கையாளர்கள் பொது போர்டுகளில் யோசனைகளை இடுகையிடுகிறார்கள். நகல்கள் இணைகின்றன, வாக்குகள் ஒன்றிணைகின்றன, தேவை தானாகவே தரவரிசைப்படுத்தப்படுகிறது.',
   'landing.step1Title': 'சேகரி',
+  'landing.step2Body':
+    'இலக்கு காலாண்டுடன் கோரிக்கைகளை planned அல்லது in progress எனக் குறிக்கவும் — நீங்கள் குறிக்கும் அந்த நொடியே சாலை வரைபடம் புதுப்பிக்கப்படும்.',
+  'landing.step2Title': 'உறுதியளி',
   'landing.step3Body':
     'வெளியிடப்பட்ட இடுகைகள் மாற்றப் பதிவு உள்ளீடுகளாக மாறும், மேலும் ஒவ்வொரு வாக்காளரும் தங்கள் சொந்த பட்டியலில் முடிவைப் பார்க்கிறார்கள்.',
+  'landing.step3Title': 'Ship',
   'landing.topSubtitle': 'இந்த பலகையிலிருந்து நேரலை — உங்கள் வாக்கைச் சேர்க்க உள்நுழையவும்.',
   'landing.topTitle': 'பயனர்கள் இப்போது கேட்பது',
   'landing.topViewAll': 'அனைத்து பலகைகள்',
@@ -95,14 +129,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'முதன்மை',
   'layout.signUp': 'பதிவு செய்க',
   'layout.submit': 'கருத்தை சமர்ப்பி',
+  'login.description': 'உரையாடல் விட்ட இடத்திலிருந்து தொடருங்கள்.',
+  'login.heading': 'நிம்பஸில் உள்நுழைக',
+  'login.noAccount': 'இங்கு புதிதா?',
   'login.passwordPlaceholder': 'உங்கள் கடவுச்சொல்',
   'login.twoFactorLabel': '2FA குறியீடு (விரும்பினால்)',
   'login.twoFactorPlaceholder': '6-இலக்க குறியீடு',
+  'login.twoFactorRequiredHint':
+    'இந்தக் கணக்கில் இரு-காரணி அங்கீகாரம் இயக்கப்பட்டுள்ளது. தொடர உங்கள் authenticator ஆப்-இலிருந்து 6-இலக்கக் குறியீட்டை உள்ளிடவும்.',
   'login.twoFactorRequiredLabel': 'உங்கள் 2FA குறியீட்டை உள்ளிடவும்',
+  'myActivity.browseCta': 'பலகைகளை உலாவுக',
+  'myActivity.emptyPosts': 'நீங்கள் இன்னும் ஒரு கோரிக்கையை இடுகையிடவில்லை.',
+  'myActivity.emptyVotes': 'இன்னும் ஒன்றுமில்லை — போர்டுகளை உலாவி ஒரு யோசனையை ஆதரிக்கவும்.',
   'myActivity.eyebrow': 'உங்கள் செயல்பாடு',
   'myActivity.loadError': 'உங்கள் செயல்பாட்டை ஏற்ற முடியவில்லை.',
   'myActivity.postsTitle': 'நீங்கள் சமர்ப்பித்த கோரிக்கைகள்',
+  'myActivity.shippedNote': 'அவற்றில் {{count}} shipped — நினைவூட்டலுக்கு நன்றி.',
   'myActivity.submitCta': 'கோரிக்கையை இடுகையிடு',
+  'myActivity.tabLabel': 'பார்வை',
   'myActivity.tabPosts': 'எனது இடுகைகள்',
   'myActivity.tabVotes': 'எனது வாக்குகள்',
   'myActivity.votesTitle': 'நீங்கள் வாக்களித்த கோரிக்கைகள்',
@@ -138,8 +182,13 @@ export const ui: UiTranslations = {
   'posts.notFound': 'இடுகை கிடைக்கவில்லை',
   'postsAdmin.backToDashboard': 'டாஷ்போர்டு',
   'postsAdmin.eyebrow': 'தயாரிப்பு குழு',
+  'postsAdmin.mergeApplied':
+    'இணைக்கப்பட்டது — {{votes}} வாக்குகள் மற்றும் {{comments}} கருத்துகள் நகர்த்தப்பட்டன.',
   'postsAdmin.mergeApply': 'இணை & வாக்குகளை நகர்த்து',
   'postsAdmin.mergeChoose': 'இலக்கு இடுகையைத் தேர்வுசெய்…',
+  'postsAdmin.mergeFailed': 'இணைப்பு தோல்வியடைந்தது.',
+  'postsAdmin.mergeHint':
+    'வாக்குகள் ஒன்றிணைகின்றன (ஒரு பயனருக்கு ஒன்று), கருத்துகள் நகர்கின்றன, இந்த இடுகைக்கு "moved" குறிப்பு கிடைக்கும்.',
   'postsAdmin.mergeLabel': 'நகலை இதில் இணை',
   'postsAdmin.responseLabel': 'அதிகாரப்பூர்வ பதில்',
   'postsAdmin.responsePlaceholder':
@@ -154,7 +203,13 @@ export const ui: UiTranslations = {
     'அதிகாரப்பூர்வ நிலையை அமைக்கவும், பகிரங்கமாக பதிலளிக்கவும், சாலை வரைபட காலாண்டைக் குறிக்கவும், நகல்களை இணைக்கவும்.',
   'postsAdmin.title': 'கருத்து இடுகைகளை நிர்வகி',
   'postsAdmin.votes': '{{count}} வாக்குகள்',
+  'pricing.limits.advancedFeatures': 'மேம்பட்ட அம்சங்கள்:',
+  'pricing.limits.boards': '{{count}} பலகைகள்',
   'pricing.limits.export': 'தரவு ஏற்றுமதி:',
+  'pricing.limits.posts': '{{count}} கருத்து இடுகைகள்',
+  'pricing.limits.votes': '{{count}} வாக்குகள்',
+  'resetPassword.description':
+    'வலிமையான ஒன்றைத் தேர்ந்தெடுங்கள். மீட்டமைப்பு வெற்றிகரமாக முடிந்தவுடன் நாங்கள் உங்களை உள்நுழையச் செய்வோம்.',
   'resetPassword.newPasswordLabel': 'புதிய கடவுச்சொல்',
   'resetPassword.tokenPlaceholder': 'இணைப்பு டோக்கனை ஒட்டவும்',
   'roadmap.cardMeta': '{{author}} மூலம் · {{board}}',
@@ -171,6 +226,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'நகலை இடுகையிடுவதற்கு முன் ஏற்கனவே உள்ள கோரிக்கைகளைக் கண்டுபிடிக்க வினவலை உள்ளிடவும்.',
   'search.loadError': 'தேடல் தோல்வியடைந்தது — மீண்டும் முயற்சிக்கவும்.',
+  'search.searching': 'தேடிக் கொண்டிருக்கிறேன்…',
   'search.submit': 'தேடல்',
   'search.submitNew': 'புதிய கோரிக்கையாக இடுகையிடு',
   'search.title': 'கருத்தைத் தேடு',
@@ -181,12 +237,23 @@ export const ui: UiTranslations = {
   'settings.displaySubtitle':
     'ஊட்டங்கள் எவ்வளவு அடர்த்தியாக இருக்க வேண்டும் என்பதைத் தேர்வுசெய்யவும்.',
   'settings.displayTitle': 'காட்சி',
+  'settings.emailDigestDesc': 'ஒவ்வொரு திங்களும் அதிக வாக்குகள் பெற்ற open கோரிக்கைகள்.',
+  'settings.emailDigestLabel': 'வாராந்திர தொகுப்பு',
+  'settings.emailMentionsDesc': 'நீங்கள் பின்தொடரும் ஒரு இடுகைக்கு யாராவது பதிலளிக்கும்போது.',
+  'settings.emailMentionsLabel': 'குறிப்பிடும்போது எனக்கு மின்னஞ்சல் அனுப்பு',
+  'settings.emailRepliesDesc': 'நீங்கள் தொடங்கிய அல்லது பதிலளித்த திரிகள்.',
+  'settings.emailRepliesLabel': 'பதில்களில் எனக்கு மின்னஞ்சல் அனுப்புங்கள்',
   'settings.loadError': 'உங்கள் கணக்கை ஏற்ற முடியவில்லை.',
   'settings.loading': 'உங்கள் அமைப்புகளை ஏற்றுகிறது…',
   'settings.notifications': 'அறிவிப்புகள்',
   'settings.notificationsSubtitle':
     'உங்கள் இன்பாக்ஸை எட்டுவது எது என்பதையும் உங்கள் புஷ் சாதனத்தை எது என்பதையும் முடிவு செய்யவும்.',
+  'settings.pushRepliesLabel': 'பதில்களுக்கு push',
+  'settings.pushVotesDesc': '100, 500, 1000-இல் வரம்பு அறிவிப்பு.',
+  'settings.pushVotesLabel': 'ஆதரவு வாக்கு மைல்கற்களை அடைய முயற்சி செய்யுங்கள்',
   'settings.saveAccount': 'கணக்கைச் சேமி',
+  'settings.showFlair': 'இடுகைகளில் போர்டு சிப்களைக் காட்டு',
+  'settings.showThumbnails': 'இணைப்பு/படம் சிறுபடங்களைக் காட்டு',
   'settings.usernamePlaceholder': 'ஒரு கைப்பிடியைத் தேர்வுசெய்யவும்',
   'signup.confirmPlaceholder': 'மீண்டும் தட்டச்சு செய்யவும்',
   'signup.description': 'நாங்கள் அடுத்து என்ன உருவாக்குகிறோம் என்பதை வடிவமைக்கவும்.',

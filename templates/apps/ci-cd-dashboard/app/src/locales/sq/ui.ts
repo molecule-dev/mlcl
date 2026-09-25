@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Pyetje, komente, apo dëshironi një demo për ekipin tuaj? Na shkruani në hello@conduit.dev — çdo mesazh arrin te një person i vërtetë i ekipit.',
   'about.contactHeading': 'Na kontaktoni',
   'about.eyebrow': 'Rreth',
+  'about.featuresHeading': 'Çfarë merr',
+  'about.introBody':
+    '{{app}} sjell dërgimin e vazhdueshëm në stilin e GitHub Actions në një panel të vetëm e të shpejtë: tubacione, regjistra ndërtimi, artefakte, distinktivë statusi dhe mjedise vendosjeje për të gjitha depot tuaja në një vend të vetëm. Pa kërcim mes skedave, pa hamendësim se cila ndërtim dështoi — çdo ekzekutim, rresht regjistri dhe vendosje është një klikim larg.',
+  'about.introHeading': 'Çfarë është {{app}}',
+  'about.missionBody':
+    'Dërgimi i softuerit duhet të jetë i qetë dhe i parashikueshëm, jo burim frike. Ne ndërtojmë tubacionet, regjistrat dhe mjetet e vendosjes, që rruga nga commit-i në prodhim të jetë e shpejtë, e dukshme dhe e besueshme — ndërtimi i parë i gjelbër në pesë minuta, dhe çdo ndërtim pas tij po aq i qartë.',
+  'about.missionHeading': 'Misioni ynë',
+  'about.subtitle':
+    '{{app}} është një panel CI/CD për ekipe që duan të ndjekin ndërtimet, vendosjet dhe mjediset në çdo depo — dhe të dërgojnë me siguri.',
   'artifacts.empty': 'Ende nuk ka artefakte.',
   'artifacts.heading': 'Artefakte',
   'artifacts.loadError': 'Ngarkimi i artefakteve dështoi.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ kanal env --list',
   'environments.heading': 'Mjediset',
   'environments.loadError': 'Ngarkimi i mjediseve dështoi.',
+  'environments.loading': 'Duke ngarkuar mjediset…',
   'environments.subheading': 'Statusi i vendosjes drejtpërdrejt në çdo objektiv.',
   'forgotPassword.runnerStatus': 'rivendos · tunel i sigurt',
+  'forgotPassword.success':
+    'Nëse ekziston një llogari për atë email, një lidhje rivendosjeje është duke ardhur. Kontrolloni kutinë tuaj postare.',
   'insights.changeFailureRate': 'Ndrysho shkallën e dështimit',
   'insights.deployFrequency': 'Vendoset / ditë',
   'insights.empty': 'Nuk ka ende të dhëna të mjaftueshme.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Ngarkimi i statistikave dështoi.',
   'insights.meanP95': 'i keq {{mean}} · f. 95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Hapat më të ngadaltë të tubacionit',
   'insights.successRateHeading': 'Shkalla e suksesit të tubacionit (14 ditët e fundit)',
   'landing.choosePlan': 'Zgjidh planin',
+  'landing.copyright': '© {{year}} {{app}}. Dërgo me siguri.',
   'landing.ctaBody':
     'Pa kartë krediti. Nuk kërkohet inxhinier platforme. Bëjeni tubacionin e parë të gjelbër brenda pesë minutash.',
   'landing.ctaHeading': 'Dërgo me siguri.',
   'landing.featuresEyebrow': '// karakteristikat e platformës',
   'landing.featuresHeading': 'Ndërtuar për transportuesit, nga transportuesit',
+  'landing.heroSubtitle':
+    'Tubacione që përfundojnë në sekonda. Regjistra që lexohen. Vendosje që besohen.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit vendos --në mënyrë të sigurt',
   'landing.pricingEyebrow': '// $ çmimi --plain',
   'landing.pricingHeading': 'Çmime të thjeshta dhe të parashikueshme',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Në fluturim tani',
   'pipelines.metric.successCaption': '{{count}} e {{total}} vrapon',
   'pipelines.metric.successRate': 'Shkalla e suksesit',
+  'pipelines.realtimeOn': 'në kohë reale',
   'pipelines.subheading': 'Përditësime të drejtpërdrejta nga çdo depo e shikuar.',
+  'pricing.advancedFeatures': 'Veçori të avancuara: {{mark}}',
+  'pricing.canExport': 'Eksportimi i të dhënave: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artefakte',
+  'pricing.maxBuilds': '{{count}} ndërtime',
+  'pricing.maxPipelines': '{{count}} tubacione',
   'privacy.dataAccount': 'Llogaria: emri, emaili, fjalëkalimi i hashuar, niveli i planit.',
   'privacy.intro':
     '{{app}} mbledh vetëm të dhënat minimale që na nevojiten për të operuar llogarinë tuaj me dërgesë të vazhdueshme: email-in tuaj, depot që lidhni, të dhënat e kryera dhe meta të dhënat e ndërtimit që prodhojnë ekzekutuesit tuaj dhe sekretet që zgjidhni të ruani me ne. Ne kurrë nuk e lexojmë kodin tuaj burimor jashtë ekzekutuesit të ndërtimit; artefaktet e ndërtimit ruhen në koshin tuaj S3 kur konfigurohet.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Ne përdorim Stripe për faturimin, Mailgun për email-in transaksional dhe AWS S3 për ruajtjen e objekteve të ndërtuara. Secili është i lidhur me kontratë për sasinë minimale të të dhënave të nevojshme për të ofruar shërbimin e tij.',
   'privacy.rightsBody':
     'Mund të eksportoni çdo bajt të të dhënave tuaja, të fshini llogarinë tuaj në çdo kohë nga Cilësimet dhe të kërkoni një regjistrim të çdo dërgimi të webhook-ut në llogarinë tuaj. Ne u përgjigjemi kërkesave të GDPR / CCPA brenda 30 ditëve.',
+  'privacy.subtitle':
+    'Si {{app}} i mbledh, i ruan dhe i mbron të dhënat tuaja ndërsa ne ekzekutojmë tubacionet tuaja.',
   'privacy.title': 'Politika e privatësisë',
   'repositories.empty': 'Nuk ka depo të lidhura.',
   'repositories.heading': 'Depozitat',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Të gjitha depot',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Dështoi në ngarkimin e depos.',
+  'repositoryDetail.meanDuration': 'Kohëzgjatja mesatare',
   'repositoryDetail.notFound': 'Depozita nuk u gjet.',
+  'repositoryDetail.successRate': 'Shkalla e suksesit',
   'repositoryDetail.totalBuilds': 'Totali i ndërtimeve',
   'repositoryDetail.webhookActive': 'aktiv',
   'repositoryDetail.webhookPaused': 'i ndaluar',
   'repositoryDetail.webhooksHeading': 'Webhook-e',
+  'resetPassword.passwordLabel': 'Fjalëkalim i ri',
   'resetPassword.runnerStatus': 'rivendos · tokeni i verifikuar',
   'resetPassword.subtitle': 'Zgjidhni një fjalëkalim të fortë që nuk e keni përdorur më parë.',
   'resetPassword.tokenPlaceholder': 'ngjit nga emaili',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Depozitat Conduit vëzhgojnë. Shkëputuni nga ofruesi juaj i VCS për të ndaluar marrjen e ngjarjeve.',
   'settings.repositories.empty': 'Nuk ka ende depo të lidhura.',
+  'settings.repositories.heading': 'Lidhjet me depot',
   'settings.repositories.loadError': 'Dështoi në ngarkimin e depove.',
   'settings.secrets.addCta': 'Shto sekret',
   'settings.secrets.addError': 'Shtimi i sekretit dështoi.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Fshirja e sekretit dështoi.',
   'settings.secrets.empty': 'Asnjë sekret i ruajtur.',
   'settings.secrets.heading': 'Sekretet',
+  'settings.secrets.lastUsed': 'përdorur së fundmi {{date}}',
   'settings.secrets.loadError': 'Ngarkimi i sekreteve dështoi.',
   'settings.secrets.neverUsed': 'kurrë i përdorur',
   'settings.secrets.rotateCta': 'Rrotullo',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Përditësimi i webhook-ut dështoi.',
   'signup.namePlaceholder': 'Parku Riley',
   'signup.runnerStatus': 'nivel falas · 1,000 ndërtime minimale/muaj',
+  'terms.intro':
+    'Duke krijuar një llogari {{app}}, ju pranoni këto kushte. Ato mbulojnë përdorimin e pranueshëm të ekzekutuesve të ndërtimit, kufijtë e SLA-së sonë dhe kushtet në të cilat mund të pezullojmë ose të mbyllim llogarinë tuaj për ngarkesa abuzive.',
   'terms.slaBody':
     'Planet Pro dhe Team synojnë 99.95% kohë funksionimi mujor për API-n dhe grupin e ekzekutuesve. Plani Falas ofrohet siç është. Ndërprerjet raportohen në status.conduit.dev dhe kreditohen sipas formulës në faturën tuaj.',
   'terms.terminationBody':

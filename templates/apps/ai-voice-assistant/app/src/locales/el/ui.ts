@@ -5,7 +5,13 @@ export const ui: UiTranslations = {
     'Έχετε σχόλια, κάποια πρόταση για νέα λειτουργία ή εντοπίσατε κάποιο σφάλμα; Επικοινωνήστε με την ομάδα του {{app}} μέσω του συνδέσμου υποστήριξης στο μενού του λογαριασμού σας — κάθε μήνυμα φτάνει σε έναν πραγματικό άνθρωπο.',
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.intro':
+    'Το {{app}} είναι ένας φωνητικός AI βοηθός. Μίλα φυσικά, δες τις λέξεις σου να γίνονται κείμενο και λάβε απαντήσεις με ομιλία — ώστε να σκέφτεσαι φωναχτά αντί να τα πληκτρολογείς όλα.',
+  'about.missionBody':
+    'Η πληκτρολόγηση είναι ένα εμπόδιο ανάμεσα στις ιδέες σου και την υλοποίησή τους. Το {{app}} υπάρχει για να το εξαλείψει: ένας hands-free, συνομιλιακός τρόπος για brainstorming, σύνταξη και λήψη αποφάσεων — με κορυφαία μοντέλα ομιλίας και συλλογισμού, με τα δεδομένα σου να παραμένουν ιδιωτικά.',
+  'about.missionTitle': 'Η αποστολή μας',
   'agentDetail.back': 'Όλοι οι πράκτορες',
+  'agentDetail.behavior': 'Συμπεριφορά',
   'agentDetail.capabilities': 'Δυνατότητες',
   'agentDetail.delete': 'Διαγραφή προσωπικότητας',
   'agentDetail.deleteConfirm':
@@ -41,15 +47,20 @@ export const ui: UiTranslations = {
   'agents.subtitle':
     'Κάθε πράκτορας έχει τον δικό του τόνο, ρυθμό και εξειδίκευση. Εναλλαγή οποιαδήποτε στιγμή κατά τη διάρκεια της συνομιλίας.',
   'agents.title': 'Επιλέξτε μια φωνή για να σκεφτείτε.',
+  'authShell.tagline': '{{tagline}} — {{brand}}',
+  'billing.cardNoneBody':
+    'Πρόσθεσε ένα όταν κάνεις αναβάθμιση — το Stripe αναλαμβάνει όλη την αποθήκευση.',
   'billing.cardNoneTitle': 'Δεν υπάρχει αποθηκευμένη κάρτα',
   'billing.choose': 'Εναλλαγή',
   'billing.currentPlan': 'Το πλάνο σας',
   'billing.currentPlanReadout': 'Πλάνο {{plan}}',
   'billing.eyebrow': 'Πλάνο και χρήση',
   'billing.fetchError': 'Δεν ήταν δυνατή η φόρτωση των πληροφοριών χρέωσης.',
+  'billing.loadingStatus': 'Φόρτωση κατάστασης…',
   'billing.noTiers': 'Δεν υπάρχουν διαθέσιμα πλάνα αυτή τη στιγμή.',
   'billing.plansTitle': 'Πλάνα',
   'billing.switching': 'Εναλλαγή…',
+  'billing.updateAcknowledged': 'Η ενημέρωση επιβεβαιώθηκε στις {{time}}',
   'billing.updateError': 'Δεν ήταν δυνατή η έναρξη ενημέρωσης.',
   'billing.usageHeading': 'Χρήση φωνής αυτόν τον κύκλο',
   'chatBubble.source.text': 'κείμενο',
@@ -70,11 +81,13 @@ export const ui: UiTranslations = {
   'conversation.title': 'Συζητήστε το',
   'conversation.toggleMic': 'Εναλλαγή μικροφώνου',
   'conversation.toggleVoicePlayback': 'Αναπαραγωγή φωνής',
+  'conversation.transcribeError': 'Δεν ήταν δυνατή η μεταγραφή του ήχου.',
   'conversation.transcriptionEmpty': 'Δεν ακούσαμε τίποτα. Δοκιμάστε ξανά;',
   'conversation.voiceOff': 'Φωνή απενεργοποιημένη',
   'conversation.voiceOn': 'Φωνή ενεργοποιημένη',
   'conversationDetail.assistant': 'Βοηθός',
   'conversationDetail.back': 'Επιστροφή στο ιστορικό',
+  'conversationDetail.elapsed': '00:00 / {{duration}}',
   'conversationDetail.empty': 'Δεν υπάρχουν ακόμη μηνύματα σε αυτή τη συνομιλία.',
   'conversationDetail.eyebrow': 'Μεταγραφή',
   'conversationDetail.fetchError': 'Δεν ήταν δυνατή η φόρτωση της μεταγραφής.',
@@ -85,6 +98,7 @@ export const ui: UiTranslations = {
   'conversationDetail.setSpeed': 'Ρύθμιση ταχύτητας αναπαραγωγής σε {{speed}}',
   'conversationDetail.system': 'Σύστημα',
   'conversationDetail.untitled': 'Συνομιλία χωρίς τίτλο',
+  'conversationListItem.messageCount': '{{count}} μην.',
   'forgotPassword.subheading': 'Εισάγετε το email σας και θα σας στείλουμε σύνδεσμο επαναφοράς.',
   'forgotPassword.successBody': 'Μόλις στείλαμε έναν σύνδεσμο επαναφοράς στο {{email}}.',
   'forgotPassword.successTitle': 'Ελέγξτε τα εισερχόμενά σας.',
@@ -100,6 +114,9 @@ export const ui: UiTranslations = {
   'history.voiceOnly': 'Μόνο φωνή',
   'landing.copyright': '© {{year}} {{brand}}. Σκεφτείτε δυνατά.',
   'landing.demoMessage1': 'Γεια σου Σάρα — έτοιμη να κάνουμε brainstorming για την νέα καμπάνια;',
+  'landing.demoMessage2': 'Ναι — ας επικεντρωθούμε σε στρατηγικές οργανικής ανάπτυξης για το Q3.',
+  'landing.demoMessage3':
+    'Τέλεια. Θα ξεκινούσα με μια πρωτοβουλία με επίκεντρο την κοινότητα. Θέλεις να σκιαγραφήσω τις φάσεις;',
   'landing.eyebrow': 'Φωνητικό AI',
   'landing.featuresSubtitle':
     'Σχεδιασμένο για φυσικό διάλογο — προσαρμόζεται στον ρυθμό, τον τόνο και το πλαίσιό σας.',
@@ -129,10 +146,12 @@ export const ui: UiTranslations = {
   'parlanceLayout.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'parlanceLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'pricing.conversations': '{{count}} συνομιλίες',
+  'pricing.cta.start': 'Επιλογή {{tierName}}',
   'pricing.cta.startFree': 'Ξεκινήστε δωρεάν',
   'pricing.cta.upgrade': 'Αναβάθμιση σε {{tierName}}',
   'pricing.empty': 'Δεν υπάρχουν διαθέσιμα πλάνα αυτή τη στιγμή.',
   'pricing.error': 'Δεν ήταν δυνατή η φόρτωση τιμών. Δοκιμάστε ξανά αργότερα.',
+  'pricing.speech': 'ομιλία {{count}}',
   'pricing.subtitle':
     'Διάλεξε ένα πρόγραμμα που να ταιριάζει με τη συχνότητα με την οποία μιλάς με τον βοηθό σου.',
   'privacy.collection.account': 'Το email και το εμφανιζόμενο όνομα του λογαριασμού σας',
@@ -141,6 +160,8 @@ export const ui: UiTranslations = {
   'privacy.deletion.body':
     'Μπορείτε να διαγράψετε μια συνομιλία, προσωπικότητα ή ηχητικό κλιπ οποιαδήποτε στιγμή από τη σχετική σελίδα. Η διαγραφή του λογαριασμού σας από τις Ρυθμίσεις διαγράφει όλες τις συνομιλίες, μεταγραφές και σειρές προσωπικοτήτων που συνδέονται με τον χώρο εργασίας σας.',
   'privacy.eyebrow': 'Νομικά',
+  'privacy.intro':
+    'Το {{app}} αποθηκεύει τις συνομιλίες και τα ηχητικά αποσπάσματα που δημιουργείς μόνο για όσο χρειάζεται ώστε να παρέχεται η εμπειρία του βοηθού. Δεν πουλάμε ποτέ τα δεδομένα σου και δεν χρησιμοποιούμε ποτέ τον ήχο ή τις μεταγραφές πελατών για την εκπαίδευση εξωτερικών μοντέλων AI.',
   'privacy.lastUpdated': 'Τελευταία ενημέρωση: 2026-05-01',
   'privacy.processors.body':
     'Όταν μιλάτε με τον βοηθό σας, προωθούμε τον ήχο σας στο OpenAI Whisper για μεταγραφή, τη μεταγραφή στο Anthropic (Claude) για την απάντηση, και την απάντηση στο ElevenLabs ή OpenAI για σύνθεση φωνής. Κάθε πάροχος δεσμεύεται από τους δικούς του όρους επεξεργασίας δεδομένων· τίποτα δεν διατηρείται για επανεκπαίδευση.',
@@ -161,13 +182,19 @@ export const ui: UiTranslations = {
   'resetPassword.newPassword': 'Νέος κωδικός',
   'resetPassword.subheading': 'Επιλέξτε νέο κωδικό για να συνεχίσετε να μιλάτε.',
   'search.agentPreview': 'Χωρίς περιγραφή',
+  'search.emptyBody': 'Δοκίμασε διαφορετική λέξη-κλειδί ή πες το φωναχτά.',
   'search.emptyTitle': 'Δεν βρέθηκαν αποτελέσματα',
   'search.eyebrow': 'Παλέτα εντολών',
   'search.fetchError': 'Δεν ήταν δυνατή η φόρτωση του ευρετηρίου αναζήτησης.',
+  'search.static.billing.preview': 'Πλάνα, μέθοδος πληρωμής και τιμολόγια',
+  'search.static.billing.title': 'Χρέωση',
   'search.static.profile.preview': 'Όνομα εμφάνισης, ψευδώνυμο, βιογραφικό',
+  'search.static.profile.title': 'Προφίλ',
+  'search.static.voice.preview': 'Προεπιλεγμένες προτιμήσεις φωνής και γλώσσας',
   'search.static.voice.title': 'Φωνή',
   'search.title': 'Αναζήτηση στο Vox',
   'search.transcriptPreview': 'Άνοιγμα μεταγραφής',
+  'settings.appearance.description': 'Εναλλαγή μεταξύ φωτεινής και σκοτεινής λειτουργίας.',
   'settings.appearance.title': 'Εμφάνιση',
   'settings.loadError': 'Δεν ήταν δυνατή η φόρτωση ρυθμίσεων.',
   'settings.privacy.${row.key}.label': 'Ειδοποιήσεις',
@@ -184,6 +211,8 @@ export const ui: UiTranslations = {
   'terms.changes.body':
     'Θα σας ενημερώσουμε εντός της εφαρμογής εάν αυτοί οι όροι αλλάξουν ουσιαστικά· η συνεχιζόμενη χρήση μετά από ειδοποίηση σημαίνει αποδοχή των ενημερώσεων.',
   'terms.eyebrow': 'Νομικά',
+  'terms.intro':
+    'Αυτοί οι όροι διέπουν τη χρήση του {{app}}. Δημιουργώντας λογαριασμό, τους αποδέχεσαι.',
   'terms.lastUpdated': 'Τελευταία ενημέρωση: 2026-05-01',
   'terms.title': 'Όροι παροχής υπηρεσιών',
   'terms.usage.body':

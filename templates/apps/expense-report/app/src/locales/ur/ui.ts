@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'سوالات، رائے، یا کوئی فیچر کی درخواست؟ Settings → Notifications سے {{app}} ٹیم تک پہنچیں، یا کسی بھی وقت ہمیں لکھیں — ہر پیغام کسی حقیقی انسان تک پہنچتا ہے۔',
+  'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'کے بارے میں',
+  'about.featureCapture':
+    'تصویر اپ لوڈ کے ساتھ رسید کی گرفت جو تصاویر کو صحیح خرچے کے ساتھ، سطر بہ سطر منسلک کرتی ہے۔',
+  'about.featureExport':
+    'ہر رپورٹ، خرچے، اور منظوری کی حالت کی قابلِ آڈٹ CSV ایکسپورٹس — آپ کی اکاؤنٹنگ ٹیم کے لیے تیار۔',
+  'about.featurePolicy':
+    'پالیسی گارڈ ریلز — روزانہ کی حد، فی زمرہ حدود، اور رسید لازمی کی حدیں جمع کرانے کے وقت نافذ۔',
+  'about.featureWorkflow':
+    'دو درجے کا منظوری ورک فلو جس میں جائزہ لینے والوں کے نوٹس، پالیسی کی خلاف ورزی کے جھنڈے، اور ایک ٹیپ میں معاوضے کی نشان دہی شامل ہے۔',
+  'about.intro':
+    '{{app}} فنانس ٹیموں اور جن لوگوں کو وہ معاوضہ دیتی ہیں، ان کے لیے ایک خرچ کے انتظام کا پلیٹ فارم ہے۔ رسید لیں، خرچ درج کریں، رپورٹ منظوری کے لیے بھیجیں، اور ہر معاوضے کو ٹریک کریں — اسپریڈ شیٹ کی رسم کے بغیر۔',
+  'about.missionBody':
+    'معاوضہ تیز، منصفانہ، اور قابلِ آڈٹ ہونا چاہیے۔ ہم نے {{app}} اس لیے بنایا کہ جمع کرانے والوں کو بغیر تگ و دو ادائیگی ملے، منظوری دینے والے بالکل دیکھیں کہ وہ کس چیز کی منظوری دے رہے ہیں، اور فنانس کے پاس ہر ڈالر کا صاف ریکارڈ ہو — پالیسی چیکس سمیت۔',
+  'about.missionTitle': 'ہمارا مشن',
   'approvals.approve': 'Approve',
   'approvals.approving': 'منظور ہو رہا ہے…',
   'approvals.confirmReject': 'مسترد کرنے کی تصدیق کریں۔',
+  'approvals.empty': 'آپ سب مکمل کر چکے ہیں — کوئی رپورٹ انتظار میں نہیں۔',
   'approvals.eyebrow': 'مینیجر کی قطار',
   'approvals.kpi.flaggedLabel': 'پالیسی کو جھنڈا لگا دیا گیا۔',
+  'approvals.kpi.queueLabel': 'جائزے کا انتظار',
   'approvals.kpi.totalLabel': 'زیر التواء قدر',
   'approvals.lineCount': '{{count}} اخراجات',
   'approvals.queueFallback': 'لائیو قطار دستیاب نہیں — کیوریٹ شدہ ڈیمو ڈیٹا دکھا رہا ہے۔',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'مسترد کر رہا ہے…',
+  'approvals.rejectPlaceholder': 'وجہ (لازمی)',
   'approvals.rejectPrompt': 'آپ اس رپورٹ کو کیوں مسترد کر رہے ہیں؟',
   'approvals.review': 'جائزہ لیں',
   'approvals.title': 'زیر التوا منظوریاں',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'منظور شدہ · MTD',
   'dashboard.kpi.pendingDelta': 'اس ہفتے +2',
+  'dashboard.kpi.pendingLabel': 'زیر التواء جائزہ',
   'dashboard.kpi.receiptsDelta': 'کارروائی درکار ہے۔',
   'dashboard.kpi.receiptsLabel': 'رسیدوں کا انتظار ہے۔',
   'dashboard.kpi.reimbursedDelta': '+$2.4k',
   'dashboard.kpi.reimbursedLabel': 'معاوضہ · MTD',
   'dashboard.newReport': 'نئی رپورٹ',
+  'dashboard.recent.empty': 'ابھی کوئی رپورٹ نہیں — اوپر اپنی پہلی رپورٹ شروع کریں۔',
   'dashboard.recent.title': 'حالیہ رپورٹس',
   'dashboard.recent.viewAll': 'تمام رپورٹس دیکھیں',
   'dashboard.summaryFallback': 'لائیو سمری دستیاب نہیں ہے — کیوریٹڈ ڈیمو ڈیٹا دکھا رہا ہے۔',
@@ -38,11 +59,18 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'رسیدیں اور قابل ادائیگی اشیاء',
   'expenses.listFallback': 'لائیو لسٹ دستیاب نہیں ہے — کیوریٹڈ ڈیمو ڈیٹا دکھا رہا ہے۔',
   'expenses.searchPlaceholder': 'مرچنٹ یا زمرہ تلاش کریں…',
+  'expenses.subtotal': '{{count}} اخراجات · ذیلی میزان',
   'expenses.title': 'اخراجات',
+  'forgotPassword.continue': 'میرے پاس کوڈ ہے · جاری رکھیں',
+  'forgotPassword.subheading':
+    'اپنا کام کا ای میل درج کریں اور ہم نیا پاس ورڈ بنانے کا لنک بھیجیں گے۔',
   'forgotPassword.successBody':
     'اگر کوئی اکاؤنٹ موجود ہے۔ {{email}} آپ کو اگلے چند منٹوں میں دوبارہ ترتیب دینے کا لنک موصول ہوگا۔',
+  'landing.copyright': '© {{year}} {{app}}۔ Molecule.dev کے ساتھ بنایا گیا۔',
+  'landing.ctaBody': 'ہر ماہ پہلے 25 اخراجات مفت۔ نہ کریڈٹ کارڈ، نہ امپلیمنٹیشن کال۔',
   'landing.ctaHeading': 'آپ کی ٹیم کی واجب الادا رقم کی وصولی کے لیے تیار ہیں؟',
   'landing.eyebrow': 'فنانس ٹیموں کے اخراجات کی رپورٹ',
+  'landing.featuresHeading': 'معاوضہ، ایک پرسکون ورک اسپیس میں',
   'landing.heroSubtitle':
     'سپریڈ شیٹ کی تقریب کے بغیر کاروباری اخراجات جمع کروائیں، منظور کریں اور ان کی ادائیگی کریں۔ رسید OCR، پالیسی کی جانچ پڑتال، اور ایک شفاف منظوری کی ٹائم لائن - سب ایک پرسکون ورک اسپیس میں۔',
   'landing.heroTitle': 'ہر رسید، برآمد۔',
@@ -59,10 +87,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'نوٹس',
   'newExpense.descriptionPlaceholder':
     'یہ خرچ کاروبار سے متعلق کیوں تھا (آپ کے منظور کنندہ کو نظر آتا ہے)۔',
+  'newExpense.eyebrow': 'قابلِ معاوضہ آئٹم',
   'newExpense.merchant': 'مرچنٹ',
   'newExpense.merchantPlaceholder': 'ہوٹل ایڈلون کیمپنسکی',
   'newExpense.policyHint':
     'یاد دہانی: $80 فی دن سے زیادہ کا کھانا یا $250 سے زیادہ کا کوئی بھی شے ایک جواز نوٹ کی ضرورت ہوتی ہے۔',
+  'newExpense.receipt': 'رسید',
+  'newExpense.receiptHint': 'JPG، PNG، یا PDF · زیادہ سے زیادہ 10 MB',
   'newExpense.receiptOcrHint': 'OCR فیلڈز کو پہلے سے بھرتا ہے۔',
   'newExpense.receiptPrompt':
     'یہاں ایک تصویر یا پی ڈی ایف ڈراپ کریں، یا براؤز کرنے کے لیے کلک کریں۔',
@@ -73,17 +104,21 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'رسید لیں یا اپ لوڈ کریں اور Recoup مرچنٹ، تاریخ اور کل کو پہلے سے پُر کر دے گا۔ محفوظ کرنے سے پہلے نیچے دی گئی ہر چیز کی تصدیق کریں۔',
   'newExpense.title': 'اخراجات شامل کریں۔',
+  'newReport.approverHint':
+    'جب آپ یہ رپورٹ جائزے کے لیے جمع کرائیں گے تو انہیں ایک ای میل موصول ہوگی۔',
   'newReport.approverLabel': 'منظور کنندہ ای میل (اختیاری)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'دستیاب اخراجات',
   'newReport.createFailed': 'رپورٹ نہیں بن سکی۔ براہ کرم دوبارہ کوشش کریں۔',
   'newReport.draftsFallback':
     'لائیو اخراجات کی فہرست دستیاب نہیں ہے — کیوریٹڈ ڈیمو ڈیٹا دکھا رہا ہے۔',
+  'newReport.eyebrow': 'اخراجات گروپ کریں · منظوری کے لیے جمع کرائیں',
   'newReport.includedCount': '{{count}} شامل',
   'newReport.purposeLabel': 'کاروباری مقصد',
   'newReport.purposePlaceholder':
     'اس سفر یا منصوبے کی وضاحت کریں جس سے ان اخراجات کا تعلق ہے (آپ کے منظور کنندہ اور مالیات کو نظر آتا ہے)۔',
   'newReport.saveDraft': 'ڈرافٹ کے طور پر محفوظ کریں۔',
+  'newReport.saveDraftFailed': 'ڈرافٹ محفوظ نہیں ہو سکا۔ براہ کرم دوبارہ کوشش کریں۔',
   'newReport.submit': 'منظوری کے لیے جمع کروائیں۔',
   'newReport.submitFailed': 'رپورٹ پیش نہیں کر سکے۔ براہ کرم دوبارہ کوشش کریں۔',
   'newReport.summary': 'رپورٹ کا خلاصہ',
@@ -96,16 +131,23 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'کام کی جگہ کی سرگرمی',
   'notifications.feedFallback': 'لائیو فیڈ دستیاب نہیں — کیوریٹڈ ڈیمو ڈیٹا دکھا رہا ہے۔',
   'notifications.openReport': 'رپورٹ کھولیں ›',
+  'pricing.approvalsLabel': 'منظوریاں',
   'pricing.expensesLabel': 'اخراجات',
   'pricing.heading': 'منظوری',
   'pricing.policiesLabel': 'پالیسیاں',
   'pricing.receiptsLabel': 'رسیدیں',
   'recoveredAmountHeroCard.label': 'واپسی کی وصولی · YTD',
+  'recoveredAmountHeroCard.pending':
+    'تمام منظوری دینے والوں میں فی الحال {{count}} رپورٹ(س) جائزے کے انتظار میں ہیں۔',
+  'reports.approvalFlow': 'منظوری کا بہاؤ',
   'reports.backToList': 'رپورٹس پر واپس جائیں۔',
   'reports.detailFallback': 'لائیو رپورٹ دستیاب نہیں — کیوریٹ شدہ ڈیمو ڈیٹا دکھا رہا ہے۔',
   'reports.lineItems': 'لائن آئٹمز',
   'reports.lineItemsCount': '{{count}} اخراجات',
+  'reports.lineItemsEmpty': 'اس رپورٹ پر ابھی کوئی خرچ نہیں۔',
+  'reports.openLibrary': 'رپورٹ لائبریری کھولیں',
   'reports.policyTitle': 'پالیسی پرچم',
+  'reports.selectPrompt': 'تفصیل دیکھنے کے لیے لائبریری سے ایک رپورٹ منتخب کریں۔',
   'reports.summary.lineCount': 'لائن آئٹمز',
   'reports.summary.reimbursable': 'قابل تلافی',
   'reports.summary.total': 'کل اطلاع دی گئی۔',
@@ -114,6 +156,7 @@ export const ui: UiTranslations = {
   'reportsList.lineItems': '{{count}} اخراجات',
   'reportsList.listFallback': 'لائیو لسٹ دستیاب نہیں ہے — کیوریٹڈ ڈیمو ڈیٹا دکھا رہا ہے۔',
   'reportsList.newReport': 'نئی رپورٹ',
+  'reportsList.submittedOn': '{{date}} کو جمع کرایا',
   'reportsList.title': 'رپورٹ لائبریری',
   'resetPassword.hidePassword': 'پاس ورڈ چھپائیں۔',
   'resetPassword.newPasswordLabel': 'نیا پاس ورڈ',
@@ -139,6 +182,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'محفوظ کیا گیا ✓',
   'settings.profileSaveFailed': 'پروفائل کو اپ ڈیٹ نہیں کیا جا سکا۔ براہ کرم دوبارہ کوشش کریں۔',
   'signup.heading': 'اپنا Recoup اکاؤنٹ بنائیں',
+  'signup.hidePassword': 'پاس ورڈ چھپائیں۔',
   'signup.namePlaceholder': 'مایا اوکافور',
   'signup.showPassword': 'پاس ورڈ دکھائیں۔',
   'signup.subheading': 'ہر ماہ 25 اخراجات کے لیے مفت — کوئی کریڈٹ کارڈ نہیں۔',

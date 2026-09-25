@@ -1,11 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Hast du Feedback, einen Bug gefunden oder möchtest du eine Funktion vorschlagen? Jede Nachricht erreicht eine echte Person im {{app}}-Team — wir würden gerne hören, was du lernst.',
   'about.contactTitle': 'Kontakt aufnehmen',
   'about.eyebrow': 'Über „{{app}}“',
+  'about.intro':
+    '{{app}} ist eine Spaced-Repetition-Karteikarten-App für Menschen, die möchten, dass Wissen wirklich hängen bleibt. Ob du eine Sprache lernst, Formeln auswendig lernst oder Konzepte für eine Prüfung einübst — sie plant jede Karte genau in dem Moment ein, in dem du sie fast vergessen hättest — der effizienteste Weg, den die Gedächtnisforschung gefunden hat, um Fakten ins Langzeitgedächtnis zu überführen.',
+  'about.missionBody':
+    'Die meisten Lernwerkzeuge optimieren auf verbrachte Zeit, nicht auf behaltenes Wissen. {{app}} optimiert auf das Gegenteil: die wenigsten Wiederholungen, die das Wichtige in deinem Kopf behalten. Wir glauben, Lernen sollte ruhig, messbar und deins sein — offene Daten, keine Dark Patterns und eine Gewohnheit, die du jahrelang durchhalten kannst.',
+  'about.missionTitle': 'Unsere Mission',
   'about.pageTitle': '{{tagline}}.',
   'authShell.sampleBack': 'Vilnius — Rückruf in 1,2 Sekunden.',
   'authShell.sampleEyebrow': 'Eine Karte aus Ihrem zukünftigen Stapel',
+  'authShell.sampleFront': '„Die Hauptstadt von Litauen.“',
+  'authShell.sampleRetention': '{{pct}} % Behaltensrate',
   'authShell.sampleStreak': '{{days}}-tägige Serie',
   'cardEdit.title': 'Karteikarte bearbeiten',
   'cardEditor.backLink': 'Zurück zum Stapel',
@@ -35,6 +44,8 @@ export const ui: UiTranslations = {
   'dashboard.kpi.days': 'Tage',
   'deckDetail.backLink': 'Alle Stapel',
   'deckDetail.deleteError': 'Das Deck konnte nicht gelöscht werden.',
+  'deckDetail.empty.body': 'Füge deine erste Karte hinzu, um dein Gedächtnis aufzubauen.',
+  'deckDetail.empty.cta': 'Erste Karte hinzufügen',
   'deckDetail.empty.heading': 'In diesem Deck sind noch keine Karten enthalten.',
   'deckDetail.filterEmpty': 'Keine Karten entsprechen diesem Statusfilter.',
   'deckDetail.filterLabel': 'Karten nach Status filtern',
@@ -47,7 +58,10 @@ export const ui: UiTranslations = {
   'deckDetail.stat.total': 'Karten',
   'deckDetail.studyDueLabel': '{{count}} fällige lernen',
   'deckProgressCard.cardCount': '{{count}} Karten',
+  'deckProgressCard.masteredTooltip': '{{count}} gemeistert',
   'deckProgressCard.studyCta': '{{count}} lernen',
+  'decks.confirmDelete':
+    'Dieses Deck und alle seine Karten löschen? Das kann nicht rückgängig gemacht werden.',
   'decks.create.heading': 'Stapel erstellen',
   'decks.create.nameLabel': 'Stapelname',
   'decks.create.submit': 'Stapel erstellen',
@@ -58,6 +72,7 @@ export const ui: UiTranslations = {
   'decks.heading': 'Stapel',
   'decks.loadError': 'Stapel konnten nicht geladen werden.',
   'decks.loading': 'Wird geladen…',
+  'decks.newDeckLabel': 'Neues Deck',
   'decks.retention': 'Behalten',
   'decks.studyArrow': 'Lernen →',
   'decks.subheading': '{{count}} Stapel · prüfen und verwalten',
@@ -81,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Ich habe bereits ein Konto',
   'landing.heroSubtitle':
     'Spaced Repetition macht den Unterschied zwischen Pauken und Erinnern aus. Fünf Minuten pro Tag, Jahr für Jahr, und die Sprache bleibt im Gedächtnis.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.proof.export': 'Offene Daten, kein Lock-in',
   'landing.proof.free': 'Für persönlichen Gebrauch immer kostenlos',
   'landing.proof.import': '.apkg / CSV importieren',
@@ -95,13 +111,17 @@ export const ui: UiTranslations = {
   'login.heading': 'Willkommen zurück zu Ihren Stapeln',
   'login.orDivider': 'oder weiter mit',
   'login.signupLink': 'Kostenlos lernen',
+  'login.signupPrompt': 'Neu hier?',
   'login.subtitle': 'Machen Sie weiter, wo Sie aufgehört haben — Ihre Serie wartet.',
   'mobileNav.closeMenu': 'Navigationsmenü schließen',
   'mobileNav.openMenu': 'Navigationsmenü öffnen',
   'notifications.markAllReadError':
     'Alle gelesenen Artikel konnten nicht als gelesen markiert werden.',
   'pricing.heading': 'Karten',
+  'pricing.limits.cards': 'Karten',
   'pricing.limits.decks': 'Stapel',
+  'pricing.limits.historyDays': '{{days}}-Tage-Wiederholungsverlauf',
+  'pricing.limits.historyUnlimited': 'Unbegrenzter Wiederholungsverlauf',
   'pricing.limits.stats': 'Statistiken',
   'pricing.limits.study': 'Lernen',
   'resetPassword.passwordLabel': 'Neues Passwort',
@@ -113,17 +133,29 @@ export const ui: UiTranslations = {
   'sessionSummary.heading': 'Gut gemacht.',
   'sessionSummary.label': 'Sitzung abgeschlossen',
   'settings.changePasswordError': 'Passwort konnte nicht geändert werden.',
+  'settings.confirmPassword': 'Bestätigen Sie Ihr Passwort',
   'settings.currentPassword': 'Aktuelles Passwort',
+  'settings.dangerZone': 'Gefahrenzone',
+  'settings.deleteAccountHint':
+    'Lösche dein Konto und alle Lerndaten dauerhaft. Das kann nicht rückgängig gemacht werden.',
+  'settings.deleteAccountWarning':
+    'Dies löscht dein Konto sowie alle Decks, Karten und deinen Lernverlauf dauerhaft. Das kann nicht rückgängig gemacht werden.',
   'settings.deleteError':
     'Das Konto konnte nicht gelöscht werden. Überprüfen Sie Ihr Passwort und versuchen Sie es erneut.',
   'settings.deleting': 'Wird gelöscht…',
+  'settings.devicesHint': 'Geräte, die derzeit mit Ihrem Konto registriert sind.',
   'settings.newPassword': 'Neues Passwort',
   'settings.password': 'Passwort',
   'settings.passwordChanged': 'Passwort aktualisiert.',
+  'settings.passwordHint': 'Ändere das Passwort, mit dem du dich anmeldest.',
   'settings.reminders.atRisk': 'Warnung bei gefährdeter Serie (nach 20:00 Uhr)',
+  'settings.reminders.daily': 'Tägliche Erinnerung (8:00 Uhr)',
   'settings.reminders.heading': 'Erinnerungen',
+  'settings.reminders.milestones': 'Meilenstein-Feiern',
   'settings.reminders.note':
     'Auf diesem Gerät gespeichert. Legen Sie fest, welche Lern-Hinweise dieser Browser anzeigt; Einstellungen werden beim Neuladen synchronisiert.',
+  'settings.reminders.weekly': 'Wöchentliche Behaltenszusammenfassung (sonntags)',
+  'settings.revokeDeviceWarning': 'Der Zugriff dieses Geräts wird in Kürze widerrufen. Abmelden?',
   'settings.saved': 'Gespeichert.',
   'settings.saveError': 'Speichern fehlgeschlagen.',
   'settings.saving': 'Wird gespeichert…',
@@ -139,6 +171,7 @@ export const ui: UiTranslations = {
   'signup.legal':
     'Mit der Erstellung eines Kontos akzeptieren Sie unsere AGB und Datenschutzerklärung.',
   'signup.nameLabel': 'Ihr Name (optional)',
+  'signup.orDivider': 'oder registrieren mit',
   'signup.subtitle': 'Fünf Minuten pro Tag. Ein zukünftiges Ich, das sich erinnert.',
   'stats.byStateHeading': 'Karten nach Status',
   'stats.dailyHeading': 'Wiederholungen pro Tag (letzte 30 Tage)',
@@ -175,5 +208,6 @@ export const ui: UiTranslations = {
   'todayHeroCard.goalLabel': 'Tagesziel',
   'todayHeroCard.goalProgress': '{{reviewed}} / {{goal}}',
   'todayHeroCard.streakBadge': '{{days}}-tägige Serie',
+  'todayHeroCard.studyCta': 'Lernen starten',
   'userMenu.stats': 'Meine Statistiken',
 }

@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Snakk med oss',
   'about.eyebrow': 'Om',
+  'about.featureConnections':
+    'En tilkoblingsbehandler som lagrer databasene dine sikkert og fargekoder dem – påloggingsinformasjon er kryptert i ro, aldri i klartekst.',
+  'about.featureMonitoring':
+    'Sanntidsovervåking av spørringsytelse og databaseaktivitet, med tastatursnarveier og kommandopalett for å styre alt håndfritt.',
+  'about.featurePlans':
+    'Abonnementer som vokser med deg – Gratis for soloprosjekter, Pro og Team for flere tilkoblinger, lengre oppbevaring av spørringer, eksporter og avanserte funksjoner.',
+  'about.featureQueryEditor':
+    'En Monaco-basert SQL-editor med spørringshistorikk, lagrede spørringer og eksport av resultatene til CSV med ett klikk.',
+  'about.featureSchema':
+    'En skjemautforsker og tabellnavigator for å navigere i databaser, tabeller og kolonner, og deretter bla gjennom, filtrere og redigere rader direkte.',
+  'about.missionTitle': 'Vårt oppdrag',
   'authShell.commands': 'Kommandoer',
   'authShell.ssoSupported': 'Støtter SSO',
   'common.run': 'Løp',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Spørringer',
   'connections.schema': 'Skjema',
   'connections.subtitle': 'Administrer databasetilkoblingene dine.',
+  'connections.test': 'Test',
   'databaseAdminLayout.adminRole': 'Administratorrolle',
   'databaseAdminLayout.commandPalette': 'Kommandopalett',
   'databaseAdminLayout.commands': 'kommandoer',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Ny tilkobling',
   'databaseAdminLayout.queries': 'Spørringer',
   'databaseAdminLayout.ready': 'Klar',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Søk i kommandoer, spørringer, tabeller …',
   'databaseAdminLayout.user': 'Bruker',
   'editConnection.confirmDelete': 'Vil du slette denne tilkoblingen?',
   'editConnection.deleteButton': 'Slett tilkobling',
+  'editConnection.newPassword': 'Nytt passord (la stå tomt for å beholde)',
   'editConnection.saved': 'Tilkoblingen er lagret.',
   'editConnection.title': 'Rediger tilkobling',
   'forgotPassword.success': 'Hvis kontoen finnes, er en tilbakestillingslenke på vei.',
@@ -47,6 +62,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Suksesser',
   'monitoring.title': 'Overvåking',
   'monitoring.totalQueries': 'Totalt antall søk',
+  'nav.schema': 'Skjema',
   'newConnection.database': 'Database',
   'newConnection.engine': 'Motor',
   'newConnection.host': 'Vert',
@@ -82,6 +98,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Det er ingen tilkobling knyttet til dette kodestykket.',
   'savedQuery.notBound': 'Ikke bundet',
   'savedQuery.title': 'Lagret spørring',
+  'schema.columns': 'Kolonner',
   'schema.foreignKeys': 'Fremmednøkler',
   'schema.indexes': 'Indekser',
   'schemaExplorer.browseRows': 'Bla gjennom rader',
@@ -90,14 +107,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'nullbar',
   'schemaExplorer.colType': 'type',
   'schemaExplorer.noColumns': 'Ingen kolonner.',
+  'schemaExplorer.noForeignKeys': 'Ingen fremmednøkler.',
   'schemaExplorer.noIndexes': 'Ingen indekser.',
   'schemaExplorer.noTables': 'Ingen tabeller',
   'schemaExplorer.pickATable': 'Velg et bord fra sidepanelet.',
   'schemaExplorer.tables': 'Tabeller',
   'schemaExplorer.title': 'Skjemautforsker',
+  'settings.session': 'Økt',
   'settings.subtitle': 'Administrer kontoen og abonnementet ditt.',
   'signup.heading': 'Opprett din Quarry-konto',
   'signup.tagline': 'Få tilgang på under ett minutt.',
   'tableBrowser.noRows': 'Denne tabellen har ingen rader ennå.',
+  'tableBrowser.subtitle': 'Bla gjennom rader fra eksterndatabasen din.',
   'tableBrowser.title': 'Gjennomgang av rader fra den eksterne databasen.',
 }

@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'On tagasisidet, leidsid vea või tahad meile rääkida, kuidas päeviku pidamine on aidanud? Loeme iga sõnumit — võta ühendust igal ajal ja päris inimene vastab sulle.',
+  'about.contactTitle': 'Võta meiega ühendust',
+  'about.featureInsights':
+    'AI-põhised mõtisklused, mis toovad õrnalt esile vallandajaid, teemasid ja tänulikkust — kaotamata sinu häält.',
+  'about.featureMood':
+    'Tuju ja tegevuste jälgimine kalendrivaate ning trendigraafikutega, mis toovad esile selle, mis aitab sul õitseda.',
+  'about.featurePrivacy':
+    'Otsast-otsani krüpteerimine, pääsukoodi lukk ja täielik CSV-eksport, et sinu mõtisklused püsiksid privaatsed ja teisaldatavad.',
+  'about.featurePrompts':
+    'Õrnad igapäevased vihjed, et sul oleks alati kuskilt alustada — mitte kunagi tühi leht.',
+  'about.intro':
+    '{{app}} on õrn ja privaatne vaimse tervise päevik igapäevaseks mõtiskluseks, tuju jälgimiseks ja tänulikkuseks. Läbimõeldud vihjed asendavad tühja lehte, vaikne mustrite leidmine aitab mõista, mis mõjutab sinu tundeid, ja otsast-otsani krüpteerimine hoiab sinu sõnad sinu omana.',
+  'about.missionBody':
+    'Usume, et enesega ühenduse võtmine peaks olema rahulik, mitte kunagi kliiniline — ja mitte kunagi nagu veel üks rakendus, mis nõuab sinu tähelepanu. {{app}} on loodud aitama, mitte näägutama: paar vaikset minutit päevas, et märgata oma tuju, kirjutada ausalt ja näha end aeglaselt selgemalt.',
+  'about.missionTitle': 'Meie missioon',
   'about.pageTitle': 'Teave rakenduse {{app}} kohta',
   'authShell.encryptionBadge': 'Teie kirjed on otsast lõpuni krüpteeritud.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Päev {{day}} — kirjet pole',
   'calendar.cellMood': 'Päev {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Selle kuu ülevaade',
   'calendar.eyebrow': 'Meeleolu lühidalt',
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Jälgitav {{tracked}} kohta {{total}} päeva sel kuul.',
   'common.goToDashboard': 'Mine töölauani',
   'common.tryAgain': 'Proovi uuesti',
+  'entryComposer.bodyPlaceholder': 'Kirjuta nii, nagu ausalt tunned. Keegi teine ei loe seda.',
   'entryComposer.cancel': 'Tagasi päevikusse',
   'entryComposer.heading': 'Tänane mõtisklus',
   'entryComposer.moodLabel': 'Kuidas sa ennast tunned?',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Eemalda {{tag}}',
   'entryComposer.save': 'Salvesta peegeldus',
   'entryComposer.saveError': 'Teie kirjet ei õnnestunud salvestada.',
+  'entryComposer.tagPlaceholder': 'Lisa silt ja vajuta Enter',
   'entryComposer.titlePlaceholder': 'Anna sellele peegeldusele nimi…',
   'entryDetail.back': 'Tagasi päevikusse',
   'entryDetail.delete': 'Kustuta see kirje',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Peegelduse laadimine…',
   'entryDetail.notFound': 'Sissekannet ei leitud.',
   'entryDetail.reflectionsHeading': 'AI peegeldused',
+  'forgotPassword.continueButton': 'Sisesta lähtestamiskood',
   'forgotPassword.eyebrow': 'Pole muret',
   'forgotPassword.subheading': 'Saadame teie e-posti aadressile õrna lähtestamise lingi.',
   'forgotPassword.successBody': 'Kui konto on olemas {{email}}, lähtestamise link on teel.',
@@ -57,14 +77,21 @@ export const ui: UiTranslations = {
     'Teemasid veel pole – lisa oma postitustele üks või kaks silti ja need kogunevad siia.',
   'insights.themesHeading': 'Peamised teemad',
   'insights.triggerFrequency': 'märkasin {{count}} × sel kuul',
+  'insights.triggersEmpty':
+    'Praegu pole veel midagi märgata. Mõne päeva jooksul tehtud kirjed näitavad sinu mustreid.',
   'insights.triggersHeading': 'Mustrid, mis muudavad teie meeleolu',
+  'journal.empty': 'Ükski mõtisklus ei vasta — proovi teist filtrit või kirjuta uus kirje.',
   'journal.eyebrow': 'Sinu mõtisklused',
   'journal.heading': 'Ajakiri',
   'journal.loadError': 'Kirjete laadimine ebaõnnestus.',
   'journal.loading': 'Sissekannete laadimine…',
+  'journal.newEntry': 'Uus kirje',
   'journal.searchPlaceholder': 'Otsi tunnet, nime, hetke…',
   'journal.subheading': '{{count}} kanded – igaüks neist väärib säilitamist.',
   'journalEntryCard.encryptedLabel': 'Krüpteeritud',
+  'landing.ctaBody':
+    'Alustamine on tasuta. Pro avab andmeekspordi, suurema päeviku ja terve aasta ajaloo.',
+  'landing.ctaButton': 'Alusta oma esimest sissekannet',
   'landing.ctaTitle': 'Mõned vaiksed minutid päevas. See on kõik.',
   'landing.eyebrow': 'Õrn igapäevane praktika',
   'landing.featuresBody':
@@ -83,6 +110,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Õrn ruum igapäevaseks mõtiskluseks.',
   'mentalHealthJournalLayout.closeMenu': 'Sulge menüü',
   'mentalHealthJournalLayout.openMenu': 'Ava menüü',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Peamine navigeerimine',
+  'moodHeroCard.entriesThisWeek': '{{count}} sel nädalal',
   'moodHeroCard.streakSuffix': 'päevajada',
   'moodHeroCard.title': 'Tänane mõtisklus',
   'moodTrendChart.aiBadge': 'Tehisintellekti ülevaade on valmis',
@@ -93,11 +122,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Sinu teekond',
   'profile.fallbackName': 'Helkur',
   'profile.loadError': 'Statistika laadimine ebaõnnestus.',
+  'profile.loading': 'Sinu statistika värskendamine…',
   'profile.longestStreak': 'Pikim seeria',
   'profile.memberSince': 'Mõtisklenud alates {{date}}',
   'profile.milestones': 'Verstapostid',
   'profile.milestonesEmpty':
     'Sinu esimene verstapost on ühe sissekande kaugusel – kirjuta alati, kui tunned end valmis olevat.',
+  'profile.moodMix': 'Sinu tujude segu sel hooajal',
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'Peegeldused',
   'profile.totalWords': 'Kirjutatud sõnad',
@@ -110,6 +141,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Kirjuta sellest',
   'resetPassword.eyebrow': 'Uus algus',
   'resetPassword.mismatchError': 'Paroolid ei sobi kokku.',
+  'resetPassword.passwordLabel': 'Uus parool',
   'resetPassword.subheading': 'Vali midagi turvalist – sinu mõtisklused väärivad seda.',
   'resetPassword.tokenPlaceholder': 'Lähtesta kood e-kirjast',
   'settings.dangerDescription':
@@ -121,11 +153,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'Konto kustutamine ebaõnnestus.',
   'settings.exportDescription': 'Sinu sõnad kuuluvad alati sulle. Laadi koopia alla igal ajal.',
   'settings.exportDone': 'Eksporditud {{format}}.',
+  'settings.exportError': 'Eksport ebaõnnestus.',
+  'settings.exportHeading': 'Ekspordi oma mõtisklused',
   'settings.exportLoading': 'Ettevalmistus…',
   'settings.eyebrow': 'Sinu ruum, sinu reeglid',
   'settings.languageHeading': 'Keel',
   'settings.privacyHeading': 'Privaatsus ja krüptimine',
   'settings.remindersHeading': 'Igapäevane meeldetuletus',
+  'settings.reminderToggleAria': 'Lülita igapäevane meeldetuletus',
   'settings.reminderToggleDescription':
     'Üksainus rahulik meeldetuletus sinu valitud ajal. Ei mingeid märke ega süütunnet.',
   'settings.reminderToggleLabel': 'Saada õrn müks',
@@ -138,6 +173,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Päeviku loomine…',
   'signup.subheading': 'Turvaline ruum sinu mõtetele.',
   'wellnessRingsTriad.mindfulnessCaption': 'Eesmärk {{goal}} minutit täna',
+  'wellnessRingsTriad.mindfulnessLabel': 'Teadlikkus',
   'wellnessRingsTriad.sleepCaption': 'Eesmärk {{goal}} h / öö',
   'wellnessRingsTriad.sleepLabel': 'Uni',
+  'wellnessRingsTriad.sleepValue': '{{hours}} t',
+  'wellnessRingsTriad.streakCaption': 'Eesmärk {{goal}} päeva',
+  'wellnessRingsTriad.streakLabel': 'Päevikuseeria',
+  'wellnessRingsTriad.streakValue': '{{days}} d',
 }

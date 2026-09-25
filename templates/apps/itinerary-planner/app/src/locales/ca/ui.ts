@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens comentaris, has trobat un error o planifiques alguna cosa ambiciosa? Escriu-nos des de la configuració del teu compte — cada missatge arriba a una persona real de l'equip.",
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    "Reserves en una sola safata d'entrada — els vols, els hotels i les confirmacions d'activitats arriben al dia exacte que els correspon.",
+  'about.featureCollab':
+    'Col·laboració en temps real — convida fins a cinc viatgers per viatge, amb cada canvi sincronitzat en directe i comentaris en fils sota cada parada.',
+  'about.featureMapsBudget':
+    'Mapes, destinacions i un pressupost compartit — veu tot el viatge en un mapa, descobreix destinacions seleccionades pels editors i controla les despeses perquè ningú no es passi.',
+  'about.featureTimelines':
+    "Cronologies dia a dia — arrossega les parades per reordenar-les, afegeix trams de transport i mira com l'itinerari es recalcula com un document viu.",
+  'about.intro':
+    "{{app}} converteix una carpeta plena de plans a mig fer en un únic viatge compartit que tot el grup pot seguir de debò. Crea un itinerari dia a dia, afegeix vols i hotels, situa cada parada al mapa i controla el pressupost — tot en un sol lloc tranquil en comptes d'una dotzena de pestanyes i un xat de grup.",
+  'about.missionBody':
+    'Planificar un viatge hauria de fer la sensació que el viatge ja millora, no que és una feina. {{app}} existeix per fer que els viatges col·laboratius siguin fàcils — perquè cada viatger arribi sabent el pla, i cada parada expliqui una història que valgui la pena recordar.',
+  'about.missionTitle': 'La nostra missió',
   'about.pageTitle': 'Sobre {{app}}',
   'auth.legalConsent': 'En continuar, acceptes les nostres',
   'bookings.empty.body':
@@ -31,7 +47,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Hotel',
   'bookings.type.other': 'Altres',
   'budgetSpendCard.budgetTotal': 'de {{total}} planificat',
+  'budgetSpendCard.overBy': '{{amount}} per sobre del pressupost',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} recents',
+  'budgetSpendCard.remaining': '{{amount}} restants',
   'calendar.eyebrow': "L'any que ve",
   'calendar.heading': 'Cada viatge en un sol calendari.',
   'calendar.legendHeading': "Viatges d'aquest mes",
@@ -42,18 +61,27 @@ export const ui: UiTranslations = {
   'common.and': 'i',
   'common.goToDashboard': 'Anar al panell',
   'dashboard.budgetHeading': 'Pols pressupostari',
+  'dashboard.empty.body':
+    "Planifica el teu primer viatge i el teu tauler s'omplirà de cronologies dia a dia, el pols del pressupost i reserves.",
+  'dashboard.empty.cta': 'Planifica el teu primer viatge',
   'dashboard.empty.heading': 'Encara no has fet cap viatge; el teu atles està en blanc.',
   'dashboard.eyebrow': 'Control de missió',
   'dashboard.heading': 'La teva propera aventura, en un racó tranquil.',
   'dashboard.newTripCta': 'Comença un nou viatge',
+  'dashboard.subheading':
+    "Un compte enrere fins al proper viatge, el pols de la despesa d'avui i un cop d'ull ràpid a cada itinerari en marxa.",
   'dashboard.tripsHeading': 'Viatges en moviment',
   'dashboard.viewAllExpenses': 'Veure totes les despeses',
   'dashboard.viewAllTrips': 'Veure cada viatge',
   'dayTimelineRow.category.accommodation': 'Estada',
+  'dayTimelineRow.category.food': 'Menjar i beure',
+  'dayTimelineRow.category.sightseeing': 'Visites turístiques',
   'dayTimelineRow.category.transport': 'Transport',
   'destinationOrbCard.exploreCta': 'Afegeix a un viatge',
   'destinationOrbCard.tripCount': '{{count}} viatges',
+  'destinations.empty.body': "Torna a Tot i les troballes de l'editor tornaran a aparèixer.",
   'destinations.empty.heading': 'Encara no hi ha destinacions.',
+  'destinations.emptyFiltered.heading': 'Encara no hi ha res etiquetat així.',
   'destinations.errors.load': "No s'han pogut carregar les destinacions.",
   'destinations.eyebrow': 'On anar després?',
   'destinations.heading': "Racons desats i troballes de l'editor.",
@@ -72,7 +100,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Proveïdor',
   'expenses.formHeading': 'Despesa de registre per a {{trip}}',
   'expenses.heading': 'On es destina realment el pressupost del viatge.',
+  'expenses.heroBudget': '{{pct}}% de {{total}} planificat',
   'expenses.heroEyebrow': '{{trip}} instantània del pressupost',
+  'expenses.heroNoBudget': 'Encara no hi ha cap pressupost definit en aquest viatge.',
   'expenses.noTrips.body':
     "Planifica primer un viatge: les despeses estan associades al pressupost d'un viatge.",
   'expenses.noTrips.heading': 'Encara no hi ha viatges.',
@@ -85,12 +115,16 @@ export const ui: UiTranslations = {
     "Aquí tots els rebuts i confirmacions s'acumulen a la categoria correcta: no cal cap full de càlcul.",
   'forgotPassword.eyebrow': 'Recupera el teu itinerari',
   'forgotPassword.heading': 'Has oblidat la contrasenya?',
+  'forgotPassword.subheading':
+    "Introdueix el correu electrònic que vas fer servir per a {{appName}} i t'enviarem un enllaç per restablir la contrasenya.",
   'forgotPassword.submit': 'Enviar correu electrònic de recuperació',
   'forgotPassword.submitPending': 'Enviant el correu electrònic de recuperació…',
   'forgotPassword.successHint':
     'Encara no tens correu electrònic? Revisa la carpeta de correu brossa o torna-ho a provar amb una adreça diferent.',
   'forgotPassword.successSubheading':
     "Hem enviat un enllaç de recuperació a {{email}} L'enllaç és vàlid durant 30 minuts.",
+  'forgotPassword.tryAgain': 'Envia-ho a un altre correu electrònic',
+  'landing.cta.eyebrow': 'Comença amb el pla gratuït',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Crea un compte gratuït',
   'landing.cta.subheading':
@@ -102,8 +136,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Comença un viatge gratuït',
   'landing.hero.ctaSecondary': 'Veure un exemple de viatge',
+  'landing.hero.eyebrow': 'Planificador de viatges · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint converteix una carpeta plena de plans a mig fer en un itinerari compartit, dia a dia, que el vostre grup pot seguir, amb reserves, mapes i pressupost controlats en un sol lloc.',
+  'landing.hero.title': 'Planifica-ho una vegada. Passeja-ho junts.',
   'landing.nav.join': 'Comença un viatge gratuït',
   'landing.nav.preview': 'Punt de referència interior',
   'landing.preview.cta': "Planifica'n un de propi",
@@ -111,6 +147,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Alguns viatges que els viatgers estan fent ara mateix',
   'login.eyebrow': 'Àrea de membres',
   'login.heading': 'Ben tornat, viatger.',
+  'login.noAccount': 'Ets nou a Tessera?',
   'login.signupLink': 'Crea un compte gratuït',
   'login.subheading':
     'Inicia la sessió per gestionar els teus viatges, plans de dia, reserves i les entrades del diari que ja has començat.',
@@ -121,6 +158,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': "No s'ha pogut actualitzar la notificació.",
   'notifications.heading': "Què ha canviat en els teus viatges d'avui.",
   'notifications.markUnread': 'Marca com a no llegit',
+  'notifications.subheading':
+    '{{count}} nous — confirmacions de reserves, notes de col·laboradors, baixades de preus i recordatoris.',
   'notifications.time.daysAgo': '{{count}} fa uns dies',
   'notifications.time.hoursAgo': '{{count}} fa h',
   'notifications.time.justNow': 'ara mateix',
@@ -139,6 +178,7 @@ export const ui: UiTranslations = {
     'Serveis connectats, moneda, notificacions push i les credencials amb què inicieu la sessió.',
   'signup.and': 'i',
   'signup.eyebrow': 'Uneix-te al punt de referència',
+  'signup.haveAccount': 'Ja estàs de camí?',
   'signup.heading': 'Planifica-ho una vegada. Passeja-ho junts.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -150,6 +190,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Itinerari obert',
   'tripCountdownHeroCard.ctaSecondary': 'Planifica un altre viatge',
   'tripCountdownHeroCard.daysLabel': '{{days}} dies que falten',
+  'tripCountdownHeroCard.eyebrow': 'Propera aventura · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} nits — el teu itinerari ja està a punt per viatjar.',
   'tripCoverCard.stops': '{{count}} parades',
   'tripCoverCard.travelers': '{{count}} viatgers',
   'tripDetail.addActivity': 'Afegeix activitat',
@@ -159,6 +202,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': "Títol de l'activitat",
   'tripDetail.adding': 'Afegint…',
   'tripDetail.backToTrips': 'Torna a tots els viatges',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Viatgers',
   'tripDetail.dayLabel': 'Dia {{day}}',
   'tripDetail.empty': 'Encara no hi ha cap activitat — afegeix-ne una per iniciar la cronologia.',
@@ -169,14 +213,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Itinerari • {{country}}',
   'tripDetail.invite': 'Convidar',
   'tripDetail.inviteLabel': 'Convidar per correu electrònic',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'Invitació enviada a {{email}} .',
   'tripDetail.inviting': 'Enviant…',
   'tripDetail.loading': 'Carregant el viatge…',
   'tripDetail.noCollaborators': 'Només tu, per ara.',
+  'tripDetail.notesHeading': 'Notes del viatge',
   'tripDetail.notesPlaceholder': 'Encara no hi ha cap nota.',
   'tripDetail.notFound.heading': "No s'ha trobat el viatge",
   'tripDetail.openBookings': "Obre la safata d'entrada de reserves",
   'tripDetail.shareCopied': 'Enllaç de compartició copiat al porta-retalls:',
+  'tripDetail.shareReady': 'Enllaç per compartir a punt:',
   'tripDetail.stops': '{{count}} parades',
   'tripDetail.timelineEyebrow': 'Cronologia del dia',
   'tripDetail.timelineHeading': 'Pla dia a dia',
@@ -194,6 +241,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Viatgers',
   'tripPlanner.heading': "Esbossa un viatge en menys d'un minut.",
   'tripPlanner.preview.eyebrow': 'Previsualització en directe',
+  'tripPlanner.preview.placeholderCountry': 'Tria un país',
   'tripPlanner.preview.placeholderDestination': 'La teva propera aventura',
   'tripPlanner.section1.title': 'On i quan',
   'tripPlanner.section2.title': 'Viatgers i pressupost',
@@ -202,10 +250,13 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Dia {{day}} — afegeix parades, transport i reserves aquí.',
   'tripPlanner.section3.day2': 'Dia {{day}} — afegeix parades, transport i reserves aquí.',
   'tripPlanner.section3.day3': 'Dia {{day}} — afegeix parades, transport i reserves aquí.',
+  'tripPlanner.section3.title': 'Plantilla de pla diari',
   'tripPlanner.subheading':
     'Deixa els conceptes bàsics a continuació: sempre pots convidar col·laboradors, arrossegar parades i reenviar reserves més tard.',
   'tripPlanner.submit': 'Crea un viatge',
   'tripPlanner.submitting': 'Creant…',
+  'trips.empty.body': 'Torna a Tots els viatges o comença a planificar la teva propera ruta.',
+  'trips.empty.cta': 'Planifica un trajecte',
   'trips.empty.heading': 'Encara no hi ha res que coincideixi amb aquest filtre.',
   'trips.eyebrow': "L'atles",
   'trips.filterLabel': 'Filtra els viatges per estat',
@@ -216,6 +267,12 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Encara no hi ha viatges.',
   'trips.pastHeading': 'Aventures passades',
   'trips.subheading': '{{count}} itineraris: passat, present i algun dia.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading':
+    "Planifica'l una vegada. Recorre'l junts. Recorda'l per sempre.",
+  'waypointAuthShell.testimonial.author': 'Iris i Jonas · {{appName}} membres des del 2024',
+  'waypointAuthShell.testimonial.quote':
+    "{{appName}} va convertir un viatge frenètic de 3 setmanes per quatre països en l'itinerari més relaxat que hem compartit mai.",
   'waypointLayout.mobileNavClose': 'Tanca el menú de navegació',
   'waypointLayout.primaryNavLabel': 'Navegació principal',
 }

@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഒരു ചോദ്യമുണ്ടോ, ഒരു ബഗ് കണ്ടെത്തിയോ, അല്ലെങ്കിൽ നിങ്ങളുടെ ടീമിനായി ഒരു ഡെമോ വേണോ? നിങ്ങളുടെ അക്കൗണ്ട് ക്രമീകരണങ്ങളിൽ നിന്ന് ബന്ധപ്പെടുക — ഓരോ സന്ദേശവും ടീമിലെ ഒരു യഥാർത്ഥ വ്യക്തിയിലേക്ക് എത്തുന്നു.',
   'about.contactTitle': 'ബന്ധപ്പെടുക',
+  'about.intro':
+    '{{app}} സ്കാൻ ചെയ്ത രേഖകളുടെയും PDF-കളുടെയും കൂമ്പാരങ്ങളെ ക്രമീകരിച്ചതും തിരയാവുന്നതുമായ, ഫയൽ ചെയ്ത ഡാറ്റയാക്കി മാറ്റുന്നു. ഇൻവോയ്സുകൾ, രസീതുകൾ, കരാറുകൾ, അല്ലെങ്കിൽ ഫോമുകൾ ഇട്ടു കൊടുക്കൂ, AI അവ വായിക്കട്ടെ, വേർതിരിച്ചെടുക്കട്ടെ, വർഗ്ഗീകരിക്കട്ടെ, ഫയൽ ചെയ്യട്ടെ — കോൺഫിഡൻസ് നിറങ്ങളോടെ, അതുവഴി നിങ്ങളുടെ ടീം യഥാർത്ഥത്തിൽ മനുഷ്യന്റെ സഹായം വേണ്ടവ മാത്രം പരിശോധിക്കൂ.',
+  'about.missionBody':
+    'രേഖകളിലെ വെറും ജോലിത്തിരക്ക് നിങ്ങളുടെ ടീമിന്റെ ദിവസം തിന്നരുത്. വേർതിരിച്ചെടുക്കുന്ന ഓരോ മൂല്യവും വിശദീകരിക്കാവുന്നതും ഓഡിറ്റ് ചെയ്യാവുന്നതുമായിരിക്കണം എന്നാണ് ഞങ്ങൾ വിശ്വസിക്കുന്നത് — അങ്ങനെ പേപ്പർ ട്രെയിൽ നഷ്ടപ്പെടുത്താതെ ഓട്ടോമേഷനെ വിശ്വസിക്കാം. ഓരോ കൂമ്പാരത്തിനും മണിക്കൂറുകൾ ലാഭിക്കാൻ {{app}} നിർമ്മിച്ചതാണ്, അതേസമയം പ്രധാനപ്പെട്ടിടത്തെല്ലാം ഒരു മനുഷ്യനെ ഉൾപ്പെടുത്തുന്നു.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
+  'about.subtitle':
+    'നിങ്ങളുടെ രേഖകൾക്കായി OCR, AI വേർതിരിച്ചെടുക്കൽ, വർഗ്ഗീകരണം, ഓട്ടോമേറ്റഡ് ഫയലിംഗ്.',
   'about.title': '{{app}} നെക്കുറിച്ച്',
+  'about.whatYouGetTitle': 'നിങ്ങൾക്ക് ലഭിക്കുന്നത്',
   'authShell.backToLanding': '← ലാൻഡിംഗിലേക്ക് മടങ്ങുക',
   'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'ഇന്ന് · പ്രവർത്തനങ്ങളുടെ അവലോകനം',
   'dashboard.heading': 'ഡോക്യുമെന്റ് ഇന്റലിജൻസ്',
+  'dashboard.metric.accuracy': 'ശരാശരി കൃത്യത',
   'dashboard.metric.filed': 'ഇന്ന് ഫയൽ ചെയ്തു',
   'dashboard.metric.filedCaption': 'ഫയലിംഗ് നിയമങ്ങൾ വഴി റൂട്ട് ചെയ്‌തു',
   'dashboard.metric.processed': 'ഇന്ന് പ്രോസസ്സ് ചെയ്തു',
@@ -23,11 +34,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'പ്രമാണം',
   'dashboard.recent.col.uploaded': 'അപ്‌ലോഡ് ചെയ്‌തു',
   'dashboard.recent.heading': 'സമീപകാല പ്രമാണങ്ങൾ',
+  'dashboard.recent.typeUnknown': 'വർഗ്ഗീകരണത്തിനായി കാത്തിരിക്കുന്നു',
   'dashboard.subheading':
     'എല്ലാ പേജുകളും തരംതിരിച്ചിരിക്കുന്നു, വേർതിരിച്ചെടുത്തിരിക്കുന്നു, ഫയൽ ചെയ്‌തിരിക്കുന്നു - ആത്മവിശ്വാസത്തോടെയുള്ള നിറങ്ങളോടെ, അതിനാൽ അവലോകനം ശ്രദ്ധ കേന്ദ്രീകരിക്കും.',
   'documentDetail.audit.heading': 'ഓഡിറ്റ് ടൈംലൈൻ',
+  'documentDetail.audit.subheading':
+    'ഈ രേഖയിൽ സ്വീകരിച്ച ഓരോ ഘട്ടവും, ഉത്തരവാദിയായ വ്യക്തിയോടൊപ്പം.',
   'documentDetail.back': 'എല്ലാ രേഖകളും',
   'documentDetail.downloadHint': 'യഥാർത്ഥ ഫയൽ തുറക്കാൻ ഡൗൺലോഡ് ഉപയോഗിക്കുക.',
+  'documentDetail.extracted.empty': 'ഇതുവരെ ഫീൽഡുകൾ വേർതിരിച്ചെടുത്തിട്ടില്ല.',
   'documentDetail.extracted.heading': 'വേർതിരിച്ചെടുത്ത ഫീൽഡുകൾ',
   'documentDetail.extracted.subheading':
     '{{count}} ഫീൽഡുകൾ · പേജിൽ ഹൈലൈറ്റ് ചെയ്യാൻ ഏതെങ്കിലും ഫീൽഡിൽ ക്ലിക്കുചെയ്യുക.',
@@ -56,14 +71,25 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} നിങ്ങളുടെ ലൈബ്രറിയിലെ പ്രമാണങ്ങൾ, ഏറ്റവും പുതിയവ ആദ്യം അടുക്കി.',
   'documents.uploadCta': 'പ്രമാണങ്ങൾ അപ്‌ലോഡ് ചെയ്യുക',
+  'documentTypeBreakdown.barAria': 'തരം അനുസരിച്ച് രേഖയുടെ ഘടന',
   'documentTypeBreakdown.empty': 'ഇതുവരെ ഒരു രേഖയും പ്രോസസ്സ് ചെയ്തിട്ടില്ല.',
   'documentTypeBreakdown.subtitle': '{{total}} പ്രോസസ്സ് ചെയ്തു',
   'documentTypeBreakdown.title': 'പ്രമാണ ഘടന',
+  'forgotPassword.backToSignIn': '← സൈൻ ഇൻ എന്നതിലേക്ക് തിരികെ പോകുക',
   'forgotPassword.checkEmail': 'നിങ്ങളുടെ ഇമെയിൽ പരിശോധിക്കുക',
   'forgotPassword.tip':
     'മനസ്സിലായില്ലേ? സ്പാം പരിശോധിക്കുകയോ മറ്റൊരു വിലാസം പരീക്ഷിക്കുകയോ ചെയ്യുക.',
+  'landing.copyright':
+    '© {{year}} {{app}}. ഓരോ പേജും ഓഡിറ്റ് ചെയ്യുന്ന ഓപ്സ് ടീമുകൾക്കായി നിർമ്മിച്ചത്.',
+  'landing.ctaBody':
+    '14 ദിവസത്തെ ട്രയൽ. കാർഡ് ആവശ്യമില്ല. എപ്പോൾ വേണമെങ്കിലും റദ്ദാക്കാം. വേഗത്തിൽ നീങ്ങുന്നതും സാവധാനം ഓഡിറ്റ് ചെയ്യുന്നതുമായ ഓപ്സ് ടീമുകൾക്കായി നിർമ്മിച്ചത്.',
   'landing.ctaHeading': 'രസീതുകൾ ടൈപ്പ് ചെയ്യുന്നത് നിർത്തുക. അവ ഫയൽ ചെയ്യാൻ തുടങ്ങുക.',
   'landing.eyebrow': 'OCR · എക്സ്ട്രാക്ഷൻ · AI ഫയലിംഗ്',
+  'landing.featuresHeading': 'സ്വയം വിശദീകരിക്കുന്ന ഡോക്യുമെന്റ് ഇന്റലിജൻസ്',
+  'landing.heroSubtitle':
+    'ഇൻവോയ്സുകൾ, രസീതുകൾ, കരാറുകൾ, അല്ലെങ്കിൽ ഫോമുകൾ എന്നിവയുടെ ഒരു കൂമ്പാരം ഇട്ടു കൊടുക്കൂ. {{app}} അവ വർഗ്ഗീകരിക്കുകയും വേർതിരിച്ചെടുക്കുകയും ഫയൽ ചെയ്യുകയും ചെയ്യുന്നു — കോൺഫിഡൻസ് നിറങ്ങളോടെ, അതുവഴി നിങ്ങളുടെ ടീം യഥാർത്ഥത്തിൽ മനുഷ്യന്റെ സഹായം വേണ്ടവ മാത്രം പരിശോധിക്കൂ.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'ദൈനംദിന അളവ് · കഴിഞ്ഞ 7 ദിവസം',
   'landing.sampleCardLabel': 'ഇന്ന് പ്രോസസ്സ് ചെയ്ത രേഖകൾ',
   'landing.sampleCardSubtitle': 'ഇൻവോയ്‌സുകൾ, രസീതുകൾ, ഫോമുകൾ എന്നിവയിലുടനീളം 96.2% ശരാശരി കൃത്യത.',
   'login.hidePassword': 'പാസ്‌വേഡ് മറയ്ക്കുക',
@@ -76,6 +102,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'ലാൻഡിംഗ് പേജ് തുറക്കുക',
   'notFound.title': 'ആ പേജ് ഫയലിൽ ഇല്ല.',
+  'parcelaHeroCard.accuracy': 'എല്ലാ വേർതിരിച്ചെടുക്കലുകളിലുമായി ശരാശരി കൃത്യത {{value}}%',
   'parcelaHeroCard.change': '{{sign}} {{amount}} ഇന്നലത്തേതുമായി താരതമ്യം ചെയ്യുമ്പോൾ %',
   'parcelaHeroCard.title': 'ഇന്ന് പ്രോസസ്സ് ചെയ്ത രേഖകൾ',
   'parcelaLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
@@ -83,6 +110,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'രേഖകൾ',
   'pricing.processingLabel': 'പ്രോസസ്സിംഗ് ജോലികൾ',
   'resetPassword.confirmPlaceholder': 'പുതിയ പാസ്‌വേഡ് ആവർത്തിക്കുക',
+  'resetPassword.hidePassword': 'പാസ്‌വേഡ് മറയ്ക്കുക',
   'resetPassword.passwordLabel': 'പുതിയ പാസ്വേഡ്',
   'resetPassword.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
   'resetPassword.subtitle': 'കുറഞ്ഞത് 8 പ്രതീകങ്ങളെങ്കിലും നീളമുള്ള എന്തെങ്കിലും തിരഞ്ഞെടുക്കുക.',
@@ -99,10 +127,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'നിയമങ്ങൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
   'rules.loading': 'നിയമങ്ങൾ ലോഡുചെയ്യുന്നു...',
   'rules.matched30d': '{{count}} കഴിഞ്ഞ 30 ദിവസത്തിനുള്ളിൽ പൊരുത്തപ്പെട്ട രേഖകൾ',
+  'rules.neverUsed': 'ഒരിക്കലും ഉപയോഗിച്ചിട്ടില്ല',
   'rules.newRule': 'പുതിയ നിയമം',
   'rules.saveError': 'നിയമം സംരക്ഷിക്കുന്നതിൽ പരാജയപ്പെട്ടു.',
   'rules.subheading':
     'ഓരോ തരം പ്രമാണവും എവിടെ പോകണമെന്ന് സിസ്റ്റത്തോട് പറയുക. മുകളിൽ നിന്ന് താഴേക്ക് കണ്ടീഷനുകളുടെ ശൃംഖല - ആദ്യ മത്സര വിജയങ്ങൾ.',
+  'rules.templatesEmpty': 'ഇതുവരെ വേർതിരിച്ചെടുക്കൽ ടെംപ്ലേറ്റുകളില്ല.',
   'rules.templatesHeading': 'എക്സ്ട്രാക്ഷൻ ടെംപ്ലേറ്റുകൾ',
   'rules.templatesSubheading':
     'ഓരോ ഡോക്യുമെന്റ് തരത്തിനും എക്സ്ട്രാക്റ്റർ ഉപയോഗിക്കുന്ന ഫീൽഡ് സ്കീമകൾ.',
@@ -112,17 +142,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'വർക്ക്‌സ്‌പെയ്‌സിന്റെ പേര്',
   'settings.account.subheading':
     'അറിയിപ്പുകൾക്കും ഓഡിറ്റ് ചരിത്രത്തിനുമായി പേരും പ്രാഥമിക ഇമെയിലും പ്രദർശിപ്പിക്കുക.',
+  'settings.api.confirmRevoke': 'സ്ഥിരീകരിക്കണോ?',
   'settings.api.copyOnce': 'ഈ കീ പകർത്തുക — ഇത് വീണ്ടും കാണിക്കില്ല.',
   'settings.api.createdOn': 'സൃഷ്ടിച്ചു {{date}}',
   'settings.api.empty': 'ഇതുവരെ API കീകളൊന്നുമില്ല. മുകളിൽ ഒന്ന് സൃഷ്ടിക്കുക.',
   'settings.api.error': 'കീ സൃഷ്ടിക്കുന്നതിൽ പരാജയപ്പെട്ടു.',
+  'settings.api.generating': 'സൃഷ്‌ടിക്കുന്നു…',
+  'settings.api.heading': 'API കീകൾ',
   'settings.api.labelPlaceholder': 'കീ ലേബൽ (ഉദാ. CI അപ്‌ലോഡർ)',
+  'settings.api.loading': 'കീകൾ ലോഡ് ചെയ്യുന്നു…',
   'settings.api.newKey': 'കീ സൃഷ്ടിക്കുക',
   'settings.api.subheading':
     'ഒരു സ്ക്രിപ്റ്റിൽ നിന്നോ നിങ്ങളുടെ ERP-യിൽ നിന്നോ പ്രമാണങ്ങൾ പുഷ് ചെയ്യാൻ ഇവ ഉപയോഗിക്കുക. ഏത് സമയത്തും ഏത് കീയും തിരിക്കുക.',
   'settings.integrations.heading': 'ഫയലിംഗ് സംയോജനങ്ങൾ',
   'settings.integrations.subheading':
     'നിങ്ങളുടെ ടീം ഇതിനകം താമസിക്കുന്ന ക്ലൗഡ് ഡ്രൈവിലേക്കോ ചാറ്റ് ടൂളിലേക്കോ ഫയൽ ചെയ്ത രേഖകൾ അയയ്ക്കുക.',
+  'settings.subheading':
+    'നിങ്ങളുടെ {{app}} വർക്ക്സ്പേസിനായി അക്കൗണ്ട്, API കീകൾ, ഫയലിംഗ് ഇന്റഗ്രേഷനുകൾ എന്നിവ നിയന്ത്രിക്കുക.',
+  'signup.hidePassword': 'പാസ്‌വേഡ് മറയ്ക്കുക',
   'signup.identityPrompt': 'ഞങ്ങൾ നിങ്ങളെ എങ്ങനെ അഭിസംബോധന ചെയ്യണം?',
   'signup.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
   'signup.subtitle': '14 ദിവസം സൗജന്യം, കാർഡ് ആവശ്യമില്ല.',
@@ -130,6 +167,7 @@ export const ui: UiTranslations = {
   'upload.error': 'അപ്‌ലോഡ് പരാജയപ്പെട്ടു.',
   'upload.eyebrow': 'ഉൾപ്പെടുത്തൽ',
   'upload.heading': 'പ്രമാണങ്ങൾ അപ്‌ലോഡ് ചെയ്യുക',
+  'upload.queue.clear': 'പൂർത്തിയായവ മായ്ക്കുക',
   'upload.queue.col.confidence': 'ആത്മവിശ്വാസം',
   'upload.queue.col.file': 'ഫയൽ',
   'upload.queue.detecting': 'കണ്ടെത്തുന്നു...',
@@ -142,5 +180,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'അല്ലെങ്കിൽ ബാച്ച് എക്‌സ്‌ട്രാക്‌ഷൻ, വർഗ്ഗീകരണം, ഫയലിംഗ് എന്നിവയ്‌ക്കായി ഒന്നിലധികം ഫയലുകൾ ഒരേസമയം ഇടുക.',
   'uploadDropZone.cta': 'ഫയലുകൾ തിരഞ്ഞെടുക്കുക',
+  'uploadDropZone.maxSize': 'ഓരോ ഫയലിനും പരമാവധി 25 MB · എൻഡ്-ടു-എൻഡ് എൻക്രിപ്റ്റ് ചെയ്തത്',
   'uploadDropZone.title': 'പ്രോസസ്സിംഗ് ആരംഭിക്കാൻ ഡോക്യുമെന്റുകൾ ഉപേക്ഷിക്കുക',
 }

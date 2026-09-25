@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'မေးခွန်းများ၊ အကြံပြုချက်များ သို့မဟုတ် သင်လမ်းကြောင်းပေါ်တွင် ဆက်ရှိနိုင်ရန် အထောက်အကူဖြစ်မည့် စိတ်ကူးတစ်ခုရှိပါသလား။ သင့်အကောင့်ဆက်တင်များမှ ဆက်သွယ်လိုက်ပါ — မက်ဆေ့ခ်ျတိုင်း အဖွဲ့ထဲရှိ လူတစ်ဦးထံ အရောက်ရှိပါသည်။',
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.featureAdherence':
+    'လိုက်နာမှုအစီရင်ခံစာများ — အပတ်စဉ်နှင့် လစဉ် ဂရပ်များအပြင် သင့်စောင့်ရှောက်ရေးအဖွဲ့နှင့် မျှဝေနိုင်သည့် ဆေးတစ်လုံးချင်း မှတ်တမ်းလည်း ပါဝင်သည်။',
+  'about.featureCaregivers':
+    'စောင့်ရှောက်သူမျှဝေခြင်း — မိသားစု သို့မဟုတ် ဆေးကုသသူများကို ဖတ်ရှုရုံသာရနိုင်သည့် မြင်ကွင်းတစ်ခုသို့ ဖိတ်ကြားပြီး သူတို့မြင်နိုင်သည့်အရာကို အတိအကျ သင်ဆုံးဖြတ်နိုင်သည်။',
+  'about.featureRefills':
+    'ပြန်ဖြည့်သတိပေးချက်များ — အချိန်နှင့်တစ်ပြေးညီ ဆေးလုံးအရေအတွက်များဖြင့် ကုန်ဆုံးတော့မည့်ရက်များအလိုတွင် သတိပေးချက်ရမည်၊ ကုန်ပြီးမှ မဟုတ်ပါ။',
+  'about.featureReminders':
+    'သင့်ကို လေးစားသော သတိပေးချက်များ — ဆေးတစ်လုံးလွတ်သွားပါက စောင့်ရှောက်သူထံ အဆင့်မြှင့်ပေးပို့နိုင်သည့် နောက်ဆုတ်နိုင်သော push အသိပေးချက်များ။',
+  'about.featureSchedules':
+    'ပြောင်းလွယ်သော အချိန်ဇယားများ — နေ့စဉ်၊ ကြားကာလ သို့မဟုတ် သတ်မှတ်ရက်များ၊ တစ်နေ့လျှင် အကြိမ်များစွာနှင့် အစားနှင့်တွဲသော သတိပေးချက်များ။',
+  'about.featuresTitle': 'သင်ရရှိသောအရာ',
+  'about.missionBody':
+    'ဆေးတစ်လုံးလွတ်သွားခြင်းသည် မေ့ကျန်ခဲ့သော နှိုးစက်တစ်ခု သို့မဟုတ် လွတ်နေသော ဆေးပုလင်းကြောင့် ဖြစ်လာသင့်သည်မဟုတ်ပါ။ ကုသမှုအစီအစဉ်ကို လိုက်နာရာတွင် လွယ်ကူသက်သာခံစားရစေမည့် အေးဆေးပြီး ယုံကြည်စိတ်ချရသော ကိရိယာများကို ကျွန်ုပ်တို့ တည်ဆောက်ပါသည် — ပြီးတော့ မိသားစုနှင့် ဆေးကုသသူများကို သင်ခွင့်ပြုသလောက်သာ တိတ်တဆိတ် ပါဝင်စေပါသည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
+  'about.subtitle':
+    'ဆေးတစ်လုံးချင်း အချိန်မှန် — ပြီးတော့ သင့်ကို ဂရုစိုက်သူအားလုံး အသိပေးချက်ထဲမှာ။',
   'addMedication.avoidAlcohol': 'အရက်ကို ရှောင်ပါ',
   'addMedication.backLink': 'ဆေးဝါးအားလုံး',
   'addMedication.doseAmount': 'ဆေးပမာဏ (ဥပမာ ၁၀ မီလီဂရမ်)',
@@ -12,6 +31,7 @@ export const ui: UiTranslations = {
   'addMedication.pillColor': 'ဆေးပြားအရောင် (မြင်သာသော အထောက်အထားအတွက်)',
   'addMedication.saveError': 'သိမ်းဆည်း၍မရပါ။',
   'addMedication.saveLabel': 'ဆေးဝါးများ သိမ်းဆည်းပါ',
+  'addMedication.takeWithFood': 'အစားနှင့်တွဲသောက်ပါ',
   'addMedication.warningsLabel': 'သတိပေးချက်များ (သက်ဆိုင်သည့် မည်သည့်တစ်ခုကိုမဆို ရွေးချယ်ပါ)',
   'adherence.byMedEmpty':
     'ဆေးဝါးမရှိသေးပါ — ဆေးဝါးတစ်ခုချင်းစီ၏ လိုက်နာမှုကိုကြည့်ရှုရန် တစ်ခုထည့်ပါ။',
@@ -33,17 +53,26 @@ export const ui: UiTranslations = {
   'adherence.subheading': 'ပြီးခဲ့သည့် ရက် ၃၀ · အသုံးဝင်ပါက သင့်စောင့်ရှောက်မှုအဖွဲ့နှင့် မျှဝေပါ',
   'adherence.taken': 'ယူထားသည်',
   'adherence.title': 'လိုက်နာမှုအစီရင်ခံစာ',
+  'adherenceTriad.refills.eyebrow': 'ပြန်ဖြည့်ပစ္စည်းများ',
   'adherenceTriad.refills.meta': 'ပြန်လည်ဖြည့်သွင်းမှုများကို စီမံခန့်ခွဲပါ →',
+  'adherenceTriad.refills.unit': 'မကြာမီ ရောက်မည်',
   'adherenceTriad.refills.value': '{{count}}',
   'adherenceTriad.streak.eyebrow': 'အစင်းကြောင်း',
   'adherenceTriad.streak.meta': 'အရှည်ဆုံး: {{days}} ရက်များ',
+  'adherenceTriad.streak.unit': 'ရက်များ',
   'adherenceTriad.streak.value': '{{days}}',
   'adherenceTriad.today.meta': '{{count}} ရှေ့မှာပဲရှိသေးတယ်',
+  'adherenceTriad.today.unit': 'သောက်ပြီးသော ဆေးလုံးများ',
   'adherenceTriad.today.value': '{{taken}} / {{total}}',
+  'auth.forgotPassword.subtitle':
+    'သင့်အီးမေးလ်ကို ရိုက်ထည့်ပါ၊ ကျွန်ုပ်တို့က ပြန်လည်သတ်မှတ်ရန်လင့်ခ် ပို့ပေးပါမည်။',
+  'auth.resetPassword.subtitle': 'သင့်အကောင့်ကို ပြန်လည်ရယူရန် စကားဝှက်အသစ်တစ်ခု သတ်မှတ်ပါ။',
   'capsivaLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
+  'caregivers.email': 'စောင့်ရှောက်သူ အီးမေးလ်',
   'caregivers.empty':
     'စောင့်ရှောက်ပေးသူများကို မထည့်သွင်းထားပါ။ ကူညီရန် တစ်စုံတစ်ဦးကို ဖိတ်ခေါ်ပါ။',
   'caregivers.heading': 'စောင့်ရှောက်သူများ',
+  'caregivers.invitedOn': 'ဖိတ်ကြားထားသည် {{when}}',
   'caregivers.inviteError': 'ဖိတ်ကြားချက် ပို့၍မရပါ။',
   'caregivers.inviteFormLabel': 'စောင့်ရှောက်သူဖိတ်ခေါ်ခြင်းပုံစံ',
   'caregivers.inviteIncomplete': 'ဆာဗာက စောင့်ရှောက်ပေးသူကို ပြန်မပို့နိုင်ခဲ့ဘူး — ထပ်ကြိုးစားပါ။',
@@ -64,6 +93,11 @@ export const ui: UiTranslations = {
   'dashboard.timelineHeading': 'ယနေ့ ဆေးပမာဏများ',
   'doseRow.markTaken': 'ယူပါ',
   'doseRow.subline': '{{dose}} · {{time}}',
+  'landing.about': '{{app}} အကြောင်း',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}။ သင့်လုပ်ရိုးလုပ်စဉ်ကို ဂရုစိုက်ခြင်း။',
+  'landing.ctaButton': 'စတင်လိုက်ပါ — အခမဲ့ပါ',
+  'landing.ctaSubtitle':
+    'အခမဲ့ စတင်နိုင်သည်။ စောင့်ရှောက်သူများကို အချိန်မရွေး ထည့်နိုင်သည်။ ဆက်တင်များမှ ပယ်ဖျက်နိုင်သည်။',
   'landing.ctaTitle': 'သင့်ရဲ့ ပထမဆုံး သတိပေးချက်ကို နှစ်မိနစ်အတွင်း သတ်မှတ်ပါ',
   'landing.eyebrow': 'ဆေးဝါးသောက်သုံးမှုကို ဂရုစိုက်ခြင်း၊',
   'landing.featureEyebrow': 'သင်ရရှိသောအရာ',
@@ -75,7 +109,10 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'အချိန်ဇယားများ၊ သတိပေးချက်များ၊ ပြန်လည်ဖြည့်တင်းမှုများနှင့် သင့်အား ဂရုစိုက်သူများနှင့် မျှဝေနိုင်သည့် အချိန်နှင့်တပြေးညီ လိုက်နာမှုမှတ်တမ်း။',
   'landing.heroTitle': '{{tagline}}',
+  'landing.sampleDate': 'တနင်္ဂနွေ၊ ဧပြီ ၂၆',
   'medicationDetail.backLink': 'ဆေးဝါးအားလုံး',
+  'medicationDetail.confirmDeleteBody':
+    'ဤသည်က ဆေးဝါး၊ ၎င်း၏အချိန်ဇယား၊ ဆေးလုံးမှတ်တမ်းနှင့် ဆိုင်းငံ့နေသော ပြန်ဖြည့်တောင်းဆိုချက်များကို ဖယ်ရှားသည်။ ဤသည်ကို ပြန်ပြင်၍မရပါ။',
   'medicationDetail.confirmDeleteHeading': 'ဖျက်ရန် {{name}} ?',
   'medicationDetail.confirmDeleteLabel': 'ဆေးဝါးများကို ဖျက်ပါ',
   'medicationDetail.deleteError': 'ဖျက်၍မရပါ။',
@@ -97,14 +134,29 @@ export const ui: UiTranslations = {
   'medicationDetail.stat.remaining': 'ကျန်ရှိနေသော ဆေးပြားများ',
   'medicationDetail.stat.taken': 'သောက်သုံးခဲ့သော ဆေးပမာဏ',
   'medicationDetail.warningsHeading': 'သတိပေးချက်များ',
+  'medications.addLabel': 'ဆေးဝါးထည့်ပါ',
   'medications.empty': 'ဆေးဝါးများ မရှိသေးပါ။ ခြေရာခံရန် တစ်ခုထည့်ပါ။',
   'medications.heading': 'ဆေးဝါးများ',
   'medications.loadError': 'ဆေးဝါးများ တင်၍မရပါ။',
   'medications.prescriber': 'ဆရာဝန်ညွှန်ကြားချက်ဖြင့် {{name}}',
+  'medications.refillBy': '{{date}} ရက်နေ့ ပြန်ဖြည့်ပါ',
+  'medications.remaining': 'လက်ကျန်',
   'medications.subheading': '{{count}} တက်ကြွသောဆေးဝါးများ',
   'notifications.heading': 'အကြောင်းကြားချက်များ',
+  'planUpdated.body':
+    'သင့်ငွေတောင်းခံမှု ပြောင်းလဲမှုသည် ယခု အသက်ဝင်နေပါပြီ။ သင့်အစီအစဉ်ကို ငွေတောင်းခံမှုစာမျက်နှာမှ မည်သည့်အချိန်တွင်မဆို စီမံနိုင်ပါသည်။',
+  'planUpdated.retry': 'ထပ်ကြိုးစားပါ',
+  'planUpdated.verifyFailed': 'သင့်ငွေပေးချေမှုကို ကျွန်ုပ်တို့ အတည်မပြုနိုင်သေးပါ။',
+  'planUpdated.verifyFailedBody':
+    'သင့်ငွေပေးချေမှုကို လုပ်ဆောင်နေဆဲဖြစ်နိုင်ပါသည်။ ခဏအကြာတွင် ထပ်မံကြိုးစားပါ။',
   'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
+  'pricing.limits.advancedFeatures': 'အဆင့်မြင့်အင်္ဂါရပ်များ-',
   'pricing.limits.canExport': 'ဒေတာ ထုတ်ယူမှု-',
+  'pricing.limits.maxAdherence': '{{count}} လိုက်နာမှု',
+  'pricing.limits.maxDoses': '{{count}} ဆေးလုံး',
+  'pricing.limits.maxMedications': '{{count}} ဆေးဝါး',
+  'pricing.limits.maxRefills': '{{count}} ပြန်ဖြည့်မှု',
+  'pricing.limits.maxSchedules': '{{count}} အချိန်ဇယား',
   'pricing.no': '—',
   'pricing.yes': '✓',
   'profile.emergency.heading': 'အရေးပေါ်ဆက်သွယ်ရန်',
@@ -124,7 +176,9 @@ export const ui: UiTranslations = {
   'profile.security.error': 'စကားဝှက်ကို ပြောင်းလဲ၍မရပါ။',
   'profile.security.next': 'စကားဝှက်အသစ်',
   'profile.security.tooShort': 'စကားဝှက်သည် အနည်းဆုံး စာလုံး ၈ လုံး ရှိရမည်။',
+  'refillAlertCard.daysAt': 'ရက် · {{count}} ဆေးလုံး',
   'refillAlertCard.pharmacyWithPhone': '{{pharmacy}} · {{phone}}',
+  'refillAlertCard.refillsRemaining': 'Rx တွင် {{count}} ပြန်ဖြည့်မှု ကျန်သည်',
   'refillAlertCard.request': 'တောင်းဆိုချက်',
   'refills.empty': 'ပြန်ဖြည့်ရန် မလိုအပ်သေးပါ။ ခြေရာခံရန် ဆေးဝါးတစ်ခု ထည့်ပါ။',
   'refills.eyebrow': 'ထောက်ပံ့ပေးနေပါ',
@@ -137,11 +191,15 @@ export const ui: UiTranslations = {
   'refills.tile.dueSoonNote': 'နောက် ၃၀ ရက်အတွင်း ပြန်ဖြည့်ပါ',
   'refills.tile.fine': 'ကျန်းမာသော ထောက်ပံ့မှု',
   'refills.tile.fineNote': 'ဘာမှလုပ်ဆောင်စရာမလိုပါဘူး',
+  'refills.tile.urgent': 'အရေးတကြီး',
   'refills.tile.urgentNote': 'တစ်ပတ်အတွင်းထွက်',
   'schedule.heading': 'အပတ်စဉ် အချိန်ဇယား',
+  'schedule.legend':
+    'ဖြည့်ထားသော စက်ဝိုင်းများ = သောက်ပြီး သို့မဟုတ် လာမည့် · မှိန်သော အပြင်ဘောင်လိုင်း = လွတ်သွားသော ဆေးလုံး',
   'schedule.loadError': 'အချိန်ဇယားကို ဖွင့်၍မရပါ။',
   'schedule.subheading': 'ဆေးတစ်ကြိမ်၊ နေ့စဉ်၊ တစ်ချက်ကြည့်လိုက်ရုံဖြင့်။',
   'schedule.timeColumn': 'အချိန်',
+  'settings.appearance.description': 'အလင်းနှင့် အမှောင်မုဒ်အကြား ပြောင်းပါ။',
   'settings.appearance.highContrast': 'ဆန့်ကျင်ဘက်အရောင်များ',
   'settings.appearance.largeText': 'နေရာတိုင်းမှာ ပိုကြီးတဲ့ စာသားကို အသုံးပြုပါ',
   'settings.appearance.timeFormat': 'အချိန်ပုံစံ',
@@ -167,15 +225,26 @@ export const ui: UiTranslations = {
   'settings.saving': 'သိမ်းဆည်းနေသည်…',
   'settings.signingOutDevice': 'ထွက်နေသည်…',
   'settings.signOutDevice': 'ဆိုင်းအောက်',
+  'settings.twoFactorBody':
+    'သင့်ကျန်းမာရေးဒေတာအတွက် အပိုကာကွယ်မှုအလွှာတစ်ခုအနေဖြင့် အကောင့်ဝင်ချိန်တွင် authenticator အက်ပ်မှ တစ်ကြိမ်သုံး ကုဒ်တစ်ခု လိုအပ်သည်။',
   'settings.twoFactorCode': 'အထောက်အထားစိစစ်ရေးကုဒ်',
   'settings.twoFactorDisable': 'ပိတ်ရန်',
+  'settings.twoFactorDisableBody':
+    'နှစ်ဆင့်အတည်ပြုခြင်းကို ပိတ်ရန် သင့် authenticator အက်ပ်မှ လက်ရှိကုဒ်တစ်ခု ထည့်ပါ။',
   'settings.twoFactorEnable': 'ဖွင့်ပါ',
   'settings.twoFactorInvalidCode': 'ကုဒ် မမှန်ကန်ပါ။',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'နှစ်ဆင့် QR ကုဒ်',
+  'settings.twoFactorScan':
+    'ဤ QR ကုဒ်ကို သင့်အတည်ပြုကိရိယာအက်ပ်ဖြင့် စကင်ဖတ်ပြီး ၆ လုံးပါ ကုဒ်ကို ထည့်ပါ။',
+  'settings.twoFactorUnavailable': 'ဤအက်ပ်အတွက် နှစ်ဆင့်အထောက်အထားစိစစ်ခြင်း မရရှိနိုင်ပါ။',
   'settings.twoFactorVerify': 'အတည်ပြုပြီး ဖွင့်ပါ',
   'settings.unnamedDevice': 'အမည်မပေးထားသော စက်ပစ္စည်း',
   'todayHeroCard.adherence': '{{pct}} %',
   'todayHeroCard.eyebrow': 'ယနေ့ · {{date}}',
+  'todayHeroCard.streak': '{{days}} - တစ်နေ့တာ ဆက်တိုက်',
+  'todayHeroCard.summary':
+    '{{taken}} / {{total}} ဆေးလုံး သောက်ပြီး · ဒီနေ့ {{upcoming}} လုံး ကျန်သေးသည်',
   'userMenu.caregivers': 'စောင့်ရှောက်သူများ',
   'userMenu.memberStatus': 'သင့်ရဲ့လုပ်ရိုးလုပ်စဉ်ကို ဂရုစိုက်ခြင်း',
   'userMenu.profile': 'ပရိုဖိုင်နှင့် ဆေးဘက်ဆိုင်ရာ အချက်အလက်',

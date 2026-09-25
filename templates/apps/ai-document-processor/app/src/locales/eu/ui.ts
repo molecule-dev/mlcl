@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Galderaren bat duzu, akats bat aurkitu duzu edo zure taldearentzat demo bat nahi duzu? Jarri harremanetan zure kontuaren ezarpenetatik — mezu bakoitza taldeko benetako pertsona bati iristen zaio.',
   'about.contactTitle': 'Jarri gurekin harremanetan',
+  'about.intro':
+    '{{app}}-k eskaneatutako dokumentu eta PDF pila handiak datu egituratu, bilagarri eta artxibatu bihurtzen ditu. Sartu fakturak, ordainagiriak, kontratuak edo formularioak eta utzi AIri irakurtzen, ateratzen, sailkatzen eta artxibatzen — konfiantza-koloreekin, zure taldeak benetan pertsona bat behar duena soilik berrikus dezan.',
+  'about.missionBody':
+    'Dokumentuen zeregin aspergarriak ez luke zure taldearen eguna jan behar. Uste dugu ateratako balio bakoitza azalgarria eta auditagarria izan behar dela — beraz, automatizazioan konfiantza izan dezakezu paper-arrastoa galdu gabe. {{app}} pila bakoitzeko orduak aurrezteko eraikia dago, giza begirada bat behar den lekuetan mantenduz.',
+  'about.missionTitle': 'Gure misioa',
+  'about.subtitle': 'OCR, AI bidezko ateratzea, sailkapena eta dokumentuen artxibatze automatikoa.',
   'about.title': '{{app}}(r)i buruz',
+  'about.whatYouGetTitle': 'Zer lortzen duzun',
   'authShell.backToLanding': '← Lurreratzera itzuli',
   'common.goToDashboard': 'Joan aginte-panelera',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Gaur · Eragiketen ikuspegi orokorra',
   'dashboard.heading': 'Dokumentuen adimena',
+  'dashboard.metric.accuracy': 'Batez besteko zehaztasuna',
   'dashboard.metric.filed': 'Gaur aurkeztua',
   'dashboard.metric.filedCaption': 'Artxibatzeko arauen bidez bideratua',
   'dashboard.metric.processed': 'Gaur prozesatu da',
@@ -23,11 +33,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'Kargatuta',
   'dashboard.recent.heading': 'Azken dokumentuak',
+  'dashboard.recent.typeUnknown': 'Sailkapenaren zain',
   'dashboard.subheading':
     'Orrialde bakoitza sailkatu, erauzi eta artxibatuta dago — konfiantzazko koloreekin, berrikuspena fokatuta egon dadin.',
   'documentDetail.audit.heading': 'Auditoriaren kronograma',
+  'documentDetail.audit.subheading': 'Dokumentu honetan egindako urrats bakoitza, arduradunarekin.',
   'documentDetail.back': 'Dokumentu guztiak',
   'documentDetail.downloadHint': 'Erabili Deskargatu aukera jatorrizko fitxategia irekitzeko.',
+  'documentDetail.extracted.empty': 'Oraindik ez da eremurik atera.',
   'documentDetail.extracted.heading': 'Ateratako eremuak',
   'documentDetail.extracted.subheading':
     '{{count}} eremuak · egin klik edozein eremutan orrialdean nabarmentzeko',
@@ -56,13 +69,24 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} zure liburutegiko dokumentuak, berrienetik lehenengo ordenatuta.',
   'documents.uploadCta': 'Dokumentuak igo',
+  'documentTypeBreakdown.barAria': 'Dokumentuen osaera motaren arabera',
   'documentTypeBreakdown.empty': 'Ez da dokumenturik prozesatu oraindik.',
   'documentTypeBreakdown.subtitle': '{{total}} prozesatu',
   'documentTypeBreakdown.title': 'Dokumentuen osaera',
+  'forgotPassword.backToSignIn': '← Saioa hasteko atalera itzuli',
   'forgotPassword.checkEmail': 'Begiratu zure posta elektronikoa',
   'forgotPassword.tip': 'Ez duzu ulertu? Begiratu spam-a edo saiatu beste helbide batekin.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Orrialde bakoitza auditatzen duten operazio-taldeentzat eraikia.',
+  'landing.ctaBody':
+    '14 eguneko proba. Txartelik behar ez. Utzi nahi duzunean. Azkar mugitzen eta astiro auditatzen duten operazio-taldeentzat eraikia.',
   'landing.ctaHeading': 'Utzi ordainagiriak idazteari. Hasi itzazu artxibatzen.',
   'landing.eyebrow': 'OCR · Erauzketa · AI artxibatzea',
+  'landing.featuresHeading': 'Bere burua azaltzen duen dokumentu-adimena',
+  'landing.heroSubtitle':
+    'Sartu faktura, ordainagiri, kontratu edo formulario pila bat. {{app}}-k sailkatu, atera eta artxibatzen ditu — konfiantza-koloreekin, zure taldeak benetan pertsona bat behar duena soilik berrikus dezan.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Eguneko bolumena · azken 7 egunak',
   'landing.sampleCardLabel': 'Gaur prozesatutako dokumentuak',
   'landing.sampleCardSubtitle':
     '% 96,2ko batez besteko zehaztasuna fakturetan, ordainagirietan eta formularioetan.',
@@ -76,6 +100,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Ireki hasierako orria',
   'notFound.title': 'Orrialde hori ez dago artxibatuta',
+  'parcelaHeroCard.accuracy': 'Batez besteko zehaztasuna {{value}}% ateratze guztietan',
   'parcelaHeroCard.change': '{{sign}} {{amount}} Atzokoaren aldean ehunekoa',
   'parcelaHeroCard.title': 'Gaur prozesatutako dokumentuak',
   'parcelaLayout.primaryNavLabel': 'Nabigazio nagusia',
@@ -83,6 +108,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'dokumentuak',
   'pricing.processingLabel': 'prozesatzeko lanak',
   'resetPassword.confirmPlaceholder': 'Errepikatu pasahitz berria',
+  'resetPassword.hidePassword': 'Ezkutatu pasahitza',
   'resetPassword.passwordLabel': 'Pasahitz berria',
   'resetPassword.showPassword': 'Erakutsi pasahitza',
   'resetPassword.subtitle': 'Aukeratu gutxienez 8 karaktereko zerbait.',
@@ -99,10 +125,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Ezin izan dira arauak kargatu.',
   'rules.loading': 'Arauak kargatzen…',
   'rules.matched30d': '{{count}} azken 30 egunetan bat datozen dokumentuak',
+  'rules.neverUsed': 'Inoiz erabilia.',
   'rules.newRule': 'Arau berria',
   'rules.saveError': 'Ezin izan da araua gorde.',
   'rules.subheading':
     'Esan sistemari non joan behar den dokumentu mota bakoitza. Baldintzen katea goitik behera — lehenengo bat etortzeak irabazten du.',
+  'rules.templatesEmpty': 'Oraindik ez dago ateratze-txantiloirik.',
   'rules.templatesHeading': 'Erauzketa txantiloiak',
   'rules.templatesSubheading':
     'Erauzgailuak dokumentu mota bakoitzerako erabiltzen dituen eremu-eskemak.',
@@ -112,17 +140,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Lan-eremuaren izena',
   'settings.account.subheading':
     'Jakinarazpenetarako eta auditoria-historiarako bistaratzeko izena eta helbide elektroniko nagusia.',
+  'settings.api.confirmRevoke': 'Berretsi?',
   'settings.api.copyOnce': 'Kopiatu gako hau — ez da berriro erakutsiko',
   'settings.api.createdOn': 'Sortua {{date}}',
   'settings.api.empty': 'Ez dago API giltzarik oraindik. Sortu bat goian.',
   'settings.api.error': 'Ezin izan da giltza sortu.',
+  'settings.api.generating': 'Sortzen…',
+  'settings.api.heading': 'API gakoak',
   'settings.api.labelPlaceholder': 'Giltza-etiketa (adibidez, CI igotzailea)',
+  'settings.api.loading': 'Giltzak kargatzen…',
   'settings.api.newKey': 'Sortu gakoa',
   'settings.api.subheading':
     'Erabili hauek dokumentuak script batetik edo zure ERPtik bultzatzeko. Biratu edozein tekla edozein unetan.',
   'settings.integrations.heading': 'Artxibatze integrazioak',
   'settings.integrations.subheading':
     'Bidali artxibatutako dokumentuak zure taldea dagoeneko erabiltzen den hodeiko unitatera edo txat tresnara.',
+  'settings.subheading':
+    'Kudeatu kontua, API giltzak eta artxibatze-integrazioak zure {{app}} lan-eremurako.',
+  'signup.hidePassword': 'Ezkutatu pasahitza',
   'signup.identityPrompt': 'Nola zuzendu behar dizugu?',
   'signup.showPassword': 'Erakutsi pasahitza',
   'signup.subtitle': '14 egun doan, ez da txartelik behar.',
@@ -130,6 +165,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Kargatzeak huts egin du.',
   'upload.eyebrow': 'Irenstea',
   'upload.heading': 'Dokumentuak igo',
+  'upload.queue.clear': 'Garbitu osatutakoak',
   'upload.queue.col.confidence': 'Konfiantza',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Detektatzen…',
@@ -142,5 +178,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Edo hainbat fitxategi aldi berean askatu multzoka erauzteko, sailkatzeko eta artxibatzeko.',
   'uploadDropZone.cta': 'Aukeratu fitxategiak',
+  'uploadDropZone.maxSize': 'Gehienez 25 MB fitxategiko · Muturretik muturrera enkriptatuta',
   'uploadDropZone.title': 'Jaregin dokumentuak prozesatzen hasteko',
 }

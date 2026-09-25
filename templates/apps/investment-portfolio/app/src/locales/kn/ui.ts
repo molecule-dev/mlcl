@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ಪ್ರತಿಕ್ರಿಯೆ ಇದೆಯೇ, ದೋಷ ಕಂಡುಬಂದಿದೆಯೇ, ಅಥವಾ ವೈಶಿಷ್ಟ್ಯ ಬೇಕೇ? ನಿಮ್ಮ ಖಾತೆ ಸೆಟ್ಟಿಂಗ್ಗಳಿಂದ ಸಂಪರ್ಕಿಸಿ — ಪ್ರತಿ ಸಂದೇಶವೂ ತಂಡದ ನಿಜವಾದ ವ್ಯಕ್ತಿಗೆ ತಲುಪುತ್ತದೆ. ಗಮನಿಸಿ: ಇಲ್ಲಿ ಏನೂ ಹೂಡಿಕೆ ಸಲಹೆ ಅಲ್ಲ; ಪ್ರತಿ ವ್ಯಾಪಾರದ ನಿಯಂತ್ರಣ ನಿಮ್ಮಲ್ಲಿಯೇ ಇರುತ್ತದೆ.',
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
+  'about.featureAttribution':
+    'ಕಾರ್ಯಕ್ಷಮತೆ ಆರೋಪಣೆ — ವಲಯ, ಪ್ರದೇಶ ಮತ್ತು ಆಸ್ತಿ ವರ್ಗದ ಪ್ರಕಾರ ಆದಾಯವನ್ನು ವಿಭಜಿಸಿ, ಯಾವುದೇ ಅವಧಿಯಲ್ಲಿ ಮಾನದಂಡದೊಂದಿಗೆ ಹೋಲಿಸಿ.',
+  'about.featureRebalance':
+    'ಶಿಸ್ತಿನ ಮರುಸಮತೋಲನ — ಗುರಿ ಹಂಚಿಕೆಗಳು ಮತ್ತು ಸಹನಶೀಲತಾ ಪಟ್ಟಿಗಳನ್ನು ಹೊಂದಿಸಿ, ವಿಚಲನೆ ಬೇಗ ಗುರುತಿಸಲ್ಪಡುವುದನ್ನು ನೋಡಿ, ಮತ್ತು ನಿಮ್ಮನ್ನು ಮತ್ತೆ ಸರಿದಾರಿಗೆ ತರುವ ವ್ಯಾಪಾರಗಳನ್ನು ಪಡೆಯಿರಿ.',
+  'about.featureTax':
+    'ತೆರಿಗೆ-ದಾಖಲೆ ಶುಚಿತ್ವ — ಸಾಕ್ಷಾತ್ಕೃತ ಮತ್ತು ಅಸಾಕ್ಷಾತ್ಕೃತ ಲಾಭಗಳು, ಲಾಭಾಂಶಗಳು ಮತ್ತು 1099 ದಾಖಲೆಗಳು ಒಂದೇ ಕಡೆ, ವಾಶ್-ಸೇಲ್ ಫ್ಲ್ಯಾಗ್ಗಳ ಸಹಿತ.',
+  'about.featureUnified':
+    'ಒಂದೇ ಏಕೀಕೃತ ಪೋರ್ಟ್ಫೋಲಿಯೊ — ಷೇರುಗಳು, ETFಗಳು, ಮ್ಯೂಚುಯಲ್ ಫಂಡ್ಗಳು, ಬಾಂಡ್ಗಳು ಮತ್ತು ಇನ್ನಷ್ಟು, ಪ್ರತಿ ಬ್ರೋಕರೇಜ್ ಖಾತೆಯಿಂದಲೂ ಒಟ್ಟಿಗೆ ಸೇರಿಸಲಾಗಿದೆ.',
+  'about.featureWatchlist':
+    'ವಾಚ್ಲಿಸ್ಟ್ಗಳು, ಸುದ್ದಿ ಮತ್ತು ಬೆಲೆ ಎಚ್ಚರಿಕೆಗಳು — ಗದ್ದಲವಿಲ್ಲದೆ ಮುಖ್ಯವಾದುದರ ಮೇಲೆ ಕ್ರಮ ತೆಗೆದುಕೊಳ್ಳಲು.',
+  'about.intro':
+    '{{app}} ವೈಯಕ್ತಿಕ ಹೂಡಿಕೆದಾರರು ಮತ್ತು ಸ್ವತಂತ್ರ ಸಲಹೆಗಾರರಿಗಾಗಿ ಬಹು-ಆಸ್ತಿ ಪೋರ್ಟ್ಫೋಲಿಯೊ ಡ್ಯಾಶ್ಬೋರ್ಡ್. ಷೇರುಗಳು, ETFಗಳು, ಮ್ಯೂಚುಯಲ್ ಫಂಡ್ಗಳು, ಬಾಂಡ್ಗಳು, ರಿಯಲ್ ಎಸ್ಟೇಟ್ ಮತ್ತು ನಗದು — ಪ್ರತಿ ಖಾತೆಯ ಪ್ರತಿ ಹಿಡುವಳಿಯೂ ಒಂದೇ ಕಡೆ, ವೃತ್ತಿಪರ ಡೆಸ್ಕ್ನ ಶಿಸ್ತಿನೊಂದಿಗೆ.',
+  'about.missionBody':
+    'ಉತ್ತಮ ಹೂಡಿಕೆ ಬಹುಪಾಲು ಶಿಸ್ತು: ಸ್ಪಷ್ಟ ಗುರಿ ಹಂಚಿಕೆ, ಪ್ರಾಮಾಣಿಕ ಕಾರ್ಯಕ್ಷಮತೆ ಆರೋಪಣೆ, ಮತ್ತು ಅಚ್ಚುಕಟ್ಟಾದ ತೆರಿಗೆ ದಾಖಲೆಗಳು. {{app}} ಆ ಸಾಂಸ್ಥಿಕ ಅಭ್ಯಾಸಗಳನ್ನು ಎಲ್ಲರಿಗೂ ತಂದುಕೊಡುತ್ತದೆ, ಆದ್ದರಿಂದ ನೀವು ಆವೇಗದಿಂದ ಅಲ್ಲ, ಉದ್ದೇಶಪೂರ್ವಕವಾಗಿ ಮರುಸಮತೋಲನ ಮಾಡಬಹುದು — ಮತ್ತು ನಿಮ್ಮ ಪೋರ್ಟ್ಫೋಲಿಯೊ ನಿಜವಾಗಿ ಏನು ಮಾಡುತ್ತಿದೆ ಎಂಬುದನ್ನು ಎಂದಿಗೂ ಕಳೆದುಕೊಳ್ಳಬೇಡಿ.',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
   'about.pageTitle': '{{app}} ಬಗ್ಗೆ',
   'argentAuthShell.brandEyebrow': 'ಅರ್ಜೆಂಟ್ · ಸಂಪತ್ತು ಪರಿಕರಗಳು',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . ಹೂಡಿಕೆ ಸಲಹೆಯಲ್ಲ.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'ಶಿಸ್ತುಬದ್ಧ ಮರುಸಮತೋಲನ, ತೀಕ್ಷ್ಣವಾದ ಕಾರ್ಯಕ್ಷಮತೆಯ ಗುಣಲಕ್ಷಣ ಮತ್ತು ತೆರಿಗೆ-ಡಾಕ್ ನೈರ್ಮಲ್ಯವನ್ನು ಬಯಸುವ ವೈಯಕ್ತಿಕ ಹೂಡಿಕೆದಾರರು ಮತ್ತು ಸಲಹೆಗಾರರಿಗಾಗಿ ಪೋರ್ಟ್‌ಫೋಲಿಯೋ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ - ಯಾವುದೇ ಗದ್ದಲವಿಲ್ಲದೆ.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · ಹಿಂದಿನ ಕಾರ್ಯಕ್ಷಮತೆ ಭವಿಷ್ಯದ ಫಲಿತಾಂಶಗಳಿಗೆ ಖಾತರಿ ನೀಡುವುದಿಲ್ಲ.',
   'argentAuthShell.sampleChange': 'ಇಂದು +$2,841 (+0.28%)',
+  'argentAuthShell.sampleLabel': 'ಪೋರ್ಟ್‌ಫೋಲಿಯೋ ಮೌಲ್ಯ',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'assetAllocationDonut.heading': 'ನಿಮ್ಮ ಹಣವನ್ನು ಹೇಗೆ ಹೂಡಿಕೆ ಮಾಡಲಾಗುತ್ತದೆ',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'ಇಂದು',
   'assetDetail.txEmpty': 'ಈ ಟಿಕ್ಕರ್‌ಗೆ ಯಾವುದೇ ವಹಿವಾಟುಗಳಿಲ್ಲ.',
   'assetDetail.txHeading': 'ನಿಮ್ಮ ವಹಿವಾಟುಗಳು',
+  'auth.legalConsent.prefix': 'ಮುಂದುವರಿಸುವ ಮೂಲಕ, ನೀವು {{appName}} ನ',
   'common.and': 'ಮತ್ತು',
   'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'ಇಂದು',
   'dashboard.topHoldings.heading': 'ನಿಮ್ಮ ಹಣ ಎಲ್ಲಿ ಕೆಲಸ ಮಾಡುತ್ತಿದೆ',
   'dashboard.topHoldings.label': 'ಟಾಪ್ ಹೋಲ್ಡಿಂಗ್ಸ್',
+  'forgotPassword.gotLinkCta': 'ನನ್ನ ಬಳಿ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಇದೆ →',
+  'forgotPassword.subheading':
+    'ನಿಮ್ಮ Gavl ಖಾತೆಯಲ್ಲಿ ಇಮೇಲ್ ಅನ್ನು ನಮೂದಿಸಿ ಮತ್ತು ನಾವು ನಿಮಗೆ ಸುರಕ್ಷಿತ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಕಳುಹಿಸುತ್ತೇವೆ.',
   'forgotPassword.successBody':
     'ಕೆಲವು ನಿಮಿಷಗಳಲ್ಲಿ ನೀವು ಅದನ್ನು ನೋಡದಿದ್ದರೆ, ನಿಮ್ಮ ಸ್ಪ್ಯಾಮ್ ಫೋಲ್ಡರ್ ಪರಿಶೀಲಿಸಿ ಅಥವಾ ಬೇರೆ ಇಮೇಲ್ ಅನ್ನು ಪ್ರಯತ್ನಿಸಿ.',
   'forgotPassword.successSubheading':
     'ಪರಿಶೀಲಿಸಿ {{email}} ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್‌ಗಾಗಿ. ಇದು 60 ನಿಮಿಷಗಳಲ್ಲಿ ಮುಕ್ತಾಯಗೊಳ್ಳುತ್ತದೆ.',
+  'forgotPassword.successTitle': 'ಮರುಹೊಂದಿಸುವ ಇಮೇಲ್ ದಾರಿಯಲ್ಲಿದೆ',
   'holdingHighlightRow.todayLabel': 'ಇಂದು',
   'holdings.addCta': 'ಖರೀದಿಸಿ',
   'holdings.col.allocation': 'ಹಂಚಿಕೆ',
@@ -58,6 +87,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . ಹೂಡಿಕೆ ಸಲಹೆಯಲ್ಲ. ಹಿಂದಿನ ಕಾರ್ಯಕ್ಷಮತೆಯು ಭವಿಷ್ಯದ ಫಲಿತಾಂಶಗಳನ್ನು ಖಾತರಿಪಡಿಸುವುದಿಲ್ಲ.',
   'landing.eyebrow': 'ಅರ್ಜೆಂಟ್ · ಸಂಪತ್ತು-ಸಾಧನ ವೇದಿಕೆ',
   'landing.features.heading': 'ಸಲಹೆಗಾರರು ತನಗಾಗಿ ನಿರ್ಮಿಸಿಕೊಳ್ಳುವ ಎಲ್ಲವೂ.',
+  'landing.finalCta.body':
+    'ಎರಡು ಕ್ಲಿಕ್ಗಳಲ್ಲಿ ನಿಮ್ಮ ಬ್ರೋಕರೇಜ್ ಸಂಪರ್ಕಿಸಿ. ಉಳಿದದ್ದನ್ನು {{appName}} ಮಾಡುತ್ತದೆ.',
+  'landing.finalCta.cta': 'ನಿಮ್ಮ ಅರ್ಜೆಂಟ್ ಖಾತೆಯನ್ನು ತೆರೆಯಿರಿ',
   'landing.finalCta.heading': 'ನಿಮ್ಮ ಪೋರ್ಟ್‌ಫೋಲಿಯೊಗೆ ಶಿಸ್ತನ್ನು ಮರಳಿ ತನ್ನಿ.',
   'landing.footerSignup': 'ಖಾತೆ ತೆರೆಯಿರಿ',
   'landing.getStarted': 'ಖಾತೆ ತೆರೆಯಿರಿ',
@@ -65,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'ಬೆಲೆ ನಿಗದಿ ನೋಡಿ',
   'landing.heroSubtitle':
     'ಶಿಸ್ತುಬದ್ಧ ಮರುಸಮತೋಲನ, ತೀಕ್ಷ್ಣವಾದ ಕಾರ್ಯಕ್ಷಮತೆಯ ಗುಣಲಕ್ಷಣ ಮತ್ತು ತೆರಿಗೆ-ಡಾಕ್ ನೈರ್ಮಲ್ಯವನ್ನು ಬಯಸುವ ವೈಯಕ್ತಿಕ ಹೂಡಿಕೆದಾರರು ಮತ್ತು ಸಲಹೆಗಾರರಿಗಾಗಿ ಪೋರ್ಟ್‌ಫೋಲಿಯೋ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ - ಯಾವುದೇ ಗದ್ದಲವಿಲ್ಲದೆ.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'ಪ್ರತಿನಿಧಿ ಪೋರ್ಟ್‌ಫೋಲಿಯೊದಿಂದ ನೇರ ಪೂರ್ವವೀಕ್ಷಣೆ',
   'login.heading': 'ಅರ್ಜೆಂಟ್‌ಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ',
   'login.subheading':
@@ -76,6 +109,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} ಗಂ ಹಿಂದೆ',
   'news.justNow': 'ಈಗ ತಾನೇ',
   'news.loadError': 'ಸುದ್ದಿಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
+  'planUpdated.body':
+    'ನಿಮ್ಮ ಬಿಲ್ಲಿಂಗ್ ಬದಲಾವಣೆ ಈಗ ಸಕ್ರಿಯವಾಗಿದೆ. ಬಿಲ್ಲಿಂಗ್ ಪುಟದಿಂದ ಯಾವಾಗ ಬೇಕಾದರೂ ನಿಮ್ಮ ಯೋಜನೆಯನ್ನು ನಿರ್ವಹಿಸಬಹುದು.',
+  'planUpdated.retry': 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ',
+  'planUpdated.verifyFailed': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ನಮಗೆ ಇನ್ನೂ ಖಚಿತಪಡಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'planUpdated.verifyFailedBody':
+    'ನಿಮ್ಮ ಪಾವತಿ ಇನ್ನೂ ಪ್ರಕ್ರಿಯೆಗೊಳ್ಳುತ್ತಿರಬಹುದು. ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'portfolioHeroCard.label': 'ಪೋರ್ಟ್‌ಫೋಲಿಯೋ ಮೌಲ್ಯ',
   'pricing.holdingsLabel': 'ಹಿಡುವಳಿಗಳು',
@@ -86,12 +125,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'ಹಂಚಿಕೆ ಡ್ರಿಫ್ಟ್',
   'rebalance.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಗುರಿಗಳನ್ನು ಹೊಂದಿಸಲಾಗಿಲ್ಲ.',
   'rebalance.executeCta': 'ಸ್ಥಳ {{count}} ವ್ಯಾಪಾರಗಳು',
+  'rebalance.executeError': 'ವ್ಯಾಪಾರಗಳನ್ನು ಇರಿಸಲು ವಿಫಲವಾಗಿದೆ.',
   'rebalance.executeOk': 'ಇರಿಸಲಾಗಿದೆ {{count}} ವಹಿವಾಟುಗಳು. ಅವುಗಳನ್ನು ವಹಿವಾಟುಗಳ ಪುಟದಲ್ಲಿ ವೀಕ್ಷಿಸಿ.',
+  'rebalance.executing': 'ಇರಿಸಲಾಗುತ್ತಿದೆ…',
   'rebalance.eyebrow': 'ಮರು ಸಮತೋಲನ · ಅರ್ಜೆಂಟ್ ಸಲಹೆಗಾರ',
   'rebalance.heading': 'ನಿಮ್ಮ ಪೋರ್ಟ್‌ಫೋಲಿಯೊವನ್ನು ಮತ್ತೆ ಶಿಸ್ತಿಗೆ ತನ್ನಿ',
   'rebalance.loadError': 'ಮರುಸಮತೋಲನ ಯೋಜನೆಯನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
+  'rebalance.plan.driftLine': 'ಪ್ರಸ್ತುತ {{current}}% · ಗುರಿ {{target}}%',
   'rebalance.planHeading': 'ಅರ್ಜೆಂಟ್ ಟಿಕೆಟ್ — ಇಡುವ ಮೊದಲು ಪರಿಶೀಲಿಸಿ',
   'rebalance.planLabel': 'ಸೂಚಿಸಲಾದ ವ್ಯಾಪಾರ ಯೋಜನೆ',
+  'rebalance.subheading':
+    'ತಮ್ಮ ಸಹನಶೀಲತಾ ಪಟ್ಟಿಯ ಹೊರಗಿರುವ ಸಾಲುಗಳು ವ್ಯಾಪಾರ ಸೂಚನೆಗಳನ್ನು ಪ್ರಚೋದಿಸುತ್ತವೆ. {{appName}} ನಿಮ್ಮ ದೃಢೀಕರಣದ ಮೇಲೆಯೇ ಕ್ರಮ ತೆಗೆದುಕೊಳ್ಳುತ್ತದೆ.',
   'rebalance.summary.buyLabel': 'ಖರೀದಿಸುತ್ತದೆ',
   'rebalance.summary.buySub': 'ಭರ್ತಿ ಮಾಡಲು ಸ್ಥಾನಗಳು',
   'rebalance.summary.driftLabel': 'ಬ್ಯಾಂಡ್‌ನಿಂದ ಹೊರಗಿದೆ',
@@ -100,6 +144,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'ಸೂಚಿಸಲಾದ ವಹಿವಾಟುಗಳಾದ್ಯಂತ',
   'rebalance.summary.sellLabel': 'ಮಾರಾಟ ಮಾಡುತ್ತದೆ',
   'rebalance.summary.sellSub': 'ಟ್ರಿಮ್ ಮಾಡಲು ಸ್ಥಾನಗಳು',
+  'rebalanceDriftCard.drift': 'ವಿಚಲನೆ {{sign}}{{pct}}% · ಪಟ್ಟಿ ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'ಗುರಿ {{pct}} %',
   'reports.attributionHeading': 'ಕಾರ್ಯಕ್ಷಮತೆ ಗುಣಲಕ್ಷಣ (1Y)',
   'reports.col.alpha': 'ಆಲ್ಫಾ',
@@ -113,37 +158,68 @@ export const ui: UiTranslations = {
   'reports.col.year': 'ವರ್ಷ',
   'reports.gainsHeading': 'ಸಾಧಿಸಿದ ಮತ್ತು ಸಾಧಿಸದ ಲಾಭಗಳು',
   'reports.noAttribution': 'ಇನ್ನೂ ಯಾವುದೇ ಗುಣಲಕ್ಷಣ ಡೇಟಾ ಇಲ್ಲ.',
+  'reports.noGains': 'ಇನ್ನೂ ಸಾಕ್ಷಾತ್ಕೃತ/ಅಸಾಕ್ಷಾತ್ಕೃತ ಲಾಭಗಳ ಡೇಟಾ ಇಲ್ಲ.',
   'reports.noPerformance': 'ಇನ್ನೂ ಯಾವುದೇ ಕಾರ್ಯಕ್ಷಮತೆಯ ಡೇಟಾ ಇಲ್ಲ.',
   'reports.noTaxDocs': 'ಇನ್ನೂ ಯಾವುದೇ ತೆರಿಗೆ ದಾಖಲೆಗಳಿಲ್ಲ.',
   'reports.performanceHeading': 'ಕಾರ್ಯಕ್ಷಮತೆ vs ಮಾನದಂಡ',
   'reports.taxHeading': 'ತೆರಿಗೆ ದಾಖಲೆಗಳು',
   'resetPassword.heading': 'ಹೊಸ ಬಲಿಷ್ಠ ಪಾಸ್‌ವರ್ಡ್ ಆಯ್ಕೆಮಾಡಿ',
+  'resetPassword.passwordPlaceholder': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'resetPassword.subheading':
     'ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಹೊಂದಿಸಿದ ನಂತರ ಅರ್ಜೆಂಟ್ ನಿಮ್ಮನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸೈನ್ ಇನ್ ಮಾಡುತ್ತದೆ.',
   'resetPassword.tokenPlaceholder': 'ಇಮೇಲ್‌ನಿಂದ ಟೋಕನ್ ಅನ್ನು ಮರುಹೊಂದಿಸಿ',
+  'settings.appearance.description': 'ಬೆಳಕು ಮತ್ತು ಕತ್ತಲೆ ಮೋಡ್ ನಡುವೆ ಟಾಗಲ್ ಮಾಡಿ.',
   'settings.appearance.title': 'ಗೋಚರತೆ',
+  'settings.devices.body': 'ನಿಮ್ಮ ಖಾತೆಗೆ ಪ್ರಸ್ತುತ ಸೈನ್ ಇನ್ ಆಗಿರುವ ಸಾಧನಗಳು.',
+  'settings.devices.empty': 'ಯಾವುದೇ ಸಾಧನಗಳು ಕಂಡುಬಂದಿಲ್ಲ.',
   'settings.devices.heading': 'ಸಾಧನಗಳು',
+  'settings.devices.revokeWarning':
+    'ಈ ಸಾಧನದ ಪ್ರವೇಶವನ್ನು ಶೀಘ್ರದಲ್ಲೇ ರದ್ದುಗೊಳಿಸಲಾಗುತ್ತದೆ. ಅದನ್ನು ಸೈನ್ ಔಟ್ ಮಾಡುವುದೇ?',
   'settings.devices.signOut': 'ಸೈನ್ ಔಟ್ ಮಾಡಿ',
   'settings.devices.thisDevice': 'ಈ ಸಾಧನ',
   'settings.devices.unknown': 'ಅಪರಿಚಿತ ಸಾಧನ',
   'settings.linked.body':
     'ಬ್ರೋಕರೇಜ್ ಸಿಂಕ್ ಮಾಡಲು ಮೂರನೇ ವ್ಯಕ್ತಿಯ ಕನೆಕ್ಟರ್ (ಪ್ಲೇಡ್, ಯೋಡ್ಲೀ, ಇತ್ಯಾದಿ) ಅಗತ್ಯವಿದೆ. ಸ್ವಯಂ-ಆಮದು ಸಕ್ರಿಯಗೊಳಿಸಲು ನಿಮ್ಮ ಪರಿಸರದಲ್ಲಿ ನಿಮ್ಮ ಪೂರೈಕೆದಾರರನ್ನು ಕಾನ್ಫಿಗರ್ ಮಾಡಿ.',
   'settings.linked.heading': 'ಲಿಂಕ್ ಮಾಡಲಾದ ಬ್ರೋಕರೇಜ್ ಖಾತೆಗಳು',
+  'settings.linked.placeholder': 'ಇನ್ನೂ ಯಾವುದೇ ಖಾತೆಗಳನ್ನು ಲಿಂಕ್ ಮಾಡಿಲ್ಲ.',
+  'settings.notifications.dividendsPaid': 'ಪಾವತಿಸಿದ ಲಾಭಾಂಶಗಳು',
   'settings.notifications.error': 'ಆದ್ಯತೆಯನ್ನು ನವೀಕರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'settings.notifications.priceAlerts': 'ಬೆಲೆ ಎಚ್ಚರಿಕೆಗಳು',
+  'settings.notifications.rebalanceDrift': 'ಮರುಸಮತೋಲನ ವಿಚಲನೆ',
+  'settings.notifications.taxDocsReady': 'ತೆರಿಗೆ ದಾಖಲೆಗಳು ಸಿದ್ಧ',
   'settings.profile.advisor': 'ಸಲಹೆಗಾರ ಇಮೇಲ್ (ಐಚ್ಛಿಕ)',
   'settings.profile.heading': 'ಪ್ರೊಫೈಲ್',
   'settings.security.changePassword': 'ಪಾಸ್‌ವರ್ಡ್ ಬದಲಾಯಿಸಿ',
+  'settings.security.changePasswordTitle': 'ಪಾಸ್‌ವರ್ಡ್ ಬದಲಾಯಿಸಿ',
   'settings.security.changing': 'ಬದಲಾಯಿಸಲಾಗುತ್ತಿದೆ...',
+  'settings.security.confirmPassword': 'ಪಾಸ್ವರ್ಡ್',
+  'settings.security.currentPassword': 'ಪ್ರಸ್ತುತ ಪಾಸ್‌ವರ್ಡ್',
   'settings.security.deleteAccount': 'ಖಾತೆಯನ್ನು ಅಳಿಸಿ',
   'settings.security.deleteError': 'ಖಾತೆಯನ್ನು ಅಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'settings.security.deleteHeading': 'ಖಾತೆಯನ್ನು ಅಳಿಸಿ',
+  'settings.security.deleteModalWarning':
+    'ಇದು ನಿಮ್ಮ ಖಾತೆ ಮತ್ತು ಡೇಟಾವನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸುತ್ತದೆ. ದೃಢೀಕರಿಸಲು ನಿಮ್ಮ ಪಾಸ್ವರ್ಡ್ ನಮೂದಿಸಿ.',
+  'settings.security.deleteWarning':
+    'ನಿಮ್ಮ ಖಾತೆ ಮತ್ತು ಸಂಬಂಧಿತ ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಿ. ಇದನ್ನು ರದ್ದುಗೊಳಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ.',
   'settings.security.deleting': 'ಅಳಿಸಲಾಗುತ್ತಿದೆ...',
   'settings.security.heading': 'ಭದ್ರತೆ',
   'settings.security.newPassword': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'settings.security.password': 'ಪಾಸ್ವರ್ಡ್',
+  'settings.security.passwordError': 'ಪಾಸ್‌ವರ್ಡ್ ಬದಲಾಯಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'settings.security.passwordHint': 'ಸೈನ್ ಇನ್ ಮಾಡಲು ನೀವು ಬಳಸುವ ಪಾಸ್ವರ್ಡ್ ಬದಲಾಯಿಸಿ.',
+  'settings.security.twoFactor': 'ಎರಡು ಅಂಶಗಳ ದೃಢೀಕರಣ',
+  'settings.security.twoFactorCode': 'ದೃಢೀಕರಣ ಕೋಡ್',
+  'settings.security.twoFactorDisable': 'ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ',
+  'settings.security.twoFactorDisableTitle': 'ಎರಡು-ಅಂಶ ದೃಢೀಕರಣವನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ',
   'settings.security.twoFactorEnable': 'ಸಕ್ರಿಯಗೊಳಿಸಿ',
+  'settings.security.twoFactorEnableTitle': 'ಎರಡು-ಅಂಶ ದೃಢೀಕರಣವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ',
+  'settings.security.twoFactorHint': 'ನಿಮ್ಮ ಖಾತೆಗೆ ಹೆಚ್ಚುವರಿ ರಕ್ಷಣಾ ಪದರವನ್ನು ಸೇರಿಸಿ.',
   'settings.security.twoFactorInvalidCode': 'ಅಮಾನ್ಯ ಕೋಡ್',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'ಎರಡು-ಅಂಶ QR ಕೋಡ್',
+  'settings.security.twoFactorScan':
+    'ನಿಮ್ಮ ದೃಢೀಕರಣ ಅಪ್ಲಿಕೇಶನ್ನಿಂದ ಈ QR ಕೋಡ್ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ, ನಂತರ 6-ಅಂಕಿಯ ಕೋಡ್ ನಮೂದಿಸಿ.',
+  'settings.security.twoFactorUnavailable': 'ಈ ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಎರಡು ಅಂಶದ ದೃಢೀಕರಣ ಲಭ್ಯವಿಲ್ಲ.',
   'settings.security.twoFactorVerify': 'ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಸಕ್ರಿಯಗೊಳಿಸಿ',
   'settings.tax.error': 'ತೆರಿಗೆ ವಿಧಾನವನ್ನು ನವೀಕರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'settings.tax.heading': 'ತೆರಿಗೆ ಸ್ಥಳ ಲೆಕ್ಕಪತ್ರ ನಿರ್ವಹಣೆ',
@@ -154,6 +230,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'ತೆರಿಗೆ ವಿಧಾನವನ್ನು ಉಳಿಸಲಾಗಿದೆ.',
   'signup.eyebrow': 'ಖಾತೆ ತೆರೆಯಿರಿ',
   'signup.heading': 'ನಿಮ್ಮ ಅರ್ಜೆಂಟ್ ಖಾತೆಯನ್ನು ತೆರೆಯಿರಿ',
+  'signup.legalPrefix': 'ಖಾತೆಯನ್ನು ರಚಿಸುವ ಮೂಲಕ ನೀವು {{appName}} ಗೆ ಒಪ್ಪುತ್ತೀರಿ',
   'signup.subheading': '30 ದಿನಗಳವರೆಗೆ ಉಚಿತ. ಯಾವುದೇ ಕಾರ್ಡ್ ಅಗತ್ಯವಿಲ್ಲ. ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ರದ್ದುಗೊಳಿಸಿ.',
   'signup.terms':
     'ಖಾತೆಯನ್ನು ರಚಿಸುವ ಮೂಲಕ ನೀವು ಅರ್ಜೆಂಟೀನಾ ಸೇವಾ ನಿಯಮಗಳು ಮತ್ತು ಗೌಪ್ಯತಾ ನೀತಿಗೆ ಸಮ್ಮತಿಸುತ್ತೀರಿ.',

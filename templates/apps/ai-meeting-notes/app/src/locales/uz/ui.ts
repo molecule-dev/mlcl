@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Savollar, fikr-mulohaza yoki funksiya so'rovi bormi? Jamoa bilan hello@murmur.app orqali bog'laning — har bir xabar mahsulot ustida ishlaydigan haqiqiy insonga yetib boradi.",
   'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Biz haqimizda',
+  'about.intro':
+    "{{app}} — qayd olishdan ko'ra qaror qabul qilishni afzal ko'radigan jamoalar uchun uchrashuv intellekti. U qo'ng'iroqlaringizga qo'shiladi, har bir so'zni so'zlovchi belgilari bilan transkripsiya qiladi va uchrashuv tugashi bilanoq AI xulosasi hamda mas'uliyatli vazifalarni taqdim etadi.",
+  'about.missionBody':
+    "Uchrashuvlar — jamoalar qaror qabul qiladigan joy, va aynan shu yerda bu qarorlar yo'qoladi. {{app}} suhbat davomida bajarilgan ish suhbatdan uzoq yashashini ta'minlash uchun mavjud: ishonchli yozuv, aniq xulosa va mas'uliyatli keyingi qadamlar, avtomatik tarzda.",
+  'about.missionTitle': 'Bizning vazifamiz',
   'actions.empty': 'Hech qanday amal elementi mos kelmadi.',
   'actions.heading': 'Harakat elementlari',
   'actions.loadError': 'Amallarni yuklab bo’lmadi.',
@@ -10,11 +17,14 @@ export const ui: UiTranslations = {
     'Har bir uchrashuv bo’yicha umumlashtirilgan. Fokuslash uchun holat bo’yicha filtrlang.',
   'actions.toggleDoneLabel': 'Bajarilgan deb belgilash',
   'actions.toggleReopenLabel': 'Ochiq deb belgilash',
+  'auth.footer': "© {{year}} {{app}}. Har bir so'z, saralangan.",
   'calendar.heading': 'Taqvim',
   'calendar.joinCta': 'Qo’shiling',
   'calendar.loadError': 'Taqvimni yuklab bo’lmadi.',
   'calendar.nextMonth': 'Keyingi oy',
   'calendar.noEventsForDay': 'Bu kun uchun hech qanday uchrashuv rejalashtirilmagan.',
+  'calendar.noUpcomingEvents':
+    "Kelgusi uchrashuvlar yo'q. Bu ro'yxatni to'ldirish uchun Integratsiyalar bo'limidan kalendarni ulang.",
   'calendar.previousMonth': 'Oldingi oy',
   'calendar.recent': 'Yaqinda',
   'common.daysAgo': '{{count}} kun oldin',
@@ -26,9 +36,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} harakat elementlari',
   'dashboard.empty.body':
     'Murmur keyingi uchrashuvingizga avtomatik ravishda qo’shilishi uchun yozib olishni boshlang yoki Google Taqvimini ulang.',
+  'dashboard.empty.cta': 'Yozib olishni boshlang',
   'dashboard.empty.heading': 'Hali uchrashuvlar yo’q',
   'dashboard.eyebrow': 'Uchrashuv tasmasi',
   'dashboard.loadError': 'Boshqaruv panelini yuklashda xatolik yuz berdi.',
+  'dashboard.noActions': "Vazifalar yo'q",
   'dashboard.recentHeading': 'So’nggi uchrashuvlar',
   'dashboard.recordCta': 'Uchrashuvni yozib oling',
   'dashboard.stat.actions': 'Harakat elementlari',
@@ -38,6 +50,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} oxirgi marta tekshirganingizdan beri o’qilmagan xulosalar. Murmur har bir so’zni yozib oldi — mana qisqacha ma’lumot.',
   'dashboard.viewCalendar': 'Taqvimni ko’rish →',
+  'footer.linksLabel': 'Footer',
   'forgot.failed': 'Qayta tiklash elektron pochtasini yuborib bo’lmadi.',
   'forgot.sentBody': 'Agar hisob mavjud bo’lsa {{email}}, siz tez orada tiklash havolasini olasiz.',
   'forgot.sentSubheading': 'Qayta tiklash havolasi uchun pochta qutingizni tekshiring.',
@@ -48,14 +61,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Murmur avtomatik ravishda qo’shilishi uchun taqvimlar va video platformalarni ulang.',
   'integrations.updateError': 'Yangilash amalga oshmadi.',
+  'landing.ctaBody':
+    "Har oy dastlabki 5 uchrashuv uchun bepul. Kredit karta kerak emas. Google Calendar'ni bir daqiqadan kamroq vaqtda ulang.",
   'landing.ctaButton': 'Boshlang — bu bepul',
   'landing.ctaHeading': 'Qaydlar yozishni bas qiling. Qaror qabul qilishni boshlang.',
+  'landing.demo.aiBody':
+    'Ishga tushirish ops jamoasiga joy qoldirish uchun 5-maydan 12-mayga surildi. Boshqaruv paneli qayta dizayni 26-mayga ajratildi.',
   'landing.demo.aiLabel': 'Sun’iy intellekt xulosasi, jonli ravishda tayyorlangan',
   'landing.demo.recording': 'Yozib olish · jonli efir',
   'landing.eyebrow': 'Sun’iy intellekt uchrashuvi razvedkasi',
   'landing.featuresHeading': 'Uchrashuv tugaganidan keyin jamoangizga kerak bo’lgan hamma narsa',
+  'landing.featuresSubheading':
+    "Endi \"bunga kim mas'ul?\" degan savol yo'q. {{appName}} qo'ng'iroq uzilishidan oldin xulosani yuboradi.",
   'landing.getStarted': 'Bepul sinab ko’ring',
   'landing.heroSecondary': '90 soniyali turni tomosha qiling',
+  'landing.heroSubtitle':
+    "{{tagline}}. {{appName}} qo'ng'iroqlaringizga qo'shiladi, har bir so'zni so'zlovchi belgilari bilan transkripsiya qiladi va uchrashuv tugashi bilanoq AI xulosalari hamda mas'uliyatli vazifalarni taqdim etadi.",
   'landing.heroTitle':
     'Har bir uchrashuvni suratga oling. Muhim bo’lgan narsalarni yuzaga chiqaring.',
   'login.altPrompt': 'Murmurda yangimisiz?',
@@ -64,6 +85,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Harakat elementlari',
   'meetingDetail.back': 'Barcha uchrashuvlar',
   'meetingDetail.decisionsHeading': 'Qarorlar',
+  'meetingDetail.dueDate': '{{date}} muddati',
   'meetingDetail.followupsHeading': 'Keyingi kuzatuvlar',
   'meetingDetail.loadError': 'Uchrashuvni yuklab bo’lmadi.',
   'meetingDetail.noActions': 'Hech qanday amal topilmadi.',
@@ -77,7 +99,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Hali uchrashuvlar yo’q',
   'meetings.heading': 'Uchrashuvlar',
   'meetings.loadError': 'Uchrashuvlarni yuklab bo’lmadi.',
+  'meetings.recordCta': 'Uchrashuvni yozib oling',
   'meetings.subheading': 'Yozib olingan, yuklangan va sinxronlashtirilgan har bir uchrashuv.',
+  'murmurLayout.closeMenu': 'Navigatsiya menyusini yopish',
   'murmurLayout.openMenu': 'Navigatsiya menyusini ochish',
   'murmurLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'nav.legal': 'Huquqiy',
@@ -103,7 +127,14 @@ export const ui: UiTranslations = {
   'profile.loading': 'Yuklanmoqda…',
   'profile.navLabel': 'Profil bo’limlari',
   'profile.notifications.assignments': 'Menga tayinlangan vazifalar',
+  'profile.notifications.assignmentsHint': 'Siz uchun vazifa qayd etilganda xabar bering.',
+  'profile.notifications.mentions': 'Transkriptlardagi eslatmalar',
+  'profile.notifications.mentionsHint': 'Kimdir sizni @-eslatganda email va push xabarnoma.',
+  'profile.notifications.subheading': 'Qaysi {{appName}} hodisalari sizga yetib kelishini tanlang.',
   'profile.notifications.summaries': 'Haftalik dayjest',
+  'profile.notifications.summariesHint':
+    "O'tgan haftadagi har bir uchrashuvning dushanba xulosasi.",
+  'profile.preferences.speakerColor': "Standart so'zlovchi rangi",
   'profile.preferences.subheading':
     'Siz qo’shilgan har bir yozuvga qo’llaniladigan standart sozlamalar.',
   'profile.preferences.timezone': 'Vaqt mintaqasi',
@@ -116,18 +147,23 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Brauzeringiz yozib olishni qo’llab-quvvatlamaydi. Chrome, Edge yoki Safari’ni sinab ko’ring.',
   'record.error.upload': 'Yuklash amalga oshmadi. Qaytadan urinib ko’ring.',
+  'record.errorLabel': 'Xatolik yuz berdi',
   'record.heading': 'Yozuv',
   'record.idleLabel': 'Yozib olishni boshlash uchun bosing',
   'record.processingLabel': 'Whisper bilan transkripsiya qilish, Claude bilan umumlashtirish…',
+  'record.recordingLabel': 'Yozilmoqda…',
   'record.retryCta': 'Qayta urinib ko’ring',
   'record.subheading':
     'Boshlash uchun mikrofonni bosing. Murmur audioni yozib oladi, Whisper orqali transkripsiya qiladi va Klod tomonidan ishlab chiqilgan xulosani yozadi.',
+  'record.titlePlaceholder': 'Uchrashuv nomi (ixtiyoriy)',
+  'reset.altPrompt': "Fikringizni o'zgartirdingizmi?",
   'reset.hint':
     'Harflar va raqamlar aralashmasidan foydalangan holda kamida 8 ta belgidan foydalaning.',
   'reset.missingToken':
     'Qayta tiklash havolasi mavjud emas yoki muddati tugagan. Yangisini so’rang.',
   'reset.newPassword': 'Yangi parol',
   'reset.subheading': 'Boshqa hech qayerda ishlatmaydigan parolni tanlang.',
+  'reset.tooShort': "Parol kamida 8 ta belgidan iborat bo'lishi kerak.",
   'search.empty': 'Transkriptlarni qidirish uchun yozing.',
   'search.loadError': "Qidiruv amalga oshmadi. Qaytadan urinib ko'ring.",
   'search.noResults': '“ uchun natijalar yo‘q {{q}} ".',
@@ -143,7 +179,10 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Audioni saqlab qo’ying',
   'settings.retention.heading': 'Saqlash',
   'settings.retention.transcript': 'Transkriptlarni saqlash',
+  'settings.revokeDeviceWarning':
+    'Bu qurilmaning kirish huquqi tez orada bekor qilinadi. Uni chiqarasizmi?',
   'settings.saveError': 'Saqlash amalga oshmadi.',
+  'settings.security.subheading': 'Tizimga kirish uchun ishlatadigan parolingizni yangilang.',
   'settings.sharing.exportFormat': 'Eksport formati',
   'settings.sharing.heading': 'Ulashish standart sozlamalari',
   'settings.sharing.scope': 'Standart ulashish doirasi',
@@ -161,6 +200,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Jamoadoshingizni taklif qiling',
   'team.invitedAs': 'Taklif qilingan {{role}}',
   'team.inviteFailed': 'Taklifnoma yuborilmadi.',
+  'team.invitePlaceholder': 'hamkasb@kompaniya.com',
   'team.inviteSubmit': 'Taklifnoma yuborish',
   'team.inviteSubtitle': 'Ular qo’shilish havolasi bilan elektron pochta xabarini olishadi.',
   'team.inviteTitle': 'Jamoadoshingizni taklif qiling',

@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'प्रश्न छ, बग भेटियो, वा तपाईंको टोलीका लागि डेमो चाहिन्छ? तपाईंको खाता सेटिङबाट सम्पर्क गर्नुहोस् — हरेक सन्देश टोलीको वास्तविक व्यक्तिसम्म पुग्छ।',
   'about.contactTitle': 'सम्पर्कमा रहनुहोस्',
+  'about.intro':
+    '{{app}} ले स्क्यान गरिएका कागजात र PDF का थुप्राहरूलाई संरचित, खोज्न मिल्ने, फाइल गरिएको डेटामा बदल्छ। इनभ्वाइस, रसिद, करार, वा फारमहरू हाल्नुहोस् र AI लाई पढ्न, निकाल्न, वर्गीकरण गर्न, र फाइल गर्न दिनुहोस् — कन्फिडेन्स रङसहित ताकि तपाईंको टोलीले वास्तवमै मानवीय समीक्षा चाहिने कुरा मात्र हेर्नुपरोस्।',
+  'about.missionBody':
+    'कागजी झन्झटले तपाईंको टोलीको दिन खानु हुँदैन। हाम्रो विश्वास छ कि हरेक निकालिएको मान व्याख्या गर्न मिल्ने र अडिट गर्न मिल्ने हुनुपर्छ — ताकि तपाईं कागजी अभिलेख नगुमाई स्वचालनमा भरोसा गर्न सक्नुहुन्छ। {{app}} प्रत्येक थुप्रोमा घण्टौं बचत गर्न बनाइएको हो, जहाँ महत्त्वपूर्ण छ त्यहाँ मानवलाई समावेश राख्दै।',
+  'about.missionTitle': 'हाम्रो मिशन',
+  'about.subtitle': 'तपाईंका कागजातका लागि OCR, AI निष्कर्षण, वर्गीकरण, र स्वचालित फाइलिङ।',
   'about.title': '{{app}} बारे',
+  'about.whatYouGetTitle': 'तपाईंले के पाउनुहुन्छ',
   'authShell.backToLanding': '← अवतरणमा फर्कनुहोस्',
   'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'आज · सञ्चालनको सिंहावलोकन',
   'dashboard.heading': 'कागजात बुद्धिमत्ता',
+  'dashboard.metric.accuracy': 'औसत शुद्धता',
   'dashboard.metric.filed': 'आज दायर गरिएको',
   'dashboard.metric.filedCaption': 'फाइलिङ नियमहरूद्वारा निर्देशित',
   'dashboard.metric.processed': 'आज प्रशोधन गरियो',
@@ -23,11 +33,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'कागजात',
   'dashboard.recent.col.uploaded': 'अपलोड गरियो',
   'dashboard.recent.heading': 'हालसालैका कागजातहरू',
+  'dashboard.recent.typeUnknown': 'वर्गीकरण प्रतीक्षामा',
   'dashboard.subheading':
     'प्रत्येक पृष्ठ वर्गीकृत, निकालिएको, र फाइल गरिएको — आत्मविश्वासका रङहरू सहित ताकि समीक्षा केन्द्रित रहोस्।',
   'documentDetail.audit.heading': 'लेखापरीक्षण समयरेखा',
+  'documentDetail.audit.subheading': 'यो कागजातमा गरिएको हरेक कदम, जिम्मेवार व्यक्तिसहित।',
   'documentDetail.back': 'सबै कागजातहरू',
   'documentDetail.downloadHint': 'मूल फाइल खोल्न डाउनलोड प्रयोग गर्नुहोस्।',
+  'documentDetail.extracted.empty': 'अझै कुनै फिल्ड निकालिएको छैन।',
   'documentDetail.extracted.heading': 'झिकिएका क्षेत्रहरू',
   'documentDetail.extracted.subheading':
     '{{count}} क्षेत्रहरू · पृष्ठमा हाइलाइट गर्न कुनै पनि क्षेत्रमा क्लिक गर्नुहोस्',
@@ -56,13 +69,23 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} तपाईंको पुस्तकालयमा रहेका कागजातहरू, सबैभन्दा नयाँ पहिले क्रमबद्ध गरिएको।',
   'documents.uploadCta': 'कागजातहरू अपलोड गर्नुहोस्',
+  'documentTypeBreakdown.barAria': 'प्रकार अनुसार कागजात संरचना',
   'documentTypeBreakdown.empty': 'अहिलेसम्म कुनै पनि कागजात प्रशोधन गरिएको छैन।',
   'documentTypeBreakdown.subtitle': '{{total}} प्रशोधित',
   'documentTypeBreakdown.title': 'कागजातको संरचना',
+  'forgotPassword.backToSignIn': '← साइन इनमा फर्कनुहोस्',
   'forgotPassword.checkEmail': 'आफ्नो इमेल जाँच गर्नुहोस्',
   'forgotPassword.tip': 'बुझ्नुभएन? स्प्याम जाँच गर्नुहोस् वा फरक ठेगाना प्रयास गर्नुहोस्।',
+  'landing.copyright': '© {{year}} {{app}}। हरेक पृष्ठ अडिट गर्ने अप्स टोलीका लागि बनाइएको।',
+  'landing.ctaBody':
+    '१४ दिनको परीक्षण। कार्ड चाहिँदैन। कुनै पनि बेला रद्द गर्नुहोस्। छिटो अघि बढ्ने र ढिलो अडिट गर्ने अप्स टोलीका लागि बनाइएको।',
   'landing.ctaHeading': 'रसिदहरू टाइप गर्न बन्द गर्नुहोस्। तिनीहरूलाई फाइल गर्न सुरु गर्नुहोस्।',
   'landing.eyebrow': 'OCR · निकासी · AI फाइलिङ',
+  'landing.featuresHeading': 'आफैं व्याख्या गर्ने कागजात बुद्धिमत्ता',
+  'landing.heroSubtitle':
+    'इनभ्वाइस, रसिद, करार, वा फारमहरूको थुप्रो हाल्नुहोस्। {{app}} ले तिनीहरूलाई वर्गीकरण, निष्कर्षण, र फाइल गर्छ — कन्फिडेन्स रङसहित ताकि तपाईंको टोलीले वास्तवमै मानवीय समीक्षा चाहिने कुरा मात्र हेर्नुपरोस्।',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'दैनिक मात्रा · पछिल्लो ७ दिन',
   'landing.sampleCardLabel': 'आज प्रशोधन गरिएका कागजातहरू',
   'landing.sampleCardSubtitle': 'बीजक, रसिद र फारमहरूमा ९६.२% औसत शुद्धता।',
   'login.hidePassword': 'पासवर्ड लुकाउनुहोस्',
@@ -75,6 +98,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · ४०४',
   'notFound.home': 'ल्यान्डिङ पृष्ठ खोल्नुहोस्',
   'notFound.title': 'त्यो पृष्ठ फाइलमा छैन।',
+  'parcelaHeroCard.accuracy': 'सबै निष्कर्षणमा औसत शुद्धता {{value}}%',
   'parcelaHeroCard.change': '{{sign}} {{amount}} हिजोको तुलनामा %',
   'parcelaHeroCard.title': 'आज प्रशोधन गरिएका कागजातहरू',
   'parcelaLayout.primaryNavLabel': 'प्राथमिक नेभिगेसन',
@@ -82,6 +106,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'कागजातहरू',
   'pricing.processingLabel': 'प्रशोधन कार्यहरू',
   'resetPassword.confirmPlaceholder': 'नयाँ पासवर्ड दोहोर्याउनुहोस्',
+  'resetPassword.hidePassword': 'पासवर्ड लुकाउनुहोस्',
   'resetPassword.passwordLabel': 'नयाँ पासवर्ड',
   'resetPassword.showPassword': 'पासवर्ड देखाउनुहोस्',
   'resetPassword.subtitle': 'कम्तिमा ८ वर्ण लामो केही छान्नुहोस्।',
@@ -98,10 +123,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'नियमहरू लोड गर्न असफल भयो।',
   'rules.loading': 'नियमहरू लोड गर्दै...',
   'rules.matched30d': '{{count}} पछिल्लो ३० दिनमा मिलेका कागजातहरू',
+  'rules.neverUsed': 'कहिल्यै प्रयोग नगरिएको',
   'rules.newRule': 'नयाँ नियम',
   'rules.saveError': 'नियम सुरक्षित गर्न असफल भयो।',
   'rules.subheading':
     'प्रत्येक प्रकारको कागजात कहाँ जाने भनेर प्रणालीलाई भन्नुहोस्। अवस्थाहरूको श्रृंखला माथिदेखि तलसम्म — पहिलो खेल जित्छ।',
+  'rules.templatesEmpty': 'अझै कुनै निष्कर्षण टेम्प्लेट छैन।',
   'rules.templatesHeading': 'निकासी टेम्प्लेटहरू',
   'rules.templatesSubheading':
     'प्रत्येक कागजात प्रकारको लागि एक्स्ट्रक्टरले प्रयोग गर्ने फिल्ड स्किमाहरू।',
@@ -111,17 +138,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'कार्यस्थानको नाम',
   'settings.account.subheading':
     'सूचनाहरू र अडिट इतिहासको लागि नाम र प्राथमिक इमेल प्रदर्शन गर्नुहोस्।',
+  'settings.api.confirmRevoke': 'पुष्टि गर्ने?',
   'settings.api.copyOnce': 'यो कुञ्जी प्रतिलिपि गर्नुहोस् — यो फेरि देखाइने छैन।',
   'settings.api.createdOn': 'सिर्जना गरियो {{date}}',
   'settings.api.empty': 'अहिलेसम्म कुनै पनि API कुञ्जीहरू छैनन्। माथि एउटा उत्पन्न गर्नुहोस्।',
   'settings.api.error': 'कुञ्जी सिर्जना गर्न असफल भयो।',
+  'settings.api.generating': 'उत्पन्न गर्दै…',
+  'settings.api.heading': 'API कुञ्जीहरू',
   'settings.api.labelPlaceholder': 'कुञ्जी लेबल (जस्तै CI अपलोडर)',
+  'settings.api.loading': 'कुञ्जीहरू लोड हुँदैछन्…',
   'settings.api.newKey': 'कुञ्जी उत्पन्न गर्नुहोस्',
   'settings.api.subheading':
     'स्क्रिप्ट वा तपाईंको ERP बाट कागजातहरू पुश गर्न यी प्रयोग गर्नुहोस्। कुनै पनि समयमा कुनै पनि कुञ्जी घुमाउनुहोस्।',
   'settings.integrations.heading': 'फाइलिङ एकीकरणहरू',
   'settings.integrations.subheading':
     'तपाईंको टोली पहिले नै बसिरहेको क्लाउड ड्राइभ वा च्याट उपकरणमा फाइल गरिएका कागजातहरू पठाउनुहोस्।',
+  'settings.subheading':
+    'तपाईंको {{app}} कार्यक्षेत्रका लागि खाता, API कुञ्जीहरू, र फाइलिङ एकीकरणहरू व्यवस्थापन गर्नुहोस्।',
+  'signup.hidePassword': 'पासवर्ड लुकाउनुहोस्',
   'signup.identityPrompt': 'हामीले तपाईंलाई कसरी सम्बोधन गर्नुपर्छ?',
   'signup.showPassword': 'पासवर्ड देखाउनुहोस्',
   'signup.subtitle': '१४ दिन नि:शुल्क, कुनै कार्ड आवश्यक पर्दैन।',
@@ -129,6 +163,7 @@ export const ui: UiTranslations = {
   'upload.error': 'अपलोड असफल भयो।',
   'upload.eyebrow': 'इन्जेसन',
   'upload.heading': 'कागजातहरू अपलोड गर्नुहोस्',
+  'upload.queue.clear': 'सम्पन्न भएका हटाउनुहोस्',
   'upload.queue.col.confidence': 'आत्मविश्वास',
   'upload.queue.col.file': 'फाइल',
   'upload.queue.detecting': 'पत्ता लगाउँदै...',
@@ -141,5 +176,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'वा ब्याच निकासी, वर्गीकरण, र फाइलिङको लागि एकैचोटि धेरै फाइलहरू छोड्नुहोस्।',
   'uploadDropZone.cta': 'फाइलहरू छनौट गर्नुहोस्',
+  'uploadDropZone.maxSize': 'प्रति फाइल अधिकतम २५ MB · अन्त्यदेखि अन्त्यसम्म इन्क्रिप्टेड',
   'uploadDropZone.title': 'प्रशोधन सुरु गर्न कागजातहरू छोड्नुहोस्',
 }

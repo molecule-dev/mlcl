@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Vrae, terugvoer, of wil jy 'n demo vir jou span hê? E-pos ons by hello@conduit.dev — elke boodskap bereik 'n werklike persoon op die span.",
   'about.contactHeading': 'Kontak ons',
   'about.eyebrow': 'Oor',
+  'about.featuresHeading': 'Wat jy kry',
+  'about.introBody':
+    '{{app}} bring GitHub Actions-styl deurlopende aflewering in een vinnige paneelbord: pyplyne, boulogboeke, artefakte, statuskentekens en ontplooiingsomgewings vir al jou repositories op een plek. Geen tabspringery, geen raaiery oor watter bou gebreek het nie — elke lopie, logreël en ontplooiing is een klik weg.',
+  'about.introHeading': 'Wat {{app}} is',
+  'about.missionBody':
+    "Om sagteware te verskeep moet kalm en voorspelbaar wees, nie 'n bron van vrees nie. Ons bou die pyplyne, logboeke en ontplooiingsgereedskap sodat die pad van commit tot produksie vinnig, sigbaar en betroubaar is — die eerste groen bou binne vyf minute, en elke bou daarna net so duidelik.",
+  'about.missionHeading': 'Ons missie',
+  'about.subtitle':
+    "{{app}} is 'n CI/CD-paneelbord vir spanne wat boue, ontplooiings en omgewings oor elke repository wil monitor — en met sekerheid wil verskeep.",
   'artifacts.empty': 'Geen artefakte nog nie.',
   'artifacts.heading': 'Artefakte',
   'artifacts.loadError': 'Kon nie artefakte laai nie.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Omgewings',
   'environments.loadError': 'Kon nie omgewings laai nie.',
+  'environments.loading': 'Laai omgewings…',
   'environments.subheading': 'Regstreekse ontplooiingsstatus oor elke teiken.',
   'forgotPassword.runnerStatus': 'herstel · veilige tonnel',
+  'forgotPassword.success':
+    "Indien 'n rekening vir daardie e-posadres bestaan, is 'n terugstelskakel oppad. Gaan jou inboks na.",
   'insights.changeFailureRate': 'Verandering van mislukkingskoers',
   'insights.deployFrequency': 'Ontplooiings / dag',
   'insights.empty': 'Nog nie genoeg data nie.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Kon nie insigte laai nie.',
   'insights.meanP95': 'beteken {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Stadigste pyplynstappe',
   'insights.successRateHeading': 'Sukseskoers van die pyplyn (afgelope 14 dae)',
   'landing.choosePlan': 'Kies plan',
+  'landing.copyright': '© {{year}} {{app}}. Verskeep met sekerheid.',
   'landing.ctaBody':
     'Geen kredietkaart nie. Geen platformingenieur benodig nie. Kry die eerste pyplyn groen binne vyf minute.',
   'landing.ctaHeading': 'Versend met sekerheid.',
   'landing.featuresEyebrow': '// platformkenmerke',
   'landing.featuresHeading': 'Gebou vir versenders, deur versenders',
+  'landing.heroSubtitle':
+    'Pyplyne wat binne sekondes klaarmaak. Logboeke wat jy kan lees. Ontplooiings wat jy kan vertrou.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit ontplooi --veilig',
   'landing.pricingEyebrow': '// $ pryse --plain',
   'landing.pricingHeading': 'Eenvoudige, voorspelbare pryse',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Nou in vlug',
   'pipelines.metric.successCaption': '{{count}} van {{total}} hardloop',
   'pipelines.metric.successRate': 'Sukseskoers',
+  'pipelines.realtimeOn': 'intyds',
   'pipelines.subheading': 'Regstreekse opdaterings vanaf elke gekykte bewaarplek.',
+  'pricing.advancedFeatures': 'Gevorderde kenmerke: {{mark}}',
+  'pricing.canExport': 'Data-uitvoer: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artefakte',
+  'pricing.maxBuilds': '{{count}} boue',
+  'pricing.maxPipelines': '{{count}} pyplyne',
   'privacy.dataAccount': 'Rekening: naam, e-pos, gehashte wagwoord, planvlak.',
   'privacy.intro':
     '{{toepassing}} versamel slegs die minimum data wat ons benodig om jou deurlopende afleweringsrekening te bedryf: jou e-pos, die bewaarplekke wat jy koppel, die commits en boumetadata wat jou runners produseer, en die geheime wat jy kies om by ons te stoor. Ons lees nooit jou bronkode buite die bou-runner nie; bou-artefakte word in jou S3-emmer gestoor wanneer dit gekonfigureer word.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Ons gebruik Stripe vir fakturering, Mailgun vir transaksionele e-pos, en AWS S3 vir die berging van bou-artefakte. Elkeen is kontraktueel gebonde aan die minimum omvang van data wat nodig is om sy diens te lewer.',
   'privacy.rightsBody':
     "Jy kan elke greep van jou data uitvoer, jou rekening te eniger tyd uit Instellings verwyder, en 'n rekord van elke webhook-aflewering op jou rekening aanvra. Ons reageer binne 30 dae op GDPR / CCPA-versoeke.",
+  'privacy.subtitle':
+    'Hoe {{app}} jou data versamel, stoor en beskerm terwyl ons jou pyplyne laat loop.',
   'privacy.title': 'Privaatheidsbeleid',
   'repositories.empty': 'Geen bewaarplekke gekoppel nie.',
   'repositories.heading': 'Bewaarplekke',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Alle bewaarplekke',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Kon nie bewaarplek laai nie.',
+  'repositoryDetail.meanDuration': 'Gemiddelde duur',
   'repositoryDetail.notFound': 'Bewaarplek nie gevind nie.',
+  'repositoryDetail.successRate': 'Sukseskoers',
   'repositoryDetail.totalBuilds': 'Totale bouwerk',
   'repositoryDetail.webhookActive': 'aktief',
   'repositoryDetail.webhookPaused': 'gepouseer',
   'repositoryDetail.webhooksHeading': 'Webhooks',
+  'resetPassword.passwordLabel': 'Nuwe wagwoord',
   'resetPassword.runnerStatus': 'herstel · teken geverifieer',
   'resetPassword.subtitle': "Kies 'n sterk wagwoord wat jy nog nie voorheen gebruik het nie.",
   'resetPassword.tokenPlaceholder': 'plak vanaf e-pos',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Bewaarplekke Conduit-kyk. Ontkoppel van jou VCS-verskaffer om die inneem van gebeurtenisse te stop.',
   'settings.repositories.empty': 'Geen bewaarplekke is nog gekoppel nie.',
+  'settings.repositories.heading': 'Repository-verbindings',
   'settings.repositories.loadError': 'Kon nie bewaarplekke laai nie.',
   'settings.secrets.addCta': 'Voeg geheim by',
   'settings.secrets.addError': 'Kon nie geheim byvoeg nie.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Kon nie geheim verwyder nie.',
   'settings.secrets.empty': 'Geen geheime gestoor nie.',
   'settings.secrets.heading': 'Geheime',
+  'settings.secrets.lastUsed': 'laas gebruik {{date}}',
   'settings.secrets.loadError': 'Kon nie geheime laai nie.',
   'settings.secrets.neverUsed': 'nooit gebruik nie',
   'settings.secrets.rotateCta': 'Roteer',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Kon nie webhook opdateer nie.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'gratis vlak · 1 000 bou min/maand',
+  'terms.intro':
+    "Deur 'n {{app}}-rekening te skep, stem jy in tot hierdie bepalings. Hulle dek aanvaarbare gebruik van die bou-lopers, die grense van ons SLA, en die voorwaardes waaronder ons jou rekening kan opskort of beëindig vir misbruikende werkladings.",
   'terms.slaBody':
     'Pro- en Spanplanne teiken 99.95% maandelikse bedryfstyd vir die API en runnerpoel. Die Gratis plan word soos dit is verskaf. Onderbrekings word gerapporteer op status.conduit.dev en gekrediteer volgens die formule in jou faktuur.',
   'terms.terminationBody':

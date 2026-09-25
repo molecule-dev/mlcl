@@ -1,14 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Aiseolas agat, bhí fadhb agat, nó ar mhaith leat a rá linn cad ba cheart dúinn a thógáil ansin? Déan teagmháil leis an bhfoireann ag hello@reverie.app — téann gach teachtaireacht chuig duine fíor a dhéanann an táirge.',
   'about.contactTitle': 'Labhair linn',
+  'about.missionTitle': 'Ár misean',
   'auth.fields.newPassword': 'Pasfhocal nua',
   'collectionDetail.addImage': 'Déan conjure le haghaidh bailiúcháin',
   'collectionDetail.backCta': 'Ar ais chuig na bailiúcháin',
   'collectionDetail.coverNote': 'Clár giúmar coimeádta le {{count}} íomhánna.',
   'collectionDetail.editName': 'Ainm an bhailiúcháin',
+  'collectionDetail.empty':
+    'Níl aon íomhánna sa bhailiúchán seo fós — gineadh rud éigin le cur leis.',
   'collectionDetail.loading': 'Ag lódáil an bhailiúcháin…',
   'collectionDetail.loadingImages': 'Íomhánna á lódáil…',
+  'collectionDetail.notFoundBody': 'Baineadh an bailiúchán seo nó tá sé príobháideach.',
   'collectionDetail.notFoundTitle': 'Bailiúchán ar fáil',
   'collectionDetail.shared': 'Infheictheacht lasctha',
   'collections.create': 'Bailiúchán nua',
@@ -16,6 +22,7 @@ export const ui: UiTranslations = {
     'Gan aon bhailiúcháin fós. Cruthaigh ceann chun tús a chur le do chuid oibre a choimeád.',
   'collections.imageCount': '{{count}} íomhánna',
   'collections.loading': 'Ag lódáil bailiúcháin…',
+  'collections.noDescription': 'Níl aon chur síos ann fós — oscail le ceann a chur leis.',
   'collections.subtitle': 'Cláir giúmar, achoimrí agus sraitheanna leanúnacha',
   'collections.title': 'Bailiúcháin',
   'collections.untitled': 'Gan Teideal · {{stamp}}',
@@ -55,6 +62,7 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'Cuir isteach an seoladh ríomhphoist atá ceangailte le do chuntas Reverie agus seolfaimid nasc athshocraithe chugat.',
   'forgot.successBody': 'Tá nasc athshocraithe ar a bhealach chuig {{email}} .',
+  'gallery.empty.body': 'Bain triail as staid eile nó gineadh baisc nua ón stiúideo.',
   'gallery.empty.title': 'Níl aon rud a oireann don scagaire sin',
   'gallery.exportAll': 'Easpórtáil gach rud',
   'gallery.exported': 'Easpórtáil i scuaine',
@@ -78,12 +86,15 @@ export const ui: UiTranslations = {
   'generate.controls.title': 'Coigeartaigh an aisling',
   'generate.defaultPrompt': 'Brionglóid nua',
   'generate.progress': 'Céim {{step}} / {{total}}',
+  'generate.submitFailed':
+    'Níorbh fhéidir an ghiniúint a chur sa scuaine — seiceáil do cheangal agus bain triail eile as.',
   'generate.subtitle': 'Cum leid, cuir na rialuithe isteach, agus cruthaigh malairtí',
   'generate.title': 'Stiúideo',
   'generation.created': '{{when}}',
   'imageDetail.acting': 'Ag obair…',
   'imageDetail.actionFailed': 'Theip ar an ngníomh.',
   'imageDetail.actions': 'Gníomhartha íomhá',
+  'imageDetail.downloadStarted': 'Thosaigh an íoslódáil.',
   'imageDetail.downloadUnavailable': 'Níl aon íomhá ar fáil le híoslódáil go fóill.',
   'imageDetail.fields.aspect': 'Gné',
   'imageDetail.fields.created': 'Cruthaithe',
@@ -94,11 +105,17 @@ export const ui: UiTranslations = {
   'imageDetail.notFoundTitle': 'Íomhá ar fáil',
   'imageDetail.noVariations': 'Gan aon athruithe fós — iarr ceann thuas.',
   'imageDetail.openEditor': 'Oscail san eagarthóir',
+  'imageDetail.tips.lockSeed':
+    'Cuir glas ar an síol chun oibriú ar an soilsiú gan an comhdhéanamh a chailleadh.',
+  'imageDetail.tips.upscale':
+    'Rith upscálú 4× sula ndéanann tú onnmhairiú le haghaidh cáilíochta atá réidh le priontáil.',
   'imageDetail.tipsTitle': 'Scag an aisling',
+  'imageDetail.title': 'Image',
   'imageDetail.upscaleQueued': 'Scuaineáilte suas',
   'imageDetail.variations': 'Éagsúlachtaí',
   'imageDetail.variationsQueued': 'Athruithe i scuaine',
   'imageDetail.visibilityToggled': 'Infheictheacht nuashonraithe',
+  'landing.copyright': '© {{year}} {{appName}} Labs. Tógtha le Molecule.dev.',
   'landing.cta': 'Tosaigh ag cruthú',
   'landing.eyebrow': 'Ag freastal Reverie XL v3 anois',
   'landing.featuresEyebrow': 'Cén fáth Reverie',
@@ -139,8 +156,18 @@ export const ui: UiTranslations = {
     'Beidh gníomhaíocht giniúna, comhroinnt agus foláirimh chreidmheasa le feiceáil anseo.',
   'notifications.empty.title': 'Ní haon rud le tuairisciú',
   'notifications.subtitle': 'Imeachtaí giniúna grúpáilte de réir lae',
+  'planUpdated.confirmed': 'Tá do phlean {{planKey}} gníomhach agus cuireadh creidmheasanna leis.',
+  'planUpdated.error':
+    "Níorbh fhéidir linn d'uasghrádú a dhearbhú go huathoibríoch. Déan teagmháil leis an tacaíocht le do thoil.",
+  'planUpdated.retry': 'Déan iarracht arís',
+  'planUpdated.unpaid':
+    'Níor íocadh do sheisiún seiceála amach. Bain triail eile as ó na Socruithe.',
+  'planUpdated.verifyFailed': 'Ní raibh muid in ann d’íocaíocht a dheimhniú go fóill.',
+  'planUpdated.verifyFailedBody':
+    'B’fhéidir go bhfuil d’íocaíocht fós á próiseáil. Bain triail eile as i gceann nóiméid.',
   'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'pricing.limits.gallery': '{{count}} gailearaí',
+  'pricing.limits.generations': '{{count}} giniúint',
   'privacy.collect.body':
     'Nuair a chláraíonn tú, bailímid d’ainm, do sheoladh ríomhphoist, agus pasfhocal hasháilte. De réir mar a úsáideann tú Reverie, stóráilimid na leideanna a chuireann tú isteach, na híomhánna a ghineann muid duit, na stíleanna agus na bailiúcháin a shábhálann tú, agus meiteashonraí amhail an tsamhail a úsáideadh, stampaí ama giniúna, agus iarmhéid creidmheasa.',
   'privacy.cookies.body':
@@ -154,6 +181,8 @@ export const ui: UiTranslations = {
   'profile.followedBio': 'Lean mé cruthaitheoir díreach anois',
   'profile.following': 'Ag leanúint…',
   'profile.loadingWorks': 'Ag lódáil oibreacha poiblí…',
+  'profile.noPublicWorks':
+    'Níl aon saothar poiblí ann fós — roinn íomhá chun an gailearaí seo a líonadh.',
   'profile.notFoundTitle': 'Próifíl ar fáil',
   'profile.publicWorks': 'Oibreacha poiblí',
   'profile.subtitle': '@ {{handle}} · próifíl chruthaitheora phoiblí',
@@ -165,6 +194,7 @@ export const ui: UiTranslations = {
   'prompts.empty.cta': 'Stiúideo oscailte',
   'prompts.empty.title': 'Níl aon leideanna sábháilte ag teacht le chéile',
   'prompts.lastUsed': 'Úsáidte {{when}}',
+  'prompts.loading': 'Ag lódáil leideanna…',
   'prompts.negativeLabel': 'NEG',
   'prompts.runAgain': 'Rith',
   'prompts.running': 'Ag rith…',
@@ -180,6 +210,7 @@ export const ui: UiTranslations = {
   'settings.account.saveFailed': 'Níorbh fhéidir an phróifíl a shábháil',
   'settings.account.title': 'Próifíl an chruthaitheora',
   'settings.accountSecurity': 'Cuntas & slándáil',
+  'settings.accountSecurity.title': 'Sínithe isteach, gléasanna & cuntas',
   'settings.api.empty':
     'Gan aon eochracha API fós — cruthaigh ceann chun tús a chur le comhtháthú.',
   'settings.api.loading': 'Ag lódáil eochracha API…',
@@ -199,13 +230,17 @@ export const ui: UiTranslations = {
   'sidebar.secondary': 'Nascleanúint thánaisteach',
   'signup.failed': 'Theip ar an gclárú. Déan iarracht eile.',
   'signup.firstNamePlaceholder': 'Aria',
+  'signup.haveAccount': 'I do bhrionglóir cheana?',
   'signup.heading': 'Tosaigh do bhrionglóid',
   'signup.lastNamePlaceholder': 'Lín',
   'signup.subheading': 'Cruthaigh cuntas agus éiligh 120 creidmheas saor in aisce.',
+  'styles.body':
+    'Cuimsíonn gach réamhshocrú a mhúnla, a shamplóir, a scafall leideanna agus a sceallóga stíle féin. Gníomhachtaigh ceann chun an stiúideo ar fad a chur sa ghiúmar sin — foirfe do shaothar sraithe.',
   'styles.empty':
     'Níl aon réamhshocruithe stíle ann go fóill — beidh siad le feiceáil tar éis an chéad logáil isteach.',
   'styles.eyebrow': 'Coimeádta',
   'styles.headline': 'Déan cur i gcéill níos tapúla le réamhshocruithe amhairc in-athúsáidte',
+  'styles.loading': 'Leabharlann stíle á lódáil…',
   'styles.subtitle': 'Réamhshocruithe amhairc coimeádta ag foireann stiúideo Reverie',
   'styles.title': 'Leabharlann stíl',
   'terms.acceptableUse.body':

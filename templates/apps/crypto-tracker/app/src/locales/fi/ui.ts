@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
+  'about.featureAlerts':
+    'Hintahälytykset olennaisista ehdoista, toimitettuna sähköpostilla ja push-viesteinä, jotta et koskaan missaa liikettä.',
+  'about.featureMarkets':
+    'Reaaliaikainen markkinadata ja hintakaaviot tuhansista kryptoista, järjestettynä markkina-arvon, volyymin ja momentumin mukaan.',
+  'about.featurePortfolio':
+    'Salkun seuranta todellisella voitto- ja tappiolaskennalla, hankintahinnalla ja allokaatiolla — yhdistettynä tapahtumahistoriaasi.',
+  'about.featureWatchlist':
+    'Henkilökohtainen seurantalista ja kootut kryptouutiset signaaleineen seuraamistasi omaisuuseristä.',
+  'about.missionTitle': 'Missiomme',
+  'alertConditionCard.armedSince': 'Valmiudessa alkaen {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'Laukaistu {{kun}}',
   'alertConditionCard.confirmDelete': 'Vahvista poisto',
+  'alertConditionCard.deleteAriaLabel': 'Poista hälytys',
   'alertConditionCard.pauseAriaLabel': 'Keskeytä hälytys',
   'alertConditionCard.resumeAriaLabel': 'Jatka-hälytys',
+  'alertConditionCard.triggeredAt': 'Laukaistu {{when}}',
   'alertNew.condition': 'Kunto',
   'alertNew.createCta': 'Luo hälytys',
   'alertNew.error': 'Hälytystä ei voitu luoda.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Ei vielä hälytyksiä.',
   'alerts.eyebrow': 'Bourse-laukaisulangat',
   'alerts.loadError': 'Hälytysten lataaminen epäonnistui.',
+  'alerts.newCta': '+ Uusi ansalanka',
   'alerts.subheading': 'Saat ilmoituksen, kun hinta, muutos tai volyymi ylittää rajasi.',
   'alerts.summary.armed': 'Aseistettu',
   'alerts.summary.triggered': 'Laukaistu',
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Kaikkien aikojen korkein',
   'coinDetail.allTimeLow': 'Kaikkien aikojen pohjalukemat',
   'coinDetail.back': 'Kaikki markkinat',
+  'coinDetail.chartAriaLabel': '{{name}} hintakaavio, viimeiset 30 päivää',
   'coinDetail.chartHeading': 'Hinta · viimeiset 30 päivää',
   'coinDetail.circulating': 'Kiertävä syöttö',
   'coinDetail.fdv': 'Täysin laimennettu arvostus',
@@ -54,9 +69,12 @@ export const ui: UiTranslations = {
   'forgotPassword.eyebrow': 'Nollaa',
   'forgotPassword.subheading':
     'Syötä tunnukseesi liitetty sähköpostiosoite, niin lähetämme sinulle nollauslinkin.',
+  'forgotPassword.successBody':
+    'Tarkista {{email}} — jos osoite on tilikirjassa, olemme lähettäneet linkin.',
   'forgotPassword.successHeading': 'Nollaa langallinen linkki.',
   'login.eyebrow': 'Astu terminaaliin',
   'login.heading': 'Tervetuloa takaisin, viestinvaihtaja.',
+  'login.noAccountQuestion': 'Uusi Tesseraan?',
   'login.secureNote': '🔒 Salattu siirrossa',
   'login.signingInCta': 'Nauhoitteen lukeminen…',
   'login.signupLink': 'Avaa tili →',
@@ -92,6 +110,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Skannaamasi reitti ei johda tunnettuun kolikkoon tai sivuun. Tarkista symboli uudelleen ja yritä uudelleen.',
   'notFound.browseMarkets': 'Selaa markkinoita',
+  'notFound.eyebrow': '{{appName}} signaali menetetty',
+  'notFound.heading': 'Tämä signaali on kantaman ulkopuolella',
+  'planUpdated.body':
+    'Laskutustietojesi muutos on nyt voimassa. Voit hallita suunnitelmaasi milloin tahansa laskutussivulta.',
+  'planUpdated.retry': 'Yritä uudelleen',
+  'planUpdated.verifyFailed': 'Emme voineet vielä vahvistaa maksuasi.',
+  'planUpdated.verifyFailedBody':
+    'Maksusi käsittely saattaa olla vielä kesken. Yritä uudelleen hetken kuluttua.',
   'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'portfolio.addError': 'Syötä symboli, positiivinen määrä ja hinta.',
   'portfolio.addHoldingCta': '+ Lisää omistusosuus',
@@ -115,11 +141,13 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Salkun kokonaisarvo',
   'portfolioHeroCard.totalPnl': 'Kokonaisvoitto/tappio',
   'pricing.heading': 'hälytykset',
+  'pricing.limit.alerts': 'hälytykset',
   'pricing.limit.coins': 'kolikot',
   'pricing.limit.market': 'markkinoida',
   'pricing.limit.portfolio': 'salkku',
   'resetPassword.eyebrow': 'Uusi salaus',
   'resetPassword.missingToken': 'Tämä nollauslinkki puuttuu tai on virheellinen. Pyydä uutta.',
+  'resetPassword.passwordPlaceholder': 'Uusi salasana',
   'resetPassword.subheading': 'Valitse jokin, jonka vain sinä osaat tulkita.',
   'settings.apiKeys.body':
     'Vain luku -avaimet tapahtumahistorian tuontiin. Yhdistä OAuth-yhteyden kautta osoitteesta /pricing tilauksen jälkeen.',
@@ -131,17 +159,33 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Lainaa valuuttaa',
   'settings.preferences.locale': 'Kielipari',
   'settings.preferences.push': 'Työnnä',
+  'settings.preferences.refresh': 'Hintojen päivitys (sekuntia)',
   'settings.preferences.sms': 'Tekstiviesti',
+  'settings.revokeDeviceWarning': 'Tämän laitteen pääsy peruutetaan pian. Kirjaudu ulos?',
   'settings.security.body': 'Salasanaa ja kaksivaiheisia asetuksia hallitaan tililläsi.',
   'settings.signOutDevice': 'Kirjaudu ulos',
   'settings.twoFactorCode': 'Todentamiskoodi',
   'settings.twoFactorDisable': 'Poista käytöstä',
+  'settings.twoFactorDisableTitle': 'Poista kaksivaiheinen tunnistautuminen käytöstä',
   'settings.twoFactorEnable': 'Ota käyttöön',
+  'settings.twoFactorEnableTitle': 'Ota kaksivaiheinen tunnistautuminen käyttöön',
   'settings.twoFactorInvalidCode': 'Virheellinen koodi',
   'settings.twoFactorOn': 'Päivämäärä',
+  'settings.twoFactorQrAlt': 'Kaksivaiheisen QR-koodi',
+  'settings.twoFactorScan':
+    'Skannaa tämä QR-koodi tunnistautumissovelluksellasi ja syötä sitten 6-numeroinen koodi.',
+  'settings.twoFactorUnavailable':
+    'Kaksivaiheinen todennus ei ole käytettävissä tälle sovellukselle.',
   'settings.twoFactorVerify': 'Tarkista ja ota käyttöön',
   'sigilAuthShell.backHomeCta': '← Takaisin Bourse',
+  'sigilAuthShell.brandBody':
+    'Reaaliaikaiset hinnat, salkun tulos ja pysyvät vartiot olennaisista ehdoista — kaikki yhdellä terminaalilla.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — rakennettu Moleculen päälle',
+  'sigilAuthShell.brandHeadline': 'Pura jokainen signaali koko tilikirjasta.',
+  'sigilAuthShell.samplePortfolio': 'Esimerkkisalkku',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Päänavigaatio',
+  'signup.creating': 'Avataan terminaaliasi…',
   'signup.eyebrow': 'Avaa pääte',
   'signup.heading': 'Luo oma Bourse',
   'signup.subheading': 'Seuraa jokaista kolikkoa, torju jokainen huti. Aloitus ilmainen.',
@@ -158,6 +202,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Tapahtumien lataaminen epäonnistui.',
   'watchlist.addCta': 'Selaa markkinoita',
   'watchlist.col.change24h': '24 tuntia',
+  'watchlist.col.coin': 'Kolikko',
   'watchlist.col.marketCap': 'Markkinakorkki',
   'watchlist.empty':
     'Ei kolikoita seurantalistallasi — lisää ne tähtikolikoilla /markets-sivustolta.',

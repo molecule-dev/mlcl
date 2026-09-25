@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Des questions, des demandes de fonctionnalités ou un compteur que nous devrions prendre en charge ? Contactez l'équipe {{appName}} depuis les paramètres de votre compte — chaque message est lu par une vraie personne.",
   'about.contactTitle': 'Contactez-nous',
   'about.eyebrow': 'À propos',
+  'about.featuresTitle': 'Ce que vous obtenez',
+  'about.intro':
+    "{{appName}} est une solution de suivi de puissance en temps réel pour les foyers solaires et les équipes de gestion d'installations. Nous transformons le flux continu de données des compteurs, onduleurs et batteries en une vue apaisée de salle de contrôle — puissance instantanée, production solaire, coût selon les heures de consommation et alertes, le tout dans une seule interface.",
+  'about.missionBody':
+    "L'énergie que l'on voit est l'énergie que l'on peut gérer. Nous pensons que toute personne qui exploite un compteur — un foyer équipé de panneaux solaires en toiture ou une équipe qui surveille un bâtiment — mérite une visibilité de qualité industrielle sans contrat de fournisseur d'énergie. Chaque fonctionnalité est conçue pour faire du prochain kilowattheure un choix éclairé, et non une surprise sur la facture.",
+  'about.missionTitle': 'Notre mission',
   'about.pageTitle': 'À propos de {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Accuser',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alertes@votredomaine.com',
   'alertRule.eyebrow': 'Nouvelle règle',
   'alertRule.heading': "Repérez le pic avant qu'il ne vous coûte cher",
+  'alertRule.nameLabel': 'Nom de la règle',
   'alertRule.namePlaceholder': 'ex. Surveillance CVC hors heures',
   'alertRule.subheading':
     "Choisissez une métrique, un seuil et où envoyer l'alerte. Vous pouvez la modifier ou la suspendre à tout moment.",
   'alertRule.submit': 'Enregistrer la règle',
   'alertRule.submitError': "Impossible d'enregistrer la règle.",
   'alertRule.thresholdLabel': 'Seuil',
+  'alertRule.typeLabel': 'Type de déclencheur',
   'alerts.checking': 'Vérification…',
   'alerts.confirmDelete': 'Confirmer la suppression',
+  'alerts.empty': 'Rien à afficher — aucune alerte dans cet état.',
   'alerts.emptyNoRules':
     "Aucune alerte pour l'instant — ajoutez une règle, puis cliquez sur « Évaluer maintenant » pour la tester.",
   'alerts.errorAck': "Impossible d'accuser réception.",
@@ -41,12 +52,15 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Évaluer maintenant',
   'alerts.subheading':
     'Alertes de seuil et de motif se déclenchant sur vos compteurs, ainsi que les règles qui les pilotent.',
+  'billing.activeBlurb': 'Votre abonnement est actif. Gérez-le à tout moment.',
   'billing.cancelError': "Impossible d'annuler l'abonnement.",
   'billing.cancelling': 'Annulation…',
   'billing.currentBadge': 'Actuel',
   'billing.freeBlurb':
     "Vous êtes sur le plan Gratuit. Passez à un plan supérieur pour plus de compteurs, un historique plus long et davantage de règles d'alerte.",
   'billing.heading': 'Plans et facturation',
+  'billing.historyEmpty':
+    'Les factures payées apparaîtront ici dès que votre abonnement sera facturé.',
   'billing.historyHeading': 'Historique des factures',
   'billing.loadError': 'Impossible de charger la facturation.',
   'billing.loading': 'Chargement des plans…',
@@ -58,17 +72,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Contacter le service commercial',
   'common.goToDashboard': 'Aller au tableau de bord',
   'dailyCostMeter.cost': '{{symbol}}{{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} heures pleines · {{offPeak}} kWh heures creuses',
   'dailyCostMeter.runningLabel': 'Total en cours',
   'dailyCostMeter.title': 'Coût depuis le début de la journée',
   'dailyCostMeter.utilizationLabel': 'Du budget journalier',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Ajouter un compteur',
   'dashboard.alertsHeading': 'Alertes actives',
   'dashboard.devicesHeading': 'Principaux circuits en ce moment',
   'dashboard.empty.body':
     'Ajoutez un compteur intelligent ou un onduleur solaire pour commencer à suivre la consommation et la production en direct.',
+  'dashboard.empty.title': "Aucun compteur pour l'instant",
   'dashboard.eyebrow': 'Salle de contrôle Voltrace',
   'dashboard.heading': 'Aperçu énergétique en direct',
   'dashboard.loadError': 'Impossible de charger les relevés en direct.',
   'dashboard.loading': 'Connexion à vos compteurs…',
+  'dashboard.noAlerts': 'Tout est calme — rien ne franchit vos seuils.',
   'dashboard.noAlertsAndNoMeters':
     'Une fois un compteur connecté, les alertes basées sur vos seuils apparaîtront ici.',
   'dashboard.noCircuits':
@@ -77,6 +96,7 @@ export const ui: UiTranslations = {
     'Consommation totale du domicile, production solaire et coût depuis le début de la journée.',
   'dashboard.viewAllAlerts': 'Gérer les alertes →',
   'dashboard.viewAllDevices': 'Tous les appareils →',
+  'deviceDetail.activeTokens': "Jetons d'ingestion actifs",
   'deviceDetail.alreadyOff': 'Déjà en pause',
   'deviceDetail.back': 'Tous les circuits',
   'deviceDetail.confirmDelete': 'Confirmer la suppression',
@@ -117,21 +137,33 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Impossible de charger les compteurs.',
   'devices.loading': 'Interrogation de chaque compteur…',
   'devices.newRule': "Nouvelle règle d'alerte",
+  'devices.noResults': 'Aucun circuit ne correspond à ce filtre.',
   'devices.placeholder.location': 'ex. Local technique',
   'devices.placeholder.name': 'ex. Sous-tableau du garage',
   'devices.subheading': 'Watts en direct et kWh du jour sur chaque circuit que Voltrace peut voir.',
+  'deviceWattageRow.todayKwh': "{{kwh}} kWh aujourd'hui",
+  'deviceWattageRow.watts': '{{watts}} W',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Menu',
+  'energyMonitoringLayout.primaryNavLabel': 'Navigation principale',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    '{{appName}} communique avec la plupart des compteurs de qualité industrielle, onduleurs solaires et parcs de batteries — par câble ou en WiFi.',
   'landing.ctaHeading': 'Couplez votre compteur, voyez les watts en quelques minutes',
   'landing.eyebrow': 'Intelligence énergétique en temps réel',
+  'landing.featuresHeading': 'Chaque watt, chaque minute, dans une seule interface',
   'landing.getStarted': 'Brancher Voltrace',
   'landing.heroCta': 'Brancher Voltrace',
+  'landing.heroSubtitle':
+    "Puissance instantanée, production solaire, coût selon les heures de consommation et alertes de forte consommation dans une interface de salle de contrôle conçue pour les foyers solaires et les équipes de gestion d'installations.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Consommation totale du domicile',
   'landing.sampleSolar': '+3 820 W solaire',
   'landing.sampleSummary': "Export de 1 680 W vers le réseau · 18,4 kWh aujourd'hui",
   'landing.sampleWatts': '2 140 W',
   'powerHeroCard.solar': '+{{watts}} W solaire',
   'powerHeroCard.title': 'Consommation totale du domicile',
+  'powerHeroCard.todayKwh': "{{kwh}} kWh aujourd'hui",
   'powerHeroCard.watts': '{{watts}} W',
   'pricing.choose': 'Choisir {{name}}',
   'pricing.contact': "Besoin d'une offre sur mesure ?",
@@ -145,6 +177,7 @@ export const ui: UiTranslations = {
   'pricing.unavailable':
     "Ce plan n'est pas disponible pour l'instant — Stripe n'est pas configuré.",
   'profile.errorGeneric': "Impossible d'enregistrer les modifications du profil.",
+  'profile.errorGoal': "L'objectif mensuel en kWh doit être un nombre positif.",
   'profile.errorHousehold': 'La taille du foyer doit être un nombre positif.',
   'profile.householdHeading': 'Foyer et objectifs',
   'profile.householdSize': 'Taille du foyer',
@@ -161,9 +194,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'Agrégation des relevés…',
   'reports.subheading':
     'Totaux journaliers de consommation, de production et de coût — détaillés par date.',
+  'reports.tableHeading': 'Répartition quotidienne',
   'settings.currency': 'Devise',
   'settings.errorFlat': 'Le tarif unique doit être ≥ 0.',
   'settings.errorNotify': "Impossible d'enregistrer les préférences de notification.",
+  'settings.errorSave': "Impossible d'enregistrer le plan tarifaire.",
   'settings.errorTou':
     "Des tarifs heures pleines/creuses et une plage d'heures pleines valide sont requis.",
   'settings.exportBody':
@@ -184,10 +219,21 @@ export const ui: UiTranslations = {
   'settings.saving': 'Enregistrement…',
   'settings.securityHeading': 'Authentification à deux facteurs',
   'settings.subheading': 'Tarifs, notifications et export des données.',
+  'settings.twoFactorBody':
+    "Exiger un code à usage unique de votre application d'authentification à chaque connexion.",
   'settings.twoFactorCode': "Code d'authentification",
   'settings.twoFactorDisable': 'Désactiver',
+  'settings.twoFactorDisableTitle': "Désactiver l'authentification à deux facteurs",
   'settings.twoFactorEnable': 'Activer',
+  'settings.twoFactorEnableTitle': "Activer l'authentification à deux facteurs",
   'settings.twoFactorInvalidCode': 'Code non valide',
+  'settings.twoFactorOAuth':
+    "Votre compte se connecte via un fournisseur externe, l'authentification à deux facteurs y est donc gérée.",
   'settings.twoFactorOn': 'Le',
+  'settings.twoFactorQrAlt': "QR code d'authentification à deux facteurs",
+  'settings.twoFactorScan':
+    "Scannez ce QR code avec votre application d'authentification, puis saisissez le code à 6 chiffres.",
+  'settings.twoFactorUnavailable':
+    "L'authentification à deux facteurs n'est pas disponible pour cette application.",
   'settings.twoFactorVerify': 'Vérifier et activer',
 }

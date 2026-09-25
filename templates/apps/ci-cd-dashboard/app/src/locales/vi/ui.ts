@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Có câu hỏi, góp ý, hay muốn xem demo cho nhóm của bạn? Gửi email cho chúng tôi tại hello@conduit.dev — mọi tin nhắn đều đến tay một người thật trong nhóm.',
   'about.contactHeading': 'Liên hệ',
   'about.eyebrow': 'Giới thiệu',
+  'about.featuresHeading': 'Quý vị nhận được gì',
+  'about.introBody':
+    '{{app}} mang continuous delivery kiểu GitHub Actions vào một dashboard nhanh gọn: pipeline, log build, artifact, huy hiệu trạng thái và môi trường triển khai cho mọi repository của bạn ở cùng một nơi. Không cần nhảy tab, không phải đoán xem build nào hỏng — mọi lần chạy, dòng log và lần deploy chỉ cách một cú nhấp.',
+  'about.introHeading': '{{app}} là gì',
+  'about.missionBody':
+    'Việc phát hành phần mềm nên nhẹ nhàng và dễ đoán, chứ không phải nỗi lo. Chúng tôi xây dựng pipeline, log và công cụ deploy để đường đi từ commit đến production nhanh, rõ ràng và đáng tin — build xanh đầu tiên trong năm phút, và mọi build sau đó cũng rõ ràng như vậy.',
+  'about.missionHeading': 'Sứ mệnh của chúng tôi',
+  'about.subtitle':
+    '{{app}} là dashboard CI/CD cho các nhóm muốn theo dõi build, triển khai và môi trường trên mọi repository — và phát hành một cách chắc chắn.',
   'artifacts.empty': 'Chưa có hiện vật nào.',
   'artifacts.heading': 'Hiện vật',
   'artifacts.loadError': 'Không tải được hiện vật.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Môi trường',
   'environments.loadError': 'Không tải được môi trường.',
+  'environments.loading': 'Đang tải môi trường…',
   'environments.subheading': 'Trạng thái triển khai trực tiếp trên mọi mục tiêu.',
   'forgotPassword.runnerStatus': 'đặt lại · đường hầm an toàn',
+  'forgotPassword.success':
+    'Nếu có tài khoản tồn tại với email đó, liên kết đặt lại đang trên đường tới. Vui lòng kiểm tra hộp thư đến.',
   'insights.changeFailureRate': 'Tỷ lệ thay đổi thất bại',
   'insights.deployFrequency': 'Triển khai / ngày',
   'insights.empty': 'Chưa đủ dữ liệu.',
@@ -39,13 +53,17 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Không tải được phân tích.',
   'insights.meanP95': 'trung bình {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Các bước pipeline chậm nhất',
   'insights.successRateHeading': 'Tỷ lệ thành công quy trình (14 ngày qua)',
   'landing.choosePlan': 'Chọn gói',
+  'landing.copyright': '© {{year}} {{app}}. Phát hành một cách chắc chắn.',
   'landing.ctaBody':
     'Không cần thẻ tín dụng. Không cần kỹ sư nền tảng. Đưa quy trình đầu tiên thành công trong năm phút.',
   'landing.ctaHeading': 'Phát hành với sự chắc chắn.',
   'landing.featuresEyebrow': '// tính năng nền tảng',
   'landing.featuresHeading': 'Được xây dựng cho người phát hành, bởi người phát hành',
+  'landing.heroSubtitle': 'Pipeline hoàn tất trong vài giây. Log đọc được. Deploy đáng tin.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Giá đơn giản, dễ dự đoán',
@@ -84,7 +102,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Đang diễn ra',
   'pipelines.metric.successCaption': '{{count}} trong số {{total}} lần chạy',
   'pipelines.metric.successRate': 'Tỷ lệ thành công',
+  'pipelines.realtimeOn': 'thời gian thực',
   'pipelines.subheading': 'Cập nhật trực tiếp từ mọi kho được theo dõi.',
+  'pricing.advancedFeatures': 'Tính năng nâng cao: {{mark}}',
+  'pricing.canExport': 'Xuất dữ liệu: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artifact',
+  'pricing.maxBuilds': '{{count}} build',
+  'pricing.maxPipelines': '{{count}} pipeline',
   'privacy.dataAccount': 'Tài khoản: tên, email, mật khẩu băm, hạng gói.',
   'privacy.intro':
     '{{app}} chỉ thu thập dữ liệu tối thiểu cần thiết để vận hành tài khoản giao hàng liên tục của quý vị: email, các kho quý vị kết nối, các commit và siêu dữ liệu bản dựng mà các runner của quý vị tạo ra, và các bí mật quý vị chọn lưu trữ với chúng tôi. Chúng tôi không bao giờ đọc mã nguồn của quý vị ngoài runner bản dựng; các hiện vật bản dựng được lưu trữ trong bucket S3 của quý vị khi được cấu hình.',
@@ -92,6 +116,8 @@ export const ui: UiTranslations = {
     'Chúng tôi sử dụng Stripe cho thanh toán, Mailgun cho email giao dịch, và AWS S3 cho lưu trữ hiện vật bản dựng. Mỗi bên đều bị ràng buộc theo hợp đồng về phạm vi dữ liệu tối thiểu cần thiết để cung cấp dịch vụ.',
   'privacy.rightsBody':
     'Bạn có thể xuất khẩu mọi byte dữ liệu của mình, xóa tài khoản bất cứ lúc nào từ phần Cài đặt và yêu cầu bản ghi về mọi lần gửi webhook đến tài khoản của bạn. Chúng tôi sẽ phản hồi các yêu cầu theo GDPR/CCPA trong vòng 30 ngày.',
+  'privacy.subtitle':
+    'Cách {{app}} thu thập, lưu trữ và bảo vệ dữ liệu của bạn trong khi chúng tôi chạy pipeline.',
   'privacy.title': 'Chính sách bảo mật',
   'repositories.empty': 'Không có kho nào được kết nối.',
   'repositories.heading': 'Kho',
@@ -100,11 +126,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Tất cả kho',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Không tải được kho.',
+  'repositoryDetail.meanDuration': 'Thời lượng trung bình',
   'repositoryDetail.notFound': 'Không tìm thấy kho.',
+  'repositoryDetail.successRate': 'Tỷ lệ thành công',
   'repositoryDetail.totalBuilds': 'Tổng số bản dựng',
   'repositoryDetail.webhookActive': 'đang hoạt động',
   'repositoryDetail.webhookPaused': 'tạm dừng',
   'repositoryDetail.webhooksHeading': 'Webhook',
+  'resetPassword.passwordLabel': 'Mật khẩu mới',
   'resetPassword.runnerStatus': 'đặt lại · mã thông báo đã xác minh',
   'resetPassword.subtitle': 'Vui lòng chọn một mật khẩu mạnh mà quý vị chưa từng sử dụng.',
   'resetPassword.tokenPlaceholder': 'dán từ email',
@@ -117,6 +146,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Các kho Conduit theo dõi. Ngắt kết nối khỏi nhà cung cấp VCS của quý vị để dừng nhận sự kiện.',
   'settings.repositories.empty': 'Chưa có kho nào được kết nối.',
+  'settings.repositories.heading': 'Kết nối repository',
   'settings.repositories.loadError': 'Không tải được kho.',
   'settings.secrets.addCta': 'Thêm bí mật',
   'settings.secrets.addError': 'Thêm mã bí mật không thành công.',
@@ -124,6 +154,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Không thể xóa bí mật.',
   'settings.secrets.empty': 'Chưa lưu trữ bí mật nào.',
   'settings.secrets.heading': 'Bí mật',
+  'settings.secrets.lastUsed': 'dùng lần cuối {{date}}',
   'settings.secrets.loadError': 'Không tải được bí mật.',
   'settings.secrets.neverUsed': 'chưa từng sử dụng',
   'settings.secrets.rotateCta': 'Xoay vòng',
@@ -147,6 +178,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Không thể cập nhật webhook.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'gói miễn phí · 1.000 phút dựng/tháng',
+  'terms.intro':
+    'Khi tạo tài khoản {{app}}, bạn đồng ý với các điều khoản này. Chúng bao gồm việc sử dụng hợp lý các build runner, giới hạn SLA của chúng tôi và các điều kiện mà chúng tôi có thể tạm ngưng hoặc chấm dứt tài khoản của bạn do khối lượng công việc lạm dụng.',
   'terms.slaBody':
     'Các gói Pro và Team đặt mục tiêu 99,95% thời gian hoạt động hàng tháng cho API và pool runner. Gói Free được cung cấp nguyên trạng. Sự cố được báo cáo tại status.conduit.dev và được tín dụng theo công thức trong hóa đơn của quý vị.',
   'terms.terminationBody':

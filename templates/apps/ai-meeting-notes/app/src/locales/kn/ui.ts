@@ -1,19 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ಪ್ರಶ್ನೆಗಳು, ಪ್ರತಿಕ್ರಿಯೆ ಅಥವಾ ವೈಶಿಷ್ಟ್ಯದ ವಿನಂತಿ ಇದೆಯೇ? hello@murmur.app ಗೆ ತಂಡಕ್ಕೆ ಇಮೇಲ್ ಮಾಡಿ — ಪ್ರತಿ ಸಂದೇಶವೂ ಉತ್ಪನ್ನದಲ್ಲಿ ಕೆಲಸ ಮಾಡುವ ನಿಜವಾದ ಮನುಷ್ಯನನ್ನು ತಲುಪುತ್ತದೆ.',
   'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.intro':
+    'ಟಿಪ್ಪಣಿ ತೆಗೆದುಕೊಳ್ಳುವ ಬದಲು ನಿರ್ಧಾರಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳಲು ಬಯಸುವ ತಂಡಗಳಿಗಾಗಿ {{app}} ಸಭಾ ಬುದ್ಧಿಮತ್ತೆ. ಇದು ನಿಮ್ಮ ಕರೆಗಳಿಗೆ ಸೇರುತ್ತದೆ, ಪ್ರತಿ ಪದವನ್ನೂ ಮಾತನಾಡುವವರ ಲೇಬಲ್ಗಳೊಂದಿಗೆ ಪ್ರತಿಲಿಪಿ ಮಾಡುತ್ತದೆ ಮತ್ತು ಸಭೆ ಮುಗಿದ ಕ್ಷಣವೇ AI ಸಾರಾಂಶ ಹಾಗೂ ಜವಾಬ್ದಾರಿಯುಳ್ಳ ಕ್ರಿಯಾ ಐಟಂಗಳನ್ನು ನೀಡುತ್ತದೆ.',
+  'about.missionBody':
+    'ಸಭೆಗಳು ತಂಡಗಳು ನಿರ್ಧಾರಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳುವ ಸ್ಥಳ — ಮತ್ತು ಆ ನಿರ್ಧಾರಗಳು ಕಳೆದುಹೋಗುವ ಸ್ಥಳ. ಸಂಭಾಷಣೆಯಲ್ಲಿ ನಡೆಯುವ ಕೆಲಸವು ಸಂಭಾಷಣೆಯನ್ನು ಮೀರಿ ಉಳಿಯುವಂತೆ ಮಾಡಲು {{app}} ಇದೆ: ನಿಷ್ಠಾವಂತ ದಾಖಲೆ, ಸ್ಪಷ್ಟ ಸಾರಾಂಶ ಮತ್ತು ಹೊಣೆಗಾರಿಕೆಯ ಮುಂದಿನ ಹೆಜ್ಜೆಗಳು, ಸ್ವಯಂಚಾಲಿತವಾಗಿ.',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
   'actions.empty': 'ಯಾವುದೇ ಕ್ರಿಯಾ ಐಟಂಗಳು ಹೊಂದಿಕೆಯಾಗುವುದಿಲ್ಲ.',
   'actions.heading': 'ಕ್ರಿಯಾಶೀಲ ವಸ್ತುಗಳು',
   'actions.loadError': 'ಕ್ರಿಯಾ ಐಟಂಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'actions.subheading': 'ಪ್ರತಿ ಸಭೆಯಾದ್ಯಂತ ಒಟ್ಟುಗೂಡಿಸಲಾಗಿದೆ. ಗಮನಹರಿಸಲು ಸ್ಥಿತಿಯ ಪ್ರಕಾರ ಫಿಲ್ಟರ್ ಮಾಡಿ.',
   'actions.toggleDoneLabel': 'ಮುಗಿದಿದೆ ಎಂದು ಗುರುತಿಸಿ',
   'actions.toggleReopenLabel': 'ತೆರೆದಿದೆ ಎಂದು ಗುರುತಿಸಿ',
+  'auth.footer': '© {{year}} {{app}}. ಪ್ರತಿ ಪದವೂ, ಸಾರಾಂಶವಾಗಿ.',
   'calendar.heading': 'ಕ್ಯಾಲೆಂಡರ್',
   'calendar.joinCta': 'ಸೇರಿ',
   'calendar.loadError': 'ಕ್ಯಾಲೆಂಡರ್ ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'calendar.nextMonth': 'ಮುಂದಿನ ತಿಂಗಳು',
   'calendar.noEventsForDay': 'ಈ ದಿನಕ್ಕೆ ಯಾವುದೇ ಸಭೆಗಳನ್ನು ನಿಗದಿಪಡಿಸಲಾಗಿಲ್ಲ.',
+  'calendar.noUpcomingEvents':
+    'ಮುಂಬರುವ ಸಭೆಗಳಿಲ್ಲ. ಈ ಪಟ್ಟಿಯನ್ನು ತುಂಬಲು ಇಂಟಿಗ್ರೇಷನ್ಗಳಿಂದ ಕ್ಯಾಲೆಂಡರ್ ಸಂಪರ್ಕಿಸಿ.',
   'calendar.previousMonth': 'ಹಿಂದಿನ ತಿಂಗಳು',
   'calendar.recent': 'ಇತ್ತೀಚಿನದು',
   'common.daysAgo': '{{count}} ಡಿ ಹಿಂದೆ',
@@ -25,9 +35,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} ಕ್ರಿಯಾಶೀಲ ವಸ್ತುಗಳು',
   'dashboard.empty.body':
     'ಗೊಣಗಾಟವು ನಿಮ್ಮ ಮುಂದಿನ ಸಭೆಗೆ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸೇರಲು ರೆಕಾರ್ಡಿಂಗ್ ಪ್ರಾರಂಭಿಸಿ ಅಥವಾ Google ಕ್ಯಾಲೆಂಡರ್ ಅನ್ನು ಸಂಪರ್ಕಿಸಿ.',
+  'dashboard.empty.cta': 'ರೆಕಾರ್ಡಿಂಗ್ ಪ್ರಾರಂಭಿಸಿ',
   'dashboard.empty.heading': 'ಇನ್ನೂ ಯಾವುದೇ ಸಭೆಗಳಿಲ್ಲ',
   'dashboard.eyebrow': 'ನಿಮ್ಮ ಸಭೆಯ ಫೀಡ್',
   'dashboard.loadError': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
+  'dashboard.noActions': 'ಕ್ರಿಯೆಗಳಿಲ್ಲ',
   'dashboard.recentHeading': 'ಇತ್ತೀಚಿನ ಸಭೆಗಳು',
   'dashboard.recordCta': 'ಸಭೆಯನ್ನು ರೆಕಾರ್ಡ್ ಮಾಡಿ',
   'dashboard.stat.actions': 'ಕ್ರಿಯಾಶೀಲ ವಸ್ತುಗಳು',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} ನೀವು ಕೊನೆಯದಾಗಿ ಪರಿಶೀಲಿಸಿದಾಗಿನಿಂದ ಓದದಿರುವ ಸಾರಾಂಶಗಳು. ಗೊಣಗುತ್ತಾ ಪ್ರತಿಯೊಂದು ಪದವನ್ನು ಸೆರೆಹಿಡಿಯಲಾಗಿದೆ - ಇಲ್ಲಿ ಸಾರಾಂಶವಿದೆ.',
   'dashboard.viewCalendar': 'ಕ್ಯಾಲೆಂಡರ್ ವೀಕ್ಷಿಸಿ →',
+  'footer.linksLabel': 'ಫೂಟರ್',
   'forgot.failed': 'ಮರುಹೊಂದಿಸುವ ಇಮೇಲ್ ಕಳುಹಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'forgot.sentBody':
     'ಖಾತೆ ಅಸ್ತಿತ್ವದಲ್ಲಿದ್ದರೆ {{email}}, ನೀವು ಶೀಘ್ರದಲ್ಲೇ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಪಡೆಯುತ್ತೀರಿ.',
@@ -48,15 +61,23 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'ಕ್ಯಾಲೆಂಡರ್‌ಗಳು ಮತ್ತು ವೀಡಿಯೊ ಪ್ಲಾಟ್‌ಫಾರ್ಮ್‌ಗಳನ್ನು ಸಂಪರ್ಕಿಸಿ ಇದರಿಂದ ಗೊಣಗಾಟ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸೇರುತ್ತದೆ.',
   'integrations.updateError': 'ನವೀಕರಣ ವಿಫಲವಾಗಿದೆ.',
+  'landing.ctaBody':
+    'ಪ್ರತಿ ತಿಂಗಳ ಮೊದಲ 5 ಸಭೆಗಳಿಗೆ ಉಚಿತ. ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್ ಬೇಕಿಲ್ಲ. ಒಂದು ನಿಮಿಷದೊಳಗೆ Google Calendar ಸಂಪರ್ಕಿಸಿ.',
   'landing.ctaButton': 'ಪ್ರಾರಂಭಿಸಿ — ಇದು ಉಚಿತ',
   'landing.ctaHeading':
     'ಟಿಪ್ಪಣಿಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳುವುದನ್ನು ನಿಲ್ಲಿಸಿ. ನಿರ್ಧಾರಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳಲು ಪ್ರಾರಂಭಿಸಿ.',
+  'landing.demo.aiBody':
+    'ಕಾರ್ಯಾಚರಣೆಗಳ ಸಿಬ್ಬಂದಿ ವ್ಯವಸ್ಥೆಗೆ ಅವಕಾಶ ನೀಡಲು ಬಿಡುಗಡೆಯನ್ನು ಮೇ 5 → ಮೇ 12ಕ್ಕೆ ಮುಂದೂಡಲಾಗಿದೆ. ಡ್ಯಾಶ್ಬೋರ್ಡ್ ಮರುವಿನ್ಯಾಸವನ್ನು ಮೇ 26ಕ್ಕೆ ಪ್ರತ್ಯೇಕಿಸಲಾಗಿದೆ.',
   'landing.demo.aiLabel': 'AI ಸಾರಾಂಶ, ಡ್ರಾಫ್ಟ್ ಮಾಡಿದ ಲೈವ್',
   'landing.demo.recording': 'ರೆಕಾರ್ಡಿಂಗ್ · ಲೈವ್',
   'landing.eyebrow': 'AI ಸಭೆಯ ಗುಪ್ತಚರ',
   'landing.featuresHeading': 'ಸಭೆ ಮುಗಿದ ನಂತರ ನಿಮ್ಮ ತಂಡಕ್ಕೆ ಅಗತ್ಯವಿರುವ ಎಲ್ಲವೂ',
+  'landing.featuresSubheading':
+    'ಇನ್ನು "ಕ್ಷಮಿಸಿ, ಇದರ ಜವಾಬ್ದಾರಿ ಯಾರದ್ದು?" ಎಂಬ ಪ್ರಶ್ನೆ ಇಲ್ಲ. ಕರೆ ಸಂಪರ್ಕ ಕಡಿತಗೊಳ್ಳುವ ಮೊದಲೇ {{appName}} ಸಾರಾಂಶವನ್ನು ಕಳುಹಿಸುತ್ತದೆ.',
   'landing.getStarted': 'ಉಚಿತವಾಗಿ ಪ್ರಯತ್ನಿಸಿ',
   'landing.heroSecondary': '90-ಸೆಕೆಂಡ್ ಪ್ರವಾಸ ವೀಕ್ಷಿಸಿ',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} ನಿಮ್ಮ ಕರೆಗಳಿಗೆ ಸೇರುತ್ತದೆ, ಪ್ರತಿ ಪದವನ್ನೂ ಮಾತನಾಡುವವರ ಲೇಬಲ್ಗಳೊಂದಿಗೆ ಪ್ರತಿಲಿಪಿ ಮಾಡುತ್ತದೆ ಮತ್ತು ಸಭೆ ಮುಗಿದ ಕ್ಷಣವೇ AI ಸಾರಾಂಶಗಳ ಜೊತೆಗೆ ಜವಾಬ್ದಾರಿಯುಳ್ಳ ಕ್ರಿಯಾ ಐಟಂಗಳನ್ನು ನೀಡುತ್ತದೆ.',
   'landing.heroTitle': 'ಪ್ರತಿ ಸಭೆಯನ್ನು ಸೆರೆಹಿಡಿಯಿರಿ. ಮುಖ್ಯವಾದುದನ್ನು ಮೇಲ್ಮೈಗೆ ತನ್ನಿ.',
   'login.altPrompt': 'ಗೊಣಗಾಟಕ್ಕೆ ಹೊಸಬರೇ?',
   'login.failed': 'ಸೈನ್ ಇನ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ನಿಮ್ಮ ಇಮೇಲ್ ಮತ್ತು ಪಾಸ್‌ವರ್ಡ್ ಪರಿಶೀಲಿಸಿ.',
@@ -64,6 +85,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'ಕ್ರಿಯಾಶೀಲ ವಸ್ತುಗಳು',
   'meetingDetail.back': 'ಎಲ್ಲಾ ಸಭೆಗಳು',
   'meetingDetail.decisionsHeading': 'ನಿರ್ಧಾರಗಳು',
+  'meetingDetail.dueDate': 'ಗಡುವು {{date}}',
   'meetingDetail.followupsHeading': 'ಅನುಸರಣೆಗಳು',
   'meetingDetail.loadError': 'ಸಭೆಯನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'meetingDetail.noActions': 'ಯಾವುದೇ ಕ್ರಿಯಾ ವಸ್ತುಗಳು ಪತ್ತೆಯಾಗಿಲ್ಲ.',
@@ -77,7 +99,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'ಇನ್ನೂ ಯಾವುದೇ ಸಭೆಗಳಿಲ್ಲ',
   'meetings.heading': 'ಸಭೆಗಳು',
   'meetings.loadError': 'ಸಭೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
+  'meetings.recordCta': 'ಸಭೆಯನ್ನು ರೆಕಾರ್ಡ್ ಮಾಡಿ',
   'meetings.subheading': 'ಪ್ರತಿ ರೆಕಾರ್ಡ್ ಮಾಡಿದ, ಅಪ್‌ಲೋಡ್ ಮಾಡಿದ ಮತ್ತು ಸಿಂಕ್ ಮಾಡಿದ ಸಭೆ.',
+  'murmurLayout.closeMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ಮುಚ್ಚಿರಿ',
   'murmurLayout.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'murmurLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'nav.legal': 'ಕಾನೂನುಬದ್ಧ',
@@ -102,7 +126,14 @@ export const ui: UiTranslations = {
   'profile.loading': 'ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
   'profile.navLabel': 'ಪ್ರೊಫೈಲ್ ವಿಭಾಗಗಳು',
   'profile.notifications.assignments': 'ನನಗೆ ನಿಯೋಜಿಸಲಾದ ಕ್ರಿಯಾ ಐಟಂಗಳು',
+  'profile.notifications.assignmentsHint': 'ನಿಮಗಾಗಿ ಕ್ರಿಯಾ ಐಟಂ ಸೆರೆಹಿಡಿಯಲಾದಾಗ ತಿಳಿಸಿ.',
+  'profile.notifications.mentions': 'ಪ್ರತಿಲೇಖನಗಳಲ್ಲಿ ಉಲ್ಲೇಖಗಳು',
+  'profile.notifications.mentionsHint': 'ಯಾರಾದರೂ ನಿಮ್ಮನ್ನು @-ಉಲ್ಲೇಖಿಸಿದಾಗ ಇಮೇಲ್ + ಪುಶ್.',
+  'profile.notifications.subheading':
+    'ಯಾವ {{appName}} ಈವೆಂಟ್ಗಳು ನಿಮ್ಮನ್ನು ತಲುಪಬೇಕು ಎಂದು ಆಯ್ಕೆಮಾಡಿ.',
   'profile.notifications.summaries': 'ವಾರದ ಡೈಜೆಸ್ಟ್',
+  'profile.notifications.summariesHint': 'ಕಳೆದ ವಾರದ ಪ್ರತಿ ಸಭೆಯ ಸೋಮವಾರದ ಸಾರಾಂಶ.',
+  'profile.preferences.speakerColor': 'ಡಿಫಾಲ್ಟ್ ಮಾತನಾಡುವವರ ಬಣ್ಣ',
   'profile.preferences.subheading': 'ನೀವು ಸೇರುವ ಪ್ರತಿಯೊಂದು ರೆಕಾರ್ಡಿಂಗ್‌ಗೆ ಅನ್ವಯವಾಗುವ ಡೀಫಾಲ್ಟ್‌ಗಳು.',
   'profile.preferences.timezone': 'ಸಮಯ ವಲಯ',
   'profile.preferences.title': 'ಕೆಲಸದ ಶೀರ್ಷಿಕೆ',
@@ -114,16 +145,21 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'ನಿಮ್ಮ ಬ್ರೌಸರ್ ರೆಕಾರ್ಡಿಂಗ್ ಅನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ. Chrome, Edge, ಅಥವಾ Safari ಅನ್ನು ಪ್ರಯತ್ನಿಸಿ.',
   'record.error.upload': 'ಅಪ್‌ಲೋಡ್ ವಿಫಲವಾಗಿದೆ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
+  'record.errorLabel': 'ಏನೋ ತಪ್ಪಾಗಿದೆ',
   'record.heading': 'ದಾಖಲೆ',
   'record.idleLabel': 'ರೆಕಾರ್ಡಿಂಗ್ ಪ್ರಾರಂಭಿಸಲು ಟ್ಯಾಪ್ ಮಾಡಿ',
   'record.processingLabel': 'ವಿಸ್ಪರ್‌ನೊಂದಿಗೆ ಲಿಪ್ಯಂತರ, ಕ್ಲೌಡ್‌ನೊಂದಿಗೆ ಸಾರಾಂಶ...',
+  'record.recordingLabel': 'ದಾಖಲಿಸಲಾಗುತ್ತಿದೆ…',
   'record.retryCta': 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ',
   'record.subheading':
     'ಪ್ರಾರಂಭಿಸಲು ಮೈಕ್ ಒತ್ತಿರಿ. ಮರ್ಮರ್ ಆಡಿಯೊವನ್ನು ಸೆರೆಹಿಡಿಯುತ್ತದೆ, ವಿಸ್ಪರ್ ಮೂಲಕ ಲಿಪ್ಯಂತರ ಮಾಡುತ್ತದೆ ಮತ್ತು ಕ್ಲೌಡ್-ಚಾಲಿತ ಸಾರಾಂಶವನ್ನು ಬರೆಯುತ್ತದೆ.',
+  'record.titlePlaceholder': 'ಸಭೆಯ ಶೀರ್ಷಿಕೆ (ಐಚ್ಛಿಕ)',
+  'reset.altPrompt': 'ನಿಮ್ಮ ಮನಸ್ಸು ಬದಲಾಯಿತೇ?',
   'reset.hint': 'ಅಕ್ಷರಗಳು ಮತ್ತು ಸಂಖ್ಯೆಗಳ ಮಿಶ್ರಣದೊಂದಿಗೆ ಕನಿಷ್ಠ 8 ಅಕ್ಷರಗಳನ್ನು ಬಳಸಿ.',
   'reset.missingToken': 'ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಕಾಣೆಯಾಗಿದೆ ಅಥವಾ ಅವಧಿ ಮೀರಿದೆ. ಹೊಸದೊಂದನ್ನು ವಿನಂತಿಸಿ.',
   'reset.newPassword': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'reset.subheading': 'ನೀವು ಬೇರೆಲ್ಲಿಯೂ ಬಳಸದ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಆರಿಸಿ.',
+  'reset.tooShort': 'ಪಾಸ್‌ವರ್ಡ್ ಕನಿಷ್ಠ 8 ಅಕ್ಷರಗಳನ್ನು ಹೊಂದಿರಬೇಕು.',
   'search.empty': 'ಟ್ರಾನ್ಸ್‌ಕ್ರಿಪ್ಟ್‌ಗಳನ್ನು ಹುಡುಕಲು ಟೈಪ್ ಮಾಡಿ.',
   'search.loadError': 'ಹುಡುಕಾಟ ವಿಫಲವಾಗಿದೆ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'search.noResults': '"" ಗಾಗಿ ಯಾವುದೇ ಫಲಿತಾಂಶಗಳಿಲ್ಲ. {{q}} ”.',
@@ -139,7 +175,10 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'ಆಡಿಯೋವನ್ನು ಇರಿಸಿ',
   'settings.retention.heading': 'ಧಾರಣ',
   'settings.retention.transcript': 'ಪ್ರತಿಲಿಪಿಗಳನ್ನು ಇರಿಸಿ',
+  'settings.revokeDeviceWarning':
+    'ಈ ಸಾಧನದ ಪ್ರವೇಶವನ್ನು ಶೀಘ್ರದಲ್ಲೇ ರದ್ದುಗೊಳಿಸಲಾಗುತ್ತದೆ. ಅದನ್ನು ಸೈನ್ ಔಟ್ ಮಾಡುವುದೇ?',
   'settings.saveError': 'ಉಳಿಸುವಿಕೆ ವಿಫಲವಾಗಿದೆ.',
+  'settings.security.subheading': 'ಸೈನ್ ಇನ್ ಮಾಡಲು ಬಳಸುವ ಪಾಸ್ವರ್ಡ್ ಅನ್ನು ನವೀಕರಿಸಿ.',
   'settings.sharing.exportFormat': 'ರಫ್ತು ಸ್ವರೂಪ',
   'settings.sharing.heading': 'ಹಂಚಿಕೆ ಡೀಫಾಲ್ಟ್‌ಗಳು',
   'settings.sharing.scope': 'ಡೀಫಾಲ್ಟ್ ಹಂಚಿಕೆ ವ್ಯಾಪ್ತಿ',
@@ -156,6 +195,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'ತಂಡದ ಸಹ ಆಟಗಾರನನ್ನು ಆಹ್ವಾನಿಸಿ',
   'team.invitedAs': 'ಆಹ್ವಾನಿಸಲಾಗಿದೆ {{role}}',
   'team.inviteFailed': 'ಆಹ್ವಾನ ಕಳುಹಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'ಆಹ್ವಾನ ಕಳುಹಿಸಿ',
   'team.inviteSubtitle': 'ಅವರು ಸೇರುವ ಲಿಂಕ್ ಹೊಂದಿರುವ ಇಮೇಲ್ ಅನ್ನು ಸ್ವೀಕರಿಸುತ್ತಾರೆ.',
   'team.inviteTitle': 'ತಂಡದ ಸಹ ಆಟಗಾರನನ್ನು ಆಹ್ವಾನಿಸಿ',

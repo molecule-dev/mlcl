@@ -1,11 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'フィードバック、バグの報告、機能の提案はありますか？すべてのメッセージは{{app}}チームの実在の担当者に届きます — あなたが学んでいることをぜひ聞かせてください。',
   'about.contactTitle': 'お問い合わせ',
   'about.eyebrow': '{{app}}について',
+  'about.intro':
+    '{{app}}は、知識を本当に定着させたい人のための間隔反復フラッシュカードアプリです。言語を学ぶときも、公式を覚えるときも、試験に向けて概念を反復するときも、忘れそうなまさにその瞬間に各カードをスケジュールします — 記憶の科学が見つけた、事実を長期記憶に移す最も効率的な方法です。',
+  'about.missionBody':
+    'ほとんどの学習ツールは、保持された知識ではなく、費やした時間を最適化します。{{app}}はその逆を最適化します。大切なことを頭に残す最小限の復習です。学びは穏やかで、測定可能で、あなたのものであるべきだと考えています — オープンデータ、ダークパターンなし、何年も続けられる習慣を。',
+  'about.missionTitle': '私たちの使命',
   'about.pageTitle': '{{tagline}}。',
   'authShell.sampleBack': 'ヴィリニュス ― 1.2秒でリコール。',
   'authShell.sampleEyebrow': 'これからのデッキの一枚',
+  'authShell.sampleFront': '「リトアニアの首都」',
+  'authShell.sampleRetention': '{{pct}}% 保持率',
   'authShell.sampleStreak': '{{days}}日連続',
   'cardEdit.title': 'カードを編集',
   'cardEditor.backLink': 'デッキに戻る',
@@ -35,6 +44,8 @@ export const ui: UiTranslations = {
   'dashboard.kpi.days': '日',
   'deckDetail.backLink': 'すべてのデッキ',
   'deckDetail.deleteError': 'デッキの削除に失敗しました。',
+  'deckDetail.empty.body': '最初のカードを追加して記憶づくりを始めましょう。',
+  'deckDetail.empty.cta': '最初のカードを追加',
   'deckDetail.empty.heading': 'このデッキにはまだカードが入っていません',
   'deckDetail.filterEmpty': 'この州フィルターに一致するカードはありません。',
   'deckDetail.filterLabel': '状態でカードを絞り込む',
@@ -47,7 +58,9 @@ export const ui: UiTranslations = {
   'deckDetail.stat.total': 'カード数',
   'deckDetail.studyDueLabel': '{{count}}枚を学習',
   'deckProgressCard.cardCount': '{{count}}枚',
+  'deckProgressCard.masteredTooltip': '{{count}} 習得済み',
   'deckProgressCard.studyCta': '{{count}}枚を学習',
+  'decks.confirmDelete': 'このデッキとすべてのカードを削除しますか？この操作は元に戻せません。',
   'decks.create.heading': 'デッキを作成',
   'decks.create.nameLabel': 'デッキ名',
   'decks.create.submit': 'デッキを作成',
@@ -58,6 +71,7 @@ export const ui: UiTranslations = {
   'decks.heading': 'デッキ',
   'decks.loadError': 'デッキを読み込めませんでした。',
   'decks.loading': '読み込み中…',
+  'decks.newDeckLabel': '新しいデッキ',
   'decks.retention': '保持',
   'decks.studyArrow': '学習 →',
   'decks.subheading': '{{count}}個のデッキ · 復習と管理',
@@ -80,6 +94,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'すでにアカウントをお持ちです',
   'landing.heroSubtitle':
     '分散学習は詰め込みと長期記憶の差を生みます。1日5分を毎年積み重ねれば、その言語はしっかりと身につきます。',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.proof.export': 'オープンデータ、ロックインなし',
   'landing.proof.free': '個人利用は永久無料',
   'landing.proof.import': '.apkg / CSV をインポート',
@@ -94,12 +109,16 @@ export const ui: UiTranslations = {
   'login.heading': 'デッキへおかえりなさい',
   'login.orDivider': 'または次で続行',
   'login.signupLink': '無料で学習を始める',
+  'login.signupPrompt': '初めての方ですか？',
   'login.subtitle': '中断したところから再開できます — 連続記録があなたを待っています。',
   'mobileNav.closeMenu': 'ナビゲーションメニューを閉じる',
   'mobileNav.openMenu': 'ナビゲーションメニューを開く',
   'notifications.markAllReadError': '全てを既読としてマークできませんでした。',
   'pricing.heading': '枚',
+  'pricing.limits.cards': '枚',
   'pricing.limits.decks': 'デッキ',
+  'pricing.limits.historyDays': '{{days}}日間の復習履歴',
+  'pricing.limits.historyUnlimited': '無制限の復習履歴',
   'pricing.limits.stats': '統計',
   'pricing.limits.study': '学習',
   'resetPassword.passwordLabel': '新しいパスワード',
@@ -111,17 +130,30 @@ export const ui: UiTranslations = {
   'sessionSummary.heading': 'お疲れさまでした。',
   'sessionSummary.label': 'セッション完了',
   'settings.changePasswordError': 'パスワードを変更できませんでした。',
+  'settings.confirmPassword': 'パスワードを確認してください',
   'settings.currentPassword': '現在のパスワード',
+  'settings.dangerZone': '危険ゾーン',
+  'settings.deleteAccountHint':
+    'アカウントとすべての学習データを完全に削除します。この操作は元に戻せません。',
+  'settings.deleteAccountWarning':
+    'アカウントとすべてのデッキ、カード、学習履歴を完全に削除します。この操作は元に戻せません。',
   'settings.deleteError':
     'アカウントの削除に失敗しました。パスワードを確認して、もう一度お試しください。',
   'settings.deleting': '削除中…',
+  'settings.devicesHint': '現在お客様のアカウントに登録されているデバイス。',
   'settings.newPassword': '新しいパスワード',
   'settings.password': 'パスワード',
   'settings.passwordChanged': 'パスワードを更新しました。',
+  'settings.passwordHint': 'サインインに使用するパスワードを変更します。',
   'settings.reminders.atRisk': '連続記録の危険アラート(20時以降)',
+  'settings.reminders.daily': '毎日のリマインダー（午前8:00）',
   'settings.reminders.heading': 'リマインダー',
+  'settings.reminders.milestones': 'マイルストーンのお祝い',
   'settings.reminders.note':
     'このデバイスに保存されます。このブラウザで表示する学習通知を切り替えてください。設定は再読み込み時に同期されます。',
+  'settings.reminders.weekly': '週間保持率サマリー（日曜日）',
+  'settings.revokeDeviceWarning':
+    'このデバイスのアクセスはまもなく取り消されます。サインアウトしますか?',
   'settings.saved': '保存しました。',
   'settings.saveError': '保存に失敗しました。',
   'settings.saving': '保存中…',
@@ -137,6 +169,7 @@ export const ui: UiTranslations = {
   'signup.legal':
     'アカウントを作成すると、利用規約とプライバシーポリシーに同意したものとみなされます。',
   'signup.nameLabel': 'お名前(任意)',
+  'signup.orDivider': 'または次でサインアップ',
   'signup.subtitle': '1日5分。記憶し続ける未来の自分へ。',
   'stats.byStateHeading': '状態別のカード',
   'stats.dailyHeading': '1日あたりの復習数(直近30日)',
@@ -173,5 +206,6 @@ export const ui: UiTranslations = {
   'todayHeroCard.goalLabel': '1日の目標',
   'todayHeroCard.goalProgress': '{{reviewed}} / {{goal}}',
   'todayHeroCard.streakBadge': '{{days}}日連続',
+  'todayHeroCard.studyCta': '学習を始める',
   'userMenu.stats': '私の統計',
 }

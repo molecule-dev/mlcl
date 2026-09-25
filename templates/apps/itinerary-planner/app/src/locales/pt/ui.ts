@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tem feedback, encontrou um bug ou está a planear algo ambicioso? Contacte-nos através das definições da sua conta — todas as mensagens chegam a uma pessoa real da equipa.',
+  'about.contactTitle': 'Fale connosco',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Reservas numa só caixa de entrada — confirmações de voos, hotéis e atividades chegam ao dia exato a que pertencem.',
+  'about.featureCollab':
+    'Colaboração em tempo real — convide até cinco viajantes por viagem, com todas as alterações a sincronizar ao vivo e comentários organizados sob cada paragem.',
+  'about.featureMapsBudget':
+    'Mapas, destinos e um orçamento partilhado — veja a viagem inteira num mapa, descubra destinos selecionados pela equipa e acompanhe as despesas para ninguém gastar demais.',
+  'about.featureTimelines':
+    'Cronogramas dia a dia — arraste paragens para reordenar, insira segmentos de transporte e veja o itinerário recalcular-se como um documento vivo.',
+  'about.intro':
+    'O {{app}} transforma uma pasta cheia de planos a meio caminho num único itinerário partilhado que todo o grupo consegue mesmo seguir. Crie um itinerário dia a dia, insira voos e hotéis, mapeie cada paragem e acompanhe o orçamento — tudo num só lugar tranquilo em vez de uma dúzia de separadores e um chat de grupo.',
+  'about.missionBody':
+    'Planear uma viagem devia parecer que a viagem já está a melhorar, não um trabalho de casa. O {{app}} existe para tornar as viagens colaborativas sem esforço — para que cada viajante apareça a conhecer o plano e cada paragem conte uma história que vale a pena recordar.',
+  'about.missionTitle': 'Nossa missão',
   'about.pageTitle': 'Sobre {{app}}',
   'auth.legalConsent': 'Ao continuar, concorda com os nossos',
   'bookings.empty.body': 'Adicione um voo, hotel ou atividade para começar a caixa de entrada.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Hotel',
   'bookings.type.other': 'Outro',
   'budgetSpendCard.budgetTotal': 'de {{total}} planejados',
+  'budgetSpendCard.overBy': '{{amount}} acima do orçamento',
   'budgetSpendCard.pct': '{{pct}}%',
+  'budgetSpendCard.recentCount': '{{count}} recentes',
+  'budgetSpendCard.remaining': '{{amount}} restantes',
   'calendar.eyebrow': 'O ano pela frente',
   'calendar.heading': 'Todas as viagens em um único calendário.',
   'calendar.legendHeading': 'Viagens deste mês',
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'e',
   'common.goToDashboard': 'Ir para o Painel',
   'dashboard.budgetHeading': 'Pulso do orçamento',
+  'dashboard.empty.body':
+    'Planeie a sua primeira viagem e o seu painel vai encher-se com cronogramas dia a dia, o pulso do orçamento e reservas.',
+  'dashboard.empty.cta': 'Planeie a sua primeira viagem',
   'dashboard.empty.heading': 'Ainda sem viagens — seu atlas está em branco.',
   'dashboard.eyebrow': 'Controle de missão',
   'dashboard.heading': 'Sua próxima aventura, num canto tranquilo.',
   'dashboard.newTripCta': 'Começar uma nova viagem',
+  'dashboard.subheading':
+    'Uma contagem decrescente para a próxima viagem, o pulso dos gastos de hoje e um olhar rápido a cada itinerário em curso.',
   'dashboard.tripsHeading': 'Viagens em andamento',
   'dashboard.viewAllExpenses': 'Ver todos os gastos',
   'dashboard.viewAllTrips': 'Ver todas as viagens',
   'dayTimelineRow.category.accommodation': 'Ficar',
+  'dayTimelineRow.category.food': 'Comida e bebida',
+  'dayTimelineRow.category.sightseeing': 'Visitas turísticas',
   'dayTimelineRow.category.transport': 'Transporte',
   'destinationOrbCard.exploreCta': 'Adicionar a uma viagem',
   'destinationOrbCard.tripCount': '{{count}} viagens',
+  'destinations.empty.body': 'Volte a Todos e as escolhas do editor reaparecem.',
   'destinations.empty.heading': 'Ainda sem destinos.',
+  'destinations.emptyFiltered.heading': 'Ainda não há nada com essa etiqueta.',
   'destinations.errors.load': 'Não foi possível carregar os destinos.',
   'destinations.eyebrow': 'Para onde agora',
   'destinations.heading': 'Cantos salvos e escolhas da redação.',
@@ -70,7 +98,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Fornecedor',
   'expenses.formHeading': 'Registrar gasto para {{trip}}',
   'expenses.heading': 'Para onde o orçamento da viagem realmente vai.',
+  'expenses.heroBudget': '{{pct}}% de {{total}} planeado',
   'expenses.heroEyebrow': '{{trip}} • visão do orçamento',
+  'expenses.heroNoBudget': 'Ainda não há orçamento definido nesta viagem.',
   'expenses.noTrips.body':
     'Planeje uma viagem primeiro — os gastos ficam vinculados ao orçamento de uma viagem.',
   'expenses.noTrips.heading': 'Ainda sem viagens.',
@@ -83,12 +113,16 @@ export const ui: UiTranslations = {
     'Cada recibo e confirmação cai na categoria certa aqui — sem precisar de planilha.',
   'forgotPassword.eyebrow': 'Recupere seu itinerário',
   'forgotPassword.heading': 'Esqueceu sua senha?',
+  'forgotPassword.subheading':
+    'Introduza o email que usou no {{appName}} e enviaremos um link para redefinir a sua palavra-passe.',
   'forgotPassword.submit': 'Enviar e-mail de recuperação',
   'forgotPassword.submitPending': 'Enviando e-mail de recuperação…',
   'forgotPassword.successHint':
     'Ainda sem e-mail? Veja a pasta de spam ou tente com outro endereço.',
   'forgotPassword.successSubheading':
     'Enviamos um link de recuperação para {{email}}. O link vale por 30 minutos.',
+  'forgotPassword.tryAgain': 'Enviar para outro email',
+  'landing.cta.eyebrow': 'Comece no plano gratuito',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Criar conta grátis',
   'landing.cta.subheading':
@@ -100,8 +134,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Começar uma viagem grátis',
   'landing.hero.ctaSecondary': 'Ver uma viagem de exemplo',
+  'landing.hero.eyebrow': 'Planeador de viagens · {{tagline}}',
   'landing.hero.subtitle':
     'O Waypoint transforma uma pasta cheia de planos pela metade num itinerário compartilhado, dia a dia, que seu grupo realmente consegue seguir — com reservas, mapas e orçamento num único lugar.',
+  'landing.hero.title': 'Planeje uma vez. Caminhe junto.',
   'landing.nav.join': 'Começar uma viagem grátis',
   'landing.nav.preview': 'Dentro do Waypoint',
   'landing.preview.cta': 'Planeje a sua',
@@ -109,6 +145,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Algumas viagens que viajantes estão fazendo agora',
   'login.eyebrow': 'Área de membros',
   'login.heading': 'Bem-vindo de volta, viajante',
+  'login.noAccount': 'Novo no Tessera?',
   'login.signupLink': 'Criar conta grátis',
   'login.subheading':
     'Entre para gerenciar suas viagens, planos do dia, reservas e as anotações de diário que já começou.',
@@ -119,6 +156,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Não foi possível atualizar a notificação.',
   'notifications.heading': 'O que mudou nas suas viagens hoje.',
   'notifications.markUnread': 'Marcar como não lido',
+  'notifications.subheading':
+    '{{count}} novas — confirmações de reservas, notas de colaboradores, descidas de preços e lembretes.',
   'notifications.time.daysAgo': 'há {{count}} d',
   'notifications.time.hoursAgo': 'há {{count}} h',
   'notifications.time.justNow': 'agora mesmo',
@@ -137,6 +176,7 @@ export const ui: UiTranslations = {
     'Serviços conectados, moeda, notificações push e as credenciais que você usa para entrar.',
   'signup.and': 'e',
   'signup.eyebrow': 'Entre para o Waypoint',
+  'signup.haveAccount': 'Já a deambular?',
   'signup.heading': 'Planeje uma vez. Caminhe junto.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -148,6 +188,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Abrir itinerário',
   'tripCountdownHeroCard.ctaSecondary': 'Planejar outra viagem',
   'tripCountdownHeroCard.daysLabel': 'Faltam {{days}} dias',
+  'tripCountdownHeroCard.eyebrow': 'Próxima aventura · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} noites — o seu itinerário está pronto para viajar.',
   'tripCoverCard.stops': '{{count}} paradas',
   'tripCoverCard.travelers': '{{count}} viajantes',
   'tripDetail.addActivity': 'Adicionar atividade',
@@ -157,6 +200,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Título da atividade',
   'tripDetail.adding': 'Adicionando…',
   'tripDetail.backToTrips': 'Voltar para todas as viagens',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Viajantes',
   'tripDetail.dayLabel': 'Dia {{day}}',
   'tripDetail.empty': 'Ainda sem atividades — adicione uma para começar o cronograma.',
@@ -167,14 +211,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Itinerário • {{country}}',
   'tripDetail.invite': 'Convidar',
   'tripDetail.inviteLabel': 'Convidar por e-mail',
+  'tripDetail.invitePlaceholder': 'alguem@exemplo.com',
   'tripDetail.inviteSent': 'Convite enviado para {{email}}.',
   'tripDetail.inviting': 'Enviando…',
   'tripDetail.loading': 'Carregando viagem…',
   'tripDetail.noCollaborators': 'Só você, por enquanto.',
+  'tripDetail.notesHeading': 'Notas da viagem',
   'tripDetail.notesPlaceholder': 'Ainda sem anotações.',
   'tripDetail.notFound.heading': 'Viagem não encontrada',
   'tripDetail.openBookings': 'Abrir caixa de reservas',
   'tripDetail.shareCopied': 'Link de compartilhamento copiado para a área de transferência:',
+  'tripDetail.shareReady': 'Link de partilha pronto:',
   'tripDetail.stops': '{{count}} paradas',
   'tripDetail.timelineEyebrow': 'Cronograma do dia',
   'tripDetail.timelineHeading': 'Plano dia a dia',
@@ -192,6 +239,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Viajantes',
   'tripPlanner.heading': 'Esboce uma viagem em menos de um minuto.',
   'tripPlanner.preview.eyebrow': 'Pré-visualização ao vivo',
+  'tripPlanner.preview.placeholderCountry': 'Escolha um país',
   'tripPlanner.preview.placeholderDestination': 'Sua próxima aventura',
   'tripPlanner.section1.title': 'Onde e quando',
   'tripPlanner.section2.title': 'Viajantes e orçamento',
@@ -200,10 +248,13 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Dia {{day}} — adicione paradas, transporte e reservas aqui.',
   'tripPlanner.section3.day2': 'Dia {{day}} — adicione paradas, transporte e reservas aqui.',
   'tripPlanner.section3.day3': 'Dia {{day}} — adicione paradas, transporte e reservas aqui.',
+  'tripPlanner.section3.title': 'Modelo de plano diário',
   'tripPlanner.subheading':
     'Coloque o básico aqui embaixo — depois você pode convidar colaboradores, arrastar paradas e encaminhar reservas.',
   'tripPlanner.submit': 'Criar viagem',
   'tripPlanner.submitting': 'Criando…',
+  'trips.empty.body': 'Volte a Todas as viagens ou comece a planear a sua próxima deambulação.',
+  'trips.empty.cta': 'Planear uma viagem',
   'trips.empty.heading': 'Nada combina com esse filtro por enquanto.',
   'trips.eyebrow': 'O atlas',
   'trips.filterLabel': 'Filtrar viagens por status',
@@ -214,6 +265,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Ainda sem viagens.',
   'trips.pastHeading': 'Aventuras passadas',
   'trips.subheading': '{{count}} itinerários — passados, presentes e futuros.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Planeie uma vez. Deambulem juntos. Recordem para sempre.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · membros do {{appName}} desde 2024',
+  'waypointAuthShell.testimonial.quote':
+    'O {{appName}} transformou uma viagem atribulada de 3 semanas por quatro países no itinerário mais tranquilo que alguma vez partilhámos.',
   'waypointLayout.mobileNavClose': 'Fechar menu de navegação',
   'waypointLayout.primaryNavLabel': 'Navegação principal',
 }

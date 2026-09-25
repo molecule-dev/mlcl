@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Iritzia duzu, akats bat aurkitu duzu, edo zure ideiak nola mapatzen dituzun kontatu nahi diguzu? Ohar guztiak irakurtzen ditugu — jarri harremanetan noiznahi eta taldeko benetako pertsona batek erantzungo dizu.',
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
+  'about.featureCanvas':
+    'Mugarik gabeko oihal bat, nodo arrastagarriekin, kurbadura leuneko konexioekin eta zoom eta pan fluidorekin.',
+  'about.featureCollab':
+    'Denbora errealeko lankidetza kurtsore biziekin, zure taldeak zure ondoan adarkatu dezan bere txanda itxaron beharrean.',
+  'about.featurePricing':
+    'Betirako doakoa pentsalari bakartientzat; Pro eta Team planek mapa gehiago, nodo gehiago, funtzio aurreratuak eta datuen esportazioa gehitzen dituzte.',
+  'about.featureTemplates':
+    'Hasierako txantiloien liburutegi bat eta bertsio-historia osoa, mapa bat abiarazteko eta edozein aldaketa atzera botatzeko.',
+  'about.intro':
+    '{{app}} oihal zabal eta infinitua da buru-mapak egiteko — ideia-jasak, kontzeptu-diagramak, SWOTak eta proiektu-planak. Arrastatu nodoak edonora, lotu ideiak esteka jariakorrekin, egin zoom eta pan ertzekin talka egin gabe, eta utzi mapari zure pentsamenduarekin batera hazten.',
+  'about.missionBody':
+    'Ozen pentsatzea ahaleginik gabea eta partekatua izan beharko litzateke. Sisteman oztoporik ez jartzen duten tresnak eraikitzen ditugu — sareta zurrunik gabe, txantiloi itxirik gabe, arreta lapurtzen duen interfazerik gabe —, pertsonaek eta taldeek ideiak bururatzen zaizkien unean harrapatu eta elkarrekin landu ditzaten.',
+  'about.missionTitle': 'Gure misioa',
   'about.pageTitle': '{{app}}(r)i buruz',
   'auth.brandEyebrow': 'Ideiak non adarkatzen diren',
   'auth.brandStatement':
@@ -13,19 +29,25 @@ export const ui: UiTranslations = {
   'billing.feature.export': 'Esportatu SVG / PNG formatura',
   'billing.feature.maps': '{{count}} mapak',
   'billing.feature.nodes': '{{count}} mapa bakoitzeko nodoak',
+  'billing.freeNoticeBody': 'Aukeratu goiko plan ordaindu bat mapa gehiago desblokeatzeko.',
   'billing.loadError': 'Ezin izan da fakturazio-egoera kargatu.',
+  'billing.loading': 'Fakturazioa kargatzen…',
   'billing.perMonth': ' / hilabete',
   'billing.plansTitle': 'Planak',
+  'billing.priceMissing': 'Stripe prezioaren IDa ez dago konfiguratuta.',
   'billing.starting': 'Ordainketa hasten…',
   'billing.title': 'Fakturazioa eta plana',
   'billing.unavailableTier':
     'Maila hau ez dago oraindik ordainketa-prozesurako konfiguratuta — ezarri Stripe prezioaren IDa zure ingurunean.',
   'billing.unlimited': 'Mugagabea',
   'billing.upgradeMonthly': 'Berritu honetara {{name}} (hilero)',
+  'billing.upgradeYearly': 'Ordaindu urtero · {{price}}',
   'brand.tagline': 'Ideiak non adarkatzen diren',
   'common.and': 'eta',
   'common.goToDashboard': 'Joan aginte-panelera',
   'dashboard.activityAction': 'eguneratua',
+  'dashboard.activityEmpty':
+    'Oraindik ez dago jarduerarik — editatu mapa bat zure denbora-lerroa hasteko.',
   'dashboard.daysAgo': '{{count}} duela egun batzuk',
   'dashboard.empty.body':
     'Sortu mapa bat ideiak adarkatzen hasteko. Txantiloiek errazten dute hastea.',
@@ -44,26 +66,35 @@ export const ui: UiTranslations = {
   'dendriteHero.activeMaps': 'Mapa aktiboak',
   'dendriteHero.eyebrow': 'Gaur mihise gainean.',
   'dendriteHero.greeting': 'Ideia berriak adarkatu, {{name}}',
+  'dendriteHero.greetingAnon': 'Adarkatu ideia berriak',
   'dendriteHero.openMaps': 'Ireki nire mapak',
   'dendriteHero.subtitle':
     'Arrastatu, konektatu eta utzi zure pentsamendua hazten. Txinga bakoitza hurrengotik nodo baten distantziara dago.',
   'dendriteHero.weeklyChange': '{{sign}} {{count}} aste honetan',
+  'forgotPassword.brandStatement':
+    'Zure mapak seguru daude. Berehala itzuliko zaitugu zure adarretara.',
   'forgotPassword.subheading':
     'Idatzi zure helbide elektronikoa eta berrezartzeko esteka berri bat bidaliko dizugu.',
   'forgotPassword.success':
     'Helbide elektroniko hori duen kontu bat badago, berrezartzeko esteka bat bidean da.',
   'landing.cta.body':
     'Doakoa betiko pentsalari bakartientzat. Eguneratu zure taldea zurekin batera hazten hasten denean bakarrik.',
+  'landing.cta.button': 'Sortu zure lehen mapa',
   'landing.cta.title': 'Landatu zure lehen ideia gaur.',
   'landing.feature.branch.body':
     'Arrastatu nodo bat beste edozein nodotatik — konexioak kurba leun gisa isurtzen dira, ez da sare zurrunik behar.',
+  'landing.feature.branch.title': 'Adarkatze organikoa',
   'landing.feature.canvas.body':
     'Mugitu, handitu eta utzi mapa hazten ertzekin talka egin gabe. Zure pentsamenduak arnasa hartzeko lekua merezi du.',
   'landing.feature.canvas.title': 'Mihise infinitua',
   'landing.feature.collab.body':
     'Ikusi taldekideak zurekin batera denbora errealean. Egin brainstorming elkarrekin, ez serieka.',
+  'landing.feature.collab.title': 'Kurtsore kolaboratiboak',
   'landing.feature.shortcuts.body':
     'Tab haur bat gehitzeko, Sartu anai-arreba bat gehitzeko, ⌘K edozein lekutara joateko. Erabiltzaile aurreratuak fluxuari eusten diote.',
+  'landing.feature.shortcuts.title': 'Teklatua lehenik',
+  'landing.featuresBody':
+    'Tresna-barrak, panelak eta lasterbideak ingurunean integratuta daude — behar dituzunean agertzen dira, eta ikusezinak dira behar ez dituzunean.',
   'landing.featuresEyebrow': 'Pentsalarientzat eraikia.',
   'landing.featuresTitle': 'Elkarrekintza orok bere lekua irabazten du mihisean',
   'landing.footer.copyright': '© {{year}} {{appName}} . Molecule.dev-ekin eraikia.',
@@ -71,6 +102,7 @@ export const ui: UiTranslations = {
     '{{appName}} mihise infinitu zabala da brainstorming-erako, kontzeptu-diagrametarako eta SWOTetarako. Arrastatu, konektatu eta utzi mapa zurekin hazten — ez sareta zurrunik, ez txantiloi itxirik.',
   'landing.hero.ctaPrimary': 'Hasi adarkatze librea',
   'landing.hero.eyebrow': 'Diseinatzaile eta pentsalarientzako mapa mentalak',
+  'landing.hero.title': 'Non ideiak adarkatzen diren.',
   'landing.nav.start': 'Hasi adarrak sortzen',
   'landing.proof.export': 'Esportatu PNG, SVG edo Markdown formatura',
   'landing.proof.free': 'Doan 3 maparako',
@@ -78,6 +110,7 @@ export const ui: UiTranslations = {
   'layout.closeMenu': 'Itxi nabigazio menua',
   'layout.openMenu': 'Ireki nabigazio menua',
   'layout.searchPlaceholder': 'Bilatu mapak, txantiloiak edo nodoak…',
+  'login.noAccount': 'Berria hemen?',
   'login.signIn': 'Hasi saioa Nimbus-en',
   'login.subheading': 'Hasi saioa utzi zenuen tokitik aurrera egiten jarraitzeko.',
   'login.twoFactor': 'Bi faktoreko tokena (gaituta badago)',
@@ -95,9 +128,11 @@ export const ui: UiTranslations = {
     'Aukeratu + tresna, eta egin klik edozein lekutan zure lehen nodoa gehitzeko.',
   'mapEditor.export': 'Esportatu',
   'mapEditor.exportError': 'Ezin izan da mapa esportatu.',
+  'mapEditor.exportLocked': 'Esportatzea Pro funtzio bat da.',
   'mapEditor.exportMarkdown': 'Markdown (.md)',
   'mapEditor.exportPng': 'Irudia (.png)',
   'mapEditor.exportSvg': 'Bektore (.svg)',
+  'mapEditor.exportUpgrade': 'Eguneratu esportatzeko →',
   'mapEditor.hint.add': 'Egin klik mihisean nodo bat jaregiteko',
   'mapEditor.hint.connectSource': 'Egin klik iturburu-nodoan…',
   'mapEditor.hint.connectTarget': 'Egin klik helburuko nodoan…',
@@ -106,6 +141,7 @@ export const ui: UiTranslations = {
   'mapEditor.loading': 'Oihal-euskarria kargatzen…',
   'mapEditor.newNodeText': 'New idea',
   'mapEditor.panel.color': 'Kolorea',
+  'mapEditor.panel.eyebrow': 'Hautatutako nodoa',
   'mapEditor.panel.nodes': 'Nodoak',
   'mapEditor.panel.noSelection': 'Egin klik nodo batean hura editatzeko.',
   'mapEditor.panel.stats': 'Maparen estatistikak',
@@ -145,11 +181,18 @@ export const ui: UiTranslations = {
   'notifications.accept': 'Onartu',
   'notifications.acceptAndOpen': 'Onartu eta ireki',
   'notifications.acceptedInvite': 'Batu da {{title}}.',
+  'notifications.acceptError': 'Ezin izan da gonbidapena onartu.',
   'notifications.empty.body': 'Taldekideek mapetara gonbidatzen zaituztenean, hemen agertuko dira.',
   'notifications.empty.title': 'Ez dago gonbidapenik zain',
+  'notifications.inviteBody': '{{email}}-(r)i bidalita',
   'notifications.inviteTitle': 'Gonbidatuta honela {{role}} ra "{{title}}"',
   'notifications.subtitle': '{{count}} gonbidapen zain.',
   'notifications.view': 'Ikusi',
+  'pricing.limit.advanced': 'Funtzio aurreratuak: {{state}}',
+  'pricing.limit.connections': '{{count}} konexio',
+  'pricing.limit.export': 'Datuen esportazioa: {{state}}',
+  'pricing.limit.maps': '{{count}} mapak',
+  'pricing.limit.nodes': '{{count}} mapa bakoitzeko nodoak',
   'profile.loading': 'Zure estatistikak kargatzen…',
   'profile.stat.collabs': 'Lankidetzak',
   'profile.stat.maps': 'Sortutako mapak',
@@ -161,24 +204,36 @@ export const ui: UiTranslations = {
   'publicMap.loadError': 'Mapa hau ez da gehiago partekatzen, edo esteka baliogabea da.',
   'publicMap.loading': 'Mapa kargatzen…',
   'publicMap.notFound': 'Mapa ez da aurkitu.',
+  'resetPassword.newPassword': 'Pasahitz berria',
   'resetPassword.subheading':
     'Aukeratu zerbait gogoangarria. Automatikoki saioa berriro hasiko dugu.',
   'resetPassword.submit': 'Pasahitza berrezarri eta saioa hasi',
   'resetPassword.tokenPlaceholder': 'Zure posta elektronikotik itsatsita',
   'settings.account.subtitle': 'Eguneratu zure bistaratzeko izena eta helbide elektronikoa.',
+  'settings.field.currentPassword': 'Uneko pasahitza',
   'settings.field.newPassword': 'Pasahitz berria',
   'settings.password.subtitle': 'Aukeratu pasahitz sendo bat (gutxienez 8 karaktere).',
   'settings.passwordError': 'Ezin izan da pasahitza aldatu. Egiaztatu zure uneko pasahitza.',
+  'settings.passwordMismatch': 'Pasahitz berriak ez datoz bat.',
   'settings.passwordSaved': 'Pasahitza behar bezala aldatu da.',
   'settings.passwordTooShort': 'Pasahitzak gutxienez 8 karaktere izan behar ditu.',
   'settings.profileError': 'Ezin izan dira profileko aldaketak gorde.',
   'settings.subtitle': 'Doitu zure kontua eta segurtasuna.',
   'settings.twoFactorCode': 'Autentifikazio kodea',
   'settings.twoFactorDisable': 'Desgaitu',
+  'settings.twoFactorDisableTitle': 'Desgaitu bi faktoreko autentifikazioa',
   'settings.twoFactorEnable': 'Gaitu',
+  'settings.twoFactorEnableTitle': 'Gaitu bi faktoreko autentifikazioa',
   'settings.twoFactorInvalidCode': 'Kode baliogabea. Saiatu berriro.',
+  'settings.twoFactorOffLine': 'Bi faktoreko autentifikazioa itzalita dago.',
+  'settings.twoFactorOnLine': 'Bi faktoreko autentifikazioa piztuta dago.',
+  'settings.twoFactorQrAlt': 'Bi faktoreko QR kodea',
+  'settings.twoFactorScan':
+    'Eskaneatu QR kode hau zure autentifikazio-aplikazioarekin, eta gero sartu 6 digituko kodea.',
   'settings.twoFactorSubtitle':
     'Gehitu autentifikazio-aplikazioko behin-behineko kode bat pasahitzaren gainean.',
+  'settings.twoFactorUnavailable':
+    'Bi faktoreko autentifikazioa ez dago erabilgarri aplikazio honetarako.',
   'settings.twoFactorVerify': 'Egiaztatu eta gaitu',
   'share.accepted': 'Onartuta',
   'share.backToMap': 'Itzuli mapara',
@@ -189,7 +244,10 @@ export const ui: UiTranslations = {
   'share.copySuccess': 'Esteka kopiatu da.',
   'share.invite.button': 'Gonbidatu',
   'share.invite.title': 'Gonbidatu posta elektronikoz',
+  'share.inviteError': 'Ezin izan da gonbidapena bidali.',
   'share.inviteSuccess': 'Gonbidatuta {{email}}.',
+  'share.link.disabledHint':
+    'Aktibatu mapa honetarako irakurtzeko soilik den esteka publiko bat sortzeko.',
   'share.link.title': 'Esteka publikoa',
   'share.loadError': 'Ezin izan dira partekatze-ezarpenak kargatu.',
   'share.pending': 'Gonbidapenaren zain',
@@ -201,13 +259,19 @@ export const ui: UiTranslations = {
   'share.roleError': 'Ezin izan da rola eguneratu.',
   'share.title': 'Partekatu mapa hau',
   'share.unnamedCollaborator': 'Gonbidapenaren zain',
+  'signup.brandStatement':
+    'Oihal bat, buru-jasarik ausartenerako bezain zabala — eta pentsatzeko bezain isila.',
+  'signup.haveAccount': 'Bazkide zara dagoeneko?',
   'signup.heading': 'Landatu zure lehen ideia',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.subheading': '3 mapa doan betirako. Ez da kreditu txartelik behar.',
   'templateDetail.backToTemplates': 'Txantiloi guztiak',
   'templateDetail.browseMore': 'Arakatu gehiago',
+  'templateDetail.editableHint':
+    'Nodo eta ertz guztiak guztiz editagarriak dira txantiloia instantziatu ondoren.',
   'templateDetail.instantiateError': 'Ezin izan da mapa bat sortu txantiloi honetatik.',
   'templateDetail.loadError': 'Ezin izan da txantiloi hau kargatu.',
+  'templateDetail.loading': 'Txantiloia kargatzen…',
   'templateDetail.nodes': 'Aurrez hazitako nodoak',
   'templateDetail.notFound': 'Txantiloia ez da aurkitu.',
   'templateDetail.systemEyebrow': 'Txantiloi integratua',
@@ -230,6 +294,7 @@ export const ui: UiTranslations = {
   'trash.empty.body': 'Ez dago garbitu zain. Zure sukurtsalak seguru daude.',
   'trash.empty.title': 'Zaborrontzia hutsik dago',
   'trash.loadError': 'Ezin izan dira zaborrontziko mapak kargatu.',
+  'trash.loading': 'Zakarrontzia kargatzen…',
   'trash.restore': 'Leheneratu',
   'trash.restoreError': 'Ezin izan da mapa leheneratu.',
   'trash.subtitle':
@@ -238,11 +303,13 @@ export const ui: UiTranslations = {
   'versionHistory.backToMap': 'Itzuli mapara',
   'versionHistory.empty':
     'Ez dago argazkirik oraindik. Gorde lehenengoa kontrol-puntu bat mantentzeko.',
+  'versionHistory.emptyDetail': 'Gorde argazki bat zure denbora-lerroa hasteko.',
   'versionHistory.loadError': 'Ezin izan da bertsio-historia kargatu.',
   'versionHistory.nodeCount': 'Nodoak',
   'versionHistory.restoreButton': 'Berrezarri bertsio hau',
   'versionHistory.restoreError': 'Ezin izan da argazkia leheneratu.',
   'versionHistory.restoreSuccess': 'Argazkia leheneratu da.',
+  'versionHistory.selectHint': 'Hautatu argazki bat ikusteko.',
   'versionHistory.snapshotDefault': 'Eskuzko argazkia',
   'versionHistory.snapshotError': 'Ezin izan da argazkia gorde.',
   'versionHistory.snapshotEyebrow': 'Argazkia',

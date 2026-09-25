@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Асуулт байна уу, алдаа олсон уу, эсвэл багтаа демо хүсэж байна уу? Бүртгэлийн тохиргооноосоо холбогдоорой — илгээсэн мессеж бүр багийн бодит хүнд хүрдэг.',
   'about.contactTitle': 'Холбоо барих',
+  'about.intro':
+    '{{app}} нь сканнердсан баримт бичиг, PDF-ийн овоог бүтэцтэй, хайлт хийх боломжтой, ангилсан өгөгдөл болгон хувиргадаг. Нэхэмжлэх, баримт, гэрээ эсвэл маягтуудыг оруулаад AI-д уншуулж, задлан авч, ангилж, бүртгүүлээрэй — итгэлийн өнгөөр тэмдэглэгдсэн тул баг тань зөвхөн хүний оролцоо шаардсан зүйлсийг шалгана.',
+  'about.missionBody':
+    'Баримт бичгийн уйтгартай ажил багийн тань өдрийг идэж болохгүй. Бид задлан авсан утга бүр тайлбарлагдах, аудит хийгдэх боломжтой байх ёстой гэж үздэг — ингэснээр автоматжуулалтад итгэхэд баримт бичгийн мөр алдагдахгүй. {{app}} нь овоо бүрийг боловсруулахад хэдэн цаг хэмнэхээр бүтээгдсэн бөгөөд чухал газарт хүний оролцоог хадгалдаг.',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
+  'about.subtitle':
+    'Таны баримт бичигт зориулсан OCR, AI задлан авалт, ангилал болон автомат бүртгэл.',
   'about.title': '{{app}}-ийн тухай',
+  'about.whatYouGetTitle': 'Таны авах зүйлс',
   'authShell.backToLanding': '← Буух газар руу буцах',
   'common.goToDashboard': 'Хянах самбар руу очих',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Өнөөдөр · Үйл ажиллагааны тойм',
   'dashboard.heading': 'Баримт бичгийн тагнуул',
+  'dashboard.metric.accuracy': 'Дундаж нарийвчлал',
   'dashboard.metric.filed': 'Өнөөдөр бүртгүүлсэн',
   'dashboard.metric.filedCaption': 'Бүртгэх дүрмээр чиглүүлсэн',
   'dashboard.metric.processed': 'Өнөөдөр боловсруулсан',
@@ -23,11 +34,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'Байршуулсан',
   'dashboard.recent.heading': 'Сүүлийн үеийн баримт бичгүүд',
+  'dashboard.recent.typeUnknown': 'Ангилал хүлээж байна',
   'dashboard.subheading':
     'Хуудас бүрийг ангилж, гаргаж, хавсаргасан -- өөртөө итгэлтэй өнгөөр тодорхойлсон тул тойм анхаарлаа төвлөрүүлдэг.',
   'documentDetail.audit.heading': 'Аудитын хугацаа',
+  'documentDetail.audit.subheading':
+    'Энэ баримт бичигт хийгдсэн алхам бүр, хариуцсан этгээдийн хамт.',
   'documentDetail.back': 'Бүх баримт бичиг',
   'documentDetail.downloadHint': 'Эх файлыг нээхийн тулд Татаж авах товчийг ашиглана уу.',
+  'documentDetail.extracted.empty': 'Одоогоор талбар задлан аваагүй байна.',
   'documentDetail.extracted.heading': 'Олборлосон талбарууд',
   'documentDetail.extracted.subheading':
     '{{count}} талбарууд · хуудсан дээр тодруулахын тулд дурын талбар дээр дарна уу',
@@ -56,13 +71,24 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} таны номын сан дахь баримт бичгүүдийг хамгийн шинээр нь эхлэн эрэмбэлнэ.',
   'documents.uploadCta': 'Баримт бичгүүдийг байршуулах',
+  'documentTypeBreakdown.barAria': 'Баримт бичгийн төрлөөр ангилсан бүтэц',
   'documentTypeBreakdown.empty': 'Одоогоор ямар ч баримт бичиг боловсруулагдаагүй байна.',
   'documentTypeBreakdown.subtitle': '{{total}} боловсруулсан',
   'documentTypeBreakdown.title': 'Баримт бичгийн бүтэц',
+  'forgotPassword.backToSignIn': '← Нэвтрэх рүү буцах',
   'forgotPassword.checkEmail': 'Имэйлээ шалгана уу',
   'forgotPassword.tip': 'Ойлгосонгүй юу? Спамыг шалгах эсвэл өөр хаяг оруулна уу.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Хуудас бүрийг аудит хийдэг үйл ажиллагааны багуудад зориулав.',
+  'landing.ctaBody':
+    '14 хоногийн туршилт. Карт шаардлагагүй. Хүссэн үедээ цуцалж болно. Хурдан ажиллаж, аудитыг удаан хийдэг үйл ажиллагааны багуудад зориулав.',
   'landing.ctaHeading': 'Баримтаа бичихээ боль. Тэдгээрийг хавсаргаж эхэл.',
   'landing.eyebrow': 'OCR · Олборлолт · Хиймэл оюун ухааны файл',
+  'landing.featuresHeading': 'Өөрөө тайлбарладаг баримт бичгийн оюун ухаан',
+  'landing.heroSubtitle':
+    'Нэхэмжлэх, баримт, гэрээ эсвэл маягтын овоог оруулаарай. {{app}} тэдгээрийг ангилж, задлан авч, бүртгэнэ — итгэлийн өнгөөр тэмдэглэгдсэн тул баг тань зөвхөн хүний оролцоо шаардсан зүйлсийг шалгана.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Өдөр тутмын хэмжээ · сүүлийн 7 хоног',
   'landing.sampleCardLabel': 'Өнөөдөр боловсруулсан баримт бичгүүд',
   'landing.sampleCardSubtitle': 'Нэхэмжлэх, баримт, маягтын дундаж нарийвчлал 96.2%.',
   'login.hidePassword': 'Нууц үгийг нуух',
@@ -75,6 +101,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Буух хуудсыг нээх',
   'notFound.title': 'Энэ хуудас файлд байхгүй байна',
+  'parcelaHeroCard.accuracy': 'Бүх задлан авалтын дундаж нарийвчлал {{value}}%',
   'parcelaHeroCard.change': '{{sign}} {{amount}} өчигдөртэй харьцуулахад %',
   'parcelaHeroCard.title': 'Өнөөдөр боловсруулсан баримт бичгүүд',
   'parcelaLayout.primaryNavLabel': 'Үндсэн навигаци',
@@ -82,6 +109,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'баримт бичиг',
   'pricing.processingLabel': 'боловсруулах ажлууд',
   'resetPassword.confirmPlaceholder': 'Шинэ нууц үгийг давтана уу',
+  'resetPassword.hidePassword': 'Нууц үгийг нуух',
   'resetPassword.passwordLabel': 'Шинэ нууц үг',
   'resetPassword.showPassword': 'Нууц үгийг харуулах',
   'resetPassword.subtitle': 'Дор хаяж 8 тэмдэгтээс урт зүйл сонгоно уу.',
@@ -99,10 +127,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Дүрмүүдийг ачаалж чадсангүй.',
   'rules.loading': 'Дүрмүүдийг ачаалж байна…',
   'rules.matched30d': '{{count}} сүүлийн 30 хоногт таарсан баримт бичгүүд',
+  'rules.neverUsed': 'Хэзээ ч ашиглаагүй',
   'rules.newRule': 'Шинэ дүрэм',
   'rules.saveError': 'Дүрмийг хадгалж чадсангүй.',
   'rules.subheading':
     'Системд баримт бичгийн төрөл бүр хаашаа явах ёстойг хэлнэ үү. Нөхцөлүүд дээрээс доош гинжин хэлхээнд шилждэг - эхний тоглолт хожно.',
+  'rules.templatesEmpty': 'Одоогоор задлан авалтын загвар байхгүй.',
   'rules.templatesHeading': 'Олборлолтын загварууд',
   'rules.templatesSubheading':
     'Баримт бичгийн төрөл бүрийн хувьд олборлогч ашигладаг талбарын схемүүд.',
@@ -112,17 +142,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Ажлын талбарын нэр',
   'settings.account.subheading':
     'Мэдэгдэл болон аудитын түүхийн дэлгэцийн нэр болон үндсэн имэйл хаяг.',
+  'settings.api.confirmRevoke': 'Баталгаажуулах уу?',
   'settings.api.copyOnce': 'Энэ түлхүүрийг хуулах — энэ нь дахин харагдахгүй',
   'settings.api.createdOn': 'Үүсгэсэн {{date}}',
   'settings.api.empty': 'API түлхүүр хараахан алга. Дээрхээс нэгийг үүсгэнэ үү.',
   'settings.api.error': 'Түлхүүр үүсгэж чадсангүй.',
+  'settings.api.generating': 'Үүсгэж байна…',
+  'settings.api.heading': 'API түлхүүрүүд',
   'settings.api.labelPlaceholder': 'Түлхүүрийн шошго (жишээ нь: CI байршуулагч)',
+  'settings.api.loading': 'Түлхүүрүүд ачаалж байна…',
   'settings.api.newKey': 'Түлхүүр үүсгэх',
   'settings.api.subheading':
     'Эдгээрийг ашиглан скрипт эсвэл ERP-ээс баримт бичгийг түлхээрэй. Дурын товчлуурыг хүссэн үедээ эргүүлж болно.',
   'settings.integrations.heading': 'Бүртгэлийн интеграцчлал',
   'settings.integrations.subheading':
     'Танай баг аль хэдийн амьдарч байгаа үүлэн диск эсвэл чатын хэрэгсэл рүү файлуудыг илгээнэ үү.',
+  'settings.subheading':
+    '{{app}} ажлын талбарынхаа бүртгэл, API түлхүүр болон бүртгэлийн интеграцуудыг удирдаарай.',
+  'signup.hidePassword': 'Нууц үгийг нуух',
   'signup.identityPrompt': 'Бид танд хэрхэн хандах ёстой вэ?',
   'signup.showPassword': 'Нууц үгийг харуулах',
   'signup.subtitle': '14 хоног үнэгүй, карт шаардлагагүй.',
@@ -130,6 +167,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Байршуулалт амжилтгүй боллоо.',
   'upload.eyebrow': 'Залгих',
   'upload.heading': 'Баримт бичгүүдийг байршуулах',
+  'upload.queue.clear': 'Дууссануудыг арилгах',
   'upload.queue.col.confidence': 'Өөртөө итгэх итгэл',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Илрүүлж байна…',
@@ -142,5 +180,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Эсвэл багцаар задлах, ангилах, хадгалахын тулд нэг дор олон файлыг хаяна уу.',
   'uploadDropZone.cta': 'Файлуудыг сонгоно уу',
+  'uploadDropZone.maxSize': 'Файл тутамд дээд тал нь 25 MB · Төгсгөлөөс төгсгөл хүртэл шифрлэгдсэн',
   'uploadDropZone.title': 'Боловсруулж эхлэхийн тулд баримт бичгүүдийг буулгана уу',
 }

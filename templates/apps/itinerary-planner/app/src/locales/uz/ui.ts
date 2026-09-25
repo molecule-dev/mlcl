@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Fikr-mulohaza bildirmoqchimisiz, xatolik topdingizmi yoki katta reja tuzmoqdamisiz? Hisob sozlamalaridan bizga murojaat qiling — har bir xabar jamoamizdagi haqiqiy insonga yetib boradi.',
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Bronlar bitta qutida — reys, mehmonxona va tadbir tasdiqlari tegishli kunga joylashadi.',
+  'about.featureCollab':
+    'Real vaqtda hamkorlik — har bir sayohatga beshtagacha sayohatchi taklif qiling, har bir o‘zgarish jonli sinxronlanadi va har bir to‘xtash ostida izohlar mavzulanadi.',
+  'about.featureMapsBudget':
+    'Xaritalar, yo‘nalishlar va umumiy byudjet — butun sayohatni xaritada ko‘ring, muharrir tanlagan yo‘nalishlarni kashf eting va xarajatlarni kuzatib, hech kim ortiqcha sarflamasin.',
+  'about.featureTimelines':
+    'Kunma-kun jadvallar — to‘xtashlarni sudrab tartiblang, transport bo‘limlarini qo‘shing va marshrut jonli hujjat sifatida qayta hisoblanishini kuzating.',
+  'about.intro':
+    '{{app}} chala-chulpa rejalar to‘la papkani butun guruhingiz amalda kuzatib boradigan yagona, umumiy sayohatga aylantiradi. Kunma-kun marshrut tuzing, reys va mehmonxonalarni qo‘shing, har bir to‘xtashni xaritaga tushiring va byudjetni kuzating — barchasi o‘nlab varaq va guruh chati o‘rniga bitta xotirjam joyda.',
+  'about.missionBody':
+    'Sayohat rejalash sayohat allaqachon yaxshilanayotgandek tuyulishi kerak, uy vazifasidek emas. {{app}} hamkorlikdagi sayohatlarni oson qilish uchun mavjud — har bir sayohatchi rejani bilib keladi va har bir to‘xtash esda qoladigan hikoya aytib beradi.',
+  'about.missionTitle': 'Bizning vazifamiz',
   'about.pageTitle': '{{app}} haqida',
   'auth.legalConsent': 'Davom etish orqali siz bizning',
   'bookings.empty.body':
@@ -31,7 +47,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Mehmonxona',
   'bookings.type.other': 'Boshqa',
   'budgetSpendCard.budgetTotal': 'ning {{total}} rejalashtirilgan',
+  'budgetSpendCard.overBy': '{{amount}} byudjetdan oshdi',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} yaqinda',
+  'budgetSpendCard.remaining': '{{amount}} qoldi',
   'calendar.eyebrow': 'Kelgusi yil',
   'calendar.heading': 'Har bir sayohat bitta taqvimda.',
   'calendar.legendHeading': 'Bu oydagi sayohatlar',
@@ -42,18 +61,28 @@ export const ui: UiTranslations = {
   'common.and': 'va',
   'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'dashboard.budgetHeading': 'Byudjet pulsi',
+  'dashboard.empty.body':
+    'Birinchi sayohatingizni rejalashtiring — boshqaruv panelingiz kunma-kun jadvallar, byudjet pulsatsiyasi va bronlar bilan to‘ladi.',
+  'dashboard.empty.cta': 'Birinchi sayohatingizni rejalashtiring',
   'dashboard.empty.heading': "Hali safarlar yo'q — atlasingiz bo'sh.",
   'dashboard.eyebrow': 'Missiyani boshqarish',
   'dashboard.heading': 'Keyingi sarguzashtingiz, tinch burchakda.',
   'dashboard.newTripCta': 'Yangi sayohatni boshlang',
+  'dashboard.subheading':
+    'Keyingi sayohatga sanoq, bugungi xarajat pulsatsiyasi va har bir davom etayotgan marshrutga qisqa nazar.',
   'dashboard.tripsHeading': 'Harakatdagi sayohatlar',
   'dashboard.viewAllExpenses': "Har bir xarajatni ko'rish",
   'dashboard.viewAllTrips': "Har bir sayohatni ko'ring",
   'dayTimelineRow.category.accommodation': 'Qoling',
+  'dayTimelineRow.category.food': 'Ovqat va ichimlik',
+  'dayTimelineRow.category.sightseeing': 'Diqqatga sazovor joylar',
   'dayTimelineRow.category.transport': 'Transport',
   'destinationOrbCard.exploreCta': "Sayohatga qo'shish",
   'destinationOrbCard.tripCount': '{{count}} sayohatlar',
+  'destinations.empty.body':
+    'Hammasi bo‘limiga qaytsangiz, muharrir tanlovlari yana paydo bo‘ladi.',
   'destinations.empty.heading': "Hali manzillar yo'q.",
+  'destinations.emptyFiltered.heading': 'Hali bunday teglangan narsa yo‘q.',
   'destinations.errors.load': "Manzillarni yuklab bo'lmadi.",
   'destinations.eyebrow': 'Keyingi qayerga',
   'destinations.heading': 'Saqlangan burchaklar va muharrir topilmalari.',
@@ -71,7 +100,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Sotuvchi',
   'expenses.formHeading': 'Kundalik xarajatlar {{trip}}',
   'expenses.heading': 'Sayohat byudjeti aslida qayerga ketadi.',
+  'expenses.heroBudget': '{{total}} dan {{pct}}% rejalashtirilgan',
   'expenses.heroEyebrow': "{{trip}} • byudjet haqida qisqacha ma'lumot",
+  'expenses.heroNoBudget': 'Bu sayohatda hali byudjet belgilanmagan.',
   'expenses.noTrips.body':
     "Avval sayohatni rejalashtiring - xarajatlar sayohat byudjetiga qo'shiladi.",
   'expenses.noTrips.heading': "Hali sayohatlar yo'q.",
@@ -84,12 +115,16 @@ export const ui: UiTranslations = {
     'Har bir chek va tasdiq bu yerda kerakli toifaga kiradi - elektron jadval kerak emas.',
   'forgotPassword.eyebrow': 'Sayohat rejangizni tiklang',
   'forgotPassword.heading': 'Parolingiz esdan chiqdimi?',
+  'forgotPassword.subheading':
+    '{{appName}} uchun ishlatgan elektron pochtangizni kiriting va parolni tiklash havolasini yuboramiz.',
   'forgotPassword.submit': 'Qayta tiklash elektron pochtasini yuboring',
   'forgotPassword.submitPending': 'Qayta tiklash elektron pochtasi yuborilmoqda…',
   'forgotPassword.successHint':
     "Hali elektron pochta xabaringiz yo'qmi? Spam jildingizni tekshiring yoki boshqa manzil bilan qayta urinib ko'ring.",
   'forgotPassword.successSubheading':
     'Biz tiklash havolasini yubordik {{email}} Havola 30 daqiqa davomida amal qiladi.',
+  'forgotPassword.tryAgain': 'Boshqa elektron pochtaga yuborish',
+  'landing.cta.eyebrow': 'Bepul tarifda boshlang',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Bepul hisob yarating',
   'landing.cta.subheading':
@@ -102,8 +137,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Bepul sayohatni boshlang',
   'landing.hero.ctaSecondary': "Namunaviy sayohatni ko'ring",
+  'landing.hero.eyebrow': 'Sayohat rejalashtiruvchi · {{tagline}}',
   'landing.hero.subtitle':
     "Waypoint yarim shakllangan rejalar bilan to'la papkani guruhingiz amalda kuzatib boradigan umumiy, kunlik marshrutga aylantiradi — buyurtmalar, xaritalar va byudjet bir joyda kuzatiladi.",
+  'landing.hero.title': 'Bir marta rejalashtiring. Birgalikda sayr qiling.',
   'landing.nav.join': 'Bepul sayohatni boshlang',
   'landing.nav.preview': "Ichki yo'nalish nuqtasi",
   'landing.preview.cta': "O'zingizdan birini rejalashtiring",
@@ -111,6 +148,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Sayohatchilar hozirda kezib yurgan bir nechta sayohatlar',
   'login.eyebrow': "A'zolar maydoni",
   'login.heading': 'Xush kelibsiz, sayohatchi',
+  'login.noAccount': 'Tesserada yangimisiz?',
   'login.signupLink': 'Bepul hisob yarating',
   'login.subheading':
     'Sayohatlaringiz, kunlik rejalaringiz, buyurtmalaringiz va allaqachon boshlagan kundalik yozuvlaringizni boshqarish uchun tizimga kiring.',
@@ -121,6 +159,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': "Bildirishnomani yangilab bo'lmadi.",
   'notifications.heading': "Bugungi sayohatlaringiz davomida nimalar o'zgardi.",
   'notifications.markUnread': "O'qilmagan deb belgilash",
+  'notifications.subheading':
+    '{{count}} yangi — bron tasdiqlari, hamkor izohlari, narx tushishi va eslatmalar.',
   'notifications.time.daysAgo': '{{count}} kun oldin',
   'notifications.time.hoursAgo': '{{count}} soat oldin',
   'notifications.time.justNow': 'hozirgina',
@@ -139,6 +179,7 @@ export const ui: UiTranslations = {
     "Ulangan xizmatlar, valyuta, push-bildirishnomalar va siz tizimga kirgan hisob ma'lumotlari.",
   'signup.and': 'va',
   'signup.eyebrow': "Waypointga qo'shiling",
+  'signup.haveAccount': 'Allaqachon sayr qilyapsizmi?',
   'signup.heading': 'Bir marta rejalashtiring. Birgalikda sayr qiling.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -150,6 +191,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Ochiq marshrut',
   'tripCountdownHeroCard.ctaSecondary': 'Yana bir sayohatni rejalashtiring',
   'tripCountdownHeroCard.daysLabel': '{{days}} kunlar qoldi',
+  'tripCountdownHeroCard.eyebrow': 'Keyingi sarguzasht · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} kecha — marshrutingiz sayohatga tayyor.',
   'tripCoverCard.stops': "{{count}} to'xtaydi",
   'tripCoverCard.travelers': '{{count}} sayohatchilar',
   'tripDetail.addActivity': "Faoliyat qo'shish",
@@ -159,6 +203,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Faoliyat nomi',
   'tripDetail.adding': "Qo'shilmoqda…",
   'tripDetail.backToTrips': 'Barcha sayohatlarga qaytish',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Sayohatchilar',
   'tripDetail.dayLabel': 'Kun {{day}}',
   'tripDetail.empty':
@@ -170,14 +215,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Marshrut • {{country}}',
   'tripDetail.invite': 'Taklif qiling',
   'tripDetail.inviteLabel': 'Elektron pochta orqali taklif qilish',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'Taklifnoma yuborildi {{email}} .',
   'tripDetail.inviting': 'Yuborilmoqda…',
   'tripDetail.loading': 'Sayohat yuklanmoqda…',
   'tripDetail.noCollaborators': 'Hozircha faqat sen.',
+  'tripDetail.notesHeading': 'Sayohat eslatmalari',
   'tripDetail.notesPlaceholder': "Hali hech qanday eslatma yo'q.",
   'tripDetail.notFound.heading': 'Sayohat topilmadi',
   'tripDetail.openBookings': 'Buyurtmalar qutisini ochish',
   'tripDetail.shareCopied': 'Buferga nusxalangan havolani ulashish:',
+  'tripDetail.shareReady': 'Ulashish havolasi tayyor:',
   'tripDetail.stops': "{{count}} to'xtaydi",
   'tripDetail.timelineEyebrow': 'Kun jadvali',
   'tripDetail.timelineHeading': 'Kunlik reja',
@@ -195,6 +243,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Sayohatchilar',
   'tripPlanner.heading': 'Bir daqiqadan kamroq vaqt ichida sayohatni chizib bering.',
   'tripPlanner.preview.eyebrow': 'Jonli lavha',
+  'tripPlanner.preview.placeholderCountry': 'Mamlakatni tanlang',
   'tripPlanner.preview.placeholderDestination': 'Keyingi sarguzashtingiz',
   'tripPlanner.section1.title': 'Qaerda va qachon',
   'tripPlanner.section2.title': 'Sayohatchilar va byudjet',
@@ -206,10 +255,14 @@ export const ui: UiTranslations = {
     "Kun {{day}} — bu yerga bekatlarni, transportni va bandlovlarni qo'shing.",
   'tripPlanner.section3.day3':
     "Kun {{day}} — bu yerga bekatlarni, transportni va bandlovlarni qo'shing.",
+  'tripPlanner.section3.title': 'Kun rejasi uchun boshlang‘ich',
   'tripPlanner.subheading':
     "Asosiy ma'lumotlarni quyida qoldiring — siz istalgan vaqtda hamkorlarni taklif qilishingiz, to'xtash joylarini sudrab olib kirishingiz va buyurtmalarni keyinroq yo'naltirishingiz mumkin.",
   'tripPlanner.submit': 'Sayohat yarating',
   'tripPlanner.submitting': 'Yaratilmoqda…',
+  'trips.empty.body':
+    'Hamma sayohatlarga qayting yoki keyingi sayringizni rejalashtirishni boshlang.',
+  'trips.empty.cta': 'Sayohatni rejalashtirish',
   'trips.empty.heading': 'Bu filtrga hali hech narsa mos kelmadi.',
   'trips.eyebrow': 'Atlas',
   'trips.filterLabel': "Sayohatlarni holati bo'yicha filtrlang",
@@ -221,6 +274,12 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': "Hali sayohatlar yo'q.",
   'trips.pastHeading': "O'tmishdagi sarguzashtlar",
   'trips.subheading': "{{count}} sayohat rejalari — o'tmish, hozirgi va qachondir.",
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading':
+    'Bir marta rejalashtiring. Birga sayr qiling. Abadiy eslab qoling.',
+  'waypointAuthShell.testimonial.author': 'Iris va Jonas · 2024-yildan beri {{appName}} a’zo',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} to‘rt mamlakat bo‘ylab shovqinli 3 haftalik sayohatni biz hozirgacha baham ko‘rgan eng xotirjam marshrutga aylantirdi.',
   'waypointLayout.mobileNavClose': 'Navigatsiya menyusini yopish',
   'waypointLayout.primaryNavLabel': 'Asosiy navigatsiya',
 }

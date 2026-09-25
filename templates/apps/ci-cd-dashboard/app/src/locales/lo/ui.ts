@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ມີຄຳຖາມ, ຄຳຕິຊົມ, ຫຼືຕ້ອງການ demo ສຳລັບທີມຂອງທ່ານບໍ? ສົ່ງອີເມວຫາພວກເຮົາທີ່ hello@conduit.dev — ທຸກຂໍ້ຄວາມຈະຮອດຄົນຈິງໃນທີມ.',
   'about.contactHeading': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ກ່ຽວກັບ',
+  'about.featuresHeading': 'ສິ່ງທີ່ເຈົ້າໄດ້ຮັບ',
+  'about.introBody':
+    '{{app}} ນຳເອົາ continuous delivery ແບບ GitHub Actions ມາສູ່ dashboard ດຽວທີ່ໄວ: pipelines, build logs, artifacts, status badges, ແລະ deployment environments ສຳລັບ repository ທັງໝົດຂອງທ່ານໃນບ່ອນດຽວ. ບໍ່ຕ້ອງສະຫຼັບ tab, ບໍ່ຕ້ອງເດົາວ່າ build ໃດແຕກ — ທຸກການແລ່ນ, ແຕ່ລະແຖວ log, ແລະການ deploy ຢູ່ຫ່າງພຽງຄລິກດຽວ.',
+  'about.introHeading': '{{app}} ແມ່ນຫຍັງ',
+  'about.missionBody':
+    'ການສົ່ງຊອບແວຄວນຈະສະຫງົບ ແລະ ຄາດເດົາໄດ້, ບໍ່ແມ່ນແຫຼ່ງຂອງຄວາມຢ້ານກົວ. ພວກເຮົາສ້າງ pipelines, logs, ແລະ ເຄື່ອງມື deploy ເພື່ອໃຫ້ເສັ້ນທາງຈາກ commit ຫາການຜະລິດໄວ, ເຫັນໄດ້ຊັດ, ແລະ ໜ້າເຊື່ອຖື — build ສີຂຽວຄັ້ງທຳອິດໃນຫ້ານາທີ, ແລະ ທຸກ build ຫຼັງຈາກນັ້ນກໍ່ຈະແຈ່ມແຈ້ງຄືກັນ.',
+  'about.missionHeading': 'ພາລະກິດຂອງພວກເຮົາ',
+  'about.subtitle':
+    '{{app}} ແມ່ນ CI/CD dashboard ສຳລັບທີມທີ່ຕ້ອງການຕິດຕາມ builds, deployments, ແລະ environments ໃນທຸກ repository — ແລະ ສົ່ງດ້ວຍຄວາມໝັ້ນໃຈ.',
   'artifacts.empty': 'ຍັງບໍ່ມີສິ່ງປະດິດໃດໆເທື່ອ.',
   'artifacts.heading': 'ສິ່ງປະດິດ',
   'artifacts.loadError': 'ໂຫຼດສິ່ງປະດິດບໍ່ສຳເລັດ.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'ສະພາບແວດລ້ອມ',
   'environments.loadError': 'ໂຫຼດສະພາບແວດລ້ອມບໍ່ສຳເລັດ.',
+  'environments.loading': 'ກຳລັງໂຫຼດສະພາບແວດລ້ອມ…',
   'environments.subheading': 'ສະຖານະການນຳໃຊ້ສົດໆໃນທຸກເປົ້າໝາຍ.',
   'forgotPassword.runnerStatus': 'ຕັ້ງຄ່າໃໝ່ · ອຸໂມງທີ່ປອດໄພ',
+  'forgotPassword.success':
+    'ຖ້າມີບັນຊີສຳລັບອີເມວນັ້ນຢູ່, ລິ້ງຣີເຊັດກຳລັງຈະມາຮອດ. ກະລຸນາກວດສອບກ່ອງຈົດໝາຍຂອງທ່ານ.',
   'insights.changeFailureRate': 'ປ່ຽນແປງອັດຕາການລົ້ມເຫຼວ',
   'insights.deployFrequency': 'ນຳໃຊ້ / ມື້',
   'insights.empty': 'ຂໍ້ມູນຍັງບໍ່ພຽງພໍເທື່ອ.',
@@ -39,13 +53,16 @@ export const ui: UiTranslations = {
   'insights.loadError': 'ໂຫຼດຂໍ້ມູນเชิงลึกບໍ່ສຳເລັດ.',
   'insights.meanP95': 'ສະເລ່ຍ {{mean}} · ໜ້າ 95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'ຂັ້ນຕອນ pipeline ທີ່ຊ້າທີ່ສຸດ',
   'insights.successRateHeading': 'ອັດຕາຄວາມສຳເລັດຂອງທໍ່ສົ່ງ (14 ມື້ຜ່ານມາ)',
   'landing.choosePlan': 'ເລືອກແຜນການ',
+  'landing.copyright': '© {{year}} {{app}}. ສົ່ງດ້ວຍຄວາມໝັ້ນໃຈ.',
   'landing.ctaBody':
     'ບໍ່ຕ້ອງມີບັດເຄຣດິດ. ບໍ່ຕ້ອງມີວິສະວະກອນແພລດຟອມ. ໄດ້ຮັບທໍ່ສົ່ງນ້ຳທຳອິດທີ່ເປັນມິດກັບສິ່ງແວດລ້ອມພາຍໃນຫ້ານາທີ.',
   'landing.ctaHeading': 'ສົ່ງດ້ວຍຄວາມແນ່ນອນ.',
   'landing.featuresEyebrow': '// ຄຸນສົມບັດຂອງແພລດຟອມ',
   'landing.featuresHeading': 'ສ້າງຂຶ້ນສຳລັບຜູ້ຂົນສົ່ງ, ໂດຍຜູ້ຂົນສົ່ງ',
+  'landing.heroSubtitle': 'Pipelines ທີ່ສຳເລັດໃນວິນາທີ. Logs ທີ່ອ່ານໄດ້. Deploys ທີ່ເຊື່ອໄດ້.',
   'landing.heroTitle': 'ຄຳເວົ້າ',
   'landing.kicker': '$ ./conduit ນຳໃຊ້ --ຢ່າງປອດໄພ',
   'landing.pricingEyebrow': '// ລາຄາ $ --ທຳມະດາ',
@@ -85,7 +102,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'ກຳລັງບິນຢູ່ດຽວນີ້',
   'pipelines.metric.successCaption': '{{count}} ຂອງ {{total}} ແລ່ນ',
   'pipelines.metric.successRate': 'ອັດຕາຄວາມສຳເລັດ',
+  'pipelines.realtimeOn': 'ເວລາຈິງ',
   'pipelines.subheading': 'ການອັບເດດສົດຈາກທຸກໆບ່ອນເກັບມ້ຽນທີ່ເບິ່ງ.',
+  'pricing.advancedFeatures': 'ຄຸນສົມບັດຂັ້ນສູງ: {{mark}}',
+  'pricing.canExport': 'ການສົ່ງອອກຂໍ້ມູນ: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artifacts',
+  'pricing.maxBuilds': '{{count}} builds',
+  'pricing.maxPipelines': '{{count}} pipelines',
   'privacy.dataAccount': 'ບັນຊີ: ຊື່, ອີເມວ, ລະຫັດຜ່ານທີ່ຖືກແຮັກ, ຊັ້ນແຜນການ.',
   'privacy.intro':
     '{{ແອັບ}} ເກັບກຳຂໍ້ມູນໜ້ອຍທີ່ສຸດທີ່ພວກເຮົາຕ້ອງການເພື່ອດຳເນີນງານບັນຊີການຈັດສົ່ງຢ່າງຕໍ່ເນື່ອງຂອງທ່ານເທົ່ານັ້ນ: ອີເມວຂອງທ່ານ, ບ່ອນເກັບມ້ຽນທີ່ທ່ານເຊື່ອມຕໍ່, ຂໍ້ມູນ metadata ຂອງ commit ແລະ build ທີ່ runners ຂອງທ່ານຜະລິດ, ແລະ ຄວາມລັບທີ່ທ່ານເລືອກທີ່ຈະເກັບໄວ້ກັບພວກເຮົາ. ພວກເຮົາບໍ່ເຄີຍອ່ານລະຫັດແຫຼ່ງຂໍ້ມູນຂອງທ່ານນອກ build runner; ສິ່ງປະດິດ build ຈະຖືກເກັບໄວ້ໃນ bucket S3 ຂອງທ່ານເມື່ອຕັ້ງຄ່າແລ້ວ.',
@@ -93,6 +116,8 @@ export const ui: UiTranslations = {
     'ພວກເຮົາໃຊ້ Stripe ສຳລັບການຮຽກເກັບເງິນ, Mailgun ສຳລັບອີເມວທຸລະກຳ, ແລະ AWS S3 ສຳລັບບ່ອນເກັບຂໍ້ມູນສິ່ງປະດິດ. ແຕ່ລະອັນຖືກຜູກມັດຕາມສັນຍາຕໍ່ຂອບເຂດຂໍ້ມູນຂັ້ນຕ່ຳທີ່ຈຳເປັນເພື່ອໃຫ້ບໍລິການຂອງມັນ.',
   'privacy.rightsBody':
     'ທ່ານສາມາດສົ່ງອອກຂໍ້ມູນທຸກໆໄບຕ໌, ລຶບບັນຊີຂອງທ່ານໄດ້ທຸກເວລາຈາກການຕັ້ງຄ່າ, ແລະຮ້ອງຂໍບັນທຶກການສົ່ງ webhook ທຸກໆຄັ້ງໃນບັນຊີຂອງທ່ານ. ພວກເຮົາຕອບສະໜອງຕໍ່ການຮ້ອງຂໍ GDPR / CCPA ພາຍໃນ 30 ມື້.',
+  'privacy.subtitle':
+    'ວິທີ {{app}} ເກັບກຳ, ເກັບຮັກສາ, ແລະ ປົກປ້ອງຂໍ້ມູນຂອງທ່ານໃນຂະນະທີ່ພວກເຮົາແລ່ນ pipelines ຂອງທ່ານ.',
   'privacy.title': 'ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ',
   'repositories.empty': 'ບໍ່ມີບ່ອນເກັບຂໍ້ມູນເຊື່ອມຕໍ່.',
   'repositories.heading': 'ບ່ອນເກັບມ້ຽນຂໍ້ມູນ',
@@ -101,11 +126,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'ບ່ອນເກັບມ້ຽນຂໍ້ມູນທັງໝົດ',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'ໂຫຼດບ່ອນເກັບຂໍ້ມູນບໍ່ສຳເລັດ.',
+  'repositoryDetail.meanDuration': 'ໄລຍະເວລາສະເລ່ຍ',
   'repositoryDetail.notFound': 'ບໍ່ພົບບ່ອນເກັບຂໍ້ມູນ.',
+  'repositoryDetail.successRate': 'ອັດຕາຄວາມສຳເລັດ',
   'repositoryDetail.totalBuilds': 'ຈຳນວນການສ້າງທັງໝົດ',
   'repositoryDetail.webhookActive': 'ເຄື່ອນໄຫວ',
   'repositoryDetail.webhookPaused': 'ຢຸດຊົ່ວຄາວ',
   'repositoryDetail.webhooksHeading': 'ເວັບຮຸກ',
+  'resetPassword.passwordLabel': 'ລະຫັດຜ່ານໃໝ່',
   'resetPassword.runnerStatus': 'ຕັ້ງຄ່າໃໝ່ · ໂທເຄັນຖືກຢືນຢັນແລ້ວ',
   'resetPassword.subtitle': 'ເລືອກລະຫັດຜ່ານທີ່ເຂັ້ມແຂງທີ່ທ່ານບໍ່ເຄີຍໃຊ້ມາກ່ອນ.',
   'resetPassword.tokenPlaceholder': 'ວາງຈາກອີເມວ',
@@ -118,6 +146,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'ບ່ອນເກັບມ້ຽນ Conduit watches. ຕັດການເຊື່ອມຕໍ່ຈາກຜູ້ໃຫ້ບໍລິການ VCS ຂອງທ່ານເພື່ອຢຸດການດູດຊຶມເຫດການຕ່າງໆ.',
   'settings.repositories.empty': 'ຍັງບໍ່ມີບ່ອນເກັບຂໍ້ມູນເຊື່ອມຕໍ່ເທື່ອ.',
+  'settings.repositories.heading': 'ການເຊື່ອມຕໍ່ repository',
   'settings.repositories.loadError': 'ໂຫຼດບ່ອນເກັບຂໍ້ມູນບໍ່ສຳເລັດ.',
   'settings.secrets.addCta': 'ເພີ່ມຂໍ້ມູນລັບ',
   'settings.secrets.addError': 'ເພີ່ມຂໍ້ມູນລັບບໍ່ສຳເລັດ.',
@@ -125,6 +154,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'ລຶບຂໍ້ມູນລັບບໍ່ສຳເລັດ.',
   'settings.secrets.empty': 'ບໍ່ມີຄວາມລັບໃດໆທີ່ຖືກເກັບໄວ້.',
   'settings.secrets.heading': 'ຄວາມລັບ',
+  'settings.secrets.lastUsed': 'ໃຊ້ຫຼ້າສຸດ {{date}}',
   'settings.secrets.loadError': 'ໂຫຼດຂໍ້ມູນລັບບໍ່ສຳເລັດ.',
   'settings.secrets.neverUsed': 'ບໍ່ເຄີຍໃຊ້',
   'settings.secrets.rotateCta': 'ໝຸນ',
@@ -148,6 +178,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'ອັບເດດ webhook ບໍ່ສຳເລັດ.',
   'signup.namePlaceholder': 'ສວນສາທາລະນະຣາຍລີ',
   'signup.runnerStatus': 'ຊັ້ນຟຣີ · 1,000 build ນາທີ/ເດືອນ',
+  'terms.intro':
+    'ໂດຍການສ້າງບັນຊີ {{app}} ທ່ານຕົກລົງຕາມຂໍ້ກຳນົດເຫຼົ່ານີ້. ພວກມັນກວມເອົາການນຳໃຊ້ build runners ຢ່າງເໝາະສົມ, ຂອບເຂດຂອງ SLA ຂອງພວກເຮົາ, ແລະ ເງື່ອນໄຂທີ່ພວກເຮົາສາມາດໂຈະ ຫຼື ຍົກເລິກບັນຊີຂອງທ່ານສຳລັບພາລະວຽກທີ່ຜິດກົດ.',
   'terms.slaBody':
     'ແຜນການ Pro ແລະ Team ເປົ້າໝາຍການເຮັດວຽກປະຈຳເດືອນ 99.95% ສຳລັບ API ແລະ runner pool. ແຜນການຟຣີແມ່ນສະໜອງໃຫ້ຕາມສະພາບທີ່ເປັນຢູ່. ການຂັດຂ້ອງຈະຖືກລາຍງານຢູ່ໃນ status.conduit.dev ແລະຈະຖືກໂອນເຂົ້າບັນຊີຕາມສູດໃນໃບແຈ້ງໜີ້ຂອງທ່ານ.',
   'terms.terminationBody':

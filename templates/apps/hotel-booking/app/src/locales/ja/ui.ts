@@ -1,10 +1,31 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '予約、フィードバック、または{{app}}に掲載すべきと思う宿泊施設についてのご質問はありますか？アカウントからチームにお問い合わせください — すべてのメッセージは、お役に立てる実在の担当者に届きます。',
+  'about.contactTitle': 'お気軽にお問い合わせください',
   'about.eyebrow': '私たちについて',
+  'about.featureLoyalty':
+    '会員限定料金と、予約ごとにポイント、レイトチェックアウト、客室アップグレードが貯まるロイヤルティプログラム。',
+  'about.featureReviews':
+    '認証済みのゲストレビューと編集部のおすすめで、到着前に宿泊先を信頼できます。',
+  'about.featureRooms':
+    '客室、料金、アメニティを並べて比較。税金やリゾートフィーを含む、透明な総額表示 — 支払う前にすべて確認できます。',
+  'about.featureSearch':
+    '厳選されたホテルをリアルタイム検索。空室状況、地図表示、充実したフォトギャラリーを備えています。',
+  'about.featureTrips':
+    'お気に入りを保存し、すべての予約、旅程、確認情報を一か所にまとめるTripsダッシュボード。',
+  'about.intro':
+    '{{app}}は、品質にこだわる旅行者のためのホテル予約プラットフォームです。すべての宿泊施設は編集チームが自ら厳選 — アグリゲーターの在庫や、おとり広告のような掲載はありません。実際の空室状況を検索し、客室、料金、アメニティを並べて比較して、わかりやすい総額料金で数タップで予約できます。',
+  'about.missionBody':
+    '宿泊先の予約は、穏やかで誠実なものであるべきです。税金やリゾートフィーを最初から含めた透明な料金を表示し、忠実なゲストには細かい追加料金を取るのではなく報い、お金に見合う宿泊先を最優先に — タブを見比べる時間を減らし、旅そのものを楽しむ時間を増やせます。',
+  'about.missionTitle': '私たちの使命',
+  'about.subtitle': '厳選された、透明な方法でぴったりのホテルを見つけて予約。',
   'account.loyalty.activitySummary': '今年は {{nights}} 泊・{{spend}} のご利用です',
+  'account.loyalty.benefitsHeading': '特典',
   'account.loyalty.heading': 'ロイヤルティ',
   'account.loyalty.loading': 'ロイヤルティ情報を読み込み中…',
+  'account.loyalty.maxTier': '最上位ティア — 特典をお楽しみください。',
   'account.loyalty.pointsTowardNext': '{{nextTier}} まで {{points}} / {{next}} ポイント',
   'account.loyalty.tier': '現在のステータス',
   'account.loyalty.unavailable': 'ロイヤルティ情報を取得できません。',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': '予約を確定・{{total}}',
   'bookingCheckout.datesRequired': 'チェックインとチェックアウトの日付を選択してください。',
   'bookingCheckout.guestHeading': '代表者',
+  'bookingCheckout.heading': '確認して予約',
   'bookingCheckout.loadError': '物件を読み込めませんでした。',
   'bookingCheckout.nights': '{{rate}} × {{count}} 泊',
   'bookingCheckout.notFound': '物件が見つかりません。',
@@ -32,6 +54,9 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': '税金・手数料',
   'bookingCheckout.tripHeading': 'ご旅行内容',
   'bookingConfirmation.allTripsCta': 'すべての旅行',
+  'bookingConfirmation.confNumber': '確認番号：{{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': '予約を処理しています。',
   'bookingConfirmation.heading': 'ご予約が確定しました',
   'bookingConfirmation.loading': '予約情報を読み込み中…',
   'bookingConfirmation.searchMoreCta': '他の宿泊先を探す',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'お気に入りを読み込めませんでした。',
   'favorites.pricePerNight': '{{price}} / 泊',
   'favorites.removeCta': '保存解除',
+  'favorites.removing': '削除中…',
   'forgotPassword.subheading':
     'ご登録のメールアドレスを入力してください。安全なリセットリンクをお送りします。',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Auberge メンバー',
   'landing.cta.heading': 'メンバー限定料金。ご予約のたびに、いつでも。',
   'landing.cta.signup': '無料でアカウント作成',
+  'landing.cta.subheading':
+    '宿泊ごとにロイヤルティポイントを貯め、レイトチェックアウトや客室アップグレードを解除し、新しい宿泊施設が一般公開される前にいち早くアクセスできます。',
   'landing.destinations.eyebrow': '次の旅先へ',
   'landing.destinations.heading': 'おすすめの旅先',
   'landing.destinations.seeAll': 'すべての旅先を見る',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': '旅に出たくなるストーリー',
   'landing.nav.join': 'Auberge に参加',
   'landing.nav.search': '宿泊先を検索',
+  'landing.preview.browseAll': 'コレクションをすべて見る',
   'landing.preview.eyebrow': '中をのぞく',
   'landing.preview.heading': '今月の厳選宿泊先',
+  'landing.preview.subheading':
+    '{{appName}}のすべての宿泊施設は編集チームが自ら厳選 — アグリゲーターの在庫や、おとり広告のような掲載はありません。',
   'login.eyebrow': 'メンバー専用エリア',
+  'login.noAccount': 'Tesseraは初めてですか?',
   'login.signupLink': '無料でアカウント作成',
   'login.subheading':
     'サインインして、ご旅行の管理や予約確認、前回の続きからの操作をお楽しみください。',
+  'loyaltyTierBadge.points': '{{points}} 点',
   'planUpdated.heading': 'プランを更新しました',
+  'planUpdated.retry': 'もう一度試す',
+  'planUpdated.verifyFailed': 'お支払いの確認がまだできていません。',
+  'planUpdated.verifyFailedBody':
+    'お支払いの処理がまだ完了していない可能性があります。しばらくしてからもう一度お試しください。',
   'planUpdated.verifying': 'お支払いを確認中…',
   'pricing.limit.advancedFeatures': '高度な機能:',
   'pricing.limit.canExport': 'データのエクスポート:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'この宿の設備・サービス',
   'propertyDetail.backLink': '検索結果に戻る',
   'propertyDetail.bookCta': '予約する',
+  'propertyDetail.bookmarkAria': '物件を保存',
   'propertyDetail.bookmarkAriaSaved': '保存済みから削除',
+  'propertyDetail.galleryImageAlt': '{{name}}の写真{{number}}',
   'propertyDetail.heroImageAlt': '{{name}} のメイン写真',
   'propertyDetail.hidePhotos': '写真を非表示にする',
   'propertyDetail.lineCleaning': '清掃料金',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': '泊',
   'propertyDetail.noChargeYet': 'この時点では請求されません',
   'propertyDetail.notFound': '物件が見つかりません。',
+  'propertyDetail.perNight': '/ 泊',
+  'propertyDetail.pickDatesHint': '日付を選択して、料金の内訳をご覧ください。',
   'propertyDetail.reviewCount': '({{count}} 件のレビュー)',
   'propertyDetail.reviewsHeading': '最近のレビュー',
   'propertyDetail.roomCapacity': '定員 {{count}} 名',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': '新しいパスワード',
   'resetPassword.subheading':
     'Auberge アカウントの新しいパスワードを選んでください。8 文字以上、パスフレーズの使用をおすすめします。',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': '条件に一致する物件はありません。',
   'searchResults.emptyHint':
     'フィルタを広げるか、価格上限を解除してお試しください。Auberge は 14 か国で宿泊先をご用意しています。',
@@ -108,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': '厳選された宿泊先',
   'searchResults.headingForQuery': '「{{q}}」の宿泊先',
   'searchResults.loadError': '物件を読み込めませんでした。',
+  'searchResults.mapHint':
+    'カードにカーソルを合わせると地図上でハイライトされます。本番環境ではMapboxのライブタイルを使用。',
   'searchResults.mapPinAria': '1泊あたりの料金{{name}} {{price}}',
   'searchResults.sortLabel': '並び替え',
   'searchResults.subheading': '{{count}} 件の物件・{{guests}} 名様',
   'signup.eyebrow': 'メンバーになる',
   'signup.subheading':
     'Auberge に参加して、メンバー限定料金、レイトチェックアウト、新規物件への先行アクセスをご利用ください。',
+  'sojournAuthShell.brand.eyebrow': '特別な場所に泊まる',
+  'sojournAuthShell.brand.heading':
+    '厳選された宿泊施設のコレクション — 美しく紹介し、透明な料金で。',
   'sojournHeroSearchCard.checkInAria': 'チェックイン日',
   'sojournHeroSearchCard.checkOutAria': 'チェックアウト日',
+  'sojournHeroSearchCard.destAria': '目的地',
+  'sojournHeroSearchCard.destLabel': 'どこで',
   'sojournHeroSearchCard.destPlaceholder': '都市・地域・物件名',
   'sojournHeroSearchCard.eyebrow': '厳選宿泊先・メンバー限定料金',
   'sojournHeroSearchCard.guestsOption': '{{n}} 名様',
   'sojournHeroSearchCard.subtitle':
     'ブティックホテル、デザイン性の高い物件、希少なリトリート — 透明な料金で美しく紹介された厳選コレクションです。',
+  'sojournHeroSearchCard.title': '特別な場所に泊まる',
+  'sojournHeroSearchCard.trustLoyalty': '宿泊ごとにポイントを貯める',
   'sojournHeroSearchCard.trustNoFees': '隠れた料金は一切なし',
   'sojournHeroSearchCard.trustVetted': '厳選された物件のみ',
   'sojournLayout.primaryNavLabel': 'メインナビゲーション',

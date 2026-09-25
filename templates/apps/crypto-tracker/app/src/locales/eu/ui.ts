@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
+  'about.featureAlerts':
+    'Prezio-alertak garrantzizko baldintzetan, posta elektronikoz eta push bidez bidalita, inoiz ez galdu mugimendurik.',
+  'about.featureMarkets':
+    'Zuzeneko merkatu-datuak eta prezio-grafikoak milaka txanponetan, kapitalizazio, bolumen eta momentuaren arabera sailkatuta.',
+  'about.featurePortfolio':
+    'Zorroaren jarraipena benetako irabazi-galerekin, kostu-oinarriarekin eta esleipenarekin — zure transakzio-historiari lotuta.',
+  'about.featureWatchlist':
+    'Jarraipen-zerrenda pertsonala eta kripto-albiste hautatuak, jarraitzen dituzun aktiboen seinaleekin.',
+  'about.missionTitle': 'Gure misioa',
+  'alertConditionCard.armedSince': 'Armatuta {{when}}tik',
   'alertConditionCard.condition.${alert.condition}': 'Abiarazita {{noiz}}',
   'alertConditionCard.confirmDelete': 'Berretsi ezabatzea',
+  'alertConditionCard.deleteAriaLabel': 'Ezabatu alerta',
   'alertConditionCard.pauseAriaLabel': 'Pausatu alerta',
   'alertConditionCard.resumeAriaLabel': 'Berrekin alerta',
+  'alertConditionCard.triggeredAt': 'Aktibatuta {{when}}',
   'alertNew.condition': 'Baldintza',
   'alertNew.createCta': 'Sortu alerta',
   'alertNew.error': 'Ezin izan da alerta sortu.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Oraindik ez dago alertarik.',
   'alerts.eyebrow': 'Bourse hari-zuloak',
   'alerts.loadError': 'Ezin izan dira alertak kargatu.',
+  'alerts.newCta': '+ Tripwire berria',
   'alerts.subheading':
     'Jaso ping bat prezioak, aldaketak edo bolumenak zure muga gainditzen duenean.',
   'alerts.summary.armed': 'Armatuta',
@@ -24,6 +38,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Inoizko maximoa',
   'coinDetail.allTimeLow': 'Inoizko baxuena',
   'coinDetail.back': 'Merkatu guztiak',
+  'coinDetail.chartAriaLabel': '{{name}} prezio-grafikoa, azken 30 egunak',
   'coinDetail.chartHeading': 'Prezioa · azken 30 egunak',
   'coinDetail.circulating': 'Zirkulazio-hornidura',
   'coinDetail.fdv': 'Balorazio guztiz diluitua',
@@ -60,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Berrezarri kable bidezko esteka.',
   'login.eyebrow': 'Sartu terminalera.',
   'login.heading': 'Ongi etorri berriro, seinale-emaile.',
+  'login.noAccountQuestion': 'Tesseran berria zara?',
   'login.secureNote': '🔒 Bidalketa-prozesuan enkriptatuta',
   'login.signingInCta': 'Zinta irakurtzen…',
   'login.signupLink': 'Kontu bat ireki →',
@@ -94,6 +110,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Eskaneatu duzun ibilbideak ez du txanpon edo orrialde ezagun batera eramaten. Egiaztatu berriro sinboloa eta saiatu berriro.',
   'notFound.browseMarkets': 'Arakatu merkatuak',
+  'notFound.eyebrow': '{{appName}} seinalea galdu da',
+  'notFound.heading': 'Seinale hau barrutitik kanpo dago',
+  'planUpdated.body':
+    'Zure fakturazio-aldaketa aktibo dago orain. Zure plana noiznahi kudea dezakezu fakturazio-orritik.',
+  'planUpdated.retry': 'Saiatu berriro',
+  'planUpdated.verifyFailed': 'Ezin izan dugu oraindik zure ordainketa baieztatu.',
+  'planUpdated.verifyFailedBody':
+    'Baliteke zure ordainketa prozesatzen ari izatea oraindik. Saiatu berriro une batean.',
   'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'portfolio.addError': 'Sartu ikurra, zenbateko positiboa eta kostua.',
   'portfolio.addHoldingCta': '+ Gehitu edukia',
@@ -117,12 +141,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Zorroaren balio osoa',
   'portfolioHeroCard.totalPnl': 'Guztirako irabazi/galera',
   'pricing.heading': 'alertak',
+  'pricing.limit.alerts': 'alertak',
   'pricing.limit.coins': 'txanponak',
   'pricing.limit.market': 'merkatu',
   'pricing.limit.portfolio': 'zorroa',
   'resetPassword.eyebrow': 'Zifratze berria',
   'resetPassword.missingToken':
     'Berrezartzeko esteka hau falta da edo baliogabea da. Eskatu berri bat.',
+  'resetPassword.passwordPlaceholder': 'Pasahitz berria',
   'resetPassword.subheading': 'Aukeratu zuk bakarrik deszifratu dezakezun zerbait.',
   'settings.apiKeys.body':
     'Transakzioen historia inportatzeko irakurketa-gakoak soilik. Harpidetu ondoren, konektatu OAuth bidez /pricing-etik.',
@@ -134,17 +160,33 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Aipatu moneta',
   'settings.preferences.locale': 'Tokikoa',
   'settings.preferences.push': 'Bultzatu',
+  'settings.preferences.refresh': 'Prezioen freskatzea (segundoak)',
   'settings.preferences.sms': 'SMSa',
+  'settings.revokeDeviceWarning': 'Gailu honen sarbidea laster kendu egingo da. Itxi saioa?',
   'settings.security.body': 'Pasahitza eta bi faktoreko ezarpenak zure kontuak kudeatzen ditu.',
   'settings.signOutDevice': 'Saioa itxi',
   'settings.twoFactorCode': 'Autentifikazio kodea',
   'settings.twoFactorDisable': 'Desgaitu',
+  'settings.twoFactorDisableTitle': 'Desgaitu bi faktoreko autentifikazioa',
   'settings.twoFactorEnable': 'Gaitu',
+  'settings.twoFactorEnableTitle': 'Gaitu bi faktoreko autentifikazioa',
   'settings.twoFactorInvalidCode': 'Kode baliogabea',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Bi faktoreko QR kodea',
+  'settings.twoFactorScan':
+    'Eskaneatu QR kode hau zure autentifikazio-aplikazioarekin, eta gero sartu 6 digituko kodea.',
+  'settings.twoFactorUnavailable':
+    'Bi faktoreko autentifikazioa ez dago erabilgarri aplikazio honetarako.',
   'settings.twoFactorVerify': 'Egiaztatu eta gaitu',
   'sigilAuthShell.backHomeCta': '← Itzuli Bourse-era',
+  'sigilAuthShell.brandBody':
+    'Denbora errealeko prezioak, zorroaren irabazi/galerak eta baldintza garrantzitsuen zaintza iraunkorrak — dena terminal bakarrean.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — Molecule-n eraikia',
+  'sigilAuthShell.brandHeadline': 'Deskodetatu seinale bakoitza liburu osoan zehar.',
+  'sigilAuthShell.samplePortfolio': 'Zorroaren adibidea',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Nabigazio nagusia',
+  'signup.creating': 'Zure terminala irekitzen…',
   'signup.eyebrow': 'Ireki terminal bat',
   'signup.heading': 'Sortu zure Bourse',
   'signup.subheading':
@@ -162,6 +204,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Ezin izan dira transakzioak kargatu.',
   'watchlist.addCta': 'Arakatu merkatuak',
   'watchlist.col.change24h': '24 ordu',
+  'watchlist.col.coin': 'Txanpona',
   'watchlist.col.marketCap': 'Merkatu-muga',
   'watchlist.empty':
     'Ez dago txanponik zure jarraipen-zerrendan — gehitu izarra /markets-eko txanponak.',

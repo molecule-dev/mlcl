@@ -5,7 +5,13 @@ export const ui: UiTranslations = {
     'Tem algum comentário, uma sugestão de recurso ou encontrou um bug? Entre em contato com a equipe do {{app}} pelo link de suporte no menu da sua conta — todas as mensagens são atendidas por uma pessoa de verdade.',
   'about.contactTitle': 'Fale connosco',
   'about.eyebrow': 'Sobre',
+  'about.intro':
+    'O {{app}} é um assistente de IA nativo de voz. Fale naturalmente, veja as suas palavras tornarem-se texto e receba respostas faladas — para poder pensar em voz alta em vez de escrever tudo.',
+  'about.missionBody':
+    'Escrever é um obstáculo entre as suas ideias e a sua concretização. O {{app}} existe para o eliminar: uma forma conversacional e mãos-livres de fazer brainstorming, esboçar e decidir — com os melhores modelos de fala e raciocínio, e com os seus dados mantidos privados.',
+  'about.missionTitle': 'Nossa missão',
   'agentDetail.back': 'Todos os agentes',
+  'agentDetail.behavior': 'Comportamento',
   'agentDetail.capabilities': 'Capacidades',
   'agentDetail.delete': 'Excluir persona',
   'agentDetail.deleteConfirm': 'Excluir esta persona? Esta ação não pode ser desfeita.',
@@ -38,15 +44,20 @@ export const ui: UiTranslations = {
   'agents.subtitle':
     'Cada agente tem seu próprio tom, ritmo e especialidade. Troque a qualquer momento durante a conversa.',
   'agents.title': 'Escolha uma voz para pensar junto.',
+  'authShell.tagline': '{{tagline}} — {{brand}}',
+  'billing.cardNoneBody':
+    'Adicione um quando fizer upgrade — a Stripe trata de todo o armazenamento.',
   'billing.cardNoneTitle': 'Nenhum cartão cadastrado',
   'billing.choose': 'Trocar',
   'billing.currentPlan': 'Seu plano',
   'billing.currentPlanReadout': 'Plano {{plan}}',
   'billing.eyebrow': 'Plano e uso',
   'billing.fetchError': 'Não foi possível carregar as informações de cobrança.',
+  'billing.loadingStatus': 'Carregando status…',
   'billing.noTiers': 'Nenhum plano disponível no momento.',
   'billing.plansTitle': 'Planos',
   'billing.switching': 'Trocando…',
+  'billing.updateAcknowledged': 'Atualização confirmada às {{time}}',
   'billing.updateError': 'Não foi possível iniciar a atualização.',
   'billing.usageHeading': 'Uso de voz neste ciclo',
   'chatBubble.source.text': 'texto',
@@ -65,11 +76,13 @@ export const ui: UiTranslations = {
   'conversation.title': 'Vamos conversar',
   'conversation.toggleMic': 'Alternar microfone',
   'conversation.toggleVoicePlayback': 'Reprodução de voz',
+  'conversation.transcribeError': 'Não foi possível transcrever o áudio.',
   'conversation.transcriptionEmpty': 'Não conseguimos ouvir nada. Tentar de novo?',
   'conversation.voiceOff': 'Voz desligada',
   'conversation.voiceOn': 'Voz ligada',
   'conversationDetail.assistant': 'Assistente',
   'conversationDetail.back': 'Voltar ao histórico',
+  'conversationDetail.elapsed': '00:00 / {{duration}}',
   'conversationDetail.empty': 'Ainda não há mensagens nesta conversa.',
   'conversationDetail.eyebrow': 'Transcrição',
   'conversationDetail.fetchError': 'Não foi possível carregar a transcrição.',
@@ -80,6 +93,7 @@ export const ui: UiTranslations = {
   'conversationDetail.setSpeed': 'Definir velocidade de reprodução para {{speed}}',
   'conversationDetail.system': 'Sistema',
   'conversationDetail.untitled': 'Conversa sem título',
+  'conversationListItem.messageCount': '{{count}} msg',
   'forgotPassword.subheading': 'Digite seu e-mail e enviaremos um link de redefinição.',
   'forgotPassword.successBody': 'Acabamos de enviar um link de redefinição para {{email}}.',
   'forgotPassword.successTitle': 'Verifique sua caixa de entrada.',
@@ -95,6 +109,10 @@ export const ui: UiTranslations = {
   'history.voiceOnly': 'Somente voz',
   'landing.copyright': '© {{year}} {{brand}}. Pense em voz alta.',
   'landing.demoMessage1': 'Oi Sarah — pronta para idealizar a nova campanha?',
+  'landing.demoMessage2':
+    'Sim — vamos focar-nos em estratégias de crescimento orgânico para o 3.º trimestre.',
+  'landing.demoMessage3':
+    'Ótimo. Eu começaria com uma iniciativa liderada pela comunidade. Quer que eu delineie as fases?',
   'landing.eyebrow': 'IA nativa de voz',
   'landing.featuresSubtitle':
     'Criada para diálogos naturais — adapta-se à sua velocidade, tom e contexto.',
@@ -123,10 +141,12 @@ export const ui: UiTranslations = {
   'parlanceLayout.openMenu': 'Abrir menu de navegação',
   'parlanceLayout.primaryNavLabel': 'Navegação principal',
   'pricing.conversations': '{{count}} conversas',
+  'pricing.cta.start': 'Escolher {{tierName}}',
   'pricing.cta.startFree': 'Começar grátis',
   'pricing.cta.upgrade': 'Atualizar para {{tierName}}',
   'pricing.empty': 'Nenhum plano disponível no momento.',
   'pricing.error': 'Não foi possível carregar os preços. Tente novamente mais tarde.',
+  'pricing.speech': 'fala de {{count}}',
   'pricing.subtitle':
     'Escolha um plano que se adapte à frequência com que você conversa com seu assistente.',
   'privacy.collection.account': 'Seu e-mail de conta e nome de exibição',
@@ -135,6 +155,8 @@ export const ui: UiTranslations = {
   'privacy.deletion.body':
     'Você pode excluir uma conversa, persona ou clipe de áudio a qualquer momento pela página correspondente. Excluir sua conta nas Configurações apaga todas as conversas, transcrições e personas vinculadas ao seu espaço de trabalho.',
   'privacy.eyebrow': 'Legal',
+  'privacy.intro':
+    'O {{app}} armazena as conversas e os clipes de voz que cria apenas durante o tempo necessário para proporcionar a experiência do assistente. Nunca vendemos os seus dados e nunca usamos áudio ou transcrições de clientes para treinar modelos de IA externos.',
   'privacy.lastUpdated': 'Última atualização: 2026-05-01',
   'privacy.processors.body':
     'Quando você fala com seu assistente, encaminhamos seu áudio para o OpenAI Whisper para transcrição, sua transcrição para a Anthropic (Claude) para a resposta e a resposta para a ElevenLabs ou OpenAI para síntese de voz. Cada fornecedor está vinculado aos seus próprios termos de processamento de dados; nada é retido para retreinamento.',
@@ -155,13 +177,19 @@ export const ui: UiTranslations = {
   'resetPassword.newPassword': 'Nova senha',
   'resetPassword.subheading': 'Escolha uma nova senha para continuar falando.',
   'search.agentPreview': 'Sem descrição',
+  'search.emptyBody': 'Experimente uma palavra-chave diferente ou diga-a em voz alta.',
   'search.emptyTitle': 'Sem resultados',
   'search.eyebrow': 'Paleta de comandos',
   'search.fetchError': 'Não foi possível carregar o índice de busca.',
+  'search.static.billing.preview': 'Planos, método de pagamento e faturas',
+  'search.static.billing.title': 'Cobrança',
   'search.static.profile.preview': 'Nome de exibição, apelido, biografia',
+  'search.static.profile.title': 'Perfil',
+  'search.static.voice.preview': 'Preferências de voz e idioma predefinidas',
   'search.static.voice.title': 'Voz',
   'search.title': 'Pesquisar Vox',
   'search.transcriptPreview': 'Abrir transcrição',
+  'settings.appearance.description': 'Alternar entre o modo claro e o modo escuro.',
   'settings.appearance.title': 'Aparência',
   'settings.loadError': 'Não foi possível carregar as configurações.',
   'settings.privacy.${row.key}.label': 'Notificações',
@@ -178,6 +206,8 @@ export const ui: UiTranslations = {
   'terms.changes.body':
     'Avisaremos no aplicativo se estes termos mudarem significativamente; o uso contínuo após o aviso significa que você aceita as atualizações.',
   'terms.eyebrow': 'Legal',
+  'terms.intro':
+    'Estes termos regem a sua utilização do {{app}}. Ao criar uma conta, concorda com eles.',
   'terms.lastUpdated': 'Última atualização: 2026-05-01',
   'terms.title': 'Termos de serviço',
   'terms.usage.body':

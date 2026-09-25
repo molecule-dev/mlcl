@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'سوالات، رائے، یا اپنی ٹیم کے لیے ڈیمو چاہتے ہیں؟ ہمیں hello@conduit.dev پر ای میل کریں — ہر پیغام ٹیم کے کسی حقیقی فرد تک پہنچتا ہے۔',
   'about.contactHeading': 'رابطہ کریں۔',
   'about.eyebrow': 'کے بارے میں',
+  'about.featuresHeading': 'جو آپ کو ملتا ہے۔',
+  'about.introBody':
+    '{{app}} GitHub Actions طرز کی مسلسل ڈیلیوری کو ایک تیز ڈیش بورڈ میں لاتا ہے: پائپ لائنز، بلڈ لاگز، آرٹیفیکٹس، اسٹیٹس بیجز، اور آپ کے تمام ریپوزٹریز کے لیے ڈیپلائمنٹ ماحول ایک ہی جگہ۔ نہ ٹیب بدلنے کی ضرورت، نہ یہ اندازہ لگانے کی کہ کون سا بلڈ ٹوٹا — ہر رن، لاگ لائن، اور ڈیپلائے صرف ایک کلک کی دوری پر۔',
+  'about.introHeading': '{{app}} کیا ہے',
+  'about.missionBody':
+    'سافٹ ویئر شپ کرنا پرسکون اور قابلِ پیش گوئی ہونا چاہیے، خوف کا باعث نہیں۔ ہم پائپ لائنز، لاگز، اور ڈیپلائے ٹولنگ بناتے ہیں تاکہ کمٹ سے پروڈکشن تک کا راستہ تیز، واضح، اور قابلِ اعتماد ہو — پہلا گرین بلڈ پانچ منٹ میں، اور اس کے بعد ہر بلڈ بھی اتنا ہی واضح۔',
+  'about.missionHeading': 'ہمارا مشن',
+  'about.subtitle':
+    '{{app}} ان ٹیموں کے لیے ایک CI/CD ڈیش بورڈ ہے جو ہر ریپوزٹری میں بلڈز، ڈیپلائمنٹس، اور ماحول کی نگرانی کرنا چاہتی ہیں — اور یقین کے ساتھ شپ کرنا چاہتی ہیں۔',
   'artifacts.empty': 'ابھی تک کوئی نمونے نہیں ہیں۔',
   'artifacts.heading': 'نمونے',
   'artifacts.loadError': 'نمونے لوڈ کرنے میں ناکام۔',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'ماحولیات',
   'environments.loadError': 'ماحول کو لوڈ کرنے میں ناکام۔',
+  'environments.loading': 'ماحول لوڈ ہو رہا ہے…',
   'environments.subheading': 'ہر ہدف پر براہ راست تعیناتی کی حیثیت۔',
   'forgotPassword.runnerStatus': 'دوبارہ ترتیب دیں · محفوظ سرنگ',
+  'forgotPassword.success':
+    'اگر اس ای میل کے لیے کوئی اکاؤنٹ موجود ہے، تو ایک ری سیٹ لنک اپنے راستے پر ہے۔ اپنا ان باکس چیک کریں۔',
   'insights.changeFailureRate': 'ناکامی کی شرح کو تبدیل کریں۔',
   'insights.deployFrequency': 'تعینات / دن',
   'insights.empty': 'ابھی تک کافی ڈیٹا نہیں ہے۔',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'بصیرتیں لوڈ کرنے میں ناکام۔',
   'insights.meanP95': 'مطلب {{mean}} · ص95 {{p95}}',
   'insights.mttr': 'ایم ٹی ٹی آر',
+  'insights.slowestStepsHeading': 'سب سے سست پائپ لائن مراحل',
   'insights.successRateHeading': 'پائپ لائن کی کامیابی کی شرح (گزشتہ 14 دن)',
   'landing.choosePlan': 'منصوبہ منتخب کریں۔',
+  'landing.copyright': '© {{year}} {{app}}۔ یقین کے ساتھ شپ کریں۔',
   'landing.ctaBody':
     'کوئی کریڈٹ کارڈ نہیں۔ پلیٹ فارم انجینئر کی ضرورت نہیں ہے۔ پانچ منٹ میں پہلی پائپ لائن گرین حاصل کریں۔',
   'landing.ctaHeading': 'یقین کے ساتھ جہاز۔',
   'landing.featuresEyebrow': '// پلیٹ فارم کی خصوصیات',
   'landing.featuresHeading': 'shippers کے ذریعے، shippers کے لیے بنایا گیا ہے۔',
+  'landing.heroSubtitle':
+    'پائپ لائنز جو سیکنڈوں میں مکمل ہوں۔ لاگز جو آپ پڑھ سکیں۔ ڈیپلائے جن پر آپ بھروسا کر سکیں۔',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ قیمتوں کا تعین --plain',
   'landing.pricingHeading': 'سادہ، متوقع قیمت',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'ابھی پرواز میں',
   'pipelines.metric.successCaption': '{{count}} کی {{total}} چلتا ہے',
   'pipelines.metric.successRate': 'کامیابی کی شرح',
+  'pipelines.realtimeOn': 'ریئل ٹائم',
   'pipelines.subheading': 'ہر دیکھے گئے ذخیرے سے لائیو اپ ڈیٹس۔',
+  'pricing.advancedFeatures': 'اعلیٰ درجے کی خصوصیات: {{mark}}',
+  'pricing.canExport': 'ڈیٹا ایکسپورٹ: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} آرٹیفیکٹس',
+  'pricing.maxBuilds': '{{count}} بلڈز',
+  'pricing.maxPipelines': '{{count}} پائپ لائنز',
   'privacy.dataAccount': 'اکاؤنٹ: نام، ای میل، ہیشڈ پاس ورڈ، پلان ٹائر۔',
   'privacy.intro':
     '{{app}} صرف کم سے کم ڈیٹا اکٹھا کرتا ہے جو ہمیں آپ کے مسلسل ڈیلیوری اکاؤنٹ کو چلانے کے لیے درکار ہوتا ہے: آپ کا ای میل، آپ کے جوڑنے والے ریپوزٹریز، آپ کے رنرز تیار کردہ میٹا ڈیٹا اور وہ راز جو آپ ہمارے ساتھ اسٹور کرنے کا انتخاب کرتے ہیں۔ ہم آپ کا سورس کوڈ کبھی بھی بلڈ رنر سے باہر نہیں پڑھتے ہیں۔ تشکیل شدہ نمونے آپ کی S3 بالٹی میں محفوظ کیے جاتے ہیں۔',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'ہم بلنگ کے لیے اسٹرائپ، ٹرانزیکشن ای میل کے لیے میلگن، اور آرٹفیکٹ اسٹوریج بنانے کے لیے AWS S3 استعمال کرتے ہیں۔ ہر ایک معاہدہ کے مطابق اپنی سروس فراہم کرنے کے لیے درکار ڈیٹا کے کم از کم دائرہ کار کا پابند ہے۔',
   'privacy.rightsBody':
     'آپ اپنے ڈیٹا کا ہر بائٹ ایکسپورٹ کر سکتے ہیں، سیٹنگز سے کسی بھی وقت اپنا اکاؤنٹ حذف کر سکتے ہیں، اور اپنے اکاؤنٹ پر ہر ویب ہک ڈیلیوری کے ریکارڈ کی درخواست کر سکتے ہیں۔ ہم 30 دنوں کے اندر GDPR/CCPA درخواستوں کا جواب دیتے ہیں۔',
+  'privacy.subtitle':
+    '{{app}} آپ کا ڈیٹا کیسے جمع، محفوظ، اور تحفظ کرتا ہے جبکہ ہم آپ کی پائپ لائنز چلاتے ہیں۔',
   'privacy.title': 'رازداری کی پالیسی',
   'repositories.empty': 'کوئی ریپوزٹری منسلک نہیں ہے۔',
   'repositories.heading': 'مخزن',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'تمام ذخیرے',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'ریپوزٹری لوڈ کرنے میں ناکام۔',
+  'repositoryDetail.meanDuration': 'اوسط دورانیہ',
   'repositoryDetail.notFound': 'ذخیرہ نہیں ملا۔',
+  'repositoryDetail.successRate': 'کامیابی کی شرح',
   'repositoryDetail.totalBuilds': 'کل تعمیرات',
   'repositoryDetail.webhookActive': 'فعال',
   'repositoryDetail.webhookPaused': 'روک دیا',
   'repositoryDetail.webhooksHeading': 'ویب ہکس',
+  'resetPassword.passwordLabel': 'نیا پاس ورڈ',
   'resetPassword.runnerStatus': 'ری سیٹ · ٹوکن تصدیق شدہ',
   'resetPassword.subtitle': 'ایک مضبوط پاس ورڈ کا انتخاب کریں جو آپ نے پہلے استعمال نہیں کیا ہے۔',
   'resetPassword.tokenPlaceholder': 'ای میل سے پیسٹ کریں۔',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Repositories نالی گھڑیاں. ایونٹس کو ہضم کرنے سے روکنے کے لیے اپنے VCS فراہم کنندہ سے رابطہ منقطع کریں۔',
   'settings.repositories.empty': 'ابھی تک کوئی ریپوزٹری منسلک نہیں ہے۔',
+  'settings.repositories.heading': 'ریپوزٹری کنکشنز',
   'settings.repositories.loadError': 'ریپوزٹریز لوڈ کرنے میں ناکام۔',
   'settings.secrets.addCta': 'راز شامل کریں۔',
   'settings.secrets.addError': 'راز شامل کرنے میں ناکام۔',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'راز کو حذف کرنے میں ناکام۔',
   'settings.secrets.empty': 'کوئی راز محفوظ نہیں ہے۔',
   'settings.secrets.heading': 'راز',
+  'settings.secrets.lastUsed': 'آخری بار استعمال {{date}}',
   'settings.secrets.loadError': 'رازوں کو لوڈ کرنے میں ناکام۔',
   'settings.secrets.neverUsed': 'کبھی استعمال نہیں کیا',
   'settings.secrets.rotateCta': 'گھمائیں۔',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'ویب ہک کو اپ ڈیٹ کرنے میں ناکام۔',
   'signup.namePlaceholder': 'ریلی پارک',
   'signup.runnerStatus': 'مفت درجے · 1,000 بلڈ منٹ/ماہ',
+  'terms.intro':
+    '{{app}} اکاؤنٹ بنا کر آپ ان شرائط سے اتفاق کرتے ہیں۔ یہ بلڈ رنرز کے قابلِ قبول استعمال، ہمارے SLA کی حدود، اور ان شرائط کا احاطہ کرتی ہیں جن کے تحت ہم بدسلوکی والے ورک لوڈز پر آپ کا اکاؤنٹ معطل یا ختم کر سکتے ہیں۔',
   'terms.slaBody':
     'پرو اور ٹیم کے منصوبے API اور رنر پول کے لیے 99.95% ماہانہ اپ ٹائم کا ہدف رکھتے ہیں۔ مفت پلان جیسا کہ ہے فراہم کیا جاتا ہے۔ بندش کی اطلاع status.conduit.dev پر دی جاتی ہے اور آپ کے انوائس کے فارمولے کے مطابق کریڈٹ کی جاتی ہے۔',
   'terms.terminationBody':

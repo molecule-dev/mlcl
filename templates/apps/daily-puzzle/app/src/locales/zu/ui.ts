@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Unombono, uthole iphutha, noma ufuna ukuletha i-{{app}} esikoleni sakho noma eqenjini lakho? Sifunda yonke imilayezo — xhumana nathi kusuka kuzilungiselelo ze-akhawunti yakho futhi umuntu wangempela uzophendula.',
   'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
+  'about.intro':
+    'I-{{app}} iwumdlalo wamagama wansuku zonke. Qagela igama elinezinhlamvu ezinhlanu ngemizamo eyisithupha, gcina ukulandelana kwakho kuphila, yabelana ngegridi yakho yama-emoji, futhi ubone ukuthi wonke umdlali wenzile kanjani egameni lanamuhla.',
+  'about.missionBody':
+    'Indida enhle iwukuwina okuncane kwansuku zonke. I-{{app}} yakhelwe egameni elilodwa elabiwe nsuku zonke — ishesha ngokwanele ngekhefu lekhofi, ibukhali ngokwanele ukuba ubuyele kusasa.',
+  'about.missionTitle': 'Umsebenzi wethu',
   'about.title': 'Mayelana ne-{{app}}',
   'archive.loadError': 'Ayikwazanga ukulayisha i-archive.',
   'archive.missed': 'Uphuthelwe',
   'archive.notPlayed': 'Awukadlalanga',
+  'archive.subhead':
+    'Dlala futhi noma yiluphi usuku olwedlule njengomsebenzi wokuzilolonga — akukho kulandelana, akukho zibalo, konke ukuzijabulisa.',
   'archive.title': 'Ingobo yomlando',
   'auth.backToHome': 'Buyela ekhaya',
   'auth.backToHomeArrow': '← Buyela ekhaya',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Ukhohlwe iphasiwedi?',
   'auth.login.loggingIn': 'Siyangenisa…',
   'auth.login.logIn': 'Dlala igama lanamuhla',
+  'auth.login.noAccount': 'Usanda kufika eTessera?',
   'auth.login.or': 'noma qhubeka nge',
   'auth.login.password': 'Iphasiwedi',
   'auth.login.signInButton': 'Ngena ngemvume',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Iyalondoloza…',
   'common.sendingEllipsis': 'Iyathumela…',
   'common.startingEllipsis': 'Iyaqala…',
+  'forgotPassword.subhead':
+    'Faka i-imeyili yakho bese sizokuthumelela isixhumanisi sokusetha kabusha.',
+  'forgotPassword.success.body':
+    'Uma kukhona i-akhawunti ye- {{email}} , uzothola isixhumanisi sokusetha kabusha ngemizuzu embalwa.',
+  'forgotPassword.success.title': 'Hlola ibhokisi lakho lokungenayo.',
   'form.name': 'Igama',
   'howToPlay.cta.home': 'Ukubuyela ekhaya',
   'howToPlay.cta.play': 'Dlala iphazili lanamuhla',
@@ -68,10 +83,16 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Izikhwela ozonda ukuzephula',
   'leaderboard.daily.title': 'Izixazululo zanamuhla',
   'leaderboard.loadError': 'Ayikwazanga ukulayisha ibhodi eliholayo.',
+  'leaderboard.streaks.empty': 'Akukho kulandelana okwamanje — yiba ngowokuqala.',
+  'leaderboard.streaks.subhead': 'Izikhathi ezinde kakhulu zokuwina kuzo zonke izikhathi.',
   'leaderboard.streaks.title': 'Abaholi bezikhwela',
+  'leaderboard.subhead':
+    'Ukuthi umdlalo uhambe kanjani namuhla, nokuthi ubani ophethe ukulandelana okude kakhulu.',
   'leaderboard.title': 'Ibhodi eliholayo',
   'login.headline': 'Siyakwamukela emuva.',
   'login.streakPill': 'Isikhwela sezinsuku ezi-{{days}} silinde',
+  'login.subhead':
+    'Ngena ngemvume ukuze ugcine ukulandelana kwakho kuphila futhi ubone ukuthi wenze kanjani egameni lanamuhla.',
   'nav.archive': 'Ingobo yomlando',
   'nav.editProfile': 'Hlela iphrofayili',
   'nav.getStarted': 'Qalisa',
@@ -89,6 +110,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Alikho igama elinjalo',
   'notFound.title': 'Lelo ndlela alinalutho.',
   'planUpdated.message': 'Uhlelo lwakho luyaphila.',
+  'planUpdated.retry': 'Zama futhi',
+  'planUpdated.verifyFailed': 'Asikwazanga ukuqinisekisa inkokhelo yakho okwamanje.',
+  'planUpdated.verifyFailedBody':
+    'Inkokhelo yakho ingase isacutshungulwa. Zama futhi ngemva kwesikhashana.',
   'planUpdated.verifying': 'Siyaqinisekisa inkokhelo yakho…',
   'play.alreadyFinished': 'Usuvele uqedile leli phazili',
   'play.answerWas': 'Igama kwakuyilo',
@@ -104,6 +129,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Iphazili lomzilizi',
   'play.tooShort': 'Azanele izinhlamvu',
   'play.won': 'Ulixazululile!',
+  'pricing.advancedStats': 'Izibalo ezithuthukile: {{yes}}',
+  'pricing.archiveHistory': '{{count}} izinsuku zomlando wengobo',
+  'pricing.archivePlays': '{{count}} ukudlalwa futhi kwengobo / ngosuku',
+  'pricing.archiveUnlimited': 'Umlando wengobo ongenamkhawulo',
+  'pricing.canExport': 'Ukuthunyelwa kwedatha ngaphandle: {{yes}}',
+  'pricing.checkoutError': 'Ayikwazanga ukuqala ukukhokha. Sicela uzame futhi.',
   'pricing.dailyWord': 'Igama lensuku zonke',
   'pricing.heading': 'Khetha uhlelo lwakho lwe-{{app}}',
   'pricing.included': 'Kufakiwe',
@@ -111,7 +142,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Igama lensuku zonke lihlala limahhala. Thuthukisa ukuze uthole ukudlala kabusha kwe-archive okungapheli namanani ajulile.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    'I-{{app}} ihlonipha ubumfihlo bakho. Leli khasi lifingqa idatha esiyigcinayo, ukuthi kungani siyigcina, nokuthi siyisusa kanjani.',
   'privacy.title': 'Isaziso sobumfihlo',
+  'resetPassword.subhead': 'Khetha iphasiwedi entsha ukuze ubuyele ekulandelaneni kwakho.',
   'settings.account': 'I-akhawunti',
   'settings.danger.body':
     'Susa unaphakade i-akhawunti yakho ye-{{appName}} nayo yonke imibhalo yephazili.',
@@ -122,17 +156,23 @@ export const ui: UiTranslations = {
   'settings.language.title': 'Ulimi',
   'settings.subhead':
     'Lungisa iphrofayili yakho, umsindo, nendlela ubonakala ngayo ebhodini eliholayo.',
+  'settings.unnamed': 'Umdlali we-Sparq',
   'settings.upgrade': 'Thuthukisa',
   'signup.eyebrow': 'Kumahhala unaphakade — igama elilodwa ngosuku',
   'signup.headline': 'Qala isikhwela sakho.',
+  'signup.subhead':
+    'Dala i-akhawunti ye-{{appName}} ukuze udlale igama lansuku zonke, wakhe ukulandelana, futhi ukhuphukele ohlwini lwabahamba phambili.',
   'stats.currentStreak': 'Isikhwela',
   'stats.distribution.title': 'Ukusatshalaliswa kokuqagela',
   'stats.loadError': 'Ayikwazanga ukulayisha amanani akho.',
   'stats.maxStreak': 'Isikhwela esikhulu kunazo zonke',
   'stats.played': 'Kudlaliwe',
   'stats.playToday': 'Dlala iphazili lanamuhla',
+  'stats.subhead': 'Amaphazili ansuku zonke abalwayo kuphela — ukuzilolonga kwengobo akunakiwe.',
   'stats.title': 'Amanani akho',
   'stats.winRate': 'Isilinganiso sokunqoba',
   'status.monthly': 'Nyanga yonke',
+  'terms.intro':
+    'Ngokusebenzisa i-{{app}} uyavuma imithetho engezansi. Uma ungakwazi ukuyamukela, sicela ungasebenzisi le sevisi.',
   'terms.title': 'Imigomo yesevisi',
 }

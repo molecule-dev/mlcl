@@ -1,12 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Galderak, iritzia edo akatsen bat jakinarazteko? Jarri harremanetan taldearekin zure kontuaren ezarpenetatik — mezu bakoitza hizkuntzak ere ikasten dituen benetako pertsona batengana iristen da.',
   'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Guri buruz',
+  'about.missionTitle': 'Gure misioa',
+  'about.whatYouGet': 'Zer lortzen duzun',
   'common.goToDashboard': 'Joan aginte-panelera',
   'common.logout': 'Saioa itxi',
+  'dailyStatsTriad.heartsHint': 'Bete ezazu berriro ikasgai bakoitzaren hasieran',
   'dailyStatsTriad.heartsLabel': 'Bihotzak',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
+  'dailyStatsTriad.minutesHint': 'Gaurko ariketetatik',
   'dailyStatsTriad.minutesLabel': 'Gaurko minutuak',
   'dailyStatsTriad.minutesValue': '{{count}} minutu',
   'dailyStatsTriad.wordsLabel': 'Hitzak menperatuta',
@@ -15,18 +21,30 @@ export const ui: UiTranslations = {
   'dashboard.heading': 'Egun on, {{name}} .',
   'dashboard.loadError':
     'Ezin izan da azken aurrerapena kargatu — cachean gordetako balioak erakusten dira.',
+  'dashboard.loading': 'Freskagarria…',
   'dashboard.noLessons': 'Ez dago ikasgairik eskuragarri oraindik — itzuli laster.',
+  'dashboard.startPractice': 'Hasi hitz egiteko praktika',
+  'dashboard.subheading':
+    'Jarraitu utzi zenuen tokian — hiru saio labur eta gaurko helburua lortuko duzu.',
   'dashboard.viewAllLessons': 'Ikasgai guztiak →',
+  'forgotPassword.subheading':
+    'Idatzi zure helbide elektronikoa eta berrezartzeko esteka bidaliko dizugu.',
   'forgotPassword.successBody':
     'Begiratu zure sarrera-ontzia — berrezartzeko esteka bat bidali dizugu.',
   'forgotPassword.successHint':
     'Baldin eta {{email}} kontu batekin bat badator, esteka minutu baten barruan iritsiko da.',
+  'landing.copyright': '© {{year}} {{app}}. Helduentzako ikasleentzat egina.',
   'landing.ctaBody':
     'Ez da txartelik behar. Utzi zure helbide elektronikoa, aukeratu hizkuntza, hasi bihar.',
   'landing.ctaHeading': 'Prest zure azentua aurkitzeko?',
   'landing.eyebrow': 'Helduentzako eguneroko hizkuntza praktika',
   'landing.featuresHeading': 'Zure denbora errespetatzen duen praktika-zirkuitu bat',
+  'landing.featuresSubheading':
+    'Helduentzat diseinatua, egunean hogeita hamar minuturako, ez astean hogeita hamar ordurako.',
   'landing.heroCta': 'Hasi 7 eguneko bolada bat',
+  'landing.heroSubtitle':
+    'Bost minutuko ikasgaiak, kafe-atsedenaldian sartzen direnak. Ariketak, hiztegia, hitz egitea — benetan mantenduko duzun bolada batean bilduta.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.languagesEyebrow': 'Aukeratu hizkuntza bat',
   'landing.languagesHeading': 'Hamalau hizkuntza, eguneroko ohitura bat',
   'landing.proof.languages': '{{count}} hizkuntzak',
@@ -41,11 +59,18 @@ export const ui: UiTranslations = {
   'leaderboard.heading': 'Sailkapen-taula',
   'leaderboard.loadError': 'Ezin izan da sailkapena kargatu.',
   'leaderboard.loading': 'Sailkapena kargatzen…',
+  'leaderboard.rewardBody':
+    'Hiru aste jarraian urrea lortzeak diamante mailara igotzen zaitu. Apustu lagunkoiak soilik.',
+  'leaderboard.rewardEyebrow': 'Aste honetako saria',
+  'leaderboard.rewardHeading': 'Goiko {{count}}ek urrezko ligako txartela lortzen dute',
   'leaderboard.subheading':
     'XP aste honetan. Igandean, zure tokiko orduan, gauerdian berrezartzen da.',
   'leaderboard.weeklyPeriod': 'Aste honetan · lagunak',
+  'leaderboardPanel.rankSuffix': 'Sailkapena # {{rank}}',
   'leaderboardPanel.title': 'Lagunen sailkapena',
+  'leaderboardPanel.xp': '{{xp}} XP',
   'leaderboardPanel.you': '(Zu)',
+  'lessonCard.continue': 'Jarraitu →',
   'lessonCard.duration': '{{min}} minutu',
   'lessonCard.level': 'Maila {{level}}',
   'lessonCard.progressPercent': '{{percent}} % osatua',
@@ -54,14 +79,17 @@ export const ui: UiTranslations = {
   'lessonDetail.check': 'Egiaztatu',
   'lessonDetail.checking': 'Egiaztatzen…',
   'lessonDetail.correct': 'Bikaina!',
+  'lessonDetail.correctHint': '+{{xp}} XP. Jarraitu horrela.',
   'lessonDetail.empty': 'Ez dago ariketarik ikasgai honetan.',
   'lessonDetail.exit': 'Irten ikasgaia',
   'lessonDetail.fillBlank': 'Bete hutsunea',
   'lessonDetail.finish': 'Amaitu ikasgaia',
   'lessonDetail.incorrect': 'Ez guztiz — “ {{answer}} "',
+  'lessonDetail.incorrectHint': 'Hau berriro ikusiko duzu biharko errepasoan.',
   'lessonDetail.lessonId': 'Ikasgaia · {{id}}',
   'lessonDetail.loadError': 'Ezin izan dira ariketak kargatu.',
   'lessonDetail.loading': 'Ikasgaia kargatzen…',
+  'lessonDetail.pronunciation': 'Aukeratu ahoskera zuzena',
   'lessonDetail.submitError': 'Ezin izan da erantzuna bidali.',
   'lessonDetail.translation': 'Itzuli esaldia',
   'lessonDetail.xpEarned': 'Lortutako XP · {{xp}}',
@@ -80,6 +108,12 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'Ireki nabigazio menua',
   'parlanceLayout.nav.profile': 'Profila',
   'parlanceLayout.primaryNavLabel': 'Nabigazio nagusia',
+  'planUpdated.body':
+    'Zure fakturazio-aldaketa aktibo dago orain. Zure plana noiznahi kudea dezakezu fakturazio-orritik.',
+  'planUpdated.retry': 'Saiatu berriro',
+  'planUpdated.verifyFailed': 'Ezin izan dugu oraindik zure ordainketa baieztatu.',
+  'planUpdated.verifyFailedBody':
+    'Baliteke zure ordainketa prozesatzen ari izatea oraindik. Saiatu berriro une batean.',
   'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'practice.empty': 'Ez dago esaldirik eskuragarri oraindik.',
   'practice.eyebrow': 'Ahozko praktika',
@@ -103,6 +137,9 @@ export const ui: UiTranslations = {
   'pricing.limits.progress': 'aurrerapen sarrerak',
   'profile.anonymous': 'Ikaslea',
   'profile.avatarAlt': '{{name}} \\u2019s avatarra',
+  'profile.eyebrow': 'Kidea {{joined}}tik',
+  'profile.eyebrowNew': 'Ikasle berria',
+  'profile.langLessonCount': '{{count}} ikasgaiak',
   'profile.langLevel': 'Maila {{level}}',
   'profile.languages': 'Hizkuntzak',
   'profile.languagesHeading': 'Hizkuntzak martxan',
@@ -112,6 +149,7 @@ export const ui: UiTranslations = {
   'profile.streak': 'Marra',
   'profile.totalXp': 'XP guztira',
   'resetPassword.confirmPlaceholder': 'Idatzi berriro',
+  'resetPassword.mismatch': 'Pasahitzak ez datoz bat.',
   'resetPassword.newPasswordLabel': 'Pasahitz berria',
   'resetPassword.newPasswordPlaceholder': 'Zortzi karaktere edo gehiago',
   'resetPassword.subheading': 'Aukeratu zerbait gogoangarria, zortzi pertsonaia edo gehiago.',
@@ -119,6 +157,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Praktika-lehentasunak',
   'settings.goalBody':
     'Zenbat XP lortu nahi duzun egunero. Helburua lortzen duzun bakoitzean, marratxoak gordetzen dira.',
+  'settings.goalHeading': 'Eguneroko helburua',
   'settings.goalMinutes': '~ {{min}} minutu/egun',
   'settings.language.description':
     'Aukeratu aplikazioaren menuetan eta etiketetan erabiliko den hizkuntza.',

@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'अभिप्राय आहे, बग सापडला, किंवा तुमच्या स्टुडिओ किंवा टीमसाठी {{app}} हवे आहे? तुमच्या खाते सेटिंग्जमधून संपर्क साधा — प्रत्येक संदेश टीममधील खऱ्या व्यक्तीपर्यंत पोहोचतो.',
   'about.contactTitle': 'आमच्याशी संपर्क साधा',
+  'about.intro':
+    '{{app}} हा एक सहयोगी लेखन स्टुडिओ आहे जिथे संपादक, लेखक आणि टीम्स रिअल टाइममध्ये एकत्र मसुदा तयार करतात. दस्तऐवज उघडा आणि पृष्ठ सामायिक होते — कर्सर हलतात, मार्जिनमध्ये टिप्पण्यांची चर्चा होते, आणि प्रत्येक आवृत्ती इतिहासात सुरक्षित ठेवली जाते.',
+  'about.missionBody':
+    'आमचा विश्वास आहे की दीर्घ लेखनाला एक शांत, केंद्रित घर मिळायला हवे — जे मीटिंग किंवा इनबॉक्सभोवती नाही, तर हस्तलिखिताभोवती उभे केलेले असेल. आमचा संपादक, रिअल-टाइम उपस्थिती आणि आवृत्ती इतिहास अशा प्रकारे तयार केले आहेत की सहयोगी एकत्र वेगाने पुढे जाऊ शकतात आणि कोणाचाही परिच्छेद किंवा विचार हरवत नाही.',
+  'about.missionTitle': 'आमचे ध्येय',
+  'about.subtitle': 'एकत्र विचार करा, कायम लिहा.',
   'about.title': '{{app}} बद्दल',
   'comments.addFailed': 'टिप्पणी पोस्ट करता आली नाही.',
   'comments.backToDoc': 'हस्तलिखिताकडे परत जा',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'टिप्पणी धागे',
   'comments.loading': 'थ्रेड्स लोड होत आहेत…',
   'comments.newPlaceholder': 'हस्तलिखितावर एक टिप्पणी जोडा…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'पुन्हा उघडा',
   'comments.reopenFailed': 'पुन्हा उघडता आले नाही.',
   'comments.replyFailed': 'उत्तर देता आले नाही.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'अलीकडील मसुदे, सामायिक केलेली कामे आणि दिवसाचे संपादन.',
   'dashboard.viewFeed': 'फीड →',
   'editor.back': 'हस्तलिखितांकडे परत जा',
+  'editor.bodyLabel': 'दस्तऐवज मुख्य भाग',
   'editor.bodyPlaceholder': 'जिथे कर्सर चमकतो तिथून सुरुवात करा.',
   'editor.comments': 'टिप्पण्या',
   'editor.createFailed': 'दस्तऐवज तयार करता आला नाही.',
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'जर खाते अस्तित्वात असेल तर {{email}} रीसेट लिंक लवकरच पाठवण्यात येईल.',
+  'forgotPassword.sentHeading': 'तुमचा ईमेल तपासा',
+  'forgotPassword.submitting': 'पाठवत आहे\\u2026',
   'forgotPassword.subtitle': 'आम्ही तुम्हाला रीसेट लिंक ईमेल करू.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Molecule ने बनवले आहे.',
+  'landing.ctaBody':
+    'एकल लेखकांसाठी मोफत. संपादक, भूतलेखक आणि पुनरावलोकनकर्त्यांच्या टीम्ससाठी स्टुडिओ योजना.',
   'landing.ctaHeading': 'पान उघडा. कर्सर सुरू होऊ द्या.',
   'landing.ctaPrimary': 'स्टुडिओ उघडा',
   'landing.eyebrow': 'लेखक, संपादक आणि संघांसाठी',
   'landing.featuresEyebrow': 'तुम्हाला काय मिळते',
   'landing.featuresHeading': 'विस्तृत मसुद्यासाठी एक स्टुडिओ.',
+  'landing.featuresSubtitle':
+    '{{appName}} हस्तलिखिताभोवती उभे केले आहे — मीटिंगभोवती नाही, इनबॉक्सभोवती नाही.',
   'landing.getStarted': 'स्टुडिओ उघडा',
   'landing.heroCta': 'लिहायला सुरुवात करा',
   'landing.heroSubtitle':
@@ -95,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} न वाचलेल्या टिप्पण्या, उल्लेख, शेअर करण्याची आमंत्रणे आणि सूचना विनंत्या.',
   'presenceAvatars.label': '{{count}} सहयोगी',
+  'privacy.intro': 'आम्ही तुमची माहिती कशी गोळा करतो, वापरतो आणि संरक्षित करतो.',
   'privacy.title': 'गोपनीयता धोरण',
   'profile.about.description':
     'तुमच्या सार्वजनिक प्रोफाइल आणि योगदानकर्ता पृष्ठांसाठी एक संक्षिप्त परिचय.',
@@ -107,7 +124,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'उपस्थिती',
   'profile.pronouns': 'सर्वनामे',
   'profile.publicToggle': 'सहकाऱ्यांना प्रोफाइल दाखवा',
+  'profile.role': 'भूमिका / पद',
   'profile.subtitle': 'तुम्ही तुमच्या सहकाऱ्यांना कसे दिसता.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} स्टुडिओमध्ये सक्रिय असलेले लेखक',
   'quillonAuthBrandPanel.quote':
     'लेखन ही एकमेव अशी गोष्ट आहे, जी करताना मला दुसरं काहीतरी करायला हवं असं वाटत नाही.',
@@ -115,6 +134,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'उघडा →',
   'quillonKpiCard.trend': 'अलीकडील ट्रेंड',
   'quillonLayout.menu': 'मेनू',
+  'quillonLayout.mobileNavLabel': 'मोबाइल नेव्हिगेशन',
   'quillonLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
   'quillonStudioHero.collab': 'सहयोगी',
   'quillonStudioHero.docs': 'कागदपत्रांना स्पर्श केला',
@@ -123,7 +143,9 @@ export const ui: UiTranslations = {
   'quillonStudioHero.subtitle': 'हस्तलिखित हातात घ्या, एक टिप्पणी लिहा, एक परिच्छेद पुढे सरकवा.',
   'quillonStudioHero.words': 'आजचे शब्द',
   'resetPassword.confirmPlaceholder': 'नवीन पासवर्ड पुन्हा टाका',
+  'resetPassword.passwordLabel': 'नवीन पासवर्ड',
   'resetPassword.passwordPlaceholder': 'नवीन पासवर्ड टाका',
+  'resetPassword.submitting': 'रीसेट करत आहे',
   'resetPassword.subtitle': 'एक मजबूत पासवर्ड निवडा — किमान १२ अक्षरी.',
   'settings.account.description': 'तुम्ही साइन इन कसे करता.',
   'settings.billing.canceled': 'सदस्यता रद्द केली.',
@@ -132,7 +154,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'कॉन्फिगर केलेले नाही',
   'settings.billing.updated': 'योजना अद्ययावत केली आहे.',
   'settings.editor.description': 'तुम्ही लिहित असताना कॅनव्हास कसा वागतो.',
+  'settings.editor.title': 'संपादक प्राधान्ये',
   'settings.eyebrow': 'स्टुडिओ प्राधान्ये',
+  'settings.language.title': 'भाषा',
   'settings.notifications.${n.key}.description': 'भाषा',
   'settings.notifications.description': 'तुमच्या इनबॉक्समध्ये काय येईल ते निवडा.',
   'settings.subtitle': 'सूचना, एडिटर कॅनव्हास आणि तुमच्या खात्याच्या प्राधान्यांमध्ये बदल करा.',
@@ -141,6 +165,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'माझ्यासोबत शेअर केले',
   'shared.loadFailed': 'सामायिक केलेले दस्तऐवज लोड करता आले नाहीत.',
   'shared.subtitle': 'स्टुडिओमधील इतरांकडून आलेली हस्तलिखिते, संक्षिप्त अहवाल आणि नोंदी.',
+  'signup.brandAttribution': 'Anaïs Park — संपादक, The Quarterly',
   'signup.brandQuote':
     '•तुमची पहिली हस्तलिखित प्रत लिहिणे सर्वात कठीण असते. क्विलॉनमुळे तो काळ कमी एकाकी वाटतो.',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -148,6 +173,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'अनाईस',
   'signup.heading': 'तुमचे क्विलॉन खाते तयार करा',
   'signup.lastNamePlaceholder': 'पार्क',
+  'signup.submitting': 'तुमचा स्टुडिओ उघडत आहे\\u2026',
   'signup.subtitle': 'एक शांत डेस्क, मनमोकळे सहकारी आणि तुमच्या कामात अडथळा न आणणारा एक संपादक.',
   'templates.blank.subtitle': 'एक कोरा कागद. कर्सर सुरू होतो.',
   'templates.blank.title': 'कोरा दस्तऐवज',
@@ -159,11 +185,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'एका विचारपूर्वक रचनेने सुरुवात करा. त्यात अमर्याद बदल करा.',
   'templates.useFailed': 'या टेम्पलेटमधून दस्तऐवज सुरू करता आला नाही.',
   'templates.useTemplate': 'हा साचा वापरा',
+  'terms.intro': 'ही सेवा तुम्ही कोणत्या अटींनुसार वापरू शकता.',
   'terms.title': 'सेवा अटी',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'आत्ताच',
   'trash.confirmDelete': 'हटवण्याची पुष्टी करा',
+  'trash.confirmEmpty': 'पुष्टी करा — सर्व काही हटवा',
   'trash.deleteFailed': 'हटवता आले नाही.',
   'trash.deleteForever': 'कायमचे हटवा',
   'trash.empty': 'वसूल करण्यासारखं काहीच नाही.',
@@ -178,7 +206,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'अद्याप कोणतीही सुधारणा नाही — त्याचा इतिहास सुरू करण्यासाठी दस्तऐवज जतन करा.',
   'versionHistory.heading': 'आवृत्ती इतिहास',
+  'versionHistory.latest': 'नवीनतम',
   'versionHistory.loadFailed': 'इतिहास लोड करता आला नाही.',
+  'versionHistory.noContent': 'या आवृत्तीसाठी कोणतीही सामग्री कॅप्चर केलेली नाही.',
   'versionHistory.previewing': 'पूर्वावलोकन',
   'versionHistory.restore': 'ही आवृत्ती पुनर्संचयित करा',
   'versionHistory.restoreFailed': 'पुनर्स्थापना अयशस्वी झाली.',

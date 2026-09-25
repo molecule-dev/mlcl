@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Mistoqsijiet, feedback, jew talba għal funzjoni ġdida? Ikkuntattja lit-tim ta' {{app}} minn Settings → Notifications, jew ikteb lilna meta trid — kull messaġġ jasal għand bniedem reali.",
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwar',
+  'about.featureCapture':
+    "Qbid tar-riċevuti b'upload tal-istampi li jwaħħal l-immaġini mal-ispiża t-tajba, linja b'linja.",
+  'about.featureExport':
+    "Esportazzjonijiet CSV verifikabbli ta' kull rapport, spiża, u stat ta' approvazzjoni — lesti għat-tim tal-kontabilità tiegħek.",
+  'about.featurePolicy':
+    "Linji gwida tal-politika — limiti ta' kuljum, limiti għal kull kategorija, u limiti li jirrikjedu r-riċevuta infurzati fil-ħin tas-sottomissjoni.",
+  'about.featureWorkflow':
+    "Fluss ta' approvazzjoni b'żewġ livelli b'noti tal-verifikatur, twissijiet ta' ksur tal-politika, u mmarkar tar-rimborż b'tap wieħed.",
+  'about.intro':
+    '{{app}} hija pjattaforma tal-ġestjoni tal-ispiża għat-timijiet finanzjarji u n-nies li huma jirrimborżaw. Aqbad riċevuta, iddikjara spiża, ibgħat rapport għall-approvazzjoni, u segwi kull rimborż — mingħajr iċ-ċerimonja tal-ispreadsheets.',
+  'about.missionBody':
+    "Ir-rimborż għandu jkun mgħaġġel, ġust, u verifikabbli. Bnejna {{app}} biex min jissottometti jitħallas lura mingħajr tgergir, min japprova jara eżattament x'qed jiffirma, u l-finanzi jkollhom traċċa nadifa għal kull dollaru — kontrolli tal-politika u kollox.",
+  'about.missionTitle': 'Il-missjoni tagħna',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Qed napprova…',
   'approvals.confirmReject': 'Ikkonferma r-rifjut',
+  'approvals.empty': 'Kollox aġġornat — l-ebda rapport ma qed jistenna.',
   'approvals.eyebrow': 'Kju tal-maniġer',
   'approvals.kpi.flaggedLabel': 'Politika mmarkata',
+  'approvals.kpi.queueLabel': 'Qed jistenna reviżjoni',
   'approvals.kpi.totalLabel': 'Valur pendenti',
   'approvals.lineCount': '{{count}} spejjeż',
   'approvals.queueFallback': 'Kju dirett mhux disponibbli — qed tintwera dejta demo kkurata.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Tirrifjuta…',
+  'approvals.rejectPlaceholder': 'Raġuni (meħtieġa)',
   'approvals.rejectPrompt': 'Għaliex qed tirrifjuta dan ir-rapport?',
   'approvals.review': 'Reviżjoni',
   'approvals.title': 'Approvazzjonijiet pendenti',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Approvat · MTD',
   'dashboard.kpi.pendingDelta': '+2 din il-ġimgħa',
+  'dashboard.kpi.pendingLabel': 'Reviżjoni pendenti',
   'dashboard.kpi.receiptsDelta': 'Azzjoni meħtieġa',
   'dashboard.kpi.receiptsLabel': 'Qed nistennew irċevuti',
   'dashboard.kpi.reimbursedDelta': '+$2.4k',
   'dashboard.kpi.reimbursedLabel': 'Rimborsat · MTD',
   'dashboard.newReport': 'Rapport ġdid',
+  'dashboard.recent.empty': "Għad m'hemmx rapporti — ibda l-ewwel wieħed hawn fuq.",
   'dashboard.recent.title': 'Rapporti riċenti',
   'dashboard.recent.viewAll': 'Ara r-rapporti kollha',
   'dashboard.summaryFallback':
@@ -39,11 +60,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'Irċevuti u oġġetti rimborsabbli',
   'expenses.listFallback': 'Lista diretta mhux disponibbli — qed tintwera dejta demo kkurata.',
   'expenses.searchPlaceholder': 'Fittex negozjant jew kategorija…',
+  'expenses.subtotal': '{{count}} spejjeż · subtotal',
   'expenses.title': 'Spejjeż',
+  'forgotPassword.continue': 'Għandi kodiċi · Kompli',
+  'forgotPassword.subheading':
+    'Daħħal l-email tax-xogħol tiegħek u nibagħtulek link biex issettja password ġdida.',
   'forgotPassword.successBody':
     "Jekk jeżisti kont għal {{email}} Int se tirċievi link ta' reset fil-ftit minuti li ġejjin.",
+  'landing.copyright': "© {{year}} {{app}}. Mibni b'Molecule.dev.",
+  'landing.ctaBody':
+    "B'xejn għall-ewwel 25 spiża kull xahar. L-ebda karta tal-kreditu, l-ebda sejħa ta' implimentazzjoni.",
   'landing.ctaHeading': 'Lest li tirkupra dak li hu dovut lit-tim tiegħek?',
   'landing.eyebrow': 'Rapporti tal-ispejjeż għat-timijiet tal-finanzi',
+  'landing.featuresHeading': "Rimborż, f'post tax-xogħol wieħed kalma",
   'landing.heroSubtitle':
     "Issottometti, approva, u rrimborża l-ispejjeż tan-negozju mingħajr iċ-ċerimonja tal-ispreadsheet. OCR tal-irċevuti, kontrolli tal-politika, u skeda ta' żmien tal-approvazzjoni trasparenti — kollox f'post tax-xogħol wieħed kalm.",
   'landing.heroTitle': 'Kull riċevuta, irkuprata.',
@@ -60,10 +89,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Noti',
   'newExpense.descriptionPlaceholder':
     'Għaliex din l-ispiża kienet relatata man-negozju (viżibbli għal min approvaha).',
+  'newExpense.eyebrow': 'Oġġett rimborżabbli',
   'newExpense.merchant': 'Merkant',
   'newExpense.merchantPlaceholder': 'Lukanda Adlon Kempinski',
   'newExpense.policyHint':
     "Tifkira: ikliet 'il fuq minn $80 kuljum jew kwalunkwe oġġett 'il fuq minn $250 jeħtieġu nota ta' ġustifikazzjoni.",
+  'newExpense.receipt': 'Irċevuta',
+  'newExpense.receiptHint': 'JPG, PNG, jew PDF · massimu 10 MB',
   'newExpense.receiptOcrHint': 'Oqsma tal-mili minn qabel tal-OCR',
   'newExpense.receiptPrompt': 'Poġġi ritratt jew PDF hawn, jew ikklikkja biex tfittex',
   'newExpense.receiptUploadFailed':
@@ -74,17 +106,21 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     "Agħmel snap jew ittella' rċevuta u Recoup jimla minn qabel il-bejjiegħ, id-data, u t-total. Ikkonferma kollox hawn taħt qabel ma ssalva.",
   'newExpense.title': 'Żid l-ispiża',
+  'newReport.approverHint':
+    'Huma se jirċievu email meta tissottometti dan ir-rapport għal reviżjoni.',
   'newReport.approverLabel': 'Indirizz elettroniku tal-approvazzjoni (mhux obbligatorju)',
   'newReport.approverPlaceholder': 'manager@il-kumpanija tiegħek.com',
   'newReport.availableExpenses': 'Spejjeż disponibbli',
   'newReport.createFailed': "Ma setax jinħoloq rapport. Jekk jogħġbok erġa' pprova.",
   'newReport.draftsFallback':
     "Lista ta' spejjeż diretta mhux disponibbli — qed tintwera dejta demo kkurata.",
+  'newReport.eyebrow': 'Iggruppa l-ispejjeż · issottometti għall-approvazzjoni',
   'newReport.includedCount': '{{count}} inkluż',
   'newReport.purposeLabel': 'Skop tan-negozju',
   'newReport.purposePlaceholder':
     'Iddeskrivi l-vjaġġ jew il-proġett li dawn l-ispejjeż huma relatati miegħu (viżibbli għall-approvatur u l-finanzi tiegħek).',
   'newReport.saveDraft': 'Issejvja bħala abbozz',
+  'newReport.saveDraftFailed': "Ma setax jiġi salvat l-abbozz. Jekk jogħġbok erġa' pprova.",
   'newReport.submit': 'Issottometti għall-approvazzjoni',
   'newReport.submitFailed': "Ma setax jiġi sottomess ir-rapport. Jekk jogħġbok erġa' pprova.",
   'newReport.summary': 'Sommarju tar-rapport',
@@ -97,16 +133,23 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'Attività fl-ispazju tax-xogħol',
   'notifications.feedFallback': 'Feed dirett mhux disponibbli — qed tintwera dejta demo kkurata.',
   'notifications.openReport': 'Iftaħ ir-rapport ›',
+  'pricing.approvalsLabel': 'approvazzjonijiet',
   'pricing.expensesLabel': 'spejjeż',
   'pricing.heading': 'approvazzjonijiet',
   'pricing.policiesLabel': 'politiki',
   'pricing.receiptsLabel': 'irċevuti',
   'recoveredAmountHeroCard.label': 'Rimborż irkuprat · YTD',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} rapport(i) bħalissa pendenti għal reviżjoni fost l-approvaturi kollha.',
+  'reports.approvalFlow': 'Fluss tal-approvazzjoni',
   'reports.backToList': 'Lura għar-rapporti',
   'reports.detailFallback': 'Rapport dirett mhux disponibbli — qed juri dejta demo kkurata.',
   'reports.lineItems': 'Oġġetti tal-linja',
   'reports.lineItemsCount': '{{count}} spejjeż',
+  'reports.lineItemsEmpty': "Għad m'hemmx spejjeż fuq dan ir-rapport.",
+  'reports.openLibrary': 'Iftaħ il-librerija tar-rapporti',
   'reports.policyTitle': 'Bandiera tal-politika',
+  'reports.selectPrompt': 'Agħżel rapport mil-librerija biex tara d-dettall tiegħu.',
   'reports.summary.lineCount': 'Oġġetti tal-linja',
   'reports.summary.reimbursable': 'Rimborsabbli',
   'reports.summary.total': 'Total irrappurtat',
@@ -115,6 +158,7 @@ export const ui: UiTranslations = {
   'reportsList.lineItems': '{{count}} spejjeż',
   'reportsList.listFallback': 'Lista diretta mhux disponibbli — qed tintwera dejta demo kkurata.',
   'reportsList.newReport': 'Rapport ġdid',
+  'reportsList.submittedOn': 'Issottomettiet {{date}}',
   'reportsList.title': 'Librerija tar-rapporti',
   'resetPassword.hidePassword': 'Aħbi l-password',
   'resetPassword.newPasswordLabel': 'Password ġdida',
@@ -140,6 +184,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Salvat ✓',
   'settings.profileSaveFailed': "Ma setax jiġi aġġornat il-profil. Jekk jogħġbok erġa' pprova.",
   'signup.heading': 'Oħloq il-kont Recoup tiegħek',
+  'signup.hidePassword': 'Aħbi l-password',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Uri l-password',
   'signup.subheading': "B'xejn għal 25 spiża kull xahar — mingħajr karta ta' kreditu.",

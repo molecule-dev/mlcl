@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'అభిప్రాయం ఉందా, బగ్ కనుగొన్నారా, లేదా జర్నలింగ్ మీకు ఎలా సహాయపడిందో చెప్పాలనుకుంటున్నారా? మేము ప్రతి సందేశాన్ని చదువుతాము — ఎప్పుడైనా సంప్రదించండి, ఒక నిజమైన వ్యక్తి మీకు తిరిగి సమాధానం ఇస్తారు.',
+  'about.contactTitle': 'మాతో మాట్లాడండి',
+  'about.featureInsights':
+    'AI-ఆధారిత ప్రతిబింబాలు, మీ స్వరాన్ని కోల్పోకుండా ట్రిగ్గర్లు, థీమ్లు మరియు కృతజ్ఞతలను సున్నితంగా హైలైట్ చేస్తాయి.',
+  'about.featureMood':
+    'క్యాలెండర్ వ్యూ మరియు మీరు అభివృద్ధి చెందడానికి సహాయపడే ట్రెండ్ చార్ట్లతో మూడ్ మరియు యాక్టివిటీ ట్రాకింగ్.',
+  'about.featurePrivacy':
+    'ఎండ్-టు-ఎండ్ ఎన్క్రిప్షన్, పాస్కోడ్ లాక్ మరియు పూర్తి CSV ఎగుమతి — మీ ప్రతిబింబాలు ప్రైవేట్గా మరియు తరలించదగినవిగా ఉంటాయి.',
+  'about.featurePrompts':
+    'సున్నితమైన రోజువారీ ప్రాంప్ట్లు — ఎప్పుడూ ప్రారంభించడానికి ఒక చోటు ఉంటుంది, ఖాళీ పేజీ ఎప్పటికీ ఉండదు.',
+  'about.intro':
+    '{{app}} అనేది రోజువారీ ప్రతిబింబం, మూడ్ ట్రాకింగ్ మరియు కృతజ్ఞత కోసం ఒక సున్నితమైన, ప్రైవేట్ మానసిక ఆరోగ్య జర్నల్. ఆలోచనాత్మక ప్రాంప్ట్లు ఖాళీ పేజీని భర్తీ చేస్తాయి, నిశ్శబ్ద నమూనా గుర్తింపు మీ భావాలను ఏమి ప్రభావితం చేస్తుందో అర్థం చేసుకోవడంలో సహాయపడుతుంది, మరియు ఎండ్-టు-ఎండ్ ఎన్క్రిప్షన్ మీ మాటలను మీవేగా ఉంచుతుంది.',
+  'about.missionBody':
+    'మీతో మీరు చేసుకునే చెక్-ఇన్ ప్రశాంతంగా అనిపించాలి, ఎప్పుడూ క్లినికల్గా కాదు — మరియు మీ దృష్టిని డిమాండ్ చేసే మరో యాప్లా ఎప్పటికీ కాదు. {{app}} సహాయం చేయడానికి నిర్మించబడింది, పీడించడానికి కాదు: రోజుకు కొన్ని నిశ్శబ్ద నిమిషాలు మీ మూడ్ను గమనించడానికి, నిజాయితీగా రాయడానికి మరియు నెమ్మదిగా మిమ్మల్ని మీరు స్పష్టంగా చూడటానికి.',
+  'about.missionTitle': 'మా లక్ష్యం',
   'about.pageTitle': '{{app}} గురించి',
   'authShell.encryptionBadge': 'మీ నమోదులు ఎండ్-టు-ఎండ్ ఎన్‌క్రిప్ట్ చేయబడ్డాయి.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'రోజు {{day}} — ఎంట్రీ లేదు',
   'calendar.cellMood': 'రోజు {{day}} — {{mood}}',
   'calendar.distributionHeading': 'ఈ నెల సంగ్రహావలోకనం',
   'calendar.eyebrow': 'ఒక చూపులో మానసిక స్థితి',
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'ట్రాక్ చేయబడింది {{tracked}} యొక్క {{total}} ఈ నెలలో రోజులు.',
   'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'common.tryAgain': 'మళ్ళీ ప్రయత్నించండి',
+  'entryComposer.bodyPlaceholder': 'నిజాయితీగా అనిపించినది రాయండి. ఇది మీరు తప్ప మరెవరూ చదవరు.',
   'entryComposer.cancel': 'జర్నల్‌కు తిరిగి వెళ్లండి',
   'entryComposer.heading': 'నేటి ప్రతిబింబం',
   'entryComposer.moodLabel': 'మీరు ఎలా ఉన్నారు?',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'తొలగించండి {{tag}}',
   'entryComposer.save': 'ప్రతిబింబాన్ని సేవ్ చేయండి',
   'entryComposer.saveError': 'మీ నమోదును భద్రపరచలేకపోయాము.',
+  'entryComposer.tagPlaceholder': 'ట్యాగ్ జోడించి ఎంటర్ నొక్కండి',
   'entryComposer.titlePlaceholder': 'ఈ ఆలోచనకు ఒక పేరు పెట్టండి…',
   'entryDetail.back': 'జర్నల్‌కు తిరిగి వెళ్లండి',
   'entryDetail.delete': 'ఈ ఎంట్రీని తొలగించండి',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'ప్రతిబింబం లోడ్ అవుతోంది…',
   'entryDetail.notFound': 'నమోదు కనుగొనబడలేదు.',
   'entryDetail.reflectionsHeading': 'AI ప్రతిబింబాలు',
+  'forgotPassword.continueButton': 'రీసెట్ కోడ్ నమోదు చేయండి',
   'forgotPassword.eyebrow': 'చింతించకండి',
   'forgotPassword.subheading': 'మేము మీ ఇమెయిల్‌కు సులభమైన రీసెట్ లింక్‌ను పంపుతాము.',
   'forgotPassword.successBody': 'ఖాతా ఉంటే {{email}} రీసెట్ లింక్ పంపబడుతోంది.',
@@ -57,14 +77,22 @@ export const ui: UiTranslations = {
     'ఇంకా థీమ్‌లు ఏవీ లేవు — మీ ఎంట్రీలకు ఒకటి లేదా రెండు ట్యాగ్‌లను జోడించండి, అవన్నీ ఇక్కడకు చేరతాయి.',
   'insights.themesHeading': 'ప్రధాన థీమ్‌లు',
   'insights.triggerFrequency': 'గమనించిన {{count}} × ఈ నెల',
+  'insights.triggersEmpty':
+    'ఇంకా గమనించడానికి ఏమీ లేదు. కొన్ని రోజుల్లో కొన్ని ఎంట్రీలు మీ నమూనాలను చూపుతాయి.',
   'insights.triggersHeading': 'మీ మానసిక స్థితిని ప్రభావితం చేసే నమూనాలు',
+  'journal.empty':
+    'ఏ ప్రతిబింబాలు సరిపోలలేదు — వేరే ఫిల్టర్ ప్రయత్నించండి లేదా కొత్త ఎంట్రీ రాయండి.',
   'journal.eyebrow': 'మీ ప్రతిబింబాలు',
   'journal.heading': 'జర్నల్',
   'journal.loadError': 'ఎంట్రీలను లోడ్ చేయడంలో విఫలమైంది.',
   'journal.loading': 'ఎంట్రీలు లోడ్ అవుతున్నాయి…',
+  'journal.newEntry': 'కొత్త ప్రవేశం',
   'journal.searchPlaceholder': 'ఒక అనుభూతిని, ఒక పేరును, ఒక క్షణాన్ని వెతకండి…',
   'journal.subheading': '{{count}} నమోదులు — ప్రతి ఒక్కటీ భద్రపరచుకోదగినదే.',
   'journalEntryCard.encryptedLabel': 'ఎన్‌క్రిప్ట్ చేయబడింది',
+  'landing.ctaBody':
+    'ప్రారంభించడానికి ఉచితం. Pro డేటా ఎగుమతి, పెద్ద జర్నల్ మరియు పూర్తి సంవత్సరం చరిత్రను అన్లాక్ చేస్తుంది.',
+  'landing.ctaButton': 'మీ మొదటి ఎంట్రీని ప్రారంభించండి',
   'landing.ctaTitle': 'రోజుకు కొన్ని నిమిషాల ప్రశాంతత. అంతే.',
   'landing.eyebrow': 'సున్నితమైన రోజువారీ అభ్యాసం',
   'landing.featuresBody':
@@ -83,6 +111,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'రోజువారీ ఆత్మపరిశీలన కోసం ఒక ప్రశాంతమైన ప్రదేశం.',
   'mentalHealthJournalLayout.closeMenu': 'మెనూను మూసివేయండి',
   'mentalHealthJournalLayout.openMenu': 'మెనూ తెరవండి',
+  'mentalHealthJournalLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
+  'moodHeroCard.entriesThisWeek': '{{count}} ఈ వారం',
   'moodHeroCard.streakSuffix': 'రోజు పరంపర',
   'moodHeroCard.title': 'నేటి ప్రతిబింబం',
   'moodTrendChart.aiBadge': 'AI అంతర్దృష్టికి సిద్ధంగా ఉంది',
@@ -93,11 +123,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'మీ ప్రయాణం',
   'profile.fallbackName': 'రిఫ్లెక్టర్',
   'profile.loadError': 'గణాంకాలను లోడ్ చేయడంలో విఫలమైంది.',
+  'profile.loading': 'మీ గణాంకాలను రిఫ్రెష్ చేస్తోంది…',
   'profile.longestStreak': 'అత్యంత సుదీర్ఘమైన పరంపర',
   'profile.memberSince': 'అప్పటి నుండి ఆలోచిస్తున్నాను {{date}}',
   'profile.milestones': 'మైలురాళ్లు',
   'profile.milestonesEmpty':
     'మీ మొదటి మైలురాయి కేవలం ఒక్క పోస్ట్ దూరంలో ఉంది — మీకు సిద్ధంగా అనిపించినప్పుడల్లా రాయండి.',
+  'profile.moodMix': 'ఈ సీజన్లో మీ మూడ్ మిశ్రమం',
   'profile.streakValue': '{{days}} డి',
   'profile.totalEntries': 'ప్రతిబింబాలు',
   'profile.totalWords': 'వ్రాసిన పదాలు',
@@ -110,6 +142,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'దీని గురించి రాయండి',
   'resetPassword.eyebrow': 'ఒక కొత్త ప్రారంభం',
   'resetPassword.mismatchError': 'పాస్‌వర్డ్‌లు సరిపోలడం లేదు.',
+  'resetPassword.passwordLabel': 'కొత్త పాస్‌వర్డ్',
   'resetPassword.subheading': 'సురక్షితమైనదాన్ని ఎంచుకోండి — మీ ప్రతిబింబాలు దానికి అర్హమైనవి.',
   'resetPassword.tokenPlaceholder': 'ఇమెయిల్ నుండి రీసెట్ కోడ్',
   'settings.dangerDescription':
@@ -122,11 +155,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     'మీ మాటలు ఎల్లప్పుడూ మీకే చెందుతాయి. ఎప్పుడైనా ఒక కాపీని డౌన్‌లోడ్ చేసుకోండి.',
   'settings.exportDone': 'ఎగుమతి చేయబడింది {{format}}.',
+  'settings.exportError': 'ఎగుమతి విఫలమైంది.',
+  'settings.exportHeading': 'మీ ప్రతిబింబాలను ఎగుమతి చేయండి',
   'settings.exportLoading': 'సిద్ధమవుతోంది…',
   'settings.eyebrow': 'మీ స్థలం, మీ నియమాలు',
   'settings.languageHeading': 'భాష',
   'settings.privacyHeading': 'గోప్యత మరియు ఎన్‌క్రిప్షన్',
   'settings.remindersHeading': 'రోజువారీ రిమైండర్',
+  'settings.reminderToggleAria': 'రోజువారీ రిమైండర్ను టోగుల్ చేయండి',
   'settings.reminderToggleDescription':
     'మీకు నచ్చిన సమయంలో ఒకే ఒక్క ప్రశాంతమైన జ్ఞాపిక. బ్యాడ్జ్‌లు లేదా స్ట్రీక్‌ల గురించి అపరాధ భావన ఉండదు.',
   'settings.reminderToggleLabel': 'సున్నితమైన ప్రోత్సాహాన్ని పంపండి',
@@ -139,6 +175,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'జర్నల్ సృష్టించడం…',
   'signup.subheading': 'మీ ఆలోచనలకు ఒక సురక్షితమైన ప్రదేశం.',
   'wellnessRingsTriad.mindfulnessCaption': 'లక్ష్యం {{goal}} ఈరోజు నిమిషాలు',
+  'wellnessRingsTriad.mindfulnessLabel': 'మైండ్ఫుల్నెస్',
   'wellnessRingsTriad.sleepCaption': 'లక్ష్యం {{goal}} h / రాత్రి',
   'wellnessRingsTriad.sleepLabel': 'నిద్ర',
+  'wellnessRingsTriad.sleepValue': '{{hours}}గం',
+  'wellnessRingsTriad.streakCaption': 'లక్ష్యం {{goal}} రోజులు',
+  'wellnessRingsTriad.streakLabel': 'జర్నల్ స్ట్రీక్',
+  'wellnessRingsTriad.streakValue': '{{days}} డి',
 }

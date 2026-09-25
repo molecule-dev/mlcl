@@ -1,15 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Znalazłeś błąd, masz propozycję funkcji albo chcesz nam powiedzieć, co zbudować dalej? Napisz na hello@pylon.dev — każda wiadomość trafia do prawdziwego inżyniera w zespole.',
   'about.contactTitle': 'Skontaktuj się z nami',
+  'about.intro':
+    '{{app}} to szybki, klawiaturowy warsztat do testowania API dla inżynierów, którzy żyją w terminalu — żądania w stylu Postmana, kolekcje, środowiska i historia bez zbędnego balastu.',
+  'about.missionBody':
+    'API to kręgosłup nowoczesnego oprogramowania, ale narzędzia do ich testowania są wolne, przeładowane i wymagają myszy. {{app}} istnieje, by dać deweloperom ostry, szybki warsztat klasy terminalowej: wysyłaj żądania, buduj pewność i wdrażaj bez odrywania rąk od klawiatury.',
+  'about.missionTitle': 'Nasza misja',
   'about.pageTitle': 'O {{app}}',
   'authShell.statusLabel': 'runnery online',
   'collections.createError': 'Nie udało się utworzyć kolekcji.',
   'collections.defaultName': 'Kolekcja bez tytułu {{n}}',
+  'collections.empty': 'Brak kolekcji — kliknij „Nowa kolekcja”, aby utworzyć pierwszy folder.',
   'collections.eyebrow': '$ pylon collections --tree',
   'collections.fetchError': 'Nie udało się załadować kolekcji.',
   'collections.heading': 'Kolekcje',
   'collections.loading': 'Ładowanie kolekcji…',
+  'collections.metric.allGreen': 'Wszystko na zielono',
   'collections.metric.collections': 'Kolekcje',
   'collections.metric.failing': 'Z błędami',
   'collections.metric.failingCaption': 'Ostatnie uruchomienie miało błędy',
@@ -23,6 +32,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Zmienne',
   'environments.createError': 'Nie udało się utworzyć środowiska.',
   'environments.defaultName': 'Środowisko bez tytułu {{n}}',
+  'environments.empty': 'Brak środowisk — kliknij „Nowe środowisko”, aby je dodać.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'Nie udało się załadować środowisk.',
   'environments.heading': 'Środowiska',
@@ -30,8 +40,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Nowe środowisko',
   'environments.subheading':
     'Zmienne podstawiane do żądań podczas wysyłania. Jedno aktywne środowisko na obszar roboczy.',
+  'forgotPassword.statusLabel': 'reset · bezpieczny tunel',
   'forgotPassword.success':
     'Jeśli dla tego adresu e-mail istnieje konto, link resetujący jest już w drodze. Proszę sprawdzić skrzynkę odbiorczą.',
+  'history.empty': 'Jeszcze nic tu nie ma — wyślij pierwsze żądanie z zakładki Workspace.',
   'history.eyebrow': '$ pylon history --tail',
   'history.fetchError': 'Nie udało się załadować historii.',
   'history.heading': 'Historia uruchomień',
@@ -40,9 +52,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Ostatnie 50',
+  'history.realtime': 'w czasie rzeczywistym',
   'history.subheading':
     'Każde żądanie wysłane z tego obszaru roboczego, ze statusem, opóźnieniem i rozmiarem ładunku.',
   'landing.choosePlan': 'Wybierz plan',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Forge confidence.',
   'landing.ctaBody':
     'Bez karty kredytowej. Bez inżyniera platformy. Otwórz ⌘K i wyślij pierwsze żądanie w mniej niż pięć minut.',
   'landing.ctaHeading': 'Wykuj pewność.',
@@ -85,6 +99,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Śr. opóźnienie',
   'mocks.metric.live': 'Publiczne',
   'mocks.metric.servers': 'Mocki',
+  'mocks.ms': 'ms',
   'mocks.newMock': 'Nowy mock',
   'mocks.online': 'Publiczne',
   'mocks.paused': 'Prywatne',
@@ -108,9 +123,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Sprawne',
   'monitors.metric.uptime': 'Śr. dostępność',
   'monitors.newMonitor': 'Nowy monitor',
+  'monitors.paused': 'wstrzymany',
   'monitors.run': 'Uruchom',
   'monitors.runError': 'Uruchomienie zakończone błędem sieciowym: {{error}}',
+  'monitors.runFailed': 'Uruchomienie nie powiodło się.',
   'monitors.running': 'Uruchamianie…',
+  'monitors.runSuccess': 'Uruchom {{status}} — serwer zwrócił {{code}} w {{ms}}ms.',
   'monitors.sparkLabel': 'Trend opóźnienia',
   'monitors.subheading':
     'Sprawdzenia na żądanie dla dowolnego zapisanego testu. Powiąż test, naciśnij Uruchom i obserwuj, jak wskaźnik sukcesu z 24 godzin aktualizuje się przy każdym uruchomieniu.',
@@ -119,27 +137,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Dostępność · 24h',
   'nav.legal': 'Prawne',
   'notFound.backToWorkspace': 'Wróć do obszaru roboczego',
+  'notFound.body':
+    '{{app}} wysłał żądanie dla tego URL i nie otrzymał odpowiedzi. Sprawdź trasę albo wróć do workspace.',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Nie znaleziono trasy',
+  'planUpdated.body':
+    'Zmiana rozliczeń jest już aktywna. Możesz zarządzać swoim planem w dowolnym momencie na stronie rozliczeń.',
+  'planUpdated.retry': 'Spróbuj ponownie',
+  'planUpdated.verifyFailed': 'Nie mogliśmy jeszcze potwierdzić Twojej płatności.',
+  'planUpdated.verifyFailedBody':
+    'Twoja płatność może być nadal przetwarzana. Spróbuj ponownie za chwilę.',
   'planUpdated.verifying': 'Potwierdzanie płatności…',
+  'pricing.advancedFeatures': 'Funkcje zaawansowane: {{yes}}',
+  'pricing.canExport': 'Eksport danych: {{yes}}',
+  'pricing.heading': 'Wybierz plan {{app}}',
+  'pricing.maxCollections': 'Kolekcje: {{count}}',
+  'pricing.maxEnvironments': 'Środowiska: {{count}}',
+  'pricing.maxHistory': 'Wpisy w historii: {{count}}',
+  'pricing.maxRequests': '{{count}} upraszanie',
   'privacy.collect.account':
     'Konto: adres e-mail, zahaszowane hasło, nazwa wyświetlana i znacznik czasu ostatniego logowania.',
+  'privacy.intro':
+    '{{app}} szanuje Twoją prywatność. Ta strona podsumowuje, jakie dane zbieramy, dlaczego je zbieramy i jak je usunąć.',
   'privacy.rights.body':
     'W każdej chwili można wyeksportować kolekcje i środowiska lub usunąć konto z Ustawień, aby trwale usunąć wszystkie dane w ciągu 30 dni.',
   'privacy.share.body':
     'Tylko Pani/Pan. Nigdy nie sprzedajemy, nie udostępniamy ani nie wynajmujemy zawartości obszaru roboczego osobom trzecim. Logi serwera są przechowywane przez 30 dni do reakcji na incydenty, a następnie usuwane.',
   'privacy.title': 'Informacja o prywatności',
+  'profile.bio':
+    'Twój osobisty workspace {{app}} — przypinaj kolekcje, udostępniaj środowiska i monitoruj API, które tworzą produkt.',
   'profile.eyebrow': '@{{handle}}',
   'profile.joined': 'dołączył(a) {{when}}',
+  'profile.metric.collections': 'Kolekcje',
   'profile.metric.monitors': 'Monitory',
   'profile.metric.requests': 'Zapisane żądania',
+  'profile.noActivity':
+    'Nie wysłano jeszcze żadnych żądań — przejdź do zakładki Workspace, aby je wysłać.',
   'profile.signedOut': 'Proszę się zalogować, aby zobaczyć profil',
   'pylonShell.primaryNavLabel': 'Nawigacja główna',
+  'resetPassword.passwordLabel': 'Nowe hasło',
+  'resetPassword.statusLabel': 'reset · token zweryfikowany',
   'resetPassword.subtitle': 'Proszę wybrać silne hasło, którego wcześniej nie używano.',
   'resetPassword.tokenPlaceholder': 'wklej z e-maila',
+  'settings.accountManagement.desc':
+    'Zaktualizuj e-mail i hasło, zarządzaj powiadomieniami i urządzeniami, wyloguj się lub usuń konto.',
+  'settings.accountManagement.title': 'Konto i bezpieczeństwo',
   'settings.eyebrow': '$ pylon settings --edit',
   'settings.fetchError': 'Nie udało się załadować ustawień.',
   'settings.language.title': 'Język',
+  'settings.seeding': 'Wstępne wypełnianie…',
   'settings.seedStarter': 'Wygeneruj zawartość startową',
   'settings.starterCollection': 'Kolekcja startowa',
   'settings.starterCollectionDesc': 'Utworzona z Ustawień dnia {{ts}}',
@@ -153,6 +199,8 @@ export const ui: UiTranslations = {
     'Pani/Pan jest odpowiedzialny(-a) za zabezpieczenie swojego hasła. Współdzielenie jednego konta przez wiele osób nie jest dozwolone w planach Free ani Pro — proszę kupić subskrypcję Team dla współdzielonych obszarów roboczych.',
   'terms.billing.body':
     'Płatne subskrypcje odnawiają się automatycznie w każdym okresie rozliczeniowym. Można je anulować w Ustawieniach w dowolnym momencie; dostęp pozostaje aktywny do końca bieżącego okresu.',
+  'terms.intro':
+    'Tworząc konto {{app}}, akceptujesz poniższe warunki. Przeczytaj je raz; nie zaskoczymy Cię zmianami działającymi wstecz.',
   'terms.title': 'Warunki świadczenia usług',
   'terms.usage.body':
     'Proszę nie używać Pylonu do wysyłania żądań do usług, których Pani/Pan nie posiada lub nie ma wyraźnego pozwolenia na testowanie. Proszę nie używać Pylonu do obchodzenia limitów żądań ani popełniania oszustw.',
@@ -173,16 +221,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Nieuruchomione',
   'testRunner.metric.passed': 'Zaliczone',
   'testRunner.never': 'Nigdy nieuruchomione',
+  'testRunner.newTest': 'Nowy test',
   'testRunner.noAssertions': 'Ten test nie ma jeszcze asercji.',
+  'testRunner.noRunsYet':
+    'Nie zapisano jeszcze żadnych uruchomień — kliknij „Uruchom wszystko”, aby wypełnić historię.',
   'testRunner.passed': 'zaliczone',
+  'testRunner.recentRuns': 'Ostatnie uruchomienia',
   'testRunner.runAll': 'Uruchom wszystko',
   'testRunner.running': 'Uruchamianie…',
   'testRunner.runOne': 'Uruchom',
   'testRunner.subheading': 'Wyniki suit, różnice asercji i ostatnie 50 uruchomień.',
+  'testRunner.suites': 'Zestawy',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Zalogowano jako',
   'workspace.auth.keyName': 'Nazwa nagłówka',
   'workspace.auth.keyValue': 'Wartość klucza',
+  'workspace.auth.noneHint': 'Z tym żądaniem nie zostanie wysłany nagłówek autoryzacji.',
   'workspace.auth.password': 'Hasło',
   'workspace.auth.username': 'Nazwa użytkownika',
   'workspace.authOption.apikey': 'Klucz API',
@@ -192,13 +246,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Typ',
   'workspace.authTypeLabel': 'Typ uwierzytelniania',
+  'workspace.body.contentLabel': 'Treść żądania',
+  'workspace.body.hint':
+    '{{envVars}} są podstawiane przed wysłaniem żądania. Treści są wysyłane przy POST/PUT/PATCH/DELETE.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Brak',
+  'workspace.body.noneHint':
+    'Nie zostanie wysłana żadna treść żądania. Wybierz JSON lub zwykły tekst, aby ją dodać.',
   'workspace.body.text': 'Tekst surowy',
   'workspace.body.type': 'Typ',
   'workspace.environment': 'Brak środowiska',
   'workspace.envVar': 'zmienna env',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.failedCount': '{{count}} nie powiodło się',
+  'workspace.idle': 'Bezczynne',
   'workspace.kv.addHeader': 'Dodaj nagłówek',
   'workspace.kv.addParam': 'Dodaj parametr',
   'workspace.kv.headerKey': 'Nazwa nagłówka',
@@ -211,12 +272,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'Metoda HTTP',
   'workspace.metric.latency': 'Opóźnienie',
   'workspace.metric.latencyCaption': 'Czas obiegu z tego uruchomienia',
+  'workspace.metric.size': 'Ładunek',
   'workspace.metric.sizeCaption': 'Bajty treści odpowiedzi',
   'workspace.metric.statusCaption': 'Ostatnia odpowiedź',
   'workspace.metric.tests': 'Testy',
+  'workspace.metric.testsAllPassing': 'Wszystkie asercje na zielono',
   'workspace.metric.testsFailing': '{{count}} nieudanych',
+  'workspace.metric.testsIdle': 'Wyślij żądanie, aby ocenić',
   'workspace.noAssertions': 'Proszę uruchomić żądanie, aby ocenić wbudowane asercje.',
   'workspace.noResponseYet': 'Jeszcze brak odpowiedzi',
+  'workspace.passedCount': '{{count}} przyjęto',
   'workspace.responseHint':
     '// Proszę nacisnąć Wyślij, aby wystrzelić żądanie i przechwycić odpowiedź.',
   'workspace.saveError': 'Nie udało się zapisać żądania.',
@@ -226,10 +291,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Skomponuj żądanie, wystrzel je, a następnie zweryfikuj odpowiedź — wszystko w jednym panelu.',
   'workspace.testResults': 'Wyniki badań',
+  'workspace.tests.autoHint':
+    'Rodzina statusu, opóźnienie, rozmiar treści i kondycja transportu są sprawdzane automatycznie — wyniki pojawiają się w sekcji „Wyniki testów” w panelu odpowiedzi.',
+  'workspace.tests.autoTitle': 'Wbudowane asercje uruchamiają się przy każdej odpowiedzi',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Wysyłany jako Authorization: Bearer <token> w każdym żądaniu tej kolekcji.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Żądanie bez tytułu',
+  'workspace.urlLabel': 'URL żądania',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

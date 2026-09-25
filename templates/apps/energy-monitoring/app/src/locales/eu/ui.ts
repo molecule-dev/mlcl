@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Galderak, eginbide-eskaerak edo onartu beharko genukeen meter bat? Jarri harremanetan {{appName}} taldearekin zure kontuaren ezarpenetatik — mezu bakoitza benetako pertsona batengana iristen da.',
   'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
+  'about.featuresTitle': 'Zer lortzen duzun',
+  'about.intro':
+    '{{appName}} eguzki-etxeen eta instalazio-taldeen denbora errealeko energia-monitorizazioa da. Meter, inbertsore eta bateria datuen uholdea kontrol-gelako ikuspegi lasai bihurtzen dugu — watt-unea, eguzki-ekoizpena, erabilera-orduaren kostua eta alertak, guztiak shell bakarrean.',
+  'about.missionBody':
+    'Ikus dezakezun energia kudea dezakezun energia da. Meter bat erabiltzen duen edonork — teilatuko eguzki-panelak dituen etxe batek edo eraikin bat zaintzen duen talde batek — zerbitzu-mailako ikuspegia merezi duela uste dugu, zerbitzu-mailako kontraturik gabe. Eginbide bakoitza hurrengo kilowatt-ordua erabaki informatu bat izan dadin eraikita dago, fakturan ezusteko bat izan ez dadin.',
+  'about.missionTitle': 'Gure misioa',
   'about.pageTitle': 'Buruz {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Ack',
@@ -14,6 +22,7 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alertak@zuredomeinua.com',
   'alertRule.eyebrow': 'Arau berria',
   'alertRule.heading': 'Harrapatu arantza kostatu baino lehen',
+  'alertRule.nameLabel': 'Arauaren izena',
   'alertRule.namePlaceholder':
     'Adibidez, ordutegitik kanpoko berokuntza, aire girotuaren eta aire girotuaren zaintza',
   'alertRule.subheading':
@@ -21,8 +30,10 @@ export const ui: UiTranslations = {
   'alertRule.submit': 'Gorde araua',
   'alertRule.submitError': 'Ezin izan da araua gorde.',
   'alertRule.thresholdLabel': 'Atalasea',
+  'alertRule.typeLabel': 'Abiarazle mota',
   'alerts.checking': 'Egiaztatzen…',
   'alerts.confirmDelete': 'Berretsi ezabatzea',
+  'alerts.empty': 'Ez dago ezer erakusteko — ez dago alertarik egoera honetan.',
   'alerts.emptyNoRules':
     'Oraindik ez dago alertarik — gehitu arau bat, eta egin klik “Ebaluatu orain” probatzeko.',
   'alerts.errorAck': 'Ezin izan da onartu.',
@@ -42,12 +53,15 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Ebaluatu orain',
   'alerts.subheading':
     'Zure neurgailuetan aktibatzen diren atalase eta eredu alertak, eta horiek gidatzen dituzten arauak.',
+  'billing.activeBlurb': 'Zure harpidetza aktibo dago. Kudeatu nahi duzunean.',
   'billing.cancelError': 'Ezin izan da harpidetza bertan behera utzi.',
   'billing.cancelling': 'Ezeztatzen…',
   'billing.currentBadge': 'Oraingoa',
   'billing.freeBlurb':
     'Doako planean zaude. Eguneratu neurgailu gehiago, historia luzeagoa eta alerta-arau gehiago lortzeko.',
   'billing.heading': 'Planak eta fakturazioa',
+  'billing.historyEmpty':
+    'Ordaindutako fakturak hemen agertuko dira zure harpidetzak kobratzen duenean.',
   'billing.historyHeading': 'Faktura-historia',
   'billing.loadError': 'Ezin izan da fakturazioa kargatu.',
   'billing.loading': 'Planak kargatzen…',
@@ -59,17 +73,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Jarri harremanetan salmenta-zerbitzuarekin',
   'common.goToDashboard': 'Joan aginte-panelera',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} puntako · {{offPeak}} puntatik kanpoko kWh',
   'dailyCostMeter.runningLabel': 'Guztira',
   'dailyCostMeter.title': 'Kostua orain arte gaur',
   'dailyCostMeter.utilizationLabel': 'Eguneroko aurrekontuaren',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Gehitu meter bat',
   'dashboard.alertsHeading': 'Alerta aktiboak',
   'dashboard.devicesHeading': 'Zirkuitu nagusiak une honetan',
   'dashboard.empty.body':
     'Gehitu kontagailu adimendun bat edo eguzki-inbertsore bat zuzeneko kontsumoa eta ekoizpena jarraitzen hasteko.',
+  'dashboard.empty.title': 'Oraindik ez dago meterrik',
   'dashboard.eyebrow': 'Voltrace kontrol gela',
   'dashboard.heading': 'Energiaren zuzeneko argazkia',
   'dashboard.loadError': 'Ezin izan dira zuzeneko irakurketak kargatu.',
   'dashboard.loading': 'Zure neurgailuak sintonizatzen…',
+  'dashboard.noAlerts': 'Dena lasai — ezer ez da zure atalaseak gainditzen ari.',
   'dashboard.noAlertsAndNoMeters':
     'Neurgailua kableatu ondoren, zure atalaseetan oinarritutako alertak agertuko dira hemen.',
   'dashboard.noCircuits': 'Ez dago zirkuiturik erakusteko oraindik — gehitu neurgailu bat hasteko.',
@@ -77,6 +96,7 @@ export const ui: UiTranslations = {
     'Etxe osoko kontsumoa, eguzki-energiaren ekoizpena eta orain arteko kostua.',
   'dashboard.viewAllAlerts': 'Alertak kudeatu →',
   'dashboard.viewAllDevices': 'Gailu guztiak →',
+  'deviceDetail.activeTokens': 'Sarrerako token aktiboak',
   'deviceDetail.alreadyOff': 'Pausatua dagoeneko',
   'deviceDetail.back': 'Zirkuitu guztiak',
   'deviceDetail.confirmDelete': 'Berretsi ezabatzea',
@@ -117,22 +137,34 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Ezin izan dira neurgailuak kargatu.',
   'devices.loading': 'Kontagailu bakoitza galdekatzen…',
   'devices.newRule': 'Alerta-arau berria',
+  'devices.noResults': 'Ez dago zirkuitu bat ere iragazki honekin bat egiten duenik.',
   'devices.placeholder.location': 'adibidez, gela mekanikoa',
   'devices.placeholder.name': 'adibidez, garaje azpipanel',
   'devices.subheading':
     'Voltrace-k ikus dezakeen zirkuitu guztietako watt-potentzia erreala eta gaurko kWh-ak.',
+  'deviceWattageRow.todayKwh': '{{kwh}} kWh gaur',
+  'deviceWattageRow.watts': '{{watts}} W',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Menua',
+  'energyMonitoringLayout.primaryNavLabel': 'Nabigazio nagusia',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    '{{appName}} zerbitzu-mailako meter, eguzki-inbertsore eta bateria-pila gehienekin hitz egiten du — kablez edo WiFi bidez.',
   'landing.ctaHeading': 'Parekatu zure neurgailua, ikusi watt-ak minututan',
   'landing.eyebrow': 'Denbora errealeko energia-adimena',
+  'landing.featuresHeading': 'Watt bakoitza, minutu bakoitza, shell bakarrean',
   'landing.getStarted': 'Konektatu Voltrace',
   'landing.heroCta': 'Konektatu Voltrace',
+  'landing.heroSubtitle':
+    'Watt-unea, eguzki-ekoizpena, erabilera-orduaren kostua eta kontsumo handiko alertak kontrol-gelako shell batean, eguzki-etxe eta instalazio-taldeentzat eraikia.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Etxe osoko zozketa',
   'landing.sampleSolar': '+3.820 W eguzki-energia',
   'landing.sampleSummary': '1.680 W sare elektrikora esportatzen · 18,4 kWh gaur',
   'landing.sampleWatts': '2.140 W',
   'powerHeroCard.solar': '+ {{watts}} W eguzki-energia',
   'powerHeroCard.title': 'Etxe osoko zozketa',
+  'powerHeroCard.todayKwh': '{{kwh}} kWh gaur',
   'powerHeroCard.watts': '{{watts}} W',
   'pricing.choose': 'Aukeratu {{name}}',
   'pricing.contact': 'Zerbait pertsonalizatua behar duzu?',
@@ -145,6 +177,7 @@ export const ui: UiTranslations = {
     'Hasi doan. Eguneratu neurgailu gehiago, historia luzeagoa edo alerta-arau gehiago behar dituzunean.',
   'pricing.unavailable': 'Plan hau ez dago eskuragarri une honetan — Stripe ez dago konfiguratuta.',
   'profile.errorGeneric': 'Ezin izan dira profileko aldaketak gorde.',
+  'profile.errorGoal': 'Hileko kWh helburuak zenbaki positibo bat izan behar du.',
   'profile.errorHousehold': 'Etxebizitzaren tamaina zenbaki positiboa izan behar da.',
   'profile.householdHeading': 'Etxea eta helburuak',
   'profile.householdSize': 'Etxearen tamaina',
@@ -162,9 +195,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'Irakurketak agregatzen…',
   'reports.subheading':
     'Kontsumoaren, ekoizpenaren eta kostuaren eguneroko guztizkoak — dataren arabera banatuta.',
+  'reports.tableHeading': 'Eguneko banaketa',
   'settings.currency': 'Moneta',
   'settings.errorFlat': 'Tarifa finkoa ≥ 0 izan behar da.',
   'settings.errorNotify': 'Ezin izan dira jakinarazpenen lehentasunak gorde.',
+  'settings.errorSave': 'Ezin izan da tarifa-plana gorde.',
   'settings.errorTou':
     'Puntako/puntatik kanpoko tarifak eta puntako ordu-tarte baliodun bat beharrezkoak dira.',
   'settings.exportBody':
@@ -185,10 +220,21 @@ export const ui: UiTranslations = {
   'settings.saving': 'Gordetzen…',
   'settings.securityHeading': 'Bi faktoreko autentifikazioa',
   'settings.subheading': 'Tarifak, jakinarazpenak eta datuen esportazioa.',
+  'settings.twoFactorBody':
+    'Eskatu behin erabiltzeko kodea zure autentifikatzaile-aplikaziotik saioa hasten duzun bakoitzean.',
   'settings.twoFactorCode': 'Autentifikazio kodea',
   'settings.twoFactorDisable': 'Desgaitu',
+  'settings.twoFactorDisableTitle': 'Desgaitu bi faktoreko autentifikazioa',
   'settings.twoFactorEnable': 'Gaitu',
+  'settings.twoFactorEnableTitle': 'Gaitu bi faktoreko autentifikazioa',
   'settings.twoFactorInvalidCode': 'Kode baliogabea',
+  'settings.twoFactorOAuth':
+    'Zure kontua konektatutako hornitzaile baten bidez hasten da saioa, beraz bi faktoreko autentifikazioa han kudeatzen da.',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Bi faktoreko QR kodea',
+  'settings.twoFactorScan':
+    'Eskaneatu QR kode hau zure autentifikazio-aplikazioarekin, eta gero sartu 6 digituko kodea.',
+  'settings.twoFactorUnavailable':
+    'Bi faktoreko autentifikazioa ez dago erabilgarri aplikazio honetarako.',
   'settings.twoFactorVerify': 'Egiaztatu eta gaitu',
 }

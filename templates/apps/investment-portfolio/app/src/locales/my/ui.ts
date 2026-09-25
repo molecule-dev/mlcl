@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'တုံ့ပြန်ချက် ရှိပါသလား၊ ချို့ယွင်းချက် တွေ့ပါသလား၊ သို့မဟုတ် အင်္ဂါရပ် တစ်ခု လိုချင်ပါသလား။ သင့်အကောင့် ဆက်တင်များမှ ဆက်သွယ်ပါ — မက်ဆေ့ခ်ျတိုင်း အဖွဲ့ထဲရှိ လူတစ်ဦးထံ ရောက်ပါသည်။ မှတ်ချက် — ဤနေရာရှိ အရာအားလုံးသည် ရင်းနှီးမြှုပ်နှံမှု အကြံဉာဏ် မဟုတ်ပါ။ အရောင်းအဝယ်တိုင်းကို သင်သာ ထိန်းချုပ်ပါသည်။',
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
+  'about.featureAttribution':
+    'စွမ်းဆောင်ရည် ခွဲခြမ်းစိတ်ဖြာမှု — ကဏ္ဍ၊ ဒေသနှင့် ပိုင်ဆိုင်မှုအမျိုးအစားအလိုက် အမြတ်များကို ခွဲထုတ်ပြီး မည်သည့် ကာလအတွက်မဆို စံညွှန်းနှင့် နှိုင်းယှဉ်ပါ။',
+  'about.featureRebalance':
+    'စည်းကမ်းရှိသော ပြန်လည်ချိန်ညှိမှု — ပစ်မှတ် ခွဲဝေမှုများနှင့် သည်းခံနိုင်သည့် အတိုင်းအတာများကို သတ်မှတ်ပြီး လွဲမှားမှုကို စောစီးစွာ အလံပြသည်ကို ကြည့်ရှုကာ သင့်ကို ပြန်လည်ရောက်ရှိစေမည့် အရောင်းအဝယ်များကို ရယူပါ။',
+  'about.featureTax':
+    'အခွန်စာရွက်စာတမ်း စနစ်တကျထားရှိမှု — ရရှိပြီးသားနှင့် မရရှိသေးသော အမြတ်များ၊ အမြတ်ဝေစုများနှင့် 1099 စာရွက်စာတမ်းများကို တစ်နေရာတည်းတွင် wash-sale အလံများ အပါအဝင် စုစည်းထားပါသည်။',
+  'about.featureUnified':
+    'ပေါင်းစည်းထားသော အစုစု တစ်ခု — အစုရှယ်ယာများ၊ ETF များ၊ အပြန်အလှန်ရန်ပုံငွေများ၊ ငွေချေးစာချုပ်များနှင့် အခြားအရာများကို ဘရိုကာဂျ်အကောင့်တိုင်းမှ စုစည်းထားပါသည်။',
+  'about.featureWatchlist':
+    'ကြည့်ရှုစာရင်းများ၊ သတင်းနှင့် စျေးနှုန်း သတိပေးချက်များဖြင့် ဆူညံသံများမပါဘဲ အရေးကြီးသည့်အရာများအပေါ် ဆောင်ရွက်နိုင်ပါသည်။',
+  'about.intro':
+    '{{app}} သည် တစ်ဦးချင်း ရင်းနှီးမြှုပ်နှံသူများနှင့် လွတ်လပ်သော အကြံပေးများအတွက် ပိုင်ဆိုင်မှုစုံ အစုစု ဒက်ရှ်ဘုတ် တစ်ခု ဖြစ်သည်။ အစုရှယ်ယာများ၊ ETF များ၊ အပြန်အလှန်ရန်ပုံငွေများ၊ ငွေချေးစာချုပ်များ၊ အိမ်ခြံမြေနှင့် ငွေသား — အကောင့်တိုင်းရှိ ပိုင်ဆိုင်မှုတိုင်း၊ တစ်နေရာတည်းတွင် ပရော်ဖက်ရှင်နယ် စားပွဲတစ်ခု၏ စည်းကမ်းဖြင့်။',
+  'about.missionBody':
+    'ကောင်းသော ရင်းနှီးမြှုပ်နှံမှုသည် အများအားဖြင့် စည်းကမ်းဖြစ်သည် — ရှင်းလင်းသော ပစ်မှတ် ခွဲဝေမှု၊ ရိုးသားသော စွမ်းဆောင်ရည် ခွဲခြမ်းစိတ်ဖြာမှုနှင့် သပ်ရပ်သော အခွန်မှတ်တမ်းများ။ {{app}} သည် ထို အဖွဲ့အစည်းဆိုင်ရာ အလေ့အထများကို မည်သူမဆို ရရှိနိုင်စေရန် ယူဆောင်လာသည်၊ ထို့ကြောင့် စိတ်ခံစားချက်အရမဟုတ်ဘဲ ရည်ရွယ်ချက်ရှိရှိ ပြန်လည်ချိန်ညှိနိုင်ပြီး သင့်အစုစု အမှန်တကယ် လုပ်ဆောင်နေသည်ကို ဘယ်တော့မှ လက်လွတ်မခံရပါ။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'about.pageTitle': '{{app}} အကြောင်း',
   'argentAuthShell.brandEyebrow': 'Argent · ချမ်းသာကြွယ်ဝမှု ကိရိယာတန်ဆာပလာများ',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . ရင်းနှီးမြှုပ်နှံမှု အကြံဉာဏ် မဟုတ်ပါ။',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'စည်းကမ်းရှိရှိ ပြန်လည်ဟန်ချက်ညီအောင်လုပ်ဆောင်ခြင်း၊ ထက်မြက်သော စွမ်းဆောင်ရည်ခွဲဝေမှုနှင့် အခွန်-စာရွက်စာတမ်း သန့်ရှင်းမှုကို ဆူညံသံမရှိဘဲ လိုချင်သော တစ်ဦးချင်းရင်းနှီးမြှုပ်နှံသူများနှင့် အကြံပေးများအတွက် ရင်းနှီးမြှုပ်နှံမှုဒိုင်ခွက်တစ်ခု။',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · အတိတ် စွမ်းဆောင်ရည်သည် အနာဂတ် ရလဒ်များကို အာမမခံပါ။',
   'argentAuthShell.sampleChange': 'ယနေ့ +$၂,၈၄၁ (+၀.၂၈%)',
+  'argentAuthShell.sampleLabel': 'ရင်းနှီးမြှုပ်နှံမှုတန်ဖိုး',
   'argentAuthShell.sampleValue': 'ဒေါ်လာ ၁,၀၃၂,၂၅၁',
   'argentLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'assetAllocationDonut.heading': 'သင့်ငွေကို ဘယ်လိုရင်းနှီးမြှုပ်နှံထားလဲ',
@@ -26,6 +50,8 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'ဒီနေ့',
   'assetDetail.txEmpty': 'ဤ ticker အတွက် ငွေပေးငွေယူ မရှိပါ။',
   'assetDetail.txHeading': 'သင့်ရဲ့ ငွေပေးငွေယူတွေ',
+  'auth.legalConsent.prefix':
+    'ဆက်လက်လုပ်ဆောင်ခြင်းဖြင့် သင်သည် {{appName}}၏ စည်းကမ်းချက်များကို သဘောတူပါသည်',
   'common.and': 'နှင့်',
   'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'common.no': '—',
@@ -37,10 +63,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'ဒီနေ့',
   'dashboard.topHoldings.heading': 'မင်းရဲ့ပိုက်ဆံကဘယ်မှာအလုပ်လုပ်နေလဲ',
   'dashboard.topHoldings.label': 'ထိပ်တန်းဦးပိုင်ကုမ္ပဏီများ',
+  'forgotPassword.gotLinkCta': 'ကျွန်ုပ်တွင် ပြန်လည်သတ်မှတ်ရန် လင့်ခ် ရှိသည် →',
+  'forgotPassword.subheading':
+    'သင့် Gavl အကောင့်ရှိ အီးမေးလ်ကို ရိုက်ထည့်ပါ၊ ကျွန်ုပ်တို့သည် လုံခြုံသော ပြန်လည်သတ်မှတ်ခြင်းလင့်ခ်ကို ပေးပို့ပါမည်။',
   'forgotPassword.successBody':
     'မိနစ်အနည်းငယ်အတွင်း မတွေ့ပါက သင်၏ spam folder ကို စစ်ဆေးပါ သို့မဟုတ် အခြားအီးမေးလ်တစ်စောင်ကို စမ်းကြည့်ပါ။',
   'forgotPassword.successSubheading':
     'စစ်ဆေးပါ {{email}} ပြန်လည်သတ်မှတ်ရန်လင့်ခ်အတွက်။ ၎င်းသည် မိနစ် ၆၀ အတွင်း သက်တမ်းကုန်ဆုံးမည်။',
+  'forgotPassword.successTitle': 'ပြန်လည်သတ်မှတ်ရေး အီးမေးလ် လာနေပြီ',
   'holdingHighlightRow.todayLabel': 'ဒီနေ့',
   'holdings.addCta': 'ဝယ်ပါ',
   'holdings.col.allocation': 'ခွဲဝေချထားပေးသည်',
@@ -58,6 +88,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} ။ ရင်းနှီးမြှုပ်နှံမှု အကြံဉာဏ် မဟုတ်ပါ။ ပြီးခဲ့သော စွမ်းဆောင်ရည်သည် အနာဂတ်ရလဒ်များကို အာမမခံနိုင်ပါ။',
   'landing.eyebrow': 'Argent · ချမ်းသာကြွယ်ဝမှုကို အထောက်အကူပြုသည့် ပလက်ဖောင်းတစ်ခု',
   'landing.features.heading': 'အကြံပေးတစ်ယောက်ဟာ သူတို့ကိုယ်တိုင် တည်ဆောက်မယ့် အရာအားလုံး။',
+  'landing.finalCta.body':
+    'သင့် ဘရိုကာဂျ်ကို နှစ်ချက် နှိပ်ပြီး ချိတ်ဆက်ပါ။ ကျန်တာကို {{appName}} လုပ်ဆောင်ပါသည်။',
+  'landing.finalCta.cta': 'သင့်ရဲ့ Argent အကောင့်ကိုဖွင့်ပါ',
   'landing.finalCta.heading': 'သင့်ရဲ့ ရင်းနှီးမြှုပ်နှံမှု အစုစုထဲကို စည်းကမ်းပြန်လည်ယူဆောင်လာပါ။',
   'landing.footerSignup': 'အကောင့်တစ်ခုဖွင့်ပါ',
   'landing.getStarted': 'အကောင့်တစ်ခုဖွင့်ပါ',
@@ -65,6 +98,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'ဈေးနှုန်းကြည့်ရန်',
   'landing.heroSubtitle':
     'စည်းကမ်းရှိရှိ ပြန်လည်ဟန်ချက်ညီအောင်လုပ်ဆောင်ခြင်း၊ ထက်မြက်သော စွမ်းဆောင်ရည်ခွဲဝေမှုနှင့် အခွန်-စာရွက်စာတမ်း သန့်ရှင်းမှုကို ဆူညံသံမရှိဘဲ လိုချင်သော တစ်ဦးချင်းရင်းနှီးမြှုပ်နှံသူများနှင့် အကြံပေးများအတွက် ရင်းနှီးမြှုပ်နှံမှုဒိုင်ခွက်တစ်ခု။',
+  'landing.heroTitle': '{{tagline}}။',
   'landing.sampleCaption': 'ကိုယ်စားပြု portfolio မှ တိုက်ရိုက် preview တစ်ခု',
   'login.heading': 'Argent သို့ ဝင်ရောက်ပါ',
   'login.subheading':
@@ -76,6 +110,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} နာရီ ကြာပြီ',
   'news.justNow': 'ယခုပင်',
   'news.loadError': 'သတင်းများ တင်၍မရပါ။',
+  'planUpdated.body':
+    'သင့်ငွေတောင်းခံမှု ပြောင်းလဲမှုသည် ယခု အသက်ဝင်နေပါပြီ။ သင့်အစီအစဉ်ကို ငွေတောင်းခံမှုစာမျက်နှာမှ မည်သည့်အချိန်တွင်မဆို စီမံနိုင်ပါသည်။',
+  'planUpdated.retry': 'ထပ်ကြိုးစားပါ',
+  'planUpdated.verifyFailed': 'သင့်ငွေပေးချေမှုကို ကျွန်ုပ်တို့ အတည်မပြုနိုင်သေးပါ။',
+  'planUpdated.verifyFailedBody':
+    'သင့်ငွေပေးချေမှုကို လုပ်ဆောင်နေဆဲဖြစ်နိုင်ပါသည်။ ခဏအကြာတွင် ထပ်မံကြိုးစားပါ။',
   'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'portfolioHeroCard.label': 'ရင်းနှီးမြှုပ်နှံမှုတန်ဖိုး',
   'pricing.holdingsLabel': 'ပိုင်ဆိုင်မှု',
@@ -86,13 +126,18 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'ခွဲဝေချထားမှု ရွေ့လျားမှု',
   'rebalance.empty': 'ပစ်မှတ်တွေ မသတ်မှတ်ရသေးဘူး။',
   'rebalance.executeCta': 'နေရာ {{count}} အရောင်းအဝယ်များ',
+  'rebalance.executeError': 'အရောင်းအဝယ်များ ထည့်သွင်းရန် မအောင်မြင်ပါ။',
   'rebalance.executeOk':
     'နေရာချထားပြီး {{count}} ကုန်သွယ်မှုများ။ ၎င်းတို့ကို ငွေပေးငွေယူများ စာမျက်နှာတွင် ကြည့်ရှုပါ။',
+  'rebalance.executing': 'ထည့်သွင်းနေသည်…',
   'rebalance.eyebrow': 'ပြန်လည်ချိန်ခွင်လျှာညှိခြင်း · Argent အကြံပေး',
   'rebalance.heading': 'သင့်ရဲ့ portfolio ကို စည်းကမ်းရှိရှိ ပြန်လည်အသုံးပြုပါ',
   'rebalance.loadError': 'ပြန်လည်ချိန်ခွင်လျှာညှိခြင်း အစီအစဉ်ကို တင်၍မရပါ။',
+  'rebalance.plan.driftLine': 'လက်ရှိ {{current}}% · ပစ်မှတ် {{target}}%',
   'rebalance.planHeading': 'Argent လက်မှတ် — နေရာမချမီ ပြန်လည်သုံးသပ်ပါ',
   'rebalance.planLabel': 'အကြံပြုထားသော ကုန်သွယ်မှုအစီအစဉ်',
+  'rebalance.subheading':
+    'သည်းခံနိုင်သည့် အတိုင်းအတာ ပြင်ပတွင် ရှိသော အတန်းများသည် အရောင်းအဝယ် အကြံပြုချက်များကို စတင်စေသည်။ {{appName}} သည် သင့် အတည်ပြုချက်အပေါ်သာ ဆောင်ရွက်ပါသည်။',
   'rebalance.summary.buyLabel': 'ဝယ်ယူသည်များ',
   'rebalance.summary.buySub': 'ဖြည့်တင်းရန် ရာထူးများ',
   'rebalance.summary.driftLabel': 'တီးဝိုင်းပြင်ပ',
@@ -101,6 +146,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'အကြံပြုထားသော ကုန်သွယ်မှုများတစ်လျှောက်',
   'rebalance.summary.sellLabel': 'ရောင်းချသည်',
   'rebalance.summary.sellSub': 'ညှပ်ရန်နေရာများ',
+  'rebalanceDriftCard.drift': 'လွဲမှားမှု {{sign}}{{pct}}% · အတိုင်းအတာ ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'ပစ်မှတ် {{pct}} %',
   'reports.attributionHeading': 'စွမ်းဆောင်ရည် ရည်ညွှန်းချက် (၁ နှစ်)',
   'reports.col.alpha': 'အယ်လ်ဖာ',
@@ -114,37 +160,68 @@ export const ui: UiTranslations = {
   'reports.col.year': 'နှစ်',
   'reports.gainsHeading': 'ရရှိသောနှင့် မရရှိသော အကျိုးအမြတ်များ',
   'reports.noAttribution': 'ရည်ညွှန်းချက်ဒေတာ မရှိသေးပါ။',
+  'reports.noGains': 'ရရှိပြီး/မရရှိသေးသော အမြတ် ဒေတာ မရှိသေးပါ။',
   'reports.noPerformance': 'စွမ်းဆောင်ရည်ဒေတာ မရှိသေးပါ။',
   'reports.noTaxDocs': 'အခွန်စာရွက်စာတမ်းများ မရှိသေးပါ။',
   'reports.performanceHeading': 'စွမ်းဆောင်ရည်နှင့် စံနှုန်း',
   'reports.taxHeading': 'အခွန်စာရွက်စာတမ်းများ',
   'resetPassword.heading': 'ခိုင်မာတဲ့ စကားဝှက်အသစ်ကို ရွေးချယ်ပါ',
+  'resetPassword.passwordPlaceholder': 'စကားဝှက်အသစ်',
   'resetPassword.subheading':
     'သင့်စကားဝှက်ကို သတ်မှတ်ပြီးသည်နှင့် Argent သည် အလိုအလျောက် သင့်အား လက်မှတ်ထိုးဝင်ရောက်ပေးပါလိမ့်မည်။',
   'resetPassword.tokenPlaceholder': 'အီးမေးလ်မှ တိုကင်ကို ပြန်လည်သတ်မှတ်ပါ',
+  'settings.appearance.description': 'အလင်းနှင့် အမှောင်မုဒ်အကြား ပြောင်းပါ။',
   'settings.appearance.title': 'အသွင်အပြင်',
+  'settings.devices.body': 'သင့်အကောင့်သို့ လောလောဆယ် လက်မှတ်ထိုးဝင်ထားသော စက်ပစ္စည်းများ။',
+  'settings.devices.empty': 'စက်ပစ္စည်း မတွေ့ပါ။',
   'settings.devices.heading': 'စက်ပစ္စည်းများ',
+  'settings.devices.revokeWarning': 'ဤစက်ပစ္စည်း၏ ဝင်ခွင့်ကို မကြာမီ ပယ်ဖျက်ပါမည်။ ထွက်မည်လား?',
   'settings.devices.signOut': 'ဆိုင်းအောက်',
   'settings.devices.thisDevice': 'ဒီကိရိယာ',
   'settings.devices.unknown': 'မသိသော စက်ပစ္စည်း',
   'settings.linked.body':
     'Brokerage syncing သည် third-party connector (Plaid၊ Yodlee စသည်) လိုအပ်သည်။ auto-import ကိုဖွင့်ရန် သင့်ပတ်ဝန်းကျင်ရှိ provider ကို configure လုပ်ပါ။',
   'settings.linked.heading': 'ချိတ်ဆက်ထားသော ပွဲစားအကောင့်များ',
+  'settings.linked.placeholder': 'လင့်ခ်ချိတ်ထားသော အကောင့်များ မရှိသေးပါ။',
+  'settings.notifications.dividendsPaid': 'ပေးချေပြီးသော အမြတ်ဝေစုများ',
   'settings.notifications.error': 'ဦးစားပေးမှုကို အပ်ဒိတ်လုပ်၍မရပါ။',
   'settings.notifications.priceAlerts': 'ဈေးနှုန်းသတိပေးချက်များ',
+  'settings.notifications.rebalanceDrift': 'ပြန်လည်ချိန်ညှိရေး လွဲမှားမှု',
+  'settings.notifications.taxDocsReady': 'အခွန်စာရွက်စာတမ်းများ အသင့်ဖြစ်ပြီ',
   'settings.profile.advisor': 'အကြံပေး အီးမေးလ် (ရွေးချယ်နိုင်သည်)',
   'settings.profile.heading': 'ပရိုဖိုင်',
   'settings.security.changePassword': 'စကားဝှက်ကိုပြောင်းရန်',
+  'settings.security.changePasswordTitle': 'စကားဝှက်ကိုပြောင်းရန်',
   'settings.security.changing': 'ပြောင်းလဲနေသည်…',
+  'settings.security.confirmPassword': 'စကားဝှက်',
+  'settings.security.currentPassword': 'လက်ရှိစကားဝှက်',
   'settings.security.deleteAccount': 'အကောင့်ကို ဖျက်ပါ',
   'settings.security.deleteError': 'အကောင့်ကို ဖျက်၍မရပါ။',
   'settings.security.deleteHeading': 'အကောင့်ကို ဖျက်ပါ',
+  'settings.security.deleteModalWarning':
+    'ဤအရာသည် သင့်အကောင့်နှင့် ဒေတာကို အပြီးအပိုင် ဖျက်ပစ်ပါမည်။ အတည်ပြုရန် သင့်စကားဝှက်ကို ထည့်ပါ။',
+  'settings.security.deleteWarning':
+    'သင့်အကောင့်နှင့် ဆက်စပ်ဒေတာအားလုံးကို အပြီးအပိုင် ဖျက်ပါ။ ၎င်းကို ပြန်လည်ပြုပြင်၍ မရနိုင်ပါ။',
   'settings.security.deleting': 'ဖျက်နေသည်…',
   'settings.security.heading': 'လုံခြုံရေး',
   'settings.security.newPassword': 'စကားဝှက်အသစ်',
   'settings.security.password': 'စကားဝှက်',
+  'settings.security.passwordError': 'စကားဝှက်ကို ပြောင်းလဲ၍မရပါ။',
+  'settings.security.passwordHint': 'သင်ဝင်ရောက်ရန် အသုံးပြုသည့် စကားဝှက်ကို ပြောင်းပါ။',
+  'settings.security.twoFactor': 'နှစ်ဆင့်အထောက်အထားစိစစ်ခြင်း',
+  'settings.security.twoFactorCode': 'အထောက်အထားစိစစ်ရေးကုဒ်',
+  'settings.security.twoFactorDisable': 'ပိတ်ရန်',
+  'settings.security.twoFactorDisableTitle': 'နှစ်ဆင့်အတည်ပြုခြင်းကို ပိတ်ပါ',
   'settings.security.twoFactorEnable': 'ဖွင့်ပါ',
+  'settings.security.twoFactorEnableTitle': 'နှစ်ဆင့်အတည်ပြုခြင်းကို ဖွင့်ပါ',
+  'settings.security.twoFactorHint': 'သင့်အကောင့်အတွက် အပိုကာကွယ်မှု အလွှာတစ်ခု ထည့်ပါ။',
   'settings.security.twoFactorInvalidCode': 'ကုဒ် မမှန်ကန်ပါ',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'နှစ်ဆင့် QR ကုဒ်',
+  'settings.security.twoFactorScan':
+    'ဤ QR ကုဒ်ကို သင့်အတည်ပြုကိရိယာအက်ပ်ဖြင့် စကင်ဖတ်ပြီး ၆ လုံးပါ ကုဒ်ကို ထည့်ပါ။',
+  'settings.security.twoFactorUnavailable':
+    'ဤအက်ပ်အတွက် နှစ်ဆင့်အထောက်အထားစိစစ်ခြင်း မရရှိနိုင်ပါ။',
   'settings.security.twoFactorVerify': 'အတည်ပြုပြီး ဖွင့်ပါ',
   'settings.tax.error': 'အခွန်နည်းလမ်းကို အပ်ဒိတ်လုပ်၍မရပါ။',
   'settings.tax.heading': 'အခွန်စာရင်းကိုင်',
@@ -155,6 +232,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'အခွန်နည်းလမ်းကို သိမ်းဆည်းပြီးပါပြီ။',
   'signup.eyebrow': 'အကောင့်တစ်ခုဖွင့်ပါ',
   'signup.heading': 'သင့်ရဲ့ Argent အကောင့်ကိုဖွင့်ပါ',
+  'signup.legalPrefix': 'အကောင့်ဖန်တီးခြင်းဖြင့် သင်သည် {{appName}} ကို သဘောတူပါသည်',
   'signup.subheading': '၃၀ ရက် အခမဲ့။ ကတ်မလိုအပ်ပါ။ အချိန်မရွေး ပယ်ဖျက်နိုင်ပါသည်။',
   'signup.terms':
     'အကောင့်တစ်ခုဖန်တီးခြင်းဖြင့် Argent ဝန်ဆောင်မှုစည်းမျဉ်းများနှင့် ကိုယ်ရေးကိုယ်တာမူဝါဒကို သင်သဘောတူပါသည်။',

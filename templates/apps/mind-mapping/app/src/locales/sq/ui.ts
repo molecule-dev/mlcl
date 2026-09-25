@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Keni komente, keni gjetur një gabim ose dëshironi të na tregoni si i hartoni idetë tuaja? Ne lexojmë çdo shënim — na kontaktoni në çdo kohë dhe një person i vërtetë i ekipit do t'ju përgjigjet.",
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
+  'about.featureCanvas':
+    'Një kanavacë e pafund me nyje të zvarritshme, lidhje me kthesa të lëmuara dhe zmadhim e zhvendosje të rrjedhshme.',
+  'about.featureCollab':
+    'Bashkëpunim në kohë reale me kursorë të drejtpërdrejtë, që ekipi juaj të degëzojë pranë jush në vend që të presë radhën.',
+  'about.featurePricing':
+    'Falas përgjithmonë për mendimtarët individualë; planet Pro dhe Team shtojnë më shumë harta, më shumë nyje, veçori të avancuara dhe eksportim të dhënash.',
+  'about.featureTemplates':
+    'Një bibliotekë me shabllone fillestare plus historik të plotë versionesh, që të nisni shpejt një hartë dhe të ktheni çdo ndryshim.',
+  'about.intro':
+    '{{app}} është një kanavacë e gjerë dhe e pafund për hartëzim mendjesh — stuhi idesh, diagrame konceptesh, SWOT dhe plane projektesh. Zvarritni nyjet kudo, lidhni idetë me lidhje të rrjedhshme, zmadhoni dhe zhvendosni pa u përplasur me skajet dhe lëreni hartën të rritet me mendimin tuaj.',
+  'about.missionBody':
+    "Të menduarit me zë të lartë duhet të jetë i lehtë dhe i përbashkët. Ne ndërtojmë mjete që nuk pengojnë — pa rrjeta të ngurta, pa shabllone të mbyllura, pa ndërfaqe që të tërheq vëmendjen — që individët dhe ekipet të kapin idetë në momentin që u vijnë dhe t'i formësojnë së bashku.",
+  'about.missionTitle': 'Misioni ynë',
   'about.pageTitle': 'Rreth {{app}}',
   'auth.brandEyebrow': 'Ku degëzohen idetë',
   'auth.brandStatement':
@@ -13,19 +29,26 @@ export const ui: UiTranslations = {
   'billing.feature.export': 'Eksporto në SVG / PNG',
   'billing.feature.maps': '{{count}} hartat',
   'billing.feature.nodes': '{{count}} nyje për hartë',
+  'billing.freeNoticeBody':
+    'Zgjidhni një plan me pagesë më sipër për të zhbllokuar më shumë harta.',
   'billing.loadError': 'Statusi i faturimit nuk mund të ngarkohej.',
+  'billing.loading': 'Duke ngarkuar faturimin…',
   'billing.perMonth': ' / muaj',
   'billing.plansTitle': 'Planet',
+  'billing.priceMissing': 'ID-ja e çmimit të Stripe nuk është konfiguruar.',
   'billing.starting': 'Duke filluar arkëtimin…',
   'billing.title': 'Faturimi dhe plani',
   'billing.unavailableTier':
     'Ky nivel nuk është konfiguruar ende për përfundimin e blerjes — caktoni ID-në e çmimit Stripe në mjedisin tuaj.',
   'billing.unlimited': 'Pa limit',
   'billing.upgradeMonthly': 'Përmirëso në {{name}} (mujore)',
+  'billing.upgradeYearly': 'Paguaj çdo vit · {{price}}',
   'brand.tagline': 'Ku degëzohen idetë',
   'common.and': 'dhe',
   'common.goToDashboard': 'Shko te paneli',
   'dashboard.activityAction': 'përditësuar',
+  'dashboard.activityEmpty':
+    'Nuk ka ende aktivitet — modifikoni një hartë për të nisur kronologjinë tuaj.',
   'dashboard.daysAgo': '{{count}} ditë më parë',
   'dashboard.empty.body':
     'Krijo një hartë për të filluar degëzimin e ideve. Shabllonet e bëjnë të lehtë fillimin.',
@@ -44,26 +67,35 @@ export const ui: UiTranslations = {
   'dendriteHero.activeMaps': 'Hartat aktive',
   'dendriteHero.eyebrow': 'Sot në kanavacë',
   'dendriteHero.greeting': 'Degëzoni ide të reja, {{name}}',
+  'dendriteHero.greetingAnon': 'Degëzoni ide të reja',
   'dendriteHero.openMaps': 'Hap hartat e mia',
   'dendriteHero.subtitle':
     'Zvarrit, lidhu dhe lëre mendimin tënd të rritet. Çdo shkëndijë është një nyje larg tjetrës.',
   'dendriteHero.weeklyChange': '{{sign}} {{count}} këtë javë',
+  'forgotPassword.brandStatement':
+    "Hartat tuaja janë të sigurta. Do t'ju kthejmë te degët tuaja pas një momenti.",
   'forgotPassword.subheading':
     'Shkruani email-in tuaj dhe ne do t’ju dërgojmë një lidhje të re rivendosjeje.',
   'forgotPassword.success':
     'Nëse ekziston një llogari me atë email, një lidhje rivendosjeje është duke ardhur.',
   'landing.cta.body':
     'Falas përgjithmonë për ata që mendojnë individualisht. Përmirësojeni vetëm kur ekipi juaj të fillojë të bashkëpunojë me ju.',
+  'landing.cta.button': 'Krijoni hartën tuaj të parë',
   'landing.cta.title': 'Mbjell idenë tënde të parë sot.',
   'landing.feature.branch.body':
     'Tërhiqni një nyje nga çdo nyje tjetër — lidhjet rrjedhin si kthesa të lëmuara, nuk kërkohet rrjetë e ngurtë.',
+  'landing.feature.branch.title': 'Degëzim organik',
   'landing.feature.canvas.body':
     'Panoramoni, zmadhoni dhe lëreni hartën të rritet pa u përplasur me skajet. Mendimi juaj meriton hapësirë për të marrë frymë.',
   'landing.feature.canvas.title': 'Kanavacë e pafundme',
   'landing.feature.collab.body':
     'Shiko shokët e skuadrës të bashkohen me ty në kohë reale. Bëj një shkëmbim idesh së bashku, jo në seri.',
+  'landing.feature.collab.title': 'Kursorë bashkëpunues',
   'landing.feature.shortcuts.body':
     'Shtypni Tab për të shtuar një fëmijë, shtypni Enter për një vëlla/motër, shtypni ⌘K për të kaluar kudo. Përdoruesit e përparuar qëndrojnë në rrjedhë.',
+  'landing.feature.shortcuts.title': 'Tastiera në radhë të parë',
+  'landing.featuresBody':
+    'Shiritat e veglave, panelet dhe shkurtesat ndihen si ambient — të pranishme kur ju nevojiten, të padukshme kur nuk ju nevojiten.',
   'landing.featuresEyebrow': 'Ndërtuar për mendimtarë',
   'landing.featuresTitle': 'Çdo ndërveprim fiton vendin e vet në kanavacë',
   'landing.footer.copyright': '© {{year}} {{appName}} . Ndërtuar me Molecule.dev.',
@@ -71,6 +103,7 @@ export const ui: UiTranslations = {
     '{{appName}} është një kanavacë e gjerë dhe e pafundme për shkëmbim idesh, diagrame konceptesh dhe analiza SWOT. Zvarrit, lidhu dhe lëre hartën të rritet bashkë me ty — pa rrjeta të ngurta, pa shabllone të kufizuara.',
   'landing.hero.ctaPrimary': 'Filloni degëzimin falas',
   'landing.hero.eyebrow': 'Hartimi i mendjes për dizajnerët dhe mendimtarët',
+  'landing.hero.title': 'Aty ku idetë degëzohen.',
   'landing.nav.start': 'Filloni degëzimin',
   'landing.proof.export': 'Eksporto në PNG, SVG ose Markdown',
   'landing.proof.free': 'Falas për 3 harta',
@@ -78,6 +111,7 @@ export const ui: UiTranslations = {
   'layout.closeMenu': 'Mbyll menynë e navigimit',
   'layout.openMenu': 'Hap menynë e navigimit',
   'layout.searchPlaceholder': 'Kërko harta, shabllone ose nyje…',
+  'login.noAccount': 'I ri këtu?',
   'login.signIn': 'Hyr në Nimbus',
   'login.subheading': 'Kyçu për të vazhduar degëzimin aty ku e latë.',
   'login.twoFactor': 'Shenjë me dy faktorë (nëse aktivizohet)',
@@ -94,9 +128,11 @@ export const ui: UiTranslations = {
   'mapEditor.emptyHint': 'Zgjidhni mjetin +, pastaj klikoni kudo për të shtuar nyjen tuaj të parë',
   'mapEditor.export': 'Eksporto',
   'mapEditor.exportError': 'Harta nuk mund të eksportohej.',
+  'mapEditor.exportLocked': 'Eksportimi është veçori e Pro.',
   'mapEditor.exportMarkdown': 'Markdown (.md)',
   'mapEditor.exportPng': 'Imazh (.png)',
   'mapEditor.exportSvg': 'Vektor (.svg)',
+  'mapEditor.exportUpgrade': 'Përmirëso për të eksportuar →',
   'mapEditor.hint.add': 'Klikoni në kanavacë për të lëshuar një nyje',
   'mapEditor.hint.connectSource': 'Klikoni nyjen burimore…',
   'mapEditor.hint.connectTarget': 'Klikoni nyjen e synuar…',
@@ -105,6 +141,7 @@ export const ui: UiTranslations = {
   'mapEditor.loading': 'Duke ngarkuar kanavacën…',
   'mapEditor.newNodeText': 'New idea',
   'mapEditor.panel.color': 'Ngjyra',
+  'mapEditor.panel.eyebrow': 'Nyja e zgjedhur',
   'mapEditor.panel.nodes': 'Nyjet',
   'mapEditor.panel.noSelection': 'Klikoni një nyje për ta modifikuar atë.',
   'mapEditor.panel.stats': 'Statistikat e hartës',
@@ -144,11 +181,18 @@ export const ui: UiTranslations = {
   'notifications.accept': 'Prano',
   'notifications.acceptAndOpen': 'Prano dhe hap',
   'notifications.acceptedInvite': 'U bashkua {{title}}.',
+  'notifications.acceptError': 'Ftesa nuk mund të pranohej.',
   'notifications.empty.body': 'Kur shokët e ekipit të ftojnë në harta, ata do të shfaqen këtu.',
   'notifications.empty.title': 'Nuk ka ftesa në pritje',
+  'notifications.inviteBody': 'Dërguar te {{email}}',
   'notifications.inviteTitle': 'I ftuar si {{role}} për "{{title}}"',
   'notifications.subtitle': '{{count}} ftesa në pritje.',
   'notifications.view': 'Pamje',
+  'pricing.limit.advanced': 'Veçori të avancuara: {{state}}',
+  'pricing.limit.connections': '{{count}} lidhje',
+  'pricing.limit.export': 'Eksportim të dhënash: {{state}}',
+  'pricing.limit.maps': '{{count}} hartat',
+  'pricing.limit.nodes': '{{count}} nyje për hartë',
   'profile.loading': 'Duke ngarkuar statistikat tuaja…',
   'profile.stat.collabs': 'Bashkëpunime',
   'profile.stat.maps': 'Hartat u krijuan',
@@ -160,25 +204,37 @@ export const ui: UiTranslations = {
   'publicMap.loadError': 'Kjo hartë nuk ndahet më, ose lidhja është e pavlefshme.',
   'publicMap.loading': 'Duke ngarkuar hartën…',
   'publicMap.notFound': 'Harta nuk u gjet.',
+  'resetPassword.newPassword': 'Fjalëkalim i ri',
   'resetPassword.subheading':
     'Zgjidh diçka të paharrueshme. Do të të identifikojmë përsëri automatikisht.',
   'resetPassword.submit': 'Rivendos fjalëkalimin dhe identifikohu',
   'resetPassword.tokenPlaceholder': 'U ngjit nga email-i juaj',
   'settings.account.subtitle': 'Përditësoni emrin tuaj të shfaqur dhe adresën e email-it.',
+  'settings.field.currentPassword': 'Fjalëkalimi aktual',
   'settings.field.newPassword': 'Fjalëkalim i ri',
   'settings.password.subtitle': 'Zgjidhni një fjalëkalim të fortë (të paktën 8 karaktere).',
   'settings.passwordError':
     'Nuk mundi të ndryshojë fjalëkalimin. Kontrolloni fjalëkalimin tuaj aktual.',
+  'settings.passwordMismatch': 'Fjalëkalimet e reja nuk përputhen.',
   'settings.passwordSaved': 'Fjalëkalimi u ndryshua me sukses.',
   'settings.passwordTooShort': 'Fjalëkalimi duhet të jetë të paktën 8 karaktere.',
   'settings.profileError': 'Nuk mund të ruheshin ndryshimet e profilit.',
   'settings.subtitle': 'Rregulloni llogarinë dhe sigurinë tuaj.',
   'settings.twoFactorCode': 'Kodi i vërtetimit',
   'settings.twoFactorDisable': 'Çaktivizo',
+  'settings.twoFactorDisableTitle': 'Çaktivizo vërtetimin me dy faktorë',
   'settings.twoFactorEnable': 'Aktivizo',
+  'settings.twoFactorEnableTitle': 'Aktivizo vërtetimin me dy faktorë',
   'settings.twoFactorInvalidCode': 'Kod i pavlefshëm. Ju lutemi provoni përsëri.',
+  'settings.twoFactorOffLine': 'Vërtetimi me dy faktorë është i çaktivizuar.',
+  'settings.twoFactorOnLine': 'Vërtetimi me dy faktorë është i aktivizuar.',
+  'settings.twoFactorQrAlt': 'Kodi QR dy faktorë',
+  'settings.twoFactorScan':
+    'Skano këtë kod QR me aplikacionin e vërtetimit, pastaj shkruaj kodin 6-shifror.',
   'settings.twoFactorSubtitle':
     'Shtoni një kod njëpërdorimësh nga aplikacioni juaj i autentifikimit përveç fjalëkalimit tuaj.',
+  'settings.twoFactorUnavailable':
+    'Autentifikimi me dy faktorë nuk është i disponueshëm për këtë aplikacion.',
   'settings.twoFactorVerify': 'Verifiko dhe aktivizo',
   'share.accepted': 'Pranuar',
   'share.backToMap': 'Kthehu te harta',
@@ -189,7 +245,10 @@ export const ui: UiTranslations = {
   'share.copySuccess': 'Lidhja u kopjua.',
   'share.invite.button': 'Fto',
   'share.invite.title': 'Fto me email',
+  'share.inviteError': 'Nuk mundi të dërgonte ftesën.',
   'share.inviteSuccess': 'I ftuar {{email}}.',
+  'share.link.disabledHint':
+    'Aktivizojeni për të krijuar një lidhje publike vetëm-lexim për këtë hartë.',
   'share.link.title': 'Lidhje publike',
   'share.loadError': 'Nuk mund të ngarkoheshin cilësimet e ndarjes.',
   'share.pending': 'Ftesë në pritje',
@@ -201,13 +260,19 @@ export const ui: UiTranslations = {
   'share.roleError': 'Roli nuk mund të përditësohej.',
   'share.title': 'Ndani këtë hartë',
   'share.unnamedCollaborator': 'Ftesë në pritje',
+  'signup.brandStatement':
+    'Një kanavacë mjaftueshëm e gjerë për stuhinë më të guximshme të ideve — dhe mjaftueshëm e qetë për të menduar.',
+  'signup.haveAccount': 'Tashmë anëtar?',
   'signup.heading': 'Mbjell idenë tënde të parë',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.subheading': 'Falas përgjithmonë për 3 harta. Nuk kërkohet kartë krediti.',
   'templateDetail.backToTemplates': 'Të gjitha shabllonet',
   'templateDetail.browseMore': 'Shfleto më shumë',
+  'templateDetail.editableHint':
+    'Çdo nyje dhe lidhje është plotësisht e modifikueshme pasi të krijoni shabllonin.',
   'templateDetail.instantiateError': 'Nuk mund të krijohej një hartë nga ky shabllon.',
   'templateDetail.loadError': 'Nuk mundi të ngarkonte këtë shabllon.',
+  'templateDetail.loading': 'Duke ngarkuar shabllonin…',
   'templateDetail.nodes': 'Nyje të paracaktuara',
   'templateDetail.notFound': 'Shablloni nuk u gjet.',
   'templateDetail.systemEyebrow': 'Shabllon i integruar',
@@ -230,6 +295,7 @@ export const ui: UiTranslations = {
   'trash.empty.body': 'Asgjë nuk pret të pastrohet. Degët tuaja janë të sigurta.',
   'trash.empty.title': 'Koshi i mbeturinave është bosh',
   'trash.loadError': 'Nuk mund të ngarkoheshin hartat e hedhura në kosh.',
+  'trash.loading': 'Po ngarkohet koshi…',
   'trash.restore': 'Rivendos',
   'trash.restoreError': 'Harta nuk mund të rikthehej.',
   'trash.subtitle': 'Hartat qëndrojnë këtu për {{days}} ditë para se të fshihen përgjithmonë.',
@@ -237,11 +303,13 @@ export const ui: UiTranslations = {
   'versionHistory.backToMap': 'Kthehu te harta',
   'versionHistory.empty':
     'Ende nuk ka pamje të çastit. Ruaj të parën për të mbajtur një pikë kontrolli.',
+  'versionHistory.emptyDetail': 'Ruani një pamje për të nisur kronologjinë tuaj.',
   'versionHistory.loadError': 'Nuk mund të ngarkohej historiku i versioneve.',
   'versionHistory.nodeCount': 'Nyjet',
   'versionHistory.restoreButton': 'Rivendos këtë version',
   'versionHistory.restoreError': 'Pamja e çastit nuk mund të rikthehej.',
   'versionHistory.restoreSuccess': 'Pamja e çastit u restaurua.',
+  'versionHistory.selectHint': 'Zgjidhni një pamje për ta shikuar.',
   'versionHistory.snapshotDefault': 'Pamje manuale e çastit',
   'versionHistory.snapshotError': 'Pamja e çastit nuk mund të ruhej.',
   'versionHistory.snapshotEyebrow': 'Pamje e shkurtër',

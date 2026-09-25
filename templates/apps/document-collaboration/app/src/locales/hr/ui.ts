@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Imate povratne informacije, pronašli ste grešku ili želite {{app}} za svoj studio ili tim? Javite nam se iz postavki računa — svaka poruka stiže stvarnoj osobi u timu.',
   'about.contactTitle': 'Razgovarajte s nama',
+  'about.intro':
+    '{{app}} je studio za zajedničko pisanje u kojem urednici, pisci i timovi istovremeno pišu zajedno. Otvorite dokument i stranica postaje dijeljena — kursori se kreću, komentari se nižu na margini, a svaka je izmjena sigurno pohranjena u povijesti.',
+  'about.missionBody':
+    'Vjerujemo da dugi tekstovi zaslužuju miran, usredotočen dom — onaj izgrađen oko rukopisa, a ne oko sastanka ili pristigle pošte. Naš su editor, prisutnost u stvarnom vremenu i povijest verzija osmišljeni tako da suradnici mogu brzo napredovati zajedno, a da nitko ne izgubi odlomak ili misao.',
+  'about.missionTitle': 'Naša misija',
+  'about.subtitle': 'Razmišljajte zajedno, pišite zauvijek.',
   'about.title': 'O aplikaciji {{app}}',
   'comments.addFailed': 'Nije moguće objaviti komentar.',
   'comments.backToDoc': 'Natrag na rukopis',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Niti komentara',
   'comments.loading': 'Učitavanje niti…',
   'comments.newPlaceholder': 'Dodajte komentar rukopisu…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Ponovo otvoriti',
   'comments.reopenFailed': 'Nije moguće ponovno otvoriti.',
   'comments.replyFailed': 'Nije moguće objaviti odgovor.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Nedavni nacrti, dijeljeni radovi i dnevne izmjene.',
   'dashboard.viewFeed': 'Feed →',
   'editor.back': 'Natrag na rukopise',
+  'editor.bodyLabel': 'Tijelo dokumenta',
   'editor.bodyPlaceholder': 'Počnite tamo gdje kursor treperi.',
   'editor.comments': 'Komentari',
   'editor.createFailed': 'Nije moguće izraditi dokument.',
@@ -62,13 +72,19 @@ export const ui: UiTranslations = {
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody': 'Ako postoji račun za {{email}} , link za resetiranje je na putu.',
+  'forgotPassword.sentHeading': 'Provjerite svoju e-poštu',
+  'forgotPassword.submitting': 'Slanje\\u2026',
   'forgotPassword.subtitle': 'Poslat ćemo vam e-poštom poveznicu za resetiranje.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Izrađeno s Moleculeom.',
+  'landing.ctaBody':
+    'Besplatno za samostalne pisce. Studio planovi za timove urednika, ghostwritera i recenzenata.',
   'landing.ctaHeading': 'Otvorite stranicu. Neka kursor počne.',
   'landing.ctaPrimary': 'Otvorite studio',
   'landing.eyebrow': 'Za pisce, urednike i timove',
   'landing.featuresEyebrow': 'Što dobijete',
   'landing.featuresHeading': 'Studio za dugometražne nacrte.',
+  'landing.featuresSubtitle':
+    '{{appName}} je izgrađen oko rukopisa — ne oko sastanka, ne oko pristigle pošte.',
   'landing.getStarted': 'Otvorite studio',
   'landing.heroCta': 'Počni pisati',
   'landing.heroSubtitle':
@@ -94,6 +110,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} nepročitano · komentari, spominjanja, pozivnice za dijeljenje i zahtjevi za prijedloge.',
   'presenceAvatars.label': '{{count}} suradnici',
+  'privacy.intro': 'Kako prikupljamo, koristimo i štitimo vaše podatke.',
   'privacy.title': 'Pravila o privatnosti',
   'profile.about.description': 'Kratka biografija za vaš javni profil i stranice suradnika.',
   'profile.eyebrow': 'Identitet studija',
@@ -105,7 +122,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Prisutnost',
   'profile.pronouns': 'Zamjenice',
   'profile.publicToggle': 'Prikaži profil suigračima',
+  'profile.role': 'Uloga / titula',
   'profile.subtitle': 'Kako izgledate svojim suradnicima.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} pisci aktivni u studiju',
   'quillonAuthBrandPanel.quote':
     '„Pisanje je jedina stvar za koju, kada se bavim pisanjem, ne osjećam da bih trebao raditi nešto drugo.“',
@@ -113,6 +132,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Otvori →',
   'quillonKpiCard.trend': 'Nedavni trend',
   'quillonLayout.menu': 'Jelovnik ',
+  'quillonLayout.mobileNavLabel': 'Mobilna navigacija',
   'quillonLayout.primaryNavLabel': 'Primarna navigacija',
   'quillonStudioHero.collab': 'Suradnici',
   'quillonStudioHero.docs': 'Dotaknuti dokumenti',
@@ -121,7 +141,9 @@ export const ui: UiTranslations = {
   'quillonStudioHero.subtitle': 'Uzmi rukopis, ostavi komentar, pomakni odlomak naprijed.',
   'quillonStudioHero.words': 'Riječi danas',
   'resetPassword.confirmPlaceholder': 'Ponovite novu lozinku',
+  'resetPassword.passwordLabel': 'Nova lozinka',
   'resetPassword.passwordPlaceholder': 'Unesite novu lozinku',
+  'resetPassword.submitting': 'Resetiranje…',
   'resetPassword.subtitle': 'Odaberite jaku lozinku - najmanje 12 znakova.',
   'settings.account.description': 'Kako se prijavljujete.',
   'settings.billing.canceled': 'Pretplata otkazana.',
@@ -130,7 +152,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Nije konfigurirano',
   'settings.billing.updated': 'Plan ažuriran.',
   'settings.editor.description': 'Kako se platno ponaša dok pišete.',
+  'settings.editor.title': 'Postavke uređivača',
   'settings.eyebrow': 'Postavke Studija',
+  'settings.language.title': 'Jezik',
   'settings.notifications.${n.key}.description': 'Jezik',
   'settings.notifications.description': 'Odaberite što će stići u vašu pristiglu poštu.',
   'settings.subtitle': 'Prilagodite obavijesti, platno za uređivanje i postavke računa.',
@@ -139,6 +163,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Podijeljeno sa mnom',
   'shared.loadFailed': 'Nije moguće učitati dijeljene dokumente.',
   'shared.subtitle': 'Rukopisi, sažeci i bilješke iz ostatka studija.',
+  'signup.brandAttribution': 'Anaïs Park — urednica, The Quarterly',
   'signup.brandQuote':
     '\\u201cVaš prvi rukopis je najteži. Quillon ga čini manje usamljenim.\\u201d',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -146,6 +171,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Anaïs',
   'signup.heading': 'Izradite svoj Quillon račun',
   'signup.lastNamePlaceholder': 'Park',
+  'signup.submitting': 'Otvaranje vašeg studija\\u2026',
   'signup.subtitle':
     'Tihi stol, ambijentalni suradnici i urednik dugih tekstova koji vam ne smeta.',
   'templates.blank.subtitle': 'Prazna stranica. Kursor počinje.',
@@ -158,11 +184,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Započnite s promišljenom strukturom. Prilagođavajte beskonačno.',
   'templates.useFailed': 'Nije moguće pokrenuti dokument iz ovog predloška.',
   'templates.useTemplate': 'Koristite ovaj predložak',
+  'terms.intro': 'Uvjeti pod kojima se možete koristiti ovom uslugom.',
   'terms.title': 'Uvjeti pružanja usluge',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'upravo sada',
   'trash.confirmDelete': 'Potvrdi brisanje',
+  'trash.confirmEmpty': 'Potvrdi — izbriši sve',
   'trash.deleteFailed': 'Nije moguće izbrisati.',
   'trash.deleteForever': 'Izbriši zauvijek',
   'trash.empty': 'Ništa za oporaviti.',
@@ -177,7 +205,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'Još nema revizija — spremite dokument da biste započeli njegovu povijest.',
   'versionHistory.heading': 'Povijest verzija',
+  'versionHistory.latest': 'Najnoviji',
   'versionHistory.loadFailed': 'Nije moguće učitati povijest.',
+  'versionHistory.noContent': 'Nema sadržaja zabilježenog za ovu reviziju.',
   'versionHistory.previewing': 'Pregled',
   'versionHistory.restore': 'Vrati ovu verziju',
   'versionHistory.restoreFailed': 'Vraćanje nije uspjelo.',

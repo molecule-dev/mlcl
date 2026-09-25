@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ఫీడ్‌బ్యాక్ ఉందా, బగ్ కనుగొన్నారా, లేదా ఫీచర్ కావాలా? మీ ఖాతా సెట్టింగ్‌ల నుండి సంప్రదించండి — ప్రతి సందేశం టీమ్‌లోని నిజమైన వ్యక్తికి చేరుతుంది.',
   'about.contactTitle': 'సంప్రదించండి',
   'about.eyebrow': 'గురించి',
+  'about.intro':
+    '{{app}} తమ రచన గురించి లోతుగా ఆలోచించే రచయితల కోసం ఒక AI రైటింగ్ స్టూడియో. ఇది లాంగ్-ఫారమ్ AI జనరేషన్‌ను ప్రశాంతమైన ఎడిటర్, SEO స్కోరింగ్ మరియు ఇమేజ్ జనరేషన్‌తో జోడిస్తుంది — తద్వారా మీరు మీ స్వరాన్ని కోల్పోకుండా ఖాళీ పేజీ నుండి ప్రచురణ వరకు ఒక రచనను తీసుకెళ్లవచ్చు.',
+  'about.missionBody':
+    'AI మీ పక్కనే డ్రాఫ్ట్ చేయాలి, ఎప్పుడూ మీ స్థానంలో కాదు అని మేము నమ్ముతాము. {{app}} సూచనలను మీ స్వంత మాటల నుండి స్పష్టంగా వేరుగా ఉంచుతుంది, మీరు సృష్టించే ప్రతి పత్రానికి యజమానిగా మిమ్మల్నే ఉంచుతుంది, మరియు రచనకు అడ్డుపడకుండా టూలింగ్‌ను పక్కన పెడుతుంది.',
+  'about.missionTitle': 'మా లక్ష్యం',
   'about.pageTitle': '{{app}} గురించి',
   'aiSuggestionCard.applied': 'సూచన వర్తింపజేయబడింది',
   'aiSuggestionCard.apply': 'దరఖాస్తు చేసుకోండి',
@@ -24,7 +31,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'ట్రాఫిక్ మూలాలు',
   'billing.activePlan': 'సభ్యత్వం క్రియాశీలంగా ఉంది.',
   'billing.aiWordsLabel': 'AI తరాలు చేర్చబడ్డాయి',
+  'billing.cancelFailed': 'సభ్యత్వాన్ని రద్దు చేయలేకపోయాను.',
   'billing.cancelPlan': 'ప్లాన్‌ను రద్దు చేయండి',
+  'billing.cancelPlanConfirm': 'రద్దు చేయాలా?',
   'billing.cancelSuccess':
     'సభ్యత్వం రద్దు చేయబడింది. ప్లాన్‌ను అప్‌డేట్ చేయడానికి రిఫ్రెష్ చేయండి.',
   'billing.changePlan': 'ప్రణాళికను మార్చండి',
@@ -43,26 +52,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'ప్రణాళికలను వీక్షించండి',
   'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'dashboard.continueWriting': 'రాయడం కొనసాగించండి',
+  'dashboard.createFirst': 'పత్రాన్ని సృష్టించండి',
   'dashboard.days.sat': 'Sat',
   'dashboard.days.sun': 'Sun',
   'dashboard.defaultWriterName': 'రచయిత',
   'dashboard.greeting': 'శుభోదయం, {{name}}',
   'dashboard.loadError': 'మీ డాష్‌బోర్డ్‌ను లోడ్ చేయలేకపోయాము.',
+  'dashboard.loading': 'మీ స్టూడియో లోడ్ అవుతోంది…',
   'dashboard.loadingDocs': 'ఇటీవలి పత్రాలు లోడ్ అవుతున్నాయి…',
   'dashboard.noDocuments': 'ఇంకా పత్రాలు ఏమీ లేవు — మీ మొదటి పత్రాన్ని ప్రారంభించండి.',
   'dashboard.startWriting': 'కొత్త పత్రాన్ని ప్రారంభించండి',
+  'dashboard.streakBody': 'మీరు ఈ వారం {{words}} పదాలు రాశారు.',
   'dashboard.streakTitle': '{{count}} -రోజుల పరంపర',
+  'dashboard.subgreeting': 'మీ లైబ్రరీలో {{count}} పత్రాలు — ఈ ఊపును కొనసాగించండి.',
+  'documentCard.seoScoreTitle': 'SEO స్కోరు: {{score}}/100',
+  'documents.createNew': 'కొత్త పత్రాన్ని సృష్టించండి',
   'documents.empty': 'మీ లైబ్రరీ సిద్ధంగా ఉంది — మీ మొదటి డాక్యుమెంట్‌ను ప్రారంభించండి.',
+  'documents.emptyFiltered': 'మీ ఫిల్టర్‌లకు ఇంకా ఏ పత్రాలు సరిపోలలేదు.',
   'documents.loadError': 'పత్రాలను లోడ్ చేయలేకపోయాము.',
   'documents.loading': 'మీ లైబ్రరీ లోడ్ అవుతోంది…',
   'documents.new': 'కొత్త పత్రం',
+  'documents.searchAriaLabel': 'పత్రాలను శోధించండి',
   'documents.searchPlaceholder': 'పత్రాలను శోధించండి…',
   'documents.subtitle': '{{count}} మీ లైబ్రరీలోని పత్రాలు.',
   'documents.title': 'పత్రాలు',
   'editor.aiPanelTitle': 'ప్లూమ్ ఇంటెలిజెన్స్',
+  'editor.aiSuggestion.empty':
+    'క్రియాశీల మెరుగుదలలు లేవు. రెండో కన్ను కావాలనుకున్నప్పుడు {{appName}}ని సూచన అడగండి.',
   'editor.aiSuggestion.failed': 'ప్రస్తుతం సూచనలను లోడ్ చేయలేకపోతున్నాము.',
   'editor.aiSuggestion.loadingBody': 'స్పష్టత మెరుగుదలను సృష్టించడం…',
   'editor.backToDocuments': 'అన్ని పత్రాలు',
+  'editor.bodyAriaLabel': 'పత్రం బాడీ',
   'editor.closeAiPanel': 'AI ప్యానెల్‌ను మూసివేయండి',
   'editor.createFailed': 'పత్రం సృష్టించలేకపోయింది.',
   'editor.exported': '{{format}} గా ఎగుమతి చేయబడింది.',
@@ -79,18 +99,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'మెరుగుదల కోసం అభ్యర్థించండి',
   'editor.saveBeforePublish': 'ప్రచురించే ముందు పత్రాన్ని భద్రపరచండి.',
   'editor.status.chars': '{{count}} పాత్రలు',
+  'editor.status.readTime': '{{minutes}} కనీస పఠనం',
   'editor.status.savedAt': 'సేవ్ చేయబడింది {{time}}',
   'editor.status.saveError': 'సేవ్ విఫలమైంది',
+  'editor.status.unsaved': 'ఇంకా సేవ్ చేయలేదు',
   'editor.titleAriaLabel': 'పత్రం శీర్షిక',
   'editor.titlePlaceholder': 'శీర్షిక లేని పత్రం',
   'editor.toggleAiPanel': 'AI ప్యానెల్‌ను టోగుల్ చేయండి',
   'editor.viewSeo': 'ఎస్ఈఓ',
   'forgotPassword.emailPlaceholder': 'author@example.com',
+  'forgotPassword.sent': '{{email}} ఫైల్‌లో ఉంటే, రీసెట్ లింక్ మీ దారిలో ఉంది.',
   'imageGenerator.failed': 'చిత్రం రూపొందించడంలో విఫలమయ్యాము.',
   'imageGenerator.generate': 'చిత్రాన్ని రూపొందించండి',
   'imageGenerator.generating': 'ఉత్పత్తి అవుతోంది...',
   'imageGenerator.placeholder': 'మీరు సృష్టించాలనుకుంటున్న చిత్రాన్ని వివరించండి...',
+  'imageGenerator.promptAriaLabel': 'ఇమేజ్ ప్రాంప్ట్',
+  'imageGenerator.subtitle': 'కవర్ ఇమేజ్‌ను వివరించండి, AI దాన్ని చిత్రీకరించనివ్వండి.',
   'imageGenerator.title': 'AI ఇమేజ్ జనరేటర్',
+  'landing.aiSuggestionBody':
+    '42వ అంతస్తు బాల్కనీలో నిలబడి, ఎలియాస్ నగరం తనపై ఒత్తిడి తెస్తున్నట్లు అనుభవించాడు — గాలి పరిసర హమ్మును కొట్టుకుపోయింది, ప్రకాశించే గ్రిడ్ పైన ఒక శీతల, నిశ్శబ్ద శూన్యంలో అతను వేలాడుతూ మిగిలాడు.',
   'landing.eyebrow': 'గంభీరమైన రచయితల కోసం ఏఐ రైటింగ్ స్టూడియో',
   'landing.featuresHeading': 'అడ్డుపడని సాధనాలు',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -100,14 +127,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'తమ గద్యం, లయ, మరియు కచ్చితత్వం పట్ల శ్రద్ధ వహించే రచయితల కోసం ప్రత్యేకంగా రూపొందించిన స్టూడియో. ప్లూమ్ మీ పక్కనే ఉండి రచనలు చేస్తుంది — మీకు బదులుగా ఎప్పుడూ చేయదు.',
   'landing.heroTitle.eloquence': 'వాక్చాతుర్యం',
+  'landing.heroTitle.intelligence': 'తెలివితో కలిసే ',
   'landing.nav.testimonials': 'టెస్టిమోనియల్స్',
   'landing.plan.cta': 'ఈ ప్రణాళికతో ప్రారంభించండి',
   'landing.plan.popular': 'అత్యంత ప్రియమైన',
   'landing.pricingEyebrow': 'ధర నిర్ణయం',
   'landing.pricingHeading': 'మీ అభ్యాసానికి ఏది సరిపోతుందో ఎంచుకోండి',
   'landing.sampleDocTitle': 'నిశ్శబ్దం యొక్క వాస్తుశిల్పం',
+  'landing.sampleParagraph1':
+    'నగరం ఎప్పుడూ నిజంగా నిశ్శబ్దంగా ఉండేది కాదు. రాత్రి అత్యంత చీకటి గంటల్లో కూడా, కాంక్రీట్ పునాదుల గుండా ఒక తక్కువ హమ్ము ప్రకంపించేది — సబ్‌వే రైళ్లు మరియు వెంటిలేషన్ షాఫ్ట్‌ల యాంత్రిక హృదయ స్పందన.',
+  'landing.sampleParagraph2.after': ' గ్లాస్‌కు వ్యతిరేకంగా.',
+  'landing.sampleParagraph2.before': 'కానీ ',
   'landing.sampleParagraph2.highlight':
     '42వ అంతస్తు బాల్కనీలో నిలబడి ఉన్న ఎలియాస్‌కు తీవ్రమైన ఒంటరితనం కలిగింది.',
+  'landing.showcaseBody':
+    'ఒక వాక్యాన్ని హైలైట్ చేయండి, {{appName}} ఒక మెరుగుదలను సూచిస్తుంది. దాన్ని అంగీకరించండి, సరిచేయండి, లేదా తిరస్కరించండి. సూచనలు ఎప్పుడూ ఊదా రంగులో ఉంటాయి, కాబట్టి మీరు రాసింది ఏదో, సూచించినది ఏదో మీకు తెలుస్తుంది.',
+  'landing.showcaseHeading': 'రెండో కన్ను — ఎప్పుడూ రెండో రచయిత కాదు.',
   'landing.startWriting': 'రాయడం ప్రారంభించండి',
   'login.emailPlaceholder': 'author@example.com',
   'login.failed': 'సైన్ ఇన్ విఫలమైంది',
@@ -122,8 +157,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'డాష్‌బోర్డ్‌ను తెరవండి',
   'notFound.title': 'ఈ అధ్యాయం ఇంకా వ్రాయబడలేదు.',
   'plumeSidebarLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
+  'pricing.maxDocuments': '{{count}} పత్రాలు',
+  'pricing.maxGenerate': '{{count}} AI జనరేషన్‌లు',
+  'pricing.maxImages': '{{count}} ఇమేజ్ జనరేషన్‌లు',
   'privacy.data':
     'మీ ఖాతా ఇమెయిల్ మరియు హ్యాష్ చేయబడిన పాస్‌వర్డ్. మీరు సృష్టించే డాక్యుమెంట్లు మరియు టెంప్లేట్లు. బిల్లింగ్ మరియు అనలిటిక్స్ కోసం AI సూచన లాగ్‌లు (ఇన్‌పుట్ + అవుట్‌పుట్). స్ట్రైప్ కస్టమర్ + సబ్‌స్క్రిప్షన్ ఐడెంటిఫైయర్‌లు; మేము పూర్తి కార్డ్ నంబర్‌లను ఎప్పుడూ నిల్వ చేయము.',
+  'privacy.intro':
+    '{{app}}ని నడపడానికి అవసరమైన డేటాను మాత్రమే మేము సేకరిస్తాము: మీ ఇమెయిల్, మీరు సృష్టించే పత్రాలు, మరియు మీరు చేసే AI అభ్యర్థనలు. మీ రచనను లేదా మీ ప్రాంప్ట్‌లను మేము ఎప్పుడూ అమ్మము.',
   'profile.loadError': 'మీ ప్రొఫైల్‌ను లోడ్ చేయలేకపోయాము.',
   'profile.loading': 'మీ ప్రొఫైల్ లోడ్ అవుతోంది…',
   'profile.loadingPublished': 'ప్రచురించిన పత్రాలు లోడ్ అవుతున్నాయి…',
@@ -134,8 +174,14 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'కొత్త పాస్‌వర్డ్',
   'seoAnalysis.backToEditor': 'ఎడిటర్‌కు తిరిగి వెళ్లండి',
   'seoAnalysis.eyebrow': 'SEO విశ్లేషణ',
+  'seoAnalysis.heroBody':
+    'వర్తించాల్సిన {{count}} సూచన(లు). ప్రతిదీ ఒక నిర్మాణాత్మక లేదా కీవర్డ్ మెరుగుదల, ఎరుపు జెండాల గోడ కాదు.',
+  'seoAnalysis.heroBodyEmpty':
+    'పఠనీయత, కీవర్డ్ సాంద్రత మరియు నిర్మాణాన్ని స్కోర్ చేయడానికి "Run analysis" క్లిక్ చేయండి.',
   'seoAnalysis.heroEmpty':
     'ఇంకా విశ్లేషణ జరగలేదు. ఈ డ్రాఫ్ట్‌కు స్కోర్ చేయడానికి ఒకదాన్ని అమలు చేయండి.',
+  'seoAnalysis.heroNeedsWork': 'కొన్ని నిర్మాణాత్మక మెరుగుదలలు రీచ్‌ను పెంచుతాయి.',
+  'seoAnalysis.heroStrong': 'బలమైన రచన — అద్భుతానికి కొద్ది మెరుగుదలల దూరంలో.',
   'seoAnalysis.historyEmpty': 'మునుపటి విశ్లేషణలు ఏవీ నమోదు చేయబడలేదు.',
   'seoAnalysis.historyTitle': 'విశ్లేషణ చరిత్ర',
   'seoAnalysis.keywordEmpty':
@@ -162,8 +208,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'మీరు రాసే విధానానికి సరిపోయేలా ప్లూమ్‌ను ట్యూన్ చేసుకోండి.',
   'settings.toggleIntegrationFailed': 'ఇంటిగ్రేషన్ అప్‌డేట్ విఫలమైంది.',
   'settings.writing.aiSuggestions': 'టైప్ చేస్తున్నప్పుడు ఇన్‌లైన్ AI సూచనలు',
+  'settings.writing.aiSuggestionsBody':
+    'మీరు రాసేటప్పుడు మెరుగుదలలను చూపుతుంది. సూచనలు ఎప్పుడూ వాక్యానికి ఆప్ట్-ఇన్ మాత్రమే.',
   'settings.writing.autoSave': 'ప్రతి 30 సెకన్లకు ఆటోసేవ్',
+  'settings.writing.autoSaveBody':
+    'ఏ ట్యాబ్ నుండైనా మీరు కోలుకోగలిగేలా {{appName}} మీ డ్రాఫ్ట్ స్నాప్‌షాట్‌ను ఉంచుతుంది.',
   'settings.writing.notifyEmail': 'వారపు రచనల సారాంశాలను నాకు ఇమెయిల్ చేయండి',
+  'settings.writing.notifyEmailBody':
+    'స్ట్రీక్‌లు, డ్రాఫ్ట్‌లు మరియు SEO మెరుగుదలల యొక్క చిన్న ఆదివారం డైజెస్ట్.',
   'settings.writing.title': 'రచన ప్రాధాన్యతలు',
   'settings.writing.tone': 'డిఫాల్ట్ టోన్ ప్రీసెట్',
   'signup.emailPlaceholder': 'author@example.com',
@@ -175,8 +227,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'వివరణ ఇవ్వబడలేదు.',
   'templates.subtitle':
     'ఎన్నో అనుభవాలతో నిరూపించబడిన సంపాదకీయ చట్రంతో ప్రారంభించి, ఆపై దానిని మీ సొంతం చేసుకోండి.',
+  'terms.intro':
+    'ఈ నిబంధనలు {{app}} వినియోగాన్ని నియంత్రిస్తాయి. ఖాతా సృష్టించడం ద్వారా మీరు సేవను చట్టబద్ధమైన రచన కోసం ఉపయోగించడానికి మరియు మీ ఖాతా ఆధారాలను గోప్యంగా ఉంచడానికి అంగీకరిస్తారు.',
   'terms.license':
     'మీరు సృష్టించే ప్రతి డాక్యుమెంట్, టెంప్లేట్ మరియు AI జనరేషన్‌పై యాజమాన్యం మీకే ఉంటుంది. మీ పనిని హోస్ట్ చేయడానికి మరియు మీకు తిరిగి అందించడానికి, అలాగే మీరు ఎంచుకున్న బాండెడ్ ప్రొవైడర్ల ద్వారా AI అభ్యర్థనలను ప్రాసెస్ చేయడానికి మాకు నాన్-ఎక్స్‌క్లూజివ్ లైసెన్స్ అవసరం.',
   'writingStreakHeroCard.change': '{{sign}} {{amount}} పదాలు',
   'writingStreakHeroCard.greeting': 'శుభ దినం, {{name}}',
+  'writingStreakHeroCard.subtitle': 'ఈ వారం రాసిన పదాలు — {{count}} రోజుల స్ట్రీక్',
+  'writingStreakHeroCard.tagline': 'రోజుకు ఒక పేజీ మ్యూజ్‌ను నిమగ్నంగా ఉంచుతుంది.',
 }

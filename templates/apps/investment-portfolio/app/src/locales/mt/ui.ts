@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Għandek feedback, sibt bug, jew trid funzjoni? Ikkuntattjana mill-issettjar tal-kont tiegħek — kull messaġġ jasal għand persuna reali fit-tim. Nota: xejn hawn mhu parir dwar investiment; int tibqa' fil-kontroll ta' kull kummerċ.",
+  'about.contactTitle': 'Kellem magħna',
+  'about.featureAttribution':
+    'Attribuzzjoni tal-prestazzjoni — iddikomponi r-ritorni skont is-settur, ir-reġjun u l-klassi tal-assi, u kejjel il-benchmark fuq kwalunkwe perjodu.',
+  'about.featureRebalance':
+    "Ribbilanċjar dixxiplinat — issettja allokazzjonijiet fil-mira u faxex ta' tolleranza, ara d-drifting immarkat kmieni, u ġġib il-kummerċ li jġibek lura.",
+  'about.featureTax':
+    "Iġjene tad-dokumenti tat-taxxa — qligħ realizzat u mhux realizzat, dividendi u dokumenti 1099 f'post wieħed, bil-flags tal-wash-sale inklużi.",
+  'about.featureUnified':
+    'Portafoll wieħed unifikat — ekwità, ETFs, fondi mutwi, bonds u aktar, miġbura flimkien minn kull kont tal-broker.',
+  'about.featureWatchlist':
+    'Watchlists, aħbarijiet u twissijiet tal-prezzijiet biex taġixxi fuq dak li jgħodd mingħajr ħoss.',
+  'about.intro':
+    "{{app}} huwa dashboard tal-portafoll multi-assi għal investituri individwali u konsulenti indipendenti. Ekwità, ETFs, fondi mutwi, bonds, proprjetà immobbli u flus — kull holding f'kull kont, f'post wieħed, bid-dixxiplina ta' desk professjonali.",
+  'about.missionBody':
+    "Investiment tajjeb huwa l-aktar dixxiplina: allokazzjoni fil-mira ċara, attribuzzjoni tal-prestazzjoni onesta, u rekords tat-taxxa ordnati. {{app}} iġib dawn il-vizzji istituzzjonali lil kulħadd, biex tkun tista' tirribilanċja b'mod maħsub minflok b'impuls — u qatt ma titlef minn quddiem x'qed jagħmel il-portafoll tiegħek.",
+  'about.missionTitle': 'Il-missjoni tagħna',
   'about.pageTitle': 'Dwar {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Għodda tal-ġid',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Mhux parir dwar l-investiment.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Dashboard tal-portafoll għal investituri individwali u konsulenti li jridu bilanċjar mill-ġdid dixxiplinat, attribuzzjoni preċiża tal-prestazzjoni, u iġjene tad-dokumenti tat-taxxa — mingħajr l-istorbju.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · Il-prestazzjoni tal-passat ma tiggarantixxix riżultati futuri.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) illum',
+  'argentAuthShell.sampleLabel': 'Valur tal-Portafoll',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Navigazzjoni primarja',
   'assetAllocationDonut.heading': 'Kif qed jiġu investiti flusek',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'illum',
   'assetDetail.txEmpty': 'L-ebda tranżazzjonijiet għal dan it-ticker.',
   'assetDetail.txHeading': 'It-tranżazzjonijiet tiegħek',
+  'auth.legalConsent.prefix': "Billi tkompli, taqbel mal-{{appName}} ta'",
   'common.and': 'u',
   'common.goToDashboard': 'Mur għad-Dashboard',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'illum',
   'dashboard.topHoldings.heading': 'Fejn qed jaħdmu flusek',
   'dashboard.topHoldings.label': 'L-Aħjar Holdings',
+  'forgotPassword.gotLinkCta': "Għandi link ta' reset →",
+  'forgotPassword.subheading':
+    "Daħħal l-email fil-kont Gavl tiegħek u aħna nibagħtulek link ta' reset sigur.",
   'forgotPassword.successBody':
     'Jekk ma tarax dan fi ftit minuti, iċċekkja l-folder tal-ispam tiegħek jew ipprova email differenti.',
   'forgotPassword.successSubheading':
     'Iċċekkja {{email}} għal link ta’ reset. Dan jiskadi f’60 minuta.',
+  'forgotPassword.successTitle': "Email ta' reset fi triqitha",
   'holdingHighlightRow.todayLabel': 'illum',
   'holdings.addCta': 'Ixtri',
   'holdings.col.allocation': 'Allok',
@@ -58,6 +87,8 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Mhux parir dwar l-investiment. Il-prestazzjoni tal-passat ma tiggarantixxix riżultati futuri.',
   'landing.eyebrow': 'Argent · Pjattaforma ta’ għodda għall-ġid',
   'landing.features.heading': 'Dak kollu li konsulent jibni għalih innifsu.',
+  'landing.finalCta.body': "Qabbad il-broker tiegħek f'żewġ klikks. {{appName}} jagħmel il-bqija.",
+  'landing.finalCta.cta': 'Iftaħ il-kont Argent tiegħek',
   'landing.finalCta.heading': 'Ġib lura d-dixxiplina fil-portafoll tiegħek.',
   'landing.footerSignup': 'Iftaħ kont',
   'landing.getStarted': 'Iftaħ kont',
@@ -65,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Ara l-prezzijiet',
   'landing.heroSubtitle':
     'Dashboard tal-portafoll għal investituri individwali u konsulenti li jridu bilanċjar mill-ġdid dixxiplinat, attribuzzjoni preċiża tal-prestazzjoni, u iġjene tad-dokumenti tat-taxxa — mingħajr l-istorbju.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Previżjoni diretta minn portafoll rappreżentattiv',
   'login.heading': 'Idħol f’Argent',
   'login.subheading':
@@ -76,6 +108,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} siegħa ilu',
   'news.justNow': 'issa stess',
   'news.loadError': 'Ma rnexxiex ittella’ l-aħbarijiet.',
+  'planUpdated.body':
+    "Il-bidla fil-billing tiegħek issa hija attiva. Tista' timmaniġġja l-pjan tiegħek fi kwalunkwe ħin mill-paġna tal-billing.",
+  'planUpdated.retry': 'Erġa’ pprova',
+  'planUpdated.verifyFailed': 'Għadna ma stajniex nikkonfermaw il-ħlas tiegħek.',
+  'planUpdated.verifyFailedBody':
+    "Jista' jkun li l-ħlas tiegħek għadu qed jiġi pproċessat. Erġa' pprova fi ftit ħin.",
   'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'portfolioHeroCard.label': 'Valur tal-Portafoll',
   'pricing.holdingsLabel': 'azjendi',
@@ -86,12 +124,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Drift fl-allokazzjoni',
   'rebalance.empty': 'Għad m’hemm l-ebda miri stabbiliti.',
   'rebalance.executeCta': 'Post {{count}} snajja’',
+  'rebalance.executeError': 'Naqas milli jitqiegħdu l-kummerċ.',
   'rebalance.executeOk': 'Imqiegħed {{count}} snajja’. Arahom fil-paġna tat-Tranżazzjonijiet.',
+  'rebalance.executing': 'Qed jitqiegħed…',
   'rebalance.eyebrow': 'Ribilanċjar · Konsulent tal-Arġentina',
   'rebalance.heading': 'Erġa’ poġġi l-portafoll tiegħek fid-dixxiplina',
   'rebalance.loadError': 'Ma rnexxiex it-tagħbija tal-pjan ta’ bilanċjar mill-ġdid.',
+  'rebalance.plan.driftLine': 'bħalissa {{current}}% · mira {{target}}%',
   'rebalance.planHeading': 'Biljett Argent — reviżjoni qabel ma tpoġġih',
   'rebalance.planLabel': 'Pjan kummerċjali ssuġġerit',
+  'rebalance.subheading':
+    "Ringieli barra mill-faxxa ta' tolleranza tagħhom jattivaw suġġerimenti ta' kummerċ. {{appName}} jaġixxi biss fuq il-konferma tiegħek.",
   'rebalance.summary.buyLabel': 'Xiri',
   'rebalance.summary.buySub': 'pożizzjonijiet biex jiżdiedu',
   'rebalance.summary.driftLabel': 'Barra mill-medda',
@@ -100,6 +143,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'madwar snajja’ suġġeriti',
   'rebalance.summary.sellLabel': 'Tbigħ',
   'rebalance.summary.sellSub': 'pożizzjonijiet biex tirqaq',
+  'rebalanceDriftCard.drift': 'drift {{sign}}{{pct}}% · faxxa ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'mira {{pct}} %',
   'reports.attributionHeading': 'Attribuzzjoni tal-prestazzjoni (1Y)',
   'reports.col.alpha': 'Alfa',
@@ -113,37 +157,69 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Sena',
   'reports.gainsHeading': 'Qligħ realizzat u mhux realizzat',
   'reports.noAttribution': 'Għad m’hemm l-ebda dejta ta’ attribuzzjoni.',
+  'reports.noGains': "Għad m'hemmx data ta' qligħ realizzat/mhux realizzat.",
   'reports.noPerformance': 'Għad m’hemm l-ebda dejta dwar il-prestazzjoni.',
   'reports.noTaxDocs': 'Għad m’hemm l-ebda dokumenti tat-taxxa.',
   'reports.performanceHeading': 'Prestazzjoni vs punt ta’ riferiment',
   'reports.taxHeading': 'Dokumenti tat-taxxa',
   'resetPassword.heading': 'Agħżel password ġdida b’saħħitha',
+  'resetPassword.passwordPlaceholder': 'Password ġdida',
   'resetPassword.subheading':
     'Argent se jidħol awtomatikament ladarba l-password tiegħek tkun issettjata.',
   'resetPassword.tokenPlaceholder': 'Irrisettja t-token mill-email',
+  'settings.appearance.description': 'Aqleb bejn il-modalità ċara u skura.',
   'settings.appearance.title': 'Dehra',
+  'settings.devices.body': 'Apparati li bħalissa huma illoggjati fil-kont tiegħek.',
+  'settings.devices.empty': 'Ma nstabux apparati.',
   'settings.devices.heading': 'Apparati',
+  'settings.devices.revokeWarning':
+    "L-aċċess ta' dan l-apparat se jiġi rrevokat dalwaqt. Oħroġ minnu?",
   'settings.devices.signOut': 'Oħroġ',
   'settings.devices.thisDevice': 'Dan l-apparat',
   'settings.devices.unknown': 'Apparat mhux magħruf',
   'settings.linked.body':
     'Is-sinkronizzazzjoni tal-brokerage teħtieġ konnettur ta’ parti terza (Plaid, Yodlee, eċċ.). Ikkonfigura l-fornitur tiegħek fl-ambjent tiegħek biex jippermetti l-importazzjoni awtomatika.',
   'settings.linked.heading': 'Kontijiet ta’ senserija marbuta',
+  'settings.linked.placeholder': "Għad m'hemm l-ebda kont marbut.",
+  'settings.notifications.dividendsPaid': 'Dividendi mħallsa',
   'settings.notifications.error': 'Ma setgħetx tiġi aġġornata l-preferenza.',
   'settings.notifications.priceAlerts': 'Twissijiet dwar il-prezzijiet',
+  'settings.notifications.rebalanceDrift': 'Drift tar-ribilanċjar',
+  'settings.notifications.taxDocsReady': 'Dokumenti tat-taxxa lesti',
   'settings.profile.advisor': 'Email tal-konsulent (mhux obbligatorju)',
   'settings.profile.heading': 'Profil',
   'settings.security.changePassword': 'Ibdel il-password',
+  'settings.security.changePasswordTitle': 'Ibdel il-password',
   'settings.security.changing': 'Nibdlu…',
+  'settings.security.confirmPassword': 'Password',
+  'settings.security.currentPassword': 'Password attwali',
   'settings.security.deleteAccount': 'Ħassar il-kont',
   'settings.security.deleteError': 'Ma setax jitħassar il-kont.',
   'settings.security.deleteHeading': 'Ħassar il-kont',
+  'settings.security.deleteModalWarning':
+    "Dan iħassar b'mod permanenti l-kont u d-data tiegħek. Daħħal il-password tiegħek biex tikkonferma.",
+  'settings.security.deleteWarning':
+    "Ħassar il-kont tiegħek u d-dejta kollha assoċjata b'mod permanenti. Dan ma jistax jiġi annullat.",
   'settings.security.deleting': 'Qed tħassar…',
   'settings.security.heading': 'Sigurtà',
   'settings.security.newPassword': 'Password ġdida',
   'settings.security.password': 'Password',
+  'settings.security.passwordError': 'Ma stajtx nibdel il-password.',
+  'settings.security.passwordHint': 'Ibdel il-password li tuża biex tidħol.',
+  'settings.security.twoFactor': "Awtentikazzjoni b'żewġ fatturi",
+  'settings.security.twoFactorCode': "Kodiċi ta' awtentikazzjoni",
+  'settings.security.twoFactorDisable': 'Iddiżattiva',
+  'settings.security.twoFactorDisableTitle': "Itfi l-awtentikazzjoni b'żewġ fatturi",
   'settings.security.twoFactorEnable': 'Ippermetti',
+  'settings.security.twoFactorEnableTitle': "Ixgħel l-awtentikazzjoni b'żewġ fatturi",
+  'settings.security.twoFactorHint': "Żid saff ta' protezzjoni addizzjonali mal-kont tiegħek.",
   'settings.security.twoFactorInvalidCode': 'Kodiċi invalidu',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'Kodiċi QR taż-żewġ fatturi',
+  'settings.security.twoFactorScan':
+    "Skennja dan il-kodiċi QR bl-app tal-awtentikatur tiegħek, imbagħad daħħal il-kodiċi ta' 6 ċifri.",
+  'settings.security.twoFactorUnavailable':
+    "L-awtentikazzjoni b'żewġ fatturi mhijiex disponibbli għal din l-app.",
   'settings.security.twoFactorVerify': 'Ivverifika u attiva',
   'settings.tax.error': 'Ma setax jiġi aġġornat il-metodu tat-taxxa.',
   'settings.tax.heading': 'Kontabilità tal-lott tat-taxxa',
@@ -154,6 +230,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Il-metodu tat-taxxa ġie ssejvjat.',
   'signup.eyebrow': 'Iftaħ kont',
   'signup.heading': 'Iftaħ il-kont Argent tiegħek',
+  'signup.legalPrefix': "Bil-ħolqien ta' kont inti taqbel mal-{{appName}}",
   'signup.subheading': 'B’xejn għal 30 jum. L-ebda karta mhi meħtieġa. Ikkanċella meta trid.',
   'signup.terms':
     'Billi toħloq kont inti taqbel mat-Termini ta’ Servizz u l-Politika ta’ Privatezza ta’ Argent.',

@@ -5,7 +5,13 @@ export const ui: UiTranslations = {
     'Punya masukan, permintaan fitur, atau menemukan bug? Hubungi tim {{app}} melalui tautan dukungan di menu akun Anda — setiap pesan akan ditangani oleh staf kami secara langsung.',
   'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.intro':
+    '{{app}} adalah asisten AI berbasis suara. Bicaralah secara alami, lihat kata-katamu berubah menjadi teks, dan dapatkan jawaban bersuara kembali — sehingga kamu bisa berpikir sambil berbicara alih-alih mengetik semuanya.',
+  'about.missionBody':
+    'Mengetik adalah penghambat antara ide-idemu dan menuangkannya. {{app}} hadir untuk menghilangkannya: cara percakapan tanpa tangan untuk bertukar pikiran, menyusun draf, dan mengambil keputusan — didukung model ucapan dan penalaran terbaik di kelasnya, dengan datamu tetap privat.',
+  'about.missionTitle': 'Misi kami',
   'agentDetail.back': 'Semua agen',
+  'agentDetail.behavior': 'Perilaku',
   'agentDetail.capabilities': 'Kemampuan',
   'agentDetail.delete': 'Hapus persona',
   'agentDetail.deleteConfirm': 'Hapus persona ini? Tindakan ini tidak dapat dibatalkan.',
@@ -38,15 +44,20 @@ export const ui: UiTranslations = {
   'agents.subtitle':
     'Setiap agen memiliki nada, tempo, dan keahliannya sendiri. Beralihlah kapan saja di tengah percakapan.',
   'agents.title': 'Pilih suara untuk berpikir bersama.',
+  'authShell.tagline': '{{tagline}} — {{brand}}',
+  'billing.cardNoneBody':
+    'Tambahkan satu saat kamu meningkatkan paket — Stripe menangani semua penyimpanan.',
   'billing.cardNoneTitle': 'Tidak ada kartu yang tersimpan',
   'billing.choose': 'Ganti',
   'billing.currentPlan': 'Paket Anda',
   'billing.currentPlanReadout': 'Paket {{plan}}',
   'billing.eyebrow': 'Paket & penggunaan',
   'billing.fetchError': 'Tidak dapat memuat informasi tagihan.',
+  'billing.loadingStatus': 'Memuat status…',
   'billing.noTiers': 'Tidak ada paket yang tersedia saat ini.',
   'billing.plansTitle': 'Paket',
   'billing.switching': 'Mengganti…',
+  'billing.updateAcknowledged': 'Pembaruan dikonfirmasi pada {{time}}',
   'billing.updateError': 'Tidak dapat memulai pembaruan.',
   'billing.usageHeading': 'Penggunaan suara siklus ini',
   'chatBubble.source.text': 'teks',
@@ -65,11 +76,13 @@ export const ui: UiTranslations = {
   'conversation.title': 'Bicarakan saja',
   'conversation.toggleMic': 'Alihkan mikrofon',
   'conversation.toggleVoicePlayback': 'Pemutaran suara',
+  'conversation.transcribeError': 'Tidak dapat mentranskripsikan audio.',
   'conversation.transcriptionEmpty': 'Kami tidak mendengar apa pun. Coba lagi?',
   'conversation.voiceOff': 'Suara mati',
   'conversation.voiceOn': 'Suara aktif',
   'conversationDetail.assistant': 'Asisten',
   'conversationDetail.back': 'Kembali ke riwayat',
+  'conversationDetail.elapsed': '00:00 / {{duration}}',
   'conversationDetail.empty': 'Belum ada pesan dalam percakapan ini.',
   'conversationDetail.eyebrow': 'Transkrip',
   'conversationDetail.fetchError': 'Tidak dapat memuat transkrip.',
@@ -80,6 +93,7 @@ export const ui: UiTranslations = {
   'conversationDetail.setSpeed': 'Atur kecepatan pemutaran ke {{speed}}',
   'conversationDetail.system': 'Sistem',
   'conversationDetail.untitled': 'Percakapan tanpa judul',
+  'conversationListItem.messageCount': '{{count}} pesan',
   'forgotPassword.subheading':
     'Masukkan email Anda dan kami akan mengirim tautan pengaturan ulang.',
   'forgotPassword.successBody': 'Kami baru saja mengirim tautan pengaturan ulang ke {{email}}.',
@@ -96,6 +110,9 @@ export const ui: UiTranslations = {
   'history.voiceOnly': 'Hanya suara',
   'landing.copyright': '© {{year}} {{brand}}. Berpikirlah dengan lantang.',
   'landing.demoMessage1': 'Hai Sarah — siap menyusun ide untuk kampanye baru?',
+  'landing.demoMessage2': 'Ya — mari fokus pada strategi pertumbuhan organik untuk Q3.',
+  'landing.demoMessage3':
+    'Bagus. Saya akan mulai dengan inisiatif yang dipimpin komunitas. Mau saya uraikan tahapannya?',
   'landing.eyebrow': 'AI berbasis suara',
   'landing.featuresSubtitle':
     'Dibangun untuk dialog alami — beradaptasi dengan kecepatan, nada, dan konteks Anda.',
@@ -125,10 +142,12 @@ export const ui: UiTranslations = {
   'parlanceLayout.openMenu': 'Buka menu navigasi',
   'parlanceLayout.primaryNavLabel': 'Navigasi utama',
   'pricing.conversations': '{{count}} percakapan',
+  'pricing.cta.start': 'Pilih {{tierName}}',
   'pricing.cta.startFree': 'Mulai gratis',
   'pricing.cta.upgrade': 'Tingkatkan ke {{tierName}}',
   'pricing.empty': 'Tidak ada paket yang tersedia saat ini.',
   'pricing.error': 'Tidak dapat memuat harga. Coba lagi nanti.',
+  'pricing.speech': 'ucapan {{count}}',
   'pricing.subtitle':
     'Pilih paket yang sesuai dengan seberapa sering Anda berkomunikasi dengan asisten Anda.',
   'privacy.collection.account': 'Email akun dan nama tampilan Anda',
@@ -137,6 +156,8 @@ export const ui: UiTranslations = {
   'privacy.deletion.body':
     'Anda dapat menghapus percakapan, persona, atau klip audio kapan saja dari halaman yang relevan. Menghapus akun Anda dari Pengaturan akan menghapus setiap percakapan, transkrip, dan baris persona yang terkait dengan ruang kerja Anda.',
   'privacy.eyebrow': 'Hukum',
+  'privacy.intro':
+    '{{app}} menyimpan percakapan dan klip suara yang kamu buat hanya selama diperlukan untuk memberikan pengalaman asisten. Kami tidak pernah menjual datamu, dan kami tidak pernah menggunakan audio atau transkrip pelanggan untuk melatih model AI eksternal.',
   'privacy.lastUpdated': 'Terakhir diperbarui: 2026-05-01',
   'privacy.processors.body':
     'Saat Anda berbicara dengan asisten, kami meneruskan audio Anda ke OpenAI Whisper untuk transkripsi, transkrip Anda ke Anthropic (Claude) untuk balasan, dan balasan tersebut ke ElevenLabs atau OpenAI untuk sintesis suara. Setiap penyedia terikat oleh ketentuan pemrosesan datanya sendiri; tidak ada yang disimpan untuk pelatihan ulang.',
@@ -157,13 +178,19 @@ export const ui: UiTranslations = {
   'resetPassword.newPassword': 'Kata sandi baru',
   'resetPassword.subheading': 'Pilih kata sandi baru agar dapat terus berbicara.',
   'search.agentPreview': 'Tidak ada deskripsi',
+  'search.emptyBody': 'Coba kata kunci lain atau ucapkan dengan lantang.',
   'search.emptyTitle': 'Tidak ada kecocokan',
   'search.eyebrow': 'Palet perintah',
   'search.fetchError': 'Tidak dapat memuat indeks pencarian.',
+  'search.static.billing.preview': 'Paket, metode pembayaran, dan faktur',
+  'search.static.billing.title': 'Penagihan',
   'search.static.profile.preview': 'Nama tampilan, nama panggilan, deskripsi diri',
+  'search.static.profile.title': 'Profil',
+  'search.static.voice.preview': 'Preferensi suara & bahasa default',
   'search.static.voice.title': 'Suara',
   'search.title': 'Cari Vox',
   'search.transcriptPreview': 'Buka transkrip',
+  'settings.appearance.description': 'Beralih antara mode terang dan gelap.',
   'settings.appearance.title': 'Tampilan',
   'settings.loadError': 'Tidak dapat memuat pengaturan.',
   'settings.privacy.${row.key}.label': 'Notifikasi',
@@ -180,6 +207,8 @@ export const ui: UiTranslations = {
   'terms.changes.body':
     'Kami akan memberi tahu Anda di dalam aplikasi jika ketentuan ini berubah secara material; penggunaan berkelanjutan setelah pemberitahuan berarti Anda menerima pembaruan tersebut.',
   'terms.eyebrow': 'Hukum',
+  'terms.intro':
+    'Ketentuan ini mengatur penggunaanmu atas {{app}}. Dengan membuat akun, kamu menyetujuinya.',
   'terms.lastUpdated': 'Terakhir diperbarui: 2026-05-01',
   'terms.title': 'Ketentuan layanan',
   'terms.usage.body':

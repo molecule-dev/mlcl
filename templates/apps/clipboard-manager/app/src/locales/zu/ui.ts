@@ -1,8 +1,11 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Uthole ibhagi, unesicelo sesici, noma ufuna nje ukubingelela? Xhumana nathi kusukela ekhasini Lamasethingi — yonke imiyalezo ifinyelela kumuntu wangempela eqenjini.',
   'about.contactTitle': 'Xhumana nathi',
   'about.eyebrow': 'Mayelana',
+  'about.missionTitle': 'Umsebenzi wethu',
   'authShell.proTipPrefix': 'Icebiso lochwepheshe:',
   'authShell.proTipSuffix': 'ivula iphalethi yemiyalo',
   'authShell.version': 'v2.1.0',
@@ -12,6 +15,8 @@ export const ui: UiTranslations = {
   'billing.downgradeCta': 'Khansela uhlelo olukhokhelwayo',
   'billing.heading': 'Khetha uhlelo olufanelana nezandla zakho.',
   'billing.limit.snippets': '{{count}} iziqeshana',
+  'billing.loading': 'Ilayisha izinhlelo…',
+  'billing.notAvailable': 'Akutholakali',
   'billing.period.${p}': 'Ilayisha izinhlelo…',
   'billing.perMonth': '/ngenyanga',
   'billing.perYear': '/ngonyaka',
@@ -19,6 +24,8 @@ export const ui: UiTranslations = {
   'billing.summaryFree':
     'Akukho khadi eligciniwe. Thuthukisa ngenhla ukuze uqale ukuvumelanisa kuwo wonke amadivayisi.',
   'billing.summaryHeading': 'Okubhalisele kwakho',
+  'billing.summaryPaid':
+    'Phatha indlela yokukhokha noma khansela kusukela kudeshibhodi yakho ye-Stripe.',
   'billing.upgradeCta': 'Akutholakali',
   'categories.colorLabel': 'Umbala',
   'categories.create': 'Dala isigaba',
@@ -39,6 +46,7 @@ export const ui: UiTranslations = {
   'clips.copyAction': 'Kopisha isiqeshana',
   'clips.deleteAction': 'Susa isiqeshana',
   'clips.deleteConfirmAction': 'Qinisekisa ukususa',
+  'clips.detailEmpty': 'Khetha isiqeshana kwesobunxele ukuze usibone lapha.',
   'clips.empty': 'Azikho iziqeshana ezihambisana naleyo hlungi.',
   'clips.emptyAll':
     'Akukho lutho oluye lwadlula. Chofoza okuthi "Isiqeshana esisha" noma ukopishe okuthile.',
@@ -61,6 +69,7 @@ export const ui: UiTranslations = {
   'commandPalette.footerNavigate': 'ukuze uzulazule',
   'commandPalette.footerPaste': 'ukunamathisela',
   'commandPalette.heading': 'Iphalethi yomyalo',
+  'commandPalette.shortcutsHeading': 'Zonke izenzo zinesifinyezo',
   'commandPalette.tryItHint': 'yizame kukhibhodi yangempela',
   'common.confirmDelete': 'Qinisekisa?',
   'common.goToDashboard': 'Yiya ku-Dashboard',
@@ -70,14 +79,20 @@ export const ui: UiTranslations = {
     'Yonke idivayisi ingene ngemvume ku-akhawunti yakho, ngesimo sokuvumelanisa kanye nomsebenzi wokugcina. Phuma kudivayisi ukuze uhoxise iseshini yayo.',
   'devices.eyebrow': 'Vumelanisa',
   'devices.heading': 'Amadivayisi axhunyiwe',
+  'devices.lastSeen': 'Ukugcina kokugcina {{date}}',
   'devices.loadError': 'Amadivayisi awakwazanga ukulayishwa.',
+  'devices.loading': 'Ilayisha amadivayisi…',
   'devices.revoke': 'Phuma ngemvume',
   'devices.revokeError': 'Ayikwazanga ukuphuma ngemvume kudivayisi.',
   'devices.statusBody': '{{count}} idivayisi(amadivayisi) esebenzayo',
   'devices.statusHeading': 'Isimo sokuvumelanisa',
+  'devices.syncedHoursAgo': 'Kuvunyelaniswe {{count}}h edlule',
+  'devices.syncedMinutesAgo': 'Kuvunyelaniswe {{count}}m edlule',
   'devices.thisDevice': 'Le divayisi',
+  'devices.unknownDevice': 'Idivayisi engaziwa',
   'forgotPassword.body':
     'Faka i-imeyili yakho — sizokuthumelela isixhumanisi sokusetha kabusha kanye.',
+  'forgotPassword.brandSubtitle': 'Kopisha kanye, thola kuze kube phakade.',
   'forgotPassword.brandSubtitleSent':
     'Hlola ibhokisi lakho lokungenayo ukuze uthole isixhumanisi sokusetha kabusha.',
   'forgotPassword.sentMessage': 'Sithumele isixhumanisi sokusetha kabusha ku- {{email}} .',
@@ -88,6 +103,8 @@ export const ui: UiTranslations = {
   'landing.ctaHeading': 'Yeka ukufuna leso siqeshana esisodwa.',
   'landing.demoItemCount': 'Izinto ezingu-1,284',
   'landing.denseHeading': 'Iqine ngendlela exakile, ishesha ngendlela exakile.',
+  'landing.denseSubheading':
+    'Azikho izibuko zegridi. Asikho isikhala esimoshekayo. Ama-snippet akho kuphela.',
   'landing.eyebrow': 'Umphathi webhodi lokunamathisela · v2.1',
   'landing.featuresEyebrow': 'Yakhelwe abasebenzisi bamandla',
   'landing.featuresHeading':
@@ -105,6 +122,7 @@ export const ui: UiTranslations = {
     'Ngena ngemvume ukuze uvumelanise ibhodi lakho lokunamathisela kuwo wonke amadivayisi.',
   'login.brandSubtitle': 'Kopisha kanye, thola kuze kube phakade.',
   'login.hidePassword': 'Fihla iphasiwedi',
+  'login.noAccount': 'Ungowokuqala lapha?',
   'login.showPassword': 'Bonisa iphasiwedi',
   'mobileNav.closeMenu': 'Vala imenyu yokuzulazula',
   'mobileNav.openMenu': 'Vula imenyu yokuzulazula',
@@ -114,16 +132,27 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': 'I-HTTP 404',
   'notFound.heading': 'Akukho lutho ebhodini lokunamathisela laleyo ndlela.',
   'notFound.landingLink': 'Noma vakashela ikhasi lokufikela',
+  'planUpdated.retry': 'Zama futhi',
+  'planUpdated.verifyFailed': 'Asikwazanga ukuqinisekisa inkokhelo yakho okwamanje.',
+  'planUpdated.verifyFailedBody':
+    'Inkokhelo yakho ingase isacutshungulwa. Zama futhi ngemva kwesikhashana.',
   'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
+  'pricing.limits.maxCategories': '{{count}} izigaba',
+  'pricing.limits.maxClips': '{{count}} iziqeshana',
+  'pricing.limits.maxPinned': '{{count}} kufakwe iphini',
   'profile.description': 'Ubuwena bakho, ukuphepha kanye nezikhathi ezisebenzayo.',
   'profile.noSessions': 'Azikho izikhathi ezisebenzayo okwamanje.',
   'profile.unnamed': 'Akunagama',
   'profile.webSession': 'Iseshini yewebhu',
+  'resetPassword.body': 'Khetha iphasiwedi entsha ye-akhawunti yakho ye-Reverie.',
   'resetPassword.brandSubtitle': 'Setha iphasiwedi entsha bese ubuyela ekukopisheni.',
+  'resetPassword.hidePassword': 'Fihla iphasiwedi',
+  'resetPassword.passwordLabel': 'Iphasiwedi Entsha',
   'resetPassword.showPassword': 'Bonisa iphasiwedi',
   'settings.description':
     'Yenza ngokwezifiso izinqamuleli, ukuvumelanisa, ukubethela kanye nendlela i-Yank ebonakala ngayo emshinini wakho.',
   'settings.exportData': 'Thumela zonke iziqeshana',
+  'settings.exportError': 'Ukuthumela kuhlulekile.',
   'settings.exportFeedback': 'Kuthunyelwe kwamanye amazwe {{count}} iziqeshana.',
   'settings.language.title': 'Ulimi',
   'settings.planHint':
@@ -134,12 +163,14 @@ export const ui: UiTranslations = {
   'settings.savedFeedback': 'Izilungiselelo zilondoloziwe.',
   'settings.saveError': 'Ayikwazanga ukulondoloza isethingi.',
   'settings.shortcutsHeading': 'Izinqamuleli zekhibhodi',
+  'settings.viewBilling': 'Buka ukukhokha',
   'settings.wipeAll': 'Sula i-cache yendawo',
   'settings.wipeFeedback': 'I-cache yendawo isuliwe.',
   'signup.body':
     'Vumelanisa yonke i-snippet kuwo wonke amadivayisi — ibethelwe, iyasesheka, futhi ingakhunjulwa ngokushesha.',
   'signup.brandSubtitle': 'Kopisha kanye, thola kuze kube phakade.',
   'signup.heading': 'Dala i-akhawunti yakho ye-Yank',
+  'signup.hidePassword': 'Fihla iphasiwedi',
   'signup.namePlaceholder': 'U-Alex Morgan',
   'signup.showPassword': 'Bonisa iphasiwedi',
   'time.activeNow': 'Iyasebenza manje',

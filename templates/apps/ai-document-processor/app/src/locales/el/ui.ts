@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχετε κάποια ερώτηση, βρήκατε κάποιο σφάλμα ή θέλετε επίδειξη για την ομάδα σας; Επικοινωνήστε από τις ρυθμίσεις του λογαριασμού σας — κάθε μήνυμα πηγαίνει σε ένα πραγματικό μέλος της ομάδας.',
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.intro':
+    'Το {{app}} μετατρέπει στοίβες σαρωμένων εγγράφων και PDF σε δομημένα, αναζητήσιμα, αρχειοθετημένα δεδομένα. Ρίξτε μέσα τιμολόγια, αποδείξεις, συμβόλαια ή φόρμες και αφήστε την AI να τα διαβάσει, να τα εξαγάγει, να τα ταξινομήσει και να τα αρχειοθετήσει — με χρώματα βεβαιότητας ώστε η ομάδα σας να ελέγχει μόνο ό,τι χρειάζεται πραγματικά άνθρωπο.',
+  'about.missionBody':
+    'Η γραφειοκρατία των εγγράφων δεν πρέπει να τρώει την ημέρα της ομάδας σας. Πιστεύουμε ότι κάθε εξαγόμενη τιμή πρέπει να είναι εξηγήσιμη και ελέγξιμη — ώστε να εμπιστεύεστε την αυτοματοποίηση χωρίς να χάνετε το ίχνος του χαρτιού. Το {{app}} είναι φτιαγμένο να εξοικονομεί ώρες ανά στοίβα, κρατώντας τον άνθρωπο στη διαδικασία όπου πραγματικά μετράει.',
+  'about.missionTitle': 'Η αποστολή μας',
+  'about.subtitle':
+    'OCR, εξαγωγή με AI, ταξινόμηση και αυτοματοποιημένη αρχειοθέτηση για τα έγγραφά σας.',
   'about.title': 'Σχετικά με το {{app}}',
+  'about.whatYouGetTitle': 'Τι αποκτάτε',
   'authShell.backToLanding': '← Επιστροφή στην αρχική',
   'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Σήμερα · Επισκόπηση λειτουργιών',
   'dashboard.heading': 'Νοημοσύνη εγγράφων',
+  'dashboard.metric.accuracy': 'Μέση ακρίβεια',
   'dashboard.metric.filed': 'Αρχειοθετημένα σήμερα',
   'dashboard.metric.filedCaption': 'Δρομολογήθηκαν με κανόνες αρχειοθέτησης',
   'dashboard.metric.processed': 'Επεξεργασμένα σήμερα',
@@ -23,11 +34,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Έγγραφο',
   'dashboard.recent.col.uploaded': 'Μεταφορτώθηκε',
   'dashboard.recent.heading': 'Πρόσφατα έγγραφα',
+  'dashboard.recent.typeUnknown': 'Σε αναμονή ταξινόμησης',
   'dashboard.subheading':
     'Κάθε σελίδα ταξινομημένη, εξαγμένη και αρχειοθετημένη — με χρώματα εμπιστοσύνης ώστε ο έλεγχος να παραμένει εστιασμένος.',
   'documentDetail.audit.heading': 'Χρονολόγιο ελέγχου',
+  'documentDetail.audit.subheading': 'Κάθε βήμα που έγινε σε αυτό το έγγραφο, με τον υπεύθυνο.',
   'documentDetail.back': 'Όλα τα έγγραφα',
   'documentDetail.downloadHint': 'Χρησιμοποιήστε Λήψη για να ανοίξετε το αρχικό αρχείο.',
+  'documentDetail.extracted.empty': 'Δεν έχουν εξαχθεί ακόμη πεδία.',
   'documentDetail.extracted.heading': 'Εξαγμένα πεδία',
   'documentDetail.extracted.subheading':
     '{{count}} πεδία · κάντε κλικ σε οποιοδήποτε πεδίο για να επισημανθεί στη σελίδα',
@@ -55,13 +69,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Αναζήτηση εγγράφων…',
   'documents.subheading': '{{count}} έγγραφα στη βιβλιοθήκη σας, ταξινομημένα από τα νεότερα.',
   'documents.uploadCta': 'Μεταφόρτωση εγγράφων',
+  'documentTypeBreakdown.barAria': 'Σύνθεση εγγράφων ανά τύπο',
   'documentTypeBreakdown.empty': 'Δεν έχουν επεξεργαστεί ακόμη έγγραφα.',
   'documentTypeBreakdown.subtitle': '{{total}} επεξεργασμένα',
   'documentTypeBreakdown.title': 'Σύνθεση εγγράφων',
+  'forgotPassword.backToSignIn': '← Πίσω στη σύνδεση',
   'forgotPassword.checkEmail': 'Ελέγξτε το email σας',
   'forgotPassword.tip': 'Δεν το λάβατε; Ελέγξτε τα ανεπιθύμητα ή δοκιμάστε άλλη διεύθυνση.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Φτιαγμένο για ομάδες λειτουργιών που ελέγχουν κάθε σελίδα.',
+  'landing.ctaBody':
+    'Δοκιμή 14 ημερών. Χωρίς κάρτα. Ακύρωση οποτεδήποτε. Φτιαγμένο για ομάδες λειτουργιών που κινούνται γρήγορα και ελέγχουν αργά.',
   'landing.ctaHeading': 'Σταματήστε να πληκτρολογείτε αποδείξεις. Αρχίστε να τις αρχειοθετείτε.',
   'landing.eyebrow': 'OCR · Εξαγωγή · Αρχειοθέτηση με ΤΝ',
+  'landing.featuresHeading': 'Νοημοσύνη εγγράφων που εξηγεί τον εαυτό της',
+  'landing.heroSubtitle':
+    'Ρίξτε μια στοίβα τιμολόγια, αποδείξεις, συμβόλαια ή φόρμες. Το {{app}} τα ταξινομεί, τα εξάγει και τα αρχειοθετεί — με χρώματα βεβαιότητας ώστε η ομάδα σας να ελέγχει μόνο ό,τι χρειάζεται πραγματικά άνθρωπο.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Ημερήσιος όγκος · τελευταίες 7 ημέρες',
   'landing.sampleCardLabel': 'Έγγραφα επεξεργασμένα σήμερα',
   'landing.sampleCardSubtitle': '96,2 % μέση ακρίβεια σε τιμολόγια, αποδείξεις και φόρμες.',
   'login.hidePassword': 'Απόκρυψη κωδικού',
@@ -74,6 +99,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Άνοιγμα αρχικής σελίδας',
   'notFound.title': 'Αυτή η σελίδα δεν είναι στο αρχείο',
+  'parcelaHeroCard.accuracy': 'Μέση ακρίβεια {{value}}% σε όλες τις εξαγωγές',
   'parcelaHeroCard.change': '{{sign}}{{amount}} % σε σχέση με χθες',
   'parcelaHeroCard.title': 'Έγγραφα επεξεργασμένα σήμερα',
   'parcelaLayout.primaryNavLabel': 'Κύρια πλοήγηση',
@@ -81,6 +107,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'έγγραφα',
   'pricing.processingLabel': 'εργασίες επεξεργασίας',
   'resetPassword.confirmPlaceholder': 'Επαναλάβετε τον νέο κωδικό',
+  'resetPassword.hidePassword': 'Απόκρυψη κωδικού',
   'resetPassword.passwordLabel': 'Νέος κωδικός',
   'resetPassword.showPassword': 'Εμφάνιση κωδικού',
   'resetPassword.subtitle': 'Επιλέξτε κάτι μήκους τουλάχιστον 8 χαρακτήρων.',
@@ -98,10 +125,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Αποτυχία φόρτωσης κανόνων.',
   'rules.loading': 'Φόρτωση κανόνων…',
   'rules.matched30d': '{{count}} έγγραφα ταίριαξαν τις τελευταίες 30 ημέρες',
+  'rules.neverUsed': 'Δεν χρησιμοποιήθηκε ποτέ',
   'rules.newRule': 'Νέος κανόνας',
   'rules.saveError': 'Αποτυχία αποθήκευσης κανόνα.',
   'rules.subheading':
     'Πείτε στο σύστημα πού πρέπει να πηγαίνει κάθε είδος εγγράφου. Οι συνθήκες αλυσιδώνονται από πάνω προς τα κάτω — η πρώτη αντιστοίχιση κερδίζει.',
+  'rules.templatesEmpty': 'Δεν υπάρχουν ακόμη πρότυπα εξαγωγής.',
   'rules.templatesHeading': 'Πρότυπα εξαγωγής',
   'rules.templatesSubheading':
     'Σχήματα πεδίων που χρησιμοποιεί ο εξαγωγέας για κάθε τύπο εγγράφου.',
@@ -111,17 +140,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Όνομα χώρου εργασίας',
   'settings.account.subheading':
     'Όνομα προβολής και κύριο email για ειδοποιήσεις και ιστορικό ελέγχου.',
+  'settings.api.confirmRevoke': 'Επιβεβαίωση;',
   'settings.api.copyOnce': 'Αντιγράψτε αυτό το κλειδί — δεν θα εμφανιστεί ξανά',
   'settings.api.createdOn': 'Δημιουργήθηκε {{date}}',
   'settings.api.empty': 'Δεν υπάρχουν ακόμη κλειδιά API. Δημιουργήστε ένα παραπάνω.',
   'settings.api.error': 'Αποτυχία δημιουργίας κλειδιού.',
+  'settings.api.generating': 'Δημιουργία…',
+  'settings.api.heading': 'Κλειδιά API',
   'settings.api.labelPlaceholder': 'Ετικέτα κλειδιού (π.χ. CI uploader)',
+  'settings.api.loading': 'Φόρτωση κλειδιών…',
   'settings.api.newKey': 'Δημιουργία κλειδιού',
   'settings.api.subheading':
     'Χρησιμοποιήστε τα για να στέλνετε έγγραφα από script ή το ERP σας. Περιστρέψτε οποιοδήποτε κλειδί ανά πάσα στιγμή.',
   'settings.integrations.heading': 'Ενσωματώσεις αρχειοθέτησης',
   'settings.integrations.subheading':
     'Στείλτε τα αρχειοθετημένα έγγραφα στον cloud δίσκο ή το εργαλείο συνομιλίας που χρησιμοποιεί ήδη η ομάδα σας.',
+  'settings.subheading':
+    'Διαχειριστείτε τον λογαριασμό, τα κλειδιά API και τις ενσωματώσεις αρχειοθέτησης για τον χώρο εργασίας σας {{app}}.',
+  'signup.hidePassword': 'Απόκρυψη κωδικού',
   'signup.identityPrompt': 'Πώς να σας προσφωνούμε;',
   'signup.showPassword': 'Εμφάνιση κωδικού',
   'signup.subtitle': '14 ημέρες δωρεάν, χωρίς κάρτα.',
@@ -129,6 +165,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Η μεταφόρτωση απέτυχε.',
   'upload.eyebrow': 'Πρόσληψη',
   'upload.heading': 'Μεταφόρτωση εγγράφων',
+  'upload.queue.clear': 'Εκκαθάριση ολοκληρωμένων',
   'upload.queue.col.confidence': 'Εμπιστοσύνη',
   'upload.queue.col.file': 'Αρχείο',
   'upload.queue.detecting': 'Ανίχνευση…',
@@ -141,5 +178,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Ή ρίξτε πολλά αρχεία ταυτόχρονα για ομαδική εξαγωγή, ταξινόμηση και αρχειοθέτηση.',
   'uploadDropZone.cta': 'Επιλογή αρχείων',
+  'uploadDropZone.maxSize': 'Μέγιστο 25 MB ανά αρχείο · Κρυπτογράφηση από άκρο σε άκρο',
   'uploadDropZone.title': 'Ρίξτε έγγραφα για να αρχίσει η επεξεργασία',
 }

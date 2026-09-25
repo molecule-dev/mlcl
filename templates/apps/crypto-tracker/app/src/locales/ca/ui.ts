@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre',
+  'about.featureAlerts':
+    'Alertes de preu sobre les condicions que importen, enviades per correu electrònic i notificacions push perquè no et perdis cap moviment.',
+  'about.featureMarkets':
+    'Dades de mercat en directe i gràfics de preus de milers de monedes, classificades per capitalització de mercat, volum i impuls.',
+  'about.featurePortfolio':
+    'Seguiment de la cartera amb guanys i pèrdues reals, base de cost i assignació — connectat al teu historial de transaccions.',
+  'about.featureWatchlist':
+    'Una llista de seguiment personal i notícies cripto seleccionades amb senyals sobre els actius que segueixes.',
+  'about.missionTitle': 'La nostra missió',
+  'alertConditionCard.armedSince': 'Actiu des de {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'Activat {{quan}}',
   'alertConditionCard.confirmDelete': "Confirma l'eliminació",
+  'alertConditionCard.deleteAriaLabel': "Suprimeix l'alerta",
   'alertConditionCard.pauseAriaLabel': 'Pausa l’alerta',
   'alertConditionCard.resumeAriaLabel': 'Reprendre l’alerta',
+  'alertConditionCard.triggeredAt': 'Activat {{when}}',
   'alertNew.condition': 'Condició',
   'alertNew.createCta': 'Crea alerta',
   'alertNew.error': "No s'ha pogut crear l'alerta.",
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Encara no hi ha alertes.',
   'alerts.eyebrow': 'Fils trampa Bourse',
   'alerts.loadError': "No s'han pogut carregar les alertes.",
+  'alerts.newCta': '+ Nou tripwire',
   'alerts.subheading': 'Rep un ping quan el preu, el canvi o el volum creui la teva línia.',
   'alerts.summary.armed': 'Armat',
   'alerts.summary.triggered': 'Activat',
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Màxim històric',
   'coinDetail.allTimeLow': 'mínim històric',
   'coinDetail.back': 'Tots els mercats',
+  'coinDetail.chartAriaLabel': 'Gràfic de preu de {{name}}, últims 30 dies',
   'coinDetail.chartHeading': 'Preu · darrers 30 dies',
   'coinDetail.circulating': 'subministrament circulant',
   'coinDetail.fdv': 'Valoració totalment diluïda',
@@ -59,6 +74,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': "Restableix l'enllaç cablejat.",
   'login.eyebrow': 'Entra a la terminal',
   'login.heading': 'Benvingut de nou, senyalitzador.',
+  'login.noAccountQuestion': 'Ets nou a Tessera?',
   'login.secureNote': '🔒 Xifrat en trànsit',
   'login.signingInCta': 'Llegint la cinta…',
   'login.signupLink': 'Obrir un compte →',
@@ -93,6 +109,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'La ruta que has escanejat no es resol a una moneda o pàgina coneguda. Torna a comprovar el símbol i torna-ho a intentar.',
   'notFound.browseMarkets': 'Navega pels mercats',
+  'notFound.eyebrow': 'Senyal de {{appName}} perdut',
+  'notFound.heading': 'Aquest senyal està fora de rang',
+  'planUpdated.body':
+    'El canvi de facturació ja és actiu. Pots gestionar el teu pla en qualsevol moment des de la pàgina de facturació.',
+  'planUpdated.retry': 'Torna-ho a intentar',
+  'planUpdated.verifyFailed': 'Encara no hem pogut confirmar el vostre pagament.',
+  'planUpdated.verifyFailedBody':
+    "És possible que el vostre pagament encara s'estigui processant. Torneu-ho a provar en un moment.",
   'planUpdated.verifying': 'Confirmant el teu pagament…',
   'portfolio.addError': 'Introduïu el símbol, la quantitat positiva i el cost.',
   'portfolio.addHoldingCta': '+ Afegeix una retenció',
@@ -116,12 +140,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Valor total de la cartera',
   'portfolioHeroCard.totalPnl': 'P/L total',
   'pricing.heading': 'alertes',
+  'pricing.limit.alerts': 'alertes',
   'pricing.limit.coins': 'monedes',
   'pricing.limit.market': 'mercat',
   'pricing.limit.portfolio': 'cartera',
   'resetPassword.eyebrow': 'Nou xifratge',
   'resetPassword.missingToken':
     "Aquest enllaç de restabliment no hi és o no és vàlid. Sol·licita'n un de nou.",
+  'resetPassword.passwordPlaceholder': 'Nova contrasenya',
   'resetPassword.subheading': 'Tria alguna cosa que només tu puguis desxifrar.',
   'settings.apiKeys.body':
     "Claus de només lectura per importar l'historial de transaccions. Connecteu-vos via OAuth des de /tarifing un cop subscrit.",
@@ -133,18 +159,35 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Cotitzar moneda',
   'settings.preferences.locale': 'Configuració regional',
   'settings.preferences.push': 'Empènyer',
+  'settings.preferences.refresh': 'Actualització de preus (segons)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning':
+    "L'accés d'aquest dispositiu es revocarà aviat. Voleu tancar la sessió?",
   'settings.security.body':
     'La contrasenya i la configuració de dos factors les gestiona el vostre compte.',
   'settings.signOutDevice': 'Tanca la sessió',
   'settings.twoFactorCode': "Codi d'autenticació",
   'settings.twoFactorDisable': 'Desactiva',
+  'settings.twoFactorDisableTitle': "Desactiva l'autenticació de dos factors",
   'settings.twoFactorEnable': 'Activa',
+  'settings.twoFactorEnableTitle': "Activa l'autenticació de dos factors",
   'settings.twoFactorInvalidCode': 'Codi no vàlid',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Codi QR de dos factors',
+  'settings.twoFactorScan':
+    "Escaneja aquest codi QR amb la teva aplicació d'autenticació i després introdueix el codi de 6 dígits.",
+  'settings.twoFactorUnavailable':
+    "L'autenticació de dos factors no està disponible per a aquesta aplicació.",
   'settings.twoFactorVerify': 'Verifica i activa',
   'sigilAuthShell.backHomeCta': '← Torna a Bourse',
+  'sigilAuthShell.brandBody':
+    'Preus en temps real, P/L de la cartera i vigilàncies permanents sobre les condicions que importen — tot en un sol terminal.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — creat amb Molecule',
+  'sigilAuthShell.brandHeadline': 'Descodifica cada senyal de tot el registre.',
+  'sigilAuthShell.samplePortfolio': "Cartera d'exemple",
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Navegació principal',
+  'signup.creating': 'Obrint el teu terminal…',
   'signup.eyebrow': 'Obre un terminal',
   'signup.heading': 'Crea el teu Bourse',
   'signup.subheading': 'Fes un seguiment de cada moneda, evita cada error. Comença gratis.',
@@ -161,6 +204,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': "No s'han pogut carregar les transaccions.",
   'watchlist.addCta': 'Navega pels mercats',
   'watchlist.col.change24h': '24 hores',
+  'watchlist.col.coin': 'Moneda',
   'watchlist.col.marketCap': 'Límit de mercat',
   'watchlist.empty':
     'No hi ha monedes a la teva llista de seguiment: marca les monedes de /markets per afegir-les.',

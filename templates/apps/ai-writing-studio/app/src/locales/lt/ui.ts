@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Turite atsiliepimų, radote klaidą ar norite funkcijos? Susisiekite per savo paskyros nustatymus — kiekviena žinutė pasiekia tikrą komandos narį.',
   'about.contactTitle': 'Susisiekite',
   'about.eyebrow': 'Apie',
+  'about.intro':
+    '{{app}} yra AI rašymo studija rašytojams, kuriems labai rūpi jų proza. Ji sujungia ilgos formos AI generavimą su ramiu redaktoriumi, SEO vertinimu ir vaizdų generavimu, kad galėtumėte kūrinį nuvesti nuo tuščio puslapio iki publikavimo — niekada neprarasdami savo balso.',
+  'about.missionBody':
+    'Tikime, kad AI turi rašyti šalia jūsų, o ne vietoj jūsų. {{app}} išlaiko pasiūlymus aiškiai atskirtus nuo jūsų žodžių, palieka jus kiekvieno sukurto dokumento savininku ir pašalina įrankius iš rašymo kelio.',
+  'about.missionTitle': 'Mūsų misija',
   'about.pageTitle': 'Apie {{app}}',
   'aiSuggestionCard.applied': 'Pasiūlymas įgyvendintas',
   'aiSuggestionCard.apply': 'Pateikti paraišką',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Srauto šaltiniai',
   'billing.activePlan': 'Prenumerata aktyvuota.',
   'billing.aiWordsLabel': 'Įtrauktos AI kartos',
+  'billing.cancelFailed': 'Nepavyko atšaukti prenumeratos.',
   'billing.cancelPlan': 'Atšaukti planą',
+  'billing.cancelPlanConfirm': 'Patvirtinti atšaukimą?',
   'billing.cancelSuccess': 'Prenumerata atšaukta. Atnaujinkite puslapį, kad atnaujintumėte planą.',
   'billing.changePlan': 'Pakeisti planą',
   'billing.col.invoice': 'Sąskaita faktūra',
@@ -42,26 +51,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'Peržiūrėti planus',
   'common.goToDashboard': 'Eiti į suvestinę',
   'dashboard.continueWriting': 'Tęsti rašymą',
+  'dashboard.createFirst': 'Sukurti dokumentą',
   'dashboard.days.sat': 'Št',
   'dashboard.days.sun': 'Sk',
   'dashboard.defaultWriterName': 'Rašytojas',
   'dashboard.greeting': 'Labas rytas, „{{name}}“',
   'dashboard.loadError': 'Nepavyko įkelti jūsų valdymo skydo.',
+  'dashboard.loading': 'Įkeliama jūsų studija…',
   'dashboard.loadingDocs': 'Įkeliami naujausi dokumentai…',
   'dashboard.noDocuments': 'Dokumentų dar nėra — pradėkite kurti pirmąjį.',
   'dashboard.startWriting': 'Sukurti naują dokumentą',
+  'dashboard.streakBody': 'Šią savaitę parašėte {{words}} žodžių.',
   'dashboard.streakTitle': '{{count}} - dienų serija',
+  'dashboard.subgreeting': '{{count}} dokumentai jūsų bibliotekoje — tęskite tempą.',
+  'documentCard.seoScoreTitle': 'SEO balas: {{score}}/100',
+  'documents.createNew': 'Sukurti naują dokumentą',
   'documents.empty': 'Biblioteka jau laukia – pradėkite kurti savo pirmąjį dokumentą.',
+  'documents.emptyFiltered': 'Kol kas jokių dokumentų neatitinka jūsų filtrų.',
   'documents.loadError': 'Nepavyko įkelti dokumentų.',
   'documents.loading': 'Įkeliama jūsų biblioteka…',
   'documents.new': 'Naujas dokumentas',
+  'documents.searchAriaLabel': 'Ieškoti dokumentų',
   'documents.searchPlaceholder': 'Ieškoti dokumentų…',
   'documents.subtitle': '{{count}} dokumentai jūsų bibliotekoje.',
   'documents.title': 'Dokumentai',
   'editor.aiPanelTitle': '„Plume Intelligence“',
+  'editor.aiSuggestion.empty':
+    'Nėra aktyvių patobulinimų. Paprašykite {{appName}} pasiūlymo, kai norėsite antros poros akių.',
   'editor.aiSuggestion.failed': 'Šiuo metu nepavyko įkelti pasiūlymų.',
   'editor.aiSuggestion.loadingBody': 'Atliekamas aiškumo patobulinimas…',
   'editor.backToDocuments': 'Visi dokumentai',
+  'editor.bodyAriaLabel': 'Dokumento turinys',
   'editor.closeAiPanel': 'Uždaryti AI skydelį',
   'editor.createFailed': 'Nepavyko sukurti dokumento.',
   'editor.exported': 'Eksportuota kaip „{{format}}“.',
@@ -77,18 +97,26 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'Paprašykite patikslinti',
   'editor.saveBeforePublish': 'Prieš skelbdami dokumentą, jį išsaugokite.',
   'editor.status.chars': '{{count}} simboliai',
+  'editor.status.readTime': '{{minutes}} min. skaitymo',
   'editor.status.savedAt': 'Išsaugota {{time}}',
   'editor.status.saveError': 'Išsaugoti nepavyko',
+  'editor.status.unsaved': 'Dar neišsaugota',
   'editor.titleAriaLabel': 'Dokumento pavadinimas',
   'editor.titlePlaceholder': 'Dokumentas be pavadinimo',
   'editor.toggleAiPanel': 'Įjungti / išjungti AI skydelį',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'author@example.com',
+  'forgotPassword.sent':
+    'Jei {{email}} yra užregistruotas, slaptažodžio atkūrimo nuoroda jau pakeliui.',
   'imageGenerator.failed': 'Nepavyko sukurti vaizdo.',
   'imageGenerator.generate': 'Sukurti paveikslėlį',
   'imageGenerator.generating': 'Kuriama...',
   'imageGenerator.placeholder': 'Aprašykite paveikslėlį, kurį norite sukurti...',
+  'imageGenerator.promptAriaLabel': 'Vaizdo raginimas',
+  'imageGenerator.subtitle': 'Aprašykite viršelio vaizdą ir leiskite AI jį iliustruoti.',
   'imageGenerator.title': 'AI vaizdų generatorius',
+  'landing.aiSuggestionBody':
+    'stovėdamas 42 aukšto balkone, Eliasas jautė, kaip miestas spaudžiasi prie jo — vėjas nunešė aplinkinį ūžesį, palikdamas jį pakibusį šaltame, tyliame vakuume virš švytinčio tinklelio.',
   'landing.eyebrow': 'Dirbtinio intelekto rašymo studija rimtiems rašytojams',
   'landing.featuresHeading': 'Įrankiai, kurie netrukdo',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -98,14 +126,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Studija, sukurta rašytojams, kuriems rūpi jų proza, pasakojimo tempas ir tikslumas. „Plume“ padeda jums kurti tekstą – bet niekada ne vietoj jūsų.',
   'landing.heroTitle.eloquence': 'kalbos menas',
+  'landing.heroTitle.intelligence': 'Intelektas susitinka ',
   'landing.nav.testimonials': 'Atsiliepimai',
   'landing.plan.cta': 'Pradėkite nuo šio plano',
   'landing.plan.popular': 'Populiariausi',
   'landing.pricingEyebrow': 'Kainodara',
   'landing.pricingHeading': 'Pasirinkite tai, kas tinka jūsų praktikai',
   'landing.sampleDocTitle': 'Tylos architektūra',
+  'landing.sampleParagraph1':
+    'Miestas niekada nebuvo tikrai tylus. Net giliausiomis nakties valandomis pro betoninius pamatus virpėjo žemas ūžesys — mechaninis metro traukinių ir vėdinimo šachtų širdies plakimas.',
+  'landing.sampleParagraph2.after': ' į stiklą.',
+  'landing.sampleParagraph2.before': 'Bet ',
   'landing.sampleParagraph2.highlight':
     'Stovėdamas 42-ojo aukšto balkone, Elijas pajuto gilų vienatvės jausmą',
+  'landing.showcaseBody':
+    'Pažymėkite sakinį ir {{appName}} pasiūlys patobulinimą. Priimkite jį, pakoreguokite arba atmeskite. Pasiūlymai visada nuspalvinti purpurine spalva, kad žinotumėte, ką parašėte jūs, o ką pasiūlė AI.',
+  'landing.showcaseHeading': 'Antra pora akių — niekada antras autorius.',
   'landing.startWriting': 'Pradėkite rašyti',
   'login.emailPlaceholder': 'author@example.com',
   'login.failed': 'Prisijungti nepavyko',
@@ -120,8 +156,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Atidaryti informacinę suvestinę',
   'notFound.title': 'Šis skyrius dar nėra parašytas.',
   'plumeSidebarLayout.primaryNavLabel': 'Pagrindinė navigacija',
+  'pricing.maxDocuments': '{{count}} dokumentai',
+  'pricing.maxGenerate': '{{count}} AI generavimų',
+  'pricing.maxImages': '{{count}} vaizdų generavimų',
   'privacy.data':
     'Jūsų paskyros el. pašto adresas ir užšifruotas slaptažodis. Jūsų sukurti dokumentai ir šablonai. AI pasiūlymų žurnalai (įvestis + išvestis), skirti apskaitai ir analitikai. „Stripe“ klientų ir prenumeratų identifikatoriai; mes niekada nesaugome pilnų kortelių numerių.',
+  'privacy.intro':
+    'Renkame tik duomenis, būtinus {{app}} veikimui: jūsų el. paštą, kuriamus dokumentus ir atliekamas AI užklausas. Niekada neparduodame jūsų rašymo ar užklausų.',
   'profile.loadError': 'Nepavyko įkelti jūsų profilio.',
   'profile.loading': 'Įkeliama jūsų profilio informacija…',
   'profile.loadingPublished': 'Įkeliami paskelbti dokumentai…',
@@ -132,7 +173,13 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Naujas slaptažodis',
   'seoAnalysis.backToEditor': 'Grįžti į redaktorių',
   'seoAnalysis.eyebrow': 'SEO analizė',
+  'seoAnalysis.heroBody':
+    '{{count}} pasiūlymas(-ai), kuriuos galima pritaikyti. Kiekvienas jų yra struktūrinis arba raktinių žodžių patobulinimas, o ne raudonų vėliavėlių siena.',
+  'seoAnalysis.heroBodyEmpty':
+    'Spustelėkite „Run analysis“, kad įvertintumėte skaitomumą, raktinių žodžių tankį ir struktūrą.',
   'seoAnalysis.heroEmpty': 'Analizės dar nėra. Atlikite analizę, kad įvertintumėte šį projektą.',
+  'seoAnalysis.heroNeedsWork': 'Kai kurie struktūriniai patobulinimai padidins pasiekiamumą.',
+  'seoAnalysis.heroStrong': 'Stiprus kūrinys — vos keli patobulinimai iki puikaus.',
   'seoAnalysis.historyEmpty': 'Ankstesnių analizės rezultatų nėra.',
   'seoAnalysis.historyTitle': 'Analizės istorija',
   'seoAnalysis.keywordEmpty':
@@ -159,8 +206,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'Pritaikyti „Plume“ pagal savo rašymo stilių.',
   'settings.toggleIntegrationFailed': 'Integravimo atnaujinimas nepavyko.',
   'settings.writing.aiSuggestions': 'AI pasiūlymai, rodomi rašant',
+  'settings.writing.aiSuggestionsBody':
+    'Rodo patobulinimus jums rašant. Pasiūlymai visada taikomi atskirai kiekvienam sakiniui.',
   'settings.writing.autoSave': 'Automatinis išsaugojimas kas 30 sekundžių',
+  'settings.writing.autoSaveBody':
+    '{{appName}} išsaugo jūsų juodraščio momentinę kopiją, kad galėtumėte atkurti bet kurį skirtuką.',
   'settings.writing.notifyEmail': 'Siųskite man savaitines rašymo santraukas el. paštu',
+  'settings.writing.notifyEmailBody':
+    'Trumpa sekmadienio suvestinė apie serijas, juodraščius ir SEO patobulinimus.',
   'settings.writing.title': 'Rašymo nustatymai',
   'settings.writing.tone': 'Numatytasis garso nustatymas',
   'signup.emailPlaceholder': 'author@example.com',
@@ -172,8 +225,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'Aprašymas nepateiktas.',
   'templates.subtitle':
     'Pradėkite nuo patikrintos redakcinės struktūros, o tada pritaikykite ją pagal savo poreikius.',
+  'terms.intro':
+    'Šios sąlygos reglamentuoja jūsų naudojimąsi {{app}}. Kūrdami paskyrą sutinkate naudotis paslauga teisėtam rašymui ir saugoti savo paskyros prisijungimo duomenis konfidencialiai.',
   'terms.license':
     'Jūs išlaikote nuosavybės teisę į kiekvieną savo sukurtą dokumentą, šabloną ir dirbtinio intelekto sukurtą turinį. Mums reikalinga neišskirtinė licencija, kad galėtume talpinti ir pateikti jums jūsų darbus bei apdoroti dirbtinio intelekto užklausas per jūsų pasirinktus patikimus paslaugų teikėjus.',
   'writingStreakHeroCard.change': '{{sign}} {{amount}} žodžiai',
   'writingStreakHeroCard.greeting': 'Sveiki, {{name}}',
+  'writingStreakHeroCard.subtitle': 'Šią savaitę parašyti žodžiai — {{count}} dienų serija',
+  'writingStreakHeroCard.tagline': 'Puslapis per dieną padeda mūzai neatsipalaiduoti.',
 }

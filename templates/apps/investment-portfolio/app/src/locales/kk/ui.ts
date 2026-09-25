@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пікіріңіз бар ма, қате таптыңыз ба немесе мүмкіндік қалайсыз ба? Тіркелгі параметрлеріңізден хабарласыңыз — әрбір хабарлама командадағы нақты адамға жетеді. Ескертпе: мұндағының бәрі инвестициялық кеңес емес; әрбір сауданы өзіңіз бақылайсыз.',
+  'about.contactTitle': 'Бізбен байланысыңыз',
+  'about.featureAttribution':
+    'Өнімділік атрибуциясы — кірісті сектор, аймақ және актив класы бойынша бөлшектеп, кез келген аралықта салыстырыңыз.',
+  'about.featureRebalance':
+    'Тәртіпті қайта теңгеру — мақсатты үлестер мен төзімділік шектерін белгілеңіз, ауытқуды ерте байқаңыз және сізді қайтаратын саудаларды алыңыз.',
+  'about.featureTax':
+    'Салық құжаттарының тәртібі — іске асқан және іске аспаған пайда, дивидендтер мен 1099 құжаттары бір жерде, wash-sale белгілерімен қоса.',
+  'about.featureUnified':
+    'Бір біріктірілген портфель — акциялар, ETF-тер, пайлық қорлар, облигациялар және т.б., барлық брокерлік шот бойынша жинақталған.',
+  'about.featureWatchlist':
+    'Бақылау тізімдері, жаңалықтар мен баға ескертулері — маңызды нәрсеге шуылсыз әрекет ету үшін.',
+  'about.intro':
+    '{{app}} — жеке инвесторлар мен тәуелсіз кеңесшілерге арналған көп активті портфель тақтасы. Акциялар, ETF-тер, пайлық қорлар, облигациялар, жылжымайтын мүлік және қолма-қол ақша — барлық шоттағы әрбір холдинг бір жерде, кәсіби дескінің тәртібімен.',
+  'about.missionBody':
+    'Жақсы инвестициялау — көбінесе тәртіп: айқын мақсатты үлес, шынайы өнімділік атрибуциясы және реттелген салық жазбалары. {{app}} осы институционалдық әдеттерді кез келген адамға жеткізеді, сондықтан сіз импульспен емес, әдейі қайта теңгере аласыз — және портфеліңіздің шын мәнінде не істеп жатқанын ешқашан ұмытпайсыз.',
+  'about.missionTitle': 'Біздің миссиямыз',
   'about.pageTitle': '{{app}} туралы',
   'argentAuthShell.brandEyebrow': 'Аргент · Байлық құралдары',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Инвестициялық кеңес емес.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Тәртіпті қайта теңгерімді, өнімділікті нақты бағалауды және салық құжаттарының гигиенасын қажет ететін жеке инвесторлар мен кеңесшілерге арналған портфолио бақылау тақтасы - шусыз.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · Өткен өнімділік болашақ нәтижелерге кепілдік бермейді.',
   'argentAuthShell.sampleChange': 'Бүгін +$2,841 (+0,28%)',
+  'argentAuthShell.sampleLabel': 'Портфолио құны',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Негізгі навигация',
   'assetAllocationDonut.heading': 'Ақшаңыз қалай инвестицияланады',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'бүгін',
   'assetDetail.txEmpty': 'Бұл тикер бойынша ешқандай транзакциялар жоқ.',
   'assetDetail.txHeading': 'Сіздің транзакцияларыңыз',
+  'auth.legalConsent.prefix': 'Жалғастыру арқылы сіз {{appName}} шарттарымен келісесіз',
   'common.and': 'және',
   'common.goToDashboard': 'Бақылау тақтасына өту',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'бүгін',
   'dashboard.topHoldings.heading': 'Ақшаңыз қайда жұмыс істейді',
   'dashboard.topHoldings.label': 'Ең үздік холдингтер',
+  'forgotPassword.gotLinkCta': 'Менде қалпына келтіру сілтемесі бар →',
+  'forgotPassword.subheading':
+    'Gavl тіркелгіңіздегі электрондық пошта мекенжайын енгізіңіз, сонда біз сізге қауіпсіз қалпына келтіру сілтемесін жібереміз.',
   'forgotPassword.successBody':
     'Егер оны бірнеше минут ішінде көрмесеңіз, спам қалтаңызды тексеріңіз немесе басқа электрондық поштаны қолданып көріңіз.',
   'forgotPassword.successSubheading':
     'Тексеру {{email}} қалпына келтіру сілтемесі үшін. Ол 60 минуттан кейін жарамдылық мерзімі бітеді.',
+  'forgotPassword.successTitle': 'Қалпына келтіру электрондық поштасы жолда',
   'holdingHighlightRow.todayLabel': 'бүгін',
   'holdings.addCta': 'Сатып алу',
   'holdings.col.allocation': 'Бөлу',
@@ -58,6 +87,8 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Инвестициялық кеңес емес. Өткендегі көрсеткіштер болашақ нәтижелерге кепілдік бермейді.',
   'landing.eyebrow': 'Argent · Байлық жинауға арналған платформа',
   'landing.features.heading': 'Кеңесші өзі үшін құрастыратын барлық нәрсе.',
+  'landing.finalCta.body': 'Брокеріңізді екі басумен қосыңыз. Қалғанын {{appName}} жасайды.',
+  'landing.finalCta.cta': 'Argent шотыңызды ашыңыз',
   'landing.finalCta.heading': 'Портфолиоңызға тәртіпті қайтарыңыз.',
   'landing.footerSignup': 'Шот ашу',
   'landing.getStarted': 'Шот ашу',
@@ -65,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Бағаны қараңыз',
   'landing.heroSubtitle':
     'Тәртіпті қайта теңгерімді, өнімділікті нақты бағалауды және салық құжаттарының гигиенасын қажет ететін жеке инвесторлар мен кеңесшілерге арналған портфолио бақылау тақтасы - шусыз.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Өкілдік портфолиодан тікелей шолу',
   'login.heading': 'Argent жүйесіне кіру',
   'login.subheading':
@@ -76,6 +108,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} сағат бұрын',
   'news.justNow': 'жаңа ғана',
   'news.loadError': 'Жаңалықтар жүктелмеді.',
+  'planUpdated.body':
+    'Төлем өзгерісіңіз енді белсенді. Жоспарыңызды төлем бетінен кез келген уақытта басқара аласыз.',
+  'planUpdated.retry': 'Қайталап көріңіз',
+  'planUpdated.verifyFailed': 'Төлеміңізді әзірге растай алмадық.',
+  'planUpdated.verifyFailedBody':
+    'Төлеміңіз әлі өңделуде болуы мүмкін. Біраздан кейін қайталап көріңіз.',
   'planUpdated.verifying': 'Төлеміңіз расталуда…',
   'portfolioHeroCard.label': 'Портфолио құны',
   'pricing.holdingsLabel': 'холдингтер',
@@ -86,13 +124,18 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Бөлу ауытқуы',
   'rebalance.empty': 'Әлі ешқандай мақсаттар қойылған жоқ.',
   'rebalance.executeCta': 'Орын {{count}} сауда-саттық',
+  'rebalance.executeError': 'Саудаларды орналастыру сәтсіз аяқталды.',
   'rebalance.executeOk':
     'Орналастырылды {{count}} сауда-саттықтар. Оларды «Транзакциялар» бетінен қараңыз.',
+  'rebalance.executing': 'Орналастырылуда…',
   'rebalance.eyebrow': 'Қайта теңгерім · Аргент кеңесшісі',
   'rebalance.heading': 'Портфолиоңызды тәртіпке қайтарыңыз',
   'rebalance.loadError': 'Қайта теңгерім жоспарын жүктеу сәтсіз аяқталды.',
+  'rebalance.plan.driftLine': 'қазір {{current}}% · мақсат {{target}}%',
   'rebalance.planHeading': 'Аргент билеті — орналастыру алдында қарап шығыңыз',
   'rebalance.planLabel': 'Ұсынылған сауда жоспары',
+  'rebalance.subheading':
+    'Төзімділік шегінен шыққан жолдар сауда ұсыныстарын тудырады. {{appName}} тек сіздің растауыңызбен әрекет етеді.',
   'rebalance.summary.buyLabel': 'Сатып алулар',
   'rebalance.summary.buySub': 'толықтыруға болатын лауазымдар',
   'rebalance.summary.driftLabel': 'Топтан тыс',
@@ -101,6 +144,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'ұсынылған сауда-саттықтар бойынша',
   'rebalance.summary.sellLabel': 'Сатылады',
   'rebalance.summary.sellSub': 'кесуге арналған позициялар',
+  'rebalanceDriftCard.drift': 'ауытқу {{sign}}{{pct}}% · шек ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'нысана {{pct}} %',
   'reports.attributionHeading': 'Өнімділік атрибуциясы (1 жыл)',
   'reports.col.alpha': 'Альфа',
@@ -114,37 +158,69 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Жыл',
   'reports.gainsHeading': 'Іске асырылған және іске асырылмаған пайда',
   'reports.noAttribution': 'Әзірге атрибуция деректері жоқ.',
+  'reports.noGains': 'Әзірге іске асқан/іске аспаған пайда деректері жоқ.',
   'reports.noPerformance': 'Әзірге өнімділік туралы деректер жоқ.',
   'reports.noTaxDocs': 'Әзірге салық құжаттары жоқ.',
   'reports.performanceHeading': 'Өнімділік пен эталон',
   'reports.taxHeading': 'Салық құжаттары',
   'resetPassword.heading': 'Күшті жаңа құпия сөзді таңдаңыз',
+  'resetPassword.passwordPlaceholder': 'Жаңа құпия сөз',
   'resetPassword.subheading':
     'Құпия сөзіңіз орнатылғаннан кейін Argent сізді автоматты түрде жүйеге қосады.',
   'resetPassword.tokenPlaceholder': 'Электрондық поштадан токенді қалпына келтіру',
+  'settings.appearance.description': 'Жарық және қараңғы режимдер арасында ауысу.',
   'settings.appearance.title': 'Сыртқы түрі',
+  'settings.devices.body': 'Қазіргі уақытта сіздің есептік жазбаңызға кірген құрылғылар.',
+  'settings.devices.empty': 'Құрылғылар табылмады.',
   'settings.devices.heading': 'Құрылғылар',
+  'settings.devices.revokeWarning':
+    'Бұл құрылғының кіруі жақын арада қайтарып алынады. Оны шығаруға келісесіз бе?',
   'settings.devices.signOut': 'Шығу',
   'settings.devices.thisDevice': 'Бұл құрылғы',
   'settings.devices.unknown': 'Белгісіз құрылғы',
   'settings.linked.body':
     'Брокерлік синхрондау үшін үшінші тарап қосқышы (Plaid, Yodlee және т.б.) қажет. Автоматты импорттауды қосу үшін провайдеріңізді ортаңызда конфигурациялаңыз.',
   'settings.linked.heading': 'Байланыстырылған брокерлік шоттар',
+  'settings.linked.placeholder': 'Әлі ешқандай тіркелгі байланыстырылмаған.',
+  'settings.notifications.dividendsPaid': 'Төленген дивидендтер',
   'settings.notifications.error': 'Параметрді жаңарту мүмкін болмады.',
   'settings.notifications.priceAlerts': 'Баға туралы ескертулер',
+  'settings.notifications.rebalanceDrift': 'Қайта теңгеру ауытқуы',
+  'settings.notifications.taxDocsReady': 'Салық құжаттары дайын',
   'settings.profile.advisor': 'Кеңесшінің электрондық поштасы (міндетті емес)',
   'settings.profile.heading': 'Профиль',
   'settings.security.changePassword': 'Құпия сөзді өзгерту',
+  'settings.security.changePasswordTitle': 'Құпия сөзді өзгерту',
   'settings.security.changing': 'Өзгеріс…',
+  'settings.security.confirmPassword': 'Құпия сөз',
+  'settings.security.currentPassword': 'Ағымдағы құпия сөз',
   'settings.security.deleteAccount': 'Тіркелгіні жою',
   'settings.security.deleteError': 'Тіркелгіні жою мүмкін болмады.',
   'settings.security.deleteHeading': 'Тіркелгіні жою',
+  'settings.security.deleteModalWarning':
+    'Бұл тіркелгіңізді және деректеріңізді біржола жояды. Растау үшін құпия сөзіңізді енгізіңіз.',
+  'settings.security.deleteWarning':
+    'Аккаунтыңызды және онымен байланысты барлық деректерді біржола жойыңыз. Бұны қайтару мүмкін емес.',
   'settings.security.deleting': 'Жойылуда…',
   'settings.security.heading': 'Қауіпсіздік',
   'settings.security.newPassword': 'Жаңа құпия сөз',
   'settings.security.password': 'Құпия сөз',
+  'settings.security.passwordError': 'Құпия сөзді өзгерту мүмкін болмады.',
+  'settings.security.passwordHint': 'Кіру үшін қолданатын құпия сөзіңізді өзгертіңіз.',
+  'settings.security.twoFactor': 'Екі факторлы аутентификация',
+  'settings.security.twoFactorCode': 'Аутентификация коды',
+  'settings.security.twoFactorDisable': 'Өшіру',
+  'settings.security.twoFactorDisableTitle': 'Екі факторлы аутентификацияны өшіру',
   'settings.security.twoFactorEnable': 'Қосу',
+  'settings.security.twoFactorEnableTitle': 'Екі факторлы аутентификацияны қосу',
+  'settings.security.twoFactorHint': 'Тіркелгіңізге қосымша қорғаныс қабатын қосыңыз.',
   'settings.security.twoFactorInvalidCode': 'Жарамсыз код',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'Екі факторлы QR коды',
+  'settings.security.twoFactorScan':
+    'Осы QR кодын аутентификатор қолданбасымен сканерлеңіз, содан кейін 6 таңбалы кодты енгізіңіз.',
+  'settings.security.twoFactorUnavailable':
+    'Бұл қолданба үшін екі факторлы аутентификация қолжетімді емес.',
   'settings.security.twoFactorVerify': 'Тексеру және қосу',
   'settings.tax.error': 'Салық әдісін жаңарту мүмкін болмады.',
   'settings.tax.heading': 'Салық учаскесін есепке алу',
@@ -155,6 +231,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Салық әдісі сақталды.',
   'signup.eyebrow': 'Шот ашу',
   'signup.heading': 'Argent шотыңызды ашыңыз',
+  'signup.legalPrefix': 'Тіркелгі жасау арқылы сіз {{appName}} шарттарымен келісесіз',
   'signup.subheading': '30 күн тегін. Карта қажет емес. Кез келген уақытта бас тартуға болады.',
   'signup.terms':
     'Тіркелгі жасау арқылы сіз Argent қызмет көрсету шарттары мен құпиялылық саясатымен келісесіз.',

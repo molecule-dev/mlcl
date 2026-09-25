@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Fragen, Feature-Wünsche oder ein Zähler, den wir unterstützen sollten? Erreiche das {{appName}}-Team über deine Kontoeinstellungen — jede Nachricht landet bei einer echten Person.',
   'about.contactTitle': 'Sprechen Sie uns an',
   'about.eyebrow': 'Über',
+  'about.featuresTitle': 'Was Sie erhalten',
+  'about.intro':
+    '{{appName}} ist Echtzeit-Leistungsüberwachung für Solarhaushalte und Facility-Teams. Wir verwandeln den Datenstrom aus Zähler-, Wechselrichter- und Batteriedaten in eine ruhige Leitstand-Ansicht — Live-Leistung, Solarproduktion, zeitabhängige Kosten und Benachrichtigungen, alles in einer Oberfläche.',
+  'about.missionBody':
+    'Energie, die man sieht, kann man steuern. Wir sind überzeugt: Jeder, der einen Zähler betreibt — ein Haushalt mit Dach-Solaranlage oder ein Team, das ein Gebäude überwacht —, verdient Versorgungsqualität-Einblicke ohne Versorgungsvertrag. Jede Funktion ist darauf ausgelegt, die nächste Kilowattstunde zu einer informierten Entscheidung zu machen, nicht zu einer Überraschung auf der Rechnung.',
+  'about.missionTitle': 'Unsere Mission',
   'about.pageTitle': 'Über {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Bestätigen',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@yourdomain.com',
   'alertRule.eyebrow': 'Neue Regel',
   'alertRule.heading': 'Erfassen Sie die Spitze, bevor sie teuer wird',
+  'alertRule.nameLabel': 'Regelname',
   'alertRule.namePlaceholder': 'z. B. Klimaüberwachung außerhalb der Arbeitszeit',
   'alertRule.subheading':
     'Wählen Sie eine Metrik, einen Schwellenwert und ein Ziel für die Benachrichtigung. Sie können sie jederzeit bearbeiten oder pausieren.',
   'alertRule.submit': 'Regel speichern',
   'alertRule.submitError': 'Regel konnte nicht gespeichert werden.',
   'alertRule.thresholdLabel': 'Schwellenwert',
+  'alertRule.typeLabel': 'Trigger-Typ',
   'alerts.checking': 'Prüfung läuft…',
   'alerts.confirmDelete': 'Löschen bestätigen',
+  'alerts.empty': 'Nichts anzuzeigen — keine Benachrichtigungen in diesem Status.',
   'alerts.emptyNoRules':
     'Noch keine Warnungen – fügen Sie eine Regel hinzu und klicken Sie auf „Jetzt auswerten“, um sie zu testen.',
   'alerts.errorAck': 'Konnte nicht bestätigt werden.',
@@ -42,12 +53,14 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Jetzt auswerten',
   'alerts.subheading':
     'Schwellen- und Musterwarnungen, die an Ihren Zählern ausgelöst werden, plus die zugehörigen Regeln.',
+  'billing.activeBlurb': 'Dein Abo ist aktiv. Verwalte es jederzeit.',
   'billing.cancelError': 'Abonnement konnte nicht gekündigt werden.',
   'billing.cancelling': 'Kündigung läuft…',
   'billing.currentBadge': 'Aktuell',
   'billing.freeBlurb':
     'Sie nutzen den kostenlosen Tarif. Upgraden Sie für mehr Zähler, längere Historie und mehr Warnregeln.',
   'billing.heading': 'Tarife & Abrechnung',
+  'billing.historyEmpty': 'Bezahlte Rechnungen erscheinen hier, sobald dein Abo abgerechnet wird.',
   'billing.historyHeading': 'Rechnungsverlauf',
   'billing.loadError': 'Abrechnung konnte nicht geladen werden.',
   'billing.loading': 'Tarife werden geladen…',
@@ -59,17 +72,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Vertrieb kontaktieren',
   'common.goToDashboard': 'Zum Dashboard',
   'dailyCostMeter.cost': '{{symbol}}{{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} Peak · {{offPeak}} Off-Peak kWh',
   'dailyCostMeter.runningLabel': 'Laufende Summe',
   'dailyCostMeter.title': 'Heutige Kosten bisher',
   'dailyCostMeter.utilizationLabel': 'Vom Tagesbudget',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Zähler hinzufügen',
   'dashboard.alertsHeading': 'Aktive Warnungen',
   'dashboard.devicesHeading': 'Top-Stromkreise gerade jetzt',
   'dashboard.empty.body':
     'Fügen Sie einen Smart Meter oder Solarwechselrichter hinzu, um Verbrauch und Erzeugung live zu verfolgen.',
+  'dashboard.empty.title': 'Noch keine Zähler',
   'dashboard.eyebrow': 'Voltrace-Kontrollraum',
   'dashboard.heading': 'Live-Energiemomentaufnahme',
   'dashboard.loadError': 'Live-Messwerte konnten nicht geladen werden.',
   'dashboard.loading': 'Verbindung zu Ihren Zählern wird hergestellt…',
+  'dashboard.noAlerts': 'Alles ruhig — nichts überschreitet deine Schwellenwerte.',
   'dashboard.noAlertsAndNoMeters':
     'Sobald Sie einen Zähler verbunden haben, erscheinen hier Warnungen basierend auf Ihren Schwellenwerten.',
   'dashboard.noCircuits':
@@ -77,6 +95,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading': 'Gesamthausverbrauch, Solarproduktion und heutige Kosten bisher.',
   'dashboard.viewAllAlerts': 'Warnungen verwalten →',
   'dashboard.viewAllDevices': 'Alle Geräte →',
+  'deviceDetail.activeTokens': 'Aktive Ingest-Tokens',
   'deviceDetail.alreadyOff': 'Bereits pausiert',
   'deviceDetail.back': 'Alle Stromkreise',
   'deviceDetail.confirmDelete': 'Löschen bestätigen',
@@ -117,21 +136,33 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Zähler konnten nicht geladen werden.',
   'devices.loading': 'Jeder Zähler wird abgefragt…',
   'devices.newRule': 'Neue Warnregel',
+  'devices.noResults': 'Keine Stromkreise entsprechen diesem Filter.',
   'devices.placeholder.location': 'z. B. Technikraum',
   'devices.placeholder.name': 'z. B. Unterverteilung Garage',
   'devices.subheading': 'Live-Watt und heutige kWh über jeden Stromkreis, den Voltrace sehen kann.',
+  'deviceWattageRow.todayKwh': '{{kwh}} kWh heute',
+  'deviceWattageRow.watts': '{{watts}} W',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Menü',
+  'energyMonitoringLayout.primaryNavLabel': 'Hauptnavigation',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    '{{appName}} kommuniziert mit den meisten eichfähigen Zählern, Solar-Wechselrichtern und Batteriespeichern – kabelgebunden oder über WiFi.',
   'landing.ctaHeading': 'Zähler koppeln, Watt in Minuten sehen',
   'landing.eyebrow': 'Echtzeit-Energieintelligenz',
+  'landing.featuresHeading': 'Jedes Watt, jede Minute, in einer Shell',
   'landing.getStarted': 'Voltrace anschließen',
   'landing.heroCta': 'Voltrace anschließen',
+  'landing.heroSubtitle':
+    'Live-Leistung, Solarproduktion, zeitabhängige Kosten und Warnungen bei hohem Verbrauch in einer Control-Room-Shell für Solarhaushalte und Facility-Teams.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Gesamthausverbrauch',
   'landing.sampleSolar': '+3.820 W solar',
   'landing.sampleSummary': '1.680 W ins Netz eingespeist · 18,4 kWh heute',
   'landing.sampleWatts': '2.140 W',
   'powerHeroCard.solar': '+{{watts}} W solar',
   'powerHeroCard.title': 'Gesamthausverbrauch',
+  'powerHeroCard.todayKwh': '{{kwh}} kWh heute',
   'powerHeroCard.watts': '{{watts}} W',
   'pricing.choose': '{{name}} wählen',
   'pricing.contact': 'Brauchen Sie etwas Individuelles?',
@@ -144,6 +175,7 @@ export const ui: UiTranslations = {
     'Starten Sie kostenlos. Upgraden Sie, wenn Sie mehr Zähler, längere Historie oder mehr Warnregeln benötigen.',
   'pricing.unavailable': 'Dieser Tarif ist gerade nicht verfügbar – Stripe ist nicht konfiguriert.',
   'profile.errorGeneric': 'Profiländerungen konnten nicht gespeichert werden.',
+  'profile.errorGoal': 'Das monatliche kWh-Ziel muss eine positive Zahl sein.',
   'profile.errorHousehold': 'Die Haushaltsgröße muss eine positive Zahl sein.',
   'profile.householdHeading': 'Haushalt & Ziele',
   'profile.householdSize': 'Haushaltsgröße',
@@ -161,9 +193,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'Messwerte werden aggregiert…',
   'reports.subheading':
     'Tageswerte für Verbrauch, Produktion und Kosten – aufgeschlüsselt nach Datum.',
+  'reports.tableHeading': 'Tagesaufschlüsselung',
   'settings.currency': 'Währung',
   'settings.errorFlat': 'Der Pauschaltarif muss ≥ 0 sein.',
   'settings.errorNotify': 'Benachrichtigungseinstellungen konnten nicht gespeichert werden.',
+  'settings.errorSave': 'Tarifplan konnte nicht gespeichert werden.',
   'settings.errorTou':
     'Spitzen-/Nebenzeit-Tarife und ein gültiger Spitzenzeitraum sind erforderlich.',
   'settings.exportBody':
@@ -184,10 +218,21 @@ export const ui: UiTranslations = {
   'settings.saving': 'Speichern…',
   'settings.securityHeading': 'Zwei-Faktor-Authentifizierung',
   'settings.subheading': 'Tarife, Benachrichtigungen und Datenexport.',
+  'settings.twoFactorBody':
+    'Bei jeder Anmeldung einen Einmalcode aus Ihrer Authenticator-App verlangen.',
   'settings.twoFactorCode': 'Authentifizierungscode',
   'settings.twoFactorDisable': 'Deaktivieren',
+  'settings.twoFactorDisableTitle': 'Zwei-Faktor-Authentifizierung deaktivieren',
   'settings.twoFactorEnable': 'Aktivieren',
+  'settings.twoFactorEnableTitle': 'Zwei-Faktor-Authentifizierung aktivieren',
   'settings.twoFactorInvalidCode': 'Ungültiger Code',
+  'settings.twoFactorOAuth':
+    'Ihr Konto meldet sich über einen verbundenen Anbieter an, daher wird die Zwei-Faktor-Authentifizierung dort verwaltet.',
   'settings.twoFactorOn': 'Am',
+  'settings.twoFactorQrAlt': 'Zwei-Faktor-QR-Code',
+  'settings.twoFactorScan':
+    'Scannen Sie diesen QR-Code mit Ihrer Authentifizierungs-App und geben Sie dann den 6-stelligen Code ein.',
+  'settings.twoFactorUnavailable':
+    'Die Zwei-Faktor-Authentifizierung ist für diese App nicht verfügbar.',
   'settings.twoFactorVerify': 'Überprüfen & aktivieren',
 }

@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Het jy 'n vraag, het jy 'n fout raakgesien, of wil jy jou boeke oorplaas? Bereik die {{app}}-span by hello@{{app}}.example — 'n werklike persoon lees elke boodskap.",
   'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Oor',
+  'about.intro':
+    '{{app}} is kleinbesigheidsboekhouding wat elke sent verantwoord — fakture, uitgawes, betalings en verslae op een rustige plek vir eienaars, boekhouers en rekenmeesters.',
+  'about.missionBody':
+    "Om 'n besigheid te bestuur behoort nie te beteken dat jy jou boeke vrees nie. {{app}} vervang die spreivlakte met duidelike syfers waarop jy kan optree, sodat jy minder tyd aan rekonsiliasie spandeer en meer tyd aan die werk waarvoor jy die besigheid begin het.",
+  'about.missionTitle': 'Ons missie',
   'about.title': 'Oor {{app}}',
   'accounts.count': '{{count}} rekeninge',
+  'accounts.emptyBody':
+    'Grootboekrekeninge hou by waar geld woon en beweeg. Hulle verskyn hier sodra jou boekhouer of integrasie hulle opstel.',
   'accounts.emptyTitle': 'Geen rekeninge nog nie',
   'accounts.heading': 'Rekeningskema',
   'accounts.kpi.accounts': 'Accounts',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Elke grootboekrekening agter jou fakture, uitgawes en betalings, gegroepeer volgens tipe.',
   'accounts.tag.inactive': 'onaktief',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Hoof Finansiële Beampte, Horizon Tech',
   'authBrandPanel.eyebrow': 'Vertrou deur finansiële spanne',
   'authBrandPanel.label': 'Handelsmerk-uitstalling',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Alle kliënte',
   'customerDetail.invoiceMeta': 'Uitgereik {{issued}} · Verskuldig {{due}}',
   'customerDetail.loadError': 'Kon nie kliënt laai nie.',
+  'customerDetail.missingBody':
+    'Die versoekte kliëntrekord kon nie gelaai word nie. Dit is moontlik verwyder, of jy het dalk nie toegang daartoe nie.',
   'customerDetail.missingHeading': 'Kliëntrekord nie beskikbaar nie',
+  'customerDetail.missingHelp':
+    "Gebruik die terugskakel hierbo om na die lys kliënte terug te keer, of kies 'n ander rekord daar.",
+  'customerDetail.noInvoices': 'Geen fakture nog nie.',
   'customerDetail.notesEmpty': 'Geen notas nog nie.',
   'customerDetail.paymentsEmpty': 'Geen betalings aangeteken nie.',
   'customerDetail.paymentTerms': 'Betalingsvoorwaardes',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Aftrekbaar',
   'expenseDetail.detailsHeading': 'Transaksiebesonderhede',
   'expenseDetail.loadError': 'Kon nie uitgawe laai nie.',
+  'expenseDetail.matched': 'Pasgemaak · {{description}}',
   'expenseDetail.missingBody':
     'Die versoekte uitgawe kon nie gelaai word nie. Dit is dalk verwyder, of jy het dalk nie toegang daartoe nie.',
   'expenseDetail.missingHeading': 'Uitgawe-rekord nie beskikbaar nie',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Kwitansie',
   'expenseDetail.receiptHeading': 'Kwitansie',
   'expenseDetail.reconciled': 'Versoen',
+  'expenseDetail.unreconciled': 'Onversoen',
   'expenses.empty': 'Nog geen uitgawes nie.',
   'expenses.heading': 'Uitgawes',
   'expenses.kpi.deductible': 'Aftrekbaar',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Kon nie fakture laai nie.',
   'invoices.searchPlaceholder': 'Soek faktuurnommer of kliënt…',
   'invoices.summary.paid': 'Betaal hierdie tydperk',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'Gratis vir 30 dae. Geen kaart nie. Bring jou rekenmeester – hulle sal jou bedank.',
   'landing.ctaTitle': "Skuif jou boeke na 'n rustiger plek.",
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Rekeninge ontvangbaar',
   'ledgerStatTriad.eyebrow.mtd': 'Maand tot op datum',
   'ledgerStatTriad.netSub': 'Netto {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} agterstallig',
   'ledgerStatTriad.revenueLabel': 'Inkomste',
   'login.failed': 'Aanmelding het misluk.',
   'login.hidePassword': 'Versteek wagwoord',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Aanmeld',
   'nav.legal': 'Regs',
   'newExpense.back': 'Uitgawes',
+  'newExpense.clearReceiptCta': 'Vee aangehegte kwitansie uit',
   'newExpense.deductible': 'Belastingaftrekbaar',
   'newExpense.dropPrompt': "Plaas 'n kwitansiefoto of PDF hier om aan te heg.",
   'newExpense.failed': 'Kon nie koste bespaar nie.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Kon nie betalings laai nie.',
   'payments.unmatchedTag': 'ongeëwenaard',
   'planUpdated.pageLabel': 'Bevestiging van opgedateerde plan',
+  'pricing.advancedFeatures': 'Gevorderde kenmerke: {{yes}}',
+  'pricing.canExport': 'Data-uitvoer: {{yes}}',
+  'pricing.heading': 'Kies jou {{app}} plan',
+  'pricing.maxAccounts': '{{count}} rekeninge',
+  'pricing.maxExpenses': '{{count}} uitgawes',
+  'pricing.maxInvoices': '{{count}} fakture',
+  'privacy.intro':
+    'Hierdie Privaatheidsbeleid beskryf hoe {{app}} inligting oor besighede wat die diens gebruik, versamel, gebruik en openbaar maak.',
   'privacy.lastUpdated': 'Laas opgedateer: {{datum}}',
   'privacy.section.collected.body':
     'Ons versamel rekeningbesonderhede (naam, e-pos, maatskappy), die finansiële rekords wat jy oplaai (fakture, uitgawes, kliënte, betalings), en standaard diensbedryfslogboeke (IP, gebruikersagent, tydstempels).',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     "Inligting word gebruik om die diens te bedryf, die verslae en PDF's wat u aanvra te genereer, transaksionele e-pos deur Mailgun te stuur en betalings deur Stripe te verwerk. Ons verkoop of verhuur nie persoonlike inligting nie.",
   'recentInvoicesCard.dueMeta': 'Verskuldig {{date}}',
+  'recentInvoicesCard.empty': 'Geen fakture stem ooreen nie.',
   'recentInvoicesCard.eyebrow': 'Rekeninge ontvangbaar',
   'recentInvoicesCard.searchAriaLabel': 'Soek fakture',
+  'recentInvoicesCard.searchPlaceholder': 'Soek fakture…',
   'recentInvoicesCard.title': 'Onlangse fakture',
   'recentInvoicesCard.viewAll': 'Bekyk alle fakture →',
   'reports.assets': 'Bates',
@@ -181,16 +211,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Wins en verlies (12 maande)',
   'resetPassword.backToLogin': '← Terug na Aanmeld',
   'resetPassword.hidePassword': 'Versteek wagwoord',
+  'resetPassword.passwordLabel': 'Nuwe wagwoord',
   'resetPassword.showPassword': 'Wys wagwoord',
+  'resetPassword.subheading': "Kies 'n sterk wagwoord — minimum agt karakters.",
   'resetPassword.submit': 'Herstel wagwoord',
   'resetPassword.tooShort': 'Wagwoord moet ten minste 8 karakters lank wees.',
   'settings.account.changePassword': 'Verander wagwoord',
   'settings.account.changingPassword': 'Veranderende…',
   'settings.account.currentPassword': 'Huidige wagwoord',
+  'settings.account.dangerZone': 'Gevaarsone',
   'settings.account.deleteAccount': 'Vee rekening uit',
   'settings.account.deleteDescription':
     'Vee jou rekening en alle geassosieerde data permanent uit.',
   'settings.account.deleteError': 'Kon nie rekening uitvee nie.',
+  'settings.account.deleteWarning':
+    'Dit verwyder jou rekening permanent en kan nie ongedaan gemaak word nie. Voer jou wagwoord in om te bevestig.',
   'settings.account.deleting': 'Vee tans uit…',
   'settings.account.devices': 'Toestelle',
   'settings.account.email': 'E-pos',
@@ -201,6 +236,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Wagwoord',
   'settings.account.passwordError': 'Kon nie wagwoord verander nie.',
   'settings.account.pushNotifications': 'Stootkennisgewings op hierdie toestel',
+  'settings.account.revokeDeviceWarning':
+    'Hierdie toestel se toegang sal binnekort herroep word. Teken dit uit?',
   'settings.account.saveError': 'Kon nie profiel opdateer nie.',
   'settings.account.security': 'Sekuriteit',
   'settings.account.signOutDevice': 'Teken uit',
@@ -208,12 +245,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Twee-faktor-verifikasie',
   'settings.account.twoFactorCode': 'Verifikasiekode',
   'settings.account.twoFactorDisable': 'Deaktiveer',
+  'settings.account.twoFactorDisableTitle': 'Deaktiveer tweefaktor-verifikasie',
   'settings.account.twoFactorEnable': 'Aktiveer',
+  'settings.account.twoFactorEnableTitle': 'Aktiveer tweefaktor-verifikasie',
   'settings.account.twoFactorInvalidCode': 'Ongeldige kode',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'Tweefaktor QR-kode',
+  'settings.account.twoFactorScan':
+    'Skandeer hierdie QR-kode met jou verifikasie-app en voer dan die 6-syferkode in.',
+  'settings.account.twoFactorUnavailable':
+    'Tweefaktor-verifikasie is nie vir hierdie toepassing beskikbaar nie.',
   'settings.account.twoFactorVerify': 'Verifieer en aktiveer',
   'settings.account.unknownDevice': 'Onbekende toestel',
   'settings.company.email': 'Faktuur-e-posadres',
+  'settings.company.heading': 'Maatskappy en belasting',
   'settings.company.name': 'Wettige naam',
   'settings.company.saveButton': 'Stoor maatskappyprofiel',
   'settings.company.taxId': 'Belasting-ID / EIN',
@@ -256,6 +301,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Geskatte kwartaalliks',
   'taxes.kpi.owed': 'Verskuldig',
   'taxes.loadError': 'Kon nie belastingopsomming laai nie.',
+  'taxes.remittedPct': '({{pct}}% oorbetaal)',
+  'terms.intro':
+    'Hierdie Diensvoorwaardes ("Voorwaardes") beheer jou toegang tot en gebruik van {{app}}. Deur \'n rekening te skep of die diens te gebruik, stem jy in om daardeur gebind te wees.',
   'terms.lastUpdated': 'Laas opgedateer: {{datum}}',
   'terms.section.acceptable.body':
     'U stem in om nie die diens te gebruik om enige wet te oortree, intellektuele eiendomsregte te skend, wanware oor te dra of te probeer om ongemagtigde toegang tot ander rekeninge of ons infrastruktuur te verkry nie.',

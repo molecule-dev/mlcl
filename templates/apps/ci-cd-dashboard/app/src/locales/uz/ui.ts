@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Savollar, fikr-mulohaza yoki jamoangiz uchun demo kerakmi? Bizga hello@conduit.dev manziliga yozing — har bir xabar jamoamizdagi haqiqiy odamga yetib boradi.',
   'about.contactHeading': "Bog'laning",
   'about.eyebrow': 'Haqida',
+  'about.featuresHeading': 'Sizga nima beriladi',
+  'about.introBody':
+    '{{app}} GitHub Actions uslubidagi uzluksiz yetkazib berishni bitta tezkor boshqaruv paneliga jamlaydi: barcha repozitoriylaringiz uchun quvurlar, qurish jurnallari, artefaktlar, holat nishonlari va joylashtirish muhitlari bir joyda. Varaqma-varaq o‘tish yo‘q, qaysi qurish buzilganini taxmin qilish yo‘q — har bir ishga tushirish, jurnal satri va joylashtirish bir bosish narida.',
+  'about.introHeading': '{{app}} nima',
+  'about.missionBody':
+    'Dasturiy ta’minotni yetkazib berish xotirjam va oldindan aytib bo‘ladigan bo‘lishi kerak, qo‘rquv manbai emas. Biz quvurlar, jurnallar va joylashtirish vositalarini shunday quramizki, commitdan ishlab chiqarishgacha bo‘lgan yo‘l tez, ko‘rinadigan va ishonchli bo‘lsin — birinchi yashil qurish besh daqiqada, undan keyingi har bir qurish ham xuddi shunday aniq.',
+  'about.missionHeading': 'Bizning vazifamiz',
+  'about.subtitle':
+    '{{app}} — har bir repozitoriydagi qurishlar, joylashtirishlar va muhitlarni kuzatishni va ishonch bilan yetkazib berishni istagan jamoalar uchun CI/CD boshqaruv paneli.',
   'artifacts.empty': "Hali hech qanday artefakt yo'q.",
   'artifacts.heading': 'Artefaktlar',
   'artifacts.loadError': 'Artefaktlarni yuklashda xatolik yuz berdi.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': "$ o'tkazgich muhiti --list",
   'environments.heading': 'Atrof-muhit',
   'environments.loadError': "Muhitlarni yuklab bo'lmadi.",
+  'environments.loading': 'Yuklanayotgan muhitlar…',
   'environments.subheading': "Har bir nishon bo'ylab jonli joylashtirish holati.",
   'forgotPassword.runnerStatus': "qayta o'rnatish · xavfsiz tunnel",
+  'forgotPassword.success':
+    "Agar o'sha elektron pochta uchun hisob mavjud bo'lsa, qayta tiklash havolasi yo'lda. Pochta qutingizni tekshiring.",
   'insights.changeFailureRate': "Xatolik darajasini o'zgartirish",
   'insights.deployFrequency': 'Joylashtiradi / kun',
   'insights.empty': "Hali yetarli ma'lumot yo'q.",
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Statistika yuklanmadi.',
   'insights.meanP95': "ma'nosi {{mean}} · p95 {{p95}}",
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Eng sekin quvur bosqichlari',
   'insights.successRateHeading': 'Quvur liniyasining muvaffaqiyat darajasi (oxirgi 14 kun)',
   'landing.choosePlan': 'Rejani tanlang',
+  'landing.copyright': '© {{year}} {{app}}. Ishonch bilan yetkazib bering.',
   'landing.ctaBody':
     "Kredit karta yo'q. Platforma muhandisi talab qilinmaydi. Birinchi quvur liniyasini besh daqiqada yashil rangga keltiring.",
   'landing.ctaHeading': "Ishonch bilan jo'nating.",
   'landing.featuresEyebrow': '// platforma xususiyatlari',
   'landing.featuresHeading': 'Yuk tashuvchilar tomonidan yuk tashuvchilar uchun qurilgan',
+  'landing.heroSubtitle':
+    'Soniyalarda tugaydigan quvurlar. O‘qib bo‘ladigan jurnallar. Ishonish mumkin bo‘lgan joylashtirishlar.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit joylashtirish --safely',
   'landing.pricingEyebrow': '// $ narxlash --oddiy',
   'landing.pricingHeading': "Oddiy, oldindan aytib bo'ladigan narxlash",
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Hozir parvozda',
   'pipelines.metric.successCaption': '{{count}} ning {{total}} yugurishlar',
   'pipelines.metric.successRate': 'Muvaffaqiyat darajasi',
+  'pipelines.realtimeOn': 'real vaqtda',
   'pipelines.subheading': 'Har bir kuzatilgan ombordan jonli yangilanishlar.',
+  'pricing.advancedFeatures': 'Kengaytirilgan funksiyalar: {{mark}}',
+  'pricing.canExport': 'Ma’lumotlarni eksport qilish: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artefakt',
+  'pricing.maxBuilds': '{{count}} qurish',
+  'pricing.maxPipelines': '{{count}} quvur',
   'privacy.dataAccount': 'Hisob: ism, elektron pochta, xeshlangan parol, reja darajasi.',
   'privacy.intro':
     "{{ilova}} uzluksiz yetkazib berish hisobingizni boshqarish uchun bizga kerak bo'lgan minimal ma'lumotlarni to'playdi: elektron pochtangiz, ulangan omborlaringiz, ishga tushiruvchilaringiz yaratgan commit va build metama'lumotlari va bizda saqlashni tanlagan sirlaringiz. Biz hech qachon sizning manba kodingizni build runnerdan tashqarida o'qimaymiz; build artefaktlari konfiguratsiya qilinganida S3 chelakingizda saqlanadi.",
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     "Biz hisob-kitoblar uchun Stripe, tranzaksiya elektron pochtasi uchun Mailgun va artefaktlarni saqlash uchun AWS S3 dan foydalanamiz. Ularning har biri shartnoma asosida o'z xizmatini taqdim etish uchun zarur bo'lgan minimal ma'lumotlar hajmiga bog'liq.",
   'privacy.rightsBody':
     "Siz ma'lumotlaringizning har bir baytini eksport qilishingiz, istalgan vaqtda Sozlamalar orqali hisobingizni o'chirishingiz va hisobingizdagi har bir veb-huk yetkazib berish yozuvini so'rashingiz mumkin. Biz GDPR / CCPA so'rovlariga 30 kun ichida javob beramiz.",
+  'privacy.subtitle':
+    '{{app}} biz quvurlaringizni ishga tushirar ekanmiz, ma’lumotlaringizni qanday to‘playdi, saqlaydi va himoya qiladi.',
   'privacy.title': 'Maxfiylik siyosati',
   'repositories.empty': 'Hech qanday omborxona ulanmagan.',
   'repositories.heading': 'Omborxonalar',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Barcha omborlar',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': "Repozitoriyni yuklab bo'lmadi.",
+  'repositoryDetail.meanDuration': 'O‘rtacha davomiylik',
   'repositoryDetail.notFound': 'Ombor topilmadi.',
+  'repositoryDetail.successRate': 'Muvaffaqiyat darajasi',
   'repositoryDetail.totalBuilds': 'Jami qurilishlar',
   'repositoryDetail.webhookActive': 'faol',
   'repositoryDetail.webhookPaused': "to'xtatildi",
   'repositoryDetail.webhooksHeading': 'Veb-huklar',
+  'resetPassword.passwordLabel': 'Yangi parol',
   'resetPassword.runnerStatus': "qayta o'rnatish · token tasdiqlandi",
   'resetPassword.subtitle': 'Ilgari foydalanmagan kuchli parolni tanlang.',
   'resetPassword.tokenPlaceholder': 'elektron pochtadan joylashtirish',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     "Repozitoriylar Konduit soatlari. Hodisalarni qabul qilishni to'xtatish uchun VCS provayderingizdan uzing.",
   'settings.repositories.empty': 'Hali hech qanday omborxona ulanmagan.',
+  'settings.repositories.heading': 'Repozitoriy ulanishlari',
   'settings.repositories.loadError': "Omborlarni yuklab bo'lmadi.",
   'settings.secrets.addCta': "Maxfiylik qo'shish",
   'settings.secrets.addError': "Maxfiy ma'lumot qo'shib bo'lmadi.",
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': "Maxfiy ma'lumotni o'chirib bo'lmadi.",
   'settings.secrets.empty': 'Hech qanday sir saqlanmaydi.',
   'settings.secrets.heading': 'Sirlar',
+  'settings.secrets.lastUsed': 'oxirgi marta ishlatilgan {{date}}',
   'settings.secrets.loadError': "Sirlarni yuklab bo'lmadi.",
   'settings.secrets.neverUsed': 'hech qachon ishlatilmagan',
   'settings.secrets.rotateCta': 'Aylantirish',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Vebhukni yangilashda xatolik yuz berdi.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'bepul daraja · oyiga 1000 ta qurish daqiqasi',
+  'terms.intro':
+    '{{app}} hisobini yaratish bilan siz ushbu shartlarga rozilik bildirasiz. Ular qurish ishga tushirgichlaridan maqbul foydalanishni, SLA chegaralarimizni va suiiste’mol qiluvchi ish yuklamalari uchun hisobingizni to‘xtatish yoki bekor qilish shartlarimizni qamrab oladi.',
   'terms.slaBody':
     'Pro va Team rejalari API va Runner pulining oylik ish vaqtini 99,95% ga yetkazishga qaratilgan. Bepul reja mavjud holatda taqdim etiladi. Uzilishlar status.conduit.dev saytida xabar qilinadi va hisob-fakturangizdagi formulaga muvofiq hisobga olinadi.',
   'terms.terminationBody':

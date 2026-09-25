@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Des questions, des retours ou une demande de fonctionnalité ? Contactez l'équipe {{app}} depuis Paramètres → Notifications, ou écrivez-nous à tout moment — chaque message est lu par un vrai humain.",
+  'about.contactTitle': 'Contactez-nous',
   'about.eyebrow': 'À propos',
+  'about.featureCapture':
+    'Capture de reçus avec envoi de photos qui joint les images à la bonne dépense, ligne par ligne.',
+  'about.featureExport':
+    "Exports CSV auditables de chaque rapport, dépense et état d'approbation — prêts pour votre équipe comptable.",
+  'about.featurePolicy':
+    'Garde-fous de politique — plafonds quotidiens, limites par catégorie et seuils de reçu obligatoire appliqués au moment de la soumission.',
+  'about.featureWorkflow':
+    "Un flux d'approbation à deux niveaux avec notes des validateurs, signalements d'infraction aux règles et marquage du remboursement en un clic.",
+  'about.intro':
+    "{{app}} est une plateforme de gestion des dépenses pour les équipes financières et les personnes qu'elles remboursent. Capturez un reçu, enregistrez une dépense, envoyez un rapport en approbation et suivez chaque remboursement — sans les formalités du tableur.",
+  'about.missionBody':
+    "Le remboursement doit être rapide, équitable et auditable. Nous avons conçu {{app}} pour que les demandeurs soient remboursés sans relance, que les validateurs voient exactement ce qu'ils approuvent et que la finance dispose d'une traçabilité claire pour chaque dollar — contrôles de politique inclus.",
+  'about.missionTitle': 'Notre mission',
   'approvals.approve': 'Approuver',
   'approvals.approving': 'Approbation…',
   'approvals.confirmReject': 'Confirmer le rejet',
+  'approvals.empty': 'Vous êtes à jour — aucun rapport en attente.',
   'approvals.eyebrow': 'File du responsable',
   'approvals.kpi.flaggedLabel': 'Signalé par la politique',
+  'approvals.kpi.queueLabel': 'En attente de validation',
   'approvals.kpi.totalLabel': 'Valeur en attente',
   'approvals.lineCount': '{{count}} dépenses',
   'approvals.queueFallback': 'File en direct indisponible — affichage de données de démonstration.',
   'approvals.reject': 'Refuser',
   'approvals.rejecting': 'Refus en cours…',
+  'approvals.rejectPlaceholder': 'Motif (obligatoire)',
   'approvals.rejectPrompt': 'Pourquoi refusez-vous ce rapport ?',
   'approvals.review': 'Examiner',
   'approvals.title': 'Approbations en attente',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18 %',
   'dashboard.kpi.approvedLabel': 'Approuvé · MTD',
   'dashboard.kpi.pendingDelta': '+2 cette semaine',
+  'dashboard.kpi.pendingLabel': 'En attente de revue',
   'dashboard.kpi.receiptsDelta': 'Action requise',
   'dashboard.kpi.receiptsLabel': 'Reçus en attente',
   'dashboard.kpi.reimbursedDelta': '+2,4 k $',
   'dashboard.kpi.reimbursedLabel': 'Remboursé · MTD',
   'dashboard.newReport': 'Nouveau rapport',
+  'dashboard.recent.empty': "Aucun rapport pour l'instant — créez le premier ci-dessus.",
   'dashboard.recent.title': 'Rapports récents',
   'dashboard.recent.viewAll': 'Voir tous les rapports',
   'dashboard.summaryFallback':
@@ -39,11 +60,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'Reçus et éléments remboursables',
   'expenses.listFallback': 'Liste en direct indisponible — affichage de données de démonstration.',
   'expenses.searchPlaceholder': 'Rechercher un marchand ou une catégorie…',
+  'expenses.subtotal': 'Dépenses {{count}} · sous-total',
   'expenses.title': 'Dépenses',
+  'forgotPassword.continue': "J'ai un code · Continuer",
+  'forgotPassword.subheading':
+    'Saisissez votre e-mail professionnel et nous vous enverrons un lien pour définir un nouveau mot de passe.',
   'forgotPassword.successBody':
     'Si un compte existe pour {{email}}, vous recevrez un lien de réinitialisation dans les prochaines minutes.',
+  'landing.copyright': '© {{year}} {{app}}. Créé avec Molecule.dev.',
+  'landing.ctaBody':
+    'Gratuit pour les 25 premières dépenses chaque mois. Sans carte bancaire, sans appel de mise en place.',
   'landing.ctaHeading': 'Prêt à récupérer ce que vous devez à votre équipe ?',
   'landing.eyebrow': 'Notes de frais pour les équipes financières',
+  'landing.featuresHeading': 'Le remboursement, dans un espace de travail serein',
   'landing.heroSubtitle':
     "Soumettez, approuvez et remboursez les dépenses professionnelles sans avoir à jongler avec des tableurs. Reconnaissance optique de caractères des reçus, vérification des politiques et calendrier d'approbation transparent : tout cela dans un espace de travail unique et serein.",
   'landing.heroTitle': 'Tous les reçus récupérés.',
@@ -61,10 +90,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Notes',
   'newExpense.descriptionPlaceholder':
     "Pourquoi cette dépense était liée à l'activité (visible par votre approbateur).",
+  'newExpense.eyebrow': 'Élément remboursable',
   'newExpense.merchant': 'Marchand',
   'newExpense.merchantPlaceholder': 'Hotel Adlon Kempinski',
   'newExpense.policyHint':
     'Rappel : les repas de plus de 80 $/jour ou tout article de plus de 250 $ nécessitent une note de justification.',
+  'newExpense.receipt': 'Reçu',
+  'newExpense.receiptHint': 'JPG, PNG ou PDF · 10 Mo max',
   'newExpense.receiptOcrHint':
     'Préremplissage des champs par reconnaissance optique de caractères (OCR)',
   'newExpense.receiptPrompt': 'Déposez une photo ou un PDF ici, ou cliquez pour parcourir',
@@ -76,17 +108,21 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     "Prenez ou téléchargez un reçu et Recoup pré-remplira le marchand, la date et le total. Confirmez tout ci-dessous avant d'enregistrer.",
   'newExpense.title': 'Ajouter une dépense',
+  'newReport.approverHint':
+    'Cette personne recevra un e-mail lorsque vous soumettrez ce rapport pour validation.',
   'newReport.approverLabel': "E-mail de l'approbateur (optionnel)",
   'newReport.approverPlaceholder': 'manager@votreentreprise.com',
   'newReport.availableExpenses': 'Dépenses disponibles',
   'newReport.createFailed': 'Impossible de créer le rapport. Veuillez réessayer.',
   'newReport.draftsFallback':
     'Liste des dépenses en direct indisponible — affichage de données de démonstration sélectionnées.',
+  'newReport.eyebrow': 'Regrouper les dépenses · soumettre pour approbation',
   'newReport.includedCount': '{{count}} inclus',
   'newReport.purposeLabel': 'Objet professionnel',
   'newReport.purposePlaceholder':
     'Décrivez le voyage ou le projet auquel ces dépenses se rapportent (visible par votre approbateur et les finances).',
   'newReport.saveDraft': 'Enregistrer comme brouillon',
+  'newReport.saveDraftFailed': "Impossible d'enregistrer le brouillon. Veuillez réessayer.",
   'newReport.submit': 'Soumettre pour approbation',
   'newReport.submitFailed': 'Impossible de soumettre le rapport. Veuillez réessayer.',
   'newReport.summary': 'Résumé du rapport',
@@ -100,17 +136,24 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Flux en direct indisponible — affichage de données de démonstration.',
   'notifications.openReport': 'Ouvrir le rapport ›',
+  'pricing.approvalsLabel': 'approbations',
   'pricing.expensesLabel': 'dépenses',
   'pricing.heading': 'approbations',
   'pricing.policiesLabel': 'politiques',
   'pricing.receiptsLabel': 'reçus',
   'recoveredAmountHeroCard.label': 'Remboursement récupéré · YTD',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} rapport(s) actuellement en attente de validation auprès de tous les validateurs.',
+  'reports.approvalFlow': "Flux d'approbation",
   'reports.backToList': 'Retour aux rapports',
   'reports.detailFallback':
     'Rapport en direct indisponible — affichage de données de démonstration.',
   'reports.lineItems': 'Lignes',
   'reports.lineItemsCount': '{{count}} dépenses',
+  'reports.lineItemsEmpty': "Aucune dépense sur ce rapport pour l'instant.",
+  'reports.openLibrary': 'Ouvrir la bibliothèque de rapports',
   'reports.policyTitle': 'Indicateur de politique',
+  'reports.selectPrompt': 'Sélectionnez un rapport dans la bibliothèque pour voir son détail.',
   'reports.summary.lineCount': 'Lignes',
   'reports.summary.reimbursable': 'Remboursable',
   'reports.summary.total': 'Total déclaré',
@@ -120,6 +163,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Liste en direct indisponible — affichage de données de démonstration.',
   'reportsList.newReport': 'Nouveau rapport',
+  'reportsList.submittedOn': 'Soumis le {{date}}',
   'reportsList.title': 'Bibliothèque de rapports',
   'resetPassword.hidePassword': 'Masquer le mot de passe',
   'resetPassword.newPasswordLabel': 'Nouveau mot de passe',
@@ -145,6 +189,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Enregistré ✓',
   'settings.profileSaveFailed': 'Impossible de mettre à jour le profil. Veuillez réessayer.',
   'signup.heading': 'Créez votre compte Recoup',
+  'signup.hidePassword': 'Masquer le mot de passe',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Afficher le mot de passe',
   'signup.subheading': 'Gratuit pour 25 dépenses par mois — sans carte bancaire.',

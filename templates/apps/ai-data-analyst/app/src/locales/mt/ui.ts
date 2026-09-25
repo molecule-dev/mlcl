@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Mistoqsijiet, feedback, jew dataset li ħawwad il-mudell? Ikkuntattja lit-tim ta' {{app}} mill-menu tal-għajnuna fl-app — kull messaġġ jasal għand persuna reali li taħdem fuq il-prodott.",
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwar',
+  'about.intro':
+    "{{app}} huwa analista tad-data bl-AI li jibdel id-data mhux ipproċessata f'tweġibiet. Ittella' CSV jew qabbad warehouse, staqsi mistoqsija bl-Ingliż sempliċi, u tikseb il-grafika t-tajba, it-tabella ta' sostenn, u s-SQL li pproduċiha — {{tagline}}.",
+  'about.missionBody':
+    "L-analitika m'għandhiex teħtieġ ticket fil-backlog u ġimgħa ta' stennija. {{app}} iqiegħed analista kapaċi wara kaxxa tat-test biex timijiet tal-prodott, tal-operazzjonijiet u tal-finanzi jkunu jistgħu jwieġbu l-mistoqsijiet tagħhom stess fi ftit minuti — filwaqt li jżomm kull riżultat riproduċibbli u verifikabbli.",
+  'about.missionTitle': 'Il-missjoni tagħna',
   'about.pageTitle': 'Dwar {{app}}',
+  'about.whatYouGet': 'Dak li tikseb',
+  'askClarionBar.ariaLabel': 'Staqsi lil {{appName}} mistoqsija',
   'askClarionBar.askCta': 'Staqsi',
   'askClarionBar.placeholder':
     'Saqsi mistoqsija dwar id-dejta tiegħek — eż. “l-aqwa 10 klijenti skont id-dħul tat-tielet kwart”',
@@ -19,16 +29,20 @@ export const ui: UiTranslations = {
   'dashboard.insightsEyebrow': 'Innutat mill-AI',
   'dashboard.insightsHeading': 'Għarfien reċenti',
   'dashboard.noInsights': "Għad m'hemm l-ebda tagħrif — ittella' sett ta' dejta biex tibda.",
+  'dashboard.subhead':
+    'Tliet għarfien ġodda minn bieraħ. Anomalija waħda li jistħoqqilha ħarsa aktar mill-qrib.',
   'dashboard.uploadCta': "Tella' d-dejta",
   'datasetCard.analyzedPrefix': 'analizzat {{when}}',
   'datasetCard.cols': 'Kolonni',
   'datasetCard.rows': 'Ringieli',
+  'datasetDetail.aiHeading': 'Għarfien dwar l-IA',
   'datasetDetail.back': 'Settijiet tad-dejta',
   'datasetDetail.col.example': 'Eżempju',
   'datasetDetail.col.name': 'Field',
   'datasetDetail.col.nullable': 'Nullabbli',
   'datasetDetail.col.unique': 'Uniku',
   'datasetDetail.cols': 'Kolonni',
+  'datasetDetail.lineageEmpty': 'Importat mill-upload — l-ebda trasformazzjoni upstream.',
   'datasetDetail.loadError': 'Ma rnexxiex it-tagħbija tad-dataset.',
   'datasetDetail.notFound': "Sett ta' dejta mhux misjub.",
   'datasetDetail.queriesEmpty':
@@ -43,17 +57,22 @@ export const ui: UiTranslations = {
   'datasetDetail.tab.${tk}': 'Field',
   'datasets.empty': "Għad m'hemm l-ebda sett ta' dejta — ittella' wieħed biex tibda.",
   'datasets.eyebrow': '{{count}} settijiet tad-dejta · {{rows}} ringieli',
+  'datasets.heading': 'Settijiet tad-dejta',
   'datasets.loadError': 'Ma rnexxiex jitgħabbew id-datasets.',
   'datasets.subhead':
     "Fajls li Clarion indiċja u għamel possibbli li wieħed jista' jagħmel mistoqsijiet. Ikklikkja fuq kard biex tispezzjona l-iskema, l-istatistika, u l-linjaġġ.",
   'datasets.uploadCta': "Tella' sett ta' dejta",
+  'forgotPassword.backPrompt': 'Tiftakarha wara kollox? ',
   'forgotPassword.checkSpam':
     'Jekk ma tarax dan fi żmien minuta, iċċekkja l-folder tal-ispam tiegħek jew ipprova ibgħatu mill-ġdid.',
   'forgotPassword.emailRequired': 'L-email hija meħtieġa',
+  'forgotPassword.resend': 'Ibgħat mill-ġdid',
   'forgotPassword.sendError': "Ma stajtx nibgħat email ta' reset",
   'forgotPassword.sentHeading': 'Iċċekkja l-email tiegħek',
   'forgotPassword.sentSubheading':
     "Bagħtejna link ta' reset lil {{email}} Il-link jiskadi fi żmien 30 minuta.",
+  'forgotPassword.subheading':
+    'Daħħal l-email tax-xogħol tiegħek u nibagħtulek link biex twaqqaf password ġdida.',
   'googleSignInButton.label': 'Kompli bil-Google',
   'insightFeedCard.viewCta': 'Veduta',
   'insightHeroCard.subtitle':
@@ -62,36 +81,54 @@ export const ui: UiTranslations = {
   'kpiTileGrid.momSuffix': 'kontra x-xahar li għadda',
   'landing.closing.cta': "Ipprova Clarion b'xejn",
   'landing.closing.heading': 'Ieqaf tibni dashboards. Ibda tistaqsi mistoqsijiet.',
+  'landing.closing.subhead':
+    "B'xejn għal 14-il jum. Ġib CSV wieħed, u tikseb l-ewwel tliet għarfien tiegħek f'inqas minn ħames minuti.",
   'landing.features.eyebrow': 'Kif jaħdem Clarion',
   'landing.features.heading': 'Ibgħat CSV. Saqsi mistoqsija. Ikseb it-tweġiba.',
+  'landing.features.subhead':
+    "L-ebda SQL meħtieġ. L-ebda mifrex ta' dashboards. Kull tweġiba hija grafika, tabella, u s-SQL li nħadem — esportabbli b'klikk wieħed.",
   'landing.hero.eyebrow':
     'Analista tad-Data tal-AI · għal timijiet tal-prodott u tal-operazzjonijiet',
   'landing.hero.primaryCta': "Ipprova Clarion b'xejn għal 14-il jum",
   'landing.hero.secondaryCta': "Ara mistoqsija ta' eżempju",
   'landing.hero.subtitle':
     "Tella' sett ta' dejta, staqsi mistoqsijiet b'Ingliż sempliċi, u rċievi lura ċ-ċart it-tajjeb. Clarion tieħu ħsieb l-SQL, l-iskoperta tal-iskema, u l-linjaġġ — sabiex l-analisti jkunu jistgħu jibagħtu l-prodotti 10 darbiet aktar malajr.",
+  'landing.hero.title': '{{tagline}}.',
   'landing.hero.trust1': "L-ebda karta ta' kreditu",
   'landing.hero.trust2': 'SOC 2 tip II',
   'landing.hero.trust3': 'Nisel fuq kull mappa',
   'landing.nav.tryFree': "Ipprova b'xejn",
+  'landing.preview.cta': 'Ipprova query',
   'landing.preview.label': 'Dan ix-xahar ħarġu tagħrif dwarhom',
   'landing.proof.heading': 'Magħmul għal timijiet analitiċi serji',
   'login.hidePassword': 'Aħbi l-password',
+  'login.newUserPrompt': 'Ġdid għal {{appName}}? ',
   'login.showPassword': 'Uri l-password',
   'login.subheading': 'Idħol biex tkompli tistaqsi mistoqsijiet aħjar dwar id-dejta tiegħek.',
+  'login.trialCta': "Ibda l-prova tiegħek ta' {{days}}-day",
   'mobileNav.closeMenu': 'Agħlaq il-menù tan-navigazzjoni',
   'mobileNav.openMenu': 'Iftaħ il-menù tan-navigazzjoni',
+  'planUpdated.body':
+    "Il-bidla fil-billing tiegħek issa hija attiva. Tista' timmaniġġja l-pjan tiegħek fi kwalunkwe ħin mill-paġna tal-billing.",
+  'planUpdated.retry': 'Erġa’ pprova',
+  'planUpdated.verifyFailed': 'Għadna ma stajniex nikkonfermaw il-ħlas tiegħek.',
+  'planUpdated.verifyFailedBody':
+    "Jista' jkun li l-ħlas tiegħek għadu qed jiġi pproċessat. Erġa' pprova fi ftit ħin.",
   'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
+  'pricing.limits.advanced': 'Karatteristiċi avvanzati',
   'queryEditor.aiBadge': 'AI ġġenerata',
   'queryEditor.aiSummary': 'Sommarju tal-AI',
   'queryEditor.copyFailed': 'Ma stajtx nikkopja lejn il-clipboard.',
   'queryEditor.dataHeading': 'Dejta',
+  'queryEditor.emptyBody':
+    '{{appName}} iwieġeb fi tliet partijiet: grafika, it-tabella tad-data sottostanti, u s-SQL li nħadem.',
   'queryEditor.emptyHeading': 'Agħżel suġġeriment jew ittajpja tiegħek',
   'queryEditor.emptyResult': 'Ma rritornat l-ebda tweġiba. Ipprova mistoqsija differenti.',
   'queryEditor.exportCsv': 'CSV',
   'queryEditor.eyebrow': 'Staqsi lil Clarion · Mistoqsija bil-lingwa naturali',
   'queryEditor.heading': "X'tixtieq tkun taf?",
   'queryEditor.questionEyebrow': 'Int staqsejt',
+  'queryEditor.runFailed': "Ma setax jiġi esegwit dak il-query. Jekk jogħġbok erġa' pprova.",
   'queryEditor.sqlHeading': 'SQL Ġenerat',
   'queryEditor.subhead':
     "Ittajpja mistoqsija b'Ingliż sempliċi. Clarion jagħżel iċ-ċart, imexxi l-SQL, u jurik il-linjaġġ.",
@@ -108,8 +145,11 @@ export const ui: UiTranslations = {
   'reports.subhead':
     "Analiżijiet salvati li tista' taqsam, tiskeda, u tesporta. Ikklikkja fuq kwalunkwe thumbnail biex tiftaħ ir-rapport sħiħ.",
   'reportThumbnailCard.onDemand': 'fuq talba',
+  'reportThumbnailCard.runPrefix': 'mexxi {{when}}',
+  'resetPassword.hidePassword': 'Aħbi l-password',
   'resetPassword.newPasswordLabel': 'Password ġdida',
   'resetPassword.newPasswordPlaceholder': 'Password ġdida',
+  'resetPassword.passwordTooShort': "Il-password trid tkun ta' mill-inqas {{min}} karattri",
   'resetPassword.resetFailed': 'Ir-reset falla',
   'resetPassword.showPassword': 'Uri l-password',
   'resetPassword.subheading':
@@ -125,20 +165,27 @@ export const ui: UiTranslations = {
   'settings.apiKeys.createCta': 'Ġenera',
   'settings.apiKeys.created': 'Ċavetta API ġdida ġġenerata.',
   'settings.apiKeys.createError': 'Ma setgħetx tinħoloq iċ-ċavetta tal-API.',
+  'settings.apiKeys.creating': 'Qed jiġġenera…',
   'settings.apiKeys.deleted': 'Iċ-ċavetta tal-API ġiet revokata.',
   'settings.apiKeys.deleteError': 'Ma setgħetx tiġi rrevokata ċ-ċavetta tal-API.',
+  'settings.apiKeys.empty': "L-ebda API key s'issa — iġġenera waħda hawn fuq.",
   'settings.apiKeys.heading': 'Ċwievet tal-API',
   'settings.apiKeys.namePlaceholder': 'Isem taċ-ċavetta (eż. bot tas-CI)',
   'settings.apiKeys.rotateCta': 'Dawwar',
   'settings.apiKeys.rotated':
     'Iċ-ċavetta tal-API ġiet imdawra. Aġġorna l-integrazzjonijiet tiegħek.',
+  'settings.apiKeys.rotateError': 'Ma setgħetx tiġi rotata l-API key.',
+  'settings.appearance.description': 'Aqleb bejn il-modalità ċara u skura.',
   'settings.appearance.title': 'Dehra',
   'settings.dangerZone': "Żona ta' periklu",
   'settings.integrations.body':
     "Qabbad maħżen biex tistaqsi dejta diretta minflok ma ttella' fajls.",
   'settings.integrations.connected': 'Konnessjoni aġġornata għal {{source}} .',
   'settings.integrations.connectedTag': 'konness',
+  'settings.integrations.error': 'Ma setgħetx tiġi aġġornata l-integrazzjoni.',
   'settings.integrations.heading': 'Sorsi tad-dejta',
+  'settings.revokeDeviceWarning':
+    "L-aċċess ta' dan l-apparat se jiġi rrevokat dalwaqt. Oħroġ minnu?",
   'settings.security.heading': 'Sigurtà',
   'settings.signOutDevice': 'Oħroġ',
   'settings.team.empty':
@@ -146,21 +193,31 @@ export const ui: UiTranslations = {
   'settings.team.removed': 'Membru tat-tim tneħħa.',
   'settings.twoFactorCode': "Kodiċi ta' awtentikazzjoni",
   'settings.twoFactorDisable': 'Iddiżattiva',
+  'settings.twoFactorDisableTitle': "Itfi l-awtentikazzjoni b'żewġ fatturi",
   'settings.twoFactorEnable': 'Ippermetti',
+  'settings.twoFactorEnableTitle': "Ixgħel l-awtentikazzjoni b'żewġ fatturi",
   'settings.twoFactorInvalidCode': 'Kodiċi invalidu',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Kodiċi QR taż-żewġ fatturi',
+  'settings.twoFactorScan':
+    "Skennja dan il-kodiċi QR bl-app tal-awtentikatur tiegħek, imbagħad daħħal il-kodiċi ta' 6 ċifri.",
+  'settings.twoFactorUnavailable':
+    "L-awtentikazzjoni b'żewġ fatturi mhijiex disponibbli għal din l-app.",
   'settings.twoFactorVerify': 'Ivverifika u attiva',
   'sideNavBar.appSubtitle': 'Analista tad-Data tal-AI',
   'sideNavBar.datasets': 'Settijiet tad-dejta',
   'sideNavBar.newAnalysis': 'Analiżi Ġdida',
   'sideNavBar.queries': 'Mistoqsijiet',
   'signup.failed': 'Ir-reġistrazzjoni falliet',
+  'signup.haveAccount': 'Diġà għandek kont? ',
+  'signup.hidePassword': 'Aħbi l-password',
   'signup.showPassword': 'Uri l-password',
   'signup.subheading':
     "14-il jum b'xejn. Ebda karta ta' kreditu. Ġib CSV wieħed — Clarion jagħmel il-bqija.",
   'topNavBar.help': 'Għajnuna',
   'topNavBar.lastDays': 'L-aħħar {{jiem}} Jiem',
   'topNavBar.userProfileAlt': 'Profil tal-Utent',
+  'upload.dropPrompt': 'Poġġi fajl hawn, jew ikklikkja biex tfittex',
   'upload.maxSize': 'Massimu {{size}}',
   'upload.noRecent': "Għad m'hemm l-ebda uploads.",
   'upload.recentHeading': 'Uploads riċenti',
@@ -171,9 +228,12 @@ export const ui: UiTranslations = {
   'upload.uploading': 'Qed jittella’…',
   'upload.viewCta': 'Settijiet tad-dejta →',
   'uploadDropZone.eyebrow': "Waqqa' fajl · jew ikklikkja biex tfittex",
+  'uploadDropZone.fileInputLabel': 'Agħżel fajl biex ittellgħu',
+  'uploadDropZone.maxSize': 'Daqs massimu tal-fajl {{size}} · CSV preferut għall-akbar datasets',
   'uploadDropZone.readyEyebrow': 'Lest biex tanalizza',
   'uploadDropZone.subtitle':
     'Clarion awtomatikament jiskopri l-iskema, iħaddem l-istatistika, u juri anomaliji malli jasal il-fajl tiegħek.',
+  'uploadDropZone.title': "Ittella' d-dataset tiegħek",
   'uploadDropZone.unknownType': 'tip mhux magħruf',
   'userMenu.datasets': 'Is-settijiet tad-dejta tiegħi',
 }

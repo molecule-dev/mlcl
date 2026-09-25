@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
   'about.eyebrow': 'Over',
+  'about.featureConnections':
+    'Een verbindingsbeheerder die je databases veilig opslaat en van kleurcodes voorziet — inloggegevens worden versleuteld opgeslagen, nooit als platte tekst.',
+  'about.featureMonitoring':
+    'Live monitoring van queryprestaties en databaseactiviteit, met de sneltoetsen en het opdrachtenpalet om alles handsfree te bedienen.',
+  'about.featurePlans':
+    'Abonnementen die met je meegroeien — Gratis voor solo werk, Pro en Team voor meer verbindingen, langere queryretentie, exports en geavanceerde functies.',
+  'about.featureQueryEditor':
+    'Een door Monaco aangedreven SQL-editor met querygeschiedenis, opgeslagen queries en CSV-export van je resultaten met één klik.',
+  'about.featureSchema':
+    'Een schemaverkenner en tabelbrowser om databases, tabellen en kolommen te navigeren, en rijen inline te bekijken, filteren en bewerken.',
+  'about.missionTitle': 'Onze missie',
   'authShell.commands': 'Opdrachten',
   'authShell.ssoSupported': 'SSO ondersteund',
   'common.run': 'Ren',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': "Query's",
   'connections.schema': 'Schema',
   'connections.subtitle': 'Beheer uw databaseverbindingen.',
+  'connections.test': 'Test',
   'databaseAdminLayout.adminRole': 'Beheerdersrol',
   'databaseAdminLayout.commandPalette': 'Opdrachtenpalet',
   'databaseAdminLayout.commands': 'opdrachten',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Nieuwe verbinding',
   'databaseAdminLayout.queries': "Query's",
   'databaseAdminLayout.ready': 'Klaar',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Zoek opdrachten, queries, tabellen…',
   'databaseAdminLayout.user': 'Gebruiker',
   'editConnection.confirmDelete': 'Deze verbinding verwijderen?',
   'editConnection.deleteButton': 'Verbinding verwijderen',
+  'editConnection.newPassword': 'Nieuw wachtwoord (leeg laten om te behouden)',
   'editConnection.saved': 'Verbinding opgeslagen.',
   'editConnection.title': 'Verbinding bewerken',
   'forgotPassword.success': 'Als dat account bestaat, is een herstellink onderweg.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Successen',
   'monitoring.title': 'Monitoring',
   'monitoring.totalQueries': "Totaal aantal query's",
+  'nav.schema': 'Schema',
   'newConnection.database': 'Database',
   'newConnection.engine': 'Engine',
   'newConnection.host': 'Host',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Geen verbinding gekoppeld aan dit fragment.',
   'savedQuery.notBound': 'Niet gekoppeld',
   'savedQuery.title': 'Opgeslagen query',
+  'schema.columns': 'Kolommen',
   'schema.foreignKeys': 'Vreemde sleutels',
   'schema.indexes': 'Indexen',
   'schemaExplorer.browseRows': 'Rijen doorbladeren',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'nullable',
   'schemaExplorer.colType': 'type',
   'schemaExplorer.noColumns': 'Geen kolommen.',
+  'schemaExplorer.noForeignKeys': 'Geen externe sleutels.',
   'schemaExplorer.noIndexes': 'Geen indexen.',
   'schemaExplorer.noTables': 'Geen tabellen',
   'schemaExplorer.pickATable': 'Kies een tabel uit de zijbalk.',
   'schemaExplorer.tables': 'Tabellen',
   'schemaExplorer.title': 'Schemaverkenner',
+  'settings.session': 'Sessie',
   'settings.subtitle': 'Beheer uw account en abonnement.',
   'signup.heading': 'Maak uw Quarry-account aan',
   'signup.tagline': 'Start binnen een minuut met toegang.',
   'tableBrowser.noRows': 'Deze tabel bevat nog geen rijen.',
+  'tableBrowser.subtitle': 'Rijen uit je externe database bekijken.',
   'tableBrowser.title': 'Rijen uit uw externe database bekijken.',
 }

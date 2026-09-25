@@ -1,26 +1,40 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'チーム向けのより温かいオンボーディングを展開したい、バグを見つけた、またはフィードバックがある場合は、アカウント設定からご連絡ください — すべてのメッセージは、お手伝いできる実在の担当者に届きます。',
   'about.contactTitle': 'お気軽にお問い合わせください',
   'about.eyebrow': '概要',
+  'about.missionTitle': '私たちの使命',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'パスワードをリセットしてください。',
+  'auth.forgotPassword.panel.body': 'リセットは30秒 — チェックリストの進捗が待っています。',
+  'auth.forgotPassword.panel.headline': '前回の続きからどうぞ。',
+  'auth.forgotPassword.subheading':
+    '仕事用メールアドレスを入力してください。リセットリンクをお送りします。',
   'auth.forgotPassword.successSubheading':
     '受信トレイをご確認ください — リセット手順をお送りしました。',
   'auth.login.emailPlaceholder': 'name@yourcompany.com',
   'auth.login.heading': 'おかえりなさい。',
   'auth.login.passwordPlaceholder': 'パスワードを入力',
+  'auth.login.signupPrompt': 'チームに参加したばかりですか？',
   'auth.login.subheading': 'サインインして、オンボーディングの続きを始めましょう。',
   'auth.login.submit': '続きを始める',
+  'auth.panel.body':
+    'あなた専用のチェックリスト、トレーニングのマイルストーン、チーム紹介 — すべてがひとつの落ち着いた場所に。',
   'auth.panel.footnote': '© Embark — 人を第一にしたオンボーディングを、今日から。',
   'auth.panel.headline': '自信を持って始める最初の90日は、ここから。',
   'auth.resetPassword.heading': '新しいパスワードを設定してください。',
   'auth.resetPassword.newPasswordLabel': '新しいパスワード',
+  'auth.resetPassword.panel.body':
+    '新しいパスワードを保存すれば、オンボーディングの旅にすぐ戻れます。',
+  'auth.resetPassword.panel.headline': 'もうすぐ戻れます。',
   'auth.resetPassword.subheading': '覚えやすいものを選んでください — 8文字以上です。',
   'auth.signup.emailPlaceholder': 'name@yourcompany.com',
   'auth.signup.heading': '最初の90日へようこそ。',
   'auth.signup.panel.body':
     'ガイド付きチェックリスト、役割に合わせた研修、人と人とのご紹介を、初日までにご用意します。',
+  'auth.signup.panel.headline': '初日は、初日に。',
   'auth.signup.subheading':
     'Embark のアカウントを作成して、ガイド付きオンボーディングを始めましょう。',
   'checklist.empty.body': 'フィルターを切り替えて、ほかのタスクをご覧ください。',
@@ -28,6 +42,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'オンボーディング · チェックリスト',
   'checklist.loading': 'チェックリストを読み込んでいます…',
   'checklist.stat.actionNeeded': '対応が必要',
+  'checklist.stat.completion': '完了',
+  'checklist.stat.inProgress': '進行中',
   'checklist.stat.inProgressHelper': '中断した場所から再開しましょう',
   'checklist.stat.overdueHelper': 'まずはこれらを片付けましょう',
   'checklist.subtitle':
@@ -59,6 +75,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': '書類はまだありません',
   'documents.eyebrow': 'オンボーディング · 書類',
   'documents.loading': '書類を読み込んでいます…',
+  'documents.stat.actionNeeded': '今すぐ署名',
+  'documents.stat.all': 'すべてのドキュメント',
   'documents.stat.allHelper': '全カテゴリーを横断',
   'documents.stat.pending': '署名待ち',
   'documents.stat.pendingHelper': '完了に必要です',
@@ -66,6 +84,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': '安全に保管されています',
   'documents.status.optional': '任意',
   'documents.status.required': '必須',
+  'documents.status.signed': '署名済み',
   'documents.subtitle':
     'ハンドブック、各種フォーム、署名済みの合意書 — すべて一か所にまとめています。',
   'documents.title': '読むべき書類と署名すべき書類のすべて。',
@@ -73,16 +92,21 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'ビューア',
   'documentViewer.breadcrumbDocs': '書類',
   'documentViewer.downloadMeta': 'メタデータをダウンロード',
+  'documentViewer.helpBody':
+    'People & Cultureは、Slackの#ask-peopleでハンドブックの質問に答えます。',
   'documentViewer.helpEyebrow': 'ヘルプが必要ですか？',
   'documentViewer.loadError': 'この書類を読み込めませんでした。',
   'documentViewer.loading': '書類を読み込んでいます…',
   'documentViewer.notFound': '書類が見つかりません',
+  'documentViewer.previewBody':
+    'アップロードが設定されると、ファイルをインラインで表示します。今のところは、メタデータのダウンロードで記録が実在することを確認できます。',
   'documentViewer.previewBodyExternal': 'ダウンロードボタンで、ファイルを新しいタブで開けます。',
   'documentViewer.previewTitle': '書類のプレビュー',
   'documentViewer.sign': '署名して承認',
   'documentViewer.signatureBody':
     '文書をよくお読みになり、下のボタンをクリックして署名し、内容をご確認ください。',
   'documentViewer.signatureHeading': '署名が必要です',
+  'documentViewer.signed': '✓ 署名・提出済み',
   'documentViewer.signing': '署名中…',
   'documentViewer.uploadedRecently': '最近アップロードされました',
   'landing.closing.body':
@@ -92,10 +116,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'すでにアカウントを持っています',
   'landing.feature1.body':
     'すべてのタスク（書類、アカウント、紹介）に、期日と適切な担当者があらかじめ設定されます。',
+  'landing.feature1.title': 'ガイド付きチェックリスト',
   'landing.feature2.body':
     'モジュールは 30/60/90 のマイルストーンで解放され、入社する役割とチームに合わせて調整されます。',
+  'landing.feature2.title': '役割に応じたトレーニング',
   'landing.feature3.body':
     'バディや上司、部門をまたぐ紹介をあらかじめ予定 — 誰も一人で始めることはありません。',
+  'landing.feature3.title': '本物の紹介',
   'landing.featureEyebrow': 'なぜ Embark なのか',
   'landing.featureHeadline': 'Embark が初日から信頼を勝ち取る3つのこと。',
   'landing.footer.rights': 'All rights reserved.',
@@ -104,6 +131,7 @@ export const ui: UiTranslations = {
   'landing.headlineLine2': 'より温かい歓迎を。',
   'landing.preview.body': '次は、バディとの30分のコーヒーチャット — 火曜10:00。',
   'landing.preview.eyebrow': '90日中14日目 — サンプルダッシュボード',
+  'landing.preview.headline': 'おかえりなさい、Maya。',
   'landing.proof.spec': 'SOC 2 ・GDPR 対応',
   'landing.proof.teams': '50〜5,000人規模のチームに対応',
   'landing.proof.time': '14日間の無料トライアル',
@@ -120,16 +148,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': '昨日',
   'planUpdated.message': '準備は万端です。',
   'planUpdated.preparing': 'プランを更新しています…',
+  'planUpdated.retry': 'もう一度試す',
+  'planUpdated.verifyFailed': 'お支払いの確認がまだできていません。',
+  'planUpdated.verifyFailedBody':
+    'お支払いの処理がまだ完了していない可能性があります。しばらくしてからもう一度お試しください。',
   'planUpdated.verifying': 'お支払いを確認中…',
   'pricing.documentsLabel': 'ドキュメント',
   'pricing.onboardingsLabel': 'オンボーディング',
   'pricing.tasksLabel': 'タスク',
   'profile.dayNumber': '日目',
   'profile.detailsHeading': 'オンボーディングの詳細',
+  'profile.encouragementBody':
+    'バディとマネージャーを巻き込みましょう — 小さな一歩が積み重なります。',
   'profile.milestones': 'マイルストーン',
   'profile.progressEyebrow': 'オンボーディングの進捗',
   'profile.tasks': 'タスク',
   'profile.unknownName': 'ようこそ',
+  'settings.appearance.description': 'ライトモードとダークモードを切り替えます。',
+  'settings.appearance.title': '外観',
+  'settings.subtitle':
+    '通知、セキュリティ、デバイス、データエクスポートを調整 — すべてはここに、あなたの条件で。',
   'settings.title': '設定と環境設定。',
   'taskDetail.backToChecklist': 'チェックリストに戻る',
   'taskDetail.breadcrumbChecklist': 'チェックリスト',
@@ -141,7 +179,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': '期限なし',
   'taskDetail.notFound': 'タスクが見つかりません',
   'taskDetail.notFoundBody': 'このタスクは削除されたか、別のユーザーのものです。',
+  'taskDetail.tipBody':
+    '行き詰まったら、Slackでオンボーディングバディにメッセージを — 彼らが最初の頼りです。',
   'taskDetail.tipEyebrow': 'ちょっとしたヒント',
+  'team.empty.body': 'もっと広い検索を試すか、別の部署を選んでください。',
   'team.empty.title': '該当するメンバーがいません',
   'team.eyebrow': 'オンボーディング · メンバー',
   'team.loading': 'メンバーを読み込んでいます…',
@@ -163,14 +204,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'マイルストーン',
   'timeline.stat.current': '現在のマイルストーン',
   'timeline.stat.next': '次の解放',
+  'timeline.stat.progress': '全体',
   'timeline.subtitle':
     '各マイルストーンで新しいモジュール、紹介、成長のための対話が解放されます。プレッシャーはありません — ただ前進です。',
+  'timeline.tipBody':
+    '30日目、60日目、90日目にマネージャーと30分の振り返りを予定しましょう — フィードバックが具体的になり、進捗が見えるようになります。',
   'timeline.tipEyebrow': 'マネージャーからのヒント',
+  'timeline.tipTitle': 'マイルストーンのためにカレンダーに時間を確保しましょう。',
   'timeline.title': 'あなたの 30 / 60 / 90 の旅。',
   'training.badge.notStarted': '未着手',
   'training.empty': '研修モジュールはまだありません。',
   'training.eyebrow': 'オンボーディング · 研修',
   'training.loading': 'モジュールを読み込んでいます…',
+  'training.stat.all': '割り当て済みモジュール',
   'training.subtitle':
     'モジュールは 30/60/90 で、役割に合わせて解放されます。必須のものが先に表示されます。',
   'training.title': 'スキル、ツール、ストーリーを、あなたのペースで。',
@@ -182,9 +228,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'モジュールが見つかりません',
   'trainingModule.quizBody': 'このモジュールを完了するには、80%以上の得点が必要です。',
   'trainingModule.quizHeading': 'モジュール末のクイズ',
+  'trainingModule.quizLocked': '先にモジュールを開始',
   'trainingModule.quizNone': 'このモジュールにはクイズがありません。',
   'trainingModule.quizRetry': 'もう一度試す',
+  'trainingModule.quizStart': 'クイズを開始',
   'trainingModule.quizSubmit': '回答を送信',
+  'trainingModule.start': 'モジュールを開始',
   'trainingModule.statusNotStarted': '未着手',
   'welcomeHeroCard.completeLabel': '完了',
   'welcomeHeroCard.milestonesLabel': 'マイルストーン',

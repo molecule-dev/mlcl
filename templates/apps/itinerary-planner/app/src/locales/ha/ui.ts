@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Kuna da ra'ayi, kun sami matsala, ko kuna shirin wani abu mai girma? Tuntube mu daga saitunan asusunku — kowane saƙo yana zuwa ga wani mutum na gaske a ƙungiyar.",
+  'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Ajiyar ku a cikin akwati ɗaya — jiragen sama, otal-otal, da tabbacin ayyuka suna zuwa daidai ranar da suka dace.',
+  'about.featureCollab':
+    'Haɗin kai na lokaci-lokaci — gayyaci matafiya har biyar a kowace tafiya, kowane canji yana aiki kai tsaye kuma ana yin tsokaci a ƙarƙashin kowane tasha.',
+  'about.featureMapsBudget':
+    'Taswirori, wurare, da kasafin kuɗi na haɗin gwiwa — ga dukan tafiyar a kan taswira, gano wuraren da editoci suka zaɓa, kuma bibiyi kashe kuɗi don kada kowa ya wuce gona da iri.',
+  'about.featureTimelines':
+    'Jadawalin kowace rana — ja tashoshi don sake tsara su, saka sassan sufuri, kuma ga jadawalin yana sake lissafta kamar takarda mai rai.',
+  'about.intro':
+    '{{app}} yana mai da babban fayil cike da shirye-shirye marasa cikawa zuwa tafiya ɗaya, ta haɗin gwiwa da dukan ƙungiyar ku za su iya bi. Gina jadawalin kowace rana, saka jiragen sama da otal-otal, yi taswirar kowace tasha, kuma bibiyi kasafin kuɗi — duk a wuri ɗaya mai kwanciyar hankali maimakon shafuka goma sha biyu da tattaunawar rukuni.',
+  'about.missionBody':
+    'Shirya tafiya ya kamata ya ji kamar tafiyar tana yin kyau, ba kamar aikin gida ba. {{app}} yana wanzuwa don sa tafiye-tafiyen haɗin gwiwa su kasance cikin sauƙi — don kowane matafiyi ya zo da sanin shirin, kuma kowace tasha ta ba da labari mai cancantar tunawa.',
+  'about.missionTitle': 'Manufarmu',
   'about.pageTitle': 'Game da {{app}}',
   'auth.legalConsent': 'Ta ci gaba, kun yarda da',
   'bookings.empty.body': 'Ƙara jirgin sama, otal, ko wani aiki don fara akwatin saƙo.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Otal',
   'bookings.type.other': 'Wani',
   'budgetSpendCard.budgetTotal': 'na {{total}} an tsara',
+  'budgetSpendCard.overBy': '{{amount}} ya wuce kasafin kuɗi',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} na baya-bayan nan',
+  'budgetSpendCard.remaining': '{{amount}} ya rage',
   'calendar.eyebrow': 'Shekarar da ke gaba',
   'calendar.heading': 'Kowace tafiya akan kalanda ɗaya.',
   'calendar.legendHeading': 'Tafiye-tafiye a wannan watan',
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'kuma',
   'common.goToDashboard': 'Je zuwa Dashboard',
   'dashboard.budgetHeading': 'Bugawar kasafin kuɗi',
+  'dashboard.empty.body':
+    'Shirya tafiyarku ta farko kuma dashboard ɗinku zai cika da jadawalin kowace rana, bugun kasafin kuɗi, da ajiyar ku.',
+  'dashboard.empty.cta': 'Shirya tafiyarku ta farko',
   'dashboard.empty.heading': 'Babu tafiye-tafiye tukuna — akwatin taswirarka babu komai a ciki.',
   'dashboard.eyebrow': 'Ikon aiki',
   'dashboard.heading': 'Kasadar ku ta gaba, a kusurwa ɗaya mai natsuwa.',
   'dashboard.newTripCta': 'Fara sabuwar tafiya',
+  'dashboard.subheading':
+    'Kirga zuwa tafiya ta gaba, bugun kashe kuɗin yau, da kallo mai sauri ga kowane jadawalin da ke gudana.',
   'dashboard.tripsHeading': 'Tafiye-tafiye a cikin motsi',
   'dashboard.viewAllExpenses': 'Duba kowane kuɗi',
   'dashboard.viewAllTrips': 'Duba kowace tafiya',
   'dayTimelineRow.category.accommodation': 'Zauna',
+  'dayTimelineRow.category.food': 'Abinci da abin sha',
+  'dayTimelineRow.category.sightseeing': 'Yawon buɗe ido',
   'dayTimelineRow.category.transport': 'Sufuri',
   'destinationOrbCard.exploreCta': 'Ƙara zuwa tafiya',
   'destinationOrbCard.tripCount': '{{count}} tafiye-tafiye',
+  'destinations.empty.body': 'Koma zuwa Duka kuma abubuwan da edita ya samu za su sake bayyana.',
   'destinations.empty.heading': 'Babu inda za a je tukuna.',
+  'destinations.emptyFiltered.heading': 'Babu wani abu da aka yi wa alama haka tukuna.',
   'destinations.errors.load': 'Ba za a iya loda wuraren da za a je ba.',
   'destinations.eyebrow': 'Ina zuwa na gaba',
   'destinations.heading': 'An adana kusurwoyi da sakamakon edita.',
@@ -70,7 +98,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Mai siyarwa',
   'expenses.formHeading': 'Kuɗin rajista don {{trip}}',
   'expenses.heading': 'Inda kasafin kudin tafiya ya tafi.',
+  'expenses.heroBudget': '{{pct}}% na {{total}} da aka shirya',
   'expenses.heroEyebrow': '{{trip}} • hoton kasafin kuɗi',
+  'expenses.heroNoBudget': 'Ba a sa kasafin kuɗi a wannan tafiya ba tukuna.',
   'expenses.noTrips.body': 'Shirya tafiya da farko kuɗaɗen da aka haɗa da kasafin kuɗin tafiya.',
   'expenses.noTrips.heading': 'Babu tafiye-tafiye tukuna.',
   'expenses.receiptCount': '{{count}} rasit',
@@ -82,12 +112,16 @@ export const ui: UiTranslations = {
     'Kowace rasit da tabbatarwa suna komawa zuwa ga madaidaicin rukuni a nan — babu buƙatar takardar lissafi.',
   'forgotPassword.eyebrow': 'Maido da tsarin aikinka',
   'forgotPassword.heading': 'manta da kalmar shigar ka?',
+  'forgotPassword.subheading':
+    'Shigar da imel ɗin da kuka yi amfani da shi don {{appName}} kuma za mu aika hanyar haɗi don sake saita kalmar sirrinku.',
   'forgotPassword.submit': 'Aika imel ɗin dawo da murmurewa',
   'forgotPassword.submitPending': 'Ana aika imel ɗin dawo da…',
   'forgotPassword.successHint':
     'Babu imel tukuna? Duba babban fayil ɗin spam ɗinku, ko gwada sake da wani adireshin daban.',
   'forgotPassword.successSubheading':
     'Mun aika hanyar haɗin murmurewa zuwa {{email}} . Haɗin yana aiki na tsawon mintuna 30.',
+  'forgotPassword.tryAgain': 'Aika zuwa wata imel',
+  'landing.cta.eyebrow': 'Fara da shirin kyauta',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Ƙirƙiri asusu kyauta',
   'landing.cta.subheading':
@@ -99,8 +133,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Fara tafiya kyauta',
   'landing.hero.ctaSecondary': 'Duba samfurin tafiya',
+  'landing.hero.eyebrow': 'Mai tsara tafiya · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint yana mayar da babban fayil cike da tsare-tsare masu rabi zuwa tsarin da aka raba, na yau da kullun da ƙungiyar ku za ta iya bi - tare da bin diddigin rajista, taswira, da kasafin kuɗi a wuri ɗaya.',
+  'landing.hero.title': 'Ku shirya shi sau ɗaya. Ku yi yawo tare.',
   'landing.nav.join': 'Fara tafiya kyauta',
   'landing.nav.preview': 'Cikin Hanyar Hanya',
   'landing.preview.cta': 'Shirya ɗaya daga cikin naka',
@@ -108,6 +144,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Wasu tafiye-tafiye da matafiya ke yawo a yanzu',
   'login.eyebrow': 'Yankin membobi',
   'login.heading': 'Barka da dawowa, matafiyi',
+  'login.noAccount': 'Sabo ne ga Tessera?',
   'login.signupLink': 'Ƙirƙiri asusu kyauta',
   'login.subheading':
     'Shiga don sarrafa tafiye-tafiyenku, tsare-tsaren rana, yin rajista, da kuma shigarwar littafin da kuka riga kuka fara.',
@@ -118,6 +155,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Ba a iya sabunta sanarwa ba.',
   'notifications.heading': 'Abin da ya canza a cikin tafiye-tafiyenku na yau.',
   'notifications.markUnread': 'Yi alama a matsayin wanda ba a karanta ba',
+  'notifications.subheading':
+    '{{count}} sabo \\u2014 tabbacin ajiya, bayanan abokin aiki, raguwar farashin jirgi, da tunatarwa.',
   'notifications.time.daysAgo': '{{count}} d da suka wuce',
   'notifications.time.hoursAgo': '{{count}} h da ya wuce',
   'notifications.time.justNow': 'yanzu kawai',
@@ -136,6 +175,7 @@ export const ui: UiTranslations = {
     'Ayyukan da aka haɗa, kuɗin shiga, sanarwar turawa, da takardun shaidar da kuka shiga da su.',
   'signup.and': 'kuma',
   'signup.eyebrow': 'Shiga Waypoint',
+  'signup.haveAccount': 'Kuna yawo ne tuni?',
   'signup.heading': 'Ku shirya shi sau ɗaya. Ku yi yawo tare.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -147,6 +187,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Buɗe jadawalin aiki',
   'tripCountdownHeroCard.ctaSecondary': 'Shirya wata tafiya',
   'tripCountdownHeroCard.daysLabel': '{{days}} kwanaki masu zuwa',
+  'tripCountdownHeroCard.eyebrow': 'Kasada ta gaba · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · darare {{nights}} — jadawalinku yana shirye don tafiya.',
   'tripCoverCard.stops': '{{count}} tasha',
   'tripCoverCard.travelers': '{{count}} matafiya',
   'tripDetail.addActivity': 'Ƙara aiki',
@@ -156,6 +199,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Taken aiki',
   'tripDetail.adding': 'Ƙarawa…',
   'tripDetail.backToTrips': 'Komawa ga dukkan tafiye-tafiye',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Matafiya',
   'tripDetail.dayLabel': 'Rana {{day}}',
   'tripDetail.empty': 'Babu wani aiki tukuna — ƙara ɗaya don fara jadawalin lokaci.',
@@ -166,14 +210,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Tafiya • {{country}}',
   'tripDetail.invite': 'Gayyata',
   'tripDetail.inviteLabel': 'Gayyata ta imel',
+  'tripDetail.invitePlaceholder': 'wani@misali.com',
   'tripDetail.inviteSent': 'An aika gayyata zuwa {{email}} .',
   'tripDetail.inviting': 'Ana aikawa…',
   'tripDetail.loading': 'Ana loda tafiya…',
   'tripDetail.noCollaborators': 'Kai kawai, a yanzu.',
+  'tripDetail.notesHeading': 'Bayanan tafiya',
   'tripDetail.notesPlaceholder': 'Babu bayanin kula tukuna.',
   'tripDetail.notFound.heading': 'Ba a sami tafiya ba',
   'tripDetail.openBookings': 'Buɗe akwatin yin rajista',
   'tripDetail.shareCopied': 'Raba hanyar haɗin da aka kwafi zuwa allo mai allo:',
+  'tripDetail.shareReady': 'Hanyar raba a shirye:',
   'tripDetail.stops': '{{count}} tasha',
   'tripDetail.timelineEyebrow': 'Jadawalin rana',
   'tripDetail.timelineHeading': 'Tsarin yau da kullun',
@@ -191,6 +238,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Matafiya',
   'tripPlanner.heading': 'Zana tafiya cikin ƙasa da minti ɗaya.',
   'tripPlanner.preview.eyebrow': 'Samfoti kai tsaye',
+  'tripPlanner.preview.placeholderCountry': 'Zaɓi ƙasa',
   'tripPlanner.preview.placeholderDestination': 'Kasadar ku ta gaba',
   'tripPlanner.section1.title': 'Ina & yaushe',
   'tripPlanner.section2.title': 'Matafiya & kasafin kuɗi',
@@ -199,10 +247,13 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Rana {{day}} — ƙara tasha, sufuri, da yin rajista a nan.',
   'tripPlanner.section3.day2': 'Rana {{day}} — ƙara tasha, sufuri, da yin rajista a nan.',
   'tripPlanner.section3.day3': 'Rana {{day}} — ƙara tasha, sufuri, da yin rajista a nan.',
+  'tripPlanner.section3.title': 'Mafarin shirin rana',
   'tripPlanner.subheading':
     'Sanya abubuwan da suka fi muhimmanci a ƙasa — koyaushe zaka iya gayyatar masu haɗin gwiwa, jawo tasha, da kuma tura rajista daga baya.',
   'tripPlanner.submit': 'Ƙirƙiri tafiya',
   'tripPlanner.submitting': 'Ƙirƙira…',
+  'trips.empty.body': 'Koma zuwa Duk tafiye-tafiye ko fara shirya yawo na gaba.',
+  'trips.empty.cta': 'Tsara tafiya',
   'trips.empty.heading': 'Babu wani abu da ya dace da wannan matatar tukuna.',
   'trips.eyebrow': 'Atlas ɗin',
   'trips.filterLabel': 'Tace tafiye-tafiye ta hanyar matsayi',
@@ -213,6 +264,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Babu tafiye-tafiye tukuna.',
   'trips.pastHeading': 'Kasadar da ta gabata',
   'trips.subheading': '{{count}} tafiye-tafiye - na baya, na yanzu, da kuma na wata rana.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Shirya sau ɗaya. Yi yawo tare. Tuna har abada.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · mambobi {{appName}} tun 2024',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} ya mai da tafiya mai cike da aiki ta makonni 3 a ƙasashe huɗu zuwa jadawalin da ya fi kwanciyar hankali da muka taɓa rabawa.',
   'waypointLayout.mobileNavClose': 'Rufe menu na kewayawa',
   'waypointLayout.primaryNavLabel': 'Babban kewayawa',
 }

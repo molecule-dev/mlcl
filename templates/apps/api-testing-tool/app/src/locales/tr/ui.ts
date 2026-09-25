@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Bir hata mı buldunuz, özellik isteğiniz mi var ya da sırada ne geliştirmemizi mi söylemek istiyorsunuz? hello@pylon.dev adresine e-posta gönderin — her mesaj ekibimizdeki gerçek bir mühendise ulaşır.',
   'about.contactTitle': 'Bizimle iletişime geçin',
+  'about.intro':
+    '{{app}}, terminalde yaşayan mühendisler için hızlı, klavye odaklı bir API test tezgahıdır — Postman tarzı istekler, koleksiyonlar, ortamlar ve geçmiş, gereksiz yük olmadan.',
+  'about.missionBody':
+    "API'ler modern yazılımın belkemiğidir, ancak onları çalıştırmaya yönelik araçlar yavaş, şişkin ve fareyle kullanılır. {{app}}, geliştiricilere keskin, hızlı, terminal kalitesinde bir tezgah sunmak için var: istekleri ateşleyin, güven inşa edin ve klavyeden ayrılmadan yayına alın.",
+  'about.missionTitle': 'Misyonumuz',
   'about.pageTitle': '{{app}} hakkında',
   'authShell.statusLabel': 'çalışan çevrimiçi',
   'collections.createError': 'Koleksiyon oluşturulamadı.',
   'collections.defaultName': 'Adsız koleksiyon {{n}}',
+  'collections.empty':
+    'Henüz koleksiyon yok — ilk klasörünüzü oluşturmak için “Yeni koleksiyon”a tıklayın.',
   'collections.eyebrow': '$ pylon collections --tree',
   'collections.fetchError': 'Koleksiyonlar yüklenemedi.',
   'collections.heading': 'Koleksiyonlar',
   'collections.loading': 'Koleksiyonlar yükleniyor…',
+  'collections.metric.allGreen': 'Hepsi yeşil',
   'collections.metric.collections': 'Koleksiyonlar',
   'collections.metric.failing': 'Başarısız',
   'collections.metric.failingCaption': 'Son çalıştırma hatalar içerdi',
@@ -24,6 +34,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Değişkenler',
   'environments.createError': 'Ortam oluşturulamadı.',
   'environments.defaultName': 'Adsız ortam {{n}}',
+  'environments.empty': 'Henüz ortam yok — eklemek için “Yeni ortam”a tıklayın.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'Ortamlar yüklenemedi.',
   'environments.heading': 'Ortamlar',
@@ -31,8 +42,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Yeni ortam',
   'environments.subheading':
     'Gönderim sırasında isteklere yerleştirilen değişkenler. Çalışma alanı başına bir aktif ortam.',
+  'forgotPassword.statusLabel': 'sıfırlama · güvenli tünel',
   'forgotPassword.success':
     'Bu e-posta için bir hesap varsa, sıfırlama bağlantısı yolda. Lütfen gelen kutunuzu kontrol edin.',
+  'history.empty': 'Burada henüz bir şey yok — ilk isteğinizi Çalışma Alanı sekmesinden ateşleyin.',
   'history.eyebrow': '$ pylon history --tail',
   'history.fetchError': 'Geçmiş yüklenemedi.',
   'history.heading': 'Çalıştırma geçmişi',
@@ -41,9 +54,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Son 50',
+  'history.realtime': 'gerçek zamanlı',
   'history.subheading':
     'Bu çalışma alanından gönderilen her istek; durum, gecikme ve yük boyutu ile birlikte.',
   'landing.choosePlan': 'Plan seçin',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Güven inşa edin.',
   'landing.ctaBody':
     'Kredi kartı yok. Platform mühendisine gerek yok. ⌘K açın ve ilk isteğinizi beş dakikadan kısa sürede gönderin.',
   'landing.ctaHeading': 'Güveni dövün.',
@@ -85,6 +100,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Ort. gecikme',
   'mocks.metric.live': 'Herkese açık',
   'mocks.metric.servers': "Mock'lar",
+  'mocks.ms': 'ms',
   'mocks.newMock': 'Yeni mock',
   'mocks.online': 'Herkese açık',
   'mocks.paused': 'Özel',
@@ -108,9 +124,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Sağlıklı',
   'monitors.metric.uptime': 'Ort. çalışma süresi',
   'monitors.newMonitor': 'Yeni monitör',
+  'monitors.paused': 'duraklatıldı',
   'monitors.run': 'Çalıştır',
   'monitors.runError': 'Çalıştırma ağ hatasıyla sonuçlandı: {{error}}',
+  'monitors.runFailed': 'Çalıştırma başarısız oldu.',
   'monitors.running': 'Çalışıyor…',
+  'monitors.runSuccess': '{{status}} çalıştırılıyor — üst akış {{ms}}ms içinde {{code}} döndürdü.',
   'monitors.sparkLabel': 'Gecikme eğilimi',
   'monitors.subheading':
     "Kaydedilmiş herhangi bir test için isteğe bağlı kontroller. Bir test bağlayın, Çalıştır'a basın ve her tetiklemede 24 saatlik başarı oranının güncellendiğini izleyin.",
@@ -119,27 +138,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Çalışma süresi · 24 saat',
   'nav.legal': 'Hukuki',
   'notFound.backToWorkspace': 'Çalışma alanına dön',
+  'notFound.body':
+    '{{app}} bu URL için bir istek ateşledi ve hiçbir yanıt alamadı. Rotayı iki kez kontrol edin veya çalışma alanına geri dönün.',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Yol bulunamadı',
+  'planUpdated.body':
+    'Faturalandırma değişikliğiniz artık etkin. Planınızı istediğiniz zaman faturalandırma sayfasından yönetebilirsiniz.',
+  'planUpdated.retry': 'Tekrar dene',
+  'planUpdated.verifyFailed': 'Ödemenizi henüz onaylayamadık.',
+  'planUpdated.verifyFailedBody':
+    'Ödemeniz hala işleniyor olabilir. Lütfen biraz sonra tekrar deneyin.',
   'planUpdated.verifying': 'Ödemeniz onaylanıyor…',
+  'pricing.advancedFeatures': 'Gelişmiş özellikler: {{yes}}',
+  'pricing.canExport': 'Veri dışa aktarma: {{yes}}',
+  'pricing.heading': '{{app}} planınızı seçin',
+  'pricing.maxCollections': '{{count}} koleksiyon',
+  'pricing.maxEnvironments': '{{count}} ortam',
+  'pricing.maxHistory': '{{count}} geçmiş kaydı',
+  'pricing.maxRequests': '{{count}} istekler',
   'privacy.collect.account':
     "Hesap: e-postanız, hash'lenmiş parolanız, görünen adınız ve son giriş zamanınız.",
+  'privacy.intro':
+    '{{app}} gizliliğinize saygı duyar. Bu sayfa hangi verileri topladığımızı, neden topladığımızı ve bunları nasıl sileceğinizi özetler.',
   'privacy.rights.body':
     "Koleksiyonlarınızı ve ortamlarınızı istediğiniz zaman dışa aktarabilir veya tüm verilerinizi 30 gün içinde kalıcı olarak silmek için Ayarlar'dan hesabınızı silebilirsiniz.",
   'privacy.share.body':
     'Yalnızca siz. Çalışma alanı içeriğinizi asla üçüncü taraflara satmıyor, paylaşmıyor veya kiralamıyoruz. Sunucu günlükleri olay yanıtı için 30 gün saklanır ve ardından silinir.',
   'privacy.title': 'Gizlilik bildirimi',
+  'profile.bio':
+    "Kişisel {{app}} çalışma alanınız — koleksiyonları sabitleyin, ortamları paylaşın ve ürünü yayına alan API'leri izleyin.",
   'profile.eyebrow': '@{{handle}}',
   'profile.joined': '{{when}} tarihinde katıldı',
+  'profile.metric.collections': 'Koleksiyonlar',
   'profile.metric.monitors': 'Monitörler',
   'profile.metric.requests': 'Kaydedilmiş istekler',
+  'profile.noActivity':
+    'Henüz hiç istek ateşlenmedi — bir tane yapmak için Çalışma Alanı sekmesine gidin.',
   'profile.signedOut': 'Profilinizi görüntülemek için giriş yapın',
   'pylonShell.primaryNavLabel': 'Birincil gezinme',
+  'resetPassword.passwordLabel': 'Yeni şifre',
+  'resetPassword.statusLabel': 'sıfırlama · jeton doğrulandı',
   'resetPassword.subtitle': 'Daha önce kullanmadığınız güçlü bir parola seçin.',
   'resetPassword.tokenPlaceholder': 'e-postadan yapıştır',
+  'settings.accountManagement.desc':
+    'E-postanızı ve parolanızı güncelleyin, bildirimleri ve cihazları yönetin, oturumu kapatın veya hesabınızı silin.',
+  'settings.accountManagement.title': 'Hesap ve güvenlik',
   'settings.eyebrow': '$ pylon settings --edit',
   'settings.fetchError': 'Ayarlar yüklenemedi.',
   'settings.language.title': 'Dil',
+  'settings.seeding': 'Başlatılıyor…',
   'settings.seedStarter': 'Başlangıç içeriğini oluştur',
   'settings.starterCollection': 'Başlangıç koleksiyonu',
   'settings.starterCollectionDesc': "{{ts}} tarihinde Ayarlar'dan oluşturuldu",
@@ -153,6 +200,8 @@ export const ui: UiTranslations = {
     'Parolanızı korumaktan siz sorumlusunuz. Bir hesabı birden fazla kişiyle paylaşmak Free veya Pro planlarında izin verilmez — paylaşılan çalışma alanları için Team aboneliği satın alın.',
   'terms.billing.body':
     "Ücretli abonelikler her fatura döneminde otomatik olarak yenilenir. Ayarlar'dan istediğiniz zaman iptal edebilirsiniz; erişiminiz mevcut dönem sonuna kadar sürer.",
+  'terms.intro':
+    'Bir {{app}} hesabı oluşturarak aşağıdaki koşulları kabul etmiş olursunuz. Bir kez okuyun; sizi geriye dönük değişikliklerle şaşırtmayacağız.',
   'terms.title': 'Hizmet koşulları',
   'terms.usage.body':
     "Pylon'u sahip olmadığınız veya test etmek için açık izniniz olmayan hizmetlere istek göndermek için kullanmayın. Hız sınırlarını aşmak veya dolandırıcılık yapmak için Pylon'u kullanmayın.",
@@ -173,16 +222,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Çalıştırılmadı',
   'testRunner.metric.passed': 'Başarılı',
   'testRunner.never': 'Hiç çalıştırılmadı',
+  'testRunner.newTest': 'Yeni test',
   'testRunner.noAssertions': 'Bu testin henüz onaylaması yok.',
+  'testRunner.noRunsYet':
+    'Henüz hiç çalıştırma kaydedilmedi — geçmişi doldurmak için “Tümünü çalıştır”a basın.',
   'testRunner.passed': 'başarılı',
+  'testRunner.recentRuns': 'Son çalıştırmalar',
   'testRunner.runAll': 'Tümünü çalıştır',
   'testRunner.running': 'Çalıştırılıyor…',
   'testRunner.runOne': 'Çalıştır',
   'testRunner.subheading': 'Paket sonuçları, onaylama farkları ve son 50 çalıştırma.',
+  'testRunner.suites': 'Paketler',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Giriş yapan',
   'workspace.auth.keyName': 'Başlık adı',
   'workspace.auth.keyValue': 'Anahtar değeri',
+  'workspace.auth.noneHint': 'Bu istekle birlikte hiçbir yetkilendirme başlığı gönderilmeyecek.',
   'workspace.auth.password': 'Parola',
   'workspace.auth.username': 'Kullanıcı adı',
   'workspace.authOption.apikey': 'API Anahtarı',
@@ -192,13 +247,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Tür',
   'workspace.authTypeLabel': 'Kimlik doğrulama türü',
+  'workspace.body.contentLabel': 'İstek gövdesi',
+  'workspace.body.hint':
+    '{{envVars}} istek ateşlenmeden önce yerine konur. Gövdeler POST/PUT/PATCH/DELETE ile gönderilir.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Yok',
+  'workspace.body.noneHint':
+    'Hiçbir istek gövdesi gönderilmeyecek. Eklemek için JSON veya düz metin seçin.',
   'workspace.body.text': 'İşlenmemiş metin',
   'workspace.body.type': 'Tür',
   'workspace.environment': 'Ortam yok',
   'workspace.envVar': 'env değişkeni',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.failedCount': '{{count}} başarısız oldu',
+  'workspace.idle': 'Boşta',
   'workspace.kv.addHeader': 'Başlık ekle',
   'workspace.kv.addParam': 'Parametre ekle',
   'workspace.kv.headerKey': 'Başlık adı',
@@ -211,12 +273,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP yöntemi',
   'workspace.metric.latency': 'Gecikme',
   'workspace.metric.latencyCaption': 'Bu çalıştırmadaki gidiş-dönüş',
+  'workspace.metric.size': 'Yük',
   'workspace.metric.sizeCaption': 'Yanıt gövdesi baytı',
   'workspace.metric.statusCaption': 'Son yanıt',
   'workspace.metric.tests': 'Testler',
+  'workspace.metric.testsAllPassing': 'Tüm doğrulamalar yeşil',
   'workspace.metric.testsFailing': '{{count}} başarısız',
+  'workspace.metric.testsIdle': 'Değerlendirmek için bir istek gönderin',
   'workspace.noAssertions': 'Yerleşik onaylamaları değerlendirmek için bir istek çalıştırın.',
   'workspace.noResponseYet': 'Henüz yanıt yok',
+  'workspace.passedCount': '{{count}} kabul edildi',
   'workspace.responseHint': "// İsteği göndermek ve yanıtı yakalamak için Gönder'e basın.",
   'workspace.saveError': 'İstek kaydedilemedi.',
   'workspace.statusError': 'İstek gönderilemedi.',
@@ -225,10 +291,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Bir istek oluşturun, gönderin, sonra yanıtı doğrulayın — hepsi tek bir bölmede.',
   'workspace.testResults': 'Test sonuçları',
+  'workspace.tests.autoHint':
+    'Durum ailesi, gecikme, gövde boyutu ve taşıma sağlığı otomatik olarak doğrulanır — sonuçlar yanıt panelindeki “Test sonuçları” altında görünür.',
+  'workspace.tests.autoTitle': 'Yerleşik doğrulamalar her yanıtta çalışır',
   'workspace.token': 'Belirteç',
   'workspace.tokenHint':
     'Bu koleksiyondaki her istekte Authorization: Bearer <token> olarak gönderilir.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Adsız istek',
+  'workspace.urlLabel': "İstek URL'si",
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

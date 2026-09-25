@@ -1,12 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пытанні, водгукі ці памылка для паведамлення? Звяжыцеся з камандай у наладах уліковага запісу — кожнае паведамленне трапляе да рэальнага чалавека, які таксама вучыць мовы.',
   'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
+  'about.missionTitle': 'Наша місія',
+  'about.whatYouGet': 'Што вы атрымліваеце',
   'common.goToDashboard': 'Перайсці да панэлі',
   'common.logout': 'Выйсці',
+  'dailyStatsTriad.heartsHint': 'Папаўненне ў пачатку кожнага ўрока',
   'dailyStatsTriad.heartsLabel': 'Сэрцы',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
+  'dailyStatsTriad.minutesHint': 'З сённяшніх практыкаванняў',
   'dailyStatsTriad.minutesLabel': 'Хвілін сёння',
   'dailyStatsTriad.minutesValue': '{{count}} мін',
   'dailyStatsTriad.wordsLabel': 'Словы асвоены',
@@ -14,18 +20,30 @@ export const ui: UiTranslations = {
   'dashboard.continueHeading': 'Працягвайце з таго месца, дзе спыніліся',
   'dashboard.heading': 'Добры дзень, {{name}} .',
   'dashboard.loadError': 'Не атрымалася загрузіць апошні прагрэс — паказваюцца кэшаваныя значэнні.',
+  'dashboard.loading': 'Абнаўленне…',
   'dashboard.noLessons': 'Пакуль няма даступных урокаў — зайдзіце пазней.',
+  'dashboard.startPractice': 'Пачаць практыку гаворкі',
+  'dashboard.subheading':
+    'Працягніце з таго месца, дзе спыніліся — тры кароткія сесіі, і мэта дня дасягнута.',
   'dashboard.viewAllLessons': 'Усе ўрокі →',
+  'forgotPassword.subheading':
+    'Пакіньце сваю электронную пошту, і мы дашлём спасылку для скіду пароля.',
   'forgotPassword.successBody':
     'Праверце сваю паштовую скрыню — мы даслалі спасылку для скіду налад.',
   'forgotPassword.successHint':
     'Калі {{email}} супадае з акаўнтам, спасылка прыйдзе на працягу хвіліны.',
+  'landing.copyright': '© {{year}} {{app}}. Створана для дарослых навучэнцаў.',
   'landing.ctaBody':
     'Картка не патрэбна. Пакіньце свой адрас электроннай пошты, абярыце мову і пачніце заўтра.',
   'landing.ctaHeading': 'Гатовыя знайсці свой акцэнт?',
   'landing.eyebrow': 'Штодзённая моўная практыка для дарослых',
   'landing.featuresHeading': 'Практычны цыкл, які паважае ваш час',
+  'landing.featuresSubheading':
+    'Распрацавана для дарослых, якія маюць трыццаць хвілін у дзень, а не трыццаць гадзін у тыдзень.',
   'landing.heroCta': 'Пачніце 7-дзённую серыю',
+  'landing.heroSubtitle':
+    'Пяціхвілінныя ўрокі, якія змяшчаюцца ў кава-перапынак. Практыкаванні, лексіка, гаворка — усё ў сярыі, якую вы сапраўды захаваеце.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.languagesEyebrow': 'Выберыце мову',
   'landing.languagesHeading': 'Чатырнаццаць моў, адна штодзённая звычка',
   'landing.proof.languages': '{{count}} мовы',
@@ -40,11 +58,18 @@ export const ui: UiTranslations = {
   'leaderboard.heading': 'Табліца лідэраў',
   'leaderboard.loadError': 'Не атрымалася загрузіць табліцу лідэраў.',
   'leaderboard.loading': 'Загрузка табліцы лідэраў…',
+  'leaderboard.rewardBody':
+    'Тры тыдні запар у залатой лізе — і вы пераходзіце ў дыяментавую. Толькі дружалюбныя стаўкі.',
+  'leaderboard.rewardEyebrow': 'Прыз гэтага тыдня',
+  'leaderboard.rewardHeading': 'Топ {{count}} атрымліваюць значок залатой лігі',
   'leaderboard.subheading':
     'XP на гэтым тыдні. Скідаецца ў нядзелю апоўначы па вашым мясцовым часе.',
   'leaderboard.weeklyPeriod': 'На гэтым тыдні · сябры',
+  'leaderboardPanel.rankSuffix': 'Ранг № {{rank}}',
   'leaderboardPanel.title': 'Табліца лідэраў сяброў',
+  'leaderboardPanel.xp': '{{xp}} XP',
   'leaderboardPanel.you': '(Ты)',
+  'lessonCard.continue': 'Працягнуць →',
   'lessonCard.duration': '{{min}} мін',
   'lessonCard.level': 'Узровень {{level}}',
   'lessonCard.progressPercent': '{{percent}} % выканання',
@@ -53,14 +78,17 @@ export const ui: UiTranslations = {
   'lessonDetail.check': 'Праверце',
   'lessonDetail.checking': 'Праверка…',
   'lessonDetail.correct': 'Бліскуча!',
+  'lessonDetail.correctHint': '+{{xp}} XP. Працягвайце.',
   'lessonDetail.empty': 'У гэтым уроку няма практыкаванняў.',
   'lessonDetail.exit': 'Выхад з урока',
   'lessonDetail.fillBlank': 'Запоўніце прабел',
   'lessonDetail.finish': 'Скончыць урок',
   'lessonDetail.incorrect': 'Не зусім… {{answer}} «',
+  'lessonDetail.incorrectHint': 'Вы ўбачыце гэта зноў у заўтрашнім паўтарэнні.',
   'lessonDetail.lessonId': 'Урок · {{id}}',
   'lessonDetail.loadError': 'Не атрымалася загрузіць практыкаванні.',
   'lessonDetail.loading': 'Загрузка ўрока…',
+  'lessonDetail.pronunciation': 'Выберыце правільнае вымаўленне',
   'lessonDetail.submitError': 'Не ўдалося адправіць адказ.',
   'lessonDetail.translation': 'Перакладзіце фразу',
   'lessonDetail.xpEarned': 'Зароблены вопыт · {{xp}}',
@@ -79,6 +107,12 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'Адкрыць меню навігацыі',
   'parlanceLayout.nav.profile': 'Профіль',
   'parlanceLayout.primaryNavLabel': 'Асноўная навігацыя',
+  'planUpdated.body':
+    'Змена білінгу цяпер актыўная. Вы можаце кіраваць сваім тарыфам у любы час са старонкі білінгу.',
+  'planUpdated.retry': 'Паспрабуйце яшчэ раз',
+  'planUpdated.verifyFailed': 'Нам пакуль не ўдалося пацвердзіць ваш плацёж.',
+  'planUpdated.verifyFailedBody':
+    'Магчыма, ваш плацёж усё яшчэ апрацоўваецца. Паўтарыце спробу праз хвіліну.',
   'planUpdated.verifying': 'Пацвярджэнне аплаты…',
   'practice.empty': 'Пакуль няма даступных фраз.',
   'practice.eyebrow': 'Практыкаванне ў размове',
@@ -102,6 +136,10 @@ export const ui: UiTranslations = {
   'pricing.limits.progress': 'запісы прагрэсу',
   'profile.anonymous': 'Навучэнец',
   'profile.avatarAlt': '{{name}} Аватар',
+  'profile.eyebrow': 'Удзельнік з {{joined}}',
+  'profile.eyebrowNew': 'Новы навучэнец',
+  'profile.langLessonCount': '{{count}} ўрокі',
+  'profile.langLevel': 'Узровень {{level}}',
   'profile.languages': 'Мовы',
   'profile.languagesHeading': 'Мовы ў распрацоўцы',
   'profile.noAchievements': 'Завяршыце ўрок, каб пачаць зарабляць дасягненні.',
@@ -110,6 +148,7 @@ export const ui: UiTranslations = {
   'profile.streak': 'Паласа',
   'profile.totalXp': 'Агульная колькасць вопыту',
   'resetPassword.confirmPlaceholder': 'Увядзіце яшчэ раз',
+  'resetPassword.mismatch': 'Паролі не супадаюць.',
   'resetPassword.newPasswordLabel': 'Новы пароль',
   'resetPassword.newPasswordPlaceholder': 'Восем ці больш сімвалаў',
   'resetPassword.subheading': 'Выберыце нешта запамінальнае, восем ці больш сімвалаў.',
@@ -117,6 +156,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Параметры практыкі',
   'settings.goalBody':
     'Колькі вопыту вы імкнецеся атрымаць кожны дзень. Серыі захоўваюцца кожны раз, калі вы дасягаеце мэты.',
+  'settings.goalHeading': 'Штодзённая мэта',
   'settings.goalMinutes': '~ {{min}} хв/дзень',
   'settings.language.description':
     'Выберыце мову, якая будзе выкарыстоўвацца ва ўсіх меню і надпісах праграмы.',

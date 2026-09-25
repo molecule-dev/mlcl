@@ -1,11 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пикир калтырғыңыз келеби, ката таптыңызбы же функция сунуштағыңыз келеби? Ар бир билдирүү {{app}} командасындагы чыныгы адамга жетет — эмне үйрөнүп жатканыңызды угууну каалайбыз.',
   'about.contactTitle': 'Байланышка чыгыңыз',
   'about.eyebrow': '{{app}} жөнүндө',
+  'about.intro':
+    '{{app}} — билим чындап эсиңизде калышын каалаган адамдар үчүн аралыктуу кайталоо флешкарта колдонмосу. Тил үйрөнүп жатасызбы, формула жаттап жатасызбы же экзаменге түшүнүктөрдү бышыктап жатасызбы, ал ар бир картаны унутуп калаар алдыңыздагы так учурда пландайт — эс илиминин фактыларды узак мөөнөттүү эске сактоого өткөрүүнүн эң натыйжалуу жолу.',
+  'about.missionBody':
+    'Көпчүлүк окуу куралдары сарпталган убакытты оптималдаштырат, эсте калган билимди эмес. {{app}} тескерисин оптималдаштырат: маанилүү нерсени эсиңизде кармаган эң аз кайталоо. Биз окуу тынч, өлчөнүүчү жана сиздики болушу керек деп эсептейбиз — ачык маалымат, караңгы ыкмалар жок жана жылдар бою уланта ала турган адат.',
+  'about.missionTitle': 'Биздин миссиябыз',
   'about.pageTitle': '{{tagline}}.',
   'authShell.sampleBack': 'Вильнюс — 1,2 секундда кайра чакыртылып алынган.',
   'authShell.sampleEyebrow': 'Келечектеги колодаңыздан карта',
+  'authShell.sampleFront': '«Литванын борбору.»',
+  'authShell.sampleRetention': '{{pct}}% эсте калуу',
   'authShell.sampleStreak': '{{days}} - күндүк серия',
   'cardEdit.title': 'Флэшкартаны түзөтүү',
   'cardEditor.backLink': 'Колодага кайтуу',
@@ -35,6 +44,8 @@ export const ui: UiTranslations = {
   'dashboard.kpi.days': 'күндөр',
   'deckDetail.backLink': 'Бардык палубалар',
   'deckDetail.deleteError': 'Коллекция өчүрүлгөн жок.',
+  'deckDetail.empty.body': 'Эс тутумуңузду курууну баштоо үчүн биринчи картаңызды кошуңуз.',
+  'deckDetail.empty.cta': 'Биринчи картаңызды кошуңуз',
   'deckDetail.empty.heading': 'Бул колодада азырынча карталар жок',
   'deckDetail.filterEmpty': 'Бул абал чыпкасына дал келген карталар жок.',
   'deckDetail.filterLabel': 'Карталарды штат боюнча чыпкалоо',
@@ -47,7 +58,10 @@ export const ui: UiTranslations = {
   'deckDetail.stat.total': 'Карталар',
   'deckDetail.studyDueLabel': 'Изилдөө {{count}} тиешелүү',
   'deckProgressCard.cardCount': '{{count}} карталар',
+  'deckProgressCard.masteredTooltip': '{{count}} өздөштүрүлдү',
   'deckProgressCard.studyCta': 'Изилдөө {{count}}',
+  'decks.confirmDelete':
+    'Бул колоданы жана анын бардык карталарын жок кыласызбы? Муну артка кайтаруу мүмкүн эмес.',
   'decks.create.heading': 'Колода түзүү',
   'decks.create.nameLabel': 'Палубанын аталышы',
   'decks.create.submit': 'Колода түзүү',
@@ -58,6 +72,7 @@ export const ui: UiTranslations = {
   'decks.heading': 'Палубалар',
   'decks.loadError': 'Колодалар жүктөлбөй калды.',
   'decks.loading': 'Жүктөлүүдө…',
+  'decks.newDeckLabel': 'Жаңы палуба',
   'decks.retention': 'Сактап калуу',
   'decks.studyArrow': 'Окуу →',
   'decks.subheading': '{{count}} колодалар · карап чыгуу жана башкаруу',
@@ -81,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Менин аккаунтум мурунтан эле бар',
   'landing.heroSubtitle':
     'Аралык менен кайталоо кысып окуу менен эстеп калуунун ортосундагы айырманы жаратат. Күнүнө беш мүнөт, жылдан жылга, тил өзгөрбөйт.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.proof.export': 'Ачык маалыматтар, кулпулоо жок',
   'landing.proof.free': 'Жеке колдонуу үчүн түбөлүккө акысыз',
   'landing.proof.import': '.apkg / CSV импорттоо',
@@ -95,12 +111,16 @@ export const ui: UiTranslations = {
   'login.heading': 'Колодаларыңызга кайрадан кош келиңиз',
   'login.orDivider': 'же улантуу',
   'login.signupLink': 'Акысыз окуй баштаңыз',
+  'login.signupPrompt': 'Бул жерде жаңысызбы?',
   'login.subtitle': 'Токтогон жериңизден улантыңыз — серияңыз сизди күтүп турат.',
   'mobileNav.closeMenu': 'Навигация менюсун жабуу',
   'mobileNav.openMenu': 'Навигация менюсун ачуу',
   'notifications.markAllReadError': 'Баары окулган деп белгиленбей калды.',
   'pricing.heading': 'карталар',
+  'pricing.limits.cards': 'карталар',
   'pricing.limits.decks': 'палубалары',
+  'pricing.limits.historyDays': '{{days}} күндүк кайталоо тарыхы',
+  'pricing.limits.historyUnlimited': 'Чексиз кайталоо тарыхы',
   'pricing.limits.stats': 'статистика',
   'pricing.limits.study': 'изилдөө',
   'resetPassword.passwordLabel': 'Жаңы сыр сөз',
@@ -112,16 +132,29 @@ export const ui: UiTranslations = {
   'sessionSummary.heading': 'Мыкты жасалды.',
   'sessionSummary.label': 'Сессия аяктады',
   'settings.changePasswordError': 'Сырсөздү өзгөртө алган жок.',
+  'settings.confirmPassword': 'Сырсөзүңүздү ырастаңыз',
   'settings.currentPassword': 'Учурдагы сырсөз',
+  'settings.dangerZone': 'Коркунучтуу аймак',
+  'settings.deleteAccountHint':
+    'Аккаунтуңузду жана бардык окуу маалыматтарыңызды биротоло жок кылыңыз. Муну артка кайтаруу мүмкүн эмес.',
+  'settings.deleteAccountWarning':
+    'Бул аккаунтуңузду жана бардык колодаларды, карталарды жана окуу тарыхын биротоло жок кылат. Муну артка кайтаруу мүмкүн эмес.',
   'settings.deleteError': 'Аккаунт өчүрүлгөн жок. Сырсөзүңүздү текшерип, кайра аракет кылыңыз.',
   'settings.deleting': 'Жок кылынууда…',
+  'settings.devicesHint': 'Аккаунтуңузга учурда катталган түзмөктөр.',
   'settings.newPassword': 'Жаңы сыр сөз',
   'settings.password': 'Сырсөз',
   'settings.passwordChanged': 'Сырсөз жаңыртылды.',
+  'settings.passwordHint': 'Кирүү үчүн колдонгон сырсөзүңүздү өзгөртүңүз.',
   'settings.reminders.atRisk': 'Жол кырсыгы коркунучу жөнүндө эскертүү (кечки саат 8:00дөн кийин)',
+  'settings.reminders.daily': 'Күнүмдүк эскертүү (8:00)',
   'settings.reminders.heading': 'Эскертүүлөр',
+  'settings.reminders.milestones': 'Олуттуу жетишкендиктерди белгилөө',
   'settings.reminders.note':
     'Бул түзмөктө сакталган. Кайсы изилдөө бул браузердин беттерине таасир этээрин өчүрүп-күйгүзөт; жөндөөлөр кайра жүктөө аркылуу шайкештештирилет.',
+  'settings.reminders.weekly': 'Жумалык эсте калуу жыйынтыгы (жекшембилер)',
+  'settings.revokeDeviceWarning':
+    'Бул түзмөктүн кирүү укугу жакында жокко чыгарылат. Чыгарылсынбы?',
   'settings.saved': 'Сакталган.',
   'settings.saveError': 'Сакталган жок.',
   'settings.saving': 'Сакталууда…',
@@ -137,6 +170,7 @@ export const ui: UiTranslations = {
   'signup.legal':
     'Аккаунт түзүү менен сиз биздин Шарттар жана Купуялык саясатыбызга макул болосуз.',
   'signup.nameLabel': 'Аты-жөнүңүз (милдеттүү эмес)',
+  'signup.orDivider': 'же төмөнкү аркылуу катталыңыз',
   'signup.subtitle': 'Күнүнө беш мүнөт. Келечекти эстей турган өзүң.',
   'stats.byStateHeading': 'Штат боюнча карталар',
   'stats.dailyHeading': 'Күнүмдүк сын-пикирлер (акыркы 30 күн)',
@@ -173,5 +207,6 @@ export const ui: UiTranslations = {
   'todayHeroCard.goalLabel': 'Күнүмдүк максат',
   'todayHeroCard.goalProgress': '{{reviewed}} / {{goal}}',
   'todayHeroCard.streakBadge': '{{days}} - күндүк серия',
+  'todayHeroCard.studyCta': 'Окууну баштоо',
   'userMenu.stats': 'Менин статистикам',
 }

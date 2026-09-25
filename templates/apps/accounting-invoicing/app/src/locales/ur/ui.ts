@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'کوئی سوال ہے، کوئی بگ ملا ہے، یا اپنی کتابیں منتقل کرنا چاہتے ہیں؟ {{app}} ٹیم سے hello@{{app}}.example پر رابطہ کریں — ہر پیغام ایک حقیقی شخص پڑھتا ہے۔',
   'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'کے بارے میں',
+  'about.intro':
+    '{{app}} چھوٹے کاروبار کے لیے اکاؤنٹنگ ہے جو ہر پیسے کا حساب رکھتی ہے — انوائسز، اخراجات، ادائیگیاں، اور رپورٹس ایک پرسکون جگہ پر مالکان، بک کیپرز، اور اکاؤنٹنٹس کے لیے۔',
+  'about.missionBody':
+    'کاروبار چلانے کا مطلب اپنی کتابوں سے ڈرنا نہیں ہونا چاہیے۔ {{app}} اسپریڈ شیٹ کی بکھری ہوئی حالت کو واضح اعداد و شمار سے بدل دیتی ہے جن پر آپ عمل کر سکتے ہیں، تاکہ آپ مفاہمت میں کم وقت اور وہ کام کرنے میں زیادہ وقت گزاریں جس کے لیے آپ نے کاروبار شروع کیا تھا۔',
+  'about.missionTitle': 'ہمارا مشن',
   'about.title': '{{app}} کے بارے میں',
   'accounts.count': '{{count}} اکاؤنٹس',
+  'accounts.emptyBody':
+    'لیجر اکاؤنٹس ٹریک کرتے ہیں کہ پیسہ کہاں رہتا ہے اور کہاں منتقل ہوتا ہے۔ آپ کا بک کیپر یا انٹیگریشن انہیں سیٹ اپ کرنے کے بعد یہ یہاں ظاہر ہوں گے۔',
   'accounts.emptyTitle': 'ابھی تک کوئی اکاؤنٹ نہیں ہے۔',
   'accounts.heading': 'کھاتوں کا چارٹ',
   'accounts.kpi.accounts': 'اکاؤنٹس',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'آپ کے انوائس، اخراجات اور ادائیگیوں کے پیچھے ہر لیجر اکاؤنٹ، قسم کے لحاظ سے گروپ کیا گیا ہے۔',
   'accounts.tag.inactive': 'غیر فعال',
   'authBrandPanel.attributionName': 'سارہ جینکنز',
+  'authBrandPanel.attributionRole': 'چیف فنانشل آفیسر، Horizon Tech',
   'authBrandPanel.eyebrow': 'مالیاتی ٹیموں کے ذریعہ قابل اعتماد',
   'authBrandPanel.label': 'برانڈ شوکیس',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'تمام صارفین',
   'customerDetail.invoiceMeta': 'جاری کردہ {{issued}} · واجب الادا {{due}}',
   'customerDetail.loadError': 'کسٹمر لوڈ کرنے میں ناکام۔',
+  'customerDetail.missingBody':
+    'درخواست کردہ کسٹمر ریکارڈ لوڈ نہیں ہو سکا۔ ممکن ہے یہ ہٹا دیا گیا ہو، یا آپ کو اس تک رسائی نہ ہو۔',
   'customerDetail.missingHeading': 'کسٹمر ریکارڈ دستیاب نہیں ہے۔',
+  'customerDetail.missingHelp':
+    'کسٹمرز کی فہرست پر واپس جانے کے لیے اوپر دیے گئے بیک لنک کا استعمال کریں، یا وہاں سے کوئی مختلف ریکارڈ منتخب کریں۔',
+  'customerDetail.noInvoices': 'ابھی تک کوئی رسیدیں نہیں ہیں۔',
   'customerDetail.notesEmpty': 'ابھی تک کوئی نوٹس نہیں ہے۔',
   'customerDetail.paymentsEmpty': 'کوئی ادائیگی ریکارڈ نہیں کی گئی۔',
   'customerDetail.paymentTerms': 'ادائیگی کی شرائط',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'قابل کٹوتی',
   'expenseDetail.detailsHeading': 'لین دین کی تفصیلات',
   'expenseDetail.loadError': 'اخراجات لوڈ کرنے میں ناکام۔',
+  'expenseDetail.matched': 'میچ شدہ · {{description}}',
   'expenseDetail.missingBody':
     'مطلوبہ اخراجات کو لوڈ نہیں کیا جا سکا۔ ہو سکتا ہے اسے ہٹا دیا گیا ہو، یا آپ کو اس تک رسائی حاصل نہ ہو۔',
   'expenseDetail.missingHeading': 'اخراجات کا ریکارڈ دستیاب نہیں ہے۔',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'رسید',
   'expenseDetail.receiptHeading': 'رسید',
   'expenseDetail.reconciled': 'صلح کر لی',
+  'expenseDetail.unreconciled': 'غیر مفاہمت',
   'expenses.empty': 'ابھی تک کوئی خرچہ نہیں۔',
   'expenses.heading': 'اخراجات',
   'expenses.kpi.deductible': 'قابل کٹوتی',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'رسیدیں لوڈ کرنے میں ناکام۔',
   'invoices.searchPlaceholder': 'انوائس # یا گاہک تلاش کریں…',
   'invoices.summary.paid': 'اس مدت کو ادا کیا۔',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     '30 دنوں کے لیے مفت۔ کوئی کارڈ نہیں۔ اپنے اکاؤنٹنٹ کو لائیں - وہ آپ کا شکریہ ادا کریں گے۔',
   'landing.ctaTitle': 'اپنی کتابوں کو کسی پرسکون جگہ پر منتقل کریں۔',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'اکاؤنٹس قابل وصول',
   'ledgerStatTriad.eyebrow.mtd': 'مہینہ تا تاریخ',
   'ledgerStatTriad.netSub': 'نیٹ {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} زائد المیعاد',
   'ledgerStatTriad.revenueLabel': 'آمدنی',
   'login.failed': 'سائن ان ناکام ہو گیا۔',
   'login.hidePassword': 'پاس ورڈ چھپائیں۔',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'سائن ان کریں۔',
   'nav.legal': 'قانونی',
   'newExpense.back': 'اخراجات',
+  'newExpense.clearReceiptCta': 'منسلک رسید صاف کریں',
   'newExpense.deductible': 'قابل ٹیکس',
   'newExpense.dropPrompt': 'منسلک کرنے کے لیے رسید کی تصویر یا پی ڈی ایف یہاں ڈراپ کریں۔',
   'newExpense.failed': 'خرچہ نہیں بچا سکا۔',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'ادائیگیاں لوڈ کرنے میں ناکام۔',
   'payments.unmatchedTag': 'بے مثال',
   'planUpdated.pageLabel': 'پلان اپ ڈیٹ کی تصدیق',
+  'pricing.advancedFeatures': 'اعلیٰ درجے کی خصوصیات: {{yes}}',
+  'pricing.canExport': 'ڈیٹا ایکسپورٹ: {{yes}}',
+  'pricing.heading': 'اپنا {{app}} پلان منتخب کریں',
+  'pricing.maxAccounts': '{{count}} اکاؤنٹس',
+  'pricing.maxExpenses': '{{count}} اخراجات',
+  'pricing.maxInvoices': '{{count}} انوائسز',
+  'privacy.intro':
+    'یہ پرائیویسی پالیسی بیان کرتی ہے کہ {{app}} سروس استعمال کرنے والے کاروباروں کے بارے میں معلومات کیسے جمع، استعمال، اور ظاہر کرتی ہے۔',
   'privacy.lastUpdated': 'آخری بار اپ ڈیٹ کیا گیا: {{تاریخ}}',
   'privacy.section.collected.body':
     'ہم اکاؤنٹ کی تفصیلات (نام، ای میل، کمپنی)، آپ کے اپ لوڈ کردہ مالیاتی ریکارڈز (انوائسز، اخراجات، صارفین، ادائیگیاں) اور معیاری سروس آپریشن لاگز (IP، صارف ایجنٹ، ٹائم اسٹیمپ) جمع کرتے ہیں۔',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'معلومات کا استعمال سروس کو چلانے، آپ کی درخواست کردہ رپورٹس اور پی ڈی ایف تیار کرنے، میل گن کے ذریعے لین دین کی ای میل بھیجنے اور اسٹرائپ کے ذریعے ادائیگیوں پر کارروائی کرنے کے لیے استعمال کیا جاتا ہے۔ ہم ذاتی معلومات کو فروخت یا کرایہ پر نہیں لیتے ہیں۔',
   'recentInvoicesCard.dueMeta': 'واجب الادا {{date}}',
+  'recentInvoicesCard.empty': 'کوئی رسیدیں مماثل نہیں ہیں۔',
   'recentInvoicesCard.eyebrow': 'اکاؤنٹس قابل وصول',
   'recentInvoicesCard.searchAriaLabel': 'رسیدیں تلاش کریں۔',
+  'recentInvoicesCard.searchPlaceholder': 'انوائسز تلاش کریں…',
   'recentInvoicesCard.title': 'حالیہ رسیدیں',
   'recentInvoicesCard.viewAll': 'تمام رسیدیں دیکھیں →',
   'reports.assets': 'اثاثے',
@@ -181,16 +211,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'نفع اور نقصان (12 ماہ)',
   'resetPassword.backToLogin': '← واپس سائن ان کریں۔',
   'resetPassword.hidePassword': 'پاس ورڈ چھپائیں۔',
+  'resetPassword.passwordLabel': 'نیا پاس ورڈ',
   'resetPassword.showPassword': 'پاس ورڈ دکھائیں۔',
+  'resetPassword.subheading': 'ایک مضبوط پاس ورڈ منتخب کریں — کم از کم آٹھ حروف۔',
   'resetPassword.submit': 'پاس ورڈ ری سیٹ کریں۔',
   'resetPassword.tooShort': 'پاس ورڈ کم از کم 8 حروف کا ہونا چاہیے۔',
   'settings.account.changePassword': 'پاس ورڈ تبدیل کریں۔',
   'settings.account.changingPassword': 'تبدیل ہو رہا ہے…',
   'settings.account.currentPassword': 'موجودہ پاس ورڈ',
+  'settings.account.dangerZone': 'خطرہ زون',
   'settings.account.deleteAccount': 'اکاؤنٹ حذف کریں۔',
   'settings.account.deleteDescription':
     'اپنا اکاؤنٹ اور تمام متعلقہ ڈیٹا کو مستقل طور پر حذف کریں۔',
   'settings.account.deleteError': 'اکاؤنٹ حذف کرنے میں ناکام۔',
+  'settings.account.deleteWarning':
+    'یہ آپ کا اکاؤنٹ مستقل طور پر حذف کر دے گا اور اسے واپس نہیں لایا جا سکتا۔ تصدیق کے لیے اپنا پاس ورڈ درج کریں۔',
   'settings.account.deleting': 'حذف ہو رہا ہے…',
   'settings.account.devices': 'آلات',
   'settings.account.email': 'ای میل',
@@ -201,6 +236,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'پاس ورڈ',
   'settings.account.passwordError': 'پاس ورڈ تبدیل کرنے میں ناکام۔',
   'settings.account.pushNotifications': 'اس ڈیوائس پر پش اطلاعات',
+  'settings.account.revokeDeviceWarning':
+    'اس ڈیوائس کی رسائی جلد منسوخ کر دی جائے گی۔ اسے سائن آؤٹ کریں؟',
   'settings.account.saveError': 'پروفائل اپ ڈیٹ کرنے میں ناکام۔',
   'settings.account.security': 'سیکورٹی',
   'settings.account.signOutDevice': 'سائن آؤٹ کریں۔',
@@ -208,12 +245,19 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'دو عنصر کی توثیق',
   'settings.account.twoFactorCode': 'تصدیقی کوڈ',
   'settings.account.twoFactorDisable': 'غیر فعال کریں۔',
+  'settings.account.twoFactorDisableTitle': 'دو عنصری تصدیق غیر فعال کریں',
   'settings.account.twoFactorEnable': 'فعال کریں۔',
+  'settings.account.twoFactorEnableTitle': 'دو عنصری تصدیق فعال کریں',
   'settings.account.twoFactorInvalidCode': 'غلط کوڈ',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'ٹو فیکٹر QR کوڈ',
+  'settings.account.twoFactorScan':
+    'اس QR کوڈ کو اپنی تصدیق کنندہ ایپ سے اسکین کریں، پھر 6 ہندسوں کا کوڈ درج کریں۔',
+  'settings.account.twoFactorUnavailable': 'اس ایپ کے لیے دو عنصر کی توثیق دستیاب نہیں ہے۔',
   'settings.account.twoFactorVerify': 'تصدیق کریں اور فعال کریں۔',
   'settings.account.unknownDevice': 'نامعلوم آلہ',
   'settings.company.email': 'بلنگ ای میل',
+  'settings.company.heading': 'کمپنی اور ٹیکس',
   'settings.company.name': 'قانونی نام',
   'settings.company.saveButton': 'کمپنی کا پروفائل محفوظ کریں۔',
   'settings.company.taxId': 'ٹیکس ID / EIN',
@@ -256,6 +300,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'تخمینہ سہ ماہی',
   'taxes.kpi.owed': 'واجب الادا',
   'taxes.loadError': 'ٹیکس کا خلاصہ لوڈ کرنے میں ناکام۔',
+  'taxes.remittedPct': '({{pct}}% جمع شدہ)',
+  'terms.intro':
+    'یہ شرائطِ خدمت ("شرائط") {{app}} تک آپ کی رسائی اور اس کے استعمال کو کنٹرول کرتی ہیں۔ اکاؤنٹ بنا کر یا سروس استعمال کر کے آپ ان سے پابند ہونے پر رضامند ہوتے ہیں۔',
   'terms.lastUpdated': 'آخری بار اپ ڈیٹ کیا گیا: {{تاریخ}}',
   'terms.section.acceptable.body':
     'آپ کسی بھی قانون کی خلاف ورزی، دانشورانہ املاک کے حقوق کی خلاف ورزی، مالویئر منتقل کرنے، یا دوسرے اکاؤنٹس یا ہمارے بنیادی ڈھانچے تک غیر مجاز رسائی حاصل کرنے کی کوشش کے لیے سروس کا استعمال نہ کرنے سے اتفاق کرتے ہیں۔',

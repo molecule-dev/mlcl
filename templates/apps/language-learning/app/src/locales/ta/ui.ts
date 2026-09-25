@@ -1,12 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கேள்விகள், கருத்துகள் அல்லது பிழை தெரிவிக்க வேண்டுமா? உங்கள் கணக்கு அமைப்புகளிலிருந்து குழுவை அணுகுங்கள் — ஒவ்வொரு செய்தியும் மொழிகளைக் கற்கும் உண்மையான மனிதரையே சென்றடையும்.',
   'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'எங்களைப் பற்றி',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
+  'about.whatYouGet': 'நீங்கள் பெறுவது',
   'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'common.logout': 'வெளியேறு',
+  'dailyStatsTriad.heartsHint': 'ஒவ்வொரு பாடத் தொடக்கத்திலும் நிரப்பவும்',
   'dailyStatsTriad.heartsLabel': 'இதயங்கள்',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
+  'dailyStatsTriad.minutesHint': 'இன்றைய பயிற்சிகளிலிருந்து',
   'dailyStatsTriad.minutesLabel': 'இன்றைய நிமிடங்கள்',
   'dailyStatsTriad.minutesValue': '{{count}} நிமிடம்',
   'dailyStatsTriad.wordsLabel': 'சொற்கள் தேர்ச்சி பெற்றன',
@@ -15,18 +21,29 @@ export const ui: UiTranslations = {
   'dashboard.heading': 'காலை வணக்கம், {{name}} .',
   'dashboard.loadError':
     'சமீபத்திய முன்னேற்றத்தை ஏற்ற முடியவில்லை — சேமிக்கப்பட்ட மதிப்புகள் காட்டப்படுகின்றன.',
+  'dashboard.loading': 'புத்துணர்ச்சியூட்டும்…',
   'dashboard.noLessons': 'தற்போது வகுப்புகள் எதுவும் இல்லை — விரைவில் மீண்டும் பார்க்கவும்.',
+  'dashboard.startPractice': 'பேச்சுப் பயிற்சியைத் தொடங்கு',
+  'dashboard.subheading':
+    'விட்ட இடத்திலிருந்து தொடருங்கள் — மூன்று குறுகிய அமர்வுகளில் இன்றைய இலக்கை எட்டுவீர்கள்.',
   'dashboard.viewAllLessons': 'அனைத்து பாடங்களும் →',
+  'forgotPassword.subheading': 'உங்கள் மின்னஞ்சலை இடுங்கள், மீட்டமைப்பு இணைப்பை அனுப்புகிறோம்.',
   'forgotPassword.successBody':
     'உங்கள் இன்பாக்ஸைச் சரிபார்க்கவும் — அதை மீட்டமைப்பதற்கான இணைப்பை நாங்கள் அனுப்பியுள்ளோம்.',
   'forgotPassword.successHint':
     'If {{email}} கணக்குடன் பொருந்தினால், இணைப்பு ஒரு நிமிடத்திற்குள் வந்து சேரும்.',
+  'landing.copyright': '© {{year}} {{app}}. வயதுவந்த கற்பவர்களுக்காக உருவாக்கப்பட்டது.',
   'landing.ctaBody':
     'அட்டை தேவையில்லை. உங்கள் மின்னஞ்சலை உள்ளிட்டு, ஓர் மொழியைத் தேர்ந்தெடுத்து, நாளையே தொடங்குங்கள்.',
   'landing.ctaHeading': 'உங்கள் உச்சரிப்பைக் கண்டறியத் தயாரா?',
   'landing.eyebrow': 'பெரியவர்களுக்கான தினசரி மொழிப் பயிற்சி',
   'landing.featuresHeading': 'உங்கள் நேரத்தை மதிக்கும் ஒரு பயிற்சிச் சுழற்சி',
+  'landing.featuresSubheading':
+    'வாரத்திற்கு முப்பது மணிநேரம் அல்ல, நாளொன்றுக்கு முப்பது நிமிடம் செலவிடும் வயதுவந்தோருக்காக வடிவமைக்கப்பட்டது.',
   'landing.heroCta': '7 நாள் தொடரைத் தொடங்குங்கள்',
+  'landing.heroSubtitle':
+    'காபி இடைவேளையில் பொருந்தும் ஐந்து நிமிடப் பாடங்கள். பயிற்சிகள், சொற்கள், பேச்சு — நீங்கள் உண்மையில் தொடர்ந்து வைத்திருக்கும் ஸ்ட்ரீக்கில் அனைத்தும் அடங்கும்.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.languagesEyebrow': 'ஒரு மொழியைத் தேர்ந்தெடுக்கவும்',
   'landing.languagesHeading': 'பதினான்கு மொழிகள், ஒரு தினசரிப் பழக்கம்',
   'landing.proof.languages': '{{count}} மொழிகள்',
@@ -41,11 +58,18 @@ export const ui: UiTranslations = {
   'leaderboard.heading': 'லீடர்போர்டு',
   'leaderboard.loadError': 'தரவரிசைப் பட்டியலை ஏற்ற முடியவில்லை.',
   'leaderboard.loading': 'தரவரிசைப் பட்டியல் ஏற்றப்படுகிறது…',
+  'leaderboard.rewardBody':
+    'தொடர்ந்து மூன்று வாரங்கள் தங்கத்தைத் தக்கவைத்தால் வைரத்திற்கு உயர்த்தப்படுவீர்கள். நட்பான போட்டி மட்டுமே.',
+  'leaderboard.rewardEyebrow': 'இந்த வாரத்தின் பரிசு',
+  'leaderboard.rewardHeading': 'முதல் {{count}} பேர் தங்க லீக் பேட்ஜைப் பெறுவார்கள்',
   'leaderboard.subheading':
     'இந்த வார XP. உங்கள் உள்ளூர் நேரப்படி ஞாயிற்றுக்கிழமை நள்ளிரவில் மீட்டமைக்கப்படும்.',
   'leaderboard.weeklyPeriod': 'இந்த வாரம் · நண்பர்கள்',
+  'leaderboardPanel.rankSuffix': 'தரவரிசை # {{rank}}',
   'leaderboardPanel.title': 'நண்பர்கள் தரவரிசை',
+  'leaderboardPanel.xp': '{{xp}} XP',
   'leaderboardPanel.you': '(நீங்கள்)',
+  'lessonCard.continue': 'தொடரவும் →',
   'lessonCard.duration': '{{min}} நிமிடம்',
   'lessonCard.level': 'நிலை {{level}}',
   'lessonCard.progressPercent': '{{percent}} % நிறைவு',
@@ -54,14 +78,17 @@ export const ui: UiTranslations = {
   'lessonDetail.check': 'சரிபார்க்கவும்',
   'lessonDetail.checking': 'சரிபார்க்கப்படுகிறது…',
   'lessonDetail.correct': 'பிரமாதம்!',
+  'lessonDetail.correctHint': '+{{xp}} XP. தொடருங்கள்.',
   'lessonDetail.empty': 'இந்தப் பாடத்தில் பயிற்சிகள் இல்லை.',
   'lessonDetail.exit': 'வெளியேறும் பாடம்',
   'lessonDetail.fillBlank': 'கோடிட்ட இடத்தை நிரப்புக',
   'lessonDetail.finish': 'பாடத்தை முடிக்கவும்',
   'lessonDetail.incorrect': 'முற்றிலும் இல்லை — “ {{answer}} "',
+  'lessonDetail.incorrectHint': 'நாளைய மறுபார்வையில் இதை மீண்டும் பார்ப்பீர்கள்.',
   'lessonDetail.lessonId': 'பாடம் · {{id}}',
   'lessonDetail.loadError': 'பயிற்சிகளை ஏற்ற முடியவில்லை.',
   'lessonDetail.loading': 'பாடம் ஏற்றப்படுகிறது…',
+  'lessonDetail.pronunciation': 'சரியான உச்சரிப்பைத் தேர்ந்தெடுக்கவும்',
   'lessonDetail.submitError': 'பதிலைச் சமர்ப்பிக்க முடியவில்லை.',
   'lessonDetail.translation': 'சொற்றொடரை மொழிபெயர்க்கவும்',
   'lessonDetail.xpEarned': 'சம்பாதித்த XP · {{xp}}',
@@ -81,6 +108,12 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'parlanceLayout.nav.profile': 'சுயவிவரம்',
   'parlanceLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
+  'planUpdated.body':
+    'உங்கள் பில்லிங் மாற்றம் இப்போது செயலில் உள்ளது. பில்லிங் பக்கத்திலிருந்து எப்போது வேண்டுமானாலும் உங்கள் திட்டத்தை நிர்வகிக்கலாம்.',
+  'planUpdated.retry': 'மீண்டும் முயற்சிக்கவும்',
+  'planUpdated.verifyFailed': 'உங்கள் கட்டணத்தை எங்களால் இன்னும் உறுதிப்படுத்த முடியவில்லை.',
+  'planUpdated.verifyFailedBody':
+    'உங்கள் கட்டணம் இன்னும் செயலாக்கத்தில் இருக்கலாம். சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.',
   'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'practice.empty': 'இன்னும் சொற்றொடர்கள் எதுவும் கிடைக்கவில்லை.',
   'practice.eyebrow': 'பேச்சுப் பயிற்சி',
@@ -104,6 +137,9 @@ export const ui: UiTranslations = {
   'pricing.limits.progress': 'முன்னேற்றப் பதிவுகள்',
   'profile.anonymous': 'கற்பவர்',
   'profile.avatarAlt': '{{name}} அவதார்',
+  'profile.eyebrow': '{{joined}} முதல் உறுப்பினர்',
+  'profile.eyebrowNew': 'புதிய கற்பவர்',
+  'profile.langLessonCount': '{{count}} பாடங்கள்',
   'profile.langLevel': 'நிலை {{level}}',
   'profile.languages': 'மொழிகள்',
   'profile.languagesHeading': 'மொழிகள் முன்னேற்றத்தில் உள்ளன',
@@ -113,6 +149,7 @@ export const ui: UiTranslations = {
   'profile.streak': 'தொடர்',
   'profile.totalXp': 'மொத்த XP',
   'resetPassword.confirmPlaceholder': 'மீண்டும் தட்டச்சு செய்யவும்',
+  'resetPassword.mismatch': 'கடவுச்சொற்கள் பொருந்தவில்லை.',
   'resetPassword.newPasswordLabel': 'புதிய கடவுச்சொல்',
   'resetPassword.newPasswordPlaceholder': 'எட்டு அல்லது அதற்கு மேற்பட்ட எழுத்துக்கள்',
   'resetPassword.subheading':
@@ -121,6 +158,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'நடைமுறை விருப்பத்தேர்வுகள்',
   'settings.goalBody':
     'ஒவ்வொரு நாளும் நீங்கள் பெற இலக்கு வைத்துள்ள XP அளவு. நீங்கள் இலக்கை அடையும்போதெல்லாம் தொடர் வெற்றிகள் தக்கவைக்கப்படும்.',
+  'settings.goalHeading': 'தினசரி இலக்கு',
   'settings.goalMinutes': '~ {{min}} நிமிடம்/நாள்',
   'settings.language.description':
     'செயலியின் மெனுக்கள் மற்றும் லேபிள்கள் முழுவதும் பயன்படுத்தப்படும் மொழியைத் தேர்ந்தெடுக்கவும்.',

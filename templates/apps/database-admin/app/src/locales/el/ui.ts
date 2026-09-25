@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.featureConnections':
+    'Ένας διαχειριστής συνδέσεων που αποθηκεύει με ασφάλεια και χρωματικά κωδικοποιεί τις βάσεις δεδομένων σας — τα διαπιστευτήρια κρυπτογραφούνται σε κατάσταση ηρεμίας, ποτέ σε απλό κείμενο.',
+  'about.featureMonitoring':
+    'Ζωντανή παρακολούθηση της απόδοσης των ερωτημάτων και της δραστηριότητας της βάσης δεδομένων, με συντομεύσεις πληκτρολογίου και παλέτα εντολών για πλήρη χειρισμό χωρίς χέρια.',
+  'about.featurePlans':
+    'Πλάνα που κλιμακώνονται μαζί σας — Δωρεάν για ατομική εργασία, Pro και Team για περισσότερες συνδέσεις, μεγαλύτερη διατήρηση ερωτημάτων, εξαγωγές και προηγμένες λειτουργίες.',
+  'about.featureQueryEditor':
+    'Ένας επεξεργαστής SQL με τεχνολογία Monaco, με ιστορικό ερωτημάτων, αποθηκευμένα ερωτήματα και εξαγωγή CSV των αποτελεσμάτων σας με ένα κλικ.',
+  'about.featureSchema':
+    'Ένας εξερευνητής σχήματος και περιηγητής πινάκων για πλοήγηση σε βάσεις δεδομένων, πίνακες και στήλες, και στη συνέχεια περιήγηση, φιλτράρισμα και επεξεργασία γραμμών επιτόπου.',
+  'about.missionTitle': 'Η αποστολή μας',
   'authShell.commands': 'Εντολές',
   'authShell.ssoSupported': 'Υποστηρίζεται SSO',
   'common.run': 'Τρέξτε',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Ερωτήματα',
   'connections.schema': 'Σχήμα',
   'connections.subtitle': 'Διαχειριστείτε τις συνδέσεις της βάσης δεδομένων σας.',
+  'connections.test': 'Τεστ',
   'databaseAdminLayout.adminRole': 'Ρόλος διαχειριστή',
   'databaseAdminLayout.commandPalette': 'Παλέτα εντολών',
   'databaseAdminLayout.commands': 'εντολές',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Νέα σύνδεση',
   'databaseAdminLayout.queries': 'Ερωτήματα',
   'databaseAdminLayout.ready': 'Έτοιμο',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Αναζήτηση εντολών, ερωτημάτων, πινάκων…',
   'databaseAdminLayout.user': 'Χρήστης',
   'editConnection.confirmDelete': 'Να διαγραφεί αυτή η σύνδεση;',
   'editConnection.deleteButton': 'Διαγραφή σύνδεσης',
+  'editConnection.newPassword': 'Νέος κωδικός πρόσβασης (αφήστε κενό για διατήρηση)',
   'editConnection.saved': 'Η σύνδεση αποθηκεύτηκε.',
   'editConnection.title': 'Επεξεργασία σύνδεσης',
   'forgotPassword.success':
@@ -47,6 +62,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Επιτυχίες',
   'monitoring.title': 'Παρακολούθηση',
   'monitoring.totalQueries': 'Σύνολο ερωτημάτων',
+  'nav.schema': 'Σχήμα',
   'newConnection.database': 'Βάση δεδομένων',
   'newConnection.engine': 'Κινητήρας',
   'newConnection.host': 'Διοργανωτής',
@@ -82,6 +98,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Δεν υπάρχει σύνδεση που να αντιστοιχεί σε αυτό το απόσπασμα.',
   'savedQuery.notBound': 'Χωρίς δέσμευση',
   'savedQuery.title': 'Αποθηκευμένη ερώτηση',
+  'schema.columns': 'Στήλες',
   'schema.foreignKeys': 'Πρωτεύοντα κλειδιά',
   'schema.indexes': 'Ευρετήρια',
   'schemaExplorer.browseRows': 'Περιήγηση στις σειρές',
@@ -90,14 +107,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'που μπορεί να είναι κενό',
   'schemaExplorer.colType': 'τύπος',
   'schemaExplorer.noColumns': 'Δεν υπάρχουν στήλες.',
+  'schemaExplorer.noForeignKeys': 'Δεν υπάρχουν ξένα κλειδιά.',
   'schemaExplorer.noIndexes': 'Δεν υπάρχουν ευρετήρια.',
   'schemaExplorer.noTables': 'Δεν υπάρχουν πίνακες',
   'schemaExplorer.pickATable': 'Επιλέξτε έναν πίνακα από την πλευρική στήλη.',
   'schemaExplorer.tables': 'Πίνακες',
   'schemaExplorer.title': 'Εξερευνητής σχημάτων',
+  'settings.session': 'Συνεδρίαση',
   'settings.subtitle': 'Διαχειριστείτε τον λογαριασμό και το πακέτο σας.',
   'signup.heading': 'Δημιουργήστε τον λογαριασμό σας στο Quarry',
   'signup.tagline': 'Ενεργοποιήστε την πρόσβαση σε λιγότερο από ένα λεπτό.',
   'tableBrowser.noRows': 'Αυτός ο πίνακας δεν περιέχει ακόμη σειρές.',
+  'tableBrowser.subtitle': 'Περιήγηση γραμμών από την απομακρυσμένη βάση δεδομένων σας.',
   'tableBrowser.title': 'Περιήγηση στις σειρές της απομακρυσμένης βάσης δεδομένων σας.',
 }

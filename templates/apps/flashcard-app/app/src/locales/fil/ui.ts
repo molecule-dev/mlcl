@@ -1,11 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May feedback ka ba, may nahanap kang bug, o gusto mong magmungkahi ng feature? Bawat mensahe ay nakakarating sa isang tunay na tao sa {{app}} team — gusto naming marinig ang natututunan mo.',
   'about.contactTitle': 'Makipag-ugnayan',
   'about.eyebrow': 'Tungkol sa {{app}}',
+  'about.intro':
+    'Ang {{app}} ay isang spaced-repetition flashcard app para sa mga taong gustong talagang tumatak ang kaalaman. Nag-aaral ka man ng wika, nagsasaulo ng mga formula, o nagdodrill ng mga konsepto para sa exam, iniiskedyul nito ang bawat card sa eksaktong sandaling malapit mo nang makalimutan ito — ang pinakamabisang paraan na natuklasan ng agham ng memorya para ilipat ang mga katotohanan sa pangmatagalang recall.',
+  'about.missionBody':
+    'Karamihan sa mga study tool ay nag-o-optimize para sa oras na ginugol, hindi sa kaalamang natutuhan. Ang {{app}} ay nag-o-optimize para sa kabaligtaran: ang pinakakaunting review na nagpapanatili ng mahalaga sa iyong isipan. Naniniwala kami na ang pag-aaral ay dapat kalmado, nasusukat, at sa iyo — bukas na data, walang dark patterns, at isang ugali na kayang panatilihin sa loob ng maraming taon.',
+  'about.missionTitle': 'Ang aming misyon',
   'about.pageTitle': '{{tagline}}.',
   'authShell.sampleBack': 'Vilnius — nabawi sa loob ng 1.2 segundo.',
   'authShell.sampleEyebrow': 'Isang kard mula sa iyong magiging deck',
+  'authShell.sampleFront': '“Ang kabisera ng Lithuania.”',
+  'authShell.sampleRetention': '{{pct}}% retention',
   'authShell.sampleStreak': '{{days}} -araw na sunod-sunod',
   'cardEdit.title': 'I-edit ang flashcard',
   'cardEditor.backLink': 'Balik sa kubyerta',
@@ -35,6 +44,8 @@ export const ui: UiTranslations = {
   'dashboard.kpi.days': 'araw',
   'deckDetail.backLink': 'Lahat ng deck',
   'deckDetail.deleteError': 'Nabigong burahin ang deck.',
+  'deckDetail.empty.body': 'Idagdag ang iyong unang card para simulan ang pagbuo ng memorya.',
+  'deckDetail.empty.cta': 'Idagdag ang iyong unang card',
   'deckDetail.empty.heading': 'Wala pang mga kard sa deck na ito',
   'deckDetail.filterEmpty': 'Walang card na tumutugma sa filter ng estadong ito.',
   'deckDetail.filterLabel': 'Salain ang mga card ayon sa estado',
@@ -47,7 +58,9 @@ export const ui: UiTranslations = {
   'deckDetail.stat.total': 'Mga Kard',
   'deckDetail.studyDueLabel': 'Pag-aaral {{count}} takdang petsa',
   'deckProgressCard.cardCount': '{{count}} mga card',
+  'deckProgressCard.masteredTooltip': '{{count}} mastered',
   'deckProgressCard.studyCta': 'Pag-aaral {{count}}',
+  'decks.confirmDelete': 'Burahin ang deck na ito at lahat ng card nito? Hindi na ito maibabalik.',
   'decks.create.heading': 'Gumawa ng isang kubyerta',
   'decks.create.nameLabel': 'Pangalan ng deck',
   'decks.create.submit': 'Gumawa ng deck',
@@ -58,6 +71,7 @@ export const ui: UiTranslations = {
   'decks.heading': 'Mga deck',
   'decks.loadError': 'Nabigong i-load ang mga deck.',
   'decks.loading': 'Naglo-load…',
+  'decks.newDeckLabel': 'Bagong deck',
   'decks.retention': 'Panatilihin',
   'decks.studyArrow': 'Pag-aaral →',
   'decks.subheading': '{{count}} mga deck · suriin at pamahalaan',
@@ -81,6 +95,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Mayroon na akong account',
   'landing.heroSubtitle':
     'Ang pag-uulit na may pagitan ang siyang makakapagpaiba sa pag-aaral nang mas malalim at pag-alala. Limang minuto kada araw, taon-taon, at mananatili ang lengguwahe.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.proof.export': 'Bukas na datos, walang lock-in',
   'landing.proof.free': 'Libre magpakailanman para sa personal na paggamit',
   'landing.proof.import': 'Mag-import ng .apkg / CSV',
@@ -96,12 +111,16 @@ export const ui: UiTranslations = {
   'login.heading': 'Maligayang pagbabalik sa iyong mga deck',
   'login.orDivider': 'o magpatuloy gamit ang',
   'login.signupLink': 'Simulan ang pag-aaral nang libre',
+  'login.signupPrompt': 'Bago dito?',
   'login.subtitle': 'Ipagpatuloy kung saan ka tumigil — naghihintay ang iyong streak.',
   'mobileNav.closeMenu': 'Isara ang menu ng nabigasyon',
   'mobileNav.openMenu': 'Buksan ang menu ng nabigasyon',
   'notifications.markAllReadError': 'Hindi namarkahan lahat bilang nabasa na.',
   'pricing.heading': 'mga card',
+  'pricing.limits.cards': 'mga card',
   'pricing.limits.decks': 'mga kubyerta',
+  'pricing.limits.historyDays': '{{days}}-day review history',
+  'pricing.limits.historyUnlimited': 'Walang limitasyong review history',
   'pricing.limits.stats': 'mga istatistika',
   'pricing.limits.study': 'pag-aaral',
   'resetPassword.passwordLabel': 'Bagong password',
@@ -113,17 +132,30 @@ export const ui: UiTranslations = {
   'sessionSummary.heading': 'Magaling.',
   'sessionSummary.label': 'Kumpleto na ang sesyon',
   'settings.changePasswordError': 'Hindi mabago ang password.',
+  'settings.confirmPassword': 'Kumpirmahin ang iyong password',
   'settings.currentPassword': 'Kasalukuyang password',
+  'settings.dangerZone': 'Sona ng panganib',
+  'settings.deleteAccountHint':
+    'Permanenteng burahin ang iyong account at lahat ng study data. Hindi na ito maibabalik.',
+  'settings.deleteAccountWarning':
+    'Permanenteng binubura nito ang iyong account at lahat ng deck, card, at study history. Hindi na ito maibabalik.',
   'settings.deleteError':
     'Nabigong burahin ang account. Suriin ang iyong password at subukang muli.',
   'settings.deleting': 'Binubura…',
+  'settings.devicesHint': 'Mga device na kasalukuyang nakarehistro sa iyong account.',
   'settings.newPassword': 'Bagong password',
   'settings.password': 'Password',
   'settings.passwordChanged': 'Na-update ang password.',
+  'settings.passwordHint': 'Palitan ang password na ginagamit mo sa pag-sign in.',
   'settings.reminders.atRisk': 'Alerto sa panganib na may streak-at-risk (pagkatapos ng 8:00pm)',
+  'settings.reminders.daily': 'Araw-araw na paalala (8:00am)',
   'settings.reminders.heading': 'Mga Paalala',
+  'settings.reminders.milestones': 'Mga selebrasyon ng milestone',
   'settings.reminders.note':
     'Nakaimbak sa device na ito. I-toggle kung aling study ang mag-nudge sa mga surface ng browser na ito; magsi-sync ang mga kagustuhan sa buong reload.',
+  'settings.reminders.weekly': 'Lingguhang buod ng retention (tuwing Linggo)',
+  'settings.revokeDeviceWarning':
+    'Mababawi ang access ng device na ito sa ilang sandali. I-sign out ito?',
   'settings.saved': 'Nai-save.',
   'settings.saveError': 'Hindi na-save po.',
   'settings.saving': 'Sine-save…',
@@ -139,6 +171,7 @@ export const ui: UiTranslations = {
   'signup.legal':
     'Sa pamamagitan ng paggawa ng account, sumasang-ayon ka sa aming Mga Tuntunin at Patakaran sa Pagkapribado.',
   'signup.nameLabel': 'Ang iyong pangalan (opsyonal)',
+  'signup.orDivider': 'o mag-sign up gamit ang',
   'signup.subtitle': 'Limang minuto sa isang araw. Isang hinaharap na sarili na nakakaalala.',
   'stats.byStateHeading': 'Mga kard ayon sa estado',
   'stats.dailyHeading': 'Mga review kada araw (huling 30 araw)',
@@ -175,5 +208,6 @@ export const ui: UiTranslations = {
   'todayHeroCard.goalLabel': 'Pang-araw-araw na layunin',
   'todayHeroCard.goalProgress': '{{reviewed}} / {{goal}}',
   'todayHeroCard.streakBadge': '{{days}} -araw na sunod-sunod',
+  'todayHeroCard.studyCta': 'Simulan ang pag-aaral',
   'userMenu.stats': 'Aking mga istatistika',
 }

@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
+  'about.featureAlerts':
+    'പ്രധാനപ്പെട്ട വ്യവസ്ഥകളിൽ വില മുന്നറിയിപ്പുകൾ, ഇമെയിലിലും പുഷിലും എത്തുന്നതിനാൽ ഒരു നീക്കവും നഷ്ടപ്പെടുത്തരുത്.',
+  'about.featureMarkets':
+    'ആയിരക്കണക്കിന് കോയിനുകളിലുടനീളം തത്സമയ മാർക്കറ്റ് ഡാറ്റയും വില ചാർട്ടുകളും, മാർക്കറ്റ് ക്യാപ്പ്, വോളിയം, മൊമെന്റം എന്നിവയാൽ റാങ്ക് ചെയ്തത്.',
+  'about.featurePortfolio':
+    'യഥാർത്ഥ ലാഭനഷ്ടം, ചെലവ് അടിസ്ഥാനം, അലോക്കേഷൻ എന്നിവയോടെ പോർട്ട്ഫോളിയോ ട്രാക്കിംഗ് — നിങ്ങളുടെ ഇടപാട് ചരിത്രവുമായി ബന്ധിപ്പിച്ചത്.',
+  'about.featureWatchlist':
+    'ഒരു വ്യക്തിഗത വാച്ച്ലിസ്റ്റും, നിങ്ങൾ പിന്തുടരുന്ന അസറ്റുകളെക്കുറിച്ചുള്ള സിഗ്നലുകളോടെ തിരഞ്ഞെടുത്ത ക്രിപ്റ്റോ വാർത്തകളും.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
+  'alertConditionCard.armedSince': '{{when}} മുതൽ സജ്ജം',
   'alertConditionCard.condition.${alert.condition}': 'ട്രിഗർ ചെയ്‌തു {{എപ്പോൾ}}',
   'alertConditionCard.confirmDelete': 'ഇല്ലാതാക്കൽ സ്ഥിരീകരിക്കുക',
+  'alertConditionCard.deleteAriaLabel': 'അലേർട്ട് ഇല്ലാതാക്കുക',
   'alertConditionCard.pauseAriaLabel': 'അലേർട്ട് താൽക്കാലികമായി നിർത്തുക',
   'alertConditionCard.resumeAriaLabel': 'അലേർട്ട് പുനരാരംഭിക്കുക',
+  'alertConditionCard.triggeredAt': '{{when}} ട്രിഗർ ചെയ്തു',
   'alertNew.condition': 'അവസ്ഥ',
   'alertNew.createCta': 'അലേർട്ട് സൃഷ്ടിക്കുക',
   'alertNew.error': 'അലേർട്ട് സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'ഇതുവരെ അലേർട്ടുകളൊന്നുമില്ല.',
   'alerts.eyebrow': 'സിഗിൽ ട്രിപ്പ്‌വയറുകൾ',
   'alerts.loadError': 'അലേർട്ടുകൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
+  'alerts.newCta': '+ പുതിയ ട്രിപ്പ്വയർ',
   'alerts.subheading': 'വില, മാറ്റം അല്ലെങ്കിൽ അളവ് നിങ്ങളുടെ പരിധി ലംഘിക്കുമ്പോൾ പിംഗ് നേടുക.',
   'alerts.summary.armed': 'ആയുധധാരി',
   'alerts.summary.triggered': 'ട്രിഗർ ചെയ്‌തു',
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'എക്കാലത്തെയും ഉയർന്ന നിലവാരം',
   'coinDetail.allTimeLow': 'എക്കാലത്തെയും താഴ്ന്ന നിലവാരം',
   'coinDetail.back': 'എല്ലാ വിപണികളും',
+  'coinDetail.chartAriaLabel': '{{name}} വില ചാർട്ട്, കഴിഞ്ഞ 30 ദിവസം',
   'coinDetail.chartHeading': 'വില · കഴിഞ്ഞ 30 ദിവസത്തെ',
   'coinDetail.circulating': 'രക്തചംക്രമണ വിതരണം',
   'coinDetail.fdv': 'പൂർണ്ണമായും നേർപ്പിച്ച മൂല്യനിർണ്ണയം',
@@ -59,6 +74,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'ലിങ്ക് വയർഡ് പുനഃസജ്ജമാക്കുക.',
   'login.eyebrow': 'ടെർമിനലിലേക്ക് കടക്കുക',
   'login.heading': 'സിഗ്നലർ, വീണ്ടും സ്വാഗതം.',
+  'login.noAccountQuestion': 'ടെസേറയിൽ പുതിയ ആളാണോ?',
   'login.secureNote': '🔒 ട്രാൻസിറ്റിൽ എൻക്രിപ്റ്റ് ചെയ്‌തു',
   'login.signingInCta': 'ടേപ്പ് വായിക്കുന്നു...',
   'login.signupLink': 'ഒരു അക്കൗണ്ട് തുറക്കുക →',
@@ -94,6 +110,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'നിങ്ങൾ സ്കാൻ ചെയ്ത റൂട്ട് ഒരു അറിയപ്പെടുന്ന നാണയത്തിലേക്കോ പേജിലേക്കോ എത്തിയില്ല. ചിഹ്നം വീണ്ടും പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക.',
   'notFound.browseMarkets': 'മാർക്കറ്റുകൾ ബ്രൗസ് ചെയ്യുക',
+  'notFound.eyebrow': '{{appName}} സിഗ്നൽ നഷ്ടമായി',
+  'notFound.heading': 'ഈ സിഗ്നൽ പരിധിക്ക് പുറത്താണ്',
+  'planUpdated.body':
+    'നിങ്ങളുടെ ബില്ലിംഗ് മാറ്റം ഇപ്പോൾ സജീവമാണ്. ബില്ലിംഗ് പേജിൽ നിന്ന് എപ്പോൾ വേണമെങ്കിലും നിങ്ങളുടെ പ്ലാൻ മാനേജ് ചെയ്യാം.',
+  'planUpdated.retry': 'വീണ്ടും ശ്രമിക്കുക',
+  'planUpdated.verifyFailed': 'നിങ്ങളുടെ പേയ്‌മെന്റ് ഞങ്ങൾക്ക് ഇതുവരെ സ്ഥിരീകരിക്കാൻ കഴിഞ്ഞില്ല.',
+  'planUpdated.verifyFailedBody':
+    'നിങ്ങളുടെ പേയ്‌മെന്റ് ഇപ്പോഴും പ്രോസസ്സ് ചെയ്തുകൊണ്ടിരിക്കുകയായിരിക്കാം. അൽപ്പസമയത്തിനുള്ളിൽ വീണ്ടും ശ്രമിക്കുക.',
   'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'portfolio.addError': 'ചിഹ്നം, പോസിറ്റീവ് തുക, വില എന്നിവ നൽകുക.',
   'portfolio.addHoldingCta': '+ ഹോൾഡിംഗ് ചേർക്കുക',
@@ -117,12 +141,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'മൊത്തം പോർട്ട്‌ഫോളിയോ മൂല്യം',
   'portfolioHeroCard.totalPnl': 'ആകെ ലാഭം/ലാഭം',
   'pricing.heading': 'അലേർട്ടുകൾ',
+  'pricing.limit.alerts': 'അലേർട്ടുകൾ',
   'pricing.limit.coins': 'നാണയങ്ങൾ',
   'pricing.limit.market': 'വിപണി',
   'pricing.limit.portfolio': 'പോർട്ട്ഫോളിയോ',
   'resetPassword.eyebrow': 'പുതിയ സൈഫർ',
   'resetPassword.missingToken':
     'ഈ പുനഃസജ്ജീകരണ ലിങ്ക് നഷ്ടപ്പെട്ടിരിക്കുന്നു അല്ലെങ്കിൽ അസാധുവാണ്. പുതിയൊരെണ്ണം അഭ്യർത്ഥിക്കുക.',
+  'resetPassword.passwordPlaceholder': 'പുതിയ പാസ്വേഡ്',
   'resetPassword.subheading':
     'നിങ്ങൾക്ക് മാത്രം ഡീകോഡ് ചെയ്യാൻ കഴിയുന്ന എന്തെങ്കിലും തിരഞ്ഞെടുക്കുക.',
   'settings.apiKeys.body':
@@ -135,18 +161,34 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'വിലനിർണ്ണയ കറൻസി',
   'settings.preferences.locale': 'സ്ഥലം',
   'settings.preferences.push': 'തള്ളുക',
+  'settings.preferences.refresh': 'വില പുതുക്കൽ (സെക്കൻഡ്)',
   'settings.preferences.sms': 'എസ്എംഎസ്',
+  'settings.revokeDeviceWarning':
+    'ഈ ഉപകരണത്തിന്റെ ആക്‌സസ് ഉടൻ പിൻവലിക്കപ്പെടും. സൈൻ ഔട്ട് ചെയ്യണോ?',
   'settings.security.body':
     'പാസ്‌വേഡും ടു-ഫാക്ടർ ക്രമീകരണങ്ങളും നിങ്ങളുടെ അക്കൗണ്ട് കൈകാര്യം ചെയ്യുന്നു.',
   'settings.signOutDevice': 'സൈൻ ഔട്ട്',
   'settings.twoFactorCode': 'പ്രാമാണീകരണ കോഡ്',
   'settings.twoFactorDisable': 'പ്രവർത്തനരഹിതമാക്കുക',
+  'settings.twoFactorDisableTitle': 'ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ പ്രവർത്തനരഹിതമാക്കുക',
   'settings.twoFactorEnable': 'പ്രാപ്തമാക്കുക',
+  'settings.twoFactorEnableTitle': 'ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ പ്രവർത്തനക്ഷമമാക്കുക',
   'settings.twoFactorInvalidCode': 'കോഡ് അസാധുവാണ്',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'രണ്ട്-ഘടക QR കോഡ്',
+  'settings.twoFactorScan':
+    'നിങ്ങളുടെ ഓതന്റിക്കേറ്റർ ആപ്പ് ഉപയോഗിച്ച് ഈ QR കോഡ് സ്കാൻ ചെയ്യുക, തുടർന്ന് 6 അക്ക കോഡ് നൽകുക.',
+  'settings.twoFactorUnavailable': 'ഈ ആപ്പിന് ടു-ഫാക്ടർ പ്രാമാണീകരണം ലഭ്യമല്ല.',
   'settings.twoFactorVerify': 'പരിശോധിച്ചുറപ്പിക്കുക, പ്രാപ്തമാക്കുക',
   'sigilAuthShell.backHomeCta': '← സിഗിലിലേക്ക് മടങ്ങുക',
+  'sigilAuthShell.brandBody':
+    'തത്സമയ വിലകൾ, പോർട്ട്ഫോളിയോ ലാഭനഷ്ടം, പ്രധാനപ്പെട്ട വ്യവസ്ഥകളിലെ സ്ഥിരം കാവൽ — എല്ലാം ഒരു ടെർമിനലിൽ.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — Molecule-ൽ നിർമ്മിച്ചത്',
+  'sigilAuthShell.brandHeadline': 'മുഴുവൻ ലെഡ്ജറിലുടനീളമുള്ള എല്ലാ സിഗ്നലും ഡീകോഡ് ചെയ്യുക.',
+  'sigilAuthShell.samplePortfolio': 'സാമ്പിൾ പോർട്ട്ഫോളിയോ',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
+  'signup.creating': 'നിങ്ങളുടെ ടെർമിനൽ തുറക്കുന്നു…',
   'signup.eyebrow': 'ഒരു ടെർമിനൽ തുറക്കുക',
   'signup.heading': 'നിങ്ങളുടെ സിഗിൽ സൃഷ്ടിക്കുക',
   'signup.subheading':
@@ -164,6 +206,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'ഇടപാടുകൾ ലോഡ് ചെയ്യാനായില്ല.',
   'watchlist.addCta': 'മാർക്കറ്റുകൾ ബ്രൗസ് ചെയ്യുക',
   'watchlist.col.change24h': '24 മണിക്കൂർ',
+  'watchlist.col.coin': 'നാണയം',
   'watchlist.col.marketCap': 'മാർക്കറ്റ് ക്യാപ്',
   'watchlist.empty':
     'നിങ്ങളുടെ വാച്ച് ലിസ്റ്റിൽ നാണയങ്ങളൊന്നുമില്ല — /markets-ൽ നിന്നുള്ള നക്ഷത്ര നാണയങ്ങൾ ചേർക്കാൻ.',

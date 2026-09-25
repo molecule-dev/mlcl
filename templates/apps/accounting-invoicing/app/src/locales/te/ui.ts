@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ప్రశ్న ఉందా, బగ్ కనుగొన్నారా, లేదా మీ పుస్తకాలను ఇక్కడికి తరలించాలనుకుంటున్నారా? hello@{{app}}.example లో {{app}} టీమ్ను సంప్రదించండి — ప్రతి సందేశాన్ని ఒక నిజమైన వ్యక్తి చదువుతారు.',
   'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'గురించి',
+  'about.intro':
+    '{{app}} అనేది చిన్న వ్యాపారాల అకౌంటింగ్, ఇది ప్రతి పైసాను లెక్కలో ఉంచుతుంది — ఇన్వాయిస్లు, ఖర్చులు, చెల్లింపులు మరియు నివేదికలు యజమానులు, బుక్కీపర్లు మరియు అకౌంటెంట్ల కోసం ఒకే ప్రశాంతమైన ప్రదేశంలో.',
+  'about.missionBody':
+    'వ్యాపారం నడపడం అంటే మీ పుస్తకాల గురించి భయపడటం కాదు. {{app}} స్ప్రెడ్షీట్ చెదరగొట్టడాన్ని మీరు పని చేయగల స్పష్టమైన సంఖ్యలతో భర్తీ చేస్తుంది, తద్వారా మీరు సరిపోల్చడంలో తక్కువ సమయం మరియు మీరు వ్యాపారం ప్రారంభించిన అసలు పని చేయడంలో ఎక్కువ సమయం గడుపుతారు.',
+  'about.missionTitle': 'మా లక్ష్యం',
   'about.title': '{{app}} గురించి',
   'accounts.count': '{{count}} ఖాతాలు',
+  'accounts.emptyBody':
+    'లెడ్జర్ ఖాతాలు డబ్బు ఎక్కడ ఉందో మరియు ఎక్కడికి కదులుతుందో ట్రాక్ చేస్తాయి. మీ బుక్కీపర్ లేదా ఇంటిగ్రేషన్ వాటిని సెటప్ చేసిన తర్వాత అవి ఇక్కడ కనిపిస్తాయి.',
   'accounts.emptyTitle': 'ఇంకా ఖాతాలు లేవు',
   'accounts.heading': 'ఖాతాల పట్టిక',
   'accounts.kpi.accounts': 'ఖాతాలు',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'మీ ఇన్‌వాయిస్‌లు, ఖర్చులు మరియు చెల్లింపుల వెనుక ఉన్న ప్రతి లెడ్జర్ ఖాతా, రకాన్ని బట్టి సమూహపరచబడింది.',
   'accounts.tag.inactive': 'నిష్క్రియాత్మక',
   'authBrandPanel.attributionName': 'సారా జెంకిన్స్',
+  'authBrandPanel.attributionRole': 'చీఫ్ ఫైనాన్షియల్ ఆఫీసర్, హొరైజన్ టెక్',
   'authBrandPanel.eyebrow': 'ఫైనాన్స్ బృందాలచే విశ్వసించబడింది',
   'authBrandPanel.label': 'బ్రాండ్ ప్రదర్శన',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'వినియోగదారులందరూ',
   'customerDetail.invoiceMeta': 'జారీ చేయబడింది {{issued}} · రావలసినది {{due}}',
   'customerDetail.loadError': 'కస్టమర్‌ను లోడ్ చేయడంలో విఫలమైంది.',
+  'customerDetail.missingBody':
+    'అభ్యర్థించిన కస్టమర్ రికార్డును లోడ్ చేయలేకపోయాము. అది తొలగించబడి ఉండవచ్చు, లేదా మీకు దానికి యాక్సెస్ ఉండకపోవచ్చు.',
   'customerDetail.missingHeading': 'కస్టమర్ రికార్డు అందుబాటులో లేదు',
+  'customerDetail.missingHelp':
+    'కస్టమర్ల జాబితాకు తిరిగి వెళ్లడానికి పైన ఉన్న బ్యాక్ లింక్ను ఉపయోగించండి, లేదా అక్కడ నుండి వేరే రికార్డును ఎంచుకోండి.',
+  'customerDetail.noInvoices': 'ఇంకా ఇన్‌వాయిస్‌లు రాలేదు.',
   'customerDetail.notesEmpty': 'ఇంకా గమనికలు ఏమీ లేవు.',
   'customerDetail.paymentsEmpty': 'ఎలాంటి చెల్లింపులు నమోదు కాలేదు.',
   'customerDetail.paymentTerms': 'చెల్లింపు నిబంధనలు',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'మినహాయింపు',
   'expenseDetail.detailsHeading': 'లావాదేవీ వివరాలు',
   'expenseDetail.loadError': 'ఖర్చును లోడ్ చేయడంలో విఫలమైంది.',
+  'expenseDetail.matched': 'సరిపోలింది · {{description}}',
   'expenseDetail.missingBody':
     'అభ్యర్థించిన ఖర్చును లోడ్ చేయలేకపోయింది. అది తొలగించబడి ఉండవచ్చు, లేదా మీకు దానికి యాక్సెస్ లేకపోవచ్చు.',
   'expenseDetail.missingHeading': 'ఖర్చుల రికార్డు అందుబాటులో లేదు',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'రసీదు',
   'expenseDetail.receiptHeading': 'రసీదు',
   'expenseDetail.reconciled': 'రాజీపడ్డారు',
+  'expenseDetail.unreconciled': 'రాజీపడని',
   'expenses.empty': 'ఇంకా ఖర్చులేమీ రాలేదు.',
   'expenses.heading': 'ఖర్చులు',
   'expenses.kpi.deductible': 'మినహాయింపు',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'ఇన్‌వాయిస్‌లను లోడ్ చేయడంలో విఫలమైంది.',
   'invoices.searchPlaceholder': 'ఇన్‌వాయిస్ నంబర్ లేదా కస్టమర్‌ను శోధించండి…',
   'invoices.summary.paid': 'ఈ కాలంలో చెల్లించబడింది',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     '30 రోజుల పాటు ఉచితం. కార్డు అవసరం లేదు. మీ అకౌంటెంట్‌ను తీసుకురండి — వారు మీకు కృతజ్ఞతలు తెలుపుతారు.',
   'landing.ctaTitle': 'మీ పుస్తకాలను ప్రశాంతమైన ప్రదేశానికి తరలించండి.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'స్వీకరించదగిన ఖాతాలు',
   'ledgerStatTriad.eyebrow.mtd': 'నెల ప్రారంభం',
   'ledgerStatTriad.netSub': 'నెట్ {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} గడువు మించింది',
   'ledgerStatTriad.revenueLabel': 'ఆదాయం',
   'login.failed': 'సైన్ ఇన్ విఫలమైంది.',
   'login.hidePassword': 'పాస్‌వర్డ్‌ను దాచండి',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'సైన్ ఇన్',
   'nav.legal': 'చట్టపరమైన',
   'newExpense.back': 'ఖర్చులు',
+  'newExpense.clearReceiptCta': 'జోడించిన రసీదును క్లియర్ చేయండి',
   'newExpense.deductible': 'పన్ను మినహాయింపు',
   'newExpense.dropPrompt': 'జతచేయడానికి రసీదు ఫోటో లేదా PDFని ఇక్కడ ఇవ్వండి.',
   'newExpense.failed': 'ఖర్చును ఆదా చేయలేకపోయాను.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'చెల్లింపులను లోడ్ చేయడంలో విఫలమైంది.',
   'payments.unmatchedTag': 'సాటిలేని',
   'planUpdated.pageLabel': 'ప్లాన్ నవీకరించబడిన నిర్ధారణ',
+  'pricing.advancedFeatures': 'అధునాతన ఫీచర్లు: {{yes}}',
+  'pricing.canExport': 'డేటా ఎగుమతి: {{yes}}',
+  'pricing.heading': 'మీ {{app}} ప్లాన్ ఎంచుకోండి',
+  'pricing.maxAccounts': '{{count}} ఖాతాలు',
+  'pricing.maxExpenses': '{{count}} ఖర్చులు',
+  'pricing.maxInvoices': '{{count}} ఇన్వాయిస్లు',
+  'privacy.intro':
+    'ఈ గోప్యతా విధానం సేవను ఉపయోగించే వ్యాపారాల గురించి {{app}} ఎలా సమాచారాన్ని సేకరిస్తుంది, ఉపయోగిస్తుంది మరియు బహిర్గతం చేస్తుంది అనేది వివరిస్తుంది.',
   'privacy.lastUpdated': 'చివరిగా నవీకరించబడింది: {{తేదీ}}',
   'privacy.section.collected.body':
     'మేము ఖాతా వివరాలు (పేరు, ఇమెయిల్, కంపెనీ), మీరు అప్‌లోడ్ చేసే ఆర్థిక రికార్డులు (ఇన్‌వాయిస్‌లు, ఖర్చులు, కస్టమర్‌లు, చెల్లింపులు) మరియు ప్రామాణిక సేవా-నిర్వహణ లాగ్‌లను (IP, యూజర్-ఏజెంట్, టైమ్‌స్టాంప్‌లు) సేకరిస్తాము.',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'సేవను నిర్వహించడానికి, మీరు అభ్యర్థించే నివేదికలు మరియు PDFలను రూపొందించడానికి, Mailgun ద్వారా లావాదేవీల ఇమెయిల్‌లను పంపడానికి మరియు Stripe ద్వారా చెల్లింపులను ప్రాసెస్ చేయడానికి సమాచారం ఉపయోగించబడుతుంది. మేము వ్యక్తిగత సమాచారాన్ని అమ్మడం లేదా అద్దెకు ఇవ్వడం చేయము.',
   'recentInvoicesCard.dueMeta': 'కారణంగా {{date}}',
+  'recentInvoicesCard.empty': 'ఏ ఇన్‌వాయిస్‌లు సరిపోలడం లేదు.',
   'recentInvoicesCard.eyebrow': 'స్వీకరించదగిన ఖాతాలు',
   'recentInvoicesCard.searchAriaLabel': 'ఇన్‌వాయిస్‌లను శోధించండి',
+  'recentInvoicesCard.searchPlaceholder': 'ఇన్వాయిస్లను వెతకండి…',
   'recentInvoicesCard.title': 'ఇటీవలి ఇన్‌వాయిస్‌లు',
   'recentInvoicesCard.viewAll': 'అన్ని ఇన్‌వాయిస్‌లను వీక్షించండి →',
   'reports.assets': 'ఆస్తులు',
@@ -181,16 +211,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'లాభ నష్టాలు (12 నెలలు)',
   'resetPassword.backToLogin': '← సైన్ ఇన్ కు తిరిగి వెళ్లండి',
   'resetPassword.hidePassword': 'పాస్‌వర్డ్‌ను దాచండి',
+  'resetPassword.passwordLabel': 'కొత్త పాస్‌వర్డ్',
   'resetPassword.showPassword': 'పాస్‌వర్డ్‌ను చూపించు',
+  'resetPassword.subheading': 'బలమైన పాస్వర్డ్ను ఎంచుకోండి — కనీసం ఎనిమిది అక్షరాలు.',
   'resetPassword.submit': 'పాస్‌వర్డ్‌ను రీసెట్ చేయండి',
   'resetPassword.tooShort': 'పాస్‌వర్డ్ కనీసం 8 అక్షరాల పొడవు ఉండాలి.',
   'settings.account.changePassword': 'పాస్‌వర్డ్‌ను మార్చండి',
   'settings.account.changingPassword': 'మారుతోంది…',
   'settings.account.currentPassword': 'ప్రస్తుత పాస్‌వర్డ్',
+  'settings.account.dangerZone': 'ప్రమాదకర ప్రాంతం',
   'settings.account.deleteAccount': 'ఖాతాను తొలగించండి',
   'settings.account.deleteDescription':
     'మీ ఖాతాను మరియు దానికి సంబంధించిన మొత్తం డేటాను శాశ్వతంగా తొలగించండి.',
   'settings.account.deleteError': 'ఖాతాను తొలగించడంలో విఫలమయ్యాను.',
+  'settings.account.deleteWarning':
+    'ఇది మీ ఖాతాను శాశ్వతంగా తొలగిస్తుంది మరియు రద్దు చేయలేము. నిర్ధారించడానికి మీ పాస్వర్డ్ను నమోదు చేయండి.',
   'settings.account.deleting': 'తొలగిస్తోంది…',
   'settings.account.devices': 'పరికరాలు',
   'settings.account.email': 'ఇమెయిల్',
@@ -201,6 +236,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'పాస్‌వర్డ్',
   'settings.account.passwordError': 'పాస్‌వర్డ్ మార్చడంలో విఫలమయ్యాను.',
   'settings.account.pushNotifications': 'ఈ పరికరంలో పుష్ నోటిఫికేషన్‌లు',
+  'settings.account.revokeDeviceWarning':
+    'ఈ పరికరం యొక్క యాక్సెస్ త్వరలో రద్దు చేయబడుతుంది. సైన్ అవుట్ చేయాలా?',
   'settings.account.saveError': 'ప్రొఫైల్‌ను అప్‌డేట్ చేయడంలో విఫలమైంది.',
   'settings.account.security': 'భద్రత',
   'settings.account.signOutDevice': 'సైన్ అవుట్',
@@ -208,12 +245,19 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'రెండు-కారకాల ప్రమాణీకరణ',
   'settings.account.twoFactorCode': 'ప్రమాణీకరణ కోడ్',
   'settings.account.twoFactorDisable': 'నిలిపివేయండి',
+  'settings.account.twoFactorDisableTitle': 'రెండు-కారకాల ప్రామాణీకరణను నిలిపివేయండి',
   'settings.account.twoFactorEnable': 'ప్రారంభించండి',
+  'settings.account.twoFactorEnableTitle': 'రెండు-కారకాల ప్రామాణీకరణను ప్రారంభించండి',
   'settings.account.twoFactorInvalidCode': 'చెల్లని కోడ్',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'రెండు-కారకాల QR కోడ్',
+  'settings.account.twoFactorScan':
+    'మీ ప్రామాణీకరణ యాప్తో ఈ QR కోడ్ను స్కాన్ చేయండి, ఆపై 6-అంకెల కోడ్ను నమోదు చేయండి.',
+  'settings.account.twoFactorUnavailable': 'ఈ యాప్‌కు టూ-ఫ్యాక్టర్ అథెంటికేషన్ అందుబాటులో లేదు.',
   'settings.account.twoFactorVerify': 'ధృవీకరించి, ప్రారంభించండి',
   'settings.account.unknownDevice': 'తెలియని పరికరం',
   'settings.company.email': 'బిల్లింగ్ ఇమెయిల్',
+  'settings.company.heading': 'కంపెనీ & పన్ను',
   'settings.company.name': 'చట్టపరమైన పేరు',
   'settings.company.saveButton': 'కంపెనీ ప్రొఫైల్‌ను సేవ్ చేయండి',
   'settings.company.taxId': 'పన్ను ID / EIN',
@@ -257,6 +301,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'త్రైమాసికంగా స్థాపించబడింది',
   'taxes.kpi.owed': 'బాకీ',
   'taxes.loadError': 'పన్ను సారాంశాన్ని లోడ్ చేయడంలో విఫలమైంది.',
+  'taxes.remittedPct': '({{pct}}% చెల్లించబడింది)',
+  'terms.intro':
+    'ఈ సేవా నిబంధనలు ("నిబంధనలు") {{app}}కు మీ యాక్సెస్ మరియు వినియోగాన్ని నియంత్రిస్తాయి. ఖాతాను సృష్టించడం లేదా సేవను ఉపయోగించడం ద్వారా మీరు వాటికి కట్టుబడి ఉండటానికి అంగీకరిస్తారు.',
   'terms.lastUpdated': 'చివరిగా నవీకరించబడింది: {{తేదీ}}',
   'terms.section.acceptable.body':
     'ఏదైనా చట్టాన్ని ఉల్లంఘించడానికి, మేధో సంపత్తి హక్కులను అతిక్రమించడానికి, మాల్‌వేర్‌ను ప్రసారం చేయడానికి, లేదా ఇతర ఖాతాలకు లేదా మా మౌలిక సదుపాయాలకు అనధికారికంగా ప్రవేశించడానికి ప్రయత్నించడానికి మీరు ఈ సేవను ఉపయోగించరని అంగీకరిస్తున్నారు.',

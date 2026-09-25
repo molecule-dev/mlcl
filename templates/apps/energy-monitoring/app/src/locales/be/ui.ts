@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пытанні, прапановы функцый ці лічыльнік, які мы павінны падтрымліваць? Напішыце камандзе {{appName}} з налад акаўнта — кожнае паведамленне трапляе да рэальнага чалавека.',
   'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
+  'about.featuresTitle': 'Што вы атрымліваеце',
+  'about.intro':
+    "{{appName}} — гэта маніторынг энергіі ў рэальным часе для сонечных дамоў і каманд абслугоўвання аб'ектаў. Мы ператвараем паток даных з лічыльнікаў, інвертараў і батарэй у спакойны выгляд дыспетчарскай — жывая магутнасць, выпрацоўка сонечнай энергіі, кошт па зонах часу і апавяшчэнні, усё ў адной абалонцы.",
+  'about.missionBody':
+    "Энергія, якую вы бачыце, — гэта энергія, якой вы можаце кіраваць. Мы верым, што кожны, хто карыстаецца лічыльнікам — сям'я з дахавай сонечнай станцыяй ці каманда, якая сочыць за будынкам, — заслугоўвае інфармацыі ўзроўню камунальнай службы без кантракта ўзроўню камунальнай службы. Кожная функцыя створана, каб зрабіць наступную кілават-гадзіну ўсвядомленым выбарам, а не нечаканасцю ў рахунку.",
+  'about.missionTitle': 'Наша місія',
   'about.pageTitle': 'Пра {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Пацверджанне',
@@ -14,6 +22,7 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@yourdomain.com',
   'alertRule.eyebrow': 'Новае правіла',
   'alertRule.heading': 'Злаві шып, пакуль ён табе не дорага каштаваць',
+  'alertRule.nameLabel': 'Назва правіла',
   'alertRule.namePlaceholder':
     'напрыклад, назіранне за сістэмай ацяплення, вентыляцыі і кандыцыянавання паветра пасля заканчэння працоўнага дня',
   'alertRule.subheading':
@@ -21,8 +30,10 @@ export const ui: UiTranslations = {
   'alertRule.submit': 'Захаваць правіла',
   'alertRule.submitError': 'Не ўдалося захаваць правіла.',
   'alertRule.thresholdLabel': 'Парог',
+  'alertRule.typeLabel': 'Тып трыгера',
   'alerts.checking': 'Праверка…',
   'alerts.confirmDelete': 'Пацвердзіць выдаленне',
+  'alerts.empty': 'Няма чаго паказваць — у гэтым стане няма апавяшчэнняў.',
   'alerts.emptyNoRules':
     'Пакуль няма абвестак — дадайце правіла, а затым націсніце «Ацаніць зараз», каб праверыць яго.',
   'alerts.errorAck': 'Не мог прызнаць.',
@@ -42,12 +53,14 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Ацаніць зараз',
   'alerts.subheading':
     'Папярэджанні аб парогах і шаблонах, якія спрацоўваюць на вашых глюкометрах, а таксама правілы, якія імі кіруюць.',
+  'billing.activeBlurb': 'Ваша падпіска актыўная. Кіруйце ёй у любы час.',
   'billing.cancelError': 'Не атрымалася адмяніць падпіску.',
   'billing.cancelling': 'Адмена…',
   'billing.currentBadge': 'Бягучы',
   'billing.freeBlurb':
     'Вы карыстаецеся бясплатным планам. Абнавіце падпіску, каб атрымаць больш лічыльнікаў, даўжэйшую гісторыю і больш правілаў абвестак.',
   'billing.heading': 'Тарыфы і аплата',
+  'billing.historyEmpty': "Аплачаныя рахункі з'явяцца тут пасля выстаўлення рахунку за падпіску.",
   'billing.historyHeading': 'Гісторыя рахункаў-фактур',
   'billing.loadError': 'Не атрымалася загрузіць рахункі.',
   'billing.loading': 'Загрузка планаў…',
@@ -59,17 +72,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Звязацца з аддзелам продажаў',
   'common.goToDashboard': 'Перайсці да панэлі',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} пік · {{offPeak}} пазапікавыя кВт·г',
   'dailyCostMeter.runningLabel': 'Падсума',
   'dailyCostMeter.title': 'Кошт на сённяшні дзень',
   'dailyCostMeter.utilizationLabel': 'Штодзённага бюджэту',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Дадаць лічыльнік',
   'dashboard.alertsHeading': 'Актыўныя абвесткі',
   'dashboard.devicesHeading': 'Найлепшыя схемы прама зараз',
   'dashboard.empty.body':
     'Дадайце разумны лічыльнік або сонечны інвертар, каб пачаць адсочваць спажыванне і вытворчасць электраэнергіі ў рэжыме рэальнага часу.',
+  'dashboard.empty.title': 'Пакуль няма лічыльнікаў',
   'dashboard.eyebrow': 'Дыспетчарская Voltrace',
   'dashboard.heading': 'Здымак жывой энергіі',
   'dashboard.loadError': 'Не атрымалася загрузіць паказанні ў рэжыме рэальнага часу.',
   'dashboard.loading': 'Наладжваюся на вашы метраў…',
+  'dashboard.noAlerts': 'Усё спакойна — нішто не перавышае вашыя парогі.',
   'dashboard.noAlertsAndNoMeters':
     "Пасля падключэння лічыльніка тут будуць з'яўляцца абвесткі на аснове вашых парогаў.",
   'dashboard.noCircuits': 'Пакуль няма ланцугоў для адлюстравання — дадайце лічыльнік, каб пачаць.',
@@ -77,6 +95,7 @@ export const ui: UiTranslations = {
     'Паток энергіі на ўвесь дом, вытворчасць сонечнай энергіі і кошт на сённяшні дзень.',
   'dashboard.viewAllAlerts': 'Кіраванне абвесткамі →',
   'dashboard.viewAllDevices': 'Кожная прылада →',
+  'deviceDetail.activeTokens': 'Актыўныя токены прыёму даных',
   'deviceDetail.alreadyOff': 'Ужо прыпынена',
   'deviceDetail.back': 'Усе схемы',
   'deviceDetail.confirmDelete': 'Пацвердзіць выдаленне',
@@ -117,22 +136,34 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Не атрымалася загрузіць лічыльнікі.',
   'devices.loading': 'Апытанне кожнага лічыльніка…',
   'devices.newRule': 'Новае правіла абвесткі',
+  'devices.noResults': 'Ніводная схема не адпавядае гэтаму фільтру.',
   'devices.placeholder.location': 'напрыклад, машынны пакой',
   'devices.placeholder.name': 'напрыклад, падпанэль «Гараж»',
   'devices.subheading':
     'Магутнасць у рэжыме рэальнага часу і колькасць кВт/г, выпрацаваная на кожным ланцугу, які бачны Voltrace.',
+  'deviceWattageRow.todayKwh': '{{kwh}} кВт·г сёння',
+  'deviceWattageRow.watts': '{{watts}} З',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Меню',
+  'energyMonitoringLayout.primaryNavLabel': 'Асноўная навігацыя',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    '{{appName}} працуе з большасцю лічыльнікаў узроўню камунальных службаў, сонечных інвертараў і батарэйных сістэм — па провадзе ці праз WiFi.',
   'landing.ctaHeading': 'Падключыце лічыльнік і паглядзіце вытворную магутнасць за лічаныя хвіліны',
   'landing.eyebrow': 'Энергетычная аналітыка ў рэжыме рэальнага часу',
+  'landing.featuresHeading': 'Кожны ват, кожную хвіліну, у адной абалонцы',
   'landing.getStarted': 'Падключыце Voltrace',
   'landing.heroCta': 'Падключыце Voltrace',
+  'landing.heroSubtitle':
+    "Жывая магутнасць, выпрацоўка сонечнай энергіі, кошт па зонах часу і апавяшчэнні аб высокім спажыванні ў абалонцы дыспетчарскай, створанай для сонечных дамоў і каманд абслугоўвання аб'ектаў.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Розыгрыш для ўсяго дома',
   'landing.sampleSolar': '+3 820 Вт сонечнай энергіі',
   'landing.sampleSummary': 'Экспарт 1680 Вт у сетку · 18,4 кВт·г сёння',
   'landing.sampleWatts': '2140 Вт',
   'powerHeroCard.solar': '+ {{watts}} Сонечная батарэя W',
   'powerHeroCard.title': 'Розыгрыш для ўсяго дома',
+  'powerHeroCard.todayKwh': '{{kwh}} кВт·г сёння',
   'powerHeroCard.watts': '{{watts}} З',
   'pricing.choose': 'Выберыце {{name}}',
   'pricing.contact': 'Патрэбна нешта на заказ?',
@@ -145,6 +176,7 @@ export const ui: UiTranslations = {
     'Пачніце бясплатна. Абнавіце падпіску, калі вам патрэбна больш лічыльнікаў, даўжэйшая гісторыя або больш правілаў абвестак.',
   'pricing.unavailable': 'Гэты план зараз недаступны — Stripe не настроены.',
   'profile.errorGeneric': 'Не ўдалося захаваць змены ў профілі.',
+  'profile.errorGoal': 'Месячная мэта ў кВт·г павінна быць дадатным лікам.',
   'profile.errorHousehold': 'Памер хатняй гаспадаркі павінен быць дадатным лікам.',
   'profile.householdHeading': "Сям'я і мэты",
   'profile.householdSize': 'Памер хатняй гаспадаркі',
@@ -162,9 +194,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'Агрэгаванне паказанняў…',
   'reports.subheading':
     'Штодзённыя агульныя паказчыкі спажывання, вытворчасці і выдаткаў — з падрабязным разбіўкай па датах.',
+  'reports.tableHeading': 'Дзённая разбіўка',
   'settings.currency': 'Валюта',
   'settings.errorFlat': 'Фіксаваная стаўка павінна быць ≥ 0.',
   'settings.errorNotify': 'Не ўдалося захаваць налады апавяшчэнняў.',
+  'settings.errorSave': 'Не ўдалося захаваць тарыфны план.',
   'settings.errorTou': 'Патрабуюцца пікавыя/непікавыя тарыфы і дзеючы перыяд пікавай нагрузкі.',
   'settings.exportBody':
     'Запампуйце CSV-файл з вынікамі штодзённых дадзеных за апошнія 30 дзён або атрымайце токен ingest з любой старонкі з падрабязнай інфармацыяй пра лічыльнік, каб праграмна перадаваць паказанні.',
@@ -184,10 +218,20 @@ export const ui: UiTranslations = {
   'settings.saving': 'Захаванне…',
   'settings.securityHeading': 'Двухфактарная аўтэнтыфікацыя',
   'settings.subheading': 'Тарыфы, апавяшчэнні і экспарт дадзеных.',
+  'settings.twoFactorBody':
+    'Патрабаваць аднаразовы код з вашай праграмы-аўтэнтыфікатара пры кожным уваходзе.',
   'settings.twoFactorCode': 'Код аўтэнтыфікацыі',
   'settings.twoFactorDisable': 'Адключыць',
+  'settings.twoFactorDisableTitle': 'Адключыць двухфактарную аўтэнтыфікацыю',
   'settings.twoFactorEnable': 'Уключыць',
+  'settings.twoFactorEnableTitle': 'Уключыць двухфактарную аўтэнтыфікацыю',
   'settings.twoFactorInvalidCode': 'Няправільны код',
+  'settings.twoFactorOAuth':
+    'Ваш акаўнт уваходзіць праз падключанага правайдера, таму двухфактарная аўтэнтыфікацыя кіруецца там.',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'QR-код двухфактарнай аўтэнтыфікацыі',
+  'settings.twoFactorScan':
+    'Адсканіруйце гэты QR-код у сваёй праграме аўтэнтыфікацыі, затым увядзіце 6-значны код.',
+  'settings.twoFactorUnavailable': 'Двухфактарная аўтэнтыфікацыя недаступная для гэтай праграмы.',
   'settings.twoFactorVerify': 'Праверыць і ўключыць',
 }

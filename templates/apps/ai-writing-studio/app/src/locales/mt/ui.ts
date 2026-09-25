@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Għandek feedback, sibt bug, jew trid funzjoni ġdida? Ikkuntattjana mis-settings tal-kont tiegħek — kull messaġġ jasal għand persuna reali fit-tim.',
   'about.contactTitle': 'Ikkuntattjana',
   'about.eyebrow': 'Dwar',
+  'about.intro':
+    "{{app}} huwa studio tal-kitba bl-AI għal kittieba li jimpurtahom ħafna mill-proża tagħhom. Jgħaqqad ġenerazzjoni tal-AI għal testi twal ma' editur kalmi, punteġġ SEO, u ġenerazzjoni tal-immaġni biex tkun tista' tieħu biċċa xogħol minn paġna vojta għal waħda ppubblikata — mingħajr ma qatt titlef il-vuċi tiegħek.",
+  'about.missionBody':
+    'Aħna nemmnu li l-AI għandha tabbozza miegħek, qatt minflokek. {{app}} iżomm is-suġġerimenti viżibbilment distinti mill-kliem tiegħek, iħallik sid kull dokument li toħloq, u jneħħi l-għodda minn quddiem il-kitba.',
+  'about.missionTitle': 'Il-missjoni tagħna',
   'about.pageTitle': 'Dwar {{app}}',
   'aiSuggestionCard.applied': 'Suġġeriment applikat',
   'aiSuggestionCard.apply': 'Applika',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Sorsi tat-traffiku',
   'billing.activePlan': 'Abbonament attiv.',
   'billing.aiWordsLabel': 'Ġenerazzjonijiet tal-AI inklużi',
+  'billing.cancelFailed': 'Ma stajtx nikkanċella l-abbonament.',
   'billing.cancelPlan': 'Ikkanċella l-pjan',
+  'billing.cancelPlanConfirm': 'Tikkonferma l-kanċellazzjoni?',
   'billing.cancelSuccess': 'Abbonament ikkanċellat. Aġġorna biex taġġorna l-pjan.',
   'billing.changePlan': 'Biddel il-pjan',
   'billing.col.invoice': 'Fattura',
@@ -42,26 +51,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'Ara l-pjanijiet',
   'common.goToDashboard': 'Mur għad-Dashboard',
   'dashboard.continueWriting': 'Kompli ikteb',
+  'dashboard.createFirst': 'Oħloq dokument',
   'dashboard.days.sat': 'Sat',
   'dashboard.days.sun': 'Sun',
   'dashboard.defaultWriterName': 'Kittieb',
   'dashboard.greeting': 'Bongu, {{name}}',
   'dashboard.loadError': 'Ma stajtx nitgħabba d-dashboard tiegħek.',
+  'dashboard.loading': 'Qed jitgħabba l-istudio tiegħek…',
   'dashboard.loadingDocs': 'Qed jitgħabbew dokumenti reċenti…',
   'dashboard.noDocuments': "Għad m'għandekx dokumenti — ibda l-ewwel wieħed tiegħek.",
   'dashboard.startWriting': 'Ibda dokument ġdid',
+  'dashboard.streakBody': 'Ikteb {{words}} kelma din il-ġimgħa.',
   'dashboard.streakTitle': "{{count}} sensiela ta' jiem",
+  'dashboard.subgreeting': '{{count}} dokumenti fil-librerija tiegħek — kompli żomm il-momentum.',
+  'documentCard.seoScoreTitle': 'Punteġġ SEO: {{score}}/100',
+  'documents.createNew': 'Oħloq dokument ġdid',
   'documents.empty': 'Il-librerija tiegħek qed tistenna — ibda l-ewwel dokument tiegħek.',
+  'documents.emptyFiltered': "Għad m'hemmx dokumenti li jaqblu mal-filtri tiegħek.",
   'documents.loadError': 'Ma stajtx nitgħabba d-dokumenti.',
   'documents.loading': 'Qed tiċċarġja l-librerija tiegħek…',
   'documents.new': 'Dokument ġdid',
+  'documents.searchAriaLabel': 'Fittex dokumenti',
   'documents.searchPlaceholder': 'Fittex dokumenti…',
   'documents.subtitle': '{{count}} dokumenti fil-librerija tiegħek.',
   'documents.title': 'Dokumenti',
   'editor.aiPanelTitle': 'Intelliġenza tal-Plume',
+  'editor.aiSuggestion.empty':
+    "M'hemmx raffinamenti attivi. Itlob suġġeriment lil {{appName}} meta tkun trid par għajnejn ieħor.",
   'editor.aiSuggestion.failed': 'Ma stajtx nitgħabba s-suġġerimenti bħalissa.',
   'editor.aiSuggestion.loadingBody': 'Niġġeneraw raffinament taċ-ċarezza...',
   'editor.backToDocuments': 'Id-dokumenti kollha',
+  'editor.bodyAriaLabel': 'Korp tad-dokument',
   'editor.closeAiPanel': 'Agħlaq il-pannell tal-AI',
   'editor.createFailed': 'Ma setax jinħoloq dokument.',
   'editor.exported': 'Esportat bħala {{format}} .',
@@ -77,18 +97,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'Itlob raffinament',
   'editor.saveBeforePublish': 'Issejvja d-dokument qabel ma tippubblikah.',
   'editor.status.chars': '{{count}} karattri',
+  'editor.status.readTime': '{{minutes}} qari minimu',
   'editor.status.savedAt': 'Salvat {{time}}',
   'editor.status.saveError': 'Is-salvataġġ ma rnexxax',
+  'editor.status.unsaved': 'Għadu mhux salvat',
   'editor.titleAriaLabel': 'Titlu tad-dokument',
   'editor.titlePlaceholder': 'Dokument bla titlu',
   'editor.toggleAiPanel': 'Ixgħel il-pannell tal-AI',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'awtur@eżempju.com',
+  'forgotPassword.sent': 'Jekk {{email}} jinsab fir-rekords, link għar-reset qiegħed fit-triq.',
   'imageGenerator.failed': 'Il-ġenerazzjoni tal-immaġni falliet.',
   'imageGenerator.generate': 'Ġenera l-Immaġni',
   'imageGenerator.generating': 'Qed jiġġenera...',
   'imageGenerator.placeholder': 'Iddeskrivi l-immaġni li trid tiġġenera...',
+  'imageGenerator.promptAriaLabel': 'Prompt tal-immaġni',
+  'imageGenerator.subtitle': 'Iddeskrivi immaġni tal-qoxra u ħalli l-AI jillustraha.',
   'imageGenerator.title': 'Ġeneratur tal-Immaġni tal-AI',
+  'landing.aiSuggestionBody':
+    "wieqaf fuq il-gallarija tal-42 sular, Elias ħass il-belt tagħfas fuqu — ir-riħ qata' l-ħoss ambjentali, u ħallieh sospiż f'vojt kiesaħ u sieket fuq il-grilja mdawla.",
   'landing.eyebrow': 'Studio tal-kitba bl-AI għal kittieba serji',
   'landing.featuresHeading': 'Għodda li ma tfixklux',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -98,14 +125,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Studio magħmul għal kittieba li jimpurtahom mill-proża, ir-ritmu u l-preċiżjoni tagħhom. Plume jabbozza ħdejk — qatt minflokek.',
   'landing.heroTitle.eloquence': 'elokwenza',
+  'landing.heroTitle.intelligence': "L-intelliġenza tiltaqa' ma' ",
   'landing.nav.testimonials': 'Testimonjanzi',
   'landing.plan.cta': "Ibda b'dan il-pjan",
   'landing.plan.popular': 'L-aktar maħbub',
   'landing.pricingEyebrow': 'Prezzijiet',
   'landing.pricingHeading': 'Agħżel dak li jaqbel mal-prattika tiegħek',
   'landing.sampleDocTitle': 'L-Arkitettura tas-Silenzju',
+  'landing.sampleParagraph1':
+    "Il-belt qatt ma kienet tassew kwieta. Anke fl-iktar sigħat fondi tal-lejl, ħoss baxx kien jivvibra mill-pedamenti tal-konkos — taħbita mekkanika ta' ferroviji tal-metro u xaftijiet tal-ventilazzjoni.",
+  'landing.sampleParagraph2.after': ' mal-ħġieġ.',
+  'landing.sampleParagraph2.before': 'Iżda ',
   'landing.sampleParagraph2.highlight':
     'Wieqaf fuq il-gallarija tat-42 sular, Elias ħass sens profond ta’ iżolament',
+  'landing.showcaseBody':
+    "Evidenzja sentenza u {{appName}} joffri raffinament. Aċċettah, aġġustah, jew warrbu. Is-suġġerimenti dejjem huma lewn vjola biex tkun taf x'ktibt int u x'inġhata.",
+  'landing.showcaseHeading': 'Par għajnejn ieħor — qatt awtur ieħor.',
   'landing.startWriting': 'Ibda ikteb',
   'login.emailPlaceholder': 'awtur@eżempju.com',
   'login.failed': 'Id-dħul ma rnexxiex',
@@ -120,8 +155,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Iftaħ id-dashboard',
   'notFound.title': 'Dan il-kapitlu għadu ma nkitebx.',
   'plumeSidebarLayout.primaryNavLabel': 'Navigazzjoni primarja',
+  'pricing.maxDocuments': '{{count}} dokumenti',
+  'pricing.maxGenerate': '{{count}} ġenerazzjonijiet tal-AI',
+  'pricing.maxImages': '{{count}} ġenerazzjonijiet tal-immaġni',
   'privacy.data':
     "L-email tal-kont tiegħek u password hashed. Dokumenti u mudelli li toħloq. Reġistri ta' suġġerimenti tal-AI (input + output) għall-kontijiet u l-analitika. Identifikaturi tal-klijent + abbonament ta' Stripe; qatt ma naħżnu n-numri sħaħ tal-kards.",
+  'privacy.intro':
+    'Aħna niġbru biss id-data meħtieġa biex inħaddmu {{app}}: l-email tiegħek, id-dokumenti li toħloq, u t-talbiet tal-AI li tagħmel. Qatt ma nbigħu l-kitba tiegħek jew il-prompts tiegħek.',
   'profile.loadError': 'Ma stajtx nitgħabba l-profil tiegħek.',
   'profile.loading': 'Qed jitgħabba l-profil tiegħek…',
   'profile.loadingPublished': 'Qed jitgħabbew id-dokumenti ppubblikati…',
@@ -132,8 +172,14 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Password ġdida',
   'seoAnalysis.backToEditor': 'Lura għall-editur',
   'seoAnalysis.eyebrow': 'Analiżi tas-SEO',
+  'seoAnalysis.heroBody':
+    "{{count}} suġġeriment(i) x'japplika. Kull wieħed huwa titjib strutturali jew tal-kliem ewlenin, mhux ħajt ta' twissijiet ħomor.",
+  'seoAnalysis.heroBodyEmpty':
+    'Ikklikkja "Run analysis" biex tivvaluta l-qari, id-densità tal-kliem ewlenin, u l-istruttura.',
   'seoAnalysis.heroEmpty':
     "Għad m'hemm l-ebda analiżi. Agħmel waħda biex tagħti punteġġ lil dan l-abbozz.",
+  'seoAnalysis.heroNeedsWork': 'Xi titjib strutturali se jżid il-wasla.',
+  'seoAnalysis.heroStrong': "Biċċa xogħol b'saħħitha — ftit titjib 'il bogħod mill-eċċellenza.",
   'seoAnalysis.historyEmpty': 'Ma ġew irreġistrati l-ebda analiżijiet preċedenti.',
   'seoAnalysis.historyTitle': 'Storja tal-analiżi',
   'seoAnalysis.keywordEmpty':
@@ -160,8 +206,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'Irfina Plume biex taqbel mal-mod kif tikteb.',
   'settings.toggleIntegrationFailed': 'L-aġġornament tal-integrazzjoni falla.',
   'settings.writing.aiSuggestions': 'Suġġerimenti tal-AI inline waqt it-tajping',
+  'settings.writing.aiSuggestionsBody':
+    'Juri r-raffinamenti waqt li tikteb. Is-suġġerimenti dejjem jintgħażlu għal kull sentenza.',
   'settings.writing.autoSave': 'Issejvja awtomatikament kull 30 sekonda',
+  'settings.writing.autoSaveBody':
+    "{{appName}} iżomm snapshot tal-abbozz tiegħek biex tkun tista' tirkupra minn kwalunkwe tab.",
   'settings.writing.notifyEmail': "Ibgħatli email b'sommarji tal-kitba ta' kull ġimgħa",
+  'settings.writing.notifyEmailBody':
+    'Digest qasir tal-Ħadd dwar streaks, abbozzi, u titjib fis-SEO.',
   'settings.writing.title': 'Preferenzi tal-kitba',
   'settings.writing.tone': 'Preset tat-ton awtomatiku',
   'signup.emailPlaceholder': 'awtur@eżempju.com',
@@ -173,8 +225,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'Ma ngħatat l-ebda deskrizzjoni.',
   'templates.subtitle':
     'Ibda minn qafas editorjali ttestjat fil-battalja, imbagħad agħmilha tiegħek.',
+  'terms.intro':
+    "Dawn it-termini jirregolaw l-użu tiegħek ta' {{app}}. Billi toħloq kont, taqbel li tuża s-servizz għal kitba legali u li żżomm il-kredenzjali tal-kont tiegħek kunfidenzjali.",
   'terms.license':
     "Inti żżomm is-sjieda ta' kull dokument, mudell, u ġenerazzjoni tal-AI li toħloq. Neħtieġu liċenzja mhux esklussiva biex nospitaw u nservu x-xogħol tiegħek lura lilek, u biex nipproċessaw it-talbiet tal-AI permezz tal-fornituri marbuta li tagħżel.",
   'writingStreakHeroCard.change': '{{sign}} {{amount}} kliem',
   'writingStreakHeroCard.greeting': 'Il-ġurnata t-tajba, {{name}}',
+  'writingStreakHeroCard.subtitle': "Kliem miktub din il-ġimgħa — streak ta' {{count}} jum",
+  'writingStreakHeroCard.tagline': 'Paġna kuljum iżżomm il-muża involuta.',
 }

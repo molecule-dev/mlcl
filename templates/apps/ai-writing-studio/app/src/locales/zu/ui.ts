@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Unombono, uthole ibhagi, noma ufuna isici? Xhumana nathi kusukela kuzilungiselelo ze-akhawunti yakho — yonke imiyalezo ifinyelela kumuntu wangempela eqenjini.',
   'about.contactTitle': 'Xhumana nathi',
   'about.eyebrow': 'Mayelana',
+  'about.intro':
+    'I-{{app}} iyisitudiyo sokubhala esisebenzisa i-AI sababhali abanakekela kakhulu indlela ababhala ngayo. Ihlanganisa ukukhiqizwa kombhalo omude nge-AI nomhleli ozolile, ukukalwa kwe-SEO, nokukhiqizwa kwezithombe ukuze ukwazi ukuthatha umbhalo usuka ekhasini elingenalutho uze uyishicilele — ngaphandle kokuphulukana nezwi lakho.',
+  'about.missionBody':
+    'Sikholelwa ukuthi i-AI kufanele ibhale eceleni kwakho, hhayi esikhundleni sakho. I-{{app}} igcina iziphakamiso zihluke ngokusobala emagameni akho, ikushiye ungumnikazi wawo wonke umbhalo oyidalayo, futhi isusa amathuluzi endleleni yokubhala.',
+  'about.missionTitle': 'Umsebenzi wethu',
   'about.pageTitle': 'Mayelana ne-{{app}}',
   'aiSuggestionCard.applied': 'Isiphakamiso sisetshenzisiwe',
   'aiSuggestionCard.apply': 'Faka isicelo',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Imithombo yethrafikhi',
   'billing.activePlan': 'Okubhaliselwe kuyasebenza.',
   'billing.aiWordsLabel': 'Izizukulwane ze-AI zifakiwe',
+  'billing.cancelFailed': 'Ayikwazanga ukukhansela okubhalisele.',
   'billing.cancelPlan': 'Khansela uhlelo',
+  'billing.cancelPlanConfirm': 'Qinisekisa ukukhansela?',
   'billing.cancelSuccess': 'Ukubhalisa kukhanseliwe. Vuselela ukuze ubuyekeze uhlelo.',
   'billing.changePlan': 'Uhlelo lokushintsha',
   'billing.col.invoice': 'Irisidi',
@@ -43,26 +52,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'Buka izinhlelo',
   'common.goToDashboard': 'Yiya ku-Dashboard',
   'dashboard.continueWriting': 'Qhubeka ubhala',
+  'dashboard.createFirst': 'Dala umbhalo',
   'dashboard.days.sat': 'Sat',
   'dashboard.days.sun': 'Sun',
   'dashboard.defaultWriterName': 'Umbhali',
   'dashboard.greeting': 'Sawubona, {{name}}',
   'dashboard.loadError': 'Ayikwazanga ukulayisha ideshibhodi yakho.',
+  'dashboard.loading': 'Ilayisha isitudiyo sakho…',
   'dashboard.loadingDocs': 'Ilayisha amadokhumenti akamuva…',
   'dashboard.noDocuments': 'Awekho amadokhumenti okwamanje — qala elakho lokuqala.',
   'dashboard.startWriting': 'Qala idokhumenti entsha',
+  'dashboard.streakBody': 'Ubhale amagama angu-{{words}} kuleli sonto.',
   'dashboard.streakTitle': '{{count}} -uchungechunge lwezinsuku',
+  'dashboard.subgreeting': 'Imibhalo engu-{{count}} emtatsheni wakho — qhubeka ugxuma.',
+  'documentCard.seoScoreTitle': 'Amaphuzu e-SEO: {{score}}/100',
+  'documents.createNew': 'Dala umbhalo omusha',
   'documents.empty': 'Umtapo wakho wezincwadi ulindile — qala idokhumenti yakho yokuqala.',
+  'documents.emptyFiltered': 'Awukho umbhalo ohambisana nezihlungi zakho okwamanje.',
   'documents.loadError': 'Ayikwazanga ukulayisha amadokhumenti.',
   'documents.loading': 'Ilayisha ilabhulali yakho…',
   'documents.new': 'Idokhumenti entsha',
+  'documents.searchAriaLabel': 'Sesha amadokhumenti',
   'documents.searchPlaceholder': 'Sesha amadokhumenti…',
   'documents.subtitle': '{{count}} amadokhumenti kulabhulali yakho.',
   'documents.title': 'Amadokhumenti',
   'editor.aiPanelTitle': 'Ubuhlakani bePlume',
+  'editor.aiSuggestion.empty':
+    'Azikho izilungiso ezisebenzayo. Cela isiphakamiso ku-{{appName}} uma ufuna amehlo engeziwe.',
   'editor.aiSuggestion.failed': 'Ayikwazanga ukulayisha iziphakamiso njengamanje.',
   'editor.aiSuggestion.loadingBody': 'Ukudala ukucaciswa okucacile…',
   'editor.backToDocuments': 'Yonke imibhalo',
+  'editor.bodyAriaLabel': 'Umzimba wombhalo',
   'editor.closeAiPanel': 'Vala iphaneli ye-AI',
   'editor.createFailed': 'Ayikwazanga ukudala idokhumenti.',
   'editor.exported': 'Kuthunyelwe njenge- {{format}} .',
@@ -78,18 +98,26 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'Cela ukulungiswa',
   'editor.saveBeforePublish': 'Londoloza idokhumenti ngaphambi kokushicilela.',
   'editor.status.chars': '{{count}} abalingiswa',
+  'editor.status.readTime': '{{minutes}} ukufunda okuncane',
   'editor.status.savedAt': 'Kulondoloziwe {{time}}',
   'editor.status.saveError': 'Ukulondoloza kwehlulekile',
+  'editor.status.unsaved': 'Akukagcinwa',
   'editor.titleAriaLabel': 'Isihloko sedokhumenti',
   'editor.titlePlaceholder': 'Idokhumenti engenasihloko',
   'editor.toggleAiPanel': 'Guqula iphaneli ye-AI',
   'editor.viewSeo': 'I-SEO',
   'forgotPassword.emailPlaceholder': 'umbhali@example.com',
+  'forgotPassword.sent':
+    'Uma i-{{email}} isefayeleni, isixhumanisi sokuqalisa kabusha sisendleleni.',
   'imageGenerator.failed': 'Ukwenziwa kwesithombe kuhlulekile.',
   'imageGenerator.generate': 'Dala Isithombe',
   'imageGenerator.generating': 'Kukhiqizwa...',
   'imageGenerator.placeholder': 'Chaza isithombe ofuna ukusidala...',
+  'imageGenerator.promptAriaLabel': 'Isixwayiso sesithombe',
+  'imageGenerator.subtitle': 'Chaza isithombe sekhava bese uvumela i-AI ukuba isidwebe.',
   'imageGenerator.title': 'Ijeneretha Yezithombe ze-AI',
+  'landing.aiSuggestionBody':
+    'emile kubhalukhoni esitezi sama-42, u-Elias wezwa idolobha limcindezela — umoya wasusa umsindo ozungezile, wamshiya elenga endaweni ebandayo, ethule ngaphezu kwegridi ekhanyayo.',
   'landing.eyebrow': 'Isitudiyo sokubhala i-AI sababhali abaqotho',
   'landing.featuresHeading': 'Amathuluzi aphuma endleleni',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -99,14 +127,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Isitudiyo esenzelwe ababhali abakhathalela iphrozi yabo, ijubane, kanye nokunemba. Imidwebo ye-plume eceleni kwakho — hhayi esikhundleni sakho.',
   'landing.heroTitle.eloquence': 'ukukhuluma ngobuciko',
+  'landing.heroTitle.intelligence': 'Ubuhlakani buhlangana no-',
   'landing.nav.testimonials': 'Ubufakazi',
   'landing.plan.cta': 'Qala ngalolu hlelo',
   'landing.plan.popular': 'Okuthandwa kakhulu',
   'landing.pricingEyebrow': 'Intengo',
   'landing.pricingHeading': 'Khetha okuhambisana nomkhuba wakho',
   'landing.sampleDocTitle': 'Ukwakheka Kokuthula',
+  'landing.sampleParagraph1':
+    'Idolobha alizange lithule ngempela. Ngisho nasezikhathini ezijulile zasebusuku, umsindo ophansi wawudlidliza phansi kukakhonkolo — ukushaya kwenhliziyo yemishini yezitimela zangaphansi nemigudu yokuphefumula.',
+  'landing.sampleParagraph2.after': ' ngokumelene nengilazi.',
+  'landing.sampleParagraph2.before': 'Kodwa ',
   'landing.sampleParagraph2.highlight':
     'emi ebalcony yesitezi sama-42, u-Elias wazizwa enomuzwa ojulile wokuzihlukanisa',
+  'landing.showcaseBody':
+    'Gqamisa umusho bese i-{{appName}} inikeza isilungiso. Samukele, silungise, noma usilahle. Iziphakamiso zihlala zinemibala ensundu ukuze wazi lokho okubhalile kanye nalokho okunikeziwe.',
+  'landing.showcaseHeading': 'Amehlo engeziwe — hhayi umbhali wesibili.',
   'landing.startWriting': 'Qala ukubhala',
   'login.emailPlaceholder': 'umbhali@example.com',
   'login.failed': 'Ukungena ngemvume kwehlulekile',
@@ -121,8 +157,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Vula ideshibhodi',
   'notFound.title': 'Lesi sahluko asikabhalwa okwamanje.',
   'plumeSidebarLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
+  'pricing.maxDocuments': '{{count}} imibhalo',
+  'pricing.maxGenerate': 'Ukukhiqizwa kwe-AI okungu-{{count}}',
+  'pricing.maxImages': 'Ukukhiqizwa kwezithombe okungu-{{count}}',
   'privacy.data':
     'I-imeyili ye-akhawunti yakho kanye nephasiwedi esheshisiwe. Amadokhumenti namathempulethi owadalayo. Amalogi esiphakamiso se-AI (okufakayo + okukhiphayo) okukhokhisa nokuhlaziya. Izihlonzi zamakhasimende ezi-Stripe + zokubhalisela; asilokothi sigcine izinombolo zamakhadi agcwele.',
+  'privacy.intro':
+    'Siqoqa kuphela idatha edingekayo ukuze sisebenzise i-{{app}}: i-imeyili yakho, imibhalo oyidalayo, nezicelo ze-AI ozenzayo. Asikaze sidayise ukubhala kwakho noma amaphrompu akho.',
   'profile.loadError': 'Ayikwazanga ukulayisha iphrofayela yakho.',
   'profile.loading': 'Ilayisha iphrofayela yakho…',
   'profile.loadingPublished': 'Ilayisha amadokhumenti ashicilelwe…',
@@ -135,8 +176,14 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Iphasiwedi Entsha',
   'seoAnalysis.backToEditor': 'Buyela kumhleli',
   'seoAnalysis.eyebrow': 'Ukuhlaziywa kwe-SEO',
+  'seoAnalysis.heroBody':
+    'Iziphakamiso ezingu-{{count}} okufanele zisetshenziswe. Ngasinye siyisikhuthazo sesakhiwo noma segama elingukhiye, hhayi udonga lwezimpawu ezibomvu.',
+  'seoAnalysis.heroBodyEmpty':
+    'Chofoza okuthi "Run analysis" ukuze ukale ukufundeka, ukuminyana kwamagama angukhiye, nesakhiwo.',
   'seoAnalysis.heroEmpty':
     'Akukho ukuhlaziywa okwamanje. Sebenzisa okukodwa ukuze uthole amaphuzu kulolu hlaka.',
+  'seoAnalysis.heroNeedsWork': 'Ezinye izikhuthazo zesakhiwo zizokhuphula ukufinyeleleka.',
+  'seoAnalysis.heroStrong': 'Umbhalo oqinile — izikhuthazo ezincane ukusuka kokuhle kakhulu.',
   'seoAnalysis.historyEmpty': 'Akukho ukuhlaziywa kwangaphambilini okurekhodiwe.',
   'seoAnalysis.historyTitle': 'Umlando wokuhlaziya',
   'seoAnalysis.keywordEmpty':
@@ -163,8 +210,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'Lungisa i-Plume ukuze ihambisane nendlela obhala ngayo.',
   'settings.toggleIntegrationFailed': 'Isibuyekezo sokuhlanganiswa sehlulekile.',
   'settings.writing.aiSuggestions': 'Iziphakamiso ze-AI eziku-inthanethi ngenkathi uthayipha',
+  'settings.writing.aiSuggestionsBody':
+    'Ikhombisa izilungiso njengoba ubhala. Iziphakamiso zihlala zivulwa ngumsebenzisi umusho ngamunye.',
   'settings.writing.autoSave': 'Londoloza ngokuzenzakalelayo njalo ngemizuzwana engama-30',
+  'settings.writing.autoSaveBody':
+    'I-{{appName}} igcina isithombe sombhalo wakho ukuze ukwazi ukubuyisela kusukela kunoma yiliphi ithebhu.',
   'settings.writing.notifyEmail': 'Ngithumelele i-imeyili izifinyezo zokubhala zamasonto onke',
+  'settings.writing.notifyEmailBody':
+    'Isifinyezo esifushane sangeSonto samastriki, imibhalo, nokuthuthukiswa kwe-SEO.',
   'settings.writing.title': 'Izintandokazi zokubhala',
   'settings.writing.tone': 'Ukusetha kabusha kwethoni okuzenzakalelayo',
   'signup.emailPlaceholder': 'umbhali@example.com',
@@ -175,8 +228,13 @@ export const ui: UiTranslations = {
   'templates.loading': 'Ilayisha amathempulethi…',
   'templates.noDescription': 'Akukho ncazelo enikeziwe.',
   'templates.subtitle': 'Qala ngohlaka lokuhlela oluvivinywe yimpi, bese ulwenza olwakho.',
+  'terms.intro':
+    'Le migomo ilawula ukusetshenziswa kwakho kwe-{{app}}. Ngokudala i-akhawunti uvuma ukusebenzisa isevisi ekubhaleni okusemthethweni nokugcina imininingwane yakho yokungena iyimfihlo.',
   'terms.license':
     'Ugcina ubunikazi bawo wonke amadokhumenti, ithempulethi, kanye nokukhiqizwa kwe-AI okudalayo. Sidinga ilayisense engeyona ekhethekile yokusingatha nokukunikeza umsebenzi wakho, kanye nokucubungula izicelo ze-AI ngabahlinzeki ababoshiwe obakhethayo.',
   'writingStreakHeroCard.change': '{{sign}} {{amount}} amagama',
   'writingStreakHeroCard.greeting': 'Usuku oluhle, {{name}}',
+  'writingStreakHeroCard.subtitle':
+    'Amagama abhaliwe kuleli sonto — umugqa wezinsuku ongu-{{count}}',
+  'writingStreakHeroCard.tagline': 'Ikhasi ngosuku ligcina umusa uxakekile.',
 }

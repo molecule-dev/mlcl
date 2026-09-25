@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '질문이나 피드백이 있거나 팀을 위한 데모를 원하시나요? hello@conduit.dev로 이메일을 보내주세요 — 모든 메시지는 팀의 실제 담당자에게 전달됩니다.',
   'about.contactHeading': '문의하기',
   'about.eyebrow': '소개',
+  'about.featuresHeading': '제공되는 기능',
+  'about.introBody':
+    '{{app}}은 GitHub Actions 스타일의 지속적 배포를 하나의 빠른 대시보드로 제공합니다: 모든 리포지토리의 파이프라인, 빌드 로그, 아티팩트, 상태 배지, 배포 환경을 한곳에서 확인하세요. 탭을 오갈 필요도, 어떤 빌드가 실패했는지 추측할 필요도 없습니다 — 모든 실행, 로그 한 줄, 배포가 클릭 한 번으로 확인됩니다.',
+  'about.introHeading': '{{app}}이란',
+  'about.missionBody':
+    '소프트웨어 배포는 두려움의 대상이 아니라 차분하고 예측 가능해야 합니다. 우리는 커밋에서 프로덕션까지의 경로가 빠르고, 가시적이며, 신뢰할 수 있도록 파이프라인, 로그, 배포 도구를 만듭니다 — 5분 안에 첫 그린 빌드를 확인하고, 그 이후의 모든 빌드도 똑같이 명확하게.',
+  'about.missionHeading': '우리의 사명',
+  'about.subtitle':
+    '{{app}}은 모든 리포지토리의 빌드, 배포, 환경을 모니터링하고 확신을 가지고 배포하려는 팀을 위한 CI/CD 대시보드입니다.',
   'artifacts.empty': '아직 아티팩트가 없습니다.',
   'artifacts.heading': '아티팩트',
   'artifacts.loadError': '아티팩트를 불러오지 못했습니다.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': '환경',
   'environments.loadError': '환경을 불러오지 못했습니다.',
+  'environments.loading': '환경을 불러오는 중…',
   'environments.subheading': '모든 대상의 실시간 배포 상태입니다.',
   'forgotPassword.runnerStatus': '재설정 · 보안 터널',
+  'forgotPassword.success':
+    '해당 이메일로 가입된 계정이 있다면 재설정 링크가 곧 도착합니다. 받은편지함을 확인해 주세요.',
   'insights.changeFailureRate': '변경 실패율',
   'insights.deployFrequency': '일일 배포 횟수',
   'insights.empty': '데이터가 아직 충분하지 않습니다.',
@@ -39,13 +53,17 @@ export const ui: UiTranslations = {
   'insights.loadError': '인사이트를 불러오지 못했습니다.',
   'insights.meanP95': '평균 {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': '가장 느린 파이프라인 단계',
   'insights.successRateHeading': '파이프라인 성공률 (최근 14일)',
   'landing.choosePlan': '요금제 선택',
+  'landing.copyright': '© {{year}} {{app}}. 확신을 가지고 배포하세요.',
   'landing.ctaBody':
     '신용카드도, 플랫폼 엔지니어도 필요 없습니다. 5분 안에 첫 파이프라인을 성공시키세요.',
   'landing.ctaHeading': '확신을 가지고 배포하세요.',
   'landing.featuresEyebrow': '// 플랫폼 기능',
   'landing.featuresHeading': '배포자가 만든 배포자를 위한 도구',
+  'landing.heroSubtitle': '몇 초 만에 끝나는 파이프라인. 읽을 수 있는 로그. 신뢰할 수 있는 배포.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': '단순하고 예측 가능한 요금',
@@ -84,7 +102,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': '현재 진행 중',
   'pipelines.metric.successCaption': '{{count}}회 실행 중 {{total}}회',
   'pipelines.metric.successRate': '성공률',
+  'pipelines.realtimeOn': '실시간',
   'pipelines.subheading': '감시 중인 모든 저장소의 실시간 업데이트입니다.',
+  'pricing.advancedFeatures': '고급 기능: {{mark}}',
+  'pricing.canExport': '데이터 내보내기: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} 아티팩트',
+  'pricing.maxBuilds': '{{count}} 빌드',
+  'pricing.maxPipelines': '{{count}} 파이프라인',
   'privacy.dataAccount': '계정: 이름, 이메일, 해시된 비밀번호, 요금제 등급.',
   'privacy.intro':
     '{{app}}은 지속적 배포 계정을 운영하는 데 필요한 최소한의 데이터만 수집합니다: 이메일, 연결한 저장소, 러너가 생성한 커밋 및 빌드 메타데이터, 저장하기로 선택하신 시크릿입니다. 빌드 러너 외부에서는 소스 코드를 읽지 않으며, 빌드 아티팩트는 구성된 경우 사용자의 S3 버킷에 저장됩니다.',
@@ -92,6 +116,7 @@ export const ui: UiTranslations = {
     '결제에는 Stripe, 트랜잭션 이메일에는 Mailgun, 빌드 아티팩트 저장에는 AWS S3를 사용합니다. 각 업체는 서비스 제공에 필요한 최소 범위의 데이터로 계약상 제한됩니다.',
   'privacy.rightsBody':
     '설정에서 언제든지 모든 데이터를 내보내고 계정을 삭제할 수 있으며, 계정의 모든 웹훅 전송 기록을 요청할 수 있습니다. GDPR/CCPA 관련 요청에 대해서는 30일 이내에 답변드립니다.',
+  'privacy.subtitle': '{{app}}이 파이프라인을 실행하는 동안 데이터를 수집, 저장, 보호하는 방법.',
   'privacy.title': '개인정보 처리방침',
   'repositories.empty': '연결된 저장소가 없습니다.',
   'repositories.heading': '저장소',
@@ -100,11 +125,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': '전체 저장소',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': '저장소를 불러오지 못했습니다.',
+  'repositoryDetail.meanDuration': '평균 소요 시간',
   'repositoryDetail.notFound': '저장소를 찾을 수 없습니다.',
+  'repositoryDetail.successRate': '성공률',
   'repositoryDetail.totalBuilds': '총 빌드 수',
   'repositoryDetail.webhookActive': '활성',
   'repositoryDetail.webhookPaused': '일시 중지됨',
   'repositoryDetail.webhooksHeading': '웹훅',
+  'resetPassword.passwordLabel': '새 비밀번호',
   'resetPassword.runnerStatus': '재설정 · 토큰 확인 완료',
   'resetPassword.subtitle': '이전에 사용하지 않은 강력한 비밀번호를 선택하세요.',
   'resetPassword.tokenPlaceholder': '이메일에서 붙여넣기',
@@ -117,6 +145,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Conduit가 감시 중인 저장소입니다. 이벤트 수신을 중단하려면 VCS 공급자에서 연결을 해제하세요.',
   'settings.repositories.empty': '아직 연결된 저장소가 없습니다.',
+  'settings.repositories.heading': '리포지토리 연결',
   'settings.repositories.loadError': '저장소를 불러오지 못했습니다.',
   'settings.secrets.addCta': '시크릿 추가',
   'settings.secrets.addError': '비밀 키를 추가하지 못했습니다.',
@@ -124,6 +153,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': '비밀 정보를 삭제하지 못했습니다.',
   'settings.secrets.empty': '저장된 시크릿이 없습니다.',
   'settings.secrets.heading': '시크릿',
+  'settings.secrets.lastUsed': '마지막 사용 {{date}}',
   'settings.secrets.loadError': '시크릿을 불러오지 못했습니다.',
   'settings.secrets.neverUsed': '사용 이력 없음',
   'settings.secrets.rotateCta': '교체',
@@ -147,6 +177,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': '웹훅을 업데이트하지 못했습니다.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': '무료 등급 · 월 1,000 빌드 분',
+  'terms.intro':
+    '{{app}} 계정을 만들면 본 약관에 동의하게 됩니다. 본 약관은 빌드 러너의 허용 가능한 사용, SLA의 범위, 그리고 악용성 워크로드에 대해 계정을 정지 또는 해지할 수 있는 조건을 다룹니다.',
   'terms.slaBody':
     'Pro 및 Team 요금제는 API와 러너 풀에 대해 월 99.95% 가동 시간을 목표로 합니다. Free 요금제는 있는 그대로 제공됩니다. 장애는 status.conduit.dev에 보고되며, 청구서의 공식에 따라 크레딧이 지급됩니다.',
   'terms.terminationBody':

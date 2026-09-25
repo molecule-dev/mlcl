@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Դենդրիթը աշխատանքային հոսքի ավտոմատացման հարթակ է, որը միացնում է ակտիվացուցիչները, արհեստական բանականության պայմանները և բազմաքայլ գործողությունները, որպեսզի թիմերը կարողանան տեղափոխել աշխատանքը համակարգերի միջև՝ առանց կպչուն կոդ գրելու։',
+  'about.philosophy':
+    'Յուրաքանչյուր աշխատահոսք փոքր, դիտարկելի քայլերի գրաֆ է։ Յուրաքանչյուր քայլ գրանցում է իր մուտքերը, ելքերը և ժամանակը, որպեսզի այն հնարավոր լինի ստուգել, վերարտադրել կամ հետ շրջել։ Կառուցեք դրանք վիզուալ, տարբերակեք ինչպես կոդը։',
   'about.title': 'Դենդրիտի մասին',
   'authShell.brand': 'Դենդրիտ',
   'authShell.support': 'Աջակցություն',
@@ -15,9 +17,14 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Փոխել պլանը',
   'billing.description':
     'Հետևեք օգտագործմանը, կառավարեք ձեր պլանը և ստացեք հաշիվ-ապրանքագրեր հաշվապահության համար։',
+  'billing.eyebrow': 'Հաշիվ · Պլան և օգտագործում',
+  'billing.failedLabel': 'Ձախողված աշխատարկումներ · 24ժ',
+  'billing.invoicesEmpty':
+    'Դեռ հաշիվներ չկան։ Դրանք կհայտնվեն այստեղ ձեր առաջին վճարովի թարմացումից հետո։',
   'billing.invoicesTitle': 'Հաշիվ-ապրանքագրերի պատմություն',
   'billing.planNoteFree':
     'Ազատ մակարդակ — {{runs}} վազում է և {{workflows}} ակտիվ աշխատանքային հոսքեր: Թարմացրեք՝ ավելի բարձր սահմանաչափերի համար:',
+  'billing.planNotePaid': 'Վճարովի պլան — {{runs}} աշխատարկում և {{workflows}} ակտիվ աշխատահոսք։',
   'billing.runsLabel': 'Գործարկվել է վերջին 24 ժամվա ընթացքում',
   'billing.tiersBlurb':
     'Համեմատեք յուրաքանչյուր մակարդակ՝ գործարկումներ, ակտիվ աշխատանքային հոսքեր, առաջադեմ գործառույթներ և աջակցություն՝ նվիրված գնագոյացման էջում։',
@@ -35,10 +42,14 @@ export const ui: UiTranslations = {
     'Ինտեգրացիաներ չեն գրանցվել: Կարգավորեք մատակարարի բանալիները՝ կապը միացնելու համար:',
   'connections.error': 'Հնարավոր չէ բեռնել կապերը։',
   'connections.eyebrow': 'Ինտեգրացիաներ · {{connected}} միացված',
+  'connections.loading': 'Ինտեգրացիաների բեռնում…',
+  'connections.openEnv':
+    'Այս մատակարարին միացնելու համար սահմանեք նրա API բանալին api/.env-ում և վերագործարկեք սերվերը։',
   'dashboard.description':
     '{{active}} աշխատանքային հոսքերը ակտիվ են։ {{failed}} ձախողվել է վերջին 24 ժամվա ընթացքում։',
   'dashboard.error': 'Չհաջողվեց բեռնել վահանակը։',
   'dashboard.eyebrow': 'Գործողություններ · ուղիղ',
+  'dashboard.hero.label': 'Այսօրվա աշխատարկումներ',
   'dashboard.hero.medianLatency': 'p50 լատենտություն',
   'dashboard.hero.queue': 'Հերթի խորությունը',
   'dashboard.hero.success': 'Հաջողություն',
@@ -46,14 +57,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Միջին տևողությունը',
   'dashboard.kpi.failedRuns': 'Չհաջողվեց · 24 ժամ',
   'dashboard.kpi.outOf': '-ի {{total}} ընդհանուր',
+  'dashboard.kpi.successRate': 'Հաջողության ցուցանիշ · 24ժ',
   'dashboard.loading': 'Բեռնվում է վահանակը…',
   'dashboard.recentRuns.empty':
     'Դեռևս գործարկումներ չկան: Աշխատանքային հոսքի ակտիվացումը կլրացնի այս լրահոսը:',
   'dashboard.recentRuns.title': 'Վերջին վազքերը',
   'dashboard.recentRuns.viewAll': 'Բաց կատարումներ →',
+  'dashboard.recentWorkflows.browse': 'Դիտարկել ձևանմուշները →',
   'dashboard.recentWorkflows.empty':
     'Աշխատանքային հոսքեր դեռ չկան։ Տեղադրեք ձևանմուշ կամ կառուցեք այն զրոյից։',
   'dashboard.recentWorkflows.title': 'Վերջերս գործարկված',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'Սկսվել է',
   'dashboard.run.col.trigger': 'Տրիգեր',
   'dashboard.run.col.workflow': 'Աշխատանքային հոսք',
@@ -89,6 +103,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Աշխատանքային հոսք',
   'executions.description':
     'Յուրաքանչյուր աշխատանքային հոսքի մեկնարկ, յուրաքանչյուր վերփորձ, յուրաքանչյուր քայլի արդյունք՝ այս ամենը դիտարկելի է։',
+  'executions.empty.filter': 'Այս զտիչին համապատասխանող աշխատարկումներ չկան։',
   'executions.empty.first':
     'Դեռևս գործարկումներ չկան — գործարկեք աշխատանքային հոսքը՝ այս ցուցակը լրացնելու համար։',
   'executions.error': 'Հնարավոր չէ բեռնել կատարումները։',
@@ -99,30 +114,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Բեռնվում է գործարկման պատմությունը…',
   'executions.title': 'Մահապատիժներ',
   'forgotPassword.confirmation': 'Վերագործարկման հղումն ուղարկվել է {{email}} .',
+  'forgotPassword.subhead': 'Մուտքագրեք ձեր էլ. փոստը՝ վերակայման հղումը ստանալու համար։',
   'forgotPassword.successSubhead':
     'Մենք վերակայման հղում ուղարկեցինք հետևյալ հասցեին՝ {{email}} Այն լրանում է 30 րոպեից։',
   'help.connections.body':
     'Արհեստական բանականության, էլ. փոստի և պահեստավորման քայլերը պահանջում են, որ մատակարարի բանալիները սահմանվեն api/.env ֆայլում: Բանալին կարգավորելուց հետո համապատասխան ինտեգրացիան կհայտնվի որպես միացված «Կապեր» էջում:',
+  'help.connections.cta': 'Բացել կապերը →',
   'help.connections.title': 'Միացնելով մատակարարներին',
   'help.gettingStarted.body':
     'Նոր աշխատանքային հոսքերը կարող են տեղադրվել ձևանմուշների գրադարանից կամ զրոյից կառուցվել աշխատանքային հոսքերի կառուցիչում: Յուրաքանչյուր աշխատանքային հոսք ունի ձգան (ձեռքով, վեբհուքով կամ cron-ով) և քայլերի հաջորդականություն, որոնք կատարվում են հերթականությամբ:',
+  'help.gettingStarted.cta': 'Դիտել կաղապարների գրադարանը →',
+  'help.gettingStarted.title': 'Սկսել',
   'help.intro':
     'Գտեք աշխատանքային հոսքերի կառուցման, կապերի կարգավորման և աշխատանքային արդյունքի մեկնաբանման վերաբերյալ հաճախակի տրվող հարցերի պատասխանները: Ամենատարածված թեմաները ներկայացված են ստորև. չքննարկված ցանկացած հարցի համար դիմեք ձեր աշխատանքային տարածքի ադմինիստրատորին:',
   'help.runs.body':
     'Յուրաքանչյուր գործարկում գրանցում է յուրաքանչյուր քայլը՝ կարգավիճակով (հաջողություն, ձախողում, բաց թողնված) և արդյունքի մի հատվածով: Կատարման մանրամասների էջը ցույց է տալիս քայլ առ քայլ ամբողջական հետագիծը, գումարած ենթադրյալ չափանիշները:',
+  'help.runs.cta': 'Բաց կատարումներ →',
   'help.runs.title': 'Կարդալով վազքի արդյունքը',
   'help.title': 'Օգնության կենտրոն',
   'integrationCard.manage': 'Կառավարել',
   'landing.brand': 'Դենդրիտ',
   'landing.demo.action.subtitle': 'Շրջանաձև մրցաշրջան · տարածք',
+  'landing.demo.action.title': 'Ծանուցել ներկայացուցչին',
   'landing.demo.condition.subtitle': 'Արհեստական բանականության մտադրության դասակարգիչ',
+  'landing.demo.condition.title': 'Միավորը ≥ միջին?',
   'landing.demo.trigger.subtitle': 'ՓՈՍՏ /ձևեր/կապ',
   'landing.demo.trigger.title': 'Մուտքային վեբհուկ',
+  'landing.features.body':
+    'Ձգանները գործարկվում են։ Պայմանները ճյուղավորվում են։ Գործողությունները կատարում են աշխատանքը։ Կառուցեք դրանք վիզուալ, տարբերակեք ինչպես կոդը։',
   'landing.features.heading': 'Երեք տեսակի հանգույցներ։ Անվերջ ձևեր։',
   'landing.footer.help': 'Օգնություն',
   'landing.footer.tagline': 'Ինտելեկտը շարժման մեջ',
+  'landing.hero.body':
+    '{{appName}}-ը աշխատահոսքի շարժիչ է օպերացիոն թիմերի համար, որոնք գերազանցել են Zapier-ին։ Ձգան, պայման, գործողություն — միացված ձեր իրականում օգտագործած յուրաքանչյուր համակարգին։',
   'landing.hero.eyebrow': 'Ինտելեկտը շարժման մեջ',
   'landing.hero.headline': 'Միացրեք ձեր կույտը մետաղալարով։ Թող աշխատանքը կատարվի։',
+  'landing.hero.primaryCta': 'Կառուցեք ձեր առաջին աշխատահոսքը',
   'landing.hero.proof.ai': 'Ներկառուցված արհեստական բանականության հանգույցներ',
   'landing.hero.proof.free': 'Անվճար 1 կմ/ամիս վազքի համար',
   'landing.hero.proof.soc2': 'SOC 2 տիպ II',
@@ -130,10 +157,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Վճարեք վազքի համար, այլ ոչ թե նստատեղերի։',
   'landing.templates.body':
     'Նախապես կարգավորված աշխատանքային հոսքեր յուրաքանչյուր թիմի համար՝ վաճառք, աջակցություն, մշակողներ, ֆինանսներ: Տեղադրեք մեկ սեղմումով. կարգավորեք ցանկացած բան:',
+  'landing.templates.cta': 'Գրանցվեք կաղապարները դիտելու համար →',
   'landing.templates.eyebrow': 'Սկսեք վայրկյաններից',
   'landing.templates.heading': 'Ստուգված բաղադրատոմսերի գրադարան։',
   'landing.templates.signupHint': 'Գրանցվեք՝ տեղադրելու համար',
   'login.hidePassword': 'Թաքցնել գաղտնաբառը',
+  'login.noAccount': 'Նորեկ եք Tessera-ում։',
   'login.showPassword': 'Ցուցադրել գաղտնաբառը',
   'login.subhead': 'Մուտք գործեք՝ ձեր ավտոմատացումները սահուն կերպով շարունակելու համար։',
   'mobileNav.drawerLabel': 'Գլխավոր նավիգացիա',
@@ -149,8 +178,14 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Գործարկեք աշխատանքային հոսք՝ այս ֆիդը լրացնելու համար։',
   'notifications.empty.title': 'Դուք ամեն ինչ գիտեք',
   'notifications.eyebrow': '{{n}} չկարդացված',
+  'planUpdated.body':
+    'Ձեր վճարման փոփոխությունն այժմ ակտիվ է։ Դուք կարող եք ցանկացած պահի կառավարել ձեր պլանը վճարման էջից։',
+  'planUpdated.retry': 'Փորձեք կրկին',
+  'planUpdated.verifyFailed': 'Մենք դեռ չենք կարող հաստատել ձեր վճարումը։',
+  'planUpdated.verifyFailedBody': 'Ձեր վճարումը կարող է դեռ մշակվել։ Փորձեք կրկին մի փոքր ուշ։',
   'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'pricing.heading': 'վազում է',
+  'pricing.runsSuffix': 'աշխատարկումներ',
   'pricing.workflowsSuffix': 'աշխատանքային հոսքեր',
   'privacy.collect.body':
     'Մենք հավաքում ենք ձեր գրանցման էլեկտրոնային հասցեն, ձեր կողմից կարգավորվող աշխատանքային հոսքերը և յուրաքանչյուր գործարկման վերաբերյալ մետատվյալները (սկզբի ժամը, ավարտի ժամը, կարգավիճակը): Մենք երբեք չենք հավաքում կամ պահպանում ակտիվացուցիչներից կամ քայլերի ելքերից բեռի պարունակությունը՝ աշխատանքային տարածքի սեփականատիրոջ համար գործարկման դիտման մեջ ցուցադրելու համար անհրաժեշտից ավելին:',
@@ -166,11 +201,14 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Հնարավոր չէ թարմացնել գաղտնաբառը։',
   'resetPassword.newPassword': 'Նոր գաղտնաբառ',
   'resetPassword.subhead': 'Ընտրեք մի բան, որը միայն դուք կարող եք կռահել։',
+  'settings.appearance.description': 'Անցնել բաց և մութ ռեժիմների միջև։',
+  'settings.appearance.title': 'Արտաքին տեսք',
   'settings.billingShortcut.cta': 'Բաց հաշիվ-ապրանքագիր',
   'settings.billingShortcut.description':
     'Պլանը, օգտագործումը և հաշիվ-ապրանքագրերը հասանելի են հատուկ հաշվարկային էջում։',
   'settings.danger.confirm': 'Վստա՞հ եք։ Սա ձեր աշխատանքային տարածքը կհերթի ջնջման համար։',
   'settings.danger.confirmYes': 'Այո, հերթի ջնջում',
+  'settings.danger.deleteWorkspace.cta': 'Ջնջել աշխատանքային տարածքը',
   'settings.danger.deleteWorkspace.hint':
     'Հեռացնում է բոլոր աշխատանքային հոսքերը, գործարկումները և կապերը 14-օրյա արտոնյալ ժամանակահատվածից հետո։',
   'settings.danger.deleteWorkspace.title': 'Ջնջել աշխատանքային տարածքը',
@@ -181,10 +219,15 @@ export const ui: UiTranslations = {
     'Կառավարեք ձեր հաշիվը, աշխատանքային տարածքը, ինտեգրացիաները և վճարումները մեկ տեղում։',
   'settings.notifications.description':
     'Ընտրեք, թե որ միջոցառումների մասին եք խոսում, որից եք ուզում էջ ուղարկել, որից եք ուզում էլ. փոստ ուղարկել, թե՞ լռել։',
+  'settings.notifications.failures.hint':
+    'Էլ. փոստով և հավելվածում ծանուցում յուրաքանչյուր ձախողված աշխատարկման դեպքում։',
+  'settings.notifications.failures.title': 'Աշխատահոսքի ձախողումներ',
   'settings.notifications.product.hint':
     'Պարբերաբար էլեկտրոնային նամակներ նոր ձևանմուշների և գործառույթների մասին։',
+  'settings.notifications.product.title': 'Ապրանքի թարմացումներ',
   'settings.notifications.weekly.hint':
     'Երկուշաբթի առավոտյան ամփոփում՝ անցյալ շաբաթվա վազքերի և խնայողությունների մասին։',
+  'settings.notifications.weekly.title': 'Շաբաթական ամփոփագիր',
   'settings.profile.description':
     'Ինչպես եք երևում աշխատանքային հոսքի վազորդի ներսում։ Օգտագործվում է աշխատանքային տարածքի գործունեության մեջ։',
   'settings.profile.noEmail': 'Գրանցված էլ. փոստ չկա',
@@ -193,12 +236,24 @@ export const ui: UiTranslations = {
   'settings.profile.unnamedUser': 'Անանուն օգտատեր',
   'settings.security.audit.hint':
     'Հոսքայինացրեք յուրաքանչյուր գործողություն ձեր SIEM-ին webhook-ի միջոցով։',
+  'settings.security.audit.title': 'Աուդիտի մատյանի փոխանցում',
   'settings.security.description': 'Երկփուլային վավերացում, SSO և ակտիվ սեսիաներ։',
   'settings.security.sso.hint': 'Հասանելի է Scale և Enterprise պլաններով։',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint':
+    'Պահանջվում է աշխատանքային տարածքի սեփականատիրոջ ցանկացած գործողության համար։',
+  'settings.security.totp.title': 'Երկգործոն նույնականացում (TOTP)',
   'settings.twoFactorCode': 'Հաստատման կոդ',
   'settings.twoFactorDisable': 'Անջատել',
+  'settings.twoFactorDisableTitle': 'Անջատել երկգործոն նույնականացումը',
   'settings.twoFactorEnable': 'Միացնել',
+  'settings.twoFactorEnableTitle': 'Միացնել երկգործոն նույնականացումը',
   'settings.twoFactorInvalidCode': 'Անվավեր կոդ',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Երկկարգի նույնականացման QR կոդ',
+  'settings.twoFactorScan':
+    'Սկանավորեք այս QR կոդը ձեր նույնականացման հավելվածով, ապա մուտքագրեք 6-նիշանոց կոդը։',
+  'settings.twoFactorUnavailable': 'Երկփուլային նույնականացումը հասանելի չէ այս հավելվածի համար։',
   'settings.twoFactorVerify': 'Հաստատել և միացնել',
   'settings.workspace.description':
     'Ձեր թիմի համար համատեղ ինքնություն, տարածաշրջան և գործարկման լռելյայն կարգավորումներ։',
@@ -227,6 +282,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Շաբլոն',
   'templates.description':
     'Նախապես կառուցված նախագծեր ամենատարածված ավտոմատացումների համար։ Բաշխեք, հարմարեցրեք, ուղարկեք։',
+  'templates.empty.filter': 'Ձեր որոնմանը համապատասխանող կաղապարներ չկան։',
   'templates.empty.first': 'Այս պահին ձևանմուշներ չկան։',
   'templates.error': 'Չհաջողվեց բեռնել ձևանմուշները։',
   'templates.installs': 'տեղադրումներ',
@@ -252,6 +308,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Անջատել',
   'workflowBuilder.enable': 'Միացնել',
   'workflowBuilder.error': 'Չհաջողվեց բեռնել աշխատանքային հոսքը։',
+  'workflowBuilder.inspector.config': 'Կարգավորում',
+  'workflowBuilder.inspector.cron': 'Cron արտահայտություն',
+  'workflowBuilder.inspector.disabled': 'Անջատված է — չի գործարկվի ավտոմատ կերպով։',
   'workflowBuilder.inspector.enabled': 'Միացված է — աշխատում է ակտիվացման ժամանակ։',
   'workflowBuilder.inspector.eyebrow': 'տեսուչ',
   'workflowBuilder.inspector.id': 'ՀԾ',
@@ -269,18 +328,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Անջատիչը ձախողվեց։',
   'workflowBuilder.workflow': 'Աշխատանքային հոսք · v {{v}}',
   'workflowBuilder.zoom.in': 'Մեծացնել',
+  'workflowBuilder.zoom.label': 'Կտավի խոշորացման կառավարիչներ',
+  'workflowBuilder.zoom.out': 'Փոքրացնել մասշտաբը',
   'workflowCard.lastRun': 'Վերջին վազքը {{when}}',
   'workflowCard.runs': '{{count}} վազում է',
+  'workflowCard.success': '{{rate}}% հաջողություն',
   'workflowHeroCard.last24h': 'Վերջին 24 ժամվա ընթացքում',
+  'workflows.browseTemplates': 'Դիտարկել ձևանմուշները →',
   'workflows.description':
     'Ձեր աշխատանքային տարածքի յուրաքանչյուր ավտոմատացում՝ առողջության և վերջին գործունեության մասին մեկ հայացքով։',
+  'workflows.empty.body': 'Փորձեք մաքրել զտիչը կամ սկսել կաղապարից։',
   'workflows.empty.firstBody': 'Տեղադրեք ձևանմուշ՝ վայրկյանների ընթացքում սկսելու համար։',
   'workflows.empty.firstTitle': 'Աշխատանքային հոսքեր դեռ չկան',
   'workflows.empty.title': 'Համապատասխան աշխատանքային հոսքեր չկան',
   'workflows.error': 'Չհաջողվեց բեռնել աշխատանքային հոսքերը։',
   'workflows.eyebrow': 'Գրադարան · {{count}} ընդհանուր',
+  'workflows.loading': 'Բեռնվում են աշխատահոսքերը…',
   'workflows.newFromTemplate': 'Նոր ձևանմուշից',
   'workflows.searchPlaceholder': 'Որոնման աշխատանքային հոսքեր…',
+  'workflows.title': 'Աշխատահոսքեր',
   'workflowSidebar.brand': 'Դենդրիտ',
   'workflowSidebar.status': 'Բոլոր համակարգերը գործում են',
   'workflowSidebar.tagline': 'Ինտելեկտը շարժման մեջ',

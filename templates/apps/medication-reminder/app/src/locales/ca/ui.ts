@@ -1,7 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens preguntes, comentaris o una idea que t'ajudaria a mantenir el ritme? Escriu-nos des de la configuració del teu compte: cada missatge arriba a una persona real de l'equip.",
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre',
+  'about.featureAdherence':
+    "Informes d'adherència: gràfics setmanals i mensuals, a més d'un historial dosi a dosi que pots exportar i compartir amb el teu equip mèdic.",
+  'about.featureCaregivers':
+    'Compartir amb cuidadors: convida familiars o professionals clínics a una vista de només lectura i decideix exactament què poden veure.',
+  'about.featureRefills':
+    "Avisos de recanvi: recomptes de pastilles en temps real perquè rebis un avís dies abans que se t'acabin, no després.",
+  'about.featureReminders':
+    'Recordatoris que et respecten: notificacions push ajornables que poden escalar a un cuidador si es perd una dosi.',
+  'about.featureSchedules':
+    'Horaris flexibles: diaris, per intervals o dies concrets, amb diverses preses al dia i recordatoris de prendre amb menjar.',
+  'about.featuresTitle': 'El que obtens',
+  'about.missionBody':
+    "Perdre una dosi no hauria de dependre mai d'una alarma oblidada o d'un pot buit. Creem eines tranquil·les i fiables que fan que seguir un pla de tractament sigui fàcil, i que a més a més incorporen discretament la família i els professionals clínics, només tant com ho permetis.",
+  'about.missionTitle': 'La nostra missió',
+  'about.subtitle': 'Cada dosi, a temps, i tothom qui es preocupa per tu al corrent.',
   'addMedication.avoidAlcohol': "Evitar l'alcohol",
   'addMedication.backLink': 'Tots els medicaments',
   'addMedication.doseAmount': 'Dosi (per exemple, 10 mg)',
@@ -12,6 +30,7 @@ export const ui: UiTranslations = {
   'addMedication.pillColor': 'Color de la píndola (per a la identificació visual)',
   'addMedication.saveError': "No s'ha pogut desar.",
   'addMedication.saveLabel': 'Estalvieu medicaments',
+  'addMedication.takeWithFood': 'Prendre amb menjar',
   'addMedication.warningsLabel': 'Avisos (seleccioneu els que corresponguin)',
   'adherence.byMedEmpty':
     "Encara no tens cap medicament; afegeix-ne un per veure l'adherència a cada medicament.",
@@ -33,16 +52,26 @@ export const ui: UiTranslations = {
   'adherence.subheading': "Últims 30 dies · comparteix-ho amb el teu equip d'atenció si és útil",
   'adherence.taken': 'Pres',
   'adherence.title': "Informe d'adherència",
+  'adherenceTriad.refills.eyebrow': 'Recàrregues',
   'adherenceTriad.refills.meta': 'Gestiona les recàrregues →',
+  'adherenceTriad.refills.unit': 'propera aviat',
   'adherenceTriad.refills.value': '{{count}}',
   'adherenceTriad.streak.eyebrow': 'Ratxa',
   'adherenceTriad.streak.meta': 'Més llarg: {{days}} dies',
+  'adherenceTriad.streak.unit': 'dies',
   'adherenceTriad.streak.value': '{{days}}',
   'adherenceTriad.today.meta': '{{count}} encara per davant',
+  'adherenceTriad.today.unit': 'dosis preses',
   'adherenceTriad.today.value': '{{taken}} / {{total}}',
+  'auth.forgotPassword.subtitle':
+    "Introdueix el teu correu electrònic i t'enviarem un enllaç de restabliment.",
+  'auth.resetPassword.subtitle':
+    'Estableix una contrasenya nova per acabar de recuperar el teu compte.',
   'capsivaLayout.primaryNavLabel': 'Navegació principal',
+  'caregivers.email': 'Correu electrònic del cuidador',
   'caregivers.empty': "No s'ha afegit cap cuidador. Convida algú a ajudar.",
   'caregivers.heading': 'Cuidadors',
+  'caregivers.invitedOn': 'Convidat {{when}}',
   'caregivers.inviteError': "No s'ha pogut enviar la invitació.",
   'caregivers.inviteFormLabel': 'Formulari per convidar un cuidador/a',
   'caregivers.inviteIncomplete':
@@ -64,6 +93,11 @@ export const ui: UiTranslations = {
   'dashboard.timelineHeading': "Les dosis d'avui",
   'doseRow.markTaken': 'Prendre',
   'doseRow.subline': '{{dose}} · {{time}}',
+  'landing.about': 'Sobre {{app}}',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Tenim cura de la teva rutina.',
+  'landing.ctaButton': 'Comença — és gratuït',
+  'landing.ctaSubtitle':
+    'Gratuït per començar. Afegeix cuidadors quan vulguis. Cancel·la des de la configuració.',
   'landing.ctaTitle': 'Configura el teu primer recordatori en dos minuts',
   'landing.eyebrow': 'Adherència a la medicació, feta atenta',
   'landing.featureEyebrow': 'El que obtens',
@@ -75,7 +109,10 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     "Horaris, recordatoris, recàrregues i un registre d'adherència en temps real que pots compartir amb les persones que et preocupen.",
   'landing.heroTitle': '{{tagline}}',
+  'landing.sampleDate': "Diumenge, 26 d'abril",
   'medicationDetail.backLink': 'Tots els medicaments',
+  'medicationDetail.confirmDeleteBody':
+    "Això elimina el medicament, el seu horari, l'historial de dosis i qualsevol sol·licitud de recanvi pendent. Aquesta acció no es pot desfer.",
   'medicationDetail.confirmDeleteHeading': 'Suprimeix {{name}} ?',
   'medicationDetail.confirmDeleteLabel': 'Suprimeix la medicació',
   'medicationDetail.deleteError': "No s'ha pogut suprimir.",
@@ -97,14 +134,29 @@ export const ui: UiTranslations = {
   'medicationDetail.stat.remaining': 'Pastilles restants',
   'medicationDetail.stat.taken': 'Dosis preses',
   'medicationDetail.warningsHeading': 'Avisos',
+  'medications.addLabel': 'Afegir medicaments',
   'medications.empty': 'Encara no hi ha medicaments. Afegeix-ne un per començar el seguiment.',
   'medications.heading': 'Medicaments',
   'medications.loadError': "No s'han pogut carregar els medicaments.",
   'medications.prescriber': 'Recepta de {{name}}',
+  'medications.refillBy': 'Recanvi abans de {{date}}',
+  'medications.remaining': 'restants',
   'medications.subheading': '{{count}} medicaments actius',
   'notifications.heading': 'Notificacions',
+  'planUpdated.body':
+    'El canvi de facturació ja és actiu. Pots gestionar el teu pla en qualsevol moment des de la pàgina de facturació.',
+  'planUpdated.retry': 'Torna-ho a intentar',
+  'planUpdated.verifyFailed': 'Encara no hem pogut confirmar el vostre pagament.',
+  'planUpdated.verifyFailedBody':
+    "És possible que el vostre pagament encara s'estigui processant. Torneu-ho a provar en un moment.",
   'planUpdated.verifying': 'Confirmant el teu pagament…',
+  'pricing.limits.advancedFeatures': 'Funcions avançades:',
   'pricing.limits.canExport': 'Exportació de dades:',
+  'pricing.limits.maxAdherence': "{{count}} d'adherència",
+  'pricing.limits.maxDoses': '{{count}} dosis',
+  'pricing.limits.maxMedications': '{{count}} medicaments',
+  'pricing.limits.maxRefills': '{{count}} recanvis',
+  'pricing.limits.maxSchedules': '{{count}} horaris',
   'pricing.no': '—',
   'pricing.yes': '✓',
   'profile.emergency.heading': "Contacte d'emergència",
@@ -124,7 +176,9 @@ export const ui: UiTranslations = {
   'profile.security.error': "No s'ha pogut canviar la contrasenya.",
   'profile.security.next': 'Nova contrasenya',
   'profile.security.tooShort': 'La contrasenya ha de tenir com a mínim 8 caràcters.',
+  'refillAlertCard.daysAt': 'dies · {{count}} pastilles',
   'refillAlertCard.pharmacyWithPhone': '{{pharmacy}} · {{phone}}',
+  'refillAlertCard.refillsRemaining': '{{count}} recanvis restants a la recepta',
   'refillAlertCard.request': 'Sol·licitud',
   'refills.empty':
     'Encara no hi ha receptes renovades. Afegeix un medicament per començar el seguiment.',
@@ -138,11 +192,14 @@ export const ui: UiTranslations = {
   'refills.tile.dueSoonNote': 'Reomplir en els propers 30 dies',
   'refills.tile.fine': 'subministrament saludable',
   'refills.tile.fineNote': 'No cal fer res',
+  'refills.tile.urgent': 'Urgent',
   'refills.tile.urgentNote': "Fora d'aquí a una setmana",
   'schedule.heading': 'Horari setmanal',
+  'schedule.legend': 'Cercles plens = presa o propera · contorn difuminat = dosi perduda',
   'schedule.loadError': "No s'ha pogut carregar la programació.",
   'schedule.subheading': "Cada dosi, cada dia, d'un cop d'ull.",
   'schedule.timeColumn': 'Temps',
+  'settings.appearance.description': 'Alterna entre el mode clar i el mode fosc.',
   'settings.appearance.highContrast': "Colors d'alt contrast",
   'settings.appearance.largeText': 'Utilitza text més gran a tot arreu',
   'settings.appearance.timeFormat': 'Format de temps',
@@ -168,15 +225,27 @@ export const ui: UiTranslations = {
   'settings.saving': 'Desant…',
   'settings.signingOutDevice': 'Tancant sessió…',
   'settings.signOutDevice': 'Tanca la sessió',
+  'settings.twoFactorBody':
+    "Requereix un codi d'un sol ús d'una aplicació d'autenticació en iniciar sessió per tenir una capa extra de protecció de les teves dades de salut.",
   'settings.twoFactorCode': "Codi d'autenticació",
   'settings.twoFactorDisable': 'Desactiva',
+  'settings.twoFactorDisableBody':
+    "Introdueix un codi actual de la teva aplicació d'autenticació per desactivar l'autenticació de dos factors.",
   'settings.twoFactorEnable': 'Activa',
   'settings.twoFactorInvalidCode': 'Codi no vàlid.',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Codi QR de dos factors',
+  'settings.twoFactorScan':
+    "Escaneja aquest codi QR amb la teva aplicació d'autenticació i després introdueix el codi de 6 dígits.",
+  'settings.twoFactorUnavailable':
+    "L'autenticació de dos factors no està disponible per a aquesta aplicació.",
   'settings.twoFactorVerify': 'Verifica i activa',
   'settings.unnamedDevice': 'Dispositiu sense nom',
   'todayHeroCard.adherence': '{{pct}} %',
   'todayHeroCard.eyebrow': 'Avui · {{date}}',
+  'todayHeroCard.streak': '{{days}} ratxa de -dia',
+  'todayHeroCard.summary':
+    '{{taken}} de {{total}} dosis preses · {{upcoming}} encara per prendre avui',
   'userMenu.caregivers': 'Cuidadors',
   'userMenu.memberStatus': 'Cuidant la teva rutina',
   'userMenu.profile': 'Perfil i informació mèdica',

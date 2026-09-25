@@ -1,26 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Unataka kuanzisha ukaribishaji wenye joto zaidi kwa timu yako, umepata hitilafu, au una maoni? Wasiliana nasi kutoka mipangilio ya akaunti yako — kila ujumbe humfikia mtu halisi anayeweza kusaidia.',
   'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
+  'about.missionTitle': 'Dhamira yetu',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Weka upya nenosiri lako.',
+  'auth.forgotPassword.panel.body':
+    'Kuweka upya kunachukua sekunde 30 — maendeleo yako ya orodha ya ukaguzi yanakusubiri.',
+  'auth.forgotPassword.panel.headline': 'Tumerudi pale ulipoachia.',
+  'auth.forgotPassword.subheading':
+    'Weka barua pepe yako ya kazi na tutakutumia kiungo cha kuweka upya.',
   'auth.forgotPassword.successSubheading':
     'Angalia kikasha chako cha barua pepe — tumekutumia maagizo ya kuweka upya.',
   'auth.login.emailPlaceholder': 'name@yourcompany.com',
   'auth.login.heading': 'Karibu tena.',
   'auth.login.passwordPlaceholder': 'Nenosiri lako',
+  'auth.login.signupPrompt': 'Mgeni katika timu yako?',
   'auth.login.subheading': 'Ingia ili kuendelea na safari yako ya kuingia ulipoishia.',
   'auth.login.submit': 'Endelea na safari yako',
+  'auth.panel.body':
+    'Orodha yako ya ukaguzi ya kibinafsi, hatua za mafunzo, na utambulisho wa timu — vyote mahali pamoja tulivu.',
   'auth.panel.footnote': '© Embark — kuwaingiza watu kwanza tangu leo.',
   'auth.panel.headline': 'Siku 90 za kwanza zenye ujasiri huanza hapa.',
   'auth.resetPassword.heading': 'Weka nenosiri jipya.',
   'auth.resetPassword.newPasswordLabel': 'Nenosiri jipya',
+  'auth.resetPassword.panel.body':
+    'Hifadhi nenosiri jipya na tutakurudisha moja kwa moja kwenye safari yako ya ukaribishaji.',
+  'auth.resetPassword.panel.headline': 'Karibu kurudi.',
   'auth.resetPassword.subheading': 'Chagua kitu utakachokumbuka — angalau herufi 8.',
   'auth.signup.emailPlaceholder': 'name@yourcompany.com',
   'auth.signup.heading': 'Karibu katika siku zako 90 za kwanza.',
   'auth.signup.panel.body':
     'Orodha ya ukaguzi inayoongozwa, mafunzo yanayozingatia majukumu, na utangulizi wa kibinadamu — tayari kabla ya kuingia.',
+  'auth.signup.panel.headline': 'Siku ya kwanza, siku ya kwanza.',
   'auth.signup.subheading':
     'Fungua akaunti yako ya Embark ili kuanza safari yako ya kuongozwa ya kuingia.',
   'checklist.empty.body': 'Badilisha kichujio ili uone kazi zingine.',
@@ -28,6 +43,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'Kujiunga · Orodha ya ukaguzi',
   'checklist.loading': 'Inapakia orodha yako ya ukaguzi...',
   'checklist.stat.actionNeeded': 'Hatua inahitajika',
+  'checklist.stat.completion': 'Kukamilika',
+  'checklist.stat.inProgress': 'Inaendelea',
   'checklist.stat.inProgressHelper': 'Endelea pale ulipoishia',
   'checklist.stat.overdueHelper': 'Zingatia hizi kwanza',
   'checklist.subtitle':
@@ -59,6 +76,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Hakuna hati bado',
   'documents.eyebrow': 'Kuingia · Hati',
   'documents.loading': 'Inapakia hati…',
+  'documents.stat.actionNeeded': 'Saini sasa',
+  'documents.stat.all': 'Nyaraka zote',
   'documents.stat.allHelper': 'Katika kategoria zote',
   'documents.stat.pending': 'Saini zinazosubiri kusainiwa',
   'documents.stat.pendingHelper': 'Inahitajika kwa ajili ya kukamilisha',
@@ -66,6 +85,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Imehifadhiwa salama',
   'documents.status.optional': 'Hiari',
   'documents.status.required': 'Inahitajika',
+  'documents.status.signed': 'Imesainiwa',
   'documents.subtitle':
     'Kitabu chako cha mwongozo, fomu, na makubaliano yaliyosainiwa — yote katika sehemu moja.',
   'documents.title': 'Kila kitu unachohitaji kusoma na kusaini.',
@@ -73,16 +93,21 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'Mtazamaji',
   'documentViewer.breadcrumbDocs': 'Nyaraka',
   'documentViewer.downloadMeta': 'Pakua metadata',
+  'documentViewer.helpBody':
+    'People & Culture hujibu maswali ya mwongozo katika #ask-people kwenye Slack.',
   'documentViewer.helpEyebrow': 'Unahitaji msaada?',
   'documentViewer.loadError': 'Hatukuweza kupakia hati hii.',
   'documentViewer.loading': 'Inapakia hati…',
   'documentViewer.notFound': 'Hati haipatikani',
+  'documentViewer.previewBody':
+    'Pale upakiaji unapowekwa, tunaonyesha faili moja kwa moja. Kwa sasa, upakuaji wa metadata hukuruhusu kuthibitisha kuwa rekodi ni halisi.',
   'documentViewer.previewBodyExternal':
     'Tumia kitufe cha kupakua ili kufungua faili kwenye kichupo kipya.',
   'documentViewer.previewTitle': 'Hakikisho la hati',
   'documentViewer.sign': 'Saini na ukiri',
   'documentViewer.signatureBody': 'Soma hati hiyo, kisha bofya hapa chini ili kusaini na kukiri.',
   'documentViewer.signatureHeading': 'Saini inahitajika',
+  'documentViewer.signed': '✓ Imesainiwa na kuhifadhiwa',
   'documentViewer.signing': 'Inasaini…',
   'documentViewer.uploadedRecently': 'Imepakiwa hivi karibuni',
   'landing.closing.body':
@@ -92,10 +117,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Tayari nina akaunti',
   'landing.feature1.body':
     'Kila kazi — makaratasi, akaunti, utangulizi — huandaliwa mapema na tarehe za mwisho na mmiliki sahihi.',
+  'landing.feature1.title': 'Orodha ya ukaguzi inayoongozwa',
   'landing.feature2.body':
     'Moduli hufunguliwa katika hatua muhimu za 30/60/90, zikiwa zimepangwa kulingana na jukumu na timu ambayo mwajiri anajiunga nayo.',
+  'landing.feature2.title': 'Mafunzo kulingana na jukumu',
   'landing.feature3.body':
     'Marafiki, mameneja, na utangulizi wa kazi mbalimbali umepangwa — kwa hivyo hakuna anayeanza peke yake.',
+  'landing.feature3.title': 'Utambulisho halisi',
   'landing.featureEyebrow': 'Kwa Nini Uanze',
   'landing.featureHeadline': 'Njia tatu za kupata uaminifu katika siku ya kwanza.',
   'landing.footer.rights': 'Haki zote zimehifadhiwa.',
@@ -105,6 +133,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Inayofuata: Kutana na rafiki yako kwa mazungumzo ya kahawa ya dakika 30 — Jumanne saa 10:00 AM.',
   'landing.preview.eyebrow': 'Siku ya 14 kati ya 90 — dashibodi ya sampuli',
+  'landing.preview.headline': 'Karibu tena, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR iko tayari',
   'landing.proof.teams': 'Imeundwa kwa ajili ya timu za watu 50–5,000',
   'landing.proof.time': 'Jaribio la bure la siku 14',
@@ -121,16 +150,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Uko tayari kabisa.',
   'planUpdated.preparing': 'Inasasisha mpango wako…',
+  'planUpdated.retry': 'Jaribu tena',
+  'planUpdated.verifyFailed': 'Hatukuweza kuthibitisha malipo yako bado.',
+  'planUpdated.verifyFailedBody':
+    'Huenda malipo yako bado yanashughulikiwa. Jaribu tena baada ya muda mfupi.',
   'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'pricing.documentsLabel': 'hati',
   'pricing.onboardingsLabel': 'uandikishaji',
   'pricing.tasksLabel': 'kazi',
   'profile.dayNumber': 'Siku',
   'profile.detailsHeading': 'Maelezo ya uandikishaji',
+  'profile.encouragementBody':
+    'Weka rafiki yako na meneja wako katika mzunguko — hatua ndogo hujenga.',
   'profile.milestones': 'Hatua Muhimu',
   'profile.progressEyebrow': 'Maendeleo ya uandikishaji',
   'profile.tasks': 'Kazi',
   'profile.unknownName': 'Karibu',
+  'settings.appearance.description': 'Badilisha kati ya hali ya mwanga na giza.',
+  'settings.appearance.title': 'Muonekano',
+  'settings.subtitle':
+    'Rekebisha arifa, usalama, vifaa, na uhamishaji wa data — kila kitu kinabaki hapa, kwa masharti yako.',
   'settings.title': 'Mipangilio na mapendeleo.',
   'taskDetail.backToChecklist': 'Rudi kwenye orodha ya ukaguzi',
   'taskDetail.breadcrumbChecklist': 'Orodha ya ukaguzi',
@@ -142,7 +181,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'Hakuna tarehe ya mwisho',
   'taskDetail.notFound': 'Kazi haijapatikana',
   'taskDetail.notFoundBody': 'Huenda kazi hii imefutwa au ni ya mtumiaji mwingine.',
+  'taskDetail.tipBody':
+    'Ikiwa umezuiwa, mjumbe rafiki yako wa ukaribishaji kwenye Slack — wao ni msaada wako wa kwanza.',
   'taskDetail.tipEyebrow': 'Ushauri wa haraka',
+  'team.empty.body': 'Jaribu utafutaji mpana zaidi au chagua idara tofauti.',
   'team.empty.title': 'Hakuna wachezaji wenzake wanaolingana',
   'team.eyebrow': 'Kuingia · Watu',
   'team.loading': 'Inapakia wachezaji wenzako…',
@@ -165,14 +207,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Hatua Muhimu',
   'timeline.stat.current': 'Hatua muhimu ya sasa',
   'timeline.stat.next': 'Kufungua kunakofuata',
+  'timeline.stat.progress': 'Kwa ujumla',
   'timeline.subtitle':
     'Kila hatua muhimu hufungua moduli mpya, utangulizi, na mazungumzo ya ukuaji. Hakuna shinikizo - maendeleo tu.',
+  'timeline.tipBody':
+    'Panga tafakari ya dakika 30 katika siku 30, 60, na 90 na meneja wako — hufanya maoni kuwa mahususi na maendeleo yaonekane.',
   'timeline.tipEyebrow': 'Ushauri wa meneja',
+  'timeline.tipTitle': 'Weka muda kwenye kalenda kwa hatua muhimu.',
   'timeline.title': 'Safari yako ya 30/60/90.',
   'training.badge.notStarted': 'Haijaanza',
   'training.empty': 'Hakuna moduli za mafunzo bado.',
   'training.eyebrow': 'Kujiunga · Mafunzo',
   'training.loading': 'Inapakia moduli…',
+  'training.stat.all': 'Moduli zilizopewa',
   'training.subtitle':
     'Moduli hufunguliwa saa 30/60/90 ili kuendana na jukumu lako. Moduli zinazohitajika huja kwanza.',
   'training.title': 'Ujuzi, zana, na hadithi — kwa kasi yako.',
@@ -184,9 +231,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'Moduli haipatikani',
   'trainingModule.quizBody': 'Alama 80% au zaidi ili kuashiria kuwa moduli hii imekamilika.',
   'trainingModule.quizHeading': 'Jaribio la mwisho wa moduli',
+  'trainingModule.quizLocked': 'Anza moduli kwanza',
   'trainingModule.quizNone': 'Hakuna jaribio kwenye moduli hii.',
   'trainingModule.quizRetry': 'Jaribu tena',
+  'trainingModule.quizStart': 'Anza jaribio',
   'trainingModule.quizSubmit': 'Wasilisha majibu',
+  'trainingModule.start': 'Anza moduli',
   'trainingModule.statusNotStarted': 'Haijaanza',
   'welcomeHeroCard.completeLabel': 'Imekamilika',
   'welcomeHeroCard.milestonesLabel': 'Hatua Muhimu',

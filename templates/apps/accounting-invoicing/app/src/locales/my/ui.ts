@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'မေးခွန်းရှိသည်၊ ချို့ယွင်းချက်တစ်ခု တွေ့သည် သို့မဟုတ် သင့်စာအုပ်များကို လွှဲပြောင်းလိုပါသလား။ {{app}} အဖွဲ့ကို hello@{{app}}.example တွင် ဆက်သွယ်ပါ — မက်ဆေ့ခ်ျတိုင်းကို လူတစ်ဦးက ဖတ်ပါသည်။',
   'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.intro':
+    '{{app}} သည် ငွေတစ်ပြားမကျန် စာရင်းအင်းပြုလုပ်ပေးသော အသေးစားစီးပွားရေး စာရင်းအင်းစနစ်ဖြစ်ပြီး — ငွေတောင်းခံလွှာများ၊ အသုံးစရိတ်များ၊ ငွေပေးချေမှုများနှင့် အစီရင်ခံစာများကို ပိုင်ရှင်များ၊ စာရင်းကိုင်များနှင့် စာရင်းစစ်များအတွက် တစ်နေရာတည်းတွင် သပ်ရပ်စွာ စုစည်းပေးပါသည်။',
+  'about.missionBody':
+    'စီးပွားရေးလုပ်ခြင်းသည် သင့်စာရင်းအင်းများကို ကြောက်ရွံ့နေရမည့်အရာ မဖြစ်သင့်ပါ။ {{app}} သည် စာရင်းဇယားများ ပြန့်ကျဲနေမှုကို သင်လုပ်ဆောင်နိုင်သော ရှင်းလင်းသည့် ကိန်းဂဏန်းများဖြင့် အစားထိုးပေးသဖြင့် စာရင်းချိန်ညှိခြင်းအတွက် အချိန်နည်းနည်းသုံးပြီး စီးပွားရေးလုပ်ရန် သင်အမှန်တကယ် စတင်ခဲ့သည့် အလုပ်ကို ပိုလုပ်နိုင်ပါသည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'about.title': '{{app}} အကြောင်း',
   'accounts.count': 'အကောင့် {{count}} များ',
+  'accounts.emptyBody':
+    'စာရင်းအင်းအကောင့်များသည် ငွေရှိရာနှင့် ရွေ့လျားရာကို ခြေရာခံပါသည်။ သင့်စာရင်းကိုင် သို့မဟုတ် ပေါင်းစည်းမှုက ၎င်းတို့ကို သတ်မှတ်ပြီးသည်နှင့် ဤနေရာတွင် ပေါ်လာပါမည်။',
   'accounts.emptyTitle': 'အကောင့်များ မရှိသေးပါ',
   'accounts.heading': 'ငွေစာရင်းဇယား',
   'accounts.kpi.accounts': 'အကောင့်များ',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'သင့်ငွေတောင်းခံလွှာများ၊ ကုန်ကျစရိတ်များနှင့် ငွေပေးချေမှုများနောက်ကွယ်ရှိ စာရင်းဇယားအကောင့်တိုင်းကို အမျိုးအစားအလိုက် အုပ်စုဖွဲ့ထားသည်။',
   'accounts.tag.inactive': 'မလှုပ်ရှားသော',
   'authBrandPanel.attributionName': 'ဆာရာ ဂျန်ကင်းစ်',
+  'authBrandPanel.attributionRole': 'ဘဏ္ဍာရေးအရာရှိချုပ်၊ Horizon Tech',
   'authBrandPanel.eyebrow': 'ငွေကြေးအဖွဲ့များမှ ယုံကြည်စိတ်ချရသော',
   'authBrandPanel.label': 'အမှတ်တံဆိပ်ပြသမှု',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'ဖောက်သည်အားလုံး',
   'customerDetail.invoiceMeta': 'ထုတ်ပေးသည့်ရက်စွဲ {{issued}} · ပေးရမည့်ရက်စွဲ {{due}}',
   'customerDetail.loadError': 'ဖောက်သည်ကို တင်၍မရပါ။',
+  'customerDetail.missingBody':
+    'တောင်းဆိုထားသော ဝယ်ယူသူမှတ်တမ်းကို ဖွင့်၍မရပါ။ ၎င်းကို ဖယ်ရှားလိုက်ခြင်း သို့မဟုတ် သင့်တွင် ၎င်းကို အသုံးပြုခွင့်မရှိခြင်း ဖြစ်နိုင်ပါသည်။',
   'customerDetail.missingHeading': 'ဖောက်သည်မှတ်တမ်း မရရှိနိုင်ပါ',
+  'customerDetail.missingHelp':
+    'ဝယ်ယူသူများစာရင်းသို့ ပြန်သွားရန် အပေါ်ရှိ နောက်သို့လင့်ခ်ကို အသုံးပြုပါ၊ သို့မဟုတ် ထိုနေရာမှ အခြားမှတ်တမ်းတစ်ခုကို ရွေးပါ။',
+  'customerDetail.noInvoices': 'ငွေတောင်းခံလွှာများ မရှိသေးပါ။',
   'customerDetail.notesEmpty': 'မှတ်စုများ မရှိသေးပါ။',
   'customerDetail.paymentsEmpty': 'ငွေပေးချေမှုများ မှတ်တမ်းတင်ထားခြင်း မရှိပါ။',
   'customerDetail.paymentTerms': 'ငွေပေးချေမှု စည်းကမ်းချက်များ',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'နုတ်ယူနိုင်သော',
   'expenseDetail.detailsHeading': 'ငွေပေးငွေယူ အသေးစိတ်အချက်အလက်များ',
   'expenseDetail.loadError': 'ကုန်ကျစရိတ်ကို တင်၍မရပါ။',
+  'expenseDetail.matched': 'ကိုက်ညီသည် · {{description}}',
   'expenseDetail.missingBody':
     'တောင်းဆိုထားသော ကုန်ကျစရိတ်ကို တင်၍မရပါ။ ၎င်းကို ဖယ်ရှားလိုက်ခြင်း သို့မဟုတ် သင်ဝင်ရောက်ကြည့်ရှုခွင့် မရှိခြင်း ဖြစ်နိုင်သည်။',
   'expenseDetail.missingHeading': 'ကုန်ကျစရိတ်မှတ်တမ်း မရရှိနိုင်ပါ',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'ပြေစာ',
   'expenseDetail.receiptHeading': 'ပြေစာ',
   'expenseDetail.reconciled': 'ပြန်လည်သင့်မြတ်ပြီး',
+  'expenseDetail.unreconciled': 'မညှိနှိုင်းရသေးပါ',
   'expenses.empty': 'ကုန်ကျစရိတ် မရှိသေးပါဘူး။',
   'expenses.heading': 'ကုန်ကျစရိတ်များ',
   'expenses.kpi.deductible': 'နုတ်ယူနိုင်သော',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'ငွေတောင်းခံလွှာများကို တင်၍မရပါ။',
   'invoices.searchPlaceholder': 'ငွေတောင်းခံလွှာနံပါတ် သို့မဟုတ် ဖောက်သည်ကို ရှာပါ…',
   'invoices.summary.paid': 'ဒီကာလအတွင်း ပေးချေပြီး',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     '၃၀ ရက် အခမဲ့။ ကတ်မလိုပါ။ သင့်စာရင်းကိုင်ကို ယူလာပါ - သူတို့က ကျေးဇူးတင်ပါလိမ့်မယ်။',
   'landing.ctaTitle': 'စာအုပ်တွေကို ငြိမ်သက်တဲ့နေရာကို ရွှေ့လိုက်ပါ။',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'ငွေစာရင်းရရန်ရှိသော',
   'ledgerStatTriad.eyebrow.mtd': 'လမှယနေ့ထိ',
   'ledgerStatTriad.netSub': 'နက် {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} သက်တမ်းလွန်',
   'ledgerStatTriad.revenueLabel': 'ဝင်ငွေ',
   'login.failed': 'အကောင့်ဝင်၍မရပါ။',
   'login.hidePassword': 'စကားဝှက်ကို ဝှက်ပါ',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'ဆိုင်းအင်လုပ်ခြင်း',
   'nav.legal': 'ဥပဒေရေးရာ',
   'newExpense.back': 'ကုန်ကျစရိတ်များ',
+  'newExpense.clearReceiptCta': 'ပူးတွဲထားသော ပြေစာကို ရှင်းလင်းပါ',
   'newExpense.deductible': 'အခွန်ကင်းလွတ်ခွင့်',
   'newExpense.dropPrompt': 'ပူးတွဲရန်အတွက် ပြေစာဓာတ်ပုံ သို့မဟုတ် PDF ကို ဤနေရာတွင် ထည့်ပါ။',
   'newExpense.failed': 'ကုန်ကျစရိတ်ကို မချွေတာနိုင်ခဲ့ဘူး။',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'ငွေပေးချေမှုများကို တင်၍မရပါ။',
   'payments.unmatchedTag': 'မယှဉ်နိုင်သော',
   'planUpdated.pageLabel': 'အစီအစဉ်ကို အပ်ဒိတ်လုပ်ထားကြောင်း အတည်ပြုချက်',
+  'pricing.advancedFeatures': 'အဆင့်မြင့်အင်္ဂါရပ်များ — {{yes}}',
+  'pricing.canExport': 'ဒေတာထုတ်ယူခြင်း — {{yes}}',
+  'pricing.heading': 'သင့် {{app}} အစီအစဉ် ရွေးချယ်ပါ',
+  'pricing.maxAccounts': 'အကောင့် {{count}} များ',
+  'pricing.maxExpenses': '{{count}} ကုန်ကျစရိတ်များ',
+  'pricing.maxInvoices': '{{count}} ငွေတောင်းခံလွှာ',
+  'privacy.intro':
+    'ဤကိုယ်ရေးကိုယ်တာမူဝါဒသည် ဝန်ဆောင်မှုကို အသုံးပြုသော စီးပွားရေးလုပ်ငန်းများအကြောင်း {{app}} မည်သို့စုဆောင်း၊ အသုံးပြုနှင့် ထုတ်ဖော်သည်ကို ဖော်ပြပါသည်။',
   'privacy.lastUpdated': 'နောက်ဆုံး အပ်ဒိတ်လုပ်ခဲ့သည်- {{ရက်စွဲ}}',
   'privacy.section.collected.body':
     'ကျွန်ုပ်တို့သည် အကောင့်အသေးစိတ်အချက်အလက်များ (အမည်၊ အီးမေးလ်၊ ကုမ္ပဏီ)၊ သင်အပ်လုဒ်လုပ်သော ငွေကြေးမှတ်တမ်းများ (ငွေတောင်းခံလွှာများ၊ ကုန်ကျစရိတ်များ၊ ဖောက်သည်များ၊ ငွေပေးချေမှုများ) နှင့် စံဝန်ဆောင်မှုလည်ပတ်မှုမှတ်တမ်းများ (IP၊ user-agent၊ အချိန်တံဆိပ်များ) ကို စုဆောင်းပါသည်။',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'ဝန်ဆောင်မှုကို လည်ပတ်ရန်၊ သင်တောင်းဆိုသော အစီရင်ခံစာများနှင့် PDF များကို ထုတ်ပေးရန်၊ Mailgun မှတစ်ဆင့် ငွေပေးငွေယူဆိုင်ရာ အီးမေးလ်ပေးပို့ရန်နှင့် Stripe မှတစ်ဆင့် ငွေပေးချေမှုများကို လုပ်ဆောင်ရန်အတွက် အချက်အလက်များကို အသုံးပြုပါသည်။ ကျွန်ုပ်တို့သည် ကိုယ်ရေးကိုယ်တာ အချက်အလက်များကို ရောင်းချခြင်း သို့မဟုတ် ငှားရမ်းခြင်း မပြုလုပ်ပါ။',
   'recentInvoicesCard.dueMeta': 'ပေးရမည့်ရက် {{date}}',
+  'recentInvoicesCard.empty': 'ကိုက်ညီသော ငွေတောင်းခံလွှာများ မရှိပါ။',
   'recentInvoicesCard.eyebrow': 'ငွေစာရင်းရရန်ရှိသော',
   'recentInvoicesCard.searchAriaLabel': 'ငွေတောင်းခံလွှာများ ရှာဖွေပါ',
+  'recentInvoicesCard.searchPlaceholder': 'ငွေတောင်းခံလွှာများ ရှာဖွေရန်…',
   'recentInvoicesCard.title': 'မကြာသေးမီက ပြေစာများ',
   'recentInvoicesCard.viewAll': 'ငွေတောင်းခံလွှာအားလုံးကို ကြည့်ရှုရန် →',
   'reports.assets': 'ပိုင်ဆိုင်မှုများ',
@@ -181,15 +211,20 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'အမြတ်နှင့်အရှုံး (၁၂ လ)',
   'resetPassword.backToLogin': '← အကောင့်ဝင်ရန်သို့ ပြန်သွားရန်',
   'resetPassword.hidePassword': 'စကားဝှက်ကို ဝှက်ပါ',
+  'resetPassword.passwordLabel': 'စကားဝှက်အသစ်',
   'resetPassword.showPassword': 'စကားဝှက်ပြပါ',
+  'resetPassword.subheading': 'ခိုင်မာသော စကားဝှက်တစ်ခု ရွေးပါ — အနည်းဆုံး ရှစ်လုံး။',
   'resetPassword.submit': 'စကားဝှက် ပြန်လည်သတ်မှတ်ပါ',
   'resetPassword.tooShort': 'စကားဝှက်သည် အနည်းဆုံး စာလုံး ၈ လုံး ရှိရမည်။',
   'settings.account.changePassword': 'စကားဝှက်ကိုပြောင်းရန်',
   'settings.account.changingPassword': 'ပြောင်းလဲနေသည်…',
   'settings.account.currentPassword': 'လက်ရှိစကားဝှက်',
+  'settings.account.dangerZone': 'အန္တရာယ်ဇုန်',
   'settings.account.deleteAccount': 'အကောင့်ကို ဖျက်ပါ',
   'settings.account.deleteDescription': 'သင့်အကောင့်နှင့် ဆက်စပ်ဒေတာအားလုံးကို အပြီးအပိုင်ဖျက်ပါ။',
   'settings.account.deleteError': 'အကောင့်ကို ဖျက်၍မရပါ။',
+  'settings.account.deleteWarning':
+    'ဤအရာသည် သင့်အကောင့်ကို အပြီးအပိုင် ဖျက်ပစ်မည်ဖြစ်ပြီး ပြန်လည်ပြုလုပ်၍မရပါ။ အတည်ပြုရန် သင့်စကားဝှက်ကို ထည့်ပါ။',
   'settings.account.deleting': 'ဖျက်နေသည်…',
   'settings.account.devices': 'စက်ပစ္စည်းများ',
   'settings.account.email': 'အီးမေးလ်',
@@ -200,6 +235,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'စကားဝှက်',
   'settings.account.passwordError': 'စကားဝှက်ပြောင်း၍မရပါ။',
   'settings.account.pushNotifications': 'ဤစက်ပစ္စည်းတွင် အကြောင်းကြားချက်များ ပေးပို့ခြင်း',
+  'settings.account.revokeDeviceWarning':
+    'ဤစက်ပစ္စည်း၏ ဝင်ခွင့်ကို မကြာမီ ပယ်ဖျက်ပါမည်။ ထွက်မည်လား?',
   'settings.account.saveError': 'ပရိုဖိုင်ကို အပ်ဒိတ်လုပ်၍မရပါ။',
   'settings.account.security': 'လုံခြုံရေး',
   'settings.account.signOutDevice': 'ဆိုင်းအောက်',
@@ -207,12 +244,19 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'နှစ်ဆင့်အထောက်အထားစိစစ်ခြင်း',
   'settings.account.twoFactorCode': 'အထောက်အထားစိစစ်ရေးကုဒ်',
   'settings.account.twoFactorDisable': 'ပိတ်ရန်',
+  'settings.account.twoFactorDisableTitle': 'နှစ်ဆင့်အတည်ပြုခြင်းကို ပိတ်ပါ',
   'settings.account.twoFactorEnable': 'ဖွင့်ပါ',
+  'settings.account.twoFactorEnableTitle': 'နှစ်ဆင့်အတည်ပြုခြင်းကို ဖွင့်ပါ',
   'settings.account.twoFactorInvalidCode': 'ကုဒ် မမှန်ကန်ပါ',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'နှစ်ဆင့် QR ကုဒ်',
+  'settings.account.twoFactorScan':
+    'ဤ QR ကုဒ်ကို သင့်အတည်ပြုကိရိယာအက်ပ်ဖြင့် စကင်ဖတ်ပြီး ၆ လုံးပါ ကုဒ်ကို ထည့်ပါ။',
+  'settings.account.twoFactorUnavailable': 'ဤအက်ပ်အတွက် နှစ်ဆင့်အထောက်အထားစိစစ်ခြင်း မရရှိနိုင်ပါ။',
   'settings.account.twoFactorVerify': 'အတည်ပြုပြီး ဖွင့်ပါ',
   'settings.account.unknownDevice': 'မသိသော စက်ပစ္စည်း',
   'settings.company.email': 'ငွေတောင်းခံလွှာ အီးမေးလ်',
+  'settings.company.heading': 'ကုမ္ပဏီနှင့် အခွန်',
   'settings.company.name': 'တရားဝင်အမည်',
   'settings.company.saveButton': 'ကုမ္ပဏီပရိုဖိုင်ကို သိမ်းဆည်းပါ',
   'settings.company.taxId': 'အခွန် ID / EIN',
@@ -256,6 +300,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'ခန့်မှန်းခြေ သုံးလပတ်',
   'taxes.kpi.owed': 'အကြွေးတင်နေသည်',
   'taxes.loadError': 'အခွန်အကျဉ်းချုပ်ကို တင်၍မရပါ။',
+  'taxes.remittedPct': '({{pct}}% လွှဲပြောင်းပြီး)',
+  'terms.intro':
+    'ဤဝန်ဆောင်မှုစည်းမျဉ်းများ ("စည်းမျဉ်းများ") သည် {{app}} ကို သင့်ဝင်ရောက်အသုံးပြုခွင့်နှင့် အသုံးပြုမှုကို ထိန်းချုပ်ပါသည်။ အကောင့်တစ်ခု ဖန်တီးခြင်း သို့မဟုတ် ဝန်ဆောင်မှုကို အသုံးပြုခြင်းဖြင့် သင်သည် ၎င်းတို့ကို လိုက်နာရန် သဘောတူပါသည်။',
   'terms.lastUpdated': 'နောက်ဆုံး အပ်ဒိတ်လုပ်ခဲ့သည်- {{ရက်စွဲ}}',
   'terms.section.acceptable.body':
     'သင်သည် ဝန်ဆောင်မှုကို မည်သည့်ဥပဒေကိုမျှ ချိုးဖောက်ရန်၊ ဉာဏပစ္စည်းဆိုင်ရာ မူပိုင်ခွင့်များကို ချိုးဖောက်ရန်၊ malware များ ထုတ်လွှင့်ရန် သို့မဟုတ် အခြားအကောင့်များ သို့မဟုတ် ကျွန်ုပ်တို့၏ အခြေခံအဆောက်အအုံကို ခွင့်ပြုချက်မရှိဘဲ ဝင်ရောက်ရန် မကြိုးစားရန် သဘောတူပါသည်။',

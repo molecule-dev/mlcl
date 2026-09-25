@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Unombono, uthole iphutha, noma ufuna {{app}} yesitudiyo sakho noma iqembu lakho? Xhumana nathi kusukela kuzilungiselelo ze-akhawunti yakho — yonke imiyalezo ifinyelela kumuntu wangempela eqenjini.',
   'about.contactTitle': 'Xoxa nathi',
+  'about.intro':
+    'I-{{app}} iyisitudiyo sokubhala ngokubambisana lapho abahleli, ababhali, namaqembu babhala ndawonye ngesikhathi sangempela. Vula idokhumenti futhi ikhasi liba ngokwabiwe — izikhombisi ziyanyakaza, ukuphawula kuxhumana emaphethelweni, futhi zonke izinguqulo zigcinwa zivikelekile emlandweni.',
+  'about.missionBody':
+    'Sikholelwa ukuthi ukubhala okude kufanele kube nekhaya elizolile neligxilile — elakhelwe umbhalo, hhayi umhlangano noma ibhokisi lokungenayo. Umhleli wethu, ukuba khona ngesikhathi sangempela, nomlando wezinguqulo konke kwenzelwe ukuthi ababambisani bakwazi ukuhamba ngokushesha ndawonye ngaphandle kokuthi othile alahlekelwe yisigaba noma umcabango.',
+  'about.missionTitle': 'Umsebenzi wethu',
+  'about.subtitle': 'Cabanga ndawonye, bhala kuze kube phakade.',
   'about.title': 'Mayelana ne-{{app}}',
   'comments.addFailed': 'Ayikwazanga ukuthumela amazwana.',
   'comments.backToDoc': 'Buyela kumbhalo wesandla',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Izingxoxo zokuphawula',
   'comments.loading': 'Ilayisha imicu…',
   'comments.newPlaceholder': 'Engeza amazwana kumbhalo wesandla...',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Vula kabusha',
   'comments.reopenFailed': 'Ayikwazanga ukuvulwa kabusha.',
   'comments.replyFailed': 'Ayikwazanga ukuthumela impendulo.',
@@ -39,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Okusalungiswa kwakamuva, imisebenzi eyabiwe, kanye nokuhlelwa kosuku.',
   'dashboard.viewFeed': 'Okuphakelayo →',
   'editor.back': 'Buyela emibhalweni yesandla',
+  'editor.bodyLabel': 'Umzimba wombhalo',
   'editor.bodyPlaceholder': 'Qala lapho ikhesa licwayiza khona.',
   'editor.comments': 'Amazwana',
   'editor.createFailed': 'Ayikwazanga ukudala idokhumenti.',
@@ -64,13 +74,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'umbhali@studio.com',
   'forgotPassword.sentBody':
     'Uma kukhona i-akhawunti ye- {{email}} , isixhumanisi sokusetha kabusha sisendleleni.',
+  'forgotPassword.sentHeading': 'Hlola i-imeyili yakho',
+  'forgotPassword.submitting': 'Iyathumela...',
   'forgotPassword.subtitle': 'Sizokuthumelela isixhumanisi sokusetha kabusha nge-imeyili.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Yakhiwe ngeMolekyuli.',
+  'landing.ctaBody':
+    'Mahhala kubabhali ababodwa. Izinhlelo zesitudiyo zamaqembu abahleli, ababhali bezipoki, nababuyekezi.',
   'landing.ctaHeading': 'Vula ikhasi. Vumela ikhesa liqale.',
   'landing.ctaPrimary': 'Vula isitudiyo',
   'landing.eyebrow': 'Kwababhali, abahleli, kanye namaqembu',
   'landing.featuresEyebrow': 'Lokho okutholayo',
   'landing.featuresHeading': 'Isitudiyo sohlaka olude.',
+  'landing.featuresSubtitle':
+    'I-{{appName}} yakhelwe umbhalo — hhayi umhlangano, hhayi ibhokisi lokungenayo.',
   'landing.getStarted': 'Vula isitudiyo',
   'landing.heroCta': 'Qala ukubhala',
   'landing.heroSubtitle':
@@ -96,6 +112,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} okungafundiwe · amazwana, ukukhulunywa ngawo, ukwabelana ngezimemo, kanye nezicelo zesiphakamiso.',
   'presenceAvatars.label': '{{count}} abahlanganyeli',
+  'privacy.intro': 'Indlela esiqoqa, esisebenzisa futhi esivikela ngayo ulwazi lwakho.',
   'privacy.title': 'Inqubomgomo yobumfihlo',
   'profile.about.description':
     'I-bio emfushane yephrofayela yakho yomphakathi kanye namakhasi omuntu onikelayo.',
@@ -109,7 +126,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Ukuba khona',
   'profile.pronouns': 'Izibizo',
   'profile.publicToggle': 'Bonisa iphrofayela kubalingani bakho',
+  'profile.role': 'Indima / isihloko',
   'profile.subtitle': 'Indlela obonakala ngayo kubalingani bakho.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} ababhali abasebenzayo esitudiyo',
   'quillonAuthBrandPanel.quote':
     '"Ukubhala yikona kuphela okungenza ngingazizwa sengathi kufanele ngenze okunye uma ngikwenza."',
@@ -117,6 +136,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Vula →',
   'quillonKpiCard.trend': 'Ithrendi yakamuva',
   'quillonLayout.menu': 'Imenyu',
+  'quillonLayout.mobileNavLabel': 'Ukuzulazula kweselula',
   'quillonLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'quillonStudioHero.collab': 'Abahlanganyeli',
   'quillonStudioHero.docs': 'Amadokhumenti athintiwe',
@@ -125,7 +145,9 @@ export const ui: UiTranslations = {
   'quillonStudioHero.subtitle': 'Thatha umbhalo, beka amazwana, cindezela isigaba phambili.',
   'quillonStudioHero.words': 'Amagama namuhla',
   'resetPassword.confirmPlaceholder': 'Phinda iphasiwedi entsha',
+  'resetPassword.passwordLabel': 'Iphasiwedi Entsha',
   'resetPassword.passwordPlaceholder': 'Faka iphasiwedi entsha',
+  'resetPassword.submitting': 'Ukusetha kabusha...',
   'resetPassword.subtitle': 'Khetha iphasiwedi eqinile — okungenani izinhlamvu ezingu-12.',
   'settings.account.description': 'Indlela ongena ngayo ngemvume.',
   'settings.billing.canceled': 'Ukubhalisa kukhanseliwe.',
@@ -134,7 +156,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Akulungiselelwe',
   'settings.billing.updated': 'Uhlelo lubuyekeziwe.',
   'settings.editor.description': 'Indlela ikhanvasi eziphatha ngayo ngenkathi ubhala.',
+  'settings.editor.title': 'Izintandokazi zomhleli',
   'settings.eyebrow': 'Izintandokazi ze-Studio',
+  'settings.language.title': 'Ulimi',
   'settings.notifications.${n.key}.description': 'Ulimi',
   'settings.notifications.description':
     'Khetha ukuthi yini efinyelela ebhokisini lakho lokungenayo.',
@@ -145,6 +169,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Kwabelwane nami',
   'shared.loadFailed': 'Ayikwazanga ukulayisha amadokhumenti abelwene ngawo.',
   'shared.subtitle': 'Imibhalo yesandla, izifinyezo, kanye namanothi avela kulo lonke isitudiyo.',
+  'signup.brandAttribution': 'Anaïs Park — Umhleli, The Quarterly',
   'signup.brandQuote':
     '\\u201cUmbhalo wakho wokuqala unzima kakhulu. UQuillon wenza kube lula ukuba nesizungu.\\u201d',
   'signup.emailPlaceholder': 'umbhali@studio.com',
@@ -152,6 +177,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'U-Anaïs',
   'signup.heading': 'Dala i-akhawunti yakho ye-Quillon',
   'signup.lastNamePlaceholder': 'Ipaki',
+  'signup.submitting': 'Kuvulwa isitudiyo sakho\\u2026',
   'signup.subtitle':
     'Ideski elithule, abahlanganyeli abaseduze, kanye nomhleli wesikhathi eside ophuma endleleni yakho.',
   'templates.blank.subtitle': 'Ikhasi elihlanzekile. Isikhombisi siyaqala.',
@@ -164,11 +190,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Qala ngesakhiwo esicabangelayo. Yenza ngokwezifiso ngokungapheli.',
   'templates.useFailed': 'Ayikwazanga ukuqala idokhumenti kusukela kulesi sifanekiso.',
   'templates.useTemplate': 'Sebenzisa lesi sifanekiso',
+  'terms.intro': 'Imibandela ongasebenzisa ngayo le sevisi.',
   'terms.title': 'Imigomo yesevisi',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'khona manje',
   'trash.confirmDelete': 'Qinisekisa ukususa',
+  'trash.confirmEmpty': 'Qinisekisa — susa konke',
   'trash.deleteFailed': 'Ayikwazanga ukususa.',
   'trash.deleteForever': 'Susa unomphela',
   'trash.empty': 'Akukho lutho oluzolulama.',
@@ -183,7 +211,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'Azikho izinguquko okwamanje — londoloza idokhumenti ukuze uqale umlando wayo.',
   'versionHistory.heading': 'Umlando wenguqulo',
+  'versionHistory.latest': 'Okwakamuva',
   'versionHistory.loadFailed': 'Ayikwazanga ukulayisha umlando.',
+  'versionHistory.noContent': 'Akukho okuqukethwe okuthunjiwe kule nguqulo.',
   'versionHistory.previewing': 'Ukubuka kuqala',
   'versionHistory.restore': 'Buyisela le nguqulo',
   'versionHistory.restoreFailed': 'Ukubuyisela kuhlulekile.',

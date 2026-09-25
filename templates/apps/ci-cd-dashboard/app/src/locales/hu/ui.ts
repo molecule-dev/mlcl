@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kérdésed, visszajelzésed van, vagy demót szeretnél a csapatodnak? Írj nekünk a hello@conduit.dev címre — minden üzenet eljut a csapat egy valódi tagjához.',
   'about.contactHeading': 'Lépjen kapcsolatba velünk',
   'about.eyebrow': 'Névjegy',
+  'about.featuresHeading': 'Amit kap',
+  'about.introBody':
+    'A {{app}} egyetlen gyors irányítópultba hozza a GitHub Actions-stílusú folyamatos szállítást: pipeline-ok, buildnaplók, artifactok, állapotjelvények és telepítési környezetek az összes repozitóriodhoz egy helyen. Nincs több lapváltogatás, nincs találgatás, melyik build tört el — minden futás, naplósor és telepítés egy kattintásra van.',
+  'about.introHeading': 'Mi a {{app}}',
+  'about.missionBody':
+    'A szoftverszállítás legyen nyugodt és kiszámítható, ne rémálom. Mi építjük a pipeline-okat, a naplókat és a telepítési eszközöket, hogy a commit és az élesítés közötti út gyors, átlátható és megbízható legyen — az első zöld build öt perc alatt, és minden utána következő ugyanolyan világos.',
+  'about.missionHeading': 'Küldetésünk',
+  'about.subtitle':
+    'A {{app}} egy CI/CD irányítópult azoknak a csapatoknak, amelyek minden repozitóriumban figyelni szeretnék a buildeket, a telepítéseket és a környezeteket — és biztos kézzel szeretnének szállítani.',
   'artifacts.empty': 'Még nincsenek artifaktok.',
   'artifacts.heading': 'Artifaktok',
   'artifacts.loadError': 'Az artifaktok betöltése sikertelen.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Környezetek',
   'environments.loadError': 'A környezetek betöltése sikertelen.',
+  'environments.loading': 'Környezetek betöltése…',
   'environments.subheading': 'Valós idejű deployment állapot minden célhelyen.',
   'forgotPassword.runnerStatus': 'visszaállítás · biztonságos alagút',
+  'forgotPassword.success':
+    'Ha létezik fiók ahhoz az e-mailhez, a visszaállítási link úton van. Ellenőrizze beérkező leveleit.',
   'insights.changeFailureRate': 'Változtatási hibaarány',
   'insights.deployFrequency': 'Deployok / nap',
   'insights.empty': 'Még nincs elegendő adat.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Az elemzések betöltése sikertelen.',
   'insights.meanP95': 'átlag {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'A leglassabb pipeline-lépések',
   'insights.successRateHeading': 'Pipeline sikerességi arány (utolsó 14 nap)',
   'landing.choosePlan': 'Csomag választása',
+  'landing.copyright': '© {{year}} {{app}}. Szállíts biztos kézzel.',
   'landing.ctaBody':
     'Bankkártya nem szükséges. Platform-mérnök sem kell. Hozd zöldre az első pipelinet öt perc alatt.',
   'landing.ctaHeading': 'Szállíts biztonsággal.',
   'landing.featuresEyebrow': '// platform features',
   'landing.featuresHeading': 'Fejlesztők által fejlesztőknek',
+  'landing.heroSubtitle':
+    'Pipeline-ok, amelyek másodpercek alatt befejeződnek. Naplók, amelyeket el lehet olvasni. Telepítések, amelyekben megbízhatsz.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Egyszerű, kiszámítható árak',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Most fut',
   'pipelines.metric.successCaption': '{{count}} / {{total}} futtatás',
   'pipelines.metric.successRate': 'Sikerességi arány',
+  'pipelines.realtimeOn': 'valós idő',
   'pipelines.subheading': 'Valós idejű frissítések minden figyelt repository-ból.',
+  'pricing.advancedFeatures': 'Speciális funkciók: {{mark}}',
+  'pricing.canExport': 'Adatexport: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artifact',
+  'pricing.maxBuilds': '{{count}} build',
+  'pricing.maxPipelines': '{{count}} pipeline',
   'privacy.dataAccount': 'Fiók: név, e-mail, hash-elt jelszó, csomag szintje.',
   'privacy.intro':
     '{{app}} csak a folyamatos szállítási fiókja üzemeltetéséhez szükséges minimális adatokat gyűjti: az e-mail-címét, a csatlakoztatott repository-kat, a runnerek által előállított commitokat és build metaadatokat, valamint a nálunk tárolni kívánt titkos adatokat. A forráskódot soha nem olvassuk a build runneren kívül; a build artifaktok az Ön S3 bucket-jébe kerülnek, ha ez be van állítva.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'A Stripe-ot használjuk számlázáshoz, a Mailgunt tranzakciós e-mailekhez, az AWS S3-at pedig build artifaktok tárolásához. Mindegyik szerződéses kötelezettséggel korlátozott az adatok minimális körére, amely a szolgáltatás nyújtásához szükséges.',
   'privacy.rightsBody':
     'Adataid minden bájtját exportálhatod, fiókodat bármikor törölheted a Beállításokban, és kérheted a fiókodban található összes webhook-kézbesítés rögzítését. A GDPR/CCPA szerinti kérésekre 30 napon belül válaszolunk.',
+  'privacy.subtitle':
+    'Hogyan gyűjti, tárolja és védi a {{app}} az adataidat, miközben futtatjuk a pipeline-jaidat.',
   'privacy.title': 'Adatvédelmi szabályzat',
   'repositories.empty': 'Nincs csatlakoztatott repository.',
   'repositories.heading': 'Repository-k',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Összes repository',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'A repository betöltése sikertelen.',
+  'repositoryDetail.meanDuration': 'Átlagos időtartam',
   'repositoryDetail.notFound': 'Repository nem található.',
+  'repositoryDetail.successRate': 'Sikerességi arány',
   'repositoryDetail.totalBuilds': 'Összes build',
   'repositoryDetail.webhookActive': 'aktív',
   'repositoryDetail.webhookPaused': 'szüneteltetett',
   'repositoryDetail.webhooksHeading': 'Webhookok',
+  'resetPassword.passwordLabel': 'Új jelszó',
   'resetPassword.runnerStatus': 'visszaállítás · token ellenőrizve',
   'resetPassword.subtitle': 'Válasszon erős jelszót, amelyet korábban még nem használt.',
   'resetPassword.tokenPlaceholder': 'illessze be az e-mailből',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'A Conduit által figyelt repository-k. A VCS-szolgáltatótól való leválasztással leállíthatja az eseményeket.',
   'settings.repositories.empty': 'Még nincs csatlakoztatott repository.',
+  'settings.repositories.heading': 'Repozitórió-kapcsolatok',
   'settings.repositories.loadError': 'A repository-k betöltése sikertelen.',
   'settings.secrets.addCta': 'Titkos adat hozzáadása',
   'settings.secrets.addError': 'A titkos kulcs hozzáadása nem sikerült.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'A titok törlése nem sikerült.',
   'settings.secrets.empty': 'Nincsenek tárolt titkos adatok.',
   'settings.secrets.heading': 'Titkos adatok',
+  'settings.secrets.lastUsed': 'utoljára használva: {{date}}',
   'settings.secrets.loadError': 'A titkos adatok betöltése sikertelen.',
   'settings.secrets.neverUsed': 'soha nem használt',
   'settings.secrets.rotateCta': 'Rotálás',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'A webhook frissítése nem sikerült.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'ingyenes szint · 1 000 build perc/hó',
+  'terms.intro':
+    'A {{app}} fiók létrehozásával elfogadod ezeket a feltételeket. Ezek lefedik a buildfuttatók elfogadható használatát, az SLA-nk határait, valamint azokat a feltételeket, amelyek alapján visszaélésszerű terhelés esetén felfüggeszthetjük vagy megszüntethetjük a fiókodat.',
   'terms.slaBody':
     'A Pro és Team csomagok havonta 99,95%-os rendelkezésre állást céloznak az API és a runner pool számára. Az ingyenes csomag olyan, amilyen. A kieséseket a status.conduit.dev oldalon jelzik, és a számláján szereplő képlet szerint jóváírják.',
   'terms.terminationBody':

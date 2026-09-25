@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'တုံ့ပြန်ချက်ရှိသည်၊ ချို့ယွင်းချက်တစ်ခု တွေ့သည် သို့မဟုတ် ရည်မှန်းချက်ကြီးမားစွာ စီစဉ်နေပါသလား။ သင့်အကောင့်ဆက်တင်များမှ ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ — မက်ဆေ့ခ်ျတိုင်း အဖွဲ့ထဲရှိ လူတစ်ဦးထံ ရောက်ပါသည်။',
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'တစ်ခုတည်းသော inbox ထဲတွင် ဘွတ်ကင်များ — လေယာဉ်၊ ဟိုတယ်နှင့် လှုပ်ရှားမှု အတည်ပြုချက်များသည် သက်ဆိုင်ရာ ရက်စွဲအတိအကျတွင် ရောက်ရှိပါသည်။',
+  'about.featureCollab':
+    'အချိန်နှင့်တပြေးညီ ပူးပေါင်းလုပ်ဆောင်မှု — ခရီးတစ်ခုလျှင် ခရီးသည် ငါးဦးအထိ ဖိတ်ခေါ်နိုင်ပြီး ပြောင်းလဲမှုတိုင်း တိုက်ရိုက် စင့်ခ်လုပ်ကာ ရပ်နားစခန်းတစ်ခုစီအောက်တွင် မှတ်ချက်များ စုစည်းထားပါသည်။',
+  'about.featureMapsBudget':
+    'မြေပုံများ၊ ခရီးစဉ်များနှင့် မျှဝေဘတ်ဂျက် — ခရီးတစ်ခုလုံးကို မြေပုံပေါ်တွင် ကြည့်ရှုပါ၊ အယ်ဒီတာရွေးချယ်ထားသော ခရီးစဉ်များကို ရှာဖွေပါ၊ ကုန်ကျစရိတ်များကို ခြေရာခံပါ — မည်သူမျှ ပိုမကုန်စေရန်။',
+  'about.featureTimelines':
+    'ရက်အလိုက် အချိန်ဇယားများ — ရပ်နားစခန်းများကို ဆွဲ၍ အစီအစဉ်ပြန်စီပါ၊ သယ်ယူပို့ဆောင်ရေး အပိုင်းများ ထည့်ပါ၊ ခရီးစဉ်သည် အသက်ဝင်သော စာရွက်စာတမ်းတစ်ခုအဖြစ် ပြန်လည်တွက်ချက်သည်ကို ကြည့်ပါ။',
+  'about.intro':
+    '{{app}} သည် မပြည့်စုံသော အစီအစဉ်များ ပြည့်နေသော ဖိုလ်ဒါတစ်ခုကို သင့်အဖွဲ့တစ်ခုလုံး အမှန်တကယ် လိုက်နိုင်သော မျှဝေခရီးတစ်ခုအဖြစ် ပြောင်းလဲပေးပါသည်။ ရက်အလိုက် ခရီးစဉ်တစ်ခု တည်ဆောက်ပါ၊ လေယာဉ်နှင့် ဟိုတယ်များ ထည့်ပါ၊ ရပ်နားစခန်းတိုင်းကို မြေပုံပေါ်တွင် မှတ်ပါ၊ ဘတ်ဂျက်ကို ခြေရာခံပါ — ဒါဇင်နှင့်ချီသော တဘ်များနှင့် အုပ်စုချတ်အစား အေးချမ်းသော နေရာတစ်ခုတည်းတွင် အားလုံးကို လုပ်ဆောင်ပါ။',
+  'about.missionBody':
+    'ခရီးစီစဉ်ခြင်းသည် အိမ်စာလုပ်ရသလို မခံစားရဘဲ ခရီးစဉ်က ပိုကောင်းလာနေပြီဟု ခံစားရသင့်သည်။ {{app}} သည် ပူးပေါင်းခရီးစဉ်များကို ကြိုးစားအားထုတ်မှုမလိုဘဲ ဖြစ်စေရန် တည်ရှိသည် — ခရီးသည်တိုင်း အစီအစဉ်ကို သိရှိပြီး ရောက်ရှိလာစေရန်၊ ရပ်နားစခန်းတိုင်း မှတ်မိထိုက်သော ဇာတ်လမ်းတစ်ခု ပြောပြနိုင်စေရန်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'about.pageTitle': '{{app}} အကြောင်း',
   'auth.legalConsent': 'ဆက်လက်လုပ်ဆောင်ခြင်းဖြင့် ကျွန်ုပ်တို့၏ စည်းမျဉ်းများကို သဘောတူပါသည်',
   'bookings.empty.body':
@@ -31,7 +47,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'ဟိုတယ်',
   'bookings.type.other': 'အခြား',
   'budgetSpendCard.budgetTotal': '၏ {{total}} စီစဉ်ထားသော',
+  'budgetSpendCard.overBy': '{{amount}} ဘတ်ဂျက်ကျော်လွန်',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} မကြာသေးမီ',
+  'budgetSpendCard.remaining': '{{amount}} ကျန်ရှိ',
   'calendar.eyebrow': 'ရှေ့နှစ်က',
   'calendar.heading': 'ခရီးစဉ်တိုင်းကို တစ်ခုတည်းသော ပြက္ခဒိန်တွင် သိမ်းဆည်းထားပါ။',
   'calendar.legendHeading': 'ဒီလထဲမှာ ခရီးစဉ်တွေ',
@@ -42,18 +61,27 @@ export const ui: UiTranslations = {
   'common.and': 'နှင့်',
   'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'dashboard.budgetHeading': 'ဘတ်ဂျက်လှိုင်း',
+  'dashboard.empty.body':
+    'သင့်ပထမဆုံးခရီးကို စီစဉ်ပါ၊ သင့်ဒက်ရှ်ဘုတ်တွင် ရက်အလိုက် အချိန်ဇယားများ၊ ဘတ်ဂျက်အခြေအနေနှင့် ဘွတ်ကင်များ ပြည့်လာပါမည်။',
+  'dashboard.empty.cta': 'သင့်ပထမဆုံးခရီးကို စီစဉ်ပါ',
   'dashboard.empty.heading': 'ခရီးစဉ်များ မရှိသေးပါ — သင့်မြေပုံတွင် ဗလာဖြစ်နေပါသည်။',
   'dashboard.eyebrow': 'မစ်ရှင်ထိန်းချုပ်မှု',
   'dashboard.heading': 'သင့်ရဲ့ နောက်ထပ် စွန့်စားခန်း၊ တိတ်ဆိတ်ငြိမ်သက်တဲ့ ထောင့်တစ်နေရာမှာ။',
   'dashboard.newTripCta': 'ခရီးသစ်တစ်ခု စတင်လိုက်ပါ',
+  'dashboard.subheading':
+    'နောက်ခရီးစဉ်အတွက် ကောင်တ်ဒေါင်းတစ်ခု၊ ယနေ့၏ အသုံးစရိတ်အခြေအနေနှင့် လုပ်ဆောင်နေသော ခရီးစဉ်တိုင်းကို အမြန်ကြည့်ရှုမှု။',
   'dashboard.tripsHeading': 'ရွေ့လျားနေသော ခရီးများ',
   'dashboard.viewAllExpenses': 'ကုန်ကျစရိတ်တိုင်းကိုကြည့်ပါ',
   'dashboard.viewAllTrips': 'ခရီးစဉ်တိုင်းကိုကြည့်ပါ',
   'dayTimelineRow.category.accommodation': 'နေပါ',
+  'dayTimelineRow.category.food': 'အစားအသောက်',
+  'dayTimelineRow.category.sightseeing': 'ရှုခင်းကြည့်ခြင်း',
   'dayTimelineRow.category.transport': 'သယ်ယူပို့ဆောင်ရေး',
   'destinationOrbCard.exploreCta': 'ခရီးစဉ်တစ်ခုထဲသို့ ထည့်ပါ',
   'destinationOrbCard.tripCount': '{{count}} ခရီးများ',
+  'destinations.empty.body': 'All သို့ ပြန်ပြောင်းပါ၊ အယ်ဒီတာရွေးချယ်မှုများ ပြန်ပေါ်လာပါမည်။',
   'destinations.empty.heading': 'ဦးတည်ရာ မရှိသေးပါ။',
+  'destinations.emptyFiltered.heading': 'ထိုသို့ တဂ်လုပ်ထားသည့် အရာ မရှိသေးပါ။',
   'destinations.errors.load': 'ဦးတည်ရာများကို တင်၍မရပါ။',
   'destinations.eyebrow': 'နောက်ဘယ်ကိုသွားမလဲ',
   'destinations.heading': 'သိမ်းဆည်းထားသော ထောင့်များနှင့် အယ်ဒီတာ၏ တွေ့ရှိချက်များ။',
@@ -71,7 +99,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'ရောင်းချသူ',
   'expenses.formHeading': 'ကုန်ကျစရိတ်ကို မှတ်တမ်းတင်ပါ {{trip}}',
   'expenses.heading': 'ခရီးစရိတ်ဘတ်ဂျက်က တကယ်တမ်းဘယ်ကိုသွားလဲ။',
+  'expenses.heroBudget': '{{total}} ၏ {{pct}}% စီစဉ်ပြီး',
   'expenses.heroEyebrow': '{{trip}} • ဘတ်ဂျက် အကျဉ်းချုပ်',
+  'expenses.heroNoBudget': 'ဤခရီးစဉ်တွင် ဘတ်ဂျက် မသတ်မှတ်ရသေးပါ။',
   'expenses.noTrips.body':
     'ခရီးစဉ်တစ်ခုကို ဦးစွာစီစဉ်ပါ။ ကုန်ကျစရိတ်များကို ခရီးစဉ်ဘတ်ဂျက်နှင့် တွဲပါ။',
   'expenses.noTrips.heading': 'ခရီးစဉ်တွေ မရှိသေးပါဘူး။',
@@ -84,12 +114,16 @@ export const ui: UiTranslations = {
     'ပြေစာနှင့် အတည်ပြုချက်တိုင်းသည် ဤနေရာတွင် မှန်ကန်သော အမျိုးအစားထဲသို့ ပေါင်းထည့်သွားမည်ဖြစ်ပြီး စာရင်းဇယား မလိုအပ်ပါ။',
   'forgotPassword.eyebrow': 'သင့်ခရီးစဉ်ကို ပြန်လည်ရယူပါ',
   'forgotPassword.heading': 'သင့်စကားဝှက်ကိုမေ့နေပါသလား?',
+  'forgotPassword.subheading':
+    '{{appName}} အတွက် သင်အသုံးပြုခဲ့သော အီးမေးလ်ကို ထည့်ပါ၊ သင့်စကားဝှက် ပြန်လည်သတ်မှတ်ရန် လင့်ခ်တစ်ခု ပေးပို့ပါမည်။',
   'forgotPassword.submit': 'ပြန်လည်ရယူရေး အီးမေးလ် ပို့ပါ',
   'forgotPassword.submitPending': 'ပြန်လည်ရယူရေး အီးမေးလ် ပို့နေသည်…',
   'forgotPassword.successHint':
     'အီးမေးလ် မရှိသေးဘူးလား။ သင့်ရဲ့ spam folder ကို စစ်ဆေးကြည့်ပါ၊ ဒါမှမဟုတ် တခြားလိပ်စာနဲ့ ထပ်ကြိုးစားကြည့်ပါ။',
   'forgotPassword.successSubheading':
     'ပြန်လည်ရယူရေးလင့်ခ်တစ်ခု ကျွန်ုပ်တို့ပေးပို့လိုက်ပါပြီ {{email}} ။ လင့်ခ်သည် မိနစ် ၃၀ အတွင်းသာ အကျုံးဝင်ပါသည်။',
+  'forgotPassword.tryAgain': 'အခြားအီးမေးလ်တစ်ခုသို့ ပို့ပါ',
+  'landing.cta.eyebrow': 'အခမဲ့အစီအစဉ်ဖြင့် စတင်ပါ',
   'landing.cta.heading': '{{tagline}}။',
   'landing.cta.signup': 'အခမဲ့အကောင့်တစ်ခု ဖန်တီးပါ',
   'landing.cta.subheading':
@@ -101,8 +135,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}။',
   'landing.hero.ctaPrimary': 'အခမဲ့ခရီးစဉ်တစ်ခုစတင်ပါ',
   'landing.hero.ctaSecondary': 'ခရီးစဉ်နမူနာကိုကြည့်ပါ',
+  'landing.hero.eyebrow': 'ခရီးစီစဉ်ကိရိယာ · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint သည် တစ်ဝက်တစ်ပျက်ပုံစံ အစီအစဉ်များနှင့် ပြည့်နေသော ဖိုင်တွဲတစ်ခုကို သင့်အဖွဲ့သည် အမှန်တကယ် လိုက်နာနိုင်သည့် နေ့စဉ်ခရီးစဉ်အစီအစဉ်အဖြစ်သို့ ပြောင်းလဲပေးသည် - ဘွတ်ကင်များ၊ မြေပုံများနှင့် ဘတ်ဂျက်များကို တစ်နေရာတည်းတွင် ခြေရာခံထားသည်။',
+  'landing.hero.title': 'တစ်ခါတည်း စီစဉ်လိုက်ပါ။ အတူတူ လျှောက်လည်လိုက်ပါ။',
   'landing.nav.join': 'အခမဲ့ခရီးစဉ်တစ်ခုစတင်ပါ',
   'landing.nav.preview': 'Waypoint အတွင်းပိုင်း',
   'landing.preview.cta': 'ကိုယ့်ဘာသာကိုယ် တစ်ခု စီစဉ်ပါ',
@@ -110,6 +146,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'ခရီးသွားများ ယခု လှည့်လည်သွားလာနေသော ခရီးစဉ်အချို့',
   'login.eyebrow': 'အဖွဲ့ဝင်များ ဧရိယာ',
   'login.heading': 'ပြန်လည်ကြိုဆိုပါတယ် ခရီးသွား',
+  'login.noAccount': 'Tessera ကို အသစ်လား။',
   'login.signupLink': 'အခမဲ့အကောင့်တစ်ခု ဖန်တီးပါ',
   'login.subheading':
     'သင်၏ခရီးစဉ်များ၊ နေ့စဉ်အစီအစဉ်များ၊ ဘွတ်ကင်များနှင့် သင်စတင်ပြီးသော မှတ်တမ်းများကို စီမံခန့်ခွဲရန် အကောင့်ဝင်ပါ။',
@@ -120,6 +157,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'အကြောင်းကြားချက်ကို အပ်ဒိတ်လုပ်၍မရပါ။',
   'notifications.heading': 'ဒီနေ့ ခရီးစဉ်တွေမှာ ဘာတွေပြောင်းလဲသွားလဲ။',
   'notifications.markUnread': 'မဖတ်ရသေးဟု မှတ်သားပါ',
+  'notifications.subheading':
+    '{{count}} အသစ် — ဘွတ်ကင် အတည်ပြုချက်များ၊ ပူးပေါင်းလုပ်ဆောင်သူ မှတ်စုများ၊ လေယာဉ်ခ ကျဆင်းမှုများနှင့် သတိပေးချက်များ။',
   'notifications.time.daysAgo': '{{count}} လွန်ခဲ့သော ရက်',
   'notifications.time.hoursAgo': '{{count}} နာရီ ကြာပြီ',
   'notifications.time.justNow': 'ယခုပင်',
@@ -138,6 +177,7 @@ export const ui: UiTranslations = {
     'ချိတ်ဆက်ထားသော ဝန်ဆောင်မှုများ၊ ငွေကြေး၊ push အကြောင်းကြားချက်များနှင့် သင်ဝင်ရောက်သည့် အထောက်အထားများ။',
   'signup.and': 'နှင့်',
   'signup.eyebrow': 'Waypoint သို့ ဝင်ရောက်ပါ',
+  'signup.haveAccount': 'ပြီးသား လှည့်လည်နေပြီလား။',
   'signup.heading': 'တစ်ခါတည်း စီစဉ်လိုက်ပါ။ အတူတူ လျှောက်လည်လိုက်ပါ။',
   'signup.namePlaceholder': 'အိုင်းရစ် လာဆန်',
   'signup.subheading':
@@ -149,6 +189,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'ပွင့်လင်းသော ခရီးစဉ်အစီအစဉ်',
   'tripCountdownHeroCard.ctaSecondary': 'နောက်ထပ်ခရီးစဉ်တစ်ခုကို စီစဉ်ပါ',
   'tripCountdownHeroCard.daysLabel': '{{days}} ရက်တွေကျန်သေးတယ်',
+  'tripCountdownHeroCard.eyebrow': 'နောက်စွန့်စားခန်း · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} ည — သင့်ခရီးစဉ် ခရီးသွားရန် အသင့်ဖြစ်ပါပြီ။',
   'tripCoverCard.stops': '{{count}} ရပ်တန့်သည်',
   'tripCoverCard.travelers': '{{count}} ခရီးသွားများ',
   'tripDetail.addActivity': 'လှုပ်ရှားမှုထည့်ပါ',
@@ -158,6 +201,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'လှုပ်ရှားမှုခေါင်းစဉ်',
   'tripDetail.adding': 'ထည့်သွင်းနေသည်…',
   'tripDetail.backToTrips': 'ခရီးစဉ်အားလုံးသို့ ပြန်သွားရန်',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'ခရီးသွားများ',
   'tripDetail.dayLabel': 'နေ့ {{day}}',
   'tripDetail.empty': 'လုပ်ဆောင်ချက်များ မရှိသေးပါ။ အချိန်ဇယားကို စတင်ရန် တစ်ခုထည့်ပါ။',
@@ -168,14 +212,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'ခရီးစဉ် • {{country}}',
   'tripDetail.invite': 'ဖိတ်ကြားပါ',
   'tripDetail.inviteLabel': 'အီးမေးလ်ဖြင့် ဖိတ်ကြားပါ',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'ဖိတ်ကြားချက် ပို့လိုက်ပါပြီ {{email}} ။',
   'tripDetail.inviting': 'ပို့နေသည်…',
   'tripDetail.loading': 'ခရီးစဉ်ကို တင်နေသည်…',
   'tripDetail.noCollaborators': 'ခဏတာအတွက် မင်းတစ်ယောက်တည်း။',
+  'tripDetail.notesHeading': 'ခရီးမှတ်စုများ',
   'tripDetail.notesPlaceholder': 'မှတ်စုများ မရှိသေးပါ။',
   'tripDetail.notFound.heading': 'ခရီးစဉ်ကို ရှာမတွေ့ပါ',
   'tripDetail.openBookings': 'ဘွတ်ကင်လုပ်ရန် inbox များဖွင့်ပါ',
   'tripDetail.shareCopied': 'ကလစ်ဘုတ်သို့ ကူးယူထားသော လင့်ခ်ကို မျှဝေပါ-',
+  'tripDetail.shareReady': 'မျှဝေလင့်ခ် အသင့်ဖြစ်ပါပြီ —',
   'tripDetail.stops': '{{count}} ရပ်တန့်သည်',
   'tripDetail.timelineEyebrow': 'နေ့အလိုက် အချိန်ဇယား',
   'tripDetail.timelineHeading': 'နေ့စဉ်အစီအစဉ်',
@@ -193,6 +240,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'ခရီးသွားများ',
   'tripPlanner.heading': 'တစ်မိနစ်အတွင်း ခရီးစဉ်တစ်ခုကို ရေးဆွဲလိုက်ပါ။',
   'tripPlanner.preview.eyebrow': 'တိုက်ရိုက် အစမ်းကြည့်ရှုခြင်း',
+  'tripPlanner.preview.placeholderCountry': 'နိုင်ငံတစ်ခု ရွေးပါ',
   'tripPlanner.preview.placeholderDestination': 'သင့်ရဲ့ နောက်ထပ် စွန့်စားခန်း',
   'tripPlanner.section1.title': 'ဘယ်နေရာနဲ့ ဘယ်အချိန်မှာ',
   'tripPlanner.section2.title': 'ခရီးသွားများနှင့် ဘတ်ဂျက်',
@@ -204,10 +252,13 @@ export const ui: UiTranslations = {
     'နေ့ {{day}} — ဤနေရာတွင် ရပ်နားမှုများ၊ သယ်ယူပို့ဆောင်ရေးနှင့် ဘွတ်ကင်များကို ထည့်ပါ။',
   'tripPlanner.section3.day3':
     'နေ့ {{day}} — ဤနေရာတွင် ရပ်နားမှုများ၊ သယ်ယူပို့ဆောင်ရေးနှင့် ဘွတ်ကင်များကို ထည့်ပါ။',
+  'tripPlanner.section3.title': 'ရက်စဉ်အစီအစဉ် စတင်ရန်',
   'tripPlanner.subheading':
     'အခြေခံအချက်တွေကို အောက်မှာ ထည့်ထားလိုက်ပါ။ — ပူးပေါင်းဆောင်ရွက်သူတွေကို အမြဲတမ်း ဖိတ်ခေါ်နိုင်သလို၊ ရပ်နားမှုတွေကို ဆွဲထည့်နိုင်သလို၊ ဘွတ်ကင်တွေကိုလည်း နောက်မှ ထပ်ပို့နိုင်ပါတယ်။',
   'tripPlanner.submit': 'ခရီးစဉ် ဖန်တီးပါ',
   'tripPlanner.submitting': 'ဖန်တီးနေသည်…',
+  'trips.empty.body': 'All trips သို့ ပြန်ပြောင်းပါ သို့မဟုတ် သင့်နောက်လှည့်လည်မှုကို စတင်စီစဉ်ပါ။',
+  'trips.empty.cta': 'ခရီးစဉ် စီစဉ်ပါ',
   'trips.empty.heading': 'ထို filter နှင့် ကိုက်ညီသောအရာ မရှိသေးပါ။',
   'trips.eyebrow': 'မြေပုံ',
   'trips.filterLabel': 'ခရီးစဉ်များကို အခြေအနေအလိုက် စစ်ထုတ်ပါ',
@@ -219,6 +270,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'ခရီးစဉ်တွေ မရှိသေးပါဘူး။',
   'trips.pastHeading': 'အတိတ်က စွန့်စားခန်းများ',
   'trips.subheading': '{{count}} ခရီးစဉ်များ — အတိတ်၊ ပစ္စုပ္ပန်နှင့် တစ်နေ့နေ့။',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'တစ်ခါစီစဉ်ပါ။ အတူတကွ လှည့်လည်ပါ။ ထာဝရ မှတ်မိပါစေ။',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · 2024 မှစ၍ {{appName}} အဖွဲ့ဝင်',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} သည် နိုင်ငံလေးခုကို ဖြတ်သန်းသော အလုပ်များပြည့်နေသည့် ၃ ပတ်ခရီးစဉ်ကို ကျွန်ုပ်တို့ မျှဝေဖူးသမျှတွင် အအေးချမ်းဆုံး ခရီးစဉ်အဖြစ် ပြောင်းလဲပေးခဲ့သည်။',
   'waypointLayout.mobileNavClose': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
   'waypointLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
 }

@@ -1,11 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Heb je feedback, een bug gevonden of wil je een functie voorstellen? Elk bericht bereikt een echt persoon in het {{app}}-team — we horen graag wat je leert.',
   'about.contactTitle': 'Neem contact op',
   'about.eyebrow': 'Over {{app}}',
+  'about.intro':
+    '{{app}} is een spaced-repetition-flashcardapp voor mensen die willen dat kennis echt blijft hangen. Of je nu een taal leert, formules uit je hoofd leert of concepten voor een examen instudeert, elke kaart wordt gepland op het exacte moment dat je hem bijna vergeet — de efficiëntste manier die de geheugenwetenschap heeft gevonden om feiten naar je langetermijngeheugen te verplaatsen.',
+  'about.missionBody':
+    'De meeste studietools optimaliseren voor bestede tijd, niet voor onthouden kennis. {{app}} optimaliseert voor het tegenovergestelde: zo weinig mogelijk herhalingen om wat belangrijk is in je hoofd te houden. Wij vinden dat leren rustig, meetbaar en van jou moet zijn — open data, geen dark patterns en een gewoonte die je jarenlang volhoudt.',
+  'about.missionTitle': 'Onze missie',
   'about.pageTitle': '{{tagline}}.',
   'authShell.sampleBack': 'Vilnius — teruggeroepen in 1,2 seconden.',
   'authShell.sampleEyebrow': 'Een kaart uit uw toekomstige deck',
+  'authShell.sampleFront': '“De hoofdstad van Litouwen.”',
+  'authShell.sampleRetention': '{{pct}}% retentie',
   'authShell.sampleStreak': '{{days}}-daagse reeks',
   'cardEdit.title': 'Flashcard bewerken',
   'cardEditor.backLink': 'Terug naar deck',
@@ -35,6 +44,8 @@ export const ui: UiTranslations = {
   'dashboard.kpi.days': 'dagen',
   'deckDetail.backLink': 'Alle decks',
   'deckDetail.deleteError': 'Het verwijderen van het kaartspel is mislukt.',
+  'deckDetail.empty.body': 'Voeg je eerste kaart toe om je geheugen op te bouwen.',
+  'deckDetail.empty.cta': 'Voeg je eerste kaart toe',
   'deckDetail.empty.heading': 'Er zitten nog geen kaarten in dit deck.',
   'deckDetail.filterEmpty': 'Geen kaarten voldoen aan dit statusfilter.',
   'deckDetail.filterLabel': 'Kaarten filteren op status',
@@ -47,7 +58,10 @@ export const ui: UiTranslations = {
   'deckDetail.stat.total': 'Kaarten',
   'deckDetail.studyDueLabel': 'Studeer {{count}} klaar',
   'deckProgressCard.cardCount': '{{count}} kaarten',
+  'deckProgressCard.masteredTooltip': '{{count}} beheerst',
   'deckProgressCard.studyCta': 'Studeer {{count}}',
+  'decks.confirmDelete':
+    'Dit deck en alle bijbehorende kaarten verwijderen? Dit kan niet ongedaan worden gemaakt.',
   'decks.create.heading': 'Maak een deck',
   'decks.create.nameLabel': 'Naam van het deck',
   'decks.create.submit': 'Deck aanmaken',
@@ -58,6 +72,7 @@ export const ui: UiTranslations = {
   'decks.heading': 'Decks',
   'decks.loadError': 'Kan decks niet laden.',
   'decks.loading': 'Laden…',
+  'decks.newDeckLabel': 'Nieuw deck',
   'decks.retention': 'Retentie',
   'decks.studyArrow': 'Studeren →',
   'decks.subheading': '{{count}} decks · bekijken en beheren',
@@ -80,6 +95,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Ik heb al een account',
   'landing.heroSubtitle':
     'Gespreide herhaling maakt het verschil tussen stampen en echt onthouden. Vijf minuten per dag, jaar in jaar uit, en de taal blijft hangen.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.proof.export': 'Open data, geen lock-in',
   'landing.proof.free': 'Voor altijd gratis voor persoonlijk gebruik',
   'landing.proof.import': 'Importeer .apkg / CSV',
@@ -94,12 +110,16 @@ export const ui: UiTranslations = {
   'login.heading': 'Welkom terug bij uw decks',
   'login.orDivider': 'of ga verder met',
   'login.signupLink': 'Begin gratis met studeren',
+  'login.signupPrompt': 'Nieuw hier?',
   'login.subtitle': 'Ga verder waar u was gebleven — uw reeks wacht op u.',
   'mobileNav.closeMenu': 'Navigatiemenu sluiten',
   'mobileNav.openMenu': 'Navigatiemenu openen',
   'notifications.markAllReadError': 'Het is niet gelukt om alles als gelezen te markeren.',
   'pricing.heading': 'kaarten',
+  'pricing.limits.cards': 'kaarten',
   'pricing.limits.decks': 'decks',
+  'pricing.limits.historyDays': 'Herhalingsgeschiedenis van {{days}} dagen',
+  'pricing.limits.historyUnlimited': 'Onbeperkte herhalingsgeschiedenis',
   'pricing.limits.stats': 'statistieken',
   'pricing.limits.study': 'studeren',
   'resetPassword.passwordLabel': 'Nieuw wachtwoord',
@@ -111,17 +131,30 @@ export const ui: UiTranslations = {
   'sessionSummary.heading': 'Goed gedaan.',
   'sessionSummary.label': 'Sessie voltooid',
   'settings.changePasswordError': 'Kon wachtwoord niet wijzigen.',
+  'settings.confirmPassword': 'Bevestig je wachtwoord',
   'settings.currentPassword': 'Huidig wachtwoord',
+  'settings.dangerZone': 'Gevarenzone',
+  'settings.deleteAccountHint':
+    'Verwijder je account en alle studiegegevens permanent. Dit kan niet ongedaan worden gemaakt.',
+  'settings.deleteAccountWarning':
+    'Hiermee verwijder je je account en alle decks, kaarten en studiegeschiedenis permanent. Dit kan niet ongedaan worden gemaakt.',
   'settings.deleteError':
     'Het verwijderen van het account is mislukt. Controleer uw wachtwoord en probeer het opnieuw.',
   'settings.deleting': 'Verwijderen…',
+  'settings.devicesHint': 'Apparaten die momenteel aan je account zijn gekoppeld.',
   'settings.newPassword': 'Nieuw wachtwoord',
   'settings.password': 'Wachtwoord',
   'settings.passwordChanged': 'Wachtwoord bijgewerkt.',
+  'settings.passwordHint': 'Wijzig het wachtwoord waarmee je inlogt.',
   'settings.reminders.atRisk': 'Waarschuwing reeks-in-gevaar (na 20:00)',
+  'settings.reminders.daily': 'Dagelijkse herinnering (8:00 uur)',
   'settings.reminders.heading': 'Herinneringen',
+  'settings.reminders.milestones': 'Mijlpaalvieringen',
   'settings.reminders.note':
     'Opgeslagen op dit apparaat. Kies welke studieprikkels deze browser toont; voorkeuren synchroniseren na herladen.',
+  'settings.reminders.weekly': 'Wekelijkse retentiesamenvatting (op zondag)',
+  'settings.revokeDeviceWarning':
+    'De toegang van dit apparaat wordt binnenkort ingetrokken. Uitloggen?',
   'settings.saved': 'Opgeslagen.',
   'settings.saveError': 'Opslaan mislukt.',
   'settings.saving': 'Opslaan…',
@@ -137,6 +170,7 @@ export const ui: UiTranslations = {
   'signup.legal':
     'Door een account aan te maken, gaat u akkoord met onze Voorwaarden en het Privacybeleid.',
   'signup.nameLabel': 'Uw naam (optioneel)',
+  'signup.orDivider': 'of registreer met',
   'signup.subtitle': 'Vijf minuten per dag. Een toekomstige zelf die het onthoudt.',
   'stats.byStateHeading': 'Kaarten per status',
   'stats.dailyHeading': 'Herhalingen per dag (laatste 30 dagen)',
@@ -173,5 +207,6 @@ export const ui: UiTranslations = {
   'todayHeroCard.goalLabel': 'Dagelijks doel',
   'todayHeroCard.goalProgress': '{{reviewed}} / {{goal}}',
   'todayHeroCard.streakBadge': '{{days}}-daagse reeks',
+  'todayHeroCard.studyCta': 'Begin met studeren',
   'userMenu.stats': 'Mijn statistieken',
 }

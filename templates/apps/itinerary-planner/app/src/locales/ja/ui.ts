@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'フィードバックがある、バグを見つけた、あるいは野心的な計画を立てている？アカウント設定からご連絡ください — すべてのメッセージはチームの実在の担当者に届きます。',
+  'about.contactTitle': 'お気軽にお問い合わせください',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    '予約をひとつの受信トレイに — フライト、ホテル、アクティビティの確認が、それぞれ該当する日に届きます。',
+  'about.featureCollab':
+    'リアルタイムの共同編集 — 1回の旅行につき最大5人まで旅行者を招待でき、すべての変更がライブで同期され、コメントは各立ち寄り先ごとにスレッド化されます。',
+  'about.featureMapsBudget':
+    '地図、目的地、共有予算 — 旅行全体を地図で確認し、編集者が厳選した目的地を発見し、支出を追跡して誰も使いすぎないようにできます。',
+  'about.featureTimelines':
+    '日ごとのタイムライン — 立ち寄り先をドラッグして並べ替え、移動区間を追加し、生きている文書のように旅程が再計算されるのを見守れます。',
+  'about.intro':
+    '{{app}}は、半分しかまとまっていない計画が詰まったフォルダを、グループ全員が実際に追えるひとつの共有旅行に変えます。日ごとの旅程を組み立て、フライトやホテルを追加し、すべての立ち寄り先を地図に表示し、予算を追跡 — 十数のタブとグループチャットの代わりに、すべてをひとつの落ち着いた場所で。',
+  'about.missionBody':
+    '旅行計画は、宿題のようにではなく、旅がすでに良くなっていくように感じられるべきです。{{app}}は共同旅行を手間いらずにするために存在します — すべての旅行者が計画を把握した状態で現れ、すべての立ち寄り先が記憶に残る物語を語るように。',
+  'about.missionTitle': '私たちの使命',
   'about.pageTitle': '{{app}}について',
   'auth.legalConsent': '続行することで、以下に同意したことになります',
   'bookings.empty.body': 'フライト、ホテル、アクティビティを追加して受信箱を始めましょう。',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'ホテル',
   'bookings.type.other': '他の',
   'budgetSpendCard.budgetTotal': '予定 {{total}} のうち',
+  'budgetSpendCard.overBy': '{{amount}} 予算超過',
   'budgetSpendCard.pct': '{{pct}}%',
+  'budgetSpendCard.recentCount': '{{count}} 最近',
+  'budgetSpendCard.remaining': '{{amount}} 残り',
   'calendar.eyebrow': 'これからの1年',
   'calendar.heading': 'すべての旅程をひとつのカレンダーに。',
   'calendar.legendHeading': '今月の旅程',
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'および',
   'common.goToDashboard': 'ダッシュボードへ',
   'dashboard.budgetHeading': '予算の状況',
+  'dashboard.empty.body':
+    '最初の旅行を計画すれば、ダッシュボードに日ごとのタイムライン、予算の状況、予約が表示されます。',
+  'dashboard.empty.cta': '最初の旅行を計画',
   'dashboard.empty.heading': 'まだ旅程はありません — アトラスは真っさらです。',
   'dashboard.eyebrow': '管制センター',
   'dashboard.heading': '次の冒険を、静かな一角で。',
   'dashboard.newTripCta': '新しい旅程を始める',
+  'dashboard.subheading':
+    '次の旅行へのカウントダウン、今日の支出の状況、進行中のすべての旅程をひと目で。',
   'dashboard.tripsHeading': '進行中の旅程',
   'dashboard.viewAllExpenses': 'すべての支出を見る',
   'dashboard.viewAllTrips': 'すべての旅程を見る',
   'dayTimelineRow.category.accommodation': '滞在する',
+  'dayTimelineRow.category.food': 'グルメ＆ドリンク',
+  'dayTimelineRow.category.sightseeing': '観光',
   'dayTimelineRow.category.transport': '輸送',
   'destinationOrbCard.exploreCta': '旅程に追加',
   'destinationOrbCard.tripCount': '{{count}} 件の旅程',
+  'destinations.empty.body': 'Allに戻すと、編集者のおすすめが再び表示されます。',
   'destinations.empty.heading': 'まだ目的地はありません。',
+  'destinations.emptyFiltered.heading': 'そのようなタグはまだありません。',
   'destinations.errors.load': '目的地を読み込めませんでした。',
   'destinations.eyebrow': '次はどこへ',
   'destinations.heading': '保存した場所と編集部のおすすめ。',
@@ -70,7 +98,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': '提供者',
   'expenses.formHeading': '{{trip}} の支出を記録',
   'expenses.heading': '旅程の予算が実際にどこに使われたか。',
+  'expenses.heroBudget': '{{total}}のうち{{pct}}%を計画済み',
   'expenses.heroEyebrow': '{{trip}} • 予算の概要',
+  'expenses.heroNoBudget': 'この旅行にはまだ予算が設定されていません。',
   'expenses.noTrips.body': 'まず旅程を計画してください — 支出は旅程の予算に紐づきます。',
   'expenses.noTrips.heading': 'まだ旅程はありません。',
   'expenses.receiptCount': '{{count}} 件の領収書',
@@ -82,12 +112,16 @@ export const ui: UiTranslations = {
     '領収書や確認メールはすべてここで適切なカテゴリにまとめられます — スプレッドシートは不要です。',
   'forgotPassword.eyebrow': '旅程の復元',
   'forgotPassword.heading': 'パスワードをお忘れですか?',
+  'forgotPassword.subheading':
+    '{{appName}}で使用したメールアドレスを入力してください。パスワードをリセットするリンクをお送りします。',
   'forgotPassword.submit': '復元メールを送信',
   'forgotPassword.submitPending': '復元メールを送信中…',
   'forgotPassword.successHint':
     'メールが届かない場合は、迷惑メールフォルダを確認するか、別のアドレスでお試しください。',
   'forgotPassword.successSubheading':
     '{{email}} に復元リンクを送信しました。リンクの有効期限は30分です。',
+  'forgotPassword.tryAgain': '別のメールアドレスに送信',
+  'landing.cta.eyebrow': '無料プランで始める',
   'landing.cta.heading': '{{tagline}}。',
   'landing.cta.signup': '無料アカウントを作成',
   'landing.cta.subheading':
@@ -99,8 +133,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}。',
   'landing.hero.ctaPrimary': '無料で旅程を始める',
   'landing.hero.ctaSecondary': 'サンプル旅程を見る',
+  'landing.hero.eyebrow': '旅行プランナー · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint は、半端な計画でいっぱいのフォルダを、グループが実際に従える共有の日別旅程に変えます — 予約、地図、予算をひとつにまとめて。',
+  'landing.hero.title': '一度計画し、みんなで旅する。',
   'landing.nav.join': '無料で旅程を始める',
   'landing.nav.preview': 'Waypoint の中身',
   'landing.preview.cta': '自分の旅程を計画する',
@@ -108,6 +144,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'いま旅人たちが歩んでいる旅程の例',
   'login.eyebrow': 'メンバー専用',
   'login.heading': 'お帰りなさい、旅人',
+  'login.noAccount': 'Tesseraは初めてですか?',
   'login.signupLink': '無料アカウントを作成',
   'login.subheading':
     'サインインして、旅程、1日プラン、予約、書きかけのジャーナルを管理しましょう。',
@@ -117,6 +154,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': '通知を更新できませんでした。',
   'notifications.heading': '今日の旅程に起きた変化。',
   'notifications.markUnread': '未読にする',
+  'notifications.subheading':
+    '{{count}}件の新着 — 予約確認、共同編集者のメモ、運賃の値下がり、リマインダー。',
   'notifications.time.daysAgo': '{{count}}日前',
   'notifications.time.hoursAgo': '{{count}}時間前',
   'notifications.time.justNow': 'たった今',
@@ -133,6 +172,7 @@ export const ui: UiTranslations = {
   'settings.subheading': '連携サービス、通貨、プッシュ通知、サインインに使う認証情報。',
   'signup.and': 'および',
   'signup.eyebrow': 'Waypoint に参加',
+  'signup.haveAccount': 'もう旅に出かけたい？',
   'signup.heading': '一度計画し、みんなで旅する。',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -145,6 +185,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': '旅程を開く',
   'tripCountdownHeroCard.ctaSecondary': '別の旅程を計画する',
   'tripCountdownHeroCard.daysLabel': 'あと {{days}} 日',
+  'tripCountdownHeroCard.eyebrow': '次の冒険 · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}}泊 — 旅程の準備ができました。',
   'tripCoverCard.stops': '{{count}} 箇所',
   'tripCoverCard.travelers': '{{count}} 名の旅人',
   'tripDetail.addActivity': 'アクティビティを追加',
@@ -154,6 +197,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'アクティビティのタイトル',
   'tripDetail.adding': '追加中…',
   'tripDetail.backToTrips': 'すべての旅程に戻る',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': '旅人',
   'tripDetail.dayLabel': '{{day}} 日目',
   'tripDetail.empty': 'まだアクティビティはありません — 追加してタイムラインを始めましょう。',
@@ -164,14 +208,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': '旅程 • {{country}}',
   'tripDetail.invite': '招待',
   'tripDetail.inviteLabel': 'メールで招待',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': '{{email}} に招待を送信しました。',
   'tripDetail.inviting': '送信中…',
   'tripDetail.loading': '旅程を読み込み中…',
   'tripDetail.noCollaborators': '今のところはあなただけです。',
+  'tripDetail.notesHeading': '旅行メモ',
   'tripDetail.notesPlaceholder': 'まだメモはありません。',
   'tripDetail.notFound.heading': '旅程が見つかりません',
   'tripDetail.openBookings': '予約の受信箱を開く',
   'tripDetail.shareCopied': '共有リンクをクリップボードにコピーしました:',
+  'tripDetail.shareReady': '共有リンクの準備完了：',
   'tripDetail.stops': '{{count}} 箇所',
   'tripDetail.timelineEyebrow': '1日のタイムライン',
   'tripDetail.timelineHeading': '日別プラン',
@@ -189,6 +236,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': '旅人',
   'tripPlanner.heading': '1分以内に旅程の概要を作成。',
   'tripPlanner.preview.eyebrow': 'ライブプレビュー',
+  'tripPlanner.preview.placeholderCountry': '国を選択',
   'tripPlanner.preview.placeholderDestination': 'あなたの次の冒険',
   'tripPlanner.section1.title': 'どこで・いつ',
   'tripPlanner.section2.title': '旅人と予算',
@@ -197,10 +245,13 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': '{{day}} 日目 — ストップ、移動、予約をここに追加してください。',
   'tripPlanner.section3.day2': '{{day}} 日目 — ストップ、移動、予約をここに追加してください。',
   'tripPlanner.section3.day3': '{{day}} 日目 — ストップ、移動、予約をここに追加してください。',
+  'tripPlanner.section3.title': '1日のプランのスターター',
   'tripPlanner.subheading':
     '下に基本情報を入力してください — 同行者の招待、ストップの追加、予約の転送は後からいつでも可能です。',
   'tripPlanner.submit': '旅程を作成',
   'tripPlanner.submitting': '作成中…',
+  'trips.empty.body': 'All tripsに戻すか、次の旅の計画を始めましょう。',
+  'trips.empty.cta': '旅程を計画',
   'trips.empty.heading': 'そのフィルターに一致するものはまだありません。',
   'trips.eyebrow': 'アトラス',
   'trips.filterLabel': 'ステータスで旅程を絞り込む',
@@ -211,6 +262,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'まだ旅程はありません。',
   'trips.pastHeading': '過去の冒険',
   'trips.subheading': '{{count}} 件の旅程 — 過去・現在・これから。',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': '一度計画して。一緒に巡って。永遠に覚えておこう。',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · 2024年から{{appName}}人のメンバー',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}}は、4か国を巡る慌ただしい3週間の旅行を、これまでで最もくつろいだ共有旅程に変えました。',
   'waypointLayout.mobileNavClose': 'ナビゲーションメニューを閉じる',
   'waypointLayout.primaryNavLabel': 'メインナビゲーション',
 }

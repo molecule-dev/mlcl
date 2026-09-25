@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Onko sinulla palautetta, löysitkö virheen vai suunnitteletko jotain suurta? Ota yhteyttä tilisi asetuksista — jokainen viesti päätyy tiimimme oikealle ihmiselle.',
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Varaukset yhdessä postilaatikossa — lennot, hotellit ja aktiviteettivahvistukset saapuvat täsmälleen oikealle päivälle.',
+  'about.featureCollab':
+    'Reaaliaikainen yhteistyö — kutsu enintään viisi matkustajaa per matka, kaikki muutokset päivittyvät livenä ja kommentit ketjuuntuvat jokaisen pysähdyksen alle.',
+  'about.featureMapsBudget':
+    'Kartat, kohteet ja jaettu budjetti — näe koko matka kartalla, löydä toimituksen kuratoimia kohteita ja seuraa kuluja, jotta kukaan ei ylitä budjettia.',
+  'about.featureTimelines':
+    'Päiväkohtaiset aikajanat — vedä pysähdyksiä järjestyksen muuttamiseksi, lisää kulkuosuuksia ja katso, miten matkasuunnitelma lasketaan uudelleen elävänä dokumenttina.',
+  'about.intro':
+    '{{app}} muuttaa puolivalmiita suunnitelmia täynnä olevan kansion yhdeksi jaetuksi matkaksi, jota koko ryhmäsi voi oikeasti seurata. Rakenna päiväkohtainen matkasuunnitelma, lisää lennot ja hotellit, merkitse jokainen pysähdys kartalle ja seuraa budjettia — kaikki yhdessä rauhallisessa paikassa kymmenien välilehtien ja ryhmächatin sijaan.',
+  'about.missionBody':
+    'Matkasuunnittelun pitäisi tuntua siltä, että matka paranee jo, ei kotitehtäviltä. {{app}} on olemassa tehdäkseen yhteisistä matkoista vaivattomia — niin että jokainen matkustaja saapuu paikalle tietäen suunnitelman, ja jokainen pysähdys kertoo tarinan, joka kannattaa muistaa.',
+  'about.missionTitle': 'Missiomme',
   'about.pageTitle': 'Tietoa {{app}}sta',
   'auth.legalConsent': 'Jatkamalla hyväksyt',
   'bookings.empty.body': 'Lisää lento, hotelli tai aktiviteetti aloittaaksesi postilaatikon.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Hotelli',
   'bookings.type.other': 'Muut',
   'budgetSpendCard.budgetTotal': 'jostakin {{total}} suunniteltu',
+  'budgetSpendCard.overBy': '{{amount}} yli budjetin',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} viimeaikaista',
+  'budgetSpendCard.remaining': '{{amount}} jäljellä',
   'calendar.eyebrow': 'Tuleva vuosi',
   'calendar.heading': 'Jokainen matka samassa kalenterissa.',
   'calendar.legendHeading': 'Tämän kuun matkat',
@@ -41,18 +60,28 @@ export const ui: UiTranslations = {
   'common.and': 'ja',
   'common.goToDashboard': 'Siirry etusivulle',
   'dashboard.budgetHeading': 'Budjettipulssi',
+  'dashboard.empty.body':
+    'Suunnittele ensimmäinen matkasi, niin kojelautasi täyttyy päiväkohtaisista aikajanoista, budjetin sykkeestä ja varauksista.',
+  'dashboard.empty.cta': 'Suunnittele ensimmäinen matkasi',
   'dashboard.empty.heading': 'Ei vielä matkoja — atlasi on tyhjä.',
   'dashboard.eyebrow': 'Lentokoneen ohjaus',
   'dashboard.heading': 'Seuraava seikkailusi, yhdessä hiljaisessa nurkassa.',
   'dashboard.newTripCta': 'Aloita uusi matka',
+  'dashboard.subheading':
+    'Lähtölaskenta seuraavaan matkaan, tämän päivän kulutussykäys ja nopea vilkaisu kaikkiin käynnissä oleviin matkasuunnitelmiin.',
   'dashboard.tripsHeading': 'Matkat liikkeessä',
   'dashboard.viewAllExpenses': 'Näytä kaikki kulut',
   'dashboard.viewAllTrips': 'Katso jokainen matka',
   'dayTimelineRow.category.accommodation': 'Pysyä',
+  'dayTimelineRow.category.food': 'Ruoka & juoma',
+  'dayTimelineRow.category.sightseeing': 'Nähtävyydet',
   'dayTimelineRow.category.transport': 'Kuljetus',
   'destinationOrbCard.exploreCta': 'Lisää matkalle',
   'destinationOrbCard.tripCount': '{{count}} matkat',
+  'destinations.empty.body':
+    'Vaihda takaisin kohtaan Kaikki, niin editorin löydöt ilmestyvät uudelleen.',
   'destinations.empty.heading': 'Ei vielä määränpäätä.',
+  'destinations.emptyFiltered.heading': 'Vastaavia ei ole vielä merkitty.',
   'destinations.errors.load': 'Määränpäitä ei voitu ladata.',
   'destinations.eyebrow': 'Minne seuraavaksi',
   'destinations.heading': 'Tallennetut kulmat ja editorin löydöt.',
@@ -70,7 +99,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Myyjä',
   'expenses.formHeading': 'Lokikulut {{trip}}',
   'expenses.heading': 'Mihin matkabudjetti oikeasti menee.',
+  'expenses.heroBudget': '{{pct}} % {{total}} suunnitellusta',
   'expenses.heroEyebrow': '{{trip}} • budjettitilanne',
+  'expenses.heroNoBudget': 'Tälle matkalle ei ole vielä asetettu budjettia.',
   'expenses.noTrips.body': 'Suunnittele matka ensin – liitä kulut matkan budjettiin.',
   'expenses.noTrips.heading': 'Ei vielä matkoja.',
   'expenses.receiptCount': '{{count}} kuitit',
@@ -82,10 +113,16 @@ export const ui: UiTranslations = {
     'Jokainen kuitti ja vahvistus kuuluu tähän oikeaan kategoriaan — taulukkolaskentaa ei tarvita.',
   'forgotPassword.eyebrow': 'Palauta matkasuunnitelmasi',
   'forgotPassword.heading': 'Unohditko salasanasi?',
+  'forgotPassword.subheading':
+    'Syötä sähköposti, jota käytit palvelussa {{appName}}, niin lähetämme linkin salasanan palauttamiseen.',
   'forgotPassword.submit': 'Lähetä palautussähköposti',
   'forgotPassword.submitPending': 'Lähetetään palautussähköpostia…',
   'forgotPassword.successHint':
     'Eikö sähköpostia vielä tullut? Tarkista roskapostikansiosi tai yritä uudelleen eri osoitteella.',
+  'forgotPassword.successSubheading':
+    'Lähetimme palautuslinkin osoitteeseen {{email}}. Linkki on voimassa 30 minuuttia.',
+  'forgotPassword.tryAgain': 'Lähetä toiseen sähköpostiin',
+  'landing.cta.eyebrow': 'Aloita ilmaisella tilillä',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Luo ilmainen tili',
   'landing.cta.subheading':
@@ -97,8 +134,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Aloita ilmainen matka',
   'landing.hero.ctaSecondary': 'Katso esimerkkimatka',
+  'landing.hero.eyebrow': 'Matkasuunnittelija · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint muuttaa kansion täynnä keskeneräisiä suunnitelmia jaetuksi, päivä kerrallaan eteneväksi matkasuunnitelmaksi, jota ryhmäsi voi seurata – varaukset, kartat ja budjetti yhdessä paikassa.',
+  'landing.hero.title': 'Suunnittele se kerran. Vaella yhdessä.',
   'landing.nav.join': 'Aloita ilmainen matka',
   'landing.nav.preview': 'Reittipisteen sisällä',
   'landing.preview.cta': 'Suunnittele omasi',
@@ -106,6 +145,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Muutamia matkoja, joilla matkailijat vaeltelevat juuri nyt',
   'login.eyebrow': 'Jäsenalue',
   'login.heading': 'Tervetuloa takaisin, matkaaja',
+  'login.noAccount': 'Uusi Tesseraan?',
   'login.signupLink': 'Luo ilmainen tili',
   'login.subheading':
     'Kirjaudu sisään hallitaksesi matkojasi, päiväsuunnitelmiasi, varauksiasi ja jo aloittamiasi päiväkirjamerkintöjä.',
@@ -116,6 +156,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Ilmoitusta ei voitu päivittää.',
   'notifications.heading': 'Mitä muutoksia matkoillasi tänään tapahtui.',
   'notifications.markUnread': 'Merkitse lukemattomaksi',
+  'notifications.subheading':
+    '{{count}} uutta — varausvahvistuksia, yhteistyökumppaneiden muistiinpanoja, hinnanalennuksia ja muistutuksia.',
   'notifications.time.daysAgo': '{{count}}pv sitten',
   'notifications.time.hoursAgo': '{{count}}t sitten',
   'notifications.time.justNow': 'juuri nyt',
@@ -133,6 +175,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'Yhdistetyt palvelut, valuutta, push-ilmoitukset ja kirjautumistunnukset.',
   'signup.and': 'ja',
   'signup.eyebrow': 'Liity reittipisteeseen',
+  'signup.haveAccount': 'Jo vaeltamassa?',
   'signup.heading': 'Suunnittele se kerran. Vaella yhdessä.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -144,6 +187,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Avaa matkasuunnitelma',
   'tripCountdownHeroCard.ctaSecondary': 'Suunnittele toinen matka',
   'tripCountdownHeroCard.daysLabel': '{{days}} päivää jäljellä',
+  'tripCountdownHeroCard.eyebrow': 'Seuraava seikkailu · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} yötä — matkasuunnitelmasi on valmis matkalle.',
   'tripCoverCard.stops': '{{count}} pysähtyy',
   'tripCoverCard.travelers': '{{count}} matkailijat',
   'tripDetail.addActivity': 'Lisää aktiviteetti',
@@ -153,6 +199,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Toiminnan otsikko',
   'tripDetail.adding': 'Lisätään…',
   'tripDetail.backToTrips': 'Takaisin kaikkiin matkoihin',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Matkustajat',
   'tripDetail.dayLabel': 'Päivä {{day}}',
   'tripDetail.empty': 'Ei vielä aktiviteetteja — lisää yksi aloittaaksesi aikajanan.',
@@ -163,14 +210,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Matkasuunnitelma • {{country}}',
   'tripDetail.invite': 'Kutsu',
   'tripDetail.inviteLabel': 'Kutsu sähköpostitse',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'Kutsu lähetetty osoitteeseen {{email}}.',
   'tripDetail.inviting': 'Lähetetään…',
   'tripDetail.loading': 'Matkaa ladataan…',
   'tripDetail.noCollaborators': 'Vain sinä, toistaiseksi.',
+  'tripDetail.notesHeading': 'Matkamuistiinpanot',
   'tripDetail.notesPlaceholder': 'Ei vielä muistiinpanoja.',
   'tripDetail.notFound.heading': 'Matkaa ei löytynyt',
   'tripDetail.openBookings': 'Avaa varauskansio',
   'tripDetail.shareCopied': 'Leikepöydälle kopioitu jakolinkki:',
+  'tripDetail.shareReady': 'Jakolinkki valmis:',
   'tripDetail.stops': '{{count}} pysähtyy',
   'tripDetail.timelineEyebrow': 'Päivän aikajana',
   'tripDetail.timelineHeading': 'Päiväkohtainen suunnitelma',
@@ -188,6 +238,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Matkustajat',
   'tripPlanner.heading': 'Piirrä matkakuva alle minuutissa.',
   'tripPlanner.preview.eyebrow': 'Live-esikatselu',
+  'tripPlanner.preview.placeholderCountry': 'Valitse maa',
   'tripPlanner.preview.placeholderDestination': 'Seuraava seikkailusi',
   'tripPlanner.section1.title': 'Missä ja milloin',
   'tripPlanner.section2.title': 'Matkailijat ja budjetti',
@@ -196,10 +247,14 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Päivä {{day}} Lisää pysähdykset, kuljetukset ja varaukset tähän.',
   'tripPlanner.section3.day2': 'Päivä {{day}} Lisää pysähdykset, kuljetukset ja varaukset tähän.',
   'tripPlanner.section3.day3': 'Päivä {{day}} Lisää pysähdykset, kuljetukset ja varaukset tähän.',
+  'tripPlanner.section3.title': 'Päiväsuunnitelman aloitus',
   'tripPlanner.subheading':
     'Pudota perusasiat alle — voit aina kutsua yhteistyökumppaneita, vetää pysähdyksiä sisään ja siirtää varauksia myöhemmin.',
   'tripPlanner.submit': 'Luo matka',
   'tripPlanner.submitting': 'Luodaan…',
+  'trips.empty.body':
+    'Vaihda takaisin kohtaan Kaikki matkat tai aloita seuraavan vaelluksesi suunnittelu.',
+  'trips.empty.cta': 'Suunnittele matka',
   'trips.empty.heading': 'Mikään ei vielä vastaa suodatinta.',
   'trips.eyebrow': 'Atlas',
   'trips.filterLabel': 'Suodata matkat tilan mukaan',
@@ -211,6 +266,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Ei vielä matkoja.',
   'trips.pastHeading': 'Menneet seikkailut',
   'trips.subheading': '{{count}} matkasuunnitelmat – menneisyys, nykyisyys ja jonain päivänä.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Suunnittele kerran. Vaella yhdessä. Muista ikuisesti.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · {{appName}} jäsentä vuodesta 2024',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} muutti kiireisen kolmen viikon matkan neljän maan halki rennoimmaksi matkasuunnitelmaksi, jonka olemme koskaan jakaneet.',
   'waypointLayout.mobileNavClose': 'Sulje navigointivalikko',
   'waypointLayout.primaryNavLabel': 'Päänavigaatio',
 }

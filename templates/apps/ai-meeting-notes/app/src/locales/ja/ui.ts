@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ご質問、フィードバック、機能リクエストはありますか？チーム（hello@murmur.app）までメールでお送りください — すべてのメッセージは、製品開発に携わる実在の担当者に届きます。',
   'about.contactTitle': 'お気軽にお問い合わせください',
   'about.eyebrow': '私たちについて',
+  'about.intro':
+    '{{app}}は、メモを取るよりも意思決定をしたいチームのための会議インテリジェンスです。通話に参加し、発言者ラベル付きですべての言葉を文字起こしし、会議が終わった瞬間にAI要約と担当者付きのアクションアイテムを届けます。',
+  'about.missionBody':
+    '会議はチームが意思決定する場であり、そしてその決定が失われていく場でもあります。{{app}}は、会話の中で生まれた仕事が会話よりも長く残るように存在しています。忠実な記録、明確な要約、そして責任の所在がはっきりした次のステップを、自動で。',
+  'about.missionTitle': '私たちの使命',
   'actions.empty': '一致するアクションアイテムはありません。',
   'actions.heading': 'アクションアイテム',
   'actions.loadError': 'アクションアイテムを読み込めませんでした。',
@@ -10,11 +17,14 @@ export const ui: UiTranslations = {
     'すべてのミーティングを横断して集計しています。ステータスで絞り込んでください。',
   'actions.toggleDoneLabel': '完了としてマーク',
   'actions.toggleReopenLabel': '未完了としてマーク',
+  'auth.footer': '© {{year}} {{app}}. すべての言葉を、凝縮して。',
   'calendar.heading': 'カレンダー',
   'calendar.joinCta': '参加',
   'calendar.loadError': 'カレンダーを読み込めませんでした。',
   'calendar.nextMonth': '翌月',
   'calendar.noEventsForDay': 'この日に予定されているミーティングはありません。',
+  'calendar.noUpcomingEvents':
+    '予定されている会議はありません。このリストに表示するには、連携からカレンダーを接続してください。',
   'calendar.previousMonth': '前月',
   'calendar.recent': '最近',
   'common.daysAgo': '{{count}}日前',
@@ -26,9 +36,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} 件のアクションアイテム',
   'dashboard.empty.body':
     '録音を開始するか Google カレンダーを接続すると、次回のミーティングに Murmur が自動的に参加します。',
+  'dashboard.empty.cta': '録画を開始',
   'dashboard.empty.heading': 'まだミーティングはありません',
   'dashboard.eyebrow': 'あなたのミーティングフィード',
   'dashboard.loadError': 'ダッシュボードを読み込めませんでした。',
+  'dashboard.noActions': 'アクションなし',
   'dashboard.recentHeading': '最近のミーティング',
   'dashboard.recordCta': 'ミーティングを録音',
   'dashboard.stat.actions': 'アクションアイテム',
@@ -38,6 +50,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '前回のチェック以降、未読の要約が {{count}} 件あります。Murmur がすべての言葉を記録しました — こちらが要約です。',
   'dashboard.viewCalendar': 'カレンダーを表示 →',
+  'footer.linksLabel': 'フッター',
   'forgot.failed': 'リセットメールを送信できませんでした。',
   'forgot.sentBody': '{{email}} のアカウントが存在する場合、まもなくリセットリンクが届きます。',
   'forgot.sentSubheading': '受信箱でリセットリンクをご確認ください。',
@@ -48,14 +61,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'カレンダーとビデオプラットフォームを接続して、Murmur を自動参加させましょう。',
   'integrations.updateError': '更新に失敗しました。',
+  'landing.ctaBody':
+    '毎月最初の5回の会議は無料。クレジットカード不要。Google Calendarは1分以内に接続できます。',
   'landing.ctaButton': '始める — 無料です',
   'landing.ctaHeading': 'メモを取るのをやめましょう。決断を始めましょう。',
+  'landing.demo.aiBody':
+    'ローンチは運用の人員確保のため、5月5日→5月12日に延期。ダッシュボードのリニューアルは5月26日に分離。',
   'landing.demo.aiLabel': 'AI 要約をライブ作成中',
   'landing.demo.recording': '録音中 · ライブ',
   'landing.eyebrow': 'AI ミーティングインテリジェンス',
   'landing.featuresHeading': 'ミーティング後にチームが必要とするすべて',
+  'landing.featuresSubheading':
+    '「これ、誰が担当？」はもう終わり。{{appName}}は通話が切れる前に要約を届けます。',
   'landing.getStarted': '無料で試す',
   'landing.heroSecondary': '90 秒のツアーを見る',
+  'landing.heroSubtitle':
+    '{{tagline}}。{{appName}}は通話に参加し、発言者ラベル付きですべての言葉を文字起こしし、会議が終わった瞬間にAI要約と担当者付きのアクションアイテムを届けます。',
   'landing.heroTitle': 'すべてのミーティングを記録。重要な点を浮かび上がらせる。',
   'login.altPrompt': 'Murmur は初めてですか？',
   'login.failed': 'サインインできませんでした。メールとパスワードを確認してください。',
@@ -63,6 +84,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'アクションアイテム',
   'meetingDetail.back': 'すべてのミーティング',
   'meetingDetail.decisionsHeading': '決定事項',
+  'meetingDetail.dueDate': '期限 {{date}}',
   'meetingDetail.followupsHeading': 'フォローアップ',
   'meetingDetail.loadError': 'ミーティングを読み込めませんでした。',
   'meetingDetail.noActions': 'アクションアイテムは検出されませんでした。',
@@ -76,7 +98,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'まだミーティングはありません',
   'meetings.heading': 'ミーティング',
   'meetings.loadError': 'ミーティングを読み込めませんでした。',
+  'meetings.recordCta': 'ミーティングを録音',
   'meetings.subheading': '録音、アップロード、同期されたすべてのミーティング。',
+  'murmurLayout.closeMenu': 'ナビゲーションメニューを閉じる',
   'murmurLayout.openMenu': 'ナビゲーションメニューを開く',
   'murmurLayout.primaryNavLabel': 'プライマリナビゲーション',
   'nav.legal': '法的事項',
@@ -100,7 +124,15 @@ export const ui: UiTranslations = {
   'profile.loading': '読み込み中…',
   'profile.navLabel': 'プロフィールのセクション',
   'profile.notifications.assignments': '自分に割り当てられたアクションアイテム',
+  'profile.notifications.assignmentsHint':
+    'あなた宛てのアクションアイテムが記録されたときに通知します。',
+  'profile.notifications.mentions': '文字起こし内でのメンション',
+  'profile.notifications.mentionsHint':
+    '誰かがあなたを@メンションしたときにメール＋プッシュで通知します。',
+  'profile.notifications.subheading': 'どの{{appName}}イベントをあなたに届けるか選択してください。',
   'profile.notifications.summaries': '週次ダイジェスト',
+  'profile.notifications.summariesHint': '先週のすべての会議をまとめた月曜日のレコップ。',
+  'profile.preferences.speakerColor': 'デフォルトの発言者カラー',
   'profile.preferences.subheading': '参加するすべての録音に適用されるデフォルト値です。',
   'profile.preferences.timezone': 'タイムゾーン',
   'profile.preferences.title': '役職',
@@ -112,17 +144,22 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'お使いのブラウザは録音をサポートしていません。Chrome、Edge、Safari をお試しください。',
   'record.error.upload': 'アップロードに失敗しました。もう一度お試しください。',
+  'record.errorLabel': 'エラーが発生しました',
   'record.heading': '録音',
   'record.idleLabel': 'タップして録音を開始',
   'record.processingLabel': 'Whisper で文字起こし、Claude で要約中…',
+  'record.recordingLabel': '記録中…',
   'record.retryCta': 'もう一度試す',
   'record.subheading':
     'マイクを押すと開始します。Murmur が音声を取り込み、Whisper で文字起こしを行い、Claude が要約を生成します。',
+  'record.titlePlaceholder': '会議タイトル（任意）',
+  'reset.altPrompt': '気が変わりましたか？',
   'reset.hint': '少なくとも 8 文字以上、文字と数字を混ぜて使用してください。',
   'reset.missingToken':
     'リセットリンクが存在しないか有効期限が切れています。新しいリンクをリクエストしてください。',
   'reset.newPassword': '新しいパスワード',
   'reset.subheading': '他で使用していないパスワードを選択してください。',
+  'reset.tooShort': 'パスワードは少なくとも8文字必要です。',
   'search.empty': '入力するとトランスクリプトを検索できます。',
   'search.loadError': '検索に失敗しました。もう一度お試しください。',
   'search.noResults': '「{{q}}」に該当する結果はありません。',
@@ -138,7 +175,10 @@ export const ui: UiTranslations = {
   'settings.retention.audio': '音声の保持期間',
   'settings.retention.heading': '保持期間',
   'settings.retention.transcript': 'トランスクリプトの保持期間',
+  'settings.revokeDeviceWarning':
+    'このデバイスのアクセスはまもなく取り消されます。サインアウトしますか?',
   'settings.saveError': '保存に失敗しました。',
+  'settings.security.subheading': 'サインインに使用するパスワードを更新します。',
   'settings.sharing.exportFormat': 'エクスポート形式',
   'settings.sharing.heading': '共有のデフォルト',
   'settings.sharing.scope': 'デフォルトの共有範囲',
@@ -156,6 +196,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'チームメイトを招待',
   'team.invitedAs': '{{role}} として招待済み',
   'team.inviteFailed': '招待を送信できませんでした。',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': '招待を送信',
   'team.inviteSubtitle': '参加リンク付きのメールが届きます。',
   'team.inviteTitle': 'チームメイトを招待',

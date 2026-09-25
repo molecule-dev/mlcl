@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ada soalan, jumpa pepijat, atau mahu pindahkan buku anda? Hubungi pasukan {{app}} di hello@{{app}}.example — orang sebenar membaca setiap mesej.',
   'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.intro':
+    '{{app}} ialah perakaunan perniagaan kecil yang memastikan setiap sen dipertanggungjawabkan — invois, perbelanjaan, pembayaran dan laporan di satu tempat yang tenang untuk pemilik, penyimpan buku dan akauntan.',
+  'about.missionBody':
+    'Menjalankan perniagaan tidak sepatutnya bermakna takut melihat buku anda. {{app}} menggantikan hamparan yang bersepah dengan angka jelas yang boleh anda tindak lanjuti, supaya anda kurang masa menyelaraskan dan lebih masa melakukan kerja yang menyebabkan anda memulakan perniagaan ini.',
+  'about.missionTitle': 'Misi kami',
   'about.title': 'Perihal {{app}}',
   'accounts.count': '{{count}} akaun',
+  'accounts.emptyBody':
+    'Akaun lejar menjejak di mana wang berada dan bergerak. Ia muncul di sini setelah penyimpan buku atau integrasi anda menyediakannya.',
   'accounts.emptyTitle': 'Tiada akaun lagi',
   'accounts.heading': 'Carta akaun',
   'accounts.kpi.accounts': 'Akaun',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Setiap akaun lejar di sebalik invois, perbelanjaan dan pembayaran anda, dikumpulkan mengikut jenis.',
   'accounts.tag.inactive': 'tidak aktif',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Ketua Pegawai Kewangan, Horizon Tech',
   'authBrandPanel.eyebrow': 'Dipercayai oleh pasukan kewangan',
   'authBrandPanel.label': 'Pameran jenama',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Semua pelanggan',
   'customerDetail.invoiceMeta': 'Dikeluarkan {{issued}} · Tarikh Luput {{due}}',
   'customerDetail.loadError': 'Gagal memuatkan pelanggan.',
+  'customerDetail.missingBody':
+    'Rekod pelanggan yang diminta tidak dapat dimuatkan. Ia mungkin telah dialih keluar, atau anda mungkin tiada akses kepadanya.',
   'customerDetail.missingHeading': 'Rekod pelanggan tidak tersedia',
+  'customerDetail.missingHelp':
+    'Gunakan pautan kembali di atas untuk kembali ke senarai pelanggan, atau pilih rekod lain dari sana.',
+  'customerDetail.noInvoices': 'Belum ada invois.',
   'customerDetail.notesEmpty': 'Tiada nota lagi.',
   'customerDetail.paymentsEmpty': 'Tiada pembayaran direkodkan.',
   'customerDetail.paymentTerms': 'Terma pembayaran',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Boleh ditolak',
   'expenseDetail.detailsHeading': 'Butiran transaksi',
   'expenseDetail.loadError': 'Gagal memuatkan perbelanjaan.',
+  'expenseDetail.matched': 'Dipadankan · {{description}}',
   'expenseDetail.missingBody':
     'Perbelanjaan yang diminta tidak dapat dimuatkan. Ia mungkin telah dibuang, atau Anda tidak mempunyai akses kepadanya.',
   'expenseDetail.missingHeading': 'Rekod perbelanjaan tidak tersedia',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Resit',
   'expenseDetail.receiptHeading': 'Resit',
   'expenseDetail.reconciled': 'Diselaraskan',
+  'expenseDetail.unreconciled': 'Belum diselaraskan',
   'expenses.empty': 'Tiada perbelanjaan lagi.',
   'expenses.heading': 'Perbelanjaan',
   'expenses.kpi.deductible': 'Boleh ditolak',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Gagal memuatkan invois.',
   'invoices.searchPlaceholder': 'Cari no. invois atau pelanggan…',
   'invoices.summary.paid': 'Dibayar tempoh ini',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'Percuma selama 30 hari. Tanpa kad. Bawa akauntan Anda — mereka akan berterima kasih.',
   'landing.ctaTitle': 'Pindahkan buku akaun Anda ke tempat yang lebih tenang.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Akaun belum terima',
   'ledgerStatTriad.eyebrow.mtd': 'Bulan hingga kini',
   'ledgerStatTriad.netSub': 'Bersih {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} tertunggak',
   'ledgerStatTriad.revenueLabel': 'Hasil',
   'login.failed': 'Log masuk gagal.',
   'login.hidePassword': 'Sembunyikan kata laluan',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Log Masuk',
   'nav.legal': 'Undang-undang',
   'newExpense.back': 'Perbelanjaan',
+  'newExpense.clearReceiptCta': 'Kosongkan resit yang dilampirkan',
   'newExpense.deductible': 'Potongan cukai',
   'newExpense.dropPrompt': 'Lepaskan foto resit atau PDF di sini untuk melampirkan.',
   'newExpense.failed': 'Tidak dapat menyimpan perbelanjaan.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Gagal memuatkan pembayaran.',
   'payments.unmatchedTag': 'tiada tandingan',
   'planUpdated.pageLabel': 'Pengesahan pelan yang dikemas kini',
+  'pricing.advancedFeatures': 'Ciri lanjutan: {{yes}}',
+  'pricing.canExport': 'Eksport data: {{yes}}',
+  'pricing.heading': 'Pilih pelan {{app}} anda',
+  'pricing.maxAccounts': '{{count}} akaun',
+  'pricing.maxExpenses': '{{count}} perbelanjaan',
+  'pricing.maxInvoices': '{{count}} invois',
+  'privacy.intro':
+    'Dasar Privasi ini menerangkan bagaimana {{app}} mengumpul, menggunakan dan mendedahkan maklumat tentang perniagaan yang menggunakan perkhidmatan ini.',
   'privacy.lastUpdated': 'Dikemas kini pada: {{date}}',
   'privacy.section.collected.body':
     'Kami mengumpul butiran akaun (nama, e-mel, syarikat), rekod kewangan yang Anda muat naik (invois, perbelanjaan, pelanggan, pembayaran), dan log operasi perkhidmatan standard (IP, ejen pengguna, cap masa).',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Maklumat digunakan untuk mengendalikan perkhidmatan, menjana laporan dan PDF yang Anda minta, menghantar e-mel transaksi melalui Mailgun, dan memproses pembayaran melalui Stripe. Kami tidak menjual atau menyewa maklumat peribadi.',
   'recentInvoicesCard.dueMeta': 'Tarikh akhir {{date}}',
+  'recentInvoicesCard.empty': 'Tiada invois sepadan.',
   'recentInvoicesCard.eyebrow': 'Akaun belum terima',
   'recentInvoicesCard.searchAriaLabel': 'Cari invois',
+  'recentInvoicesCard.searchPlaceholder': 'Cari invois…',
   'recentInvoicesCard.title': 'Invois terbaru',
   'recentInvoicesCard.viewAll': 'Lihat semua invois →',
   'reports.assets': 'Aset',
@@ -181,16 +211,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Untung rugi (12 bulan)',
   'resetPassword.backToLogin': '← Kembali ke Log Masuk',
   'resetPassword.hidePassword': 'Sembunyikan kata laluan',
+  'resetPassword.passwordLabel': 'Kata laluan baharu',
   'resetPassword.showPassword': 'Tunjukkan kata laluan',
+  'resetPassword.subheading': 'Pilih kata laluan yang kukuh — minimum lapan aksara.',
   'resetPassword.submit': 'Tetap Semula Kata Laluan',
   'resetPassword.tooShort': 'Kata laluan mesti sekurang-kurangnya 8 aksara.',
   'settings.account.changePassword': 'Tukar kata laluan',
   'settings.account.changingPassword': 'Menukar…',
   'settings.account.currentPassword': 'Kata laluan semasa',
+  'settings.account.dangerZone': 'Zon bahaya',
   'settings.account.deleteAccount': 'Padam akaun',
   'settings.account.deleteDescription':
     'Padamkan akaun anda dan semua data yang berkaitan secara kekal.',
   'settings.account.deleteError': 'Gagal memadam akaun.',
+  'settings.account.deleteWarning':
+    'Ini memadamkan akaun anda secara kekal dan tidak boleh dibatalkan. Masukkan kata laluan anda untuk mengesahkan.',
   'settings.account.deleting': 'Memadam…',
   'settings.account.devices': 'Peranti',
   'settings.account.email': 'E-mel',
@@ -201,6 +236,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Kata laluan',
   'settings.account.passwordError': 'Gagal menukar kata laluan.',
   'settings.account.pushNotifications': 'Pemberitahuan tolak pada peranti ini',
+  'settings.account.revokeDeviceWarning':
+    'Akses peranti ini akan dibatalkan tidak lama lagi. Log keluar?',
   'settings.account.saveError': 'Gagal mengemas kini profil.',
   'settings.account.security': 'Keselamatan',
   'settings.account.signOutDevice': 'Log keluar',
@@ -208,12 +245,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Pengesahan dua faktor',
   'settings.account.twoFactorCode': 'Kod pengesahan',
   'settings.account.twoFactorDisable': 'Lumpuhkan',
+  'settings.account.twoFactorDisableTitle': 'Nyahdayakan pengesahan dua faktor',
   'settings.account.twoFactorEnable': 'Aktifkan',
+  'settings.account.twoFactorEnableTitle': 'Dayakan pengesahan dua faktor',
   'settings.account.twoFactorInvalidCode': 'Kod tidak sah',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'Kod QR dua faktor',
+  'settings.account.twoFactorScan':
+    'Imbas kod QR ini dengan aplikasi pengesah anda, kemudian masukkan kod 6 digit.',
+  'settings.account.twoFactorUnavailable':
+    'Pengesahan dua faktor tidak tersedia untuk aplikasi ini.',
   'settings.account.twoFactorVerify': 'Sahkan & dayakan',
   'settings.account.unknownDevice': 'Peranti tidak diketahui',
   'settings.company.email': 'E-mel pengebilan',
+  'settings.company.heading': 'Syarikat & cukai',
   'settings.company.name': 'Nama sah',
   'settings.company.saveButton': 'Simpan profil syarikat',
   'settings.company.taxId': 'No. GST / SST',
@@ -256,6 +301,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Angg. suku tahunan',
   'taxes.kpi.owed': 'Terhutang',
   'taxes.loadError': 'Gagal memuatkan ringkasan cukai.',
+  'taxes.remittedPct': '({{pct}}% dihantar)',
+  'terms.intro':
+    'Terma Perkhidmatan ("Terma") ini mengawal akses dan penggunaan anda terhadap {{app}}. Dengan mencipta akaun atau menggunakan perkhidmatan ini, anda bersetuju untuk terikat dengannya.',
   'terms.lastUpdated': 'Dikemas kini pada: {{date}}',
   'terms.section.acceptable.body':
     'Anda bersetuju untuk tidak menggunakan perkhidmatan untuk melanggar sebarang undang-undang, melanggar hak harta intelek, menghantar perisian hasad, atau mencuba mendapatkan akses tanpa kebenaran ke akaun lain atau infrastruktur kami.',

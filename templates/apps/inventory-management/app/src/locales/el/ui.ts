@@ -1,11 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχετε ερώτηση σχετικά με τη μετεγκατάσταση του καταλόγου σας, βρήκατε κάποιο σφάλμα ή θέλετε μια ξενάγηση στο {{appName}}; Επικοινωνήστε από τις ρυθμίσεις του λογαριασμού σας — κάθε μήνυμα πηγαίνει σε ένα πραγματικό μέλος της ομάδας.',
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.intro':
+    'Το {{appName}} συγκεντρώνει κάθε SKU, κάθε αποθήκη και κάθε κίνηση σε μία κονσόλα. Σχεδιασμένο για υπεύθυνους λειτουργιών και ομάδες αποθήκης, αντικαθιστά τη διάσπαρτη χρήση υπολογιστικών φύλλων και τα αποσυνδεδεμένα συστήματα που χάνουν μονάδες μεταξύ παραλαβής και αποστολής με μία ενιαία, ελεγχόμενη πηγή αλήθειας.',
+  'about.missionBody':
+    'Οι λειτουργίες βασίζονται στα βαρετά: καταμετρήσεις, κινήσεις και ειδοποιήσεις. Κάνουμε τα βαρετά γρήγορα, παρατηρήσιμα και αδύνατο να παραποιηθούν — ώστε ο αριθμός στην οθόνη να είναι ο αριθμός στο ράφι και η ομάδα σας να τον εμπιστεύεται αρκετά ώστε να ενεργεί χωρίς επανακαταμέτρηση.',
+  'about.missionTitle': 'Η αποστολή μας',
+  'about.subtitle': 'Διαχείριση αποθέματος για επαγγελματίες που μετρούν κάθε μονάδα.',
+  'about.whatYouGetTitle': 'Τι αποκτάτε',
   'auth.legalConsent': 'Συνεχίζοντας, συμφωνείτε με τους',
   'authShell.brandSubtitle': 'Έλεγχος Αποθέματος',
   'authShell.eyebrow': 'Καλώς ορίσατε στο Locus',
+  'authShell.footer': '{{appName}} · Κονσόλα λειτουργιών',
   'authShell.pitch':
     'Μια ακριβής, προσαρμοσμένη στις ανάγκες του χειριστή εικόνα κάθε SKU, κάθε αποθήκης και κάθε κίνησης — σχεδιασμένη για ομάδες που μετράνε ό,τι μετράει.',
   'authShell.sampleCaption': 'μονάδες · 1.284 SKU · 6 αποθήκες',
@@ -20,6 +30,8 @@ export const ui: UiTranslations = {
   'dashboard.alerts.empty': 'Κάθε SKU είναι πάνω από το σημείο αναπαραγγελίας του. Μπράβο.',
   'dashboard.alerts.eyebrow': 'Αναδιάταξη ουράς',
   'dashboard.alerts.title': 'Ειδοποιήσεις χαμηλού αποθέματος',
+  'dashboard.errorFallback':
+    'Τα ζωντανά δεδομένα δεν είναι προσωρινά διαθέσιμα — εμφανίζεται πρόσφατο στιγμιότυπο.',
   'dashboard.eyebrow': 'Αίθουσα ελέγχου λειτουργιών',
   'dashboard.heroPeriod': 'Τελευταίες 12 εβδομάδες',
   'dashboard.kpis.lowStock': 'SKU με χαμηλό απόθεμα',
@@ -36,13 +48,18 @@ export const ui: UiTranslations = {
   'dashboard.movements.viewAll': 'Άνοιγμα καθολικού',
   'dashboard.subtitle': 'Απέναντι {{warehouses}} αποθήκες · ενεργό καθολικό',
   'dashboard.title': 'Σήμερα σε όλο τον στόλο',
+  'forgotPassword.subheading':
+    'Εισαγάγετε το email που είναι συνδεδεμένο με τον λογαριασμό σας στο {{appName}} και θα σας στείλουμε σύνδεσμο επαναφοράς.',
   'forgotPassword.subheadingSent':
     'Ελέγξτε τα εισερχόμενά σας για έναν σύνδεσμο επαναφοράς μίας χρήσης.',
+  'forgotPassword.successBody':
+    'Κάντε κλικ στον σύνδεσμο στο email για να ορίσετε νέο κωδικό πρόσβασης. Ο σύνδεσμος λήγει σε 30 λεπτά.',
   'forgotPassword.successHeadline': "Επαναφορά συνδέσμου καθ' οδόν προς {{email}}",
   'inventory.actions.add': 'Προσθήκη SKU',
   'inventory.add.cost': 'Τιμή κόστους ($)',
   'inventory.add.description':
     'Δημιουργήστε ένα προϊόν. Προσαρμόστε το απόθεμα και αναθέστε αποθήκες στη συνέχεια.',
+  'inventory.add.name': 'Όνομα προϊόντος',
   'inventory.add.sell': 'Τιμή πώλησης ($)',
   'inventory.add.sku': 'Κωδικός SKU',
   'inventory.add.submit': 'Δημιουργία SKU',
@@ -51,6 +68,7 @@ export const ui: UiTranslations = {
   'inventory.col.cost': 'Κόστος μονάδας',
   'inventory.col.qty': 'Σε ετοιμότητα',
   'inventory.col.sku': 'Κωδικός προϊόντος',
+  'inventory.empty': 'Δεν υπάρχουν ακόμη SKU που να ταιριάζουν με αυτά τα φίλτρα.',
   'inventory.emptyState':
     'Δεν υπάρχουν ακόμη SKU. Κάντε κλικ στην επιλογή "Προσθήκη SKU" για να δημιουργήσετε το πρώτο σας προϊόν.',
   'inventory.eyebrow': 'Ζωντανό βιβλίο καταγραφής',
@@ -60,6 +78,7 @@ export const ui: UiTranslations = {
   'inventory.filters.lowStatus': 'Μόνο χαμηλή / χαμηλή',
   'inventory.loading': 'Φόρτωση αποθέματος…',
   'inventory.pageStatus': '{{from}} – {{to}} από {{total}}',
+  'inventory.searchAria': 'Αναζήτηση αποθέματος',
   'inventory.searchPlaceholder': 'Αναζήτηση με όνομα, κωδικό προϊόντος ή κατηγορία',
   'inventory.subtitle': '{{count}} Οι κωδικοί SKU αντιστοιχούν στα φίλτρα σας',
   'inventory.threshold': 'αναδιάταξη @ {{qty}}',
@@ -67,12 +86,15 @@ export const ui: UiTranslations = {
   'inventoryHeroCard.changeWithPeriod': '{{change}} · {{period}}',
   'inventoryHeroCard.eyebrow': 'Σύνολο σε διαθεσιμότητα',
   'inventoryHeroCard.subtitle': 'Απέναντι {{count}} ενεργά SKU',
+  'inventoryHeroCard.units': 'μονάδες σε όλες τις αποθήκες',
   'inventoryManagementLayout.brandSubtitle': 'Έλεγχος Αποθέματος',
   'inventoryManagementLayout.defaultUser': 'Λειτουργίες',
   'inventoryManagementLayout.menu': 'Μενού',
+  'inventoryManagementLayout.mobileNavLabel': 'Πλοήγηση για κινητά',
   'inventoryManagementLayout.notificationsAria': 'Άνοιγμα ειδοποιήσεων',
   'inventoryManagementLayout.role': 'Επικεφαλής Λειτουργιών',
   'inventoryManagementLayout.searchAria': 'Αναζήτηση SKU, προϊόντων, αποθηκών',
+  'inventoryManagementLayout.searchPlaceholder': 'Αναζήτηση SKU, προϊόντων, αποθηκών…',
   'landing.cta.body':
     'Συνδέστε τις αποθήκες σας, εισαγάγετε SKU και ζητήστε από την ομάδα σας να εκτελέσει μετρήσεις κύκλων βάσει σάρωσης εντός μίας ημέρας.',
   'landing.cta.primary': 'Ξεκινήστε μια δωρεάν δοκιμή',
@@ -81,6 +103,7 @@ export const ui: UiTranslations = {
   'landing.eyebrow': 'Απογραφή · Λειτουργίες · Αλήθεια',
   'landing.features.body':
     'Οι λειτουργίες εκτελούνται πάνω σε βαρετά πράγματα: μετρήσεις, κινήσεις, ειδοποιήσεις. Το Locus κάνει τα βαρετά πράγματα γρήγορα, παρατηρήσιμα και αδύνατο να τα παραποιήσει κανείς.',
+  'landing.features.eyebrow': 'Σχεδιασμένο για επαγγελματίες',
   'landing.features.title': 'Τρεις ράγες αλήθειας απογραφής.',
   'landing.footer.copy': '© {{year}} Τόπος · Απογραφή υπό έλεγχο.',
   'landing.heroCard.period': 'Τελευταίες 12 εβδομάδες',
@@ -99,7 +122,9 @@ export const ui: UiTranslations = {
   'landing.proof.title':
     'Οι εταιρείες αριθμών εμπιστεύονται τους παρόχους υπηρεσιών επειδή πραγματοποιούν αποστολές κάθε μέρα.',
   'login.heading': 'Σύνδεση στο Locus',
+  'login.noAccount': 'Δεν έχετε λογαριασμό {{appName}};',
   'login.subheading': 'Διαχειριστείτε κάθε SKU και αποθήκη σε μία κονσόλα.',
+  'lowStockAlertCard.action': 'Παραγγέλλω πάλι',
   'lowStockAlertCard.actionAria': 'Παραγγέλλω πάλι {{name}}',
   'lowStockAlertCard.lowStock': 'Μόνο {{quantity}} του {{threshold}} μονάδες που απομένουν',
   'lowStockAlertCard.outOfStock': 'Εξαντλήθηκε',
@@ -108,7 +133,9 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Χάρτης εκτός δαπέδου',
   'notFound.search': 'Αναζήτηση αποθέματος',
   'notFound.title': 'Αυτός ο κάδος δεν υπάρχει.',
+  'notifications.acknowledge': 'Αναγνωρίζω',
   'notifications.alerts.empty': 'Δεν υπάρχουν ενεργές ειδοποιήσεις για χαμηλό απόθεμα.',
+  'notifications.alerts.eyebrow': 'Αναδιάταξη ουράς',
   'notifications.alerts.title': 'Ειδοποιήσεις χαμηλού αποθέματος',
   'notifications.movement.empty': 'Δεν υπάρχουν ακόμη κινήσεις μετοχών.',
   'notifications.movement.eyebrow': 'Ενημερώσεις καθολικού',
@@ -116,6 +143,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     'Ειδοποιήσεις για χαμηλό απόθεμα, κινήσεις καθολικού και συμβάντα συστήματος, όλα σε ένα μέρος.',
   'notifications.system.empty': 'Δεν υπάρχουν συμβάντα συστήματος.',
+  'notifications.system.eyebrow': 'Σύστημα',
   'notifications.system.title': 'Εκδηλώσεις κονσόλας',
   'notifications.tabs.${option}': 'Αναδιάταξη ουράς',
   'orderDetail.back': 'Όλες οι παραγγελίες',
@@ -139,11 +167,13 @@ export const ui: UiTranslations = {
   'orderDetail.shipping.title': 'Λεπτομέρειες παραγγελίας',
   'orderDetail.timeline.created': 'Η παραγγελία δημιουργήθηκε',
   'orderDetail.timeline.eyebrow': 'Ιστορικό ελέγχου',
+  'orderDetail.timeline.pending': 'Δεν υπάρχουν ακόμη περαιτέρω συμβάντα.',
   'orderDetail.timeline.received': 'Σημειώθηκε ως ληφθείσα',
   'orderDetail.timeline.shipped': 'Σημειώθηκε ως απεσταλμένο',
   'orderDetail.timeline.title': 'Παραγγελία συμβάντων',
   'orders.col.eta': 'ΕΩΑ',
   'orders.col.partner': 'Εταίρος',
+  'orders.col.reference': 'Αναφορά',
   'orders.col.units': 'Μονάδες',
   'orders.col.value': 'Τιμή',
   'orders.col.warehouse': 'Αποθήκη',
@@ -170,15 +200,30 @@ export const ui: UiTranslations = {
   'orders.kpis.openOutbound': 'Ανοιχτό εξερχόμενο',
   'orders.kpis.shippedToday': 'Κλειστό (παραλήφθηκε/απεστάλη)',
   'orders.loading': 'Φόρτωση παραγγελιών…',
+  'orders.row.po': 'Εντολή αγοράς',
   'orders.row.so': 'Παραγγελία πώλησης',
   'orders.subtitle': 'Εισερχόμενες PO και εξερχόμενες SO σε όλο το δίκτυο.',
   'orders.title': 'Παραγγελίες',
+  'planUpdated.body':
+    'Η αλλαγή χρέωσής σας είναι πλέον ενεργή. Μπορείτε να διαχειρίζεστε το πλάνο σας οποιαδήποτε στιγμή από τη σελίδα χρέωσης.',
   'planUpdated.pageTitle': 'Το πρόγραμμα ενημερώθηκε',
+  'planUpdated.retry': 'Δοκιμάστε ξανά',
+  'planUpdated.verifyFailed': 'Δεν μπορέσαμε να επιβεβαιώσουμε ακόμη την πληρωμή σας.',
+  'planUpdated.verifyFailedBody':
+    'Η πληρωμή σας ενδέχεται να βρίσκεται ακόμη υπό επεξεργασία. Δοκιμάστε ξανά σε λίγο.',
   'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
+  'pricing.advancedFeatures': 'Σύνθετες λειτουργίες: {{value}}',
+  'pricing.alerts': '{{count}} ειδοποιήσεις',
+  'pricing.dataExport': 'Εξαγωγή δεδομένων: {{value}}',
+  'pricing.products': '{{count}} προϊόντα',
+  'pricing.stock': '{{count}} εγγραφές αποθέματος',
+  'pricing.transfers': '{{count}} μεταφορές',
+  'pricing.warehouses': '{{count}} αποθήκες',
   'productDetail.back': 'Επιστροφή στο απόθεμα',
   'productDetail.barcode': 'Γραμμωτός κώδικας',
   'productDetail.cost': 'Κόστος',
   'productDetail.eyebrow': 'Προφίλ προϊόντος',
+  'productDetail.history.empty': 'Δεν υπάρχουν ακόμη καταγεγραμμένες κινήσεις.',
   'productDetail.history.eyebrow': 'Ιστορικό κινήσεων',
   'productDetail.kpis.locations': 'Τοποθεσίες',
   'productDetail.kpis.onHand': 'Σε ετοιμότητα',
@@ -203,6 +248,8 @@ export const ui: UiTranslations = {
   'profile.kpis.actionsHint': 'Τελευταίες 30 ημέρες',
   'profile.kpis.cycle': 'Αριθμός κύκλων που ανήκουν',
   'profile.kpis.transfers': 'Διαχειριζόμενες μεταφορές',
+  'profile.security.active': 'ενεργό',
+  'profile.security.thisSessionHint': 'Συνδεδεμένος σε αυτή τη συσκευή',
   'profile.security.thisSessionLabel': 'Αυτό το πρόγραμμα περιήγησης · {{email}}',
   'profile.security.title': 'Σύνδεση και συσκευές',
   'reports.aging.eyebrow': 'Γηράσκων',
@@ -223,8 +270,13 @@ export const ui: UiTranslations = {
   'reports.topValue.title': 'Κορυφαία SKU ανά αξία αποθέματος',
   'reports.turnover.eyebrow': 'Τάση κύκλου εργασιών',
   'reports.turnover.title': 'κύκλος εργασιών αποθεμάτων',
+  'resetPassword.changedMind': 'Αλλάξατε γνώμη;',
+  'resetPassword.missingToken':
+    'Ανοίξτε τον σύνδεσμο επαναφοράς από το email σας για να συνεχίσετε.',
   'resetPassword.newPassword': 'Νέος κωδικός πρόσβασης',
   'resetPassword.signInNow': 'Συνδεθείτε τώρα',
+  'resetPassword.subheading':
+    'Επιλέξτε κάτι εύκολο στη μνήμη αλλά μοναδικό. Θα σας συνδέσουμε μόλις οριστεί.',
   'resetPassword.subheadingDone':
     'Ο κωδικός πρόσβασης ενημερώθηκε. Σας στέλνουμε πίσω για να συνδεθείτε…',
   'resetPassword.submitting': 'Ενημέρωση κωδικού πρόσβασης…',
@@ -236,8 +288,11 @@ export const ui: UiTranslations = {
   'settings.billing.viewPlans': 'Δείτε τα πλάνα',
   'settings.billing.warehouseLimit': 'Όριο αποθήκης',
   'settings.integrations.description': 'Κανάλια, ERP, λογιστική και πάροχοι αποστολών.',
+  'settings.integrations.saving': 'Αποθήκευση…',
   'settings.integrations.status.${status}': 'Αποθήκευση…',
   'settings.locations.add': 'Διαχείριση αποθηκών',
+  'settings.locations.body':
+    'Ανοίξτε την κονσόλα Αποθηκών για να προσθέσετε μια τοποθεσία, να επεξεργαστείτε τη χωρητικότητά της ή να αφαιρέσετε μια παρωχημένη τοποθεσία. Οι αλλαγές εκεί διαδίδονται σε ολόκληρο το καθολικό.',
   'settings.locations.description':
     'Καρφιτσώστε διευθύνσεις αποστολής, ζώνες ώρας και προεπιλεγμένες ρυθμίσεις ζώνης ανά ιστότοπο.',
   'settings.locations.title': 'Τοποθεσίες αποθήκης',
@@ -260,6 +315,7 @@ export const ui: UiTranslations = {
   'stockTransfer.commit': 'Μεταφορά εντολών',
   'stockTransfer.committed':
     'Η μεταφορά δημιουργήθηκε — επισημάνετε την ολοκλήρωση για να μετακινήσετε το απόθεμα.',
+  'stockTransfer.complete': 'Πλήρης',
   'stockTransfer.confirmation':
     'Οι κινήσεις δημοσιεύονται ατομικά όταν η μεταφορά έχει επισημανθεί ως ολοκληρωμένη.',
   'stockTransfer.destination': 'Αποθήκη προορισμού',
@@ -275,7 +331,12 @@ export const ui: UiTranslations = {
   'stockTransfer.list.noNotes': 'Δεν υπάρχουν σημειώσεις',
   'stockTransfer.list.title': 'Πρόσφατες μεταφορές',
   'stockTransfer.list.viewMovements': 'Προβολή κινήσεων',
+  'stockTransfer.needWarehouses.body':
+    'Δημιουργήστε πρώτα τις αποθήκες προέλευσης και προορισμού και μετά επιστρέψτε εδώ για να σαρώσετε ένα δελτίο αποστολής.',
   'stockTransfer.needWarehouses.title': 'Χρειάζεστε τουλάχιστον δύο αποθήκες',
+  'stockTransfer.notesPlaceholder':
+    'Προαιρετικές σημειώσεις — π.χ. "Εβδομαδιαία εξισορρόπηση cross-dock"',
+  'stockTransfer.openWarehouses': 'Άνοιγμα αποθηκών',
   'stockTransfer.sameWarehouse': 'Οι αποθήκες προέλευσης και προορισμού πρέπει να διαφέρουν.',
   'stockTransfer.scanPlaceholder': 'Σαρώστε ένα SKU ή γραμμωτό κώδικα και πατήστε Enter',
   'stockTransfer.source': 'Αποθήκη πηγαίου κώδικα',
@@ -287,10 +348,11 @@ export const ui: UiTranslations = {
   'warehouseDetail.back': 'Όλες οι αποθήκες',
   'warehouseDetail.inventory': 'Επεξεργασία SKU',
   'warehouseDetail.kpis.noCapacity': '—',
+  'warehouseDetail.kpis.noCapHint': 'Δεν έχει οριστεί χωρητικότητα',
   'warehouseDetail.kpis.skus': 'Ενεργά SKU',
   'warehouseDetail.kpis.units': 'Σύνολο μονάδων',
   'warehouseDetail.kpis.utilization': 'Χρησιμοποίηση',
-  'warehouseDetail.kpis.utilizationHint': '{{μεταχειρισμένος}} / {{καπάκι}} μονάδες',
+  'warehouseDetail.kpis.utilizationHint': '{{used}} / {{cap}} μονάδες',
   'warehouseDetail.loading': 'Φόρτωση αποθήκης…',
   'warehouseDetail.notFound': 'Η αποθήκη δεν βρέθηκε.',
   'warehouseDetail.skus.empty':
@@ -303,9 +365,11 @@ export const ui: UiTranslations = {
   'warehouses.add': 'Προσθήκη αποθήκης',
   'warehouses.add.capacity': 'Χωρητικότητα (μονάδες)',
   'warehouses.add.capacityHint': 'Προαιρετικό — χρησιμοποιείται για γραφήματα αξιοποίησης.',
+  'warehouses.add.city': 'Πόλη',
   'warehouses.add.code': 'Κωδικός (μοναδικός)',
   'warehouses.add.codeHint': 'Ένα σύντομο αναγνωριστικό — π.χ. RENO-1, MEM-DC',
   'warehouses.add.contactEmail': 'Email επαφής',
+  'warehouses.add.contactName': 'Όνομα επαφής',
   'warehouses.add.country': 'Χώρα',
   'warehouses.add.description':
     'Καταχωρίστε έναν ιστότοπο ώστε να μπορείτε να δρομολογείτε παραλαβές, μεταφορές και αποθέματα.',
@@ -316,6 +380,8 @@ export const ui: UiTranslations = {
     'Προσθέστε τον πρώτο σας ιστότοπο για να ξεκινήσετε την παρακολούθηση των αποθεμάτων.',
   'warehouses.emptyTitle': 'Δεν υπάρχουν ακόμη αποθήκες',
   'warehouses.loading': 'Φόρτωση δικτύου αποθήκης…',
+  'warehouses.noCapacity': '{{used}} μονάδες διαθέσιμες · χωρητικότητα δεν έχει οριστεί',
+  'warehouses.skus': 'SKU',
   'warehouses.subtitle': '{{count}} τοποθεσίες · χωρητικότητα, προσωπικό και κάλυψη SKU',
   'warehouses.title': 'Αποθήκες',
   'warehouses.utilization': 'Χρησιμοποίηση',

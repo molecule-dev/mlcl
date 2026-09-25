@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     "Dendrite hija pjattaforma ta' awtomazzjoni tal-fluss tax-xogħol li tgħaqqad flimkien triggers, kundizzjonijiet tal-AI, u azzjonijiet b'ħafna passi sabiex it-timijiet ikunu jistgħu jċaqalqu x-xogħol bejn is-sistemi mingħajr ma jiktbu kodiċi kolla.",
+  'about.philosophy':
+    "Kull workflow huwa grafu ta' passi żgħar u osservabbli. Kull pass jirreġistra l-inputs, l-outputs u l-ħin tiegħu biex ikun jista' jiġi spezzjonat, replayjat jew rolled back. Komponihom viżwalment, agħtihom verżjonijiet bħall-kodiċi.",
   'about.title': 'Dwar id-Dendrite',
   'authShell.brand': 'Dendrite',
   'authShell.support': 'Appoġġ',
@@ -15,9 +17,14 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Biddel il-pjan',
   'billing.description':
     'Segwi l-użu, immaniġġja l-pjan tiegħek, u iġbed il-fatturi għall-kontabilità.',
+  'billing.eyebrow': 'Kont · Pjan u użu',
+  'billing.failedLabel': 'Runs falluti · 24h',
+  'billing.invoicesEmpty':
+    "Għad m'hemmx invoices. Dawn se jidhru hawn wara l-ewwel tiġdid imħallas tiegħek.",
   'billing.invoicesTitle': 'Storja tal-fattura',
   'billing.planNoteFree':
     'Livell bla ħlas — {{runs}} ġirjiet u {{workflows}} flussi tax-xogħol attivi. Aġġorna għal limiti ogħla.',
+  'billing.planNotePaid': 'Pjan imħallas — {{runs}} runs u {{workflows}} workflows attivi.',
   'billing.runsLabel': 'Jaħdem fl-aħħar 24 siegħa',
   'billing.tiersBlurb':
     'Qabbel kull livell — ġirjiet, flussi tax-xogħol attivi, karatteristiċi avvanzati, u appoġġ — fuq il-paġna ddedikata għall-prezzijiet.',
@@ -35,10 +42,14 @@ export const ui: UiTranslations = {
     'L-ebda integrazzjoni mhi rreġistrata. Ikkonfigura ċ-ċwievet tal-fornitur biex tippermetti l-bonds.',
   'connections.error': 'Ma setgħux jitgħabbew il-konnessjonijiet.',
   'connections.eyebrow': 'Integrazzjonijiet · {{connected}} konness',
+  'connections.loading': 'Qed jitgħabbew l-integrazzjonijiet…',
+  'connections.openEnv':
+    "Biex tikkonnettja dan il-provider, issettja l-API key tiegħu f'api/.env u erġa' ibda s-server.",
   'dashboard.description':
     '{{active}} flussi tax-xogħol attivi. {{failed}} fallew fl-aħħar 24 siegħa.',
   'dashboard.error': 'Ma setax jitgħabba d-dashboard.',
   'dashboard.eyebrow': 'Operazzjonijiet · diretti',
+  'dashboard.hero.label': 'Runs illum',
   'dashboard.hero.medianLatency': 'latenza tal-p50',
   'dashboard.hero.queue': 'Fond tal-kju',
   'dashboard.hero.success': 'Suċċess',
@@ -46,14 +57,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Tul medjan',
   'dashboard.kpi.failedRuns': 'Fallut · 24 siegħa',
   'dashboard.kpi.outOf': "ta' {{total}} totali",
+  'dashboard.kpi.successRate': "Rata ta' suċċess · 24h",
   'dashboard.loading': 'Qed jitgħabba d-dashboard…',
   'dashboard.recentRuns.empty':
     "Għad m'hemm l-ebda ġirjiet. Jekk tiġi attivata fluss tax-xogħol, dan il-feed jimtela.",
   'dashboard.recentRuns.title': 'Ġiriet riċenti',
   'dashboard.recentRuns.viewAll': 'Eżekuzzjonijiet miftuħa →',
+  'dashboard.recentWorkflows.browse': 'Fittex il-mudelli →',
   'dashboard.recentWorkflows.empty':
     "Għad m'hemm l-ebda fluss tax-xogħol. Installa template jew ibni wieħed mill-bidu.",
   'dashboard.recentWorkflows.title': 'Mexxej dan l-aħħar',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'Beda',
   'dashboard.run.col.trigger': 'Trigger',
   'dashboard.run.col.workflow': 'Fluss tax-xogħol',
@@ -89,6 +103,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Fluss tax-xogħol',
   'executions.description':
     "Kull ġirja tal-fluss tax-xogħol, kull tentattiv mill-ġdid, kull output ta' pass — kollox osservabbli.",
+  'executions.empty.filter': "L-ebda run ma jaqbel ma' dan il-filter.",
   'executions.empty.first':
     "Għad m'hemm l-ebda ġirjiet — attiva fluss tax-xogħol biex timtela din il-lista.",
   'executions.error': 'Ma setgħux jitgħabbew l-eżekuzzjonijiet.',
@@ -99,30 +114,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Qed tiċċarġja l-istorja tat-tlielaq…',
   'executions.title': 'Eżekuzzjonijiet',
   'forgotPassword.confirmation': 'Ir-reset link intbagħat lil {{email}} .',
+  'forgotPassword.subhead': "Daħħal l-email tiegħek biex tirċievi link ta' reset.",
   'forgotPassword.successSubhead':
     "Bagħtejna link ta' reset lil {{email}} Jiskadi fi żmien 30 minuta.",
   'help.connections.body':
     'Il-passi tal-AI, l-email, u l-ħażna jeħtieġu li ċ-ċwievet tal-fornitur jiġu ssettjati fil-fajl api/.env. Ladarba tiġi kkonfigurata ċavetta, l-integrazzjoni korrispondenti tidher bħala konnessa fil-paġna tal-Konnessjonijiet.',
+  'help.connections.cta': 'Iftaħ il-konnessjonijiet →',
   'help.connections.title': 'Konnessjoni mal-fornituri',
   'help.gettingStarted.body':
     "Flussi tax-xogħol ġodda jistgħu jiġu installati mil-librerija tat-templates jew mibnija mill-bidu fil-bennej tal-flussi tax-xogħol. Kull fluss tax-xogħol għandu trigger (manwali, webhook, jew cron) u sekwenza ta' passi li jaħdmu fl-ordni.",
+  'help.gettingStarted.cta': 'Ibbrawżja l-librerija tal-templates →',
+  'help.gettingStarted.title': 'Biex tibda',
   'help.intro':
     "Sib tweġibiet għal mistoqsijiet komuni dwar il-bini ta' flussi tax-xogħol, il-konfigurazzjoni ta' konnessjonijiet, u l-interpretazzjoni tal-output tat-tħaddim. L-aktar suġġetti komuni huma elenkati hawn taħt; għal kull ħaġa li mhix koperta, ikkuntattja lill-amministratur tal-ispazju tax-xogħol tiegħek.",
   'help.runs.body':
     "Kull ġirja tirreġistra kull pass b'mod indipendenti bl-istatus (suċċess, falliment, maqbuż) u silta mill-output. Il-paġna tad-dettalji tal-eżekuzzjoni turi t-traċċa sħiħa pass pass flimkien mal-metriċi inferiti.",
+  'help.runs.cta': 'Eżekuzzjonijiet miftuħa →',
   'help.runs.title': 'Qari tal-output tal-ġirja',
   'help.title': 'Ċentru tal-għajnuna',
   'integrationCard.manage': 'Immaniġġja',
   'landing.brand': 'Dendrite',
   'landing.demo.action.subtitle': "Territorju ta' round-robin",
+  'landing.demo.action.title': 'Avża lir-rep',
   'landing.demo.condition.subtitle': 'Klassifikatur tal-intenzjoni tal-AI',
+  'landing.demo.condition.title': 'Score ≥ medium?',
   'landing.demo.trigger.subtitle': 'POST /formoli/kuntatt',
   'landing.demo.trigger.title': 'Webhook dieħel',
+  'landing.features.body':
+    'It-triggers jisparaw. Il-kundizzjonijiet jifirgħu. L-azzjonijiet jibagħtu x-xogħol. Komponihom viżwalment, agħtihom verżjonijiet bħall-kodiċi.',
   'landing.features.heading': "Tliet tipi ta' nodi. Forom infiniti.",
   'landing.footer.help': 'Għajnuna',
   'landing.footer.tagline': "Intelliġenza f'moviment",
+  'landing.hero.body':
+    "{{appName}} huwa l-workflow engine għal timijiet tal-operazzjonijiet li qabżu lil Zapier. Trigger, kundizzjoni, azzjoni — konnessi ma' kull sistema li tassew tuża.",
   'landing.hero.eyebrow': "Intelliġenza f'moviment",
   'landing.hero.headline': 'Qabbad il-munzell tiegħek flimkien bil-wajers. Ħalli x-xogħol iseħħ.',
+  'landing.hero.primaryCta': 'Ibni l-ewwel workflow tiegħek',
   'landing.hero.proof.ai': 'Nodi tal-AI integrati',
   'landing.hero.proof.free': "B'xejn għal 1k ġirjiet/xahar",
   'landing.hero.proof.soc2': 'SOC 2 Tip II',
@@ -130,10 +157,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Ħallas għall-ġirjiet, mhux għas-siġġijiet.',
   'landing.templates.body':
     "Flussi tax-xogħol ipprogrammati minn qabel għal kull tim — bejgħ, appoġġ, żvilupp, finanzi. Installa b'klikk waħda; immodifika kwalunkwe ħaġa.",
+  'landing.templates.cta': 'Irreġistra biex tibbrawżja t-templates →',
   'landing.templates.eyebrow': "Ibda f'sekondi",
   'landing.templates.heading': "Librerija ta' riċetti vverifikati.",
   'landing.templates.signupHint': 'Irreġistra biex tinstalla',
   'login.hidePassword': 'Aħbi l-password',
+  'login.noAccount': "Ġdid f'Tessera?",
   'login.showPassword': 'Uri l-password',
   'login.subhead': 'Idħol biex l-awtomazzjonijiet tiegħek jibqgħu għaddejjin.',
   'mobileNav.drawerLabel': 'Navigazzjoni prinċipali',
@@ -149,8 +178,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Mexxi fluss tax-xogħol biex tibda timla dan il-feed.',
   'notifications.empty.title': 'Intom kollha maqbudin',
   'notifications.eyebrow': '{{n}} mhux moqri',
+  'planUpdated.body':
+    "Il-bidla fil-billing tiegħek issa hija attiva. Tista' timmaniġġja l-pjan tiegħek fi kwalunkwe ħin mill-paġna tal-billing.",
+  'planUpdated.retry': 'Erġa’ pprova',
+  'planUpdated.verifyFailed': 'Għadna ma stajniex nikkonfermaw il-ħlas tiegħek.',
+  'planUpdated.verifyFailedBody':
+    "Jista' jkun li l-ħlas tiegħek għadu qed jiġi pproċessat. Erġa' pprova fi ftit ħin.",
   'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'pricing.heading': 'ġirjiet',
+  'pricing.runsSuffix': 'runs',
   'pricing.workflowsSuffix': 'flussi tax-xogħol',
   'privacy.collect.body':
     'Aħna niġbru l-indirizz elettroniku li tirreġistra bih, il-workflows li tikkonfigura, u l-metadata dwar kull ġirja (ħin tal-bidu, ħin tat-tmiem, status). Qatt ma niġbru jew naħżnu kontenut tal-payload minn triggers jew step outputs lil hinn minn dak li huwa meħtieġ biex jintwera fil-viewer tal-ġirja għas-sid tal-ispazju tax-xogħol.',
@@ -166,12 +202,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Ma setgħetx tiġi aġġornata l-password.',
   'resetPassword.newPassword': 'Password ġdida',
   'resetPassword.subhead': "Agħżel xi ħaġa li int biss tista' taħseb.",
+  'settings.appearance.description': 'Aqleb bejn il-modalità ċara u skura.',
+  'settings.appearance.title': 'Dehra',
   'settings.billingShortcut.cta': 'Fatturazzjoni miftuħa',
   'settings.billingShortcut.description':
     'Il-pjan, l-użu u l-fatturi jinsabu fuq il-paġna ddedikata għall-kontijiet.',
   'settings.danger.confirm':
     'Żgur/a? Dan se jpoġġi l-ispazju tax-xogħol tiegħek fil-kju għat-tħassir.',
   'settings.danger.confirmYes': 'Iva, tħassir tal-kju',
+  'settings.danger.deleteWorkspace.cta': 'Ħassar l-ispazju tax-xogħol',
   'settings.danger.deleteWorkspace.hint':
     "Ineħħi l-flussi tax-xogħol, il-ġirjiet, u l-konnessjonijiet kollha wara perjodu ta' grazzja ta' 14-il jum.",
   'settings.danger.deleteWorkspace.title': 'Ħassar l-ispazju tax-xogħol',
@@ -182,9 +221,13 @@ export const ui: UiTranslations = {
     "Immaniġġja l-kont, l-ispazju tax-xogħol, l-integrazzjonijiet, u l-kontijiet tiegħek f'post wieħed.",
   'settings.notifications.description':
     "Agħżel liema paġna tal-avvenimenti trid, tibgħatlek email, jew tibqa' sieket.",
+  'settings.notifications.failures.hint': 'Email u notifika in-app fuq kull run fallut.',
+  'settings.notifications.failures.title': 'Fallimenti tal-workflows',
   'settings.notifications.product.hint': 'Emails okkażjonali dwar mudelli u karatteristiċi ġodda.',
+  'settings.notifications.product.title': 'Aġġornamenti tal-prodott',
   'settings.notifications.weekly.hint':
     'Sommarju tat-Tnejn filgħodu tal-ġirjiet u l-iffrankar tal-ġimgħa li għaddiet.',
+  'settings.notifications.weekly.title': 'Diġest ta’ kull ġimgħa',
   'settings.profile.description':
     'Kif tidher ġewwa r-runner tal-fluss tax-xogħol. Użat fl-attività tal-ispazju tax-xogħol.',
   'settings.profile.noEmail': 'L-ebda email irreġistrata',
@@ -192,12 +235,24 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Ma setgħux jiġu salvati l-bidliet fil-profil.',
   'settings.profile.unnamedUser': 'Utent bla isem',
   'settings.security.audit.hint': 'Ixxandar kull azzjoni lis-SIEM tiegħek permezz tal-webhook.',
+  'settings.security.audit.title': 'Audit log forwarding',
   'settings.security.description': "Awtentikazzjoni b'żewġ fatturi, SSO, u sessjonijiet attivi.",
   'settings.security.sso.hint': 'Disponibbli fuq pjanijiet Skala u Intrapriża.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'Meħtieġ għal kull azzjoni tas-sid tal-workspace.',
+  'settings.security.totp.title': "Awtentikazzjoni b'żewġ fatturi (TOTP)",
   'settings.twoFactorCode': "Kodiċi ta' awtentikazzjoni",
   'settings.twoFactorDisable': 'Iddiżattiva',
+  'settings.twoFactorDisableTitle': "Itfi l-awtentikazzjoni b'żewġ fatturi",
   'settings.twoFactorEnable': 'Ippermetti',
+  'settings.twoFactorEnableTitle': "Ixgħel l-awtentikazzjoni b'żewġ fatturi",
   'settings.twoFactorInvalidCode': 'Kodiċi invalidu',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Kodiċi QR taż-żewġ fatturi',
+  'settings.twoFactorScan':
+    "Skennja dan il-kodiċi QR bl-app tal-awtentikatur tiegħek, imbagħad daħħal il-kodiċi ta' 6 ċifri.",
+  'settings.twoFactorUnavailable':
+    "L-awtentikazzjoni b'żewġ fatturi mhijiex disponibbli għal din l-app.",
   'settings.twoFactorVerify': 'Ivverifika u attiva',
   'settings.workspace.description':
     'Identità kondiviża, reġjun, u defaults tat-tħaddim għat-tim tiegħek.',
@@ -226,6 +281,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Mudell',
   'templates.description':
     'Blueprints mibnija minn qabel għall-aktar awtomazzjonijiet komuni. Agħmel fork, ippersonalizza, ibgħat.',
+  'templates.empty.filter': 'L-ebda template ma jaqbel mat-tfittxija tiegħek.',
   'templates.empty.first': "M'hemm l-ebda mudell disponibbli bħalissa.",
   'templates.error': 'Ma setgħux jitgħabbew il-mudelli.',
   'templates.installs': 'installazzjonijiet',
@@ -251,6 +307,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Iddiżattiva',
   'workflowBuilder.enable': 'Ippermetti',
   'workflowBuilder.error': 'Ma setax jitgħabba l-fluss tax-xogħol.',
+  'workflowBuilder.inspector.config': 'Konfigurazzjoni',
+  'workflowBuilder.inspector.cron': 'Espressjoni Cron',
+  'workflowBuilder.inspector.disabled': 'Battut — mhux se jaħdem awtomatikament.',
   'workflowBuilder.inspector.enabled': 'Attivat — jaħdem malli jiġi attivat.',
   'workflowBuilder.inspector.eyebrow': 'Spettur',
   'workflowBuilder.inspector.id': 'Id',
@@ -268,18 +327,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'It-toggle falliet.',
   'workflowBuilder.workflow': 'Fluss tax-xogħol · v {{v}}',
   'workflowBuilder.zoom.in': "Żum 'il ġewwa",
+  'workflowBuilder.zoom.label': 'Kontrolli taż-zoom tal-kanvas',
+  'workflowBuilder.zoom.out': "Żum 'il barra",
   'workflowCard.lastRun': 'L-aħħar ġirja {{when}}',
   'workflowCard.runs': '{{count}} ġirjiet',
+  'workflowCard.success': '{{rate}}% suċċess',
   'workflowHeroCard.last24h': 'L-aħħar 24 siegħa',
+  'workflows.browseTemplates': 'Fittex il-mudelli →',
   'workflows.description':
     "Kull awtomazzjoni fl-ispazju tax-xogħol tiegħek, bis-saħħa u l-attività reċenti f'daqqa t'għajn.",
+  'workflows.empty.body': 'Ipprova ħassar il-filter jew ibda minn template.',
   'workflows.empty.firstBody': 'Installa template biex tibda fi ftit sekondi.',
   'workflows.empty.firstTitle': "Għad m'hemm l-ebda fluss tax-xogħol",
   'workflows.empty.title': 'L-ebda fluss tax-xogħol ma jaqbel',
   'workflows.error': 'Ma setgħux jitgħabbew il-flussi tax-xogħol.',
   'workflows.eyebrow': 'Librerija · {{count}} totali',
+  'workflows.loading': 'Qed jillowdjaw il-workflows…',
   'workflows.newFromTemplate': 'Ġdid mit-template',
   'workflows.searchPlaceholder': 'Flussi tax-xogħol tat-tiftix…',
+  'workflows.title': 'Workflows',
   'workflowSidebar.brand': 'Dendrite',
   'workflowSidebar.status': 'Is-sistemi kollha jaħdmu',
   'workflowSidebar.tagline': "Intelliġenza f'moviment",

@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Брондоо, пикир же {{app}} сайтына ылайык келүүчү мүлк жөнүндө суроолоруңуз барбы? Аккаунтуңуздан биздин командага кайрылыңыз — ар бир билдирүү жардам бере алган чыныгы адамга жетет.',
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Биз жөнүндө',
+  'about.featureLoyalty':
+    'Мүчөлөргө гана жеткиликтүү баалар жана ар бир брондоодо упайларды, кечиктирилген чыгууну жана бөлмөнү жакшыртууну берүүчү лоялдуулук программасы.',
+  'about.featureReviews':
+    'Текшерилген конок пикирлери жана редакциялык тандоолор — келгенге чейин эле жатып калууга ишене аласыз.',
+  'about.featureRooms':
+    'Бөлмөлөрдү, бааларды жана ыңгайлуулуктарды катар коюп салыштыруу — ачык-айкын, баары камтылган баа менен: салыктар жана курорттук төлөмдөр төлөөгө чейин эле киргизилген.',
+  'about.featureSearch':
+    'Текшерилген мейманканалар боюнча реалдуу убакытта издөө — учурдагы бош орундар, карта көрүнүшү жана бай сүрөт галереялары.',
+  'about.featureTrips':
+    'Сакталган тандалмалар жана бардык брондоолорду, маршруттарды жана ырастоолорду бир жерде сактаган Trips панели.',
+  'about.intro':
+    '{{app}} — сапатка маани берген саякатчылар үчүн мейманкана брондоо платформасы. Ар бир мүлк биздин редакциялык команда тарабынан жеке текшерилет — агрегатордук кампа жок, алдамчылык тизмелер жок. Реалдуу бош орундарды издеп, бөлмөлөрдү, бааларды жана ыңгайлуулуктарды катар коюп салыштырыңыз, анан ачык, баары камтылган баа менен бир нече басууда брондоңуз.',
+  'about.missionBody':
+    'Жатып калуучу жерди брондоо тынч жана чынчыл болушу керек. Биз салыктарды жана курорттук төлөмдөрдү алдын ала көрсөтүп, ачык бааларды сунуштайбыз, лоялдуу конокторду ар кандай майда төлөмдөр менен кыйнагандын ордуна сыйлайбыз жана акчаңызга татыктуу жайларды биринчи орунга коёбуз — ошентип сиз өтмөктөрдү салыштырууга азыраак, ал эми саякаттын өзүнө көбүрөөк убакыт бөлөсүз.',
+  'about.missionTitle': 'Биздин миссиябыз',
+  'about.subtitle': 'Туура мейманкананы табуунун жана брондоонун тандалма, ачык-айкын жолу.',
   'account.loyalty.activitySummary': '{{nights}} түндөр · {{spend}} бул жылы өткөргөн',
+  'account.loyalty.benefitsHeading': 'Сиздин артыкчылыктар',
   'account.loyalty.heading': 'берилгендик',
   'account.loyalty.loading': 'Лоялдуулук программасы жүктөлүүдө…',
-  'account.loyalty.pointsTowardNext': '{{упайлар}} / {{кийинки}} көрсөтөт {{кийинкиТиер}}',
+  'account.loyalty.maxTier': 'Эң жогорку деңгээл — артыкчылыктарыңыздан ырахат алыңыз.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} упай {{nextTier}} чейин',
   'account.loyalty.tier': 'Учурдагы деңгээл',
   'account.loyalty.unavailable': 'Лоялдуулук жөнүндө маалымат жок.',
   'account.navLabel': 'Аккаунт бөлүмдөрү',
@@ -23,6 +44,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Брондоону ырастоо · {{total}}',
   'bookingCheckout.datesRequired': 'Сураныч, катталуу жана чыгуу күндөрүн тандаңыз.',
   'bookingCheckout.guestHeading': 'Башкы конок',
+  'bookingCheckout.heading': 'Ырастоо жана брондоо',
   'bookingCheckout.loadError': 'Касиет жүктөлбөй калды.',
   'bookingCheckout.nights': '{{rate}} × {{count}} түндөр',
   'bookingCheckout.notFound': 'Мүлк табылган жок.',
@@ -33,11 +55,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Салыктар жана төлөмдөр',
   'bookingCheckout.tripHeading': 'Сиздин сапарыңыз',
   'bookingConfirmation.allTripsCta': 'Бардык сапарлар',
+  'bookingConfirmation.confNumber': 'Ырастоо номери: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Сиздин брондооңуз иштетилүүдө.',
   'bookingConfirmation.heading': 'Брондоо ырасталды',
   'bookingConfirmation.loading': 'Брондооңуз жүктөлүүдө…',
   'bookingConfirmation.searchMoreCta': 'Көбүрөөк мейманканаларды карап чыгыңыз',
   'bookingConfirmation.subheadingForTrip':
-    '{{мүлк}} ичинде {{шаар}} , {{өлкө}} Көрүшкөнчө {{каттоого киргизүү}} .',
+    '{{city}}, {{country}} шаарындагы {{property}}. {{checkIn}} күнү көрүшөбүз.',
   'bookingConfirmation.total': 'Жалпы сумма {{total}}',
   'bookingConfirmation.viewTripCta': 'Сапарды көрүү',
   'common.goToDashboard': 'Башкы бетке өтүү',
@@ -47,6 +72,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Сүйүктүүлөр жүктөлбөй калды.',
   'favorites.pricePerNight': '{{price}} / түн',
   'favorites.removeCta': 'Сактоодон чыгаруу',
+  'favorites.removing': 'Алынып салынууда…',
   'forgotPassword.subheading':
     'Каттоо эсебиңиздеги электрондук почта дарегин киргизиңиз, биз сизге коопсуз баштапкы абалга келтирүү шилтемесин жөнөтөбүз.',
   'forgotPassword.successBody':
@@ -54,6 +80,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Кошумча мүчөлөр',
   'landing.cta.heading': 'Мүчөлөр үчүн гана баалар. Ар бир брондоо, ар бир жолу.',
   'landing.cta.signup': 'Акысыз аккаунт түзүү',
+  'landing.cta.subheading':
+    'Ар бир жатып калуудан лоялдуулук упайларын топтоп, кечиктирилген чыгууну жана бөлмөнү жакшыртууну ачып, жаңы мүлктөргө алар коомчулукка жарыяланганга чейин биринчи жетүү мүмкүнчүлүгүн алыңыз.',
   'landing.destinations.eyebrow': 'Кийинкиси кайда',
   'landing.destinations.heading': 'Сунушталган багыттар',
   'landing.destinations.seeAll': 'Бардык багыттарды көрүү',
@@ -62,13 +90,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Сатып алууга арзырлык окуялар',
   'landing.nav.join': "Auberge'го кошулуңуз",
   'landing.nav.search': 'Издөө коноктору',
+  'landing.preview.browseAll': 'Толук коллекцияны карап чыгуу',
   'landing.preview.eyebrow': 'Ичине бир көз чаптыруу',
   'landing.preview.heading': 'Бул айда тандалган мейманканалар',
+  'landing.preview.subheading':
+    '{{appName}} сайтындагы ар бир мүлк биздин редакциялык команда тарабынан жеке текшерилет — агрегатордук кампа жок, алдамчылык тизмелер жок.',
   'login.eyebrow': 'Мүчөлөр аймагы',
+  'login.noAccount': 'Тессерага жаңы келдиңизби?',
   'login.signupLink': 'Акысыз аккаунт түзүңүз',
   'login.subheading':
     'Сапарларыңызды башкаруу, ырастоолорду көрүү жана токтогон жериңизден улантуу үчүн кириңиз.',
+  'loyaltyTierBadge.points': '{{points}} упайлар',
   'planUpdated.heading': 'План жаңыртылды',
+  'planUpdated.retry': 'Кайра аракет кыл',
+  'planUpdated.verifyFailed': 'Төлөмүңүздү азырынча ырастай алган жокпуз.',
+  'planUpdated.verifyFailedBody':
+    'Төлөмүңүз дагы эле иштетилип жатышы мүмкүн. Бир аздан кийин кайра аракет кылыңыз.',
   'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'pricing.limit.advancedFeatures': 'Өркүндөтүлгөн функциялар:',
   'pricing.limit.canExport': 'Маалыматтарды экспорттоо:',
@@ -80,7 +117,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Бул жер эмнелерди сунуштайт',
   'propertyDetail.backLink': 'Издөөгө кайтуу',
   'propertyDetail.bookCta': 'Брондоо',
+  'propertyDetail.bookmarkAria': 'Мүлктү сактоо',
   'propertyDetail.bookmarkAriaSaved': 'Сакталган касиеттерден алып салуу',
+  'propertyDetail.galleryImageAlt': '{{name}} сүрөт {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} баатырдын сүрөтү',
   'propertyDetail.hidePhotos': 'Сүрөттөрдү жашыруу',
   'propertyDetail.lineCleaning': 'Тазалоо акысы',
@@ -90,6 +129,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'түн',
   'propertyDetail.noChargeYet': 'Сизден азырынча төлөм алынбайт',
   'propertyDetail.notFound': 'Мүлк табылган жок.',
+  'propertyDetail.perNight': '/ түн',
+  'propertyDetail.pickDatesHint': 'Толук баа бөлүштүрүлүшүн көрүү үчүн күндөрүңүздү тандаңыз.',
   'propertyDetail.reviewCount': '( {{count}} сын-пикирлер)',
   'propertyDetail.reviewsHeading': 'Акыркы сын-пикирлер',
   'propertyDetail.roomCapacity': 'Уктайт {{count}}',
@@ -102,6 +143,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Жаңы сыр сөз',
   'resetPassword.subheading':
     'Auberge аккаунтуңуз үчүн жаңы сырсөз тандаңыз. Кеминде 8 белги колдонуңуз; сырсөздү колдонууну сунуштайбыз.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Издөөңүзгө эч кандай мүлк дал келген жок.',
   'searchResults.emptyHint':
     'Чыпкаларыңызды кеңейтип көрүңүз же баалардын чегин алып салыңыз — Auberge 14 өлкөдө мейманканаларды сунуштайт.',
@@ -109,19 +151,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Тандалган мейманканалар',
   'searchResults.headingForQuery': '"Убакыт бою калат" {{q}} "',
   'searchResults.loadError': 'Касиеттер жүктөлбөй калды.',
+  'searchResults.mapHint':
+    'Картада белгилөө үчүн карточканын үстүнө келтириңиз. Продакшнда жандуу Mapbox плиткалары.',
   'searchResults.mapPinAria': '{{name}} — бир түнгө {{price}}',
   'searchResults.sortLabel': 'Иреттөө боюнча',
   'searchResults.subheading': '{{count}} касиеттер · {{guests}} коноктор',
   'signup.eyebrow': 'Мүчө болуңуз',
   'signup.subheading':
     "Мүчөлөр үчүн гана бааларды ачуу, кечиктирилген төлөөлөр жана жаңы мүлктөргө биринчи жолу кирүү мүмкүнчүлүгүн алуу үчүн Auberge'го кошулуңуз.",
+  'sojournAuthShell.brand.eyebrow': 'Өзгөчө жерде жатып калыңыз',
+  'sojournAuthShell.brand.heading':
+    'Мүлктөрдүн тандалма коллекциясы — кооз берилген, ачык-айкын бааланган.',
   'sojournHeroSearchCard.checkInAria': 'Катталуу күнү',
   'sojournHeroSearchCard.checkOutAria': 'Чыгып кетүү күнү',
+  'sojournHeroSearchCard.destAria': 'Көздөгөн жер',
+  'sojournHeroSearchCard.destLabel': 'Кайда',
   'sojournHeroSearchCard.destPlaceholder': 'Шаар, аймак же мүлк',
   'sojournHeroSearchCard.eyebrow': 'Тандалган мейманканалар · Мүчөлөр үчүн гана баа',
   'sojournHeroSearchCard.guestsOption': '{{n}} коноктор',
   'sojournHeroSearchCard.subtitle':
     'Бутик мейманканалардын, дизайнга багытталган турак жайлардын жана сейрек кездешүүчү эс алуу жайларынын тандалган коллекциясы — ачык баадагы жана кооз жасалгаланган.',
+  'sojournHeroSearchCard.title': 'Өзгөчө жерде жатып калыңыз',
+  'sojournHeroSearchCard.trustLoyalty': 'Ар бир жатып калуудан упай топтоңуз',
   'sojournHeroSearchCard.trustNoFees': 'Эч качан жашыруун төлөмдөр жок,',
   'sojournHeroSearchCard.trustVetted': 'Кол менен текшерилген мүлктөр гана',
   'sojournLayout.primaryNavLabel': 'Негизги навигация',

@@ -1,14 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ചോദ്യങ്ങൾ, ഫീഡ്ബാക്ക്, അല്ലെങ്കിൽ നിങ്ങളുടെ ഹയറിംഗ് ടീമിനായി ഒരു വാക്ക്ത്രൂ വേണോ? hello@example.com എന്ന വിലാസത്തിൽ ഇമെയിൽ ചെയ്യുക, ടീമിലെ ഒരു യഥാർത്ഥ വ്യക്തി രണ്ട് ബിസിനസ്സ് ദിവസങ്ങൾക്കുള്ളിൽ നിങ്ങളെ ബന്ധപ്പെടും.',
   'about.contactHeading': 'ബന്ധപ്പെടുക',
+  'about.intro':
+    'ശബ്ദമല്ല, സിഗ്നൽ വേണ്ട റിക്രൂട്ടർമാർക്കും ഹയറിംഗ് മാനേജർമാർക്കുമുള്ള ഒരു അപ്ലിക്കന്റ് ട്രാക്കിംഗ് സിസ്റ്റമാണ് {{app}} — വ്യക്തമായ ഒരു പൈപ്പ്ലൈൻ, സ്വയം വിശദീകരിക്കുന്ന AI സ്ക്രീനിംഗ്, ഹയറിംഗ് അനലിറ്റിക്സ്, എല്ലാം ഒരിടത്ത്.',
+  'about.missionBody':
+    'ഒരു ടീം എടുക്കുന്ന ഏറ്റവും ഉയർന്ന നിക്ഷേപമുള്ള തീരുമാനങ്ങളിലൊന്നാണ് ഹയറിംഗ്, എന്നിട്ടും അതിൽ ഭൂരിഭാഗവും ഇപ്പോഴും ചിതറിക്കിടക്കുന്ന സ്പ്രെഡ്ഷീറ്റുകളിലും ഇമെയിൽ ത്രെഡുകളിലുമാണ്. മുഴുവൻ ചക്രവും ഒരു ബോർഡിലേക്ക് {{app}} കൊണ്ടുവരുന്നു, അതുവഴി ഓരോ ഉദ്യോഗാർത്ഥിയും ട്രാക്ക് ചെയ്യപ്പെടുന്നു, ഓരോ ഇന്റർവ്യൂവും ക്രമീകരിക്കപ്പെടുന്നു, ഓരോ തീരുമാനവും നീതിയുക്തവും വേഗതയുള്ളതും വിശദീകരിക്കാവുന്നതുമാകുന്നു.',
+  'about.missionHeading': 'ഞങ്ങളുടെ ദൗത്യം',
   'auth.legalConsent': 'തുടരുന്നതിലൂടെ, ഞങ്ങളുടെ നിബന്ധനകൾ അംഗീകരിക്കുന്നു',
   'billing.cardExp': 'കാലഹരണപ്പെടുന്നു {{exp}}',
+  'billing.cardLinkError': 'അപ്ഡേറ്റ്-കാർഡ് ഫ്ലോ ആരംഭിക്കാനായില്ല.',
   'billing.cardLinkSent': 'കാർഡ് അപ്ഡേറ്റ് ഫ്ലോ ആരംഭിച്ചു — നിങ്ങളുടെ ഇമെയിൽ പരിശോധിക്കുക.',
+  'billing.cardLinkUnavailable':
+    'കാർഡ് അപ്ഡേറ്റുകൾ ലഭ്യമല്ല — ഈ ഡിപ്ലോയ്മെന്റിൽ പേയ്മെന്റ് പ്രൊവൈഡർ കോൺഫിഗർ ചെയ്തിട്ടില്ല.',
   'billing.cardMissing': 'ഫയലിൽ കാർഡ് ഇല്ല.',
   'billing.col.invoice': 'ഇൻവോയ്സ്',
   'billing.downloadUnavailable': '—',
   'billing.editCard': 'കാർഡ് അപ്ഡേറ്റ് ചെയ്യുക',
+  'billing.eyebrow': 'പ്ലാനും ഉപയോഗവും',
   'billing.invoiceHeading': 'സമീപകാല ഇൻവോയ്‌സുകൾ',
   'billing.invoicesEmpty': 'ഇതുവരെ ഇൻവോയ്‌സുകളൊന്നുമില്ല.',
   'billing.invoicesLoading': 'ഇൻവോയ്‌സുകൾ ലോഡ് ചെയ്യുന്നു...',
@@ -17,11 +28,12 @@ export const ui: UiTranslations = {
   'billing.nextChargeHint': 'ഓൺ {{date}}',
   'billing.nextChargeLabel': 'അടുത്ത ചാർജ്',
   'billing.planLoading': 'പ്ലാൻ ലോഡ് ചെയ്യുന്നു...',
-  'billing.planSummary': '{{സീറ്റ് പ്രകാരം}} / സീറ്റ് · {{സീറ്റുകൾ}} സീറ്റുകൾ · {{ആകെ}} / മാസം',
+  'billing.planSummary': '{{perSeat}} / സീറ്റ് · {{seats}} സീറ്റുകൾ · {{total}} / മാസം',
   'billing.seatsAdded': 'സീറ്റുകളുടെ എണ്ണം അപ്ഡേറ്റ് ചെയ്തു.',
   'billing.seatsError':
     'ഈ പ്ലാൻ സിംഗിൾ സീറ്റാണ്. ഒന്നിലധികം സീറ്റുകൾ ഉപയോഗിക്കുന്നതിന് ടീമിലേക്ക് അപ്‌ഗ്രേഡ് ചെയ്യുക.',
   'billing.seatsHint': '{{used}} യുടെ {{max}} ഉൾപ്പെടുത്തിയിട്ടുണ്ട്',
+  'billing.seatsLabel': 'സജീവ സീറ്റുകൾ',
   'billing.spentLabel': 'വർഷം മുതൽ ഇന്നുവരെ ചെലവഴിച്ചത്',
   'billing.subheading': 'സബ്‌സ്‌ക്രിപ്‌ഷൻ, സീറ്റുകൾ, AI സ്‌ക്രീനിംഗ് ഉപയോഗം, ഇൻവോയ്‌സുകൾ.',
   'billing.unlimited': 'പരിധിയില്ലാത്തത്',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'candidateDetail.advanceError': 'ഘട്ടം അപ്ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'candidateDetail.advanceFinal': 'ഇതിനകം അവസാന ഘട്ടത്തിലാണ്.',
   'candidateDetail.advanceHeading': 'സ്റ്റേജിലേക്ക് നീങ്ങുക',
+  'candidateDetail.appliedOn': '{{source}} വഴി {{date}}-ൽ അപേക്ഷിച്ചു.',
   'candidateDetail.back': 'എല്ലാ സ്ഥാനാർത്ഥികളും',
   'candidateDetail.loadError': 'സ്ഥാനാർത്ഥിയെ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
   'candidateDetail.noInterviews': 'ഇതുവരെ അഭിമുഖങ്ങളൊന്നുമില്ല.',
@@ -46,8 +59,13 @@ export const ui: UiTranslations = {
   'candidateDetail.notePlaceholder':
     'ഫീഡ്‌ബാക്ക്, അഭിമുഖ ഇംപ്രഷനുകൾ, അടുത്ത ഘട്ടങ്ങൾ എന്നിവ പങ്കിടുക...',
   'candidateDetail.noteSave': 'കുറിപ്പ് സംരക്ഷിക്കുക',
+  'candidateDetail.panel': 'പാനൽ: {{panel}}',
+  'candidateDetail.panelScore': 'പാനൽ സ്കോർ: {{score}}/100',
+  'candidateDetail.resumeMissing': 'ഈ ഉദ്യോഗാർത്ഥിക്കായി ഇതുവരെ റെസ്യൂമെ പ്രിവ്യൂ ലഭ്യമല്ല.',
   'candidateDetail.scheduleError': 'അഭിമുഖം ഷെഡ്യൂൾ ചെയ്യാൻ കഴിഞ്ഞില്ല.',
+  'candidateDetail.scheduleHeading': 'ഇന്റർവ്യൂ ഷെഡ്യൂൾ ചെയ്യുക',
   'candidateDetail.scheduleInterviewer': 'അഭിമുഖം നടത്തുന്നയാൾ',
+  'candidateDetail.scheduleInterviewerPlaceholder': 'ഇന്റർവ്യൂവർ പേര്',
   'candidateDetail.scheduleMinutes': 'ദൈർഘ്യം (മിനിറ്റ്)',
   'candidateDetail.scheduleMissing': 'ആദ്യം ഒരു തീയതിയും സമയവും തിരഞ്ഞെടുക്കുക.',
   'candidateDetail.scoreEmpty': 'AI വിലയിരുത്തലിനായി കാത്തിരിക്കുന്നു.',
@@ -70,6 +88,7 @@ export const ui: UiTranslations = {
   'candidates.heading': 'സ്ഥാനാർത്ഥികൾ',
   'candidates.loadError': 'സ്ഥാനാർത്ഥികളെ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
   'candidates.searchPlaceholder': 'സ്ഥാനാർത്ഥി, തസ്തിക അല്ലെങ്കിൽ ജോലി തിരയുക\\u2026',
+  'candidates.sourceLabel': 'ഉറവിടം',
   'candidates.sourcePlaceholder': 'ഉറവിടം (ലിങ്ക്ഡ്ഇൻ, റഫറൽ...)',
   'candidates.subheading':
     'AI സ്കോറിംഗും ഉറവിട ആട്രിബ്യൂഷനും ഉള്ള ക്രോസ്-ജോബ് കാൻഡിഡേറ്റ് ഡാറ്റാബേസ്.',
@@ -84,6 +103,7 @@ export const ui: UiTranslations = {
   'dashboard.kpi.interviews': 'ഈ ആഴ്ചയിലെ അഭിമുഖങ്ങൾ',
   'dashboard.kpi.openJobs': 'തുറന്ന ജോലികൾ',
   'dashboard.loading': 'ലോഡ് ചെയ്യുന്നു...',
+  'dashboard.newJobCta': 'ഒരു ജോലി പോസ്റ്റ് ചെയ്യുക',
   'dashboard.subheading': 'പൈപ്പ്‌ലൈനിന്റെ ആരോഗ്യം, അഭിമുഖ ലോഡ്, നിലവിലുള്ള ഓഫറുകൾ.',
   'dashboard.topEmpty': 'ഇതുവരെ സ്ഥാനാർത്ഥികളൊന്നുമില്ല.',
   'dashboard.topEyebrow': 'മുൻനിര AI മത്സരങ്ങൾ',
@@ -105,6 +125,7 @@ export const ui: UiTranslations = {
   'jobDetail.back': 'എല്ലാ ജോലികളും',
   'jobDetail.descriptionEyebrow': 'റോൾ വിവരണം',
   'jobDetail.descriptionMissing': 'ഇതുവരെ വിവരണമൊന്നും നൽകിയിട്ടില്ല.',
+  'jobDetail.employmentType': 'തൊഴിൽ തരം: {{type}}',
   'jobDetail.empty': 'ഇതുവരെ അപേക്ഷകരൊന്നുമില്ല.',
   'jobDetail.funnelEyebrow': 'സ്റ്റേജ് ഫണൽ',
   'jobDetail.funnelHeading': 'അപേക്ഷകരുടെ സ്ഥാനം',
@@ -113,6 +134,7 @@ export const ui: UiTranslations = {
   'jobDetail.kpi.hires': 'നിയമനങ്ങൾ',
   'jobDetail.kpi.inInterview': 'അഭിമുഖത്തിൽ',
   'jobDetail.loadError': 'ജോലി ലോഡ് ചെയ്യാനായില്ല.',
+  'jobDetail.requirementsHeading': 'ആവശ്യകതകൾ',
   'jobDetail.topEyebrow': 'മുൻനിര അപേക്ഷകർ',
   'jobDetail.topHeading': 'ആദ്യം AI- മാച്ച് ചെയ്തത്',
   'jobDetail.unavailable': 'ഈ ജോലി ഇനി ലിസ്റ്റ് ചെയ്തിട്ടില്ല.',
@@ -128,6 +150,7 @@ export const ui: UiTranslations = {
   'jobs.heading': 'ജോലികൾ',
   'jobs.loadError': 'ജോലികൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
   'jobs.newCta': 'ജോലി പോസ്റ്റ് ചെയ്യുക',
+  'landing.copyright': '© {{year}} {{app}} . തന്മാത്ര ഉപയോഗിച്ച് നിർമ്മിച്ചത്.',
   'landing.eyebrow': 'AI സഹായത്തോടെയുള്ള നിയമനം · v2',
   'landing.featuresEyebrow': 'ഇത് എങ്ങനെ പ്രവർത്തിക്കുന്നു',
   'landing.featuresHeading': 'സിഗ്നൽ - സ്പ്രെഡ്ഷീറ്റുകളല്ല.',
@@ -137,8 +160,11 @@ export const ui: UiTranslations = {
   'landing.heroProof':
     'ക്രെഡിറ്റ് കാർഡ് ഇല്ല. എപ്പോൾ വേണമെങ്കിലും റദ്ദാക്കാം. പ്രോയിൽ SSO ലഭ്യമാണ്.',
   'landing.heroSecondary': 'വിലനിർണ്ണയം കാണുക →',
+  'landing.heroSubtitle':
+    'വ്യക്തമായ ഒരു കാൻബാൻ പൈപ്പ്ലൈൻ, സ്വയം വിശദീകരിക്കുന്ന AI സ്ക്രീനിംഗ്, ഘട്ടം തിരിച്ചുള്ള ന്യായത അനലിറ്റിക്സ്. ശബ്ദമല്ല, സിഗ്നൽ വേണ്ട റിക്രൂട്ടർമാർക്കും ഹയറിംഗ് മാനേജർമാർക്കുമായി നിർമ്മിച്ചത്.',
   'landing.heroTitle': 'വ്യക്തതയോടെ നിയമിക്കുക.',
   'landing.previewHeading': 'സീനിയർ ബാക്കെൻഡ് എഞ്ചിനീയർ',
+  'landing.previewLabel': 'പൈപ്പ്ലൈൻ · എൻജിനീയറിംഗ്',
   'landing.pricingEyebrow': 'വിലനിർണ്ണയം',
   'landing.pricingHeading': 'ഓരോ ടീമിനും അനുയോജ്യമായ പ്ലാനുകൾ.',
   'landing.socialEyebrow': 'ടീമുകളെ നിയമിക്കുന്നത് ഉപയോഗിക്കുന്നത്',
@@ -154,6 +180,9 @@ export const ui: UiTranslations = {
   'loginBrandPanel.headlineLine2': 'വ്യക്തത.',
   'loginBrandPanel.stage.interview': 'അഭിമുഖം',
   'loginBrandPanel.stage.screening': 'സ്ക്രീനിംഗ്',
+  'loginBrandPanel.stage.sourced': 'സോഴ്സ് ചെയ്തത്',
+  'loginBrandPanel.subtext':
+    'സോഴ്സ്ഡ് → സ്ക്രീനിംഗ് → ഇന്റർവ്യൂ → ഓഫർ → ഹയേർഡ് എന്നിവയിലൂടെ ഉദ്യോഗാർത്ഥികളെ വലിച്ചിടുക. AI സ്ക്രീൻ ചെയ്യുന്നു. ഫെയർനസ് പൾസ് ഓരോ ഘട്ടവും സത്യസന്ധമായി നിലനിർത്തുന്നു.',
   'nav.closeMenu': 'മെനു അടയ്ക്കുക',
   'nav.legal': 'നിയമപരമായ',
   'nav.openMenu': 'മെനു തുറക്കുക',
@@ -162,6 +191,7 @@ export const ui: UiTranslations = {
     'റെസ്യൂമെകൾ ആവശ്യകതകൾക്കനുസരിച്ച് റാങ്ക് ചെയ്യുന്നു; റിക്രൂട്ടർ ആദ്യം മികച്ച പൊരുത്തങ്ങൾ അവലോകനം ചെയ്യുന്നു.',
   'newJob.aiToggle': 'പുതിയ അപേക്ഷകർക്ക് ഓട്ടോ-സ്കോർ നൽകുക',
   'newJob.back': 'ജോലികളിലേക്ക് മടങ്ങുക',
+  'newJob.basicsHeading': 'റോളിന്റെ അടിസ്ഥാനകാര്യങ്ങൾ',
   'newJob.compHeading': 'നഷ്ടപരിഹാരം',
   'newJob.departmentLabel': 'വകുപ്പ്',
   'newJob.descHeading': 'വിവരണവും ആവശ്യകതകളും',
@@ -171,6 +201,7 @@ export const ui: UiTranslations = {
   'newJob.failed': 'ജോലി സംരക്ഷിക്കാൻ കഴിഞ്ഞില്ല.',
   'newJob.heading': 'ഒരു ജോലി പോസ്റ്റ് ചെയ്യുക',
   'newJob.publish': 'ജോലി പ്രസിദ്ധീകരിക്കുക',
+  'newJob.reqLabel': 'ആവശ്യകതകൾ (ഓരോ വരിയിലും ഒന്ന്)',
   'newJob.salaryMax': 'പരമാവധി ശമ്പളം (USD)',
   'newJob.salaryMin': 'കുറഞ്ഞ ശമ്പളം (USD)',
   'newJob.stagesHeading': 'പൈപ്പ്ലൈൻ ഘട്ടങ്ങൾ',
@@ -186,6 +217,7 @@ export const ui: UiTranslations = {
   'newJob.type.fullTime': 'മുഴുവൻ സമയവും',
   'newJob.type.partTime': 'ഭാഗിക സമയം',
   'newJob.typeLabel': 'തൊഴിൽ തരം',
+  'pipeline.advanceTo': 'മുന്നോട്ട്',
   'pipeline.allRoles': 'എല്ലാ വേഷങ്ങളും',
   'pipeline.daysInStage': '{{days}} ഡി',
   'pipeline.empty': 'സ്ഥാനാർത്ഥികളൊന്നുമില്ല',
@@ -199,13 +231,22 @@ export const ui: UiTranslations = {
     'സ്ഥാനാർത്ഥികളെ ഘട്ടങ്ങൾക്കിടയിൽ വലിച്ചിടുക. ഓരോ കാർഡിലും AI സ്‌കോറും ദിവസങ്ങളിലെ ഘട്ടവും കാണിച്ചിരിക്കുന്നു.',
   'pipeline.viewTable': 'പട്ടിക കാഴ്ച →',
   'pipelineFunnelHero.totalLabel': 'ചലിച്ചു കൊണ്ടിരിക്കുന്നു',
+  'planUpdated.body':
+    'നിങ്ങളുടെ ബില്ലിംഗ് മാറ്റം ഇപ്പോൾ സജീവമാണ്. ബില്ലിംഗ് പേജിൽ നിന്ന് എപ്പോൾ വേണമെങ്കിലും നിങ്ങളുടെ പ്ലാൻ മാനേജ് ചെയ്യാം.',
+  'planUpdated.retry': 'വീണ്ടും ശ്രമിക്കുക',
+  'planUpdated.verifyFailed': 'നിങ്ങളുടെ പേയ്‌മെന്റ് ഞങ്ങൾക്ക് ഇതുവരെ സ്ഥിരീകരിക്കാൻ കഴിഞ്ഞില്ല.',
+  'planUpdated.verifyFailedBody':
+    'നിങ്ങളുടെ പേയ്‌മെന്റ് ഇപ്പോഴും പ്രോസസ്സ് ചെയ്തുകൊണ്ടിരിക്കുകയായിരിക്കാം. അൽപ്പസമയത്തിനുള്ളിൽ വീണ്ടും ശ്രമിക്കുക.',
   'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'pricing.heading': 'അപേക്ഷകൾ',
+  'pricing.limits.applications': 'അപേക്ഷകൾ',
   'pricing.limits.candidates': 'സ്ഥാനാർത്ഥികൾ',
   'pricing.limits.jobs': 'ജോലികൾ',
   'pricing.limits.scorecards': 'സ്കോർകാർഡുകൾ',
   'privacy.dataBody':
     'അക്കൗണ്ട് ഇമെയിൽ, ഹാഷ് ചെയ്ത പാസ്‌വേഡ്, പ്രൊഫൈൽ മെറ്റാഡാറ്റ, നിങ്ങൾ സൃഷ്ടിക്കുന്ന ഉദ്യോഗാർത്ഥി / ജോലി രേഖകൾ. ഞങ്ങൾ ഒരിക്കലും ഈ ഡാറ്റ വിൽക്കുകയോ പങ്കിടുകയോ ചെയ്യില്ല.',
+  'privacy.intro':
+    'ഉപഭോക്താക്കൾക്കുവേണ്ടി {{app}} റിക്രൂട്ടിംഗ് ഡാറ്റ പ്രോസസ്സ് ചെയ്യുന്നു. ഉദ്യോഗാർത്ഥി റെക്കോർഡുകളും റെസ്യൂമെകളും ഹയറിംഗ് ടീമിന്റെ ആശയവിനിമയങ്ങളും ഞങ്ങൾ രഹസ്യമായി കണക്കാക്കുകയും എൻക്രിപ്റ്റ് ചെയ്ത് സൂക്ഷിക്കുകയും ചെയ്യുന്നു.',
   'privacy.retentionBody':
     'ക്രമീകരണങ്ങളിൽ നിന്ന് എപ്പോൾ വേണമെങ്കിലും നിങ്ങളുടെ അക്കൗണ്ട് ഇല്ലാതാക്കാം. നിയമം അനുസരിച്ച് നിലനിർത്തൽ ആവശ്യമുള്ളിടത്ത് ഒഴികെ, ബന്ധപ്പെട്ട റെക്കോർഡുകൾ 30 ദിവസത്തിനുള്ളിൽ ഞങ്ങൾ ശുദ്ധീകരിക്കും.',
   'privacy.title': 'സ്വകാര്യതാ നയം',
@@ -215,6 +256,7 @@ export const ui: UiTranslations = {
     'ഉദ്യോഗാർത്ഥികളെയും അപേക്ഷകരെയും ജോലി പോസ്റ്റുകളിലെ നിങ്ങളുടെ പേരും റോളും കാണാൻ അനുവദിക്കുക.',
   'profile.publicLabel': 'പൊതു പ്രൊഫൈൽ',
   'profile.publicOff': 'മറച്ചിരിക്കുന്നു',
+  'profile.publicOn': 'ദൃശ്യമാണ്',
   'profile.recentEmpty': 'ഇതുവരെ പ്ലേസ്‌മെന്റുകളൊന്നുമില്ല.',
   'profile.recentError': 'സമീപകാല പ്ലേസ്‌മെന്റുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'profile.recentEyebrow': 'സമീപകാല പ്ലേസ്‌മെന്റുകൾ',
@@ -241,9 +283,14 @@ export const ui: UiTranslations = {
   'resetPassword.missingToken':
     'റീസെറ്റ് ലിങ്ക് കാണുന്നില്ല അല്ലെങ്കിൽ കാലഹരണപ്പെട്ടു — പുതിയൊരെണ്ണം അഭ്യർത്ഥിക്കുക.',
   'resetPassword.passwordLabel': 'പുതിയ പാസ്വേഡ്',
+  'resetPassword.signInCta': 'സൈൻ ഇൻ →',
+  'resetPassword.signInPrompt': 'സൈൻ ഇൻ ചെയ്യാൻ നിങ്ങളുടെ പുതിയ പാസ്വേഡ് ഉപയോഗിക്കുക.',
   'resetPassword.subheading':
     'ശക്തമായ ഒരു പാസ്‌വേഡ് തിരഞ്ഞെടുക്കുക - കുറഞ്ഞത് 12 പ്രതീകങ്ങൾ മിക്സഡ് കേസ് ഉള്ളവ.',
+  'settings.appearance.description': 'ലൈറ്റ്, ഡാർക്ക് മോഡുകൾക്കിടയിൽ ടോഗിൾ ചെയ്യുക.',
   'settings.appearance.title': 'രൂപഭാവം',
+  'settings.deleteAccountModal.confirm':
+    'സ്ഥിരീകരിക്കാൻ നിങ്ങളുടെ പാസ്വേഡ് നൽകുക. ഈ പ്രവർത്തനം സ്ഥിരമാണ്.',
   'settings.emailTemplates.empty': 'ഇതുവരെ ഒരു ടെംപ്ലേറ്റും കോൺഫിഗർ ചെയ്തിട്ടില്ല.',
   'settings.emailTemplates.heading': 'ഇമെയിൽ ടെംപ്ലേറ്റുകൾ',
   'settings.emailTemplates.loadError': 'ടെംപ്ലേറ്റുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
@@ -254,10 +301,17 @@ export const ui: UiTranslations = {
   'settings.integrations.statusDisconnected': 'കണക്റ്റ് ചെയ്തിട്ടില്ല',
   'settings.integrations.updateError': 'സംയോജനം അപ്ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'settings.name': 'പേര്',
+  'settings.passwordHelp': 'സൈൻ ഇൻ ചെയ്യാൻ നിങ്ങൾ ഉപയോഗിക്കുന്ന പാസ്വേഡ് അപ്ഡേറ്റ് ചെയ്യുക.',
+  'settings.revokeDeviceWarning':
+    'ഈ ഉപകരണത്തിന്റെ ആക്‌സസ് ഉടൻ പിൻവലിക്കപ്പെടും. സൈൻ ഔട്ട് ചെയ്യണോ?',
   'settings.saveEmail': 'ഇമെയിൽ സംരക്ഷിക്കുക',
   'settings.signOutDevice': 'സൈൻ ഔട്ട്',
   'settings.stages.empty': 'ഇതുവരെ ഒരു ഘട്ടവും കോൺഫിഗർ ചെയ്തിട്ടില്ല.',
+  'settings.stages.heading': 'പൈപ്പ്ലൈൻ ഘട്ടങ്ങൾ',
+  'settings.stages.help':
+    'ഉദ്യോഗാർത്ഥികൾ കടന്നുപോകുന്ന ഘട്ടങ്ങൾ. നിങ്ങൾ ഉപയോഗിക്കാത്തവ ഒഴിവാക്കുക.',
   'settings.stages.loadError': 'ഘട്ടങ്ങൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
+  'settings.stages.loading': 'ഘട്ടങ്ങൾ ലോഡ് ചെയ്യുന്നു…',
   'settings.stages.removeAria': 'നീക്കം ചെയ്യുക {{name}} സ്റ്റേജ്',
   'settings.stages.removeError': 'സ്റ്റേജ് നീക്കം ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'settings.team.empty': 'ഇതുവരെ സഹതാരങ്ങളൊന്നുമില്ല - താഴെയുള്ള ആദ്യത്തേതിനെ ക്ഷണിക്കുക.',
@@ -273,9 +327,15 @@ export const ui: UiTranslations = {
   'settings.team.removeError': 'അംഗത്തെ നീക്കം ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'settings.twoFactorCode': 'പ്രാമാണീകരണ കോഡ്',
   'settings.twoFactorDisable': 'പ്രവർത്തനരഹിതമാക്കുക',
+  'settings.twoFactorDisableTitle': 'ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ പ്രവർത്തനരഹിതമാക്കുക',
   'settings.twoFactorEnable': 'പ്രാപ്തമാക്കുക',
+  'settings.twoFactorEnableTitle': 'ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ പ്രവർത്തനക്ഷമമാക്കുക',
   'settings.twoFactorInvalidCode': 'കോഡ് അസാധുവാണ്',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'രണ്ട്-ഘടക QR കോഡ്',
+  'settings.twoFactorScan':
+    'നിങ്ങളുടെ ഓതന്റിക്കേറ്റർ ആപ്പ് ഉപയോഗിച്ച് ഈ QR കോഡ് സ്കാൻ ചെയ്യുക, തുടർന്ന് 6 അക്ക കോഡ് നൽകുക.',
+  'settings.twoFactorUnavailable': 'ഈ ആപ്പിന് ടു-ഫാക്ടർ പ്രാമാണീകരണം ലഭ്യമല്ല.',
   'settings.twoFactorVerify': 'പരിശോധിച്ചുറപ്പിക്കുക, പ്രാപ്തമാക്കുക',
   'settings.unknownDevice': 'അജ്ഞാത ഉപകരണം',
   'signup.confirmPlaceholder': 'നിങ്ങളുടെ പാസ്‌വേഡ് വീണ്ടും നൽകുക',
@@ -285,6 +345,8 @@ export const ui: UiTranslations = {
   'signup.subheading': '60 സെക്കൻഡിനുള്ളിൽ ഒരു നിയമന ബോർഡ് ഉണ്ടാക്കുക. ടീമിനെ പിന്നീട് ക്ഷണിക്കുക.',
   'terms.acceptableUseBody':
     'നിങ്ങൾ സേവനം ദുരുപയോഗം ചെയ്യില്ല, ഓട്ടോമേറ്റഡ് സ്ക്രാപ്പിംഗ് നടത്തില്ല, സുരക്ഷ തകർക്കാൻ ശ്രമിക്കില്ല, അല്ലെങ്കിൽ സംരക്ഷിത ക്ലാസുകളോട് വിവേചനം കാണിക്കാൻ അത് ഉപയോഗിക്കില്ല.',
+  'terms.intro':
+    '{{app}} ഉപയോഗിക്കുന്നതിലൂടെ നിങ്ങൾ ഈ നിബന്ധനകൾ അംഗീകരിക്കുന്നു. താഴെ വിവരിച്ചിരിക്കുന്ന ബാധ്യതകളോടും പരിമിതികളോടും കൂടി സേവനം ഇതുപോലെയുള്ള അടിസ്ഥാനത്തിൽ നൽകുന്നു.',
   'terms.subscriptionBody':
     'റദ്ദാക്കുന്നതുവരെ പണമടച്ചുള്ള പ്ലാനുകൾ പ്രതിമാസം പുതുക്കും. നിങ്ങൾക്ക് എപ്പോൾ വേണമെങ്കിലും ബില്ലിംഗിൽ നിന്ന് റദ്ദാക്കാം; നിലവിലെ കാലയളവിന്റെ അവസാനം വരെ നിങ്ങളുടെ പ്ലാൻ സജീവമായി തുടരും.',
   'terms.title': 'സേവന നിബന്ധനകൾ',

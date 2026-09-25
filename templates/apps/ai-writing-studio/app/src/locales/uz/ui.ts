@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Fikr-mulohazangiz bormi, xatolik topdingizmi yoki funksiya kerakmi? Hisob sozlamalaridan murojaat qiling — har bir xabar jamoamizdagi haqiqiy insonga yetib boradi.',
   'about.contactTitle': "Bog'laning",
   'about.eyebrow': 'Haqida',
+  'about.intro':
+    "{{app}} — o'z matniga jiddiy e'tibor beradigan yozuvchilar uchun AI yozish studiyasi. U uzoq matnli AI generatsiyasini xotirjam muharrir, SEO baholash va rasm generatsiyasi bilan birlashtiradi, shunda siz asaringizni bo'sh varaqdan nashr etilgunga qadar olib borishingiz mumkin — ovozingizni hech qachon yo'qotmasdan.",
+  'about.missionBody':
+    "Bizning fikrimizcha, AI sizning yoningizda qoralama yozishi kerak, hech qachon sizning o'rningizda emas. {{app}} takliflarni sizning so'zlaringizdan yaqqol ajratib turadi, yaratgan har bir hujjatingiz egasi bo'lib qolasiz va vositalar yozishga xalaqit bermaydi.",
+  'about.missionTitle': 'Bizning vazifamiz',
   'about.pageTitle': '{{app}} haqida',
   'aiSuggestionCard.applied': "Taklif qo'llanildi",
   'aiSuggestionCard.apply': "Qo'llash",
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Trafik manbalari',
   'billing.activePlan': 'Obuna faol.',
   'billing.aiWordsLabel': "Sun'iy intellekt avlodlari kiritilgan",
+  'billing.cancelFailed': "Obunani bekor qilib bo'lmadi.",
   'billing.cancelPlan': 'Rejani bekor qilish',
+  'billing.cancelPlanConfirm': 'Bekor qilishni tasdiqlaysizmi?',
   'billing.cancelSuccess': 'Obuna bekor qilindi. Rejani yangilash uchun yangilang.',
   'billing.changePlan': "Rejani o'zgartirish",
   'billing.col.invoice': 'Faktura',
@@ -43,26 +52,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': "Rejalarni ko'rish",
   'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'dashboard.continueWriting': 'Yozishni davom eting',
+  'dashboard.createFirst': 'Hujjat yaratish',
   'dashboard.days.sat': 'Sat',
   'dashboard.days.sun': 'Sun',
   'dashboard.defaultWriterName': 'Yozuvchi',
   'dashboard.greeting': 'Xayrli tong, {{name}}',
   'dashboard.loadError': "Boshqaruv panelini yuklab bo'lmadi.",
+  'dashboard.loading': 'Studiyangiz yuklanmoqda…',
   'dashboard.loadingDocs': "So'nggi hujjatlar yuklanmoqda…",
   'dashboard.noDocuments': "Hali hech qanday hujjat yo'q — birinchisini boshlang.",
   'dashboard.startWriting': 'Yangi hujjatni boshlang',
+  'dashboard.streakBody': "Bu hafta {{words}} so'z yozdingiz.",
   'dashboard.streakTitle': '{{count}} -kunlik seriya',
+  'dashboard.subgreeting': 'Kutubxonangizda {{count}} ta hujjat — shu ruhda davom eting.',
+  'documentCard.seoScoreTitle': 'SEO bahosi: {{score}}/100',
+  'documents.createNew': 'Yangi hujjat yaratish',
   'documents.empty': 'Kutubxonangiz kutmoqda — birinchi hujjatingizni ishga tushiring.',
+  'documents.emptyFiltered': 'Filtrlaringizga hozircha hech qanday hujjat mos kelmaydi.',
   'documents.loadError': "Hujjatlarni yuklab bo'lmadi.",
   'documents.loading': 'Kutubxonangiz yuklanmoqda…',
   'documents.new': 'Yangi hujjat',
+  'documents.searchAriaLabel': 'Hujjatlarni qidirish',
   'documents.searchPlaceholder': 'Hujjatlarni qidirish…',
   'documents.subtitle': '{{count}} kutubxonangizdagi hujjatlar.',
   'documents.title': 'Hujjatlar',
   'editor.aiPanelTitle': 'Plume Intelligence',
+  'editor.aiSuggestion.empty':
+    "Faol takomillashtirishlar yo'q. Ikkinchi ko'z kerak bo'lganda {{appName}} dan taklif so'rang.",
   'editor.aiSuggestion.failed': "Hozirda takliflarni yuklab bo'lmadi.",
   'editor.aiSuggestion.loadingBody': 'Aniqlikni takomillashtirish…',
   'editor.backToDocuments': 'Barcha hujjatlar',
+  'editor.bodyAriaLabel': 'Hujjat matni',
   'editor.closeAiPanel': "Sun'iy intellekt panelini yopish",
   'editor.createFailed': "Hujjat yaratib bo'lmadi.",
   'editor.exported': '{{format}} sifatida eksport qilindi.',
@@ -79,18 +99,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': "Aniqlashtirishni so'rang",
   'editor.saveBeforePublish': 'Hujjatni nashr etishdan oldin saqlang.',
   'editor.status.chars': '{{count}} qahramonlar',
+  'editor.status.readTime': "{{minutes}} minimal o'qish",
   'editor.status.savedAt': 'Saqlandi {{time}}',
   'editor.status.saveError': 'Saqlash amalga oshmadi',
+  'editor.status.unsaved': 'Hali saqlanmagan',
   'editor.titleAriaLabel': 'Hujjat nomi',
   'editor.titlePlaceholder': 'Nomsiz hujjat',
   'editor.toggleAiPanel': "Sun'iy intellekt panelini yoqish/o'chirish",
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'author@example.com',
+  'forgotPassword.sent': "Agar {{email}} tizimda mavjud bo'lsa, tiklash havolasi yo'lda.",
   'imageGenerator.failed': 'Tasvir yaratishda xatolik yuz berdi.',
   'imageGenerator.generate': 'Rasm yaratish',
   'imageGenerator.generating': 'Yaratilmoqda...',
   'imageGenerator.placeholder': "Yaratmoqchi bo'lgan rasmingizni tasvirlab bering...",
+  'imageGenerator.promptAriaLabel': "Tasvir so'rovi",
+  'imageGenerator.subtitle': 'Muqova rasmini tasvirlab bering va AI uni chizsin.',
   'imageGenerator.title': "Sun'iy intellekt tasvir generatori",
+  'landing.aiSuggestionBody':
+    "42-qavatning balkonida turib, Elias shaharning unga bosim o'tkazayotganini his qildi — shamol atrofdagi shovqinni olib ketdi va uni yorqin to'r ustidagi muzdek, sokin bo'shliqda osilgan holda qoldirdi.",
   'landing.eyebrow': 'Jiddiy yozuvchilar uchun AI yozuv studiyasi',
   'landing.featuresHeading': "Yo'ldan chiqib ketadigan vositalar",
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -100,14 +127,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     "Nasri, sur'ati va aniqligiga ahamiyat beradigan yozuvchilar uchun yaratilgan studiya. Sizning yoningizda qoralamalar — hech qachon sizning o'rningizda emas.",
   'landing.heroTitle.eloquence': 'notiqlik',
+  'landing.heroTitle.intelligence': 'Aql uchrashadi ',
   'landing.nav.testimonials': 'Guvohliklar',
   'landing.plan.cta': 'Ushbu reja bilan boshlang',
   'landing.plan.popular': 'Eng sevimli',
   'landing.pricingEyebrow': 'Narxlar',
   'landing.pricingHeading': 'Amaliyotingizga mos keladiganini tanlang',
   'landing.sampleDocTitle': 'Jimlik arxitekturasi',
+  'landing.sampleParagraph1':
+    "Shahar hech qachon chinakam jim bo'lmagan. Hatto tunning eng chuqur soatlarida ham beton poydevorlar orqali past g'uvillash titrardi — metro poyezdlari va ventilyatsiya shaxtalarining mexanik yurak urishi.",
+  'landing.sampleParagraph2.after': ' oynaga.',
+  'landing.sampleParagraph2.before': 'Ammo ',
   'landing.sampleParagraph2.highlight':
     "42-qavatning balkonida turgan Elias chuqur yolg'izlik tuyg'usini his qildi",
+  'landing.showcaseBody':
+    "Bir gapni belgilang va {{appName}} takomillashtirish taklif qiladi. Uni qabul qiling, o'zgartiring yoki rad eting. Takliflar doim binafsha rangda ko'rsatiladi, shunda nima yozganingiz va nima taklif qilinganini bilasiz.",
+  'landing.showcaseHeading': "Ikkinchi ko'z — hech qachon ikkinchi muallif emas.",
   'landing.startWriting': 'Yozishni boshlang',
   'login.emailPlaceholder': 'author@example.com',
   'login.failed': 'Kirish amalga oshmadi',
@@ -122,8 +157,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Boshqaruv panelini ochish',
   'notFound.title': 'Bu bob hali yozilmagan.',
   'plumeSidebarLayout.primaryNavLabel': 'Asosiy navigatsiya',
+  'pricing.maxDocuments': '{{count}} hujjatlar',
+  'pricing.maxGenerate': '{{count}} ta AI generatsiyasi',
+  'pricing.maxImages': '{{count}} ta rasm generatsiyasi',
   'privacy.data':
     "Hisobingiz elektron pochtasi va xeshlangan parol. Siz yaratgan hujjatlar va shablonlar. Hisob-kitob va tahlil uchun AI taklif jurnallari (kirish + chiqish). Stripe mijoz + obuna identifikatorlari; biz hech qachon to'liq karta raqamlarini saqlamaymiz.",
+  'privacy.intro':
+    "Biz faqat {{app}} ni ishlatish uchun zarur bo'lgan ma'lumotlarni to'playmiz: elektron pochtangiz, yaratgan hujjatlaringiz va qilgan AI so'rovlaringiz. Yozganlaringizni yoki so'rovlaringizni hech qachon sotmaymiz.",
   'profile.loadError': "Profilingizni yuklab bo'lmadi.",
   'profile.loading': 'Profilingiz yuklanmoqda…',
   'profile.loadingPublished': 'Nashr qilingan hujjatlar yuklanmoqda…',
@@ -134,8 +174,14 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Yangi parol',
   'seoAnalysis.backToEditor': 'Muharrirga qaytish',
   'seoAnalysis.eyebrow': 'SEO tahlili',
+  'seoAnalysis.heroBody':
+    "Qo'llash uchun {{count}} ta taklif. Har biri tuzilmaviy yoki kalit so'z yaxshilanishi, qizil bayroqlar devori emas.",
+  'seoAnalysis.heroBodyEmpty':
+    'O\'qilish qulayligi, kalit so\'z zichligi va tuzilmani baholash uchun "Tahlilni ishga tushirish" tugmasini bosing.',
   'seoAnalysis.heroEmpty':
     "Hali tahlil yo'q. Ushbu loyihani baholash uchun bittasini ishga tushiring.",
+  'seoAnalysis.heroNeedsWork': "Ba'zi tuzilmaviy yaxshilanishlar qamrovni oshiradi.",
+  'seoAnalysis.heroStrong': "Kuchli asar — a'lo darajaga bir qadam qoldi.",
   'seoAnalysis.historyEmpty': 'Avvalgi tahlillar qayd etilmagan.',
   'seoAnalysis.historyTitle': 'Tahlil tarixi',
   'seoAnalysis.keywordEmpty':
@@ -162,9 +208,15 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'Yozish uslubingizga mos ravishda Plume-ni sozlang.',
   'settings.toggleIntegrationFailed': 'Integratsiya yangilanishi amalga oshmadi.',
   'settings.writing.aiSuggestions': 'Yozish paytida ichki AI tavsiyalari',
+  'settings.writing.aiSuggestionsBody':
+    "Yozayotganingizda takomillashtirishlarni ko'rsatadi. Takliflar har doim har bir gap uchun ixtiyoriy.",
   'settings.writing.autoSave': 'Har 30 soniyada avtomatik saqlash',
+  'settings.writing.autoSaveBody':
+    '{{appName}} qoralamangizning nusxasini saqlaydi, shunda istalgan varaqdan tiklanishingiz mumkin.',
   'settings.writing.notifyEmail':
     'Haftalik yozish xulosalarini menga elektron pochta orqali yuboring',
+  'settings.writing.notifyEmailBody':
+    'Seriyalar, qoralamalar va SEO yaxshilanishlarining qisqa yakshanba dayjesti.',
   'settings.writing.title': 'Yozish afzalliklari',
   'settings.writing.tone': 'Standart ohang sozlamalari',
   'signup.emailPlaceholder': 'author@example.com',
@@ -176,8 +228,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'Hech qanday tavsif berilmagan.',
   'templates.subtitle':
     "Jang sinovidan o'tgan tahririyat kadridan boshlang, keyin uni o'zingiznikiga aylantiring.",
+  'terms.intro':
+    "Ushbu shartlar {{app}} dan foydalanishingizni tartibga soladi. Hisob yaratish bilan siz xizmatdan qonuniy yozish uchun foydalanishga va hisob ma'lumotlaringizni maxfiy saqlashga rozilik bildirasiz.",
   'terms.license':
     "Siz yaratgan har bir hujjat, shablon va AI avlodiga egalik huquqini o'zingizda saqlab qolasiz. Sizning ishingizni joylashtirish va sizga qaytarib berish, shuningdek, siz tanlagan ishonchli provayderlar orqali AI so'rovlarini qayta ishlash uchun bizga eksklyuziv bo'lmagan litsenziya kerak.",
   'writingStreakHeroCard.change': "{{sign}} {{amount}} so'zlar",
   'writingStreakHeroCard.greeting': 'Xayrli kun, {{name}}',
+  'writingStreakHeroCard.subtitle': "Bu hafta yozilgan so'zlar — {{count}} kunlik seriya",
+  'writingStreakHeroCard.tagline': "Kunda bir sahifa ilhomni uyg'oq tutadi.",
 }

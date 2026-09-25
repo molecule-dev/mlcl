@@ -1,12 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ചോദ്യങ്ങൾ, ഫീഡ്ബാക്ക്, അല്ലെങ്കിൽ പങ്കാളിത്ത ആശയങ്ങൾ? hello@nimbus.example എന്ന വിലാസത്തിൽ {{appName}} ടീമിന് ഇമെയിൽ ചെയ്യുക — ഞങ്ങൾ എല്ലാ സന്ദേശവും വായിക്കുന്നു.',
   'about.contactTitle': 'ബന്ധപ്പെടുക',
   'about.eyebrow': 'കുറിച്ച്',
+  'about.highlightsTitle': 'നിങ്ങൾക്ക് ലഭിക്കുന്നത്',
   'about.intro':
     'നിങ്ങൾക്ക് കണ്ടെത്താൻ ആഗ്രഹിക്കുന്ന ഫയലുകൾക്കായി ശാന്തവും അഭിപ്രായമുള്ളതുമായ ഒരു കേന്ദ്രമാണ് Nimbus. ഒരു ഡെസ്‌ക്‌ടോപ്പിന്റെ വേഗതയും ക്ലൗഡിന്റെ ഈടുതലും ഉപയോഗിച്ച് അപ്‌ലോഡ് ചെയ്യുക, പങ്കിടുക, വീണ്ടെടുക്കുക.',
+  'about.mission':
+    'ഞങ്ങളുടെ ദൗത്യം ലളിതമാണ്: ക്ലൗഡ് സ്റ്റോറേജ് ഭാരമില്ലാത്തതായി അനുഭവപ്പെടാൻ ഇടയാക്കുക. കുഴപ്പമില്ല, സ്പിന്നറുകളില്ല, ഒരു ഫയൽ എവിടെ പോയി എന്ന ഊഹമില്ല — വ്യക്തികൾക്കും ടീമുകൾക്കും ഒരുപോലെ വ്യക്തത മാത്രം.',
+  'about.subtitle': 'നിങ്ങളുടെ ഡിജിറ്റൽ ജീവിതത്തിനായുള്ള ഭാരമില്ലാത്ത ആർക്കൈവ്.',
   'about.title': 'നിംബസിനെക്കുറിച്ച്',
   'authShell.copyright': '© {{year}} Nimbus ആർക്കൈവ്',
+  'authShell.footer': 'സുരക്ഷിത ക്ലൗഡ് സ്റ്റോറേജ് · എൻഡ്-ടു-എൻഡ് എൻക്രിപ്റ്റഡ്',
   'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'fileDetail.about.eyebrow': 'ഈ ഫയലിനെക്കുറിച്ച്',
   'fileDetail.actions.delete': 'ട്രാഷിലേക്ക് നീക്കുക',
@@ -39,18 +46,24 @@ export const ui: UiTranslations = {
     'നിങ്ങളുടെ ഇമെയിൽ നൽകുക, പുതിയൊരെണ്ണം തിരഞ്ഞെടുക്കുന്നതിനുള്ള ലിങ്ക് ഞങ്ങൾ നിങ്ങൾക്ക് അയയ്ക്കും.',
   'forgotPassword.successSubheading':
     'ഞങ്ങൾ ഒരു പാസ്‌വേഡ് പുനഃസജ്ജീകരണ ലിങ്ക് ഇതിലേക്ക് അയച്ചു {{email}} . ലിങ്കിന് 60 മിനിറ്റ് കാലാവധിയുണ്ട്.',
+  'help.backHome': '← {{appName}} ഹോമിലേക്ക് മടങ്ങുക',
   'help.contactBody':
     'support@nimbus.example എന്ന വിലാസത്തിൽ ഇമെയിൽ അയയ്ക്കുക, ഒരു പ്രവൃത്തി ദിവസത്തിനുള്ളിൽ ഞങ്ങൾ മറുപടി നൽകുന്നതായിരിക്കും. പ്രൊഫഷണൽ, ടീം പ്ലാനുകൾക്ക് മുൻഗണനാ റൂട്ടിംഗ് ലഭിക്കും.',
+  'help.contactTitle': 'ഒരു വ്യക്തിയെ വേണോ?',
   'help.eyebrow': 'പിന്തുണ',
   'help.intro':
     "മിക്ക ഉത്തരങ്ങളും ഒരു ക്ലിക്കിൽ മാത്രമേ ലഭ്യമാകൂ. ഫയലുകൾ ചേർക്കാൻ അപ്‌ലോഡ് ട്രേയിലേക്ക് വലിച്ചിടുക, ലിങ്ക് മിന്റ് ചെയ്യാൻ ഏതെങ്കിലും വരിയിലെ 'ഷെയർ' ക്ലിക്ക് ചെയ്യുക, കഴിഞ്ഞ 30 ദിവസത്തിനുള്ളിൽ നിങ്ങൾ നീക്കം ചെയ്തതെല്ലാം പുനഃസ്ഥാപിക്കാൻ ട്രാഷ് സന്ദർശിക്കുക.",
+  'help.subtitle': 'സാധാരണ {{appName}} ചോദ്യങ്ങൾക്കുള്ള ഉത്തരങ്ങൾ.',
   'help.title': 'സഹായവും പിന്തുണയും',
   'landing.cta.body':
     '15 GB സൗജന്യമായി ആരംഭിക്കൂ. 200 GB-ക്ക് Pro-യിലേക്ക് അപ്‌ഗ്രേഡ് ചെയ്യൂ അല്ലെങ്കിൽ നിങ്ങളുടെ ടീമിനെ പങ്കിട്ട ഒരു സ്‌പെയ്‌സിലേക്ക് ക്ഷണിക്കൂ — എല്ലാം ഒരേ ഫ്ലൂയിഡ് Nimbus അനുഭവത്തോടെ.',
   'landing.cta.primary': 'നിങ്ങളുടെ ആർക്കൈവ് സൃഷ്ടിക്കുക',
   'landing.cta.title': 'കുഴപ്പങ്ങൾ നീക്കുക. ജോലി തുടരുക.',
+  'landing.features.body':
+    'ഫയലുകൾ ഭാരമില്ലാത്തതായി അനുഭവപ്പെടാൻ ആഗ്രഹിക്കുന്ന വ്യക്തികൾക്കും ടീമുകൾക്കുമായി നിർമ്മിച്ചത് — വേഗത്തിൽ കണ്ടെത്താൻ, സുരക്ഷിതമായി പങ്കിടാൻ, ക്രമീകരിക്കാൻ ആനന്ദം.',
   'landing.features.eyebrow': 'എന്തുകൊണ്ട് Nimbus',
   'landing.features.title': 'നിങ്ങൾക്ക് ആവശ്യമില്ലാത്ത സംഭരണം.',
+  'landing.footer.copyright': '© {{year}} {{appName}}. ഭാരമില്ലാത്തവർക്കായി നിർമ്മിച്ചത്.',
   'landing.hero.body':
     'നിങ്ങളുടെ ഡിജിറ്റൽ ജീവിതത്തിനായുള്ള ഭാരമില്ലാത്ത ആർക്കൈവ്. ശുദ്ധവായു ശ്വസിക്കുന്നതുപോലെ തോന്നുന്ന ഏകീകൃത ക്ലൗഡ് സംഭരണം. കുഴപ്പമില്ല, വ്യക്തത മാത്രം.',
   'landing.hero.eyebrow': 'Nimbus v2 അവതരിപ്പിക്കുന്നു',
@@ -69,6 +82,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
   'login.subheading': 'നിങ്ങളുടെ ആർക്കൈവ് ആക്‌സസ് ചെയ്യാൻ സൈൻ ഇൻ ചെയ്യുക.',
   'myFiles.breadcrumb.folder': 'ഫോൾഡർ',
+  'myFiles.breadcrumb.home': 'ടെസേര',
   'myFiles.breadcrumb.myFiles': 'എന്‍റെ ഫയലുകൾ',
   'myFiles.fetchError': 'നിങ്ങളുടെ ഫയലുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'myFiles.files.col.modified': 'പരിഷ്‌ക്കരിച്ചു',
@@ -82,12 +96,17 @@ export const ui: UiTranslations = {
   'myFiles.folders.justCreated': 'ഇപ്പോൾ സൃഷ്ടിച്ചത്',
   'myFiles.folders.seeAll': 'എല്ലാം കാണുക',
   'myFiles.folders.title': 'ഫോൾഡറുകൾ',
+  'myFiles.hero.bodyDynamic': '{{files}} ഫയലുകൾ സമന്വയിപ്പിച്ചു — ഇതുവരെ {{used}} ഉപയോഗിച്ചു.',
+  'myFiles.hero.bodyEmpty':
+    'ആരംഭിക്കാൻ ഒരു ഫയൽ അപ്ലോഡ് ചെയ്യുക — നിങ്ങളുടെ ആർക്കൈവ് എല്ലായിടത്തും സമന്വയിക്കും.',
   'myFiles.hero.eyebrow': 'നിങ്ങളുടെ ആർക്കൈവ്',
   'myFiles.hero.recentCta': 'സമീപകാല പ്രവർത്തനം കാണുക',
   'myFiles.hero.title': 'തിരികെ സ്വാഗതം, {{name}} .',
   'myFiles.hero.uploadCta': 'ഫയലുകൾ അപ്‌ലോഡ് ചെയ്യുക',
   'myFiles.hero.youFallback': 'അവിടെ',
   'myFiles.refresh': 'പുതുക്കുക',
+  'myFiles.stats.collaboratorsDetail': 'പങ്കിട്ട ഫയലുകളിലുടനീളം',
+  'myFiles.stats.foldersDetail': 'നിങ്ങളുടെ ആർക്കൈവിലുടനീളം',
   'myFiles.stats.totalFilesDetail': '{{count}} നക്ഷത്രമിട്ടത്',
   'myFiles.stats.usageDetail': 'യുടെ {{total}} പ്രോയിൽ',
   'myFiles.time.daysAgo': '{{count}} ഡി മുമ്പ്',
@@ -108,6 +127,7 @@ export const ui: UiTranslations = {
   'nimbusSideNav.upgradeCta': 'അപ്‌ഗ്രേഡ് പ്ലാൻ',
   'nimbusStorageMeter.ariaLabel': 'ഉപയോഗിച്ച സംഭരണം',
   'nimbusStorageMeter.compactLabel': 'സംഭരണം',
+  'nimbusStorageMeter.compactSummary': '{{used}} യുടെ {{total}} ഉപയോഗിച്ചു',
   'nimbusStorageMeter.percentUsed': '{{percent}} %',
   'nimbusStorageMeter.usedLabel': 'ഉപയോഗിച്ച സംഭരണം',
   'nimbusStorageMeter.usedOfTotal': '{{used}} യുടെ {{total}}',
@@ -116,10 +136,21 @@ export const ui: UiTranslations = {
   'notFound.code': '404 заклада',
   'notFound.heading': 'ഈ ഫയൽ നിങ്ങളുടെ ആർക്കൈവിൽ ഇല്ല.',
   'notFound.primaryCta': 'എന്റെ ഫയലുകൾ തുറക്കുക',
+  'planUpdated.currentPlan': 'നിങ്ങൾ നിലവിൽ ഇതിൽ ആണ് {{plan}} പദ്ധതി.',
+  'planUpdated.retry': 'വീണ്ടും ശ്രമിക്കുക',
+  'planUpdated.verifyFailed': 'നിങ്ങളുടെ പേയ്‌മെന്റ് ഞങ്ങൾക്ക് ഇതുവരെ സ്ഥിരീകരിക്കാൻ കഴിഞ്ഞില്ല.',
+  'planUpdated.verifyFailedBody':
+    'നിങ്ങളുടെ പേയ്‌മെന്റ് ഇപ്പോഴും പ്രോസസ്സ് ചെയ്തുകൊണ്ടിരിക്കുകയായിരിക്കാം. അൽപ്പസമയത്തിനുള്ളിൽ വീണ്ടും ശ്രമിക്കുക.',
   'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
+  'pricing.limit.advancedFeatures': 'വിപുലമായ സവിശേഷതകൾ:',
   'pricing.limit.canExport': 'ഡാറ്റ കയറ്റുമതി:',
+  'pricing.limit.files': '{{count}} ഫയലുകൾ',
+  'pricing.limit.folders': '{{count}} ഫോൾഡറുകൾ',
+  'pricing.limit.shares': '{{count}} പങ്കിടലുകൾ',
   'privacy.intro':
     'Nimbus പ്രവർത്തിപ്പിക്കുന്നതിന് ആവശ്യമായ ഏറ്റവും കുറഞ്ഞ വിവരങ്ങൾ ഞങ്ങൾ ശേഖരിക്കുന്നു: നിങ്ങളുടെ അക്കൗണ്ട് ഇമെയിൽ, നിങ്ങൾ അപ്‌ലോഡ് ചെയ്യുന്ന ഫയലുകൾ, അവ റെൻഡർ ചെയ്യാനും തിരയാനും ആവശ്യമായ മെറ്റാഡാറ്റ. നിങ്ങളുടെ ഡാറ്റ ഞങ്ങൾ ഒരിക്കലും വിൽക്കില്ല.',
+  'privacy.subtitle':
+    '{{appName}} നിങ്ങളുടെ ഫയലുകളും വ്യക്തിഗത വിവരങ്ങളും എങ്ങനെ കൈകാര്യം ചെയ്യുന്നു.',
   'recent.activity.empty': 'കാണിക്കാൻ ഇതുവരെ ഒന്നുമില്ല.',
   'recent.activity.youInitials': 'യ',
   'recent.crumbs.home': 'Nimbus',
@@ -138,14 +169,17 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'കുറഞ്ഞത് 8 പ്രതീകങ്ങൾ',
   'resetPassword.signIn': 'നിംബസിൽ സൈൻ ഇൻ ചെയ്യുക',
   'resetPassword.subheading': 'ശക്തമായ ഒരു പാസ്‌വേഡ് തിരഞ്ഞെടുക്കുക - കുറഞ്ഞത് 8 പ്രതീകങ്ങൾ.',
+  'resetPassword.successHeading': 'പാസ്വേഡ് പുനഃസജ്ജീകരണം',
   'resetPassword.successSubheading': 'നിങ്ങളുടെ പുതിയ പാസ്‌വേഡ് ഉപയോഗിച്ച് ഇപ്പോൾ സൈൻ ഇൻ ചെയ്യാം.',
   'search.backToFiles': 'എല്ലാ ഫയലുകളിലേക്കും മടങ്ങുക',
   'search.clearLabel': 'തിരയൽ മായ്ക്കുക',
   'search.crumbs.home': 'Nimbus',
+  'search.emptyNoQuery': 'നിങ്ങളുടെ ആർക്കൈവ് തിരയാൻ മുകളിൽ ഒരു ക്വറി ടൈപ്പ് ചെയ്യുക.',
   'search.emptyWithQuery': 'പൊരുത്തപ്പെടുന്ന ഫയലുകളൊന്നുമില്ല “ {{query}} ”.',
   'search.fetchError': 'ഫയലുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'search.hero.body':
     'ഫോക്കസ് ചെയ്യാൻ തരം അനുസരിച്ച് ഫിൽട്ടർ ചെയ്യുക. അത് തുറക്കാൻ ഏതെങ്കിലും ഫലത്തിൽ ടാപ്പ് ചെയ്യുക.',
+  'search.hero.titleEmpty': 'നിങ്ങളുടെ ആർക്കൈവ് തിരയുക',
   'search.hero.titleWithQuery': '{{count}} "" എന്നതിനായുള്ള ഫലങ്ങൾ {{query}} ”',
   'search.input.placeholder': 'നിംബസിൽ തിരയുക...',
   'search.section.allFiles': 'പൊരുത്തപ്പെടുന്ന ഫയലുകൾ',
@@ -161,9 +195,12 @@ export const ui: UiTranslations = {
   'shared.empty':
     "പങ്കിട്ട ഫയലുകളൊന്നുമില്ല. ഏതെങ്കിലും ഫയൽ തുറന്ന് ലിങ്ക് അയയ്ക്കാൻ 'പങ്കിടുക' ടാപ്പ് ചെയ്യുക.",
   'shared.fetchError': 'പങ്കിട്ട ഫയലുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
+  'shared.hero.body':
+    'ലിങ്ക് വഴിയോ ക്ഷണം വഴിയോ നിങ്ങൾ പങ്കിടുന്ന എല്ലാ ഫയലും ഇവിടെ കാണാം. ഏത് അനുമതിയാണ് നൽകിയിരിക്കുന്നതെന്ന് കാണാൻ ഒരു അനുമതി ടോഗിൾ ചെയ്യുക.',
   'shared.hero.title': '{{count}} സജീവ ലിങ്കുകളുള്ള ഫയലുകൾ',
   'shared.list.subtitle': '{{count}} ഫയലുകൾ',
   'shared.list.title': 'അടുത്തിടെ പങ്കിട്ടത്',
+  'shared.row.sharedSummary': '{{count}} ലിങ്ക്(കൾ)',
   'shared.time.daysAgo': '{{count}} ഡി മുമ്പ്',
   'shared.time.hoursAgo': '{{count}} മണിക്കൂർ മുമ്പ്',
   'shared.time.minutesAgo': '{{count}} മിനിറ്റ് മുമ്പ്',
@@ -173,6 +210,7 @@ export const ui: UiTranslations = {
   'sharePublic.eyebrow': 'Nimbus വഴി പങ്കിട്ടു',
   'sharePublic.fetchError': 'പങ്കിട്ട ഫയൽ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'sharePublic.home': 'Nimbus വീട്ടിലേക്ക് മടങ്ങുക',
+  'sharePublic.loading': 'പങ്കിടൽ ലിങ്ക് പരിഹരിക്കുന്നു…',
   'sharePublic.missingToken': 'ഷെയർ ടോക്കൺ നൽകിയിട്ടില്ല.',
   'sharePublic.notFound': 'പങ്കിടൽ ലിങ്ക് കണ്ടെത്തിയില്ല അല്ലെങ്കിൽ കാലഹരണപ്പെട്ടു.',
   'sharePublic.permission': '{{permission}}',
@@ -188,7 +226,10 @@ export const ui: UiTranslations = {
   'starred.empty':
     'ഇതുവരെ ഒന്നും നക്ഷത്രചിഹ്നിതമാക്കിയിട്ടില്ല. ഏതൊരു ഫയലും അടുത്ത് വയ്ക്കാൻ അതിലെ നക്ഷത്രത്തിൽ ടാപ്പ് ചെയ്യുക.',
   'starred.fetchError': 'നക്ഷത്രചിഹ്നമിട്ട ഫയലുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
+  'starred.hero.body':
+    'നിങ്ങൾ വീണ്ടും വരുന്ന എന്തും സ്റ്റാർ ചെയ്യുക. ഓരോ ഉപകരണത്തിലും, ഓരോ വർക്ക്സ്പേസിലും, എല്ലാ തവണയും ഞങ്ങൾ അത് കാണിക്കും.',
   'starred.hero.title': '{{count}} പ്രിയപ്പെട്ടവ, പോകാൻ തയ്യാറാണ്',
+  'starred.row.meta': '{{size}} · {{modified}}',
   'starred.time.daysAgo': '{{count}} ഡി മുമ്പ്',
   'starred.time.hoursAgo': '{{count}} മണിക്കൂർ മുമ്പ്',
   'starred.time.minutesAgo': '{{count}} മിനിറ്റ് മുമ്പ്',
@@ -198,7 +239,10 @@ export const ui: UiTranslations = {
   'storage.crumbs.home': 'Nimbus',
   'storage.crumbs.storage': 'സംഭരണം',
   'storage.fetchError': 'സംഭരണം ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
+  'storage.hero.body':
+    'വളരാൻ ധാരാളം ഇടം. നിങ്ങൾ 75% കടക്കുമ്പോൾ — വീണ്ടും 90%ൽ — ഞങ്ങൾ അറിയിക്കും, അതുവഴി ആരെയും മന്ദഗതിയിലാക്കുന്നതിന് മുമ്പ് ഭാരമുള്ള കാര്യങ്ങൾ നിങ്ങൾക്ക് ഒഴിവാക്കാം.',
   'storage.hero.eyebrow': 'സംഭരണ അവലോകനം',
+  'storage.hero.headroom': '{{headroom}} ഹെഡ്റൂം',
   'storage.hero.meterLabel': '{{percent}} പ്ലാനിന്റെ %',
   'storage.hero.title': '{{used}} യുടെ {{total}} ഉപയോഗിച്ചു',
   'storage.plans.body':
@@ -206,11 +250,14 @@ export const ui: UiTranslations = {
   'storage.plans.choose': 'തിരഞ്ഞെടുക്കുക {{name}}',
   'storage.plans.included': '{{storage}} ഉൾപ്പെടുത്തിയിട്ടുണ്ട്',
   'storage.plans.maxFiles': '{{count}} ഫയലുകൾ',
+  'storage.plans.maxFolders': '{{count}} ഫോൾഡറുകൾ',
+  'storage.plans.maxShares': '{{count}} പങ്കിടലുകൾ',
   'storage.plans.title': 'നിങ്ങളോടൊപ്പം വളരുന്ന പദ്ധതികൾ',
   'storage.plans.unavailable': 'കോൺഫിഗർ ചെയ്‌തുകഴിഞ്ഞാൽ പ്ലാൻ വിവരങ്ങൾ ഇവിടെ ദൃശ്യമാകും.',
   'storage.plans.youreOn': 'നിങ്ങൾ ഈ പ്ലാനിലാണ്.',
   'terms.intro':
     'Nimbus ഉപയോഗിക്കുന്നതിലൂടെ, നിങ്ങളുടെ അക്കൗണ്ട് ക്രെഡൻഷ്യലുകൾ രഹസ്യമായി സൂക്ഷിക്കാനും സംഭരിക്കാനും പങ്കിടാനും നിങ്ങൾക്ക് അവകാശമുള്ള ഉള്ളടക്കം മാത്രമേ അപ്‌ലോഡ് ചെയ്യുകയുള്ളൂ എന്നും നിങ്ങൾ സമ്മതിക്കുന്നു.',
+  'terms.subtitle': '{{appName}} ഉപയോഗിക്കാൻ നിങ്ങൾക്കുള്ള വ്യവസ്ഥകൾ.',
   'trash.actions.emptyAll': 'ട്രാഷ് ശൂന്യമാക്കുക',
   'trash.actions.emptyConfirm': 'അതെ, ശൂന്യമാണ്',
   'trash.actions.emptyConfirmPrompt': 'എല്ലാം ശാശ്വതമായി ഇല്ലാതാക്കണോ?',
@@ -229,7 +276,9 @@ export const ui: UiTranslations = {
   'trash.restoreError': 'ഫയൽ പുനഃസ്ഥാപിക്കാൻ കഴിഞ്ഞില്ല.',
   'trash.row.daysAgo': '{{count}} ഡി മുമ്പ്',
   'trash.row.deleteConfirm': 'ഇല്ലാതാക്കുക',
+  'trash.row.deleteConfirmPrompt': 'എന്നെന്നേക്കുമായി ഇല്ലാതാക്കണോ?',
   'trash.row.deleteForever': 'ശാശ്വതമായി ഇല്ലാതാക്കുക',
+  'trash.row.expires': '{{days}} ദിവസം ബാക്കി',
   'trash.row.hoursAgo': '{{count}} മണിക്കൂർ മുമ്പ്',
   'trash.row.meta': 'ഇല്ലാതാക്കി {{deletedAt}}',
   'trash.row.minutesAgo': '{{count}} മിനിറ്റ് മുമ്പ്',
@@ -249,6 +298,7 @@ export const ui: UiTranslations = {
   'upload.progress.error': 'അപ്‌ലോഡ് പരാജയപ്പെട്ടു.',
   'upload.progress.uploadFailed': 'അപ്‌ലോഡ് പരാജയപ്പെട്ടു.',
   'upload.progress.uploading': 'ബൈറ്റുകൾ അപ്‌ലോഡ് ചെയ്യുന്നു...',
+  'upload.queue.clearDone': 'സമന്വയിപ്പിച്ചത് മായ്ക്കുക',
   'upload.queue.emptyHint':
     'മുകളിലുള്ള ഭാഗത്തേക്ക് ഫയലുകൾ ഇടുക അല്ലെങ്കിൽ ആരംഭിക്കാൻ തിരഞ്ഞെടുക്കുക ബട്ടണുകൾ ഉപയോഗിക്കുക.',
   'upload.queue.idle': 'സജീവ അപ്‌ലോഡുകളൊന്നുമില്ല.',

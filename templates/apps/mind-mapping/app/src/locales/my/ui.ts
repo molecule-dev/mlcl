@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'တုံ့ပြန်ချက် ရှိပါသလား၊ ချို့ယွင်းချက် တွေ့ပါသလား၊ ဒါမှမဟုတ် သင့်စိတ်ကူးတွေကို ဘယ်လို မြေပုံဆွဲသလဲ ဆိုတာ ပြောပြချင်ပါသလား။ မှတ်စု တိုင်းကို ကျွန်ုပ်တို့ ဖတ်ပါတယ် — အချိန်မရွေး ဆက်သွယ်ပါ၊ အဖွဲ့ထဲက လူတစ်ဦးက ပြန်လည် ဆက်သွယ်ပေးပါလိမ့်မယ်။',
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.featureCanvas':
+    'ဆွဲယူနိုင်သော node များ၊ ချောမွေ့သော မျဉ်းကွေး ချိတ်ဆက်မှုများ၊ နှင့် ချောမွေ့သော zoom နှင့် pan ပါသော အဆုံးမရှိ canvas တစ်ခု။',
+  'about.featureCollab':
+    'တိုက်ရိုက် cursor များဖြင့် အချိန်နှင့်တပြေးညီ ပူးပေါင်းလုပ်ဆောင်နိုင်မှု၊ သင့်အဖွဲ့သည် အလှည့်စောင့်နေမည့်အစား သင့်ဘေးမှ ခွဲထွက်နိုင်ပါသည်။',
+  'about.featurePricing':
+    'တစ်ဦးတည်း တွေးခေါ်သူများအတွက် အမြဲတမ်း အခမဲ့၊ Pro နှင့် Team အစီအစဉ်များက မြေပုံများ၊ node များ၊ အဆင့်မြင့် လုပ်ဆောင်ချက်များနှင့် ဒေတာ ထုတ်ယူမှုကို ပိုမို ထည့်သွင်းပေးပါသည်။',
+  'about.featureTemplates':
+    'စတင်ရန် template များ၏ library အပြင် အပြည့်အစုံ version history ပါဝင်သဖြင့် မြေပုံတစ်ခုကို အမြန်စတင်နိုင်ပြီး မည်သည့် ပြောင်းလဲမှုကိုမဆို ပြန်လည် ရုပ်သိမ်းနိုင်ပါသည်။',
+  'about.intro':
+    '{{app}} သည် mind mapping အတွက် ကျယ်ဝန်းပြီး အဆုံးမရှိသော canvas တစ်ခု ဖြစ်သည် — စိတ်ကူးစုဆောင်းမှုများ၊ အယူအဆ ပုံစံများ၊ SWOT များနှင့် ပရောဂျက် အစီအစဉ်များ။ node များကို နေရာမရွေး ဆွဲယူပါ၊ စိတ်ကူးများကို စီးဆင်းနေသော link များဖြင့် ချိတ်ဆက်ပါ၊ အနားများနှင့် မတိုက်မိဘဲ zoom နှင့် pan လုပ်ပါ၊ မြေပုံကို သင့် တွေးခေါ်မှုနှင့်အတူ ကြီးထွားစေပါ။',
+  'about.missionBody':
+    'အသံထွက် တွေးခေါ်ခြင်းသည် ကြိုးစားအားထုတ်မှု မလိုဘဲ မျှဝေနိုင်သော ခံစားချက် ဖြစ်သင့်သည်။ ကျွန်ုပ်တို့သည် လမ်းမှ ဖယ်ပေးသော ကိရိယာများကို တည်ဆောက်ပါသည် — တင်းကျပ်သော grid များ မရှိ၊ ဘောင်ခတ်ထားသော template များ မရှိ၊ အာရုံလုယူသော UI မရှိ — ထို့ကြောင့် တစ်ဦးချင်းနှင့် အဖွဲ့များသည် စိတ်ကူးများ ပေါ်ပေါက်သည့် အခိုက်အတန့်တွင် ဖမ်းယူနိုင်ပြီး အတူတကွ ပုံဖော်နိုင်ပါသည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'about.pageTitle': '{{app}} အကြောင်း',
   'auth.brandEyebrow': 'အတွေးအခေါ်တွေ ဖြာထွက်နေတဲ့နေရာ',
   'auth.brandStatement':
@@ -13,19 +29,26 @@ export const ui: UiTranslations = {
   'billing.feature.export': 'SVG / PNG သို့ ထုတ်ယူပါ',
   'billing.feature.maps': '{{count}} မြေပုံများ',
   'billing.feature.nodes': '{{count}} မြေပုံတစ်ခုလျှင် node များ',
+  'billing.freeNoticeBody':
+    'မြေပုံများ ပိုမို ရရှိရန် အထက်ရှိ အခကြေးငွေ ပေးရသော အစီအစဉ်ကို ရွေးပါ။',
   'billing.loadError': 'ငွေတောင်းခံလွှာပေးပို့ခြင်း အခြေအနေကို တင်၍မရပါ။',
+  'billing.loading': 'ငွေတောင်းခံလွှာတင်နေသည်…',
   'billing.perMonth': ' / လ',
   'billing.plansTitle': 'အစီအစဉ်များ',
+  'billing.priceMissing': 'Stripe price ID ကို သတ်မှတ်မထားပါ။',
   'billing.starting': 'ငွေရှင်းခြင်းစတင်နေပါပြီ…',
   'billing.title': 'ငွေတောင်းခံလွှာနှင့် အစီအစဉ်',
   'billing.unavailableTier':
     'ဒီအဆင့်ကို ငွေရှင်းဖို့အတွက် မပြင်ဆင်ထားရသေးပါ — သင့်ပတ်ဝန်းကျင်မှာ Stripe ဈေးနှုန်း ID ကို သတ်မှတ်ပါ။',
   'billing.unlimited': 'အကန့်အသတ်မရှိ',
   'billing.upgradeMonthly': 'အဆင့်မြှင့်တင်ရန် {{name}} (လစဉ်)',
+  'billing.upgradeYearly': 'နှစ်စဉ် ပေးချေပါ · {{price}}',
   'brand.tagline': 'အတွေးအခေါ်တွေ ဖြာထွက်နေတဲ့နေရာ',
   'common.and': 'နှင့်',
   'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'dashboard.activityAction': 'အပ်ဒိတ်လုပ်ထားသည်',
+  'dashboard.activityEmpty':
+    'လုပ်ဆောင်မှု မရှိသေးပါ — သင့် timeline စတင်ရန် မြေပုံတစ်ခုကို တည်းဖြတ်ပါ။',
   'dashboard.daysAgo': '{{count}} လွန်ခဲ့သော ရက်',
   'dashboard.empty.body':
     'အကြံဉာဏ်များကို ခွဲဝေရန် မြေပုံတစ်ခု ဖန်တီးပါ။ ပုံစံများသည် စတင်ရန် လွယ်ကူစေသည်။',
@@ -44,26 +67,35 @@ export const ui: UiTranslations = {
   'dendriteHero.activeMaps': 'တက်ကြွသော မြေပုံများ',
   'dendriteHero.eyebrow': 'ဒီနေ့ ပတ္တူပေါ်မှာ',
   'dendriteHero.greeting': 'အကြံဥာဏ်သစ်များ၊ {{name}}',
+  'dendriteHero.greetingAnon': 'စိတ်ကူးအသစ်များ ခွဲထွက်ပါ',
   'dendriteHero.openMaps': 'ကျွန်ုပ်၏မြေပုံများကိုဖွင့်ပါ',
   'dendriteHero.subtitle':
     'ဆွဲယူပါ၊ ချိတ်ဆက်ပါ၊ ထို့နောက် သင့်အတွေးအခေါ်များ ကြီးထွားလာပါစေ။ မီးပွားတိုင်းသည် တစ်ခုနှင့်တစ်ခု ဝေးကွာသည်။',
   'dendriteHero.weeklyChange': '{{sign}} {{count}} ဒီတစ်ပတ်',
+  'forgotPassword.brandStatement':
+    'သင့်မြေပုံများ လုံခြုံပါသည်။ ခဏအကြာ သင့် ခွဲထွက်မှုများဆီ ပြန်ပို့ပေးပါမည်။',
   'forgotPassword.subheading':
     'သင့်အီးမေးလ်ကို ရိုက်ထည့်ပါ၊ ကျွန်ုပ်တို့မှ ပြန်လည်သတ်မှတ်ရန် လင့်ခ်အသစ်တစ်ခု ပေးပို့ပါမည်။',
   'forgotPassword.success':
     'အဲဒီအီးမေးလ်ပါတဲ့ အကောင့်တစ်ခု ရှိနေရင် reset link တစ်ခု ပို့ပေးပါမယ်။',
   'landing.cta.body':
     'တစ်ကိုယ်တော်တွေးခေါ်သူများအတွက် ထာဝရအခမဲ့ဖြစ်သည်။ သင့်အဖွဲ့သည် သင့်နှင့်အတူ ဌာနခွဲများ စတင်ခွဲဝေသည့်အခါတွင်သာ အဆင့်မြှင့်တင်ပါ။',
+  'landing.cta.button': 'သင့် ပထမဆုံး မြေပုံကို ဖန်တီးပါ',
   'landing.cta.title': 'ဒီနေ့ပဲ သင့်ရဲ့ ပထမဆုံး အကြံဥာဏ်ကို စိုက်ထုတ်လိုက်ပါ။',
   'landing.feature.branch.body':
     'အခြား node တစ်ခုခုမှ node တစ်ခုကို ဆွဲယူပါ — ချိတ်ဆက်မှုများသည် ချောမွေ့သော curves များအဖြစ် စီးဆင်းပြီး rigid grid မလိုအပ်ပါ။',
+  'landing.feature.branch.title': 'သဘာဝ ခွဲထွက်မှု',
   'landing.feature.canvas.body':
     'မြေပုံကို ရွှေ့ပါ၊ ချုံ့ပါ၊ အနားသတ်များကို မတိုက်မိဘဲ ချဲ့ကြည့်ပါ။ သင့်အတွေးအခေါ်များသည် အသက်ရှူရန် နေရာလွတ်ရှိသင့်သည်။',
   'landing.feature.canvas.title': 'အဆုံးမဲ့ ပတ္တူ',
   'landing.feature.collab.body':
     'သင့်ဘေးတွင် အသင်းဖော်များ ခွဲထွက်သွားသည်ကို အချိန်နှင့်တပြေးညီ ကြည့်ရှုပါ။ စီးရီးလိုက်မဟုတ်ဘဲ အတူတကွ စိတ်ကူးဉာဏ်များ ဖလှယ်ပါ။',
+  'landing.feature.collab.title': 'ပူးပေါင်း cursor များ',
   'landing.feature.shortcuts.body':
     'ကလေးထည့်ရန် Tab၊ မောင်နှမအတွက် Enter၊ မည်သည့်နေရာသို့မဆို ကျော်သွားရန် ⌘K။ ပါဝါအသုံးပြုသူများသည် စီးဆင်းမှုတွင် ရှိနေပါစေ။',
+  'landing.feature.shortcuts.title': 'ကီးဘုတ်ကို ဦးစားပေး',
+  'landing.featuresBody':
+    'Toolbar များ၊ panel များနှင့် shortcut များသည် ပတ်ဝန်းကျင်ဆန်သည် — လိုအပ်သည့်အခါ ရှိပြီး မလိုအပ်သည့်အခါ မမြင်ရပါ။',
   'landing.featuresEyebrow': 'တွေးခေါ်သူများအတွက် တည်ဆောက်ထားသည်',
   'landing.featuresTitle': 'အပြန်အလှန်ဆက်သွယ်မှုတိုင်းသည် ပတ္တူပေါ်တွင် ၎င်း၏နေရာတစ်ခုကို ရရှိသည်',
   'landing.footer.copyright': '© {{year}} {{appName}} . Molecule.dev ဖြင့် တည်ဆောက်ထားသည်။',
@@ -71,6 +103,7 @@ export const ui: UiTranslations = {
     '{{appName}} သည် စိတ်ကူးဉာဏ်ကွန့်မြူးခြင်း၊ အယူအဆပုံကြမ်းများနှင့် SWOT များအတွက် ကျယ်ပြန့်သော အဆုံးမဲ့ ပတ္တူတစ်ခုဖြစ်သည်။ ဆွဲယူပါ၊ ချိတ်ဆက်ပါ၊ ထို့နောက် မြေပုံသည် သင်နှင့်အတူ ကြီးထွားလာပါစေ — တင်းကျပ်သောဇယားကွက်များ၊ သေတ္တာထဲတွင်ထည့်ထားသော တင်းပလိတ်များ မလိုအပ်ပါ။',
   'landing.hero.ctaPrimary': 'အကိုင်းအခက်များကို အခမဲ့စတင်ပါ',
   'landing.hero.eyebrow': 'ဒီဇိုင်နာများနှင့် တွေးခေါ်သူများအတွက် စိတ်ကူးပုံဖော်ခြင်း',
+  'landing.hero.title': 'စိတ်ကူးများ ခွဲထွက်ရာ နေရာ။',
   'landing.nav.start': 'အကိုင်းအခက်များ စတင်ပါ',
   'landing.proof.export': 'PNG၊ SVG သို့မဟုတ် Markdown သို့ ထုတ်ယူပါ',
   'landing.proof.free': 'မြေပုံ ၃ ခု အခမဲ့',
@@ -78,6 +111,7 @@ export const ui: UiTranslations = {
   'layout.closeMenu': 'လမ်းညွှန်မီနူးကို ပိတ်ပါ',
   'layout.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'layout.searchPlaceholder': 'မြေပုံများ၊ တင်းပလိတ်များ သို့မဟုတ် နုတ်များကို ရှာဖွေပါ...',
+  'login.noAccount': 'ဒီမှာ အသစ်လား။',
   'login.signIn': 'Nimbus မှာ အကောင့်ဝင်ပါ',
   'login.subheading': 'သင်ရပ်ထားသည့်နေရာမှ ဆက်လက်ခွဲထွက်ရန် အကောင့်ဝင်ပါ။',
   'login.twoFactor': 'နှစ်ဆင့်-အချက် တိုကင် (ဖွင့်ထားပါက)',
@@ -96,9 +130,11 @@ export const ui: UiTranslations = {
     '+ tool ကို ရွေးပါ၊ ထို့နောက် သင်၏ ပထမဆုံး node ကို ထည့်သွင်းရန် မည်သည့်နေရာကိုမဆို နှိပ်ပါ',
   'mapEditor.export': 'တင်ပို့ရန်',
   'mapEditor.exportError': 'မြေပုံကို ထုတ်ယူ၍မရပါ။',
+  'mapEditor.exportLocked': 'ထုတ်ယူခြင်းသည် Pro အင်္ဂါရပ် ဖြစ်သည်။',
   'mapEditor.exportMarkdown': 'မာ့ချ်ဒေါင်း (.md)',
   'mapEditor.exportPng': 'ပုံ (.png)',
   'mapEditor.exportSvg': 'ဗက်တာ (.svg)',
+  'mapEditor.exportUpgrade': 'ထုတ်ယူရန် အဆင့်မြှင့်ပါ →',
   'mapEditor.hint.add': 'node တစ်ခုချရန် canvas ကို နှိပ်ပါ',
   'mapEditor.hint.connectSource': 'ရင်းမြစ် node ကို နှိပ်ပါ...',
   'mapEditor.hint.connectTarget': 'ပစ်မှတ် node ကို နှိပ်ပါ…',
@@ -107,6 +143,7 @@ export const ui: UiTranslations = {
   'mapEditor.loading': 'ပတ္တူကို တင်နေသည်…',
   'mapEditor.newNodeText': 'New idea',
   'mapEditor.panel.color': 'အရောင်',
+  'mapEditor.panel.eyebrow': 'ရွေးချယ်ထားသော node',
   'mapEditor.panel.nodes': 'နုတ်များ',
   'mapEditor.panel.noSelection': 'node တစ်ခုကို တည်းဖြတ်ရန် နှိပ်ပါ။',
   'mapEditor.panel.stats': 'မြေပုံစာရင်းအင်းများ',
@@ -146,12 +183,19 @@ export const ui: UiTranslations = {
   'notifications.accept': 'လက်ခံပါ',
   'notifications.acceptAndOpen': 'လက်ခံပြီး ဖွင့်ပါ',
   'notifications.acceptedInvite': 'ဝင်ရောက်ခဲ့သည် {{title}} ။',
+  'notifications.acceptError': 'ဖိတ်ကြားမှုကို လက်ခံနိုင်ခြင်း မရှိပါ။',
   'notifications.empty.body':
     'အသင်းဖော်များက မြေပုံများသို့ ဖိတ်ခေါ်သောအခါ ၎င်းတို့သည် ဤနေရာတွင် ပေါ်လာပါလိမ့်မည်။',
   'notifications.empty.title': 'ဆိုင်းငံ့ထားသော ဖိတ်ကြားချက်များ မရှိပါ',
+  'notifications.inviteBody': '{{email}} သို့ ပို့ပြီးပါပြီ',
   'notifications.inviteTitle': 'ဖိတ်ကြားခံရသည့်အနေဖြင့် {{role}}"သို့ {{title}}"',
   'notifications.subtitle': '{{count}} ဆိုင်းငံ့ထားသော ဖိတ်ကြားချက်များ။',
   'notifications.view': 'ကြည့်ရန်',
+  'pricing.limit.advanced': 'အဆင့်မြင့် လုပ်ဆောင်ချက်များ: {{state}}',
+  'pricing.limit.connections': '{{count}} ချိတ်ဆက်မှုများ',
+  'pricing.limit.export': 'ဒေတာ ထုတ်ယူမှု: {{state}}',
+  'pricing.limit.maps': '{{count}} မြေပုံများ',
+  'pricing.limit.nodes': '{{count}} မြေပုံတစ်ခုလျှင် node များ',
   'profile.loading': 'သင့်စာရင်းအင်းများကို တင်နေသည်…',
   'profile.stat.collabs': 'ပူးပေါင်းဆောင်ရွက်မှုများ',
   'profile.stat.maps': 'မြေပုံများ ဖန်တီးထားသည်',
@@ -163,25 +207,36 @@ export const ui: UiTranslations = {
   'publicMap.loadError': 'ဤမြေပုံကို မျှဝေခြင်း မရှိတော့ပါ သို့မဟုတ် လင့်ခ် မှားယွင်းနေပါသည်။',
   'publicMap.loading': 'မြေပုံကို တင်နေသည်…',
   'publicMap.notFound': 'မြေပုံကို ရှာမတွေ့ပါ။',
+  'resetPassword.newPassword': 'စကားဝှက်အသစ်',
   'resetPassword.subheading':
     'အမှတ်ရစရာတစ်ခုခုကို ရွေးချယ်ပါ။ အလိုအလျောက် ပြန်လည်ဝင်ရောက်ပေးပါမည်။',
   'resetPassword.submit': 'စကားဝှက်ကို ပြန်လည်သတ်မှတ်ပြီး လက်မှတ်ထိုးဝင်ပါ',
   'resetPassword.tokenPlaceholder': 'သင့်အီးမေးလ်မှ ကူးထည့်ထားသည်',
   'settings.account.subtitle': 'သင့်ရဲ့ မျက်နှာပြင်အမည်နဲ့ အီးမေးလ်လိပ်စာကို အပ်ဒိတ်လုပ်ပါ။',
+  'settings.field.currentPassword': 'လက်ရှိစကားဝှက်',
   'settings.field.newPassword': 'စကားဝှက်အသစ်',
   'settings.password.subtitle':
     'ခိုင်မာတဲ့ စကားဝှက်တစ်ခု (အနည်းဆုံး စာလုံး ၈ လုံး) ကို ရွေးချယ်ပါ။',
   'settings.passwordError': 'စကားဝှက်ကို ပြောင်းလဲ၍မရပါ။ သင့်လက်ရှိစကားဝှက်ကို စစ်ဆေးပါ။',
+  'settings.passwordMismatch': 'စကားဝှက်အသစ်များ မကိုက်ညီပါ။',
   'settings.passwordSaved': 'စကားဝှက်ကို အောင်မြင်စွာ ပြောင်းလဲပြီးပါပြီ။',
   'settings.passwordTooShort': 'စကားဝှက်သည် အနည်းဆုံး စာလုံး ၈ လုံး ရှိရမည်။',
   'settings.profileError': 'ပရိုဖိုင်ပြောင်းလဲမှုများကို သိမ်းဆည်း၍မရပါ။',
   'settings.subtitle': 'သင့်အကောင့်နှင့် လုံခြုံရေးကို ချိန်ညှိပါ။',
   'settings.twoFactorCode': 'အထောက်အထားစိစစ်ရေးကုဒ်',
   'settings.twoFactorDisable': 'ပိတ်ရန်',
+  'settings.twoFactorDisableTitle': 'နှစ်ဆင့်အတည်ပြုခြင်းကို ပိတ်ပါ',
   'settings.twoFactorEnable': 'ဖွင့်ပါ',
+  'settings.twoFactorEnableTitle': 'နှစ်ဆင့်အတည်ပြုခြင်းကို ဖွင့်ပါ',
   'settings.twoFactorInvalidCode': 'ကုဒ် မမှန်ကန်ပါ။ ထပ်ကြိုးစားပါ။',
+  'settings.twoFactorOffLine': 'နှစ်ဆင့် အတည်ပြုခြင်း ပိတ်ထားသည်။',
+  'settings.twoFactorOnLine': 'နှစ်ဆင့် အတည်ပြုခြင်း ဖွင့်ထားသည်။',
+  'settings.twoFactorQrAlt': 'နှစ်ဆင့် QR ကုဒ်',
+  'settings.twoFactorScan':
+    'ဤ QR ကုဒ်ကို သင့်အတည်ပြုကိရိယာအက်ပ်ဖြင့် စကင်ဖတ်ပြီး ၆ လုံးပါ ကုဒ်ကို ထည့်ပါ။',
   'settings.twoFactorSubtitle':
     'သင့်စကားဝှက်၏ထိပ်တွင် အထောက်အထားစိစစ်ရေးအက်ပ်မှ တစ်ကြိမ်သုံးကုဒ်ကို ထည့်ပါ။',
+  'settings.twoFactorUnavailable': 'ဤအက်ပ်အတွက် နှစ်ဆင့်အထောက်အထားစိစစ်ခြင်း မရရှိနိုင်ပါ။',
   'settings.twoFactorVerify': 'အတည်ပြုပြီး ဖွင့်ပါ',
   'share.accepted': 'လက်ခံပြီးပါပြီ',
   'share.backToMap': 'မြေပုံသို့ ပြန်သွားရန်',
@@ -192,7 +247,9 @@ export const ui: UiTranslations = {
   'share.copySuccess': 'လင့်ခ်ကို ကူးယူပြီးပါပြီ။',
   'share.invite.button': 'ဖိတ်ကြားပါ',
   'share.invite.title': 'အီးမေးလ်ဖြင့် ဖိတ်ကြားပါ',
+  'share.inviteError': 'ဖိတ်ကြားချက် ပို့၍မရပါ။',
   'share.inviteSuccess': 'ဖိတ်ကြားထားသည် {{email}} ။',
+  'share.link.disabledHint': 'ဤမြေပုံအတွက် အများသူငှာ ဖတ်ရန်သာ link တစ်ခု ဖန်တီးရန် ဖွင့်ပါ။',
   'share.link.title': 'အများသုံးလင့်ခ်',
   'share.loadError': 'မျှဝေမှုဆက်တင်များကို တင်၍မရပါ။',
   'share.pending': 'ဆိုင်းငံ့ထားသော ဖိတ်ကြားချက်',
@@ -204,13 +261,19 @@ export const ui: UiTranslations = {
   'share.roleError': 'အခန်းကဏ္ဍကို အပ်ဒိတ်လုပ်၍မရပါ။',
   'share.title': 'ဤမြေပုံကို မျှဝေပါ',
   'share.unnamedCollaborator': 'ဆိုင်းငံ့ထားသော ဖိတ်ကြားချက်',
+  'signup.brandStatement':
+    'ရဲရင့်သော စိတ်ကူးစုဆောင်းမှုအတွက် လုံလောက်သော ကျယ်ဝန်းပြီး တွေးခေါ်ရန် လုံလောက်သော ငြိမ်သက်သည့် canvas တစ်ခု။',
+  'signup.haveAccount': 'အဖွဲ့ဝင်တစ်ယောက် ဖြစ်နေပြီလား။',
   'signup.heading': 'မင်းရဲ့ ပထမဆုံး အကြံဥာဏ်ကို စိုက်ပါ',
   'signup.namePlaceholder': 'အေဗရီ ချန်',
   'signup.subheading': 'မြေပုံ ၃ ခုအတွက် ထာဝရအခမဲ့။ ခရက်ဒစ်ကတ် မလိုအပ်ပါ။',
   'templateDetail.backToTemplates': 'ပုံစံအားလုံး',
   'templateDetail.browseMore': 'ပိုမိုကြည့်ရှုပါ',
+  'templateDetail.editableHint':
+    'template ကို စတင်အသုံးပြုပြီးသည်နှင့် node နှင့် edge တိုင်းကို အပြည့်အစုံ တည်းဖြတ်နိုင်ပါသည်။',
   'templateDetail.instantiateError': 'ဤ template မှ မြေပုံတစ်ခု ဖန်တီး၍မရပါ။',
   'templateDetail.loadError': 'ဤ template ကို တင်၍မရပါ။',
+  'templateDetail.loading': 'နမူနာကို တင်နေသည်…',
   'templateDetail.nodes': 'ကြိုတင်ထည့်သွင်းထားသော node များ',
   'templateDetail.notFound': 'နမူနာပုံစံကို ရှာမတွေ့ပါ။',
   'templateDetail.systemEyebrow': 'ထည့်သွင်းထားသော template',
@@ -233,6 +296,7 @@ export const ui: UiTranslations = {
   'trash.empty.body': 'ရှင်းလင်းဖို့ ဘာမှစောင့်မနေပါဘူး။ ခင်ဗျားရဲ့ အကိုင်းအခက်တွေ ဘေးကင်းပါတယ်။',
   'trash.empty.title': 'အမှိုက်ပုံး ဗလာဖြစ်နေသည်',
   'trash.loadError': 'အမှိုက်ပုံးထဲ ထည့်ထားမိသော မြေပုံများကို တင်၍မရပါ။',
+  'trash.loading': 'အမှိုက်ပုံ ဖွင့်နေသည်…',
   'trash.restore': 'ပြန်လည်ရယူပါ',
   'trash.restoreError': 'မြေပုံကို ပြန်လည်ရယူ၍မရပါ။',
   'trash.subtitle':
@@ -241,11 +305,13 @@ export const ui: UiTranslations = {
   'versionHistory.backToMap': 'မြေပုံသို့ ပြန်သွားရန်',
   'versionHistory.empty':
     'လျှပ်တစ်ပြက်ပုံများ မရှိသေးပါ။ စစ်ဆေးရေးဂိတ်တစ်ခု ထားရှိရန် သင်၏ ပထမဆုံးပုံကို သိမ်းဆည်းပါ။',
+  'versionHistory.emptyDetail': 'သင့် timeline စတင်ရန် snapshot တစ်ခုကို သိမ်းဆည်းပါ။',
   'versionHistory.loadError': 'ဗားရှင်းမှတ်တမ်းကို ဖွင့်၍မရပါ။',
   'versionHistory.nodeCount': 'နုတ်များ',
   'versionHistory.restoreButton': 'ဤဗားရှင်းကို ပြန်လည်ရယူပါ',
   'versionHistory.restoreError': 'လျှပ်တစ်ပြက်ပုံကို ပြန်ယူ၍မရပါ။',
   'versionHistory.restoreSuccess': 'လျှပ်တစ်ပြက်ပုံကို ပြန်လည်ရယူပြီးပါပြီ။',
+  'versionHistory.selectHint': 'ကြည့်ရှုရန် snapshot တစ်ခုကို ရွေးပါ။',
   'versionHistory.snapshotDefault': 'ကိုယ်တိုင် လျှပ်တစ်ပြက် ရိုက်ကူးမှု',
   'versionHistory.snapshotError': 'လျှပ်တစ်ပြက်ပုံကို သိမ်းဆည်း၍မရပါ။',
   'versionHistory.snapshotEyebrow': 'လျှပ်တစ်ပြက်ဓာတ်ပုံ',

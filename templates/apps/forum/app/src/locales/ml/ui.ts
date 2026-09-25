@@ -1,14 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഫീഡ്ബാക്ക് ഉണ്ടോ, ഒരു ബഗ് കണ്ടെത്തിയോ, അല്ലെങ്കിൽ {{appName}}-ൽ ഒരു കമ്മ്യൂണിറ്റി തുടങ്ങാൻ ആഗ്രഹിക്കുന്നുവോ? ടീമിനെ സമീപിക്കാൻ നിങ്ങളുടെ Settings തുറക്കുക — ഓരോ സന്ദേശവും അത് വായിക്കുന്ന ഒരു യഥാർത്ഥ മനുഷ്യനിലേക്കാണ് പോകുന്നത്.',
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
+  'about.featureModeration':
+    'ഓരോ കമ്മ്യൂണിറ്റിക്കും ആരോഗ്യകരവും സ്വയംഭരണാധികാരമുള്ളതുമായി തുടരാൻ സഹായിക്കുന്ന ഒരു ബിൽറ്റ്-ഇൻ മോഡറേഷൻ ക്യൂവും റിപ്പോർട്ടിംഗ് ടൂളുകളും.',
+  'about.featurePricing':
+    'ചേരാനും പങ്കെടുക്കാനും സൗജന്യം; Pro, Team പ്ലാനുകൾ ഉയർന്ന പരിധികളും വിപുലമായ മോഡറേഷനും ഡാറ്റ എക്സ്പോർട്ടും അൺലോക്ക് ചെയ്യുന്നു.',
+  'about.featureThreads':
+    'എളുപ്പത്തിൽ പിന്തുടരാനും തിരയാനും കഴിയുന്ന ത്രെഡഡ്, മാർക്ക്ഡൗൺ-സമ്പന്നമായ ചർച്ചകളോടുകൂടിയ സംഘടിത കമ്മ്യൂണിറ്റികളും വിഭാഗങ്ങളും.',
+  'about.featureVoting':
+    'ഏറ്റവും സഹായകരമായ സംഭാവകരെയും മികച്ച ഉത്തരങ്ങളെയും മുന്നോട്ട് കൊണ്ടുവരുന്ന അപ്/ഡൗൺ വോട്ടിംഗും നേടിയെടുക്കുന്ന പ്രശസ്തി സംവിധാനവും.',
+  'about.intro':
+    '{{appName}} ഒരു കമ്മ്യൂണിറ്റി-ഫസ്റ്റ് ചർച്ചാ പ്ലാറ്റ്ഫോമാണ് — Reddit-ശൈലിയിലുള്ള ത്രെഡുകൾ, വോട്ടിംഗ്, പ്രശസ്തി എന്നിവ, ഒരു ഫീഡിനെ പിന്തുടരുന്നതിനേക്കാൾ ഒരു നല്ല സംഭാഷണം ആഗ്രഹിക്കുന്ന ആളുകൾക്കായി നിർമ്മിച്ചത്. ഓരോ ശബ്ദവും പ്രധാനമാണ്, മികച്ച ആശയങ്ങൾ അളവിലല്ല, യോഗ്യതയിൽ ഉയരുന്നു.',
+  'about.missionBody':
+    'ഓൺലൈൻ ചർച്ച ക്രോധത്തെയല്ല, ചിന്താശീലത്തെ പ്രതിഫലിപ്പിക്കണമെന്ന് ഞങ്ങൾ വിശ്വസിക്കുന്നു. സുമനസ്സുള്ളതും സ്വയംഭരണാധികാരമുള്ളതുമായി തുടരാൻ {{appName}} ഓരോ കമ്മ്യൂണിറ്റിക്കും ഉപകരണങ്ങൾ നൽകുന്നു — സുതാര്യമായ വോട്ടിംഗ്, നേടിയെടുക്കുന്ന പ്രശസ്തി, വിശ്വസ്ത അംഗങ്ങളെ നിയന്ത്രണത്തിൽ നിർത്തുന്ന മോഡറേഷൻ — അതുവഴി ത്രെഡുകൾ വീണ്ടും വരാൻ യോഗ്യമായ എന്തോ ആയി വളരുന്നു.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'authShell.communities': 'കമ്മ്യൂണിറ്റികൾ',
+  'authShell.copyright': '{{appName}} — ഓരോ ശബ്ദവും പ്രധാനം.',
   'authShell.trending': 'ട്രെൻഡിംഗ്',
+  'categories.emptyFilter': 'കാണിക്കാൻ കമ്മ്യൂണിറ്റികളില്ല.',
+  'categories.emptySubscribed': 'നിങ്ങൾ ഇതുവരെ ഒരു കമ്മ്യൂണിറ്റിയിലും സബ്സ്ക്രൈബ് ചെയ്തിട്ടില്ല.',
+  'categories.emptySubscribedHint':
+    'ഒരു കമ്മ്യൂണിറ്റി തുറന്ന് Subscribe അമർത്തിയാൽ അത് ഇവിടെ ചേർക്കാം.',
   'categories.eyebrow': 'കമ്മ്യൂണിറ്റികൾ',
   'categories.loadError': 'കമ്മ്യൂണിറ്റികൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'categories.loading': 'കമ്മ്യൂണിറ്റികൾ ലോഡ് ചെയ്യുന്നു...',
   'categories.subtitle':
     'പ്രവർത്തനം, വിഷയം, ശബ്ദത്തിന്റെ അളവ് എന്നിവ അനുസരിച്ച് ക്വാറം കമ്മ്യൂണിറ്റികൾ ബ്രൗസ് ചെയ്യുക. നിങ്ങളുടെ വീട്ടിലേക്ക് ഒരു ഫീഡ് ചേർക്കാൻ സബ്‌സ്‌ക്രൈബ് ചെയ്യുക.',
   'categories.title': 'നിങ്ങളുടെ മുറി കണ്ടെത്തുക',
+  'categoryCard.activeNow': '{{count}} സജീവം',
   'categoryCard.namePrefix': 'സി/',
   'categoryCard.subscribers': '{{count}} അംഗങ്ങൾ',
   'categoryDetail.empty': 'ഇവിടെ ഇതുവരെ ത്രെഡുകളൊന്നുമില്ല.',
@@ -16,6 +38,8 @@ export const ui: UiTranslations = {
   'categoryDetail.newPost': 'പുതിയ പോസ്റ്റ്',
   'categoryDetail.ruleBeKind':
     'ദയയുള്ളവരായിരിക്കുക. വ്യക്തിയെക്കുറിച്ചല്ല, ജോലിയെക്കുറിച്ചാണ് ചർച്ച ചെയ്യേണ്ടത്.',
+  'categoryDetail.ruleNoSpam': 'സ്പാം ഇല്ല, മാർക്കറ്റ്പ്ലേസ് ലിങ്കുകളും ഇല്ല.',
+  'categoryDetail.ruleStayOnTopic': 'ഈ കമ്മ്യൂണിറ്റിയുടെ വിഷയത്തിൽ ഉറച്ചുനിൽക്കുക.',
   'categoryDetail.startFirst': 'ആദ്യ ത്രെഡ് ആരംഭിക്കുക →',
   'categoryDetail.subscribe': 'സബ്സ്ക്രൈബ് ചെയ്യുക',
   'categoryDetail.subscribed': 'സബ്‌സ്‌ക്രൈബുചെയ്‌തു',
@@ -36,6 +60,7 @@ export const ui: UiTranslations = {
   'compose.eyebrow': 'ഒരു ത്രെഡ് ആരംഭിക്കുക',
   'compose.flairLabel': 'ഫ്ലെയർ (ഓപ്ഷണൽ)',
   'compose.imageUrlPrompt': 'ഇമേജ് URL',
+  'compose.insertUrl': 'തിരുകുക',
   'compose.linkUrlPrompt': 'ലിങ്ക് URL',
   'compose.markdownHint': 'മാർക്ക്ഡൗൺ പിന്തുണയ്ക്കുന്നു.',
   'compose.publishFailed': 'ത്രെഡ് പ്രസിദ്ധീകരിക്കുന്നതിൽ പരാജയപ്പെട്ടു.',
@@ -53,11 +78,18 @@ export const ui: UiTranslations = {
   'feed.empty': 'ഇതുവരെ ത്രെഡുകളൊന്നുമില്ല.',
   'feed.emptyHint': 'ഒരു ചർച്ച ആരംഭിക്കുന്ന ആദ്യത്തെയാളാകൂ — രചിക്കുക എന്നതിലേക്ക് പോകുക.',
   'feed.loadError': 'ഫീഡ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
+  'feed.metaCommunityDescription':
+    '{{appName}}-നെ രൂപപ്പെടുത്തുന്ന എല്ലാവർക്കുമുള്ള മെറ്റ കമ്മ്യൂണിറ്റി — വോട്ടിംഗ്, ഭരണം, ഫീച്ചർ ചർച്ചകൾ.',
+  'feed.ruleBeCivil': 'മര്യാദയുള്ളവരായിരിക്കുക. എപ്പോഴും.',
   'feed.ruleBeCivilDesc':
     'മനുഷ്യത്വരഹിതമായി പെരുമാറാതെ വിയോജിക്കുന്നു. വ്യക്തിപരമായ ആക്രമണങ്ങളിൽ മോഡുകൾ വേഗത്തിൽ വർദ്ധിക്കുന്നു.',
+  'feed.ruleCiteSources': 'നിങ്ങൾ പ്രതികരിക്കുന്ന കാര്യം ലിങ്ക് ചെയ്യുക.',
+  'feed.ruleOnePerWeek': 'ഓരോ അക്കൗണ്ടിനും ആഴ്ചയിൽ ഒരു മെറ്റ പോസ്റ്റ്.',
   'feed.subtitle':
     'നിങ്ങൾ പിന്തുടരുന്ന കമ്മ്യൂണിറ്റികളിൽ നിന്നുള്ള ത്രെഡുകൾ, കൂടാതെ നിങ്ങൾക്ക് ഇഷ്ടപ്പെട്ടേക്കാവുന്ന ചിലതും. അൽഗോരിതം പഠിപ്പിക്കാൻ വോട്ട് ചെയ്യുക.',
   'feed.title': 'നിങ്ങളുടെ ഫീഡ്',
+  'forgotPassword.description':
+    'നിങ്ങളുടെ ഇമെയിൽ നൽകുക, പുനഃസജ്ജമാക്കുന്നതിനുള്ള ഒരു ലിങ്ക് ഞങ്ങൾ നിങ്ങൾക്ക് അയയ്ക്കും.',
   'forgotPassword.successBody':
     'ഞങ്ങൾ ഒരു റീസെറ്റ് ലിങ്ക് അയച്ചു {{email}} . ഇത് 30 മിനിറ്റിനുള്ളിൽ കാലഹരണപ്പെടും.',
   'forgotPassword.tryAnother': 'മറ്റൊരു ഇമെയിൽ പരീക്ഷിക്കൂ',
@@ -67,9 +99,15 @@ export const ui: UiTranslations = {
   'forumLayout.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'landing.communitiesSubtitle': 'കർമ്മം സമ്പാദിക്കുക, ജോലി പങ്കിടുക, മികച്ച ചോദ്യങ്ങൾ ചോദിക്കുക.',
   'landing.communitiesTitle': 'ആരംഭിക്കേണ്ട കമ്മ്യൂണിറ്റികൾ',
+  'landing.ctaBody':
+    'സൗജന്യമായി സൈൻ അപ്പ് ചെയ്യുക. നിങ്ങൾക്ക് പ്രധാനമായ വിഷയങ്ങളിൽ പ്രശസ്തി കെട്ടിപ്പടുക്കുക, ഞങ്ങളിൽ ശേഷിക്കുന്നവരെ കുറച്ചുകൂടി വ്യക്തമായി ചിന്തിക്കാൻ സഹായിക്കുക.',
   'landing.ctaEyebrow': 'നിങ്ങൾ തയ്യാറാകുമ്പോൾ',
   'landing.ctaHeadline': 'നിങ്ങളുടെ കമ്മ്യൂണിറ്റി കണ്ടെത്തുക. നിങ്ങളുടെ ശബ്ദം ഉയർത്തൂ.',
   'landing.heroCtaSecondary': 'കമ്മ്യൂണിറ്റികൾ ബ്രൗസ് ചെയ്യുക',
+  'landing.heroEyebrow': '{{appName}}-ലേക്ക് സ്വാഗതം — {{tagline}}',
+  'landing.heroHeadline': 'അപ്രത്യക്ഷമാകുന്നതിനുപകരം വളരുന്ന ചർച്ചകൾ.',
+  'landing.heroLede':
+    '{{appName}} ഹോബിസ്റ്റുകൾക്കും നിർമ്മാതാക്കൾക്കും നിശ്ശബ്ദമായി അഭിപ്രായമുള്ള വിദഗ്ധർക്കുമുള്ള പതുക്കെ വേവിച്ച ഒരു ഫോറമാണ്. ഓരോ നല്ല ത്രെഡിലൂടെയും ഒരു പദവി നേടുക.',
   'landing.heroStat1': '847k',
   'landing.heroStat2': '2,180 (2,180)',
   'landing.heroStat2Label': 'കമ്മ്യൂണിറ്റികൾ',
@@ -84,13 +122,17 @@ export const ui: UiTranslations = {
   'landing.trendingViewAll': 'എല്ലാം കാണുക',
   'login.description': 'സംഭാഷണം നിർത്തിയ ഇടത്തു നിന്ന് തുടരുക.',
   'login.heading': 'ക്വാറത്തിൽ സൈൻ ഇൻ ചെയ്യുക',
+  'login.noAccount': 'ഇവിടെ പുതിയ ആളാണോ?',
   'login.passwordPlaceholder': 'നിങ്ങളുടെ പാസ്‌വേഡ്',
   'login.twoFactorLabel': '2FA കോഡ് (ഓപ്ഷണൽ)',
   'login.twoFactorPlaceholder': '6-അക്ക കോഡ്',
+  'login.twoFactorRequiredHint':
+    'ഈ അക്കൗണ്ടിൽ ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ പ്രവർത്തനക്ഷമമാണ്. തുടരാൻ നിങ്ങളുടെ ഓതന്റിക്കേറ്റർ ആപ്പിൽ നിന്നുള്ള 6 അക്ക കോഡ് നൽകുക.',
   'login.twoFactorRequiredLabel': 'നിങ്ങളുടെ 2FA കോഡ് നൽകുക',
   'modQueue.automodEmpty':
     'ഈ കമ്മ്യൂണിറ്റിക്കായി ഇതുവരെ ഓട്ടോ-മോഡ് നിയമങ്ങളൊന്നും കോൺഫിഗർ ചെയ്തിട്ടില്ല.',
   'modQueue.automodTitle': 'ഓട്ടോ-മോഡ് ആക്റ്റിവിറ്റി (കഴിഞ്ഞ 24 മണിക്കൂർ)',
+  'modQueue.empty': 'ഇൻബോക്സ് പൂജ്യം. ഒന്നും ബാക്കിയില്ല.',
   'modQueue.eyebrow': 'മോഡറേഷൻ',
   'modQueue.kindThread': 'ത്രെഡ്',
   'modQueue.loadError': 'റിപ്പോർട്ടുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
@@ -117,8 +159,12 @@ export const ui: UiTranslations = {
   'notifications.mentionedYouIn': 'നിങ്ങളെ പരാമർശിച്ചു',
   'notifications.repliedTo': 'മറുപടി നൽകി',
   'notifications.subtitle': 'നിങ്ങൾക്കുണ്ട് {{count}} വായിക്കാത്ത അറിയിപ്പുകൾ.',
+  'pricing.limits.advancedFeatures': 'വിപുലമായ സവിശേഷതകൾ:',
   'pricing.limits.categories': '{{count}} വിഭാഗങ്ങൾ',
   'pricing.limits.export': 'ഡാറ്റ കയറ്റുമതി:',
+  'pricing.limits.moderation': '{{count}} മോഡറേഷൻ നടപടികൾ',
+  'pricing.limits.threads': '{{count}} ത്രെഡുകൾ',
+  'pricing.limits.votes': '{{count}} വോട്ടുകൾ',
   'profile.noComments': 'ഇതുവരെ അഭിപ്രായങ്ങളൊന്നുമില്ല.',
   'profile.noPosts': 'ഇതുവരെ പോസ്‌റ്റുകളൊന്നുമില്ല.',
   'profile.noSaved': 'ഇതുവരെ സംരക്ഷിച്ച പോസ്റ്റുകളൊന്നുമില്ല.',
@@ -129,6 +175,7 @@ export const ui: UiTranslations = {
     'ശക്തമായ ഒന്ന് തിരഞ്ഞെടുക്കുക. പുനഃസജ്ജീകരണം വിജയിച്ചുകഴിഞ്ഞാൽ ഞങ്ങൾ നിങ്ങളെ സൈൻ ഇൻ ചെയ്യും.',
   'resetPassword.newPasswordLabel': 'പുതിയ പാസ്വേഡ്',
   'resetPassword.tokenPlaceholder': 'ലിങ്ക് ടോക്കൺ ഒട്ടിക്കുക',
+  'search.clear': 'വ്യക്തം',
   'search.communitiesEmpty': 'പൊരുത്തപ്പെടുന്ന കമ്മ്യൂണിറ്റികളൊന്നുമില്ല.',
   'search.communitiesHeading': 'കമ്മ്യൂണിറ്റികൾ',
   'search.empty': 'ഒരു ത്രെഡുകളും പൊരുത്തപ്പെടുന്നില്ല.',
@@ -141,19 +188,27 @@ export const ui: UiTranslations = {
   'settings.displayTitle': 'ഡിസ്പ്ലേ',
   'settings.emailDigestDesc':
     'എല്ലാ തിങ്കളാഴ്ചയും നിങ്ങളുടെ സബ്‌സ്‌ക്രൈബുചെയ്‌ത കമ്മ്യൂണിറ്റികളിൽ നിന്നുള്ള മികച്ച ത്രെഡുകൾ.',
+  'settings.emailDigestLabel': 'ആഴ്ചതോറുമുള്ള ഡൈജസ്റ്റ്',
+  'settings.emailMentionsDesc': 'ഒരു ത്രെഡിലോ കമന്റിലോ ആരെങ്കിലും നിങ്ങളെ @-മെൻഷൻ ചെയ്യുമ്പോൾ.',
+  'settings.emailMentionsLabel': 'മെൻഷനുകളിൽ എനിക്ക് ഇമെയിൽ അയക്കുക',
+  'settings.emailRepliesDesc': 'നിങ്ങൾ ആരംഭിച്ചതോ മറുപടി നൽകിയതോ ആയ ത്രെഡുകൾ.',
   'settings.emailRepliesLabel': 'മറുപടികളിൽ എനിക്ക് ഇമെയിൽ അയയ്ക്കുക',
   'settings.loadError': 'നിങ്ങളുടെ അക്കൗണ്ട് ലോഡ് ചെയ്യാനായില്ല.',
   'settings.loading': 'നിങ്ങളുടെ ക്രമീകരണങ്ങൾ ലോഡ് ചെയ്യുന്നു...',
   'settings.notificationsSubtitle':
     'നിങ്ങളുടെ ഇൻബോക്സിൽ എന്താണ് എത്തുന്നതെന്ന് തീരുമാനിക്കുക, നിങ്ങളുടെ പുഷ് ഉപകരണവുമായി താരതമ്യം ചെയ്യുമ്പോൾ.',
+  'settings.pushRepliesLabel': 'മറുപടികൾക്ക് പുഷ്',
+  'settings.pushVotesDesc': '100, 500, 1000 എന്നിവയിൽ ത്രെഷോൾഡ് പിംഗ്.',
   'settings.pushVotesLabel': 'അപ്‌വോട്ട് നാഴികക്കല്ലുകൾക്ക് വേണ്ടിയുള്ള ശ്രമങ്ങൾ',
   'settings.saveAccount': 'അക്കൗണ്ട് സംരക്ഷിക്കുക',
   'settings.showFlair': 'ത്രെഡുകളിൽ വിഭാഗ വൈഭവം കാണിക്കുക',
+  'settings.showThumbnails': 'ലിങ്ക്/ഇമേജ് തംബ്നെയിലുകൾ കാണിക്കുക',
   'settings.usernamePlaceholder': 'ഒരു ഹാൻഡിൽ തിരഞ്ഞെടുക്കുക',
   'signup.confirmPlaceholder': 'ഇത് വീണ്ടും ടൈപ്പുചെയ്യുക',
   'signup.description': 'ഒരു സമയം ഒരു നല്ല ത്രെഡ് മാത്രം നേടി സ്റ്റാൻഡിംഗ് നേടൂ.',
   'signup.eyebrow': 'റൂമിൽ ചേരുക',
   'threadRow.authorPrefix': 'യു/',
+  'threadRow.commentCount': '{{count}} കമന്റുകൾ',
   'threadRow.statusFlagged': 'അവലോകനത്തിലാണ്',
   'threadRow.statusHot': 'ചൂടുള്ള',
   'threadRow.statusLocked': 'ലോക്ക് ചെയ്‌തു',
@@ -176,6 +231,7 @@ export const ui: UiTranslations = {
     'ഈ ത്രെഡ് ലോക്ക് ചെയ്‌തിരിക്കുന്നു. പുതിയ മറുപടികൾ പ്രവർത്തനരഹിതമാക്കിയിരിക്കുന്നു.',
   'threadView.modActionFailed': 'മോഡറേറ്റർ പ്രവർത്തനം പരാജയപ്പെട്ടു.',
   'threadView.modTools': 'മോഡ് ഉപകരണങ്ങൾ',
+  'threadView.noComments': 'ഇതുവരെ കമന്റുകളില്ല. ആദ്യത്തേതാകൂ.',
   'threadView.notFound': 'ത്രെഡ് കണ്ടെത്തിയില്ല.',
   'threadView.pin': 'പിൻ ചെയ്യുക',
   'threadView.pinned': 'പിൻ ചെയ്‌തു',

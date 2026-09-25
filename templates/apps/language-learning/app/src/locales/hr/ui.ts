@@ -1,12 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Pitanja, povratne informacije ili greška koju želite prijaviti? Obratite se timu iz postavki računa — svaka poruka stiže stvarnoj osobi koja također uči jezike.',
   'about.contactTitle': 'Razgovarajte s nama',
   'about.eyebrow': 'O nama',
+  'about.missionTitle': 'Naša misija',
+  'about.whatYouGet': 'Što dobijete',
   'common.goToDashboard': 'Idi na kontrolnu ploču',
   'common.logout': 'Odjava',
+  'dailyStatsTriad.heartsHint': 'Dopuna na početku svake lekcije',
   'dailyStatsTriad.heartsLabel': 'Srca',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
+  'dailyStatsTriad.minutesHint': 'Iz današnjih vježbi',
   'dailyStatsTriad.minutesLabel': 'Minuta danas',
   'dailyStatsTriad.minutesValue': '{{count}} min',
   'dailyStatsTriad.wordsLabel': 'Riječi savladane',
@@ -15,18 +21,29 @@ export const ui: UiTranslations = {
   'dashboard.heading': 'Dobar dan, {{name}} .',
   'dashboard.loadError':
     'Nije moguće učitati najnoviji napredak — prikazuju se predmemorirane vrijednosti.',
+  'dashboard.loading': 'Osvježavajući…',
   'dashboard.noLessons': 'Još nema dostupnih lekcija — provjerite uskoro.',
+  'dashboard.startPractice': 'Započni vježbu govora',
+  'dashboard.subheading': 'Nastavi gdje si stao — tri kratke sesije i postižeš današnji cilj.',
   'dashboard.viewAllLessons': 'Sve lekcije →',
+  'forgotPassword.subheading':
+    'Upiši svoj e-mail i poslat ćemo ti poveznicu za ponovno postavljanje.',
   'forgotPassword.successBody':
     'Provjerite pristiglu poštu - poslali smo vam poveznicu za resetiranje.',
   'forgotPassword.successHint':
     'Ako {{email}} odgovara računu, poveznica će stići u roku od minute.',
+  'landing.copyright': '© {{year}} {{app}}. Stvoreno za odrasle polaznike.',
   'landing.ctaBody':
     'Nije potrebna kartica. Ostavite svoju e-poštu, odaberite jezik, počnite sutra.',
   'landing.ctaHeading': 'Spremni pronaći svoj naglasak?',
   'landing.eyebrow': 'Dnevna jezična vježba za odrasle',
   'landing.featuresHeading': 'Petlja vježbanja koja poštuje vaše vrijeme',
+  'landing.featuresSubheading':
+    'Osmišljeno za odrasle koji imaju trideset minuta dnevno, a ne trideset sati tjedno.',
   'landing.heroCta': 'Započnite niz od 7 dana',
+  'landing.heroSubtitle':
+    'Lekcije od pet minuta koje stane u pauzu za kavu. Vježbe, rječnik, govor — sve u nizu koji ćeš stvarno održati.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.languagesEyebrow': 'Odaberite jezik',
   'landing.languagesHeading': 'Četrnaest jezika, jedna svakodnevna navika',
   'landing.proof.languages': '{{count}} jezici',
@@ -41,11 +58,18 @@ export const ui: UiTranslations = {
   'leaderboard.heading': 'Ljestvica najboljih',
   'leaderboard.loadError': 'Nije moguće učitati ljestvicu najboljih.',
   'leaderboard.loading': 'Učitavanje ljestvice najboljih…',
+  'leaderboard.rewardBody':
+    'Tri tjedna zaredom sa zlatom vode te u dijamant. Samo prijateljski ulog.',
+  'leaderboard.rewardEyebrow': 'Ovotjedna nagrada',
+  'leaderboard.rewardHeading': 'Najboljih {{count}} osvaja značku zlatne lige',
   'leaderboard.subheading':
     'XP ovaj tjedan. Resetira se u nedjelju u ponoć po vašem lokalnom vremenu.',
   'leaderboard.weeklyPeriod': 'Ovaj tjedan · prijatelji',
+  'leaderboardPanel.rankSuffix': 'Rang # {{rank}}',
   'leaderboardPanel.title': 'Ljestvica najboljih prijatelja',
+  'leaderboardPanel.xp': '{{xp}} XP',
   'leaderboardPanel.you': '(Vas)',
+  'lessonCard.continue': 'Nastavi →',
   'lessonCard.duration': '{{min}} min',
   'lessonCard.level': 'Razina {{level}}',
   'lessonCard.progressPercent': '{{percent}} % dovršeno',
@@ -54,14 +78,17 @@ export const ui: UiTranslations = {
   'lessonDetail.check': 'Provjeriti',
   'lessonDetail.checking': 'Provjera…',
   'lessonDetail.correct': 'Briljantno!',
+  'lessonDetail.correctHint': '+{{xp}} XP. Samo nastavi.',
   'lessonDetail.empty': 'U ovoj lekciji nema vježbi.',
   'lessonDetail.exit': 'Izlaz iz lekcije',
   'lessonDetail.fillBlank': 'Popunite prazninu',
   'lessonDetail.finish': 'Završi lekciju',
   'lessonDetail.incorrect': 'Ne baš —“ {{answer}} "',
+  'lessonDetail.incorrectHint': 'Ovu ćeš ponovno vidjeti u sutrašnjem ponavljanju.',
   'lessonDetail.lessonId': 'Lekcija · {{id}}',
   'lessonDetail.loadError': 'Nije moguće učitati vježbe.',
   'lessonDetail.loading': 'Učitavanje lekcije…',
+  'lessonDetail.pronunciation': 'Odaberi točan izgovor',
   'lessonDetail.submitError': 'Nije moguće poslati odgovor.',
   'lessonDetail.translation': 'Prevedi frazu',
   'lessonDetail.xpEarned': 'Osvojeno iskustvo · {{xp}}',
@@ -80,6 +107,12 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'Otvori navigacijski izbornik',
   'parlanceLayout.nav.profile': 'Profil',
   'parlanceLayout.primaryNavLabel': 'Primarna navigacija',
+  'planUpdated.body':
+    'Promjena naplate sada je aktivna. Svojim planom možete upravljati bilo kada na stranici za naplatu.',
+  'planUpdated.retry': 'Pokušajte ponovno',
+  'planUpdated.verifyFailed': 'Još nismo mogli potvrditi vašu uplatu.',
+  'planUpdated.verifyFailedBody':
+    'Vaše plaćanje se možda još uvijek obrađuje. Pokušajte ponovno za trenutak.',
   'planUpdated.verifying': 'Potvrda vaše uplate…',
   'practice.empty': 'Još nema dostupnih fraza.',
   'practice.eyebrow': 'Govornička praksa',
@@ -103,6 +136,9 @@ export const ui: UiTranslations = {
   'pricing.limits.progress': 'unosi napretka',
   'profile.anonymous': 'Učenik',
   'profile.avatarAlt': '{{name}} avatar',
+  'profile.eyebrow': 'Član od {{joined}}',
+  'profile.eyebrowNew': 'Novi polaznik',
+  'profile.langLessonCount': '{{count}} lekcije',
   'profile.langLevel': 'Razina {{level}}',
   'profile.languages': 'Jezici',
   'profile.languagesHeading': 'Jezici u razvoju',
@@ -111,6 +147,7 @@ export const ui: UiTranslations = {
   'profile.streak': 'Niz',
   'profile.totalXp': 'Ukupno XP',
   'resetPassword.confirmPlaceholder': 'Upišite to ponovno',
+  'resetPassword.mismatch': 'Lozinke se ne podudaraju.',
   'resetPassword.newPasswordLabel': 'Nova lozinka',
   'resetPassword.newPasswordPlaceholder': 'Osam ili više znakova',
   'resetPassword.subheading': 'Odaberite nešto nezaboravno, osam ili više znakova.',
@@ -118,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Postavke prakse',
   'settings.goalBody':
     'Koliko XP-a želite osvojiti svaki dan. Nizovi se čuvaju kad god postignete cilj.',
+  'settings.goalHeading': 'Dnevni cilj',
   'settings.goalMinutes': '~ {{min}} min/dan',
   'settings.language.description':
     'Odaberite jezik koji će se koristiti u svim izbornicima i oznakama aplikacije.',

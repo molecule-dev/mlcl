@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Iritzia duzu, akats bat aurkitu duzu edo funtzio bat nahi duzu? Jarri harremanetan zure kontuaren ezarpenetatik — mezu bakoitza taldeko benetako pertsona batengana iristen da. Oharra: hemen ez da inbertsio-aholkurik ematen; zuk kontrolatzen duzu eragiketa bakoitza.',
+  'about.contactTitle': 'Hitz egin gurekin',
+  'about.featureAttribution':
+    'Errendimenduaren atribuzioa — deskonposatu etekinak sektore, eskualde eta aktibo-klasearen arabera, eta alderatu edozein denbora-tartetan.',
+  'about.featureRebalance':
+    'Berregokitze diziplinatua — ezarri helburuko esleipenak eta tolerantzia-bandak, ikusi desbideratzea goiz detektatuta, eta jaso zu berriz bideratuko zaituzten eragiketak.',
+  'about.featureTax':
+    'Zerga-dokumentuen higienea — irabazi gauzatuak eta gauzatu gabeak, dibidenduak eta 1099 dokumentuak leku bakarrean, wash-sale banderak barne.',
+  'about.featureUnified':
+    'Zorro bateratua — akzioak, ETFak, inbertsio-funtsak, bonuak eta gehiago, erretiro-kontu guztietatik bilduta.',
+  'about.featureWatchlist':
+    'Jarraipen-zerrendak, albisteak eta prezio-alertak, garrantzitsua denari erantzun ahal izateko zaratarik gabe.',
+  'about.intro':
+    '{{app}} inbertitzaile indibidualentzako eta aholkulari independenteentzako aktibo anitzeko zorro-panela da. Akzioak, ETFak, inbertsio-funtsak, bonuak, higiezinen eta eskudirua — kontu guztietako posizio guztiak, leku bakarrean, mahai profesional baten diziplinarekin.',
+  'about.missionBody':
+    'Inbertitze onena, batez ere, diziplina da: helburuko esleipen argia, errendimenduaren atribuzio zintzoa eta zerga-erregistro txukunak. {{app}}-k erakundeetako ohitura horiek edonorengana ekartzen ditu, berregokitzea nahita egin dezazun bulkadaz beharrean — eta inoiz ez dezazun galdu zure zorroak benetan zer egiten duen.',
+  'about.missionTitle': 'Gure misioa',
   'about.pageTitle': '{{app}}(r)i buruz',
   'argentAuthShell.brandEyebrow': 'Argent · Aberastasun tresnak',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Ez da inbertsio aholkurik.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Zaratarik gabe, birbalantze diziplinatua, errendimenduaren atribuzio zorrotza eta zerga-dokumentuen higiene-maila nahi duten inbertitzaile eta aholkulari indibidualentzako zorro-panela.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · Iraganeko errendimenduak ez du etorkizuneko emaitzarik bermatzen.',
   'argentAuthShell.sampleChange': '+2.841 $ (+% 0,28) gaur',
+  'argentAuthShell.sampleLabel': 'Zorroaren balioa',
   'argentAuthShell.sampleValue': '1.032.251 $',
   'argentLayout.primaryNavLabel': 'Nabigazio nagusia',
   'assetAllocationDonut.heading': 'Nola inbertitzen den zure dirua',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'gaur',
   'assetDetail.txEmpty': 'Ez dago transakziorik ticker honetarako.',
   'assetDetail.txHeading': 'Zure transakzioak',
+  'auth.legalConsent.prefix': 'Jarraituta, {{appName}}-(r)en',
   'common.and': 'eta',
   'common.goToDashboard': 'Joan aginte-panelera',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'gaur',
   'dashboard.topHoldings.heading': 'Non ari den lanean zure dirua',
   'dashboard.topHoldings.label': 'Holdings nagusiak',
+  'forgotPassword.gotLinkCta': 'Berrezartzeko esteka bat dut →',
+  'forgotPassword.subheading':
+    'Sartu zure Gavl kontuan duzun helbide elektronikoa eta berrezarpen segururako esteka bat bidaliko dizugu.',
   'forgotPassword.successBody':
     'Minutu batzuk barru ikusten ez baduzu, begiratu spam karpeta edo saiatu beste helbide elektroniko batekin.',
   'forgotPassword.successSubheading':
     'Egiaztatu {{email}} berrezartzeko esteka bat lortzeko. 60 minutu barru iraungitzen da.',
+  'forgotPassword.successTitle': 'Berrezartze-mezua bidean da',
   'holdingHighlightRow.todayLabel': 'gaur',
   'holdings.addCta': 'Erosi',
   'holdings.col.allocation': 'Esleipena',
@@ -58,6 +87,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Ez da inbertsio aholkurik. Iraganeko errendimenduak ez ditu etorkizuneko emaitzak bermatzen.',
   'landing.eyebrow': 'Argent · Aberastasuna lortzeko tresna plataforma bat',
   'landing.features.heading': 'Aholkulari batek beretzat eraikiko lukeen guztia.',
+  'landing.finalCta.body':
+    'Konektatu zure erretiro-kontua bi kliketan. {{appName}}-k egiten du gainerakoa.',
+  'landing.finalCta.cta': 'Ireki zure Argent kontua',
   'landing.finalCta.heading': 'Ekarri diziplina berriro zure zorrora.',
   'landing.footerSignup': 'Ireki kontu bat',
   'landing.getStarted': 'Ireki kontu bat',
@@ -65,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Ikusi prezioak',
   'landing.heroSubtitle':
     'Zaratarik gabe, birbalantze diziplinatua, errendimenduaren atribuzio zorrotza eta zerga-dokumentuen higiene-maila nahi duten inbertitzaile eta aholkulari indibidualentzako zorro-panela.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Ordezkari-zorro baten zuzeneko aurrebista',
   'login.heading': 'Hasi saioa Argent-en',
   'login.subheading':
@@ -76,6 +109,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} duela ordu batzuk',
   'news.justNow': 'oraintxe bertan',
   'news.loadError': 'Albisteak kargatzea huts egin du.',
+  'planUpdated.body':
+    'Zure fakturazio-aldaketa aktibo dago orain. Zure plana noiznahi kudea dezakezu fakturazio-orritik.',
+  'planUpdated.retry': 'Saiatu berriro',
+  'planUpdated.verifyFailed': 'Ezin izan dugu oraindik zure ordainketa baieztatu.',
+  'planUpdated.verifyFailedBody':
+    'Baliteke zure ordainketa prozesatzen ari izatea oraindik. Saiatu berriro une batean.',
   'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'portfolioHeroCard.label': 'Zorroaren balioa',
   'pricing.holdingsLabel': 'jabetzak',
@@ -86,12 +125,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Esleipen-desbideratzea',
   'rebalance.empty': 'Ez da helbururik ezarri oraindik.',
   'rebalance.executeCta': 'Lekua {{count}} merkataritza',
+  'rebalance.executeError': 'Ezin izan dira eragiketak egin.',
   'rebalance.executeOk': 'Jarritakoa {{count}} merkataritza. Ikusi itzazu Transakzioen orrialdean.',
+  'rebalance.executing': 'Egiten…',
   'rebalance.eyebrow': 'Berrezarpena · Zilarrezko aholkularia',
   'rebalance.heading': 'Ekarri zure portfolioa berriro diziplinara',
   'rebalance.loadError': 'Berrezartze plana kargatzea huts egin du.',
+  'rebalance.plan.driftLine': 'gaur egun {{current}}% · helburua {{target}}%',
   'rebalance.planHeading': 'Argent txartela — berrikusi jarri aurretik',
   'rebalance.planLabel': 'Merkataritza plana proposatua',
+  'rebalance.subheading':
+    'Tolerantzia-bandatik kanpo dauden ilarak eragiketa-iradokizunak abiarazten ditu. {{appName}}-k zure berrespenarekin soilik jarduten du.',
   'rebalance.summary.buyLabel': 'Erosketak',
   'rebalance.summary.buySub': 'osatzeko posizioak.',
   'rebalance.summary.driftLabel': 'Bandatik kanpo',
@@ -100,6 +144,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'iradokitako merkataritza guztietan',
   'rebalance.summary.sellLabel': 'Saltzen du',
   'rebalance.summary.sellSub': 'moztu beharreko posizioak.',
+  'rebalanceDriftCard.drift': 'desbideratzea {{sign}}{{pct}}% · banda ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'helburu {{pct}} %',
   'reports.attributionHeading': 'Errendimenduaren atribuzioa (1U)',
   'reports.col.alpha': 'Alfa',
@@ -113,36 +158,67 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Urtea',
   'reports.gainsHeading': 'Irabazi errealizatuak eta errealizatu gabeak',
   'reports.noAttribution': 'Ez dago atribuzio-daturik oraindik.',
+  'reports.noGains': 'Oraindik ez dago irabazi gauzatu/gauzatu gabeen daturik.',
   'reports.noPerformance': 'Ez dago errendimendu daturik oraindik.',
   'reports.noTaxDocs': 'Oraindik ez dago zerga-dokumenturik.',
   'reports.performanceHeading': 'Errendimendua erreferentziazko puntuaren arabera',
   'reports.taxHeading': 'Zerga dokumentuak',
   'resetPassword.heading': 'Aukeratu pasahitz berri sendo bat',
+  'resetPassword.passwordPlaceholder': 'Pasahitz berria',
   'resetPassword.subheading': 'Argentek automatikoki hasiko du saioa pasahitza ezarri ondoren.',
   'resetPassword.tokenPlaceholder': 'Berrezarri tokena posta elektronikotik',
+  'settings.appearance.description': 'Aldatu modu argiaren eta ilunaren artean.',
   'settings.appearance.title': 'Itxura',
+  'settings.devices.body': 'Une honetan zure kontuan saioa hasita duten gailuak.',
+  'settings.devices.empty': 'Ez da gailurik aurkitu.',
   'settings.devices.heading': 'Gailuak',
+  'settings.devices.revokeWarning': 'Gailu honen sarbidea laster kendu egingo da. Itxi saioa?',
   'settings.devices.signOut': 'Saioa itxi',
   'settings.devices.thisDevice': 'Gailu hau',
   'settings.devices.unknown': 'Gailu ezezaguna',
   'settings.linked.body':
     'Bitartekaritza sinkronizatzeak hirugarrenen konektore bat behar du (Plaid, Yodlee, etab.). Konfiguratu zure hornitzailea zure ingurunean inportazio automatikoa gaitzeko.',
   'settings.linked.heading': 'Lotutako bitartekaritza kontuak',
+  'settings.linked.placeholder': 'Ez dago konturik lotuta oraindik.',
+  'settings.notifications.dividendsPaid': 'Ordaindutako dibidenduak',
   'settings.notifications.error': 'Ezin izan da hobespena eguneratu.',
   'settings.notifications.priceAlerts': 'Prezioen alertak',
+  'settings.notifications.rebalanceDrift': 'Berregokitze-desbideratzea',
+  'settings.notifications.taxDocsReady': 'Zerga-dokumentuak prest',
   'settings.profile.advisor': 'Aholkulariaren helbide elektronikoa (aukerakoa)',
   'settings.profile.heading': 'Profila',
   'settings.security.changePassword': 'Pasahitza aldatu',
+  'settings.security.changePasswordTitle': 'Pasahitza aldatu',
   'settings.security.changing': 'Aldatzen…',
+  'settings.security.confirmPassword': 'Pasahitza',
+  'settings.security.currentPassword': 'Uneko pasahitza',
   'settings.security.deleteAccount': 'Ezabatu kontua',
   'settings.security.deleteError': 'Ezin izan da kontua ezabatu.',
   'settings.security.deleteHeading': 'Ezabatu kontua',
+  'settings.security.deleteModalWarning':
+    'Honek zure kontua eta datuak behin betiko ezabatzen ditu. Sartu zure pasahitza baieztatzeko.',
+  'settings.security.deleteWarning':
+    'Ezabatu zure kontua eta harekin lotutako datu guztiak behin betiko. Hau ezin da desegin.',
   'settings.security.deleting': 'Ezabatzen…',
   'settings.security.heading': 'Segurtasuna',
   'settings.security.newPassword': 'Pasahitz berria',
   'settings.security.password': 'Pasahitza',
+  'settings.security.passwordError': 'Ezin izan da pasahitza aldatu.',
+  'settings.security.passwordHint': 'Aldatu saioa hasteko erabiltzen duzun pasahitza.',
+  'settings.security.twoFactor': 'Bi faktoreko autentifikazioa',
+  'settings.security.twoFactorCode': 'Autentifikazio kodea',
+  'settings.security.twoFactorDisable': 'Desgaitu',
+  'settings.security.twoFactorDisableTitle': 'Desgaitu bi faktoreko autentifikazioa',
   'settings.security.twoFactorEnable': 'Gaitu',
+  'settings.security.twoFactorEnableTitle': 'Gaitu bi faktoreko autentifikazioa',
+  'settings.security.twoFactorHint': 'Gehitu babes-geruza bat zure kontuari.',
   'settings.security.twoFactorInvalidCode': 'Kode baliogabea',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'Bi faktoreko QR kodea',
+  'settings.security.twoFactorScan':
+    'Eskaneatu QR kode hau zure autentifikazio-aplikazioarekin, eta gero sartu 6 digituko kodea.',
+  'settings.security.twoFactorUnavailable':
+    'Bi faktoreko autentifikazioa ez dago erabilgarri aplikazio honetarako.',
   'settings.security.twoFactorVerify': 'Egiaztatu eta gaitu',
   'settings.tax.error': 'Ezin izan da zerga-metodoa eguneratu.',
   'settings.tax.heading': 'Zerga-loteen kontabilitatea',
@@ -153,6 +229,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Zerga-metodoa gorde da.',
   'signup.eyebrow': 'Ireki kontu bat',
   'signup.heading': 'Ireki zure Argent kontua',
+  'signup.legalPrefix': 'Kontu bat sortzean {{appName}} onartzen duzu',
   'signup.subheading':
     'Doan 30 egunez. Ez da txartelik behar. Edozein unetan bertan behera utzi dezakezu.',
   'signup.terms':

@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite არის სამუშაო პროცესის ავტომატიზაციის პლატფორმა, რომელიც აერთიანებს ტრიგერებს, ხელოვნური ინტელექტის პირობებს და მრავალსაფეხურიან მოქმედებებს, რათა გუნდებმა შეძლონ სამუშაოს სისტემებს შორის გადატანა წებოვანი კოდის დაწერის გარეშე.',
+  'about.philosophy':
+    'ყოველი სამუშაო პროცესი წარმოადგენს პატარა, დაკვირვებადი ნაბიჯების გრაფს. თითოეული ნაბიჯი იწერს თავის შემავალ და გამომავალ მონაცემებსა და დროს, რათა მისი შემოწმება, გამეორება ან უკან დაბრუნება იყოს შესაძლებელი. შეადგინეთ ისინი ვიზუალურად, დაარეგისტრირეთ ვერსიები კოდივით.',
   'about.title': 'დენდრიტის შესახებ',
   'authShell.brand': 'დენდრიტი',
   'authShell.support': 'მხარდაჭერა',
@@ -15,9 +17,15 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'გეგმის შეცვლა',
   'billing.description':
     'თვალყური ადევნეთ მოხმარებას, მართეთ თქვენი გეგმა და მიიღეთ ინვოისები აღრიცხვისთვის.',
+  'billing.eyebrow': 'ანგარიში · გეგმა და გამოყენება',
+  'billing.failedLabel': 'წარუმატებელი გაშვებები · 24სთ',
+  'billing.invoicesEmpty':
+    'ჯერ არ არის ინვოისები. ისინი აქ გამოჩნდება თქვენი პირველი ფასიანი განახლების შემდეგ.',
   'billing.invoicesTitle': 'ინვოისების ისტორია',
   'billing.planNoteFree':
     'უფასო იარუსი — {{runs}} გარბის და {{workflows}} აქტიური სამუშაო პროცესები. განაახლეთ უფრო მაღალი ლიმიტებისთვის.',
+  'billing.planNotePaid':
+    'ფასიანი გეგმა — {{runs}} გაშვება და {{workflows}} აქტიური სამუშაო პროცესი.',
   'billing.runsLabel': 'ბოლო 24 საათში გაშვებულია',
   'billing.tiersBlurb':
     'შეადარეთ ყველა დონე — გაშვების, აქტიური სამუშაო პროცესების, გაფართოებული ფუნქციების და მხარდაჭერის — სპეციალურ ფასების გვერდზე.',
@@ -35,10 +43,14 @@ export const ui: UiTranslations = {
     'ინტეგრაციები არ არის რეგისტრირებული. ობლიგაციების ჩასართავად დააკონფიგურირეთ პროვაიდერის გასაღებები.',
   'connections.error': 'კავშირების ჩატვირთვა ვერ მოხერხდა.',
   'connections.eyebrow': 'ინტეგრაციები · {{connected}} დაკავშირებული',
+  'connections.loading': 'ინტეგრაციები იტვირთება…',
+  'connections.openEnv':
+    'ამ პროვაიდერის დასაკავშირებლად დააყენეთ მისი API გასაღები api/.env-ში და გადატვირთეთ სერვერი.',
   'dashboard.description':
     '{{active}} აქტიური სამუშაო პროცესები. {{failed}} ბოლო 24 საათის განმავლობაში ვერ მოხერხდა.',
   'dashboard.error': 'დაფის ჩატვირთვა ვერ მოხერხდა.',
   'dashboard.eyebrow': 'ოპერაციები · პირდაპირი ეთერი',
+  'dashboard.hero.label': 'დღევანდელი გაშვებები',
   'dashboard.hero.medianLatency': 'p50 ლატენტობა',
   'dashboard.hero.queue': 'რიგის სიღრმე',
   'dashboard.hero.success': 'წარმატება',
@@ -46,14 +58,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'საშუალო ხანგრძლივობა',
   'dashboard.kpi.failedRuns': 'ვერ მოხერხდა · 24 სთ',
   'dashboard.kpi.outOf': '-ის {{total}} სულ',
+  'dashboard.kpi.successRate': 'წარმატების მაჩვენებელი · 24სთ',
   'dashboard.loading': 'საინფორმაციო დაფა იტვირთება…',
   'dashboard.recentRuns.empty':
     'ჯერ არ არის გაშვებები. სამუშაო პროცესის გააქტიურება ამ არხს შეავსებს.',
   'dashboard.recentRuns.title': 'ბოლოდროინდელი გარბენი',
   'dashboard.recentRuns.viewAll': 'ღია შესრულებები →',
+  'dashboard.recentWorkflows.browse': 'შაბლონების დათვალიერება →',
   'dashboard.recentWorkflows.empty':
     'სამუშაო პროცესები ჯერ არ არის. დააინსტალირეთ შაბლონი ან შექმენით ის ნულიდან.',
   'dashboard.recentWorkflows.title': 'ცოტა ხნის წინ გაშვებული',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'დაიწყო',
   'dashboard.run.col.trigger': 'ტრიგერი',
   'dashboard.run.col.workflow': 'სამუშაო პროცესი',
@@ -89,6 +104,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'სამუშაო პროცესი',
   'executions.description':
     'ყველა სამუშაო პროცესის გაშვება, ყველა ხელახალი ცდა, ყოველი ნაბიჯის შედეგი — ყველაფერი დაკვირვებადია.',
+  'executions.empty.filter': 'ამ ფილტრს არცერთი გაშვება არ შეესაბამება.',
   'executions.empty.first':
     'ჯერ არ არის გაშვებები — გააქტიურეთ სამუშაო პროცესი ამ სიის შესავსებად.',
   'executions.error': 'შესრულების ჩატვირთვა ვერ მოხერხდა.',
@@ -99,30 +115,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'გაშვების ისტორიის ჩატვირთვა…',
   'executions.title': 'სიკვდილით დასჯა',
   'forgotPassword.confirmation': 'გადაყენების ბმული გაიგზავნა {{email}} .',
+  'forgotPassword.subhead': 'გადატვირთვის ბმულის მისაღებად შეიყვანეთ თქვენი ელ. ფოსტა.',
   'forgotPassword.successSubhead':
     'გადატვირთვის ბმული გავუგზავნეთ {{email}} ვადა 30 წუთში იწურება.',
   'help.connections.body':
     'ხელოვნური ინტელექტის, ელფოსტისა და შენახვის ეტაპებისთვის საჭიროა პროვაიდერის გასაღებების დაყენება api/.env ფაილში. გასაღების კონფიგურაციის შემდეგ, შესაბამისი ინტეგრაცია გამოჩნდება, როგორც დაკავშირებული კავშირების გვერდზე.',
+  'help.connections.cta': 'კავშირების გახსნა →',
   'help.connections.title': 'პროვაიდერების დაკავშირება',
   'help.gettingStarted.body':
     'ახალი სამუშაო პროცესების ინსტალაცია შესაძლებელია შაბლონების ბიბლიოთეკიდან ან ნულიდან აწყობა სამუშაო პროცესის შემქმნელში. თითოეულ სამუშაო პროცესს აქვს ტრიგერი (მექანიკური, ვებჰუკი ან კრონ) და ნაბიჯების თანმიმდევრობა, რომლებიც თანმიმდევრობით სრულდება.',
+  'help.gettingStarted.cta': 'შაბლონების ბიბლიოთეკის დათვალიერება →',
+  'help.gettingStarted.title': 'დაწყება',
   'help.intro':
     'იპოვეთ პასუხები ხშირად დასმულ კითხვებზე სამუშაო პროცესების შექმნის, კავშირების კონფიგურაციისა და გაშვების შედეგების ინტერპრეტაციის შესახებ. ყველაზე გავრცელებული თემები ჩამოთვლილია ქვემოთ; ნებისმიერი საკითხის შესახებ, რომელიც არ არის განხილული, დაუკავშირდით თქვენი სამუშაო სივრცის ადმინისტრატორს.',
   'help.runs.body':
     'თითოეული გაშვება დამოუკიდებლად აღრიცხავს თითოეულ ნაბიჯს სტატუსით (წარმატება, წარუმატებლობა, გამოტოვება) და გამომავალი მონაცემების ფრაგმენტით. შესრულების დეტალების გვერდზე ნაჩვენებია სრული ეტაპობრივი კვალი პლუს დასკვნითი მეტრიკები.',
+  'help.runs.cta': 'ღია შესრულებები →',
   'help.runs.title': 'გაშვების გამომავალის წაკითხვა',
   'help.title': 'დახმარების ცენტრი',
   'integrationCard.manage': 'მართვა',
   'landing.brand': 'დენდრიტი',
   'landing.demo.action.subtitle': 'რაუნდ-რობინი · ტერიტორია',
+  'landing.demo.action.title': 'წარმომადგენლის შეტყობინება',
   'landing.demo.condition.subtitle': 'ხელოვნური ინტელექტის განზრახვის კლასიფიკატორი',
+  'landing.demo.condition.title': 'ქულა ≥ საშუალო?',
   'landing.demo.trigger.subtitle': 'POST /ფორმები/კონტაქტი',
   'landing.demo.trigger.title': 'შემომავალი ვებჰუკი',
+  'landing.features.body':
+    'ტრიგერები ამოქმედდება. პირობები განშტოვდება. მოქმედებები ასრულებენ სამუშაოს. შეადგინეთ ისინი ვიზუალურად, დაარეგისტრირეთ ვერსიები კოდივით.',
   'landing.features.heading': 'კვანძის სამი ტიპი. უსასრულო ფორმები.',
   'landing.footer.help': 'დახმარება',
   'landing.footer.tagline': 'ინტელექტი მოძრაობაში',
+  'landing.hero.body':
+    '{{appName}} არის სამუშაო პროცესების ძრავა ოპერაციული გუნდებისთვის, რომლებმაც Zapier-ს გადააჭარბეს. ტრიგერი, პირობა, მოქმედება — დაკავშირებული ყველა სისტემასთან, რომელსაც რეალურად იყენებთ.',
   'landing.hero.eyebrow': 'ინტელექტი მოძრაობაში',
   'landing.hero.headline': 'დასტა ერთმანეთთან შეაერთეთ. სამუშაოს შესრულებას მიეცით საშუალება.',
+  'landing.hero.primaryCta': 'შექმენით თქვენი პირველი სამუშაო პროცესი',
   'landing.hero.proof.ai': 'ჩაშენებული ხელოვნური ინტელექტის კვანძები',
   'landing.hero.proof.free': 'უფასოა თვეში 1 კმ სირბილისთვის',
   'landing.hero.proof.soc2': 'SOC 2 ტიპი II',
@@ -130,10 +158,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'გადაიხადეთ ბილეთებისთვის და არა ადგილებისთვის.',
   'landing.templates.body':
     'წინასწარ დაინსტალირებული სამუშაო პროცესები ყველა გუნდისთვის — გაყიდვები, მხარდაჭერა, დეველოპერები, ფინანსები. ინსტალაცია ერთი დაწკაპუნებით; ნებისმიერი რამის კორექტირება.',
+  'landing.templates.cta': 'დარეგისტრირდით შაბლონების დასათვალიერებლად →',
   'landing.templates.eyebrow': 'დაიწყეთ წამებში',
   'landing.templates.heading': 'დამოწმებული რეცეპტების ბიბლიოთეკა.',
   'landing.templates.signupHint': 'ინსტალაციისთვის დარეგისტრირდით',
   'login.hidePassword': 'პაროლის დამალვა',
+  'login.noAccount': 'Tessera-ს ახალი მომხმარებელი ხართ?',
   'login.showPassword': 'პაროლის ჩვენება',
   'login.subhead': 'შედით სისტემაში, რათა თქვენი ავტომატიზაცია გამართულად მუშაობდეს.',
   'mobileNav.drawerLabel': 'მთავარი ნავიგაცია',
@@ -149,8 +179,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'ამ არხის შევსების დასაწყებად გაუშვით სამუშაო პროცესი.',
   'notifications.empty.title': 'ყველაფერი გასაგებია',
   'notifications.eyebrow': '{{n}} წაუკითხავი',
+  'planUpdated.body':
+    'თქვენი ბილინგის ცვლილება ახლა აქტიურია. გეგმის მართვა ნებისმიერ დროს შეგიძლიათ ბილინგის გვერდიდან.',
+  'planUpdated.retry': 'ხელახლა სცადეთ',
+  'planUpdated.verifyFailed': 'თქვენი გადახდის დადასტურება ჯერ ვერ შევძელით.',
+  'planUpdated.verifyFailedBody':
+    'შესაძლოა, თქვენი გადახდა ჯერ კიდევ მუშავდება. სცადეთ ხელახლა ცოტა ხანში.',
   'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'pricing.heading': 'დარბის',
+  'pricing.runsSuffix': 'გაშვებები',
   'pricing.workflowsSuffix': 'სამუშაო პროცესები',
   'privacy.collect.body':
     'ჩვენ ვაგროვებთ თქვენს მიერ დარეგისტრირებული ელექტრონული ფოსტის მისამართს, თქვენს მიერ კონფიგურირებულ სამუშაო პროცესებს და თითოეული გაშვების შესახებ მეტამონაცემებს (დაწყების დრო, დასრულების დრო, სტატუსი). ჩვენ არასდროს ვაგროვებთ ან ვინახავთ დატვირთვის შინაარსს ტრიგერებიდან ან ნაბიჯების გამომავალიდან, გარდა იმისა, რაც აუცილებელია სამუშაო სივრცის მფლობელისთვის გაშვების მნახველში საჩვენებლად.',
@@ -166,12 +203,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'პაროლის განახლება ვერ მოხერხდა.',
   'resetPassword.newPassword': 'ახალი პაროლი',
   'resetPassword.subhead': 'აირჩიეთ ისეთი რამ, რასაც მხოლოდ თქვენ გამოიცნობთ.',
+  'settings.appearance.description': 'გადართვა ღია და ბნელ რეჟიმებს შორის.',
+  'settings.appearance.title': 'გარეგნობა',
   'settings.billingShortcut.cta': 'ღია ანგარიშსწორება',
   'settings.billingShortcut.description':
     'გეგმა, გამოყენება და ინვოისები განთავსებულია სპეციალურ გადახდის გვერდზე.',
   'settings.danger.confirm':
     'დარწმუნებული ხართ? ეს თქვენს სამუშაო სივრცეს წასაშლელად რიგში დააყენებს.',
   'settings.danger.confirmYes': 'დიახ, რიგის წაშლა',
+  'settings.danger.deleteWorkspace.cta': 'სამუშაო სივრცის წაშლა',
   'settings.danger.deleteWorkspace.hint':
     '14-დღიანი შეღავათიანი პერიოდის შემდეგ შლის ყველა სამუშაო ნაკადს, გაშვებას და კავშირს.',
   'settings.danger.deleteWorkspace.title': 'სამუშაო სივრცის წაშლა',
@@ -182,10 +222,15 @@ export const ui: UiTranslations = {
     'მართეთ თქვენი ანგარიში, სამუშაო სივრცე, ინტეგრაციები და ანგარიშსწორება ერთ ადგილას.',
   'settings.notifications.description':
     'აირჩიეთ, რომელ ღონისძიებებზე გამოგიგზავნით გვერდს, ელ.ფოსტას თუ ჩუმად იყავით.',
+  'settings.notifications.failures.hint':
+    'ელფოსტით და აპლიკაციაში შეტყობინება ყოველი წარუმატებელი გაშვებისას.',
+  'settings.notifications.failures.title': 'სამუშაო პროცესების წარუმატებლობები',
   'settings.notifications.product.hint':
     'პერიოდული ელფოსტები ახალი შაბლონებისა და ფუნქციების შესახებ.',
+  'settings.notifications.product.title': 'პროდუქტის განახლებები',
   'settings.notifications.weekly.hint':
     'ორშაბათს დილის შეჯამება გასული კვირის შემოსავლებისა და დანაზოგების შესახებ.',
+  'settings.notifications.weekly.title': 'ყოველკვირეული დაიჯესტი',
   'settings.profile.description':
     'როგორ გამოჩნდებით სამუშაო პროცესის გამშვების შიგნით. გამოიყენება სამუშაო სივრცის აქტივობაში.',
   'settings.profile.noEmail': 'ელ.ფოსტა არ არის ჩაწერილი',
@@ -193,12 +238,23 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'პროფილის ცვლილებების შენახვა ვერ მოხერხდა.',
   'settings.profile.unnamedUser': 'უსახელო მომხმარებელი',
   'settings.security.audit.hint': 'გადაეცით ყველა მოქმედება თქვენს SIEM-ზე webhook-ის საშუალებით.',
+  'settings.security.audit.title': 'აუდიტის ჟურნალის გადაგზავნა',
   'settings.security.description': 'ორფაქტორიანი ავტორიზაცია, SSO და აქტიური სესიები.',
   'settings.security.sso.hint': 'ხელმისაწვდომია მასშტაბურ და საწარმოს გეგმებზე.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'საჭიროა სამუშაო სივრცის მფლობელის ნებისმიერი მოქმედებისთვის.',
+  'settings.security.totp.title': 'ორფაქტორიანი ავთენტიფიკაცია (TOTP)',
   'settings.twoFactorCode': 'ავტორიზაციის კოდი',
   'settings.twoFactorDisable': 'გამორთვა',
+  'settings.twoFactorDisableTitle': 'ორფაქტორიანი ავთენტიფიკაციის გამორთვა',
   'settings.twoFactorEnable': 'ჩართვა',
+  'settings.twoFactorEnableTitle': 'ორფაქტორიანი ავთენტიფიკაციის ჩართვა',
   'settings.twoFactorInvalidCode': 'არასწორი კოდი',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'ორფაქტორიანი QR კოდი',
+  'settings.twoFactorScan':
+    'დაასკანერეთ ეს QR კოდი ავთენტიფიკატორის აპით, შემდეგ შეიყვანეთ 6-ნიშნა კოდი.',
+  'settings.twoFactorUnavailable': 'ორფაქტორიანი ავთენტიფიკაცია ამ აპლიკაციისთვის მიუწვდომელია.',
   'settings.twoFactorVerify': 'დადასტურება და ჩართვა',
   'settings.workspace.description':
     'თქვენი გუნდისთვის საერთო იდენტობის, რეგიონის და გაშვების ნაგულისხმევი პარამეტრები.',
@@ -227,6 +283,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'შაბლონი',
   'templates.description':
     'წინასწარ შედგენილი ნახაზები ყველაზე გავრცელებული ავტომატიზაციისთვის. დააკავშირეთ, მორგეთ, გაგზავნეთ.',
+  'templates.empty.filter': 'თქვენს ძიებას არცერთი შაბლონი არ შეესაბამება.',
   'templates.empty.first': 'ამჟამად შაბლონები არ არის ხელმისაწვდომი.',
   'templates.error': 'შაბლონების ჩატვირთვა ვერ მოხერხდა.',
   'templates.installs': 'ინსტალაციები',
@@ -252,6 +309,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'გამორთვა',
   'workflowBuilder.enable': 'ჩართვა',
   'workflowBuilder.error': 'სამუშაო პროცესის ჩატვირთვა ვერ მოხერხდა.',
+  'workflowBuilder.inspector.config': 'კონფიგურაცია',
+  'workflowBuilder.inspector.cron': 'Cron გამოსახულება',
+  'workflowBuilder.inspector.disabled': 'გამორთულია — ავტომატურად არ გაეშვება.',
   'workflowBuilder.inspector.enabled': 'ჩართულია — მუშაობს ტრიგერის გაშვებისას.',
   'workflowBuilder.inspector.eyebrow': 'ინსპექტორი',
   'workflowBuilder.inspector.id': 'ID',
@@ -269,18 +329,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'გადართვა ვერ მოხერხდა.',
   'workflowBuilder.workflow': 'სამუშაო პროცესი · v {{v}}',
   'workflowBuilder.zoom.in': 'მასშტაბირება',
+  'workflowBuilder.zoom.label': 'კანვასის მასშტაბირების კონტროლი',
+  'workflowBuilder.zoom.out': 'მასშტაბირება',
   'workflowCard.lastRun': 'ბოლო გარბენი {{when}}',
   'workflowCard.runs': '{{count}} დარბის',
+  'workflowCard.success': '{{rate}}% წარმატება',
   'workflowHeroCard.last24h': 'ბოლო 24 საათი',
+  'workflows.browseTemplates': 'შაბლონების დათვალიერება →',
   'workflows.description':
     'თქვენს სამუშაო სივრცეში არსებული ყველა ავტომატიზაცია, ერთი შეხედვით, ჯანმრთელობისა და ბოლო აქტივობის მონაცემებით.',
+  'workflows.empty.body': 'სცადეთ ფილტრის გასუფთავება ან შაბლონიდან დაწყება.',
   'workflows.empty.firstBody': 'დააინსტალირეთ შაბლონი, რომ წამებში დაიწყოთ.',
   'workflows.empty.firstTitle': 'სამუშაო პროცესები ჯერ არ არის',
   'workflows.empty.title': 'სამუშაო პროცესები არ ემთხვევა',
   'workflows.error': 'სამუშაო პროცესების ჩატვირთვა ვერ მოხერხდა.',
   'workflows.eyebrow': 'ბიბლიოთეკა · {{count}} სულ',
+  'workflows.loading': 'სამუშაო პროცესების ჩატვირთვა…',
   'workflows.newFromTemplate': 'ახალი შაბლონიდან',
   'workflows.searchPlaceholder': 'სამუშაო პროცესების ძიება…',
+  'workflows.title': 'სამუშაო პროცესები',
   'workflowSidebar.brand': 'დენდრიტი',
   'workflowSidebar.status': 'ყველა სისტემა მუშაობს',
   'workflowSidebar.tagline': 'ინტელექტი მოძრაობაში',

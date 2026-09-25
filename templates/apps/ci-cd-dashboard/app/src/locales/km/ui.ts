@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'មានសំណួរ មតិកែលម្អ ឬចង់បានការបង្ហាញសាកល្បងសម្រាប់ក្រុមរបស់អ្នក? ផ្ញើអ៊ីមែលមកយើងតាម hello@conduit.dev — រាល់សារទាំងអស់ទៅដល់មនុស្សពិតប្រាកដក្នុងក្រុម។',
   'about.contactHeading': 'ទាក់ទងមកយើងខ្ញុំ',
   'about.eyebrow': 'អំពី',
+  'about.featuresHeading': 'អ្វីដែលអ្នកទទួលបាន',
+  'about.introBody':
+    '{{app}} នាំយកការដឹកជញ្ជូនបន្តបែប GitHub Actions មកក្នុងផ្ទាំងគ្រប់គ្រងរហ័សតែមួយ៖ បំពង់ដំណើរការ កំណត់ហេតុសាងសង់ វត្ថុសិល្បៈ ផ្លាកសញ្ញាស្ថានភាព និងបរិស្ថានដាក់ពង្រាយសម្រាប់គ្រប់ឃ្លាំងរបស់អ្នកនៅកន្លែងតែមួយ។ គ្មានការលោតផ្ទាំង គ្មានការទាយថាការសាងសង់ណាដែលខូច — រាល់ការដំណើរការ បន្ទាត់កំណត់ហេតុ និងការដាក់ពង្រាយ គឺចុចតែម្តង។',
+  'about.introHeading': 'អ្វីទៅជា {{app}}',
+  'about.missionBody':
+    'ការដឹកជញ្ជូនកម្មវិធីគួរតែស្ងប់ស្ងាត់ និងអាចទាយទុកជាមុន មិនមែនជាប្រភពនៃការភ័យខ្លាចទេ។ យើងសាងសង់បំពង់ដំណើរការ កំណត់ហេតុ និងឧបករណ៍ដាក់ពង្រាយ ដើម្បីឱ្យផ្លូវពីការប្តេជ្ញាចិត្តទៅផលិតកម្មមានល្បឿនលឿន មើលឃើញ និងអាចទុកចិត្តបាន — ការសាងសង់ពណ៌បៃតងដំបូងក្នុងរយៈពេលប្រាំនាទី ហើយរាល់ការសាងសង់បន្ទាប់ពីនោះក៏ច្បាស់លាស់ដូចគ្នា។',
+  'about.missionHeading': 'បេសកកម្មរបស់យើង',
+  'about.subtitle':
+    '{{app}} គឺជាផ្ទាំងគ្រប់គ្រង CI/CD សម្រាប់ក្រុមដែលចង់តាមដានការសាងសង់ ការដាក់ពង្រាយ និងបរិស្ថាននៅគ្រប់ឃ្លាំង — និងដឹកជញ្ជូនដោយភាពជឿជាក់។',
   'artifacts.empty': 'មិនទាន់មានវត្ថុបុរាណនៅឡើយទេ។',
   'artifacts.heading': 'វត្ថុបុរាណ',
   'artifacts.loadError': 'បរាជ័យក្នុងការផ្ទុកវត្ថុបុរាណ។',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'បរិស្ថាន',
   'environments.loadError': 'បរាជ័យក្នុងការផ្ទុកបរិស្ថាន។',
+  'environments.loading': 'កំពុងផ្ទុកបរិស្ថាន…',
   'environments.subheading': 'ស្ថានភាពដាក់ពង្រាយផ្ទាល់នៅទូទាំងគោលដៅនីមួយៗ។',
   'forgotPassword.runnerStatus': 'កំណត់ឡើងវិញ · ផ្លូវរូងក្រោមដីដែលមានសុវត្ថិភាព',
+  'forgotPassword.success':
+    'ប្រសិនបើមានគណនីសម្រាប់អ៊ីមែលនោះ តំណភ្ជាប់កំណត់ឡើងវិញនឹងមកដល់។ សូមពិនិត្យមើលប្រអប់សំបុត្ររបស់អ្នក។',
   'insights.changeFailureRate': 'ផ្លាស់ប្តូរអត្រាបរាជ័យ',
   'insights.deployFrequency': 'ដាក់ពង្រាយ / ថ្ងៃ',
   'insights.empty': 'មិនទាន់មានទិន្នន័យគ្រប់គ្រាន់នៅឡើយទេ។',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'មិនអាចផ្ទុកព័ត៌មានស៊ីជម្រៅបានទេ។',
   'insights.meanP95': 'មធ្យម {{mean}} · ទំព័រ ៩៥ {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'ជំហានបំពង់ដំណើរការយឺតបំផុត',
   'insights.successRateHeading': 'អត្រាជោគជ័យនៃបំពង់បង្ហូរប្រេង (១៤ ថ្ងៃចុងក្រោយ)',
   'landing.choosePlan': 'ជ្រើសរើសផែនការ',
+  'landing.copyright': '© {{year}} {{app}}។ ដឹកជញ្ជូនដោយភាពជឿជាក់។',
   'landing.ctaBody':
     'មិន​ចាំបាច់​មាន​កាត​ឥណទាន។ មិន​តម្រូវ​ឱ្យ​មាន​វិស្វករ​វេទិកា​ទេ។ ទទួល​បាន​បំពង់​បង្ហូរ​ប្រេង​ដំបូង​ក្នុង​រយៈពេល​ប្រាំ​នាទី។',
   'landing.ctaHeading': 'ផ្ញើ​ដោយ​មាន​ការ​ប្រាកដ​ប្រជា។',
   'landing.featuresEyebrow': '// លក្ខណៈពិសេសវេទិកា',
   'landing.featuresHeading': 'បង្កើតឡើងសម្រាប់អ្នកដឹកជញ្ជូន ដោយអ្នកដឹកជញ្ជូន',
+  'landing.heroSubtitle':
+    'បំពង់ដំណើរការដែលបញ្ចប់ក្នុងរយៈពេលវិនាទី។ កំណត់ហេតុដែលអ្នកអាចអានបាន។ ការដាក់ពង្រាយដែលអ្នកអាចទុកចិត្តបាន។',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit ដាក់ពង្រាយ --ដោយសុវត្ថិភាព',
   'landing.pricingEyebrow': '// តម្លៃ $ --ធម្មតា',
   'landing.pricingHeading': 'តម្លៃសាមញ្ញ និងអាចព្យាករណ៍បាន',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'កំពុងហោះហើរឥឡូវនេះ',
   'pipelines.metric.successCaption': '{{count}} នៃ {{total}} រត់',
   'pipelines.metric.successRate': 'អត្រាជោគជ័យ',
+  'pipelines.realtimeOn': 'ពេលវេលាពិត',
   'pipelines.subheading': 'ការអាប់ដេតផ្ទាល់ពីឃ្លាំងដែលបានមើលនីមួយៗ។',
+  'pricing.advancedFeatures': 'មុខងារកម្រិតខ្ពស់៖ {{mark}}',
+  'pricing.canExport': 'នាំចេញទិន្នន័យ៖ {{mark}}',
+  'pricing.maxArtifacts': 'វត្ថុសិល្បៈ {{count}}',
+  'pricing.maxBuilds': 'ការសាងសង់ {{count}}',
+  'pricing.maxPipelines': 'បំពង់ដំណើរការ {{count}}',
   'privacy.dataAccount': 'គណនី៖ ឈ្មោះ, អ៊ីមែល, ពាក្យសម្ងាត់ដែលបានអ៊ិនគ្រីប, កម្រិតផែនការ។',
   'privacy.intro':
     '{{កម្មវិធី}} ប្រមូលតែទិន្នន័យអប្បបរមាដែលយើងត្រូវការដើម្បីដំណើរការគណនីចែកចាយបន្តរបស់អ្នក៖ អ៊ីមែលរបស់អ្នក ឃ្លាំងដែលអ្នកភ្ជាប់ ទិន្នន័យមេតានៃការប្តេជ្ញាចិត្ត និងការបង្កើតដែលអ្នករត់របស់អ្នកបង្កើត និងអាថ៌កំបាំងដែលអ្នកជ្រើសរើសរក្សាទុកជាមួយយើង។ យើងមិនដែលអានកូដប្រភពរបស់អ្នកនៅខាងក្រៅកម្មវិធីរត់ការបង្កើតទេ។ វត្ថុបុរាណនៃការបង្កើតត្រូវបានរក្សាទុកនៅក្នុងធុង S3 របស់អ្នកនៅពេលកំណត់រចនាសម្ព័ន្ធ។',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'យើងប្រើប្រាស់ Stripe សម្រាប់ការគិតប្រាក់ Mailgun សម្រាប់អ៊ីមែលប្រតិបត្តិការ និង AWS S3 សម្រាប់ការផ្ទុកវត្ថុបុរាណ។ នីមួយៗត្រូវបានចងភ្ជាប់តាមកិច្ចសន្យាចំពោះវិសាលភាពទិន្នន័យអប្បបរមាដែលត្រូវការដើម្បីផ្តល់សេវាកម្មរបស់ខ្លួន។',
   'privacy.rightsBody':
     'អ្នកអាចនាំចេញទិន្នន័យរបស់អ្នកគ្រប់បៃ លុបគណនីរបស់អ្នកនៅពេលណាក៏បានពីការកំណត់ និងស្នើសុំកំណត់ត្រានៃការដឹកជញ្ជូន webhook នីមួយៗនៅលើគណនីរបស់អ្នក។ យើងឆ្លើយតបទៅនឹងសំណើ GDPR / CCPA ក្នុងរយៈពេល 30 ថ្ងៃ។',
+  'privacy.subtitle':
+    'របៀបដែល {{app}} ប្រមូល រក្សាទុក និងការពារទិន្នន័យរបស់អ្នក ខណៈពេលដែលយើងដំណើរការបំពង់ដំណើរការរបស់អ្នក។',
   'privacy.title': 'គោលការណ៍ឯកជនភាព',
   'repositories.empty': 'គ្មាន​ឃ្លាំង​ទិន្នន័យ​ដែល​បាន​ភ្ជាប់​ទេ។',
   'repositories.heading': 'ឃ្លាំងផ្ទុក',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'ឃ្លាំងទិន្នន័យទាំងអស់',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'បរាជ័យក្នុងការផ្ទុកឃ្លាំង។',
+  'repositoryDetail.meanDuration': 'រយៈពេលមធ្យម',
   'repositoryDetail.notFound': 'រកមិនឃើញឃ្លាំងផ្ទុកទិន្នន័យទេ។',
+  'repositoryDetail.successRate': 'អត្រាជោគជ័យ',
   'repositoryDetail.totalBuilds': 'ការសាងសង់សរុប',
   'repositoryDetail.webhookActive': 'សកម្ម',
   'repositoryDetail.webhookPaused': 'បានផ្អាក',
   'repositoryDetail.webhooksHeading': 'គេហទំព័រ​សម្រាប់​ភ្ជាប់​អ៊ីនធឺណិត',
+  'resetPassword.passwordLabel': 'ពាក្យសម្ងាត់ថ្មី',
   'resetPassword.runnerStatus': 'កំណត់ឡើងវិញ · បានផ្ទៀងផ្ទាត់សញ្ញាសម្ងាត់',
   'resetPassword.subtitle': 'សូមជ្រើសរើសពាក្យសម្ងាត់ដ៏រឹងមាំដែលអ្នកមិនធ្លាប់ប្រើពីមុនមក។',
   'resetPassword.tokenPlaceholder': 'បិទភ្ជាប់ពីអ៊ីមែល',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'ឃ្លាំង​ឧបករណ៍​ឃ្លាំមើល​បំពង់។ ផ្តាច់​ចេញពី​អ្នកផ្តល់សេវា VCS របស់អ្នក ដើម្បី​បញ្ឈប់​ការ​ទទួលយក​ព្រឹត្តិការណ៍។',
   'settings.repositories.empty': 'មិនទាន់មានឃ្លាំងទិន្នន័យដែលបានភ្ជាប់នៅឡើយទេ។',
+  'settings.repositories.heading': 'ការតភ្ជាប់ឃ្លាំង',
   'settings.repositories.loadError': 'បរាជ័យក្នុងការផ្ទុកឃ្លាំងទិន្នន័យ។',
   'settings.secrets.addCta': 'បន្ថែម​ព័ត៌មាន​សម្ងាត់',
   'settings.secrets.addError': 'មិនអាចបន្ថែម​ព័ត៌មានសម្ងាត់បានទេ។',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'មិនអាចលុប​ព័ត៌មានសម្ងាត់បានទេ។',
   'settings.secrets.empty': 'គ្មានអាថ៌កំបាំងណាមួយត្រូវបានរក្សាទុកទេ។',
   'settings.secrets.heading': 'អាថ៌កំបាំង',
+  'settings.secrets.lastUsed': 'ប្រើចុងក្រោយ {{date}}',
   'settings.secrets.loadError': 'មិនអាចផ្ទុក​អាថ៌កំបាំងបានទេ។',
   'settings.secrets.neverUsed': 'មិនដែលប្រើ',
   'settings.secrets.rotateCta': 'បង្វិល',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'មិនអាចធ្វើបច្ចុប្បន្នភាព webhook បានទេ។',
   'signup.namePlaceholder': 'ឧទ្យានរីលី',
   'signup.runnerStatus': 'កម្រិតឥតគិតថ្លៃ · 1,000 build min/month',
+  'terms.intro':
+    'ដោយបង្កើតគណនី {{app}} អ្នកយល់ព្រមនឹងលក្ខខណ្ឌទាំងនេះ។ ពួកវាគ្របដណ្តប់ការប្រើប្រាស់ដែលអាចទទួលយកបាននៃឧបករណ៍ដំណើរការសាងសង់ ព្រំដែននៃ SLA របស់យើង និងលក្ខខណ្ឌដែលយើងអាចផ្អាក ឬបញ្ចប់គណនីរបស់អ្នកសម្រាប់បន្ទុកការងារដែលមិនសមស្រប។',
   'terms.slaBody':
     'ផែនការ Pro និង Team កំណត់គោលដៅដំណើរការប្រចាំខែ 99.95% សម្រាប់ API និង runner pool។ ផែនការឥតគិតថ្លៃត្រូវបានផ្តល់ជូនដូចដែលមាន។ ការដាច់ចរន្តអគ្គិសនីត្រូវបានរាយការណ៍នៅលើ status.conduit.dev ហើយត្រូវបានបញ្ចូលទៅក្នុងគណនីតាមរូបមន្តនៅក្នុងវិក្កយបត្ររបស់អ្នក។',
   'terms.terminationBody':

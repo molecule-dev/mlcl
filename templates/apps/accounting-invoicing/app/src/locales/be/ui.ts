@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Маеце пытанне, знайшлі памылку або хочаце перанесці свае кнігі? Звяжыцеся з камандай {{app}} па адрасе hello@{{app}}.example — кожнае паведамленне чытае жывы чалавек.',
   'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
+  'about.intro':
+    '{{app}} — гэта бухгалтэрыя для малога бізнесу, якая трымае пад улікам кожны цэнт — рахункі-фактуры, выдаткі, плацяжы і справаздачы ў адным спакойным месцы для ўладальнікаў, бухгалтараў і рахункаводаў.',
+  'about.missionBody':
+    'Вядзенне бізнесу не павінна азначаць страх перад сваімі кнігамі. {{app}} замяняе разрослыя табліцы зразумелымі лічбамі, на якія можна дзейнічаць, таму вы менш часу траціце на звярэнне і больш — на працу, дзеля якой і пачалі бізнес.',
+  'about.missionTitle': 'Наша місія',
   'about.title': 'Пра {{app}}',
   'accounts.count': 'акаўнтаў {{count}}',
+  'accounts.emptyBody':
+    "Рахункі галоўнай кнігі паказваюць, дзе знаходзяцца і як рухаюцца грошы. Яны з'явяцца тут, калі ваш бухгалтар або інтэграцыя іх наладзіць.",
   'accounts.emptyTitle': 'Пакуль няма рахункаў',
   'accounts.heading': 'План рахункаў',
   'accounts.kpi.accounts': 'Рахункі',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Кожны бухгалтарскі ўлік вашых рахункаў-фактур, выдаткаў і плацяжоў, згрупаваны па тыпу.',
   'accounts.tag.inactive': 'неактыўны',
   'authBrandPanel.attributionName': 'Сара Джэнкінс',
+  'authBrandPanel.attributionRole': 'Фінансавы дырэктар, Horizon Tech',
   'authBrandPanel.eyebrow': 'Давяраюць фінансавыя каманды',
   'authBrandPanel.label': 'Вітрына брэнда',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Усе кліенты',
   'customerDetail.invoiceMeta': 'Выдадзена {{issued}} · Тэрмін прыдатнасці {{due}}',
   'customerDetail.loadError': 'Не атрымалася загрузіць кліента.',
+  'customerDetail.missingBody':
+    'Запытаны запіс кліента не ўдалося загрузіць. Магчыма, ён быў выдалены або ў вас няма доступу да яго.',
   'customerDetail.missingHeading': 'Запіс кліента недаступны',
+  'customerDetail.missingHelp':
+    'Скарыстайцеся спасылкай назад уверсе, каб вярнуцца да спісу кліентаў, або выберыце там іншы запіс.',
+  'customerDetail.noInvoices': 'Пакуль няма рахункаў-фактур.',
   'customerDetail.notesEmpty': 'Пакуль няма заўваг.',
   'customerDetail.paymentsEmpty': 'Плацяжы не зарэгістраваныя.',
   'customerDetail.paymentTerms': 'Умовы аплаты',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Франшыза',
   'expenseDetail.detailsHeading': 'Падрабязнасці транзакцыі',
   'expenseDetail.loadError': 'Не атрымалася загрузіць выдаткі.',
+  'expenseDetail.matched': 'Супадна · {{description}}',
   'expenseDetail.missingBody':
     'Не ўдалося загрузіць запытаны выдатак. Магчыма, ён быў выдалены, альбо ў вас няма да яго доступу.',
   'expenseDetail.missingHeading': 'Запіс выдаткаў недаступны',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Квітанцыя',
   'expenseDetail.receiptHeading': 'Квітанцыя',
   'expenseDetail.reconciled': 'Узгаднена',
+  'expenseDetail.unreconciled': 'Неўзгодненыя',
   'expenses.empty': 'Пакуль што ніякіх выдаткаў.',
   'expenses.heading': 'Выдаткі',
   'expenses.kpi.deductible': 'Франшыза',
@@ -101,6 +118,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Не атрымалася загрузіць рахункі-фактуры.',
   'invoices.searchPlaceholder': 'Пошук па нумары рахунку-фактуры або кліента…',
   'invoices.summary.paid': 'Аплачана за гэты перыяд',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'Бясплатна 30 дзён. Без карткі. Прывядзіце свайго бухгалтара — ён будзе вам удзячны.',
   'landing.ctaTitle': 'Перанясіце кнігі ў больш спакойнае месца.',
@@ -115,6 +133,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Дэбіторская запазычанасць',
   'ledgerStatTriad.eyebrow.mtd': 'З пачатку месяца',
   'ledgerStatTriad.netSub': 'Чысты {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} пратэрмінавана',
   'ledgerStatTriad.revenueLabel': 'Даход',
   'login.failed': 'Памылка ўваходу.',
   'login.hidePassword': 'Схаваць пароль',
@@ -125,6 +144,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Увайсці',
   'nav.legal': 'Юрыдычная інфармацыя',
   'newExpense.back': 'Выдаткі',
+  'newExpense.clearReceiptCta': 'Ачысціць прымацаваны чэк',
   'newExpense.deductible': 'Падатковы вылік',
   'newExpense.dropPrompt': 'Каб прымацаваць чэк, перацягніце сюды фота ці PDF-файл.',
   'newExpense.failed': 'Не атрымалася зэканоміць на выдатках.',
@@ -153,6 +173,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Не атрымалася загрузіць плацяжы.',
   'payments.unmatchedTag': 'непераўзыдзены',
   'planUpdated.pageLabel': 'Пацверджанне абнаўлення плана',
+  'pricing.advancedFeatures': 'Пашыраныя функцыі: {{yes}}',
+  'pricing.canExport': 'Экспарт даных: {{yes}}',
+  'pricing.heading': 'Выберыце свой план {{app}}',
+  'pricing.maxAccounts': 'акаўнтаў {{count}}',
+  'pricing.maxExpenses': '{{count}} выдаткі',
+  'pricing.maxInvoices': 'Рахункі-фактуры: {{count}}',
+  'privacy.intro':
+    'Гэта Палітыка прыватнасці апісвае, як {{app}} збірае, выкарыстоўвае і раскрывае інфармацыю пра бізнесы, якія карыстаюцца сэрвісам.',
   'privacy.lastUpdated': 'Апошняе абнаўленне: {{дата}}',
   'privacy.section.collected.body':
     'Мы збіраем рэквізіты ўліковага запісу (імя, адрас электроннай пошты, кампанію), фінансавыя запісы, якія вы загружаеце (рахункі-фактуры, выдаткі, кліенты, плацяжы) і стандартныя журналы працы сэрвісаў (IP-адрас, карыстальніцкі агент, часовыя меткі).',
@@ -165,8 +193,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Інфармацыя выкарыстоўваецца для працы сэрвісу, стварэння запытаных вамі справаздач і PDF-файлаў, адпраўкі транзакцыйнай электроннай пошты праз Mailgun і апрацоўкі плацяжоў праз Stripe. Мы не прадаем і не здаем у арэнду асабістую інфармацыю.',
   'recentInvoicesCard.dueMeta': 'Тэрмін {{date}}',
+  'recentInvoicesCard.empty': 'Няма супадзенняў паміж рахункамі-фактурамі.',
   'recentInvoicesCard.eyebrow': 'Дэбіторская запазычанасць',
   'recentInvoicesCard.searchAriaLabel': 'Пошук рахункаў-фактур',
+  'recentInvoicesCard.searchPlaceholder': 'Пошук рахункаў-фактур…',
   'recentInvoicesCard.title': 'Нядаўнія рахункі-фактуры',
   'recentInvoicesCard.viewAll': 'Паглядзець усе рахункі-фактуры →',
   'reports.assets': 'Актывы',
@@ -182,16 +212,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Прыбытак і страты (12 месяцаў)',
   'resetPassword.backToLogin': '← Назад да ўваходу',
   'resetPassword.hidePassword': 'Схаваць пароль',
+  'resetPassword.passwordLabel': 'Новы пароль',
   'resetPassword.showPassword': 'Паказаць пароль',
+  'resetPassword.subheading': 'Выберыце надзейны пароль — мінімум восем сімвалаў.',
   'resetPassword.submit': 'Скінуць пароль',
   'resetPassword.tooShort': 'Пароль павінен быць не менш за 8 сімвалаў.',
   'settings.account.changePassword': 'Змяніць пароль',
   'settings.account.changingPassword': 'Змяняецца…',
   'settings.account.currentPassword': 'Бягучы пароль',
+  'settings.account.dangerZone': 'Небяспечная зона',
   'settings.account.deleteAccount': 'Выдаліць уліковы запіс',
   'settings.account.deleteDescription':
     'Назаўсёды выдаліце свой уліковы запіс і ўсе звязаныя з ім дадзеныя.',
   'settings.account.deleteError': 'Не ўдалося выдаліць уліковы запіс.',
+  'settings.account.deleteWarning':
+    'Гэта назаўсёды выдаліць ваш уліковы запіс, і адмяніць гэта немагчыма. Увядзіце пароль для пацверджання.',
   'settings.account.deleting': 'Выдаленне…',
   'settings.account.devices': 'Прылады',
   'settings.account.email': 'Электронная пошта',
@@ -202,6 +237,7 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Пароль',
   'settings.account.passwordError': 'Не ўдалося змяніць пароль.',
   'settings.account.pushNotifications': 'Push-апавяшчэнні на гэтай прыладзе',
+  'settings.account.revokeDeviceWarning': 'Доступ гэтай прылады хутка будзе адкліканы. Выйсці?',
   'settings.account.saveError': 'Не атрымалася абнавіць профіль.',
   'settings.account.security': 'Бяспека',
   'settings.account.signOutDevice': 'Выйсці',
@@ -209,12 +245,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Двухфактарная аўтэнтыфікацыя',
   'settings.account.twoFactorCode': 'Код аўтэнтыфікацыі',
   'settings.account.twoFactorDisable': 'Адключыць',
+  'settings.account.twoFactorDisableTitle': 'Адключыць двухфактарную аўтэнтыфікацыю',
   'settings.account.twoFactorEnable': 'Уключыць',
+  'settings.account.twoFactorEnableTitle': 'Уключыць двухфактарную аўтэнтыфікацыю',
   'settings.account.twoFactorInvalidCode': 'Няправільны код',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'QR-код двухфактарнай аўтэнтыфікацыі',
+  'settings.account.twoFactorScan':
+    'Адсканіруйце гэты QR-код у сваёй праграме аўтэнтыфікацыі, затым увядзіце 6-значны код.',
+  'settings.account.twoFactorUnavailable':
+    'Двухфактарная аўтэнтыфікацыя недаступная для гэтай праграмы.',
   'settings.account.twoFactorVerify': 'Праверыць і ўключыць',
   'settings.account.unknownDevice': 'Невядомая прылада',
   'settings.company.email': 'Электронная пошта для выстаўлення рахункаў',
+  'settings.company.heading': 'Кампанія і падаткі',
   'settings.company.name': 'Афіцыйнае імя',
   'settings.company.saveButton': 'Захаваць профіль кампаніі',
   'settings.company.taxId': 'Падатковы ідэнтыфікацыйны нумар / EIN',
@@ -258,6 +302,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Прыблізна штоквартальна',
   'taxes.kpi.owed': 'Запазычанасць',
   'taxes.loadError': 'Не атрымалася загрузіць падатковую зводку.',
+  'taxes.remittedPct': '({{pct}}% пералічана)',
+  'terms.intro':
+    'Гэтыя Ўмовы абслугоўвання ("Умовы") рэгулююць ваш доступ да {{app}} і яго выкарыстанне. Ствараючы ўліковы запіс або карыстаючыся сэрвісам, вы згаджаецеся быць звязанымі імі.',
   'terms.lastUpdated': 'Апошняе абнаўленне: {{дата}}',
   'terms.section.acceptable.body':
     'Вы згаджаецеся не выкарыстоўваць сэрвіс для парушэння любога заканадаўства, парушэння правоў інтэлектуальнай уласнасці, перадачы шкоднасных праграм або спроб атрымання несанкцыянаванага доступу да іншых уліковых запісаў або нашай інфраструктуры.',

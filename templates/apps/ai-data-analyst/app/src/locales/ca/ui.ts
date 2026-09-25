@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens preguntes, comentaris o un conjunt de dades que ha deixat el model sense resposta? Contacta amb l'equip de {{app}} des del menú d'ajuda de l'aplicació: cada missatge arriba a una persona real que treballa en el producte.",
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre',
+  'about.intro':
+    "{{app}} és un analista de dades amb IA que converteix les dades en brut en respostes. Puja un CSV o connecta un magatzem de dades, fes una pregunta en llenguatge natural i obtén el gràfic correcte, la taula de suport i el SQL que l'ha generat — {{tagline}}.",
+  'about.missionBody':
+    "L'analítica no hauria de requerir una entrada al backlog i una setmana d'espera. {{app}} posa un analista competent darrere d'un quadre de text perquè els equips de producte, operacions i finances puguin respondre les seves pròpies preguntes en qüestió de minuts, mantenint cada resultat reproduïble i auditable.",
+  'about.missionTitle': 'La nostra missió',
   'about.pageTitle': 'Sobre {{app}}',
+  'about.whatYouGet': 'El que obtens',
+  'askClarionBar.ariaLabel': 'Fes una pregunta a {{appName}}',
   'askClarionBar.askCta': 'Pregunta',
   'askClarionBar.placeholder':
     'Feu una pregunta sobre les vostres dades, per exemple, "els 10 principals clients per ingressos del tercer trimestre".',
@@ -20,16 +30,20 @@ export const ui: UiTranslations = {
   'dashboard.insightsHeading': 'Informació recent',
   'dashboard.noInsights':
     'Encara no hi ha informació detallada; puja un conjunt de dades per començar.',
+  'dashboard.subhead':
+    "Tres informacions noves des d'ahir. Una anomalia que val la pena mirar amb més detall.",
   'dashboard.uploadCta': 'Puja dades',
   'datasetCard.analyzedPrefix': 'analitzat {{when}}',
   'datasetCard.cols': 'Cols',
   'datasetCard.rows': 'Files',
+  'datasetDetail.aiHeading': 'Informació sobre la IA',
   'datasetDetail.back': 'Conjunts de dades',
   'datasetDetail.col.example': 'Exemple',
   'datasetDetail.col.name': 'Field',
   'datasetDetail.col.nullable': 'Nul·lable',
   'datasetDetail.col.unique': 'Únic',
   'datasetDetail.cols': 'Columnes',
+  'datasetDetail.lineageEmpty': "Importat des d'una càrrega: sense transformacions prèvies.",
   'datasetDetail.loadError': "No s'ha pogut carregar el conjunt de dades.",
   'datasetDetail.notFound': "No s'ha trobat el conjunt de dades.",
   'datasetDetail.queriesEmpty': 'Encara no hi ha consultes desades en aquest conjunt de dades.',
@@ -43,17 +57,22 @@ export const ui: UiTranslations = {
   'datasetDetail.tab.${tk}': 'Field',
   'datasets.empty': 'Encara no hi ha cap conjunt de dades; pengeu-ne un per començar.',
   'datasets.eyebrow': '{{count}} conjunts de dades · {{rows}} files',
+  'datasets.heading': 'Conjunts de dades',
   'datasets.loadError': "No s'han pogut carregar els conjunts de dades.",
   'datasets.subhead':
     "Fitxers que Clarion ha indexat i fet que es poden consultar. Feu clic a una targeta per inspeccionar l'esquema, les estadístiques i el llinatge.",
   'datasets.uploadCta': 'Puja el conjunt de dades',
+  'forgotPassword.backPrompt': 'Ho recordes després de tot? ',
   'forgotPassword.checkSpam':
     'Si no ho veieu en un minut, reviseu la carpeta de correu brossa o proveu de tornar-lo a enviar.',
   'forgotPassword.emailRequired': 'Cal un correu electrònic',
+  'forgotPassword.resend': 'Torna a enviar',
   'forgotPassword.sendError': "No s'ha pogut enviar el correu electrònic de restabliment",
   'forgotPassword.sentHeading': 'Revisa el teu correu electrònic',
   'forgotPassword.sentSubheading':
     "Hem enviat un enllaç de restabliment a {{email}} L'enllaç caduca en 30 minuts.",
+  'forgotPassword.subheading':
+    "Introdueix el teu correu electrònic de feina i t'enviarem un enllaç per establir una contrasenya nova.",
   'googleSignInButton.label': 'Continua amb Google',
   'insightFeedCard.viewCta': 'Vista',
   'insightHeroCard.subtitle':
@@ -62,36 +81,54 @@ export const ui: UiTranslations = {
   'kpiTileGrid.momSuffix': 'en comparació amb el mes passat',
   'landing.closing.cta': 'Prova Clarion gratuïtament',
   'landing.closing.heading': 'Deixa de crear quadres de comandament. Comença a fer preguntes.',
+  'landing.closing.subhead':
+    'Gratuït durant 14 dies. Porta un CSV i obtén les teves tres primeres informacions en menys de cinc minuts.',
   'landing.features.eyebrow': 'Com funciona Clarion',
   'landing.features.heading': 'Deixa un CSV. Fes una pregunta. Obtén la resposta.',
+  'landing.features.subhead':
+    "No cal SQL. Sense acumulació de quadres de comandament. Cada resposta és un gràfic, una taula i el SQL que s'ha executat: exportable amb un clic.",
   'landing.hero.eyebrow': "Analista de dades d'IA · per a equips de producte i operacions",
   'landing.hero.primaryCta': 'Prova Clarion gratuïtament durant 14 dies',
   'landing.hero.secondaryCta': 'Vegeu una consulta de mostra',
   'landing.hero.subtitle':
     "Puja un conjunt de dades, fes preguntes en anglès planer i rep el gràfic correcte. Clarion gestiona l'SQL, el descobriment d'esquemes i el llinatge, de manera que els analistes poden enviar 10 vegades més ràpid.",
+  'landing.hero.title': '{{tagline}}.',
   'landing.hero.trust1': 'Sense targeta de crèdit',
   'landing.hero.trust2': 'SOC 2 tipus II',
   'landing.hero.trust3': 'Llinatge a cada gràfic',
   'landing.nav.tryFree': 'Prova gratis',
+  'landing.preview.cta': 'Prova una consulta',
   'landing.preview.label': 'Aquest mes han aparegut dades',
   'landing.proof.heading': "Creat per a equips d'anàlisi seriosos",
   'login.hidePassword': 'Amaga la contrasenya',
+  'login.newUserPrompt': 'Ets nou a {{appName}}? ',
   'login.showPassword': 'Mostra la contrasenya',
   'login.subheading':
     'Inicia la sessió per continuar fent millors preguntes sobre les teves dades.',
+  'login.trialCta': 'Comença la prova de {{days}} dies',
   'mobileNav.closeMenu': 'Tanca el menú de navegació',
   'mobileNav.openMenu': 'Obre el menú de navegació',
+  'planUpdated.body':
+    'El canvi de facturació ja és actiu. Pots gestionar el teu pla en qualsevol moment des de la pàgina de facturació.',
+  'planUpdated.retry': 'Torna-ho a intentar',
+  'planUpdated.verifyFailed': 'Encara no hem pogut confirmar el vostre pagament.',
+  'planUpdated.verifyFailedBody':
+    "És possible que el vostre pagament encara s'estigui processant. Torneu-ho a provar en un moment.",
   'planUpdated.verifying': 'Confirmant el teu pagament…',
+  'pricing.limits.advanced': 'Funcions avançades',
   'queryEditor.aiBadge': 'IA generada',
   'queryEditor.aiSummary': 'Resum de la IA',
   'queryEditor.copyFailed': "No s'ha pogut copiar al porta-retalls.",
   'queryEditor.dataHeading': 'Dades',
+  'queryEditor.emptyBody':
+    "{{appName}} respon amb tres elements: un gràfic, la taula de dades subjacent i el SQL que s'ha executat.",
   'queryEditor.emptyHeading': 'Tria un suggeriment o escriu-ne un de propi',
   'queryEditor.emptyResult': "No s'ha retornat cap resposta. Prova una altra pregunta.",
   'queryEditor.exportCsv': 'CSV',
   'queryEditor.eyebrow': 'Ask Clarion · Consulta en llenguatge natural',
   'queryEditor.heading': 'Què vols saber?',
   'queryEditor.questionEyebrow': 'Vas preguntar',
+  'queryEditor.runFailed': "No s'ha pogut executar aquesta consulta. Torna-ho a provar.",
   'queryEditor.sqlHeading': 'SQL generat',
   'queryEditor.subhead':
     "Escriviu una pregunta en anglès planer. Clarion selecciona el gràfic, executa l'SQL i us mostra el llinatge.",
@@ -108,8 +145,11 @@ export const ui: UiTranslations = {
   'reports.subhead':
     "Anàlisis desades que podeu compartir, programar i exportar. Feu clic a qualsevol miniatura per obrir l'informe complet.",
   'reportThumbnailCard.onDemand': 'a la carta',
+  'reportThumbnailCard.runPrefix': 'executa {{when}}',
+  'resetPassword.hidePassword': 'Amaga la contrasenya',
   'resetPassword.newPasswordLabel': 'Nova contrasenya',
   'resetPassword.newPasswordPlaceholder': 'Nova contrasenya',
+  'resetPassword.passwordTooShort': 'La contrasenya ha de tenir com a mínim {{min}} caràcters',
   'resetPassword.resetFailed': 'El restabliment ha fallat',
   'resetPassword.showPassword': 'Mostra la contrasenya',
   'resetPassword.subheading':
@@ -125,19 +165,26 @@ export const ui: UiTranslations = {
   'settings.apiKeys.createCta': 'Generar',
   'settings.apiKeys.created': 'Nova clau API generada.',
   'settings.apiKeys.createError': "No s'ha pogut crear la clau de l'API.",
+  'settings.apiKeys.creating': 'Generant…',
   'settings.apiKeys.deleted': 'Clau API revocada.',
   'settings.apiKeys.deleteError': "No s'ha pogut revocar la clau de l'API.",
+  'settings.apiKeys.empty': "Encara no hi ha claus d'API: genera'n una a dalt.",
   'settings.apiKeys.heading': 'Claus API',
   'settings.apiKeys.namePlaceholder': 'Nom de la clau (per exemple, bot de CI)',
   'settings.apiKeys.rotateCta': 'Girar',
   'settings.apiKeys.rotated': 'Clau API rotada. Actualitza les integracions.',
+  'settings.apiKeys.rotateError': "No s'ha pogut rotar la clau d'API.",
+  'settings.appearance.description': 'Alterna entre el mode clar i el mode fosc.',
   'settings.appearance.title': 'Aspecte',
   'settings.dangerZone': 'Zona de perill',
   'settings.integrations.body':
     'Connecta un magatzem per consultar dades en directe en comptes de carregar fitxers.',
   'settings.integrations.connected': 'Connexió actualitzada per a {{source}} .',
   'settings.integrations.connectedTag': 'connectat',
+  'settings.integrations.error': "No s'ha pogut actualitzar la integració.",
   'settings.integrations.heading': 'Fonts de dades',
+  'settings.revokeDeviceWarning':
+    "L'accés d'aquest dispositiu es revocarà aviat. Voleu tancar la sessió?",
   'settings.security.heading': 'Seguretat',
   'settings.signOutDevice': 'Tanca la sessió',
   'settings.team.empty':
@@ -145,21 +192,31 @@ export const ui: UiTranslations = {
   'settings.team.removed': "Membre de l'equip eliminat.",
   'settings.twoFactorCode': "Codi d'autenticació",
   'settings.twoFactorDisable': 'Desactiva',
+  'settings.twoFactorDisableTitle': "Desactiva l'autenticació de dos factors",
   'settings.twoFactorEnable': 'Activa',
+  'settings.twoFactorEnableTitle': "Activa l'autenticació de dos factors",
   'settings.twoFactorInvalidCode': 'Codi no vàlid',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Codi QR de dos factors',
+  'settings.twoFactorScan':
+    "Escaneja aquest codi QR amb la teva aplicació d'autenticació i després introdueix el codi de 6 dígits.",
+  'settings.twoFactorUnavailable':
+    "L'autenticació de dos factors no està disponible per a aquesta aplicació.",
   'settings.twoFactorVerify': 'Verifica i activa',
   'sideNavBar.appSubtitle': "Analista de dades d'IA",
   'sideNavBar.datasets': 'Conjunts de dades',
   'sideNavBar.newAnalysis': 'Nova anàlisi',
   'sideNavBar.queries': 'Consultes',
   'signup.failed': 'El registre ha fallat',
+  'signup.haveAccount': 'Ja tens un compte? ',
+  'signup.hidePassword': 'Amaga la contrasenya',
   'signup.showPassword': 'Mostra la contrasenya',
   'signup.subheading':
     "14 dies gratuïts. No es permet l'ús de targeta de crèdit. Porteu un CSV: Clarion s'encarrega de la resta.",
   'topNavBar.help': 'Ajuda',
   'topNavBar.lastDays': 'Últim {{dies}} Dies',
   'topNavBar.userProfileAlt': "Perfil d'usuari",
+  'upload.dropPrompt': 'Deixa anar un fitxer aquí o fes clic per navegar',
   'upload.maxSize': 'Màxim {{size}}',
   'upload.noRecent': "Encara no s'ha pujat res.",
   'upload.recentHeading': 'Pujades recents',
@@ -170,9 +227,13 @@ export const ui: UiTranslations = {
   'upload.uploading': "S'està carregant…",
   'upload.viewCta': 'Conjunts de dades →',
   'uploadDropZone.eyebrow': 'Deixa anar un fitxer · o fes clic per navegar',
+  'uploadDropZone.fileInputLabel': 'Tria un fitxer per pujar',
+  'uploadDropZone.maxSize':
+    'Mida màxima del fitxer {{size}} · es prefereix CSV per als conjunts de dades més grans',
   'uploadDropZone.readyEyebrow': 'Llest per analitzar',
   'uploadDropZone.subtitle':
     "Clarion detecta automàticament l'esquema, executa estadístiques i detecta anomalies en el moment en què arriba el fitxer.",
+  'uploadDropZone.title': 'Puja el teu conjunt de dades',
   'uploadDropZone.unknownType': 'tipus desconegut',
   'userMenu.datasets': 'Els meus conjunts de dades',
 }

@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
+  'about.featureAlerts':
+    'Foláirimh praghais ar na coinníollacha a bhfuil tábhacht leo, seachadta trí ríomhphost agus trí chur chun cinn ionas nach gcaillfidh tú gluaiseacht riamh.',
+  'about.featureMarkets':
+    'Sonraí margaidh beo agus cairteacha praghais ar fud na mílte bonn, rangaithe de réir caipitlithe margaidh, toirte agus móiminteam.',
+  'about.featurePortfolio':
+    'Rianú punainne le fíor-bhrabús agus fíor-chaillteanas, bonnchostas agus leithdháileadh — ceangailte le do stair idirbheart.',
+  'about.featureWatchlist':
+    'Faireliosta pearsanta agus nuacht cripteagrafaíochta coimeádaithe le comharthaí ar na sócmhainní a leanann tú.',
+  'about.missionTitle': 'Ár misean',
+  'alertConditionCard.armedSince': 'Armtha ó {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'Spreagtha {{nuair}}',
   'alertConditionCard.confirmDelete': 'Deimhnigh scriosadh',
+  'alertConditionCard.deleteAriaLabel': 'Scrios foláireamh',
   'alertConditionCard.pauseAriaLabel': 'Cuir foláireamh ar sos',
   'alertConditionCard.resumeAriaLabel': 'Foláireamh atosú',
+  'alertConditionCard.triggeredAt': 'Spreagtha {{when}}',
   'alertNew.condition': 'Coinníoll',
   'alertNew.createCta': 'Cruthaigh foláireamh',
   'alertNew.error': 'Níorbh fhéidir foláireamh a chruthú.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Gan aon fhógraí fós.',
   'alerts.eyebrow': 'Sreanga tuisle Bourse',
   'alerts.loadError': 'Theip ar na foláirimh a lódáil.',
+  'alerts.newCta': '+ Tripwire nua',
   'alerts.subheading': 'Faigh pinge nuair a sháraíonn praghas, athrú nó toirt do theorainn.',
   'alerts.summary.armed': 'Armtha',
   'alerts.summary.triggered': 'Spreagtha',
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Buaicphointe riamh',
   'coinDetail.allTimeLow': 'Íseal riamh',
   'coinDetail.back': 'Gach margadh',
+  'coinDetail.chartAriaLabel': 'Cairt phraghais {{name}}, na 30 lá seo caite',
   'coinDetail.chartHeading': 'Praghas · 30 lá anuas',
   'coinDetail.circulating': 'Soláthar imshruthaithe',
   'coinDetail.fdv': 'Luacháil lánchaolaithe',
@@ -59,6 +74,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Athshocraigh an nasc sreangaithe.',
   'login.eyebrow': 'Céim isteach sa chríochfort',
   'login.heading': 'Fáilte ar ais, a chomharthóir.',
+  'login.noAccountQuestion': 'Nua i dTessera?',
   'login.secureNote': '🔒 Criptithe ar idirthuras',
   'login.signingInCta': 'Ag léamh an téip…',
   'login.signupLink': 'Oscail cuntas →',
@@ -94,6 +110,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Ní réitíonn an bealach a scanadh tú le mona nó leathanach aitheanta. Athsheiceáil an tsiombail agus déan iarracht eile.',
   'notFound.browseMarkets': 'Brabhsáil margaí',
+  'notFound.eyebrow': 'Comhartha {{appName}} caillte',
+  'notFound.heading': 'Tá an comhartha seo as raon',
+  'planUpdated.body':
+    "Tá d'athrú billeála gníomhach anois. Is féidir leat do phlean a bhainistiú am ar bith ón leathanach billeála.",
+  'planUpdated.retry': 'Déan iarracht arís',
+  'planUpdated.verifyFailed': 'Ní raibh muid in ann d’íocaíocht a dheimhniú go fóill.',
+  'planUpdated.verifyFailedBody':
+    'B’fhéidir go bhfuil d’íocaíocht fós á próiseáil. Bain triail eile as i gceann nóiméid.',
   'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'portfolio.addError': 'Cuir isteach siombail, méid dearfach, agus costas.',
   'portfolio.addHoldingCta': '+ Cuir sealbhaíocht leis',
@@ -117,12 +141,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Luach iomlán na punainne',
   'portfolioHeroCard.totalPnl': 'Brabús Iomlán',
   'pricing.heading': 'foláirimh',
+  'pricing.limit.alerts': 'foláirimh',
   'pricing.limit.coins': 'boinn',
   'pricing.limit.market': 'margadh',
   'pricing.limit.portfolio': 'punann',
   'resetPassword.eyebrow': 'Cóip nua',
   'resetPassword.missingToken':
     'Tá an nasc athshocraithe seo ar iarraidh nó neamhbhailí. Iarr ceann nua.',
+  'resetPassword.passwordPlaceholder': 'Pasfhocal nua',
   'resetPassword.subheading': 'Roghnaigh rud nach féidir ach leatsa a dhíchódú.',
   'settings.apiKeys.body':
     'Eochracha léite amháin chun stair idirbheart a allmhairiú. Ceangail trí OAuth ó /pricing nuair a bheidh tú síntiúsáilte.',
@@ -134,18 +160,34 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Airgeadra luachana',
   'settings.preferences.locale': 'Logán',
   'settings.preferences.push': 'Brúigh',
+  'settings.preferences.refresh': 'Athnuachan praghais (soicindí)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning':
+    'Cuirfear deireadh le rochtain an ghléis seo go luath. Sínigh amach é?',
   'settings.security.body':
     'Déanann do chuntas bainistíocht ar phasfhocail agus ar shocruithe dhá fhachtóir.',
   'settings.signOutDevice': 'Sínigh amach',
   'settings.twoFactorCode': 'Cód fíordheimhnithe',
   'settings.twoFactorDisable': 'Díchumasaigh',
+  'settings.twoFactorDisableTitle': 'Díchumasaigh fíordheimhniú dhá fhachtóir',
   'settings.twoFactorEnable': 'Cumasaigh',
+  'settings.twoFactorEnableTitle': 'Cumasaigh fíordheimhniú dhá fhachtóir',
   'settings.twoFactorInvalidCode': 'Cód neamhbhailí',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Cód QR dhá fhachtóir',
+  'settings.twoFactorScan':
+    "Scan an cód QR seo le d'aip fhíordheimhniúcháin, ansin cuir isteach an cód 6 dhigit.",
+  'settings.twoFactorUnavailable': 'Níl fíordheimhniú dhá fhachtóir ar fáil don aip seo.',
   'settings.twoFactorVerify': 'Fíoraigh & cumasaigh',
   'sigilAuthShell.backHomeCta': '← Ar ais go Bourse',
+  'sigilAuthShell.brandBody':
+    'Praghsanna fíor-ama, brabús/caillteanas punainne agus faireacháin sheasmhacha ar na coinníollacha a bhfuil tábhacht leo — go léir ar aon teirminéal amháin.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — tógtha ar Molecule',
+  'sigilAuthShell.brandHeadline': 'Díchódaigh gach comhartha ar fud an mhórleabhair ar fad.',
+  'sigilAuthShell.samplePortfolio': 'Punann samplach',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Príomh-loingseoireacht',
+  'signup.creating': 'Do theirminéal á oscailt…',
   'signup.eyebrow': 'Oscail críochfort',
   'signup.heading': 'Cruthaigh do Bourse',
   'signup.subheading': 'Rianaigh gach bonn, seachain gach cailliúint. Saor in aisce le tosú.',
@@ -162,6 +204,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Theip ar idirbhearta a lódáil.',
   'watchlist.addCta': 'Brabhsáil margaí',
   'watchlist.col.change24h': '24 uair an chloig',
+  'watchlist.col.coin': 'Bonn',
   'watchlist.col.marketCap': 'Caipín margaidh',
   'watchlist.empty':
     'Níl aon bhoinn ar do liosta faire — cuir réalta ar bhoinn ó /markets chun iad a chur leis.',

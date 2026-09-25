@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ir atsauksmes, atradi kļūdu vai vēlies savu dēli vietnē {{appName}}? Atver Iestatījumus, lai sazinātos ar komandu — katru ziņu lasa īsts cilvēks.',
+  'about.contactTitle': 'Sazinieties ar mums',
+  'about.featureModeration':
+    'Publiska ceļa karte ar ceturkšņu atzīmēm, izmaiņu žurnāls, kas paveikto pārvērš laidiena piezīmēs, un panelis, kas rāda, ko cilvēki vēlas visvairāk.',
+  'about.featurePricing':
+    'Bezmaksas divu dēļu pārvaldība; Pro un Team plāni atslēdz vairāk dēļu, augstākus limitus un datu eksportu.',
+  'about.featureThreads':
+    'Publiski atsauksmju dēļi pa tēmām ar dublikātu apvienošanu, kas apvieno balsis vienā godīgā pieprasījuma signālā.',
+  'about.featureVoting':
+    'Viena balss uz lietotāju ar pilnu statusa plūsmu — atvērts, plānots, izstrādē, izlaists vai noraidīts — un oficiāla atbilde par katru lēmumu.',
+  'about.intro':
+    '{{appName}} ir produktu atsauksmju platforma — publiski dēļi, kur klienti iesniedz pieprasījumus, balso par nepieciešamo un seko katrai idejai no plānota līdz izlaistam. Komandas vairs nav jāmin, ko būvēt tālāk, jo pieprasījums pats sarindojas.',
+  'about.missionBody':
+    'Mēs ticam, ka labākie produktu lēmumi tiek pieņemti atklātībā. {{appName}} sniedz katrai komandai publisku dēli ar nobalsotiem pieprasījumiem, oficiālu ceļa karti ar mērķa ceturkšņiem un izmaiņu žurnālu, kas noslēdz ciklu — tā klienti redz savu ietekmi, bet komandas redz savu mandātu.',
+  'about.missionTitle': 'Mūsu misija',
   'admin.backToBoards': 'Atpakaļ uz dēļiem',
   'admin.denied': 'Tikai administratoriem.',
   'admin.eyebrow': 'Produktu komanda',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'admin.title': 'Atsauksmju informācijas panelis',
   'admin.topOpen': 'Populārākie atvērtie pieprasījumi',
   'admin.totalVotes': '{{count}} kopā',
+  'admin.votesChartLabel': 'Joslu diagramma par nodotajām balsīm nedēļā pēdējo astoņu nedēļu laikā',
   'admin.votesOverTime': 'Balsis laika gaitā',
   'auth.forgotPassword.email': 'E-pasts',
   'auth.forgotPassword.sendResetLink': 'Nosūtīt atiestatīšanas saiti',
@@ -30,7 +47,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Izveidot kontu',
   'auth.username': 'Lietotājvārds',
   'authShell.communities': 'Kopienas',
+  'authShell.copyright': '{{appName}} — katra balss ir svarīga.',
   'authShell.trending': 'Populārākais',
+  'boardCard.postCount': '{{count}} ieraksti',
   'boardDetail.allBoards': 'Visi dēļi',
   'boardDetail.backToBoards': 'Atpakaļ uz dēļiem',
   'boardDetail.empty': 'Neviens ieraksts neatbilst šiem filtriem.',
@@ -54,6 +73,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Katrs ieraksts sākās kā nobalsots pieprasījums. Balsotāji redzēja tā virzību; šeit tas nonāca.',
   'changelog.title': 'Nosūtīts, ar pierādījumiem',
+  'changelog.voteCount': '{{count}} balsis palīdzēja to izveidot',
   'common.atLeast8Characters': 'Vismaz 8 rakstzīmes',
   'common.checkYourInbox': 'Pārbaudi savu iesūtni',
   'common.loadingEllipsis': 'Ielādē…',
@@ -64,6 +84,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Iesniedz…',
   'footer.about': 'Par {{appName}}',
   'footer.language': 'Valoda',
+  'forgotPassword.description':
+    'Ievadiet savu e-pasta adresi, un mēs nosūtīsim jums saiti atiestatīšanai.',
+  'forgotPassword.successBody':
+    'Mēs nosūtījām atiestatīšanas saiti uz {{email}} Tas beidzas pēc 30 minūtēm.',
   'forgotPassword.tryAnother': 'Mēģini citu e-pastu',
   'form.displayName': 'Redzamais vārds',
   'form.firstName': 'Vārds',
@@ -74,6 +98,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'Tavs ceļvedis, pamatots ar balsīm.',
   'landing.heroCtaPrimary': 'Sākt vākt balsis',
   'landing.heroCtaSecondary': 'Skatīt dzīvo dēli',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Pārstāj minēt. Izlaiž to, par ko viņi balso.',
+  'landing.heroLede':
+    '{{appName}} pārvērš izkaisītus funkciju pieprasījumus publiskā dēlī ar nobalsotām idejām, oficiālā ceļa kartē un izmaiņu žurnālā, ko klienti patiešām lasa.',
   'landing.heroStat1': '3200+',
   'landing.heroStat1Label': 'Komandas klausās',
   'landing.heroStat2': '1,4 milj.',
@@ -85,9 +113,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Izmaiņu žurnāls',
   'landing.navJoin': 'Pievienoties {{appName}}',
   'landing.navRoadmap': 'Ceļvedis',
+  'landing.step1Body':
+    'Klienti publicē idejas publiskos dēļos. Dublikāti apvienojas, balsis summējas, un pieprasījums pats sarindojas.',
   'landing.step1Title': 'Vāc',
+  'landing.step2Body':
+    'Atzīmē pieprasījumus kā plānotus vai izstrādē ar mērķa ceturksni — ceļa karte atjauninās uzreiz.',
+  'landing.step2Title': 'Apņemties',
   'landing.step3Body':
     'Nosūtītie ieraksti kļūst par izmaiņu žurnāla ierakstiem, un katrs balsotājs redz rezultātu savā sarakstā.',
+  'landing.step3Title': 'Izlaist',
   'landing.topSubtitle': 'Dzīvais no šī dēļa — pierakstīties, lai pievienotu balsi.',
   'landing.topTitle': 'Ko lietotāji prasa tieši tagad',
   'landing.topViewAll': 'Visi dēļi',
@@ -95,14 +129,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Pamatskola',
   'layout.signUp': 'Reģistrēties',
   'layout.submit': 'Iesniegt atsauksmi',
+  'login.description': 'Turpiniet sarunu tur, kur tā apstājās.',
+  'login.heading': 'Pierakstieties Nimbusā',
+  'login.noAccount': 'Jauns šeit?',
   'login.passwordPlaceholder': 'Tava parole',
   'login.twoFactorLabel': '2FA kods (neobligāti)',
   'login.twoFactorPlaceholder': '6 ciparu kods',
+  'login.twoFactorRequiredHint':
+    'Šim kontam ir iespējota divpakāpju autentifikācija. Lai turpinātu, ievadi 6 ciparu kodu no autentifikatora lietotnes.',
   'login.twoFactorRequiredLabel': 'Ievadi savu 2FA kodu',
+  'myActivity.browseCta': 'Pārlūkot dēļus',
+  'myActivity.emptyPosts': 'Tu vēl neesi iesniedzis pieprasījumu.',
+  'myActivity.emptyVotes': 'Vēl nekas — pārlūko dēļus un atbalsti kādu ideju.',
   'myActivity.eyebrow': 'Tava aktivitāte',
   'myActivity.loadError': 'Neizdevās ielādēt jūsu aktivitāti.',
   'myActivity.postsTitle': 'Pieprasījumi, ko tu iesniedzāt',
+  'myActivity.shippedNote': '{{count}} no tiem izlaisti — paldies par pamudinājumu.',
   'myActivity.submitCta': 'Publicēt pieprasījumu',
+  'myActivity.tabLabel': 'Skatīt',
   'myActivity.tabPosts': 'Mani ieraksti',
   'myActivity.tabVotes': 'Manas balsis',
   'myActivity.votesTitle': 'Pieprasījumi, par kuriem tu balsoji',
@@ -137,8 +181,12 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Ieraksts nav atrasts',
   'postsAdmin.backToDashboard': 'Informācijas panelis',
   'postsAdmin.eyebrow': 'Produktu komanda',
+  'postsAdmin.mergeApplied': 'Apvienots — {{votes}} balsis un {{comments}} komentāri pārvietoti.',
   'postsAdmin.mergeApply': 'Apvienot un pārvietot balsis',
   'postsAdmin.mergeChoose': 'Izvēlies mērķa ierakstu…',
+  'postsAdmin.mergeFailed': 'Apvienošana neizdevās.',
+  'postsAdmin.mergeHint':
+    'Balsis summējas (viena uz lietotāju), komentāri pārvietojas, un šis ieraksts saņem piezīmi "pārvietots".',
   'postsAdmin.mergeLabel': 'Apvienot dublikātu ar',
   'postsAdmin.responseLabel': 'Oficiālā atbilde',
   'postsAdmin.responsePlaceholder': 'Ko komanda nolēma un kāpēc — redzams publiski ierakstā.',
@@ -153,7 +201,13 @@ export const ui: UiTranslations = {
     'Iestatīt oficiālo statusu, atbildēt publiski, atzīmēt ceļveža ceturksni un apvienot dublikātus.',
   'postsAdmin.title': 'Pārvaldīt atsauksmju ierakstus',
   'postsAdmin.votes': '{{count}} balsis',
+  'pricing.limits.advancedFeatures': 'Paplašinātās funkcijas:',
+  'pricing.limits.boards': '{{count}} dēļi',
   'pricing.limits.export': 'Datu eksports:',
+  'pricing.limits.posts': '{{count}} atsauksmju ieraksti',
+  'pricing.limits.votes': '{{count}} balsis',
+  'resetPassword.description':
+    'Izvēlieties spēcīgu. Kad atiestatīšana būs veiksmīga, mēs jūs pierakstīsim.',
   'resetPassword.newPasswordLabel': 'Jaunā parole',
   'resetPassword.tokenPlaceholder': 'Ielīmē saites marķieri',
   'roadmap.cardMeta': 'no {{author}} · {{board}}',
@@ -170,6 +224,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'Ieraksti vaicājumu, lai atrastu esošus pieprasījumus pirms dublikāta publicēšanas.',
   'search.loadError': 'Meklēšana neizdevās — mēģiniet vēlreiz.',
+  'search.searching': 'Meklēšana…',
   'search.submit': 'Meklēt',
   'search.submitNew': 'Publicēt kā jaunu pieprasījumu',
   'search.title': 'Meklēt atsauksmes',
@@ -178,12 +233,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'Norēķini',
   'settings.displaySubtitle': 'Izvēlies, cik blīvi izjūtas barotnes.',
   'settings.displayTitle': 'Attēlojums',
+  'settings.emailDigestDesc': 'Populārākie atvērtie pieprasījumi katru pirmdienu.',
+  'settings.emailDigestLabel': 'Nedēļas kopsavilkums',
+  'settings.emailMentionsDesc': 'Kad kāds atbild uz ierakstu, kam seko.',
+  'settings.emailMentionsLabel': 'Sūtīt e-pastu par pieminēšanu',
+  'settings.emailRepliesDesc': 'Vītnes, ko sāki vai uz kurām atbildēji.',
+  'settings.emailRepliesLabel': 'Atbildes e-pastā',
   'settings.loadError': 'Neizdevās ielādēt tavu kontu.',
   'settings.loading': 'Ielādē tavus iestatījumus…',
   'settings.notifications': 'Paziņojumi',
   'settings.notificationsSubtitle':
     'Izlem, kas nonāk tavā iesūtnē, salīdzinot ar ierīces paziņojumiem.',
+  'settings.pushRepliesLabel': 'Paziņojumi par atbildēm',
+  'settings.pushVotesDesc': 'Sliekšņa paziņojums pie 100, 500, 1000.',
+  'settings.pushVotesLabel': 'Virziet uz pozitīvas balsošanas atskaites punktiem',
   'settings.saveAccount': 'Saglabāt kontu',
+  'settings.showFlair': 'Rādīt dēļu birku ierakstos',
+  'settings.showThumbnails': 'Rādīt saišu/attēlu sīktēlus',
   'settings.usernamePlaceholder': 'Izvēlies lietotājvārdu',
   'signup.confirmPlaceholder': 'Ieraksti to vēlreiz',
   'signup.description': 'Veido to, ko mēs būvējam tālāk.',

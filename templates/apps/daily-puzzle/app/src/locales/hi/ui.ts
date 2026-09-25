@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'कोई फ़ीडबैक है, कोई बग मिला है, या {{app}} को अपने स्कूल या टीम में लाना चाहते हैं? हम हर संदेश पढ़ते हैं — अपनी अकाउंट सेटिंग्स से संपर्क करें और एक असली इंसान जवाब देगा।',
   'about.contactTitle': 'हमसे बात करें',
   'about.eyebrow': 'परिचय',
+  'about.intro':
+    '{{app}} एक रोज़ाना शब्द पहेली है। छह कोशिशों में पाँच अक्षरों का शब्द पहचानें, अपनी स्ट्रीक बनाए रखें, अपना इमोजी ग्रिड शेयर करें, और देखें कि आज के शब्द पर सबका कैसा प्रदर्शन रहा।',
+  'about.missionBody':
+    'एक अच्छी पहेली रोज़ की छोटी जीत है। {{app}} एक साझा रोज़ाना शब्द पर बना है — कॉफ़ी ब्रेक के लिए काफ़ी तेज़, और कल फिर आने लायक दिलचस्प।',
+  'about.missionTitle': 'हमारा विशेष कार्य',
   'about.title': '{{app}} के बारे में',
   'archive.loadError': 'संग्रह लोड नहीं हो सका।',
   'archive.missed': 'छूटे हुए',
   'archive.notPlayed': 'नहीं खेला',
+  'archive.subhead':
+    'अभ्यास के लिए कोई भी पिछला दिन दोबारा खेलें — न स्ट्रीक, न आँकड़े, बस पूरा मज़ा।',
   'archive.title': 'संग्रहीत करें',
   'auth.backToHome': 'होम पर वापस',
   'auth.backToHomeArrow': '← होम पर वापस',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'पासवर्ड भूल गए?',
   'auth.login.loggingIn': 'साइन इन हो रहा है…',
   'auth.login.logIn': 'आज का शब्द खेलें',
+  'auth.login.noAccount': 'Tessera पर नए हैं?',
   'auth.login.or': 'या इसके साथ जारी रखें',
   'auth.login.password': 'पासवर्ड',
   'auth.login.signInButton': 'साइन इन करें',
@@ -32,6 +42,10 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'सेव हो रहा है…',
   'common.sendingEllipsis': 'भेजा जा रहा है…',
   'common.startingEllipsis': 'शुरू हो रहा है…',
+  'forgotPassword.subhead': 'अपना ईमेल दर्ज करें और हम आपको रीसेट लिंक भेजेंगे।',
+  'forgotPassword.success.body':
+    'यदि {{email}} के लिए कोई खाता मौजूद है, तो आपको कुछ ही मिनटों में रीसेट लिंक मिल जाएगा।',
+  'forgotPassword.success.title': 'अपना इनबॉक्स देखिए।',
   'form.name': 'नाम',
   'howToPlay.cta.home': 'होम पर वापस जाएँ',
   'howToPlay.cta.play': 'आज की पहेली खेलें',
@@ -68,10 +82,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'स्ट्रीक जिन्हें तोड़ना आप नापसंद करते हैं',
   'leaderboard.daily.title': 'आज के हल',
   'leaderboard.loadError': 'लीडरबोर्ड लोड नहीं हो सका।',
+  'leaderboard.streaks.empty': 'अभी कोई स्ट्रीक नहीं — पहले बनने वाले आप ही हों।',
+  'leaderboard.streaks.subhead': 'अब तक की सबसे लंबी जीत की स्ट्रीक।',
   'leaderboard.streaks.title': 'स्ट्रीक लीडर',
+  'leaderboard.subhead': 'आज सबका प्रदर्शन कैसा रहा, और सबसे लंबी स्ट्रीक किसकी है।',
   'leaderboard.title': 'लीडरबोर्ड',
   'login.headline': 'वापस स्वागत है।',
   'login.streakPill': '{{days}}-दिन की स्ट्रीक इंतज़ार में',
+  'login.subhead':
+    'अपनी स्ट्रीक बनाए रखने और आज के शब्द पर अपना प्रदर्शन देखने के लिए साइन इन करें।',
   'nav.archive': 'संग्रहीत करें',
   'nav.editProfile': 'प्रोफ़ाइल संपादित करें',
   'nav.getStarted': 'शुरू करें',
@@ -89,6 +108,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · ऐसा कोई शब्द नहीं',
   'notFound.title': 'वह रूट खाली है।',
   'planUpdated.message': 'आपका प्लान लाइव है।',
+  'planUpdated.retry': 'फिर से प्रयास करें',
+  'planUpdated.verifyFailed': 'हम अभी तक आपके भुगतान की पुष्टि नहीं कर पाए हैं।',
+  'planUpdated.verifyFailedBody':
+    'आपका भुगतान अभी भी प्रक्रियाधीन हो सकता है। कृपया कुछ देर बाद पुनः प्रयास करें।',
   'planUpdated.verifying': 'आपके भुगतान की पुष्टि हो रही है…',
   'play.alreadyFinished': 'आप यह पहेली पहले ही पूरी कर चुके हैं',
   'play.answerWas': 'शब्द था',
@@ -104,6 +127,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'अभ्यास पहेली',
   'play.tooShort': 'पर्याप्त अक्षर नहीं',
   'play.won': 'हल कर लिया!',
+  'pricing.advancedStats': 'उन्नत आँकड़े: {{yes}}',
+  'pricing.archiveHistory': '{{count}} दिनों का आर्काइव इतिहास',
+  'pricing.archivePlays': '{{count}} आर्काइव रीप्ले / दिन',
+  'pricing.archiveUnlimited': 'असीमित आर्काइव इतिहास',
+  'pricing.canExport': 'डेटा निर्यात: {{yes}}',
+  'pricing.checkoutError': 'चेकआउट शुरू नहीं किया जा सका। कृपया पुनः प्रयास करें।',
   'pricing.dailyWord': 'दैनिक शब्द',
   'pricing.heading': 'अपना {{app}} प्लान चुनें',
   'pricing.included': 'शामिल',
@@ -111,7 +140,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'दैनिक शब्द हमेशा मुफ़्त है। असीमित संग्रह रीप्ले और गहरे स्टैट्स के लिए अपग्रेड करें।',
   'pricing.yearly': 'वार्षिक',
+  'privacy.intro':
+    '{{app}} आपकी निजता का सम्मान करता है। यह पेज बताता है कि हम कौन-सा डेटा रखते हैं, क्यों रखते हैं, और उसे कैसे हटाया जाए।',
   'privacy.title': 'गोपनीयता सूचना',
+  'resetPassword.subhead': 'अपनी स्ट्रीक पर वापस लौटने के लिए नया पासवर्ड चुनें।',
   'settings.account': 'खाता',
   'settings.danger.body': 'अपना {{appName}} खाता और सभी पहेली इतिहास को स्थायी रूप से हटा दें।',
   'settings.danger.confirm': 'हां, हमेशा के लिए डिलीट करें',
@@ -121,17 +153,23 @@ export const ui: UiTranslations = {
   'settings.language.title': 'भाषा',
   'settings.subhead':
     'अपनी प्रोफ़ाइल, ध्वनि, और लीडरबोर्ड पर आप कैसे दिखाई देते हैं, उसे ट्यून करें।',
+  'settings.unnamed': 'Sparq खिलाड़ी',
   'settings.upgrade': 'अपग्रेड करें',
   'signup.eyebrow': 'हमेशा के लिए मुफ़्त — एक दिन में एक शब्द',
   'signup.headline': 'अपनी स्ट्रीक शुरू करें।',
+  'signup.subhead':
+    'रोज़ाना का शब्द खेलने, स्ट्रीक बनाने और लीडरबोर्ड पर चढ़ने के लिए {{appName}} अकाउंट बनाएँ।',
   'stats.currentStreak': 'स्ट्रीक',
   'stats.distribution.title': 'अनुमान वितरण',
   'stats.loadError': 'आपके स्टैट्स लोड नहीं हो सके।',
   'stats.maxStreak': 'अधिकतम स्ट्रीक',
   'stats.played': 'खेला',
   'stats.playToday': 'आज की पहेली खेलें',
+  'stats.subhead': 'केवल रैंकिंग वाली रोज़ाना पहेलियाँ — आर्काइव अभ्यास कभी नहीं गिना जाता।',
   'stats.title': 'आपके स्टैट्स',
   'stats.winRate': 'जीत दर',
   'status.monthly': 'मासिक',
+  'terms.intro':
+    '{{app}} का उपयोग करके आप नीचे दिए नियमों से सहमत होते हैं। अगर आप इन्हें स्वीकार नहीं कर सकते, तो कृपया सेवा का उपयोग न करें।',
   'terms.title': 'सेवा की शर्तें',
 }

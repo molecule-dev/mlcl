@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Onko sinulla kysyttävää, löysitkö virheen tai haluatko siirtää kirjasi? Tavoita {{app}}-tiimi osoitteessa hello@{{app}}.example — oikea ihminen lukee jokaisen viestin.',
   'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
+  'about.intro':
+    '{{app}} on pienyritysten kirjanpito, joka pitää jokaisen sentin tilillä — laskut, kulut, maksut ja raportit yhdessä rauhallisessa paikassa yrittäjille, kirjanpitäjille ja tilintarkastajille.',
+  'about.missionBody':
+    'Yrityksen pyörittäminen ei tarkoita, että kirjanpitoa pitäisi pelätä. {{app}} korvaa hajallaan olevat taulukot selkeillä luvuilla, joiden pohjalta voit toimia, joten käytät vähemmän aikaa täsmäytykseen ja enemmän aikaa siihen työhön, jonka vuoksi alun perin perustit yrityksen.',
+  'about.missionTitle': 'Missiomme',
   'about.title': 'Tietoa {{app}}sta',
   'accounts.count': '{{count}} tilit',
+  'accounts.emptyBody':
+    'Kirjanpitotilit seuraavat, missä raha on ja miten se liikkuu. Ne näkyvät täällä, kun kirjanpitäjäsi tai integraatio on määrittänyt ne.',
   'accounts.emptyTitle': 'Ei vielä tilejä',
   'accounts.heading': 'Tilikartta',
   'accounts.kpi.accounts': 'Tilit',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Kaikki laskujen, kulujen ja maksujen taustalla olevat kirjanpitotilit, ryhmiteltyinä tyypin mukaan.',
   'accounts.tag.inactive': 'passiivinen',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Talousjohtaja, Horizon Tech',
   'authBrandPanel.eyebrow': 'Taloushallinnon tiimien luottama',
   'authBrandPanel.label': 'Brändin esittely',
   'authBrandPanel.quote': '"Ledger on muuttanut tapaamme seurata tuloja. Tarkkuus parhaimmillaan."',
@@ -30,7 +40,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Kaikki asiakkaat',
   'customerDetail.invoiceMeta': 'Julkaistu{{issued}} · Eräpäivä{{due}}',
   'customerDetail.loadError': 'Asiakkaan lataaminen epäonnistui.',
+  'customerDetail.missingBody':
+    'Pyydettyä asiakastietuetta ei voitu ladata. Se on saatettu poistaa, tai sinulla ei ehkä ole siihen käyttöoikeutta.',
   'customerDetail.missingHeading': 'Asiakastietue ei saatavilla',
+  'customerDetail.missingHelp':
+    'Palaa asiakasluetteloon yllä olevasta takaisinlinkistä tai valitse sieltä toinen tietue.',
+  'customerDetail.noInvoices': 'Ei laskuja vielä.',
   'customerDetail.notesEmpty': 'Ei vielä muistiinpanoja.',
   'customerDetail.paymentsEmpty': 'Ei kirjattuja maksuja.',
   'customerDetail.paymentTerms': 'Maksuehdot',
@@ -57,6 +72,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Vähennyskelpoinen',
   'expenseDetail.detailsHeading': 'Tapahtumatiedot',
   'expenseDetail.loadError': 'Kulun lataaminen epäonnistui.',
+  'expenseDetail.matched': 'Täsmätty · {{description}}',
   'expenseDetail.missingBody':
     'Pyydettyä kulua ei voitu ladata. Se on ehkä poistettu tai sinulla ei ole pääsyä siihen.',
   'expenseDetail.missingHeading': 'Kulutietue ei saatavilla',
@@ -64,6 +80,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Kuitti',
   'expenseDetail.receiptHeading': 'Kuitti',
   'expenseDetail.reconciled': 'Täsmäytetty',
+  'expenseDetail.unreconciled': 'Täsmäyttämättä',
   'expenses.empty': 'Ei vielä kuluja.',
   'expenses.heading': 'Kulut',
   'expenses.kpi.deductible': 'Vähennyskelpoinen',
@@ -99,6 +116,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Laskujen lataaminen epäonnistui.',
   'invoices.searchPlaceholder': 'Hae laskun numeroa tai asiakasta…',
   'invoices.summary.paid': 'Maksettu tällä jaksolla',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle': 'Ilmainen 30 päivää. Ei korttia. Tuo kirjanpitäjäsi — he kiittävät sinua.',
   'landing.ctaTitle': 'Siirrä kirjasi rauhallisempaan paikkaan.',
   'landing.eyebrow': 'Pienyrityksen kirjanpito uudelleen kuviteltuna',
@@ -112,6 +130,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Myyntisaamiset',
   'ledgerStatTriad.eyebrow.mtd': 'Kuukausi tähän mennessä',
   'ledgerStatTriad.netSub': 'Netto {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} erääntynyt',
   'ledgerStatTriad.revenueLabel': 'Liikevaihto',
   'login.failed': 'Kirjautuminen epäonnistui.',
   'login.hidePassword': 'Piilota salasana',
@@ -122,6 +141,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Kirjaudu sisään',
   'nav.legal': 'Lainsäädäntö',
   'newExpense.back': 'Kulut',
+  'newExpense.clearReceiptCta': 'Poista liitetty kuitti',
   'newExpense.deductible': 'Verovähennyskelpoinen',
   'newExpense.dropPrompt': 'Pudota tähän kuitin kuva tai PDF liittääksesi sen.',
   'newExpense.failed': 'Kulun tallentaminen epäonnistui.',
@@ -150,6 +170,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Maksujen lataaminen epäonnistui.',
   'payments.unmatchedTag': 'vertaansa vailla oleva',
   'planUpdated.pageLabel': 'Vahvistus suunnitelman päivityksestä',
+  'pricing.advancedFeatures': 'Lisäominaisuudet: {{yes}}',
+  'pricing.canExport': 'Tietojen vienti: {{yes}}',
+  'pricing.heading': 'Valitse {{app}}-pakettisi',
+  'pricing.maxAccounts': '{{count}} tilit',
+  'pricing.maxExpenses': '{{count}} kulut',
+  'pricing.maxInvoices': '{{count}} laskua',
+  'privacy.intro':
+    'Tämä tietosuojakäytäntö kuvaa, miten {{app}} kerää, käyttää ja luovuttaa tietoja palvelua käyttävistä yrityksistä.',
   'privacy.lastUpdated': 'Viimeksi päivitetty: {{date}}',
   'privacy.section.collected.body':
     'Keräämme tilin tiedot (nimi, sähköposti, yritys), lataamasi taloustiedot (laskut, kulut, asiakkaat, maksut) ja tavanomaisen palvelun toimintalokit (IP, käyttäjäagentti, aikaleima).',
@@ -162,8 +190,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Tietoja käytetään palvelun toimittamiseen, pyytämiesi raporttien ja PDF-tiedostojen luomiseen, tapahtumasähköpostin lähettämiseen Mailgunin kautta ja maksujen käsittelyyn Stripen kautta. Emme myy tai vuokraa henkilötietoja.',
   'recentInvoicesCard.dueMeta': 'Eräpäivä {{date}}',
+  'recentInvoicesCard.empty': 'Ei vastaavia laskuja.',
   'recentInvoicesCard.eyebrow': 'Myyntisaamiset',
   'recentInvoicesCard.searchAriaLabel': 'Hae laskuja',
+  'recentInvoicesCard.searchPlaceholder': 'Etsi laskuja…',
   'recentInvoicesCard.title': 'Viimeisimmät laskut',
   'recentInvoicesCard.viewAll': 'Näytä kaikki laskut →',
   'reports.assets': 'Varat',
@@ -179,16 +209,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Tulos (12 kuukautta)',
   'resetPassword.backToLogin': '← Takaisin kirjautumiseen',
   'resetPassword.hidePassword': 'Piilota salasana',
+  'resetPassword.passwordLabel': 'Uusi salasana',
   'resetPassword.showPassword': 'Näytä salasana',
+  'resetPassword.subheading': 'Valitse vahva salasana — vähintään kahdeksan merkkiä.',
   'resetPassword.submit': 'Nollaa salasana',
   'resetPassword.tooShort': 'Salasanassa on oltava vähintään 8 merkkiä.',
   'settings.account.changePassword': 'Vaihda salasana',
   'settings.account.changingPassword': 'Muuttuu…',
   'settings.account.currentPassword': 'Nykyinen salasana',
+  'settings.account.dangerZone': 'Vaaravyöhyke',
   'settings.account.deleteAccount': 'Poista tili',
   'settings.account.deleteDescription':
     'Poista tilisi ja kaikki siihen liittyvät tiedot pysyvästi.',
   'settings.account.deleteError': 'Tilin poistaminen epäonnistui.',
+  'settings.account.deleteWarning':
+    'Tämä poistaa tilisi pysyvästi, eikä sitä voi peruuttaa. Anna salasanasi vahvistaaksesi.',
   'settings.account.deleting': 'Poistetaan…',
   'settings.account.devices': 'Laitteet',
   'settings.account.email': 'Sähköposti',
@@ -199,6 +234,7 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Salasana',
   'settings.account.passwordError': 'Salasanan vaihtaminen epäonnistui.',
   'settings.account.pushNotifications': 'Tämän laitteen push-ilmoitukset',
+  'settings.account.revokeDeviceWarning': 'Tämän laitteen pääsy peruutetaan pian. Kirjaudu ulos?',
   'settings.account.saveError': 'Profiilin päivittäminen epäonnistui.',
   'settings.account.security': 'Turvallisuus',
   'settings.account.signOutDevice': 'Kirjaudu ulos',
@@ -206,12 +242,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Kaksivaiheinen todennus',
   'settings.account.twoFactorCode': 'Todentamiskoodi',
   'settings.account.twoFactorDisable': 'Poista käytöstä',
+  'settings.account.twoFactorDisableTitle': 'Poista kaksivaiheinen tunnistautuminen käytöstä',
   'settings.account.twoFactorEnable': 'Ota käyttöön',
+  'settings.account.twoFactorEnableTitle': 'Ota kaksivaiheinen tunnistautuminen käyttöön',
   'settings.account.twoFactorInvalidCode': 'Virheellinen koodi',
   'settings.account.twoFactorOn': 'Päivämäärä',
+  'settings.account.twoFactorQrAlt': 'Kaksivaiheisen QR-koodi',
+  'settings.account.twoFactorScan':
+    'Skannaa tämä QR-koodi tunnistautumissovelluksellasi ja syötä sitten 6-numeroinen koodi.',
+  'settings.account.twoFactorUnavailable':
+    'Kaksivaiheinen todennus ei ole käytettävissä tälle sovellukselle.',
   'settings.account.twoFactorVerify': 'Tarkista ja ota käyttöön',
   'settings.account.unknownDevice': 'Tuntematon laite',
   'settings.company.email': 'Laskutussähköposti',
+  'settings.company.heading': 'Yritys ja verot',
   'settings.company.name': 'Virallinen nimi',
   'settings.company.saveButton': 'Tallenna yritysprofiili',
   'settings.company.taxId': 'Y-tunnus / veronumero',
@@ -254,6 +298,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Arv. neljännesvuosittainen',
   'taxes.kpi.owed': 'Maksettava',
   'taxes.loadError': 'Veroyhteenvedon lataaminen epäonnistui.',
+  'taxes.remittedPct': '({{pct}} % suoritettu)',
+  'terms.intro':
+    'Nämä käyttöehdot ("Ehdot") säätelevät pääsyäsi {{app}}-palveluun ja sen käyttöä. Luomalla tilin tai käyttämällä palvelua hyväksyt nämä ehdot.',
   'terms.lastUpdated': 'Viimeksi päivitetty: {{date}}',
   'terms.section.acceptable.body':
     'Sitoudut olemaan käyttämättä palvelua minkään lain rikkomiseen, immateriaalioikeuksien loukkaamiseen, haittaohjelmien lähettämiseen tai luvattoman pääsyn yrittämiseen muihin tileihin tai infrastruktuuriimme.',

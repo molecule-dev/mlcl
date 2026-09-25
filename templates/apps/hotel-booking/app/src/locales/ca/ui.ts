@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tens preguntes sobre una reserva, comentaris o un allotjament que creus que hauria de ser a {{app}}? Contacta amb el nostre equip des del teu compte: cada missatge arriba a una persona real que et pot ajudar.',
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre nosaltres',
+  'about.featureLoyalty':
+    "Tarifes exclusives per a membres i un programa de fidelitat que acumula punts, sortides tardanes i millores d'habitació a cada reserva.",
+  'about.featureReviews':
+    "Opinions verificades dels hostes i seleccions editorials perquè puguis confiar en l'estada abans d'arribar-hi.",
+  'about.featureRooms':
+    'Habitacions, tarifes i serveis comparats costat a costat amb preus transparents i tot inclòs: taxes i càrrecs de complex inclosos abans de pagar.',
+  'about.featureSearch':
+    'Cerca en temps real entre hotels verificats amb disponibilitat en directe, vista de mapa i galeries de fotos completes.',
+  'about.featureTrips':
+    'Preferits desats i un tauler de Viatges que reuneix totes les reserves, itineraris i confirmacions en un sol lloc.',
+  'about.intro':
+    "{{app}} és una plataforma de reserves d'hotels per a viatgers que valoren la qualitat. El nostre equip editorial verifica personalment cada allotjament: sense inventari d'agregadors ni anuncis enganyosos. Cerca disponibilitat real, compara habitacions, tarifes i serveis costat a costat i reserva amb uns quants tocs amb un preu clar i tot inclòs.",
+  'about.missionBody':
+    'Reservar un allotjament hauria de ser tranquil i honest. Mostrem tarifes transparents amb taxes i càrrecs de complex per endavant, premem els hostes fidels en lloc de cobrar-los extres i posem primer les estades que valen la pena, perquè passis menys temps comparant pestanyes i més temps gaudint del viatge.',
+  'about.missionTitle': 'La nostra missió',
+  'about.subtitle': "Una manera seleccionada i transparent de trobar i reservar l'hotel adequat.",
   'account.loyalty.activitySummary': '{{nights}} nits · {{spend}} gastat aquest any',
+  'account.loyalty.benefitsHeading': 'Els teus avantatges',
   'account.loyalty.heading': 'Lleialtat',
   'account.loyalty.loading': "S'està carregant la fidelització…",
-  'account.loyalty.pointsTowardNext': '{{punts}} / {{següent}} apunta a {{nextTier}}',
+  'account.loyalty.maxTier': 'Nivell superior: gaudeix dels teus avantatges.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} punts a {{nextTier}}',
   'account.loyalty.tier': 'Nivell actual',
   'account.loyalty.unavailable': 'Informació de fidelització no disponible.',
   'account.navLabel': 'Seccions del compte',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Confirma la reserva · {{total}}',
   'bookingCheckout.datesRequired': "Si us plau, trieu les dates d'entrada i sortida.",
   'bookingCheckout.guestHeading': 'convidat principal',
+  'bookingCheckout.heading': 'Confirma i reserva',
   'bookingCheckout.loadError': "No s'ha pogut carregar la propietat.",
   'bookingCheckout.nights': '{{rate}} × {{count}} nits',
   'bookingCheckout.notFound': 'Propietat no trobada.',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Impostos i taxes',
   'bookingCheckout.tripHeading': 'El teu viatge',
   'bookingConfirmation.allTripsCta': 'Tots els viatges',
+  'bookingConfirmation.confNumber': 'Número de confirmació: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': "La teva reserva s'està processant.",
   'bookingConfirmation.heading': 'Reserva confirmada',
   'bookingConfirmation.loading': "S'està carregant la reserva…",
   'bookingConfirmation.searchMoreCta': 'Navega per més estades',
   'bookingConfirmation.subheadingForTrip':
-    "{{propietat}} en {{ciutat}} , {{país}} Ens veurem a {{registre d'entrada}} .",
+    '{{property}} a {{city}}, {{country}}. Ens veiem el {{checkIn}}.',
   'bookingConfirmation.total': 'Total {{total}}',
   'bookingConfirmation.viewTripCta': 'Veure viatge',
   'common.goToDashboard': 'Anar al panell',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': "No s'han pogut carregar els preferits.",
   'favorites.pricePerNight': '{{price}} / nit',
   'favorites.removeCta': 'No desa',
+  'favorites.removing': "S'està eliminant…",
   'forgotPassword.subheading':
     "Introdueix el correu electrònic del teu compte i t'enviarem un enllaç de restabliment segur.",
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Membres de Auberge',
   'landing.cta.heading': 'Tarifes només per a socis. Cada reserva, sempre.',
   'landing.cta.signup': 'Crea un compte gratuït',
+  'landing.cta.subheading':
+    "Acumula punts de fidelitat a cada estada, desbloqueja sortides tardanes i millores d'habitació i aconsegueix accés anticipat als nous allotjaments abans que es publiquin.",
   'landing.destinations.eyebrow': 'On anar després?',
   'landing.destinations.heading': 'Destinacions destacades',
   'landing.destinations.seeAll': 'Veure totes les destinacions',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Històries que val la pena fer les maletes',
   'landing.nav.join': 'Uneix-te a Auberge',
   'landing.nav.search': 'Cerca estades',
+  'landing.preview.browseAll': 'Explora la col·lecció completa',
   'landing.preview.eyebrow': "Una ullada a l'interior",
   'landing.preview.heading': 'Estades seleccionades a mà aquest mes',
+  'landing.preview.subheading':
+    "El nostre equip editorial verifica personalment cada allotjament de {{appName}}: sense inventari d'agregadors ni anuncis enganyosos.",
   'login.eyebrow': 'Àrea de membres',
+  'login.noAccount': 'Ets nou a Tessera?',
   'login.signupLink': 'Crea un compte gratuït',
   'login.subheading':
     'Inicia la sessió per gestionar els teus viatges, veure les confirmacions i reprendre on els vas deixar.',
+  'loyaltyTierBadge.points': '{{points}} punts',
   'planUpdated.heading': 'Pla actualitzat',
+  'planUpdated.retry': 'Torna-ho a intentar',
+  'planUpdated.verifyFailed': 'Encara no hem pogut confirmar el vostre pagament.',
+  'planUpdated.verifyFailedBody':
+    "És possible que el vostre pagament encara s'estigui processant. Torneu-ho a provar en un moment.",
   'planUpdated.verifying': 'Confirmant el teu pagament…',
   'pricing.limit.advancedFeatures': 'Funcions avançades:',
   'pricing.limit.canExport': 'Exportació de dades:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Què ofereix aquest lloc',
   'propertyDetail.backLink': 'Torna a la cerca',
   'propertyDetail.bookCta': 'Reserva',
+  'propertyDetail.bookmarkAria': 'Desa la propietat',
   'propertyDetail.bookmarkAriaSaved': 'Elimina de les propietats desades',
+  'propertyDetail.galleryImageAlt': 'Foto {{name}} de {{number}}',
   'propertyDetail.heroImageAlt': "{{name}} fotografia d'heroi",
   'propertyDetail.hidePhotos': 'Amaga les fotos',
   'propertyDetail.lineCleaning': 'Tarifa de neteja',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'nit',
   'propertyDetail.noChargeYet': 'Encara no se us cobrarà',
   'propertyDetail.notFound': 'Propietat no trobada.',
+  'propertyDetail.perNight': '/ nit',
+  'propertyDetail.pickDatesHint': 'Tria les dates per veure el desglossament complet del preu.',
   'propertyDetail.reviewCount': '( {{count}} ressenyes)',
   'propertyDetail.reviewsHeading': 'Ressenyes recents',
   'propertyDetail.roomCapacity': 'Dorm {{count}}',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Nova contrasenya',
   'resetPassword.subheading':
     'Trieu una contrasenya nova per al vostre compte Auberge. Utilitzeu almenys 8 caràcters; recomanem una contrasenya.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'No hi ha cap propietat que coincideixi amb la teva cerca.',
   'searchResults.emptyHint':
     "Prova d'ampliar els filtres o d'eliminar el límit de preus: Auberge té estades a 14 països.",
@@ -108,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Estades seleccionades',
   'searchResults.headingForQuery': 'Es queda per a " {{q}} "',
   'searchResults.loadError': "No s'han pogut carregar les propietats.",
+  'searchResults.mapHint':
+    'Passa el cursor per una targeta per ressaltar-la al mapa. Rajoles de Mapbox en directe a producció.',
   'searchResults.mapPinAria': '{{name}} — {{price}} per nit',
   'searchResults.sortLabel': 'Ordena per',
   'searchResults.subheading': '{{count}} propietats · {{guests}} convidats',
   'signup.eyebrow': 'Fes-te membre',
   'signup.subheading':
     'Uneix-te a Auberge per desbloquejar tarifes exclusives per a membres, sortides tardanes i accés preferent a noves propietats.',
+  'sojournAuthShell.brand.eyebrow': "Allotja't en un lloc extraordinari",
+  'sojournAuthShell.brand.heading':
+    "Una col·lecció seleccionada d'allotjaments: presentats amb bellesa i amb preus transparents.",
   'sojournHeroSearchCard.checkInAria': "Data d'entrada",
   'sojournHeroSearchCard.checkOutAria': 'Data de sortida',
+  'sojournHeroSearchCard.destAria': 'Destinació',
+  'sojournHeroSearchCard.destLabel': 'On',
   'sojournHeroSearchCard.destPlaceholder': 'Ciutat, regió o propietat',
   'sojournHeroSearchCard.eyebrow': 'Estades seleccionades · Tarifes només per a membres',
   'sojournHeroSearchCard.guestsOption': '{{n}} convidats',
   'sojournHeroSearchCard.subtitle':
     "Una col·lecció curada d'hotels boutique, propietats de disseny innovador i refugis excepcionals, amb preus transparents i una presentació elegant.",
+  'sojournHeroSearchCard.title': "Allotja't en un lloc extraordinari",
+  'sojournHeroSearchCard.trustLoyalty': 'Acumula punts a cada estada',
   'sojournHeroSearchCard.trustNoFees': 'Sense comissions ocultes, mai',
   'sojournHeroSearchCard.trustVetted': 'Només propietats revisades manualment',
   'sojournLayout.primaryNavLabel': 'Navegació principal',

@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Keni një pyetje, keni gjetur një gabim ose dëshironi një demo për ekipin tuaj? Na kontaktoni nga cilësimet e llogarisë — çdo mesazh shkon te një person i vërtetë i ekipit.',
   'about.contactTitle': 'Na kontaktoni',
+  'about.intro':
+    "{{app}} i kthen grumbujt e dokumenteve të skanuara dhe PDF-ve në të dhëna të strukturuara, të kërkueshme dhe të arkivuara. Hidhni faturat, kuponat, kontratat ose formularët dhe lërini AI t'i lexojë, nxjerrë, klasifikojë dhe arkivojë — me ngjyra besueshmërie, që ekipi juaj të shqyrtojë vetëm atë që vërtet kërkon njeriun.",
+  'about.missionBody':
+    "Puna e mërzitshme me dokumentet nuk duhet t'ju marrë ditën ekipit tuaj. Ne besojmë se çdo vlerë e nxjerrë duhet të jetë e shpjegueshme dhe e auditueshme — që të mund t'i besoni automatizimit pa humbur gjurmën e dokumenteve. {{app}} është ndërtuar për të kursyer orë për çdo grumbull, duke mbajtur njeriun në qark aty ku ka rëndësi.",
+  'about.missionTitle': 'Misioni ynë',
+  'about.subtitle': 'OCR, nxjerrje me AI, klasifikim dhe arkivim automatik për dokumentet tuaja.',
   'about.title': 'Rreth {{app}}',
+  'about.whatYouGetTitle': 'Çfarë merr',
   'authShell.backToLanding': '← Kthehu te ulja',
   'common.goToDashboard': 'Shko te paneli',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Sot · Përmbledhje e operacioneve',
   'dashboard.heading': 'Inteligjenca e dokumenteve',
+  'dashboard.metric.accuracy': 'Saktësia mesatare',
   'dashboard.metric.filed': 'Dorëzuar sot',
   'dashboard.metric.filedCaption': 'Drejtuar nga rregullat e paraqitjes',
   'dashboard.metric.processed': 'Përpunuar sot',
@@ -23,11 +33,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'Ngarkuar',
   'dashboard.recent.heading': 'Dokumentet e fundit',
+  'dashboard.recent.typeUnknown': 'Në pritje të klasifikimit',
   'dashboard.subheading':
     'Çdo faqe klasifikohet, nxirret dhe arkivohet — me ngjyra të besueshme në mënyrë që shqyrtimi të mbetet i fokusuar.',
   'documentDetail.audit.heading': 'Afati kohor i auditimit',
+  'documentDetail.audit.subheading':
+    'Çdo hap i ndërmarrë për këtë dokument, me aktorin përgjegjës.',
   'documentDetail.back': 'Të gjitha dokumentet',
   'documentDetail.downloadHint': 'Përdorni Shkarkimin për të hapur skedarin origjinal.',
+  'documentDetail.extracted.empty': 'Nuk është nxjerrë asnjë fushë ende.',
   'documentDetail.extracted.heading': 'Fushat e nxjerra',
   'documentDetail.extracted.subheading':
     '{{count}} fushat · klikoni çdo fushë për të nxjerrë në pah në faqe',
@@ -56,13 +70,23 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} dokumentet në bibliotekën tuaj, të renditura më të rejat në fillim.',
   'documents.uploadCta': 'Ngarko dokumente',
+  'documentTypeBreakdown.barAria': 'Përbërja e dokumenteve sipas llojit',
   'documentTypeBreakdown.empty': 'Nuk ka ende dokumente të përpunuara.',
   'documentTypeBreakdown.subtitle': '{{total}} përpunuar',
   'documentTypeBreakdown.title': 'Përbërja e dokumentit',
+  'forgotPassword.backToSignIn': '← Kthehu te hyrja',
   'forgotPassword.checkEmail': 'Kontrolloni email-in tuaj',
   'forgotPassword.tip': 'Nuk e kuptove? Kontrollo te spam-i ose provo një adresë tjetër.',
+  'landing.copyright': '© {{year}} {{app}}. Ndërtuar për ekipe operacionesh që auditojnë çdo faqe.',
+  'landing.ctaBody':
+    'Provë 14-ditore. Pa kartë. Anuloni në çdo kohë. Ndërtuar për ekipe operacionesh që lëvizin shpejt dhe auditojnë ngadalë.',
   'landing.ctaHeading': "Ndalo së shtypuri faturat. Fillo t'i arkivosh ato.",
   'landing.eyebrow': 'OCR · Nxjerrje · Regjistrim i inteligjencës artificiale',
+  'landing.featuresHeading': 'Inteligjencë dokumentesh që shpjegohet vetë',
+  'landing.heroSubtitle':
+    'Hidhni një grumbull faturash, kuponash, kontratash ose formularësh. {{app}} i klasifikon, i nxjerr dhe i arkivon — me ngjyra besueshmërie, që ekipi juaj të shqyrtojë vetëm atë që vërtet kërkon njeriun.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Vëllimi ditor · 7 ditët e fundit',
   'landing.sampleCardLabel': 'Dokumentet u përpunuan sot',
   'landing.sampleCardSubtitle':
     'Saktësi mesatare prej 96.2% në të gjitha faturat, faturat dhe formularët.',
@@ -76,6 +100,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Hap faqen e destinacionit',
   'notFound.title': 'Ajo faqe nuk është në dosje',
+  'parcelaHeroCard.accuracy': 'Saktësia mesatare {{value}}% për të gjitha nxjerrjet',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % kundrejt djeshëm',
   'parcelaHeroCard.title': 'Dokumentet u përpunuan sot',
   'parcelaLayout.primaryNavLabel': 'Navigimi kryesor',
@@ -83,6 +108,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'dokumente',
   'pricing.processingLabel': 'punë përpunimi',
   'resetPassword.confirmPlaceholder': 'Përsëritni fjalëkalimin e ri',
+  'resetPassword.hidePassword': 'Fshih fjalëkalimin',
   'resetPassword.passwordLabel': 'Fjalëkalim i ri',
   'resetPassword.showPassword': 'Shfaq fjalëkalimin',
   'resetPassword.subtitle': 'Zgjidh diçka të paktën 8 karaktere të gjatë.',
@@ -100,10 +126,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Ngarkimi i rregullave dështoi.',
   'rules.loading': 'Duke ngarkuar rregullat…',
   'rules.matched30d': '{{count}} dokumente të përputhura në 30 ditët e fundit',
+  'rules.neverUsed': 'Nuk është përdorur kurrë',
   'rules.newRule': 'Rregull i ri',
   'rules.saveError': 'Ruajtja e rregullit dështoi.',
   'rules.subheading':
     'Tregoni sistemit se ku duhet të shkojë secili lloj dokumenti. Zinxhiri i kushteve nga lart poshtë — ndeshja e parë fiton.',
+  'rules.templatesEmpty': 'Nuk ka shabllone nxjerrjeje ende.',
   'rules.templatesHeading': 'Shabllone nxjerrjeje',
   'rules.templatesSubheading': 'Skemat e fushave që përdor nxjerrësi për secilin lloj dokumenti.',
   'rules.then': 'Pastaj',
@@ -112,17 +140,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Emri i hapësirës së punës',
   'settings.account.subheading':
     'Emri i shfaqur dhe email-i kryesor për njoftimet dhe historikun e auditimit.',
+  'settings.api.confirmRevoke': 'Konfirmo?',
   'settings.api.copyOnce': 'Kopjo këtë çelës — nuk do të shfaqet përsëri',
   'settings.api.createdOn': 'Krijuar {{date}}',
   'settings.api.empty': 'Nuk ka ende çelësa API. Gjeneroni një më sipër.',
   'settings.api.error': 'Dështoi në krijimin e çelësit.',
+  'settings.api.generating': 'Duke gjeneruar…',
+  'settings.api.heading': 'Çelësat API',
   'settings.api.labelPlaceholder': 'Etiketë kyçe (p.sh. ngarkuesi CI)',
+  'settings.api.loading': 'Po ngarkohen çelësat…',
   'settings.api.newKey': 'Gjenero çelësin',
   'settings.api.subheading':
     'Përdorini këto për të shtyrë dokumente nga një skript ose ERP-ja juaj. Rrotulloni çdo çelës në çdo kohë.',
   'settings.integrations.heading': 'Integrimet e arkivimit',
   'settings.integrations.subheading':
     'Dërgoni dokumentet e arkivuara në diskun në cloud ose në mjetin e bisedës ku ndodhet tashmë ekipi juaj.',
+  'settings.subheading':
+    'Menaxhoni llogarinë, çelësat API dhe integrimet e arkivimit për hapësirën tuaj {{app}}.',
+  'signup.hidePassword': 'Fshih fjalëkalimin',
   'signup.identityPrompt': "Si duhet t'ju drejtohemi?",
   'signup.showPassword': 'Shfaq fjalëkalimin',
   'signup.subtitle': '14 ditë falas, nuk kërkohet kartë.',
@@ -130,6 +165,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Ngarkimi dështoi.',
   'upload.eyebrow': 'Gëlltitje',
   'upload.heading': 'Ngarko dokumente',
+  'upload.queue.clear': 'Pastro të përfunduarat',
   'upload.queue.col.confidence': 'Besim',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Duke zbuluar…',
@@ -142,5 +178,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Ose hidhni skedarë të shumtë njëherësh për nxjerrje në grup, klasifikim dhe arkivim.',
   'uploadDropZone.cta': 'Zgjidh skedarët',
+  'uploadDropZone.maxSize': 'Maks. 25 MB për skedar · Kriptim nga skaji në skaj',
   'uploadDropZone.title': 'Hidhni dokumentet për të filluar përpunimin',
 }

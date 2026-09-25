@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'فیڈبیک ہے، کوئی بگ ملا ہے، یا کوئی فیچر چاہیے؟ اپنی اکاؤنٹ سیٹنگز سے رابطہ کریں — ہر پیغام ٹیم کے کسی حقیقی فرد تک پہنچتا ہے۔ نوٹ: یہاں کچھ بھی سرمایہ کاری کا مشورہ نہیں؛ ہر ٹریڈ پر کنٹرول آپ کے پاس ہے۔',
+  'about.contactTitle': 'ہم سے بات کریں',
+  'about.featureAttribution':
+    'کارکردگی کی تفویض — سیکٹر، خطے اور اثاثہ کلاس کے لحاظ سے منافع کی تقسیم کریں، اور کسی بھی مدت میں بینچ مارک کریں۔',
+  'about.featureRebalance':
+    'منظم ری بیلنسنگ — ہدف مختص اور رواداری کی حدود مقرر کریں، انحراف جلد دیکھیں، اور وہ ٹریڈز حاصل کریں جو آپ کو واپس لائیں۔',
+  'about.featureTax':
+    'ٹیکس دستاویزات کی صفائی — حاصل شدہ اور غیر حاصل شدہ منافع، ڈیویڈنڈ اور 1099 دستاویزات ایک جگہ، واش سیل فلیگز سمیت۔',
+  'about.featureUnified':
+    'ایک متحد پورٹ فولیو — اسٹاکس، ETFs، میوچل فنڈز، بانڈز اور مزید، ہر بروکریج اکاؤنٹ سے یکجا۔',
+  'about.featureWatchlist':
+    'واچ لسٹس، خبریں اور قیمت کے الرٹس تاکہ آپ شور کے بغیر اہم چیزوں پر عمل کر سکیں۔',
+  'about.intro':
+    '{{app}} انفرادی سرمایہ کاروں اور آزاد مشیروں کے لیے ایک کثیر اثاثہ پورٹ فولیو ڈیش بورڈ ہے۔ اسٹاکس، ETFs، میوچل فنڈز، بانڈز، رئیل اسٹیٹ اور کیش — ہر اکاؤنٹ کی ہر ہولڈنگ، ایک جگہ، ایک پیشہ ور ڈیسک کے نظم و ضبط کے ساتھ۔',
+  'about.missionBody':
+    'اچھی سرمایہ کاری زیادہ تر نظم و ضبط ہے: ایک واضح ہدف مختص، دیانتدارانہ کارکردگی کی تفویض، اور صاف ستھرے ٹیکس ریکارڈ۔ {{app}} یہ ادارہ جاتی عادات ہر کسی تک پہنچاتا ہے، تاکہ آپ جذبات کے بجائے سوچ سمجھ کر ری بیلنس کر سکیں — اور یہ کبھی نظر سے اوجھل نہ ہو کہ آپ کا پورٹ فولیو واقعی کیا کر رہا ہے۔',
+  'about.missionTitle': 'ہمارا مشن',
   'about.pageTitle': '{{app}} کے بارے میں',
   'argentAuthShell.brandEyebrow': 'Argent · دولت کے اوزار',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . سرمایہ کاری کا مشورہ نہیں۔',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'انفرادی سرمایہ کاروں اور مشیروں کے لیے ایک پورٹ فولیو ڈیش بورڈ جو نظم و ضبط میں توازن، تیز کارکردگی کا انتساب، اور ٹیکس دستاویز حفظان صحت چاہتے ہیں — بغیر شور کے۔',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · ماضی کی کارکردگی مستقبل کے نتائج کی ضمانت نہیں دیتی۔',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) آج',
+  'argentAuthShell.sampleLabel': 'پورٹ فولیو ویلیو',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'بنیادی نیویگیشن',
   'assetAllocationDonut.heading': 'آپ کا پیسہ کیسے لگایا جاتا ہے۔',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'آج',
   'assetDetail.txEmpty': 'اس ٹکر کے لیے کوئی لین دین نہیں ہے۔',
   'assetDetail.txHeading': 'آپ کے لین دین',
+  'auth.legalConsent.prefix': 'جاری رکھ کر، آپ {{appName}} کی',
   'common.and': 'اور',
   'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'آج',
   'dashboard.topHoldings.heading': 'جہاں آپ کا پیسہ کام کر رہا ہے۔',
   'dashboard.topHoldings.label': 'ٹاپ ہولڈنگز',
+  'forgotPassword.gotLinkCta': 'میرے پاس ری سیٹ لنک ہے →',
+  'forgotPassword.subheading':
+    'اپنے Gavl اکاؤنٹ پر ای میل درج کریں اور ہم آپ کو ایک محفوظ ری سیٹ لنک بھیجیں گے۔',
   'forgotPassword.successBody':
     'اگر آپ کو یہ چند منٹوں میں نظر نہیں آتا ہے تو اپنا اسپام فولڈر چیک کریں یا کوئی دوسرا ای میل آزمائیں۔',
   'forgotPassword.successSubheading':
     'چیک کریں۔ {{email}} ری سیٹ لنک کے لیے۔ اس کی میعاد 60 منٹ میں ختم ہو جاتی ہے۔',
+  'forgotPassword.successTitle': 'ری سیٹ ای میل بھیج دی گئی',
   'holdingHighlightRow.todayLabel': 'آج',
   'holdings.addCta': 'خریدیں۔',
   'holdings.col.allocation': 'Alloc',
@@ -58,6 +87,8 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . سرمایہ کاری کا مشورہ نہیں۔ ماضی کی کارکردگی مستقبل کے نتائج کی ضمانت نہیں دیتی۔',
   'landing.eyebrow': 'ارجنٹ · دولت سے مالا مال کرنے کا پلیٹ فارم',
   'landing.features.heading': 'ہر وہ چیز جو ایک مشیر اپنے لیے بنائے گا۔',
+  'landing.finalCta.body': 'دو کلکس میں اپنی بروکریج منسلک کریں۔ باقی {{appName}} سنبھال لے گا۔',
+  'landing.finalCta.cta': 'اپنا Argent اکاؤنٹ کھولیں۔',
   'landing.finalCta.heading': 'نظم و ضبط کو اپنے پورٹ فولیو میں واپس لائیں۔',
   'landing.footerSignup': 'ایک اکاؤنٹ کھولیں۔',
   'landing.getStarted': 'ایک اکاؤنٹ کھولیں۔',
@@ -65,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'قیمتوں کا تعین دیکھیں',
   'landing.heroSubtitle':
     'انفرادی سرمایہ کاروں اور مشیروں کے لیے ایک پورٹ فولیو ڈیش بورڈ جو نظم و ضبط میں توازن، تیز کارکردگی کا انتساب، اور ٹیکس دستاویز حفظان صحت چاہتے ہیں — بغیر شور کے۔',
+  'landing.heroTitle': '{{tagline}}۔',
   'landing.sampleCaption': 'نمائندہ پورٹ فولیو سے لائیو پیش نظارہ',
   'login.heading': 'Argent میں سائن ان کریں۔',
   'login.subheading':
@@ -76,6 +108,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} گھنٹہ پہلے',
   'news.justNow': 'ابھی ابھی',
   'news.loadError': 'خبریں لوڈ کرنے میں ناکام۔',
+  'planUpdated.body':
+    'آپ کی بلنگ تبدیلی اب فعال ہے۔ آپ کسی بھی وقت بلنگ صفحے سے اپنا پلان منظم کر سکتے ہیں۔',
+  'planUpdated.retry': 'دوبارہ کوشش کریں۔',
+  'planUpdated.verifyFailed': 'ہم ابھی تک آپ کی ادائیگی کی تصدیق نہیں کر سکے۔',
+  'planUpdated.verifyFailedBody':
+    'ہو سکتا ہے آپ کی ادائیگی پر ابھی بھی کارروائی ہو رہی ہو۔ ایک لمحے میں دوبارہ کوشش کریں۔',
   'planUpdated.verifying': 'آپ کی ادائیگی کی تصدیق ہو رہی ہے…',
   'portfolioHeroCard.label': 'پورٹ فولیو ویلیو',
   'pricing.holdingsLabel': 'ہولڈنگز',
@@ -86,12 +124,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'ایلوکیشن ڈرفٹ',
   'rebalance.empty': 'ابھی تک کوئی ہدف مقرر نہیں کیا گیا ہے۔',
   'rebalance.executeCta': 'جگہ {{count}} تجارت',
+  'rebalance.executeError': 'ٹریڈز دینے میں ناکامی۔',
   'rebalance.executeOk': 'رکھا {{count}} تجارت انہیں لین دین کے صفحہ پر دیکھیں۔',
+  'rebalance.executing': 'دیا جا رہا ہے…',
   'rebalance.eyebrow': 'ری بیلنس · ارجنٹ ایڈوائزر',
   'rebalance.heading': 'اپنے پورٹ فولیو کو دوبارہ نظم و ضبط میں لائیں۔',
   'rebalance.loadError': 'ری بیلنس پلان لوڈ کرنے میں ناکام۔',
+  'rebalance.plan.driftLine': 'فی الحال {{current}}% · ہدف {{target}}%',
   'rebalance.planHeading': 'ارجنٹ ٹکٹ - رکھنے سے پہلے جائزہ لیں۔',
   'rebalance.planLabel': 'تجویز کردہ تجارتی منصوبہ',
+  'rebalance.subheading':
+    'اپنی رواداری کی حد سے باہر والی قطاریں ٹریڈ تجاویز دیتی ہیں۔ {{appName}} صرف آپ کی تصدیق پر عمل کرتا ہے۔',
   'rebalance.summary.buyLabel': 'خریدتا ہے۔',
   'rebalance.summary.buySub': 'اوپر کی پوزیشنیں',
   'rebalance.summary.driftLabel': 'آؤٹ آف بینڈ',
@@ -100,6 +143,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'تجویز کردہ تجارتوں میں',
   'rebalance.summary.sellLabel': 'بکتا ہے۔',
   'rebalance.summary.sellSub': 'تراشنے کی پوزیشنیں',
+  'rebalanceDriftCard.drift': 'انحراف {{sign}}{{pct}}% · حد ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'ہدف {{pct}} %',
   'reports.attributionHeading': 'کارکردگی کا انتساب (1Y)',
   'reports.col.alpha': 'الفا',
@@ -113,37 +157,68 @@ export const ui: UiTranslations = {
   'reports.col.year': 'سال',
   'reports.gainsHeading': 'حقیقی اور غیر حقیقی فوائد',
   'reports.noAttribution': 'ابھی تک کوئی انتساب ڈیٹا نہیں ہے۔',
+  'reports.noGains': 'ابھی تک حاصل شدہ/غیر حاصل شدہ منافع کا ڈیٹا نہیں۔',
   'reports.noPerformance': 'ابھی تک کارکردگی کا کوئی ڈیٹا نہیں ہے۔',
   'reports.noTaxDocs': 'ابھی تک کوئی ٹیکس دستاویزات نہیں ہیں۔',
   'reports.performanceHeading': 'کارکردگی بمقابلہ بینچ مارک',
   'reports.taxHeading': 'ٹیکس دستاویزات',
   'resetPassword.heading': 'ایک مضبوط نیا پاس ورڈ منتخب کریں۔',
+  'resetPassword.passwordPlaceholder': 'نیا پاس ورڈ',
   'resetPassword.subheading':
     'آپ کا پاس ورڈ سیٹ ہونے کے بعد Argent آپ کو خود بخود سائن ان کر دے گا۔',
   'resetPassword.tokenPlaceholder': 'ای میل سے ٹوکن ری سیٹ کریں۔',
+  'settings.appearance.description': 'لائٹ اور ڈارک موڈ کے درمیان ٹوگل کریں۔',
   'settings.appearance.title': 'ظاہری شکل',
+  'settings.devices.body': 'ڈیوائسز فی الحال آپ کے اکاؤنٹ میں سائن ان ہیں۔',
+  'settings.devices.empty': 'کوئی ڈیوائس نہیں ملی۔',
   'settings.devices.heading': 'آلات',
+  'settings.devices.revokeWarning':
+    'اس ڈیوائس کی رسائی جلد منسوخ کر دی جائے گی۔ اسے سائن آؤٹ کریں؟',
   'settings.devices.signOut': 'سائن آؤٹ کریں۔',
   'settings.devices.thisDevice': 'یہ ڈیوائس',
   'settings.devices.unknown': 'نامعلوم آلہ',
   'settings.linked.body':
     'بروکریج کی مطابقت پذیری کے لیے فریق ثالث کنیکٹر (Plaid، Yodlee، وغیرہ) کی ضرورت ہوتی ہے۔ خودکار درآمد کو فعال کرنے کے لیے اپنے فراہم کنندہ کو اپنے ماحول میں ترتیب دیں۔',
   'settings.linked.heading': 'منسلک بروکریج اکاؤنٹس',
+  'settings.linked.placeholder': 'ابھی تک کوئی اکاؤنٹ منسلک نہیں ہے۔',
+  'settings.notifications.dividendsPaid': 'ادا شدہ ڈیویڈنڈ',
   'settings.notifications.error': 'ترجیح کو اپ ڈیٹ نہیں کیا جا سکا۔',
   'settings.notifications.priceAlerts': 'قیمت کے انتباہات',
+  'settings.notifications.rebalanceDrift': 'ری بیلنس انحراف',
+  'settings.notifications.taxDocsReady': 'ٹیکس دستاویزات تیار',
   'settings.profile.advisor': 'مشیر ای میل (اختیاری)',
   'settings.profile.heading': 'پروفائل',
   'settings.security.changePassword': 'پاس ورڈ تبدیل کریں۔',
+  'settings.security.changePasswordTitle': 'پاس ورڈ تبدیل کریں۔',
   'settings.security.changing': 'تبدیل ہو رہا ہے…',
+  'settings.security.confirmPassword': 'پاس ورڈ',
+  'settings.security.currentPassword': 'موجودہ پاس ورڈ',
   'settings.security.deleteAccount': 'اکاؤنٹ حذف کریں۔',
   'settings.security.deleteError': 'اکاؤنٹ حذف نہیں کیا جا سکا۔',
   'settings.security.deleteHeading': 'اکاؤنٹ حذف کریں۔',
+  'settings.security.deleteModalWarning':
+    'یہ آپ کا اکاؤنٹ اور ڈیٹا مستقل طور پر حذف کر دیتا ہے۔ تصدیق کے لیے اپنا پاس ورڈ درج کریں۔',
+  'settings.security.deleteWarning':
+    'اپنا اکاؤنٹ اور تمام متعلقہ ڈیٹا مستقل طور پر حذف کریں۔ اسے واپس نہیں لایا جا سکتا۔',
   'settings.security.deleting': 'حذف ہو رہا ہے…',
   'settings.security.heading': 'سیکورٹی',
   'settings.security.newPassword': 'نیا پاس ورڈ',
   'settings.security.password': 'پاس ورڈ',
+  'settings.security.passwordError': 'پاس ورڈ تبدیل نہیں کیا جا سکا۔',
+  'settings.security.passwordHint': 'سائن اِن کرنے کے لیے استعمال ہونے والا پاس ورڈ تبدیل کریں۔',
+  'settings.security.twoFactor': 'دو عنصر کی توثیق',
+  'settings.security.twoFactorCode': 'تصدیقی کوڈ',
+  'settings.security.twoFactorDisable': 'غیر فعال کریں۔',
+  'settings.security.twoFactorDisableTitle': 'دو عنصری تصدیق غیر فعال کریں',
   'settings.security.twoFactorEnable': 'فعال کریں۔',
+  'settings.security.twoFactorEnableTitle': 'دو عنصری تصدیق فعال کریں',
+  'settings.security.twoFactorHint': 'اپنے اکاؤنٹ میں حفاظت کی ایک اضافی تہہ شامل کریں۔',
   'settings.security.twoFactorInvalidCode': 'غلط کوڈ',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'ٹو فیکٹر QR کوڈ',
+  'settings.security.twoFactorScan':
+    'اس QR کوڈ کو اپنی تصدیق کنندہ ایپ سے اسکین کریں، پھر 6 ہندسوں کا کوڈ درج کریں۔',
+  'settings.security.twoFactorUnavailable': 'اس ایپ کے لیے دو عنصر کی توثیق دستیاب نہیں ہے۔',
   'settings.security.twoFactorVerify': 'تصدیق کریں اور فعال کریں۔',
   'settings.tax.error': 'ٹیکس کے طریقہ کار کو اپ ڈیٹ نہیں کیا جا سکا۔',
   'settings.tax.heading': 'ٹیکس لاٹ اکاؤنٹنگ',
@@ -154,6 +229,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'ٹیکس کا طریقہ محفوظ ہو گیا۔',
   'signup.eyebrow': 'ایک اکاؤنٹ کھولیں۔',
   'signup.heading': 'اپنا Argent اکاؤنٹ کھولیں۔',
+  'signup.legalPrefix': 'اکاؤنٹ بنا کر آپ {{appName}} سے اتفاق کرتے ہیں',
   'signup.subheading': '30 دنوں کے لیے مفت۔ کارڈ کی ضرورت نہیں ہے۔ کسی بھی وقت منسوخ کریں۔',
   'signup.terms':
     'ایک اکاؤنٹ بنا کر آپ Argent سروس کی شرائط اور رازداری کی پالیسی سے اتفاق کرتے ہیں۔',

@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Есть отзыв, нашли ошибку или хотите {{app}} для своей студии или команды? Напишите нам в настройках аккаунта — каждое сообщение попадает к реальному человеку из команды.',
   'about.contactTitle': 'Свяжитесь с нами',
+  'about.intro':
+    '{{app}} — это студия совместного письма, где редакторы, авторы и команды пишут вместе в реальном времени. Откройте документ — и страница становится общей: курсоры движутся, комментарии выстраиваются в цепочки на полях, а каждая правка надёжно сохраняется в истории.',
+  'about.missionBody':
+    'Мы верим, что длинные тексты заслуживают спокойного, сосредоточенного дома — построенного вокруг рукописи, а не встречи или почтового ящика. Наш редактор, присутствие в реальном времени и история версий созданы так, чтобы соавторы могли быстро двигаться вместе, не теряя ни абзаца, ни мысли.',
+  'about.missionTitle': 'Наша миссия',
+  'about.subtitle': 'Думайте вместе, пишите вечно.',
   'about.title': 'О {{app}}',
   'comments.addFailed': 'Не удалось оставить комментарий.',
   'comments.backToDoc': 'Вернуться к рукописи',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Комментарии',
   'comments.loading': 'Загрузка тем…',
   'comments.newPlaceholder': 'Добавить комментарий к рукописи…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Возобновить работу',
   'comments.reopenFailed': 'Не удалось открыть заново.',
   'comments.replyFailed': 'Не удалось отправить ответ.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Последние черновики, совместные работы и правки за сегодня.',
   'dashboard.viewFeed': 'Лента →',
   'editor.back': 'Вернуться к рукописям',
+  'editor.bodyLabel': 'Текст документа',
   'editor.bodyPlaceholder': 'Начните с места, где мигает курсор.',
   'editor.comments': 'Комментарии',
   'editor.createFailed': 'Не удалось создать документ.',
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Если у вас есть аккаунт на сайте {{email}}, вам будет отправлена ссылка для сброса пароля.',
+  'forgotPassword.sentHeading': 'Проверьте свою электронную почту',
+  'forgotPassword.submitting': 'Отправка™',
   'forgotPassword.subtitle': 'Мы вышлем вам по электронной почте ссылку для сброса пароля.',
   'landing.copyright': '\\u00a9 {{year}} {{app}}. Создано с помощью Molecule.',
+  'landing.ctaBody':
+    'Бесплатно для авторов-одиночек. Тарифы «Студия» для команд редакторов, гострайтеров и рецензентов.',
   'landing.ctaHeading': 'Откройте страницу. Начните с курсора.',
   'landing.ctaPrimary': 'Открыть студию',
   'landing.eyebrow': 'Для авторов, редакторов и команд',
   'landing.featuresEyebrow': 'Что вы получите',
   'landing.featuresHeading': 'Студия для работы над черновиками длинных текстов.',
+  'landing.featuresSubtitle':
+    '{{appName}} построен вокруг рукописи — не встречи, не почтового ящика.',
   'landing.getStarted': 'Откройте студию',
   'landing.heroCta': 'Начните писать',
   'landing.heroSubtitle':
@@ -95,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} непрочитанные · комментарии, упоминания, приглашения поделиться и запросы на предложения.',
   'presenceAvatars.label': '{{count}} сотрудники',
+  'privacy.intro': 'Как мы собираем, используем и защищаем вашу информацию.',
   'privacy.title': 'Политика конфиденциальности',
   'profile.about.description': 'Краткая биография для вашего публичного профиля и страниц авторов.',
   'profile.eyebrow': 'Идентичность студии',
@@ -106,7 +123,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Присутствие',
   'profile.pronouns': 'Местоимения',
   'profile.publicToggle': 'Показать профиль товарищам по команде',
+  'profile.role': 'Роль / должность',
   'profile.subtitle': 'Какое впечатление вы производите на своих коллег.',
+  'quillonAuthBrandPanel.attribution': 'Глория Стайнем',
   'quillonAuthBrandPanel.presence': '{{count}} писатели, работающие в студии',
   'quillonAuthBrandPanel.quote':
     '«Писательство — это единственное занятие, когда я этим занимаюсь, мне не кажется, что я должен был бы делать что-то другое».',
@@ -114,6 +133,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Открыть →',
   'quillonKpiCard.trend': 'Последние тенденции',
   'quillonLayout.menu': 'Меню',
+  'quillonLayout.mobileNavLabel': 'Мобильная навигация',
   'quillonLayout.primaryNavLabel': 'Основная навигация',
   'quillonStudioHero.collab': 'Соавторы',
   'quillonStudioHero.docs': 'Документы, с которыми работали',
@@ -122,7 +142,9 @@ export const ui: UiTranslations = {
   'quillonStudioHero.subtitle': 'Возьмите рукопись, оставьте комментарий, продвиньте абзац вперед.',
   'quillonStudioHero.words': 'Слова сегодня',
   'resetPassword.confirmPlaceholder': 'Введите новый пароль еще раз',
+  'resetPassword.passwordLabel': 'Новый пароль',
   'resetPassword.passwordPlaceholder': 'Введите новый пароль',
+  'resetPassword.submitting': 'Сброс настроек™',
   'resetPassword.subtitle': 'Выберите надежный пароль — не менее 12 символов.',
   'settings.account.description': 'Как войти в систему.',
   'settings.billing.canceled': 'Подписка отменена.',
@@ -131,7 +153,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Не настроено',
   'settings.billing.updated': 'План обновлен.',
   'settings.editor.description': 'Как ведет себя холст во время рисования.',
+  'settings.editor.title': 'Настройки редактора',
   'settings.eyebrow': 'Настройки студии',
+  'settings.language.title': 'Язык',
   'settings.notifications.${n.key}.description': 'Язык',
   'settings.notifications.description': 'Выбирайте, что будет поступать в ваш почтовый ящик.',
   'settings.subtitle':
@@ -141,6 +165,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Поделился со мной',
   'shared.loadFailed': 'Не удалось загрузить общие документы.',
   'shared.subtitle': 'Рукописи, справки и заметки из других отделов студии.',
+  'signup.brandAttribution': 'Анаис Парк — редактор, The Quarterly',
   'signup.brandQuote':
     '«Первый рукопись — самая сложная. Quillon помогает почувствовать себя не таким одиноким».',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -148,6 +173,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Анаис',
   'signup.heading': 'Создайте аккаунт в Quillon',
   'signup.lastNamePlaceholder': 'Парк',
+  'signup.submitting': 'Открываем вашу студию\\u2026',
   'signup.subtitle':
     'Тихий рабочий стол, спокойные коллеги и редактор длинных текстов, который не мешает вам работать.',
   'templates.blank.subtitle': 'Чистый лист. Курсор готов к работе.',
@@ -160,11 +186,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Начните с продуманной структуры. Бесконечно настраивайте.',
   'templates.useFailed': 'Не удалось создать документ на основе этого шаблона.',
   'templates.useTemplate': 'Используйте этот шаблон',
+  'terms.intro': 'Условия, на которых вы можете пользоваться этим сервисом.',
   'terms.title': 'Условия предоставления услуг',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'только что',
   'trash.confirmDelete': 'Подтвердить удаление',
+  'trash.confirmEmpty': 'Подтвердить — удалить всё',
   'trash.deleteFailed': 'Не удалось удалить.',
   'trash.deleteForever': 'Удалить без возможности восстановления',
   'trash.empty': 'Восстанавливать нечего.',
@@ -178,7 +206,9 @@ export const ui: UiTranslations = {
   'versionHistory.backToDoc': 'Вернуться к рукописи',
   'versionHistory.empty': 'Пока нет изменений — сохраните документ, чтобы начать его историю.',
   'versionHistory.heading': 'История версий',
+  'versionHistory.latest': 'Последние новости',
   'versionHistory.loadFailed': 'Не удалось загрузить историю.',
+  'versionHistory.noContent': 'Для этой версии содержимое не сохранено.',
   'versionHistory.previewing': 'Предварительный просмотр',
   'versionHistory.restore': 'Восстановить эту версию',
   'versionHistory.restoreFailed': 'Восстановление не удалось.',

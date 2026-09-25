@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'प्रतिक्रिया छ, बग भेट्टाइयो, वा {{app}} आफ्नो विद्यालय वा टोलीमा ल्याउन चाहनुहुन्छ? हामी हरेक सन्देश पढ्छौं — आफ्नो खाता सेटिङबाट सम्पर्क गर्नुहोस् र एक वास्तविक मान्छेले जवाफ दिनेछ।',
   'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'about.eyebrow': 'बारेमा',
+  'about.intro':
+    '{{app}} दैनिक शब्द पजल हो। छ प्रयासमा पाँच अक्षरको शब्द अनुमान गर्नुहोस्, आफ्नो स्ट्रिक कायम राख्नुहोस्, आफ्नो इमोजी ग्रिड साझा गर्नुहोस्, र आजको शब्दमा सबैले कस्तो प्रदर्शन गरे हेर्नुहोस्।',
+  'about.missionBody':
+    'राम्रो पजल दैनिक सानो जित हो। {{app}} दिनको एउटै साझा शब्दमा आधारित छ — कफी ब्रेकका लागि पर्याप्त छिटो, भोलिका लागि फर्किन पर्याप्त रोचक।',
+  'about.missionTitle': 'हाम्रो मिशन',
   'about.title': '{{app}} बारे',
   'archive.loadError': 'अभिलेख लोड गर्न सकिएन।',
   'archive.missed': 'छुटेको',
   'archive.notPlayed': 'खेलिएको छैन',
+  'archive.subhead':
+    'कुनै पनि विगतको दिन अभ्यासको रूपमा पुनः खेल्नुहोस् — न स्ट्रिक, न तथ्याङ्क, सबै रमाइलो।',
   'archive.title': 'अभिलेख',
   'auth.backToHome': 'होममा फर्कनुहोस्',
   'auth.backToHomeArrow': '← होममा फर्कनुहोस्',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'पासवर्ड बिर्सनुभयो?',
   'auth.login.loggingIn': 'साइन इन गर्दै…',
   'auth.login.logIn': 'आजको शब्द खेल्नुहोस्',
+  'auth.login.noAccount': 'टेसेरामा नयाँ हुनुहुन्छ?',
   'auth.login.or': 'वा यसबाट जारी राख्नुहोस्',
   'auth.login.password': 'पासवर्ड',
   'auth.login.signInButton': 'साइन इन',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'सुरक्षित गर्दै…',
   'common.sendingEllipsis': 'पठाउँदै…',
   'common.startingEllipsis': 'सुरु गर्दै…',
+  'forgotPassword.subhead':
+    'तपाईंको इमेल प्रविष्ट गर्नुहोस् र हामी तपाईंलाई रिसेट गर्न लिङ्क पठाउनेछौं।',
+  'forgotPassword.success.body':
+    'यदि कुनै खाता अवस्थित छ भने {{email}} , तपाईंले केही मिनेटमा रिसेट लिङ्क प्राप्त गर्नुहुनेछ।',
+  'forgotPassword.success.title': 'आफ्नो इनबक्स जाँच गर्नुहोस्।',
   'form.name': 'नाम',
   'howToPlay.cta.home': 'घर फर्कनुहोस्',
   'howToPlay.cta.play': 'आजको पजल खेल्नुहोस्',
@@ -68,10 +83,14 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'तोड्न नचाहिने स्ट्रिकहरू',
   'leaderboard.daily.title': 'आजका समाधानहरू',
   'leaderboard.loadError': 'लिडरबोर्ड लोड गर्न सकिएन।',
+  'leaderboard.streaks.empty': 'अझै कुनै स्ट्रिक छैन — पहिलो बन्नुहोस्।',
+  'leaderboard.streaks.subhead': 'सर्वकालीन सबैभन्दा लामो जित स्ट्रिक।',
   'leaderboard.streaks.title': 'स्ट्रिक नेताहरू',
+  'leaderboard.subhead': 'आज सबैले कस्तो प्रदर्शन गरे, र कसले सबैभन्दा लामो स्ट्रिक कायम राखेको छ।',
   'leaderboard.title': 'लिडरबोर्ड',
   'login.headline': 'फेरि स्वागत छ।',
   'login.streakPill': '{{days}}-दिनको स्ट्रिक पर्खिरहेको',
+  'login.subhead': 'आफ्नो स्ट्रिक कायम राख्न र आजको शब्दमा आफ्नो प्रदर्शन हेर्न साइन इन गर्नुहोस्।',
   'nav.archive': 'अभिलेख',
   'nav.editProfile': 'प्रोफाइल सम्पादन गर्नुहोस्',
   'nav.getStarted': 'सुरु गर्नुहोस्',
@@ -89,6 +108,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · यस्तो शब्द छैन',
   'notFound.title': 'त्यो मार्ग खाली छ।',
   'planUpdated.message': 'तपाईंको योजना लाइभ छ।',
+  'planUpdated.retry': 'फेरि प्रयास गर्नुहोस्',
+  'planUpdated.verifyFailed': 'हामीले तपाईंको भुक्तानी अझै पुष्टि गर्न सकेनौं।',
+  'planUpdated.verifyFailedBody':
+    'तपाईंको भुक्तानी अझै पनि प्रशोधन भइरहेको हुन सक्छ। केही बेरमा फेरि प्रयास गर्नुहोस्।',
   'planUpdated.verifying': 'तपाईंको भुक्तानी पुष्टि गर्दै…',
   'play.alreadyFinished': 'तपाईंले यो पजल पहिले नै समाप्त गर्नुभयो',
   'play.answerWas': 'शब्द थियो',
@@ -104,6 +127,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'अभ्यास पजल',
   'play.tooShort': 'पर्याप्त अक्षरहरू छैनन्',
   'play.won': 'हल गरियो!',
+  'pricing.advancedStats': 'उन्नत तथ्याङ्क: {{yes}}',
+  'pricing.archiveHistory': '{{count}} दिनको अभिलेख इतिहास',
+  'pricing.archivePlays': '{{count}} अभिलेख पुनःखेल / दिन',
+  'pricing.archiveUnlimited': 'असीमित अभिलेख इतिहास',
+  'pricing.canExport': 'डेटा निर्यात: {{yes}}',
+  'pricing.checkoutError': 'चेकआउट सुरु गर्न सकिएन। कृपया फेरि प्रयास गर्नुहोस्।',
   'pricing.dailyWord': 'दैनिक शब्द',
   'pricing.heading': 'आफ्नो {{app}} योजना छान्नुहोस्',
   'pricing.included': 'समावेश छ',
@@ -111,7 +140,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'दैनिक शब्द सधैं नि:शुल्क छ। असीमित अभिलेख पुन: प्ले र गहिरो तथ्याङ्कको लागि अपग्रेड गर्नुहोस्।',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} तपाईंको गोपनीयताको सम्मान गर्छ। यो पृष्ठले हामीले भण्डारण गर्ने डेटा, किन भण्डारण गर्छौं, र कसरी हटाउने भन्ने सारांश दिन्छ।',
   'privacy.title': 'गोपनीयता सूचना',
+  'resetPassword.subhead': 'आफ्नो स्ट्रिकमा फर्किन नयाँ पासवर्ड छान्नुहोस्।',
   'settings.account': 'खाता',
   'settings.danger.body': 'आफ्नो {{appName}} खाता र सबै पजल इतिहास स्थायी रूपमा हटाउनुहोस्।',
   'settings.danger.confirm': 'हो, सधैंको लागि मेट्नुहोस्',
@@ -121,17 +153,24 @@ export const ui: UiTranslations = {
   'settings.language.title': 'भाषा',
   'settings.subhead':
     'आफ्नो प्रोफाइल, ध्वनि, र तपाईं लिडरबोर्डमा कसरी देखा पर्नुहुन्छ ट्युन गर्नुहोस्।',
+  'settings.unnamed': 'स्पार्क खेलाडी',
   'settings.upgrade': 'अपग्रेड गर्नुहोस्',
   'signup.eyebrow': 'सधैंको लागि नि:शुल्क — दिनमा एउटा शब्द',
   'signup.headline': 'आफ्नो स्ट्रिक सुरु गर्नुहोस्।',
+  'signup.subhead':
+    'दैनिक शब्द खेल्न, स्ट्रिक बनाउन, र लिडरबोर्डमा चढ्न {{appName}} खाता बनाउनुहोस्।',
   'stats.currentStreak': 'स्ट्रिक',
   'stats.distribution.title': 'अनुमान वितरण',
   'stats.loadError': 'तपाईंको तथ्याङ्क लोड गर्न सकिएन।',
   'stats.maxStreak': 'अधिकतम स्ट्रिक',
   'stats.played': 'खेलेको',
   'stats.playToday': 'आजको पजल खेल्नुहोस्',
+  'stats.subhead':
+    'केवल दैनिक पजलहरू मूल्याङ्कनमा गणना हुन्छन् — अभिलेख अभ्यास कहिल्यै गणना हुँदैन।',
   'stats.title': 'तपाईंको तथ्याङ्क',
   'stats.winRate': 'जीत दर',
   'status.monthly': 'मासिक',
+  'terms.intro':
+    '{{app}} प्रयोग गरेर तपाईं तलका नियमहरूमा सहमत हुनुहुन्छ। यदि तपाईं तिनलाई स्वीकार गर्न सक्नुहुन्न भने, कृपया सेवा प्रयोग नगर्नुहोस्।',
   'terms.title': 'सेवाका सर्तहरू',
 }

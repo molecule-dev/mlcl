@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'प्रतिक्रिया छ, बग भेटियो, वा कुनै सुविधा चाहिन्छ? आफ्नो खाता सेटिङबाट सम्पर्क गर्नुहोस् — हरेक सन्देश टोलीको वास्तविक व्यक्तिसम्म पुग्छ। ध्यान दिनुहोस्: यहाँ केही पनि लगानी सल्लाह होइन; हरेक ट्रेडको नियन्त्रण तपाईंसँगै रहन्छ।',
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
+  'about.featureAttribution':
+    'कार्यसम्पादन विश्लेषण — क्षेत्र, भूगोल र सम्पत्ति वर्ग अनुसार प्रतिफल विभाजन गर्नुहोस्, र कुनै पनि अवधिमा बेन्चमार्क गर्नुहोस्।',
+  'about.featureRebalance':
+    'अनुशासित पुनःसन्तुलन — लक्ष्य आवंटन र सहनशीलता दायरा सेट गर्नुहोस्, विचलन चाँडै देख्नुहोस्, र तपाईंलाई पुनः ट्र्याकमा ल्याउने ट्रेडहरू पाउनुहोस्।',
+  'about.featureTax':
+    'कर-कागजात व्यवस्थापन — प्राप्त र अप्राप्त नाफा, लाभांश र 1099 कागजातहरू एकै ठाउँमा, वाश-सेल फ्ल्यागसहित।',
+  'about.featureUnified':
+    'एकीकृत पोर्टफोलियो — सेयर, ETF, म्युचुअल फन्ड, बन्ड र थप, हरेक ब्रोकरेज खाताबाट एकै ठाउँमा।',
+  'about.featureWatchlist':
+    'वाचलिस्ट, समाचार र मूल्य अलर्टहरू, ताकि हल्लाखल्ला बिना महत्त्वपूर्ण कुरामा कार्य गर्न सक्नुहोस्।',
+  'about.intro':
+    '{{app}} व्यक्तिगत लगानीकर्ता र स्वतन्त्र सल्लाहकारहरूका लागि बहु-सम्पत्ति पोर्टफोलियो ड्यासबोर्ड हो। सेयर, ETF, म्युचुअल फन्ड, बन्ड, घरजग्गा र नगद — हरेक खाताका हरेक होल्डिङ, एकै ठाउँमा, व्यावसायिक डेस्कको अनुशासनसहित।',
+  'about.missionBody':
+    'राम्रो लगानी मुख्यतः अनुशासन हो: स्पष्ट लक्ष्य आवंटन, इमानदार कार्यसम्पादन विश्लेषण, र व्यवस्थित कर अभिलेख। {{app}} यी संस्थागत बानीहरू जोकोहीलाई दिन्छ, ताकि तपाईं आवेगमा होइन, योजनाबद्ध रूपमा पुनःसन्तुलन गर्न सक्नुहोस् — र तपाईंको पोर्टफोलियोले वास्तवमा के गरिरहेको छ भन्ने कहिल्यै नबिर्सनुहोस्।',
+  'about.missionTitle': 'हाम्रो मिशन',
   'about.pageTitle': '{{app}} बारे',
   'argentAuthShell.brandEyebrow': 'पैसा · सम्पत्ति उपकरण',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} । लगानी सल्लाह होइन।',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'अनुशासित पुनर्सन्तुलन, तीव्र कार्यसम्पादन श्रेय, र कर-कागजात स्वच्छता चाहने व्यक्तिगत लगानीकर्ता र सल्लाहकारहरूका लागि पोर्टफोलियो ड्यासबोर्ड - बिना कोलाहल।',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · विगतको कार्यसम्पादनले भविष्यका नतिजाको ग्यारेन्टी गर्दैन।',
   'argentAuthShell.sampleChange': 'आज +$२,८४१ (+०.२८%)',
+  'argentAuthShell.sampleLabel': 'पोर्टफोलियो मूल्य',
   'argentAuthShell.sampleValue': '$१,०३२,२५१',
   'argentLayout.primaryNavLabel': 'प्राथमिक नेभिगेसन',
   'assetAllocationDonut.heading': 'तपाईंको पैसा कसरी लगानी गरिन्छ',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'आज',
   'assetDetail.txEmpty': 'यो टिकरको लागि कुनै लेनदेन छैन।',
   'assetDetail.txHeading': 'तपाईंको कारोबारहरू',
+  'auth.legalConsent.prefix': 'जारी राख्दा, तपाईं {{appName}}को सहमति जनाउनुहुन्छ',
   'common.and': 'र',
   'common.goToDashboard': 'ड्यासबोर्डमा जानुहोस्',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'आज',
   'dashboard.topHoldings.heading': 'तपाईंको पैसा कहाँ काम गरिरहेको छ',
   'dashboard.topHoldings.label': 'शीर्ष होल्डिंगहरू',
+  'forgotPassword.gotLinkCta': 'मसँग रिसेट लिंक छ →',
+  'forgotPassword.subheading':
+    'तपाईंको Gavl खातामा इमेल प्रविष्ट गर्नुहोस् र हामी तपाईंलाई सुरक्षित रिसेट लिङ्क पठाउनेछौं।',
   'forgotPassword.successBody':
     'यदि तपाईंले केही मिनेटमा यो देख्नुभएन भने, आफ्नो स्प्याम फोल्डर जाँच गर्नुहोस् वा फरक इमेल प्रयास गर्नुहोस्।',
   'forgotPassword.successSubheading':
     'जाँच गर्नुहोस् {{email}} रिसेट लिङ्कको लागि। यसको म्याद ६० मिनेटमा सकिन्छ।',
+  'forgotPassword.successTitle': 'रिसेट इमेल पठाइँदैछ',
   'holdingHighlightRow.todayLabel': 'आज',
   'holdings.addCta': 'किन्नुहोस्',
   'holdings.col.allocation': 'आवंटन',
@@ -58,6 +87,8 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} । लगानी सल्लाह होइन। विगतको कार्यसम्पादनले भविष्यको नतिजाको ग्यारेन्टी गर्दैन।',
   'landing.eyebrow': 'अर्जेन्ट · सम्पत्ति-उपकरण प्लेटफर्म',
   'landing.features.heading': 'सल्लाहकारले आफ्नै लागि बनाउने सबै कुरा।',
+  'landing.finalCta.body': 'दुई क्लिकमा आफ्नो ब्रोकरेज जोड्नुहोस्। बाँकी {{appName}} ले गर्छ।',
+  'landing.finalCta.cta': 'आफ्नो अर्जेन्ट खाता खोल्नुहोस्',
   'landing.finalCta.heading': 'आफ्नो पोर्टफोलियोमा अनुशासन फिर्ता ल्याउनुहोस्।',
   'landing.footerSignup': 'खाता खोल्नुहोस्',
   'landing.getStarted': 'खाता खोल्नुहोस्',
@@ -65,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'मूल्य निर्धारण हेर्नुहोस्',
   'landing.heroSubtitle':
     'अनुशासित पुनर्सन्तुलन, तीव्र कार्यसम्पादन श्रेय, र कर-कागजात स्वच्छता चाहने व्यक्तिगत लगानीकर्ता र सल्लाहकारहरूका लागि पोर्टफोलियो ड्यासबोर्ड - बिना कोलाहल।',
+  'landing.heroTitle': '{{tagline}}।',
   'landing.sampleCaption': 'प्रतिनिधि पोर्टफोलियोबाट प्रत्यक्ष पूर्वावलोकन',
   'login.heading': 'अर्जेन्टमा साइन इन गर्नुहोस्',
   'login.subheading':
@@ -76,6 +108,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} घण्टा अघि',
   'news.justNow': 'भर्खरै',
   'news.loadError': 'समाचार लोड गर्न असफल भयो।',
+  'planUpdated.body':
+    'तपाईंको बिलिङ परिवर्तन अब सक्रिय छ। तपाईं बिलिङ पृष्ठबाट कुनै पनि समय आफ्नो योजना व्यवस्थापन गर्न सक्नुहुन्छ।',
+  'planUpdated.retry': 'फेरि प्रयास गर्नुहोस्',
+  'planUpdated.verifyFailed': 'हामीले तपाईंको भुक्तानी अझै पुष्टि गर्न सकेनौं।',
+  'planUpdated.verifyFailedBody':
+    'तपाईंको भुक्तानी अझै पनि प्रशोधन भइरहेको हुन सक्छ। केही बेरमा फेरि प्रयास गर्नुहोस्।',
   'planUpdated.verifying': 'तपाईंको भुक्तानी पुष्टि गर्दै…',
   'portfolioHeroCard.label': 'पोर्टफोलियो मूल्य',
   'pricing.holdingsLabel': 'होल्डिंग्स',
@@ -86,12 +124,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'आवंटन बहाव',
   'rebalance.empty': 'अहिलेसम्म कुनै लक्ष्य तोकिएको छैन।',
   'rebalance.executeCta': 'ठाउँ {{count}} व्यापारहरू',
+  'rebalance.executeError': 'ट्रेडहरू राख्न असफल भयो।',
   'rebalance.executeOk': 'राखिएको {{count}} कारोबारहरू। लेनदेन पृष्ठमा तिनीहरूलाई हेर्नुहोस्।',
+  'rebalance.executing': 'राखिँदै…',
   'rebalance.eyebrow': 'पुन: सन्तुलन · अर्जेन्ट सल्लाहकार',
   'rebalance.heading': 'आफ्नो पोर्टफोलियोलाई फेरि अनुशासनमा ल्याउनुहोस्',
   'rebalance.loadError': 'पुन: सन्तुलन योजना लोड गर्न असफल भयो।',
+  'rebalance.plan.driftLine': 'हाल {{current}}% · लक्ष्य {{target}}%',
   'rebalance.planHeading': 'अर्जेन्ट टिकट — राख्नु अघि समीक्षा गर्नुहोस्',
   'rebalance.planLabel': 'सुझाव गरिएको व्यापार योजना',
+  'rebalance.subheading':
+    'सहनशीलता दायरा बाहिरका पङ्क्तिहरूले ट्रेड सुझावहरू ट्रिगर गर्छन्। {{appName}} तपाईंको पुष्टिमा मात्र कार्य गर्छ।',
   'rebalance.summary.buyLabel': 'खरिद गर्छ',
   'rebalance.summary.buySub': 'भर्नुपर्ने पदहरू',
   'rebalance.summary.driftLabel': 'आउट-अफ-ब्यान्ड',
@@ -100,6 +143,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'सुझाव गरिएका व्यापारहरूमा',
   'rebalance.summary.sellLabel': 'बिक्री हुन्छ',
   'rebalance.summary.sellSub': 'ट्रिम गर्नुपर्ने स्थानहरू',
+  'rebalanceDriftCard.drift': 'विचलन {{sign}}{{pct}}% · दायरा ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'लक्ष्य {{pct}} %',
   'reports.attributionHeading': 'कार्यसम्पादन विशेषता (१Y)',
   'reports.col.alpha': 'अल्फा',
@@ -113,37 +157,67 @@ export const ui: UiTranslations = {
   'reports.col.year': 'वर्ष',
   'reports.gainsHeading': 'प्राप्त र अप्राप्त लाभहरू',
   'reports.noAttribution': 'अहिलेसम्म कुनै एट्रिब्युशन डेटा छैन।',
+  'reports.noGains': 'अझै कुनै प्राप्त/अप्राप्त नाफा डेटा छैन।',
   'reports.noPerformance': 'अहिलेसम्म कुनै कार्यसम्पादन डेटा छैन।',
   'reports.noTaxDocs': 'अहिलेसम्म कुनै कर कागजात छैन।',
   'reports.performanceHeading': 'प्रदर्शन बनाम बेन्चमार्क',
   'reports.taxHeading': 'कर कागजातहरू',
   'resetPassword.heading': 'एउटा बलियो नयाँ पासवर्ड छनौट गर्नुहोस्',
+  'resetPassword.passwordPlaceholder': 'नयाँ पासवर्ड',
   'resetPassword.subheading':
     'तपाईंको पासवर्ड सेट भएपछि अर्जेन्टले तपाईंलाई स्वचालित रूपमा साइन इन गर्नेछ।',
   'resetPassword.tokenPlaceholder': 'इमेलबाट टोकन रिसेट गर्नुहोस्',
+  'settings.appearance.description': 'लाइट र डार्क मोड बीच टगल गर्नुहोस्।',
   'settings.appearance.title': 'उपस्थिति',
+  'settings.devices.body': 'तपाईंको खातामा हाल साइन इन गरिएका उपकरणहरू।',
+  'settings.devices.empty': 'कुनै यन्त्र भेटिएन।',
   'settings.devices.heading': 'उपकरणहरू',
+  'settings.devices.revokeWarning': 'यो उपकरणको पहुँच छिट्टै रद्द हुनेछ। यसलाई साइन आउट गर्ने?',
   'settings.devices.signOut': 'साइन आउट गर्नुहोस्',
   'settings.devices.thisDevice': 'यो उपकरण',
   'settings.devices.unknown': 'अज्ञात यन्त्र',
   'settings.linked.body':
     'ब्रोकरेज सिङ्किङको लागि तेस्रो-पक्ष कनेक्टर (प्लेड, योडली, आदि) आवश्यक पर्दछ। स्वचालित आयात सक्षम पार्न आफ्नो वातावरणमा आफ्नो प्रदायक कन्फिगर गर्नुहोस्।',
   'settings.linked.heading': 'लिङ्क गरिएका ब्रोकरेज खाताहरू',
+  'settings.linked.placeholder': 'अहिलेसम्म कुनै पनि खाता लिङ्क गरिएको छैन।',
+  'settings.notifications.dividendsPaid': 'तिरेको लाभांश',
   'settings.notifications.error': 'प्राथमिकता अद्यावधिक गर्न सकिएन।',
   'settings.notifications.priceAlerts': 'मूल्य अलर्टहरू',
+  'settings.notifications.rebalanceDrift': 'पुनःसन्तुलन विचलन',
+  'settings.notifications.taxDocsReady': 'कर कागजात तयार',
   'settings.profile.advisor': 'सल्लाहकारको इमेल (वैकल्पिक)',
   'settings.profile.heading': 'प्रोफाइल',
   'settings.security.changePassword': 'पासवर्ड परिवर्तन गर्नुहोस्',
+  'settings.security.changePasswordTitle': 'पासवर्ड परिवर्तन गर्नुहोस्',
   'settings.security.changing': 'परिवर्तन हुँदै...',
+  'settings.security.confirmPassword': 'पासवर्ड',
+  'settings.security.currentPassword': 'हालको पासवर्ड',
   'settings.security.deleteAccount': 'खाता मेटाउनुहोस्',
   'settings.security.deleteError': 'खाता मेटाउन सकिएन।',
   'settings.security.deleteHeading': 'खाता मेटाउनुहोस्',
+  'settings.security.deleteModalWarning':
+    'यसले तपाईंको खाता र डेटा स्थायी रूपमा मेटाउँछ। पुष्टि गर्न आफ्नो पासवर्ड हाल्नुहोस्।',
+  'settings.security.deleteWarning':
+    'तपाईंको खाता र सबै सम्बन्धित डेटा स्थायी रूपमा मेटाउनुहोस्। यो पूर्ववत गर्न सकिँदैन।',
   'settings.security.deleting': 'मेटाउँदै...',
   'settings.security.heading': 'सुरक्षा',
   'settings.security.newPassword': 'नयाँ पासवर्ड',
   'settings.security.password': 'पासवर्ड',
+  'settings.security.passwordError': 'पासवर्ड परिवर्तन गर्न सकिएन।',
+  'settings.security.passwordHint': 'साइन इन गर्न प्रयोग गर्ने पासवर्ड परिवर्तन गर्नुहोस्।',
+  'settings.security.twoFactor': 'दुई-कारक प्रमाणीकरण',
+  'settings.security.twoFactorCode': 'प्रमाणीकरण कोड',
+  'settings.security.twoFactorDisable': 'असक्षम पार्नुहोस्',
+  'settings.security.twoFactorDisableTitle': 'दुई-कारक प्रमाणीकरण अक्षम गर्नुहोस्',
   'settings.security.twoFactorEnable': 'सक्षम पार्नुहोस्',
+  'settings.security.twoFactorEnableTitle': 'दुई-कारक प्रमाणीकरण सक्षम गर्नुहोस्',
+  'settings.security.twoFactorHint': 'तपाईंको खातामा थप सुरक्षा तह थप्नुहोस्।',
   'settings.security.twoFactorInvalidCode': 'अमान्य कोड',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'दुई-कारक QR कोड',
+  'settings.security.twoFactorScan':
+    'यो QR कोड आफ्नो प्रमाणीकरण एपले स्क्यान गर्नुहोस्, त्यसपछि ६ अंकको कोड लेख्नुहोस्।',
+  'settings.security.twoFactorUnavailable': 'यो एपमा दुई-कारक प्रमाणीकरण उपलब्ध छैन।',
   'settings.security.twoFactorVerify': 'प्रमाणित गर्नुहोस् र सक्षम गर्नुहोस्',
   'settings.tax.error': 'कर विधि अद्यावधिक गर्न सकिएन।',
   'settings.tax.heading': 'कर लट लेखा',
@@ -154,6 +228,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'कर विधि सुरक्षित गरियो।',
   'signup.eyebrow': 'खाता खोल्नुहोस्',
   'signup.heading': 'आफ्नो अर्जेन्ट खाता खोल्नुहोस्',
+  'signup.legalPrefix': 'खाता बनाएर तपाईं {{appName}} मा सहमति जनाउनुहुन्छ',
   'signup.subheading':
     '३० दिनको लागि नि:शुल्क। कुनै कार्ड आवश्यक पर्दैन। जुनसुकै बेला रद्द गर्नुहोस्।',
   'signup.terms':

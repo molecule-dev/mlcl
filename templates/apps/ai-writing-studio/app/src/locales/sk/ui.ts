@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Máte spätnú väzbu, našli ste chybu alebo chcete novú funkciu? Ozvite sa z nastavení svojho účtu — každá správa sa dostane k reálnemu človeku z tímu.',
   'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
+  'about.intro':
+    '{{app}} je AI štúdio pre písanie pre autorov, ktorým záleží na ich próze. Spája dlhé AI generovanie s pokojným editorom, SEO hodnotením a generovaním obrázkov, takže môžete dielo dostať z prázdnej stránky až k publikovaniu — bez toho, aby ste stratili svoj hlas.',
+  'about.missionBody':
+    'Veríme, že AI by mala tvoriť vedľa vás, nikdy namiesto vás. {{app}} udržiava návrhy viditeľne odlíšené od vašich vlastných slov, necháva vás vlastníkom každého dokumentu, ktorý vytvoríte, a nástroje drží bokom od samotného písania.',
+  'about.missionTitle': 'Naše poslanie',
   'about.pageTitle': 'O aplikácii {{app}}',
   'aiSuggestionCard.applied': 'Návrh bol uplatnený',
   'aiSuggestionCard.apply': 'Prihlásiť sa',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Zdroje návštevnosti',
   'billing.activePlan': 'Predplatné je aktívne.',
   'billing.aiWordsLabel': 'Zahrnuté generácie umelej inteligencie',
+  'billing.cancelFailed': 'Predplatné sa nepodarilo zrušiť.',
   'billing.cancelPlan': 'Zrušiť predplatné',
+  'billing.cancelPlanConfirm': 'Potvrdiť zrušenie?',
   'billing.cancelSuccess':
     'Predplatné bolo zrušené. Obnovte stránku, aby sa aktualizoval tarifný plán.',
   'billing.changePlan': 'Zmeniť tarifný plán',
@@ -45,26 +54,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'Zobraziť plány',
   'common.goToDashboard': 'Prejsť na prehľad',
   'dashboard.continueWriting': 'Pokračovať v písaní',
+  'dashboard.createFirst': 'Vytvoriť dokument',
   'dashboard.days.sat': 'So',
   'dashboard.days.sun': 'Ne',
   'dashboard.defaultWriterName': 'Autor',
   'dashboard.greeting': 'Dobré ráno, {{name}}',
   'dashboard.loadError': 'Nepodarilo sa načítať váš ovládací panel.',
+  'dashboard.loading': 'Načítavame vaše štúdio…',
   'dashboard.loadingDocs': 'Načítavanie posledných dokumentov…',
   'dashboard.noDocuments': 'Zatiaľ žiadne dokumenty – začnite s prvým.',
   'dashboard.startWriting': 'Vytvoriť nový dokument',
+  'dashboard.streakBody': 'Tento týždeň ste napísali {{words}} slov.',
   'dashboard.streakTitle': '{{count}} počet dní v rade',
+  'dashboard.subgreeting': '{{count}} dokumentov vo vašej knižnici — udržte si tempo.',
+  'documentCard.seoScoreTitle': 'SEO skóre: {{score}}/100',
+  'documents.createNew': 'Vytvoriť nový dokument',
   'documents.empty': 'Vaša knižnica na vás čaká – začnite s prvým dokumentom.',
+  'documents.emptyFiltered': 'Vašim filtrom zatiaľ nezodpovedá žiadny dokument.',
   'documents.loadError': 'Dokumenty sa nepodarilo načítať.',
   'documents.loading': 'Načítavanie vašej knižnice…',
   'documents.new': 'Nový dokument',
+  'documents.searchAriaLabel': 'Vyhľadávať dokumenty',
   'documents.searchPlaceholder': 'Vyhľadávať dokumenty…',
   'documents.subtitle': '{{count}} dokumenty vo vašej knižnici.',
   'documents.title': 'Dokumenty',
   'editor.aiPanelTitle': 'Plume Intelligence',
+  'editor.aiSuggestion.empty':
+    'Žiadne aktívne vylepšenia. Keď budete chcieť druhý pár očí, požiadajte {{appName}} o návrh.',
   'editor.aiSuggestion.failed': 'V súčasnosti sa návrhy nepodarilo načítať.',
   'editor.aiSuggestion.loadingBody': 'Vytváranie spresnenia jasnosti…',
   'editor.backToDocuments': 'Všetky dokumenty',
+  'editor.bodyAriaLabel': 'Telo dokumentu',
   'editor.closeAiPanel': 'Zatvoriť panel umelej inteligencie',
   'editor.createFailed': 'Dokument sa nepodarilo vytvoriť.',
   'editor.exported': 'Exportované ako súbor „{{format}}“.',
@@ -80,18 +100,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'Požiadať o spresnenie',
   'editor.saveBeforePublish': 'Pred zverejnením dokument uložte.',
   'editor.status.chars': '{{count}} postavy',
+  'editor.status.readTime': '{{minutes}} minúta čítania',
   'editor.status.savedAt': 'Uložené {{time}}',
   'editor.status.saveError': 'Uloženie sa nepodarilo',
+  'editor.status.unsaved': 'Zatiaľ neuložené',
   'editor.titleAriaLabel': 'Názov dokumentu',
   'editor.titlePlaceholder': 'Dokument bez názvu',
   'editor.toggleAiPanel': 'Zobraziť/skryť panel AI',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'author@example.com',
+  'forgotPassword.sent': 'Ak je {{email}} v evidencii, odkaz na obnovenie je na ceste.',
   'imageGenerator.failed': 'Vytvorenie obrázku sa nepodarilo.',
   'imageGenerator.generate': 'Vytvoriť obrázok',
   'imageGenerator.generating': 'Vytváranie...',
   'imageGenerator.placeholder': 'Opíšte obrázok, ktorý chcete vytvoriť...',
+  'imageGenerator.promptAriaLabel': 'Výzva na vytvorenie obrázka',
+  'imageGenerator.subtitle': 'Opíšte obrázok na obálku a nechajte AI, aby ho ilustrovala.',
   'imageGenerator.title': 'Generátor obrázkov s umelou inteligenciou',
+  'landing.aiSuggestionBody':
+    'stál na balkóne 42. poschodia a Elias cítil, ako naňho dolieha mesto — vietor odrezal okolitý šum a nechal ho visieť v mrazivej, tichej prázdnote nad žiariacou mriežkou.',
   'landing.eyebrow': 'Štúdio umelej inteligencie pre serióznych autorov',
   'landing.featuresHeading': 'Nástroje, ktoré vám neprekážajú',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -101,14 +128,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Štúdio vytvorené pre spisovateľov, ktorým záleží na ich próze, tempe a presnosti. Plume vám pomáha pri písaní – nikdy však nepíše za vás.',
   'landing.heroTitle.eloquence': 'rečnícky talent',
+  'landing.heroTitle.intelligence': 'Inteligencia sa stretáva s ',
   'landing.nav.testimonials': 'Referencie',
   'landing.plan.cta': 'Začnite s týmto plánom',
   'landing.plan.popular': 'Najobľúbenejšie',
   'landing.pricingEyebrow': 'Cenník',
   'landing.pricingHeading': 'Vyberte si to, čo vyhovuje vašej praxi',
   'landing.sampleDocTitle': 'Architektúra ticha',
+  'landing.sampleParagraph1':
+    'Mesto nikdy nebolo naozaj tiché. Aj v najhlbších nočných hodinách vibroval betónovými základmi nízky hukot — mechanický tep metra a vetracích šácht.',
+  'landing.sampleParagraph2.after': ' o sklo.',
+  'landing.sampleParagraph2.before': 'Ale ',
   'landing.sampleParagraph2.highlight':
     'Keď stál na balkóne v 42. poschodí, Elias pocítil hlboký pocit osamelosti',
+  'landing.showcaseBody':
+    'Označte vetu a {{appName}} ponúkne vylepšenie. Prijmite ho, upravte alebo odmávnite. Návrhy sú vždy fialovo podfarbené, takže viete, čo ste napísali vy a čo bolo ponúknuté.',
+  'landing.showcaseHeading': 'Druhý pár očí — nikdy druhý autor.',
   'landing.startWriting': 'Začnite písať',
   'login.emailPlaceholder': 'author@example.com',
   'login.failed': 'Prihlásenie sa nepodarilo',
@@ -123,8 +158,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Otvoriť riadiaci panel',
   'notFound.title': 'Táto kapitola ešte nebola napísaná.',
   'plumeSidebarLayout.primaryNavLabel': 'Hlavná navigácia',
+  'pricing.maxDocuments': '{{count}} dokumenty',
+  'pricing.maxGenerate': '{{count}} AI generovaní',
+  'pricing.maxImages': '{{count}} generovaní obrázkov',
   'privacy.data':
     'E-mailová adresa vášho účtu a hashované heslo. Dokumenty a šablóny, ktoré vytvoríte. Protokoly návrhov umelej inteligencie (vstup + výstup) na účely fakturácie a analýzy. Identifikátory zákazníkov a predplatných v systéme Stripe; nikdy neukladáme celé čísla kariet.',
+  'privacy.intro':
+    'Zhromažďujeme len údaje potrebné na prevádzku {{app}}: váš e-mail, dokumenty, ktoré vytvoríte, a AI požiadavky, ktoré odošlete. Vaše texty ani výzvy nikdy nepredávame.',
   'profile.loadError': 'Nepodarilo sa načítať tvoj profil.',
   'profile.loading': 'Načítavanie vášho profilu…',
   'profile.loadingPublished': 'Načítavanie zverejnených dokumentov…',
@@ -136,8 +176,14 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Nové heslo',
   'seoAnalysis.backToEditor': 'Späť do editora',
   'seoAnalysis.eyebrow': 'SEO analýza',
+  'seoAnalysis.heroBody':
+    '{{count}} návrhov na použitie. Každý z nich je štrukturálne alebo kľúčové slovo vylepšenie, nie stena červených vlajok.',
+  'seoAnalysis.heroBodyEmpty':
+    'Kliknutím na „Spustiť analýzu“ ohodnotíte čitateľnosť, hustotu kľúčových slov a štruktúru.',
   'seoAnalysis.heroEmpty':
     'Zatiaľ nie je k dispozícii žiadna analýza. Spustite ju, aby ste mohli ohodnotiť tento návrh.',
+  'seoAnalysis.heroNeedsWork': 'Niektoré štrukturálne vylepšenia zvýšia dosah.',
+  'seoAnalysis.heroStrong': 'Silné dielo — od výborného ho delia malé vylepšenia.',
   'seoAnalysis.historyEmpty': 'Neexistujú žiadne predchádzajúce analýzy.',
   'seoAnalysis.historyTitle': 'História analýz',
   'seoAnalysis.keywordEmpty':
@@ -164,8 +210,13 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'Nastavte si aplikáciu Plume tak, aby vyhovovala vášmu štýlu písania.',
   'settings.toggleIntegrationFailed': 'Aktualizácia integrácie sa nepodarila.',
   'settings.writing.aiSuggestions': 'Návrhy umelej inteligencie priamo počas písania',
+  'settings.writing.aiSuggestionsBody':
+    'Zobrazuje vylepšenia počas písania. Návrhy sú vždy voliteľné pre každú vetu.',
   'settings.writing.autoSave': 'Automatické ukladanie každých 30 sekúnd',
+  'settings.writing.autoSaveBody':
+    '{{appName}} uchováva snímku vášho konceptu, takže sa môžete zotaviť z ľubovoľnej karty.',
   'settings.writing.notifyEmail': 'Posielajte mi týždenné súhrny',
+  'settings.writing.notifyEmailBody': 'Krátky nedeľný prehľad sérií, konceptov a vylepšení SEO.',
   'settings.writing.title': 'Nastavenia písania',
   'settings.writing.tone': 'Predvolený tón',
   'signup.emailPlaceholder': 'author@example.com',
@@ -177,8 +228,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'Popis nebol uvedený.',
   'templates.subtitle':
     'Začnite s osvedčenou redakčnou šablónou a potom si ju prispôsobte podľa seba.',
+  'terms.intro':
+    'Tieto podmienky upravujú vaše používanie {{app}}. Vytvorením účtu súhlasíte s používaním služby na zákonné písanie a so zachovaním dôvernosti prihlasovacích údajov k účtu.',
   'terms.license':
     'Vlastníctvo všetkých dokumentov, šablón a výstupov generovaných umelou inteligenciou, ktoré vytvoríte, zostáva na vás. Potrebujeme nevýhradnú licenciu na to, aby sme mohli vaše diela hostovať a poskytovať vám ich späť, ako aj na spracovávanie požiadaviek umelej inteligencie prostredníctvom overených poskytovateľov, ktorých si vyberiete.',
   'writingStreakHeroCard.change': '{{sign}} {{amount}} slová',
   'writingStreakHeroCard.greeting': 'Dobrý deň, {{name}}',
+  'writingStreakHeroCard.subtitle': 'Slová napísané tento týždeň — séria {{count}} dní',
+  'writingStreakHeroCard.tagline': 'Stránka denne udrží múzu v strehu.',
 }

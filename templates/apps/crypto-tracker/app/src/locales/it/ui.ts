@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contattaci',
   'about.eyebrow': 'Informazioni',
+  'about.featureAlerts':
+    'Avvisi di prezzo sulle condizioni che contano, inviati via email e push per non perderti mai un movimento.',
+  'about.featureMarkets':
+    'Dati di mercato in tempo reale e grafici dei prezzi per migliaia di monete, classificati per capitalizzazione, volume e momentum.',
+  'about.featurePortfolio':
+    'Monitoraggio del portafoglio con profitti e perdite reali, base di costo e allocazione — collegato alla tua cronologia delle transazioni.',
+  'about.featureWatchlist':
+    'Una watchlist personale e notizie crypto curate con segnali sugli asset che segui.',
+  'about.missionTitle': 'La nostra missione',
+  'alertConditionCard.armedSince': 'Attivo dal {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'Attivato {{when}}',
   'alertConditionCard.confirmDelete': "Conferma l'eliminazione",
+  'alertConditionCard.deleteAriaLabel': 'Elimina avviso',
   'alertConditionCard.pauseAriaLabel': "Metti in pausa l'avviso",
   'alertConditionCard.resumeAriaLabel': "Riprendi l'avviso",
+  'alertConditionCard.triggeredAt': 'Attivato {{when}}',
   'alertNew.condition': 'Condizione',
   'alertNew.createCta': 'Crea avviso',
   'alertNew.error': "Impossibile creare l'avviso.",
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Nessun avviso al momento.',
   'alerts.eyebrow': 'Trappole Bourse',
   'alerts.loadError': 'Impossibile caricare gli avvisi.',
+  'alerts.newCta': '+ Nuovo tripwire',
   'alerts.subheading':
     'Riceva una notifica quando prezzo, variazione o volume superano la Sua soglia.',
   'alerts.summary.armed': 'Armato',
@@ -24,6 +38,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Massimo storico',
   'coinDetail.allTimeLow': 'Minimo storico',
   'coinDetail.back': 'Tutti i mercati',
+  'coinDetail.chartAriaLabel': 'Grafico dei prezzi di {{name}}, ultimi 30 giorni',
   'coinDetail.chartHeading': 'Prezzo · ultimi 30 giorni',
   'coinDetail.circulating': 'Offerta circolante',
   'coinDetail.fdv': 'Valutazione completamente diluita',
@@ -60,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Link di reimpostazione inviato.',
   'login.eyebrow': 'Entri nel terminale',
   'login.heading': 'Bentornato, signaller.',
+  'login.noAccountQuestion': 'Nuovo su Tessera?',
   'login.secureNote': '🔒 Crittografato in transito',
   'login.signingInCta': 'Lettura del nastro…',
   'login.signupLink': 'Apri un account →',
@@ -94,6 +110,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Il percorso scansionato non corrisponde a un coin o a una pagina nota. Verifichi il simbolo e riprovi.',
   'notFound.browseMarkets': 'Esplora i mercati',
+  'notFound.eyebrow': 'Segnale di {{appName}} perso',
+  'notFound.heading': 'Questo segnale è fuori portata',
+  'planUpdated.body':
+    'La modifica alla fatturazione è ora attiva. Puoi gestire il tuo piano in qualsiasi momento dalla pagina di fatturazione.',
+  'planUpdated.retry': 'Riprovi',
+  'planUpdated.verifyFailed': 'Non abbiamo ancora potuto confermare il pagamento.',
+  'planUpdated.verifyFailedBody':
+    'Il pagamento potrebbe essere ancora in fase di elaborazione. Riprova tra un attimo.',
   'planUpdated.verifying': 'Conferma del pagamento…',
   'portfolio.addError': 'Inserisca simbolo, quantità positiva e costo.',
   'portfolio.addHoldingCta': '+ Aggiungi posizione',
@@ -117,12 +141,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Valore totale del portafoglio',
   'portfolioHeroCard.totalPnl': 'P/P totale',
   'pricing.heading': 'avvisi',
+  'pricing.limit.alerts': 'avvisi',
   'pricing.limit.coins': 'coin',
   'pricing.limit.market': 'mercato',
   'pricing.limit.portfolio': 'portafoglio',
   'resetPassword.eyebrow': 'Nuovo cifrario',
   'resetPassword.missingToken':
     'Questo link di reimpostazione manca o non è valido. Ne richieda uno nuovo.',
+  'resetPassword.passwordPlaceholder': 'Nuova password',
   'resetPassword.subheading': 'Scelga qualcosa che solo Lei possa decifrare.',
   'settings.apiKeys.body':
     "Chiavi di sola lettura per importare lo storico transazioni. Si colleghi tramite OAuth da /pricing una volta sottoscritto l'abbonamento.",
@@ -134,18 +160,35 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Valuta di riferimento',
   'settings.preferences.locale': 'Lingua',
   'settings.preferences.push': 'Push',
+  'settings.preferences.refresh': 'Aggiornamento prezzi (secondi)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning':
+    "L'accesso di questo dispositivo verrà revocato a breve. Disconnetterlo?",
   'settings.security.body':
     'Le impostazioni di password e autenticazione a due fattori sono gestite dal Suo account.',
   'settings.signOutDevice': 'Esci',
   'settings.twoFactorCode': 'Codice di autenticazione',
   'settings.twoFactorDisable': 'Disattiva',
+  'settings.twoFactorDisableTitle': "Disattiva l'autenticazione a due fattori",
   'settings.twoFactorEnable': 'Attiva',
+  'settings.twoFactorEnableTitle': "Attiva l'autenticazione a due fattori",
   'settings.twoFactorInvalidCode': 'Codice non valido',
   'settings.twoFactorOn': 'Il',
+  'settings.twoFactorQrAlt': 'Codice QR autenticazione a due fattori',
+  'settings.twoFactorScan':
+    'Scansiona questo codice QR con la tua app di autenticazione, poi inserisci il codice a 6 cifre.',
+  'settings.twoFactorUnavailable':
+    "L'autenticazione a due fattori non è disponibile per questa app.",
   'settings.twoFactorVerify': 'Verifica e abilita',
   'sigilAuthShell.backHomeCta': '← Torna a Bourse',
+  'sigilAuthShell.brandBody':
+    'Prezzi in tempo reale, P/L del portafoglio e avvisi attivi sulle condizioni che contano — tutto su un unico terminale.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — basato su Molecule',
+  'sigilAuthShell.brandHeadline': "Decodifica ogni segnale sull'intero registro.",
+  'sigilAuthShell.samplePortfolio': 'Portafoglio di esempio',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Navigazione principale',
+  'signup.creating': 'Apertura del terminale…',
   'signup.eyebrow': 'Apra un terminale',
   'signup.heading': 'Crei il Suo Bourse',
   'signup.subheading': 'Tracci ogni coin, non perda nessuna occasione. Gratuito per iniziare.',
@@ -162,6 +205,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Impossibile caricare le transazioni.',
   'watchlist.addCta': 'Esplora i mercati',
   'watchlist.col.change24h': '24 h',
+  'watchlist.col.coin': 'Coin',
   'watchlist.col.marketCap': 'Cap. mkt',
   'watchlist.empty':
     'Nessun coin nella Sua watchlist — aggiunga una stella ai coin in /markets per inserirli.',

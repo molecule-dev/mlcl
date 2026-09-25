@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Geri bildiriminiz mi var, bir hata mı buldunuz yoksa bir özellik mi istiyorsunuz? Hesap ayarlarınızdan bize ulaşın — her mesaj ekibimizdeki gerçek bir kişiye gider. Not: buradaki hiçbir şey yatırım tavsiyesi değildir; her işlem üzerinde kontrol sizde kalır.',
+  'about.contactTitle': 'Bizimle iletişime geçin',
+  'about.featureAttribution':
+    'Performans dağılımı — getirileri sektör, bölge ve varlık sınıfına göre ayrıştırın ve herhangi bir dönemde kıyaslayın.',
+  'about.featureRebalance':
+    'Disiplinli yeniden dengeleme — hedef dağılımları ve tolerans bantlarını belirleyin, sapmayı erkenden görün ve sizi hedefe döndürecek işlemleri alın.',
+  'about.featureTax':
+    'Vergi belgesi düzeni — gerçekleşmiş ve gerçekleşmemiş kazançlar, temettüler ve 1099 belgeleri tek yerde, wash-sale işaretleri dahil.',
+  'about.featureUnified':
+    "Tek bir birleşik portföy — hisse senetleri, ETF'ler, yatırım fonları, tahviller ve daha fazlası, tüm aracı kurum hesaplarınızdan bir araya getirilir.",
+  'about.featureWatchlist':
+    'İzleme listeleri, haberler ve fiyat uyarıları ile gürültüye kapılmadan önemli olana göre hareket edin.',
+  'about.intro':
+    "{{app}}, bireysel yatırımcılar ve bağımsız danışmanlar için çok varlıklı bir portföy panosudur. Hisse senetleri, ETF'ler, yatırım fonları, tahviller, gayrimenkul ve nakit — her hesaptaki her varlık, profesyonel bir masanın disipliniyle tek yerde.",
+  'about.missionBody':
+    'İyi yatırım çoğunlukla disiplindir: net bir hedef dağılım, dürüst performans dağılımı ve düzenli vergi kayıtları. {{app}} bu kurumsal alışkanlıkları herkese getirir; böylece dürtüyle değil bilinçli olarak yeniden dengeleyebilir ve portföyünüzün gerçekte ne yaptığını asla gözden kaçırmazsınız.',
+  'about.missionTitle': 'Misyonumuz',
   'about.pageTitle': '{{app}} hakkında',
   'argentAuthShell.brandEyebrow': 'Argent · Servet araçları',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Yatırım tavsiyesi değildir.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Disiplinli yeniden dengeleme, keskin performans analizi ve vergi belgesi düzeni isteyen bireysel yatırımcılar ve danışmanlar için bir portföy panosu — gürültüsüz.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · Geçmiş performans gelecekteki sonuçların garantisi değildir.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) bugün',
+  'argentAuthShell.sampleLabel': 'Portföy Değeri',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Ana navigasyon',
   'assetAllocationDonut.heading': 'Paranız nasıl yatırılıyor',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'bugün',
   'assetDetail.txEmpty': 'Bu sembol için işlem yok.',
   'assetDetail.txHeading': 'İşlemleriniz',
+  'auth.legalConsent.prefix': 'Devam ederek {{appName}}’nin',
   'common.and': 've',
   'common.goToDashboard': 'Panele Git',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'bugün',
   'dashboard.topHoldings.heading': 'Paranızın çalıştığı yer',
   'dashboard.topHoldings.label': 'En Büyük Pozisyonlar',
+  'forgotPassword.gotLinkCta': 'Sıfırlama bağlantım var →',
+  'forgotPassword.subheading':
+    'Gavl hesabınızdaki e-postayı girin, size güvenli bir sıfırlama bağlantısı gönderelim.',
   'forgotPassword.successBody':
     'Birkaç dakika içinde göremezseniz spam klasörünüzü kontrol edin veya farklı bir e-posta deneyin.',
   'forgotPassword.successSubheading':
     'Sıfırlama bağlantısı için {{email}} adresini kontrol edin. 60 dakika içinde sona erer.',
+  'forgotPassword.successTitle': 'Sıfırlama e-postası yolda',
   'holdingHighlightRow.todayLabel': 'bugün',
   'holdings.addCta': 'Satın al',
   'holdings.col.allocation': 'Dağılım',
@@ -58,6 +87,8 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Yatırım tavsiyesi değildir. Geçmiş performans, gelecekteki sonuçları garanti etmez.',
   'landing.eyebrow': 'Argent · Bir servet aracı platformu',
   'landing.features.heading': 'Bir danışmanın kendisi için kuracağı her şey.',
+  'landing.finalCta.body': 'Aracı kurumunuzu iki tıkla bağlayın. Gerisini {{appName}} halleder.',
+  'landing.finalCta.cta': 'Argent hesabınızı açın',
   'landing.finalCta.heading': 'Portföyünüze disiplini geri getirin.',
   'landing.footerSignup': 'Hesap aç',
   'landing.getStarted': 'Hesap aç',
@@ -65,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Fiyatlandırmayı gör',
   'landing.heroSubtitle':
     'Disiplinli yeniden dengeleme, keskin performans analizi ve vergi belgesi düzeni isteyen bireysel yatırımcılar ve danışmanlar için bir portföy panosu — gürültüsüz.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Örnek bir portföyden canlı önizleme',
   'login.heading': "Argent'a giriş yapın",
   'login.subheading':
@@ -76,6 +108,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}}s önce',
   'news.justNow': 'az önce',
   'news.loadError': 'Haberler yüklenemedi.',
+  'planUpdated.body':
+    'Faturalandırma değişikliğiniz artık etkin. Planınızı istediğiniz zaman faturalandırma sayfasından yönetebilirsiniz.',
+  'planUpdated.retry': 'Tekrar dene',
+  'planUpdated.verifyFailed': 'Ödemenizi henüz onaylayamadık.',
+  'planUpdated.verifyFailedBody':
+    'Ödemeniz hala işleniyor olabilir. Lütfen biraz sonra tekrar deneyin.',
   'planUpdated.verifying': 'Ödemeniz onaylanıyor…',
   'portfolioHeroCard.label': 'Portföy Değeri',
   'pricing.holdingsLabel': 'holdingler',
@@ -86,12 +124,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Dağılım sapması',
   'rebalance.empty': 'Henüz hedef belirlenmedi.',
   'rebalance.executeCta': '{{count}} işlem yerleştir',
+  'rebalance.executeError': 'İşlemler gerçekleştirilemedi.',
   'rebalance.executeOk': '{{count}} işlem yerleştirildi. İşlemler sayfasında görüntüleyin.',
+  'rebalance.executing': 'Yerleştiriliyor…',
   'rebalance.eyebrow': 'Yeniden dengeleme · Argent danışman',
   'rebalance.heading': 'Portföyünüzü tekrar disipline kavuşturun',
   'rebalance.loadError': 'Yeniden dengeleme planı yüklenemedi.',
+  'rebalance.plan.driftLine': 'şu an {{current}}% · hedef {{target}}%',
   'rebalance.planHeading': 'Argent emri — yerleştirmeden önce inceleyin',
   'rebalance.planLabel': 'Önerilen işlem planı',
+  'rebalance.subheading':
+    'Tolerans bandının dışındaki satırlar işlem önerilerini tetikler. {{appName}} yalnızca sizin onayınızla harekete geçer.',
   'rebalance.summary.buyLabel': 'Alımlar',
   'rebalance.summary.buySub': 'artırılacak pozisyon',
   'rebalance.summary.driftLabel': 'Bant dışı',
@@ -100,6 +143,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'önerilen işlemler arası',
   'rebalance.summary.sellLabel': 'Satışlar',
   'rebalance.summary.sellSub': 'azaltılacak pozisyon',
+  'rebalanceDriftCard.drift': 'sapma {{sign}}{{pct}}% · bant ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'hedef %{{pct}}',
   'reports.attributionHeading': 'Performans dağılımı (1Y)',
   'reports.col.alpha': 'Alfa',
@@ -113,37 +157,69 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Yıl',
   'reports.gainsHeading': 'Gerçekleşen ve gerçekleşmemiş kazançlar',
   'reports.noAttribution': 'Henüz dağılım verisi yok.',
+  'reports.noGains': 'Henüz gerçekleşmiş/gerçekleşmemiş kazanç verisi yok.',
   'reports.noPerformance': 'Henüz performans verisi yok.',
   'reports.noTaxDocs': 'Henüz vergi belgesi yok.',
   'reports.performanceHeading': 'Karşılaştırmaya göre performans',
   'reports.taxHeading': 'Vergi belgeleri',
   'resetPassword.heading': 'Güçlü bir yeni şifre seçin',
+  'resetPassword.passwordPlaceholder': 'Yeni şifre',
   'resetPassword.subheading':
     'Şifreniz belirlenir belirlenmez Argent sizi otomatik olarak oturum açacak.',
   'resetPassword.tokenPlaceholder': 'E-postadaki sıfırlama anahtarı',
+  'settings.appearance.description': 'Açık ve koyu mod arasında geçiş yapın.',
   'settings.appearance.title': 'Görünüm',
+  'settings.devices.body': 'Hesabınızda şu anda oturum açmış cihazlar.',
+  'settings.devices.empty': 'Cihaz bulunamadı.',
   'settings.devices.heading': 'Cihazlar',
+  'settings.devices.revokeWarning':
+    'Bu cihazın erişimi kısa süre içinde iptal edilecek. Oturumu kapat?',
   'settings.devices.signOut': 'Oturumu kapat',
   'settings.devices.thisDevice': 'Bu cihaz',
   'settings.devices.unknown': 'Bilinmeyen cihaz',
   'settings.linked.body':
     'Aracı kurum senkronizasyonu üçüncü taraf bir bağlayıcı (Plaid, Yodlee, vb.) gerektirir. Otomatik içe aktarmayı etkinleştirmek için ortamınızda sağlayıcınızı yapılandırın.',
   'settings.linked.heading': 'Bağlı aracı kurum hesapları',
+  'settings.linked.placeholder': 'Henüz bağlı hesap yok.',
+  'settings.notifications.dividendsPaid': 'Ödenen temettüler',
   'settings.notifications.error': 'Tercih güncellenemedi.',
   'settings.notifications.priceAlerts': 'Fiyat uyarıları',
+  'settings.notifications.rebalanceDrift': 'Yeniden dengeleme sapması',
+  'settings.notifications.taxDocsReady': 'Vergi belgeleri hazır',
   'settings.profile.advisor': 'Danışman e-postası (isteğe bağlı)',
   'settings.profile.heading': 'Profil',
   'settings.security.changePassword': 'Parolayı değiştir',
+  'settings.security.changePasswordTitle': 'Parolayı değiştir',
   'settings.security.changing': 'Değiştiriliyor…',
+  'settings.security.confirmPassword': 'Parola',
+  'settings.security.currentPassword': 'Mevcut parola',
   'settings.security.deleteAccount': 'Hesabı sil',
   'settings.security.deleteError': 'Hesap silinemedi.',
   'settings.security.deleteHeading': 'Hesabı sil',
+  'settings.security.deleteModalWarning':
+    'Bu, hesabınızı ve verilerinizi kalıcı olarak siler. Onaylamak için parolanızı girin.',
+  'settings.security.deleteWarning':
+    'Hesabınızı ve ilgili tüm verileri kalıcı olarak silin. Bu işlem geri alınamaz.',
   'settings.security.deleting': 'Siliniyor…',
   'settings.security.heading': 'Güvenlik',
   'settings.security.newPassword': 'Yeni şifre',
   'settings.security.password': 'Parola',
+  'settings.security.passwordError': 'Parola değiştirilemedi.',
+  'settings.security.passwordHint': 'Oturum açmak için kullandığınız parolayı değiştirin.',
+  'settings.security.twoFactor': 'İki faktörlü kimlik doğrulama',
+  'settings.security.twoFactorCode': 'Doğrulama kodu',
+  'settings.security.twoFactorDisable': 'Devre dışı bırak',
+  'settings.security.twoFactorDisableTitle': 'İki faktörlü kimlik doğrulamayı devre dışı bırak',
   'settings.security.twoFactorEnable': 'Etkinleştir',
+  'settings.security.twoFactorEnableTitle': 'İki faktörlü kimlik doğrulamayı etkinleştir',
+  'settings.security.twoFactorHint': 'Hesabınıza ekstra bir koruma katmanı ekleyin.',
   'settings.security.twoFactorInvalidCode': 'Geçersiz kod',
+  'settings.security.twoFactorOn': 'Tarih',
+  'settings.security.twoFactorQrAlt': 'İki faktörlü QR kodu',
+  'settings.security.twoFactorScan':
+    'Bu QR kodunu kimlik doğrulayıcı uygulamanızla tarayın, ardından 6 haneli kodu girin.',
+  'settings.security.twoFactorUnavailable':
+    'Bu uygulama için iki faktörlü kimlik doğrulama özelliği mevcut değil.',
   'settings.security.twoFactorVerify': 'Doğrula ve etkinleştir',
   'settings.tax.error': 'Vergi yöntemi güncellenemedi.',
   'settings.tax.heading': 'Vergi lotu muhasebesi',
@@ -154,6 +230,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Vergi yöntemi kaydedildi.',
   'signup.eyebrow': 'Hesap aç',
   'signup.heading': 'Argent hesabınızı açın',
+  'signup.legalPrefix': 'Hesap oluşturarak {{appName}} kabul etmiş olursunuz',
   'signup.subheading': '30 gün ücretsiz. Kart gerekmez. İstediğiniz zaman iptal edin.',
   'signup.terms':
     "Bir hesap oluşturarak Argent Hizmet Şartları ve Gizlilik Politikası'nı kabul etmiş olursunuz.",

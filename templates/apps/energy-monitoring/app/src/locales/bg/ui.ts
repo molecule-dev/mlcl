@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Въпроси, заявки за функции или измервателен уред, който трябва да поддържаме? Свържете се с екипа на {{appName}} от настройките на акаунта си — всяко съобщение стига до реален човек.',
   'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'Относно',
+  'about.featuresTitle': 'Какво получавате',
+  'about.intro':
+    '{{appName}} е мониторинг на мощността в реално време за домове със слънчеви панели и екипи, управляващи сгради. Превръщаме потока от данни от измервателни уреди, инвертори и батерии в спокоен изглед на контролна зала — моментна мощност, слънчево производство, разходи по тарифи и известия, всичко на едно място.',
+  'about.missionBody':
+    'Енергията, която виждаш, е енергията, която можеш да управляваш. Вярваме, че всеки, който работи с измервателен уред — домакинство с покривни слънчеви панели или екип, който следи сграда — заслужава прозрения на ниво електроразпределително дружество, без договор на такова. Всяка функция е създадена така, че следващият киловатчас да е информиран избор, а не изненада в сметката.',
+  'about.missionTitle': 'Нашата мисия',
   'about.pageTitle': 'Относно {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Потвърждение',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@yourdomain.com',
   'alertRule.eyebrow': 'Ново правило',
   'alertRule.heading': 'Хвани шипа, преди да ти струва',
+  'alertRule.nameLabel': 'Име на правило',
   'alertRule.namePlaceholder': 'напр. наблюдение на ОВК след работно време',
   'alertRule.subheading':
     'Изберете показател, праг и къде да се изпрати предупреждението. Можете да го редактирате или поставите на пауза по всяко време.',
   'alertRule.submit': 'Запази правило',
   'alertRule.submitError': 'Правилото не можа да се запази.',
   'alertRule.thresholdLabel': 'Праг',
+  'alertRule.typeLabel': 'Тип спусък',
   'alerts.checking': 'Проверка…',
   'alerts.confirmDelete': 'Потвърди изтриването',
+  'alerts.empty': 'Няма какво да се покаже — няма известия в това състояние.',
   'alerts.emptyNoRules':
     'Все още няма предупреждения — добавете правило, след което щракнете върху „Оценка сега“, за да го тествате.',
   'alerts.errorAck': 'Не можах да призная.',
@@ -41,12 +52,15 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Оценете сега',
   'alerts.subheading':
     'Прагови и шаблонни сигнали, които се задействат на вашите измервателни уреди, плюс правилата, които ги управляват.',
+  'billing.activeBlurb': 'Абонаментът ви е активен. Управлявайте го по всяко време.',
   'billing.cancelError': 'Абонаментът не можа да бъде анулиран.',
   'billing.cancelling': 'Анулиране…',
   'billing.currentBadge': 'Текущ',
   'billing.freeBlurb':
     'Вие сте на безплатния план. Надстройте за повече измервателни уреди, по-дълга история и повече правила за предупреждения.',
   'billing.heading': 'Планове и фактуриране',
+  'billing.historyEmpty':
+    'Платените фактури ще се появяват тук, след като абонаментът ви бъде таксуван.',
   'billing.historyHeading': 'История на фактурите',
   'billing.loadError': 'Не можа да се зареди фактурирането.',
   'billing.loading': 'Зареждане на планове…',
@@ -58,17 +72,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Свържете се с отдела за продажби',
   'common.goToDashboard': 'Към таблото',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} пикова · {{offPeak}} извънпикова kWh',
   'dailyCostMeter.runningLabel': 'Краен общ резултат',
   'dailyCostMeter.title': 'Цена досега днес',
   'dailyCostMeter.utilizationLabel': 'От дневния бюджет',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Добавяне на измервателен уред',
   'dashboard.alertsHeading': 'Активни сигнали',
   'dashboard.devicesHeading': 'Най-добрите вериги в момента',
   'dashboard.empty.body':
     'Добавете интелигентен измервателен уред или соларен инвертор, за да започнете да следите потреблението и производството в реално време.',
+  'dashboard.empty.title': 'Още няма измервателни уреди',
   'dashboard.eyebrow': 'Контролна зала на Voltrace',
   'dashboard.heading': 'Моментна снимка на енергията на живо',
   'dashboard.loadError': 'Не можаха да се заредят показанията в реално време.',
   'dashboard.loading': 'Настройвам измервателните уреди…',
+  'dashboard.noAlerts': 'Всичко е спокойно — нищо не превишава зададените ви прагове.',
   'dashboard.noAlertsAndNoMeters':
     'След като свържете измервателен уред, тук ще се показват известия въз основа на вашите прагове.',
   'dashboard.noCircuits':
@@ -77,6 +96,7 @@ export const ui: UiTranslations = {
     'Теглене на енергия от целия дом, производство на слънчева енергия и разходи до момента днес.',
   'dashboard.viewAllAlerts': 'Управление на известия →',
   'dashboard.viewAllDevices': 'Всяко устройство →',
+  'deviceDetail.activeTokens': 'Активни токени за приемане на данни',
   'deviceDetail.alreadyOff': 'Вече е на пауза',
   'deviceDetail.back': 'Всички вериги',
   'deviceDetail.confirmDelete': 'Потвърди изтриването',
@@ -117,22 +137,34 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Не можаха да се заредят измервателните уреди.',
   'devices.loading': 'Анкетиране на всеки измервателен уред…',
   'devices.newRule': 'Ново правило за известия',
+  'devices.noResults': 'Няма вериги, отговарящи на този филтър.',
   'devices.placeholder.location': 'напр. машинно помещение',
   'devices.placeholder.name': 'напр. подпанел за гараж',
   'devices.subheading':
     'Мощност в реално време и днешни kWh през всяка верига, която Voltrace може да види.',
+  'deviceWattageRow.todayKwh': '{{kwh}} kWh днес',
+  'deviceWattageRow.watts': '{{watts}} З',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Меню',
+  'energyMonitoringLayout.primaryNavLabel': 'Основна навигация',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    '{{appName}} комуникира с повечето измервателни уреди на ниво електроразпределително дружество, слънчеви инвертори и батерийни системи — по кабел или през WiFi.',
   'landing.ctaHeading': 'Свържете вашия измервателен уред и вижте ватовете за минути',
   'landing.eyebrow': 'Енергийна интелигентност в реално време',
+  'landing.featuresHeading': 'Всеки ват, всяка минута, на едно място',
   'landing.getStarted': 'Включете Voltrace',
   'landing.heroCta': 'Включете Voltrace',
+  'landing.heroSubtitle':
+    'Моментна мощност, слънчево производство, разходи по тарифи и известия за висока консумация в обвивка на контролна зала, създадена за домове със слънчеви панели и екипи, управляващи сгради.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Теглене за целия дом',
   'landing.sampleSolar': '+3 820 W слънчева енергия',
   'landing.sampleSummary': 'Износ на 1680 W към мрежата · 18,4 kWh днес',
   'landing.sampleWatts': '2140 W',
   'powerHeroCard.solar': '+ {{watts}} W слънчева енергия',
   'powerHeroCard.title': 'Теглене за целия дом',
+  'powerHeroCard.todayKwh': '{{kwh}} kWh днес',
   'powerHeroCard.watts': '{{watts}} З',
   'pricing.choose': 'Изберете {{name}}',
   'pricing.contact': 'Нуждаете се от нещо по поръчка?',
@@ -145,6 +177,7 @@ export const ui: UiTranslations = {
     'Започнете безплатно. Надстройте, когато имате нужда от повече измервателни уреди, по-дълга история или повече правила за предупреждения.',
   'pricing.unavailable': 'Този план не е наличен в момента — Stripe не е конфигуриран.',
   'profile.errorGeneric': 'Не можаха да се запазят промените в профила.',
+  'profile.errorGoal': 'Месечната цел в kWh трябва да е положително число.',
   'profile.errorHousehold': 'Размерът на домакинството трябва да е положително число.',
   'profile.householdHeading': 'Домакинство и цели',
   'profile.householdSize': 'Размер на домакинството',
@@ -162,9 +195,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'Агрегиране на показанията…',
   'reports.subheading':
     'Дневни общи данни за потребление, производство и разходи — разбити по дати.',
+  'reports.tableHeading': 'Дневна разбивка',
   'settings.currency': 'Валута',
   'settings.errorFlat': 'Фиксираната ставка трябва да бъде ≥ 0.',
   'settings.errorNotify': 'Не можаха да се запазят предпочитанията за известия.',
+  'settings.errorSave': 'Планът с тарифи не можа да бъде запазен.',
   'settings.errorTou': 'Изискват се пикови/извънпикови тарифи и валиден пиков прозорец.',
   'settings.exportBody':
     'Изтеглете CSV файл с дневните общи данни за последните 30 дни или вземете токен за приемане от всяка страница с подробности за измервателния уред, за да изпращате показанията програмно.',
@@ -184,10 +219,20 @@ export const ui: UiTranslations = {
   'settings.saving': 'Запазване…',
   'settings.securityHeading': 'Двуфакторно удостоверяване',
   'settings.subheading': 'Цени, известия и експорт на данни.',
+  'settings.twoFactorBody':
+    'Изискване на еднократен код от приложението ви за удостоверяване при всяко влизане.',
   'settings.twoFactorCode': 'Код за удостоверяване',
   'settings.twoFactorDisable': 'Деактивирай',
+  'settings.twoFactorDisableTitle': 'Изключване на двуфакторното удостоверяване',
   'settings.twoFactorEnable': 'Активирай',
+  'settings.twoFactorEnableTitle': 'Включване на двуфакторното удостоверяване',
   'settings.twoFactorInvalidCode': 'Невалиден код',
+  'settings.twoFactorOAuth':
+    'Акаунтът ви влиза чрез свързан доставчик, затова двуфакторното удостоверяване се управлява там.',
   'settings.twoFactorOn': 'На',
+  'settings.twoFactorQrAlt': 'QR код за двуфакторна автентикация',
+  'settings.twoFactorScan':
+    'Сканирайте този QR код с приложението си за удостоверяване, след което въведете 6-цифрения код.',
+  'settings.twoFactorUnavailable': 'Двуфакторното удостоверяване не е налично за това приложение.',
   'settings.twoFactorVerify': 'Проверка и активиране',
 }

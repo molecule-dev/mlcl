@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'មានមតិកែលម្អ រកឃើញកំហុស ឬចង់បានមុខងារថ្មី? ទាក់ទងមកពីការកំណត់គណនីរបស់អ្នក — រាល់សារទាំងអស់ត្រូវបានផ្ញើទៅមនុស្សពិតប្រាកដក្នុងក្រុមការងារ។',
   'about.contactTitle': 'ទាក់ទងមកយើងខ្ញុំ',
   'about.eyebrow': 'អំពី',
+  'about.intro':
+    '{{app}} គឺជាស្ទូឌីយោសរសេរអក្សរសិល្ប៍ដោយ AI សម្រាប់អ្នកនិពន្ធដែលយកចិត្តទុកដាក់យ៉ាងខ្លាំងចំពោះអត្ថបទរបស់ពួកគេ។ វាផ្សំការបង្កើតអត្ថបទវែងដោយ AI ជាមួយកម្មវិធីកែសម្រួលដ៏ស្ងប់ស្ងាត់ ការវាយតម្លៃ SEO និងការបង្កើតរូបភាព ដើម្បីឱ្យអ្នកអាចនាំអត្ថបទពីទំព័រទទេទៅផ្សព្វផ្សាយ — ដោយមិនបាត់បង់សម្លេងរបស់អ្នកឡើយ។',
+  'about.missionBody':
+    'យើងជឿថា AI គួរតែព្រាងអត្ថបទនៅក្បែរអ្នក មិនមែនជំនួសអ្នកឡើយ។ {{app}} រក្សាការណែនាំឱ្យខុសគ្នាច្បាស់ពីពាក្យរបស់អ្នក ទុកឱ្យអ្នកជាម្ចាស់ឯកសារគ្រប់ប្រភេទដែលអ្នកបង្កើត និងដកឧបករណ៍ចេញពីផ្លូវនៃការសរសេរ។',
+  'about.missionTitle': 'បេសកកម្មរបស់យើង',
   'about.pageTitle': 'អំពី {{app}}',
   'aiSuggestionCard.applied': 'បានអនុវត្តការណែនាំ',
   'aiSuggestionCard.apply': 'ដាក់ពាក្យ',
@@ -24,7 +31,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'ប្រភពចរាចរណ៍',
   'billing.activePlan': 'ការជាវសកម្ម។',
   'billing.aiWordsLabel': 'រួមបញ្ចូលជំនាន់ AI',
+  'billing.cancelFailed': 'មិនអាចលុបចោលការជាវបានទេ។',
   'billing.cancelPlan': 'លុបចោលផែនការ',
+  'billing.cancelPlanConfirm': 'បញ្ជាក់ការបោះបង់?',
   'billing.cancelSuccess': 'ការជាវត្រូវបានលុបចោល។ សូមផ្ទុកឡើងវិញដើម្បីធ្វើបច្ចុប្បន្នភាពផែនការ។',
   'billing.changePlan': 'ផ្លាស់ប្តូរផែនការ',
   'billing.col.invoice': 'វិក្កយបត្រ',
@@ -42,26 +51,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'មើលផែនការ',
   'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'dashboard.continueWriting': 'បន្តសរសេរ',
+  'dashboard.createFirst': 'បង្កើតឯកសារ',
   'dashboard.days.sat': 'Sat',
   'dashboard.days.sun': 'Sun',
   'dashboard.defaultWriterName': 'អ្នកនិពន្ធ',
   'dashboard.greeting': 'អរុណសួស្តី, {{name}}',
   'dashboard.loadError': 'មិនអាចផ្ទុកផ្ទាំងគ្រប់គ្រងរបស់អ្នកបានទេ។',
+  'dashboard.loading': 'កំពុងផ្ទុកស្ទូឌីយោរបស់អ្នក…',
   'dashboard.loadingDocs': 'កំពុងផ្ទុកឯកសារថ្មីៗ…',
   'dashboard.noDocuments': 'មិនទាន់មានឯកសារនៅឡើយទេ - ចាប់ផ្តើមឯកសារដំបូងរបស់អ្នក។',
   'dashboard.startWriting': 'ចាប់ផ្តើមឯកសារថ្មី',
+  'dashboard.streakBody': 'អ្នកបានសរសេរ {{words}} ពាក្យក្នុងសប្តាហ៍នេះ។',
   'dashboard.streakTitle': '{{count}} - ស្ទ្រីមប្រចាំថ្ងៃ',
+  'dashboard.subgreeting': 'ឯកសារ {{count}} ក្នុងបណ្ណាល័យរបស់អ្នក — បន្តរក្សាសន្ទុះទៅមុខ។',
+  'documentCard.seoScoreTitle': 'ពិន្ទុ SEO៖ {{score}}/100',
+  'documents.createNew': 'បង្កើតឯកសារថ្មី',
   'documents.empty': 'បណ្ណាល័យរបស់អ្នកកំពុងរង់ចាំ — ចាប់ផ្តើមឯកសារដំបូងរបស់អ្នក។',
+  'documents.emptyFiltered': 'មិនទាន់មានឯកសារណាត្រូវនឹងតម្រងរបស់អ្នកទេ។',
   'documents.loadError': 'មិនអាចផ្ទុកឯកសារបានទេ។',
   'documents.loading': 'កំពុងផ្ទុកបណ្ណាល័យរបស់អ្នក…',
   'documents.new': 'ឯកសារថ្មី',
+  'documents.searchAriaLabel': 'ស្វែងរកឯកសារ',
   'documents.searchPlaceholder': 'ស្វែងរកឯកសារ…',
   'documents.subtitle': '{{count}} ឯកសារនៅក្នុងបណ្ណាល័យរបស់អ្នក។',
   'documents.title': 'ឯកសារ',
   'editor.aiPanelTitle': 'បញ្ញា​ផ្លុំ',
+  'editor.aiSuggestion.empty':
+    'មិនមានការកែសម្រួលសកម្មទេ។ សុំការណែនាំពី {{appName}} នៅពេលអ្នកចង់បានភ្នែកទីពីរ។',
   'editor.aiSuggestion.failed': 'មិនអាចផ្ទុកការណែនាំនៅពេលនេះបានទេ។',
   'editor.aiSuggestion.loadingBody': 'ការបង្កើតភាពច្បាស់លាស់…',
   'editor.backToDocuments': 'ឯកសារទាំងអស់',
+  'editor.bodyAriaLabel': 'តួឯកសារ',
   'editor.closeAiPanel': 'បិទបន្ទះ AI',
   'editor.createFailed': 'មិនអាចបង្កើតឯកសារបានទេ។',
   'editor.exported': 'បាននាំចេញជា {{format}} ។',
@@ -77,18 +97,26 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'ស្នើសុំការកែលម្អ',
   'editor.saveBeforePublish': 'រក្សាទុកឯកសារមុនពេលបោះពុម្ពផ្សាយ។',
   'editor.status.chars': '{{count}} តួអង្គ',
+  'editor.status.readTime': '{{minutes}} អាន​នាទី',
   'editor.status.savedAt': 'បានរក្សាទុក {{time}}',
   'editor.status.saveError': 'ការរក្សាទុកបរាជ័យ',
+  'editor.status.unsaved': 'មិនទាន់រក្សាទុកទេ',
   'editor.titleAriaLabel': 'ចំណងជើងឯកសារ',
   'editor.titlePlaceholder': 'ឯកសារគ្មានចំណងជើង',
   'editor.toggleAiPanel': 'បិទ/បើកបន្ទះ AI',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'author@example.com',
+  'forgotPassword.sent':
+    'ប្រសិនបើ {{email}} មានក្នុងប្រព័ន្ធ តំណកំណត់ឡើងវិញកំពុងធ្វើដំណើរមករកអ្នក។',
   'imageGenerator.failed': 'ការបង្កើតរូបភាពបានបរាជ័យ។',
   'imageGenerator.generate': 'បង្កើតរូបភាព',
   'imageGenerator.generating': 'កំពុងបង្កើត...',
   'imageGenerator.placeholder': 'ពិពណ៌នាអំពីរូបភាពដែលអ្នកចង់បង្កើត...',
+  'imageGenerator.promptAriaLabel': 'ការណែនាំរូបភាព',
+  'imageGenerator.subtitle': 'ពិពណ៌នារូបភាពគម្រប ហើយឱ្យ AI គូរវា។',
   'imageGenerator.title': 'ម៉ាស៊ីនបង្កើតរូបភាព AI',
+  'landing.aiSuggestionBody':
+    'ឈរនៅលើយ៉រជាន់ទី 42 អេលីយ៉ាសមានអារម្មណ៍ថាទីក្រុងចុចមកលើគាត់ — ខ្យល់បក់បំបាត់សម្លេងព្រមៗជុំវិញ ទុកគាត់ព្យួរនៅក្នុងភាពទទេស្អាត ត្រជាក់ និងស្ងប់ស្ងាត់ខាងលើបណ្តាញភ្លឺចែងចាំង។',
   'landing.eyebrow': 'ស្ទូឌីយោសរសេរ AI សម្រាប់អ្នកនិពន្ធធ្ងន់ធ្ងរ',
   'landing.featuresHeading': 'ឧបករណ៍​ដែល​ជួយ​ឲ្យ​អ្នក​គេច​ផុត​ពី​បញ្ហា',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -98,13 +126,21 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'ស្ទូឌីយោមួយដែលបង្កើតឡើងសម្រាប់អ្នកនិពន្ធដែលយកចិត្តទុកដាក់ចំពោះសំណេរ ល្បឿន និងភាពជាក់លាក់របស់ពួកគេ។ សេចក្តីព្រាងព្រាងៗនៅក្បែរអ្នក — មិនមែនជំនួសអ្នកទេ។',
   'landing.heroTitle.eloquence': 'ភាព​ឧឡារិក',
+  'landing.heroTitle.intelligence': 'បញ្ញាជួប ',
   'landing.nav.testimonials': 'សក្ខីកម្ម',
   'landing.plan.cta': 'ចាប់ផ្តើមជាមួយផែនការនេះ',
   'landing.plan.popular': 'ស្រលាញ់បំផុត',
   'landing.pricingEyebrow': 'តម្លៃ',
   'landing.pricingHeading': 'ជ្រើសរើសអ្វីដែលសមនឹងការអនុវត្តរបស់អ្នក',
   'landing.sampleDocTitle': 'ស្ថាបត្យកម្មនៃភាពស្ងប់ស្ងាត់',
+  'landing.sampleParagraph1':
+    'ទីក្រុងមិនដែលស្ងប់ស្ងាត់ពិតប្រាកដឡើយ។ សូម្បីតែក្នុងម៉ោងយប់ជ្រៅបំផុត សម្លេងព្រមៗទាបមួយបន្លឺរំញ័រឆ្លងកាត់គ្រឹះបេតុង — ចង្វាក់បេះដូងមេកានិចនៃរថភ្លើងក្រោមដី និងបំពង់ខ្យល់។',
+  'landing.sampleParagraph2.after': ' ប៉ះនឹងកញ្ចក់។',
+  'landing.sampleParagraph2.before': 'ប៉ុន្តែ ',
   'landing.sampleParagraph2.highlight': 'ឈរនៅលើយ៉រនៃជាន់ទី 42 អេលីយ៉ាស មានអារម្មណ៍ឯកោយ៉ាងខ្លាំង',
+  'landing.showcaseBody':
+    'ជ្រើសប្រយោគមួយ ហើយ {{appName}} ផ្តល់ការកែសម្រួល។ ទទួលយក កែបន្តិច ឬបដិសេធ។ ការណែនាំតែងតែមានពណ៌ស្វាយ ដើម្បីឱ្យអ្នកដឹងថាអ្វីជាអ្នកសរសេរ និងអ្វីជាការណែនាំ។',
+  'landing.showcaseHeading': 'ភ្នែកទីពីរ — មិនមែនអ្នកនិពន្ធទីពីរឡើយ។',
   'landing.startWriting': 'ចាប់ផ្តើមសរសេរ',
   'login.emailPlaceholder': 'author@example.com',
   'login.failed': 'មិនអាចចូលបានទេ',
@@ -119,8 +155,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'បើកផ្ទាំងគ្រប់គ្រង',
   'notFound.title': 'ជំពូកនេះមិនទាន់ត្រូវបានសរសេរនៅឡើយទេ។',
   'plumeSidebarLayout.primaryNavLabel': 'ការរុករកចម្បង',
+  'pricing.maxDocuments': '{{count}} ឯកសារ',
+  'pricing.maxGenerate': 'ការបង្កើតដោយ AI {{count}}',
+  'pricing.maxImages': 'ការបង្កើតរូបភាព {{count}}',
   'privacy.data':
     'អ៊ីមែលគណនីរបស់អ្នក និងពាក្យសម្ងាត់ដែលបានហាស។ ឯកសារ និងគំរូដែលអ្នកបង្កើត។ កំណត់ហេតុផ្ដល់យោបល់ AI (បញ្ចូល + ទិន្នផល) សម្រាប់វិក្កយបត្រ និងការវិភាគ។ ឧបករណ៍កំណត់អត្តសញ្ញាណអតិថិជន Stripe + ការជាវ; យើងមិនដែលរក្សាទុកលេខកាតពេញលេញទេ។',
+  'privacy.intro':
+    'យើងប្រមូលតែទិន្នន័យចាំបាច់សម្រាប់ដំណើរការ {{app}} ប៉ុណ្ណោះ៖ អ៊ីមែលរបស់អ្នក ឯកសារដែលអ្នកបង្កើត និងសំណើ AI ដែលអ្នកធ្វើ។ យើងមិនលក់អត្ថបទ ឬប្រូមផ្ទរបស់អ្នកឡើយ។',
   'profile.loadError': 'មិនអាចផ្ទុកប្រវត្តិរូបរបស់អ្នកបានទេ។',
   'profile.loading': 'កំពុងផ្ទុកប្រវត្តិរូបរបស់អ្នក…',
   'profile.loadingPublished': 'កំពុងផ្ទុកឯកសារដែលបានបោះពុម្ពផ្សាយ...',
@@ -132,8 +173,14 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'ពាក្យសម្ងាត់ថ្មី',
   'seoAnalysis.backToEditor': 'ត្រឡប់ទៅកម្មវិធីនិពន្ធវិញ',
   'seoAnalysis.eyebrow': 'ការវិភាគ SEO',
+  'seoAnalysis.heroBody':
+    'ការណែនាំ {{count}} ត្រូវអនុវត្ត។ នីមួយៗជាការលើកកម្រិតរចនាសម្ព័ន្ធ ឬពាក្យគន្លឹះ មិនមែនជាបញ្ជីបញ្ហាពណ៌ក្រហមវែងអន្លាយទេ។',
+  'seoAnalysis.heroBodyEmpty':
+    'ចុច "ដំណើរការវិភាគ" ដើម្បីវាយតម្លៃភាពងាយអាន ដង់ស៊ីតេពាក្យគន្លឹះ និងរចនាសម្ព័ន្ធ។',
   'seoAnalysis.heroEmpty':
     'មិនទាន់មានការវិភាគនៅឡើយទេ។ សូមដំណើរការមួយដើម្បីដាក់ពិន្ទុលើសេចក្តីព្រាងនេះ។',
+  'seoAnalysis.heroNeedsWork': 'ការលើកកម្រិតរចនាសម្ព័ន្ធមួយចំនួននឹងបង្កើនការទស្សនា។',
+  'seoAnalysis.heroStrong': 'អត្ថបទល្អ — នៅជិតកម្រិតល្អឥតខ្ចោះតែបន្តិចប៉ុណ្ណោះ។',
   'seoAnalysis.historyEmpty': 'គ្មានការវិភាគពីមុនត្រូវបានកត់ត្រាទុកទេ។',
   'seoAnalysis.historyTitle': 'ប្រវត្តិវិភាគ',
   'seoAnalysis.keywordEmpty':
@@ -160,8 +207,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'លៃតម្រូវ Plume ឱ្យត្រូវនឹងរបៀបដែលអ្នកសរសេរ។',
   'settings.toggleIntegrationFailed': 'ការអាប់ដេត​ការរួមបញ្ចូល​បរាជ័យ។',
   'settings.writing.aiSuggestions': 'ការណែនាំ AI ក្នុងជួរពេលកំពុងវាយអក្សរ',
+  'settings.writing.aiSuggestionsBody':
+    'បង្ហាញការកែសម្រួលពេលអ្នកសរសេរ។ ការណែនាំតែងតែជាជម្រើសក្នុងមួយប្រយោគ។',
   'settings.writing.autoSave': 'រក្សាទុកដោយស្វ័យប្រវត្តិរៀងរាល់ 30 វិនាទីម្តង',
+  'settings.writing.autoSaveBody':
+    '{{appName}} រក្សារូបថតស្ថានភាពនៃសេចក្តីព្រាងរបស់អ្នក ដើម្បីឱ្យអ្នកអាចសង្គ្រោះពីផ្ទាំងណាមួយ។',
   'settings.writing.notifyEmail': 'ផ្ញើអ៊ីមែលមកខ្ញុំនូវសេចក្តីសង្ខេបនៃការសរសេរប្រចាំសប្តាហ៍',
+  'settings.writing.notifyEmailBody':
+    'សេចក្តីសង្ខេបខ្លីថ្ងៃអាទិត្យអំពីការបន្តជាប់ សេចក្តីព្រាង និងភាពប្រសើរឡើង SEO។',
   'settings.writing.title': 'ចំណូលចិត្តសរសេរ',
   'settings.writing.tone': 'ការកំណត់ជាមុននៃសម្លេងលំនាំដើម',
   'signup.emailPlaceholder': 'author@example.com',
@@ -173,7 +226,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'គ្មានការពិពណ៌នាណាមួយត្រូវបានផ្តល់ជូនទេ។',
   'templates.subtitle':
     'ចាប់ផ្តើមពីស៊ុមវិចារណកថាដែលបានសាកល្បងរួចជាស្រេចក្នុងសមរភូមិ បន្ទាប់មកធ្វើវាជារបស់អ្នកផ្ទាល់។',
+  'terms.intro':
+    'លក្ខខណ្ឌទាំងនេះគ្រប់គ្រងការប្រើប្រាស់ {{app}} របស់អ្នក។ ដោយបង្កើតគណនី អ្នកយល់ព្រមប្រើសេវានេះសម្រាប់ការសរសេរដោយស្របច្បាប់ និងរក្សាព័ត៌មានសម្គាល់គណនីរបស់អ្នកជាការសម្ងាត់។',
   'terms.license':
     'អ្នករក្សាភាពជាម្ចាស់លើឯកសារ គំរូ និងការបង្កើត AI នីមួយៗដែលអ្នកបង្កើត។ យើងត្រូវការអាជ្ញាប័ណ្ណមិនផ្តាច់មុខ ដើម្បីបង្ហោះ និងបម្រើការងាររបស់អ្នកត្រឡប់ទៅអ្នកវិញ និងដើម្បីដំណើរការសំណើ AI តាមរយៈអ្នកផ្តល់សេវាដែលមានប័ណ្ណដែលអ្នកជ្រើសរើស។',
+  'writingStreakHeroCard.change': '{{sign}}{{amount}} ពាក្យ',
   'writingStreakHeroCard.greeting': 'ថ្ងៃល្អ, {{name}}',
+  'writingStreakHeroCard.subtitle': 'ពាក្យដែលបានសរសេរក្នុងសប្តាហ៍នេះ — បន្តជាប់ {{count}} ថ្ងៃ',
+  'writingStreakHeroCard.tagline': 'មួយទំព័រក្នុងមួយថ្ងៃ ជួយឱ្យសត្វចិត្តនៅជាប់ការងារ។',
 }

@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Pyetje, kërkesa për veçori, ose një matës që duhet ta mbështesim? Kontakto ekipin e {{appName}} nga cilësimet e llogarisë tënde — çdo mesazh shkon te një person i vërtetë.',
   'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
+  'about.featuresTitle': 'Çfarë merr',
+  'about.intro':
+    '{{appName}} është monitorim i energjisë në kohë reale për shtëpi me diell dhe ekipe objektesh. Ne e kthejmë rrjedhën e madhe të të dhënave nga matësat, invertorët dhe bateritë në një pamje të qetë salle kontrolli — fuqi në kohë reale, prodhim diellor, kosto sipas orarit të tarifave dhe alarme, të gjitha në një vend.',
+  'about.missionBody':
+    'Energjia që shihet është energjia që menaxhohet. Ne besojmë se kushdo që drejton një matës — një familje me panele diellore në çati ose një ekip që mbikëqyr një ndërtesë — meriton njohuri të nivelit të kompanisë së energjisë pa një kontratë të nivelit të kompanisë së energjisë. Çdo veçori është ndërtuar për ta bërë kilovat-orën e radhës një zgjedhje të informuar, jo një surprizë në faturë.',
+  'about.missionTitle': 'Misioni ynë',
   'about.pageTitle': 'Rreth {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Pranoj',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@domainjuaj.com',
   'alertRule.eyebrow': 'Rregull i ri',
   'alertRule.heading': "Kapni rritjen para se t'ju kushtojë",
+  'alertRule.nameLabel': 'Emri i rregullit',
   'alertRule.namePlaceholder': 'p.sh., mbikëqyrja e sistemit HVAC pas orarit të punës',
   'alertRule.subheading':
     'Zgjidh një metrikë, një prag dhe ku ta dërgosh alarmin. Mund ta modifikosh ose ta ndërpresësh në çdo kohë.',
   'alertRule.submit': 'Ruaj rregullin',
   'alertRule.submitError': 'Rregulli nuk mund të ruhej.',
   'alertRule.thresholdLabel': 'Pragu',
+  'alertRule.typeLabel': 'Lloji i shkaktarit',
   'alerts.checking': 'Duke kontrolluar…',
   'alerts.confirmDelete': 'Konfirmo fshirjen',
+  'alerts.empty': 'Asgjë për të shfaqur — pa alarme në këtë gjendje.',
   'alerts.emptyNoRules':
     'Ende nuk ka njoftime — shtoni një rregull, pastaj klikoni “Vlerësoni tani” për ta testuar.',
   'alerts.errorAck': 'Nuk mund ta pranonte.',
@@ -41,12 +52,14 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Vlerëso tani',
   'alerts.subheading':
     'Alarme pragu dhe modeli që aktivizohen në matësit tuaj, plus rregullat që i drejtojnë ato.',
+  'billing.activeBlurb': 'Abonimi juaj është aktiv. Menaxhojeni në çdo kohë.',
   'billing.cancelError': 'Nuk mund të anulohej abonimi.',
   'billing.cancelling': 'Duke anuluar…',
   'billing.currentBadge': 'Aktual',
   'billing.freeBlurb':
     'Je në planin Falas. Përmirësoje për më shumë matësa, historik më të gjatë dhe më shumë rregulla alarmi.',
   'billing.heading': 'Planet dhe faturimi',
+  'billing.historyEmpty': 'Faturat e paguara do të shfaqen këtu sapo abonimi juaj të faturohet.',
   'billing.historyHeading': 'Historiku i faturave',
   'billing.loadError': 'Faturimi nuk mund të ngarkohej.',
   'billing.loading': 'Duke ngarkuar planet…',
@@ -58,17 +71,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Kontaktoni shitjet',
   'common.goToDashboard': 'Shko te paneli',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} pika · {{offPeak}} kWh jashtë pikut',
   'dailyCostMeter.runningLabel': 'Totali i vrapimit',
   'dailyCostMeter.title': 'Kostoja deri më tani sot',
   'dailyCostMeter.utilizationLabel': 'E buxhetit ditor',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Shto një matës',
   'dashboard.alertsHeading': 'Alarme aktive',
   'dashboard.devicesHeading': 'Qarqet kryesore tani',
   'dashboard.empty.body':
     'Shtoni një matës inteligjent ose një inverter diellor për të filluar ndjekjen e konsumit dhe prodhimit të drejtpërdrejtë.',
+  'dashboard.empty.title': 'Ende pa matës',
   'dashboard.eyebrow': 'Dhoma e kontrollit Voltrace',
   'dashboard.heading': 'Pamje e shpejtë e energjisë',
   'dashboard.loadError': 'Nuk mund të ngarkoheshin leximet e drejtpërdrejta.',
   'dashboard.loading': 'Duke u sintonizuar me matësit tuaj…',
+  'dashboard.noAlerts': 'Gjithçka e qetë — asgjë nuk i kalon pragjet e tua.',
   'dashboard.noAlertsAndNoMeters':
     'Pasi të lidhni një matës, këtu do të shfaqen njoftime bazuar në pragjet tuaja.',
   'dashboard.noCircuits': "Nuk ka ende qarqe për t'u shfaqur — shtoni një matës për të filluar.",
@@ -76,6 +94,7 @@ export const ui: UiTranslations = {
     'Energjia elektrike për të gjithë shtëpinë, prodhimi i energjisë diellore dhe kostoja deri më tani sot.',
   'dashboard.viewAllAlerts': 'Menaxho alarmet →',
   'dashboard.viewAllDevices': 'Çdo pajisje →',
+  'deviceDetail.activeTokens': 'Tokena aktivë të grumbullimit',
   'deviceDetail.alreadyOff': 'Tashmë i ndaluar',
   'deviceDetail.back': 'Të gjitha qarqet',
   'deviceDetail.confirmDelete': 'Konfirmo fshirjen',
@@ -115,22 +134,34 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Nuk mund të ngarkoheshin matësit.',
   'devices.loading': 'Duke anketuar çdo matës…',
   'devices.newRule': 'Rregull i ri alarmi',
+  'devices.noResults': 'Asnjë qark nuk përputhet me këtë filtër.',
   'devices.placeholder.location': 'p.sh. dhoma mekanike',
   'devices.placeholder.name': 'p.sh. nënpaneli i garazhit',
   'devices.subheading':
     'Vat i drejtpërdrejtë dhe kWh i sotëm nëpër çdo qark që Voltrace mund të shohë.',
+  'deviceWattageRow.todayKwh': '{{kwh}} kWh sot',
+  'deviceWattageRow.watts': '{{watts}} P',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Menu',
+  'energyMonitoringLayout.primaryNavLabel': 'Navigimi kryesor',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    '{{appName}} komunikon me shumicën e matësve të nivelit të kompanisë së energjisë, invertorëve diellorë dhe baterive — me kabllo ose përmes WiFi.',
   'landing.ctaHeading': 'Lidhni matësin tuaj, shihni vatët në minuta',
   'landing.eyebrow': 'Inteligjencë energjie në kohë reale',
+  'landing.featuresHeading': 'Çdo vat, çdo minutë, në një vend',
   'landing.getStarted': 'Lidhni Voltrace në prizë',
   'landing.heroCta': 'Lidhni Voltrace në prizë',
+  'landing.heroSubtitle':
+    'Fuqi në kohë reale, prodhim diellor, kosto sipas orarit të tarifave dhe alarme për konsum të lartë në një pamje salle kontrolli të ndërtuar për shtëpi me diell dhe ekipe objektesh.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Barazim për të gjithë shtëpinë',
   'landing.sampleSolar': '+3,820 W energji diellore',
   'landing.sampleSummary': 'Duke eksportuar 1,680 W në rrjet · 18.4 kWh sot',
   'landing.sampleWatts': '2,140 W',
   'powerHeroCard.solar': '+ {{watts}} W diellor',
   'powerHeroCard.title': 'Barazim për të gjithë shtëpinë',
+  'powerHeroCard.todayKwh': '{{kwh}} kWh sot',
   'powerHeroCard.watts': '{{watts}} P',
   'pricing.choose': 'Zgjidh {{name}}',
   'pricing.contact': 'Keni nevojë për diçka të personalizuar?',
@@ -144,6 +175,7 @@ export const ui: UiTranslations = {
   'pricing.unavailable':
     'Ky plan nuk është i disponueshëm tani për tani — Stripe nuk është konfiguruar.',
   'profile.errorGeneric': 'Nuk mund të ruheshin ndryshimet e profilit.',
+  'profile.errorGoal': 'Objektivi mujor i kWh duhet të jetë një numër pozitiv.',
   'profile.errorHousehold': 'Madhësia e familjes duhet të jetë një numër pozitiv.',
   'profile.householdHeading': 'Familja dhe qëllimet',
   'profile.householdSize': 'Madhësia e familjes',
@@ -160,9 +192,11 @@ export const ui: UiTranslations = {
   'reports.loadError': 'Raportet nuk mund të ngarkoheshin.',
   'reports.loading': 'Duke mbledhur leximet…',
   'reports.subheading': 'Totalet ditore për konsumin, prodhimin dhe koston — të ndara sipas datës.',
+  'reports.tableHeading': 'Ndarja ditore',
   'settings.currency': 'Valuta',
   'settings.errorFlat': 'Tarifa fikse duhet të jetë ≥ 0.',
   'settings.errorNotify': 'Nuk mund të ruheshin preferencat e njoftimeve.',
+  'settings.errorSave': 'Plani i tarifave nuk u ruajt dot.',
   'settings.errorTou':
     'Kërkohen tarifat e orarit të pikut/jashtë orarit të pikut dhe një dritare e vlefshme e orarit të pikut.',
   'settings.exportBody':
@@ -183,10 +217,21 @@ export const ui: UiTranslations = {
   'settings.saving': 'Duke u ruajtur…',
   'settings.securityHeading': 'Autentifikimi me dy faktorë',
   'settings.subheading': 'Tarifat, njoftimet dhe eksporti i të dhënave.',
+  'settings.twoFactorBody':
+    'Kërko një kod njëpërdorimësh nga aplikacioni i autentikimit sa herë që identifikoheni.',
   'settings.twoFactorCode': 'Kodi i vërtetimit',
   'settings.twoFactorDisable': 'Çaktivizo',
+  'settings.twoFactorDisableTitle': 'Çaktivizo vërtetimin me dy faktorë',
   'settings.twoFactorEnable': 'Aktivizo',
+  'settings.twoFactorEnableTitle': 'Aktivizo vërtetimin me dy faktorë',
   'settings.twoFactorInvalidCode': 'Kod i pavlefshëm',
+  'settings.twoFactorOAuth':
+    'Llogaria jote hyn përmes një ofruesi të lidhur, prandaj vërtetimi me dy faktorë menaxhohet atje.',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Kodi QR dy faktorë',
+  'settings.twoFactorScan':
+    'Skano këtë kod QR me aplikacionin e vërtetimit, pastaj shkruaj kodin 6-shifror.',
+  'settings.twoFactorUnavailable':
+    'Autentifikimi me dy faktorë nuk është i disponueshëm për këtë aplikacion.',
   'settings.twoFactorVerify': 'Verifiko dhe aktivizo',
 }

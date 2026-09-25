@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'about.eyebrow': 'ਬਾਰੇ',
+  'about.featureAlerts':
+    "ਉਹਨਾਂ ਸ਼ਰਤਾਂ 'ਤੇ ਕੀਮਤ ਚੇਤਾਵਨੀਆਂ ਜੋ ਮਾਇਨੇ ਰੱਖਦੀਆਂ ਹਨ, ਈਮੇਲ ਅਤੇ ਪੁਸ਼ ਰਾਹੀਂ ਭੇਜੀਆਂ ਜਾਂਦੀਆਂ ਹਨ ਤਾਂ ਜੋ ਤੁਸੀਂ ਕੋਈ ਵੀ ਬਦਲਾਅ ਨਾ ਖੁੰਝਾਓ।",
+  'about.featureMarkets':
+    'ਹਜ਼ਾਰਾਂ ਸਿੱਕਿਆਂ ਲਈ ਲਾਈਵ ਮਾਰਕੀਟ ਡੇਟਾ ਅਤੇ ਕੀਮਤ ਚਾਰਟ, ਮਾਰਕੀਟ ਕੈਪ, ਵਾਲੀਅਮ ਅਤੇ ਮੋਮੈਂਟਮ ਅਨੁਸਾਰ ਦਰਜਾਬੰਦੀ।',
+  'about.featurePortfolio':
+    'ਅਸਲ ਮੁਨਾਫ਼ਾ-ਨੁਕਸਾਨ, ਲਾਗਤ ਆਧਾਰ ਅਤੇ ਵੰਡ ਨਾਲ ਪੋਰਟਫੋਲੀਓ ਟਰੈਕਿੰਗ — ਤੁਹਾਡੇ ਲੈਣ-ਦੇਣ ਦੇ ਇਤਿਹਾਸ ਨਾਲ ਜੁੜੀ ਹੋਈ।',
+  'about.featureWatchlist':
+    'ਇੱਕ ਨਿੱਜੀ ਵਾਚਲਿਸਟ ਅਤੇ ਤੁਹਾਡੇ ਫਾਲੋ ਕੀਤੇ ਸੰਪਤੀਆਂ ਬਾਰੇ ਸੰਕੇਤਾਂ ਸਮੇਤ ਚੁਣੀਆਂ ਹੋਈਆਂ ਕ੍ਰਿਪਟੋ ਖ਼ਬਰਾਂ।',
+  'about.missionTitle': 'ਸਾਡਾ ਮਿਸ਼ਨ',
+  'alertConditionCard.armedSince': '{{when}} ਤੋਂ ਸਰਗਰਮ',
   'alertConditionCard.condition.${alert.condition}': 'ਸ਼ੁਰੂ ਕੀਤਾ ਗਿਆ {{ਜਦੋਂ}}',
   'alertConditionCard.confirmDelete': 'ਮਿਟਾਉਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ',
+  'alertConditionCard.deleteAriaLabel': 'ਚੇਤਾਵਨੀ ਮਿਟਾਓ',
   'alertConditionCard.pauseAriaLabel': 'ਚੇਤਾਵਨੀ ਰੋਕੋ',
   'alertConditionCard.resumeAriaLabel': 'ਚੇਤਾਵਨੀ ਮੁੜ-ਚਾਲੂ ਕਰੋ',
+  'alertConditionCard.triggeredAt': '{{when}} ਨੂੰ ਟ੍ਰਿਗਰ ਕੀਤਾ ਗਿਆ',
   'alertNew.condition': 'ਹਾਲਤ',
   'alertNew.createCta': 'ਸੁਚੇਤਨਾ ਬਣਾਓ',
   'alertNew.error': 'ਚੇਤਾਵਨੀ ਨਹੀਂ ਬਣਾਈ ਜਾ ਸਕੀ।',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'ਹਾਲੇ ਕੋਈ ਚੇਤਾਵਨੀਆਂ ਨਹੀਂ ਹਨ।',
   'alerts.eyebrow': 'ਸਿਗਿਲ ਟ੍ਰਿਪਵਾਇਰਸ',
   'alerts.loadError': 'ਸੁਚੇਤਨਾਵਾਂ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
+  'alerts.newCta': '+ ਨਵਾਂ ਟ੍ਰਿਪਵਾਇਰ',
   'alerts.subheading': 'ਜਦੋਂ ਕੀਮਤ, ਬਦਲਾਅ, ਜਾਂ ਵਾਲੀਅਮ ਤੁਹਾਡੀ ਰੇਖਾ ਪਾਰ ਕਰਦਾ ਹੈ ਤਾਂ ਪਿੰਗ ਪ੍ਰਾਪਤ ਕਰੋ।',
   'alerts.summary.armed': 'ਹਥਿਆਰਬੰਦ',
   'alerts.summary.triggered': 'ਸ਼ੁਰੂ ਕੀਤਾ ਗਿਆ',
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'ਸਭ ਤੋਂ ਉੱਚਾ',
   'coinDetail.allTimeLow': 'ਹੁਣ ਤੱਕ ਦਾ ਸਭ ਤੋਂ ਘੱਟ',
   'coinDetail.back': 'ਸਾਰੇ ਬਾਜ਼ਾਰ',
+  'coinDetail.chartAriaLabel': '{{name}} ਕੀਮਤ ਚਾਰਟ, ਪਿਛਲੇ 30 ਦਿਨ',
   'coinDetail.chartHeading': 'ਕੀਮਤ · ਪਿਛਲੇ 30 ਦਿਨਾਂ ਵਿੱਚ',
   'coinDetail.circulating': 'ਸਰਕੂਲੇਟਿੰਗ ਸਪਲਾਈ',
   'coinDetail.fdv': 'ਪੂਰੀ ਤਰ੍ਹਾਂ ਪਤਲਾ ਮੁੱਲਾਂਕਣ',
@@ -59,6 +74,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'ਵਾਇਰਡ ਲਿੰਕ ਰੀਸੈਟ ਕਰੋ।',
   'login.eyebrow': 'ਟਰਮੀਨਲ ਵਿੱਚ ਕਦਮ ਰੱਖੋ',
   'login.heading': 'ਵਾਪਸ ਸਵਾਗਤ ਹੈ, ਸਿਗਨਲਰ।',
+  'login.noAccountQuestion': 'ਟੇਸੇਰਾ ਲਈ ਨਵੇਂ ਹੋ?',
   'login.secureNote': '🔒 ਆਵਾਜਾਈ ਵਿੱਚ ਏਨਕ੍ਰਿਪਟ ਕੀਤਾ ਗਿਆ',
   'login.signingInCta': 'ਟੇਪ ਪੜ੍ਹ ਰਿਹਾ ਹੈ...',
   'login.signupLink': 'ਖਾਤਾ ਖੋਲ੍ਹੋ →',
@@ -94,6 +110,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     "ਤੁਹਾਡੇ ਦੁਆਰਾ ਸਕੈਨ ਕੀਤਾ ਗਿਆ ਰਸਤਾ ਕਿਸੇ ਜਾਣੇ-ਪਛਾਣੇ ਸਿੱਕੇ ਜਾਂ ਪੰਨੇ 'ਤੇ ਨਹੀਂ ਪਹੁੰਚਦਾ। ਚਿੰਨ੍ਹ ਦੀ ਦੁਬਾਰਾ ਜਾਂਚ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
   'notFound.browseMarkets': 'ਬਾਜ਼ਾਰਾਂ ਨੂੰ ਬ੍ਰਾਊਜ਼ ਕਰੋ',
+  'notFound.eyebrow': '{{appName}} ਸਿਗਨਲ ਗੁੰਮ',
+  'notFound.heading': 'ਇਹ ਸਿਗਨਲ ਰੇਂਜ ਤੋਂ ਬਾਹਰ ਹੈ',
+  'planUpdated.body':
+    'ਤੁਹਾਡੀ ਬਿਲਿੰਗ ਤਬਦੀਲੀ ਹੁਣ ਸਰਗਰਮ ਹੈ। ਤੁਸੀਂ ਕਿਸੇ ਵੀ ਸਮੇਂ ਬਿਲਿੰਗ ਪੰਨੇ ਤੋਂ ਆਪਣਾ ਪਲਾਨ ਪ੍ਰਬੰਧਿਤ ਕਰ ਸਕਦੇ ਹੋ।',
+  'planUpdated.retry': 'ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ',
+  'planUpdated.verifyFailed': 'ਅਸੀਂ ਅਜੇ ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਨਹੀਂ ਕਰ ਸਕੇ।',
+  'planUpdated.verifyFailedBody':
+    'ਤੁਹਾਡਾ ਭੁਗਤਾਨ ਅਜੇ ਵੀ ਪ੍ਰਕਿਰਿਆ ਅਧੀਨ ਹੋ ਸਕਦਾ ਹੈ। ਕੁਝ ਦੇਰ ਬਾਅਦ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
   'planUpdated.verifying': 'ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'portfolio.addError': 'ਚਿੰਨ੍ਹ, ਸਕਾਰਾਤਮਕ ਰਕਮ, ਅਤੇ ਲਾਗਤ ਦਰਜ ਕਰੋ।',
   'portfolio.addHoldingCta': '+ ਹੋਲਡਿੰਗ ਸ਼ਾਮਲ ਕਰੋ',
@@ -117,11 +141,13 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'ਕੁੱਲ ਪੋਰਟਫੋਲੀਓ ਮੁੱਲ',
   'portfolioHeroCard.totalPnl': 'ਕੁੱਲ P/L',
   'pricing.heading': 'ਚੇਤਾਵਨੀਆਂ',
+  'pricing.limit.alerts': 'ਚੇਤਾਵਨੀਆਂ',
   'pricing.limit.coins': 'ਸਿੱਕੇ',
   'pricing.limit.market': 'ਬਾਜ਼ਾਰ',
   'pricing.limit.portfolio': 'ਪੋਰਟਫੋਲੀਓ',
   'resetPassword.eyebrow': 'ਨਵਾਂ ਸਾਈਫਰ',
   'resetPassword.missingToken': 'ਇਹ ਰੀਸੈਟ ਲਿੰਕ ਗੁੰਮ ਹੈ ਜਾਂ ਅਵੈਧ ਹੈ। ਇੱਕ ਨਵੇਂ ਲਈ ਬੇਨਤੀ ਕਰੋ।',
+  'resetPassword.passwordPlaceholder': 'ਨਵਾਂ ਪਾਸਵਰਡ',
   'resetPassword.subheading': 'ਕੁਝ ਅਜਿਹਾ ਚੁਣੋ ਜਿਸਨੂੰ ਸਿਰਫ਼ ਤੁਸੀਂ ਡੀਕੋਡ ਕਰ ਸਕਦੇ ਹੋ।',
   'settings.apiKeys.body':
     'ਲੈਣ-ਦੇਣ ਇਤਿਹਾਸ ਨੂੰ ਆਯਾਤ ਕਰਨ ਲਈ ਸਿਰਫ਼ ਪੜ੍ਹਨ ਵਾਲੀਆਂ ਕੁੰਜੀਆਂ। ਗਾਹਕ ਬਣਨ ਤੋਂ ਬਾਅਦ /ਕੀਮਤ ਤੋਂ OAuth ਰਾਹੀਂ ਜੁੜੋ।',
@@ -133,18 +159,34 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'ਹਵਾਲਾ ਮੁਦਰਾ',
   'settings.preferences.locale': 'ਲੋਕੇਲ',
   'settings.preferences.push': 'ਧੱਕਾ',
+  'settings.preferences.refresh': 'ਕੀਮਤ ਰਿਫ੍ਰੈਸ਼ (ਸਕਿੰਟ)',
   'settings.preferences.sms': 'ਐਸਐਮਐਸ',
+  'settings.revokeDeviceWarning':
+    'ਇਸ ਡਿਵਾਈਸ ਦੀ ਪਹੁੰਚ ਜਲਦੀ ਹੀ ਰੱਦ ਕਰ ਦਿੱਤੀ ਜਾਵੇਗੀ। ਇਸਨੂੰ ਸਾਈਨ ਆਊਟ ਕਰਨਾ ਹੈ?',
   'settings.security.body':
     'ਪਾਸਵਰਡ ਅਤੇ ਦੋ-ਕਾਰਕ ਸੈਟਿੰਗਾਂ ਤੁਹਾਡੇ ਖਾਤੇ ਦੁਆਰਾ ਪ੍ਰਬੰਧਿਤ ਕੀਤੀਆਂ ਜਾਂਦੀਆਂ ਹਨ।',
   'settings.signOutDevice': 'ਸਾਇਨ ਆਉਟ',
   'settings.twoFactorCode': 'ਪ੍ਰਮਾਣੀਕਰਨ ਕੋਡ',
   'settings.twoFactorDisable': 'ਅਯੋਗ ਕਰੋ',
+  'settings.twoFactorDisableTitle': 'ਦੋ-ਪੜਾਅ ਪ੍ਰਮਾਣਿਕਤਾ ਬੰਦ ਕਰੋ',
   'settings.twoFactorEnable': 'ਯੋਗ ਬਣਾਓ',
+  'settings.twoFactorEnableTitle': 'ਦੋ-ਪੜਾਅ ਪ੍ਰਮਾਣਿਕਤਾ ਚਾਲੂ ਕਰੋ',
   'settings.twoFactorInvalidCode': 'ਅਵੈਧ ਕੋਡ',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'ਦੋ-ਪੜਾਅ QR ਕੋਡ',
+  'settings.twoFactorScan':
+    'ਇਸ QR ਕੋਡ ਨੂੰ ਆਪਣੀ ਪ੍ਰਮਾਣਿਕਤਾ ਐਪ ਨਾਲ ਸਕੈਨ ਕਰੋ, ਫਿਰ 6-ਅੰਕਾਂ ਵਾਲਾ ਕੋਡ ਦਰਜ ਕਰੋ।',
+  'settings.twoFactorUnavailable': 'ਇਸ ਐਪ ਲਈ ਦੋ-ਕਾਰਕ ਪ੍ਰਮਾਣੀਕਰਨ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।',
   'settings.twoFactorVerify': 'ਪੁਸ਼ਟੀ ਕਰੋ ਅਤੇ ਸਮਰੱਥ ਬਣਾਓ',
   'sigilAuthShell.backHomeCta': '← ਸਿਗਿਲ ਤੇ ਵਾਪਸ ਜਾਓ',
+  'sigilAuthShell.brandBody':
+    "ਰੀਅਲਟਾਈਮ ਕੀਮਤਾਂ, ਪੋਰਟਫੋਲੀਓ P/L, ਅਤੇ ਉਹਨਾਂ ਸ਼ਰਤਾਂ 'ਤੇ ਸਥਾਈ ਨਿਗਰਾਨੀ ਜੋ ਮਾਇਨੇ ਰੱਖਦੀਆਂ ਹਨ — ਸਭ ਇੱਕ ਟਰਮੀਨਲ 'ਤੇ।",
+  'sigilAuthShell.brandFooter': "© {{year}} {{appName}} — Molecule 'ਤੇ ਬਣਾਇਆ ਗਿਆ",
+  'sigilAuthShell.brandHeadline': 'ਪੂਰੇ ਲੈਜ਼ਰ ਵਿੱਚ ਹਰ ਸਿਗਨਲ ਨੂੰ ਡੀਕੋਡ ਕਰੋ।',
+  'sigilAuthShell.samplePortfolio': 'ਨਮੂਨਾ ਪੋਰਟਫੋਲੀਓ',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
+  'signup.creating': 'ਤੁਹਾਡਾ ਟਰਮੀਨਲ ਖੋਲ੍ਹ ਰਿਹਾ ਹੈ…',
   'signup.eyebrow': 'ਇੱਕ ਟਰਮੀਨਲ ਖੋਲ੍ਹੋ',
   'signup.heading': 'ਆਪਣਾ ਸਿਗਿਲ ਬਣਾਓ',
   'signup.subheading': 'ਹਰ ਸਿੱਕੇ ਨੂੰ ਟਰੈਕ ਕਰੋ, ਹਰ ਖੁੰਝਣ ਤੋਂ ਬਚਾਓ। ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਮੁਫ਼ਤ।',
@@ -161,6 +203,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'ਲੈਣ-ਦੇਣ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'watchlist.addCta': 'ਬਾਜ਼ਾਰਾਂ ਨੂੰ ਬ੍ਰਾਊਜ਼ ਕਰੋ',
   'watchlist.col.change24h': '24 ਘੰਟੇ',
+  'watchlist.col.coin': 'ਸਿੱਕਾ',
   'watchlist.col.marketCap': 'ਮਾਰਕੀਟ ਕੈਪ',
   'watchlist.empty':
     'ਤੁਹਾਡੀ ਵਾਚਲਿਸਟ ਵਿੱਚ ਕੋਈ ਸਿੱਕੇ ਨਹੀਂ ਹਨ — /markets ਤੋਂ ਸਟਾਰ ਸਿੱਕੇ ਸ਼ਾਮਲ ਕਰਨ ਲਈ।',

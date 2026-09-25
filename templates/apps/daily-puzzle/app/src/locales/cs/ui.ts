@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Máte zpětnou vazbu, našli jste chybu nebo chcete přinést {{app}} do své školy či týmu? Čteme každou zprávu — ozvěte se z nastavení účtu a odpoví vám skutečný člověk.',
   'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O aplikaci',
+  'about.intro':
+    '{{app}} je denní slovní hádanka. Uhodněte pětislovné slovo na šest pokusů, udržte si sérii, sdílejte svou emoji mřížku a podívejte se, jak si dnes vedlo celé pole.',
+  'about.missionBody':
+    'Dobrá hádanka je malé denní vítězství. {{app}} je postaveno na jednom společném slově denně — dost rychlé na kávovou pauzu, dost ostré, abyste se vrátili i zítra.',
+  'about.missionTitle': 'Naše poslání',
   'about.title': 'O aplikaci {{app}}',
   'archive.loadError': 'Archiv se nepodařilo načíst.',
   'archive.missed': 'Vynecháno',
   'archive.notPlayed': 'Nehráno',
+  'archive.subhead':
+    'Přehrajte si libovolný minulý den jako trénink — žádné série, žádné statistiky, jen zábava.',
   'archive.title': 'Archivovat',
   'auth.backToHome': 'Zpět domů',
   'auth.backToHomeArrow': '← Zpět domů',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Zapomněli jste heslo?',
   'auth.login.loggingIn': 'Přihlašujeme vás…',
   'auth.login.logIn': 'Hrajte dnešní slovo',
+  'auth.login.noAccount': 'Jste na Tesseře nováčkem?',
   'auth.login.or': 'nebo pokračujte pomocí',
   'auth.login.password': 'Heslo',
   'auth.login.signInButton': 'Přihlásit se',
@@ -32,6 +42,10 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Ukládáme…',
   'common.sendingEllipsis': 'Odesíláme…',
   'common.startingEllipsis': 'Spouštíme…',
+  'forgotPassword.subhead': 'Zadejte svůj e-mail a my vám zašleme odkaz pro resetování.',
+  'forgotPassword.success.body':
+    'Pokud existuje účet pro {{email}} , za pár minut dostanete odkaz pro resetování.',
+  'forgotPassword.success.title': 'Zkontrolujte doručenou poštu.',
   'form.name': 'Jméno',
   'howToPlay.cta.home': 'Zpět domů',
   'howToPlay.cta.play': 'Hrajte dnešní hádanku',
@@ -68,10 +82,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Série, které nechcete přerušit',
   'leaderboard.daily.title': 'Dnešní vyřešení',
   'leaderboard.loadError': 'Žebříček se nepodařilo načíst.',
+  'leaderboard.streaks.empty': 'Zatím žádné série — buďte první.',
+  'leaderboard.streaks.subhead': 'Nejdelší vítězné série všech dob.',
   'leaderboard.streaks.title': 'Vedoucí v sériích',
+  'leaderboard.subhead': 'Jak si dnes vedlo celé pole a kdo drží nejdelší série.',
   'leaderboard.title': 'Žebříček',
   'login.headline': 'Vítejte zpět.',
   'login.streakPill': 'Čeká {{days}}denní série',
+  'login.subhead':
+    'Přihlaste se, abyste si udrželi sérii a viděli, jak jste si vedli u dnešního slova.',
   'nav.archive': 'Archivovat',
   'nav.editProfile': 'Upravit profil',
   'nav.getStarted': 'Začít',
@@ -89,6 +108,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Takové slovo neexistuje',
   'notFound.title': 'Tato cesta je prázdná.',
   'planUpdated.message': 'Váš plán je aktivní.',
+  'planUpdated.retry': 'Zkusit znovu',
+  'planUpdated.verifyFailed': 'Vaši platbu jsme zatím nemohli potvrdit.',
+  'planUpdated.verifyFailedBody':
+    'Vaše platba se možná stále zpracovává. Zkuste to znovu za chvíli.',
   'planUpdated.verifying': 'Potvrzujeme vaši platbu…',
   'play.alreadyFinished': 'Tuto hádanku jste již dokončili',
   'play.answerWas': 'Slovo bylo',
@@ -104,6 +127,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Cvičná hádanka',
   'play.tooShort': 'Nedostatek písmen',
   'play.won': 'Vyřešeno!',
+  'pricing.advancedStats': 'Pokročilé statistiky: {{yes}}',
+  'pricing.archiveHistory': '{{count}} dní historie archivu',
+  'pricing.archivePlays': '{{count}} přehrání archivu / den',
+  'pricing.archiveUnlimited': 'Neomezená historie archivu',
+  'pricing.canExport': 'Export dat: {{yes}}',
+  'pricing.checkoutError': 'Nepodařilo se spustit pokladnu. Zkuste to prosím znovu.',
   'pricing.dailyWord': 'Denní slovo',
   'pricing.heading': 'Vyberte si svůj plán {{app}}',
   'pricing.included': 'Zahrnuto',
@@ -111,7 +140,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Denní slovo je vždy zdarma. Upgradujte pro neomezené přehrávání archivu a podrobnější statistiky.',
   'pricing.yearly': 'Ročně',
+  'privacy.intro':
+    '{{app}} respektuje vaše soukromí. Tato stránka shrnuje, jaká data ukládáme, proč je ukládáme a jak je odstranit.',
   'privacy.title': 'Oznámení o ochraně soukromí',
+  'resetPassword.subhead': 'Zvolte si nové heslo a vraťte se ke své sérii.',
   'settings.account': 'Účet',
   'settings.danger.body': 'Trvale odstranit váš účet {{appName}} a celou historii hádanek.',
   'settings.danger.confirm': 'Ano, smazat navždy',
@@ -120,17 +152,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'Host',
   'settings.language.title': 'Jazyk',
   'settings.subhead': 'Upravte si profil, zvuk a způsob, jakým se zobrazujete na žebříčku.',
+  'settings.unnamed': 'Hráč Sparqu',
   'settings.upgrade': 'Upgradovat',
   'signup.eyebrow': 'Navždy zdarma — jedno slovo denně',
   'signup.headline': 'Začněte svou sérii.',
+  'signup.subhead':
+    'Vytvořte si účet {{appName}}, abyste mohli hrát denní slovo, budovat sérii a stoupat v žebříčku.',
   'stats.currentStreak': 'Série',
   'stats.distribution.title': 'Rozdělení pokusů',
   'stats.loadError': 'Vaše statistiky se nepodařilo načíst.',
   'stats.maxStreak': 'Maximální série',
   'stats.played': 'Odehráno',
   'stats.playToday': 'Hrajte dnešní hádanku',
+  'stats.subhead': 'Počítají se jen denní hodnocené hádanky — trénink v archivu nikdy ne.',
   'stats.title': 'Vaše statistiky',
   'stats.winRate': 'Úspěšnost',
   'status.monthly': 'Měsíční',
+  'terms.intro':
+    'Používáním {{app}} souhlasíte s pravidly níže. Pokud je nemůžete přijmout, službu prosím nepoužívejte.',
   'terms.title': 'Podmínky služby',
 }

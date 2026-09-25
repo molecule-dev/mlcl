@@ -1,12 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'سؤال، بازخورد یا ایده‌ای برای همکاری دارید؟ به تیم {{appName}} ایمیل بزنید: hello@nimbus.example — ما هر پیامی را می‌خوانیم.',
   'about.contactTitle': 'تماس بگیرید',
   'about.eyebrow': 'درباره',
+  'about.highlightsTitle': 'آنچه به دست می‌آورید',
   'about.intro':
     'نیمباس خانه‌ای آرام و مطمئن برای فایل‌هایی است که واقعاً می‌خواهید پیدا کنید. با سرعت یک کامپیوتر رومیزی و پایداری فضای ابری، آپلود، اشتراک‌گذاری و بازیابی کنید.',
+  'about.mission':
+    'مأموریت ما ساده است: ذخیره‌سازی ابری را بی‌وزن کنیم. بدون شلوغی، بدون چرخ‌های انتظار، بدون حدس زدن دربارهٔ سرنوشت فایل‌ها — فقط شفافیت، برای افراد و تیم‌ها.',
+  'about.subtitle': 'آرشیو بی‌وزن برای زندگی دیجیتال شما.',
   'about.title': 'درباره Nimbus',
   'authShell.copyright': '© {{year}} بایگانی Nimbus',
+  'authShell.footer': 'ذخیره‌سازی ابری امن · رمزنگاری سرتاسری',
   'common.goToDashboard': 'رفتن به داشبورد',
   'fileDetail.about.eyebrow': 'درباره این فایل',
   'fileDetail.actions.delete': 'انتقال به سطل زباله',
@@ -39,18 +46,24 @@ export const ui: UiTranslations = {
     'ایمیل خود را وارد کنید تا لینکی برای انتخاب ایمیل جدید برای شما ارسال کنیم.',
   'forgotPassword.successSubheading':
     'ما یک لینک بازنشانی رمز عبور برای شما ارسال کردیم {{email}} لینک به مدت ۶۰ دقیقه معتبر است.',
+  'help.backHome': '← بازگشت به خانهٔ {{appName}}',
   'help.contactBody':
     'به support@nimbus.exmple ایمیل بزنید و ما ظرف یک روز کاری پاسخ خواهیم داد. طرح‌های حرفه‌ای و تیمی اولویت مسیریابی دارند.',
+  'help.contactTitle': 'به یک انسان نیاز دارید؟',
   'help.eyebrow': 'پشتیبانی',
   'help.intro':
     'اکثر پاسخ‌ها با یک کلیک در دسترس هستند. فایل‌ها را به داخل سینی آپلود بکشید تا اضافه شوند، روی هر ردیفی که می‌خواهید کلیک کنید تا یک لینک ایجاد شود و برای بازیابی هر چیزی که در 30 روز گذشته حذف کرده‌اید، به سطل زباله بروید.',
+  'help.subtitle': 'پاسخ پرسش‌های رایج دربارهٔ {{appName}}.',
   'help.title': 'کمک و پشتیبانی',
   'landing.cta.body':
     'با ۱۵ گیگابایت رایگان شروع کنید. برای ۲۰۰ گیگابایت به نسخه حرفه‌ای ارتقا دهید یا تیم خود را به یک فضای مشترک دعوت کنید - همه اینها با همان تجربه روان نیمباس.',
   'landing.cta.primary': 'آرشیو خود را ایجاد کنید',
   'landing.cta.title': 'شلوغی را جمع کن. کار را نگه دار.',
+  'landing.features.body':
+    'ساخته‌شده برای افراد و تیم‌هایی که می‌خواهند فایل‌هایشان بی‌وزن باشد — یافتن سریع، اشتراک‌گذاری امن و سازمان‌دهی لذت‌بخش.',
   'landing.features.eyebrow': 'چرا Nimbus',
   'landing.features.title': 'انباری که از سر راه شما کنار می‌رود.',
+  'landing.footer.copyright': '© {{year}} {{appName}}. ساخته‌شده برای بی‌وزن‌ها.',
   'landing.hero.body':
     'آرشیوی سبک برای زندگی دیجیتال شما. فضای ذخیره‌سازی ابری یکپارچه که مانند تنفس هوای تازه است. بدون شلوغی، فقط وضوح.',
   'landing.hero.eyebrow': 'معرفی نیمباس نسخه ۲',
@@ -68,6 +81,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'نمایش رمز عبور',
   'login.subheading': 'برای دسترسی به آرشیو خود، وارد شوید.',
   'myFiles.breadcrumb.folder': 'پوشه',
+  'myFiles.breadcrumb.home': 'تسرا',
   'myFiles.breadcrumb.myFiles': 'فایل‌های من',
   'myFiles.fetchError': 'نتوانستم فایل‌های شما را بارگذاری کنم.',
   'myFiles.files.col.modified': 'اصلاح‌شده',
@@ -81,12 +95,16 @@ export const ui: UiTranslations = {
   'myFiles.folders.justCreated': 'تازه ایجاد شده',
   'myFiles.folders.seeAll': 'همه را ببینید',
   'myFiles.folders.title': 'پوشه‌ها',
+  'myFiles.hero.bodyDynamic': '{{files}} فایل همگام‌سازی شد — {{used}} تاکنون استفاده شده.',
+  'myFiles.hero.bodyEmpty': 'برای شروع یک فایل بارگذاری کنید — آرشیو شما همه‌جا همگام‌سازی می‌شود.',
   'myFiles.hero.eyebrow': 'بایگانی شما',
   'myFiles.hero.recentCta': 'مشاهده فعالیت‌های اخیر',
   'myFiles.hero.title': 'خوش برگشتی، {{name}} .',
   'myFiles.hero.uploadCta': 'آپلود فایل‌ها',
   'myFiles.hero.youFallback': 'آنجا',
   'myFiles.refresh': 'تازه کردن',
+  'myFiles.stats.collaboratorsDetail': 'در فایل‌های اشتراکی',
+  'myFiles.stats.foldersDetail': 'در سراسر آرشیو شما',
   'myFiles.stats.totalFilesDetail': '{{count}} ستاره دار',
   'myFiles.stats.usageDetail': 'از {{total}} در پرو',
   'myFiles.time.daysAgo': '{{count}} د پیش',
@@ -107,6 +125,7 @@ export const ui: UiTranslations = {
   'nimbusSideNav.upgradeCta': 'طرح ارتقا',
   'nimbusStorageMeter.ariaLabel': 'فضای ذخیره‌سازی مورد استفاده',
   'nimbusStorageMeter.compactLabel': 'ذخیره‌سازی',
+  'nimbusStorageMeter.compactSummary': '{{used}} از {{total}} استفاده شده',
   'nimbusStorageMeter.percentUsed': '{{percent}} %',
   'nimbusStorageMeter.usedLabel': 'فضای ذخیره‌سازی مورد استفاده',
   'nimbusStorageMeter.usedOfTotal': '{{used}} از {{total}}',
@@ -115,10 +134,20 @@ export const ui: UiTranslations = {
   'notFound.code': '۴۰۴',
   'notFound.heading': 'این فایل در آرشیو شما نیست.',
   'notFound.primaryCta': 'باز کردن فایل‌های من',
+  'planUpdated.currentPlan': 'شما در حال حاضر در {{plan}} طرح.',
+  'planUpdated.retry': 'دوباره امتحان کنید',
+  'planUpdated.verifyFailed': 'ما هنوز نتوانستیم پرداخت شما را تأیید کنیم.',
+  'planUpdated.verifyFailedBody':
+    'ممکن است پرداخت شما هنوز در حال پردازش باشد. چند لحظه دیگر دوباره امتحان کنید.',
   'planUpdated.verifying': 'در حال تأیید پرداخت شما…',
+  'pricing.limit.advancedFeatures': 'ویژگی‌های پیشرفته:',
   'pricing.limit.canExport': 'صادرات داده:',
+  'pricing.limit.files': '{{count}} فایل‌ها',
+  'pricing.limit.folders': '{{count}} پوشه',
+  'pricing.limit.shares': '{{count}} اشتراک',
   'privacy.intro':
     'ما حداقل اطلاعات مورد نیاز برای کار با نیمباس را جمع‌آوری می‌کنیم: ایمیل حساب شما، فایل‌هایی که آپلود می‌کنید و فراداده‌های مورد نیاز برای رندر و جستجوی آنها. ما هرگز داده‌های شما را نمی‌فروشیم.',
+  'privacy.subtitle': 'نحوهٔ برخورد {{appName}} با فایل‌ها و اطلاعات شخصی شما.',
   'recent.activity.empty': 'هنوز چیزی برای نمایش وجود ندارد.',
   'recent.activity.youInitials': 'ی',
   'recent.crumbs.home': 'Nimbus',
@@ -137,15 +166,18 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'حداقل ۸ کاراکتر',
   'resetPassword.signIn': 'ورود به Nimbus',
   'resetPassword.subheading': 'یک رمز عبور قوی انتخاب کنید - حداقل ۸ کاراکتر.',
+  'resetPassword.successHeading': 'بازنشانی رمز عبور',
   'resetPassword.successSubheading': 'اکنون می‌توانید با رمز عبور جدید خود وارد سیستم شوید.',
   'search.backToFiles': 'بازگشت به همه فایل‌ها',
   'search.clearLabel': 'پاک کردن جستجو',
   'search.crumbs.home': 'Nimbus',
+  'search.emptyNoQuery': 'برای جست‌وجو در آرشیو، پرسشی را در بالا بنویسید.',
   'search.emptyWithQuery':
     'هیچ فایلی مطابقت ندارد " {{query}} «. (یا: "(این عبارت به نظر مجموعه‌ای از حروف و اعداد است و معنای مشخصی ندارد.)',
   'search.fetchError': 'نتوانست فایل‌ها را بارگذاری کند.',
   'search.hero.body':
     'برای فوکوس، بر اساس نوع فیلتر کنید. برای باز کردن هر نتیجه، روی آن ضربه بزنید.',
+  'search.hero.titleEmpty': 'جست‌وجو در آرشیو',
   'search.hero.titleWithQuery': '{{count}} نتایج برای " {{query}} « ».',
   'search.input.placeholder': 'جستجوی Nimbus…',
   'search.section.allFiles': 'فایل‌های منطبق',
@@ -161,9 +193,12 @@ export const ui: UiTranslations = {
   'shared.empty':
     'هنوز فایلی به اشتراک گذاشته نشده است. هر فایلی را باز کنید و برای ارسال لینک، روی اشتراک‌گذاری ضربه بزنید.',
   'shared.fetchError': 'نتوانست فایل‌های اشتراکی را بارگیری کند.',
+  'shared.hero.body':
+    'هر فایلی که از طریق پیوند یا دعوت به اشتراک بگذارید اینجا نمایش داده می‌شود. برای دیدن دسترسی اعطاشده، مجوزی را تغییر دهید.',
   'shared.hero.title': '{{count}} فایل‌هایی با لینک‌های فعال',
   'shared.list.subtitle': '{{count}} فایل‌ها',
   'shared.list.title': 'اخیراً به اشتراک گذاشته شده',
+  'shared.row.sharedSummary': '{{count}} پیوند',
   'shared.time.daysAgo': '{{count}} د پیش',
   'shared.time.hoursAgo': '{{count}} ساعت پیش',
   'shared.time.minutesAgo': '{{count}} دقیقه پیش',
@@ -173,6 +208,7 @@ export const ui: UiTranslations = {
   'sharePublic.eyebrow': 'از طریق Nimbus به اشتراک گذاشته شده است',
   'sharePublic.fetchError': 'فایل اشتراکی بارگیری نشد.',
   'sharePublic.home': 'بازگشت به خانه Nimbus',
+  'sharePublic.loading': 'در حال بازکردن پیوند اشتراک…',
   'sharePublic.missingToken': 'هیچ توکن اشتراکی ارائه نشده است.',
   'sharePublic.notFound': 'لینک اشتراک‌گذاری یافت نشد یا منقضی شده است.',
   'sharePublic.permission': '{{permission}}',
@@ -188,7 +224,10 @@ export const ui: UiTranslations = {
   'starred.empty':
     'هنوز هیچ فایلی ستاره‌گذاری نشده است. برای اینکه همیشه در دسترس باشد، روی ستاره‌ی هر فایل ضربه بزنید.',
   'starred.fetchError': 'نتوانستم فایل‌های ستاره‌دار را بارگذاری کنم.',
+  'starred.hero.body':
+    'هر چیزی که دوباره سراغش می‌آیید را ستاره‌دار کنید. آن را روی هر دستگاه، هر فضای کاری و هر بار نشان می‌دهیم.',
   'starred.hero.title': '{{count}} مورد علاقه‌ها، آماده برای رفتن',
+  'starred.row.meta': '{{size}} · {{modified}}',
   'starred.time.daysAgo': '{{count}} د پیش',
   'starred.time.hoursAgo': '{{count}} ساعت پیش',
   'starred.time.minutesAgo': '{{count}} دقیقه پیش',
@@ -198,7 +237,10 @@ export const ui: UiTranslations = {
   'storage.crumbs.home': 'Nimbus',
   'storage.crumbs.storage': 'ذخیره‌سازی',
   'storage.fetchError': 'نتوانست فضای ذخیره‌سازی را بارگیری کند.',
+  'storage.hero.body':
+    'فضای کافی برای رشد. وقتی از ۷۵٪ عبور کنید به شما هشدار می‌دهیم — و دوباره در ۹۰٪ — تا پیش از آنکه بار سنگین همه را کند کند، آن را پاک‌سازی کنید.',
   'storage.hero.eyebrow': 'نمای کلی فضای ذخیره‌سازی',
+  'storage.hero.headroom': '{{headroom}} فضای آزاد',
   'storage.hero.meterLabel': '{{percent}} درصد طرح',
   'storage.hero.title': '{{used}} از {{total}} استفاده شده',
   'storage.plans.body':
@@ -206,11 +248,14 @@ export const ui: UiTranslations = {
   'storage.plans.choose': 'انتخاب کنید {{name}}',
   'storage.plans.included': '{{storage}} شامل',
   'storage.plans.maxFiles': '{{count}} فایل‌ها',
+  'storage.plans.maxFolders': '{{count}} پوشه',
+  'storage.plans.maxShares': '{{count}} اشتراک',
   'storage.plans.title': 'طرح‌هایی که با شما رشد می‌کنند',
   'storage.plans.unavailable': 'اطلاعات طرح پس از پیکربندی در اینجا نمایش داده می‌شود.',
   'storage.plans.youreOn': 'شما در این طرح هستید',
   'terms.intro':
     'با استفاده از نیمباس، شما موافقت می‌کنید که اطلاعات حساب کاربری خود را محرمانه نگه دارید و فقط محتوایی را که حق ذخیره و اشتراک‌گذاری آن را دارید، آپلود کنید.',
+  'terms.subtitle': 'شرایطی که تحت آن می‌توانید از {{appName}} استفاده کنید.',
   'trash.actions.emptyAll': 'سطل زباله خالی',
   'trash.actions.emptyConfirm': 'بله، خالی',
   'trash.actions.emptyConfirmPrompt': 'همه را برای همیشه حذف کنم؟',
@@ -229,7 +274,9 @@ export const ui: UiTranslations = {
   'trash.restoreError': 'نتوانست فایل را بازیابی کند.',
   'trash.row.daysAgo': '{{count}} د پیش',
   'trash.row.deleteConfirm': 'حذف',
+  'trash.row.deleteConfirmPrompt': 'برای همیشه حذف شود؟',
   'trash.row.deleteForever': 'حذف برای همیشه',
+  'trash.row.expires': '{{days}} d باقی مانده است',
   'trash.row.hoursAgo': '{{count}} ساعت پیش',
   'trash.row.meta': 'حذف شده {{deletedAt}}',
   'trash.row.minutesAgo': '{{count}} دقیقه پیش',
@@ -249,6 +296,7 @@ export const ui: UiTranslations = {
   'upload.progress.error': 'آپلود ناموفق بود.',
   'upload.progress.uploadFailed': 'آپلود ناموفق بود.',
   'upload.progress.uploading': 'آپلود بایت‌ها…',
+  'upload.queue.clearDone': 'همگام‌سازی پاک',
   'upload.queue.emptyHint':
     'فایل‌ها را در قسمت بالا رها کنید یا برای شروع از دکمه‌های انتخاب استفاده کنید.',
   'upload.queue.idle': 'هیچ آپلود فعالی وجود ندارد.',

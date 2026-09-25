@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Onko sinulla palautetta, löysitkö virheen tai haluatko kertoa, miten päiväkirjan pitäminen on auttanut sinua? Luemme jokaisen viestin — ota yhteyttä milloin tahansa, niin oikea ihminen vastaa sinulle.',
+  'about.contactTitle': 'Ota yhteyttä',
+  'about.featureInsights':
+    'Tekoälypohjaiset pohdinnat, jotka nostavat lempeästi esiin laukaisijoita, teemoja ja kiitollisuuden aiheita — omaa ääntäsi menettämättä.',
+  'about.featureMood':
+    'Mielialan ja aktiivisuuden seuranta kalenterinäkymällä ja trendikaavioilla, jotka tuovat esiin sen, mikä auttaa sinua voimaan hyvin.',
+  'about.featurePrivacy':
+    'Päästä päähän -salaus, pääsykoodilukitus ja täysi CSV-vienti, jotta pohdintasi pysyvät yksityisinä ja siirrettävinä.',
+  'about.featurePrompts':
+    'Lempeät päivittäiset kehotteet, jotta sinulla on aina jostain aloittaa — ei koskaan tyhjää sivua.',
+  'about.intro':
+    '{{app}} on lempeä ja yksityinen mielenterveyspäiväkirja päivittäiseen pohdintaan, mielialan seurantaan ja kiitollisuuteen. Harkitut kehotteet korvaavat tyhjän sivun, hiljainen kaavojen löytäminen auttaa sinua ymmärtämään, mikä vaikuttaa olotilaasi, ja päästä päähän -salaus pitää sanasi omanasi.',
+  'about.missionBody':
+    'Uskomme, että itsensä kuulosteleminen pitäisi tuntua rauhalliselta, ei koskaan kliiniseltä — eikä koskaan siltä kuin jokin toinen sovellus vaatisi huomiotasi. {{app}} on rakennettu auttamaan, ei nalkuttamaan: muutama hiljainen minuutti päivässä mielialasi huomaamiseen, rehelliseen kirjoittamiseen ja siihen, että näet itsesi hitaasti selvemmin.',
+  'about.missionTitle': 'Missiomme',
   'about.pageTitle': 'Tietoa {{app}}sta',
   'authShell.encryptionBadge': 'Merkintäsi ovat päästä päähän -salattuja.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Päivä {{day}} — ei merkintää',
   'calendar.cellMood': 'Päivä {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Tämä kuukausi yhdellä silmäyksellä',
   'calendar.eyebrow': 'Mieliala yhdellä silmäyksellä',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Seurattu {{tracked}} jostakin {{total}} päivinä tässä kuussa.',
   'common.goToDashboard': 'Siirry etusivulle',
   'common.tryAgain': 'Yritä uudelleen',
+  'entryComposer.bodyPlaceholder':
+    'Kirjoita niin kuin tuntuu rehelliseltä. Kukaan muu ei lue tätä.',
   'entryComposer.cancel': 'Takaisin päiväkirjaan',
   'entryComposer.heading': 'Tämän päivän pohdinta',
   'entryComposer.moodLabel': 'Miltä sinusta tuntuu?',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Poistaa {{tag}}',
   'entryComposer.save': 'Tallenna heijastus',
   'entryComposer.saveError': 'Merkintääsi ei voitu tallentaa.',
+  'entryComposer.tagPlaceholder': 'Lisää tunniste ja paina enteriä',
   'entryComposer.titlePlaceholder': 'Anna tälle heijastukselle nimi…',
   'entryDetail.back': 'Takaisin päiväkirjaan',
   'entryDetail.delete': 'Poista tämä merkintä',
@@ -36,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Ladataan heijastusta…',
   'entryDetail.notFound': 'Merkintää ei löytynyt.',
   'entryDetail.reflectionsHeading': 'Tekoälyn heijastukset',
+  'forgotPassword.continueButton': 'Syötä palautuskoodi',
   'forgotPassword.eyebrow': 'Ei hätää',
   'forgotPassword.subheading': 'Lähetämme sinulle kevyen palautuslinkin sähköpostiisi.',
   'forgotPassword.successBody':
@@ -58,14 +79,22 @@ export const ui: UiTranslations = {
     'Ei vielä teemoja — lisää merkintöihisi pari tägiä, niin ne kerätään tänne.',
   'insights.themesHeading': 'Suosituimmat teemat',
   'insights.triggerFrequency': 'huomasin {{count}} × tässä kuussa',
+  'insights.triggersEmpty':
+    'Ei vielä huomattavaa. Muutama merkintä muutaman päivän ajalta näyttää kaavasi.',
   'insights.triggersHeading': 'Kuvioita, jotka muuttavat mielialaasi',
+  'journal.empty':
+    'Ei vastaavia pohdintoja — kokeile toista suodatinta tai kirjoita uusi merkintä.',
   'journal.eyebrow': 'Heijastuksesi',
   'journal.heading': 'Päiväkirja',
   'journal.loadError': 'Merkintöjen lataaminen epäonnistui.',
   'journal.loading': 'Ladataan merkintöjä…',
+  'journal.newEntry': 'Uusi merkintä',
   'journal.searchPlaceholder': 'Etsi tunnetta, nimeä, hetkeä…',
   'journal.subheading': '{{count}} merkintöjä – jokainen niistä on säilyttämisen arvoinen.',
   'journalEntryCard.encryptedLabel': 'Salattu',
+  'landing.ctaBody':
+    'Aloittaminen on ilmaista. Pro avaa tietojen viennin, isomman päiväkirjan ja koko vuoden historian.',
+  'landing.ctaButton': 'Aloita ensimmäinen merkintäsi',
   'landing.ctaTitle': 'Muutama hiljainen minuutti päivässä. Siinä kaikki.',
   'landing.eyebrow': 'Hellävarainen päivittäinen harjoitus',
   'landing.featuresBody':
@@ -84,6 +113,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Lempeä tila päivittäiseen pohdintaan.',
   'mentalHealthJournalLayout.closeMenu': 'Sulje valikko',
   'mentalHealthJournalLayout.openMenu': 'Avaa valikko',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Päänavigaatio',
+  'moodHeroCard.entriesThisWeek': '{{count}} tällä viikolla',
   'moodHeroCard.streakSuffix': 'päivän putki',
   'moodHeroCard.title': 'Tämän päivän pohdinta',
   'moodTrendChart.aiBadge': 'Valmis tekoälytietoihin',
@@ -94,11 +125,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Matkasi',
   'profile.fallbackName': 'Heijastin',
   'profile.loadError': 'Tilastojen lataaminen epäonnistui.',
+  'profile.loading': 'Päivitetään tilastojasi…',
   'profile.longestStreak': 'Pisin putki',
   'profile.memberSince': 'Pohdiskellut {{date}} lähtien',
   'profile.milestones': 'Virstanpylväät',
   'profile.milestonesEmpty':
     'Ensimmäinen virstanpylvääsi on yhden merkinnän päässä – kirjoita aina kun tunnet olosi valmiiksi.',
+  'profile.moodMix': 'Mielialasi jakauma tällä kaudella',
   'profile.streakValue': '{{days}} pv',
   'profile.totalEntries': 'Heijastukset',
   'profile.totalWords': 'Kirjoitetut sanat',
@@ -111,6 +144,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Kirjoita tästä',
   'resetPassword.eyebrow': 'Uusi alku',
   'resetPassword.mismatchError': 'Salasanat eivät täsmää.',
+  'resetPassword.passwordLabel': 'Uusi salasana',
   'resetPassword.subheading': 'Valitse jotain turvallista – pohdintasi ansaitsevat sen.',
   'resetPassword.tokenPlaceholder': 'Palauta koodi sähköpostista',
   'settings.dangerDescription':
@@ -122,11 +156,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'Tilin poistaminen epäonnistui.',
   'settings.exportDescription': 'Sanasi kuuluvat aina sinulle. Lataa kopio milloin tahansa.',
   'settings.exportDone': 'Vienti {{format}}.',
+  'settings.exportError': 'Vienti epäonnistui.',
+  'settings.exportHeading': 'Vie pohdintasi',
   'settings.exportLoading': 'Valmistellaan…',
   'settings.eyebrow': 'Sinun tilasi, sinun sääntösi',
   'settings.languageHeading': 'Kieli',
   'settings.privacyHeading': 'Tietosuoja ja salaus',
   'settings.remindersHeading': 'Päivittäinen muistutus',
+  'settings.reminderToggleAria': 'Vaihda päivittäinen muistutus',
   'settings.reminderToggleDescription':
     'Yksi rauhallinen muistutus valitsemanasi ajankohtana. Ei ansiomerkkejä tai syyllisyyttä.',
   'settings.reminderToggleLabel': 'Lähetä lempeä töytäys',
@@ -139,6 +176,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Päiväkirjaa luodaan…',
   'signup.subheading': 'Turvallinen tila ajatuksillesi.',
   'wellnessRingsTriad.mindfulnessCaption': 'Maali {{goal}} minuutti tänään',
+  'wellnessRingsTriad.mindfulnessLabel': 'Tietoisuustaidot',
   'wellnessRingsTriad.sleepCaption': 'Maali {{goal}} h / yö',
   'wellnessRingsTriad.sleepLabel': 'Nukkua',
+  'wellnessRingsTriad.sleepValue': '{{hours}} t',
+  'wellnessRingsTriad.streakCaption': 'Tavoite {{goal}} päivää',
+  'wellnessRingsTriad.streakLabel': 'Päiväkirjaputki',
+  'wellnessRingsTriad.streakValue': '{{days}} pv',
 }

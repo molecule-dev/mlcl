@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Hai un feedback, hai trovato un bug o vuoi {{app}} per il tuo studio o il tuo team? Scrivici dalle impostazioni del tuo account — ogni messaggio arriva a una persona reale del team.',
   'about.contactTitle': 'Contattaci',
+  'about.intro':
+    '{{app}} è uno studio di scrittura collaborativa dove editor, autori e team scrivono insieme in tempo reale. Apri un documento e la pagina diventa condivisa — i cursori si muovono, i commenti si intrecciano a margine e ogni revisione è al sicuro nella cronologia.',
+  'about.missionBody':
+    'Crediamo che la scrittura long-form meriti una casa calma e concentrata — costruita attorno al manoscritto, non alla riunione o alla casella di posta. Il nostro editor, la presenza in tempo reale e la cronologia delle versioni sono tutti progettati perché i collaboratori possano muoversi velocemente insieme senza che nessuno perda un paragrafo o un pensiero.',
+  'about.missionTitle': 'La nostra missione',
+  'about.subtitle': 'Pensa insieme, scrivi per sempre.',
   'about.title': 'Info su {{app}}',
   'comments.addFailed': 'Impossibile pubblicare il commento.',
   'comments.backToDoc': 'Torna al manoscritto',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Thread di commenti',
   'comments.loading': 'Caricamento dei thread…',
   'comments.newPlaceholder': 'Aggiungi un commento al manoscritto…',
+  'comments.newSubmit': 'Pubblica',
   'comments.reopen': 'Riapri',
   'comments.reopenFailed': 'Impossibile riaprire.',
   'comments.replyFailed': 'Impossibile pubblicare la risposta.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Bozze recenti, lavori condivisi e le modifiche di oggi.',
   'dashboard.viewFeed': 'Feed →',
   'editor.back': 'Torna ai manoscritti',
+  'editor.bodyLabel': 'Corpo del documento',
   'editor.bodyPlaceholder': 'Inizi dove lampeggia il cursore.',
   'editor.comments': 'Commenti',
   'editor.createFailed': 'Impossibile creare il documento.',
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Se esiste un account per {{email}}, Le invieremo un link per la reimpostazione.',
+  'forgotPassword.sentHeading': 'Controlli la Sua email',
+  'forgotPassword.submitting': 'Invio in corso…',
   'forgotPassword.subtitle': 'Le invieremo un link via email per reimpostare la password.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Realizzato con Molecule.',
+  'landing.ctaBody':
+    'Gratis per chi scrive da solo. Piani Studio per team di editor, ghostwriter e revisori.',
   'landing.ctaHeading': 'Apra la pagina. Lasci che il cursore inizi.',
   'landing.ctaPrimary': 'Apri uno studio',
   'landing.eyebrow': 'Per scrittori, editor e team',
   'landing.featuresEyebrow': 'Cosa ottiene',
   'landing.featuresHeading': 'Uno studio per la bozza di lunga forma.',
+  'landing.featuresSubtitle':
+    '{{appName}} è costruito attorno al manoscritto — non alla riunione, non alla casella di posta.',
   'landing.getStarted': 'Apri lo studio',
   'landing.heroCta': 'Inizia a scrivere',
   'landing.heroSubtitle':
@@ -95,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} non lette · commenti, menzioni, inviti di condivisione e richieste di suggerimento.',
   'presenceAvatars.label': '{{count}} collaboratori',
+  'privacy.intro': 'Come raccogliamo, utilizziamo e proteggiamo le tue informazioni.',
   'privacy.title': 'Informativa sulla privacy',
   'profile.about.description':
     'Una breve biografia per il Suo profilo pubblico e le pagine dei collaboratori.',
@@ -108,7 +125,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Presenza',
   'profile.pronouns': 'Pronomi',
   'profile.publicToggle': 'Mostra il profilo ai compagni di team',
+  'profile.role': 'Ruolo / titolo',
   'profile.subtitle': 'Come appare ai Suoi collaboratori.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} scrittori attivi nello studio',
   'quillonAuthBrandPanel.quote':
     "“Scrivere è l'unica cosa che, quando la faccio, non sento di dover fare altro.”",
@@ -116,6 +135,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Apri →',
   'quillonKpiCard.trend': 'Tendenza recente',
   'quillonLayout.menu': 'Menu',
+  'quillonLayout.mobileNavLabel': 'Navigazione mobile',
   'quillonLayout.primaryNavLabel': 'Navigazione principale',
   'quillonStudioHero.collab': 'Collaboratori',
   'quillonStudioHero.docs': 'Documenti aperti',
@@ -125,7 +145,9 @@ export const ui: UiTranslations = {
     'Riprenda il manoscritto, lasci un commento, faccia avanzare un paragrafo.',
   'quillonStudioHero.words': 'Parole oggi',
   'resetPassword.confirmPlaceholder': 'Ripeta la nuova password',
+  'resetPassword.passwordLabel': 'Nuova password',
   'resetPassword.passwordPlaceholder': 'Inserisca una nuova password',
+  'resetPassword.submitting': 'Reimpostazione…',
   'resetPassword.subtitle': 'Scelga una password sicura — almeno 12 caratteri.',
   'settings.account.description': 'Come accede.',
   'settings.billing.canceled': 'Abbonamento annullato.',
@@ -134,7 +156,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Non configurato',
   'settings.billing.updated': 'Piano aggiornato.',
   'settings.editor.description': 'Come si comporta il foglio mentre scrive.',
+  'settings.editor.title': "Preferenze dell'editor",
   'settings.eyebrow': 'Preferenze dello studio',
+  'settings.language.title': 'Lingua',
   'settings.notifications.${n.key}.description': 'Lingua',
   'settings.notifications.description': 'Scelga cosa Le arriva nella casella di posta.',
   'settings.subtitle':
@@ -144,6 +168,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Condivisi con me',
   'shared.loadFailed': 'Impossibile caricare i documenti condivisi.',
   'shared.subtitle': 'Manoscritti, brief e note dal resto dello studio.',
+  'signup.brandAttribution': 'Anaïs Park — Editor, The Quarterly',
   'signup.brandQuote':
     '“Il primo manoscritto è il più difficile. Quillon lo rende meno solitario.”',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -151,6 +176,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Anaïs',
   'signup.heading': 'Crei il Suo account Quillon',
   'signup.lastNamePlaceholder': 'Park',
+  'signup.submitting': 'Apertura del tuo studio\\u2026',
   'signup.subtitle':
     'Una scrivania silenziosa, collaboratori ambientali e un editor di lunga forma che Le lascia spazio.',
   'templates.blank.subtitle': 'Una pagina pulita. Il cursore inizia.',
@@ -163,11 +189,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Inizi con una struttura ben pensata. Personalizzi senza fine.',
   'templates.useFailed': 'Impossibile avviare un documento da questo modello.',
   'templates.useTemplate': 'Usa questo modello',
+  'terms.intro': 'Le condizioni alle quali puoi utilizzare questo servizio.',
   'terms.title': 'Termini di servizio',
   'time.daysAgo': '{{days}}g fa',
   'time.hoursAgo': '{{hours}}h fa',
   'time.justNow': 'ora',
   'trash.confirmDelete': "Conferma l'eliminazione",
+  'trash.confirmEmpty': 'Conferma — elimina tutto',
   'trash.deleteFailed': 'Impossibile eliminare.',
   'trash.deleteForever': 'Elimina definitivamente',
   'trash.empty': 'Nulla da recuperare.',
@@ -183,7 +211,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'Ancora nessuna revisione — salvi il documento per iniziare la cronologia.',
   'versionHistory.heading': 'Cronologia delle versioni',
+  'versionHistory.latest': 'Più recenti',
   'versionHistory.loadFailed': 'Impossibile caricare la cronologia.',
+  'versionHistory.noContent': 'Nessun contenuto acquisito per questa revisione.',
   'versionHistory.previewing': 'Anteprima',
   'versionHistory.restore': 'Ripristina questa versione',
   'versionHistory.restoreFailed': 'Ripristino non riuscito.',

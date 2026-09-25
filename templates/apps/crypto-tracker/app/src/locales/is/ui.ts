@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um',
+  'about.featureAlerts':
+    'Verðviðvaranir við þau skilyrði sem skipta máli, sendar í tölvupósti og tilkynningum svo þú missir aldrei af hreyfingu.',
+  'about.featureMarkets':
+    'Rauntímagögn og verðtöflur fyrir þúsundir mynta, raðað eftir markaðsvirði, magni og skriðþunga.',
+  'about.featurePortfolio':
+    'Eignasafnseftirlit með raunverulegum hagnaði og tapi, kostnaðargrunni og skiptingu — tengt viðskiptasögu þinni.',
+  'about.featureWatchlist':
+    'Persónulegur vaktlisti og völd kryptofréttir með merkjum um eignirnar sem þú fylgist með.',
+  'about.missionTitle': 'Markmið okkar',
+  'alertConditionCard.armedSince': 'Virk síðan {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'Virkjað {{þegar}}',
   'alertConditionCard.confirmDelete': 'Staðfesta eyðingu',
+  'alertConditionCard.deleteAriaLabel': 'Eyða viðvörun',
   'alertConditionCard.pauseAriaLabel': 'Gera hlé á viðvörun',
   'alertConditionCard.resumeAriaLabel': 'Viðvörun um að halda áfram',
+  'alertConditionCard.triggeredAt': 'Kveikt {{when}}',
   'alertNew.condition': 'Ástand',
   'alertNew.createCta': 'Búa til viðvörun',
   'alertNew.error': 'Gat ekki búið til viðvörun.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Engar viðvaranir ennþá.',
   'alerts.eyebrow': 'Bourse víraþræðir',
   'alerts.loadError': 'Mistókst að hlaða tilkynningum.',
+  'alerts.newCta': '+ Ný gildra',
   'alerts.subheading': 'Fáðu ping þegar verð, breyting eða magn fer yfir mörkin.',
   'alerts.summary.armed': 'Vopnaður',
   'alerts.summary.triggered': 'Virkjað',
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Hámark allra tíma',
   'coinDetail.allTimeLow': 'Sögulegt lágmark',
   'coinDetail.back': 'Allir markaðir',
+  'coinDetail.chartAriaLabel': '{{name}} verðtafla, síðustu 30 dagar',
   'coinDetail.chartHeading': 'Verð · síðustu 30 daga',
   'coinDetail.circulating': 'Blóðrásarframboð',
   'coinDetail.fdv': 'Fullþynnt verðmat',
@@ -59,6 +74,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Endurstilla tengingu með snúru.',
   'login.eyebrow': 'Stígðu inn í flugstöðina',
   'login.heading': 'Velkominn aftur, merkjavörður.',
+  'login.noAccountQuestion': 'Nýr/ný í Tessera?',
   'login.secureNote': '🔒 Dulkóðað í flutningi',
   'login.signingInCta': 'Að lesa upptökuna…',
   'login.signupLink': 'Opna reikning →',
@@ -94,6 +110,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Leiðin sem þú skannaðir finnur ekki þekkta mynt eða síðu. Athugaðu táknið aftur og reyndu aftur.',
   'notFound.browseMarkets': 'Skoða markaði',
+  'notFound.eyebrow': '{{appName}} merki glatað',
+  'notFound.heading': 'Þetta merki er utan sviðs',
+  'planUpdated.body':
+    'Greiðslubreytingin þín er nú virk. Þú getur stýrt áskriftinni þinni hvenær sem er á greiðslusíðunni.',
+  'planUpdated.retry': 'Reyndu aftur',
+  'planUpdated.verifyFailed': 'Við gátum ekki staðfest greiðsluna þína ennþá.',
+  'planUpdated.verifyFailedBody':
+    'Greiðslan þín gæti enn verið í vinnslu. Reyndu aftur eftir smástund.',
   'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'portfolio.addError': 'Sláðu inn tákn, jákvæða upphæð og kostnað.',
   'portfolio.addHoldingCta': '+ Bæta við eignarhlut',
@@ -117,12 +141,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Heildarvirði eignasafns',
   'portfolioHeroCard.totalPnl': 'Heildarhagnaður',
   'pricing.heading': 'viðvaranir',
+  'pricing.limit.alerts': 'viðvaranir',
   'pricing.limit.coins': 'mynt',
   'pricing.limit.market': 'markaður',
   'pricing.limit.portfolio': 'eignasafn',
   'resetPassword.eyebrow': 'Nýtt dulkóðunarkóði',
   'resetPassword.missingToken':
     'Þessi endurstillingartengill vantar eða er ógildur. Óskaðu eftir nýjum.',
+  'resetPassword.passwordPlaceholder': 'Nýtt lykilorð',
   'resetPassword.subheading': 'Veldu eitthvað sem aðeins þú getur afkóðað.',
   'settings.apiKeys.body':
     'Skrifleysanlegir lyklar til að flytja inn færslusögu. Tengstu í gegnum OAuth frá /pricing eftir áskrift.',
@@ -134,18 +160,34 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Tilvitnunargjaldmiðill',
   'settings.preferences.locale': 'Staðsetning',
   'settings.preferences.push': 'Ýta',
+  'settings.preferences.refresh': 'Verðuppfærsla (sekúndur)',
   'settings.preferences.sms': 'SMS-skilaboð',
+  'settings.revokeDeviceWarning':
+    'Aðgangur þessa tækis verður afturkallaður fljótlega. Skrá það út?',
   'settings.security.body':
     'Lykilorð og tveggja þátta stillingar eru stjórnað af reikningnum þínum.',
   'settings.signOutDevice': 'Skrá út',
   'settings.twoFactorCode': 'Auðkenningarkóði',
   'settings.twoFactorDisable': 'Slökkva',
+  'settings.twoFactorDisableTitle': 'Slökkva á tveggja þátta auðkenningu',
   'settings.twoFactorEnable': 'Virkja',
+  'settings.twoFactorEnableTitle': 'Kveikja á tveggja þátta auðkenningu',
   'settings.twoFactorInvalidCode': 'Ógildur kóði',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Tveggja þátta QR kóði',
+  'settings.twoFactorScan':
+    'Skannaðu þennan QR-kóða með auðkenningarforritinu þínu og sláðu síðan inn 6 stafa kóðann.',
+  'settings.twoFactorUnavailable': 'Tvíþátta auðkenning er ekki í boði fyrir þetta forrit.',
   'settings.twoFactorVerify': 'Staðfesta og virkja',
   'sigilAuthShell.backHomeCta': '← Til baka til Bourse',
+  'sigilAuthShell.brandBody':
+    'Rauntímaverð, hagnaður/tap eignasafns og virkar gildrur við þau skilyrði sem skipta máli — allt á einum skjá.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — byggt á Molecule',
+  'sigilAuthShell.brandHeadline': 'Afkóðaðu hvert merki í öllu höfuðbókinni.',
+  'sigilAuthShell.samplePortfolio': 'Sýnishorn eignasafns',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Aðalflakk',
+  'signup.creating': 'Opna skjáinn þinn…',
   'signup.eyebrow': 'Opna flugstöð',
   'signup.heading': 'Búðu til þinn eigin Bourse',
   'signup.subheading':
@@ -163,6 +205,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Mistókst að hlaða færslum.',
   'watchlist.addCta': 'Skoða markaði',
   'watchlist.col.change24h': '24 klst.',
+  'watchlist.col.coin': 'Mynt',
   'watchlist.col.marketCap': 'Markaðsverð',
   'watchlist.empty':
     'Engar mynt á eftirlitslistanum þínum — stjörnumerktu mynt frá /markets til að bæta þeim við.',

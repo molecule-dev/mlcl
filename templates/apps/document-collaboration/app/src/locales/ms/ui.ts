@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ada maklum balas, jumpa pepijat, atau mahu {{app}} untuk studio atau pasukan anda? Hubungi kami dari tetapan akaun anda — setiap mesej sampai kepada orang sebenar dalam pasukan kami.',
   'about.contactTitle': 'Hubungi kami',
+  'about.intro':
+    '{{app}} ialah studio penulisan kolaboratif tempat editor, penulis dan pasukan merangka bersama secara masa nyata. Buka dokumen dan halaman itu menjadi dikongsi — kursor bergerak, komen beruntaian di jidar, dan setiap semakan disimpan selamat dalam sejarah.',
+  'about.missionBody':
+    'Kami percaya penulisan panjang wajar mempunyai tempat yang tenang dan fokus — dibina sekitar manuskrip, bukan mesyuarat atau peti masuk. Editor kami, kehadiran masa nyata dan sejarah versi semuanya direka supaya kolaborator boleh bergerak pantas bersama tanpa sesiapa kehilangan perenggan atau idea.',
+  'about.missionTitle': 'Misi kami',
+  'about.subtitle': 'Fikir bersama, tulis selamanya.',
   'about.title': 'Perihal {{app}}',
   'comments.addFailed': 'Tidak dapat menyiarkan komen.',
   'comments.backToDoc': 'Kembali ke manuskrip',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Utas komen',
   'comments.loading': 'Memuatkan thread…',
   'comments.newPlaceholder': 'Tambahkan komen pada manuskrip…',
+  'comments.newSubmit': 'Pos',
   'comments.reopen': 'Buka semula',
   'comments.reopenFailed': 'Tidak dapat dibuka semula.',
   'comments.replyFailed': 'Tidak dapat menyiarkan balasan.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Draf terkini, karya kongsi dan suntingan hari ini.',
   'dashboard.viewFeed': 'Suapan →',
   'editor.back': 'Kembali ke manuskrip',
+  'editor.bodyLabel': 'Isi dokumen',
   'editor.bodyPlaceholder': 'Mulakan di tempat kursor berkelip.',
   'editor.comments': 'Ulasan',
   'editor.createFailed': 'Tidak dapat mencipta dokumen.',
@@ -63,14 +73,20 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'penulis@studio.com',
   'forgotPassword.sentBody':
     'Jika akaun wujud untuk {{email}} , pautan tetapan semula sedang dalam proses.',
+  'forgotPassword.sentHeading': 'Semak e-mel Anda',
+  'forgotPassword.submitting': 'Menghantar\\u2026',
   'forgotPassword.subtitle':
     'Kami akan menghantar pautan tetapan semula melalui e-mel kepada anda.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Dibina dengan Molekul.',
+  'landing.ctaBody':
+    'Percuma untuk penulis solo. Pelan Studio untuk pasukan editor, penulis hantu dan penyemak.',
   'landing.ctaHeading': 'Buka halaman. Biarkan kursor bermula.',
   'landing.ctaPrimary': 'Buka studio',
   'landing.eyebrow': 'Untuk penulis, editor dan pasukan',
   'landing.featuresEyebrow': 'Yang Anda dapatkan',
   'landing.featuresHeading': 'Sebuah studio untuk draf bentuk panjang.',
+  'landing.featuresSubtitle':
+    '{{appName}} dibina sekitar manuskrip — bukan mesyuarat, bukan peti masuk.',
   'landing.getStarted': 'Buka studio',
   'landing.heroCta': 'Mula menulis',
   'landing.heroSubtitle':
@@ -96,6 +112,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} belum dibaca · komen, sebutan, jemputan perkongsian dan permintaan cadangan.',
   'presenceAvatars.label': '{{count}} rakan usaha sama',
+  'privacy.intro': 'Cara kami mengumpul, menggunakan dan melindungi maklumat anda.',
   'privacy.title': 'Dasar privasi',
   'profile.about.description': 'Biodata ringkas untuk profil awam anda dan halaman penyumbang.',
   'profile.eyebrow': 'Identiti studio',
@@ -108,7 +125,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Kehadiran',
   'profile.pronouns': 'Kata ganti nama',
   'profile.publicToggle': 'Tunjukkan profil kepada rakan sepasukan',
+  'profile.role': 'Peranan / jawatan',
   'profile.subtitle': 'Bagaimana penampilan anda kepada rakan usaha sama anda.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} penulis aktif di studio',
   'quillonAuthBrandPanel.quote':
     '"Menulis adalah satu-satunya perkara yang, apabila saya melakukannya, saya rasa saya tidak perlu melakukan sesuatu yang lain."',
@@ -116,6 +135,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Buka →',
   'quillonKpiCard.trend': 'Trend terkini',
   'quillonLayout.menu': 'Menu',
+  'quillonLayout.mobileNavLabel': 'Navigasi mudah alih',
   'quillonLayout.primaryNavLabel': 'Navigasi utama',
   'quillonStudioHero.collab': 'Kolaborator',
   'quillonStudioHero.docs': 'Dokumen yang disentuh',
@@ -125,7 +145,9 @@ export const ui: UiTranslations = {
     'Ambil manuskrip, tinggalkan komen, tolak satu perenggan ke hadapan.',
   'quillonStudioHero.words': 'Perkataan hari ini',
   'resetPassword.confirmPlaceholder': 'Ulang kata laluan baharu',
+  'resetPassword.passwordLabel': 'Kata laluan baharu',
   'resetPassword.passwordPlaceholder': 'Masukkan kata laluan baharu',
+  'resetPassword.submitting': 'Menetapkan semula…',
   'resetPassword.subtitle': 'Pilih kata laluan yang kukuh — sekurang-kurangnya 12 aksara.',
   'settings.account.description': 'Cara anda log masuk.',
   'settings.billing.canceled': 'Langganan dibatalkan.',
@@ -134,7 +156,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Tidak dikonfigurasikan',
   'settings.billing.updated': 'Pelan dikemas kini.',
   'settings.editor.description': 'Bagaimana kanvas bertindak semasa anda menulis.',
+  'settings.editor.title': 'Pilihan editor',
   'settings.eyebrow': 'Pilihan studio',
+  'settings.language.title': 'Bahasa',
   'settings.notifications.${n.key}.description': 'Bahasa',
   'settings.notifications.description': 'Pilih apa yang sampai ke peti masuk anda.',
   'settings.subtitle': 'Notifikasi tala, kanvas editor dan pilihan akaun anda.',
@@ -143,6 +167,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Dikongsi dengan saya',
   'shared.loadFailed': 'Tidak dapat memuatkan dokumen yang dikongsi.',
   'shared.subtitle': 'Manuskrip, ringkasan dan nota daripada seluruh studio.',
+  'signup.brandAttribution': 'Anaïs Park — Editor, The Quarterly',
   'signup.brandQuote':
     'Manuskrip pertama anda adalah yang paling sukar. Quillon menjadikannya kurang sunyi.',
   'signup.emailPlaceholder': 'penulis@studio.com',
@@ -150,6 +175,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Anaïs',
   'signup.heading': 'Cipta akaun Quillon anda',
   'signup.lastNamePlaceholder': 'Taman',
+  'signup.submitting': 'Membuka studio anda\\u2026',
   'signup.subtitle':
     'Meja yang senyap, kolaborator ambien dan editor borang panjang yang tidak mengganggu anda.',
   'templates.blank.subtitle': 'Halaman yang bersih. Kursor bermula.',
@@ -162,11 +188,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Mulakan dengan struktur yang teliti. Sesuaikan tanpa henti.',
   'templates.useFailed': 'Tidak dapat memulakan dokumen daripada templat ini.',
   'templates.useTemplate': 'Gunakan templat ini',
+  'terms.intro': 'Syarat di mana anda boleh menggunakan perkhidmatan ini.',
   'terms.title': 'Terma perkhidmatan',
   'time.daysAgo': '{{days}}h lalu',
   'time.hoursAgo': '{{hours}}j lalu',
   'time.justNow': 'baru sahaja',
   'trash.confirmDelete': 'Sahkan pemadaman',
+  'trash.confirmEmpty': 'Sahkan — padam semua',
   'trash.deleteFailed': 'Tidak dapat memadam.',
   'trash.deleteForever': 'Padam selamanya',
   'trash.empty': 'Tiada apa yang perlu dipulihkan.',
@@ -181,7 +209,9 @@ export const ui: UiTranslations = {
   'versionHistory.backToDoc': 'Kembali ke manuskrip',
   'versionHistory.empty': 'Tiada semakan lagi — simpan dokumen untuk memulakan sejarahnya.',
   'versionHistory.heading': 'Sejarah versi',
+  'versionHistory.latest': 'Terkini',
   'versionHistory.loadFailed': 'Sejarah tidak dapat dimuatkan.',
+  'versionHistory.noContent': 'Tiada kandungan ditangkap untuk semakan ini.',
   'versionHistory.previewing': 'Pratonton',
   'versionHistory.restore': 'Pulihkan versi ini',
   'versionHistory.restoreFailed': 'Pemulihan gagal.',

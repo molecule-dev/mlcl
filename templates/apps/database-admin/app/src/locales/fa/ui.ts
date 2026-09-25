@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': 'درباره',
+  'about.featureConnections':
+    'یک مدیر اتصال که پایگاه‌های داده شما را به‌صورت امن ذخیره و با رنگ کدگذاری می‌کند — اعتبارنامه‌ها در حالت سکون رمزنگاری می‌شوند، هرگز به‌صورت متن ساده.',
+  'about.featureMonitoring':
+    'پایش زنده عملکرد کوئری و فعالیت پایگاه داده، همراه با میان‌برهای صفحه‌کلید و پالت فرمان برای کنترل همه‌چیز بدون استفاده از دست.',
+  'about.featurePlans':
+    'طرح‌هایی که با شما رشد می‌کنند — رایگان برای کار انفرادی، Pro و Team برای اتصال‌های بیشتر، نگهداری طولانی‌تر کوئری، خروجی‌ها و ویژگی‌های پیشرفته.',
+  'about.featureQueryEditor':
+    'ویرایشگر SQL مبتنی بر Monaco با تاریخچه کوئری، کوئری‌های ذخیره‌شده و خروجی CSV یک‌کلیکی از نتایج شما.',
+  'about.featureSchema':
+    'کاوشگر اسکیما و مرورگر جدول برای پیمایش پایگاه‌های داده، جدول‌ها و ستون‌ها، سپس مرور، فیلتر و ویرایش درون‌خطی سطرها.',
+  'about.missionTitle': 'ماموریت ما',
   'authShell.commands': 'دستورات',
   'authShell.ssoSupported': 'پشتیبانی از SSO',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'پرس‌وجوها',
   'connections.schema': 'طرحواره',
   'connections.subtitle': 'اتصالات پایگاه داده خود را مدیریت کنید.',
+  'connections.test': 'تست',
   'databaseAdminLayout.adminRole': 'نقش مدیر',
   'databaseAdminLayout.commandPalette': 'پالت فرمان',
   'databaseAdminLayout.commands': 'دستورات',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'اتصال جدید',
   'databaseAdminLayout.queries': 'پرس‌وجوها',
   'databaseAdminLayout.ready': 'آماده',
+  'databaseAdminLayout.searchPlaceholder': '⌘K جستجوی فرمان‌ها، کوئری‌ها، جدول‌ها…',
   'databaseAdminLayout.user': 'کاربر',
   'editConnection.confirmDelete': 'این ارتباط را حذف کنیم؟',
   'editConnection.deleteButton': 'حذف اتصال',
+  'editConnection.newPassword': 'گذرواژه جدید (برای حفظ، خالی بگذارید)',
   'editConnection.saved': 'اتصال ذخیره شد.',
   'editConnection.title': 'ویرایش اتصال',
   'forgotPassword.success': 'اگر آن حساب کاربری وجود داشته باشد، لینک بازنشانی در راه است.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'موفقیت‌ها',
   'monitoring.title': 'نظارت',
   'monitoring.totalQueries': 'کل درخواست‌ها',
+  'nav.schema': 'طرحواره',
   'newConnection.database': 'پایگاه داده',
   'newConnection.engine': 'موتور',
   'newConnection.host': 'میزبان',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'هیچ ارتباطی به این قطعه کد محدود نشده است.',
   'savedQuery.notBound': 'مقید نیست',
   'savedQuery.title': 'پرس و جوی ذخیره شده',
+  'schema.columns': 'ستون‌ها',
   'schema.foreignKeys': 'کلیدهای خارجی',
   'schema.indexes': 'شاخص‌ها',
   'schemaExplorer.browseRows': 'مرور ردیف‌ها',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'قابل تهی‌سازی',
   'schemaExplorer.colType': 'نوع',
   'schemaExplorer.noColumns': 'بدون ستون.',
+  'schemaExplorer.noForeignKeys': 'بدون کلید خارجی.',
   'schemaExplorer.noIndexes': 'بدون شاخص.',
   'schemaExplorer.noTables': 'بدون میز',
   'schemaExplorer.pickATable': 'یک جدول از نوار کناری انتخاب کنید.',
   'schemaExplorer.tables': 'جداول',
   'schemaExplorer.title': 'کاوشگر طرحواره',
+  'settings.session': 'جلسه',
   'settings.subtitle': 'حساب کاربری خود را مدیریت و برنامه‌ریزی کنید.',
   'signup.heading': 'حساب کاربری Quary خود را ایجاد کنید',
   'signup.tagline': 'دسترسی را در کمتر از یک دقیقه فعال کنید.',
   'tableBrowser.noRows': 'این جدول هنوز هیچ ردیفی ندارد.',
+  'tableBrowser.subtitle': 'مرور سطرها از پایگاه داده راه دور شما.',
   'tableBrowser.title': 'مرور ردیف‌ها از پایگاه داده راه دور شما.',
 }

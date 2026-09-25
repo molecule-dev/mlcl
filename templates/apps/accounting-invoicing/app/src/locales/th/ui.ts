@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'มีคำถาม พบบั๊ก หรืออยากย้ายข้อมูลบัญชีของคุณมาที่นี่? ติดต่อทีม {{app}} ได้ที่ hello@{{app}}.example — มีคนจริงอ่านทุกข้อความ',
   'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับ',
+  'about.intro':
+    '{{app}} คือโปรแกรมบัญชีสำหรับธุรกิจขนาดเล็กที่ทำให้ทุกบาททุกสตางค์ถูกบันทึกไว้อย่างครบถ้วน — ใบแจ้งหนี้ ค่าใช้จ่าย การชำระเงิน และรายงาน รวมอยู่ในที่เดียวที่สงบสำหรับเจ้าของธุรกิจ นักทำบัญชี และนักบัญชี',
+  'about.missionBody':
+    'การทำธุรกิจไม่ควรหมายถึงการกลัวที่จะเปิดสมุดบัญชี {{app}} แทนที่ความยุ่งเหยิงของสเปรดชีตด้วยตัวเลขที่ชัดเจนซึ่งคุณนำไปใช้ได้จริง คุณจึงใช้เวลาน้อยลงกับการกระทบยอด และมีเวลามากขึ้นกับงานที่คุณเริ่มทำธุรกิจขึ้นมาเพื่อทำจริง ๆ',
+  'about.missionTitle': 'พันธกิจของเรา',
   'about.title': 'เกี่ยวกับ {{app}}',
   'accounts.count': '{{count}} บัญชี',
+  'accounts.emptyBody':
+    'บัญชีแยกประเภทใช้ติดตามว่าเงินอยู่ที่ไหนและเคลื่อนไปที่ใด บัญชีเหล่านี้จะปรากฏที่นี่เมื่อนักทำบัญชีหรือการเชื่อมต่อของคุณตั้งค่าเรียบร้อย',
   'accounts.emptyTitle': 'ยังไม่มีบัญชีผู้ใช้',
   'accounts.heading': 'ผังบัญชี',
   'accounts.kpi.accounts': 'บัญชี',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'บัญชีแยกประเภททั้งหมดที่อยู่เบื้องหลังใบแจ้งหนี้ ค่าใช้จ่าย และการชำระเงินของคุณ โดยจัดกลุ่มตามประเภทไว้แล้ว',
   'accounts.tag.inactive': 'ไม่ใช้งาน',
   'authBrandPanel.attributionName': 'ซาร่าห์ เจนกินส์',
+  'authBrandPanel.attributionRole': 'ประธานเจ้าหน้าที่ฝ่ายการเงิน, Horizon Tech',
   'authBrandPanel.eyebrow': 'ได้รับความไว้วางใจจากทีมงานด้านการเงิน',
   'authBrandPanel.label': 'นำเสนอแบรนด์',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'ลูกค้าทั้งหมด',
   'customerDetail.invoiceMeta': 'ออกให้เมื่อ {{issued}} · ครบกำหนดชำระเมื่อ {{due}}',
   'customerDetail.loadError': 'ไม่สามารถโหลดข้อมูลลูกค้าได้',
+  'customerDetail.missingBody':
+    'ไม่สามารถโหลดข้อมูลลูกค้าที่ร้องขอได้ อาจถูกลบไปแล้ว หรือคุณอาจไม่มีสิทธิ์เข้าถึง',
   'customerDetail.missingHeading': 'ข้อมูลลูกค้าไม่พร้อมใช้งาน',
+  'customerDetail.missingHelp':
+    'ใช้ลิงก์ย้อนกลับด้านบนเพื่อกลับไปยังรายการลูกค้า หรือเลือกระเบียนอื่นจากที่นั่น',
+  'customerDetail.noInvoices': 'ยังไม่มีใบแจ้งหนี้',
   'customerDetail.notesEmpty': 'ยังไม่มีบันทึกใดๆ',
   'customerDetail.paymentsEmpty': 'ไม่มีการบันทึกการชำระเงินใดๆ',
   'customerDetail.paymentTerms': 'เงื่อนไขการชำระเงิน',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'ส่วนลด',
   'expenseDetail.detailsHeading': 'รายละเอียดการทำธุรกรรม',
   'expenseDetail.loadError': 'ไม่สามารถบันทึกค่าใช้จ่ายได้',
+  'expenseDetail.matched': 'จับคู่แล้ว · {{description}}',
   'expenseDetail.missingBody':
     'ไม่สามารถโหลดรายการค่าใช้จ่ายที่ร้องขอได้ อาจเป็นเพราะรายการดังกล่าวถูกลบออกไปแล้ว หรือคุณอาจไม่สามารถเข้าถึงรายการนั้นได้',
   'expenseDetail.missingHeading': 'ไม่มีบันทึกค่าใช้จ่าย',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'ใบเสร็จ',
   'expenseDetail.receiptHeading': 'ใบเสร็จ',
   'expenseDetail.reconciled': 'คืนดีกันแล้ว',
+  'expenseDetail.unreconciled': 'ไม่ลงรอยกัน',
   'expenses.empty': 'ยังไม่มีค่าใช้จ่ายใดๆ',
   'expenses.heading': 'ค่าใช้จ่าย',
   'expenses.kpi.deductible': 'ส่วนลด',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'ไม่สามารถโหลดใบแจ้งหนี้ได้',
   'invoices.searchPlaceholder': 'ค้นหาหมายเลขใบแจ้งหนี้หรือชื่อลูกค้า…',
   'invoices.summary.paid': 'ชำระเงินงวดนี้แล้ว',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'ทดลองใช้ฟรี 30 วัน ไม่ต้องใช้บัตร พาผู้ทำบัญชีของคุณมาด้วยสิ พวกเขาจะขอบคุณคุณแน่นอน',
   'landing.ctaTitle': 'ย้ายหนังสือของคุณไปไว้ในที่ที่เงียบสงบกว่านี้',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'บัญชีลูกหนี้',
   'ledgerStatTriad.eyebrow.mtd': 'จนถึงปัจจุบัน ณ สิ้นเดือน',
   'ledgerStatTriad.netSub': 'สุทธิ {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} เกินกำหนด',
   'ledgerStatTriad.revenueLabel': 'รายได้',
   'login.failed': 'การเข้าสู่ระบบล้มเหลว',
   'login.hidePassword': 'ซ่อนรหัสผ่าน',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'เข้าสู่ระบบ',
   'nav.legal': 'ถูกกฎหมาย',
   'newExpense.back': 'ค่าใช้จ่าย',
+  'newExpense.clearReceiptCta': 'ล้างใบเสร็จที่แนบมา',
   'newExpense.deductible': 'หักลดหย่อนภาษีได้',
   'newExpense.dropPrompt': 'กรุณาแนบรูปถ่ายใบเสร็จหรือไฟล์ PDF มาที่นี่',
   'newExpense.failed': 'ไม่สามารถประหยัดค่าใช้จ่ายได้',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'ไม่สามารถโหลดข้อมูลการชำระเงินได้',
   'payments.unmatchedTag': 'ไม่มีใครเทียบได้',
   'planUpdated.pageLabel': 'แผนยืนยันการอัปเดตแล้ว',
+  'pricing.advancedFeatures': 'คุณสมบัติขั้นสูง: {{yes}}',
+  'pricing.canExport': 'การส่งออกข้อมูล: {{yes}}',
+  'pricing.heading': 'เลือกแผน {{app}} ของคุณ',
+  'pricing.maxAccounts': '{{count}} บัญชี',
+  'pricing.maxExpenses': '{{count}} ค่าใช้จ่าย',
+  'pricing.maxInvoices': '{{count}} ใบแจ้งหนี้',
+  'privacy.intro':
+    'นโยบายความเป็นส่วนตัวนี้อธิบายว่า {{app}} เก็บรวบรวม ใช้ และเปิดเผยข้อมูลเกี่ยวกับธุรกิจที่ใช้บริการอย่างไร',
   'privacy.lastUpdated': 'อัปเดตล่าสุด: {{วันที่}}',
   'privacy.section.collected.body':
     'เราเก็บรวบรวมรายละเอียดบัญชี (ชื่อ อีเมล บริษัท) บันทึกทางการเงินที่คุณอัปโหลด (ใบแจ้งหนี้ ค่าใช้จ่าย ลูกค้า การชำระเงิน) และบันทึกการดำเนินงานบริการมาตรฐาน (IP, ตัวแทนผู้ใช้, เวลา)',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'ข้อมูลจะถูกนำมาใช้เพื่อดำเนินการให้บริการ สร้างรายงานและไฟล์ PDF ตามที่คุณร้องขอ ส่งอีเมลธุรกรรมผ่าน Mailgun และประมวลผลการชำระเงินผ่าน Stripe เราไม่ขายหรือให้เช่าข้อมูลส่วนบุคคล',
   'recentInvoicesCard.dueMeta': 'เนื่องจาก {{date}}',
+  'recentInvoicesCard.empty': 'ใบแจ้งหนี้ไม่ตรงกัน',
   'recentInvoicesCard.eyebrow': 'บัญชีลูกหนี้',
   'recentInvoicesCard.searchAriaLabel': 'ค้นหาใบแจ้งหนี้',
+  'recentInvoicesCard.searchPlaceholder': 'ค้นหาใบแจ้งหนี้…',
   'recentInvoicesCard.title': 'ใบแจ้งหนี้ล่าสุด',
   'recentInvoicesCard.viewAll': 'ดูใบแจ้งหนี้ทั้งหมด →',
   'reports.assets': 'สินทรัพย์',
@@ -181,15 +211,20 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'กำไรขาดทุน (12 เดือน)',
   'resetPassword.backToLogin': '← กลับไปที่หน้าเข้าสู่ระบบ',
   'resetPassword.hidePassword': 'ซ่อนรหัสผ่าน',
+  'resetPassword.passwordLabel': 'รหัสผ่านใหม่',
   'resetPassword.showPassword': 'แสดงรหัสผ่าน',
+  'resetPassword.subheading': 'เลือกรหัสผ่านที่คาดเดายาก — อย่างน้อยแปดตัวอักษร',
   'resetPassword.submit': 'รีเซ็ตรหัสผ่าน',
   'resetPassword.tooShort': 'รหัสผ่านต้องมีความยาวอย่างน้อย 8 ตัวอักษร',
   'settings.account.changePassword': 'เปลี่ยนรหัสผ่าน',
   'settings.account.changingPassword': 'การเปลี่ยนแปลง…',
   'settings.account.currentPassword': 'รหัสผ่านปัจจุบัน',
+  'settings.account.dangerZone': 'เขตอันตราย',
   'settings.account.deleteAccount': 'ลบบัญชี',
   'settings.account.deleteDescription': 'ลบข้อมูลบัญชีของคุณและข้อมูลที่เกี่ยวข้องทั้งหมดอย่างถาวร',
   'settings.account.deleteError': 'ไม่สามารถลบบัญชีได้',
+  'settings.account.deleteWarning':
+    'การดำเนินการนี้จะลบบัญชีของคุณอย่างถาวรและไม่สามารถเรียกคืนได้ ป้อนรหัสผ่านของคุณเพื่อยืนยัน',
   'settings.account.deleting': 'กำลังลบ…',
   'settings.account.devices': 'อุปกรณ์',
   'settings.account.email': 'อีเมล',
@@ -200,6 +235,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'รหัสผ่าน',
   'settings.account.passwordError': 'ไม่สามารถเปลี่ยนรหัสผ่านได้',
   'settings.account.pushNotifications': 'การแจ้งเตือนแบบพุชบนอุปกรณ์นี้',
+  'settings.account.revokeDeviceWarning':
+    'การเข้าถึงของอุปกรณ์นี้จะถูกเพิกถอนในไม่ช้า ออกจากระบบหรือไม่?',
   'settings.account.saveError': 'ไม่สามารถอัปเดตโปรไฟล์ได้',
   'settings.account.security': 'ความปลอดภัย',
   'settings.account.signOutDevice': 'ออกจากระบบ',
@@ -207,12 +244,19 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'การตรวจสอบสิทธิ์แบบสองปัจจัย',
   'settings.account.twoFactorCode': 'รหัสยืนยันตัวตน',
   'settings.account.twoFactorDisable': 'ปิดใช้งาน',
+  'settings.account.twoFactorDisableTitle': 'ปิดใช้งานการยืนยันตัวตนแบบสองขั้นตอน',
   'settings.account.twoFactorEnable': 'เปิดใช้งาน',
+  'settings.account.twoFactorEnableTitle': 'เปิดใช้งานการยืนยันตัวตนแบบสองขั้นตอน',
   'settings.account.twoFactorInvalidCode': 'รหัสไม่ถูกต้อง',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'QR code การยืนยันสองขั้นตอน',
+  'settings.account.twoFactorScan':
+    'สแกนคิวอาร์โค้ดนี้ด้วยแอปยืนยันตัวตนของคุณ จากนั้นป้อนรหัส 6 หลัก',
+  'settings.account.twoFactorUnavailable': 'แอปนี้ไม่รองรับการยืนยันตัวตนแบบสองขั้นตอน',
   'settings.account.twoFactorVerify': 'ตรวจสอบและเปิดใช้งาน',
   'settings.account.unknownDevice': 'อุปกรณ์ที่ไม่รู้จัก',
   'settings.company.email': 'อีเมลสำหรับเรียกเก็บเงิน',
+  'settings.company.heading': 'บริษัทและภาษี',
   'settings.company.name': 'ชื่อตามกฎหมาย',
   'settings.company.saveButton': 'บันทึกข้อมูลบริษัท',
   'settings.company.taxId': 'หมายเลขประจำตัวผู้เสียภาษี / EIN',
@@ -255,6 +299,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'ประมาณการรายไตรมาส',
   'taxes.kpi.owed': 'เป็นหนี้',
   'taxes.loadError': 'ไม่สามารถโหลดข้อมูลสรุปภาษีได้',
+  'taxes.remittedPct': '(นำส่งแล้ว {{pct}}%)',
+  'terms.intro':
+    'ข้อกำหนดการให้บริการเหล่านี้ ("ข้อกำหนด") กำกับการเข้าถึงและการใช้ {{app}} ของคุณ การสร้างบัญชีหรือการใช้บริการถือว่าคุณตกลงที่จะผูกพันตามข้อกำหนดเหล่านี้',
   'terms.lastUpdated': 'อัปเดตล่าสุด: {{วันที่}}',
   'terms.section.acceptable.body':
     'คุณตกลงที่จะไม่ใช้บริการเพื่อละเมิดกฎหมาย ละเมิดสิทธิ์ในทรัพย์สินทางปัญญา ส่งมัลแวร์ หรือพยายามเข้าถึงบัญชีอื่นหรือโครงสร้างพื้นฐานของเราโดยไม่ได้รับอนุญาต',

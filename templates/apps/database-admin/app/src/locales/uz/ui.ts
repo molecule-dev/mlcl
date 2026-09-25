@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
+  'about.featureConnections':
+    "Ma'lumotlar bazalaringizni xavfsiz saqlaydigan va ranglar bilan belgilaydigan ulanish menejeri — hisob ma'lumotlari saqlash vaqtida shifrlanadi, hech qachon ochiq matnda bo'lmaydi.",
+  'about.featureMonitoring':
+    "So'rovlar unumdorligi va ma'lumotlar bazasi faoliyatini real vaqtda kuzatish, bularning barchasini qo'lsiz boshqarish uchun klaviatura yorliqlari va buyruqlar paneli bilan.",
+  'about.featurePlans':
+    "Siz bilan birga o'sadigan tariflar — Yakka ish uchun Bepul, ko'proq ulanishlar, uzoqroq so'rov saqlash, eksportlar va ilg'or funksiyalar uchun Pro va Team.",
+  'about.featureQueryEditor':
+    "So'rovlar tarixi, saqlangan so'rovlar va natijalaringizni bir marta bosish bilan CSV eksport qilish imkoniyatiga ega Monaco asosidagi SQL muharriri.",
+  'about.featureSchema':
+    "Ma'lumotlar bazalari, jadvallar va ustunlarni kezish, so'ngra qatorlarni ko'rish, filtrlash va joyida tahrirlash uchun sxema tadqiqotchisi va jadval brauzeri.",
+  'about.missionTitle': 'Bizning vazifamiz',
   'authShell.commands': 'Buyruqlar',
   'authShell.ssoSupported': "SSO qo'llab-quvvatlanadi",
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': "So'rovlar",
   'connections.schema': 'Sxema',
   'connections.subtitle': "Ma'lumotlar bazasi ulanishlaringizni boshqaring.",
+  'connections.test': 'Sinov',
   'databaseAdminLayout.adminRole': 'Administrator roli',
   'databaseAdminLayout.commandPalette': 'Buyruqlar palitrasi',
   'databaseAdminLayout.commands': 'buyruqlar',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Yangi ulanish',
   'databaseAdminLayout.queries': "So'rovlar",
   'databaseAdminLayout.ready': 'Tayyor',
+  'databaseAdminLayout.searchPlaceholder': "⌘K Buyruqlar, so'rovlar, jadvallarni qidirish…",
   'databaseAdminLayout.user': 'Foydalanuvchi',
   'editConnection.confirmDelete': "Ushbu ulanish o'chirib tashlansinmi?",
   'editConnection.deleteButton': "Ulanishni o'chirish",
+  'editConnection.newPassword': "Yangi parol (saqlash uchun bo'sh qoldiring)",
   'editConnection.saved': 'Ulanish saqlandi.',
   'editConnection.title': 'Ulanishni tahrirlash',
   'forgotPassword.success': "Agar o'sha hisob mavjud bo'lsa, qayta tiklash havolasi yo'lda.",
@@ -47,6 +62,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Muvaffaqiyatlar',
   'monitoring.title': 'Monitoring',
   'monitoring.totalQueries': "Jami so'rovlar",
+  'nav.schema': 'Sxema',
   'newConnection.database': "Ma'lumotlar bazasi",
   'newConnection.engine': 'Dvigatel',
   'newConnection.host': 'Xost',
@@ -83,6 +99,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': "Ushbu parchaga hech qanday aloqa bog'lanmagan.",
   'savedQuery.notBound': "Bog'lanmagan",
   'savedQuery.title': "Saqlangan so'rov",
+  'schema.columns': 'Ustunlar',
   'schema.foreignKeys': 'Chet el kalitlari',
   'schema.indexes': 'Indekslar',
   'schemaExplorer.browseRows': "Qatorlarni ko'rib chiqish",
@@ -91,14 +108,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': "null qilib bo'lmaydigan",
   'schemaExplorer.colType': 'turi',
   'schemaExplorer.noColumns': "Ustunlar yo'q.",
+  'schemaExplorer.noForeignKeys': "Tashqi kalitlar yo'q.",
   'schemaExplorer.noIndexes': "Indekslar yo'q.",
   'schemaExplorer.noTables': "Stollar yo'q",
   'schemaExplorer.pickATable': 'Yon paneldan jadval tanlang.',
   'schemaExplorer.tables': 'Stollar',
   'schemaExplorer.title': 'Sxema tadqiqotchisi',
+  'settings.session': 'Sessiya',
   'settings.subtitle': 'Hisobingiz va rejangizni boshqaring.',
   'signup.heading': 'Quarry hisobingizni yarating',
   'signup.tagline': 'Bir daqiqadan kamroq vaqt ichida kirishni kengaytiring.',
   'tableBrowser.noRows': "Bu jadvalda hali qatorlar yo'q.",
+  'tableBrowser.subtitle': "Masofaviy ma'lumotlar bazangizdan qatorlarni ko'rish.",
   'tableBrowser.title': "Masofaviy ma'lumotlar bazangizdan qatorlarni ko'rib chiqish.",
 }

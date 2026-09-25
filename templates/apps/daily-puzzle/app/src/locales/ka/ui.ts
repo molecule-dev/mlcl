@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'გაქვთ გამოხმაურება, იპოვეთ ხარვეზი ან გსურთ {{app}} თქვენს სკოლაში ან გუნდში დანერგვა? ჩვენ ყველა შეტყობინებას ვკითხულობთ — მოგვწერეთ ანგარიშის პარამეტრებიდან და რეალური ადამიანი გიპასუხებთ.',
   'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
+  'about.intro':
+    '{{app}} ყოველდღიური სიტყვების თავსატეხია. გამოიცანით ხუთასოიანი სიტყვა ექვს ცდაში, შეინარჩუნეთ სერია, გააზიარეთ თქვენი ემოჯი-ბადე და ნახეთ, როგორ გაართვა თავი ყველამ დღევანდელ სიტყვას.',
+  'about.missionBody':
+    'კარგი თავსატეხი ყოველდღიური პატარა გამარჯვებაა. {{app}} ერთ საერთო სიტყვაზეა აგებული დღეში — საკმარისად სწრაფი ყავის შესვენებისთვის, საკმარისად საინტერესო, რომ ხვალაც დაბრუნდეთ.',
+  'about.missionTitle': 'ჩვენი მისია',
   'about.title': '{{app}}-ის შესახებ',
   'archive.loadError': 'არქივის ჩატვირთვა ვერ მოხერხდა.',
   'archive.missed': 'გამოტოვებული',
   'archive.notPlayed': 'არ არის ნათამაშები',
+  'archive.subhead':
+    'გაითამაშეთ ნებისმიერი წარსული დღე ვარჯიშისთვის — არავითარი სერიები, არავითარი სტატისტიკა, მხოლოდ გართობა.',
   'archive.title': 'არქივი',
   'auth.backToHome': 'უკან მთავარზე',
   'auth.backToHomeArrow': '← უკან მთავარზე',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'დაგავიწყდათ პაროლი?',
   'auth.login.loggingIn': 'შესვლა მიმდინარეობს…',
   'auth.login.logIn': 'დღევანდელი სიტყვის თამაში',
+  'auth.login.noAccount': 'Tessera-ს ახალი მომხმარებელი ხართ?',
   'auth.login.or': 'ან გააგრძელეთ შემდეგით',
   'auth.login.password': 'პაროლი',
   'auth.login.signInButton': 'შესვლა',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'ინახება…',
   'common.sendingEllipsis': 'იგზავნება…',
   'common.startingEllipsis': 'იწყება…',
+  'forgotPassword.subhead':
+    'შეიყვანეთ თქვენი ელ. ფოსტა და ჩვენ გამოგიგზავნით ბმულს გადატვირთვისთვის.',
+  'forgotPassword.success.body':
+    'თუ ანგარიში არსებობს {{email}} , რამდენიმე წუთში გადატვირთვის ბმულს მიიღებთ.',
+  'forgotPassword.success.title': 'შეამოწმეთ თქვენი შემოსულები.',
   'form.name': 'სახელი',
   'howToPlay.cta.home': 'სახლში დაბრუნება',
   'howToPlay.cta.play': 'დღევანდელი თავსატეხის თამაში',
@@ -68,10 +83,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'სერიები, რომელთა გაწყვეტაც არ გინდა',
   'leaderboard.daily.title': 'დღევანდელი ამოხსნები',
   'leaderboard.loadError': 'ლიდერბორდის ჩატვირთვა ვერ მოხერხდა.',
+  'leaderboard.streaks.empty': 'ჯერ სერია არ გაქვთ — იყავით პირველი.',
+  'leaderboard.streaks.subhead': 'ყველა დროის ყველაზე გრძელი მოგებათა სერიები.',
   'leaderboard.streaks.title': 'სერიის ლიდერები',
+  'leaderboard.subhead': 'როგორ გაართვა თავი ყველამ დღეს და ვის აქვს ყველაზე გრძელი სერიები.',
   'leaderboard.title': 'ლიდერბორდი',
   'login.headline': 'კეთილი იყოს თქვენი დაბრუნება.',
   'login.streakPill': '{{days}}-დღიანი სერია გელოდებათ',
+  'login.subhead':
+    'შედით სისტემაში, რომ შეინარჩუნოთ სერია და ნახოთ, როგორ გაართვით თავი დღევანდელ სიტყვას.',
   'nav.archive': 'არქივი',
   'nav.editProfile': 'პროფილის რედაქტირება',
   'nav.getStarted': 'დაწყება',
@@ -89,6 +109,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · ასეთი სიტყვა არ არსებობს',
   'notFound.title': 'ეს მარშრუტი ცარიელია.',
   'planUpdated.message': 'თქვენი ტარიფი აქტიურია.',
+  'planUpdated.retry': 'ხელახლა სცადეთ',
+  'planUpdated.verifyFailed': 'თქვენი გადახდის დადასტურება ჯერ ვერ შევძელით.',
+  'planUpdated.verifyFailedBody':
+    'შესაძლოა, თქვენი გადახდა ჯერ კიდევ მუშავდება. სცადეთ ხელახლა ცოტა ხანში.',
   'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'play.alreadyFinished': 'უკვე დაასრულეთ ეს თავსატეხი',
   'play.answerWas': 'სიტყვა იყო',
@@ -104,6 +128,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'სავარჯიშო თავსატეხი',
   'play.tooShort': 'არ არის საკმარისი ასოები',
   'play.won': 'ამოხსნილია!',
+  'pricing.advancedStats': 'დამატებითი სტატისტიკა: {{yes}}',
+  'pricing.archiveHistory': 'არქივის {{count}} დღის ისტორია',
+  'pricing.archivePlays': 'არქივის {{count}} განმეორება / დღეში',
+  'pricing.archiveUnlimited': 'ულიმიტო არქივის ისტორია',
+  'pricing.canExport': 'მონაცემების ექსპორტი: {{yes}}',
+  'pricing.checkoutError': 'შეკვეთის გაფორმების დაწყება ვერ მოხერხდა. გთხოვთ, სცადოთ ხელახლა.',
   'pricing.dailyWord': 'ყოველდღიური სიტყვა',
   'pricing.heading': 'აირჩიეთ თქვენი {{app}} ტარიფი',
   'pricing.included': 'ჩართულია',
@@ -111,7 +141,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'ყოველდღიური სიტყვა ყოველთვის უფასოა. განახლდით არქივის შეუზღუდავი გამეორებებისთვის და უფრო ღრმა სტატისტიკისთვის.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} პატივს სცემს თქვენს კონფიდენციალურობას. ეს გვერდი აჯამებს, რა მონაცემებს ვინახავთ, რატომ ვინახავთ და როგორ წავშალოთ ისინი.',
   'privacy.title': 'კონფიდენციალურობის შეტყობინება',
+  'resetPassword.subhead': 'აირჩიეთ ახალი პაროლი, რომ დაუბრუნდეთ თქვენს სერიას.',
   'settings.account': 'ანგარიში',
   'settings.danger.body':
     'სამუდამოდ წაშალეთ თქვენი {{appName}} ანგარიში და თავსატეხების მთელი ისტორია.',
@@ -121,17 +154,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'სტუმარი',
   'settings.language.title': 'ენა',
   'settings.subhead': 'მოაწყვეთ თქვენი პროფილი, ხმა და როგორ გამოჩნდებით ლიდერბორდზე.',
+  'settings.unnamed': 'სპარკის მოთამაშე',
   'settings.upgrade': 'განახლება',
   'signup.eyebrow': 'სამუდამოდ უფასო — დღეში ერთი სიტყვა',
   'signup.headline': 'დაიწყეთ თქვენი სერია.',
+  'signup.subhead':
+    'შექმენით {{appName}} ანგარიში, რომ ითამაშოთ ყოველდღიური სიტყვა, ააწყოთ სერია და ახვიდეთ ლიდერთა დაფაზე.',
   'stats.currentStreak': 'სერია',
   'stats.distribution.title': 'მცდელობების განაწილება',
   'stats.loadError': 'თქვენი სტატისტიკის ჩატვირთვა ვერ მოხერხდა.',
   'stats.maxStreak': 'მაქს. სერია',
   'stats.played': 'ნათამაშები',
   'stats.playToday': 'დღევანდელი თავსატეხის თამაში',
+  'stats.subhead': 'მხოლოდ რანჟირებული ყოველდღიური თავსატეხები — არქივის ვარჯიში არასოდეს ითვლება.',
   'stats.title': 'თქვენი სტატისტიკა',
   'stats.winRate': 'მოგების პროცენტი',
   'status.monthly': 'ყოველთვიური',
+  'terms.intro':
+    '{{app}}-ის გამოყენებით თქვენ ეთანხმებით ქვემოთ მოცემულ წესებს. თუ ვერ ეთანხმებით მათ, გთხოვთ, არ გამოიყენოთ სერვისი.',
   'terms.title': 'მომსახურების პირობები',
 }

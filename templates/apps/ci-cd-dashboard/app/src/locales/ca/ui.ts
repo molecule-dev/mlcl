@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens preguntes, comentaris o vols una demostració per al teu equip? Escriu-nos a hello@conduit.dev — cada missatge arriba a una persona real de l'equip.",
   'about.contactHeading': 'Poseu-vos en contacte',
   'about.eyebrow': 'Sobre',
+  'about.featuresHeading': 'El que obtens',
+  'about.introBody':
+    "{{app}} porta el lliurament continu a l'estil de GitHub Actions a un sol tauler ràpid: pipelines, registres de compilació, artefactes, insígnies d'estat i entorns de desplegament de tots els teus repositoris en un sol lloc. Sense saltar entre pestanyes, sense endevinar quina compilació s'ha trencat — cada execució, línia de registre i desplegament és a un clic.",
+  'about.introHeading': 'Què és {{app}}',
+  'about.missionBody':
+    'Publicar programari hauria de ser tranquil i previsible, no una font de neguit. Construïm les pipelines, els registres i les eines de desplegament perquè el camí del commit a producció sigui ràpid, visible i fiable — la primera compilació correcta en cinc minuts, i totes les següents igual de clares.',
+  'about.missionHeading': 'La nostra missió',
+  'about.subtitle':
+    '{{app}} és un tauler de CI/CD per a equips que volen monitorar compilacions, desplegaments i entorns de tots els repositoris — i publicar amb certesa.',
   'artifacts.empty': 'Encara no hi ha artefactes.',
   'artifacts.heading': 'Artefactes',
   'artifacts.loadError': "No s'han pogut carregar els artefactes.",
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conducte env --list',
   'environments.heading': 'Entorns',
   'environments.loadError': "No s'han pogut carregar els entorns.",
+  'environments.loading': "S'estan carregant els entorns…",
   'environments.subheading': 'Estat del desplegament en directe a cada objectiu.',
   'forgotPassword.runnerStatus': 'restablir · túnel segur',
+  'forgotPassword.success':
+    "Si ja existeix un compte per a aquest correu electrònic, un enllaç de restabliment està en camí. Revisa la teva safata d'entrada.",
   'insights.changeFailureRate': 'Taxa de fallada de canvis',
   'insights.deployFrequency': 'Implementa / dia',
   'insights.empty': 'Encara no hi ha prou dades.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': "No s'han pogut carregar les estadístiques.",
   'insights.meanP95': 'significar {{mean}} · pàg. 95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Passos de pipeline més lents',
   'insights.successRateHeading': "Taxa d'èxit del pipeline (darrers 14 dies)",
   'landing.choosePlan': 'Tria un pla',
+  'landing.copyright': '© {{year}} {{app}}. Publica amb certesa.',
   'landing.ctaBody':
     'Sense targeta de crèdit. No cal enginyer de plataforma. Aconsegueix que el primer gasoducte estigui en verd en cinc minuts.',
   'landing.ctaHeading': 'Envia amb certesa.',
   'landing.featuresEyebrow': '// característiques de la plataforma',
   'landing.featuresHeading': 'Creat per a expedidors, per expedidors',
+  'landing.heroSubtitle':
+    "Pipelines que s'acaben en segons. Registres que es poden llegir. Desplegaments en què pots confiar.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit desplega --segur',
   'landing.pricingEyebrow': '// Preu de $ --plain',
   'landing.pricingHeading': 'Preus simples i predictibles',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'En vol ara',
   'pipelines.metric.successCaption': '{{count}} de {{total}} curses',
   'pipelines.metric.successRate': "Taxa d'èxit",
+  'pipelines.realtimeOn': 'en temps real',
   'pipelines.subheading': 'Actualitzacions en directe de tots els repositoris supervisats.',
+  'pricing.advancedFeatures': 'Funcions avançades: {{mark}}',
+  'pricing.canExport': 'Exportació de dades: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artefactes',
+  'pricing.maxBuilds': '{{count}} compilacions',
+  'pricing.maxPipelines': '{{count}} pipelines',
   'privacy.dataAccount': 'Compte: nom, correu electrònic, contrasenya codificada, nivell del pla.',
   'privacy.intro':
     "{{aplicació}} només recopila les dades mínimes que necessitem per operar el vostre compte de lliurament continu: el vostre correu electrònic, els repositoris que connecteu, els commits i les metadades de compilació que produeixen els vostres executors i els secrets que decidiu emmagatzemar amb nosaltres. Mai llegim el vostre codi font fora de l'executor de compilació; els artefactes de compilació s'emmagatzemen al vostre cub S3 quan es configura.",
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     "Fem servir Stripe per a la facturació, Mailgun per al correu electrònic transaccional i AWS S3 per a l'emmagatzematge d'artefactes de compilació. Cadascun està obligat contractualment a l'abast mínim de dades necessari per oferir el seu servei.",
   'privacy.rightsBody':
     'Pots exportar cada byte de les teves dades, suprimir el teu compte en qualsevol moment des de Configuració i sol·licitar un registre de cada lliurament de webhook al teu compte. Responem a les sol·licituds de RGPD / CCPA en un termini de 30 dies.',
+  'privacy.subtitle':
+    'Com {{app}} recull, emmagatzema i protegeix les teves dades mentre executem les teves pipelines.',
   'privacy.title': 'Política de privacitat',
   'repositories.empty': 'No hi ha repositoris connectats.',
   'repositories.heading': 'Repositoris',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Tots els repositoris',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': "No s'ha pogut carregar el repositori.",
+  'repositoryDetail.meanDuration': 'Durada mitjana',
   'repositoryDetail.notFound': "No s'ha trobat el repositori.",
+  'repositoryDetail.successRate': "Taxa d'èxit",
   'repositoryDetail.totalBuilds': 'Total de construccions',
   'repositoryDetail.webhookActive': 'actiu',
   'repositoryDetail.webhookPaused': 'pausat',
   'repositoryDetail.webhooksHeading': 'Webhooks',
+  'resetPassword.passwordLabel': 'Nova contrasenya',
   'resetPassword.runnerStatus': 'restablir · testimoni verificat',
   'resetPassword.subtitle': 'Trieu una contrasenya forta que no hàgiu utilitzat mai abans.',
   'resetPassword.tokenPlaceholder': 'enganxar des del correu electrònic',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     "Repositoris Vigilància de conductes. Desconnecteu-vos del vostre proveïdor de VCS per aturar la ingestió d'esdeveniments.",
   'settings.repositories.empty': 'Encara no hi ha cap repositori connectat.',
+  'settings.repositories.heading': 'Connexions de repositoris',
   'settings.repositories.loadError': "No s'han pogut carregar els repositoris.",
   'settings.secrets.addCta': 'Afegeix un secret',
   'settings.secrets.addError': "No s'ha pogut afegir el secret.",
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': "No s'ha pogut suprimir el secret.",
   'settings.secrets.empty': "No s'han guardat secrets.",
   'settings.secrets.heading': 'Secrets',
+  'settings.secrets.lastUsed': 'últim ús {{date}}',
   'settings.secrets.loadError': "No s'han pogut carregar els secrets.",
   'settings.secrets.neverUsed': 'mai utilitzat',
   'settings.secrets.rotateCta': 'Girar',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': "No s'ha pogut actualitzar el webhook.",
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'nivell gratuït · 1.000 compilacions mínimes/mes',
+  'terms.intro':
+    "En crear un compte de {{app}} acceptes aquests termes. Cobreixen l'ús acceptable dels executors de compilació, els límits del nostre SLA i les condicions sota les quals podem suspendre o cancel·lar el teu compte per càrregues de treball abusives.",
   'terms.slaBody':
     "Els plans Pro i Team tenen com a objectiu un temps de funcionament mensual del 99,95 % per a l'API i el grup d'executors. El pla gratuït es proporciona tal com està. Les interrupcions es registren a status.conduit.dev i es comptabilitzen segons la fórmula de la factura.",
   'terms.terminationBody':

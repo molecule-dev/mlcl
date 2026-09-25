@@ -1,9 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'هل لديك ملاحظات، أو وجدت خطأً، أو تريد إخبارنا كيف ساعدك التدوين؟ نقرأ كل رسالة — تواصل معنا في أي وقت وسيرد عليك شخص حقيقي.',
+  'about.contactTitle': 'تواصل معنا',
+  'about.featureInsights':
+    'تأملات مدعومة بالذكاء الاصطناعي تُبرز بلطف المحفزات والمواضيع والامتنان — دون أن تفقد صوتك.',
+  'about.featureMood':
+    'تتبع المزاج والأنشطة مع عرض تقويمي ومخططات اتجاهات تُظهر ما يساعدك على الازدهار.',
+  'about.featurePrivacy':
+    'تشفير من طرف إلى طرف، وقفل برمز مرور، وتصدير كامل بصيغة CSV لتبقى تأملاتك خاصة وقابلة للنقل.',
+  'about.featurePrompts': 'تنبيهات يومية لطيفة لتجد دائماً من أين تبدأ — لا صفحة فارغة أبداً.',
+  'about.intro':
+    '{{app}} هو دفتر يوميات لطيف وخاص للصحة النفسية للتأمل اليومي وتتبع المزاج والامتنان. تحل التنبيهات المدروسة محل الصفحة الفارغة، ويساعدك اكتشاف الأنماط الهادئ على فهم ما يؤثر في مشاعرك، ويحافظ التشفير من طرف إلى طرف على كلماتك ملكاً لك.',
+  'about.missionBody':
+    'نؤمن بأن التحقق من حالتك يجب أن يكون هادئاً، لا سريرياً أبداً — ولا كتطبيق آخر يطالب باهتمامك. صُمم {{app}} ليساعد، لا ليلحّ: بضع دقائق هادئة يومياً لملاحظة مزاجك، والكتابة بصدق، ورؤية نفسك بوضوح أكثر شيئاً فشيئاً.',
+  'about.missionTitle': 'مهمتنا',
   'about.pageTitle': 'نبذة عن شركة «{{app}}»',
   'authShell.encryptionBadge': 'يتم تشفير بياناتك تشفيراً تاماً.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'اليوم {{day}} — لا توجد تدوينة',
   'calendar.cellMood': 'اليوم {{day}} — {{mood}}',
   'calendar.distributionHeading': 'نظرة سريعة على هذا الشهر',
   'calendar.eyebrow': 'المزاج في لمحة',
@@ -15,6 +31,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'تم تتبّع {{tracked}} من {{total}} يوماً هذا الشهر.',
   'common.goToDashboard': 'الانتقال إلى لوحة التحكم',
   'common.tryAgain': 'حاول مرة أخرى',
+  'entryComposer.bodyPlaceholder': 'اكتب ما تشعر أنه صادق. لن يقرأ هذا أحد غيرك.',
   'entryComposer.cancel': 'العودة إلى اليوميات',
   'entryComposer.heading': 'تأمّل اليوم',
   'entryComposer.moodLabel': 'كيف تشعر؟',
@@ -23,6 +40,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'إزالة {{tag}}',
   'entryComposer.save': 'حفظ التأمّل',
   'entryComposer.saveError': 'تعذّر حفظ إدخالك.',
+  'entryComposer.tagPlaceholder': 'أضف وسمًا واضغط Enter',
   'entryComposer.titlePlaceholder': 'امنح هذا التأمّل اسماً…',
   'entryDetail.back': 'العودة إلى اليوميات',
   'entryDetail.delete': 'حذف هذا الإدخال',
@@ -36,6 +54,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'يجري تحميل التأمّل…',
   'entryDetail.notFound': 'الإدخال غير موجود.',
   'entryDetail.reflectionsHeading': 'تأمّلات الذكاء الاصطناعي',
+  'forgotPassword.continueButton': 'أدخل رمز إعادة التعيين',
   'forgotPassword.eyebrow': 'لا تقلق',
   'forgotPassword.subheading': 'سنرسل رابط إعادة تعيين لطيفاً إلى بريدك الإلكتروني.',
   'forgotPassword.successBody':
@@ -57,14 +76,20 @@ export const ui: UiTranslations = {
     'لا توجد مواضيع محددة حتى الآن - أضف وسمًا أو اثنين إلى مشاركاتك وسيتم تجميعها هنا.',
   'insights.themesHeading': 'أبرز المواضيع',
   'insights.triggerFrequency': 'لوحظ {{count}}× هذا الشهر',
+  'insights.triggersEmpty': 'لا شيء لملاحظته بعد. بضع تدوينات على مدى أيام ستُظهر أنماطك.',
   'insights.triggersHeading': 'أنماط تؤثّر في مزاجك',
+  'journal.empty': 'لا توجد تأملات مطابقة — جرّب مرشحاً مختلفاً أو اكتب تدوينة جديدة.',
   'journal.eyebrow': 'تأمّلاتك',
   'journal.heading': 'اليوميات',
   'journal.loadError': 'تعذّر تحميل الإدخالات.',
   'journal.loading': 'يجري تحميل الإدخالات…',
+  'journal.newEntry': 'إدخال جديد',
   'journal.searchPlaceholder': 'ابحث عن شعور، أو اسم، أو لحظة…',
   'journal.subheading': '{{count}} إدخالات — كلٌّ منها يستحقّ الاحتفاظ به.',
   'journalEntryCard.encryptedLabel': 'مشفّر',
+  'landing.ctaBody':
+    'البدء مجاني. يفتح Pro تصدير البيانات، ودفتر يوميات أكبر، وسنة كاملة من السجل.',
+  'landing.ctaButton': 'ابدأ أوّل إدخال لك',
   'landing.ctaTitle': 'بضع دقائق هادئة في اليوم. هذا كل ما يلزم.',
   'landing.eyebrow': 'ممارسة يومية لطيفة',
   'landing.featuresBody':
@@ -83,6 +108,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'مساحة لطيفة للتأمّل اليومي.',
   'mentalHealthJournalLayout.closeMenu': 'إغلاق القائمة',
   'mentalHealthJournalLayout.openMenu': 'فتح القائمة',
+  'mentalHealthJournalLayout.primaryNavLabel': 'التنقل الرئيسي',
+  'moodHeroCard.entriesThisWeek': '{{count}} هذا الأسبوع',
   'moodHeroCard.streakSuffix': 'يوماً متواصلاً',
   'moodHeroCard.title': 'تأمّل اليوم',
   'moodTrendChart.aiBadge': 'رؤية الذكاء الاصطناعي جاهزة',
@@ -93,11 +120,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'رحلتك',
   'profile.fallbackName': 'متأمِّل',
   'profile.loadError': 'تعذّر تحميل الإحصاءات.',
+  'profile.loading': 'جارٍ تحديث إحصاءاتك…',
   'profile.longestStreak': 'أطول سلسلة',
   'profile.memberSince': 'تتأمّل منذ {{date}}',
   'profile.milestones': 'المحطّات',
   'profile.milestonesEmpty':
     'لم يتبق سوى خطوة واحدة لتحقيق أولى إنجازاتك - اكتب متى شعرت بالاستعداد.',
+  'profile.moodMix': 'مزيج مزاجك هذا الموسم',
   'profile.streakValue': '{{days}} يوم',
   'profile.totalEntries': 'التأمّلات',
   'profile.totalWords': 'الكلمات المكتوبة',
@@ -110,6 +139,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'اكتب عن هذا',
   'resetPassword.eyebrow': 'بداية جديدة',
   'resetPassword.mismatchError': 'كلمتا المرور غير متطابقتين.',
+  'resetPassword.passwordLabel': 'كلمة المرور الجديدة',
   'resetPassword.subheading': 'اختر شيئاً آمناً — تأمّلاتك تستحقّ ذلك.',
   'resetPassword.tokenPlaceholder': 'رمز إعادة التعيين من البريد',
   'settings.dangerDescription': 'احذف حسابك وكلّ تأمّل بشكل دائم؛ لا يمكن التراجع عن ذلك.',
@@ -119,11 +149,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'تعذّر حذف الحساب.',
   'settings.exportDescription': 'كلماتك تبقى ملكك دائماً؛ نزِّل نسخة في أيّ وقت.',
   'settings.exportDone': 'تم تصدير {{format}}.',
+  'settings.exportError': 'فشل التصدير.',
+  'settings.exportHeading': 'صدّر تأملاتك',
   'settings.exportLoading': 'جارٍ التحضير…',
   'settings.eyebrow': 'مساحتك، قواعدك',
   'settings.languageHeading': 'اللغة',
   'settings.privacyHeading': 'الخصوصية والتشفير',
   'settings.remindersHeading': 'تذكير يومي',
+  'settings.reminderToggleAria': 'تبديل التذكير اليومي',
   'settings.reminderToggleDescription':
     'تذكير هادئ واحد في الوقت الذي تختاره؛ بلا شارات ولا ضغط سلسلة.',
   'settings.reminderToggleLabel': 'أرسل تنبيهاً لطيفاً',
@@ -136,6 +169,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'يجري إنشاء اليوميات…',
   'signup.subheading': 'مساحة آمنة لأفكارك.',
   'wellnessRingsTriad.mindfulnessCaption': 'الهدف {{goal}} دقيقة اليوم',
+  'wellnessRingsTriad.mindfulnessLabel': 'اليقظة الذهنية',
   'wellnessRingsTriad.sleepCaption': 'الهدف {{goal}} ساعة / ليلة',
   'wellnessRingsTriad.sleepLabel': 'النوم',
+  'wellnessRingsTriad.sleepValue': '{{hours}} ساعة',
+  'wellnessRingsTriad.streakCaption': 'الهدف {{goal}} يوم',
+  'wellnessRingsTriad.streakLabel': 'سلسلة التدوين',
+  'wellnessRingsTriad.streakValue': '{{days}} يوم',
 }

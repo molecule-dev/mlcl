@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கேள்விகள், கருத்துகள் அல்லது உங்கள் குழுவிற்கு டெமோ வேண்டுமா? hello@conduit.dev என்ற முகவரிக்கு எங்களுக்கு மின்னஞ்சல் அனுப்புங்கள் — ஒவ்வொரு செய்தியும் குழுவில் உள்ள ஒரு உண்மையான நபரைச் சென்றடையும்.',
   'about.contactHeading': 'தொடர்பு கொள்ளுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.featuresHeading': 'நீங்கள் பெறுவது',
+  'about.introBody':
+    '{{app}} GitHub Actions பாணி தொடர் வழங்கலை ஒரு வேகமான டாஷ்போர்டுக்குள் கொண்டு வருகிறது: உங்கள் அனைத்து களஞ்சியங்களுக்குமான பைப்லைன்கள், பில்ட் பதிவுகள், ஆர்ட்டிஃபாக்ட்கள், நிலை பேட்ஜ்கள் மற்றும் வரிசைப்படுத்தல் சூழல்கள் — அனைத்தும் ஒரே இடத்தில். டேப் மாற்றம் இல்லை, எந்த பில்ட் உடைந்தது என்ற ஊகம் இல்லை — ஒவ்வொரு ரன், பதிவு வரி மற்றும் வரிசைப்படுத்தல் ஒரு கிளிக்கில்.',
+  'about.introHeading': '{{app}} என்றால் என்ன',
+  'about.missionBody':
+    'மென்பொருள் வழங்குதல் அமைதியாகவும் முன்னறிவிக்கக்கூடியதாகவும் இருக்க வேண்டும், பயத்தின் மூலமாக அல்ல. கமிட்டிலிருந்து தயாரிப்புக்கான பாதை வேகமாகவும், தெளிவாகவும், நம்பகமானதாகவும் இருக்க நாங்கள் பைப்லைன்கள், பதிவுகள் மற்றும் வரிசைப்படுத்தல் கருவிகளை உருவாக்குகிறோம் — ஐந்து நிமிடங்களில் முதல் பச்சை பில்ட், அதன் பிறகு ஒவ்வொரு பில்டும் அதே அளவு தெளிவாக.',
+  'about.missionHeading': 'எங்கள் நோக்கம்',
+  'about.subtitle':
+    '{{app}} என்பது ஒவ்வொரு களஞ்சியத்திலும் பில்ட்கள், வரிசைப்படுத்தல்கள் மற்றும் சூழல்களைக் கண்காணிக்க விரும்பும் குழுக்களுக்கான CI/CD டாஷ்போர்டு — உறுதியுடன் வழங்குங்கள்.',
   'artifacts.empty': 'இன்னும் கலைப்பொருட்கள் எதுவும் கிடைக்கவில்லை.',
   'artifacts.heading': 'கலைப்பொருட்கள்',
   'artifacts.loadError': 'கலைப்பொருட்களை ஏற்ற முடியவில்லை.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'சூழல்கள்',
   'environments.loadError': 'சூழல்களை ஏற்ற முடியவில்லை.',
+  'environments.loading': 'சூழல்களை ஏற்றுகிறது…',
   'environments.subheading': 'ஒவ்வொரு இலக்கிலும் நிகழ்நேரச் செயல்பாட்டு நிலை.',
   'forgotPassword.runnerStatus': 'மீட்டமை · பாதுகாப்பான சுரங்கப்பாதை',
+  'forgotPassword.success':
+    'அந்த மின்னஞ்சலுக்கு ஏற்கனவே ஒரு கணக்கு இருந்தால், அதை மீட்டமைப்பதற்கான இணைப்பு அனுப்பப்பட்டுக்கொண்டிருக்கும். உங்கள் இன்பாக்ஸைச் சரிபார்க்கவும்.',
   'insights.changeFailureRate': 'மாற்ற தோல்வி விகிதம்',
   'insights.deployFrequency': 'ஒரு நாளைக்கு நிலைநிறுத்துகிறது',
   'insights.empty': 'இன்னும் போதுமான தரவுகள் இல்லை.',
@@ -39,14 +53,19 @@ export const ui: UiTranslations = {
   'insights.loadError': 'நுண்ணறிவுகளை ஏற்ற முடியவில்லை.',
   'insights.meanP95': 'சராசரி {{mean}} · p95 {{p95}}',
   'insights.mttr': 'எம்டிடிஆர்',
+  'insights.slowestStepsHeading': 'மெதுவான பைப்லைன் படிகள்',
   'insights.successRateHeading': 'செயல்முறை வெற்றி விகிதம் (கடந்த 14 நாட்கள்)',
   'landing.choosePlan': 'திட்டத்தைத் தேர்ந்தெடுக்கவும்',
+  'landing.copyright': '© {{year}} {{app}}. உறுதியுடன் வழங்குங்கள்.',
   'landing.ctaBody':
     'கடன் அட்டை தேவையில்லை. பிளாட்ஃபார்ம் பொறியாளர் தேவையில்லை. ஐந்து நிமிடங்களில் முதல் பைப்லைனை வெற்றிகரமாகச் செயல்படுத்துங்கள்.',
   'landing.ctaHeading': 'உறுதியுடன் அனுப்புங்கள்.',
   'landing.featuresEyebrow': '// தள அம்சங்கள்',
   'landing.featuresHeading':
     'சரக்கு அனுப்புபவர்களுக்காக, சரக்கு அனுப்புபவர்களால் உருவாக்கப்பட்டது.',
+  'landing.heroSubtitle':
+    'சில வினாடிகளில் முடியும் பைப்லைன்கள். படிக்கக்கூடிய பதிவுகள். நம்பக்கூடிய வரிசைப்படுத்தல்கள்.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ விலை நிர்ணயம் --சாதாரண',
   'landing.pricingHeading': 'எளிய, கணிக்கக்கூடிய விலை நிர்ணயம்',
@@ -85,8 +104,14 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'தற்போது விமானத்தில் உள்ளது',
   'pipelines.metric.successCaption': '{{count}} இன் {{total}} ஓட்டங்கள்',
   'pipelines.metric.successRate': 'வெற்றி விகிதம்',
+  'pipelines.realtimeOn': 'நிகழ்நேரம்',
   'pipelines.subheading':
     'கண்காணிக்கப்படும் ஒவ்வொரு களஞ்சியத்திலிருந்தும் நேரடிப் புதுப்பிப்புகள்.',
+  'pricing.advancedFeatures': 'மேம்பட்ட அம்சங்கள்: {{mark}}',
+  'pricing.canExport': 'தரவு ஏற்றுமதி: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} ஆர்ட்டிஃபாக்ட்கள்',
+  'pricing.maxBuilds': '{{count}} பில்ட்கள்',
+  'pricing.maxPipelines': '{{count}} பைப்லைன்கள்',
   'privacy.dataAccount': 'கணக்கு: பெயர், மின்னஞ்சல், ஹேஷ் செய்யப்பட்ட கடவுச்சொல், திட்ட நிலை.',
   'privacy.intro':
     '{{app}} உங்கள் தொடர்-விநியோகக் கணக்கை இயக்குவதற்குத் தேவையான குறைந்தபட்சத் தரவுகளை மட்டுமே நாங்கள் சேகரிக்கிறோம்: உங்கள் மின்னஞ்சல், நீங்கள் இணைக்கும் களஞ்சியங்கள், உங்கள் ரன்னர்கள் உருவாக்கும் கமிட்கள் மற்றும் பில்ட் மெட்டாடேட்டா, மற்றும் எங்களிடம் சேமிக்க நீங்கள் தேர்ந்தெடுக்கும் இரகசியங்கள். பில்ட் ரன்னருக்கு வெளியே உங்கள் மூலக் குறியீட்டை நாங்கள் ஒருபோதும் படிப்பதில்லை; கட்டமைக்கப்படும்போது, பில்ட் ஆர்டிஃபேக்டுகள் உங்கள் S3 பக்கெட்டில் சேமிக்கப்படுகின்றன.',
@@ -94,6 +119,8 @@ export const ui: UiTranslations = {
     'நாங்கள் பில்லிங்கிற்கு ஸ்ட்ரைப்பையும், பரிவர்த்தனை மின்னஞ்சலுக்கு மெயில்கன்னையும், மற்றும் பில்ட் ஆர்டிஃபேக்ட் சேமிப்பிற்கு AWS S3-ஐயும் பயன்படுத்துகிறோம். ஒவ்வொன்றும் அதன் சேவையை வழங்குவதற்குத் தேவையான குறைந்தபட்ச தரவு வரம்பிற்கு ஒப்பந்தப்படி கட்டுப்படுத்தப்பட்டுள்ளது.',
   'privacy.rightsBody':
     'உங்கள் தரவின் ஒவ்வொரு பைட்டையும் நீங்கள் ஏற்றுமதி செய்யலாம், அமைப்புகளிலிருந்து எந்த நேரத்திலும் உங்கள் கணக்கை நீக்கலாம், மேலும் உங்கள் கணக்கில் உள்ள ஒவ்வொரு வெப்ஹூக் விநியோகத்தின் பதிவையும் கோரலாம். நாங்கள் GDPR / CCPA கோரிக்கைகளுக்கு 30 நாட்களுக்குள் பதிலளிக்கிறோம்.',
+  'privacy.subtitle':
+    'உங்கள் பைப்லைன்களை நாங்கள் இயக்கும்போது {{app}} உங்கள் தரவை எவ்வாறு சேகரிக்கிறது, சேமிக்கிறது மற்றும் பாதுகாக்கிறது.',
   'privacy.title': 'தனியுரிமைக் கொள்கை',
   'repositories.empty': 'எந்தக் களஞ்சியங்களும் இணைக்கப்படவில்லை.',
   'repositories.heading': 'களஞ்சியங்கள்',
@@ -102,23 +129,28 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'அனைத்து களஞ்சியங்களும்',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'களஞ்சியத்தை ஏற்ற முடியவில்லை.',
+  'repositoryDetail.meanDuration': 'சராசரி கால அளவு',
   'repositoryDetail.notFound': 'களஞ்சியம் காணப்படவில்லை.',
+  'repositoryDetail.successRate': 'வெற்றி விகிதம்',
   'repositoryDetail.totalBuilds': 'மொத்த கட்டுமானங்கள்',
   'repositoryDetail.webhookActive': 'செயலில்',
   'repositoryDetail.webhookPaused': 'இடைநிறுத்தப்பட்டது',
   'repositoryDetail.webhooksHeading': 'வலைக்கொக்கிகள்',
+  'resetPassword.passwordLabel': 'புதிய கடவுச்சொல்',
   'resetPassword.runnerStatus': 'மீட்டமை · டோக்கன் சரிபார்க்கப்பட்டது',
   'resetPassword.subtitle':
     'நீங்கள் இதற்கு முன் பயன்படுத்தாத, வலிமையான கடவுச்சொல்லைத் தேர்ந்தெடுக்கவும்.',
   'resetPassword.tokenPlaceholder': 'மின்னஞ்சலிலிருந்து ஒட்டவும்',
   'settings.account.loadError': 'சுயவிவரத்தை ஏற்ற முடியவில்லை.',
   'settings.account.loading': 'கணக்கு ஏற்றப்படுகிறது…',
+  'settings.account.plan': 'திட்டம்: {{plan}}',
   'settings.account.saveError': 'சுயவிவரத்தைச் சேமிக்க முடியவில்லை.',
   'settings.appearance.description': 'ஒளி மற்றும் இருண்ட பயன்முறைகளுக்கு இடையே மாறவும்.',
   'settings.appearance.title': 'தோற்றம்',
   'settings.repositories.body':
     'ரெபாசிட்டரிகள் கான்ட்யூட் கண்காணிக்கின்றன. நிகழ்வுகளை உள்ளிழுப்பதை நிறுத்த, உங்கள் VCS வழங்குநரிடமிருந்து துண்டிக்கவும்.',
   'settings.repositories.empty': 'இன்னும் எந்தக் களஞ்சியங்களும் இணைக்கப்படவில்லை.',
+  'settings.repositories.heading': 'களஞ்சிய இணைப்புகள்',
   'settings.repositories.loadError': 'களஞ்சியங்களை ஏற்ற முடியவில்லை.',
   'settings.secrets.addCta': 'ரகசியத்தைச் சேர்க்கவும்',
   'settings.secrets.addError': 'இரகசியத்தைச் சேர்க்கத் தவறிவிட்டது.',
@@ -126,6 +158,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'இரகசியத்தை நீக்க முடியவில்லை.',
   'settings.secrets.empty': 'இரகசியங்கள் எதுவும் சேமிக்கப்படவில்லை.',
   'settings.secrets.heading': 'ரகசியங்கள்',
+  'settings.secrets.lastUsed': 'கடைசியாக {{date}} பயன்படுத்தப்பட்டது',
   'settings.secrets.loadError': 'இரகசியங்களை ஏற்ற முடியவில்லை.',
   'settings.secrets.neverUsed': 'ஒருபோதும் பயன்படுத்தப்படவில்லை',
   'settings.secrets.rotateCta': 'சுழற்று',
@@ -149,6 +182,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'வெப்ஹூக்கைப் புதுப்பிக்க முடியவில்லை.',
   'signup.namePlaceholder': 'ரைலி பார்க்',
   'signup.runnerStatus': 'இலவச அடுக்கு · மாதத்திற்கு குறைந்தபட்சம் 1,000 கட்டுமானங்கள்',
+  'terms.intro':
+    '{{app}} கணக்கை உருவாக்குவதன் மூலம் இந்த விதிமுறைகளை ஏற்கிறீர்கள். அவை பில்ட் ரன்னர்களின் ஏற்கத்தக்க பயன்பாடு, எங்கள் SLA-வின் எல்லைகள், மற்றும் தவறான பணிச்சுமைகளுக்காக உங்கள் கணக்கை நிறுத்த அல்லது முடிக்க நாங்கள் வைத்திருக்கும் நிபந்தனைகளை உள்ளடக்குகின்றன.',
   'terms.slaBody':
     'புரோ மற்றும் டீம் திட்டங்கள், API மற்றும் ரன்னர் பூலுக்கு 99.95% மாதாந்திர இயக்க நேரத்தை இலக்காகக் கொண்டுள்ளன. இலவசத் திட்டம் உள்ளபடியே வழங்கப்படுகிறது. செயலிழப்புகள் status.conduit.dev தளத்தில் அறிவிக்கப்பட்டு, உங்கள் இன்வாய்ஸில் உள்ள சூத்திரத்தின்படி அதற்கான தொகை வரவு வைக்கப்படும்.',
   'terms.terminationBody':

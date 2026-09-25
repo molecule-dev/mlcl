@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'بکنگ، فیڈبیک، یا کسی ایسی پراپرٹی کے بارے میں سوالات جو آپ کے خیال میں {{app}} پر ہونی چاہیے؟ اپنے اکاؤنٹ سے ہماری ٹیم تک پہنچیں — ہر پیغام ایک حقیقی انسان تک جاتا ہے جو مدد کر سکتا ہے۔',
+  'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'ہمارے بارے میں',
+  'about.featureLoyalty':
+    'صرف ممبران کے لیے ریٹس اور ایک لائلٹی پروگرام جو ہر بکنگ پر پوائنٹس، لیٹ چیک آؤٹ، اور کمرے کی اپ گریڈیشن دیتا ہے۔',
+  'about.featureReviews':
+    'تصدیق شدہ مہمانوں کے ریویوز اور ایڈیٹوریل انتخاب تاکہ آپ پہنچنے سے پہلے قیام پر بھروسا کر سکیں۔',
+  'about.featureRooms':
+    'سامنے سامنے کمرے، ریٹس، اور سہولیات کے ساتھ شفاف، آل اِن قیمت — ادائیگی سے پہلے ٹیکس اور ریزورٹ فیس شامل۔',
+  'about.featureSearch':
+    'تصدیق شدہ ہوٹلوں میں ریئل ٹائم سرچ کے ساتھ لائیو دستیابی، نقشہ ویو، اور بھرپور فوٹو گیلریاں۔',
+  'about.featureTrips':
+    'محفوظ کردہ پسندیدہ اور ایک Trips ڈیش بورڈ جو ہر ریزرویشن، سفرنامہ، اور تصدیق کو ایک جگہ رکھتا ہے۔',
+  'about.intro':
+    '{{app}} اُن مسافروں کے لیے ہوٹل بکنگ پلیٹ فارم ہے جنہیں معیار کی فکر ہوتی ہے۔ ہر پراپرٹی ہماری ایڈیٹوریل ٹیم خود تصدیق کرتی ہے — نہ ایگریگیٹر انوینٹری، نہ دھوکے والی لسٹنگز۔ حقیقی دستیابی تلاش کریں، کمرے، ریٹس، اور سہولیات کا سامنے سامنے موازنہ کریں، پھر چند ٹیپس میں واضح، آل اِن قیمت کے ساتھ بک کریں۔',
+  'about.missionBody':
+    'قیام کی جگہ بک کرنا پرسکون اور ایماندار ہونا چاہیے۔ ہم ٹیکس اور ریزورٹ فیس کے ساتھ شفاف ریٹس پہلے سے دکھاتے ہیں، وفادار مہمانوں کو ان سے پیسے اینٹھنے کے بجائے انعام دیتے ہیں، اور آپ کے پیسوں کے قابل قیام کو پہلے رکھتے ہیں — تاکہ آپ ٹیبز کا موازنہ کرنے میں کم اور خود سفر میں زیادہ وقت گزاریں۔',
+  'about.missionTitle': 'ہمارا مشن',
+  'about.subtitle': 'صحیح ہوٹل تلاش کرنے اور بک کرنے کا ایک منتخب، شفاف طریقہ۔',
   'account.loyalty.activitySummary': '{{nights}} راتیں · {{spend}} اس سال گزارا',
+  'account.loyalty.benefitsHeading': 'آپ کے فوائد',
   'account.loyalty.heading': 'وفاداری۔',
   'account.loyalty.loading': 'وفاداری لوڈ ہو رہی ہے…',
-  'account.loyalty.pointsTowardNext': '{{پوائنٹس}} / {{اگلا}} کی طرف اشارہ کرتا ہے۔ {{اگلا درجہ}}',
+  'account.loyalty.maxTier': 'ٹاپ ٹیئر — اپنے فوائد سے لطف اندوز ہوں۔',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} پوائنٹس سے {{nextTier}}',
   'account.loyalty.tier': 'موجودہ درجہ',
   'account.loyalty.unavailable': 'وفاداری کی معلومات دستیاب نہیں ہے۔',
   'account.navLabel': 'اکاؤنٹ کے حصے',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'بکنگ کی تصدیق کریں · {{total}}',
   'bookingCheckout.datesRequired': 'براہ کرم اپنے چیک ان اور چیک آؤٹ کی تاریخیں چنیں۔',
   'bookingCheckout.guestHeading': 'مہمان خصوصی',
+  'bookingCheckout.heading': 'تصدیق کریں اور بک کریں',
   'bookingCheckout.loadError': 'پراپرٹی لوڈ کرنے میں ناکام۔',
   'bookingCheckout.nights': '{{rate}} × {{count}} راتیں',
   'bookingCheckout.notFound': 'جائیداد نہیں ملی۔',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'ٹیکس اور فیس',
   'bookingCheckout.tripHeading': 'آپ کا سفر',
   'bookingConfirmation.allTripsCta': 'تمام دورے',
+  'bookingConfirmation.confNumber': 'تصدیقی نمبر: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'آپ کی ریزرویشن پر کارروائی ہو رہی ہے۔',
   'bookingConfirmation.heading': 'بکنگ کی تصدیق ہوگئی',
   'bookingConfirmation.loading': 'آپ کی ریزرویشن لوڈ ہو رہی ہے…',
   'bookingConfirmation.searchMoreCta': 'مزید قیام کو براؤز کریں۔',
   'bookingConfirmation.subheadingForTrip':
-    '{{پراپرٹی}} میں {{شہر}} , {{ملک}} . ہم آپ کو دیکھیں گے۔ {{چیک ان}} .',
+    '{{city}}، {{country}} میں {{property}}۔ ہم {{checkIn}} کو ملیں گے۔',
   'bookingConfirmation.total': 'کل {{total}}',
   'bookingConfirmation.viewTripCta': 'سفر دیکھیں',
   'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'پسندیدہ لوڈ کرنے میں ناکام۔',
   'favorites.pricePerNight': '{{price}} / رات',
   'favorites.removeCta': 'غیر محفوظ کریں۔',
+  'favorites.removing': 'ہٹا رہا ہے…',
   'forgotPassword.subheading':
     'اپنے اکاؤنٹ پر ای میل درج کریں اور ہم آپ کو ایک محفوظ ری سیٹ لنک بھیجیں گے۔',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'قیام کے ممبران',
   'landing.cta.heading': 'صرف اراکین کی شرح۔ ہر بکنگ، ہر بار۔',
   'landing.cta.signup': 'مفت اکاؤنٹ بنائیں',
+  'landing.cta.subheading':
+    'ہر قیام پر لائلٹی پوائنٹس کمائیں، لیٹ چیک آؤٹ اور کمرے کی اپ گریڈیشن حاصل کریں، اور نئی پراپرٹیز تک عوامی لسٹنگ سے پہلے رسائی حاصل کریں۔',
   'landing.destinations.eyebrow': 'آگے کہاں',
   'landing.destinations.heading': 'نمایاں منزلیں',
   'landing.destinations.seeAll': 'تمام منزلیں دیکھیں',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'کے لیے پیکنگ کے قابل کہانیاں',
   'landing.nav.join': 'سفر میں شامل ہوں۔',
   'landing.nav.search': 'تلاش باقی ہے۔',
+  'landing.preview.browseAll': 'مکمل کلیکشن دیکھیں',
   'landing.preview.eyebrow': 'اندر جھانکنا',
   'landing.preview.heading': 'اس مہینے ہاتھ سے چنے گئے قیام',
+  'landing.preview.subheading':
+    '{{appName}} پر ہر پراپرٹی کی تصدیق ہماری ایڈیٹوریل ٹیم خود کرتی ہے — نہ ایگریگیٹر انوینٹری، نہ دھوکے والی لسٹنگز۔',
   'login.eyebrow': 'ممبران کا علاقہ',
+  'login.noAccount': 'Tessera میں نئے ہیں؟',
   'login.signupLink': 'ایک مفت اکاؤنٹ بنائیں',
   'login.subheading':
     'اپنے دوروں کا نظم کرنے کے لیے سائن ان کریں، تصدیقات دیکھیں اور وہیں سے شروع کریں جہاں سے آپ نے چھوڑا تھا۔',
+  'loyaltyTierBadge.points': '{{points}} پوائنٹس',
   'planUpdated.heading': 'پلان اپ ڈیٹ ہو گیا۔',
+  'planUpdated.retry': 'دوبارہ کوشش کریں۔',
+  'planUpdated.verifyFailed': 'ہم ابھی تک آپ کی ادائیگی کی تصدیق نہیں کر سکے۔',
+  'planUpdated.verifyFailedBody':
+    'ہو سکتا ہے آپ کی ادائیگی پر ابھی بھی کارروائی ہو رہی ہو۔ ایک لمحے میں دوبارہ کوشش کریں۔',
   'planUpdated.verifying': 'آپ کی ادائیگی کی تصدیق ہو رہی ہے…',
   'pricing.limit.advancedFeatures': 'اعلی درجے کی خصوصیات:',
   'pricing.limit.canExport': 'ڈیٹا ایکسپورٹ:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'یہ جگہ کیا پیش کرتی ہے۔',
   'propertyDetail.backLink': 'تلاش پر واپس جائیں۔',
   'propertyDetail.bookCta': 'ریزرو',
+  'propertyDetail.bookmarkAria': 'جائیداد کو بچائیں۔',
   'propertyDetail.bookmarkAriaSaved': 'محفوظ کردہ خصوصیات سے ہٹا دیں۔',
+  'propertyDetail.galleryImageAlt': '{{name}} تصویر {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} ہیرو کی تصویر',
   'propertyDetail.hidePhotos': 'فوٹو چھپائیں۔',
   'propertyDetail.lineCleaning': 'صفائی کی فیس',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'رات',
   'propertyDetail.noChargeYet': 'آپ سے ابھی چارج نہیں لیا جائے گا۔',
   'propertyDetail.notFound': 'جائیداد نہیں ملی۔',
+  'propertyDetail.perNight': '/ رات',
+  'propertyDetail.pickDatesHint': 'مکمل قیمت کی تفصیل دیکھنے کے لیے اپنی تاریخیں منتخب کریں۔',
   'propertyDetail.reviewCount': '( {{count}} جائزے)',
   'propertyDetail.reviewsHeading': 'حالیہ جائزے',
   'propertyDetail.roomCapacity': 'سوتا ہے۔ {{count}}',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'نیا پاس ورڈ',
   'resetPassword.subheading':
     'اپنے Auberge اکاؤنٹ کے لیے ایک نیا پاس ورڈ منتخب کریں۔ کم از کم 8 حروف کا استعمال کریں؛ ہم ایک پاسفریز تجویز کرتے ہیں۔',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'کوئی خاصیت آپ کی تلاش سے مماثل نہیں ہے۔',
   'searchResults.emptyHint':
     'اپنے فلٹرز کو وسیع کرنے یا قیمت کی حد کو ہٹانے کی کوشش کریں — Auberge کا قیام 14 ممالک میں ہے۔',
@@ -108,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'کیوریٹ شدہ قیام',
   'searchResults.headingForQuery': 'کے لیے رہتا ہے" {{q}} "',
   'searchResults.loadError': 'پراپرٹیز لوڈ کرنے میں ناکام۔',
+  'searchResults.mapHint':
+    'نقشے پر نمایاں کرنے کے لیے کارڈ پر ہوور کریں۔ پروڈکشن میں لائیو Mapbox ٹائلیں۔',
   'searchResults.mapPinAria': '{{name}} — {{price}} فی رات',
   'searchResults.sortLabel': 'ترتیب دیں',
   'searchResults.subheading': '{{count}} خواص {{guests}} مہمان',
   'signup.eyebrow': 'ممبر بنیں۔',
   'signup.subheading':
     'صرف اراکین کی شرحوں، دیر سے چیک آؤٹ، اور نئی پراپرٹیز تک پہلی رسائی کو غیر مقفل کرنے کے لیے Auberge میں شامل ہوں۔',
+  'sojournAuthShell.brand.eyebrow': 'کہیں غیر معمولی قیام کریں',
+  'sojournAuthShell.brand.heading':
+    'پراپرٹیز کا ایک منتخب کلیکشن — خوبصورتی سے پیش کردہ، شفاف قیمتوں کے ساتھ۔',
   'sojournHeroSearchCard.checkInAria': 'چیک ان کی تاریخ',
   'sojournHeroSearchCard.checkOutAria': 'چیک آؤٹ کی تاریخ',
+  'sojournHeroSearchCard.destAria': 'منزل',
+  'sojournHeroSearchCard.destLabel': 'کہاں',
   'sojournHeroSearchCard.destPlaceholder': 'شہر، علاقہ، یا جائیداد',
   'sojournHeroSearchCard.eyebrow': 'کیوریٹ شدہ قیام · صرف اراکین کے لیے نرخ',
   'sojournHeroSearchCard.guestsOption': '{{n}} مہمان',
   'sojournHeroSearchCard.subtitle':
     'بوتیک ہوٹلوں، ڈیزائن فارورڈ پراپرٹیز، اور نایاب تلاش کرنے والے اعتکاف کا ایک کیوریٹڈ مجموعہ - شفاف قیمت، خوبصورتی سے پیش کیا گیا۔',
+  'sojournHeroSearchCard.title': 'کہیں غیر معمولی قیام کریں',
+  'sojournHeroSearchCard.trustLoyalty': 'ہر قیام پر پوائنٹس کمائیں',
   'sojournHeroSearchCard.trustNoFees': 'کوئی پوشیدہ فیس، کبھی نہیں۔',
   'sojournHeroSearchCard.trustVetted': 'صرف ہاتھ سے جانچی گئی خصوصیات',
   'sojournLayout.primaryNavLabel': 'بنیادی نیویگیشن',

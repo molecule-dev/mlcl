@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'تواصل معنا',
   'about.eyebrow': 'حول',
+  'about.featureConnections':
+    'مدير اتصالات يخزّن قواعد بياناتك بأمان ويمنحها ألوانًا مميزة — تُشفَّر بيانات الاعتماد عند التخزين، ولا تُحفظ أبدًا كنص صريح.',
+  'about.featureMonitoring':
+    'مراقبة مباشرة لأداء الاستعلامات ونشاط قاعدة البيانات، مع اختصارات لوحة المفاتيح ولوحة الأوامر للتحكم بكل شيء دون استخدام اليدين.',
+  'about.featurePlans':
+    'خطط تنمو معك — مجانية للعمل الفردي، وPro وTeam لمزيد من الاتصالات ومدة احتفاظ أطول بالاستعلامات وعمليات التصدير وميزات متقدمة.',
+  'about.featureQueryEditor':
+    'محرر SQL مدعوم بـ Monaco مع سجل الاستعلامات والاستعلامات المحفوظة وتصدير النتائج إلى CSV بنقرة واحدة.',
+  'about.featureSchema':
+    'مستكشف المخطط ومتصفح الجداول للتنقل بين قواعد البيانات والجداول والأعمدة، ثم تصفح الصفوف وتصفيتها وتحريرها مباشرة.',
+  'about.missionTitle': 'مهمتنا',
   'authShell.commands': 'الأوامر',
   'authShell.ssoSupported': 'تسجيل الدخول الموحّد مدعوم',
   'common.run': 'تشغيل',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'الاستعلامات',
   'connections.schema': 'المخطط',
   'connections.subtitle': 'إدارة اتصالات قواعد البيانات الخاصة بك.',
+  'connections.test': 'اختبار',
   'databaseAdminLayout.adminRole': 'دور المسؤول',
   'databaseAdminLayout.commandPalette': 'لوحة الأوامر',
   'databaseAdminLayout.commands': 'أوامر',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'اتصال جديد',
   'databaseAdminLayout.queries': 'الاستعلامات',
   'databaseAdminLayout.ready': 'جاهز',
+  'databaseAdminLayout.searchPlaceholder': '⌘K ابحث في الأوامر والاستعلامات والجداول…',
   'databaseAdminLayout.user': 'المستخدم',
   'editConnection.confirmDelete': 'هل تريد حذف هذا الاتصال؟',
   'editConnection.deleteButton': 'حذف الاتصال',
+  'editConnection.newPassword': 'كلمة مرور جديدة (اتركها فارغة للإبقاء على الحالية)',
   'editConnection.saved': 'تم حفظ الاتصال.',
   'editConnection.title': 'تعديل الاتصال',
   'forgotPassword.success': 'إذا كان الحساب موجوداً، فإن رابط إعادة التعيين في طريقه إليك.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'الإنجازات',
   'monitoring.title': 'المراقبة',
   'monitoring.totalQueries': 'إجمالي الاستعلامات',
+  'nav.schema': 'المخطط',
   'newConnection.database': 'قاعدة البيانات',
   'newConnection.engine': 'المحرك',
   'newConnection.host': 'المضيف',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'لا يوجد اتصال مرتبط بهذا المقتطف.',
   'savedQuery.notBound': 'غير مرتبط',
   'savedQuery.title': 'الاستعلام المحفوظ',
+  'schema.columns': 'الأعمدة',
   'schema.foreignKeys': 'المفاتيح الخارجية',
   'schema.indexes': 'الفهارس',
   'schemaExplorer.browseRows': 'تصفح الصفوف',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'قابلة للإغفال',
   'schemaExplorer.colType': 'النوع',
   'schemaExplorer.noColumns': 'لا توجد أعمدة.',
+  'schemaExplorer.noForeignKeys': 'لا توجد مفاتيح خارجية.',
   'schemaExplorer.noIndexes': 'لا توجد فهارس.',
   'schemaExplorer.noTables': 'لا توجد جداول',
   'schemaExplorer.pickATable': 'اختر جدولاً من الشريط الجانبي.',
   'schemaExplorer.tables': 'الجداول',
   'schemaExplorer.title': 'مستكشف المخطط',
+  'settings.session': 'الجلسة',
   'settings.subtitle': 'إدارة حسابك وخطتك.',
   'signup.heading': 'أنشئ حسابك في Quarry',
   'signup.tagline': 'ابدأ الوصول في أقل من دقيقة.',
   'tableBrowser.noRows': 'لا يحتوي هذا الجدول على أي صفوف حتى الآن.',
+  'tableBrowser.subtitle': 'تصفح الصفوف من قاعدة بياناتك البعيدة.',
   'tableBrowser.title': 'تصفح الصفوف من قاعدة البيانات البعيدة الخاصة بك.',
 }

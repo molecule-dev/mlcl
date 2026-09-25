@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ունե՞ք արձագանք, գտե՞լ եք սխալ, թե՞ ցանկանում եք {{app}}-ը բերել ձեր դպրոց կամ թիմ։ Մենք կարդում ենք ամեն հաղորդագրություն․ գրեք ձեր հաշվի կարգավորումներից, և իրական մարդը կպատասխանի։',
   'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
+  'about.intro':
+    '{{app}}-ը ամենօրյա բառային գլուխկոտրուկ է։ Գուշակեք հինգ տառից բաղկացած բառը վեց փորձով, պահպանեք ձեր շարքը, կիսվեք ձեր էմոջի ցանցով և տեսեք, թե ինչպես անցավ բոլորի մոտ այսօրվա բառը։',
+  'about.missionBody':
+    'Լավ գլուխկոտրուկը օրական փոքր հաղթանակ է։ {{app}}-ը կառուցված է օրական մեկ ընդհանուր բառի շուրջ․ բավական արագ՝ սուրճի ընդմիջման համար, բավական հետաքրքիր՝ վաղը նորից վերադառնալու համար։',
+  'about.missionTitle': 'Մեր առաքելությունը',
   'about.title': '{{app}}-ի մասին',
   'archive.loadError': 'Հնարավոր չեղավ բեռնել արխիվը։',
   'archive.missed': 'Բաց թողնված',
   'archive.notPlayed': 'Չխաղացված',
+  'archive.subhead':
+    'Խաղացեք ցանկացած անցած օր որպես մարզում․ ոչ շարքեր, ոչ վիճակագրություն, միայն հաճույք։',
   'archive.title': 'Արխիվ',
   'auth.backToHome': 'Վերադառնալ գլխավոր',
   'auth.backToHomeArrow': '← Վերադառնալ գլխավոր',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Մոռացե՞լ եք գաղտնաբառը',
   'auth.login.loggingIn': 'Մուտք եք գործում…',
   'auth.login.logIn': 'Խաղացեք այսօրվա բառը',
+  'auth.login.noAccount': 'Նորեկ եք Tessera-ում։',
   'auth.login.or': 'կամ շարունակել',
   'auth.login.password': 'Գաղտնաբառ',
   'auth.login.signInButton': 'Մուտք',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Պահպանվում է…',
   'common.sendingEllipsis': 'Ուղարկվում է…',
   'common.startingEllipsis': 'Սկսվում է…',
+  'forgotPassword.subhead':
+    'Մուտքագրեք ձեր էլ. փոստը, և մենք ձեզ կուղարկենք հղում՝ վերագործարկելու համար։',
+  'forgotPassword.success.body':
+    'Եթե հաշիվ գոյություն ունի {{email}} , դուք կստանաք վերակայման հղում մի քանի րոպեից։',
+  'forgotPassword.success.title': 'Ստուգեք ձեր էլ. փոստարկղը։',
   'form.name': 'Անուն',
   'howToPlay.cta.home': 'Վերադարձ դեպի տուն',
   'howToPlay.cta.play': 'Խաղացեք այսօրվա հանելուկը',
@@ -68,10 +83,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Շարքեր, որոնք չեք ուզում կոտրել',
   'leaderboard.daily.title': 'Այսօրվա լուծումները',
   'leaderboard.loadError': 'Հնարավոր չեղավ բեռնել առաջատարների ցուցակը։',
+  'leaderboard.streaks.empty': 'Դեռ շարքեր չկան․ եղեք առաջինը։',
+  'leaderboard.streaks.subhead': 'Բոլոր ժամանակների ամենաերկար հաղթական շարքերը։',
   'leaderboard.streaks.title': 'Շարքերի առաջատարներ',
+  'leaderboard.subhead': 'Ինչպես անցավ բոլորի մոտ այսօր, և ով ունի ամենաերկար շարքերը։',
   'leaderboard.title': 'Առաջատարների ցուցակ',
   'login.headline': 'Բարի վերադարձ։',
   'login.streakPill': '{{days}} օրվա շարքը սպասում է',
+  'login.subhead':
+    'Մուտք գործեք՝ ձեր շարքը պահպանելու և տեսնելու, թե ինչպես անցավ ձեր մոտ այսօրվա բառը։',
   'nav.archive': 'Արխիվ',
   'nav.editProfile': 'Խմբագրել պրոֆիլը',
   'nav.getStarted': 'Սկսել',
@@ -89,6 +109,9 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Այդպիսի բառ չկա',
   'notFound.title': 'Այդ ուղին դատարկ է։',
   'planUpdated.message': 'Ձեր պլանը ակտիվ է։',
+  'planUpdated.retry': 'Փորձեք կրկին',
+  'planUpdated.verifyFailed': 'Մենք դեռ չենք կարող հաստատել ձեր վճարումը։',
+  'planUpdated.verifyFailedBody': 'Ձեր վճարումը կարող է դեռ մշակվել։ Փորձեք կրկին մի փոքր ուշ։',
   'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'play.alreadyFinished': 'Դուք արդեն ավարտել եք այս հանելուկը',
   'play.answerWas': 'Բառը եղել է',
@@ -104,6 +127,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Պրակտիկա հանելուկ',
   'play.tooShort': 'Բավարար տառեր չկան',
   'play.won': 'Լուծեցիք՛',
+  'pricing.advancedStats': 'Ընդլայնված վիճակագրություն․ {{yes}}',
+  'pricing.archiveHistory': '{{count}} օր արխիվային պատմություն',
+  'pricing.archivePlays': '{{count}} արխիվային կրկնախաղ / օր',
+  'pricing.archiveUnlimited': 'Անսահմանափակ արխիվային պատմություն',
+  'pricing.canExport': 'Տվյալների արտահանում՝ {{yes}}',
+  'pricing.checkoutError': 'Հնարավոր չէ սկսել վճարումը։ Խնդրում ենք կրկին փորձել։',
   'pricing.dailyWord': 'Օրվա բառը',
   'pricing.heading': 'Ընտրեք ձեր {{app}} պլանը',
   'pricing.included': 'Ներառված է',
@@ -111,7 +140,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Օրվա բառը միշտ անվճար է։ Արդիականացրեք՝ ստանալու անսահմանափակ արխիվի վերախաղ և ավելի մանրակրկիտ վիճակագրություն։',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}}-ը հարգում է ձեր գաղտնիությունը։ Այս էջը ամփոփում է, թե ինչ տվյալներ ենք պահում, ինչու ենք պահում և ինչպես հեռացնել դրանք։',
   'privacy.title': 'Գաղտնիության ծանուցում',
+  'resetPassword.subhead': 'Ընտրեք նոր գաղտնաբառ՝ ձեր շարքին վերադառնալու համար։',
   'settings.account': 'Հաշիվ',
   'settings.danger.body':
     'Ընդմիշտ հեռացնել ձեր {{appName}} հաշիվը և հանելուկների ամբողջ պատմությունը։',
@@ -121,17 +153,24 @@ export const ui: UiTranslations = {
   'settings.guest': 'Հյուր',
   'settings.language.title': 'Լեզու',
   'settings.subhead': 'Կարգավորեք ձեր պրոֆիլը, ձայնը և թե ինչպես եք երևում առաջատարների ցուցակում։',
+  'settings.unnamed': 'Sparq խաղացող',
   'settings.upgrade': 'Արդիականացնել',
   'signup.eyebrow': 'Անվճար ընդմիշտ — մեկ բառ օրը',
   'signup.headline': 'Սկսեք ձեր շարքը։',
+  'signup.subhead':
+    'Ստեղծեք {{appName}} հաշիվ՝ ամենօրյա բառը խաղալու, շարք կառուցելու և առաջատարների աղյուսակում բարձրանալու համար։',
   'stats.currentStreak': 'Շարք',
   'stats.distribution.title': 'Կռահումների բաշխում',
   'stats.loadError': 'Հնարավոր չեղավ բեռնել ձեր վիճակագրությունը։',
   'stats.maxStreak': 'Մաքս շարք',
   'stats.played': 'Խաղացված',
   'stats.playToday': 'Խաղացեք այսօրվա հանելուկը',
+  'stats.subhead':
+    'Միայն վարկանիշային ամենօրյա գլուխկոտրուկները․ արխիվային մարզումը երբեք չի հաշվվում։',
   'stats.title': 'Ձեր վիճակագրությունը',
   'stats.winRate': 'Հաղթանակների տոկոս',
   'status.monthly': 'Ամսական',
+  'terms.intro':
+    'Օգտագործելով {{app}}-ը՝ դուք համաձայնում եք ստորև ներկայացված կանոններին։ Եթե չեք կարող ընդունել դրանք, խնդրում ենք չօգտվել ծառայությունից։',
   'terms.title': 'Ծառայության պայմաններ',
 }

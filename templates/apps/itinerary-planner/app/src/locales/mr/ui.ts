@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'अभिप्राय आहे, बग सापडला, किंवा काहीतरी महत्त्वाकांक्षी योजना आखत आहात? तुमच्या खाते सेटिंग्जमधून आमच्याशी संपर्क साधा — प्रत्येक संदेश संघातील खऱ्या व्यक्तीपर्यंत पोहोचतो.',
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'एकाच इनबॉक्समध्ये बुकिंग्ज — फ्लाइट, हॉटेल आणि अॅक्टिव्हिटी पुष्टीकरणे त्यांच्या नेमक्या दिवशी येतात.',
+  'about.featureCollab':
+    'रिअल-टाइम सहयोग — प्रत्येक ट्रिपसाठी पाच प्रवाशांपर्यंत आमंत्रित करा, प्रत्येक बदल लाइव्ह सिंक होतो आणि प्रत्येक थांब्याखाली टिप्पण्या थ्रेड होतात.',
+  'about.featureMapsBudget':
+    'नकाशे, ठिकाणे आणि सामायिक बजेट — संपूर्ण ट्रिप नकाशावर पाहा, संपादक-निवडलेली ठिकाणे शोधा आणि खर्च ट्रॅक करा जेणेकरून कोणीही जास्त खर्च करणार नाही.',
+  'about.featureTimelines':
+    'दिवस-निहाय टाइमलाइन — थांबे ड्रॅग करून पुन्हा क्रमवारी लावा, वाहतूक विभाग टाका आणि एक जिवंत दस्तऐवज म्हणून इटिनररी पुन्हा गणना होताना पाहा.',
+  'about.intro':
+    '{{app}} अर्धवट योजनांनी भरलेले फोल्डर एका सामायिक ट्रिपमध्ये बदलते जी तुमचा संपूर्ण गट खरोखर अनुसरू शकतो. दिवस-निहाय इटिनररी तयार करा, फ्लाइट आणि हॉटेल टाका, प्रत्येक थांबा नकाशावर दाखवा आणि बजेट ट्रॅक करा — डझनभर टॅब आणि ग्रुप चॅटऐवजी एकाच शांत जागी.',
+  'about.missionBody':
+    'प्रवास नियोजन अभ्यासासारखे नव्हे, तर ट्रिप आधीच सुधारत असल्यासारखे वाटले पाहिजे. सहयोगी ट्रिप सहज करण्यासाठी {{app}} अस्तित्वात आहे — जेणेकरून प्रत्येक प्रवासी योजना माहीत असल्याने येईल आणि प्रत्येक थांबा लक्षात ठेवण्यासारखी कथा सांगेल.',
+  'about.missionTitle': 'आमचे ध्येय',
   'about.pageTitle': '{{app}} बद्दल',
   'auth.legalConsent': 'सुरू ठेवून, तुम्ही आमच्या यांना सहमती देता',
   'bookings.empty.body': 'इनबॉक्स सुरू करण्यासाठी फ्लाइट, हॉटेल किंवा ॲक्टिव्हिटी जोडा.',
@@ -29,7 +45,11 @@ export const ui: UiTranslations = {
   'bookings.type.flight': 'उड्डाण',
   'bookings.type.hotel': 'हॉटेल',
   'bookings.type.other': 'इतर',
+  'budgetSpendCard.budgetTotal': '{{total}} पैकी नियोजित',
+  'budgetSpendCard.overBy': '{{amount}} बजेटपेक्षा जास्त',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} अलीकडील',
+  'budgetSpendCard.remaining': '{{amount}} शिल्लक',
   'calendar.eyebrow': 'पुढील वर्ष',
   'calendar.heading': 'प्रत्येक सहल एकाच कॅलेंडरवर.',
   'calendar.legendHeading': 'या महिन्यातील सहली',
@@ -40,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'आणि',
   'common.goToDashboard': 'डॅशबोर्डवर जा',
   'dashboard.budgetHeading': 'अर्थसंकल्पीय नाडी',
+  'dashboard.empty.body':
+    'तुमची पहिली ट्रिप नियोजित करा आणि तुमचे डॅशबोर्ड दिवस-निहाय टाइमलाइन, बजेट पल्स आणि बुकिंग्जने भरले जाईल.',
+  'dashboard.empty.cta': 'तुमची पहिली ट्रिप नियोजित करा',
   'dashboard.empty.heading': 'अद्याप कोणतीही सफर नाही — तुमचा नकाशासंग्रह कोरा आहे.',
   'dashboard.eyebrow': 'मिशन नियंत्रण',
   'dashboard.heading': 'तुमचे पुढचे साहस, एका शांत कोपऱ्यात.',
   'dashboard.newTripCta': 'नवीन प्रवासाला सुरुवात करा',
+  'dashboard.subheading':
+    'पुढील ट्रिपची उलटी गिनती, आजचा खर्च पल्स आणि चालू असलेल्या प्रत्येक इटिनररीवर एक झलक.',
   'dashboard.tripsHeading': 'गतिमान प्रवास',
   'dashboard.viewAllExpenses': 'प्रत्येक खर्च पहा',
   'dashboard.viewAllTrips': 'प्रत्येक सहल पहा',
   'dayTimelineRow.category.accommodation': 'राहा',
+  'dayTimelineRow.category.food': 'अन्न आणि पेय',
+  'dayTimelineRow.category.sightseeing': 'पर्यटन',
   'dayTimelineRow.category.transport': 'वाहतूक',
   'destinationOrbCard.exploreCta': 'प्रवासात जोडा',
   'destinationOrbCard.tripCount': '{{count}} सहली',
+  'destinations.empty.body': 'All वर परत स्विच करा आणि संपादक शोध पुन्हा दिसतील.',
   'destinations.empty.heading': 'अद्याप कोणतीही ठिकाणे निश्चित नाहीत.',
+  'destinations.emptyFiltered.heading': 'अजून असे काहीही टॅग केलेले नाही.',
   'destinations.errors.load': 'गंतव्ये लोड करता आली नाहीत.',
   'destinations.eyebrow': 'पुढे कुठे जायचे?',
   'destinations.heading': 'वाचवलेले कोपरे आणि संपादकाने शोधलेल्या गोष्टी.',
@@ -69,7 +98,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'विक्रेता',
   'expenses.formHeading': 'लॉग खर्चासाठी {{trip}}',
   'expenses.heading': 'सहलीचा निधी नेमका कुठे खर्च होतो.',
+  'expenses.heroBudget': '{{total}} पैकी {{pct}}% नियोजित',
   'expenses.heroEyebrow': '{{trip}} • अर्थसंकल्पाचा आढावा',
+  'expenses.heroNoBudget': 'या ट्रिपवर अजून बजेट सेट केलेले नाही.',
   'expenses.noTrips.body': 'सर्वप्रथम सहलीचे नियोजन करा — खर्च सहलीच्या अंदाजपत्रकाशी जोडा.',
   'expenses.noTrips.heading': 'अद्याप एकही सहल नाही.',
   'expenses.receiptCount': '{{count}} पावत्या',
@@ -81,12 +112,16 @@ export const ui: UiTranslations = {
     'येथे प्रत्येक पावती आणि पुष्टी योग्य श्रेणीमध्ये समाविष्ट होते – स्प्रेडशीटची आवश्यकता नाही.',
   'forgotPassword.eyebrow': 'तुमचा प्रवास कार्यक्रम परत मिळवा',
   'forgotPassword.heading': 'तुम्ही तुमचा पासवर्ड विसरलात का?',
+  'forgotPassword.subheading':
+    '{{appName}} साठी वापरलेला ईमेल टाका आणि आम्ही तुमचा पासवर्ड रीसेट करण्यासाठी लिंक पाठवू.',
   'forgotPassword.submit': 'पुनर्प्राप्ती ईमेल पाठवा',
   'forgotPassword.submitPending': 'पुनर्प्राप्ती ईमेल पाठवत आहे…',
   'forgotPassword.successHint':
     'अद्याप ईमेल आला नाही? तुमचा स्पॅम फोल्डर तपासा, किंवा दुसऱ्या पत्त्याने पुन्हा प्रयत्न करा.',
   'forgotPassword.successSubheading':
     'आम्ही रिकव्हरी लिंक पाठवली {{email}} ही लिंक ३० मिनिटांसाठी वैध आहे.',
+  'forgotPassword.tryAgain': 'वेगळ्या ईमेलवर पाठवा',
+  'landing.cta.eyebrow': 'मोफत प्लॅनवर सुरू करा',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'मोफत खाते तयार करा',
   'landing.cta.subheading':
@@ -98,8 +133,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'मोफत प्रवासाला सुरुवात करा',
   'landing.hero.ctaSecondary': 'नमुना सहल पहा',
+  'landing.hero.eyebrow': 'ट्रिप प्लॅनर · {{tagline}}',
   'landing.hero.subtitle':
     'वेपॉइंट अर्धवट तयार योजनांनी भरलेल्या फोल्डरचे रूपांतर एका सामायिक, दिवस-दिवसाच्या प्रवासवर्णनात करते, ज्याचे तुमचा गट प्रत्यक्षात पालन करू शकतो — यामध्ये बुकिंग, नकाशे आणि बजेट एकाच ठिकाणी ट्रॅक केले जाते.',
+  'landing.hero.title': 'एकदा नियोजन करा. एकत्र फिरा.',
   'landing.nav.join': 'मोफत प्रवासाला सुरुवात करा',
   'landing.nav.preview': 'वेपॉइंटच्या आत',
   'landing.preview.cta': 'तुमच्या स्वतःच्या एकाची योजना करा',
@@ -107,6 +144,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'प्रवासी सध्या ज्या काही सहलींबद्दल विचार करत आहेत',
   'login.eyebrow': 'सदस्यांचे क्षेत्र',
   'login.heading': 'प्रवाशा, तुमचे पुन्हा स्वागत आहे.',
+  'login.noAccount': 'तुम्ही टेसेरासाठी नवीन आहात का?',
   'login.signupLink': 'मोफत खाते तयार करा',
   'login.subheading':
     'तुमच्या सहली, दिवसाचे नियोजन, आरक्षणे आणि तुम्ही आधीच सुरू केलेल्या रोजनिशीतील नोंदी व्यवस्थापित करण्यासाठी साइन इन करा.',
@@ -117,6 +155,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'सूचना अद्ययावत करता आली नाही.',
   'notifications.heading': 'आजच्या तुमच्या प्रवासात काय बदलले?',
   'notifications.markUnread': 'न वाचलेले म्हणून चिन्हांकित करा',
+  'notifications.subheading':
+    '{{count}} नवीन — बुकिंग पुष्टीकरणे, सहयोगी टिप्पण्या, भाडे घट आणि स्मरणपत्रे.',
   'notifications.time.daysAgo': '{{count}} डी पूर्वी',
   'notifications.time.hoursAgo': '{{count}} h पूर्वी',
   'notifications.time.justNow': 'आत्ताच',
@@ -135,6 +175,7 @@ export const ui: UiTranslations = {
     'कनेक्ट केलेल्या सेवा, चलन, पुश नोटिफिकेशन्स आणि तुम्ही साइन इन करण्यासाठी वापरत असलेली क्रेडेन्शियल्स.',
   'signup.and': 'आणि',
   'signup.eyebrow': 'वेपॉइंटमध्ये सामील व्हा',
+  'signup.haveAccount': 'आधीच भटकत आहात?',
   'signup.heading': 'एकदा नियोजन करा. एकत्र फिरा.',
   'signup.namePlaceholder': 'आयरीस लार्सन',
   'signup.subheading':
@@ -146,6 +187,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'प्रवासाचा तपशील उघडा',
   'tripCountdownHeroCard.ctaSecondary': 'दुसऱ्या सहलीचे नियोजन करा',
   'tripCountdownHeroCard.daysLabel': '{{days}} बाकी दिवस',
+  'tripCountdownHeroCard.eyebrow': 'पुढील साहस · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} रात्री — तुमची इटिनररी प्रवासासाठी तयार आहे.',
   'tripCoverCard.stops': '{{count}} थांबते',
   'tripCoverCard.travelers': '{{count}} प्रवासी',
   'tripDetail.addActivity': 'क्रियाकलाप जोडा',
@@ -155,6 +199,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'क्रियाकलापाचे शीर्षक',
   'tripDetail.adding': 'जोडणे…',
   'tripDetail.backToTrips': 'सर्व सहलींकडे परत जा',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'प्रवासी',
   'tripDetail.dayLabel': 'दिवस {{day}}',
   'tripDetail.empty': 'अद्याप कोणतीही कृती नाही — कालरेषा सुरू करण्यासाठी एक कृती जोडा.',
@@ -165,14 +210,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'प्रवासाचा तपशील • {{country}}',
   'tripDetail.invite': 'आमंत्रित करा',
   'tripDetail.inviteLabel': 'ईमेलद्वारे आमंत्रित करा',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'यांना आमंत्रण पाठवले {{email}} ...',
   'tripDetail.inviting': 'पाठवत आहे…',
   'tripDetail.loading': 'लोडिंग ट्रिप…',
   'tripDetail.noCollaborators': 'सध्यापुरतं फक्त तूच.',
+  'tripDetail.notesHeading': 'ट्रिप नोट्स',
   'tripDetail.notesPlaceholder': 'अद्याप नोंदी नाहीत.',
   'tripDetail.notFound.heading': 'ट्रिप सापडली नाही',
   'tripDetail.openBookings': 'बुकिंगसाठी इनबॉक्स उघडा.',
   'tripDetail.shareCopied': 'क्लिपबोर्डवर कॉपी केलेली शेअर लिंक:',
+  'tripDetail.shareReady': 'शेअर लिंक तयार:',
   'tripDetail.stops': '{{count}} थांबते',
   'tripDetail.timelineEyebrow': 'दिवसाची कालरेखा',
   'tripDetail.timelineHeading': 'दिवसागणिक योजना',
@@ -190,6 +238,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'प्रवासी',
   'tripPlanner.heading': 'एका मिनिटापेक्षा कमी वेळात प्रवासाची रूपरेषा तयार करा.',
   'tripPlanner.preview.eyebrow': 'थेट पूर्वावलोकन',
+  'tripPlanner.preview.placeholderCountry': 'देश निवडा',
   'tripPlanner.preview.placeholderDestination': 'तुमचे पुढील साहस',
   'tripPlanner.section1.title': 'कुठे आणि केव्हा',
   'tripPlanner.section2.title': 'प्रवासी आणि बजेट',
@@ -198,10 +247,13 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'दिवस {{day}} – येथे थांबे, वाहतूक आणि आरक्षणे जोडा.',
   'tripPlanner.section3.day2': 'दिवस {{day}} – येथे थांबे, वाहतूक आणि आरक्षणे जोडा.',
   'tripPlanner.section3.day3': 'दिवस {{day}} – येथे थांबे, वाहतूक आणि आरक्षणे जोडा.',
+  'tripPlanner.section3.title': 'दिवस योजना सुरुवात',
   'tripPlanner.subheading':
     'खाली मूलभूत माहिती भरा — तुम्ही नंतर कधीही सहकाऱ्यांना आमंत्रित करू शकता, थांबे जोडू शकता आणि बुकिंग पुढे पाठवू शकता.',
   'tripPlanner.submit': 'सहल तयार करा',
   'tripPlanner.submitting': 'तयार करत आहे…',
+  'trips.empty.body': 'All trips वर परत स्विच करा किंवा तुमचे पुढील भटकंती नियोजित करा.',
+  'trips.empty.cta': 'प्रवासाचे नियोजन करा',
   'trips.empty.heading': 'त्या फिल्टरशी जुळणारे अजून काहीही नाही.',
   'trips.eyebrow': 'अ‍ॅटलास',
   'trips.filterLabel': 'स्थितीनुसार सहली फिल्टर करा',
@@ -213,6 +265,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'अद्याप एकही सहल नाही.',
   'trips.pastHeading': 'मागील साहसे',
   'trips.subheading': '{{count}} प्रवासाचे आराखडे — भूतकाळातील, वर्तमानातील आणि भविष्यातील.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'एकदा नियोजित करा. एकत्र भटका. कायम लक्षात ठेवा.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · 2024 पासून {{appName}} सदस्य',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} ने चार देशांतील व्यस्त 3 आठवड्यांची ट्रिप आम्ही आजवर सामायिक केलेल्या सर्वात आरामदायी इटिनररीमध्ये बदलली.',
   'waypointLayout.mobileNavClose': 'नेव्हिगेशन मेनू बंद करा',
   'waypointLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
 }

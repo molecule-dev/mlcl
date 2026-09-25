@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Spørgsmål, feedback eller ønsker du en demo til dit team? Skriv til os på hello@conduit.dev — hver besked når en rigtig person på teamet.',
   'about.contactHeading': 'Kontakt os',
   'about.eyebrow': 'Om',
+  'about.featuresHeading': 'Hvad du får',
+  'about.introBody':
+    '{{app}} bringer GitHub Actions-lignende kontinuerlig levering ind i ét hurtigt dashboard: pipelines, build-logs, artifacts, statusbadges og deployment-miljøer for alle dine repositories på ét sted. Ingen hop mellem faner, ingen gætterier om hvilket build der gik i stykker — hvert run, hver loglinje og hver deploy er ét klik væk.',
+  'about.introHeading': 'Hvad {{app}} er',
+  'about.missionBody':
+    'At udgive software bør være roligt og forudsigeligt, ikke en kilde til frygt. Vi bygger pipelines, logs og deploy-værktøjer, så vejen fra commit til produktion er hurtig, synlig og troværdig — det første grønne build på fem minutter, og hvert build derefter lige så klart.',
+  'about.missionHeading': 'Vores mission',
+  'about.subtitle':
+    '{{app}} er et CI/CD-dashboard til teams, der vil overvåge builds, deployments og miljøer på tværs af alle repositories — og udgive med sikkerhed.',
   'artifacts.empty': 'Ingen artefakter endnu.',
   'artifacts.heading': 'Artefakter',
   'artifacts.loadError': 'Kunne ikke indlæse artefakter.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Miljøer',
   'environments.loadError': 'Kunne ikke indlæse miljøer.',
+  'environments.loading': 'Indlæser miljøer…',
   'environments.subheading': 'Live deployment-status på tværs af alle mål.',
   'forgotPassword.runnerStatus': 'nulstil · sikker tunnel',
+  'forgotPassword.success':
+    'Hvis der findes en konto for den e-mail, er et nulstillingslink på vej. Tjek din indbakke.',
   'insights.changeFailureRate': 'Fejlrate ved ændringer',
   'insights.deployFrequency': 'Deploys / dag',
   'insights.empty': 'Ikke nok data endnu.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Kunne ikke indlæse indsigt.',
   'insights.meanP95': 'gennemsnit {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Langsomste pipelinetrin',
   'insights.successRateHeading': 'Pipeline-succesrate (seneste 14 dage)',
   'landing.choosePlan': 'Vælg plan',
+  'landing.copyright': '© {{year}} {{app}}. Udgiv med sikkerhed.',
   'landing.ctaBody':
     'Intet kreditkort. Ingen platform-ingeniør nødvendig. Få den første pipeline grøn på fem minutter.',
   'landing.ctaHeading': 'Lever med sikkerhed.',
   'landing.featuresEyebrow': '// platform features',
   'landing.featuresHeading': 'Bygget af shippere, til shippere',
+  'landing.heroSubtitle':
+    'Pipelines der er færdige på sekunder. Logs du kan læse. Deploys du kan stole på.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Enkel, forudsigelig prissætning',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'I gang nu',
   'pipelines.metric.successCaption': '{{count}} af {{total}} kørsler',
   'pipelines.metric.successRate': 'Succesrate',
+  'pipelines.realtimeOn': 'realtime',
   'pipelines.subheading': 'Live-opdateringer fra alle overvågede repositories.',
+  'pricing.advancedFeatures': 'Avancerede funktioner: {{mark}}',
+  'pricing.canExport': 'Dataeksport: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artifacts',
+  'pricing.maxBuilds': '{{count}} builds',
+  'pricing.maxPipelines': '{{count}} pipelines',
   'privacy.dataAccount': 'Konto: navn, e-mail, hashet adgangskode, plantrin.',
   'privacy.intro':
     '{{app}} indsamler kun de minimumsdata, vi har brug for til at drive din continuous-delivery-konto: din e-mail, de repositories du tilslutter, de commits og build-metadata dine runners producerer, og de hemmeligheder du vælger at opbevare hos os. Vi læser aldrig din kildekode uden for build-runneren; build-artefakter gemmes i din S3-bucket, når det er konfigureret.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Vi bruger Stripe til fakturering, Mailgun til transaktionelle e-mails og AWS S3 til build-artefaktlagring. Hver er kontraktmæssigt bundet til det minimale omfang af data, der er nødvendigt for at levere sin tjeneste.',
   'privacy.rightsBody':
     'Du kan eksportere hver eneste byte af dine data, slette din konto når som helst fra Indstillinger og anmode om en oversigt over alle webhook-leveringer på din konto. Vi svarer på GDPR/CCPA-anmodninger inden for 30 dage.',
+  'privacy.subtitle':
+    'Hvordan {{app}} indsamler, opbevarer og beskytter dine data, mens vi kører dine pipelines.',
   'privacy.title': 'Privatlivspolitik',
   'repositories.empty': 'Ingen repositories tilsluttet.',
   'repositories.heading': 'Repositories',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Alle repositories',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Kunne ikke indlæse repository.',
+  'repositoryDetail.meanDuration': 'Gennemsnitlig varighed',
   'repositoryDetail.notFound': 'Repository ikke fundet.',
+  'repositoryDetail.successRate': 'Succesrate',
   'repositoryDetail.totalBuilds': 'Samlede builds',
   'repositoryDetail.webhookActive': 'aktiv',
   'repositoryDetail.webhookPaused': 'sat på pause',
   'repositoryDetail.webhooksHeading': 'Webhooks',
+  'resetPassword.passwordLabel': 'Ny adgangskode',
   'resetPassword.runnerStatus': 'nulstil · token bekræftet',
   'resetPassword.subtitle': 'Vælg en stærk adgangskode, du ikke har brugt før.',
   'resetPassword.tokenPlaceholder': 'indsæt fra e-mail',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Repositories som Conduit overvåger. Afbryd forbindelsen fra din VCS-udbyder for at stoppe med at modtage hændelser.',
   'settings.repositories.empty': 'Ingen repositories tilsluttet endnu.',
+  'settings.repositories.heading': 'Repository-forbindelser',
   'settings.repositories.loadError': 'Kunne ikke indlæse repositories.',
   'settings.secrets.addCta': 'Tilføj hemmelighed',
   'settings.secrets.addError': 'Det lykkedes ikke at tilføje hemmeligheden.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Det lykkedes ikke at slette hemmeligheden.',
   'settings.secrets.empty': 'Ingen hemmeligheder gemt.',
   'settings.secrets.heading': 'Hemmeligheder',
+  'settings.secrets.lastUsed': 'sidst brugt {{date}}',
   'settings.secrets.loadError': 'Kunne ikke indlæse hemmeligheder.',
   'settings.secrets.neverUsed': 'aldrig brugt',
   'settings.secrets.rotateCta': 'Roter',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Det lykkedes ikke at opdatere webhooket.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'gratis niveau · 1.000 build-min/md',
+  'terms.intro':
+    'Ved at oprette en {{app}}-konto accepterer du disse vilkår. De dækker acceptabel brug af build-runnerne, grænserne for vores SLA og betingelserne for, hvornår vi kan suspendere eller opsige din konto på grund af misbrug.',
   'terms.slaBody':
     'Pro- og Team-planer sigter mod 99,95% månedlig oppetid for API og runner-pulje. Gratisplanen leveres som den er. Nedetid rapporteres på status.conduit.dev og krediteres efter formlen i din faktura.',
   'terms.terminationBody':

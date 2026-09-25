@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tes dúbidas, suxestións ou queres unha demostración para o teu equipo? Escríbenos a hello@conduit.dev — cada mensaxe chega a unha persoa real do equipo.',
   'about.contactHeading': 'Ponte en contacto',
   'about.eyebrow': 'Acerca de',
+  'about.featuresHeading': 'O que obtés',
+  'about.introBody':
+    '{{app}} trae a entrega continua ao estilo de GitHub Actions nun único panel rápido: pipelines, rexistros de compilación, artefactos, insignias de estado e contornos de despregamento para todos os teus repositorios nun só lugar. Sen saltar entre pestanas, sen adiviñar que compilación fallou — cada execución, liña de rexistro e despregamento está a un clic.',
+  'about.introHeading': 'Que é {{app}}',
+  'about.missionBody':
+    'Publicar software debería ser tranquilo e previsible, non unha fonte de temor. Construímos os pipelines, os rexistros e as ferramentas de despregamento para que o camiño desde o commit ata produción sexa rápido, visible e fiable — a primeira compilación correcta en cinco minutos, e todas as seguintes igual de claras.',
+  'about.missionHeading': 'A nosa misión',
+  'about.subtitle':
+    '{{app}} é un panel de CI/CD para equipos que queren monitorizar compilacións, despregamentos e contornos en todos os repositorios — e publicar con certeza.',
   'artifacts.empty': 'Aínda non hai artefactos.',
   'artifacts.heading': 'Artefactos',
   'artifacts.loadError': 'Non se puideron cargar os artefactos.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduto env --list',
   'environments.heading': 'Ambientes',
   'environments.loadError': 'Non se puideron cargar os entornos.',
+  'environments.loading': 'Cargando entornos…',
   'environments.subheading': 'Estado do despregamento en directo en cada obxectivo.',
   'forgotPassword.runnerStatus': 'reiniciar · túnel seguro',
+  'forgotPassword.success':
+    'Se existe unha conta para ese correo electrónico, unha ligazón de restablecemento está en camiño. Consulta a túa caixa de entrada.',
   'insights.changeFailureRate': 'Taxa de fallo de cambios',
   'insights.deployFrequency': 'Implementacións / día',
   'insights.empty': 'Aínda non hai datos suficientes.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Non se puideron cargar as estatísticas.',
   'insights.meanP95': 'significar {{mean}} · páx. 95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Pasos de pipeline máis lentos',
   'insights.successRateHeading': 'Taxa de éxito da canle (últimos 14 días)',
   'landing.choosePlan': 'Escolle o plan',
+  'landing.copyright': '© {{year}} {{app}}. Publica con certeza.',
   'landing.ctaBody':
     'Sen tarxeta de crédito. Non se precisa enxeñeiro de plataforma. Consigue que a primeira canle estea verde en cinco minutos.',
   'landing.ctaHeading': 'Envía con certeza.',
   'landing.featuresEyebrow': '// características da plataforma',
   'landing.featuresHeading': 'Construído por transportistas, para transportistas',
+  'landing.heroSubtitle':
+    'Pipelines que rematan en segundos. Rexistros que podes ler. Despregamentos nos que podes confiar.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit despregar --de forma segura',
   'landing.pricingEyebrow': '// prezos de $ --plain',
   'landing.pricingHeading': 'Prezos sinxelos e predicibles',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'En voo agora',
   'pipelines.metric.successCaption': '{{count}} de {{total}} carreiras',
   'pipelines.metric.successRate': 'Taxa de éxito',
+  'pipelines.realtimeOn': 'tempo real',
   'pipelines.subheading': 'Actualizacións en directo de cada repositorio vixiado.',
+  'pricing.advancedFeatures': 'Funcionalidades avanzadas: {{mark}}',
+  'pricing.canExport': 'Exportación de datos: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artefactos',
+  'pricing.maxBuilds': '{{count}} compilacións',
+  'pricing.maxPipelines': '{{count}} pipelines',
   'privacy.dataAccount': 'Conta: nome, correo electrónico, contrasinal con hash, nivel do plan.',
   'privacy.intro':
     '{{aplicación}} recompila só os datos mínimos que precisamos para operar a túa conta de entrega continua: o teu correo electrónico, os repositorios aos que te conectas, os commits e os metadatos de compilación que producen os teus executores e os segredos que decides almacenar connosco. Nunca lemos o teu código fonte fóra do executor de compilación; os artefactos de compilación almacénanse no teu depósito de S3 cando se configuran.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Usamos Stripe para a facturación, Mailgun para o correo electrónico transaccional e AWS S3 para o almacenamento de artefactos de compilación. Cada unha delas está obrigada contractualmente ao alcance mínimo de datos necesarios para prestar o seu servizo.',
   'privacy.rightsBody':
     'Podes exportar cada byte dos teus datos, eliminar a túa conta en calquera momento desde Configuración e solicitar un rexistro de cada entrega de webhook na túa conta. Respondemos ás solicitudes do RGPD/CCPA nun prazo de 30 días.',
+  'privacy.subtitle':
+    'Como {{app}} recolle, almacena e protexe os teus datos mentres executamos os teus pipelines.',
   'privacy.title': 'Política de privacidade',
   'repositories.empty': 'Non hai repositorios conectados.',
   'repositories.heading': 'Repositorios',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Todos os repositorios',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Non se puido cargar o repositorio.',
+  'repositoryDetail.meanDuration': 'Duración media',
   'repositoryDetail.notFound': 'Non se atopou o repositorio.',
+  'repositoryDetail.successRate': 'Taxa de éxito',
   'repositoryDetail.totalBuilds': 'Total de compilacións',
   'repositoryDetail.webhookActive': 'activo',
   'repositoryDetail.webhookPaused': 'pausado',
   'repositoryDetail.webhooksHeading': 'Webhooks',
+  'resetPassword.passwordLabel': 'Novo contrasinal',
   'resetPassword.runnerStatus': 'restablecer · token verificado',
   'resetPassword.subtitle': 'Escolle un contrasinal forte que non teñas usado antes.',
   'resetPassword.tokenPlaceholder': 'pegar desde o correo electrónico',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Vixilancias de condutos de repositorios. Desconéctese do provedor de VCS para deixar de inxerir eventos.',
   'settings.repositories.empty': 'Aínda non hai repositorios conectados.',
+  'settings.repositories.heading': 'Conexións de repositorios',
   'settings.repositories.loadError': 'Non se puideron cargar os repositorios.',
   'settings.secrets.addCta': 'Engadir segredo',
   'settings.secrets.addError': 'Non se puido engadir o segredo.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Non se puido eliminar o segredo.',
   'settings.secrets.empty': 'Sen segredos gardados.',
   'settings.secrets.heading': 'Segredos',
+  'settings.secrets.lastUsed': 'usado por última vez {{date}}',
   'settings.secrets.loadError': 'Non se puideron cargar os segredos.',
   'settings.secrets.neverUsed': 'nunca usado',
   'settings.secrets.rotateCta': 'Rotar',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Non se puido actualizar o webhook.',
   'signup.namePlaceholder': 'Parque Riley',
   'signup.runnerStatus': 'nivel gratuíto · 1.000 compilacións mínimas/mes',
+  'terms.intro':
+    'Ao crear unha conta {{app}} aceptas estes termos. Cobren o uso aceptable dos executores de compilación, os límites do noso SLA e as condicións baixo as que podemos suspender ou cancelar a túa conta por cargas de traballo abusivas.',
   'terms.slaBody':
     'Os plans Pro e Team teñen como obxectivo un tempo de funcionamento mensual do 99,95 % para a API e o grupo de corredores. O plan gratuíto ofrécese tal cal. As interrupcións infórmanse en status.conduit.dev e abonanse segundo a fórmula da túa factura.',
   'terms.terminationBody':

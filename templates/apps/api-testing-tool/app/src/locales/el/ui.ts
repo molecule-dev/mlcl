@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Βρήκατε κάποιο σφάλμα, έχετε αίτημα λειτουργίας ή θέλετε να μας πείτε τι να φτιάξουμε μετά; Στείλτε email στο hello@pylon.dev — κάθε μήνυμα φτάνει σε έναν πραγματικό μηχανικό της ομάδας.',
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.intro':
+    'Το {{app}} είναι ένα γρήγορο, πληκτρολογιο-κεντρικό περιβάλλον δοκιμής API για μηχανικούς που ζουν στο τερματικό — αιτήματα τύπου Postman, συλλογές, περιβάλλοντα και ιστορικό χωρίς το περιττό βάρος.',
+  'about.missionBody':
+    'Τα API είναι η ραχοκοκαλιά του σύγχρονου λογισμικού, αλλά τα εργαλεία για τη δοκιμή τους είναι αργά, βαριά και απαιτούν ποντίκι. Το {{app}} υπάρχει για να δώσει στους προγραμματιστές ένα κοφτερό, γρήγορο περιβάλλον επιπέδου τερματικού: στείλτε αιτήματα, χτίστε σιγουριά και παραδώστε χωρίς να αφήσετε το πληκτρολόγιο.',
+  'about.missionTitle': 'Η αποστολή μας',
   'about.pageTitle': 'Σχετικά με το {{app}}',
   'authShell.statusLabel': 'runners σε σύνδεση',
   'collections.createError': 'Δεν ήταν δυνατή η δημιουργία της συλλογής.',
   'collections.defaultName': 'Συλλογή χωρίς όνομα {{n}}',
+  'collections.empty':
+    'Δεν υπάρχουν συλλογές ακόμη — κάντε κλικ στο «New collection» για να δημιουργήσετε τον πρώτο σας φάκελο.',
   'collections.eyebrow': '$ pylon collections --tree',
   'collections.fetchError': 'Δεν ήταν δυνατή η φόρτωση των συλλογών.',
   'collections.heading': 'Συλλογές',
   'collections.loading': 'Φόρτωση συλλογών…',
+  'collections.metric.allGreen': 'Όλα εντάξει',
   'collections.metric.collections': 'Συλλογές',
   'collections.metric.failing': 'Αποτυχημένα',
   'collections.metric.failingCaption': 'Η τελευταία εκτέλεση είχε σφάλματα',
@@ -24,6 +34,8 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Μεταβλητές',
   'environments.createError': 'Δεν ήταν δυνατή η δημιουργία του περιβάλλοντος.',
   'environments.defaultName': 'Περιβάλλον χωρίς όνομα {{n}}',
+  'environments.empty':
+    'Δεν υπάρχουν περιβάλλοντα ακόμη — κάντε κλικ στο «New environment» για να προσθέσετε ένα.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'Δεν ήταν δυνατή η φόρτωση των περιβαλλόντων.',
   'environments.heading': 'Περιβάλλοντα',
@@ -31,8 +43,11 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Νέο περιβάλλον',
   'environments.subheading':
     'Μεταβλητές που αντικαθίστανται στα αιτήματα κατά την αποστολή. Ένα ενεργό περιβάλλον ανά χώρο εργασίας.',
+  'forgotPassword.statusLabel': 'επαναφορά · ασφαλής σήραγγα',
   'forgotPassword.success':
     "Αν υπάρχει λογαριασμός για αυτό το email, ένας σύνδεσμος επαναφοράς είναι καθ' οδόν. Ελέγξτε τα εισερχόμενά σας.",
+  'history.empty':
+    'Δεν υπάρχει τίποτα εδώ ακόμη — στείλτε το πρώτο σας αίτημα από την καρτέλα Workspace.',
   'history.eyebrow': '$ pylon history --tail',
   'history.fetchError': 'Δεν ήταν δυνατή η φόρτωση του ιστορικού.',
   'history.heading': 'Ιστορικό εκτελέσεων',
@@ -41,9 +56,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Τελευταία 50',
+  'history.realtime': 'σε πραγματικό χρόνο',
   'history.subheading':
     'Όλα τα αιτήματα που εστάλησαν σε αυτόν τον χώρο εργασίας, με status, καθυστέρηση και μέγεθος payload.',
   'landing.choosePlan': 'Επιλέξτε πλάνο',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Forge confidence.',
   'landing.ctaBody':
     'Χωρίς πιστωτική κάρτα. Δεν απαιτείται μηχανικός πλατφόρμας. Ανοίξτε το ⌘K και στείλτε το πρώτο αίτημά σας σε λιγότερο από πέντε λεπτά.',
   'landing.ctaHeading': 'Χτίστε εμπιστοσύνη.',
@@ -85,6 +102,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Μέση καθυστέρηση',
   'mocks.metric.live': 'Δημόσιο',
   'mocks.metric.servers': 'Mocks',
+  'mocks.ms': 'ms',
   'mocks.newMock': 'Νέο mock',
   'mocks.online': 'Δημόσιο',
   'mocks.paused': 'Ιδιωτικό',
@@ -109,9 +127,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Υγιές',
   'monitors.metric.uptime': 'Μέσος χρόνος λειτουργίας',
   'monitors.newMonitor': 'Νέο monitor',
+  'monitors.paused': 'σε παύση',
   'monitors.run': 'Εκτέλεση',
   'monitors.runError': 'Η εκτέλεση ολοκληρώθηκε με σφάλμα δικτύου: {{error}}',
+  'monitors.runFailed': 'Η εκτέλεση απέτυχε.',
   'monitors.running': 'Εκτέλεση…',
+  'monitors.runSuccess': 'Εκτέλεση {{status}} — το upstream επέστρεψε {{code}} σε {{ms}}ms.',
   'monitors.sparkLabel': 'Τάση καθυστέρησης',
   'monitors.subheading':
     "Έλεγχοι κατ' απαίτηση για οποιοδήποτε αποθηκευμένο τεστ. Συνδέστε ένα τεστ, πατήστε Εκτέλεση και παρακολουθήστε το ποσοστό επιτυχίας 24 ωρών να ενημερώνεται με κάθε εκτέλεση.",
@@ -120,27 +141,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Χρόνος λειτουργίας · 24ω',
   'nav.legal': 'Νομικά',
   'notFound.backToWorkspace': 'Επιστροφή στον χώρο εργασίας',
+  'notFound.body':
+    'Το {{app}} έστειλε ένα αίτημα για αυτό το URL και δεν πήρε τίποτα πίσω. Ελέγξτε ξανά τη διαδρομή ή επιστρέψτε στον χώρο εργασίας.',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Η διαδρομή δεν βρέθηκε',
+  'planUpdated.body':
+    'Η αλλαγή χρέωσής σας είναι πλέον ενεργή. Μπορείτε να διαχειρίζεστε το πλάνο σας οποιαδήποτε στιγμή από τη σελίδα χρέωσης.',
+  'planUpdated.retry': 'Δοκιμάστε ξανά',
+  'planUpdated.verifyFailed': 'Δεν μπορέσαμε να επιβεβαιώσουμε ακόμη την πληρωμή σας.',
+  'planUpdated.verifyFailedBody':
+    'Η πληρωμή σας ενδέχεται να βρίσκεται ακόμη υπό επεξεργασία. Δοκιμάστε ξανά σε λίγο.',
   'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
+  'pricing.advancedFeatures': 'Σύνθετες λειτουργίες: {{yes}}',
+  'pricing.canExport': 'Εξαγωγή δεδομένων: {{yes}}',
+  'pricing.heading': 'Επιλέξτε το πλάνο {{app}} σας',
+  'pricing.maxCollections': '{{count}} συλλογές',
+  'pricing.maxEnvironments': '{{count}} περιβάλλοντα',
+  'pricing.maxHistory': '{{count}} καταχωρήσεις ιστορικού',
+  'pricing.maxRequests': '{{count}} αιτήματα',
   'privacy.collect.account':
     'Λογαριασμός: το email σας, ο κατακερματισμένος κωδικός, το εμφανιζόμενο όνομα και η χρονοσφραγίδα της τελευταίας σύνδεσης.',
+  'privacy.intro':
+    'Το {{app}} σέβεται το απόρρητό σας. Αυτή η σελίδα συνοψίζει τα δεδομένα που συλλέγουμε, γιατί τα συλλέγουμε και πώς να τα διαγράψετε.',
   'privacy.rights.body':
     'Μπορείτε να εξάγετε τις συλλογές και τα περιβάλλοντά σας ανά πάσα στιγμή ή να διαγράψετε τον λογαριασμό σας από τις Ρυθμίσεις για μόνιμη αφαίρεση όλων των δεδομένων εντός 30 ημερών.',
   'privacy.share.body':
     'Μόνο εσείς. Δεν πουλάμε, μοιραζόμαστε ή νοικιάζουμε ποτέ το περιεχόμενο του χώρου εργασίας σας σε τρίτους. Τα αρχεία καταγραφής διακομιστή διατηρούνται για 30 ημέρες για αντιμετώπιση περιστατικών και στη συνέχεια διαγράφονται.',
   'privacy.title': 'Ειδοποίηση απορρήτου',
+  'profile.bio':
+    'Ο προσωπικός σας χώρος εργασίας {{app}} — καρφιτσώστε συλλογές, μοιραστείτε περιβάλλοντα και παρακολουθήστε τα API που παραδίδουν προϊόν.',
   'profile.eyebrow': '@{{handle}}',
   'profile.joined': 'εντάχθηκε {{when}}',
+  'profile.metric.collections': 'Συλλογές',
   'profile.metric.monitors': 'Monitors',
   'profile.metric.requests': 'Αποθηκευμένα αιτήματα',
+  'profile.noActivity':
+    'Δεν έχει σταλεί κανένα αίτημα ακόμη — μεταβείτε στην καρτέλα Workspace για να στείλετε ένα.',
   'profile.signedOut': 'Συνδεθείτε για να δείτε το προφίλ σας',
   'pylonShell.primaryNavLabel': 'Κύρια πλοήγηση',
+  'resetPassword.passwordLabel': 'Νέος κωδικός πρόσβασης',
+  'resetPassword.statusLabel': 'επαναφορά · token επαληθεύτηκε',
   'resetPassword.subtitle': 'Επιλέξτε έναν ισχυρό κωδικό που δεν έχετε χρησιμοποιήσει ξανά.',
   'resetPassword.tokenPlaceholder': 'επικολλήστε από το email',
+  'settings.accountManagement.desc':
+    'Ενημερώστε το email και τον κωδικό πρόσβασής σας, διαχειριστείτε ειδοποιήσεις και συσκευές, αποσυνδεθείτε ή διαγράψτε τον λογαριασμό σας.',
+  'settings.accountManagement.title': 'Λογαριασμός και ασφάλεια',
   'settings.eyebrow': '$ pylon settings --edit',
   'settings.fetchError': 'Δεν ήταν δυνατή η φόρτωση των ρυθμίσεων.',
   'settings.language.title': 'Γλώσσα',
+  'settings.seeding': 'Γίνεται προετοιμασία…',
   'settings.seedStarter': 'Συμπλήρωση αρχικού περιεχομένου',
   'settings.starterCollection': 'Αρχική συλλογή',
   'settings.starterCollectionDesc': 'Δημιουργήθηκε από τις Ρυθμίσεις στις {{ts}}',
@@ -155,6 +204,8 @@ export const ui: UiTranslations = {
     'Είστε υπεύθυνοι για την προστασία του κωδικού σας. Η κοινή χρήση ενός λογαριασμού από πολλά άτομα δεν επιτρέπεται στα πλάνα Free ή Pro — αγοράστε συνδρομή Team για κοινόχρηστους χώρους εργασίας.',
   'terms.billing.body':
     'Οι επί πληρωμή συνδρομές ανανεώνονται αυτόματα κάθε περίοδο χρέωσης. Ακύρωση ανά πάσα στιγμή από τις Ρυθμίσεις· η πρόσβαση συνεχίζεται μέχρι το τέλος της τρέχουσας περιόδου.',
+  'terms.intro':
+    'Δημιουργώντας λογαριασμό {{app}} συμφωνείτε με τους παρακάτω όρους. Διαβάστε τους μία φορά· δεν θα σας εκπλήξουμε με αναδρομικές αλλαγές.',
   'terms.title': 'Όροι υπηρεσίας',
   'terms.usage.body':
     'Μην χρησιμοποιείτε το Pylon για αποστολή αιτημάτων σε υπηρεσίες που δεν σας ανήκουν ή για τις οποίες δεν έχετε ρητή άδεια δοκιμής. Μην χρησιμοποιείτε το Pylon για παράκαμψη ορίων ρυθμού ή διάπραξη απάτης.',
@@ -175,17 +226,23 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Δεν εκτελέστηκε',
   'testRunner.metric.passed': 'Επιτυχημένα',
   'testRunner.never': 'Ποτέ δεν εκτελέστηκε',
+  'testRunner.newTest': 'Νέα δοκιμή',
   'testRunner.noAssertions': 'Δεν υπάρχουν ακόμα ισχυρισμοί σε αυτό το τεστ.',
+  'testRunner.noRunsYet':
+    'Δεν έχουν καταγραφεί εκτελέσεις ακόμη — πατήστε «Run all» για να γεμίσει το ιστορικό.',
   'testRunner.passed': 'επιτυχημένο',
+  'testRunner.recentRuns': 'Πρόσφατες εκτελέσεις',
   'testRunner.runAll': 'Εκτέλεση όλων',
   'testRunner.running': 'Εκτέλεση…',
   'testRunner.runOne': 'Εκτέλεση',
   'testRunner.subheading':
     'Αποτελέσματα σουίτας, διαφορές ισχυρισμών και οι τελευταίες 50 εκτελέσεις.',
+  'testRunner.suites': 'Σουίτες',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Συνδεδεμένος ως',
   'workspace.auth.keyName': 'Όνομα επικεφαλίδας',
   'workspace.auth.keyValue': 'Τιμή κλειδιού',
+  'workspace.auth.noneHint': 'Δεν θα σταλεί κεφαλίδα εξουσιοδότησης με αυτό το αίτημα.',
   'workspace.auth.password': 'Κωδικός πρόσβασης',
   'workspace.auth.username': 'Όνομα χρήστη',
   'workspace.authOption.apikey': 'Κλειδί API',
@@ -195,13 +252,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Τύπος',
   'workspace.authTypeLabel': 'Τύπος ελέγχου ταυτότητας',
+  'workspace.body.contentLabel': 'Request body',
+  'workspace.body.hint':
+    'Τα {{envVars}} αντικαθίστανται πριν σταλεί το αίτημα. Τα σώματα αποστέλλονται σε POST/PUT/PATCH/DELETE.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Κανένα',
+  'workspace.body.noneHint':
+    'Δεν θα σταλεί σώμα αιτήματος. Επιλέξτε JSON ή απλό κείμενο για να προσθέσετε ένα.',
   'workspace.body.text': 'Ακατέργαστο κείμενο',
   'workspace.body.type': 'Τύπος',
   'workspace.environment': 'Χωρίς περιβάλλον',
   'workspace.envVar': 'μεταβλητή περιβάλλοντος',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.failedCount': '{{count}} απέτυχε',
+  'workspace.idle': 'Ανενεργό',
   'workspace.kv.addHeader': 'Προσθήκη κεφαλίδας',
   'workspace.kv.addParam': 'Προσθήκη παραμέτρου',
   'workspace.kv.headerKey': 'Όνομα επικεφαλίδας',
@@ -214,12 +278,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP method',
   'workspace.metric.latency': 'Καθυστέρηση',
   'workspace.metric.latencyCaption': 'Πλήρης διαδρομή από αυτή την εκτέλεση',
+  'workspace.metric.size': 'Φορτίο',
   'workspace.metric.sizeCaption': 'Bytes response body',
   'workspace.metric.statusCaption': 'Τελευταίο response',
   'workspace.metric.tests': 'Τεστ',
+  'workspace.metric.testsAllPassing': 'Όλοι οι έλεγχοι εντάξει',
   'workspace.metric.testsFailing': '{{count}} αποτυχημένα',
+  'workspace.metric.testsIdle': 'Στείλτε ένα αίτημα για αξιολόγηση',
   'workspace.noAssertions': 'Εκτελέστε αίτημα για αξιολόγηση των ενσωματωμένων ισχυρισμών.',
   'workspace.noResponseYet': 'Δεν υπάρχει ακόμα response',
+  'workspace.passedCount': '{{count}} εγκρίθηκε',
   'workspace.responseHint':
     '// Πατήστε Αποστολή για να εκτελέσετε το αίτημα και να καταγράψετε το response.',
   'workspace.saveError': 'Δεν ήταν δυνατή η αποθήκευση του αιτήματος.',
@@ -229,10 +297,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Συνθέστε ένα αίτημα, στείλτε το και επαληθεύστε το response — όλα σε ένα παράθυρο.',
   'workspace.testResults': 'Αποτελέσματα εξετάσεων',
+  'workspace.tests.autoHint':
+    'Η οικογένεια κατάστασης, η καθυστέρηση, το μέγεθος σώματος και η υγεία μεταφοράς ελέγχονται αυτόματα — τα αποτελέσματα εμφανίζονται στο «Test results» στο πλαίσιο απόκρισης.',
+  'workspace.tests.autoTitle': 'Ενσωματωμένοι έλεγχοι εκτελούνται σε κάθε απόκριση',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Αποστέλλεται ως Authorization: Bearer <token> σε κάθε αίτημα αυτής της συλλογής.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Αίτημα χωρίς όνομα',
+  'workspace.urlLabel': 'URL αιτήματος',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

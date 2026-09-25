@@ -1,32 +1,49 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Командаңыз үшін жылырақ бейімделу процесін енгізгіңіз келе ме, қате таптыңыз ба, әлде пікіріңіз бар ма? Тіркелгі параметрлеріңізден хабарласыңыз — әрбір хабарлама көмектесе алатын нақты адамға жетеді.',
   'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Туралы',
+  'about.missionTitle': 'Біздің миссиямыз',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Құпия сөзіңізді қалпына келтіріңіз.',
+  'auth.forgotPassword.panel.body':
+    'Қалпына келтіру 30 секунд алады — тізімдегі жетістігіңіз сізді күтіп тұр.',
+  'auth.forgotPassword.panel.headline': 'Дәл қалдырған жеріңізден жалғастырыңыз.',
+  'auth.forgotPassword.subheading':
+    'Жұмыс электрондық поштаңызды енгізіңіз, біз сізге қалпына келтіру сілтемесін жібереміз.',
   'auth.forgotPassword.successSubheading':
     'Кіріс жәшігіңізді тексеріңіз — біз қалпына келтіру нұсқауларын жібердік.',
   'auth.login.emailPlaceholder': 'name@yourcompany.com',
   'auth.login.heading': 'Қайта қош келдіңіз.',
   'auth.login.passwordPlaceholder': 'Құпия сөзіңіз',
+  'auth.login.signupPrompt': 'Командаңызға жаңасыз ба?',
   'auth.login.subheading': 'Тоқтаған жеріңізден бастау үшін тіркелу сапарыңызды жалғастырыңыз.',
   'auth.login.submit': 'Сапарыңызды жалғастырыңыз',
+  'auth.panel.body':
+    'Жеке тізіміңіз, оқу кезеңдері және командамен танысу — барлығы бір тыныш жерде.',
   'auth.panel.footnote': '© Embark — бүгіннен бастап адамдарды бірінші кезекте қабылдау.',
   'auth.panel.headline': 'Алғашқы сенімді 90 күн осы жерден басталады.',
   'auth.resetPassword.heading': 'Жаңа құпия сөз орнатыңыз.',
   'auth.resetPassword.newPasswordLabel': 'Жаңа құпия сөз',
+  'auth.resetPassword.panel.body':
+    'Жаңа құпия сөзді сақтаңыз, сонда біз сізді бейімделу жолыңызға қайтарамыз.',
+  'auth.resetPassword.panel.headline': 'Қайта кіруге санаулы қадам.',
   'auth.resetPassword.subheading': 'Есіңізде қалатын нәрсені таңдаңыз — кемінде 8 таңба.',
   'auth.signup.emailPlaceholder': 'name@yourcompany.com',
   'auth.signup.heading': 'Алғашқы 90 күніңізге қош келдіңіздер.',
   'auth.signup.panel.body':
     'Нұсқаулықпен берілген тексеру тізімі, рөлдерді тану бойынша тренинг және адамдармен таныстыру — кірер алдында дайын.',
+  'auth.signup.panel.headline': 'Бірінші күн, бірінші күні.',
   'auth.signup.subheading': 'Гидтік бейімделу сапарыңызды бастау үшін Embark тіркелгісін жасаңыз.',
   'checklist.empty.body': 'Басқа тапсырмаларды көру үшін сүзгіні ауыстырыңыз.',
   'checklist.empty.title': 'Қазір мұнда ештеңе жоқ',
   'checklist.eyebrow': 'Бейімделу · Тексеру тізімі',
   'checklist.loading': 'Тексеру тізімі жүктелуде…',
   'checklist.stat.actionNeeded': 'Әрекет қажет',
+  'checklist.stat.completion': 'Аяқтау',
+  'checklist.stat.inProgress': 'Орындалуда',
   'checklist.stat.inProgressHelper': 'Тоқтаған жеріңізден жалғастырыңыз',
   'checklist.stat.overdueHelper': 'Алдымен осыларды қадағалаңыз',
   'checklist.subtitle':
@@ -58,6 +75,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Әлі құжаттар жоқ',
   'documents.eyebrow': 'Бейімделу · Құжаттар',
   'documents.loading': 'Құжаттар жүктелуде…',
+  'documents.stat.actionNeeded': 'Қазір қол қойыңыз',
+  'documents.stat.all': 'Барлық құжаттар',
   'documents.stat.allHelper': 'Санаттар бойынша',
   'documents.stat.pending': 'Күтіліп жатқан қолтаңбалар',
   'documents.stat.pendingHelper': 'Аяқтау үшін қажет',
@@ -65,6 +84,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Қауіпсіз сақталған',
   'documents.status.optional': 'Қосымша',
   'documents.status.required': 'Қажетті',
+  'documents.status.signed': 'Қол қойылған',
   'documents.subtitle':
     'Сіздің анықтамалығыңыз, формаларыңыз және қол қойылған келісімдеріңіз — барлығы бір жерде.',
   'documents.title': 'Оқып, қол қою үшін қажет нәрсенің бәрі.',
@@ -72,10 +92,14 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'Көруші',
   'documentViewer.breadcrumbDocs': 'Құжаттар',
   'documentViewer.downloadMeta': 'Мета деректерді жүктеп алу',
+  'documentViewer.helpBody':
+    'People & Culture Slack-тегі #ask-people арнасында анықтамалық сұрақтарға жауап береді.',
   'documentViewer.helpEyebrow': 'Көмек керек пе?',
   'documentViewer.loadError': 'Бұл құжатты жүктей алмадық.',
   'documentViewer.loading': 'Құжат жүктелуде…',
   'documentViewer.notFound': 'Құжат табылмады',
+  'documentViewer.previewBody':
+    'Жүктеулер конфигурацияланған кезде файлды тікелей көрсетеміз. Әзірге метадеректерді жүктеу жазбаның шынымен бар екенін растауға мүмкіндік береді.',
   'documentViewer.previewBodyExternal':
     'Файлды жаңа қойындыда ашу үшін жүктеу түймесін пайдаланыңыз.',
   'documentViewer.previewTitle': 'Құжатты алдын ала қарау',
@@ -83,6 +107,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Құжатты оқып шығыңыз, содан кейін қол қою және растау үшін төмендегі түймені басыңыз.',
   'documentViewer.signatureHeading': 'Қолтаңба қажет',
+  'documentViewer.signed': '✓ Қол қойылды және тіркелді',
   'documentViewer.signing': 'Қол қойылуда…',
   'documentViewer.uploadedRecently': 'Жақында жүктелген',
   'landing.closing.body':
@@ -92,10 +117,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Менің аккаунтым бар',
   'landing.feature1.body':
     'Әрбір тапсырма — құжаттар, есепшоттар, кіріспе — мерзімі және тиісті иесімен алдын ала кезең-кезеңімен дайындалады.',
+  'landing.feature1.title': 'Бағытталған тізім',
   'landing.feature2.body':
     'Модульдер 30/60/90 кезеңдерінде ашылады, жалданған қызметкер қосылатын рөл мен командаға бейімделеді.',
+  'landing.feature2.title': 'Рөлге сай оқыту',
   'landing.feature3.body':
     'Достар, менеджерлер және әртүрлі функцияларды қамтитын таныстырылымдар жоспарланған — сондықтан ешкім жалғыз бастамауы керек.',
+  'landing.feature3.title': 'Нақты танысулар',
   'landing.featureEyebrow': 'Неліктен міну керек',
   'landing.featureHeadline': 'Embark бірінші күні сенімге ие болудың үш жолы.',
   'landing.footer.rights': 'Барлық құқықтар қорғалған.',
@@ -105,6 +133,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Келесі: Сейсенбі, сағат 10:00-де досыңызбен 30 минуттық кофе ішу туралы әңгімелесіңіз.',
   'landing.preview.eyebrow': '90 күннің 14-ші күні — үлгі бақылау тақтасы',
+  'landing.preview.headline': 'Қайта қош келдіңіз, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR дайын',
   'landing.proof.teams': '50-5000 адамнан тұратын командаларға арналған',
   'landing.proof.time': '14 күндік тегін сынақ нұсқасы',
@@ -121,16 +150,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Барлығы дайын.',
   'planUpdated.preparing': 'Жоспарыңыз жаңартылуда…',
+  'planUpdated.retry': 'Қайталап көріңіз',
+  'planUpdated.verifyFailed': 'Төлеміңізді әзірге растай алмадық.',
+  'planUpdated.verifyFailedBody':
+    'Төлеміңіз әлі өңделуде болуы мүмкін. Біраздан кейін қайталап көріңіз.',
   'planUpdated.verifying': 'Төлеміңіз расталуда…',
   'pricing.documentsLabel': 'құжаттар',
   'pricing.onboardingsLabel': 'бейімделулер',
   'pricing.tasksLabel': 'тапсырмалар',
   'profile.dayNumber': 'Күн',
   'profile.detailsHeading': 'Бейімделу мәліметтері',
+  'profile.encouragementBody':
+    'Әріптесіңіз бен менеджеріңізді хабардар етіп отырыңыз — шағын қадамдар жинақталады.',
   'profile.milestones': 'Кезеңдер',
   'profile.progressEyebrow': 'Бейімделу барысы',
   'profile.tasks': 'Тапсырмалар',
   'profile.unknownName': 'Қош келдіңіз',
+  'settings.appearance.description': 'Жарық және қараңғы режимдер арасында ауысу.',
+  'settings.appearance.title': 'Сыртқы түрі',
+  'settings.subtitle':
+    'Хабарламаларды, қауіпсіздікті, құрылғыларды және деректерді экспорттауды реттеңіз — барлығы осында, өз шарттарыңызбен қалады.',
   'settings.title': 'Параметрлер мен қалаулар.',
   'taskDetail.backToChecklist': 'Тексеру тізіміне оралу',
   'taskDetail.breadcrumbChecklist': 'Тексеру тізімі',
@@ -143,7 +182,10 @@ export const ui: UiTranslations = {
   'taskDetail.notFound': 'Тапсырма табылмады',
   'taskDetail.notFoundBody':
     'Бұл тапсырма жойылған немесе басқа пайдаланушыға тиесілі болуы мүмкін.',
+  'taskDetail.tipBody':
+    'Егер кедергіге тап болсаңыз, Slack-те бейімделу әріптесіңізге жазыңыз — ол сіздің алғашқы көмекшіңіз.',
   'taskDetail.tipEyebrow': 'Жылдам кеңес',
+  'team.empty.body': 'Кеңірек іздеп көріңіз немесе басқа бөлімді таңдаңыз.',
   'team.empty.title': 'Командалас командалар арасындағы сәйкестік жоқ',
   'team.eyebrow': 'Бейімделу · Адамдар',
   'team.loading': 'Командалас командалар жүктелуде…',
@@ -166,14 +208,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Кезеңдер',
   'timeline.stat.current': 'Ағымдағы кезең',
   'timeline.stat.next': 'Келесі құлыпты ашу',
+  'timeline.stat.progress': 'Жалпы',
   'timeline.subtitle':
     'Әрбір кезең жаңа модульдерді, кіріспелерді және өсу туралы әңгімелерді ашады. Қысым жоқ - тек ілгерілеу.',
+  'timeline.tipBody':
+    '30, 60 және 90-күндері менеджеріңізбен 30 минуттық талқылау жоспарлаңыз — бұл кері байланысты нақты әрі ілгерілеуді көрнекі етеді.',
   'timeline.tipEyebrow': 'Менеджердің кеңесі',
+  'timeline.tipTitle': 'Кезеңдер үшін күнтізбеде уақыт бөліңіз.',
   'timeline.title': 'Сіздің 30/60/90 сапарыңыз.',
   'training.badge.notStarted': 'Басталмаған',
   'training.empty': 'Әзірге ешқандай оқыту модульдері жоқ.',
   'training.eyebrow': 'Бейімделу · Оқыту',
   'training.loading': 'Модульдер жүктелуде…',
+  'training.stat.all': 'Модульдер тағайындалды',
   'training.subtitle':
     'Модульдер рөліңізге сәйкес келу үшін 30/60/90 аралығында ашылады. Қажеттілері бірінші орында.',
   'training.title': 'Дағдылар, құралдар және әңгімелер — сіздің қарқыныңызда.',
@@ -185,9 +232,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'Модуль табылмады',
   'trainingModule.quizBody': 'Бұл модульді аяқтау үшін 80% немесе одан жоғары балл алыңыз.',
   'trainingModule.quizHeading': 'Модуль соңындағы викторина',
+  'trainingModule.quizLocked': 'Алдымен модульді бастаңыз',
   'trainingModule.quizNone': 'Бұл модульде викторина жоқ.',
   'trainingModule.quizRetry': 'Қайтадан байқап көріңіз',
+  'trainingModule.quizStart': 'Тестті бастау',
   'trainingModule.quizSubmit': 'Жауаптарды жіберу',
+  'trainingModule.start': 'Модульді бастау',
   'trainingModule.statusNotStarted': 'Басталмаған',
   'welcomeHeroCard.completeLabel': 'Аяқталған',
   'welcomeHeroCard.milestonesLabel': 'Кезеңдер',

@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
   'about.eyebrow': 'Om',
+  'about.featureConnections':
+    'En forbindelsesadministrator, der sikkert gemmer og farvekoder dine databaser — legitimationsoplysninger krypteres i hvile, aldrig i klartekst.',
+  'about.featureMonitoring':
+    'Live overvågning af forespørgselsydelse og databaseaktivitet, med tastaturgenveje og kommandopaletten til at styre det hele uden brug af hænderne.',
+  'about.featurePlans':
+    'Planer, der skalerer med dig — Gratis til soloprojekter, Pro og Team til flere forbindelser, længere opbevaring af forespørgsler, eksport og avancerede funktioner.',
+  'about.featureQueryEditor':
+    'En Monaco-drevet SQL-editor med forespørgselshistorik, gemte forespørgsler og CSV-eksport af dine resultater med ét klik.',
+  'about.featureSchema':
+    'En skemaoversigt og tabelbrowser til at navigere i databaser, tabeller og kolonner og derefter gennemse, filtrere og redigere rækker direkte.',
+  'about.missionTitle': 'Vores mission',
   'authShell.commands': 'Kommandoer',
   'authShell.ssoSupported': 'Understøtter SSO',
   'common.run': 'Løb',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Forespørgsler',
   'connections.schema': 'Skema',
   'connections.subtitle': 'Administrer dine databaseforbindelser.',
+  'connections.test': 'Test',
   'databaseAdminLayout.adminRole': 'Administratorrolle',
   'databaseAdminLayout.commandPalette': 'Kommandopalet',
   'databaseAdminLayout.commands': 'kommandoer',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Ny forbindelse',
   'databaseAdminLayout.queries': 'Forespørgsler',
   'databaseAdminLayout.ready': 'Klar',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Søg i kommandoer, forespørgsler, tabeller…',
   'databaseAdminLayout.user': 'Bruger',
   'editConnection.confirmDelete': 'Skal denne forbindelse slettes?',
   'editConnection.deleteButton': 'Slet forbindelse',
+  'editConnection.newPassword': 'Ny adgangskode (lad stå tom for at beholde)',
   'editConnection.saved': 'Forbindelsen er gemt.',
   'editConnection.title': 'Rediger forbindelse',
   'forgotPassword.success':
@@ -47,6 +62,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Succeser',
   'monitoring.title': 'Overvågning',
   'monitoring.totalQueries': 'Samlede forespørgsler',
+  'nav.schema': 'Skema',
   'newConnection.database': 'Database',
   'newConnection.engine': 'Motor',
   'newConnection.host': 'Vært',
@@ -83,6 +99,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Der er ingen forbindelse knyttet til dette kodestykke.',
   'savedQuery.notBound': 'Ikke bundet',
   'savedQuery.title': 'Gemt forespørgsel',
+  'schema.columns': 'Kolonner',
   'schema.foreignKeys': 'Fremmednøgler',
   'schema.indexes': 'Indekser',
   'schemaExplorer.browseRows': 'Gennemse rækker',
@@ -91,14 +108,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'kan være null',
   'schemaExplorer.colType': 'type',
   'schemaExplorer.noColumns': 'Ingen kolonner.',
+  'schemaExplorer.noForeignKeys': 'Ingen fremmednøgler.',
   'schemaExplorer.noIndexes': 'Ingen indekser.',
   'schemaExplorer.noTables': 'Ingen tabeller',
   'schemaExplorer.pickATable': 'Vælg et bord i sidepanelet.',
   'schemaExplorer.tables': 'Tabeller',
   'schemaExplorer.title': 'Skemaudforsker',
+  'settings.session': 'Session',
   'settings.subtitle': 'Administrer din konto og dit abonnement.',
   'signup.heading': 'Opret din Quarry-konto',
   'signup.tagline': 'Få adgang på under et minut.',
   'tableBrowser.noRows': 'Denne tabel indeholder endnu ingen rækker.',
+  'tableBrowser.subtitle': 'Gennemser rækker fra din eksterne database.',
   'tableBrowser.title': 'Gennemgang af rækker fra din eksterne database.',
 }

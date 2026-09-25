@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ṣé ó ní èrò kan, ṣe o rí àṣìṣe kan, tàbí o fẹ́ sọ fún wa bí kíkọ ìwé ìrántí ti ràn ọ́ lọ́wọ́? A máa ń ka gbogbo ìṣẹ́ — kàn sí wa nígbàkigbà, ẹnìkan gidi yóò sì dáhùn.',
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
+  'about.featureInsights':
+    'Àwọn àṣàrò tí AI ń ṣe tí ń fi ọ̀wọ̀ fi àwọn ohun tí ń dẹ́rùbà, àwọn kókó, àti àwọn ìdúpẹ́ hàn — láìpàdánù ohùn rẹ.',
+  'about.featureMood':
+    'Títọ́pa ìmọ̀lára àti ìṣe pẹ̀lú ìwòye kàlẹ́ndà àti àwọn àwòrán ìtẹ̀síwájú tí ń fi ohun tí ń ràn ọ́ lọ́wọ́ hàn.',
+  'about.featurePrivacy':
+    'Ìṣọ̀tẹ̀-ìpín-ìpín, ààbò kóòdù, àti ìkójáde CSV kíkún kí àwọn àṣàrò rẹ lè wà ní ìkọ̀kọ̀ àti ní gbígbé.',
+  'about.featurePrompts':
+    'Àwọn ìtọ́ni ojoojúmọ́ tí ó rọ̀ pẹ̀lú kí o lè ní ibi tí o máa bẹ̀rẹ̀ nígbà gbogbo — kì í ṣe ojú-ìwé òfo.',
+  'about.intro':
+    '{{app}} jẹ́ ìwé ìrántí ìlera ọpọlọ tí ó rọ̀, tí ó wà ní ìkọ̀kọ̀ fún àṣàrò ojoojúmọ́, títọ́pa ìmọ̀lára, àti ìdúpẹ́. Àwọn ìtọ́ni tí a gbèrò rọ́pò ojú-ìwé òfo, wíwa àwòṣe tí ó dákẹ́ ń ràn ọ́ lọ́wọ́ láti lóye ohun tí ń nípa lórí bí o ṣe ń nímọ̀lára, ìṣọ̀tẹ̀-ìpín-ìpín sì ń jẹ́ kí àwọn ọ̀rọ̀ rẹ jẹ́ tìrẹ.',
+  'about.missionBody':
+    'A gbàgbọ́ pé ṣíṣe àyẹ̀wò ara rẹ yẹ kí ó dà bí ìfọ̀kànbalẹ̀, kì í ṣe bí ilé-ìwòsàn — kì í sì í ṣe bí ohun èlò mìíràn tí ń béèrè fún àfiyèsí rẹ. A kọ́ {{app}} láti ràn ọ́ lọ́wọ́, kì í ṣe láti yọ ọ́ lẹ́nu: ìṣẹ́jú díẹ̀ tí ó dákẹ́ lójúmọ́ láti ṣàkíyèsí ìmọ̀lára rẹ, kọ̀wé ní òtítọ́, kí o sì rí ara rẹ ní kedere díẹ̀díẹ̀.',
+  'about.missionTitle': 'Iṣẹ́ àwa',
   'about.pageTitle': 'Nípa {{app}}',
   'authShell.encryptionBadge': 'Àwọn ìkọsílẹ̀ rẹ ni a ti fi pamọ́ láti òpin dé òpin.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Ọjọ́ {{day}} — kò sí àkọsílẹ̀',
   'calendar.cellMood': 'Ọjọ́ {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Ni oju wo oṣu yii',
   'calendar.eyebrow': 'Ìrísí ní ojú kan',
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Tẹ̀lé {{tracked}} ti {{total}} awọn ọjọ ni oṣu yii.',
   'common.goToDashboard': 'Lọ sí Dashiboodu',
   'common.tryAgain': 'Gbiyanju lẹẹkansi',
+  'entryComposer.bodyPlaceholder': 'Kọ ohunkóhun tí ó bá dà bí òtítọ́. Ẹnìkan kì yóò ka èyí.',
   'entryComposer.cancel': 'Pada si iwe akọọlẹ',
   'entryComposer.heading': 'Àròjinlẹ̀ òní',
   'entryComposer.moodLabel': 'Bawo ni o ṣe rilara?',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Yọ kuro {{tag}}',
   'entryComposer.save': 'Fi àròjinlẹ̀ pamọ́',
   'entryComposer.saveError': 'Kò le fi ìforúkọsílẹ̀ rẹ pamọ́.',
+  'entryComposer.tagPlaceholder': 'Fi àmì kún un kí o sì tẹ enter',
   'entryComposer.titlePlaceholder': 'Fun ifihan yii ni orukọ kan…',
   'entryDetail.back': 'Pada si iwe akọọlẹ',
   'entryDetail.delete': 'Pa àkọsílẹ̀ yìí rẹ́',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'N n gbe afihan soke…',
   'entryDetail.notFound': 'A kò rí ìṣípòpadà.',
   'entryDetail.reflectionsHeading': 'Àwọn àtúnṣe AI',
+  'forgotPassword.continueButton': 'Tẹ kóòdù ìtúntò',
   'forgotPassword.eyebrow': 'Ko si wahala',
   'forgotPassword.subheading': 'A o fi ọna asopọ atunto ti o rọrun ranṣẹ si imeeli rẹ.',
   'forgotPassword.successBody': 'Tí àkọọ́lẹ̀ kan bá wà fún {{email}}, ìjápọ̀ àtúntò kan ń bọ̀.',
@@ -57,14 +77,21 @@ export const ui: UiTranslations = {
     'Kò sí àwọn àkòrí kankan síbẹ̀ — fi àmì kan tàbí méjì kún àwọn àkọsílẹ̀ rẹ, wọn yóò sì kórajọ síbí.',
   'insights.themesHeading': 'Àwọn àkòrí pàtàkì',
   'insights.triggerFrequency': 'ṣe akiyesi {{count}} × ní oṣù yìí',
+  'insights.triggersEmpty':
+    'Kò sí ohun tí a ó ṣàkíyèsí síbẹ̀. Àwọn àkọsílẹ̀ díẹ̀ láàárín àwọn ọjọ́ yóò fi àwọn àwòṣe rẹ hàn.',
   'insights.triggersHeading': 'Àwọn àpẹẹrẹ tó máa ń gbé ìmọ̀lára rẹ ró',
+  'journal.empty': 'Kò sí àwọn àṣàrò tí ó bá a mu — gbìyànjú àlẹ̀mọ́ mìíràn tàbí kọ àkọsílẹ̀ tuntun.',
   'journal.eyebrow': 'Àwọn ìrònú rẹ',
   'journal.heading': 'Ìwé Ìròyìn',
   'journal.loadError': 'Kò ṣeé ṣe láti gbé àwọn ìtẹ̀síwájú wọlé.',
   'journal.loading': 'N n gbe awọn titẹ sii…',
+  'journal.newEntry': 'Ìtẹ̀síwájú tuntun',
   'journal.searchPlaceholder': 'Wa imọlara kan, orukọ kan, ati iṣẹju kan…',
   'journal.subheading': '{{count}} àwọn ìtẹ̀jáde — gbogbo èyí tí ó yẹ kí a pa mọ́.',
   'journalEntryCard.encryptedLabel': 'Ti fi àkọpamọ́',
+  'landing.ctaBody':
+    'Ọ̀fẹ́ láti bẹ̀rẹ̀. Pro ń ṣí ìkójáde dátà, ìwé ìrántí tí ó tóbi, àti ọdún kan ní kíkún ti ìtàn.',
+  'landing.ctaButton': 'Bẹrẹ ìforúkọsílẹ̀ àkọ́kọ́ rẹ',
   'landing.ctaTitle': 'Ìṣẹ́jú díẹ̀ lóòjọ́. Ìyẹn nìkan ni.',
   'landing.eyebrow': 'Àṣà ojoojúmọ́ onírẹ̀lẹ̀ kan',
   'landing.featuresBody':
@@ -83,6 +110,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Ààyè onírẹ̀lẹ̀ fún àtúnyẹ̀wò ojoojúmọ́.',
   'mentalHealthJournalLayout.closeMenu': 'Ti akojọ aṣayan pa',
   'mentalHealthJournalLayout.openMenu': 'Ṣí àkójọ oúnjẹ',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
+  'moodHeroCard.entriesThisWeek': '{{count}} ose yi',
   'moodHeroCard.streakSuffix': 'ìlà ọjọ́',
   'moodHeroCard.title': 'Àròjinlẹ̀ òní',
   'moodTrendChart.aiBadge': 'Imọye AI ti ṣetan',
@@ -93,11 +122,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Ìrìnàjò rẹ',
   'profile.fallbackName': 'Àwòrán Aláwọ̀',
   'profile.loadError': 'Kò ṣeé ṣe láti gbé àwọn statistiki jáde.',
+  'profile.loading': 'Ń sọ àwọn ìṣirò rẹ di tuntun…',
   'profile.longestStreak': 'Ìlà gígùn jùlọ',
   'profile.memberSince': 'Àtúnrò láti ìgbà náà {{date}}',
   'profile.milestones': 'Àwọn ìṣẹ̀lẹ̀ pàtàkì',
   'profile.milestonesEmpty':
     'Àkọ́kọ́ ohun tó o lè ṣe ni pé kí o kọ ọ́ sílẹ̀ nígbàkigbà tó o bá ti ṣetán.',
+  'profile.moodMix': 'Àdàpọ̀ ìmọ̀lára rẹ ní àkókò yìí',
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'Àwọn Àròjinlẹ̀',
   'profile.totalWords': 'Àwọn ọ̀rọ̀ tí a kọ',
@@ -111,6 +142,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Kọ nípa èyí',
   'resetPassword.eyebrow': 'Ìbẹ̀rẹ̀ tuntun',
   'resetPassword.mismatchError': 'Àwọn ọ̀rọ̀ ìpamọ́ kò báramu.',
+  'resetPassword.passwordLabel': 'Ọrọ aṣina Tuntun',
   'resetPassword.subheading': 'Yan ohun kan ti o ni aabo — awọn iṣaro rẹ yẹ fun.',
   'resetPassword.tokenPlaceholder': 'Ṣe atunto koodu lati imeeli',
   'settings.dangerDescription':
@@ -122,11 +154,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'Kò le pa àkọọ́lẹ̀ rẹ rẹ́.',
   'settings.exportDescription': 'Ọ̀rọ̀ rẹ jẹ́ ti rẹ nígbà gbogbo. Ṣe ìgbàsílẹ̀ ẹ̀dà kan nígbàkúgbà.',
   'settings.exportDone': 'Ti gbe jade {{format}}.',
+  'settings.exportError': 'Ìgbéjáde lọ kùnà.',
+  'settings.exportHeading': 'Kójáde àwọn àṣàrò rẹ',
   'settings.exportLoading': 'Ngbaradi…',
   'settings.eyebrow': 'Ààyè rẹ, àwọn òfin rẹ',
   'settings.languageHeading': 'Èdè',
   'settings.privacyHeading': 'Ìpamọ́ àti ìfipamọ́',
   'settings.remindersHeading': 'Ìrántí ojoojúmọ́',
+  'settings.reminderToggleAria': 'Yí ìránnilétí ojoojúmọ́ padà',
   'settings.reminderToggleDescription':
     'Ìrántí ìdákẹ́jẹ́ẹ́ kan ṣoṣo ní àkókò tí o bá yàn. Kò sí àmì ìdálẹ́bi tàbí ẹ̀bi tí ó wà ní ìpele kan.',
   'settings.reminderToggleLabel': 'Fi ìfọwọ́kan díẹ̀ ránṣẹ́',
@@ -139,6 +174,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Ṣíṣẹ̀dá ìwé àkọsílẹ̀…',
   'signup.subheading': 'Ààyè ààbò fún àwọn èrò rẹ.',
   'wellnessRingsTriad.mindfulnessCaption': 'Góólù {{goal}} iṣẹju loni',
+  'wellnessRingsTriad.mindfulnessLabel': 'Ìfọ̀kànbalẹ̀',
   'wellnessRingsTriad.sleepCaption': 'Góólù {{goal}} h / òru',
   'wellnessRingsTriad.sleepLabel': 'Oorun',
+  'wellnessRingsTriad.sleepValue': '{{hours}}w',
+  'wellnessRingsTriad.streakCaption': 'Àfojúsùn ọjọ́ {{goal}}',
+  'wellnessRingsTriad.streakLabel': 'Ìtẹ̀síwájú ìwé ìrántí',
+  'wellnessRingsTriad.streakValue': '{{days}} d',
 }

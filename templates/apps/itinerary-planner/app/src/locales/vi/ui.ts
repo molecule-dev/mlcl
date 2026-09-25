@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Có phản hồi, phát hiện lỗi hay đang ấp ủ điều gì đó lớn lao? Hãy liên hệ với chúng tôi từ cài đặt tài khoản — mọi tin nhắn đều đến tay một người thật trong đội ngũ.',
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Mọi đặt chỗ trong một hộp thư — xác nhận chuyến bay, khách sạn và hoạt động rơi đúng vào ngày của chúng.',
+  'about.featureCollab':
+    'Cộng tác theo thời gian thực — mời tối đa năm người đồng hành mỗi chuyến, mọi thay đổi đồng bộ trực tiếp và bình luận được thảo luận dưới từng điểm dừng.',
+  'about.featureMapsBudget':
+    'Bản đồ, điểm đến và ngân sách chung — xem toàn bộ chuyến đi trên bản đồ, khám phá những điểm đến do biên tập viên tuyển chọn và theo dõi chi phí để không ai chi quá tay.',
+  'about.featureTimelines':
+    'Lịch trình từng ngày — kéo các điểm dừng để sắp xếp lại, thêm chặng di chuyển và xem lịch trình tự tính lại như một tài liệu sống.',
+  'about.intro':
+    '{{app}} biến một thư mục đầy những kế hoạch dang dở thành một chuyến đi chung duy nhất mà cả nhóm bạn thực sự có thể theo. Xây dựng lịch trình từng ngày, thêm chuyến bay và khách sạn, đánh dấu mọi điểm dừng và theo dõi ngân sách — tất cả trong một nơi yên bình thay vì hàng tá tab và một nhóm chat.',
+  'about.missionBody':
+    'Lập kế hoạch du lịch nên khiến bạn cảm thấy chuyến đi đang trở nên tuyệt hơn, chứ không phải như bài tập về nhà. {{app}} ra đời để giúp những chuyến đi chung trở nên dễ dàng — để mọi người đồng hành đều nắm rõ kế hoạch khi khởi hành, và mỗi điểm dừng đều kể một câu chuyện đáng nhớ.',
+  'about.missionTitle': 'Sứ mệnh của chúng tôi',
   'about.pageTitle': 'Giới thiệu {{app}}',
   'auth.legalConsent': 'Bằng việc tiếp tục, bạn đồng ý với',
   'bookings.empty.body': 'Thêm một chuyến bay, khách sạn hoặc hoạt động để bắt đầu hộp thư.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Khách sạn',
   'bookings.type.other': 'Khác',
   'budgetSpendCard.budgetTotal': 'trên {{total}} đã dự tính',
+  'budgetSpendCard.overBy': '{{amount}} vượt ngân sách',
   'budgetSpendCard.pct': '{{pct}}%',
+  'budgetSpendCard.recentCount': '{{count}} gần đây',
+  'budgetSpendCard.remaining': '{{amount}} còn lại',
   'calendar.eyebrow': 'Năm sắp tới',
   'calendar.heading': 'Mọi chuyến đi trên một lịch duy nhất.',
   'calendar.legendHeading': 'Các chuyến đi trong tháng này',
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'và',
   'common.goToDashboard': 'Đến trang tổng quan',
   'dashboard.budgetHeading': 'Nhịp đập ngân sách',
+  'dashboard.empty.body':
+    'Lên kế hoạch cho chuyến đi đầu tiên và bảng điều khiển của bạn sẽ đầy ắp lịch trình từng ngày, nhịp ngân sách và các đặt chỗ.',
+  'dashboard.empty.cta': 'Lên kế hoạch cho chuyến đi đầu tiên',
   'dashboard.empty.heading': 'Chưa có chuyến đi nào — bản đồ của quý vị còn trống.',
   'dashboard.eyebrow': 'Trung tâm điều khiển',
   'dashboard.heading': 'Cuộc phiêu lưu tiếp theo của quý vị, trong một góc yên tĩnh.',
   'dashboard.newTripCta': 'Bắt đầu chuyến đi mới',
+  'dashboard.subheading':
+    'Đếm ngược đến chuyến đi kế tiếp, nhịp chi tiêu hôm nay và cái nhìn nhanh về mọi lịch trình đang diễn ra.',
   'dashboard.tripsHeading': 'Các chuyến đi đang vận hành',
   'dashboard.viewAllExpenses': 'Xem mọi chi tiêu',
   'dashboard.viewAllTrips': 'Xem mọi chuyến đi',
   'dayTimelineRow.category.accommodation': 'Ở lại',
+  'dayTimelineRow.category.food': 'Ăn uống',
+  'dayTimelineRow.category.sightseeing': 'Tham quan',
   'dayTimelineRow.category.transport': 'Chuyên chở',
   'destinationOrbCard.exploreCta': 'Thêm vào chuyến đi',
   'destinationOrbCard.tripCount': '{{count}} chuyến đi',
+  'destinations.empty.body': 'Chuyển về Tất cả và các mục do biên tập viên chọn sẽ hiện lại.',
   'destinations.empty.heading': 'Chưa có điểm đến nào.',
+  'destinations.emptyFiltered.heading': 'Chưa có gì được gắn thẻ như vậy.',
   'destinations.errors.load': 'Không thể tải điểm đến.',
   'destinations.eyebrow': 'Tiếp theo đi đâu',
   'destinations.heading': 'Những góc đã lưu và lựa chọn của biên tập viên.',
@@ -70,7 +98,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Nhà cung cấp',
   'expenses.formHeading': 'Ghi nhận chi tiêu cho {{trip}}',
   'expenses.heading': 'Ngân sách chuyến đi thực sự đi đâu.',
+  'expenses.heroBudget': '{{pct}}% của {{total}} đã lên kế hoạch',
   'expenses.heroEyebrow': '{{trip}} • ảnh chụp ngân sách',
+  'expenses.heroNoBudget': 'Chuyến đi này chưa đặt ngân sách.',
   'expenses.noTrips.body':
     'Vui lòng lên kế hoạch một chuyến đi trước — chi tiêu gắn với ngân sách của một chuyến đi.',
   'expenses.noTrips.heading': 'Chưa có chuyến đi nào.',
@@ -83,12 +113,16 @@ export const ui: UiTranslations = {
     'Mọi biên lai và xác nhận được gộp vào đúng danh mục ở đây — không cần bảng tính.',
   'forgotPassword.eyebrow': 'Khôi phục lịch trình của quý vị',
   'forgotPassword.heading': 'Quên mật khẩu?',
+  'forgotPassword.subheading':
+    'Nhập email bạn đã dùng cho {{appName}} và chúng tôi sẽ gửi liên kết để đặt lại mật khẩu.',
   'forgotPassword.submit': 'Gửi email khôi phục',
   'forgotPassword.submitPending': 'Đang gửi email khôi phục…',
   'forgotPassword.successHint':
     'Chưa thấy email? Hãy kiểm tra thư mục spam, hoặc thử lại với địa chỉ khác.',
   'forgotPassword.successSubheading':
     'Chúng tôi đã gửi liên kết khôi phục đến {{email}}. Liên kết có hiệu lực trong 30 phút.',
+  'forgotPassword.tryAgain': 'Gửi đến email khác',
+  'landing.cta.eyebrow': 'Bắt đầu với gói miễn phí',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Tạo tài khoản miễn phí',
   'landing.cta.subheading':
@@ -100,8 +134,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Bắt đầu chuyến đi miễn phí',
   'landing.hero.ctaSecondary': 'Xem chuyến đi mẫu',
+  'landing.hero.eyebrow': 'Trình lập kế hoạch chuyến đi · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint biến một thư mục chứa đầy kế hoạch dang dở thành một lịch trình hàng ngày được chia sẻ mà nhóm của quý vị thực sự có thể theo dõi — với đặt chỗ, bản đồ và ngân sách được theo dõi ở một nơi.',
+  'landing.hero.title': 'Lập kế hoạch một lần. Cùng nhau khám phá.',
   'landing.nav.join': 'Bắt đầu chuyến đi miễn phí',
   'landing.nav.preview': 'Bên trong Waypoint',
   'landing.preview.cta': 'Lên kế hoạch chuyến đi của riêng quý vị',
@@ -109,6 +145,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Một vài chuyến đi mà du khách đang khám phá ngay bây giờ',
   'login.eyebrow': 'Khu vực thành viên',
   'login.heading': 'Chào mừng trở lại, người du hành',
+  'login.noAccount': 'Mới đến Tessera?',
   'login.signupLink': 'Tạo tài khoản miễn phí',
   'login.subheading':
     'Đăng nhập để quản lý các chuyến đi, kế hoạch hàng ngày, đặt chỗ và các mục nhật ký quý vị đã bắt đầu.',
@@ -119,6 +156,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Không thể cập nhật thông báo.',
   'notifications.heading': 'Hôm nay có gì thay đổi trong các chuyến đi của quý vị.',
   'notifications.markUnread': 'Đánh dấu là chưa đọc',
+  'notifications.subheading':
+    '{{count}} mới — xác nhận đặt chỗ, ghi chú của người cộng tác, giá vé giảm và nhắc nhở.',
   'notifications.time.daysAgo': '{{count}} ngày trước',
   'notifications.time.hoursAgo': '{{count}} giờ trước',
   'notifications.time.justNow': 'vừa xong',
@@ -137,6 +176,7 @@ export const ui: UiTranslations = {
     'Các dịch vụ kết nối, tiền tệ, thông báo đẩy và thông tin đăng nhập quý vị sử dụng.',
   'signup.and': 'và',
   'signup.eyebrow': 'Tham gia Waypoint',
+  'signup.haveAccount': 'Đã lang thang rồi à?',
   'signup.heading': 'Lập kế hoạch một lần. Cùng nhau khám phá.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -148,6 +188,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Mở lịch trình',
   'tripCountdownHeroCard.ctaSecondary': 'Lên kế hoạch chuyến đi khác',
   'tripCountdownHeroCard.daysLabel': 'Còn {{days}} ngày',
+  'tripCountdownHeroCard.eyebrow': 'Chuyến phiêu lưu kế tiếp · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} đêm — lịch trình của bạn đã sẵn sàng lên đường.',
   'tripCoverCard.stops': '{{count}} điểm dừng',
   'tripCoverCard.travelers': '{{count}} người du hành',
   'tripDetail.addActivity': 'Thêm hoạt động',
@@ -157,6 +200,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Tiêu đề hoạt động',
   'tripDetail.adding': 'Đang thêm…',
   'tripDetail.backToTrips': 'Quay lại tất cả chuyến đi',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Người du hành',
   'tripDetail.dayLabel': 'Ngày {{day}}',
   'tripDetail.empty': 'Chưa có hoạt động nào — thêm một mục để bắt đầu dòng thời gian.',
@@ -167,14 +211,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Lịch trình • {{country}}',
   'tripDetail.invite': 'Mời',
   'tripDetail.inviteLabel': 'Mời qua email',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'Đã gửi lời mời đến {{email}}.',
   'tripDetail.inviting': 'Đang gửi…',
   'tripDetail.loading': 'Đang tải chuyến đi…',
   'tripDetail.noCollaborators': 'Chỉ có quý vị, hiện tại.',
+  'tripDetail.notesHeading': 'Ghi chú chuyến đi',
   'tripDetail.notesPlaceholder': 'Chưa có ghi chú nào.',
   'tripDetail.notFound.heading': 'Không tìm thấy chuyến đi',
   'tripDetail.openBookings': 'Mở hộp thư đặt chỗ',
   'tripDetail.shareCopied': 'Liên kết chia sẻ đã được sao chép vào bộ nhớ tạm:',
+  'tripDetail.shareReady': 'Liên kết chia sẻ đã sẵn sàng:',
   'tripDetail.stops': '{{count}} điểm dừng',
   'tripDetail.timelineEyebrow': 'Dòng thời gian theo ngày',
   'tripDetail.timelineHeading': 'Kế hoạch hàng ngày',
@@ -192,6 +239,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Người du hành',
   'tripPlanner.heading': 'Phác thảo một chuyến đi trong chưa đầy một phút.',
   'tripPlanner.preview.eyebrow': 'Xem trước trực tiếp',
+  'tripPlanner.preview.placeholderCountry': 'Chọn một quốc gia',
   'tripPlanner.preview.placeholderDestination': 'Cuộc phiêu lưu tiếp theo của quý vị',
   'tripPlanner.section1.title': 'Ở đâu và khi nào',
   'tripPlanner.section2.title': 'Người du hành và ngân sách',
@@ -200,10 +248,14 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Ngày {{day}} — thêm điểm dừng, phương tiện và đặt chỗ tại đây.',
   'tripPlanner.section3.day2': 'Ngày {{day}} — thêm điểm dừng, phương tiện và đặt chỗ tại đây.',
   'tripPlanner.section3.day3': 'Ngày {{day}} — thêm điểm dừng, phương tiện và đặt chỗ tại đây.',
+  'tripPlanner.section3.title': 'Bản khởi đầu kế hoạch ngày',
   'tripPlanner.subheading':
     'Đưa thông tin cơ bản vào bên dưới — quý vị luôn có thể mời cộng tác viên, kéo các điểm dừng và chuyển tiếp đặt chỗ sau.',
   'tripPlanner.submit': 'Tạo chuyến đi',
   'tripPlanner.submitting': 'Đang tạo…',
+  'trips.empty.body':
+    'Chuyển về Tất cả chuyến đi hoặc bắt đầu lên kế hoạch cho chuyến lang thang kế tiếp.',
+  'trips.empty.cta': 'Lên kế hoạch chuyến đi',
   'trips.empty.heading': 'Chưa có gì khớp với bộ lọc đó.',
   'trips.eyebrow': 'Bản đồ',
   'trips.filterLabel': 'Lọc chuyến đi theo trạng thái',
@@ -214,6 +266,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Chưa có chuyến đi nào.',
   'trips.pastHeading': 'Cuộc phiêu lưu trước đây',
   'trips.subheading': '{{count}} lịch trình — quá khứ, hiện tại và một ngày nào đó.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Lên kế hoạch một lần. Cùng nhau lang thang. Ghi nhớ mãi mãi.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · thành viên {{appName}} từ 2024',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} đã biến chuyến đi 3 tuần bận rộn qua bốn quốc gia thành lịch trình thư thái nhất mà chúng tôi từng chia sẻ.',
   'waypointLayout.mobileNavClose': 'Đóng menu điều hướng',
   'waypointLayout.primaryNavLabel': 'Điều hướng chính',
 }

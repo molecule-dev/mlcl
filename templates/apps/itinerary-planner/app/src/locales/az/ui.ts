@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Rəy bildirmək, xəta tapmaq və ya iddialı bir plan qurmaq istəyirsiniz? Hesab parametrlərinizdən bizə yazın — hər mesaj komandada real bir insana çatır.',
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Bir gələn qutusunda rezervasiyalar — uçuş, otel və fəaliyyət təsdiqləri aid olduqları günə düşür.',
+  'about.featureCollab':
+    'Real vaxt rejimində birgə iş — hər səyahətə beşə qədər səyahətçi dəvət edin, hər dəyişiklik canlı sinxronlaşır və şərhlər hər dayanacağın altında yazılır.',
+  'about.featureMapsBudget':
+    'Xəritələr, istiqamətlər və ortaq büdcə — bütün səyahəti xəritədə görün, redaktorların seçdiyi istiqamətləri kəşf edin və xərcləri izləyin ki, heç kim artıq xərcləməsin.',
+  'about.featureTimelines':
+    'Gün-gün cədvəllər — dayanacaqları sürüşdürüb sıralayın, nəqliyyat seqmentlərini əlavə edin və marşrutun canlı sənəd kimi yenidən hesablandığını izləyin.',
+  'about.intro':
+    '{{app}} yarımçıq planlarla dolu qovluğu bütün qrupunuzun həqiqətən izləyə biləcəyi vahid, ortaq səyahətə çevirir. Gün-gün marşrut qurun, uçuş və otelləri əlavə edin, hər dayanacağı xəritədə qeyd edin və büdcəni izləyin — hamısı onlarla tab və qrup söhbəti yerinə bir sakit məkanda.',
+  'about.missionBody':
+    'Səyahət planlaması ev tapşırığı kimi deyil, səyahətin artıq yaxşılaşdığını hiss etdirməlidir. {{app}} birgə səyahətləri asanlaşdırmaq üçün mövcuddur — belə ki, hər səyahətçi planı bilərək gəlir və hər dayanacaq yadda qalmağa dəyər bir hekayə danışır.',
+  'about.missionTitle': 'Missiyamız',
   'about.pageTitle': '{{app}} haqqında',
   'auth.legalConsent': 'Davam etməklə, bizim şərtlərimizlə razılaşırsınız',
   'bookings.empty.body': 'Gələnlər qutusuna başlamaq üçün uçuş, otel və ya fəaliyyət əlavə edin.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Otel',
   'bookings.type.other': 'Digər',
   'budgetSpendCard.budgetTotal': '-ın {{total}} planlaşdırılmış',
+  'budgetSpendCard.overBy': '{{amount}} büdcədən artıq',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} son',
+  'budgetSpendCard.remaining': '{{amount}} qalıb',
   'calendar.eyebrow': 'Qarşıdakı il',
   'calendar.heading': 'Hər səfər tək bir təqvimdə.',
   'calendar.legendHeading': 'Bu ayın səfərləri',
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'və',
   'common.goToDashboard': 'İdarə panelinə keç',
   'dashboard.budgetHeading': 'Büdcə nəbzi',
+  'dashboard.empty.body':
+    'İlk səyahətinizi planlayın və idarə paneliniz gün-gün cədvəllər, büdcə nəbzi və rezervasiyalarla dolacaq.',
+  'dashboard.empty.cta': 'İlk səyahətinizi planlayın',
   'dashboard.empty.heading': 'Hələ səfər yoxdur — atlasınız boşdur.',
   'dashboard.eyebrow': 'Missiya nəzarəti',
   'dashboard.heading': 'Növbəti macəranıza, sakit bir küncdə.',
   'dashboard.newTripCta': 'Yeni bir səyahətə başlayın',
+  'dashboard.subheading':
+    'Növbəti səyahətə geri sayım, bugünkü xərc nəbzi və hərəkətdə olan hər marşruta qısa baxış.',
   'dashboard.tripsHeading': 'Hərəkətdə olan səyahətlər',
   'dashboard.viewAllExpenses': 'Hər xərci görün',
   'dashboard.viewAllTrips': 'Hər səfərə baxın',
   'dayTimelineRow.category.accommodation': 'Qalmaq',
+  'dayTimelineRow.category.food': 'Yemək və içki',
+  'dayTimelineRow.category.sightseeing': 'Görməli yerlər',
   'dayTimelineRow.category.transport': 'Nəqliyyat',
   'destinationOrbCard.exploreCta': 'Səfərə əlavə edin',
   'destinationOrbCard.tripCount': '{{count}} səyahətlər',
+  'destinations.empty.body': 'Yenidən Hamısına keçin və redaktor tapıntıları yenidən görünəcək.',
   'destinations.empty.heading': 'Hələlik təyinat yeri yoxdur.',
+  'destinations.emptyFiltered.heading': 'Hələ belə etiketlənmiş heç nə yoxdur.',
   'destinations.errors.load': 'Təyinat yerlərini yükləmək mümkün olmadı.',
   'destinations.eyebrow': 'Növbəti addım',
   'destinations.heading': 'Yadda saxlanılan guşələr və redaktor tapıntıları.',
@@ -71,7 +99,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Satıcı',
   'expenses.formHeading': 'Giriş xərci {{trip}}',
   'expenses.heading': 'Səfər büdcəsi əslində hara gedir.',
+  'expenses.heroBudget': '{{total}} planının {{pct}}%-i',
   'expenses.heroEyebrow': '{{trip}} • büdcə anlıq görüntüsü',
+  'expenses.heroNoBudget': 'Bu səyahətdə hələ büdcə təyin edilməyib.',
   'expenses.noTrips.body': 'Əvvəlcə səyahət planlaşdırın - xərclər səfərin büdcəsinə əlavə olunur.',
   'expenses.noTrips.heading': 'Hələ ki, səfərlər yoxdur.',
   'expenses.receiptCount': '{{count}} qəbzlər',
@@ -83,12 +113,16 @@ export const ui: UiTranslations = {
     'Hər bir qəbz və təsdiq burada düzgün kateqoriyaya daxil edilir - heç bir elektron cədvələ ehtiyac yoxdur.',
   'forgotPassword.eyebrow': 'Marşrutunuzu bərpa edin',
   'forgotPassword.heading': 'Şifrənizi unutmusunuz?',
+  'forgotPassword.subheading':
+    '{{appName}} üçün istifadə etdiyiniz e-poçtu daxil edin və şifrənizi sıfırlamaq üçün link göndərəcəyik.',
   'forgotPassword.submit': 'Bərpa e-poçtu göndərin',
   'forgotPassword.submitPending': 'Bərpa e-poçtu göndərilir…',
   'forgotPassword.successHint':
     'Hələ e-poçtunuz yoxdur? Spam qovluğunuzu yoxlayın və ya fərqli bir ünvanla yenidən cəhd edin.',
   'forgotPassword.successSubheading':
     'Bərpa linki göndərdik {{email}} Link 30 dəqiqə ərzində etibarlıdır.',
+  'forgotPassword.tryAgain': 'Başqa e-poçta göndər',
+  'landing.cta.eyebrow': 'Pulsuz planla başlayın',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Pulsuz hesab yaradın',
   'landing.cta.subheading':
@@ -100,8 +134,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Pulsuz səyahətə başlayın',
   'landing.hero.ctaSecondary': 'Nümunə səyahətə baxın',
+  'landing.hero.eyebrow': 'Səyahət planlayıcısı · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint, yarımçıq planlarla dolu bir qovluğu qrupunuzun həqiqətən izləyə biləcəyi ortaq, gündəlik marşruta çevirir — sifarişlər, xəritələr və büdcə bir yerdə izlənilir.',
+  'landing.hero.title': 'Bir dəfə planlaşdırın. Birlikdə gəzin.',
   'landing.nav.join': 'Pulsuz səyahətə başlayın',
   'landing.nav.preview': 'Daxili Yol Nöqtəsi',
   'landing.preview.cta': 'Özünüzdən birini planlaşdırın',
@@ -109,6 +145,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Səyahətçilərin hazırda gəzdiyi bir neçə səyahət',
   'login.eyebrow': 'Üzvlər sahəsi',
   'login.heading': 'Xoş gəldin, səyyah',
+  'login.noAccount': 'Tessera-da yenisiniz?',
   'login.signupLink': 'Pulsuz hesab yaradın',
   'login.subheading':
     'Səfərlərinizi, günlük planlarınızı, sifarişlərinizi və artıq başlatdığınız jurnal qeydlərini idarə etmək üçün daxil olun.',
@@ -119,6 +156,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Bildirişi yeniləmək mümkün olmadı.',
   'notifications.heading': 'Bu gün səyahətlərinizdə nələr dəyişdi.',
   'notifications.markUnread': 'Oxunmamış kimi qeyd edin',
+  'notifications.subheading':
+    '{{count}} yeni — rezervasiya təsdiqləri, həmkar qeydləri, qiymət düşmələri və xatırlatmalar.',
   'notifications.time.daysAgo': '{{count}} gün əvvəl',
   'notifications.time.hoursAgo': '{{count}} saat əvvəl',
   'notifications.time.justNow': 'elə indicə',
@@ -137,6 +176,7 @@ export const ui: UiTranslations = {
     'Qoşulmuş xidmətlər, valyuta, push bildirişləri və daxil olduğunuz etimadnamələr.',
   'signup.and': 'və',
   'signup.eyebrow': 'Waypoint-ə qoşulun',
+  'signup.haveAccount': 'Artıq səyahətdəsiniz?',
   'signup.heading': 'Bir dəfə planlaşdırın. Birlikdə gəzin.',
   'signup.namePlaceholder': 'İris Larsen',
   'signup.subheading':
@@ -148,6 +188,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Açıq marşrut',
   'tripCountdownHeroCard.ctaSecondary': 'Başqa bir səyahət planlaşdırın',
   'tripCountdownHeroCard.daysLabel': '{{days}} Gedəcək günlər',
+  'tripCountdownHeroCard.eyebrow': 'Növbəti macəra · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} gecə — marşrutunuz səyahətə hazırdır.',
   'tripCoverCard.stops': '{{count}} dayanacaqlar',
   'tripCoverCard.travelers': '{{count}} səyahətçilər',
   'tripDetail.addActivity': 'Fəaliyyət əlavə edin',
@@ -157,6 +200,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Fəaliyyətin başlığı',
   'tripDetail.adding': 'Əlavə olunur…',
   'tripDetail.backToTrips': 'Bütün səfərlərə qayıt',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Səyahətçilər',
   'tripDetail.dayLabel': 'Gün {{day}}',
   'tripDetail.empty':
@@ -168,14 +212,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Marşrut • {{country}}',
   'tripDetail.invite': 'Dəvət et',
   'tripDetail.inviteLabel': 'E-poçtla dəvət edin',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'Dəvət göndərildi {{email}} .',
   'tripDetail.inviting': 'Göndərilir…',
   'tripDetail.loading': 'Səfər yüklənir…',
   'tripDetail.noCollaborators': 'Hələlik, sadəcə sən.',
+  'tripDetail.notesHeading': 'Səyahət qeydləri',
   'tripDetail.notesPlaceholder': 'Hələ qeyd yoxdur.',
   'tripDetail.notFound.heading': 'Səfər tapılmadı',
   'tripDetail.openBookings': 'Sifarişlərin gələnlər qutusunu açın',
   'tripDetail.shareCopied': 'Paylaşım linki buferə kopyalandı:',
+  'tripDetail.shareReady': 'Paylaşma linki hazırdır:',
   'tripDetail.stops': '{{count}} dayanacaqlar',
   'tripDetail.timelineEyebrow': 'Gün qrafiki',
   'tripDetail.timelineHeading': 'Gündəlik plan',
@@ -193,6 +240,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Səyahətçilər',
   'tripPlanner.heading': 'Bir dəqiqədən az müddətdə bir səyahət eskizi çəkin.',
   'tripPlanner.preview.eyebrow': 'Canlı önizləmə',
+  'tripPlanner.preview.placeholderCountry': 'Ölkə seçin',
   'tripPlanner.preview.placeholderDestination': 'Növbəti macəranızı',
   'tripPlanner.section1.title': 'Harada və nə vaxt',
   'tripPlanner.section2.title': 'Səyahətçilər və büdcə',
@@ -204,10 +252,13 @@ export const ui: UiTranslations = {
     'Gün {{day}} — dayanacaqlar, nəqliyyat və sifarişlər buraya əlavə edin.',
   'tripPlanner.section3.day3':
     'Gün {{day}} — dayanacaqlar, nəqliyyat və sifarişlər buraya əlavə edin.',
+  'tripPlanner.section3.title': 'Gün planı başlanğıcı',
   'tripPlanner.subheading':
     'Əsas məlumatları aşağıya əlavə edin — İstənilən vaxt əməkdaşları dəvət edə, dayanacaqları sürükləyə və sifarişləri daha sonra yönləndirə bilərsiniz.',
   'tripPlanner.submit': 'Səfər yaradın',
   'tripPlanner.submitting': 'Yaradılır…',
+  'trips.empty.body': 'Bütün səyahətlərə qayıdın və ya növbəti səyahətinizi planlamağa başlayın.',
+  'trips.empty.cta': 'Səyahət planlaşdır',
   'trips.empty.heading': 'Hələ ki, həmin filtrə uyğun heç nə yoxdur.',
   'trips.eyebrow': 'Atlas',
   'trips.filterLabel': 'Səfərləri statusa görə filtrləyin',
@@ -218,6 +269,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Hələ ki, səfərlər yoxdur.',
   'trips.pastHeading': 'Keçmiş macəralar',
   'trips.subheading': '{{count}} marşrutlar — keçmiş, indiki və nə vaxtsa.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Bir dəfə planla. Birlikdə gəz. Əbədi xatırla.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · 2024-dən bəri {{appName}} üzv',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} dörd ölkə üzrə üç həftəlik təlaşlı səyahəti indiyə qədər paylaşdığımız ən rahat marşruta çevirdi.',
   'waypointLayout.mobileNavClose': 'Naviqasiya menyusunu bağlayın',
   'waypointLayout.primaryNavLabel': 'Əsas naviqasiya',
 }

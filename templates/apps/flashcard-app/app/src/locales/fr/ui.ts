@@ -1,11 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Vous avez des commentaires, vous avez trouvé un bug ou vous souhaitez suggérer une fonctionnalité ? Chaque message parvient à une vraie personne de l'équipe {{app}} — nous serions ravis de savoir ce que vous apprenez.",
   'about.contactTitle': 'Nous contacter',
   'about.eyebrow': 'À propos de {{app}}',
+  'about.intro':
+    "{{app}} est une application de flashcards à répétition espacée pour ceux qui veulent que les connaissances restent vraiment. Que vous appreniez une langue, mémorisiez des formules ou révisiez des concepts pour un examen, elle programme chaque carte au moment exact où vous êtes sur le point de l'oublier — la façon la plus efficace que la science de la mémoire ait trouvée pour ancrer les faits dans la mémoire à long terme.",
+  'about.missionBody':
+    "La plupart des outils d'étude optimisent le temps passé, pas les connaissances retenues. {{app}} optimise l'inverse : le moins de révisions possible pour garder l'essentiel en tête. Nous pensons que l'apprentissage doit être serein, mesurable et vous appartenir — données ouvertes, pas de dark patterns, et une habitude que vous pouvez tenir pendant des années.",
+  'about.missionTitle': 'Notre mission',
   'about.pageTitle': '{{tagline}}.',
   'authShell.sampleBack': 'Vilnius — rappelé en 1,2 seconde.',
   'authShell.sampleEyebrow': 'Une carte de votre futur paquet',
+  'authShell.sampleFront': '« La capitale de la Lituanie. »',
+  'authShell.sampleRetention': '{{pct}} % de rétention',
   'authShell.sampleStreak': 'Série de {{days}} jours',
   'cardEdit.title': 'Modifier la carte',
   'cardEditor.backLink': 'Retour au paquet',
@@ -35,6 +44,8 @@ export const ui: UiTranslations = {
   'dashboard.kpi.days': 'jours',
   'deckDetail.backLink': 'Tous les paquets',
   'deckDetail.deleteError': 'Impossible de supprimer le deck.',
+  'deckDetail.empty.body': 'Ajoutez votre première carte pour commencer à bâtir votre mémoire.',
+  'deckDetail.empty.cta': 'Ajouter votre première carte',
   'deckDetail.empty.heading': 'Aucune carte dans ce paquet pour le moment',
   'deckDetail.filterEmpty': "Aucune carte ne correspond à ce filtre d'état.",
   'deckDetail.filterLabel': 'Filtrer les cartes par état',
@@ -47,7 +58,10 @@ export const ui: UiTranslations = {
   'deckDetail.stat.total': 'Cartes',
   'deckDetail.studyDueLabel': 'Étudier {{count}} cartes dues',
   'deckProgressCard.cardCount': '{{count}} cartes',
+  'deckProgressCard.masteredTooltip': '{{count}} maîtrisées',
   'deckProgressCard.studyCta': 'Étudier {{count}}',
+  'decks.confirmDelete':
+    'Supprimer ce paquet et toutes ses cartes ? Cette action est irréversible.',
   'decks.create.heading': 'Créer un paquet',
   'decks.create.nameLabel': 'Nom du paquet',
   'decks.create.submit': 'Créer le paquet',
@@ -58,6 +72,7 @@ export const ui: UiTranslations = {
   'decks.heading': 'Paquets',
   'decks.loadError': 'Impossible de charger les paquets.',
   'decks.loading': 'Chargement…',
+  'decks.newDeckLabel': 'Nouveau paquet',
   'decks.retention': 'Rétention',
   'decks.studyArrow': 'Étudier →',
   'decks.subheading': '{{count}} paquets · à réviser et gérer',
@@ -80,6 +95,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': "J'ai déjà un compte",
   'landing.heroSubtitle':
     "La répétition espacée fait toute la différence entre bachoter et se souvenir. Cinq minutes par jour, année après année, et la langue s'imprime durablement.",
+  'landing.heroTitle': '{{tagline}}.',
   'landing.proof.export': 'Données ouvertes, sans verrouillage',
   'landing.proof.free': 'Gratuit à vie pour un usage personnel',
   'landing.proof.import': 'Importez .apkg / CSV',
@@ -94,12 +110,16 @@ export const ui: UiTranslations = {
   'login.heading': 'Bienvenue dans vos paquets',
   'login.orDivider': 'ou continuer avec',
   'login.signupLink': 'Commencez à étudier gratuitement',
+  'login.signupPrompt': 'Nouveau ici ?',
   'login.subtitle': 'Reprenez là où vous vous étiez arrêté — votre série vous attend.',
   'mobileNav.closeMenu': 'Fermer le menu de navigation',
   'mobileNav.openMenu': 'Ouvrir le menu de navigation',
   'notifications.markAllReadError': 'Impossible de marquer tous les éléments comme lus.',
   'pricing.heading': 'cartes',
+  'pricing.limits.cards': 'cartes',
   'pricing.limits.decks': 'paquets',
+  'pricing.limits.historyDays': 'Historique de révision sur {{days}} jours',
+  'pricing.limits.historyUnlimited': 'Historique de révision illimité',
   'pricing.limits.stats': 'stats',
   'pricing.limits.study': 'étude',
   'resetPassword.passwordLabel': 'Nouveau mot de passe',
@@ -111,17 +131,29 @@ export const ui: UiTranslations = {
   'sessionSummary.heading': 'Bravo.',
   'sessionSummary.label': 'Session terminée',
   'settings.changePasswordError': 'Impossible de changer le mot de passe.',
+  'settings.confirmPassword': 'Confirmez votre mot de passe',
   'settings.currentPassword': 'Mot de passe actuel',
+  'settings.dangerZone': 'Zone dangereuse',
+  'settings.deleteAccountHint':
+    "Supprimer définitivement votre compte et toutes vos données d'étude. Cette action est irréversible.",
+  'settings.deleteAccountWarning':
+    "Cela supprime définitivement votre compte ainsi que tous les paquets, cartes et l'historique d'étude. Cette action est irréversible.",
   'settings.deleteError':
     'Impossible de supprimer le compte. Veuillez vérifier votre mot de passe et réessayer.',
   'settings.deleting': 'Suppression…',
+  'settings.devicesHint': 'Appareils actuellement enregistrés sur votre compte.',
   'settings.newPassword': 'Nouveau mot de passe',
   'settings.password': 'Mot de passe',
   'settings.passwordChanged': 'Mot de passe mis à jour.',
+  'settings.passwordHint': 'Modifiez le mot de passe que vous utilisez pour vous connecter.',
   'settings.reminders.atRisk': 'Alerte de série à risque (après 20 h)',
+  'settings.reminders.daily': 'Rappel quotidien (8 h 00)',
   'settings.reminders.heading': 'Rappels',
+  'settings.reminders.milestones': 'Célébration des étapes',
   'settings.reminders.note':
     "Stocké sur cet appareil. Activez les rappels d'étude affichés par ce navigateur ; les préférences sont synchronisées au rechargement.",
+  'settings.reminders.weekly': 'Résumé hebdomadaire de rétention (dimanches)',
+  'settings.revokeDeviceWarning': "L'accès de cet appareil sera bientôt révoqué. Le déconnecter ?",
   'settings.saved': 'Enregistré.',
   'settings.saveError': "Échec de l'enregistrement.",
   'settings.saving': 'Enregistrement…',
@@ -137,6 +169,7 @@ export const ui: UiTranslations = {
   'signup.legal':
     'En créant un compte, vous acceptez nos Conditions et notre Politique de confidentialité.',
   'signup.nameLabel': 'Votre nom (facultatif)',
+  'signup.orDivider': "ou s'inscrire avec",
   'signup.subtitle': 'Cinq minutes par jour. Un futur vous qui se souvient.',
   'stats.byStateHeading': 'Cartes par état',
   'stats.dailyHeading': 'Révisions par jour (30 derniers jours)',
@@ -173,5 +206,6 @@ export const ui: UiTranslations = {
   'todayHeroCard.goalLabel': 'Objectif quotidien',
   'todayHeroCard.goalProgress': '{{reviewed}} / {{goal}}',
   'todayHeroCard.streakBadge': 'Série de {{days}} jours',
+  'todayHeroCard.studyCta': 'Commencer à étudier',
   'userMenu.stats': 'Mes statistiques',
 }

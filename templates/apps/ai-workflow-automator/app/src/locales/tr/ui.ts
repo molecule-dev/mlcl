@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite, ekiplerin yapıştırıcı kod yazmadan sistemler arasında iş taşıyabilmesi için tetikleyicileri, AI koşullarını ve çok adımlı eylemleri birlikte bağlayan bir iş akışı otomasyon platformudur.',
+  'about.philosophy':
+    'Her iş akışı, küçük ve gözlemlenebilir adımlardan oluşan bir grafiktir. Her adım; girdilerini, çıktılarını ve zamanlamasını kaydeder; böylece incelenebilir, yeniden oynatılabilir veya geri alınabilir. Bunları görsel olarak oluşturun, kod gibi sürümleyin.',
   'about.title': 'Dendrite Hakkında',
   'authShell.brand': 'Dendrite',
   'authShell.support': 'Destek',
@@ -14,9 +16,14 @@ export const ui: UiTranslations = {
   'billing.cancelPlan': 'Planı iptal et',
   'billing.changePlan': 'Plan değiştir',
   'billing.description': 'Kullanımı izleyin, planınızı yönetin ve muhasebe için faturaları çekin.',
+  'billing.eyebrow': 'Hesap · Plan ve kullanım',
+  'billing.failedLabel': 'Başarısız çalışmalar · 24s',
+  'billing.invoicesEmpty':
+    'Henüz fatura yok. İlk ücretli yenilemenizden sonra burada görünecekler.',
   'billing.invoicesTitle': 'Fatura geçmişi',
   'billing.planNoteFree':
     'Ücretsiz katman — {{runs}} çalıştırma ve {{workflows}} etkin iş akışı. Daha yüksek limitler için yükseltin.',
+  'billing.planNotePaid': 'Ücretli plan — {{runs}} çalışma ve {{workflows}} etkin iş akışı.',
   'billing.runsLabel': 'Son 24 saatteki çalıştırmalar',
   'billing.tiersBlurb':
     'Her katmanı — çalıştırmalar, etkin iş akışları, gelişmiş özellikler ve destek — özel fiyatlandırma sayfasında karşılaştırın.',
@@ -34,9 +41,13 @@ export const ui: UiTranslations = {
     'Kayıtlı entegrasyon yok. Bondları etkinleştirmek için sağlayıcı anahtarlarını yapılandırın.',
   'connections.error': 'Bağlantılar yüklenemedi.',
   'connections.eyebrow': 'Entegrasyonlar · {{connected}} bağlı',
+  'connections.loading': 'Entegrasyonlar yükleniyor…',
+  'connections.openEnv':
+    'Bu sağlayıcıyı bağlamak için API anahtarını api/.env dosyasına ekleyin ve sunucuyu yeniden başlatın.',
   'dashboard.description': '{{active}} iş akışı etkin. Son 24 saatte {{failed}} başarısız.',
   'dashboard.error': 'Pano yüklenemedi.',
   'dashboard.eyebrow': 'Operasyonlar · canlı',
+  'dashboard.hero.label': 'Bugünkü çalışmalar',
   'dashboard.hero.medianLatency': 'p50 gecikme',
   'dashboard.hero.queue': 'Kuyruk derinliği',
   'dashboard.hero.success': 'Başarı',
@@ -44,14 +55,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Ortanca süre',
   'dashboard.kpi.failedRuns': 'Başarısız · 24 sa',
   'dashboard.kpi.outOf': 'toplam {{total}} içinden',
+  'dashboard.kpi.successRate': 'Başarı oranı · 24s',
   'dashboard.loading': 'Pano yükleniyor…',
   'dashboard.recentRuns.empty':
     'Henüz çalıştırma yok. Bir iş akışını tetiklemek bu akışı dolduracaktır.',
   'dashboard.recentRuns.title': 'Son çalıştırmalar',
   'dashboard.recentRuns.viewAll': 'Yürütmeleri aç →',
+  'dashboard.recentWorkflows.browse': 'Şablonlara göz atın →',
   'dashboard.recentWorkflows.empty':
     'Henüz iş akışı yok. Bir şablon yükleyin veya sıfırdan oluşturun.',
   'dashboard.recentWorkflows.title': 'Son çalıştırılanlar',
+  'dashboard.run.col.run': 'Koş',
   'dashboard.run.col.started': 'Başlatıldı',
   'dashboard.run.col.trigger': 'Tetikleyici',
   'dashboard.run.col.workflow': 'İş akışı',
@@ -86,6 +100,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'İş akışı',
   'executions.description':
     'Her iş akışı çalıştırması, her yeniden deneme, her adım çıktısı — hepsi gözlemlenebilir.',
+  'executions.empty.filter': 'Bu filtreyle eşleşen çalışma yok.',
   'executions.empty.first':
     'Henüz çalıştırma yok — bu listeyi doldurmak için bir iş akışını tetikleyin.',
   'executions.error': 'Yürütmeler yüklenemedi.',
@@ -96,30 +111,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Çalıştırma geçmişi yükleniyor…',
   'executions.title': 'Yürütmeler',
   'forgotPassword.confirmation': '{{email}} adresine sıfırlama bağlantısı gönderildi.',
+  'forgotPassword.subhead': 'Sıfırlama bağlantısı almak için e-postanızı girin.',
   'forgotPassword.successSubhead':
     '{{email}} adresine bir sıfırlama bağlantısı gönderdik. 30 dakika içinde sona erer.',
   'help.connections.body':
     'AI, e-posta ve depolama adımları, api/.env dosyasında sağlayıcı anahtarlarının ayarlanmasını gerektirir. Bir anahtar yapılandırıldıktan sonra, ilgili entegrasyon Bağlantılar sayfasında bağlı olarak görünür.',
+  'help.connections.cta': 'Bağlantıları aç →',
   'help.connections.title': 'Sağlayıcıları bağlama',
   'help.gettingStarted.body':
     'Yeni iş akışları, şablon kitaplığından yüklenebilir veya iş akışı oluşturucusunda sıfırdan oluşturulabilir. Her iş akışının bir tetikleyicisi (manuel, webhook veya cron) ve sırayla çalışan bir dizi adımı vardır.',
+  'help.gettingStarted.cta': 'Şablon kütüphanesine göz at →',
+  'help.gettingStarted.title': 'Başlarken',
   'help.intro':
     'İş akışları oluşturma, bağlantıları yapılandırma ve çalıştırma çıktısını yorumlama hakkında sık sorulan soruların yanıtlarını bulun. En yaygın konular aşağıda listelenmiştir; kapsanmayan herhangi bir konu için çalışma alanı yöneticinize başvurun.',
   'help.runs.body':
     'Her çalıştırma, her adımı bağımsız olarak durum (başarı, başarısızlık, atlandı) ve bir çıktı parçacığı ile günlüğe kaydeder. Yürütme detay sayfası, tam adım adım izi ve çıkarılan metrikleri gösterir.',
+  'help.runs.cta': 'Yürütmeleri aç →',
   'help.runs.title': 'Çalıştırma çıktısını okuma',
   'help.title': 'Yardım merkezi',
   'integrationCard.manage': 'Yönet',
   'landing.brand': 'Dendrite',
   'landing.demo.action.subtitle': 'Round-robin · bölge',
+  'landing.demo.action.title': 'Temsilciyi bilgilendir',
   'landing.demo.condition.subtitle': 'AI niyet sınıflandırıcı',
+  'landing.demo.condition.title': 'Puan ≥ orta?',
   'landing.demo.trigger.subtitle': 'POST /forms/contact',
   'landing.demo.trigger.title': 'Gelen webhook',
+  'landing.features.body':
+    'Tetikleyiciler çalışır. Koşullar dallanır. Eylemler işi tamamlar. Bunları görsel olarak oluşturun, kod gibi sürümleyin.',
   'landing.features.heading': 'Üç düğüm türü. Sonsuz şekil.',
   'landing.footer.help': 'Yardım',
   'landing.footer.tagline': 'Hareket halinde zekâ',
+  'landing.hero.body':
+    "{{appName}}, Zapier'in sınırlarını aşan operasyon ekipleri için iş akışı motorudur. Tetikleyici, koşul, eylem — gerçekten kullandığınız her sisteme bağlı.",
   'landing.hero.eyebrow': 'Hareket halinde zekâ',
   'landing.hero.headline': 'Yığınınızı birbirine bağlayın. İşin gerçekleşmesine izin verin.',
+  'landing.hero.primaryCta': 'İlk iş akışınızı oluşturun',
   'landing.hero.proof.ai': 'Yerleşik AI düğümleri',
   'landing.hero.proof.free': 'Aylık 1k çalıştırmaya kadar ücretsiz',
   'landing.hero.proof.soc2': 'SOC 2 Type II',
@@ -127,10 +154,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Koltuk değil, çalıştırma için ödeyin.',
   'landing.templates.body':
     'Her ekip için önceden bağlanmış iş akışları — satış, destek, dev-ops, finans. Tek tıkla yükleyin; her şeyi değiştirin.',
+  'landing.templates.cta': 'Şablonlara göz atmak için kaydolun →',
   'landing.templates.eyebrow': 'Saniyeler içinde başlayın',
   'landing.templates.heading': 'Onaylanmış tariflerden oluşan bir kitaplık.',
   'landing.templates.signupHint': 'Yüklemek için kaydolun',
   'login.hidePassword': 'Şifreyi gizle',
+  'login.noAccount': "Tessera'da yeni misiniz?",
   'login.showPassword': 'Şifreyi göster',
   'login.subhead': 'Otomasyonlarınızı akmaya devam ettirmek için oturum açın.',
   'mobileNav.drawerLabel': 'Ana gezinme',
@@ -146,8 +175,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Bu akışı doldurmaya başlamak için bir iş akışı çalıştırın.',
   'notifications.empty.title': 'Her şey güncel',
   'notifications.eyebrow': '{{n}} okunmamış',
+  'planUpdated.body':
+    'Faturalandırma değişikliğiniz artık etkin. Planınızı istediğiniz zaman faturalandırma sayfasından yönetebilirsiniz.',
+  'planUpdated.retry': 'Tekrar dene',
+  'planUpdated.verifyFailed': 'Ödemenizi henüz onaylayamadık.',
+  'planUpdated.verifyFailedBody':
+    'Ödemeniz hala işleniyor olabilir. Lütfen biraz sonra tekrar deneyin.',
   'planUpdated.verifying': 'Ödemeniz onaylanıyor…',
   'pricing.heading': 'çalıştırma',
+  'pricing.runsSuffix': 'çalışma',
   'pricing.workflowsSuffix': 'iş akışı',
   'privacy.collect.body':
     'Kaydolduğunuz e-posta adresinizi, yapılandırdığınız iş akışlarını ve her çalıştırma hakkındaki meta verileri (başlangıç zamanı, bitiş zamanı, durum) topluyoruz. Çalışma alanı sahibi için çalıştırma görüntüleyicide görüntülemek için gerekenin ötesinde tetikleyicilerden veya adım çıktılarından yük içeriklerini asla toplamayız veya saklamayız.',
@@ -163,11 +199,14 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Şifre güncellenemedi.',
   'resetPassword.newPassword': 'Yeni şifre',
   'resetPassword.subhead': 'Yalnızca sizin tahmin edebileceğiniz bir şey seçin.',
+  'settings.appearance.description': 'Açık ve koyu mod arasında geçiş yapın.',
+  'settings.appearance.title': 'Görünüm',
   'settings.billingShortcut.cta': 'Faturalandırmayı aç',
   'settings.billingShortcut.description':
     'Plan, kullanım ve faturalar özel faturalandırma sayfasında bulunur.',
   'settings.danger.confirm': 'Emin misiniz? Bu, çalışma alanınızı silme kuyruğuna alır.',
   'settings.danger.confirmYes': 'Evet, silme kuyruğuna al',
+  'settings.danger.deleteWorkspace.cta': 'Çalışma alanını sil',
   'settings.danger.deleteWorkspace.hint':
     '14 günlük lütuf süresinden sonra tüm iş akışlarını, çalıştırmaları ve bağlantıları kaldırır.',
   'settings.danger.deleteWorkspace.title': 'Çalışma alanını sil',
@@ -178,10 +217,15 @@ export const ui: UiTranslations = {
     'Hesabınızı, çalışma alanınızı, entegrasyonlarınızı ve faturalandırmanızı tek bir yerden yönetin.',
   'settings.notifications.description':
     'Hangi olayların sizi çağırdığını, e-posta gönderdiğini veya sessiz kaldığını seçin.',
+  'settings.notifications.failures.hint':
+    'Her başarısız çalışmada e-posta ve uygulama içi bildirim.',
+  'settings.notifications.failures.title': 'İş akışı hataları',
   'settings.notifications.product.hint':
     'Yeni şablonlar ve özellikler hakkında ara sıra e-postalar.',
+  'settings.notifications.product.title': 'Ürün güncellemeleri',
   'settings.notifications.weekly.hint':
     'Geçen haftanın çalıştırmaları ve tasarrufları için pazartesi sabahı özeti.',
+  'settings.notifications.weekly.title': 'Haftalık özet',
   'settings.profile.description':
     'İş akışı çalıştırıcısı içinde nasıl göründüğünüz. Çalışma alanı etkinliğinde kullanılır.',
   'settings.profile.noEmail': 'Kayıtlı e-posta yok',
@@ -189,12 +233,24 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Profil değişiklikleri kaydedilemedi.',
   'settings.profile.unnamedUser': 'Adsız kullanıcı',
   'settings.security.audit.hint': "Webhook aracılığıyla her eylemi SIEM'nize akıtın.",
+  'settings.security.audit.title': 'Denetim günlüğü iletimi',
   'settings.security.description': 'İki faktörlü kimlik doğrulama, SSO ve etkin oturumlar.',
   'settings.security.sso.hint': 'Scale ve Enterprise planlarında mevcut.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'Herhangi bir çalışma alanı sahibi eylemi için gereklidir.',
+  'settings.security.totp.title': 'İki faktörlü kimlik doğrulama (TOTP)',
   'settings.twoFactorCode': 'Doğrulama kodu',
   'settings.twoFactorDisable': 'Devre dışı bırak',
+  'settings.twoFactorDisableTitle': 'İki faktörlü kimlik doğrulamayı devre dışı bırak',
   'settings.twoFactorEnable': 'Etkinleştir',
+  'settings.twoFactorEnableTitle': 'İki faktörlü kimlik doğrulamayı etkinleştir',
   'settings.twoFactorInvalidCode': 'Geçersiz kod',
+  'settings.twoFactorOn': 'Tarih',
+  'settings.twoFactorQrAlt': 'İki faktörlü QR kodu',
+  'settings.twoFactorScan':
+    'Bu QR kodunu kimlik doğrulayıcı uygulamanızla tarayın, ardından 6 haneli kodu girin.',
+  'settings.twoFactorUnavailable':
+    'Bu uygulama için iki faktörlü kimlik doğrulama özelliği mevcut değil.',
   'settings.twoFactorVerify': 'Doğrula ve etkinleştir',
   'settings.workspace.description':
     'Ekibiniz için paylaşılan kimlik, bölge ve çalıştırma varsayılanları.',
@@ -223,6 +279,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Şablon',
   'templates.description':
     'En yaygın otomasyonlar için önceden hazırlanmış planlar. Çatallayın, özelleştirin, gönderin.',
+  'templates.empty.filter': 'Aramanızla eşleşen şablon yok.',
   'templates.empty.first': 'Şu anda mevcut şablon yok.',
   'templates.error': 'Şablonlar yüklenemedi.',
   'templates.installs': 'yükleme',
@@ -248,6 +305,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Devre dışı bırak',
   'workflowBuilder.enable': 'Etkinleştir',
   'workflowBuilder.error': 'İş akışı yüklenemedi.',
+  'workflowBuilder.inspector.config': 'Yapılandırma',
+  'workflowBuilder.inspector.cron': 'Cron ifadesi',
+  'workflowBuilder.inspector.disabled': 'Devre dışı — otomatik olarak çalışmayacak.',
   'workflowBuilder.inspector.enabled': 'Etkin — tetiklendiğinde çalışır.',
   'workflowBuilder.inspector.eyebrow': 'İnceleyici',
   'workflowBuilder.inspector.id': 'Kimlik',
@@ -265,18 +325,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Geçiş başarısız.',
   'workflowBuilder.workflow': 'İş akışı · v{{v}}',
   'workflowBuilder.zoom.in': 'Yakınlaştır',
+  'workflowBuilder.zoom.label': 'Tuval yakınlaştırma kontrolleri',
+  'workflowBuilder.zoom.out': 'Uzaklaştır',
   'workflowCard.lastRun': 'Son çalıştırma {{when}}',
   'workflowCard.runs': '{{count}} çalıştırma',
+  'workflowCard.success': '%{{rate}} başarı',
   'workflowHeroCard.last24h': 'Son 24 sa',
+  'workflows.browseTemplates': 'Şablonlara göz atın →',
   'workflows.description':
     'Çalışma alanınızdaki her otomasyon, sağlık ve son etkinlik bir bakışta.',
+  'workflows.empty.body': 'Filtreyi temizlemeyi veya bir şablonla başlamayı deneyin.',
   'workflows.empty.firstBody': 'Saniyeler içinde başlamak için bir şablon yükleyin.',
   'workflows.empty.firstTitle': 'Henüz iş akışı yok',
   'workflows.empty.title': 'Hiçbir iş akışı eşleşmiyor',
   'workflows.error': 'İş akışları yüklenemedi.',
   'workflows.eyebrow': 'Kitaplık · toplam {{count}}',
+  'workflows.loading': 'İş akışları yükleniyor…',
   'workflows.newFromTemplate': 'Şablondan yeni',
   'workflows.searchPlaceholder': 'İş akışlarını ara…',
+  'workflows.title': 'İş akışları',
   'workflowSidebar.brand': 'Dendrite',
   'workflowSidebar.status': 'Tüm sistemler çalışıyor',
   'workflowSidebar.tagline': 'Hareket halinde zekâ',

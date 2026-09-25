@@ -1,20 +1,44 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Hast du Feedback, einen Bug gefunden oder möchtest du eine Community auf {{appName}} starten? Öffne deine Einstellungen, um das Team zu erreichen — jede Nachricht geht an einen echten Menschen, der sie liest.',
+  'about.contactTitle': 'Sprechen Sie uns an',
+  'about.featureModeration':
+    'Eine integrierte Moderationswarteschlange und Meldewerkzeuge, damit jede Community gesund und selbstverwaltet bleiben kann.',
+  'about.featurePricing':
+    'Kostenlos beitreten und mitmachen; Pro- und Team-Pläne schalten höhere Limits, erweiterte Moderation und Datenexport frei.',
+  'about.featureThreads':
+    'Organisierte Communities und Kategorien mit Threads und Markdown-reichen Diskussionen, die leicht zu verfolgen und zu durchsuchen sind.',
+  'about.featureVoting':
+    'Up-/Down-Voting und ein verdientes Reputationssystem, das die hilfreichsten Beitragenden und die besten Antworten sichtbar macht.',
+  'about.intro':
+    '{{appName}} ist eine community-orientierte Diskussionsplattform — Threads, Voting und Reputation im Reddit-Stil, gebaut für Menschen, die lieber eine gute Unterhaltung führen, als einem Feed hinterherzujagen. Jede Stimme zählt, und die besten Ideen setzen sich durch Qualität durch, nicht durch Lautstärke.',
+  'about.missionBody':
+    'Wir glauben, dass Online-Diskussionen Bedachtsamkeit belohnen sollten, nicht Empörung. {{appName}} gibt jeder Community die Werkzeuge, um zivil und selbstverwaltet zu bleiben — transparentes Voting, verdiente Reputation und Moderation, die vertrauenswürdige Mitglieder in die Verantwortung nimmt — damit Threads zu etwas zusammenwachsen, zu dem man gerne zurückkehrt.',
+  'about.missionTitle': 'Unsere Mission',
   'authShell.communities': 'Communities',
+  'authShell.copyright': '{{appName}} — jede Stimme zählt.',
   'authShell.trending': 'Im Trend',
+  'categories.emptyFilter': 'Keine Communities zum Anzeigen.',
+  'categories.emptySubscribed': 'Du hast noch keine Communities abonniert.',
+  'categories.emptySubscribedHint':
+    'Öffne eine Community und tippe auf Abonnieren, um sie hier hinzuzufügen.',
   'categories.eyebrow': 'Communities',
   'categories.loadError': 'Communities konnten nicht geladen werden.',
   'categories.loading': 'Communities werden geladen…',
   'categories.subtitle':
     'Durchsuchen Sie Agora-Communities nach Aktivität, Thema und Lautstärke. Abonnieren Sie, um einen Feed zu Ihrer Startseite hinzuzufügen.',
   'categories.title': 'Finden Sie Ihren Raum',
+  'categoryCard.activeNow': '{{count}} aktiv',
   'categoryCard.namePrefix': 'c/',
   'categoryCard.subscribers': '{{count}} Mitglieder',
   'categoryDetail.empty': 'Hier gibt es noch keine Threads.',
   'categoryDetail.namePrefix': 'c/',
   'categoryDetail.newPost': 'Neuer Beitrag',
   'categoryDetail.ruleBeKind': 'Seien Sie freundlich. Diskutieren Sie die Sache, nicht die Person.',
+  'categoryDetail.ruleNoSpam': 'Kein Spam, keine Marktplatz-Links.',
+  'categoryDetail.ruleStayOnTopic': 'Bleib beim Thema dieser Community.',
   'categoryDetail.startFirst': 'Starten Sie den ersten Thread →',
   'categoryDetail.subscribe': 'Abonnieren',
   'categoryDetail.subscribed': 'Abonniert',
@@ -35,6 +59,7 @@ export const ui: UiTranslations = {
   'compose.eyebrow': 'Thread starten',
   'compose.flairLabel': 'Kennzeichnung (optional)',
   'compose.imageUrlPrompt': 'Bild-URL',
+  'compose.insertUrl': 'Einfügen',
   'compose.linkUrlPrompt': 'Link-URL',
   'compose.markdownHint': 'Markdown wird unterstützt.',
   'compose.publishFailed': 'Thread konnte nicht veröffentlicht werden.',
@@ -53,11 +78,18 @@ export const ui: UiTranslations = {
   'feed.emptyHint':
     'Seien Sie die erste Person, die eine Diskussion startet — gehen Sie zu Verfassen.',
   'feed.loadError': 'Das Feed konnte nicht geladen werden.',
+  'feed.metaCommunityDescription':
+    'Die Meta-Community für alle, die {{appName}} mitgestalten — Voting, Governance und Feature-Debatten.',
+  'feed.ruleBeCivil': 'Bleib zivil. Immer.',
   'feed.ruleBeCivilDesc':
     'Widersprechen Sie, ohne zu entmenschlichen. Moderatoren reagieren schnell auf persönliche Angriffe.',
+  'feed.ruleCiteSources': 'Verlinke das, worauf du reagierst.',
+  'feed.ruleOnePerWeek': 'Ein Meta-Beitrag pro Woche und Konto.',
   'feed.subtitle':
     'Threads aus Communities, denen Sie folgen, plus einige, die Ihnen gefallen könnten. Stimmen Sie ab, um den Algorithmus zu trainieren.',
   'feed.title': 'Ihr Feed',
+  'forgotPassword.description':
+    'Geben Sie Ihre E-Mail ein und wir senden Ihnen einen Link zum Zurücksetzen.',
   'forgotPassword.successBody':
     'Wir haben einen Reset-Link an {{email}} gesendet. Er läuft in 30 Minuten ab.',
   'forgotPassword.tryAnother': 'Andere E-Mail versuchen',
@@ -68,9 +100,15 @@ export const ui: UiTranslations = {
   'landing.communitiesSubtitle':
     'Verdienen Sie Karma, teilen Sie Ihre Arbeit, stellen Sie bessere Fragen.',
   'landing.communitiesTitle': 'Communities für den Anfang',
+  'landing.ctaBody':
+    'Kostenlos registrieren. Baue Reputation in Themen auf, die dir wichtig sind, und hilf uns allen, ein wenig klarer zu denken.',
   'landing.ctaEyebrow': 'Bereit, wenn Sie es sind',
   'landing.ctaHeadline': 'Finden Sie Ihre Community. Bringen Sie Ihre Stimme ein.',
   'landing.heroCtaSecondary': 'Communities durchsuchen',
+  'landing.heroEyebrow': 'Willkommen bei {{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Diskussionen, die wachsen, statt zu verschwinden.',
+  'landing.heroLede':
+    '{{appName}} ist ein langsam gereiftes Forum für Hobbyisten, Macher und leise meinungsstarke Expertinnen und Experten. Erwirb dir Ansehen, einen guten Thread nach dem anderen.',
   'landing.heroStat1': '847k',
   'landing.heroStat2': '2.180',
   'landing.heroStat2Label': 'Communities',
@@ -85,12 +123,16 @@ export const ui: UiTranslations = {
   'landing.trendingViewAll': 'Alle anzeigen',
   'login.description': 'Setzen Sie das Gespräch dort fort, wo Sie aufgehört haben.',
   'login.heading': 'Bei Agora anmelden',
+  'login.noAccount': 'Neu hier?',
   'login.passwordPlaceholder': 'Ihr Passwort',
   'login.twoFactorLabel': '2FA-Code (optional)',
   'login.twoFactorPlaceholder': '6-stelliger Code',
+  'login.twoFactorRequiredHint':
+    'Dieses Konto hat die Zwei-Faktor-Authentifizierung aktiviert. Gib den 6-stelligen Code aus deiner Authenticator-App ein, um fortzufahren.',
   'login.twoFactorRequiredLabel': 'Gib deinen 2FA-Code ein',
   'modQueue.automodEmpty': 'Für diese Community sind noch keine Auto-Mod-Regeln konfiguriert.',
   'modQueue.automodTitle': 'Auto-Mod-Aktivität (letzte 24 Std.)',
+  'modQueue.empty': 'Inbox Zero. Nichts ausstehend.',
   'modQueue.eyebrow': 'Moderation',
   'modQueue.kindThread': 'Thread',
   'modQueue.loadError': 'Berichte konnten nicht geladen werden.',
@@ -117,8 +159,12 @@ export const ui: UiTranslations = {
   'notifications.mentionedYouIn': 'hat Sie erwähnt in',
   'notifications.repliedTo': 'antwortete auf',
   'notifications.subtitle': 'Sie haben {{count}} ungelesene Benachrichtigungen.',
+  'pricing.limits.advancedFeatures': 'Erweiterte Funktionen:',
   'pricing.limits.categories': '{{count}} Kategorien',
   'pricing.limits.export': 'Datenexport:',
+  'pricing.limits.moderation': '{{count}} Moderationsaktionen',
+  'pricing.limits.threads': '{{count}} Threads',
+  'pricing.limits.votes': '{{count}} Votes',
   'profile.noComments': 'Noch keine Kommentare.',
   'profile.noPosts': 'Noch keine Beiträge.',
   'profile.noSaved': 'Noch keine gespeicherten Beiträge.',
@@ -129,6 +175,7 @@ export const ui: UiTranslations = {
     'Wählen Sie ein starkes Passwort. Wir melden Sie nach erfolgreichem Zurücksetzen an.',
   'resetPassword.newPasswordLabel': 'Neues Passwort',
   'resetPassword.tokenPlaceholder': 'Token aus dem Link einfügen',
+  'search.clear': 'Löschen',
   'search.communitiesEmpty': 'Keine Communities passen.',
   'search.communitiesHeading': 'Communities',
   'search.empty': 'Keine Threads passen.',
@@ -141,19 +188,27 @@ export const ui: UiTranslations = {
   'settings.displaySubtitle': 'Wählen Sie, wie dicht sich Feeds anfühlen.',
   'settings.displayTitle': 'Anzeige',
   'settings.emailDigestDesc': 'Top-Threads aus Ihren abonnierten Communities jeden Montag.',
+  'settings.emailDigestLabel': 'Wöchentliche Übersicht',
+  'settings.emailMentionsDesc': 'Wenn dich jemand in einem Thread oder Kommentar mit @ erwähnt.',
+  'settings.emailMentionsLabel': 'E-Mail bei Erwähnungen',
+  'settings.emailRepliesDesc': 'Threads, die du gestartet hast oder auf die du geantwortet hast.',
   'settings.emailRepliesLabel': 'Per E-Mail bei Antworten benachrichtigen',
   'settings.loadError': 'Dein Konto konnte nicht geladen werden.',
   'settings.loading': 'Ihre Einstellungen werden geladen…',
   'settings.notificationsSubtitle':
     'Entscheiden Sie, was in Ihren Posteingang oder auf Ihr Push-Gerät gelangt.',
+  'settings.pushRepliesLabel': 'Push bei Antworten',
+  'settings.pushVotesDesc': 'Schwellenwert-Benachrichtigung bei 100, 500, 1000.',
   'settings.pushVotesLabel': 'Push für Upvote-Meilensteine',
   'settings.saveAccount': 'Konto speichern',
   'settings.showFlair': 'Kategorie-Kennzeichnung in Threads anzeigen',
+  'settings.showThumbnails': 'Link-/Bild-Vorschaubilder anzeigen',
   'settings.usernamePlaceholder': 'Handle auswählen',
   'signup.confirmPlaceholder': 'Erneut eingeben',
   'signup.description': 'Verdienen Sie sich Ansehen, einen guten Thread nach dem anderen.',
   'signup.eyebrow': 'Dem Raum beitreten',
   'threadRow.authorPrefix': 'u/',
+  'threadRow.commentCount': '{{count}} Kommentare',
   'threadRow.statusFlagged': 'In Prüfung',
   'threadRow.statusHot': 'Heiß',
   'threadRow.statusLocked': 'Gesperrt',
@@ -175,6 +230,7 @@ export const ui: UiTranslations = {
   'threadView.lockedNotice': 'Dieser Thread ist gesperrt. Neue Antworten sind deaktiviert.',
   'threadView.modActionFailed': 'Moderatoraktion fehlgeschlagen.',
   'threadView.modTools': 'Mod-Werkzeuge',
+  'threadView.noComments': 'Noch keine Kommentare. Sei die erste Person.',
   'threadView.notFound': 'Thread nicht gefunden.',
   'threadView.pin': 'Anheften',
   'threadView.pinned': 'Angeheftet',

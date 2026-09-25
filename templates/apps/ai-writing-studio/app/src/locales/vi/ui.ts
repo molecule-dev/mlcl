@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Có phản hồi, phát hiện lỗi hay muốn một tính năng mới? Hãy liên hệ từ phần cài đặt tài khoản — mọi tin nhắn đều đến tay một người thật trong đội ngũ.',
   'about.contactTitle': 'Liên hệ',
   'about.eyebrow': 'Giới thiệu',
+  'about.intro':
+    '{{app}} là một studio viết bằng AI dành cho những người viết vô cùng tâm huyết với câu chữ của mình. Nó kết hợp khả năng tạo nội dung dài bằng AI với một trình soạn thảo êm dịu, chấm điểm SEO và tạo hình ảnh để bạn có thể đưa một tác phẩm từ trang giấy trắng đến lúc xuất bản — mà không bao giờ đánh mất giọng văn của mình.',
+  'about.missionBody':
+    'Chúng tôi tin rằng AI nên viết bên cạnh bạn, chứ không bao giờ thay thế bạn. {{app}} giữ các gợi ý tách bạch rõ ràng với chính câu chữ của bạn, để bạn là chủ sở hữu mọi tài liệu mình tạo ra, và gạt công cụ sang một bên để không cản trở việc viết.',
+  'about.missionTitle': 'Sứ mệnh của chúng tôi',
   'about.pageTitle': 'Giới thiệu {{app}}',
   'aiSuggestionCard.applied': 'Đề xuất đã áp dụng',
   'aiSuggestionCard.apply': 'Áp dụng',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Nguồn lưu lượng truy cập',
   'billing.activePlan': 'Đăng ký đang hoạt động.',
   'billing.aiWordsLabel': 'Số lần tạo AI bao gồm',
+  'billing.cancelFailed': 'Không thể hủy đăng ký.',
   'billing.cancelPlan': 'Hủy gói',
+  'billing.cancelPlanConfirm': 'Xác nhận hủy?',
   'billing.cancelSuccess': 'Đã hủy đăng ký. Làm mới để cập nhật gói.',
   'billing.changePlan': 'Đổi gói',
   'billing.col.invoice': 'Hóa đơn',
@@ -43,26 +52,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'Xem các gói',
   'common.goToDashboard': 'Đến trang tổng quan',
   'dashboard.continueWriting': 'Tiếp tục viết',
+  'dashboard.createFirst': 'Tạo tài liệu',
   'dashboard.days.sat': 'T7',
   'dashboard.days.sun': 'CN',
   'dashboard.defaultWriterName': 'Người viết',
   'dashboard.greeting': 'Chào buổi sáng, {{name}}',
   'dashboard.loadError': 'Không thể tải bảng điều khiển của quý vị.',
+  'dashboard.loading': 'Đang tải studio của bạn…',
   'dashboard.loadingDocs': 'Đang tải tài liệu gần đây…',
   'dashboard.noDocuments': 'Chưa có tài liệu nào — bắt đầu tài liệu đầu tiên của quý vị.',
   'dashboard.startWriting': 'Bắt đầu một tài liệu mới',
+  'dashboard.streakBody': 'Bạn đã viết {{words}} từ trong tuần này.',
   'dashboard.streakTitle': 'Chuỗi {{count}} ngày',
+  'dashboard.subgreeting': '{{count}} tài liệu trong thư viện của bạn — hãy giữ đà tiến lên.',
+  'documentCard.seoScoreTitle': 'Điểm SEO: {{score}}/100',
+  'documents.createNew': 'Tạo tài liệu mới',
   'documents.empty': 'Thư viện của quý vị đang chờ — bắt đầu tài liệu đầu tiên của quý vị.',
+  'documents.emptyFiltered': 'Chưa có tài liệu nào khớp với bộ lọc của bạn.',
   'documents.loadError': 'Không thể tải tài liệu.',
   'documents.loading': 'Đang tải thư viện của quý vị…',
   'documents.new': 'Tài liệu mới',
+  'documents.searchAriaLabel': 'Tìm tài liệu',
   'documents.searchPlaceholder': 'Tìm kiếm tài liệu…',
   'documents.subtitle': '{{count}} tài liệu trong thư viện của quý vị.',
   'documents.title': 'Tài liệu',
   'editor.aiPanelTitle': 'Plume Intelligence',
+  'editor.aiSuggestion.empty':
+    'Không có tinh chỉnh nào đang hoạt động. Hãy nhờ {{appName}} gợi ý khi bạn muốn có thêm một con mắt nhìn lại.',
   'editor.aiSuggestion.failed': 'Không thể tải đề xuất ngay bây giờ.',
   'editor.aiSuggestion.loadingBody': 'Đang tạo cải tiến rõ ràng…',
   'editor.backToDocuments': 'Tất cả tài liệu',
+  'editor.bodyAriaLabel': 'Nội dung tài liệu',
   'editor.closeAiPanel': 'Đóng bảng điều khiển AI',
   'editor.createFailed': 'Không thể tạo tài liệu.',
   'editor.exported': 'Đã xuất dưới dạng {{format}} .',
@@ -78,18 +98,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'Yêu cầu cải tiến',
   'editor.saveBeforePublish': 'Lưu tài liệu trước khi xuất bản.',
   'editor.status.chars': '{{count}} ký tự',
+  'editor.status.readTime': 'Đọc trong {{minutes}} phút',
   'editor.status.savedAt': 'Đã lưu {{time}}',
   'editor.status.saveError': 'Lưu thất bại',
+  'editor.status.unsaved': 'Chưa lưu',
   'editor.titleAriaLabel': 'Tiêu đề tài liệu',
   'editor.titlePlaceholder': 'Tài liệu không có tiêu đề',
   'editor.toggleAiPanel': 'Bật/tắt bảng điều khiển AI',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'tacgia@vidu.com',
+  'forgotPassword.sent': 'Nếu {{email}} có trong hồ sơ, một liên kết đặt lại đang được gửi đến.',
   'imageGenerator.failed': 'Tạo hình ảnh thất bại.',
   'imageGenerator.generate': 'Tạo hình ảnh',
   'imageGenerator.generating': 'Đang tạo...',
   'imageGenerator.placeholder': 'Mô tả hình ảnh quý vị muốn tạo...',
+  'imageGenerator.promptAriaLabel': 'Lời nhắc hình ảnh',
+  'imageGenerator.subtitle': 'Mô tả một ảnh bìa và để AI vẽ minh họa cho nó.',
   'imageGenerator.title': 'Trình tạo hình ảnh AI',
+  'landing.aiSuggestionBody':
+    'đứng trên ban công tầng 42, Elias cảm thấy thành phố ép sát vào mình — gió cuốn phăng tiếng ồn xung quanh, để anh lơ lửng trong khoảng không lạnh giá, tĩnh lặng phía trên tấm lưới ánh sáng rực rỡ.',
   'landing.eyebrow': 'Studio viết AI cho các nhà văn nghiêm túc',
   'landing.featuresHeading': 'Các công cụ tránh đường',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -99,14 +126,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Một studio được tạo ra cho những nhà văn quan tâm đến văn xuôi, nhịp độ và độ chính xác của họ. Plume soạn thảo bên cạnh quý vị — không bao giờ thay thế quý vị.',
   'landing.heroTitle.eloquence': 'tài hùng biện',
+  'landing.heroTitle.intelligence': 'Trí tuệ gặp gỡ ',
   'landing.nav.testimonials': 'Lời chứng thực',
   'landing.plan.cta': 'Bắt đầu với gói này',
   'landing.plan.popular': 'Được yêu thích nhất',
   'landing.pricingEyebrow': 'Định giá',
   'landing.pricingHeading': 'Chọn cái phù hợp với việc làm của quý vị',
   'landing.sampleDocTitle': 'Kiến trúc của sự im lặng',
+  'landing.sampleParagraph1':
+    'Thành phố chưa bao giờ thực sự tĩnh lặng. Ngay cả trong những giờ sâu nhất của đêm, một tiếng ồn trầm vẫn rung lên qua nền bê tông — nhịp tim cơ học của tàu điện ngầm và các giếng thông gió.',
+  'landing.sampleParagraph2.after': ' vào mặt kính.',
+  'landing.sampleParagraph2.before': 'Nhưng ',
   'landing.sampleParagraph2.highlight':
     'đứng trên ban công của tầng 42, Elias cảm thấy một cảm giác cô lập sâu sắc',
+  'landing.showcaseBody':
+    'Hãy bôi đen một câu và {{appName}} sẽ đưa ra một tinh chỉnh. Chấp nhận, chỉnh sửa hoặc gạt bỏ. Các gợi ý luôn được tô màu tím để bạn biết đâu là điều bạn viết và đâu là điều được gợi ý.',
+  'landing.showcaseHeading': 'Một con mắt nhìn lại — không bao giờ là một tác giả thứ hai.',
   'landing.startWriting': 'Bắt đầu viết',
   'login.emailPlaceholder': 'tacgia@vidu.com',
   'login.failed': 'Đăng nhập thất bại',
@@ -121,8 +156,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Mở bảng điều khiển',
   'notFound.title': 'Chương này chưa được viết.',
   'plumeSidebarLayout.primaryNavLabel': 'Điều hướng chính',
+  'pricing.maxDocuments': '{{count}} tài liệu',
+  'pricing.maxGenerate': '{{count}} lượt tạo bằng AI',
+  'pricing.maxImages': '{{count}} lượt tạo hình ảnh',
   'privacy.data':
     'Email tài khoản của quý vị và mật khẩu đã được băm. Tài liệu và mẫu quý vị tạo. Nhật ký đề xuất AI (đầu vào + đầu ra) cho việc thanh toán và phân tích. Mã định danh khách hàng + đăng ký Stripe; chúng tôi không bao giờ lưu trữ số thẻ đầy đủ.',
+  'privacy.intro':
+    'Chúng tôi chỉ thu thập dữ liệu cần thiết để vận hành {{app}}: email của bạn, các tài liệu bạn tạo và các yêu cầu AI bạn thực hiện. Chúng tôi không bao giờ bán bài viết hay câu lệnh của bạn.',
   'profile.loadError': 'Không thể tải hồ sơ của quý vị.',
   'profile.loading': 'Đang tải hồ sơ của quý vị…',
   'profile.loadingPublished': 'Đang tải các tài liệu đã xuất bản…',
@@ -134,7 +174,13 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Mật khẩu mới',
   'seoAnalysis.backToEditor': 'Trở về trình chỉnh sửa',
   'seoAnalysis.eyebrow': 'Phân tích SEO',
+  'seoAnalysis.heroBody':
+    '{{count}} gợi ý để áp dụng. Mỗi gợi ý là một cải thiện về cấu trúc hoặc từ khóa, chứ không phải một bức tường cờ đỏ.',
+  'seoAnalysis.heroBodyEmpty':
+    'Nhấp vào "Chạy phân tích" để chấm điểm khả năng đọc, mật độ từ khóa và cấu trúc.',
   'seoAnalysis.heroEmpty': 'Chưa có phân tích. Chạy một phân tích để chấm điểm bản nháp này.',
+  'seoAnalysis.heroNeedsWork': 'Một số cải thiện cấu trúc sẽ giúp tăng độ tiếp cận.',
+  'seoAnalysis.heroStrong': 'Bài viết tốt — chỉ còn vài cải thiện nhỏ là đạt xuất sắc.',
   'seoAnalysis.historyEmpty': 'Không có phân tích trước đó nào được ghi lại.',
   'seoAnalysis.historyTitle': 'Lịch sử phân tích',
   'seoAnalysis.keywordEmpty':
@@ -161,8 +207,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'Điều chỉnh Plume để phù hợp với cách quý vị viết.',
   'settings.toggleIntegrationFailed': 'Cập nhật tích hợp thất bại.',
   'settings.writing.aiSuggestions': 'Đề xuất AI nội tuyến khi đang nhập',
+  'settings.writing.aiSuggestionsBody':
+    'Hiển thị các tinh chỉnh khi bạn viết. Gợi ý luôn được chọn theo từng câu.',
   'settings.writing.autoSave': 'Tự động lưu mỗi 30 giây',
+  'settings.writing.autoSaveBody':
+    '{{appName}} lưu một bản chụp bản nháp của bạn để bạn có thể khôi phục từ bất kỳ tab nào.',
   'settings.writing.notifyEmail': 'Email cho tôi tóm tắt viết hàng tuần',
+  'settings.writing.notifyEmailBody':
+    'Bản tin ngắn ngày Chủ nhật về chuỗi ngày, bản nháp và cải thiện SEO.',
   'settings.writing.title': 'Tùy chọn viết',
   'settings.writing.tone': 'Cài đặt sẵn giọng điệu mặc định',
   'signup.emailPlaceholder': 'tacgia@vidu.com',
@@ -174,8 +226,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'Không có mô tả nào được cung cấp.',
   'templates.subtitle':
     'Bắt đầu từ một khung biên tập đã được thử nghiệm, sau đó tạo nên của riêng quý vị.',
+  'terms.intro':
+    'Các điều khoản này điều chỉnh việc bạn sử dụng {{app}}. Khi tạo tài khoản, bạn đồng ý sử dụng dịch vụ cho mục đích viết hợp pháp và giữ bí mật thông tin đăng nhập tài khoản của mình.',
   'terms.license':
     'Quý vị giữ quyền sở hữu mọi tài liệu, mẫu và tạo AI mà quý vị tạo ra. Chúng tôi cần một giấy phép không độc quyền để lưu trữ và phục vụ lại công việc của quý vị, cũng như xử lý các yêu cầu AI thông qua các nhà cung cấp được kết nối mà quý vị chọn.',
   'writingStreakHeroCard.change': '{{sign}}{{amount}} từ',
   'writingStreakHeroCard.greeting': 'Chúc một ngày tốt lành, {{name}}',
+  'writingStreakHeroCard.subtitle': 'Số từ đã viết trong tuần này — chuỗi {{count}} ngày',
+  'writingStreakHeroCard.tagline': 'Mỗi ngày một trang giúp nàng thơ luôn đồng hành.',
 }

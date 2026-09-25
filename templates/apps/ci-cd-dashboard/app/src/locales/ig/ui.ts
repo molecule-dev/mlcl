@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Ajụjụ, nzaghachi, ma ọ bụ chọrọ ngosi maka ndị otu gị? Zitere anyị ozi na hello@conduit.dev — ozi ọ bụla na-erute mmadụ n'ezie n'ime ndị otu.",
   'about.contactHeading': 'Kpọtụrụ anyị',
   'about.eyebrow': 'Banyere',
+  'about.featuresHeading': 'Ihe ị nwetara',
+  'about.introBody':
+    "{{app}} na-eweta nnyefe na-aga n'ihu n'ụdị GitHub Actions n'ime otu dashboard ngwa ngwa: pipelines, ndekọ build, artifacts, baajị ọkwa, na gburugburu nnyefe maka repositories gị niile n'otu ebe. Ọ dịghị tab-hopping, ọ dịghị ịkọ nke build mebiri — ọsọ ọ bụla, ahịrị ndekọ, na nnyefe dị otu pịa.",
+  'about.introHeading': 'Ihe {{app}} bụ',
+  'about.missionBody':
+    "Ịzipu ngwanrọ kwesịrị ịdị jụụ na nke a na-atụ anya ya, ọ bụghị ihe na-akpata ụjọ. Anyị na-ewu pipelines, ndekọ, na ngwaọrụ nnyefe ka ụzọ site na commit ruo mmepụta dị ngwa, pụta ìhè, na ntụkwasị obi — build akwụkwọ ndụ akwụkwọ ndụ mbụ n'ime nkeji ise, na build ọ bụla na-esote ya doro anya otu ahụ.",
+  'about.missionHeading': 'Ọrụ anyị',
+  'about.subtitle':
+    "{{app}} bụ dashboard CI/CD maka ndị otu chọrọ ileba anya na builds, nnyefe, na gburugburu n'ofe repository ọ bụla — na ịzipu na ntụkwasị obi.",
   'artifacts.empty': 'Enwebeghị ihe ochie ọ bụla.',
   'artifacts.heading': 'Ihe ndị e ji aka rụọ',
   'artifacts.loadError': 'Ịbupu ihe ochie agaghị arụ ọrụ.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Gburugburu ebe obibi',
   'environments.loadError': 'Ịbuli gburugburu agaghị arụ ọrụ.',
+  'environments.loading': 'Na-ebugo gburugburu…',
   'environments.subheading': "Ọnọdụ ntinye dị ndụ n'ofe ihe mgbaru ọsọ ọ bụla.",
   'forgotPassword.runnerStatus': 'tọgharịa · ọwara nchekwa',
+  'forgotPassword.success':
+    'Ọ bụrụ na e nwere akaụntụ maka ozi-e ahụ, njikọ nrụpụta na-abịa. Lelee igbe mbata gị.',
   'insights.changeFailureRate': 'Mgbanwe ọnụego ọdịda',
   'insights.deployFrequency': 'Na-ebuga / ụbọchị',
   'insights.empty': 'Anaghị ezuru data.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Akwụsịghị ibu nghọta.',
   'insights.meanP95': 'nke dị njọ {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Nzọụkwụ pipeline kacha nwayọ',
   'insights.successRateHeading': 'Ọkwa ihe ịga nke ọma nke paịpụ (ụbọchị iri na anọ gara aga)',
   'landing.choosePlan': 'Họrọ atụmatụ',
+  'landing.copyright': '© {{year}} {{app}}. Zipu na ntụkwasị obi.',
   'landing.ctaBody':
     "Enweghị kaadị kredit. Achọghị onye injinia ikpo okwu. Nweta akwụkwọ ndụ akwụkwọ ndụ nke pipeline mbụ n'ime nkeji ise.",
   'landing.ctaHeading': "Ụgbọ mmiri ahụ n'enweghị obi abụọ.",
   'landing.featuresEyebrow': '// atụmatụ ikpo okwu',
   'landing.featuresHeading': "E wuru ya maka ndị na-ebuga ya, site n'aka ndị na-ebuga ya",
+  'landing.heroSubtitle':
+    "Pipelines na-agwụ n'ime sekọnd. Ndekọ ị nwere ike ịgụ. Nnyefe ị nwere ike ịtụkwasị obi.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': "$ ./conduit ka e tinye ya n'enweghị nsogbu",
   'landing.pricingEyebrow': '// $ ọnụahịa --pịrị ọnụ',
   'landing.pricingHeading': 'Ọnụahịa dị mfe, nke a pụrụ ịkọ amụma',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': "Anọ n'ụgbọelu ugbu a",
   'pipelines.metric.successCaption': '{{count}} nke {{total}} ọsọ',
   'pipelines.metric.successRate': 'Ọnụego ihe ịga nke ọma',
+  'pipelines.realtimeOn': "oge n'ezie",
   'pipelines.subheading': 'Mmelite dị ndụ site na ebe nchekwa ọ bụla a na-elele.',
+  'pricing.advancedFeatures': 'Atụmatụ ndị dị elu: {{mark}}',
+  'pricing.canExport': 'Mbupụ data: {{mark}}',
+  'pricing.maxArtifacts': 'artifacts {{count}}',
+  'pricing.maxBuilds': 'builds {{count}}',
+  'pricing.maxPipelines': 'pipelines {{count}}',
   'privacy.dataAccount': 'Akaụntụ: aha, email, paswọọdụ hashed, ọkwa atụmatụ.',
   'privacy.intro':
     "{{ngwa}} na-anakọta naanị obere data anyị chọrọ iji rụọ ọrụ akaụntụ nnyefe gị na-aga n'ihu: email gị, ebe nchekwa ị na-ejikọ, metadata ndị na-agba ọsọ gị na-emepụta na ihe owuwu, yana ihe nzuzo ị họọrọ ịchekwa na anyị. Anyị anaghị agụ koodu isi mmalite gị n'èzí onye na-agba ọsọ; a na-echekwa ihe ochie na bọket S3 gị mgbe edobere ya.",
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Anyị na-eji Stripe maka ịkwụ ụgwọ, Mailgun maka ozi-e azụmahịa, na AWS S3 maka nchekwa ihe owuwu. Nke ọ bụla nwere nkwekọrịta na oke data kacha nta achọrọ iji nye ọrụ ya.',
   'privacy.rightsBody':
     "Ị nwere ike ibupụ data gị niile, hichapụ akaụntụ gị n'oge ọ bụla site na Ntọala, ma rịọ maka ndekọ nke nnyefe webhook ọ bụla dị na akaụntụ gị. Anyị na-aza arịrịọ GDPR / CCPA n'ime ụbọchị 30.",
+  'privacy.subtitle':
+    'Otu {{app}} si anakọta, chekwaa, na chebe data gị mgbe anyị na-agba pipelines gị.',
   'privacy.title': 'Amụma nzuzo',
   'repositories.empty': 'Enweghị ebe nchekwa ejikọtara.',
   'repositories.heading': 'Ebe Nchekwa Ihe',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Ebe nchekwa niile',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Itinyeghị ebe nchekwa ihe agaghị arụ ọrụ.',
+  'repositoryDetail.meanDuration': 'Ogologo oge nkezi',
   'repositoryDetail.notFound': 'Achọtaghị ebe nchekwa ihe.',
+  'repositoryDetail.successRate': 'Ọnụego ihe ịga nke ọma',
   'repositoryDetail.totalBuilds': 'Ngụkọta ihe owuwu',
   'repositoryDetail.webhookActive': 'na-arụ ọrụ',
   'repositoryDetail.webhookPaused': 'kwụsịtụrụ',
   'repositoryDetail.webhooksHeading': 'Nkpa weebụ',
+  'resetPassword.passwordLabel': 'Okwuntughe Ọhụrụ',
   'resetPassword.runnerStatus': 'tọgharịa · akara ngosi akwadoro',
   'resetPassword.subtitle': 'Họrọ paswọọdụ siri ike nke ị na-ejibeghị mbụ.',
   'resetPassword.tokenPlaceholder': 'mado site na email',
@@ -116,6 +146,7 @@ export const ui: UiTranslations = {
   'settings.appearance.title': 'Ọdịdị',
   'settings.repositories.body': 'Ebe Nchekwa Ihe E Ji Ese ...',
   'settings.repositories.empty': 'Enweghị ebe nchekwa ejikọtara ugbu a.',
+  'settings.repositories.heading': 'Njikọ repository',
   'settings.repositories.loadError': 'Adịghị ike ibuli ebe nchekwa ihe.',
   'settings.secrets.addCta': 'Tinye ihe nzuzo',
   'settings.secrets.addError': 'Enweghị ike itinye ihe nzuzo.',
@@ -123,6 +154,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Enweghị ike ihichapụ ihe nzuzo.',
   'settings.secrets.empty': 'Enweghị ihe nzuzo echekwara.',
   'settings.secrets.heading': 'Ihe nzuzo',
+  'settings.secrets.lastUsed': 'ejiri {{date}} mee ihe ikpeazụ',
   'settings.secrets.loadError': 'Ebulighị ihe nzuzo.',
   'settings.secrets.neverUsed': 'ejibeghị ya eme ihe',
   'settings.secrets.rotateCta': 'Gbanwee',
@@ -146,6 +178,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Emeliteghị webhook.',
   'signup.namePlaceholder': 'Ogige Riley',
   'signup.runnerStatus': 'ọkwa efu · Nrụpụta 1,000 nkeji/ọnwa',
+  'terms.intro':
+    "Site n'ịmepụta akaụntụ {{app}} ị na-ekwenye na usoro ndị a. Ha na-ekpuchi ojiji a na-anabata nke ndị na-agba build, oke SLA anyị, na ọnọdụ ndị anyị nwere ike iwepụ ma ọ bụ kwụsị akaụntụ gị maka ọrụ mkparị.",
   'terms.slaBody':
     'Atụmatụ Pro na Team na-elekwasị anya na oge ọrụ kwa ọnwa 99.95% maka API na ndị na-agba ọsọ. A na-enye atụmatụ efu dịka ọ dị. A na-akọ akụkọ mmebi na status.conduit.dev ma na-akwụ ụgwọ dịka usoro dị na akwụkwọ ọnụahịa gị si dị.',
   'terms.terminationBody':

@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Atradi kļūdu, vēlies jaunu funkciju vai vēlies mums pateikt, ko būvēt tālāk? Raksti uz hello@pylon.dev — katra ziņa nonāk pie īsta komandas inženiera.',
   'about.contactTitle': 'Sazinieties ar mums',
+  'about.intro':
+    '{{app}} ir ātra, ar tastatūru draudzīga API testēšanas darbvieta inženieriem, kas dzīvo terminālī — Postman stila pieprasījumi, kolekcijas, vides un vēsture bez liekā svara.',
+  'about.missionBody':
+    'API ir mūsdienu programmatūras mugurkauls, taču to izmantošanas rīki ir lēni, smagnēji un orientēti uz peli. {{app}} pastāv, lai dotu izstrādātājiem asu, ātru, termināļa līmeņa darbvietu: sūti pieprasījumus, iegūsti pārliecību un piegādā, nepametot tastatūru.',
+  'about.missionTitle': 'Mūsu misija',
   'about.pageTitle': 'Par {{app}}',
   'authShell.statusLabel': 'skrietāji tiešsaistē',
   'collections.createError': 'Nevarēja izveidot kolekciju.',
   'collections.defaultName': 'Bez nosaukuma kolekcija {{n}}',
+  'collections.empty':
+    'Vēl nav kolekciju — noklikšķini uz “New collection”, lai izveidotu savu pirmo mapi.',
   'collections.eyebrow': '$ pilona kolekcijas --koks',
   'collections.fetchError': 'Nevarēja ielādēt kolekcijas.',
   'collections.heading': 'Kolekcijas',
   'collections.loading': 'Notiek kolekciju ielāde…',
+  'collections.metric.allGreen': 'Viss zaļš',
   'collections.metric.collections': 'Kolekcijas',
   'collections.metric.failing': 'Neveiksme',
   'collections.metric.failingCaption': 'Pēdējā skrējienā bija kļūmes',
@@ -24,6 +34,8 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Mainīgie lielumi',
   'environments.createError': 'Nevarēja izveidot vidi.',
   'environments.defaultName': 'Bez nosaukuma vide {{n}}',
+  'environments.empty':
+    'Vēl nav nevienas vides — noklikšķini uz “New environment”, lai to pievienotu.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'Nevarēja ielādēt vides.',
   'environments.heading': 'Vide',
@@ -31,8 +43,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Jauna vide',
   'environments.subheading':
     'Mainīgie, kas nosūtīšanas laikā tiek pārvērsti pieprasījumos. Viena aktīva vide katrā darbvietā.',
+  'forgotPassword.statusLabel': 'atjaunot · drošs tunelis',
   'forgotPassword.success':
     'Ja šim e-pastam jau ir konts, atiestatīšanas saite ir ceļā. Pārbaudiet savu iesūtni.',
+  'history.empty': 'Šeit vēl nekas nav — nosūti savu pirmo pieprasījumu no cilnes Workspace.',
   'history.eyebrow': '$ pilona vēsture --aste',
   'history.fetchError': 'Neizdevās ielādēt vēsturi.',
   'history.heading': 'Palaišanas vēsture',
@@ -41,9 +55,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Pēdējie 50',
+  'history.realtime': 'realtime',
   'history.subheading':
     'Katrs šajā darbvietā aktivizētais pieprasījums ar statusu, latentumu un vērtuma lielumu.',
   'landing.choosePlan': 'Izvēlieties plānu',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Forge confidence.',
   'landing.ctaBody':
     'Nav nepieciešama kredītkarte. Nav nepieciešams platformas inženieris. Atveriet ⌘K un nosūtiet savu pirmo pieprasījumu mazāk nekā piecu minūšu laikā.',
   'landing.ctaHeading': 'Veidojiet pārliecību.',
@@ -86,6 +102,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Vidējais latentums',
   'mocks.metric.live': 'Publiska',
   'mocks.metric.servers': 'Izsmiekli',
+  'mocks.ms': 'ms',
   'mocks.newMock': 'Jauns makets',
   'mocks.online': 'Publiska',
   'mocks.paused': 'Privāts',
@@ -110,9 +127,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Veselīgs',
   'monitors.metric.uptime': 'Vidējais darbības laiks',
   'monitors.newMonitor': 'Jauns monitors',
+  'monitors.paused': 'apturēts',
   'monitors.run': 'Sākt',
   'monitors.runError': 'Palaišana pabeigta ar tīkla kļūdu: {{error}}',
+  'monitors.runFailed': 'Palaišana neizdevās.',
   'monitors.running': 'Skrienot…',
+  'monitors.runSuccess': 'Palaist {{status}} — augšupstraume atgrieza {{code}} {{ms}}ms laikā.',
   'monitors.sparkLabel': 'Latentuma tendence',
   'monitors.subheading':
     'Pēc pieprasījuma veic pārbaudes jebkuram saglabātajam testam. Saistiet testu, nospiediet “Palaist” un skatieties 24 stundu veiksmes rādītāja atjauninājumu ar katru ugunsgrēku.',
@@ -121,27 +141,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Darbības laiks · 24 stundas',
   'nav.legal': 'Juridiskā informācija',
   'notFound.backToWorkspace': 'Atpakaļ uz darba vietu',
+  'notFound.body':
+    '{{app}} nosūtīja pieprasījumu šim URL un nesaņēma neko atpakaļ. Pārbaudi maršrutu vai atgriezies darbvietā.',
   'notFound.eyebrow': '$ pylon atrisināt --strict',
   'notFound.title': 'Maršruts nav atrasts',
+  'planUpdated.body':
+    'Tavas norēķinu izmaiņas tagad ir aktīvas. Plānu vari pārvaldīt jebkurā laikā norēķinu lapā.',
+  'planUpdated.retry': 'Mēģini vēlreiz',
+  'planUpdated.verifyFailed': 'Mēs vēl nevarējām apstiprināt jūsu maksājumu.',
+  'planUpdated.verifyFailedBody':
+    'Jūsu maksājums, iespējams, joprojām tiek apstrādāts. Pēc brīža mēģiniet vēlreiz.',
   'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
+  'pricing.advancedFeatures': 'Papildu funkcijas: {{yes}}',
+  'pricing.canExport': 'Datu eksports: {{yes}}',
+  'pricing.heading': 'Izvēlieties savu {{app}} plānu',
+  'pricing.maxCollections': '{{count}} kolekcijas',
+  'pricing.maxEnvironments': '{{count}} vides',
+  'pricing.maxHistory': '{{count}} vēstures ieraksti',
+  'pricing.maxRequests': '{{count}} pieprasījumi',
   'privacy.collect.account':
     'Konts: jūsu e-pasts, jauktā parole, parādāmais vārds un pēdējās pierakstīšanās laika zīmogs.',
+  'privacy.intro':
+    '{{app}} respektē tavu privātumu. Šajā lapā ir apkopots, kādus datus mēs vācam, kāpēc tos vācam un kā tos izdzēst.',
   'privacy.rights.body':
     'Jūs varat eksportēt savas kolekcijas + vides jebkurā laikā vai 30 dienu laikā izdzēst savu kontu sadaļā Iestatījumi, lai neatgriezeniski noņemtu visus datus.',
   'privacy.share.body':
     'Tikai jūs. Mēs nekad nepārdodam, nekopīgojam un neiznomājam jūsu darba vietas saturu trešajām personām. Servera žurnāli tiek saglabāti 30 dienas incidentu reaģēšanai un pēc tam dzēsti.',
   'privacy.title': 'Paziņojums par konfidencialitāti',
+  'profile.bio':
+    'Tava personīgā {{app}} darbvieta — piespraud kolekcijas, kopīgo vides un pārraugi API, kas nodrošina produkta piegādi.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'pievienojās {{when}}',
+  'profile.metric.collections': 'Kolekcijas',
   'profile.metric.monitors': 'Monitori',
   'profile.metric.requests': 'Saglabātie pieprasījumi',
+  'profile.noActivity':
+    'Vēl neviens pieprasījums nav nosūtīts — dodies uz cilni Workspace, lai to izdarītu.',
   'profile.signedOut': 'Pierakstieties, lai skatītu savu profilu',
   'pylonShell.primaryNavLabel': 'Galvenā navigācija',
+  'resetPassword.passwordLabel': 'Jauna parole',
+  'resetPassword.statusLabel': 'atjaunot · autentifikācijas kods apstiprināts',
   'resetPassword.subtitle': 'Izvēlieties drošu paroli, kuru iepriekš neesat izmantojis.',
   'resetPassword.tokenPlaceholder': 'teksts no e-pasta',
+  'settings.accountManagement.desc':
+    'Atjaunini savu e-pastu un paroli, pārvaldi paziņojumus un ierīces, izraksties vai dzēs savu kontu.',
+  'settings.accountManagement.title': 'Konts un drošība',
   'settings.eyebrow': '$ pilona iestatījumi --rediģēt',
   'settings.fetchError': 'Nevarēja ielādēt iestatījumus.',
   'settings.language.title': 'Valoda',
+  'settings.seeding': 'Sākotnējā ielāde…',
   'settings.seedStarter': 'Sēklu sākuma saturs',
   'settings.starterCollection': 'Sākuma kolekcija',
   'settings.starterCollectionDesc': 'Izveidots no iestatījumiem, kas pieejami šeit: {{ts}}',
@@ -155,6 +203,8 @@ export const ui: UiTranslations = {
     'Jūs esat atbildīgs par savas paroles aizsardzību. Viena konta koplietošana ar vairākiem cilvēkiem nav atļauta bezmaksas vai Pro plānos — iegādājieties Team abonementu koplietotām darba telpām.',
   'terms.billing.body':
     'Maksas abonementi tiek automātiski atjaunoti katrā norēķinu periodā. Varat tos atcelt iestatījumos jebkurā laikā; jūsu piekļuve turpināsies līdz pašreizējā perioda beigām.',
+  'terms.intro':
+    'Izveidojot {{app}} kontu, tu piekrīti tālāk norādītajiem noteikumiem. Izlasi tos vienreiz; mēs nepārsteigsim ar atpakaļejošām izmaiņām.',
   'terms.title': 'Lietošanas noteikumi',
   'terms.usage.body':
     'Neizmantojiet Pylon, lai nosūtītu pieprasījumus pakalpojumos, kas jums nepieder vai kuriem jums nav skaidras atļaujas testēt. Neizmantojiet Pylon, lai apietu ātruma ierobežojumus vai veiktu krāpniecību.',
@@ -175,17 +225,23 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Nav palaists',
   'testRunner.metric.passed': 'Apstiprināts',
   'testRunner.never': 'Nekad neskrien',
+  'testRunner.newTest': 'Jauns tests',
   'testRunner.noAssertions': 'Šajā testā vēl nav apgalvojumu.',
+  'testRunner.noRunsYet':
+    'Vēl nav reģistrētu palaišanu — nospied “Run all”, lai aizpildītu vēsturi.',
   'testRunner.passed': 'garāmejot',
+  'testRunner.recentRuns': 'Nesenie skrējieni',
   'testRunner.runAll': 'Palaist visus',
   'testRunner.running': 'Skrienot…',
   'testRunner.runOne': 'Sākt',
   'testRunner.subheading':
     'Komplekta rezultāti, apgalvojumu atšķirības un pēdējās 50 palaišanas reizes.',
+  'testRunner.suites': 'Komplekti',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Pierakstījies kā',
   'workspace.auth.keyName': 'Virsraksta nosaukums',
   'workspace.auth.keyValue': 'Galvenā vērtība',
+  'workspace.auth.noneHint': 'Ar šo pieprasījumu netiks nosūtīts autorizācijas galvene.',
   'workspace.auth.password': 'Parole',
   'workspace.auth.username': 'Lietotājvārds',
   'workspace.authOption.apikey': 'API atslēga',
@@ -195,13 +251,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Tips',
   'workspace.authTypeLabel': 'Autorizācijas veids',
+  'workspace.body.contentLabel': 'Pieprasījuma saturs',
+  'workspace.body.hint':
+    '{{envVars}} tiek aizstāti pirms pieprasījuma nosūtīšanas. Pamatteksti tiek sūtīti ar POST/PUT/PATCH/DELETE.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Nav',
+  'workspace.body.noneHint':
+    'Netiks nosūtīts neviens pieprasījuma pamatteksts. Izvēlies JSON vai neapstrādātu tekstu, lai to pievienotu.',
   'workspace.body.text': 'Neapstrādāts teksts',
   'workspace.body.type': 'Tips',
   'workspace.environment': 'Nav vides',
   'workspace.envVar': 'vides mainīgais',
   'workspace.eyebrow': '$ pilona darbvieta --rūts sadalīta',
+  'workspace.failedCount': '{{count}} neizdevās',
+  'workspace.idle': 'Dīkstāve',
   'workspace.kv.addHeader': 'Pievienot galveni',
   'workspace.kv.addParam': 'Pievienot parametru',
   'workspace.kv.headerKey': 'Virsraksta nosaukums',
@@ -214,12 +277,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP metode',
   'workspace.metric.latency': 'Aizture',
   'workspace.metric.latencyCaption': 'Turp un atpakaļ no šī brauciena',
+  'workspace.metric.size': 'Kravnesa',
   'workspace.metric.sizeCaption': 'Atbildes pamatteksta baiti',
   'workspace.metric.statusCaption': 'Pēdējā atbilde',
   'workspace.metric.tests': 'Testi',
+  'workspace.metric.testsAllPassing': 'Visas pārbaudes zaļas',
   'workspace.metric.testsFailing': '{{count}} neizdodas',
+  'workspace.metric.testsIdle': 'Nosūti pieprasījumu, lai novērtētu',
   'workspace.noAssertions': 'Izpildiet pieprasījumu, lai novērtētu iebūvētos apgalvojumus.',
   'workspace.noResponseYet': 'Vēl nav atbildes',
+  'workspace.passedCount': '{{count}} pieņemts',
   'workspace.responseHint': '// Nospiediet Sūtīt, lai nosūtītu pieprasījumu un uztvertu atbildi.',
   'workspace.saveError': 'Nevarēja saglabāt pieprasījumu.',
   'workspace.statusError': 'Nevarēja nosūtīt pieprasījumu.',
@@ -228,10 +295,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Sastādiet pieprasījumu, aktivizējiet to un pēc tam apstipriniet atbildi — tas viss vienā rūtī.',
   'workspace.testResults': 'Testa rezultāti',
+  'workspace.tests.autoHint':
+    'Statusa saime, latentums, pamatteksta izmērs un pārvades veselība tiek pārbaudīti automātiski — rezultāti parādās sadaļā “Test results” atbildes panelī.',
+  'workspace.tests.autoTitle': 'Iebūvētās pārbaudes tiek izpildītas katrā atbildē',
   'workspace.token': 'Žetons',
   'workspace.tokenHint':
     'Nosūtīts kā pilnvarojums: Uzrādītājs<token> uz katru pieprasījumu šajā kolekcijā.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Pieprasījums bez nosaukuma',
+  'workspace.urlLabel': 'Pieprasījuma URL',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resurss',
 }

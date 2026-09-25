@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Có phản hồi, phát hiện lỗi hay muốn kể cho chúng tôi biết việc viết nhật ký đã giúp ích thế nào? Chúng tôi đọc mọi tin nhắn — hãy liên hệ bất cứ lúc nào và một người thật sẽ phản hồi bạn.',
+  'about.contactTitle': 'Liên hệ với chúng tôi',
+  'about.featureInsights':
+    'Những suy ngẫm do AI hỗ trợ nhẹ nhàng làm nổi bật các tác nhân, chủ đề và điều biết ơn — mà không làm mất đi giọng văn của bạn.',
+  'about.featureMood':
+    'Theo dõi tâm trạng và hoạt động với chế độ xem lịch và biểu đồ xu hướng giúp bạn thấy điều gì giúp mình phát triển.',
+  'about.featurePrivacy':
+    'Mã hóa đầu cuối, khóa bằng mật mã và xuất CSV đầy đủ để những suy ngẫm của bạn luôn riêng tư và dễ dàng mang theo.',
+  'about.featurePrompts':
+    'Những gợi ý nhẹ nhàng mỗi ngày để bạn luôn có nơi bắt đầu — không bao giờ là trang giấy trắng.',
+  'about.intro':
+    '{{app}} là một cuốn nhật ký sức khỏe tinh thần nhẹ nhàng, riêng tư để suy ngẫm hằng ngày, theo dõi tâm trạng và biết ơn. Những gợi ý chu đáo thay thế trang giấy trắng, việc tìm quy luật một cách lặng lẽ giúp bạn hiểu điều gì ảnh hưởng đến cảm xúc của mình, và mã hóa đầu cuối giữ những lời của bạn thuộc về bạn.',
+  'about.missionBody':
+    'Chúng tôi tin rằng việc kiểm tra cảm xúc của chính mình nên nhẹ nhàng, không bao giờ mang tính lâm sàng — và không bao giờ giống như một ứng dụng khác đòi hỏi sự chú ý của bạn. {{app}} được tạo ra để giúp đỡ, chứ không phải để thúc ép: vài phút yên tĩnh mỗi ngày để nhận biết tâm trạng, viết thật lòng và dần dần nhìn rõ chính mình hơn.',
+  'about.missionTitle': 'Sứ mệnh của chúng tôi',
   'about.pageTitle': 'Giới thiệu {{app}}',
   'authShell.encryptionBadge': 'Thông tin bạn nhập được mã hóa đầu cuối.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Ngày {{day}} — chưa có bài viết',
   'calendar.cellMood': 'Ngày {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Tổng quan tháng này',
   'calendar.eyebrow': 'Tâm trạng thoáng qua',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Đã theo dõi {{tracked}} trong số {{total}} ngày của tháng này.',
   'common.goToDashboard': 'Đến trang tổng quan',
   'common.tryAgain': 'Thử lại',
+  'entryComposer.bodyPlaceholder':
+    'Hãy viết bất cứ điều gì bạn thấy chân thật. Không ai khác sẽ đọc điều này.',
   'entryComposer.cancel': 'Quay lại nhật ký',
   'entryComposer.heading': 'Suy ngẫm hôm nay',
   'entryComposer.moodLabel': 'Quý vị cảm thấy thế nào?',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Xóa {{tag}}',
   'entryComposer.save': 'Lưu suy ngẫm',
   'entryComposer.saveError': 'Không thể lưu mục của quý vị.',
+  'entryComposer.tagPlaceholder': 'Thêm thẻ và nhấn enter',
   'entryComposer.titlePlaceholder': 'Đặt tên cho suy ngẫm này…',
   'entryDetail.back': 'Quay lại nhật ký',
   'entryDetail.delete': 'Xóa mục này',
@@ -36,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Đang tải suy ngẫm…',
   'entryDetail.notFound': 'Không tìm thấy mục.',
   'entryDetail.reflectionsHeading': 'Suy ngẫm AI',
+  'forgotPassword.continueButton': 'Nhập mã đặt lại',
   'forgotPassword.eyebrow': 'Đừng lo',
   'forgotPassword.subheading':
     'Chúng tôi sẽ gửi một liên kết đặt lại nhẹ nhàng đến email của quý vị.',
@@ -59,14 +80,21 @@ export const ui: UiTranslations = {
     'Hiện chưa có chủ đề nào — hãy thêm một hoặc hai thẻ vào bài viết của bạn và chúng sẽ được tập hợp tại đây.',
   'insights.themesHeading': 'Chủ đề hàng đầu',
   'insights.triggerFrequency': 'nhận thấy {{count}}× tháng này',
+  'insights.triggersEmpty':
+    'Chưa có gì để nhận ra. Một vài bài viết trong vài ngày sẽ cho thấy quy luật của bạn.',
   'insights.triggersHeading': 'Những mẫu ảnh hưởng đến tâm trạng của quý vị',
+  'journal.empty': 'Không có suy ngẫm nào phù hợp — hãy thử bộ lọc khác hoặc viết bài mới.',
   'journal.eyebrow': 'Suy ngẫm của quý vị',
   'journal.heading': 'Nhật ký',
   'journal.loadError': 'Không thể tải các mục.',
   'journal.loading': 'Đang tải các mục…',
+  'journal.newEntry': 'Mục mới',
   'journal.searchPlaceholder': 'Tìm một cảm xúc, một cái tên, một khoảnh khắc…',
   'journal.subheading': '{{count}} mục — mỗi mục đều đáng giữ.',
   'journalEntryCard.encryptedLabel': 'Đã mã hóa',
+  'landing.ctaBody':
+    'Miễn phí để bắt đầu. Pro mở khóa xuất dữ liệu, nhật ký lớn hơn và trọn một năm lịch sử.',
+  'landing.ctaButton': 'Bắt đầu mục đầu tiên của quý vị',
   'landing.ctaTitle': 'Vài phút yên tĩnh mỗi ngày. Chỉ vậy thôi.',
   'landing.eyebrow': 'Một thực hành hàng ngày nhẹ nhàng',
   'landing.featuresBody':
@@ -85,6 +113,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Một không gian nhẹ nhàng cho suy ngẫm hàng ngày.',
   'mentalHealthJournalLayout.closeMenu': 'Đóng menu',
   'mentalHealthJournalLayout.openMenu': 'Mở menu',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Điều hướng chính',
+  'moodHeroCard.entriesThisWeek': '{{count}} trong tuần này',
   'moodHeroCard.streakSuffix': 'ngày liên tiếp',
   'moodHeroCard.title': 'Suy ngẫm hôm nay',
   'moodTrendChart.aiBadge': 'Hiểu biết AI đã sẵn sàng',
@@ -95,11 +125,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Hành trình của quý vị',
   'profile.fallbackName': 'Người suy ngẫm',
   'profile.loadError': 'Không thể tải số liệu.',
+  'profile.loading': 'Đang làm mới số liệu của bạn…',
   'profile.longestStreak': 'Chuỗi dài nhất',
   'profile.memberSince': 'Suy ngẫm từ {{date}}',
   'profile.milestones': 'Cột mốc',
   'profile.milestonesEmpty':
     'Cột mốc đầu tiên của bạn chỉ còn cách một bài viết nữa thôi — hãy viết bất cứ khi nào bạn cảm thấy sẵn sàng.',
+  'profile.moodMix': 'Tổng hợp tâm trạng của bạn mùa này',
   'profile.streakValue': '{{days}} ngày',
   'profile.totalEntries': 'Suy ngẫm',
   'profile.totalWords': 'Số từ đã viết',
@@ -112,6 +144,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Viết về điều này',
   'resetPassword.eyebrow': 'Một khởi đầu mới',
   'resetPassword.mismatchError': 'Mật khẩu không khớp.',
+  'resetPassword.passwordLabel': 'Mật khẩu mới',
   'resetPassword.subheading':
     'Chọn một mật khẩu an toàn — suy ngẫm của quý vị xứng đáng với điều đó.',
   'resetPassword.tokenPlaceholder': 'Mã đặt lại từ email',
@@ -125,11 +158,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     'Lời của quý vị luôn thuộc về quý vị. Tải xuống bản sao bất cứ lúc nào.',
   'settings.exportDone': 'Đã xuất {{format}}.',
+  'settings.exportError': 'Xuất thất bại.',
+  'settings.exportHeading': 'Xuất những suy ngẫm của bạn',
   'settings.exportLoading': 'Đang chuẩn bị…',
   'settings.eyebrow': 'Không gian của quý vị, quy tắc của quý vị',
   'settings.languageHeading': 'Ngôn ngữ',
   'settings.privacyHeading': 'Quyền riêng tư & mã hóa',
   'settings.remindersHeading': 'Nhắc nhở hàng ngày',
+  'settings.reminderToggleAria': 'Bật/tắt nhắc nhở hằng ngày',
   'settings.reminderToggleDescription':
     'Một lời nhắc bình thản duy nhất vào thời điểm quý vị chọn. Không có huy hiệu hay áy náy về chuỗi ngày.',
   'settings.reminderToggleLabel': 'Gửi một lời nhắc nhẹ nhàng',
@@ -142,6 +178,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Đang tạo nhật ký…',
   'signup.subheading': 'Một không gian an toàn cho suy nghĩ của quý vị.',
   'wellnessRingsTriad.mindfulnessCaption': 'Mục tiêu {{goal}} phút hôm nay',
+  'wellnessRingsTriad.mindfulnessLabel': 'Chánh niệm',
   'wellnessRingsTriad.sleepCaption': 'Mục tiêu {{goal}}h / đêm',
   'wellnessRingsTriad.sleepLabel': 'Giấc ngủ',
+  'wellnessRingsTriad.sleepValue': '{{hours}} giờ',
+  'wellnessRingsTriad.streakCaption': 'Mục tiêu {{goal}} ngày',
+  'wellnessRingsTriad.streakLabel': 'Chuỗi ngày viết nhật ký',
+  'wellnessRingsTriad.streakValue': '{{days}} ngày',
 }

@@ -1,11 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'An bhfuil aiseolas agat, an bhfuair tú fabht, nó ar mhaith leat gné a mholadh? Sroicheann gach teachtaireacht duine fíor ar fhoireann {{app}} — ba bhreá linn cloisteáil faoi cad atá á fhoghlaim agat.',
   'about.contactTitle': 'Téigh i dteagmháil',
   'about.eyebrow': 'Faoi {{app}}',
+  'about.intro':
+    'Is aip cártaí splancbhogtha le hathrá spásáilte é {{app}} do dhaoine ar mian leo go bhfanfadh an t-eolas leo i ndáiríre. Cibé an bhfuil teanga á foghlaim agat, foirmlí á meabhrú agat, nó coincheapa á ndruileáil agat do scrúdú, sceidealóidh sé gach cárta go díreach ag an nóiméad a bhfuil tú ar tí dearmad a dhéanamh de — an bealach is éifeachtaí atá aimsithe ag eolaíocht na cuimhne chun fíricí a aistriú go cuimhne fhadtéarmach.',
+  'about.missionBody':
+    'Díríonn formhór na n-uirlisí staidéir ar an am a chaitear, ní ar an eolas a choinnítear. Díríonn {{app}} ar a mhalairt: na hathbhreithnithe is lú a choinníonn an rud is tábhachtaí i do cheann. Creidimid gur cheart go mbeadh an fhoghlaim socair, intomhaiste agus agatsa — sonraí oscailte, gan phatrúin dhorcha, agus nós a sheasfaidh leat ar feadh blianta.',
+  'about.missionTitle': 'Ár misean',
   'about.pageTitle': '{{tagline}}.',
   'authShell.sampleBack': 'Vilnius — glaoite ar ais i 1.2 soicind.',
   'authShell.sampleEyebrow': 'Cárta ó do dheic sa todhchaí',
+  'authShell.sampleFront': '“Príomhchathair na Liotuáine.”',
+  'authShell.sampleRetention': '{{pct}}% coinneáil',
   'authShell.sampleStreak': '{{days}} sraith lae',
   'cardEdit.title': 'Cuir cárta spléach in eagar',
   'cardEditor.backLink': 'Ar ais go dtí an deic',
@@ -35,6 +44,8 @@ export const ui: UiTranslations = {
   'dashboard.kpi.days': 'laethanta',
   'deckDetail.backLink': 'Gach deic',
   'deckDetail.deleteError': 'Theip ar an deic a scriosadh.',
+  'deckDetail.empty.body': 'Cuir do chéad chárta leis chun cuimhne a thógáil.',
+  'deckDetail.empty.cta': 'Cuir do chéad chárta leis',
   'deckDetail.empty.heading': 'Níl aon chártaí sa deic seo go fóill',
   'deckDetail.filterEmpty': 'Ní thagann aon chártaí leis an scagaire stáit seo.',
   'deckDetail.filterLabel': 'Scag cártaí de réir stáit',
@@ -47,7 +58,9 @@ export const ui: UiTranslations = {
   'deckDetail.stat.total': 'Cártaí',
   'deckDetail.studyDueLabel': 'Staidéar {{count}} dlite',
   'deckProgressCard.cardCount': '{{count}} cártaí',
+  'deckProgressCard.masteredTooltip': '{{count}} máistrithe',
   'deckProgressCard.studyCta': 'Staidéar {{count}}',
+  'decks.confirmDelete': 'Scrios an deic seo agus a cuid cártaí go léir? Ní féidir é seo a chealú.',
   'decks.create.heading': 'Cruthaigh deic',
   'decks.create.nameLabel': 'Ainm an deic',
   'decks.create.submit': 'Cruthaigh deic',
@@ -58,6 +71,7 @@ export const ui: UiTranslations = {
   'decks.heading': 'Deiceanna',
   'decks.loadError': 'Theip ar luchtú na ndeiceanna.',
   'decks.loading': 'Ag lódáil…',
+  'decks.newDeckLabel': 'Deic nua',
   'decks.retention': 'Coinnigh',
   'decks.studyArrow': 'Staidéar →',
   'decks.subheading': '{{count}} deiceanna · athbhreithniú agus bainistíocht',
@@ -81,6 +95,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Tá cuntas agam cheana féin',
   'landing.heroSubtitle':
     'Is é athrá spásáilte an difríocht idir an iomarca eolais agus cuimhneamh. Cúig nóiméad sa lá, bliain i ndiaidh bliana, agus cloíonn an teanga.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.proof.export': 'Sonraí oscailte, gan aon ghlasáil',
   'landing.proof.free': 'Saor in aisce go deo le haghaidh úsáide pearsanta',
   'landing.proof.import': 'Iompórtáil .apkg / CSV',
@@ -95,12 +110,16 @@ export const ui: UiTranslations = {
   'login.heading': 'Fáilte ar ais chuig do dheiceanna',
   'login.orDivider': 'nó lean ar aghaidh le',
   'login.signupLink': 'Tosaigh ag staidéar saor in aisce',
+  'login.signupPrompt': 'Nua anseo?',
   'login.subtitle': 'Lean ort san áit ar fhág tú — tá do shraith ceoil ag fanacht leat.',
   'mobileNav.closeMenu': 'Dún an roghchlár nascleanúna',
   'mobileNav.openMenu': 'Oscail an roghchlár nascleanúna',
   'notifications.markAllReadError': 'Theip ar gach rud a mharcáil mar léite.',
   'pricing.heading': 'cártaí',
+  'pricing.limits.cards': 'cártaí',
   'pricing.limits.decks': 'deiceanna',
+  'pricing.limits.historyDays': 'Stair athbhreithnithe {{days}} lá',
+  'pricing.limits.historyUnlimited': 'Stair athbhreithnithe gan teorainn',
   'pricing.limits.stats': 'staitisticí',
   'pricing.limits.study': 'staidéar',
   'resetPassword.passwordLabel': 'Pasfhocal nua',
@@ -112,17 +131,30 @@ export const ui: UiTranslations = {
   'sessionSummary.heading': 'Maith thú.',
   'sessionSummary.label': 'Seisiún críochnaithe',
   'settings.changePasswordError': 'Níorbh fhéidir an focal faire a athrú.',
+  'settings.confirmPassword': 'Deimhnigh do phasfhocal',
   'settings.currentPassword': 'Focal faire reatha',
+  'settings.dangerZone': 'Crios contúirte',
+  'settings.deleteAccountHint':
+    'Scrios do chuntas agus do chuid sonraí staidéir go léir go buan. Ní féidir é seo a chealú.',
+  'settings.deleteAccountWarning':
+    'Scriosann sé seo do chuntas agus gach deic, cárta agus stair staidéir go buan. Ní féidir é seo a chealú.',
   'settings.deleteError':
     'Theip ar an gcuntas a scriosadh. Seiceáil do phasfhocal agus déan iarracht eile.',
   'settings.deleting': 'Ag scriosadh…',
+  'settings.devicesHint': 'Gléasanna atá cláraithe faoi láthair ar do chuntas.',
   'settings.newPassword': 'Pasfhocal nua',
   'settings.password': 'Pasfhocal',
   'settings.passwordChanged': 'Pasfhocal nuashonraithe.',
+  'settings.passwordHint': 'Athraigh an focal faire a úsáideann tú chun síniú isteach.',
   'settings.reminders.atRisk': 'Foláireamh faoi bhaol stríoca (tar éis 8:00pm)',
+  'settings.reminders.daily': 'Meabhrúchán laethúil (8:00am)',
   'settings.reminders.heading': 'Meabhrúcháin',
+  'settings.reminders.milestones': 'Ceiliúradh cloch mhíle',
   'settings.reminders.note':
     'Stóráilte ar an ngléas seo. Athraigh cén staidéar a chuireann brú ar dhromchla an bhrabhsálaí seo; sioncrónaíonn roghanna le linn athluchtaithe.',
+  'settings.reminders.weekly': 'Achoimre choinneála sheachtainiúil (Dé Domhnaigh)',
+  'settings.revokeDeviceWarning':
+    'Cuirfear deireadh le rochtain an ghléis seo go luath. Sínigh amach é?',
   'settings.saved': 'Sábháilte.',
   'settings.saveError': 'Theip ar shábháil.',
   'settings.saving': 'Ag sábháil…',
@@ -138,6 +170,7 @@ export const ui: UiTranslations = {
   'signup.legal':
     'Trí chuntas a chruthú aontaíonn tú lenár dTéarmaí agus lenár mBeartas Príobháideachais.',
   'signup.nameLabel': "D'ainm (roghnach)",
+  'signup.orDivider': 'nó cláraigh le',
   'signup.subtitle': 'Cúig nóiméad sa lá. Féin sa todhchaí a chuimhníonn.',
   'stats.byStateHeading': 'Cártaí de réir stáit',
   'stats.dailyHeading': 'Léirmheasanna in aghaidh an lae (30 lá anuas)',
@@ -174,5 +207,6 @@ export const ui: UiTranslations = {
   'todayHeroCard.goalLabel': 'Sprioc laethúil',
   'todayHeroCard.goalProgress': '{{reviewed}} / {{goal}}',
   'todayHeroCard.streakBadge': '{{days}} sraith lae',
+  'todayHeroCard.studyCta': 'Tosaigh ag staidéar',
   'userMenu.stats': 'Mo staitisticí',
 }

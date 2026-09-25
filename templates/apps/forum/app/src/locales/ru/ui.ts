@@ -1,20 +1,44 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Есть отзыв, нашли баг или хотите создать сообщество на {{appName}}? Откройте Настройки, чтобы связаться с командой — каждое сообщение читает живой человек.',
+  'about.contactTitle': 'Свяжитесь с нами',
+  'about.featureModeration':
+    'Встроенная очередь модерации и инструменты жалоб, чтобы каждое сообщество оставалось здоровым и самоуправляемым.',
+  'about.featurePricing':
+    'Бесплатное участие; планы Pro и Team открывают повышенные лимиты, продвинутую модерацию и экспорт данных.',
+  'about.featureThreads':
+    'Организованные сообщества и категории с ветками обсуждений и поддержкой markdown — легко следить и искать.',
+  'about.featureVoting':
+    'Голосование за/против и система заработанной репутации, которая выводит самых полезных участников и лучшие ответы.',
+  'about.intro':
+    '{{appName}} — платформа для обсуждений, где главное — сообщество: ветки в стиле Reddit, голосование и репутация для тех, кто предпочтёт один хороший разговор бесконечной ленте. Каждый голос важен, и лучшие идеи поднимаются по заслугам, а не по громкости.',
+  'about.missionBody':
+    'Мы верим, что онлайн-обсуждения должны вознаграждать вдумчивость, а не возмущение. {{appName}} даёт каждому сообществу инструменты для вежливости и самоуправления — прозрачное голосование, заработанную репутацию и модерацию, где решения принимают доверенные участники, — чтобы ветки накапливались во что-то, к чему хочется возвращаться.',
+  'about.missionTitle': 'Наша миссия',
   'authShell.communities': 'Сообщества',
+  'authShell.copyright': '{{appName}} — каждый голос важен.',
   'authShell.trending': 'В тренде',
+  'categories.emptyFilter': 'Нет сообществ для показа.',
+  'categories.emptySubscribed': 'Вы ещё не подписались ни на одно сообщество.',
+  'categories.emptySubscribedHint':
+    'Откройте сообщество и нажмите Подписаться, чтобы добавить его сюда.',
   'categories.eyebrow': 'Сообщества',
   'categories.loadError': 'Не удалось загрузить сообщества.',
   'categories.loading': 'Загрузка сообществ…',
   'categories.subtitle':
     'Просматривайте сообщества Agora по активности, тематике и уровню активности. Подпишитесь, чтобы добавить ленту на главную страницу.',
   'categories.title': 'Найдите свою комнату',
+  'categoryCard.activeNow': '{{count}} активный',
   'categoryCard.namePrefix': 'с/',
   'categoryCard.subscribers': '{{count}} члены',
   'categoryDetail.empty': 'Здесь пока нет тем для обсуждения.',
   'categoryDetail.namePrefix': 'с/',
   'categoryDetail.newPost': 'Новая запись',
   'categoryDetail.ruleBeKind': 'Будьте вежливы. Обсуждайте работу, а не человека.',
+  'categoryDetail.ruleNoSpam': 'Без спама и ссылок на магазины.',
+  'categoryDetail.ruleStayOnTopic': 'Придерживайтесь темы этого сообщества.',
   'categoryDetail.startFirst': 'Начать первую ветку обсуждения →',
   'categoryDetail.subscribe': 'Подписаться',
   'categoryDetail.subscribed': 'Подписано',
@@ -35,6 +59,7 @@ export const ui: UiTranslations = {
   'compose.eyebrow': 'Создать тему',
   'compose.flairLabel': 'Эффектный стиль (по желанию)',
   'compose.imageUrlPrompt': 'URL изображения',
+  'compose.insertUrl': 'Вставлять',
   'compose.linkUrlPrompt': 'URL-адрес ссылки',
   'compose.markdownHint': 'Поддерживается Markdown.',
   'compose.publishFailed': 'Не удалось опубликовать тему.',
@@ -53,11 +78,18 @@ export const ui: UiTranslations = {
   'feed.emptyHint':
     'Станьте первым, кто начнет обсуждение — перейдите в раздел «Создать сообщение».',
   'feed.loadError': 'Не удалось загрузить подачу.',
+  'feed.metaCommunityDescription':
+    'Мета-сообщество для всех, кто формирует {{appName}} — голосование, управление и обсуждение функций.',
+  'feed.ruleBeCivil': 'Будьте вежливы. Всегда.',
   'feed.ruleBeCivilDesc':
     'Выражайте несогласие, но не унижайте людей. Модераторы быстро переходят к личным нападкам.',
+  'feed.ruleCiteSources': 'Прикрепите ссылку на то, на что вы реагируете.',
+  'feed.ruleOnePerWeek': 'Один мета-пост в неделю на аккаунт.',
   'feed.subtitle':
     'Темы из сообществ, на которые вы подписаны, плюс несколько тех, на которые вы, возможно, подписаны. Проголосуйте, чтобы научить алгоритм.',
   'feed.title': 'Ваша лента',
+  'forgotPassword.description':
+    'Введите свой адрес электронной почты, и мы вышлем вам ссылку для сброса настроек.',
   'forgotPassword.successBody':
     'Мы отправили ссылку для сброса настроек. {{email}} Срок действия истекает через 30 минут.',
   'forgotPassword.tryAnother': 'Попробуйте другой адрес электронной почты.',
@@ -68,9 +100,15 @@ export const ui: UiTranslations = {
   'landing.communitiesSubtitle':
     'Зарабатывайте карму, делитесь результатами работы, задавайте более качественные вопросы.',
   'landing.communitiesTitle': 'Начать следует с сообществ.',
+  'landing.ctaBody':
+    'Зарегистрируйтесь бесплатно. Зарабатывайте репутацию в темах, которые вам важны, и помогите остальным думать чуть яснее.',
   'landing.ctaEyebrow': 'Готов, когда будете готовы',
   'landing.ctaHeadline': 'Найдите своё сообщество. Выскажите своё мнение.',
   'landing.heroCtaSecondary': 'Просмотрите сообщества',
+  'landing.heroEyebrow': 'Добро пожаловать в {{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Обсуждения, которые накапливаются, а не исчезают.',
+  'landing.heroLede':
+    '{{appName}} — неспешный форум для любителей, создателей и тихо убеждённых экспертов. Зарабатывайте репутацию одной хорошей веткой за раз.',
   'landing.heroStat1': '847 тыс.',
   'landing.heroStat2': '2180',
   'landing.heroStat2Label': 'Сообщества',
@@ -85,13 +123,17 @@ export const ui: UiTranslations = {
   'landing.trendingViewAll': 'Посмотреть все',
   'login.description': 'Продолжите разговор с того места, где он закончился.',
   'login.heading': 'Войдите в Agora',
+  'login.noAccount': 'Вы здесь впервые?',
   'login.passwordPlaceholder': 'Ваш пароль',
   'login.twoFactorLabel': 'Код двухфакторной аутентификации (необязательно)',
   'login.twoFactorPlaceholder': '6-значный код',
+  'login.twoFactorRequiredHint':
+    'В этом аккаунте включена двухфакторная аутентификация. Введите 6-значный код из приложения-аутентификатора, чтобы продолжить.',
   'login.twoFactorRequiredLabel': 'Введите код 2FA',
   'modQueue.automodEmpty':
     'Для этого сообщества пока не настроены правила автоматической модерации.',
   'modQueue.automodTitle': 'Автоматическая модерация активности (за последние 24 часа)',
+  'modQueue.empty': 'Входящие пусты. Ничего не ждёт.',
   'modQueue.eyebrow': 'Модерация',
   'modQueue.kindThread': 'Нить',
   'modQueue.loadError': 'Не удалось загрузить отчеты.',
@@ -118,8 +160,12 @@ export const ui: UiTranslations = {
   'notifications.mentionedYouIn': 'упомянул вас в',
   'notifications.repliedTo': 'ответил',
   'notifications.subtitle': 'У вас есть {{count}} непрочитанные уведомления.',
+  'pricing.limits.advancedFeatures': 'Расширенные возможности:',
   'pricing.limits.categories': '{{count}} категории',
   'pricing.limits.export': 'Экспорт данных:',
+  'pricing.limits.moderation': 'Действия модерации {{count}}',
+  'pricing.limits.threads': '{{count}} нити',
+  'pricing.limits.votes': '{{count}} голосов',
   'profile.noComments': 'Комментарии пока отсутствуют.',
   'profile.noPosts': 'Пока нет сообщений.',
   'profile.noSaved': 'Сохраненных записей пока нет.',
@@ -130,6 +176,7 @@ export const ui: UiTranslations = {
     'Выберите надежный вариант. Мы войдем в систему после успешного сброса настроек.',
   'resetPassword.newPasswordLabel': 'Новый пароль',
   'resetPassword.tokenPlaceholder': 'Вставьте токен ссылки',
+  'search.clear': 'Прозрачный',
   'search.communitiesEmpty': 'Сообщества не найдены.',
   'search.communitiesHeading': 'Сообщества',
   'search.empty': 'Ни одна из нитей не совпадает.',
@@ -143,20 +190,28 @@ export const ui: UiTranslations = {
   'settings.displayTitle': 'Отображать',
   'settings.emailDigestDesc':
     'Самые популярные темы из сообществ, на которые вы подписаны, каждый понедельник.',
+  'settings.emailDigestLabel': 'Еженедельный дайджест',
+  'settings.emailMentionsDesc': 'Когда кто-то упоминает вас через @ в ветке или комментарии.',
+  'settings.emailMentionsLabel': 'Уведомлять по email об упоминаниях',
+  'settings.emailRepliesDesc': 'Обсуждения, которые вы начали или в которых отвечали.',
   'settings.emailRepliesLabel': 'Напишите мне на электронную почту, если ответите.',
   'settings.loadError': 'Не удалось загрузить аккаунт.',
   'settings.loading': 'Загрузка ваших настроек…',
   'settings.notificationsSubtitle':
     'Определите, что будет поступать в ваш почтовый ящик, а что — на устройство push-уведомлений.',
+  'settings.pushRepliesLabel': 'Push-уведомления об ответах',
+  'settings.pushVotesDesc': 'Уведомление при достижении 100, 500, 1000.',
   'settings.pushVotesLabel': 'Нажимайте на этапы для получения положительных голосов.',
   'settings.saveAccount': 'Сохранить аккаунт',
   'settings.showFlair': 'Отображать метки категорий в темах обсуждения',
+  'settings.showThumbnails': 'Показывать миниатюры ссылок и изображений',
   'settings.usernamePlaceholder': 'Выберите ручку',
   'signup.confirmPlaceholder': 'Введите его снова',
   'signup.description':
     'Завоевывайте репутацию, создавая качественные сообщения в социальных сетях.',
   'signup.eyebrow': 'Присоединяйтесь к комнате',
   'threadRow.authorPrefix': 'u/',
+  'threadRow.commentCount': '{{count}} комментариев',
   'threadRow.statusFlagged': 'На рассмотрении',
   'threadRow.statusHot': 'Горячий',
   'threadRow.statusLocked': 'Заблокировано',
@@ -178,6 +233,7 @@ export const ui: UiTranslations = {
   'threadView.lockedNotice': 'Эта тема закрыта. Добавление новых ответов запрещено.',
   'threadView.modActionFailed': 'Действия модератора не удались.',
   'threadView.modTools': 'инструменты для моддинга',
+  'threadView.noComments': 'Комментариев пока нет. Будьте первым.',
   'threadView.notFound': 'Тема не найдена.',
   'threadView.pin': 'Приколоть',
   'threadView.pinned': 'Закреплено',

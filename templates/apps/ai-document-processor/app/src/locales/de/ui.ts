@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Haben Sie eine Frage, einen Bug gefunden oder möchten Sie eine Demo für Ihr Team? Melden Sie sich in Ihren Kontoeinstellungen — jede Nachricht erreicht eine echte Person im Team.',
   'about.contactTitle': 'Kontakt aufnehmen',
+  'about.intro':
+    '{{app}} verwandelt Stapel gescannter Dokumente und PDFs in strukturierte, durchsuchbare, abgelegte Daten. Werfen Sie Rechnungen, Belege, Verträge oder Formulare ein und lassen Sie die KI sie lesen, extrahieren, klassifizieren und ablegen — mit Konfidenzfarben, damit Ihr Team nur prüft, was wirklich einen Menschen braucht.',
+  'about.missionBody':
+    'Dokumentenroutine sollte nicht den Tag Ihres Teams fressen. Wir glauben, dass jeder extrahierte Wert erklärbar und prüfbar sein sollte — damit Sie der Automatisierung vertrauen können, ohne den Papierweg zu verlieren. {{app}} ist darauf ausgelegt, Stunden pro Stapel zu sparen und dabei einen Menschen einzubinden, wo es zählt.',
+  'about.missionTitle': 'Unsere Mission',
+  'about.subtitle':
+    'OCR, KI-Extraktion, Klassifizierung und automatische Ablage für Ihre Dokumente.',
   'about.title': 'Über „{{app}}“',
+  'about.whatYouGetTitle': 'Was Sie erhalten',
   'authShell.backToLanding': '← Zurück zur Startseite',
   'common.goToDashboard': 'Zum Dashboard',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Heute · Betriebsübersicht',
   'dashboard.heading': 'Dokumentenintelligenz',
+  'dashboard.metric.accuracy': 'Durchschn. Genauigkeit',
   'dashboard.metric.filed': 'Heute abgelegt',
   'dashboard.metric.filedCaption': 'Durch Ablageregeln geleitet',
   'dashboard.metric.processed': 'Heute verarbeitet',
@@ -23,11 +34,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Dokument',
   'dashboard.recent.col.uploaded': 'Hochgeladen',
   'dashboard.recent.heading': 'Aktuelle Dokumente',
+  'dashboard.recent.typeUnknown': 'Wartet auf Klassifizierung',
   'dashboard.subheading':
     'Jede Seite klassifiziert, extrahiert und abgelegt — mit Konfidenzfarben, damit die Prüfung fokussiert bleibt.',
   'documentDetail.audit.heading': 'Audit-Zeitleiste',
+  'documentDetail.audit.subheading':
+    'Jeder Schritt, der an diesem Dokument vorgenommen wurde, mit der verantwortlichen Person.',
   'documentDetail.back': 'Alle Dokumente',
   'documentDetail.downloadHint': 'Verwenden Sie Herunterladen, um die Originaldatei zu öffnen.',
+  'documentDetail.extracted.empty': 'Noch keine Felder extrahiert.',
   'documentDetail.extracted.heading': 'Extrahierte Felder',
   'documentDetail.extracted.subheading':
     '{{count}} Felder · klicken Sie auf ein Feld, um es auf der Seite hervorzuheben',
@@ -55,14 +70,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Dokumente suchen…',
   'documents.subheading': '{{count}} Dokumente in Ihrer Bibliothek, neueste zuerst sortiert.',
   'documents.uploadCta': 'Dokumente hochladen',
+  'documentTypeBreakdown.barAria': 'Dokumentzusammensetzung nach Typ',
   'documentTypeBreakdown.empty': 'Noch keine Dokumente verarbeitet.',
   'documentTypeBreakdown.subtitle': '{{total}} verarbeitet',
   'documentTypeBreakdown.title': 'Dokumentenzusammensetzung',
+  'forgotPassword.backToSignIn': '← Zurück zur Anmeldung',
   'forgotPassword.checkEmail': 'Prüfen Sie Ihre E-Mails',
   'forgotPassword.tip':
     'Nicht erhalten? Prüfen Sie den Spam oder probieren Sie eine andere Adresse.',
+  'landing.copyright': '© {{year}} {{app}}. Gebaut für Ops-Teams, die jede Seite prüfen.',
+  'landing.ctaBody':
+    '14 Tage Testphase. Keine Karte nötig. Jederzeit kündbar. Gebaut für Ops-Teams, die schnell arbeiten und langsam prüfen.',
   'landing.ctaHeading': 'Hören Sie auf, Belege abzutippen. Fangen Sie an, sie abzulegen.',
   'landing.eyebrow': 'OCR · Extraktion · KI-Ablage',
+  'landing.featuresHeading': 'Dokumentenintelligenz, die sich selbst erklärt',
+  'landing.heroSubtitle':
+    'Werfen Sie einen Stapel Rechnungen, Belege, Verträge oder Formulare ein. {{app}} klassifiziert, extrahiert und legt sie ab — mit Konfidenzfarben, damit Ihr Team nur prüft, was wirklich einen Menschen braucht.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Tägliches Volumen · letzte 7 Tage',
   'landing.sampleCardLabel': 'Heute verarbeitete Dokumente',
   'landing.sampleCardSubtitle': '96,2 % Ø Genauigkeit über Rechnungen, Belege und Formulare.',
   'login.hidePassword': 'Passwort ausblenden',
@@ -75,6 +100,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Startseite öffnen',
   'notFound.title': 'Diese Seite ist nicht in der Ablage',
+  'parcelaHeroCard.accuracy': 'Durchschn. Genauigkeit {{value}}% über alle Extraktionen',
   'parcelaHeroCard.change': '{{sign}}{{amount}} % vs. gestern',
   'parcelaHeroCard.title': 'Heute verarbeitete Dokumente',
   'parcelaLayout.primaryNavLabel': 'Hauptnavigation',
@@ -82,6 +108,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'Dokumente',
   'pricing.processingLabel': 'Verarbeitungsjobs',
   'resetPassword.confirmPlaceholder': 'Neues Passwort wiederholen',
+  'resetPassword.hidePassword': 'Passwort ausblenden',
   'resetPassword.passwordLabel': 'Neues Passwort',
   'resetPassword.showPassword': 'Passwort anzeigen',
   'resetPassword.subtitle': 'Wählen Sie eines mit mindestens 8 Zeichen.',
@@ -98,10 +125,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Regeln konnten nicht geladen werden.',
   'rules.loading': 'Regeln werden geladen…',
   'rules.matched30d': '{{count}} Dokumente in den letzten 30 Tagen abgeglichen',
+  'rules.neverUsed': 'Nie verwendet',
   'rules.newRule': 'Neue Regel',
   'rules.saveError': 'Regel konnte nicht gespeichert werden.',
   'rules.subheading':
     'Sagen Sie dem System, wo jeder Dokumenttyp hingehört. Bedingungen werden von oben nach unten verkettet — die erste Übereinstimmung gewinnt.',
+  'rules.templatesEmpty': 'Noch keine Extraktionsvorlagen.',
   'rules.templatesHeading': 'Extraktionsvorlagen',
   'rules.templatesSubheading': 'Feld-Schemas, die der Extraktor für jeden Dokumenttyp verwendet.',
   'rules.then': 'Dann',
@@ -110,17 +139,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Arbeitsbereichsname',
   'settings.account.subheading':
     'Anzeigename und primäre E-Mail für Benachrichtigungen und Audit-Historie.',
+  'settings.api.confirmRevoke': 'Bestätigen?',
   'settings.api.copyOnce': 'Kopieren Sie diesen Schlüssel — er wird nicht erneut angezeigt',
   'settings.api.createdOn': 'Erstellt am {{date}}',
   'settings.api.empty': 'Noch keine API-Schlüssel. Generieren Sie oben einen.',
   'settings.api.error': 'Schlüssel konnte nicht erstellt werden.',
+  'settings.api.generating': 'Wird erstellt…',
+  'settings.api.heading': 'API-Schlüssel',
   'settings.api.labelPlaceholder': 'Schlüssel-Label (z. B. CI-Uploader)',
+  'settings.api.loading': 'Schlüssel werden geladen…',
   'settings.api.newKey': 'Schlüssel generieren',
   'settings.api.subheading':
     'Verwenden Sie diese, um Dokumente per Skript oder aus Ihrem ERP zu pushen. Rotieren Sie jeden Schlüssel jederzeit.',
   'settings.integrations.heading': 'Ablage-Integrationen',
   'settings.integrations.subheading':
     'Senden Sie abgelegte Dokumente an den Cloud-Speicher oder das Chat-Tool, das Ihr Team bereits nutzt.',
+  'settings.subheading':
+    'Verwalten Sie Konto, API-Schlüssel und Ablage-Integrationen für Ihren {{app}}-Workspace.',
+  'signup.hidePassword': 'Passwort ausblenden',
   'signup.identityPrompt': 'Wie sollen wir Sie ansprechen?',
   'signup.showPassword': 'Passwort anzeigen',
   'signup.subtitle': '14 Tage kostenlos, keine Karte erforderlich.',
@@ -128,6 +164,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Upload fehlgeschlagen.',
   'upload.eyebrow': 'Einlesen',
   'upload.heading': 'Dokumente hochladen',
+  'upload.queue.clear': 'Abgeschlossene löschen',
   'upload.queue.col.confidence': 'Konfidenz',
   'upload.queue.col.file': 'Datei',
   'upload.queue.detecting': 'Erkennt…',
@@ -140,5 +177,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Oder mehrere Dateien gleichzeitig ablegen für Stapelextraktion, -klassifikation und -ablage.',
   'uploadDropZone.cta': 'Dateien auswählen',
+  'uploadDropZone.maxSize': 'Max. 25 MB pro Datei · Ende-zu-Ende-verschlüsselt',
   'uploadDropZone.title': 'Dokumente ablegen, um die Verarbeitung zu starten',
 }

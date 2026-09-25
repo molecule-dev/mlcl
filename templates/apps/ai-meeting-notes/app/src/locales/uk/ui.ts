@@ -1,19 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Маєте запитання, відгук чи ідею для функції? Напишіть команді на hello@murmur.app — кожне повідомлення потрапляє до реальної людини, яка працює над продуктом.',
   'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
+  'about.intro':
+    '{{app}} — це аналітика зустрічей для команд, які воліють ухвалювати рішення, а не вести нотатки. Він приєднується до ваших дзвінків, транскрибує кожне слово з позначенням мовців і надсилає AI-підсумок та закріплені за виконавцями завдання одразу після завершення зустрічі.',
+  'about.missionBody':
+    'Зустрічі — це місце, де команди ухвалюють рішення, і де ці рішення губляться. {{app}} існує, щоб робота, яка відбувається під час розмови, жила довше за саму розмову: точний запис, чіткий підсумок і відповідальні наступні кроки — автоматично.',
+  'about.missionTitle': 'Наша місія',
   'actions.empty': 'Жодних відповідних пунктів дій.',
   'actions.heading': 'Пункти дій',
   'actions.loadError': 'Не вдалося завантажити пункти дій.',
   'actions.subheading': 'Зібрано з усіх нарад. Фільтруйте за статусом для зосередження.',
   'actions.toggleDoneLabel': 'Позначити як виконане',
   'actions.toggleReopenLabel': 'Позначити як відкрите',
+  'auth.footer': '© {{year}} {{app}}. Кожне слово — у стислому вигляді.',
   'calendar.heading': 'Календар',
   'calendar.joinCta': 'Приєднатися',
   'calendar.loadError': 'Не вдалося завантажити календар.',
   'calendar.nextMonth': 'Наступний місяць',
   'calendar.noEventsForDay': 'На цей день не заплановано нарад.',
+  'calendar.noUpcomingEvents':
+    'Немає майбутніх зустрічей. Підключіть календар у розділі Інтеграції, щоб наповнити цей список.',
   'calendar.previousMonth': 'Попередній місяць',
   'calendar.recent': 'Останні',
   'common.daysAgo': '{{count}}д тому',
@@ -25,9 +35,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} пунктів дій',
   'dashboard.empty.body':
     'Розпочніть запис або підключіть Google Календар, щоб Murmur автоматично приєднувався до Вашої наступної наради.',
+  'dashboard.empty.cta': 'Почати запис',
   'dashboard.empty.heading': 'Ще немає нарад',
   'dashboard.eyebrow': 'Ваша стрічка нарад',
   'dashboard.loadError': 'Не вдалося завантажити панель керування.',
+  'dashboard.noActions': 'Немає завдань',
   'dashboard.recentHeading': 'Останні наради',
   'dashboard.recordCta': 'Записати нараду',
   'dashboard.stat.actions': 'Пункти дій',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} непрочитаних підсумків з часу Вашого останнього перегляду. Murmur зафіксував кожне слово — ось короткий огляд.',
   'dashboard.viewCalendar': 'Переглянути календар →',
+  'footer.linksLabel': 'Нижнє меню',
   'forgot.failed': 'Не вдалося надіслати лист для скидання пароля.',
   'forgot.sentBody':
     'Якщо для {{email}} існує обліковий запис, Ви незабаром отримаєте посилання для скидання.',
@@ -48,14 +61,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Підключіть календарі та відеоплатформи, щоб Murmur приєднувався автоматично.',
   'integrations.updateError': 'Не вдалося оновити.',
+  'landing.ctaBody':
+    'Безкоштовно для перших 5 зустрічей щомісяця. Без кредитної картки. Підключіть Google Calendar менш ніж за хвилину.',
   'landing.ctaButton': 'Почати — це безкоштовно',
   'landing.ctaHeading': 'Перестаньте робити нотатки. Починайте приймати рішення.',
+  'landing.demo.aiBody':
+    'Запуск перенесено з 5 травня → 12 травня, щоб дати операційній команді час на підготовку. Редизайн дашборда виокремлено на 26 травня.',
   'landing.demo.aiLabel': 'AI-підсумок, складений у прямому ефірі',
   'landing.demo.recording': 'Запис · наживо',
   'landing.eyebrow': 'ШІ-інтелект для нарад',
   'landing.featuresHeading': 'Все, що потрібно Вашій команді після завершення наради',
+  'landing.featuresSubheading':
+    'Більше жодних «стоп, хто за це відповідає?» {{appName}} надсилає підсумок ще до завершення дзвінка.',
   'landing.getStarted': 'Спробувати безкоштовно',
   'landing.heroSecondary': 'Переглянути 90-секундний тур',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} приєднується до ваших дзвінків, транскрибує кожне слово з позначенням мовців і надсилає AI-підсумки та закріплені за виконавцями завдання одразу після завершення зустрічі.',
   'landing.heroTitle': 'Фіксуйте кожну нараду. Виявляйте важливе.',
   'login.altPrompt': 'Вперше в Murmur?',
   'login.failed': 'Не вдалося увійти. Перевірте свою електронну адресу та пароль.',
@@ -63,6 +84,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Пункти дій',
   'meetingDetail.back': 'Усі наради',
   'meetingDetail.decisionsHeading': 'Рішення',
+  'meetingDetail.dueDate': 'до {{date}}',
   'meetingDetail.followupsHeading': 'Подальші кроки',
   'meetingDetail.loadError': 'Не вдалося завантажити нараду.',
   'meetingDetail.noActions': 'Пункти дій не виявлено.',
@@ -76,7 +98,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Ще немає нарад',
   'meetings.heading': 'Наради',
   'meetings.loadError': 'Не вдалося завантажити наради.',
+  'meetings.recordCta': 'Записати нараду',
   'meetings.subheading': 'Кожна записана, завантажена та синхронізована нарада.',
+  'murmurLayout.closeMenu': 'Закрити меню навігації',
   'murmurLayout.openMenu': 'Відкрити меню навігації',
   'murmurLayout.primaryNavLabel': 'Основна навігація',
   'nav.legal': 'Юридична інформація',
@@ -101,7 +125,13 @@ export const ui: UiTranslations = {
   'profile.loading': 'Завантаження…',
   'profile.navLabel': 'Розділи профілю',
   'profile.notifications.assignments': 'Пункти дій, призначені мені',
+  'profile.notifications.assignmentsHint': 'Повідомляти, коли для вас зафіксовано завдання.',
+  'profile.notifications.mentions': 'Згадки в транскриптах',
+  'profile.notifications.mentionsHint': 'Email + push-повідомлення, коли хтось згадує вас через @.',
+  'profile.notifications.subheading': 'Виберіть, які події {{appName}} мають до вас надходити.',
   'profile.notifications.summaries': 'Щотижневий дайджест',
+  'profile.notifications.summariesHint': 'Підсумок кожної зустрічі за минулий тиждень щопонеділка.',
+  'profile.preferences.speakerColor': 'Стандартний колір мовця',
   'profile.preferences.subheading':
     'Стандартні налаштування для кожного запису, до якого Ви приєднуєтесь.',
   'profile.preferences.timezone': 'Часовий пояс',
@@ -113,17 +143,22 @@ export const ui: UiTranslations = {
   'record.error.recorder': 'Помилка записувача',
   'record.error.unsupported': 'Ваш браузер не підтримує запис. Спробуйте Chrome, Edge або Safari.',
   'record.error.upload': 'Завантаження не вдалося. Спробуйте ще раз.',
+  'record.errorLabel': 'Щось пішло не так',
   'record.heading': 'Запис',
   'record.idleLabel': 'Натисніть, щоб почати запис',
   'record.processingLabel':
     'Транскрибування за допомогою Whisper, підсумування за допомогою Claude…',
+  'record.recordingLabel': 'Запис…',
   'record.retryCta': 'Спробувати ще раз',
   'record.subheading':
     'Натисніть мікрофон, щоб почати. Murmur записує звук, транскрибує через Whisper та складає підсумок на основі Claude.',
+  'record.titlePlaceholder': 'Назва зустрічі (необов’язково)',
+  'reset.altPrompt': 'Передумали?',
   'reset.hint': 'Використовуйте щонайменше 8 символів із поєднанням літер і цифр.',
   'reset.missingToken': 'Посилання для скидання відсутнє або застаріле. Запросіть нове.',
   'reset.newPassword': 'Новий пароль',
   'reset.subheading': 'Оберіть пароль, який Ви не використовуєте ніде інде.',
+  'reset.tooShort': 'Пароль має містити щонайменше 8 символів.',
   'search.empty': 'Введіть текст для пошуку в транскриптах.',
   'search.loadError': 'Пошук не вдався. Спробуйте ще раз.',
   'search.noResults': 'Немає результатів для «{{q}}».',
@@ -138,7 +173,10 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Зберігати аудіо протягом',
   'settings.retention.heading': 'Зберігання',
   'settings.retention.transcript': 'Зберігати транскрипти протягом',
+  'settings.revokeDeviceWarning':
+    'Доступ цього пристрою буде скасовано найближчим часом. Вийти з нього?',
   'settings.saveError': 'Збереження не вдалося.',
+  'settings.security.subheading': 'Оновіть пароль, який ви використовуєте для входу.',
   'settings.sharing.exportFormat': 'Формат експорту',
   'settings.sharing.heading': 'Стандартні параметри спільного доступу',
   'settings.sharing.scope': 'Стандартний обсяг спільного доступу',
@@ -156,6 +194,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Запросити члена команди',
   'team.invitedAs': 'Запрошено як {{role}}',
   'team.inviteFailed': 'Не вдалося надіслати запрошення.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'Надіслати запрошення',
   'team.inviteSubtitle': 'Вони отримають електронний лист із посиланням для приєднання.',
   'team.inviteTitle': 'Запросити члена команди',

@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     "Dendrite - bu triggerlarni, AI shartlarini va ko'p bosqichli harakatlarni bir-biriga bog'laydigan ish jarayonini avtomatlashtirish platformasi bo'lib, jamoalar yopishqoq kod yozmasdan tizimlar o'rtasida ishni ko'chirishlari mumkin.",
+  'about.philosophy':
+    "Har bir ish oqimi kichik, kuzatiladigan qadamlar grafigidir. Har bir qadam o'z kirishlari, chiqishlari va vaqtini qayd etadi, shuning uchun uni tekshirish, qayta ijro etish yoki orqaga qaytarish mumkin. Ularni vizual tarzda tuzing, xuddi kod kabi versiyalang.",
   'about.title': 'Dendrit haqida',
   'authShell.brand': 'Dendrit',
   'authShell.support': "Qo'llab-quvvatlash",
@@ -15,9 +17,14 @@ export const ui: UiTranslations = {
   'billing.changePlan': "Rejani o'zgartirish",
   'billing.description':
     'Foydalanishni kuzatib boring, rejangizni boshqaring va buxgalteriya hisobi uchun schyot-fakturalarni oling.',
+  'billing.eyebrow': 'Hisob · Reja va foydalanish',
+  'billing.failedLabel': 'Muvaffaqiyatsiz ishlashlar · 24 soat',
+  'billing.invoicesEmpty':
+    "Hozircha hisob-fakturalar yo'q. Ular birinchi to'lovli yangilanishdan keyin shu yerda paydo bo'ladi.",
   'billing.invoicesTitle': 'Faktura tarixi',
   'billing.planNoteFree':
     'Bepul daraja — {{runs}} yuguradi va {{workflows}} faol ish oqimlari. Yuqori chegaralar uchun yangilang.',
+  'billing.planNotePaid': "To'lovli reja — {{runs}} ishlash va {{workflows}} faol ish oqimi.",
   'billing.runsLabel': "So'nggi 24 soat ichida ishga tushirilganlar",
   'billing.tiersBlurb':
     "Maxsus narxlar sahifasida har bir darajani — ishga tushirishlar, faol ish oqimlari, ilg'or xususiyatlar va qo'llab-quvvatlashni — taqqoslang.",
@@ -35,10 +42,14 @@ export const ui: UiTranslations = {
     "Hech qanday integratsiya ro'yxatdan o'tmagan. Bondlarni yoqish uchun provayder kalitlarini sozlang.",
   'connections.error': "Ulanishlarni yuklab bo'lmadi.",
   'connections.eyebrow': 'Integratsiyalar · {{connected}} ulangan',
+  'connections.loading': 'Integratsiyalar yuklanmoqda…',
+  'connections.openEnv':
+    "Bu provayderni ulash uchun uning API kalitini api/.env faylida o'rnating va serverni qayta ishga tushiring.",
   'dashboard.description':
     "{{active}} ish jarayonlari faol. {{failed}} so'nggi 24 soat ichida muvaffaqiyatsizlikka uchradi.",
   'dashboard.error': "Boshqaruv panelini yuklab bo'lmadi.",
   'dashboard.eyebrow': 'Operatsiyalar · jonli',
+  'dashboard.hero.label': 'Bugungi ishlashlar',
   'dashboard.hero.medianLatency': 'p50 kechikishi',
   'dashboard.hero.queue': 'Navbat chuqurligi',
   'dashboard.hero.success': 'Muvaffaqiyat',
@@ -46,14 +57,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': "O'rtacha davomiylik",
   'dashboard.kpi.failedRuns': 'Muvaffaqiyatsiz · 24 soat',
   'dashboard.kpi.outOf': 'ning {{total}} jami',
+  'dashboard.kpi.successRate': 'Muvaffaqiyat darajasi · 24 soat',
   'dashboard.loading': 'Boshqaruv paneli yuklanmoqda…',
   'dashboard.recentRuns.empty':
     "Hali ishga tushirishlar yo'q. Ish jarayonini ishga tushirish ushbu tasmani to'ldiradi.",
   'dashboard.recentRuns.title': "So'nggi yugurishlar",
   'dashboard.recentRuns.viewAll': 'Ochiq qatllar →',
+  'dashboard.recentWorkflows.browse': "Shablonlarni ko'rib chiqish →",
   'dashboard.recentWorkflows.empty':
     "Hali ish jarayonlari yo'q. Shablonni o'rnating yoki noldan yarating.",
   'dashboard.recentWorkflows.title': 'Yaqinda ishga tushirilgan',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'Boshlandi',
   'dashboard.run.col.trigger': 'Trigger',
   'dashboard.run.col.workflow': 'Ish oqimi',
@@ -89,6 +103,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Ish oqimi',
   'executions.description':
     'Har bir ish jarayoni, har bir qayta urinish, har bir qadam natijasi — barchasini kuzatish mumkin.',
+  'executions.empty.filter': "Bu filtrga mos ishlashlar yo'q.",
   'executions.empty.first':
     "Hali ishga tushirish yo'q — ushbu ro'yxatni to'ldirish uchun ish jarayonini ishga tushiring.",
   'executions.error': "Bajarilgan amallarni yuklab bo'lmadi.",
@@ -99,30 +114,43 @@ export const ui: UiTranslations = {
   'executions.loading': 'Yugurish tarixi yuklanmoqda…',
   'executions.title': 'Qatllar',
   'forgotPassword.confirmation': 'Qayta tiklash havolasi yuborildi {{email}} .',
+  'forgotPassword.subhead':
+    'Qayta tiklash havolasini olish uchun elektron pochta manzilingizni kiriting.',
   'forgotPassword.successSubhead':
     "Biz qayta tiklash havolasini yubordik {{email}} Uning amal qilish muddati 30 daqiqadan so'ng tugaydi.",
   'help.connections.body':
     "Sun'iy intellekt, elektron pochta va saqlash bosqichlari provayder kalitlarini api/.env faylida o'rnatishni talab qiladi. Kalit sozlangandan so'ng, tegishli integratsiya Aloqalar sahifasida ulangan holda ko'rsatiladi.",
+  'help.connections.cta': 'Ulanishlarni ochish →',
   'help.connections.title': 'Provayderlarni ulash',
   'help.gettingStarted.body':
     "Yangi ish oqimlari shablonlar kutubxonasidan o'rnatilishi yoki ish oqimi quruvchisida noldan yaratilishi mumkin. Har bir ish oqimida trigger (qo'lda, veb-huk yoki cron) va tartibda bajariladigan bosqichlar ketma-ketligi mavjud.",
+  'help.gettingStarted.cta': "Shablonlar kutubxonasini ko'rish →",
+  'help.gettingStarted.title': 'Boshlash',
   'help.intro':
     "Ish oqimlarini yaratish, ulanishlarni sozlash va ishga tushirish natijalarini talqin qilish bo'yicha keng tarqalgan savollarga javoblarni toping. Eng keng tarqalgan mavzular quyida keltirilgan; qamrab olinmagan har qanday narsa uchun ish joyingiz administratoriga murojaat qiling.",
   'help.runs.body':
     "Har bir ishga tushirish har bir qadamni holati (muvaffaqiyat, muvaffaqiyatsizlik, o'tkazib yuborilgan) va natija parchasi bilan mustaqil ravishda qayd etadi. Bajarish tafsilotlari sahifasida to'liq bosqichma-bosqich kuzatuv va taxminiy ko'rsatkichlar ko'rsatilgan.",
+  'help.runs.cta': 'Ochiq qatllar →',
   'help.runs.title': "Ishlash natijasini o'qish",
   'help.title': 'Yordam markazi',
   'integrationCard.manage': 'Boshqarish',
   'landing.brand': 'Dendrit',
   'landing.demo.action.subtitle': "Aylanma yo'l · hudud",
+  'landing.demo.action.title': 'Vakilni xabardor qilish',
   'landing.demo.condition.subtitle': "Sun'iy intellekt niyat klassifikatori",
+  'landing.demo.condition.title': "Ball ≥ o'rta?",
   'landing.demo.trigger.subtitle': 'POST /shakllar/aloqa',
   'landing.demo.trigger.title': 'Kiruvchi veb-huk',
+  'landing.features.body':
+    'Triggerlar ishga tushadi. Shartlar shoxlanadi. Amallar ishni bajaradi. Ularni vizual tarzda tuzing, xuddi kod kabi versiyalang.',
   'landing.features.heading': 'Uchta tugun turi. Cheksiz shakllar.',
   'landing.footer.help': 'Yordam',
   'landing.footer.tagline': 'Harakatdagi aql',
+  'landing.hero.body':
+    '{{appName}} — Zapierdan oshib ketgan operatsion jamoalar uchun ish oqimi dvigateli. Trigger, shart, amal — siz haqiqatda ishlatadigan har bir tizimga ulangan.',
   'landing.hero.eyebrow': 'Harakatdagi aql',
   'landing.hero.headline': 'Simlarni bir-biriga ulang. Ish tugaguncha kuting.',
+  'landing.hero.primaryCta': 'Birinchi ish oqimingizni yarating',
   'landing.hero.proof.ai': "O'rnatilgan AI tugunlari",
   'landing.hero.proof.free': 'Oyiga 1 ming yugurish uchun bepul',
   'landing.hero.proof.soc2': 'SOC 2 II turi',
@@ -130,10 +158,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': "O'rindiqlar uchun emas, balki yugurishlar uchun pul to'lang.",
   'landing.templates.body':
     "Har bir jamoa uchun oldindan simli ish oqimlari — savdo, qo'llab-quvvatlash, ishlab chiqish, moliya. Bir marta bosish bilan o'rnating; istalgan narsani sozlang.",
+  'landing.templates.cta': "Shablonlarni ko'rish uchun ro'yxatdan o'ting →",
   'landing.templates.eyebrow': 'Bir necha soniyada boshlang',
   'landing.templates.heading': 'Tasdiqlangan retseptlar kutubxonasi.',
   'landing.templates.signupHint': "O'rnatish uchun ro'yxatdan o'ting",
   'login.hidePassword': 'Parolni yashirish',
+  'login.noAccount': 'Tesserada yangimisiz?',
   'login.showPassword': "Parolni ko'rsatish",
   'login.subhead': 'Avtomatlashtirishlaringiz oqimini saqlab qolish uchun tizimga kiring.',
   'mobileNav.drawerLabel': 'Asosiy navigatsiya',
@@ -150,8 +180,15 @@ export const ui: UiTranslations = {
     "Ushbu tasmani to'ldirishni boshlash uchun ish jarayonini ishga tushiring.",
   'notifications.empty.title': 'Hammangiz yetib keldingiz',
   'notifications.eyebrow': "{{n}} o'qilmagan",
+  'planUpdated.body':
+    "Hisob-kitob o'zgarishingiz endi faol. Tarifingizni istalgan vaqtda hisob-kitob sahifasidan boshqarishingiz mumkin.",
+  'planUpdated.retry': 'Qayta urinib ko’ring',
+  'planUpdated.verifyFailed': "To'lovingizni hali tasdiqlay olmadik.",
+  'planUpdated.verifyFailedBody':
+    "To'lovingiz hali ham amalga oshirilayotgan bo'lishi mumkin. Birozdan keyin qayta urinib ko'ring.",
   'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'pricing.heading': 'yugurishlar',
+  'pricing.runsSuffix': 'ishlash',
   'pricing.workflowsSuffix': 'ish jarayonlari',
   'privacy.collect.body':
     "Biz siz ro'yxatdan o'tgan elektron pochta manzilingizni, siz sozlagan ish jarayonlarini va har bir ishga tushirish haqidagi metama'lumotlarni (boshlanish vaqti, tugash vaqti, holati) to'playmiz. Biz hech qachon ish maydoni egasi uchun ishga tushirish ko'rish vositasida ko'rsatish uchun zarur bo'lganidan tashqari triggerlardan yoki bosqich natijalaridan foydali yuklama kontentini to'plamaymiz yoki saqlamaymiz.",
@@ -167,12 +204,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': "Parolni yangilab bo'lmadi.",
   'resetPassword.newPassword': 'Yangi parol',
   'resetPassword.subhead': 'Faqat taxmin qila oladigan narsani tanlang.',
+  'settings.appearance.description': "Yorug'lik va qorong'u rejimlar o'rtasida almashinish.",
+  'settings.appearance.title': "Tashqi ko'rinish",
   'settings.billingShortcut.cta': 'Ochiq hisob-kitob',
   'settings.billingShortcut.description':
     'Reja, foydalanish va schyot-fakturalar maxsus hisob-kitob sahifasida mavjud.',
   'settings.danger.confirm':
     "Ishonchingiz komilmi? Bu sizning ish joyingizni o'chirish uchun navbatga qo'yadi.",
   'settings.danger.confirmYes': "Ha, navbatni o'chirish",
+  'settings.danger.deleteWorkspace.cta': "Ish maydonini o'chirish",
   'settings.danger.deleteWorkspace.hint':
     '14 kunlik imtiyozli davrdan keyin barcha ish jarayonlari, ishga tushirishlar va ulanishlarni olib tashlaydi.',
   'settings.danger.deleteWorkspace.title': "Ish maydonini o'chirish",
@@ -184,10 +224,15 @@ export const ui: UiTranslations = {
     "Hisobingizni, ish joyingizni, integratsiyalaringizni va to'lovlaringizni bir joyda boshqaring.",
   'settings.notifications.description':
     "Qaysi tadbirlarni sahifangizga qo'yishingizni, elektron pochta orqali yuborishingizni yoki jim turishingizni tanlang.",
+  'settings.notifications.failures.hint':
+    'Har bir muvaffaqiyatsiz ishlashda email va ilova ichidagi bildirishnoma.',
+  'settings.notifications.failures.title': 'Ish oqimi xatoliklari',
   'settings.notifications.product.hint':
     'Vaqti-vaqti bilan yangi shablonlar va funksiyalar haqida elektron pochta xabarlari.',
+  'settings.notifications.product.title': 'Mahsulot yangilanishlari',
   'settings.notifications.weekly.hint':
     "Dushanba kuni ertalab o'tgan haftadagi yugurishlar va tejashlar haqida qisqacha ma'lumot.",
+  'settings.notifications.weekly.title': 'Haftalik dayjest',
   'settings.profile.description':
     "Ish jarayoni yuguruvchisida qanday ko'rinishingiz. Ish maydoni faoliyatida ishlatiladi.",
   'settings.profile.noEmail': 'Elektron pochta qayd qilinmagan',
@@ -195,12 +240,23 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': "Profil o'zgarishlarini saqlab bo'lmadi.",
   'settings.profile.unnamedUser': 'Nomsiz foydalanuvchi',
   'settings.security.audit.hint': 'Har bir harakatni veb-hook orqali SIEM-ga uzating.',
+  'settings.security.audit.title': 'Audit jurnalini uzatish',
   'settings.security.description': 'Ikki faktorli autentifikatsiya, SSO va faol sessiyalar.',
   'settings.security.sso.hint': 'Scale va Enterprise rejalarida mavjud.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'Har qanday ish maydoni egasi amali uchun talab qilinadi.',
+  'settings.security.totp.title': 'Ikki faktorli autentifikatsiya (TOTP)',
   'settings.twoFactorCode': 'Autentifikatsiya kodi',
   'settings.twoFactorDisable': "O'chirish",
+  'settings.twoFactorDisableTitle': "Ikki faktorli autentifikatsiyani o'chirish",
   'settings.twoFactorEnable': 'Yoqish',
+  'settings.twoFactorEnableTitle': 'Ikki faktorli autentifikatsiyani yoqish',
   'settings.twoFactorInvalidCode': "Noto'g'ri kod",
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Ikki faktorli QR kod',
+  'settings.twoFactorScan':
+    "Ushbu QR kodni autentifikator ilovangiz bilan skanerlang, so'ng 6 xonali kodni kiriting.",
+  'settings.twoFactorUnavailable': 'Ushbu ilova uchun ikki faktorli autentifikatsiya mavjud emas.',
   'settings.twoFactorVerify': 'Tasdiqlash va yoqish',
   'settings.workspace.description':
     'Jamoangiz uchun umumiy identifikatsiya, mintaqa va ishga tushirish standart sozlamalari.',
@@ -229,6 +285,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Andoza',
   'templates.description':
     "Eng keng tarqalgan avtomatlashtirishlar uchun oldindan tayyorlangan chizmalar. Vilkalar bilan bog'laning, sozlang, jo'nating.",
+  'templates.empty.filter': "Qidiruvingizga mos shablonlar yo'q.",
   'templates.empty.first': 'Hozirda hech qanday shablon mavjud emas.',
   'templates.error': "Shablonlarni yuklab bo'lmadi.",
   'templates.installs': "o'rnatishlar",
@@ -254,6 +311,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': "O'chirish",
   'workflowBuilder.enable': 'Yoqish',
   'workflowBuilder.error': "Ish jarayonini yuklab bo'lmadi.",
+  'workflowBuilder.inspector.config': 'Konfiguratsiya',
+  'workflowBuilder.inspector.cron': 'Cron ifodasi',
+  'workflowBuilder.inspector.disabled': "O'chirilgan — avtomatik ishlamaydi.",
   'workflowBuilder.inspector.enabled': 'Yoqilgan — triggerda ishlaydi.',
   'workflowBuilder.inspector.eyebrow': 'Inspektor',
   'workflowBuilder.inspector.id': 'Id',
@@ -272,18 +332,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Yoqish/o‘chirish amalga oshmadi.',
   'workflowBuilder.workflow': 'Ish jarayoni · v {{v}}',
   'workflowBuilder.zoom.in': 'Yaqinlashtirish',
+  'workflowBuilder.zoom.label': 'Kanvas masshtablash boshqaruvlari',
+  'workflowBuilder.zoom.out': 'Kattalashtirish',
   'workflowCard.lastRun': 'Oxirgi yugurish {{when}}',
   'workflowCard.runs': '{{count}} yugurishlar',
+  'workflowCard.success': '{{rate}}% muvaffaqiyat',
   'workflowHeroCard.last24h': 'Oxirgi 24 soat',
+  'workflows.browseTemplates': "Shablonlarni ko'rib chiqish →",
   'workflows.description':
     "Ish joyingizdagi har bir avtomatlashtirish, sog'liqni saqlash va so'nggi faollik haqida qisqacha ma'lumot.",
+  'workflows.empty.body': "Filtrni tozalash yoki shablondan boshlashni sinab ko'ring.",
   'workflows.empty.firstBody': "Bir necha soniya ichida boshlash uchun shablonni o'rnating.",
   'workflows.empty.firstTitle': "Hali ish jarayonlari yo'q",
   'workflows.empty.title': 'Hech qanday ish oqimlari mos kelmaydi',
   'workflows.error': "Ish jarayonlarini yuklab bo'lmadi.",
   'workflows.eyebrow': 'Kutubxona · {{count}} jami',
+  'workflows.loading': 'Ish oqimlari yuklanmoqda…',
   'workflows.newFromTemplate': 'Shablondan yangi',
   'workflows.searchPlaceholder': 'Ish oqimlarini qidirish…',
+  'workflows.title': 'Ish oqimlari',
   'workflowSidebar.brand': 'Dendrit',
   'workflowSidebar.status': 'Barcha ishlayotgan tizimlar',
   'workflowSidebar.tagline': 'Harakatdagi aql',

@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du tilbakemelding, funnet en feil, eller vil ha ditt eget tavle på {{appName}}? Åpne Innstillinger for å nå teamet — hver melding går til et ekte menneske som leser den.',
+  'about.contactTitle': 'Snakk med oss',
+  'about.featureModeration':
+    'Et offentlig veikart med kvartalsetiketter, en endringslogg som gjør levert arbeid om til utgivelsesnotater, og et dashbord som viser hva folk ønsker seg mest.',
+  'about.featurePricing':
+    'Gratis å drive et par tavler; Pro- og Team-planer låser opp flere tavler, høyere grenser og dataeksport.',
+  'about.featureThreads':
+    'Offentlige tilbakemeldingstavler organisert etter tema, med sammenslåing av duplikater som samler stemmer til ett ærlig behovssignal.',
+  'about.featureVoting':
+    'Én stemme per bruker med en full statusflyt — åpen, planlagt, pågår, levert eller avslått — og et offisielt svar på hver beslutning.',
+  'about.intro':
+    '{{appName}} er en plattform for produktilbakemeldinger — offentlige tavler der kunder legger inn ønsker, stemmer på det de trenger, og følger hver idé fra planlagt til levert. Team slutter å gjette hva de skal bygge neste gang, fordi behovet rangerer seg selv.',
+  'about.missionBody':
+    'Vi mener de beste produktbeslutningene tas åpent. {{appName}} gir hvert team en offentlig tavle med stemte ønsker, et offisielt veikart med målkvartaler og en endringslogg som slutter sirkelen — slik at kunder ser sin påvirkning og team ser sitt mandat.',
+  'about.missionTitle': 'Vårt oppdrag',
   'admin.backToBoards': 'Tilbake til tavler',
   'admin.denied': 'Kun for administratorer.',
   'admin.eyebrow': 'Produktteam',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'admin.title': 'Tilbakemeldingsoversikt',
   'admin.topOpen': 'Topp åpne forespørsler',
   'admin.totalVotes': '{{count}} totalt',
+  'admin.votesChartLabel': 'Stolpediagram over avgitte stemmer per uke de siste åtte ukene',
   'admin.votesOverTime': 'Stemmer over tid',
   'auth.forgotPassword.email': 'E-post',
   'auth.forgotPassword.sendResetLink': 'Send tilbakestillingslenke',
@@ -30,7 +47,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Opprett kontoen din',
   'auth.username': 'Brukernavn',
   'authShell.communities': 'Fellesskap',
+  'authShell.copyright': '{{appName}} — hver stemme teller.',
   'authShell.trending': 'Populært',
+  'boardCard.postCount': '{{count}} innlegg',
   'boardDetail.allBoards': 'Alle tavler',
   'boardDetail.backToBoards': 'Tilbake til tavler',
   'boardDetail.empty': 'Ingen innlegg samsvarer med disse filtrene ennå.',
@@ -53,6 +72,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Hver oppføring startet som en stemt forespørsel. Velgerne så den flytte seg; her er hvor den havnet.',
   'changelog.title': 'Sendt, med kvitteringer',
+  'changelog.voteCount': '{{count}} stemmer fikk dette bygget',
   'common.atLeast8Characters': 'Minst 8 tegn',
   'common.checkYourInbox': 'Sjekk innboksen din',
   'common.loadingEllipsis': 'Laster…',
@@ -63,6 +83,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Sender inn…',
   'footer.about': 'Om {{appName}}',
   'footer.language': 'Språk',
+  'forgotPassword.description':
+    'Skriv inn e-postadressen din, så sender vi deg en lenke for å tilbakestille.',
+  'forgotPassword.successBody':
+    'Vi sendte en tilbakestillingslenke til {{email}}. Den utløper om 30 minutter.',
   'forgotPassword.tryAnother': 'Prøv en annen e-post',
   'form.displayName': 'Visningsnavn',
   'form.firstName': 'Fornavn',
@@ -73,6 +97,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'Ditt veikart, støttet av stemmer.',
   'landing.heroCtaPrimary': 'Begynn å samle stemmer',
   'landing.heroCtaSecondary': 'Se en direkte tavle',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Slutt å gjette. Lever det de stemmer på.',
+  'landing.heroLede':
+    '{{appName}} gjør spredte funksjonsønsker om til en offentlig tavle med stemte ideer, et offisielt veikart og en endringslogg kundene faktisk leser.',
   'landing.heroStat1': '3 200+',
   'landing.heroStat1Label': 'Team som lytter',
   'landing.heroStat2': '1,4 mill.',
@@ -84,9 +112,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Endringslogg',
   'landing.navJoin': 'Bli med i {{appName}}',
   'landing.navRoadmap': 'Veikart',
+  'landing.step1Body':
+    'Kunder legger inn ideer på offentlige tavler. Duplikater slås sammen, stemmer samles, og behovet rangerer seg selv.',
   'landing.step1Title': 'Samle',
+  'landing.step2Body':
+    'Merk ønsker som planlagt eller pågår med et målkvartal — veikartet oppdateres i det du gjør det.',
+  'landing.step2Title': 'Begå',
   'landing.step3Body':
     'Sendte innlegg blir endringsloggoppføringer, og hver velger ser resultatet på sin egen liste.',
+  'landing.step3Title': 'Lever',
   'landing.topSubtitle': 'Direkte fra denne tavlen — logg inn for å legge til din stemme.',
   'landing.topTitle': 'Hva brukere spør etter akkurat nå',
   'landing.topViewAll': 'Alle tavler',
@@ -94,14 +128,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Grunnskole',
   'layout.signUp': 'Registrer deg',
   'layout.submit': 'Send tilbakemelding',
+  'login.description': 'Fortsett der samtalen slapp.',
+  'login.heading': 'Logg inn på Nimbus',
+  'login.noAccount': 'Ny her?',
   'login.passwordPlaceholder': 'Ditt passord',
   'login.twoFactorLabel': '2FA-kode (valgfritt)',
   'login.twoFactorPlaceholder': '6-sifret kode',
+  'login.twoFactorRequiredHint':
+    'Denne kontoen har tofaktorautentisering aktivert. Skriv inn den 6-sifrede koden fra autentiseringsappen din for å fortsette.',
   'login.twoFactorRequiredLabel': 'Skriv inn 2FA-koden din',
+  'myActivity.browseCta': 'Bla gjennom tavler',
+  'myActivity.emptyPosts': 'Du har ikke lagt inn et ønske ennå.',
+  'myActivity.emptyVotes': 'Ingenting ennå — bla gjennom tavlene og støtt en idé.',
   'myActivity.eyebrow': 'Din aktivitet',
   'myActivity.loadError': 'Det gikk ikke an å laste inn aktiviteten din.',
   'myActivity.postsTitle': 'Forespørsler du sendte inn',
+  'myActivity.shippedNote': '{{count}} av dem er levert — takk for dyttet.',
   'myActivity.submitCta': 'Legg inn en forespørsel',
+  'myActivity.tabLabel': 'Vis',
   'myActivity.tabPosts': 'Mine innlegg',
   'myActivity.tabVotes': 'Mine stemmer',
   'myActivity.votesTitle': 'Forespørsler du stemte på',
@@ -136,8 +180,13 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Innlegg ikke funnet',
   'postsAdmin.backToDashboard': 'Dashbord',
   'postsAdmin.eyebrow': 'Produktteam',
+  'postsAdmin.mergeApplied':
+    'Slått sammen — {{votes}} stemmer og {{comments}} kommentarer flyttet.',
   'postsAdmin.mergeApply': 'Slå sammen og flytt stemmer',
   'postsAdmin.mergeChoose': 'Velg et målinnlegg…',
+  'postsAdmin.mergeFailed': 'Sammenslåing mislyktes.',
+  'postsAdmin.mergeHint':
+    'Stemmer samles (én per bruker), kommentarer flyttes, og dette innlegget får et «flyttet»-notat.',
   'postsAdmin.mergeLabel': 'Slå sammen duplikat med',
   'postsAdmin.responseLabel': 'Offisielt svar',
   'postsAdmin.responsePlaceholder':
@@ -152,7 +201,13 @@ export const ui: UiTranslations = {
     'Angi offisiell status, svar offentlig, merk veikartkvartalet og slå sammen duplikater.',
   'postsAdmin.title': 'Administrer tilbakemeldingsinnlegg',
   'postsAdmin.votes': '{{count}} stemmer',
+  'pricing.limits.advancedFeatures': 'Avanserte funksjoner:',
+  'pricing.limits.boards': '{{count}} brett',
   'pricing.limits.export': 'Dataeksport:',
+  'pricing.limits.posts': '{{count}} tilbakemeldingsinnlegg',
+  'pricing.limits.votes': '{{count}} stemmer',
+  'resetPassword.description':
+    'Velg en sterk en. Vi logger deg på når tilbakestillingen er vellykket.',
   'resetPassword.newPasswordLabel': 'Nytt passord',
   'resetPassword.tokenPlaceholder': 'Lim inn lenke-koden',
   'roadmap.cardMeta': 'av {{author}} · {{board}}',
@@ -169,6 +224,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'Skriv inn en søkeord for å finne eksisterende forespørsler før du legger inn et duplikat.',
   'search.loadError': 'Søket mislyktes — prøv på nytt.',
+  'search.searching': 'Søker…',
   'search.submit': 'Søk',
   'search.submitNew': 'Legg det inn som en ny forespørsel',
   'search.title': 'Søk tilbakemelding',
@@ -177,11 +233,22 @@ export const ui: UiTranslations = {
   'settings.billing': 'Fakturering',
   'settings.displaySubtitle': 'Velg hvor tette strømmer skal føles.',
   'settings.displayTitle': 'Visning',
+  'settings.emailDigestDesc': 'De mest stemte åpne ønskene hver mandag.',
+  'settings.emailDigestLabel': 'Ukentlig oversikt',
+  'settings.emailMentionsDesc': 'Når noen svarer på et innlegg du følger.',
+  'settings.emailMentionsLabel': 'Send meg e-post ved omtaler',
+  'settings.emailRepliesDesc': 'Tråder du startet eller svarte i.',
+  'settings.emailRepliesLabel': 'Send meg en e-post ved svar',
   'settings.loadError': 'Kunne ikke laste kontoen din.',
   'settings.loading': 'Laster innstillingene dine…',
   'settings.notifications': 'Varsler',
   'settings.notificationsSubtitle': 'Bestem hva som når innboksen din vs push-enheten din.',
+  'settings.pushRepliesLabel': 'Push ved svar',
+  'settings.pushVotesDesc': 'Terskelvarsel ved 100, 500, 1000.',
+  'settings.pushVotesLabel': 'Press for milepæler for oppstemming',
   'settings.saveAccount': 'Lagre konto',
+  'settings.showFlair': 'Vis tavlemerker på innlegg',
+  'settings.showThumbnails': 'Vis miniatyrbilder for lenker/bilder',
   'settings.usernamePlaceholder': 'Velg et brukernavn',
   'signup.confirmPlaceholder': 'Skriv det inn igjen',
   'signup.description': 'Form det vi bygger neste gang.',

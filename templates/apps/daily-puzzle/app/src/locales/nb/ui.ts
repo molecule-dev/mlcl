@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du tilbakemelding, funnet en feil, eller vil ta {{app}} med til skolen eller teamet ditt? Vi leser hver melding — ta kontakt fra kontoinneinnstillingene dine, og et ekte menneske svarer.',
   'about.contactTitle': 'Ta kontakt',
   'about.eyebrow': 'Om',
+  'about.intro':
+    '{{app}} er et daglig ordspill. Gjett ordet på fem bokstaver på seks forsøk, hold streaken i live, del emoji-rutenettet ditt, og se hvordan hele feltet klarte dagens ord.',
+  'about.missionBody':
+    'Et godt puslespill er en liten daglig seier. {{app}} er bygget rundt ett felles ord om dagen — raskt nok for en kaffepause, skarpt nok til å komme tilbake i morgen.',
+  'about.missionTitle': 'Vårt oppdrag',
   'about.title': 'Om {{app}}',
   'archive.loadError': 'Kunne ikke laste arkivet.',
   'archive.missed': 'Gått glipp av',
   'archive.notPlayed': 'Ikke spilt',
+  'archive.subhead':
+    'Spill av en hvilken som helst tidligere dag som øving — ingen streaks, ingen statistikk, all moroa.',
   'archive.title': 'Arkiver',
   'auth.backToHome': 'Tilbake til forsiden',
   'auth.backToHomeArrow': '← Tilbake til forsiden',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Glemt passord?',
   'auth.login.loggingIn': 'Logger deg inn…',
   'auth.login.logIn': 'Spill dagens ord',
+  'auth.login.noAccount': 'Ny på Tessera?',
   'auth.login.or': 'eller fortsett med',
   'auth.login.password': 'Passord',
   'auth.login.signInButton': 'Logg inn',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Lagrer…',
   'common.sendingEllipsis': 'Sender…',
   'common.startingEllipsis': 'Starter…',
+  'forgotPassword.subhead':
+    'Skriv inn e-postadressen din, så sender vi deg en lenke for å tilbakestille.',
+  'forgotPassword.success.body':
+    'Hvis det finnes en konto for {{email}} , du får en tilbakestillingslenke om noen få minutter.',
+  'forgotPassword.success.title': 'Sjekk innboksen din.',
   'form.name': 'Navn',
   'howToPlay.cta.home': 'Tilbake til hjem',
   'howToPlay.cta.play': 'Spill dagens puslespill',
@@ -68,10 +83,14 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Streaks du hater å bryte',
   'leaderboard.daily.title': 'Dagens løsninger',
   'leaderboard.loadError': 'Kunne ikke laste ledertavlen.',
+  'leaderboard.streaks.empty': 'Ingen streaks ennå — bli den første.',
+  'leaderboard.streaks.subhead': 'De lengste seiersstreakene gjennom tidene.',
   'leaderboard.streaks.title': 'Streak-ledere',
+  'leaderboard.subhead': 'Hvordan feltet klarte seg i dag, og hvem som har de lengste streakene.',
   'leaderboard.title': 'Ledertavle',
   'login.headline': 'Velkommen tilbake.',
   'login.streakPill': '{{days}} dagers streak venter',
+  'login.subhead': 'Logg inn for å holde streaken i live og se hvordan du klarte dagens ord.',
   'nav.archive': 'Arkiver',
   'nav.editProfile': 'Rediger profil',
   'nav.getStarted': 'Kom i gang',
@@ -89,6 +108,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Slikt ord finnes ikke',
   'notFound.title': 'Denne ruten er tom.',
   'planUpdated.message': 'Planen din er aktiv.',
+  'planUpdated.retry': 'Prøv igjen',
+  'planUpdated.verifyFailed': 'Vi kunne ikke bekrefte betalingen din ennå.',
+  'planUpdated.verifyFailedBody':
+    'Betalingen din kan fortsatt være under behandling. Prøv igjen om et øyeblikk.',
   'planUpdated.verifying': 'Bekrefter betalingen din…',
   'play.alreadyFinished': 'Du har allerede fullført dette puslespillet',
   'play.answerWas': 'Ordet var',
@@ -104,6 +127,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Treningspuslespill',
   'play.tooShort': 'Ikke nok bokstaver',
   'play.won': 'Løst!',
+  'pricing.advancedStats': 'Avansert statistikk: {{yes}}',
+  'pricing.archiveHistory': '{{count}} dager med arkivhistorikk',
+  'pricing.archivePlays': '{{count}} arkivavspillinger / dag',
+  'pricing.archiveUnlimited': 'Ubegrenset arkivhistorikk',
+  'pricing.canExport': 'Dataeksport: {{yes}}',
+  'pricing.checkoutError': 'Kunne ikke starte kassen. Prøv igjen.',
   'pricing.dailyWord': 'Det daglige ordet',
   'pricing.heading': 'Velg din {{app}}-plan',
   'pricing.included': 'Inkludert',
@@ -111,7 +140,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Det daglige ordet er alltid gratis. Oppgrader for ubegrenset arkivspill og dypere statistikk.',
   'pricing.yearly': 'Årlig',
+  'privacy.intro':
+    '{{app}} respekterer personvernet ditt. Denne siden oppsummerer dataene vi lagrer, hvorfor vi lagrer dem, og hvordan du fjerner dem.',
   'privacy.title': 'Personvernerklæring',
+  'resetPassword.subhead': 'Velg et nytt passord for å komme tilbake til streaken.',
   'settings.account': 'Konto',
   'settings.danger.body': 'Fjern {{appName}}-kontoen din og all puslespillhistorikk permanent.',
   'settings.danger.confirm': 'Ja, slett for alltid',
@@ -120,17 +152,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'Gjest',
   'settings.language.title': 'Språk',
   'settings.subhead': 'Juster profilen din, lyd og hvordan du vises på ledertavlen.',
+  'settings.unnamed': 'Sparq-spiller',
   'settings.upgrade': 'Oppgrader',
   'signup.eyebrow': 'Gratis for alltid — ett ord om dagen',
   'signup.headline': 'Start din streak.',
+  'signup.subhead':
+    'Opprett en {{appName}}-konto for å spille det daglige ordet, bygge en streak og klatre på ledertavlen.',
   'stats.currentStreak': 'Streak',
   'stats.distribution.title': 'Gjettefordeling',
   'stats.loadError': 'Kunne ikke laste statistikken din.',
   'stats.maxStreak': 'Maks streak',
   'stats.played': 'Spilt',
   'stats.playToday': 'Spill dagens puslespill',
+  'stats.subhead': 'Kun rangerte daglige puslespill — arkivøving teller aldri.',
   'stats.title': 'Din statistikk',
   'stats.winRate': 'Vinnerrate',
   'status.monthly': 'Månedlig',
+  'terms.intro':
+    'Ved å bruke {{app}} godtar du reglene nedenfor. Hvis du ikke kan godta dem, ber vi deg om å ikke bruke tjenesten.',
   'terms.title': 'Vilkår for bruk',
 }

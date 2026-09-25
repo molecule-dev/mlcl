@@ -1,14 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ai feedback, ai dat peste o problemă sau vrei să ne spui ce să construim în continuare? Contactează echipa la hello@reverie.app — fiecare mesaj ajunge la o persoană reală care creează produsul.',
   'about.contactTitle': 'Contactează-ne',
+  'about.missionTitle': 'Misiunea noastră',
   'auth.fields.newPassword': 'Parolă nouă',
   'collectionDetail.addImage': 'Creați pentru colecție',
   'collectionDetail.backCta': 'Înapoi la colecții',
   'collectionDetail.coverNote': 'Moodboard curatoriat cu {{count}} imagini.',
   'collectionDetail.editName': 'Numele colecției',
+  'collectionDetail.empty':
+    'Încă nu există imagini în această colecție — generează ceva pentru a adăuga.',
   'collectionDetail.loading': 'Se încarcă colecția…',
   'collectionDetail.loadingImages': 'Se încarcă imaginile…',
+  'collectionDetail.notFoundBody': 'Această colecție a fost eliminată sau este privată.',
   'collectionDetail.notFoundTitle': 'Colecție indisponibilă',
   'collectionDetail.shared': 'Vizibilitate comutată',
   'collections.create': 'Colecție nouă',
@@ -16,6 +22,7 @@ export const ui: UiTranslations = {
     'Încă nicio colecție. Creați una pentru a începe să vă curatoriați lucrările.',
   'collections.imageCount': '{{count}} imagini',
   'collections.loading': 'Se încarcă colecțiile…',
+  'collections.noDescription': 'Încă nu există o descriere — deschide pentru a adăuga una.',
   'collections.subtitle': 'Moodboard-uri, brief-uri și serii în desfășurare',
   'collections.title': 'Colecții',
   'collections.untitled': 'Fără titlu · {{stamp}}',
@@ -55,6 +62,7 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'Introduceți e-mailul asociat contului dvs. Reverie și vă vom trimite un link de resetare.',
   'forgot.successBody': 'Un link de resetare este în drum spre {{email}}.',
+  'gallery.empty.body': 'Încearcă o altă stare sau generează un nou lot din studio.',
   'gallery.empty.title': 'Nimic nu corespunde acelui filtru',
   'gallery.exportAll': 'Exportați toate',
   'gallery.exported': 'Export în coadă',
@@ -77,12 +85,15 @@ export const ui: UiTranslations = {
   'generate.controls.title': 'Reglați visul',
   'generate.defaultPrompt': 'Un vis nou',
   'generate.progress': 'Pasul {{step}} / {{total}}',
+  'generate.submitFailed':
+    'Generarea nu a putut fi pusă în coadă — verifică conexiunea și încearcă din nou.',
   'generate.subtitle': 'Compuneți un prompt, reglați controalele, creați variante',
   'generate.title': 'Studio',
   'generation.created': '{{when}}',
   'imageDetail.acting': 'Se lucrează…',
   'imageDetail.actionFailed': 'Acțiunea a eșuat.',
   'imageDetail.actions': 'Acțiuni pentru imagine',
+  'imageDetail.downloadStarted': 'Descărcarea a început.',
   'imageDetail.downloadUnavailable': 'Încă nu este disponibilă nicio imagine pentru descărcare.',
   'imageDetail.fields.aspect': 'Aspect',
   'imageDetail.fields.created': 'Creat',
@@ -93,11 +104,17 @@ export const ui: UiTranslations = {
   'imageDetail.notFoundTitle': 'Imagine indisponibilă',
   'imageDetail.noVariations': 'Încă nicio variație — solicitați una mai sus.',
   'imageDetail.openEditor': 'Deschideți în editor',
+  'imageDetail.tips.lockSeed':
+    'Blochează seed-ul pentru a itera iluminarea fără a pierde compoziția.',
+  'imageDetail.tips.upscale':
+    'Rulează upscale 4× înainte de export pentru calitate pregătită de tipar.',
   'imageDetail.tipsTitle': 'Rafinați visul',
+  'imageDetail.title': 'Imagine',
   'imageDetail.upscaleQueued': 'Upscalare în coadă',
   'imageDetail.variations': 'Variații',
   'imageDetail.variationsQueued': 'Variații în coadă',
   'imageDetail.visibilityToggled': 'Vizibilitate actualizată',
+  'landing.copyright': '© {{year}} {{appName}} Labs. Construit cu Molecule.dev.',
   'landing.cta': 'Începeți să creați',
   'landing.eyebrow': 'Acum cu Reverie XL v3',
   'landing.featuresEyebrow': 'De ce Reverie',
@@ -138,8 +155,17 @@ export const ui: UiTranslations = {
     'Activitatea de generare, partajarea și alertele de credit vor apărea aici.',
   'notifications.empty.title': 'Nimic de raportat',
   'notifications.subtitle': 'Evenimente de generare grupate pe zile',
+  'planUpdated.confirmed': 'Planul tău {{planKey}} este activ și creditele au fost adăugate.',
+  'planUpdated.error':
+    'Nu am putut confirma automat upgrade-ul tău. Te rugăm să contactezi suportul.',
+  'planUpdated.retry': 'Încercați din nou',
+  'planUpdated.unpaid': 'Sesiunea ta de checkout nu a fost plătită. Încearcă din nou din Setări.',
+  'planUpdated.verifyFailed': 'Nu am putut încă să vă confirmăm plata.',
+  'planUpdated.verifyFailedBody':
+    'Este posibil ca plata dvs. să fie încă în curs de procesare. Încercați din nou imediat.',
   'planUpdated.verifying': 'Se confirmă plata…',
   'pricing.limits.gallery': 'Galerie {{count}}',
+  'pricing.limits.generations': '{{count}} generări',
   'privacy.collect.body':
     'Când vă înscrieți, colectăm numele dvs., adresa de e-mail și o parolă hashed. Când utilizați Reverie, stocăm prompturile pe care le trimiteți, imaginile pe care le generăm pentru dvs., stilurile și colecțiile pe care le salvați și metadate precum modelul utilizat, marcajele temporale ale generărilor și soldul creditelor.',
   'privacy.cookies.body':
@@ -153,6 +179,8 @@ export const ui: UiTranslations = {
   'profile.followedBio': 'Ați început să urmăriți un creator chiar acum',
   'profile.following': 'Se urmărește…',
   'profile.loadingWorks': 'Se încarcă lucrările publice…',
+  'profile.noPublicWorks':
+    'Încă nu există lucrări publice — partajează o imagine pentru a popula această galerie.',
   'profile.notFoundTitle': 'Profil indisponibil',
   'profile.publicWorks': 'Lucrări publice',
   'profile.subtitle': '@{{handle}} · profil public de creator',
@@ -164,6 +192,7 @@ export const ui: UiTranslations = {
   'prompts.empty.cta': 'Deschideți studioul',
   'prompts.empty.title': 'Niciun prompt salvat nu corespunde',
   'prompts.lastUsed': 'Folosit {{when}}',
+  'prompts.loading': 'Se încarcă solicitările…',
   'prompts.negativeLabel': 'NEG',
   'prompts.runAgain': 'Rulați',
   'prompts.running': 'Se rulează…',
@@ -179,6 +208,7 @@ export const ui: UiTranslations = {
   'settings.account.saveFailed': 'Profilul nu a putut fi salvat',
   'settings.account.title': 'Profil de creator',
   'settings.accountSecurity': 'Cont și securitate',
+  'settings.accountSecurity.title': 'Autentificare, dispozitive și cont',
   'settings.api.empty': 'Încă nicio cheie API — creați una pentru a începe să integrați.',
   'settings.api.loading': 'Se încarcă cheile API…',
   'settings.api.revoked': 'Cheie API revocată',
@@ -197,12 +227,16 @@ export const ui: UiTranslations = {
   'sidebar.secondary': 'Navigare secundară',
   'signup.failed': 'Înscrierea a eșuat. Încercați din nou.',
   'signup.firstNamePlaceholder': 'Aria',
+  'signup.haveAccount': 'Ești deja un visător?',
   'signup.heading': 'Începeți reveria dvs.',
   'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Creați un cont și revendicați 120 de credite gratuite.',
+  'styles.body':
+    'Fiecare preset include propriul model, sampler, schelet de prompt și cipuri de stil. Activează unul pentru a bloca întregul studio în acea atmosferă — perfect pentru lucrul în serie.',
   'styles.empty': 'Încă nicio presetare de stil — vor apărea după prima conectare.',
   'styles.eyebrow': 'Curatoriat',
   'styles.headline': 'Creați mai rapid cu presetări vizuale reutilizabile',
+  'styles.loading': 'Se încarcă biblioteca de stiluri…',
   'styles.subtitle': 'Presetări vizuale curatoriate, create de echipa studioului Reverie',
   'styles.title': 'Bibliotecă de stiluri',
   'terms.acceptableUse.body':

@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Għandek mistoqsija, sibt bug, jew trid tittrasferixxi l-kotba tiegħek? Ikkuntattja t-tim ta' {{app}} fuq hello@{{app}}.example — persuna reali taqra kull messaġġ.",
   'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwar',
+  'about.intro':
+    "{{app}} hija kontabilità għan-negozji ż-żgħar li żżomm kull ċenteżmu kkontabilizzat — fatturi, spejjeż, pagamenti, u rapporti f'post wieħed kwiet għas-sidien, il-kotba, u l-accountants.",
+  'about.missionBody':
+    "Imexxi negozju m'għandux ifisser li tibża' mill-kotba tiegħek. {{app}} tissostitwixxi l-muntanja ta' spreadsheets b'numri ċari li tista' taġixxi fuqhom, sabiex tqatta' inqas ħin tirrikonċilja u aktar ħin tagħmel ix-xogħol li verament bdejt in-negozju għalih.",
+  'about.missionTitle': 'Il-missjoni tagħna',
   'about.title': 'Dwar {{app}}',
   'accounts.count': '{{count}} kontijiet',
+  'accounts.emptyBody':
+    'Il-kontijiet tal-ledger isegwu fejn jgħix u jiċċaqlaq il-flus. Jidhru hawn ladarba l-kotba tiegħek jew l-integrazzjoni tistabbilixxihom.',
   'accounts.emptyTitle': "Għad m'hemm l-ebda kont",
   'accounts.heading': 'Tabella tal-kontijiet',
   'accounts.kpi.accounts': 'Accounts',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Kull kont tal-ledger wara l-fatturi, l-ispejjeż u l-pagamenti tiegħek, miġbura skont it-tip.',
   'accounts.tag.inactive': 'inattiv',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Uffiċjal Kap Finanzjarju, Horizon Tech',
   'authBrandPanel.eyebrow': 'Fdat mit-timijiet tal-finanzi',
   'authBrandPanel.label': 'Vetrina tal-marka',
   'authBrandPanel.quote': '"Ledger trasforma l-mod kif insegwu d-dħul. Preċiżjoni fl-aqwa tagħha."',
@@ -30,7 +40,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Il-klijenti kollha',
   'customerDetail.invoiceMeta': 'Maħruġ {{issued}} · Dovut {{due}}',
   'customerDetail.loadError': "Ma rnexxiex ittella' l-klijent.",
+  'customerDetail.missingBody':
+    "Ir-rekord tal-klijent mitlub ma setax jiġi mgħobbi. Jista' jkun tneħħa, jew jista' jkun li m'għandekx aċċess għalih.",
   'customerDetail.missingHeading': 'Rekord tal-klijent mhux disponibbli',
+  'customerDetail.missingHelp':
+    "Uża l-link tal-back hawn fuq biex terġa' lura għal-lista tal-klijenti, jew agħżel rekord differenti minn hemm.",
+  'customerDetail.noInvoices': "Għad m'hemm l-ebda fattura.",
   'customerDetail.notesEmpty': "Għad m'hemm l-ebda noti.",
   'customerDetail.paymentsEmpty': 'Ma ġew irreġistrati l-ebda pagamenti.',
   'customerDetail.paymentTerms': "Termini ta' ħlas",
@@ -57,6 +72,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Deduċibbli',
   'expenseDetail.detailsHeading': 'Dettalji tat-tranżazzjoni',
   'expenseDetail.loadError': 'Ma rnexxiex it-tagħbija tal-ispiża.',
+  'expenseDetail.matched': 'Imqabbla · {{description}}',
   'expenseDetail.missingBody':
     "L-ispiża mitluba ma setgħetx titgħabba. Jista' jkun li tneħħiet, jew jista' jkun li m'għandekx aċċess għaliha.",
   'expenseDetail.missingHeading': 'Rekord tal-ispejjeż mhux disponibbli',
@@ -64,6 +80,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Irċevuta',
   'expenseDetail.receiptHeading': 'Irċevuta',
   'expenseDetail.reconciled': 'Rikonċiljat',
+  'expenseDetail.unreconciled': 'Mhux rikonċiljat',
   'expenses.empty': "Għad m'hemm l-ebda spejjeż.",
   'expenses.heading': 'Spejjeż',
   'expenses.kpi.deductible': 'Deduċibbli',
@@ -99,6 +116,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Ma rnexxilniex nitgħabbew il-fatturi.',
   'invoices.searchPlaceholder': 'Fittex in-numru tal-fattura jew il-klijent…',
   'invoices.summary.paid': "Imħallas f'dan il-perjodu",
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     "B'xejn għal 30 jum. Ebda kard. Ġib il-kontabilist tiegħek — jirringrazzjak.",
   'landing.ctaTitle': "Mexxi l-kotba tiegħek f'post aktar kwiet.",
@@ -113,6 +131,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Kontijiet riċevibbli',
   'ledgerStatTriad.eyebrow.mtd': 'Xahar sal-lum',
   'ledgerStatTriad.netSub': 'Netwerk {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} skaduti',
   'ledgerStatTriad.revenueLabel': 'Dħul',
   'login.failed': 'Id-dħul falla.',
   'login.hidePassword': 'Aħbi l-password',
@@ -123,6 +142,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Idħol',
   'nav.legal': 'Legali',
   'newExpense.back': 'Spejjeż',
+  'newExpense.clearReceiptCta': 'Ħassar ir-riċevuta mehmuża',
   'newExpense.deductible': 'Deduċibbli mit-taxxa',
   'newExpense.dropPrompt': 'Poġġi ritratt jew PDF tal-irċevuta hawn biex tehmeż.',
   'newExpense.failed': 'Ma stajtx niffranka l-ispejjeż.',
@@ -151,6 +171,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Ma rnexxilniex nitgħabbew il-pagamenti.',
   'payments.unmatchedTag': 'mhux imqabbel',
   'planUpdated.pageLabel': 'Konferma aġġornata tal-pjan',
+  'pricing.advancedFeatures': 'Karatteristiċi avvanzati: {{yes}}',
+  'pricing.canExport': 'Esportazzjoni tad-data: {{yes}}',
+  'pricing.heading': 'Agħżel il-pjan {{app}} tiegħek',
+  'pricing.maxAccounts': '{{count}} kontijiet',
+  'pricing.maxExpenses': '{{count}} spejjeż',
+  'pricing.maxInvoices': '{{count}} fatturi',
+  'privacy.intro':
+    'Din il-Politika tal-Privatezza tiddeskrivi kif {{app}} tiġbor, tuża, u tiddikjara informazzjoni dwar negozji li jużaw is-servizz.',
   'privacy.lastUpdated': 'Aġġornat l-aħħar: {{data}}',
   'privacy.section.collected.body':
     'Niġbru d-dettalji tal-kont (isem, email, kumpanija), ir-rekords finanzjarji li ttella’ (fatturi, spejjeż, klijenti, pagamenti), u logs standard tal-operazzjoni tas-servizz (IP, user-agent, timestamps).',
@@ -163,8 +191,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     "L-informazzjoni tintuża biex tħaddem is-servizz, tiġġenera r-rapporti u l-PDFs li titlob, tibgħat email tranżazzjonali permezz ta' Mailgun, u tipproċessa pagamenti permezz ta' Stripe. Aħna ma nbigħux jew nikrux informazzjoni personali.",
   'recentInvoicesCard.dueMeta': 'Dovut {{date}}',
+  'recentInvoicesCard.empty': 'L-ebda fattura ma taqbel.',
   'recentInvoicesCard.eyebrow': 'Kontijiet riċevibbli',
   'recentInvoicesCard.searchAriaLabel': 'Fittex fatturi',
+  'recentInvoicesCard.searchPlaceholder': 'Fittex fatturi…',
   'recentInvoicesCard.title': 'Fatturi riċenti',
   'recentInvoicesCard.viewAll': 'Ara l-fatturi kollha →',
   'reports.assets': 'Assi',
@@ -180,16 +210,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Profitt u telf (12-il xahar)',
   'resetPassword.backToLogin': '← Lura għal Idħol',
   'resetPassword.hidePassword': 'Aħbi l-password',
+  'resetPassword.passwordLabel': 'Password ġdida',
   'resetPassword.showPassword': 'Uri l-password',
+  'resetPassword.subheading': "Agħżel password b'saħħitha — tmien karattri minimu.",
   'resetPassword.submit': 'Irrisettja l-Password',
   'resetPassword.tooShort': "Il-password trid tkun ta' mill-inqas 8 karattri.",
   'settings.account.changePassword': 'Ibdel il-password',
   'settings.account.changingPassword': 'Nibdlu…',
   'settings.account.currentPassword': 'Password attwali',
+  'settings.account.dangerZone': "Żona ta' periklu",
   'settings.account.deleteAccount': 'Ħassar il-kont',
   'settings.account.deleteDescription':
     "Ħassar il-kont tiegħek u d-dejta kollha assoċjata miegħu b'mod permanenti.",
   'settings.account.deleteError': 'Ma rnexxiex jitħassar il-kont.',
+  'settings.account.deleteWarning':
+    "Dan iħassar b'mod permanenti l-kont tiegħek u ma jistax jiġi annullat. Daħħal il-password tiegħek biex tikkonferma.",
   'settings.account.deleting': 'Qed tħassar…',
   'settings.account.devices': 'Apparati',
   'settings.account.email': 'Email',
@@ -200,6 +235,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Password',
   'settings.account.passwordError': 'Ma rnexxiex nibdel il-password.',
   'settings.account.pushNotifications': 'Notifiki push fuq dan l-apparat',
+  'settings.account.revokeDeviceWarning':
+    "L-aċċess ta' dan l-apparat se jiġi rrevokat dalwaqt. Oħroġ minnu?",
   'settings.account.saveError': 'Ma rnexxiex naġġorna l-profil.',
   'settings.account.security': 'Sigurtà',
   'settings.account.signOutDevice': 'Oħroġ',
@@ -207,12 +244,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': "Awtentikazzjoni b'żewġ fatturi",
   'settings.account.twoFactorCode': "Kodiċi ta' awtentikazzjoni",
   'settings.account.twoFactorDisable': 'Iddiżattiva',
+  'settings.account.twoFactorDisableTitle': "Itfi l-awtentikazzjoni b'żewġ fatturi",
   'settings.account.twoFactorEnable': 'Ippermetti',
+  'settings.account.twoFactorEnableTitle': "Ixgħel l-awtentikazzjoni b'żewġ fatturi",
   'settings.account.twoFactorInvalidCode': 'Kodiċi invalidu',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'Kodiċi QR taż-żewġ fatturi',
+  'settings.account.twoFactorScan':
+    "Skennja dan il-kodiċi QR bl-app tal-awtentikatur tiegħek, imbagħad daħħal il-kodiċi ta' 6 ċifri.",
+  'settings.account.twoFactorUnavailable':
+    "L-awtentikazzjoni b'żewġ fatturi mhijiex disponibbli għal din l-app.",
   'settings.account.twoFactorVerify': 'Ivverifika u attiva',
   'settings.account.unknownDevice': 'Apparat mhux magħruf',
   'settings.company.email': 'Email tal-kontijiet',
+  'settings.company.heading': 'Kumpanija u taxxa',
   'settings.company.name': 'Isem legali',
   'settings.company.saveButton': 'Issejvja l-profil tal-kumpanija',
   'settings.company.taxId': 'ID tat-Taxxa / EIN',
@@ -256,6 +301,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Stmat kull tliet xhur',
   'taxes.kpi.owed': 'Dovut',
   'taxes.loadError': 'Ma rnexxiex jitgħabba s-sommarju tat-taxxa.',
+  'taxes.remittedPct': '({{pct}}% rimessi)',
+  'terms.intro':
+    'Dawn it-Termini tas-Servizz ("Termini") jirregolaw l-aċċess tiegħek għal u l-użu ta\' {{app}}. Billi toħloq kont jew tuża s-servizz, taqbel li tkun marbut b\'dawn.',
   'terms.lastUpdated': 'Aġġornat l-aħħar: {{data}}',
   'terms.section.acceptable.body':
     'Inti taqbel li ma tużax is-servizz biex tikser xi liġi, tikser id-drittijiet tal-proprjetà intellettwali, tittrażmetti malware, jew tipprova tikseb aċċess mhux awtorizzat għal kontijiet oħra jew għall-infrastruttura tagħna.',

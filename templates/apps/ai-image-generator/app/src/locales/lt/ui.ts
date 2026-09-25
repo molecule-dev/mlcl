@@ -1,14 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Turite atsiliepimų, susidūrėte su kliūtimi ar norite pasakyti, ką kurti toliau? Susisiekite su komanda adresu hello@reverie.app — kiekviena žinutė pasiekia tikrą žmogų, kuriantį produktą.',
   'about.contactTitle': 'Susisiekite su mumis',
+  'about.missionTitle': 'Mūsų misija',
   'auth.fields.newPassword': 'Naujas slaptažodis',
   'collectionDetail.addImage': 'Užburti kolekcijai',
   'collectionDetail.backCta': 'Atgal į kolekcijas',
   'collectionDetail.coverNote': 'Kuruojama nuotaikų lenta su {{count}} vaizdai.',
   'collectionDetail.editName': 'Kolekcijos pavadinimas',
+  'collectionDetail.empty':
+    'Šioje kolekcijoje dar nėra vaizdų — sugeneruokite ką nors, kad pridėtumėte.',
   'collectionDetail.loading': 'Kraunama kolekcija…',
   'collectionDetail.loadingImages': 'Įkeliami vaizdai…',
+  'collectionDetail.notFoundBody': 'Ši kolekcija buvo pašalinta arba yra privati.',
   'collectionDetail.notFoundTitle': 'Kolekcija nepasiekiama',
   'collectionDetail.shared': 'Matomumas perjungtas',
   'collections.create': 'Nauja kolekcija',
@@ -16,6 +22,7 @@ export const ui: UiTranslations = {
     'Kolekcijų dar nėra. Sukurkite vieną, kad galėtumėte pradėti kuruoti savo darbus.',
   'collections.imageCount': '{{count}} vaizdai',
   'collections.loading': 'Įkeliamos kolekcijos…',
+  'collections.noDescription': 'Dar nėra aprašymo — atidarykite, kad pridėtumėte.',
   'collections.subtitle': 'Nuotaikų lentos, trumpi aprašymai ir tęsiamos serijos',
   'collections.title': 'Kolekcijos',
   'collections.untitled': 'Be pavadinimo · {{stamp}}',
@@ -54,6 +61,7 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'Įveskite el. pašto adresą, susietą su jūsų „Reverie“ paskyra, ir mes atsiųsime jums atstatymo nuorodą.',
   'forgot.successBody': 'Atstatymo nuoroda jau pakeliui į {{email}} .',
+  'gallery.empty.body': 'Išbandykite kitą būseną arba sugeneruokite naują partiją studijoje.',
   'gallery.empty.title': 'Niekas neatitinka šio filtro',
   'gallery.exportAll': 'Eksportuoti viską',
   'gallery.exported': 'Eksportas eilėje',
@@ -76,12 +84,15 @@ export const ui: UiTranslations = {
   'generate.controls.title': 'Suderinkite sapną',
   'generate.defaultPrompt': 'Nauja svajonė',
   'generate.progress': 'Žingsnis {{step}} / {{total}}',
+  'generate.submitFailed':
+    'Generavimo nepavyko įtraukti į eilę — patikrinkite ryšį ir bandykite dar kartą.',
   'generate.subtitle': 'Sukurkite užduotį, įjunkite valdiklius, sugalvokite variantus',
   'generate.title': 'Studija',
   'generation.created': '{{when}}',
   'imageDetail.acting': 'Dirbame…',
   'imageDetail.actionFailed': 'Veiksmas nepavyko.',
   'imageDetail.actions': 'Vaizdo veiksmai',
+  'imageDetail.downloadStarted': 'Atsisiuntimas pradėtas.',
   'imageDetail.downloadUnavailable': 'Kol kas nėra paveikslėlio, kurį būtų galima atsisiųsti.',
   'imageDetail.fields.aspect': 'Aspektas',
   'imageDetail.fields.created': 'Sukurta',
@@ -92,11 +103,17 @@ export const ui: UiTranslations = {
   'imageDetail.notFoundTitle': 'Vaizdas nepasiekiamas',
   'imageDetail.noVariations': 'Variacijų dar nėra – pateikite užklausą aukščiau.',
   'imageDetail.openEditor': 'Atidaryti redaktoriuje',
+  'imageDetail.tips.lockSeed':
+    'Užrakinkite sėklą, kad galėtumėte tobulinti apšvietimą neprarasdami kompozicijos.',
+  'imageDetail.tips.upscale':
+    'Prieš eksportuodami paleiskite 4× didinimą, kad kokybė būtų tinkama spausdinti.',
   'imageDetail.tipsTitle': 'Patikslinkite sapną',
+  'imageDetail.title': 'Image',
   'imageDetail.upscaleQueued': 'Prabangesnio lygio eilėje',
   'imageDetail.variations': 'Variacijos',
   'imageDetail.variationsQueued': 'Variacijos eilėje',
   'imageDetail.visibilityToggled': 'Matomumas atnaujintas',
+  'landing.copyright': '© {{year}} {{appName}} Labs. Sukurta su Molecule.dev.',
   'landing.cta': 'Pradėkite kurti',
   'landing.eyebrow': 'Dabar tiekiamas „Reverie XL v3“',
   'landing.featuresEyebrow': 'Kodėl svajojimas',
@@ -136,8 +153,18 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Čia bus rodomi kartos veiklos, bendrinimo ir kreditų įspėjimai.',
   'notifications.empty.title': 'Nėra ką pranešti',
   'notifications.subtitle': 'Kartos įvykiai, sugrupuoti pagal dieną',
+  'planUpdated.confirmed': 'Jūsų {{planKey}} planas aktyvus ir kreditai buvo pridėti.',
+  'planUpdated.error':
+    'Nepavyko automatiškai patvirtinti jūsų atnaujinimo. Susisiekite su palaikymo tarnyba.',
+  'planUpdated.retry': 'Pabandyk dar kartą',
+  'planUpdated.unpaid':
+    'Jūsų atsiskaitymo sesija nebuvo apmokėta. Bandykite dar kartą iš Nustatymų.',
+  'planUpdated.verifyFailed': 'Mes dar negalėjome patvirtinti jūsų mokėjimo.',
+  'planUpdated.verifyFailedBody':
+    'Jūsų mokėjimas vis dar gali būti apdorojamas. Bandykite dar kartą po akimirkos.',
   'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'pricing.limits.gallery': '{{count}} galerija',
+  'pricing.limits.generations': '{{count}} generavimų',
   'privacy.collect.body':
     'Kai registruojatės, renkame jūsų vardą, el. pašto adresą ir sugeneruotą slaptažodį. Jums naudojantis „Reverie“, saugome jūsų pateiktus raginimus, jums sugeneruotus vaizdus, išsaugotus stilius ir kolekcijas bei metaduomenis, pvz., naudotą modelį, generavimo laiko žymas ir kredito likutį.',
   'privacy.cookies.body':
@@ -151,6 +178,8 @@ export const ui: UiTranslations = {
   'profile.followedBio': 'Ką tik sekiau kūrėją',
   'profile.following': 'Sekantis…',
   'profile.loadingWorks': 'Kraunami viešieji darbai…',
+  'profile.noPublicWorks':
+    'Dar nėra viešų darbų — bendrinkite vaizdą, kad užpildytumėte šią galeriją.',
   'profile.notFoundTitle': 'Profilis nepasiekiamas',
   'profile.publicWorks': 'Viešieji darbai',
   'profile.subtitle': '@ {{handle}} · viešas kūrėjo profilis',
@@ -163,6 +192,7 @@ export const ui: UiTranslations = {
   'prompts.empty.cta': 'Atvira studija',
   'prompts.empty.title': 'Nėra atitikmenų išsaugotų raginimų',
   'prompts.lastUsed': 'Naudotas {{when}}',
+  'prompts.loading': 'Įkeliami raginimai…',
   'prompts.negativeLabel': 'NEIGIAMAS',
   'prompts.runAgain': 'Paleisti',
   'prompts.running': 'Bėgimas…',
@@ -178,6 +208,7 @@ export const ui: UiTranslations = {
   'settings.account.saveFailed': 'Nepavyko išsaugoti profilio',
   'settings.account.title': 'Autoriaus profilis',
   'settings.accountSecurity': 'Paskyra ir saugumas',
+  'settings.accountSecurity.title': 'Prisijungimas, įrenginiai ir paskyra',
   'settings.api.empty': 'API raktų dar nėra – sukurkite vieną, kad pradėtumėte integraciją.',
   'settings.api.loading': 'Įkeliami API raktai…',
   'settings.api.revoked': 'API raktas atšauktas',
@@ -196,14 +227,18 @@ export const ui: UiTranslations = {
   'sidebar.secondary': 'Antrinė navigacija',
   'signup.failed': 'Prisiregistruoti nepavyko. Bandykite dar kartą.',
   'signup.firstNamePlaceholder': 'Aria',
+  'signup.haveAccount': 'Jau svajotojas?',
   'signup.heading': 'Pradėkite savo svajones',
   'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Sukurkite paskyrą ir gaukite 120 nemokamų kreditų.',
+  'styles.body':
+    'Kiekvienas išankstinis nustatymas apima savo modelį, imtuvą, užklausos karkasą ir stiliaus žymas. Aktyvuokite vieną, kad visa studija persiimtų ta nuotaika — puikiai tinka serijiniam darbui.',
   'styles.empty':
     'Kol kas nėra išankstinių stiliaus nustatymų – jie bus rodomi po pirmojo prisijungimo.',
   'styles.eyebrow': 'Kuruota',
   'styles.headline':
     'Kurkite greičiau naudodami daugkartinio naudojimo vaizdinius išankstinius nustatymus',
+  'styles.loading': 'Įkeliama stilių biblioteka…',
   'styles.subtitle': '„Reverie“ studijos komandos sukurti vizualiniai išankstiniai nustatymai',
   'styles.title': 'Stilių biblioteka',
   'terms.acceptableUse.body':

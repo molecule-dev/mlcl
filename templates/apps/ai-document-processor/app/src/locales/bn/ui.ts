@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'কোনো প্রশ্ন আছে, বাগ পেয়েছেন, বা আপনার টিমের জন্য ডেমো চান? আপনার অ্যাকাউন্ট সেটিংস থেকে যোগাযোগ করুন — প্রতিটি বার্তা টিমের একজন প্রকৃত মানুষের কাছে পৌঁছায়।',
   'about.contactTitle': 'যোগাযোগ করুন',
+  'about.intro':
+    '{{app}} স্ক্যান করা ডকুমেন্ট ও PDF-এর স্তূপকে সুসংগঠিত, অনুসন্ধানযোগ্য, ফাইলভুক্ত ডেটায় রূপান্তর করে। ইনভয়েস, রসিদ, চুক্তি বা ফর্ম দিন এবং AI-কে সেগুলো পড়তে, এক্সট্র্যাক্ট করতে, শ্রেণিবদ্ধ করতে ও ফাইল করতে দিন — কনফিডেন্স রঙসহ, যাতে আপনার টিম শুধু সেগুলোই রিভিউ করে যেগুলোতে সত্যিই মানুষের প্রয়োজন।',
+  'about.missionBody':
+    'ডকুমেন্টের নীরস কাজ আপনার টিমের দিন খেয়ে ফেলা উচিত নয়। আমরা বিশ্বাস করি প্রতিটি এক্সট্র্যাক্ট করা মান ব্যাখ্যাযোগ্য ও অডিটযোগ্য হওয়া উচিত — যাতে আপনি কাগজের রেকর্ড না হারিয়ে অটোমেশনে ভরসা করতে পারেন। {{app}} প্রতি স্তূপে ঘণ্টার পর ঘণ্টা বাঁচানোর জন্য তৈরি, যেখানে গুরুত্বপূর্ণ সেখানে মানুষকে লুপে রেখেই।',
+  'about.missionTitle': 'আমাদের লক্ষ্য',
+  'about.subtitle':
+    'আপনার ডকুমেন্টের জন্য OCR, AI এক্সট্র্যাকশন, শ্রেণিবিন্যাস এবং স্বয়ংক্রিয় ফাইলিং।',
   'about.title': '{{app}} সম্পর্কে',
+  'about.whatYouGetTitle': 'আপনি যা পাবেন',
   'authShell.backToLanding': '← অবতরণস্থলে ফিরে যান',
   'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'আজ · কার্যক্রমের সংক্ষিপ্ত বিবরণ',
   'dashboard.heading': 'নথি বুদ্ধিমত্তা',
+  'dashboard.metric.accuracy': 'গড় নির্ভুলতা',
   'dashboard.metric.filed': 'আজ দাখিল করা হয়েছে',
   'dashboard.metric.filedCaption': 'ফাইলিং নিয়ম দ্বারা রুট করা হয়েছে',
   'dashboard.metric.processed': 'আজ প্রক্রিয়া করা হয়েছে',
@@ -23,11 +34,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'নথি',
   'dashboard.recent.col.uploaded': 'আপলোড করা হয়েছে',
   'dashboard.recent.heading': 'সাম্প্রতিক নথি',
+  'dashboard.recent.typeUnknown': 'শ্রেণিবিন্যাসের অপেক্ষায়',
   'dashboard.subheading':
     'প্রতিটি পৃষ্ঠা শ্রেণীবদ্ধ, পৃথক এবং নথিভুক্ত করা হয়েছে — আত্মবিশ্বাসী রঙের ব্যবহারে, যাতে পর্যালোচনাটি কেন্দ্রীভূত থাকে।',
   'documentDetail.audit.heading': 'নিরীক্ষার সময়সীমা',
+  'documentDetail.audit.subheading': 'এই ডকুমেন্টে নেওয়া প্রতিটি পদক্ষেপ, দায়ী ব্যক্তিসহ।',
   'documentDetail.back': 'সমস্ত নথি',
   'documentDetail.downloadHint': 'মূল ফাইলটি খুলতে ডাউনলোড ব্যবহার করুন।',
+  'documentDetail.extracted.empty': 'এখনো কোনো ফিল্ড এক্সট্র্যাক্ট করা হয়নি।',
   'documentDetail.extracted.heading': 'নিষ্কাশিত ক্ষেত্র',
   'documentDetail.extracted.subheading':
     '{{count}} ফিল্ডসমূহ · পৃষ্ঠায় হাইলাইট করতে যেকোনো ফিল্ডে ক্লিক করুন',
@@ -55,13 +69,23 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'নথি অনুসন্ধান করুন…',
   'documents.subheading': '{{count}} আপনার লাইব্রেরির নথিগুলো, নতুন থেকে নতুন ক্রমে সাজানো।',
   'documents.uploadCta': 'নথি আপলোড করুন',
+  'documentTypeBreakdown.barAria': 'ধরন অনুযায়ী ডকুমেন্টের গঠন',
   'documentTypeBreakdown.empty': 'এখনো কোনো নথি প্রক্রিয়াজাত করা হয়নি।',
   'documentTypeBreakdown.subtitle': '{{total}} প্রক্রিয়াজাত',
   'documentTypeBreakdown.title': 'নথি রচনা',
+  'forgotPassword.backToSignIn': '← সাইন ইন-এ ফিরে যান',
   'forgotPassword.checkEmail': 'আপনার ইমেল চেক করুন',
   'forgotPassword.tip': 'পাননি? স্প্যাম ফোল্ডার দেখুন অথবা অন্য কোনো ঠিকানা ব্যবহার করে দেখুন।',
+  'landing.copyright': '© {{year}} {{app}}। যে অপস টিম প্রতিটি পৃষ্ঠা অডিট করে, তাদের জন্য তৈরি।',
+  'landing.ctaBody':
+    '১৪ দিনের ট্রায়াল। কার্ড লাগবে না। যেকোনো সময় বাতিল করুন। যে অপস টিম দ্রুত এগোয় আর ধীরে অডিট করে, তাদের জন্য তৈরি।',
   'landing.ctaHeading': 'রসিদ টাইপ করা বন্ধ করুন। সেগুলো ফাইল করা শুরু করুন।',
   'landing.eyebrow': 'OCR · নিষ্কাশন · AI ফাইলিং',
+  'landing.featuresHeading': 'নিজেই ব্যাখ্যা করে এমন ডকুমেন্ট ইন্টেলিজেন্স',
+  'landing.heroSubtitle':
+    'ইনভয়েস, রসিদ, চুক্তি বা ফর্মের একটি স্তূপ দিন। {{app}} সেগুলো শ্রেণিবদ্ধ করে, এক্সট্র্যাক্ট করে ও ফাইল করে — কনফিডেন্স রঙসহ, যাতে আপনার টিম শুধু সেগুলোই রিভিউ করে যেগুলোতে সত্যিই মানুষের প্রয়োজন।',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'দৈনিক ভলিউম · শেষ ৭ দিন',
   'landing.sampleCardLabel': 'আজ প্রক্রিয়াকৃত নথি',
   'landing.sampleCardSubtitle': 'চালান, রসিদ এবং ফর্ম জুড়ে গড় নির্ভুলতা ৯৬.২%।',
   'login.hidePassword': 'পাসওয়ার্ড লুকান',
@@ -74,12 +98,15 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'ল্যান্ডিং পৃষ্ঠা খুলুন',
   'notFound.title': 'সেই পৃষ্ঠাটি ফাইলে নেই।',
+  'parcelaHeroCard.accuracy': 'সব এক্সট্র্যাকশনে গড় নির্ভুলতা {{value}}%',
+  'parcelaHeroCard.change': '{{sign}}{{amount}} গতকালকের তুলনায় %',
   'parcelaHeroCard.title': 'আজ প্রক্রিয়াকৃত নথি',
   'parcelaLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
   'planUpdated.pageLabel': 'পরিকল্পনার হালনাগাদ নিশ্চিতকরণ',
   'pricing.documentsLabel': 'নথিপত্র',
   'pricing.processingLabel': 'প্রক্রিয়াকরণ কাজ',
   'resetPassword.confirmPlaceholder': 'নতুন পাসওয়ার্ডটি পুনরায় বলুন।',
+  'resetPassword.hidePassword': 'পাসওয়ার্ড লুকান',
   'resetPassword.passwordLabel': 'নতুন পাসওয়ার্ড',
   'resetPassword.showPassword': 'পাসওয়ার্ড দেখান',
   'resetPassword.subtitle': 'কমপক্ষে ৮ অক্ষরের কিছু বেছে নিন।',
@@ -96,10 +123,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'নিয়মাবলী লোড করতে ব্যর্থ হয়েছে।',
   'rules.loading': 'নিয়মাবলী লোড হচ্ছে…',
   'rules.matched30d': '{{count}} গত ৩০ দিনে মেলানো নথি',
+  'rules.neverUsed': 'কখনো ব্যবহার করা হয়নি',
   'rules.newRule': 'নতুন নিয়ম',
   'rules.saveError': 'নিয়মটি সংরক্ষণ করা যায়নি।',
   'rules.subheading':
     'সিস্টেমকে বলুন কোন ধরনের ডকুমেন্ট কোথায় যাবে। শর্তগুলো উপর থেকে নিচে ক্রমানুসারে সাজানো থাকে — প্রথমে যেটি মিলবে, সেটিই বিজয়ী হবে।',
+  'rules.templatesEmpty': 'এখনো কোনো এক্সট্র্যাকশন টেমপ্লেট নেই।',
   'rules.templatesHeading': 'নিষ্কাশন টেমপ্লেট',
   'rules.templatesSubheading':
     'এক্সট্র্যাক্টর প্রতিটি ডকুমেন্ট টাইপের জন্য যে ফিল্ড স্কিমাগুলো ব্যবহার করে।',
@@ -109,17 +138,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'কর্মক্ষেত্রের নাম',
   'settings.account.subheading':
     'বিজ্ঞপ্তি এবং নিরীক্ষা ইতিহাসের জন্য প্রদর্শিত নাম এবং প্রাথমিক ইমেল।',
+  'settings.api.confirmRevoke': 'নিশ্চিত করুন?',
   'settings.api.copyOnce': 'এই কী-টি কপি করুন — এটি আর দেখানো হবে না',
   'settings.api.createdOn': 'তৈরি করা হয়েছে {{date}}',
   'settings.api.empty': 'এখনো কোনো এপিআই কী নেই। উপরে একটি তৈরি করুন।',
   'settings.api.error': 'কী তৈরি করতে ব্যর্থ হয়েছে।',
+  'settings.api.generating': 'তৈরি করা হচ্ছে…',
+  'settings.api.heading': 'এপিআই কী',
   'settings.api.labelPlaceholder': 'মূল লেবেল (যেমন CI আপলোডার)',
+  'settings.api.loading': 'কী লোড হচ্ছে…',
   'settings.api.newKey': 'চাবি তৈরি করুন',
   'settings.api.subheading':
     'স্ক্রিপ্ট বা আপনার ERP থেকে ডকুমেন্ট পাঠাতে এগুলো ব্যবহার করুন। যেকোনো সময় যেকোনো কী ঘোরান।',
   'settings.integrations.heading': 'ফাইলিং ইন্টিগ্রেশন',
   'settings.integrations.subheading':
     'ফাইল করা নথিগুলো ক্লাউড ড্রাইভে বা চ্যাট টুলে পাঠিয়ে দিন, যা আপনার টিম ইতিমধ্যেই ব্যবহার করে।',
+  'settings.subheading':
+    'আপনার {{app}} ওয়ার্কস্পেসের অ্যাকাউন্ট, API কী এবং ফাইলিং ইন্টিগ্রেশন পরিচালনা করুন।',
+  'signup.hidePassword': 'পাসওয়ার্ড লুকান',
   'signup.identityPrompt': 'আমরা আপনাকে কীভাবে সম্বোধন করব?',
   'signup.showPassword': 'পাসওয়ার্ড দেখান',
   'signup.subtitle': '১৪ দিন বিনামূল্যে, কোনো কার্ডের প্রয়োজন নেই।',
@@ -127,6 +163,7 @@ export const ui: UiTranslations = {
   'upload.error': 'আপলোড ব্যর্থ হয়েছে।',
   'upload.eyebrow': 'গ্রহণ',
   'upload.heading': 'নথি আপলোড করুন',
+  'upload.queue.clear': 'সম্পন্নগুলো মুছুন',
   'upload.queue.col.confidence': 'আত্মবিশ্বাস',
   'upload.queue.col.file': 'ফাইল',
   'upload.queue.detecting': 'সনাক্ত করা হচ্ছে…',
@@ -139,5 +176,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'অথবা ব্যাচ এক্সট্র্যাকশন, ক্লাসিফিকেশন এবং ফাইলিংয়ের জন্য একসাথে একাধিক ফাইল ড্রপ করুন।',
   'uploadDropZone.cta': 'ফাইলগুলি নির্বাচন করুন',
+  'uploadDropZone.maxSize': 'প্রতি ফাইলে সর্বোচ্চ ২৫ MB · এন্ড-টু-এন্ড এনক্রিপ্টেড',
   'uploadDropZone.title': 'প্রসেসিং শুরু করতে নথিগুলো জমা দিন।',
 }

@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakt os',
   'about.eyebrow': 'Om',
+  'about.featureAlerts':
+    'Prisalarmer på de forhold, der betyder noget, leveret via e-mail og push, så du aldrig går glip af en bevægelse.',
+  'about.featureMarkets':
+    'Live markedsdata og prisdiagrammer for tusindvis af coins, rangeret efter markedsværdi, volumen og momentum.',
+  'about.featurePortfolio':
+    'Porteføljestyring med reelt profit-og-tab, kostpris og fordeling — forbundet med din transaktionshistorik.',
+  'about.featureWatchlist':
+    'En personlig watchliste og kuraterede krypto-nyheder med signaler om de aktiver, du følger.',
+  'about.missionTitle': 'Vores mission',
+  'alertConditionCard.armedSince': 'Aktiv siden {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'Udløst {{når}}',
   'alertConditionCard.confirmDelete': 'Bekræft sletning',
+  'alertConditionCard.deleteAriaLabel': 'Slet alarm',
   'alertConditionCard.pauseAriaLabel': 'Pause alarm',
   'alertConditionCard.resumeAriaLabel': 'Genoptag alarm',
+  'alertConditionCard.triggeredAt': 'Udløst {{when}}',
   'alertNew.condition': 'Tilstand',
   'alertNew.createCta': 'Opret alarm',
   'alertNew.error': 'Kunne ikke oprette alarm.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Ingen advarsler endnu.',
   'alerts.eyebrow': 'Bourse snubletråde',
   'alerts.loadError': 'Kunne ikke indlæse advarsler.',
+  'alerts.newCta': '+ Ny tripwire',
   'alerts.subheading': 'Få en ping, når pris, ændring eller volumen krydser din grænse.',
   'alerts.summary.armed': 'Bevæbnet',
   'alerts.summary.triggered': 'Udløst',
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Rekordhøjde',
   'coinDetail.allTimeLow': 'Laveste niveau nogensinde',
   'coinDetail.back': 'Alle markeder',
+  'coinDetail.chartAriaLabel': '{{name}} prisdiagram, seneste 30 dage',
   'coinDetail.chartHeading': 'Pris · de seneste 30 dage',
   'coinDetail.circulating': 'Cirkulerende forsyning',
   'coinDetail.fdv': 'Fuldt udvandet værdiansættelse',
@@ -59,6 +74,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Nulstil linket med kabel.',
   'login.eyebrow': 'Gå ind i terminalen',
   'login.heading': 'Velkommen tilbage, signalgiver.',
+  'login.noAccountQuestion': 'Ny på Tessera?',
   'login.secureNote': '🔒 Krypteret under overførsel',
   'login.signingInCta': 'Læser båndet…',
   'login.signupLink': 'Åbn en konto →',
@@ -93,6 +109,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Den rute, du scannede, finder ikke en kendt mønt eller side. Tjek symbolet igen, og prøv igen.',
   'notFound.browseMarkets': 'Gennemse markeder',
+  'notFound.eyebrow': '{{appName}} signal mistet',
+  'notFound.heading': 'Dette signal er uden for rækkevidde',
+  'planUpdated.body':
+    'Din ændring af betaling er nu aktiv. Du kan administrere din plan når som helst fra betalingssiden.',
+  'planUpdated.retry': 'Prøv igen',
+  'planUpdated.verifyFailed': 'Vi kunne ikke bekræfte din betaling endnu.',
+  'planUpdated.verifyFailedBody':
+    'Din betaling er muligvis stadig under behandling. Prøv igen om et øjeblik.',
   'planUpdated.verifying': 'Bekræfter din betaling…',
   'portfolio.addError': 'Indtast symbol, positivt beløb og pris.',
   'portfolio.addHoldingCta': '+ Tilføj beholdning',
@@ -116,12 +140,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Samlet porteføljeværdi',
   'portfolioHeroCard.totalPnl': 'Total resultat',
   'pricing.heading': 'advarsler',
+  'pricing.limit.alerts': 'alarmer',
   'pricing.limit.coins': 'mønter',
   'pricing.limit.market': 'marked',
   'pricing.limit.portfolio': 'portefølje',
   'resetPassword.eyebrow': 'Ny kryptering',
   'resetPassword.missingToken':
     'Dette nulstillingslink mangler eller er ugyldigt. Anmod om et nyt.',
+  'resetPassword.passwordPlaceholder': 'Ny adgangskode',
   'resetPassword.subheading': 'Vælg noget, som kun du kan afkode.',
   'settings.apiKeys.body':
     'Skrivebeskyttede nøgler til import af transaktionshistorik. Opret forbindelse via OAuth fra /pricing, når du er tilmeldt.',
@@ -133,17 +159,33 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Citatvaluta',
   'settings.preferences.locale': 'Sprog',
   'settings.preferences.push': 'Skubbe',
+  'settings.preferences.refresh': 'Prisopdatering (sekunder)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning':
+    'Denne enheds adgang vil blive tilbagekaldt om kort tid. Log den ud?',
   'settings.security.body': 'Adgangskode og tofaktorindstillinger administreres af din konto.',
   'settings.signOutDevice': 'Log ud',
   'settings.twoFactorCode': 'Godkendelseskode',
   'settings.twoFactorDisable': 'Deaktivér',
+  'settings.twoFactorDisableTitle': 'Deaktiver to-faktor-godkendelse',
   'settings.twoFactorEnable': 'Aktivér',
+  'settings.twoFactorEnableTitle': 'Aktivér to-faktor-godkendelse',
   'settings.twoFactorInvalidCode': 'Ugyldig kode',
   'settings.twoFactorOn': 'Den',
+  'settings.twoFactorQrAlt': 'To-faktor QR-kode',
+  'settings.twoFactorScan':
+    'Scan denne QR-kode med din godkendelsesapp, og indtast derefter den 6-cifrede kode.',
+  'settings.twoFactorUnavailable': 'Tofaktorgodkendelse er ikke tilgængelig for denne app.',
   'settings.twoFactorVerify': 'Bekræft og aktiver',
   'sigilAuthShell.backHomeCta': '← Tilbage til Bourse',
+  'sigilAuthShell.brandBody':
+    'Realtidspriser, portefølje-P/L og stående vagter på de forhold, der betyder noget — alt på én terminal.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — bygget på Molecule',
+  'sigilAuthShell.brandHeadline': 'Afkod hvert signal i hele ledgeren.',
+  'sigilAuthShell.samplePortfolio': 'Eksempelportefølje',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Primær navigation',
+  'signup.creating': 'Åbner din terminal…',
   'signup.eyebrow': 'Åbn en terminal',
   'signup.heading': 'Opret dit Bourse',
   'signup.subheading': 'Spor hver mønt, afværg enhver fejl. Gratis at starte.',
@@ -160,6 +202,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Kunne ikke indlæse transaktioner.',
   'watchlist.addCta': 'Gennemse markeder',
   'watchlist.col.change24h': '24 timer',
+  'watchlist.col.coin': 'Mønt',
   'watchlist.col.marketCap': 'Markedsloft',
   'watchlist.empty':
     'Ingen mønter på din overvågningsliste — stjernemarkér mønter fra /markets for at tilføje dem.',

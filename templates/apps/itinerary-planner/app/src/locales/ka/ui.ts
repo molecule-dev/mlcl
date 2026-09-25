@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'გაქვთ გამოხმაურება, იპოვეთ ხარვეზი ან რამე ამბიციურს გეგმავთ? მოგვწერეთ ანგარიშის პარამეტრებიდან — ყველა შეტყობინება გუნდის რეალურ ადამიანამდე აღწევს.',
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'ჯავშნები ერთ საფოსტო ყუთში — ფრენების, სასტუმროებისა და აქტივობების დადასტურებები ზუსტად იმ დღეს ხვდება, რომელსაც ეკუთვნის.',
+  'about.featureCollab':
+    'რეალურ დროში თანამშრომლობა — მოიწვიეთ ხუთამდე მოგზაური თითო მოგზაურობაზე, ყველა ცვლილება ცოცხლად სინქრონდება და კომენტარები თითოეული გაჩერების ქვეშ თრედდება.',
+  'about.featureMapsBudget':
+    'რუკები, მიმართულებები და საერთო ბიუჯეტი — იხილეთ მთელი მოგზაურობა რუკაზე, აღმოაჩინეთ რედაქტორის მიერ შერჩეული მიმართულებები და თვალყური ადევნეთ ხარჯებს, რომ არავინ გადააჭარბოს.',
+  'about.featureTimelines':
+    'დღითი დღე ქრონოლოგია — გადაათრიეთ გაჩერებები გადასალაგებლად, ჩასვით ტრანსპორტის სეგმენტები და ნახეთ, როგორ გადაითვლება მარშრუტი, როგორც ერთი ცოცხალი დოკუმენტი.',
+  'about.intro':
+    '{{app}} ნახევრად ჩამოყალიბებული გეგმებით სავსე საქაღალდეს ერთ, საერთო მოგზაურობად აქცევს, რომელსაც მთელი თქვენი ჯგუფი ნამდვილად შეძლებს მიჰყვეს. შექმენით დღითი დღე მარშრუტი, ჩასვით ფრენები და სასტუმროები, დააფიქსირეთ ყველა გაჩერება რუკაზე და თვალყური ადევნეთ ბიუჯეტს — ყველაფერი ერთ მშვიდ ადგილას, ათეულობით ჩანართისა და ჯგუფური ჩატის ნაცვლად.',
+  'about.missionBody':
+    'მოგზაურობის დაგეგმვა ისე უნდა იგრძნობოდეს, თითქოს მოგზაურობა უკვე უმჯობესდება და არა როგორც საშინაო დავალება. {{app}} არსებობს იმისთვის, რომ ერთობლივი მოგზაურობები უპრობლემო გახადოს — რომ ყველა მოგზაური გეგმის ცოდნით მოვიდეს და ყოველი გაჩერება დასამახსოვრებელ ისტორიას ჰყვებოდეს.',
+  'about.missionTitle': 'ჩვენი მისია',
   'about.pageTitle': '{{app}}-ის შესახებ',
   'auth.legalConsent': 'გაგრძელებით, თქვენ ეთანხმებით ჩვენს',
   'bookings.empty.body': 'შემოსულების საქაღალდის დასაწყებად დაამატეთ ფრენა, სასტუმრო ან აქტივობა.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'სასტუმრო',
   'bookings.type.other': 'Skhva',
   'budgetSpendCard.budgetTotal': '-ის {{total}} დაგეგმილი',
+  'budgetSpendCard.overBy': '{{amount}} ბიუჯეტს აღემატება',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} ბოლო',
+  'budgetSpendCard.remaining': '{{amount}} დარჩენილი',
   'calendar.eyebrow': 'მომავალი წელი',
   'calendar.heading': 'ყველა მოგზაურობა ერთ კალენდარზე.',
   'calendar.legendHeading': 'მოგზაურობები ამ თვეში',
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'და',
   'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'dashboard.budgetHeading': 'ბიუჯეტის პულსი',
+  'dashboard.empty.body':
+    'დაგეგმეთ პირველი მოგზაურობა და თქვენი დაფა დღითი დღე ქრონოლოგიებით, ბიუჯეტის პულსითა და ჯავშნებით აივსება.',
+  'dashboard.empty.cta': 'დაგეგმეთ პირველი მოგზაურობა',
   'dashboard.empty.heading': 'ჯერ მოგზაურობები არ არის — თქვენი ატლასი ცარიელია.',
   'dashboard.eyebrow': 'მისიის კონტროლი',
   'dashboard.heading': 'შენი შემდეგი თავგადასავალი, ერთ წყნარ კუთხეში.',
   'dashboard.newTripCta': 'ახალი მოგზაურობის დაწყება',
+  'dashboard.subheading':
+    'შემდეგ მოგზაურობამდე ათვლა, დღევანდელი ხარჯვის პულსი და სწრაფი შეხედვა ყველა მიმდინარე მარშრუტზე.',
   'dashboard.tripsHeading': 'მოგზაურობები მოძრაობაში',
   'dashboard.viewAllExpenses': 'ნახეთ ყველა ხარჯი',
   'dashboard.viewAllTrips': 'იხილეთ ყველა მოგზაურობა',
   'dayTimelineRow.category.accommodation': 'დარჩი',
+  'dayTimelineRow.category.food': 'საკვები და სასმელი',
+  'dayTimelineRow.category.sightseeing': 'ღირსშესანიშნაობების დათვალიერება',
   'dayTimelineRow.category.transport': 'ტრანსპორტი',
   'destinationOrbCard.exploreCta': 'მოგზაურობაში დამატება',
   'destinationOrbCard.tripCount': '{{count}} მოგზაურობები',
+  'destinations.empty.body': 'დაუბრუნდით ყველას და რედაქტორის რჩეულები ისევ გამოჩნდება.',
   'destinations.empty.heading': 'დანიშნულების ადგილები ჯერ არ არის.',
+  'destinations.emptyFiltered.heading': 'ჯერ ასეთი ტეგით არაფერია.',
   'destinations.errors.load': 'დანიშნულების ადგილების ჩატვირთვა ვერ მოხერხდა.',
   'destinations.eyebrow': 'სად წავიდეთ შემდეგ',
   'destinations.heading': 'შენახული კუთხეები და რედაქტორის მიერ ნაპოვნი.',
@@ -70,7 +98,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'გამყიდველი',
   'expenses.formHeading': 'ჟურნალის ხარჯები {{trip}}',
   'expenses.heading': 'სად მიდის სინამდვილეში მოგზაურობის ბიუჯეტი.',
+  'expenses.heroBudget': '{{pct}}% დაგეგმილია {{total}}-დან',
   'expenses.heroEyebrow': '{{trip}} • ბიუჯეტის მიმოხილვა',
+  'expenses.heroNoBudget': 'ამ მოგზაურობაზე ბიუჯეტი ჯერ არ არის დაყენებული.',
   'expenses.noTrips.body': 'ჯერ მოგზაურობა დაგეგმეთ — ხარჯები მოგზაურობის ბიუჯეტს მიეკუთვნება.',
   'expenses.noTrips.heading': 'ჯერ მოგზაურობები არ არის.',
   'expenses.receiptCount': '{{count}} ქვითრები',
@@ -82,12 +112,16 @@ export const ui: UiTranslations = {
     'ყველა ქვითარი და დადასტურება აქ შესაბამის კატეგორიაში ხვდება — ცხრილი საჭირო არ არის.',
   'forgotPassword.eyebrow': 'აღადგინეთ თქვენი მარშრუტი',
   'forgotPassword.heading': 'პაროლი დაგავიწყდათ?',
+  'forgotPassword.subheading':
+    'შეიყვანეთ ელფოსტა, რომელიც {{appName}}-ისთვის გამოიყენეთ და გამოგიგზავნით ბმულს პაროლის აღსადგენად.',
   'forgotPassword.submit': 'აღდგენის ელფოსტის გაგზავნა',
   'forgotPassword.submitPending': 'აღდგენის ელფოსტის გაგზავნა…',
   'forgotPassword.successHint':
     'ელ.ფოსტა ჯერ არ გაქვთ? შეამოწმეთ სპამის საქაღალდე ან სცადეთ ხელახლა სხვა მისამართით.',
   'forgotPassword.successSubheading':
     'აღდგენის ბმული გავუგზავნეთ {{email}} ბმული ძალაშია 30 წუთის განმავლობაში.',
+  'forgotPassword.tryAgain': 'გაგზავნეთ სხვა ელფოსტაზე',
+  'landing.cta.eyebrow': 'დაიწყეთ უფასო გეგმით',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'შექმენით უფასო ანგარიში',
   'landing.cta.subheading':
@@ -99,8 +133,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'დაიწყეთ უფასო მოგზაურობა',
   'landing.hero.ctaSecondary': 'იხილეთ მოგზაურობის ნიმუში',
+  'landing.hero.eyebrow': 'მოგზაურობის დამგეგმავი · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint ნახევრად ჩამოყალიბებული გეგმებით სავსე საქაღალდეს ყოველდღიურ, საერთო მარშრუტად აქცევს, რომლის შესრულებაც თქვენს ჯგუფს რეალურად შეუძლია — ერთ ადგილას თავმოყრილი დაჯავშნებით, რუკებითა და ბიუჯეტით.',
+  'landing.hero.title': 'ერთხელ დაგეგმეთ. ერთად იხეტიალეთ.',
   'landing.nav.join': 'დაიწყეთ უფასო მოგზაურობა',
   'landing.nav.preview': 'შიდა საგზაო წერტილი',
   'landing.preview.cta': 'დაგეგმეთ თქვენი საკუთარი',
@@ -108,6 +144,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'რამდენიმე მოგზაურობა, რომელსაც მოგზაურები ახლა ასრულებენ',
   'login.eyebrow': 'წევრების ზონა',
   'login.heading': 'კეთილი იყოს შენი დაბრუნება, მოგზაურო',
+  'login.noAccount': 'Tessera-ს ახალი მომხმარებელი ხართ?',
   'login.signupLink': 'შექმენით უფასო ანგარიში',
   'login.subheading':
     'შედით სისტემაში თქვენი მოგზაურობების, დღის გეგმების, დაჯავშნებისა და უკვე დაწყებული დღიურის ჩანაწერების სამართავად.',
@@ -118,6 +155,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'შეტყობინების განახლება ვერ მოხერხდა.',
   'notifications.heading': 'რა შეიცვალა თქვენი დღევანდელი მოგზაურობების დროს.',
   'notifications.markUnread': 'წაუკითხავად მონიშვნა',
+  'notifications.subheading':
+    '{{count}} ახალი \\u2014 ჯავშნის დადასტურებები, თანამშრომლების შენიშვნები, ტარიფის ვარდნა და შეხსენებები.',
   'notifications.time.daysAgo': '{{count}} დღის წინ',
   'notifications.time.hoursAgo': '{{count}} საათის წინ',
   'notifications.time.justNow': 'ახლახან',
@@ -135,6 +174,7 @@ export const ui: UiTranslations = {
     'დაკავშირებული სერვისები, ვალუტა, push-შეტყობინებები და ავტორიზაციის მონაცემები, რომლითაც შედიხართ სისტემაში.',
   'signup.and': 'და',
   'signup.eyebrow': 'შეუერთდით Waypoint-ს',
+  'signup.haveAccount': 'უკვე მოხეტიალე ხართ?',
   'signup.heading': 'ერთხელ დაგეგმეთ. ერთად იხეტიალეთ.',
   'signup.namePlaceholder': 'ირის ლარსენი',
   'signup.subheading':
@@ -146,6 +186,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'ღია მარშრუტი',
   'tripCountdownHeroCard.ctaSecondary': 'დაგეგმეთ სხვა მოგზაურობა',
   'tripCountdownHeroCard.daysLabel': '{{days}} დღეები დარჩა',
+  'tripCountdownHeroCard.eyebrow': 'შემდეგი თავგადასავალი · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} ღამე — თქვენი მარშრუტი მზადაა მოგზაურობისთვის.',
   'tripCoverCard.stops': '{{count}} გაჩერებები',
   'tripCoverCard.travelers': '{{count}} მოგზაურები',
   'tripDetail.addActivity': 'აქტივობის დამატება',
@@ -155,6 +198,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'აქტივობის სათაური',
   'tripDetail.adding': 'დამატება…',
   'tripDetail.backToTrips': 'ყველა მოგზაურობაზე დაბრუნება',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'მოგზაურები',
   'tripDetail.dayLabel': 'დღე {{day}}',
   'tripDetail.empty': 'აქტივობები ჯერ არ არის — დაამატეთ ერთი ქრონოლოგიის დასაწყებად.',
@@ -165,14 +209,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'მარშრუტი • {{country}}',
   'tripDetail.invite': 'მოწვევა',
   'tripDetail.inviteLabel': 'მოწვევა ელექტრონული ფოსტით',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'მოწვევა გაიგზავნა {{email}} .',
   'tripDetail.inviting': 'იგზავნება…',
   'tripDetail.loading': 'მგზავრობის ჩატვირთვა…',
   'tripDetail.noCollaborators': 'მხოლოდ შენ, ჯერჯერობით.',
+  'tripDetail.notesHeading': 'მოგზაურობის შენიშვნები',
   'tripDetail.notesPlaceholder': 'შენიშვნები ჯერ არ არის.',
   'tripDetail.notFound.heading': 'მოგზაურობა ვერ მოიძებნა',
   'tripDetail.openBookings': 'გახსენით დაჯავშნის შემოსულები',
   'tripDetail.shareCopied': 'გაზიარების ბმული კოპირებულია ბუფერში:',
+  'tripDetail.shareReady': 'გაზიარების ბმული მზადაა:',
   'tripDetail.stops': '{{count}} გაჩერებები',
   'tripDetail.timelineEyebrow': 'დღის ქრონოლოგია',
   'tripDetail.timelineHeading': 'დღიური გეგმა',
@@ -190,6 +237,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'მოგზაურები',
   'tripPlanner.heading': 'დაგეგმეთ მოგზაურობის ესკიზი ერთ წუთზე ნაკლებ დროში.',
   'tripPlanner.preview.eyebrow': 'პირდაპირი გადახედვა',
+  'tripPlanner.preview.placeholderCountry': 'აირჩიეთ ქვეყანა',
   'tripPlanner.preview.placeholderDestination': 'თქვენი შემდეგი თავგადასავალი',
   'tripPlanner.section1.title': 'სად და როდის',
   'tripPlanner.section2.title': 'მოგზაურები და ბიუჯეტი',
@@ -198,10 +246,13 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'დღე {{day}} — დაამატეთ გაჩერებები, ტრანსპორტი და ჯავშნები აქ.',
   'tripPlanner.section3.day2': 'დღე {{day}} — დაამატეთ გაჩერებები, ტრანსპორტი და ჯავშნები აქ.',
   'tripPlanner.section3.day3': 'დღე {{day}} — დაამატეთ გაჩერებები, ტრანსპორტი და ჯავშნები აქ.',
+  'tripPlanner.section3.title': 'დღის გეგმის საწყისი',
   'tripPlanner.subheading':
     'ქვემოთ ჩამოწერეთ ძირითადი ინფორმაცია — ყოველთვის შეგიძლიათ მოიწვიოთ თანამშრომლები, ჩასვათ გაჩერებები და გადააგზავნოთ დაჯავშნები მოგვიანებით.',
   'tripPlanner.submit': 'მოგზაურობის შექმნა',
   'tripPlanner.submitting': 'შექმნა…',
+  'trips.empty.body': 'დაუბრუნდით ყველა მოგზაურობას ან დაიწყეთ შემდეგი ხეტიალის დაგეგმვა.',
+  'trips.empty.cta': 'მგზავრობის დაგეგმვა',
   'trips.empty.heading': 'ამ ფილტრს ჯერ არაფერი ემთხვევა.',
   'trips.eyebrow': 'ატლასი',
   'trips.filterLabel': 'მგზავრობების გაფილტვრა სტატუსის მიხედვით',
@@ -213,6 +264,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'ჯერ მოგზაურობები არ არის.',
   'trips.pastHeading': 'წარსული თავგადასავლები',
   'trips.subheading': '{{count}} მარშრუტები - წარსული, აწმყო და ოდესმე.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'დაგეგმე ერთხელ. იხეტიალე ერთად. დაიმახსოვრე სამუდამოდ.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · {{appName}} წევრი 2024 წლიდან',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} ოთხ ქვეყანაში გადაჭიმული დატვირთული 3-კვირიანი მოგზაურობა ყველაზე მშვიდ მარშრუტად აქცია, რაც კი ოდესმე გაგვიზიარებია.',
   'waypointLayout.mobileNavClose': 'ნავიგაციის მენიუს დახურვა',
   'waypointLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
 }

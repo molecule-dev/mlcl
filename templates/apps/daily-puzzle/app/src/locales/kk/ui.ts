@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пікіріңіз бар ма, қате таптыңыз ба, әлде {{app}}-ді мектебіңізге немесе командаңызға әкелгіңіз келе ме? Біз әрбір хабарламаны оқимыз — тіркелгі параметрлеріңізден хабарласыңыз, нақты адам жауап береді.',
   'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Туралы',
+  'about.intro':
+    '{{app}} — күнделікті сөз жұмбағы. Бес әріптен тұратын сөзді алты әрекетте табыңыз, серияңызды жалғастырыңыз, эмодзи торыңызбен бөлісіңіз және бүгінгі сөзде барлығы қалай ойнағанын көріңіз.',
+  'about.missionBody':
+    'Жақсы жұмбақ — күнделікті кішкене жеңіс. {{app}} күніне бір ортақ сөзге негізделген — кофе үзілісіне жететіндей жылдам, ертең қайта келетіндей қызықты.',
+  'about.missionTitle': 'Біздің миссиямыз',
   'about.title': '{{app}} туралы',
   'archive.loadError': 'Мұрағатты жүктеу мүмкін болмады.',
   'archive.missed': 'Өткізілген',
   'archive.notPlayed': 'Ойналмаған',
+  'archive.subhead':
+    'Кез келген өткен күнді жаттығу ретінде қайта ойнаңыз — серия жоқ, статистика жоқ, тек қызық.',
   'archive.title': 'Мұрағат',
   'auth.backToHome': 'Басты бетке оралу',
   'auth.backToHomeArrow': '← Басты бетке оралу',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Құпия сөзді ұмыттыңыз ба?',
   'auth.login.loggingIn': 'Жүйеге кіріліп жатыр…',
   'auth.login.logIn': 'Бүгінгі сөзді ойнау',
+  'auth.login.noAccount': 'Тессерамен жаңа таныстыңыз ба?',
   'auth.login.or': 'немесе мынамен жалғастыру',
   'auth.login.password': 'Құпия сөз',
   'auth.login.signInButton': 'Кіру',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Сақталуда…',
   'common.sendingEllipsis': 'Жіберілуде…',
   'common.startingEllipsis': 'Басталуда…',
+  'forgotPassword.subhead':
+    'Электрондық поштаңызды енгізіңіз, біз сізге қалпына келтіру сілтемесін жібереміз.',
+  'forgotPassword.success.body':
+    'Егер тіркелгі бар болса {{email}} , сіз бірнеше минуттан кейін қалпына келтіру сілтемесін аласыз.',
+  'forgotPassword.success.title': 'Кіріс жәшігіңізді тексеріңіз.',
   'form.name': 'Аты',
   'howToPlay.cta.home': 'Үйге оралу',
   'howToPlay.cta.play': 'Бүгінгі жұмбақты ойнау',
@@ -68,10 +83,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Үзгіңіз келмейтін сериялар',
   'leaderboard.daily.title': 'Бүгінгі шешімдер',
   'leaderboard.loadError': 'Көшбасшылар тақтасын жүктеу мүмкін болмады.',
+  'leaderboard.streaks.empty': 'Әзірге серия жоқ — бірінші болыңыз.',
+  'leaderboard.streaks.subhead': 'Барлық уақыттағы ең ұзақ жеңіс сериялары.',
   'leaderboard.streaks.title': 'Сериялық көшбасшылар',
+  'leaderboard.subhead': 'Бүгін барлығы қалай ойнады және кім ең ұзақ серияны ұстап тұр.',
   'leaderboard.title': 'Көшбасшылар тақтасы',
   'login.headline': 'Қайта келдіңіз.',
   'login.streakPill': '{{days}} күндік серия күтіп тұр',
+  'login.subhead':
+    'Серияңызды жалғастыру және бүгінгі сөзде қалай ойнағаныңызды көру үшін кіріңіз.',
   'nav.archive': 'Мұрағат',
   'nav.editProfile': 'Профильді өңдеу',
   'nav.getStarted': 'Бастау',
@@ -89,6 +109,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Мұндай сөз жоқ',
   'notFound.title': 'Бұл маршрут бос.',
   'planUpdated.message': 'Жоспарыңыз қолжетімді.',
+  'planUpdated.retry': 'Қайталап көріңіз',
+  'planUpdated.verifyFailed': 'Төлеміңізді әзірге растай алмадық.',
+  'planUpdated.verifyFailedBody':
+    'Төлеміңіз әлі өңделуде болуы мүмкін. Біраздан кейін қайталап көріңіз.',
   'planUpdated.verifying': 'Төлеміңіз расталуда…',
   'play.alreadyFinished': 'Сіз бұл жұмбақты әлдеқашан аяқтадыңыз',
   'play.answerWas': 'Сөз мынау болды',
@@ -104,6 +128,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Жаттығу жұмбағы',
   'play.tooShort': 'Әріптер жеткіліксіз',
   'play.won': 'Шештіңіз!',
+  'pricing.advancedStats': 'Кеңейтілген статистика: {{yes}}',
+  'pricing.archiveHistory': '{{count}} күндік мұрағат тарихы',
+  'pricing.archivePlays': 'Күніне {{count}} мұрағат қайта ойнауы',
+  'pricing.archiveUnlimited': 'Шексіз мұрағат тарихы',
+  'pricing.canExport': 'Деректерді экспорттау: {{yes}}',
+  'pricing.checkoutError': 'Төлемді бастау мүмкін болмады. Қайталап көріңіз.',
   'pricing.dailyWord': 'Күнделікті сөз',
   'pricing.heading': '{{app}} жоспарын таңдаңыз',
   'pricing.included': 'Қосылған',
@@ -111,7 +141,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Күнделікті сөз әрқашан тегін. Шексіз мұрағат қайталауы және тереңірек статистика үшін жаңартыңыз.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} құпиялылығыңызды құрметтейді. Бұл бетте біз сақтайтын деректер, оларды не үшін сақтайтынымыз және оларды қалай жою керектігі қорытындыланған.',
   'privacy.title': 'Құпиялылық туралы ескерту',
+  'resetPassword.subhead': 'Серияңызға оралу үшін жаңа құпиясөз таңдаңыз.',
   'settings.account': 'Тіркелгі',
   'settings.danger.body':
     '{{appName}} тіркелгіңізді және барлық жұмбақ тарихыңызды толығымен жойыңыз.',
@@ -122,17 +155,23 @@ export const ui: UiTranslations = {
   'settings.language.title': 'Тіл',
   'settings.subhead':
     'Профиліңізді, дыбысты және көшбасшылар тақтасында қалай көрінетініңізді реттеңіз.',
+  'settings.unnamed': 'Sparq ойыншысы',
   'settings.upgrade': 'Жаңарту',
   'signup.eyebrow': 'Мәңгілікке тегін — күніне бір сөз',
   'signup.headline': 'Сериялықтығыңызды бастаңыз.',
+  'signup.subhead':
+    'Күнделікті сөзді ойнау, серия құру және көшбасшылар тақтасына көтерілу үшін {{appName}} тіркелгісін жасаңыз.',
   'stats.currentStreak': 'Серия',
   'stats.distribution.title': 'Болжам бөлінісі',
   'stats.loadError': 'Статистикаңызды жүктеу мүмкін болмады.',
   'stats.maxStreak': 'Ең ұзақ серия',
   'stats.played': 'Ойналды',
   'stats.playToday': 'Бүгінгі жұмбақты ойнау',
+  'stats.subhead': 'Тек рейтингтік күнделікті жұмбақтар — мұрағат жаттығуы ешқашан есептелмейді.',
   'stats.title': 'Статистикаңыз',
   'stats.winRate': 'Жеңіс деңгейі',
   'status.monthly': 'Айлық',
+  'terms.intro':
+    '{{app}} пайдалану арқылы сіз төмендегі ережелермен келісесіз. Егер оларды қабылдай алмасаңыз, қызметті пайдаланбаңыз.',
   'terms.title': 'Қызмет көрсету шарттары',
 }

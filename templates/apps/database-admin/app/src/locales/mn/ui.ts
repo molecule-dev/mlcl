@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
+  'about.featureConnections':
+    'Өгөгдлийн сангуудыг аюулгүй хадгалж, өнгөөр ялгах холболтын менежер — итгэмжлэл нь шифрлэгдсэн байдлаар хадгалагдах бөгөөд хэзээ ч энгийн текстээр хадгалагдахгүй.',
+  'about.featureMonitoring':
+    'Асуулгын гүйцэтгэл болон өгөгдлийн сангийн үйл ажиллагааг шууд хянах, гарын товчлол болон командын палитрын тусламжтайгаар бүгдийг гар хүрэлгүй удирдах боломж.',
+  'about.featurePlans':
+    'Тантай хамт өсөх багцууд — ганцаараа ажиллахад Үнэгүй, илүү олон холболт, асуулгыг удаан хадгалах, экспорт болон дэвшилтэт боломжуудыг авахын тулд Pro болон Team.',
+  'about.featureQueryEditor':
+    'Асуулгын түүх, хадгалсан асуулга, үр дүнгээ нэг товшилтоор CSV болгон экспортлох боломжтой Monaco дээр суурилсан SQL засварлагч.',
+  'about.featureSchema':
+    'Өгөгдлийн сан, хүснэгт, баганыг тойрон үзэх схем хайгч болон хүснэгт хөтлөгч, дараа нь мөрүүдийг шууд үзэх, шүүх, засах боломж.',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
   'authShell.commands': 'Тушаалууд',
   'authShell.ssoSupported': 'SSO дэмжигдсэн',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Асуултууд',
   'connections.schema': 'Схем',
   'connections.subtitle': 'Өгөгдлийн сангийн холболтуудаа удирдах.',
+  'connections.test': 'Тест',
   'databaseAdminLayout.adminRole': 'Админы үүрэг',
   'databaseAdminLayout.commandPalette': 'Командын палитр',
   'databaseAdminLayout.commands': 'тушаалууд',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Шинэ холболт',
   'databaseAdminLayout.queries': 'Асуултууд',
   'databaseAdminLayout.ready': 'Бэлэн',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Команд, асуулга, хүснэгт хайх…',
   'databaseAdminLayout.user': 'Хэрэглэгч',
   'editConnection.confirmDelete': 'Энэ холболтыг устгах уу?',
   'editConnection.deleteButton': 'Холболтыг устгах',
+  'editConnection.newPassword': 'Шинэ нууц үг (хэвээр үлдээхийн тулд хоосон орхино уу)',
   'editConnection.saved': 'Холболт хадгалагдсан.',
   'editConnection.title': 'Холболтыг засах',
   'forgotPassword.success': 'Хэрэв тухайн бүртгэл байгаа бол дахин тохируулах холбоос гарч ирнэ.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Амжилтууд',
   'monitoring.title': 'Хяналт',
   'monitoring.totalQueries': 'Нийт асуулга',
+  'nav.schema': 'Схем',
   'newConnection.database': 'Өгөгдлийн сан',
   'newConnection.engine': 'Хөдөлгүүр',
   'newConnection.host': 'Хост',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Энэ хэсэгтэй ямар ч холболт холбогдоогүй байна.',
   'savedQuery.notBound': 'Хязгаарлагдаагүй',
   'savedQuery.title': 'Хадгалсан асуулга',
+  'schema.columns': 'Баганууд',
   'schema.foreignKeys': 'Гадаад түлхүүрүүд',
   'schema.indexes': 'Индексүүд',
   'schemaExplorer.browseRows': 'Мөрүүдийг үзэх',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'null боломжтой',
   'schemaExplorer.colType': 'төрөл',
   'schemaExplorer.noColumns': 'Багана байхгүй.',
+  'schemaExplorer.noForeignKeys': 'Гадаад түлхүүр байхгүй.',
   'schemaExplorer.noIndexes': 'Индекс байхгүй.',
   'schemaExplorer.noTables': 'Ширээ байхгүй',
   'schemaExplorer.pickATable': 'Хажуугийн мөрнөөс хүснэгт сонгоно уу.',
   'schemaExplorer.tables': 'Ширээнүүд',
   'schemaExplorer.title': 'Схем судлаач',
+  'settings.session': 'Хуралдаан',
   'settings.subtitle': 'Бүртгэл болон төлөвлөгөөгөө удирдаарай.',
   'signup.heading': 'Quarry дансаа үүсгээрэй',
   'signup.tagline': 'Нэг минутын дотор нэвтрэх эрхийг нэмэгдүүлээрэй.',
   'tableBrowser.noRows': 'Энэ хүснэгтэд хараахан мөр алга байна.',
+  'tableBrowser.subtitle': 'Таны алсын өгөгдлийн сангаас мөрүүдийг үзэж байна.',
   'tableBrowser.title': 'Алсын мэдээллийн сангаас мөрүүдийг үзэж байна.',
 }

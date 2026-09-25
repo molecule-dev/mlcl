@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ਕੋਈ ਫੀਡਬੈਕ ਹੈ, ਕੋਈ ਬੱਗ ਮਿਲਿਆ ਹੈ, ਜਾਂ ਤੁਸੀਂ ਆਪਣੇ ਸਟੂਡੀਓ ਜਾਂ ਟੀਮ ਲਈ {{app}} ਚਾਹੁੰਦੇ ਹੋ? ਆਪਣੀ ਖਾਤਾ ਸੈਟਿੰਗਾਂ ਤੋਂ ਸੰਪਰਕ ਕਰੋ — ਹਰ ਸੁਨੇਹਾ ਟੀਮ ਦੇ ਕਿਸੇ ਅਸਲ ਵਿਅਕਤੀ ਤੱਕ ਪਹੁੰਚਦਾ ਹੈ।',
   'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
+  'about.intro':
+    '{{app}} ਇੱਕ ਸਹਿਯੋਗੀ ਲੇਖਨ ਸਟੂਡੀਓ ਹੈ ਜਿੱਥੇ ਸੰਪਾਦਕ, ਲੇਖਕ ਅਤੇ ਟੀਮਾਂ ਅਸਲ ਸਮੇਂ ਵਿੱਚ ਇਕੱਠੇ ਡਰਾਫਟ ਤਿਆਰ ਕਰਦੇ ਹਨ। ਇੱਕ ਦਸਤਾਵੇਜ਼ ਖੋਲ੍ਹੋ ਅਤੇ ਪੰਨਾ ਸਾਂਝਾ ਹੋ ਜਾਂਦਾ ਹੈ — ਕਰਸਰ ਹਿਲਦੇ ਹਨ, ਟਿੱਪਣੀਆਂ ਹਾਸ਼ੀਏ ਵਿੱਚ ਥ੍ਰੈਡ ਬਣਾਉਂਦੀਆਂ ਹਨ, ਅਤੇ ਹਰ ਸੋਧ ਇਤਿਹਾਸ ਵਿੱਚ ਸੁਰੱਖਿਅਤ ਰਹਿੰਦੀ ਹੈ।',
+  'about.missionBody':
+    'ਸਾਡਾ ਮੰਨਣਾ ਹੈ ਕਿ ਲੰਮੀ ਲਿਖਤ ਲਈ ਇੱਕ ਸ਼ਾਂਤ, ਕੇਂਦ੍ਰਿਤ ਘਰ ਦੀ ਲੋੜ ਹੁੰਦੀ ਹੈ — ਜੋ ਮੀਟਿੰਗ ਜਾਂ ਇਨਬਾਕਸ ਦੁਆਲੇ ਨਹੀਂ, ਸਗੋਂ ਪਾਂਡੁਲਿਪੀ ਦੁਆਲੇ ਬਣਿਆ ਹੋਵੇ। ਸਾਡਾ ਸੰਪਾਦਕ, ਅਸਲ-ਸਮਾਂ ਮੌਜੂਦਗੀ ਅਤੇ ਵਰਜਨ ਇਤਿਹਾਸ ਸਭ ਇਸ ਤਰ੍ਹਾਂ ਡਿਜ਼ਾਈਨ ਕੀਤੇ ਗਏ ਹਨ ਕਿ ਸਹਿਯੋਗੀ ਇਕੱਠੇ ਤੇਜ਼ੀ ਨਾਲ ਅੱਗੇ ਵਧ ਸਕਣ ਅਤੇ ਕੋਈ ਵੀ ਪੈਰਾ ਜਾਂ ਵਿਚਾਰ ਨਾ ਗੁਆਵੇ।',
+  'about.missionTitle': 'ਸਾਡਾ ਮਿਸ਼ਨ',
+  'about.subtitle': 'ਇਕੱਠੇ ਸੋਚੋ, ਹਮੇਸ਼ਾ ਲਈ ਲਿਖੋ।',
   'about.title': '{{app}} ਬਾਰੇ',
   'comments.addFailed': 'ਟਿੱਪਣੀ ਪੋਸਟ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ।',
   'comments.backToDoc': 'ਹੱਥ-ਲਿਖਤ ਤੇ ਵਾਪਸ ਜਾਓ',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'ਟਿੱਪਣੀ ਥ੍ਰੈੱਡ',
   'comments.loading': 'ਥ੍ਰੈੱਡ ਲੋਡ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ…',
   'comments.newPlaceholder': 'ਹੱਥ-ਲਿਖਤ ਵਿੱਚ ਇੱਕ ਟਿੱਪਣੀ ਸ਼ਾਮਲ ਕਰੋ...',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'ਦੁਬਾਰਾ ਖੋਲ੍ਹੋ',
   'comments.reopenFailed': 'ਦੁਬਾਰਾ ਖੋਲ੍ਹਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ।',
   'comments.replyFailed': 'ਜਵਾਬ ਪੋਸਟ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'ਹਾਲੀਆ ਡਰਾਫਟ, ਸਾਂਝੇ ਕੀਤੇ ਕੰਮ, ਅਤੇ ਦਿਨ ਦੇ ਸੰਪਾਦਨ।',
   'dashboard.viewFeed': 'ਫੀਡ →',
   'editor.back': "ਹੱਥ-ਲਿਖਤਾਂ 'ਤੇ ਵਾਪਸ ਜਾਓ।",
+  'editor.bodyLabel': 'ਦਸਤਾਵੇਜ਼ ਦਾ ਮੁੱਖ ਭਾਗ',
   'editor.bodyPlaceholder': 'ਜਿੱਥੋਂ ਕਰਸਰ ਝਪਕਦਾ ਹੈ, ਉੱਥੋਂ ਸ਼ੁਰੂ ਕਰੋ।',
   'editor.comments': 'ਟਿੱਪਣੀਆਂ',
   'editor.createFailed': 'ਦਸਤਾਵੇਜ਼ ਨਹੀਂ ਬਣਾਇਆ ਜਾ ਸਕਿਆ।',
@@ -62,13 +72,19 @@ export const ui: UiTranslations = {
   'editor.version': 'ਵੀ {{v}}',
   'forgotPassword.emailPlaceholder': 'ਲੇਖਕ@studio.com',
   'forgotPassword.sentBody': 'ਜੇਕਰ ਕੋਈ ਖਾਤਾ ਮੌਜੂਦ ਹੈ {{email}} , ਇੱਕ ਰੀਸੈਟ ਲਿੰਕ ਰਸਤੇ ਵਿੱਚ ਹੈ।',
+  'forgotPassword.sentHeading': 'ਆਪਣੀ ਈਮੇਲ ਚੈੱਕ ਕਰੋ',
+  'forgotPassword.submitting': 'ਭੇਜਿਆ ਜਾ ਰਿਹਾ ਹੈ\\u2026',
   'forgotPassword.subtitle': 'ਅਸੀਂ ਤੁਹਾਨੂੰ ਇੱਕ ਰੀਸੈਟ ਲਿੰਕ ਈਮੇਲ ਕਰਾਂਗੇ।',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . ਅਣੂ ਨਾਲ ਬਣਾਇਆ ਗਿਆ।',
+  'landing.ctaBody':
+    'ਇਕੱਲੇ ਲੇਖਕਾਂ ਲਈ ਮੁਫ਼ਤ। ਸੰਪਾਦਕਾਂ, ਗੋਸਟਰਾਈਟਰਾਂ ਅਤੇ ਸਮੀਖਿਆਕਾਰਾਂ ਦੀਆਂ ਟੀਮਾਂ ਲਈ ਸਟੂਡੀਓ ਪਲਾਨ।',
   'landing.ctaHeading': 'ਪੰਨਾ ਖੋਲ੍ਹੋ। ਕਰਸਰ ਨੂੰ ਸ਼ੁਰੂ ਹੋਣ ਦਿਓ।',
   'landing.ctaPrimary': 'ਇੱਕ ਸਟੂਡੀਓ ਖੋਲ੍ਹੋ',
   'landing.eyebrow': 'ਲੇਖਕਾਂ, ਸੰਪਾਦਕਾਂ ਅਤੇ ਟੀਮਾਂ ਲਈ',
   'landing.featuresEyebrow': 'ਤੁਹਾਨੂੰ ਕੀ ਮਿਲਦਾ ਹੈ',
   'landing.featuresHeading': 'ਲੰਬੇ-ਫਾਰਮ ਡਰਾਫਟ ਲਈ ਇੱਕ ਸਟੂਡੀਓ।',
+  'landing.featuresSubtitle':
+    '{{appName}} ਪਾਂਡੁਲਿਪੀ ਦੁਆਲੇ ਬਣਿਆ ਹੈ — ਨਾ ਮੀਟਿੰਗ ਦੁਆਲੇ, ਨਾ ਇਨਬਾਕਸ ਦੁਆਲੇ।',
   'landing.getStarted': 'ਸਟੂਡੀਓ ਖੋਲ੍ਹੋ',
   'landing.heroCta': 'ਲਿਖਣਾ ਸ਼ੁਰੂ ਕਰੋ',
   'landing.heroSubtitle':
@@ -94,6 +110,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} ਨਾ ਪੜ੍ਹੀਆਂ · ਟਿੱਪਣੀਆਂ, ਜ਼ਿਕਰ, ਸਾਂਝੇ ਸੱਦੇ, ਅਤੇ ਸੁਝਾਅ ਬੇਨਤੀਆਂ।',
   'presenceAvatars.label': '{{count}} ਸਹਿਯੋਗੀ',
+  'privacy.intro': 'ਅਸੀਂ ਤੁਹਾਡੀ ਜਾਣਕਾਰੀ ਕਿਵੇਂ ਇਕੱਠੀ ਕਰਦੇ, ਵਰਤਦੇ ਅਤੇ ਸੁਰੱਖਿਅਤ ਰੱਖਦੇ ਹਾਂ।',
   'privacy.title': 'ਪਰਾਈਵੇਟ ਨੀਤੀ',
   'profile.about.description': 'ਤੁਹਾਡੀ ਜਨਤਕ ਪ੍ਰੋਫਾਈਲ ਅਤੇ ਯੋਗਦਾਨੀ ਪੰਨਿਆਂ ਲਈ ਇੱਕ ਛੋਟੀ ਜਿਹੀ ਜੀਵਨੀ।',
   'profile.eyebrow': 'ਸਟੂਡੀਓ ਪਛਾਣ',
@@ -105,7 +122,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'ਮੌਜੂਦਗੀ',
   'profile.pronouns': 'ਪੜਨਾਂਵ',
   'profile.publicToggle': 'ਟੀਮ ਦੇ ਸਾਥੀਆਂ ਨੂੰ ਪ੍ਰੋਫਾਈਲ ਦਿਖਾਓ',
+  'profile.role': 'ਭੂਮਿਕਾ / ਅਹੁਦਾ',
   'profile.subtitle': 'ਤੁਸੀਂ ਆਪਣੇ ਸਹਿਯੋਗੀਆਂ ਨੂੰ ਕਿਵੇਂ ਦਿਖਾਈ ਦਿੰਦੇ ਹੋ।',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} ਸਟੂਡੀਓ ਵਿੱਚ ਸਰਗਰਮ ਲੇਖਕ',
   'quillonAuthBrandPanel.quote':
     '"ਲਿਖਣਾ ਹੀ ਇੱਕੋ ਇੱਕ ਅਜਿਹੀ ਚੀਜ਼ ਹੈ ਜੋ, ਜਦੋਂ ਮੈਂ ਇਹ ਕਰਦੀ ਹਾਂ, ਤਾਂ ਮੈਨੂੰ ਨਹੀਂ ਲੱਗਦਾ ਕਿ ਮੈਨੂੰ ਕੁਝ ਹੋਰ ਕਰਨਾ ਚਾਹੀਦਾ ਹੈ।"',
@@ -113,6 +132,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'ਖੋਲ੍ਹੋ →',
   'quillonKpiCard.trend': 'ਹਾਲੀਆ ਰੁਝਾਨ',
   'quillonLayout.menu': 'ਮੀਨੂ',
+  'quillonLayout.mobileNavLabel': 'ਮੋਬਾਈਲ ਨੈਵੀਗੇਸ਼ਨ',
   'quillonLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
   'quillonStudioHero.collab': 'ਸਹਿਯੋਗੀ',
   'quillonStudioHero.docs': 'ਦਸਤਾਵੇਜ਼ਾਂ ਨੂੰ ਛੂਹਿਆ ਗਿਆ',
@@ -121,7 +141,9 @@ export const ui: UiTranslations = {
   'quillonStudioHero.subtitle': 'ਹੱਥ-ਲਿਖਤ ਚੁੱਕੋ, ਇੱਕ ਟਿੱਪਣੀ ਛੱਡੋ, ਇੱਕ ਪੈਰਾ ਅੱਗੇ ਵਧਾਓ।',
   'quillonStudioHero.words': 'ਅੱਜ ਦੇ ਸ਼ਬਦ',
   'resetPassword.confirmPlaceholder': 'ਨਵਾਂ ਪਾਸਵਰਡ ਦੁਹਰਾਓ',
+  'resetPassword.passwordLabel': 'ਨਵਾਂ ਪਾਸਵਰਡ',
   'resetPassword.passwordPlaceholder': 'ਇੱਕ ਨਵਾਂ ਪਾਸਵਰਡ ਦਰਜ ਕਰੋ',
+  'resetPassword.submitting': 'ਰੀਸੈੱਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ...',
   'resetPassword.subtitle': 'ਇੱਕ ਮਜ਼ਬੂਤ ਪਾਸਵਰਡ ਚੁਣੋ — ਘੱਟੋ-ਘੱਟ 12 ਅੱਖਰ।',
   'settings.account.description': 'ਤੁਸੀਂ ਕਿਵੇਂ ਸਾਈਨ ਇਨ ਕਰਦੇ ਹੋ।',
   'settings.billing.canceled': 'ਗਾਹਕੀ ਰੱਦ ਕੀਤੀ ਗਈ।',
@@ -130,7 +152,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'ਸੰਰੂਪਿਤ ਨਹੀਂ ਕੀਤਾ ਗਿਆ',
   'settings.billing.updated': 'ਯੋਜਨਾ ਅੱਪਡੇਟ ਕੀਤੀ ਗਈ।',
   'settings.editor.description': 'ਜਦੋਂ ਤੁਸੀਂ ਲਿਖਦੇ ਹੋ ਤਾਂ ਕੈਨਵਸ ਕਿਵੇਂ ਵਿਵਹਾਰ ਕਰਦਾ ਹੈ।',
+  'settings.editor.title': 'ਸੰਪਾਦਕ ਤਰਜੀਹਾਂ',
   'settings.eyebrow': 'ਸਟੂਡੀਓ ਤਰਜੀਹਾਂ',
+  'settings.language.title': 'ਭਾਸ਼ਾ',
   'settings.notifications.${n.key}.description': 'ਭਾਸ਼ਾ',
   'settings.notifications.description': 'ਚੁਣੋ ਕਿ ਤੁਹਾਡੇ ਇਨਬਾਕਸ ਤੱਕ ਕੀ ਪਹੁੰਚਦਾ ਹੈ।',
   'settings.subtitle': 'ਸੂਚਨਾਵਾਂ, ਸੰਪਾਦਕ ਕੈਨਵਸ, ਅਤੇ ਆਪਣੀਆਂ ਖਾਤਾ ਤਰਜੀਹਾਂ ਨੂੰ ਟਿਊਨ ਕਰੋ।',
@@ -139,6 +163,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'ਮੇਰੇ ਨਾਲ ਸਾਂਝਾ ਕੀਤਾ ਗਿਆ',
   'shared.loadFailed': 'ਸਾਂਝੇ ਕੀਤੇ ਦਸਤਾਵੇਜ਼ ਲੋਡ ਨਹੀਂ ਕੀਤੇ ਜਾ ਸਕੇ।',
   'shared.subtitle': 'ਬਾਕੀ ਸਟੂਡੀਓ ਤੋਂ ਹੱਥ-ਲਿਖਤਾਂ, ਸੰਖੇਪ, ਅਤੇ ਨੋਟਸ।',
+  'signup.brandAttribution': 'Anaïs Park — ਸੰਪਾਦਕ, The Quarterly',
   'signup.brandQuote':
     '\\u201cਤੁਹਾਡੀ ਪਹਿਲੀ ਹੱਥ-ਲਿਖਤ ਸਭ ਤੋਂ ਔਖੀ ਹੈ। ਕੁਇਲਨ ਇਸਨੂੰ ਘੱਟ ਇਕੱਲਾ ਬਣਾਉਂਦਾ ਹੈ।\\u201d',
   'signup.emailPlaceholder': 'ਲੇਖਕ@studio.com',
@@ -146,6 +171,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'ਐਨਾਈਸ',
   'signup.heading': 'ਆਪਣਾ ਕੁਇਲਨ ਖਾਤਾ ਬਣਾਓ',
   'signup.lastNamePlaceholder': 'ਪਾਰਕ',
+  'signup.submitting': 'ਤੁਹਾਡਾ ਸਟੂਡੀਓ ਖੋਲ੍ਹ ਰਿਹਾ ਹੈ\\u2026',
   'signup.subtitle':
     'ਇੱਕ ਸ਼ਾਂਤ ਡੈਸਕ, ਆਲੇ-ਦੁਆਲੇ ਦੇ ਸਹਿਯੋਗੀ, ਅਤੇ ਇੱਕ ਲੰਮਾ-ਫਾਰਮ ਸੰਪਾਦਕ ਜੋ ਤੁਹਾਡੇ ਰਸਤੇ ਤੋਂ ਹਟ ਜਾਂਦਾ ਹੈ।',
   'templates.blank.subtitle': 'ਇੱਕ ਸਾਫ਼ ਪੰਨਾ। ਕਰਸਰ ਸ਼ੁਰੂ ਹੁੰਦਾ ਹੈ।',
@@ -158,11 +184,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'ਇੱਕ ਸੋਚ-ਸਮਝ ਕੇ ਬਣਤਰ ਨਾਲ ਸ਼ੁਰੂਆਤ ਕਰੋ। ਬੇਅੰਤ ਅਨੁਕੂਲਿਤ ਕਰੋ।',
   'templates.useFailed': 'ਇਸ ਟੈਮਪਲੇਟ ਤੋਂ ਦਸਤਾਵੇਜ਼ ਸ਼ੁਰੂ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।',
   'templates.useTemplate': 'ਇਸ ਟੈਮਪਲੇਟ ਦੀ ਵਰਤੋਂ ਕਰੋ',
+  'terms.intro': 'ਉਹ ਸ਼ਰਤਾਂ ਜਿਨ੍ਹਾਂ ਅਧੀਨ ਤੁਸੀਂ ਇਸ ਸੇਵਾ ਦੀ ਵਰਤੋਂ ਕਰ ਸਕਦੇ ਹੋ।',
   'terms.title': 'ਸੇਵਾ ਦੀਆਂ ਸ਼ਰਤਾਂ',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'ਹੁਣੇ ਹੀ',
   'trash.confirmDelete': 'ਮਿਟਾਉਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ',
+  'trash.confirmEmpty': 'ਪੁਸ਼ਟੀ ਕਰੋ — ਸਭ ਕੁਝ ਮਿਟਾਓ',
   'trash.deleteFailed': 'ਮਿਟਾ ਨਹੀਂ ਸਕਿਆ।',
   'trash.deleteForever': 'ਹਮੇਸ਼ਾ ਲਈ ਮਿਟਾਓ',
   'trash.empty': 'ਠੀਕ ਕਰਨ ਲਈ ਕੁਝ ਨਹੀਂ।',
@@ -178,7 +206,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'ਹਾਲੇ ਕੋਈ ਸੋਧ ਨਹੀਂ ਹੈ — ਦਸਤਾਵੇਜ਼ ਨੂੰ ਇਸਦੇ ਇਤਿਹਾਸ ਨੂੰ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਸੁਰੱਖਿਅਤ ਕਰੋ।',
   'versionHistory.heading': 'ਵਰਜਨ ਇਤਿਹਾਸ',
+  'versionHistory.latest': 'ਨਵੀਨਤਮ',
   'versionHistory.loadFailed': 'ਇਤਿਹਾਸ ਲੋਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।',
+  'versionHistory.noContent': 'ਇਸ ਸੋਧ ਲਈ ਕੋਈ ਸਮੱਗਰੀ ਕੈਪਚਰ ਨਹੀਂ ਕੀਤੀ ਗਈ।',
   'versionHistory.previewing': 'ਪੂਰਵਦਰਸ਼ਨ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ',
   'versionHistory.restore': 'ਇਸ ਵਰਜਨ ਨੂੰ ਰੀਸਟੋਰ ਕਰੋ',
   'versionHistory.restoreFailed': 'ਰੀਸਟੋਰ ਅਸਫਲ ਰਿਹਾ।',

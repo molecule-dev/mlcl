@@ -1,10 +1,31 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '예약, 피드백, 또는 {{app}}에 등록되어야 한다고 생각하는 숙소에 대해 궁금한 점이 있으신가요? 계정에서 저희 팀에 연락하세요 — 모든 메시지는 도움을 드릴 수 있는 실제 사람에게 전달됩니다.',
+  'about.contactTitle': '문의하기',
   'about.eyebrow': '회사 소개',
+  'about.featureLoyalty':
+    '회원 전용 요금과 모든 예약에서 포인트, 늦은 체크아웃, 객실 업그레이드를 제공하는 로열티 프로그램.',
+  'about.featureReviews':
+    '검증된 투숙객 리뷰와 에디터 추천으로 도착하기 전에 숙박을 믿고 선택하세요.',
+  'about.featureRooms':
+    '객실, 요금, 편의시설을 나란히 비교하고 투명한 총액 요금 — 결제 전에 세금과 리조트 피까지 포함.',
+  'about.featureSearch':
+    '검증된 호텔 전반의 실시간 검색, 실시간 예약 가능 여부, 지도 보기, 풍부한 사진 갤러리.',
+  'about.featureTrips':
+    '저장한 즐겨찾기와 모든 예약, 일정, 확인서를 한곳에 모아주는 Trips 대시보드.',
+  'about.intro':
+    '{{app}}은 품질을 중시하는 여행자를 위한 호텔 예약 플랫폼입니다. 모든 숙소는 저희 에디터 팀이 직접 검증합니다 — 애그리게이터 재고도, 미끼 상품도 없습니다. 실제 예약 가능 여부를 검색하고 객실, 요금, 편의시설을 나란히 비교한 뒤 명확한 총액 요금으로 몇 번의 탭으로 예약하세요.',
+  'about.missionBody':
+    '숙소를 예약하는 일은 편안하고 정직해야 합니다. 저희는 세금과 리조트 피를 미리 포함한 투명한 요금을 보여드리고, 충성 고객에게는 숨은 비용을 청구하는 대신 보상을 드리며, 돈을 쓸 가치가 있는 숙소를 우선으로 합니다 — 탭을 비교하는 시간은 줄이고 여행 자체에 더 많은 시간을 쓰세요.',
+  'about.missionTitle': '우리의 사명',
+  'about.subtitle': '올바른 호텔을 찾고 예약하는 큐레이션된 투명한 방법.',
   'account.loyalty.activitySummary': '올해 {{nights}}박 · {{spend}} 사용하셨습니다',
+  'account.loyalty.benefitsHeading': '회원 혜택',
   'account.loyalty.heading': '로열티',
   'account.loyalty.loading': '로열티 정보를 불러오는 중…',
+  'account.loyalty.maxTier': '최상위 등급 — 혜택을 누리세요.',
   'account.loyalty.pointsTowardNext': '{{nextTier}}까지 {{points}} / {{next}} 포인트',
   'account.loyalty.tier': '현재 등급',
   'account.loyalty.unavailable': '로열티 정보를 사용할 수 없습니다.',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': '예약 확정 · {{total}}',
   'bookingCheckout.datesRequired': '체크인 및 체크아웃 날짜를 선택해 주세요.',
   'bookingCheckout.guestHeading': '대표 투숙객',
+  'bookingCheckout.heading': '확인 및 예약',
   'bookingCheckout.loadError': '숙소를 불러오지 못했습니다.',
   'bookingCheckout.nights': '{{rate}} × {{count}}박',
   'bookingCheckout.notFound': '숙소를 찾을 수 없습니다.',
@@ -32,6 +54,9 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': '세금 및 수수료',
   'bookingCheckout.tripHeading': '여행 정보',
   'bookingConfirmation.allTripsCta': '모든 여행',
+  'bookingConfirmation.confNumber': '확인 번호: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': '예약이 처리 중입니다.',
   'bookingConfirmation.heading': '예약이 확정되었습니다',
   'bookingConfirmation.loading': '예약 정보를 불러오는 중…',
   'bookingConfirmation.searchMoreCta': '다른 숙소 둘러보기',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': '즐겨찾기를 불러오지 못했습니다.',
   'favorites.pricePerNight': '1박 {{price}}',
   'favorites.removeCta': '저장 해제',
+  'favorites.removing': '제거 중…',
   'forgotPassword.subheading':
     '계정에 등록된 이메일을 입력하시면 안전한 재설정 링크를 보내드립니다.',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Auberge 멤버',
   'landing.cta.heading': '멤버 전용 요금. 모든 예약에서, 언제나.',
   'landing.cta.signup': '무료 계정 만들기',
+  'landing.cta.subheading':
+    '모든 숙박에서 로열티 포인트를 적립하고, 늦은 체크아웃과 객실 업그레이드를 이용하며, 새 숙소가 공개되기 전에 가장 먼저 만나보세요.',
   'landing.destinations.eyebrow': '다음 여행지',
   'landing.destinations.heading': '추천 여행지',
   'landing.destinations.seeAll': '모든 여행지 보기',
@@ -61,12 +89,20 @@ export const ui: UiTranslations = {
   'landing.journal.heading': '짐을 꾸릴 만한 이야기',
   'landing.nav.join': 'Auberge 가입',
   'landing.nav.search': '숙소 검색',
+  'landing.preview.browseAll': '전체 컬렉션 둘러보기',
   'landing.preview.eyebrow': '안을 들여다보기',
   'landing.preview.heading': '이달의 엄선된 숙소',
+  'landing.preview.subheading':
+    '{{appName}}의 모든 숙소는 저희 에디터 팀이 직접 검증합니다 — 애그리게이터 재고도, 미끼 상품도 없습니다.',
   'login.eyebrow': '멤버 전용',
+  'login.noAccount': 'Tessera가 처음이신가요?',
   'login.signupLink': '무료 계정 만들기',
   'login.subheading': '로그인하시면 여행 관리, 예약 확인, 이어서 진행하기를 사용하실 수 있습니다.',
+  'loyaltyTierBadge.points': '{{points}}점',
   'planUpdated.heading': '플랜이 업데이트되었습니다',
+  'planUpdated.retry': '다시 시도',
+  'planUpdated.verifyFailed': '아직 결제 확인이 완료되지 않았습니다.',
+  'planUpdated.verifyFailedBody': '결제가 아직 처리 중일 수 있습니다. 잠시 후 다시 시도해 주세요.',
   'planUpdated.verifying': '결제 확인 중…',
   'pricing.limit.advancedFeatures': '고급 기능:',
   'pricing.limit.canExport': '데이터 내보내기:',
@@ -78,7 +114,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': '이 숙소의 편의시설',
   'propertyDetail.backLink': '검색으로 돌아가기',
   'propertyDetail.bookCta': '예약하기',
+  'propertyDetail.bookmarkAria': '숙소 저장',
   'propertyDetail.bookmarkAriaSaved': '저장한 숙소에서 제거',
+  'propertyDetail.galleryImageAlt': '{{name}} 사진 {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} 대표 사진',
   'propertyDetail.hidePhotos': '사진 숨기기',
   'propertyDetail.lineCleaning': '청소 요금',
@@ -88,6 +126,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': '박',
   'propertyDetail.noChargeYet': '아직 결제되지 않습니다',
   'propertyDetail.notFound': '숙소를 찾을 수 없습니다.',
+  'propertyDetail.perNight': '/ 1박',
+  'propertyDetail.pickDatesHint': '날짜를 선택하면 전체 요금 내역을 확인할 수 있습니다.',
   'propertyDetail.reviewCount': '(리뷰 {{count}}개)',
   'propertyDetail.reviewsHeading': '최근 리뷰',
   'propertyDetail.roomCapacity': '최대 {{count}}명',
@@ -100,6 +140,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': '새 비밀번호',
   'resetPassword.subheading':
     'Auberge 계정의 새 비밀번호를 선택해 주세요. 최소 8자 이상이며, 패스프레이즈를 권장합니다.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': '검색 조건과 일치하는 숙소가 없습니다.',
   'searchResults.emptyHint':
     '필터를 넓히거나 가격 상한을 제거해 보세요 — Auberge은 14개국에 숙소를 보유하고 있습니다.',
@@ -107,19 +148,27 @@ export const ui: UiTranslations = {
   'searchResults.heading': '엄선된 숙소',
   'searchResults.headingForQuery': '"{{q}}"에 대한 숙소',
   'searchResults.loadError': '숙소를 불러오지 못했습니다.',
+  'searchResults.mapHint':
+    '카드에 마우스를 올리면 지도에서 강조됩니다. 프로덕션에서는 라이브 Mapbox 타일.',
   'searchResults.mapPinAria': '{{name}} — 1박당 {{price}}',
   'searchResults.sortLabel': '정렬 기준',
   'searchResults.subheading': '숙소 {{count}}개 · 투숙객 {{guests}}명',
   'signup.eyebrow': '멤버가 되어보세요',
   'signup.subheading':
     'Auberge에 가입하시고 멤버 전용 요금, 레이트 체크아웃, 신규 숙소 우선 이용 혜택을 누리세요.',
+  'sojournAuthShell.brand.eyebrow': '특별한 곳에 머무르세요',
+  'sojournAuthShell.brand.heading': '아름답게 소개되고 투명한 가격의 큐레이션된 숙소 컬렉션.',
   'sojournHeroSearchCard.checkInAria': '체크인 날짜',
   'sojournHeroSearchCard.checkOutAria': '체크아웃 날짜',
+  'sojournHeroSearchCard.destAria': '목적지',
+  'sojournHeroSearchCard.destLabel': '위치',
   'sojournHeroSearchCard.destPlaceholder': '도시, 지역 또는 숙소',
   'sojournHeroSearchCard.eyebrow': '엄선된 숙소 · 멤버 전용 요금',
   'sojournHeroSearchCard.guestsOption': '투숙객 {{n}}명',
   'sojournHeroSearchCard.subtitle':
     '엄선된 부티크 호텔, 디자인 중심 숙소, 희귀한 리트리트의 컬렉션 — 투명한 가격과 아름다운 소개를 약속드립니다.',
+  'sojournHeroSearchCard.title': '특별한 곳에 머무르세요',
+  'sojournHeroSearchCard.trustLoyalty': '모든 숙박에서 포인트 적립',
   'sojournHeroSearchCard.trustNoFees': '숨겨진 수수료 없음, 언제나',
   'sojournHeroSearchCard.trustVetted': '직접 검증한 숙소만 소개',
   'sojournLayout.primaryNavLabel': '주 내비게이션',

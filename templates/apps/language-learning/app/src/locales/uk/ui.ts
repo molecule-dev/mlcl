@@ -1,12 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Запитання, відгуки чи помилка? Напишіть команді з налаштувань акаунта — кожне повідомлення читає справжня людина, яка теж вивчає мови.',
   'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
+  'about.missionTitle': 'Наша місія',
+  'about.whatYouGet': 'Що Ви отримаєте',
   'common.goToDashboard': 'До панелі',
   'common.logout': 'Вийти',
+  'dailyStatsTriad.heartsHint': 'Поповнення на початку кожного уроку',
   'dailyStatsTriad.heartsLabel': 'Серця',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
+  'dailyStatsTriad.minutesHint': 'З сьогоднішніх вправ',
   'dailyStatsTriad.minutesLabel': 'Хвилини сьогодні',
   'dailyStatsTriad.minutesValue': '{{count}} хв',
   'dailyStatsTriad.wordsLabel': 'Слова опановані',
@@ -15,18 +21,30 @@ export const ui: UiTranslations = {
   'dashboard.heading': 'Добрий день, {{name}} .',
   'dashboard.loadError':
     'Не вдалося завантажити останній прогрес — відображаються кешовані значення.',
+  'dashboard.loading': 'Освіжає…',
   'dashboard.noLessons': 'Поки що немає доступних уроків — завітайте пізніше.',
+  'dashboard.startPractice': 'Почати розмовну практику',
+  'dashboard.subheading':
+    'Продовжте з того місця, де зупинилися — три короткі сесії, і денну мету досягнуто.',
   'dashboard.viewAllLessons': 'Усі уроки →',
+  'forgotPassword.subheading':
+    'Вкажіть свою електронну пошту, і ми надішлемо посилання для скидання.',
   'forgotPassword.successBody':
     'Перевірте свою поштову скриньку — ми надіслали посилання для скидання налаштувань.',
   'forgotPassword.successHint':
     'Якщо {{email}} відповідає обліковому запису, посилання надійде протягом хвилини.',
+  'landing.copyright': '© {{year}} {{app}}. Створено для дорослих учнів.',
   'landing.ctaBody':
     'Картка не потрібна. Залиште свою електронну адресу, виберіть мову та почніть завтра.',
   'landing.ctaHeading': 'Готові знайти свій акцент?',
   'landing.eyebrow': 'Щоденна мовна практика для дорослих',
   'landing.featuresHeading': 'Цикл практики, який поважає ваш час',
+  'landing.featuresSubheading':
+    'Розраховано на дорослих, які мають тридцять хвилин на день, а не тридцять годин на тиждень.',
   'landing.heroCta': 'Почніть 7-денну серію',
+  'landing.heroSubtitle':
+    'П’ятихвилинні уроки, що вміщаються в каву-брейк. Вправи, словниковий запас, розмова — усе в серії, яку ви справді підтримаєте.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.languagesEyebrow': 'Виберіть мову',
   'landing.languagesHeading': 'Чотирнадцять мов, одна щоденна звичка',
   'landing.proof.languages': '{{count}} мов',
@@ -41,10 +59,17 @@ export const ui: UiTranslations = {
   'leaderboard.heading': 'Таблиця лідерів',
   'leaderboard.loadError': 'Не вдалося завантажити таблицю лідерів.',
   'leaderboard.loading': 'Завантаження таблиці лідерів…',
+  'leaderboard.rewardBody':
+    'Три тижні поспіль із золотом підвищують вас до діаманта. Лише дружні ставки.',
+  'leaderboard.rewardEyebrow': 'Приз цього тижня',
+  'leaderboard.rewardHeading': 'Топ {{count}} отримують значок золотої ліги',
   'leaderboard.subheading': 'XP цього тижня. Скидання в неділю опівночі за вашим місцевим часом.',
   'leaderboard.weeklyPeriod': 'Цього тижня · друзі',
+  'leaderboardPanel.rankSuffix': 'Ранг № {{rank}}',
   'leaderboardPanel.title': 'Таблиця лідерів друзів',
+  'leaderboardPanel.xp': '{{xp}} XP',
   'leaderboardPanel.you': '(Ти)',
+  'lessonCard.continue': 'Далі →',
   'lessonCard.duration': '{{min}} хв',
   'lessonCard.level': 'Рівень {{level}}',
   'lessonCard.progressPercent': '{{percent}} % завершено',
@@ -53,14 +78,17 @@ export const ui: UiTranslations = {
   'lessonDetail.check': 'Перевірити',
   'lessonDetail.checking': 'Перевірка…',
   'lessonDetail.correct': 'Блискуче!',
+  'lessonDetail.correctHint': '+{{xp}} XP. Продовжуйте.',
   'lessonDetail.empty': 'У цьому уроці немає вправ.',
   'lessonDetail.exit': 'Вихід з уроку',
   'lessonDetail.fillBlank': 'Заповніть пропуск',
   'lessonDetail.finish': 'Закінчити урок',
   'lessonDetail.incorrect': 'Не зовсім… {{answer}} «',
+  'lessonDetail.incorrectHint': 'Ви побачите це знову в завтрашньому повторенні.',
   'lessonDetail.lessonId': 'Урок · {{id}}',
   'lessonDetail.loadError': 'Не вдалося завантажити вправи.',
   'lessonDetail.loading': 'Завантаження уроку…',
+  'lessonDetail.pronunciation': 'Виберіть правильну вимову',
   'lessonDetail.submitError': 'Не вдалося надіслати відповідь.',
   'lessonDetail.translation': 'Перекладіть фразу',
   'lessonDetail.xpEarned': 'Зароблений досвід · {{xp}}',
@@ -79,6 +107,11 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'Відкрити меню навігації',
   'parlanceLayout.nav.profile': 'Профіль',
   'parlanceLayout.primaryNavLabel': 'Основна навігація',
+  'planUpdated.body':
+    'Зміну оплати активовано. Ви можете керувати своїм планом будь-коли на сторінці оплати.',
+  'planUpdated.retry': 'Спробувати ще раз',
+  'planUpdated.verifyFailed': 'Нам ще не вдалося підтвердити ваш платіж.',
+  'planUpdated.verifyFailedBody': 'Можливо, ваш платіж ще обробляється. Спробуйте ще раз за мить.',
   'planUpdated.verifying': 'Підтвердження платежу…',
   'practice.empty': 'Фрази поки що недоступні.',
   'practice.eyebrow': 'Практика розмов',
@@ -102,6 +135,9 @@ export const ui: UiTranslations = {
   'pricing.limits.progress': 'записи про прогрес',
   'profile.anonymous': 'Учень',
   'profile.avatarAlt': '{{name}} Аватар',
+  'profile.eyebrow': 'Учасник із {{joined}}',
+  'profile.eyebrowNew': 'Новий учень',
+  'profile.langLessonCount': '{{count}} уроки',
   'profile.langLevel': 'Рівень {{level}}',
   'profile.languages': 'Мови',
   'profile.languagesHeading': 'Мови в розробці',
@@ -111,6 +147,7 @@ export const ui: UiTranslations = {
   'profile.streak': 'Серія',
   'profile.totalXp': 'Загальний досвід',
   'resetPassword.confirmPlaceholder': 'Введіть це ще раз',
+  'resetPassword.mismatch': 'Паролі не збігаються.',
   'resetPassword.newPasswordLabel': 'Новий пароль',
   'resetPassword.newPasswordPlaceholder': 'Вісім або більше символів',
   'resetPassword.subheading': "Оберіть щось запам'ятовуване, вісім або більше символів.",
@@ -118,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Практичні налаштування',
   'settings.goalBody':
     'Скільки досвіду ви прагнете отримати щодня. Серії зберігаються щоразу, коли ви досягаєте мети.',
+  'settings.goalHeading': 'Щоденна мета',
   'settings.goalMinutes': '~ {{min}} хв/день',
   'settings.language.description':
     'Виберіть мову, яка використовуватиметься в меню та підписах програми.',

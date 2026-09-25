@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Oes gennych adborth, wedi dod o hyd i fyg, neu eisiau bwrdd eich hun ar {{appName}}? Agorwch eich Gosodiadau i gysylltu â'r tîm — mae pob neges yn mynd at berson go iawn sy'n ei darllen.",
+  'about.contactTitle': 'Siaradwch â ni',
+  'about.featureModeration':
+    "Map ffordd cyhoeddus gyda labeli chwarter, cofnod newidiadau sy'n troi gwaith a gludwyd yn nodiadau rhyddhau, a dangosfwrdd sy'n dangos beth mae'r dorf ei eisiau fwyaf.",
+  'about.featurePricing':
+    'Am ddim i redeg cwpl o fyrddau; mae cynlluniau Pro a Team yn datgloi mwy o fyrddau, terfynau uwch, a allgludo data.',
+  'about.featureThreads':
+    "Byrddau adborth cyhoeddus wedi'u trefnu yn ôl pwnc, gydag uno dyblygiadau sy'n cronni pleidleisiau yn un signal galw gonest.",
+  'about.featureVoting':
+    "Pleidleisio un-bleidlais-y-defnyddiwr gyda llif gwaith statws llawn — ar agor, wedi'i gynllunio, ar y gweill, wedi'i gludo, neu wedi'i wrthod — ac ymateb swyddogol i bob penderfyniad.",
+  'about.intro':
+    "Mae {{appName}} yn blatfform adborth cynnyrch — byrddau cyhoeddus lle mae cwsmeriaid yn postio ceisiadau, yn pleidleisio dros yr hyn sydd ei angen arnynt, ac yn dilyn pob syniad o gynllunio i gludo. Mae timau'n stopio dyfalu beth i'w adeiladu nesaf oherwydd mae'r galw'n graddio ei hun.",
+  'about.missionBody':
+    "Rydym yn credu mai yn y golwg y gwneir y penderfyniadau cynnyrch gorau. Mae {{appName}} yn rhoi i bob tîm fwrdd cyhoeddus o geisiadau wedi'u pleidleisio, map ffordd swyddogol gyda chwarteri targed, a chofnod newidiadau sy'n cau'r ddolen — fel bod cwsmeriaid yn gweld eu heffaith a thimau'n gweld eu mandad.",
+  'about.missionTitle': 'Ein cenhadaeth',
   'admin.backToBoards': "Nôl i'r byrddau",
   'admin.denied': 'Gweinyddwyr yn unig.',
   'admin.eyebrow': 'Tîm cynnyrch',
@@ -11,6 +27,8 @@ export const ui: UiTranslations = {
   'admin.title': 'Dangosfwrdd adborth',
   'admin.topOpen': 'Ceisiadau agored uchaf',
   'admin.totalVotes': '{{count}} cyfanswm',
+  'admin.votesChartLabel':
+    'Siart bar o bleidleisiau a fwriwyd bob wythnos dros yr wyth wythnos diwethaf',
   'admin.votesOverTime': 'Pleidleisiau dros amser',
   'auth.forgotPassword.email': 'E-bost',
   'auth.forgotPassword.sendResetLink': 'Anfon dolen ailosod',
@@ -30,7 +48,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Creu eich cyfrif',
   'auth.username': 'Enw defnyddiwr',
   'authShell.communities': 'Cymunedau',
+  'authShell.copyright': '{{appName}} — mae pob llais yn cyfrif.',
   'authShell.trending': 'Poblogaidd',
+  'boardCard.postCount': '{{count}} o bostiadau',
   'boardDetail.allBoards': 'Pob bwrdd',
   'boardDetail.backToBoards': "Nôl i'r byrddau",
   'boardDetail.empty': "Dim postiadau'n cyfateb i'r hidlwyr hyn eto.",
@@ -54,6 +74,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Dechreuodd pob cofnod fel cais â phleidleisiau. Gwelodd y pleidleiswyr ef yn symud; dyma ble laniodd.',
   'changelog.title': 'Cyflenwedig, gyda derbynebau',
+  'changelog.voteCount': 'Adeiladwyd hwn gan {{count}} pleidlais',
   'common.atLeast8Characters': 'O leiaf 8 nod',
   'common.checkYourInbox': 'Gwiriwch eich mewnflwch',
   'common.loadingEllipsis': 'Llwytho…',
@@ -64,6 +85,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Cyflwyno…',
   'footer.about': 'Ynghylch {{appName}}',
   'footer.language': 'Iaith',
+  'forgotPassword.description':
+    'Rhowch eich cyfeiriad e-bost a byddwn yn anfon dolen atoch i ailosod.',
+  'forgotPassword.successBody':
+    "Fe wnaethon ni anfon dolen ailosod i {{email}} Mae'n dod i ben ymhen 30 munud.",
   'forgotPassword.tryAnother': 'Rhowch gynnig ar e-bost gwahanol',
   'form.displayName': 'Enw arddangos',
   'form.firstName': 'Enw cyntaf',
@@ -74,6 +99,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': "Eich map ffordd, wedi'i gefnogi gan bleidleisiau.",
   'landing.heroCtaPrimary': 'Dechrau casglu pleidleisiau',
   'landing.heroCtaSecondary': 'Gweld bwrdd byw',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': "Stopiwch ddyfalu. Cludwch yr hyn maen nhw'n pleidleisio drosto.",
+  'landing.heroLede':
+    "Mae {{appName}} yn troi ceisiadau nodwedd gwasgaredig yn fwrdd cyhoeddus o syniadau wedi'u pleidleisio, yn fap ffordd swyddogol, ac yn gofnod newidiadau y mae eich cwsmeriaid yn ei ddarllen mewn gwirionedd.",
   'landing.heroStat1': '3,200+',
   'landing.heroStat1Label': "Timau'n gwrando",
   'landing.heroStat2': '1.4m',
@@ -85,9 +114,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Cofnod newid',
   'landing.navJoin': 'Ymuno â {{appName}}',
   'landing.navRoadmap': 'Map ffordd',
+  'landing.step1Body':
+    "Mae cwsmeriaid yn postio syniadau i fyrddau cyhoeddus. Mae dyblygiadau'n uno, pleidleisiau'n cronni, a'r galw'n graddio ei hun.",
   'landing.step1Title': 'Casglu',
+  'landing.step2Body':
+    "Marciwch geisiadau fel wedi'u cynllunio neu ar y gweill gyda chwarter targed — mae'r map ffordd yn diweddaru'r eiliad y gwnaethoch hynny.",
+  'landing.step2Title': 'Ymrwymo',
   'landing.step3Body':
     'Mae postiadau cyflenwedig yn dod yn gofnodion cofnod newid, ac mae pob pleidleisiwr yn gweld y canlyniad ar eu rhestr eu hunain.',
+  'landing.step3Title': 'Cludo',
   'landing.topSubtitle': "Yn fyw o'r bwrdd hwn — mewngofnodwch i ychwanegu'ch pleidlais.",
   'landing.topTitle': 'Beth mae defnyddwyr yn gofyn amdano ar hyn o bryd',
   'landing.topViewAll': 'Pob bwrdd',
@@ -95,14 +130,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Cynradd',
   'layout.signUp': 'Cofrestru',
   'layout.submit': 'Cyflwyno adborth',
+  'login.description': 'Parhewch lle gorffennodd y sgwrs.',
+  'login.heading': 'Mewngofnodwch i Nimbus',
+  'login.noAccount': 'Newydd yma?',
   'login.passwordPlaceholder': 'Eich cyfrinair',
   'login.twoFactorLabel': 'Cod 2FA (dewisol)',
   'login.twoFactorPlaceholder': 'Cod 6 digid',
+  'login.twoFactorRequiredHint':
+    "Mae dilysu dau ffactor wedi'i alluogi ar y cyfrif hwn. Rhowch y cod 6 digid o'ch ap dilysu i barhau.",
   'login.twoFactorRequiredLabel': 'Rhowch eich cod 2FA',
+  'myActivity.browseCta': 'Pori byrddau',
+  'myActivity.emptyPosts': 'Nid ydych wedi postio cais eto.',
+  'myActivity.emptyVotes': 'Dim byd eto — porwch y byrddau a chefnogwch syniad.',
   'myActivity.eyebrow': 'Eich gweithgaredd',
   'myActivity.loadError': 'Methwyd llwytho eich gweithgaredd.',
   'myActivity.postsTitle': 'Ceisiadau a gyflwynwyd gennych',
+  'myActivity.shippedNote': "Mae {{count}} ohonynt wedi'u cludo — diolch am y sbardun.",
   'myActivity.submitCta': 'Postio cais',
+  'myActivity.tabLabel': 'Gweld',
   'myActivity.tabPosts': 'Fy mhostiadau',
   'myActivity.tabVotes': 'Fy mhleidleisiau',
   'myActivity.votesTitle': 'Ceisiadau y pleidleisioch drostynt',
@@ -137,8 +182,12 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Post heb ei ganfod',
   'postsAdmin.backToDashboard': 'Dangosfwrdd',
   'postsAdmin.eyebrow': 'Tîm cynnyrch',
+  'postsAdmin.mergeApplied': "Wedi'i uno — symudwyd {{votes}} pleidlais a {{comments}} sylw.",
   'postsAdmin.mergeApply': 'Cyfuno a symud pleidleisiau',
   'postsAdmin.mergeChoose': 'Dewiswch bost targed…',
+  'postsAdmin.mergeFailed': 'Methodd yr uno.',
+  'postsAdmin.mergeHint':
+    "Mae pleidleisiau'n cronni (un y defnyddiwr), mae sylwadau'n symud, ac mae'r post hwn yn cael nodyn \"wedi symud\".",
   'postsAdmin.mergeLabel': 'Cyfuno dyblyg i mewn i',
   'postsAdmin.responseLabel': 'Ymateb swyddogol',
   'postsAdmin.responsePlaceholder':
@@ -153,7 +202,13 @@ export const ui: UiTranslations = {
     'Gosod y statws swyddogol, ymateb yn gyhoeddus, labelu chwarter y map ffordd, a chyfuno dyblyg.',
   'postsAdmin.title': 'Rheoli postiadau adborth',
   'postsAdmin.votes': '{{count}} pleidlais',
+  'pricing.limits.advancedFeatures': 'Nodweddion uwch:',
+  'pricing.limits.boards': '{{count}} byrddau',
   'pricing.limits.export': 'Allforio data:',
+  'pricing.limits.posts': '{{count}} post adborth',
+  'pricing.limits.votes': '{{count}} pleidlais',
+  'resetPassword.description':
+    'Dewiswch un cryf. Byddwn yn eich mewngofnodi unwaith y bydd yr ailosodiad yn llwyddiannus.',
   'resetPassword.newPasswordLabel': 'Cyfrinair newydd',
   'resetPassword.tokenPlaceholder': 'Gludo tocyn y ddolen',
   'roadmap.cardMeta': 'gan {{author}} · {{board}}',
@@ -169,6 +224,7 @@ export const ui: UiTranslations = {
   'search.empty': "Dim ceisiadau'n cyfateb i'r chwiliad hwnnw.",
   'search.hint': 'Teipiwch ymholiad i ddod o hyd i geisiadau presennol cyn postio dyblyg.',
   'search.loadError': 'Methodd y chwiliad — ceisiwch eto.',
+  'search.searching': 'Yn chwilio…',
   'search.submit': 'Chwilio',
   'search.submitNew': 'Ei bostio fel cais newydd',
   'search.title': 'Chwilio adborth',
@@ -177,12 +233,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'Bilio',
   'settings.displaySubtitle': "Dewiswch pa mor ddwys mae porthiannau'n teimlo.",
   'settings.displayTitle': 'Arddangos',
+  'settings.emailDigestDesc': "Y ceisiadau agored â'r nifer uchaf o bleidleisiau bob dydd Llun.",
+  'settings.emailDigestLabel': 'Crynodeb wythnosol',
+  'settings.emailMentionsDesc': 'Pan fydd rhywun yn ateb post rydych yn ei ddilyn.',
+  'settings.emailMentionsLabel': 'Anfonwch e-bost ataf ar gyfeiriadau',
+  'settings.emailRepliesDesc': 'Edafedd a ddechreuoch neu yr ateboch iddynt.',
+  'settings.emailRepliesLabel': 'E-bostiwch fi ar atebion',
   'settings.loadError': "Methwyd llwytho'ch cyfrif.",
   'settings.loading': "Llwytho'ch gosodiadau…",
   'settings.notifications': 'Hysbysiadau',
   'settings.notificationsSubtitle':
     "Penderfynu beth sy'n cyrraedd eich mewnflwch yn erbyn eich dyfais gwthio.",
+  'settings.pushRepliesLabel': 'Gwthio ar gyfer atebion',
+  'settings.pushVotesDesc': 'Ping trothwy ar 100, 500, 1000.',
+  'settings.pushVotesLabel': 'Gwthio am gerrig milltir pleidleisio i fyny',
   'settings.saveAccount': 'Cadw cyfrif',
+  'settings.showFlair': 'Dangos sglodion bwrdd ar bostiadau',
+  'settings.showThumbnails': 'Dangos mân-luniau dolen/delwedd',
   'settings.usernamePlaceholder': 'Dewiswch handlen',
   'signup.confirmPlaceholder': 'Teipiwch ef eto',
   'signup.description': 'Llunio beth rydym yn ei adeiladu nesaf.',

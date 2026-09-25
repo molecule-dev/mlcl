@@ -1,16 +1,40 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ar mhaith leat siopa a oscailt, fadhb a thuairisciú, nó díreach dia duit a rá? Déan teagmháil linn ón Ionad Cabhrach — téann gach teachtaireacht chuig duine fíor ar an bhfoireann.',
+  'about.contactTitle': 'Labhair linn',
+  'about.featureNotifications':
+    'Fógraí fíor-ama do orduithe nua, nuashonruithe loingseoireachta agus léirmheasanna, chomh maith le ceadanna bunaithe ar róil a choinníonn uirlisí siopadóirí agus díoltóirí ar leithligh.',
+  'about.featurePayments':
+    'Seiceáil shlán faoi chumhacht Stripe, scoilteanna coimisiúin uathoibríocha, agus íocaíochtaí sceidealaithe — bíonn a fhios ag díoltóirí i gcónaí go beacht cad atá tuillte acu.',
+  'about.featureShop':
+    'Catalóg inchuardaithe a chuimsíonn na mílte díoltóir neamhspleách, le siopaí fíoraithe, rátálacha agus léirmheasanna ionas gur féidir leat ceannach le muinín.',
+  'about.featureVendor':
+    'Foireann uirlisí iomlán do dhíoltóirí: siopa brandáilte, bainistíocht táirgí agus fardail, uaslódáil íomhánna, agus comhlíonadh orduithe i ndeais amháin.',
+  'about.intro':
+    'Is margadh coimeádaithe é {{name}} ina n-osclaíonn ceardaithe neamhspleácha a siopaí féin agus ina bhfaigheann siopadóirí earraí nach bhfaigheann siad áit ar bith eile. Ó chriadóireacht lámhdhéanta go teicstílí blocphriontáilte, tagann gach liostú ó dhíoltóir fíor a bhfuil scéal taobh thiar de.',
+  'about.missionBody':
+    'Creidimid gur cheart do cheardaithe an rud a dhéanann a gceird féin a choinneáil. Gearrann {{name}} coimisiún comhréidh trédhearcach, íocann sé go hiontaofa gach seachtain, agus tugann sé siopa atá faoi smacht iomlán ag gach díoltóir — ionas gur féidir leo díriú ar an obair agus muidne ag reáchtáil an mhargaidh.',
+  'about.missionTitle': 'Ár misean',
   'about.pageTitle': 'Maidir {{name}}',
   'cart.checkoutCta': 'Lean ar aghaidh chuig an tseiceáil amach',
   'cart.decreaseAria': 'Laghdaigh an chainníocht',
+  'cart.deliveryEstimate': 'Seachadadh measta {{range}}',
   'cart.empty.body': 'Brabhsáil an catalóg agus cuir cúpla déantóir le do mhála.',
+  'cart.empty.cta': 'Brabhsáil an chatalóg',
   'cart.empty.title': 'Tá do chairt folamh',
   'cart.eyebrow': 'Do chairt',
+  'cart.increaseAria': 'Méadaigh an chainníocht',
   'cart.loadError': 'Níorbh fhéidir do chairt a luchtú. Déan iarracht arís.',
   'cart.loading': 'Ag lódáil do chairt…',
+  'cart.protectionNote':
+    'Cosnaíonn {{appName}} gach ordú. Filleadh saor in aisce laistigh de 30 lá.',
   'cart.removeError': 'Níorbh fhéidir an mhír a bhaint.',
   'cart.shippingFromVendor': 'Loingseoireacht ón díoltóir seo: {{amount}}',
+  'cart.subtitle':
+    'Seolann gach díoltóir a chuid féin — ní dhéanann tú seiceáil amach ach uair amháin. Láimhseálann {{appName}} an chuid eile.',
+  'cart.subtotalGroup': 'Fo-iomlán {{amount}}',
   'cart.summaryItems': 'Míreanna',
   'cart.summaryShipping': 'Loingseoireacht (comhcheangailte)',
   'cart.title': 'Cairt · {{count}} míreanna ó {{vendorCount}} díoltóirí',
@@ -23,6 +47,7 @@ export const ui: UiTranslations = {
   'catalog.featuredVendors': 'Siopaí Réadmhaoine',
   'catalog.loading': 'Ag lódáil táirgí…',
   'catalog.resultCount': '{{count}} táirgí',
+  'catalog.searchAria': 'Cuardaigh an chatalóg',
   'catalog.searchPlaceholder': 'Cuardaigh táirgí, díoltóirí, nó clibeanna…',
   'catalog.sortBy': 'Sórtáil de réir',
   'catalog.subtitle':
@@ -30,6 +55,7 @@ export const ui: UiTranslations = {
   'catalog.title': 'Brabhsáil gach siopa ar Vendry',
   'checkout.emptyCta': 'Brabhsáil an chatalóg',
   'checkout.emptyTitle': 'Tá do chairt folamh.',
+  'checkout.eyebrow': 'Seiceáil amach slán',
   'checkout.loadError': 'Níorbh fhéidir do chairt a luchtú. Déan iarracht arís.',
   'checkout.loading': 'Ag lódáil do chairt…',
   'checkout.payment.testNote':
@@ -39,6 +65,7 @@ export const ui: UiTranslations = {
   'checkout.placingOrder': 'Ag cur ordú…',
   'checkout.review.shipTo': 'Ag seoladh chuig',
   'checkout.review.subtotal': 'Fo-iomlán díoltóra',
+  'checkout.review.title': "Déan athbhreithniú ar d'ordú, díoltóir ar dhíoltóir",
   'checkout.shipping.title': 'Cá háit ar cheart dúinn loingseoireacht a dhéanamh?',
   'checkout.shippingValidation':
     'Líon isteach na réimsí loingseoireachta riachtanacha go léir le do thoil.',
@@ -46,6 +73,7 @@ export const ui: UiTranslations = {
   'checkout.summary.tax': 'Cáin mheasta',
   'checkout.title': 'Seiceáil amháin, go leor déantóirí',
   'common.and': 'agus',
+  'forgotPassword.continue': 'Tá mo chód athshocraithe agam',
   'forgotPassword.emailLabel': 'Ríomhphost an chuntais',
   'forgotPassword.heading': 'An ndearna tú dearmad ar do phasfhocal?',
   'forgotPassword.subheading':
@@ -53,6 +81,7 @@ export const ui: UiTranslations = {
   'forgotPassword.submit': 'Nasc athshocraithe ríomhphoist',
   'forgotPassword.success':
     'Seiceáil {{email}} le haghaidh nasc athshocraithe — tá sé maith don chéad 30 nóiméad eile.',
+  'landing.featured.cta': 'Brabhsáil gach díoltóir',
   'landing.featured.eyebrow': 'Siopaí spotsolais',
   'landing.featured.title': 'Díoltóirí ag déanamh tonnta an mhí seo',
   'landing.footer.becomeVendor': 'Bí i do dhíoltóir',
@@ -62,6 +91,9 @@ export const ui: UiTranslations = {
   'landing.nav.sell': 'Díol ar Vendry',
   'landing.nav.shop': 'Siopa',
   'landing.nav.signUp': 'Bígí Linn',
+  'landing.sellPitch.cta': 'Déan iarratas chun díol',
+  'landing.sellPitch.description':
+    'Coimisiún comhréidh 8%, íocaíochtaí gach Aoine, do shiopa, do scéal. Láimhseálaimid an margadh; fanann tusa i do cheird.',
   'landing.sellPitch.eyebrow': 'Do dhéantóirí',
   'landing.sellPitch.title': 'Oscail siopa. Coinnigh a bhfuil agat féin.',
   'landing.trending.cta': 'Siopa an chatalóg',
@@ -70,6 +102,7 @@ export const ui: UiTranslations = {
   'login.accountTypeAria': 'Cineál cuntais',
   'login.heading': 'Fáilte ar ais go Vendry',
   'login.legalPrefix': 'Trí shíniú isteach, aontaíonn tú lenár',
+  'login.signupPrompt': 'Nua i dTessera?',
   'login.subheading':
     'Sínigh isteach le leanúint ar aghaidh ag siopadóireacht nó téigh ar ais chuig do shiopa.',
   'login.submitShopper': 'Sínigh isteach chun siopadóireacht a dhéanamh',
@@ -86,37 +119,51 @@ export const ui: UiTranslations = {
   'notifications.markAllError': 'Níorbh fhéidir gach rud a mharcáil mar léite.',
   'notifications.read': 'Léigh',
   'notifications.time.daysAgo': '{{count}} days ago',
+  'notifications.time.hourAgo': '1 uair an chloig ó shin',
+  'notifications.time.hoursAgo': '{{count}} uaireanta ó shin',
   'notifications.time.justNow': 'díreach anois',
+  'notifications.time.minutesAgo': '{{count}} min ago',
+  'notifications.time.yesterday': 'Inné',
   'orderDetail.backToOrders': 'Ar ais chuig na horduithe uile',
   'orderDetail.eyebrow': 'Sonraí an ordaithe',
   'orderDetail.helpBody':
     'Freagraíonn tacaíocht díoltóirí laistigh de 4 uair an chloig, fiú ag an deireadh seachtaine.',
+  'orderDetail.helpCta': 'Déan teagmháil leis an tacaíocht',
   'orderDetail.helpTitle': 'Rud éigin cearr leis an ordú seo?',
   'orderDetail.summary':
     'Curtha {{date}} · {{vendorCount}} díoltóir(í) · comhlíonadh il-dhíoltóirí',
+  'orderDetail.timelineTitle': 'Aistear an ordaithe',
   'orders.empty': 'Níl aon orduithe a mheaitseálann an scagaire seo go fóill.',
   'orders.emptyTitle': 'Níl aon orduithe anseo fós',
   'orders.eyebrow': 'Do cheannacháin',
   'orders.subtitle':
     'Féach cé a sheol cad, lean an rianú de réir díoltóra, agus ná caill paicéad arís choíche.',
   'orders.title': 'Orduithe, grúpáilte de réir díoltóra',
+  'planUpdated.retry': 'Déan iarracht arís',
+  'planUpdated.verifyFailed': 'Ní raibh muid in ann d’íocaíocht a dheimhniú go fóill.',
+  'planUpdated.verifyFailedBody':
+    'B’fhéidir go bhfuil d’íocaíocht fós á próiseáil. Bain triail eile as i gceann nóiméid.',
   'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'productDetail.addToCart': 'Cuir leis an gciseán',
   'productDetail.addToCartError': 'Níorbh fhéidir a chur leis an gcairt.',
   'productDetail.addToCartSuccess': '" {{name}} " curtha le do chiseán.',
   'productDetail.backToCatalog': 'Ar ais chuig an gcatalóg',
   'productDetail.breadcrumbCatalog': 'Catalóg',
+  'productDetail.colorLabel': 'Dath · {{name}}',
   'productDetail.decreaseAria': 'Laghdaigh an chainníocht',
   'productDetail.description': 'Déanta ag déantóir neamhspleách ar Vendry.',
   'productDetail.featuredBadge': 'Déantóir Réadmhaoin',
   'productDetail.galleryThumbAria': 'Taispeáin íomhá {{index}}',
+  'productDetail.increaseAria': 'Méadaigh an chainníocht',
   'productDetail.loading': 'Ag lódáil an táirge…',
   'productDetail.notFound': 'Níor aimsíodh an táirge.',
   'productDetail.relatedTitle': 'Tuilleadh ón déantóir seo',
   'productDetail.reviewsTitle': 'Cad a dúirt siopadóirí',
   'productDetail.trust.protection': 'Cosaint díoltóra',
+  'productDetail.trust.returns': 'Filleadh 30 lá',
   'productDetail.trust.shipping': 'Seoltar i gceann 2 lá',
   'productDetail.verifiedAria': 'Díoltóir fíoraithe',
+  'resetPassword.didntGetCode': 'Nár fuair tú cód?',
   'resetPassword.emailLabel': 'Ríomhphost an chuntais',
   'resetPassword.mismatch': 'Ní hionann na pasfhocail fós.',
   'resetPassword.newPasswordLabel': 'Pasfhocal nua',
@@ -125,8 +172,10 @@ export const ui: UiTranslations = {
     'Cuir isteach an cód a sheolaimid chugat ar ríomhphost, ansin roghnaigh pasfhocal nua chun an síniú isteach arís a chríochnú.',
   'resetPassword.submit': 'Athshocraigh & sínigh isteach',
   'resetPassword.submitting': 'Ag nuashonrú an phasfhocail…',
+  'settings.appearance.description': 'Athraigh idir mód geal agus dorcha.',
   'settings.appearance.title': 'Dealramh',
   'settings.language.description': 'Roghnaigh an teanga a úsáidtear ar fud an mhargaidh.',
+  'settings.payouts.accountLabel': 'Uimhir chuntais / IBAN',
   'settings.payouts.body':
     'Íocann Vendry amach gach Aoine i do airgeadra áitiúil, lúide an coimisiún 8%.',
   'settings.payouts.save': 'Sábháil sonraí íocaíochta',
@@ -145,6 +194,7 @@ export const ui: UiTranslations = {
   'signup.mismatch': 'Ní hionann na pasfhocail fós.',
   'signup.subheading':
     'Brabhsáil breis is 4,000 déantóir neamhspleách, nó oscail siopa de do chuid féin.',
+  'signup.submit': 'Bígí páirteach sa mhargadh',
   'status.delivered': 'Seachadta',
   'status.refunded': 'Aisíocadh',
   'userMenu.marketplaceSettings': 'Socruithe an Mhargaidh',
@@ -154,19 +204,30 @@ export const ui: UiTranslations = {
   'vendorDashboard.heroCaption':
     '{{payout}} Glanadh tar éis coimisiún Vendry. An chéad íocaíocht eile Dé hAoine.',
   'vendorDashboard.heroLabel': 'Díolacháin chomhlána · 30 lá anuas',
+  'vendorDashboard.kpi.conversion': 'Comhshó',
   'vendorDashboard.kpi.conversionCaption': 'Tabhair cuairt chun ordú a dhéanamh an tseachtain seo',
   'vendorDashboard.kpi.netPayout': 'Íocaíocht ghlan',
   'vendorDashboard.kpi.netPayoutCaption': 'Tar éis coimisiún díola 8%',
   'vendorDashboard.kpi.orders': 'Orduithe',
   'vendorDashboard.kpi.ordersCaption': 'i gcomparáid leis na 30 lá seo caite',
+  'vendorDashboard.kpi.pendingPayout': 'Íocaíocht ar feitheamh',
   'vendorDashboard.kpi.pendingPayoutCaption': 'Eisiúintí an Aoine seo',
   'vendorDashboard.newProductCta': 'Táirge nua',
   'vendorDashboard.payoutsCta': 'Féach ar íocaíochtaí',
   'vendorDashboard.recentOrders.cta': 'Féach ar na horduithe uile →',
+  'vendorDashboard.recentOrders.emptyBody':
+    'Taispeánfar orduithe do do shiopa anseo a luaithe a dhéanann custaiméirí seiceáil amach.',
+  'vendorDashboard.recentOrders.emptyCta': 'Cuir do chéad táirge leis',
+  'vendorDashboard.recentOrders.emptyTitle': 'Gan aon orduithe fós',
   'vendorDashboard.recentOrders.title': 'Orduithe le déanaí',
+  'vendorDashboard.subtitle': 'Seo mar atá do shiopa ag feidhmiú an tseachtain seo.',
+  'vendorDashboard.title': 'Fáilte ar ais, {{name}}',
   'vendorOnboarding.about': 'Inis dúinn faoi do shiopa',
   'vendorOnboarding.aboutPlaceholder':
     'Cá ndéanann tú, cad a dhéanann tú, cén fáth go bhfuil sé tábhachtach.',
+  'vendorOnboarding.bankLabel': 'Cuntas bainc / IBAN',
+  'vendorOnboarding.categoriesHint':
+    'Roghnaigh gach rud a oireann — is féidir leat athrú a dhéanamh níos déanaí.',
   'vendorOnboarding.currencyLabel': 'Socraigh in airgeadra',
   'vendorOnboarding.errors.shopName': 'Tá ainm an tsiopa ag teastáil.',
   'vendorOnboarding.errors.submit': 'Níorbh fhéidir d’iarratas a chur isteach.',
@@ -175,8 +236,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.field.shopName': 'Ainm an tsiopa',
   'vendorOnboarding.heroBody':
     'Coimisiún comhréidh 8%, íocaíochtaí gach Aoine, do shiopa, do scéal. Inis dúinn beagán faoi do shiopa agus beimid i dteagmháil leat laistigh de 48 uair an chloig.',
+  'vendorOnboarding.review.categories': 'Categories',
   'vendorOnboarding.review.contact': 'Teagmháil',
   'vendorOnboarding.review.currency': 'Airgeadra',
+  'vendorOnboarding.review.point1':
+    'Gearrann {{appName}} coimisiún comhréidh 8% — gan táillí liostála, gan aon mhuirir fholaithe.',
+  'vendorOnboarding.review.point2': 'Socraítear íocaíochtaí gach Aoine i do airgeadra áitiúil.',
+  'vendorOnboarding.review.point3':
+    'Is féidir leat do shiopa a chur ar sos nó a bhaint amach am ar bith.',
   'vendorOnboarding.review.tagline': 'Slogan',
   'vendorOnboarding.review.website': 'Suíomh gréasáin',
   'vendorOnboarding.reviewBody':
@@ -187,6 +254,8 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'Iarratas curtha isteach! Déanfaimid athbhreithniú ar do shiopa agus seolfaimid ríomhphost chugat laistigh de 48 uair an chloig.',
   'vendorOnboarding.taxIdLabel': 'Uimhir aitheantais cánach',
+  'vendorOrders.emptyBody':
+    'Nuair a cheannaíonn custaiméirí do tháirgí, taispeánfar a n-orduithe anseo.',
   'vendorOrders.emptyTitle': 'Gan aon orduithe le comhlíonadh fós',
   'vendorOrders.eyebrow': 'Riarthóir díoltóra',
   'vendorOrders.kpi.awaiting': 'Ag fanacht le comhlíonadh',
@@ -194,6 +263,8 @@ export const ui: UiTranslations = {
   'vendorOrders.subtitle':
     'Priontáil lipéid, marcáil comhlíonta, agus freagair ceisteanna — gan Vendry a fhágáil.',
   'vendorOrders.title': 'Orduithe isteach',
+  'vendorPayouts.emptyBody':
+    'Scaoiltear íocaíochtaí gach Aoine a luaithe a ghlanann do dhíolacháin an coimisiún 8%.',
   'vendorPayouts.emptyTitle': 'Gan aon íocaíochtaí fós',
   'vendorPayouts.eyebrow': 'Maoiniú díoltóirí',
   'vendorPayouts.heroCaption': 'Socraíonn sé le Banco BPI {{account}} · 1–2 lá gnó',
@@ -218,6 +289,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.images.body':
     'Tarraing agus scaoil suas le 8 íomhá. Is é an chéad ghrianghraf clúdach an tsiopa.',
   'vendorProductForm.images.cta': 'Tarraing grianghraif anseo nó brabhsáil',
+  'vendorProductForm.images.hint': 'PNG / JPG · uasmhéid 8MB an ceann',
   'vendorProductForm.images.title': 'Grianghraif',
   'vendorProductForm.nameLabel': 'Ainm an táirge',
   'vendorProductForm.preview.namePlaceholder': 'Ainm an táirge',
@@ -227,6 +299,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.title': 'Inis do chustaiméirí faoi do phíosa',
   'vendorProductForm.variants.colInventory': 'Fardal',
   'vendorProductForm.variants.colVariant': 'Leagan',
+  'vendorProductForm.variants.title': 'Leaganacha & fardal',
   'vendorProducts.eyebrow': 'Riarthóir díoltóra',
   'vendorProducts.kpi.draft': 'Dréachtaí',
   'vendorProducts.kpi.lowStock': 'Stoc íseal',
@@ -253,6 +326,7 @@ export const ui: UiTranslations = {
     'Sínigh isteach chun do shiopa a bhainistiú, orduithe a rianú ó gach díoltóir, agus bailiúcháin dhána ó dhéantóirí neamhspleácha a fháil amach.',
   'vendryAuthShell.sampleVendorMeta': 'Fíoraithe · 4.9 ★ · 1,240 díolachán',
   'vendryAuthShell.sampleVendorName': 'Mira & Co. Ceirmeacht',
+  'vendryAuthShell.sampleVendorTag': 'Réadmhaoin',
   'vendryMarketHero.description':
     'Faigh amach na mílte díoltóir neamhspleách, bailiúcháin lámhcheardaithe, agus siopaí á reáchtáil ag na daoine a chuireann croí iontu. Siopa go dána, tabhair tacaíocht do fhíor-dhéantóirí.',
   'vendryMarketHero.eyebrow': 'Margadh coimeádta · bailiúchán 2026',
@@ -261,11 +335,13 @@ export const ui: UiTranslations = {
   'vendryMarketHero.stat1Label': 'Déantóirí neamhspleácha',
   'vendryMarketHero.stat2Label': 'Táirgí coimeádta',
   'vendryMarketHero.stat3Label': 'Meánrátáil',
+  'vendryMarketHero.title': 'Gach ceardaí, aon mhargadh amháin.',
   'vendryOrderCard.idLabel': 'Ordú',
   'vendryOrderCard.placedOn': 'Curtha {{date}}',
   'vendryOrderCard.qty': 'Cainníocht {{count}}',
   'vendryOrderCard.vendorCount': '{{count}} díoltóir(í) san ordú seo',
   'vendryOrderCard.verifiedAria': 'Díoltóir fíoraithe',
+  'vendryOrderCard.viewDetails': 'Féach sonraí',
   'vendryProductCard.favoriteAria': 'Sábháil chuig na cinn is ansa leat',
   'vendryProductCard.saleBadge': 'Díol',
   'vendryProductCard.verified': 'Díoltóir fíoraithe',

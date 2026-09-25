@@ -1,10 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'တုံ့ပြန်ချက် ရှိပါသလား၊ ချို့ယွင်းချက် တွေ့ပါသလား၊ ဒါမှမဟုတ် sub အသစ် တစ်ခု စတင်လိုပါသလား။ အဖွဲ့ကို hello@{{app}}.example မှာ ဆက်သွယ်ပါ — မက်ဆေ့ခ်ျ တိုင်း လူတစ်ဦးတစ်ယောက် ဖတ်ပါတယ်၊ သူက {{app}} ကိုလည်း ဖတ်ပါတယ်။',
   'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': '{{tagline}}',
+  'about.intro':
+    '{{app}} သည် community link aggregator တစ်ခု ဖြစ်သည် — မှတ်သားထိုက်သော လင့်များကို စုဆောင်းရန်၊ မဲပေးရန် နှင့် ဆွေးနွေးရန် သေးငယ်ပြီး နှေးကွေးသော နေရာ တစ်ခု ဖြစ်သည်။ ဖတ်ရှုသူများက ဖန်တီးထားသော ပိုမို အေးဆေးသည့် ရှေ့စာမျက်နှာ တစ်ခုဟု မြင်ပါ။',
+  'about.missionBody':
+    'ကွန်မြူနတီများ — အယ်လဂိုရီသမ်များ မဟုတ်ဘဲ — ဘယ်အရာ ထိပ်တန်း ရောက်မည်ကို ဆုံးဖြတ်သောအခါ ပွင့်လင်းသော ဝဘ်သည် အကောင်းဆုံး အခြေအနေ ရောက်သည်ဟု ကျွန်ုပ်တို့ ယုံကြည်ပါသည်။ {{app}} သည် စူးစမ်းလိုသူများအတွက် လင့်ကောင်းများ ဖော်ထုတ်ရန်၊ သဘောထား မှန်မှန်ဖြင့် ငြင်းခုံရန် နှင့် ပိုင်ဆိုင်ထိုက်သော ဂုဏ်သတင်း တည်ဆောက်ရန် မျှဝေထားသော နေရာ တစ်ခု ပေးသည် — ကြော်ငြာများ၊ အဆုံးမဲ့ scroll သို့မဟုတ် rage-bait မပါဘဲ။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'about.pageTitle': '{{app}} အကြောင်း',
+  'auth.legalConsent.prefix':
+    'ဆက်လက်လုပ်ဆောင်ခြင်းဖြင့် သင်သည် {{appName}}၏ စည်းကမ်းချက်များကို သဘောတူပါသည်',
   'brandHeader.tagline': '{{tagline}}',
+  'commentThreadItem.childCount': '{{count}} ပြန်ကြားချက်များ ဖျောက်ထားသည်',
   'commentThreadItem.collapse': 'ခေါက်သိမ်းရန်',
   'commentThreadItem.expand': 'ချဲ့ထွင်ပါ',
   'commentThreadItem.karma': '{{karma}} ကံ',
@@ -13,8 +23,11 @@ export const ui: UiTranslations = {
   'feed.clearTag': 'တဂ်စစ်ထုတ်မှုကို ဖယ်ရှားပါ',
   'feed.controls': 'စီထားသော feed',
   'feed.empty': 'ဘာမှ မရှိသေးပါ — လမ်းကြောင်းကို ပထမဆုံး မှတ်သားသူ ဖြစ်ပါ။',
+  'feed.heroBody':
+    'သင်လာရောက် ဖတ်ရှုထိုက်သော စကားဝိုင်းများဖြင့် စီစဉ်ထားသည် — သင့်ကို ဤနေရာတွင် ဆက်ထားရန် ဒီဇိုင်းဆွဲထားသည့် စကားဝိုင်းများ မဟုတ်ဘဲ။',
   'feed.heroEyebrow': 'သင့်ရဲ့ ပင်မစာမျက်နှာ',
   'feed.heroHeadline': 'အသိုင်းအဝိုင်း သုံးခု။ နှေးကွေးစွာ မျှဝေထားသော အချိန်ဇယားတစ်ခု။',
+  'feed.heroPill': 'သင့် cairn ကို စုပုံပါ',
   'feed.loadError': 'ပို့စ်များကို တင်၍မရပါ။',
   'feed.loading': 'ပင်မစာမျက်နှာကို တင်နေသည်…',
   'feed.trendingEyebrow': 'ခေတ်စားနေသော စာရင်းသွင်းမှုများ',
@@ -27,11 +40,17 @@ export const ui: UiTranslations = {
   'landing.footerCopy': '\\u00a9 {{appName}} \\u2014 လမ်းကြောင်းကို မှတ်သားပါ။',
   'landing.headline': 'မှတ်သားထိုက်သော လင့်ခ်များအတွက် သေးငယ်ပြီး နှေးကွေးသောနေရာ။',
   'landing.heroPreview': 'Digest အကြိုကြည့်ရှုခြင်း',
+  'landing.subhead':
+    '{{appName}} သည် community link aggregator တစ်ခု ဖြစ်သည် — အခြား စူးစမ်းလိုသူများ ဖတ်စေလိုသော အရာများကို မဲပေးပါ၊ ဆွေးနွေးပါ နှင့် စုပုံပါ။',
   'landing.subsEyebrow': 'လက်ရှိစာရင်းသွင်းသူများ',
   'landing.subsHeadline': 'အသိုင်းအဝိုင်းငယ်များ၊ ကြီးမားသော ဆွေးနွေးမှုများ။',
   'landing.todayEyebrow': 'ဒီနေ့ Digest မှာ',
   'landing.todayHeadline': 'မျက်နှာဖုံးကို တစ်ချက်ကြည့်လိုက်သည်။',
+  'landing.trendingBody':
+    'sub-community သုံးခု၊ စကားဝိုင်း ဒါဇင်များစွာ၊ မျှဝေထားသော ရှေ့စာမျက်နှာ တစ်ခု။',
   'landing.trendingEyebrow': 'ယနေ့ ခေတ်စားနေသည်များ',
+  'landing.trendingHeadline': 'ဤအပတ်တွင် ဖတ်ရှုသူ 12,400 ဦး သူတို့၏ cairn များကို စုပုံခဲ့ကြသည်။',
+  'landing.trendingPill': '+18% အပတ်စဉ်',
   'linkAggregatorLayout.mobileNav': 'မူလတန်း',
   'linkAggregatorLayout.searchAria': 'စကားအသုံးအနှုန်းရှာဖွေခြင်း',
   'linkAggregatorLayout.searchPlaceholder': 'လင့်ခ်များ၊ တဂ်များ၊ အသုံးပြုသူများကို ရှာဖွေပါ…',
@@ -43,6 +62,7 @@ export const ui: UiTranslations = {
   'linkDetail.commentError': 'မှတ်ချက်တင်၍မရပါ — ထပ်ကြိုးစားပါ။',
   'linkDetail.commentPlaceholder': 'ဂရုတစိုက်ပြန်ကြားချက်ထည့်ပါ…',
   'linkDetail.commentsHeading': '{{count}} မှတ်ချက်များ',
+  'linkDetail.commentSort': 'အကောင်းဆုံး ပထမ',
   'linkDetail.commentSubmit': 'မှတ်ချက်ရေးပါ',
   'linkDetail.commentSubmitting': 'ပို့စ်တင်နေသည်…',
   'linkDetail.loadError': 'ဤလင့်ခ်ကို တင်၍မရပါ။',
@@ -50,12 +70,15 @@ export const ui: UiTranslations = {
   'linkDetail.noComments': 'မှတ်ချက်မရှိသေးပါ — ပထမဆုံးကျောက်တုံးကို စီပါ။',
   'linkDetail.notFound': 'ဒီလင့်ခ်က ပျက်သွားတယ်။',
   'linkPostCard.byUser': 'အားဖြင့် {{user}}',
+  'linkPostCard.commentsCount': 'မှတ်ချက် {{count}} ခု',
   'login.noAccount': 'Tessera ကို အသစ်လား။',
   'login.orContinue': 'သို့မဟုတ် ဆက်လက်လုပ်ဆောင်ပါ',
   'login.signingIn': 'အကောင့်ဝင်နေသည်…',
   'login.subtitle': '{{tagline}}',
   'login.welcome': 'ကင်းဘရစ်ချ်ကို ပြန်လည်ကြိုဆိုပါတယ်။',
   'nav.legal': 'ဥပဒေရေးရာ',
+  'notifications.heroBody':
+    'ပြန်လာထိုက်သော စကားဝိုင်းများ နှင့် karma အခိုက်အတန့်များအတွက် အာရုံစိုက်ထားသော inbox တစ်ခု။',
   'notifications.heroHeadline': 'ပြန်ကြားချက်များ၊ ဖော်ပြချက်များနှင့် မှတ်တိုင်များ။',
   'notifications.loading': 'ဝင်စာပုံးကို တင်နေသည်…',
   'notifications.title.mention': 'သင့်အား ဖော်ပြခဲ့သည်',
@@ -64,7 +87,21 @@ export const ui: UiTranslations = {
   'notifications.title.reply': 'ပြန်ကြားချက်အသစ်',
   'notifications.title.vote': 'မင်းရဲ့ပို့စ်က မဲတစ်ခုရခဲ့တယ်',
   'notifications.view': 'ချည်နှောင်မှုကို ကြည့်ရန်',
+  'planUpdated.body':
+    'သင့်ငွေတောင်းခံမှု ပြောင်းလဲမှုသည် ယခု အသက်ဝင်နေပါပြီ။ သင့်အစီအစဉ်ကို ငွေတောင်းခံမှုစာမျက်နှာမှ မည်သည့်အချိန်တွင်မဆို စီမံနိုင်ပါသည်။',
+  'planUpdated.retry': 'ထပ်ကြိုးစားပါ',
+  'planUpdated.verifyFailed': 'သင့်ငွေပေးချေမှုကို ကျွန်ုပ်တို့ အတည်မပြုနိုင်သေးပါ။',
+  'planUpdated.verifyFailedBody':
+    'သင့်ငွေပေးချေမှုကို လုပ်ဆောင်နေဆဲဖြစ်နိုင်ပါသည်။ ခဏအကြာတွင် ထပ်မံကြိုးစားပါ။',
   'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
+  'pricing.advancedFeatures': 'အဆင့်မြင့်အင်္ဂါရပ်များ — {{yes}}',
+  'pricing.canExport': 'ဒေတာထုတ်ယူခြင်း — {{yes}}',
+  'pricing.heading': 'သင့် {{app}} အစီအစဉ် ရွေးချယ်ပါ',
+  'pricing.maxComments': 'မှတ်ချက် {{count}} ခု',
+  'pricing.maxLinks': '{{count}} လင့် တင်သွင်းမှုများ',
+  'pricing.maxVotes': '{{count}} မဲ',
+  'privacy.intro':
+    'ဤ ကိုယ်ရေးကိုယ်တာ မူဝါဒသည် ပလက်ဖောင်းပေါ်တွင် ပို့စ်တင်သူများ၊ မဲပေးသူများ၊ မှတ်ချက်ပေးသူများ နှင့် ဖတ်ရှုသူများအကြောင်း အချက်အလက်များကို {{app}} မည်သို့ စုဆောင်း၊ အသုံးပြု နှင့် ထုတ်ဖော်သည် ကို ဖော်ပြထားသည်။',
   'privacy.lastUpdated': 'နောက်ဆုံး အပ်ဒိတ်လုပ်ခဲ့သည်- {{date}}',
   'privacy.section.collected.body':
     'ကျွန်ုပ်တို့သည် အကောင့်အသေးစိတ်အချက်အလက်များ (အသုံးပြုသူအမည်၊ အီးမေးလ်)၊ သင်တင်သောအကြောင်းအရာ (လင့်ခ်များ၊ မှတ်ချက်များ၊ မဲများ၊ သိမ်းဆည်းထားသောပစ္စည်းများ၊ လက်အောက်ခံအသင်းဝင်မှုများ) နှင့် စံဝန်ဆောင်မှုလည်ပတ်မှုမှတ်တမ်းများ (IP၊ user-agent၊ အချိန်တံဆိပ်များ) ကို စုဆောင်းပါသည်။',
@@ -95,10 +132,15 @@ export const ui: UiTranslations = {
   'saved.heroBody':
     'Bookmarks များသည် ဤနေရာတွင် ရှိသည် — ပြန်သွားရာလမ်းကြောင်းတိုတောင်းစေရန် ၎င်းတို့ကို စုစည်းမှုများအဖြစ် စီစဉ်ပါ။',
   'saved.heroHeadline': 'သင့်ရဲ့ကိုယ်ပိုင်စာကြည့်တိုက်။',
+  'saved.heroPill': '{{count}} ကျောက်တုံးများ မှတ်သားထားသည်',
   'saved.loadError': 'သိမ်းဆည်းထားသော ပို့စ်များကို တင်၍မရပါ။',
   'saved.loading': 'သင့်စာကြည့်တိုက်ကို ဖွင့်နေသည်…',
   'search.empty': '“ အတွက် ရလဒ်မရှိပါ {{query}} ”။',
+  'search.heroBody':
+    'စကားစု တစ်ခု၊ tag တစ်ခု သို့မဟုတ် အသုံးပြုသူအမည် တစ်ခု ရိုက်ထည့်ပါ — ရိုက်ထည့်နေစဉ် ရလဒ်များ အပ်ဒိတ် ဖြစ်သည်။',
   'search.heroHeadline': 'ဂူထဲမှာ ကျောက်တုံးတစ်တုံး ရှာပါ။',
+  'search.heroPillIdle': 'မေးခွန်းတစ်ခု စမ်းကြည့်ပါ',
+  'search.heroPillResults': '{{count}} ရလဒ်များ',
   'search.idle': 'ရှာဖွေမှုစတင်ရန် အထက်ပါမေးခွန်းတစ်ခုကို ရိုက်ထည့်ပါ။',
   'search.karma': '{{karma}} ကံ',
   'search.loading': 'ရှာဖွေနေသည်…',
@@ -113,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.heroBody':
     'အကောင့်၊ ဖိဒ်၊ အကြောင်းကြားချက်များနှင့် လျှို့ဝှက်ရေး — အားလုံး တစ်နေရာတည်းတွင် ရှိသည်။ ပြောင်းလဲမှုများ ချက်ချင်း အသက်ဝင်ပါသည်။',
   'settings.heroHeadline': 'သင့်အတွက် သင့်တော်အောင် Digest ကို ချိန်ညှိပါ။',
+  'settings.heroPill': 'သင့် timeline ကို ကိုယ်ပိုင်ပြုလုပ်ပါ',
   'settings.notifications.digest': 'အပတ်စဉ် အထူးသတင်းအကျဉ်းချုပ်',
   'settings.notifications.heading': 'အကြောင်းကြားချက်များ',
   'settings.notifications.mentions': 'မှတ်ချက်များတွင် @-mentions များ',
@@ -123,12 +166,14 @@ export const ui: UiTranslations = {
   'settings.privacy.exporting': 'ပို့ကုန်ပြင်ဆင်နေသည်…',
   'settings.saveFailed': 'ဆက်တင်များကို သိမ်းဆည်း၍မရပါ။',
   'settings.saving': 'သိမ်းဆည်းနေသည်…',
+  'settings.unsaved': 'မသိမ်းရသေးသော ပြောင်းလဲမှုများ',
   'signup.heading': 'သင့်ရဲ့ ကာရင်အကောင့်ကို ဖန်တီးပါ။',
   'signup.mismatch': 'စကားဝှက်များ မကိုက်ညီပါ။',
   'signup.orContinue': 'သို့မဟုတ် ဆက်လက်လုပ်ဆောင်ပါ',
   'signup.submitting': 'အကောင့်ဖန်တီးနေသည်…',
   'signup.subtitle': 'လင့်ခ်မျှဝေမှုနှေးကွေးသော အသိုင်းအဝိုင်းငယ်လေးတစ်ခုတွင် ပါဝင်ပါ။',
   'subBadge.join': 'ဝင်ရောက်ပါ',
+  'subBadge.joined': 'ဝင်ရောက်ခဲ့သည်',
   'subBadge.memberCount': '{{count}} အဖွဲ့ဝင်များ',
   'subDetail.bodyFallback': 'သေးငယ်ပြီး အာရုံစိုက်သော အသိုင်းအဝိုင်းတစ်ခု။',
   'subDetail.descriptionFallback':
@@ -136,11 +181,15 @@ export const ui: UiTranslations = {
   'subDetail.empty': 'ဤနေရာတွင် ပို့စ်များ မရှိသေးပါ။ စကားဝိုင်းစတင်ရန် လင့်ခ်တစ်ခု မျှဝေပါ။',
   'subDetail.eyebrow': 'အသိုင်းအဝိုင်းငယ်',
   'subDetail.join': 'လက်အောက်ခံအဖွဲ့ဝင်ရန်',
+  'subDetail.joined': 'ဝင်ရောက်ခဲ့သည်',
   'subDetail.loading': 'ဆပ်ကို တင်နေသည်…',
   'subDetail.modsEyebrow': 'စီမံခန့်ခွဲသူများ',
   'subDetail.pill': '{{count}} အဖွဲ့ဝင်များ',
   'subDetail.rulesEyebrow': 'လက်အောက်ခံစည်းမျဉ်းများ',
+  'submitLink.heroBody':
+    'လင့် တစ်ခု မျှဝေပါ သို့မဟုတ် စာတို ပို့စ် တစ်ခု ရေးပါ။ သင့်လျော်သော sub ကို ရွေးပါ၊ tag တစ်ခု နှစ်ခု ထည့်ပါ၊ ပြီးလျှင် ကွန်မြူနတီက ၎င်း တက်မတက် ဆုံးဖြတ်ပါလိမ့်မည်။',
   'submitLink.heroHeadline': 'ကျောက်တိုင်ပေါ်မှာ ကျောက်ခဲတစ်လုံး စီထားပါ။',
+  'submitLink.heroPill': 'ပို့စ်အသစ်',
   'submitLink.subLabel': 'ပို့စ်တင်ရန် လက်အောက်ခံ',
   'submitLink.submit': 'Digest သို့ ပို့စ်တင်ပါ',
   'submitLink.submitError': 'ပေးပို့၍မရပါ — ထပ်ကြိုးစားပါ။',
@@ -153,11 +202,16 @@ export const ui: UiTranslations = {
   'submitLink.urlLabel': 'URL',
   'submitLink.urlRequired': 'လင့်ခ်ပို့စ်များအတွက် URL တစ်ခု လိုအပ်ပါသည်။',
   'subs.empty': 'စာရင်းသွင်းသူ မရှိသေးပါ — ပထမဆုံး စတင်ပါ။',
+  'subs.heroBody':
+    'sub တစ်ခုစီသည် သေးငယ်ပြီး အာရုံစိုက်ထားသော ကွန်မြူနတီ တစ်ခု ဖြစ်သည်။ အနည်းငယ် ပါဝင်ပါ — သင့် feed သည် သင်ရွေးချယ်ထားသည့် အရာများကိုသာ ပြသသည်။',
   'subs.heroEyebrow': 'အသိုင်းအဝိုင်းခွဲများ',
   'subs.heroHeadline': 'မင်းရဲ့ကျောက်တုံးတွေကို ရွေးပါ။ မင်းရဲ့ကျောက်တိုင်ကို ဆောက်ပါ။',
+  'subs.heroPill': '{{count}} အသက်ဝင်သော sub များ',
   'subs.loadError': 'စာရင်းသွင်းမှုများကို တင်၍မရပါ။',
   'subs.loading': 'စာရင်းသွင်းမှုများကို စုဆောင်းနေသည်…',
   'subs.searchPlaceholder': 'စာရင်းသွင်းမှုများကို ရှာဖွေပါ…',
+  'terms.intro':
+    'ဤဝန်ဆောင်မှုစည်းမျဉ်းများ ("စည်းမျဉ်းများ") သည် {{app}} ကို သင့်ဝင်ရောက်အသုံးပြုခွင့်နှင့် အသုံးပြုမှုကို ထိန်းချုပ်ပါသည်။ အကောင့်တစ်ခု ဖန်တီးခြင်း သို့မဟုတ် ဝန်ဆောင်မှုကို အသုံးပြုခြင်းဖြင့် သင်သည် ၎င်းတို့ကို လိုက်နာရန် သဘောတူပါသည်။',
   'terms.lastUpdated': 'နောက်ဆုံး အပ်ဒိတ်လုပ်ခဲ့သည်- {{date}}',
   'terms.section.acceptable.body':
     'သင်သည် မည်သည့်ဥပဒေကိုမျှ ချိုးဖောက်ရန်၊ အခြားအသုံးပြုသူများကို နှောင့်ယှက်ရန်၊ spam များတင်ရန်၊ malware များထုတ်လွှင့်ရန် သို့မဟုတ် အခြားအကောင့်များ သို့မဟုတ် ကျွန်ုပ်တို့၏ အခြေခံအဆောက်အအုံသို့ ခွင့်ပြုချက်မရှိဘဲ ဝင်ရောက်ရန်ကြိုးပမ်းရန် ဝန်ဆောင်မှုကို အသုံးမပြုရန် သဘောတူပါသည်။',

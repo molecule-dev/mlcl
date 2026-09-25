@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Գտե՞լ եք սխալ, ունե՞ք առաջարկ կամ ուզում եք ասել, թե ինչ սարքենք հաջորդը։ Գրեք hello@pylon.dev — ամեն հաղորդագրություն հասնում է թիմի իրական ինժեների։',
   'about.contactTitle': 'Կապվեք մեզ հետ',
+  'about.intro':
+    '{{app}}-ը արագ, ստեղնաշարի վրա հիմնված API փորձարկման աշխատանքային սեղան է այն ինժեներների համար, ովքեր ապրում են տերմինալում — Postman-ի ոճի հարցումներ, հավաքածուներ, միջավայրեր և պատմություն՝ առանց ծանրաբեռնվածության։',
+  'about.missionBody':
+    'API-ները ժամանակակից ծրագրային ապահովման ողնաշարն են, սակայն դրանք կիրառելու գործիքները դանդաղ են, ծանր և մկնիկով կառավարվող։ {{app}}-ը գոյություն ունի, որպեսզի ծրագրավորողներին տա սուր, արագ, տերմինալային մակարդակի աշխատանքային սեղան՝ ուղարկիր հարցումներ, ձեռք բեր վստահություն և թողարկիր՝ առանց ստեղնաշարից կտրվելու։',
+  'about.missionTitle': 'Մեր առաքելությունը',
   'about.pageTitle': '{{app}}-ի մասին',
   'authShell.statusLabel': 'վազորդներ առցանց',
   'collections.createError': 'Հավաքածու ստեղծել չհաջողվեց։',
   'collections.defaultName': 'Անանուն հավաքածու {{n}}',
+  'collections.empty':
+    'Դեռ հավաքածուներ չկան — սեղմեք «New collection»՝ ձեր առաջին պանակը ստեղծելու համար։',
   'collections.eyebrow': '$ պիլոնների հավաքածուներ --ծառ',
   'collections.fetchError': 'Հավաքածուները չհաջողվեց բեռնել։',
   'collections.heading': 'Հավաքածուներ',
   'collections.loading': 'Հավաքածուները բեռնվում են…',
+  'collections.metric.allGreen': 'Ամեն ինչ կանաչ է',
   'collections.metric.collections': 'Հավաքածուներ',
   'collections.metric.failing': 'Անհաջողություն',
   'collections.metric.failingCaption': 'Վերջին վազքը ձախողումներ ունեցավ',
@@ -24,6 +34,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Փոփոխականներ',
   'environments.createError': 'Հնարավոր չէ ստեղծել միջավայր։',
   'environments.defaultName': 'Անանուն միջավայր {{n}}',
+  'environments.empty': 'Դեռ միջավայրեր չկան — սեղմեք «New environment»՝ մեկը ավելացնելու համար։',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'Չհաջողվեց բեռնել միջավայրերը։',
   'environments.heading': 'Միջավայրեր',
@@ -31,8 +42,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Նոր միջավայր',
   'environments.subheading':
     'Փոփոխականներ, որոնք ուղարկման պահին փոխարկվում են հարցումների: Մեկ ակտիվ միջավայր յուրաքանչյուր աշխատանքային տարածքի համար:',
+  'forgotPassword.statusLabel': 'վերագործարկել · անվտանգ թունել',
   'forgotPassword.success':
     'Եթե այդ էլ. փոստի համար հաշիվ գոյություն ունի, ապա վերակայման հղումը ճանապարհին է։ Ստուգեք ձեր էլ. փոստը։',
+  'history.empty': 'Այստեղ դեռ ոչինչ չկա — ուղարկեք ձեր առաջին հարցումը Workspace ներդիրից։',
   'history.eyebrow': '$ պիլոնի պատմություն --պոչ',
   'history.fetchError': 'Հնարավոր չէ բեռնել պատմությունը։',
   'history.heading': 'Գործարկման պատմություն',
@@ -41,9 +54,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Վերջին 50-ը',
+  'history.realtime': 'իրական ժամանակում',
   'history.subheading':
     'Այս աշխատանքային տարածքում կատարված յուրաքանչյուր հարցում՝ կարգավիճակով, լատենտությամբ և բեռնվածության չափսերով։',
   'landing.choosePlan': 'Ընտրեք պլան',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Ձեռք բեր վստահություն։',
   'landing.ctaBody':
     'Վարկային քարտ չի պահանջվում։ Հարթակի ինժեների կարիք չկա։ Բացեք ⌘K-ն և ուղարկեք ձեր առաջին հարցումը հինգ րոպեից էլ քիչ ժամանակում։',
   'landing.ctaHeading': 'Զարգացրեք վստահությունը։',
@@ -85,6 +100,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Միջին լատենտություն',
   'mocks.metric.live': 'Հանրային',
   'mocks.metric.servers': 'Ծաղրերգություններ',
+  'mocks.ms': 'մվ',
   'mocks.newMock': 'Նոր մոդել',
   'mocks.online': 'Հանրային',
   'mocks.paused': 'Մասնավոր',
@@ -109,9 +125,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Առողջ',
   'monitors.metric.uptime': 'Միջին աշխատանքային ժամանակը',
   'monitors.newMonitor': 'Նոր մոնիտոր',
+  'monitors.paused': 'դադարեցված',
   'monitors.run': 'Վազել',
   'monitors.runError': 'Գործարկումն ավարտվեց ցանցային սխալով։ {{error}}',
+  'monitors.runFailed': 'Աշխատարկը ձախողվեց։',
   'monitors.running': 'Վազում եմ…',
+  'monitors.runSuccess': 'Աշխատարկ {{status}} — վերին հոսքը վերադարձրեց {{code}} {{ms}}մվ-ում։',
   'monitors.sparkLabel': 'Լատենտության միտում',
   'monitors.subheading':
     'Ցանկացած պահպանված թեստի համար պահանջարկի ստուգումներ: Կապեք թեստը, սեղմեք «Գործարկել» և դիտեք 24-ժամյա հաջողության մակարդակի թարմացումը յուրաքանչյուր հրդեհի դեպքում:',
@@ -120,27 +139,54 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Անխափան աշխատանքի ժամանակ · 24 ժամ',
   'nav.legal': 'Իրավական',
   'notFound.backToWorkspace': 'Վերադառնալ աշխատանքային տարածք',
+  'notFound.body':
+    '{{app}}-ը հարցում ուղարկեց այս URL-ի համար և ոչինչ չստացավ։ Կրկին ստուգեք ուղին կամ վերադարձեք աշխատանքային տարածք։',
   'notFound.eyebrow': '$ պիլոնային լուծում --strict',
   'notFound.title': 'Երթուղին չի գտնվել',
+  'planUpdated.body':
+    'Ձեր վճարման փոփոխությունն այժմ ակտիվ է։ Դուք կարող եք ցանկացած պահի կառավարել ձեր պլանը վճարման էջից։',
+  'planUpdated.retry': 'Փորձեք կրկին',
+  'planUpdated.verifyFailed': 'Մենք դեռ չենք կարող հաստատել ձեր վճարումը։',
+  'planUpdated.verifyFailedBody': 'Ձեր վճարումը կարող է դեռ մշակվել։ Փորձեք կրկին մի փոքր ուշ։',
   'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
+  'pricing.advancedFeatures': 'Ընդլայնված գործառույթներ՝ {{yes}}',
+  'pricing.canExport': 'Տվյալների արտահանում՝ {{yes}}',
+  'pricing.heading': 'Ընտրեք ձեր {{app}} պլանը',
+  'pricing.maxCollections': '{{count}} հավաքածու',
+  'pricing.maxEnvironments': '{{count}} միջավայր',
+  'pricing.maxHistory': '{{count}} պատմության գրառում',
+  'pricing.maxRequests': '{{count}} հարցումներ',
   'privacy.collect.account':
     'Հաշիվ. ձեր էլ. փոստը, հեշավորված գաղտնաբառը, ցուցադրվող անունը և ձեր վերջին մուտքի ժամանակային դրոշմանիշը։',
+  'privacy.intro':
+    '{{app}}-ը հարգում է ձեր գաղտնիությունը։ Այս էջը ամփոփում է, թե ինչ տվյալներ ենք հավաքում, ինչու և ինչպես հեռացնել դրանք։',
   'privacy.rights.body':
     'Դուք կարող եք ցանկացած պահի արտահանել ձեր հավաքածուները + միջավայրերը կամ ջնջել ձեր հաշիվը Կարգավորումներից՝ 30 օրվա ընթացքում բոլոր տվյալները մշտապես հեռացնելու համար։',
   'privacy.share.body':
     'Միայն դուք։ Մենք երբեք չենք վաճառում, կիսվում կամ վարձակալում ձեր աշխատանքային տարածքի բովանդակությունը երրորդ կողմերին։ Սերվերի գրանցամատյանները պահվում են 30 օր՝ միջադեպերին արձագանքելու համար, ապա ջնջվում։',
   'privacy.title': 'Գաղտնիության ծանուցում',
+  'profile.bio':
+    'Ձեր անձնական {{app}} աշխատանքային տարածքը — ամրացրեք հավաքածուները, կիսվեք միջավայրերով և վերահսկեք արտադրանք թողարկող API-ները։',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'միացել է {{when}}',
+  'profile.metric.collections': 'Հավաքածուներ',
   'profile.metric.monitors': 'Մոնիտորներ',
   'profile.metric.requests': 'Պահպանված հարցումներ',
+  'profile.noActivity':
+    'Դեռ ոչ մի հարցում չի ուղարկվել — անցեք Workspace ներդիր՝ մեկը կատարելու համար։',
   'profile.signedOut': 'Մուտք գործեք՝ ձեր պրոֆիլը դիտելու համար',
   'pylonShell.primaryNavLabel': 'Հիմնական նավիգացիա',
+  'resetPassword.passwordLabel': 'Նոր գաղտնաբառ',
+  'resetPassword.statusLabel': 'վերագործարկում · տոկենը հաստատված է',
   'resetPassword.subtitle': 'Ընտրեք ուժեղ գաղտնաբառ, որը նախկինում չեք օգտագործել։',
   'resetPassword.tokenPlaceholder': 'կպցնել էլ. փոստից',
+  'settings.accountManagement.desc':
+    'Թարմացրեք ձեր էլ. փոստը և գաղտնաբառը, կառավարեք ծանուցումներն ու սարքերը, դուրս եկեք կամ ջնջեք ձեր հաշիվը։',
+  'settings.accountManagement.title': 'Հաշիվ և անվտանգություն',
   'settings.eyebrow': '$ pylon կարգավորումներ --edit',
   'settings.fetchError': 'Չհաջողվեց բեռնել կարգավորումները։',
   'settings.language.title': 'Լեզու',
+  'settings.seeding': 'Նախապատրաստվում է…',
   'settings.seedStarter': 'Սերմերի մեկնարկային պարունակություն',
   'settings.starterCollection': 'Սկզբնական հավաքածու',
   'settings.starterCollectionDesc': 'Ստեղծվել է կարգավորումներից՝ {{ts}}',
@@ -155,6 +201,8 @@ export const ui: UiTranslations = {
     'Դուք պատասխանատու եք ձեր գաղտնաբառի պաշտպանության համար: Անվճար կամ Pro պլաններում մեկ հաշիվը մի քանի մարդկանց հետ կիսելը թույլատրված չէ. համատեղ աշխատանքային տարածքների համար գնեք Team բաժանորդագրություն:',
   'terms.billing.body':
     'Վճարովի բաժանորդագրությունները ավտոմատ կերպով թարմացվում են յուրաքանչյուր հաշվարկային ժամանակահատվածում: Չեղարկեք Կարգավորումներից ցանկացած պահի. ձեր մուտքը շարունակվում է մինչև ընթացիկ ժամանակահատվածի ավարտը:',
+  'terms.intro':
+    '{{app}} հաշիվ ստեղծելով՝ դուք համաձայնում եք ստորև ներկայացված պայմաններին։ Կարդացեք մեկ անգամ. մենք ձեզ չենք զարմացնի հետադարձ փոփոխություններով։',
   'terms.title': 'Ծառայության պայմաններ',
   'terms.usage.body':
     'Մի օգտագործեք Pylon-ը այնպիսի ծառայություններին հարցումներ ուղարկելու համար, որոնք ձեզ չեն պատկանում կամ որոնց փորձարկման համար հստակ թույլտվություն չունեք: Մի օգտագործեք Pylon-ը սակագնային սահմանափակումները շրջանցելու կամ խարդախություն կատարելու համար:',
@@ -175,17 +223,23 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Չի գործարկվում',
   'testRunner.metric.passed': 'Հանձնված է',
   'testRunner.never': 'Երբեք չվազել',
+  'testRunner.newTest': 'Նոր թեստ',
   'testRunner.noAssertions': 'Այս թեստի վերաբերյալ դեռևս որևէ պնդում չկա։',
+  'testRunner.noRunsYet':
+    'Դեռ ոչ մի աշխատարկ չի գրանցվել — սեղմեք «Run all»՝ պատմությունը լրացնելու համար։',
   'testRunner.passed': 'անցում',
+  'testRunner.recentRuns': 'Վերջին վազքերը',
   'testRunner.runAll': 'Գործարկել բոլորը',
   'testRunner.running': 'Վազում եմ…',
   'testRunner.runOne': 'Վազել',
   'testRunner.subheading':
     'Հավաքածուի արդյունքները, պնդումների տարբերությունները և վերջին 50 գործարկումները։',
+  'testRunner.suites': 'Փաթեթներ',
   'userMenu.shortcut': '⌘Լ',
   'userMenu.signedInAs': 'Մուտք է գործել որպես',
   'workspace.auth.keyName': 'Վերնագրի անունը',
   'workspace.auth.keyValue': 'Հիմնական արժեք',
+  'workspace.auth.noneHint': 'Այս հարցման հետ ոչ մի լիազորման վերնագիր չի ուղարկվի։',
   'workspace.auth.password': 'Գաղտնաբառ',
   'workspace.auth.username': 'Օգտատիրոջ անուն',
   'workspace.authOption.apikey': 'API բանալի',
@@ -195,13 +249,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Տեսակ',
   'workspace.authTypeLabel': 'Հաստատման տեսակ',
+  'workspace.body.contentLabel': 'Հարցման տեքստ',
+  'workspace.body.hint':
+    '{{envVars}}-ը փոխարինվում են հարցումն ուղարկելուց առաջ։ Մարմինները ուղարկվում են POST/PUT/PATCH/DELETE-ով։',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Ոչ մեկը',
+  'workspace.body.noneHint':
+    'Հարցման մարմին չի ուղարկվի։ Ընտրեք JSON կամ հում տեքստ՝ մեկը ավելացնելու համար։',
   'workspace.body.text': 'Հում տեքստ',
   'workspace.body.type': 'Տեսակ',
   'workspace.environment': 'Առանց միջավայրի',
   'workspace.envVar': 'env փոփոխական',
   'workspace.eyebrow': '$ pylon աշխատանքային տարածք --pane բաժանում',
+  'workspace.failedCount': '{{count}} ձախողված',
+  'workspace.idle': 'Անգործուն',
   'workspace.kv.addHeader': 'Ավելացնել վերնագիր',
   'workspace.kv.addParam': 'Ավելացնել պարամետր',
   'workspace.kv.headerKey': 'Վերնագրի անունը',
@@ -214,12 +275,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP մեթոդ',
   'workspace.metric.latency': 'Լատենտություն',
   'workspace.metric.latencyCaption': 'Երկկողմանի ուղևորություն այս երթուղուց',
+  'workspace.metric.size': 'Օգտակար բեռ',
   'workspace.metric.sizeCaption': 'Պատասխանի մարմնի բայթերը',
   'workspace.metric.statusCaption': 'Վերջին պատասխանը',
   'workspace.metric.tests': 'Թեստեր',
+  'workspace.metric.testsAllPassing': 'Բոլոր պնդումները կանաչ են',
   'workspace.metric.testsFailing': '{{count}} ձախողում',
+  'workspace.metric.testsIdle': 'Ուղարկեք հարցում՝ գնահատելու համար',
   'workspace.noAssertions': 'Գործարկեք հարցում՝ ներկառուցված պնդումները գնահատելու համար։',
   'workspace.noResponseYet': 'Դեռևս պատասխան չկա',
+  'workspace.passedCount': '{{count}} անցավ',
   'workspace.responseHint':
     '// Սեղմեք «Ուղարկել»՝ հարցումն ակտիվացնելու և պատասխանը գրանցելու համար։',
   'workspace.saveError': 'Հնարավոր չէ պահպանել հարցումը։',
@@ -229,10 +294,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Կազմեք հարցում, գործարկեք այն, ապա հաստատեք պատասխանը՝ այս ամենը մեկ վահանակում։',
   'workspace.testResults': 'Թեստի արդյունքներ',
+  'workspace.tests.autoHint':
+    'Կարգավիճակի ընտանիքը, ուշացումը, մարմնի չափը և փոխադրման վիճակը ստուգվում են ավտոմատ կերպով — արդյունքները հայտնվում են պատասխանի վահանակի «Test results» բաժնում։',
+  'workspace.tests.autoTitle': 'Ներկառուցված պնդումները գործարկվում են ամեն պատասխանի վրա',
   'workspace.token': 'Թոքեն',
   'workspace.tokenHint':
     'Ուղարկվել է որպես լիազորագիր՝ կրող<token> այս հավաքածուի յուրաքանչյուր խնդրանքի համար։',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Անվերնագիր հարցում',
+  'workspace.urlLabel': 'Հարցում URL-ի համար',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

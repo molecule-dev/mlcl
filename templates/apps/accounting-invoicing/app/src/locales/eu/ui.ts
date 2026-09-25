@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Galderaren bat duzu, akats bat aurkitu duzu edo zure liburuak hona ekarri nahi dituzu? Jarri harremanetan {{app}} taldearekin hello@{{app}}.example helbidean — benetako pertsona batek irakurtzen du mezu bakoitza.',
   'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
+  'about.intro':
+    '{{app}} enpresa txikientzako kontabilitatea da, zentimo bakoitza kontuan hartzen duena — fakturak, gastuak, ordainketak eta txostenak leku bakarrean, lasai, jabeentzat, kontularitzako laguntzaileentzat eta kontularitzat.',
+  'about.missionBody':
+    'Negozio bat zuzentzeak ez luke zure liburuei beldurra izatea esan nahi. {{app}}-k kalkulu-orrien nahasmena zenbaki argiekin ordezkatzen du, horiei esker ekintzarako balio duten datuak izango dituzu; beraz, denbora gutxiago emango duzu kontziliatzen eta gehiago hasieran negozioa abiatzeko asmoa zenuen lanean.',
+  'about.missionTitle': 'Gure misioa',
   'about.title': '{{app}}(r)i buruz',
   'accounts.count': '{{count}} kontu',
+  'accounts.emptyBody':
+    'Liburu-kontuek dirua non dagoen eta nora mugitzen den jarraitzen dute. Hemen agertuko dira zure kontularitzako laguntzaileak edo integrazioak konfiguratzen dituenean.',
   'accounts.emptyTitle': 'Oraindik ez dago konturik',
   'accounts.heading': 'Kontuen taula',
   'accounts.kpi.accounts': 'Accounts',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Zure fakturak, gastuak eta ordainketak atzean dauden kontu-liburu guztiak, motaren arabera taldekatuta.',
   'accounts.tag.inactive': 'inaktibo',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Finantza-zuzendaria, Horizon Tech',
   'authBrandPanel.eyebrow': 'Finantza taldeen konfiantza',
   'authBrandPanel.label': 'Markaren erakusleihoa',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Bezero guztiak',
   'customerDetail.invoiceMeta': 'Jaulkipena {{issued}} · Ordaindu beharrekoa {{due}}',
   'customerDetail.loadError': 'Bezeroa kargatzea huts egin du.',
+  'customerDetail.missingBody':
+    'Eskatutako bezeroaren erregistroa ezin izan da kargatu. Baliteke kendu izana, edo agian ez duzu haren sarbiderik.',
   'customerDetail.missingHeading': 'Bezeroaren erregistroa ez dago erabilgarri',
+  'customerDetail.missingHelp':
+    'Erabili goiko itzultzeko esteka bezeroen zerrendara itzultzeko, edo aukeratu beste erregistro bat hortik.',
+  'customerDetail.noInvoices': 'Oraindik ez dago fakturarik.',
   'customerDetail.notesEmpty': 'Oraindik ez dago oharrik.',
   'customerDetail.paymentsEmpty': 'Ez da ordainketarik erregistratu.',
   'customerDetail.paymentTerms': 'Ordainketa-baldintzak',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Kenkaria',
   'expenseDetail.detailsHeading': 'Transakzioaren xehetasunak',
   'expenseDetail.loadError': 'Gastua kargatzea huts egin da.',
+  'expenseDetail.matched': 'Bateratuta · {{description}}',
   'expenseDetail.missingBody':
     'Eskatutako gastua ezin izan da kargatu. Baliteke kendu izana edo ez izatea bertara sartzeko aukerarik.',
   'expenseDetail.missingHeading': 'Gastuen erregistroa ez dago erabilgarri',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Ordainagiria',
   'expenseDetail.receiptHeading': 'Ordainagiria',
   'expenseDetail.reconciled': 'Adiskidetua',
+  'expenseDetail.unreconciled': 'Adiskidetu gabea',
   'expenses.empty': 'Gasturik ez oraindik.',
   'expenses.heading': 'Gastuak',
   'expenses.kpi.deductible': 'Kenkaria',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Fakturak kargatzea huts egin da.',
   'invoices.searchPlaceholder': 'Bilatu faktura zenbakia edo bezeroa…',
   'invoices.summary.paid': 'Aldi honetan ordainduta',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'Doan 30 egunez. Txartelik gabe. Ekarri zure kontu-hartzailea — eskertuko dizute.',
   'landing.ctaTitle': 'Eraman zure liburuak leku lasaiago batera.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Kobratzeko kontuak',
   'ledgerStatTriad.eyebrow.mtd': 'Hilabete honetakoa',
   'ledgerStatTriad.netSub': 'Sarea {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} atzeratuta',
   'ledgerStatTriad.revenueLabel': 'Diru-sarrerak',
   'login.failed': 'Saioa hastea huts egin du.',
   'login.hidePassword': 'Ezkutatu pasahitza',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Hasi saioa',
   'nav.legal': 'Legezko',
   'newExpense.back': 'Gastuak',
+  'newExpense.clearReceiptCta': 'Garbitu erantsitako ordainagiria',
   'newExpense.deductible': 'Zerga kenkaria',
   'newExpense.dropPrompt': 'Jaregin hemen ordainagiriaren argazkia edo PDF bat eransteko.',
   'newExpense.failed': 'Ezin izan da gastua aurreztu.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Ordainketak kargatzea huts egin da.',
   'payments.unmatchedTag': 'paregabea',
   'planUpdated.pageLabel': 'Planaren eguneratutako baieztapena',
+  'pricing.advancedFeatures': 'Eginbide aurreratuak: {{yes}}',
+  'pricing.canExport': 'Datuen esportazioa: {{yes}}',
+  'pricing.heading': 'Aukeratu zure {{app}} plana',
+  'pricing.maxAccounts': '{{count}} kontu',
+  'pricing.maxExpenses': '{{count}} gastuak',
+  'pricing.maxInvoices': '{{count}} faktura',
+  'privacy.intro':
+    'Pribatutasun-politika honek {{app}}-k zerbitzua erabiltzen duten enpresei buruzko informazioa nola biltzen, erabiltzen eta jakinarazten duen deskribatzen du.',
   'privacy.lastUpdated': 'Azken eguneraketa: {{data}}',
   'privacy.section.collected.body':
     'Kontuaren xehetasunak (izena, helbide elektronikoa, enpresa), igotzen dituzun finantza-erregistroak (fakturak, gastuak, bezeroak, ordainketak) eta zerbitzu-eragiketa estandarren erregistroak (IP helbidea, erabiltzaile-agentea, denbora-zigiluak) biltzen ditugu.',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Informazioa zerbitzua funtzionarazteko, eskatzen dituzun txostenak eta PDFak sortzeko, Mailgun bidez transakzio-mezu elektronikoak bidaltzeko eta Stripe bidez ordainketak prozesatzeko erabiltzen da. Ez dugu informazio pertsonalik saltzen edo alokatzen.',
   'recentInvoicesCard.dueMeta': 'Ordaindu beharrekoa {{date}}',
+  'recentInvoicesCard.empty': 'Ez dago bat datorren fakturarik.',
   'recentInvoicesCard.eyebrow': 'Kobratzeko kontuak',
   'recentInvoicesCard.searchAriaLabel': 'Bilatu fakturak',
+  'recentInvoicesCard.searchPlaceholder': 'Bilatu fakturak…',
   'recentInvoicesCard.title': 'Azken fakturak',
   'recentInvoicesCard.viewAll': 'Ikusi faktura guztiak →',
   'reports.assets': 'Aktiboak',
@@ -181,16 +211,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Irabaziak eta galerak (12 hilabete)',
   'resetPassword.backToLogin': '← Saioa hasi atalera itzuli',
   'resetPassword.hidePassword': 'Ezkutatu pasahitza',
+  'resetPassword.passwordLabel': 'Pasahitz berria',
   'resetPassword.showPassword': 'Erakutsi pasahitza',
+  'resetPassword.subheading': 'Aukeratu pasahitz sendoa — gutxienez zortzi karaktere.',
   'resetPassword.submit': 'Pasahitza berrezarri',
   'resetPassword.tooShort': 'Pasahitzak gutxienez 8 karaktere izan behar ditu.',
   'settings.account.changePassword': 'Pasahitza aldatu',
   'settings.account.changingPassword': 'Aldatzen…',
   'settings.account.currentPassword': 'Uneko pasahitza',
+  'settings.account.dangerZone': 'Arrisku-eremua',
   'settings.account.deleteAccount': 'Ezabatu kontua',
   'settings.account.deleteDescription':
     'Ezabatu betiko zure kontua eta harekin lotutako datu guztiak.',
   'settings.account.deleteError': 'Kontua ezabatzea huts egin da.',
+  'settings.account.deleteWarning':
+    'Honek zure kontua behin betiko ezabatuko du eta ezin da desegin. Sartu zure pasahitza berresteko.',
   'settings.account.deleting': 'Ezabatzen…',
   'settings.account.devices': 'Gailuak',
   'settings.account.email': 'Posta elektronikoa',
@@ -201,6 +236,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Pasahitza',
   'settings.account.passwordError': 'Pasahitza aldatzea huts egin da.',
   'settings.account.pushNotifications': 'Push jakinarazpenak gailu honetan',
+  'settings.account.revokeDeviceWarning':
+    'Gailu honen sarbidea laster kendu egingo da. Itxi saioa?',
   'settings.account.saveError': 'Ezin izan da profila eguneratu.',
   'settings.account.security': 'Segurtasuna',
   'settings.account.signOutDevice': 'Saioa itxi',
@@ -208,12 +245,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Bi faktoreko autentifikazioa',
   'settings.account.twoFactorCode': 'Autentifikazio kodea',
   'settings.account.twoFactorDisable': 'Desgaitu',
+  'settings.account.twoFactorDisableTitle': 'Desgaitu bi faktoreko autentifikazioa',
   'settings.account.twoFactorEnable': 'Gaitu',
+  'settings.account.twoFactorEnableTitle': 'Gaitu bi faktoreko autentifikazioa',
   'settings.account.twoFactorInvalidCode': 'Kode baliogabea',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'Bi faktoreko QR kodea',
+  'settings.account.twoFactorScan':
+    'Eskaneatu QR kode hau zure autentifikazio-aplikazioarekin, eta gero sartu 6 digituko kodea.',
+  'settings.account.twoFactorUnavailable':
+    'Bi faktoreko autentifikazioa ez dago erabilgarri aplikazio honetarako.',
   'settings.account.twoFactorVerify': 'Egiaztatu eta gaitu',
   'settings.account.unknownDevice': 'Gailu ezezaguna',
   'settings.company.email': 'Fakturazio-helbide elektronikoa',
+  'settings.company.heading': 'Enpresa eta zergak',
   'settings.company.name': 'Izen legala',
   'settings.company.saveButton': 'Gorde enpresaren profila',
   'settings.company.taxId': 'Zerga IDa / EIN',
@@ -257,6 +302,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Hiruhilekoan kalkulatutakoa',
   'taxes.kpi.owed': 'Zorra',
   'taxes.loadError': 'Ezin izan da zerga laburpena kargatu.',
+  'taxes.remittedPct': '({{pct}}% ordainduta)',
+  'terms.intro':
+    'Zerbitzu-baldintza hauek ("Baldintzak") {{app}}-ra sartzea eta hura erabiltzea arautzen dute. Kontu bat sortzean edo zerbitzua erabiltzean, haiek betetzeko konpromisoa hartzen duzu.',
   'terms.lastUpdated': 'Azken eguneraketa: {{data}}',
   'terms.section.acceptable.body':
     'Zerbitzua ez erabiltzea onartzen duzu legeak urratzeko, jabetza intelektualaren eskubideak urratzeko, malwarea transmititzeko edo beste kontu batzuetara edo gure azpiegituretara baimenik gabe sartzeko saiakerarik egiteko.',

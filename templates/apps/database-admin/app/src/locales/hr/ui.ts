@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Razgovarajte s nama',
   'about.eyebrow': 'Oko',
+  'about.featureConnections':
+    'Upravitelj veza koji sigurno pohranjuje vaše baze podataka i označava ih bojama — vjerodajnice su šifrirane na disku, nikad u običnom tekstu.',
+  'about.featureMonitoring':
+    'Praćenje izvedbe upita i aktivnosti baze podataka uživo, uz tipkovničke prečace i paletu naredbi za upravljanje bez ruku.',
+  'about.featurePlans':
+    'Planovi koji rastu s vama — Free za samostalan rad, Pro i Team za više veza, dulje zadržavanje upita, izvoz i napredne značajke.',
+  'about.featureQueryEditor':
+    'SQL uređivač pokretan Monacom s poviješću upita, spremljenim upitima i izvozom rezultata u CSV jednim klikom.',
+  'about.featureSchema':
+    'Preglednik sheme i tablica za navigaciju bazama podataka, tablicama i stupcima, te pregledavanje, filtriranje i uređivanje redaka izravno u tablici.',
+  'about.missionTitle': 'Naša misija',
   'authShell.commands': 'Naredbe',
   'authShell.ssoSupported': 'Podržana je jednokratna prijava (SSO)',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Upiti',
   'connections.schema': 'Shema',
   'connections.subtitle': 'Upravljajte vezama s bazom podataka.',
+  'connections.test': 'Test',
   'databaseAdminLayout.adminRole': 'Administratorska uloga',
   'databaseAdminLayout.commandPalette': 'Paleta naredbi',
   'databaseAdminLayout.commands': 'naredbe',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Nova veza',
   'databaseAdminLayout.queries': 'Upiti',
   'databaseAdminLayout.ready': 'Spreman',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Pretraži naredbe, upite, tablice…',
   'databaseAdminLayout.user': 'Korisnik',
   'editConnection.confirmDelete': 'Izbrisati ovu vezu?',
   'editConnection.deleteButton': 'Izbriši vezu',
+  'editConnection.newPassword': 'Nova lozinka (ostavite prazno za zadržavanje)',
   'editConnection.saved': 'Veza spremljena.',
   'editConnection.title': 'Uredi vezu',
   'forgotPassword.success': 'Ako taj račun postoji, link za resetiranje je na putu.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Uspjesi',
   'monitoring.title': 'Praćenje',
   'monitoring.totalQueries': 'Ukupno upita',
+  'nav.schema': 'Shema',
   'newConnection.database': 'Baza podataka',
   'newConnection.engine': 'Motor',
   'newConnection.host': 'Domaćin',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Nema veze s ovim isječkom.',
   'savedQuery.notBound': 'Nije vezano',
   'savedQuery.title': 'Spremljeni upit',
+  'schema.columns': 'Kolumne',
   'schema.foreignKeys': 'Strani ključevi',
   'schema.indexes': 'Indeksi',
   'schemaExplorer.browseRows': 'Pregledaj retke',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'null-mogućnost',
   'schemaExplorer.colType': 'tip',
   'schemaExplorer.noColumns': 'Nema stupaca.',
+  'schemaExplorer.noForeignKeys': 'Nema stranih ključeva.',
   'schemaExplorer.noIndexes': 'Nema indeksa.',
   'schemaExplorer.noTables': 'Nema stolova',
   'schemaExplorer.pickATable': 'Odaberite stol s bočne trake.',
   'schemaExplorer.tables': 'Tablice',
   'schemaExplorer.title': 'Preglednik shema',
+  'settings.session': 'Sjednica',
   'settings.subtitle': 'Upravljajte svojim računom i planom.',
   'signup.heading': 'Izradite svoj Quarry račun',
   'signup.tagline': 'Omogućite pristup za manje od minute.',
   'tableBrowser.noRows': 'Ova tablica još nema redaka.',
+  'tableBrowser.subtitle': 'Pregledavanje redaka iz vaše udaljene baze podataka.',
   'tableBrowser.title': 'Pregledavanje redaka iz vaše udaljene baze podataka.',
 }

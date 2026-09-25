@@ -1,19 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens preguntes, comentaris o vols demanar una funcionalitat? Escriu a l'equip a hello@murmur.app — cada missatge arriba a una persona real que treballa en el producte.",
   'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre nosaltres',
+  'about.intro':
+    "{{app}} és intel·ligència de reunions per a equips que prefereixen prendre decisions que prendre apunts. S'uneix a les teves trucades, transcriu cada paraula amb etiquetes de parlant i envia un resum d'IA i tasques assignades just quan acaba la reunió.",
+  'about.missionBody':
+    'Les reunions són on els equips decideixen coses — i on aquestes decisions es perden. {{app}} existeix per assegurar que la feina que passa en una conversa sobrevisqui a la conversa: un registre fidel, un resum clar i passos següents amb responsables, automàticament.',
+  'about.missionTitle': 'La nostra missió',
   'actions.empty': 'No hi ha cap element d’acció coincident.',
   'actions.heading': 'Elements d’acció',
   'actions.loadError': 'No s’han pogut carregar els elements d’acció.',
   'actions.subheading': 'Agregat a cada reunió. Filtra per estat per centrar-te.',
   'actions.toggleDoneLabel': 'Marca com a fet',
   'actions.toggleReopenLabel': 'Marca com a obert',
+  'auth.footer': '© {{year}} {{app}}. Cada paraula, destil·lada.',
   'calendar.heading': 'Calendari',
   'calendar.joinCta': 'Uneix-te',
   'calendar.loadError': 'No s’ha pogut carregar el calendari.',
   'calendar.nextMonth': 'El mes que ve',
   'calendar.noEventsForDay': 'No hi ha reunions programades per a aquest dia.',
+  'calendar.noUpcomingEvents':
+    "No hi ha reunions properes. Connecta un calendari des d'Integracions per omplir aquesta llista.",
   'calendar.previousMonth': 'Mes anterior',
   'calendar.recent': 'Recent',
   'common.daysAgo': '{{count}} fa uns dies',
@@ -25,9 +35,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} elements d’acció',
   'dashboard.empty.body':
     'Inicia una gravació o connecta Google Calendar perquè Murmur s’uneixi automàticament a la teva propera reunió.',
+  'dashboard.empty.cta': 'Comença a gravar',
   'dashboard.empty.heading': 'Encara no hi ha reunions',
   'dashboard.eyebrow': 'El vostre canal de reunions',
   'dashboard.loadError': "No s'ha pogut carregar el tauler de control.",
+  'dashboard.noActions': 'Sense accions',
   'dashboard.recentHeading': 'Reunions recents',
   'dashboard.recordCta': 'Gravar la reunió',
   'dashboard.stat.actions': 'Elements d’acció',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} resums no llegits des de l’última vegada que ho vau comprovar. Murmur ha capturat cada paraula; aquí teniu el resum.',
   'dashboard.viewCalendar': 'Veure calendari →',
+  'footer.linksLabel': 'Peu de pàgina',
   'forgot.failed': 'No s’ha pogut enviar el correu electrònic de restabliment.',
   'forgot.sentBody':
     'Si existeix un compte per a {{email}}, aviat rebràs un enllaç de restabliment.',
@@ -49,14 +62,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Connecta calendaris i plataformes de vídeo perquè Murmur s’uneixi automàticament.',
   'integrations.updateError': 'Error en actualitzar.',
+  'landing.ctaBody':
+    "Gratuït per a les primeres 5 reunions de cada mes. Sense targeta de crèdit. Connecta Google Calendar en menys d'un minut.",
   'landing.ctaButton': 'Comença — és gratuït',
   'landing.ctaHeading': 'Deixa de prendre notes. Comença a prendre decisions.',
+  'landing.demo.aiBody':
+    'Llançament ajornat del 5 de maig → 12 de maig per donar marge de personal a operacions. El redisseny del tauler se separa al 26 de maig.',
   'landing.demo.aiLabel': 'Resum d’IA, redactat en directe',
   'landing.demo.recording': 'Gravació · en directe',
   'landing.eyebrow': 'Intel·ligència de reunions amb IA',
   'landing.featuresHeading': 'Tot el que el teu equip necessita després que acabi la reunió',
+  'landing.featuresSubheading':
+    "S'ha acabat allò de \"espera, qui s'encarrega d'això?\". {{appName}} envia el resum abans que es desconnecti la trucada.",
   'landing.getStarted': 'Prova gratis',
   'landing.heroSecondary': 'Mira la gira de 90 segons',
+  'landing.heroSubtitle':
+    "{{tagline}}. {{appName}} s'uneix a les teves trucades, transcriu cada paraula amb etiquetes de parlant i envia resums d'IA i tasques assignades just quan acaba la reunió.",
   'landing.heroTitle': 'Captura cada reunió. Destaca allò que importa.',
   'login.altPrompt': 'Ets nou a Murmur?',
   'login.failed': 'No s’ha pogut iniciar la sessió. Revisa el correu electrònic i la contrasenya.',
@@ -64,6 +85,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Elements d’acció',
   'meetingDetail.back': 'Totes les reunions',
   'meetingDetail.decisionsHeading': 'Decisions',
+  'meetingDetail.dueDate': 'venciment {{date}}',
   'meetingDetail.followupsHeading': 'Seguiments',
   'meetingDetail.loadError': 'No s’ha pogut carregar la reunió.',
   'meetingDetail.noActions': 'No s’han detectat elements d’acció.',
@@ -77,7 +99,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Encara no hi ha reunions',
   'meetings.heading': 'Reunions',
   'meetings.loadError': 'No s’han pogut carregar les reunions.',
+  'meetings.recordCta': 'Gravar la reunió',
   'meetings.subheading': 'Totes les reunions enregistrades, penjades i sincronitzades.',
+  'murmurLayout.closeMenu': 'Tanca el menú de navegació',
   'murmurLayout.openMenu': 'Obre el menú de navegació',
   'murmurLayout.primaryNavLabel': 'Navegació principal',
   'nav.legal': 'Legal',
@@ -103,7 +127,14 @@ export const ui: UiTranslations = {
   'profile.loading': 'S’està carregant…',
   'profile.navLabel': 'Seccions de perfil',
   'profile.notifications.assignments': 'Elements d’acció que m’han assignat',
+  'profile.notifications.assignmentsHint': "Avisa'm quan es capturi una tasca per a mi.",
+  'profile.notifications.mentions': 'Mencions a les transcripcions',
+  'profile.notifications.mentionsHint': 'Correu + notificació push quan algú et menciona amb @.',
+  'profile.notifications.subheading': 'Tria quins esdeveniments de {{appName}} vols rebre.',
   'profile.notifications.summaries': 'Resum setmanal',
+  'profile.notifications.summariesHint':
+    'Un resum de dilluns de totes les reunions de la setmana passada.',
+  'profile.preferences.speakerColor': 'Color de parlant per defecte',
   'profile.preferences.subheading':
     'Valors predeterminats que s’apliquen a cada gravació a la qual t’uneixes.',
   'profile.preferences.timezone': 'Zona horària',
@@ -115,16 +146,21 @@ export const ui: UiTranslations = {
   'record.error.recorder': 'Error de la gravadora',
   'record.error.unsupported': 'El teu navegador no admet la gravació. Prova Chrome, Edge o Safari.',
   'record.error.upload': 'La càrrega ha fallat. Torna-ho a provar.',
+  'record.errorLabel': 'Alguna cosa ha anat malament',
   'record.heading': 'Registre',
   'record.idleLabel': 'Toca per començar a gravar',
   'record.processingLabel': 'Transcrivint amb Whisper, resumint amb Claude…',
+  'record.recordingLabel': 'Registrant…',
   'record.retryCta': 'Torna-ho a intentar',
   'record.subheading':
     'Prem el micròfon per començar. Murmur captura l’àudio, el transcriu amb Whisper i escriu un resum amb tecnologia de Claude.',
+  'record.titlePlaceholder': 'Títol de la reunió (opcional)',
+  'reset.altPrompt': "Has canviat d'opinió?",
   'reset.hint': 'Utilitzeu com a mínim 8 caràcters amb una barreja de lletres i números.',
   'reset.missingToken': 'Falta l’enllaç de restabliment o ha caducat. Sol·licita’n un de nou.',
   'reset.newPassword': 'Nova contrasenya',
   'reset.subheading': 'Trieu una contrasenya que no utilitzeu enlloc més.',
+  'reset.tooShort': 'La contrasenya ha de tenir com a mínim 8 caràcters.',
   'search.empty': 'Escriu per cercar transcripcions.',
   'search.loadError': 'La cerca ha fallat. Torna-ho a intentar.',
   'search.noResults': 'No hi ha resultats per a " {{q}} ".',
@@ -140,7 +176,10 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Mantingueu l’àudio per a',
   'settings.retention.heading': 'Retenció',
   'settings.retention.transcript': 'Conserva les transcripcions per a',
+  'settings.revokeDeviceWarning':
+    "L'accés d'aquest dispositiu es revocarà aviat. Voleu tancar la sessió?",
   'settings.saveError': "No s'ha pogut desar.",
+  'settings.security.subheading': 'Actualitza la contrasenya que fas servir per iniciar sessió.',
   'settings.sharing.exportFormat': 'Format d’exportació',
   'settings.sharing.heading': 'Valors predeterminats de compartició',
   'settings.sharing.scope': 'Àmbit de compartició predeterminat',
@@ -158,6 +197,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Convida un company d’equip',
   'team.invitedAs': 'Convidat com a {{role}}',
   'team.inviteFailed': 'No s’ha pogut enviar la invitació.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'Enviar invitació',
   'team.inviteSubtitle': 'Rebran un correu electrònic amb un enllaç per unir-s’hi.',
   'team.inviteTitle': 'Convida un company d’equip',

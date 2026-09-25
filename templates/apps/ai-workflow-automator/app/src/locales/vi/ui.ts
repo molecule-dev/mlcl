@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite là một nền tảng tự động hóa quy trình làm việc kết nối các trình kích hoạt, điều kiện AI và hành động nhiều bước với nhau để các nhóm có thể di chuyển công việc giữa các hệ thống mà không cần viết mã kết dính.',
+  'about.philosophy':
+    'Mỗi quy trình là một đồ thị gồm các bước nhỏ, có thể quan sát. Mỗi bước ghi lại đầu vào, đầu ra và thời gian để có thể kiểm tra, phát lại hoặc khôi phục. Kết hợp chúng trực quan, đánh phiên bản như mã nguồn.',
   'about.title': 'Giới thiệu về Dendrite',
   'authShell.brand': 'Dendrite',
   'authShell.support': 'Hỗ trợ',
@@ -14,9 +16,15 @@ export const ui: UiTranslations = {
   'billing.cancelPlan': 'Hủy gói',
   'billing.changePlan': 'Đổi gói',
   'billing.description': 'Theo dõi mức sử dụng, quản lý gói của quý vị và lấy hóa đơn cho kế toán.',
+  'billing.eyebrow': 'Tài khoản · Gói & mức sử dụng',
+  'billing.failedLabel': 'Lần chạy thất bại · 24 giờ',
+  'billing.invoicesEmpty':
+    'Chưa có hóa đơn nào. Chúng sẽ xuất hiện ở đây sau lần gia hạn trả phí đầu tiên.',
   'billing.invoicesTitle': 'Lịch sử hóa đơn',
   'billing.planNoteFree':
     'Cấp miễn phí — {{runs}} lần chạy và {{workflows}} quy trình đang hoạt động. Nâng cấp để có giới hạn cao hơn.',
+  'billing.planNotePaid':
+    'Gói trả phí — {{runs}} lần chạy và {{workflows}} quy trình đang hoạt động.',
   'billing.runsLabel': 'Số lần chạy trong 24 giờ qua',
   'billing.tiersBlurb':
     'So sánh từng cấp — số lần chạy, quy trình đang hoạt động, tính năng nâng cao và hỗ trợ — trên trang định giá chuyên biệt.',
@@ -34,10 +42,14 @@ export const ui: UiTranslations = {
     'Không có tích hợp nào được đăng ký. Cấu hình khóa nhà cung cấp để kích hoạt bond.',
   'connections.error': 'Không thể tải kết nối.',
   'connections.eyebrow': 'Tích hợp · {{connected}} đã kết nối',
+  'connections.loading': 'Đang tải tích hợp…',
+  'connections.openEnv':
+    'Để kết nối nhà cung cấp này, hãy đặt khóa API của nó trong api/.env và khởi động lại máy chủ.',
   'dashboard.description':
     '{{active}} quy trình đang hoạt động. {{failed}} thất bại trong 24 giờ qua.',
   'dashboard.error': 'Không thể tải bảng điều khiển.',
   'dashboard.eyebrow': 'Vận hành · trực tiếp',
+  'dashboard.hero.label': 'Lần chạy hôm nay',
   'dashboard.hero.medianLatency': 'Độ trễ p50',
   'dashboard.hero.queue': 'Độ sâu hàng đợi',
   'dashboard.hero.success': 'Thành công',
@@ -45,13 +57,16 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Thời lượng trung vị',
   'dashboard.kpi.failedRuns': 'Thất bại · 24h',
   'dashboard.kpi.outOf': 'trong tổng số {{total}}',
+  'dashboard.kpi.successRate': 'Tỷ lệ thành công · 24 giờ',
   'dashboard.loading': 'Đang tải bảng điều khiển…',
   'dashboard.recentRuns.empty':
     'Chưa có lần chạy nào. Kích hoạt một quy trình sẽ điền đầy nguồn cấp này.',
   'dashboard.recentRuns.title': 'Lần chạy gần đây',
   'dashboard.recentRuns.viewAll': 'Mở thực thi →',
+  'dashboard.recentWorkflows.browse': 'Duyệt mẫu →',
   'dashboard.recentWorkflows.empty': 'Chưa có quy trình nào. Cài đặt một mẫu hoặc xây dựng từ đầu.',
   'dashboard.recentWorkflows.title': 'Đã chạy gần đây',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'Bắt đầu',
   'dashboard.run.col.trigger': 'Trình kích hoạt',
   'dashboard.run.col.workflow': 'Quy trình',
@@ -87,6 +102,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Quy trình',
   'executions.description':
     'Mỗi lần chạy quy trình, mỗi lần thử lại, mỗi đầu ra bước — tất cả đều có thể quan sát.',
+  'executions.empty.filter': 'Không có lần chạy nào khớp với bộ lọc này.',
   'executions.empty.first':
     'Chưa có lần chạy nào — kích hoạt một quy trình để điền vào danh sách này.',
   'executions.error': 'Không thể tải thực thi.',
@@ -97,30 +113,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Đang tải lịch sử lần chạy…',
   'executions.title': 'Thực thi',
   'forgotPassword.confirmation': 'Liên kết đặt lại đã gửi đến {{email}}.',
+  'forgotPassword.subhead': 'Nhập email của bạn để nhận liên kết đặt lại.',
   'forgotPassword.successSubhead':
     'Chúng tôi đã gửi liên kết đặt lại đến {{email}}. Hết hạn sau 30 phút.',
   'help.connections.body':
     'Các bước AI, email và lưu trữ yêu cầu các khóa nhà cung cấp được đặt trong tệp api/.env. Khi một khóa được cấu hình, tích hợp tương ứng sẽ xuất hiện như đã kết nối trên trang Kết nối.',
+  'help.connections.cta': 'Mở kết nối →',
   'help.connections.title': 'Kết nối nhà cung cấp',
   'help.gettingStarted.body':
     'Các quy trình mới có thể được cài đặt từ thư viện mẫu hoặc xây dựng từ đầu trong trình tạo quy trình. Mỗi quy trình có một trình kích hoạt (thủ công, webhook hoặc cron) và một chuỗi các bước chạy theo thứ tự.',
+  'help.gettingStarted.cta': 'Duyệt thư viện mẫu →',
+  'help.gettingStarted.title': 'Bắt đầu',
   'help.intro':
     'Tìm câu trả lời cho các câu hỏi phổ biến về xây dựng quy trình, cấu hình kết nối và diễn giải đầu ra của lần chạy. Các chủ đề phổ biến nhất được liệt kê bên dưới; đối với bất kỳ vấn đề nào không được đề cập, vui lòng liên hệ với quản trị viên không gian làm việc.',
   'help.runs.body':
     'Mỗi lần chạy ghi lại mỗi bước một cách độc lập với trạng thái (thành công, thất bại, đã bỏ qua) và một đoạn đầu ra. Trang chi tiết thực thi hiển thị toàn bộ dấu vết từng bước cộng với các số liệu được suy ra.',
+  'help.runs.cta': 'Mở thực thi →',
   'help.runs.title': 'Đọc đầu ra lần chạy',
   'help.title': 'Trung tâm trợ giúp',
   'integrationCard.manage': 'Quản lý',
   'landing.brand': 'Dendrite',
   'landing.demo.action.subtitle': 'Round-robin · lãnh thổ',
+  'landing.demo.action.title': 'Thông báo cho nhân viên',
   'landing.demo.condition.subtitle': 'Bộ phân loại ý định AI',
+  'landing.demo.condition.title': 'Điểm ≥ trung bình?',
   'landing.demo.trigger.subtitle': 'POST /forms/contact',
   'landing.demo.trigger.title': 'Webhook gửi đến',
+  'landing.features.body':
+    'Trigger kích hoạt. Điều kiện rẽ nhánh. Hành động hoàn tất công việc. Kết hợp chúng trực quan, đánh phiên bản như mã nguồn.',
   'landing.features.heading': 'Ba loại nút. Vô số hình dạng.',
   'landing.footer.help': 'Trợ giúp',
   'landing.footer.tagline': 'Trí tuệ trong chuyển động',
+  'landing.hero.body':
+    '{{appName}} là công cụ quy trình dành cho các đội vận hành đã vượt qua Zapier. Trigger, điều kiện, hành động — kết nối với mọi hệ thống bạn thực sự dùng.',
   'landing.hero.eyebrow': 'Trí tuệ trong chuyển động',
   'landing.hero.headline': 'Kết nối ngăn xếp của quý vị. Hãy để công việc tự diễn ra.',
+  'landing.hero.primaryCta': 'Tạo quy trình đầu tiên của bạn',
   'landing.hero.proof.ai': 'Nút AI tích hợp sẵn',
   'landing.hero.proof.free': 'Miễn phí cho 1k lần chạy/tháng',
   'landing.hero.proof.soc2': 'SOC 2 Type II',
@@ -128,10 +156,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Trả tiền cho lần chạy, không phải chỗ ngồi.',
   'landing.templates.body':
     'Quy trình được nối sẵn cho mọi nhóm — bán hàng, hỗ trợ, dev-ops, tài chính. Cài đặt bằng một cú nhấp; điều chỉnh bất cứ thứ gì.',
+  'landing.templates.cta': 'Đăng ký để duyệt mẫu →',
   'landing.templates.eyebrow': 'Bắt đầu trong vài giây',
   'landing.templates.heading': 'Một thư viện các công thức đã được kiểm chứng.',
   'landing.templates.signupHint': 'Đăng ký để cài đặt',
   'login.hidePassword': 'Ẩn mật khẩu',
+  'login.noAccount': 'Mới đến Tessera?',
   'login.showPassword': 'Hiển thị mật khẩu',
   'login.subhead': 'Đăng nhập để duy trì các tự động hóa của quý vị.',
   'mobileNav.drawerLabel': 'Điều hướng chính',
@@ -147,8 +177,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Chạy một quy trình để bắt đầu điền vào nguồn cấp này.',
   'notifications.empty.title': 'Quý vị đã cập nhật tất cả',
   'notifications.eyebrow': '{{n}} chưa đọc',
+  'planUpdated.body':
+    'Thay đổi thanh toán của bạn đã có hiệu lực. Bạn có thể quản lý gói của mình bất cứ lúc nào từ trang thanh toán.',
+  'planUpdated.retry': 'Thử lại',
+  'planUpdated.verifyFailed': 'Chúng tôi chưa thể xác nhận thanh toán của bạn.',
+  'planUpdated.verifyFailedBody':
+    'Giao dịch thanh toán của bạn có thể vẫn đang được xử lý. Vui lòng thử lại sau một lát.',
   'planUpdated.verifying': 'Đang xác nhận thanh toán…',
   'pricing.heading': 'lần chạy',
+  'pricing.runsSuffix': 'lần chạy',
   'pricing.workflowsSuffix': 'quy trình',
   'privacy.collect.body':
     'Chúng tôi thu thập địa chỉ email quý vị đăng ký, các quy trình quý vị cấu hình và siêu dữ liệu về mỗi lần chạy (thời gian bắt đầu, thời gian kết thúc, trạng thái). Chúng tôi không bao giờ thu thập hoặc lưu trữ nội dung payload từ các trình kích hoạt hoặc đầu ra bước ngoài những gì cần thiết để hiển thị trong trình xem lần chạy cho chủ sở hữu không gian làm việc.',
@@ -164,12 +201,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Không thể cập nhật mật khẩu.',
   'resetPassword.newPassword': 'Mật khẩu mới',
   'resetPassword.subhead': 'Chọn thứ gì đó chỉ quý vị mới đoán được.',
+  'settings.appearance.description': 'Chuyển đổi giữa chế độ sáng và tối.',
+  'settings.appearance.title': 'Giao diện',
   'settings.billingShortcut.cta': 'Mở lập hóa đơn',
   'settings.billingShortcut.description':
     'Gói, mức sử dụng và hóa đơn nằm trên trang lập hóa đơn chuyên biệt.',
   'settings.danger.confirm':
     'Quý vị có chắc không? Điều này sẽ xếp hàng không gian làm việc của quý vị để xóa.',
   'settings.danger.confirmYes': 'Có, xếp hàng xóa',
+  'settings.danger.deleteWorkspace.cta': 'Xóa không gian làm việc',
   'settings.danger.deleteWorkspace.hint':
     'Xóa tất cả quy trình, lần chạy và kết nối sau thời gian gia hạn 14 ngày.',
   'settings.danger.deleteWorkspace.title': 'Xóa không gian làm việc',
@@ -180,9 +220,14 @@ export const ui: UiTranslations = {
     'Quản lý tài khoản, không gian làm việc, tích hợp và lập hóa đơn của quý vị tại một nơi.',
   'settings.notifications.description':
     'Chọn sự kiện nào sẽ gọi quý vị, gửi email cho quý vị hoặc giữ im lặng.',
+  'settings.notifications.failures.hint':
+    'Thông báo qua email và trong ứng dụng mỗi khi có lần chạy thất bại.',
+  'settings.notifications.failures.title': 'Lỗi quy trình',
   'settings.notifications.product.hint': 'Email thỉnh thoảng về các mẫu và tính năng mới.',
+  'settings.notifications.product.title': 'Cập nhật sản phẩm',
   'settings.notifications.weekly.hint':
     'Tóm tắt sáng thứ Hai về các lần chạy và tiết kiệm trong tuần trước.',
+  'settings.notifications.weekly.title': 'Tóm tắt hàng tuần',
   'settings.profile.description':
     'Cách quý vị xuất hiện trong trình chạy quy trình. Được sử dụng trong hoạt động không gian làm việc.',
   'settings.profile.noEmail': 'Không có email nào được ghi lại',
@@ -190,12 +235,23 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Không thể lưu các thay đổi hồ sơ.',
   'settings.profile.unnamedUser': 'Người dùng không tên',
   'settings.security.audit.hint': 'Truyền mọi hành động đến SIEM của quý vị qua webhook.',
+  'settings.security.audit.title': 'Chuyển tiếp nhật ký kiểm toán',
   'settings.security.description': 'Xác thực hai yếu tố, SSO và phiên hoạt động.',
   'settings.security.sso.hint': 'Khả dụng trên gói Scale và Enterprise.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'Bắt buộc cho mọi hành động của chủ sở hữu không gian làm việc.',
+  'settings.security.totp.title': 'Xác thực hai yếu tố (TOTP)',
   'settings.twoFactorCode': 'Mã xác thực',
   'settings.twoFactorDisable': 'Vô hiệu hóa',
+  'settings.twoFactorDisableTitle': 'Tắt xác thực hai yếu tố',
   'settings.twoFactorEnable': 'Kích hoạt',
+  'settings.twoFactorEnableTitle': 'Bật xác thực hai yếu tố',
   'settings.twoFactorInvalidCode': 'Mã không hợp lệ',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Mã QR xác thực hai yếu tố',
+  'settings.twoFactorScan':
+    'Quét mã QR này bằng ứng dụng xác thực của bạn, sau đó nhập mã 6 chữ số.',
+  'settings.twoFactorUnavailable': 'Ứng dụng này không hỗ trợ xác thực hai yếu tố.',
   'settings.twoFactorVerify': 'Xác minh và kích hoạt',
   'settings.workspace.description':
     'Danh tính, khu vực và các mặc định lần chạy được chia sẻ cho nhóm của quý vị.',
@@ -224,6 +280,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Mẫu',
   'templates.description':
     'Sơ đồ được tạo sẵn cho các tự động hóa phổ biến nhất. Phân nhánh, tùy chỉnh, vận chuyển.',
+  'templates.empty.filter': 'Không có mẫu nào khớp với tìm kiếm của bạn.',
   'templates.empty.first': 'Không có mẫu nào hiện có.',
   'templates.error': 'Không thể tải mẫu.',
   'templates.installs': 'lần cài đặt',
@@ -249,6 +306,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Vô hiệu hóa',
   'workflowBuilder.enable': 'Bật',
   'workflowBuilder.error': 'Không thể tải quy trình.',
+  'workflowBuilder.inspector.config': 'Cấu hình',
+  'workflowBuilder.inspector.cron': 'Biểu thức Cron',
+  'workflowBuilder.inspector.disabled': 'Đã tắt — sẽ không chạy tự động.',
   'workflowBuilder.inspector.enabled': 'Đã bật — chạy khi được kích hoạt.',
   'workflowBuilder.inspector.eyebrow': 'Trình kiểm tra',
   'workflowBuilder.inspector.id': 'ID',
@@ -266,18 +326,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Chuyển đổi thất bại.',
   'workflowBuilder.workflow': 'Quy trình · v{{v}}',
   'workflowBuilder.zoom.in': 'Phóng to',
+  'workflowBuilder.zoom.label': 'Điều khiển thu phóng khung vẽ',
+  'workflowBuilder.zoom.out': 'Thu nhỏ',
   'workflowCard.lastRun': 'Lần chạy cuối {{when}}',
   'workflowCard.runs': '{{count}} lần chạy',
+  'workflowCard.success': '{{rate}}% thành công',
   'workflowHeroCard.last24h': '24h qua',
+  'workflows.browseTemplates': 'Duyệt mẫu →',
   'workflows.description':
     'Mọi tự động hóa trong không gian làm việc của quý vị, với tình trạng và hoạt động gần đây trong nháy mắt.',
+  'workflows.empty.body': 'Hãy thử xóa bộ lọc hoặc bắt đầu từ một mẫu.',
   'workflows.empty.firstBody': 'Cài đặt một mẫu để bắt đầu trong vài giây.',
   'workflows.empty.firstTitle': 'Chưa có quy trình nào',
   'workflows.empty.title': 'Không có quy trình nào khớp',
   'workflows.error': 'Không thể tải quy trình.',
   'workflows.eyebrow': 'Thư viện · tổng cộng {{count}}',
+  'workflows.loading': 'Đang tải quy trình…',
   'workflows.newFromTemplate': 'Mới từ mẫu',
   'workflows.searchPlaceholder': 'Tìm kiếm quy trình…',
+  'workflows.title': 'Quy trình',
   'workflowSidebar.brand': 'Dendrite',
   'workflowSidebar.status': 'Tất cả hệ thống đang chạy',
   'workflowSidebar.tagline': 'Trí tuệ trong chuyển động',

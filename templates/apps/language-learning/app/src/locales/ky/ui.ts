@@ -1,12 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Суроолоруңуз, пикириңиз же ката тууралуу билдирүүңүз барбы? Аккаунт жөндөөлөрүңүздөн командага кайрылыңыз — ар бир билдирүү тил үйрөнгөн чыныгы адамга жетет.',
   'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Биз жөнүндө',
+  'about.missionTitle': 'Биздин миссиябыз',
+  'about.whatYouGet': 'Эмне аласыз',
   'common.goToDashboard': 'Башкы бетке өтүү',
   'common.logout': 'Чыгуу',
+  'dailyStatsTriad.heartsHint': 'Ар бир сабактын башында толуктаңыз',
   'dailyStatsTriad.heartsLabel': 'Жүрөктөр',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
+  'dailyStatsTriad.minutesHint': 'Бүгүнкү көнүгүүлөрдөн',
   'dailyStatsTriad.minutesLabel': 'Бүгүнкү мүнөттөр',
   'dailyStatsTriad.minutesValue': '{{count}} мин',
   'dailyStatsTriad.wordsLabel': 'Сөздөр өздөштүрүлдү',
@@ -15,18 +21,29 @@ export const ui: UiTranslations = {
   'dashboard.heading': 'Буэнос-Диас, {{name}} .',
   'dashboard.loadError':
     'Акыркы аткарылган иштер жүктөлбөй койду — кэштелген маанилер көрсөтүлүүдө.',
+  'dashboard.loading': 'Сергитүүдө…',
   'dashboard.noLessons': 'Азырынча сабактар жок — жакында кайра кирип көрүңүз.',
+  'dashboard.startPractice': 'Сүйлөө практикасын баштаңыз',
+  'dashboard.subheading':
+    'Токтогон жериңизден улантыңыз — үч кыска сессия жана бүгүнкү максатыңызга жетесиз.',
   'dashboard.viewAllLessons': 'Бардык сабактар →',
+  'forgotPassword.subheading': 'Электрондук почтаңызды жазыңыз, биз шилтеме жөнөтөбүз.',
   'forgotPassword.successBody':
     'Почтаңызды текшериңиз — биз аны баштапкы абалга келтирүү үчүн шилтеме жөнөттүк.',
   'forgotPassword.successHint':
     'Эгерде {{email}} аккаунтка дал келсе, шилтеме бир мүнөттүн ичинде келет.',
+  'landing.copyright': '© {{year}} {{app}}. Чоңдор үчүн окууга ылайыкталган.',
   'landing.ctaBody':
     'Картанын кереги жок. Электрондук почтаңызды жөнөтүңүз, тилди тандаңыз, эртең баштаңыз.',
   'landing.ctaHeading': 'Өз акцентиңизди табууга даярсызбы?',
   'landing.eyebrow': 'Чоңдор үчүн күнүмдүк тил көнүгүүлөрү',
   'landing.featuresHeading': 'Убактыңызды сыйлаган машыгуу цикли',
+  'landing.featuresSubheading':
+    'Жумасына отуз саат эмес, күнүнө отуз мүнөтү бар чоңдор үчүн иштелип чыккан.',
   'landing.heroCta': '7 күндүк серияны баштоо',
+  'landing.heroSubtitle':
+    'Кофе тыныгуусуна баткан беш мүнөттүк сабактар. Көнүгүүлөр, сөздүк, сүйлөө — баары чындап уланта турган серияга оролгон.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.languagesEyebrow': 'Тилди тандаңыз',
   'landing.languagesHeading': 'Он төрт тил, бир күнүмдүк адат',
   'landing.proof.languages': '{{count}} тилдер',
@@ -41,11 +58,18 @@ export const ui: UiTranslations = {
   'leaderboard.heading': 'Лидер тактасы',
   'leaderboard.loadError': 'Лидер тактасы жүктөлбөй койду.',
   'leaderboard.loading': 'Лидер тактасы жүктөлүүдө…',
+  'leaderboard.rewardBody':
+    'Үч жума катары менен алтын кармоо сизди алмазга көтөрөт. Жөнөкөй гана мелдеш.',
+  'leaderboard.rewardEyebrow': 'Ушул жуманын байгеси',
+  'leaderboard.rewardHeading': 'Эң мыкты {{count}} алтын лиганын белгисин алышат',
   'leaderboard.subheading':
     'Бул аптадагы XP. Жергиликтүү убакыт боюнча жекшемби күнү түн ортосунда баштапкы абалга келтирилет.',
   'leaderboard.weeklyPeriod': 'Бул апта · достор',
+  'leaderboardPanel.rankSuffix': 'Ранжы # {{rank}}',
   'leaderboardPanel.title': 'Достордун лидер тактасы',
+  'leaderboardPanel.xp': '{{xp}} XP',
   'leaderboardPanel.you': '(Сиз)',
+  'lessonCard.continue': 'Улантуу →',
   'lessonCard.duration': '{{min}} мин',
   'lessonCard.level': 'Деңгээл {{level}}',
   'lessonCard.progressPercent': '{{percent}} аткарылган %',
@@ -54,14 +78,17 @@ export const ui: UiTranslations = {
   'lessonDetail.check': 'Текшерүү',
   'lessonDetail.checking': 'Текшерилүүдө…',
   'lessonDetail.correct': 'Мыкты!',
+  'lessonDetail.correctHint': '+{{xp}} XP. Улантыңыз.',
   'lessonDetail.empty': 'Бул сабакта эч кандай көнүгүүлөр жок.',
   'lessonDetail.exit': 'Сабактан чыгуу',
   'lessonDetail.fillBlank': 'Бош жерди толтуруңуз',
   'lessonDetail.finish': 'Сабак бүтүрүү',
   'lessonDetail.incorrect': 'Анча деле эмес — " {{answer}} "',
+  'lessonDetail.incorrectHint': 'Бул сөздү эртеңки кайталоодо дагы көрөсүз.',
   'lessonDetail.lessonId': 'Сабак · {{id}}',
   'lessonDetail.loadError': 'Көнүгүүлөр жүктөлбөй койду.',
   'lessonDetail.loading': 'Сабак жүктөлүүдө…',
+  'lessonDetail.pronunciation': 'Туура айтылышты тандаңыз',
   'lessonDetail.submitError': 'Жооп жөнөтө алган жок.',
   'lessonDetail.translation': 'Фразаны которуңуз',
   'lessonDetail.xpEarned': 'XP топтолду · {{xp}}',
@@ -81,6 +108,12 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'Навигация менюсун ачуу',
   'parlanceLayout.nav.profile': 'Профиль',
   'parlanceLayout.primaryNavLabel': 'Негизги навигация',
+  'planUpdated.body':
+    'Төлөм өзгөртүүңүз эми активдүү. Планыңызды каалаган убакта төлөм барагынан башкара аласыз.',
+  'planUpdated.retry': 'Кайра аракет кыл',
+  'planUpdated.verifyFailed': 'Төлөмүңүздү азырынча ырастай алган жокпуз.',
+  'planUpdated.verifyFailedBody':
+    'Төлөмүңүз дагы эле иштетилип жатышы мүмкүн. Бир аздан кийин кайра аракет кылыңыз.',
   'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'practice.empty': 'Азырынча эч кандай сөз айкаштары жок.',
   'practice.eyebrow': 'Сүйлөө практикасы',
@@ -104,6 +137,9 @@ export const ui: UiTranslations = {
   'pricing.limits.progress': 'прогресс жазуулары',
   'profile.anonymous': 'Окуучу',
   'profile.avatarAlt': '{{name}} аватары',
+  'profile.eyebrow': 'Мүчө болгон жыл: {{joined}}',
+  'profile.eyebrowNew': 'Жаңы окуучу',
+  'profile.langLessonCount': '{{count}} сабактар',
   'profile.langLevel': 'Деңгээл {{level}}',
   'profile.languages': 'Тилдер',
   'profile.languagesHeading': 'Иштелип жаткан тилдер',
@@ -113,6 +149,7 @@ export const ui: UiTranslations = {
   'profile.streak': 'Сызык',
   'profile.totalXp': 'Жалпы XP',
   'resetPassword.confirmPlaceholder': 'Кайрадан териңиз',
+  'resetPassword.mismatch': 'Сырсөздөр дал келбейт.',
   'resetPassword.newPasswordLabel': 'Жаңы сыр сөз',
   'resetPassword.newPasswordPlaceholder': 'Сегиз же андан көп белги',
   'resetPassword.subheading': 'Эсте каларлык нерсени тандаңыз, сегиз же андан көп белгиден.',
@@ -120,6 +157,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Машыгуу артыкчылыктары',
   'settings.goalBody':
     'Күн сайын канча XP топтоого умтулуп жатасыз. Максатка жеткен сайын сызыктар сакталып калат.',
+  'settings.goalHeading': 'Күнүмдүк максат',
   'settings.goalMinutes': '~ {{min}} мүн/күн',
   'settings.language.description':
     'Колдонмо менюларында жана энбелгилеринде колдонулган тилди тандаңыз.',

@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Hast du Feedback, einen Bug gefunden oder möchtest du uns erzählen, wie Journaling dir geholfen hat? Wir lesen jede Nachricht — melde dich jederzeit und eine echte Person wird dir antworten.',
+  'about.contactTitle': 'Sprechen Sie uns an',
+  'about.featureInsights':
+    'KI-gestützte Reflexionen, die sanft Auslöser, Themen und Dankbarkeit hervorheben — ohne deine Stimme zu verlieren.',
+  'about.featureMood':
+    'Stimmungs- und Aktivitätstracking mit Kalenderansicht und Trenddiagrammen, die zeigen, was dir guttut.',
+  'about.featurePrivacy':
+    'Ende-zu-Ende-Verschlüsselung, ein Passcode-Schloss und vollständiger CSV-Export, damit deine Reflexionen privat und portabel bleiben.',
+  'about.featurePrompts':
+    'Sanfte tägliche Impulse, damit du immer einen Anfang hast — nie eine leere Seite.',
+  'about.intro':
+    '{{app}} ist ein sanftes, privates Mental-Health-Journal für tägliche Reflexion, Stimmungstracking und Dankbarkeit. Durchdachte Impulse ersetzen die leere Seite, ruhiges Erkennen von Mustern hilft dir zu verstehen, was dein Gefühl beeinflusst, und Ende-zu-Ende-Verschlüsselung hält deine Worte bei dir.',
+  'about.missionBody':
+    'Wir glauben, dass es sich ruhig anfühlen sollte, bei sich selbst innezuhalten — nie klinisch und nie wie eine weitere App, die deine Aufmerksamkeit fordert. {{app}} ist darauf ausgelegt zu helfen, nicht zu nerven: ein paar ruhige Minuten am Tag, um deine Stimmung wahrzunehmen, ehrlich zu schreiben und dich selbst langsam klarer zu sehen.',
+  'about.missionTitle': 'Unsere Mission',
   'about.pageTitle': 'Über „{{app}}“',
   'authShell.encryptionBadge': 'Ihre Eingaben sind Ende-zu-Ende-verschlüsselt.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Tag {{day}} — kein Eintrag',
   'calendar.cellMood': 'Tag {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Dieser Monat im Überblick',
   'calendar.eyebrow': 'Stimmung auf einen Blick',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': '{{tracked}} von {{total}} Tagen in diesem Monat erfasst.',
   'common.goToDashboard': 'Zum Dashboard',
   'common.tryAgain': 'Erneut versuchen',
+  'entryComposer.bodyPlaceholder':
+    'Schreib, was sich ehrlich anfühlt. Niemand sonst wird das lesen.',
   'entryComposer.cancel': 'Zurück zum Journal',
   'entryComposer.heading': 'Reflexion von heute',
   'entryComposer.moodLabel': 'Wie fühlen Sie sich?',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': '{{tag}} entfernen',
   'entryComposer.save': 'Reflexion speichern',
   'entryComposer.saveError': 'Ihr Eintrag konnte nicht gespeichert werden.',
+  'entryComposer.tagPlaceholder': 'Füge ein Tag hinzu und drücke Enter',
   'entryComposer.titlePlaceholder': 'Geben Sie dieser Reflexion einen Namen…',
   'entryDetail.back': 'Zurück zum Journal',
   'entryDetail.delete': 'Diesen Eintrag löschen',
@@ -37,6 +57,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Reflexion wird geladen…',
   'entryDetail.notFound': 'Eintrag nicht gefunden.',
   'entryDetail.reflectionsHeading': 'KI-Reflexionen',
+  'forgotPassword.continueButton': 'Reset-Code eingeben',
   'forgotPassword.eyebrow': 'Keine Sorge',
   'forgotPassword.subheading':
     'Wir senden Ihnen einen sanften Link zum Zurücksetzen an Ihre E-Mail.',
@@ -60,14 +81,22 @@ export const ui: UiTranslations = {
     'Noch keine Themen – füge deinen Einträgen ein oder zwei Schlagwörter hinzu, und sie werden hier zusammengeführt.',
   'insights.themesHeading': 'Top-Themen',
   'insights.triggerFrequency': '{{count}}× in diesem Monat bemerkt',
+  'insights.triggersEmpty':
+    'Noch nichts zu erkennen. Ein paar Einträge über einige Tage zeigen dir deine Muster.',
   'insights.triggersHeading': 'Muster, die Ihre Stimmung beeinflussen',
+  'journal.empty':
+    'Keine Reflexionen passen — versuche einen anderen Filter oder schreibe einen neuen Eintrag.',
   'journal.eyebrow': 'Ihre Reflexionen',
   'journal.heading': 'Journal',
   'journal.loadError': 'Einträge konnten nicht geladen werden.',
   'journal.loading': 'Einträge werden geladen…',
+  'journal.newEntry': 'Neuer Eintrag',
   'journal.searchPlaceholder': 'Suchen Sie ein Gefühl, einen Namen, einen Moment…',
   'journal.subheading': '{{count}} Einträge — jeder einzelne wert, behalten zu werden.',
   'journalEntryCard.encryptedLabel': 'Verschlüsselt',
+  'landing.ctaBody':
+    'Kostenlos starten. Pro schaltet Datenexport, ein größeres Journal und ein ganzes Jahr Verlauf frei.',
+  'landing.ctaButton': 'Beginnen Sie Ihren ersten Eintrag',
   'landing.ctaTitle': 'Ein paar ruhige Minuten am Tag. Mehr nicht.',
   'landing.eyebrow': 'Eine sanfte tägliche Praxis',
   'landing.featuresBody':
@@ -86,6 +115,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Ein sanfter Raum für tägliche Reflexion.',
   'mentalHealthJournalLayout.closeMenu': 'Menü schließen',
   'mentalHealthJournalLayout.openMenu': 'Menü öffnen',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Hauptnavigation',
+  'moodHeroCard.entriesThisWeek': '{{count}} diese Woche',
   'moodHeroCard.streakSuffix': 'Tage in Folge',
   'moodHeroCard.title': 'Reflexion von heute',
   'moodTrendChart.aiBadge': 'KI-Erkenntnis bereit',
@@ -96,11 +127,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Ihr Weg',
   'profile.fallbackName': 'Reflektierende:r',
   'profile.loadError': 'Statistiken konnten nicht geladen werden.',
+  'profile.loading': 'Deine Statistiken werden aktualisiert…',
   'profile.longestStreak': 'Längste Serie',
   'profile.memberSince': 'Reflektiert seit {{date}}',
   'profile.milestones': 'Meilensteine',
   'profile.milestonesEmpty':
     'Ihr erster Meilenstein ist nur noch einen Eintrag entfernt – schreiben Sie, wann immer Sie sich bereit fühlen.',
+  'profile.moodMix': 'Deine Stimmungsmischung in dieser Jahreszeit',
   'profile.streakValue': '{{days}}T',
   'profile.totalEntries': 'Reflexionen',
   'profile.totalWords': 'Geschriebene Wörter',
@@ -113,6 +146,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Darüber schreiben',
   'resetPassword.eyebrow': 'Ein frischer Start',
   'resetPassword.mismatchError': 'Passwörter stimmen nicht überein.',
+  'resetPassword.passwordLabel': 'Neues Passwort',
   'resetPassword.subheading': 'Wählen Sie etwas Sicheres — Ihre Reflexionen verdienen es.',
   'resetPassword.tokenPlaceholder': 'Reset-Code aus der E-Mail',
   'settings.dangerDescription':
@@ -125,11 +159,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     'Ihre Worte gehören immer Ihnen. Laden Sie jederzeit eine Kopie herunter.',
   'settings.exportDone': '{{format}} exportiert.',
+  'settings.exportError': 'Export fehlgeschlagen.',
+  'settings.exportHeading': 'Exportiere deine Reflexionen',
   'settings.exportLoading': 'Vorbereiten…',
   'settings.eyebrow': 'Ihr Raum, Ihre Regeln',
   'settings.languageHeading': 'Sprache',
   'settings.privacyHeading': 'Datenschutz und Verschlüsselung',
   'settings.remindersHeading': 'Tägliche Erinnerung',
+  'settings.reminderToggleAria': 'Tägliche Erinnerung umschalten',
   'settings.reminderToggleDescription':
     'Eine einzige ruhige Erinnerung zur von Ihnen gewählten Zeit. Keine Abzeichen oder Schuldgefühle wegen Serien.',
   'settings.reminderToggleLabel': 'Sanften Hinweis senden',
@@ -142,6 +179,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Journal wird erstellt…',
   'signup.subheading': 'Ein sicherer Raum für Ihre Gedanken.',
   'wellnessRingsTriad.mindfulnessCaption': 'Heutiges Ziel {{goal}} Min.',
+  'wellnessRingsTriad.mindfulnessLabel': 'Achtsamkeit',
   'wellnessRingsTriad.sleepCaption': 'Ziel {{goal}}h / Nacht',
   'wellnessRingsTriad.sleepLabel': 'Schlaf',
+  'wellnessRingsTriad.sleepValue': '{{hours}} Std',
+  'wellnessRingsTriad.streakCaption': 'Ziel {{goal}} Tage',
+  'wellnessRingsTriad.streakLabel': 'Journal-Serie',
+  'wellnessRingsTriad.streakValue': '{{days}} T',
 }

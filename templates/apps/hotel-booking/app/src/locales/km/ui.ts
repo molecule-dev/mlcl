@@ -1,11 +1,33 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'មានសំណួរអំពីការកក់ មតិកែលម្អ ឬអចលនទ្រព្យដែលអ្នកគិតថាគួរមាននៅលើ {{app}}? ទាក់ទងក្រុមការងាររបស់យើងពីគណនីរបស់អ្នក — រាល់សារត្រូវបានផ្ញើទៅមនុស្សពិតដែលអាចជួយបាន។',
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពីយើង',
+  'about.featureLoyalty':
+    'តម្លៃសម្រាប់សមាជិកតែប៉ុណ្ណោះ និងកម្មវិធីភក្ដីភាពដែលទទួលបានពិន្ទុ ការចេញពីសណ្ឋាគារយឺត និងការដំឡើងបន្ទប់លើរាល់ការកក់។',
+  'about.featureReviews':
+    'ការវាយតម្លៃពីភ្ញៀវដែលបានផ្ទៀងផ្ទាត់ និងការជ្រើសរើសដោយក្រុមអ្នកនិពន្ធ ដើម្បីឱ្យអ្នកអាចទុកចិត្តលើការស្នាក់នៅមុនពេលអ្នកមកដល់។',
+  'about.featureRooms':
+    'បន្ទប់ តម្លៃ និងសេវាកម្មប្រៀបធៀបជាប់គ្នា ជាមួយតម្លៃរួមបញ្ចូលទាំងអស់យ៉ាងច្បាស់លាស់ — ពន្ធ និងថ្លៃសេវារីសតត្រូវបានបញ្ចូលមុនពេលអ្នកបង់ប្រាក់។',
+  'about.featureSearch':
+    'ការស្វែងរកតាមពេលវេលាជាក់ស្តែងក្នុងសណ្ឋាគារដែលបានផ្ទៀងផ្ទាត់ ជាមួយភាពអាចរកបានបច្ចុប្បន្ន ទិដ្ឋភាពផែនទី និងវិចិត្រសាលរូបភាពសម្បូរបែប។',
+  'about.featureTrips':
+    'ចំណូលចិត្តដែលបានរក្សាទុក និងផ្ទាំងគ្រប់គ្រង Trips ដែលរក្សាការកក់ កាលវិភាគធ្វើដំណើរ និងការបញ្ជាក់ទាំងអស់នៅកន្លែងតែមួយ។',
+  'about.intro':
+    '{{app}} គឺជាវេទិកាកក់សណ្ឋាគារសម្រាប់អ្នកធ្វើដំណើរដែលយកចិត្តទុកដាក់លើគុណភាព។ រាល់អចលនទ្រព្យត្រូវបានផ្ទៀងផ្ទាត់ដោយផ្ទាល់ដោយក្រុមអ្នកនិពន្ធរបស់យើង — គ្មានស្តុកពីអ្នកรวบរួម គ្មានបញ្ជីបោកប្រាស់។ ស្វែងរកភាពអាចរកបានពិតប្រាកដ ប្រៀបធៀបបន្ទប់ តម្លៃ និងសេវាកម្មជាប់គ្នា បន្ទាប់មកកក់ក្នុងប៉ុន្មានចុចជាមួយតម្លៃរួមបញ្ចូលទាំងអស់ច្បាស់លាស់។',
+  'about.missionBody':
+    'ការកក់កន្លែងស្នាក់នៅគួរតែឱ្យអ្នកមានអារម្មណ៍ស្ងប់ស្ងាត់ និងស្មោះត្រង់។ យើងបង្ហាញតម្លៃច្បាស់លាស់ជាមួយពន្ធ និងថ្លៃសេវារីសតតាំងពីដំបូង ផ្តល់រង្វាន់ដល់ភ្ញៀវភក្ដីជំនួសឱ្យការគិតថ្លៃបន្ថែមតូចតាច និងដាក់កន្លែងស្នាក់នៅដែលសមនឹងប្រាក់របស់អ្នកជាអាទិភាព — ដើម្បីឱ្យអ្នកចំណាយពេលតិចលើការប្រៀបធៀបផ្ទាំង និងពេលច្រើនលើការធ្វើដំណើរខ្លួនឯង។',
+  'about.missionTitle': 'បេសកកម្មរបស់យើង',
+  'about.subtitle':
+    'វិធីដែលបានជ្រើសរើសយ៉ាងយកចិត្តទុកដាក់ និងច្បាស់លាស់ ដើម្បីស្វែងរក និងកក់សណ្ឋាគារត្រឹមត្រូវ។',
   'account.loyalty.activitySummary': '{{nights}} យប់ · {{spend}} បានចំណាយក្នុងឆ្នាំនេះ',
+  'account.loyalty.benefitsHeading': 'អត្ថប្រយោជន៍របស់អ្នក',
   'account.loyalty.heading': 'ភាពស្មោះត្រង់',
   'account.loyalty.loading': 'កំពុងផ្ទុកភក្ដីភាព…',
-  'account.loyalty.pointsTowardNext': '{{ពិន្ទុ}} / {{បន្ទាប់}} ចង្អុលទៅ {{nextTier}}',
+  'account.loyalty.maxTier': 'កម្រិតខ្ពស់បំផុត — រីករាយជាមួយអត្ថប្រយោជន៍របស់អ្នក។',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} ពិន្ទុទៅ {{nextTier}}',
   'account.loyalty.tier': 'កម្រិតបច្ចុប្បន្ន',
   'account.loyalty.unavailable': 'ព័ត៌មានអំពីភក្ដីភាពមិនមានទេ។',
   'account.navLabel': 'ផ្នែក​គណនី',
@@ -22,6 +44,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'បញ្ជាក់ការកក់ · {{total}}',
   'bookingCheckout.datesRequired': 'សូមជ្រើសរើសកាលបរិច្ឆេទចូល និងកាលបរិច្ឆេទចាកចេញរបស់អ្នក។',
   'bookingCheckout.guestHeading': 'ភ្ញៀវកិត្តិយស',
+  'bookingCheckout.heading': 'បញ្ជាក់ និងកក់',
   'bookingCheckout.loadError': 'មិនអាចផ្ទុកលក្ខណសម្បត្តិបានទេ។',
   'bookingCheckout.nights': '{{rate}} × {{count}} យប់',
   'bookingCheckout.notFound': 'រកមិនឃើញអចលនទ្រព្យទេ។',
@@ -32,11 +55,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'ពន្ធ និងថ្លៃសេវា',
   'bookingCheckout.tripHeading': 'ដំណើរកម្សាន្តរបស់អ្នក',
   'bookingConfirmation.allTripsCta': 'ដំណើរកម្សាន្តទាំងអស់',
+  'bookingConfirmation.confNumber': 'លេខបញ្ជាក់៖ {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'ការកក់របស់អ្នកកំពុងត្រូវបានដំណើរការ។',
   'bookingConfirmation.heading': 'ការកក់ត្រូវបានបញ្ជាក់',
   'bookingConfirmation.loading': 'កំពុងផ្ទុកការកក់របស់អ្នក…',
   'bookingConfirmation.searchMoreCta': 'រកមើលការស្នាក់នៅបន្ថែម',
   'bookingConfirmation.subheadingForTrip':
-    '{{អចលនទ្រព្យ}} ក្នុង {{ទីក្រុង}} , {{ប្រទេស}} យើងនឹងជួបគ្នានៅលើ {{ពិនិត្យចូល}} ។',
+    '{{property}} នៅ {{city}}, {{country}}។ យើងនឹងជួបអ្នកនៅ {{checkIn}}។',
   'bookingConfirmation.total': 'សរុប {{total}}',
   'bookingConfirmation.viewTripCta': 'មើលដំណើរកម្សាន្ត',
   'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
@@ -44,7 +70,9 @@ export const ui: UiTranslations = {
   'favorites.empty': 'មិនទាន់មានលក្ខណៈសម្បត្តិដែលបានរក្សាទុកនៅឡើយទេ។',
   'favorites.heading': 'លក្ខណៈសម្បត្តិដែលបានរក្សាទុក',
   'favorites.loadError': 'បរាជ័យក្នុងការផ្ទុកចំណូលចិត្ត។',
+  'favorites.pricePerNight': '{{price}} / យប់',
   'favorites.removeCta': 'មិនរក្សាទុក',
+  'favorites.removing': 'កំពុង​លុប...',
   'forgotPassword.subheading':
     'បញ្ចូលអ៊ីមែលនៅលើគណនីរបស់អ្នក ហើយយើងនឹងផ្ញើតំណភ្ជាប់កំណត់ឡើងវិញដែលមានសុវត្ថិភាពទៅអ្នក។',
   'forgotPassword.successBody':
@@ -52,6 +80,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'សមាជិកស្នាក់នៅ',
   'landing.cta.heading': 'អត្រាសម្រាប់តែសមាជិកប៉ុណ្ណោះ។ រាល់ការកក់ រាល់ពេល។',
   'landing.cta.signup': 'បង្កើតគណនីដោយឥតគិតថ្លៃ',
+  'landing.cta.subheading':
+    'ទទួលបានពិន្ទុភក្ដីភាពលើរាល់ការស្នាក់នៅ ដោះសោការចេញពីសណ្ឋាគារយឺត និងការដំឡើងបន្ទប់ និងទទួលបានសិទ្ធិចូលមើលអចលនទ្រព្យថ្មីមុនគេមុនពេលចុះបញ្ជីជាសាធារណៈ។',
   'landing.destinations.eyebrow': 'ទៅណាបន្ទាប់',
   'landing.destinations.heading': 'គោលដៅ​ពិសេសៗ',
   'landing.destinations.seeAll': 'មើលគោលដៅទាំងអស់',
@@ -60,13 +90,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'រឿងរ៉ាវដែលគួរវេចខ្ចប់សម្រាប់',
   'landing.nav.join': 'ចូលរួមការស្នាក់នៅ',
   'landing.nav.search': 'ការស្នាក់នៅស្វែងរក',
+  'landing.preview.browseAll': 'រុករកបណ្តុំទាំងមូល',
   'landing.preview.eyebrow': 'លួចមើលខាងក្នុងមួយភ្លែត',
   'landing.preview.heading': 'ការស្នាក់នៅដែលបានជ្រើសរើសយ៉ាងល្អក្នុងខែនេះ',
+  'landing.preview.subheading':
+    'រាល់អចលនទ្រព្យនៅលើ {{appName}} ត្រូវបានផ្ទៀងផ្ទាត់ដោយផ្ទាល់ដោយក្រុមអ្នកនិពន្ធរបស់យើង — គ្មានស្តុកពីអ្នកรวบរួម គ្មានបញ្ជីបោកប្រាស់។',
   'login.eyebrow': 'តំបន់សមាជិក',
+  'login.noAccount': 'ទើបតែស្គាល់ Tessera?',
   'login.signupLink': 'បង្កើតគណនីឥតគិតថ្លៃ',
   'login.subheading':
     'ចូលដើម្បីគ្រប់គ្រងការធ្វើដំណើររបស់អ្នក មើលការបញ្ជាក់ និងបន្តពីកន្លែងដែលអ្នកបានចាកចេញ។',
+  'loyaltyTierBadge.points': '{{points}} ពិន្ទុ',
   'planUpdated.heading': 'បានធ្វើបច្ចុប្បន្នភាពផែនការ',
+  'planUpdated.retry': 'ព្យាយាមម្តងទៀត',
+  'planUpdated.verifyFailed': 'យើងមិនទាន់អាចបញ្ជាក់ការទូទាត់របស់អ្នកបាននៅឡើយទេ។',
+  'planUpdated.verifyFailedBody':
+    'ការទូទាត់របស់អ្នកប្រហែលជានៅតែកំពុងដំណើរការ។ សូមព្យាយាមម្តងទៀតនៅពេលបន្តិចទៀត។',
   'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
   'pricing.limit.advancedFeatures': 'លក្ខណៈពិសេសកម្រិតខ្ពស់៖',
   'pricing.limit.canExport': 'ការនាំចេញទិន្នន័យ៖',
@@ -78,7 +117,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'អ្វីដែលកន្លែងនេះផ្តល់ជូន',
   'propertyDetail.backLink': 'ត្រឡប់ទៅការស្វែងរកវិញ',
   'propertyDetail.bookCta': 'កក់ទុក',
+  'propertyDetail.bookmarkAria': 'រក្សាទុកទ្រព្យសម្បត្តិ',
   'propertyDetail.bookmarkAriaSaved': 'លុបចេញពីលក្ខណៈសម្បត្តិដែលបានរក្សាទុក',
+  'propertyDetail.galleryImageAlt': 'រូបភាព {{name}} នៃ {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} រូបថតវីរបុរស',
   'propertyDetail.hidePhotos': 'លាក់រូបថត',
   'propertyDetail.lineCleaning': 'ថ្លៃសម្អាត',
@@ -88,6 +129,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'យប់',
   'propertyDetail.noChargeYet': 'អ្នកនឹងមិនទាន់ត្រូវបានគិតប្រាក់នៅឡើយទេ',
   'propertyDetail.notFound': 'រកមិនឃើញអចលនទ្រព្យទេ។',
+  'propertyDetail.perNight': '/ យប់',
+  'propertyDetail.pickDatesHint': 'ជ្រើសរើសកាលបរិច្ឆេទរបស់អ្នក ដើម្បីមើលការបំបែកតម្លៃពេញលេញ។',
   'propertyDetail.reviewCount': '( {{count}} ការវាយតម្លៃ)',
   'propertyDetail.reviewsHeading': 'ការវាយតម្លៃថ្មីៗ',
   'propertyDetail.roomCapacity': 'ការគេង {{count}}',
@@ -100,6 +143,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'ពាក្យសម្ងាត់ថ្មី',
   'resetPassword.subheading':
     'ជ្រើសរើសពាក្យសម្ងាត់ថ្មីសម្រាប់គណនី Auberge របស់អ្នក។ ប្រើយ៉ាងហោចណាស់ 8 តួអក្សរ។ យើងសូមណែនាំឃ្លាសម្ងាត់។',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'គ្មានអចលនទ្រព្យណាមួយដែលត្រូវនឹងការស្វែងរករបស់អ្នកទេ។',
   'searchResults.emptyHint':
     'សាកល្បងពង្រីកតម្រងរបស់អ្នក ឬដកកម្រិតតម្លៃចេញ — Auberge បានស្នាក់នៅក្នុងប្រទេសចំនួន 14។',
@@ -107,19 +151,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'ការស្នាក់នៅដែលបានជ្រើសរើស',
   'searchResults.headingForQuery': 'ស្នាក់នៅសម្រាប់ " {{q}} "',
   'searchResults.loadError': 'មិនអាចផ្ទុកលក្ខណសម្បត្តិបានទេ។',
+  'searchResults.mapHint':
+    'ដាក់កណ្ដុរលើកាត ដើម្បីបន្លិចលើផែនទី។ ក្បឿង Mapbox ផ្ទាល់ក្នុងបរិស្ថានផលិតកម្ម។',
   'searchResults.mapPinAria': '{{name}} — {{price}} ក្នុងមួយយប់',
   'searchResults.sortLabel': 'តម្រៀបតាម',
   'searchResults.subheading': '{{count}} លក្ខណៈសម្បត្តិ · {{guests}} ភ្ញៀវ',
   'signup.eyebrow': 'ក្លាយជាសមាជិក',
   'signup.subheading':
     'ចូលរួមជាមួយ Auberge ដើម្បីដោះសោអត្រាសម្រាប់សមាជិកតែប៉ុណ្ណោះ ការបង់ប្រាក់យឺត និងការចូលប្រើប្រាស់អចលនទ្រព្យថ្មីជាលើកដំបូង។',
+  'sojournAuthShell.brand.eyebrow': 'ស្នាក់នៅកន្លែងដ៏អស្ចារ្យ',
+  'sojournAuthShell.brand.heading':
+    'បណ្តុំអចលនទ្រព្យដែលបានជ្រើសរើសយ៉ាងយកចិត្តទុកដាក់ — បង្ហាញយ៉ាងស្រស់ស្អាត តម្លៃច្បាស់លាស់។',
   'sojournHeroSearchCard.checkInAria': 'កាលបរិច្ឆេទចូល',
   'sojournHeroSearchCard.checkOutAria': 'កាលបរិច្ឆេទចេញ',
+  'sojournHeroSearchCard.destAria': 'គោលដៅ',
+  'sojournHeroSearchCard.destLabel': 'កន្លែងណា',
   'sojournHeroSearchCard.destPlaceholder': 'ទីក្រុង តំបន់ ឬអចលនទ្រព្យ',
   'sojournHeroSearchCard.eyebrow': 'ការស្នាក់នៅដែលបានជ្រើសរើស · អត្រាសម្រាប់តែសមាជិក',
   'sojournHeroSearchCard.guestsOption': '{{n}} ភ្ញៀវ',
   'sojournHeroSearchCard.subtitle':
     'ការប្រមូលផ្តុំដ៏ស្រស់ស្អាតនៃសណ្ឋាគារប៊ូទិក អចលនទ្រព្យដែលមានការរចនាទំនើប និងកន្លែងសម្រាកដ៏កម្រ — មានតម្លៃសមរម្យ និងបង្ហាញយ៉ាងស្រស់ស្អាត។',
+  'sojournHeroSearchCard.title': 'ស្នាក់នៅកន្លែងដ៏អស្ចារ្យ',
+  'sojournHeroSearchCard.trustLoyalty': 'ទទួលបានពិន្ទុលើរាល់ការស្នាក់នៅ',
   'sojournHeroSearchCard.trustNoFees': 'គ្មានថ្លៃសេវាលាក់កំបាំងឡើយ',
   'sojournHeroSearchCard.trustVetted': 'អចលនទ្រព្យដែលបានត្រួតពិនិត្យដោយផ្ទាល់តែប៉ុណ្ណោះ',
   'sojournLayout.primaryNavLabel': 'ការរុករកចម្បង',

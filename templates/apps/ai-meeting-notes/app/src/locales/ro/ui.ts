@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Întrebări, feedback sau o solicitare de funcționalitate? Scrie echipei la hello@murmur.app — fiecare mesaj ajunge la o persoană reală care lucrează la produs.',
   'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre noi',
+  'about.intro':
+    '{{app}} este inteligență pentru ședințe, pentru echipele care preferă să ia decizii în loc să ia notițe. Se alătură apelurilor tale, transcrie fiecare cuvânt cu etichete de vorbitor și livrează un rezumat AI plus acțiuni cu responsabil imediat ce ședința se încheie.',
+  'about.missionBody':
+    'Ședințele sunt locul unde echipele decid lucruri — și unde acele decizii se pierd. {{app}} există pentru a se asigura că munca dintr-o conversație supraviețuiește conversației: o înregistrare fidelă, o recapitulare clară și pași următori cu responsabil, automat.',
+  'about.missionTitle': 'Misiunea noastră',
   'actions.empty': 'Niciun element de acțiune nu corespunde.',
   'actions.heading': 'Elemente de acțiune',
   'actions.loadError': 'Elementele de acțiune nu au putut fi încărcate.',
@@ -10,11 +17,14 @@ export const ui: UiTranslations = {
     'Agregate din toate întâlnirile. Filtrați după stare pentru a vă concentra.',
   'actions.toggleDoneLabel': 'Marcați ca finalizat',
   'actions.toggleReopenLabel': 'Marcați ca deschis',
+  'auth.footer': '© {{year}} {{app}}. Fiecare cuvânt, distilat.',
   'calendar.heading': 'Calendar',
   'calendar.joinCta': 'Alăturați-vă',
   'calendar.loadError': 'Calendarul nu a putut fi încărcat.',
   'calendar.nextMonth': 'Luna viitoare',
   'calendar.noEventsForDay': 'Nicio întâlnire programată pentru această zi.',
+  'calendar.noUpcomingEvents':
+    'Nicio ședință viitoare. Conectează un calendar din Integrations pentru a popula această listă.',
   'calendar.previousMonth': 'Luna anterioară',
   'calendar.recent': 'Recente',
   'common.daysAgo': 'acum {{count}}z',
@@ -26,9 +36,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} elemente de acțiune',
   'dashboard.empty.body':
     'Începeți o înregistrare sau conectați Google Calendar pentru ca Murmur să participe automat la următoarea dvs. întâlnire.',
+  'dashboard.empty.cta': 'Începeți înregistrarea',
   'dashboard.empty.heading': 'Nicio întâlnire încă',
   'dashboard.eyebrow': 'Fluxul dvs. de întâlniri',
   'dashboard.loadError': 'Tabloul de bord nu a putut fi încărcat.',
+  'dashboard.noActions': 'Nicio acțiune',
   'dashboard.recentHeading': 'Întâlniri recente',
   'dashboard.recordCta': 'Înregistrați întâlnirea',
   'dashboard.stat.actions': 'Elemente de acțiune',
@@ -38,6 +50,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} rezumate necitite de când ați verificat ultima dată. Murmur a capturat fiecare cuvânt – iată recapitularea.',
   'dashboard.viewCalendar': 'Vizualizați calendarul →',
+  'footer.linksLabel': 'Subsol',
   'forgot.failed': 'E-mailul de resetare nu a putut fi trimis.',
   'forgot.sentBody':
     'Dacă există un cont pentru {{email}}, veți primi în scurt timp un link de resetare.',
@@ -49,14 +62,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Conectați calendare și platforme video pentru ca Murmur să participe automat.',
   'integrations.updateError': 'Actualizarea a eșuat.',
+  'landing.ctaBody':
+    'Gratuit pentru primele 5 ședințe din fiecare lună. Fără card de credit. Conectează Google Calendar în mai puțin de un minut.',
   'landing.ctaButton': 'Începeți – este gratuit',
   'landing.ctaHeading': 'Nu mai luați notițe. Începeți să luați decizii.',
+  'landing.demo.aiBody':
+    'Lansarea a fost amânată de pe 5 mai → 12 mai pentru a da spațiu de manevră echipei de operațiuni. Redesignul dashboard-ului a fost separat pentru 26 mai.',
   'landing.demo.aiLabel': 'Rezumat AI, redactat live',
   'landing.demo.recording': 'Înregistrare · live',
   'landing.eyebrow': 'Inteligență AI pentru întâlniri',
   'landing.featuresHeading': 'Tot ce are nevoie echipa dvs. după ce întâlnirea se termină',
+  'landing.featuresSubheading':
+    'Gata cu „stai, cine se ocupă de asta?” {{appName}} livrează recapitularea înainte ca apelul să se deconecteze.',
   'landing.getStarted': 'Încercați gratuit',
   'landing.heroSecondary': 'Vizionați turul de 90 de secunde',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} se alătură apelurilor tale, transcrie fiecare cuvânt cu etichete de vorbitor și livrează rezumate AI plus acțiuni cu responsabil imediat ce ședința se încheie.',
   'landing.heroTitle': 'Capturați fiecare întâlnire. Evidențiați ce contează.',
   'login.altPrompt': 'Nou la Murmur?',
   'login.failed': 'Nu s-a putut autentifica. Verificați adresa de e-mail și parola.',
@@ -64,6 +85,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Elemente de acțiune',
   'meetingDetail.back': 'Toate întâlnirile',
   'meetingDetail.decisionsHeading': 'Decizii',
+  'meetingDetail.dueDate': 'scadență {{date}}',
   'meetingDetail.followupsHeading': 'Acțiuni ulterioare',
   'meetingDetail.loadError': 'Întâlnirea nu a putut fi încărcată.',
   'meetingDetail.noActions': 'Niciun element de acțiune detectat.',
@@ -77,7 +99,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Nicio întâlnire încă',
   'meetings.heading': 'Întâlniri',
   'meetings.loadError': 'Întâlnirile nu au putut fi încărcate.',
+  'meetings.recordCta': 'Înregistrați întâlnirea',
   'meetings.subheading': 'Fiecare întâlnire înregistrată, încărcată și sincronizată.',
+  'murmurLayout.closeMenu': 'Închide meniul de navigare',
   'murmurLayout.openMenu': 'Deschide meniul de navigare',
   'murmurLayout.primaryNavLabel': 'Navigare principală',
   'nav.legal': 'Legal',
@@ -102,7 +126,14 @@ export const ui: UiTranslations = {
   'profile.loading': 'Se încarcă…',
   'profile.navLabel': 'Secțiuni profil',
   'profile.notifications.assignments': 'Elemente de acțiune atribuite mie',
+  'profile.notifications.assignmentsHint': 'Anunță-mă când este capturată o acțiune pentru mine.',
+  'profile.notifications.mentions': 'Mențiuni în transcrieri',
+  'profile.notifications.mentionsHint': 'Email + notificare push când cineva te @-menționează.',
+  'profile.notifications.subheading': 'Alege ce evenimente {{appName}} să ajungă la tine.',
   'profile.notifications.summaries': 'Rezumat săptămânal',
+  'profile.notifications.summariesHint':
+    'O recapitulare de luni a fiecărei ședințe din săptămâna trecută.',
+  'profile.preferences.speakerColor': 'Culoare implicită pentru vorbitor',
   'profile.preferences.subheading':
     'Setări implicite care se aplică la fiecare înregistrare la care participați.',
   'profile.preferences.timezone': 'Fus orar',
@@ -115,16 +146,21 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Browserul dvs. nu acceptă înregistrarea. Încercați Chrome, Edge sau Safari.',
   'record.error.upload': 'Încărcarea a eșuat. Încercați din nou.',
+  'record.errorLabel': 'Ceva nu a mers bine',
   'record.heading': 'Înregistrare',
   'record.idleLabel': 'Atingeți pentru a începe înregistrarea',
   'record.processingLabel': 'Transcriere cu Whisper, rezumare cu Claude…',
+  'record.recordingLabel': 'Se înregistrează…',
   'record.retryCta': 'Încercați din nou',
   'record.subheading':
     'Apăsați microfonul pentru a începe. Murmur captează sunetul, transcrie prin Whisper și scrie un rezumat bazat pe Claude.',
+  'record.titlePlaceholder': 'Titlul ședinței (opțional)',
+  'reset.altPrompt': 'Te-ai răzgândit?',
   'reset.hint': 'Folosiți cel puțin 8 caractere cu o combinație de litere și cifre.',
   'reset.missingToken': 'Linkul de resetare lipsește sau a expirat. Solicitați unul nou.',
   'reset.newPassword': 'Parolă nouă',
   'reset.subheading': 'Alegeți o parolă pe care nu o folosiți în altă parte.',
+  'reset.tooShort': 'Parola trebuie să aibă cel puțin 8 caractere.',
   'search.empty': 'Tastați pentru a căuta în transcrieri.',
   'search.loadError': 'Căutarea a eșuat. Încercați din nou.',
   'search.noResults': 'Niciun rezultat pentru „ {{q}} „”.',
@@ -140,7 +176,10 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Păstrați sunetul pentru',
   'settings.retention.heading': 'Retenție',
   'settings.retention.transcript': 'Păstrați transcrierile pentru',
+  'settings.revokeDeviceWarning':
+    'Accesul acestui dispozitiv va fi revocat în curând. Îl deconectezi?',
   'settings.saveError': 'Salvarea a eșuat.',
+  'settings.security.subheading': 'Actualizează parola pe care o folosești pentru autentificare.',
   'settings.sharing.exportFormat': 'Format export',
   'settings.sharing.heading': 'Setări implicite de partajare',
   'settings.sharing.scope': 'Domeniu implicit de partajare',
@@ -158,6 +197,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Invitați un coleg',
   'team.invitedAs': 'Invitat ca {{role}}',
   'team.inviteFailed': 'Invitația nu a putut fi trimisă.',
+  'team.invitePlaceholder': 'coleg@companie.com',
   'team.inviteSubmit': 'Trimiteți invitația',
   'team.inviteSubtitle': 'Vor primi un e-mail cu un link de alăturare.',
   'team.inviteTitle': 'Invitați un coleg',

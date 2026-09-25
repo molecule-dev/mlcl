@@ -1,10 +1,30 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'هل لديك أسئلة حول حجز أو ملاحظات أو عقار تعتقد أنه ينتمي إلى {{app}}؟ تواصل مع فريقنا من حسابك — كل رسالة تصل إلى شخص حقيقي يمكنه المساعدة.',
+  'about.contactTitle': 'تواصل معنا',
   'about.eyebrow': 'من نحن',
+  'about.featureLoyalty':
+    'أسعار حصرية للأعضاء وبرنامج ولاء يكسبك نقاطًا، وتسجيل خروج متأخر، وترقيات غرف مع كل حجز.',
+  'about.featureReviews': 'تقييمات موثّقة من الضيوف واختيارات تحريرية لتثق بالإقامة قبل وصولك.',
+  'about.featureRooms':
+    'غرف وأسعار ومرافق جنبًا إلى جنب مع تسعير شفاف وشامل — الضرائب ورسوم المنتجع مشمولة قبل الدفع.',
+  'about.featureSearch':
+    'بحث فوري عبر فنادق موثّقة مع توفر مباشر وعرض على الخريطة ومعارض صور غنية.',
+  'about.featureTrips':
+    'المفضلة المحفوظة ولوحة الرحلات التي تحفظ كل حجز ومسار رحلة وتأكيد في مكان واحد.',
+  'about.intro':
+    '{{app}} منصة لحجز الفنادق للمسافرين الذين يهتمون بالجودة. كل عقار يخضع للتحقق شخصيًا من فريقنا التحريري — لا مخزون من مجمّعات، ولا قوائم مضللة. ابحث عن التوفر الحقيقي، وقارن الغرف والأسعار والمرافق جنبًا إلى جنب، ثم احجز ببضع نقرات بسعر واضح وشامل.',
+  'about.missionBody':
+    'حجز مكان للإقامة يجب أن يكون هادئًا وصادقًا. نعرض أسعارًا شفافة مع الضرائب ورسوم المنتجع مقدمًا، ونكافئ الضيوف الأوفياء بدلًا من فرض رسوم إضافية عليهم، ونضع الإقامات التي تستحق أموالك أولًا — لتقضي وقتًا أقل في مقارنة علامات التبويب ووقتًا أطول في الرحلة نفسها.',
+  'about.missionTitle': 'مهمتنا',
+  'about.subtitle': 'طريقة منسّقة وشفافة للعثور على الفندق المناسب وحجزه.',
   'account.loyalty.activitySummary': '{{nights}} ليلة · {{spend}} أنفقتها هذا العام',
+  'account.loyalty.benefitsHeading': 'مزاياك',
   'account.loyalty.heading': 'الولاء',
   'account.loyalty.loading': 'جارٍ تحميل برنامج الولاء…',
+  'account.loyalty.maxTier': 'أعلى فئة — استمتع بمزاياك.',
   'account.loyalty.pointsTowardNext': '{{points}} / {{next}} نقطة للوصول إلى {{nextTier}}',
   'account.loyalty.tier': 'المستوى الحالي',
   'account.loyalty.unavailable': 'معلومات الولاء غير متاحة.',
@@ -22,6 +42,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'تأكيد الحجز · {{total}}',
   'bookingCheckout.datesRequired': 'يرجى اختيار تاريخَي الوصول والمغادرة.',
   'bookingCheckout.guestHeading': 'الضيف الرئيسي',
+  'bookingCheckout.heading': 'تأكيد وحجز',
   'bookingCheckout.loadError': 'تعذر تحميل العقار.',
   'bookingCheckout.nights': '{{rate}} × {{count}} ليلة',
   'bookingCheckout.notFound': 'لم يتم العثور على العقار.',
@@ -32,6 +53,9 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'الضرائب والرسوم',
   'bookingCheckout.tripHeading': 'رحلتك',
   'bookingConfirmation.allTripsCta': 'كل الرحلات',
+  'bookingConfirmation.confNumber': 'رقم التأكيد: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'جارٍ معالجة حجزك.',
   'bookingConfirmation.heading': 'تم تأكيد الحجز',
   'bookingConfirmation.loading': 'جارٍ تحميل حجزك…',
   'bookingConfirmation.searchMoreCta': 'تصفح المزيد من الإقامات',
@@ -46,6 +70,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'تعذر تحميل المفضلة.',
   'favorites.pricePerNight': '{{price}} / الليلة',
   'favorites.removeCta': 'إلغاء الحفظ',
+  'favorites.removing': 'جاري الحذف…',
   'forgotPassword.subheading':
     'أدخل البريد الإلكتروني الخاص بحسابك وسنرسل إليك رابطاً آمناً لإعادة التعيين.',
   'forgotPassword.successBody':
@@ -53,6 +78,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'أعضاء Auberge',
   'landing.cta.heading': 'أسعار حصرية للأعضاء. مع كل حجز، في كل مرة.',
   'landing.cta.signup': 'أنشئ حساباً مجانياً',
+  'landing.cta.subheading':
+    'اكسب نقاط ولاء مع كل إقامة، وافتح التسجيل المتأخر للخروج وترقيات الغرف، واحصل على أولوية الوصول إلى العقارات الجديدة قبل إدراجها علنًا.',
   'landing.destinations.eyebrow': 'إلى أين بعد',
   'landing.destinations.heading': 'وجهات مميزة',
   'landing.destinations.seeAll': 'اعرض كل الوجهات',
@@ -61,12 +88,20 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'قصص تستحق حزم الحقائب من أجلها',
   'landing.nav.join': 'انضم إلى Auberge',
   'landing.nav.search': 'ابحث عن إقامات',
+  'landing.preview.browseAll': 'تصفح المجموعة الكاملة',
   'landing.preview.eyebrow': 'نظرة من الداخل',
   'landing.preview.heading': 'إقامات مختارة بعناية هذا الشهر',
+  'landing.preview.subheading':
+    'كل عقار على {{appName}} يخضع للتحقق شخصيًا من فريقنا التحريري — لا مخزون من مجمّعات، ولا قوائم مضللة.',
   'login.eyebrow': 'منطقة الأعضاء',
+  'login.noAccount': 'جديد في Tessera؟',
   'login.signupLink': 'أنشئ حساباً مجانياً',
   'login.subheading': 'سجّل الدخول لإدارة رحلاتك وعرض التأكيدات والمتابعة من حيث توقفت.',
+  'loyaltyTierBadge.points': '{{points}} نقطة',
   'planUpdated.heading': 'تم تحديث الخطة',
+  'planUpdated.retry': 'حاول مرة أخرى',
+  'planUpdated.verifyFailed': 'لم نتمكن من تأكيد دفعتك بعد.',
+  'planUpdated.verifyFailedBody': 'قد لا تزال عملية الدفع قيد المعالجة. حاول مرة أخرى بعد قليل.',
   'planUpdated.verifying': 'جارٍ تأكيد دفعتك…',
   'pricing.limit.advancedFeatures': 'الميزات المتقدمة:',
   'pricing.limit.canExport': 'تصدير البيانات:',
@@ -78,7 +113,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'ما يقدمه هذا المكان',
   'propertyDetail.backLink': 'العودة إلى البحث',
   'propertyDetail.bookCta': 'احجز',
+  'propertyDetail.bookmarkAria': 'حفظ العقار',
   'propertyDetail.bookmarkAriaSaved': 'إزالة من العقارات المحفوظة',
+  'propertyDetail.galleryImageAlt': 'صورة {{name}} من {{number}}',
   'propertyDetail.heroImageAlt': 'الصورة الرئيسية لـ {{name}}',
   'propertyDetail.hidePhotos': 'إخفاء الصور',
   'propertyDetail.lineCleaning': 'رسوم التنظيف',
@@ -88,6 +125,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'ليلة',
   'propertyDetail.noChargeYet': 'لن يتم تحصيل أي رسوم بعد',
   'propertyDetail.notFound': 'لم يتم العثور على العقار.',
+  'propertyDetail.perNight': '/ الليلة',
+  'propertyDetail.pickDatesHint': 'اختر تواريخك لرؤية تفاصيل السعر الكاملة.',
   'propertyDetail.reviewCount': '({{count}} مراجعة)',
   'propertyDetail.reviewsHeading': 'أحدث المراجعات',
   'propertyDetail.roomCapacity': 'تتسع لـ {{count}}',
@@ -100,6 +139,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'كلمة المرور الجديدة',
   'resetPassword.subheading':
     'اختر كلمة مرور جديدة لحسابك في Auberge. استخدم 8 أحرف على الأقل؛ ننصح بعبارة مرور.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'لا توجد عقارات تطابق بحثك.',
   'searchResults.emptyHint':
     'حاول توسيع عوامل التصفية أو إزالة الحد الأقصى للسعر — تتوفر إقامات Auberge في 14 دولة.',
@@ -107,19 +147,27 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'إقامات مختارة',
   'searchResults.headingForQuery': 'إقامات لـ "{{q}}"',
   'searchResults.loadError': 'تعذر تحميل العقارات.',
+  'searchResults.mapHint':
+    'مرّر المؤشر فوق بطاقة لإبرازها على الخريطة. بلاطات Mapbox مباشرة في بيئة الإنتاج.',
   'searchResults.mapPinAria': '{{name}} — {{price}} لليلة الواحدة',
   'searchResults.sortLabel': 'ترتيب حسب',
   'searchResults.subheading': '{{count}} عقارات · {{guests}} ضيوف',
   'signup.eyebrow': 'كن عضواً',
   'signup.subheading':
     'انضم إلى Auberge لتفتح أسعاراً حصرية للأعضاء، وتسجيل مغادرة متأخر، ووصولاً مبكراً إلى العقارات الجديدة.',
+  'sojournAuthShell.brand.eyebrow': 'أقم في مكان استثنائي',
+  'sojournAuthShell.brand.heading': 'مجموعة منسّقة من العقارات — مقدّمة بشكل جميل وبأسعار شفافة.',
   'sojournHeroSearchCard.checkInAria': 'تاريخ تسجيل الوصول',
   'sojournHeroSearchCard.checkOutAria': 'تاريخ تسجيل المغادرة',
+  'sojournHeroSearchCard.destAria': 'الوجهة',
+  'sojournHeroSearchCard.destLabel': 'أين',
   'sojournHeroSearchCard.destPlaceholder': 'المدينة أو المنطقة أو العقار',
   'sojournHeroSearchCard.eyebrow': 'إقامات مختارة · أسعار للأعضاء',
   'sojournHeroSearchCard.guestsOption': '{{n}} ضيوف',
   'sojournHeroSearchCard.subtitle':
     'مجموعة منتقاة من فنادق البوتيك والعقارات ذات التصميم المميز والملاذات النادرة — مسعّرة بشفافية، معروضة بأناقة.',
+  'sojournHeroSearchCard.title': 'أقم في مكان استثنائي',
+  'sojournHeroSearchCard.trustLoyalty': 'اكسب نقاطًا مع كل إقامة',
   'sojournHeroSearchCard.trustNoFees': 'لا رسوم خفية، أبداً',
   'sojournHeroSearchCard.trustVetted': 'عقارات مختارة يدوياً فقط',
   'sojournLayout.primaryNavLabel': 'التنقل الرئيسي',

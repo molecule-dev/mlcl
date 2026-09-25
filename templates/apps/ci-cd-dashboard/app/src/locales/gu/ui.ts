@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'પ્રશ્નો, પ્રતિસાદ, અથવા તમારી ટીમ માટે ડેમો જોઈએ છે? અમને hello@conduit.dev પર ઈમેલ કરો — દરેક સંદેશ ટીમના વાસ્તવિક વ્યક્તિ સુધી પહોંચે છે.',
   'about.contactHeading': 'સંપર્કમાં રહો',
   'about.eyebrow': 'વિશે',
+  'about.featuresHeading': 'તમને શું મળે છે',
+  'about.introBody':
+    '{{app}} GitHub Actions-શૈલીની સતત ડિલિવરીને એક ઝડપી ડેશબોર્ડમાં લાવે છે: તમારા બધા રિપોઝિટરીઝ માટે પાઇપલાઇન્સ, બિલ્ડ લોગ, આર્ટિફેક્ટ્સ, સ્ટેટસ બેજ અને ડિપ્લોયમેન્ટ એન્વાયર્નમેન્ટ એક જ જગ્યાએ. ટેબ બદલવાની જરૂર નહીં, કયું બિલ્ડ તૂટ્યું તે અનુમાન કરવાની જરૂર નહીં — દરેક રન, લોગ લાઇન અને ડિપ્લોય એક ક્લિક દૂર છે.',
+  'about.introHeading': '{{app}} શું છે',
+  'about.missionBody':
+    'સોફ્ટવેર શિપ કરવું શાંત અને અનુમાનિત હોવું જોઈએ, ડરનો સ્રોત નહીં. અમે પાઇપલાઇન્સ, લોગ અને ડિપ્લોય ટૂલિંગ બનાવીએ છીએ જેથી કમિટથી પ્રોડક્શન સુધીનો માર્ગ ઝડપી, દૃશ્યમાન અને વિશ્વસનીય બને — પાંચ મિનિટમાં પ્રથમ લીલું બિલ્ડ, અને તે પછીનું દરેક બિલ્ડ પણ એટલું જ સ્પષ્ટ.',
+  'about.missionHeading': 'અમારું ધ્યેય',
+  'about.subtitle':
+    '{{app}} એવી ટીમો માટે CI/CD ડેશબોર્ડ છે જેઓ દરેક રિપોઝિટરીમાં બિલ્ડ, ડિપ્લોયમેન્ટ અને એન્વાયર્નમેન્ટ મોનિટર કરવા માંગે છે — અને નિશ્ચિતતા સાથે શિપ કરવા માંગે છે.',
   'artifacts.empty': 'હજુ સુધી કોઈ કલાકૃતિઓ નથી.',
   'artifacts.heading': 'કલાકૃતિઓ',
   'artifacts.loadError': 'કલાકૃતિઓ લોડ કરવામાં નિષ્ફળ થયાં.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ નળી env --list',
   'environments.heading': 'પર્યાવરણો',
   'environments.loadError': 'વાતાવરણ લોડ કરવામાં નિષ્ફળ.',
+  'environments.loading': 'વાતાવરણ લોડ થઈ રહ્યું છે…',
   'environments.subheading': 'દરેક લક્ષ્ય પર લાઇવ ડિપ્લોયમેન્ટ સ્થિતિ.',
   'forgotPassword.runnerStatus': 'રીસેટ · સુરક્ષિત ટનલ',
+  'forgotPassword.success':
+    'જો તે ઇમેઇલ માટે કોઈ એકાઉન્ટ અસ્તિત્વમાં છે, તો રીસેટ લિંક તેના માર્ગ પર છે. તમારું ઇનબોક્સ તપાસો.',
   'insights.changeFailureRate': 'નિષ્ફળતા દર બદલો',
   'insights.deployFrequency': 'જમાવટ / દિવસ',
   'insights.empty': 'હજુ પૂરતો ડેટા નથી.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'જાણકારી લોડ કરવામાં નિષ્ફળ થયાં.',
   'insights.meanP95': 'સરેરાશ {{mean}} · પૃ ૯૫ {{p95}}',
   'insights.mttr': 'એમટીટીઆર',
+  'insights.slowestStepsHeading': 'સૌથી ધીમા પાઇપલાઇન સ્ટેપ્સ',
   'insights.successRateHeading': 'પાઇપલાઇન સફળતા દર (છેલ્લા 14 દિવસ)',
   'landing.choosePlan': 'યોજના પસંદ કરો',
+  'landing.copyright': '© {{year}} {{app}}. નિશ્ચિતતા સાથે શિપ કરો.',
   'landing.ctaBody':
     'ક્રેડિટ કાર્ડ નહીં. પ્લેટફોર્મ એન્જિનિયરની જરૂર નથી. પાંચ મિનિટમાં પહેલી પાઇપલાઇન ગ્રીન કરો.',
   'landing.ctaHeading': 'ખાતરીપૂર્વક મોકલો.',
   'landing.featuresEyebrow': '// પ્લેટફોર્મ સુવિધાઓ',
   'landing.featuresHeading': 'શિપર્સ દ્વારા, શિપર્સ માટે બનાવેલ',
+  'landing.heroSubtitle':
+    'સેકંડોમાં પૂરી થતી પાઇપલાઇન્સ. વાંચી શકાય તેવા લોગ. વિશ્વાસ કરી શકાય તેવા ડિપ્લોય.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit ડિપ્લોય --સુરક્ષિત રીતે',
   'landing.pricingEyebrow': '// $ કિંમત --સાદી',
   'landing.pricingHeading': 'સરળ, અનુમાનિત કિંમત',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'હમણાં ફ્લાઇટમાં છું',
   'pipelines.metric.successCaption': '{{count}} ના {{total}} દોડવું',
   'pipelines.metric.successRate': 'સફળતા દર',
+  'pipelines.realtimeOn': 'રીઅલટાઇમ',
   'pipelines.subheading': 'દરેક જોયેલા ભંડારમાંથી લાઇવ અપડેટ્સ.',
+  'pricing.advancedFeatures': 'અદ્યતન સુવિધાઓ: {{mark}}',
+  'pricing.canExport': 'ડેટા એક્સપોર્ટ: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} આર્ટિફેક્ટ્સ',
+  'pricing.maxBuilds': '{{count}} બિલ્ડ્સ',
+  'pricing.maxPipelines': '{{count}} પાઇપલાઇન્સ',
   'privacy.dataAccount': 'ખાતું: નામ, ઇમેઇલ, હેશ કરેલ પાસવર્ડ, પ્લાન ટાયર.',
   'privacy.intro':
     '{{એપ્લિકેશન}} તમારા સતત-ડિલિવરી એકાઉન્ટને ચલાવવા માટે અમને જરૂરી ન્યૂનતમ ડેટા જ એકત્રિત કરે છે: તમારો ઇમેઇલ, તમે કનેક્ટ કરો છો તે રિપોઝીટરીઝ, તમારા રનર્સ દ્વારા ઉત્પન્ન કરાયેલ કમિટ અને બિલ્ડ મેટાડેટા, અને તમે અમારી સાથે સંગ્રહિત કરવાનું પસંદ કરો છો તે રહસ્યો. અમે બિલ્ડ રનરની બહાર તમારો સોર્સ કોડ ક્યારેય વાંચતા નથી; ગોઠવણી કર્યા પછી બિલ્ડ આર્ટિફેક્ટ્સ તમારા S3 બકેટમાં સંગ્રહિત થાય છે.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'અમે બિલિંગ માટે સ્ટ્રાઇપ, ટ્રાન્ઝેક્શનલ ઇમેઇલ માટે મેઇલગન અને બિલ્ડ આર્ટિફેક્ટ સ્ટોરેજ માટે AWS S3 નો ઉપયોગ કરીએ છીએ. દરેક તેની સેવા પહોંચાડવા માટે જરૂરી ડેટાના ન્યૂનતમ અવકાશ સાથે કરારબદ્ધ રીતે બંધાયેલ છે.',
   'privacy.rightsBody':
     'તમે તમારા ડેટાના દરેક બાઇટને નિકાસ કરી શકો છો, સેટિંગ્સમાંથી કોઈપણ સમયે તમારું એકાઉન્ટ ડિલીટ કરી શકો છો અને તમારા એકાઉન્ટ પર દરેક વેબહૂક ડિલિવરીનો રેકોર્ડ વિનંતી કરી શકો છો. અમે 30 દિવસની અંદર GDPR / CCPA વિનંતીઓનો જવાબ આપીએ છીએ.',
+  'privacy.subtitle':
+    'અમે તમારી પાઇપલાઇન્સ ચલાવીએ ત્યારે {{app}} તમારો ડેટા કેવી રીતે એકત્રિત કરે, સંગ્રહે અને સુરક્ષિત કરે છે.',
   'privacy.title': 'ગોપનીયતા નીતિ',
   'repositories.empty': 'કોઈ રિપોઝીટરીઝ જોડાયેલ નથી.',
   'repositories.heading': 'ભંડાર',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'બધા ભંડારો',
   'repositoryDetail.configHeading': '.કન્ડ્યુટ.વાયએમએલ',
   'repositoryDetail.loadError': 'રિપોઝીટરી લોડ કરવામાં નિષ્ફળ.',
+  'repositoryDetail.meanDuration': 'સરેરાશ અવધિ',
   'repositoryDetail.notFound': 'રીપોઝીટરી મળી નથી.',
+  'repositoryDetail.successRate': 'સફળતા દર',
   'repositoryDetail.totalBuilds': 'કુલ બિલ્ડ્સ',
   'repositoryDetail.webhookActive': 'સક્રિય',
   'repositoryDetail.webhookPaused': 'થોભાવેલું',
   'repositoryDetail.webhooksHeading': 'વેબહુક્સ',
+  'resetPassword.passwordLabel': 'નવો પાસવર્ડ',
   'resetPassword.runnerStatus': 'રીસેટ · ટોકન ચકાસાયેલ',
   'resetPassword.subtitle': 'એક મજબૂત પાસવર્ડ પસંદ કરો જેનો તમે પહેલાં ઉપયોગ ન કર્યો હોય.',
   'resetPassword.tokenPlaceholder': 'ઇમેઇલમાંથી પેસ્ટ કરો',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'રિપોઝીટરીઝ કન્ડ્યુટ ઘડિયાળો. ઇવેન્ટ્સ ઇન્જેસ્ટ કરવાનું બંધ કરવા માટે તમારા VCS પ્રદાતાથી ડિસ્કનેક્ટ કરો.',
   'settings.repositories.empty': 'હજુ સુધી કોઈ રિપોઝીટરીઝ જોડાયેલ નથી.',
+  'settings.repositories.heading': 'રિપોઝિટરી કનેક્શન્સ',
   'settings.repositories.loadError': 'રિપોઝીટરીઝ લોડ કરવામાં નિષ્ફળ.',
   'settings.secrets.addCta': 'ગુપ્ત માહિતી ઉમેરો',
   'settings.secrets.addError': 'ગુપ્ત માહિતી ઉમેરવામાં નિષ્ફળ થયાં.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'ગુપ્ત માહિતી કાઢી નાખવામાં નિષ્ફળ.',
   'settings.secrets.empty': 'કોઈ રહસ્યો સંગ્રહિત નથી.',
   'settings.secrets.heading': 'રહસ્યો',
+  'settings.secrets.lastUsed': 'છેલ્લે વપરાયેલ {{date}}',
   'settings.secrets.loadError': 'રહસ્યો લોડ કરવામાં નિષ્ફળ થયાં.',
   'settings.secrets.neverUsed': 'ક્યારેય ઉપયોગ કર્યો નથી',
   'settings.secrets.rotateCta': 'ફેરવો',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'વેબહૂક અપડેટ કરવામાં નિષ્ફળ થયાં.',
   'signup.namePlaceholder': 'રિલે પાર્ક',
   'signup.runnerStatus': 'મફત સ્તર · ૧,૦૦૦ બિલ્ડ મિનિટ/મહિને',
+  'terms.intro':
+    '{{app}} એકાઉન્ટ બનાવીને તમે આ શરતો સાથે સંમત થાઓ છો. તે બિલ્ડ રનર્સના સ્વીકાર્ય ઉપયોગ, અમારા SLAની મર્યાદાઓ, અને દુરુપયોગ કરતા વર્કલોડ માટે અમે તમારું એકાઉન્ટ સસ્પેન્ડ અથવા સમાપ્ત કરી શકીએ તેવી શરતોને આવરી લે છે.',
   'terms.slaBody':
     'પ્રો અને ટીમ પ્લાન API અને રનર પૂલ માટે 99.95% માસિક અપટાઇમનું લક્ષ્ય રાખે છે. મફત પ્લાન જેમ છે તેમ પ્રદાન કરવામાં આવે છે. આઉટેજની જાણ status.conduit.dev પર કરવામાં આવે છે અને તમારા ઇન્વોઇસમાં ફોર્મ્યુલા મુજબ ક્રેડિટ કરવામાં આવે છે.',
   'terms.terminationBody':

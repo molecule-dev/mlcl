@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Ị nwere nzaghachi, ị hụrụ nsogbu, ma ọ bụ ị chọrọ ịgwa anyị otú ide ihe n'akwụkwọ ndekọ si enyere gị aka? Anyị na-agụ ozi ọ bụla — kpọtụrụ anyị mgbe ọ bụla, mmadụ nkịtị ga-azaghachi gị.",
+  'about.contactTitle': 'Gwa anyị okwu',
+  'about.featureInsights':
+    "Ntụgharị uche sitere na AI nke na-egosi ihe na-akpalite mmetụta, isiokwu, na ekele nwayọọ — n'ejighị olu gị furu efu.",
+  'about.featureMood':
+    'Ndekọ ọnọdụ mmụọ na ihe omume nwere nlele kalenda na eserese mmegharị nke na-egosi ihe na-enyere gị aka ịga nke ọma.',
+  'about.featurePrivacy':
+    'Nzuzo site na njedebe ruo na njedebe, mkpọchi koodu nzuzo, na mbupụ CSV zuru ezu ka ntụgharị uche gị nọrọ na nzuzo ma bụrụ nke a na-ebugharị.',
+  'about.featurePrompts':
+    'Ntuziaka kwa ụbọchị dị nwayọọ ka ị nwee ebe ị ga-amalite mgbe niile — ọ dịghị ibe ọcha.',
+  'about.intro':
+    '{{app}} bụ akwụkwọ ndekọ ahụike uche dị nwayọọ ma dị na nzuzo maka ntụgharị uche kwa ụbọchị, ndekọ ọnọdụ mmụọ, na ekele. Ntuziaka a tụgharịrị uche na-anọchi ibe ọcha, nchọpụta usoro dị jụụ na-enyere gị aka ịghọta ihe na-emetụta otú ị na-eche, na nzuzo site na njedebe ruo na njedebe na-edebe okwu gị ka ọ bụrụ nke gị.',
+  'about.missionBody':
+    "Anyị kwenyere na ịlele onwe gị kwesịrị ịdị jụụ, ọ bụghị ihe gbasara ọgwụ — na ọ bụghị dịka ngwa ọzọ na-achọ nlebara anya gị. E wuru {{app}} iji nyere aka, ọ bụghị iji na-akpagbu gị: nkeji ole na ole dị jụụ kwa ụbọchị iji chọpụta ọnọdụ mmụọ gị, dee ihe n'eziokwu, ma jiri nwayọọ hụ onwe gị nke ọma.",
+  'about.missionTitle': 'Ọrụ anyị',
   'about.pageTitle': 'Gbasara {{app}}',
   'authShell.encryptionBadge': 'E zoro ezo ihe ndị ị tinyere site na njedebe ruo na njedebe.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Ụbọchị {{day}} — enweghị ndekọ',
   'calendar.cellMood': 'Ụbọchị {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Nleba anya nke ọnwa a',
   'calendar.eyebrow': "Ọnọdụ n'otu ntabi anya",
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': "A na-esochi ya {{tracked}} nke {{total}} ụbọchị n'ọnwa a.",
   'common.goToDashboard': 'Gaa na Dashboard',
   'common.tryAgain': 'Nwaa ọzọ',
+  'entryComposer.bodyPlaceholder':
+    'Dee ihe ọ bụla dị gị ka ọ bụ eziokwu. Ọ dịghị onye ọzọ ga-agụ nke a.',
   'entryComposer.cancel': 'Laghachi na akwụkwọ akụkọ',
   'entryComposer.heading': 'Ntụgharị uche nke taa',
   'entryComposer.moodLabel': 'Kedu ka ọ dị gị?',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Wepụ {{tag}}',
   'entryComposer.save': 'Chekwa ntụgharị uche',
   'entryComposer.saveError': 'Enweghị ike ịchekwa ntinye gị.',
+  'entryComposer.tagPlaceholder': 'Tinye mkpado wee pịa enter',
   'entryComposer.titlePlaceholder': 'Nye ntụgharị uche a aha...',
   'entryDetail.back': 'Laghachi na akwụkwọ akụkọ',
   'entryDetail.delete': 'Hichapụ ntinye a',
@@ -36,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Na-ebugo ntụgharị uche…',
   'entryDetail.notFound': 'Achọtaghị ntinye.',
   'entryDetail.reflectionsHeading': 'Ntụgharị uche AI',
+  'forgotPassword.continueButton': 'Tinye koodu nrụpụta',
   'forgotPassword.eyebrow': 'Enweghị nchekasị',
   'forgotPassword.subheading': 'Anyị ga-ezitere gị njikọ nrụpụta dị nro na email gị.',
   'forgotPassword.successBody': 'Ọ bụrụ na akaụntụ dị maka {{email}}, njikọ nrụpụta na-abịa.',
@@ -57,14 +78,21 @@ export const ui: UiTranslations = {
     'Enwebeghị isiokwu — tinye otu tag ma ọ bụ abụọ na ntinye gị, ha ga-ezukọta ebe a.',
   'insights.themesHeading': 'Isiokwu ndị kachasị elu',
   'insights.triggerFrequency': "a chọpụtara {{count}} × n'ọnwa a",
+  'insights.triggersEmpty':
+    "Ọ dịbeghị ihe ị ga-achọpụta. Ndekọ ole na ole n'ime ụbọchị ụfọdụ ga-egosi usoro gị.",
   'insights.triggersHeading': 'Ụkpụrụ ndị na-akpali ọnọdụ gị',
+  'journal.empty': 'Ọ dịghị ntụgharị uche dabara — nwaa nzacha ọzọ ma ọ bụ dee ndekọ ọhụrụ.',
   'journal.eyebrow': 'Echiche gị',
   'journal.heading': 'Akwụkwọ akụkọ',
   'journal.loadError': 'Itinyeghị ihe ndị a ga-etinye.',
   'journal.loading': 'Na-ebugo ntinye…',
+  'journal.newEntry': 'Ntinye ọhụrụ',
   'journal.searchPlaceholder': 'Chọọ mmetụta, aha, obere oge…',
   'journal.subheading': '{{count}} ntinye - nke ọ bụla kwesịrị idobe.',
   'journalEntryCard.encryptedLabel': 'Ezoro ezo',
+  'landing.ctaBody':
+    "Ọ bụ n'efu ịmalite. Pro na-emepe mbupụ data, akwụkwọ ndekọ buru ibu, na akụkọ ihe mere eme otu afọ zuru ezu.",
+  'landing.ctaButton': 'Malite ntinye mbụ gị',
   'landing.ctaTitle': 'Nkeji ole na ole dị jụụ kwa ụbọchị. Ọ bụ naanị ya.',
   'landing.eyebrow': 'Omume dị nro kwa ụbọchị',
   'landing.featuresBody':
@@ -83,6 +111,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Ebe dị jụụ maka ntụgharị uche kwa ụbọchị.',
   'mentalHealthJournalLayout.closeMenu': 'Mechie menu',
   'mentalHealthJournalLayout.openMenu': 'Mepee menu',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Ntugharị isi',
+  'moodHeroCard.entriesThisWeek': '{{count}} izu a',
   'moodHeroCard.streakSuffix': 'usoro ụbọchị',
   'moodHeroCard.title': 'Ntụgharị uche nke taa',
   'moodTrendChart.aiBadge': 'Nghọta AI dị njikere',
@@ -93,11 +123,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Njem gị',
   'profile.fallbackName': 'Reflector',
   'profile.loadError': 'Adịghị enwe ike ibuli ọnụọgụgụ.',
+  'profile.loading': 'Na-eme ka ọnụ ọgụgụ gị dị ọhụrụ…',
   'profile.longestStreak': 'Usoro kachasị ogologo',
   'profile.memberSince': 'Na-atụgharị uche kemgbe {{date}}',
   'profile.milestones': 'Ihe ndị dị mkpa',
   'profile.milestonesEmpty':
     "Ihe mbụ ị ga-eme bụ ide ihe n'otu ebe - dee ya mgbe ọ bụla ị dị njikere.",
+  'profile.moodMix': "Ngwakọta ọnọdụ mmụọ gị n'oge a",
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'Ntụgharị uche',
   'profile.totalWords': 'Okwu ndị e dere',
@@ -110,6 +142,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Dee gbasara nke a',
   'resetPassword.eyebrow': 'Mmalite ọhụrụ',
   'resetPassword.mismatchError': 'Okwuntughe adabaghị.',
+  'resetPassword.passwordLabel': 'Okwuntughe Ọhụrụ',
   'resetPassword.subheading': 'Họrọ ihe dị nchebe - echiche gị kwesịrị ya.',
   'resetPassword.tokenPlaceholder': 'Tọgharịa koodu site na email',
   'settings.dangerDescription':
@@ -121,11 +154,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'Enweghị ike ihichapụ akaụntụ.',
   'settings.exportDescription': "Okwu gị bụ nke gị mgbe niile. Budata otu n'ime ha oge ọ bụla.",
   'settings.exportDone': 'Ebupụrụ {{format}}.',
+  'settings.exportError': 'Mbupụ agaghị nke ọma.',
+  'settings.exportHeading': 'Bupụ ntụgharị uche gị',
   'settings.exportLoading': 'Na-akwado…',
   'settings.eyebrow': 'Oghere gị, iwu gị',
   'settings.languageHeading': 'Asụsụ',
   'settings.privacyHeading': 'Nzuzo na izochi ya',
   'settings.remindersHeading': 'Ncheta kwa ụbọchị',
+  'settings.reminderToggleAria': 'Gbanwee ntaramahụhụ kwa ụbọchị',
   'settings.reminderToggleDescription':
     "Otu ncheta dị jụụ n'oge ị họọrọ. Enweghị akara ngosi ma ọ bụ obi amamikpe.",
   'settings.reminderToggleLabel': 'Zipụ aka dị nro',
@@ -138,6 +174,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Ịmepụta akwụkwọ akụkọ…',
   'signup.subheading': 'Ebe nchekwa maka echiche gị.',
   'wellnessRingsTriad.mindfulnessCaption': 'Goolu {{goal}} nkeji taa',
+  'wellnessRingsTriad.mindfulnessLabel': 'Nchebara echiche',
   'wellnessRingsTriad.sleepCaption': 'Goolu {{goal}} h / abalị',
   'wellnessRingsTriad.sleepLabel': 'Ụra',
+  'wellnessRingsTriad.sleepValue': '{{hours}}a',
+  'wellnessRingsTriad.streakCaption': 'Ebumnuche ụbọchị {{goal}}',
+  'wellnessRingsTriad.streakLabel': 'Usoro ndekọ akwụkwọ',
+  'wellnessRingsTriad.streakValue': '{{days}} d',
 }

@@ -1,14 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kysymyksiä, palautetta tai haluatko perehdytyksen rekrytointitiimillesi? Lähetä sähköpostia osoitteeseen hello@example.com, niin tiimin oikea ihminen vastaa sinulle kahden arkipäivän kuluessa.',
   'about.contactHeading': 'Ota yhteyttä',
+  'about.intro':
+    '{{app}} on hakijaseurantajärjestelmä rekrytoijille ja rekrytoiville esihenkilöille, jotka haluavat signaalia, eivät kohinaa — selkeä putki, itsensä selittävä tekoälyseulonta ja rekrytointianalytiikka samassa paikassa.',
+  'about.missionBody':
+    'Rekrytointi on yksi tiimin korkeimman panoksen päätöksistä, mutta silti suurin osa siitä tapahtuu yhä hajallaan olevissa taulukoissa ja sähköpostiketjuissa. {{app}} tuo koko kierron yhdelle taululle, jotta jokainen ehdokas on seurannassa, jokainen haastattelu on jäsennelty ja jokainen päätös on reilu, nopea ja selitettävissä.',
+  'about.missionHeading': 'Missiomme',
   'auth.legalConsent': 'Jatkamalla hyväksyt',
   'billing.cardExp': 'Vanhenee {{exp}}',
+  'billing.cardLinkError': 'Päivityskortin aloittaminen ei onnistunut.',
   'billing.cardLinkSent': 'Kortin päivitys käynnistetty — tarkista sähköpostisi.',
+  'billing.cardLinkUnavailable':
+    'Korttipäivitykset eivät ole käytettävissä — tässä käyttöönotossa ei ole määritetty maksupalveluntarjoajaa.',
   'billing.cardMissing': 'Ei korttia tallennettuna',
   'billing.col.invoice': 'Lasku',
   'billing.downloadUnavailable': '—',
   'billing.editCard': 'Päivitä kortti',
+  'billing.eyebrow': 'Tilaus ja käyttö',
   'billing.invoiceHeading': 'Viimeisimmät laskut',
   'billing.invoicesEmpty': 'Ei laskuja vielä.',
   'billing.invoicesLoading': 'Ladataan laskuja…',
@@ -22,6 +33,7 @@ export const ui: UiTranslations = {
   'billing.seatsError':
     'Tämä suunnitelma on yhden paikan suunnitelma. Päivitä Team-suunnitelmaan monipaikkakäyttöä varten.',
   'billing.seatsHint': '{{used}} / {{max}} sisältyy',
+  'billing.seatsLabel': 'Aktiiviset paikat',
   'billing.spentLabel': 'Kulutettu vuoden alusta',
   'billing.subheading': 'Tilaus, paikat, tekoälypohjainen seulontakäyttö ja laskut.',
   'billing.unlimited': 'Rajaton',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'candidateDetail.advanceError': 'Vaihetta ei voitu päivittää.',
   'candidateDetail.advanceFinal': 'Jo viimeisessä vaiheessa.',
   'candidateDetail.advanceHeading': 'Siirrä vaiheeseen',
+  'candidateDetail.appliedOn': 'Hakenut {{date}} kautta {{source}}.',
   'candidateDetail.back': 'Kaikki ehdokkaat',
   'candidateDetail.loadError': 'Ehdokkaan tietojen lataus epäonnistui.',
   'candidateDetail.noInterviews': 'Ei haastatteluja vielä.',
@@ -46,8 +59,13 @@ export const ui: UiTranslations = {
   'candidateDetail.notePlaceholder':
     'Kerro palautetta, kerro haastattelusta saamistasi vaikutelmista, seuraavista vaiheista…',
   'candidateDetail.noteSave': 'Tallenna muistiinpano',
+  'candidateDetail.panel': 'Paneeli: {{panel}}',
+  'candidateDetail.panelScore': 'Paneelin pistemäärä: {{score}}/100',
+  'candidateDetail.resumeMissing': 'Tälle ehdokkaalle ei ole vielä ansioluettelon esikatselua.',
   'candidateDetail.scheduleError': 'Haastattelua ei voitu aikatauluttaa.',
+  'candidateDetail.scheduleHeading': 'Ajoita haastattelu',
   'candidateDetail.scheduleInterviewer': 'Haastattelija',
+  'candidateDetail.scheduleInterviewerPlaceholder': 'Haastattelijan nimi',
   'candidateDetail.scheduleMinutes': 'Kesto (min)',
   'candidateDetail.scheduleMissing': 'Valitse ensin päivämäärä ja aika.',
   'candidateDetail.scoreEmpty': 'Odottaa tekoälyarviointia.',
@@ -70,6 +88,7 @@ export const ui: UiTranslations = {
   'candidates.heading': 'Ehdokkaat',
   'candidates.loadError': 'Ehdokkaiden lataus epäonnistui.',
   'candidates.searchPlaceholder': 'Hae ehdokasta, roolia tai työtä…',
+  'candidates.sourceLabel': 'Lähde',
   'candidates.sourcePlaceholder': 'Lähde (LinkedIn, Suositus…)',
   'candidates.subheading':
     'Monitehtäväinen ehdokastietokanta tekoälypisteytyksellä ja lähdeseurannalla.',
@@ -84,6 +103,7 @@ export const ui: UiTranslations = {
   'dashboard.kpi.interviews': 'Haastattelut tällä viikolla',
   'dashboard.kpi.openJobs': 'Avoimet tehtävät',
   'dashboard.loading': 'Ladataan…',
+  'dashboard.newJobCta': 'Julkaise tehtävä',
   'dashboard.subheading':
     'Rekrytointiputken terveys, haastattelukuorma ja käynnissä olevat tarjoukset.',
   'dashboard.topEmpty': 'Ei ehdokkaita vielä.',
@@ -105,6 +125,7 @@ export const ui: UiTranslations = {
   'jobDetail.back': 'Kaikki tehtävät',
   'jobDetail.descriptionEyebrow': 'Roolin kuvaus',
   'jobDetail.descriptionMissing': 'Ei kuvausta vielä.',
+  'jobDetail.employmentType': 'Työsuhdetyyppi: {{type}}',
   'jobDetail.empty': 'Ei hakijoita vielä.',
   'jobDetail.funnelEyebrow': 'Vaihesuppilo',
   'jobDetail.funnelHeading': 'Hakijoiden tilanne',
@@ -113,6 +134,7 @@ export const ui: UiTranslations = {
   'jobDetail.kpi.hires': 'Palkatut',
   'jobDetail.kpi.inInterview': 'Haastattelussa',
   'jobDetail.loadError': 'Tehtävän lataus epäonnistui.',
+  'jobDetail.requirementsHeading': 'Vaatimukset',
   'jobDetail.topEyebrow': 'Parhaat hakijat',
   'jobDetail.topHeading': 'Tekoälyvastineet ensin',
   'jobDetail.unavailable': 'Tätä tehtävää ei ole enää listattuna.',
@@ -128,6 +150,7 @@ export const ui: UiTranslations = {
   'jobs.heading': 'Tehtävät',
   'jobs.loadError': 'Tehtävien lataus epäonnistui.',
   'jobs.newCta': 'Julkaise tehtävä',
+  'landing.copyright': '© {{year}} {{app}}. Rakennettu Moleculella.',
   'landing.eyebrow': 'Tekoälyavusteinen rekrytointi · v2',
   'landing.featuresEyebrow': 'Näin se toimii',
   'landing.featuresHeading': 'Signaali — ei taulukoita.',
@@ -137,8 +160,11 @@ export const ui: UiTranslations = {
   'landing.heroProof':
     'Ei luottokorttia. Peruuta koska tahansa. SSO saatavilla Pro-suunnitelmassa.',
   'landing.heroSecondary': 'Katso hinnoittelu →',
+  'landing.heroSubtitle':
+    'Selkeä kanban-putki, itsensä selittävä tekoälyseulonta ja reiluusanalytiikka vaiheittain. Rakennettu rekrytoijille ja rekrytoiville esihenkilöille, jotka haluavat signaalia — eivät kohinaa.',
   'landing.heroTitle': 'Rekrytoi selkeästi.',
   'landing.previewHeading': 'Vanhempi taustajärjestelmäkehittäjä',
+  'landing.previewLabel': 'Putki · Engineering',
   'landing.pricingEyebrow': 'Hinnoittelu',
   'landing.pricingHeading': 'Suunnitelmat kaikenkokoisille tiimeille.',
   'landing.socialEyebrow': 'Käytössä rekrytointitiimeissä',
@@ -154,6 +180,9 @@ export const ui: UiTranslations = {
   'loginBrandPanel.headlineLine2': 'selkeästi.',
   'loginBrandPanel.stage.interview': 'Haastattelu',
   'loginBrandPanel.stage.screening': 'Seulonta',
+  'loginBrandPanel.stage.sourced': 'Löydetty',
+  'loginBrandPanel.subtext':
+    'Vedä ehdokkaita vaiheesta Löydetty → Seulonta → Haastattelu → Tarjous → Palkattu. Tekoäly seuloo. Reiluuspulssi pitää jokaisen vaiheen rehellisenä.',
   'nav.closeMenu': 'Sulje valikko',
   'nav.legal': 'Lainsäädäntö',
   'nav.openMenu': 'Avaa valikko',
@@ -162,6 +191,7 @@ export const ui: UiTranslations = {
     'Ansioluettelot pisteytetään vaatimuksia vastaan; rekrytoija arvioi parhaat vastineet ensin.',
   'newJob.aiToggle': 'Pisteytä uudet hakijat automaattisesti',
   'newJob.back': 'Takaisin tehtäviin',
+  'newJob.basicsHeading': 'Roolin perustiedot',
   'newJob.compHeading': 'Palkka ja korvaukset',
   'newJob.departmentLabel': 'Osasto',
   'newJob.descHeading': 'Kuvaus ja vaatimukset',
@@ -171,6 +201,7 @@ export const ui: UiTranslations = {
   'newJob.failed': 'Tehtävää ei voitu tallentaa.',
   'newJob.heading': 'Julkaise tehtävä',
   'newJob.publish': 'Julkaise tehtävä',
+  'newJob.reqLabel': 'Vaatimukset (yksi per rivi)',
   'newJob.salaryMax': 'Palkan enimmäismäärä (USD)',
   'newJob.salaryMin': 'Palkan vähimmäismäärä (USD)',
   'newJob.stagesHeading': 'Putken vaiheet',
@@ -185,6 +216,7 @@ export const ui: UiTranslations = {
   'newJob.type.fullTime': 'Kokoaikainen',
   'newJob.type.partTime': 'Osa-aikainen',
   'newJob.typeLabel': 'Työsuhdetyyppi',
+  'pipeline.advanceTo': 'Etene',
   'pipeline.allRoles': 'Kaikki roolit',
   'pipeline.daysInStage': '{{days}} pv',
   'pipeline.empty': 'Ei ehdokkaita',
@@ -198,13 +230,22 @@ export const ui: UiTranslations = {
     'Vedä ehdokkaita vaiheiden välillä. Tekoälypisteet ja päivät vaiheessa näkyvät jokaisessa kortissa.',
   'pipeline.viewTable': 'Taulukkonäkymä →',
   'pipelineFunnelHero.totalLabel': 'Liikkeessä',
+  'planUpdated.body':
+    'Laskutustietojesi muutos on nyt voimassa. Voit hallita suunnitelmaasi milloin tahansa laskutussivulta.',
+  'planUpdated.retry': 'Yritä uudelleen',
+  'planUpdated.verifyFailed': 'Emme voineet vielä vahvistaa maksuasi.',
+  'planUpdated.verifyFailedBody':
+    'Maksusi käsittely saattaa olla vielä kesken. Yritä uudelleen hetken kuluttua.',
   'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'pricing.heading': 'sovellukset',
+  'pricing.limits.applications': 'hakemusta',
   'pricing.limits.candidates': 'ehdokasta',
   'pricing.limits.jobs': 'tehtävää',
   'pricing.limits.scorecards': 'arviointilomaketta',
   'privacy.dataBody':
     'Tilin sähköpostiosoite, hashattu salasana, profiilimetatiedot sekä luomasi ehdokas- ja tehtävätietueet. Emme koskaan myy tai jaa näitä tietoja.',
+  'privacy.intro':
+    '{{app}} käsittelee rekrytointidataa asiakkaiden puolesta. Käsittelemme ehdokastietoja, ansioluetteloita ja rekrytointitiimin viestintää luottamuksellisina ja säilytämme ne salattuina levossa.',
   'privacy.retentionBody':
     'Voit poistaa tilisi milloin tahansa Asetuksista. Poistamme siihen liittyvät tietueet 30 päivän kuluessa, paitsi jos laki edellyttää säilyttämistä.',
   'privacy.title': 'Tietosuojakäytäntö',
@@ -214,6 +255,7 @@ export const ui: UiTranslations = {
     'Salli ehdokkaiden ja hakijoiden nähdä nimesi ja roolisi työpaikkailmoituksissa.',
   'profile.publicLabel': 'Julkinen profiili',
   'profile.publicOff': 'Piilotettu',
+  'profile.publicOn': 'Näkyvissä',
   'profile.recentEmpty': 'Ei sijoituksia vielä.',
   'profile.recentError': 'Viimeisimpiä sijoituksia ei voitu ladata.',
   'profile.recentEyebrow': 'Viimeisimmät sijoitukset',
@@ -239,9 +281,13 @@ export const ui: UiTranslations = {
   'resetPassword.missingFields': 'Valitse ja vahvista uusi salasana.',
   'resetPassword.missingToken': 'Palautuslinkki puuttuu tai on vanhentunut — pyydä uusi.',
   'resetPassword.passwordLabel': 'Uusi salasana',
+  'resetPassword.signInCta': 'Kirjaudu sisään →',
+  'resetPassword.signInPrompt': 'Kirjaudu sisään uudella salasanallasi.',
   'resetPassword.subheading':
     'Valitse vahva salasana — vähintään 12 merkkiä, isoja ja pieniä kirjaimia.',
+  'settings.appearance.description': 'Vaihda vaalean ja tumman tilan välillä.',
   'settings.appearance.title': 'Ulkoasu',
+  'settings.deleteAccountModal.confirm': 'Vahvista antamalla salasanasi. Tämä toiminto on pysyvä.',
   'settings.emailTemplates.empty': 'Ei malleja vielä konfiguroitu.',
   'settings.emailTemplates.heading': 'Sähköpostipohjat',
   'settings.emailTemplates.loadError': 'Malleja ei voitu ladata.',
@@ -252,10 +298,15 @@ export const ui: UiTranslations = {
   'settings.integrations.statusDisconnected': 'Ei yhdistetty',
   'settings.integrations.updateError': 'Integraatiota ei voitu päivittää.',
   'settings.name': 'Nimi',
+  'settings.passwordHelp': 'Päivitä salasana, jolla kirjaudut sisään.',
+  'settings.revokeDeviceWarning': 'Tämän laitteen pääsy peruutetaan pian. Kirjaudu ulos?',
   'settings.saveEmail': 'Tallenna sähköpostiosoite',
   'settings.signOutDevice': 'Kirjaudu ulos',
   'settings.stages.empty': 'Ei vaiheita konfiguroitu vielä.',
+  'settings.stages.heading': 'Putken vaiheet',
+  'settings.stages.help': 'Vaiheet, joiden läpi ehdokkaat kulkevat. Poista ne, joita et käytä.',
   'settings.stages.loadError': 'Vaiheita ei voitu ladata.',
+  'settings.stages.loading': 'Ladataan vaiheita…',
   'settings.stages.removeAria': 'Poista {{name}}-vaihe',
   'settings.stages.removeError': 'Vaihetta ei voitu poistaa.',
   'settings.team.empty': 'Ei tiimin jäseniä vielä — kutsu ensimmäinen alla.',
@@ -271,9 +322,16 @@ export const ui: UiTranslations = {
   'settings.team.removeError': 'Jäsentä ei voitu poistaa.',
   'settings.twoFactorCode': 'Todentamiskoodi',
   'settings.twoFactorDisable': 'Poista käytöstä',
+  'settings.twoFactorDisableTitle': 'Poista kaksivaiheinen tunnistautuminen käytöstä',
   'settings.twoFactorEnable': 'Ota käyttöön',
+  'settings.twoFactorEnableTitle': 'Ota kaksivaiheinen tunnistautuminen käyttöön',
   'settings.twoFactorInvalidCode': 'Virheellinen koodi',
   'settings.twoFactorOn': 'Päivämäärä',
+  'settings.twoFactorQrAlt': 'Kaksivaiheisen QR-koodi',
+  'settings.twoFactorScan':
+    'Skannaa tämä QR-koodi tunnistautumissovelluksellasi ja syötä sitten 6-numeroinen koodi.',
+  'settings.twoFactorUnavailable':
+    'Kaksivaiheinen todennus ei ole käytettävissä tälle sovellukselle.',
   'settings.twoFactorVerify': 'Tarkista ja ota käyttöön',
   'settings.unknownDevice': 'Tuntematon laite',
   'signup.confirmPlaceholder': 'Syötä salasana uudelleen',
@@ -283,6 +341,8 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Luo rekrytointitaulu 60 sekunnissa. Kutsu tiimi myöhemmin.',
   'terms.acceptableUseBody':
     'Et saa väärinkäyttää palvelua, suorittaa automaattista tiedonkeruuta, yrittää murtaa tietoturvallisuutta tai käyttää sitä suojeltujen ryhmien syrjintään.',
+  'terms.intro':
+    'Käyttämällä palvelua {{app}} hyväksyt nämä ehdot. Palvelu tarjotaan sellaisenaan, ja siihen sovelletaan jäljempänä kuvattuja velvoitteita ja rajoituksia.',
   'terms.subscriptionBody':
     'Maksulliset suunnitelmat uusiutuvat kuukausittain, kunnes ne perutaan. Voit peruuttaa tilauksen Laskutuksesta milloin tahansa; suunnitelmasi pysyy aktiivisena nykyisen kauden loppuun.',
   'terms.title': 'Käyttöehdot',

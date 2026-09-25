@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ёсць водгук, знайшлі памылку або хочаце прынесці {{app}} у сваю школу ці каманду? Мы чытаем кожнае паведамленне — звярніцеся з налад свайго акаўнта, і адкажа рэальны чалавек.',
   'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
+  'about.intro':
+    '{{app}} — штодзённая галаваломка са словамі. Адгадайце слова з пяці літар за шэсць спроб, падтрымлівайце серыю перамог, дзяліцеся эмодзі-сеткай і глядзіце, як усё поле справілася з сённяшнім словам.',
+  'about.missionBody':
+    'Добрая галаваломка — невялікая штодзённая перамога. {{app}} пабудавана вакол аднаго агульнага слова ў дзень — дастаткова хутка для перапынку на каву, дастаткова цікава, каб вярнуцца заўтра.',
+  'about.missionTitle': 'Наша місія',
   'about.title': 'Пра {{app}}',
   'archive.loadError': 'Не атрымалася загрузіць архіў.',
   'archive.missed': 'Прапушчана',
   'archive.notPlayed': 'Не згуляна',
+  'archive.subhead':
+    'Перайграйце любы мінулы дзень як практыку — без серый, без статыстыкі, толькі задавальненне.',
   'archive.title': 'Архіў',
   'auth.backToHome': 'Назад на галоўную',
   'auth.backToHomeArrow': '← Назад на галоўную',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Забылі пароль?',
   'auth.login.loggingIn': 'Выконваецца ўваход…',
   'auth.login.logIn': 'Згуляць сённяшняе слова',
+  'auth.login.noAccount': 'Вы ўпершыню карыстаецеся Тэсерай?',
   'auth.login.or': 'або працягнуць з',
   'auth.login.password': 'Пароль',
   'auth.login.signInButton': 'Увайсці',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Захаванне…',
   'common.sendingEllipsis': 'Адпраўка…',
   'common.startingEllipsis': 'Запуск…',
+  'forgotPassword.subhead':
+    'Увядзіце свой адрас электроннай пошты, і мы дашлем вам спасылку для скіду налад.',
+  'forgotPassword.success.body':
+    'Калі ўліковы запіс існуе для {{email}} , вы атрымаеце спасылку для скіду налад праз некалькі хвілін.',
+  'forgotPassword.success.title': 'Праверце сваю паштовую скрыню.',
   'form.name': 'Імя',
   'howToPlay.cta.home': 'Назад дадому',
   'howToPlay.cta.play': 'Згуляць сённяшнюю галаваломку',
@@ -68,10 +83,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Серыі, якія не хочацца рваць',
   'leaderboard.daily.title': 'Сённяшнія рашэнні',
   'leaderboard.loadError': 'Не атрымалася загрузіць табліцу лідараў.',
+  'leaderboard.streaks.empty': 'Пакуль няма серый — станьце першым.',
+  'leaderboard.streaks.subhead': 'Найдоўгія серыі перамог за ўвесь час.',
   'leaderboard.streaks.title': 'Лідары па серыях',
+  'leaderboard.subhead': 'Як поле справілася сёння і хто трымае найдоўгія серыі.',
   'leaderboard.title': 'Табліца лідараў',
   'login.headline': 'Вітаем зноў.',
   'login.streakPill': 'Чакає {{days}}-дзённая серыя',
+  'login.subhead':
+    'Увайдзіце, каб падтрымаць сваю серыю перамог і ўбачыць, як вы справіліся з сённяшнім словам.',
   'nav.archive': 'Архіў',
   'nav.editProfile': 'Рэдагаваць профіль',
   'nav.getStarted': 'Пачаць',
@@ -89,6 +109,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Няма такога слова',
   'notFound.title': 'Гэты маршрут пусты.',
   'planUpdated.message': 'Ваш план актыўны.',
+  'planUpdated.retry': 'Паспрабуйце яшчэ раз',
+  'planUpdated.verifyFailed': 'Нам пакуль не ўдалося пацвердзіць ваш плацёж.',
+  'planUpdated.verifyFailedBody':
+    'Магчыма, ваш плацёж усё яшчэ апрацоўваецца. Паўтарыце спробу праз хвіліну.',
   'planUpdated.verifying': 'Пацверджанне вашага плацяжу…',
   'play.alreadyFinished': 'Вы ўжо завяршылі гэтую галаваломку',
   'play.answerWas': 'Слова было',
@@ -104,6 +128,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Трэніровачная галаваломка',
   'play.tooShort': 'Недастаткова літар',
   'play.won': 'Развязана!',
+  'pricing.advancedStats': 'Пашыраная статыстыка: {{yes}}',
+  'pricing.archiveHistory': '{{count}} дзён гісторыі архіва',
+  'pricing.archivePlays': '{{count}} перайгранняў архіва / дзень',
+  'pricing.archiveUnlimited': 'Неабмежаваная гісторыя архіва',
+  'pricing.canExport': 'Экспарт даных: {{yes}}',
+  'pricing.checkoutError': 'Не атрымалася пачаць афармленне замовы. Паўтарыце спробу.',
   'pricing.dailyWord': 'Штодзённае слова',
   'pricing.heading': 'Выберыце ваш план {{app}}',
   'pricing.included': 'Уключана',
@@ -111,7 +141,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Штодзённае слова заўсёды бясплатнае. Абнавіце падпіску для неабмежаванага доступу да архіва і падрабязнай статыстыкі.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} паважае вашу прыватнасць. На гэтай старонцы апісаны даныя, якія мы захоўваем, навошта мы іх захоўваем і як іх выдаліць.',
   'privacy.title': 'Паведамленне аб канфідэнцыяльнасці',
+  'resetPassword.subhead': 'Выберыце новы пароль, каб вярнуцца да сваёй серыі.',
   'settings.account': 'Уліковы запіс',
   'settings.danger.body':
     'Назаўсёды выдаліць ваш уліковы запіс {{appName}} і ўсю гісторыю галаваломак.',
@@ -121,17 +154,24 @@ export const ui: UiTranslations = {
   'settings.guest': 'Госць',
   'settings.language.title': 'Мова',
   'settings.subhead': 'Наладзьце свой профіль, гук і адлюстраванне ў табліцы лідэраў.',
+  'settings.unnamed': 'Прайгравальнік Sparq',
   'settings.upgrade': 'Абнавіць',
   'signup.eyebrow': 'Бясплатна назаўсёды — адно слова ў дзень',
   'signup.headline': 'Пачніце вашу серыю.',
+  'signup.subhead':
+    'Стварыце акаўнт {{appName}}, каб гуляць у штодзённае слова, будаваць серыю і паднімацца ў табліцы лідараў.',
   'stats.currentStreak': 'Серыя',
   'stats.distribution.title': 'Размеркаванне спроб',
   'stats.loadError': 'Не атрымалася загрузіць вашу статыстыку.',
   'stats.maxStreak': 'Максімальная серыя',
   'stats.played': 'Згуляна',
   'stats.playToday': 'Згуляць сённяшнюю галаваломку',
+  'stats.subhead':
+    'Толькі рэйтынгавыя штодзённыя галаваломкі — практыка ў архіве ніколі не ўлічваецца.',
   'stats.title': 'Ваша статыстыка',
   'stats.winRate': 'Паказчык перамог',
   'status.monthly': 'Штомесячная',
+  'terms.intro':
+    'Карыстаючыся {{app}}, вы згаджаецеся з правіламі ніжэй. Калі вы не можаце іх прыняць, калі ласка, не карыстайцеся сэрвісам.',
   'terms.title': 'Умовы абслугоўвання',
 }

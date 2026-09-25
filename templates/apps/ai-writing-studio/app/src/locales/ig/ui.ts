@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Ị nwere nzaghachi, ị hụrụ nsogbu, ma ọ bụ chọrọ atụmatụ ọhụrụ? Kpọtụrụ anyị site na ntọala akaụntụ gị — ozi ọ bụla na-erute mmadụ n'ezie nọ n'òtù anyị.",
   'about.contactTitle': 'Kpọtụrụ anyị',
   'about.eyebrow': 'Banyere',
+  'about.intro':
+    "{{app}} bụ ụlọ ọrụ ide ihe nke AI maka ndị odee na-echebara edemede ha echiche nke ukwuu. Ọ na-ejikọta mmepụta AI ogologo na nchịkọta akụkọ dị jụụ, akara SEO, na mmepụta onyonyo ka ị nwee ike iwere otu edemede site na ibe ọcha ruo ibipụta — n'ejighị olu gị efunahụ.",
+  'about.missionBody':
+    "Anyị kwenyere na AI kwesịrị idepụta n'akụkụ gị, ọ bụghị n'ọnọdụ gị. {{app}} na-eme ka atụmatụ dị iche n'ụzọ doro anya na okwu gị, na-ahapụ gị onye nwe akwụkwọ ọ bụla ị mepụtara, ma wepụ ngwa ọrụ n'ụzọ nke ide ihe.",
+  'about.missionTitle': 'Ọrụ anyị',
   'about.pageTitle': 'Gbasara {{app}}',
   'aiSuggestionCard.applied': 'A na-etinye aro ahụ',
   'aiSuggestionCard.apply': 'Tinye akwụkwọ',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Isi mmalite okporo ụzọ',
   'billing.activePlan': 'Ndenye aha na-arụ ọrụ.',
   'billing.aiWordsLabel': 'Ọgbọ AI gụnyere',
+  'billing.cancelFailed': 'Enweghị ike ịkagbu ndenye aha.',
   'billing.cancelPlan': 'Kagbuo atụmatụ',
+  'billing.cancelPlanConfirm': 'Kwenye ịkagbu?',
   'billing.cancelSuccess': 'Kagbuola ndenye aha. Melite iji melite atụmatụ.',
   'billing.changePlan': 'Gbanwee atụmatụ',
   'billing.col.invoice': 'Akwụkwọ ọnụahịa',
@@ -43,26 +52,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'Lee atụmatụ',
   'common.goToDashboard': 'Gaa na Dashboard',
   'dashboard.continueWriting': "Gaa n'ihu na-ede ihe",
+  'dashboard.createFirst': 'Mepụta akwụkwọ',
   'dashboard.days.sat': 'Sat',
   'dashboard.days.sun': 'Sun',
   'dashboard.defaultWriterName': 'Onye edemede',
   'dashboard.greeting': 'Ụtụtụ ọma, {{name}}',
   'dashboard.loadError': 'Enweghị ike ibuli dashboard gị.',
+  'dashboard.loading': 'Na-ebu ụlọ ọrụ gị…',
   'dashboard.loadingDocs': 'Na-ebugo akwụkwọ ndị ọhụrụ…',
   'dashboard.noDocuments': 'Enwebeghị akwụkwọ — malite nke mbụ gị.',
   'dashboard.startWriting': 'Malite akwụkwọ ọhụrụ',
+  'dashboard.streakBody': "Ị dere {{words}} okwu n'izu a.",
   'dashboard.streakTitle': '{{count}} - usoro ụbọchị',
+  'dashboard.subgreeting': "{{count}} akwụkwọ n'ọbá akwụkwọ gị — nọgide na-aga n'ihu.",
+  'documentCard.seoScoreTitle': 'Akara SEO: {{score}}/100',
+  'documents.createNew': 'Mepụta akwụkwọ ọhụrụ',
   'documents.empty': 'Ọbá akwụkwọ gị na-eche — malite akwụkwọ mbụ gị.',
+  'documents.emptyFiltered': 'Ọ nweghị akwụkwọ dabara na nzacha gị ugbu a.',
   'documents.loadError': 'Enweghị ike ibuli akwụkwọ.',
   'documents.loading': 'Na-ebugo ọbá akwụkwọ gị…',
   'documents.new': 'Akwụkwọ ọhụrụ',
+  'documents.searchAriaLabel': 'Chọọ akwụkwọ',
   'documents.searchPlaceholder': 'Chọọ akwụkwọ...',
   'documents.subtitle': "{{count}} akwụkwọ dị n'ọbá akwụkwọ gị.",
   'documents.title': 'Akwụkwọ',
   'editor.aiPanelTitle': 'Ọgụgụ isi Plume',
+  'editor.aiSuggestion.empty':
+    'Ọ nweghị ndozi na-arụ ọrụ. Jụọ {{appName}} maka atụmatụ mgbe ị chọrọ anya nke abụọ.',
   'editor.aiSuggestion.failed': 'Enweghị ike ibunye aro ugbu a.',
   'editor.aiSuggestion.loadingBody': 'Na-emepụta mmezi doro anya…',
   'editor.backToDocuments': 'Akwụkwọ niile',
+  'editor.bodyAriaLabel': 'Ahụ akwụkwọ',
   'editor.closeAiPanel': 'Mechie ogwe AI',
   'editor.createFailed': 'Enweghị ike ịmepụta akwụkwọ.',
   'editor.exported': 'Ebupụrụ ya dị ka {{format}} .',
@@ -78,18 +98,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'Rịọ maka mmezi',
   'editor.saveBeforePublish': 'Chekwaa akwụkwọ ahụ tupu ibipụta ya.',
   'editor.status.chars': '{{count}} ndị odide',
+  'editor.status.readTime': '{{minutes}} Ọgụgụ nkeji',
   'editor.status.savedAt': 'Echekwara {{time}}',
   'editor.status.saveError': 'Nchekwa agaghị nke ọma',
+  'editor.status.unsaved': 'Echekwabeghị ya',
   'editor.titleAriaLabel': 'Aha akwụkwọ',
   'editor.titlePlaceholder': 'Akwụkwọ na-enweghị aha',
   'editor.toggleAiPanel': 'Gbanwee ogwe AI',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'ode akwụkwọ@example.com',
+  'forgotPassword.sent': 'Ọ bụrụ na {{email}} dị na faịlụ, njikọ nrụpụta na-abịa.',
   'imageGenerator.failed': 'Mmepụta onyonyo agaghị arụ ọrụ nke ọma.',
   'imageGenerator.generate': 'Mepụta onyonyo',
   'imageGenerator.generating': 'Na-emepụta...',
   'imageGenerator.placeholder': 'Kọwaa onyonyo ịchọrọ imepụta...',
+  'imageGenerator.promptAriaLabel': 'Ihe onyonyo a chọrọ',
+  'imageGenerator.subtitle': 'Kọwaa onyonyo mkpuchi ka AI see ya.',
   'imageGenerator.title': 'Ihe Mmepụta Foto AI',
+  'landing.aiSuggestionBody':
+    "na-eguzo na balcony nke ala nke 42, Elias nwere mmetụta obodo na-arapara ya — ifufe wepụrụ ụda gburugburu, hapụrụ ya n'elu grid na-enwu enwu n'ime oghere oyi na nkịtị.",
   'landing.eyebrow': 'Studio edemede AI maka ndị edemede siri ike',
   'landing.featuresHeading': "Ngwaọrụ ndị na-apụ n'anya",
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -99,14 +126,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     "Ụlọ ihe nkiri e mere maka ndị edemede na-echebara akụkọ ha, ọsọ ha, na nkenke ha echiche. Plume drafts dị n'akụkụ gị — ọ bụghị kama gị.",
   'landing.heroTitle.eloquence': 'okwu',
+  'landing.heroTitle.intelligence': 'Ọgụgụ isi na-ezute ',
   'landing.nav.testimonials': 'Ihe akaebe',
   'landing.plan.cta': 'Malite na atụmatụ a',
   'landing.plan.popular': "Ndị kacha hụ n'anya",
   'landing.pricingEyebrow': 'Ọnụahịa',
   'landing.pricingHeading': 'Họrọ ihe dabara na omume gị',
   'landing.sampleDocTitle': 'Usoro nke Ịnọ jụụ',
+  'landing.sampleParagraph1':
+    "Obodo ahụ adịghị jụụ n'ezie. Ọbụna n'ime awa kachasị omimi nke abalị, ụda dị ala na-ama jijiji site na ntọala simenti — mkpụrụ obi igwe nke ụgbọ oloko na oghere ikuku.",
+  'landing.sampleParagraph2.after': ' na iko ahụ.',
+  'landing.sampleParagraph2.before': 'Mana ',
   'landing.sampleParagraph2.highlight':
     "Mgbe Elias guzoro n'elu mbara ihu nke ụlọ nke iri anọ na abụọ, o nwere mmetụta nke ịnọpụ iche nke ukwuu",
+  'landing.showcaseBody':
+    'Kaa ahịrịokwu pụta ìhè ka {{appName}} nye atụmatụ ndozi. Nabata ya, gbanwee ya, ma ọ bụ hapụ ya. Atụmatụ na-acha odo odo mgbe niile ka ị mara ihe ị dere na ihe e nyere.',
+  'landing.showcaseHeading': 'Anya nke abụọ — ọ bụghị onye odee nke abụọ.',
   'landing.startWriting': 'Malite ide ihe',
   'login.emailPlaceholder': 'ode akwụkwọ@example.com',
   'login.failed': 'Nbanye agaghị nke ọma',
@@ -121,8 +156,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Mepee dashboard',
   'notFound.title': 'E debeghị isiakwụkwọ a.',
   'plumeSidebarLayout.primaryNavLabel': 'Ntugharị isi',
+  'pricing.maxDocuments': '{{count}} akwụkwọ',
+  'pricing.maxGenerate': '{{count}} mmepụta AI',
+  'pricing.maxImages': '{{count}} mmepụta onyonyo',
   'privacy.data':
     'Ozi email akaụntụ gị na paswọọdụ hashed. Akwụkwọ na ndebiri ị mepụtara. Ndekọ aro AI (ntinye + mmepụta) maka ịkwụ ụgwọ na nyocha. Dee ihe njirimara ndị ahịa + ndenye aha; anyị anaghị echekwa nọmba kaadị zuru oke.',
+  'privacy.intro':
+    'Anyị na-anakọta naanị data achọrọ iji rụọ {{app}}: email gị, akwụkwọ ị mepụtara, na arịrịọ AI ị na-eme. Anyị anaghị ere edemede gị ma ọ bụ arịrịọ gị.',
   'profile.loadError': 'Enweghị ike ibuli profaịlụ gị.',
   'profile.loading': 'Na-ebugo profaịlụ gị...',
   'profile.loadingPublished': 'Na-ebugo akwụkwọ ebipụtara...',
@@ -133,7 +173,13 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Okwuntughe Ọhụrụ',
   'seoAnalysis.backToEditor': 'Laghachi na onye nchịkọta akụkọ',
   'seoAnalysis.eyebrow': 'Nyocha SEO',
+  'seoAnalysis.heroBody':
+    "{{count}} atụmatụ iji tinye n'ọrụ. Nke ọ bụla bụ nkwalite nhazi ma ọ bụ isiokwu, ọ bụghị mgbidi ọkọlọtọ uhie.",
+  'seoAnalysis.heroBodyEmpty':
+    'Pịa "Run analysis" iji nye akara maka ịgụ ọsọ ọsọ, njupụta isiokwu, na nhazi.',
   'seoAnalysis.heroEmpty': 'Enwebeghị nyocha ọ bụla. Gbaa otu iji nweta akara a.',
+  'seoAnalysis.heroNeedsWork': 'Ụfọdụ nkwalite nhazi ga-akwalite iru eru.',
+  'seoAnalysis.heroStrong': 'Edemede siri ike — obere nkwalite fọdụrụ iji ruo ọkwa kacha mma.',
   'seoAnalysis.historyEmpty': 'E dekọbeghị nyocha ndị gara aga.',
   'seoAnalysis.historyTitle': 'Akụkọ nyocha',
   'seoAnalysis.keywordEmpty':
@@ -160,8 +206,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': "Kpọọ Plume ka o kwekọọ n'otú i si ede ihe.",
   'settings.toggleIntegrationFailed': 'Mmelite njikọta ahụ agaghị arụ ọrụ nke ọma.',
   'settings.writing.aiSuggestions': "Aro AI dị n'ime ahịrị mgbe ị na-ede ihe",
+  'settings.writing.aiSuggestionsBody':
+    "Na-egosi ndozi ka ị na-ede. Atụmatụ na-abụ nhọrọ mgbe niile n'ahịrịokwu ọ bụla.",
   'settings.writing.autoSave': 'Chekwaa onwe gị kwa sekọnd iri atọ ọ bụla',
+  'settings.writing.autoSaveBody':
+    '{{appName}} na-edebe foto nke edemede gị ka ị nwee ike weghachite site na taabụ ọ bụla.',
   'settings.writing.notifyEmail': 'Zitere m ozi-e nchịkọta ide ihe kwa izu',
+  'settings.writing.notifyEmailBody':
+    'Nchịkọta Sunday dị mkpirikpi nke usoro, edemede, na ndozi SEO.',
   'settings.writing.title': 'Mmasị ide ihe',
   'settings.writing.tone': 'Ntọala ụda ndabara',
   'signup.emailPlaceholder': 'ode akwụkwọ@example.com',
@@ -173,8 +225,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'Enweghị nkọwa enyere.',
   'templates.subtitle':
     "Malite site na usoro nchịkọta akụkọ nke a nwalere n'ọgụ, wee mee ya nke gị.",
+  'terms.intro':
+    "Usoro ndị a na-achịkwa ojiji gị nke {{app}}. Site n'ịmepụta akaụntụ ị na-ekwenye iji ọrụ ahụ maka ide ihe n'ụzọ iwu kwadoro na idobe nkọwa akaụntụ gị na nzuzo.",
   'terms.license':
     'Ị na-ejigide ikike nke akwụkwọ, ndebiri, na mmepụta AI ọ bụla ị mepụtara. Anyị chọrọ ikike na-abụghị nke pụrụ iche iji kwado ma nye gị ọrụ gị, yana ịhazi arịrịọ AI site na ndị na-enye ọrụ ejikọtara ọnụ ị họọrọ.',
   'writingStreakHeroCard.change': '{{sign}} {{amount}} okwu',
   'writingStreakHeroCard.greeting': 'Ehihie ọma, {{name}}',
+  'writingStreakHeroCard.subtitle': "Okwu edere n'izu a — usoro ụbọchị {{count}}",
+  'writingStreakHeroCard.tagline': 'Ibe otu ụbọchị na-eme ka muse nọrọ na-arụ ọrụ.',
 }

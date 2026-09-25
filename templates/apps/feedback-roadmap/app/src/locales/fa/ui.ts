@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'بازخوردی دارید، باگی پیدا کرده‌اید، یا می‌خواهید تخته‌ای مخصوص خودتان در {{appName}} داشته باشید؟ تنظیمات را باز کنید تا با تیم در تماس باشید — هر پیام به دست انسانی واقعی می‌رسد که آن را می‌خواند.',
+  'about.contactTitle': 'با ما صحبت کنید',
+  'about.featureModeration':
+    'نقشه‌راه عمومی با برچسب فصل‌ها، یک تغییرنگار که کارهای منتشرشده را به یادداشت‌های انتشار تبدیل می‌کند، و یک داشبورد که نشان می‌دهد مردم بیشتر چه می‌خواهند.',
+  'about.featurePricing':
+    'اجرای چند تخته رایگان است؛ طرح‌های Pro و Team تخته‌های بیشتر، محدودیت‌های بالاتر و خروجی داده را باز می‌کنند.',
+  'about.featureThreads':
+    'تخته‌های بازخورد عمومی سازمان‌یافته بر اساس موضوع، با ادغام موارد تکراری که رأی‌ها را در یک سیگنال تقاضای صادقانه جمع می‌کند.',
+  'about.featureVoting':
+    'رأی‌دهی یک‌رأی‌به‌ازای هر کاربر با گردش‌کار کامل وضعیت — باز، برنامه‌ریزی‌شده، در حال انجام، منتشرشده یا ردشده — و پاسخی رسمی برای هر تصمیم.',
+  'about.intro':
+    '{{appName}} یک پلتفرم بازخورد محصول است — تخته‌های عمومی که مشتریان در آن درخواست می‌گذارند، به آنچه نیاز دارند رأی می‌دهند و هر ایده را از برنامه‌ریزی تا انتشار دنبال می‌کنند. تیم‌ها دیگر حدس نمی‌زنند چه بسازند، چون تقاضا خودش رتبه‌بندی می‌شود.',
+  'about.missionBody':
+    'ما باور داریم بهترین تصمیم‌های محصول در فضای باز گرفته می‌شوند. {{appName}} به هر تیم یک تخته عمومی از درخواست‌های رأی‌داده‌شده، یک نقشه‌راه رسمی با فصل‌های هدف و یک تغییرنگار می‌دهد که چرخه را کامل می‌کند — تا مشتریان تأثیر خود را ببینند و تیم‌ها مأموریت خود را.',
+  'about.missionTitle': 'ماموریت ما',
   'admin.backToBoards': 'بازگشت به تابلوها',
   'admin.denied': 'فقط مدیران.',
   'admin.eyebrow': 'تیم محصول',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'admin.title': 'داشبورد بازخورد',
   'admin.topOpen': 'درخواست‌های باز برتر',
   'admin.totalVotes': '{{count}} مجموع',
+  'admin.votesChartLabel': 'نمودار میله‌ای رأی‌های داده‌شده در هر هفته طی هشت هفته گذشته',
   'admin.votesOverTime': 'رای‌ها در طول زمان',
   'auth.forgotPassword.email': 'ایمیل',
   'auth.forgotPassword.sendResetLink': 'ارسال لینک بازنشانی',
@@ -30,7 +47,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'ایجاد حساب کاربری شما',
   'auth.username': 'نام کاربری',
   'authShell.communities': 'انجمن‌ها',
+  'authShell.copyright': '{{appName}} — هر صدا مهم است.',
   'authShell.trending': 'پرطرفدار',
+  'boardCard.postCount': '{{count}} نوشته',
   'boardDetail.allBoards': 'همه تابلوها',
   'boardDetail.backToBoards': 'بازگشت به تابلوها',
   'boardDetail.empty': 'هنوز هیچ پستی با این فیلترها مطابقت ندارد.',
@@ -54,6 +73,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'هر ورودی به عنوان یک درخواست رأی‌گیری شده شروع شد. رأی‌دهندگان حرکت آن را دیدند؛ اینجا جایی است که فرود آمد.',
   'changelog.title': 'منتشر شده، با مدرک',
+  'changelog.voteCount': '{{count}} رأی باعث ساخت این شد',
   'common.atLeast8Characters': 'حداقل ۸ کاراکتر',
   'common.checkYourInbox': 'صندوق ورودی خود را بررسی کنید',
   'common.loadingEllipsis': 'در حال بارگذاری…',
@@ -64,6 +84,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'در حال ارسال…',
   'footer.about': 'درباره {{appName}}',
   'footer.language': 'زبان',
+  'forgotPassword.description':
+    'ایمیل خود را وارد کنید و ما لینکی برای تنظیم مجدد برای شما ارسال خواهیم کرد.',
+  'forgotPassword.successBody':
+    'ما یک لینک بازنشانی برای شما ارسال کردیم {{email}} 30 دقیقه دیگر منقضی می‌شود.',
   'forgotPassword.tryAnother': 'ایمیل دیگری را امتحان کنید',
   'form.displayName': 'نام نمایشی',
   'form.firstName': 'نام',
@@ -74,6 +98,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'نقشه راه شما، پشتیبانی شده با رأی.',
   'landing.heroCtaPrimary': 'شروع جمع‌آوری رأی',
   'landing.heroCtaSecondary': 'مشاهده یک تابلوی زنده',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'حدس زدن را بس کنید. آنچه به آن رأی می‌دهند را منتشر کنید.',
+  'landing.heroLede':
+    '{{appName}} درخواست‌های پراکنده ویژگی را به یک تخته عمومی از ایده‌های رأی‌داده‌شده، یک نقشه‌راه رسمی و یک تغییرنگار که مشتریانتان واقعاً می‌خوانند تبدیل می‌کند.',
   'landing.heroStat1': '۳,۲۰۰+',
   'landing.heroStat1Label': 'تیم‌های شنونده',
   'landing.heroStat2': '۱.۴m',
@@ -85,9 +113,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'تغییرات',
   'landing.navJoin': 'پیوستن به {{appName}}',
   'landing.navRoadmap': 'نقشه راه',
+  'landing.step1Body':
+    'مشتریان ایده‌ها را در تخته‌های عمومی می‌گذارند. موارد تکراری ادغام می‌شوند، رأی‌ها جمع می‌شوند و تقاضا خودش رتبه‌بندی می‌شود.',
   'landing.step1Title': 'جمع‌آوری',
+  'landing.step2Body':
+    'درخواست‌ها را با یک فصل هدف به‌عنوان برنامه‌ریزی‌شده یا در حال انجام علامت بزنید — نقشه‌راه همان لحظه به‌روز می‌شود.',
+  'landing.step2Title': 'متعهد شدن',
   'landing.step3Body':
     'پست‌های منتشر شده به ورودی‌های تغییرات تبدیل می‌شوند، و هر رأی‌دهنده نتیجه را در لیست خود می‌بیند.',
+  'landing.step3Title': 'انتشار',
   'landing.topSubtitle': 'زنده از این تابلو — وارد شوید تا رأی خود را اضافه کنید.',
   'landing.topTitle': 'چیزهایی که کاربران در حال حاضر می‌خواهند',
   'landing.topViewAll': 'همه تابلوها',
@@ -95,14 +129,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'اولیه',
   'layout.signUp': 'ثبت نام کنید',
   'layout.submit': 'ارسال بازخورد',
+  'login.description': 'مکالمه را از جایی که متوقف شده بود، ادامه دهید.',
+  'login.heading': 'ورود به Nimbus',
+  'login.noAccount': 'تازه اومدی؟',
   'login.passwordPlaceholder': 'رمز عبور شما',
   'login.twoFactorLabel': 'کد 2FA (اختیاری)',
   'login.twoFactorPlaceholder': 'کد ۶ رقمی',
+  'login.twoFactorRequiredHint':
+    'این حساب احراز هویت دو مرحله‌ای فعال دارد. برای ادامه کد ۶ رقمی برنامه احراز هویت خود را وارد کنید.',
   'login.twoFactorRequiredLabel': 'کد 2FA خود را وارد کنید',
+  'myActivity.browseCta': 'مرور تابلوها',
+  'myActivity.emptyPosts': 'هنوز درخواستی ثبت نکرده‌اید.',
+  'myActivity.emptyVotes': 'هنوز چیزی نیست — تخته‌ها را بگردید و از یک ایده حمایت کنید.',
   'myActivity.eyebrow': 'فعالیت شما',
   'myActivity.loadError': 'فعالیت شما بارگیری نشد.',
   'myActivity.postsTitle': 'درخواست‌هایی که ارسال کرده‌اید',
+  'myActivity.shippedNote': '{{count}} از آن‌ها منتشر شد — ممنون از یادآوری.',
   'myActivity.submitCta': 'ارسال یک درخواست',
+  'myActivity.tabLabel': 'مشاهده',
   'myActivity.tabPosts': 'پست‌های من',
   'myActivity.tabVotes': 'رأی‌های من',
   'myActivity.votesTitle': 'درخواست‌هایی که به آنها رأی داده‌اید',
@@ -137,8 +181,12 @@ export const ui: UiTranslations = {
   'posts.notFound': 'پست پیدا نشد',
   'postsAdmin.backToDashboard': 'داشبورد',
   'postsAdmin.eyebrow': 'تیم محصول',
+  'postsAdmin.mergeApplied': 'ادغام شد — {{votes}} رأی و {{comments}} نظر منتقل شد.',
   'postsAdmin.mergeApply': 'ادغام و انتقال رأی‌ها',
   'postsAdmin.mergeChoose': 'یک پست هدف انتخاب کنید…',
+  'postsAdmin.mergeFailed': 'ادغام ناموفق بود.',
+  'postsAdmin.mergeHint':
+    'رأی‌ها جمع می‌شوند (یکی برای هر کاربر)، نظرها منتقل می‌شوند و این پست یادداشت «منتقل‌شده» می‌گیرد.',
   'postsAdmin.mergeLabel': 'ادغام تکراری در',
   'postsAdmin.responseLabel': 'پاسخ رسمی',
   'postsAdmin.responsePlaceholder':
@@ -153,7 +201,13 @@ export const ui: UiTranslations = {
     'وضعیت رسمی را تنظیم کنید، به صورت عمومی پاسخ دهید، سه‌ماهه نقشه راه را برچسب‌گذاری کنید، و موارد تکراری را ادغام کنید.',
   'postsAdmin.title': 'مدیریت پست‌های بازخورد',
   'postsAdmin.votes': '{{count}} رأی',
+  'pricing.limits.advancedFeatures': 'ویژگی‌های پیشرفته:',
+  'pricing.limits.boards': '{{count}} تخته‌ها',
   'pricing.limits.export': 'صادرات داده:',
+  'pricing.limits.posts': '{{count}} پست بازخورد',
+  'pricing.limits.votes': '{{count}} رأی',
+  'resetPassword.description':
+    'یک مورد قوی انتخاب کنید. به محض موفقیت در تنظیم مجدد، شما را وارد سیستم خواهیم کرد.',
   'resetPassword.newPasswordLabel': 'رمز عبور جدید',
   'resetPassword.tokenPlaceholder': 'توکن لینک را جایگذاری کنید',
   'roadmap.cardMeta': 'توسط {{author}} · {{board}}',
@@ -169,6 +223,7 @@ export const ui: UiTranslations = {
   'search.empty': 'هیچ درخواستی با آن جستجو مطابقت ندارد.',
   'search.hint': 'یک عبارت تایپ کنید تا درخواست‌های موجود را قبل از ارسال تکراری پیدا کنید.',
   'search.loadError': 'جستجو ناموفق بود — دوباره امتحان کنید.',
+  'search.searching': 'در حال جستجو…',
   'search.submit': 'جستجو',
   'search.submitNew': 'به عنوان یک درخواست جدید ارسال کنید',
   'search.title': 'جستجوی بازخورد',
@@ -177,12 +232,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'صورت‌حساب',
   'settings.displaySubtitle': 'انتخاب کنید که فیدها چقدر متراکم احساس می‌شوند.',
   'settings.displayTitle': 'نمایش',
+  'settings.emailDigestDesc': 'درخواست‌های باز با بیشترین رأی، هر دوشنبه.',
+  'settings.emailDigestLabel': 'خلاصه هفتگی',
+  'settings.emailMentionsDesc': 'وقتی کسی به پستی که دنبال می‌کنید پاسخ می‌دهد.',
+  'settings.emailMentionsLabel': 'در صورت منشن، ایمیل بزن',
+  'settings.emailRepliesDesc': 'رشته‌هایی که شروع کرده یا به آن‌ها پاسخ داده‌اید.',
+  'settings.emailRepliesLabel': 'در پاسخ‌ها به من ایمیل بزنید',
   'settings.loadError': 'بارگذاری حساب شما ممکن نیست.',
   'settings.loading': 'در حال بارگذاری تنظیمات شما…',
   'settings.notifications': 'اعلان‌ها',
   'settings.notificationsSubtitle':
     'تصمیم بگیرید چه چیزی به صندوق ورودی شما برسد و چه چیزی به دستگاه فشار شما.',
+  'settings.pushRepliesLabel': 'اعلان برای پاسخ‌ها',
+  'settings.pushVotesDesc': 'اعلان آستانه در ۱۰۰، ۵۰۰، ۱۰۰۰.',
+  'settings.pushVotesLabel': 'برای کسب امتیازهای مثبت تلاش کنید',
   'settings.saveAccount': 'ذخیره حساب کاربری',
+  'settings.showFlair': 'نمایش برچسب تخته‌ها روی پست‌ها',
+  'settings.showThumbnails': 'نمایش بندانگشتی پیوند/تصویر',
   'settings.usernamePlaceholder': 'یک نام کاربری انتخاب کنید',
   'signup.confirmPlaceholder': 'دوباره تایپ کنید',
   'signup.description': 'شکل دادن به آنچه بعدی می‌سازیم.',

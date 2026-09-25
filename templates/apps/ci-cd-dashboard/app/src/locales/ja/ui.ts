@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ご質問、フィードバック、チーム向けのデモをご希望ですか？hello@conduit.dev までメールをお送りください — いただいたメッセージはすべてチームの担当者が直接確認します。',
   'about.contactHeading': 'お問い合わせ',
   'about.eyebrow': '概要',
+  'about.featuresHeading': '得られるもの',
+  'about.introBody':
+    '{{app}} は GitHub Actions スタイルの継続的デリバリーを 1 つの高速なダッシュボードに集約します。すべてのリポジトリのパイプライン、ビルドログ、アーティファクト、ステータスバッジ、デプロイ環境を 1 か所で確認できます。タブを行き来する必要も、どのビルドが失敗したか推測する必要もありません — すべての実行、ログ行、デプロイにワンクリックでアクセスできます。',
+  'about.introHeading': '{{app}} とは',
+  'about.missionBody':
+    'ソフトウェアのリリースは、不安の種ではなく、穏やかで予測可能なものであるべきです。私たちはパイプライン、ログ、デプロイツールを構築し、コミットから本番環境までの道のりを迅速で可視性が高く、信頼できるものにします — 最初のグリーンビルドは 5 分で、その後のすべてのビルドも同じように明確です。',
+  'about.missionHeading': '私たちの使命',
+  'about.subtitle':
+    '{{app}} は、すべてのリポジトリのビルド、デプロイ、環境を監視し、確実にリリースしたいチームのための CI/CD ダッシュボードです。',
   'artifacts.empty': 'アーティファクトはまだありません。',
   'artifacts.heading': 'アーティファクト',
   'artifacts.loadError': 'アーティファクトの読み込みに失敗しました。',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': '環境',
   'environments.loadError': '環境の読み込みに失敗しました。',
+  'environments.loading': '環境を読み込み中…',
   'environments.subheading': 'すべてのターゲットのライブデプロイ状況。',
   'forgotPassword.runnerStatus': 'リセット・セキュアトンネル',
+  'forgotPassword.success':
+    'そのメールにアカウントが存在する場合、リセットリンクをお送りしています。受信箱をご確認ください。',
   'insights.changeFailureRate': '変更失敗率',
   'insights.deployFrequency': '1日あたりのデプロイ数',
   'insights.empty': 'データがまだ十分にありません。',
@@ -39,13 +53,17 @@ export const ui: UiTranslations = {
   'insights.loadError': 'インサイトの読み込みに失敗しました。',
   'insights.meanP95': '平均 {{mean}}・p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': '最も遅いパイプラインステップ',
   'insights.successRateHeading': 'パイプライン成功率(過去14日間)',
   'landing.choosePlan': 'プランを選ぶ',
+  'landing.copyright': '© {{year}} {{app}}. 確実にリリース。',
   'landing.ctaBody':
     'クレジットカード不要。プラットフォームエンジニア不要。最初のパイプラインを5分でグリーンに。',
   'landing.ctaHeading': '確信を持って出荷。',
   'landing.featuresEyebrow': '// プラットフォーム機能',
   'landing.featuresHeading': '出荷者による、出荷者のための設計',
+  'landing.heroSubtitle': '数秒で完了するパイプライン。読めるログ。信頼できるデプロイ。',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'シンプルで予測可能な料金',
@@ -84,7 +102,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': '現在実行中',
   'pipelines.metric.successCaption': '{{count}}回中{{total}}回',
   'pipelines.metric.successRate': '成功率',
+  'pipelines.realtimeOn': 'リアルタイム',
   'pipelines.subheading': '監視中のすべてのリポジトリからのライブ更新。',
+  'pricing.advancedFeatures': '高度な機能: {{mark}}',
+  'pricing.canExport': 'データエクスポート: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} 個のアーティファクト',
+  'pricing.maxBuilds': '{{count}} 件のビルド',
+  'pricing.maxPipelines': '{{count}} 個のパイプライン',
   'privacy.dataAccount': 'アカウント: 名前、メール、ハッシュ化されたパスワード、プランティア。',
   'privacy.intro':
     '{{app}}は、継続的デリバリーアカウントの運用に必要な最小限のデータのみを収集します。具体的には、メールアドレス、接続したリポジトリ、ランナーが生成するコミットとビルドのメタデータ、そして当社に保存することを選んだシークレットです。ビルドランナー外でソースコードを読み取ることはなく、設定されている場合、ビルドアーティファクトはお客様のS3バケットに保存されます。',
@@ -92,6 +116,8 @@ export const ui: UiTranslations = {
     '課金にはStripeを、トランザクションメールにはMailgunを、ビルドアーティファクトの保存にはAWS S3を利用しています。各社は契約上、サービス提供に必要な最小限のデータの範囲に拘束されます。',
   'privacy.rightsBody':
     '設定画面から、データの全バイトをエクスポートしたり、いつでもアカウントを削除したり、アカウント上のすべてのWebhook配信記録を要求したりできます。GDPR/CCPAに基づくリクエストには30日以内に対応いたします。',
+  'privacy.subtitle':
+    '{{app}} がパイプラインを実行する際に、お客様のデータをどのように収集、保存、保護するか。',
   'privacy.title': 'プライバシーポリシー',
   'repositories.empty': '接続されたリポジトリはありません。',
   'repositories.heading': 'リポジトリ',
@@ -100,11 +126,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'すべてのリポジトリ',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'リポジトリの読み込みに失敗しました。',
+  'repositoryDetail.meanDuration': '平均所要時間',
   'repositoryDetail.notFound': 'リポジトリが見つかりません。',
+  'repositoryDetail.successRate': '成功率',
   'repositoryDetail.totalBuilds': 'ビルド合計',
   'repositoryDetail.webhookActive': 'アクティブ',
   'repositoryDetail.webhookPaused': '一時停止',
   'repositoryDetail.webhooksHeading': 'Webhook',
+  'resetPassword.passwordLabel': '新しいパスワード',
   'resetPassword.runnerStatus': 'リセット・トークン検証済み',
   'resetPassword.subtitle': '以前に使用したことのない強力なパスワードを選んでください。',
   'resetPassword.tokenPlaceholder': 'メールから貼り付け',
@@ -117,6 +146,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Conduitが監視するリポジトリです。イベントの取り込みを停止するには、VCSプロバイダーから切断してください。',
   'settings.repositories.empty': 'まだ接続されたリポジトリはありません。',
+  'settings.repositories.heading': 'リポジトリ接続',
   'settings.repositories.loadError': 'リポジトリの読み込みに失敗しました。',
   'settings.secrets.addCta': 'シークレットを追加',
   'settings.secrets.addError': 'シークレットの追加に失敗しました。',
@@ -124,6 +154,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'シークレットの削除に失敗しました。',
   'settings.secrets.empty': '保存されているシークレットはありません。',
   'settings.secrets.heading': 'シークレット',
+  'settings.secrets.lastUsed': '最終使用 {{date}}',
   'settings.secrets.loadError': 'シークレットの読み込みに失敗しました。',
   'settings.secrets.neverUsed': '未使用',
   'settings.secrets.rotateCta': 'ローテート',
@@ -147,6 +178,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Webhookの更新に失敗しました。',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': '無料プラン・月1,000ビルド分',
+  'terms.intro':
+    '{{app}} アカウントを作成すると、これらの利用規約に同意したものとみなされます。本規約は、ビルドランナーの許容される使用、当社の SLA の範囲、および悪用されるワークロードに対してアカウントを停止または削除できる条件を定めています。',
   'terms.slaBody':
     'ProおよびTeamプランは、APIとランナープールに対して月間99.95%の稼働率を目標としています。Freeプランは現状のまま提供されます。障害はstatus.conduit.devで報告され、請求書に記載された計算式に従ってクレジットが付与されます。',
   'terms.terminationBody':

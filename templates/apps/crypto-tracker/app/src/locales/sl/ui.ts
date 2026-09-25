@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'O nas',
+  'about.featureAlerts':
+    'Cenovna opozorila za pogoje, ki so pomembni, dostavljena po e-pošti in s potisnimi obvestili, da ne zamudite nobene spremembe.',
+  'about.featureMarkets':
+    'Podatki v živo s trga in cenovni grafikoni za tisoče kovancev, razvrščenih po tržni kapitalizaciji, obsegu in momentumu.',
+  'about.featurePortfolio':
+    'Sledenje portfelju z resničnim dobičkom in izgubo, stroškovno osnovo in razporeditvijo — povezano z vašo zgodovino transakcij.',
+  'about.featureWatchlist':
+    'Osebni seznam za spremljanje in izbrane kripto novice s signali o sredstvih, ki jih spremljate.',
+  'about.missionTitle': 'Naše poslanstvo',
+  'alertConditionCard.armedSince': 'Aktiven od {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'Sproženo {{kdaj}}',
   'alertConditionCard.confirmDelete': 'Potrdi izbris',
+  'alertConditionCard.deleteAriaLabel': 'Izbriši opozorilo',
   'alertConditionCard.pauseAriaLabel': 'Začasno ustavi opozorilo',
   'alertConditionCard.resumeAriaLabel': 'Opozorilo o nadaljevanju',
+  'alertConditionCard.triggeredAt': 'Sproženo {{when}}',
   'alertNew.condition': 'Stanje',
   'alertNew.createCta': 'Ustvari opozorilo',
   'alertNew.error': 'Opozorila ni bilo mogoče ustvariti.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Še ni opozoril.',
   'alerts.eyebrow': 'Bourse tripwires',
   'alerts.loadError': 'Nalaganje opozoril ni uspelo.',
+  'alerts.newCta': '+ Nova past',
   'alerts.subheading': 'Prejmite ping, ko cena, sprememba ali količina preseže vašo mejo.',
   'alerts.summary.armed': 'Oborožen',
   'alerts.summary.triggered': 'Sproženo',
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Rekordna vrednost vseh časov',
   'coinDetail.allTimeLow': 'Najnižja vrednost vseh časov',
   'coinDetail.back': 'Vsi trgi',
+  'coinDetail.chartAriaLabel': '{{name}} cenovni grafikon, zadnjih 30 dni',
   'coinDetail.chartHeading': 'Cena · zadnjih 30 dni',
   'coinDetail.circulating': 'Obtočna oskrba',
   'coinDetail.fdv': 'Popolnoma razredčena vrednost',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Ponastavi žično povezavo.',
   'login.eyebrow': 'Stopite v terminal',
   'login.heading': 'Dobrodošel nazaj, signalist.',
+  'login.noAccountQuestion': 'Ste novi v Tesseri?',
   'login.secureNote': '🔒 Šifrirano med prenosom',
   'login.signingInCta': 'Branje posnetka …',
   'login.signupLink': 'Odprite račun →',
@@ -92,6 +108,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Skenirana pot ne odkrije znanega kovanca ali strani. Ponovno preverite simbol in poskusite znova.',
   'notFound.browseMarkets': 'Brskaj po trgih',
+  'notFound.eyebrow': '{{appName}} signal izgubljen',
+  'notFound.heading': 'Ta signal je izven dosega',
+  'planUpdated.body':
+    'Sprememba obračuna je zdaj aktivna. Svoj načrt lahko kadar koli upravljate na strani za obračun.',
+  'planUpdated.retry': 'Poskusi še enkrat',
+  'planUpdated.verifyFailed': 'Vašega plačila še nismo mogli potrditi.',
+  'planUpdated.verifyFailedBody':
+    'Vaše plačilo se morda še vedno obdeluje. Poskusite znova čez trenutek.',
   'planUpdated.verifying': 'Potrjevanje vašega plačila…',
   'portfolio.addError': 'Vnesite simbol, pozitivni znesek in ceno.',
   'portfolio.addHoldingCta': '+ Dodaj holding',
@@ -115,12 +139,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Skupna vrednost portfelja',
   'portfolioHeroCard.totalPnl': 'Skupni dobiček/izguba',
   'pricing.heading': 'opozorila',
+  'pricing.limit.alerts': 'opozorila',
   'pricing.limit.coins': 'kovanci',
   'pricing.limit.market': 'trg',
   'pricing.limit.portfolio': 'portfelj',
   'resetPassword.eyebrow': 'Nova šifra',
   'resetPassword.missingToken':
     'Ta povezava za ponastavitev manjka ali je neveljavna. Zahtevajte novo.',
+  'resetPassword.passwordPlaceholder': 'Novo geslo',
   'resetPassword.subheading': 'Izberi nekaj, kar lahko dešifriraš samo ti.',
   'settings.apiKeys.body':
     'Ključi samo za branje za uvoz zgodovine transakcij. Po naročnini se povežite prek OAuth iz /pricing.',
@@ -132,18 +158,33 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Kotacijska valuta',
   'settings.preferences.locale': 'Lokalno',
   'settings.preferences.push': 'Potisni',
+  'settings.preferences.refresh': 'Osvežitev cen (sekunde)',
   'settings.preferences.sms': 'SMS-i',
+  'settings.revokeDeviceWarning': 'Dostop te naprave bo kmalu preklican. Jo odjavite?',
   'settings.security.body':
     'Geslo in nastavitve dvofaktorske varnostne zaščite upravlja vaš račun.',
   'settings.signOutDevice': 'Odjava',
   'settings.twoFactorCode': 'Koda za avtentifikacijo',
   'settings.twoFactorDisable': 'Onemogoči',
+  'settings.twoFactorDisableTitle': 'Onemogoči dvostopenjsko preverjanje pristnosti',
   'settings.twoFactorEnable': 'Omogoči',
+  'settings.twoFactorEnableTitle': 'Omogoči dvostopenjsko preverjanje pristnosti',
   'settings.twoFactorInvalidCode': 'Neveljavna koda',
   'settings.twoFactorOn': 'Na',
+  'settings.twoFactorQrAlt': 'QR koda za dvostopenjsko preverjanje',
+  'settings.twoFactorScan':
+    'Skenirajte to kodo QR z aplikacijo za preverjanje pristnosti, nato vnesite 6-mestno kodo.',
+  'settings.twoFactorUnavailable': 'Dvofaktorska avtentikacija ni na voljo za to aplikacijo.',
   'settings.twoFactorVerify': 'Preveri in omogoči',
   'sigilAuthShell.backHomeCta': '← Nazaj na Bourse',
+  'sigilAuthShell.brandBody':
+    'Cene v realnem času, dobiček/izguba portfelja in stalna opozorila za pogoje, ki so pomembni — vse na enem terminalu.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — zgrajeno na Molecule',
+  'sigilAuthShell.brandHeadline': 'Dekodirajte vsak signal v celotni knjigi.',
+  'sigilAuthShell.samplePortfolio': 'Vzorčni portfelj',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Primarna navigacija',
+  'signup.creating': 'Odpiram vaš terminal …',
   'signup.eyebrow': 'Odprite terminal',
   'signup.heading': 'Ustvari svoj Bourse',
   'signup.subheading': 'Sledite vsakemu kovancu, preprečite vsak zgrešek. Začetek je prost.',
@@ -160,6 +201,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Naložitev transakcij ni uspela.',
   'watchlist.addCta': 'Brskaj po trgih',
   'watchlist.col.change24h': '24 ur',
+  'watchlist.col.coin': 'Kovanec',
   'watchlist.col.marketCap': 'Tržna kapica',
   'watchlist.empty':
     'Na vašem seznamu za spremljanje ni kovancev – označite kovance z zvezdico iz /markets, da jih dodate.',

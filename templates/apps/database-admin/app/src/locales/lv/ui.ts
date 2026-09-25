@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
+  'about.featureConnections':
+    'Savienojumu pārvaldnieks, kas droši glabā un krāso jūsu datubāzes — akreditācijas dati tiek šifrēti miera stāvoklī, nekad vienkāršā tekstā.',
+  'about.featureMonitoring':
+    'Vaicājumu veiktspējas un datubāzes aktivitātes uzraudzība reāllaikā, ar tastatūras saīsnēm un komandu paleti, lai visu vadītu bez rokām.',
+  'about.featurePlans':
+    'Plāni, kas aug kopā ar jums — Bezmaksas individuālam darbam, Pro un Team vairāk savienojumiem, ilgākai vaicājumu saglabāšanai, eksportiem un uzlabotām funkcijām.',
+  'about.featureQueryEditor':
+    'Uz Monaco balstīts SQL redaktors ar vaicājumu vēsturi, saglabātiem vaicājumiem un rezultātu eksportēšanu CSV formātā ar vienu klikšķi.',
+  'about.featureSchema':
+    'Shēmas pārlūks un tabulu pārlūks, lai navigētu datubāzēs, tabulās un kolonnās, pēc tam pārlūkotu, filtrētu un rediģētu rindas tieši vietnē.',
+  'about.missionTitle': 'Mūsu misija',
   'authShell.commands': 'Komandas',
   'authShell.ssoSupported': 'Atbalsta SSO',
   'common.run': 'Sākt',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Jautājumi',
   'connections.schema': 'Shēma',
   'connections.subtitle': 'Pārvaldiet savus datubāzes savienojumus.',
+  'connections.test': 'Tests',
   'databaseAdminLayout.adminRole': 'Administratora loma',
   'databaseAdminLayout.commandPalette': 'Komandu palete',
   'databaseAdminLayout.commands': 'komandas',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Jauns savienojums',
   'databaseAdminLayout.queries': 'Jautājumi',
   'databaseAdminLayout.ready': 'Gatavs',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Meklēt komandas, vaicājumus, tabulas…',
   'databaseAdminLayout.user': 'Lietotājs',
   'editConnection.confirmDelete': 'Dzēst šo savienojumu?',
   'editConnection.deleteButton': 'Dzēst savienojumu',
+  'editConnection.newPassword': 'Jauna parole (atstājiet tukšu, lai saglabātu)',
   'editConnection.saved': 'Savienojums saglabāts.',
   'editConnection.title': 'Rediģēt savienojumu',
   'forgotPassword.success': 'Ja šis konts pastāv, drīz tiks nosūtīta saite konta atjaunošanai.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Panākumi',
   'monitoring.title': 'Uzraudzība',
   'monitoring.totalQueries': 'Kopējais vaicājumu skaits',
+  'nav.schema': 'Shēma',
   'newConnection.database': 'Datu bāze',
   'newConnection.engine': 'Dzinējs',
   'newConnection.host': 'Viesmīlis',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Šim fragmentam nav piesaistīts neviens savienojums.',
   'savedQuery.notBound': 'Nav saistīts',
   'savedQuery.title': 'Saglabāts vaicājums',
+  'schema.columns': 'Kolonnas',
   'schema.foreignKeys': 'Ārējās atslēgas',
   'schema.indexes': 'Rādītāji',
   'schemaExplorer.browseRows': 'Pārlūkot rindas',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'ar iespējamu null vērtību',
   'schemaExplorer.colType': 'tips',
   'schemaExplorer.noColumns': 'Nav sleju.',
+  'schemaExplorer.noForeignKeys': 'Nav ārējo atslēgu.',
   'schemaExplorer.noIndexes': 'Nav indeksu.',
   'schemaExplorer.noTables': 'Nav tabulu',
   'schemaExplorer.pickATable': 'Izvēlieties tabulu no sānu joslas.',
   'schemaExplorer.tables': 'Tabulas',
   'schemaExplorer.title': 'Shēmu pārlūks',
+  'settings.session': 'Sesija',
   'settings.subtitle': 'Pārvaldiet savu kontu un plānu.',
   'signup.heading': 'Izveidojiet savu Quarry kontu',
   'signup.tagline': 'Iegūstiet piekļuvi mazāk nekā minūtes laikā.',
   'tableBrowser.noRows': 'Šajā tabulā vēl nav rindu.',
+  'tableBrowser.subtitle': 'Rindu pārlūkošana no jūsu attālās datubāzes.',
   'tableBrowser.title': 'Datu rindu pārlūkošana no attālās datu bāzes.',
 }

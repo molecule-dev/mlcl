@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Onko sinulla kysyttävää, löysitkö virheen tai haluatko esittelyn tiimillesi? Ota yhteyttä tilisi asetuksista — jokainen viesti menee oikealle tiimin jäsenelle.',
   'about.contactTitle': 'Ota yhteyttä',
+  'about.intro':
+    '{{app}} muuttaa pinot skannattuja asiakirjoja ja PDF-tiedostoja jäsennellyksi, haettavaksi ja arkistoiduksi dataksi. Pudota laskut, kuitit, sopimukset tai lomakkeet, ja anna tekoälyn lukea, poimia, luokitella ja arkistoida ne — luottamusvärit kertovat, mitä tiimisi tarvitsee oikeasti tarkistaa.',
+  'about.missionBody':
+    'Asiakirjojen rutiinityö ei saisi viedä tiimisi päivää. Uskomme, että jokainen poimittu arvo on selitettävissä ja tarkistettavissa — jotta voit luottaa automaatioon menettämättä jäljitettävyyttä. {{app}} on rakennettu säästämään tunteja pinoa kohden ja pitämään ihminen mukana siellä, missä sillä on merkitystä.',
+  'about.missionTitle': 'Missiomme',
+  'about.subtitle':
+    'OCR, tekoälypoiminta, luokittelu ja automaattinen arkistointi asiakirjoillesi.',
   'about.title': 'Tietoa {{app}}sta',
+  'about.whatYouGetTitle': 'Mitä saat',
   'authShell.backToLanding': '← Takaisin etusivulle',
   'common.goToDashboard': 'Siirry etusivulle',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Tänään · Toiminnan yleiskuva',
   'dashboard.heading': 'Dokumenttiälykkyys',
+  'dashboard.metric.accuracy': 'Keskim. tarkkuus',
   'dashboard.metric.filed': 'Arkistoitu tänään',
   'dashboard.metric.filedCaption': 'Reititetty arkistointisäännöillä',
   'dashboard.metric.processed': 'Käsitelty tänään',
@@ -23,11 +34,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Dokumentti',
   'dashboard.recent.col.uploaded': 'Ladattu',
   'dashboard.recent.heading': 'Viimeisimmät dokumentit',
+  'dashboard.recent.typeUnknown': 'Odottaa luokittelua',
   'dashboard.subheading':
     'Jokainen sivu luokiteltu, poimittu ja arkistoitu — varmuusväreillä, jotta tarkistus pysyy keskittyneenä.',
   'documentDetail.audit.heading': 'Auditointijana',
+  'documentDetail.audit.subheading':
+    'Jokainen tälle asiakirjalle tehty vaihe ja siitä vastuussa oleva taho.',
   'documentDetail.back': 'Kaikki dokumentit',
   'documentDetail.downloadHint': 'Käytä Lataa-painiketta avataksesi alkuperäisen tiedoston.',
+  'documentDetail.extracted.empty': 'Kenttiä ei ole vielä poimittu.',
   'documentDetail.extracted.heading': 'Poimitut kentät',
   'documentDetail.extracted.subheading':
     '{{count}} kenttää · napsauta kenttää korostaaksesi sen sivulla',
@@ -55,13 +70,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Hae dokumentteja…',
   'documents.subheading': '{{count}} dokumenttia kirjastossasi, lajiteltu uusimmasta ensin.',
   'documents.uploadCta': 'Lataa dokumentteja',
+  'documentTypeBreakdown.barAria': 'Asiakirjojen koostumus tyypeittäin',
   'documentTypeBreakdown.empty': 'Yhtään dokumenttia ei ole vielä käsitelty.',
   'documentTypeBreakdown.subtitle': '{{total}} käsitelty',
   'documentTypeBreakdown.title': 'Dokumenttijakauma',
+  'forgotPassword.backToSignIn': '← Takaisin kirjautumiseen',
   'forgotPassword.checkEmail': 'Tarkista sähköpostisi',
   'forgotPassword.tip': 'Etkö saanut sitä? Tarkista roskaposti tai kokeile toista osoitetta.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Rakennettu tiimeille, jotka tarkistavat jokaisen sivun.',
+  'landing.ctaBody':
+    '14 päivän kokeilu. Ei korttia. Peru milloin tahansa. Rakennettu tiimeille, jotka etenevät nopeasti ja tarkistavat huolella.',
   'landing.ctaHeading': 'Lopeta kuittien näppäily. Aloita niiden arkistointi.',
   'landing.eyebrow': 'OCR · Poiminta · Tekoälyn arkistointi',
+  'landing.featuresHeading': 'Asiakirjaäly, joka selittää itsensä',
+  'landing.heroSubtitle':
+    'Pudota pino laskuja, kuitteja, sopimuksia tai lomakkeita. {{app}} luokittelee, poimii ja arkistoi ne — luottamusvärit kertovat, mitä tiimisi tarvitsee oikeasti tarkistaa.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Päivittäinen määrä · viimeiset 7 päivää',
   'landing.sampleCardLabel': 'Dokumentteja käsitelty tänään',
   'landing.sampleCardSubtitle': '96,2 % keskim. tarkkuus laskuissa, kuiteissa ja lomakkeissa.',
   'login.hidePassword': 'Piilota salasana',
@@ -74,6 +100,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Avaa etusivu',
   'notFound.title': 'Sitä sivua ei ole arkistossa',
+  'parcelaHeroCard.accuracy': 'Keskim. tarkkuus {{value}} % kaikista poiminnoista',
   'parcelaHeroCard.change': '{{sign}}{{amount}} % vs. eilen',
   'parcelaHeroCard.title': 'Dokumentteja käsitelty tänään',
   'parcelaLayout.primaryNavLabel': 'Päänavigaatio',
@@ -81,6 +108,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'asiakirjat',
   'pricing.processingLabel': 'käsittelytyötä',
   'resetPassword.confirmPlaceholder': 'Toista uusi salasana',
+  'resetPassword.hidePassword': 'Piilota salasana',
   'resetPassword.passwordLabel': 'Uusi salasana',
   'resetPassword.showPassword': 'Näytä salasana',
   'resetPassword.subtitle': 'Valitse jotain vähintään 8 merkin pituista.',
@@ -97,10 +125,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Sääntöjen lataus epäonnistui.',
   'rules.loading': 'Ladataan sääntöjä…',
   'rules.matched30d': '{{count}} dokumenttia täsmäsi viimeisten 30 päivän aikana',
+  'rules.neverUsed': 'Ei koskaan käytetty',
   'rules.newRule': 'Uusi sääntö',
   'rules.saveError': 'Säännön tallennus epäonnistui.',
   'rules.subheading':
     'Kerro järjestelmälle, minne kukin dokumenttityyppi kuuluu. Ehdot ketjutetaan ylhäältä alas — ensimmäinen osuma voittaa.',
+  'rules.templatesEmpty': 'Poimintamalleja ei ole vielä.',
   'rules.templatesHeading': 'Poimintamallit',
   'rules.templatesSubheading': 'Kenttäskeemat, joita poimija käyttää kullekin dokumenttityypille.',
   'rules.then': 'Niin',
@@ -109,17 +139,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Työtilan nimi',
   'settings.account.subheading':
     'Näyttönimi ja ensisijainen sähköposti ilmoituksia ja auditointihistoriaa varten.',
+  'settings.api.confirmRevoke': 'Vahvistatko?',
   'settings.api.copyOnce': 'Kopioi tämä avain — sitä ei näytetä uudelleen',
   'settings.api.createdOn': 'Luotu {{date}}',
   'settings.api.empty': 'Ei vielä API-avaimia. Luo yksi yllä.',
   'settings.api.error': 'Avaimen luonti epäonnistui.',
+  'settings.api.generating': 'Luodaan…',
+  'settings.api.heading': 'API-avaimet',
   'settings.api.labelPlaceholder': 'Avaimen etiketti (esim. CI-lataaja)',
+  'settings.api.loading': 'Ladataan avaimia…',
   'settings.api.newKey': 'Luo avain',
   'settings.api.subheading':
     'Käytä näitä dokumenttien lähettämiseen skriptistä tai ERP:stäsi. Vaihda avain milloin tahansa.',
   'settings.integrations.heading': 'Arkistointi-integraatiot',
   'settings.integrations.subheading':
     'Lähetä arkistoidut dokumentit pilvilevylle tai chat-työkaluun, jota tiimisi jo käyttää.',
+  'settings.subheading':
+    'Hallinnoi tiliä, API-avaimia ja arkistointi-integraatioita {{app}}-työtilassasi.',
+  'signup.hidePassword': 'Piilota salasana',
   'signup.identityPrompt': 'Miten meidän tulisi puhutella sinua?',
   'signup.showPassword': 'Näytä salasana',
   'signup.subtitle': '14 päivää ilmaiseksi, korttia ei tarvita.',
@@ -127,6 +164,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Lataus epäonnistui.',
   'upload.eyebrow': 'Tuonti',
   'upload.heading': 'Lataa dokumentteja',
+  'upload.queue.clear': 'Tyhjennä valmiit',
   'upload.queue.col.confidence': 'Varmuus',
   'upload.queue.col.file': 'Tiedosto',
   'upload.queue.detecting': 'Havaitaan…',
@@ -139,5 +177,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Tai pudota useita tiedostoja kerralla erä-poimintaan, luokitteluun ja arkistointiin.',
   'uploadDropZone.cta': 'Valitse tiedostot',
+  'uploadDropZone.maxSize': 'Enintään 25 Mt tiedostoa kohden · päästä päähän salattu',
   'uploadDropZone.title': 'Pudota dokumentit aloittaaksesi käsittelyn',
 }

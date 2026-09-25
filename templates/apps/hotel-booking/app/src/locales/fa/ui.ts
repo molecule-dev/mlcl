@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'سؤالی درباره یک رزرو، بازخورد، یا اقامتگاهی دارید که فکر می‌کنید باید در {{app}} باشد؟ از حساب کاربری خود با تیم ما در تماس باشید — هر پیام به دست یک انسان واقعی می‌رسد که می‌تواند کمک کند.',
+  'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': 'درباره ما',
+  'about.featureLoyalty':
+    'نرخ‌های ویژه اعضا و برنامه وفاداری که با هر رزرو امتیاز، تخلیه دیرهنگام و ارتقای اتاق به شما می‌دهد.',
+  'about.featureReviews':
+    'نظرات تأییدشده مهمانان و انتخاب‌های تحریریه تا پیش از رسیدن بتوانید به اقامت خود اعتماد کنید.',
+  'about.featureRooms':
+    'اتاق‌ها، نرخ‌ها و امکانات در کنار هم با قیمت‌گذاری شفاف و کامل — مالیات و هزینه‌های اقامتگاه پیش از پرداخت لحاظ شده است.',
+  'about.featureSearch':
+    'جستجوی لحظه‌ای میان هتل‌های بررسی‌شده با موجودی زنده، نمای نقشه و گالری‌های غنی عکس.',
+  'about.featureTrips':
+    'موارد دلخواه ذخیره‌شده و داشبورد سفرها که هر رزرو، برنامه سفر و تأییدیه را در یک جا نگه می‌دارد.',
+  'about.intro':
+    '{{app}} یک پلتفرم رزرو هتل برای مسافرانی است که به کیفیت اهمیت می‌دهند. هر اقامتگاه شخصاً توسط تیم تحریریه ما بررسی می‌شود — بدون موجودی از سایت‌های تجمیع‌کننده، بدون آگهی‌های فریبنده. موجودی واقعی را جستجو کنید، اتاق‌ها، نرخ‌ها و امکانات را در کنار هم مقایسه کنید، سپس با چند لمس و با قیمتی شفاف و کامل رزرو کنید.',
+  'about.missionBody':
+    'رزرو اقامتگاه باید آرام و صادقانه باشد. ما نرخ‌های شفاف را با مالیات و هزینه‌های اقامتگاه از همان ابتدا نشان می‌دهیم، به مهمانان وفادار پاداش می‌دهیم نه اینکه آن‌ها را با هزینه‌های خرد تحت فشار بگذاریم، و اقامتگاه‌هایی که ارزش پول شما را دارند در اولویت قرار می‌دهیم — تا وقت کمتری صرف مقایسه تب‌ها و وقت بیشتری صرف خود سفر کنید.',
+  'about.missionTitle': 'ماموریت ما',
+  'about.subtitle': 'روشی گزیده و شفاف برای یافتن و رزرو هتل مناسب.',
   'account.loyalty.activitySummary': '{{nights}} شب‌ها · {{spend}} امسال را سپری کرد',
+  'account.loyalty.benefitsHeading': 'مزایای شما',
   'account.loyalty.heading': 'وفاداری',
   'account.loyalty.loading': 'در حال بارگذاری وفاداری…',
-  'account.loyalty.pointsTowardNext': '{{امتیازات}} / {{بعدی}} اشاره به {{رده بعدی}}',
+  'account.loyalty.maxTier': 'بالاترین سطح — از مزایای خود لذت ببرید.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} امتیاز تا {{nextTier}}',
   'account.loyalty.tier': 'ردیف فعلی',
   'account.loyalty.unavailable': 'اطلاعات وفاداری در دسترس نیست.',
   'account.navLabel': 'بخش‌های حساب',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'تایید رزرو · {{total}}',
   'bookingCheckout.datesRequired': 'لطفا تاریخ ورود و خروج خود را انتخاب کنید.',
   'bookingCheckout.guestHeading': 'مهمان اصلی',
+  'bookingCheckout.heading': 'تأیید و رزرو',
   'bookingCheckout.loadError': 'بارگیری ملک ناموفق بود.',
   'bookingCheckout.nights': '{{rate}} × {{count}} شب‌ها',
   'bookingCheckout.notFound': 'ملک یافت نشد.',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'مالیات و هزینه‌ها',
   'bookingCheckout.tripHeading': 'سفر شما',
   'bookingConfirmation.allTripsCta': 'همه سفرها',
+  'bookingConfirmation.confNumber': 'شماره تأیید: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'رزرو شما در حال پردازش است.',
   'bookingConfirmation.heading': 'رزرو تایید شد',
   'bookingConfirmation.loading': 'در حال بارگذاری رزرو شما…',
   'bookingConfirmation.searchMoreCta': 'مرور اقامت‌های بیشتر',
   'bookingConfirmation.subheadingForTrip':
-    '{{املاک}} در {{شهر}} ، {{کشور}} . به زودی می‌بینمت. {{چک‌این}} .',
+    '{{property}} در {{city}}، {{country}}. شما را در {{checkIn}} می‌بینیم.',
   'bookingConfirmation.total': 'مجموع {{total}}',
   'bookingConfirmation.viewTripCta': 'مشاهده سفر',
   'common.goToDashboard': 'رفتن به داشبورد',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'بارگیری موارد دلخواه ناموفق بود.',
   'favorites.pricePerNight': '{{price}} / شب',
   'favorites.removeCta': 'لغو ذخیره',
+  'favorites.removing': 'در حال حذف…',
   'forgotPassword.subheading':
     'ایمیل مربوط به حساب کاربری خود را وارد کنید، ما یک لینک بازنشانی امن برای شما ارسال خواهیم کرد.',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'اعضای موقت',
   'landing.cta.heading': 'نرخ‌های ویژه اعضا. هر رزرو، هر بار.',
   'landing.cta.signup': 'ایجاد حساب کاربری رایگان',
+  'landing.cta.subheading':
+    'با هر اقامت امتیاز وفاداری کسب کنید، تخلیه دیرهنگام و ارتقای اتاق را باز کنید و پیش از فهرست شدن عمومی، اولین دسترسی به اقامتگاه‌های جدید را داشته باشید.',
   'landing.destinations.eyebrow': 'کجای بعدی',
   'landing.destinations.heading': 'مقاصد ویژه',
   'landing.destinations.seeAll': 'مشاهده همه مقاصد',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'داستان‌هایی که ارزش چمدان بستن برای آنها را دارند',
   'landing.nav.join': 'به ساورن بپیوندید',
   'landing.nav.search': 'جستجوی اقامت‌ها',
+  'landing.preview.browseAll': 'مرور مجموعه کامل',
   'landing.preview.eyebrow': 'نگاهی گذرا به درون',
   'landing.preview.heading': 'اقامتگاه‌های منتخب این ماه',
+  'landing.preview.subheading':
+    'هر اقامتگاه در {{appName}} شخصاً توسط تیم تحریریه ما بررسی می‌شود — بدون موجودی از سایت‌های تجمیع‌کننده، بدون آگهی‌های فریبنده.',
   'login.eyebrow': 'بخش اعضا',
+  'login.noAccount': 'تازه با تسرا آشنا شدید؟',
   'login.signupLink': 'ایجاد حساب کاربری رایگان',
   'login.subheading':
     'برای مدیریت سفرهایتان، مشاهده تأییدیه‌ها و ادامه سفر از جایی که متوقف شده‌اید، وارد سیستم شوید.',
+  'loyaltyTierBadge.points': '{{points}} امتیاز',
   'planUpdated.heading': 'طرح به‌روزرسانی شد',
+  'planUpdated.retry': 'دوباره امتحان کنید',
+  'planUpdated.verifyFailed': 'ما هنوز نتوانستیم پرداخت شما را تأیید کنیم.',
+  'planUpdated.verifyFailedBody':
+    'ممکن است پرداخت شما هنوز در حال پردازش باشد. چند لحظه دیگر دوباره امتحان کنید.',
   'planUpdated.verifying': 'در حال تأیید پرداخت شما…',
   'pricing.limit.advancedFeatures': 'ویژگی‌های پیشرفته:',
   'pricing.limit.canExport': 'صادرات داده:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'آنچه این مکان ارائه می‌دهد',
   'propertyDetail.backLink': 'بازگشت به جستجو',
   'propertyDetail.bookCta': 'رزرو',
+  'propertyDetail.bookmarkAria': 'ذخیره ملک',
   'propertyDetail.bookmarkAriaSaved': 'حذف از ویژگی‌های ذخیره‌شده',
+  'propertyDetail.galleryImageAlt': '{{name}} عکس {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} عکس قهرمان',
   'propertyDetail.hidePhotos': 'مخفی کردن عکس‌ها',
   'propertyDetail.lineCleaning': 'هزینه نظافت',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'شب',
   'propertyDetail.noChargeYet': 'هنوز هزینه‌ای از شما کسر نخواهد شد',
   'propertyDetail.notFound': 'ملک یافت نشد.',
+  'propertyDetail.perNight': '/ شب',
+  'propertyDetail.pickDatesHint': 'تاریخ‌های خود را انتخاب کنید تا تفکیک کامل قیمت را ببینید.',
   'propertyDetail.reviewCount': '( {{count}} نقد و بررسی‌ها)',
   'propertyDetail.reviewsHeading': 'بررسی‌های اخیر',
   'propertyDetail.roomCapacity': 'خواب {{count}}',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'رمز عبور جدید',
   'resetPassword.subheading':
     'یک رمز عبور جدید برای حساب کاربری Auberge خود انتخاب کنید. حداقل از ۸ کاراکتر استفاده کنید؛ ما یک عبارت عبور را توصیه می‌کنیم.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'هیچ ملکی با جستجوی شما مطابقت ندارد.',
   'searchResults.emptyHint':
     'سعی کنید فیلترهایتان را گسترده‌تر کنید یا سقف قیمت را بردارید - Auberge در ۱۴ کشور اقامت دارد.',
@@ -108,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'اقامت‌های گزینش‌شده',
   'searchResults.headingForQuery': 'مدت زمان باقی می ماند" {{q}} «',
   'searchResults.loadError': 'بارگیری ویژگی‌ها ناموفق بود.',
+  'searchResults.mapHint':
+    'برای برجسته شدن روی نقشه، نشانگر را روی کارت نگه دارید. کاشی‌های زنده Mapbox در محیط عملیاتی.',
   'searchResults.mapPinAria': '{{name}} — {{price}} به ازای هر شب',
   'searchResults.sortLabel': 'مرتب سازی بر اساس',
   'searchResults.subheading': '{{count}} خواص · {{guests}} مهمانان',
   'signup.eyebrow': 'عضو شوید',
   'signup.subheading':
     'به Auberge بپیوندید تا از نرخ‌های ویژه اعضا، پرداخت‌های دیرهنگام و اولین دسترسی به املاک جدید بهره‌مند شوید.',
+  'sojournAuthShell.brand.eyebrow': 'جایی فوق‌العاده اقامت کنید',
+  'sojournAuthShell.brand.heading':
+    'مجموعه‌ای گزیده از اقامتگاه‌ها — با ارائه‌ای زیبا و قیمتی شفاف.',
   'sojournHeroSearchCard.checkInAria': 'تاریخ ورود',
   'sojournHeroSearchCard.checkOutAria': 'تاریخ خروج',
+  'sojournHeroSearchCard.destAria': 'مقصد',
+  'sojournHeroSearchCard.destLabel': 'کجا',
   'sojournHeroSearchCard.destPlaceholder': 'شهر، منطقه یا ملک',
   'sojournHeroSearchCard.eyebrow': 'اقامت‌های منتخب · نرخ‌های ویژه اعضا',
   'sojournHeroSearchCard.guestsOption': '{{n}} مهمانان',
   'sojournHeroSearchCard.subtitle':
     'مجموعه‌ای گلچین‌شده از هتل‌های بوتیک، املاک با طراحی مدرن و اقامتگاه‌های نادر - با قیمت‌های شفاف و ارائه‌ای زیبا.',
+  'sojournHeroSearchCard.title': 'جایی فوق‌العاده اقامت کنید',
+  'sojournHeroSearchCard.trustLoyalty': 'با هر اقامت امتیاز کسب کنید',
   'sojournHeroSearchCard.trustNoFees': 'بدون هزینه پنهان، هرگز',
   'sojournHeroSearchCard.trustVetted': 'فقط املاک بررسی‌شده دستی',
   'sojournLayout.primaryNavLabel': 'ناوبری اولیه',

@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite ist eine Workflow-Automatisierungsplattform, die Trigger, KI-Bedingungen und mehrstufige Aktionen verbindet, damit Teams Arbeit zwischen Systemen verschieben können, ohne Verbindungscode zu schreiben.',
+  'about.philosophy':
+    'Jeder Workflow ist ein Graph aus kleinen, beobachtbaren Schritten. Jeder Schritt zeichnet seine Eingaben, Ausgaben und Zeiten auf, sodass er geprüft, wiederholt oder zurückgerollt werden kann. Setze sie visuell zusammen, versioniere sie wie Code.',
   'about.title': 'Über Dendrite',
   'authShell.brand': 'Dendrite',
   'authShell.support': 'Support',
@@ -15,9 +17,15 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Tarif ändern',
   'billing.description':
     'Verfolgen Sie die Nutzung, verwalten Sie Ihren Tarif und laden Sie Rechnungen für die Buchhaltung herunter.',
+  'billing.eyebrow': 'Konto · Tarif & Nutzung',
+  'billing.failedLabel': 'Fehlgeschlagene Läufe · 24 Std.',
+  'billing.invoicesEmpty':
+    'Noch keine Rechnungen. Sie erscheinen hier nach deiner ersten kostenpflichtigen Verlängerung.',
   'billing.invoicesTitle': 'Rechnungsverlauf',
   'billing.planNoteFree':
     'Kostenlose Stufe — {{runs}} Ausführungen und {{workflows}} aktive Workflows. Upgraden für höhere Limits.',
+  'billing.planNotePaid':
+    'Kostenpflichtiger Tarif — {{runs}} Läufe und {{workflows}} aktive Workflows.',
   'billing.runsLabel': 'Ausführungen in den letzten 24 Std.',
   'billing.tiersBlurb':
     'Vergleichen Sie jede Stufe — Ausführungen, aktive Workflows, erweiterte Funktionen und Support — auf der dedizierten Preisseite.',
@@ -35,10 +43,14 @@ export const ui: UiTranslations = {
     'Keine Integrationen registriert. Konfigurieren Sie Anbieter-Schlüssel, um Bonds zu aktivieren.',
   'connections.error': 'Verbindungen konnten nicht geladen werden.',
   'connections.eyebrow': 'Integrationen · {{connected}} verbunden',
+  'connections.loading': 'Integrationen werden geladen…',
+  'connections.openEnv':
+    'Um diesen Anbieter zu verbinden, setze seinen API-Schlüssel in api/.env und starte den Server neu.',
   'dashboard.description':
     '{{active}} Workflows aktiv. {{failed}} in den letzten 24 Stunden fehlgeschlagen.',
   'dashboard.error': 'Dashboard konnte nicht geladen werden.',
   'dashboard.eyebrow': 'Betrieb · live',
+  'dashboard.hero.label': 'Läufe heute',
   'dashboard.hero.medianLatency': 'p50-Latenz',
   'dashboard.hero.queue': 'Warteschlangentiefe',
   'dashboard.hero.success': 'Erfolg',
@@ -46,14 +58,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Median-Dauer',
   'dashboard.kpi.failedRuns': 'Fehlgeschlagen · 24 Std.',
   'dashboard.kpi.outOf': 'von {{total}} insgesamt',
+  'dashboard.kpi.successRate': 'Erfolgsquote · 24 Std.',
   'dashboard.loading': 'Dashboard wird geladen…',
   'dashboard.recentRuns.empty':
     'Noch keine Ausführungen. Das Auslösen eines Workflows füllt diesen Feed.',
   'dashboard.recentRuns.title': 'Letzte Ausführungen',
   'dashboard.recentRuns.viewAll': 'Ausführungen öffnen →',
+  'dashboard.recentWorkflows.browse': 'Vorlagen ansehen →',
   'dashboard.recentWorkflows.empty':
     'Noch keine Workflows. Installieren Sie eine Vorlage oder erstellen Sie einen von Grund auf.',
   'dashboard.recentWorkflows.title': 'Kürzlich ausgeführt',
+  'dashboard.run.col.run': 'Laufen',
   'dashboard.run.col.started': 'Gestartet',
   'dashboard.run.col.trigger': 'Trigger',
   'dashboard.run.col.workflow': 'Workflow',
@@ -89,6 +104,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Workflow',
   'executions.description':
     'Jede Workflow-Ausführung, jeder Wiederholungsversuch, jede Schritt-Ausgabe — alles beobachtbar.',
+  'executions.empty.filter': 'Keine Läufe entsprechen diesem Filter.',
   'executions.empty.first':
     'Noch keine Ausführungen — lösen Sie einen Workflow aus, um diese Liste zu füllen.',
   'executions.error': 'Ausführungen konnten nicht geladen werden.',
@@ -99,30 +115,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Ausführungsverlauf wird geladen…',
   'executions.title': 'Ausführungen',
   'forgotPassword.confirmation': 'Reset-Link an {{email}} gesendet.',
+  'forgotPassword.subhead': 'Geben Sie Ihre E-Mail ein, um einen Zurücksetzungslink zu erhalten.',
   'forgotPassword.successSubhead':
     'Wir haben einen Reset-Link an {{email}} gesendet. Er läuft in 30 Minuten ab.',
   'help.connections.body':
     'KI-, E-Mail- und Speicherschritte erfordern, dass Anbieter-Schlüssel in der Datei api/.env gesetzt werden. Sobald ein Schlüssel konfiguriert ist, erscheint die entsprechende Integration als verbunden auf der Verbindungsseite.',
+  'help.connections.cta': 'Verbindungen öffnen →',
   'help.connections.title': 'Anbieter verbinden',
   'help.gettingStarted.body':
     'Neue Workflows können aus der Vorlagenbibliothek installiert oder im Workflow-Builder von Grund auf erstellt werden. Jeder Workflow hat einen Trigger (manuell, Webhook oder Cron) und eine Folge von Schritten, die in Reihenfolge ausgeführt werden.',
+  'help.gettingStarted.cta': 'Vorlagenbibliothek durchsuchen →',
+  'help.gettingStarted.title': 'Erste Schritte',
   'help.intro':
     'Finden Sie Antworten auf häufige Fragen zum Erstellen von Workflows, Konfigurieren von Verbindungen und Interpretieren von Ausführungsausgaben. Die häufigsten Themen sind unten aufgelistet; für nicht abgedecktes wenden Sie sich an Ihren Workspace-Administrator.',
   'help.runs.body':
     'Jede Ausführung protokolliert jeden Schritt unabhängig mit Status (Erfolg, Fehler, übersprungen) und einem Ausgabeauszug. Die Ausführungsdetailseite zeigt die vollständige Schritt-für-Schritt-Spur plus abgeleitete Metriken.',
+  'help.runs.cta': 'Ausführungen öffnen →',
   'help.runs.title': 'Ausführungsausgaben lesen',
   'help.title': 'Hilfe-Center',
   'integrationCard.manage': 'Verwalten',
   'landing.brand': 'Dendrite',
   'landing.demo.action.subtitle': 'Round-Robin · Gebiet',
+  'landing.demo.action.title': 'Vertriebler benachrichtigen',
   'landing.demo.condition.subtitle': 'KI-Intent-Klassifikator',
+  'landing.demo.condition.title': 'Score ≥ mittel?',
   'landing.demo.trigger.subtitle': 'POST /forms/contact',
   'landing.demo.trigger.title': 'Eingehender Webhook',
+  'landing.features.body':
+    'Trigger feuern. Bedingungen verzweigen. Aktionen erledigen die Arbeit. Setze sie visuell zusammen, versioniere sie wie Code.',
   'landing.features.heading': 'Drei Knotentypen. Unendliche Formen.',
   'landing.footer.help': 'Hilfe',
   'landing.footer.tagline': 'Intelligenz in Bewegung',
+  'landing.hero.body':
+    '{{appName}} ist die Workflow-Engine für Ops-Teams, die Zapier entwachsen sind. Trigger, Bedingung, Aktion — verbunden mit jedem System, das du wirklich nutzt.',
   'landing.hero.eyebrow': 'Intelligenz in Bewegung',
   'landing.hero.headline': 'Verbinden Sie Ihren Stack. Lassen Sie die Arbeit geschehen.',
+  'landing.hero.primaryCta': 'Ersten Workflow erstellen',
   'landing.hero.proof.ai': 'KI-Knoten integriert',
   'landing.hero.proof.free': 'Kostenlos für 1k Ausführungen/Monat',
   'landing.hero.proof.soc2': 'SOC 2 Type II',
@@ -130,10 +158,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Bezahlen Sie für Ausführungen, nicht für Sitze.',
   'landing.templates.body':
     'Vorverdrahtete Workflows für jedes Team — Vertrieb, Support, DevOps, Finanzen. Ein-Klick-Installation; alles anpassbar.',
+  'landing.templates.cta': 'Registriere dich, um Vorlagen zu durchsuchen →',
   'landing.templates.eyebrow': 'In Sekunden starten',
   'landing.templates.heading': 'Eine Bibliothek geprüfter Rezepte.',
   'landing.templates.signupHint': 'Registrieren zum Installieren',
   'login.hidePassword': 'Passwort verbergen',
+  'login.noAccount': 'Neu bei Tessera?',
   'login.showPassword': 'Passwort anzeigen',
   'login.subhead': 'Melden Sie sich an, um Ihre Automatisierungen am Laufen zu halten.',
   'mobileNav.drawerLabel': 'Hauptnavigation',
@@ -149,8 +179,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Führen Sie einen Workflow aus, um diesen Feed zu füllen.',
   'notifications.empty.title': 'Sie sind auf dem neuesten Stand',
   'notifications.eyebrow': '{{n}} ungelesen',
+  'planUpdated.body':
+    'Deine Abrechnungsänderung ist jetzt aktiv. Du kannst deinen Tarif jederzeit über die Abrechnungsseite verwalten.',
+  'planUpdated.retry': 'Erneut versuchen',
+  'planUpdated.verifyFailed': 'Wir konnten deine Zahlung noch nicht bestätigen.',
+  'planUpdated.verifyFailedBody':
+    'Deine Zahlung wird möglicherweise noch verarbeitet. Versuche es gleich noch einmal.',
   'planUpdated.verifying': 'Bestätige Ihre Zahlung…',
   'pricing.heading': 'Ausführungen',
+  'pricing.runsSuffix': 'Läufe',
   'pricing.workflowsSuffix': 'Workflows',
   'privacy.collect.body':
     'Wir erfassen die E-Mail-Adresse, mit der Sie sich anmelden, die von Ihnen konfigurierten Workflows und Metadaten zu jeder Ausführung (Startzeit, Endzeit, Status). Wir erfassen oder speichern niemals Payload-Inhalte von Triggern oder Schritt-Ausgaben über das hinaus, was für die Anzeige im Ausführungs-Viewer für den Workspace-Eigentümer erforderlich ist.',
@@ -166,12 +203,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Passwort konnte nicht aktualisiert werden.',
   'resetPassword.newPassword': 'Neues Passwort',
   'resetPassword.subhead': 'Wählen Sie etwas, das nur Sie erraten würden.',
+  'settings.appearance.description': 'Zwischen hellem und dunklem Modus umschalten.',
+  'settings.appearance.title': 'Erscheinungsbild',
   'settings.billingShortcut.cta': 'Abrechnung öffnen',
   'settings.billingShortcut.description':
     'Tarif, Nutzung und Rechnungen finden Sie auf der dedizierten Abrechnungsseite.',
   'settings.danger.confirm':
     'Sind Sie sicher? Dies wird Ihren Workspace zur Löschung in die Warteschlange stellen.',
   'settings.danger.confirmYes': 'Ja, Löschung in Warteschlange stellen',
+  'settings.danger.deleteWorkspace.cta': 'Workspace löschen',
   'settings.danger.deleteWorkspace.hint':
     'Entfernt alle Workflows, Ausführungen und Verbindungen nach einer 14-tägigen Karenzzeit.',
   'settings.danger.deleteWorkspace.title': 'Workspace löschen',
@@ -183,9 +223,14 @@ export const ui: UiTranslations = {
     'Verwalten Sie Ihr Konto, Workspace, Integrationen und Abrechnung an einem Ort.',
   'settings.notifications.description':
     'Wählen Sie, welche Ereignisse Sie benachrichtigen, Ihnen E-Mails senden oder still bleiben.',
+  'settings.notifications.failures.hint':
+    'E-Mail- und In-App-Benachrichtigung bei jedem fehlgeschlagenen Lauf.',
+  'settings.notifications.failures.title': 'Workflow-Fehler',
   'settings.notifications.product.hint': 'Gelegentliche E-Mails über neue Vorlagen und Funktionen.',
+  'settings.notifications.product.title': 'Produkt-Updates',
   'settings.notifications.weekly.hint':
     'Montagmorgen-Zusammenfassung der Ausführungen und Einsparungen der Vorwoche.',
+  'settings.notifications.weekly.title': 'Wöchentliche Übersicht',
   'settings.profile.description':
     'Wie Sie im Workflow-Runner erscheinen. Wird in der Workspace-Aktivität verwendet.',
   'settings.profile.noEmail': 'Keine E-Mail hinterlegt',
@@ -193,12 +238,24 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Profiländerungen konnten nicht gespeichert werden.',
   'settings.profile.unnamedUser': 'Unbenannter Benutzer',
   'settings.security.audit.hint': 'Streamen Sie jede Aktion an Ihr SIEM via Webhook.',
+  'settings.security.audit.title': 'Audit-Log-Weiterleitung',
   'settings.security.description': 'Zwei-Faktor-Authentifizierung, SSO und aktive Sitzungen.',
   'settings.security.sso.hint': 'Verfügbar in Scale- und Enterprise-Tarifen.',
+  'settings.security.sso.title': 'SAML-SSO',
+  'settings.security.totp.hint': 'Erforderlich für jede Aktion eines Workspace-Inhabers.',
+  'settings.security.totp.title': 'Zwei-Faktor-Authentifizierung (TOTP)',
   'settings.twoFactorCode': 'Authentifizierungscode',
   'settings.twoFactorDisable': 'Deaktivieren',
+  'settings.twoFactorDisableTitle': 'Zwei-Faktor-Authentifizierung deaktivieren',
   'settings.twoFactorEnable': 'Aktivieren',
+  'settings.twoFactorEnableTitle': 'Zwei-Faktor-Authentifizierung aktivieren',
   'settings.twoFactorInvalidCode': 'Ungültiger Code',
+  'settings.twoFactorOn': 'Am',
+  'settings.twoFactorQrAlt': 'Zwei-Faktor-QR-Code',
+  'settings.twoFactorScan':
+    'Scannen Sie diesen QR-Code mit Ihrer Authentifizierungs-App und geben Sie dann den 6-stelligen Code ein.',
+  'settings.twoFactorUnavailable':
+    'Die Zwei-Faktor-Authentifizierung ist für diese App nicht verfügbar.',
   'settings.twoFactorVerify': 'Überprüfen & aktivieren',
   'settings.workspace.description':
     'Gemeinsame Identität, Region und Ausführungsstandards für Ihr Team.',
@@ -227,6 +284,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Vorlage',
   'templates.description':
     'Vorgefertigte Blaupausen für die häufigsten Automatisierungen. Forken, anpassen, ausliefern.',
+  'templates.empty.filter': 'Keine Vorlagen entsprechen deiner Suche.',
   'templates.empty.first': 'Derzeit sind keine Vorlagen verfügbar.',
   'templates.error': 'Vorlagen konnten nicht geladen werden.',
   'templates.installs': 'Installationen',
@@ -252,6 +310,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Deaktivieren',
   'workflowBuilder.enable': 'Aktivieren',
   'workflowBuilder.error': 'Workflow konnte nicht geladen werden.',
+  'workflowBuilder.inspector.config': 'Konfiguration',
+  'workflowBuilder.inspector.cron': 'Cron-Ausdruck',
+  'workflowBuilder.inspector.disabled': 'Deaktiviert — wird nicht automatisch ausgeführt.',
   'workflowBuilder.inspector.enabled': 'Aktiviert — läuft bei Trigger.',
   'workflowBuilder.inspector.eyebrow': 'Inspektor',
   'workflowBuilder.inspector.id': 'ID',
@@ -270,18 +331,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Umschalten fehlgeschlagen.',
   'workflowBuilder.workflow': 'Workflow · v{{v}}',
   'workflowBuilder.zoom.in': 'Vergrößern',
+  'workflowBuilder.zoom.label': 'Canvas-Zoom-Steuerung',
+  'workflowBuilder.zoom.out': 'Verkleinern',
   'workflowCard.lastRun': 'Letzte Ausführung {{when}}',
   'workflowCard.runs': '{{count}} Ausführungen',
+  'workflowCard.success': '{{rate}} % Erfolg',
   'workflowHeroCard.last24h': 'Letzte 24 Std.',
+  'workflows.browseTemplates': 'Vorlagen ansehen →',
   'workflows.description':
     'Jede Automatisierung in Ihrem Workspace, mit Zustand und aktueller Aktivität auf einen Blick.',
+  'workflows.empty.body': 'Versuche, den Filter zu löschen, oder starte mit einer Vorlage.',
   'workflows.empty.firstBody': 'Installieren Sie eine Vorlage, um in Sekunden zu starten.',
   'workflows.empty.firstTitle': 'Noch keine Workflows',
   'workflows.empty.title': 'Keine Workflows entsprechen',
   'workflows.error': 'Workflows konnten nicht geladen werden.',
   'workflows.eyebrow': 'Bibliothek · {{count}} insgesamt',
+  'workflows.loading': 'Workflows werden geladen…',
   'workflows.newFromTemplate': 'Neu aus Vorlage',
   'workflows.searchPlaceholder': 'Workflows durchsuchen…',
+  'workflows.title': 'Workflows',
   'workflowSidebar.brand': 'Dendrite',
   'workflowSidebar.status': 'Alle Systeme laufen',
   'workflowSidebar.tagline': 'Intelligenz in Bewegung',

@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Onko sinulla palautetta, löysitkö virheen tai haluatko tuoda {{app}} kouluusi tai tiimiisi? Luemme jokaisen viestin — ota yhteyttä tilisi asetuksista, niin oikea ihminen vastaa.',
   'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
+  'about.intro':
+    '{{app}} on päivittäinen sanapeli. Arvaa viisikirjaiminen sana kuudella yrityksellä, pidä putkesi elossa, jaa emojiruudukkosi ja katso, miten kaikki pärjäsivät tämän päivän sanalla.',
+  'about.missionBody':
+    'Hyvä pulma on pieni päivittäinen voitto. {{app}} rakentuu yhden yhteisen sanan ympärille päivässä — tarpeeksi nopea kahvitauolle, tarpeeksi kiinnostava palatakseen huomenna.',
+  'about.missionTitle': 'Missiomme',
   'about.title': 'Tietoa {{app}}:sta',
   'archive.loadError': 'Arkistoa ei voitu ladata.',
   'archive.missed': 'Väliin jäänyt',
   'archive.notPlayed': 'Ei pelattu',
+  'archive.subhead':
+    'Pelaa mikä tahansa mennyt päivä uudelleen harjoituksena — ei putkia, ei tilastoja, kaikki hauskuus.',
   'archive.title': 'Arkistoi',
   'auth.backToHome': 'Takaisin etusivulle',
   'auth.backToHomeArrow': '← Takaisin etusivulle',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Unohditko salasanan?',
   'auth.login.loggingIn': 'Kirjataan sisään…',
   'auth.login.logIn': 'Pelaa tämän päivän sana',
+  'auth.login.noAccount': 'Uusi Tesseraan?',
   'auth.login.or': 'tai jatka',
   'auth.login.password': 'Salasana',
   'auth.login.signInButton': 'Kirjaudu sisään',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Tallennetaan…',
   'common.sendingEllipsis': 'Lähetetään…',
   'common.startingEllipsis': 'Käynnistetään…',
+  'forgotPassword.subhead':
+    'Anna sähköpostiosoitteesi, niin lähetämme sinulle linkin asetusten palauttamiseksi.',
+  'forgotPassword.success.body':
+    'Jos tilille {{email}} on olemassa, saat palautuslinkin muutaman minuutin kuluttua.',
+  'forgotPassword.success.title': 'Tarkista saapuneet.',
   'form.name': 'Nimi',
   'howToPlay.cta.home': 'Takaisin etusivulle',
   'howToPlay.cta.play': 'Pelaa tämän päivän pulmaa',
@@ -68,10 +83,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Putket joita ei halua katkaista',
   'leaderboard.daily.title': 'Tämän päivän ratkaisut',
   'leaderboard.loadError': 'Tulostaulua ei voitu ladata.',
+  'leaderboard.streaks.empty': 'Ei vielä putkia — ole ensimmäinen.',
+  'leaderboard.streaks.subhead': 'Kaikkien aikojen pisimmät voittoputket.',
   'leaderboard.streaks.title': 'Putkijohtajat',
+  'leaderboard.subhead': 'Miten kaikki pärjäsivät tänään ja kenellä on pisimmät putket.',
   'leaderboard.title': 'Tulostaulu',
   'login.headline': 'Tervetuloa takaisin.',
   'login.streakPill': '{{days}} päivän putki odottaa',
+  'login.subhead':
+    'Kirjaudu sisään pitääksesi putkesi elossa ja nähdäksesi, miten pärjäsit tämän päivän sanalla.',
   'nav.archive': 'Arkistoi',
   'nav.editProfile': 'Muokkaa profiilia',
   'nav.getStarted': 'Aloita',
@@ -89,6 +109,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Sanaa ei löydy',
   'notFound.title': 'Tämä reitti on tyhjä.',
   'planUpdated.message': 'Palvelusuunnitelmasi on voimassa.',
+  'planUpdated.retry': 'Yritä uudelleen',
+  'planUpdated.verifyFailed': 'Emme voineet vielä vahvistaa maksuasi.',
+  'planUpdated.verifyFailedBody':
+    'Maksusi käsittely saattaa olla vielä kesken. Yritä uudelleen hetken kuluttua.',
   'planUpdated.verifying': 'Vahvistetaan maksua…',
   'play.alreadyFinished': 'Olet jo ratkaissut tämän pulman',
   'play.answerWas': 'Sana oli',
@@ -104,6 +128,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Harjoituspulma',
   'play.tooShort': 'Ei tarpeeksi kirjaimia',
   'play.won': 'Ratkaistu!',
+  'pricing.advancedStats': 'Lisätilastot: {{yes}}',
+  'pricing.archiveHistory': '{{count}} päivää arkistohistoriaa',
+  'pricing.archivePlays': '{{count}} arkistopeliä / päivä',
+  'pricing.archiveUnlimited': 'Rajoittamaton arkistohistoria',
+  'pricing.canExport': 'Tietojen vienti: {{yes}}',
+  'pricing.checkoutError': 'Kassaa ei voitu käynnistää. Yritä uudelleen.',
   'pricing.dailyWord': 'Päivän sana',
   'pricing.heading': 'Valitse {{app}}-palvelusuunnitelmasi',
   'pricing.included': 'Sisältyy',
@@ -111,7 +141,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Päivän sana on aina ilmainen. Päivitä saadaksesi rajoittamattomat arkistouusinnat ja syvemmät tilastot.',
   'pricing.yearly': 'Vuosittain',
+  'privacy.intro':
+    '{{app}} kunnioittaa yksityisyyttäsi. Tällä sivulla kerrotaan, mitä tietoja tallennamme, miksi tallennamme ne ja miten ne voi poistaa.',
   'privacy.title': 'Tietosuojailmoitus',
+  'resetPassword.subhead': 'Valitse uusi salasana ja palaa putkesi pariin.',
   'settings.account': 'Tili',
   'settings.danger.body': 'Poista {{appName}}-tilisi ja koko pulmahistoriasi pysyvästi.',
   'settings.danger.confirm': 'Kyllä, poista pysyvästi',
@@ -120,17 +153,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'Vieras',
   'settings.language.title': 'Kieli',
   'settings.subhead': 'Säädä profiiliasi, ääntä ja sitä, miten näyt tulostaululla.',
+  'settings.unnamed': 'Sparq-pelaaja',
   'settings.upgrade': 'Päivitä',
   'signup.eyebrow': 'Ilmainen ikuisesti — yksi sana päivässä',
   'signup.headline': 'Aloita putkesi.',
+  'signup.subhead':
+    'Luo {{appName}}-tili pelataksesi päivän sanaa, kasvattaaksesi putkea ja noustaksesi tulostaulukossa.',
   'stats.currentStreak': 'Putki',
   'stats.distribution.title': 'Arvauksien jakauma',
   'stats.loadError': 'Tilastojasi ei voitu ladata.',
   'stats.maxStreak': 'Pisin putki',
   'stats.played': 'Pelattu',
   'stats.playToday': 'Pelaa tämän päivän pulmaa',
+  'stats.subhead': 'Vain päivittäiset ranking-pelit — arkistoharjoittelu ei koskaan lasketa.',
   'stats.title': 'Tilastosi',
   'stats.winRate': 'Voittoprosentti',
   'status.monthly': 'Kuukausittain',
+  'terms.intro':
+    'Käyttämällä {{app}} hyväksyt alla olevat säännöt. Jos et voi hyväksyä niitä, älä käytä palvelua.',
   'terms.title': 'Käyttöehdot',
 }

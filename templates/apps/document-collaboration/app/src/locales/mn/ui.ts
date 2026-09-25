@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Санал хүсэлт байна уу, алдаа олсон уу, эсвэл студи эсвэл багийнхаа төлөө {{app}} авахыг хүсэж байна уу? Бүртгэлийн тохиргооноосоо холбогдоорой — мессеж бүр багийн жинхэнэ хүнд хүрдэг.',
   'about.contactTitle': 'Бидэнтэй холбогдох',
+  'about.intro':
+    '{{app}} бол редактор, зохиолчид, багууд бодит цагт хамтдаа бичдэг хамтын бичгийн студи юм. Баримт бичгийг нээхэд хуудас хуваалцагддаг — курсорууд хөдөлж, сэтгэгдлүүд зах дээрээ эхлэл болж, засвар бүр түүхэнд аюулгүй хадгалагддаг.',
+  'about.missionBody':
+    'Бид урт хэлбэрийн бичлэг нь тайван, төвлөрсөн гэр орон хүртэх ёстой гэж үздэг — уулзалт эсвэл имэйл биш, гар бичмэлийг тойрон бүтээгдсэн нэгэн. Манай редактор, бодит цагийн оролцоо, хувилбарын түүх нь хамтрагчид хурдан хамтдаа ажиллахын зэрэгцээ хэн ч догол мөр эсвэл бодлоо алдахгүй байхаар зохион бүтээгдсэн.',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
+  'about.subtitle': 'Хамтдаа бодож, үүрд бичээрэй.',
   'about.title': '{{app}}-ийн тухай',
   'comments.addFailed': 'Сэтгэгдэл оруулж чадсангүй.',
   'comments.backToDoc': 'Гар бичмэл рүү буцах',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Сэтгэгдлийн сэдвүүд',
   'comments.loading': 'Сэдвүүдийг ачаалж байна…',
   'comments.newPlaceholder': 'Гар бичмэлд сэтгэгдэл нэмэх...',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Дахин нээх',
   'comments.reopenFailed': 'Дахин нээж чадсангүй.',
   'comments.replyFailed': 'Хариу нийтэлж чадсангүй.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Саяхны ноорог, хуваалцсан бүтээлүүд болон өдрийн засварууд.',
   'dashboard.viewFeed': 'Тэжээл →',
   'editor.back': 'Гар бичмэлүүд рүү буцах',
+  'editor.bodyLabel': 'Баримт бичгийн агуулга',
   'editor.bodyPlaceholder': 'Курсор анивчих газраас эхэлнэ үү.',
   'editor.comments': 'Сэтгэгдэл',
   'editor.createFailed': 'Баримт бичгийг үүсгэж чадсангүй.',
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Хэрэв данс байгаа бол {{email}} , дахин тохируулах холбоос гарч байна.',
+  'forgotPassword.sentHeading': 'Имэйлээ шалгана уу',
+  'forgotPassword.submitting': 'Илгээж байна\\u2026',
   'forgotPassword.subtitle': 'Бид танд дахин тохируулах холбоосыг имэйлээр илгээх болно.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Молекулаар бүтээгдсэн.',
+  'landing.ctaBody':
+    'Ганц бичигчдэд үнэгүй. Редактор, сүүдэр зохиолч, шүүмжлэгчдийн багуудад зориулсан студийн багцууд.',
   'landing.ctaHeading': 'Хуудсыг нээнэ үү. Курсорыг ажиллуулж эхэлнэ үү.',
   'landing.ctaPrimary': 'Студи нээх',
   'landing.eyebrow': 'Зохиолчид, редакторууд болон багуудад зориулсан',
   'landing.featuresEyebrow': 'Таны авах зүйлс',
   'landing.featuresHeading': 'Урт хэлбэрийн драфтын студи.',
+  'landing.featuresSubtitle':
+    '{{appName}} нь гар бичмэлийг тойрон бүтээгдсэн — уулзалт биш, имэйл биш.',
   'landing.getStarted': 'Студи нээх',
   'landing.heroCta': 'Бичиж эхлэх',
   'landing.heroSubtitle':
@@ -95,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} уншаагүй · сэтгэгдэл, дурдалт, урилга хуваалцах болон санал хүсэлт.',
   'presenceAvatars.label': '{{count}} хамтран ажиллагсад',
+  'privacy.intro': 'Бид таны мэдээллийг хэрхэн цуглуулж, ашиглаж, хамгаалдаг.',
   'privacy.title': 'Нууцлалын бодлого',
   'profile.about.description':
     'Таны нийтийн профайл болон хувь нэмэр оруулагчийн хуудсуудын товч намтар.',
@@ -107,7 +124,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Байгаа байдал',
   'profile.pronouns': 'Төлөөний үгс',
   'profile.publicToggle': 'Багийн гишүүддээ профайл харуулах',
+  'profile.role': 'Үүрэг / албан тушаал',
   'profile.subtitle': 'Та хамтран ажиллагсдынхаа өмнө хэрхэн харагдаж байна вэ.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} студид идэвхтэй ажиллаж буй зохиолчид',
   'quillonAuthBrandPanel.quote':
     '"Бичих л би үүнийг хийхдээ өөр зүйл хийх ёсгүй гэж боддог цорын ганц зүйл."',
@@ -115,6 +134,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Нээх →',
   'quillonKpiCard.trend': 'Сүүлийн үеийн чиг хандлага',
   'quillonLayout.menu': 'Цэс',
+  'quillonLayout.mobileNavLabel': 'Гар утасны навигаци',
   'quillonLayout.primaryNavLabel': 'Үндсэн навигаци',
   'quillonStudioHero.collab': 'Хамтран ажиллагсад',
   'quillonStudioHero.docs': 'Баримт бичигт хүрсэн',
@@ -124,7 +144,9 @@ export const ui: UiTranslations = {
     'Гар бичмэлийг аваад, сэтгэгдэл үлдээгээд, нэг догол мөрийг урагшлуул.',
   'quillonStudioHero.words': 'Өнөөдрийн үгс',
   'resetPassword.confirmPlaceholder': 'Шинэ нууц үгийг давтана уу',
+  'resetPassword.passwordLabel': 'Шинэ нууц үг',
   'resetPassword.passwordPlaceholder': 'Шинэ нууц үг оруулна уу',
+  'resetPassword.submitting': 'Дахин тохируулж байна…',
   'resetPassword.subtitle': 'Хүчтэй нууц үг сонгоно уу - дор хаяж 12 тэмдэгт.',
   'settings.account.description': 'Та хэрхэн нэвтэрдэг вэ.',
   'settings.billing.canceled': 'Захиалга цуцлагдлаа.',
@@ -133,7 +155,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Тохиргоо хийгдээгүй байна',
   'settings.billing.updated': 'Төлөвлөгөөг шинэчилсэн.',
   'settings.editor.description': 'Таныг бичиж байх үед зураг хэрхэн ажилладаг вэ.',
+  'settings.editor.title': 'Редакторын тохиргоо',
   'settings.eyebrow': 'Студийн тохиргоо',
+  'settings.language.title': 'Хэл',
   'settings.notifications.${n.key}.description': 'Хэл',
   'settings.notifications.description': 'Таны имэйл хайрцагт юу хүрэхийг сонгоно уу.',
   'settings.subtitle': 'Мэдэгдэл, засварлагчийн зураг болон бүртгэлийн тохиргоогоо тохируулна уу.',
@@ -142,6 +166,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Надтай хуваалцсан',
   'shared.loadFailed': 'Хуваалцсан баримт бичгийг ачаалж чадсангүй.',
   'shared.subtitle': 'Студийн бусад гишүүдийн гар бичмэл, товч мэдээлэл, тэмдэглэл.',
+  'signup.brandAttribution': 'Anaïs Park — Редактор, The Quarterly',
   'signup.brandQuote':
     '\\u201cТаны анхны гар бичмэл хамгийн хэцүү нь. Quillon үүнийг ганцаардлыг багасгадаг.\\u201d',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -149,6 +174,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Анаис',
   'signup.heading': 'Quillon дансаа үүсгээрэй',
   'signup.lastNamePlaceholder': 'Парк',
+  'signup.submitting': 'Студио нээж байна\\u2026',
   'signup.subtitle':
     'Чимээгүй ширээ, орчин үеийн хамтрагчид болон таны замаас холдох урт хэлбэрийн засварлагч.',
   'templates.blank.subtitle': 'Цэвэр хуудас. Курсор эхэлнэ.',
@@ -161,11 +187,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Бодолтой бүтэцтэй эхэл. Хязгааргүй өөрчлөн тохируул.',
   'templates.useFailed': 'Энэ загвараас баримт бичгийг эхлүүлж чадсангүй.',
   'templates.useTemplate': 'Энэ загварыг ашиглах',
+  'terms.intro': 'Энэ үйлчилгээг ашиглах боломжтой нөхцөлүүд.',
   'terms.title': 'Үйлчилгээний нөхцөл',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'дөнгөж сая',
   'trash.confirmDelete': 'Устгахыг баталгаажуулах',
+  'trash.confirmEmpty': 'Баталгаажуулах — бүгдийг устгах',
   'trash.deleteFailed': 'Устгаж чадсангүй.',
   'trash.deleteForever': 'Бүрмөсөн устгах',
   'trash.empty': 'Сэргээх зүйл алга.',
@@ -180,7 +208,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'Одоогоор засвар алга — баримт бичгийн түүхийг эхлүүлэхийн тулд хадгална уу.',
   'versionHistory.heading': 'Хувилбарын түүх',
+  'versionHistory.latest': 'Хамгийн сүүлийн үеийн',
   'versionHistory.loadFailed': 'Түүхийг ачаалж чадсангүй.',
+  'versionHistory.noContent': 'Энэ засварт ямар ч агуулга бүртгэгдээгүй.',
   'versionHistory.previewing': 'Урьдчилан харах',
   'versionHistory.restore': 'Энэ хувилбарыг сэргээх',
   'versionHistory.restoreFailed': 'Сэргээлт амжилтгүй боллоо.',

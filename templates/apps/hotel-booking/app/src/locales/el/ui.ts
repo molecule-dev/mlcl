@@ -1,11 +1,33 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχετε ερωτήσεις για μια κράτηση, σχόλια ή ένα κατάλυμα που πιστεύετε ότι ανήκει στο {{app}}; Επικοινωνήστε με την ομάδα μας από τον λογαριασμό σας — κάθε μήνυμα πηγαίνει σε έναν πραγματικό άνθρωπο που μπορεί να βοηθήσει.',
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά με εμάς',
+  'about.featureLoyalty':
+    'Τιμές αποκλειστικά για μέλη και πρόγραμμα επιβράβευσης που συγκεντρώνει πόντους, late check-out και αναβαθμίσεις δωματίων σε κάθε κράτηση.',
+  'about.featureReviews':
+    'Επαληθευμένες κριτικές επισκεπτών και επιλογές της σύνταξης, ώστε να μπορείτε να εμπιστεύεστε τη διαμονή πριν φτάσετε.',
+  'about.featureRooms':
+    'Δωμάτια, τιμές και παροχές δίπλα-δίπλα με διαφανή, all-in τιμολόγηση — φόροι και resort fees συμπεριλαμβάνονται πριν πληρώσετε.',
+  'about.featureSearch':
+    'Αναζήτηση σε πραγματικό χρόνο σε ελεγμένα ξενοδοχεία με ζωντανή διαθεσιμότητα, προβολή χάρτη και πλούσιες συλλογές φωτογραφιών.',
+  'about.featureTrips':
+    'Αποθηκευμένα αγαπημένα και πίνακας Ταξιδιών που κρατά κάθε κράτηση, πρόγραμμα και επιβεβαίωση σε ένα μέρος.',
+  'about.intro':
+    'Το {{app}} είναι μια πλατφόρμα κρατήσεων ξενοδοχείων για ταξιδιώτες που νοιάζονται για την ποιότητα. Κάθε κατάλυμα ελέγχεται προσωπικά από τη συντακτική μας ομάδα — χωρίς απόθεμα από aggregators, χωρίς παραπλανητικές καταχωρίσεις. Αναζητήστε πραγματική διαθεσιμότητα, συγκρίνετε δωμάτια, τιμές και παροχές δίπλα-δίπλα και κάντε κράτηση σε λίγα βήματα με σαφή, all-in τιμή.',
+  'about.missionBody':
+    'Η κράτηση ενός μέρους διαμονής πρέπει να είναι ήρεμη και ειλικρινής. Δείχνουμε διαφανείς τιμές με φόρους και resort fees από την αρχή, επιβραβεύουμε τους πιστούς επισκέπτες αντί να τους χρεώνουμε για το παραμικρό και βάζουμε πρώτες τις διαμονές που αξίζουν τα χρήματά σας — ώστε να περνάτε λιγότερο χρόνο συγκρίνοντας καρτέλες και περισσότερο στο ταξίδι.',
+  'about.missionTitle': 'Η αποστολή μας',
+  'about.subtitle':
+    'Ένας επιμελημένος, διαφανής τρόπος για να βρείτε και να κλείσετε το σωστό ξενοδοχείο.',
   'account.loyalty.activitySummary': '{{nights}} νύχτες · {{spend}} πέρασε φέτος',
+  'account.loyalty.benefitsHeading': 'Τα προνόμιά σας',
   'account.loyalty.heading': 'Πίστη',
   'account.loyalty.loading': 'Φόρτωση προγράμματος αφοσίωσης…',
-  'account.loyalty.pointsTowardNext': '{{πόντοι}} / {{επόμενος}} δείχνει προς {{επόμενη βαθμίδα}}',
+  'account.loyalty.maxTier': 'Ανώτατο επίπεδο — απολαύστε τα προνόμιά σας.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} πόντοι για {{nextTier}}',
   'account.loyalty.tier': 'Τρέχουσα βαθμίδα',
   'account.loyalty.unavailable': 'Δεν υπάρχουν διαθέσιμες πληροφορίες για την πιστότητα.',
   'account.navLabel': 'Ενότητες λογαριασμού',
@@ -22,6 +44,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Επιβεβαίωση κράτησης · {{total}}',
   'bookingCheckout.datesRequired': 'Παρακαλούμε επιλέξτε τις ημερομηνίες άφιξης και αναχώρησης.',
   'bookingCheckout.guestHeading': 'Κύριος επισκέπτης',
+  'bookingCheckout.heading': 'Επιβεβαίωση και κράτηση',
   'bookingCheckout.loadError': 'Αποτυχία φόρτωσης ιδιότητας.',
   'bookingCheckout.nights': '{{rate}} × {{count}} νύχτες',
   'bookingCheckout.notFound': 'Η ιδιότητα δεν βρέθηκε.',
@@ -32,11 +55,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Φόροι και τέλη',
   'bookingCheckout.tripHeading': 'Το ταξίδι σας',
   'bookingConfirmation.allTripsCta': 'Όλα τα ταξίδια',
+  'bookingConfirmation.confNumber': 'Αριθμός επιβεβαίωσης: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Η κράτησή σας βρίσκεται σε επεξεργασία.',
   'bookingConfirmation.heading': 'Η κράτηση επιβεβαιώθηκε',
   'bookingConfirmation.loading': 'Φόρτωση της κράτησής σας…',
   'bookingConfirmation.searchMoreCta': 'Δείτε περισσότερες διαμονές',
   'bookingConfirmation.subheadingForTrip':
-    '{{ιδιοκτησία}} σε {{πόλη}} , {{χώρα}} Θα τα πούμε στις {{checkIn}} .',
+    '{{property}} στο {{city}}, {{country}}. Θα σας δούμε στις {{checkIn}}.',
   'bookingConfirmation.total': 'Σύνολο {{total}}',
   'bookingConfirmation.viewTripCta': 'Δείτε το ταξίδι',
   'common.goToDashboard': 'Μετάβαση στον Πίνακα',
@@ -46,6 +72,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Η φόρτωση των αγαπημένων απέτυχε.',
   'favorites.pricePerNight': '{{price}} / νύχτα',
   'favorites.removeCta': 'Ακύρωση αποθήκευσης',
+  'favorites.removing': 'Αφαίρεση…',
   'forgotPassword.subheading':
     'Εισαγάγετε τη διεύθυνση email στον λογαριασμό σας και θα σας στείλουμε έναν ασφαλή σύνδεσμο επαναφοράς.',
   'forgotPassword.successBody':
@@ -53,6 +80,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Μέλη Sojorn',
   'landing.cta.heading': 'Τιμές μόνο για μέλη. Κάθε κράτηση, κάθε φορά.',
   'landing.cta.signup': 'Δημιουργήστε δωρεάν λογαριασμό',
+  'landing.cta.subheading':
+    'Κερδίστε πόντους επιβράβευσης σε κάθε διαμονή, ξεκλειδώστε late check-out και αναβαθμίσεις δωματίων και αποκτήστε πρώτοι πρόσβαση σε νέα καταλύματα πριν ανακοινωθούν δημόσια.',
   'landing.destinations.eyebrow': 'Πού θα πάμε στη συνέχεια',
   'landing.destinations.heading': 'Προτεινόμενοι προορισμοί',
   'landing.destinations.seeAll': 'Δείτε όλους τους προορισμούς',
@@ -61,13 +90,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Ιστορίες που αξίζει να τις κουβαλάς μαζί σου',
   'landing.nav.join': 'Γίνετε μέλος του Auberge',
   'landing.nav.search': 'Αναζήτηση διαμονής',
+  'landing.preview.browseAll': 'Περιηγηθείτε στη συλλογή',
   'landing.preview.eyebrow': 'Μια ματιά στο εσωτερικό',
   'landing.preview.heading': 'Επιλεγμένες καταλύματα αυτόν τον μήνα',
+  'landing.preview.subheading':
+    'Κάθε κατάλυμα στο {{appName}} ελέγχεται προσωπικά από τη συντακτική μας ομάδα — χωρίς απόθεμα από aggregators, χωρίς παραπλανητικές καταχωρίσεις.',
   'login.eyebrow': 'Περιοχή μελών',
+  'login.noAccount': 'Νέος στο Tessera;',
   'login.signupLink': 'Δημιουργήστε έναν δωρεάν λογαριασμό',
   'login.subheading':
     'Συνδεθείτε για να διαχειριστείτε τα ταξίδια σας, να δείτε επιβεβαιώσεις και να συνεχίσετε από εκεί που σταματήσατε.',
+  'loyaltyTierBadge.points': '{{points}} πόντοι',
   'planUpdated.heading': 'Το πρόγραμμα ενημερώθηκε',
+  'planUpdated.retry': 'Δοκιμάστε ξανά',
+  'planUpdated.verifyFailed': 'Δεν μπορέσαμε να επιβεβαιώσουμε ακόμη την πληρωμή σας.',
+  'planUpdated.verifyFailedBody':
+    'Η πληρωμή σας ενδέχεται να βρίσκεται ακόμη υπό επεξεργασία. Δοκιμάστε ξανά σε λίγο.',
   'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'pricing.limit.advancedFeatures': 'Προηγμένες λειτουργίες:',
   'pricing.limit.canExport': 'Εξαγωγή δεδομένων:',
@@ -79,7 +117,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Τι προσφέρει αυτό το μέρος',
   'propertyDetail.backLink': 'Επιστροφή στην αναζήτηση',
   'propertyDetail.bookCta': 'Απόθεμα',
+  'propertyDetail.bookmarkAria': 'Αποθήκευση ακινήτου',
   'propertyDetail.bookmarkAriaSaved': 'Αφαίρεση από αποθηκευμένες ιδιότητες',
+  'propertyDetail.galleryImageAlt': '{{name}} φωτογραφία {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} φωτογραφία ήρωα',
   'propertyDetail.hidePhotos': 'Απόκρυψη φωτογραφιών',
   'propertyDetail.lineCleaning': 'Τέλος καθαρισμού',
@@ -89,6 +129,9 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'νύχτα',
   'propertyDetail.noChargeYet': 'Δεν θα χρεωθείτε ακόμα',
   'propertyDetail.notFound': 'Η ιδιότητα δεν βρέθηκε.',
+  'propertyDetail.perNight': '/ διανυκτέρευση',
+  'propertyDetail.pickDatesHint':
+    'Επιλέξτε τις ημερομηνίες σας για να δείτε την πλήρη ανάλυση τιμής.',
   'propertyDetail.reviewCount': '( {{count}} κριτικές)',
   'propertyDetail.reviewsHeading': 'Πρόσφατες κριτικές',
   'propertyDetail.roomCapacity': 'Κοιμάται {{count}}',
@@ -101,6 +144,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Νέος κωδικός πρόσβασης',
   'resetPassword.subheading':
     'Επιλέξτε έναν νέο κωδικό πρόσβασης για τον λογαριασμό σας στο Auberge. Χρησιμοποιήστε τουλάχιστον 8 χαρακτήρες. Συνιστούμε μια φράση πρόσβασης.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Δεν υπάρχουν ακίνητα που να ταιριάζουν με την αναζήτησή σας.',
   'searchResults.emptyHint':
     'Δοκιμάστε να διευρύνετε τα φίλτρα σας ή να καταργήσετε το ανώτατο όριο τιμών — η Auberge προσφέρει διαμονή σε 14 χώρες.',
@@ -108,19 +152,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Επιλεγμένες διαμονές',
   'searchResults.headingForQuery': 'Μένει για " {{q}} "',
   'searchResults.loadError': 'Αποτυχία φόρτωσης ιδιοτήτων.',
+  'searchResults.mapHint':
+    'Περάστε τον δείκτη πάνω από μια κάρτα για επισήμανση στον χάρτη. Ζωντανά πλακίδια Mapbox σε παραγωγή.',
   'searchResults.mapPinAria': '{{name}} — {{price}} ανά διανυκτέρευση',
   'searchResults.sortLabel': 'Ταξινόμηση κατά',
   'searchResults.subheading': '{{count}} ιδιότητες · {{guests}} επισκέπτες',
   'signup.eyebrow': 'Γίνετε μέλος',
   'signup.subheading':
     'Γίνετε μέλος του Auberge για να ξεκλειδώσετε τιμές μόνο για μέλη, καθυστερημένες αγορές και πρόσβαση πρώτης γραμμής σε νέα καταλύματα.',
+  'sojournAuthShell.brand.eyebrow': 'Μείνετε κάπου εξαιρετικά',
+  'sojournAuthShell.brand.heading':
+    'Μια επιμελημένη συλλογή καταλυμάτων — όμορφα παρουσιασμένη, με διαφανείς τιμές.',
   'sojournHeroSearchCard.checkInAria': 'Ημερομηνία άφιξης',
   'sojournHeroSearchCard.checkOutAria': 'Ημερομηνία αναχώρησης',
+  'sojournHeroSearchCard.destAria': 'Προορισμός',
+  'sojournHeroSearchCard.destLabel': 'Πού',
   'sojournHeroSearchCard.destPlaceholder': 'Πόλη, περιοχή ή ακίνητο',
   'sojournHeroSearchCard.eyebrow': 'Επιλεγμένες διαμονές · Τιμές μόνο για μέλη',
   'sojournHeroSearchCard.guestsOption': '{{n}} επισκέπτες',
   'sojournHeroSearchCard.subtitle':
     'Μια επιμελημένη συλλογή από μπουτίκ ξενοδοχεία, πολυτελή καταλύματα και σπάνιες ξενοδοχειακές μονάδες — με διαφανείς τιμές, όμορφα παρουσιασμένες.',
+  'sojournHeroSearchCard.title': 'Μείνετε κάπου εξαιρετικά',
+  'sojournHeroSearchCard.trustLoyalty': 'Κερδίστε πόντους σε κάθε διαμονή',
   'sojournHeroSearchCard.trustNoFees': 'Χωρίς κρυφές χρεώσεις, ποτέ',
   'sojournHeroSearchCard.trustVetted': 'Μόνο ακίνητα που έχουν ελεγχθεί χειροκίνητα',
   'sojournLayout.primaryNavLabel': 'Κύρια πλοήγηση',

@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Keni komente, keni gjetur një gabim ose po planifikoni diçka ambicioze? Na kontaktoni nga cilësimet e llogarisë tuaj — çdo mesazh shkon te një person i vërtetë i ekipit.',
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Rezervimet në një kuti të vetme — konfirmimet e fluturimeve, hoteleve dhe aktiviteteve shfaqen pikërisht në ditën që u përkasin.',
+  'about.featureCollab':
+    'Bashkëpunim në kohë reale — ftoni deri në pesë udhëtarë për udhëtim, me çdo ndryshim që sinkronizohet drejtpërdrejt dhe komentet e lidhura nën çdo ndalesë.',
+  'about.featureMapsBudget':
+    'Harta, destinacione dhe një buxhet i përbashkët — shikoni gjithë udhëtimin në një hartë, zbuloni destinacione të përzgjedhura nga redaktorët dhe ndiqni shpenzimet që askush të mos shpenzojë më shumë.',
+  'about.featureTimelines':
+    "Kalendarë ditë pas dite — tërhiqni ndalesat për t'i rirenditur, shtoni segmente transporti dhe shikoni itinerarin të rillogaritet si një dokument i gjallë.",
+  'about.intro':
+    '{{app}} e kthen një dosje plot plane gjysmë të formuara në një udhëtim të vetëm e të përbashkët që gjithë grupi juaj mund ta ndjekë vërtet. Ndërtoni një itinerar ditë pas dite, shtoni fluturime dhe hotele, hartoni çdo ndalesë dhe ndiqni buxhetin — të gjitha në një vend të qetë në vend të një duzine skedash dhe një bisede grupi.',
+  'about.missionBody':
+    "Planifikimi i udhëtimit duhet të ndihet sikur udhëtimi po bëhet tashmë më i mirë, jo si detyra të shtëpisë. {{app}} ekziston për t'i bërë udhëtimet bashkëpunuese të përpjekjefalta — që çdo udhëtar të paraqitet duke e njohur planin dhe çdo ndalesë të tregojë një histori që ia vlen të mbahet mend.",
+  'about.missionTitle': 'Misioni ynë',
   'about.pageTitle': 'Rreth {{app}}',
   'auth.legalConsent': 'Duke vazhduar, ju pranoni',
   'bookings.empty.body': 'Shtoni një fluturim, hotel ose aktivitet për të filluar kutinë hyrëse.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Hotel',
   'bookings.type.other': 'Tjeter',
   'budgetSpendCard.budgetTotal': 'e {{total}} planifikuar',
+  'budgetSpendCard.overBy': '{{amount}} mbi buxhetin',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} së fundmi',
+  'budgetSpendCard.remaining': '{{amount}} mbetur',
   'calendar.eyebrow': 'Viti që vjen',
   'calendar.heading': 'Çdo udhëtim në një kalendar të vetëm.',
   'calendar.legendHeading': 'Udhëtime gjatë këtij muaji',
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'dhe',
   'common.goToDashboard': 'Shko te paneli',
   'dashboard.budgetHeading': 'Pulsi i buxhetit',
+  'dashboard.empty.body':
+    'Planifikoni udhëtimin tuaj të parë dhe paneli juaj do të mbushet me kalendarë ditë pas dite, pulsin e buxhetit dhe rezervimet.',
+  'dashboard.empty.cta': 'Planifikoni udhëtimin tuaj të parë',
   'dashboard.empty.heading': 'Ende nuk ka udhëtime — atlasi juaj është bosh.',
   'dashboard.eyebrow': 'Kontrolli i misionit',
   'dashboard.heading': 'Aventura juaj e radhës, në një cep të qetë.',
   'dashboard.newTripCta': 'Filloni një udhëtim të ri',
+  'dashboard.subheading':
+    'Një numërim mbrapsht për udhëtimin e radhës, pulsi i shpenzimeve të sotme dhe një vështrim i shpejtë në çdo itinerar në lëvizje.',
   'dashboard.tripsHeading': 'Udhëtime në lëvizje',
   'dashboard.viewAllExpenses': 'Shikoni çdo shpenzim',
   'dashboard.viewAllTrips': 'Shih çdo udhëtim',
   'dayTimelineRow.category.accommodation': 'Qëndro',
+  'dayTimelineRow.category.food': 'Ushqim & pije',
+  'dayTimelineRow.category.sightseeing': 'Vizita turistike',
   'dayTimelineRow.category.transport': 'Transporti',
   'destinationOrbCard.exploreCta': 'Shto në një udhëtim',
   'destinationOrbCard.tripCount': '{{count}} udhëtime',
+  'destinations.empty.body': 'Kthehuni te Të gjitha dhe gjetjet e redaktorit do të rishfaqen.',
   'destinations.empty.heading': 'Ende nuk ka destinacione.',
+  'destinations.emptyFiltered.heading': 'Asgjë e etiketuar kështu ende.',
   'destinations.errors.load': 'Destinacionet nuk mund të ngarkoheshin.',
   'destinations.eyebrow': 'Ku të shkosh më pas',
   'destinations.heading': 'Qoshet e ruajtura dhe gjetjet e redaktorit.',
@@ -70,7 +98,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Furnizues',
   'expenses.formHeading': 'Shpenzimet e regjistrimit për {{trip}}',
   'expenses.heading': 'Ku shkon në të vërtetë buxheti i udhëtimit.',
+  'expenses.heroBudget': '{{pct}}% e {{total}} të planifikuar',
   'expenses.heroEyebrow': '{{trip}} • përmbledhje e buxhetit',
+  'expenses.heroNoBudget': 'Nuk është caktuar buxhet për këtë udhëtim ende.',
   'expenses.noTrips.body':
     'Planifikoni së pari një udhëtim — shpenzimet i bashkëngjiten buxhetit të udhëtimit.',
   'expenses.noTrips.heading': 'Ende nuk ka udhëtime.',
@@ -83,12 +113,16 @@ export const ui: UiTranslations = {
     'Çdo faturë dhe konfirmim mblidhet në kategorinë e duhur këtu — nuk nevojitet asnjë fletëllogaritëse.',
   'forgotPassword.eyebrow': 'Rikuperoni itinerarin tuaj',
   'forgotPassword.heading': 'Harruat fjalëkalimin?',
+  'forgotPassword.subheading':
+    "Vendosni emailin që përdorët për {{appName}} dhe do t'ju dërgojmë një lidhje për të rivendosur fjalëkalimin.",
   'forgotPassword.submit': 'Dërgo email-in e rikuperimit',
   'forgotPassword.submitPending': 'Po dërgohet email-i i rikuperimit…',
   'forgotPassword.successHint':
     'Nuk keni ende email? Kontrolloni dosjen e spamit ose provoni përsëri me një adresë tjetër.',
   'forgotPassword.successSubheading':
     'Ne dërguam një lidhje rikuperimi te {{email}} Lidhja është e vlefshme për 30 minuta.',
+  'forgotPassword.tryAgain': 'Dërgoje në një email tjetër',
+  'landing.cta.eyebrow': 'Filloni me planin falas',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Krijo një llogari falas',
   'landing.cta.subheading':
@@ -100,8 +134,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Filloni një udhëtim falas',
   'landing.hero.ctaSecondary': 'Shikoni një shembull udhëtimi',
+  'landing.hero.eyebrow': 'Planifikues udhëtimi · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint e kthen një dosje plot me plane gjysmë të formuara në një itinerar të përbashkët, të përditshëm, që grupi juaj mund ta ndjekë në të vërtetë — me rezervime, harta dhe buxhet të gjurmuar në një vend.',
+  'landing.hero.title': 'Planifikojeni një herë. Shëtisni së bashku.',
   'landing.nav.join': 'Filloni një udhëtim falas',
   'landing.nav.preview': 'Pikë referimi brenda',
   'landing.preview.cta': 'Planifikoni një vetë',
@@ -109,6 +145,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Disa udhëtime që udhëtarët po bëjnë tani',
   'login.eyebrow': 'Zona e anëtarëve',
   'login.heading': 'Mirë se erdhe përsëri, udhëtar',
+  'login.noAccount': 'I ri në Tessera?',
   'login.signupLink': 'Krijo një llogari falas',
   'login.subheading':
     'Hyni për të menaxhuar udhëtimet, planet ditore, rezervimet dhe shënimet në ditar që keni filluar tashmë.',
@@ -119,6 +156,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Njoftimi nuk mund të përditësohej.',
   'notifications.heading': 'Çfarë ndryshoi në udhëtimet tuaja sot.',
   'notifications.markUnread': 'Shëno si të palexuar',
+  'notifications.subheading':
+    '{{count}} të reja — konfirmime rezervimesh, shënime bashkëpunëtorësh, ulje çmimesh dhe kujtues.',
   'notifications.time.daysAgo': '{{count}} ditë më parë',
   'notifications.time.hoursAgo': '{{count}} orë më parë',
   'notifications.time.justNow': 'pikërisht tani',
@@ -137,6 +176,7 @@ export const ui: UiTranslations = {
     'Shërbimet e lidhura, monedha, njoftimet push dhe kredencialet me të cilat hyni.',
   'signup.and': 'dhe',
   'signup.eyebrow': 'Bashkohu me pikën e rrugës',
+  'signup.haveAccount': 'Jeni tashmë në lëvizje?',
   'signup.heading': 'Planifikojeni një herë. Shëtisni së bashku.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -148,6 +188,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Itinerari i hapur',
   'tripCountdownHeroCard.ctaSecondary': 'Planifikoni një udhëtim tjetër',
   'tripCountdownHeroCard.daysLabel': '{{days}} ditë për të shkuar',
+  'tripCountdownHeroCard.eyebrow': 'Aventura e radhës · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} netë — itinerari juaj është gati për udhëtim.',
   'tripCoverCard.stops': '{{count}} ndalesa',
   'tripCoverCard.travelers': '{{count}} udhëtarët',
   'tripDetail.addActivity': 'Shto aktivitet',
@@ -157,6 +200,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Titulli i aktivitetit',
   'tripDetail.adding': 'Duke shtuar…',
   'tripDetail.backToTrips': 'Kthehu te të gjitha udhëtimet',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Udhëtarët',
   'tripDetail.dayLabel': 'Dita {{day}}',
   'tripDetail.empty': 'Nuk ka ende aktivitete — shtoni një për të filluar kronologjinë.',
@@ -167,14 +211,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Itinerari • {{country}}',
   'tripDetail.invite': 'Fto',
   'tripDetail.inviteLabel': 'Fto me email',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'Ftesa u dërgua te {{email}} .',
   'tripDetail.inviting': 'Duke dërguar…',
   'tripDetail.loading': 'Duke ngarkuar udhëtimin…',
   'tripDetail.noCollaborators': 'Vetëm ti, për momentin.',
+  'tripDetail.notesHeading': 'Shënime udhëtimi',
   'tripDetail.notesPlaceholder': 'Nuk ka ende shënime.',
   'tripDetail.notFound.heading': 'Udhëtimi nuk u gjet',
   'tripDetail.openBookings': 'Hap kutinë hyrëse të rezervimeve',
   'tripDetail.shareCopied': 'Lidhja e ndarjes u kopjua në kujtesën e përkohshme:',
+  'tripDetail.shareReady': 'Lidhja e ndarjes gati:',
   'tripDetail.stops': '{{count}} ndalesa',
   'tripDetail.timelineEyebrow': 'Kronologjia ditore',
   'tripDetail.timelineHeading': 'Plani ditor',
@@ -192,6 +239,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Udhëtarët',
   'tripPlanner.heading': 'Skico një udhëtim në më pak se një minutë.',
   'tripPlanner.preview.eyebrow': 'Pamje paraprake e drejtpërdrejtë',
+  'tripPlanner.preview.placeholderCountry': 'Zgjidhni një shtet',
   'tripPlanner.preview.placeholderDestination': 'Aventura juaj e radhës',
   'tripPlanner.section1.title': 'Ku dhe kur',
   'tripPlanner.section2.title': 'Udhëtarët dhe buxheti',
@@ -200,10 +248,14 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Dita {{day}} Shtoni ndalesa, transport dhe rezervime këtu.',
   'tripPlanner.section3.day2': 'Dita {{day}} Shtoni ndalesa, transport dhe rezervime këtu.',
   'tripPlanner.section3.day3': 'Dita {{day}} Shtoni ndalesa, transport dhe rezervime këtu.',
+  'tripPlanner.section3.title': 'Fillestar plani ditor',
   'tripPlanner.subheading':
     'Vendosni bazat më poshtë - gjithmonë mund të ftoni bashkëpunëtorë, të tërhiqni ndalesat dhe të dërgoni rezervimet më vonë.',
   'tripPlanner.submit': 'Krijo udhëtim',
   'tripPlanner.submitting': 'Duke krijuar…',
+  'trips.empty.body':
+    'Kthehuni te Të gjitha udhëtimet ose filloni të planifikoni bredhjen tuaj të radhës.',
+  'trips.empty.cta': 'Planifiko një udhëtim',
   'trips.empty.heading': 'Asgjë nuk përputhet ende me atë filtër.',
   'trips.eyebrow': 'Atlasi',
   'trips.filterLabel': 'Filtro udhëtimet sipas statusit',
@@ -215,6 +267,12 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Ende nuk ka udhëtime.',
   'trips.pastHeading': 'Aventurat e kaluara',
   'trips.subheading': '{{count}} itinerare — e kaluara, e tashmja dhe një ditë.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading':
+    'Planifikoje një herë. Bredhni së bashku. Kujtojeni përgjithmonë.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · {{appName}} anëtarë që nga 2024',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} e ktheu një udhëtim të ethshëm 3-javor nëpër katër shtete në itinerarin më të qetë që kemi ndarë ndonjëherë.',
   'waypointLayout.mobileNavClose': 'Mbyll menynë e navigimit',
   'waypointLayout.primaryNavLabel': 'Navigimi kryesor',
 }

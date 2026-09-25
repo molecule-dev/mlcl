@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Захиалга, сэтгэгдэл эсвэл {{app}} дээр байх ёстой гэж бодож буй үл хөдлөх хөрөнгийн талаар асуулт байна уу? Бүртгэлээсээ манай багтай холбогдоорой — мессеж бүр тусламж үзүүлэх боломжтой жинхэнэ хүнд хүрдэг.',
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Бидний тухай',
+  'about.featureLoyalty':
+    'Зөвхөн гишүүдэд зориулсан үнэ болон захиалга бүрт оноо, хожуу чекаут, өрөөний шинэчлэлт олгодог үнэнч хэрэглэгчийн хөтөлбөр.',
+  'about.featureReviews':
+    'Баталгаажсан зочны сэтгэгдэл болон редакцийн сонголтууд — очихоосоо өмнө байраа итгэлтэй сонгоорой.',
+  'about.featureRooms':
+    'Хажуу хажуугаар нь өрөө, үнэ, тохижилтыг ил тод, бүрэн үнээр харьцуулаарай — төлөхөөс өмнө татвар болон амралтын газрын хураамж багтсан.',
+  'about.featureSearch':
+    'Шалгагдсан зочид буудлуудын дунд бодит цагийн хайлт — шууд боломжтой өрөө, газрын зураг харах, баялаг зургийн цуглуулга.',
+  'about.featureTrips':
+    'Хадгалсан дуртай зүйлс болон бүх захиалга, маршрут, баталгаажуулалтыг нэг дор хадгалдаг Аялалын самбар.',
+  'about.intro':
+    '{{app}} бол чанарт анхаардаг аялагчдад зориулсан зочид буудал захиалах платформ юм. Үл хөдлөх хөрөнгө бүрийг манай редакцийн баг биечлэн шалгадаг — агрегаторын нөөцгүй, хуурамч заргүй. Бодит боломжтой өрөөг хайж, өрөө, үнэ, тохижилтыг хажуу хажуугаар нь харьцуулаад, тодорхой, бүрэн үнээр хэдхэн товшилтоор захиалаарай.',
+  'about.missionBody':
+    'Байр захиалах нь тайван, шударга байх ёстой. Бид татвар болон амралтын газрын хураамжийг урьдчилан харуулсан ил тод үнийг харуулж, үнэнч зочдыг шагнаж, жижиг төлбөрөөр зовоохгүй, мөнгөө үнэ цэнэтэй байруудыг тэргүүнд тавьдаг — ингэснээр та табуудыг харьцуулахад бага цаг зарцуулж, аялалдаа илүү их цаг гаргах болно.',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
+  'about.subtitle': 'Зөв зочид буудлыг олох, захиалах цэгцтэй, ил тод арга.',
   'account.loyalty.activitySummary': '{{nights}} шөнө · {{spend}} энэ жилийг өнгөрөөсөн',
+  'account.loyalty.benefitsHeading': 'Таны давуу талууд',
   'account.loyalty.heading': 'Үнэнч байдал',
   'account.loyalty.loading': 'Үнэнч хэрэглэгчийн бүртгэлийг ачаалж байна…',
-  'account.loyalty.pointsTowardNext': '{{оноо}} / {{дараагийн}} зааж байна {{дараагийнТүвшин}}',
+  'account.loyalty.maxTier': 'Дээд түвшин — давуу талуудаа эдлээрэй.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} оноо {{nextTier}} хүртэл',
   'account.loyalty.tier': 'Одоогийн түвшин',
   'account.loyalty.unavailable': 'Үнэнч хэрэглэгчийн мэдээлэл байхгүй байна.',
   'account.navLabel': 'Дансны хэсгүүд',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Захиалгыг баталгаажуулах · {{total}}',
   'bookingCheckout.datesRequired': 'Бүртгүүлэх болон гарах өдрөө сонгоно уу.',
   'bookingCheckout.guestHeading': 'Гол зочин',
+  'bookingCheckout.heading': 'Баталгаажуулж захиалах',
   'bookingCheckout.loadError': 'Пропертыг ачаалж чадсангүй.',
   'bookingCheckout.nights': '{{rate}} × {{count}} шөнө',
   'bookingCheckout.notFound': 'Үл хөдлөх хөрөнгө олдсонгүй.',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Татвар ба хураамж',
   'bookingCheckout.tripHeading': 'Таны аялал',
   'bookingConfirmation.allTripsCta': 'Бүх аялал',
+  'bookingConfirmation.confNumber': 'Баталгаажуулалтын дугаар: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Таны захиалгыг боловсруулж байна.',
   'bookingConfirmation.heading': 'Захиалга баталгаажсан',
   'bookingConfirmation.loading': 'Таны захиалгыг ачаалж байна…',
   'bookingConfirmation.searchMoreCta': 'Бусад буудаллах газруудыг үзэх',
   'bookingConfirmation.subheadingForTrip':
-    '{{өмч}} дотор {{хот}} , {{улс}} . Бид тантай уулзъя {{checkIn}} .',
+    '{{city}} дэх {{property}}, {{country}}. {{checkIn}}-нд уулзацгаая.',
   'bookingConfirmation.total': 'Нийт {{total}}',
   'bookingConfirmation.viewTripCta': 'Аяллыг харах',
   'common.goToDashboard': 'Хянах самбар руу очих',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Дуртай зүйлсийг ачаалж чадсангүй.',
   'favorites.pricePerNight': '{{price}} / шөнө',
   'favorites.removeCta': 'Хадгалахгүй байх',
+  'favorites.removing': 'Хасаж байна…',
   'forgotPassword.subheading':
     'Бүртгэлийнхээ имэйл хаягийг оруулна уу, бид танд аюулгүй дахин тохируулах холбоос илгээх болно.',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Зочин гишүүд',
   'landing.cta.heading': 'Зөвхөн гишүүдэд зориулсан үнэ. Захиалга бүрт, үргэлж.',
   'landing.cta.signup': 'Үнэгүй бүртгэл үүсгэх',
+  'landing.cta.subheading':
+    'Аялал бүрт үнэнч хэрэглэгчийн оноо цуглуулж, хожуу чекаут болон өрөөний шинэчлэлтийг нээж, шинэ байруудыг нийтэд жагсаахаас өмнө хамгийн түрүүнд аваарай.',
   'landing.destinations.eyebrow': 'Дараагийнх нь хаана',
   'landing.destinations.heading': 'Онцлох газрууд',
   'landing.destinations.seeAll': 'Бүх очих газрыг харах',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Багтаа авч явахад үнэтэй түүхүүд',
   'landing.nav.join': 'Auberge-д нэгдээрэй',
   'landing.nav.search': 'Хайлтын үлдэгдэл',
+  'landing.preview.browseAll': 'Бүрэн цуглуулгыг үзэх',
   'landing.preview.eyebrow': 'Дотогшоо нэг харц',
   'landing.preview.heading': 'Энэ сард сонгосон буудлууд',
+  'landing.preview.subheading':
+    '{{appName}} дээрх үл хөдлөх хөрөнгө бүрийг манай редакцийн баг биечлэн шалгадаг — агрегаторын нөөцгүй, хуурамч заргүй.',
   'login.eyebrow': 'Гишүүдийн хэсэг',
+  'login.noAccount': 'Тессератай шинээр танилцаж байна уу?',
   'login.signupLink': 'Үнэгүй бүртгэл үүсгэх',
   'login.subheading':
     'Аяллуудаа удирдах, баталгаажуулалтыг харах, орхисон газраасаа үргэлжлүүлэхийн тулд нэвтэрнэ үү.',
+  'loyaltyTierBadge.points': '{{points}} оноо',
   'planUpdated.heading': 'Төлөвлөгөө шинэчлэгдсэн',
+  'planUpdated.retry': 'Дахин оролдоно уу',
+  'planUpdated.verifyFailed': 'Бид таны төлбөрийг хараахан баталгаажуулж чадсангүй.',
+  'planUpdated.verifyFailedBody':
+    'Таны төлбөрийг боловсруулж байж магадгүй. Хэсэг хугацааны дараа дахин оролдоно уу.',
   'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'pricing.limit.advancedFeatures': 'Дэвшилтэт онцлогууд:',
   'pricing.limit.canExport': 'Өгөгдөл экспортлох:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Энэ газар юу санал болгодог вэ',
   'propertyDetail.backLink': 'Хайлт руу буцах',
   'propertyDetail.bookCta': 'Захиалга өгөх',
+  'propertyDetail.bookmarkAria': 'Өмч хөрөнгийг хадгалах',
   'propertyDetail.bookmarkAriaSaved': 'Хадгалсан өмчөөс хасах',
+  'propertyDetail.galleryImageAlt': '{{name}} зураг {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} баатрын гэрэл зураг',
   'propertyDetail.hidePhotos': 'Зураг нуух',
   'propertyDetail.lineCleaning': 'Цэвэрлэгээний төлбөр',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'шөнө',
   'propertyDetail.noChargeYet': 'Танаас хараахан төлбөр авахгүй',
   'propertyDetail.notFound': 'Үл хөдлөх хөрөнгө олдсонгүй.',
+  'propertyDetail.perNight': '/ шөнө',
+  'propertyDetail.pickDatesHint': 'Бүрэн үнийн задаргааг харахын тулд огноогоо сонгоно уу.',
   'propertyDetail.reviewCount': '( {{count}} шүүмжүүд)',
   'propertyDetail.reviewsHeading': 'Саяхны тоймууд',
   'propertyDetail.roomCapacity': 'Унтдаг {{count}}',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Шинэ нууц үг',
   'resetPassword.subheading':
     'Auberge бүртгэлдээ шинэ нууц үг сонгоно уу. Хамгийн багадаа 8 тэмдэгт ашиглана уу; бид нууц үг оруулахыг зөвлөж байна.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Таны хайлтад тохирох үл хөдлөх хөрөнгө байхгүй байна.',
   'searchResults.emptyHint':
     'Шүүлтүүрээ өргөжүүлэх эсвэл үнийн дээд хязгаарыг арилгахыг оролдоорой — Auberge нь 14 оронд буудалладаг.',
@@ -108,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Сонгосон байрнууд',
   'searchResults.headingForQuery': '"Үргэлжлүүлэн үлдэнэ" {{q}} "',
   'searchResults.loadError': 'Проперти ачаалж чадсангүй.',
+  'searchResults.mapHint':
+    'Газрын зураг дээр тодруулахын тулд карт дээр хулганаа аваачиж байрлуулаарай. Үйлдвэрлэлд Mapbox-ийн шууд хавтангууд.',
   'searchResults.mapPinAria': '{{name}} — нэг шөнийн {{price}}',
   'searchResults.sortLabel': 'Эрэмбэлэх',
   'searchResults.subheading': '{{count}} үл хөдлөх хөрөнгө · {{guests}} зочид',
   'signup.eyebrow': 'Гишүүн болох',
   'signup.subheading':
     'Зөвхөн гишүүдэд зориулсан үнэ, хожуу захиалга хийх, шинэ үл хөдлөх хөрөнгөд анх удаа нэвтрэх эрхийг авахын тулд Auberge-д нэгдээрэй.',
+  'sojournAuthShell.brand.eyebrow': 'Ер бусын газар байрлаарай',
+  'sojournAuthShell.brand.heading':
+    'Үл хөдлөх хөрөнгийн цэгцтэй цуглуулга — сайхан танилцуулгатай, ил тод үнэтэй.',
   'sojournHeroSearchCard.checkInAria': 'Бүртгүүлэх огноо',
   'sojournHeroSearchCard.checkOutAria': 'Гарах огноо',
+  'sojournHeroSearchCard.destAria': 'Очих газар',
+  'sojournHeroSearchCard.destLabel': 'Хаана',
   'sojournHeroSearchCard.destPlaceholder': 'Хот, бүс нутаг эсвэл өмч',
   'sojournHeroSearchCard.eyebrow': 'Сонгосон байр · Зөвхөн гишүүдэд зориулсан үнэ',
   'sojournHeroSearchCard.guestsOption': '{{n}} зочид',
   'sojournHeroSearchCard.subtitle':
     'Бутик зочид буудлууд, дизайныг урагшлуулсан үл хөдлөх хөрөнгө, ховор олдвор бүхий амралтын газруудын цуглуулга — ил тод үнээр, үзэсгэлэнтэйгээр танилцуулагдсан.',
+  'sojournHeroSearchCard.title': 'Ер бусын газар байрлаарай',
+  'sojournHeroSearchCard.trustLoyalty': 'Аялал бүрт оноо цуглуулаарай',
   'sojournHeroSearchCard.trustNoFees': 'Хэзээ ч далд төлбөр байхгүй,',
   'sojournHeroSearchCard.trustVetted': 'Зөвхөн гараар шалгасан үл хөдлөх хөрөнгө',
   'sojournLayout.primaryNavLabel': 'Үндсэн навигаци',

@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Keni komente, keni gjetur një gabim ose dëshironi të sillni {{app}} në shkollën ose ekipin tuaj? Ne lexojmë çdo mesazh — na shkruani nga cilësimet e llogarisë tuaj dhe një njeri i vërtetë do t'ju përgjigjet.",
   'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
+  'about.intro':
+    '{{app}} është një lojë fjalësh e përditshme. Gjeni fjalën me pesë shkronja në gjashtë përpjekje, mbani serinë gjallë, ndani rrjetën tuaj me emoji dhe shikoni si e përballuan të gjithë fjalën e sotme.',
+  'about.missionBody':
+    "Një lojë e mirë fjalësh është një fitore e vogël e përditshme. {{app}} është ndërtuar rreth një fjale të përbashkët në ditë — mjaftueshëm e shpejtë për një pushim kafeje, mjaftueshëm e mprehtë për t'u kthyer nesër.",
+  'about.missionTitle': 'Misioni ynë',
   'about.title': 'Rreth {{app}}',
   'archive.loadError': 'Nuk mund të ngarkohej arkivi.',
   'archive.missed': 'Humbur',
   'archive.notPlayed': 'Nuk është luajtur',
+  'archive.subhead':
+    'Riluani çdo ditë të kaluar si praktikë — pa seri, pa statistika, vetëm argëtim.',
   'archive.title': 'Arkiv',
   'auth.backToHome': 'Kthehu te fillimi',
   'auth.backToHomeArrow': '← Kthehu te fillimi',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Keni harruar fjalëkalimin?',
   'auth.login.loggingIn': 'Po ju kyç…',
   'auth.login.logIn': 'Luaj fjalën e sotme',
+  'auth.login.noAccount': 'I ri në Tessera?',
   'auth.login.or': 'ose vazhdo me',
   'auth.login.password': 'Fjalëkalim',
   'auth.login.signInButton': 'Hyr',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Po ruhet…',
   'common.sendingEllipsis': 'Po dërgohet…',
   'common.startingEllipsis': 'Po fillon…',
+  'forgotPassword.subhead':
+    "Shkruani email-in tuaj dhe ne do t'ju dërgojmë një lidhje për të rivendosur.",
+  'forgotPassword.success.body':
+    'Nëse ekziston një llogari për {{email}} , do të merrni një lidhje rivendosjeje brenda pak minutash.',
+  'forgotPassword.success.title': 'Kontrolloni kutinë tuaj postare.',
   'form.name': 'Emër',
   'howToPlay.cta.home': 'Kthim në shtëpi',
   'howToPlay.cta.play': 'Luaj enigmën e sotme',
@@ -68,10 +83,16 @@ export const ui: UiTranslations = {
   'landing.streaks.title': "Seri që urren t'i prishësh",
   'leaderboard.daily.title': 'Zgjidhjet e sotme',
   'leaderboard.loadError': 'Nuk mund të ngarkohej renditja.',
+  'leaderboard.streaks.empty': 'Nuk ka ende seri — bëhuni i pari.',
+  'leaderboard.streaks.subhead': 'Seritë më të gjata të fitoreve të të gjitha kohërave.',
   'leaderboard.streaks.title': 'Liderët e serive',
+  'leaderboard.subhead':
+    'Si e përballuan të gjithë fjalën e sotme dhe kush mban seritë më të gjata.',
   'leaderboard.title': 'Renditje',
   'login.headline': 'Mirë se erdhe përsëri.',
   'login.streakPill': 'Seria {{days}}-ditore po pret',
+  'login.subhead':
+    'Hyni për të mbajtur serinë tuaj gjallë dhe për të parë si e përballuat fjalën e sotme.',
   'nav.archive': 'Arkiv',
   'nav.editProfile': 'Ndrysho profilin',
   'nav.getStarted': 'Filloni',
@@ -89,6 +110,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Nuk ka fjalë të tillë',
   'notFound.title': 'Ajo rrugë është bosh.',
   'planUpdated.message': 'Plani juaj është aktiv.',
+  'planUpdated.retry': 'Provo përsëri',
+  'planUpdated.verifyFailed': 'Nuk mundëm ta konfirmonim ende pagesën tuaj.',
+  'planUpdated.verifyFailedBody':
+    'Pagesa juaj mund të jetë ende duke u përpunuar. Provoni përsëri pas pak.',
   'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'play.alreadyFinished': 'E keni përfunduar tashmë këtë enigmë',
   'play.answerWas': 'Fjala ishte',
@@ -104,6 +129,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Enigmë praktike',
   'play.tooShort': 'Nuk ka shkronja të mjaftueshme',
   'play.won': 'E zgjidhët!',
+  'pricing.advancedStats': 'Statistika të avancuara: {{yes}}',
+  'pricing.archiveHistory': '{{count}} ditë histori arkivi',
+  'pricing.archivePlays': '{{count}} riluajtje arkivi / ditë',
+  'pricing.archiveUnlimited': 'Histori arkivi e pakufizuar',
+  'pricing.canExport': 'Eksportimi i të dhënave: {{yes}}',
+  'pricing.checkoutError': 'Nuk mund të fillohej pagesa. Ju lutemi provoni përsëri.',
   'pricing.dailyWord': 'Fjala e përditshme',
   'pricing.heading': 'Zgjidh planin tënd {{app}}',
   'pricing.included': 'Përfshirë',
@@ -111,7 +142,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Fjala e përditshme është gjithmonë falas. Përmirëso për ri-luajtje të pakufizuara të arkivit dhe statistika më të thella.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    "{{app}} respekton privatësinë tuaj. Kjo faqe përmbledh të dhënat që ruajmë, pse i ruajmë dhe si t'i fshini ato.",
   'privacy.title': 'Njoftim privatësie',
+  'resetPassword.subhead': "Zgjidhni një fjalëkalim të ri për t'u kthyer te seria juaj.",
   'settings.account': 'Llogaria',
   'settings.danger.body':
     'Fshi përgjithmonë llogarinë tënde {{appName}} dhe të gjithë historikun e enigmave.',
@@ -121,17 +155,24 @@ export const ui: UiTranslations = {
   'settings.guest': 'Mysafir',
   'settings.language.title': 'Gjuha',
   'settings.subhead': 'Rregulloni profilin, tingullin, dhe si shfaqeni në renditje.',
+  'settings.unnamed': 'Lojtar i Sparq',
   'settings.upgrade': 'Përmirëso',
   'signup.eyebrow': 'Falas përgjithmonë — një fjalë në ditë',
   'signup.headline': 'Fillo serinë tënde.',
+  'signup.subhead':
+    "Krijoni një llogari {{appName}} për të luajtur fjalën e përditshme, për të ndërtuar një seri dhe për t'u ngjitur në tabelën e renditjes.",
   'stats.currentStreak': 'Seria',
   'stats.distribution.title': 'Shpërndarja e përpjekjeve',
   'stats.loadError': 'Nuk mundën të ngarkohen statistikat tuaja.',
   'stats.maxStreak': 'Seria maksimale',
   'stats.played': 'Luajtur',
   'stats.playToday': 'Luaj enigmën e sotme',
+  'stats.subhead':
+    'Vetëm lojërat e përditshme të renditura — praktika në arkivë nuk llogaritet kurrë.',
   'stats.title': 'Statistikat tuaja',
   'stats.winRate': 'Shkalla e fitores',
   'status.monthly': 'Mujore',
+  'terms.intro':
+    "Duke përdorur {{app}} ju pranoni rregullat më poshtë. Nëse nuk mund t'i pranoni ato, ju lutemi mos e përdorni shërbimin.",
   'terms.title': 'Kushtet e shërbimit',
 }

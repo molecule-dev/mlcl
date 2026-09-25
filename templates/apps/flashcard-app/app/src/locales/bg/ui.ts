@@ -1,11 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Имате обратна връзка, открихте бъг или искате да предложите функция? Всяко съобщение стига до реален човек от екипа на {{app}} — ще се радваме да чуем какво научавате.',
   'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'За {{app}}',
+  'about.intro':
+    '{{app}} е приложение с флашкарти, базирано на интервално повторение, за хора, които искат знанията наистина да останат. Дали учите език, запаметявате формули или затвърждавате концепции за изпит, то планира всяка карта в точния момент, в който ще я забравите — най-ефективният начин, открит от науката за паметта, да превърнете фактите в дълготрайно възпроизвеждане.',
+  'about.missionBody':
+    'Повечето инструменти за учене оптимизират прекараното време, а не запазените знания. {{app}} оптимизира обратното: най-малко повторения, които задържат важното в главата ви. Вярваме, че ученето трябва да е спокойно, измеримо и ваше — отворени данни, без тъмни модели и навик, който можете да поддържате с години.',
+  'about.missionTitle': 'Нашата мисия',
   'about.pageTitle': '{{tagline}}.',
   'authShell.sampleBack': 'Вилнюс — припомнен за 1,2 секунди.',
   'authShell.sampleEyebrow': 'Карта от бъдещото ви тесте',
+  'authShell.sampleFront': '„Столицата на Литва.“',
+  'authShell.sampleRetention': '{{pct}}% задържане',
   'authShell.sampleStreak': '{{days}} -дневна серия',
   'cardEdit.title': 'Редактиране на флашкарта',
   'cardEditor.backLink': 'Обратно на палубата',
@@ -35,6 +44,8 @@ export const ui: UiTranslations = {
   'dashboard.kpi.days': 'дни',
   'deckDetail.backLink': 'Всички колоди',
   'deckDetail.deleteError': 'Изтриването на колодата не бе успешно.',
+  'deckDetail.empty.body': 'Добавете първата си карта, за да започнете да изграждате памет.',
+  'deckDetail.empty.cta': 'Добавете първата си карта',
   'deckDetail.empty.heading': 'Все още няма карти в това тесте',
   'deckDetail.filterEmpty': 'Няма карти, които да съответстват на този филтър за щати.',
   'deckDetail.filterLabel': 'Филтриране на карти по щат',
@@ -47,7 +58,10 @@ export const ui: UiTranslations = {
   'deckDetail.stat.total': 'Карти',
   'deckDetail.studyDueLabel': 'Проучване {{count}} дължим',
   'deckProgressCard.cardCount': '{{count}} карти',
+  'deckProgressCard.masteredTooltip': '{{count}} усвоени',
   'deckProgressCard.studyCta': 'Проучване {{count}}',
+  'decks.confirmDelete':
+    'Да изтриете тази колода и всичките ѝ карти? Това не може да бъде отменено.',
   'decks.create.heading': 'Създайте колода',
   'decks.create.nameLabel': 'Име на палубата',
   'decks.create.submit': 'Създаване на колода',
@@ -58,6 +72,7 @@ export const ui: UiTranslations = {
   'decks.heading': 'Палуби',
   'decks.loadError': 'Зареждането на колодите не бе успешно.',
   'decks.loading': 'Зареждане…',
+  'decks.newDeckLabel': 'Нова колода',
   'decks.retention': 'Запази',
   'decks.studyArrow': 'Учене →',
   'decks.subheading': '{{count}} тестета · преглед и управление',
@@ -79,6 +94,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Вече имам акаунт',
   'landing.heroSubtitle':
     'Интервалното повторение прави разликата между зубренето и запомнянето. Пет минути на ден, година след година, и езикът ще се запомни.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.proof.export': 'Отворени данни, без обвързване',
   'landing.proof.free': 'Безплатно завинаги за лична употреба',
   'landing.proof.import': 'Импортиране на .apkg / CSV',
@@ -93,12 +109,16 @@ export const ui: UiTranslations = {
   'login.heading': 'Добре дошли отново на вашите палуби',
   'login.orDivider': 'или продължете с',
   'login.signupLink': 'Започнете да учите безплатно',
+  'login.signupPrompt': 'Нов тук?',
   'login.subtitle': 'Продължете оттам, откъдето сте спрели – вашата серия ви чака.',
   'mobileNav.closeMenu': 'Затвори менюто за навигация',
   'mobileNav.openMenu': 'Отвори менюто за навигация',
   'notifications.markAllReadError': 'Неуспешно маркиране на всички като прочетени.',
   'pricing.heading': 'карти',
+  'pricing.limits.cards': 'карти',
   'pricing.limits.decks': 'палуби',
+  'pricing.limits.historyDays': 'История на повторенията за {{days}} дни',
+  'pricing.limits.historyUnlimited': 'Неограничена история на повторенията',
   'pricing.limits.stats': 'статистика',
   'pricing.limits.study': 'проучване',
   'resetPassword.passwordLabel': 'Нова парола',
@@ -110,17 +130,30 @@ export const ui: UiTranslations = {
   'sessionSummary.heading': 'Браво.',
   'sessionSummary.label': 'Сесията е завършена',
   'settings.changePasswordError': 'Паролата не можа да се промени.',
+  'settings.confirmPassword': 'Потвърдете паролата си',
   'settings.currentPassword': 'Текуща парола',
+  'settings.dangerZone': 'Опасна зона',
+  'settings.deleteAccountHint':
+    'Окончателно изтриване на акаунта ви и всички данни за учене. Това не може да бъде отменено.',
+  'settings.deleteAccountWarning':
+    'Това окончателно изтрива акаунта ви и всички колоди, карти и история на ученето. Това не може да бъде отменено.',
   'settings.deleteError':
     'Изтриването на акаунта не бе успешно. Проверете паролата си и опитайте отново.',
   'settings.deleting': 'Изтриване…',
+  'settings.devicesHint': 'Устройства, регистрирани в момента към акаунта ви.',
   'settings.newPassword': 'Нова парола',
   'settings.password': 'Парола',
   'settings.passwordChanged': 'Паролата е актуализирана.',
+  'settings.passwordHint': 'Променете паролата, с която влизате.',
   'settings.reminders.atRisk': 'Предупреждение за риск от серия (след 20:00 ч.)',
+  'settings.reminders.daily': 'Ежедневно напомняне (8:00 ч.)',
   'settings.reminders.heading': 'Напомняния',
+  'settings.reminders.milestones': 'Отбелязване на етапи',
   'settings.reminders.note':
     'Съхранява се на това устройство. Превключете кое проучване показва този браузър; предпочитанията се синхронизират при презареждане.',
+  'settings.reminders.weekly': 'Седмично резюме на задържането (неделя)',
+  'settings.revokeDeviceWarning':
+    'Достъпът на това устройство скоро ще бъде отменен. Да се излезе ли?',
   'settings.saved': 'Запазено.',
   'settings.saveError': 'Запазването се провали.',
   'settings.saving': 'Запазване…',
@@ -136,6 +169,7 @@ export const ui: UiTranslations = {
   'signup.legal':
     'Създавайки акаунт, вие се съгласявате с нашите Условия и Политика за поверителност.',
   'signup.nameLabel': 'Вашето име (по избор)',
+  'signup.orDivider': 'или се регистрирайте с',
   'signup.subtitle': 'Пет минути на ден. Бъдещето аз, което помни.',
   'stats.byStateHeading': 'Карти по щат',
   'stats.dailyHeading': 'Отзиви на ден (последните 30 дни)',
@@ -172,5 +206,6 @@ export const ui: UiTranslations = {
   'todayHeroCard.goalLabel': 'Дневна цел',
   'todayHeroCard.goalProgress': '{{reviewed}} / {{goal}}',
   'todayHeroCard.streakBadge': '{{days}} -дневна серия',
+  'todayHeroCard.studyCta': 'Започнете да учите',
   'userMenu.stats': 'Моите статистики',
 }

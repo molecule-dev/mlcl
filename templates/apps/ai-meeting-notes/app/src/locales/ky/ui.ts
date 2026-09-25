@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Суроолоруңуз, пикириңиз же функция сунушуңуз барбы? Командага hello@murmur.app дареги аркылуу жазыңыз — ар бир билдирүү продукт үстүндө иштеген чыныгы адамга жетет.',
   'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Биз жөнүндө',
+  'about.intro':
+    '{{app}} — эскертмелерди жазгандан чечим кабыл алганды артык көргөн командалар үчүн жолугушуу интеллекти. Ал сиздин чалууларыңызга кошулат, ар бир сөздү сүйлөөчү белгилери менен транскрипциялайт жана жолугушуу бүткөн замат AI кыскача баяндамасын жана ээси көрсөтүлгөн аткарылуучу иштерди жеткирет.',
+  'about.missionBody':
+    'Жолугушуулар — командалар чечим кабыл алган жер, ошондой эле ошол чечимдер жоголуп кеткен жер. {{app}} сүйлөшүүдө аткарылган иш сүйлөшүүдөн узак жашашын камсыз кылуу үчүн бар: так жазуу, айкын кыскача баяндама жана жоопкерчиликтүү кийинки кадамдар, автоматтык түрдө.',
+  'about.missionTitle': 'Биздин миссиябыз',
   'actions.empty': 'Эч бир аракет дал келген жок.',
   'actions.heading': 'Аракет элементтери',
   'actions.loadError': 'Тапшырмалар жүктөлбөй калды.',
@@ -10,11 +17,14 @@ export const ui: UiTranslations = {
     'Ар бир жолугушуу боюнча топтолгон. Фокустоо үчүн статусу боюнча чыпкалаңыз.',
   'actions.toggleDoneLabel': 'Аткарылды деп белгилөө',
   'actions.toggleReopenLabel': 'Ачык деп белгилөө',
+  'auth.footer': '© {{year}} {{app}}. Ар бир сөз, тазаланган.',
   'calendar.heading': 'Календарь',
   'calendar.joinCta': 'Кошулуу',
   'calendar.loadError': 'Календарь жүктөлбөй калды.',
   'calendar.nextMonth': 'Кийинки айда',
   'calendar.noEventsForDay': 'Бул күнгө эч кандай жолугушуулар пландаштырылган жок.',
+  'calendar.noUpcomingEvents':
+    'Жакында жолугушуулар жок. Бул тизмени толтуруу үчүн Интеграциялардан календарды туташтырыңыз.',
   'calendar.previousMonth': 'Мурунку ай',
   'calendar.recent': 'Акыркы',
   'common.daysAgo': '{{count}} күн мурун',
@@ -26,9 +36,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} аракет элементтери',
   'dashboard.empty.body':
     'Murmur кийинки жолугушууңузга автоматтык түрдө кошулушу үчүн, жаздырууну баштаңыз же Google календарын туташтырыңыз.',
+  'dashboard.empty.cta': 'Жаздырууну баштоо',
   'dashboard.empty.heading': 'Азырынча жолугушуулар жок',
   'dashboard.eyebrow': 'Жолугушуу түрмөгүңүз',
   'dashboard.loadError': 'Башкаруу панели жүктөлбөй калды.',
+  'dashboard.noActions': 'Аракеттер жок',
   'dashboard.recentHeading': 'Акыркы жолугушуулар',
   'dashboard.recordCta': 'Жолугушууну жазуу',
   'dashboard.stat.actions': 'Аракет элементтери',
@@ -38,6 +50,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} акыркы жолу текшергенден бери окула элек кыскача маалыматтар. Шыңгыроо ар бир сөздү жазып алды — бул жерде кыскача баяндама.',
   'dashboard.viewCalendar': 'Календарьды көрүү →',
+  'footer.linksLabel': 'Төмөнкү навигация',
   'forgot.failed': 'Баштапкы абалга келтирүү электрондук катын жөнөтө алган жок.',
   'forgot.sentBody':
     'Эгерде аккаунт бар болсо {{email}}, сиз жакында баштапкы абалга келтирүү шилтемесин аласыз.',
@@ -51,14 +64,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Murmur автоматтык түрдө кошулушу үчүн календарларды жана видео платформаларды туташтырыңыз.',
   'integrations.updateError': 'Жаңыртуу ишке ашкан жок.',
+  'landing.ctaBody':
+    "Ар айда алгачкы 5 жолугушуу үчүн акысыз. Кредиттик карта керек эмес. Google Calendar'ды бир мүнөттөн аз убакытта туташтырыңыз.",
   'landing.ctaButton': 'Баштоо — бул бекер',
   'landing.ctaHeading': 'Жазууларды жазууну токтотуңуз. Чечим кабыл ала баштаңыз.',
+  'landing.demo.aiBody':
+    'Операциялык кызматкерлерди камсыздоо үчүн учуруу 5-майдан → 12-майга жылдырылды. Башкаруу панелин кайра иштеп чыгуу 26-майга бөлүндү.',
   'landing.demo.aiLabel': 'Жасалма интеллекттин кыскача баяндамасы, түз эфирде даярдалган',
   'landing.demo.recording': 'Жаздыруу · түз эфирде',
   'landing.eyebrow': 'Жасалма интеллект жолугушуусу',
   'landing.featuresHeading': 'Жолугушуу аяктагандан кийин командаңызга керектүү нерселердин баары',
+  'landing.featuresSubheading':
+    '"Ким жооптуу?" деген суроо жок. {{appName}} чалуу өчөөр алдында кыскача баяндаманы жеткирет.',
   'landing.getStarted': 'Акысыз сынап көрүңүз',
   'landing.heroSecondary': '90 секунддук турду көрүңүз',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} сиздин чалууларыңызга кошулат, ар бир сөздү сүйлөөчү белгилери менен транскрипциялайт жана жолугушуу бүткөн замат AI кыскача баяндамаларын жана ээси көрсөтүлгөн аткарылуучу иштерди жеткирет.',
   'landing.heroTitle':
     'Ар бир жолугушууну сүрөткө тартыңыз. Эмне маанилүү экенин ачыкка чыгарыңыз.',
   'login.altPrompt': 'Murmur’го жаңы келдиңизби?',
@@ -67,6 +88,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Аракет элементтери',
   'meetingDetail.back': 'Бардык жолугушуулар',
   'meetingDetail.decisionsHeading': 'Чечимдер',
+  'meetingDetail.dueDate': '{{date}} чейин',
   'meetingDetail.followupsHeading': 'Кийинки билдирүүлөр',
   'meetingDetail.loadError': 'Жолугушуу жүктөлбөй калды.',
   'meetingDetail.noActions': 'Эч кандай аракет табылган жок.',
@@ -80,7 +102,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Азырынча жолугушуулар жок',
   'meetings.heading': 'Жолугушуулар',
   'meetings.loadError': 'Жолугушуулар жүктөлбөй калды.',
+  'meetings.recordCta': 'Жолугушууну жазуу',
   'meetings.subheading': 'Ар бир жаздырылган, жүктөлгөн жана шайкештештирилген жолугушуу.',
+  'murmurLayout.closeMenu': 'Навигация менюсун жабуу',
   'murmurLayout.openMenu': 'Навигация менюсун ачуу',
   'murmurLayout.primaryNavLabel': 'Негизги навигация',
   'nav.legal': 'Юридикалык',
@@ -106,7 +130,14 @@ export const ui: UiTranslations = {
   'profile.loading': 'Жүктөлүүдө…',
   'profile.navLabel': 'Профиль бөлүмдөрү',
   'profile.notifications.assignments': 'Мага тапшырмалар дайындалды',
+  'profile.notifications.assignmentsHint': 'Сиз үчүн аткарылуучу иш катталганда эскертүү алыңыз.',
+  'profile.notifications.mentions': 'Транскрипциялардагы эскерүүлөр',
+  'profile.notifications.mentionsHint': 'Бирөө сизди @ аркылуу эскергенде email + push жөнөтүңүз.',
+  'profile.notifications.subheading': 'Кайсы {{appName}} окуялары сизге жетет? Тандаңыз.',
   'profile.notifications.summaries': 'Апталык дайджест',
+  'profile.notifications.summariesHint':
+    'Өткөн жумадагы ар бир жолугушуунун дүйшөмбү күнү берилүүчү кыскача баяндамасы.',
+  'profile.preferences.speakerColor': 'Демейки сүйлөөчү түсү',
   'profile.preferences.subheading':
     'Сиз кошулган ар бир жаздыруу үчүн колдонулган демейки жөндөөлөр.',
   'profile.preferences.timezone': 'Убакыт алкагы',
@@ -119,17 +150,22 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Браузериңиз жаздырууну колдобойт. Chrome, Edge же Safari’ни колдонуп көрүңүз.',
   'record.error.upload': 'Жүктөө ишке ашкан жок. Кайра аракет кылыңыз.',
+  'record.errorLabel': 'Бир нерсе туура эмес болду',
   'record.heading': 'Жазуу',
   'record.idleLabel': 'Жаздырууну баштоо үчүн басыңыз',
   'record.processingLabel': 'Whisper менен транскрипциялап, Клод менен кыскача жыйынтыктап…',
+  'record.recordingLabel': 'Жазылууда…',
   'record.retryCta': 'Кайра аракет кыл',
   'record.subheading':
     'Баштоо үчүн микрофонду басыңыз. Murmur аудиону жаздырып, Whisper аркылуу транскрипциялап, Клоддун жардамы менен кыскача баяндама жазат.',
+  'record.titlePlaceholder': 'Жолугушуунун аталышы (милдеттүү эмес)',
+  'reset.altPrompt': 'Оюңузду өзгөрттүңүзбү?',
   'reset.hint': 'Тамгалар менен сандарды аралаштырып, кеминде 8 символ колдонуңуз.',
   'reset.missingToken':
     'Баштапкы абалга келтирүү шилтемеси жок же мөөнөтү бүткөн. Жаңысын сураңыз.',
   'reset.newPassword': 'Жаңы сыр сөз',
   'reset.subheading': 'Башка эч жерде колдонбогон сырсөз тандаңыз.',
+  'reset.tooShort': 'Сырсөз кеминде 8 белгиден турушу керек.',
   'search.empty': 'Транскрипттерди издөө үчүн териңиз.',
   'search.loadError': 'Издөө ишке ашкан жок. Кайра аракет кылыңыз.',
   'search.noResults': '"" боюнча эч кандай жыйынтык жок {{q}} ".',
@@ -145,7 +181,10 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Аудиону төмөнкү убакытка сактоо',
   'settings.retention.heading': 'Сактоо',
   'settings.retention.transcript': 'Транскрипттерди сактоо',
+  'settings.revokeDeviceWarning':
+    'Бул түзмөктүн кирүү укугу жакында жокко чыгарылат. Чыгарылсынбы?',
   'settings.saveError': 'Сакталган жок.',
+  'settings.security.subheading': 'Кирүү үчүн колдонгон сырсөзүңүздү жаңыртыңыз.',
   'settings.sharing.exportFormat': 'Экспорттоо форматы',
   'settings.sharing.heading': 'Бөлүшүү демейки жөндөөлөрү',
   'settings.sharing.scope': 'Демейки бөлүшүү чөйрөсү',
@@ -163,6 +202,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Командалашты чакырыңыз',
   'team.invitedAs': 'Чакырылган катары {{role}}',
   'team.inviteFailed': 'Чакыруу жөнөтүлгөн жок.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'Чакыруу жөнөтүү',
   'team.inviteSubtitle': 'Аларга кошулуу шилтемеси бар электрондук кат жөнөтүлөт.',
   'team.inviteTitle': 'Командалашыңызды чакырыңыз',

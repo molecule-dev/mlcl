@@ -1,27 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ekibiniz için daha sıcak bir işe alıştırma süreci mi başlatmak istiyorsunuz, bir hata mı buldunuz yoksa geri bildiriminiz mi var? Hesap ayarlarınızdan bize ulaşın — her mesaj yardımcı olabilecek gerçek bir insana gider.',
   'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkında',
+  'about.missionTitle': 'Misyonumuz',
   'auth.forgotPassword.emailPlaceholder': 'ad@sirketiniz.com',
   'auth.forgotPassword.heading': 'Şifrenizi sıfırlayın.',
+  'auth.forgotPassword.panel.body':
+    'Sıfırlama 30 saniye sürer — kontrol listesi ilerlemeniz sizi bekliyor.',
+  'auth.forgotPassword.panel.headline': 'Tam kaldığınız yerden devam.',
+  'auth.forgotPassword.subheading':
+    'İş e-postanızı girin, size bir sıfırlama bağlantısı gönderelim.',
   'auth.forgotPassword.successSubheading':
     'Gelen kutunuzu kontrol edin — sıfırlama talimatlarını gönderdik.',
   'auth.login.emailPlaceholder': 'ad@sirketiniz.com',
   'auth.login.heading': 'Tekrar hoş geldiniz.',
   'auth.login.passwordPlaceholder': 'Şifreniz',
+  'auth.login.signupPrompt': 'Ekibinizde yeni misiniz?',
   'auth.login.subheading':
     'Kaldığınız yerden işe alıştırma yolculuğunuza devam etmek için oturum açın.',
   'auth.login.submit': 'Yolculuğunuza devam edin',
+  'auth.panel.body':
+    'Kişisel kontrol listeniz, eğitim kilometre taşlarınız ve ekip tanışmalarınız — hepsi tek bir huzurlu yerde.',
   'auth.panel.footnote': '© Embark — bugünden itibaren insan odaklı işe alıştırma.',
   'auth.panel.headline': 'Güvenli bir ilk 90 gün burada başlıyor.',
   'auth.resetPassword.heading': 'Yeni bir şifre belirleyin.',
   'auth.resetPassword.newPasswordLabel': 'Yeni şifre',
+  'auth.resetPassword.panel.body':
+    'Yeni bir parola kaydedin, sizi hemen işe alıştırma yolculuğunuza geri döndürelim.',
+  'auth.resetPassword.panel.headline': 'Neredeyse geri döndünüz.',
   'auth.resetPassword.subheading': 'Hatırlayabileceğiniz bir şey seçin — en az 8 karakter.',
   'auth.signup.emailPlaceholder': 'ad@sirketiniz.com',
   'auth.signup.heading': 'İlk 90 gününüze hoş geldiniz.',
   'auth.signup.panel.body':
     'Rehberli bir kontrol listesi, role özel eğitim ve insani tanıştırmalar — siz daha kapıdan girmeden hazır.',
+  'auth.signup.panel.headline': 'İlk gün, ilk günde.',
   'auth.signup.subheading':
     'Rehberli işe alıştırma yolculuğunuza başlamak için Embark hesabınızı oluşturun.',
   'checklist.empty.body': 'Diğer görevleri görmek için filtreyi değiştirin.',
@@ -29,6 +44,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'İşe alıştırma · Kontrol listesi',
   'checklist.loading': 'Kontrol listeniz yükleniyor…',
   'checklist.stat.actionNeeded': 'Eylem gerekli',
+  'checklist.stat.completion': 'Tamamlama',
+  'checklist.stat.inProgress': 'Devam ediyor',
   'checklist.stat.inProgressHelper': 'Kaldığınız yerden devam edin',
   'checklist.stat.overdueHelper': 'Önce bunları halledin',
   'checklist.subtitle':
@@ -60,6 +77,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Henüz belge yok',
   'documents.eyebrow': 'İşe alıştırma · Belgeler',
   'documents.loading': 'Belgeler yükleniyor…',
+  'documents.stat.actionNeeded': 'Şimdi imzala',
+  'documents.stat.all': 'Tüm belgeler',
   'documents.stat.allHelper': 'Tüm kategorilerde',
   'documents.stat.pending': 'Bekleyen imzalar',
   'documents.stat.pendingHelper': 'Tamamlanma için gerekli',
@@ -67,6 +86,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Güvenli şekilde saklandı',
   'documents.status.optional': 'İsteğe bağlı',
   'documents.status.required': 'Gerekli',
+  'documents.status.signed': 'İmzalandı',
   'documents.subtitle':
     'El kitabınız, formlarınız ve imzalı sözleşmeleriniz — hepsi tek bir yerde.',
   'documents.title': 'Okumanız ve imzalamanız gereken her şey.',
@@ -74,10 +94,14 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'Görüntüleyici',
   'documentViewer.breadcrumbDocs': 'Belgeler',
   'documentViewer.downloadMeta': 'Meta veriyi indir',
+  'documentViewer.helpBody':
+    "People & Culture, Slack'teki #ask-people kanalında el kitabı sorularını yanıtlar.",
   'documentViewer.helpEyebrow': 'Yardım mı lazım?',
   'documentViewer.loadError': 'Bu belgeyi yükleyemedik.',
   'documentViewer.loading': 'Belge yükleniyor…',
   'documentViewer.notFound': 'Belge bulunamadı',
+  'documentViewer.previewBody':
+    'Yüklemeler yapılandırıldığında dosyayı satır içinde görüntüleriz. Şimdilik meta veri indirmesi, kaydın gerçek olduğunu doğrulamanızı sağlar.',
   'documentViewer.previewBodyExternal':
     'Dosyayı yeni bir sekmede açmak için indir düğmesini kullanın.',
   'documentViewer.previewTitle': 'Belge önizlemesi',
@@ -85,6 +109,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Belgeyi okuduktan sonra, imzalamak ve onaylamak için aşağıdaki bağlantıya tıklayın.',
   'documentViewer.signatureHeading': 'İmza gerekli',
+  'documentViewer.signed': '✓ İmzalandı ve dosyalandı',
   'documentViewer.signing': 'İmzalanıyor…',
   'documentViewer.uploadedRecently': 'Son yüklenenler',
   'landing.closing.body':
@@ -94,10 +119,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Zaten bir hesabım var',
   'landing.feature1.body':
     'Her görev — evrak, hesaplar, tanıştırmalar — son tarihleri ve doğru sahibi ile önceden hazırlanır.',
+  'landing.feature1.title': 'Rehberli bir kontrol listesi',
   'landing.feature2.body':
     'Modüller, kişinin katıldığı role ve ekibe göre ayarlanmış olarak 30/60/90 kilometre taşlarında açılır.',
+  'landing.feature2.title': 'Role göre eğitim',
   'landing.feature3.body':
     'Mentorlar, yöneticiler ve farklı departmanlarla tanıştırmalar planlanır — kimse yalnız başlamaz.',
+  'landing.feature3.title': 'Gerçek tanışmalar',
   'landing.featureEyebrow': 'Neden Embark',
   'landing.featureHeadline': "Embark'ın ilk gün güven kazanmasının üç yolu.",
   'landing.footer.rights': 'Tüm hakları saklıdır.',
@@ -107,6 +135,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Sırada: 30 dakikalık kahve sohbeti için mentorunuzla buluşun — Salı 10:00.',
   'landing.preview.eyebrow': "90 günün 14'ü — örnek panel",
+  'landing.preview.headline': 'Tekrar hoş geldin, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR uyumlu',
   'landing.proof.teams': '50–5.000 kişilik ekipler için tasarlandı',
   'landing.proof.time': '14 gün ücretsiz deneme',
@@ -123,16 +152,25 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'Dün',
   'planUpdated.message': 'Her şey hazır.',
   'planUpdated.preparing': 'Planınız güncelleniyor…',
+  'planUpdated.retry': 'Tekrar dene',
+  'planUpdated.verifyFailed': 'Ödemenizi henüz onaylayamadık.',
+  'planUpdated.verifyFailedBody':
+    'Ödemeniz hala işleniyor olabilir. Lütfen biraz sonra tekrar deneyin.',
   'planUpdated.verifying': 'Ödemeniz onaylanıyor…',
   'pricing.documentsLabel': 'belgeler',
   'pricing.onboardingsLabel': 'işe alıştırma',
   'pricing.tasksLabel': 'görev',
   'profile.dayNumber': 'Gün',
   'profile.detailsHeading': 'İşe alıştırma ayrıntıları',
+  'profile.encouragementBody': 'Kanka ve yöneticinizi bilgilendirin — küçük adımlar birikir.',
   'profile.milestones': 'Kilometre taşları',
   'profile.progressEyebrow': 'İşe alıştırma ilerlemesi',
   'profile.tasks': 'Görevler',
   'profile.unknownName': 'Hoş geldiniz',
+  'settings.appearance.description': 'Açık ve koyu mod arasında geçiş yapın.',
+  'settings.appearance.title': 'Görünüm',
+  'settings.subtitle':
+    'Bildirimleri, güvenliği, cihazları ve veri dışa aktarımını ayarlayın — her şey burada, sizin koşullarınızda kalır.',
   'settings.title': 'Ayarlar ve tercihler.',
   'taskDetail.backToChecklist': 'Kontrol listesine geri dön',
   'taskDetail.breadcrumbChecklist': 'Kontrol listesi',
@@ -144,7 +182,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'Son tarih yok',
   'taskDetail.notFound': 'Görev bulunamadı',
   'taskDetail.notFoundBody': 'Bu görev silinmiş ya da başka bir kullanıcıya ait olabilir.',
+  'taskDetail.tipBody':
+    "Takıldıysanız, Slack'te işe alıştırma kankanıza mesaj atın — ilk yardım hattınız onlar.",
   'taskDetail.tipEyebrow': 'Hızlı ipucu',
+  'team.empty.body': 'Daha geniş bir arama deneyin veya farklı bir departman seçin.',
   'team.empty.title': 'Eşleşen takım arkadaşı yok',
   'team.eyebrow': 'İşe alıştırma · İnsanlar',
   'team.loading': 'Takım arkadaşları yükleniyor…',
@@ -167,14 +208,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Kilometre taşları',
   'timeline.stat.current': 'Mevcut dönüm noktası',
   'timeline.stat.next': 'Sıradaki açılış',
+  'timeline.stat.progress': 'Genel',
   'timeline.subtitle':
     'Her kilometre taşı yeni modüller, tanıştırmalar ve gelişim konuşmalarını açar. Baskı yok — sadece ilerleme.',
+  'timeline.tipBody':
+    'Yöneticinizle 30., 60. ve 90. günlerde 30 dakikalık bir değerlendirme planlayın — bu, geri bildirimi somutlaştırır ve ilerlemeyi görünür kılar.',
   'timeline.tipEyebrow': 'Yönetici ipucu',
+  'timeline.tipTitle': 'Kilometre taşları için takviminizde zaman bloke edin.',
   'timeline.title': '30 / 60 / 90 yolculuğunuz.',
   'training.badge.notStarted': 'Başlamadı',
   'training.empty': 'Henüz eğitim modülü yok.',
   'training.eyebrow': 'İşe alıştırma · Eğitim',
   'training.loading': 'Modüller yükleniyor…',
+  'training.stat.all': 'Modüller atandı',
   'training.subtitle':
     "Modüller rolünüze uygun olarak 30/60/90'da açılır. Gerekli olanlar önce gelir.",
   'training.title': 'Beceriler, araçlar ve hikayeler — sizin hızınızda.',
@@ -186,9 +232,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'Modül bulunamadı',
   'trainingModule.quizBody': 'Bu modülü tamamlamak için %80 veya üzeri puan almanız gerekmektedir.',
   'trainingModule.quizHeading': 'Modül sonu sınavı',
+  'trainingModule.quizLocked': 'Önce modülü başlatın',
   'trainingModule.quizNone': 'Bu modülde sınav yok.',
   'trainingModule.quizRetry': 'Tekrar dene',
+  'trainingModule.quizStart': 'Sınavı başlat',
   'trainingModule.quizSubmit': 'Cevapları gönder',
+  'trainingModule.start': 'Modülü başlat',
   'trainingModule.statusNotStarted': 'Başlamadı',
   'welcomeHeroCard.completeLabel': 'Tamamlandı',
   'welcomeHeroCard.milestonesLabel': 'Kilometre taşları',

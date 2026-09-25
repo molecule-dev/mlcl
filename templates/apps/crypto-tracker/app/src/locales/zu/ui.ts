@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
+  'about.featureAlerts':
+    'Izexwayiso zamanani ezimeni ezibalulekile, zithunyelwa nge-imeyili nangokucindezela ukuze ungaphuthelwa ukunyakaza.',
+  'about.featureMarkets':
+    'Idatha yemakethe ebukhoma namashadi amanani kuzinkulungwane zama-coin, ahlelwa nge-market cap, ivolumu, kanye nomfutho.',
+  'about.featurePortfolio':
+    'Ukulandelela iphothifoliyo ngenzuzo nokulahlekelwa kwangempela, isisekelo sezindleko, nokwabiwa — kuxhunywe emlandweni wakho wokuthengiselana.',
+  'about.featureWatchlist':
+    'Uhlu lwakho lokubuka lomuntu siqu kanye nezindaba ze-crypto ezikhethiwe ezinamasignali ezimpahleni ozilandelayo.',
+  'about.missionTitle': 'Umsebenzi wethu',
+  'alertConditionCard.armedSince': 'Kuhlonywe kusukela {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'Kuqaliswe {{nini}}',
   'alertConditionCard.confirmDelete': 'Qinisekisa ukususa',
+  'alertConditionCard.deleteAriaLabel': 'Susa isexwayiso',
   'alertConditionCard.pauseAriaLabel': 'Misa okwesikhashana isexwayiso',
   'alertConditionCard.resumeAriaLabel': 'Isexwayiso sokuqhubeka kabusha',
+  'alertConditionCard.triggeredAt': 'Kwaqalwa {{when}}',
   'alertNew.condition': 'Isimo',
   'alertNew.createCta': 'Dala isaziso',
   'alertNew.error': 'Ayikwazanga ukudala isexwayiso.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Azikho izexwayiso okwamanje.',
   'alerts.eyebrow': 'Izintambo ze-Bourse',
   'alerts.loadError': 'Yehlulekile ukulayisha izexwayiso.',
+  'alerts.newCta': '+ I-tripwire entsha',
   'alerts.subheading': 'Thola ukuxakeka lapho intengo, ushintsho, noma ivolumu yeqa umugqa wakho.',
   'alerts.summary.armed': 'Uhlomile',
   'alerts.summary.triggered': 'Kuqaliswe',
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Okuphezulu kakhulu kunawo wonke',
   'coinDetail.allTimeLow': 'Okuphansi kakhulu kunanini ngaphambili',
   'coinDetail.back': 'Zonke izimakethe',
+  'coinDetail.chartAriaLabel': 'Ishadi lamanani lika-{{name}}, izinsuku ezingama-30 ezedlule',
   'coinDetail.chartHeading': 'Intengo · izinsuku ezingu-30 ezedlule',
   'coinDetail.circulating': 'Ukunikezwa kokujikeleza',
   'coinDetail.fdv': 'Ukulinganisa okuncishisiwe ngokuphelele',
@@ -59,6 +74,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Setha kabusha isixhumanisi esinezintambo.',
   'login.eyebrow': 'Ngena esigungwini',
   'login.heading': 'Siyakwamukela futhi, msayineli.',
+  'login.noAccountQuestion': 'Usanda kufika eTessera?',
   'login.secureNote': '🔒 Kubethelwe ngesikhathi sokuthutha',
   'login.signingInCta': 'Ukufunda itheyiphu…',
   'login.signupLink': 'Vula i-akhawunti →',
@@ -93,6 +109,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Indlela oyiskenile ayifinyeleli kuhlamvu lwemali noma ikhasi elaziwayo. Hlola kabusha uphawu bese uzama futhi.',
   'notFound.browseMarkets': 'Dlulisa amehlo ezimakethe',
+  'notFound.eyebrow': 'Isignali ka-{{appName}} ilahlekile',
+  'notFound.heading': 'Le signali ingaphandle kwebanga',
+  'planUpdated.body':
+    'Ushintsho lwakho lokukhokha lusebenza manje. Ungaphatha uhlelo lwakho noma nini kusuka ekhasini lokukhokha.',
+  'planUpdated.retry': 'Zama futhi',
+  'planUpdated.verifyFailed': 'Asikwazanga ukuqinisekisa inkokhelo yakho okwamanje.',
+  'planUpdated.verifyFailedBody':
+    'Inkokhelo yakho ingase isacutshungulwa. Zama futhi ngemva kwesikhashana.',
   'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'portfolio.addError': 'Faka uphawu, inani eliqondile, kanye nezindleko.',
   'portfolio.addHoldingCta': '+ Engeza ukubamba',
@@ -116,12 +140,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Inani eliphelele lephothifoliyo',
   'portfolioHeroCard.totalPnl': 'Isamba se-P/L',
   'pricing.heading': 'izexwayiso',
+  'pricing.limit.alerts': 'izexwayiso',
   'pricing.limit.coins': 'izinhlamvu zemali',
   'pricing.limit.market': 'imakethe',
   'pricing.limit.portfolio': 'iphothifoliyo',
   'resetPassword.eyebrow': 'I-cipher entsha',
   'resetPassword.missingToken':
     'Lesi sixhumanisi sokusetha kabusha asikho noma asivumelekile. Cela esisha.',
+  'resetPassword.passwordPlaceholder': 'Iphasiwedi Entsha',
   'resetPassword.subheading': 'Khetha into ongayichaza kuphela.',
   'settings.apiKeys.body':
     'Izinkinobho zokufunda kuphela zokungenisa umlando wokuthengiselana. Xhuma nge-OAuth kusuka ku-/pricing uma usubhalisile.',
@@ -133,18 +159,34 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Imali yesilinganiso',
   'settings.preferences.locale': 'Indawo',
   'settings.preferences.push': 'Phusha',
+  'settings.preferences.refresh': 'Ukuvuselelwa kwamanani (imizuzwana)',
   'settings.preferences.sms': 'I-SMS',
+  'settings.revokeDeviceWarning': 'Ukufinyelela kwaledivayisi kuyokhishwa maduze. Yiphulise?',
   'settings.security.body':
     'Iphasiwedi kanye nezilungiselelo zezici ezimbili ziphathwa yi-akhawunti yakho.',
   'settings.signOutDevice': 'Phuma ngemvume',
   'settings.twoFactorCode': 'Ikhodi yokuqinisekisa',
   'settings.twoFactorDisable': 'Khubaza',
+  'settings.twoFactorDisableTitle': 'Vala ukufakazela ubuwena ngezinto ezimbili',
   'settings.twoFactorEnable': 'Nika amandla',
+  'settings.twoFactorEnableTitle': 'Vula ukufakazela ubuwena ngezinto ezimbili',
   'settings.twoFactorInvalidCode': 'Ikhodi engavumelekile',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Ikhodi ye-QR yezigaba ezimbili',
+  'settings.twoFactorScan':
+    'Skena le khodi ye-QR ngohlelo lwakho lokufakazela ubuwena, bese ufaka ikhodi enezinombolo eziyisithupha.',
+  'settings.twoFactorUnavailable':
+    'Ukuqinisekiswa kwezinto ezimbili akutholakali kulolu hlelo lokusebenza.',
   'settings.twoFactorVerify': 'Qinisekisa futhi unike amandla',
   'sigilAuthShell.backHomeCta': '← Buyela ku-Bourse',
+  'sigilAuthShell.brandBody':
+    'Amanani esikhathi sangempela, i-P/L yephothifoliyo, kanye nezindawo ezimile ezimeni ezibalulekile — konke kutheminali eyodwa.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — yakhelwe ku-Molecule',
+  'sigilAuthShell.brandHeadline': 'Hlukanisa yonke isignali kuyo yonke ileja.',
+  'sigilAuthShell.samplePortfolio': 'Iphothifoliyo yesampula',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
+  'signup.creating': 'Kuvulwa itheminali yakho…',
   'signup.eyebrow': 'Vula i-terminal',
   'signup.heading': 'Dala i-Bourse yakho',
   'signup.subheading': 'Landelela yonke imali, gwema yonke into ephuthelwe. Kumahhala ukuqala.',
@@ -161,6 +203,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Yehlulekile ukulayisha ukuthengiselana.',
   'watchlist.addCta': 'Dlulisa amehlo ezimakethe',
   'watchlist.col.change24h': 'Amahora angu-24',
+  'watchlist.col.coin': 'Uhlamvu lwemali',
   'watchlist.col.marketCap': 'Ikepusi ye-Mkt',
   'watchlist.empty':
     'Azikho izinhlamvu zemali ohlwini lwakho lokubuka — izinhlamvu zemali zezinkanyezi ezivela ku-/markets ukuze uzifake.',

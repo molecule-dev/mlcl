@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'about.featureConnections':
+    'Isang connection manager na ligtas na nag-iimbak at naglalagay ng color-code sa iyong mga database — ang mga kredensyal ay naka-encrypt habang nakaimbak, hindi kailanman nasa plaintext.',
+  'about.featureMonitoring':
+    'Live na pagsubaybay sa performance ng query at aktibidad ng database, kasama ang mga keyboard shortcut at command palette para kontrolin ang lahat nang hands-free.',
+  'about.featurePlans':
+    'Mga planong umaangkop sa iyo — Libre para sa solo na trabaho, Pro at Team para sa mas maraming koneksyon, mas mahabang pag-iingat ng query, mga export, at mga advanced na feature.',
+  'about.featureQueryEditor':
+    'Isang SQL editor na pinapagana ng Monaco na may kasaysayan ng query, mga naka-save na query, at one-click na CSV export ng iyong mga resulta.',
+  'about.featureSchema':
+    'Isang schema explorer at table browser para mag-navigate sa mga database, table, at column, pagkatapos ay mag-browse, mag-filter, at mag-edit ng mga row nang inline.',
+  'about.missionTitle': 'Ang aming misyon',
   'authShell.commands': 'Mga Utos',
   'authShell.ssoSupported': 'Sinusuportahan ng SSO',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Mga query',
   'connections.schema': 'Iskema',
   'connections.subtitle': 'Pamahalaan ang iyong mga koneksyon sa database.',
+  'connections.test': 'Subukan',
   'databaseAdminLayout.adminRole': 'Tungkulin ng administrador',
   'databaseAdminLayout.commandPalette': 'Command palette',
   'databaseAdminLayout.commands': 'mga utos',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Bagong koneksyon',
   'databaseAdminLayout.queries': 'Mga query',
   'databaseAdminLayout.ready': 'Handa',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Maghanap ng mga command, query, table…',
   'databaseAdminLayout.user': 'Gumagamit',
   'editConnection.confirmDelete': 'Burahin ang koneksyon na ito?',
   'editConnection.deleteButton': 'Burahin ang koneksyon',
+  'editConnection.newPassword': 'Bagong password (iwanang blangko para panatilihin)',
   'editConnection.saved': 'Na-save ang koneksyon.',
   'editConnection.title': 'I-edit ang koneksyon',
   'forgotPassword.success':
@@ -47,6 +62,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Mga Tagumpay',
   'monitoring.title': 'Pagsubaybay',
   'monitoring.totalQueries': 'Kabuuang mga query',
+  'nav.schema': 'Iskema',
   'newConnection.database': 'Database',
   'newConnection.engine': 'Makina',
   'newConnection.host': 'Tagapangasiwa',
@@ -83,6 +99,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Walang koneksyon na nakatali sa snippet na ito.',
   'savedQuery.notBound': 'Hindi nakatali',
   'savedQuery.title': 'Na-save na query',
+  'schema.columns': 'Mga kolumna',
   'schema.foreignKeys': 'Mga dayuhang susi',
   'schema.indexes': 'Mga Indeks',
   'schemaExplorer.browseRows': 'Mag-browse ng mga hilera',
@@ -91,14 +108,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'maaaring mapawalang-bisa',
   'schemaExplorer.colType': 'uri',
   'schemaExplorer.noColumns': 'Walang mga kolum.',
+  'schemaExplorer.noForeignKeys': 'Walang foreign keys.',
   'schemaExplorer.noIndexes': 'Walang mga indeks.',
   'schemaExplorer.noTables': 'Walang mga mesa',
   'schemaExplorer.pickATable': 'Pumili ng mesa mula sa sidebar.',
   'schemaExplorer.tables': 'Mga Mesa',
   'schemaExplorer.title': 'Tagapaggalugad ng iskema',
+  'settings.session': 'Sesyon',
   'settings.subtitle': 'Pamahalaan ang iyong account at plano.',
   'signup.heading': 'Gumawa ng iyong Quarry account',
   'signup.tagline': 'Pabilisin ang access sa loob ng wala pang isang minuto.',
   'tableBrowser.noRows': 'Wala pang mga hilera ang talahanayan na ito.',
+  'tableBrowser.subtitle': 'Nagba-browse ng mga row mula sa iyong remote na database.',
   'tableBrowser.title': 'Nagba-browse ng mga row mula sa iyong remote database.',
 }

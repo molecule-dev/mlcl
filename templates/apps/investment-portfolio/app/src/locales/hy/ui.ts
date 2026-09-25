@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ունե՞ք արձագանք, գտե՞լ եք սխալ կամ ցանկանո՞ւմ եք նոր գործառույթ։ Կապվեք ձեր հաշվի կարգավորումներից — յուրաքանչյուր հաղորդագրություն հասնում է թիմի իրական մարդու։ Նշում՝ այստեղ ոչինչ ներդրումային խորհրդատվություն չէ. վերահսկողությունը յուրաքանչյուր գործարքի նկատմամբ մնում է ձեզ մոտ։',
+  'about.contactTitle': 'Կապվեք մեզ հետ',
+  'about.featureAttribution':
+    'Կատարողականի վերլուծություն — տարանջատեք եկամտաբերությունը ըստ ոլորտի, տարածաշրջանի և ակտիվի դասի, և համեմատեք ցանկացած ժամանակահատվածում։',
+  'about.featureRebalance':
+    'Կարգապահ վերահավասարակշռում — սահմանեք նպատակային բաշխումներ և հանդուրժողականության միջակայքեր, վաղ հայտնաբերեք շեղումները և ստացեք գործարքները, որոնք ձեզ կվերադարձնեն նպատակին։',
+  'about.featureTax':
+    'Հարկային փաստաթղթերի կարգապահություն — իրացված և չիրացված շահույթներ, շահաբաժիններ և 1099 փաստաթղթեր մեկ տեղում՝ ներառյալ wash-sale նշումները։',
+  'about.featureUnified':
+    'Մեկ միասնական պորտֆել — բաժնետոմսեր, ETF-ներ, փոխադարձ ֆոնդեր, պարտատոմսեր և ավելին՝ հավաքված բոլոր բրոքերային հաշիվներից։',
+  'about.featureWatchlist':
+    'Դիտացանկեր, նորություններ և գնային ծանուցումներ, որպեսզի գործեք կարևորի վրա՝ առանց ավելորդ աղմուկի։',
+  'about.intro':
+    '{{app}}-ը բազմաակտիվ պորտֆելի վահանակ է անհատ ներդրողների և անկախ խորհրդատուների համար։ Բաժնետոմսեր, ETF-ներ, փոխադարձ ֆոնդեր, պարտատոմսեր, անշարժ գույք և կանխիկ — յուրաքանչյուր ակտիվ յուրաքանչյուր հաշվում՝ մեկ տեղում, պրոֆեսիոնալ դեսկի կարգապահությամբ։',
+  'about.missionBody':
+    'Լավ ներդրումը հիմնականում կարգապահություն է՝ հստակ նպատակային բաշխում, ազնիվ կատարողականի վերլուծություն և կոկիկ հարկային գրառումներ։ {{app}}-ը այդ ինստիտուցիոնալ սովորությունները հասանելի է դարձնում բոլորին, որպեսզի վերահավասարակշռեք գիտակցաբար, ոչ թե իմպուլսիվ — և երբեք չկորցնեք ձեր պորտֆելի իրական վիճակի պատկերը։',
+  'about.missionTitle': 'Մեր առաքելությունը',
   'about.pageTitle': '{{app}}-ի մասին',
   'argentAuthShell.brandEyebrow': 'Argent · Հարստության գործիքակազմ',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} ։ Ներդրումային խորհրդատվություն չէ։',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Պորտֆելի վահանակ անհատ ներդրողների և խորհրդատուների համար, ովքեր ցանկանում են կարգապահ վերահավասարակշռում, ճշգրիտ կատարողականի վերագրում և հարկային փաստաթղթերի հիգիենա՝ առանց աղմուկի։',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · Անցյալ արդյունքները չեն երաշխավորում ապագա արդյունքներ։',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) այսօր',
+  'argentAuthShell.sampleLabel': 'Պորտֆելի արժեքը',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
   'assetAllocationDonut.heading': 'Ինչպես է ներդրվում ձեր գումարը',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'այսօր',
   'assetDetail.txEmpty': 'Այս տիկերի համար գործարքներ չկան։',
   'assetDetail.txHeading': 'Ձեր գործարքները',
+  'auth.legalConsent.prefix': 'Շարունակելով՝ դուք համաձայնում եք {{appName}}-ի',
   'common.and': 'և',
   'common.goToDashboard': 'Անցնել վահանակ',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'այսօր',
   'dashboard.topHoldings.heading': 'Որտեղ է աշխատում ձեր փողը',
   'dashboard.topHoldings.label': 'Առաջատար հոլդինգներ',
+  'forgotPassword.gotLinkCta': 'Ես ունեմ վերականգնման հղում →',
+  'forgotPassword.subheading':
+    'Մուտքագրեք ձեր Gavl հաշվի էլ․ հասցեն, և մենք ձեզ կուղարկենք անվտանգ վերակայման հղում։',
   'forgotPassword.successBody':
     'Եթե մի քանի րոպեից չտեսնեք այն, ստուգեք ձեր սպամի պանակը կամ փորձեք այլ էլ.փոստ։',
   'forgotPassword.successSubheading':
     'Ստուգել {{email}} վերակայման հղման համար։ Այն լրանում է 60 րոպեից։',
+  'forgotPassword.successTitle': 'Վերականգնման նամակը ուղարկված է',
   'holdingHighlightRow.todayLabel': 'այսօր',
   'holdings.addCta': 'Գնել',
   'holdings.col.allocation': 'Ալոկ',
@@ -58,6 +87,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} ։ Ներդրումային խորհրդատվություն չէ։ Անցյալի ցուցանիշները չեն երաշխավորում ապագա արդյունքները։',
   'landing.eyebrow': 'Argent · Հարստության գործիքակազմի հարթակ',
   'landing.features.heading': 'Ամեն ինչ, ինչ խորհրդատուն կկառուցեր իր համար։',
+  'landing.finalCta.body':
+    'Միացրեք ձեր բրոքերային հաշիվը երկու սեղմումով։ {{appName}}-ը կանի մնացածը։',
+  'landing.finalCta.cta': 'Բացեք ձեր Argent հաշիվը',
   'landing.finalCta.heading': 'Վերադարձրեք կարգապահությունը ձեր պորտֆոլիոյում։',
   'landing.footerSignup': 'Բացել հաշիվ',
   'landing.getStarted': 'Բացել հաշիվ',
@@ -65,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Տեսնել գները',
   'landing.heroSubtitle':
     'Պորտֆելի վահանակ անհատ ներդրողների և խորհրդատուների համար, ովքեր ցանկանում են կարգապահ վերահավասարակշռում, ճշգրիտ կատարողականի վերագրում և հարկային փաստաթղթերի հիգիենա՝ առանց աղմուկի։',
+  'landing.heroTitle': '{{tagline}}։',
   'landing.sampleCaption': 'Ներկայացուցչական պորտֆոլիոյի ուղիղ նախադիտում',
   'login.heading': 'Մուտք գործեք Argent-ում',
   'login.subheading':
@@ -76,6 +109,11 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} ժամ առաջ',
   'news.justNow': 'հենց հիմա',
   'news.loadError': 'Չհաջողվեց բեռնել նորությունները։',
+  'planUpdated.body':
+    'Ձեր վճարման փոփոխությունն այժմ ակտիվ է։ Դուք կարող եք ցանկացած պահի կառավարել ձեր պլանը վճարման էջից։',
+  'planUpdated.retry': 'Փորձեք կրկին',
+  'planUpdated.verifyFailed': 'Մենք դեռ չենք կարող հաստատել ձեր վճարումը։',
+  'planUpdated.verifyFailedBody': 'Ձեր վճարումը կարող է դեռ մշակվել։ Փորձեք կրկին մի փոքր ուշ։',
   'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'portfolioHeroCard.label': 'Պորտֆելի արժեքը',
   'pricing.holdingsLabel': 'ունեցվածքներ',
@@ -86,12 +124,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Բաշխման շեղում',
   'rebalance.empty': 'Դեռևս նպատակներ սահմանված չեն։',
   'rebalance.executeCta': 'Տեղ {{count}} արհեստներ',
+  'rebalance.executeError': 'Գործարքների տեղադրումը ձախողվեց։',
   'rebalance.executeOk': 'Տեղադրված {{count}} գործարքներ։ Դիտեք դրանք Գործարքների էջում։',
+  'rebalance.executing': 'Տեղադրվում է…',
   'rebalance.eyebrow': 'Վերահաշվարկ · Argent խորհրդատու',
   'rebalance.heading': 'Վերադարձրեք ձեր պորտֆոլիոյի կարգապահությանը',
   'rebalance.loadError': 'Վերահավասարակշռման պլանը չհաջողվեց բեռնել։',
+  'rebalance.plan.driftLine': 'ներկայում {{current}}% · նպատակ {{target}}%',
   'rebalance.planHeading': 'Argent տոմս — ստուգեք նախքան տեղադրելը',
   'rebalance.planLabel': 'Առաջարկվող առևտրային պլան',
+  'rebalance.subheading':
+    'Հանդուրժողականության միջակայքից դուրս տողերը առաջացնում են գործարքների առաջարկներ։ {{appName}}-ը գործում է միայն ձեր հաստատմամբ։',
   'rebalance.summary.buyLabel': 'Գնումներ',
   'rebalance.summary.buySub': 'համալրման ենթակա պաշտոններ',
   'rebalance.summary.driftLabel': 'Բազայից դուրս',
@@ -100,6 +143,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'առաջարկվող գործարքների միջև',
   'rebalance.summary.sellLabel': 'Վաճառում է',
   'rebalance.summary.sellSub': 'դիրքեր կտրելու համար',
+  'rebalanceDriftCard.drift': 'շեղում {{sign}}{{pct}}% · միջակայք ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'թիրախ {{pct}} %',
   'reports.attributionHeading': 'Արդյունավետության վերագրում (1 տարի)',
   'reports.col.alpha': 'Ալֆա',
@@ -113,37 +157,68 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Տարի',
   'reports.gainsHeading': 'Իրականացված և չիրացված շահույթներ',
   'reports.noAttribution': 'Վերագրման տվյալներ դեռևս չկան։',
+  'reports.noGains': 'Իրացված/չիրացված շահույթի տվյալներ դեռ չկան։',
   'reports.noPerformance': 'Արդյունավետության տվյալներ դեռևս չկան։',
   'reports.noTaxDocs': 'Հարկային փաստաթղթեր դեռ չկան։',
   'reports.performanceHeading': 'Արդյունավետությունն ընդդեմ չափանիշի',
   'reports.taxHeading': 'Հարկային փաստաթղթեր',
   'resetPassword.heading': 'Ընտրեք նոր ուժեղ գաղտնաբառ',
+  'resetPassword.passwordPlaceholder': 'Նոր գաղտնաբառ',
   'resetPassword.subheading':
     'Argent-ը ձեզ ավտոմատ կերպով կմուտքագրի, երբ ձեր գաղտնաբառը սահմանվի։',
   'resetPassword.tokenPlaceholder': 'Վերականգնել տոկենը էլ. փոստից',
+  'settings.appearance.description': 'Անցնել բաց և մութ ռեժիմների միջև։',
   'settings.appearance.title': 'Արտաքին տեսք',
+  'settings.devices.body': 'Սարքերը, որոնք ներկայումս մուտք են գործել ձեր հաշիվ։',
+  'settings.devices.empty': 'Սարքեր չեն գտնվել։',
   'settings.devices.heading': 'Սարքեր',
+  'settings.devices.revokeWarning': 'Այս սարքի մուտքը շուտով կանդադարի։ Դուրս գալ՞',
   'settings.devices.signOut': 'Ելք',
   'settings.devices.thisDevice': 'Այս սարքը',
   'settings.devices.unknown': 'Անհայտ սարք',
   'settings.linked.body':
     'Միջնորդային համաժամեցման համար անհրաժեշտ է երրորդ կողմի միակցիչ (Plaid, Yodlee և այլն): Կարգավորեք ձեր մատակարարը ձեր միջավայրում՝ ավտոմատ ներմուծումը միացնելու համար:',
   'settings.linked.heading': 'Կապակցված միջնորդական հաշիվներ',
+  'settings.linked.placeholder': 'Հաշիվներ դեռ կապված չեն։',
+  'settings.notifications.dividendsPaid': 'Վճարված շահաբաժիններ',
   'settings.notifications.error': 'Հնարավոր չէ թարմացնել նախընտրությունը։',
   'settings.notifications.priceAlerts': 'Գնային ծանուցումներ',
+  'settings.notifications.rebalanceDrift': 'Վերահավասարակշռման շեղում',
+  'settings.notifications.taxDocsReady': 'Հարկային փաստաթղթերը պատրաստ են',
   'settings.profile.advisor': 'Խորհրդատուի էլ. փոստ (ըստ ցանկության)',
   'settings.profile.heading': 'Պրոֆիլ',
   'settings.security.changePassword': 'Փոխել գաղտնաբառը',
+  'settings.security.changePasswordTitle': 'Փոխել գաղտնաբառը',
   'settings.security.changing': 'Փոփոխվում է…',
+  'settings.security.confirmPassword': 'Գաղտնաբառ',
+  'settings.security.currentPassword': 'Ընթացիկ գաղտնաբառ',
   'settings.security.deleteAccount': 'Ջնջել հաշիվը',
   'settings.security.deleteError': 'Հաշիվը չհաջողվեց ջնջել։',
   'settings.security.deleteHeading': 'Ջնջել հաշիվը',
+  'settings.security.deleteModalWarning':
+    'Սա ընդմիշտ ջնջում է ձեր հաշիվը և տվյալները։ Հաստատելու համար մուտքագրեք ձեր գաղտնաբառը։',
+  'settings.security.deleteWarning':
+    'Ընդմիշտ ջնջել ձեր հաշիվը և բոլոր կապակցված տվյալները։ Սա հնարավոր չէ հետարկել։',
   'settings.security.deleting': 'Ջնջվում է…',
   'settings.security.heading': 'Անվտանգություն',
   'settings.security.newPassword': 'Նոր գաղտնաբառ',
   'settings.security.password': 'Գաղտնաբառ',
+  'settings.security.passwordError': 'Հնարավոր չէ փոխել գաղտնաբառը։',
+  'settings.security.passwordHint': 'Փոխեք ձեր մուտքի գաղտնաբառը։',
+  'settings.security.twoFactor': 'Երկփուլային նույնականացում',
+  'settings.security.twoFactorCode': 'Հաստատման կոդ',
+  'settings.security.twoFactorDisable': 'Անջատել',
+  'settings.security.twoFactorDisableTitle': 'Անջատել երկգործոն նույնականացումը',
   'settings.security.twoFactorEnable': 'Միացնել',
+  'settings.security.twoFactorEnableTitle': 'Միացնել երկգործոն նույնականացումը',
+  'settings.security.twoFactorHint': 'Ավելացրեք լրացուցիչ պաշտպանության շերտ ձեր հաշվին։',
   'settings.security.twoFactorInvalidCode': 'Անվավեր կոդ',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'Երկկարգի նույնականացման QR կոդ',
+  'settings.security.twoFactorScan':
+    'Սկանավորեք այս QR կոդը ձեր նույնականացման հավելվածով, ապա մուտքագրեք 6-նիշանոց կոդը։',
+  'settings.security.twoFactorUnavailable':
+    'Երկփուլային նույնականացումը հասանելի չէ այս հավելվածի համար։',
   'settings.security.twoFactorVerify': 'Հաստատել և միացնել',
   'settings.tax.error': 'Հնարավոր չէ թարմացնել հարկային մեթոդը։',
   'settings.tax.heading': 'Հարկային հաշվառում',
@@ -154,6 +229,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Հարկային մեթոդը պահպանված է։',
   'signup.eyebrow': 'Բացել հաշիվ',
   'signup.heading': 'Բացեք ձեր Argent հաշիվը',
+  'signup.legalPrefix': 'Հաշիվ ստեղծելով՝ դուք համաձայնում եք {{appName}}',
   'signup.subheading': 'Անվճար 30 օր։ Քարտ անհրաժեշտ չէ։ Չեղարկեք ցանկացած ժամանակ։',
   'signup.terms':
     'Հաշիվ ստեղծելով՝ դուք համաձայնում եք Argent-ի ծառայության պայմաններին և գաղտնիության քաղաքականությանը։',

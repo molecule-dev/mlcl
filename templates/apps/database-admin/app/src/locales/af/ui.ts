@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Oor',
+  'about.featureConnections':
+    "'n Verbindingsbestuurder wat jou databasisse veilig stoor en kleurkodeer — geloofsbriewe word in rus geënkripteer, nooit in gewone teks nie.",
+  'about.featureMonitoring':
+    'Lewendige monitering van navraagprestasie en databasisaktiwiteit, met die sleutelbordkortpaaie en opdragpalet om alles handsfree te bestuur.',
+  'about.featurePlans':
+    'Planne wat saam met jou skaal — Gratis vir solo-werk, Pro en Team vir meer verbindings, langer navraagretensie, uitvoere en gevorderde funksies.',
+  'about.featureQueryEditor':
+    "'n Monaco-aangedrewe SQL-redigeerder met navraaggeskiedenis, gestoorde navrae en een-klik CSV-uitvoer van jou resultate.",
+  'about.featureSchema':
+    "'n Skema-verkenner en tabelblaaier om databasisse, tabelle en kolomme te navigeer, en dan rye inlyn te blaai, te filtreer en te redigeer.",
+  'about.missionTitle': 'Ons missie',
   'authShell.commands': 'Bevele',
   'authShell.ssoSupported': 'SSO ondersteun',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Navrae',
   'connections.schema': 'Skema',
   'connections.subtitle': 'Bestuur jou databasisverbindings.',
+  'connections.test': 'Toets',
   'databaseAdminLayout.adminRole': 'Adminrol',
   'databaseAdminLayout.commandPalette': 'Opdragpalet',
   'databaseAdminLayout.commands': 'bevele',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Nuwe verbinding',
   'databaseAdminLayout.queries': 'Navrae',
   'databaseAdminLayout.ready': 'Gereed',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Soek opdragte, navrae, tabelle…',
   'databaseAdminLayout.user': 'Gebruiker',
   'editConnection.confirmDelete': 'Vee hierdie verbinding uit?',
   'editConnection.deleteButton': 'Vee verbinding uit',
+  'editConnection.newPassword': 'Nuwe wagwoord (los leeg om te behou)',
   'editConnection.saved': 'Verbinding gestoor.',
   'editConnection.title': 'Wysig verbinding',
   'forgotPassword.success': "As daardie rekening bestaan, is 'n terugstelskakel oppad.",
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Suksesse',
   'monitoring.title': 'Monitering',
   'monitoring.totalQueries': 'Totale navrae',
+  'nav.schema': 'Skema',
   'newConnection.database': 'Databasis',
   'newConnection.engine': 'Enjin',
   'newConnection.host': 'Gasheer',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Geen verbinding aan hierdie brokkie gebonde nie.',
   'savedQuery.notBound': 'Nie gebind nie',
   'savedQuery.title': 'Gestoorde navraag',
+  'schema.columns': 'Kolomme',
   'schema.foreignKeys': 'Buitelandse sleutels',
   'schema.indexes': 'Indekse',
   'schemaExplorer.browseRows': 'Blaai deur rye',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'nulbaar',
   'schemaExplorer.colType': 'tipe',
   'schemaExplorer.noColumns': 'Geen kolomme nie.',
+  'schemaExplorer.noForeignKeys': 'Geen vreemde sleutels nie.',
   'schemaExplorer.noIndexes': 'Geen indekse nie.',
   'schemaExplorer.noTables': 'Geen tafels nie',
   'schemaExplorer.pickATable': "Kies 'n tabel uit die sybalk.",
   'schemaExplorer.tables': 'Tabelle',
   'schemaExplorer.title': 'Skema-verkenner',
+  'settings.session': 'Sessie',
   'settings.subtitle': 'Bestuur jou rekening en plan.',
   'signup.heading': 'Skep jou Quarry-rekening',
   'signup.tagline': "Kry toegang binne minder as 'n minuut.",
   'tableBrowser.noRows': 'Hierdie tabel het nog geen rye nie.',
+  'tableBrowser.subtitle': 'Blaai deur rye vanaf jou afgeleë databasis.',
   'tableBrowser.title': 'Blaai deur rye vanaf jou afgeleë databasis.',
 }

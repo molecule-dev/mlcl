@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Imate vprašanje, ste našli napako ali želite prenesti svoje knjige? Pišite ekipi {{app}} na hello@{{app}}.example — vsako sporočilo prebere resnična oseba.',
   'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'O nas',
+  'about.intro':
+    '{{app}} je računovodstvo za mala podjetja, ki poskrbi, da je vsak cent zabeležen — računi, stroški, plačila in poročila na enem preglednem mestu za lastnike, knjigovodje in računovodje.',
+  'about.missionBody':
+    'Vodenje podjetja ne bi smelo pomeniti strahu pred knjigami. {{app}} nadomesti razpršene preglednice z jasnimi številkami, na podlagi katerih lahko ukrepate, tako da porabite manj časa za usklajevanje in več za delo, zaradi katerega ste podjetje sploh ustanovili.',
+  'about.missionTitle': 'Naše poslanstvo',
   'about.title': 'O aplikaciji {{app}}',
   'accounts.count': '{{count}} računi',
+  'accounts.emptyBody':
+    'Kontni načrt spremlja, kje se denar nahaja in kam se premika. Prikaže se tukaj, ko ga nastavi vaš knjigovodja ali integracija.',
   'accounts.emptyTitle': 'Še ni računov',
   'accounts.heading': 'Kontni načrt',
   'accounts.kpi.accounts': 'Accounts',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Vsi računovodski računi, povezani z vašimi računi, stroški in plačili, razvrščeni po vrsti.',
   'accounts.tag.inactive': 'neaktiven',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Finančni direktor, Horizon Tech',
   'authBrandPanel.eyebrow': 'Zaupajo mu finančne ekipe',
   'authBrandPanel.label': 'Predstavitev blagovne znamke',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Vse stranke',
   'customerDetail.invoiceMeta': 'Izdano{{issued}} · Rok{{due}}',
   'customerDetail.loadError': 'Stranke ni bilo mogoče naložiti.',
+  'customerDetail.missingBody':
+    'Zahtevanega zapisa stranke ni bilo mogoče naložiti. Morda je bil odstranjen ali pa do njega nimate dostopa.',
   'customerDetail.missingHeading': 'Zapis stranke ni na voljo',
+  'customerDetail.missingHelp':
+    'S povezavo za nazaj zgoraj se vrnite na seznam strank ali tam izberite drug zapis.',
+  'customerDetail.noInvoices': 'Zaenkrat še ni računov.',
   'customerDetail.notesEmpty': 'Še ni zapiskov.',
   'customerDetail.paymentsEmpty': 'Ni zabeleženih plačil.',
   'customerDetail.paymentTerms': 'Plačilni pogoji',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Odbitna franšiza',
   'expenseDetail.detailsHeading': 'Podrobnosti transakcije',
   'expenseDetail.loadError': 'Stroškov ni bilo mogoče naložiti.',
+  'expenseDetail.matched': 'Ujemajoče · {{description}}',
   'expenseDetail.missingBody':
     'Zahtevanega stroška ni bilo mogoče naložiti. Morda je bil odstranjen ali pa do njega nimate dostopa.',
   'expenseDetail.missingHeading': 'Zapis o stroških ni na voljo',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Račun',
   'expenseDetail.receiptHeading': 'Račun',
   'expenseDetail.reconciled': 'Usklajeno',
+  'expenseDetail.unreconciled': 'Neusklajeno',
   'expenses.empty': 'Še ni stroškov.',
   'expenses.heading': 'Stroški',
   'expenses.kpi.deductible': 'Odbitna franšiza',
@@ -101,6 +118,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Nalaganje računov ni uspelo.',
   'invoices.searchPlaceholder': 'Iskanje številke računa ali stranke…',
   'invoices.summary.paid': 'Plačano v tem obdobju',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'Brezplačno 30 dni. Brez kartice. Pripeljite svojega računovodjo – hvaležen vam bo.',
   'landing.ctaTitle': 'Premaknite knjige na mirnejše mesto.',
@@ -115,6 +133,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Terjatve',
   'ledgerStatTriad.eyebrow.mtd': 'Mesec do danes',
   'ledgerStatTriad.netSub': 'Neto {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} zapadlo',
   'ledgerStatTriad.revenueLabel': 'Prihodki',
   'login.failed': 'Prijava ni uspela.',
   'login.hidePassword': 'Skrij geslo',
@@ -125,6 +144,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Prijavi se',
   'nav.legal': 'Pravno',
   'newExpense.back': 'Stroški',
+  'newExpense.clearReceiptCta': 'Počisti priloženi račun',
   'newExpense.deductible': 'Davčno priznan',
   'newExpense.dropPrompt': 'Priložite fotografijo ali PDF računa tukaj.',
   'newExpense.failed': 'Prihrankov ni bilo mogoče doseči.',
@@ -153,6 +173,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Plačil ni bilo mogoče naložiti.',
   'payments.unmatchedTag': 'brez primere',
   'planUpdated.pageLabel': 'Potrditev posodobitve načrta',
+  'pricing.advancedFeatures': 'Napredne funkcije: {{yes}}',
+  'pricing.canExport': 'Izvoz podatkov: {{yes}}',
+  'pricing.heading': 'Izberite svoj paket {{app}}',
+  'pricing.maxAccounts': '{{count}} računi',
+  'pricing.maxExpenses': '{{count}} stroški',
+  'pricing.maxInvoices': '{{count}} računov',
+  'privacy.intro':
+    'Ta pravilnik o zasebnosti opisuje, kako {{app}} zbira, uporablja in razkriva informacije o podjetjih, ki uporabljajo storitev.',
   'privacy.lastUpdated': 'Zadnja posodobitev: {{datum}}',
   'privacy.section.collected.body':
     'Zbiramo podatke o računu (ime, e-pošta, podjetje), finančne zapise, ki jih naložite (računi, stroški, stranke, plačila) in standardne dnevnike delovanja storitev (IP, uporabniški agent, časovni žigi).',
@@ -165,8 +193,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Informacije se uporabljajo za delovanje storitve, ustvarjanje poročil in PDF-jev, ki jih zahtevate, pošiljanje transakcijskih e-poštnih sporočil prek storitve Mailgun in obdelavo plačil prek storitve Stripe. Osebnih podatkov ne prodajamo ali dajemo v najem.',
   'recentInvoicesCard.dueMeta': 'Zapadlo {{date}}',
+  'recentInvoicesCard.empty': 'Noben račun se ne ujema.',
   'recentInvoicesCard.eyebrow': 'Terjatve',
   'recentInvoicesCard.searchAriaLabel': 'Iskanje računov',
+  'recentInvoicesCard.searchPlaceholder': 'Iskanje računov …',
   'recentInvoicesCard.title': 'Zadnje račune',
   'recentInvoicesCard.viewAll': 'Ogled vseh računov →',
   'reports.assets': 'Sredstva',
@@ -182,16 +212,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Dobiček in izguba (12 mesecev)',
   'resetPassword.backToLogin': '← Nazaj na prijavo',
   'resetPassword.hidePassword': 'Skrij geslo',
+  'resetPassword.passwordLabel': 'Novo geslo',
   'resetPassword.showPassword': 'Pokaži geslo',
+  'resetPassword.subheading': 'Izberite močno geslo — najmanj osem znakov.',
   'resetPassword.submit': 'Ponastavi geslo',
   'resetPassword.tooShort': 'Geslo mora imeti najmanj 8 znakov.',
   'settings.account.changePassword': 'Spremeni geslo',
   'settings.account.changingPassword': 'Spreminjanje …',
   'settings.account.currentPassword': 'Trenutno geslo',
+  'settings.account.dangerZone': 'Nevarno območje',
   'settings.account.deleteAccount': 'Izbriši račun',
   'settings.account.deleteDescription':
     'Trajno izbrišite svoj račun in vse z njim povezane podatke.',
   'settings.account.deleteError': 'Brisanje računa ni uspelo.',
+  'settings.account.deleteWarning':
+    'To trajno izbriše vaš račun in tega ni mogoče razveljaviti. Za potrditev vnesite svoje geslo.',
   'settings.account.deleting': 'Brisanje …',
   'settings.account.devices': 'Naprave',
   'settings.account.email': 'E-pošta',
@@ -202,6 +237,7 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Geslo',
   'settings.account.passwordError': 'Gesla ni bilo mogoče spremeniti.',
   'settings.account.pushNotifications': 'Obvestila s potrditvijo na tej napravi',
+  'settings.account.revokeDeviceWarning': 'Dostop te naprave bo kmalu preklican. Jo odjavite?',
   'settings.account.saveError': 'Profila ni bilo mogoče posodobiti.',
   'settings.account.security': 'Varnost',
   'settings.account.signOutDevice': 'Odjava',
@@ -209,12 +245,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Dvofaktorska avtentikacija',
   'settings.account.twoFactorCode': 'Koda za avtentifikacijo',
   'settings.account.twoFactorDisable': 'Onemogoči',
+  'settings.account.twoFactorDisableTitle': 'Onemogoči dvostopenjsko preverjanje pristnosti',
   'settings.account.twoFactorEnable': 'Omogoči',
+  'settings.account.twoFactorEnableTitle': 'Omogoči dvostopenjsko preverjanje pristnosti',
   'settings.account.twoFactorInvalidCode': 'Neveljavna koda',
   'settings.account.twoFactorOn': 'Na',
+  'settings.account.twoFactorQrAlt': 'QR koda za dvostopenjsko preverjanje',
+  'settings.account.twoFactorScan':
+    'Skenirajte to kodo QR z aplikacijo za preverjanje pristnosti, nato vnesite 6-mestno kodo.',
+  'settings.account.twoFactorUnavailable':
+    'Dvofaktorska avtentikacija ni na voljo za to aplikacijo.',
   'settings.account.twoFactorVerify': 'Preveri in omogoči',
   'settings.account.unknownDevice': 'Neznana naprava',
   'settings.company.email': 'E-poštni naslov za obračunavanje',
+  'settings.company.heading': 'Podjetje in davki',
   'settings.company.name': 'Pravno ime',
   'settings.company.saveButton': 'Shrani profil podjetja',
   'settings.company.taxId': 'Davčna številka / davčna številka',
@@ -257,6 +301,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Predvideno četrtletno',
   'taxes.kpi.owed': 'Dolgovan',
   'taxes.loadError': 'Nalaganje povzetka davka ni uspelo.',
+  'taxes.remittedPct': '({{pct}} % plačano)',
+  'terms.intro':
+    'Ti pogoji storitve (»pogoji«) urejajo vaš dostop do {{app}} in njegovo uporabo. Z ustvarjanjem računa ali uporabo storitve se strinjate, da ste zavezani tem pogojem.',
   'terms.lastUpdated': 'Zadnja posodobitev: {{datum}}',
   'terms.section.acceptable.body':
     'Strinjate se, da storitve ne boste uporabljali za kršenje katerega koli zakona, kršitev pravic intelektualne lastnine, prenos zlonamerne programske opreme ali poskus pridobitve nepooblaščenega dostopa do drugih računov ali naše infrastrukture.',

@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "ਸਵਾਲ, ਫੀਡਬੈਕ, ਜਾਂ ਆਪਣੀ ਟੀਮ ਲਈ ਡੈਮੋ ਚਾਹੀਦਾ ਹੈ? ਸਾਨੂੰ hello@conduit.dev 'ਤੇ ਈਮੇਲ ਕਰੋ — ਹਰ ਸੁਨੇਹਾ ਟੀਮ ਦੇ ਕਿਸੇ ਅਸਲੀ ਵਿਅਕਤੀ ਤੱਕ ਪਹੁੰਚਦਾ ਹੈ।",
   'about.contactHeading': 'ਸੰਪਰਕ ਕਰੋ',
   'about.eyebrow': 'ਬਾਰੇ',
+  'about.featuresHeading': 'ਤੁਹਾਨੂੰ ਕੀ ਮਿਲਦਾ ਹੈ',
+  'about.introBody':
+    '{{app}} GitHub Actions-ਸ਼ੈਲੀ ਦੀ ਨਿਰੰਤਰ ਡਿਲੀਵਰੀ ਨੂੰ ਇੱਕ ਤੇਜ਼ ਡੈਸ਼ਬੋਰਡ ਵਿੱਚ ਲਿਆਉਂਦਾ ਹੈ: ਪਾਈਪਲਾਈਨਾਂ, ਬਿਲਡ ਲੌਗ, ਆਰਟੀਫੈਕਟ, ਸਥਿਤੀ ਬੈਜ, ਅਤੇ ਤੁਹਾਡੇ ਸਾਰੇ ਰਿਪੋਜ਼ਟਰੀਆਂ ਲਈ ਡਿਪਲੌਇਮੈਂਟ ਵਾਤਾਵਰਣ ਇੱਕੋ ਥਾਂ। ਕੋਈ ਟੈਬ-ਬਦਲੀ ਨਹੀਂ, ਕੋਈ ਅੰਦਾਜ਼ਾ ਨਹੀਂ ਕਿ ਕਿਹੜਾ ਬਿਲਡ ਟੁੱਟਿਆ — ਹਰ ਰਨ, ਲੌਗ ਲਾਈਨ, ਅਤੇ ਡਿਪਲੌਇ ਇੱਕ ਕਲਿੱਕ ਦੂਰ ਹੈ।',
+  'about.introHeading': '{{app}} ਕੀ ਹੈ',
+  'about.missionBody':
+    'ਸੌਫਟਵੇਅਰ ਸ਼ਿਪ ਕਰਨਾ ਸ਼ਾਂਤ ਅਤੇ ਅਨੁਮਾਨਯੋਗ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ, ਡਰ ਦਾ ਸਰੋਤ ਨਹੀਂ। ਅਸੀਂ ਪਾਈਪਲਾਈਨਾਂ, ਲੌਗ, ਅਤੇ ਡਿਪਲੌਇ ਟੂਲਿੰਗ ਬਣਾਉਂਦੇ ਹਾਂ ਤਾਂ ਜੋ ਕਮਿਟ ਤੋਂ ਪ੍ਰੋਡਕਸ਼ਨ ਤੱਕ ਦਾ ਰਾਹ ਤੇਜ਼, ਦਿਖਣਯੋਗ, ਅਤੇ ਭਰੋਸੇਯੋਗ ਹੋਵੇ — ਪਹਿਲਾ ਹਰਾ ਬਿਲਡ ਪੰਜ ਮਿੰਟਾਂ ਵਿੱਚ, ਅਤੇ ਉਸ ਤੋਂ ਬਾਅਦ ਹਰ ਬਿਲਡ ਓਨਾ ਹੀ ਸਪਸ਼ਟ।',
+  'about.missionHeading': 'ਸਾਡਾ ਮਿਸ਼ਨ',
+  'about.subtitle':
+    '{{app}} ਉਹਨਾਂ ਟੀਮਾਂ ਲਈ ਇੱਕ CI/CD ਡੈਸ਼ਬੋਰਡ ਹੈ ਜੋ ਹਰ ਰਿਪੋਜ਼ਟਰੀ ਵਿੱਚ ਬਿਲਡ, ਡਿਪਲੌਇਮੈਂਟ, ਅਤੇ ਵਾਤਾਵਰਣਾਂ ਦੀ ਨਿਗਰਾਨੀ ਕਰਨਾ ਚਾਹੁੰਦੀਆਂ ਹਨ — ਅਤੇ ਯਕੀਨ ਨਾਲ ਸ਼ਿਪ ਕਰਨਾ ਚਾਹੁੰਦੀਆਂ ਹਨ।',
   'artifacts.empty': 'ਅਜੇ ਕੋਈ ਕਲਾਕ੍ਰਿਤੀਆਂ ਨਹੀਂ।',
   'artifacts.heading': 'ਕਲਾਕ੍ਰਿਤੀਆਂ',
   'artifacts.loadError': 'ਕਲਾਕ੍ਰਿਤੀਆਂ ਨੂੰ ਲੋਡ ਕਰਨਾ ਅਸਫਲ ਰਿਹਾ।',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ ਕੰਡਿਊਟ ਐਨਵੀ --ਲਿਸਟ',
   'environments.heading': 'ਵਾਤਾਵਰਣ',
   'environments.loadError': 'ਵਾਤਾਵਰਣ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
+  'environments.loading': 'ਵਾਤਾਵਰਣ ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ…',
   'environments.subheading': "ਹਰੇਕ ਟੀਚੇ 'ਤੇ ਲਾਈਵ ਤੈਨਾਤੀ ਸਥਿਤੀ।",
   'forgotPassword.runnerStatus': 'ਰੀਸੈਟ ਕਰੋ · ਸੁਰੱਖਿਅਤ ਸੁਰੰਗ',
+  'forgotPassword.success':
+    'ਜੇਕਰ ਉਸ ਈਮੇਲ ਲਈ ਕੋਈ ਖਾਤਾ ਮੌਜੂਦ ਹੈ, ਤਾਂ ਇੱਕ ਰੀਸੈਟ ਲਿੰਕ ਆ ਰਿਹਾ ਹੈ। ਆਪਣਾ ਇਨਬਾਕਸ ਦੇਖੋ।',
   'insights.changeFailureRate': 'ਅਸਫਲਤਾ ਦਰ ਬਦਲੋ',
   'insights.deployFrequency': 'ਤੈਨਾਤੀ / ਦਿਨ',
   'insights.empty': 'ਅਜੇ ਕਾਫ਼ੀ ਡਾਟਾ ਨਹੀਂ ਹੈ।',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'ਅੰਦਰੂਨੀ-ਝਾਤਾਂ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'insights.meanP95': 'ਮਤਲਬ {{mean}} · ਪੀ95 {{p95}}',
   'insights.mttr': 'ਐਮਟੀਟੀਆਰ',
+  'insights.slowestStepsHeading': 'ਸਭ ਤੋਂ ਹੌਲੀ ਪਾਈਪਲਾਈਨ ਕਦਮ',
   'insights.successRateHeading': 'ਪਾਈਪਲਾਈਨ ਦੀ ਸਫਲਤਾ ਦਰ (ਪਿਛਲੇ 14 ਦਿਨ)',
   'landing.choosePlan': 'ਯੋਜਨਾ ਚੁਣੋ',
+  'landing.copyright': '© {{year}} {{app}}। ਯਕੀਨ ਨਾਲ ਸ਼ਿਪ ਕਰੋ।',
   'landing.ctaBody':
     'ਕੋਈ ਕ੍ਰੈਡਿਟ ਕਾਰਡ ਨਹੀਂ। ਕਿਸੇ ਪਲੇਟਫਾਰਮ ਇੰਜੀਨੀਅਰ ਦੀ ਲੋੜ ਨਹੀਂ। ਪੰਜ ਮਿੰਟਾਂ ਵਿੱਚ ਪਹਿਲੀ ਪਾਈਪਲਾਈਨ ਨੂੰ ਹਰੀ ਰੰਗਤ ਦਿਓ।',
   'landing.ctaHeading': 'ਯਕੀਨਨ ਭੇਜੋ।',
   'landing.featuresEyebrow': '// ਪਲੇਟਫਾਰਮ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ',
   'landing.featuresHeading': 'ਭੇਜਣ ਵਾਲਿਆਂ ਲਈ, ਭੇਜਣ ਵਾਲਿਆਂ ਦੁਆਰਾ ਬਣਾਇਆ ਗਿਆ',
+  'landing.heroSubtitle':
+    "ਪਾਈਪਲਾਈਨਾਂ ਜੋ ਸਕਿੰਟਾਂ ਵਿੱਚ ਪੂਰੀਆਂ ਹੁੰਦੀਆਂ ਹਨ। ਲੌਗ ਜੋ ਤੁਸੀਂ ਪੜ੍ਹ ਸਕਦੇ ਹੋ। ਡਿਪਲੌਇ ਜਿਨ੍ਹਾਂ 'ਤੇ ਤੁਸੀਂ ਭਰੋਸਾ ਕਰ ਸਕਦੇ ਹੋ।",
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit ਤੈਨਾਤ ਕਰੋ --ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ',
   'landing.pricingEyebrow': '// $ ਕੀਮਤ --ਸਾਦਾ',
   'landing.pricingHeading': 'ਸਰਲ, ਅਨੁਮਾਨਯੋਗ ਕੀਮਤ',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'ਹੁਣ ਉਡਾਣ ਵਿੱਚ ਹਾਂ',
   'pipelines.metric.successCaption': '{{count}} ਦੇ {{total}} ਦੌੜਦਾ ਹੈ',
   'pipelines.metric.successRate': 'ਸਫਲਤਾ ਦਰ',
+  'pipelines.realtimeOn': 'ਰੀਅਲਟਾਈਮ',
   'pipelines.subheading': 'ਹਰ ਦੇਖੇ ਗਏ ਭੰਡਾਰ ਤੋਂ ਲਾਈਵ ਅੱਪਡੇਟ।',
+  'pricing.advancedFeatures': 'ਉੱਨਤ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ: {{mark}}',
+  'pricing.canExport': 'ਡੇਟਾ ਐਕਸਪੋਰਟ: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} ਆਰਟੀਫੈਕਟ',
+  'pricing.maxBuilds': '{{count}} ਬਿਲਡ',
+  'pricing.maxPipelines': '{{count}} ਪਾਈਪਲਾਈਨਾਂ',
   'privacy.dataAccount': 'ਖਾਤਾ: ਨਾਮ, ਈਮੇਲ, ਹੈਸ਼ ਕੀਤਾ ਪਾਸਵਰਡ, ਯੋਜਨਾ ਪੱਧਰ।',
   'privacy.intro':
     "{{ਐਪ}} ਤੁਹਾਡੇ ਨਿਰੰਤਰ-ਡਿਲੀਵਰੀ ਖਾਤੇ ਨੂੰ ਚਲਾਉਣ ਲਈ ਸਾਨੂੰ ਲੋੜੀਂਦਾ ਘੱਟੋ-ਘੱਟ ਡੇਟਾ ਇਕੱਠਾ ਕਰਦਾ ਹੈ: ਤੁਹਾਡੀ ਈਮੇਲ, ਤੁਹਾਡੇ ਦੁਆਰਾ ਕਨੈਕਟ ਕੀਤੇ ਗਏ ਰਿਪੋਜ਼ਟਰੀਆਂ, ਤੁਹਾਡੇ ਦੌੜਾਕਾਂ ਦੁਆਰਾ ਤਿਆਰ ਕੀਤੇ ਗਏ ਕਮਿਟ ਅਤੇ ਬਿਲਡ ਮੈਟਾਡੇਟਾ, ਅਤੇ ਉਹ ਭੇਦ ਜੋ ਤੁਸੀਂ ਸਾਡੇ ਨਾਲ ਸਟੋਰ ਕਰਨ ਲਈ ਚੁਣਦੇ ਹੋ। ਅਸੀਂ ਬਿਲਡ ਰਨਰ ਤੋਂ ਬਾਹਰ ਤੁਹਾਡਾ ਸਰੋਤ ਕੋਡ ਕਦੇ ਨਹੀਂ ਪੜ੍ਹਦੇ; ਕੌਂਫਿਗਰ ਕੀਤੇ ਜਾਣ 'ਤੇ ਬਿਲਡ ਆਰਟੀਫੈਕਟ ਤੁਹਾਡੀ S3 ਬਕੇਟ ਵਿੱਚ ਸਟੋਰ ਕੀਤੇ ਜਾਂਦੇ ਹਨ।",
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'ਅਸੀਂ ਬਿਲਿੰਗ ਲਈ ਸਟ੍ਰਾਈਪ, ਟ੍ਰਾਂਜੈਕਸ਼ਨਲ ਈਮੇਲ ਲਈ ਮੇਲਗਨ, ਅਤੇ ਬਿਲਡ ਆਰਟੀਫੈਕਟ ਸਟੋਰੇਜ ਲਈ AWS S3 ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਹਾਂ। ਹਰੇਕ ਆਪਣੀ ਸੇਵਾ ਪ੍ਰਦਾਨ ਕਰਨ ਲਈ ਲੋੜੀਂਦੇ ਡੇਟਾ ਦੇ ਘੱਟੋ-ਘੱਟ ਦਾਇਰੇ ਨਾਲ ਇਕਰਾਰਨਾਮੇ ਨਾਲ ਜੁੜਿਆ ਹੋਇਆ ਹੈ।',
   'privacy.rightsBody':
     "ਤੁਸੀਂ ਆਪਣੇ ਡੇਟਾ ਦੇ ਹਰੇਕ ਬਾਈਟ ਨੂੰ ਨਿਰਯਾਤ ਕਰ ਸਕਦੇ ਹੋ, ਸੈਟਿੰਗਾਂ ਤੋਂ ਕਿਸੇ ਵੀ ਸਮੇਂ ਆਪਣਾ ਖਾਤਾ ਮਿਟਾ ਸਕਦੇ ਹੋ, ਅਤੇ ਆਪਣੇ ਖਾਤੇ 'ਤੇ ਹਰੇਕ ਵੈੱਬਹੁੱਕ ਡਿਲੀਵਰੀ ਦੇ ਰਿਕਾਰਡ ਦੀ ਬੇਨਤੀ ਕਰ ਸਕਦੇ ਹੋ। ਅਸੀਂ 30 ਦਿਨਾਂ ਦੇ ਅੰਦਰ GDPR / CCPA ਬੇਨਤੀਆਂ ਦਾ ਜਵਾਬ ਦਿੰਦੇ ਹਾਂ।",
+  'privacy.subtitle':
+    '{{app}} ਤੁਹਾਡਾ ਡੇਟਾ ਕਿਵੇਂ ਇਕੱਠਾ ਕਰਦਾ, ਸਟੋਰ ਕਰਦਾ, ਅਤੇ ਸੁਰੱਖਿਅਤ ਕਰਦਾ ਹੈ ਜਦੋਂ ਅਸੀਂ ਤੁਹਾਡੀਆਂ ਪਾਈਪਲਾਈਨਾਂ ਚਲਾਉਂਦੇ ਹਾਂ।',
   'privacy.title': 'ਪਰਾਈਵੇਟ ਨੀਤੀ',
   'repositories.empty': 'ਕੋਈ ਰਿਪੋਜ਼ਟਰੀਆਂ ਜੁੜੀਆਂ ਨਹੀਂ ਹਨ।',
   'repositories.heading': 'ਰਿਪੋਜ਼ਟਰੀਆਂ',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'ਸਾਰੇ ਭੰਡਾਰ',
   'repositoryDetail.configHeading': '.ਕੰਡਿਊਟ.ਵਾਈਐਮਐਲ',
   'repositoryDetail.loadError': 'ਰਿਪੋਜ਼ਟਰੀ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
+  'repositoryDetail.meanDuration': 'ਔਸਤ ਸਮਾਂ',
   'repositoryDetail.notFound': 'ਰਿਪੋਜ਼ਟਰੀ ਨਹੀਂ ਮਿਲੀ।',
+  'repositoryDetail.successRate': 'ਸਫਲਤਾ ਦਰ',
   'repositoryDetail.totalBuilds': 'ਕੁੱਲ ਬਿਲਡ',
   'repositoryDetail.webhookActive': 'ਕਿਰਿਆਸ਼ੀਲ',
   'repositoryDetail.webhookPaused': 'ਰੁਕਿਆ ਹੋਇਆ',
   'repositoryDetail.webhooksHeading': 'ਵੈੱਬਹੁੱਕ',
+  'resetPassword.passwordLabel': 'ਨਵਾਂ ਪਾਸਵਰਡ',
   'resetPassword.runnerStatus': 'ਰੀਸੈਟ · ਟੋਕਨ ਪ੍ਰਮਾਣਿਤ',
   'resetPassword.subtitle': 'ਇੱਕ ਮਜ਼ਬੂਤ ਪਾਸਵਰਡ ਚੁਣੋ ਜੋ ਤੁਸੀਂ ਪਹਿਲਾਂ ਕਦੇ ਨਹੀਂ ਵਰਤਿਆ।',
   'resetPassword.tokenPlaceholder': 'ਈਮੇਲ ਤੋਂ ਪੇਸਟ ਕਰੋ',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'ਰਿਪੋਜ਼ਟਰੀਆਂ ਕੰਡਿਊਟ ਘੜੀਆਂ। ਇਵੈਂਟਾਂ ਨੂੰ ਗ੍ਰਹਿਣ ਕਰਨਾ ਬੰਦ ਕਰਨ ਲਈ ਆਪਣੇ VCS ਪ੍ਰਦਾਤਾ ਤੋਂ ਡਿਸਕਨੈਕਟ ਕਰੋ।',
   'settings.repositories.empty': 'ਅਜੇ ਤੱਕ ਕੋਈ ਰਿਪੋਜ਼ਟਰੀਆਂ ਜੁੜੀਆਂ ਨਹੀਂ ਹਨ।',
+  'settings.repositories.heading': 'ਰਿਪੋਜ਼ਟਰੀ ਕਨੈਕਸ਼ਨ',
   'settings.repositories.loadError': 'ਰਿਪੋਜ਼ਟਰੀਆਂ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'settings.secrets.addCta': 'ਗੁਪਤ ਜਾਣਕਾਰੀ ਸ਼ਾਮਲ ਕਰੋ',
   'settings.secrets.addError': 'ਗੁਪਤ ਜਾਣਕਾਰੀ ਜੋੜਨ ਵਿੱਚ ਅਸਫਲ।',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'ਗੁਪਤ ਜਾਣਕਾਰੀ ਮਿਟਾਉਣ ਵਿੱਚ ਅਸਫਲ।',
   'settings.secrets.empty': 'ਕੋਈ ਭੇਤ ਸੰਭਾਲਿਆ ਨਹੀਂ ਗਿਆ।',
   'settings.secrets.heading': 'ਭੇਦ',
+  'settings.secrets.lastUsed': 'ਆਖਰੀ ਵਾਰ ਵਰਤਿਆ {{date}}',
   'settings.secrets.loadError': 'ਭੇਦ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'settings.secrets.neverUsed': 'ਕਦੇ ਨਹੀਂ ਵਰਤਿਆ',
   'settings.secrets.rotateCta': 'ਘੁੰਮਾਓ',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'ਵੈੱਬਹੁੱਕ ਨੂੰ ਅੱਪਡੇਟ ਕਰਨਾ ਅਸਫਲ ਰਿਹਾ।',
   'signup.namePlaceholder': 'ਰਿਲੇ ਪਾਰਕ',
   'signup.runnerStatus': 'ਮੁਫ਼ਤ ਟੀਅਰ · 1,000 ਬਿਲਡ ਘੱਟੋ-ਘੱਟ/ਮਹੀਨਾ',
+  'terms.intro':
+    '{{app}} ਖਾਤਾ ਬਣਾ ਕੇ ਤੁਸੀਂ ਇਹਨਾਂ ਸ਼ਰਤਾਂ ਨਾਲ ਸਹਿਮਤ ਹੁੰਦੇ ਹੋ। ਇਹ ਬਿਲਡ ਰਨਰਾਂ ਦੀ ਸਵੀਕਾਰਯੋਗ ਵਰਤੋਂ, ਸਾਡੇ SLA ਦੀਆਂ ਸੀਮਾਵਾਂ, ਅਤੇ ਉਹਨਾਂ ਸ਼ਰਤਾਂ ਨੂੰ ਕਵਰ ਕਰਦੀਆਂ ਹਨ ਜਿਨ੍ਹਾਂ ਅਧੀਨ ਅਸੀਂ ਦੁਰਵਰਤੋਂ ਵਾਲੇ ਵਰਕਲੋਡ ਲਈ ਤੁਹਾਡਾ ਖਾਤਾ ਮੁਅੱਤਲ ਜਾਂ ਖਤਮ ਕਰ ਸਕਦੇ ਹਾਂ।',
   'terms.slaBody':
     "ਪ੍ਰੋ ਅਤੇ ਟੀਮ ਪਲਾਨ API ਅਤੇ ਰਨਰ ਪੂਲ ਲਈ 99.95% ਮਾਸਿਕ ਅਪਟਾਈਮ ਦਾ ਟੀਚਾ ਰੱਖਦੇ ਹਨ। ਮੁਫ਼ਤ ਪਲਾਨ ਜਿਵੇਂ ਹੈ, ਪ੍ਰਦਾਨ ਕੀਤਾ ਜਾਂਦਾ ਹੈ। ਆਊਟੇਜ ਦੀ ਰਿਪੋਰਟ status.conduit.dev 'ਤੇ ਕੀਤੀ ਜਾਂਦੀ ਹੈ ਅਤੇ ਤੁਹਾਡੇ ਇਨਵੌਇਸ ਵਿੱਚ ਦਿੱਤੇ ਫਾਰਮੂਲੇ ਅਨੁਸਾਰ ਕ੍ਰੈਡਿਟ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।",
   'terms.terminationBody':

@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχετε ερωτήσεις, σχόλια ή ένα dataset που μπέρδεψε το μοντέλο; Επικοινωνήστε με την ομάδα του {{app}} από το μενού βοήθειας μέσα στην εφαρμογή — κάθε μήνυμα πηγαίνει σε έναν πραγματικό άνθρωπο που εργάζεται στο προϊόν.',
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.intro':
+    'Το {{app}} είναι ένας AI αναλυτής δεδομένων που μετατρέπει τα ακατέργαστα δεδομένα σε απαντήσεις. Ανεβάστε ένα CSV ή συνδέστε μια αποθήκη δεδομένων, κάντε μια ερώτηση στα απλά ελληνικά και λάβετε το σωστό γράφημα, τον υποστηρικτικό πίνακα και το SQL που το παρήγαγε — {{tagline}}.',
+  'about.missionBody':
+    'Η ανάλυση δεν θα έπρεπε να απαιτεί ένα ticket στο backlog και μια εβδομάδα αναμονής. Το {{app}} βάζει έναν ικανό αναλυτή πίσω από ένα πλαίσιο κειμένου, ώστε οι ομάδες προϊόντος, λειτουργιών και οικονομικών να απαντούν στις δικές τους ερωτήσεις σε λίγα λεπτά — διατηρώντας κάθε αποτέλεσμα αναπαραγώγιμο και ελέγξιμο.',
+  'about.missionTitle': 'Η αποστολή μας',
   'about.pageTitle': 'Σχετικά με το {{app}}',
+  'about.whatYouGet': 'Τι αποκτάτε',
+  'askClarionBar.ariaLabel': 'Κάντε μια ερώτηση στο {{appName}}',
   'askClarionBar.askCta': 'Ρωτήστε',
   'askClarionBar.placeholder':
     'Υποβάλετε ερώτηση για τα δεδομένα σας — π.χ. «κορυφαίοι 10 πελάτες βάσει εσόδων Q3»',
@@ -20,16 +30,20 @@ export const ui: UiTranslations = {
   'dashboard.insightsHeading': 'Πρόσφατες αναλύσεις',
   'dashboard.noInsights':
     'Δεν υπάρχουν αναλύσεις ακόμα — ανεβάστε ένα σύνολο δεδομένων για να ξεκινήσετε.',
+  'dashboard.subhead':
+    'Τρεις νέες πληροφορίες από χθες. Μία ανωμαλία που αξίζει πιο προσεκτική ματιά.',
   'dashboard.uploadCta': 'Ανέβασμα δεδομένων',
   'datasetCard.analyzedPrefix': 'αναλύθηκε {{when}}',
   'datasetCard.cols': 'Στήλες',
   'datasetCard.rows': 'Γραμμές',
+  'datasetDetail.aiHeading': 'Πληροφορίες AI',
   'datasetDetail.back': 'Σύνολα δεδομένων',
   'datasetDetail.col.example': 'Παράδειγμα',
   'datasetDetail.col.name': 'Πεδίο',
   'datasetDetail.col.nullable': 'Επιτρέπει κενές τιμές',
   'datasetDetail.col.unique': 'Μοναδικό',
   'datasetDetail.cols': 'Στήλες',
+  'datasetDetail.lineageEmpty': 'Εισήχθη από μεταφόρτωση — χωρίς μετασχηματισμούς upstream.',
   'datasetDetail.loadError': 'Αποτυχία φόρτωσης συνόλου δεδομένων.',
   'datasetDetail.notFound': 'Το σύνολο δεδομένων δεν βρέθηκε.',
   'datasetDetail.queriesEmpty':
@@ -45,17 +59,22 @@ export const ui: UiTranslations = {
   'datasetDetail.tab.${tk}': 'Πεδίο',
   'datasets.empty': 'Δεν υπάρχουν σύνολα δεδομένων ακόμα — ανεβάστε ένα για να ξεκινήσετε.',
   'datasets.eyebrow': '{{count}} σύνολα δεδομένων · {{rows}} γραμμές',
+  'datasets.heading': 'Σύνολα δεδομένων',
   'datasets.loadError': 'Αποτυχία φόρτωσης συνόλων δεδομένων.',
   'datasets.subhead':
     'Αρχεία που το Clarion έχει ευρετηριάσει και καταστήσει διαθέσιμα για ερωτήματα. Κάντε κλικ σε μια κάρτα για να επιθεωρήσετε το σχήμα, τα στατιστικά και την προέλευση.',
   'datasets.uploadCta': 'Ανέβασμα συνόλου δεδομένων',
+  'forgotPassword.backPrompt': 'Το θυμάστε τελικά; ',
   'forgotPassword.checkSpam':
     'Αν δεν το βλέπετε μέσα σε ένα λεπτό, ελέγξτε τον φάκελο spam ή δοκιμάστε να το στείλετε ξανά.',
   'forgotPassword.emailRequired': 'Το email είναι υποχρεωτικό',
+  'forgotPassword.resend': 'Αποστολή ξανά',
   'forgotPassword.sendError': 'Αδύνατη η αποστολή email επαναφοράς',
   'forgotPassword.sentHeading': 'Ελέγξτε το email σας',
   'forgotPassword.sentSubheading':
     'Στείλαμε σύνδεσμο επαναφοράς στο {{email}}. Ο σύνδεσμος λήγει σε 30 λεπτά.',
+  'forgotPassword.subheading':
+    'Εισαγάγετε το email εργασίας σας και θα σας στείλουμε έναν σύνδεσμο για να ορίσετε νέο κωδικό πρόσβασης.',
   'googleSignInButton.label': 'Συνέχεια με Google',
   'insightFeedCard.viewCta': 'Προβολή',
   'insightHeroCard.subtitle':
@@ -65,36 +84,54 @@ export const ui: UiTranslations = {
   'landing.closing.cta': 'Δοκιμάστε το Clarion δωρεάν',
   'landing.closing.heading':
     'Σταματήστε να δημιουργείτε πίνακες ελέγχου. Αρχίστε να κάνετε ερωτήσεις.',
+  'landing.closing.subhead':
+    'Δωρεάν για 14 ημέρες. Φέρτε ένα CSV και λάβετε τις πρώτες τρεις πληροφορίες σας σε λιγότερο από πέντε λεπτά.',
   'landing.features.eyebrow': 'Πώς λειτουργεί το Clarion',
   'landing.features.heading': 'Ανεβάστε ένα CSV. Κάντε μια ερώτηση. Πάρτε την απάντηση.',
+  'landing.features.subhead':
+    'Δεν απαιτείται SQL. Χωρίς εξάπλωση dashboard. Κάθε απάντηση είναι ένα γράφημα, ένας πίνακας και το SQL που εκτελέστηκε — εξαγώγιμα με ένα κλικ.',
   'landing.hero.eyebrow': 'AI Data Analyst · για ομάδες προϊόντος και λειτουργιών',
   'landing.hero.primaryCta': 'Δοκιμάστε το Clarion δωρεάν για 14 ημέρες',
   'landing.hero.secondaryCta': 'Δείτε ένα δείγμα ερωτήματος',
   'landing.hero.subtitle':
     'Ανεβάστε ένα σύνολο δεδομένων, κάντε ερωτήσεις σε φυσική γλώσσα και πάρτε το σωστό γράφημα πίσω. Το Clarion διαχειρίζεται την SQL, την ανακάλυψη σχήματος και την προέλευση — ώστε οι αναλυτές να μπορούν να παραδίδουν 10× ταχύτερα.',
+  'landing.hero.title': '{{tagline}}.',
   'landing.hero.trust1': 'Χωρίς πιστωτική κάρτα',
   'landing.hero.trust2': 'SOC 2 τύπος II',
   'landing.hero.trust3': 'Προέλευση σε κάθε γράφημα',
   'landing.nav.tryFree': 'Δοκιμή δωρεάν',
+  'landing.preview.cta': 'Δοκιμάστε ένα query',
   'landing.preview.label': 'Αναλύσεις που εντοπίστηκαν αυτόν τον μήνα',
   'landing.proof.heading': 'Σχεδιάστηκε για σοβαρές ομάδες ανάλυσης',
   'login.hidePassword': 'Απόκρυψη κωδικού',
+  'login.newUserPrompt': 'Νέοι στο {{appName}}; ',
   'login.showPassword': 'Εμφάνιση κωδικού',
   'login.subheading':
     'Συνδεθείτε για να συνεχίσετε να κάνετε καλύτερες ερωτήσεις στα δεδομένα σας.',
+  'login.trialCta': 'Ξεκινήστε τη δοκιμή {{days}} ημερών',
   'mobileNav.closeMenu': 'Κλείσιμο μενού πλοήγησης',
   'mobileNav.openMenu': 'Άνοιγμα μενού πλοήγησης',
+  'planUpdated.body':
+    'Η αλλαγή χρέωσής σας είναι πλέον ενεργή. Μπορείτε να διαχειρίζεστε το πλάνο σας οποιαδήποτε στιγμή από τη σελίδα χρέωσης.',
+  'planUpdated.retry': 'Δοκιμάστε ξανά',
+  'planUpdated.verifyFailed': 'Δεν μπορέσαμε να επιβεβαιώσουμε ακόμη την πληρωμή σας.',
+  'planUpdated.verifyFailedBody':
+    'Η πληρωμή σας ενδέχεται να βρίσκεται ακόμη υπό επεξεργασία. Δοκιμάστε ξανά σε λίγο.',
   'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
+  'pricing.limits.advanced': 'Προηγμένες λειτουργίες',
   'queryEditor.aiBadge': 'Δημιουργήθηκε από ΤΝ',
   'queryEditor.aiSummary': 'Σύνοψη ΤΝ',
   'queryEditor.copyFailed': 'Αδύνατη η αντιγραφή στο πρόχειρο.',
   'queryEditor.dataHeading': 'Δεδομένα',
+  'queryEditor.emptyBody':
+    'Το {{appName}} απαντά σε τρία μέρη: ένα γράφημα, τον υποκείμενο πίνακα δεδομένων και το SQL που εκτελέστηκε.',
   'queryEditor.emptyHeading': 'Επιλέξτε μια πρόταση ή πληκτρολογήστε τη δική σας',
   'queryEditor.emptyResult': 'Δεν επιστράφηκε απάντηση. Δοκιμάστε διαφορετική ερώτηση.',
   'queryEditor.exportCsv': 'CSV',
   'queryEditor.eyebrow': 'Ρωτήστε το Clarion · Ερώτημα φυσικής γλώσσας',
   'queryEditor.heading': 'Τι θέλετε να μάθετε;',
   'queryEditor.questionEyebrow': 'Ρωτήσατε',
+  'queryEditor.runFailed': 'Δεν ήταν δυνατή η εκτέλεση αυτού του query. Δοκιμάστε ξανά.',
   'queryEditor.sqlHeading': 'Δημιουργημένη SQL',
   'queryEditor.subhead':
     'Πληκτρολογήστε μια ερώτηση σε φυσική γλώσσα. Το Clarion επιλέγει το γράφημα, εκτελεί το SQL και σας εμφανίζει την προέλευση.',
@@ -111,8 +148,12 @@ export const ui: UiTranslations = {
   'reports.subhead':
     'Αποθηκευμένες αναλύσεις που μπορείτε να κοινοποιήσετε, να προγραμματίσετε και να εξαγάγετε. Κάντε κλικ σε μια μικρογραφία για να ανοίξετε την πλήρη αναφορά.',
   'reportThumbnailCard.onDemand': "κατ' απαίτηση",
+  'reportThumbnailCard.runPrefix': 'εκτέλεση {{when}}',
+  'resetPassword.hidePassword': 'Απόκρυψη κωδικού',
   'resetPassword.newPasswordLabel': 'Νέος κωδικός πρόσβασης',
   'resetPassword.newPasswordPlaceholder': 'Νέος κωδικός πρόσβασης',
+  'resetPassword.passwordTooShort':
+    'Ο κωδικός πρόσβασης πρέπει να έχει τουλάχιστον {{min}} χαρακτήρες',
   'resetPassword.resetFailed': 'Αποτυχία επαναφοράς',
   'resetPassword.showPassword': 'Εμφάνιση κωδικού',
   'resetPassword.subheading':
@@ -128,19 +169,26 @@ export const ui: UiTranslations = {
   'settings.apiKeys.createCta': 'Δημιουργία',
   'settings.apiKeys.created': 'Νέο κλειδί API δημιουργήθηκε.',
   'settings.apiKeys.createError': 'Αδύνατη η δημιουργία κλειδιού API.',
+  'settings.apiKeys.creating': 'Δημιουργία…',
   'settings.apiKeys.deleted': 'Το κλειδί API ανακλήθηκε.',
   'settings.apiKeys.deleteError': 'Αδύνατη η ανάκληση κλειδιού API.',
+  'settings.apiKeys.empty': 'Δεν υπάρχουν ακόμη API keys — δημιουργήστε ένα παραπάνω.',
   'settings.apiKeys.heading': 'Κλειδιά API',
   'settings.apiKeys.namePlaceholder': 'Όνομα κλειδιού (π.χ. CI bot)',
   'settings.apiKeys.rotateCta': 'Εναλλαγή',
   'settings.apiKeys.rotated': 'Το κλειδί API εναλλάχτηκε. Ενημερώστε τις ενσωματώσεις σας.',
+  'settings.apiKeys.rotateError': 'Δεν ήταν δυνατή η ανανέωση του API key.',
+  'settings.appearance.description': 'Εναλλαγή μεταξύ φωτεινής και σκοτεινής λειτουργίας.',
   'settings.appearance.title': 'Εμφάνιση',
   'settings.dangerZone': 'Επικίνδυνη ζώνη',
   'settings.integrations.body':
     'Συνδέστε μια αποθήκη δεδομένων για ερωτήματα σε ζωντανά δεδομένα αντί να ανεβάζετε αρχεία.',
   'settings.integrations.connected': 'Η σύνδεση για {{source}} ενημερώθηκε.',
   'settings.integrations.connectedTag': 'συνδεδεμένο',
+  'settings.integrations.error': 'Δεν ήταν δυνατή η ενημέρωση της ενσωμάτωσης.',
   'settings.integrations.heading': 'Πηγές δεδομένων',
+  'settings.revokeDeviceWarning':
+    'Η πρόσβαση αυτής της συσκευής θα ανακληθεί σύντομα. Να γίνει αποσύνδεση;',
   'settings.security.heading': 'Ασφάλεια',
   'settings.signOutDevice': 'Αποσύνδεση',
   'settings.team.empty':
@@ -148,21 +196,31 @@ export const ui: UiTranslations = {
   'settings.team.removed': 'Το μέλος της ομάδας αφαιρέθηκε.',
   'settings.twoFactorCode': 'Κωδικός επαλήθευσης',
   'settings.twoFactorDisable': 'Απενεργοποίηση',
+  'settings.twoFactorDisableTitle': 'Απενεργοποίηση ελέγχου ταυτότητας δύο παραγόντων',
   'settings.twoFactorEnable': 'Ενεργοποίηση',
+  'settings.twoFactorEnableTitle': 'Ενεργοποίηση ελέγχου ταυτότητας δύο παραγόντων',
   'settings.twoFactorInvalidCode': 'Μη έγκυρος κώδικας',
   'settings.twoFactorOn': 'Στις',
+  'settings.twoFactorQrAlt': 'Κωδικός QR ταυτοποίησης δύο παραγόντων',
+  'settings.twoFactorScan':
+    'Σαρώστε αυτόν τον κωδικό QR με την εφαρμογή ελέγχου ταυτότητας και, στη συνέχεια, εισαγάγετε τον 6ψήφιο κωδικό.',
+  'settings.twoFactorUnavailable':
+    'Ο έλεγχος ταυτότητας δύο παραγόντων δεν είναι διαθέσιμος για αυτήν την εφαρμογή.',
   'settings.twoFactorVerify': 'Επαλήθευση και ενεργοποίηση',
   'sideNavBar.appSubtitle': 'AI Data Analyst',
   'sideNavBar.datasets': 'Σύνολα δεδομένων',
   'sideNavBar.newAnalysis': 'Νέα ανάλυση',
   'sideNavBar.queries': 'Ερωτήματα',
   'signup.failed': 'Αποτυχία εγγραφής',
+  'signup.haveAccount': 'Έχετε ήδη λογαριασμό; ',
+  'signup.hidePassword': 'Απόκρυψη κωδικού',
   'signup.showPassword': 'Εμφάνιση κωδικού',
   'signup.subheading':
     '14 ημέρες δωρεάν. Χωρίς πιστωτική κάρτα. Φέρτε ένα CSV — το Clarion κάνει τα υπόλοιπα.',
   'topNavBar.help': 'Βοήθεια',
   'topNavBar.lastDays': 'Τελευταίες {{days}} ημέρες',
   'topNavBar.userProfileAlt': 'Προφίλ χρήστη',
+  'upload.dropPrompt': 'Αφήστε ένα αρχείο εδώ ή κάντε κλικ για αναζήτηση',
   'upload.maxSize': 'Μέγ. {{size}}',
   'upload.noRecent': 'Δεν υπάρχουν αναρτήσεις ακόμα.',
   'upload.recentHeading': 'Πρόσφατες αναρτήσεις',
@@ -173,9 +231,13 @@ export const ui: UiTranslations = {
   'upload.uploading': 'Ανέβασμα…',
   'upload.viewCta': 'Σύνολα δεδομένων →',
   'uploadDropZone.eyebrow': 'Σύρετε ένα αρχείο · ή κάντε κλικ για αναζήτηση',
+  'uploadDropZone.fileInputLabel': 'Επιλέξτε ένα αρχείο για μεταφόρτωση',
+  'uploadDropZone.maxSize':
+    'Μέγιστο μέγεθος αρχείου {{size}} · Προτιμάται CSV για τα μεγαλύτερα datasets',
   'uploadDropZone.readyEyebrow': 'Έτοιμο για ανάλυση',
   'uploadDropZone.subtitle':
     'Το Clarion ανιχνεύει αυτόματα το σχήμα, εκτελεί στατιστικές αναλύσεις και εντοπίζει ανωμαλίες τη στιγμή που φτάνει το αρχείο σας.',
+  'uploadDropZone.title': 'Μεταφορτώστε το dataset σας',
   'uploadDropZone.unknownType': 'άγνωστος τύπος',
   'userMenu.datasets': 'Τα σύνολα δεδομένων μου',
 }

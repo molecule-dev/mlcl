@@ -1,14 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ceisteanna, aiseolas, nó ag iarraidh treoir do do fhoireann earcaíochta? Seol ríomhphost chuig hello@example.com agus freagróidh duine fíor ar an bhfoireann duit laistigh de dhá lá gnó.',
   'about.contactHeading': 'Téigh i dteagmháil',
+  'about.intro':
+    "Is córas rianaithe iarratasóirí é {{app}} d'earcaitheoirí agus do bhainisteoirí earcaíochta ar mian leo comhartha, ní torann — píblíne ghlan, scagadh AI a mhíníonn é féin, agus anailísíocht earcaíochta, go léir in aon áit amháin.",
+  'about.missionBody':
+    'Tá earcaíocht ar cheann de na cinntí is mó tábhacht a dhéanann foireann, ach fós tá an chuid is mó de ina luí i scarbhileoga scaipthe agus i snáitheanna ríomhphoist. Tugann {{app}} an lúb iomlán le chéile ar aon chlár amháin ionas go rianófar gach iarrthóir, go mbeidh gach agallamh struchtúrtha, agus go mbeidh gach cinneadh cothrom, tapa agus mínithe.',
+  'about.missionHeading': 'Ár misean',
   'auth.legalConsent': 'Trí leanúint ar aghaidh, aontaíonn tú lenár',
   'billing.cardExp': 'Éagaíonn {{exp}}',
+  'billing.cardLinkError': 'Níorbh fhéidir an sreabhadh nuashonraithe cárta a thosú.',
   'billing.cardLinkSent': 'Sreabhadh nuashonraithe cárta tosaithe — seiceáil do r-phost.',
+  'billing.cardLinkUnavailable':
+    'Níl nuashonruithe cárta ar fáil — níl aon soláthraí íocaíochta cumraithe sa imscaradh seo.',
   'billing.cardMissing': 'Níl aon chárta ar chomhad',
   'billing.col.invoice': 'Sonrasc',
   'billing.downloadUnavailable': '—',
   'billing.editCard': 'Nuashonraigh cárta',
+  'billing.eyebrow': 'Plean & úsáid',
   'billing.invoiceHeading': 'Sonraisc le déanaí',
   'billing.invoicesEmpty': 'Gan aon sonraisc fós.',
   'billing.invoicesLoading': 'Sonraisc á lódáil…',
@@ -17,12 +28,12 @@ export const ui: UiTranslations = {
   'billing.nextChargeHint': 'Ar siúl {{date}}',
   'billing.nextChargeLabel': 'An chéad mhuirear eile',
   'billing.planLoading': 'Plean á lódáil…',
-  'billing.planSummary':
-    '{{in aghaidh an tSuíocháin}} / suíochán · {{suíocháin}} suíocháin · {{iomlán}} / mí',
+  'billing.planSummary': '{{perSeat}} / suíochán · {{seats}} suíochán · {{total}} / mí',
   'billing.seatsAdded': 'Nuashonraíodh líon na suíochán.',
   'billing.seatsError':
     'Is plean aon-suíochán é seo. Uasghrádaigh go Foireann le haghaidh úsáide il-shuíochán.',
   'billing.seatsHint': '{{used}} de {{max}} san áireamh',
+  'billing.seatsLabel': 'Suíocháin ghníomhacha',
   'billing.spentLabel': 'Caiteachas ón mbliain go dtí seo',
   'billing.subheading': 'Síntiús, suíocháin, úsáid scagthástála AI, agus sonraisc.',
   'billing.unlimited': 'Gan teorainn',
@@ -39,6 +50,7 @@ export const ui: UiTranslations = {
   'candidateDetail.advanceError': 'Níorbh fhéidir an stáitse a nuashonrú.',
   'candidateDetail.advanceFinal': 'Cheana féin ag an gcéim dheireanach.',
   'candidateDetail.advanceHeading': 'Bog go dtí an stáitse',
+  'candidateDetail.appliedOn': 'Iarratas déanta {{date}} trí {{source}}.',
   'candidateDetail.back': 'Gach iarrthóir',
   'candidateDetail.loadError': 'Theip ar an iarrthóir a lódáil.',
   'candidateDetail.noInterviews': 'Gan aon agallaimh go fóill.',
@@ -48,8 +60,13 @@ export const ui: UiTranslations = {
   'candidateDetail.notePlaceholder':
     'Roinn aiseolas, tuairimí agallaimh, na chéad chéimeanna eile…',
   'candidateDetail.noteSave': 'Sábháil nóta',
+  'candidateDetail.panel': 'Painéal: {{panel}}',
+  'candidateDetail.panelScore': 'Scór painéil: {{score}}/100',
+  'candidateDetail.resumeMissing': 'Níl réamhamharc ar aon CV ar fáil don iarrthóir seo go fóill.',
   'candidateDetail.scheduleError': 'Níorbh fhéidir an t-agallamh a sceidealú.',
+  'candidateDetail.scheduleHeading': 'Sceideal aighneacht',
   'candidateDetail.scheduleInterviewer': 'Agallóir',
+  'candidateDetail.scheduleInterviewerPlaceholder': 'Ainm an agallóra',
   'candidateDetail.scheduleMinutes': 'Fad (nóim)',
   'candidateDetail.scheduleMissing': 'Roghnaigh dáta agus am ar dtús.',
   'candidateDetail.scoreEmpty': 'Ag fanacht le meastóireacht ar an Intleacht Shaorga.',
@@ -72,6 +89,7 @@ export const ui: UiTranslations = {
   'candidates.heading': 'Iarrthóirí',
   'candidates.loadError': 'Theip ar lódáil na n-iarrthóirí.',
   'candidates.searchPlaceholder': 'Cuardaigh iarrthóir, ról, nó post\\u2026',
+  'candidates.sourceLabel': 'Foinse',
   'candidates.sourcePlaceholder': 'Foinse (LinkedIn, Tagairt…)',
   'candidates.subheading':
     'Bunachar sonraí iarrthóirí tras-phoist le scóráil AI agus leithdháileadh foinse.',
@@ -86,6 +104,7 @@ export const ui: UiTranslations = {
   'dashboard.kpi.interviews': 'Agallaimh an tseachtain seo',
   'dashboard.kpi.openJobs': 'Poist oscailte',
   'dashboard.loading': 'Ag luchtú\\u2026',
+  'dashboard.newJobCta': 'Post a phostáil',
   'dashboard.subheading': 'Sláinte na píblíne, ualach agallaimh, agus tairiscintí i mbun oibre.',
   'dashboard.topEmpty': 'Gan aon iarrthóirí fós.',
   'dashboard.topEyebrow': 'Cluichí is fearr le hintleacht shaorga',
@@ -107,6 +126,7 @@ export const ui: UiTranslations = {
   'jobDetail.back': 'Gach post',
   'jobDetail.descriptionEyebrow': 'Cur síos ar an ról',
   'jobDetail.descriptionMissing': 'Níl aon chur síos curtha ar fáil fós.',
+  'jobDetail.employmentType': 'Cineál fostaíochta: {{type}}',
   'jobDetail.empty': 'Gan aon iarratasóirí fós.',
   'jobDetail.funnelEyebrow': 'Tonnal stáitse',
   'jobDetail.funnelHeading': 'Cá seasann iarratasóirí',
@@ -115,6 +135,7 @@ export const ui: UiTranslations = {
   'jobDetail.kpi.hires': 'Fostaithe',
   'jobDetail.kpi.inInterview': 'In agallamh',
   'jobDetail.loadError': 'Theip ar an bpost a lódáil.',
+  'jobDetail.requirementsHeading': 'Riachtanais',
   'jobDetail.topEyebrow': 'Iarratasóirí is fearr',
   'jobDetail.topHeading': 'Meaitseáilte le hintleacht shaorga ar dtús',
   'jobDetail.unavailable': 'Níl an post seo liostaithe a thuilleadh.',
@@ -130,6 +151,7 @@ export const ui: UiTranslations = {
   'jobs.heading': 'Poist',
   'jobs.loadError': 'Theip ar na poist a lódáil.',
   'jobs.newCta': 'Postáil post',
+  'landing.copyright': '© {{year}} {{app}} Tógtha le Móilín.',
   'landing.eyebrow': 'Earcú le cúnamh AI · v2',
   'landing.featuresEyebrow': 'Conas a oibríonn sé',
   'landing.featuresHeading': 'Comhartha — ní scarbhileoga.',
@@ -138,8 +160,11 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Tosaigh saor in aisce ar feadh 30 lá',
   'landing.heroProof': 'Gan cárta creidmheasa. Cealaigh am ar bith. Tá SSO ar fáil ar Pro.',
   'landing.heroSecondary': 'Féach ar phraghsáil →',
+  'landing.heroSubtitle':
+    "Píblíne kanban ghlan, scagadh AI a mhíníonn é féin, agus anailísíocht chothroime de réir céime. Tógtha d'earcaitheoirí agus do bhainisteoirí earcaíochta ar mian leo comhartha — ní torann.",
   'landing.heroTitle': 'Fostaigh le soiléireacht.',
   'landing.previewHeading': 'Innealtóir Sinsearach Cúltaca',
+  'landing.previewLabel': 'Píblíne · Innealtóireacht',
   'landing.pricingEyebrow': 'Praghsáil',
   'landing.pricingHeading': 'Pleananna do gach méid foirne.',
   'landing.socialEyebrow': 'Úsáidte ag foirne earcaíochta ag',
@@ -156,6 +181,9 @@ export const ui: UiTranslations = {
   'loginBrandPanel.headlineLine2': 'soiléireacht.',
   'loginBrandPanel.stage.interview': 'Agallamh',
   'loginBrandPanel.stage.screening': 'Scagadh',
+  'loginBrandPanel.stage.sourced': 'Foinsithe',
+  'loginBrandPanel.subtext':
+    'Tarraing iarrthóirí trí Fhoinsithe → Scagadh → Agallamh → Tairiscint → Earcaíodh. Scagann AI. Coinníonn cuisle na cothroime gach céim macánta.',
   'nav.closeMenu': 'Dún an roghchlár',
   'nav.legal': 'Dlíthiúil',
   'nav.openMenu': 'Oscail an roghchlár',
@@ -164,6 +192,7 @@ export const ui: UiTranslations = {
     'Déantar CVanna a rangú i gcoinne na riachtanas; déantar athbhreithniú ar na cinn is fearr a mheaitseálann earcaitheoirí ar dtús.',
   'newJob.aiToggle': 'Scóráil iarratasóirí nua go huathoibríoch',
   'newJob.back': 'Ar ais chuig poist',
+  'newJob.basicsHeading': 'Bunghnéithe an róil',
   'newJob.compHeading': 'Cúiteamh',
   'newJob.departmentLabel': 'Roinn',
   'newJob.descHeading': 'Cur síos & riachtanais',
@@ -173,6 +202,7 @@ export const ui: UiTranslations = {
   'newJob.failed': 'Níorbh fhéidir an post a shábháil.',
   'newJob.heading': 'Post a phostáil',
   'newJob.publish': 'Foilsigh post',
+  'newJob.reqLabel': 'Riachtanais (ceann in aghaidh an líne)',
   'newJob.salaryMax': 'Uasmhéid tuarastail (USD)',
   'newJob.salaryMin': 'Íosmhéid Tuarastal (USD)',
   'newJob.stagesHeading': 'Céimeanna píblíne',
@@ -188,6 +218,7 @@ export const ui: UiTranslations = {
   'newJob.type.fullTime': 'Lánaimseartha',
   'newJob.type.partTime': 'Páirtaimseartha',
   'newJob.typeLabel': 'Cineál fostaíochta',
+  'pipeline.advanceTo': 'Ar aghaidh',
   'pipeline.allRoles': 'Gach ról',
   'pipeline.daysInStage': '{{days}} d',
   'pipeline.empty': 'Gan aon iarrthóirí',
@@ -201,13 +232,22 @@ export const ui: UiTranslations = {
     'Tarraing iarrthóirí idir céimeanna. Taispeántar scór na hintleachta saorga agus laethanta sa chéim ar gach cárta.',
   'pipeline.viewTable': 'Radharc tábla →',
   'pipelineFunnelHero.totalLabel': 'Ag gluaiseacht',
+  'planUpdated.body':
+    "Tá d'athrú billeála gníomhach anois. Is féidir leat do phlean a bhainistiú am ar bith ón leathanach billeála.",
+  'planUpdated.retry': 'Déan iarracht arís',
+  'planUpdated.verifyFailed': 'Ní raibh muid in ann d’íocaíocht a dheimhniú go fóill.',
+  'planUpdated.verifyFailedBody':
+    'B’fhéidir go bhfuil d’íocaíocht fós á próiseáil. Bain triail eile as i gceann nóiméid.',
   'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'pricing.heading': 'feidhmchláir',
+  'pricing.limits.applications': 'iarratais',
   'pricing.limits.candidates': 'iarrthóirí',
   'pricing.limits.jobs': 'poist',
   'pricing.limits.scorecards': 'cártaí scóir',
   'privacy.dataBody':
     'Ríomhphost cuntais, pasfhocal hasháilte, meiteashonraí próifíle, agus taifid an iarrthóra/poist a chruthaíonn tú. Ní dhíolaimid ná ní roinnimid na sonraí seo choíche.',
+  'privacy.intro':
+    'Próiseálann {{app}} sonraí earcaíochta thar ceann custaiméirí. Caithimid le taifid iarrthóirí, CVanna agus cumarsáid na foirne earcaíochta mar ábhar rúnda agus stórálaimid criptithe agus iad ar fos iad.',
   'privacy.retentionBody':
     'Is féidir leat do chuntas a scriosadh tráth ar bith ó na Socruithe. Glanfaimid taifid ghaolmhara laistigh de 30 lá, ach amháin i gcás ina bhfuil coinneáil riachtanach de réir dlí.',
   'privacy.title': 'Polasaí príobháideachta',
@@ -217,6 +257,7 @@ export const ui: UiTranslations = {
     'Lig d’iarrthóirí agus d’iarratasóirí d’ainm agus do ról a fheiceáil ar fhógraí poist.',
   'profile.publicLabel': 'Próifíl phoiblí',
   'profile.publicOff': 'I bhfolach',
+  'profile.publicOn': 'Infheicthe',
   'profile.recentEmpty': 'Gan aon socrúcháin fós.',
   'profile.recentError': 'Níorbh fhéidir na socrúcháin le déanaí a lódáil.',
   'profile.recentEyebrow': 'Socruithe le déanaí',
@@ -243,9 +284,14 @@ export const ui: UiTranslations = {
   'resetPassword.missingToken':
     'Tá an nasc athshocraithe ar iarraidh nó imithe in éag — iarr ceann nua.',
   'resetPassword.passwordLabel': 'Pasfhocal nua',
+  'resetPassword.signInCta': 'Sínigh isteach →',
+  'resetPassword.signInPrompt': 'Úsáid do phasfhocal nua chun síniú isteach.',
   'resetPassword.subheading':
     'Roghnaigh pasfhocal láidir — 12 charachtar ar a laghad le cás measctha.',
+  'settings.appearance.description': 'Athraigh idir mód geal agus dorcha.',
   'settings.appearance.title': 'Dealramh',
+  'settings.deleteAccountModal.confirm':
+    'Cuir isteach do phasfhocal le deimhniú. Tá an gníomh seo buan.',
   'settings.emailTemplates.empty': 'Níl aon teimpléid cumraithe fós.',
   'settings.emailTemplates.heading': 'Teimpléid ríomhphoist',
   'settings.emailTemplates.loadError': 'Níorbh fhéidir na teimpléid a luchtú.',
@@ -256,10 +302,17 @@ export const ui: UiTranslations = {
   'settings.integrations.statusDisconnected': 'Gan cheangal',
   'settings.integrations.updateError': 'Níorbh fhéidir an comhtháthú a nuashonrú.',
   'settings.name': 'Ainm',
+  'settings.passwordHelp': 'Nuashonraigh an focal faire a úsáideann tú chun síniú isteach.',
+  'settings.revokeDeviceWarning':
+    'Cuirfear deireadh le rochtain an ghléis seo go luath. Sínigh amach é?',
   'settings.saveEmail': 'Sábháil ríomhphost',
   'settings.signOutDevice': 'Sínigh amach',
   'settings.stages.empty': 'Níl aon chéimeanna cumraithe fós.',
+  'settings.stages.heading': 'Céimeanna píblíne',
+  'settings.stages.help':
+    'Na céimeanna a dtéann iarrthóirí tríothu. Bain aon cheann nach n-úsáideann tú.',
   'settings.stages.loadError': 'Níorbh fhéidir céimeanna a luchtú.',
+  'settings.stages.loading': 'Céimeanna á lódáil…',
   'settings.stages.removeAria': 'Bain {{name}} stáitse',
   'settings.stages.removeError': 'Níorbh fhéidir an stáitse a bhaint.',
   'settings.team.empty': 'Gan aon chomhghleacaithe fós — tabhair cuireadh don chéad duine thíos',
@@ -275,9 +328,15 @@ export const ui: UiTranslations = {
   'settings.team.removeError': 'Níorbh fhéidir an ball a bhaint.',
   'settings.twoFactorCode': 'Cód fíordheimhnithe',
   'settings.twoFactorDisable': 'Díchumasaigh',
+  'settings.twoFactorDisableTitle': 'Díchumasaigh fíordheimhniú dhá fhachtóir',
   'settings.twoFactorEnable': 'Cumasaigh',
+  'settings.twoFactorEnableTitle': 'Cumasaigh fíordheimhniú dhá fhachtóir',
   'settings.twoFactorInvalidCode': 'Cód neamhbhailí',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Cód QR dhá fhachtóir',
+  'settings.twoFactorScan':
+    "Scan an cód QR seo le d'aip fhíordheimhniúcháin, ansin cuir isteach an cód 6 dhigit.",
+  'settings.twoFactorUnavailable': 'Níl fíordheimhniú dhá fhachtóir ar fáil don aip seo.',
   'settings.twoFactorVerify': 'Fíoraigh & cumasaigh',
   'settings.unknownDevice': 'Gléas anaithnid',
   'signup.confirmPlaceholder': 'Ath-iontráil do phasfhocal',
@@ -288,6 +347,8 @@ export const ui: UiTranslations = {
     'Cas suas clár earcaíochta i 60 soicind. Tabhair cuireadh don fhoireann níos déanaí.',
   'terms.acceptableUseBody':
     'Ní dhéanfaidh tú mí-úsáid den tseirbhís, ní rithfidh tú scríobadh uathoibrithe, ní dhéanfaidh tú iarracht slándáil a bhriseadh, ná ní úsáidfidh tú í chun idirdhealú a dhéanamh i gcoinne aicmí faoi chosaint.',
+  'terms.intro':
+    'Trí úsáid a bhaint as {{app}} aontaíonn tú leis na téarmaí seo. Cuirtear an tseirbhís ar fáil ar bhonn mar-atá sí leis na hoibleagáidí agus na teorainneacha a thuairiscítear thíos.',
   'terms.subscriptionBody':
     'Déantar pleananna íoctha a athnuachan go míosúil go dtí go gcealófar iad. Is féidir leat cealú ón mBilleáil ag am ar bith; fanann do phlean gníomhach go dtí deireadh na tréimhse reatha.',
   'terms.title': 'Téarmaí seirbhíse',

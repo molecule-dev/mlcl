@@ -1,10 +1,27 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Unombono, uthole iphutha, noma ufuna ukusitshela ukuthi ukubhala phansi kukusizile kanjani? Sifunda yonke imilayezo — xhumana nathi noma nini futhi umuntu wangempela uzokuphendula.',
+  'about.contactTitle': 'Xoxa nathi',
+  'about.featureInsights':
+    'Ukuzindla okusekelwe yi-AI okugqamisa ngobumnene izinto ezikuvusayo, izindikimba, nokubonga — ngaphandle kokulahlekelwa yizwi lakho.',
+  'about.featureMood':
+    'Ukulandelela imizwa nomsebenzi ngekhalenda namashadi wokuthambekela akhombisa lokho okukusiza ukuthi uchume.',
+  'about.featurePrivacy':
+    'Ukubethelwa kwedatha ekugcineni, ukukhiya ngekhodi yokungena, nokukhipha nge-CSV okuphelele ukuze ukuzindla kwakho kuhlale kuyimfihlo futhi kuthwaleke.',
+  'about.featurePrompts':
+    'Izikhumbuzo zansuku zonke ezithambile ukuze uhlale unendawo yokuqala — ungalokothi ube nekhasi elingenalutho.',
+  'about.intro':
+    'I-{{app}} iyijenali yezempilo yengqondo ethambile futhi eyimfihlo yokuzindla kwansuku zonke, ukulandelela imizwa, nokubonga. Izikhumbuzo ezicatshangelwayo zithatha indawo yekhasi elingenalutho, ukuthola amaphethini ngokuthula kukusiza uqonde lokho okuthinta indlela ozizwa ngayo, futhi ukubethelwa kwedatha ekugcineni kugcina amazwi akho kungawakho.',
+  'about.missionBody':
+    'Sikholelwa ukuthi ukuzihlola kufanele kuzwakale kuthula, hhayi njengokwelashwa — futhi kungabi njengolunye uhlelo lokusebenza olufuna ukunakwa kwakho. I-{{app}} yakhelwe ukusiza, hhayi ukukuhlupha: imizuzu embalwa ethulile ngosuku yokuqaphela imizwa yakho, ukubhala ngobuqotho, kancane kancane uzibone ngokucacile.',
+  'about.missionTitle': 'Umsebenzi wethu',
   'about.pageTitle': 'Mayelana ne-{{app}}',
   'authShell.encryptionBadge':
     'Okufakiwe kwakho kubhalwe ngekhodi kusukela ekuqaleni kuze kube sekupheleni.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Usuku {{day}} — akukho okubhaliwe',
   'calendar.cellMood': 'Usuku {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Le nyanga ngokubuka nje',
   'calendar.eyebrow': 'Isimo sengqondo ngokubuka nje',
@@ -16,6 +33,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Kulandelelwe {{tracked}} kwe {{total}} izinsuku kule nyanga.',
   'common.goToDashboard': 'Yiya ku-Dashboard',
   'common.tryAgain': 'Zama futhi',
+  'entryComposer.bodyPlaceholder':
+    'Bhala noma yini ezwakala iqotho. Akekho omunye ozokufunda lokhu.',
   'entryComposer.cancel': 'Buyela kujenali',
   'entryComposer.heading': 'Ukuzindla kwanamuhla',
   'entryComposer.moodLabel': 'Uzizwa kanjani?',
@@ -24,6 +43,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Susa {{tag}}',
   'entryComposer.save': 'Londoloza ukubonakaliswa',
   'entryComposer.saveError': 'Ayikwazanga ukulondoloza okufakiwe kwakho.',
+  'entryComposer.tagPlaceholder': 'Engeza ithegi bese ucindezela u-enter',
   'entryComposer.titlePlaceholder': 'Nika lokhu kuzindla igama...',
   'entryDetail.back': 'Buyela kujenali',
   'entryDetail.delete': 'Susa lokhu okufakiwe',
@@ -37,6 +57,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Ilayisha ukubonakaliswa…',
   'entryDetail.notFound': 'Okufakiwe akutholakalanga.',
   'entryDetail.reflectionsHeading': 'Ukubonakaliswa kwe-AI',
+  'forgotPassword.continueButton': 'Faka ikhodi yokusetha kabusha',
   'forgotPassword.eyebrow': 'Azikho izinkinga',
   'forgotPassword.subheading':
     'Sizothumela isixhumanisi sokusetha kabusha esithambile ku-imeyili yakho.',
@@ -60,14 +81,21 @@ export const ui: UiTranslations = {
     'Azikho izingqikithi okwamanje — engeza ithegi eyodwa noma ezimbili kokufakiwe kwakho futhi zizohlangana lapha.',
   'insights.themesHeading': 'Amatimu aphezulu',
   'insights.triggerFrequency': 'kuqashelwe {{count}} × kule nyanga',
+  'insights.triggersEmpty':
+    'Akukho okusazobonakala okwamanje. Ukubhala okumbalwa ezinsukwini ezimbalwa kuzokhombisa amaphethini akho.',
   'insights.triggersHeading': 'Amaphethini ashukumisa imizwa yakho',
+  'journal.empty': 'Akukho kuzindla okuhambisanayo — zama isihlungi esihlukile noma bhala okusha.',
   'journal.eyebrow': 'Ukuzindla kwakho',
   'journal.heading': 'Ijenali',
   'journal.loadError': 'Yehlulekile ukulayisha okufakiwe.',
   'journal.loading': 'Ilayisha okufakiwe…',
+  'journal.newEntry': 'Okufakiwe okusha',
   'journal.searchPlaceholder': 'Sesha umuzwa, igama, umzuzwana…',
   'journal.subheading': '{{count}} okufakiwe — konke kufanele kugcinwe.',
   'journalEntryCard.encryptedLabel': 'Kubethelwe',
+  'landing.ctaBody':
+    'Mahhala ukuqala. I-Pro ivula ukukhipha idatha, ijenali enkulu, kanye nonyaka ogcwele womlando.',
+  'landing.ctaButton': 'Qala ukungena kwakho kokuqala',
   'landing.ctaTitle': 'Imizuzu embalwa yokuthula ngosuku. Yilokho kuphela.',
   'landing.eyebrow': 'Umkhuba omnene wansuku zonke',
   'landing.featuresBody':
@@ -86,6 +114,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Indawo ethambile yokuzindla nsuku zonke.',
   'mentalHealthJournalLayout.closeMenu': 'Vala imenyu',
   'mentalHealthJournalLayout.openMenu': 'Vula imenyu',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
+  'moodHeroCard.entriesThisWeek': '{{count}} kuleli viki',
   'moodHeroCard.streakSuffix': 'uchungechunge losuku',
   'moodHeroCard.title': 'Ukuzindla kwanamuhla',
   'moodTrendChart.aiBadge': 'Ukuqonda kwe-AI kulungile',
@@ -96,11 +126,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Uhambo lwakho',
   'profile.fallbackName': 'Isibonisi',
   'profile.loadError': 'Yehlulekile ukulayisha izibalo.',
+  'profile.loading': 'Iyalunguza izibalo zakho…',
   'profile.longestStreak': 'Uchungechunge olude kakhulu',
   'profile.memberSince': 'Ukucabanga kusukela {{date}}',
   'profile.milestones': 'Izenzakalo Ezibalulekile',
   'profile.milestonesEmpty':
     'Ibanga lakho lokuqala liwukungena okukodwa nje — bhala noma nini lapho uzizwa usukulungele.',
+  'profile.moodMix': 'Ingxube yakho yemizwa kule sizini',
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'Ukuzindla',
   'profile.totalWords': 'Amagama abhaliwe',
@@ -113,6 +145,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Bhala ngalokhu',
   'resetPassword.eyebrow': 'Isiqalo esisha',
   'resetPassword.mismatchError': 'Amaphasiwedi awafani.',
+  'resetPassword.passwordLabel': 'Iphasiwedi Entsha',
   'resetPassword.subheading': 'Khetha into ephephile — ukucabanga kwakho kuyakufanelekela.',
   'resetPassword.tokenPlaceholder': 'Setha kabusha ikhodi kusuka ku-imeyili',
   'settings.dangerDescription':
@@ -124,11 +157,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'Ayikwazanga ukususa i-akhawunti.',
   'settings.exportDescription': 'Amazwi akho ahlala engawakho. Landa ikhophi noma nini.',
   'settings.exportDone': 'Kuthunyelwe kwamanye amazwe {{format}}.',
+  'settings.exportError': 'Ukuthumela kuhlulekile.',
+  'settings.exportHeading': 'Khipha ukuzindla kwakho',
   'settings.exportLoading': 'Ilungiselela…',
   'settings.eyebrow': 'Isikhala sakho, imithetho yakho',
   'settings.languageHeading': 'Ulimi',
   'settings.privacyHeading': 'Ubumfihlo nokubethela',
   'settings.remindersHeading': 'Isikhumbuzi sansuku zonke',
+  'settings.reminderToggleAria': 'Guqula isikhumbuzo sansuku zonke',
   'settings.reminderToggleDescription':
     'Isikhumbuzo esisodwa esizolile ngesikhathi osikhethayo. Azikho izimpawu noma umuzwa wecala.',
   'settings.reminderToggleLabel': 'Thumela ukushukuma okumnene',
@@ -141,6 +177,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Ukudala ijenali…',
   'signup.subheading': 'Indawo ephephile yemicabango yakho.',
   'wellnessRingsTriad.mindfulnessCaption': 'Igoli {{goal}} umzuzu namuhla',
+  'wellnessRingsTriad.mindfulnessLabel': 'Ukuzindla',
   'wellnessRingsTriad.sleepCaption': 'Igoli {{goal}} ubusuku / amahora',
   'wellnessRingsTriad.sleepLabel': 'Ukulala',
+  'wellnessRingsTriad.sleepValue': '{{hours}}h',
+  'wellnessRingsTriad.streakCaption': 'Umgomo wezinsuku ezingu-{{goal}}',
+  'wellnessRingsTriad.streakLabel': 'Ukulandelana kwejenali',
+  'wellnessRingsTriad.streakValue': '{{days}} d',
 }

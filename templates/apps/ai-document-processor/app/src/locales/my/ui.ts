@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'မေးခွန်းရှိသည်၊ bug တစ်ခုတွေ့သည် သို့မဟုတ် သင့်အဖွဲ့အတွက် demo လိုချင်ပါသလား။ သင့်အကောင့်ဆက်တင်များမှ ဆက်သွယ်ပါ — မက်ဆေ့ခ်ျတိုင်း အဖွဲ့မှ လူတစ်ဦးထံ ရောက်ပါသည်။',
   'about.contactTitle': 'ဆက်သွယ်ပါ',
+  'about.intro':
+    '{{app}} သည် စကန်ဖတ်ထားသော စာရွက်စာတမ်းများနှင့် PDF အစုအပြုံများကို ဖွဲ့စည်းထားပြီး ရှာဖွေနိုင်သော၊ ဖိုင်တွဲထားသော ဒေတာအဖြစ် ပြောင်းလဲပေးသည်။ ငွေတောင်းခံလွှာများ၊ ပြေစာများ၊ စာချုပ်များ သို့မဟုတ် ဖောင်များကို ထည့်လိုက်ပြီး AI က ဖတ်ရှု၊ ထုတ်ယူ၊ အမျိုးအစားခွဲ၊ ဖိုင်တွဲပေးပါစေ — ယုံကြည်မှုအရောင်များဖြင့် သင့်အဖွဲ့သည် လူသားစစ်ဆေးရန် လိုအပ်သည့်အရာများကိုသာ ပြန်လည်စစ်ဆေးရမည်။',
+  'about.missionBody':
+    'စာရွက်စာတမ်းဆိုင်ရာ အလုပ်များသည် သင့်အဖွဲ့၏ တစ်နေ့တာကို မစားသုံးသင့်ပါ။ ထုတ်ယူထားသော တန်ဖိုးတိုင်းသည် ရှင်းလင်းပြီး စစ်ဆေးနိုင်ရမည်ဟု ကျွန်ုပ်တို့ယုံကြည်သည် — ထို့ကြောင့် စာရွက်စာတမ်းမှတ်တမ်း မဆုံးရှုံးဘဲ အလိုအလျောက်လုပ်ဆောင်မှုကို ယုံကြည်နိုင်သည်။ {{app}} သည် အစုတစ်ခုလျှင် နာရီများစွာ သက်သာစေရန် တည်ဆောက်ထားပြီး အရေးကြီးသည့်နေရာတိုင်းတွင် လူသားကို ပါဝင်စေသည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
+  'about.subtitle':
+    'သင့်စာရွက်စာတမ်းများအတွက် OCR၊ AI ထုတ်ယူမှု၊ အမျိုးအစားခွဲခြင်းနှင့် အလိုအလျောက် ဖိုင်တွဲခြင်း။',
   'about.title': '{{app}} အကြောင်း',
+  'about.whatYouGetTitle': 'သင်ရရှိသောအရာ',
   'authShell.backToLanding': '← ဆင်းသက်ခြင်းသို့ ပြန်သွားရန်',
   'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'ယနေ့ · လုပ်ငန်းလည်ပတ်မှုခြုံငုံသုံးသပ်ချက်',
   'dashboard.heading': 'စာရွက်စာတမ်း ထောက်လှမ်းရေး',
+  'dashboard.metric.accuracy': 'ပျမ်းမျှ တိကျမှု',
   'dashboard.metric.filed': 'ယနေ့တင်သွင်းခဲ့သည်',
   'dashboard.metric.filedCaption': 'ဖိုင်တင်စည်းမျဉ်းများဖြင့် လမ်းကြောင်းပြောင်းထားသည်',
   'dashboard.metric.processed': 'ယနေ့ စီမံဆောင်ရွက်ပြီး',
@@ -23,11 +34,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'စာရွက်စာတမ်း',
   'dashboard.recent.col.uploaded': 'အပ်လုဒ်လုပ်ထားသည်',
   'dashboard.recent.heading': 'မကြာသေးမီက စာရွက်စာတမ်းများ',
+  'dashboard.recent.typeUnknown': 'အမျိုးအစားခွဲရန် စောင့်ဆိုင်းနေသည်',
   'dashboard.subheading':
     'စာမျက်နှာတိုင်းကို အမျိုးအစားခွဲခြား၊ ထုတ်ယူပြီး ဖိုင်တင်ထားသည် — ယုံကြည်မှုအရောင်များဖြင့် သုံးသပ်ချက်သည် အာရုံစူးစိုက်နေစေရန် ပြုလုပ်ထားသည်။',
   'documentDetail.audit.heading': 'စာရင်းစစ် အချိန်ဇယား',
+  'documentDetail.audit.subheading':
+    'ဤစာရွက်စာတမ်းအပေါ် လုပ်ဆောင်ခဲ့သည့် အဆင့်တိုင်း၊ တာဝန်ရှိသူနှင့်တကွ။',
   'documentDetail.back': 'စာရွက်စာတမ်းအားလုံး',
   'documentDetail.downloadHint': 'မူရင်းဖိုင်ကိုဖွင့်ရန် Download ကိုသုံးပါ။',
+  'documentDetail.extracted.empty': 'ထုတ်ယူထားသော အကွက်များ မရှိသေးပါ။',
   'documentDetail.extracted.heading': 'ထုတ်ယူထားသော အကွက်များ',
   'documentDetail.extracted.subheading':
     '{{count}} ကွက်လပ်များ · စာမျက်နှာပေါ်တွင် မီးမောင်းထိုးပြရန် မည်သည့်ကွက်လပ်ကိုမဆို နှိပ်ပါ',
@@ -56,13 +71,24 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} သင့်စာကြည့်တိုက်ရှိ စာရွက်စာတမ်းများကို အသစ်ဆုံးကို ဦးစွာစီထားသည်။',
   'documents.uploadCta': 'စာရွက်စာတမ်းများ အပ်လုဒ်လုပ်ပါ',
+  'documentTypeBreakdown.barAria': 'အမျိုးအစားအလိုက် စာရွက်စာတမ်းဖွဲ့စည်းမှု',
   'documentTypeBreakdown.empty': 'စာရွက်စာတမ်းများကို မစီမံရသေးပါ။',
   'documentTypeBreakdown.subtitle': '{{total}} စီမံဆောင်ရွက်ပြီး',
   'documentTypeBreakdown.title': 'စာရွက်စာတမ်းဖွဲ့စည်းပုံ',
+  'forgotPassword.backToSignIn': '← အကောင့်ဝင်ရန် ပြန်သွားပါ',
   'forgotPassword.checkEmail': 'သင့်အီးမေးလ်ကို စစ်ဆေးပါ',
   'forgotPassword.tip': 'မရဘူးလား။ spam ကိုစစ်ကြည့်ပါ သို့မဟုတ် အခြားလိပ်စာတစ်ခုကို စမ်းကြည့်ပါ။',
+  'landing.copyright':
+    '© {{year}} {{app}}။ စာမျက်နှာတိုင်းကို စစ်ဆေးသော ops အဖွဲ့များအတွက် တည်ဆောက်ထားသည်။',
+  'landing.ctaBody':
+    '၁၄ ရက် အစမ်းကာလ။ ကတ်မလိုအပ်ပါ။ အချိန်မရွေး ပယ်ဖျက်နိုင်သည်။ အလျင်အမြန်လုပ်ဆောင်ပြီး နှေးကွေးစွာ စစ်ဆေးသော ops အဖွဲ့များအတွက် တည်ဆောက်ထားသည်။',
   'landing.ctaHeading': 'ပြေစာတွေ ရိုက်တာရပ်လိုက်ပါ။ ဖိုင်တင်တာ စလုပ်ပါ။',
   'landing.eyebrow': 'OCR · ထုတ်ယူခြင်း · AI ဖိုင်တင်ခြင်း',
+  'landing.featuresHeading': 'မိမိကိုယ်တိုင် ရှင်းလင်းပြသော စာရွက်စာတမ်း ဉာဏ်ရည်',
+  'landing.heroSubtitle':
+    'ငွေတောင်းခံလွှာများ၊ ပြေစာများ၊ စာချုပ်များ သို့မဟုတ် ဖောင်များ အစုတစ်ခုကို ထည့်လိုက်ပါ။ {{app}} သည် ၎င်းတို့ကို အမျိုးအစားခွဲ၊ ထုတ်ယူ၊ ဖိုင်တွဲပေးသည် — ယုံကြည်မှုအရောင်များဖြင့် သင့်အဖွဲ့သည် လူသားစစ်ဆေးရန် လိုအပ်သည့်အရာများကိုသာ ပြန်လည်စစ်ဆေးရမည်။',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'နေ့စဉ် ပမာဏ · နောက်ဆုံး ၇ ရက်',
   'landing.sampleCardLabel': 'ယနေ့ စီမံဆောင်ရွက်ပြီးသော စာရွက်စာတမ်းများ',
   'landing.sampleCardSubtitle':
     'ငွေတောင်းခံလွှာများ၊ ပြေစာများနှင့် ဖောင်များတွင် ပျမ်းမျှတိကျမှု ၉၆.၂%။',
@@ -76,6 +102,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · ၄၀၄',
   'notFound.home': 'ဆင်းသက်စာမျက်နှာကို ဖွင့်ပါ',
   'notFound.title': 'ထိုစာမျက်နှာသည် မှတ်တမ်းတွင် မရှိပါ။',
+  'parcelaHeroCard.accuracy': 'ထုတ်ယူမှုအားလုံးတွင် ပျမ်းမျှ တိကျမှု {{value}}%',
   'parcelaHeroCard.change': '{{sign}} {{amount}} မနေ့ကနှင့် နှိုင်းယှဉ်ပါက %',
   'parcelaHeroCard.title': 'ယနေ့ စီမံဆောင်ရွက်ပြီးသော စာရွက်စာတမ်းများ',
   'parcelaLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
@@ -83,6 +110,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'စာရွက်စာတမ်းများ',
   'pricing.processingLabel': 'အလုပ်များကို စီမံဆောင်ရွက်ခြင်း',
   'resetPassword.confirmPlaceholder': 'စကားဝှက်အသစ်ကို ထပ်ခါတလဲလဲ ရိုက်ထည့်ပါ',
+  'resetPassword.hidePassword': 'စကားဝှက်ကို ဝှက်ပါ',
   'resetPassword.passwordLabel': 'စကားဝှက်အသစ်',
   'resetPassword.showPassword': 'စကားဝှက်ပြပါ',
   'resetPassword.subtitle': 'အနည်းဆုံး စာလုံး ၈ လုံးရှည်တဲ့ တစ်ခုခုကို ရွေးချယ်ပါ။',
@@ -99,10 +127,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'စည်းမျဉ်းများကို တင်၍မရပါ။',
   'rules.loading': 'စည်းမျဉ်းများကို တင်နေသည်…',
   'rules.matched30d': '{{count}} ပြီးခဲ့သည့် ၃၀ ရက်အတွင်း ကိုက်ညီသော စာရွက်စာတမ်းများ',
+  'rules.neverUsed': 'တစ်ခါမှ မသုံးဖူးပါ',
   'rules.newRule': 'စည်းမျဉ်းသစ်',
   'rules.saveError': 'စည်းမျဉ်းကို သိမ်းဆည်း၍မရပါ။',
   'rules.subheading':
     'စာရွက်စာတမ်းတစ်ခုစီကို မည်သည့်နေရာတွင်ထားရမည်ကို စနစ်ကိုပြောပြပါ။ အခြေအနေများသည် အပေါ်မှအောက်သို့ ကွင်းဆက်အတိုင်း — ပထမဆုံးပွဲစဉ်က အနိုင်ရသည်။',
+  'rules.templatesEmpty': 'ထုတ်ယူမှု နမူနာပုံစံများ မရှိသေးပါ။',
   'rules.templatesHeading': 'ထုတ်ယူခြင်းပုံစံများ',
   'rules.templatesSubheading':
     'extractor က document အမျိုးအစားတစ်ခုစီအတွက် အသုံးပြုတဲ့ field schemas များ။',
@@ -112,17 +142,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'အလုပ်ခွင်အမည်',
   'settings.account.subheading':
     'အကြောင်းကြားချက်များနှင့် စာရင်းစစ်မှတ်တမ်းအတွက် အမည်နှင့် အဓိကအီးမေးလ်ကို ပြသပါ။',
+  'settings.api.confirmRevoke': 'အတည်ပြုပါသလား။',
   'settings.api.copyOnce': 'ဤသော့ကို ကူးယူပါ — ၎င်းကို ထပ်မံပြသမည်မဟုတ်ပါ',
   'settings.api.createdOn': 'ဖန်တီးထားသည် {{date}}',
   'settings.api.empty': 'API key မရှိသေးပါ။ အထက်တွင် တစ်ခုထုတ်လုပ်ပါ။',
   'settings.api.error': 'သော့ဖန်တီးခြင်း မအောင်မြင်ပါ။',
+  'settings.api.generating': 'ထုတ်နေသည်…',
+  'settings.api.heading': 'API ကီးများ',
   'settings.api.labelPlaceholder': 'သော့တံဆိပ် (ဥပမာ CI အပ်လုဒ်လုပ်သူ)',
+  'settings.api.loading': 'သော့များ ဖွင့်နေသည်…',
   'settings.api.newKey': 'သော့ကို ထုတ်လုပ်ပါ',
   'settings.api.subheading':
     '၎င်းတို့ကို အသုံးပြု၍ script သို့မဟုတ် သင့် ERP မှ စာရွက်စာတမ်းများကို တွန်းပို့ပါ။ မည်သည့်အချိန်တွင်မဆို မည်သည့်ခလုတ်ကိုမဆို လှည့်ပါ။',
   'settings.integrations.heading': 'ဖိုင်တွဲပေါင်းစပ်မှုများ',
   'settings.integrations.subheading':
     'သင့်အဖွဲ့ရှိပြီးသား cloud drive သို့မဟုတ် chat tool သို့ တင်သွင်းထားသော စာရွက်စာတမ်းများကို ပေးပို့ပါ။',
+  'settings.subheading':
+    'သင့် {{app}} workspace အတွက် အကောင့်၊ API သော့များနှင့် ဖိုင်တွဲခြင်း ပေါင်းစပ်မှုများကို စီမံပါ။',
+  'signup.hidePassword': 'စကားဝှက်ကို ဝှက်ပါ',
   'signup.identityPrompt': 'ကျွန်ုပ်တို့ သင့်ကို ဘယ်လို ဆက်ဆံသင့်ပါသလဲ။',
   'signup.showPassword': 'စကားဝှက်ပြပါ',
   'signup.subtitle': '၁၄ ရက် အခမဲ့၊ ကတ်မလိုအပ်ပါ။',
@@ -130,6 +167,7 @@ export const ui: UiTranslations = {
   'upload.error': 'အပ်လုဒ်လုပ်၍မရပါ။',
   'upload.eyebrow': 'မျိုချခြင်း',
   'upload.heading': 'စာရွက်စာတမ်းများ အပ်လုဒ်လုပ်ပါ',
+  'upload.queue.clear': 'ပြီးစီးသည်များကို ရှင်းလင်းပါ',
   'upload.queue.col.confidence': 'ယုံကြည်မှု',
   'upload.queue.col.file': 'ဖိုင်',
   'upload.queue.detecting': 'ထောက်လှမ်းနေသည်…',
@@ -142,5 +180,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'သို့မဟုတ် ဖိုင်များစွာကို တစ်ပြိုင်နက်တည်း ထုတ်ယူခြင်း၊ အမျိုးအစားခွဲခြားခြင်းနှင့် ဖိုင်တွဲခြင်းအတွက် ထည့်ပါ။',
   'uploadDropZone.cta': 'ဖိုင်များကို ရွေးချယ်ပါ',
+  'uploadDropZone.maxSize': 'ဖိုင်တစ်ခုလျှင် အများဆုံး ၂၅ MB · အဆုံးမှအဆုံး ကုဒ်ဝှက်ထားသည်',
   'uploadDropZone.title': 'စီမံဆောင်ရွက်ရန် စာရွက်စာတမ်းများကို ချပါ',
 }

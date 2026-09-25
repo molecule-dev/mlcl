@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'પ્રતિસાદ છે, બગ મળ્યો છે, અથવા જર્નલિંગે તમને કેવી મદદ કરી તે અમને કહેવા માંગો છો? અમે દરેક સંદેશ વાંચીએ છીએ — ક્યારેય પણ સંપર્ક કરો અને એક સાચી વ્યક્તિ તમને જવાબ આપશે.',
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
+  'about.featureInsights':
+    'AI-સંચાલિત પ્રતિબિંબો જે ટ્રિગર્સ, થીમ્સ અને કૃતજ્ઞતાઓને નમ્રતાથી પ્રકાશિત કરે છે — તમારો અવાજ ગુમાવ્યા વિના.',
+  'about.featureMood':
+    'મૂડ અને પ્રવૃત્તિ ટ્રેકિંગ, કેલેન્ડર વ્યૂ અને ટ્રેન્ડ ચાર્ટ સાથે જે દર્શાવે છે કે તમને શું ફાયદો કરે છે.',
+  'about.featurePrivacy':
+    'એન્ડ-ટુ-એન્ડ એન્ક્રિપ્શન, પાસકોડ લોક અને સંપૂર્ણ CSV એક્સપોર્ટ જેથી તમારા પ્રતિબિંબ ખાનગી અને પોર્ટેબલ રહે.',
+  'about.featurePrompts':
+    'નમ્ર દૈનિક પ્રોમ્પ્ટ્સ જેથી તમારી પાસે હંમેશા શરૂ કરવાનું કંઈક હોય — ક્યારેય ખાલી પાનું નહીં.',
+  'about.intro':
+    '{{app}} એ દૈનિક પ્રતિબિંબ, મૂડ ટ્રેકિંગ અને કૃતજ્ઞતા માટેનું નમ્ર, ખાનગી માનસિક સ્વાસ્થ્ય જર્નલ છે. વિચારશીલ પ્રોમ્પ્ટ્સ ખાલી પાનાને બદલે છે, શાંત પેટર્ન-શોધ તમને સમજવામાં મદદ કરે છે કે તમને કેવી લાગણી થાય છે તેના પર શું અસર કરે છે, અને એન્ડ-ટુ-એન્ડ એન્ક્રિપ્શન તમારા શબ્દોને તમારા જ રાખે છે.',
+  'about.missionBody':
+    'અમે માનીએ છીએ કે પોતાની સાથે ચેક-ઇન કરવું શાંત લાગવું જોઈએ, ક્યારેય ક્લિનિકલ નહીં — અને ક્યારેય તમારું ધ્યાન માંગતી બીજી એપ જેવું નહીં. {{app}} મદદ કરવા માટે બનાવવામાં આવ્યું છે, ટોકવા માટે નહીં: દિવસમાં થોડી શાંત મિનિટો તમારો મૂડ જોવા, પ્રામાણિકપણે લખવા અને ધીમે ધીમે પોતાને વધુ સ્પષ્ટ રીતે જોવા માટે.',
+  'about.missionTitle': 'અમારું ધ્યેય',
   'about.pageTitle': '{{app}} વિશે',
   'authShell.encryptionBadge': 'તમારી એન્ટ્રીઓ એન્ડ-ટુ-એન્ડ એન્ક્રિપ્ટેડ છે.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'દિવસ {{day}} — કોઈ એન્ટ્રી નથી',
   'calendar.cellMood': 'દિવસ {{day}} - {{mood}}',
   'calendar.distributionHeading': 'આ મહિનો એક નજરમાં',
   'calendar.eyebrow': 'એક નજરમાં મૂડ',
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'ટ્રેક કરેલ {{tracked}} ના {{total}} આ મહિનાના દિવસો.',
   'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'common.tryAgain': 'ફરી પ્રયાસ કરો',
+  'entryComposer.bodyPlaceholder': 'જે પ્રામાણિક લાગે તે લખો. બીજું કોઈ આ વાંચશે નહીં.',
   'entryComposer.cancel': 'જર્નલ પર પાછા જાઓ',
   'entryComposer.heading': 'આજનું પ્રતિબિંબ',
   'entryComposer.moodLabel': 'તમને કેવું લાગે છે?',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'દૂર કરો {{tag}}',
   'entryComposer.save': 'પ્રતિબિંબ સાચવો',
   'entryComposer.saveError': 'તમારી એન્ટ્રી સાચવી શકાઈ નથી.',
+  'entryComposer.tagPlaceholder': 'ટેગ ઉમેરો અને એન્ટર દબાવો',
   'entryComposer.titlePlaceholder': 'આ પ્રતિબિંબને એક નામ આપો...',
   'entryDetail.back': 'જર્નલ પર પાછા જાઓ',
   'entryDetail.delete': 'આ એન્ટ્રી કાઢી નાખો',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'પ્રતિબિંબ લોડ કરી રહ્યું છે…',
   'entryDetail.notFound': 'એન્ટ્રી મળી નથી.',
   'entryDetail.reflectionsHeading': 'AI પ્રતિબિંબ',
+  'forgotPassword.continueButton': 'રીસેટ કોડ દાખલ કરો',
   'forgotPassword.eyebrow': 'કોઈ ચિંતા નહિ',
   'forgotPassword.subheading': 'અમે તમારા ઇમેઇલ પર એક સૌમ્ય રીસેટ લિંક મોકલીશું.',
   'forgotPassword.successBody':
@@ -58,14 +78,21 @@ export const ui: UiTranslations = {
     'હજુ સુધી કોઈ થીમ નથી — તમારી એન્ટ્રીઓમાં એક કે બે ટેગ ઉમેરો અને તે અહીં ભેગા થશે.',
   'insights.themesHeading': 'ટોચની થીમ્સ',
   'insights.triggerFrequency': 'નોંધ્યું {{count}} × આ મહિને',
+  'insights.triggersEmpty':
+    'હજી નોંધવા જેવું કંઈ નથી. થોડા દિવસોમાં થોડી એન્ટ્રીઓ તમારી પેટર્ન દર્શાવશે.',
   'insights.triggersHeading': 'તમારા મૂડને હલાવતા દાખલાઓ',
+  'journal.empty': 'કોઈ પ્રતિબિંબ મેળ ખાતું નથી — બીજું ફિલ્ટર અજમાવો અથવા નવી એન્ટ્રી લખો.',
   'journal.eyebrow': 'તમારા વિચારો',
   'journal.heading': 'જર્નલ',
   'journal.loadError': 'એન્ટ્રીઓ લોડ કરવામાં નિષ્ફળ.',
   'journal.loading': 'એન્ટ્રીઓ લોડ કરી રહ્યું છે...',
+  'journal.newEntry': 'નવી એન્ટ્રી',
   'journal.searchPlaceholder': 'એક લાગણી, એક નામ, એક ક્ષણ શોધો...',
   'journal.subheading': '{{count}} એન્ટ્રીઓ - દરેક રાખવા યોગ્ય.',
   'journalEntryCard.encryptedLabel': 'એન્ક્રિપ્ટેડ',
+  'landing.ctaBody':
+    'શરૂ કરવા માટે મફત. Pro ડેટા એક્સપોર્ટ, મોટું જર્નલ અને પૂરા વર્ષનો ઇતિહાસ અનલોક કરે છે.',
+  'landing.ctaButton': 'તમારી પહેલી એન્ટ્રી શરૂ કરો',
   'landing.ctaTitle': 'દિવસમાં થોડી શાંતિપૂર્ણ મિનિટો. બસ આટલું જ.',
   'landing.eyebrow': 'એક સૌમ્ય દૈનિક પ્રથા',
   'landing.featuresBody':
@@ -84,6 +111,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'દૈનિક ચિંતન માટે એક સૌમ્ય જગ્યા.',
   'mentalHealthJournalLayout.closeMenu': 'મેનૂ બંધ કરો',
   'mentalHealthJournalLayout.openMenu': 'મેનુ ખોલો',
+  'mentalHealthJournalLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',
+  'moodHeroCard.entriesThisWeek': '{{count}} આ અઠવાડિયે',
   'moodHeroCard.streakSuffix': 'દિવસનો દોર',
   'moodHeroCard.title': 'આજનું પ્રતિબિંબ',
   'moodTrendChart.aiBadge': 'AI ઇનસાઇટ તૈયાર',
@@ -94,11 +123,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'તમારી યાત્રા',
   'profile.fallbackName': 'રિફ્લેક્ટર',
   'profile.loadError': 'આંકડા લોડ કરવામાં નિષ્ફળ.',
+  'profile.loading': 'તમારા આંકડા રિફ્રેશ થઈ રહ્યા છે…',
   'profile.longestStreak': 'સૌથી લાંબી સ્ટ્રીક',
   'profile.memberSince': 'ત્યારથી પ્રતિબિંબિત થાય છે {{date}}',
   'profile.milestones': 'સીમાચિહ્નો',
   'profile.milestonesEmpty':
     'તમારો પહેલો સીમાચિહ્ન એક એન્ટ્રી દૂર છે - જ્યારે પણ તમે તૈયાર થાઓ ત્યારે લખો.',
+  'profile.moodMix': 'આ સીઝનમાં તમારો મૂડ મિક્સ',
   'profile.streakValue': '{{days}} ડી',
   'profile.totalEntries': 'પ્રતિબિંબ',
   'profile.totalWords': 'લખેલા શબ્દો',
@@ -111,6 +142,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'આ વિશે લખો',
   'resetPassword.eyebrow': 'એક નવી શરૂઆત',
   'resetPassword.mismatchError': 'પાસવર્ડ્સ મેળ ખાતા નથી.',
+  'resetPassword.passwordLabel': 'નવો પાસવર્ડ',
   'resetPassword.subheading': 'કંઈક સલામત પસંદ કરો - તમારા વિચારો તેને લાયક છે.',
   'resetPassword.tokenPlaceholder': 'ઇમેઇલમાંથી કોડ રીસેટ કરો',
   'settings.dangerDescription':
@@ -122,11 +154,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'એકાઉન્ટ ડિલીટ કરી શકાયું નથી.',
   'settings.exportDescription': 'તમારા શબ્દો હંમેશા તમારા જ છે. ગમે ત્યારે તેની નકલ ડાઉનલોડ કરો.',
   'settings.exportDone': 'નિકાસ કરેલ {{format}}.',
+  'settings.exportError': 'નિકાસ નિષ્ફળ.',
+  'settings.exportHeading': 'તમારા પ્રતિબિંબ એક્સપોર્ટ કરો',
   'settings.exportLoading': 'તૈયારી કરી રહ્યું છે...',
   'settings.eyebrow': 'તમારી જગ્યા, તમારા નિયમો',
   'settings.languageHeading': 'ભાષા',
   'settings.privacyHeading': 'ગોપનીયતા અને એન્ક્રિપ્શન',
   'settings.remindersHeading': 'દૈનિક રીમાઇન્ડર',
+  'settings.reminderToggleAria': 'દૈનિક રિમાઇન્ડર ટૉગલ કરો',
   'settings.reminderToggleDescription':
     'તમે પસંદ કરો તે સમયે એક જ શાંત યાદ અપાવો. કોઈ બેજ કે અપરાધભાવ નહીં.',
   'settings.reminderToggleLabel': 'હળવો સંકેત મોકલો',
@@ -139,6 +174,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'જર્નલ બનાવી રહ્યા છીએ…',
   'signup.subheading': 'તમારા વિચારો માટે એક સુરક્ષિત જગ્યા.',
   'wellnessRingsTriad.mindfulnessCaption': 'ધ્યેય {{goal}} આજે ઓછામાં ઓછું',
+  'wellnessRingsTriad.mindfulnessLabel': 'માઇન્ડફુલનેસ',
   'wellnessRingsTriad.sleepCaption': 'ધ્યેય {{goal}} કલાક / રાત્રિ',
   'wellnessRingsTriad.sleepLabel': 'ઊંઘ',
+  'wellnessRingsTriad.sleepValue': '{{hours}}h',
+  'wellnessRingsTriad.streakCaption': 'લક્ષ્ય {{goal}} દિવસ',
+  'wellnessRingsTriad.streakLabel': 'જર્નલ સ્ટ્રીક',
+  'wellnessRingsTriad.streakValue': '{{days}} ડી',
 }

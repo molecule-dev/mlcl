@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пикир калтырғыңыз келеби, ката таптыңызбы же функция сурайсызбы? Аккаунт жөндөөлөрүңүздөн байланышыңыз — ар бир билдирүү командадагы чыныгы адамга жетет. Эскертүү: бул жердегинин баары инвестициялык кеңеш эмес; ар бир сооданы өзүңүз көзөмөлдөйсүз.',
+  'about.contactTitle': 'Биз менен байланышуу',
+  'about.featureAttribution':
+    'Натыйжалуулукту бөлүштүрүү — кирешелерди сектор, аймак жана актив класстары боюнча ажыратып, каалаган мезгил аралыгында салыштырыңыз.',
+  'about.featureRebalance':
+    'Тартиптүү ребалансировка — максаттуу бөлүштүрүүнү жана чыдамдуулук диапазондорун белгилеңиз, четтөөнү эрте көрүңүз жана сизди кайра тең салмакка келтирүүчү соодаларды алыңыз.',
+  'about.featureTax':
+    'Салык документтеринин тазалыгы — ишке ашкан жана ишке ашпаган пайда, дивиденддер жана 1099 документтери бир жерде, wash-sale белгилери менен кошо.',
+  'about.featureUnified':
+    'Бирдиктүү портфель — акциялар, ETFтер, өз ара фонддор, облигациялар жана башкалар, бардык брокердик аккаунттар боюнча чогултулган.',
+  'about.featureWatchlist':
+    'Көзөмөл тизмектери, жаңылыктар жана баа эскертүүлөрү — маанилүү нерселерге ызы-чуусуз аракет кылыңыз.',
+  'about.intro':
+    '{{app}} — жеке инвесторлор жана көз карандысыз кеңешчилер үчүн көп активдүү портфель башкаруу панели. Акциялар, ETFтер, өз ара фонддор, облигациялар, кыймылсыз мүлк жана накталай акча — ар бир аккаунттагы ар бир актив бир жерде, профессионалдуу дэскинин тартиби менен.',
+  'about.missionBody':
+    'Жакшы инвестициялоо негизинен тартип: так максаттуу бөлүштүрүү, чыныгы натыйжалуулукту бөлүштүрүү жана таза салык жазуулары. {{app}} ушул институционалдык адаттарды ар кимге жеткирет, ошондо сиз импульс менен эмес, атайылап ребалансировка кыла аласыз — жана портфелиңиздин чындап эмне кылып жатканын эч качан унутпайсыз.',
+  'about.missionTitle': 'Биздин миссиябыз',
   'about.pageTitle': '{{app}} жөнүндө',
   'argentAuthShell.brandEyebrow': 'Аргент · Байлыкты камсыздоочу куралдар',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Инвестициялык кеңеш эмес.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Тартиптүү кайра баланстоону, так көрсөткүчтөрдү атрибуциялоону жана салык документтеринин гигиенасын каалаган жеке инвесторлор жана кеңешчилер үчүн портфелдин башкаруу панели — ызы-чуусуз.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · Өткөн натыйжалуулук келечектеги жыйынтыктарга кепилдик бербейт.',
   'argentAuthShell.sampleChange': 'Бүгүн +$2,841 (+0.28%)',
+  'argentAuthShell.sampleLabel': 'Портфелдин баасы',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Негизги навигация',
   'assetAllocationDonut.heading': 'Акчаңыз кантип инвестицияланат',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'бүгүн',
   'assetDetail.txEmpty': 'Бул тикер боюнча эч кандай транзакциялар жок.',
   'assetDetail.txHeading': 'Сиздин транзакцияларыңыз',
+  'auth.legalConsent.prefix': 'Улантуу менен, сиз {{appName}} шарттарына макул болосуз',
   'common.and': 'жана',
   'common.goToDashboard': 'Башкы бетке өтүү',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'бүгүн',
   'dashboard.topHoldings.heading': 'Акчаңыз кайда иштеп жатат',
   'dashboard.topHoldings.label': 'Эң мыкты холдингдер',
+  'forgotPassword.gotLinkCta': 'Менде кайра коюу шилтемеси бар →',
+  'forgotPassword.subheading':
+    'Gavl аккаунтуңуздагы электрондук почта дарегин киргизиңиз, биз сизге коопсуз баштапкы абалга келтирүү шилтемесин жөнөтөбүз.',
   'forgotPassword.successBody':
     'Эгер аны бир нече мүнөттүн ичинде көрбөсөңүз, спам папкаңызды текшериңиз же башка электрондук почтаны колдонуп көрүңүз.',
   'forgotPassword.successSubheading':
     'Текшерүү {{email}} баштапкы абалга келтирүү шилтемеси үчүн. Ал 60 мүнөттөн кийин жараксыз болуп калат.',
+  'forgotPassword.successTitle': 'Кайра коюу электрондук каты жолдо',
   'holdingHighlightRow.todayLabel': 'бүгүн',
   'holdings.addCta': 'Сатып алуу',
   'holdings.col.allocation': 'Бөлүштүрүү',
@@ -58,6 +87,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Инвестициялык кеңеш эмес. Мурдагы көрсөткүчтөр келечектеги натыйжаларга кепилдик бербейт.',
   'landing.eyebrow': 'Argent · Байлыкты топтоо платформасы',
   'landing.features.heading': 'Кеңешчи өзү үчүн кура турган нерселердин баарын.',
+  'landing.finalCta.body':
+    'Брокериңизди эки басуу менен туташтырыңыз. Калганын {{appName}} аткарат.',
+  'landing.finalCta.cta': 'Argent эсебиңизди ачыңыз',
   'landing.finalCta.heading': 'Портфолиоңузга тартипти кайтарып алыңыз.',
   'landing.footerSignup': 'Эсеп ачуу',
   'landing.getStarted': 'Эсеп ачуу',
@@ -65,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Бааларды көрүү',
   'landing.heroSubtitle':
     'Тартиптүү кайра баланстоону, так көрсөткүчтөрдү атрибуциялоону жана салык документтеринин гигиенасын каалаган жеке инвесторлор жана кеңешчилер үчүн портфелдин башкаруу панели — ызы-чуусуз.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Өкүлчүлүк портфолиосунан түз эфирде алдын ала көрүү',
   'login.heading': 'Argent’ке кириңиз',
   'login.subheading':
@@ -76,6 +109,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} саат мурун',
   'news.justNow': 'азыр эле',
   'news.loadError': 'Жаңылыктар жүктөлбөй калды.',
+  'planUpdated.body':
+    'Төлөм өзгөртүүңүз эми активдүү. Планыңызды каалаган убакта төлөм барагынан башкара аласыз.',
+  'planUpdated.retry': 'Кайра аракет кыл',
+  'planUpdated.verifyFailed': 'Төлөмүңүздү азырынча ырастай алган жокпуз.',
+  'planUpdated.verifyFailedBody':
+    'Төлөмүңүз дагы эле иштетилип жатышы мүмкүн. Бир аздан кийин кайра аракет кылыңыз.',
   'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'portfolioHeroCard.label': 'Портфелдин баасы',
   'pricing.holdingsLabel': 'холдингдер',
@@ -86,12 +125,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Бөлүштүрүү дрейфи',
   'rebalance.empty': 'Азырынча максаттар коюла элек.',
   'rebalance.executeCta': 'Орун {{count}} соода',
+  'rebalance.executeError': 'Соодаларды жайгаштыруу ишке ашкан жок.',
   'rebalance.executeOk': 'Жайгаштырылган {{count}} соодалар. Аларды "Бүтүмдөр" барагынан көрүңүз.',
+  'rebalance.executing': 'Жайгаштырылууда…',
   'rebalance.eyebrow': 'Кайра баланстоо · Аргент кеңешчиси',
   'rebalance.heading': 'Портфолиоңузду кайрадан тартипке келтириңиз',
   'rebalance.loadError': 'Кайра баланстоо планы жүктөлбөй калды.',
+  'rebalance.plan.driftLine': 'азыркы {{current}}% · максаттуу {{target}}%',
   'rebalance.planHeading': 'Аргент билети — жайгаштыруудан мурун карап чыгуу',
   'rebalance.planLabel': 'Сунушталган соода планы',
+  'rebalance.subheading':
+    'Чыдамдуулук диапазонунан чыккан саптар соода сунуштарын жаратат. {{appName}} сиздин ырастооңуз боюнча гана аракет кылат.',
   'rebalance.summary.buyLabel': 'Сатып алуулар',
   'rebalance.summary.buySub': 'толуктоо үчүн кызмат орундары',
   'rebalance.summary.driftLabel': 'Топтон тышкары',
@@ -100,6 +144,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'сунушталган соодалар боюнча',
   'rebalance.summary.sellLabel': 'Сатуулар',
   'rebalance.summary.sellSub': 'кыркуу үчүн позициялар',
+  'rebalanceDriftCard.drift': 'четтөө {{sign}}{{pct}}% · диапазон ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'бута {{pct}} %',
   'reports.attributionHeading': 'Аткарууну атрибуциялоо (1 жыл)',
   'reports.col.alpha': 'Альфа',
@@ -113,36 +158,68 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Жыл',
   'reports.gainsHeading': 'Ишке ашырылган жана ишке ашырылбаган кирешелер',
   'reports.noAttribution': 'Азырынча атрибуция маалыматтары жок.',
+  'reports.noGains': 'Азырынча ишке ашкан/ишке ашпаган пайда маалыматтары жок.',
   'reports.noPerformance': 'Азырынча аткаруу маалыматтары жок.',
   'reports.noTaxDocs': 'Салык документтери азырынча жок.',
   'reports.performanceHeading': 'Аткаруу жана эталон',
   'reports.taxHeading': 'Салык документтери',
   'resetPassword.heading': 'Күчтүү жаңы сырсөз тандаңыз',
+  'resetPassword.passwordPlaceholder': 'Жаңы сыр сөз',
   'resetPassword.subheading': 'Сырсөзүңүз коюлгандан кийин Argent сизди автоматтык түрдө киргизет.',
   'resetPassword.tokenPlaceholder': 'Электрондук почтадан токенди баштапкы абалга келтирүү',
+  'settings.appearance.description': 'Жарык жана караңгы режимдердин ортосунда которулуңуз.',
   'settings.appearance.title': 'Көрүнүшү',
+  'settings.devices.body': 'Учурда аккаунтуңузга кирген түзмөктөр.',
+  'settings.devices.empty': 'Эч кандай түзмөк табылган жок.',
   'settings.devices.heading': 'Түзмөктөр',
+  'settings.devices.revokeWarning':
+    'Бул түзмөктүн кирүү укугу жакында жокко чыгарылат. Чыгарылсынбы?',
   'settings.devices.signOut': 'Чыгуу',
   'settings.devices.thisDevice': 'Бул түзмөк',
   'settings.devices.unknown': 'Белгисиз түзмөк',
   'settings.linked.body':
     'Брокердик синхрондоштуруу үчүн үчүнчү тараптын туташтыргычы (Plaid, Yodlee ж.б.) талап кылынат. Автоматтык түрдө импорттоону иштетүү үчүн провайдериңизди чөйрөңүздө конфигурациялаңыз.',
   'settings.linked.heading': 'Байланышкан брокердик эсептер',
+  'settings.linked.placeholder': 'Азырынча бир дагы аккаунт байланышкан жок.',
+  'settings.notifications.dividendsPaid': 'Төлөнгөн дивиденддер',
   'settings.notifications.error': 'Параметр жаңыртылган жок.',
   'settings.notifications.priceAlerts': 'Баалар жөнүндө эскертүүлөр',
+  'settings.notifications.rebalanceDrift': 'Ребалансировка четтөөсү',
+  'settings.notifications.taxDocsReady': 'Салык документтери даяр',
   'settings.profile.advisor': 'Кеңешчинин электрондук почтасы (милдеттүү эмес)',
   'settings.profile.heading': 'Профиль',
   'settings.security.changePassword': 'Сырсөздү өзгөртүү',
+  'settings.security.changePasswordTitle': 'Сырсөздү өзгөртүү',
   'settings.security.changing': 'Өзгөрүүдө…',
+  'settings.security.confirmPassword': 'Сырсөз',
+  'settings.security.currentPassword': 'Учурдагы сырсөз',
   'settings.security.deleteAccount': 'Аккаунтту өчүрүү',
   'settings.security.deleteError': 'Аккаунт өчүрүлгөн жок.',
   'settings.security.deleteHeading': 'Аккаунтту өчүрүү',
+  'settings.security.deleteModalWarning':
+    'Бул аккаунтуңузду жана маалыматтарыңызды биротоло жок кылат. Ырастоо үчүн сырсөзүңүздү киргизиңиз.',
+  'settings.security.deleteWarning':
+    'Аккаунтуңузду жана бардык тиешелүү маалыматты биротоло жок кылыңыз. Муну артка кайтаруу мүмкүн эмес.',
   'settings.security.deleting': 'Жок кылынууда…',
   'settings.security.heading': 'Коопсуздук',
   'settings.security.newPassword': 'Жаңы сыр сөз',
   'settings.security.password': 'Сырсөз',
+  'settings.security.passwordError': 'Сырсөздү өзгөртө алган жок.',
+  'settings.security.passwordHint': 'Кирүү үчүн колдонгон сырсөзүңүздү өзгөртүңүз.',
+  'settings.security.twoFactor': 'Эки факторлуу аутентификация',
+  'settings.security.twoFactorCode': 'Аутентификация коду',
+  'settings.security.twoFactorDisable': 'Өчүрүү',
+  'settings.security.twoFactorDisableTitle': 'Эки факторлуу аутентификацияны өчүрүү',
   'settings.security.twoFactorEnable': 'Иштетүү',
+  'settings.security.twoFactorEnableTitle': 'Эки факторлуу аутентификацияны күйгүзүү',
+  'settings.security.twoFactorHint': 'Аккаунтуңузга кошумча коргоо катмарын кошуңуз.',
   'settings.security.twoFactorInvalidCode': 'Жараксыз код',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'Эки факторлуу QR код',
+  'settings.security.twoFactorScan':
+    'Бул QR кодду аутентификатор колдонмоңуз менен скандаңыз, анан 6 орундуу кодду киргизиңиз.',
+  'settings.security.twoFactorUnavailable':
+    'Бул колдонмо үчүн эки факторлуу аутентификация жеткиликтүү эмес.',
   'settings.security.twoFactorVerify': 'Текшерүү жана иштетүү',
   'settings.tax.error': 'Салык төлөө ыкмасы жаңыртылган жок.',
   'settings.tax.heading': 'Салык участогун эсепке алуу',
@@ -153,6 +230,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Салык ыкмасы сакталды.',
   'signup.eyebrow': 'Эсеп ачуу',
   'signup.heading': 'Argent эсебиңизди ачыңыз',
+  'signup.legalPrefix': 'Аккаунт түзүү менен сиз {{appName}} шарттарына макул болосуз',
   'signup.subheading':
     '30 күн акысыз. Карта талап кылынбайт. Каалаган убакта жокко чыгарсаңыз болот.',
   'signup.terms':

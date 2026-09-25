@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Spurningar, endurgjöf eða viltu kynningu fyrir teymið þitt? Sendu okkur tölvupóst á hello@conduit.dev — hver skilaboð berast raunverulegum einstaklingi í teyminu.',
   'about.contactHeading': 'Hafðu samband',
   'about.eyebrow': 'Um',
+  'about.featuresHeading': 'Það sem þú færð',
+  'about.introBody':
+    '{{app}} færir samfellda afhendingu í stíl GitHub Actions inn í eitt hratt stjórnborð: pípur, byggingarlog, gerviefni, stöðumerki og uppsetningarumhverfi fyrir allar geymslurnar þínar á einum stað. Engin flipaskipti, engin gisk um hvaða bygging bilaði — hver keyrsla, loglína og uppsetning er einn smellur í burtu.',
+  'about.introHeading': 'Hvað {{app}} er',
+  'about.missionBody':
+    'Að senda frá sér hugbúnað á að vera rólegt og fyrirsjáanlegt, ekki ótti. Við byggjum pípurnar, login og uppsetningartólin svo leiðin frá commit til framleiðslu sé hröð, sýnileg og áreiðanleg — fyrsta græna byggingin á fimm mínútum, og hver bygging á eftir jafn skýr.',
+  'about.missionHeading': 'Markmið okkar',
+  'about.subtitle':
+    '{{app}} er CI/CD-stjórnborð fyrir teymi sem vilja fylgjast með byggingum, uppsetningum og umhverfum í hverri geymslu — og senda frá sér með vissu.',
   'artifacts.empty': 'Engir gripir ennþá.',
   'artifacts.heading': 'Gripir',
   'artifacts.loadError': 'Mistókst að hlaða gripum.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --listi',
   'environments.heading': 'Umhverfi',
   'environments.loadError': 'Mistókst að hlaða umhverfi.',
+  'environments.loading': 'Hleður umhverfi…',
   'environments.subheading': 'Staða dreifingar í rauntíma á hverju skotmarki.',
   'forgotPassword.runnerStatus': 'endurstilla · öruggur göng',
+  'forgotPassword.success':
+    'Ef aðgangur er til staðar fyrir þetta netfang, þá er tengill til að endurstilla reikninginn væntanlegur. Athugaðu pósthólfið þitt.',
   'insights.changeFailureRate': 'Breyting á bilunartíðni',
   'insights.deployFrequency': 'Útsendingar / dag',
   'insights.empty': 'Ekki næg gögn ennþá.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Mistókst að hlaða innsýn.',
   'insights.meanP95': 'meina {{mean}} · bls. 95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Hægustu skref pípunnar',
   'insights.successRateHeading': 'Árangurshlutfall leiðslunnar (síðustu 14 dagar)',
   'landing.choosePlan': 'Veldu áætlun',
+  'landing.copyright': '© {{year}} {{app}}. Sendu frá þér með vissu.',
   'landing.ctaBody':
     'Ekkert kreditkort. Enginn verkfræðingur þarf. Fáðu fyrstu leiðsluna græna á fimm mínútum.',
   'landing.ctaHeading': 'Sendið með vissu.',
   'landing.featuresEyebrow': '// eiginleikar kerfisins',
   'landing.featuresHeading': 'Smíðað fyrir flutningsaðila, af flutningsaðilum',
+  'landing.heroSubtitle':
+    'Pípur sem klárast á sekúndum. Log sem þú getur lesið. Uppsetningar sem þú getur treyst.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit dreifa --á öruggan hátt',
   'landing.pricingEyebrow': '// $ verðlagning --venjuleg',
   'landing.pricingHeading': 'Einföld, fyrirsjáanleg verðlagning',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Í flugi núna',
   'pipelines.metric.successCaption': '{{count}} af {{total}} hlaup',
   'pipelines.metric.successRate': 'Árangurshlutfall',
+  'pipelines.realtimeOn': 'rauntíma',
   'pipelines.subheading': 'Beinar uppfærslur frá öllum geymslum sem fylgst er með.',
+  'pricing.advancedFeatures': 'Ítarlegir eiginleikar: {{mark}}',
+  'pricing.canExport': 'Gagnautflutningur: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} gerviefni',
+  'pricing.maxBuilds': '{{count}} byggingar',
+  'pricing.maxPipelines': '{{count}} pípur',
   'privacy.dataAccount': 'Reikningur: nafn, netfang, dulkóðað lykilorð, áskriftarstig.',
   'privacy.intro':
     '{{forrit}} safnar aðeins lágmarksgögnum sem við þurfum til að reka samfellda afhendingarreikninginn þinn: netfangið þitt, geymslurnar sem þú tengir við, færslur og lýsigögn um byggingarforrit sem keyrsluforritin þín framleiða og leyndarmálin sem þú velur að geyma hjá okkur. Við lesum aldrei frumkóðann þinn utan byggingarforritsins; byggingargripir eru geymdir í S3 fötunni þinni þegar þeir eru stilltir.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Við notum Stripe fyrir reikningsfærslur, Mailgun fyrir viðskiptatölvupóst og AWS S3 fyrir geymslu á byggingargripum. Hvort um sig er samningsbundið við lágmarksgagnamagn sem þarf til að veita þjónustu sína.',
   'privacy.rightsBody':
     'Þú getur flutt út hvert einasta bæti af gögnunum þínum, eytt reikningnum þínum hvenær sem er úr Stillingum og óskað eftir skrá yfir allar webhook-sendingar á reikningnum þínum. Við svörum GDPR / CCPA beiðnum innan 30 daga.',
+  'privacy.subtitle':
+    'Hvernig {{app}} safnar, geymir og verndar gögnin þín á meðan við keyrum pípurnar þínar.',
   'privacy.title': 'Persónuverndarstefna',
   'repositories.empty': 'Engar geymslur tengdar.',
   'repositories.heading': 'Geymslur',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Allar geymslur',
   'repositoryDetail.configHeading': '.leiðsla.yml',
   'repositoryDetail.loadError': 'Mistókst að hlaða geymslunni.',
+  'repositoryDetail.meanDuration': 'Meðaltímalengd',
   'repositoryDetail.notFound': 'Geymsla fannst ekki.',
+  'repositoryDetail.successRate': 'Árangurshlutfall',
   'repositoryDetail.totalBuilds': 'Heildaruppbyggingar',
   'repositoryDetail.webhookActive': 'virkur',
   'repositoryDetail.webhookPaused': 'gert hlé',
   'repositoryDetail.webhooksHeading': 'Vefkrókar',
+  'resetPassword.passwordLabel': 'Nýtt lykilorð',
   'resetPassword.runnerStatus': 'endurstilla · auðkenni staðfest',
   'resetPassword.subtitle': 'Veldu sterkt lykilorð sem þú hefur ekki notað áður.',
   'resetPassword.tokenPlaceholder': 'líma úr tölvupósti',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Geymslur Conduit fylgjast með. Aftengdu VCS veituna þína til að hætta að taka inn atburði.',
   'settings.repositories.empty': 'Engar geymslur tengdar ennþá.',
+  'settings.repositories.heading': 'Geymslutengingar',
   'settings.repositories.loadError': 'Mistókst að hlaða geymslum.',
   'settings.secrets.addCta': 'Bæta við leyndarmáli',
   'settings.secrets.addError': 'Mistókst að bæta við leyndarmáli.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Mistókst að eyða leyndarmáli.',
   'settings.secrets.empty': 'Engin leyndarmál geymd.',
   'settings.secrets.heading': 'Leyndarmál',
+  'settings.secrets.lastUsed': 'síðast notað {{date}}',
   'settings.secrets.loadError': 'Mistókst að hlaða leyndarmálum.',
   'settings.secrets.neverUsed': 'aldrei notað',
   'settings.secrets.rotateCta': 'Snúa',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Mistókst að uppfæra vefkrókann.',
   'signup.namePlaceholder': 'Riley-garðurinn',
   'signup.runnerStatus': 'Ókeypis stig · 1.000 byggingar mín./mán.',
+  'terms.intro':
+    'Með því að stofna {{app}} reikning samþykkir þú þessi skilmála. Þeir ná yfir ásættanlega notkun byggingar-keyrslanna, mörk SLA okkar og skilyrðin sem við getum gert reikninginn þinn óvirkan eða sagt honum upp vegna misnotkunar á vinnuálagi.',
   'terms.slaBody':
     'Pro og Team áætlanir miða við 99,95% mánaðarlega spenntíma fyrir API og runner pool. Ókeypis áætlanirnar eru í boði eins og þær eru. Bilanir eru tilkynntar á status.conduit.dev og færðar til baka samkvæmt formúlunni á reikningnum þínum.',
   'terms.terminationBody':

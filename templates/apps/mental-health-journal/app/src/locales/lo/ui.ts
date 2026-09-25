@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ມີຄຳຕິຊົມ, ພົບບັກ, ຫຼືຢາກບອກພວກເຮົາວ່າການຂຽນບັນທຶກຊ່ວຍເຈົ້າແນວໃດ? ພວກເຮົາອ່ານທຸກຂໍ້ຄວາມ — ຕິດຕໍ່ຫາພວກເຮົາໄດ້ທຸກເວລາ ແລະ ຈະມີຄົນຈິງຕອບກັບຫາເຈົ້າ.',
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
+  'about.featureInsights':
+    'ການສະທ້ອນດ້ວຍ AI ທີ່ອ່ອນໂຍນ ຊ່ວຍຊີ້ໃຫ້ເຫັນສິ່ງກະຕຸ້ນ, ຫົວຂໍ້, ແລະ ຄວາມກະຕັນຍູ — ໂດຍບໍ່ສູນເສຍສຽງຂອງເຈົ້າ.',
+  'about.featureMood':
+    'ການຕິດຕາມອາລົມ ແລະ ກິດຈະກຳ ພ້ອມມຸມມອງປະຕິທິນ ແລະ ເສັ້ນສະແດງແນວໂນ້ມທີ່ສະແດງໃຫ້ເຫັນສິ່ງທີ່ຊ່ວຍໃຫ້ເຈົ້າຈະເລີນ.',
+  'about.featurePrivacy':
+    'ການເຂົ້າລະຫັດແບບຕົ້ນທາງຮອດປາຍທາງ, ການລັອກດ້ວຍລະຫັດຜ່ານ, ແລະ ການສົ່ງອອກ CSV ແບບເຕັມຮູບແບບ ເພື່ອໃຫ້ການສະທ້ອນຂອງເຈົ້າຄົງຄວາມເປັນສ່ວນຕົວ ແລະ ເຄື່ອນຍ້າຍໄດ້.',
+  'about.featurePrompts':
+    'ຄຳແນະນຳປະຈຳວັນທີ່ອ່ອນໂຍນ ເພື່ອໃຫ້ເຈົ້າມີຈຸດເລີ່ມຕົ້ນສະເໝີ — ບໍ່ມີຫນ້າຫວ່າງເປົ່າ.',
+  'about.intro':
+    '{{app}} ເປັນບັນທຶກສຸຂະພາບຈິດທີ່ອ່ອນໂຍນ ແລະ ເປັນສ່ວນຕົວ ສຳລັບການສະທ້ອນປະຈຳວັນ, ການຕິດຕາມອາລົມ, ແລະ ຄວາມກະຕັນຍູ. ຄຳແນະນຳທີ່ຄິດມາຢ່າງດີແທນຫນ້າຫວ່າງເປົ່າ, ການຄົ້ນຫາແບບງຽບໆຊ່ວຍໃຫ້ເຈົ້າເຂົ້າໃຈສິ່ງທີ່ສົ່ງຜົນຕໍ່ຄວາມຮູ້ສຶກຂອງເຈົ້າ, ແລະ ການເຂົ້າລະຫັດແບບຕົ້ນທາງຮອດປາຍທາງຮັກສາຄຳເວົ້າຂອງເຈົ້າໃຫ້ເປັນຂອງເຈົ້າ.',
+  'about.missionBody':
+    'ພວກເຮົາເຊື່ອວ່າການກວດສອບຕົວເອງຄວນຮູ້ສຶກສະຫງົບ, ບໍ່ແມ່ນແບບທາງການແພດ — ແລະ ບໍ່ແມ່ນຄືກັບແອັບອື່ນທີ່ຮຽກຮ້ອງຄວາມສົນໃຈຂອງເຈົ້າ. {{app}} ຖືກສ້າງຂຶ້ນເພື່ອຊ່ວຍ, ບໍ່ແມ່ນລົບກວນ: ສອງສາມນາທີທີ່ງຽບສະຫງົບຕໍ່ວັນ ເພື່ອສັງເກດອາລົມຂອງເຈົ້າ, ຂຽນຢ່າງຊື່ສັດ, ແລະ ຄ່ອຍໆເຫັນຕົວເອງຊັດເຈນຂຶ້ນ.',
+  'about.missionTitle': 'ພາລະກິດຂອງພວກເຮົາ',
   'about.pageTitle': 'ກ່ຽວກັບ {{app}}',
   'authShell.encryptionBadge': 'ລາຍການຂອງທ່ານຖືກເຂົ້າລະຫັດແບບຕົ້ນທາງຮອດປາຍທາງ.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'ວັນທີ {{day}} — ບໍ່ມີບັນທຶກ',
   'calendar.cellMood': 'ມື້ {{day}} — {{mood}}',
   'calendar.distributionHeading': 'ພາບລວມຂອງເດືອນນີ້',
   'calendar.eyebrow': 'ພາບລວມຂອງອາລົມ',
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'ຕິດຕາມແລ້ວ {{tracked}} ຂອງ {{total}} ມື້ໃນເດືອນນີ້.',
   'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
   'common.tryAgain': 'ລອງໃໝ່ອີກຄັ້ງ',
+  'entryComposer.bodyPlaceholder': 'ຂຽນສິ່ງທີ່ຮູ້ສຶກຊື່ສັດ. ບໍ່ມີໃຜອື່ນຈະອ່ານສິ່ງນີ້.',
   'entryComposer.cancel': 'ກັບໄປທີ່ບັນທຶກປະຈຳວັນ',
   'entryComposer.heading': 'ການສະທ້ອນໃນມື້ນີ້',
   'entryComposer.moodLabel': 'ເຈົ້າຮູ້ສຶກແນວໃດ?',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'ລຶບອອກ {{tag}}',
   'entryComposer.save': 'ບັນທຶກການສະທ້ອນ',
   'entryComposer.saveError': 'ບໍ່ສາມາດບັນທຶກລາຍການຂອງທ່ານໄດ້.',
+  'entryComposer.tagPlaceholder': 'ເພີ່ມແທັກ ແລະ ກົດ enter',
   'entryComposer.titlePlaceholder': 'ຕັ້ງຊື່ໃຫ້ພາບສະທ້ອນນີ້...',
   'entryDetail.back': 'ກັບໄປທີ່ບັນທຶກປະຈຳວັນ',
   'entryDetail.delete': 'ລຶບລາຍການນີ້',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'ກຳລັງໂຫຼດການສະທ້ອນ…',
   'entryDetail.notFound': 'ບໍ່ພົບລາຍການ.',
   'entryDetail.reflectionsHeading': 'ການສະທ້ອນຂອງ AI',
+  'forgotPassword.continueButton': 'ປ້ອນລະຫັດຣີເຊັດ',
   'forgotPassword.eyebrow': 'ບໍ່ຕ້ອງກັງວົນ',
   'forgotPassword.subheading': 'ພວກເຮົາຈະສົ່ງລິ້ງຕັ້ງຄ່າໃໝ່ຢ່າງລະມັດລະວັງໄປຫາອີເມວຂອງທ່ານ.',
   'forgotPassword.successBody': 'ຖ້າບັນຊີມີຢູ່ສຳລັບ {{email}}, ລິ້ງຣີເຊັດກຳລັງມາ.',
@@ -57,14 +77,21 @@ export const ui: UiTranslations = {
     'ຍັງບໍ່ມີຫົວຂໍ້ເທື່ອ — ຕື່ມແທັກໜຶ່ງຫຼືສອງແທັກໃສ່ລາຍການຂອງເຈົ້າ ແລະ ພວກມັນຈະມາລວມກັນຢູ່ທີ່ນີ້.',
   'insights.themesHeading': 'ຫົວຂໍ້ຍອດນິຍົມ',
   'insights.triggerFrequency': 'ສັງເກດເຫັນ {{count}} × ເດືອນນີ້',
+  'insights.triggersEmpty':
+    'ຍັງບໍ່ມີຫຍັງໃຫ້ສັງເກດ. ບັນທຶກສອງສາມອັນໃນສອງສາມວັນຈະສະແດງແບບແຜນຂອງເຈົ້າ.',
   'insights.triggersHeading': 'ຮູບແບບທີ່ກະຕຸ້ນອາລົມຂອງເຈົ້າ',
+  'journal.empty': 'ບໍ່ມີການສະທ້ອນທີ່ກົງກັນ — ລອງໃຊ້ຕົວກອງອື່ນ ຫຼື ຂຽນບັນທຶກໃໝ່.',
   'journal.eyebrow': 'ການສະທ້ອນຂອງເຈົ້າ',
   'journal.heading': 'ວາລະສານ',
   'journal.loadError': 'ໂຫຼດລາຍການບໍ່ສຳເລັດ.',
   'journal.loading': 'ກຳລັງໂຫຼດລາຍການ…',
+  'journal.newEntry': 'ລາຍການໃໝ່',
   'journal.searchPlaceholder': 'ຄົ້ນຫາຄວາມຮູ້ສຶກ, ຊື່, ຊ່ວງເວລາ...',
   'journal.subheading': '{{count}} ລາຍການ - ທຸກໆລາຍການທີ່ຄຸ້ມຄ່າແກ່ການຮັກສາໄວ້.',
   'journalEntryCard.encryptedLabel': 'ເຂົ້າລະຫັດແລ້ວ',
+  'landing.ctaBody':
+    'ເລີ່ມຕົ້ນໄດ້ຟຣີ. Pro ປົດລັອກການສົ່ງອອກຂໍ້ມູນ, ບັນທຶກທີ່ໃຫຍ່ກວ່າ, ແລະ ປະຫວັດເຕັມປີ.',
+  'landing.ctaButton': 'ເລີ່ມຕົ້ນລາຍການທຳອິດຂອງທ່ານ',
   'landing.ctaTitle': 'ສອງສາມນາທີທີ່ງຽບສະຫງົບຕໍ່ມື້. ເທົ່ານັ້ນແຫຼະ.',
   'landing.eyebrow': 'ການປະຕິບັດປະຈຳວັນທີ່ອ່ອນໂຍນ',
   'landing.featuresBody':
@@ -83,6 +110,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'ພື້ນທີ່ທີ່ອ່ອນໂຍນສຳລັບການສະທ້ອນຄວາມຄິດປະຈຳວັນ.',
   'mentalHealthJournalLayout.closeMenu': 'ປິດເມນູ',
   'mentalHealthJournalLayout.openMenu': 'ເປີດເມນູ',
+  'mentalHealthJournalLayout.primaryNavLabel': 'ການນຳທາງຫຼັກ',
+  'moodHeroCard.entriesThisWeek': '{{count}} ອາທິດນີ້',
   'moodHeroCard.streakSuffix': 'ຊ່ວງເວລາປະຈຳວັນ',
   'moodHeroCard.title': 'ການສະທ້ອນໃນມື້ນີ້',
   'moodTrendChart.aiBadge': 'ຄວາມເຂົ້າໃຈກ່ຽວກັບ AI ພ້ອມແລ້ວ',
@@ -93,11 +122,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'ການເດີນທາງຂອງເຈົ້າ',
   'profile.fallbackName': 'ຕົວສະທ້ອນແສງ',
   'profile.loadError': 'ໂຫຼດສະຖິຕິບໍ່ສຳເລັດ.',
+  'profile.loading': 'ກຳລັງໂຫຼດສະຖິຕິຂອງເຈົ້າໃໝ່…',
   'profile.longestStreak': 'ເສັ້ນທາງຍາວທີ່ສຸດ',
   'profile.memberSince': 'ສະທ້ອນເຖິງຕັ້ງແຕ່ {{date}}',
   'profile.milestones': 'ເຫດການສຳຄັນ',
   'profile.milestonesEmpty':
     'ຈຸດໝາຍສຳຄັນທຳອິດຂອງເຈົ້າຢູ່ອີກພຽງໜຶ່ງບາດກ້າວເທົ່ານັ້ນ - ຂຽນທຸກຄັ້ງທີ່ເຈົ້າຮູ້ສຶກວ່າພ້ອມແລ້ວ.',
+  'profile.moodMix': 'ສ່ວນປະສົມອາລົມຂອງເຈົ້າໃນລະດູນີ້',
   'profile.streakValue': '{{days}} ງ',
   'profile.totalEntries': 'ການສະທ້ອນ',
   'profile.totalWords': 'ຄຳສັບທີ່ຂຽນ',
@@ -110,6 +141,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'ຂຽນກ່ຽວກັບເລື່ອງນີ້',
   'resetPassword.eyebrow': 'ການເລີ່ມຕົ້ນໃໝ່',
   'resetPassword.mismatchError': 'ລະຫັດຜ່ານບໍ່ກົງກັນ.',
+  'resetPassword.passwordLabel': 'ລະຫັດຜ່ານໃໝ່',
   'resetPassword.subheading': 'ເລືອກສິ່ງທີ່ປອດໄພ - ການສະທ້ອນຂອງເຈົ້າສົມຄວນໄດ້ຮັບມັນ.',
   'resetPassword.tokenPlaceholder': 'ຣີເຊັດລະຫັດຈາກອີເມວ',
   'settings.dangerDescription':
@@ -120,11 +152,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'ບໍ່ສາມາດລຶບບັນຊີໄດ້.',
   'settings.exportDescription': 'ຖ້ອຍຄຳຂອງເຈົ້າເປັນຂອງເຈົ້າສະເໝີ. ດາວໂຫຼດສຳເນົາໄດ້ທຸກເວລາ.',
   'settings.exportDone': 'ສົ່ງອອກແລ້ວ {{format}}.',
+  'settings.exportError': 'ການສົ່ງອອກລົ້ມເຫລວ.',
+  'settings.exportHeading': 'ສົ່ງອອກການສະທ້ອນຂອງເຈົ້າ',
   'settings.exportLoading': 'ກຳລັງກະກຽມ…',
   'settings.eyebrow': 'ພື້ນທີ່ຂອງທ່ານ, ກົດລະບຽບຂອງທ່ານ',
   'settings.languageHeading': 'ພາສາ',
   'settings.privacyHeading': 'ຄວາມເປັນສ່ວນຕົວ ແລະ ການເຂົ້າລະຫັດ',
   'settings.remindersHeading': 'ການແຈ້ງເຕືອນປະຈຳວັນ',
+  'settings.reminderToggleAria': 'ເປີດ/ປິດການແຈ້ງເຕືອນປະຈຳວັນ',
   'settings.reminderToggleDescription':
     'ການແຈ້ງເຕືອນທີ່ສະຫງົບພຽງຄັ້ງດຽວໃນເວລາທີ່ເຈົ້າເລືອກ. ບໍ່ມີປ້າຍ ຫຼື ຄວາມຮູ້ສຶກຜິດໃດໆ.',
   'settings.reminderToggleLabel': 'ສົ່ງການຊຸກຍູ້ຢ່າງອ່ອນໂຍນ',
@@ -137,6 +172,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'ກຳລັງສ້າງບັນທຶກປະຈຳວັນ…',
   'signup.subheading': 'ພື້ນທີ່ປອດໄພສຳລັບຄວາມຄິດຂອງເຈົ້າ.',
   'wellnessRingsTriad.mindfulnessCaption': 'ເປົ້າໝາຍ {{goal}} ນາທີ ມື້ນີ້',
+  'wellnessRingsTriad.mindfulnessLabel': 'ສະຕິປັນຍາ',
   'wellnessRingsTriad.sleepCaption': 'ເປົ້າໝາຍ {{goal}} ຊົ່ວໂມງ / ຄືນ',
   'wellnessRingsTriad.sleepLabel': 'ນອນຫຼັບ',
+  'wellnessRingsTriad.sleepValue': '{{hours}} ຊົ່ວໂມງ',
+  'wellnessRingsTriad.streakCaption': 'ເປົ້າໝາຍ {{goal}} ວັນ',
+  'wellnessRingsTriad.streakLabel': 'ສະຖິຕິການຂຽນບັນທຶກຕໍ່ເນື່ອງ',
+  'wellnessRingsTriad.streakValue': '{{days}} ງ',
 }

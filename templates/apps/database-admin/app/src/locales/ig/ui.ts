@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Gwa anyị okwu',
   'about.eyebrow': 'Banyere',
+  'about.featureConnections':
+    "Onye njikwa njikọ na-echekwa ma na-enye koodu agba maka ọdụ data gị nke ọma — a na-ezochi nkwenye ndị ahụ mgbe ọ na-ezu ike, ọ dịghị mgbe n'ụdị ederede nkịtị.",
+  'about.featureMonitoring':
+    "Nleba anya ozugbo nke arụmọrụ ajụjụ na ọrụ ọdụ data, yana ụzọ mkpirisi ahụigodo na palette iwu iji na-akwọ ya niile n'enweghị aka.",
+  'about.featurePlans':
+    "Atụmatụ ndị na-eto na gị — N'efu maka ọrụ naanị gị, Pro na Team maka njikọ ndị ọzọ, idebe ajụjụ ogologo oge, mbupụ, na atụmatụ ndị dị elu.",
+  'about.featureQueryEditor':
+    'Onye ndezi SQL nke Monaco na-akwado, nwere akụkọ ajụjụ, ajụjụ echekwara, na mbupụ CSV otu pịa nke nsonaazụ gị.',
+  'about.featureSchema':
+    'Onye nyocha atụmatụ na ihe nchọgharị tebụl iji gagharịa ọdụ data, tebụl, na kọlụm, wee chọgharịa, zaa, ma dezie ahịrị ozugbo.',
+  'about.missionTitle': 'Ọrụ anyị',
   'authShell.commands': 'Iwu',
   'authShell.ssoSupported': 'Nkwado SSO',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Ajụjụ',
   'connections.schema': 'Atụmatụ',
   'connections.subtitle': 'Jikwaa njikọ nchekwa data gị.',
+  'connections.test': 'Ule',
   'databaseAdminLayout.adminRole': 'Ọrụ nchịkwa',
   'databaseAdminLayout.commandPalette': 'Paletị iwu',
   'databaseAdminLayout.commands': 'iwu',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Njikọ ọhụrụ',
   'databaseAdminLayout.queries': 'Ajụjụ',
   'databaseAdminLayout.ready': 'Dị njikere',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Chọọ iwu, ajụjụ, tebụl…',
   'databaseAdminLayout.user': 'Onye ọrụ',
   'editConnection.confirmDelete': 'Hichapụ njikọ a?',
   'editConnection.deleteButton': 'Hichapụ njikọ',
+  'editConnection.newPassword': 'Okwuntughe ọhụrụ (hapụ ya oghere iji debe nke ochie)',
   'editConnection.saved': 'E chekwara njikọ.',
   'editConnection.title': 'Dezie njikọ',
   'forgotPassword.success': 'Ọ bụrụ na akaụntụ ahụ dị, njikọ nrụpụta na-abịa.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Ihe ịga nke ọma',
   'monitoring.title': 'Nlekota',
   'monitoring.totalQueries': 'Njụjụ niile',
+  'nav.schema': 'Atụmatụ',
   'newConnection.database': 'Ebe nchekwa data',
   'newConnection.engine': 'Injin',
   'newConnection.host': 'Onye ọbịa',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Enweghị njikọ ejikọtara na obere ihe a.',
   'savedQuery.notBound': "Adịghị n'agbụ",
   'savedQuery.title': 'Ajụjụ echekwara',
+  'schema.columns': 'Ogidi',
   'schema.foreignKeys': 'Igodo mba ọzọ',
   'schema.indexes': 'Ndepụta',
   'schemaExplorer.browseRows': 'Chọgharịa ahịrị',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'ihe na-abaghị uru',
   'schemaExplorer.colType': 'ụdị',
   'schemaExplorer.noColumns': 'Enweghị kọlụm.',
+  'schemaExplorer.noForeignKeys': 'Enweghị igodo mba ọzọ.',
   'schemaExplorer.noIndexes': 'Enweghị ndeksi.',
   'schemaExplorer.noTables': 'Enweghị tebụl',
   'schemaExplorer.pickATable': "Họrọ tebụl dị n'akụkụ aka nri.",
   'schemaExplorer.tables': 'Tebụl',
   'schemaExplorer.title': 'Onye nchọpụta atụmatụ',
+  'settings.session': 'Nzukọ',
   'settings.subtitle': 'Jikwaa akaụntụ gị na atụmatụ gị.',
   'signup.heading': 'Mepụta akaụntụ Quarry gị',
   'signup.tagline': "Gbanye ohere ahụ n'ime otu nkeji.",
   'tableBrowser.noRows': 'Tebụl a enwebeghị ahịrị ọ bụla.',
+  'tableBrowser.subtitle': 'Na-agagharị ahịrị site na ọdụ data dịpụrụ adịpụ gị.',
   'tableBrowser.title': 'Ịchọgharị ahịrị site na nchekwa data dịpụrụ adịpụ gị.',
 }

@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Għandek feedback, sibt bug, jew tixtieq iġġib {{app}} fl-iskola jew fit-tim tiegħek? Aħna naqraw kull messaġġ — ikkuntattjana mill-issettjar tal-kont tiegħek u se jwieġeb bniedem veru.',
   'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwar',
+  'about.intro':
+    "{{app}} hija logħba tal-kliem ta' kuljum. Aqta' l-kelma ta' ħames ittri f'sitt provi, żomm is-serje tiegħek ħajja, aqsam il-grilja tal-emoji tiegħek, u ara kif marret il-qasam kollu fuq il-kelma tal-lum.",
+  'about.missionBody':
+    "Logħba tajba hija rebħa żgħira ta' kuljum. {{app}} hija mibnija madwar kelma waħda kondiviża kuljum — malajr biżżejjed għal pawsa tal-kafè, qawwija biżżejjed biex terġa' tiġi għal għada.",
+  'about.missionTitle': 'Il-missjoni tagħna',
   'about.title': 'Dwar {{app}}',
   'archive.loadError': 'Ma setgħux jitgħabba l-arkivju.',
   'archive.missed': 'Mitlufa',
   'archive.notPlayed': 'Mhux logħba',
+  'archive.subhead':
+    "Erġa' ilgħab kwalunkwe jum mill-passat bħala prattika — l-ebda serje, l-ebda statistika, il-pjaċir kollu.",
   'archive.title': 'Arkivju',
   'auth.backToHome': 'Lura għad-dar',
   'auth.backToHomeArrow': '← Lura għad-dar',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Insejt il-password?',
   'auth.login.loggingIn': 'Qed tidħol...',
   'auth.login.logIn': 'Logħob il-kelma tal-lum',
+  'auth.login.noAccount': "Ġdid f'Tessera?",
   'auth.login.or': "jew kompli b'",
   'auth.login.password': 'Password',
   'auth.login.signInButton': 'Idħol',
@@ -32,6 +42,10 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Qed jissejvja...',
   'common.sendingEllipsis': 'Qed jibgħat...',
   'common.startingEllipsis': 'Qed jibda...',
+  'forgotPassword.subhead': 'Daħħal l-email tiegħek u aħna nibagħtulek link biex tirrisettja.',
+  'forgotPassword.success.body':
+    "Jekk jeżisti kont għal {{email}} , tirċievi link ta' reset fi ftit minuti.",
+  'forgotPassword.success.title': 'Iċċekkja l-inbox tiegħek.',
   'form.name': 'Isem',
   'howToPlay.cta.home': 'Lura d-dar',
   'howToPlay.cta.play': 'Logħob il-puzzle tal-lum',
@@ -68,10 +82,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Streaks li ma tħobbx tikser',
   'leaderboard.daily.title': 'Is-soluzzjonijiet tal-lum',
   'leaderboard.loadError': 'Ma setgħax jitgħabba l-leaderboard.',
+  'leaderboard.streaks.empty': "Għad m'hemmx serje — kun l-ewwel.",
+  'leaderboard.streaks.subhead': "L-itwal serje ta' rebħiet ta' kull żmien.",
   'leaderboard.streaks.title': 'Mexxejja tal-streaks',
+  'leaderboard.subhead': 'Kif marret il-qasam illum, u min qed iżomm l-itwal serje.',
   'leaderboard.title': 'Leaderboard',
   'login.headline': 'Merħba lura.',
   'login.streakPill': "Wirt ta' {{days}} jum qiegħed jistenna",
+  'login.subhead':
+    'Idħol biex iżżomm is-serje tiegħek ħajja u ara kif marret fuq il-kelma tal-lum.',
   'nav.archive': 'Arkivju',
   'nav.editProfile': 'Editja l-profil',
   'nav.getStarted': 'Ibda',
@@ -89,6 +108,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Ebda kelma bħal din',
   'notFound.title': 'Dik ir-rotta hija vojta.',
   'planUpdated.message': 'Il-pjan tiegħek huwa live.',
+  'planUpdated.retry': 'Erġa’ pprova',
+  'planUpdated.verifyFailed': 'Għadna ma stajniex nikkonfermaw il-ħlas tiegħek.',
+  'planUpdated.verifyFailedBody':
+    "Jista' jkun li l-ħlas tiegħek għadu qed jiġi pproċessat. Erġa' pprova fi ftit ħin.",
   'planUpdated.verifying': 'Qed jikkonfermaw il-ħlas tiegħek...',
   'play.alreadyFinished': 'Diġà tlestejt dan il-puzzle',
   'play.answerWas': 'Il-kelma kienet',
@@ -104,6 +127,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': "Puzzle ta' prattika",
   'play.tooShort': 'Mhux biżżejjed ittri',
   'play.won': 'Solvejtha!',
+  'pricing.advancedStats': 'Statistika avvanzata: {{yes}}',
+  'pricing.archiveHistory': "{{count}} ġranet ta' storja tal-arkivju",
+  'pricing.archivePlays': '{{count}} replays tal-arkivju / jum',
+  'pricing.archiveUnlimited': 'Storja tal-arkivju bla limitu',
+  'pricing.canExport': 'Esportazzjoni tad-data: {{yes}}',
+  'pricing.checkoutError': "Ma stajtx nibda l-ħlas. Jekk jogħġbok erġa' pprova.",
   'pricing.dailyWord': 'Il-kelma tal-kuljum',
   'pricing.heading': 'Agħżel il-pjan {{app}} tiegħek',
   'pricing.included': 'Inkluż',
@@ -111,7 +140,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     "Il-kelma ta' kuljum hija dejjem b'xejn. Aġġorna għal replays illimitati tal-arkivju u statistika aktar fil-fond.",
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} tirrispetta l-privatezza tiegħek. Din il-paġna tagħti sommarju tad-data li naħżnu, għaliex naħżnuha, u kif tneħħiha.',
   'privacy.title': 'Avviż dwar il-privatezza',
+  'resetPassword.subhead': "Agħżel password ġdida biex terġa' lura għas-serje tiegħek.",
   'settings.account': 'Kont',
   'settings.danger.body':
     "Neħħi permanentement il-kont tiegħek ta' {{appName}} u l-istorja kollha tal-puzzles.",
@@ -121,17 +153,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'Mistieden',
   'settings.language.title': 'Lingwa',
   'settings.subhead': 'Issettja l-profil, il-ħoss, u kif tidher fuq il-leaderboard.',
+  'settings.unnamed': "Plejer ta' Sparq",
   'settings.upgrade': 'Aġġorna',
   'signup.eyebrow': "B'xejn għal dejjem — kelma waħda kuljum",
   'signup.headline': 'Ibda s-streak tiegħek.',
+  'signup.subhead':
+    "Oħloq kont {{appName}} biex tilgħab il-kelma ta' kuljum, tibni serje, u titla' fil-klassifika.",
   'stats.currentStreak': 'Streak',
   'stats.distribution.title': 'Distribuzzjoni tat-tentattivi',
   'stats.loadError': 'Ma setgħux jitgħabbew l-istatistika tiegħek.',
   'stats.maxStreak': 'Massimu streak',
   'stats.played': 'Logħba',
   'stats.playToday': 'Logħob il-puzzle tal-lum',
+  'stats.subhead': "Logħob ta' kuljum ikklassifikat biss — il-prattika tal-arkivju qatt ma tgħodd.",
   'stats.title': 'L-istatistika tiegħek',
   'stats.winRate': "Rata ta' rebbieħ",
   'status.monthly': 'Kull xahar',
+  'terms.intro':
+    'Billi tuża {{app}} taqbel mar-regoli hawn taħt. Jekk ma tistax taċċettahom, jekk jogħġbok tużax is-servizz.',
   'terms.title': 'Termini tas-servizz',
 }

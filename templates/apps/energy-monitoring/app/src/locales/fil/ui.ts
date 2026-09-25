@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Mga tanong, kahilingan sa feature, o metro na dapat naming suportahan? Makipag-ugnayan sa koponan ng {{appName}} mula sa iyong mga setting ng account — bawat mensahe ay napupunta sa isang tunay na tao.',
   'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'about.featuresTitle': 'Ano ang matatanggap ninyo',
+  'about.intro':
+    'Ang {{appName}} ay realtime na pagsubaybay sa kuryente para sa mga solar home at facility team. Ginagawa naming kalmadong control-room view ang rumaragasang data mula sa metro, inverter, at baterya — live na wattage, produksyon ng solar, gastos sa time-of-use, at mga alerto, lahat sa isang shell.',
+  'about.missionBody':
+    'Ang enerhiyang nakikita mo ay enerhiyang kayang pamahalaan. Naniniwala kami na lahat ng nagpapatakbo ng metro — isang sambahayan na may rooftop solar o isang koponang nagmamatyag sa isang gusali — ay karapat-dapat sa utility-grade na kaalaman nang walang utility-grade na kontrata. Bawat feature ay ginawa para gawing matalinong pagpili ang susunod na kilowatt-hour, hindi sorpresa sa bill.',
+  'about.missionTitle': 'Ang aming misyon',
   'about.pageTitle': 'Tungkol sa {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Ack',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@yourdomain.com',
   'alertRule.eyebrow': 'Bagong panuntunan',
   'alertRule.heading': 'Sagutin ang spike bago ka pa magastos',
+  'alertRule.nameLabel': 'Pangalan ng panuntunan',
   'alertRule.namePlaceholder': 'hal. Relos ng HVAC pagkatapos ng oras ng trabaho',
   'alertRule.subheading':
     'Pumili ng sukatan, limitasyon, at kung saan ipapadala ang alerto. Maaari mo itong i-edit o i-pause anumang oras.',
   'alertRule.submit': 'I-save ang panuntunan',
   'alertRule.submitError': 'Hindi ma-save ang panuntunan.',
   'alertRule.thresholdLabel': 'Hangganan',
+  'alertRule.typeLabel': 'Uri ng trigger',
   'alerts.checking': 'Sinusuri',
   'alerts.confirmDelete': 'Kumpirmahin ang pagbura',
+  'alerts.empty': 'Walang maipapakita — walang alerto sa ganitong estado.',
   'alerts.emptyNoRules':
     'Wala pang mga alerto — magdagdag ng panuntunan, pagkatapos ay i-click ang “Suriin ngayon” para subukan ito.',
   'alerts.errorAck': 'Hindi maamin.',
@@ -41,12 +52,15 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Suriin ngayon',
   'alerts.subheading':
     'Mga alerto sa threshold at pattern na gumagana sa iyong mga metro, kasama ang mga patakarang nagpapagana sa mga ito.',
+  'billing.activeBlurb': 'Aktibo ang iyong subscription. Pamahalaan ito anumang oras.',
   'billing.cancelError': 'Hindi ma-kansela ang subscription.',
   'billing.cancelling': 'Kinakansela',
   'billing.currentBadge': 'Kasalukuyan',
   'billing.freeBlurb':
     'Nasa Libreng plano ka. Mag-upgrade para sa mas maraming metro, mas mahabang kasaysayan, at mas maraming panuntunan sa alerto.',
   'billing.heading': 'Mga plano at pagsingil',
+  'billing.historyEmpty':
+    'Lalabas dito ang mga bayad na invoice kapag nagsingil na ang iyong subscription.',
   'billing.historyHeading': 'Kasaysayan ng invoice',
   'billing.loadError': 'Hindi ma-load ang pagsingil.',
   'billing.loading': 'Naglo-load ng mga plano',
@@ -58,17 +72,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Makipag-ugnayan sa sales',
   'common.goToDashboard': 'Pumunta sa Dashboard',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} peak · {{offPeak}} off-peak kWh',
   'dailyCostMeter.runningLabel': 'Kabuuang tumatakbo',
   'dailyCostMeter.title': 'Gastos sa ngayon',
   'dailyCostMeter.utilizationLabel': 'Ng pang-araw-araw na badyet',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Magdagdag ng metro',
   'dashboard.alertsHeading': 'Mga aktibong alerto',
   'dashboard.devicesHeading': 'Mga nangungunang circuit ngayon',
   'dashboard.empty.body':
     'Magdagdag ng smart meter o solar inverter para masimulan ang pagsubaybay sa live draw at produksyon.',
+  'dashboard.empty.title': 'Wala pang metro',
   'dashboard.eyebrow': 'Silid ng kontrol ng Voltrace',
   'dashboard.heading': 'Snapshot ng live na enerhiya',
   'dashboard.loadError': 'Hindi ma-load ang mga live na pagbasa.',
   'dashboard.loading': 'Pinagtutuunan ang iyong mga metro…',
+  'dashboard.noAlerts': 'Tahimik lahat — walang tumatawid sa iyong mga threshold.',
   'dashboard.noAlertsAndNoMeters':
     'Kapag naikabit mo na ang metro, lalabas dito ang mga alerto batay sa iyong mga limitasyon.',
   'dashboard.noCircuits':
@@ -76,6 +95,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading': 'Presyo ng buong bahay, produksyon ng solar, at gastos sa ngayon.',
   'dashboard.viewAllAlerts': 'Pamahalaan ang mga alerto →',
   'dashboard.viewAllDevices': 'Bawat aparato →',
+  'deviceDetail.activeTokens': 'Mga aktibong ingest token',
   'deviceDetail.alreadyOff': 'Naka-pause na',
   'deviceDetail.back': 'Lahat ng circuit',
   'deviceDetail.confirmDelete': 'Kumpirmahin ang pagbura',
@@ -116,22 +136,34 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Hindi ma-load ang mga metro.',
   'devices.loading': 'Pagsusuri sa bawat metro…',
   'devices.newRule': 'Bagong tuntunin sa alerto',
+  'devices.noResults': 'Walang circuit na tumutugma sa filter na ito.',
   'devices.placeholder.location': 'hal. Silid ng Mekanikal',
   'devices.placeholder.name': 'hal. subpanel ng garahe',
   'devices.subheading':
     'Ang live wattage at ang kWh ngayon sa bawat circuit na nakikita ng Voltrace.',
+  'deviceWattageRow.todayKwh': '{{kwh}} kWh ngayong araw',
+  'deviceWattageRow.watts': '{{watts}} W',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Menu',
+  'energyMonitoringLayout.primaryNavLabel': 'Pangunahing navigation',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    'Nakikipag-usap ang {{appName}} sa karamihan ng utility-grade na metro, solar inverter, at battery stack — may kable man o sa WiFi.',
   'landing.ctaHeading': 'Ipares ang iyong metro, tingnan ang mga watts sa loob ng ilang minuto',
   'landing.eyebrow': 'Katalinuhan sa enerhiya sa totoong oras',
+  'landing.featuresHeading': 'Bawat watt, bawat minuto, sa isang shell',
   'landing.getStarted': 'Isaksak ang Voltrace',
   'landing.heroCta': 'Isaksak ang Voltrace',
+  'landing.heroSubtitle':
+    'Live na wattage, produksyon ng solar, gastos sa time-of-use, at mga alerto sa mataas na paggamit sa isang control-room shell na ginawa para sa mga solar home at facility team.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Buong bahay na draw',
   'landing.sampleSolar': '+3,820 W solar',
   'landing.sampleSummary': 'Nag-e-export ng 1,680 W sa grid · 18.4 kWh ngayon',
   'landing.sampleWatts': '2,140 W',
   'powerHeroCard.solar': '+ {{watts}} W solar',
   'powerHeroCard.title': 'Buong bahay na draw',
+  'powerHeroCard.todayKwh': '{{kwh}} kWh ngayong araw',
   'powerHeroCard.watts': '{{watts}} W',
   'pricing.choose': 'Piliin ang {{name}}',
   'pricing.contact': 'Kailangan mo ba ng custom?',
@@ -145,6 +177,7 @@ export const ui: UiTranslations = {
   'pricing.unavailable':
     'Hindi available ang planong ito sa ngayon — hindi naka-configure ang Stripe.',
   'profile.errorGeneric': 'Hindi mai-save ang mga pagbabago sa profile.',
+  'profile.errorGoal': 'Ang buwanang kWh goal ay dapat positibong numero.',
   'profile.errorHousehold': 'Dapat positibong numero ang laki ng sambahayan.',
   'profile.householdHeading': 'Sambahayan at mga layunin',
   'profile.householdSize': 'Laki ng sambahayan',
@@ -163,9 +196,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'Pagsasama-sama ng mga pagbasa…',
   'reports.subheading':
     'Pang-araw-araw na kabuuan para sa pagkonsumo, produksyon, at gastos — pinaghiwa-hiwalay ayon sa petsa.',
+  'reports.tableHeading': 'Pang-araw-araw na breakdown',
   'settings.currency': 'Pera',
   'settings.errorFlat': 'Ang flat rate ay dapat na ≥ 0.',
   'settings.errorNotify': 'Hindi ma-save ang mga preferensya sa notification.',
+  'settings.errorSave': 'Hindi ma-save ang rate plan.',
   'settings.errorTou': 'Kinakailangan ang mga peak/off-peak rates at isang balidong peak window.',
   'settings.exportBody':
     'Mag-download ng CSV ng huling 30 araw ng pang-araw-araw na kabuuan o kumuha ng ingest token mula sa anumang pahina ng detalye ng metro para i-push ang mga reading sa pamamagitan ng programa.',
@@ -185,10 +220,21 @@ export const ui: UiTranslations = {
   'settings.saving': 'Sine-save…',
   'settings.securityHeading': 'Dalawang-factor na pagpapatotoo',
   'settings.subheading': 'Mga rate, notification, at pag-export ng data.',
+  'settings.twoFactorBody':
+    'Mangailangan ng one-time code mula sa iyong authenticator app sa tuwing magsa-sign in ka.',
   'settings.twoFactorCode': 'Kodigo ng pagpapatunay',
   'settings.twoFactorDisable': 'I-disable',
+  'settings.twoFactorDisableTitle': 'I-disable ang two-factor authentication',
   'settings.twoFactorEnable': 'I-enable',
+  'settings.twoFactorEnableTitle': 'I-enable ang two-factor authentication',
   'settings.twoFactorInvalidCode': 'Hindi wastong code',
+  'settings.twoFactorOAuth':
+    'Ang iyong account ay nag-sign in sa pamamagitan ng konektadong provider, kaya doon pinamamahalaan ang two-factor.',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Two-factor QR code',
+  'settings.twoFactorScan':
+    'I-scan ang QR code na ito gamit ang iyong authenticator app, pagkatapos ay ilagay ang 6-digit na code.',
+  'settings.twoFactorUnavailable':
+    'Hindi available ang two-factor authentication para sa app na ito.',
   'settings.twoFactorVerify': 'I-verify at paganahin',
 }

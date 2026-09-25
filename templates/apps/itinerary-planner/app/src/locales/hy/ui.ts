@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Կարծիք ունե՞ք, սխալ եք գտել, թե՞ ինչ-որ հավակնոտ բան եք պլանավորում։ Կապվեք մեզ հետ ձեր հաշվի կարգավորումներից — ամեն հաղորդագրություն հասնում է թիմի իրական մարդուն։',
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Ամրագրումները մեկ մուտքի արկղում — չվերթների, հյուրանոցների և ակտիվությունների հաստատումները հայտնվում են հենց իրենց պատկանող օրը։',
+  'about.featureCollab':
+    'Իրական ժամանակի համագործակցություն — հրավիրեք մինչև հինգ ճամփորդի մեկ ուղևորության համար, ամեն փոփոխություն համաժամացվում է ուղիղ եթերում, իսկ մեկնաբանությունները թելավորվում են յուրաքանչյուր կանգառի տակ։',
+  'about.featureMapsBudget':
+    'Քարտեզներ, ուղղություններ և ընդհանուր բյուջե — տեսեք ամբողջ ուղևորությունը քարտեզի վրա, բացահայտեք խմբագրի ընտրած ուղղությունները և հետևեք ծախսերին, որ ոչ ոք չափից շատ չծախսի։',
+  'about.featureTimelines':
+    'Օր առ օր ժամանակագրություններ — քաշեք կանգառները՝ վերադասավորելու համար, ավելացրեք տրանսպորտային հատվածներ և տեսեք, թե ինչպես է երթուղին վերահաշվարկվում որպես մեկ կենդանի փաստաթուղթ։',
+  'about.intro':
+    '{{app}}-ը կիսատ պլաններով լի պանակը վերածում է մեկ ընդհանուր ուղևորության, որը ձեր ամբողջ խումբը իրոք կարող է հետևել։ Կառուցեք օր առ օր երթուղի, ավելացրեք չվերթներ և հյուրանոցներ, քարտեզագրեք ամեն կանգառ և հետևեք բյուջեին — ամեն ինչ մեկ հանգիստ տեղում՝ տասնյակ ներդիրների և խմբային չաթի փոխարեն։',
+  'about.missionBody':
+    'Ճամփորդության պլանավորումը պետք է զգացվի այնպես, կարծես ուղևորությունն արդեն լավանում է, ոչ թե տնային աշխատանք։ {{app}}-ը գոյություն ունի համատեղ ուղևորությունները անջանք դարձնելու համար — որ ամեն ճամփորդ գա՝ իմանալով պլանը, և ամեն կանգառ պատմի հիշարժան պատմություն։',
+  'about.missionTitle': 'Մեր առաքելությունը',
   'about.pageTitle': '{{app}}-ի մասին',
   'auth.legalConsent': 'Շարունակելով՝ դուք համաձայնում եք մեր',
   'bookings.empty.body':
@@ -31,7 +47,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Հյուրանոց',
   'bookings.type.other': 'Ayl',
   'budgetSpendCard.budgetTotal': '-ի {{total}} պլանավորված',
+  'budgetSpendCard.overBy': '{{amount}} բյուջեից ավել',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} վերջին',
+  'budgetSpendCard.remaining': '{{amount}} մնացած',
   'calendar.eyebrow': 'Առաջիկա տարին',
   'calendar.heading': 'Յուրաքանչյուր ուղևորություն մեկ օրացույցում։',
   'calendar.legendHeading': 'Այս ամսվա ուղևորությունները',
@@ -42,18 +61,27 @@ export const ui: UiTranslations = {
   'common.and': 'և',
   'common.goToDashboard': 'Անցնել վահանակ',
   'dashboard.budgetHeading': 'Բյուջեի զարկերակ',
+  'dashboard.empty.body':
+    'Պլանավորեք ձեր առաջին ուղևորությունը, և ձեր վահանակը կլցվի օր առ օր ժամանակագրություններով, բյուջեի զարկերակով և ամրագրումներով։',
+  'dashboard.empty.cta': 'Պլանավորեք ձեր առաջին ուղևորությունը',
   'dashboard.empty.heading': 'Դեռևս ուղևորություններ չկան՝ ձեր ատլասը դատարկ է։',
   'dashboard.eyebrow': 'Առաքելության վերահսկողություն',
   'dashboard.heading': 'Ձեր հաջորդ արկածը՝ մեկ խաղաղ անկյունում։',
   'dashboard.newTripCta': 'Սկսեք նոր ճանապարհորդություն',
+  'dashboard.subheading':
+    'Հետհաշվարկ դեպի հաջորդ ուղևորությունը, այսօրվա ծախսերի զարկերակը և արագ հայացք յուրաքանչյուր ընթացքի մեջ գտնվող երթուղու։',
   'dashboard.tripsHeading': 'Ճանապարհորդություններ շարժման մեջ',
   'dashboard.viewAllExpenses': 'Դիտեք յուրաքանչյուր ծախս',
   'dashboard.viewAllTrips': 'Դիտեք յուրաքանչյուր ուղևորություն',
   'dayTimelineRow.category.accommodation': 'Մնա',
+  'dayTimelineRow.category.food': 'Ուտելիք և խմիչք',
+  'dayTimelineRow.category.sightseeing': 'Տեսարժան վայրեր',
   'dayTimelineRow.category.transport': 'Տրանսպորտ',
   'destinationOrbCard.exploreCta': 'Ավելացնել ուղևորությանը',
   'destinationOrbCard.tripCount': '{{count}} ճանապարհորդություններ',
+  'destinations.empty.body': 'Վերադարձեք «Բոլորը» և խմբագրի գտածոները նորից կհայտնվեն։',
   'destinations.empty.heading': 'Դեռևս ուղղություններ չկան։',
+  'destinations.emptyFiltered.heading': 'Դեռ ոչինչ այդպես պիտակավորված չէ։',
   'destinations.errors.load': 'Չհաջողվեց բեռնել նպատակակետերը։',
   'destinations.eyebrow': 'Ուր գնալ հաջորդը',
   'destinations.heading': 'Պահպանված անկյուններ և խմբագրի գտածոներ։',
@@ -71,7 +99,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Վաճառող',
   'expenses.formHeading': 'Գրանցամատյանի ծախսեր {{trip}}',
   'expenses.heading': 'Ու՞ր է իրականում գնում ուղևորության բյուջեն։',
+  'expenses.heroBudget': '{{pct}}% {{total}}-ից պլանավորված',
   'expenses.heroEyebrow': '{{trip}} • բյուջեի համառոտ նկարագրություն',
+  'expenses.heroNoBudget': 'Այս ուղևորության վրա դեռ բյուջե սահմանված չէ։',
   'expenses.noTrips.body':
     'Նախ պլանավորեք ուղևորությունը՝ ծախսերը կցված լինեն ուղևորության բյուջեին։',
   'expenses.noTrips.heading': 'Դեռևս ուղևորություններ չկան։',
@@ -84,12 +114,16 @@ export const ui: UiTranslations = {
     'Այստեղ յուրաքանչյուր կտրոն և հաստատում տեղավորվում է համապատասխան կատեգորիայում՝ աղյուսակի կարիք չկա։',
   'forgotPassword.eyebrow': 'Վերականգնեք ձեր ուղեգիրը',
   'forgotPassword.heading': 'Մոռացե՞լ եք գաղտնաբառը։',
+  'forgotPassword.subheading':
+    'Մուտքագրեք այն էլ. փոստը, որն օգտագործել եք {{appName}}-ի համար, և մենք կուղարկենք հղում՝ ձեր գաղտնաբառը վերականգնելու համար։',
   'forgotPassword.submit': 'Ուղարկել վերականգնման էլ. նամակ',
   'forgotPassword.submitPending': 'Վերականգնման էլ. նամակն ուղարկվում է…',
   'forgotPassword.successHint':
     'Էլ․ հասցե դեռ չունե՞ք։ Ստուգեք ձեր սպամի պանակը կամ փորձեք կրկին՝ օգտագործելով այլ հասցե։',
   'forgotPassword.successSubheading':
     'Մենք վերականգնման հղում ուղարկեցինք հետևյալ հասցեին՝ {{email}} Հղումը վավեր է 30 րոպե։',
+  'forgotPassword.tryAgain': 'Ուղարկել այլ էլ. փոստի',
+  'landing.cta.eyebrow': 'Սկսեք անվճար փաթեթով',
   'landing.cta.heading': '{{tagline}}։',
   'landing.cta.signup': 'Ստեղծեք անվճար հաշիվ',
   'landing.cta.subheading':
@@ -101,8 +135,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}։',
   'landing.hero.ctaPrimary': 'Սկսեք անվճար ուղևորություն',
   'landing.hero.ctaSecondary': 'Դիտեք նմուշային ճամփորդությունը',
+  'landing.hero.eyebrow': 'Ուղևորության պլանավորիչ · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint-ը կիսատ-պռատ ծրագրերով լի թղթապանակը վերածում է ամենօրյա երթուղու, որին ձեր խումբը կարող է իրականում հետևել՝ մեկ տեղում հետևողական ամրագրումներով, քարտեզներով և բյուջեով։',
+  'landing.hero.title': 'Մի անգամ պլանավորեք։ Միասին թափառեք։',
   'landing.nav.join': 'Սկսեք անվճար ուղևորություն',
   'landing.nav.preview': 'Ներքին կետ',
   'landing.preview.cta': 'Պլանավորեք ձեր սեփականը',
@@ -110,6 +146,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Մի քանի ուղևորություններ, որոնցով ճանապարհորդները հիմա զբաղված են',
   'login.eyebrow': 'Անդամների տարածք',
   'login.heading': 'Բարի վերադարձ, ճանապարհորդ',
+  'login.noAccount': 'Նորեկ եք Tessera-ում։',
   'login.signupLink': 'Ստեղծեք անվճար հաշիվ',
   'login.subheading':
     'Մուտք գործեք՝ ձեր ուղևորությունները, օրվա պլանները, ամրագրումները և արդեն սկսած օրագրի գրառումները կառավարելու համար։',
@@ -120,6 +157,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Չհաջողվեց թարմացնել ծանուցումը։',
   'notifications.heading': 'Ի՞նչ փոխվեց ձեր այսօրվա ուղևորությունների ընթացքում։',
   'notifications.markUnread': 'Նշել որպես չկարդացված',
+  'notifications.subheading':
+    '{{count}} նոր — ամրագրման հաստատումներ, համագործակցողների նշումներ, սակագնի անկումներ և հիշեցումներ։',
   'notifications.time.daysAgo': '{{count}} օր առաջ',
   'notifications.time.hoursAgo': '{{count}} ժամ առաջ',
   'notifications.time.justNow': 'հենց հիմա',
@@ -138,6 +177,7 @@ export const ui: UiTranslations = {
     'Միացված ծառայություններ, արժույթ, push ծանուցումներ և մուտք գործելու ձեր տվյալները։',
   'signup.and': 'և',
   'signup.eyebrow': 'Միացեք Waypoint-ին',
+  'signup.haveAccount': 'Արդեն թափառու՞մ եք։',
   'signup.heading': 'Մի անգամ պլանավորեք։ Միասին թափառեք։',
   'signup.namePlaceholder': 'Իրիս Լարսեն',
   'signup.subheading':
@@ -149,6 +189,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Բացել երթուղին',
   'tripCountdownHeroCard.ctaSecondary': 'Պլանավորեք մեկ այլ ուղևորություն',
   'tripCountdownHeroCard.daysLabel': '{{days}} օրեր մնացին',
+  'tripCountdownHeroCard.eyebrow': 'Հաջորդ արկածը · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} գիշեր — ձեր երթուղին պատրաստ է ճամփորդության։',
   'tripCoverCard.stops': '{{count}} կանգառներ',
   'tripCoverCard.travelers': '{{count}} ճանապարհորդներ',
   'tripDetail.addActivity': 'Ավելացնել գործունեություն',
@@ -158,6 +201,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Գործունեության վերնագիր',
   'tripDetail.adding': 'Ավելացում…',
   'tripDetail.backToTrips': 'Վերադառնալ բոլոր ուղևորություններին',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Ճանապարհորդներ',
   'tripDetail.dayLabel': 'Օր {{day}}',
   'tripDetail.empty': 'Գործունեություն դեռևս չկա — Ավելացրեք մեկը՝ ժամանակացույցը սկսելու համար։',
@@ -168,14 +212,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Ճանապարհորդության ուղեցույց {{country}}',
   'tripDetail.invite': 'Հրավիրել',
   'tripDetail.inviteLabel': 'Հրավիրեք էլ. փոստով',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'Հրավերն ուղարկվել է {{email}} .',
   'tripDetail.inviting': 'Ուղարկվում է…',
   'tripDetail.loading': 'Բեռնվում է ուղևորությունը…',
   'tripDetail.noCollaborators': 'Միայն դու, առայժմ։',
+  'tripDetail.notesHeading': 'Ուղևորության նշումներ',
   'tripDetail.notesPlaceholder': 'Դեռևս նշումներ չկան։',
   'tripDetail.notFound.heading': 'Ուղևորությունը չի գտնվել',
   'tripDetail.openBookings': 'Բացել ամրագրումների մուտքի արկղը',
   'tripDetail.shareCopied': 'Կիսվելու հղումը պատճենվեց սեղմատախտակին՝',
+  'tripDetail.shareReady': 'Համօգտագործման հղումը պատրաստ է.',
   'tripDetail.stops': '{{count}} կանգառներ',
   'tripDetail.timelineEyebrow': 'Օրվա ժամանակացույց',
   'tripDetail.timelineHeading': 'Օրական պլան',
@@ -193,6 +240,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Ճանապարհորդներ',
   'tripPlanner.heading': 'Նկարեք ճանապարհորդություն մեկ րոպեից էլ քիչ ժամանակում։',
   'tripPlanner.preview.eyebrow': 'Ուղիղ նախադիտում',
+  'tripPlanner.preview.placeholderCountry': 'Ընտրեք երկիր',
   'tripPlanner.preview.placeholderDestination': 'Ձեր հաջորդ արկածը',
   'tripPlanner.section1.title': 'Որտեղ և երբ',
   'tripPlanner.section2.title': 'Ճանապարհորդներ և բյուջե',
@@ -201,10 +249,14 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Օր {{day}} — այստեղ ավելացրեք կանգառներ, տրանսպորտ և ամրագրումներ։',
   'tripPlanner.section3.day2': 'Օր {{day}} — այստեղ ավելացրեք կանգառներ, տրանսպորտ և ամրագրումներ։',
   'tripPlanner.section3.day3': 'Օր {{day}} — այստեղ ավելացրեք կանգառներ, տրանսպորտ և ամրագրումներ։',
+  'tripPlanner.section3.title': 'Օրվա պլանի սկիզբ',
   'tripPlanner.subheading':
     'Ստորև թողեք հիմնական տվյալները՝ միշտ կարող եք հրավիրել համագործակիցների, քաշել կանգառները և փոխանցել ամրագրումները ավելի ուշ։',
   'tripPlanner.submit': 'Ստեղծել ուղևորություն',
   'tripPlanner.submitting': 'Ստեղծվում է…',
+  'trips.empty.body':
+    'Վերադարձեք «Բոլոր ուղևորությունները» կամ սկսեք պլանավորել ձեր հաջորդ թափառումը։',
+  'trips.empty.cta': 'Պլանավորել ուղևորություն',
   'trips.empty.heading': 'Այդ ֆիլտրին դեռ ոչինչ չի համապատասխանում։',
   'trips.eyebrow': 'Ատլասը',
   'trips.filterLabel': 'Զտել ուղևորությունները ըստ կարգավիճակի',
@@ -216,6 +268,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Դեռևս ուղևորություններ չկան։',
   'trips.pastHeading': 'Անցյալի արկածները',
   'trips.subheading': '{{count}} երթուղիներ՝ անցյալ, ներկա և մի օր։',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Պլանավորիր մեկ անգամ։ Թափառեք միասին։ Հիշեք ընդմիշտ։',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · {{appName}} անդամ 2024 թվականից',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}}-ը չորս երկրներով եռշաբաթյա բուռն ուղևորությունը վերածեց ամենահանգիստ երթուղու, որը երբևէ կիսել ենք։',
   'waypointLayout.mobileNavClose': 'Փակել նավիգացիոն ցանկը',
   'waypointLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
 }

@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'มีคำถาม พบบั๊ก หรือต้องการสาธิตให้ทีมของคุณ? ติดต่อได้จากตั้งค่าบัญชีของคุณ — ทุกข้อความจะถึงมือคนจริงในทีม',
   'about.contactTitle': 'ติดต่อเรา',
+  'about.intro':
+    '{{app}} เปลี่ยนกองเอกสารสแกนและ PDF ให้เป็นข้อมูลที่มีโครงสร้าง ค้นหาได้ และจัดเก็บอย่างเป็นระบบ เพียงวางใบแจ้งหนี้ ใบเสร็จ สัญญา หรือแบบฟอร์ม แล้วให้ AI อ่าน ดึงข้อมูล จำแนก และจัดเก็บ — พร้อมสีบอกระดับความมั่นใจ เพื่อให้ทีมของคุณตรวจสอบเฉพาะสิ่งที่ต้องใช้คนจริง ๆ',
+  'about.missionBody':
+    'งานเอกสารจุกจิกไม่ควรกินเวลาทั้งวันของทีมคุณ เราเชื่อว่าทุกค่าที่ดึงมาควรอธิบายได้และตรวจสอบได้ — เพื่อให้คุณวางใจระบบอัตโนมัติโดยไม่สูญเสียร่องรอยเอกสาร {{app}} ถูกสร้างมาเพื่อประหยัดเวลาต่อกองเอกสาร พร้อมให้คนเข้ามาตรวจสอบในจุดที่สำคัญ',
+  'about.missionTitle': 'พันธกิจของเรา',
+  'about.subtitle': 'OCR การดึงข้อมูลด้วย AI การจำแนก และการจัดเก็บอัตโนมัติสำหรับเอกสารของคุณ',
   'about.title': 'เกี่ยวกับ {{app}}',
+  'about.whatYouGetTitle': 'สิ่งที่คุณจะได้รับ',
   'authShell.backToLanding': '← กลับไปยังหน้าแรก',
   'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'วันนี้ · ภาพรวมการดำเนินงาน',
   'dashboard.heading': 'เอกสารข่าวกรอง',
+  'dashboard.metric.accuracy': 'ความแม่นยำเฉลี่ย',
   'dashboard.metric.filed': 'ยื่นเอกสารวันนี้',
   'dashboard.metric.filedCaption': 'จัดส่งตามกฎการยื่นเอกสาร',
   'dashboard.metric.processed': 'ดำเนินการในวันนี้',
@@ -23,11 +33,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'เอกสาร',
   'dashboard.recent.col.uploaded': 'อัปโหลดแล้ว',
   'dashboard.recent.heading': 'เอกสารล่าสุด',
+  'dashboard.recent.typeUnknown': 'รอการจำแนก',
   'dashboard.subheading':
     'ทุกหน้าได้รับการจัดหมวดหมู่ แยกข้อมูล และจัดเก็บอย่างเป็นระบบ โดยใช้สีแสดงระดับความสำคัญเพื่อให้การตรวจสอบมีจุดโฟกัสที่ชัดเจน',
   'documentDetail.audit.heading': 'ไทม์ไลน์การตรวจสอบ',
+  'documentDetail.audit.subheading': 'ทุกขั้นตอนที่เกิดขึ้นกับเอกสารนี้ พร้อมผู้รับผิดชอบ',
   'documentDetail.back': 'เอกสารทั้งหมด',
   'documentDetail.downloadHint': 'ใช้ปุ่มดาวน์โหลดเพื่อเปิดไฟล์ต้นฉบับ',
+  'documentDetail.extracted.empty': 'ยังไม่มีฟิลด์ที่ดึงข้อมูลได้',
   'documentDetail.extracted.heading': 'ฟิลด์ที่ดึงออกมา',
   'documentDetail.extracted.subheading':
     '{{count}} ช่องข้อมูล · คลิกช่องข้อมูลใดก็ได้เพื่อไฮไลต์บนหน้าเว็บ',
@@ -55,14 +68,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'ค้นหาเอกสาร…',
   'documents.subheading': '{{count}} เอกสารในคลังเอกสารของคุณ เรียงลำดับจากใหม่ล่าสุดไปน้อยที่สุด',
   'documents.uploadCta': 'อัปโหลดเอกสาร',
+  'documentTypeBreakdown.barAria': 'องค์ประกอบเอกสารตามประเภท',
   'documentTypeBreakdown.empty': 'ยังไม่มีการดำเนินการเอกสารใดๆ',
   'documentTypeBreakdown.subtitle': '{{total}} ประมวลผล',
   'documentTypeBreakdown.title': 'การเรียบเรียงเอกสาร',
+  'forgotPassword.backToSignIn': '← กลับไปที่หน้าเข้าสู่ระบบ',
   'forgotPassword.checkEmail': 'ตรวจสอบอีเมลของคุณ',
   'forgotPassword.tip':
     'ไม่ได้รับอีเมลใช่ไหม? ลองตรวจสอบในโฟลเดอร์สแปม หรือลองส่งอีเมลไปยังที่อยู่อีเมลอื่นดู',
+  'landing.copyright': '© {{year}} {{app}} สร้างเพื่อทีมปฏิบัติการที่ตรวจสอบทุกหน้า',
+  'landing.ctaBody':
+    'ทดลองใช้ 14 วัน ไม่ต้องใช้บัตร ยกเลิกได้ทุกเมื่อ สร้างเพื่อทีมปฏิบัติการที่เคลื่อนไหวเร็วและตรวจสอบอย่างละเอียด',
   'landing.ctaHeading': 'เลิกพิมพ์ใบเสร็จ แล้วหันมาจัดเก็บแทน',
   'landing.eyebrow': 'OCR · การดึงข้อมูล · การจัดเก็บเอกสารด้วย AI',
+  'landing.featuresHeading': 'ระบบอัจฉริยะด้านเอกสารที่อธิบายตัวเองได้',
+  'landing.heroSubtitle':
+    'วางกองใบแจ้งหนี้ ใบเสร็จ สัญญา หรือแบบฟอร์ม {{app}} จะจำแนก ดึงข้อมูล และจัดเก็บให้ — พร้อมสีบอกระดับความมั่นใจ เพื่อให้ทีมของคุณตรวจสอบเฉพาะสิ่งที่ต้องใช้คนจริง ๆ',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'ปริมาณรายวัน · 7 วันล่าสุด',
   'landing.sampleCardLabel': 'เอกสารที่ดำเนินการในวันนี้',
   'landing.sampleCardSubtitle':
     'ความถูกต้องโดยเฉลี่ย 96.2% สำหรับใบแจ้งหนี้ ใบเสร็จรับเงิน และแบบฟอร์มต่างๆ',
@@ -76,6 +99,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'เปิดหน้า Landing Page',
   'notFound.title': 'หน้าเว็บนั้นไม่มีอยู่ในระบบ',
+  'parcelaHeroCard.accuracy': 'ความแม่นยำเฉลี่ย {{value}}% จากการดึงข้อมูลทั้งหมด',
   'parcelaHeroCard.change': '{{sign}} {{amount}} เทียบกับเมื่อวาน (%)',
   'parcelaHeroCard.title': 'เอกสารที่ดำเนินการในวันนี้',
   'parcelaLayout.primaryNavLabel': 'การนำทางหลัก',
@@ -83,6 +107,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'เอกสาร',
   'pricing.processingLabel': 'งานประมวลผล',
   'resetPassword.confirmPlaceholder': 'ยืนยันรหัสผ่านใหม่อีกครั้ง',
+  'resetPassword.hidePassword': 'ซ่อนรหัสผ่าน',
   'resetPassword.passwordLabel': 'รหัสผ่านใหม่',
   'resetPassword.showPassword': 'แสดงรหัสผ่าน',
   'resetPassword.subtitle': 'เลือกข้อความที่มีความยาวอย่างน้อย 8 ตัวอักษร',
@@ -99,10 +124,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'ไม่สามารถโหลดกฎได้',
   'rules.loading': 'กำลังโหลดกฎ…',
   'rules.matched30d': '{{count}} เอกสารที่ตรงกันในช่วง 30 วันที่ผ่านมา',
+  'rules.neverUsed': 'ไม่เคยใช้',
   'rules.newRule': 'กฎใหม่',
   'rules.saveError': 'ไม่สามารถบันทึกกฎได้',
   'rules.subheading':
     'ระบุให้ระบบทราบว่าเอกสารแต่ละประเภทควรอยู่ในหมวดหมู่ใด เงื่อนไขจะเรียงลำดับจากบนลงล่าง — เอกสารที่ตรงกันก่อนจะได้รับเลือก',
+  'rules.templatesEmpty': 'ยังไม่มีเทมเพลตการดึงข้อมูล',
   'rules.templatesHeading': 'แม่แบบการสกัด',
   'rules.templatesSubheading': 'โครงสร้างฟิลด์ที่ตัวแยกข้อมูลใช้สำหรับเอกสารแต่ละประเภท',
   'rules.then': 'แล้ว',
@@ -110,17 +137,24 @@ export const ui: UiTranslations = {
   'settings.account.error': 'บันทึกไม่สำเร็จ',
   'settings.account.nameLabel': 'ชื่อพื้นที่ทำงาน',
   'settings.account.subheading': 'ชื่อที่แสดงและอีเมลหลักสำหรับการแจ้งเตือนและประวัติการตรวจสอบ',
+  'settings.api.confirmRevoke': 'ยืนยัน?',
   'settings.api.copyOnce': 'คัดลอกรหัสนี้ — จะไม่ปรากฏอีกต่อไป',
   'settings.api.createdOn': 'สร้าง {{date}}',
   'settings.api.empty': 'ยังไม่มีคีย์ API กรุณาสร้างคีย์ด้านบน',
   'settings.api.error': 'ไม่สามารถสร้างคีย์ได้',
+  'settings.api.generating': 'กำลังสร้าง…',
+  'settings.api.heading': 'คีย์ API',
   'settings.api.labelPlaceholder': 'ป้ายกำกับคีย์ (เช่น ตัวอัปโหลด CI)',
+  'settings.api.loading': 'กำลังโหลดคีย์…',
   'settings.api.newKey': 'สร้างคีย์',
   'settings.api.subheading':
     'ใช้ปุ่มเหล่านี้เพื่อส่งเอกสารจากสคริปต์หรือระบบ ERP ของคุณ หมุนปุ่มใดก็ได้ตลอดเวลา',
   'settings.integrations.heading': 'การผสานรวมการยื่นเอกสาร',
   'settings.integrations.subheading':
     'ส่งเอกสารที่จัดเก็บแล้วไปยังไดรฟ์บนคลาวด์หรือเครื่องมือแชทที่ทีมของคุณใช้งานอยู่แล้ว',
+  'settings.subheading':
+    'จัดการบัญชี คีย์ API และการเชื่อมต่อการจัดเก็บเอกสารสำหรับเวิร์กสเปซ {{app}} ของคุณ',
+  'signup.hidePassword': 'ซ่อนรหัสผ่าน',
   'signup.identityPrompt': 'เราควรเรียกคุณว่าอย่างไรดี?',
   'signup.showPassword': 'แสดงรหัสผ่าน',
   'signup.subtitle': 'ทดลองใช้ฟรี 14 วัน ไม่ต้องใช้บัตรเครดิต',
@@ -128,6 +162,7 @@ export const ui: UiTranslations = {
   'upload.error': 'การอัปโหลดล้มเหลว',
   'upload.eyebrow': 'การกลืนกิน',
   'upload.heading': 'อัปโหลดเอกสาร',
+  'upload.queue.clear': 'ล้างรายการที่เสร็จแล้ว',
   'upload.queue.col.confidence': 'ความมั่นใจ',
   'upload.queue.col.file': 'ไฟล์',
   'upload.queue.detecting': 'กำลังตรวจจับ…',
@@ -139,5 +174,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.aria': 'ลากเอกสารเพื่ออัปโหลด',
   'uploadDropZone.body': 'หรือลากไฟล์หลายไฟล์พร้อมกันเพื่อแยกข้อมูล จัดประเภท และจัดเก็บเป็นชุด',
   'uploadDropZone.cta': 'เลือกไฟล์',
+  'uploadDropZone.maxSize': 'สูงสุด 25 MB ต่อไฟล์ · เข้ารหัสแบบต้นทางถึงปลายทาง',
   'uploadDropZone.title': 'นำเอกสารมาวางเพื่อเริ่มดำเนินการ',
 }

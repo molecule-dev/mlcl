@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Imate povratnu informaciju, pronašli ste grešku ili želite da nam kažete kako vam je vođenje dnevnika pomoglo? Čitamo svaku poruku — javite se u bilo kom trenutku i odgovoriće vam stvarna osoba.',
+  'about.contactTitle': 'Kontaktirajte nas',
+  'about.featureInsights':
+    'Razmišljanja uz podršku veštačke inteligencije koja nežno ističu okidače, teme i zahvalnost — bez gubljenja vašeg glasa.',
+  'about.featureMood':
+    'Praćenje raspoloženja i aktivnosti uz prikaz kalendara i grafikone trendova koji otkrivaju šta vam pomaže da napredujete.',
+  'about.featurePrivacy':
+    'End-to-end enkripcija, zaključavanje pristupnim kodom i potpuni izvoz u CSV formatu kako bi vaša razmišljanja ostala privatna i prenosiva.',
+  'about.featurePrompts':
+    'Nežni dnevni podsticaji da uvek imate odakle da počnete — nikada prazna stranica.',
+  'about.intro':
+    '{{app}} je nežan, privatan dnevnik mentalnog zdravlja za svakodnevno razmišljanje, praćenje raspoloženja i zahvalnost. Pažljivo osmišljeni podsticaji zamenjuju praznu stranicu, tiho prepoznavanje obrazaca pomaže vam da razumete šta utiče na to kako se osećate, a end-to-end enkripcija čuva vaše reči kao vaše.',
+  'about.missionBody':
+    'Verujemo da provera kako ste trebalo bi da bude mirna, nikada klinička — i nikada kao još jedna aplikacija koja zahteva vašu pažnju. {{app}} je napravljen da pomogne, a ne da dosađuje: nekoliko tihih minuta dnevno da primetite svoje raspoloženje, pišete iskreno i polako sebe vidite jasnije.',
+  'about.missionTitle': 'Наша мисија',
   'about.pageTitle': 'O aplikaciji {{app}}',
   'authShell.encryptionBadge': 'Ваши уноси су шифровани од краја до краја.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Dan {{day}} — nema unosa',
   'calendar.cellMood': 'Дан {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Овај месец на први поглед',
   'calendar.eyebrow': 'Расположење на први поглед',
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Праћено {{tracked}} од {{total}} дана овог месеца.',
   'common.goToDashboard': 'Иди на контролну таблу',
   'common.tryAgain': 'Покушај поново',
+  'entryComposer.bodyPlaceholder': 'Napišite šta god se oseća iskreno. Niko drugi ovo neće čitati.',
   'entryComposer.cancel': 'Назад у дневник',
   'entryComposer.heading': 'Данашње размишљање',
   'entryComposer.moodLabel': 'Како се осећаш?',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Уклони {{tag}}',
   'entryComposer.save': 'Сачувај одраз',
   'entryComposer.saveError': 'Није могуће сачувати ваш унос.',
+  'entryComposer.tagPlaceholder': 'Dodajte oznaku i pritisnite enter',
   'entryComposer.titlePlaceholder': 'Дај име овом одразу…',
   'entryDetail.back': 'Назад у дневник',
   'entryDetail.delete': 'Обриши овај унос',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Учитавање одраза…',
   'entryDetail.notFound': 'Унос није пронађен.',
   'entryDetail.reflectionsHeading': 'Рефлексије вештачке интелигенције',
+  'forgotPassword.continueButton': 'Unesi kod za resetovanje',
   'forgotPassword.eyebrow': 'Без бриге',
   'forgotPassword.subheading': 'Послаћемо вам линк за нежно ресетовање на вашу имејл адресу.',
   'forgotPassword.successBody': 'Ако постоји налог за {{email}}, линк за ресетовање је на путу.',
@@ -57,14 +77,22 @@ export const ui: UiTranslations = {
     'Још нема тема — додајте једну или две ознаке својим уносима и оне ће се овде окупити.',
   'insights.themesHeading': 'Најпопуларније теме',
   'insights.triggerFrequency': 'приметио {{count}} × овог месеца',
+  'insights.triggersEmpty':
+    'Još nema šta da se primeti. Nekoliko unosa tokom nekoliko dana pokazaće vaše obrasce.',
   'insights.triggersHeading': 'Узорци који подижу ваше расположење',
+  'journal.empty':
+    'Nema razmišljanja koja se poklapaju — probajte drugi filter ili napišite novi unos.',
   'journal.eyebrow': 'Твоја размишљања',
   'journal.heading': 'Дневник',
   'journal.loadError': 'Учитавање уноса није успело.',
   'journal.loading': 'Учитавање уноса…',
+  'journal.newEntry': 'Нови унос',
   'journal.searchPlaceholder': 'Тражи осећај, име, тренутак…',
   'journal.subheading': '{{count}} уносе — сваки вреди задржати.',
   'journalEntryCard.encryptedLabel': 'Шифровано',
+  'landing.ctaBody':
+    'Besplatno za početak. Pro otključava izvoz podataka, veći dnevnik i punu godinu istorije.',
+  'landing.ctaButton': 'Започните свој први унос',
   'landing.ctaTitle': 'Неколико тихих минута дневно. То је све.',
   'landing.eyebrow': 'Нежна свакодневна пракса',
   'landing.featuresBody':
@@ -83,6 +111,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Нежан простор за свакодневно размишљање.',
   'mentalHealthJournalLayout.closeMenu': 'Затвори мени',
   'mentalHealthJournalLayout.openMenu': 'Отвори мени',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Примарна навигација',
+  'moodHeroCard.entriesThisWeek': '{{count}} ове недеље',
   'moodHeroCard.streakSuffix': 'дневни низ',
   'moodHeroCard.title': 'Данашње размишљање',
   'moodTrendChart.aiBadge': 'Спремно за увид у вештачку интелигенцију',
@@ -93,11 +123,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Ваше путовање',
   'profile.fallbackName': 'Рефлектор',
   'profile.loadError': 'Учитавање статистике није успело.',
+  'profile.loading': 'Osvežavanje vaše statistike…',
   'profile.longestStreak': 'Најдужи низ',
   'profile.memberSince': 'Размишљајући од {{date}}',
   'profile.milestones': 'Прекретнице',
   'profile.milestonesEmpty':
     'Ваша прва прекретница је само један запис удаљена — пишите кад год будете спремни.',
+  'profile.moodMix': 'Vaš spoj raspoloženja ove sezone',
   'profile.streakValue': '{{days}} д',
   'profile.totalEntries': 'Рефлексије',
   'profile.totalWords': 'Написане речи',
@@ -110,6 +142,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Пишите о овоме',
   'resetPassword.eyebrow': 'Нови почетак',
   'resetPassword.mismatchError': 'Лозинке се не подударају.',
+  'resetPassword.passwordLabel': 'Нова лозинка',
   'resetPassword.subheading': 'Изаберите нешто сигурно — ваши одрази то заслужују.',
   'resetPassword.tokenPlaceholder': 'Ресетујте код из имејла',
   'settings.dangerDescription':
@@ -121,11 +154,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'Није могуће избрисати налог.',
   'settings.exportDescription': 'Твоје речи увек припадају теби. Преузми копију било када.',
   'settings.exportDone': 'Извезено {{format}}.',
+  'settings.exportError': 'Извоз није успео.',
+  'settings.exportHeading': 'Izvezite svoja razmišljanja',
   'settings.exportLoading': 'Припрема…',
   'settings.eyebrow': 'Твој простор, твоја правила',
   'settings.languageHeading': 'Језик',
   'settings.privacyHeading': 'Приватност и шифровање',
   'settings.remindersHeading': 'Дневни подсетник',
+  'settings.reminderToggleAria': 'Uključi/isključi dnevni podsetnik',
   'settings.reminderToggleDescription':
     'Један мирни подсетник у време које изаберете. Без значки или осећаја кривице.',
   'settings.reminderToggleLabel': 'Пошаљи нежни подстицај',
@@ -138,6 +174,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Прављење дневника…',
   'signup.subheading': 'Безбедан простор за ваше мисли.',
   'wellnessRingsTriad.mindfulnessCaption': 'Гол {{goal}} мин данас',
+  'wellnessRingsTriad.mindfulnessLabel': 'Svesnost',
   'wellnessRingsTriad.sleepCaption': 'Гол {{goal}} сати / ноћ',
   'wellnessRingsTriad.sleepLabel': 'Спавање',
+  'wellnessRingsTriad.sleepValue': '{{hours}} ч',
+  'wellnessRingsTriad.streakCaption': 'Cilj {{goal}} dana',
+  'wellnessRingsTriad.streakLabel': 'Niz dnevnika',
+  'wellnessRingsTriad.streakValue': '{{days}} д',
 }

@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Kuna da ra'ayi, kun sami matsala, ko kuna son wata fasaha? Tuntuɓe mu daga saitunan asusunku — kowane saƙo yana zuwa ga wani mutum na gaske a ƙungiyar. Lura: babu wani abu a nan shawara ce ta zuba jari; kuna da iko kan kowace ciniki.",
+  'about.contactTitle': 'Yi magana da mu',
+  'about.featureAttribution':
+    "Rarraba aikin riba — rarraba ribar ta fannin tattalin arziki, yanki da nau'in kadara, sannan a kwatanta ta kowane lokaci.",
+  'about.featureRebalance':
+    "Daidaita jari bisa ka'ida — saita rabon da ake so da iyakokin haƙuri, ga karkacewar an nuna da wuri, kuma sami cinikayen da za su dawo da kai.",
+  'about.featureTax':
+    'Tsaftar takardun haraji — ribar da aka samu da wadda ba a samu ba, rabon riba da takardun 1099 a wuri ɗaya, tare da alamun cinikin wanke-wanke.',
+  'about.featureUnified':
+    'Fayil ɗaya haɗaɗɗe — hannun jari, ETF, asusun juna, takardun bashi da ƙari, an tattara su daga kowane asusun dillali.',
+  'about.featureWatchlist':
+    'Jerin kallo, labarai da faɗakarwar farashi domin ku iya aiki kan abin da ya fi muhimmanci ba tare da hayaniya ba.',
+  'about.intro':
+    "{{app}} dashboard ne na fayil ɗin kadara da yawa don masu zuba jari ɗaya-ɗaya da mashawarta masu zaman kansu. Hannun jari, ETF, asusun juna, takardun bashi, gidaje da kuɗi — kowane abin da kuke da shi a kowane asusu, a wuri ɗaya, tare da ka'idar tebur na ƙwararru.",
+  'about.missionBody':
+    "Zuba jari mai kyau galibi ka'ida ce: bayyanannen rabon da ake so, rarraba aikin riba na gaskiya, da tsaftataccen rikodin haraji. {{app}} yana kawo waɗannan ɗabi'un cibiyoyi ga kowa, domin ku iya daidaita jari da gangan maimakon da son rai — kuma kada ku manta da abin da fayil ɗinku yake yi a zahiri.",
+  'about.missionTitle': 'Manufarmu',
   'about.pageTitle': 'Game da {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Kayan aikin arziki',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Ba shawara ce ta saka hannun jari ba.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Tsarin dashboard na fayil ga masu zuba jari da masu ba da shawara waɗanda ke son daidaita daidaito, nuna ƙwarewa mai kyau, da kuma tsaftace haraji — ba tare da hayaniya ba.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · Aikin da ya wuce ba ya tabbatar da sakamako na gaba.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) a yau',
+  'argentAuthShell.sampleLabel': 'Darajar Fayil',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Babban kewayawa',
   'assetAllocationDonut.heading': 'Yadda ake saka kuɗin ku',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'yau',
   'assetDetail.txEmpty': 'Babu ma’amaloli don wannan alamar.',
   'assetDetail.txHeading': 'Ma’amaloli naka',
+  'auth.legalConsent.prefix': 'Ta ci gaba, kun yarda da {{appName}} na',
   'common.and': 'kuma',
   'common.goToDashboard': 'Je zuwa Dashboard',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'yau',
   'dashboard.topHoldings.heading': 'Inda kudin ku ke aiki',
   'dashboard.topHoldings.label': 'Manyan Rijiyoyin',
+  'forgotPassword.gotLinkCta': 'Ina da hanyar sake saiti →',
+  'forgotPassword.subheading':
+    'Shigar da imel ɗin da ke kan asusunka na Gavl kuma za mu aiko maka da hanyar haɗin sake saitawa mai tsaro.',
   'forgotPassword.successBody':
     'Idan ba ka gan shi ba cikin ’yan mintuna kaɗan, duba babban fayil ɗin spam ɗinka ko gwada wani imel daban.',
   'forgotPassword.successSubheading':
     'Duba {{email}} don hanyar sake saitawa. Zai ƙare cikin mintuna 60.',
+  'forgotPassword.successTitle': 'An aika imel ɗin sake saiti',
   'holdingHighlightRow.todayLabel': 'yau',
   'holdings.addCta': 'Saya',
   'holdings.col.allocation': 'Alloc',
@@ -58,6 +87,8 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Ba shawara ce ta saka hannun jari ba. Ayyukan da suka gabata ba su tabbatar da sakamako na gaba ba.',
   'landing.eyebrow': 'Argent · Dandalin kayan aiki masu wadata',
   'landing.features.heading': 'Duk abin da mai ba da shawara zai gina wa kansa.',
+  'landing.finalCta.body': 'Haɗa asusun dillalinku da danna biyu. {{appName}} zai yi sauran.',
+  'landing.finalCta.cta': 'Bude asusunka na Argent',
   'landing.finalCta.heading': 'Ku dawo da ladabi ga fayil ɗinku.',
   'landing.footerSignup': 'Bude asusu',
   'landing.getStarted': 'Bude asusu',
@@ -65,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Duba farashi',
   'landing.heroSubtitle':
     'Tsarin dashboard na fayil ga masu zuba jari da masu ba da shawara waɗanda ke son daidaita daidaito, nuna ƙwarewa mai kyau, da kuma tsaftace haraji — ba tare da hayaniya ba.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Samfoti kai tsaye daga fayil ɗin wakilci',
   'login.heading': 'Shiga zuwa Argent',
   'login.subheading':
@@ -76,6 +108,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} h da ya wuce',
   'news.justNow': 'yanzu kawai',
   'news.loadError': 'An kasa loda labarai.',
+  'planUpdated.body':
+    'Canjin lissafin ku yana aiki yanzu. Kuna iya sarrafa shirin ku kowane lokaci daga shafin lissafi.',
+  'planUpdated.retry': 'Gwada kuma',
+  'planUpdated.verifyFailed': 'Ba mu iya tabbatar da biyan kuɗin ku ba tukuna.',
+  'planUpdated.verifyFailedBody':
+    'Ana iya ci gaba da aiwatar da biyan kuɗin ku. Gwada kuma nan ba da jimawa ba.',
   'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'portfolioHeroCard.label': 'Darajar Fayil',
   'pricing.holdingsLabel': 'riƙewa',
@@ -86,12 +124,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Rage rabon gado',
   'rebalance.empty': 'Babu wani abin da aka sanya a gaba tukuna.',
   'rebalance.executeCta': 'Wuri {{count}} ciniki',
+  'rebalance.executeError': 'An kasa yin ciniki.',
   'rebalance.executeOk': 'An sanya {{count}} ciniki. Duba su a shafin Mu’amala.',
+  'rebalance.executing': 'Ana yin…',
   'rebalance.eyebrow': 'Sake daidaitawa · Mai ba da shawara kan harkokin kuɗi',
   'rebalance.heading': 'Koma fayil ɗinka cikin tsari',
   'rebalance.loadError': 'An kasa loda tsarin sake daidaita ma’auni.',
+  'rebalance.plan.driftLine': 'a halin yanzu {{current}}% · manufa {{target}}%',
   'rebalance.planHeading': 'Tikitin Argent - sake dubawa kafin sanyawa',
   'rebalance.planLabel': 'Tsarin ciniki da aka ba da shawara',
+  'rebalance.subheading':
+    'Layukan da suka fita daga iyakar haƙuri suna haifar da shawarwarin ciniki. {{appName}} yana aiki ne kawai da tabbacin ku.',
   'rebalance.summary.buyLabel': 'Sayayya',
   'rebalance.summary.buySub': 'matsayi don ƙara girma',
   'rebalance.summary.driftLabel': 'Ba a haɗa ba',
@@ -100,6 +143,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'a cikin cinikin da aka ba da shawara',
   'rebalance.summary.sellLabel': 'Sayarwa',
   'rebalance.summary.sellSub': 'matsayi don gyarawa',
+  'rebalanceDriftCard.drift': 'karkacewa {{sign}}{{pct}}% · iyaka ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'manufa {{pct}} %',
   'reports.attributionHeading': 'Siffar Aiki (1Y)',
   'reports.col.alpha': 'Alpha',
@@ -113,37 +157,69 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Shekara',
   'reports.gainsHeading': 'Ribar da aka samu & wadda ba a cimma ba',
   'reports.noAttribution': 'Babu bayanan haɗin kai tukuna.',
+  'reports.noGains': 'Babu bayanan ribar da aka samu/ba a samu ba tukuna.',
   'reports.noPerformance': 'Babu bayanan aiki tukuna.',
   'reports.noTaxDocs': 'Babu takardun haraji tukuna.',
   'reports.performanceHeading': 'Aiki vs ma’auni',
   'reports.taxHeading': 'Takardun Haraji',
   'resetPassword.heading': 'Zaɓi sabuwar kalmar sirri mai ƙarfi',
+  'resetPassword.passwordPlaceholder': 'Sabuwar kalmar sirri',
   'resetPassword.subheading':
     'Argent zai saka maka hannu ta atomatik da zarar an saita kalmar sirrinka.',
   'resetPassword.tokenPlaceholder': 'Sake saita alama daga imel',
+  'settings.appearance.description': 'Canja tsakanin yanayin haske da duhu.',
   'settings.appearance.title': 'Bayyanar',
+  'settings.devices.body': "Na'urori sun shiga asusunka a yanzu.",
+  'settings.devices.empty': "Ba a sami na'urori ba.",
   'settings.devices.heading': "Na'urori",
+  'settings.devices.revokeWarning':
+    "Za a soke izinin wannan na'ura nan ba da jimawa ba. Ka fitar da ita?",
   'settings.devices.signOut': 'Fita',
   'settings.devices.thisDevice': "Wannan na'urar",
   'settings.devices.unknown': "Na'urar da ba a sani ba",
   'settings.linked.body':
     'Daidaita dillali yana buƙatar haɗin ɓangare na uku (Plaid, Yodlee, da sauransu). Saita mai ba da sabis ɗinka a cikin yanayinka don kunna shigo da shi ta atomatik.',
   'settings.linked.heading': 'Asusun dillalai masu alaƙa',
+  'settings.linked.placeholder': 'Babu wani asusu da aka haɗa tukuna.',
+  'settings.notifications.dividendsPaid': 'Ribbon da aka biya',
   'settings.notifications.error': 'Ba za a iya sabunta fifiko ba.',
   'settings.notifications.priceAlerts': 'Sanarwa game da farashi',
+  'settings.notifications.rebalanceDrift': 'Karkacewar daidaita jari',
+  'settings.notifications.taxDocsReady': 'Takardun haraji a shirye',
   'settings.profile.advisor': 'Imel ɗin mai ba da shawara (zaɓi ne)',
   'settings.profile.heading': 'Bayanin martaba',
   'settings.security.changePassword': 'Canza kalmar sirri',
+  'settings.security.changePasswordTitle': 'Canza kalmar sirri',
   'settings.security.changing': 'Canzawa…',
+  'settings.security.confirmPassword': 'Kalmar sirri',
+  'settings.security.currentPassword': 'Kalmar shiga na halin yanzu',
   'settings.security.deleteAccount': 'Share asusu',
   'settings.security.deleteError': 'Ba a iya goge asusu ba.',
   'settings.security.deleteHeading': 'Share asusu',
+  'settings.security.deleteModalWarning':
+    'Wannan yana share asusunku da bayananku har abada. Shigar da kalmar sirrinku don tabbatarwa.',
+  'settings.security.deleteWarning':
+    'Share asusunku da duk bayanan da ke da alaƙa har abada. Ba za a iya dawo da wannan ba.',
   'settings.security.deleting': 'Ana gogewa…',
   'settings.security.heading': 'Tsaro',
   'settings.security.newPassword': 'Sabuwar kalmar sirri',
   'settings.security.password': 'Kalmar sirri',
+  'settings.security.passwordError': 'Ba za a iya canza kalmar sirri ba.',
+  'settings.security.passwordHint': 'Canza kalmar sirrin da kuke amfani da ita wajen shiga.',
+  'settings.security.twoFactor': 'Tantancewa ta abu biyu',
+  'settings.security.twoFactorCode': 'Lambar tabbatarwa',
+  'settings.security.twoFactorDisable': 'A kashe',
+  'settings.security.twoFactorDisableTitle': 'Kashe tabbatarwa ta matakai biyu',
   'settings.security.twoFactorEnable': 'Kunna',
+  'settings.security.twoFactorEnableTitle': 'Kunna tabbatarwa ta matakai biyu',
+  'settings.security.twoFactorHint': 'Ƙara wani matakin kariya ga asusunku.',
   'settings.security.twoFactorInvalidCode': 'Lambar da ba ta aiki ba',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'Lambar QR ta matakai biyu',
+  'settings.security.twoFactorScan':
+    'Duba wannan lambar QR da manhajar tabbatarwa, sannan shigar da lambar mai lambobi 6.',
+  'settings.security.twoFactorUnavailable':
+    'Ba a samun tantance abubuwa biyu don wannan app ɗin ba.',
   'settings.security.twoFactorVerify': 'Tabbatar & kunna',
   'settings.tax.error': 'Ba za a iya sabunta hanyar haraji ba.',
   'settings.tax.heading': 'Lissafin kuɗin haraji',
@@ -154,6 +230,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'An adana hanyar haraji.',
   'signup.eyebrow': 'Bude asusu',
   'signup.heading': 'Bude asusunka na Argent',
+  'signup.legalPrefix': 'Ta hanyar ƙirƙirar asusu ka yarda da {{appName}}',
   'signup.subheading': 'Kyauta na tsawon kwanaki 30. Babu buƙatar kati. Soke kowane lokaci.',
   'signup.terms':
     'Ta hanyar ƙirƙirar asusu, kun yarda da Sharuɗɗan Sabis na Argent da Dokar Sirri.',

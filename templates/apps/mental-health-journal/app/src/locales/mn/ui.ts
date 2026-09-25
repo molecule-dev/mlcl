@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Санал хүсэлт байна уу, алдаа олсон уу, эсвэл өдрийн тэмдэглэл хөтлөх нь танд хэрхэн тусалсныг хэлмээр байна уу? Бид бүх мессежийг уншдаг — хүссэн үедээ хандаарай, жинхэнэ хүн танд хариу өгөх болно.',
+  'about.contactTitle': 'Бидэнтэй холбогдох',
+  'about.featureInsights':
+    'Хиймэл оюун ухаанд суурилсан эргэцүүлэл нь таны дуу хоолойг алдалгүйгээр өдөөгч шалтгаан, сэдэв, талархлыг зөөлөн онцолдог.',
+  'about.featureMood':
+    'Сэтгэл хөдлөл, үйл ажиллагааг хянах, хуанлийн харагдац болон таныг цэцэглэхэд тусалдаг зүйлийг илрүүлэх чиг хандлагын график.',
+  'about.featurePrivacy':
+    'Төгсгөлөөс төгсгөл хүртэлх шифрлэлт, нэвтрэх кодын түгжээ, бүрэн CSV экспорт нь таны эргэцүүллийг нууцлагдмал, зөөврийн байлгана.',
+  'about.featurePrompts':
+    'Өдөр бүрийн зөөлөн сануулга нь танд үргэлж эхлэх газар байх болно — хоосон хуудас хэзээ ч байхгүй.',
+  'about.intro':
+    '{{app}} нь өдөр тутмын эргэцүүлэл, сэтгэл хөдлөлийн хяналт, талархалд зориулсан зөөлөн, нууцлалтай сэтгэцийн эрүүл мэндийн тэмдэглэл юм. Бодолтой сануулгууд хоосон хуудсыг орлож, чимээгүй хэв маяг хайх нь таны мэдрэмжид юу нөлөөлж байгааг ойлгоход тусалж, төгсгөлөөс төгсгөл хүртэлх шифрлэлт нь таны үгсийг таных байлгана.',
+  'about.missionBody':
+    'Бид өөртэйгөө холбогдох нь тайван байх ёстой, хэзээ ч эмнэлзүйн мэт биш — мөн анхаарлыг тань шаарддаг өөр нэг апп мэт хэзээ ч биш гэж үздэг. {{app}} нь туслахын тулд бүтээгдсэн, зовоохын тулд биш: өдөрт хэдхэн нам гүм минут зарцуулж, сэтгэл хөдлөлөө анзаарч, шударгаар бичиж, аажмаар өөрийгөө илүү тодорхой хараарай.',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
   'about.pageTitle': '{{app}}-ийн тухай',
   'authShell.encryptionBadge': 'Таны оруулгууд төгсгөлөөс төгсгөл хүртэл шифрлэгдсэн байна.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': '{{day}} дэх өдөр — бичлэг байхгүй',
   'calendar.cellMood': 'Өдөр {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Энэ сарыг товчхондоо',
   'calendar.eyebrow': 'Сэтгэл санааг товчхон харах',
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Хянасан {{tracked}} -ын {{total}} энэ сарын өдрүүд.',
   'common.goToDashboard': 'Хянах самбар руу очих',
   'common.tryAgain': 'Дахин оролдоно уу',
+  'entryComposer.bodyPlaceholder': 'Шударга санагдах бүхнээ бичээрэй. Үүнийг өөр хэн ч уншихгүй.',
   'entryComposer.cancel': 'Өдрийн тэмдэглэл рүү буцах',
   'entryComposer.heading': 'Өнөөдрийн тусгал',
   'entryComposer.moodLabel': 'Та ямар мэдрэмжтэй байна вэ?',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Хасах {{tag}}',
   'entryComposer.save': 'Тусгалыг хадгалах',
   'entryComposer.saveError': 'Таны оруулгыг хадгалж чадсангүй.',
+  'entryComposer.tagPlaceholder': 'Шошго нэмээд enter дарна уу',
   'entryComposer.titlePlaceholder': 'Энэ тусгалд нэр өгөөрэй...',
   'entryDetail.back': 'Өдрийн тэмдэглэл рүү буцах',
   'entryDetail.delete': 'Энэ оруулгыг устгах',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Тусгалыг ачаалж байна…',
   'entryDetail.notFound': 'Бичлэг олдсонгүй.',
   'entryDetail.reflectionsHeading': 'Хиймэл оюун ухааны тусгал',
+  'forgotPassword.continueButton': 'Сэргээх код оруулах',
   'forgotPassword.eyebrow': 'Санаа зоволтгүй',
   'forgotPassword.subheading':
     'Бид таны имэйл хаяг руу зөөлөн дахин тохируулах холбоос илгээх болно.',
@@ -59,14 +79,22 @@ export const ui: UiTranslations = {
     'Одоогоор сэдэв алга байна — оруулгууддаа нэг эсвэл хоёр шошго нэмбэл тэд энд цугларна.',
   'insights.themesHeading': 'Шилдэг сэдэвүүд',
   'insights.triggerFrequency': 'анзаарсан {{count}} × энэ сард',
+  'insights.triggersEmpty':
+    'Одоохондоо анзаарах зүйл алга. Хэдэн өдрийн турш хэдэн бичлэг хийвэл таны хэв маягийг харуулна.',
   'insights.triggersHeading': 'Таны сэтгэл санааг хөдөлгөх хэв маягууд',
+  'journal.empty':
+    'Тохирох эргэцүүлэл алга — өөр шүүлтүүр туршаад үзээрэй эсвэл шинэ бичлэг бичээрэй.',
   'journal.eyebrow': 'Таны тусгалууд',
   'journal.heading': 'Тэмдэглэл',
   'journal.loadError': 'Бичлэгүүдийг ачаалж чадсангүй.',
   'journal.loading': 'Бичлэгүүдийг ачаалж байна…',
+  'journal.newEntry': 'Шинэ бичлэг',
   'journal.searchPlaceholder': 'Мэдрэмж, нэр, мөчийг хай...',
   'journal.subheading': '{{count}} оруулгууд - бүгдийг нь хадгалах нь зүйтэй.',
   'journalEntryCard.encryptedLabel': 'Шифрлэгдсэн',
+  'landing.ctaBody':
+    'Эхлэхэд үнэгүй. Pro нь өгөгдлийн экспорт, илүү том тэмдэглэл, бүтэн жилийн түүхийг нээж өгдөг.',
+  'landing.ctaButton': 'Анхны оруулгаа эхлүүлээрэй',
   'landing.ctaTitle': 'Өдөрт хэдэн минут чимээгүй өнгөрөө. Ингээд л болоо.',
   'landing.eyebrow': 'Өдөр тутмын зөөлөн дасгал',
   'landing.featuresBody':
@@ -85,6 +113,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Өдөр тутмын эргэцүүлэн бодох зөөлөн орон зай.',
   'mentalHealthJournalLayout.closeMenu': 'Цэсийг хаах',
   'mentalHealthJournalLayout.openMenu': 'Цэсийг нээх',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Үндсэн навигаци',
+  'moodHeroCard.entriesThisWeek': '{{count}} энэ долоо хоногт',
   'moodHeroCard.streakSuffix': 'өдрийн цуврал',
   'moodHeroCard.title': 'Өнөөдрийн тусгал',
   'moodTrendChart.aiBadge': 'Хиймэл оюун ухааны ойлголт бэлэн байна',
@@ -95,11 +125,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Таны аялал',
   'profile.fallbackName': 'Тусгал гэрэл',
   'profile.loadError': 'Статистикийг ачаалж чадсангүй.',
+  'profile.loading': 'Статистикийг шинэчилж байна…',
   'profile.longestStreak': 'Хамгийн урт цуврал',
   'profile.memberSince': 'Түүнээс хойш эргэцүүлэн бодох {{date}}',
   'profile.milestones': 'Гол үе шатууд',
   'profile.milestonesEmpty':
     'Таны эхний алхам нэг л удаагийн зайтай байна - бэлэн болсон үедээ бичээрэй.',
+  'profile.moodMix': 'Энэ улирлын таны сэтгэл хөдлөлийн холимог',
   'profile.streakValue': '{{days}} д',
   'profile.totalEntries': 'Эргэцүүлэл',
   'profile.totalWords': 'Бичсэн үгс',
@@ -112,6 +144,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Энэ талаар бичээрэй',
   'resetPassword.eyebrow': 'Шинэ эхлэл',
   'resetPassword.mismatchError': 'Нууц үгнүүд таарахгүй байна.',
+  'resetPassword.passwordLabel': 'Шинэ нууц үг',
   'resetPassword.subheading': 'Аюулгүй зүйлийг сонгоорой - таны тусгал үүнийг хүртэх ёстой.',
   'resetPassword.tokenPlaceholder': 'Имэйлээс кодыг дахин тохируулах',
   'settings.dangerDescription':
@@ -124,11 +157,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     'Таны үгс үргэлж танд хамаарна. Хүссэн үедээ хуулбарыг татаж аваарай.',
   'settings.exportDone': 'Экспортлогдсон {{format}}.',
+  'settings.exportError': 'Экспорт амжилтгүй боллоо.',
+  'settings.exportHeading': 'Эргэцүүллээ экспортлох',
   'settings.exportLoading': 'Бэлтгэж байна…',
   'settings.eyebrow': 'Таны орон зай, таны дүрэм журам',
   'settings.languageHeading': 'Хэл',
   'settings.privacyHeading': 'Нууцлал ба шифрлэлт',
   'settings.remindersHeading': 'Өдөр тутмын сануулга',
+  'settings.reminderToggleAria': 'Өдөр тутмын сануулгыг асаах/унтраах',
   'settings.reminderToggleDescription':
     'Таны сонгосон цагт ганцхан тайван сануулга. Тэмдэг эсвэл гэм буруугийн мэдрэмж төрүүлэхгүй.',
   'settings.reminderToggleLabel': 'Зөөлөн түлхэлт илгээнэ үү',
@@ -141,6 +177,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Тэмдэглэл үүсгэж байна…',
   'signup.subheading': 'Таны бодлуудад аюулгүй орон зай.',
   'wellnessRingsTriad.mindfulnessCaption': 'Зорилго {{goal}} өнөөдөр мин',
+  'wellnessRingsTriad.mindfulnessLabel': 'Сэтгэл зүйн тайван байдал',
   'wellnessRingsTriad.sleepCaption': 'Зорилго {{goal}} цаг / шөнө',
   'wellnessRingsTriad.sleepLabel': 'Унтах',
+  'wellnessRingsTriad.sleepValue': '{{hours}} цаг',
+  'wellnessRingsTriad.streakCaption': 'Зорилго {{goal}} өдөр',
+  'wellnessRingsTriad.streakLabel': 'Тэмдэглэлийн цуврал',
+  'wellnessRingsTriad.streakValue': '{{days}} д',
 }

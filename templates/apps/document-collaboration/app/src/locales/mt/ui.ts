@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Għandek feedback, sibt bug, jew tixtieq {{app}} għall-istudjo jew it-tim tiegħek? Ikkuntattjana mill-issettjar tal-kont tiegħek — kull messaġġ jasal għand persuna reali fit-tim.',
   'about.contactTitle': 'Kellem magħna',
+  'about.intro':
+    "{{app}} huwa studjo tal-kitba kollaborattiva fejn edituri, kittieba u timijiet jiktbu flimkien f'ħin reali. Iftaħ dokument u l-paġna ssir kondiviża — il-cursors jiċċaqilqu, il-kummenti jinġemgħu fil-marġni, u kull reviżjoni tinżamm sigura fl-istorja.",
+  'about.missionBody':
+    "Aħna nemmnu li l-kitba twila ħaqqha dar kalma u ffukata — waħda mibnija madwar il-manuskritt, mhux il-laqgħa jew il-inbox. L-editur tagħna, il-preżenza f'ħin reali, u l-istorja tal-verżjonijiet huma kollha mfassla biex il-kollaboraturi jimxu malajr flimkien mingħajr ma ħadd jitlef paragrafu jew ħsieb.",
+  'about.missionTitle': 'Il-missjoni tagħna',
+  'about.subtitle': 'Aħsbu flimkien, iktbu għal dejjem.',
   'about.title': 'Dwar {{app}}',
   'comments.addFailed': 'Ma stajtx nippubblika kumment.',
   'comments.backToDoc': 'Lura għall-manuskritt',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': "Suġġetti ta' kummenti",
   'comments.loading': 'Qed jitgħabbew is-suġġetti…',
   'comments.newPlaceholder': 'Żid kumment mal-manuskritt…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Iftaħ mill-ġdid',
   'comments.reopenFailed': "Ma setax jerġa' jiftaħ.",
   'comments.replyFailed': 'Ma stajtx nibgħat it-tweġiba.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Abbozzi riċenti, xogħlijiet kondiviżi, u l-editjar tal-ġurnata.',
   'dashboard.viewFeed': 'Għalf →',
   'editor.back': 'Lura għall-manuskritti',
+  'editor.bodyLabel': 'Korp tad-dokument',
   'editor.bodyPlaceholder': 'Ibda minn fejn jteptep il-cursor.',
   'editor.comments': 'Kummenti',
   'editor.createFailed': 'Ma setax jinħoloq id-dokument.',
@@ -62,13 +72,19 @@ export const ui: UiTranslations = {
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'kittieb@studio.com',
   'forgotPassword.sentBody': "Jekk jeżisti kont għal {{email}} , link ta' reset ġej fi triqtu.",
+  'forgotPassword.sentHeading': 'Iċċekkja l-email tiegħek',
+  'forgotPassword.submitting': 'Qed nibgħat\\u2026',
   'forgotPassword.subtitle': "Se nibagħtulek link ta' reset bl-email.",
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Mibni bil-Molecule.',
+  'landing.ctaBody':
+    "B'xejn għall-kittieba solo. Pjanijiet Studio għal timijiet ta' edituri, ghostwriters u reviżuri.",
   'landing.ctaHeading': 'Iftaħ il-paġna. Ħalli l-cursor jibda.',
   'landing.ctaPrimary': 'Iftaħ studio',
   'landing.eyebrow': 'Għal kittieba, edituri, u timijiet',
   'landing.featuresEyebrow': 'Dak li tikseb',
   'landing.featuresHeading': 'Studio għall-abbozz twil.',
+  'landing.featuresSubtitle':
+    '{{appName}} huwa mibni madwar il-manuskritt — mhux il-laqgħa, mhux il-inbox.',
   'landing.getStarted': 'Iftaħ l-istudjo',
   'landing.heroCta': 'Ibda ikteb',
   'landing.heroSubtitle':
@@ -94,6 +110,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} mhux moqrija · kummenti, semmi, stediniet għall-qsim, u talbiet għal suġġerimenti.',
   'presenceAvatars.label': '{{count}} kollaboraturi',
+  'privacy.intro': 'Kif niġbru, nużaw u nipproteġu l-informazzjoni tiegħek.',
   'privacy.title': 'Politika tal-privatezza',
   'profile.about.description':
     'Bijografija qasira għall-profil pubbliku tiegħek u l-paġni tal-kontributuri.',
@@ -107,7 +124,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Preżenza',
   'profile.pronouns': 'Pronomi',
   'profile.publicToggle': 'Uri l-profil lil sħabek tat-tim',
+  'profile.role': 'Rwol / titlu',
   'profile.subtitle': 'Kif tidher quddiem il-kollaboraturi tiegħek.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} kittieba attivi fl-istudjo',
   'quillonAuthBrandPanel.quote':
     '"Il-kitba hija l-unika ħaġa li, meta nagħmilha, ma nħossx li għandi nagħmel xi ħaġa oħra."',
@@ -115,6 +134,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Iftaħ →',
   'quillonKpiCard.trend': 'Xejra riċenti',
   'quillonLayout.menu': 'Menù',
+  'quillonLayout.mobileNavLabel': 'Navigazzjoni mobbli',
   'quillonLayout.primaryNavLabel': 'Navigazzjoni primarja',
   'quillonStudioHero.collab': 'Kollaboraturi',
   'quillonStudioHero.docs': 'Dokumenti mimsusa',
@@ -123,7 +143,9 @@ export const ui: UiTranslations = {
   'quillonStudioHero.subtitle': "Aqbad il-manuskritt, ikteb kumment, imbotta paragrafu 'l quddiem.",
   'quillonStudioHero.words': 'Kliem illum',
   'resetPassword.confirmPlaceholder': 'Irrepeti l-password il-ġdida',
+  'resetPassword.passwordLabel': 'Password ġdida',
   'resetPassword.passwordPlaceholder': 'Daħħal password ġdida',
+  'resetPassword.submitting': 'Irrisettjar…',
   'resetPassword.subtitle': "Agħżel password b'saħħitha — mill-inqas 12-il karattru.",
   'settings.account.description': 'Kif tidħol.',
   'settings.billing.canceled': 'Abbonament ikkanċellat.',
@@ -132,7 +154,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Mhux ikkonfigurat',
   'settings.billing.updated': 'Pjan aġġornat.',
   'settings.editor.description': 'Kif iġib ruħu l-kanvas waqt li tikteb.',
+  'settings.editor.title': 'Preferenzi tal-Editur',
   'settings.eyebrow': 'Preferenzi tal-istudjo',
+  'settings.language.title': 'Lingwa',
   'settings.notifications.${n.key}.description': 'Lingwa',
   'settings.notifications.description': "Agħżel x'jasal fl-inbox tiegħek.",
   'settings.subtitle': 'Aġġusta n-notifiki, il-kanvas tal-editur, u l-preferenzi tal-kont tiegħek.',
@@ -141,6 +165,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Maqsum miegħi',
   'shared.loadFailed': 'Ma setgħux jitgħabbew dokumenti kondiviżi.',
   'shared.subtitle': 'Manuskritti, dokumenti, u noti mill-bqija tal-istudjo.',
+  'signup.brandAttribution': 'Anaïs Park — Editur, The Quarterly',
   'signup.brandQuote':
     'L-ewwel manuskritt tiegħek huwa l-aktar diffiċli. Quillon jagħmilha inqas solitarja.',
   'signup.emailPlaceholder': 'kittieb@studio.com',
@@ -148,6 +173,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Anaïs',
   'signup.heading': 'Oħloq il-kont Quillon tiegħek',
   'signup.lastNamePlaceholder': 'Park',
+  'signup.submitting': 'Qed niftħu l-istudjo tiegħek\\u2026',
   'signup.subtitle':
     "Desk kwiet, kollaboraturi ambjentali, u editur ta' kotba twal li ma jfixklekx.",
   'templates.blank.subtitle': 'Paġna nadifa. Il-cursor jibda.',
@@ -160,11 +186,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Ibda bi struttura maħsuba sew. Ippersonalizzaha bla tmiem.',
   'templates.useFailed': 'Ma setax jinbeda dokument minn dan il-mudell.',
   'templates.useTemplate': 'Uża dan il-mudell',
+  'terms.intro': "Il-kundizzjonijiet li taħthom tista' tuża dan is-servizz.",
   'terms.title': 'Termini tas-servizz',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'issa stess',
   'trash.confirmDelete': 'Ikkonferma t-tħassir',
+  'trash.confirmEmpty': 'Ikkonferma — ħassar kollox',
   'trash.deleteFailed': 'Ma setax jitħassar.',
   'trash.deleteForever': 'Ħassar għal dejjem',
   'trash.empty': "Xejn x'jirkupra.",
@@ -179,7 +207,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     "Għad m'hemm l-ebda reviżjoni — salva d-dokument biex tibda l-istorja tiegħu.",
   'versionHistory.heading': 'Storja tal-verżjoni',
+  'versionHistory.latest': 'L-Aħħar',
   'versionHistory.loadFailed': 'Ma setgħetx titgħabba l-istorja.',
+  'versionHistory.noContent': 'L-ebda kontenut ma nqabad għal din ir-reviżjoni.',
   'versionHistory.previewing': 'Previżjoni',
   'versionHistory.restore': 'Irrestawra din il-verżjoni',
   'versionHistory.restoreFailed': 'Ir-restawr falla.',

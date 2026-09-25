@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கேள்விகள், கருத்துகள் அல்லது அம்சக் கோரிக்கை உள்ளதா? hello@murmur.app என்ற முகவரிக்கு குழுவுக்கு மின்னஞ்சல் அனுப்புங்கள் — ஒவ்வொரு செய்தியும் தயாரிப்பில் பணிபுரியும் ஒரு உண்மையான மனிதரைச் சென்றடைகிறது.',
   'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'எங்களைப் பற்றி',
+  'about.intro':
+    'குறிப்புகள் எடுப்பதை விட முடிவுகளை எடுப்பதையே விரும்பும் குழுக்களுக்கான கூட்ட நுண்ணறிவு இது {{app}}. உங்கள் அழைப்புகளில் இணைந்து, பேச்சாளர் லேபிள்களுடன் ஒவ்வொரு வார்த்தையையும் எழுத்துப்படிவமாக்கி, கூட்டம் முடிந்த அந்தக் கணமே ஒரு AI சுருக்கத்தையும் பொறுப்பேற்கப்பட்ட செயல் உருப்படிகளையும் வழங்குகிறது.',
+  'about.missionBody':
+    'குழுக்கள் முடிவுகளை எடுக்கும் இடம் கூட்டங்கள்தான் — அந்த முடிவுகள் தொலைந்து போகும் இடமும் அதுவே. ஒரு உரையாடலில் நடக்கும் வேலை அந்த உரையாடலைக் கடந்து நிலைத்திருக்க வேண்டும் என்பதற்காகவே {{app}} உள்ளது: நம்பகமான ஒரு பதிவு, தெளிவான ஒரு சுருக்கம், பொறுப்புள்ள அடுத்த படிகள் — தானாகவே.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'actions.empty': 'எந்தச் செயல்களும் பொருந்தவில்லை.',
   'actions.heading': 'செயல் உருப்படிகள்',
   'actions.loadError': 'செயல் உருப்படிகளை ஏற்ற முடியவில்லை.',
@@ -10,11 +17,14 @@ export const ui: UiTranslations = {
     'ஒவ்வொரு சந்திப்பிலும் திரட்டப்பட்டது. கவனம் செலுத்த நிலையின் அடிப்படையில் வடிகட்டவும்.',
   'actions.toggleDoneLabel': 'செய்து முடித்ததாகக் குறிக்கவும்',
   'actions.toggleReopenLabel': 'திறந்ததாகக் குறிக்கவும்',
+  'auth.footer': '© {{year}} {{app}}. ஒவ்வொரு வார்த்தையும், சாராம்சமாக.',
   'calendar.heading': 'டெம்ப்ளேட்',
   'calendar.joinCta': 'சேருங்கள்',
   'calendar.loadError': 'நாட்காட்டியை ஏற்ற முடியவில்லை.',
   'calendar.nextMonth': 'அடுத்த மாதம்',
   'calendar.noEventsForDay': 'இன்று கூட்டங்கள் எதுவும் திட்டமிடப்படவில்லை.',
+  'calendar.noUpcomingEvents':
+    'வரவிருக்கும் கூட்டங்கள் இல்லை. இந்தப் பட்டியலை நிரப்ப Integrations இலிருந்து ஒரு நாட்காட்டியை இணைக்கவும்.',
   'calendar.previousMonth': 'முந்தைய மாதம்',
   'calendar.recent': 'ஞாபகம்',
   'common.daysAgo': '{{count}} டி நோ',
@@ -26,9 +36,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} செயல் உருப்படிகள்',
   'dashboard.empty.body':
     'பதிவைத் தொடங்குங்கள் அல்லது கூகுள் காலண்டரை இணைக்கவும், இதன் மூலம் மர்மர் உங்கள் அடுத்த சந்திப்பில் தானாகவே இணைந்துகொள்ளும்.',
+  'dashboard.empty.cta': 'பதிவைத் தொடங்கவும்',
   'dashboard.empty.heading': 'இன்னும் சந்திப்புகள் எதுவும் நடைபெறவில்லை.',
   'dashboard.eyebrow': 'உங்கள் சந்திப்பு ஊட்டம்',
   'dashboard.loadError': 'டாஷ்போர்டை ஏற்ற முடியவில்லை.',
+  'dashboard.noActions': 'செயல்கள் இல்லை',
   'dashboard.recentHeading': 'சமீபத்திய கூட்டங்கள்',
   'dashboard.recordCta': 'பதிவு கூட்டம்',
   'dashboard.stat.actions': 'செயல் உருப்படிகள்',
@@ -38,6 +50,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} நீங்கள் கடைசியாகப் பார்த்ததிலிருந்து படிக்கப்படாத சுருக்கங்கள். மர்மர் ஒவ்வொரு சொல்லையும் உள்வாங்கியுள்ளது — இதோ அதன் மீள்பார்வை.',
   'dashboard.viewCalendar': 'நாட்காட்டியைப் பார்க்கவும் →',
+  'footer.linksLabel': 'அடிக்குறிப்பு',
   'forgot.failed': 'மீட்டமைப்பு மின்னஞ்சலை அனுப்ப முடியவில்லை.',
   'forgot.sentBody':
     'ஒரு கணக்கு இருந்தால் {{email}} விரைவில் உங்களுக்கு மீட்டமைப்பு இணைப்பு கிடைக்கும்.',
@@ -49,14 +62,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'காலண்டர்களையும் வீடியோ தளங்களையும் இணைத்தால், மர்மர் தானாகவே இணைந்துகொள்ளும்.',
   'integrations.updateError': 'புதுப்பிப்பு தோல்வியடைந்தது.',
+  'landing.ctaBody':
+    'ஒவ்வொரு மாதமும் முதல் 5 கூட்டங்களுக்கு இலவசம். கிரெடிட் கார்டு தேவையில்லை. ஒரு நிமிடத்திற்குள் Google Calendar-ஐ இணைக்கவும்.',
   'landing.ctaButton': 'தொடங்குங்கள் — இது இலவசம்',
   'landing.ctaHeading': 'குறிப்பெடுப்பதை நிறுத்துங்கள். முடிவெடுக்கத் தொடங்குங்கள்.',
+  'landing.demo.aiBody':
+    'செயல்பாட்டு பணியாளர் அமைப்புக்கு இடமளிக்க, வெளியீடு மே 5 → மே 12 என மாற்றப்பட்டது. டாஷ்போர்டு மறுவடிவமைப்பு மே 26-க்கு தனியாகப் பிரிக்கப்பட்டது.',
   'landing.demo.aiLabel': 'AI சுருக்கம், நேரலையில் தயாரிக்கப்பட்டது',
   'landing.demo.recording': 'பதிவு · நேரலை',
   'landing.eyebrow': 'செயற்கை நுண்ணறிவு சந்திப்பு நுண்ணறிவு',
   'landing.featuresHeading': 'கூட்டம் முடிந்த பிறகு உங்கள் குழுவிற்குத் தேவையான அனைத்தும்',
+  'landing.featuresSubheading':
+    'இனி "இதை யார் பொறுப்பேற்கிறார்கள்?" என்ற கேள்வி இல்லை. அழைப்பு துண்டிக்கப்படுவதற்கு முன்பே {{appName}} சுருக்கத்தை வழங்கிவிடும்.',
   'landing.getStarted': 'இலவசமாக முயற்சி செய்யுங்கள்',
   'landing.heroSecondary': '90 வினாடி சுற்றுப்பயணத்தைக் காணுங்கள்',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} உங்கள் அழைப்புகளில் இணைந்து, பேச்சாளர் லேபிள்களுடன் ஒவ்வொரு வார்த்தையையும் எழுத்துப்படிவமாக்கி, கூட்டம் முடிந்த அந்தக் கணமே AI சுருக்கங்களையும் பொறுப்பேற்கப்பட்ட செயல் உருப்படிகளையும் வழங்குகிறது.',
   'landing.heroTitle': 'ஒவ்வொரு சந்திப்பையும் பதிவு செய்யுங்கள். முக்கியமானவற்றை வெளிக்கொணருங்கள்.',
   'login.altPrompt': 'மர்மருக்குப் புதியவரா?',
   'login.failed': 'உள்நுழைய முடியவில்லை. உங்கள் மின்னஞ்சலையும் கடவுச்சொல்லையும் சரிபார்க்கவும்.',
@@ -64,6 +85,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'செயல் உருப்படிகள்',
   'meetingDetail.back': 'அனைத்து கூட்டங்களும்',
   'meetingDetail.decisionsHeading': 'முடிவுகள்',
+  'meetingDetail.dueDate': '{{date}} வரை',
   'meetingDetail.followupsHeading': 'பின்தொடர்தல்கள்',
   'meetingDetail.loadError': 'கூட்டத்தை ஏற்ற முடியவில்லை.',
   'meetingDetail.noActions': 'செயல் உருப்படிகள் எதுவும் கண்டறியப்படவில்லை.',
@@ -77,8 +99,10 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'இன்னும் சந்திப்புகள் எதுவும் நடைபெறவில்லை.',
   'meetings.heading': 'கூட்டங்கள்',
   'meetings.loadError': 'கூட்டங்களை ஏற்ற முடியவில்லை.',
+  'meetings.recordCta': 'பதிவு கூட்டம்',
   'meetings.subheading':
     'பதிவுசெய்யப்பட்ட, பதிவேற்றப்பட்ட மற்றும் ஒத்திசைக்கப்பட்ட ஒவ்வொரு சந்திப்பும்.',
+  'murmurLayout.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
   'murmurLayout.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'murmurLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'nav.legal': 'சட்டப்பூர்வமான',
@@ -104,7 +128,16 @@ export const ui: UiTranslations = {
   'profile.loading': 'ஏற்றப்படுகிறது…',
   'profile.navLabel': 'சுயவிவரப் பிரிவுகள்',
   'profile.notifications.assignments': 'எனக்கு ஒதுக்கப்பட்ட செயல் உருப்படிகள்',
+  'profile.notifications.assignmentsHint':
+    'உங்களுக்காக ஒரு செயல் உருப்படி பதிவு செய்யப்படும்போது அறிவிக்கவும்.',
+  'profile.notifications.mentions': 'எழுத்துப்படிவங்களில் குறிப்பிடுதல்கள்',
+  'profile.notifications.mentionsHint': 'யாராவது உங்களை @-குறிப்பிட்டால் மின்னஞ்சல் + புஷ்.',
+  'profile.notifications.subheading':
+    'எந்த {{appName}} நிகழ்வுகள் உங்களை அடைய வேண்டும் என்பதைத் தேர்ந்தெடுக்கவும்.',
   'profile.notifications.summaries': 'வாராந்திர தொகுப்பு',
+  'profile.notifications.summariesHint':
+    'கடந்த வாரத்தின் ஒவ்வொரு கூட்டத்திற்கும் ஒரு திங்கள் சுருக்கம்.',
+  'profile.preferences.speakerColor': 'இயல்புநிலை பேச்சாளர் நிறம்',
   'profile.preferences.subheading': 'நீங்கள் இணையும் ஒவ்வொரு பதிவிற்கும் பொருந்தும் இயல்புநிலைகள்.',
   'profile.preferences.timezone': 'நேர மண்டலம்',
   'profile.preferences.title': 'பதவியின் பெயர்',
@@ -116,17 +149,22 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'உங்கள் உலாவி பதிவுசெய்தலை ஆதரிக்கவில்லை. Chrome, Edge அல்லது Safari-ஐப் பயன்படுத்திப் பாருங்கள்.',
   'record.error.upload': 'பதிவேற்றம் தோல்வியடைந்தது. மீண்டும் முயற்சிக்கவும்.',
+  'record.errorLabel': 'ஏதோ தவறு நடந்தது',
   'record.heading': 'பதிவு',
   'record.idleLabel': 'பதிவைத் தொடங்க தட்டவும்',
   'record.processingLabel': 'விஸ்பருடன் படியெடுத்து, கிளாடுடன் சுருக்கி…',
+  'record.recordingLabel': 'பதிவுசெய்கிறது…',
   'record.retryCta': 'மீண்டும் முயற்சிக்கவும்',
   'record.subheading':
     'தொடங்குவதற்கு மைக்ரோஃபோனை அழுத்தவும். மர்மர் ஆடியோவைப் பதிவுசெய்து, விஸ்பர் வழியாக அதை எழுத்து வடிவில் மாற்றி, கிளாடின் உதவியுடன் ஒரு சுருக்கத்தை எழுதுகிறது.',
+  'record.titlePlaceholder': 'கூட்டத்தின் தலைப்பு (விருப்பத்தேர்வு)',
+  'reset.altPrompt': 'மனம் மாறிவிட்டதா?',
   'reset.hint': 'எழுத்துக்களும் எண்களும் கலந்த, குறைந்தபட்சம் 8 குறியீடுகளைப் பயன்படுத்தவும்.',
   'reset.missingToken':
     'மீட்டமைப்பு இணைப்பு காணவில்லை அல்லது காலாவதியாகிவிட்டது. புதிய இணைப்பைக் கோரவும்.',
   'reset.newPassword': 'புதிய கடவுச்சொல்',
   'reset.subheading': 'வேறு எங்கும் நீங்கள் பயன்படுத்தாத ஒரு கடவுச்சொல்லைத் தேர்ந்தெடுக்கவும்.',
+  'reset.tooShort': 'கடவுச்சொல் குறைந்தபட்சம் 8 எழுத்துகள் கொண்டதாக இருக்க வேண்டும்.',
   'search.empty': 'படியெடுத்த உரைகளைத் தேட தட்டச்சு செய்யவும்.',
   'search.loadError': 'தேடல் தோல்வியடைந்தது. மீண்டும் முயற்சிக்கவும்.',
   'search.noResults': '"இதற்கான முடிவுகள் எதுவும் இல்லை" என்பதற்கு {{q}} ”.',
@@ -142,7 +180,10 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'ஆடியோவை இதற்காக வைத்திருங்கள்',
   'settings.retention.heading': 'தக்கவைப்பு',
   'settings.retention.transcript': 'இதற்கான படியெடுத்தல்களை வைத்திருக்கவும்',
+  'settings.revokeDeviceWarning':
+    'இந்தச் சாதனத்தின் அணுகல் விரைவில் ரத்து செய்யப்படும். வெளியேற்றவா?',
   'settings.saveError': 'சேமிப்பு தோல்வியடைந்தது.',
+  'settings.security.subheading': 'உள்நுழையப் பயன்படுத்தும் கடவுச்சொல்லைப் புதுப்பிக்கவும்.',
   'settings.sharing.exportFormat': 'ஏற்றுமதி வடிவம்',
   'settings.sharing.heading': 'பகிர்வு இயல்புநிலைகள்',
   'settings.sharing.scope': 'இயல்புநிலை பகிர்வு நோக்கம்',
@@ -161,6 +202,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'அணி வீரரை அழைக்கவும்',
   'team.invitedAs': 'அழைக்கப்பட்டவர் {{role}}',
   'team.inviteFailed': 'அழைப்பிதழ் அனுப்ப முடியவில்லை.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'அழைப்பிதழ் அனுப்பு',
   'team.inviteSubtitle': 'அவர்கள் சேர்வதற்கான இணைப்புடன் கூடிய மின்னஞ்சலைப் பெறுவார்கள்.',
   'team.inviteTitle': 'ஒரு அணி வீரரை அழைக்கவும்',

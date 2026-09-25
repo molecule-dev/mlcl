@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Fikr-mulohaza bildirmoqchimisiz, xatolik topdingizmi yoki {{appName}} da o'zingizning bortingizni xohlaysizmi? Jamoa bilan bog'lanish uchun Sozlamalarni oching — har bir xabar uni o'qiydigan haqiqiy insonga boradi.",
+  'about.contactTitle': "Biz bilan bog'laning",
+  'about.featureModeration':
+    "Chorak belgilari bilan ochiq yo'l xaritasi, tayyor ishlarni reliz eslatmalariga aylantiruvchi o'zgarishlar jurnali va olomon eng ko'p nimani xohlashini ko'rsatuvchi boshqaruv paneli.",
+  'about.featurePricing':
+    "Bir nechta bortni bepul yuritish mumkin; Pro va Team tariflari ko'proq bortlar, yuqori limitlar va ma'lumotlarni eksport qilish imkonini beradi.",
+  'about.featureThreads':
+    "Mavzular bo'yicha tartiblangan ochiq fikr-mulohaza bortlari, dublikatlarni birlashtirib, ovozlarni bitta halol talab signaliga jamlaydi.",
+  'about.featureVoting':
+    "Har bir foydalanuvchiga bitta ovoz berish va to'liq holat jarayoni — ochiq, rejalashtirilgan, jarayonda, tayyor yoki rad etilgan — hamda har bir qaror bo'yicha rasmiy javob.",
+  'about.intro':
+    "{{appName}} — bu mahsulot haqida fikr-mulohaza platformasi: mijozlar so'rovlar joylaydigan, o'zlariga kerakli narsaga ovoz beradigan va har bir g'oyani rejalashtirilgandan tayyor bo'lgunga qadar kuzatadigan ochiq bortlar. Jamoalar keyin nima qurishni taxmin qilishni to'xtatadi, chunki talab o'zini o'zi tartiblaydi.",
+  'about.missionBody':
+    "Biz eng yaxshi mahsulot qarorlari ochiq holda qabul qilinishiga ishonamiz. {{appName}} har bir jamoaga ovoz berilgan so'rovlardan iborat ochiq bort, maqsad choraklari bilan rasmiy yo'l xaritasi va davrni yopuvchi o'zgarishlar jurnalini beradi — shunda mijozlar o'z ta'sirini, jamoalar esa o'z vakolatini ko'radi.",
+  'about.missionTitle': 'Bizning vazifamiz',
   'admin.backToBoards': 'Taxtalarga qaytish',
   'admin.denied': 'Faqat administratorlar uchun.',
   'admin.eyebrow': 'Mahsulot jamoasi',
@@ -11,6 +27,8 @@ export const ui: UiTranslations = {
   'admin.title': 'Fikr-mulohazalar paneli',
   'admin.topOpen': "Eng ko'p so'ralgan ochiq so'rovlar",
   'admin.totalVotes': 'Jami {{count}}',
+  'admin.votesChartLabel':
+    'Oxirgi sakkiz hafta davomida haftalik berilgan ovozlarning ustunli diagrammasi',
   'admin.votesOverTime': "Vaqt bo'yicha ovozlar",
   'auth.forgotPassword.email': 'Email',
   'auth.forgotPassword.sendResetLink': 'Tiklash havolasini yuborish',
@@ -30,7 +48,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Akkauntingizni yarating',
   'auth.username': 'Foydalanuvchi nomi',
   'authShell.communities': 'Hamjamiyatlar',
+  'authShell.copyright': '{{appName}} — har bir ovoz muhim.',
   'authShell.trending': 'Mashhur',
+  'boardCard.postCount': '{{count}} ta post',
   'boardDetail.allBoards': 'Barcha taxtalar',
   'boardDetail.backToBoards': 'Taxtalarga qaytish',
   'boardDetail.empty': "Hali bu filtrlarga mos postlar yo'q.",
@@ -54,6 +74,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     "Har bir yozuv ovoz olgan so'rovdan boshlangan. Ovoz berganlar uning harakatini ko'rdilar; mana bu u yetib kelgan joy.",
   'changelog.title': 'Chiqarilgan, dalillar bilan',
+  'changelog.voteCount': 'Buni {{count}} ovoz tufayli qurildi',
   'common.atLeast8Characters': 'Kamida 8 ta belgi',
   'common.checkYourInbox': 'Emailingizni tekshiring',
   'common.loadingEllipsis': 'Yuklanmoqda…',
@@ -64,6 +85,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Yuborilmoqda…',
   'footer.about': '{{appName}} haqida',
   'footer.language': 'Til',
+  'forgotPassword.description':
+    'Elektron pochtangizni kiriting va biz sizga qayta tiklash uchun havola yuboramiz.',
+  'forgotPassword.successBody':
+    "Biz qayta tiklash havolasini yubordik {{email}} Uning amal qilish muddati 30 daqiqadan so'ng tugaydi.",
   'forgotPassword.tryAnother': "Boshqa emailni sinab ko'ring",
   'form.displayName': "Ko'rsatiladigan ism",
   'form.firstName': 'Ism',
@@ -74,6 +99,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': "Ovozlar bilan qo'llab-quvvatlanadigan yo'l xaritangiz.",
   'landing.heroCtaPrimary': "Ovoz yig'ishni boshlash",
   'landing.heroCtaSecondary': "Jonli taxtani ko'rish",
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': "Taxmin qilishni to'xtating. Ular ovoz bergan narsani yetkazing.",
+  'landing.heroLede':
+    "{{appName}} tarqoq funksiya so'rovlarini ovoz berilgan g'oyalardan iborat ochiq bortga, rasmiy yo'l xaritasiga va mijozlaringiz haqiqatda o'qiydigan o'zgarishlar jurnaliga aylantiradi.",
   'landing.heroStat1': '3,200+',
   'landing.heroStat1Label': 'Eshitayotgan jamoalar',
   'landing.heroStat2': '1.4m',
@@ -85,9 +114,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': "O'zgarishlar jurnali",
   'landing.navJoin': "{{appName}}ga qo'shilish",
   'landing.navRoadmap': "Yo'l xaritasi",
+  'landing.step1Body':
+    "Mijozlar g'oyalarni ochiq bortlarga joylaydi. Dublikatlar birlashadi, ovozlar jamlanadi va talab o'zini o'zi tartiblaydi.",
   'landing.step1Title': "Yig'ish",
+  'landing.step2Body':
+    "So'rovlarni maqsad choragi bilan rejalashtirilgan yoki jarayonda deb belgilang — buni qilganingizda yo'l xaritasi darhol yangilanadi.",
+  'landing.step2Title': 'Majburiyat',
   'landing.step3Body':
     "Chiqarilgan postlar o'zgarishlar jurnaliga aylanadi va har bir ovoz bergan o'z ro'yxatida natijani ko'radi.",
+  'landing.step3Title': 'Yetkazish',
   'landing.topSubtitle': "Ushbu taxtadan jonli — ovozingizni qo'shish uchun kiring.",
   'landing.topTitle': "Foydalanuvchilar hozir nima so'ramoqda",
   'landing.topViewAll': 'Barcha taxtalar',
@@ -95,14 +130,25 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Asosiy',
   'layout.signUp': "Ro'yxatdan o'tish",
   'layout.submit': 'Fikr-mulohaza yuborish',
+  'login.description': "Suhbatni to'xtagan joydan davom ettiring.",
+  'login.heading': 'Nimbus’ga kirish',
+  'login.noAccount': 'Bu yerda yangimisiz?',
   'login.passwordPlaceholder': 'Parolingiz',
   'login.twoFactorLabel': '2FA kodi (ixtiyoriy)',
   'login.twoFactorPlaceholder': '6 xonali kod',
+  'login.twoFactorRequiredHint':
+    'Bu hisobda ikki faktorli autentifikatsiya yoqilgan. Davom etish uchun autentifikator ilovangizdagi 6 xonali kodni kiriting.',
   'login.twoFactorRequiredLabel': '2FA kodingizni kiriting',
+  'myActivity.browseCta': 'Doskalarni ko’rib chiqing',
+  'myActivity.emptyPosts': "Siz hali so'rov joylamagansiz.",
+  'myActivity.emptyVotes':
+    "Hozircha hech narsa yo'q — bortlarni ko'rib chiqing va biror g'oyani qo'llab-quvvatlang.",
   'myActivity.eyebrow': 'Sizning faoliyatingiz',
   'myActivity.loadError': 'Faoliyatingiz yuklanmadi.',
   'myActivity.postsTitle': "Siz yuborgan so'rovlar",
+  'myActivity.shippedNote': 'Ulardan {{count}} tasi yetkazildi — turtki uchun rahmat.',
   'myActivity.submitCta': "So'rov joylash",
+  'myActivity.tabLabel': "Ko'rish",
   'myActivity.tabPosts': 'Mening postlarim',
   'myActivity.tabVotes': 'Mening ovozlarim',
   'myActivity.votesTitle': "Siz ovoz bergan so'rovlar",
@@ -137,8 +183,12 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Post topilmadi',
   'postsAdmin.backToDashboard': 'Boshqaruv paneli',
   'postsAdmin.eyebrow': 'Mahsulot jamoasi',
+  'postsAdmin.mergeApplied': "Birlashtirildi — {{votes}} ovoz va {{comments}} izoh ko'chirildi.",
   'postsAdmin.mergeApply': "Birlashtirish va ovozlarni ko'chirish",
   'postsAdmin.mergeChoose': 'Maqsadli postni tanlang…',
+  'postsAdmin.mergeFailed': 'Birlashtirish amalga oshmadi.',
+  'postsAdmin.mergeHint':
+    "Ovozlar jamlanadi (har bir foydalanuvchiga bitta), izohlar ko'chadi va bu postga \"ko'chirildi\" izohi qo'shiladi.",
   'postsAdmin.mergeLabel': 'Dublikatni birlashtirishda',
   'postsAdmin.responseLabel': 'Rasmiy javob',
   'postsAdmin.responsePlaceholder':
@@ -153,7 +203,13 @@ export const ui: UiTranslations = {
     "Rasmiy statusni o'rnating, ochiq javob bering, yo'l xaritasi chorakni belgilang va dublikatlarni birlashtirang.",
   'postsAdmin.title': 'Fikr-mulohaza postlarini boshqarish',
   'postsAdmin.votes': '{{count}} ovoz',
+  'pricing.limits.advancedFeatures': 'Kengaytirilgan xususiyatlar:',
+  'pricing.limits.boards': '{{count}} taxtalar',
   'pricing.limits.export': "Ma'lumotlarni eksport qilish:",
+  'pricing.limits.posts': '{{count}} ta fikr-mulohaza posti',
+  'pricing.limits.votes': '{{count}} ovoz',
+  'resetPassword.description':
+    "Kuchlisini tanlang. Qayta tiklash muvaffaqiyatli amalga oshirilgandan so'ng, sizni tizimga kiritamiz.",
   'resetPassword.newPasswordLabel': 'Yangi parol',
   'resetPassword.tokenPlaceholder': 'Havola tokenini joylashtiring',
   'roadmap.cardMeta': '{{author}} tomonidan · {{board}}',
@@ -169,6 +225,7 @@ export const ui: UiTranslations = {
   'search.empty': "Bu qidiruvga mos so'rovlar yo'q.",
   'search.hint': "Dublikat joylashtirmasdan oldin mavjud so'rovlarni topish uchun so'rov kiriting.",
   'search.loadError': "Qidiruv amalga oshmadi — qayta urinib ko'ring.",
+  'search.searching': 'Qidirilmoqda…',
   'search.submit': 'Qidiruv',
   'search.submitNew': "Yangi so'rov sifatida joylashtirish",
   'search.title': 'Fikr-mulohazalarni qidirish',
@@ -178,11 +235,22 @@ export const ui: UiTranslations = {
   'settings.billing': "To'lovlar",
   'settings.displaySubtitle': 'Lentalarning zichligi qanday tuyulishini tanlang.',
   'settings.displayTitle': "Ko'rinish",
+  'settings.emailDigestDesc': "Har dushanba eng ko'p ovoz olgan ochiq so'rovlar.",
+  'settings.emailDigestLabel': 'Haftalik dayjest',
+  'settings.emailMentionsDesc': 'Kimdir siz kuzatayotgan postga javob berganda.',
+  'settings.emailMentionsLabel': 'Eslatmalar haqida menga email yubor',
+  'settings.emailRepliesDesc': 'Siz boshlagan yoki javob bergan mavzular.',
+  'settings.emailRepliesLabel': "Javoblar bo'yicha menga elektron pochta orqali xabar yuboring",
   'settings.loadError': "Akkauntingizni yuklash imkoni bo'lmadi.",
   'settings.loading': 'Sozlamalaringiz yuklanmoqda…',
   'settings.notifications': 'Bildirishnomalar',
   'settings.notificationsSubtitle': 'Nima inbox ga va nima qurilmangizga etib borishini belgilang.',
+  'settings.pushRepliesLabel': 'Javoblar uchun push yubor',
+  'settings.pushVotesDesc': '100, 500, 1000 da chegara signali.',
+  'settings.pushVotesLabel': 'Ijobiy ovoz berish bosqichlariga intiling',
   'settings.saveAccount': 'Akkauntni saqlash',
+  'settings.showFlair': "Postlarda bort belgilarini ko'rsatish",
+  'settings.showThumbnails': "Havola/rasm kichik rasmlarini ko'rsatish",
   'settings.usernamePlaceholder': 'Login tanlang',
   'signup.confirmPlaceholder': 'Qaytadan kiriting',
   'signup.description': 'Keyinchalik nima yasashimizni shakllantiring.',

@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
   'about.eyebrow': 'बद्दल',
+  'about.featureAlerts':
+    'महत्त्वाच्या अटींवर किंमत सूचना, ईमेल आणि पुशद्वारे वितरित जेणेकरून तुम्ही कोणतीही हालचाल चुकवणार नाही.',
+  'about.featureMarkets':
+    'हजारो नाण्यांसाठी थेट बाजार डेटा आणि किंमत चार्ट, बाजार भांडवल, व्हॉल्यूम आणि गतीनुसार क्रमवारीत.',
+  'about.featurePortfolio':
+    'वास्तविक नफा-तोटा, खर्च आधार आणि वाटपासह पोर्टफोलिओ ट्रॅकिंग — तुमच्या व्यवहार इतिहासाशी जोडलेले.',
+  'about.featureWatchlist':
+    'वैयक्तिक वॉचलिस्ट आणि तुम्ही फॉलो करता त्या मालमत्तांवरील संकेतांसह निवडक क्रिप्टो बातम्या.',
+  'about.missionTitle': 'आमचे ध्येय',
+  'alertConditionCard.armedSince': '{{when}} पासून सज्ज',
   'alertConditionCard.condition.${alert.condition}': 'ट्रिगर झाले जेव्हा',
   'alertConditionCard.confirmDelete': 'हटवण्याची पुष्टी करा',
+  'alertConditionCard.deleteAriaLabel': 'अलर्ट हटवा',
   'alertConditionCard.pauseAriaLabel': 'सूचना थांबवा',
   'alertConditionCard.resumeAriaLabel': 'पुन्हा सुरू करण्याची सूचना',
+  'alertConditionCard.triggeredAt': '{{when}} रोखले',
   'alertNew.condition': 'अट',
   'alertNew.createCta': 'अलर्ट तयार करा',
   'alertNew.error': 'अलर्ट तयार करता आला नाही.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'अद्याप कोणतीही सूचना आलेली नाही.',
   'alerts.eyebrow': 'सिगिल ट्रिपवायर',
   'alerts.loadError': 'सूचना लोड करण्यात अयशस्वी झाले.',
+  'alerts.newCta': '+ नवीन ट्रिपवायर',
   'alerts.subheading':
     'जेव्हा किंमत, बदल किंवा व्हॉल्यूम तुमची मर्यादा ओलांडतो, तेव्हा तुम्हाला सूचना मिळते.',
   'alerts.summary.armed': 'सशस्त्र',
@@ -24,6 +38,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'सर्वकालीन उच्चांक',
   'coinDetail.allTimeLow': 'आतापर्यंतचा नीचांक',
   'coinDetail.back': 'सर्व बाजारपेठा',
+  'coinDetail.chartAriaLabel': '{{name}} किंमत चार्ट, शेवटचे 30 दिवस',
   'coinDetail.chartHeading': 'किंमत · मागील ३० दिवस',
   'coinDetail.circulating': 'फिरता पुरवठा',
   'coinDetail.fdv': 'पूर्णपणे सौम्य केलेले मूल्यांकन',
@@ -59,6 +74,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'वायर्ड लिंक रीसेट करा.',
   'login.eyebrow': 'टर्मिनलमध्ये प्रवेश करा',
   'login.heading': 'सिग्नल देणाऱ्या, तुमचे पुन्हा स्वागत आहे.',
+  'login.noAccountQuestion': 'तुम्ही टेसेरासाठी नवीन आहात का?',
   'login.secureNote': '🔒 प्रवासात एनक्रिप्टेड',
   'login.signingInCta': 'टेप वाचताना…',
   'login.signupLink': 'खाते उघडा →',
@@ -94,6 +110,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'तुम्ही स्कॅन केलेला मार्ग ज्ञात नाण्याशी किंवा पानाशी जुळत नाही. चिन्ह पुन्हा तपासा आणि पुन्हा प्रयत्न करा.',
   'notFound.browseMarkets': 'बाजारपेठा शोधा',
+  'notFound.eyebrow': '{{appName}} संकेत गमावला',
+  'notFound.heading': 'हा संकेत श्रेणीबाहेर आहे',
+  'planUpdated.body':
+    'तुमचा बिलिंग बदल आता सक्रिय आहे. तुम्ही बिलिंग पेजवरून कधीही तुमचा प्लॅन व्यवस्थापित करू शकता.',
+  'planUpdated.retry': 'पुन्हा प्रयत्न करा',
+  'planUpdated.verifyFailed': 'आम्ही अद्याप तुमच्या पेमेंटची पुष्टी करू शकलो नाही.',
+  'planUpdated.verifyFailedBody':
+    'तुमच्या पेमेंटवर अजूनही प्रक्रिया सुरू असू शकते. थोड्या वेळाने पुन्हा प्रयत्न करा.',
   'planUpdated.verifying': 'तुमच्या पेमेंटची पुष्टी करत आहे…',
   'portfolio.addError': 'चिन्ह, धन रक्कम आणि किंमत प्रविष्ट करा.',
   'portfolio.addHoldingCta': '+ होल्डिंग जोडा',
@@ -117,12 +141,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'एकूण पोर्टफोलिओ मूल्य',
   'portfolioHeroCard.totalPnl': 'एकूण नफा/तोटा',
   'pricing.heading': 'सूचना',
+  'pricing.limit.alerts': 'सूचना',
   'pricing.limit.coins': 'नाणी',
   'pricing.limit.market': 'बाजार',
   'pricing.limit.portfolio': 'पोर्टफोलिओ',
   'resetPassword.eyebrow': 'नवीन सांकेतिक लिपी',
   'resetPassword.missingToken':
     'ही रीसेट लिंक उपलब्ध नाही किंवा अवैध आहे. कृपया नवीन लिंकची विनंती करा.',
+  'resetPassword.passwordPlaceholder': 'नवीन पासवर्ड',
   'resetPassword.subheading': 'अशी एखादी गोष्ट निवडा जिचा उलगडा फक्त तुम्हीच करू शकाल.',
   'settings.apiKeys.body':
     'व्यवहारांचा इतिहास आयात करण्यासाठी केवळ-वाचनीय की. एकदा सदस्यत्व घेतल्यानंतर /pricing वरून OAuth द्वारे कनेक्ट करा.',
@@ -134,18 +160,32 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'चलन उद्धृत करा',
   'settings.preferences.locale': 'स्थानिक',
   'settings.preferences.push': 'ढकला',
+  'settings.preferences.refresh': 'किंमत रीफ्रेश (सेकंद)',
   'settings.preferences.sms': 'एसएमएस',
+  'settings.revokeDeviceWarning': 'या डिव्हाइसचा प्रवेश लवकरच रद्द केला जाईल. ते साइन आउट करायचे?',
   'settings.security.body':
     'पासवर्ड आणि टू-फॅक्टर सेटिंग्ज तुमच्या खात्याद्वारे व्यवस्थापित केली जातात.',
   'settings.signOutDevice': 'साइन आउट',
   'settings.twoFactorCode': 'प्रमाणीकरण कोड',
   'settings.twoFactorDisable': 'अक्षम करा',
+  'settings.twoFactorDisableTitle': 'दोन-घटक प्रमाणीकरण बंद करा',
   'settings.twoFactorEnable': 'सक्षम करा',
+  'settings.twoFactorEnableTitle': 'दोन-घटक प्रमाणीकरण सुरू करा',
   'settings.twoFactorInvalidCode': 'अवैध कोड',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'टू-फॅक्टर QR कोड',
+  'settings.twoFactorScan': 'हा QR कोड तुमच्या ऑथेंटिकेटर अ‍ॅपने स्कॅन करा, नंतर 6-अंकी कोड टाका.',
+  'settings.twoFactorUnavailable': 'या ॲपसाठी द्विघटक प्रमाणीकरण उपलब्ध नाही.',
   'settings.twoFactorVerify': 'पडताळणी करा आणि सक्षम करा',
   'sigilAuthShell.backHomeCta': '← सिगिलकडे परत जा',
+  'sigilAuthShell.brandBody':
+    'रीअलटाइम किमती, पोर्टफोलिओ नफा/तोटा आणि महत्त्वाच्या अटींवरील स्थायी सूचना — सर्व एका टर्मिनलवर.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — Molecule वर तयार',
+  'sigilAuthShell.brandHeadline': 'संपूर्ण लेजरमधील प्रत्येक संकेत डीकोड करा.',
+  'sigilAuthShell.samplePortfolio': 'नमुना पोर्टफोलिओ',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
+  'signup.creating': 'तुमचे टर्मिनल उघडत आहे…',
   'signup.eyebrow': 'टर्मिनल उघडा',
   'signup.heading': 'आपले सिगिल तयार करा',
   'signup.subheading': 'प्रत्येक नाण्यावर लक्ष ठेवा, एकही चूक टाळा. सुरुवात मोफत.',
@@ -162,6 +202,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'व्यवहार लोड करण्यात अयशस्वी झाले.',
   'watchlist.addCta': 'बाजारपेठा शोधा',
   'watchlist.col.change24h': '२४ तास',
+  'watchlist.col.coin': 'नाणे',
   'watchlist.col.marketCap': 'मार्केट कॅप',
   'watchlist.empty':
     'तुमच्या वॉचलिस्टमध्ये एकही कॉईन नाही — त्यांना जोडण्यासाठी /markets वरून स्टार कॉइन्स वापरा.',

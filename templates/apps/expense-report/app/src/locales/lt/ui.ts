@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Turite klausimų, atsiliepimų ar norite pasiūlyti funkciją? Susisiekite su {{app}} komanda per Nustatymai → Pranešimai arba rašykite mums bet kada — kiekvieną žinutę perskaito tikras žmogus.',
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
+  'about.featureCapture':
+    'Kvito nufotografavimas ir įkėlimas, kuris prideda nuotraukas prie tinkamų išlaidų, eilutė po eilutės.',
+  'about.featureExport':
+    'Audituojami CSV eksportai iš kiekvienos ataskaitos, išlaidų ir tvirtinimo būsenos — paruošta jūsų buhalterijos komandai.',
+  'about.featurePolicy':
+    'Taisyklių apsaugos — dienos limitai, kategorijų limitai ir kvito reikalavimo ribos, taikomos pateikimo metu.',
+  'about.featureWorkflow':
+    'Dviejų lygių tvirtinimo eiga su recenzentų pastabomis, taisyklių pažeidimų žymomis ir kompensavimo pažymėjimu vienu paspaudimu.',
+  'about.intro':
+    '{{app}} yra išlaidų valdymo platforma finansų komandoms ir žmonėms, kuriems jos kompensuoja išlaidas. Nufotografuokite kvitą, įtraukite išlaidą, pateikite ataskaitą tvirtinimui ir stebėkite kiekvieną kompensavimą — be skaičiuoklės ceremonijų.',
+  'about.missionBody':
+    'Kompensavimas turi būti greitas, sąžiningas ir audituojamas. Sukūrėme {{app}}, kad pateikiantieji susigrąžintų pinigus be priminimų, tvirtinantieji tiksliai matytų, ką tvirtina, o finansai turėtų švarų kiekvieno dolerio pėdsaką — su taisyklių patikromis ir viskuo kitu.',
+  'about.missionTitle': 'Mūsų misija',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Patvirtinama…',
   'approvals.confirmReject': 'Patvirtinti atmetimą',
+  'approvals.empty': 'Viskas atlikta — nėra laukiančių ataskaitų.',
   'approvals.eyebrow': 'Vadybininko eilė',
   'approvals.kpi.flaggedLabel': 'Politika pažymėta',
+  'approvals.kpi.queueLabel': 'Laukiama peržiūros',
   'approvals.kpi.totalLabel': 'Laukiama vertė',
   'approvals.lineCount': '{{count}} išlaidos',
   'approvals.queueFallback':
     'Tiesioginė eilė nepasiekiama – rodomi kuruojami demonstraciniai duomenys.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Atmetama…',
+  'approvals.rejectPlaceholder': 'Priežastis (privaloma)',
   'approvals.rejectPrompt': 'Kodėl atmetate šią ataskaitą?',
   'approvals.review': 'Atsiliepimas',
   'approvals.title': 'Laukiami patvirtinimai',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Patvirtinta · MTD',
   'dashboard.kpi.pendingDelta': '+2 šią savaitę',
+  'dashboard.kpi.pendingLabel': 'Laukiama peržiūros',
   'dashboard.kpi.receiptsDelta': 'Reikalingas veiksmas',
   'dashboard.kpi.receiptsLabel': 'Laukiama kvitų',
   'dashboard.kpi.reimbursedDelta': '+2,4 tūkst. USD',
   'dashboard.kpi.reimbursedLabel': 'Kompensuojama · MTD',
   'dashboard.newReport': 'Nauja ataskaita',
+  'dashboard.recent.empty': 'Dar nėra ataskaitų — pradėkite pirmąją aukščiau.',
   'dashboard.recent.title': 'Naujausios ataskaitos',
   'dashboard.recent.viewAll': 'Peržiūrėti visas ataskaitas',
   'dashboard.summaryFallback':
@@ -41,11 +62,19 @@ export const ui: UiTranslations = {
   'expenses.listFallback':
     'Tiesioginis sąrašas nepasiekiamas – rodomi kuruojami demonstraciniai duomenys.',
   'expenses.searchPlaceholder': 'Ieškoti prekybininko arba kategorijos…',
+  'expenses.subtotal': '{{count}} išlaidų · tarpinė suma',
   'expenses.title': 'Išlaidos',
+  'forgotPassword.continue': 'Turiu kodą · Tęsti',
+  'forgotPassword.subheading':
+    'Įveskite savo darbo el. paštą ir atsiųsime nuorodą naujam slaptažodžiui nustatyti.',
   'forgotPassword.successBody':
     'Jei paskyra egzistuoja {{email}} per artimiausias kelias minutes gausite nustatymo iš naujo nuorodą.',
+  'landing.copyright': '© {{year}} {{app}}. Sukurta su Molecule.dev.',
+  'landing.ctaBody':
+    'Nemokama už pirmąsias 25 išlaidas kas mėnesį. Jokios kreditinės kortelės, jokio įdiegimo pokalbio.',
   'landing.ctaHeading': 'Pasiruošę atgauti skolą savo komandai?',
   'landing.eyebrow': 'Išlaidų ataskaitos finansų komandoms',
+  'landing.featuresHeading': 'Kompensavimas vienoje ramioje darbo erdvėje',
   'landing.heroSubtitle':
     'Pateikite, tvirtinkite ir kompensuokite verslo išlaidas be skaičiuoklių naudojimo ceremonijos. Kvitų OCR, politikos patikrinimai ir skaidrus tvirtinimo grafikas – visa tai vienoje ramioje darbo vietoje.',
   'landing.heroTitle': 'Kiekvienas kvitas, atgautas.',
@@ -63,10 +92,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Pastabos',
   'newExpense.descriptionPlaceholder':
     'Kodėl šios išlaidos buvo susijusios su verslu (matoma jūsų tvirtintojui).',
+  'newExpense.eyebrow': 'Kompensuojama išlaida',
   'newExpense.merchant': 'Prekybininkas',
   'newExpense.merchantPlaceholder': 'Viešbutis „Adlon Kempinski“',
   'newExpense.policyHint':
     'Priminimas: maistui, kurio kaina viršija 80 USD per dieną, arba bet kokiam produktui, kurio kaina viršija 250 USD, reikalingas pateisinamasis raštelis.',
+  'newExpense.receipt': 'Kvitą',
+  'newExpense.receiptHint': 'JPG, PNG arba PDF · ne daugiau kaip 10 MB',
   'newExpense.receiptOcrHint': 'OCR iš anksto užpildo laukus',
   'newExpense.receiptPrompt':
     'Įkelkite nuotrauką arba PDF failą čia arba spustelėkite, jei norite naršyti',
@@ -78,17 +110,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Nufotografuokite arba įkelkite kvitą, ir „Recoup“ iš anksto užpildys prekybininko, datos ir bendros sumos duomenis. Prieš išsaugodami patvirtinkite viską žemiau.',
   'newExpense.title': 'Pridėti išlaidas',
+  'newReport.approverHint': 'Jie gaus el. laišką, kai pateiksite šią ataskaitą peržiūrai.',
   'newReport.approverLabel': 'Tvirtintojo el. pašto adresas (nebūtina)',
   'newReport.approverPlaceholder': 'vadovas@jūsųįmonė.com',
   'newReport.availableExpenses': 'Galimos išlaidos',
   'newReport.createFailed': 'Nepavyko sukurti ataskaitos. Bandykite dar kartą.',
   'newReport.draftsFallback':
     'Tiesioginis išlaidų sąrašas nepasiekiamas – rodomi kuruojami demonstraciniai duomenys.',
+  'newReport.eyebrow': 'Grupuoti išlaidas · pateikti tvirtinimui',
   'newReport.includedCount': '{{count}} įtraukta',
   'newReport.purposeLabel': 'Verslo tikslas',
   'newReport.purposePlaceholder':
     'Aprašykite kelionę ar projektą, su kuriuo susijusios šios išlaidos (matoma jūsų tvirtintojui ir finansų skyriui).',
   'newReport.saveDraft': 'Išsaugoti kaip juodraštį',
+  'newReport.saveDraftFailed': 'Nepavyko išsaugoti juodraščio. Bandykite dar kartą.',
   'newReport.submit': 'Pateikti patvirtinimui',
   'newReport.submitFailed': 'Nepavyko pateikti ataskaitos. Bandykite dar kartą.',
   'newReport.summary': 'Ataskaitos santrauka',
@@ -102,17 +137,24 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Tiesioginis srautas nepasiekiamas – rodomi kuruojami demonstraciniai duomenys.',
   'notifications.openReport': 'Atidaryti ataskaitą ›',
+  'pricing.approvalsLabel': 'tvirtinimai',
   'pricing.expensesLabel': 'išlaidos',
   'pricing.heading': 'patvirtinimai',
   'pricing.policiesLabel': 'politika',
   'pricing.receiptsLabel': 'kvitai',
   'recoveredAmountHeroCard.label': 'Kompensacija susigrąžinta · Nuo metų pradžios',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} ataskaita (-os) šiuo metu laukia visų tvirtintojų peržiūros.',
+  'reports.approvalFlow': 'Tvirtinimo eiga',
   'reports.backToList': 'Atgal į ataskaitas',
   'reports.detailFallback':
     'Tiesioginė ataskaita nepasiekiama – rodomi kuruojami demonstraciniai duomenys.',
   'reports.lineItems': 'Eilutės elementai',
   'reports.lineItemsCount': '{{count}} išlaidos',
+  'reports.lineItemsEmpty': 'Šioje ataskaitoje dar nėra išlaidų.',
+  'reports.openLibrary': 'Atidaryti ataskaitų biblioteką',
   'reports.policyTitle': 'Politikos žymė',
+  'reports.selectPrompt': 'Pasirinkite ataskaitą iš bibliotekos, kad pamatytumėte jos detales.',
   'reports.summary.lineCount': 'Eilutės elementai',
   'reports.summary.reimbursable': 'Kompensuojama',
   'reports.summary.total': 'Pranešta bendra suma',
@@ -122,6 +164,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Tiesioginis sąrašas nepasiekiamas – rodomi kuruojami demonstraciniai duomenys.',
   'reportsList.newReport': 'Nauja ataskaita',
+  'reportsList.submittedOn': 'Pateikta {{date}}',
   'reportsList.title': 'Ataskaitų biblioteka',
   'resetPassword.hidePassword': 'Paslėpti slaptažodį',
   'resetPassword.newPasswordLabel': 'Naujas slaptažodis',
@@ -147,6 +190,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Išsaugota ✓',
   'settings.profileSaveFailed': 'Nepavyko atnaujinti profilio. Bandykite dar kartą.',
   'signup.heading': 'Sukurkite savo kompensacijos paskyrą',
+  'signup.hidePassword': 'Paslėpti slaptažodį',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Rodyti slaptažodį',
   'signup.subheading':

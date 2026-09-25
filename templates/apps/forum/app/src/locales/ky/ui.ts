@@ -1,20 +1,44 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пикириңиз барбы, ката таптыңызбы же {{appName}} платформасында коомчулук түзгүңүз келеби? Командага жетүү үчүн Жөндөөлөрдү ачыңыз — ар бир билдирүүнү аны окуган чыныгы адам алат.',
+  'about.contactTitle': 'Биз менен байланышуу',
+  'about.featureModeration':
+    'Киргизилген модерация кезеги жана кабарлоо куралдары аркылуу ар бир коомчулук ден соолугун сактап, өзүн-өзү башкара алат.',
+  'about.featurePricing':
+    'Кошулуу жана катышуу акысыз; Pro жана Team пландары жогорку чектөөлөрдү, өркүндөтүлгөн модерацияны жана маалыматтарды экспорттоону ачат.',
+  'about.featureThreads':
+    'Тартипке салынган коомчулуктар жана категориялар, окууга жана издөөгө ыңгайлуу, markdown менен байытылган жиптүү талкуулар менен.',
+  'about.featureVoting':
+    'Жогору/төмөн добуш берүү жана эң пайдалуу катышуучуларды жана мыкты жоопторду көрсөткөн эмгектен алынган репутация системасы.',
+  'about.intro':
+    '{{appName}} — коомчулукка багытталган талкуу платформасы — Reddit стилиндеги жиптер, добуш берүү жана репутация, бир лентаны кубалап жүргүчө бир жакшы сүйлөшүүнү каалаган адамдар үчүн курулган. Ар бир үн эсепке алынат, жана мыкты идеялар көлөм менен эмес, артыкчылык менен көтөрүлөт.',
+  'about.missionBody':
+    'Биз онлайн талкуу ачууну эмес, ойлонууну сыйлашы керек деп ишенебиз. {{appName}} ар бир коомчулукка сылык жана өзүн-өзү башкаруу куралдарын берет — ачык добуш берүү, эмгектен алынган репутация жана ишенимдүү мүчөлөрдү көзөмөлгө алган модерация — ошентип жиптер кайра келүүгө татыктуу нерсеге айланат.',
+  'about.missionTitle': 'Биздин миссиябыз',
   'authShell.communities': 'Коомчулуктар',
+  'authShell.copyright': '{{appName}} — ар бир үн эсепке алынат.',
   'authShell.trending': 'Тренддегилер',
+  'categories.emptyFilter': 'Көрсөтө турган коомчулуктар жок.',
+  'categories.emptySubscribed': 'Сиз эч бир коомчулукка жазылган эмессиз.',
+  'categories.emptySubscribedHint':
+    'Коомчулукту ачып, бул жерге кошуу үчүн Жазылуу баскычын басыңыз.',
   'categories.eyebrow': 'Коомчулуктар',
   'categories.loadError': 'Коомчулуктар жүктөлбөй койду.',
   'categories.loading': 'Коомчулуктар жүктөлүүдө…',
   'categories.subtitle':
     'Agora коомчулуктарын иш-аракеттери, темасы жана канчалык ызы-чуусу боюнча карап чыгыңыз. Үйүңүзгө түрмөк кошуу үчүн жазылыңыз.',
   'categories.title': 'Бөлмөңүздү табыңыз',
+  'categoryCard.activeNow': '{{count}} активдүү',
   'categoryCard.namePrefix': 'с/',
   'categoryCard.subscribers': '{{count}} мүчөлөр',
   'categoryDetail.empty': 'Бул жерде азырынча эч кандай талкуу жок.',
   'categoryDetail.namePrefix': 'с/',
   'categoryDetail.newPost': 'Жаңы пост',
   'categoryDetail.ruleBeKind': 'Боорукер болуңуз. Адамды эмес, ишти талкуулаңыз.',
+  'categoryDetail.ruleNoSpam': 'Спам жок, базар шилтемелери жок.',
+  'categoryDetail.ruleStayOnTopic': 'Бул коомчулук үчүн темада калыңыз.',
   'categoryDetail.startFirst': 'Биринчи жипти баштоо →',
   'categoryDetail.subscribe': 'Жазылуу',
   'categoryDetail.subscribed': 'Жазылган',
@@ -35,6 +59,7 @@ export const ui: UiTranslations = {
   'compose.eyebrow': 'Жип баштоо',
   'compose.flairLabel': 'Флэар (милдеттүү эмес)',
   'compose.imageUrlPrompt': 'Сүрөттүн URL дареги',
+  'compose.insertUrl': 'Киргизүү',
   'compose.linkUrlPrompt': "Шилтеме URL'и",
   'compose.markdownHint': 'Markdown колдоого алынат.',
   'compose.publishFailed': 'Тема жарыяланган жок.',
@@ -52,11 +77,18 @@ export const ui: UiTranslations = {
   'feed.empty': 'Азырынча эч кандай талкуу жок.',
   'feed.emptyHint': 'Талкууну биринчи болуп баштаңыз — "Жазуу" бөлүмүнө өтүңүз.',
   'feed.loadError': 'Түрмөк жүктөлбөй койду.',
+  'feed.metaCommunityDescription':
+    '{{appName}} платформасын түзгөн ар бир адам үчүн мета коомчулук — добуш берүү, башкаруу жана функция талкуулары.',
+  'feed.ruleBeCivil': 'Сылык болуңуз. Дайыма.',
   'feed.ruleBeCivilDesc':
     'Адамгерчиликтен четтетпестен макулмун. Модераторлор жеке чабуулдарда тездик менен күчөйт.',
+  'feed.ruleCiteSources': 'Реакция кылган нерсеңизге шилтеме бериңиз.',
+  'feed.ruleOnePerWeek': 'Ар бир аккаунт үчүн жумасына бир мета пост.',
   'feed.subtitle':
     'Сиз ээрчиген коомчулуктардан, ошондой эле сиз ээрчиген бир нече темалар. Алгоритмди үйрөтүү үчүн добуш бериңиз.',
   'feed.title': 'Сиздин түрмөгүңүз',
+  'forgotPassword.description':
+    'Электрондук почтаңызды киргизиңиз, биз сизге баштапкы абалга келтирүү үчүн шилтеме жөнөтөбүз.',
   'forgotPassword.successBody':
     'Биз баштапкы абалга келтирүү шилтемесин жөнөттүк {{email}} Ал 30 мүнөттөн кийин бүтөт.',
   'forgotPassword.tryAnother': 'Башка электрондук почтаны колдонуп көрүңүз',
@@ -67,9 +99,15 @@ export const ui: UiTranslations = {
   'landing.communitiesSubtitle':
     'Карма табыңыз, жумуш менен бөлүшүңүз, жакшыраак суроолорду бериңиз.',
   'landing.communitiesTitle': 'Баштоо үчүн коомчулуктар',
+  'landing.ctaBody':
+    'Акысыз катталыңыз. Сизге маанилүү темалар боюнча репутация куруңуз жана калгандарга бир аз так ойлонууга жардам бериңиз.',
   'landing.ctaEyebrow': 'Даяр болгондо',
   'landing.ctaHeadline': 'Коомчулугуңузду табыңыз. Өз үнүңүздү айтыңыз.',
   'landing.heroCtaSecondary': 'Коомчулуктарды карап чыгуу',
+  'landing.heroEyebrow': '{{appName}} платформасына кош келиңиз — {{tagline}}',
+  'landing.heroHeadline': 'Жок болуп кетүүнүн ордуна, топтолгон талкуулар.',
+  'landing.heroLede':
+    '{{appName}} — хоббичилер, куруучулар жана тынч пикирлүү эксперттер үчүн жай бышырылган форум. Ар бир жакшы жип менен бедел табыңыз.',
   'landing.heroStat1': '847 миң',
   'landing.heroStat2': '2180',
   'landing.heroStat2Label': 'Коомчулуктар',
@@ -84,13 +122,17 @@ export const ui: UiTranslations = {
   'landing.trendingViewAll': 'Баарын көрүү',
   'login.description': 'Маекти токтоткон жерден улантыңыз.',
   'login.heading': 'Agoraга кириңиз',
+  'login.noAccount': 'Бул жерде жаңысызбы?',
   'login.passwordPlaceholder': 'Сиздин сырсөзүңүз',
   'login.twoFactorLabel': '2FA коду (милдеттүү эмес)',
   'login.twoFactorPlaceholder': '6 орундуу код',
+  'login.twoFactorRequiredHint':
+    'Бул аккаунтта эки факторлуу аутентификация күйгүзүлгөн. Улантуу үчүн аутентификатор колдонмоңуздагы 6 орундуу кодду киргизиңиз.',
   'login.twoFactorRequiredLabel': '2FA кодуңузду киргизиңиз',
   'modQueue.automodEmpty':
     'Бул коомчулук үчүн азырынча автоматтык түрдө моддоо эрежелери конфигурациялана элек.',
   'modQueue.automodTitle': 'Автоматтык түрдө модификацияланган иш-аракет (акыркы 24 саатта)',
+  'modQueue.empty': 'Кирүүчү куту нөл. Күтүлгөн нерсе жок.',
   'modQueue.eyebrow': 'Модерация',
   'modQueue.kindThread': 'Жип',
   'modQueue.loadError': 'Отчёттор жүктөлбөй койду.',
@@ -117,8 +159,12 @@ export const ui: UiTranslations = {
   'notifications.mentionedYouIn': 'сизди эскерди',
   'notifications.repliedTo': 'жооп берди',
   'notifications.subtitle': 'Сенде бар {{count}} окула элек эскертмелер.',
+  'pricing.limits.advancedFeatures': 'Өркүндөтүлгөн функциялар:',
   'pricing.limits.categories': '{{count}} категориялар',
   'pricing.limits.export': 'Маалыматтарды экспорттоо:',
+  'pricing.limits.moderation': '{{count}} модерация аракеттери',
+  'pricing.limits.threads': '{{count}} жиптер',
+  'pricing.limits.votes': '{{count}} добуш',
   'profile.noComments': 'Азырынча комментарийлер жок.',
   'profile.noPosts': 'Азырынча эч кандай билдирүү жок.',
   'profile.noSaved': 'Сакталган посттор жок.',
@@ -129,6 +175,7 @@ export const ui: UiTranslations = {
     'Күчтүүсүн тандаңыз. Баштапкы абалга келтирүү ийгиликтүү болгондон кийин сизди аккаунтка киргизебиз.',
   'resetPassword.newPasswordLabel': 'Жаңы сыр сөз',
   'resetPassword.tokenPlaceholder': 'Шилтеме токенин чаптаңыз',
+  'search.clear': 'Тазалоо',
   'search.communitiesEmpty': 'Эч бир коомдоштук дал келбейт.',
   'search.communitiesHeading': 'Коомчулуктар',
   'search.empty': 'Эч кандай тема дал келген жок.',
@@ -141,19 +188,27 @@ export const ui: UiTranslations = {
   'settings.displayTitle': 'Дисплей',
   'settings.emailDigestDesc':
     'Дүйшөмбү сайын жазылган коомчулуктарыңыздан алынган эң мыкты темалар.',
+  'settings.emailDigestLabel': 'Апталык дайджест',
+  'settings.emailMentionsDesc': 'Бирөө сизди жипте же комментарийде @-эскерткенде.',
+  'settings.emailMentionsLabel': 'Эскертүүлөр боюнча мага email жөнөт',
+  'settings.emailRepliesDesc': 'Сиз баштаган же жооп берген темалар.',
   'settings.emailRepliesLabel': 'Жооптор боюнча мага электрондук кат жөнөтүңүз',
   'settings.loadError': 'Эсебиңизди жүктөө мүмкүн болгон жок.',
   'settings.loading': 'Жөндөөлөрүңүз жүктөлүүдө…',
   'settings.notificationsSubtitle':
     'Кирүүчү почтаңызга эмне жетерин жана push түзмөгүңүзгө эмне жетерин чечиңиз.',
+  'settings.pushRepliesLabel': 'Жооптор үчүн push',
+  'settings.pushVotesDesc': '100, 500, 1000де босого эскертүүсү.',
   'settings.pushVotesLabel': '"Жакшы добуш берүү" этаптарына өтүү үчүн аракет кылыңыз',
   'settings.saveAccount': 'Аккаунтту сактоо',
   'settings.showFlair': 'Жиптерде категориянын өзгөчөлүгүн көрсөтүү',
+  'settings.showThumbnails': 'Шилтеме/сүрөт миниатюраларын көрсөтүү',
   'settings.usernamePlaceholder': 'Тутка тандаңыз',
   'signup.confirmPlaceholder': 'Кайрадан териңиз',
   'signup.description': 'Бир убакта бирден жакшы жипти кармап туруңуз.',
   'signup.eyebrow': 'Бөлмөгө кошулуңуз',
   'threadRow.authorPrefix': 'у/',
+  'threadRow.commentCount': '{{count}} комментарий',
   'threadRow.statusFlagged': 'Каралып жатат',
   'threadRow.statusHot': 'Ысык',
   'threadRow.statusLocked': 'Кулпуланган',
@@ -175,6 +230,7 @@ export const ui: UiTranslations = {
   'threadView.lockedNotice': 'Бул тема кулпуланган. Жаңы жооптор өчүрүлгөн.',
   'threadView.modActionFailed': 'Модератордун аракети ишке ашкан жок.',
   'threadView.modTools': 'Мод куралдары',
+  'threadView.noComments': 'Азырынча комментарийлер жок. Биринчи болуңуз.',
   'threadView.notFound': 'Жип табылган жок.',
   'threadView.pin': 'Төөнөгүч',
   'threadView.pinned': 'Кадалган',

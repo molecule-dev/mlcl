@@ -1,11 +1,35 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ai feedback, ai găsit un bug sau vrei o funcție nouă? Scrie-ne din setările contului — fiecare mesaj ajunge la o persoană reală din echipă. Notă: nimic de aici nu reprezintă sfat de investiții; tu deții controlul asupra fiecărei tranzacții.',
+  'about.contactTitle': 'Contactează-ne',
+  'about.featureAttribution':
+    'Atribuirea performanței — descompune randamentele pe sector, regiune și clasă de active și compară-le cu un benchmark pe orice interval.',
+  'about.featureRebalance':
+    'Rebalansare disciplinată — setează alocările țintă și intervalele de toleranță, vezi deviațiile semnalate din timp și primești tranzacțiile care te readuc la țintă.',
+  'about.featureTax':
+    'Ordine în documentele fiscale — câștiguri realizate și nerealizate, dividende și documente 1099 într-un singur loc, cu indicatori pentru wash-sale incluși.',
+  'about.featureUnified':
+    'Un portofoliu unificat — acțiuni, ETF-uri, fonduri mutuale, obligațiuni și altele, reunite din toate conturile de brokeraj.',
+  'about.featureWatchlist':
+    'Liste de urmărire, știri și alerte de preț ca să acționezi la ce contează, fără zgomot.',
+  'about.intro':
+    '{{app}} este un tablou de bord de portofoliu multi-asset pentru investitori individuali și consultanți independenți. Acțiuni, ETF-uri, fonduri mutuale, obligațiuni, imobiliare și numerar — fiecare deținere din fiecare cont, într-un singur loc, cu disciplina unui desk profesional.',
+  'about.missionBody':
+    'Investițiile bune înseamnă în mare parte disciplină: o alocare țintă clară, o atribuire onestă a performanței și documente fiscale ordonate. {{app}} aduce aceste obiceiuri instituționale la îndemâna oricui, ca să rebalansezi intenționat, nu impulsiv — și să nu pierzi niciodată din vedere ce face de fapt portofoliul tău.',
+  'about.missionTitle': 'Misiunea noastră',
   'about.pageTitle': 'Despre {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Unelte pentru bogăție',
   'argentAuthShell.brandFootnote':
     '© {{year}} {{app}} . Nu este vorba de consultanță în investiții.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Un tablou de bord al portofoliului pentru investitori individuali și consilieri care doresc o reechilibrare disciplinată, o atribuire precisă a performanței și igienă fiscală - fără zgomot.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · Performanța trecută nu garantează rezultate viitoare.',
   'argentAuthShell.sampleChange': '+2.841 USD (+0,28%) astăzi',
+  'argentAuthShell.sampleLabel': 'Valoarea portofoliului',
   'argentAuthShell.sampleValue': '1.032.251 USD',
   'argentLayout.primaryNavLabel': 'Navigare principală',
   'assetAllocationDonut.heading': 'Cum sunt investiți banii tăi',
@@ -27,6 +51,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'astăzi',
   'assetDetail.txEmpty': 'Nicio tranzacție pentru acest simbol bursier.',
   'assetDetail.txHeading': 'Tranzacțiile dumneavoastră',
+  'auth.legalConsent.prefix': 'Continuând, ești de acord cu {{appName}}',
   'common.and': 'și',
   'common.goToDashboard': 'Mergi la Tabloul de bord',
   'common.no': '—',
@@ -38,10 +63,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'astăzi',
   'dashboard.topHoldings.heading': 'Unde lucrează banii tăi',
   'dashboard.topHoldings.label': 'Holdings de top',
+  'forgotPassword.gotLinkCta': 'Am un link de resetare →',
+  'forgotPassword.subheading':
+    'Introduceți e-mailul contului dvs. Gavl și vă vom trimite un link securizat de resetare.',
   'forgotPassword.successBody':
     'Dacă nu îl vedeți în câteva minute, verificați folderul de spam sau încercați o altă adresă de e-mail.',
   'forgotPassword.successSubheading':
     'Verifica {{email}} pentru un link de resetare. Expiră în 60 de minute.',
+  'forgotPassword.successTitle': 'E-mailul de resetare este pe drum',
   'holdingHighlightRow.todayLabel': 'astăzi',
   'holdings.addCta': 'Cumpăra',
   'holdings.col.allocation': 'Alocare',
@@ -59,6 +88,8 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Nu este vorba de consultanță în investiții. Performanțele trecute nu garantează rezultatele viitoare.',
   'landing.eyebrow': 'Argent · O platformă de instrumente pentru generarea de avere',
   'landing.features.heading': 'Tot ce și-ar construi un consilier pentru sine.',
+  'landing.finalCta.body': 'Conectează-ți brokerajul în două clicuri. {{appName}} face restul.',
+  'landing.finalCta.cta': 'Deschide-ți contul Argent',
   'landing.finalCta.heading': 'Readuceți disciplina în portofoliul dumneavoastră.',
   'landing.footerSignup': 'Deschideți un cont',
   'landing.getStarted': 'Deschideți un cont',
@@ -66,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Vezi prețurile',
   'landing.heroSubtitle':
     'Un tablou de bord al portofoliului pentru investitori individuali și consilieri care doresc o reechilibrare disciplinată, o atribuire precisă a performanței și igienă fiscală - fără zgomot.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'O previzualizare live dintr-un portofoliu reprezentativ',
   'login.heading': 'Conectați-vă la Argent',
   'login.subheading':
@@ -77,6 +109,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': 'acum {{count}}h',
   'news.justNow': 'chiar acum',
   'news.loadError': 'Nu s-a putut încărca știrile.',
+  'planUpdated.body':
+    'Modificarea facturării este acum activă. Îți poți gestiona planul oricând din pagina de facturare.',
+  'planUpdated.retry': 'Încercați din nou',
+  'planUpdated.verifyFailed': 'Nu am putut încă să vă confirmăm plata.',
+  'planUpdated.verifyFailedBody':
+    'Este posibil ca plata dvs. să fie încă în curs de procesare. Încercați din nou imediat.',
   'planUpdated.verifying': 'Se confirmă plata…',
   'portfolioHeroCard.label': 'Valoarea portofoliului',
   'pricing.holdingsLabel': 'dețineri',
@@ -87,12 +125,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Deviația alocării',
   'rebalance.empty': 'Încă nu au fost stabilite obiective.',
   'rebalance.executeCta': 'Loc {{count}} meserii',
+  'rebalance.executeError': 'Plasarea tranzacțiilor a eșuat.',
   'rebalance.executeOk': 'Plasat {{count}} tranzacții. Vizualizați-le pe pagina Tranzacții.',
+  'rebalance.executing': 'Se plasează…',
   'rebalance.eyebrow': 'Reechilibrare · Consilier Argent',
   'rebalance.heading': 'Readuceți-vă portofoliul la disciplină',
   'rebalance.loadError': 'Nu s-a putut încărca planul de reechilibrare.',
+  'rebalance.plan.driftLine': 'în prezent {{current}}% · țintă {{target}}%',
   'rebalance.planHeading': 'Bilet Argent — verificare înainte de plasare',
   'rebalance.planLabel': 'Plan comercial sugerat',
+  'rebalance.subheading':
+    'Rândurile care ies din intervalul de toleranță declanșează sugestii de tranzacții. {{appName}} acționează doar la confirmarea ta.',
   'rebalance.summary.buyLabel': 'Cumpărături',
   'rebalance.summary.buySub': 'poziții de completat',
   'rebalance.summary.driftLabel': 'În afara benzii',
@@ -101,6 +144,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'în cadrul tranzacțiilor sugerate',
   'rebalance.summary.sellLabel': 'Vinde',
   'rebalance.summary.sellSub': 'poziții pentru a tăia',
+  'rebalanceDriftCard.drift': 'deviație {{sign}}{{pct}}% · interval ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'ţintă {{pct}} %',
   'reports.attributionHeading': 'Atribuirea performanței (1 an)',
   'reports.col.alpha': 'Alfa',
@@ -114,36 +158,68 @@ export const ui: UiTranslations = {
   'reports.col.year': 'An',
   'reports.gainsHeading': 'Câștiguri realizate și nerealizate',
   'reports.noAttribution': 'Încă nu există date de atribuire.',
+  'reports.noGains': 'Încă nu există date despre câștiguri realizate/nerealizate.',
   'reports.noPerformance': 'Încă nu există date despre performanță.',
   'reports.noTaxDocs': 'Încă nu există documente fiscale.',
   'reports.performanceHeading': 'Performanță vs. benchmark',
   'reports.taxHeading': 'Documente fiscale',
   'resetPassword.heading': 'Alege o parolă nouă și puternică',
+  'resetPassword.passwordPlaceholder': 'Parolă nouă',
   'resetPassword.subheading': 'Argent vă va conecta automat odată ce parola este setată.',
   'resetPassword.tokenPlaceholder': 'Resetează tokenul din e-mail',
+  'settings.appearance.description': 'Comutați între modul luminos și întunecat.',
   'settings.appearance.title': 'Aspect',
+  'settings.devices.body': 'Dispozitive conectate în prezent la contul dvs.',
+  'settings.devices.empty': 'Nu s-au găsit dispozitive.',
   'settings.devices.heading': 'Dispozitive',
+  'settings.devices.revokeWarning':
+    'Accesul acestui dispozitiv va fi revocat în curând. Îl deconectezi?',
   'settings.devices.signOut': 'Deconectați-vă',
   'settings.devices.thisDevice': 'Acest dispozitiv',
   'settings.devices.unknown': 'Dispozitiv necunoscut',
   'settings.linked.body':
     'Sincronizarea brokerajului necesită un conector terț (Plaid, Yodlee etc.). Configurați furnizorul în mediul dvs. pentru a activa importul automat.',
   'settings.linked.heading': 'Conturi de brokeraj conectate',
+  'settings.linked.placeholder': 'Niciun cont conectat încă.',
+  'settings.notifications.dividendsPaid': 'Dividende plătite',
   'settings.notifications.error': 'Preferința nu a putut fi actualizată.',
   'settings.notifications.priceAlerts': 'Alerte de preț',
+  'settings.notifications.rebalanceDrift': 'Deviație de rebalansare',
+  'settings.notifications.taxDocsReady': 'Documente fiscale pregătite',
   'settings.profile.advisor': 'Adresă de e-mail a consultantului (opțional)',
   'settings.profile.heading': 'Profil',
   'settings.security.changePassword': 'Schimbați parola',
+  'settings.security.changePasswordTitle': 'Schimbați parola',
   'settings.security.changing': 'Schimbarea…',
+  'settings.security.confirmPassword': 'Parolă',
+  'settings.security.currentPassword': 'Parola actuală',
   'settings.security.deleteAccount': 'Șterge contul',
   'settings.security.deleteError': 'Nu s-a putut șterge contul.',
   'settings.security.deleteHeading': 'Șterge contul',
+  'settings.security.deleteModalWarning':
+    'Aceasta îți șterge definitiv contul și datele. Introdu parola pentru a confirma.',
+  'settings.security.deleteWarning':
+    'Șterge definitiv contul tău și toate datele asociate. Această acțiune nu poate fi anulată.',
   'settings.security.deleting': 'Se șterge…',
   'settings.security.heading': 'Securitate',
   'settings.security.newPassword': 'Parolă nouă',
   'settings.security.password': 'Parolă',
+  'settings.security.passwordError': 'Nu s-a putut schimba parola.',
+  'settings.security.passwordHint': 'Schimbă parola pe care o folosești pentru autentificare.',
+  'settings.security.twoFactor': 'Autentificare cu doi factori',
+  'settings.security.twoFactorCode': 'Cod de autentificare',
+  'settings.security.twoFactorDisable': 'Dezactivați',
+  'settings.security.twoFactorDisableTitle': 'Dezactivează autentificarea în doi factori',
   'settings.security.twoFactorEnable': 'Activați',
+  'settings.security.twoFactorEnableTitle': 'Activează autentificarea în doi factori',
+  'settings.security.twoFactorHint': 'Adaugă un nivel suplimentar de protecție pentru contul tău.',
   'settings.security.twoFactorInvalidCode': 'Cod nevalid',
+  'settings.security.twoFactorOn': 'Pe',
+  'settings.security.twoFactorQrAlt': 'Cod QR pentru autentificare în doi pași',
+  'settings.security.twoFactorScan':
+    'Scanează acest cod QR cu aplicația ta de autentificare, apoi introdu codul din 6 cifre.',
+  'settings.security.twoFactorUnavailable':
+    'Autentificarea cu doi factori nu este disponibilă pentru această aplicație.',
   'settings.security.twoFactorVerify': 'Verificați și activați',
   'settings.tax.error': 'Nu s-a putut actualiza metoda de impozitare.',
   'settings.tax.heading': 'Contabilitatea loturilor fiscale',
@@ -154,6 +230,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Metoda de impozitare a fost salvată.',
   'signup.eyebrow': 'Deschideți un cont',
   'signup.heading': 'Deschide-ți contul Argent',
+  'signup.legalPrefix': 'Prin crearea unui cont ești de acord cu {{appName}}',
   'signup.subheading': 'Gratuit timp de 30 de zile. Nu este necesar card. Anulați oricând.',
   'signup.terms':
     'Prin crearea unui cont, sunteți de acord cu Termenii și condițiile de utilizare și Politica de confidențialitate Argent.',

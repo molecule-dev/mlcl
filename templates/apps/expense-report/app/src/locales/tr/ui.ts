@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Soru, geri bildirim veya özellik isteğiniz mi var? Settings → Notifications üzerinden {{app}} ekibine ulaşın ya da bize istediğiniz zaman yazın — her mesaj gerçek bir insana ulaşır.',
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkında',
+  'about.featureCapture':
+    'Fotoğraf yükleyerek fiş yakalama; görselleri satır satır doğru masrafa ekler.',
+  'about.featureExport':
+    'Her rapor, masraf ve onay durumunun denetlenebilir CSV dışa aktarımları — muhasebe ekibiniz için hazır.',
+  'about.featurePolicy':
+    'Politika koruma kuralları — günlük üst limitler, kategori başına limitler ve fiş zorunlu eşikleri gönderim anında uygulanır.',
+  'about.featureWorkflow':
+    'İnceleyen notları, politika ihlali işaretleri ve tek dokunuşla geri ödeme işaretleme içeren iki aşamalı onay akışı.',
+  'about.intro':
+    '{{app}}, finans ekipleri ve geri ödeme yaptıkları kişiler için bir masraf yönetimi platformudur. Fişi yakalayın, masrafı kaydedin, bir raporu onaya gönderin ve her geri ödemeyi takip edin — tablo karmaşası olmadan.',
+  'about.missionBody':
+    "Geri ödeme hızlı, adil ve denetlenebilir olmalı. {{app}}'ı; gönderenlerin sürekli hatırlatmadan parasını geri alması, onaylayanların tam olarak neyi onayladıklarını görmesi ve finansın her kuruş için temiz bir kayıt tutması için geliştirdik — politika kontrolleri dahil.",
+  'about.missionTitle': 'Misyonumuz',
   'approvals.approve': 'Onayla',
   'approvals.approving': 'Onaylanıyor…',
   'approvals.confirmReject': 'Reddetmeyi onayla',
+  'approvals.empty': 'Her şey güncel — bekleyen rapor yok.',
   'approvals.eyebrow': 'Yönetici kuyruğu',
   'approvals.kpi.flaggedLabel': 'Politika işaretlendi',
+  'approvals.kpi.queueLabel': 'İnceleme bekliyor',
   'approvals.kpi.totalLabel': 'Bekleyen tutar',
   'approvals.lineCount': '{{count}} gider',
   'approvals.queueFallback':
     'Canlı kuyruk kullanılamıyor — özenle hazırlanmış demo verileri gösteriliyor.',
   'approvals.reject': 'Reddet',
   'approvals.rejecting': 'Reddediliyor…',
+  'approvals.rejectPlaceholder': 'Gerekçe (zorunlu)',
   'approvals.rejectPrompt': 'Bu raporu neden reddediyorsunuz?',
   'approvals.review': 'İnceleyin',
   'approvals.title': 'Bekleyen onaylar',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+%18',
   'dashboard.kpi.approvedLabel': 'Onaylandı · AİT',
   'dashboard.kpi.pendingDelta': 'Bu hafta +2',
+  'dashboard.kpi.pendingLabel': 'İncelemeyi bekleyen',
   'dashboard.kpi.receiptsDelta': 'İşlem gerekiyor',
   'dashboard.kpi.receiptsLabel': 'Fişler bekleniyor',
   'dashboard.kpi.reimbursedDelta': '+$2,4k',
   'dashboard.kpi.reimbursedLabel': 'Geri ödendi · AİT',
   'dashboard.newReport': 'Yeni rapor',
+  'dashboard.recent.empty': 'Henüz rapor yok — ilkini yukarıdan başlatın.',
   'dashboard.recent.title': 'Son raporlar',
   'dashboard.recent.viewAll': 'Tüm raporları görüntüleyin',
   'dashboard.summaryFallback':
@@ -41,11 +62,18 @@ export const ui: UiTranslations = {
   'expenses.listFallback':
     'Canlı liste kullanılamıyor — özenle hazırlanmış demo verileri gösteriliyor.',
   'expenses.searchPlaceholder': 'Satıcı veya kategori arayın…',
+  'expenses.subtotal': '{{count}} masraf · ara toplam',
   'expenses.title': 'Giderler',
+  'forgotPassword.continue': 'Bir kodum var · Devam et',
+  'forgotPassword.subheading':
+    'İş e-postanızı girin, yeni parola belirlemeniz için bir bağlantı gönderelim.',
   'forgotPassword.successBody':
     '{{email}} için bir hesap varsa, önümüzdeki birkaç dakika içinde bir sıfırlama bağlantısı alacaksınız.',
+  'landing.copyright': '© {{year}} {{app}}. Molecule.dev ile geliştirildi.',
+  'landing.ctaBody': 'Her ay ilk 25 masraf için ücretsiz. Kredi kartı yok, kurulum görüşmesi yok.',
   'landing.ctaHeading': 'Ekibinizin alacaklarını geri almaya hazır mısınız?',
   'landing.eyebrow': 'Finans ekipleri için gider raporları',
+  'landing.featuresHeading': 'Tek ve huzurlu bir çalışma alanında geri ödeme',
   'landing.heroSubtitle':
     'Elektronik tablo karmaşasına gerek kalmadan iş giderlerini gönderin, onaylayın ve geri ödeyin. Makbuz OCR, politika kontrolleri ve şeffaf bir onay zaman çizelgesi - hepsi tek bir sakin çalışma alanında.',
   'landing.heroTitle': 'Tüm makbuzlar geri alındı.',
@@ -62,10 +90,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Notlar',
   'newExpense.descriptionPlaceholder':
     'Bu giderin neden iş ile ilgili olduğu (onaylayıcınız tarafından görüntülenir).',
+  'newExpense.eyebrow': 'Geri ödenebilir kalem',
   'newExpense.merchant': 'Satıcı',
   'newExpense.merchantPlaceholder': 'Hotel Adlon Kempinski',
   'newExpense.policyHint':
     "Hatırlatma: günde 80$'ı aşan yemekler veya 250$'ı aşan her kalem gerekçe notu gerektirir.",
+  'newExpense.receipt': 'Makbuz',
+  'newExpense.receiptHint': 'JPG, PNG veya PDF · en fazla 10 MB',
   'newExpense.receiptOcrHint': 'OCR alanları önceden doldurur',
   'newExpense.receiptPrompt': 'Buraya bir fotoğraf veya PDF bırakın ya da göz atmak için tıklayın',
   'newExpense.receiptUploadFailed': 'Fiş yüklenemedi; gider kaydedilmedi. Lütfen tekrar deneyin.',
@@ -74,17 +105,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Bir fiş çekin veya yükleyin; Recoup satıcıyı, tarihi ve toplamı önceden doldursun. Kaydetmeden önce aşağıdaki her şeyi onaylayın.',
   'newExpense.title': 'Gider ekleyin',
+  'newReport.approverHint': 'Bu raporu incelemeye gönderdiğinizde bir e-posta alacaklar.',
   'newReport.approverLabel': 'Onaylayıcı e-postası (isteğe bağlı)',
   'newReport.approverPlaceholder': 'yönetici@şirketiniz.com',
   'newReport.availableExpenses': 'Mevcut giderler',
   'newReport.createFailed': 'Rapor oluşturulamadı. Lütfen tekrar deneyin.',
   'newReport.draftsFallback':
     'Canlı gider listesi kullanılamıyor — seçilmiş demo verileri gösteriliyor.',
+  'newReport.eyebrow': 'Masrafları grupla · onaya gönder',
   'newReport.includedCount': '{{count}} dahil',
   'newReport.purposeLabel': 'İş amacı',
   'newReport.purposePlaceholder':
     'Bu giderlerin ilgili olduğu gezi veya projeyi açıklayın (onaylayıcınız ve finans tarafından görüntülenir).',
   'newReport.saveDraft': 'Taslak olarak kaydet',
+  'newReport.saveDraftFailed': 'Taslak kaydedilemedi. Lütfen tekrar deneyin.',
   'newReport.submit': 'Onay için gönder',
   'newReport.submitFailed': 'Rapor gönderilemedi. Lütfen tekrar deneyin.',
   'newReport.summary': 'Rapor özeti',
@@ -98,17 +132,24 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Canlı akış kullanılamıyor — özenle hazırlanmış demo verileri gösteriliyor.',
   'notifications.openReport': 'Raporu aç ›',
+  'pricing.approvalsLabel': 'onaylar',
   'pricing.expensesLabel': 'gider',
   'pricing.heading': 'onay',
   'pricing.policiesLabel': 'politika',
   'pricing.receiptsLabel': 'fiş',
   'recoveredAmountHeroCard.label': 'Geri kazanılan ödeme · YİT',
+  'recoveredAmountHeroCard.pending':
+    'Tüm onaylayanlar genelinde şu anda inceleme bekleyen {{count}} rapor var.',
+  'reports.approvalFlow': 'Onay akışı',
   'reports.backToList': 'Raporlara geri dön',
   'reports.detailFallback':
     'Canlı rapor kullanılamıyor — özenle hazırlanmış demo verileri gösteriliyor.',
   'reports.lineItems': 'Kalemler',
   'reports.lineItemsCount': '{{count}} gider',
+  'reports.lineItemsEmpty': 'Bu raporda henüz masraf yok.',
+  'reports.openLibrary': 'Rapor kitaplığını aç',
   'reports.policyTitle': 'Politika işareti',
+  'reports.selectPrompt': 'Ayrıntısını görmek için kitaplıktan bir rapor seçin.',
   'reports.summary.lineCount': 'Kalemler',
   'reports.summary.reimbursable': 'Geri ödenebilir',
   'reports.summary.total': 'Rapor toplamı',
@@ -118,6 +159,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Canlı liste kullanılamıyor — özenle hazırlanmış demo verileri gösteriliyor.',
   'reportsList.newReport': 'Yeni rapor',
+  'reportsList.submittedOn': '{{date}} tarihinde gönderildi',
   'reportsList.title': 'Rapor kütüphanesi',
   'resetPassword.hidePassword': 'Parolayı gizle',
   'resetPassword.newPasswordLabel': 'Yeni parola',
@@ -143,6 +185,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Kaydedildi ✓',
   'settings.profileSaveFailed': 'Profil güncellenemedi. Lütfen tekrar deneyin.',
   'signup.heading': 'Recoup hesabınızı oluşturun',
+  'signup.hidePassword': 'Parolayı gizle',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Parolayı göster',
   'signup.subheading': 'Her ay 25 gidere kadar ücretsiz — kredi kartı gerekmez.',

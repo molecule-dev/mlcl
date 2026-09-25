@@ -1,10 +1,31 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Có câu hỏi về đặt phòng, phản hồi hay một chỗ nghỉ mà bạn nghĩ nên có trên {{app}}? Hãy liên hệ với đội ngũ của chúng tôi từ tài khoản của bạn — mọi tin nhắn đều đến tay một người thật có thể giúp bạn.',
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Về chúng tôi',
+  'about.featureLoyalty':
+    'Mức giá dành riêng cho thành viên và chương trình khách hàng thân thiết tích điểm, trả phòng muộn và nâng hạng phòng trong mỗi lần đặt.',
+  'about.featureReviews':
+    'Đánh giá đã xác minh từ khách lưu trú và tuyển chọn của ban biên tập để bạn yên tâm về chỗ nghỉ trước khi đến.',
+  'about.featureRooms':
+    'So sánh song song phòng, giá và tiện nghi với mức giá minh bạch, trọn gói — đã gồm thuế và phí resort trước khi bạn thanh toán.',
+  'about.featureSearch':
+    'Tìm kiếm theo thời gian thực trên các khách sạn đã được thẩm định với tình trạng phòng trống trực tiếp, chế độ xem bản đồ và thư viện ảnh phong phú.',
+  'about.featureTrips':
+    'Danh sách yêu thích đã lưu và bảng điều khiển Chuyến đi lưu mọi đặt phòng, lịch trình và xác nhận ở một nơi.',
+  'about.intro':
+    '{{app}} là nền tảng đặt khách sạn dành cho những du khách coi trọng chất lượng. Mọi chỗ nghỉ đều được đội ngũ biên tập của chúng tôi tự tay thẩm định — không có hàng tồn từ trang tổng hợp, không có tin đăng mồi. Tìm tình trạng phòng trống thực tế, so sánh song song phòng, giá và tiện nghi, rồi đặt chỉ với vài thao tác cùng mức giá trọn gói rõ ràng.',
+  'about.missionBody':
+    'Đặt một chỗ nghỉ nên là trải nghiệm nhẹ nhàng và minh bạch. Chúng tôi hiển thị mức giá rõ ràng với thuế và phí resort ngay từ đầu, đãi ngộ khách hàng thân thiết thay vì bòn rút từng đồng, và ưu tiên những chỗ nghỉ đáng đồng tiền — để bạn dành ít thời gian so sánh các tab hơn và nhiều thời gian hơn cho chính chuyến đi.',
+  'about.missionTitle': 'Sứ mệnh của chúng tôi',
+  'about.subtitle': 'Một cách tuyển chọn, minh bạch để tìm và đặt đúng khách sạn.',
   'account.loyalty.activitySummary': '{{nights}} đêm · đã chi {{spend}} trong năm nay',
+  'account.loyalty.benefitsHeading': 'Quyền lợi của bạn',
   'account.loyalty.heading': 'Khách hàng thân thiết',
   'account.loyalty.loading': 'Đang tải thông tin thân thiết…',
+  'account.loyalty.maxTier': 'Hạng cao nhất — tận hưởng quyền lợi của bạn.',
   'account.loyalty.pointsTowardNext': '{{points}} / {{next}} điểm để đạt {{nextTier}}',
   'account.loyalty.tier': 'Hạng hiện tại',
   'account.loyalty.unavailable': 'Thông tin thân thiết không khả dụng.',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Xác nhận đặt phòng · {{total}}',
   'bookingCheckout.datesRequired': 'Vui lòng chọn ngày nhận và trả phòng.',
   'bookingCheckout.guestHeading': 'Khách chính',
+  'bookingCheckout.heading': 'Xác nhận và đặt',
   'bookingCheckout.loadError': 'Không tải được nơi nghỉ.',
   'bookingCheckout.nights': '{{rate}} × {{count}} đêm',
   'bookingCheckout.notFound': 'Không tìm thấy nơi nghỉ.',
@@ -32,6 +54,9 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Thuế và phí',
   'bookingCheckout.tripHeading': 'Chuyến đi của quý vị',
   'bookingConfirmation.allTripsCta': 'Tất cả chuyến đi',
+  'bookingConfirmation.confNumber': 'Mã xác nhận: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Đặt phòng của bạn đang được xử lý.',
   'bookingConfirmation.heading': 'Đã xác nhận đặt phòng',
   'bookingConfirmation.loading': 'Đang tải đặt phòng của quý vị…',
   'bookingConfirmation.searchMoreCta': 'Xem thêm nơi nghỉ',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Không tải được mục yêu thích.',
   'favorites.pricePerNight': '{{price}} / đêm',
   'favorites.removeCta': 'Bỏ lưu',
+  'favorites.removing': 'Đang xóa…',
   'forgotPassword.subheading':
     'Nhập email trên tài khoản và chúng tôi sẽ gửi cho quý vị liên kết đặt lại an toàn.',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Thành viên Auberge',
   'landing.cta.heading': 'Giá chỉ dành cho thành viên. Mọi đặt phòng, mọi lúc.',
   'landing.cta.signup': 'Tạo tài khoản miễn phí',
+  'landing.cta.subheading':
+    'Tích điểm khách hàng thân thiết trong mỗi lần lưu trú, mở khóa trả phòng muộn và nâng hạng phòng, cùng quyền truy cập sớm các chỗ nghỉ mới trước khi niêm yết công khai.',
   'landing.destinations.eyebrow': 'Đi đâu tiếp',
   'landing.destinations.heading': 'Điểm đến nổi bật',
   'landing.destinations.seeAll': 'Xem tất cả điểm đến',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Những câu chuyện đáng để xếp hành lý',
   'landing.nav.join': 'Tham gia Auberge',
   'landing.nav.search': 'Tìm nơi nghỉ',
+  'landing.preview.browseAll': 'Xem toàn bộ bộ sưu tập',
   'landing.preview.eyebrow': 'Một cái nhìn bên trong',
   'landing.preview.heading': 'Các nơi nghỉ được tuyển chọn trong tháng này',
+  'landing.preview.subheading':
+    'Mọi chỗ nghỉ trên {{appName}} đều được đội ngũ biên tập của chúng tôi tự tay thẩm định — không có hàng tồn từ trang tổng hợp, không có tin đăng mồi.',
   'login.eyebrow': 'Khu vực thành viên',
+  'login.noAccount': 'Mới đến Tessera?',
   'login.signupLink': 'Tạo tài khoản miễn phí',
   'login.subheading':
     'Đăng nhập để quản lý các chuyến đi, xem xác nhận và tiếp tục từ nơi quý vị đã dừng lại.',
+  'loyaltyTierBadge.points': '{{points}} điểm',
   'planUpdated.heading': 'Gói đã cập nhật',
+  'planUpdated.retry': 'Thử lại',
+  'planUpdated.verifyFailed': 'Chúng tôi chưa thể xác nhận thanh toán của bạn.',
+  'planUpdated.verifyFailedBody':
+    'Giao dịch thanh toán của bạn có thể vẫn đang được xử lý. Vui lòng thử lại sau một lát.',
   'planUpdated.verifying': 'Đang xác nhận thanh toán…',
   'pricing.limit.advancedFeatures': 'Tính năng nâng cao:',
   'pricing.limit.canExport': 'Xuất dữ liệu:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Nơi này có gì',
   'propertyDetail.backLink': 'Quay lại tìm kiếm',
   'propertyDetail.bookCta': 'Đặt phòng',
+  'propertyDetail.bookmarkAria': 'Lưu nơi nghỉ',
   'propertyDetail.bookmarkAriaSaved': 'Xóa khỏi nơi nghỉ đã lưu',
+  'propertyDetail.galleryImageAlt': 'Ảnh {{name}} của {{number}}',
   'propertyDetail.heroImageAlt': 'Ảnh chính của {{name}}',
   'propertyDetail.hidePhotos': 'Ẩn ảnh',
   'propertyDetail.lineCleaning': 'Phí dọn dẹp',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'đêm',
   'propertyDetail.noChargeYet': 'Quý vị chưa bị tính phí',
   'propertyDetail.notFound': 'Không tìm thấy nơi nghỉ.',
+  'propertyDetail.perNight': '/ đêm',
+  'propertyDetail.pickDatesHint': 'Chọn ngày của bạn để xem chi tiết đầy đủ về giá.',
   'propertyDetail.reviewCount': '({{count}} đánh giá)',
   'propertyDetail.reviewsHeading': 'Đánh giá gần đây',
   'propertyDetail.roomCapacity': 'Chứa {{count}}',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Mật khẩu mới',
   'resetPassword.subheading':
     'Chọn mật khẩu mới cho tài khoản Auberge của quý vị. Sử dụng ít nhất 8 ký tự; chúng tôi khuyến nghị dùng cụm mật khẩu.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Không có nơi nghỉ nào khớp với tìm kiếm của quý vị.',
   'searchResults.emptyHint':
     'Thử mở rộng bộ lọc hoặc bỏ giới hạn giá — Auberge có nơi nghỉ tại 14 quốc gia.',
@@ -108,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Nơi nghỉ tuyển chọn',
   'searchResults.headingForQuery': 'Nơi nghỉ cho "{{q}}"',
   'searchResults.loadError': 'Không tải được các nơi nghỉ.',
+  'searchResults.mapHint':
+    'Di chuột qua thẻ để làm nổi bật trên bản đồ. Bản đồ Mapbox trực tiếp trong môi trường thực tế.',
   'searchResults.mapPinAria': '{{name}} — {{price}} mỗi đêm',
   'searchResults.sortLabel': 'Sắp xếp theo',
   'searchResults.subheading': '{{count}} nơi nghỉ · {{guests}} khách',
   'signup.eyebrow': 'Trở thành thành viên',
   'signup.subheading':
     'Tham gia Auberge để mở khóa giá chỉ dành cho thành viên, trả phòng muộn và quyền truy cập đầu tiên vào các nơi nghỉ mới.',
+  'sojournAuthShell.brand.eyebrow': 'Lưu trú ở một nơi phi thường',
+  'sojournAuthShell.brand.heading':
+    'Bộ sưu tập chỗ nghỉ được tuyển chọn — trình bày đẹp mắt, giá minh bạch.',
   'sojournHeroSearchCard.checkInAria': 'Ngày nhận phòng',
   'sojournHeroSearchCard.checkOutAria': 'Ngày trả phòng',
+  'sojournHeroSearchCard.destAria': 'Điểm đến',
+  'sojournHeroSearchCard.destLabel': 'Ở đâu',
   'sojournHeroSearchCard.destPlaceholder': 'Thành phố, khu vực hoặc nơi nghỉ',
   'sojournHeroSearchCard.eyebrow': 'Nơi nghỉ tuyển chọn · Giá chỉ dành cho thành viên',
   'sojournHeroSearchCard.guestsOption': '{{n}} khách',
   'sojournHeroSearchCard.subtitle':
     'Bộ sưu tập tuyển chọn các khách sạn boutique, các nơi nghỉ thiên về thiết kế và những khu nghỉ dưỡng hiếm có — định giá minh bạch, trình bày đẹp mắt.',
+  'sojournHeroSearchCard.title': 'Lưu trú ở một nơi phi thường',
+  'sojournHeroSearchCard.trustLoyalty': 'Tích điểm trong mỗi lần lưu trú',
   'sojournHeroSearchCard.trustNoFees': 'Không bao giờ có phí ẩn',
   'sojournHeroSearchCard.trustVetted': 'Chỉ các nơi nghỉ được tuyển chọn thủ công',
   'sojournLayout.primaryNavLabel': 'Điều hướng chính',

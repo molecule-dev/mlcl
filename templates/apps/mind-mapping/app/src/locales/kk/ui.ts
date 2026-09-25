@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пікіріңіз бар ма, қате таптыңыз ба, әлде идеяларыңызды қалай картаға түсіретініңізді айтқыңыз келе ме? Біз әрбір хабарламаны оқимыз — кез келген уақытта хабарласыңыз, командадағы нақты адам сізге жауап береді.',
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Туралы',
+  'about.featureCanvas':
+    'Шексіз кенеп: жылжытуға болатын түйіндер, тегіс қисық байланыстар және еркін масштабтау мен жылжыту.',
+  'about.featureCollab':
+    'Нақты уақыттағы бірлескен жұмыс және тікелей курсорлар — командаңыз кезек күтпей, сізбен қатар тармақтай алады.',
+  'about.featurePricing':
+    'Жалғыз ойлаушылар үшін мәңгі тегін; Pro және Team жоспарлары көбірек карталар, көбірек түйіндер, кеңейтілген мүмкіндіктер және деректерді экспорттауды қосады.',
+  'about.featureTemplates':
+    'Дайын үлгілер кітапханасы және толық нұсқа тарихы — картаны жылдам бастап, кез келген өзгерісті қайтара аласыз.',
+  'about.intro':
+    '{{app}} — ой картасын жасауға арналған кең, шексіз кенеп: миға шабуылдар, концепция диаграммалары, SWOT және жоба жоспарлары. Түйіндерді кез келген жерге жылжытыңыз, идеяларды ағынды байланыстармен қосыңыз, шеттерге соғылмай масштабтап, жылжытыңыз және карта ойыңызбен бірге өссін.',
+  'about.missionBody':
+    'Дауыстап ойлау жеңіл және ортақ болуы керек. Біз кедергі жасамайтын құралдар жасаймыз — қатаң торлар жоқ, шектелген үлгілер жоқ, назарды ұрлайтын интерфейс жоқ — сондықтан жеке адамдар мен командалар идеяларды пайда болған сәтте ұстап, бірге қалыптастыра алады.',
+  'about.missionTitle': 'Біздің миссиямыз',
   'about.pageTitle': '{{app}} туралы',
   'auth.brandEyebrow': 'Идеялардың таралу орны',
   'auth.brandStatement':
@@ -13,19 +29,24 @@ export const ui: UiTranslations = {
   'billing.feature.export': 'SVG/PNG форматына экспорттау',
   'billing.feature.maps': '{{count}} карталар',
   'billing.feature.nodes': '{{count}} картаға шаққандағы түйіндер',
+  'billing.freeNoticeBody': 'Көбірек карта ашу үшін жоғарыдан ақылы жоспарды таңдаңыз.',
   'billing.loadError': 'Төлем күйін жүктеу мүмкін болмады.',
+  'billing.loading': 'Есепшот жүктелуде…',
   'billing.perMonth': ' / ай',
   'billing.plansTitle': 'Жоспарлар',
+  'billing.priceMissing': 'Stripe баға идентификаторы конфигурацияланбаған.',
   'billing.starting': 'Касса басталуда…',
   'billing.title': 'Есеп айырысу және жоспар',
   'billing.unavailableTier':
     'Бұл деңгей әлі төлем үшін конфигурацияланбаған — ортаңызда Stripe бағасының идентификаторын орнатыңыз.',
   'billing.unlimited': 'Шексіз',
   'billing.upgradeMonthly': 'Жаңарту {{name}} (ай сайын)',
+  'billing.upgradeYearly': 'Жыл сайын төлеу · {{price}}',
   'brand.tagline': 'Идеялардың таралу орны',
   'common.and': 'және',
   'common.goToDashboard': 'Бақылау тақтасына өту',
   'dashboard.activityAction': 'жаңартылды',
+  'dashboard.activityEmpty': 'Әзірге белсенділік жоқ — уақыт шкаласын бастау үшін картаны өңдеңіз.',
   'dashboard.daysAgo': '{{count}} күн бұрын',
   'dashboard.empty.body':
     'Идеяларды тармақтауды бастау үшін карта жасаңыз. Шаблондар бастауды жеңілдетеді.',
@@ -44,26 +65,35 @@ export const ui: UiTranslations = {
   'dendriteHero.activeMaps': 'Белсенді карталар',
   'dendriteHero.eyebrow': 'Бүгін кенепте',
   'dendriteHero.greeting': 'Жаңа идеяларды салалау, {{name}}',
+  'dendriteHero.greetingAnon': 'Жаңа идеяларды тармақтау',
   'dendriteHero.openMaps': 'Карталарымды ашу',
   'dendriteHero.subtitle':
     'Сүйреңіз, байланыстырыңыз және ойлауыңыздың дамуына мүмкіндік беріңіз. Әрбір ұшқын келесісінен бір түйін қашықтықта орналасқан.',
   'dendriteHero.weeklyChange': '{{sign}} {{count}} осы аптада',
+  'forgotPassword.brandStatement':
+    'Карталарыңыз қауіпсіз. Біз сізді бір сәтте тармақтарыңызға қайтарамыз.',
   'forgotPassword.subheading':
     'Электрондық поштаңызды енгізіңіз, сонда біз жаңа қалпына келтіру сілтемесін жібереміз.',
   'forgotPassword.success':
     'Егер сол электрондық пошта мекенжайы бар тіркелгі бар болса, қалпына келтіру сілтемесі жолда.',
   'landing.cta.body':
     'Жеке ойлайтындар үшін мәңгілікке тегін. Командаңыз сізбен бірге тармақтала бастағанда ғана жаңартыңыз.',
+  'landing.cta.button': 'Алғашқы картаңызды жасаңыз',
   'landing.cta.title': 'Бүгін алғашқы идеяңызды отырғызыңыз.',
   'landing.feature.branch.body':
     'Кез келген басқа түйіннен түйінді сүйреңіз — қосылымдар тегіс қисықтар түрінде өтеді, қатаң тор қажет емес.',
+  'landing.feature.branch.title': 'Табиғи тармақталу',
   'landing.feature.canvas.body':
     'Картаны панорамалап, масштабтап, шеттеріне соқтығыспай үлкейтіңіз. Ойлау қабілетіңіз тыныс алуға лайық.',
   'landing.feature.canvas.title': 'Шексіз кенеп',
   'landing.feature.collab.body':
     'Командалас достарыңыздың сізбен бірге нақты уақыт режимінде таралуын көріңіз. Бірге ми шабуылын жасаңыз, серия бойынша емес.',
+  'landing.feature.collab.title': 'Бірлескен курсорлар',
   'landing.feature.shortcuts.body':
     'Бала қосу үшін Tab пернесін, бауыр қосу үшін Enter пернесін, ал кез келген жерге өту үшін ⌘K пернесін басыңыз. Тәжірибелі пайдаланушылар ағынды сақтайды.',
+  'landing.feature.shortcuts.title': 'Пернетақта бірінші',
+  'landing.featuresBody':
+    'Құралдар тақталары, панельдер және тіркесімдер байқалмайды — қажет кезде бар, қажет емес кезде көрінбейді.',
   'landing.featuresEyebrow': 'Ойшылдар үшін жасалған',
   'landing.featuresTitle': 'Әрбір өзара әрекеттесу кенепте өз орнын табады',
   'landing.footer.copyright': '© {{year}} {{appName}} . Molecule.dev көмегімен жасалған.',
@@ -71,6 +101,7 @@ export const ui: UiTranslations = {
     '{{appName}} – ми шабуылына, тұжырымдамалық диаграммаларға және SWOT талдауларына арналған кең, шексіз кенеп. Картаны сүйреп апарыңыз, байланыстырыңыз және оны өзіңізбен бірге өсіріңіз — қатаң торларсыз, қораптағы үлгілерсіз.',
   'landing.hero.ctaPrimary': 'Тегін тармақталуды бастаңыз',
   'landing.hero.eyebrow': 'Дизайнерлер мен ойшылдарға арналған ой картасы',
+  'landing.hero.title': 'Идеялар тармақталатын жер.',
   'landing.nav.start': 'Тармақталуды бастау',
   'landing.proof.export': 'PNG, SVG немесе Markdown форматына экспорттау',
   'landing.proof.free': '3 карта үшін тегін',
@@ -78,6 +109,7 @@ export const ui: UiTranslations = {
   'layout.closeMenu': 'Навигация мәзірін жабу',
   'layout.openMenu': 'Навигация мәзірін ашу',
   'layout.searchPlaceholder': 'Карталарды, үлгілерді немесе түйіндерді іздеу...',
+  'login.noAccount': 'Жаңадан келдіңіз бе?',
   'login.signIn': 'Nimbus жүйесіне кіру',
   'login.subheading': 'Тоқтаған жеріңізден тармақтауды жалғастыру үшін жүйеге кіріңіз.',
   'login.twoFactor': 'Екі факторлы токен (егер қосылған болса)',
@@ -94,9 +126,11 @@ export const ui: UiTranslations = {
   'mapEditor.emptyHint': '+ құралын таңдап, бірінші түйінді қосу үшін кез келген жерді басыңыз',
   'mapEditor.export': 'Экспорттау',
   'mapEditor.exportError': 'Картаны экспорттау мүмкін болмады.',
+  'mapEditor.exportLocked': 'Экспорттау — Pro мүмкіндігі.',
   'mapEditor.exportMarkdown': 'Таңдау (.md)',
   'mapEditor.exportPng': 'Сурет (.png)',
   'mapEditor.exportSvg': 'Векторлық (.svg)',
+  'mapEditor.exportUpgrade': 'Экспорттау үшін жаңартыңыз →',
   'mapEditor.hint.add': 'Түйінді тастау үшін кенепті басыңыз',
   'mapEditor.hint.connectSource': 'Бастапқы түйінді басыңыз…',
   'mapEditor.hint.connectTarget': 'Мақсатты түйінді басыңыз…',
@@ -105,6 +139,7 @@ export const ui: UiTranslations = {
   'mapEditor.loading': 'Кенеп жүктелуде…',
   'mapEditor.newNodeText': 'New idea',
   'mapEditor.panel.color': 'Түс',
+  'mapEditor.panel.eyebrow': 'Таңдалған түйін',
   'mapEditor.panel.nodes': 'Түйіндер',
   'mapEditor.panel.noSelection': 'Өңдеу үшін түйінді басыңыз.',
   'mapEditor.panel.stats': 'Карта статистикасы',
@@ -144,12 +179,19 @@ export const ui: UiTranslations = {
   'notifications.accept': 'Қабылдау',
   'notifications.acceptAndOpen': 'Қабылдау және ашу',
   'notifications.acceptedInvite': 'Қосылды {{title}}.',
+  'notifications.acceptError': 'Шақыртуды қабылдау мүмкін болмады.',
   'notifications.empty.body':
     'Командаластар сізді карталарға шақырған кезде, олар осында пайда болады.',
   'notifications.empty.title': 'Күтіліп жатқан шақырулар жоқ',
+  'notifications.inviteBody': '{{email}} адресіне жіберілді',
   'notifications.inviteTitle': 'Шақырылған {{role}} -ға "{{title}}"',
   'notifications.subtitle': '{{count}} күтіп тұрған шақырулар.',
   'notifications.view': 'Көру',
+  'pricing.limit.advanced': 'Кеңейтілген мүмкіндіктер: {{state}}',
+  'pricing.limit.connections': '{{count}} байланыс',
+  'pricing.limit.export': 'Деректерді экспорттау: {{state}}',
+  'pricing.limit.maps': '{{count}} карталар',
+  'pricing.limit.nodes': '{{count}} картаға шаққандағы түйіндер',
   'profile.loading': 'Статистикаңыз жүктелуде…',
   'profile.stat.collabs': 'Ынтымақтастықтар',
   'profile.stat.maps': 'Карталар жасалды',
@@ -161,26 +203,37 @@ export const ui: UiTranslations = {
   'publicMap.loadError': 'Бұл карта енді ортақ пайдаланылмайды немесе сілтеме жарамсыз.',
   'publicMap.loading': 'Карта жүктелуде…',
   'publicMap.notFound': 'Карта табылмады.',
+  'resetPassword.newPassword': 'Жаңа құпия сөз',
   'resetPassword.subheading':
     'Есте қаларлық нәрсені таңдаңыз. Біз сізді автоматты түрде қайта кіргіземіз.',
   'resetPassword.submit': 'Құпия сөзді қалпына келтіру және кіру',
   'resetPassword.tokenPlaceholder': 'Электрондық поштаңыздан қойылды',
   'settings.account.subtitle':
     'Көрсетілетін атыңыз бен электрондық пошта мекенжайыңызды жаңартыңыз.',
+  'settings.field.currentPassword': 'Ағымдағы құпия сөз',
   'settings.field.newPassword': 'Жаңа құпия сөз',
   'settings.password.subtitle': 'Күшті құпия сөзді таңдаңыз (кемінде 8 таңба).',
   'settings.passwordError':
     'Құпия сөзді өзгерту мүмкін болмады. Ағымдағы құпия сөзіңізді тексеріңіз.',
+  'settings.passwordMismatch': 'Жаңа құпия сөздер сәйкес келмейді.',
   'settings.passwordSaved': 'Құпия сөз сәтті өзгертілді.',
   'settings.passwordTooShort': 'Құпия сөз кемінде 8 таңбадан тұруы керек.',
   'settings.profileError': 'Профиль өзгерістерін сақтау мүмкін болмады.',
   'settings.subtitle': 'Тіркелгіңізді және қауіпсіздігіңізді реттеңіз.',
   'settings.twoFactorCode': 'Аутентификация коды',
   'settings.twoFactorDisable': 'Өшіру',
+  'settings.twoFactorDisableTitle': 'Екі факторлы аутентификацияны өшіру',
   'settings.twoFactorEnable': 'Қосу',
+  'settings.twoFactorEnableTitle': 'Екі факторлы аутентификацияны қосу',
   'settings.twoFactorInvalidCode': 'Жарамсыз код. Қайталап көріңіз.',
+  'settings.twoFactorOffLine': 'Екі факторлы аутентификация өшірулі.',
+  'settings.twoFactorOnLine': 'Екі факторлы аутентификация қосулы.',
+  'settings.twoFactorQrAlt': 'Екі факторлы QR коды',
+  'settings.twoFactorScan':
+    'Осы QR кодын аутентификатор қолданбасымен сканерлеңіз, содан кейін 6 таңбалы кодты енгізіңіз.',
   'settings.twoFactorSubtitle':
     'Құпия сөзіңіздің үстіне аутентификация қолданбасынан бір реттік код қосыңыз.',
+  'settings.twoFactorUnavailable': 'Бұл қолданба үшін екі факторлы аутентификация қолжетімді емес.',
   'settings.twoFactorVerify': 'Тексеру және қосу',
   'share.accepted': 'Қабылданды',
   'share.backToMap': 'Картаға оралу',
@@ -191,7 +244,9 @@ export const ui: UiTranslations = {
   'share.copySuccess': 'Сілтеме көшірілді.',
   'share.invite.button': 'Шақыру',
   'share.invite.title': 'Электрондық пошта арқылы шақыру',
+  'share.inviteError': 'Шақыру жіберілмеді.',
   'share.inviteSuccess': 'Шақырылған {{email}}.',
+  'share.link.disabledHint': 'Осы картаға ашық, тек оқуға арналған сілтеме жасау үшін қосыңыз.',
   'share.link.title': 'Жалпыға ортақ сілтеме',
   'share.loadError': 'Бөлісу параметрлерін жүктеу мүмкін болмады.',
   'share.pending': 'Күтілудегі шақыру',
@@ -203,13 +258,19 @@ export const ui: UiTranslations = {
   'share.roleError': 'Рөлді жаңарту мүмкін болмады.',
   'share.title': 'Бұл картаны бөлісіңіз',
   'share.unnamedCollaborator': 'Күтілудегі шақыру',
+  'signup.brandStatement':
+    'Ең батыл миға шабуылға жететіндей кең — және ойлауға жеткілікті тыныш кенеп.',
+  'signup.haveAccount': 'Мүшесіз бе?',
   'signup.heading': 'Алғашқы идеяңызды отырғызыңыз',
   'signup.namePlaceholder': 'Эйвери Чен',
   'signup.subheading': '3 картаға мәңгілікке тегін. Несие картасы қажет емес.',
   'templateDetail.backToTemplates': 'Барлық үлгілер',
   'templateDetail.browseMore': 'Көбірек шолу',
+  'templateDetail.editableHint':
+    'Үлгіні іске қосқаннан кейін әрбір түйін мен байланыс толық өңделеді.',
   'templateDetail.instantiateError': 'Бұл үлгіден карта жасау мүмкін болмады.',
   'templateDetail.loadError': 'Бұл үлгіні жүктеу мүмкін болмады.',
+  'templateDetail.loading': 'Үлгі жүктелуде…',
   'templateDetail.nodes': 'Алдын ала егілген түйіндер',
   'templateDetail.notFound': 'Үлгі табылмады.',
   'templateDetail.systemEyebrow': 'Кіріктірілген үлгі',
@@ -232,6 +293,7 @@ export const ui: UiTranslations = {
   'trash.empty.body': 'Тазалауды күтіп тұрған ештеңе жоқ. Сіздің бұтақтарыңыз қауіпсіз.',
   'trash.empty.title': 'Себет бос',
   'trash.loadError': 'Себетке тасталған карталарды жүктеу мүмкін болмады.',
+  'trash.loading': 'Себет жүктелуде…',
   'trash.restore': 'Қалпына келтіру',
   'trash.restoreError': 'Картаны қалпына келтіру мүмкін болмады.',
   'trash.subtitle':
@@ -240,11 +302,13 @@ export const ui: UiTranslations = {
   'versionHistory.backToMap': 'Картаға оралу',
   'versionHistory.empty':
     'Әлі ешқандай сурет жоқ. Тексеру нүктесін сақтау үшін біріншісін сақтаңыз.',
+  'versionHistory.emptyDetail': 'Уақыт шкаласын бастау үшін сурет сақтаңыз.',
   'versionHistory.loadError': 'Нұсқа тарихын жүктеу мүмкін болмады.',
   'versionHistory.nodeCount': 'Түйіндер',
   'versionHistory.restoreButton': 'Осы нұсқаны қалпына келтіру',
   'versionHistory.restoreError': 'Снапшот қалпына келтірілмеді.',
   'versionHistory.restoreSuccess': 'Сурет қалпына келтірілді.',
+  'versionHistory.selectHint': 'Оны көру үшін суретті таңдаңыз.',
   'versionHistory.snapshotDefault': 'Қолмен түсірілген сурет',
   'versionHistory.snapshotError': 'Снапшот сақталмады.',
   'versionHistory.snapshotEyebrow': 'Сурет',

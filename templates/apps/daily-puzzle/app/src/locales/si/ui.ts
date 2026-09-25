@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ප්‍රතිචාර තිබේද, දෝෂයක් හමු වුණාද, නැතහොත් ඔබේ පාසලට හෝ කණ්ඩායමට {{app}} ගෙන ඒමට අවශ්‍යද? අපි සෑම පණිවිඩයක්ම කියවනවා — ඔබේ ගිණුම් සැකසුම්වලින් අප හා සම්බන්ධ වන්න, සැබෑ මිනිසෙක් පිළිතුරු දෙනවා.',
   'about.contactTitle': 'අප හා කතා කරන්න',
   'about.eyebrow': 'ගැන',
+  'about.intro':
+    '{{app}} යනු දෛනික වචන ප්‍රහේලිකාවකි. උත්සාහ හයකින් අකුරු පහේ වචනය අනුමාන කරන්න, ඔබේ අඛණ්ඩතාව රැක ගන්න, ඔබේ ඉමෝජි ජාලකය බෙදාගන්න, සහ අද වචනය සමඟ සියලු දෙනා කෙසේ ක්‍රියා කළාදැයි බලන්න.',
+  'about.missionBody':
+    'හොඳ ප්‍රහේලිකාවක් යනු කුඩා දෛනික ජයග්‍රහණයකි. {{app}} ගොඩනගා ඇත්තේ දිනකට එක් හවුල් වචනයක් වටාය — කෝපි විරාමයකට තරම් කෙටි, හෙට දිනය සඳහා නැවත එන තරම් තියුණු.',
+  'about.missionTitle': 'අපගේ මෙහෙවර',
   'about.title': '{{app}} පිළිබඳව',
   'archive.loadError': 'ලේඛනාගාරය පූරණය කළ නොහැකි විය.',
   'archive.missed': 'මග හැරුණු',
   'archive.notPlayed': 'ක්‍රීඩා නොකළ',
+  'archive.subhead':
+    'පුහුණුව සඳහා ඕනෑම පසුගිය දිනක් නැවත ක්‍රීඩා කරන්න — අඛණ්ඩතා නැත, සංඛ්‍යාලේඛන නැත, සියලු විනෝදය පමණයි.',
   'archive.title': 'ලේඛනාගාරය',
   'auth.backToHome': 'මුල් පිටුවට ආපසු',
   'auth.backToHomeArrow': '← මුල් පිටුවට ආපසු',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'මුරපදය අමතක ද?',
   'auth.login.loggingIn': 'ඔබ පුරනය කරමින්…',
   'auth.login.logIn': 'අද වචනය ක්‍රීඩා කරන්න',
+  'auth.login.noAccount': 'ටෙසේරා වලට අලුත්ද?',
   'auth.login.or': 'හෝ මේ සමඟ ඉදිරියට යන්න',
   'auth.login.password': 'මුරපදය',
   'auth.login.signInButton': 'පුරනය වන්න',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'සුරකිමින්…',
   'common.sendingEllipsis': 'යවමින්…',
   'common.startingEllipsis': 'ආරම්භ කරමින්…',
+  'forgotPassword.subhead':
+    'ඔබගේ විද්‍යුත් තැපෑල ඇතුළත් කරන්න, නැවත සැකසීමට අපි ඔබට සබැඳියක් එවන්නෙමු.',
+  'forgotPassword.success.body':
+    'ගිණුමක් තිබේ නම් {{email}} , ඔබට මිනිත්තු කිහිපයකින් යළි පිහිටුවීමේ සබැඳියක් ලැබෙනු ඇත.',
+  'forgotPassword.success.title': 'ඔබගේ එන ලිපි පරීක්ෂා කරන්න.',
   'form.name': 'නම',
   'howToPlay.cta.home': 'ආපසු නිවසට',
   'howToPlay.cta.play': 'අද ප්‍රහේලිකාව ක්‍රීඩා කරන්න',
@@ -68,10 +83,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'කැඩීමට අකමැති ස්ට්‍රීක්',
   'leaderboard.daily.title': 'අද විසඳුම්',
   'leaderboard.loadError': 'ලීඩර්බෝඩ් පූරණය කළ නොහැකි විය.',
+  'leaderboard.streaks.empty': 'තවම අඛණ්ඩතා නැත — පළමුවැන්නා වන්න.',
+  'leaderboard.streaks.subhead': 'සියලු කාලයේ දිගම ජයග්‍රහණ අඛණ්ඩතා.',
   'leaderboard.streaks.title': 'ස්ට්‍රීක් නායකයින්',
+  'leaderboard.subhead': 'අද සියලු දෙනා කෙසේ ක්‍රියා කළාද, සහ දිගම අඛණ්ඩතා රඳවාගෙන සිටින්නේ කවුද.',
   'leaderboard.title': 'ලීඩර්බෝඩ්',
   'login.headline': 'නැවත සාදරයෙන් පිළිගනිමු.',
   'login.streakPill': '{{days}}-දින ස්ට්‍රීක් රැඳී සිටී',
+  'login.subhead':
+    'ඔබේ අඛණ්ඩතාව රැක ගැනීමට සහ අද වචනය සමඟ ඔබ කෙසේ ක්‍රියා කළාදැයි බැලීමට පිවිසෙන්න.',
   'nav.archive': 'ලේඛනාගාරය',
   'nav.editProfile': 'පැතිකඩ සංස්කරණය කරන්න',
   'nav.getStarted': 'ආරම්භ කරන්න',
@@ -89,6 +109,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · එවැනි වචනයක් නැත',
   'notFound.title': 'එම මාර්ගය හිස්ය.',
   'planUpdated.message': 'ඔබේ සැලසුම සජීවීව තිබේ.',
+  'planUpdated.retry': 'නැවත උත්සාහ කරන්න',
+  'planUpdated.verifyFailed': 'අපට තවමත් ඔබගේ ගෙවීම තහවුරු කිරීමට නොහැකි විය.',
+  'planUpdated.verifyFailedBody':
+    'ඔබේ ගෙවීම තවමත් සැකසෙමින් තිබිය හැක. මොහොතකින් නැවත උත්සාහ කරන්න.',
   'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'play.alreadyFinished': 'ඔබ දැනටමත් මෙම ප්‍රහේලිකාව අවසන් කර ඇත',
   'play.answerWas': 'වචනය වූයේ',
@@ -104,6 +128,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'පුහුණු ප්‍රහේලිකාව',
   'play.tooShort': 'ප්‍රමාණවත් අකුරු නැත',
   'play.won': 'විසඳුවා!',
+  'pricing.advancedStats': 'උසස් සංඛ්‍යාලේඛන: {{yes}}',
+  'pricing.archiveHistory': 'දින {{count}}ක සංරක්ෂිත ඉතිහාසය',
+  'pricing.archivePlays': 'දිනකට සංරක්ෂිත නැවත ක්‍රීඩා {{count}}',
+  'pricing.archiveUnlimited': 'අසීමිත සංරක්ෂිත ඉතිහාසය',
+  'pricing.canExport': 'දත්ත නිර්යාත කිරීම: {{yes}}',
+  'pricing.checkoutError': 'පිටවීම ආරම්භ කළ නොහැකි විය. කරුණාකර නැවත උත්සාහ කරන්න.',
   'pricing.dailyWord': 'දෛනික වචනය',
   'pricing.heading': 'ඔබේ {{app}} සැලසුම තෝරන්න',
   'pricing.included': 'ඇතුළත් වේ',
@@ -111,7 +141,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'දෛනික වචනය සැමවිටම නොමිලේ. අසීමිත ලේඛනාගාර නැවත ක්‍රීඩාව සහ ගැඹුරු සංඛ්‍යාලේඛන සඳහා උත්ශ්‍රේණි කරන්න.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} ඔබේ පෞද්ගලිකත්වයට ගරු කරයි. මෙම පිටුවේ අපි ගබඩා කරන දත්ත, ඒවා ගබඩා කරන්නේ ඇයි, සහ ඒවා ඉවත් කරන්නේ කෙසේද යන්න සාරාංශ කර ඇත.',
   'privacy.title': 'රහස්‍යතා දැන්වීම',
+  'resetPassword.subhead': 'ඔබේ අඛණ්ඩතාව වෙත නැවත යාමට නව මුරපදයක් තෝරන්න.',
   'settings.account': 'ගිණුම',
   'settings.danger.body': 'ඔබේ {{appName}} ගිණුම සහ සියලුම ප්‍රහේලිකා ඉතිහාසය ස්ථිරවම ඉවත් කරන්න.',
   'settings.danger.confirm': 'ඔව්, සදහටම මකන්න',
@@ -120,17 +153,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'අමුත්තා',
   'settings.language.title': 'භාෂාව',
   'settings.subhead': 'ඔබේ පැතිකඩ, ශබ්දය, සහ ලීඩර්බෝඩ් එකේ ඔබ පෙනෙන ආකාරය සකසන්න.',
+  'settings.unnamed': 'ස්පාර්ක් වාදකයා',
   'settings.upgrade': 'උත්ශ්‍රේණි කරන්න',
   'signup.eyebrow': 'සදහටම නොමිලේ - දිනකට වචනයක්',
   'signup.headline': 'ඔබේ ස්ට්‍රීක් ආරම්භ කරන්න.',
+  'signup.subhead':
+    'දෛනික වචනය ක්‍රීඩා කිරීමට, අඛණ්ඩතාවක් ගොඩනැගීමට, සහ ශ්‍රේණිගත ලැයිස්තුවට නැගීමට {{appName}} ගිණුමක් සාදන්න.',
   'stats.currentStreak': 'ස්ට්‍රීක්',
   'stats.distribution.title': 'අනුමාන බෙදාහැරීම',
   'stats.loadError': 'ඔබේ සංඛ්‍යාලේඛන පූරණය කළ නොහැකි විය.',
   'stats.maxStreak': 'උපරිම ස්ට්‍රීක්',
   'stats.played': 'ක්‍රීඩා කළා',
   'stats.playToday': 'අද ප්‍රහේලිකාව ක්‍රීඩා කරන්න',
+  'stats.subhead': 'ශ්‍රේණිගත දෛනික ප්‍රහේලිකා පමණයි — සංරක්ෂිත පුහුණුව කිසි විටෙකත් ගණන් නොගැනේ.',
   'stats.title': 'ඔබේ සංඛ්‍යාලේඛන',
   'stats.winRate': 'ජයග්‍රහණ අනුපාතය',
   'status.monthly': 'මාසික',
+  'terms.intro':
+    '{{app}} භාවිතා කිරීමෙන් ඔබ පහත නීතිවලට එකඟ වේ. ඔබට ඒවා පිළිගත නොහැකි නම්, කරුණාකර සේවාව භාවිතා නොකරන්න.',
   'terms.title': 'සේවා කොන්දේසි',
 }

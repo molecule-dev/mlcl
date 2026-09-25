@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពី',
+  'about.featureConnections':
+    'អ្នកគ្រប់គ្រងការតភ្ជាប់ដែលរក្សាទុកដោយសុវត្ថិភាព និងដាក់កូដពណ៌លើមូលដ្ឋានទិន្នន័យរបស់អ្នក — ព័ត៌មានសម្ងាត់ត្រូវបានអ៊ិនគ្រីបនៅពេលរក្សាទុក មិនដែលជាអក្សរធម្មតាឡើយ។',
+  'about.featureMonitoring':
+    'ការត្រួតពិនិត្យផ្ទាល់នៃប្រសិទ្ធភាពសំណួរ និងសកម្មភាពមូលដ្ឋានទិន្នន័យ ជាមួយផ្លូវកាត់ក្តារចុច និងផ្ទាំងពាក្យបញ្ជាដើម្បីគ្រប់គ្រងទាំងអស់ដោយដៃទទេ។',
+  'about.featurePlans':
+    'គម្រោងដែលអាចពង្រីកតាមអ្នក — ឥតគិតថ្លៃសម្រាប់ការងារតែម្នាក់ឯង Pro និង Team សម្រាប់ការតភ្ជាប់ច្រើនជាង ការរក្សាទុកសំណួរយូរជាង ការនាំចេញ និងមុខងារកម្រិតខ្ពស់។',
+  'about.featureQueryEditor':
+    'កម្មវិធីកែសម្រួល SQL ដែលដំណើរការដោយ Monaco ជាមួយប្រវត្តិសំណួរ សំណួរដែលបានរក្សាទុក និងការនាំចេញ CSV លទ្ធផលរបស់អ្នកដោយចុចតែម្តង។',
+  'about.featureSchema':
+    'កម្មវិធីរុករកស្គីម៉ា និងកម្មវិធីរុករកតារាង ដើម្បីរុករកមូលដ្ឋានទិន្នន័យ តារាង និងជួរឈរ បន្ទាប់មករកមើល ចម្រាញ់ និងកែសម្រួលជួរដេកដោយផ្ទាល់។',
+  'about.missionTitle': 'បេសកកម្មរបស់យើង',
   'authShell.commands': 'ពាក្យបញ្ជា',
   'authShell.ssoSupported': 'គាំទ្រ SSO',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'សំណួរ',
   'connections.schema': 'គ្រោងការណ៍',
   'connections.subtitle': 'គ្រប់គ្រងការតភ្ជាប់មូលដ្ឋានទិន្នន័យរបស់អ្នក។',
+  'connections.test': 'សាកល្បង',
   'databaseAdminLayout.adminRole': 'តួនាទី​អ្នកគ្រប់គ្រង',
   'databaseAdminLayout.commandPalette': 'ក្ដារលាយពាក្យបញ្ជា',
   'databaseAdminLayout.commands': 'ពាក្យបញ្ជា',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'ការតភ្ជាប់ថ្មី',
   'databaseAdminLayout.queries': 'សំណួរ',
   'databaseAdminLayout.ready': 'រួចរាល់ហើយ',
+  'databaseAdminLayout.searchPlaceholder': '⌘K ស្វែងរកពាក្យបញ្ជា សំណួរ តារាង…',
   'databaseAdminLayout.user': 'អ្នកប្រើប្រាស់',
   'editConnection.confirmDelete': 'លុបការតភ្ជាប់នេះ?',
   'editConnection.deleteButton': 'លុបការតភ្ជាប់',
+  'editConnection.newPassword': 'ពាក្យសម្ងាត់ថ្មី (ទុកទទេដើម្បីរក្សា)',
   'editConnection.saved': 'ការភ្ជាប់ត្រូវបានរក្សាទុក។',
   'editConnection.title': 'កែសម្រួលការតភ្ជាប់',
   'forgotPassword.success': 'ប្រសិនបើគណនីនោះមានហើយ តំណភ្ជាប់កំណត់ឡើងវិញនឹងមកដល់។',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'ភាពជោគជ័យ',
   'monitoring.title': 'ការត្រួតពិនិត្យ',
   'monitoring.totalQueries': 'សំណួរសរុប',
+  'nav.schema': 'គ្រោងការណ៍',
   'newConnection.database': 'មូលដ្ឋានទិន្នន័យ',
   'newConnection.engine': 'ម៉ាស៊ីន',
   'newConnection.host': 'ម្ចាស់ផ្ទះ',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'គ្មានការតភ្ជាប់ដែលចងភ្ជាប់ទៅនឹងអត្ថបទខ្លីនេះទេ។',
   'savedQuery.notBound': 'មិន​បាន​ចង​ភ្ជាប់',
   'savedQuery.title': 'សំណួរដែលបានរក្សាទុក',
+  'schema.columns': 'ជួរឈរ',
   'schema.foreignKeys': 'សោបរទេស',
   'schema.indexes': 'សន្ទស្សន៍',
   'schemaExplorer.browseRows': 'រកមើលជួរដេក',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'អាចទុកជាមោឃៈបាន',
   'schemaExplorer.colType': 'ប្រភេទ',
   'schemaExplorer.noColumns': 'គ្មានជួរឈរទេ។',
+  'schemaExplorer.noForeignKeys': 'គ្មានកូនសោបរទេសទេ។',
   'schemaExplorer.noIndexes': 'គ្មានសន្ទស្សន៍ទេ។',
   'schemaExplorer.noTables': 'គ្មានតុទេ',
   'schemaExplorer.pickATable': 'ជ្រើសរើសតារាងមួយពីរបារចំហៀង។',
   'schemaExplorer.tables': 'តារាង',
   'schemaExplorer.title': 'កម្មវិធីរុករកគ្រោងការណ៍',
+  'settings.session': 'វគ្គ',
   'settings.subtitle': 'គ្រប់គ្រងគណនី និងផែនការរបស់អ្នក។',
   'signup.heading': 'បង្កើតគណនី Quarry របស់អ្នក',
   'signup.tagline': 'បង្កើន​ការចូលប្រើប្រាស់​ក្នុងរយៈពេលតិចជាងមួយនាទី។',
   'tableBrowser.noRows': 'តារាងនេះមិនទាន់មានជួរដេកនៅឡើយទេ។',
+  'tableBrowser.subtitle': 'កំពុងរកមើលជួរដេកពីមូលដ្ឋានទិន្នន័យពីចម្ងាយរបស់អ្នក។',
   'tableBrowser.title': 'កំពុងរកមើលជួរដេកពីមូលដ្ឋានទិន្នន័យពីចម្ងាយរបស់អ្នក។',
 }

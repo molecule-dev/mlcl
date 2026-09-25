@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
+  'about.featureAlerts':
+    'Цінові сповіщення за важливими умовами, що надходять електронною поштою та push-повідомленнями, щоб ви ніколи не пропустили рух.',
+  'about.featureMarkets':
+    'Живі ринкові дані та цінові графіки для тисяч монет, упорядковані за ринковою капіталізацією, обсягом і динамікою.',
+  'about.featurePortfolio':
+    "Відстеження портфеля з реальним прибутком і збитком, базою витрат і розподілом — пов'язане з історією ваших транзакцій.",
+  'about.featureWatchlist':
+    'Персональний список спостереження та дібрані криптоновини із сигналами щодо активів, за якими ви стежите.',
+  'about.missionTitle': 'Наша місія',
+  'alertConditionCard.armedSince': 'Активовано з {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'Запущено {{коли}}',
   'alertConditionCard.confirmDelete': 'Підтвердити видалення',
+  'alertConditionCard.deleteAriaLabel': 'Видалити сповіщення',
   'alertConditionCard.pauseAriaLabel': 'Призупинити сповіщення',
   'alertConditionCard.resumeAriaLabel': 'Сповіщення про відновлення',
+  'alertConditionCard.triggeredAt': 'Спрацьовано {{when}}',
   'alertNew.condition': 'Хвороба',
   'alertNew.createCta': 'Створити сповіщення',
   'alertNew.error': 'Не вдалося створити сповіщення.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Поки що немає сповіщень.',
   'alerts.eyebrow': 'Сигіл-розтяжки',
   'alerts.loadError': 'Не вдалося завантажити сповіщення.',
+  'alerts.newCta': '+ Новий тригер',
   'alerts.subheading': 'Отримуйте пінг, коли ціна, зміна або обсяг перетинають вашу межу.',
   'alerts.summary.armed': 'Озброєний',
   'alerts.summary.triggered': 'Запущено',
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Рекордний показник',
   'coinDetail.allTimeLow': 'Рекордний мінімум',
   'coinDetail.back': 'Усі ринки',
+  'coinDetail.chartAriaLabel': '{{name}} ціновий графік, останні 30 днів',
   'coinDetail.chartHeading': 'Ціна · останні 30 днів',
   'coinDetail.circulating': 'Циркуляційне постачання',
   'coinDetail.fdv': 'Повністю розбавлена оцінка',
@@ -59,6 +74,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': "Скинути дротове з'єднання.",
   'login.eyebrow': 'Зайдіть у термінал',
   'login.heading': 'Ласкаво просимо назад, сигнальщику.',
+  'login.noAccountQuestion': 'Вперше в Tessera?',
   'login.secureNote': '🔒 Зашифровано під час передачі',
   'login.signingInCta': 'Читання стрічки…',
   'login.signupLink': 'Відкрити рахунок →',
@@ -93,6 +109,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Відсканований вами маршрут не відповідає відомій монеті чи сторінці. Перевірте символ ще раз і спробуйте ще раз.',
   'notFound.browseMarkets': 'Переглянути ринки',
+  'notFound.eyebrow': '{{appName}} сигнал втрачено',
+  'notFound.heading': 'Цей сигнал поза діапазоном',
+  'planUpdated.body':
+    'Зміну оплати активовано. Ви можете керувати своїм планом будь-коли на сторінці оплати.',
+  'planUpdated.retry': 'Спробувати ще раз',
+  'planUpdated.verifyFailed': 'Нам ще не вдалося підтвердити ваш платіж.',
+  'planUpdated.verifyFailedBody': 'Можливо, ваш платіж ще обробляється. Спробуйте ще раз за мить.',
   'planUpdated.verifying': 'Підтвердження платежу…',
   'portfolio.addError': 'Введіть символ, додатну суму та вартість.',
   'portfolio.addHoldingCta': '+ Додати холдинг',
@@ -116,12 +139,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Загальна вартість портфеля',
   'portfolioHeroCard.totalPnl': 'Загальний прибуток/збиток',
   'pricing.heading': 'сповіщення',
+  'pricing.limit.alerts': 'сповіщення',
   'pricing.limit.coins': 'монети',
   'pricing.limit.market': 'ринок',
   'pricing.limit.portfolio': 'портфоліо',
   'resetPassword.eyebrow': 'Новий шифр',
   'resetPassword.missingToken':
     'Це посилання для скидання налаштувань відсутнє або недійсне. Запросіть нове.',
+  'resetPassword.passwordPlaceholder': 'Новий пароль',
   'resetPassword.subheading': 'Оберіть щось, що можете розшифрувати лише ви.',
   'settings.apiKeys.body':
     'Ключі лише для читання для імпорту історії транзакцій. Підключіться через OAuth з /pricing після оформлення підписки.',
@@ -133,18 +158,34 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Валюта котирування',
   'settings.preferences.locale': 'Локаль',
   'settings.preferences.push': 'Натисніть',
+  'settings.preferences.refresh': 'Оновлення цін (секунди)',
   'settings.preferences.sms': 'СМС',
+  'settings.revokeDeviceWarning':
+    'Доступ цього пристрою буде скасовано найближчим часом. Вийти з нього?',
   'settings.security.body':
     'Пароль та налаштування двофакторної перевірки контролюються вашим обліковим записом.',
   'settings.signOutDevice': 'Вийти',
   'settings.twoFactorCode': 'Код аутентифікації',
   'settings.twoFactorDisable': 'Вимкнути',
+  'settings.twoFactorDisableTitle': 'Вимкнути двофакторну автентифікацію',
   'settings.twoFactorEnable': 'Увімкнути',
+  'settings.twoFactorEnableTitle': 'Увімкнути двофакторну автентифікацію',
   'settings.twoFactorInvalidCode': 'Неправильний код',
   'settings.twoFactorOn': 'Про',
+  'settings.twoFactorQrAlt': 'QR-код двофакторної автентифікації',
+  'settings.twoFactorScan':
+    'Відскануйте цей QR-код у своєму застосунку-автентифікаторі, а потім введіть 6-значний код.',
+  'settings.twoFactorUnavailable': 'Двофакторна автентифікація недоступна для цього додатка.',
   'settings.twoFactorVerify': 'Перевірити та увімкнути',
   'sigilAuthShell.backHomeCta': '← Назад до Сигіла',
+  'sigilAuthShell.brandBody':
+    'Ціни в реальному часі, P/L портфеля та постійні варти за важливими умовами — усе на одному терміналі.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — працює на Molecule',
+  'sigilAuthShell.brandHeadline': 'Розшифруйте кожен сигнал у всьому реєстрі.',
+  'sigilAuthShell.samplePortfolio': 'Зразок портфеля',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Основна навігація',
+  'signup.creating': 'Відкриваємо ваш термінал…',
   'signup.eyebrow': 'Відкрийте термінал',
   'signup.heading': 'Створіть свій Сигіл',
   'signup.subheading':
@@ -162,6 +203,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Не вдалося завантажити транзакції.',
   'watchlist.addCta': 'Переглянути ринки',
   'watchlist.col.change24h': '24 години',
+  'watchlist.col.coin': 'Монета',
   'watchlist.col.marketCap': 'Кришка ринку',
   'watchlist.empty':
     'У вашому списку спостереження немає монет — позначте монети зірочкою з /markets, щоб додати їх.',

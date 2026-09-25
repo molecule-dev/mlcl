@@ -1,27 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Queres lanzar unha incorporación máis acolledora para o teu equipo, atopaches un erro ou tes comentarios? Escríbenos desde a configuración da túa conta — cada mensaxe chega a unha persoa real que pode axudar.',
   'about.contactTitle': 'Fala connosco',
   'about.eyebrow': 'Acerca de',
+  'about.missionTitle': 'A nosa misión',
   'auth.forgotPassword.emailPlaceholder': 'nome@a súaempresa.com',
   'auth.forgotPassword.heading': 'Restablecer o contrasinal.',
+  'auth.forgotPassword.panel.body':
+    'Restablecer leva 30 segundos — o progreso da túa lista de comprobación está esperando.',
+  'auth.forgotPassword.panel.headline': 'Xusto onde o deixaches.',
+  'auth.forgotPassword.subheading':
+    'Introduce o teu correo de traballo e enviarémosche unha ligazón de restablecemento.',
   'auth.forgotPassword.successSubheading':
     'Consulta a túa caixa de entrada: enviámosche as instrucións para restablecer o teu correo.',
   'auth.login.emailPlaceholder': 'nome@a súaempresa.com',
   'auth.login.heading': 'Benvido/a de volta.',
   'auth.login.passwordPlaceholder': 'O teu contrasinal',
+  'auth.login.signupPrompt': 'Novo no teu equipo?',
   'auth.login.subheading':
     'Inicia sesión para continuar a túa viaxe de incorporación onde a deixaches.',
   'auth.login.submit': 'Continúa a túa viaxe',
+  'auth.panel.body':
+    'A túa lista de comprobación persoal, os fitos de formación e as presentacións do equipo — todo nun só lugar tranquilo.',
   'auth.panel.footnote': '© Embark — incorporando ás persoas primeiro desde hoxe.',
   'auth.panel.headline': 'Aquí comezan uns primeiros 90 días de confianza.',
   'auth.resetPassword.heading': 'Establecer un novo contrasinal.',
   'auth.resetPassword.newPasswordLabel': 'Novo contrasinal',
+  'auth.resetPassword.panel.body':
+    'Garda un contrasinal novo e devolverémosche directamente á túa viaxe de incorporación.',
+  'auth.resetPassword.panel.headline': 'Xa case estás de volta.',
   'auth.resetPassword.subheading': 'Escolle algo que lembres: polo menos 8 caracteres.',
   'auth.signup.emailPlaceholder': 'nome@a súaempresa.com',
   'auth.signup.heading': 'Benvido aos teus primeiros 90 días.',
   'auth.signup.panel.body':
     'Unha lista de verificación guiada, formación adaptada aos roles e presentacións humanas, todo listo antes de que entres.',
+  'auth.signup.panel.headline': 'O primeiro día, desde o primeiro día.',
   'auth.signup.subheading':
     'Crea a túa conta de Embark para comezar a túa viaxe guiada de incorporación.',
   'checklist.empty.body': 'Cambia o filtro para ver outras tarefas.',
@@ -29,6 +44,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'Incorporación · Lista de verificación',
   'checklist.loading': 'Cargando a túa lista de verificación…',
   'checklist.stat.actionNeeded': 'Acción necesaria',
+  'checklist.stat.completion': 'Finalización',
+  'checklist.stat.inProgress': 'En curso',
   'checklist.stat.inProgressHelper': 'Retoma onde o deixaches',
   'checklist.stat.overdueHelper': 'Ponte ao día con isto primeiro',
   'checklist.subtitle':
@@ -60,6 +77,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Aínda non hai documentos',
   'documents.eyebrow': 'Incorporación · Documentos',
   'documents.loading': 'Cargando documentos…',
+  'documents.stat.actionNeeded': 'Asina agora',
+  'documents.stat.all': 'Todos os documentos',
   'documents.stat.allHelper': 'En todas as categorías',
   'documents.stat.pending': 'Sinaturas pendentes',
   'documents.stat.pendingHelper': 'Necesario para a súa finalización',
@@ -67,16 +86,21 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Gardado de forma segura',
   'documents.status.optional': 'Opcional',
   'documents.status.required': 'Obrigatorio',
+  'documents.status.signed': 'Asinado',
   'documents.subtitle': 'O teu manual, formularios e acordos asinados, todo nun só lugar.',
   'documents.title': 'Todo o que precisa ler e asinar.',
   'documents.uploadedRecently': 'Cargado recentemente',
   'documentViewer.breadcrumbCurrent': 'Visor',
   'documentViewer.breadcrumbDocs': 'Documentos',
   'documentViewer.downloadMeta': 'Descargar metadatos',
+  'documentViewer.helpBody':
+    'People & Culture responde ás preguntas do manual en #ask-people en Slack.',
   'documentViewer.helpEyebrow': 'Necesitas axuda?',
   'documentViewer.loadError': 'Non puidemos cargar este documento.',
   'documentViewer.loading': 'Cargando documento…',
   'documentViewer.notFound': 'Documento non atopado',
+  'documentViewer.previewBody':
+    'Cando as cargas están configuradas, mostramos o ficheiro integrado. Por agora, a descarga de metadatos permíteche confirmar que o rexistro é real.',
   'documentViewer.previewBodyExternal':
     'Usa o botón de descarga para abrir o ficheiro nunha nova lapela.',
   'documentViewer.previewTitle': 'Vista previa do documento',
@@ -84,6 +108,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Lea o documento e, a seguir, prema a continuación para asinalo e recoñecelo.',
   'documentViewer.signatureHeading': 'Sinatura requirida',
+  'documentViewer.signed': '✓ Asinado e arquivado',
   'documentViewer.signing': 'Asinando…',
   'documentViewer.uploadedRecently': 'Cargado recentemente',
   'landing.closing.body':
@@ -93,10 +118,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Xa teño unha conta',
   'landing.feature1.body':
     'Cada tarefa (papeis, contas, presentacións) está preestablecida con datas de vencemento e o propietario axeitado.',
+  'landing.feature1.title': 'Unha lista de comprobación guiada',
   'landing.feature2.body':
     'Os módulos desbloquéanse aos 30/60/90 fitos, axustados ao rol e ao equipo ao que se une a persoa contratada.',
+  'landing.feature2.title': 'Formación segundo o teu rol',
   'landing.feature3.body':
     'Amigos, xestores e presentacións interfuncionais programadas para que ninguén comece só.',
+  'landing.feature3.title': 'Presentacións reais',
   'landing.featureEyebrow': 'Por que embarcarse',
   'landing.featureHeadline': 'Tres xeitos polos que Embark gaña confianza dende o primeiro día.',
   'landing.footer.rights': 'Todos os dereitos reservados.',
@@ -106,6 +134,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'A continuación: Reúnete co teu amigo para unha charla de café de 30 minutos — martes ás 10:00.',
   'landing.preview.eyebrow': 'Día 14 de 90: exemplo de panel de control',
+  'landing.preview.headline': 'Benvida de novo, Maya.',
   'landing.proof.spec': 'Preparado para SOC 2 + RGPD',
   'landing.proof.teams': 'Deseñado para equipos de 50 a 5.000 persoas',
   'landing.proof.time': 'Proba gratuíta de 14 días',
@@ -122,16 +151,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Estás listo/a.',
   'planUpdated.preparing': 'Actualizando o teu plan…',
+  'planUpdated.retry': 'Téntao de novo',
+  'planUpdated.verifyFailed': 'Aínda non puidemos confirmar o teu pagamento.',
+  'planUpdated.verifyFailedBody':
+    'É posible que o teu pago aínda estea procesándose. Téntao de novo nun momento.',
   'planUpdated.verifying': 'Confirmando o teu pago…',
   'pricing.documentsLabel': 'documentos',
   'pricing.onboardingsLabel': 'incorporacións',
   'pricing.tasksLabel': 'tarefas',
   'profile.dayNumber': 'Día',
   'profile.detailsHeading': 'Detalles da incorporación',
+  'profile.encouragementBody':
+    'Mantén informados ao teu compañeiro e ao teu xefe — os pequenos pasos acumúlanse.',
   'profile.milestones': 'Fitos',
   'profile.progressEyebrow': 'Progreso da incorporación',
   'profile.tasks': 'Tarefas',
   'profile.unknownName': 'Benvido/a',
+  'settings.appearance.description': 'Alternar entre o modo claro e o modo escuro.',
+  'settings.appearance.title': 'Aparencia',
+  'settings.subtitle':
+    'Axusta as notificacións, a seguridade, os dispositivos e a exportación de datos — todo queda aquí, nas túas condicións.',
   'settings.title': 'Configuración e preferencias.',
   'taskDetail.backToChecklist': 'Volver á lista de verificación',
   'taskDetail.breadcrumbChecklist': 'Lista de verificación',
@@ -144,7 +183,10 @@ export const ui: UiTranslations = {
   'taskDetail.notFound': 'Tarefa non atopada',
   'taskDetail.notFoundBody':
     'É posible que esta tarefa fose eliminada ou pertencese a outro usuario.',
+  'taskDetail.tipBody':
+    'Se estás bloqueado, escribe ao teu compañeiro de incorporación en Slack — é a túa primeira liña de axuda.',
   'taskDetail.tipEyebrow': 'Consello rápido',
+  'team.empty.body': 'Proba unha busca máis ampla ou escolle outro departamento.',
   'team.empty.title': 'Ningún compañeiro de equipo coincide',
   'team.eyebrow': 'Incorporación · Persoas',
   'team.loading': 'Cargando compañeiros de equipo…',
@@ -167,14 +209,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Fitos',
   'timeline.stat.current': 'Fito actual',
   'timeline.stat.next': 'Próximo desbloqueo',
+  'timeline.stat.progress': 'En xeral',
   'timeline.subtitle':
     'Cada fito desbloquea novos módulos, introducións e conversas sobre crecemento. Sen presión, só progreso.',
+  'timeline.tipBody':
+    'Programa unha reflexión de 30 minutos nos días 30, 60 e 90 co teu xefe — fai que os comentarios sexan concretos e o progreso visible.',
   'timeline.tipEyebrow': 'Consello para xerentes',
+  'timeline.tipTitle': 'Bloquea tempo no calendario para os fitos.',
   'timeline.title': 'A túa viaxe 30/60/90.',
   'training.badge.notStarted': 'Non iniciado',
   'training.empty': 'Aínda non hai módulos de formación.',
   'training.eyebrow': 'Incorporación · Formación',
   'training.loading': 'Cargando módulos…',
+  'training.stat.all': 'Módulos asignados',
   'training.subtitle':
     'Os módulos desbloquéanse a 30/60/90 para que coincidan co teu rol. Os obrigatorios son os primeiros.',
   'training.title': 'Habilidades, ferramentas e historias, ao teu ritmo.',
@@ -186,9 +233,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'Módulo non atopado',
   'trainingModule.quizBody': 'Obtén unha puntuación do 80 % ou máis para completar este módulo.',
   'trainingModule.quizHeading': 'Cuestionario de fin de módulo',
+  'trainingModule.quizLocked': 'Inicia primeiro o módulo',
   'trainingModule.quizNone': 'Non hai cuestionario neste módulo.',
   'trainingModule.quizRetry': 'Téntao de novo',
+  'trainingModule.quizStart': 'Iniciar cuestionario',
   'trainingModule.quizSubmit': 'Enviar respostas',
+  'trainingModule.start': 'Iniciar módulo',
   'trainingModule.statusNotStarted': 'Non iniciado',
   'welcomeHeroCard.completeLabel': 'Completo',
   'welcomeHeroCard.milestonesLabel': 'Fitos',

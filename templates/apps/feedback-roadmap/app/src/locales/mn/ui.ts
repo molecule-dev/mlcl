@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Санал хүсэлт байна уу, алдаа олсон уу, эсвэл {{appName}} дээр өөрийн гэсэн самбартай болохыг хүсэж байна уу? Багтай холбогдохын тулд Тохиргоогоо нээгээрэй — илгээсэн мессеж бүрийг уншдаг жинхэнэ хүн хүлээн авдаг.',
+  'about.contactTitle': 'Бидэнтэй холбогдох',
+  'about.featureModeration':
+    'Улирлын шошготой нийтийн замын зураг, хүргэгдсэн ажлыг хувилбарын тэмдэглэл болгон хувиргадаг өөрчлөлтийн бүртгэл, олон нийт юуг хамгийн их хүсч байгааг харуулдаг хяналтын самбар.',
+  'about.featurePricing':
+    'Хэдхэн самбар үнэгүй ажиллуулж болно; Pro болон Team багцууд илүү олон самбар, өндөр хязгаар, өгөгдөл экспортлох боломжийг нээж өгдөг.',
+  'about.featureThreads':
+    'Сэдвээр эрэмбэлсэн нийтийн санал хүсэлтийн самбарууд, давхардлыг нэгтгэж саналыг нэг үнэн зөв эрэлтийн дохио болгон нэгтгэдэг.',
+  'about.featureVoting':
+    'Нэг хэрэглэгч нэг санал өгөх боломж, бүрэн төлөвийн урсгал — нээлттэй, төлөвлөсөн, хийгдэж буй, хүргэгдсэн эсвэл татгалзсан — болон шийдвэр бүрт албан ёсны хариу.',
+  'about.intro':
+    '{{appName}} бол бүтээгдэхүүний санал хүсэлтийн платформ — хэрэглэгчид хүсэлтээ нийтэлж, хэрэгтэй зүйлдээ санал өгч, санаа бүрийг төлөвлөснөөс хүргэгдэх хүртэл нь дагадаг нийтийн самбарууд. Багууд дараа нь юу бүтээхээ таамаглахаа болино, учир нь эрэлт өөрөө эрэмбэлэгддэг.',
+  'about.missionBody':
+    'Бид хамгийн сайн бүтээгдэхүүний шийдвэрүүд нээлттэй орчинд гардаг гэж үздэг. {{appName}} нь баг бүрт санал өгсөн хүсэлтүүдийн нийтийн самбар, зорилтот улирлуудтай албан ёсны замын зураг, мөн тойргоо хаадаг өөрчлөлтийн бүртгэлийг өгдөг — ингэснээр хэрэглэгчид өөрсдийн нөлөөг, багууд өөрсдийн эрх мэдлийг хардаг.',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
   'admin.backToBoards': 'Самбар руу буцах',
   'admin.denied': 'Зөвхөн админууд.',
   'admin.eyebrow': 'Бүтээгдэхүүний баг',
@@ -11,6 +27,8 @@ export const ui: UiTranslations = {
   'admin.title': 'Санал хүсэлтийн самбар',
   'admin.topOpen': 'Шилдэг нээлттэй хүсэлтүүд',
   'admin.totalVotes': 'Нийт {{count}}',
+  'admin.votesChartLabel':
+    'Сүүлийн найман долоо хоногт долоо хоног бүр өгсөн саналын баганан диаграм',
   'admin.votesOverTime': 'Цаг хугацааны саналууд',
   'auth.forgotPassword.email': 'Имэйл',
   'auth.forgotPassword.sendResetLink': 'Шинэчлэх холбоос илгээх',
@@ -30,7 +48,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Бүртгэл үүсгэх',
   'auth.username': 'Хэрэглэгчийн нэр',
   'authShell.communities': 'Нийгэмлэгүүд',
+  'authShell.copyright': '{{appName}} — дуу хоолой бүр тооцогдоно.',
   'authShell.trending': 'Эрэлттэй',
+  'boardCard.postCount': '{{count}} нийтлэл',
   'boardDetail.allBoards': 'Бүх самбарууд',
   'boardDetail.backToBoards': 'Самбар руу буцах',
   'boardDetail.empty': 'Эдгээр шүүлтүүрт тохирох нийтлэл байхгүй.',
@@ -54,6 +74,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Бүх бичлэг саналаар эхэлсэн. Саналчид түүнийг хөдөлж байхыг харсан; энд л очсон.',
   'changelog.title': 'Хүргэсэн, баримттай',
+  'changelog.voteCount': '{{count}} саналын ачаар энэ бүтээгдсэн',
   'common.atLeast8Characters': 'Хамгийн багадаа 8 тэмдэгт',
   'common.checkYourInbox': 'Имэйл хаягаа шалгаарай',
   'common.loadingEllipsis': 'Ачаалж байна…',
@@ -64,6 +85,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Илгээж байна…',
   'footer.about': '{{appName}}-ийн тухай',
   'footer.language': 'Хэл',
+  'forgotPassword.description':
+    'Имэйл хаягаа оруулна уу, бид танд дахин тохируулах холбоос илгээх болно.',
+  'forgotPassword.successBody':
+    'Бид дахин тохируулах холбоос илгээсэн {{email}} Энэ нь 30 минутын дараа хугацаа нь дуусна.',
   'forgotPassword.tryAnother': 'Өөр имэйл оролдох',
   'form.displayName': 'Дэлгэцийн нэр',
   'form.firstName': 'Нэр',
@@ -74,6 +99,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'Таны замын зураг, саналаар баталгаажсан.',
   'landing.heroCtaPrimary': 'Санал цуглуулж эхлэх',
   'landing.heroCtaSecondary': 'Идэвхтэй самбар үзэх',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Таамаглахаа болиоч. Тэдний санал өгсөн зүйлийг хүргээч.',
+  'landing.heroLede':
+    '{{appName}} тархсан функцын хүсэлтүүдийг санал өгсөн санаануудын нийтийн самбар, албан ёсны замын зураг, хэрэглэгчид тань үнэхээр уншдаг өөрчлөлтийн бүртгэл болгон хувиргадаг.',
   'landing.heroStat1': '3,200+',
   'landing.heroStat1Label': 'Сонсож буй багууд',
   'landing.heroStat2': '1.4 сая',
@@ -85,9 +114,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Өөрчлөлтийн жагсаалт',
   'landing.navJoin': '{{appName}}-д нэгдэх',
   'landing.navRoadmap': 'Замын зураг',
+  'landing.step1Body':
+    'Хэрэглэгчид санаагаа нийтийн самбарт нийтэлдэг. Давхардлууд нэгтгэгдэж, саналууд нэгдэж, эрэлт өөрөө эрэмбэлэгддэг.',
   'landing.step1Title': 'Цуглуулах',
+  'landing.step2Body':
+    'Хүсэлтүүдийг зорилтот улиралтайгаар төлөвлөсөн эсвэл хийгдэж буй гэж тэмдэглэ — тэмдэглэсэн даруйд замын зураг шинэчлэгдэнэ.',
+  'landing.step2Title': 'Амлалт өгөх',
   'landing.step3Body':
     'Хүргэсэн нийтлэлүүд өөрчлөлтийн бичлэг болж, саналчид бүр өөрийн жагсаалтаас үр дүнг харна.',
+  'landing.step3Title': 'Хүргэх',
   'landing.topSubtitle': 'Энэ самбараас шууд — саналаа нэмэхийн тулд нэвтэрнэ үү.',
   'landing.topTitle': 'Хэрэглэгчид яг одоо юу хүсч байна',
   'landing.topViewAll': 'Бүх самбарууд',
@@ -95,14 +130,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Үндсэн',
   'layout.signUp': 'Бүртгүүлэх',
   'layout.submit': 'Санал хүсэлт илгээх',
+  'login.description': 'Яриаг зогссон газраас үргэлжлүүлнэ үү.',
+  'login.heading': 'Nimbus руу нэвтрэх',
+  'login.noAccount': 'Шинээр энд байна уу?',
   'login.passwordPlaceholder': 'Таны нууц үг',
   'login.twoFactorLabel': '2FA код (заавал биш)',
   'login.twoFactorPlaceholder': '6 оронтой код',
+  'login.twoFactorRequiredHint':
+    'Энэ бүртгэлд хоёр шатлалт баталгаажуулалт идэвхжсэн. Үргэлжлүүлэхийн тулд баталгаажуулагч аппаас 6 оронтой кодыг оруулна уу.',
   'login.twoFactorRequiredLabel': '2FA кодоо оруулна уу',
+  'myActivity.browseCta': 'Самбаруудыг үзэх',
+  'myActivity.emptyPosts': 'Та одоогоор хүсэлт нийтлээгүй байна.',
+  'myActivity.emptyVotes': 'Одоогоор юу ч алга — самбаруудыг үзэж, нэг санааг дэмжээрэй.',
   'myActivity.eyebrow': 'Таны үйл ажиллагаа',
   'myActivity.loadError': 'Таны үйл ажиллагааг ачаалж чадсангүй.',
   'myActivity.postsTitle': 'Таны илгээсэн хүсэлтүүд',
+  'myActivity.shippedNote': 'Тэдгээрийн {{count}} нь хүргэгдсэн — сануулсанд баярлалаа.',
   'myActivity.submitCta': 'Хүсэлт илгээх',
+  'myActivity.tabLabel': 'Харах',
   'myActivity.tabPosts': 'Миний нийтлэлүүд',
   'myActivity.tabVotes': 'Миний саналууд',
   'myActivity.votesTitle': 'Таны санал өгсөн хүсэлтүүд',
@@ -137,8 +182,12 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Нийтлэл олдсонгүй',
   'postsAdmin.backToDashboard': 'Хяналтын самбар',
   'postsAdmin.eyebrow': 'Бүтээгдэхүүний баг',
+  'postsAdmin.mergeApplied': 'Нэгтгэгдсэн — {{votes}} санал болон {{comments}} сэтгэгдэл шилжсэн.',
   'postsAdmin.mergeApply': 'Нэгтгэж саналуудыг шилжүүлэх',
   'postsAdmin.mergeChoose': 'Зорилтот нийтлэл сонгох…',
+  'postsAdmin.mergeFailed': 'Нэгтгэх амжилтгүй болсон.',
+  'postsAdmin.mergeHint':
+    'Саналууд нэгдэнэ (хэрэглэгч тус бүр нэг), сэтгэгдлүүд шилжинэ, энэ нийтлэлд "шилжсэн" тэмдэглэл нэмэгдэнэ.',
   'postsAdmin.mergeLabel': 'Давхардсаныг нэгтгэх',
   'postsAdmin.responseLabel': 'Албан ёсны хариулт',
   'postsAdmin.responsePlaceholder':
@@ -153,7 +202,13 @@ export const ui: UiTranslations = {
     'Албан ёсны төлөв тогтоож, олон нийтэд хариулж, замын зургийн улирлыг шошголж, давхардлыг нэгтгэнэ.',
   'postsAdmin.title': 'Санал хүсэлтийн нийтлэлүүдийг удирдах',
   'postsAdmin.votes': '{{count}} санал',
+  'pricing.limits.advancedFeatures': 'Дэвшилтэт онцлогууд:',
+  'pricing.limits.boards': '{{count}} самбарууд',
   'pricing.limits.export': 'Өгөгдөл экспортлох:',
+  'pricing.limits.posts': '{{count}} санал хүсэлтийн нийтлэл',
+  'pricing.limits.votes': '{{count}} санал',
+  'resetPassword.description':
+    'Хүчтэйг нь сонгоно уу. Дахин тохируулалт амжилттай болмогц бид таныг нэвтрүүлэх болно.',
   'resetPassword.newPasswordLabel': 'Шинэ нууц үг',
   'resetPassword.tokenPlaceholder': 'Холбоосын токен буулгах',
   'roadmap.cardMeta': '{{author}} · {{board}}',
@@ -169,6 +224,7 @@ export const ui: UiTranslations = {
   'search.empty': 'Хайлтад тохирох хүсэлт байхгүй.',
   'search.hint': 'Давхардлыг нийтлэхээс өмнө одоо байгаа хүсэлтүүдийг олохын тулд хайлт хийнэ үү.',
   'search.loadError': 'Хайлт амжилтгүй боллоо — дахин оролдоно уу.',
+  'search.searching': 'Хайж байна…',
   'search.submit': 'Хайлт',
   'search.submitNew': 'Шинэ хүсэлт болгон нийтлэх',
   'search.title': 'Санал хүсэлт хайх',
@@ -177,11 +233,22 @@ export const ui: UiTranslations = {
   'settings.billing': 'Төлбөр тооцоо',
   'settings.displaySubtitle': 'Мэдээллийн урсгал хэр нягт харагдахыг сонгох.',
   'settings.displayTitle': 'Дэлгэц',
+  'settings.emailDigestDesc': 'Даваа гараг бүр хамгийн олон санал авсан нээлттэй хүсэлтүүд.',
+  'settings.emailDigestLabel': 'Долоо хоногийн тойм',
+  'settings.emailMentionsDesc': 'Таны дагаж буй нийтлэлд хэн нэгэн хариулах үед.',
+  'settings.emailMentionsLabel': 'Дурдсан үед имэйл илгээх',
+  'settings.emailRepliesDesc': 'Таны эхлүүлсэн эсвэл хариулсан сэдвүүд.',
+  'settings.emailRepliesLabel': 'Хариултууд дээр надад имэйл илгээнэ үү',
   'settings.loadError': 'Таны бүртгэлийг ачаалж чадсангүй.',
   'settings.loading': 'Таны тохиргоог ачаалж байна…',
   'settings.notifications': 'Мэдэгдэл',
   'settings.notificationsSubtitle': 'Юу имэйл хүрч, юу төхөөрөмж дээр ирэхийг шийднэ үү.',
+  'settings.pushRepliesLabel': 'Хариултын push мэдэгдэл',
+  'settings.pushVotesDesc': '100, 500, 1000 дээр босго мэдэгдэл.',
+  'settings.pushVotesLabel': 'Дэмжлэгийн санал хураалтын үе шатуудыг урагшлуулахыг хичээгээрэй',
   'settings.saveAccount': 'Бүртгэл хадгалах',
+  'settings.showFlair': 'Нийтлэл дээр самбарын чипсүүдийг харуулах',
+  'settings.showThumbnails': 'Холбоос/зургийн жижиг зургуудыг харуулах',
   'settings.usernamePlaceholder': 'Хэрэглэгчийн нэр сонгох',
   'signup.confirmPlaceholder': 'Дахин бичнэ үү',
   'signup.description': 'Бид дараа нь юу бүтээхийг тодорхойлох.',

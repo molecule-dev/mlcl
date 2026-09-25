@@ -1,12 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens preguntes, comentaris o un error per informar? Contacta amb l'equip des de la configuració del teu compte — cada missatge arriba a una persona real que també aprèn idiomes.",
   'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre nosaltres',
+  'about.missionTitle': 'La nostra missió',
+  'about.whatYouGet': 'El que obtens',
   'common.goToDashboard': 'Anar al panell',
   'common.logout': 'Tanca la sessió',
+  'dailyStatsTriad.heartsHint': "Recarrega a l'inici de cada lliçó",
   'dailyStatsTriad.heartsLabel': 'Cors',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
+  'dailyStatsTriad.minutesHint': "Dels exercicis d'avui",
   'dailyStatsTriad.minutesLabel': "Minuts d'avui",
   'dailyStatsTriad.minutesValue': '{{count}} min',
   'dailyStatsTriad.wordsLabel': 'Paraules dominades',
@@ -15,18 +21,29 @@ export const ui: UiTranslations = {
   'dashboard.heading': 'Bon dia, {{name}} .',
   'dashboard.loadError':
     "No s'ha pogut carregar el progrés més recent; es mostren els valors emmagatzemats a la memòria cau.",
+  'dashboard.loading': 'Refrescant…',
   'dashboard.noLessons': 'Encara no hi ha lliçons disponibles. Torna aviat.',
+  'dashboard.startPractice': 'Comença la pràctica de conversa',
+  'dashboard.subheading':
+    "Continua on ho vas deixar — tres sessions curtes i assoliràs l'objectiu d'avui.",
   'dashboard.viewAllLessons': 'Totes les lliçons →',
+  'forgotPassword.subheading': "Escriu el teu correu i t'enviarem un enllaç de restabliment.",
   'forgotPassword.successBody':
     "Revisa la teva safata d'entrada; t'hem enviat un enllaç per restablir-la.",
   'forgotPassword.successHint':
     "Si {{email}} coincideix amb un compte, l'enllaç arribarà en un minut.",
+  'landing.copyright': '© {{year}} {{app}}. Pensat per a adults que aprenen.',
   'landing.ctaBody':
     'No cal targeta. Deixa el teu correu electrònic, tria un idioma i comença demà.',
   'landing.ctaHeading': 'A punt per trobar el teu accent?',
   'landing.eyebrow': "Pràctica diària d'idiomes per a adults",
   'landing.featuresHeading': 'Un bucle de pràctica que respecta el teu temps',
+  'landing.featuresSubheading':
+    'Dissenyat per a adults amb trenta minuts al dia, no trenta hores a la setmana.',
   'landing.heroCta': 'Comença una ratxa de 7 dies',
+  'landing.heroSubtitle':
+    "Lliçons de cinc minuts que caben en una pausa pel cafè. Exercicis, vocabulari, conversa — tot dins d'una ratxa que de debò mantindràs.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.languagesEyebrow': 'Trieu un idioma',
   'landing.languagesHeading': 'Catorze idiomes, un hàbit quotidià',
   'landing.proof.languages': '{{count}} idiomes',
@@ -41,11 +58,18 @@ export const ui: UiTranslations = {
   'leaderboard.heading': 'Taula de classificació',
   'leaderboard.loadError': "No s'ha pogut carregar la taula de classificació.",
   'leaderboard.loading': "S'està carregant la taula de classificació…",
+  'leaderboard.rewardBody':
+    "Mantenir l'or tres setmanes seguides et promou a diamant. Només en joc amistós.",
+  'leaderboard.rewardEyebrow': "El premi d'aquesta setmana",
+  'leaderboard.rewardHeading': 'Els {{count}} primers guanyen la insígnia de la lliga or',
   'leaderboard.subheading':
     'XP aquesta setmana. Es reinicia diumenge a mitjanit a la teva hora local.',
   'leaderboard.weeklyPeriod': 'Aquesta setmana · amics',
+  'leaderboardPanel.rankSuffix': 'Rang # {{rank}}',
   'leaderboardPanel.title': "Taula de classificació d'amics",
+  'leaderboardPanel.xp': '{{xp}} XP',
   'leaderboardPanel.you': '(Tu)',
+  'lessonCard.continue': 'Continua →',
   'lessonCard.duration': '{{min}} min',
   'lessonCard.level': 'Nivell {{level}}',
   'lessonCard.progressPercent': '{{percent}} % completat',
@@ -54,14 +78,17 @@ export const ui: UiTranslations = {
   'lessonDetail.check': 'Comprovar',
   'lessonDetail.checking': "S'està revisant…",
   'lessonDetail.correct': 'Brillant!',
+  'lessonDetail.correctHint': '+{{xp}} XP. Segueix així.',
   'lessonDetail.empty': 'No hi ha exercicis en aquesta lliçó.',
   'lessonDetail.exit': 'Sortida de la lliçó',
   'lessonDetail.fillBlank': "Ompliu l'espai en blanc",
   'lessonDetail.finish': 'Acabar la lliçó',
   'lessonDetail.incorrect': 'No del tot — “ {{answer}} "',
+  'lessonDetail.incorrectHint': 'Tornaràs a veure aquesta a la revisió de demà.',
   'lessonDetail.lessonId': 'Lliçó · {{id}}',
   'lessonDetail.loadError': "No s'han pogut carregar els exercicis.",
   'lessonDetail.loading': "S'està carregant la lliçó…",
+  'lessonDetail.pronunciation': 'Tria la pronunciació correcta',
   'lessonDetail.submitError': "No s'ha pogut enviar la resposta.",
   'lessonDetail.translation': 'Tradueix la frase',
   'lessonDetail.xpEarned': 'XP guanyat · {{xp}}',
@@ -80,6 +107,12 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'Obre el menú de navegació',
   'parlanceLayout.nav.profile': 'Perfil',
   'parlanceLayout.primaryNavLabel': 'Navegació principal',
+  'planUpdated.body':
+    'El canvi de facturació ja és actiu. Pots gestionar el teu pla en qualsevol moment des de la pàgina de facturació.',
+  'planUpdated.retry': 'Torna-ho a intentar',
+  'planUpdated.verifyFailed': 'Encara no hem pogut confirmar el vostre pagament.',
+  'planUpdated.verifyFailedBody':
+    "És possible que el vostre pagament encara s'estigui processant. Torneu-ho a provar en un moment.",
   'planUpdated.verifying': 'Confirmant el teu pagament…',
   'practice.empty': 'Encara no hi ha frases disponibles.',
   'practice.eyebrow': 'Pràctica oral',
@@ -103,6 +136,9 @@ export const ui: UiTranslations = {
   'pricing.limits.progress': 'entrades de progrés',
   'profile.anonymous': 'Aprenent',
   'profile.avatarAlt': '{{name}} avatar de \\u2019s',
+  'profile.eyebrow': 'Membre des de {{joined}}',
+  'profile.eyebrowNew': 'Nou aprenent',
+  'profile.langLessonCount': '{{count}} lliçons',
   'profile.langLevel': 'Nivell {{level}}',
   'profile.languages': 'Idiomes',
   'profile.languagesHeading': 'Idiomes en curs',
@@ -111,6 +147,7 @@ export const ui: UiTranslations = {
   'profile.streak': 'Ratxa',
   'profile.totalXp': 'XP total',
   'resetPassword.confirmPlaceholder': 'Torna-ho a escriure',
+  'resetPassword.mismatch': 'Les contrasenyes no coincideixen.',
   'resetPassword.newPasswordLabel': 'Nova contrasenya',
   'resetPassword.newPasswordPlaceholder': 'Vuit caràcters o més',
   'resetPassword.subheading': 'Trieu alguna cosa memorable, vuit personatges o més.',
@@ -118,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Preferències de pràctica',
   'settings.goalBody':
     "Quanta XP aspires a aconseguir cada dia. Les ratxes es mantenen sempre que aconsegueixes l'objectiu.",
+  'settings.goalHeading': 'Objectiu diari',
   'settings.goalMinutes': '~ {{min}} min/dia',
   'settings.language.description':
     "Trieu l'idioma que s'utilitzarà als menús i etiquetes de l'aplicació.",

@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Суроолор, функция сунуштары же биз колдошубуз керек болгон эсептегич? Аккаунт жөндөөлөрүңүздөн {{appName}} командасына кайрылыңыз — ар бир билдирүү чыныгы адамга жетет.',
   'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Жөнүндө',
+  'about.featuresTitle': 'Эмне аласыз',
+  'about.intro':
+    '{{appName}} — күн энергиясы менен иштеген үйлөр жана объект командалары үчүн реалдуу убакыттагы энергия мониторинги. Биз эсептегич, инвертор жана батарея маалыматтарынын агымын тынч башкаруу борборунун көрүнүшүнө айландырабыз — жандуу кубаттуулук, күн энергиясынын өндүрүшү, убакытка жараша баа жана эскертүүлөр — баары бир кабыкта.',
+  'about.missionBody':
+    'Көрүп турган энергияны башкара аласыз. Биз эсептегичи бар ар бир адам — чатырында күн панели бар үй же имаратты көзөмөлдөгөн команда — коммуналдык деңгээлдеги контрактсыз коммуналдык деңгээлдеги түшүнүккө татыктуу деп ишенебиз. Ар бир функция кийинки киловатт-саатты эсептегичтеги күтүүсүздүк эмес, саналуу тандоо кылуу үчүн жасалган.',
+  'about.missionTitle': 'Биздин миссиябыз',
   'about.pageTitle': '{{appName}} жөнүндө',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Ак',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@yourdomain.com',
   'alertRule.eyebrow': 'Жаңы эреже',
   'alertRule.heading': 'Кыйынчылыкка кабыла электе, аны байкап калыңыз',
+  'alertRule.nameLabel': 'Эреженин аталышы',
   'alertRule.namePlaceholder': 'мисалы, жумуштан кийинки HVAC байкоосу',
   'alertRule.subheading':
     'Эскертүүнү жөнөтүү үчүн метриканы, босогону жана жерди тандаңыз. Аны каалаган убакта түзөтүп же тындырсаңыз болот.',
   'alertRule.submit': 'Эрежени сактоо',
   'alertRule.submitError': 'Эреже сакталган жок.',
   'alertRule.thresholdLabel': 'Босого',
+  'alertRule.typeLabel': 'Триггердин түрү',
   'alerts.checking': 'Текшерилүүдө…',
   'alerts.confirmDelete': 'Өчүрүүнү ырастоо',
+  'alerts.empty': 'Көрсөтө турган эч нерсе жок — бул абалда эскертүүлөр жок.',
   'alerts.emptyNoRules':
     'Азырынча эскертүүлөр жок — эреже кошуп, андан кийин аны сынап көрүү үчүн "Азыр баалоо" баскычын чыкылдатыңыз.',
   'alerts.errorAck': 'Моюнга ала алган жок.',
@@ -41,12 +52,14 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Азыр баалаңыз',
   'alerts.subheading':
     'Эсептегичтериңизге атылып жаткан босого жана үлгү эскертүүлөрү, ошондой эле аларды башкарган эрежелер.',
+  'billing.activeBlurb': 'Жазылууңуз активдүү. Аны каалаган убакта башкара аласыз.',
   'billing.cancelError': 'Жазылууну жокко чыгаруу мүмкүн болгон жок.',
   'billing.cancelling': 'Жокко чыгарылууда…',
   'billing.currentBadge': 'Учурдагы',
   'billing.freeBlurb':
     'Сиз акысыз пландасыз. Көбүрөөк эсептегичтер, узак тарых жана көбүрөөк эскертүү эрежелери үчүн жаңыртыңыз.',
   'billing.heading': 'Пландар жана эсептешүүлөр',
+  'billing.historyEmpty': 'Төлөнгөн эсеп-фактуралар жазылууңуз эсептелгенде ушул жерде көрүнөт.',
   'billing.historyHeading': 'Эсеп-фактура тарыхы',
   'billing.loadError': 'Эсеп-фактура жүктөлбөй койду.',
   'billing.loading': 'Пландар жүктөлүүдө…',
@@ -58,17 +71,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Сатуу бөлүмүнө кайрылыңыз',
   'common.goToDashboard': 'Башкы бетке өтүү',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} пик · {{offPeak}} пиктен тышкаркы kWh',
   'dailyCostMeter.runningLabel': 'Жалпы сумма',
   'dailyCostMeter.title': 'Бүгүнкү күнгө чейинки баасы',
   'dailyCostMeter.utilizationLabel': 'Күнүмдүк бюджеттен',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Эсептегич кошуу',
   'dashboard.alertsHeading': 'Активдүү эскертмелер',
   'dashboard.devicesHeading': 'Азыркы эң мыкты айлампалар',
   'dashboard.empty.body':
     'Түз эфирдеги тартууну жана өндүрүштү көзөмөлдөө үчүн акылдуу эсептегичти же күн энергиясын инверторду кошуңуз.',
+  'dashboard.empty.title': 'Азырынча эсептегичтер жок',
   'dashboard.eyebrow': 'Чыңалуу башкаруу бөлмөсү',
   'dashboard.heading': 'Түз эфирдеги энергиянын кыскача баяндамасы',
   'dashboard.loadError': 'Түз эфирдеги окуулар жүктөлбөй койду.',
   'dashboard.loading': 'Эсептегичтериңиз жөндөлүүдө…',
+  'dashboard.noAlerts': 'Баары тынч — босоголоруңузду эч нерсе аттабайт.',
   'dashboard.noAlertsAndNoMeters':
     'Эсептегичти туташтыргандан кийин, босоголоруңузга негизделген эскертүүлөр бул жерде көрсөтүлөт.',
   'dashboard.noCircuits': 'Азырынча көрсөтүлө турган схемалар жок — баштоо үчүн эсептегич кошуңуз.',
@@ -76,6 +94,7 @@ export const ui: UiTranslations = {
     'Үйдү толугу менен суу менен тартуу, күн энергиясын өндүрүү жана бүгүнкү күнгө чейинки чыгымдар.',
   'dashboard.viewAllAlerts': 'Эскертмелерди башкаруу →',
   'dashboard.viewAllDevices': 'Ар бир түзмөк →',
+  'deviceDetail.activeTokens': 'Активдүү кабыл алуу токендери',
   'deviceDetail.alreadyOff': 'Буга чейин тындырылган',
   'deviceDetail.back': 'Бардык схемалар',
   'deviceDetail.confirmDelete': 'Өчүрүүнү ырастоо',
@@ -116,22 +135,34 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Эсептегичтер жүктөлбөй койду.',
   'devices.loading': 'Ар бир эсептегичти сурамжылоо…',
   'devices.newRule': 'Жаңы эскертүү эрежеси',
+  'devices.noResults': 'Бул фильтрге эч бир чынжыр туура келбейт.',
   'devices.placeholder.location': 'мисалы, механикалык бөлмө',
   'devices.placeholder.name': 'мисалы, гараждын кошумча панели',
   'devices.subheading':
     'Voltrace ар бир чынжыр аркылуу чыныгы ватт кубаттуулугун жана бүгүнкү кВт/саатты көрө алат.',
+  'deviceWattageRow.todayKwh': 'Бүгүн {{kwh}} kWh',
+  'deviceWattageRow.watts': '{{watts}} В',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Меню',
+  'energyMonitoringLayout.primaryNavLabel': 'Негизги навигация',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    '{{appName}} көпчүлүк коммуналдык эсептегичтер, күн инверторлору жана батарея топтомдору менен иштейт — зым аркылуу же WiFi аркылуу.',
   'landing.ctaHeading': 'Эсептегичиңизди жупташтырыңыз, ватттарды бир нече мүнөттөн кийин көрүңүз',
   'landing.eyebrow': 'Реалдуу убакыттагы энергетикалык интеллект',
+  'landing.featuresHeading': 'Ар бир ватт, ар бир мүнөт, бир кабыкта',
   'landing.getStarted': 'Электр розеткасына сайылган чыңалуу',
   'landing.heroCta': 'Электр розеткасына сайылган чыңалуу',
+  'landing.heroSubtitle':
+    'Күн энергиясы менен иштеген үйлөр жана объект командалары үчүн жасалган башкаруу борборунун кабыгында жандуу кубаттуулук, күн энергиясынын өндүрүшү, убакытка жараша баа жана жогорку керектөө эскертүүлөрү.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Үй ичиндеги бардык оюндар үчүн тең чыгуу',
   'landing.sampleSolar': '+3,820 Вт күн энергиясы',
   'landing.sampleSummary': 'Бүгүн 1680 Вт электр тармагына экспорттолууда · 18,4 кВт/саат',
   'landing.sampleWatts': '2140 Вт',
   'powerHeroCard.solar': '+ {{watts}} W күн энергиясы',
   'powerHeroCard.title': 'Үй ичиндеги бардык оюндар үчүн тең чыгуу',
+  'powerHeroCard.todayKwh': 'Бүгүн {{kwh}} kWh',
   'powerHeroCard.watts': '{{watts}} В',
   'pricing.choose': 'Тандоо {{name}}',
   'pricing.contact': 'Ыңгайлаштырылган бир нерсе керекпи?',
@@ -144,6 +175,7 @@ export const ui: UiTranslations = {
     'Акысыз баштаңыз. Көбүрөөк эсептегичтер, узунураак тарых же көбүрөөк эскертүү эрежелери керек болгондо жаңыртыңыз.',
   'pricing.unavailable': 'Бул план учурда жеткиликтүү эмес — Stripe конфигурацияланган эмес.',
   'profile.errorGeneric': 'Профиль өзгөртүүлөрү сакталган жок.',
+  'profile.errorGoal': 'Айлык kWh максаты оң сан болушу керек.',
   'profile.errorHousehold': 'Үй-бүлөнүн саны оң сан болушу керек.',
   'profile.householdHeading': 'Үй-бүлө жана максаттар',
   'profile.householdSize': 'Үй-бүлөнүн өлчөмү',
@@ -162,9 +194,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'Көрсөткүчтөрдү бириктирүү…',
   'reports.subheading':
     'Керектөө, өндүрүш жана нарк боюнча күнүмдүк жалпы маалыматтар — даталар боюнча бөлүштүрүлгөн.',
+  'reports.tableHeading': 'Күнүмдүк бөлүштүрүү',
   'settings.currency': 'Валюта',
   'settings.errorFlat': 'Бир калыптагы чен ≥ 0 болушу керек.',
   'settings.errorNotify': 'Эскертменин жөндөөлөрү сакталган жок.',
+  'settings.errorSave': 'Тариф планын сактоо мүмкүн болбоду.',
   'settings.errorTou':
     'Чоку/чоку эмес мезгилдеги чендер жана жарактуу чоку терезеси талап кылынат.',
   'settings.exportBody':
@@ -185,10 +219,21 @@ export const ui: UiTranslations = {
   'settings.saving': 'Сакталууда…',
   'settings.securityHeading': 'Эки факторлуу аутентификация',
   'settings.subheading': 'Баалар, эскертмелер жана маалыматтарды экспорттоо.',
+  'settings.twoFactorBody':
+    'Ар бир кирүүдө аутентификатор колдонмосунан бир жолку код талап кылынат.',
   'settings.twoFactorCode': 'Аутентификация коду',
   'settings.twoFactorDisable': 'Өчүрүү',
+  'settings.twoFactorDisableTitle': 'Эки факторлуу аутентификацияны өчүрүү',
   'settings.twoFactorEnable': 'Иштетүү',
+  'settings.twoFactorEnableTitle': 'Эки факторлуу аутентификацияны күйгүзүү',
   'settings.twoFactorInvalidCode': 'Жараксыз код',
+  'settings.twoFactorOAuth':
+    'Аккаунтуңуз байланышкан провайдер аркылуу кирет, ошондуктан эки факторлуу аутентификация ошол жерде башкарылат.',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Эки факторлуу QR код',
+  'settings.twoFactorScan':
+    'Бул QR кодду аутентификатор колдонмоңуз менен скандаңыз, анан 6 орундуу кодду киргизиңиз.',
+  'settings.twoFactorUnavailable':
+    'Бул колдонмо үчүн эки факторлуу аутентификация жеткиликтүү эмес.',
   'settings.twoFactorVerify': 'Текшерүү жана иштетүү',
 }

@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Van visszajelzésed, hibát találtál, vagy saját táblát szeretnél a(z) {{appName}} oldalon? Nyisd meg a Beállításokat, hogy elérd a csapatot — minden üzenetet egy igazi ember olvas el.',
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
+  'about.featureModeration':
+    'Nyilvános ütemterv negyedéves címkékkel, változásnapló, amely a leszállított munkát kiadási megjegyzésekké alakítja, és egy irányítópult, amely megmutatja, mit szeretnének a legtöbben.',
+  'about.featurePricing':
+    'Ingyen futtathatsz néhány táblát; a Pro és Team csomagok több táblát, magasabb limiteket és adatexportot nyitnak meg.',
+  'about.featureThreads':
+    'Nyilvános visszajelző táblák témák szerint rendezve, duplikátumok összevonásával, amely egyetlen őszinte igényjelzéssé gyűjti a szavazatokat.',
+  'about.featureVoting':
+    'Egy szavazat felhasználónként szavazással és teljes állapotfolyamattal — nyitott, tervezett, folyamatban, leszállítva vagy elutasítva —, valamint hivatalos válasszal minden döntésről.',
+  'about.intro':
+    'A(z) {{appName}} egy termék-visszajelzési platform — nyilvános táblák, ahol a ügyfelek kéréseket tesznek közzé, szavaznak arra, amire szükségük van, és nyomon követik az egyes ötleteket a tervezéstől a leszállításig. A csapatok nem találgatják többé, mit építsenek, mert az igény magát rangsorolja.',
+  'about.missionBody':
+    'Hiszünk abban, hogy a legjobb termékdöntések nyíltan születnek. A(z) {{appName}} minden csapatnak nyilvános táblát ad a megszavazott kérésekről, hivatalos ütemtervet célnegyedévekkel, és egy változásnaplót, amely bezárja a kört — így a ügyfelek látják a hatásukat, a csapatok pedig a felhatalmazásukat.',
+  'about.missionTitle': 'Küldetésünk',
   'admin.backToBoards': 'Vissza a táblákhon',
   'admin.denied': 'Csak adminisztrátoroknak.',
   'admin.eyebrow': 'Termékcsapat',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'admin.title': 'Visszajelzési irányítópult',
   'admin.topOpen': 'Legfontosabb nyitott kérések',
   'admin.totalVotes': '{{count}} összesen',
+  'admin.votesChartLabel': 'Sávdiagram az elmúlt nyolc hét heti szavazatairól',
   'admin.votesOverTime': 'Szavazatok időben',
   'auth.forgotPassword.email': 'E-mail',
   'auth.forgotPassword.sendResetLink': 'Visszaállítási link küldése',
@@ -30,7 +47,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Fiók létrehozása',
   'auth.username': 'Felhasználónév',
   'authShell.communities': 'Közösségek',
+  'authShell.copyright': '{{appName}} — minden hang számít.',
   'authShell.trending': 'Felkapott',
+  'boardCard.postCount': '{{count}} bejegyzés',
   'boardDetail.allBoards': 'Összes tábla',
   'boardDetail.backToBoards': 'Vissza a táblákhon',
   'boardDetail.empty': 'Ezekre a szűrőkre még nincs bejegyzés.',
@@ -54,6 +73,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Minden bejegyzés szavazott kérésként kezdődött. A szavazók látták mozogni; itt landolt végül.',
   'changelog.title': 'Kiadva, bizonyítékokkal',
+  'changelog.voteCount': '{{count}} szavazat építette meg ezt',
   'common.atLeast8Characters': 'Legalább 8 karakter',
   'common.checkYourInbox': 'Nézd meg a beérkező leveleidet',
   'common.loadingEllipsis': 'Betöltés…',
@@ -64,6 +84,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Beküldés…',
   'footer.about': '{{appName}} névjegye',
   'footer.language': 'Nyelv',
+  'forgotPassword.description':
+    'Add meg az e-mail címed, és küldünk neked egy linket a visszaállításhoz.',
+  'forgotPassword.successBody':
+    'Visszaállítási hivatkozást küldtünk a(z) {{email}} címre. 30 perc múlva lejár.',
   'forgotPassword.tryAnother': 'Próbálj másik e-mailt',
   'form.displayName': 'Megjelenített név',
   'form.firstName': 'Keresztnév',
@@ -74,6 +98,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'Az ütemterved, szavazatokkal alátámasztva.',
   'landing.heroCtaPrimary': 'Szavazatok gyűjtése',
   'landing.heroCtaSecondary': 'Élő tábla megtekintése',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Ne találgass. Szállítsd, amire szavaznak.',
+  'landing.heroLede':
+    'A(z) {{appName}} a szétszórt funkciókéréseket nyilvános, megszavazott ötletek táblájává, hivatalos ütemtervvé és egy változásnaplóvá alakítja, amelyet a ügyfeleid tényleg elolvasnak.',
   'landing.heroStat1': '3 200+',
   'landing.heroStat1Label': 'Figyelő csapat',
   'landing.heroStat2': '1,4 m',
@@ -85,9 +113,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Változásnapló',
   'landing.navJoin': 'Csatlakozz a {{appName}}-hoz',
   'landing.navRoadmap': 'Ütemterv',
+  'landing.step1Body':
+    'A ügyfelek ötleteket tesznek közzé a nyilvános táblákon. A duplikátumok összeolvadnak, a szavazatok összegyűlnek, és az igény magát rangsorolja.',
   'landing.step1Title': 'Gyűjtés',
+  'landing.step2Body':
+    'Jelöld a kéréseket tervezettként vagy folyamatban lévőként egy célnegyedévvel — az ütemterv abban a pillanatban frissül.',
+  'landing.step2Title': 'Kötelezettségvállalás',
   'landing.step3Body':
     'A kiadott bejegyzések változásnapló-bejegyzésekké válnak, és minden szavazó látja az eredményt a saját listáján.',
+  'landing.step3Title': 'Leszállítás',
   'landing.topSubtitle': 'Élőben erről a tábláról — jelentkezz be a szavazatod leadásához.',
   'landing.topTitle': 'Amit a felhasználók most kérnek',
   'landing.topViewAll': 'Összes tábla',
@@ -95,14 +129,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Elsődleges',
   'layout.signUp': 'Regisztráció',
   'layout.submit': 'Visszajelzés küldése',
+  'login.description': 'Folytasd ott, ahol abbamaradt a beszélgetés.',
+  'login.heading': 'Bejelentkezés a Nimbusba',
+  'login.noAccount': 'Új felhasználó?',
   'login.passwordPlaceholder': 'Jelszavad',
   'login.twoFactorLabel': '2FA kód (opcionális)',
   'login.twoFactorPlaceholder': '6 jegyű kód',
+  'login.twoFactorRequiredHint':
+    'Ez a fiók kétfaktoros hitelesítéssel rendelkezik. A folytatáshoz add meg a hitelesítő alkalmazásod 6 jegyű kódját.',
   'login.twoFactorRequiredLabel': 'Add meg a 2FA kódodat',
+  'myActivity.browseCta': 'Táblák böngészése',
+  'myActivity.emptyPosts': 'Még nem tettél közzé kérést.',
+  'myActivity.emptyVotes': 'Még semmi — böngészd a táblákat, és támogass egy ötletet.',
   'myActivity.eyebrow': 'Tevékenységed',
   'myActivity.loadError': 'Nem sikerült betölteni a tevékenységedet.',
   'myActivity.postsTitle': 'Általad beküldött kérések',
+  'myActivity.shippedNote': '{{count}} közülük leszállítva — köszönjük a lökést.',
   'myActivity.submitCta': 'Kérés beküldése',
+  'myActivity.tabLabel': 'Megtekintés',
   'myActivity.tabPosts': 'Bejegyzéseim',
   'myActivity.tabVotes': 'Szavazataim',
   'myActivity.votesTitle': 'Általad megszavazott kérések',
@@ -138,8 +182,13 @@ export const ui: UiTranslations = {
   'posts.notFound': 'A bejegyzés nem található',
   'postsAdmin.backToDashboard': 'Irányítópult',
   'postsAdmin.eyebrow': 'Termékcsapat',
+  'postsAdmin.mergeApplied':
+    'Összevonva — {{votes}} szavazat és {{comments}} hozzászólás áthelyezve.',
   'postsAdmin.mergeApply': 'Összevonás és szavazatok áthelyezése',
   'postsAdmin.mergeChoose': 'Válassz egy célbejegyzést…',
+  'postsAdmin.mergeFailed': 'Az összevonás nem sikerült.',
+  'postsAdmin.mergeHint':
+    'A szavazatok összegyűlnek (egy felhasználónként), a hozzászólások áthelyeződnek, és ez a bejegyzés egy „áthelyezve” megjegyzést kap.',
   'postsAdmin.mergeLabel': 'Duplikátum összevonása',
   'postsAdmin.responseLabel': 'Hivatalos válasz',
   'postsAdmin.responsePlaceholder':
@@ -154,7 +203,13 @@ export const ui: UiTranslations = {
     'Állítsd be a hivatalos státuszt, válaszolj nyilvánosan, címkézd az ütemterv negyedévét, és vond össze a duplikátumokat.',
   'postsAdmin.title': 'Visszajelzési bejegyzések kezelése',
   'postsAdmin.votes': '{{count}} szavazat',
+  'pricing.limits.advancedFeatures': 'Speciális funkciók:',
+  'pricing.limits.boards': '{{count}} táblák',
   'pricing.limits.export': 'Adatexportálás:',
+  'pricing.limits.posts': '{{count}} visszajelzési bejegyzés',
+  'pricing.limits.votes': '{{count}} szavazat',
+  'resetPassword.description':
+    'Válassz egy erőset. Amint a visszaállítás sikeres volt, bejelentkeztetünk.',
   'resetPassword.newPasswordLabel': 'Új jelszó',
   'resetPassword.tokenPlaceholder': 'Illeszd be a link tokent',
   'roadmap.cardMeta': '{{author}} · {{board}}',
@@ -171,6 +226,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'Írj be egy keresőkifejezést, hogy megtaláld a meglévő kéréseket duplikátum beküldése előtt.',
   'search.loadError': 'A keresés nem sikerült — próbálja meg újra.',
+  'search.searching': 'Keresés…',
   'search.submit': 'Keresés',
   'search.submitNew': 'Új kérésként küldöm be',
   'search.title': 'Visszajelzések keresése',
@@ -179,11 +235,22 @@ export const ui: UiTranslations = {
   'settings.billing': 'Számlázás',
   'settings.displaySubtitle': 'Válaszd ki, mennyire legyenek sűrűek a feedek.',
   'settings.displayTitle': 'Megjelenítés',
+  'settings.emailDigestDesc': 'A legtöbb szavazatot kapott nyitott kérések minden hétfőn.',
+  'settings.emailDigestLabel': 'Heti kivonat',
+  'settings.emailMentionsDesc': 'Amikor valaki válaszol egy bejegyzésre, amelyet követsz.',
+  'settings.emailMentionsLabel': 'Értesítés e-mailben említéskor',
+  'settings.emailRepliesDesc': 'Az általad indított vagy megválaszolt beszélgetések.',
+  'settings.emailRepliesLabel': 'Válaszokról e-mailben értesülhetsz',
   'settings.loadError': 'A fiókod nem sikerült betölteni.',
   'settings.loading': 'Beállítások betöltése…',
   'settings.notifications': 'Értesítések',
   'settings.notificationsSubtitle': 'Döntsd el, mi érjen el az inbox-odba vs push eszközödre.',
+  'settings.pushRepliesLabel': 'Push értesítés válaszokról',
+  'settings.pushVotesDesc': 'Küszöbértesítés 100, 500, 1000 esetén.',
+  'settings.pushVotesLabel': 'Szorgalmazd a pozitív szavazatok mérföldköveit',
   'settings.saveAccount': 'Fiók mentése',
+  'settings.showFlair': 'Tábla-címkék megjelenítése a bejegyzéseken',
+  'settings.showThumbnails': 'Link- és képbélyegképek megjelenítése',
   'settings.usernamePlaceholder': 'Válassz egy nevet',
   'signup.confirmPlaceholder': 'Írd be újra',
   'signup.description': 'Formáld, mit építünk legközelebb.',

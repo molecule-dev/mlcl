@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχεις σχόλια, βρήκες κάποιο σφάλμα ή θέλεις να μας πεις πώς σε βοήθησε το ημερολόγιο; Διαβάζουμε κάθε μήνυμα — επικοινώνησε όποτε θέλεις και ένας πραγματικός άνθρωπος θα σου απαντήσει.',
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.featureInsights':
+    'Αναστοχασμοί με τεχνητή νοημοσύνη που αναδεικνύουν απαλά τα ερεθίσματα, τα θέματα και τις ευγνωμοσύνες — χωρίς να χάνεται η φωνή σου.',
+  'about.featureMood':
+    'Παρακολούθηση διάθεσης και δραστηριότητας με προβολή ημερολογίου και γραφήματα τάσεων που φανερώνουν τι σε βοηθά να ευημερείς.',
+  'about.featurePrivacy':
+    'Κρυπτογράφηση από άκρο σε άκρο, κλείδωμα με κωδικό και πλήρης εξαγωγή CSV, ώστε οι σκέψεις σου να μένουν ιδιωτικές και φορητές.',
+  'about.featurePrompts':
+    'Απαλές καθημερινές προτροπές για να έχεις πάντα από πού να ξεκινήσεις — ποτέ μια κενή σελίδα.',
+  'about.intro':
+    'Το {{app}} είναι ένα απαλό, ιδιωτικό ημερολόγιο ψυχικής υγείας για καθημερινό αναστοχασμό, παρακολούθηση διάθεσης και ευγνωμοσύνη. Στοχαστικές προτροπές αντικαθιστούν την κενή σελίδα, η ήσυχη ανίχνευση μοτίβων σε βοηθά να κατανοήσεις τι επηρεάζει το πώς νιώθεις και η κρυπτογράφηση από άκρο σε άκρο κρατά τα λόγια σου δικά σου.',
+  'about.missionBody':
+    'Πιστεύουμε ότι ο έλεγχος με τον εαυτό σου πρέπει να είναι ήρεμος, ποτέ κλινικός — και ποτέ σαν μια ακόμη εφαρμογή που απαιτεί την προσοχή σου. Το {{app}} είναι φτιαγμένο για να βοηθά, όχι να γκρινιάζει: λίγα ήσυχα λεπτά την ημέρα για να παρατηρείς τη διάθεσή σου, να γράφεις ειλικρινά και να βλέπεις σιγά σιγά τον εαυτό σου πιο καθαρά.',
+  'about.missionTitle': 'Η αποστολή μας',
   'about.pageTitle': 'Σχετικά με το {{app}}',
   'authShell.encryptionBadge': 'Οι καταχωρίσεις σας είναι κρυπτογραφημένες από άκρο σε άκρο.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Ημέρα {{day}} — καμία καταχώριση',
   'calendar.cellMood': 'Ημέρα {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Αυτός ο μήνας με μια ματιά',
   'calendar.eyebrow': 'Η διάθεση με μια ματιά',
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Παρακολουθήθηκε {{tracked}} του {{total}} ημέρες αυτόν τον μήνα.',
   'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'common.tryAgain': 'Δοκιμάστε ξανά',
+  'entryComposer.bodyPlaceholder': 'Γράψε ό,τι νιώθεις ειλικρινά. Κανείς άλλος δεν θα το διαβάσει.',
   'entryComposer.cancel': 'Επιστροφή στο ημερολόγιο',
   'entryComposer.heading': 'Η σημερινή ανασκόπηση',
   'entryComposer.moodLabel': 'Πώς αισθάνεσαι;',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Αφαιρώ {{tag}}',
   'entryComposer.save': 'Αποθήκευση αντανάκλασης',
   'entryComposer.saveError': 'Δεν ήταν δυνατή η αποθήκευση της καταχώρισής σας.',
+  'entryComposer.tagPlaceholder': 'Πρόσθεσε ετικέτα και πάτησε enter',
   'entryComposer.titlePlaceholder': 'Δώστε ένα όνομα σε αυτήν την αντανάκλαση…',
   'entryDetail.back': 'Επιστροφή στο ημερολόγιο',
   'entryDetail.delete': 'Διαγραφή αυτής της καταχώρησης',
@@ -37,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Φόρτωση αντανάκλασης…',
   'entryDetail.notFound': 'Η καταχώρηση δεν βρέθηκε.',
   'entryDetail.reflectionsHeading': 'Αντανακλάσεις τεχνητής νοημοσύνης',
+  'forgotPassword.continueButton': 'Εισαγωγή κωδικού επαναφοράς',
   'forgotPassword.eyebrow': 'Μην ανησυχείτε',
   'forgotPassword.subheading': 'Θα σας στείλουμε έναν σύνδεσμο ομαλής επαναφοράς στο email σας.',
   'forgotPassword.successBody':
@@ -59,14 +79,22 @@ export const ui: UiTranslations = {
     'Δεν υπάρχουν ακόμη θέματα — προσθέστε μία ή δύο ετικέτες στις καταχωρίσεις σας και θα συγκεντρωθούν εδώ.',
   'insights.themesHeading': 'Κορυφαία θέματα',
   'insights.triggerFrequency': 'παρατήρησα {{count}} × αυτόν τον μήνα',
+  'insights.triggersEmpty':
+    'Δεν υπάρχει κάτι να παρατηρήσεις ακόμη. Λίγες καταχωρίσεις σε μερικές ημέρες θα δείξουν τα μοτίβα σου.',
   'insights.triggersHeading': 'Μοτίβα που αλλάζουν τη διάθεσή σας',
+  'journal.empty':
+    'Δεν ταιριάζει κανένας αναστοχασμός — δοκίμασε άλλο φίλτρο ή γράψε μια νέα καταχώριση.',
   'journal.eyebrow': 'Οι σκέψεις σας',
   'journal.heading': 'Εφημερίδα',
   'journal.loadError': 'Αποτυχία φόρτωσης καταχωρίσεων.',
   'journal.loading': 'Φόρτωση καταχωρήσεων…',
+  'journal.newEntry': 'Νέα καταχώρηση',
   'journal.searchPlaceholder': 'Αναζητήστε ένα συναίσθημα, ένα όνομα, μια στιγμή...',
   'journal.subheading': '{{count}} καταχωρήσεις — κάθε μία αξίζει να διατηρηθεί.',
   'journalEntryCard.encryptedLabel': 'Κρυπτογραφημένο',
+  'landing.ctaBody':
+    'Δωρεάν για να ξεκινήσεις. Το Pro ξεκλειδώνει την εξαγωγή δεδομένων, μεγαλύτερο ημερολόγιο και έναν ολόκληρο χρόνο ιστορικού.',
+  'landing.ctaButton': 'Ξεκινήστε την πρώτη σας καταχώρηση',
   'landing.ctaTitle': 'Λίγα λεπτά ησυχίας την ημέρα. Αυτό είναι όλο.',
   'landing.eyebrow': 'Μια ήπια καθημερινή πρακτική',
   'landing.featuresBody':
@@ -85,6 +113,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Ένας ήπιος χώρος για καθημερινή περισυλλογή.',
   'mentalHealthJournalLayout.closeMenu': 'Κλείσιμο μενού',
   'mentalHealthJournalLayout.openMenu': 'Άνοιγμα μενού',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Κύρια πλοήγηση',
+  'moodHeroCard.entriesThisWeek': '{{count}} αυτή την εβδομάδα',
   'moodHeroCard.streakSuffix': 'ημερήσια σειρά',
   'moodHeroCard.title': 'Η σημερινή ανασκόπηση',
   'moodTrendChart.aiBadge': 'Έτοιμο για AI insight',
@@ -95,11 +125,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Το ταξίδι σας',
   'profile.fallbackName': 'Κάτοπτρο',
   'profile.loadError': 'Αποτυχία φόρτωσης στατιστικών.',
+  'profile.loading': 'Ανανέωση των στατιστικών σου…',
   'profile.longestStreak': 'Μεγαλύτερο σερί',
   'profile.memberSince': 'Αντανακλώντας από τότε {{date}}',
   'profile.milestones': 'Ορόσημα',
   'profile.milestonesEmpty':
     'Το πρώτο σας ορόσημο απέχει μία μόνο συμμετοχή — γράψτε όποτε νιώσετε έτοιμοι.',
+  'profile.moodMix': 'Το μείγμα διάθεσής σου αυτή τη σεζόν',
   'profile.streakValue': '{{days}}η',
   'profile.totalEntries': 'Αντανακλάσεις',
   'profile.totalWords': 'Λέξεις γραμμένες',
@@ -112,6 +144,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': "Γράψε γι' αυτό",
   'resetPassword.eyebrow': 'Ένα φρέσκο ξεκίνημα',
   'resetPassword.mismatchError': 'Οι κωδικοί πρόσβασης δεν ταιριάζουν.',
+  'resetPassword.passwordLabel': 'Νέος κωδικός πρόσβασης',
   'resetPassword.subheading': 'Διάλεξε κάτι ασφαλές — οι σκέψεις σου το αξίζουν.',
   'resetPassword.tokenPlaceholder': 'Επαναφορά κωδικού από email',
   'settings.dangerDescription':
@@ -124,11 +157,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     'Τα λόγια σου ανήκουν πάντα σε εσένα. Κατεβάστε ένα αντίγραφο οποιαδήποτε στιγμή.',
   'settings.exportDone': 'Εξήχθη {{format}}.',
+  'settings.exportError': 'Αποτυχία εξαγωγής.',
+  'settings.exportHeading': 'Εξαγωγή των αναστοχασμών σου',
   'settings.exportLoading': 'Προετοιμασία…',
   'settings.eyebrow': 'Ο χώρος σου, οι κανόνες σου',
   'settings.languageHeading': 'Γλώσσα',
   'settings.privacyHeading': 'Απόρρητο και κρυπτογράφηση',
   'settings.remindersHeading': 'Ημερήσια υπενθύμιση',
+  'settings.reminderToggleAria': 'Εναλλαγή καθημερινής υπενθύμισης',
   'settings.reminderToggleDescription':
     'Μία μόνο ήρεμη υπενθύμιση τη στιγμή που θα επιλέξετε. Χωρίς κονκάρδες ή ενοχές.',
   'settings.reminderToggleLabel': 'Στείλτε ένα απαλό σκούντημα',
@@ -141,6 +177,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Δημιουργία ημερολογίου…',
   'signup.subheading': 'Ένας ασφαλής χώρος για τις σκέψεις σας.',
   'wellnessRingsTriad.mindfulnessCaption': 'Γκολ {{goal}} λεπτά σήμερα',
+  'wellnessRingsTriad.mindfulnessLabel': 'Ενσυνειδητότητα',
   'wellnessRingsTriad.sleepCaption': 'Γκολ {{goal}} ω / νύχτα',
   'wellnessRingsTriad.sleepLabel': 'Υπνος',
+  'wellnessRingsTriad.sleepValue': '{{hours}} ώ.',
+  'wellnessRingsTriad.streakCaption': 'Στόχος {{goal}} ημέρες',
+  'wellnessRingsTriad.streakLabel': 'Σειρά ημερολογίου',
+  'wellnessRingsTriad.streakValue': '{{days}}η',
 }

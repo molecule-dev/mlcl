@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Асуулт, санал хүсэлт эсвэл шинэ функцын хүсэлт байна уу? Тохиргоо → Мэдэгдэл хэсгээс {{app}} багтай холбогдох эсвэл хүссэн үедээ бидэнд бичээрэй — мессеж бүр бодит хүнд хүрдэг.',
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
+  'about.featureCapture':
+    'Зургийг зөв зардалд мөр мөрөөр нь хавсаргадаг, гэрэл зураг байршуулах баримт бүртгэл.',
+  'about.featureExport':
+    'Тайлан, зардал, батлах төлөв бүрийн аудит хийх боломжтой CSV экспорт — таны нягтлан бодох багт бэлэн.',
+  'about.featurePolicy':
+    'Бодлогын хязгаарлалт — өдрийн дээд хэмжээ, ангилал тус бүрийн лимит, баримт шаардлагатай босгыг илгээх үед хэрэгжүүлдэг.',
+  'about.featureWorkflow':
+    'Хянагчийн тэмдэглэл, бодлогын зөрчлийн туг, нэг товшилтоор нөхөн төлбөр тэмдэглэх боломжтой хоёр шатлалт батлах урсгал.',
+  'about.intro':
+    '{{app}} нь санхүүгийн багууд болон тэдний нөхөн төлбөр олгодог хүмүүст зориулсан зардлын менежментийн платформ юм. Баримт бүртгэж, зардал гаргаж, тайланг батлуулахаар илгээж, нөхөн төлбөр бүрийг хянаарай — хүснэгтийн ёслолгүйгээр.',
+  'about.missionBody':
+    'Нөхөн төлбөр хурдан, шударга, аудит хийх боломжтой байх ёстой. Бид {{app}}-г бүтээсэн тул илгээгчид шаналгалгүй мөнгөө буцааж авдаг, батлагчид юу баталж байгаагаа яг хардаг, санхүүгийн баг доллар бүрийн цэвэр мөртэй — бодлогын шалгалт бүхэнтэй нь.',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Зөвшөөрч байна…',
   'approvals.confirmReject': 'Татгалзахыг баталгаажуулах',
+  'approvals.empty': 'Та бүгдийг хийж дуусгасан — хүлээгдэж буй тайлан байхгүй.',
   'approvals.eyebrow': 'Менежерийн дараалал',
   'approvals.kpi.flaggedLabel': 'Бодлогыг тэмдэглэсэн',
+  'approvals.kpi.queueLabel': 'Хяналт хүлээж байна',
   'approvals.kpi.totalLabel': 'Хүлээгдэж буй утга',
   'approvals.lineCount': '{{count}} зардал',
   'approvals.queueFallback': 'Шууд дараалал боломжгүй — сонгосон демо өгөгдлийг харуулж байна.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Татгалзаж байна…',
+  'approvals.rejectPlaceholder': 'Шалтгаан (заавал)',
   'approvals.rejectPrompt': 'Та яагаад энэ тайланг үгүйсгэж байгаа юм бэ?',
   'approvals.review': 'Шүүмж',
   'approvals.title': 'Хүлээгдэж буй зөвшөөрөл',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Батлагдсан · MTD',
   'dashboard.kpi.pendingDelta': 'Энэ долоо хоногт +2',
+  'dashboard.kpi.pendingLabel': 'Хүлээгдэж буй хяналт',
   'dashboard.kpi.receiptsDelta': 'Шаардлагатай арга хэмжээ',
   'dashboard.kpi.receiptsLabel': 'Баримт хүлээж байна',
   'dashboard.kpi.reimbursedDelta': '+2.4 мянган доллар',
   'dashboard.kpi.reimbursedLabel': 'Нөхөн төлсөн · MTD',
   'dashboard.newReport': 'Шинэ тайлан',
+  'dashboard.recent.empty': 'Одоогоор тайлан байхгүй — эхнийхээ дээрээс эхлээрэй.',
   'dashboard.recent.title': 'Сүүлийн үеийн тайлангууд',
   'dashboard.recent.viewAll': 'Бүх тайланг харах',
   'dashboard.summaryFallback': 'Шууд хураангуй боломжгүй — сонгосон демо өгөгдлийг харуулж байна.',
@@ -38,11 +59,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'Баримт болон буцаан олголттой зүйлс',
   'expenses.listFallback': 'Шууд жагсаалт боломжгүй байна — сонгосон демо өгөгдлийг харуулж байна.',
   'expenses.searchPlaceholder': 'Худалдаачин эсвэл ангиллыг хайх...',
+  'expenses.subtotal': '{{count}} зардал · дэд нийлбэр',
   'expenses.title': 'Зардал',
+  'forgotPassword.continue': 'Надад код байна · Үргэлжлүүлэх',
+  'forgotPassword.subheading':
+    'Ажлын имэйлээ оруулбал бид шинэ нууц үг тохируулах холбоос илгээнэ.',
   'forgotPassword.successBody':
     'Хэрэв данс байгаа бол {{email}} Та дараагийн хэдэн минутын дотор дахин тохируулах холбоос хүлээн авах болно.',
+  'landing.copyright': '© {{year}} {{app}}. Molecule.dev-ээр бүтээв.',
+  'landing.ctaBody':
+    'Сар бүрийн эхний 25 зардал үнэгүй. Кредит картгүй, хэрэгжүүлэлтийн уулзалтгүй.',
   'landing.ctaHeading': 'Багийнхаа өрийг нөхөхөд бэлэн үү?',
   'landing.eyebrow': 'Санхүүгийн багуудын зардлын тайлан',
+  'landing.featuresHeading': 'Нөхөн төлбөр, нэг тайван ажлын орчинд',
   'landing.heroSubtitle':
     'Хүснэгтийн ёслолгүйгээр бизнесийн зардлыг илгээх, батлах, нөхөн төлөх. Баримтын OCR, бодлогын шалгалт, ил тод батлах хугацааны хуваарь - бүгд нэг тайван ажлын орчинд.',
   'landing.heroTitle': 'Баримт бүрийг сэргээсэн.',
@@ -60,10 +89,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Тэмдэглэл',
   'newExpense.descriptionPlaceholder':
     'Энэ зардал яагаад бизнестэй холбоотой байсан бэ (таны зөвшөөрөгчдөд харагдахуйц).',
+  'newExpense.eyebrow': 'Нөхөн төлөгдөх зүйл',
   'newExpense.merchant': 'Худалдаачин',
   'newExpense.merchantPlaceholder': 'Адлон Кемпински зочид буудал',
   'newExpense.policyHint':
     'Сануулга: өдөрт 80 доллараас дээш үнэтэй хоол эсвэл 250 доллараас дээш үнэтэй аливаа бараа бүтээгдэхүүний үнийн саналд үндэслэл бүхий тэмдэглэл шаардлагатай.',
+  'newExpense.receipt': 'Баримт',
+  'newExpense.receiptHint': 'JPG, PNG эсвэл PDF · дээд тал нь 10 MB',
   'newExpense.receiptOcrHint': 'OCR нь талбаруудыг урьдчилан бөглөдөг',
   'newExpense.receiptPrompt': 'Зураг эсвэл PDF файлыг энд оруулна уу, эсвэл үзэхийн тулд дарна уу',
   'newExpense.receiptUploadFailed':
@@ -74,17 +106,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Баримтаа авах эсвэл байршуулахад Recoup нь худалдаачин, огноо, нийт дүнг урьдчилан бөглөнө. Хадгалахаасаа өмнө доорх бүх зүйлийг баталгаажуулна уу.',
   'newExpense.title': 'Зардал нэмэх',
+  'newReport.approverHint': 'Та энэ тайланг хяналтад илгээх үед тэд имэйл хүлээн авна.',
   'newReport.approverLabel': 'Зөвшөөрөгч имэйл (заавал биш)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'Боломжит зардал',
   'newReport.createFailed': 'Тайлан үүсгэж чадсангүй. Дахин оролдоно уу.',
   'newReport.draftsFallback':
     'Шууд зардлын жагсаалт байхгүй байна — сонгосон демо өгөгдлийг харуулж байна.',
+  'newReport.eyebrow': 'Зардлуудыг бүлэглэх · батлуулахаар илгээх',
   'newReport.includedCount': '{{count}} багтсан',
   'newReport.purposeLabel': 'Бизнесийн зорилго',
   'newReport.purposePlaceholder':
     'Эдгээр зардалтай холбоотой аялал эсвэл төслийг тайлбарлана уу (таны батлагч болон санхүүжүүлэгчид харагдах болно).',
   'newReport.saveDraft': 'Ноорог хэлбэрээр хадгалах',
+  'newReport.saveDraftFailed': 'Ноорог хадгалж чадсангүй. Дахин оролдоно уу.',
   'newReport.submit': 'Зөвшөөрөл авахаар илгээх',
   'newReport.submitFailed': 'Тайлан илгээж чадсангүй. Дахин оролдоно уу.',
   'newReport.summary': 'Тайлангийн хураангуй',
@@ -98,16 +133,23 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Шууд дамжуулалт боломжгүй — сонгосон демо өгөгдлийг харуулж байна.',
   'notifications.openReport': 'Нээлттэй тайлан ›',
+  'pricing.approvalsLabel': 'батламжууд',
   'pricing.expensesLabel': 'зардал',
   'pricing.heading': 'зөвшөөрөл',
   'pricing.policiesLabel': 'бодлого',
   'pricing.receiptsLabel': 'баримт',
   'recoveredAmountHeroCard.label': 'Нөхөн төлбөрийг буцаан авсан · Жилийн өмнө',
+  'recoveredAmountHeroCard.pending':
+    'Бүх батлагчийн дунд одоогоор хяналт хүлээж буй {{count}} тайлан.',
+  'reports.approvalFlow': 'Батлах урсгал',
   'reports.backToList': 'Тайлан руу буцах',
   'reports.detailFallback': 'Шууд тайлан боломжгүй байна — сонгосон демо өгөгдлийг харуулж байна.',
   'reports.lineItems': 'Мөрийн зүйлс',
   'reports.lineItemsCount': '{{count}} зардал',
+  'reports.lineItemsEmpty': 'Энэ тайланд одоогоор зардал байхгүй.',
+  'reports.openLibrary': 'Тайлангийн санг нээх',
   'reports.policyTitle': 'Бодлогын тэмдэг',
+  'reports.selectPrompt': 'Дэлгэрэнгүйг харахын тулд сангаас тайлан сонгоно уу.',
   'reports.summary.lineCount': 'Мөрийн зүйлс',
   'reports.summary.reimbursable': 'Нөхөн төлбөртэй',
   'reports.summary.total': 'Нийт дүн мэдээлэгдсэн',
@@ -117,6 +159,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Шууд жагсаалт боломжгүй байна — сонгосон демо өгөгдлийг харуулж байна.',
   'reportsList.newReport': 'Шинэ тайлан',
+  'reportsList.submittedOn': '{{date}}-д илгээсэн',
   'reportsList.title': 'Тайлангийн сан',
   'resetPassword.hidePassword': 'Нууц үгийг нуух',
   'resetPassword.newPasswordLabel': 'Шинэ нууц үг',
@@ -142,6 +185,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Хадгалсан ✓',
   'settings.profileSaveFailed': 'Профайлыг шинэчилж чадсангүй. Дахин оролдоно уу.',
   'signup.heading': 'Өөрийн нөхөн төлбөрийн дансыг үүсгэнэ үү',
+  'signup.hidePassword': 'Нууц үгийг нуух',
   'signup.namePlaceholder': 'Майя Окафор',
   'signup.showPassword': 'Нууц үгийг харуулах',
   'signup.subheading': 'Сар бүр 25 зардлын төлбөр үнэгүй — кредит картгүй.',

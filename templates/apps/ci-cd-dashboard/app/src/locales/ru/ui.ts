@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Вопросы, отзывы или хотите демо для своей команды? Напишите нам на hello@conduit.dev — каждое сообщение попадает к реальному человеку из команды.',
   'about.contactHeading': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
+  'about.featuresHeading': 'Что вы получите',
+  'about.introBody':
+    '{{app}} объединяет непрерывную доставку в стиле GitHub Actions в одной быстрой панели: пайплайны, логи сборок, артефакты, бейджи статуса и среды развёртывания для всех ваших репозиториев в одном месте. Никаких переключений между вкладками и догадок, какая сборка сломалась — каждый запуск, строка лога и деплой в один клик.',
+  'about.introHeading': 'Что такое {{app}}',
+  'about.missionBody':
+    'Выпуск ПО должен быть спокойным и предсказуемым, а не источником страха. Мы создаём пайплайны, логи и инструменты деплоя, чтобы путь от коммита до продакшена был быстрым, наглядным и надёжным — первая зелёная сборка за пять минут, и каждая следующая так же понятна.',
+  'about.missionHeading': 'Наша миссия',
+  'about.subtitle':
+    '{{app}} — это панель CI/CD для команд, которые хотят отслеживать сборки, развёртывания и среды во всех репозиториях — и выпускать релизы с уверенностью.',
   'artifacts.empty': 'Пока никаких артефактов.',
   'artifacts.heading': 'Артефакты',
   'artifacts.loadError': 'Не удалось загрузить артефакты.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Среды',
   'environments.loadError': 'Не удалось загрузить среды.',
+  'environments.loading': 'Загрузка окружений…',
   'environments.subheading': 'Текущий статус развертывания на всех целевых системах.',
   'forgotPassword.runnerStatus': 'сброс · безопасный туннель',
+  'forgotPassword.success':
+    'Если для этого адреса электронной почты уже существует учетная запись, ссылка для сброса будет отправлена вам. Проверьте свою почту.',
   'insights.changeFailureRate': 'Изменить коэффициент отказов',
   'insights.deployFrequency': 'Развертываний в день',
   'insights.empty': 'Данных пока недостаточно.',
@@ -39,14 +53,19 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Не удалось загрузить аналитические данные.',
   'insights.meanP95': 'см. {{mean}} · стр. 95 {{p95}}',
   'insights.mttr': 'Среднее время ремонта',
+  'insights.slowestStepsHeading': 'Самые медленные шаги пайплайна',
   'insights.successRateHeading':
     'Коэффициент успешности проектов в портфеле (за последние 14 дней)',
   'landing.choosePlan': 'Выберите тарифный план',
+  'landing.copyright': '© {{year}} {{app}}. Выпускайте с уверенностью.',
   'landing.ctaBody':
     'Не нужна кредитная карта. Не требуется инженер по платформам. Запустите первый конвейер за пять минут.',
   'landing.ctaHeading': 'Доставляйте с уверенностью.',
   'landing.featuresEyebrow': '// Возможности платформы',
   'landing.featuresHeading': 'Создано грузоотправителями для грузоотправителей',
+  'landing.heroSubtitle':
+    'Пайплайны, которые завершаются за секунды. Логи, которые можно читать. Деплои, которым можно доверять.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// Цены в долларах — обычный вариант',
   'landing.pricingHeading': 'Простая и понятная система ценообразования',
@@ -85,7 +104,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Сейчас в полете',
   'pipelines.metric.successCaption': '{{count}} пробег автомобиля «{{total}}»',
   'pipelines.metric.successRate': 'Коэффициент успешности',
+  'pipelines.realtimeOn': 'в реальном времени',
   'pipelines.subheading': 'Оперативные обновления из всех отслеживаемых репозиториев.',
+  'pricing.advancedFeatures': 'Расширенные возможности: {{mark}}',
+  'pricing.canExport': 'Экспорт данных: {{mark}}',
+  'pricing.maxArtifacts': 'Артефакты {{count}}',
+  'pricing.maxBuilds': 'Сборки {{count}}',
+  'pricing.maxPipelines': 'Пайплайны {{count}}',
   'privacy.dataAccount':
     'Учетная запись: имя, адрес электронной почты, хэшированный пароль, тарифный план.',
   'privacy.intro':
@@ -94,6 +119,8 @@ export const ui: UiTranslations = {
     'Для обработки платежей мы используем Stripe, для рассылки транзакционных писем — Mailgun, а для хранения результатов сборки — AWS S3. Каждый из этих сервисов по договору имеет доступ только к тому минимуму данных, который необходим для предоставления его услуг.',
   'privacy.rightsBody':
     'Вы можете экспортировать все свои данные, в любой момент удалить аккаунт в разделе «Настройки» и запросить отчет о каждой доставке веб-хуков в вашем аккаунте. Мы отвечаем на запросы в соответствии с GDPR / CCPA в течение 30 дней.',
+  'privacy.subtitle':
+    'Как {{app}} собирает, хранит и защищает ваши данные, пока мы выполняем ваши пайплайны.',
   'privacy.title': 'Политика конфиденциальности',
   'repositories.empty': 'Репозитории не подключены.',
   'repositories.heading': 'Репозитории',
@@ -102,11 +129,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Все репозитории',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Не удалось загрузить репозиторий.',
+  'repositoryDetail.meanDuration': 'Средняя длительность',
   'repositoryDetail.notFound': 'Репозиторий не найден.',
+  'repositoryDetail.successRate': 'Коэффициент успешности',
   'repositoryDetail.totalBuilds': 'Общее количество сборок',
   'repositoryDetail.webhookActive': 'активный',
   'repositoryDetail.webhookPaused': 'пауза',
   'repositoryDetail.webhooksHeading': 'Веб-хуки',
+  'resetPassword.passwordLabel': 'Новый пароль',
   'resetPassword.runnerStatus': 'сброс · токен подтвержден',
   'resetPassword.subtitle': 'Выберите надежный пароль, который вы ранее не использовали.',
   'resetPassword.tokenPlaceholder': 'вставить из электронного письма',
@@ -119,6 +149,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Репозитории, за которыми следит Conduit. Отключитесь от своего поставщика VCS, чтобы прекратить прием событий.',
   'settings.repositories.empty': 'Репозитории пока не подключены.',
+  'settings.repositories.heading': 'Подключения репозиториев',
   'settings.repositories.loadError': 'Не удалось загрузить репозитории.',
   'settings.secrets.addCta': 'Добавить секрет',
   'settings.secrets.addError': 'Не удалось добавить секрет.',
@@ -126,6 +157,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Не удалось удалить секрет.',
   'settings.secrets.empty': 'Никаких секретов не хранится.',
   'settings.secrets.heading': 'Секреты',
+  'settings.secrets.lastUsed': 'последнее использование {{date}}',
   'settings.secrets.loadError': 'Не удалось загрузить секретные данные.',
   'settings.secrets.neverUsed': 'никогда не использовался',
   'settings.secrets.rotateCta': 'Повернуть',
@@ -149,6 +181,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Не удалось обновить веб-хук.',
   'signup.namePlaceholder': 'Парк Райли',
   'signup.runnerStatus': 'бесплатный тариф · 1 000 сборки в месяц',
+  'terms.intro':
+    'Создавая аккаунт {{app}}, вы соглашаетесь с этими условиями. Они охватывают допустимое использование сборщиков, границы нашего SLA и условия, при которых мы можем приостановить или удалить ваш аккаунт за злоупотребление нагрузкой.',
   'terms.slaBody':
     'В тарифных планах «Pro» и «Team» гарантируется ежемесячное время безотказной работы API и пула исполнителей на уровне 99,95 %. Бесплатный тариф предоставляется «как есть». Информация о сбоях публикуется на сайте status.conduit.dev, а возмещение начисляется в соответствии с формулой, указанной в вашем счете.',
   'terms.terminationBody':

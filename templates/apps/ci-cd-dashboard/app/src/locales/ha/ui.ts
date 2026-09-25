@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tambayoyi, ra'ayi, ko kuna son demo ga ƙungiyar ku? Aiko mana imel a hello@conduit.dev — kowane saƙo yana isa ga wani mutum na gaske a ƙungiyar.",
   'about.contactHeading': 'Tuntuɓi mu',
   'about.eyebrow': 'Game da',
+  'about.featuresHeading': 'Abin da za ku samu',
+  'about.introBody':
+    "{{app}} yana kawo ci gaba da bayarwa irin na GitHub Actions cikin dashboard ɗaya mai sauri: bututun aiki, rajistan gini, kayan fasaha, alamun matsayi, da wuraren turawa ga duk ma'ajiyar ku a wuri ɗaya. Babu tsalle-tsalle tsakanin shafuka, babu hasashen wane gini ya lalace — kowane gudu, layin rajista, da turawa suna da nisan danna ɗaya.",
+  'about.introHeading': 'Menene {{app}}',
+  'about.missionBody':
+    'Aika software ya kamata ya kasance cikin kwanciyar hankali da tsari, ba abin tsoro ba. Muna gina bututun aiki, rajistoci, da kayan aikin turawa domin hanyar daga commit zuwa samarwa ta kasance mai sauri, bayyananne, kuma abin dogaro — gini na farko mai kore cikin minti biyar, kuma kowane gini bayansa haka nan bayyananne.',
+  'about.missionHeading': 'Manufarmu',
+  'about.subtitle':
+    "{{app}} dashboard ne na CI/CD ga ƙungiyoyin da suke son sa ido kan gine-gine, turawa, da wurare a kowace ma'ajiya — kuma su aika da tabbaci.",
   'artifacts.empty': 'Babu kayan tarihi tukuna.',
   'artifacts.heading': 'Kayayyakin tarihi',
   'artifacts.loadError': 'An kasa loda kayan tarihi.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Muhalli',
   'environments.loadError': 'An kasa loda mahalli.',
+  'environments.loading': 'Yana loda muhalli…',
   'environments.subheading': 'Matsayin turawa kai tsaye a duk inda ake so.',
   'forgotPassword.runnerStatus': 'sake saitawa · rami mai tsaro',
+  'forgotPassword.success':
+    'Idan akwai asusu don wannan imel ɗin, hanyar sake saitawa tana kan hanya. Duba akwatin saƙonka.',
   'insights.changeFailureRate': 'Saurin gazawar canji',
   'insights.deployFrequency': 'Ana aikawa / rana',
   'insights.empty': 'Babu isassun bayanai tukuna.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'An kasa loda bayanai.',
   'insights.meanP95': 'mummunan {{mean}} · shafi na 95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Matakan bututun aiki mafi jinkiri',
   'insights.successRateHeading': 'Adadin nasarar bututun mai (kwanaki 14 da suka gabata)',
   'landing.choosePlan': 'Zaɓi tsari',
+  'landing.copyright': '© {{year}} {{app}}. Aika da tabbaci.',
   'landing.ctaBody':
     'Babu katin kiredit. Ba a buƙatar injiniyan dandamali. Sami farkon bututun kore cikin mintuna biyar.',
   'landing.ctaHeading': 'Jira da tabbaci.',
   'landing.featuresEyebrow': '// fasalulluka na dandamali',
   'landing.featuresHeading': 'An gina shi ne don masu jigilar kaya, ta masu jigilar kaya',
+  'landing.heroSubtitle':
+    'Bututun aiki da suke ƙarewa cikin daƙiƙa. Rajistoci da za ka iya karantawa. Turawa da za ka amince da su.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./kwandunan ruwa an tura su --lafiya lau',
   'landing.pricingEyebrow': '// $ farashin --a bayyane',
   'landing.pricingHeading': 'Farashi mai sauƙi, mai iya faɗi',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'A cikin jirgin sama yanzu',
   'pipelines.metric.successCaption': '{{count}} na {{total}} gudu',
   'pipelines.metric.successRate': 'Adadin nasara',
+  'pipelines.realtimeOn': 'lokaci na gaske',
   'pipelines.subheading': "Sabuntawa kai tsaye daga kowane ma'ajiyar bayanai da aka duba.",
+  'pricing.advancedFeatures': 'Fasaloli na ci gaba: {{mark}}',
+  'pricing.canExport': 'Fitar da bayanai: {{mark}}',
+  'pricing.maxArtifacts': 'Kayan fasaha na {{count}}',
+  'pricing.maxBuilds': 'Gine-ginen {{count}}',
+  'pricing.maxPipelines': 'Bututun aiki na {{count}}',
   'privacy.dataAccount': 'Asusu: suna, imel, kalmar sirri mai hashed, matakin tsari.',
   'privacy.intro':
     "{{app}} yana tattara mafi ƙarancin bayanai da muke buƙata kawai don gudanar da asusun isar da sako na ci gaba: imel ɗinku, ma'ajiyar da kuka haɗa, bayanan da masu tafiyarku suka samar da ayyukan yi da gina bayanai, da kuma sirrin da kuka zaɓa don adanawa tare da mu. Ba ma taɓa karanta lambar tushe ta ku a wajen mai tafiyar da gini ba; kayan tarihi na gini ana adana su a cikin bokitin S3 ɗinku lokacin da aka saita su.",
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Muna amfani da Stripe don biyan kuɗi, Mailgun don imel na ciniki, da kuma AWS S3 don adana kayan gini. Kowannensu yana da alaƙa da ƙaramin adadin bayanan da ake buƙata don isar da sabis ɗinsa.',
   'privacy.rightsBody':
     'Za ka iya fitar da kowace baiti ta bayananka, share asusunka a kowane lokaci daga Saituna, da kuma neman rikodin kowane isar da sako ta yanar gizo a asusunka. Muna amsa buƙatun GDPR / CCPA cikin kwanaki 30.',
+  'privacy.subtitle':
+    'Yadda {{app}} yake tattarawa, adanawa, da kare bayananka yayin da muke gudanar da bututun aikinka.',
   'privacy.title': 'Takardar kebantawa',
   'repositories.empty': "Babu haɗin ma'ajiyar bayanai.",
   'repositories.heading': "Ma'ajiyar Kayayyaki",
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': "Duk ma'ajiyar bayanai",
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': "An kasa loda ma'ajiyar bayanai.",
+  'repositoryDetail.meanDuration': 'Matsakaicin tsawon lokaci',
   'repositoryDetail.notFound': "Ba a sami Ma'ajiyar ajiya ba.",
+  'repositoryDetail.successRate': 'Adadin nasara',
   'repositoryDetail.totalBuilds': 'Jimlar gini',
   'repositoryDetail.webhookActive': 'mai aiki',
   'repositoryDetail.webhookPaused': 'an dakatar',
   'repositoryDetail.webhooksHeading': 'Ƙunƙwasa na Yanar Gizo',
+  'resetPassword.passwordLabel': 'Sabuwar kalmar sirri',
   'resetPassword.runnerStatus': 'sake saitawa · an tabbatar da alamar',
   'resetPassword.subtitle': 'Zaɓi kalmar sirri mai ƙarfi da ba ka taɓa amfani da ita ba a da.',
   'resetPassword.tokenPlaceholder': 'liƙa daga imel',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     "Agogon ruwa na ma'ajiyar kayan ajiya. Cire haɗin daga mai samar da VCS ɗinku don dakatar da shan abubuwan da ke faruwa.",
   'settings.repositories.empty': "Babu wani ma'ajiyar da aka haɗa tukuna.",
+  'settings.repositories.heading': "Haɗin ma'ajiya",
   'settings.repositories.loadError': "An kasa loda ma'ajiyar bayanai.",
   'settings.secrets.addCta': 'Ƙara sirri',
   'settings.secrets.addError': 'An kasa ƙara sirri.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'An kasa goge sirrin.',
   'settings.secrets.empty': 'Babu wani sirri da aka adana.',
   'settings.secrets.heading': 'Sirri',
+  'settings.secrets.lastUsed': 'an yi amfani da shi na ƙarshe {{date}}',
   'settings.secrets.loadError': 'An kasa loda sirri.',
   'settings.secrets.neverUsed': 'ba a taɓa amfani da shi ba',
   'settings.secrets.rotateCta': 'Juya',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'An kasa sabunta webhook.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'matakin kyauta · Ginawa 1,000 minti/wata',
+  'terms.intro':
+    'Ta hanyar ƙirƙirar asusun {{app}} ka yarda da waɗannan sharuɗɗan. Sun shafi amfani da aka yarda da shi na injinan gini, iyakokin SLA ɗinmu, da yanayin da za mu iya dakatarwa ko soke asusunka saboda ayyuka na cin zarafi.',
   'terms.slaBody':
     'Tsarin Pro da Team yana nufin kashi 99.95% na lokacin aiki na kowane wata don API da rukunin masu gudu. Ana bayar da shirin kyauta kamar yadda yake. Ana bayar da rahoton dakatarwa akan status.conduit.dev kuma ana ba da lamuni bisa ga dabarar da ke cikin takardar lissafin ku.',
   'terms.terminationBody':

@@ -1,14 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'प्रतिक्रिया छ, कुनै समस्या आयो, वा अब के बनाउनुपर्छ भनेर हामीलाई भन्न चाहनुहुन्छ? टोलीलाई hello@reverie.app मा सम्पर्क गर्नुहोस् — हरेक सन्देश उत्पादन बनाउने वास्तविक व्यक्तिसम्म पुग्छ।',
   'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
+  'about.missionTitle': 'हाम्रो मिशन',
   'auth.fields.newPassword': 'नयाँ पासवर्ड',
   'collectionDetail.addImage': 'सङ्कलनको लागि कन्ज्युर गर्नुहोस्',
   'collectionDetail.backCta': 'सङ्ग्रहहरूमा फर्कनुहोस्',
   'collectionDetail.coverNote': 'क्युरेट गरिएको मुड-बोर्ड सहित {{count}} तस्बिरहरू।',
   'collectionDetail.editName': 'सङ्ग्रहको नाम',
+  'collectionDetail.empty': 'यो संग्रहमा अझै कुनै छवि छैन — थप्न केही जेनेरेट गर्नुहोस्।',
   'collectionDetail.loading': 'सङ्ग्रह लोड गर्दै...',
   'collectionDetail.loadingImages': 'तस्बिरहरू लोड गर्दै...',
+  'collectionDetail.notFoundBody': 'यो संग्रह हटाइएको वा निजी छ।',
   'collectionDetail.notFoundTitle': 'सङ्ग्रह उपलब्ध छैन',
   'collectionDetail.shared': 'दृश्यता टगल गरियो',
   'collections.create': 'नयाँ सङ्ग्रह',
@@ -16,6 +21,7 @@ export const ui: UiTranslations = {
     'अहिलेसम्म कुनै सङ्ग्रह छैन। आफ्नो कामको व्यवस्थापन सुरु गर्न एउटा सङ्ग्रह सिर्जना गर्नुहोस्।',
   'collections.imageCount': '{{count}} तस्बिरहरू',
   'collections.loading': 'सङ्ग्रहहरू लोड गर्दै...',
+  'collections.noDescription': 'अझै कुनै विवरण छैन — थप्न खोल्नुहोस्।',
   'collections.subtitle': 'मुड-बोर्डहरू, संक्षिप्त विवरणहरू र जारी श्रृंखलाहरू',
   'collections.title': 'सङ्ग्रहहरू',
   'collections.untitled': 'शीर्षकविहीन · {{stamp}}',
@@ -56,6 +62,7 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'तपाईंको Reverie खातामा जोडिएको इमेल प्रविष्ट गर्नुहोस् र हामी तपाईंलाई रिसेट लिङ्क पठाउनेछौं।',
   'forgot.successBody': 'रिसेट लिङ्क आउँदैछ {{email}} ।',
+  'gallery.empty.body': 'फरक स्टेट प्रयास गर्नुहोस् वा स्टुडियोबाट नयाँ ब्याच जेनेरेट गर्नुहोस्।',
   'gallery.empty.title': 'त्यो फिल्टरसँग केही पनि मेल खाँदैन।',
   'gallery.exportAll': 'सबै निर्यात गर्नुहोस्',
   'gallery.exported': 'निर्यात लाइनमा राखिएको छ',
@@ -78,6 +85,8 @@ export const ui: UiTranslations = {
   'generate.controls.title': 'सपनालाई मिलाउनुहोस्',
   'generate.defaultPrompt': 'एउटा नयाँ सपना',
   'generate.progress': 'चरण {{step}} / {{total}}',
+  'generate.submitFailed':
+    'जेनेरेसन कतारमा राख्न सकिएन — आफ्नो जडान जाँच्नुहोस् र फेरि प्रयास गर्नुहोस्।',
   'generate.subtitle':
     'एउटा प्रम्प्ट लेख्नुहोस्, नियन्त्रणहरू डायल गर्नुहोस्, भेरियन्टहरू पत्ता लगाउनुहोस्',
   'generate.title': 'स्टुडियो',
@@ -85,6 +94,7 @@ export const ui: UiTranslations = {
   'imageDetail.acting': 'काम गर्दै…',
   'imageDetail.actionFailed': 'कारबाही असफल भयो।',
   'imageDetail.actions': 'छवि कार्यहरू',
+  'imageDetail.downloadStarted': 'डाउनलोड सुरु भयो।',
   'imageDetail.downloadUnavailable': 'डाउनलोड गर्न अहिलेसम्म कुनै छवि उपलब्ध छैन।',
   'imageDetail.fields.aspect': 'पक्ष',
   'imageDetail.fields.created': 'सिर्जना गरियो',
@@ -95,11 +105,15 @@ export const ui: UiTranslations = {
   'imageDetail.notFoundTitle': 'छवि उपलब्ध छैन',
   'imageDetail.noVariations': 'अहिलेसम्म कुनै भिन्नता छैन — माथि एउटा अनुरोध गर्नुहोस्।',
   'imageDetail.openEditor': 'सम्पादकमा खोल्नुहोस्',
+  'imageDetail.tips.lockSeed': 'कम्पोजिसन नगुमाई प्रकाशमा पुनरावृत्ति गर्न सिड लक गर्नुहोस्।',
+  'imageDetail.tips.upscale': 'प्रिन्ट-रेडी गुणस्तरका लागि निर्यात गर्नुअघि ४× अपस्केल चलाउनुहोस्।',
   'imageDetail.tipsTitle': 'सपनालाई परिष्कृत गर्नुहोस्',
+  'imageDetail.title': 'Image',
   'imageDetail.upscaleQueued': 'उच्चस्तरीय लाइनमा राखियो',
   'imageDetail.variations': 'भिन्नताहरू',
   'imageDetail.variationsQueued': 'भिन्नताहरू लामबद्ध गरियो',
   'imageDetail.visibilityToggled': 'दृश्यता अद्यावधिक गरियो',
+  'landing.copyright': '© {{year}} {{appName}} Labs. Molecule.dev सँग बनाइएको।',
   'landing.cta': 'सिर्जना गर्न सुरु गर्नुहोस्',
   'landing.eyebrow': 'अब Reverie XL v3 सेवा दिँदै',
   'landing.featuresEyebrow': 'किन रिभरी',
@@ -139,8 +153,17 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'उत्पादन गतिविधि, साझेदारी र क्रेडिट अलर्टहरू यहाँ देखा पर्नेछन्।',
   'notifications.empty.title': 'रिपोर्ट गर्न केही छैन',
   'notifications.subtitle': 'दिन अनुसार समूहबद्ध पुस्ताका घटनाहरू',
+  'planUpdated.confirmed': 'तपाईंको {{planKey}} योजना सक्रिय छ र क्रेडिटहरू थपिएका छन्।',
+  'planUpdated.error':
+    'हामीले तपाईंको अपग्रेड स्वतः पुष्टि गर्न सकेनौं। कृपया सहयोग टोलीलाई सम्पर्क गर्नुहोस्।',
+  'planUpdated.retry': 'फेरि प्रयास गर्नुहोस्',
+  'planUpdated.unpaid': 'तपाईंको चेकआउट सत्रको भुक्तानी भएको छैन। सेटिङबाट फेरि प्रयास गर्नुहोस्।',
+  'planUpdated.verifyFailed': 'हामीले तपाईंको भुक्तानी अझै पुष्टि गर्न सकेनौं।',
+  'planUpdated.verifyFailedBody':
+    'तपाईंको भुक्तानी अझै पनि प्रशोधन भइरहेको हुन सक्छ। केही बेरमा फेरि प्रयास गर्नुहोस्।',
   'planUpdated.verifying': 'तपाईंको भुक्तानी पुष्टि गर्दै…',
   'pricing.limits.gallery': '{{count}} ग्यालरी',
+  'pricing.limits.generations': '{{count}} जेनेरेसनहरू',
   'privacy.collect.body':
     'तपाईंले साइन अप गर्दा हामी तपाईंको नाम, इमेल ठेगाना र ह्यास गरिएको पासवर्ड सङ्कलन गर्छौं। तपाईंले Reverie प्रयोग गर्दा हामी तपाईंले पेश गर्ने प्रम्प्टहरू, हामीले तपाईंको लागि उत्पन्न गर्ने छविहरू, तपाईंले बचत गर्ने शैलीहरू र सङ्ग्रहहरू, र प्रयोग गरिएको मोडेल, जेनेरेसन टाइमस्ट्याम्पहरू, र क्रेडिट ब्यालेन्स जस्ता मेटाडेटा भण्डारण गर्छौं।',
   'privacy.cookies.body':
@@ -154,6 +177,7 @@ export const ui: UiTranslations = {
   'profile.followedBio': 'भर्खरै एक निर्मातालाई फलो गरियो',
   'profile.following': 'पछ्याउँदै...',
   'profile.loadingWorks': 'सार्वजनिक कार्यहरू लोड गर्दै...',
+  'profile.noPublicWorks': 'अझै कुनै सार्वजनिक काम छैन — यो ग्यालरी भर्न एउटा छवि साझा गर्नुहोस्।',
   'profile.notFoundTitle': 'प्रोफाइल उपलब्ध छैन',
   'profile.publicWorks': 'सार्वजनिक कार्यहरू',
   'profile.subtitle': '@ {{handle}} · सार्वजनिक सिर्जनाकर्ता प्रोफाइल',
@@ -166,6 +190,7 @@ export const ui: UiTranslations = {
   'prompts.empty.cta': 'स्टुडियो खोल्नुहोस्',
   'prompts.empty.title': 'कुनै पनि सुरक्षित गरिएका प्रम्प्टहरू मेल खाएनन्।',
   'prompts.lastUsed': 'प्रयोग गरिएको {{when}}',
+  'prompts.loading': 'प्रम्प्टहरू लोड गर्दै…',
   'prompts.negativeLabel': 'नेग',
   'prompts.runAgain': 'दौडनुहोस्',
   'prompts.running': 'चलिरहेको छ…',
@@ -182,6 +207,7 @@ export const ui: UiTranslations = {
   'settings.account.saveFailed': 'प्रोफाइल सुरक्षित गर्न सकिएन',
   'settings.account.title': 'सिर्जनाकर्ता प्रोफाइल',
   'settings.accountSecurity': 'खाता र सुरक्षा',
+  'settings.accountSecurity.title': 'साइन-इन, यन्त्रहरू र खाता',
   'settings.api.empty':
     'अहिलेसम्म कुनै पनि API कुञ्जीहरू छैनन् — एकीकरण सुरु गर्न एउटा सिर्जना गर्नुहोस्।',
   'settings.api.loading': 'API कुञ्जीहरू लोड गर्दै...',
@@ -201,13 +227,17 @@ export const ui: UiTranslations = {
   'sidebar.secondary': 'माध्यमिक नेभिगेसन',
   'signup.failed': 'साइन अप असफल भयो। फेरि प्रयास गर्नुहोस्।',
   'signup.firstNamePlaceholder': 'आरिया',
+  'signup.haveAccount': 'पहिले नै सपना देख्ने?',
   'signup.heading': 'आफ्नो रमझम सुरु गर्नुहोस्',
   'signup.lastNamePlaceholder': 'लिन',
   'signup.subheading': 'खाता सिर्जना गर्नुहोस् र १२० नि:शुल्क क्रेडिटहरू दाबी गर्नुहोस्।',
+  'styles.body':
+    'प्रत्येक प्रिसेटले आफ्नै मोडेल, स्याम्पलर, प्रम्प्ट स्क्याफोल्डिङ र स्टाइल चिपहरू समावेश गर्छ। एउटा सक्रिय गर्नुहोस् र सम्पूर्ण स्टुडियो त्यही मूडमा लक गर्नुहोस् — शृंखला कामका लागि उत्तम।',
   'styles.empty':
     'अहिलेसम्म कुनै पनि शैली प्रिसेटहरू छैनन् — तिनीहरू पहिलो साइन-इन पछि देखा पर्नेछन्।',
   'styles.eyebrow': 'क्युरेट गरिएको',
   'styles.headline': 'पुन: प्रयोग गर्न मिल्ने भिजुअल प्रिसेटहरूको साथ छिटो कन्ज्युर गर्नुहोस्',
+  'styles.loading': 'स्टाइल लाइब्रेरी लोड हुँदैछ…',
   'styles.subtitle': 'रेभरी स्टुडियो टोलीद्वारा सिर्जना गरिएका क्युरेट गरिएका दृश्य प्रिसेटहरू',
   'styles.title': 'शैली पुस्तकालय',
   'terms.acceptableUse.body':

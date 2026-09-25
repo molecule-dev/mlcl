@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Masz opinię, znalazłeś błąd albo chcesz wprowadzić {{app}} do swojej szkoły lub zespołu? Czytamy każdą wiadomość — napisz do nas z ustawień konta, a odpowie prawdziwy człowiek.',
   'about.contactTitle': 'Skontaktuj się z nami',
   'about.eyebrow': 'O nas',
+  'about.intro':
+    '{{app}} to codzienna łamigłówka słowna. Odgadnij pięcioliterowe słowo w sześciu próbach, podtrzymaj serię, udostępnij swoją siatkę emoji i zobacz, jak poradzili sobie wszyscy z dzisiejszym słowem.',
+  'about.missionBody':
+    'Dobra łamigłówka to mały codzienny sukces. {{app}} opiera się na jednym wspólnym słowie dziennie — dość szybko na przerwę na kawę, dość wciągająco, by wrócić jutro.',
+  'about.missionTitle': 'Nasza misja',
   'about.title': 'O {{app}}',
   'archive.loadError': 'Nie udało się załadować archiwum.',
   'archive.missed': 'Pominięte',
   'archive.notPlayed': 'Nie zagrane',
+  'archive.subhead':
+    'Zagraj ponownie dowolny miniony dzień w trybie ćwiczenia — bez serii, bez statystyk, sama zabawa.',
   'archive.title': 'Archiwizuj',
   'auth.backToHome': 'Powrót do strony głównej',
   'auth.backToHomeArrow': '← Powrót do strony głównej',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Zapomniałeś hasła?',
   'auth.login.loggingIn': 'Logowanie…',
   'auth.login.logIn': 'Zagraj dzisiejsze słowo',
+  'auth.login.noAccount': 'Nowy w Tesserze?',
   'auth.login.or': 'lub kontynuuj z',
   'auth.login.password': 'Hasło',
   'auth.login.signInButton': 'Zaloguj się',
@@ -32,6 +42,10 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Zapisywanie…',
   'common.sendingEllipsis': 'Wysyłanie…',
   'common.startingEllipsis': 'Uruchamianie…',
+  'forgotPassword.subhead': 'Wprowadź swój e-mail, a wyślemy link do zresetowania.',
+  'forgotPassword.success.body':
+    'Jeśli istnieje konto dla {{email}}, otrzymasz link resetujący w ciągu kilku minut.',
+  'forgotPassword.success.title': 'Proszę sprawdzić skrzynkę odbiorczą.',
   'form.name': 'Imię',
   'howToPlay.cta.home': 'Powrót do strony głównej',
   'howToPlay.cta.play': 'Zagraj dzisiejszą łamigłówkę',
@@ -68,10 +82,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Serie, których nie chcesz przerwać',
   'leaderboard.daily.title': 'Dzisiejsze rozwiązania',
   'leaderboard.loadError': 'Nie udało się załadować tabeli liderów.',
+  'leaderboard.streaks.empty': 'Nie masz jeszcze serii — bądź pierwszy.',
+  'leaderboard.streaks.subhead': 'Najdłuższe serie zwycięstw wszech czasów.',
   'leaderboard.streaks.title': 'Liderzy serii',
+  'leaderboard.subhead': 'Jak dziś poszło wszystkim i kto ma najdłuższe serie.',
   'leaderboard.title': 'Tabela liderów',
   'login.headline': 'Witaj ponownie.',
   'login.streakPill': 'Czeka seria {{days}}-dniowa',
+  'login.subhead':
+    'Zaloguj się, aby podtrzymać serię i zobaczyć, jak poradziłeś sobie z dzisiejszym słowem.',
   'nav.archive': 'Archiwizuj',
   'nav.editProfile': 'Edytuj profil',
   'nav.getStarted': 'Rozpocznij',
@@ -89,6 +108,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Nie ma takiego słowa',
   'notFound.title': 'Ta trasa jest pusta.',
   'planUpdated.message': 'Twój plan jest aktywny.',
+  'planUpdated.retry': 'Spróbuj ponownie',
+  'planUpdated.verifyFailed': 'Nie mogliśmy jeszcze potwierdzić Twojej płatności.',
+  'planUpdated.verifyFailedBody':
+    'Twoja płatność może być nadal przetwarzana. Spróbuj ponownie za chwilę.',
   'planUpdated.verifying': 'Potwierdzanie płatności…',
   'play.alreadyFinished': 'Już ukończyłeś tę łamigłówkę',
   'play.answerWas': 'Słowem było',
@@ -104,6 +127,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Łamigłówka treningowa',
   'play.tooShort': 'Za mało liter',
   'play.won': 'Rozwiązane!',
+  'pricing.advancedStats': 'Zaawansowane statystyki: {{yes}}',
+  'pricing.archiveHistory': '{{count}} dni historii archiwum',
+  'pricing.archivePlays': '{{count}} powtórek z archiwum / dzień',
+  'pricing.archiveUnlimited': 'Nieograniczona historia archiwum',
+  'pricing.canExport': 'Eksport danych: {{yes}}',
+  'pricing.checkoutError': 'Nie udało się rozpocząć płatności. Proszę spróbować ponownie.',
   'pricing.dailyWord': 'Codzienne słowo',
   'pricing.heading': 'Wybierz swój plan {{app}}',
   'pricing.included': 'Wliczone',
@@ -111,7 +140,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Codzienne słowo jest zawsze darmowe. Uaktualnij, aby uzyskać nieograniczone powtórki z archiwum i głębsze statystyki.',
   'pricing.yearly': 'Rocznie',
+  'privacy.intro':
+    '{{app}} szanuje Twoją prywatność. Ta strona podsumowuje dane, które przechowujemy, dlaczego je przechowujemy i jak je usunąć.',
   'privacy.title': 'Informacje o prywatności',
+  'resetPassword.subhead': 'Wybierz nowe hasło, aby wrócić do swojej serii.',
   'settings.account': 'Konto',
   'settings.danger.body': 'Trwale usuń swoje konto {{appName}} i całą historię łamigłówek.',
   'settings.danger.confirm': 'Tak, usuń na zawsze',
@@ -120,17 +152,24 @@ export const ui: UiTranslations = {
   'settings.guest': 'Gość',
   'settings.language.title': 'Język',
   'settings.subhead': 'Dostosuj swój profil, dźwięk i sposób wyświetlania w tabeli liderów.',
+  'settings.unnamed': 'Gracz Sparq',
   'settings.upgrade': 'Uaktualnij',
   'signup.eyebrow': 'Darmowe na zawsze — jedno słowo dziennie',
   'signup.headline': 'Rozpocznij swoją serię.',
+  'signup.subhead':
+    'Załóż konto {{appName}}, aby grać w codzienne słowo, budować serię i wspinać się w rankingu.',
   'stats.currentStreak': 'Seria',
   'stats.distribution.title': 'Rozkład prób',
   'stats.loadError': 'Nie udało się załadować twoich statystyk.',
   'stats.maxStreak': 'Maks. seria',
   'stats.played': 'Zagrane',
   'stats.playToday': 'Zagraj dzisiejszą łamigłówkę',
+  'stats.subhead':
+    'Tylko codzienne łamigłówki rankingowe — ćwiczenia z archiwum nigdy się nie liczą.',
   'stats.title': 'Twoje statystyki',
   'stats.winRate': 'Wskaźnik wygranych',
   'status.monthly': 'Miesięcznie',
+  'terms.intro':
+    'Korzystając z {{app}}, akceptujesz poniższe zasady. Jeśli nie możesz ich zaakceptować, nie korzystaj z usługi.',
   'terms.title': 'Warunki korzystania z usługi',
 }

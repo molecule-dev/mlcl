@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ṣé ìbéèrè kan wà fún ọ, ṣé o ti rí àṣìṣe kan, tàbí o fẹ́ ìfihàn fún ẹgbẹ́ rẹ? Kàn sí wa láti inú ètò àkọsílẹ̀ àkọọ́lẹ̀ rẹ — gbogbo ìṣẹ́ ni a máa fi ránṣẹ́ sí ènìyàn gidi kan nínú ẹgbẹ́ náà.',
   'about.contactTitle': 'Kan si wa',
+  'about.intro':
+    '{{app}} máa ń yí àwọn ìwé tí a ti ṣàyẹ̀wò àti PDFs tí ó pọ̀ jọ lára padà sí dátà tí a ṣètò, tí a lè wá kiri, tí a sì ti fi sínú àkọsílẹ̀. Fi àwọn ìwé-ìsanwó, àwọn ìwé-ẹ̀rí ìsanwó, àwọn àdéhùn, tàbí àwọn fọ́ọ̀mù sí i kí AI lè kà wọ́n, yọ wọ́n jáde, pín wọn sí ẹ̀ka, kí ó sì fi wọ́n sínú àkọsílẹ̀ — pẹ̀lú àwọn àwọ̀ ìgbẹ́kẹ̀lé kí ẹgbẹ́ rẹ lè ṣàyẹ̀wò ohun tí ó nílò ènìyàn nìkan.',
+  'about.missionBody':
+    'Iṣẹ́ àtẹ̀jáde tí ó máa ń gba àkókò kò gbọdọ̀ jẹ àkókò ẹgbẹ́ rẹ. A gbàgbọ́ pé gbogbo iye tí a yọ jáde gbọdọ̀ ṣe àlàyé àti ṣe àyẹ̀wò — kí o lè gbẹ́kẹ̀ lé ìṣiṣẹ́ aládàáṣiṣẹ́ láì pàdánù àkọsílẹ̀ ìwé. A kọ́ {{app}} láti fi àwọn wákàtí pamọ́ fún ìdìpọ̀ kọ̀ọ̀kan nígbà tí ó ń jẹ́ kí ènìyàn wà nínú ìlànà níbi tí ó ṣe pàtàkì.',
+  'about.missionTitle': 'Iṣẹ́ àwa',
+  'about.subtitle':
+    'OCR, yíyọ jáde pẹ̀lú AI, pípín sí ẹ̀ka, àti fífi àwọn ìwé rẹ sínú àkọsílẹ̀ lọ́nà aládàáṣiṣẹ́.',
   'about.title': 'Nípa {{app}}',
+  'about.whatYouGetTitle': 'Ohun tí o gbà',
   'authShell.backToLanding': '← Pada si ibalẹ',
   'common.goToDashboard': 'Lọ sí Dashiboodu',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Lónìí · Àkótán iṣẹ́',
   'dashboard.heading': 'Ọgbọ́n ìwé àkọsílẹ̀',
+  'dashboard.metric.accuracy': 'Ìdánilójú ìdáàmú',
   'dashboard.metric.filed': 'Ti fi ẹsun silẹ loni',
   'dashboard.metric.filedCaption': 'A ṣe itọsọna nipasẹ awọn ofin iforukọsilẹ',
   'dashboard.metric.processed': 'A ṣe ilana loni',
@@ -23,11 +34,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'Àwọn tí a gbé sórí ayélujára',
   'dashboard.recent.heading': 'Àwọn ìwé tuntun',
+  'dashboard.recent.typeUnknown': 'Ń dúró fún pípín sí ẹ̀ka',
   'dashboard.subheading':
     'Gbogbo ojú ìwé tí a yà sọ́tọ̀, tí a yọ jáde, tí a sì fi sílẹ̀ — pẹ̀lú àwọ̀ ìgbẹ́kẹ̀lé, nítorí náà àtúnyẹ̀wò náà dúró ní ìfọkànsí.',
   'documentDetail.audit.heading': 'Àkókò ìṣàyẹ̀wò',
+  'documentDetail.audit.subheading': 'Gbogbo ìgbésẹ̀ tí a ṣe lórí ìwé yìí, pẹ̀lú ẹni tí ó ṣe é.',
   'documentDetail.back': 'Gbogbo àwọn ìwé',
   'documentDetail.downloadHint': 'Lo Ìgbàsílẹ̀ láti ṣí fáìlì àkọ́kọ́.',
+  'documentDetail.extracted.empty': 'A kò tíì yọ àwọn pápá jáde.',
   'documentDetail.extracted.heading': 'Àwọn pápá tí a yọ jáde',
   'documentDetail.extracted.subheading':
     '{{count}} àwọn pápá · tẹ èyíkéyìí pápá láti fi hàn lórí ojú ìwé',
@@ -56,13 +70,24 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} Àwọn ìwé tó wà ní ìkàwé rẹ, tí a kọ́kọ́ ṣe àtòjọ àwọn ìwé tuntun.',
   'documents.uploadCta': 'Gbe awọn iwe aṣẹ soke',
+  'documentTypeBreakdown.barAria': 'Ìṣètò àwọn ìwé nípa irú wọn',
   'documentTypeBreakdown.empty': 'Kò sí àwọn ìwé tí a ti ṣe àgbékalẹ̀ rẹ̀ síbẹ̀.',
   'documentTypeBreakdown.subtitle': '{{total}} ti ṣe ilana',
   'documentTypeBreakdown.title': 'Àkójọ ìwé',
+  'forgotPassword.backToSignIn': '← Pada si ibuwọlu',
   'forgotPassword.checkEmail': 'Ṣàyẹ̀wò ìmeeli rẹ',
   'forgotPassword.tip': 'Ṣé o kò gbọ́? Ṣàyẹ̀wò àwúrújú tàbí gbìyànjú àdírẹ́sì mìíràn.',
+  'landing.copyright':
+    '© {{year}} {{app}}. A kọ́ ọ fún àwọn ẹgbẹ́ ìṣiṣẹ́ tí wọ́n ń ṣàyẹ̀wò gbogbo ojú-ìwé.',
+  'landing.ctaBody':
+    'Ìdánwò ọjọ́ 14. Kò nílò káàdì. Fagilé nígbàkigbà. A kọ́ ọ fún àwọn ẹgbẹ́ ìṣiṣẹ́ tí wọ́n ń yára ṣiṣẹ́ tí wọ́n sì ń ṣàyẹ̀wò lọ́ra.',
   'landing.ctaHeading': 'Dáwọ́ títẹ̀ ìwé ẹ̀rí ìsanwó dúró. Bẹ̀rẹ̀ sí í fi wọ́n sílẹ̀.',
   'landing.eyebrow': 'OCR · Ìyọkúrò · Fífipamọ́ AI',
+  'landing.featuresHeading': 'Ìmọ̀ ìwé tí ó ń ṣàlàyé ara rẹ̀',
+  'landing.heroSubtitle':
+    'Fi ìdìpọ̀ àwọn ìwé-ìsanwó, àwọn ìwé-ẹ̀rí ìsanwó, àwọn àdéhùn, tàbí àwọn fọ́ọ̀mù sí i. {{app}} máa ń pín wọn sí ẹ̀ka, máa ń yọ wọ́n jáde, máa ń sì fi wọ́n sínú àkọsílẹ̀ — pẹ̀lú àwọn àwọ̀ ìgbẹ́kẹ̀lé kí ẹgbẹ́ rẹ lè ṣàyẹ̀wò ohun tí ó nílò ènìyàn nìkan.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Ìwọ̀n ojoojúmọ́ · ọjọ́ 7 tí ó kọjá',
   'landing.sampleCardLabel': 'Àwọn ìwé tí a ti ṣe iṣẹ́ wọn lónìí',
   'landing.sampleCardSubtitle':
     '96.2% apapọ deedee kọja awọn iwe-ẹri, awọn iwe-ẹri, ati awọn fọọmu.',
@@ -76,6 +101,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Ṣí ojú ìwé ìbalẹ̀',
   'notFound.title': 'Ojú ìwé yẹn kò sí lórí fáìlì',
+  'parcelaHeroCard.accuracy': 'Ìdánilójú ìdáàmú {{value}}% nínú gbogbo àwọn ìyọjáde',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % vs àná',
   'parcelaHeroCard.title': 'Àwọn ìwé tí a ti ṣe iṣẹ́ wọn lónìí',
   'parcelaLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
@@ -83,6 +109,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'awọn iwe aṣẹ',
   'pricing.processingLabel': 'awọn iṣẹ iṣiṣẹ',
   'resetPassword.confirmPlaceholder': 'Tun ọrọ igbaniwọle tuntun ṣe',
+  'resetPassword.hidePassword': 'Fi ọrọ igbaniwọle pamọ',
   'resetPassword.passwordLabel': 'Ọrọ aṣina Tuntun',
   'resetPassword.showPassword': 'Fi ọ̀rọ̀ìpamọ́ hàn',
   'resetPassword.subtitle': 'Yan ohun kan ti o kere ju awọn ohun kikọ 8 lọ ni gigun.',
@@ -99,10 +126,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Kò ṣeé ṣe láti gbé àwọn òfin kalẹ̀.',
   'rules.loading': 'Àwọn òfin ìgbékalẹ̀…',
   'rules.matched30d': '{{count}} Àwọn ìwé tí ó báramu ní ọjọ́ 30 tó kọjá',
+  'rules.neverUsed': 'A ko tii lo ri',
   'rules.newRule': 'Òfin tuntun',
   'rules.saveError': 'Kò ṣeé ṣe láti fi òfin pamọ́.',
   'rules.subheading':
     'Sọ fún ètò náà ibi tí gbogbo irú ìwé gbọ́dọ̀ lọ. Àwọn ipò ẹ̀wọ̀n láti òkè dé ìsàlẹ̀ — àwọn ìṣẹ́gun àkọ́kọ́ nínú ìdíje náà.',
+  'rules.templatesEmpty': 'A kò tíì ní àwọn àpẹẹrẹ ìyọjáde.',
   'rules.templatesHeading': 'Àwọn àpẹẹrẹ ìyọkúrò',
   'rules.templatesSubheading': 'Àwọn àpẹẹrẹ pápá ni olùyọkúrò náà ń lò fún irú ìwé kọ̀ọ̀kan.',
   'rules.then': 'Lẹ́yìn náà',
@@ -111,17 +140,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Orúkọ ibi iṣẹ́',
   'settings.account.subheading':
     'Fi orúkọ àti ìmeeli àkọ́kọ́ hàn fún àwọn ìfitónilétí àti ìtàn àyẹ̀wò.',
+  'settings.api.confirmRevoke': 'Jẹ́rìí sí i?',
   'settings.api.copyOnce': 'Daakọ bọtini yii — a ko ni han lẹẹkansi',
   'settings.api.createdOn': 'ṣẹ̀dá {{date}}',
   'settings.api.empty': 'Kò sí kọ́kọ́rọ́ API kankan. Ṣẹ̀dá ọ̀kan lókè yìí.',
   'settings.api.error': 'Kò ṣeé ṣe láti ṣẹ̀dá kọ́kọ́rọ́ náà.',
+  'settings.api.generating': 'Ń ṣe…',
+  'settings.api.heading': 'Àwọn kọ́kọ́rọ́ API',
   'settings.api.labelPlaceholder': 'Àmì pàtàkì (fún àpẹẹrẹ olùgbéjáde CI)',
+  'settings.api.loading': 'Ń gbé àwọn kọ́kọ́rọ́ wọlé…',
   'settings.api.newKey': 'Ṣẹ̀dá kọ́kọ́rọ́',
   'settings.api.subheading':
     'Lo àwọn wọ̀nyí láti ti àwọn ìwé láti inú ìwé àkọsílẹ̀ tàbí ERP rẹ. Yí èyíkéyìí kọ́kọ́rọ́ padà nígbàkigbà.',
   'settings.integrations.heading': 'Àwọn ìsopọ̀ ìforúkọsílẹ̀',
   'settings.integrations.subheading':
     'Fi àwọn ìwé tí a fi sílẹ̀ ránṣẹ́ sí ìwakọ̀ ìkùukùu tàbí ohun èlò ìfọ̀rọ̀wérọ̀ tí ẹgbẹ́ rẹ ti ń gbé tẹ́lẹ̀.',
+  'settings.subheading':
+    'Ṣàkóso àkọọ́lẹ̀, àwọn kọ́kọ́rọ́ API, àti àwọn ìsopọ̀ ìfisílẹ̀ fún ààyè iṣẹ́ {{app}} rẹ.',
+  'signup.hidePassword': 'Fi ọrọ igbaniwọle pamọ',
   'signup.identityPrompt': 'Báwo ló ṣe yẹ kí a máa bá yín sọ̀rọ̀?',
   'signup.showPassword': 'Fi ọ̀rọ̀ìpamọ́ hàn',
   'signup.subtitle': 'Ọjọ́ mẹ́rìnlá ọ̀fẹ́, kò sí káàdì tí a nílò.',
@@ -129,6 +165,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Ìgbésókè kò ṣeéṣe.',
   'upload.eyebrow': 'Gbígbé oúnjẹ',
   'upload.heading': 'Gbe awọn iwe aṣẹ soke',
+  'upload.queue.clear': 'Nu àwọn tí ó ti parí',
   'upload.queue.col.confidence': 'Ìgboyà',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Ṣíṣàwárí…',
@@ -141,5 +178,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Tàbí kí o ju ọ̀pọ̀lọpọ̀ fáìlì sílẹ̀ lẹ́ẹ̀kan náà fún yíyọ àwọn fáìlì, ìpínsísọ̀rí, àti fífipamọ́.',
   'uploadDropZone.cta': 'Yan àwọn fáìlì',
+  'uploadDropZone.maxSize': 'Ó pọ̀ jù 25 MB fún fáìlì kọ̀ọ̀kan · Ìṣọ̀fọ̀ láti ìbẹ̀rẹ̀ dé ìparí',
   'uploadDropZone.title': 'Fi awọn iwe aṣẹ silẹ lati bẹrẹ sisẹ',
 }

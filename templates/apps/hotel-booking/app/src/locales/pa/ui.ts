@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "ਕਿਸੇ ਬੁਕਿੰਗ, ਫੀਡਬੈਕ, ਜਾਂ ਕਿਸੇ ਅਜਿਹੀ ਪ੍ਰਾਪਰਟੀ ਬਾਰੇ ਸਵਾਲ ਜੋ ਤੁਹਾਡੇ ਖਿਆਲ ਵਿੱਚ {{app}} 'ਤੇ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ? ਆਪਣੇ ਖਾਤੇ ਤੋਂ ਸਾਡੀ ਟੀਮ ਨਾਲ ਸੰਪਰਕ ਕਰੋ — ਹਰ ਸੁਨੇਹਾ ਇੱਕ ਅਸਲੀ ਇਨਸਾਨ ਕੋਲ ਜਾਂਦਾ ਹੈ ਜੋ ਮਦਦ ਕਰ ਸਕਦਾ ਹੈ।",
+  'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'about.eyebrow': 'ਸਾਡੇ ਬਾਰੇ',
+  'about.featureLoyalty':
+    "ਸਿਰਫ਼ ਮੈਂਬਰਾਂ ਲਈ ਰੇਟ ਅਤੇ ਇੱਕ ਲੌਇਲਟੀ ਪ੍ਰੋਗਰਾਮ ਜੋ ਹਰ ਬੁਕਿੰਗ 'ਤੇ ਪੁਆਇੰਟ, ਦੇਰ ਨਾਲ ਚੈੱਕਆਉਟ, ਅਤੇ ਕਮਰੇ ਦੇ ਅੱਪਗ੍ਰੇਡ ਦਿੰਦਾ ਹੈ।",
+  'about.featureReviews':
+    "ਤਸਦੀਕਸ਼ੁਦਾ ਮਹਿਮਾਨ ਸਮੀਖਿਆਵਾਂ ਅਤੇ ਸੰਪਾਦਕੀ ਚੋਣਾਂ ਤਾਂ ਜੋ ਤੁਸੀਂ ਪਹੁੰਚਣ ਤੋਂ ਪਹਿਲਾਂ ਠਹਿਰਾਅ 'ਤੇ ਭਰੋਸਾ ਕਰ ਸਕੋ।",
+  'about.featureRooms':
+    'ਕਮਰੇ, ਰੇਟ, ਅਤੇ ਸੁਵਿਧਾਵਾਂ ਦੀ ਨਾਲ-ਨਾਲ ਤੁਲਨਾ ਪਾਰਦਰਸ਼ੀ, ਸਭ-ਸ਼ਾਮਲ ਕੀਮਤ ਨਾਲ — ਭੁਗਤਾਨ ਤੋਂ ਪਹਿਲਾਂ ਟੈਕਸ ਅਤੇ ਰਿਜ਼ੋਰਟ ਫੀਸਾਂ ਸ਼ਾਮਲ।',
+  'about.featureSearch':
+    'ਪ੍ਰਮਾਣਿਤ ਹੋਟਲਾਂ ਵਿੱਚ ਅਸਲ-ਸਮੇਂ ਦੀ ਖੋਜ, ਲਾਈਵ ਉਪਲਬਧਤਾ, ਨਕਸ਼ਾ ਦ੍ਰਿਸ਼, ਅਤੇ ਭਰਪੂਰ ਫੋਟੋ ਗੈਲਰੀਆਂ ਨਾਲ।',
+  'about.featureTrips':
+    'ਸੰਭਾਲੇ ਹੋਏ ਪਸੰਦੀਦਾ ਅਤੇ ਇੱਕ ਟ੍ਰਿਪਸ ਡੈਸ਼ਬੋਰਡ ਜੋ ਹਰ ਰਿਜ਼ਰਵੇਸ਼ਨ, ਯਾਤਰਾ ਯੋਜਨਾ, ਅਤੇ ਪੁਸ਼ਟੀਕਰਨ ਇੱਕ ਥਾਂ ਰੱਖਦਾ ਹੈ।',
+  'about.intro':
+    "{{app}} ਉਹਨਾਂ ਯਾਤਰੀਆਂ ਲਈ ਇੱਕ ਹੋਟਲ-ਬੁਕਿੰਗ ਪਲੇਟਫਾਰਮ ਹੈ ਜੋ ਗੁਣਵੱਤਾ ਦੀ ਪਰਵਾਹ ਕਰਦੇ ਹਨ। ਹਰ ਪ੍ਰਾਪਰਟੀ ਸਾਡੀ ਸੰਪਾਦਕੀ ਟੀਮ ਦੁਆਰਾ ਨਿੱਜੀ ਤੌਰ 'ਤੇ ਪ੍ਰਮਾਣਿਤ ਕੀਤੀ ਜਾਂਦੀ ਹੈ — ਕੋਈ ਐਗਰੀਗੇਟਰ ਇਨਵੈਂਟਰੀ ਨਹੀਂ, ਕੋਈ ਭਰਮਾਉਣ ਵਾਲੀਆਂ ਲਿਸਟਿੰਗਾਂ ਨਹੀਂ। ਅਸਲੀ ਉਪਲਬਧਤਾ ਖੋਜੋ, ਕਮਰੇ, ਰੇਟ, ਅਤੇ ਸੁਵਿਧਾਵਾਂ ਦੀ ਨਾਲ-ਨਾਲ ਤੁਲਨਾ ਕਰੋ, ਫਿਰ ਸਪਸ਼ਟ, ਸਭ-ਸ਼ਾਮਲ ਕੀਮਤ ਨਾਲ ਕੁਝ ਟੈਪਾਂ ਵਿੱਚ ਬੁੱਕ ਕਰੋ।",
+  'about.missionBody':
+    'ਰਹਿਣ ਦੀ ਜਗ੍ਹਾ ਬੁੱਕ ਕਰਨਾ ਸ਼ਾਂਤ ਅਤੇ ਇਮਾਨਦਾਰ ਮਹਿਸੂਸ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ। ਅਸੀਂ ਟੈਕਸ ਅਤੇ ਰਿਜ਼ੋਰਟ ਫੀਸਾਂ ਸਮੇਤ ਪਾਰਦਰਸ਼ੀ ਰੇਟ ਪਹਿਲਾਂ ਹੀ ਦਿਖਾਉਂਦੇ ਹਾਂ, ਵਫ਼ਾਦਾਰ ਮਹਿਮਾਨਾਂ ਨੂੰ ਇਨਾਮ ਦਿੰਦੇ ਹਾਂ ਨਾ ਕਿ ਉਹਨਾਂ ਤੋਂ ਪੈਸੇ ਐਂਠਦੇ ਹਾਂ, ਅਤੇ ਤੁਹਾਡੇ ਪੈਸੇ ਦੇ ਲਾਇਕ ਠਹਿਰਾਅ ਨੂੰ ਪਹਿਲ ਦਿੰਦੇ ਹਾਂ — ਤਾਂ ਜੋ ਤੁਸੀਂ ਟੈਬਾਂ ਦੀ ਤੁਲਨਾ ਵਿੱਚ ਘੱਟ ਸਮਾਂ ਅਤੇ ਯਾਤਰਾ ਵਿੱਚ ਵੱਧ ਸਮਾਂ ਬਿਤਾ ਸਕੋ।',
+  'about.missionTitle': 'ਸਾਡਾ ਮਿਸ਼ਨ',
+  'about.subtitle': 'ਸਹੀ ਹੋਟਲ ਲੱਭਣ ਅਤੇ ਬੁੱਕ ਕਰਨ ਦਾ ਇੱਕ ਚੁਣਿਆ ਹੋਇਆ, ਪਾਰਦਰਸ਼ੀ ਤਰੀਕਾ।',
   'account.loyalty.activitySummary': '{{nights}} ਰਾਤਾਂ · {{spend}} ਇਸ ਸਾਲ ਬਿਤਾਇਆ',
+  'account.loyalty.benefitsHeading': 'ਤੁਹਾਡੇ ਲਾਭ',
   'account.loyalty.heading': 'ਵਫ਼ਾਦਾਰੀ',
   'account.loyalty.loading': 'ਵਫ਼ਾਦਾਰੀ ਲੋਡ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
-  'account.loyalty.pointsTowardNext': '{{ਅੰਕ}} / {{ਅਗਲਾ}} ਵੱਲ ਇਸ਼ਾਰਾ ਕਰਦਾ ਹੈ {{ਅਗਲਾ ਪੜਾਅ}}',
+  'account.loyalty.maxTier': 'ਉੱਚ ਪੱਧਰ — ਆਪਣੇ ਲਾਭਾਂ ਦਾ ਆਨੰਦ ਲਓ।',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} ਪੁਆਇੰਟ ਤੋਂ {{nextTier}}',
   'account.loyalty.tier': 'ਮੌਜੂਦਾ ਟੀਅਰ',
   'account.loyalty.unavailable': 'ਵਫ਼ਾਦਾਰੀ ਜਾਣਕਾਰੀ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।',
   'account.navLabel': 'ਖਾਤਾ ਭਾਗ',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'ਬੁਕਿੰਗ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ · {{total}}',
   'bookingCheckout.datesRequired': 'ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੀਆਂ ਚੈੱਕ-ਇਨ ਅਤੇ ਚੈੱਕ-ਆਊਟ ਤਾਰੀਖਾਂ ਚੁਣੋ।',
   'bookingCheckout.guestHeading': 'ਮੁੱਖ ਮਹਿਮਾਨ',
+  'bookingCheckout.heading': 'ਪੁਸ਼ਟੀ ਕਰੋ ਅਤੇ ਬੁੱਕ ਕਰੋ',
   'bookingCheckout.loadError': 'ਪ੍ਰਾਪਰਟੀ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'bookingCheckout.nights': '{{rate}} × {{count}} ਰਾਤਾਂ',
   'bookingCheckout.notFound': 'ਜਾਇਦਾਦ ਨਹੀਂ ਮਿਲੀ।',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'ਟੈਕਸ ਅਤੇ ਫ਼ੀਸ',
   'bookingCheckout.tripHeading': 'ਤੁਹਾਡੀ ਯਾਤਰਾ',
   'bookingConfirmation.allTripsCta': 'ਸਾਰੀਆਂ ਯਾਤਰਾਵਾਂ',
+  'bookingConfirmation.confNumber': 'ਪੁਸ਼ਟੀਕਰਨ ਨੰਬਰ: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'ਤੁਹਾਡਾ ਰਿਜ਼ਰਵੇਸ਼ਨ ਪ੍ਰੋਸੈਸ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ।',
   'bookingConfirmation.heading': 'ਬੁਕਿੰਗ ਦੀ ਪੁਸ਼ਟੀ ਹੋਈ',
   'bookingConfirmation.loading': 'ਤੁਹਾਡਾ ਰਿਜ਼ਰਵੇਸ਼ਨ ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…',
   'bookingConfirmation.searchMoreCta': 'ਹੋਰ ਠਹਿਰਾਅ ਬ੍ਰਾਊਜ਼ ਕਰੋ',
   'bookingConfirmation.subheadingForTrip':
-    "{{ਜਾਇਦਾਦ}} ਵਿੱਚ {{ਸ਼ਹਿਰ}} , {{ਦੇਸ਼}} . ਅਸੀਂ ਤੁਹਾਨੂੰ ਇਸ 'ਤੇ ਮਿਲਾਂਗੇ {{ਚੈੱਕਇਨ}} .",
+    '{{city}} ਵਿੱਚ {{property}}, {{country}}। ਅਸੀਂ ਤੁਹਾਨੂੰ {{checkIn}} ਨੂੰ ਮਿਲਾਂਗੇ।',
   'bookingConfirmation.total': 'ਕੁੱਲ {{total}}',
   'bookingConfirmation.viewTripCta': 'ਯਾਤਰਾ ਵੇਖੋ',
   'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'ਮਨਪਸੰਦ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'favorites.pricePerNight': '{{price}} / ਰਾਤ',
   'favorites.removeCta': 'ਅਣਸੇਵ ਕਰੋ',
+  'favorites.removing': 'ਹਟਾਇਆ ਜਾ ਰਿਹਾ ਹੈ...',
   'forgotPassword.subheading':
     "ਆਪਣੇ ਖਾਤੇ 'ਤੇ ਈਮੇਲ ਦਰਜ ਕਰੋ ਅਤੇ ਅਸੀਂ ਤੁਹਾਨੂੰ ਇੱਕ ਸੁਰੱਖਿਅਤ ਰੀਸੈਟ ਲਿੰਕ ਭੇਜਾਂਗੇ।",
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'ਸੋਜੋਰਨ ਮੈਂਬਰ',
   'landing.cta.heading': 'ਸਿਰਫ਼-ਮੈਂਬਰ ਰੇਟ। ਹਰ ਬੁਕਿੰਗ, ਹਰ ਵਾਰ।',
   'landing.cta.signup': 'ਮੁਫ਼ਤ ਖਾਤਾ ਬਣਾਓ',
+  'landing.cta.subheading':
+    "ਹਰ ਠਹਿਰਾਅ 'ਤੇ ਲੌਇਲਟੀ ਪੁਆਇੰਟ ਕਮਾਓ, ਦੇਰ ਨਾਲ ਚੈੱਕਆਉਟ ਅਤੇ ਕਮਰੇ ਦੇ ਅੱਪਗ੍ਰੇਡ ਅਨਲੌਕ ਕਰੋ, ਅਤੇ ਨਵੀਆਂ ਪ੍ਰਾਪਰਟੀਆਂ ਤੱਕ ਜਨਤਕ ਤੌਰ 'ਤੇ ਸੂਚੀਬੱਧ ਹੋਣ ਤੋਂ ਪਹਿਲਾਂ ਪਹਿਲੀ ਪਹੁੰਚ ਪ੍ਰਾਪਤ ਕਰੋ।",
   'landing.destinations.eyebrow': 'ਅੱਗੇ ਕਿੱਥੇ ਜਾਣਾ ਹੈ',
   'landing.destinations.heading': 'ਵਿਸ਼ੇਸ਼ ਮੰਜ਼ਿਲਾਂ',
   'landing.destinations.seeAll': 'ਸਾਰੀਆਂ ਮੰਜ਼ਿਲਾਂ ਵੇਖੋ',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'ਪੈਕਿੰਗ ਕਰਨ ਯੋਗ ਕਹਾਣੀਆਂ',
   'landing.nav.join': 'ਸੋਜੌਰਨ ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੋ',
   'landing.nav.search': 'ਖੋਜ ਸਟੇਅ',
+  'landing.preview.browseAll': 'ਪੂਰਾ ਸੰਗ੍ਰਹਿ ਵੇਖੋ',
   'landing.preview.eyebrow': 'ਅੰਦਰ ਇੱਕ ਝਾਤ',
   'landing.preview.heading': 'ਇਸ ਮਹੀਨੇ ਹੱਥੀਂ ਚੁਣੇ ਗਏ ਠਹਿਰਾਅ',
+  'landing.preview.subheading':
+    "{{appName}} 'ਤੇ ਹਰ ਪ੍ਰਾਪਰਟੀ ਸਾਡੀ ਸੰਪਾਦਕੀ ਟੀਮ ਦੁਆਰਾ ਨਿੱਜੀ ਤੌਰ 'ਤੇ ਪ੍ਰਮਾਣਿਤ ਕੀਤੀ ਜਾਂਦੀ ਹੈ — ਕੋਈ ਐਗਰੀਗੇਟਰ ਇਨਵੈਂਟਰੀ ਨਹੀਂ, ਕੋਈ ਭਰਮਾਉਣ ਵਾਲੀਆਂ ਲਿਸਟਿੰਗਾਂ ਨਹੀਂ।",
   'login.eyebrow': 'ਮੈਂਬਰ ਖੇਤਰ',
+  'login.noAccount': 'ਟੇਸੇਰਾ ਲਈ ਨਵੇਂ ਹੋ?',
   'login.signupLink': 'ਇੱਕ ਮੁਫ਼ਤ ਖਾਤਾ ਬਣਾਓ',
   'login.subheading':
     'ਆਪਣੀਆਂ ਯਾਤਰਾਵਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰਨ, ਪੁਸ਼ਟੀਕਰਨ ਦੇਖਣ ਅਤੇ ਉੱਥੋਂ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਸਾਈਨ ਇਨ ਕਰੋ ਜਿੱਥੇ ਤੁਸੀਂ ਛੱਡਿਆ ਸੀ।',
+  'loyaltyTierBadge.points': '{{points}} ਅੰਕ',
   'planUpdated.heading': 'ਪਲਾਨ ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ',
+  'planUpdated.retry': 'ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ',
+  'planUpdated.verifyFailed': 'ਅਸੀਂ ਅਜੇ ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਨਹੀਂ ਕਰ ਸਕੇ।',
+  'planUpdated.verifyFailedBody':
+    'ਤੁਹਾਡਾ ਭੁਗਤਾਨ ਅਜੇ ਵੀ ਪ੍ਰਕਿਰਿਆ ਅਧੀਨ ਹੋ ਸਕਦਾ ਹੈ। ਕੁਝ ਦੇਰ ਬਾਅਦ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
   'planUpdated.verifying': 'ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'pricing.limit.advancedFeatures': 'ਉੱਨਤ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ:',
   'pricing.limit.canExport': 'ਡਾਟਾ ਨਿਰਯਾਤ:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'ਇਹ ਸਥਾਨ ਕੀ ਪੇਸ਼ਕਸ਼ ਕਰਦਾ ਹੈ',
   'propertyDetail.backLink': "ਖੋਜ 'ਤੇ ਵਾਪਸ ਜਾਓ",
   'propertyDetail.bookCta': 'ਰਿਜ਼ਰਵ ਕਰੋ',
+  'propertyDetail.bookmarkAria': 'ਜਾਇਦਾਦ ਬਚਾਓ',
   'propertyDetail.bookmarkAriaSaved': 'ਸੁਰੱਖਿਅਤ ਕੀਤੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਵਿੱਚੋਂ ਹਟਾਓ',
+  'propertyDetail.galleryImageAlt': '{{name}} ਫੋਟੋ {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} ਹੀਰੋ ਫੋਟੋ',
   'propertyDetail.hidePhotos': 'ਫੋਟੋਆਂ ਲੁਕਾਓ',
   'propertyDetail.lineCleaning': 'ਸਫਾਈ ਫੀਸ',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'ਰਾਤ',
   'propertyDetail.noChargeYet': 'ਤੁਹਾਡੇ ਤੋਂ ਹਾਲੇ ਖਰਚਾ ਨਹੀਂ ਲਿਆ ਜਾਵੇਗਾ।',
   'propertyDetail.notFound': 'ਜਾਇਦਾਦ ਨਹੀਂ ਮਿਲੀ।',
+  'propertyDetail.perNight': '/ ਰਾਤ',
+  'propertyDetail.pickDatesHint': 'ਪੂਰੀ ਕੀਮਤ ਦਾ ਵੇਰਵਾ ਵੇਖਣ ਲਈ ਆਪਣੀਆਂ ਤਾਰੀਖਾਂ ਚੁਣੋ।',
   'propertyDetail.reviewCount': '( {{count}} (ਸਮੀਖਿਆਵਾਂ)',
   'propertyDetail.reviewsHeading': 'ਹਾਲੀਆ ਸਮੀਖਿਆਵਾਂ',
   'propertyDetail.roomCapacity': 'ਸੌਂਦਾ ਹੈ {{count}}',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'ਨਵਾਂ ਪਾਸਵਰਡ',
   'resetPassword.subheading':
     'ਆਪਣੇ Auberge ਖਾਤੇ ਲਈ ਇੱਕ ਨਵਾਂ ਪਾਸਵਰਡ ਚੁਣੋ। ਘੱਟੋ-ਘੱਟ 8 ਅੱਖਰਾਂ ਦੀ ਵਰਤੋਂ ਕਰੋ; ਅਸੀਂ ਇੱਕ ਪਾਸਫ੍ਰੇਜ਼ ਦੀ ਸਿਫ਼ਾਰਸ਼ ਕਰਦੇ ਹਾਂ।',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'ਤੁਹਾਡੀ ਖੋਜ ਨਾਲ ਕੋਈ ਵੀ ਵਿਸ਼ੇਸ਼ਤਾ ਮੇਲ ਨਹੀਂ ਖਾਂਦੀ।',
   'searchResults.emptyHint':
     'ਆਪਣੇ ਫਿਲਟਰਾਂ ਨੂੰ ਵਧਾਉਣ ਜਾਂ ਕੀਮਤ ਦੀ ਸੀਮਾ ਨੂੰ ਹਟਾਉਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ — ਸੋਜੌਰਨ ਦੇ 14 ਦੇਸ਼ਾਂ ਵਿੱਚ ਠਹਿਰਾਅ ਹਨ।',
@@ -108,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'ਚੁਣੇ ਹੋਏ ਠਹਿਰਾਅ',
   'searchResults.headingForQuery': '" ਲਈ ਰਹਿੰਦਾ ਹੈ {{q}} "',
   'searchResults.loadError': 'ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
+  'searchResults.mapHint':
+    "ਨਕਸ਼ੇ 'ਤੇ ਹਾਈਲਾਈਟ ਕਰਨ ਲਈ ਕਾਰਡ 'ਤੇ ਹੋਵਰ ਕਰੋ। ਪ੍ਰੋਡਕਸ਼ਨ ਵਿੱਚ ਲਾਈਵ Mapbox ਟਾਈਲਾਂ।",
   'searchResults.mapPinAria': '{{name}} — {{price}} ਪ੍ਰਤੀ ਰਾਤ',
   'searchResults.sortLabel': 'ਦੇ ਨਾਲ ਕ੍ਰਮਬੱਧ',
   'searchResults.subheading': '{{count}} ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ · {{guests}} ਮਹਿਮਾਨ',
   'signup.eyebrow': 'ਮੈਂਬਰ ਬਣੋ',
   'signup.subheading':
     'ਸਿਰਫ਼-ਮੈਂਬਰ ਦਰਾਂ, ਦੇਰ ਨਾਲ ਚੈੱਕਆਉਟ, ਅਤੇ ਨਵੀਆਂ ਜਾਇਦਾਦਾਂ ਤੱਕ ਪਹਿਲੀ ਪਹੁੰਚ ਨੂੰ ਅਨਲੌਕ ਕਰਨ ਲਈ Auberge ਵਿੱਚ ਸ਼ਾਮਲ ਹੋਵੋ।',
+  'sojournAuthShell.brand.eyebrow': 'ਕਿਤੇ ਅਸਾਧਾਰਨ ਥਾਂ ਠਹਿਰੋ',
+  'sojournAuthShell.brand.heading':
+    'ਪ੍ਰਾਪਰਟੀਆਂ ਦਾ ਇੱਕ ਚੁਣਿਆ ਹੋਇਆ ਸੰਗ੍ਰਹਿ — ਸੁੰਦਰ ਢੰਗ ਨਾਲ ਪੇਸ਼ ਕੀਤਾ ਗਿਆ, ਪਾਰਦਰਸ਼ੀ ਕੀਮਤ ਨਾਲ।',
   'sojournHeroSearchCard.checkInAria': 'ਚੈੱਕ-ਇਨ ਮਿਤੀ',
   'sojournHeroSearchCard.checkOutAria': 'ਚੈੱਕ-ਆਊਟ ਮਿਤੀ',
+  'sojournHeroSearchCard.destAria': 'ਮੰਜ਼ਿਲ',
+  'sojournHeroSearchCard.destLabel': 'ਕਿੱਥੇ',
   'sojournHeroSearchCard.destPlaceholder': 'ਸ਼ਹਿਰ, ਖੇਤਰ, ਜਾਂ ਜਾਇਦਾਦ',
   'sojournHeroSearchCard.eyebrow': 'ਚੁਣੇ ਹੋਏ ਠਹਿਰਨ · ਸਿਰਫ਼-ਮੈਂਬਰ ਦਰਾਂ',
   'sojournHeroSearchCard.guestsOption': '{{n}} ਮਹਿਮਾਨ',
   'sojournHeroSearchCard.subtitle':
     'ਬੁਟੀਕ ਹੋਟਲਾਂ, ਡਿਜ਼ਾਈਨ-ਅੱਗੇ ਦਿੱਤੀਆਂ ਜਾਣ ਵਾਲੀਆਂ ਜਾਇਦਾਦਾਂ, ਅਤੇ ਦੁਰਲੱਭ-ਲੱਭਣ ਵਾਲੇ ਰਿਟਰੀਟ ਦਾ ਇੱਕ ਕਿਉਰੇਟਿਡ ਸੰਗ੍ਰਹਿ — ਪਾਰਦਰਸ਼ੀ ਕੀਮਤ, ਸੁੰਦਰਤਾ ਨਾਲ ਪੇਸ਼ ਕੀਤਾ ਗਿਆ।',
+  'sojournHeroSearchCard.title': 'ਕਿਤੇ ਅਸਾਧਾਰਨ ਥਾਂ ਠਹਿਰੋ',
+  'sojournHeroSearchCard.trustLoyalty': "ਹਰ ਠਹਿਰਾਅ 'ਤੇ ਪੁਆਇੰਟ ਕਮਾਓ",
   'sojournHeroSearchCard.trustNoFees': 'ਕੋਈ ਲੁਕਵੀਂ ਫੀਸ ਨਹੀਂ, ਕਦੇ ਵੀ',
   'sojournHeroSearchCard.trustVetted': 'ਸਿਰਫ਼ ਹੱਥੀਂ ਜਾਂਚੀਆਂ ਗਈਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ',
   'sojournLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',

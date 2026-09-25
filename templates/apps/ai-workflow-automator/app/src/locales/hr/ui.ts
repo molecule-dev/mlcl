@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite je platforma za automatizaciju tijeka rada koja povezuje okidače, uvjete umjetne inteligencije i višekoračne radnje kako bi timovi mogli premještati posao između sustava bez pisanja koda za povezivanje.',
+  'about.philosophy':
+    'Svaki je tijek rada graf malih, vidljivih koraka. Svaki korak bilježi svoje ulaze, izlaze i vrijeme kako bi se mogao pregledati, ponovno pokrenuti ili vratiti. Sastavite ih vizualno, verzionirajte ih kao kod.',
   'about.title': 'O Dendritu',
   'authShell.brand': 'Dendrit',
   'authShell.support': 'Podrška',
@@ -15,9 +17,15 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Promjena plana',
   'billing.description':
     'Pratite korištenje, upravljajte svojim planom i preuzimajte račune za računovodstvo.',
+  'billing.eyebrow': 'Račun · Plan i potrošnja',
+  'billing.failedLabel': 'Neuspješna pokretanja · 24 h',
+  'billing.invoicesEmpty':
+    'Još nema računa. Ovdje će se pojaviti nakon prvog plaćenog obnavljanja.',
   'billing.invoicesTitle': 'Povijest faktura',
   'billing.planNoteFree':
     'Besplatna razina — {{runs}} trči i {{workflows}} aktivni tijekovi rada. Nadogradite za veće limite.',
+  'billing.planNotePaid':
+    'Plaćeni plan — {{runs}} pokretanja i {{workflows}} aktivnih tijekova rada.',
   'billing.runsLabel': 'Izvodi se u posljednja 24 sata',
   'billing.tiersBlurb':
     'Usporedite svaku razinu - izvršavanja, aktivne tijekove rada, napredne značajke i podršku - na posebnoj stranici s cijenama.',
@@ -35,10 +43,14 @@ export const ui: UiTranslations = {
     'Nema registriranih integracija. Konfigurirajte ključeve pružatelja usluga kako biste omogućili obveznice.',
   'connections.error': 'Nije moguće učitati veze.',
   'connections.eyebrow': 'Integracije · {{connected}} povezan',
+  'connections.loading': 'Učitavanje integracija…',
+  'connections.openEnv':
+    'Da biste povezali ovog pružatelja usluga, postavite njegov API ključ u api/.env i ponovno pokrenite poslužitelj.',
   'dashboard.description':
     '{{active}} aktivni tijekovi rada. {{failed}} nije uspjelo u posljednja 24 sata.',
   'dashboard.error': 'Nije moguće učitati nadzornu ploču.',
   'dashboard.eyebrow': 'Operacije · uživo',
+  'dashboard.hero.label': 'Pokretanja danas',
   'dashboard.hero.medianLatency': 'latencija p50',
   'dashboard.hero.queue': 'Dubina reda čekanja',
   'dashboard.hero.success': 'Uspjeh',
@@ -46,13 +58,16 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Srednje trajanje',
   'dashboard.kpi.failedRuns': 'Neuspješno · 24 sata',
   'dashboard.kpi.outOf': 'od {{total}} ukupno',
+  'dashboard.kpi.successRate': 'Stopa uspješnosti · 24 h',
   'dashboard.loading': 'Učitavanje nadzorne ploče…',
   'dashboard.recentRuns.empty': 'Još nema pokretanja. Pokretanje tijeka rada popunit će ovaj feed.',
   'dashboard.recentRuns.title': 'Nedavna trčanja',
   'dashboard.recentRuns.viewAll': 'Otvorena pogubljenja →',
+  'dashboard.recentWorkflows.browse': 'Pregledaj predloške →',
   'dashboard.recentWorkflows.empty':
     'Još nema tijekova rada. Instalirajte predložak ili izradite novi od nule.',
   'dashboard.recentWorkflows.title': 'Nedavno pokrenuto',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'Započeto',
   'dashboard.run.col.trigger': 'Okidač',
   'dashboard.run.col.workflow': 'Tijek rada',
@@ -88,6 +103,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Tijek rada',
   'executions.description':
     'Svako pokretanje tijeka rada, svaki ponovni pokušaj, svaki izlaz koraka - sve je vidljivo.',
+  'executions.empty.filter': 'Nijedno pokretanje ne odgovara ovom filtru.',
   'executions.empty.first':
     'Još nema pokretanja — pokrenite tijek rada za popunjavanje ovog popisa.',
   'executions.error': 'Nije moguće učitati izvršenja.',
@@ -98,30 +114,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Učitavanje povijesti trčanja…',
   'executions.title': 'Pogubljenja',
   'forgotPassword.confirmation': 'Poništi vezu poslanu na {{email}} .',
+  'forgotPassword.subhead': 'Unesite svoju e-mail adresu kako biste primili link za resetiranje.',
   'forgotPassword.successSubhead':
     'Poslali smo link za resetiranje na {{email}} Ističe za 30 minuta.',
   'help.connections.body':
     'Koraci za umjetnu inteligenciju, e-poštu i pohranu zahtijevaju postavljanje ključeva pružatelja usluga u api/.env datoteci. Nakon što je ključ konfiguriran, odgovarajuća integracija prikazuje se kao povezana na stranici Veze.',
+  'help.connections.cta': 'Otvori veze →',
   'help.connections.title': 'Povezivanje pružatelja usluga',
   'help.gettingStarted.body':
     'Novi tijekovi rada mogu se instalirati iz biblioteke predložaka ili izraditi od nule u alatu za izradu tijekova rada. Svaki tijek rada ima okidač (ručni, webhook ili cron) i niz koraka koji se izvršavaju redom.',
+  'help.gettingStarted.cta': 'Pregledaj biblioteku predložaka →',
+  'help.gettingStarted.title': 'Početak rada',
   'help.intro':
     'Pronađite odgovore na uobičajena pitanja o izgradnji tijekova rada, konfiguriranju veza i tumačenju izlaza. Najčešće teme navedene su u nastavku; za sve što nije obuhvaćeno obratite se administratoru radnog prostora.',
   'help.runs.body':
     'Svako izvođenje neovisno bilježi svaki korak sa statusom (uspjeh, neuspjeh, preskočeno) i isječkom izlaza. Stranica s detaljima izvršenja prikazuje cjeloviti detaljni trag i izvedene metrike.',
+  'help.runs.cta': 'Otvorena pogubljenja →',
   'help.runs.title': 'Izlaz čitanja',
   'help.title': 'Centar za pomoć',
   'integrationCard.manage': 'Upravljati',
   'landing.brand': 'Dendrit',
   'landing.demo.action.subtitle': 'Kružno sustavno određivanje teritorija',
+  'landing.demo.action.title': 'Obavijesti zastupnika',
   'landing.demo.condition.subtitle': 'Klasifikator namjere umjetne inteligencije',
+  'landing.demo.condition.title': 'Ocjena ≥ srednja?',
   'landing.demo.trigger.subtitle': 'POŠTA /obrasci/kontakt',
   'landing.demo.trigger.title': 'Dolazni webhook',
+  'landing.features.body':
+    'Okidači se aktiviraju. Uvjeti granaju. Radnje obavljaju posao. Sastavite ih vizualno, verzionirajte ih kao kod.',
   'landing.features.heading': 'Tri vrste čvorova. Beskonačni oblici.',
   'landing.footer.help': 'Pomoć',
   'landing.footer.tagline': 'Inteligencija u pokretu',
+  'landing.hero.body':
+    '{{appName}} je pokretač tijekova rada za operativne timove koji su prerasli Zapier. Okidač, uvjet, radnja — povezani sa svakim sustavom koji doista koristite.',
   'landing.hero.eyebrow': 'Inteligencija u pokretu',
   'landing.hero.headline': 'Spojite svoj stog. Pustite da se posao odvija.',
+  'landing.hero.primaryCta': 'Izradite svoj prvi tijek rada',
   'landing.hero.proof.ai': 'Ugrađeni AI čvorovi',
   'landing.hero.proof.free': 'Besplatno za 1000 trčanja mjesečno',
   'landing.hero.proof.soc2': 'SOC 2 Tip II',
@@ -129,10 +157,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Plaćajte za vožnje, a ne za sjedala.',
   'landing.templates.body':
     'Unaprijed programirani tijekovi rada za svaki tim - prodaja, podrška, razvoj, financije. Instalirajte jednim klikom; prilagodite bilo što.',
+  'landing.templates.cta': 'Registrirajte se za pregled predložaka →',
   'landing.templates.eyebrow': 'Početak za nekoliko sekundi',
   'landing.templates.heading': 'Biblioteka provjerenih recepata.',
   'landing.templates.signupHint': 'Prijavite se za instalaciju',
   'login.hidePassword': 'Sakrij lozinku',
+  'login.noAccount': 'Novi ste na Tesseri?',
   'login.showPassword': 'Prikaži lozinku',
   'login.subhead': 'Prijavite se kako bi vaša automatizacija ostala u tijeku.',
   'mobileNav.drawerLabel': 'Glavna navigacija',
@@ -148,8 +178,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Pokrenite tijek rada da biste započeli s popunjavanjem ovog feeda.',
   'notifications.empty.title': 'Sve ste pročitali',
   'notifications.eyebrow': '{{n}} nepročitano',
+  'planUpdated.body':
+    'Promjena naplate sada je aktivna. Svojim planom možete upravljati bilo kada na stranici za naplatu.',
+  'planUpdated.retry': 'Pokušajte ponovno',
+  'planUpdated.verifyFailed': 'Još nismo mogli potvrditi vašu uplatu.',
+  'planUpdated.verifyFailedBody':
+    'Vaše plaćanje se možda još uvijek obrađuje. Pokušajte ponovno za trenutak.',
   'planUpdated.verifying': 'Potvrda vaše uplate…',
   'pricing.heading': 'trči',
+  'pricing.runsSuffix': 'pokretanja',
   'pricing.workflowsSuffix': 'tijekove rada',
   'privacy.collect.body':
     'Prikupljamo adresu e-pošte s kojom se prijavljujete, tijekove rada koje konfigurirate i metapodatke o svakom pokretanju (vrijeme početka, vrijeme završetka, status). Nikada ne prikupljamo niti pohranjujemo sadržaj sadržaja iz okidača ili izlaza koraka osim onoga što je potrebno za prikaz u pregledniku pokretanja za vlasnika radnog prostora.',
@@ -165,12 +202,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Nije moguće ažurirati lozinku.',
   'resetPassword.newPassword': 'Nova lozinka',
   'resetPassword.subhead': 'Odaberite nešto što biste samo vi pretpostavili.',
+  'settings.appearance.description': 'Prebacivanje između svijetlog i tamnog načina rada.',
+  'settings.appearance.title': 'Izgled',
   'settings.billingShortcut.cta': 'Otvori naplatu',
   'settings.billingShortcut.description':
     'Plan, potrošnja i računi nalaze se na posebnoj stranici za naplatu.',
   'settings.danger.confirm':
     'Jeste li sigurni? Ovim ćete svoj radni prostor staviti u red čekanja za brisanje.',
   'settings.danger.confirmYes': 'Da, brisanje reda čekanja',
+  'settings.danger.deleteWorkspace.cta': 'Izbriši radni prostor',
   'settings.danger.deleteWorkspace.hint':
     'Uklanja sve tijekove rada, izvršavanja i veze nakon 14-dnevnog razdoblja odgode.',
   'settings.danger.deleteWorkspace.title': 'Izbriši radni prostor',
@@ -181,9 +221,14 @@ export const ui: UiTranslations = {
     'Upravljajte svojim računom, radnim prostorom, integracijama i naplatom na jednom mjestu.',
   'settings.notifications.description':
     'Odaberite koji će vam događaji slati poruke putem interneta, e-pošte ili će ostati tihi.',
+  'settings.notifications.failures.hint':
+    'Obavijest e-poštom i u aplikaciji pri svakom neuspješnom pokretanju.',
+  'settings.notifications.failures.title': 'Neuspjesi tijekova rada',
   'settings.notifications.product.hint': 'Povremene e-poruke o novim predlošcima i značajkama.',
+  'settings.notifications.product.title': 'Ažuriranja proizvoda',
   'settings.notifications.weekly.hint':
     'Sažetak trčanja i ušteda od prošlog tjedna u ponedjeljak ujutro.',
+  'settings.notifications.weekly.title': 'Tjedni sažetak',
   'settings.profile.description':
     'Kako se pojavljujete unutar programa za pokretanje tijeka rada. Koristi se u aktivnosti radnog prostora.',
   'settings.profile.noEmail': 'Nema zabilježene e-pošte',
@@ -191,12 +236,23 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Nije moguće spremiti promjene profila.',
   'settings.profile.unnamedUser': 'Neimenovani korisnik',
   'settings.security.audit.hint': 'Strimujte svaku radnju na svoj SIEM putem webhooka.',
+  'settings.security.audit.title': 'Prosljeđivanje revizijskog zapisa',
   'settings.security.description': 'Dvofaktorska autentifikacija, SSO i aktivne sesije.',
   'settings.security.sso.hint': 'Dostupno u paketima Scale i Enterprise.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'Potrebno za svaku radnju vlasnika radnog prostora.',
+  'settings.security.totp.title': 'Dvofaktorska autentifikacija (TOTP)',
   'settings.twoFactorCode': 'Autentifikacijski kod',
   'settings.twoFactorDisable': 'Onemogući',
+  'settings.twoFactorDisableTitle': 'Onemogući dvofaktorsku autentifikaciju',
   'settings.twoFactorEnable': 'Omogućiti',
+  'settings.twoFactorEnableTitle': 'Omogući dvofaktorsku autentifikaciju',
   'settings.twoFactorInvalidCode': 'Nevažeći kod',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'QR kod za dvofaktorsku autentifikaciju',
+  'settings.twoFactorScan':
+    'Skenirajte ovaj QR kod aplikacijom za autentifikaciju, zatim unesite 6-znamenkasti kod.',
+  'settings.twoFactorUnavailable': 'Dvofaktorska autentifikacija nije dostupna za ovu aplikaciju.',
   'settings.twoFactorVerify': 'Potvrdi i omogući',
   'settings.workspace.description':
     'Zajednički identitet, regija i zadane postavke pokretanja za vaš tim.',
@@ -225,6 +281,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Predložak',
   'templates.description':
     'Unaprijed izrađeni nacrti za najčešće automatizacije. Forkni, prilagodi, isporuči.',
+  'templates.empty.filter': 'Nijedan predložak ne odgovara vašem pretraživanju.',
   'templates.empty.first': 'Trenutno nema dostupnih predložaka.',
   'templates.error': 'Nije moguće učitati predloške.',
   'templates.installs': 'instalacije',
@@ -250,6 +307,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Onemogući',
   'workflowBuilder.enable': 'Omogućiti',
   'workflowBuilder.error': 'Nije moguće učitati tijek rada.',
+  'workflowBuilder.inspector.config': 'Konfiguracija',
+  'workflowBuilder.inspector.cron': 'Cron izraz',
+  'workflowBuilder.inspector.disabled': 'Onemogućeno — neće se pokretati automatski.',
   'workflowBuilder.inspector.enabled': 'Omogućeno — pokreće se na okidač.',
   'workflowBuilder.inspector.eyebrow': 'Inspektor',
   'workflowBuilder.inspector.id': 'ID',
@@ -267,18 +327,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Prebacivanje nije uspjelo.',
   'workflowBuilder.workflow': 'Tijek rada · v {{v}}',
   'workflowBuilder.zoom.in': 'Uvećaj',
+  'workflowBuilder.zoom.label': 'Kontrole zumiranja platna',
+  'workflowBuilder.zoom.out': 'Smanji',
   'workflowCard.lastRun': 'Posljednje trčanje {{when}}',
   'workflowCard.runs': '{{count}} trči',
+  'workflowCard.success': '{{rate}} % uspješnosti',
   'workflowHeroCard.last24h': 'Posljednja 24 sata',
+  'workflows.browseTemplates': 'Pregledaj predloške →',
   'workflows.description':
     'Svaka automatizacija u vašem radnom prostoru, s pregledom stanja i nedavnih aktivnosti.',
+  'workflows.empty.body': 'Pokušajte očistiti filtar ili započnite s predloškom.',
   'workflows.empty.firstBody': 'Instalirajte predložak da biste započeli za nekoliko sekundi.',
   'workflows.empty.firstTitle': 'Još nema tijekova rada',
   'workflows.empty.title': 'Nema podudaranja tijeka rada',
   'workflows.error': 'Nije moguće učitati tijekove rada.',
   'workflows.eyebrow': 'Knjižnica · {{count}} ukupno',
+  'workflows.loading': 'Učitavanje tijekova rada…',
   'workflows.newFromTemplate': 'Novo iz predloška',
   'workflows.searchPlaceholder': 'Pretraživanje tijekova rada…',
+  'workflows.title': 'Tijekovi rada',
   'workflowSidebar.brand': 'Dendrit',
   'workflowSidebar.status': 'Svi sustavi rade',
   'workflowSidebar.tagline': 'Inteligencija u pokretu',

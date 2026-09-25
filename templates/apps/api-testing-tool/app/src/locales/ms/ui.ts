@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Jumpa pepijat, ada permintaan ciri, atau ingin beritahu kami apa yang perlu dibina seterusnya? E-mel hello@pylon.dev — setiap mesej sampai kepada jurutera sebenar dalam pasukan.',
   'about.contactTitle': 'Hubungi kami',
+  'about.intro':
+    '{{app}} ialah meja kerja ujian API yang pantas dan asli papan kekunci untuk jurutera yang hidup dalam terminal — permintaan gaya Postman, koleksi, persekitaran dan sejarah tanpa beban berlebihan.',
+  'about.missionBody':
+    'API ialah tulang belakang perisian moden, tetapi alat untuk mengujinya lambat, berat dan bergantung pada tetikus. {{app}} wujud untuk memberi pembangun meja kerja yang tajam, pantas dan bertaraf terminal: hantar permintaan, bina keyakinan, dan hantar tanpa meninggalkan papan kekunci.',
+  'about.missionTitle': 'Misi kami',
   'about.pageTitle': 'Perihal {{app}}',
   'authShell.statusLabel': 'runners dalam talian',
   'collections.createError': 'Koleksi tidak dapat dibuat.',
   'collections.defaultName': 'Koleksi tanpa nama {{n}}',
+  'collections.empty':
+    'Belum ada koleksi — klik “Koleksi baharu” untuk mencipta folder pertama anda.',
   'collections.eyebrow': '$ pylon collections --tree',
   'collections.fetchError': 'Koleksi tidak dapat dimuatkan.',
   'collections.heading': 'Koleksi',
   'collections.loading': 'Memuatkan koleksi…',
+  'collections.metric.allGreen': 'Semua lulus',
   'collections.metric.collections': 'Koleksi',
   'collections.metric.failing': 'Gagal',
   'collections.metric.failingCaption': 'Jalankan terakhir mempunyai ralat',
@@ -24,6 +34,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Pemboleh ubah',
   'environments.createError': 'Persekitaran tidak dapat dibuat.',
   'environments.defaultName': 'Persekitaran tanpa nama {{n}}',
+  'environments.empty': 'Belum ada persekitaran — klik “Persekitaran baharu” untuk menambah satu.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'Persekitaran tidak dapat dimuatkan.',
   'environments.heading': 'Persekitaran',
@@ -31,8 +42,11 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Persekitaran baharu',
   'environments.subheading':
     'Pemboleh ubah yang digantikan ke dalam permintaan semasa penghantaran. Satu persekitaran aktif setiap ruang kerja.',
+  'forgotPassword.statusLabel': 'tetapkan semula · terowong selamat',
   'forgotPassword.success':
     'Jika akaun wujud untuk e-mel tersebut, pautan tetapan semula sedang dalam perjalanan. Semak peti masuk anda.',
+  'history.empty':
+    'Belum ada apa-apa di sini — hantar permintaan pertama anda dari tab Ruang Kerja.',
   'history.eyebrow': '$ pylon history --tail',
   'history.fetchError': 'Sejarah tidak dapat dimuatkan.',
   'history.heading': 'Sejarah jalankan',
@@ -41,9 +55,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': '50 terakhir',
+  'history.realtime': 'masa nyata',
   'history.subheading':
     'Setiap permintaan yang dihantar dalam ruang kerja ini, dengan status, kependaman, dan saiz payload.',
   'landing.choosePlan': 'Pilih pelan',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Bina keyakinan.',
   'landing.ctaBody':
     'Tanpa kad kredit. Tiada jurutera platform diperlukan. Buka ⌘K dan hantar permintaan pertama anda dalam masa kurang dari lima minit.',
   'landing.ctaHeading': 'Bina keyakinan.',
@@ -85,6 +101,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Kependaman purata',
   'mocks.metric.live': 'Awam',
   'mocks.metric.servers': 'Mock',
+  'mocks.ms': 'ms',
   'mocks.newMock': 'Mock baharu',
   'mocks.online': 'Awam',
   'mocks.paused': 'Peribadi',
@@ -108,9 +125,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Sihat',
   'monitors.metric.uptime': 'Purata masa aktif',
   'monitors.newMonitor': 'Monitor baharu',
+  'monitors.paused': 'dijeda',
   'monitors.run': 'Jalankan',
   'monitors.runError': 'Jalankan selesai dengan ralat rangkaian: {{error}}',
+  'monitors.runFailed': 'Jalan gagal.',
   'monitors.running': 'Berjalan…',
+  'monitors.runSuccess': 'Jalan {{status}} — huluan memulangkan {{code}} dalam {{ms}}ms.',
   'monitors.sparkLabel': 'Trend kependaman',
   'monitors.subheading':
     'Semakan atas permintaan untuk mana-mana ujian tersimpan. Ikat ujian, tekan Jalankan, dan lihat kadar kejayaan 24 jam dikemas kini dengan setiap pencetus.',
@@ -119,28 +139,56 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Masa aktif · 24j',
   'nav.legal': 'Undang-undang',
   'notFound.backToWorkspace': 'Kembali ke ruang kerja',
+  'notFound.body':
+    '{{app}} menghantar permintaan untuk URL ini dan tidak menerima apa-apa balasan. Semak semula laluan atau kembali ke ruang kerja.',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Laluan tidak dijumpai',
+  'planUpdated.body':
+    'Perubahan bil anda kini aktif. Anda boleh urus pelan anda bila-bila masa dari halaman bil.',
+  'planUpdated.retry': 'Cuba lagi',
+  'planUpdated.verifyFailed': 'Kami belum dapat mengesahkan pembayaran anda.',
+  'planUpdated.verifyFailedBody':
+    'Pembayaran anda mungkin masih diproses. Cuba lagi sebentar lagi.',
   'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
+  'pricing.advancedFeatures': 'Ciri lanjutan: {{yes}}',
+  'pricing.canExport': 'Eksport data: {{yes}}',
+  'pricing.heading': 'Pilih pelan {{app}} anda',
+  'pricing.maxCollections': '{{count}} koleksi',
+  'pricing.maxEnvironments': '{{count}} persekitaran',
+  'pricing.maxHistory': '{{count}} entri sejarah',
+  'pricing.maxRequests': '{{count}} permintaan',
   'privacy.collect.account':
     'Akaun: e-mel anda, kata laluan berhash, nama paparan, dan cap masa log masuk terakhir anda.',
+  'privacy.intro':
+    '{{app}} menghormati privasi anda. Halaman ini merumuskan data yang kami kumpul, sebab kami mengumpulnya, dan cara untuk memadamnya.',
   'privacy.rights.body':
     'Anda boleh mengeksport koleksi dan persekitaran anda pada bila-bila masa, atau memadam akaun anda dari Tetapan untuk memadamkan semua data secara kekal dalam masa 30 hari.',
   'privacy.share.body':
     'Hanya anda. Kami tidak pernah menjual, berkongsi, atau menyewa kandungan ruang kerja anda kepada pihak ketiga. Log pelayan disimpan selama 30 hari untuk tindak balas insiden dan kemudian dipadamkan.',
   'privacy.title': 'Notis privasi',
+  'profile.bio':
+    'Ruang kerja peribadi {{app}} anda — sematkan koleksi, kongsi persekitaran dan pantau API yang menghantar produk.',
   'profile.eyebrow': '@{{handle}}',
   'profile.joined': 'menyertai {{when}}',
+  'profile.metric.collections': 'Koleksi',
   'profile.metric.monitors': 'Monitor',
   'profile.metric.requests': 'Permintaan tersimpan',
+  'profile.noActivity':
+    'Belum ada permintaan dihantar — pergi ke tab Ruang Kerja untuk menghantar satu.',
   'profile.signedOut': 'Log masuk untuk melihat profil anda',
   'pylonShell.primaryNavLabel': 'Navigasi utama',
+  'resetPassword.passwordLabel': 'Kata laluan baharu',
+  'resetPassword.statusLabel': 'tetapkan semula · token disahkan',
   'resetPassword.subtitle':
     'Pilih kata laluan yang kuat yang belum pernah anda gunakan sebelum ini.',
   'resetPassword.tokenPlaceholder': 'tampal dari e-mel',
+  'settings.accountManagement.desc':
+    'Kemas kini e-mel dan kata laluan anda, urus pemberitahuan dan peranti, log keluar, atau padam akaun anda.',
+  'settings.accountManagement.title': 'Akaun & keselamatan',
   'settings.eyebrow': '$ pylon settings --edit',
   'settings.fetchError': 'Tetapan tidak dapat dimuatkan.',
   'settings.language.title': 'Bahasa',
+  'settings.seeding': 'Menyemai…',
   'settings.seedStarter': 'Isi kandungan permulaan',
   'settings.starterCollection': 'Koleksi permulaan',
   'settings.starterCollectionDesc': 'Dibuat dari Tetapan pada {{ts}}',
@@ -154,6 +202,8 @@ export const ui: UiTranslations = {
     'Anda bertanggungjawab untuk melindungi kata laluan anda. Berkongsi satu akaun dengan berbilang individu tidak dibenarkan dalam pelan Free atau Pro — beli langganan Team untuk ruang kerja dikongsi.',
   'terms.billing.body':
     'Langganan berbayar diperbaharui secara automatik setiap tempoh pengebilan. Batalkan dari Tetapan pada bila-bila masa; akses anda berterusan hingga akhir tempoh semasa.',
+  'terms.intro':
+    'Dengan mencipta akaun {{app}} anda bersetuju dengan terma di bawah. Baca sekali; kami tidak akan mengejutkan anda dengan perubahan retroaktif.',
   'terms.title': 'Terma perkhidmatan',
   'terms.usage.body':
     'Jangan gunakan Pylon untuk menghantar permintaan ke perkhidmatan yang bukan milik anda atau yang anda tidak mempunyai kebenaran eksplisit untuk diuji. Jangan gunakan Pylon untuk memintas had kadar atau melakukan penipuan.',
@@ -174,16 +224,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Belum dijalankan',
   'testRunner.metric.passed': 'Lulus',
   'testRunner.never': 'Tidak pernah dijalankan',
+  'testRunner.newTest': 'Ujian baharu',
   'testRunner.noAssertions': 'Tiada penegasan pada ujian ini lagi.',
+  'testRunner.noRunsYet':
+    'Belum ada jalan direkodkan — tekan “Jalankan semua” untuk mengisi sejarah.',
   'testRunner.passed': 'lulus',
+  'testRunner.recentRuns': 'Jalankan terkini',
   'testRunner.runAll': 'Jalankan semua',
   'testRunner.running': 'Menjalankan…',
   'testRunner.runOne': 'Jalankan',
   'testRunner.subheading': 'Keputusan suite, perbezaan penegasan, dan 50 jalankan terakhir.',
+  'testRunner.suites': 'Suite',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Log masuk sebagai',
   'workspace.auth.keyName': 'Nama pengepala',
   'workspace.auth.keyValue': 'Nilai utama',
+  'workspace.auth.noneHint': 'Tiada pengepala kebenaran akan dihantar dengan permintaan ini.',
   'workspace.auth.password': 'Kata laluan',
   'workspace.auth.username': 'Nama pengguna',
   'workspace.authOption.apikey': 'Kunci API',
@@ -193,13 +249,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Jenis',
   'workspace.authTypeLabel': 'Jenis pengesahan',
+  'workspace.body.contentLabel': 'Request body',
+  'workspace.body.hint':
+    '{{envVars}} digantikan sebelum permintaan dihantar. Badan dihantar pada POST/PUT/PATCH/DELETE.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Tiada',
+  'workspace.body.noneHint':
+    'Tiada badan permintaan akan dihantar. Pilih JSON atau teks mentah untuk menambah satu.',
   'workspace.body.text': 'Teks mentah',
   'workspace.body.type': 'Jenis',
   'workspace.environment': 'Tiada persekitaran',
   'workspace.envVar': 'pemboleh ubah persekitaran',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.failedCount': '{{count}} gagal',
+  'workspace.idle': 'Tidak aktif',
   'workspace.kv.addHeader': 'Tambah pengepala',
   'workspace.kv.addParam': 'Tambah parameter',
   'workspace.kv.headerKey': 'Nama pengepala',
@@ -212,12 +275,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP method',
   'workspace.metric.latency': 'Kependaman',
   'workspace.metric.latencyCaption': 'Perjalanan dua hala dari jalankan ini',
+  'workspace.metric.size': 'Muatan',
   'workspace.metric.sizeCaption': 'Bait response body',
   'workspace.metric.statusCaption': 'Response terakhir',
   'workspace.metric.tests': 'Ujian',
+  'workspace.metric.testsAllPassing': 'Semua penegasan lulus',
   'workspace.metric.testsFailing': '{{count}} gagal',
+  'workspace.metric.testsIdle': 'Hantar permintaan untuk menilai',
   'workspace.noAssertions': 'Jalankan permintaan untuk menilai penegasan terbina dalam.',
   'workspace.noResponseYet': 'Belum ada response',
+  'workspace.passedCount': '{{count}} lulus',
   'workspace.responseHint': '// Tekan Hantar untuk menjalankan permintaan dan merakam response.',
   'workspace.saveError': 'Permintaan tidak dapat disimpan.',
   'workspace.statusError': 'Permintaan tidak dapat dihantar.',
@@ -226,10 +293,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Susun permintaan, hantarnya, dan sahkan response — semuanya dalam satu panel.',
   'workspace.testResults': 'Keputusan ujian',
+  'workspace.tests.autoHint':
+    'Keluarga status, kependaman, saiz badan dan kesihatan pengangkutan ditegaskan secara automatik — keputusan muncul di bawah “Keputusan ujian” dalam panel respons.',
+  'workspace.tests.autoTitle': 'Penegasan terbina dalam dijalankan pada setiap respons',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Dihantar sebagai Authorization: Bearer <token> pada setiap permintaan dalam koleksi ini.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Permintaan tanpa nama',
+  'workspace.urlLabel': 'URL permintaan',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

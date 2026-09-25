@@ -1,12 +1,33 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ceisteanna faoi áirithint, aiseolas, nó maoin ar cheart duit a bheith ar {{app}}? Déan teagmháil lenár bhfoireann ó do chuntas — téann gach teachtaireacht chuig fíorduine atá in ann cabhrú.',
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Fúinn',
+  'about.featureLoyalty':
+    'Rátaí do bhaill amháin agus clár dílseachta a thuilleann pointí, seiceáil amach déanach, agus uasghrádú seomraí ar gach áirithint.',
+  'about.featureReviews':
+    'Léirmheasanna fíoraithe ó aíonna agus roghanna eagarthóireachta ionas gur féidir leat muinín a bheith agat as an bhfanacht sula dtagann tú.',
+  'about.featureRooms':
+    'Seomraí, rátaí agus áiseanna taobh le taobh le praghsáil thrédhearcach uilechuimsitheach — cáin agus táillí saoire san áireamh sula n-íocann tú.',
+  'about.featureSearch':
+    'Cuardach fíor-ama ar fud óstáin fhíoraithe le hinfhaighteacht bheo, amharc léarscáile, agus gailearaithe grianghraf saibhre.',
+  'about.featureTrips':
+    'Roghanna is fearr leat sábháilte agus deais Trips a choinníonn gach áirithint, clár ama agus dearbhú in aon áit amháin.',
+  'about.intro':
+    'Is ardán áirithinte óstáin é {{app}} do thaistealaithe a bhfuil cúram orthu faoi cháilíocht. Déanann ár bhfoireann eagarthóireachta gach maoin a fhíorú go pearsanta — níl aon fhardal comhiomlánaithe ann, níl aon liostaí baoite-agus-athraithe ann. Cuardaigh fíorfháil, déan comparáid idir seomraí, rátaí agus áiseanna taobh le taobh, ansin déan áirithint i gcúpla tap le praghas soiléir uilechuimsitheach.',
+  'about.missionBody':
+    "Ba cheart go mbraithfeadh áirithint áite le fanacht go socair agus go macánta. Taispeánaimid rátaí trédhearcacha le cánacha agus táillí saoire roimh ré, tugaimid luach saothair d'aíonna dílis in ionad iad a chrá, agus cuirimid na fanachtaí is fiú do chuid airgid ar dtús — ionas gur féidir leat níos lú ama a chaitheamh ag comparáid cluaisíní agus níos mó ama ar an turas féin.",
+  'about.missionTitle': 'Ár misean',
+  'about.subtitle':
+    'Bealach coimeádaithe, trédhearcach chun an t-óstán ceart a aimsiú agus a chur in áirithe.',
   'account.loyalty.activitySummary': '{{nights}} oícheanta · {{spend}} caite i mbliana',
+  'account.loyalty.benefitsHeading': 'Do shochair',
   'account.loyalty.heading': 'Dílseacht',
   'account.loyalty.loading': 'Dílseacht á lódáil…',
-  'account.loyalty.pointsTowardNext':
-    '{{pointí}} / {{ar aghaidh}} pointí chuig {{an chéad Sraith eile}}',
+  'account.loyalty.maxTier': 'An tsraith is airde — bain sult as do shochair.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} pointe go {{nextTier}}',
   'account.loyalty.tier': 'An leibhéal reatha',
   'account.loyalty.unavailable': 'Níl faisnéis dhílseachta ar fáil.',
   'account.navLabel': 'Rannóga cuntais',
@@ -24,6 +45,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.datesRequired':
     'Roghnaigh do dhátaí seiceáil isteach agus seiceáil amach le do thoil.',
   'bookingCheckout.guestHeading': 'Príomh-aoi',
+  'bookingCheckout.heading': 'Deimhnigh agus cuir in áirithe',
   'bookingCheckout.loadError': 'Theip ar an maoin a lódáil.',
   'bookingCheckout.nights': '{{rate}} × {{count}} oícheanta',
   'bookingCheckout.notFound': 'Níor aimsíodh an mhaoin.',
@@ -34,11 +56,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Cánacha & táillí',
   'bookingCheckout.tripHeading': 'Do thuras',
   'bookingConfirmation.allTripsCta': 'Gach turas',
+  'bookingConfirmation.confNumber': 'Uimhir dearbhaithe: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Tá do chur in áirithe á phróiseáil.',
   'bookingConfirmation.heading': 'Áirithint deimhnithe',
   'bookingConfirmation.loading': 'Ag lódáil d’áirithint…',
   'bookingConfirmation.searchMoreCta': 'Brabhsáil tuilleadh fanachta',
   'bookingConfirmation.subheadingForTrip':
-    '{{maoin}} i {{cathair}} , {{tír}} Feicfimid sibh ar {{seiceáil Isteach}} .',
+    '{{property}} i {{city}}, {{country}}. Feicfimid thú ar {{checkIn}}.',
   'bookingConfirmation.total': 'Iomlán {{total}}',
   'bookingConfirmation.viewTripCta': 'Féach ar an turas',
   'common.goToDashboard': 'Téigh chuig an Deais',
@@ -48,6 +73,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Theip ar luchtú na bhfear is ansa leat.',
   'favorites.pricePerNight': '{{price}} / oíche',
   'favorites.removeCta': 'Díshábháil',
+  'favorites.removing': 'Ag baint…',
   'forgotPassword.subheading':
     'Cuir isteach an seoladh ríomhphoist atá ar do chuntas agus cuirfimid nasc athshocraithe slán chugat.',
   'forgotPassword.successBody':
@@ -55,6 +81,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Baill Auberge',
   'landing.cta.heading': 'Rátaí do bhaill amháin. Gach áirithint, gach uair.',
   'landing.cta.signup': 'Cruthaigh cuntas saor in aisce',
+  'landing.cta.subheading':
+    'Tuill pointí dílseachta ar gach fanacht, díghlasáil seiceáil amach déanach agus uasghrádú seomraí, agus faigh rochtain tosaigh ar mhaoin nua sula liostaítear go poiblí iad.',
   'landing.destinations.eyebrow': 'Cá háit le dul ina dhiaidh seo',
   'landing.destinations.heading': 'Ceann scríbe roghnaithe',
   'landing.destinations.seeAll': 'Féach ar na cinn scríbe go léir',
@@ -63,13 +91,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Scéalta atá fiú a phacáil dóibh',
   'landing.nav.join': 'Bígí Linn i Auberge',
   'landing.nav.search': 'Cuardaigh fanachtaí',
+  'landing.preview.browseAll': 'Brabhsáil an bailiúchán iomlán',
   'landing.preview.eyebrow': 'Súil istigh',
   'landing.preview.heading': 'Fanachtaí roghnaithe go cúramach an mhí seo',
+  'landing.preview.subheading':
+    'Déanann ár bhfoireann eagarthóireachta gach maoin ar {{appName}} a fhíorú go pearsanta — níl aon fhardal comhiomlánaithe ann, níl aon liostaí baoite-agus-athraithe ann.',
   'login.eyebrow': 'Limistéar na mball',
+  'login.noAccount': 'Nua i dTessera?',
   'login.signupLink': 'Cruthaigh cuntas saor in aisce',
   'login.subheading':
     'Sínigh isteach chun do thurais a bhainistiú, dearbhuithe a fheiceáil, agus leanúint ar aghaidh san áit ar stop tú.',
+  'loyaltyTierBadge.points': '{{points}} pointí',
   'planUpdated.heading': 'Plean nuashonraithe',
+  'planUpdated.retry': 'Déan iarracht arís',
+  'planUpdated.verifyFailed': 'Ní raibh muid in ann d’íocaíocht a dheimhniú go fóill.',
+  'planUpdated.verifyFailedBody':
+    'B’fhéidir go bhfuil d’íocaíocht fós á próiseáil. Bain triail eile as i gceann nóiméid.',
   'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'pricing.limit.advancedFeatures': 'Gnéithe ardleibhéil:',
   'pricing.limit.canExport': 'Easpórtáil sonraí:',
@@ -81,7 +118,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Cad a thairgeann an áit seo',
   'propertyDetail.backLink': 'Ar ais chuig an gcuardach',
   'propertyDetail.bookCta': 'Cúlchiste',
+  'propertyDetail.bookmarkAria': 'Sábháil maoin',
   'propertyDetail.bookmarkAriaSaved': 'Bain de na hairíonna sábháilte',
+  'propertyDetail.galleryImageAlt': '{{name}} grianghraf {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} grianghraf laoch',
   'propertyDetail.hidePhotos': 'Folaigh grianghraif',
   'propertyDetail.lineCleaning': 'Táille glantacháin',
@@ -91,6 +130,9 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'oíche',
   'propertyDetail.noChargeYet': 'Ní ghearrfar táille ort fós',
   'propertyDetail.notFound': 'Níor aimsíodh an mhaoin.',
+  'propertyDetail.perNight': '/ oíche',
+  'propertyDetail.pickDatesHint':
+    'Roghnaigh do dhátaí chun an mhiondealú iomlán ar phraghas a fheiceáil.',
   'propertyDetail.reviewCount': '( {{count}} léirmheasanna)',
   'propertyDetail.reviewsHeading': 'Léirmheasanna le déanaí',
   'propertyDetail.roomCapacity': 'Codlaíonn {{count}}',
@@ -103,6 +145,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Pasfhocal nua',
   'resetPassword.subheading':
     'Roghnaigh pasfhocal nua do do chuntas Auberge. Bain úsáid as 8 gcarachtar ar a laghad; molaimid frása faire.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Níl aon mhaoin ag teacht le do chuardach.',
   'searchResults.emptyHint':
     'Bain triail as do scagairí a leathnú nó an uasteorainn praghais a bhaint — tá fanacht ag Auberge i 14 thír.',
@@ -110,19 +153,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Fanachtaí coimeádta',
   'searchResults.headingForQuery': 'Fanann ar feadh " {{q}} "',
   'searchResults.loadError': 'Theip ar lódáil na hairíonna.',
+  'searchResults.mapHint':
+    'Cuir an luiche ar chárta chun é a aibhsiú ar an léarscáil. Tíleanna Mapbox beo i dtáirgeadh.',
   'searchResults.mapPinAria': '{{name}} — {{price}} in aghaidh na hoíche',
   'searchResults.sortLabel': 'Sórtáil de réir',
   'searchResults.subheading': '{{count}} airíonna · {{guests}} aíonna',
   'signup.eyebrow': 'Bí i do bhall',
   'signup.subheading':
     'Bígí páirteach i Auberge chun rátaí do bhaill amháin, seiceáil amach déanach, agus rochtain den chéad uair ar mhaoine nua a dhíghlasáil.',
+  'sojournAuthShell.brand.eyebrow': 'Fan in áit éigin urghnách',
+  'sojournAuthShell.brand.heading':
+    'Bailiúchán coimeádaithe maoine — curtha i láthair go hálainn, praghsáilte go trédhearcach.',
   'sojournHeroSearchCard.checkInAria': 'Dáta seiceáil isteach',
   'sojournHeroSearchCard.checkOutAria': 'Dáta seiceáil amach',
+  'sojournHeroSearchCard.destAria': 'Ceann Scríbe',
+  'sojournHeroSearchCard.destLabel': 'Cá háit',
   'sojournHeroSearchCard.destPlaceholder': 'Cathair, réigiún, nó maoin',
   'sojournHeroSearchCard.eyebrow': 'Fanachtaí coimeádta · Rátaí do bhaill amháin',
   'sojournHeroSearchCard.guestsOption': '{{n}} aíonna',
   'sojournHeroSearchCard.subtitle':
     "Bailiúchán coimeádta d'óstáin bhuiticeacha, maoine atá chun tosaigh i ndearadh, agus ionaid saoire neamhchoitianta — praghsáilte go trédhearcach, curtha i láthair go hálainn.",
+  'sojournHeroSearchCard.title': 'Fan in áit éigin urghnách',
+  'sojournHeroSearchCard.trustLoyalty': 'Tuill pointí ar gach fanacht',
   'sojournHeroSearchCard.trustNoFees': 'Gan aon táillí i bhfolach, riamh',
   'sojournHeroSearchCard.trustVetted': 'Maoine atá grinnscrúdaithe de láimh amháin',
   'sojournLayout.primaryNavLabel': 'Príomh-loingseoireacht',

@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கருத்து உள்ளதா, பிழை கண்டீர்களா, அல்லது உங்கள் ஸ்டுடியோ அல்லது குழுவுக்கு {{app}} வேண்டுமா? உங்கள் கணக்கு அமைப்புகளிலிருந்து எங்களை அணுகவும் — ஒவ்வொரு செய்தியும் குழுவில் உள்ள ஒரு உண்மையான நபரையே சென்றடையும்.',
   'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
+  'about.intro':
+    '{{app}} என்பது எடிட்டர்கள், எழுத்தாளர்கள் மற்றும் குழுக்கள் நிகழ்நேரத்தில் ஒன்றாக வரைவு எழுதும் கூட்டு எழுத்து ஸ்டுடியோ. ஒரு ஆவணத்தைத் திறந்தால் பக்கம் பகிரப்பட்டதாகிவிடும் — கர்சர்கள் நகர்கின்றன, கருத்துகள் ஓரத்தில் தொடராக இணைகின்றன, ஒவ்வொரு திருத்தமும் வரலாற்றில் பாதுகாப்பாக வைக்கப்படுகிறது.',
+  'about.missionBody':
+    'நீண்ட வடிவ எழுத்துக்கு அமைதியான, கவனம் செலுத்தும் ஒரு இல்லம் தேவை என்று நாங்கள் நம்புகிறோம் — கூட்டம் அல்லது இன்பாக்ஸைச் சுற்றி அல்ல, கையெழுத்துப் பிரதியைச் சுற்றி கட்டப்பட்ட ஒன்று. எங்கள் எடிட்டர், நிகழ்நேர இருப்பு மற்றும் பதிப்பு வரலாறு அனைத்தும், எந்தக் கூட்டாளியும் ஒரு பத்தி அல்லது ஒரு எண்ணத்தையும் இழக்காமல் ஒன்றாக வேகமாக நகரும் வகையில் வடிவமைக்கப்பட்டுள்ளன.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
+  'about.subtitle': 'ஒன்றாகச் சிந்தியுங்கள், என்றென்றும் எழுதுங்கள்.',
   'about.title': '{{app}} பற்றி',
   'comments.addFailed': 'கருத்தைப் பதிவிட முடியவில்லை.',
   'comments.backToDoc': 'கையெழுத்துப் பிரதிக்குத் திரும்பு',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'கருத்து இழைகள்',
   'comments.loading': 'இழைகள் ஏற்றப்படுகின்றன…',
   'comments.newPlaceholder': 'கையெழுத்துப் பிரதியில் ஒரு கருத்தைச் சேர்க்கவும்…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'மீண்டும் திறக்கவும்',
   'comments.reopenFailed': 'மீண்டும் திறக்க முடியவில்லை.',
   'comments.replyFailed': 'பதிலை இடுகையிட முடியவில்லை.',
@@ -39,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'சமீபத்திய வரைவுகள், பகிரப்பட்ட படைப்புகள் மற்றும் அன்றைய திருத்தங்கள்.',
   'dashboard.viewFeed': 'ஊட்டம் →',
   'editor.back': 'கையெழுத்துப் பிரதிகளுக்குத் திரும்பு',
+  'editor.bodyLabel': 'ஆவணத்தின் உள்ளடக்கம்',
   'editor.bodyPlaceholder': 'சுட்டி ஒளிரும் இடத்திலிருந்து தொடங்கவும்.',
   'editor.comments': 'கருத்துகள்',
   'editor.createFailed': 'ஆவணத்தை உருவாக்க முடியவில்லை.',
@@ -64,13 +74,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'ஒரு கணக்கு இருந்தால் {{email}} மீட்டமைப்பு இணைப்பு விரைவில் அனுப்பப்படும்.',
+  'forgotPassword.sentHeading': 'உங்கள் மின்னஞ்சலைச் சரிபார்க்கவும்',
+  'forgotPassword.submitting': 'அனுப்புகிறது…',
   'forgotPassword.subtitle': 'மீட்டமைப்பு இணைப்பை உங்களுக்கு மின்னஞ்சல் செய்வோம்.',
   'landing.copyright': '{{year}} {{app}} . Molecule கொண்டு உருவாக்கப்பட்டது.',
+  'landing.ctaBody':
+    'தனி எழுத்தாளர்களுக்கு இலவசம். எடிட்டர்கள், மறைநூல் எழுத்தாளர்கள் மற்றும் மதிப்பாய்வாளர்கள் கொண்ட குழுக்களுக்கான ஸ்டுடியோ திட்டங்கள்.',
   'landing.ctaHeading': 'பக்கத்தைத் திறக்கவும். சுட்டியைத் தொடங்க விடுங்கள்.',
   'landing.ctaPrimary': 'ஒரு ஸ்டுடியோவைத் திறக்கவும்',
   'landing.eyebrow': 'எழுத்தாளர்கள், பதிப்பாசிரியர்கள் மற்றும் குழுக்களுக்கு',
   'landing.featuresEyebrow': 'நீங்கள் பெறுவது',
   'landing.featuresHeading': 'விரிவான வரைவுப் பணிகளுக்கான ஒரு ஸ்டுடியோ.',
+  'landing.featuresSubtitle':
+    '{{appName}} கையெழுத்துப் பிரதியைச் சுற்றியே கட்டப்பட்டுள்ளது — கூட்டத்தைச் சுற்றி அல்ல, இன்பாக்ஸைச் சுற்றி அல்ல.',
   'landing.getStarted': 'ஸ்டுடியோவைத் திறக்கவும்',
   'landing.heroCta': 'எழுதத் தொடங்குங்கள்',
   'landing.heroSubtitle':
@@ -97,6 +113,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} படிக்கப்படாதவை · கருத்துகள், குறிப்புகள், பகிர்வு அழைப்புகள் மற்றும் பரிந்துரைக் கோரிக்கைகள்.',
   'presenceAvatars.label': '{{count}} கூட்டாளிகள்',
+  'privacy.intro': 'உங்கள் தகவலை நாங்கள் எவ்வாறு சேகரிக்கிறோம், பயன்படுத்துகிறோம், பாதுகாக்கிறோம்.',
   'privacy.title': 'தனியுரிமைக் கொள்கை',
   'profile.about.description':
     'உங்கள் பொது சுயவிவரம் மற்றும் பங்களிப்பாளர் பக்கங்களுக்கான ஒரு சிறு சுயவிவரம்.',
@@ -110,7 +127,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'இருப்பு',
   'profile.pronouns': 'பிரதிப்பெயர்கள்',
   'profile.publicToggle': 'சக வீரர்களுக்கு சுயவிவரத்தைக் காட்டுங்கள்',
+  'profile.role': 'பங்கு / பதவி',
   'profile.subtitle': 'உங்கள் சக ஊழியர்களுக்கு நீங்கள் எப்படித் தெரிகிறீர்கள்.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} ஸ்டுடியோவில் செயல்படும் எழுத்தாளர்கள்',
   'quillonAuthBrandPanel.quote':
     'நான் எழுதும்போது, வேறு ஏதாவது செய்துகொண்டிருக்க வேண்டும் என்றே தோன்றாத ஒரே விஷயம் எழுதுவதுதான்.',
@@ -118,6 +137,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'திற →',
   'quillonKpiCard.trend': 'சமீபத்திய போக்கு',
   'quillonLayout.menu': 'மெனு',
+  'quillonLayout.mobileNavLabel': 'மொபைல் வழிசெலுத்தல்',
   'quillonLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'quillonStudioHero.collab': 'ஒத்துழைப்பாளர்கள்',
   'quillonStudioHero.docs': 'ஆவணங்கள் தொடப்பட்டன',
@@ -127,7 +147,9 @@ export const ui: UiTranslations = {
     'கையெழுத்துப் பிரதியை எடுத்து, ஒரு கருத்தைப் பதிவிட்டு, ஒரு பத்தியை முன்னோக்கி நகர்த்துங்கள்.',
   'quillonStudioHero.words': 'இன்றைய வார்த்தைகள்',
   'resetPassword.confirmPlaceholder': 'புதிய கடவுச்சொல்லை மீண்டும் உள்ளிடவும்',
+  'resetPassword.passwordLabel': 'புதிய கடவுச்சொல்',
   'resetPassword.passwordPlaceholder': 'புதிய கடவுச்சொல்லை உள்ளிடவும்',
+  'resetPassword.submitting': 'மீட்டமைத்தல்',
   'resetPassword.subtitle':
     'வலிமையான கடவுச்சொல்லைத் தேர்ந்தெடுக்கவும் — குறைந்தபட்சம் 12 எழுத்துக்கள் கொண்டதாக இருக்க வேண்டும்.',
   'settings.account.description': 'நீங்கள் உள்நுழையும் முறை.',
@@ -138,7 +160,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'உள்ளமைக்கப்படவில்லை',
   'settings.billing.updated': 'திட்டம் புதுப்பிக்கப்பட்டது.',
   'settings.editor.description': 'நீங்கள் எழுதும் போது கேன்வாஸ் எவ்வாறு செயல்படுகிறது.',
+  'settings.editor.title': 'ஆசிரியர் கட்டுப்பாடுகள்',
   'settings.eyebrow': 'ஸ்டுடியோ பக்கங்கள்',
+  'settings.language.title': 'மொழி',
   'settings.notifications.${n.key}.description': 'மொழி',
   'settings.notifications.description': 'உங்கள் இன்பாக்ஸிற்கு வர வேண்டியவற்றைத் தேர்ந்தெடுக்கவும்.',
   'settings.subtitle':
@@ -149,6 +173,7 @@ export const ui: UiTranslations = {
   'shared.loadFailed': 'பகிரப்பட்ட ஆவணங்களை ஏற்ற முடியவில்லை.',
   'shared.subtitle':
     'ஸ்டுடியோவின் மற்ற பகுதிகளிலிருந்து பெறப்பட்ட கையெழுத்துப் பிரதிகள், சுருக்கங்கள் மற்றும் குறிப்புகள்.',
+  'signup.brandAttribution': 'Anaïs Park — எடிட்டர், The Quarterly',
   'signup.brandQuote':
     '“உங்கள் முதல் கையெழுத்துப் பிரதிதான் மிகவும் கடினமானது. குவிலான் அதன் தனிமையைக் குறைக்கிறது.”',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -156,6 +181,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'அனாய்ஸ்',
   'signup.heading': 'உங்கள் குவிலான் கணக்கை உருவாக்கவும்',
   'signup.lastNamePlaceholder': 'பூங்கா',
+  'signup.submitting': 'உங்கள் ஸ்டுடியோவைத் திறக்கிறது\\u2026',
   'signup.subtitle':
     'அமைதியான மேசை, இணக்கமான சக பணியாளர்கள், மற்றும் உங்கள் வழியில் குறுக்கிடாத ஒரு விரிவான பதிப்பாசிரியர்.',
   'templates.blank.subtitle': 'ஒரு சுத்தமான பக்கம். சுட்டி தொடங்குகிறது.',
@@ -169,11 +195,13 @@ export const ui: UiTranslations = {
     'சிந்தனைமிக்க ஒரு கட்டமைப்போடு தொடங்குங்கள். வரம்பின்றி மாற்றியமைத்துக் கொள்ளுங்கள்.',
   'templates.useFailed': 'இந்த வார்ப்புருவிலிருந்து ஒரு ஆவணத்தைத் தொடங்க முடியவில்லை.',
   'templates.useTemplate': 'இந்த வார்ப்புருவைப் பயன்படுத்தவும்',
+  'terms.intro': 'இந்தச் சேவையை நீங்கள் பயன்படுத்தக்கூடிய நிபந்தனைகள்.',
   'terms.title': 'சேவை விதிமுறைகள்',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'இப்போதே',
   'trash.confirmDelete': 'நீக்குவதை உறுதிப்படுத்துக',
+  'trash.confirmEmpty': 'உறுதிப்படுத்து — அனைத்தையும் நீக்கு',
   'trash.deleteFailed': 'நீக்க முடியவில்லை.',
   'trash.deleteForever': 'நிரந்தரமாக நீக்கு',
   'trash.empty': 'மீட்க எதுவும் இல்லை.',
@@ -189,7 +217,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'இன்னும் திருத்தங்கள் எதுவும் இல்லை — அதன் வரலாற்றைத் தொடங்க ஆவணத்தைச் சேமிக்கவும்.',
   'versionHistory.heading': 'பதிப்பு வரலாறு',
+  'versionHistory.latest': 'சமீபத்திய',
   'versionHistory.loadFailed': 'வரலாற்றை ஏற்ற முடியவில்லை.',
+  'versionHistory.noContent': 'இந்தத் திருத்தத்திற்கு எந்த உள்ளடக்கமும் பதிவு செய்யப்படவில்லை.',
   'versionHistory.previewing': 'முன்னோட்டம்',
   'versionHistory.restore': 'இந்தப் பதிப்பை மீட்டமைக்கவும்',
   'versionHistory.restoreFailed': 'மீட்டெடுப்பு தோல்வியடைந்தது.',

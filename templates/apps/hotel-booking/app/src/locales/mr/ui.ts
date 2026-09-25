@@ -1,10 +1,31 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'बुकिंग, अभिप्राय किंवा {{app}} वर असावे अशी वाटणारी मालमत्ता याबद्दल प्रश्न आहेत? तुमच्या खात्यातून आमच्या टीमपर्यंत पोहोचा — प्रत्येक संदेश मदत करू शकणाऱ्या खऱ्या माणसापर्यंत जातो.',
+  'about.contactTitle': 'आमच्याशी संपर्क साधा',
   'about.eyebrow': 'आमच्याबद्दल',
+  'about.featureLoyalty':
+    'फक्त सदस्यांसाठीचे दर आणि प्रत्येक बुकिंगवर पॉइंट्स, उशिरा चेकआउट आणि रूम अपग्रेड मिळवून देणारा लॉयल्टी कार्यक्रम.',
+  'about.featureReviews':
+    'सत्यापित पाहुण्यांचे अभिप्राय आणि संपादकीय निवडी, जेणेकरून तुम्ही पोहोचण्यापूर्वीच मुक्कामावर विश्वास ठेवू शकाल.',
+  'about.featureRooms':
+    'शेजारी-शेजारी खोल्या, दर आणि सुविधा — पारदर्शक, सर्वसमावेशक किंमतीसह; तुम्ही पैसे देण्यापूर्वीच कर आणि रिसॉर्ट शुल्क समाविष्ट.',
+  'about.featureSearch':
+    'तपासलेल्या हॉटेल्समध्ये रिअल-टाइम शोध, थेट उपलब्धता, नकाशा दृश्य आणि समृद्ध फोटो गॅलरी.',
+  'about.featureTrips':
+    'जतन केलेली आवडती आणि Trips डॅशबोर्ड, जो प्रत्येक आरक्षण, प्रवास कार्यक्रम आणि पुष्टी एकाच ठिकाणी ठेवतो.',
+  'about.intro':
+    '{{app}} हे गुणवत्तेची काळजी घेणाऱ्या प्रवाशांसाठी हॉटेल-बुकिंग प्लॅटफॉर्म आहे. प्रत्येक मालमत्ता आमच्या संपादकीय टीमकडून वैयक्तिकरित्या तपासली जाते — कोणताही अॅग्रिगेटर साठा नाही, कोणत्याही फसव्या याद्या नाहीत. खरी उपलब्धता शोधा, खोल्या, दर आणि सुविधा शेजारी-शेजारी तुलना करा, मग स्पष्ट, सर्वसमावेशक किंमतीत काही टॅपमध्ये बुक करा.',
+  'about.missionBody':
+    'मुक्कामाची जागा बुक करणे शांत आणि प्रामाणिक वाटले पाहिजे. आम्ही कर आणि रिसॉर्ट शुल्कासह पारदर्शक दर आधीच दाखवतो, निष्ठावान पाहुण्यांना पैसे उकळण्याऐवजी बक्षीस देतो आणि तुमच्या पैशाला योग्य असे मुक्काम प्रथम ठेवतो — जेणेकरून तुम्ही टॅब तुलना करण्यात कमी आणि प्रवासातच जास्त वेळ घालवाल.',
+  'about.missionTitle': 'आमचे ध्येय',
+  'about.subtitle': 'योग्य हॉटेल शोधण्याचा आणि बुक करण्याचा निवडक, पारदर्शक मार्ग.',
+  'account.loyalty.benefitsHeading': 'तुमचे फायदे',
   'account.loyalty.heading': 'निष्ठा',
   'account.loyalty.loading': 'लॉयल्टी लोड होत आहे…',
-  'account.loyalty.pointsTowardNext': '{{points}} / पुढील मुद्दे {{पुढील स्तर}}',
+  'account.loyalty.maxTier': 'सर्वोच्च स्तर — तुमच्या फायद्यांचा आनंद घ्या.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} पॉइंट्स ते {{nextTier}}',
   'account.loyalty.tier': 'वर्तमान स्तर',
   'account.loyalty.unavailable': 'लॉयल्टीची माहिती उपलब्ध नाही.',
   'account.navLabel': 'खाते विभाग',
@@ -21,6 +42,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'बुकिंगची पुष्टी करा · {{total}}',
   'bookingCheckout.datesRequired': 'कृपया तुमच्या चेक-इन आणि चेक-आउटच्या तारखा निवडा.',
   'bookingCheckout.guestHeading': 'प्रमुख पाहुणे',
+  'bookingCheckout.heading': 'पुष्टी करा आणि बुक करा',
   'bookingCheckout.loadError': 'प्रॉपर्टी लोड करण्यात अयशस्वी झाले.',
   'bookingCheckout.nights': '{{rate}} × {{count}} रात्री',
   'bookingCheckout.notFound': 'मालमत्ता सापडली नाही.',
@@ -31,11 +53,15 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'कर आणि शुल्क',
   'bookingCheckout.tripHeading': 'तुमचा प्रवास',
   'bookingConfirmation.allTripsCta': 'सर्व सहली',
+  'bookingConfirmation.confNumber': 'पुष्टी क्रमांक: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'तुमचे आरक्षण प्रक्रियेत आहे.',
   'bookingConfirmation.heading': 'बुकिंगची पुष्टी झाली आहे',
   'bookingConfirmation.loading': 'तुमचे आरक्षण लोड होत आहे…',
   'bookingConfirmation.searchMoreCta': 'अधिक निवास व्यवस्था शोधा',
   'bookingConfirmation.subheadingForTrip':
-    '{{property}} मध्ये शहर , {{देश}} आपण भेटूया {{चेकइन}} ...',
+    '{{property}} मध्ये {{city}}, {{country}}. आम्ही तुम्हाला {{checkIn}} रोजी भेटू.',
+  'bookingConfirmation.total': 'एकूण {{total}}',
   'bookingConfirmation.viewTripCta': 'सहल पहा',
   'common.goToDashboard': 'डॅशबोर्डवर जा',
   'destinationDiscoveryCard.exploreCta': 'निवासस्थाने शोधा',
@@ -44,6 +70,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'आवडीचे लोड करण्यात अयशस्वी झाले.',
   'favorites.pricePerNight': '{{price}} / रात्र',
   'favorites.removeCta': 'जतन रद्द करा',
+  'favorites.removing': 'काढून टाकत आहे…',
   'forgotPassword.subheading':
     'तुमच्या खात्यामधील ईमेल प्रविष्ट करा आणि आम्ही तुम्हाला एक सुरक्षित रीसेट लिंक पाठवू.',
   'forgotPassword.successBody':
@@ -51,6 +78,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'सोजर्न सदस्य',
   'landing.cta.heading': 'सदस्यांसाठी विशेष दर. प्रत्येक बुकिंगसाठी, प्रत्येक वेळी.',
   'landing.cta.signup': 'मोफत खाते तयार करा',
+  'landing.cta.subheading':
+    'प्रत्येक मुक्कामावर लॉयल्टी पॉइंट्स मिळवा, लेट चेकआउट आणि रूम अपग्रेड अनलॉक करा, आणि नवीन प्रॉपर्टी सार्वजनिकपणे सूचीबद्ध होण्यापूर्वी त्यांना प्रथम प्रवेश मिळवा.',
   'landing.destinations.eyebrow': 'पुढे कुठे जायचे?',
   'landing.destinations.heading': 'प्रमुख स्थळे',
   'landing.destinations.seeAll': 'सर्व ठिकाणे पहा',
@@ -59,13 +88,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'प्रवास करण्यासारख्या कथा',
   'landing.nav.join': 'सोजर्नमध्ये सामील व्हा',
   'landing.nav.search': 'शोध चालू राहतो',
+  'landing.preview.browseAll': 'संपूर्ण संग्रह पहा',
   'landing.preview.eyebrow': 'आत एक नजर',
   'landing.preview.heading': 'या महिन्यातील खास निवास व्यवस्था',
+  'landing.preview.subheading':
+    '{{appName}} वरील प्रत्येक प्रॉपर्टी आमच्या संपादकीय टीमद्वारे वैयक्तिकरित्या तपासली जाते — कोणताही अ‍ॅग्रिगेटर साठा नाही, कोणत्याही फसव्या याद्या नाहीत.',
   'login.eyebrow': 'सदस्यांचे क्षेत्र',
+  'login.noAccount': 'तुम्ही टेसेरासाठी नवीन आहात का?',
   'login.signupLink': 'मोफत खाते तयार करा',
   'login.subheading':
     'तुमच्या सहलींचे व्यवस्थापन करण्यासाठी, निश्चिती पाहण्यासाठी आणि जिथे सोडले होते तिथून पुढे सुरू करण्यासाठी साइन इन करा.',
+  'loyaltyTierBadge.points': '{{points}} गुण',
   'planUpdated.heading': 'योजना अद्ययावत केली.',
+  'planUpdated.retry': 'पुन्हा प्रयत्न करा',
+  'planUpdated.verifyFailed': 'आम्ही अद्याप तुमच्या पेमेंटची पुष्टी करू शकलो नाही.',
+  'planUpdated.verifyFailedBody':
+    'तुमच्या पेमेंटवर अजूनही प्रक्रिया सुरू असू शकते. थोड्या वेळाने पुन्हा प्रयत्न करा.',
   'planUpdated.verifying': 'तुमच्या पेमेंटची पुष्टी करत आहे…',
   'pricing.limit.advancedFeatures': 'प्रगत वैशिष्ट्ये:',
   'pricing.limit.canExport': 'डेटा निर्यात:',
@@ -77,7 +115,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'हे ठिकाण काय देते',
   'propertyDetail.backLink': 'शोधाकडे परत जा',
   'propertyDetail.bookCta': 'राखीव',
+  'propertyDetail.bookmarkAria': 'मालमत्ता जतन करा',
   'propertyDetail.bookmarkAriaSaved': 'जतन केलेल्या गुणधर्मांमधून काढून टाका',
+  'propertyDetail.galleryImageAlt': '{{name}} फोटो {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} नायकाचा फोटो',
   'propertyDetail.hidePhotos': 'फोटो लपवा',
   'propertyDetail.lineCleaning': 'स्वच्छता शुल्क',
@@ -87,6 +127,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'रात्री',
   'propertyDetail.noChargeYet': 'तुमच्याकडून अद्याप शुल्क आकारले जाणार नाही.',
   'propertyDetail.notFound': 'मालमत्ता सापडली नाही.',
+  'propertyDetail.perNight': '/ रात्र',
+  'propertyDetail.pickDatesHint': 'संपूर्ण किंमत तपशील पाहण्यासाठी तुमच्या तारखा निवडा.',
   'propertyDetail.reviewCount': '( {{count}} पुनरावलोकने)',
   'propertyDetail.reviewsHeading': 'अलीकडील पुनरावलोकने',
   'propertyDetail.roomCapacity': 'झोप {{count}}',
@@ -99,6 +141,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'नवीन पासवर्ड',
   'resetPassword.subheading':
     'तुमच्या सोजर्न खात्यासाठी नवीन पासवर्ड निवडा. किमान ८ अक्षरांचा पासवर्ड वापरा; आम्ही पासफ्रेज वापरण्याची शिफारस करतो.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'तुमच्या शोधाशी जुळणारी कोणतीही मालमत्ता नाही.',
   'searchResults.emptyHint':
     'तुमचे फिल्टर्स विस्तृत करून पहा किंवा किंमतीची मर्यादा काढून टाका — सोजर्नकडे १४ देशांमध्ये राहण्याची सोय आहे.',
@@ -106,19 +149,27 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'निवडक निवास',
   'searchResults.headingForQuery': 'साठी राहते {{q}} "',
   'searchResults.loadError': 'गुणधर्म लोड करण्यात अयशस्वी झाले.',
+  'searchResults.mapHint':
+    'नकाशावर हायलाइट करण्यासाठी कार्डवर होव्हर करा. उत्पादनात थेट Mapbox टाइल्स.',
   'searchResults.mapPinAria': '{{name}} — {{price}} प्रति रात्र',
   'searchResults.sortLabel': 'यानुसार क्रमवारी लावा',
   'searchResults.subheading': '{{count}} गुणधर्म · {{guests}} पाहुणे',
   'signup.eyebrow': 'सदस्य व्हा',
   'signup.subheading':
     'सोjourn मध्ये सामील व्हा आणि केवळ सदस्यांसाठी असलेले दर, उशिरा चेकआउट आणि नवीन प्रॉपर्टीजमध्ये सर्वप्रथम प्रवेश मिळवा.',
+  'sojournAuthShell.brand.eyebrow': 'कुठेतरी असाधारण ठिकाणी राहा',
+  'sojournAuthShell.brand.heading': 'मालमत्तांचा एक निवडक संग्रह — सुंदर सादरीकरण, पारदर्शक किंमत.',
   'sojournHeroSearchCard.checkInAria': 'चेक-इन तारीख',
   'sojournHeroSearchCard.checkOutAria': 'चेक-आउट तारीख',
+  'sojournHeroSearchCard.destAria': 'गंतव्य',
+  'sojournHeroSearchCard.destLabel': 'कुठे',
   'sojournHeroSearchCard.destPlaceholder': 'शहर, प्रदेश किंवा मालमत्ता',
   'sojournHeroSearchCard.eyebrow': 'निवडक निवास व्यवस्था · केवळ सदस्यांसाठीचे दर',
   'sojournHeroSearchCard.guestsOption': '{{n}} पाहुणे',
   'sojournHeroSearchCard.subtitle':
     'बुटिक हॉटेल्स, डिझाइन-फॉरवर्ड प्रॉपर्टीज आणि दुर्मिळ रिट्रीट्स यांचा निवडक संग्रह — पारदर्शक किमतींमध्ये, सुंदरपणे सादर केलेला.',
+  'sojournHeroSearchCard.title': 'कुठेतरी असाधारण ठिकाणी राहा',
+  'sojournHeroSearchCard.trustLoyalty': 'प्रत्येक मुक्कामावर पॉइंट्स मिळवा',
   'sojournHeroSearchCard.trustNoFees': 'कोणतेही छुपे शुल्क कधीही नाही.',
   'sojournHeroSearchCard.trustVetted': 'केवळ हाताने तपासलेल्या मालमत्ता',
   'sojournLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',

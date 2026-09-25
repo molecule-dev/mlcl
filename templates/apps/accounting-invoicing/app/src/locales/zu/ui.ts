@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Unombuzo, uthole iphutha, noma ufuna ukudlulisa amabhuku akho? Xhumana neqembu lakwa-{{app}} ku-hello@{{app}}.example — umuntu wangempela ufunda wonke umyalezo.',
   'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
+  'about.intro':
+    'I-{{app}} iwukubalwa kwezimali kwamabhizinisi amancane okugcina yonke isenti ilandelelwa — ama-invoyisi, izindleko, izinkokhelo, nemibiko endaweni eyodwa ezolile yabanikazi, abagcini mabhuku, nabaqaphi bezimali.',
+  'about.missionBody':
+    'Ukuqhuba ibhizinisi akufanele kusho ukwesaba amabhuku akho. I-{{app}} ithatha indawo yokwanda kwama-spreadsheet ngezinombolo ezicacile ongazisebenzisa, ukuze uchithe isikhathi esincane ulungisa imali futhi isikhathi esiningi wenza umsebenzi owawuqale ibhizinisi ukuwenza.',
+  'about.missionTitle': 'Umsebenzi wethu',
   'about.title': 'Mayelana ne-{{app}}',
   'accounts.count': 'ama-akhawunti angu {{count}}',
+  'accounts.emptyBody':
+    'Ama-akhawunti e-ledger alandelela ukuthi imali ihlala futhi ihamba kuphi. Avela lapha uma umgcini mabhuku wakho noma ukuhlanganiswa sekukusethile.',
   'accounts.emptyTitle': 'Awekho ama-akhawunti okwamanje',
   'accounts.heading': 'Ishadi lama-akhawunti',
   'accounts.kpi.accounts': 'Accounts',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Yonke i-akhawunti ye-ledger ngemuva kwama-invoyisi akho, izindleko, kanye nezinkokhelo, ziqoqwe ngohlobo.',
   'accounts.tag.inactive': 'azisebenzi',
   'authBrandPanel.attributionName': 'USarah Jenkins',
+  'authBrandPanel.attributionRole': 'Isikhulu Esiphezulu Sezimali, Horizon Tech',
   'authBrandPanel.eyebrow': 'Kuthenjwe amaqembu ezezimali',
   'authBrandPanel.label': 'Umbukiso womkhiqizo',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Wonke amakhasimende',
   'customerDetail.invoiceMeta': 'Kukhishwe {{issued}} · Kudingeka {{due}}',
   'customerDetail.loadError': 'Yehlulekile ukulayisha ikhasimende.',
+  'customerDetail.missingBody':
+    'Irekhodi lekhasimende eliceliwe alikwazanga ukulayishwa. Kungenzeka lisusiwe, noma kungenzeka ukuthi awunakho ukufinyelela kulo.',
   'customerDetail.missingHeading': 'Irekhodi lekhasimende alitholakali',
+  'customerDetail.missingHelp':
+    'Sebenzisa isixhumanisi sokubuyela emuva esingenhla ukubuyela ohlwini lwamakhasimende, noma khetha irekhodi elihlukile lapho.',
+  'customerDetail.noInvoices': 'Azikho ama-invoyisi okwamanje.',
   'customerDetail.notesEmpty': 'Awekho amanothi okwamanje.',
   'customerDetail.paymentsEmpty': 'Azikho izinkokhelo ezirekhodiwe.',
   'customerDetail.paymentTerms': 'Imigomo yokukhokha',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'I-Deductible',
   'expenseDetail.detailsHeading': 'Imininingwane yokuthengiselana',
   'expenseDetail.loadError': 'Yehlulekile ukulayisha izindleko.',
+  'expenseDetail.matched': 'Kufaniswe · {{description}}',
   'expenseDetail.missingBody':
     'Izindleko eziceliwe azikwazanga ukulayishwa. Kungenzeka ukuthi zisusiwe, noma kungenzeka ukuthi awunakho ukufinyelela kuzo.',
   'expenseDetail.missingHeading': 'Irekhodi lezindleko alitholakali',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Irisidi',
   'expenseDetail.receiptHeading': 'Irisidi',
   'expenseDetail.reconciled': 'Kubuyiselwe emuva',
+  'expenseDetail.unreconciled': 'Okungavumelani',
   'expenses.empty': 'Azikho izindleko okwamanje.',
   'expenses.heading': 'Izindleko',
   'expenses.kpi.deductible': 'I-Deductible',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Yehlulekile ukulayisha ama-invoyisi.',
   'invoices.searchPlaceholder': 'Sesha i-invoyisi # noma ikhasimende…',
   'invoices.summary.paid': 'Ikhokhelwe lesi sikhathi',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'Kumahhala izinsuku ezingu-30. Akukho khadi. Letha i-accountant yakho — bazokubonga.',
   'landing.ctaTitle': 'Thutha izincwadi zakho uziyise endaweni ethule.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Ama-akhawunti atholakalayo',
   'ledgerStatTriad.eyebrow.mtd': 'Inyanga kuze kube manje',
   'ledgerStatTriad.netSub': 'Inethi {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} sekwedlule isikhathi',
   'ledgerStatTriad.revenueLabel': 'Imali engenayo',
   'login.failed': 'Ukungena ngemvume kwehlulekile.',
   'login.hidePassword': 'Fihla iphasiwedi',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Ngena ngemvume',
   'nav.legal': 'Ezomthetho',
   'newExpense.back': 'Izindleko',
+  'newExpense.clearReceiptCta': 'Sula irisidi elinamathiselwe',
   'newExpense.deductible': 'Okuncishiswa intela',
   'newExpense.dropPrompt': 'Beka isithombe serisidi noma i-PDF lapha ukuze unamathisele.',
   'newExpense.failed': 'Ayikwazanga ukonga izindleko.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Yehlulekile ukulayisha izinkokhelo.',
   'payments.unmatchedTag': 'okungenakuqhathaniswa',
   'planUpdated.pageLabel': 'Isiqinisekiso esibuyekeziwe sohlelo',
+  'pricing.advancedFeatures': 'Izici ezithuthukile: {{yes}}',
+  'pricing.canExport': 'Ukuthunyelwa kwedatha ngaphandle: {{yes}}',
+  'pricing.heading': 'Khetha uhlelo lwakho lwe-{{app}}',
+  'pricing.maxAccounts': 'ama-akhawunti angu {{count}}',
+  'pricing.maxExpenses': '{{count}} izindleko',
+  'pricing.maxInvoices': 'Ama-invoyisi angu-{{count}}',
+  'privacy.intro':
+    'Le Nqubomgomo Yobumfihlo ichaza indlela i-{{app}} eqoqa ngayo, esebenzisa ngayo, futhi idalula ngayo ulwazi mayelana namabhizinisi asebenzisa le sevisi.',
   'privacy.lastUpdated': 'Kubuyekezwe okokugcina: {{usuku}}',
   'privacy.section.collected.body':
     'Siqoqa imininingwane ye-akhawunti (igama, i-imeyili, inkampani), amarekhodi ezezimali owalayishayo (ama-invoyisi, izindleko, amakhasimende, izinkokhelo), kanye namalogi ajwayelekile okusebenza kwesevisi (i-IP, i-ejenti yomsebenzisi, izitembu zesikhathi).',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Ulwazi lusetshenziselwa ukusebenzisa isevisi, ukukhiqiza imibiko nama-PDF owacelayo, ukuthumela i-imeyili yokuthengiselana nge-Mailgun, kanye nokucubungula izinkokhelo nge-Stripe. Asithengisi noma siqashe ulwazi lomuntu siqu.',
   'recentInvoicesCard.dueMeta': 'Kufanele {{date}}',
+  'recentInvoicesCard.empty': 'Awekho ama-invoyisi afanayo.',
   'recentInvoicesCard.eyebrow': 'Ama-akhawunti atholakalayo',
   'recentInvoicesCard.searchAriaLabel': 'Sesha ama-invoyisi',
+  'recentInvoicesCard.searchPlaceholder': 'Sesha ama-invoyisi…',
   'recentInvoicesCard.title': 'Ama-invoyisi akamuva',
   'recentInvoicesCard.viewAll': 'Buka wonke ama-invoyisi →',
   'reports.assets': 'Izimpahla',
@@ -181,16 +211,22 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Inzuzo nokulahlekelwa (izinyanga eziyi-12)',
   'resetPassword.backToLogin': '← Buyela ekungeneni ngemvume',
   'resetPassword.hidePassword': 'Fihla iphasiwedi',
+  'resetPassword.passwordLabel': 'Iphasiwedi Entsha',
   'resetPassword.showPassword': 'Bonisa iphasiwedi',
+  'resetPassword.subheading':
+    'Khetha iphasiwedi eqinile — okungenani izinhlamvu eziyisishiyagalombili.',
   'resetPassword.submit': 'Setha kabusha iphasiwedi',
   'resetPassword.tooShort': 'Iphasiwedi kumele okungenani ibe nezinhlamvu ezingu-8.',
   'settings.account.changePassword': 'SHINTSHA iphasiwedi',
   'settings.account.changingPassword': 'Ukushintsha…',
   'settings.account.currentPassword': 'I-password Yamanje',
+  'settings.account.dangerZone': 'Indawo eyingozi',
   'settings.account.deleteAccount': 'Susa i-akhawunti',
   'settings.account.deleteDescription':
     'Susa unomphela i-akhawunti yakho kanye nayo yonke idatha ehlobene nayo.',
   'settings.account.deleteError': 'Yehlulekile ukususa i-akhawunti.',
+  'settings.account.deleteWarning':
+    'Lokhu kususa unomphela i-akhawunti yakho futhi akukwazi ukuhlehliswa. Faka iphasiwedi yakho ukuqinisekisa.',
   'settings.account.deleting': 'Iyasusa…',
   'settings.account.devices': 'Amadivayisi',
   'settings.account.email': 'I-imeyili',
@@ -201,6 +237,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Iphasiwedi',
   'settings.account.passwordError': 'Yehlulekile ukushintsha iphasiwedi.',
   'settings.account.pushNotifications': 'Izaziso ze-Push kule divayisi',
+  'settings.account.revokeDeviceWarning':
+    'Ukufinyelela kwaledivayisi kuyokhishwa maduze. Yiphulise?',
   'settings.account.saveError': 'Yehlulekile ukubuyekeza iphrofayela.',
   'settings.account.security': 'Ukuphepha',
   'settings.account.signOutDevice': 'Phuma ngemvume',
@@ -208,12 +246,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Ukuqinisekiswa kwezinto ezimbili',
   'settings.account.twoFactorCode': 'Ikhodi yokuqinisekisa',
   'settings.account.twoFactorDisable': 'Khubaza',
+  'settings.account.twoFactorDisableTitle': 'Vala ukufakazela ubuwena ngezinto ezimbili',
   'settings.account.twoFactorEnable': 'Nika amandla',
+  'settings.account.twoFactorEnableTitle': 'Vula ukufakazela ubuwena ngezinto ezimbili',
   'settings.account.twoFactorInvalidCode': 'Ikhodi engavumelekile',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'Ikhodi ye-QR yezigaba ezimbili',
+  'settings.account.twoFactorScan':
+    'Skena le khodi ye-QR ngohlelo lwakho lokufakazela ubuwena, bese ufaka ikhodi enezinombolo eziyisithupha.',
+  'settings.account.twoFactorUnavailable':
+    'Ukuqinisekiswa kwezinto ezimbili akutholakali kulolu hlelo lokusebenza.',
   'settings.account.twoFactorVerify': 'Qinisekisa futhi unike amandla',
   'settings.account.unknownDevice': 'Idivayisi engaziwa',
   'settings.company.email': 'I-imeyili yokukhokha',
+  'settings.company.heading': 'Inkampani nentela',
   'settings.company.name': 'Igama elisemthethweni',
   'settings.company.saveButton': 'Londoloza iphrofayela yenkampani',
   'settings.company.taxId': 'I-ID yentela / i-EIN',
@@ -257,6 +303,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Isilinganiso sekota',
   'taxes.kpi.owed': 'Isikweletu',
   'taxes.loadError': 'Yehlulekile ukulayisha isifinyezo sentela.',
+  'taxes.remittedPct': '({{pct}}% kuthunyelwe)',
+  'terms.intro':
+    'Le Migomo Yokusebenzisa ("Imigomo") ilawula ukufinyelela kwakho nokusebenzisa i-{{app}}. Ngokuvula i-akhawunti noma ngokusebenzisa le sevisi uyavuma ukuboshwa yiyo.',
   'terms.lastUpdated': 'Kubuyekezwe okokugcina: {{usuku}}',
   'terms.section.acceptable.body':
     'Uyavuma ukungasebenzisi le nsizakalo ukwephula noma yimuphi umthetho, ukwephula amalungelo empahla yobuhlakani, ukudlulisa i-malware, noma ukuzama ukuthola ukufinyelela okungagunyaziwe kwamanye ama-akhawunti noma ingqalasizinda yethu.',

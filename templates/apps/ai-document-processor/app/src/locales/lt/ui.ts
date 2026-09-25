@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Turite klausimą, radote klaidą ar norite savo komandai demonstracijos? Susisiekite per savo paskyros nustatymus — kiekviena žinutė pasiekia tikrą komandos narį.',
   'about.contactTitle': 'Susisiekite',
+  'about.intro':
+    '{{app}} paverčia nuskaitytų dokumentų ir PDF failų krūvas struktūrizuotais, ieškomais, sutvarkytais duomenimis. Įkelkite sąskaitas, kvitus, sutartis ar formas ir leiskite AI juos perskaityti, išgauti duomenis, klasifikuoti ir sutvarkyti — su patikimumo spalvomis, kad jūsų komanda peržiūrėtų tik tai, kam tikrai reikia žmogaus.',
+  'about.missionBody':
+    'Dokumentų rutina neturėtų suvalgyti jūsų komandos dienos. Tikime, kad kiekviena išgauta reikšmė turi būti paaiškinama ir audituojama — kad galėtumėte pasitikėti automatizavimu neprarasdami dokumentų pėdsako. {{app}} sukurta taupyti valandas su kiekviena krūva, išlaikant žmogų cikle ten, kur tai svarbu.',
+  'about.missionTitle': 'Mūsų misija',
+  'about.subtitle':
+    'OCR, AI duomenų išgavimas, klasifikavimas ir automatinis jūsų dokumentų tvarkymas.',
   'about.title': 'Apie {{app}}',
+  'about.whatYouGetTitle': 'Ką gausite',
   'authShell.backToLanding': '← Grįžti į pradinį puslapį',
   'common.goToDashboard': 'Eiti į suvestinę',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Šiandien · Veiklos apžvalga',
   'dashboard.heading': 'Dokumentų analizė',
+  'dashboard.metric.accuracy': 'Vid. tikslumas',
   'dashboard.metric.filed': 'Pateikta šiandien',
   'dashboard.metric.filedCaption': 'Rūšiuojama pagal archyvavimo taisykles',
   'dashboard.metric.processed': 'Apdorota šiandien',
@@ -23,12 +34,16 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'Įkelta',
   'dashboard.recent.heading': 'Naujausi dokumentai',
+  'dashboard.recent.typeUnknown': 'Laukiama klasifikavimo',
   'dashboard.subheading':
     'Kiekvienas puslapis yra suskirstytas, išrinktas ir susegtas — pažymėtas atpažinimo spalvomis, kad peržiūra būtų tikslinga.',
   'documentDetail.audit.heading': 'Audito grafikas',
+  'documentDetail.audit.subheading':
+    'Kiekvienas su šiuo dokumentu atliktas veiksmas ir už jį atsakingas asmuo.',
   'documentDetail.back': 'Visi dokumentai',
   'documentDetail.downloadHint':
     'Naudokite funkciją „Atsisiųsti“, kad atidarytumėte originalų failą.',
+  'documentDetail.extracted.empty': 'Dar neišgauta jokių laukų.',
   'documentDetail.extracted.heading': 'Išgauti laukai',
   'documentDetail.extracted.subheading':
     '{{count}} laukeliai · spustelėkite bet kurį laukelį, kad jis būtų paryškintas puslapyje',
@@ -57,14 +72,25 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} dokumentai jūsų bibliotekoje, surūšiuoti pagal naujausius pirmiausia.',
   'documents.uploadCta': 'Įkelti dokumentus',
+  'documentTypeBreakdown.barAria': 'Dokumentų sudėtis pagal tipą',
   'documentTypeBreakdown.empty': 'Dokumentų dar neapdorota.',
   'documentTypeBreakdown.subtitle': '{{total}} apdorotas',
   'documentTypeBreakdown.title': 'Dokumento struktūra',
+  'forgotPassword.backToSignIn': '← Atgal į prisijungimą',
   'forgotPassword.checkEmail': 'Patikrinkite savo el. paštą',
   'forgotPassword.tip':
     'Negavote laiško? Patikrinkite šlamšto aplanką arba pabandykite nurodyti kitą adresą.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Sukurta operacijų komandoms, audituojančioms kiekvieną puslapį.',
+  'landing.ctaBody':
+    '14 dienų bandomasis laikotarpis. Kortelės nereikia. Atšaukti galima bet kada. Sukurta operacijų komandoms, kurios juda greitai, o audituoja lėtai.',
   'landing.ctaHeading': 'Nerašykite kvitų. Pradėkite juos tvarkyti.',
   'landing.eyebrow': 'OCR · Duomenų išgava · Dokumentų tvarkymas naudojant dirbtinį intelektą',
+  'landing.featuresHeading': 'Dokumentų intelektas, kuris paaiškina save',
+  'landing.heroSubtitle':
+    'Įkelkite krūvą sąskaitų, kvitų, sutarčių ar formų. {{app}} jas klasifikuoja, išgauna duomenis ir sutvarko — su patikimumo spalvomis, kad jūsų komanda peržiūrėtų tik tai, kam tikrai reikia žmogaus.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Dienos apimtis · paskutinės 7 dienos',
   'landing.sampleCardLabel': 'Šiandien apdoroti dokumentai',
   'landing.sampleCardSubtitle': 'Vidutinis tikslumas – 96,2 % sąskaitų, kvitų ir formų atveju.',
   'login.hidePassword': 'Paslėpti slaptažodį',
@@ -77,6 +103,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Atidaryti pradinį puslapį',
   'notFound.title': 'Šio puslapio nėra',
+  'parcelaHeroCard.accuracy': 'Vid. tikslumas {{value}} % visų išgavimų',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % palyginti su vakardiena',
   'parcelaHeroCard.title': 'Šiandien apdoroti dokumentai',
   'parcelaLayout.primaryNavLabel': 'Pagrindinė navigacija',
@@ -84,6 +111,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'dokumentai',
   'pricing.processingLabel': 'duomenų apdorojimo užduotys',
   'resetPassword.confirmPlaceholder': 'Įveskite naują slaptažodį dar kartą',
+  'resetPassword.hidePassword': 'Paslėpti slaptažodį',
   'resetPassword.passwordLabel': 'Naujas slaptažodis',
   'resetPassword.showPassword': 'Rodyti slaptažodį',
   'resetPassword.subtitle': 'Pasirinkite bent 8 simbolių ilgio žodį.',
@@ -101,10 +129,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Nepavyko įkelti taisyklių.',
   'rules.loading': 'Įkeliama taisyklės…',
   'rules.matched30d': '{{count}} per pastaruosius 30 dienų rasti dokumentai',
+  'rules.neverUsed': 'Niekada nenaudota',
   'rules.newRule': 'Nauja taisyklė',
   'rules.saveError': 'Nepavyko išsaugoti taisyklės.',
   'rules.subheading':
     'Nurodykite sistemai, kur turi būti nukreipiamas kiekvienos rūšies dokumentas. Sąlygos taikomos iš viršaus į apačią – pirmoji atitiktis laimi.',
+  'rules.templatesEmpty': 'Dar nėra išgavimo šablonų.',
   'rules.templatesHeading': 'Išgavimo šablonai',
   'rules.templatesSubheading':
     'Lauko schemos, kurias išgavimo programa naudoja kiekvienam dokumentų tipui.',
@@ -114,17 +144,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Darbo vietos pavadinimas',
   'settings.account.subheading':
     'Rodomasis vardas ir pagrindinis el. pašto adresas, naudojami pranešimams ir audito istorijai.',
+  'settings.api.confirmRevoke': 'Patvirtinti?',
   'settings.api.copyOnce': 'Nukopijuokite šį raktą – jis daugiau nebus rodomas',
   'settings.api.createdOn': 'Sukurta {{date}}',
   'settings.api.empty': 'API raktų dar nėra. Sukurkite jį aukščiau.',
   'settings.api.error': 'Nepavyko sukurti rakto.',
+  'settings.api.generating': 'Generuojama…',
+  'settings.api.heading': 'API raktai',
   'settings.api.labelPlaceholder': 'Raktinis žymės pavadinimas (pvz., CI įkėlėjas)',
+  'settings.api.loading': 'Įkeliami raktai…',
   'settings.api.newKey': 'Sukurti raktą',
   'settings.api.subheading':
     'Naudokite šias funkcijas dokumentams perkelti iš skripto arba savo ERP sistemos. Bet kuriuo metu galite pakeisti bet kurį raktą.',
   'settings.integrations.heading': 'Dokumentų pateikimo integracijos',
   'settings.integrations.subheading':
     'Siųskite užpildytus dokumentus į debesų saugyklą arba pokalbių programą, kurią jūsų komanda jau naudoja.',
+  'settings.subheading':
+    'Tvarkykite paskyrą, API raktus ir dokumentų tvarkymo integracijas savo {{app}} darbo erdvėje.',
+  'signup.hidePassword': 'Paslėpti slaptažodį',
   'signup.identityPrompt': 'Kaip turėtume į Jus kreiptis?',
   'signup.showPassword': 'Rodyti slaptažodį',
   'signup.subtitle': '14 dienų nemokamai, nereikia kredito kortelės.',
@@ -132,6 +169,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Įkėlimas nepavyko.',
   'upload.eyebrow': 'Nurijimas',
   'upload.heading': 'Įkelti dokumentus',
+  'upload.queue.clear': 'Išvalyti baigtus',
   'upload.queue.col.confidence': 'Pasitikėjimas',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Aptinkama…',
@@ -144,5 +182,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Arba vienu metu įkelkite kelis failus, kad juos būtų galima išgauti, suskirstyti ir susisteminti.',
   'uploadDropZone.cta': 'Pasirinkite failus',
+  'uploadDropZone.maxSize': 'Maks. 25 MB failui · Nuo galo iki galo užšifruota',
   'uploadDropZone.title': 'Pervilkite dokumentus, kad pradėtumėte apdorojimą',
 }

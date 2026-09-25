@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kas sul on küsimus, leidsid vea või soovid oma raamatud üle tuua? Võta ühendust {{app}} tiimiga aadressil hello@{{app}}.example — iga sõnumi loeb päris inimene.',
   'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Teave',
+  'about.intro':
+    '{{app}} on väikeettevõtete raamatupidamine, mis peab arvet iga sendi üle — arved, kulud, maksed ja aruanded ühes rahulikus kohas omanikele, raamatupidajatele ja pearaamatupidajatele.',
+  'about.missionBody':
+    'Ettevõtte juhtimine ei peaks tähendama raamatupidamise kartust. {{app}} asendab laialivalguvad tabelid selgete numbritega, mille põhjal saad tegutseda, nii et kulutad vähem aega ühitamisele ja rohkem aega sellele, mille jaoks ettevõtte üldse lõid.',
+  'about.missionTitle': 'Meie missioon',
   'about.title': 'Teave rakenduse {{app}} kohta',
   'accounts.count': '{{count}} kontod',
+  'accounts.emptyBody':
+    'Pearaamatukontod jälgivad, kus raha asub ja liigub. Need kuvatakse siin, kui sinu raamatupidaja või integratsioon need seadistab.',
   'accounts.emptyTitle': 'Kontosid veel pole',
   'accounts.heading': 'Kontoplaan',
   'accounts.kpi.accounts': 'Accounts',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Kõik teie arvetega, kuludega ja maksetega seotud pearaamatukontod, liigitatud tüübi järgi.',
   'accounts.tag.inactive': 'mitteaktiivne',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Finantsjuht, Horizon Tech',
   'authBrandPanel.eyebrow': 'Finantsmeeskondade usaldus',
   'authBrandPanel.label': 'Brändi tutvustus',
   'authBrandPanel.quote': '„Ledger on muutnud seda, kuidas me tulusid jälgime. Täpsus oma tipul.“',
@@ -30,7 +40,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Kõik kliendid',
   'customerDetail.invoiceMeta': 'Väljastatud {{issued}} · Tagastamistähtaeg {{due}}',
   'customerDetail.loadError': 'Kliendi laadimine ebaõnnestus.',
+  'customerDetail.missingBody':
+    'Soovitud kliendikirjet ei õnnestunud laadida. See võib olla eemaldatud või sul puudub sellele juurdepääs.',
   'customerDetail.missingHeading': 'Kliendi andmed pole saadaval',
+  'customerDetail.missingHelp':
+    'Kasuta ülal olevat tagasilinki, et naasta klientide loendi juurde, või vali sealt mõni teine kirje.',
+  'customerDetail.noInvoices': 'Arveid pole veel.',
   'customerDetail.notesEmpty': 'Märkmeid veel pole.',
   'customerDetail.paymentsEmpty': 'Makseid pole registreeritud.',
   'customerDetail.paymentTerms': 'Maksetingimused',
@@ -57,6 +72,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Omavastutus',
   'expenseDetail.detailsHeading': 'Tehingu üksikasjad',
   'expenseDetail.loadError': 'Kulu laadimine ebaõnnestus.',
+  'expenseDetail.matched': 'Sobitatud · {{description}}',
   'expenseDetail.missingBody':
     'Taotletud kulu ei õnnestunud laadida. See võib olla eemaldatud või teil pole sellele juurdepääsu.',
   'expenseDetail.missingHeading': 'Kulukirje pole saadaval',
@@ -64,6 +80,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Kviitung',
   'expenseDetail.receiptHeading': 'Kviitung',
   'expenseDetail.reconciled': 'Lepitatud',
+  'expenseDetail.unreconciled': 'Lepitamata',
   'expenses.empty': 'Kulusid veel pole.',
   'expenses.heading': 'Kulud',
   'expenses.kpi.deductible': 'Omavastutus',
@@ -99,6 +116,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Arvete laadimine ebaõnnestus.',
   'invoices.searchPlaceholder': 'Otsi arve nr või klienti…',
   'invoices.summary.paid': 'Sellel perioodil makstud',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     '30 päeva tasuta. Kaarti pole vaja. Too oma raamatupidaja kaasa – ta on sulle tänulik.',
   'landing.ctaTitle': 'Vii oma raamatud rahulikumasse kohta.',
@@ -113,6 +131,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Müügireskontra',
   'ledgerStatTriad.eyebrow.mtd': 'Kuu algusest',
   'ledgerStatTriad.netSub': 'Neto {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} tähtaeg ületatud',
   'ledgerStatTriad.revenueLabel': 'Tulu',
   'login.failed': 'Sisselogimine ebaõnnestus.',
   'login.hidePassword': 'Peida parool',
@@ -123,6 +142,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Logi sisse',
   'nav.legal': 'Õiguslik',
   'newExpense.back': 'Kulud',
+  'newExpense.clearReceiptCta': 'Eemalda manustatud kviitung',
   'newExpense.deductible': 'Maksust mahaarvatav',
   'newExpense.dropPrompt': 'Lisa kviitungi foto või PDF-fail siia.',
   'newExpense.failed': 'Kulusid kokku hoida ei õnnestunud.',
@@ -151,6 +171,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Maksete laadimine ebaõnnestus.',
   'payments.unmatchedTag': 'võrratu',
   'planUpdated.pageLabel': 'Plaani uuendamise kinnitus',
+  'pricing.advancedFeatures': 'Täpsemad funktsioonid: {{yes}}',
+  'pricing.canExport': 'Andmete eksport: {{yes}}',
+  'pricing.heading': 'Vali oma {{app}} plaan',
+  'pricing.maxAccounts': '{{count}} kontod',
+  'pricing.maxExpenses': '{{count}} kulud',
+  'pricing.maxInvoices': '{{count}} arvet',
+  'privacy.intro':
+    'Käesolev privaatsuspoliitika kirjeldab, kuidas {{app}} kogub, kasutab ja avaldab teavet teenust kasutavate ettevõtete kohta.',
   'privacy.lastUpdated': 'Viimati uuendatud: kuupäev',
   'privacy.section.collected.body':
     'Kogume konto andmeid (nimi, e-posti aadress, ettevõte), teie üleslaaditud finantsandmeid (arved, kulud, kliendid, maksed) ja standardseid teenuse toimimise logisid (IP, kasutajaagent, ajatemplid).',
@@ -163,8 +191,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     "Teavet kasutatakse teenuse haldamiseks, teie poolt tellitud aruannete ja PDF-ide genereerimiseks, tehingute meilide saatmiseks Mailguni kaudu ja maksete töötlemiseks Stripe'i kaudu. Me ei müü ega rendi isikuandmeid.",
   'recentInvoicesCard.dueMeta': 'Allik{{date}}',
+  'recentInvoicesCard.empty': 'Ükski arve ei vasta tõele.',
   'recentInvoicesCard.eyebrow': 'Müügireskontra',
   'recentInvoicesCard.searchAriaLabel': 'Arvete otsimine',
+  'recentInvoicesCard.searchPlaceholder': 'Otsi arveid…',
   'recentInvoicesCard.title': 'Viimased arved',
   'recentInvoicesCard.viewAll': 'Kuva kõik arved →',
   'reports.assets': 'Varad',
@@ -180,16 +210,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Kasum ja kahjum (12 kuud)',
   'resetPassword.backToLogin': '← Tagasi sisselogimise juurde',
   'resetPassword.hidePassword': 'Peida parool',
+  'resetPassword.passwordLabel': 'Uus parool',
   'resetPassword.showPassword': 'Näita parooli',
+  'resetPassword.subheading': 'Vali tugev parool — vähemalt kaheksa tähemärki.',
   'resetPassword.submit': 'Parooli taastamine',
   'resetPassword.tooShort': 'Parool peab olema vähemalt 8 tähemärki pikk.',
   'settings.account.changePassword': 'Parooli muutmine',
   'settings.account.changingPassword': 'Muutub…',
   'settings.account.currentPassword': 'Praegune parool',
+  'settings.account.dangerZone': 'Ohutsoon',
   'settings.account.deleteAccount': 'Kustuta konto',
   'settings.account.deleteDescription':
     'Kustuta oma konto ja kõik sellega seotud andmed lõplikult.',
   'settings.account.deleteError': 'Konto kustutamine ebaõnnestus.',
+  'settings.account.deleteWarning':
+    'See kustutab sinu konto jäädavalt ega ole tagasipööratav. Kinnitamiseks sisesta oma parool.',
   'settings.account.deleting': 'Kustutatakse…',
   'settings.account.devices': 'Seadmed',
   'settings.account.email': 'E-post',
@@ -200,6 +235,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Parool',
   'settings.account.passwordError': 'Parooli muutmine ebaõnnestus.',
   'settings.account.pushNotifications': 'Selle seadme push-teated',
+  'settings.account.revokeDeviceWarning':
+    'Selle seadme ligipääs tühistatakse peagi. Logi see välja?',
   'settings.account.saveError': 'Profiili värskendamine ebaõnnestus.',
   'settings.account.security': 'Turvalisus',
   'settings.account.signOutDevice': 'Logi välja',
@@ -207,12 +244,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Kahefaktoriline autentimine',
   'settings.account.twoFactorCode': 'Autentimiskood',
   'settings.account.twoFactorDisable': 'Keela',
+  'settings.account.twoFactorDisableTitle': 'Keela kaheastmeline autentimine',
   'settings.account.twoFactorEnable': 'Luba',
+  'settings.account.twoFactorEnableTitle': 'Luba kaheastmeline autentimine',
   'settings.account.twoFactorInvalidCode': 'Kehtetu kood',
   'settings.account.twoFactorOn': 'Kell',
+  'settings.account.twoFactorQrAlt': 'Kaheastmelise autentimise QR-kood',
+  'settings.account.twoFactorScan':
+    'Skaneeri see QR-kood autentimisrakendusega ja sisesta seejärel 6-kohaline kood.',
+  'settings.account.twoFactorUnavailable':
+    'Kahefaktoriline autentimine pole selle rakenduse jaoks saadaval.',
   'settings.account.twoFactorVerify': 'Kontrolli ja aktiveeri',
   'settings.account.unknownDevice': 'Tundmatu seade',
   'settings.company.email': 'Arveldusmeil',
+  'settings.company.heading': 'Ettevõte ja maksud',
   'settings.company.name': 'Seaduslik nimi',
   'settings.company.saveButton': 'Salvesta ettevõtte profiil',
   'settings.company.taxId': 'Maksu-ID / EIN',
@@ -256,6 +301,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Hinnanguline kvartaalne',
   'taxes.kpi.owed': 'Võlgnev',
   'taxes.loadError': 'Maksukokkuvõtte laadimine ebaõnnestus.',
+  'taxes.remittedPct': '({{pct}}% tasutud)',
+  'terms.intro':
+    'Käesolevad teenusetingimused („Tingimused”) reguleerivad sinu juurdepääsu {{app}}-le ja selle kasutamist. Konto loomisega või teenuse kasutamisega nõustud nendega.',
   'terms.lastUpdated': 'Viimati uuendatud: kuupäev',
   'terms.section.acceptable.body':
     'Te nõustute mitte kasutama teenust ühegi seaduse rikkumiseks, intellektuaalomandi õiguste rikkumiseks, pahavara edastamiseks ega teistele kontodele või meie infrastruktuurile volitamata juurdepääsu saamiseks.',

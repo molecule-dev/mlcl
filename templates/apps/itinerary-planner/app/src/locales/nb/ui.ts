@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du tilbakemeldinger, funnet en feil eller planlegger noe ambisiøst? Ta kontakt med oss fra kontoinneinnstillingene dine — hver melding går til et ekte menneske på teamet.',
+  'about.contactTitle': 'Snakk med oss',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Alle bestillinger i én innboks — bekreftelser på fly, hotell og aktiviteter lander på den nøyaktige dagen de hører til.',
+  'about.featureCollab':
+    'Sanntidssamarbeid — inviter opptil fem reisende per tur, med alle endringer synkronisert live og kommentarer trådet under hvert stopp.',
+  'about.featureMapsBudget':
+    'Kart, reisemål og et felles budsjett — se hele turen på et kart, oppdag redaktørkuraterte reisemål og følg utgiftene så ingen bruker for mye.',
+  'about.featureTimelines':
+    'Dag-for-dag-tidslinjer — dra stopp for å endre rekkefølgen, legg inn transportetapper og se reiseplanen oppdatere seg som ett levende dokument.',
+  'about.intro':
+    '{{app}} gjør en mappe full av halvferdige planer om til én delt tur som hele gruppen faktisk kan følge. Bygg en dag-for-dag-reiseplan, legg inn fly og hotell, kartlegg hvert stopp og følg budsjettet — alt på ett rolig sted i stedet for et dusin faner og en gruppechat.',
+  'about.missionBody':
+    'Reiseplanlegging bør føles som om turen allerede blir bedre, ikke som lekser. {{app}} finnes for å gjøre samarbeidsreiser uanstrengt — så hver reisende møter opp og kjenner planen, og hvert stopp forteller en historie verdt å huske.',
+  'about.missionTitle': 'Vårt oppdrag',
   'about.pageTitle': 'Om {{app}}',
   'auth.legalConsent': 'Ved å fortsette godtar du våre',
   'bookings.empty.body':
@@ -31,7 +47,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Hotell',
   'bookings.type.other': 'Annen',
   'budgetSpendCard.budgetTotal': 'av {{total}} planlagt',
+  'budgetSpendCard.overBy': '{{amount}} over budsjett',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} nylige',
+  'budgetSpendCard.remaining': '{{amount}} gjenstår',
   'calendar.eyebrow': 'Året som kommer',
   'calendar.heading': 'Hver tur på én kalender.',
   'calendar.legendHeading': 'Reiser denne måneden',
@@ -42,18 +61,27 @@ export const ui: UiTranslations = {
   'common.and': 'og',
   'common.goToDashboard': 'Gå til oversikt',
   'dashboard.budgetHeading': 'Budsjettpuls',
+  'dashboard.empty.body':
+    'Planlegg din første tur, og dashbordet ditt fylles med dag-for-dag-tidslinjer, budsjettpuls og bestillinger.',
+  'dashboard.empty.cta': 'Planlegg din første tur',
   'dashboard.empty.heading': 'Ingen reiser ennå – atlaset ditt er tomt.',
   'dashboard.eyebrow': 'Oppdragskontroll',
   'dashboard.heading': 'Ditt neste eventyr, i et stille hjørne.',
   'dashboard.newTripCta': 'Start en ny reise',
+  'dashboard.subheading':
+    'En nedtelling til neste tur, dagens utgiftspuls og et raskt blikk på alle reiseplaner som er i gang.',
   'dashboard.tripsHeading': 'Turer i bevegelse',
   'dashboard.viewAllExpenses': 'Se alle utgifter',
   'dashboard.viewAllTrips': 'Se hver tur',
   'dayTimelineRow.category.accommodation': 'Opphold',
+  'dayTimelineRow.category.food': 'Mat og drikke',
+  'dayTimelineRow.category.sightseeing': 'Sightseeing',
   'dayTimelineRow.category.transport': 'Transportere',
   'destinationOrbCard.exploreCta': 'Legg til i en tur',
   'destinationOrbCard.tripCount': '{{count}} turer',
+  'destinations.empty.body': 'Bytt tilbake til Alle, og redaktørens funn vises igjen.',
   'destinations.empty.heading': 'Ingen destinasjoner ennå.',
+  'destinations.emptyFiltered.heading': 'Ingenting merket slik ennå.',
   'destinations.errors.load': 'Kunne ikke laste inn destinasjonene.',
   'destinations.eyebrow': 'Hvor skal vi videre',
   'destinations.heading': 'Lagrede hjørner og funn fra redigereren.',
@@ -71,7 +99,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Selger',
   'expenses.formHeading': 'Logg utgift for {{trip}}',
   'expenses.heading': 'Hvor reisebudsjettet egentlig går.',
+  'expenses.heroBudget': '{{pct}}% av {{total}} planlagt',
   'expenses.heroEyebrow': '{{trip}} budsjettøyeblikksbilde for 2022',
+  'expenses.heroNoBudget': 'Ingen budsjett satt på denne turen ennå.',
   'expenses.noTrips.body': 'Planlegg en tur først, og utgifter er knyttet til turens budsjett.',
   'expenses.noTrips.heading': 'Ingen turer ennå.',
   'expenses.receiptCount': '{{count}} kvitteringer',
@@ -83,12 +113,16 @@ export const ui: UiTranslations = {
     'Alle kvitteringer og bekreftelser samles i riktig kategori her, og du trenger ikke regneark.',
   'forgotPassword.eyebrow': 'Gjenopprett reiseruten din',
   'forgotPassword.heading': 'Glemt passordet ditt?',
+  'forgotPassword.subheading':
+    'Skriv inn e-posten du brukte for {{appName}}, så sender vi en lenke for å tilbakestille passordet ditt.',
   'forgotPassword.submit': 'Send gjenopprettings-e-post',
   'forgotPassword.submitPending': 'Sender gjenopprettings-e-post …',
   'forgotPassword.successHint':
     'Ingen e-post ennå? Sjekk søppelpostmappen din, eller prøv på nytt med en annen adresse.',
   'forgotPassword.successSubheading':
     'Vi sendte en gjenopprettingslenke til {{email}} Lenken er gyldig i 30 minutter.',
+  'forgotPassword.tryAgain': 'Send til en annen e-post',
+  'landing.cta.eyebrow': 'Start med gratisplanen',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Opprett gratis konto',
   'landing.cta.subheading':
@@ -100,8 +134,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Start en gratis tur',
   'landing.hero.ctaSecondary': 'Se en eksempeltur',
+  'landing.hero.eyebrow': 'Reiseplanlegger · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint gjør om en mappe full av halvferdige planer til en delt, dag-for-dag-reiserute som gruppen din faktisk kan følge – med bestillinger, kart og budsjettsporing på ett sted.',
+  'landing.hero.title': 'Planlegg det én gang. Gå en tur sammen.',
   'landing.nav.join': 'Start en gratis tur',
   'landing.nav.preview': 'Inne i veipunktet',
   'landing.preview.cta': 'Planlegg en av dine egne',
@@ -109,6 +145,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Noen turer som reisende vandrer på akkurat nå',
   'login.eyebrow': 'Medlemsområde',
   'login.heading': 'Velkommen tilbake, reisende',
+  'login.noAccount': 'Ny på Tessera?',
   'login.signupLink': 'Opprett en gratis konto',
   'login.subheading':
     'Logg inn for å administrere reisene dine, dagsplanene, bestillingene og journalpostene du allerede har startet.',
@@ -119,6 +156,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Kunne ikke oppdatere varselet.',
   'notifications.heading': 'Hva har endret seg på turene dine i dag.',
   'notifications.markUnread': 'Merk som ulest',
+  'notifications.subheading':
+    '{{count}} nye — bestillingsbekreftelser, samarbeidsnotater, prisfall og påminnelser.',
   'notifications.time.daysAgo': '{{count}}d siden',
   'notifications.time.hoursAgo': '{{count}}t siden',
   'notifications.time.justNow': 'akkurat nå',
@@ -137,6 +176,7 @@ export const ui: UiTranslations = {
     'Tilkoblede tjenester, valuta, push-varsler og påloggingsinformasjonen du logger på med.',
   'signup.and': 'og',
   'signup.eyebrow': 'Bli med i veipunktet',
+  'signup.haveAccount': 'Allerede på vandring?',
   'signup.heading': 'Planlegg det én gang. Gå en tur sammen.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -148,6 +188,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Åpne reiseruten',
   'tripCountdownHeroCard.ctaSecondary': 'Planlegg en ny tur',
   'tripCountdownHeroCard.daysLabel': '{{days}} dager igjen',
+  'tripCountdownHeroCard.eyebrow': 'Neste eventyr · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} netter — reiseplanen din er klar for avreise.',
   'tripCoverCard.stops': '{{count}} stopper',
   'tripCoverCard.travelers': '{{count}} reisende',
   'tripDetail.addActivity': 'Legg til aktivitet',
@@ -157,6 +200,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Aktivitetstittel',
   'tripDetail.adding': 'Legger til…',
   'tripDetail.backToTrips': 'Tilbake til alle reiser',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Reisende',
   'tripDetail.dayLabel': 'Dag {{day}}',
   'tripDetail.empty': 'Ingen aktiviteter ennå — legg til en for å starte tidslinjen.',
@@ -167,14 +211,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Reiserute • {{country}}',
   'tripDetail.invite': 'Invitere',
   'tripDetail.inviteLabel': 'Inviter via e-post',
+  'tripDetail.invitePlaceholder': 'noen@eksempel.no',
   'tripDetail.inviteSent': 'Invitasjon sendt til {{email}}.',
   'tripDetail.inviting': 'Sender…',
   'tripDetail.loading': 'Laster inn tur…',
   'tripDetail.noCollaborators': 'Bare deg, foreløpig.',
+  'tripDetail.notesHeading': 'Turnsnotater',
   'tripDetail.notesPlaceholder': 'Ingen notater ennå.',
   'tripDetail.notFound.heading': 'Turen ble ikke funnet',
   'tripDetail.openBookings': 'Åpne innboksen for bestillinger',
   'tripDetail.shareCopied': 'Del lenke kopiert til utklippstavlen:',
+  'tripDetail.shareReady': 'Delingslenke klar:',
   'tripDetail.stops': '{{count}} stopper',
   'tripDetail.timelineEyebrow': 'Dagens tidslinje',
   'tripDetail.timelineHeading': 'Dag-for-dag-plan',
@@ -192,6 +239,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Reisende',
   'tripPlanner.heading': 'Skisser en tur på under ett minutt.',
   'tripPlanner.preview.eyebrow': 'Live forhåndsvisning',
+  'tripPlanner.preview.placeholderCountry': 'Velg et land',
   'tripPlanner.preview.placeholderDestination': 'Ditt neste eventyr',
   'tripPlanner.section1.title': 'Hvor og når',
   'tripPlanner.section2.title': 'Reisende og budsjett',
@@ -200,10 +248,14 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Dag {{day}} legg til stopp, transport og bestillinger her.',
   'tripPlanner.section3.day2': 'Dag {{day}} legg til stopp, transport og bestillinger her.',
   'tripPlanner.section3.day3': 'Dag {{day}} legg til stopp, transport og bestillinger her.',
+  'tripPlanner.section3.title': 'Startmal for dagplan',
   'tripPlanner.subheading':
     'Legg inn det grunnleggende nedenfor – du kan alltid invitere samarbeidspartnere, dra inn stopp og videresende bestillinger senere.',
   'tripPlanner.submit': 'Opprett tur',
   'tripPlanner.submitting': 'Oppretter…',
+  'trips.empty.body':
+    'Bytt tilbake til Alle turer eller start planleggingen av ditt neste eventyr.',
+  'trips.empty.cta': 'Planlegg en reise',
   'trips.empty.heading': 'Ingenting samsvarer med det filteret ennå.',
   'trips.eyebrow': 'Atlaset',
   'trips.filterLabel': 'Filtrer turer etter status',
@@ -214,6 +266,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Ingen turer ennå.',
   'trips.pastHeading': 'Tidligere eventyr',
   'trips.subheading': '{{count}} reiseruter – fortid, nåtid og en dag.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Planlegg én gang. Vandre sammen. Husk for alltid.',
+  'waypointAuthShell.testimonial.author': 'Iris og Jonas · {{appName}} medlemmer siden 2024',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} gjorde en hektisk 3-ukers tur gjennom fire land til den roligste reiseplanen vi noen gang har delt.',
   'waypointLayout.mobileNavClose': 'Lukk navigasjonsmenyen',
   'waypointLayout.primaryNavLabel': 'Primær navigasjon',
 }

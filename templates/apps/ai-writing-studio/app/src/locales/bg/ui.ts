@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Имате обратна връзка, открихте бъг или искате нова функция? Пишете ни от настройките на акаунта си — всяко съобщение стига до реален човек от екипа.',
   'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'Относно',
+  'about.intro':
+    '{{app}} е AI студио за писане за автори, на които текстът им е наистина важен. То съчетава дългоформатно AI генериране със спокоен редактор, SEO оценка и генериране на изображения, за да преведете едно произведение от празна страница до публикуване — без никога да губите своя глас.',
+  'about.missionBody':
+    'Вярваме, че AI трябва да пише редом с вас, а не вместо вас. {{app}} държи предложенията видимо отделени от собствените ви думи, оставя ви собственик на всеки документ, който създадете, и маха инструментите от пътя на писането.',
+  'about.missionTitle': 'Нашата мисия',
   'about.pageTitle': 'За {{app}}',
   'aiSuggestionCard.applied': 'Предложението е приложено',
   'aiSuggestionCard.apply': 'Кандидатствай',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Източници на трафик',
   'billing.activePlan': 'Абонаментът е активен.',
   'billing.aiWordsLabel': 'Включени поколения ИИ',
+  'billing.cancelFailed': 'Абонаментът не можа да бъде анулиран.',
   'billing.cancelPlan': 'Отмени абонамента',
+  'billing.cancelPlanConfirm': 'Да се потвърди ли отказът?',
   'billing.cancelSuccess':
     'Абонаментът е прекратен. Опреснете страницата, за да актуализирате плана.',
   'billing.changePlan': 'Промяна на плана',
@@ -44,26 +53,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'Преглед на плановете',
   'common.goToDashboard': 'Към таблото',
   'dashboard.continueWriting': 'Продължи да пишеш',
+  'dashboard.createFirst': 'Създай документ',
   'dashboard.days.sat': 'Съб',
   'dashboard.days.sun': 'Нед',
   'dashboard.defaultWriterName': 'Писател',
   'dashboard.greeting': 'Добро утро, {{name}}',
   'dashboard.loadError': 'Не успяхме да заредим таблото ви.',
+  'dashboard.loading': 'Студиото ви се зарежда…',
   'dashboard.loadingDocs': 'Зареждане на последните документи…',
   'dashboard.noDocuments': 'Все още няма документи — започнете с първия си.',
   'dashboard.startWriting': 'Създайте нов документ',
+  'dashboard.streakBody': 'Тази седмица сте написали {{words}} думи.',
   'dashboard.streakTitle': '{{count}} поредни дни',
+  'dashboard.subgreeting': '{{count}} документа в библиотеката ви — продължавайте в същия дух.',
+  'documentCard.seoScoreTitle': 'SEO оценка: {{score}}/100',
+  'documents.createNew': 'Създай нов документ',
   'documents.empty': 'Библиотеката ви очаква — започнете с първия си документ.',
+  'documents.emptyFiltered': 'Още няма документи, отговарящи на филтрите ви.',
   'documents.loadError': 'Не можаха да се заредят документите.',
   'documents.loading': 'Зареждане на библиотеката…',
   'documents.new': 'Нов документ',
+  'documents.searchAriaLabel': 'Търсене в документи',
   'documents.searchPlaceholder': 'Търсене в документи…',
   'documents.subtitle': '{{count}} документите във вашата библиотека.',
   'documents.title': 'Документи',
   'editor.aiPanelTitle': 'Plume Intelligence',
+  'editor.aiSuggestion.empty':
+    'Няма активни подобрения. Поискайте предложение от {{appName}}, когато ви трябва втори поглед.',
   'editor.aiSuggestion.failed': 'В момента не е възможно да се заредят предложенията.',
   'editor.aiSuggestion.loadingBody': 'Извършване на уточнение на яснотата…',
   'editor.backToDocuments': 'Всички документи',
+  'editor.bodyAriaLabel': 'Тяло на документа',
   'editor.closeAiPanel': 'Затвори панела за изкуствен интелект',
   'editor.createFailed': 'Не е възможно да се създаде документ.',
   'editor.exported': 'Експортирано като „{{format}}“.',
@@ -79,18 +99,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'Поискайте уточнение',
   'editor.saveBeforePublish': 'Запазете документа, преди да го публикувате.',
   'editor.status.chars': '{{count}} символи',
+  'editor.status.readTime': '{{minutes}} мин. четене',
   'editor.status.savedAt': 'Запазено {{time}}',
   'editor.status.saveError': 'Запазването се провали',
+  'editor.status.unsaved': 'Още не е запазен',
   'editor.titleAriaLabel': 'Заглавие на документа',
   'editor.titlePlaceholder': 'Документ без заглавие',
   'editor.toggleAiPanel': 'Отваряне/затваряне на панела за изкуствен интелект',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'author@example.com',
+  'forgotPassword.sent': 'Ако {{email}} е в системата, връзка за нулиране вече пътува към вас.',
   'imageGenerator.failed': 'Генерирането на изображението се провали.',
   'imageGenerator.generate': 'Създаване на изображение',
   'imageGenerator.generating': 'Генериране...',
   'imageGenerator.placeholder': 'Опишете изображението, което искате да създадете...',
+  'imageGenerator.promptAriaLabel': 'Подкана за изображение',
+  'imageGenerator.subtitle': 'Опишете изображение за корица и оставете AI да го илюстрира.',
   'imageGenerator.title': 'Генератор на изображения с изкуствен интелект',
+  'landing.aiSuggestionBody':
+    'застанал на балкона на 42-рия етаж, Елиас усети как градът се притиска към него — вятърът отнесе околния шум и го остави окачен в ледена, тиха пустота над светещата решетка.',
   'landing.eyebrow': 'Студио за писане с изкуствен интелект за сериозни писатели',
   'landing.featuresHeading': 'Инструменти, които не пречат',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -100,14 +127,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Студио, създадено за писатели, които държат на прозата, ритъма и прецизността си. Plume ви помага в написването — никога не се замества на ваше място.',
   'landing.heroTitle.eloquence': 'красноречие',
+  'landing.heroTitle.intelligence': 'Интелигентността среща ',
   'landing.nav.testimonials': 'Отзиви',
   'landing.plan.cta': 'Започнете с този план',
   'landing.plan.popular': 'Най-харесвани',
   'landing.pricingEyebrow': 'Ценообразуване',
   'landing.pricingHeading': 'Изберете това, което подхожда на вашата практика',
   'landing.sampleDocTitle': 'Архитектурата на тишината',
+  'landing.sampleParagraph1':
+    'Градът никога не беше истински тих. Дори в най-дълбоките часове на нощта през бетонните основи вибрираше тихо бръмчене — механичен пулс от влакове на метрото и вентилационни шахти.',
+  'landing.sampleParagraph2.after': ' към стъклото.',
+  'landing.sampleParagraph2.before': 'Но ',
   'landing.sampleParagraph2.highlight':
     'Стоейки на балкона на 42-ия етаж, Елиас изпита дълбоко чувство на изолация',
+  'landing.showcaseBody':
+    'Маркирайте изречение и {{appName}} предлага подобрение. Приемете го, коригирайте го или го отхвърлете. Предложенията винаги са оцветени в лилаво, за да знаете какво сте написали вие и какво ви е предложено.',
+  'landing.showcaseHeading': 'Втори поглед — никога втори автор.',
   'landing.startWriting': 'Започнете да пишете',
   'login.emailPlaceholder': 'author@example.com',
   'login.failed': 'Влизането не успя',
@@ -122,8 +157,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Отвори таблото',
   'notFound.title': 'Тази глава все още не е написана.',
   'plumeSidebarLayout.primaryNavLabel': 'Основна навигация',
+  'pricing.maxDocuments': '{{count}} документи',
+  'pricing.maxGenerate': '{{count}} AI генерирания',
+  'pricing.maxImages': '{{count}} генерирания на изображения',
   'privacy.data':
     'Имейлът на профила ви и хеширана парола. Документи и шаблони, които създавате. Регистри с предложения от изкуствен интелект (входни + изходни данни) за целите на фактурирането и анализа. Идентификатори на клиенти и абонаменти в Stripe; ние никога не съхраняваме пълни номера на кредитни карти.',
+  'privacy.intro':
+    'Събираме само данните, необходими за работата на {{app}}: имейла ви, документите, които създавате, и AI заявките, които правите. Никога не продаваме написаното от вас или подсказките ви.',
   'profile.loadError': 'Не успяхме да заредим профила ви.',
   'profile.loading': 'Зареждане на профила ви…',
   'profile.loadingPublished': 'Зареждане на публикувани документи…',
@@ -134,7 +174,13 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Нова парола',
   'seoAnalysis.backToEditor': 'Назад към редактора',
   'seoAnalysis.eyebrow': 'SEO анализ',
+  'seoAnalysis.heroBody':
+    '{{count}} предложение(я) за прилагане. Всяко е структурно или ключово подобрение, а не стена от червени флагове.',
+  'seoAnalysis.heroBodyEmpty':
+    'Натиснете „Стартирай анализа“, за да оцените четивност, плътност на ключови думи и структура.',
   'seoAnalysis.heroEmpty': 'Все още няма анализ. Извършете такъв, за да оцените този драфт.',
+  'seoAnalysis.heroNeedsWork': 'Някои структурни подобрения ще увеличат обхвата.',
+  'seoAnalysis.heroStrong': 'Силно произведение — на малки подобрения от отличното.',
   'seoAnalysis.historyEmpty': 'Няма регистрирани предишни анализи.',
   'seoAnalysis.historyTitle': 'История на анализите',
   'seoAnalysis.keywordEmpty':
@@ -162,8 +208,14 @@ export const ui: UiTranslations = {
   'settings.toggleIntegrationFailed': 'Актуализацията на интеграцията се провали.',
   'settings.writing.aiSuggestions':
     'Предложения от изкуствен интелект по време на въвеждане на текст',
+  'settings.writing.aiSuggestionsBody':
+    'Показва подобрения, докато пишете. Предложенията винаги се приемат по избор за всяко изречение.',
   'settings.writing.autoSave': 'Автоматично запазване на всеки 30 секунди',
+  'settings.writing.autoSaveBody':
+    '{{appName}} пази снимка на черновата ви, за да се възстановите от всеки раздел.',
   'settings.writing.notifyEmail': 'Изпращайте ми седмични обобщения по имейл',
+  'settings.writing.notifyEmailBody':
+    'Кратък неделен дайджест за сериите, черновите и SEO подобренията.',
   'settings.writing.title': 'Настройки за писане',
   'settings.writing.tone': 'Предварително зададена мелодия по подразбиране',
   'signup.emailPlaceholder': 'author@example.com',
@@ -175,8 +227,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'Няма описание.',
   'templates.subtitle':
     'Започнете с изпитана в практиката редакционна структура, а след това я приспособете към вашите нужди.',
+  'terms.intro':
+    'Тези условия уреждат използването на {{app}}. Създавайки акаунт, се съгласявате да използвате услугата за законосъобразно писане и да пазите данните за достъп до акаунта си в тайна.',
   'terms.license':
     'Вие запазвате собствеността върху всеки документ, шаблон и резултат от изкуствен интелект, който създадете. Ние се нуждаем от неизключителен лиценз, за да хостваме и предоставяме Вашите материали обратно на Вас, както и за да обработваме заявки за изкуствен интелект чрез избраните от Вас оторизирани доставчици.',
   'writingStreakHeroCard.change': '{{sign}} {{amount}} думи',
   'writingStreakHeroCard.greeting': 'Здравейте, {{name}}',
+  'writingStreakHeroCard.subtitle': 'Думи, написани тази седмица — {{count}}-дневна серия',
+  'writingStreakHeroCard.tagline': 'Страница на ден държи музата в игра.',
 }

@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пікіріңіз бар ма, қате таптыңыз ба немесе мүмкіндік қалайсыз ба? Тіркелгі параметрлерінен хабарласыңыз — әрбір хабарлама командадағы нақты адамға жетеді.',
   'about.contactTitle': 'Байланыс',
   'about.eyebrow': 'Туралы',
+  'about.intro':
+    '{{app}} — өз мәтініне ерекше мән беретін жазушыларға арналған AI жазу студиясы. Ол ұзақ форматты AI генерациясын тыныш редактормен, SEO бағалаумен және сурет генерациясымен ұштастырады, сондықтан шығармаңызды бос беттен жарияланғанға дейін жеткізе аласыз — өз дауысыңызды жоғалтпай.',
+  'about.missionBody':
+    'Біз AI сіздің қасыңызда жазсын, бірақ сіздің орныңызға емес деп сенеміз. {{app}} ұсыныстарды өз сөздеріңізден анық ажыратып ұстайды, жасаған әрбір құжатыңыздың иесі болып қалуыңызға мүмкіндік береді және жазуға кедергі жасамайды.',
+  'about.missionTitle': 'Біздің миссиямыз',
   'about.pageTitle': '{{app}} туралы',
   'aiSuggestionCard.applied': 'Ұсыныс қолданылды',
   'aiSuggestionCard.apply': 'Қолдану',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Трафик көздері',
   'billing.activePlan': 'Жазылым белсенді.',
   'billing.aiWordsLabel': 'Жасанды интеллект буындары кіреді',
+  'billing.cancelFailed': 'Жазылымнан бас тарту мүмкін болмады.',
   'billing.cancelPlan': 'Жоспарды тоқтату',
+  'billing.cancelPlanConfirm': 'Бас тартуды растайсыз ба?',
   'billing.cancelSuccess': 'Жазылым тоқтатылды. Жоспарды жаңарту үшін жаңартыңыз.',
   'billing.changePlan': 'Жоспарды өзгерту',
   'billing.col.invoice': 'Шот-фактура',
@@ -44,26 +53,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'Жоспарларды қарау',
   'common.goToDashboard': 'Бақылау тақтасына өту',
   'dashboard.continueWriting': 'Жазуды жалғастырыңыз',
+  'dashboard.createFirst': 'Құжат жасау',
   'dashboard.days.sat': 'Sat',
   'dashboard.days.sun': 'Sun',
   'dashboard.defaultWriterName': 'Жазушы',
   'dashboard.greeting': 'Қайырлы таң, {{name}}',
   'dashboard.loadError': 'Басқару тақтасын жүктеу мүмкін болмады.',
+  'dashboard.loading': 'Студияңыз жүктелуде…',
   'dashboard.loadingDocs': 'Соңғы құжаттар жүктелуде…',
   'dashboard.noDocuments': 'Әлі ешқандай құжат жоқ — біріншісін бастаңыз.',
   'dashboard.startWriting': 'Жаңа құжатты бастау',
+  'dashboard.streakBody': 'Осы аптада {{words}} сөз жаздыңыз.',
   'dashboard.streakTitle': '{{count}} - күндізгі серия',
+  'dashboard.subgreeting': 'Кітапханаңызда {{count}} құжат — қарқынды жалғастырыңыз.',
+  'documentCard.seoScoreTitle': 'SEO ұпайы: {{score}}/100',
+  'documents.createNew': 'Жаңа құжат жасау',
   'documents.empty': 'Кітапханаңыз күтіп тұр — бірінші құжатыңызды бастаңыз.',
+  'documents.emptyFiltered': 'Сүзгілеріңізге әзірге ешбір құжат сәйкес келмейді.',
   'documents.loadError': 'Құжаттарды жүктеу мүмкін болмады.',
   'documents.loading': 'Кітапханаңыз жүктелуде…',
   'documents.new': 'Жаңа құжат',
+  'documents.searchAriaLabel': 'Құжаттарды іздеу',
   'documents.searchPlaceholder': 'Құжаттарды іздеу…',
   'documents.subtitle': '{{count}} кітапханаңыздағы құжаттар.',
   'documents.title': 'Құжаттар',
   'editor.aiPanelTitle': 'Плум интеллекті',
+  'editor.aiSuggestion.empty':
+    'Белсенді жетілдірулер жоқ. Екінші көзқарас қажет болғанда {{appName}}-ден ұсыныс сұраңыз.',
   'editor.aiSuggestion.failed': 'Ұсыныстарды қазір жүктеу мүмкін емес.',
   'editor.aiSuggestion.loadingBody': 'Ашықтықты жетілдіру...',
   'editor.backToDocuments': 'Барлық құжаттар',
+  'editor.bodyAriaLabel': 'Құжат мәтіні',
   'editor.closeAiPanel': 'Жасанды интеллект панелін жабу',
   'editor.createFailed': 'Құжат жасалмады.',
   'editor.exported': '{{format}} ретінде экспортталды.',
@@ -80,18 +100,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'Нақтылауды сұрау',
   'editor.saveBeforePublish': 'Құжатты жарияламас бұрын сақтаңыз.',
   'editor.status.chars': '{{count}} кейіпкерлер',
+  'editor.status.readTime': '{{minutes}} минималды оқу',
   'editor.status.savedAt': 'Сақталған {{time}}',
   'editor.status.saveError': 'Сақтау сәтсіз аяқталды',
+  'editor.status.unsaved': 'Әлі сақталмады',
   'editor.titleAriaLabel': 'Құжат атауы',
   'editor.titlePlaceholder': 'Атауы жоқ құжат',
   'editor.toggleAiPanel': 'Жасанды интеллект панелін ауыстыру/жасыру',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'author@example.com',
+  'forgotPassword.sent': 'Егер {{email}} тіркелген болса, қалпына келтіру сілтемесі жолда.',
   'imageGenerator.failed': 'Кескін жасау сәтсіз аяқталды.',
   'imageGenerator.generate': 'Сурет жасау',
   'imageGenerator.generating': 'Жасалуда...',
   'imageGenerator.placeholder': 'Жасырғыңыз келетін суретті сипаттаңыз...',
+  'imageGenerator.promptAriaLabel': 'Кескін сұрауы',
+  'imageGenerator.subtitle': 'Мұқаба суретін сипаттаңыз, AI оны бейнелейді.',
   'imageGenerator.title': 'Жасанды интеллект кескін генераторы',
+  'landing.aiSuggestionBody':
+    '42-қабаттың балконында тұрған Элиас қаланың өзіне қысым жасағанын сезді — жел қоршаған дыбысты алып кетіп, оны жарқыраған тордың үстіндегі мұздай, тыныш бос кеңістікте қалдырды.',
   'landing.eyebrow': 'Байыпты жазушыларға арналған жасанды интеллект жазу студиясы',
   'landing.featuresHeading': 'Жолдан адасатын құралдар',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -101,14 +128,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Прозасына, қарқынына және дәлдігіне мән беретін жазушыларға арналған студия. Сіздің орныңызға ешқашан сіздің жаныңызда емес, сіздің жаныңызда сызылған жобалар.',
   'landing.heroTitle.eloquence': 'шешендік',
+  'landing.heroTitle.intelligence': 'Intelligence meets ',
   'landing.nav.testimonials': 'Пікірлер',
   'landing.plan.cta': 'Осы жоспардан бастаңыз',
   'landing.plan.popular': 'Ең сүйікті',
   'landing.pricingEyebrow': 'Баға белгілеу',
   'landing.pricingHeading': 'Тәжірибеге сәйкес келетінін таңдаңыз',
   'landing.sampleDocTitle': 'Тыныштық сәулеті',
+  'landing.sampleParagraph1':
+    'Қала ешқашан шынымен тыныш болған емес. Түннің ең терең сәттерінде де бетон іргетастардан аласа гүіл өтіп жататын — метро пойыздары мен желдету шахталарының механикалық жүрек соғысы.',
+  'landing.sampleParagraph2.after': ' әйнекке.',
+  'landing.sampleParagraph2.before': 'Бірақ ',
   'landing.sampleParagraph2.highlight':
     '42-қабаттың балконында тұрған Элиас терең жалғыздық сезімін сезінді',
+  'landing.showcaseBody':
+    'Сөйлемді белгілеңіз, {{appName}} жетілдіру ұсынады. Оны қабылдаңыз, түзетіңіз немесе бас тартыңыз. Ұсыныстар әрқашан күлгін түспен белгіленеді, сондықтан қайсысын өзіңіз жазғаныңызды, қайсысы ұсынылғанын білесіз.',
+  'landing.showcaseHeading': 'Екінші көзқарас — ешқашан екінші автор емес.',
   'landing.startWriting': 'Жазуды бастау',
   'login.emailPlaceholder': 'author@example.com',
   'login.failed': 'Кіру сәтсіз аяқталды',
@@ -123,8 +158,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Басқару тақтасын ашу',
   'notFound.title': 'Бұл тарау әлі жазылған жоқ.',
   'plumeSidebarLayout.primaryNavLabel': 'Негізгі навигация',
+  'pricing.maxDocuments': '{{count}} құжаттар',
+  'pricing.maxGenerate': '{{count}} AI генерациясы',
+  'pricing.maxImages': '{{count}} сурет генерациясы',
   'privacy.data':
     'Тіркелгіңіздің электрондық поштасы және хэштелген құпия сөз. Сіз жасайтын құжаттар мен үлгілер. Есеп айырысу және талдау үшін жасанды интеллект ұсыныс журналдары (енгізу + шығыс). Жолақты тұтынушы + жазылым идентификаторлары; біз ешқашан толық карта нөмірлерін сақтамаймыз.',
+  'privacy.intro':
+    'Біз {{app}} жұмыс істеуі үшін қажетті деректерді ғана жинаймыз: электрондық поштаңызды, жасаған құжаттарыңызды және жасаған AI сұрауларыңызды. Біз жазуыңызды немесе промпттарыңызды ешқашан сатпаймыз.',
   'profile.loadError': 'Профиліңізді жүктеу мүмкін болмады.',
   'profile.loading': 'Профиліңіз жүктелуде…',
   'profile.loadingPublished': 'Жарияланған құжаттар жүктелуде…',
@@ -135,7 +175,13 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Жаңа құпия сөз',
   'seoAnalysis.backToEditor': 'Редакторға оралу',
   'seoAnalysis.eyebrow': 'SEO талдауы',
+  'seoAnalysis.heroBody':
+    'Қолдануға {{count}} ұсыныс. Әрқайсысы құрылымдық немесе кілт сөзді жақсарту, қызыл жалаулар қабырғасы емес.',
+  'seoAnalysis.heroBodyEmpty':
+    'Оқылымдылықты, кілт сөз тығыздығын және құрылымды бағалау үшін "Талдауды іске қосу" түймесін басыңыз.',
   'seoAnalysis.heroEmpty': 'Әлі талдау жоқ. Бұл жобаны бағалау үшін біреуін іске қосыңыз.',
+  'seoAnalysis.heroNeedsWork': 'Кейбір құрылымдық жақсартулар қамтуды арттырады.',
+  'seoAnalysis.heroStrong': 'Мықты туынды — тамашаға бір қадам қалды.',
   'seoAnalysis.historyEmpty': 'Бұрынғы талдаулар тіркелмеген.',
   'seoAnalysis.historyTitle': 'Талдау тарихы',
   'seoAnalysis.keywordEmpty':
@@ -162,9 +208,15 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'Жазу тәсіліңізге сәйкес келетіндей етіп, плумды реттеңіз.',
   'settings.toggleIntegrationFailed': 'Интеграцияны жаңарту сәтсіз аяқталды.',
   'settings.writing.aiSuggestions': 'Теру кезіндегі кірістірілген жасанды интеллект ұсыныстары',
+  'settings.writing.aiSuggestionsBody':
+    'Жазған кезде жетілдірулерді көрсетеді. Ұсыныстар әрқашан сөйлем бойынша қосылады.',
   'settings.writing.autoSave': 'Әр 30 секунд сайын автоматты түрде сақтау',
+  'settings.writing.autoSaveBody':
+    '{{appName}} жобаңыздың суретін сақтайды, сондықтан кез келген қойындыдан қалпына келтіре аласыз.',
   'settings.writing.notifyEmail':
     'Апталық жазбаша қорытындыларды маған электрондық пошта арқылы жіберіңіз',
+  'settings.writing.notifyEmailBody':
+    'Апталық сериялар, жобалар және SEO жақсартулары туралы қысқа жексенбілік дайджест.',
   'settings.writing.title': 'Жазу қалаулары',
   'settings.writing.tone': 'Әдепкі дыбыстық алдын ала орнатылған режим',
   'signup.emailPlaceholder': 'author@example.com',
@@ -176,8 +228,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'Сипаттама берілмеген.',
   'templates.subtitle':
     'Соғыспен сынақтан өткен редакциялық кадрдан бастаңыз, содан кейін оны өзіңіздікі етіңіз.',
+  'terms.intro':
+    'Бұл шарттар {{app}} пайдалануыңызды реттейді. Тіркелгі жасау арқылы сіз қызметті заңды жазу үшін пайдалануға және тіркелгі деректеріңізді құпия ұстауға келісесіз.',
   'terms.license':
     'Сіз жасаған әрбір құжатқа, үлгіге және жасанды интеллект генерациясына меншік құқығыңыз сақталады. Сіздің жұмысыңызды орналастыру және сізге қайтару үшін, сондай-ақ сіз таңдаған кепілдендірілген провайдерлер арқылы жасанды интеллект сұраныстарын өңдеу үшін бізге эксклюзивті емес лицензия қажет.',
   'writingStreakHeroCard.change': '{{sign}} {{amount}} сөздер',
   'writingStreakHeroCard.greeting': 'Қайырлы күн, {{name}}',
+  'writingStreakHeroCard.subtitle': 'Осы аптада жазылған сөздер — {{count}} күндік серия',
+  'writingStreakHeroCard.tagline': 'Күн сайын бір бет — музаны сергек ұстайды.',
 }

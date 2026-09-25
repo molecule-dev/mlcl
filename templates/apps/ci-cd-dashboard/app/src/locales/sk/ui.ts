@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Máte otázky, spätnú väzbu alebo chcete demo pre svoj tím? Napíšte nám na hello@conduit.dev — každá správa sa dostane k skutočnému členovi tímu.',
   'about.contactHeading': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
+  'about.featuresHeading': 'Čo získate',
+  'about.introBody':
+    '{{app}} prináša kontinuálne doručovanie v štýle GitHub Actions do jedného rýchleho dashboardu: pipelines, logy buildu, artefakty, stavové odznaky a prostredia nasadenia pre všetky vaše repozitáre na jednom mieste. Žiadne prepínanie kariet, žiadne hádanie, ktorý build sa pokazil — každý beh, riadok logu a nasadenie je na jeden klik.',
+  'about.introHeading': 'Čo je {{app}}',
+  'about.missionBody':
+    'Dodávanie softvéru by malo byť pokojné a predvídateľné, nie zdrojom obáv. Vytvárame pipelines, logy a nástroje na nasadenie, aby bola cesta od commitu po produkciu rýchla, prehľadná a dôveryhodná — prvý zelený build za päť minút a každý ďalší build rovnako jasný.',
+  'about.missionHeading': 'Naše poslanie',
+  'about.subtitle':
+    '{{app}} je CI/CD dashboard pre tímy, ktoré chcú sledovať buildy, nasadenia a prostredia vo všetkých repozitároch — a nasadzovať s istotou.',
   'artifacts.empty': 'Zatiaľ žiadne artefakty.',
   'artifacts.heading': 'Artefakty',
   'artifacts.loadError': 'Načítanie artefaktov sa nepodarilo.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Prostredia',
   'environments.loadError': 'Načítanie prostredí sa nepodarilo.',
+  'environments.loading': 'Načítavajú sa prostredia…',
   'environments.subheading': 'Aktuálny stav nasadenia vo všetkých cieľových prostrediach.',
   'forgotPassword.runnerStatus': 'vynulovať · zabezpečený tunel',
+  'forgotPassword.success':
+    'Ak pre daný e-mail existuje účet, odkaz na obnovenie je už na ceste. Skontrolujte si doručenú poštu.',
   'insights.changeFailureRate': 'Zmena miery zlyhania',
   'insights.deployFrequency': 'Nasadenia za deň',
   'insights.empty': 'Zatiaľ nie je k dispozícii dostatok údajov.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Nepodarilo sa načítať štatistiky.',
   'insights.meanP95': '{{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Najpomalšie kroky pipeline',
   'insights.successRateHeading': 'Úspešnosť v procese (posledných 14 dní)',
   'landing.choosePlan': 'Vyberte si balík',
+  'landing.copyright': '© {{year}} {{app}}. Nasadzujte s istotou.',
   'landing.ctaBody':
     'Bez kreditnej karty. Bez potreby platformového inžiniera. Spustite prvý pipeline do piatich minút.',
   'landing.ctaHeading': 'Doručujte s istotou.',
   'landing.featuresEyebrow': '// funkcie platformy',
   'landing.featuresHeading': 'Vytvorené pre prepravcov, od prepravcov',
+  'landing.heroSubtitle':
+    'Pipelines, ktoré dobehnú za sekundy. Logy, ktoré sa dajú čítať. Nasadenia, ktorým môžete dôverovať.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Jednoduché a prehľadné ceny',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Práve v lete',
   'pipelines.metric.successCaption': '{{count}} z behu „{{total}}“',
   'pipelines.metric.successRate': 'Úspešnosť',
+  'pipelines.realtimeOn': 'v reálnom čase',
   'pipelines.subheading': 'Aktualizácie v reálnom čase zo všetkých sledovaných repozitárov.',
+  'pricing.advancedFeatures': 'Pokročilé funkcie: {{mark}}',
+  'pricing.canExport': 'Export údajov: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artefaktov',
+  'pricing.maxBuilds': '{{count}} buildov',
+  'pricing.maxPipelines': '{{count}} pipelines',
   'privacy.dataAccount': 'Účet: meno, e-mailová adresa, hash hesla, úroveň balíka.',
   'privacy.intro':
     '{{app}} Zbierame len minimálne množstvo údajov, ktoré potrebujeme na prevádzku vášho účtu pre nepretržité dodávanie: vašu e-mailovú adresu, repozitáre, ktoré pripojíte, metadáta o revíziách a zostavách, ktoré generujú vaše spúšťacie skripty, a tajné údaje, ktoré sa rozhodnete u nás uložiť. Nikdy neprezeráme váš zdrojový kód mimo spúšťacieho skriptu; artefakty zostav sú v prípade konfigurácie uložené vo vašom úložisku S3.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Na fakturáciu používame službu Stripe, na zasielanie transakčných e-mailov službu Mailgun a na ukladanie výstupov zo zostavovania službu AWS S3. Každá z týchto služieb je zmluvne viazaná na minimálny rozsah údajov potrebných na poskytovanie svojich služieb.',
   'privacy.rightsBody':
     'Môžete exportovať každý bajt svojich údajov, kedykoľvek zrušiť svoj účet v nastaveniach a požiadať o výpis všetkých doručených webhookov vo vašom účte. Na žiadosti podľa GDPR / CCPA odpovedáme do 30 dní.',
+  'privacy.subtitle':
+    'Ako {{app}} zhromažďuje, ukladá a chráni vaše údaje, kým spúšťame vaše pipelines.',
   'privacy.title': 'Zásady ochrany osobných údajov',
   'repositories.empty': 'Nie sú pripojené žiadne repozitáre.',
   'repositories.heading': 'Repozitáre',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Všetky repozitáre',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Načítanie repozitára sa nepodarilo.',
+  'repositoryDetail.meanDuration': 'Priemerné trvanie',
   'repositoryDetail.notFound': 'Repozitár nebol nájdený.',
+  'repositoryDetail.successRate': 'Úspešnosť',
   'repositoryDetail.totalBuilds': 'Celkový počet zostavení',
   'repositoryDetail.webhookActive': 'aktívny',
   'repositoryDetail.webhookPaused': 'pozastavené',
   'repositoryDetail.webhooksHeading': 'Webhooky',
+  'resetPassword.passwordLabel': 'Nové heslo',
   'resetPassword.runnerStatus': 'vynulovať · token overený',
   'resetPassword.subtitle': 'Zvoľte si silné heslo, ktoré ste doteraz nepoužívali.',
   'resetPassword.tokenPlaceholder': 'text z e-mailu',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Repozitáre, ktoré sleduje Conduit. Odpojte sa od svojho poskytovateľa VCS, aby sa prestali prijímať udalosti.',
   'settings.repositories.empty': 'Zatiaľ nie sú pripojené žiadne repozitáre.',
+  'settings.repositories.heading': 'Pripojenia repozitárov',
   'settings.repositories.loadError': 'Načítanie repozitárov sa nepodarilo.',
   'settings.secrets.addCta': 'Pridať heslo',
   'settings.secrets.addError': 'Nepodarilo sa pridať tajný kľúč.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Odstránenie tajného kľúča sa nepodarilo.',
   'settings.secrets.empty': 'Neuchovávajú sa žiadne tajomstvá.',
   'settings.secrets.heading': 'Tajomstvá',
+  'settings.secrets.lastUsed': 'naposledy použité {{date}}',
   'settings.secrets.loadError': 'Načítanie tajných údajov sa nepodarilo.',
   'settings.secrets.neverUsed': 'nikdy nepoužívané',
   'settings.secrets.rotateCta': 'Otočiť',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Aktualizácia webhooku sa nepodarila.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'bezplatná verzia · 1 000 zostavení za mesiac',
+  'terms.intro':
+    'Vytvorením účtu {{app}} súhlasíte s týmito podmienkami. Pokrývajú prijateľné používanie build runnerov, hranice našej SLA a podmienky, za ktorých môžeme váš účet pozastaviť alebo zrušiť za zneužívajúce zaťaženie.',
   'terms.slaBody':
     'Plány Pro a Team zaručujú mesačnú dostupnosť API a skupiny spúšťačov na úrovni 99,95 %. Plán Free sa poskytuje v stave, v akom je. Výpadky sa hlásia na stránke status.conduit.dev a kompenzujú sa podľa vzorca uvedeného na vašej faktúre.',
   'terms.terminationBody':

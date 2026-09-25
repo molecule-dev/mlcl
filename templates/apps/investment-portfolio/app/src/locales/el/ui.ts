@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχετε σχόλια, βρήκατε κάποιο σφάλμα ή θέλετε μια νέα λειτουργία; Επικοινωνήστε από τις ρυθμίσεις του λογαριασμού σας — κάθε μήνυμα φτάνει σε ένα πραγματικό μέλος της ομάδας. Σημείωση: τίποτα εδώ δεν αποτελεί επενδυτική συμβουλή· εσείς έχετε τον έλεγχο κάθε συναλλαγής.',
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.featureAttribution':
+    'Ανάλυση απόδοσης — αναλύστε τις αποδόσεις ανά τομέα, περιοχή και κατηγορία περιουσιακών στοιχείων, και συγκρίνετε με δείκτες αναφοράς σε οποιοδήποτε χρονικό διάστημα.',
+  'about.featureRebalance':
+    'Πειθαρχημένη επαναφορά ισορροπίας — ορίστε στόχους κατανομής και όρια ανοχής, δείτε έγκαιρα τις αποκλίσεις και λάβετε τις συναλλαγές που σας επαναφέρουν.',
+  'about.featureTax':
+    'Τάξη στα φορολογικά έγγραφα — πραγματοποιημένα και μη πραγματοποιημένα κέρδη, μερίσματα και έγγραφα 1099 σε ένα σημείο, με σημάνσεις wash-sale.',
+  'about.featureUnified':
+    'Ένα ενοποιημένο χαρτοφυλάκιο — μετοχές, ETFs, αμοιβαία κεφάλαια, ομόλογα και άλλα, συγκεντρωμένα από κάθε λογαριασμό χρηματιστηριακής.',
+  'about.featureWatchlist':
+    'Λίστες παρακολούθησης, ειδήσεις και ειδοποιήσεις τιμών, ώστε να ενεργείτε σε ό,τι έχει σημασία χωρίς τον θόρυβο.',
+  'about.intro':
+    'Το {{app}} είναι ένας πίνακας ελέγχου χαρτοφυλακίου πολλαπλών περιουσιακών στοιχείων για ιδιώτες επενδυτές και ανεξάρτητους συμβούλους. Μετοχές, ETFs, αμοιβαία κεφάλαια, ομόλογα, ακίνητα και μετρητά — κάθε θέση σε κάθε λογαριασμό, σε ένα σημείο, με την πειθαρχία ενός επαγγελματικού γραφείου.',
+  'about.missionBody':
+    'Η καλή επένδυση είναι κυρίως πειθαρχία: σαφής στόχος κατανομής, ειλικρινής ανάλυση απόδοσης και τακτοποιημένα φορολογικά αρχεία. Το {{app}} φέρνει αυτές τις θεσμικές συνήθειες σε όλους, ώστε να επαναφέρετε την ισορροπία σκόπιμα και όχι παρορμητικά — και να μη χάνετε ποτέ από τα μάτια σας το τι κάνει πραγματικά το χαρτοφυλάκιό σας.',
+  'about.missionTitle': 'Η αποστολή μας',
   'about.pageTitle': 'Σχετικά με το {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Εργαλεία πλούτου',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Δεν αποτελεί επενδυτική συμβουλή.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Ένας πίνακας ελέγχου χαρτοφυλακίου για μεμονωμένους επενδυτές και συμβούλους που επιθυμούν πειθαρχημένη αναπροσαρμογή ισορροπίας, ακριβή απόδοση και υγιεινή φορολογικών εγγράφων — χωρίς θόρυβο.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · Οι προηγούμενες αποδόσεις δεν εγγυώνται μελλοντικά αποτελέσματα.',
   'argentAuthShell.sampleChange': '+2.841$ (+0,28%) σήμερα',
+  'argentAuthShell.sampleLabel': 'Αξία Χαρτοφυλακίου',
   'argentAuthShell.sampleValue': '1.032.251 δολάρια',
   'argentLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'assetAllocationDonut.heading': 'Πώς επενδύονται τα χρήματά σας',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'σήμερα',
   'assetDetail.txEmpty': 'Δεν υπάρχουν συναλλαγές για αυτό το ticker.',
   'assetDetail.txHeading': 'Οι συναλλαγές σας',
+  'auth.legalConsent.prefix': 'Συνεχίζοντας, συμφωνείτε με τους όρους του {{appName}}',
   'common.and': 'και',
   'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'σήμερα',
   'dashboard.topHoldings.heading': 'Πού λειτουργούν τα χρήματά σας',
   'dashboard.topHoldings.label': 'Κορυφαίες Συμμετοχές',
+  'forgotPassword.gotLinkCta': 'Έχω σύνδεσμο επαναφοράς →',
+  'forgotPassword.subheading':
+    'Εισάγετε το email του λογαριασμού Gavl σας και θα σας στείλουμε ασφαλή σύνδεσμο επαναφοράς.',
   'forgotPassword.successBody':
     'Αν δεν το δείτε σε λίγα λεπτά, ελέγξτε τον φάκελο ανεπιθύμητης αλληλογραφίας ή δοκιμάστε ένα διαφορετικό email.',
   'forgotPassword.successSubheading':
     'Ελεγχος {{email}} για έναν σύνδεσμο επαναφοράς. Λήγει σε 60 λεπτά.',
+  'forgotPassword.successTitle': "Το email επαναφοράς είναι καθ' οδόν",
   'holdingHighlightRow.todayLabel': 'σήμερα',
   'holdings.addCta': 'Αγορά',
   'holdings.col.allocation': 'Κατανομή',
@@ -58,6 +87,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Δεν αποτελεί επενδυτική συμβουλή. Οι προηγούμενες αποδόσεις δεν εγγυώνται μελλοντικά αποτελέσματα.',
   'landing.eyebrow': 'Argent · Μια πλατφόρμα εργαλείων πλούτου',
   'landing.features.heading': 'Όλα όσα θα κατασκεύαζε ένας σύμβουλος για τον εαυτό του.',
+  'landing.finalCta.body':
+    'Συνδέστε τη χρηματιστηριακή σας σε δύο κλικ. Το {{appName}} κάνει τα υπόλοιπα.',
+  'landing.finalCta.cta': 'Ανοίξτε τον λογαριασμό σας Argent',
   'landing.finalCta.heading': 'Επαναφέρετε την πειθαρχία στο χαρτοφυλάκιό σας.',
   'landing.footerSignup': 'Άνοιγμα λογαριασμού',
   'landing.getStarted': 'Άνοιγμα λογαριασμού',
@@ -65,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Δείτε τις τιμές',
   'landing.heroSubtitle':
     'Ένας πίνακας ελέγχου χαρτοφυλακίου για μεμονωμένους επενδυτές και συμβούλους που επιθυμούν πειθαρχημένη αναπροσαρμογή ισορροπίας, ακριβή απόδοση και υγιεινή φορολογικών εγγράφων — χωρίς θόρυβο.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Μια ζωντανή προεπισκόπηση από ένα αντιπροσωπευτικό χαρτοφυλάκιο',
   'login.heading': 'Σύνδεση στο Argent',
   'login.subheading':
@@ -76,6 +109,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}}ω πριν',
   'news.justNow': 'μόλις τώρα',
   'news.loadError': 'Αποτυχία φόρτωσης ειδήσεων.',
+  'planUpdated.body':
+    'Η αλλαγή χρέωσής σας είναι πλέον ενεργή. Μπορείτε να διαχειρίζεστε το πλάνο σας οποιαδήποτε στιγμή από τη σελίδα χρέωσης.',
+  'planUpdated.retry': 'Δοκιμάστε ξανά',
+  'planUpdated.verifyFailed': 'Δεν μπορέσαμε να επιβεβαιώσουμε ακόμη την πληρωμή σας.',
+  'planUpdated.verifyFailedBody':
+    'Η πληρωμή σας ενδέχεται να βρίσκεται ακόμη υπό επεξεργασία. Δοκιμάστε ξανά σε λίγο.',
   'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'portfolioHeroCard.label': 'Αξία Χαρτοφυλακίου',
   'pricing.holdingsLabel': 'εκμεταλλεύσεις',
@@ -86,12 +125,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Απόκλιση κατανομής',
   'rebalance.empty': 'Δεν έχουν τεθεί ακόμη στόχοι.',
   'rebalance.executeCta': 'Θέση {{count}} συναλλαγές',
+  'rebalance.executeError': 'Αποτυχία υποβολής εντολών.',
   'rebalance.executeOk': 'Τοποθετήθηκε {{count}} συναλλαγές. Δείτε τις στη σελίδα Συναλλαγές.',
+  'rebalance.executing': 'Γίνεται υποβολή…',
   'rebalance.eyebrow': 'Αναδιάρθρωση · Σύμβουλος Argent',
   'rebalance.heading': 'Επαναφέρετε την πειθαρχία στο χαρτοφυλάκιό σας',
   'rebalance.loadError': 'Αποτυχία φόρτωσης σχεδίου αναπροσαρμογής ισορροπίας.',
+  'rebalance.plan.driftLine': 'τρέχουσα {{current}}% · στόχος {{target}}%',
   'rebalance.planHeading': 'Εισιτήριο Argent — έλεγχος πριν από την τοποθέτηση',
   'rebalance.planLabel': 'Προτεινόμενο εμπορικό σχέδιο',
+  'rebalance.subheading':
+    'Οι γραμμές εκτός του ορίου ανοχής τους ενεργοποιούν προτάσεις συναλλαγών. Το {{appName}} ενεργεί μόνο με την επιβεβαίωσή σας.',
   'rebalance.summary.buyLabel': 'Αγορές',
   'rebalance.summary.buySub': 'θέσεις προς συμπλήρωση',
   'rebalance.summary.driftLabel': 'Εκτός ζώνης',
@@ -100,6 +144,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'σε προτεινόμενες συναλλαγές',
   'rebalance.summary.sellLabel': 'Πωλεί',
   'rebalance.summary.sellSub': 'θέσεις για περικοπή',
+  'rebalanceDriftCard.drift': 'απόκλιση {{sign}}{{pct}}% · όριο ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'στόχος {{pct}} %',
   'reports.attributionHeading': 'Απόδοση απόδοσης (1 έτος)',
   'reports.col.alpha': 'Αλφα',
@@ -113,37 +158,71 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Ετος',
   'reports.gainsHeading': 'Πραγματοποιηθέντα και μη πραγματοποιηθέντα κέρδη',
   'reports.noAttribution': 'Δεν υπάρχουν ακόμη δεδομένα απόδοσης.',
+  'reports.noGains': 'Δεν υπάρχουν ακόμη δεδομένα πραγματοποιημένων/μη πραγματοποιημένων κερδών.',
   'reports.noPerformance': 'Δεν υπάρχουν ακόμη δεδομένα απόδοσης.',
   'reports.noTaxDocs': 'Δεν υπάρχουν ακόμη φορολογικά έγγραφα.',
   'reports.performanceHeading': 'Απόδοση έναντι αναφοράς',
   'reports.taxHeading': 'Φορολογικά έγγραφα',
   'resetPassword.heading': 'Επιλέξτε έναν ισχυρό νέο κωδικό πρόσβασης',
+  'resetPassword.passwordPlaceholder': 'Νέος κωδικός πρόσβασης',
   'resetPassword.subheading':
     'Η Argent θα σας συνδέσει αυτόματα μόλις ορίσετε τον κωδικό πρόσβασής σας.',
   'resetPassword.tokenPlaceholder': 'Επαναφορά διακριτικού από email',
+  'settings.appearance.description': 'Εναλλαγή μεταξύ φωτεινής και σκοτεινής λειτουργίας.',
   'settings.appearance.title': 'Εμφάνιση',
+  'settings.devices.body': 'Συσκευές που είναι συνδεδεμένες στον λογαριασμό σας αυτήν τη στιγμή.',
+  'settings.devices.empty': 'Δεν βρέθηκαν συσκευές.',
   'settings.devices.heading': 'Συσκευές',
+  'settings.devices.revokeWarning':
+    'Η πρόσβαση αυτής της συσκευής θα ανακληθεί σύντομα. Να γίνει αποσύνδεση;',
   'settings.devices.signOut': 'Αποσύνδεση',
   'settings.devices.thisDevice': 'Αυτή η συσκευή',
   'settings.devices.unknown': 'Άγνωστη συσκευή',
   'settings.linked.body':
     'Ο συγχρονισμός μεσιτείας απαιτεί μια σύνδεση τρίτου μέρους (Plaid, Yodlee, κ.λπ.). Διαμορφώστε τον πάροχο στο περιβάλλον σας για να ενεργοποιήσετε την αυτόματη εισαγωγή.',
   'settings.linked.heading': 'Συνδεδεμένοι λογαριασμοί χρηματιστηριακών συναλλαγών',
+  'settings.linked.placeholder': 'Δεν έχουν συνδεθεί λογαριασμοί ακόμα.',
+  'settings.notifications.dividendsPaid': 'Καταβληθέντα μερίσματα',
   'settings.notifications.error': 'Δεν ήταν δυνατή η ενημέρωση της προτίμησης.',
   'settings.notifications.priceAlerts': 'Ειδοποιήσεις τιμών',
+  'settings.notifications.rebalanceDrift': 'Απόκλιση επαναφοράς ισορροπίας',
+  'settings.notifications.taxDocsReady': 'Τα φορολογικά έγγραφα είναι έτοιμα',
   'settings.profile.advisor': 'Ηλεκτρονικό ταχυδρομείο συμβούλου (προαιρετικό)',
   'settings.profile.heading': 'Προφίλ',
   'settings.security.changePassword': 'Αλλαγή κωδικού',
+  'settings.security.changePasswordTitle': 'Αλλαγή κωδικού',
   'settings.security.changing': 'Αλλαγή…',
+  'settings.security.confirmPassword': 'Κωδικός πρόσβασης',
+  'settings.security.currentPassword': 'Τρέχων κωδικός',
   'settings.security.deleteAccount': 'Διαγραφή λογαριασμού',
   'settings.security.deleteError': 'Αδύνατη η διαγραφή λογαριασμού.',
   'settings.security.deleteHeading': 'Διαγραφή λογαριασμού',
+  'settings.security.deleteModalWarning':
+    'Αυτό διαγράφει οριστικά τον λογαριασμό και τα δεδομένα σας. Εισαγάγετε τον κωδικό πρόσβασής σας για επιβεβαίωση.',
+  'settings.security.deleteWarning':
+    'Οριστική διαγραφή του λογαριασμού σας και όλων των σχετικών δεδομένων. Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.',
   'settings.security.deleting': 'Διαγραφή…',
   'settings.security.heading': 'Ασφάλεια',
   'settings.security.newPassword': 'Νέος κωδικός πρόσβασης',
   'settings.security.password': 'Κωδικός πρόσβασης',
+  'settings.security.passwordError': 'Δεν ήταν δυνατή η αλλαγή του κωδικού πρόσβασης.',
+  'settings.security.passwordHint':
+    'Άλλαξε τον κωδικό πρόσβασης που χρησιμοποιείς για να συνδεθείς.',
+  'settings.security.twoFactor': 'Έλεγχος ταυτότητας δύο παραγόντων',
+  'settings.security.twoFactorCode': 'Κωδικός επαλήθευσης',
+  'settings.security.twoFactorDisable': 'Απενεργοποίηση',
+  'settings.security.twoFactorDisableTitle': 'Απενεργοποίηση ελέγχου ταυτότητας δύο παραγόντων',
   'settings.security.twoFactorEnable': 'Ενεργοποίηση',
+  'settings.security.twoFactorEnableTitle': 'Ενεργοποίηση ελέγχου ταυτότητας δύο παραγόντων',
+  'settings.security.twoFactorHint':
+    'Προσθέστε ένα επιπλέον επίπεδο προστασίας στον λογαριασμό σας.',
   'settings.security.twoFactorInvalidCode': 'Μη έγκυρος κώδικας',
+  'settings.security.twoFactorOn': 'Στις',
+  'settings.security.twoFactorQrAlt': 'Κωδικός QR ταυτοποίησης δύο παραγόντων',
+  'settings.security.twoFactorScan':
+    'Σαρώστε αυτόν τον κωδικό QR με την εφαρμογή ελέγχου ταυτότητας και, στη συνέχεια, εισαγάγετε τον 6ψήφιο κωδικό.',
+  'settings.security.twoFactorUnavailable':
+    'Ο έλεγχος ταυτότητας δύο παραγόντων δεν είναι διαθέσιμος για αυτήν την εφαρμογή.',
   'settings.security.twoFactorVerify': 'Επαλήθευση και ενεργοποίηση',
   'settings.tax.error': 'Δεν ήταν δυνατή η ενημέρωση της μεθόδου φορολόγησης.',
   'settings.tax.heading': 'Φορολογική λογιστική παρτίδας',
@@ -154,6 +233,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Η μέθοδος φορολογίας αποθηκεύτηκε.',
   'signup.eyebrow': 'Άνοιγμα λογαριασμού',
   'signup.heading': 'Ανοίξτε τον λογαριασμό σας Argent',
+  'signup.legalPrefix': 'Δημιουργώντας λογαριασμό, συμφωνείτε με το {{appName}}',
   'signup.subheading': 'Δωρεάν για 30 ημέρες. Δεν απαιτείται κάρτα. Ακύρωση ανά πάσα στιγμή.',
   'signup.terms':
     'Δημιουργώντας έναν λογαριασμό, συμφωνείτε με τους Όρους Παροχής Υπηρεσιών και την Πολιτική Απορρήτου της Argent.',

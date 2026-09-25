@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Mistoqsijiet dwar prenotazzjoni, feedback, jew proprjetà li taħseb li jixirqilha tkun fuq {{app}}? Ikkuntattja lit-tim tagħna mill-kont tiegħek — kull messaġġ jasal għand bniedem reali li jista' jgħin.",
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwarna',
+  'about.featureLoyalty':
+    "Rati esklussivi għall-membri u programm ta' lealtà li jaqla' punti, checkouts tardivi, u upgrades tal-kmamar fuq kull prenotazzjoni.",
+  'about.featureReviews':
+    "Reviżjonijiet verifikati tal-klijenti u għażliet editorjali biex tkun tista' tafda s-soġġorn qabel ma tasal.",
+  'about.featureRooms':
+    "Kmannar, rati, u faċilitajiet wieħed ħdejn l-ieħor b'prezzijiet trasparenti u kollox inkluż — it-taxxi u l-miżati tar-resort inklużi qabel ma tħallas.",
+  'about.featureSearch':
+    "Tfittxija f'ħin reali fost lukandi vverifikati b'disponibbiltà ħajja, veduta tal-mappa, u galleriji tar-ritratti għonja.",
+  'about.featureTrips':
+    "Favoriti salvati u dashboard Trips li jżomm kull prenotazzjoni, itinerarju, u konferma f'post wieħed.",
+  'about.intro':
+    "{{app}} hija pjattaforma tal-prenotazzjoni tal-lukandi għall-vjaġġaturi li jimpurtahom mill-kwalità. Kull proprjetà tiġi vverifikata personalment mit-tim editorjali tagħna — l-ebda inventarju ta' aggregatur, l-ebda lista ta' qerq. Fittex disponibbiltà reali, qabbel kmamar, rati, u faċilitajiet wieħed ħdejn l-ieħor, imbagħad ibbukkja b'ftit taps b'prezz ċar u kollox inkluż.",
+  'about.missionBody':
+    "Li tibbukkja post fejn toqgħod għandu jħossu kalmu u onest. Aħna nuru rati trasparenti bit-taxxi u l-miżati tar-resort minn qabel, nippremjaw lill-klijenti leali minflok ma nċekknu l-flus minnhom, u npoġġu l-postijiet li jixirqilhom flusek l-ewwel — biex tqatta' inqas ħin tqabbel tabs u aktar ħin fuq il-vjaġġ innifsu.",
+  'about.missionTitle': 'Il-missjoni tagħna',
+  'about.subtitle': 'Mod ikkurat u trasparenti biex issib u tibbukkja l-lukanda t-tajba.',
   'account.loyalty.activitySummary': '{{nights}} iljieli · {{spend}} qatta’ din is-sena',
+  'account.loyalty.benefitsHeading': 'Il-benefiċċji tiegħek',
   'account.loyalty.heading': 'Lealtà',
   'account.loyalty.loading': 'Qed tiċċarġja l-lealtà…',
-  'account.loyalty.pointsTowardNext': '{{punti}} / {{li jmiss}} jindika {{LivellLi jmiss}}',
+  'account.loyalty.maxTier': 'L-ogħla livell — igawdi l-benefiċċji tiegħek.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} punti sa {{nextTier}}',
   'account.loyalty.tier': 'Livell attwali',
   'account.loyalty.unavailable': 'Informazzjoni dwar il-lealtà mhux disponibbli.',
   'account.navLabel': 'Taqsimiet tal-kont',
@@ -23,6 +44,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.datesRequired':
     'Jekk jogħġbok agħżel id-dati taċ-check-in u ċ-check-out tiegħek.',
   'bookingCheckout.guestHeading': 'Mistieden ewlieni',
+  'bookingCheckout.heading': 'Ikkonferma u bbukkja',
   'bookingCheckout.loadError': 'Ma rnexxiex titgħabba l-proprjetà.',
   'bookingCheckout.nights': '{{rate}} × {{count}} iljieli',
   'bookingCheckout.notFound': 'Proprjetà ma nstabitx.',
@@ -33,11 +55,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Taxxi u tariffi',
   'bookingCheckout.tripHeading': 'Il-vjaġġ tiegħek',
   'bookingConfirmation.allTripsCta': 'Il-vjaġġi kollha',
+  'bookingConfirmation.confNumber': 'Numru tal-konferma: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Ir-riservazzjoni tiegħek qed tiġi pproċessata.',
   'bookingConfirmation.heading': 'Il-prenotazzjoni hija kkonfermata',
   'bookingConfirmation.loading': 'Qed tiċċarġja r-riżervazzjoni tiegħek…',
   'bookingConfirmation.searchMoreCta': 'Fittex aktar soġġorni',
   'bookingConfirmation.subheadingForTrip':
-    '{{proprjetà}} ġewwa {{belt}} , {{pajjiż}} Narawkom fuq {{checkIn}} .',
+    '{{property}} fi {{city}}, {{country}}. Narawk fil-{{checkIn}}.',
   'bookingConfirmation.total': 'Total {{total}}',
   'bookingConfirmation.viewTripCta': 'Ara l-vjaġġ',
   'common.goToDashboard': 'Mur għad-Dashboard',
@@ -47,6 +72,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Ma rnexxiex jitgħabbew il-favoriti.',
   'favorites.pricePerNight': '{{price}} / lejl',
   'favorites.removeCta': 'Neħħi s-salvataġġ',
+  'favorites.removing': 'Qed jitneħħa…',
   'forgotPassword.subheading':
     "Daħħal l-email fil-kont tiegħek u aħna nibagħtulek link ta' reset sigur.",
   'forgotPassword.successBody':
@@ -54,6 +80,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Membri tas-Auberge',
   'landing.cta.heading': 'Tariffi għall-membri biss. Kull prenotazzjoni, kull darba.',
   'landing.cta.signup': "Oħloq kont b'xejn",
+  'landing.cta.subheading':
+    "Aqla' punti ta' lealtà fuq kull soġġorn, illokkja checkouts tardivi u upgrades tal-kmamar, u jkollok aċċess minn qabel għal proprjetajiet ġodda qabel ma jiġu elenkati pubblikament.",
   'landing.destinations.eyebrow': 'Fejn imiss',
   'landing.destinations.heading': 'Destinazzjonijiet Dehru',
   'landing.destinations.seeAll': 'Ara d-destinazzjonijiet kollha',
@@ -62,13 +90,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Stejjer li jiswew li tippakkja għalihom',
   'landing.nav.join': "Ingħaqad ma' Auberge",
   'landing.nav.search': 'Fittex soġġorni',
+  'landing.preview.browseAll': 'Ibbrawżja l-kollezzjoni sħiħa',
   'landing.preview.eyebrow': 'Ħarsa ġewwa',
   'landing.preview.heading': 'Soġġorni magħżula bir-reqqa dan ix-xahar',
+  'landing.preview.subheading':
+    "Kull proprjetà fuq {{appName}} tiġi vverifikata personalment mit-tim editorjali tagħna — l-ebda inventarju ta' aggregatur, l-ebda lista ta' qerq.",
   'login.eyebrow': 'Żona tal-membri',
+  'login.noAccount': "Ġdid f'Tessera?",
   'login.signupLink': "Oħloq kont b'xejn",
   'login.subheading':
     'Idħol biex timmaniġġja l-vjaġġi tiegħek, tara l-konfermi, u tkompli minn fejn ħallejt.',
+  'loyaltyTierBadge.points': '{{points}} punti',
   'planUpdated.heading': 'Pjan aġġornat',
+  'planUpdated.retry': 'Erġa’ pprova',
+  'planUpdated.verifyFailed': 'Għadna ma stajniex nikkonfermaw il-ħlas tiegħek.',
+  'planUpdated.verifyFailedBody':
+    "Jista' jkun li l-ħlas tiegħek għadu qed jiġi pproċessat. Erġa' pprova fi ftit ħin.",
   'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'pricing.limit.advancedFeatures': 'Karatteristiċi avvanzati:',
   'pricing.limit.canExport': 'Esportazzjoni tad-dejta:',
@@ -80,7 +117,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Dak li joffri dan il-post',
   'propertyDetail.backLink': 'Lura għat-tfittxija',
   'propertyDetail.bookCta': 'Riżerva',
+  'propertyDetail.bookmarkAria': 'Issejvja l-proprjetà',
   'propertyDetail.bookmarkAriaSaved': 'Neħħi mill-proprjetajiet salvati',
+  'propertyDetail.galleryImageAlt': '{{name}} ritratt {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} ritratt tal-eroj',
   'propertyDetail.hidePhotos': 'Aħbi r-ritratti',
   'propertyDetail.lineCleaning': 'Ħlas tat-tindif',
@@ -90,6 +129,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'lejl',
   'propertyDetail.noChargeYet': "Mhux se tiġi ċċarġjat s'issa",
   'propertyDetail.notFound': 'Proprjetà ma nstabitx.',
+  'propertyDetail.perNight': '/ lejl',
+  'propertyDetail.pickDatesHint': 'Agħżel id-dati tiegħek biex tara l-qsim sħiħ tal-prezz.',
   'propertyDetail.reviewCount': '( {{count}} reviżjonijiet)',
   'propertyDetail.reviewsHeading': 'Reviżjonijiet riċenti',
   'propertyDetail.roomCapacity': 'Jorqod {{count}}',
@@ -102,6 +143,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Password ġdida',
   'resetPassword.subheading':
     'Agħżel password ġdida għall-kont Auberge tiegħek. Uża mill-inqas 8 karattri; nirrakkomandaw passphrase.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'L-ebda proprjetà ma taqbel mat-tfittxija tiegħek.',
   'searchResults.emptyHint':
     "Ipprova wessa' l-filtri tiegħek jew neħħi l-limitu tal-prezz — Auberge għandha soġġorni f'14-il pajjiż.",
@@ -109,19 +151,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Soġġorni kkurati',
   'searchResults.headingForQuery': 'Jibqa\' għal " {{q}} "',
   'searchResults.loadError': 'Ma rnexxiex jitgħabbew il-proprjetajiet.',
+  'searchResults.mapHint':
+    'Poġġi l-mouse fuq karta biex tenfasizza fuq il-mappa. Madum Mapbox ħaj fil-produzzjoni.',
   'searchResults.mapPinAria': '{{name}} — {{price}} kull lejl',
   'searchResults.sortLabel': 'Issortja skont',
   'searchResults.subheading': '{{count}} proprjetajiet · {{guests}} mistednin',
   'signup.eyebrow': 'Issir membru',
   'signup.subheading':
     "Ingħaqad ma' Auberge biex tiftaħ rati għall-membri biss, checkouts tard, u aċċess inizjali għal proprjetajiet ġodda.",
+  'sojournAuthShell.brand.eyebrow': "Oqgħod f'post straordinarju",
+  'sojournAuthShell.brand.heading':
+    "Kollezzjoni kkurata ta' proprjetajiet — ippreżentati b'mod sabiħ, bi prezzijiet trasparenti.",
   'sojournHeroSearchCard.checkInAria': 'Data taċ-check-in',
   'sojournHeroSearchCard.checkOutAria': 'Data tal-ħruġ',
+  'sojournHeroSearchCard.destAria': 'Destinazzjoni',
+  'sojournHeroSearchCard.destLabel': 'Fejn',
   'sojournHeroSearchCard.destPlaceholder': 'Belt, reġjun, jew proprjetà',
   'sojournHeroSearchCard.eyebrow': 'Soġġorni kkurati · Tariffi għall-membri biss',
   'sojournHeroSearchCard.guestsOption': '{{n}} mistednin',
   'sojournHeroSearchCard.subtitle':
     "Kollezzjoni kkurata ta' lukandi boutique, proprjetajiet b'disinn avvanzat, u rtiri rari — bi prezzijiet trasparenti, ippreżentati b'mod sabiħ.",
+  'sojournHeroSearchCard.title': "Oqgħod f'post straordinarju",
+  'sojournHeroSearchCard.trustLoyalty': "Aqla' punti fuq kull soġġorn",
   'sojournHeroSearchCard.trustNoFees': 'L-ebda tariffi moħbija, qatt',
   'sojournHeroSearchCard.trustVetted': 'Proprjetajiet ivverifikati bl-idejn biss',
   'sojournLayout.primaryNavLabel': 'Navigazzjoni primarja',

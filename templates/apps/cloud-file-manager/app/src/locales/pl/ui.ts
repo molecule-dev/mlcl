@@ -1,12 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Masz pytania, uwagi lub pomysły na współpracę? Napisz do zespołu {{appName}} na hello@nimbus.example — czytamy każdą wiadomość.',
   'about.contactTitle': 'Skontaktuj się',
   'about.eyebrow': 'O nas',
+  'about.highlightsTitle': 'Co Pan/Pani otrzymuje',
   'about.intro':
     'Nimbus to spokojny, przemyślany dom dla plików, które naprawdę chce Pan/Pani odnaleźć. Można przesyłać, udostępniać i odzyskiwać z szybkością komputera i trwałością chmury.',
+  'about.mission':
+    'Nasza misja jest prosta: sprawić, by przechowywanie w chmurze było bezwysiłkowe. Bez bałaganu, bez kręcących się kółek, bez zgadywania, gdzie zniknął plik — tylko jasność, zarówno dla osób prywatnych, jak i zespołów.',
+  'about.subtitle': 'Bezwysiłkowe archiwum Twojego cyfrowego życia.',
   'about.title': 'O Nimbus',
   'authShell.copyright': '© {{year}} Nimbus Archive',
+  'authShell.footer': 'Bezpieczne przechowywanie w chmurze · Szyfrowanie end-to-end',
   'common.goToDashboard': 'Przejdź do panelu',
   'fileDetail.about.eyebrow': 'O tym pliku',
   'fileDetail.actions.delete': 'Przenieś do kosza',
@@ -40,18 +47,24 @@ export const ui: UiTranslations = {
   'forgotPassword.subheading': 'Proszę podać swój e-mail, a wyślemy link do wyboru nowego hasła.',
   'forgotPassword.successSubheading':
     'Wysłaliśmy link do resetowania hasła na adres {{email}}. Link jest ważny przez 60 minut.',
+  'help.backHome': '← Powrót do strony głównej {{appName}}',
   'help.contactBody':
     'Proszę napisać na support@nimbus.example, a odpowiemy w ciągu jednego dnia roboczego. Plany Pro i Team mają priorytet.',
+  'help.contactTitle': 'Potrzebujesz kontaktu z człowiekiem?',
   'help.eyebrow': 'Wsparcie',
   'help.intro':
     'Większość odpowiedzi znajduje się jedno kliknięcie dalej. Aby dodać pliki, proszę przeciągnąć je na tackę przesyłania, kliknąć Udostępnij w dowolnym wierszu, aby utworzyć link, i odwiedzić Kosz, aby przywrócić cokolwiek usuniętego w ciągu ostatnich 30 dni.',
+  'help.subtitle': 'Odpowiedzi na częste pytania o {{appName}}.',
   'help.title': 'Pomoc i wsparcie',
   'landing.cta.body':
     'Proszę zacząć z 15 GB za darmo. Można przejść na Pro z 200 GB lub zaprosić zespół do wspólnej przestrzeni — wszystko z tym samym płynnym doświadczeniem Nimbus.',
   'landing.cta.primary': 'Utwórz swoje archiwum',
   'landing.cta.title': 'Usuń bałagan. Zachowaj pracę.',
+  'landing.features.body':
+    'Stworzone dla osób i zespołów, które chcą, by ich pliki były bezwysiłkowe — łatwe do znalezienia, bezpieczne do udostępniania i przyjemne w porządkowaniu.',
   'landing.features.eyebrow': 'Dlaczego Nimbus',
   'landing.features.title': 'Pamięć, która nie wchodzi w drogę.',
+  'landing.footer.copyright': '© {{year}} {{appName}}. Stworzone dla bezwysiłkowości.',
   'landing.hero.body':
     'Nieważkie archiwum dla Pana/Pani cyfrowego życia. Zunifikowana pamięć w chmurze, która czuje się jak haust świeżego powietrza. Bez bałaganu, tylko jasność.',
   'landing.hero.eyebrow': 'Przedstawiamy Nimbus v2',
@@ -69,6 +82,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Pokaż hasło',
   'login.subheading': 'Proszę się zalogować, aby uzyskać dostęp do archiwum.',
   'myFiles.breadcrumb.folder': 'Falcówka',
+  'myFiles.breadcrumb.home': 'Tessera',
   'myFiles.breadcrumb.myFiles': 'Moje pliki',
   'myFiles.fetchError': 'Nie udało się załadować Pana/Pani plików.',
   'myFiles.files.col.modified': 'Zmodyfikowano',
@@ -82,12 +96,17 @@ export const ui: UiTranslations = {
   'myFiles.folders.justCreated': 'Właśnie utworzone',
   'myFiles.folders.seeAll': 'Zobacz wszystkie',
   'myFiles.folders.title': 'Foldery',
+  'myFiles.hero.bodyDynamic': 'Zsynchronizowano pliki: {{files}} — wykorzystano dotąd: {{used}}.',
+  'myFiles.hero.bodyEmpty':
+    'Prześlij plik, aby rozpocząć — Twoje archiwum zsynchronizuje się wszędzie.',
   'myFiles.hero.eyebrow': 'Pana/Pani archiwum',
   'myFiles.hero.recentCta': 'Zobacz ostatnią aktywność',
   'myFiles.hero.title': 'Witamy ponownie, {{name}}.',
   'myFiles.hero.uploadCta': 'Prześlij pliki',
   'myFiles.hero.youFallback': 'tam',
   'myFiles.refresh': 'Odśwież',
+  'myFiles.stats.collaboratorsDetail': 'W udostępnionych plikach',
+  'myFiles.stats.foldersDetail': 'W całym Twoim archiwum',
   'myFiles.stats.totalFilesDetail': '{{count}} z gwiazdką',
   'myFiles.stats.usageDetail': 'z {{total}} na Pro',
   'myFiles.time.daysAgo': '{{count}} dni temu',
@@ -108,6 +127,7 @@ export const ui: UiTranslations = {
   'nimbusSideNav.upgradeCta': 'Ulepsz plan',
   'nimbusStorageMeter.ariaLabel': 'Wykorzystana pamięć',
   'nimbusStorageMeter.compactLabel': 'Pamięć',
+  'nimbusStorageMeter.compactSummary': '{{used}} z {{total}} użyte',
   'nimbusStorageMeter.percentUsed': '{{percent}}%',
   'nimbusStorageMeter.usedLabel': 'Wykorzystana pamięć',
   'nimbusStorageMeter.usedOfTotal': '{{used}} z {{total}}',
@@ -116,10 +136,20 @@ export const ui: UiTranslations = {
   'notFound.code': '404',
   'notFound.heading': 'Tego pliku nie ma w archiwum.',
   'notFound.primaryCta': 'Otwórz Moje pliki',
+  'planUpdated.currentPlan': 'Obecnie korzystają Państwo z planu {{plan}}.',
+  'planUpdated.retry': 'Spróbuj ponownie',
+  'planUpdated.verifyFailed': 'Nie mogliśmy jeszcze potwierdzić Twojej płatności.',
+  'planUpdated.verifyFailedBody':
+    'Twoja płatność może być nadal przetwarzana. Spróbuj ponownie za chwilę.',
   'planUpdated.verifying': 'Potwierdzanie płatności…',
+  'pricing.limit.advancedFeatures': 'Funkcje zaawansowane:',
   'pricing.limit.canExport': 'Eksport danych:',
+  'pricing.limit.files': '{{count}} plików',
+  'pricing.limit.folders': 'Foldery: {{count}}',
+  'pricing.limit.shares': 'Udostępnienia: {{count}}',
   'privacy.intro':
     'Zbieramy minimum informacji potrzebnych do działania Nimbus: e-mail konta, przesyłane pliki oraz metadane wymagane do ich wyświetlania i wyszukiwania. Nigdy nie sprzedajemy Pana/Pani danych.',
+  'privacy.subtitle': 'Jak {{appName}} postępuje z Twoimi plikami i danymi osobowymi.',
   'recent.activity.empty': 'Jeszcze nic do pokazania.',
   'recent.activity.youInitials': 'P',
   'recent.crumbs.home': 'Nimbus',
@@ -138,14 +168,17 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Minimum 8 znaków',
   'resetPassword.signIn': 'Zaloguj się do Nimbus',
   'resetPassword.subheading': 'Proszę wybrać silne hasło — minimum 8 znaków.',
+  'resetPassword.successHeading': 'Resetowanie hasła',
   'resetPassword.successSubheading': 'Może się Pan/Pani teraz zalogować z nowym hasłem.',
   'search.backToFiles': 'Wróć do wszystkich plików',
   'search.clearLabel': 'Wyczyść wyszukiwanie',
   'search.crumbs.home': 'Nimbus',
+  'search.emptyNoQuery': 'Wpisz zapytanie powyżej, aby przeszukać swoje archiwum.',
   'search.emptyWithQuery': 'Brak plików pasujących do „{{query}}”.',
   'search.fetchError': 'Nie udało się załadować plików.',
   'search.hero.body':
     'Proszę filtrować według typu, aby się skupić. Proszę nacisnąć dowolny wynik, aby go otworzyć.',
+  'search.hero.titleEmpty': 'Przeszukaj swoje archiwum',
   'search.hero.titleWithQuery': '{{count}} wyników dla „{{query}}”',
   'search.input.placeholder': 'Szukaj w Nimbus…',
   'search.section.allFiles': 'Pasujące pliki',
@@ -161,9 +194,12 @@ export const ui: UiTranslations = {
   'shared.empty':
     'Brak udostępnionych plików. Proszę otworzyć dowolny plik i nacisnąć Udostępnij, aby wysłać link.',
   'shared.fetchError': 'Nie udało się załadować udostępnionych plików.',
+  'shared.hero.body':
+    'Każdy plik udostępniony przez link lub zaproszenie pojawi się tutaj. Przełącz uprawnienie, aby zobaczyć, jaki dostęp został przyznany.',
   'shared.hero.title': '{{count}} plików z aktywnymi linkami',
   'shared.list.subtitle': '{{count}} plików',
   'shared.list.title': 'Ostatnio udostępnione',
+  'shared.row.sharedSummary': 'Linki: {{count}}',
   'shared.time.daysAgo': '{{count}} dni temu',
   'shared.time.hoursAgo': '{{count}} godz. temu',
   'shared.time.minutesAgo': '{{count}} min temu',
@@ -173,6 +209,7 @@ export const ui: UiTranslations = {
   'sharePublic.eyebrow': 'Udostępnione przez Nimbus',
   'sharePublic.fetchError': 'Nie udało się załadować udostępnionego pliku.',
   'sharePublic.home': 'Wróć do strony głównej Nimbus',
+  'sharePublic.loading': 'Rozwiązywanie linku udostępniania…',
   'sharePublic.missingToken': 'Nie podano tokenu udostępniania.',
   'sharePublic.notFound': 'Nie znaleziono linku udostępniania lub wygasł.',
   'sharePublic.permission': '{{permission}}',
@@ -187,7 +224,10 @@ export const ui: UiTranslations = {
   'starred.empty':
     'Jeszcze nic nie oznaczono gwiazdką. Proszę nacisnąć gwiazdkę przy dowolnym pliku, aby mieć go pod ręką.',
   'starred.fetchError': 'Nie udało się załadować plików oznaczonych gwiazdką.',
+  'starred.hero.body':
+    'Oznacz gwiazdką wszystko, do czego będziesz wracać. Pokazujemy to na każdym urządzeniu, w każdym obszarze roboczym, za każdym razem.',
   'starred.hero.title': '{{count}} ulubionych, gotowych do użycia',
+  'starred.row.meta': '{{size}} · {{modified}}',
   'starred.time.daysAgo': '{{count}} dni temu',
   'starred.time.hoursAgo': '{{count}} godz. temu',
   'starred.time.minutesAgo': '{{count}} min temu',
@@ -197,7 +237,10 @@ export const ui: UiTranslations = {
   'storage.crumbs.home': 'Nimbus',
   'storage.crumbs.storage': 'Pamięć',
   'storage.fetchError': 'Nie udało się załadować pamięci.',
+  'storage.hero.body':
+    'Miejsca na rozwój jest pod dostatkiem. Powiadomimy Cię, gdy przekroczysz 75% — i ponownie przy 90% — abyś mógł usunąć zbędne rzeczy, zanim zaczną spowalniać innych.',
   'storage.hero.eyebrow': 'Przegląd pamięci',
+  'storage.hero.headroom': 'Wolne miejsce: {{headroom}}',
   'storage.hero.meterLabel': '{{percent}}% planu',
   'storage.hero.title': '{{used}} z {{total}} użyte',
   'storage.plans.body':
@@ -205,11 +248,14 @@ export const ui: UiTranslations = {
   'storage.plans.choose': 'Wybierz {{name}}',
   'storage.plans.included': '{{storage}} w cenie',
   'storage.plans.maxFiles': '{{count}} plików',
+  'storage.plans.maxFolders': 'Foldery: {{count}}',
+  'storage.plans.maxShares': 'Udostępnienia: {{count}}',
   'storage.plans.title': 'Plany, które rosną razem z Panem/Panią',
   'storage.plans.unavailable': 'Informacje o planie pojawią się tutaj po skonfigurowaniu.',
   'storage.plans.youreOn': 'Korzysta Pan/Pani z tego planu',
   'terms.intro':
     'Korzystając z Nimbus, zgadza się Pan/Pani na zachowanie poufności danych logowania do konta i przesyłanie tylko tych treści, do których przechowywania i udostępniania ma się prawo.',
+  'terms.subtitle': 'Warunki, na jakich możesz korzystać z {{appName}}.',
   'trash.actions.emptyAll': 'Opróżnij kosz',
   'trash.actions.emptyConfirm': 'Tak, puste',
   'trash.actions.emptyConfirmPrompt': 'Trwale usunąć wszystko?',
@@ -228,7 +274,9 @@ export const ui: UiTranslations = {
   'trash.restoreError': 'Nie udało się przywrócić pliku.',
   'trash.row.daysAgo': '{{count}} dni temu',
   'trash.row.deleteConfirm': 'Usuń',
+  'trash.row.deleteConfirmPrompt': 'Usunąć na zawsze?',
   'trash.row.deleteForever': 'Usuń trwale',
+  'trash.row.expires': '{{days}}d w lewo',
   'trash.row.hoursAgo': '{{count}} godz. temu',
   'trash.row.meta': 'Usunięto {{deletedAt}}',
   'trash.row.minutesAgo': '{{count}} min temu',
@@ -248,6 +296,7 @@ export const ui: UiTranslations = {
   'upload.progress.error': 'Przesyłanie nie powiodło się.',
   'upload.progress.uploadFailed': 'Przesyłanie nie powiodło się.',
   'upload.progress.uploading': 'Przesyłanie bajtów…',
+  'upload.queue.clearDone': 'Czysto zsynchronizowane',
   'upload.queue.emptyHint':
     'Proszę przeciągnąć pliki do powyższego obszaru lub użyć przycisków Wybierz, aby zacząć.',
   'upload.queue.idle': 'Brak aktywnych przesyłań.',

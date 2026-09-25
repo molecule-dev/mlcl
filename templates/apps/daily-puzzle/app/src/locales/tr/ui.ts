@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Geri bildirimin mi var, bir hata mı buldun ya da {{app}}'ı okuluna veya ekibine mi getirmek istiyorsun? Her mesajı okuyoruz — hesap ayarlarından bize ulaş, gerçek bir insan yanıtlayacak.",
   'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkında',
+  'about.intro':
+    '{{app}} günlük bir kelime bulmacasıdır. Beş harfli kelimeyi altı denemede tahmin et, serini koru, emoji tablonu paylaş ve herkesin bugünkü kelimede nasıl gittiğini gör.',
+  'about.missionBody':
+    'İyi bir bulmaca küçük bir günlük zaferdir. {{app}}, günde tek bir ortak kelime etrafında kurulmuştur — bir kahve molasına yetecek kadar hızlı, yarın yine gelmek isteyeceğin kadar keskin.',
+  'about.missionTitle': 'Misyonumuz',
   'about.title': '{{app}} Hakkında',
   'archive.loadError': 'Arşiv yüklenemedi.',
   'archive.missed': 'Kaçırıldı',
   'archive.notPlayed': 'Oynanmadı',
+  'archive.subhead':
+    'Herhangi bir geçmiş günü alıştırma olarak yeniden oyna — seri yok, istatistik yok, tüm eğlence senin.',
   'archive.title': 'Arşivle',
   'auth.backToHome': 'Ana sayfaya dön',
   'auth.backToHomeArrow': '← Ana sayfaya dön',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Şifremi unuttum',
   'auth.login.loggingIn': 'Giriş yapılıyor…',
   'auth.login.logIn': 'Bugünün kelimesini oyna',
+  'auth.login.noAccount': "Tessera'da yeni misiniz?",
   'auth.login.or': 'veya şununla devam et',
   'auth.login.password': 'Şifre',
   'auth.login.signInButton': 'Giriş yap',
@@ -32,6 +42,10 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Kaydediliyor…',
   'common.sendingEllipsis': 'Gönderiliyor…',
   'common.startingEllipsis': 'Başlatılıyor…',
+  'forgotPassword.subhead': 'E-postanızı girin, size sıfırlama bağlantısı gönderelim.',
+  'forgotPassword.success.body':
+    '{{email}} için bir hesap varsa, birkaç dakika içinde bir sıfırlama bağlantısı alacaksınız.',
+  'forgotPassword.success.title': 'Gelen kutunuzu kontrol edin.',
   'form.name': 'Ad',
   'howToPlay.cta.home': 'Ana sayfaya dön',
   'howToPlay.cta.play': 'Bugünün bulmacasını oyna',
@@ -68,10 +82,14 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Kırmaktan nefret ettiğiniz seriler',
   'leaderboard.daily.title': 'Bugünün çözümleri',
   'leaderboard.loadError': 'Sıralama tablosu yüklenemedi.',
+  'leaderboard.streaks.empty': 'Henüz seri yok — ilk sen ol.',
+  'leaderboard.streaks.subhead': 'Tüm zamanların en uzun kazanma serileri.',
   'leaderboard.streaks.title': 'Seri liderleri',
+  'leaderboard.subhead': 'Herkes bugün nasıl gitti ve en uzun serileri kim elinde tutuyor.',
   'leaderboard.title': 'Sıralama tablosu',
   'login.headline': 'Tekrar hoş geldiniz.',
   'login.streakPill': '{{days}} günlük seri bekliyor',
+  'login.subhead': 'Serini korumak ve bugünkü kelimede nasıl gittiğini görmek için giriş yap.',
   'nav.archive': 'Arşivle',
   'nav.editProfile': 'Profili düzenle',
   'nav.getStarted': 'Başlayın',
@@ -89,6 +107,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Böyle bir kelime yok',
   'notFound.title': 'Bu rota boş.',
   'planUpdated.message': 'Planınız aktif.',
+  'planUpdated.retry': 'Tekrar dene',
+  'planUpdated.verifyFailed': 'Ödemenizi henüz onaylayamadık.',
+  'planUpdated.verifyFailedBody':
+    'Ödemeniz hala işleniyor olabilir. Lütfen biraz sonra tekrar deneyin.',
   'planUpdated.verifying': 'Ödemeniz onaylanıyor…',
   'play.alreadyFinished': 'Bu bulmacayı zaten bitirdiniz',
   'play.answerWas': 'Kelime şuydu',
@@ -104,6 +126,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Pratik bulmacası',
   'play.tooShort': 'Yeterli harf yok',
   'play.won': 'Çözdünüz!',
+  'pricing.advancedStats': 'Gelişmiş istatistikler: {{yes}}',
+  'pricing.archiveHistory': '{{count}} günlük arşiv geçmişi',
+  'pricing.archivePlays': 'Günde {{count}} arşiv tekrarı',
+  'pricing.archiveUnlimited': 'Sınırsız arşiv geçmişi',
+  'pricing.canExport': 'Veri dışa aktarma: {{yes}}',
+  'pricing.checkoutError': 'Ödeme başlatılamadı. Lütfen tekrar deneyin.',
   'pricing.dailyWord': 'Günlük kelime',
   'pricing.heading': '{{app}} planınızı seçin',
   'pricing.included': 'Dahil',
@@ -111,7 +139,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Günlük kelime her zaman ücretsiz. Sınırsız arşiv tekrarları ve daha derin istatistikler için yükseltin.',
   'pricing.yearly': 'Yıllık',
+  'privacy.intro':
+    '{{app}} gizliliğine saygı duyar. Bu sayfa hangi verileri, neden sakladığımızı ve bunları nasıl sileceğini özetler.',
   'privacy.title': 'Gizlilik bildirimi',
+  'resetPassword.subhead': 'Serine geri dönmek için yeni bir parola seç.',
   'settings.account': 'Hesap',
   'settings.danger.body':
     '{{appName}} hesabınızı ve tüm bulmaca geçmişinizi kalıcı olarak kaldırın.',
@@ -121,17 +152,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'Misafir',
   'settings.language.title': 'Dil',
   'settings.subhead': 'Profilinizi, sesi ve sıralama tablosunda nasıl göründüğünüzü ayarlayın.',
+  'settings.unnamed': 'Sparq oyuncusu',
   'settings.upgrade': 'Yükselt',
   'signup.eyebrow': 'Sonsuza kadar ücretsiz — günde bir kelime',
   'signup.headline': 'Serinizi başlatın.',
+  'signup.subhead':
+    'Günlük kelimeyi oynamak, seri oluşturmak ve liderlik tablosunda yükselmek için bir {{appName}} hesabı oluştur.',
   'stats.currentStreak': 'Seri',
   'stats.distribution.title': 'Tahmin dağılımı',
   'stats.loadError': 'İstatistikleriniz yüklenemedi.',
   'stats.maxStreak': 'Maksimum seri',
   'stats.played': 'Oynanan',
   'stats.playToday': 'Bugünün bulmacasını oyna',
+  'stats.subhead': 'Yalnızca sıralamalı günlük bulmacalar — arşiv alıştırmaları asla sayılmaz.',
   'stats.title': 'İstatistikleriniz',
   'stats.winRate': 'Kazanma oranı',
   'status.monthly': 'Aylık',
+  'terms.intro':
+    "{{app}}'ı kullanarak aşağıdaki kuralları kabul etmiş olursun. Bunları kabul edemiyorsan lütfen hizmeti kullanma.",
   'terms.title': 'Hizmet şartları',
 }

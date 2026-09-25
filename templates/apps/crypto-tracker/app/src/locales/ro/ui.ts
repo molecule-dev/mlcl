@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
+  'about.featureAlerts':
+    'Alerte de preț pentru condițiile care contează, trimise prin e-mail și notificări push, ca să nu ratezi nicio mișcare.',
+  'about.featureMarkets':
+    'Date de piață în timp real și grafice de preț pentru mii de monede, clasate după capitalizarea de piață, volum și momentum.',
+  'about.featurePortfolio':
+    'Urmărirea portofoliului cu profit și pierdere reale, cost de achiziție și alocare — conectată la istoricul tău de tranzacții.',
+  'about.featureWatchlist':
+    'O listă de urmărire personală și știri crypto selectate, cu semnale despre activele pe care le urmărești.',
+  'about.missionTitle': 'Misiunea noastră',
+  'alertConditionCard.armedSince': 'Armed din {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'Declanșat {{când}}',
   'alertConditionCard.confirmDelete': 'Confirmă ștergerea',
+  'alertConditionCard.deleteAriaLabel': 'Ștergeți alerta',
   'alertConditionCard.pauseAriaLabel': 'Întrerupeți alerta',
   'alertConditionCard.resumeAriaLabel': 'Reluare alertă',
+  'alertConditionCard.triggeredAt': 'Declanșat {{when}}',
   'alertNew.condition': 'Stare',
   'alertNew.createCta': 'Creați o alertă',
   'alertNew.error': 'Nu s-a putut crea alerta.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Încă nu există alerte.',
   'alerts.eyebrow': 'Fire declanșatoare Bourse',
   'alerts.loadError': 'Nu s-au putut încărca alertele.',
+  'alerts.newCta': '+ Tripwire nou',
   'alerts.subheading': 'Primești un ping când prețul, schimbarea sau volumul depășesc limita ta.',
   'alerts.summary.armed': 'Armat',
   'alerts.summary.triggered': 'Declanșat',
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Maxim istoric',
   'coinDetail.allTimeLow': 'Minim istoric',
   'coinDetail.back': 'Toate piețele',
+  'coinDetail.chartAriaLabel': 'Grafic de preț {{name}}, ultimele 30 de zile',
   'coinDetail.chartHeading': 'Preț · ultimele 30 de zile',
   'coinDetail.circulating': 'Aprovizionare circulantă',
   'coinDetail.fdv': 'Evaluare complet diluată',
@@ -59,6 +74,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Resetare legătură prin cablu.',
   'login.eyebrow': 'Intrați în terminal',
   'login.heading': 'Bine ai revenit, semnalizator.',
+  'login.noAccountQuestion': 'Nou în Tessera?',
   'login.secureNote': '🔒 Criptat în tranzit',
   'login.signingInCta': 'Citind banda…',
   'login.signupLink': 'Deschide un cont →',
@@ -93,6 +109,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Ruta scanată nu duce la o monedă sau o pagină cunoscută. Verificați din nou simbolul și încercați din nou.',
   'notFound.browseMarkets': 'Răsfoiți piețele',
+  'notFound.eyebrow': 'Semnal {{appName}} pierdut',
+  'notFound.heading': 'Acest semnal este în afara intervalului',
+  'planUpdated.body':
+    'Modificarea facturării este acum activă. Îți poți gestiona planul oricând din pagina de facturare.',
+  'planUpdated.retry': 'Încercați din nou',
+  'planUpdated.verifyFailed': 'Nu am putut încă să vă confirmăm plata.',
+  'planUpdated.verifyFailedBody':
+    'Este posibil ca plata dvs. să fie încă în curs de procesare. Încercați din nou imediat.',
   'planUpdated.verifying': 'Se confirmă plata…',
   'portfolio.addError': 'Introduceți simbolul, suma pozitivă și costul.',
   'portfolio.addHoldingCta': '+ Adăugați o reținere',
@@ -116,12 +140,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Valoarea totală a portofoliului',
   'portfolioHeroCard.totalPnl': 'Total profit/pierdere',
   'pricing.heading': 'alerte',
+  'pricing.limit.alerts': 'alerte',
   'pricing.limit.coins': 'monede',
   'pricing.limit.market': 'piaţă',
   'pricing.limit.portfolio': 'portofoliu',
   'resetPassword.eyebrow': 'Cifru nou',
   'resetPassword.missingToken':
     'Acest link de resetare lipsește sau este invalid. Solicitați unul nou.',
+  'resetPassword.passwordPlaceholder': 'Parolă nouă',
   'resetPassword.subheading': 'Alege ceva ce numai tu poți descifra.',
   'settings.apiKeys.body':
     'Chei doar de citire pentru importarea istoricului tranzacțiilor. Conectați-vă prin OAuth din /tarif după abonare.',
@@ -133,17 +159,34 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Moneda cotată',
   'settings.preferences.locale': 'Limbă',
   'settings.preferences.push': 'Apăsaţi',
+  'settings.preferences.refresh': 'Reîmprospătare preț (secunde)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning':
+    'Accesul acestui dispozitiv va fi revocat în curând. Îl deconectezi?',
   'settings.security.body': 'Parola și setările cu doi factori sunt gestionate de contul dvs.',
   'settings.signOutDevice': 'Deconectați-vă',
   'settings.twoFactorCode': 'Cod de autentificare',
   'settings.twoFactorDisable': 'Dezactivați',
+  'settings.twoFactorDisableTitle': 'Dezactivează autentificarea în doi factori',
   'settings.twoFactorEnable': 'Activați',
+  'settings.twoFactorEnableTitle': 'Activează autentificarea în doi factori',
   'settings.twoFactorInvalidCode': 'Cod nevalid',
   'settings.twoFactorOn': 'Pe',
+  'settings.twoFactorQrAlt': 'Cod QR pentru autentificare în doi pași',
+  'settings.twoFactorScan':
+    'Scanează acest cod QR cu aplicația ta de autentificare, apoi introdu codul din 6 cifre.',
+  'settings.twoFactorUnavailable':
+    'Autentificarea cu doi factori nu este disponibilă pentru această aplicație.',
   'settings.twoFactorVerify': 'Verifică și activează',
   'sigilAuthShell.backHomeCta': '← Înapoi la Bourse',
+  'sigilAuthShell.brandBody':
+    'Prețuri în timp real, P/L portofoliu și alerte active pentru condițiile care contează — toate într-un singur terminal.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — construit pe Molecule',
+  'sigilAuthShell.brandHeadline': 'Decodează fiecare semnal din întregul registru.',
+  'sigilAuthShell.samplePortfolio': 'Portofoliu exemplu',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Navigare principală',
+  'signup.creating': 'Se deschide terminalul…',
   'signup.eyebrow': 'Deschideți un terminal',
   'signup.heading': 'Creează-ți Bourse',
   'signup.subheading': 'Urmărește fiecare monedă, previne fiecare ratare. Începe gratuit.',
@@ -160,6 +203,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Tranzacțiile nu au putut fi încărcate.',
   'watchlist.addCta': 'Răsfoiți piețele',
   'watchlist.col.change24h': '24 de ore',
+  'watchlist.col.coin': 'Monedă',
   'watchlist.col.marketCap': 'Plafonare piață',
   'watchlist.empty':
     'Nu există monede pe lista ta de urmărire — adaugă monede stea din /markets pentru a le adăuga.',

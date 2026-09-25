@@ -1,27 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kas soovid oma tiimile soojemat sisseelamist korraldada, leidsid vea või soovid tagasisidet anda? Võta ühendust oma konto seadete kaudu — iga sõnum jõuab päris inimeseni, kes saab aidata.',
   'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Teave',
+  'about.missionTitle': 'Meie missioon',
   'auth.forgotPassword.emailPlaceholder': 'nimi@teieettevõte.com',
   'auth.forgotPassword.heading': 'Taasta oma parool.',
+  'auth.forgotPassword.panel.body':
+    'Lähtestamine võtab 30 sekundit — sinu kontrollnimekirja edenemine ootab.',
+  'auth.forgotPassword.panel.headline': 'Täpselt seal, kus pooleli jäid.',
+  'auth.forgotPassword.subheading': 'Sisesta oma töömeil ja saadame sulle lähtestamislingi.',
   'auth.forgotPassword.successSubheading':
     'Kontrollige oma postkasti – oleme saatnud lähtestamisjuhised.',
   'auth.login.emailPlaceholder': 'nimi@teieettevõte.com',
   'auth.login.heading': 'Tere tulemast tagasi.',
   'auth.login.passwordPlaceholder': 'Teie parool',
+  'auth.login.signupPrompt': 'Uus oma tiimis?',
   'auth.login.subheading':
     'Logi sisse, et jätkata oma sisseelamisprotsessi sealt, kus pooleli jäid.',
   'auth.login.submit': 'Jätka oma teekonda',
+  'auth.panel.body':
+    'Sinu isiklik kontrollnimekiri, koolituse verstapostid ja tiimi tutvustused — kõik ühes rahulikus kohas.',
   'auth.panel.footnote': '© Embark — inimesed esikohale alates tänasest.',
   'auth.panel.headline': 'Enesekindlad esimesed 90 päeva algavad siit.',
   'auth.resetPassword.heading': 'Määra uus parool.',
   'auth.resetPassword.newPasswordLabel': 'Uus parool',
+  'auth.resetPassword.panel.body':
+    'Salvesta uus parool ja viime sind otse tagasi sisseelamise teekonnale.',
+  'auth.resetPassword.panel.headline': 'Peaaegu tagasi sees.',
   'auth.resetPassword.subheading': 'Vali midagi, mida sa mäletad – vähemalt 8 tähemärki.',
   'auth.signup.emailPlaceholder': 'nimi@teieettevõte.com',
   'auth.signup.heading': 'Tere tulemast oma esimeste 90 päeva jooksule.',
   'auth.signup.panel.body':
     'Juhendatud kontroll-leht, rolliteadlik koolitus ja inimestega tutvumine – valmis juba enne teie saabumist.',
+  'auth.signup.panel.headline': 'Esimene päev, juba esimesel päeval.',
   'auth.signup.subheading':
     'Loo endale Embarki konto, et alustada juhendatud sisseelamisprotsessi.',
   'checklist.empty.body': 'Teiste ülesannete kuvamiseks vaheta filtrit.',
@@ -29,6 +43,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'Sisseelamine · Kontrollnimekiri',
   'checklist.loading': 'Kontrollnimekirja laadimine…',
   'checklist.stat.actionNeeded': 'Vaja on tegutseda',
+  'checklist.stat.completion': 'Lõpetamine',
+  'checklist.stat.inProgress': 'Töös',
   'checklist.stat.inProgressHelper': 'Jätka sealt, kus pooleli jäid',
   'checklist.stat.overdueHelper': 'Saa need esimesena kätte',
   'checklist.subtitle':
@@ -60,6 +76,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Dokumente pole veel',
   'documents.eyebrow': 'Sisseelamine · Dokumendid',
   'documents.loading': 'Dokumentide laadimine…',
+  'documents.stat.actionNeeded': 'Allkirjasta kohe',
+  'documents.stat.all': 'Kõik dokumendid',
   'documents.stat.allHelper': 'Kategooriate lõikes',
   'documents.stat.pending': 'Ootel allkirjad',
   'documents.stat.pendingHelper': 'Lõpetamiseks vajalik',
@@ -67,16 +85,21 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Turvaliselt hoiustatud',
   'documents.status.optional': 'Valikuline',
   'documents.status.required': 'Nõutav',
+  'documents.status.signed': 'Allkirjastatud',
   'documents.subtitle': 'Teie käsiraamat, vormid ja allkirjastatud lepingud – kõik ühes kohas.',
   'documents.title': 'Kõik, mida pead lugema ja allkirjastama.',
   'documents.uploadedRecently': 'Hiljuti üles laaditud',
   'documentViewer.breadcrumbCurrent': 'Vaataja',
   'documentViewer.breadcrumbDocs': 'Dokumendid',
   'documentViewer.downloadMeta': 'Laadi alla metaandmed',
+  'documentViewer.helpBody':
+    'People & Culture vastab käsiraamatu küsimustele Slackis kanalis #ask-people.',
   'documentViewer.helpEyebrow': 'Vajad abi?',
   'documentViewer.loadError': 'Me ei saanud seda dokumenti laadida.',
   'documentViewer.loading': 'Dokumendi laadimine…',
   'documentViewer.notFound': 'Dokumenti ei leitud',
+  'documentViewer.previewBody':
+    'Kui üleslaadimised on seadistatud, kuvame faili otse. Praegu saad metaandmete allalaadimisega kinnitada, et kirje on olemas.',
   'documentViewer.previewBodyExternal':
     'Faili uuel vahelehel avamiseks kasutage allalaadimisnuppu.',
   'documentViewer.previewTitle': 'Dokumendi eelvaade',
@@ -84,6 +107,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Lugege dokumenti ja seejärel klõpsake alloleval lingil, et see allkirjastada ja kinnitada.',
   'documentViewer.signatureHeading': 'Allkiri on nõutav',
+  'documentViewer.signed': '✓ Allkirjastatud ja arhiveeritud',
   'documentViewer.signing': 'Allkirjastamine…',
   'documentViewer.uploadedRecently': 'Hiljuti üles laaditud',
   'landing.closing.body':
@@ -93,10 +117,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Mul on juba konto',
   'landing.feature1.body':
     'Iga ülesanne – paberimajandus, raamatupidamisarvestus, tutvustused – on eelnevalt ettevalmistatud, koos tähtaegade ja õige omanikuga.',
+  'landing.feature1.title': 'Juhendatud kontrollnimekiri',
   'landing.feature2.body':
     'Moodulid avanevad 30/60/90 verstaposti saavutamisel ning on kohandatud rollile ja meeskonnale, millega töötaja liitub.',
+  'landing.feature2.title': 'Rollipõhine koolitus',
   'landing.feature3.body':
     'Sõprade, juhtide ja valdkondadevaheliste tutvustuste planeerimine – nii et keegi ei alusta üksi.',
+  'landing.feature3.title': 'Päris tutvustused',
   'landing.featureEyebrow': 'Miks alustada',
   'landing.featureHeadline': 'Kolm viisi, kuidas Embark esimesel päeval usaldust teenib.',
   'landing.footer.rights': 'Kõik õigused kaitstud.',
@@ -106,6 +133,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Järgmisena: kohtu oma sõbraga 30-minutiliseks kohvijutuks — teisipäeval kell 10:00.',
   'landing.preview.eyebrow': '14. päev 90-st — näidis-armatuurlaud',
+  'landing.preview.headline': 'Tere tulemast tagasi, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR-i valmis',
   'landing.proof.teams': 'Mõeldud 50–5000 inimesest koosnevatele meeskondadele',
   'landing.proof.time': '14-päevane tasuta prooviperiood',
@@ -122,16 +150,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Oled valmis.',
   'planUpdated.preparing': 'Teie plaani värskendamine…',
+  'planUpdated.retry': 'Proovi uuesti',
+  'planUpdated.verifyFailed': 'Me ei saanud teie makset veel kinnitada.',
+  'planUpdated.verifyFailedBody':
+    'Teie makse võib olla veel töötlemisel. Proovige uuesti hetke pärast.',
   'planUpdated.verifying': 'Kinnitan makse…',
   'pricing.documentsLabel': 'dokumendid',
   'pricing.onboardingsLabel': 'sisseelamised',
   'pricing.tasksLabel': 'ülesanded',
   'profile.dayNumber': 'Päev',
   'profile.detailsHeading': 'Sisseelamisdetailid',
+  'profile.encouragementBody':
+    'Hoia oma sõber ja juht kursis — väikesed sammud annavad kokku suure tulemuse.',
   'profile.milestones': 'Verstapostid',
   'profile.progressEyebrow': 'Sisseelamise edenemine',
   'profile.tasks': 'Ülesanded',
   'profile.unknownName': 'Tere tulemast',
+  'settings.appearance.description': 'Lülitage heleda ja tumeda režiimi vahel.',
+  'settings.appearance.title': 'Välimus',
+  'settings.subtitle':
+    'Sea paika teavitused, turvalisus, seadmed ja andmete eksport — kõik jääb siia, sinu tingimustel.',
   'settings.title': 'Seaded ja eelistused.',
   'taskDetail.backToChecklist': 'Tagasi kontroll-lehele',
   'taskDetail.breadcrumbChecklist': 'Kontrollnimekiri',
@@ -143,7 +181,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'Tähtaega pole',
   'taskDetail.notFound': 'Ülesannet ei leitud',
   'taskDetail.notFoundBody': 'See ülesanne võib olla kustutatud või kuulub teisele kasutajale.',
+  'taskDetail.tipBody':
+    'Kui oled takerdunud, kirjuta Slackis oma sisseelamise sõbrale — tema on sinu esimene abiallikas.',
   'taskDetail.tipEyebrow': 'Kiire nipp',
+  'team.empty.body': 'Proovi laiemat otsingut või vali mõni teine osakond.',
   'team.empty.title': 'Ükski meeskonnakaaslane ei sobi kokku',
   'team.eyebrow': 'Sisseelamine · Inimesed',
   'team.loading': 'Meeskonnaliikmete laadimine…',
@@ -166,14 +207,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Verstapostid',
   'timeline.stat.current': 'Praegune verstapost',
   'timeline.stat.next': 'Järgmine avamine',
+  'timeline.stat.progress': 'Kokkuvõttes',
   'timeline.subtitle':
     'Iga verstapost avab uusi mooduleid, tutvustusi ja arenguvestlusi. Pole mingit survet – ainult edasiminek.',
+  'timeline.tipBody':
+    'Pane 30., 60. ja 90. päeval juhiga kalendrisse 30-minutiline järelemõtlemine — see muudab tagasiside konkreetseks ja edenemise nähtavaks.',
   'timeline.tipEyebrow': 'Juhi jootraha',
+  'timeline.tipTitle': 'Broneeri kalendrisse aeg verstapostide jaoks.',
   'timeline.title': 'Sinu 30 / 60 / 90 teekond.',
   'training.badge.notStarted': 'Ei ole alustatud',
   'training.empty': 'Koolitusmooduleid veel pole.',
   'training.eyebrow': 'Sisseelamine · Koolitus',
   'training.loading': 'Moodulite laadimine…',
+  'training.stat.all': 'Moodulid määratud',
   'training.subtitle':
     'Moodulid avatakse vastavalt teie rollile kell 30/60/90. Kohustuslikud avatakse esimesena.',
   'training.title': 'Oskused, tööriistad ja lood – sinu tempos.',
@@ -185,9 +231,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'Moodulit ei leitud',
   'trainingModule.quizBody': 'Mooduli loetakse lõpetatuks, kui saavutate vähemalt 80% punktisumma.',
   'trainingModule.quizHeading': 'Mooduli lõpuviktoriin',
+  'trainingModule.quizLocked': 'Alusta esmalt moodulit',
   'trainingModule.quizNone': 'Sellel moodulil viktoriini ei ole.',
   'trainingModule.quizRetry': 'Proovi uuesti',
+  'trainingModule.quizStart': 'Alusta viktoriini',
   'trainingModule.quizSubmit': 'Esita vastused',
+  'trainingModule.start': 'Alusta moodulit',
   'trainingModule.statusNotStarted': 'Ei ole alustatud',
   'welcomeHeroCard.completeLabel': 'Lõpetatud',
   'welcomeHeroCard.milestonesLabel': 'Verstapostid',

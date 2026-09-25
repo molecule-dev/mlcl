@@ -1,17 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Möchtest du einen Shop eröffnen, ein Problem melden oder einfach Hallo sagen? Erreiche uns über das Hilfe-Center — jede Nachricht landet bei einer echten Person im Team.',
+  'about.contactTitle': 'Sprechen Sie uns an',
+  'about.featureNotifications':
+    'Echtzeit-Benachrichtigungen für neue Bestellungen, Versand-Updates und Bewertungen, plus rollenbasierte Berechtigungen, die Shopper- und Verkäufer-Tools getrennt halten.',
+  'about.featurePayments':
+    'Sicherer Checkout mit Stripe, automatische Provisionsaufteilung und geplante Auszahlungen — Verkäufer wissen immer genau, was sie verdient haben.',
+  'about.featureShop':
+    'Ein durchsuchbarer Katalog mit Tausenden unabhängiger Verkäufer, mit verifizierten Shops, Bewertungen und Rezensionen, damit du mit Vertrauen kaufen kannst.',
+  'about.featureVendor':
+    'Ein komplettes Verkäufer-Toolkit: gebrandeter Storefront, Produkt- und Bestandsverwaltung, Bild-Uploads und Auftragsabwicklung in einem Dashboard.',
+  'about.intro':
+    '{{name}} ist ein kuratierter Marktplatz, auf dem unabhängige Macher ihre eigenen Shops eröffnen und Shopper Waren entdecken, die sie nirgendwo sonst finden. Von handgedrehter Keramik bis zu blockgedruckten Textilien — jedes Angebot stammt von einem echten Verkäufer mit einer Geschichte dahinter.',
+  'about.missionBody':
+    'Wir glauben, dass Macher behalten sollten, was ihr Handwerk zu ihrem macht. {{name}} erhebt eine pauschale, transparente Provision, zahlt zuverlässig jede Woche aus und gibt jedem Verkäufer einen Storefront, den er vollständig kontrolliert — so können sie sich auf ihre Arbeit konzentrieren, während wir den Marktplatz betreiben.',
+  'about.missionTitle': 'Unsere Mission',
   'about.pageTitle': 'Über {{name}}',
   'cart.checkoutCta': 'Weiter zur Kasse',
   'cart.decreaseAria': 'Menge verringern',
+  'cart.deliveryEstimate': 'Voraussichtliche Lieferung {{range}}',
   'cart.empty.body':
     'Durchsuchen Sie den Katalog und fügen Sie ein paar Hersteller zu Ihrer Tasche hinzu.',
+  'cart.empty.cta': 'Katalog durchsuchen',
   'cart.empty.title': 'Ihr Warenkorb ist leer',
   'cart.eyebrow': 'Ihr Warenkorb',
+  'cart.increaseAria': 'Menge erhöhen',
   'cart.loadError': 'Warenkorb konnte nicht geladen werden. Bitte versuchen Sie es erneut.',
   'cart.loading': 'Warenkorb wird geladen…',
+  'cart.protectionNote':
+    '{{appName}} schützt jede Bestellung. Kostenlose Rückgabe innerhalb von 30 Tagen.',
   'cart.removeError': 'Artikel konnte nicht entfernt werden.',
   'cart.shippingFromVendor': 'Versand von diesem Verkäufer: {{amount}}',
+  'cart.subtitle':
+    'Jeder Verkäufer versendet selbst — du checkst nur einmal aus. {{appName}} kümmert sich um den Rest.',
+  'cart.subtotalGroup': 'Zwischensumme {{amount}}',
   'cart.summaryItems': 'Artikel',
   'cart.summaryShipping': 'Versand (kombiniert)',
   'cart.title': 'Warenkorb · {{count}} Artikel von {{vendorCount}} Verkäufern',
@@ -24,6 +48,7 @@ export const ui: UiTranslations = {
   'catalog.featuredVendors': 'Empfohlene Shops',
   'catalog.loading': 'Produkte werden geladen…',
   'catalog.resultCount': '{{count}} Produkte',
+  'catalog.searchAria': 'Katalog durchsuchen',
   'catalog.searchPlaceholder': 'Produkte, Verkäufer oder Tags suchen…',
   'catalog.sortBy': 'Sortieren nach',
   'catalog.subtitle':
@@ -31,6 +56,7 @@ export const ui: UiTranslations = {
   'catalog.title': 'Durchsuchen Sie jeden Shop auf Vendry',
   'checkout.emptyCta': 'Katalog durchsuchen',
   'checkout.emptyTitle': 'Ihr Warenkorb ist leer.',
+  'checkout.eyebrow': 'Sichere Kasse',
   'checkout.loadError': 'Warenkorb konnte nicht geladen werden. Bitte versuchen Sie es erneut.',
   'checkout.loading': 'Warenkorb wird geladen…',
   'checkout.payment.testNote':
@@ -40,12 +66,14 @@ export const ui: UiTranslations = {
   'checkout.placingOrder': 'Bestellung wird aufgegeben…',
   'checkout.review.shipTo': 'Versand an',
   'checkout.review.subtotal': 'Verkäufer-Zwischensumme',
+  'checkout.review.title': 'Überprüfe deine Bestellung, Verkäufer für Verkäufer',
   'checkout.shipping.title': 'Wohin sollen wir versenden?',
   'checkout.shippingValidation': 'Bitte füllen Sie alle erforderlichen Versandfelder aus.',
   'checkout.summary.shipping': 'Versand',
   'checkout.summary.tax': 'Geschätzte Steuer',
   'checkout.title': 'Eine Kasse, viele Hersteller',
   'common.and': 'und',
+  'forgotPassword.continue': 'Ich habe meinen Wiederherstellungscode',
   'forgotPassword.emailLabel': 'Konto-E-Mail',
   'forgotPassword.heading': 'Passwort vergessen?',
   'forgotPassword.subheading':
@@ -53,6 +81,7 @@ export const ui: UiTranslations = {
   'forgotPassword.submit': 'Zurücksetzungslink per E-Mail senden',
   'forgotPassword.success':
     'Prüfen Sie {{email}} auf den Zurücksetzungslink — er ist die nächsten 30 Minuten gültig.',
+  'landing.featured.cta': 'Alle Verkäufer durchsuchen',
   'landing.featured.eyebrow': 'Spotlight-Shops',
   'landing.featured.title': 'Verkäufer, die diesen Monat Wellen schlagen',
   'landing.footer.becomeVendor': 'Verkäufer werden',
@@ -62,6 +91,9 @@ export const ui: UiTranslations = {
   'landing.nav.sell': 'Auf Vendry verkaufen',
   'landing.nav.shop': 'Einkaufen',
   'landing.nav.signUp': 'Beitreten',
+  'landing.sellPitch.cta': 'Zum Verkaufen bewerben',
+  'landing.sellPitch.description':
+    'Eine pauschale Provision von 8 %, Auszahlungen jeden Freitag, dein Storefront, deine Geschichte. Wir kümmern uns um den Marktplatz; du bleibst bei deinem Handwerk.',
   'landing.sellPitch.eyebrow': 'Für Hersteller',
   'landing.sellPitch.title': 'Eröffnen Sie einen Shop. Behalten Sie, was ihn zu Ihrem macht.',
   'landing.trending.cta': 'Im Katalog einkaufen',
@@ -70,6 +102,7 @@ export const ui: UiTranslations = {
   'login.accountTypeAria': 'Kontotyp',
   'login.heading': 'Willkommen zurück bei Vendry',
   'login.legalPrefix': 'Mit Ihrer Anmeldung stimmen Sie unseren Nutzungsbedingungen zu.',
+  'login.signupPrompt': 'Neu bei Tessera?',
   'login.subheading':
     'Melden Sie sich an, um weiter einzukaufen oder zu Ihrem Shop zurückzukehren.',
   'login.submitShopper': 'Anmelden zum Einkaufen',
@@ -86,37 +119,51 @@ export const ui: UiTranslations = {
   'notifications.markAllError': 'Konnte nicht alle als gelesen markieren.',
   'notifications.read': 'Gelesen',
   'notifications.time.daysAgo': '{{count}} vor Tagen',
+  'notifications.time.hourAgo': 'Vor 1 Stunde',
+  'notifications.time.hoursAgo': 'vor {{count}} Stunden',
   'notifications.time.justNow': 'gerade eben',
+  'notifications.time.minutesAgo': 'vor {{count}} Min',
+  'notifications.time.yesterday': 'Gestern',
   'orderDetail.backToOrders': 'Zurück zu allen Bestellungen',
   'orderDetail.eyebrow': 'Bestelldetail',
   'orderDetail.helpBody':
     'Der Vendry-Support antwortet innerhalb von 4 Stunden, auch am Wochenende.',
+  'orderDetail.helpCta': 'Kontaktieren Sie den Support.',
   'orderDetail.helpTitle': 'Etwas stimmt mit dieser Bestellung nicht?',
   'orderDetail.summary':
     'Aufgegeben {{date}} · {{vendorCount}} Verkäufer · Multi-Verkäufer-Versand',
+  'orderDetail.timelineTitle': 'Bestellverlauf',
   'orders.empty': 'Noch keine Bestellungen entsprechen diesem Filter.',
   'orders.emptyTitle': 'Hier liegen noch keine Bestellungen vor.',
   'orders.eyebrow': 'Ihre Käufe',
   'orders.subtitle':
     'Sehen Sie, wer was versendet hat, verfolgen Sie pro Verkäufer und verlieren Sie nie wieder ein Paket.',
   'orders.title': 'Bestellungen, gruppiert nach Verkäufer',
+  'planUpdated.retry': 'Erneut versuchen',
+  'planUpdated.verifyFailed': 'Wir konnten deine Zahlung noch nicht bestätigen.',
+  'planUpdated.verifyFailedBody':
+    'Deine Zahlung wird möglicherweise noch verarbeitet. Versuche es gleich noch einmal.',
   'planUpdated.verifying': 'Bestätige Ihre Zahlung…',
   'productDetail.addToCart': 'In den Warenkorb',
   'productDetail.addToCartError': 'Konnte nicht in den Warenkorb gelegt werden.',
   'productDetail.addToCartSuccess': '„{{name}}“ in Ihren Warenkorb gelegt.',
   'productDetail.backToCatalog': 'Zurück zum Katalog',
   'productDetail.breadcrumbCatalog': 'Katalog',
+  'productDetail.colorLabel': 'Farbe · {{name}}',
   'productDetail.decreaseAria': 'Menge verringern',
   'productDetail.description': 'Hergestellt von einem unabhängigen Hersteller auf Vendry.',
   'productDetail.featuredBadge': 'Empfohlener Hersteller',
   'productDetail.galleryThumbAria': 'Bild {{index}} anzeigen',
+  'productDetail.increaseAria': 'Menge erhöhen',
   'productDetail.loading': 'Produkt wird geladen…',
   'productDetail.notFound': 'Produkt nicht gefunden.',
   'productDetail.relatedTitle': 'Mehr von diesem Hersteller',
   'productDetail.reviewsTitle': 'Was Käufer sagten',
   'productDetail.trust.protection': 'Vendry-Schutz',
+  'productDetail.trust.returns': '30 Tage Rückgaberecht',
   'productDetail.trust.shipping': 'Versand in 2 Tagen',
   'productDetail.verifiedAria': 'Verifizierter Verkäufer',
+  'resetPassword.didntGetCode': 'Keinen Code erhalten?',
   'resetPassword.emailLabel': 'Konto-E-Mail',
   'resetPassword.mismatch': 'Die Passwörter stimmen noch nicht überein.',
   'resetPassword.newPasswordLabel': 'Neues Passwort',
@@ -125,9 +172,11 @@ export const ui: UiTranslations = {
     'Geben Sie den Code ein, den wir Ihnen per E-Mail gesendet haben, und wählen Sie dann ein neues Passwort, um sich wieder anzumelden.',
   'resetPassword.submit': 'Zurücksetzen & anmelden',
   'resetPassword.submitting': 'Passwort wird aktualisiert…',
+  'settings.appearance.description': 'Zwischen hellem und dunklem Modus umschalten.',
   'settings.appearance.title': 'Erscheinungsbild',
   'settings.language.description':
     'Wählen Sie die Sprache, die im gesamten Marktplatz verwendet wird.',
+  'settings.payouts.accountLabel': 'Kontonummer / IBAN',
   'settings.payouts.body':
     'Vendry zahlt jeden Freitag in Ihrer lokalen Währung aus, abzüglich der 8% Provision.',
   'settings.payouts.save': 'Auszahlungsdaten speichern',
@@ -146,6 +195,7 @@ export const ui: UiTranslations = {
   'signup.mismatch': 'Die Passwörter stimmen noch nicht überein.',
   'signup.subheading':
     'Durchsuchen Sie über 4.000 unabhängige Hersteller oder eröffnen Sie Ihren eigenen Shop.',
+  'signup.submit': 'Treten Sie dem Marktplatz bei',
   'status.delivered': 'Geliefert',
   'status.refunded': 'Erstattet',
   'userMenu.marketplaceSettings': 'Marketplace-Einstellungen',
@@ -155,18 +205,28 @@ export const ui: UiTranslations = {
   'vendorDashboard.heroCaption':
     '{{payout}} nach Vendry-Provision abgerechnet. Nächste Auszahlung am Freitag.',
   'vendorDashboard.heroLabel': 'Bruttoumsatz · letzte 30 Tage',
+  'vendorDashboard.kpi.conversion': 'Konversion',
   'vendorDashboard.kpi.conversionCaption': 'Besuch-zu-Bestellung diese Woche',
   'vendorDashboard.kpi.netPayout': 'Netto-Auszahlung',
   'vendorDashboard.kpi.netPayoutCaption': 'Nach 8% Vendry-Provision',
   'vendorDashboard.kpi.orders': 'Bestellungen',
   'vendorDashboard.kpi.ordersCaption': 'vs. letzte 30 Tage',
+  'vendorDashboard.kpi.pendingPayout': 'Ausstehende Auszahlung',
   'vendorDashboard.kpi.pendingPayoutCaption': 'Wird diesen Freitag freigegeben',
   'vendorDashboard.newProductCta': 'Neues Produkt',
   'vendorDashboard.payoutsCta': 'Auszahlungen ansehen',
   'vendorDashboard.recentOrders.cta': 'Alle Bestellungen ansehen →',
+  'vendorDashboard.recentOrders.emptyBody':
+    'Bestellungen für deinen Shop erscheinen hier, sobald Kunden auschecken.',
+  'vendorDashboard.recentOrders.emptyCta': 'Füge dein erstes Produkt hinzu',
+  'vendorDashboard.recentOrders.emptyTitle': 'Noch keine Bestellungen',
   'vendorDashboard.recentOrders.title': 'Letzte Bestellungen',
+  'vendorDashboard.subtitle': 'So läuft dein Shop diese Woche.',
+  'vendorDashboard.title': 'Willkommen zurück, {{name}}',
   'vendorOnboarding.about': 'Erzählen Sie uns von Ihrem Shop',
   'vendorOnboarding.aboutPlaceholder': 'Wo Sie fertigen, was Sie fertigen, warum es wichtig ist.',
+  'vendorOnboarding.bankLabel': 'Bankkonto / IBAN',
+  'vendorOnboarding.categoriesHint': 'Wähle alles aus, was passt — du kannst es später anpassen.',
   'vendorOnboarding.currencyLabel': 'In Währung abrechnen',
   'vendorOnboarding.errors.shopName': 'Shop-Name ist erforderlich.',
   'vendorOnboarding.errors.submit': 'Ihre Bewerbung konnte nicht übermittelt werden.',
@@ -175,8 +235,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.field.shopName': 'Geschäftsname',
   'vendorOnboarding.heroBody':
     'Eine pauschale Provision von 8%, Auszahlungen jeden Freitag, Ihre Storefront, Ihre Geschichte. Erzählen Sie uns ein wenig über Ihren Shop, und wir melden uns innerhalb von 48 Stunden.',
+  'vendorOnboarding.review.categories': 'Kategorien',
   'vendorOnboarding.review.contact': 'Kontakt',
   'vendorOnboarding.review.currency': 'Währung',
+  'vendorOnboarding.review.point1':
+    '{{appName}} erhebt eine pauschale Provision von 8 % — keine Einstellgebühren, keine versteckten Kosten.',
+  'vendorOnboarding.review.point2':
+    'Auszahlungen werden jeden Freitag in deiner lokalen Währung abgerechnet.',
+  'vendorOnboarding.review.point3': 'Du kannst deinen Shop jederzeit pausieren oder entfernen.',
   'vendorOnboarding.review.tagline': 'Slogan',
   'vendorOnboarding.review.website': 'Webseite',
   'vendorOnboarding.reviewBody':
@@ -187,6 +253,7 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'Bewerbung eingereicht! Wir prüfen Ihren Shop und senden Ihnen innerhalb von 48 Stunden eine E-Mail.',
   'vendorOnboarding.taxIdLabel': 'Steuer-ID',
+  'vendorOrders.emptyBody': 'Wenn Kunden deine Produkte kaufen, erscheinen ihre Bestellungen hier.',
   'vendorOrders.emptyTitle': 'Noch keine Bestellungen zu bearbeiten',
   'vendorOrders.eyebrow': 'Verkäufer-Admin',
   'vendorOrders.kpi.awaiting': 'Erfüllt wird noch.',
@@ -194,6 +261,8 @@ export const ui: UiTranslations = {
   'vendorOrders.subtitle':
     'Drucken Sie Etiketten, markieren Sie als erledigt und beantworten Sie Fragen — alles, ohne Vendry zu verlassen.',
   'vendorOrders.title': 'Eingehende Bestellungen',
+  'vendorPayouts.emptyBody':
+    'Auszahlungen werden jeden Freitag freigegeben, sobald deine Verkäufe die 8 % Provision abdecken.',
   'vendorPayouts.emptyTitle': 'Bisher keine Auszahlungen.',
   'vendorPayouts.eyebrow': 'Verkäufer-Finanzen',
   'vendorPayouts.heroCaption': 'Wird an Banco BPI {{account}} überwiesen · 1–2 Werktage',
@@ -218,6 +287,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.images.body':
     'Ziehen Sie bis zu 8 Bilder per Drag-and-Drop. Das erste Foto wird zum Storefront-Cover.',
   'vendorProductForm.images.cta': 'Fotos hierher ziehen oder durchsuchen',
+  'vendorProductForm.images.hint': 'PNG / JPG · max. 8 MB pro Bild',
   'vendorProductForm.images.title': 'Fotos',
   'vendorProductForm.nameLabel': 'Produktname',
   'vendorProductForm.preview.namePlaceholder': 'Produktname',
@@ -227,6 +297,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.title': 'Erzählen Sie Käufern von Ihrem Stück',
   'vendorProductForm.variants.colInventory': 'Bestand',
   'vendorProductForm.variants.colVariant': 'Variante',
+  'vendorProductForm.variants.title': 'Varianten & Bestand',
   'vendorProducts.eyebrow': 'Verkäufer-Admin',
   'vendorProducts.kpi.draft': 'Entwürfe',
   'vendorProducts.kpi.lowStock': 'Niedriger Bestand',
@@ -253,6 +324,7 @@ export const ui: UiTranslations = {
     'Melden Sie sich an, um Ihren Shop zu verwalten, Bestellungen über jeden Verkäufer hinweg zu verfolgen und kühne Kollektionen unabhängiger Hersteller zu entdecken.',
   'vendryAuthShell.sampleVendorMeta': 'Verifiziert · 4,9 ★ · 1.240 Verkäufe',
   'vendryAuthShell.sampleVendorName': 'Mira & Co. Ceramics',
+  'vendryAuthShell.sampleVendorTag': 'Empfohlen',
   'vendryMarketHero.description':
     'Entdecken Sie Tausende unabhängiger Verkäufer, handverlesene Kollektionen und Storefronts, die von den Menschen geführt werden, die ihr Herz hineinstecken. Kaufen Sie mutig, unterstützen Sie echte Hersteller.',
   'vendryMarketHero.eyebrow': 'Kuratierter Marktplatz · Kollektion 2026',
@@ -261,11 +333,13 @@ export const ui: UiTranslations = {
   'vendryMarketHero.stat1Label': 'Unabhängige Hersteller',
   'vendryMarketHero.stat2Label': 'Kuratierte Produkte',
   'vendryMarketHero.stat3Label': 'Durchschnittliche Bewertung',
+  'vendryMarketHero.title': 'Jeder Macher, ein Marktplatz.',
   'vendryOrderCard.idLabel': 'Bestellung',
   'vendryOrderCard.placedOn': 'Aufgegeben {{date}}',
   'vendryOrderCard.qty': 'Menge {{count}}',
   'vendryOrderCard.vendorCount': '{{count}} Verkäufer in dieser Bestellung',
   'vendryOrderCard.verifiedAria': 'Verifizierter Verkäufer',
+  'vendryOrderCard.viewDetails': 'Details anzeigen',
   'vendryProductCard.favoriteAria': 'Zu Favoriten hinzufügen',
   'vendryProductCard.saleBadge': 'Sale',
   'vendryProductCard.verified': 'Verifizierter Verkäufer',

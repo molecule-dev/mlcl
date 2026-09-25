@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Hai una domanda, hai trovato un bug o vuoi una demo per il tuo team? Scrivici dalle impostazioni del tuo account — ogni messaggio arriva a una persona reale del team.',
   'about.contactTitle': 'Si metta in contatto',
+  'about.intro':
+    "{{app}} trasforma pile di documenti scansionati e PDF in dati strutturati, ricercabili e archiviati. Carica fatture, ricevute, contratti o moduli e lascia che l'IA li legga, estragga, classifichi e archivi — con colori di affidabilità così il tuo team revisiona solo ciò che richiede davvero l'intervento umano.",
+  'about.missionBody':
+    "Il lavoro ripetitivo sui documenti non dovrebbe consumare la giornata del tuo team. Crediamo che ogni valore estratto debba essere spiegabile e verificabile — così puoi fidarti dell'automazione senza perdere la tracciabilità. {{app}} è progettato per risparmiare ore per ogni pila di documenti, mantenendo l'intervento umano dove conta davvero.",
+  'about.missionTitle': 'La nostra missione',
+  'about.subtitle':
+    'OCR, estrazione con IA, classificazione e archiviazione automatica per i tuoi documenti.',
   'about.title': 'Info su {{app}}',
+  'about.whatYouGetTitle': 'Cosa ottiene',
   'authShell.backToLanding': '← Torna alla landing',
   'common.goToDashboard': 'Vai alla Dashboard',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Oggi · Panoramica operativa',
   'dashboard.heading': 'Intelligenza documentale',
+  'dashboard.metric.accuracy': 'Precisione media',
   'dashboard.metric.filed': 'Archiviati oggi',
   'dashboard.metric.filedCaption': 'Instradati dalle regole di archiviazione',
   'dashboard.metric.processed': 'Elaborati oggi',
@@ -23,11 +34,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Documento',
   'dashboard.recent.col.uploaded': 'Caricato',
   'dashboard.recent.heading': 'Documenti recenti',
+  'dashboard.recent.typeUnknown': 'In attesa di classificazione',
   'dashboard.subheading':
     'Ogni pagina classificata, estratta e archiviata — con colori di confidenza per mantenere focalizzata la revisione.',
   'documentDetail.audit.heading': 'Cronologia audit',
+  'documentDetail.audit.subheading':
+    "Ogni passaggio effettuato su questo documento, con l'attore responsabile.",
   'documentDetail.back': 'Tutti i documenti',
   'documentDetail.downloadHint': 'Usi Scarica per aprire il file originale.',
+  'documentDetail.extracted.empty': 'Nessun campo ancora estratto.',
   'documentDetail.extracted.heading': 'Campi estratti',
   'documentDetail.extracted.subheading':
     '{{count}} campi · clicchi un campo per evidenziarlo sulla pagina',
@@ -55,13 +70,23 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Cerca documenti…',
   'documents.subheading': '{{count}} documenti nella Sua libreria, ordinati dal più recente.',
   'documents.uploadCta': 'Carica documenti',
+  'documentTypeBreakdown.barAria': 'Composizione dei documenti per tipo',
   'documentTypeBreakdown.empty': 'Nessun documento elaborato ancora.',
   'documentTypeBreakdown.subtitle': '{{total}} elaborati',
   'documentTypeBreakdown.title': 'Composizione documenti',
+  'forgotPassword.backToSignIn': '← Torna alla pagina di accesso',
   'forgotPassword.checkEmail': 'Controlli la Sua email',
   'forgotPassword.tip': "Non l'ha ricevuta? Controlli lo spam o provi un indirizzo diverso.",
+  'landing.copyright': '© {{year}} {{app}}. Creato per team operativi che verificano ogni pagina.',
+  'landing.ctaBody':
+    'Prova di 14 giorni. Nessuna carta richiesta. Annulla quando vuoi. Creato per team operativi che si muovono veloci e verificano con calma.',
   'landing.ctaHeading': 'Smetta di digitare ricevute. Inizi ad archiviarle.',
   'landing.eyebrow': 'OCR · Estrazione · Archiviazione AI',
+  'landing.featuresHeading': 'Intelligenza documentale che si spiega da sola',
+  'landing.heroSubtitle':
+    "Carica una pila di fatture, ricevute, contratti o moduli. {{app}} li classifica, estrae e archivia — con colori di affidabilità così il tuo team revisiona solo ciò che richiede davvero l'intervento umano.",
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Volume giornaliero · ultimi 7 giorni',
   'landing.sampleCardLabel': 'Documenti elaborati oggi',
   'landing.sampleCardSubtitle': '96,2% di accuratezza media su fatture, ricevute e moduli.',
   'login.hidePassword': 'Nascondi password',
@@ -74,6 +99,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Apri landing',
   'notFound.title': 'Quella pagina non è in archivio',
+  'parcelaHeroCard.accuracy': 'Precisione media {{value}}% su tutte le estrazioni',
   'parcelaHeroCard.change': '{{sign}}{{amount}}% rispetto a ieri',
   'parcelaHeroCard.title': 'Documenti elaborati oggi',
   'parcelaLayout.primaryNavLabel': 'Navigazione principale',
@@ -81,6 +107,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'documenti',
   'pricing.processingLabel': 'job di elaborazione',
   'resetPassword.confirmPlaceholder': 'Ripeta la nuova password',
+  'resetPassword.hidePassword': 'Nascondi password',
   'resetPassword.passwordLabel': 'Nuova password',
   'resetPassword.showPassword': 'Mostra password',
   'resetPassword.subtitle': 'Scelga qualcosa di almeno 8 caratteri.',
@@ -97,10 +124,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Impossibile caricare le regole.',
   'rules.loading': 'Caricamento regole…',
   'rules.matched30d': '{{count}} documenti corrispondenti negli ultimi 30 giorni',
+  'rules.neverUsed': 'Mai utilizzato',
   'rules.newRule': 'Nuova regola',
   'rules.saveError': 'Impossibile salvare la regola.',
   'rules.subheading':
     "Dica al sistema dove deve andare ogni tipo di documento. Le condizioni si concatenano dall'alto verso il basso — vince la prima corrispondenza.",
+  'rules.templatesEmpty': 'Nessun template di estrazione ancora presente.',
   'rules.templatesHeading': 'Template di estrazione',
   'rules.templatesSubheading': "Schemi di campi che l'estrattore usa per ogni tipo di documento.",
   'rules.then': 'Allora',
@@ -109,17 +138,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Nome workspace',
   'settings.account.subheading':
     'Nome visualizzato ed email principale per notifiche e cronologia di audit.',
+  'settings.api.confirmRevoke': 'Confermare?',
   'settings.api.copyOnce': 'Copi questa chiave — non sarà mostrata di nuovo',
   'settings.api.createdOn': 'Creata {{date}}',
   'settings.api.empty': 'Nessuna chiave API ancora. Ne generi una sopra.',
   'settings.api.error': 'Creazione chiave fallita.',
+  'settings.api.generating': 'Generazione…',
+  'settings.api.heading': 'Chiavi API',
   'settings.api.labelPlaceholder': 'Etichetta chiave (es. uploader CI)',
+  'settings.api.loading': 'Caricamento chiavi…',
   'settings.api.newKey': 'Genera chiave',
   'settings.api.subheading':
     'Le usi per inviare documenti da uno script o dal Suo ERP. Ruoti qualsiasi chiave in qualsiasi momento.',
   'settings.integrations.heading': 'Integrazioni di archiviazione',
   'settings.integrations.subheading':
     'Invii i documenti archiviati al cloud drive o allo strumento di chat in cui il Suo team già vive.',
+  'settings.subheading':
+    'Gestisci account, chiavi API e integrazioni di archiviazione per il tuo workspace {{app}}.',
+  'signup.hidePassword': 'Nascondi password',
   'signup.identityPrompt': 'Come dovremmo chiamarLa?',
   'signup.showPassword': 'Mostra password',
   'signup.subtitle': '14 giorni gratis, nessuna carta richiesta.',
@@ -127,6 +163,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Caricamento fallito.',
   'upload.eyebrow': 'Acquisizione',
   'upload.heading': 'Carica documenti',
+  'upload.queue.clear': 'Cancella completati',
   'upload.queue.col.confidence': 'Confidenza',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Rilevamento…',
@@ -139,5 +176,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Oppure trascini più file contemporaneamente per estrazione, classificazione e archiviazione in batch.',
   'uploadDropZone.cta': 'Scegli file',
+  'uploadDropZone.maxSize': 'Max 25 MB per file · Crittografia end-to-end',
   'uploadDropZone.title': "Trascini documenti per iniziare l'elaborazione",
 }

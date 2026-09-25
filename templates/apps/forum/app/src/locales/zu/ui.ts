@@ -1,20 +1,44 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Unombono, uthole iphutha, noma ufuna ukuqala umphakathi ku-{{appName}}? Vula Izilungiselelo zakho ukuze uxhumane neqembu — yonke imiyalezo ifinyelela kumuntu wangempela oyifundayo.',
+  'about.contactTitle': 'Xoxa nathi',
+  'about.featureModeration':
+    'Uhlu lokulinganisa olwakhelwe ngaphakathi namathuluzi okubika ukuze umphakathi ngamunye uhlale uphilile futhi uzibusele.',
+  'about.featurePricing':
+    'Mahhala ukujoyina nokubamba iqhaza; izinhlelo ze-Pro ne-Team zivula imikhawulo ephezulu, ukulinganisa okuthuthukile, nokukhipha idatha.',
+  'about.featureThreads':
+    'Imiphakathi ehleliwe nezigaba ezinengxoxo ezinemicu, ezinothile nge-markdown, okulula ukuzilandela nokuzisesha.',
+  'about.featureVoting':
+    'Ukuvota phezulu/phansi kanye nohlelo lwesithunzi esizuziwe olukhipha abanikeli abasiza kakhulu nezimpendulo ezingcono kakhulu.',
+  'about.intro':
+    'I-{{appName}} iyinkundla yengxoxo ebeka umphakathi phambili — imicu yesitayela se-Reddit, ukuvota, nesithunzi, eyakhelwe abantu abangathanda ukuba nengxoxo eyodwa enhle kunokulandela i-feed. Wonke umuntu ubalulekile, futhi imibono emihle iphakama ngenxa yokufaneleka, hhayi ngenxa yobuningi.',
+  'about.missionBody':
+    'Sikholelwa ukuthi ingxoxo eku-inthanethi kufanele ivuze ukucabanga, hhayi intukuthelo. I-{{appName}} inika wonke umphakathi amathuluzi okuhlala enenhlonipho futhi uzibusele — ukuvota okusobala, isithunzi esizuziwe, nokulinganisa okubeka amalungu athembekile ezintanjeni — ukuze imicu ikhule ibe yinto okufanele ubuyele kuyo.',
+  'about.missionTitle': 'Umsebenzi wethu',
   'authShell.communities': 'Imiphakathi',
+  'authShell.copyright': 'I-{{appName}} — wonke umuntu ubalulekile.',
   'authShell.trending': 'Okuthrendayo',
+  'categories.emptyFilter': 'Awekho imiphakathi ongayikhombisa.',
+  'categories.emptySubscribed': 'Awukabhalisi kuyo yimuphi umphakathi okwamanje.',
+  'categories.emptySubscribedHint':
+    'Vula umphakathi bese ucindezela Subscribe ukuze uwufake lapha.',
   'categories.eyebrow': 'Imiphakathi',
   'categories.loadError': 'Ayikwazanga ukulayisha imiphakathi.',
   'categories.loading': 'Ilayisha imiphakathi…',
   'categories.subtitle':
     'Dlulisa amehlo emiphakathini ye-Agora ngomsebenzi, isihloko, nokuthi inomsindo kangakanani. Bhalisela ukwengeza okuphakelayo ekhaya lakho.',
   'categories.title': 'Thola igumbi lakho',
+  'categoryCard.activeNow': '{{count}} esebenzayo',
   'categoryCard.namePrefix': 'c/',
   'categoryCard.subscribers': '{{count}} amalungu',
   'categoryDetail.empty': 'Azikho izingxoxo lapha okwamanje.',
   'categoryDetail.namePrefix': 'c/',
   'categoryDetail.newPost': 'Okuthunyelwe okusha',
   'categoryDetail.ruleBeKind': 'Yiba nomusa. Xoxa ngomsebenzi, hhayi ngomuntu.',
+  'categoryDetail.ruleNoSpam': 'Akukho spam, azikho izixhumanisi zemakethe.',
+  'categoryDetail.ruleStayOnTopic': 'Hlala esihlokweni salo mphakathi.',
   'categoryDetail.startFirst': 'Qala intambo yokuqala →',
   'categoryDetail.subscribe': 'Bhalisa',
   'categoryDetail.subscribed': 'Ubhalisile',
@@ -35,6 +59,7 @@ export const ui: UiTranslations = {
   'compose.eyebrow': 'Qala intambo',
   'compose.flairLabel': 'I-Flair (ongakukhetha)',
   'compose.imageUrlPrompt': 'I-URL Yesithombe',
+  'compose.insertUrl': 'Faka',
   'compose.linkUrlPrompt': 'I-URL yesixhumanisi',
   'compose.markdownHint': 'I-Markdown iyasekelwa.',
   'compose.publishFailed': 'Yehlulekile ukushicilela intambo.',
@@ -52,11 +77,18 @@ export const ui: UiTranslations = {
   'feed.empty': 'Azikho izingxoxo okwamanje.',
   'feed.emptyHint': 'Yiba ngowokuqala ukuqala ingxoxo — iya ku-Compose.',
   'feed.loadError': 'Ayikwazanga ukulayisha okuphakelayo.',
+  'feed.metaCommunityDescription':
+    'Umphakathi we-meta wawo wonke umuntu obumba i-{{appName}} — ukuvota, ukuphatha, kanye nezingxoxo ngezici.',
+  'feed.ruleBeCivil': 'Hlonipha. Njalo.',
   'feed.ruleBeCivilDesc':
     'Angivumelani ngaphandle kokwehlisa ubuntu. Ama-Mods ashesha kakhulu ekuhlaselweni komuntu siqu.',
+  'feed.ruleCiteSources': 'Xhumanisa into osabelayo kuyo.',
+  'feed.ruleOnePerWeek': 'Okuthunyelwe kwe-meta okukodwa ngesonto nge-akhawunti ngayinye.',
   'feed.subtitle':
     'Izingxoxo ezivela emiphakathini oyilandelayo, kanye nezimbalwa ongase uzivotele. Vota ukuze ufundise i-algorithm.',
   'feed.title': 'Okuphakelayo kwakho',
+  'forgotPassword.description':
+    'Faka i-imeyili yakho bese sizokuthumelela isixhumanisi sokusetha kabusha.',
   'forgotPassword.successBody':
     'Sithumele isixhumanisi sokusetha kabusha ku- {{email}} Iphelelwa yisikhathi ngemizuzu engama-30.',
   'forgotPassword.tryAnother': 'Zama i-imeyili ehlukile',
@@ -66,9 +98,15 @@ export const ui: UiTranslations = {
   'forumLayout.openMenu': 'Vula imenyu yokuzulazula',
   'landing.communitiesSubtitle': 'Thola i-karma, yabelana ngomsebenzi, buza imibuzo engcono.',
   'landing.communitiesTitle': 'Imiphakathi okufanele iqale ngayo',
+  'landing.ctaBody':
+    'Bhalisa mahhala. Yakha isithunzi kuzihloko ezibalulekile kuwe, futhi usize thina sonke sicabange ngokucacile kancane.',
   'landing.ctaEyebrow': 'Ukulungele uma usulungile',
   'landing.ctaHeadline': 'Thola umphakathi wakho. Letha izwi lakho.',
   'landing.heroCtaSecondary': 'Phequlula imiphakathi',
+  'landing.heroEyebrow': 'Wamukelekile ku-{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Izingxoxo ezikhulayo, esikhundleni sokunyamalala.',
+  'landing.heroLede':
+    'I-{{appName}} iyiforamu ephekwa kancane yabathandi bezinto, abakhi, kanye nochwepheshe abanombono othulile. Zuza isikhundla ngomucu omuhle ngamunye.',
   'landing.heroStat1': '847k',
   'landing.heroStat2': '2,180',
   'landing.heroStat2Label': 'Imiphakathi',
@@ -83,13 +121,17 @@ export const ui: UiTranslations = {
   'landing.trendingViewAll': 'Bona konke',
   'login.description': 'Qhubeka lapho ingxoxo igcine khona.',
   'login.heading': 'Ngena ngemvume ku-Agora',
+  'login.noAccount': 'Kusha lapha?',
   'login.passwordPlaceholder': 'Iphasiwedi yakho',
   'login.twoFactorLabel': 'Ikhodi ye-2FA (ongakukhetha)',
   'login.twoFactorPlaceholder': 'Ikhodi enezinombolo ezingu-6',
+  'login.twoFactorRequiredHint':
+    'Le akhawunti inokufakazela ubuqiniso kwezinto ezimbili kusebenza. Faka ikhodi enamadijithi angu-6 evela kuhlelo lwakho lokufakazela ubuqiniso ukuze uqhubeke.',
   'login.twoFactorRequiredLabel': 'Faka ikhodi yakho ye-2FA',
   'modQueue.automodEmpty':
     'Ayikho imithetho yokushintsha okuzenzakalelayo elungiselelwe lo mphakathi okwamanje.',
   'modQueue.automodTitle': 'Umsebenzi we-mod ozenzakalelayo (amahora angu-24 okugcina)',
+  'modQueue.empty': 'I-inbox ayinalutho. Akukho okulindile.',
   'modQueue.eyebrow': 'Ukulinganisela',
   'modQueue.kindThread': 'Intambo',
   'modQueue.loadError': 'Ayikwazanga ukulayisha imibiko.',
@@ -116,8 +158,12 @@ export const ui: UiTranslations = {
   'notifications.mentionedYouIn': 'ukukhulumile ku-',
   'notifications.repliedTo': 'uphendule ku-',
   'notifications.subtitle': 'Unayo {{count}} izaziso ezingafundiwe.',
+  'pricing.limits.advancedFeatures': 'Izici ezithuthukisiwe:',
   'pricing.limits.categories': '{{count}} izigaba',
   'pricing.limits.export': 'Ukuthunyelwa kwedatha:',
+  'pricing.limits.moderation': 'Izenzo zokulinganisa ze-{{count}}',
+  'pricing.limits.threads': '{{count}} imicu',
+  'pricing.limits.votes': '{{count}} amavoti',
   'profile.noComments': 'Azikho izimpendulo okwamanje.',
   'profile.noPosts': 'Akukho okuthunyelwe okwamanje.',
   'profile.noSaved': 'Akukho okuthunyelwe okulondoloziwe okwamanje.',
@@ -128,6 +174,7 @@ export const ui: UiTranslations = {
     'Khetha eqinile. Sizokungenisa ngemvume uma ukusetha kabusha sekuphumelele.',
   'resetPassword.newPasswordLabel': 'Iphasiwedi Entsha',
   'resetPassword.tokenPlaceholder': 'Namathisela ithokheni yesixhumanisi',
+  'search.clear': 'Sula',
   'search.communitiesEmpty': 'Akukho miphakathi efanayo.',
   'search.communitiesHeading': 'Imiphakathi',
   'search.empty': 'Azikho izingxoxo ezifanayo.',
@@ -140,19 +187,27 @@ export const ui: UiTranslations = {
   'settings.displayTitle': 'Isibonisi',
   'settings.emailDigestDesc':
     'Izingxoxo eziphezulu ezivela emiphakathini yakho ebhalisele njalo ngoMsombuluko.',
+  'settings.emailDigestLabel': 'Inhlolovo yamasonto onke',
+  'settings.emailMentionsDesc': 'Lapho othile ekubiza nge-@ emucwini noma kumbiko.',
+  'settings.emailMentionsLabel': 'Ngithumele i-imeyili lapho ngikhulunywa',
+  'settings.emailRepliesDesc': 'Izingxoxo oziqalile noma oziphendulile.',
   'settings.emailRepliesLabel': 'Ngithumelele i-imeyili uma uphendula',
   'settings.loadError': 'Akukwazanga ukulayisha i-akhawunti yakho.',
   'settings.loading': 'Ilayisha izilungiselelo zakho…',
   'settings.notificationsSubtitle':
     'Nquma ukuthi yini efinyelela ibhokisi lakho lokungenayo uma kuqhathaniswa nedivayisi yakho yokucindezela.',
+  'settings.pushRepliesLabel': 'Push for replies',
+  'settings.pushVotesDesc': 'Umsindo womkhawulo ku-100, 500, 1000.',
   'settings.pushVotesLabel': 'Cindezela ukuthola amaphuzu abalulekile okuvota',
   'settings.saveAccount': 'Londoloza i-akhawunti',
   'settings.showFlair': 'Bonisa ukuthambekela kwesigaba emiculweni',
+  'settings.showThumbnails': 'Bonisa izithonjana zesixhumanisi/isithombe',
   'settings.usernamePlaceholder': 'Khetha isibambo',
   'signup.confirmPlaceholder': 'Kuthayiphe futhi',
   'signup.description': 'Thola intambo eyodwa enhle ngesikhathi.',
   'signup.eyebrow': 'Joyina igumbi',
   'threadRow.authorPrefix': 'u/',
+  'threadRow.commentCount': '{{count}} amazwana',
   'threadRow.statusFlagged': 'Kusabuyekezwa',
   'threadRow.statusHot': 'Okushisayo',
   'threadRow.statusLocked': 'Kukhiyiwe',
@@ -174,6 +229,7 @@ export const ui: UiTranslations = {
   'threadView.lockedNotice': 'Le ngxoxo ikhiyiwe. Izimpendulo ezintsha zikhutshaziwe.',
   'threadView.modActionFailed': 'Isenzo somlawuli sehlulekile.',
   'threadView.modTools': 'Amathuluzi e-Mod',
+  'threadView.noComments': 'Awekho amaphuzu okwamanje. Yiba ngowokuqala.',
   'threadView.notFound': 'Uchungechunge alutholakalanga.',
   'threadView.pin': 'Iphinikhodi',
   'threadView.pinned': 'Kuphiniwe',

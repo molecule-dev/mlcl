@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχεις σχόλια, βρήκες κάποιο σφάλμα ή θέλεις να φέρεις το {{app}} στο σχολείο ή την ομάδα σου; Διαβάζουμε κάθε μήνυμα — επικοινώνησε από τις ρυθμίσεις του λογαριασμού σου και θα σου απαντήσει ένας πραγματικός άνθρωπος.',
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.intro':
+    'Το {{app}} είναι ένα καθημερινό παζλ λέξεων. Μάντεψε τη λέξη των πέντε γραμμάτων σε έξι προσπάθειες, κράτησε το σερί σου ζωντανό, μοιράσου το emoji πλέγμα σου και δες πώς τα πήγαν όλοι με τη σημερινή λέξη.',
+  'about.missionBody':
+    'Ένα καλό παζλ είναι μια μικρή καθημερινή νίκη. Το {{app}} είναι χτισμένο γύρω από μία κοινή λέξη την ημέρα — αρκετά γρήγορο για ένα διάλειμμα καφέ, αρκετά ενδιαφέρον για να επιστρέψεις και αύριο.',
+  'about.missionTitle': 'Η αποστολή μας',
   'about.title': 'Σχετικά με το {{app}}',
   'archive.loadError': 'Δεν ήταν δυνατή η φόρτωση του αρχείου.',
   'archive.missed': 'Χάθηκε',
   'archive.notPlayed': 'Δεν παίχτηκε',
+  'archive.subhead':
+    'Ξαναπαίξε οποιαδήποτε περασμένη μέρα ως εξάσκηση — χωρίς σερί, χωρίς στατιστικά, με όλη τη διασκέδαση.',
   'archive.title': 'Αρχειοθέτηση',
   'auth.backToHome': 'Επιστροφή στην αρχική',
   'auth.backToHomeArrow': '← Επιστροφή στην αρχική',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Ξεχάσατε τον κωδικό;',
   'auth.login.loggingIn': 'Σύνδεση σε εξέλιξη…',
   'auth.login.logIn': 'Παίξτε τη σημερινή λέξη',
+  'auth.login.noAccount': 'Νέος στο Tessera;',
   'auth.login.or': 'ή συνεχίστε με',
   'auth.login.password': 'Κωδικός',
   'auth.login.signInButton': 'Σύνδεση',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Αποθήκευση…',
   'common.sendingEllipsis': 'Αποστολή…',
   'common.startingEllipsis': 'Εκκίνηση…',
+  'forgotPassword.subhead':
+    'Εισαγάγετε το email σας και θα σας στείλουμε έναν σύνδεσμο για επαναφορά.',
+  'forgotPassword.success.body':
+    'Εάν υπάρχει λογαριασμός για {{email}} , θα λάβετε έναν σύνδεσμο επαναφοράς σε λίγα λεπτά.',
+  'forgotPassword.success.title': 'Ελέγξτε τα εισερχόμενά σας.',
   'form.name': 'Όνομα',
   'howToPlay.cta.home': 'Επιστροφή στην αρχική',
   'howToPlay.cta.play': 'Παίξτε το σημερινό παζλ',
@@ -68,10 +83,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Σειρές που δεν θέλετε να σπάσετε',
   'leaderboard.daily.title': 'Σημερινές λύσεις',
   'leaderboard.loadError': 'Δεν ήταν δυνατή η φόρτωση του πίνακα κατάταξης.',
+  'leaderboard.streaks.empty': 'Δεν υπάρχουν ακόμη σερί — γίνε ο πρώτος.',
+  'leaderboard.streaks.subhead': 'Τα μεγαλύτερα σερί νικών όλων των εποχών.',
   'leaderboard.streaks.title': 'Πρωταθλητές σειρών',
+  'leaderboard.subhead': 'Πώς τα πήγαν όλοι σήμερα και ποιοι κρατούν τα μεγαλύτερα σερί.',
   'leaderboard.title': 'Πίνακας κατάταξης',
   'login.headline': 'Καλώς ορίσατε πίσω.',
   'login.streakPill': 'Σειρά {{days}} ημερών σας περιμένει',
+  'login.subhead':
+    'Συνδέσου για να κρατήσεις το σερί σου ζωντανό και να δεις πώς τα πήγες με τη σημερινή λέξη.',
   'nav.archive': 'Αρχειοθέτηση',
   'nav.editProfile': 'Επεξεργασία προφίλ',
   'nav.getStarted': 'Ξεκινήστε',
@@ -89,6 +109,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Δεν υπάρχει τέτοια λέξη',
   'notFound.title': 'Αυτή η διαδρομή είναι άδεια.',
   'planUpdated.message': 'Το πρόγραμμά σας είναι ενεργό.',
+  'planUpdated.retry': 'Δοκιμάστε ξανά',
+  'planUpdated.verifyFailed': 'Δεν μπορέσαμε να επιβεβαιώσουμε ακόμη την πληρωμή σας.',
+  'planUpdated.verifyFailedBody':
+    'Η πληρωμή σας ενδέχεται να βρίσκεται ακόμη υπό επεξεργασία. Δοκιμάστε ξανά σε λίγο.',
   'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'play.alreadyFinished': 'Έχετε ήδη ολοκληρώσει αυτό το παζλ',
   'play.answerWas': 'Η λέξη ήταν',
@@ -104,6 +128,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Παζλ εξάσκησης',
   'play.tooShort': 'Δεν αρκούν τα γράμματα',
   'play.won': 'Το λύσατε!',
+  'pricing.advancedStats': 'Σύνθετα στατιστικά: {{yes}}',
+  'pricing.archiveHistory': '{{count}} ημέρες ιστορικού αρχείου',
+  'pricing.archivePlays': '{{count}} επαναλήψεις αρχείου / ημέρα',
+  'pricing.archiveUnlimited': 'Απεριόριστο ιστορικό αρχείου',
+  'pricing.canExport': 'Εξαγωγή δεδομένων: {{yes}}',
+  'pricing.checkoutError': 'Δεν ήταν δυνατή η έναρξη ολοκλήρωσης αγοράς. Παρακαλώ δοκιμάστε ξανά.',
   'pricing.dailyWord': 'Η καθημερινή λέξη',
   'pricing.heading': 'Επιλέξτε το πρόγραμμά σας {{app}}',
   'pricing.included': 'Περιλαμβάνεται',
@@ -111,7 +141,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Η καθημερινή λέξη είναι πάντα δωρεάν. Αναβαθμίστε για απεριόριστες επαναλήψεις από το αρχείο και εμβαθυμένα στατιστικά.',
   'pricing.yearly': 'Ετήσιο',
+  'privacy.intro':
+    'Το {{app}} σέβεται το απόρρητό σου. Αυτή η σελίδα συνοψίζει τα δεδομένα που αποθηκεύουμε, γιατί τα αποθηκεύουμε και πώς να τα διαγράψεις.',
   'privacy.title': 'Ειδοποίηση απορρήτου',
+  'resetPassword.subhead': 'Διάλεξε νέο κωδικό πρόσβασης για να επιστρέψεις στο σερί σου.',
   'settings.account': 'Λογαριασμός',
   'settings.danger.body':
     'Μόνιμη διαγραφή του λογαριασμού σας {{appName}} και όλου του ιστορικού παζλ.',
@@ -121,17 +154,24 @@ export const ui: UiTranslations = {
   'settings.guest': 'Επισκέπτης',
   'settings.language.title': 'Γλώσσα',
   'settings.subhead': 'Ρυθμίστε το προφίλ σας, τον ήχο και πώς εμφανίζεστε στον πίνακα κατάταξης.',
+  'settings.unnamed': 'Παίκτης Sparq',
   'settings.upgrade': 'Αναβάθμιση',
   'signup.eyebrow': 'Δωρεάν για πάντα — μία λέξη τη μέρα',
   'signup.headline': 'Ξεκινήστε τη σειρά σας.',
+  'signup.subhead':
+    'Δημιούργησε λογαριασμό {{appName}} για να παίζεις τη καθημερινή λέξη, να χτίσεις σερί και να ανέβεις στον πίνακα κατάταξης.',
   'stats.currentStreak': 'Σειρά',
   'stats.distribution.title': 'Κατανομή προσπαθειών',
   'stats.loadError': 'Δεν ήταν δυνατή η φόρτωση των στατιστικών σας.',
   'stats.maxStreak': 'Μέγιστη σειρά',
   'stats.played': 'Παίχθηκε',
   'stats.playToday': 'Παίξτε το σημερινό παζλ',
+  'stats.subhead':
+    'Μόνο τα καθημερινά παζλ κατάταξης μετράνε — η εξάσκηση στο αρχείο δεν μετράει ποτέ.',
   'stats.title': 'Τα στατιστικά σας',
   'stats.winRate': 'Ποσοστό νικών',
   'status.monthly': 'Μηνιαίο',
+  'terms.intro':
+    'Χρησιμοποιώντας το {{app}} συμφωνείς με τους παρακάτω κανόνες. Αν δεν μπορείς να τους αποδεχτείς, μην χρησιμοποιήσεις την υπηρεσία.',
   'terms.title': 'Όροι χρήσης',
 }

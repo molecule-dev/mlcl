@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Sualınız var, xəta tapdınız və ya komandanız üçün demo istəyirsiniz? Hesab parametrlərindən bizimlə əlaqə saxlayın — hər mesaj komandadakı real bir şəxsə çatır.',
   'about.contactTitle': 'Əlaqə saxlayın',
+  'about.intro':
+    '{{app}} skan edilmiş sənəd və PDF yığınlarını strukturlaşdırılmış, axtarıla bilən, arxivlənmiş məlumatlara çevirir. Fakturaları, qəbzləri, müqavilələri və ya formaları yükləyin və AI onları oxusun, çıxarsın, təsnif etsin və arxivləsin — etimad rəngləri ilə ki, komandanız yalnız həqiqətən insan tələb edənləri yoxlasın.',
+  'about.missionBody':
+    'Sənəd işləri komandanızın gününü yeməməlidir. Biz inanırıq ki, hər çıxarılan dəyər izah edilə bilən və auditə uyğun olmalıdır — beləliklə, sənəd izini itirmədən avtomatlaşdırmaya etibar edə bilərsiniz. {{app}} hər yığın üçün saatlarla vaxt qazandırmaq üçün qurulub və lazım olan yerdə insanı dövrədə saxlayır.',
+  'about.missionTitle': 'Missiyamız',
+  'about.subtitle': 'Sənədləriniz üçün OCR, AI çıxarılması, təsnifat və avtomatik arxivləmə.',
   'about.title': '{{app}} haqqında',
+  'about.whatYouGetTitle': 'Nə əldə edirsən',
   'authShell.backToLanding': '← Eniş nöqtəsinə qayıt',
   'common.goToDashboard': 'İdarə panelinə keç',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Bu gün · Əməliyyatlara ümumi baxış',
   'dashboard.heading': 'Sənəd kəşfiyyatı',
+  'dashboard.metric.accuracy': 'Orta dəqiqlik',
   'dashboard.metric.filed': 'Bu gün təqdim edilib',
   'dashboard.metric.filedCaption': 'Fayl qaydaları ilə yönləndirilib',
   'dashboard.metric.processed': 'Bu gün emal edildi',
@@ -23,11 +33,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'Yükləndi',
   'dashboard.recent.heading': 'Son sənədlər',
+  'dashboard.recent.typeUnknown': 'Təsnifat gözləyir',
   'dashboard.subheading':
     'Hər səhifə təsnif edilir, çıxarılır və arxivləşdirilir — etibarlı rənglərlə, beləliklə, rəy diqqət mərkəzində qalır.',
   'documentDetail.audit.heading': 'Audit müddəti',
+  'documentDetail.audit.subheading': 'Bu sənəddə görülən hər addım, məsul şəxslə birlikdə.',
   'documentDetail.back': 'Bütün sənədlər',
   'documentDetail.downloadHint': 'Orijinal faylı açmaq üçün Yükləmə funksiyasından istifadə edin.',
+  'documentDetail.extracted.empty': 'Hələ heç bir sahə çıxarılmadı.',
   'documentDetail.extracted.heading': 'Çıxarılan sahələr',
   'documentDetail.extracted.subheading':
     '{{count}} sahələr · səhifədə vurğulamaq üçün istənilən sahəyə klikləyin',
@@ -56,13 +69,24 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} kitabxananızdakı sənədlər, ən yenisindən başlayaraq sıralanır.',
   'documents.uploadCta': 'Sənədləri yükləyin',
+  'documentTypeBreakdown.barAria': 'Növə görə sənəd tərkibi',
   'documentTypeBreakdown.empty': 'Hələ heç bir sənəd işlənməyib.',
   'documentTypeBreakdown.subtitle': '{{total}} işlənmiş',
   'documentTypeBreakdown.title': 'Sənəd tərkibi',
+  'forgotPassword.backToSignIn': '← Girişə qayıt',
   'forgotPassword.checkEmail': 'E-poçtunuzu yoxlayın',
   'forgotPassword.tip': 'Başa düşmədiniz? Spamı yoxlayın və ya başqa bir ünvan sınayın.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Hər səhifəni audit edən əməliyyat komandaları üçün hazırlanıb.',
+  'landing.ctaBody':
+    '14 günlük sınaq. Kart tələb olunmur. İstənilən vaxt ləğv edin. Sürətli hərəkət edən və yavaş audit aparan əməliyyat komandaları üçün hazırlanıb.',
   'landing.ctaHeading': 'Qəbzləri yazmağı dayandırın. Onları arxivləşdirməyə başlayın.',
   'landing.eyebrow': 'OCR · Çıxarış · Süni intellekt faylı',
+  'landing.featuresHeading': 'Özünü izah edən sənəd intellekti',
+  'landing.heroSubtitle':
+    'Faktura, qəbz, müqavilə və ya forma yığınını yükləyin. {{app}} onları təsnif edir, çıxarır və arxivləyir — etimad rəngləri ilə ki, komandanız yalnız həqiqətən insan tələb edənləri yoxlasın.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Gündəlik həcm · son 7 gün',
   'landing.sampleCardLabel': 'Bu gün işlənmiş sənədlər',
   'landing.sampleCardSubtitle': 'Faktura, qəbz və formalar üzrə orta dəqiqlik 96,2%.',
   'login.hidePassword': 'Şifrəni gizlət',
@@ -75,6 +99,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Açılış səhifəsini açın',
   'notFound.title': 'Həmin səhifə faylda deyil',
+  'parcelaHeroCard.accuracy': 'Bütün çıxarılmalar üzrə orta dəqiqlik {{value}}%',
   'parcelaHeroCard.change': '{{sign}} {{amount}} dünənlə müqayisədə %',
   'parcelaHeroCard.title': 'Bu gün işlənmiş sənədlər',
   'parcelaLayout.primaryNavLabel': 'Əsas naviqasiya',
@@ -82,6 +107,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'sənədlər',
   'pricing.processingLabel': 'emal işləri',
   'resetPassword.confirmPlaceholder': 'Yeni parolu təkrarlayın',
+  'resetPassword.hidePassword': 'Şifrəni gizlət',
   'resetPassword.passwordLabel': 'Yeni parol',
   'resetPassword.showPassword': 'Şifrəni göstər',
   'resetPassword.subtitle': 'Ən azı 8 simvol uzunluğunda bir şey seçin.',
@@ -99,10 +125,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Qaydaları yükləmək alınmadı.',
   'rules.loading': 'Qaydalar yüklənir…',
   'rules.matched30d': '{{count}} son 30 gündə uyğun gələn sənədlər',
+  'rules.neverUsed': 'Heç vaxt istifadə olunmayıb',
   'rules.newRule': 'Yeni qayda',
   'rules.saveError': 'Qaydanı yadda saxlamaq alınmadı.',
   'rules.subheading':
     'Sistemə hər bir sənəd növünün hara getməli olduğunu bildirin. Şərtlər yuxarıdan aşağıya doğru zəncirlənir — ilk matç qalib gəlir.',
+  'rules.templatesEmpty': 'Hələ heç bir çıxarma şablonu yoxdur.',
   'rules.templatesHeading': 'Çıxarış şablonları',
   'rules.templatesSubheading': 'Çıxarıcının hər sənəd növü üçün istifadə etdiyi sahə sxemləri.',
   'rules.then': 'Sonra',
@@ -111,17 +139,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'İş sahəsinin adı',
   'settings.account.subheading':
     'Bildirişlər və audit tarixçəsi üçün göstərilən ad və əsas e-poçt.',
+  'settings.api.confirmRevoke': 'Təsdiqlə?',
   'settings.api.copyOnce': 'Bu açarı kopyalayın — bir daha göstərilməyəcək',
   'settings.api.createdOn': 'Yaradılıb {{date}}',
   'settings.api.empty': 'Hələ ki, API açarı yoxdur. Yuxarıda birini yaradın.',
   'settings.api.error': 'Açar yaratmaq alınmadı.',
+  'settings.api.generating': 'Yaradılır…',
+  'settings.api.heading': 'API açarları',
   'settings.api.labelPlaceholder': 'Açar etiketi (məsələn, CI yükləyicisi)',
+  'settings.api.loading': 'Açarlar yüklənir…',
   'settings.api.newKey': 'Açar yaradın',
   'settings.api.subheading':
     'Bunlardan skriptdən və ya ERP-dən sənədləri göndərmək üçün istifadə edin. İstənilən vaxt istənilən düyməni çevirin.',
   'settings.integrations.heading': 'Fayl inteqrasiyaları',
   'settings.integrations.subheading':
     'Sənədləri komandanızın artıq yaşadığı bulud diskinə və ya söhbət alətinə göndərin.',
+  'settings.subheading':
+    '{{app}} iş sahəniz üçün hesabı, API açarlarını və arxivləmə inteqrasiyalarını idarə edin.',
+  'signup.hidePassword': 'Şifrəni gizlət',
   'signup.identityPrompt': 'Sizə necə müraciət etməliyik?',
   'signup.showPassword': 'Şifrəni göstər',
   'signup.subtitle': '14 gün pulsuz, kart tələb olunmur.',
@@ -129,6 +164,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Yükləmə uğursuz oldu.',
   'upload.eyebrow': 'Qəbul',
   'upload.heading': 'Sənədləri yükləyin',
+  'upload.queue.clear': 'Tamamlananları təmizlə',
   'upload.queue.col.confidence': 'Özünəinam',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Aşkarlanır…',
@@ -141,5 +177,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Və ya toplu çıxarış, təsnifat və arxivləşdirmə üçün eyni anda birdən çox faylı atın.',
   'uploadDropZone.cta': 'Faylları seçin',
+  'uploadDropZone.maxSize': 'Fayl başına maks. 25 MB · Uçdan-uca şifrələnmiş',
   'uploadDropZone.title': 'Emal etməyə başlamaq üçün sənədləri atın',
 }

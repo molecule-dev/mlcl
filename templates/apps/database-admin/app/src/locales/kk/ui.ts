@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Туралы',
+  'about.featureConnections':
+    'Дерекқорларыңызды қауіпсіз сақтайтын және түспен белгілейтін қосылым менеджері — тіркелгі деректері шифрланған күйде сақталады, ешқашан ашық мәтінде болмайды.',
+  'about.featureMonitoring':
+    'Сұрау өнімділігі мен дерекқор белсенділігін нақты уақытта бақылау, пернетақта жарлықтары мен командалар палитрасы арқылы қолды бос ұстап басқару.',
+  'about.featurePlans':
+    'Сізбен бірге өсетін жоспарлар — жеке жұмыс үшін тегін, көбірек қосылымдар, сұрауларды ұзағырақ сақтау, экспорттар және кеңейтілген мүмкіндіктер үшін Pro және Team.',
+  'about.featureQueryEditor':
+    'Сұрау тарихы, сақталған сұраулар және нәтижелерді бір басумен CSV экспорттау мүмкіндігі бар Monaco негізіндегі SQL редакторы.',
+  'about.featureSchema':
+    'Дерекқорларды, кестелерді және бағандарды шарлауға арналған схема шолғышы мен кесте браузері, содан кейін жолдарды кірістіріп шолу, сүзу және өңдеу.',
+  'about.missionTitle': 'Біздің миссиямыз',
   'authShell.commands': 'Командалар',
   'authShell.ssoSupported': 'SSO қолдау көрсетеді',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Сұраулар',
   'connections.schema': 'Схема',
   'connections.subtitle': 'Дерекқор қосылымдарыңызды басқарыңыз.',
+  'connections.test': 'Сынақ',
   'databaseAdminLayout.adminRole': 'Әкімші рөлі',
   'databaseAdminLayout.commandPalette': 'Команда палитрасы',
   'databaseAdminLayout.commands': 'командалар',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Жаңа байланыс',
   'databaseAdminLayout.queries': 'Сұраулар',
   'databaseAdminLayout.ready': 'Дайын',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Командаларды, сұрауларды, кестелерді іздеу…',
   'databaseAdminLayout.user': 'Пайдаланушы',
   'editConnection.confirmDelete': 'Бұл байланысты жою керек пе?',
   'editConnection.deleteButton': 'Қосылымды жою',
+  'editConnection.newPassword': 'Жаңа құпия сөз (өзгертпеу үшін бос қалдырыңыз)',
   'editConnection.saved': 'Байланыс сақталды.',
   'editConnection.title': 'Байланысты өңдеу',
   'forgotPassword.success': 'Егер сол тіркелгі бар болса, қалпына келтіру сілтемесі жолда.',
@@ -47,6 +62,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Табыстар',
   'monitoring.title': 'Бақылау',
   'monitoring.totalQueries': 'Жалпы сұраулар',
+  'nav.schema': 'Схема',
   'newConnection.database': 'Дерекқор',
   'newConnection.engine': 'Қозғалтқыш',
   'newConnection.host': 'Хост',
@@ -83,6 +99,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Бұл үзіндіге ешқандай байланыс жоқ.',
   'savedQuery.notBound': 'Байланбаған',
   'savedQuery.title': 'Сақталған сұрау',
+  'schema.columns': 'Бағандар',
   'schema.foreignKeys': 'Сыртқы кілттер',
   'schema.indexes': 'Индекстер',
   'schemaExplorer.browseRows': 'Жолдарды шолу',
@@ -91,14 +108,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'нөлге тең',
   'schemaExplorer.colType': 'түрі',
   'schemaExplorer.noColumns': 'Бағандар жоқ.',
+  'schemaExplorer.noForeignKeys': 'Шеткі кілттер жоқ.',
   'schemaExplorer.noIndexes': 'Индекстер жоқ.',
   'schemaExplorer.noTables': 'Үстелдер жоқ',
   'schemaExplorer.pickATable': 'Бүйірлік тақтадан кесте таңдаңыз.',
   'schemaExplorer.tables': 'Үстелдер',
   'schemaExplorer.title': 'Схема зерттеушісі',
+  'settings.session': 'Сессия',
   'settings.subtitle': 'Тіркелгіңізді және жоспарыңызды басқарыңыз.',
   'signup.heading': 'Quarry тіркелгісін жасаңыз',
   'signup.tagline': 'Бір минуттан аз уақыт ішінде қолжетімділікті арттырыңыз.',
   'tableBrowser.noRows': 'Бұл кестеде әлі жолдар жоқ.',
+  'tableBrowser.subtitle': 'Қашықтағы дерекқорыңыздан жолдарды шолу.',
   'tableBrowser.title': 'Қашықтағы дерекқорыңыздан жолдарды шолу.',
 }

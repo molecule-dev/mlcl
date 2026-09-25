@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Maswali, maoni, au unataka onyesho kwa timu yako? Tutumie barua pepe kwa hello@conduit.dev — kila ujumbe humfikia mtu halisi wa timu.',
   'about.contactHeading': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
+  'about.featuresHeading': 'Unachopata',
+  'about.introBody':
+    '{{app}} huleta uwasilishaji endelevu wa mtindo wa GitHub Actions katika dashibodi moja ya haraka: njia za ujenzi, kumbukumbu za ujenzi, vifaa, beji za hali, na mazingira ya usambazaji kwa hazina zako zote mahali pamoja. Hakuna kuruka kati ya tabo, hakuna kubahatisha ni ujenzi upi uliovunjika — kila uendeshaji, mstari wa kumbukumbu, na usambazaji uko mbofyo mmoja tu.',
+  'about.introHeading': '{{app}} ni nini',
+  'about.missionBody':
+    'Kusafirisha programu kunapaswa kuwa tulivu na kutabirika, si chanzo cha hofu. Tunajenga njia za ujenzi, kumbukumbu, na zana za usambazaji ili njia kutoka kwa commit hadi uzalishaji iwe ya haraka, inayoonekana, na ya kuaminika — ujenzi wa kwanza wenye kijani katika dakika tano, na kila ujenzi unaofuata uwe wazi vile vile.',
+  'about.missionHeading': 'Dhamira yetu',
+  'about.subtitle':
+    '{{app}} ni dashibodi ya CI/CD kwa timu zinazotaka kufuatilia ujenzi, usambazaji, na mazingira katika kila hazina — na kusafirisha kwa uhakika.',
   'artifacts.empty': 'Hakuna mabaki bado.',
   'artifacts.heading': 'Mabaki',
   'artifacts.loadError': 'Imeshindwa kupakia vizalia.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ mfereji wa mzunguko --orodha',
   'environments.heading': 'Mazingira',
   'environments.loadError': 'Imeshindwa kupakia mazingira.',
+  'environments.loading': 'Inapakia mazingira…',
   'environments.subheading': 'Hali ya uwasilishaji wa moja kwa moja katika kila shabaha.',
   'forgotPassword.runnerStatus': 'weka upya · handaki salama',
+  'forgotPassword.success':
+    'Ikiwa kuna akaunti ya barua pepe hiyo, kiungo cha kuweka upya kiko njiani. Angalia kikasha chako cha barua pepe.',
   'insights.changeFailureRate': 'Kiwango cha kushindwa kwa mabadiliko',
   'insights.deployFrequency': 'Utekelezaji / siku',
   'insights.empty': 'Bado hakuna data ya kutosha.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Imeshindwa kupakia maarifa.',
   'insights.meanP95': 'wastani {{mean}} · uk.95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Hatua za njia za ujenzi zilizopole zaidi',
   'insights.successRateHeading': 'Kiwango cha mafanikio ya bomba (siku 14 zilizopita)',
   'landing.choosePlan': 'Chagua mpango',
+  'landing.copyright': '© {{year}} {{app}}. Safirisha kwa uhakika.',
   'landing.ctaBody':
     'Hakuna kadi ya mkopo. Hakuna mhandisi wa jukwaa anayehitajika. Pata bomba la kwanza la kijani ndani ya dakika tano.',
   'landing.ctaHeading': 'Meli kwa uhakika.',
   'landing.featuresEyebrow': '// vipengele vya jukwaa',
   'landing.featuresHeading': 'Imetengenezwa kwa ajili ya wasafirishaji, na wasafirishaji',
+  'landing.heroSubtitle':
+    'Njia za ujenzi zinazokamilika kwa sekunde. Kumbukumbu unazoweza kusoma. Usambazaji unaoweza kuamini.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./mfereji peleka --kwa usalama',
   'landing.pricingEyebrow': '// $ bei --wazi',
   'landing.pricingHeading': 'Bei rahisi na inayoweza kutabirika',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Sasa iko safarini',
   'pipelines.metric.successCaption': '{{count}} ya {{total}} mbio',
   'pipelines.metric.successRate': 'Kiwango cha mafanikio',
+  'pipelines.realtimeOn': 'wakati halisi',
   'pipelines.subheading': 'Masasisho ya moja kwa moja kutoka kwa kila hazina inayotazamwa.',
+  'pricing.advancedFeatures': 'Vipengele vya hali ya juu: {{mark}}',
+  'pricing.canExport': 'Uhamishaji wa data: {{mark}}',
+  'pricing.maxArtifacts': 'Vifaa {{count}}',
+  'pricing.maxBuilds': 'Ujenzi {{count}}',
+  'pricing.maxPipelines': 'Njia za ujenzi {{count}}',
   'privacy.dataAccount':
     'Akaunti: jina, barua pepe, nenosiri lililoharakishwa, kiwango cha mpango.',
   'privacy.intro':
@@ -93,6 +118,8 @@ export const ui: UiTranslations = {
     'Tunatumia Stripe kwa ajili ya bili, Mailgun kwa ajili ya barua pepe ya miamala, na AWS S3 kwa ajili ya kuhifadhi vipengee vya ujenzi. Kila kimoja kimefungwa kimkataba na upeo wa chini kabisa wa data unaohitajika ili kutoa huduma yake.',
   'privacy.rightsBody':
     'Unaweza kuhamisha kila baiti ya data yako, kufuta akaunti yako wakati wowote kutoka kwa Mipangilio, na kuomba rekodi ya kila uwasilishaji wa webhook kwenye akaunti yako. Tunajibu maombi ya GDPR / CCPA ndani ya siku 30.',
+  'privacy.subtitle':
+    'Jinsi {{app}} hukusanya, huhifadhi, na hulinda data yako tunapokuendeshea njia zako za ujenzi.',
   'privacy.title': 'Sera ya faragha',
   'repositories.empty': 'Hakuna hazina zilizounganishwa.',
   'repositories.heading': 'Hifadhi',
@@ -101,11 +128,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Hifadhi zote',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Imeshindwa kupakia hifadhi.',
+  'repositoryDetail.meanDuration': 'Muda wa wastani',
   'repositoryDetail.notFound': 'Hifadhi ya vitu haikupatikana.',
+  'repositoryDetail.successRate': 'Kiwango cha mafanikio',
   'repositoryDetail.totalBuilds': 'Jumla ya ujenzi',
   'repositoryDetail.webhookActive': 'hai',
   'repositoryDetail.webhookPaused': 'imesitishwa',
   'repositoryDetail.webhooksHeading': 'Viunganishi vya wavuti',
+  'resetPassword.passwordLabel': 'Nenosiri jipya',
   'resetPassword.runnerStatus': 'kuweka upya · tokeni imethibitishwa',
   'resetPassword.subtitle': 'Chagua nenosiri thabiti ambalo hujawahi kutumia hapo awali.',
   'resetPassword.tokenPlaceholder': 'bandika kutoka kwa barua pepe',
@@ -118,6 +148,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Hifadhi za Hifadhi huangalia mifereji ya maji. Ondoa kutoka kwa mtoa huduma wako wa VCS ili uache kumeza matukio.',
   'settings.repositories.empty': 'Hakuna hazina zilizounganishwa bado.',
+  'settings.repositories.heading': 'Miunganisho ya hazina',
   'settings.repositories.loadError': 'Imeshindwa kupakia hazina.',
   'settings.secrets.addCta': 'Ongeza siri',
   'settings.secrets.addError': 'Imeshindwa kuongeza siri.',
@@ -125,6 +156,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Imeshindwa kufuta siri.',
   'settings.secrets.empty': 'Hakuna siri zilizohifadhiwa.',
   'settings.secrets.heading': 'Siri',
+  'settings.secrets.lastUsed': 'ilitumika mwisho {{date}}',
   'settings.secrets.loadError': 'Imeshindwa kupakia siri.',
   'settings.secrets.neverUsed': 'haijawahi kutumika',
   'settings.secrets.rotateCta': 'Zungusha',
@@ -148,6 +180,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Imeshindwa kusasisha wavuti.',
   'signup.namePlaceholder': 'Hifadhi ya Riley',
   'signup.runnerStatus': 'daraja la bure · Kiwango cha ujenzi 1,000 kwa dakika/mwezi',
+  'terms.intro':
+    'Kwa kuunda akaunti ya {{app}} unakubali masharti haya. Yanashughulikia matumizi yanayokubalika ya vifaa vya ujenzi, mipaka ya SLA yetu, na masharti ambayo tunaweza kusimamisha au kufuta akaunti yako kwa mizigo ya matumizi mabaya.',
   'terms.slaBody':
     'Mipango ya Pro na Timu inalenga 99.95% ya muda wa kufanya kazi kila mwezi kwa API na kundi la wakimbiaji. Mpango wa Bure hutolewa kama ulivyo. Kukatika huripotiwa kwenye status.conduit.dev na huhesabiwa kulingana na fomula katika ankara yako.',
   'terms.terminationBody':

@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'अभिप्राय आहे, बग सापडला, किंवा {{app}} तुमच्या शाळेत किंवा टीममध्ये आणायचे आहे? आम्ही प्रत्येक संदेश वाचतो — तुमच्या खाते सेटिंग्जमधून संपर्क करा आणि खरा माणूस उत्तर देईल.',
   'about.contactTitle': 'आमच्याशी संपर्क साधा',
   'about.eyebrow': 'बद्दल',
+  'about.intro':
+    '{{app}} हा दैनिक शब्दकोडे आहे. सहा प्रयत्नांत पाच अक्षरांचा शब्द ओळखा, तुमची स्ट्रीक टिकवा, तुमचा इमोजी ग्रिड शेअर करा आणि आजच्या शब्दावर सर्वांनी कसे कामगिरी केली ते पहा.',
+  'about.missionBody':
+    'चांगले कोडे म्हणजे रोजचा छोटासा विजय. {{app}} एका सामायिक दैनिक शब्दाभोवती बांधलेले आहे — कॉफी ब्रेकसाठी पुरेसे झटपट, उद्याही परत येण्यासारखे तीक्ष्ण.',
+  'about.missionTitle': 'आमचे ध्येय',
   'about.title': '{{app}} बद्दल',
   'archive.loadError': 'संग्रह लोड करता आला नाही.',
   'archive.missed': 'चुकलेले',
   'archive.notPlayed': 'खेळलेले नाही',
+  'archive.subhead':
+    'कोणताही जुना दिवस सराव म्हणून पुन्हा खेळा — स्ट्रीक नाही, आकडेवारी नाही, फक्त मजा.',
   'archive.title': 'संग्रह',
   'auth.backToHome': 'मुख्यपृष्ठावर परत',
   'auth.backToHomeArrow': '← मुख्यपृष्ठावर परत',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'पासवर्ड विसरलात?',
   'auth.login.loggingIn': 'साइन इन करत आहोत…',
   'auth.login.logIn': 'आजचा शब्द खेळा',
+  'auth.login.noAccount': 'तुम्ही टेसेरासाठी नवीन आहात का?',
   'auth.login.or': 'किंवा यासह सुरू ठेवा',
   'auth.login.password': 'पासवर्ड',
   'auth.login.signInButton': 'साइन इन करा',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'जतन करत आहे…',
   'common.sendingEllipsis': 'पाठवत आहे…',
   'common.startingEllipsis': 'सुरू करत आहे…',
+  'forgotPassword.subhead':
+    'तुमचा ईमेल प्रविष्ट करा आणि आम्ही तुम्हाला रीसेट करण्यासाठी एक लिंक पाठवू.',
+  'forgotPassword.success.body':
+    'जर खाते अस्तित्वात असेल तर {{email}} तुम्हाला काही मिनिटांत रीसेट लिंक मिळेल.',
+  'forgotPassword.success.title': 'तुमचा इनबॉक्स तपासा.',
   'form.name': 'नाव',
   'howToPlay.cta.home': 'घरी परत जा',
   'howToPlay.cta.play': 'आजचे कोडे खेळा',
@@ -68,10 +83,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'तुम्हाला तोडायला आवडत नसलेले स्ट्रीक',
   'leaderboard.daily.title': 'आजचे सोडवलेले',
   'leaderboard.loadError': 'लीडरबोर्ड लोड करता आले नाही.',
+  'leaderboard.streaks.empty': 'अजून स्ट्रीक नाही — पहिले व्हा.',
+  'leaderboard.streaks.subhead': 'आतापर्यंतच्या सर्वात लांब विजय स्ट्रीक.',
   'leaderboard.streaks.title': 'स्ट्रीक आघाडीवर',
+  'leaderboard.subhead': 'आज सर्वांनी कशी कामगिरी केली, आणि सर्वात लांब स्ट्रीक कोणाकडे आहेत.',
   'leaderboard.title': 'लीडरबोर्ड',
   'login.headline': 'परत स्वागत आहे.',
   'login.streakPill': '{{days}}-दिवसांचा स्ट्रीक वाट पाहत आहे',
+  'login.subhead':
+    'तुमची स्ट्रीक टिकवण्यासाठी आणि आजच्या शब्दावर तुमची कामगिरी पाहण्यासाठी साइन इन करा.',
   'nav.archive': 'संग्रह',
   'nav.editProfile': 'प्रोफाइल संपादित करा',
   'nav.getStarted': 'सुरू करा',
@@ -89,6 +109,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · असा कोणताही शब्द नाही',
   'notFound.title': 'तो मार्ग रिकामा आहे.',
   'planUpdated.message': 'तुमची योजना लाइव्ह आहे.',
+  'planUpdated.retry': 'पुन्हा प्रयत्न करा',
+  'planUpdated.verifyFailed': 'आम्ही अद्याप तुमच्या पेमेंटची पुष्टी करू शकलो नाही.',
+  'planUpdated.verifyFailedBody':
+    'तुमच्या पेमेंटवर अजूनही प्रक्रिया सुरू असू शकते. थोड्या वेळाने पुन्हा प्रयत्न करा.',
   'planUpdated.verifying': 'तुमच्या पेमेंटची पुष्टी करत आहोत…',
   'play.alreadyFinished': 'तुम्ही हे कोडे आधीच पूर्ण केले आहे',
   'play.answerWas': 'शब्द होता',
@@ -104,6 +128,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'सराव कोडे',
   'play.tooShort': 'पुरेशी अक्षरे नाहीत',
   'play.won': 'सोडवले!',
+  'pricing.advancedStats': 'प्रगत आकडेवारी: {{yes}}',
+  'pricing.archiveHistory': '{{count}} दिवसांचा संग्रह इतिहास',
+  'pricing.archivePlays': '{{count}} संग्रह पुनर्खेळ / दिवस',
+  'pricing.archiveUnlimited': 'अमर्यादित संग्रह इतिहास',
+  'pricing.canExport': 'डेटा एक्सपोर्ट: {{yes}}',
+  'pricing.checkoutError': 'चेकआउट सुरू करता आले नाही. कृपया पुन्हा प्रयत्न करा.',
   'pricing.dailyWord': 'दैनिक शब्द',
   'pricing.heading': 'तुमची {{app}} योजना निवडा',
   'pricing.included': 'समाविष्ट',
@@ -111,7 +141,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'दैनिक शब्द नेहमी विनामूल्य आहे. अमर्यादित संग्रह पुनरावृत्ती आणि सखोल आकडेवारीसाठी अपग्रेड करा.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} तुमच्या गोपनीयतेचा आदर करते. हे पृष्ठ आम्ही कोणता डेटा साठवतो, का साठवतो आणि तो कसा काढायचा याचा सारांश देते.',
   'privacy.title': 'गोपनीयता सूचना',
+  'resetPassword.subhead': 'तुमच्या स्ट्रीककडे परत जाण्यासाठी नवीन पासवर्ड निवडा.',
   'settings.account': 'खाते',
   'settings.danger.body': 'तुमचे {{appName}} खाते आणि संपूर्ण कोडे इतिहास कायमचे काढून टाका.',
   'settings.danger.confirm': 'होय, कायमचे हटवा',
@@ -120,17 +153,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'पाहुणे',
   'settings.language.title': 'भाषा',
   'settings.subhead': 'तुमचे प्रोफाइल, ध्वनी आणि लीडरबोर्डवर तुम्ही कसे दिसता ते समायोजित करा.',
+  'settings.unnamed': 'स्पार्क खेळाडू',
   'settings.upgrade': 'अपग्रेड करा',
   'signup.eyebrow': 'कायमचे विनामूल्य — दररोज एक शब्द',
   'signup.headline': 'तुमचा स्ट्रीक सुरू करा.',
+  'signup.subhead':
+    'दैनिक शब्द खेळण्यासाठी, स्ट्रीक तयार करण्यासाठी आणि लीडरबोर्डवर चढण्यासाठी {{appName}} खाते तयार करा.',
   'stats.currentStreak': 'स्ट्रीक',
   'stats.distribution.title': 'अंदाज वितरण',
   'stats.loadError': 'तुमची आकडेवारी लोड करता आली नाही.',
   'stats.maxStreak': 'कमाल स्ट्रीक',
   'stats.played': 'खेळले',
   'stats.playToday': 'आजचे कोडे खेळा',
+  'stats.subhead': 'फक्त क्रमवारीतले दैनिक कोडे — संग्रह सराव कधीही मोजला जात नाही.',
   'stats.title': 'तुमची आकडेवारी',
   'stats.winRate': 'जिंक दर',
   'status.monthly': 'मासिक',
+  'terms.intro':
+    '{{app}} वापरून तुम्ही खालील नियमांना संमती देता. ते स्वीकारता येत नसल्यास, कृपया सेवा वापरू नका.',
   'terms.title': 'सेवा अटी',
 }

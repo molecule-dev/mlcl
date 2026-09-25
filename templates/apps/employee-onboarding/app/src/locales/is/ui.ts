@@ -1,26 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Viltu bjóða teyminu þínu hlýlegri móttöku, fannstu villu eða ert með endurgjöf? Hafðu samband í stillingum reikningsins þíns — hver skilaboð fara til raunverulegrar manneskju sem getur hjálpað.',
   'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um',
+  'about.missionTitle': 'Markmið okkar',
   'auth.forgotPassword.emailPlaceholder': 'nafn@þittfyrirtæki.com',
   'auth.forgotPassword.heading': 'Endurstilla lykilorðið þitt.',
+  'auth.forgotPassword.panel.body':
+    'Endurstilling tekur 30 sekúndur — framvinda gátlistans bíður þín.',
+  'auth.forgotPassword.panel.headline': 'Kominn aftur þangað sem þú varst.',
+  'auth.forgotPassword.subheading':
+    'Sláðu inn vinnunetfangið þitt og við sendum þér endurstillingartengil.',
   'auth.forgotPassword.successSubheading':
     'Kíktu á pósthólfið þitt — við höfum sent leiðbeiningar um endurstillingu.',
   'auth.login.emailPlaceholder': 'nafn@þittfyrirtæki.com',
   'auth.login.heading': 'Velkomin(n) aftur.',
   'auth.login.passwordPlaceholder': 'Lykilorðið þitt',
+  'auth.login.signupPrompt': 'Nýr í teyminu?',
   'auth.login.subheading': 'Skráðu þig inn til að halda áfram þar sem frá var horfið.',
   'auth.login.submit': 'Haltu áfram ferð þinni',
+  'auth.panel.body':
+    'Persónulegi gátlistinn þinn, þjálfunarámilsteinar og kynningar í teyminu — allt á einum rólegum stað.',
   'auth.panel.footnote': '© Embark — að ráða fólk í fyrsta sæti frá deginum í dag.',
   'auth.panel.headline': 'Öruggir fyrstu 90 dagar byrja hér.',
   'auth.resetPassword.heading': 'Settu nýtt lykilorð.',
   'auth.resetPassword.newPasswordLabel': 'Nýtt lykilorð',
+  'auth.resetPassword.panel.body':
+    'Vistaðu nýtt lykilorð og við komum þér beint aftur í móttökuferlið þitt.',
+  'auth.resetPassword.panel.headline': 'Næstum kominn aftur inn.',
   'auth.resetPassword.subheading': 'Veldu eitthvað sem þú munt muna — að minnsta kosti 8 stafi.',
   'auth.signup.emailPlaceholder': 'nafn@þittfyrirtæki.com',
   'auth.signup.heading': 'Velkomin(n) í fyrstu 90 dagana þína.',
   'auth.signup.panel.body':
     'Leiðbeinandi gátlisti, hlutverkavituð þjálfun og kynningar á fólki — tilbúnar áður en þú gengur inn.',
+  'auth.signup.panel.headline': 'Fyrsti dagur, á fyrsta degi.',
   'auth.signup.subheading':
     'Stofnaðu Embark aðganginn þinn til að hefja leiðsögn þína um innleiðingu.',
   'checklist.empty.body': 'Skiptu um síu til að sjá önnur verkefni.',
@@ -28,6 +43,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'Aðlögun · Gátlisti',
   'checklist.loading': 'Hleður inn gátlistanum þínum…',
   'checklist.stat.actionNeeded': 'Aðgerða nauðsynleg',
+  'checklist.stat.completion': 'Lokið',
+  'checklist.stat.inProgress': 'Í vinnslu',
   'checklist.stat.inProgressHelper': 'Taktu upp þar sem frá var horfið',
   'checklist.stat.overdueHelper': 'Náðu þessum fyrst',
   'checklist.subtitle':
@@ -59,6 +76,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Engin skjöl ennþá',
   'documents.eyebrow': 'Aðlögun · Skjöl',
   'documents.loading': 'Hleður skjöl…',
+  'documents.stat.actionNeeded': 'Skráðu þig núna',
+  'documents.stat.all': 'Öll skjöl',
   'documents.stat.allHelper': 'Þvert á flokka',
   'documents.stat.pending': 'Undirskriftir í bið',
   'documents.stat.pendingHelper': 'Nauðsynlegt til að ljúka',
@@ -66,16 +85,21 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Geymt á öruggan hátt',
   'documents.status.optional': 'Valfrjálst',
   'documents.status.required': 'Nauðsynlegt',
+  'documents.status.signed': 'Undirritað',
   'documents.subtitle': 'Handbókin þín, eyðublöð og undirritaðir samningar — allt á einum stað.',
   'documents.title': 'Allt sem þú þarft að lesa og undirrita.',
   'documents.uploadedRecently': 'Nýlega hlaðið upp',
   'documentViewer.breadcrumbCurrent': 'Áhorfandi',
   'documentViewer.breadcrumbDocs': 'Skjöl',
   'documentViewer.downloadMeta': 'Sækja lýsigögn',
+  'documentViewer.helpBody':
+    'People & Culture svarar spurningum um handbókina í #ask-people á Slack.',
   'documentViewer.helpEyebrow': 'Þarftu hjálp?',
   'documentViewer.loadError': 'Við gátum ekki hlaðið þessu skjali.',
   'documentViewer.loading': 'Hleður skjal…',
   'documentViewer.notFound': 'Skjal fannst ekki',
+  'documentViewer.previewBody':
+    'Þegar upphleðsla er stillt birtum við skrána innfellda. Í bili gerir niðurhal lýsigagnanna þér kleift að staðfesta að færslan sé raunveruleg.',
   'documentViewer.previewBodyExternal':
     'Notaðu niðurhalshnappinn til að opna skrána í nýjum flipa.',
   'documentViewer.previewTitle': 'Forskoðun skjals',
@@ -83,6 +107,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Lestu skjalið og smelltu síðan hér að neðan til að undirrita og staðfesta.',
   'documentViewer.signatureHeading': 'Undirskrift krafist',
+  'documentViewer.signed': '✓ Undirritað og skráð',
   'documentViewer.signing': 'Undirritun…',
   'documentViewer.uploadedRecently': 'Nýlega hlaðið upp',
   'landing.closing.body':
@@ -92,10 +117,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Ég er nú þegar með aðgang',
   'landing.feature1.body':
     'Öll verkefni — pappírsvinna, reikningar, kynningar — fyrirfram skipulagt með gjalddaga og réttum eiganda.',
+  'landing.feature1.title': 'Leiðbeinandi gátlisti',
   'landing.feature2.body':
     'Einingar opnast við 30/60/90 áfanga, sniðnar að hlutverki og teymi sem ráðinn starfsmaður gengur til liðs við.',
+  'landing.feature2.title': 'Hlutverkamiðuð þjálfun',
   'landing.feature3.body':
     'Vinir, stjórnendur og kynningarfundir frá öllum starfsgreinum áætlaðir — svo enginn byrjar einn.',
+  'landing.feature3.title': 'Raunverulegar kynningar',
   'landing.featureEyebrow': 'Af hverju að leggja af stað',
   'landing.featureHeadline': 'Þrjár leiðir sem Embark ávinnur sér traust á fyrsta degi.',
   'landing.footer.rights': 'Öll réttindi áskilin.',
@@ -104,6 +132,7 @@ export const ui: UiTranslations = {
   'landing.headlineLine2': 'hlýrri móttöku.',
   'landing.preview.body': 'Næst: Hittu vin þinn í 30 mínútna kaffispjall — þriðjudaginn kl. 10:00.',
   'landing.preview.eyebrow': 'Dagur 14 af 90 — sýnishorn af mælaborði',
+  'landing.preview.headline': 'Velkomin aftur, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR tilbúið',
   'landing.proof.teams': 'Smíðað fyrir 50–5.000 manna teymi',
   'landing.proof.time': '14 daga ókeypis prufuáskrift',
@@ -120,16 +149,25 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Þú ert tilbúinn.',
   'planUpdated.preparing': 'Uppfærir áætlunina þína…',
+  'planUpdated.retry': 'Reyndu aftur',
+  'planUpdated.verifyFailed': 'Við gátum ekki staðfest greiðsluna þína ennþá.',
+  'planUpdated.verifyFailedBody':
+    'Greiðslan þín gæti enn verið í vinnslu. Reyndu aftur eftir smástund.',
   'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'pricing.documentsLabel': 'skjöl',
   'pricing.onboardingsLabel': 'innleiðingar',
   'pricing.tasksLabel': 'verkefni',
   'profile.dayNumber': 'Dagur',
   'profile.detailsHeading': 'Upplýsingar um innleiðingu',
+  'profile.encouragementBody': 'Haltu félaga þínum og stjórnanda upplýstum — litlar skref stækka.',
   'profile.milestones': 'Áfangar',
   'profile.progressEyebrow': 'Framvinda innleiðingar',
   'profile.tasks': 'Verkefni',
   'profile.unknownName': 'Velkomin',
+  'settings.appearance.description': 'Skipta á milli ljóss og dökks stillingar.',
+  'settings.appearance.title': 'Útlit',
+  'settings.subtitle':
+    'Stilltu tilkynningar, öryggi, tæki og útflutning gagna — allt er hér, á þínum forsendum.',
   'settings.title': 'Stillingar og óskir.',
   'taskDetail.backToChecklist': 'Til baka á gátlistann',
   'taskDetail.breadcrumbChecklist': 'Gátlisti',
@@ -141,7 +179,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'Enginn gjalddagi',
   'taskDetail.notFound': 'Verkefni fannst ekki',
   'taskDetail.notFoundBody': 'Þetta verkefni gæti hafa verið eytt eða tilheyrt öðrum notanda.',
+  'taskDetail.tipBody':
+    'Ef þú ert fastur skaltu senda móttökufélaga þínum skilaboð á Slack — hann er fyrsta hjálpin þín.',
   'taskDetail.tipEyebrow': 'Fljótlegt ráð',
+  'team.empty.body': 'Prófaðu víðtækari leit eða veldu aðra deild.',
   'team.empty.title': 'Engir liðsfélagar spila',
   'team.eyebrow': 'Aðlögun · Fólk',
   'team.loading': 'Hleður inn liðsfélaga…',
@@ -164,14 +205,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Áfangar',
   'timeline.stat.current': 'Núverandi áfangi',
   'timeline.stat.next': 'Næsta opnun',
+  'timeline.stat.progress': 'Í heildina',
   'timeline.subtitle':
     'Hver áfangi opnar fyrir nýjar einingar, kynningar og umræður um vöxt. Engin pressa - bara framfarir.',
+  'timeline.tipBody':
+    'Bókaðu 30 mínútna umhugsun á 30., 60. og 90. degi með stjórnandanum þínum — það gerir endurgjöfina nákvæmari og framvinduna sýnilega.',
   'timeline.tipEyebrow': 'Ráðleggingar stjórnanda',
+  'timeline.tipTitle': 'Bókaðu tíma í dagatalið fyrir ámilsteinana.',
   'timeline.title': '30 / 60 / 90 ferðalag þitt.',
   'training.badge.notStarted': 'Ekki byrjað',
   'training.empty': 'Engar þjálfunareiningar ennþá.',
   'training.eyebrow': 'Aðlögun · Þjálfun',
   'training.loading': 'Hleður einingar…',
+  'training.stat.all': 'Einingum úthlutað',
   'training.subtitle':
     'Einingar opnast við 30/60/90 til að passa við hlutverk þitt. Nauðsynlegar einingar koma fyrst.',
   'training.title': 'Hæfni, verkfæri og sögur — á þínum hraða.',
@@ -183,9 +229,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'Eining fannst ekki',
   'trainingModule.quizBody': 'Fáðu 80% eða meira til að merkja þessa einingu sem lokið.',
   'trainingModule.quizHeading': 'Próf í lok námskeiðs',
+  'trainingModule.quizLocked': 'Byrjaðu á einingunni',
   'trainingModule.quizNone': 'Engin próf í þessum kafla.',
   'trainingModule.quizRetry': 'Reyndu aftur',
+  'trainingModule.quizStart': 'Byrja próf',
   'trainingModule.quizSubmit': 'Senda inn svör',
+  'trainingModule.start': 'Byrja einingu',
   'trainingModule.statusNotStarted': 'Ekki byrjað',
   'welcomeHeroCard.completeLabel': 'Lokið',
   'welcomeHeroCard.milestonesLabel': 'Áfangar',

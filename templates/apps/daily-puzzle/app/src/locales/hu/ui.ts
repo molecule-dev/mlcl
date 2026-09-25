@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Van visszajelzésed, hibát találtál, vagy szeretnéd elvinni a {{app}}-t az iskoládba vagy a csapatodba? Minden üzenetet elolvasunk — írj nekünk a fiókbeállításaidból, és egy igazi ember fog válaszolni.',
   'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Névjegy',
+  'about.intro':
+    'A {{app}} egy napi szójáték. Találd ki az ötbetűs szót hat próbálkozásból, tartsd életben a sorozatodat, oszd meg az emoji-rácsodat, és nézd meg, hogyan teljesített a mezőny a mai szónál.',
+  'about.missionBody':
+    'Egy jó rejtvény egy kis napi siker. A {{app}} egy közös napi szó köré épül — elég gyors egy kávészünethez, és elég izgalmas ahhoz, hogy holnap is visszatérj.',
+  'about.missionTitle': 'Küldetésünk',
   'about.title': 'A {{app}} névjegye',
   'archive.loadError': 'Nem sikerült betölteni az archívumot.',
   'archive.missed': 'Kihagyott',
   'archive.notPlayed': 'Nem játszott',
+  'archive.subhead':
+    'Játssz újra bármelyik korábbi napot gyakorlásként — nincs sorozat, nincs statisztika, csak a móka.',
   'archive.title': 'Archiválás',
   'auth.backToHome': 'Vissza a főoldalra',
   'auth.backToHomeArrow': '← Vissza a főoldalra',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Elfelejtetted a jelszavad?',
   'auth.login.loggingIn': 'Bejelentkezés…',
   'auth.login.logIn': 'Mai szó játszása',
+  'auth.login.noAccount': 'Új a Tesserában?',
   'auth.login.or': 'vagy folytasd ezzel',
   'auth.login.password': 'Jelszó',
   'auth.login.signInButton': 'Bejelentkezés',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Mentés…',
   'common.sendingEllipsis': 'Küldés…',
   'common.startingEllipsis': 'Indítás…',
+  'forgotPassword.subhead':
+    'Add meg az e-mail címed, és küldünk neked egy linket a visszaállításhoz.',
+  'forgotPassword.success.body':
+    'Ha létezik egy fiók a következőhöz: {{email}} , néhány percen belül kapsz egy visszaállítási linket.',
+  'forgotPassword.success.title': 'Ellenőrizze a postaládáját.',
   'form.name': 'Név',
   'howToPlay.cta.home': 'Vissza a főoldalra',
   'howToPlay.cta.play': 'Mai fejtörő játszása',
@@ -68,10 +83,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Sorozatok, amelyeket utálsz megszakítani',
   'leaderboard.daily.title': 'Mai megoldások',
   'leaderboard.loadError': 'Nem sikerült betölteni a rangsort.',
+  'leaderboard.streaks.empty': 'Még nincs sorozat — legyél te az első.',
+  'leaderboard.streaks.subhead': 'A valaha volt leghosszabb nyerési sorozatok.',
   'leaderboard.streaks.title': 'Sorozat-vezetők',
+  'leaderboard.subhead': 'Hogyan teljesített a mezőny ma, és kinél van a leghosszabb sorozat.',
   'leaderboard.title': 'Rangsor',
   'login.headline': 'Üdv újra.',
   'login.streakPill': '{{days}} napos sorozat vár',
+  'login.subhead':
+    'Jelentkezz be, hogy életben tartsd a sorozatodat, és lásd, hogyan teljesítettél a mai szónál.',
   'nav.archive': 'Archiválás',
   'nav.editProfile': 'Profil szerkesztése',
   'nav.getStarted': 'Kezdés',
@@ -89,6 +109,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Nincs ilyen szó',
   'notFound.title': 'Ez az útvonal üres.',
   'planUpdated.message': 'A csomagod aktív.',
+  'planUpdated.retry': 'Próbálja újra',
+  'planUpdated.verifyFailed': 'Még nem tudtuk megerősíteni a fizetését.',
+  'planUpdated.verifyFailedBody':
+    'Lehetséges, hogy a fizetése még feldolgozás alatt áll. Próbálja újra egy pillanat múlva.',
   'planUpdated.verifying': 'Fizetés megerősítése…',
   'play.alreadyFinished': 'Ezt a fejtörőt már befejezted',
   'play.answerWas': 'A szó ez volt',
@@ -104,6 +128,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Gyakorló fejtörő',
   'play.tooShort': 'Nincs elég betű',
   'play.won': 'Megoldva!',
+  'pricing.advancedStats': 'Speciális statisztikák: {{yes}}',
+  'pricing.archiveHistory': '{{count}} napnyi archívumtörténet',
+  'pricing.archivePlays': '{{count}} archívum-visszajátszás / nap',
+  'pricing.archiveUnlimited': 'Korlátlan archívumtörténet',
+  'pricing.canExport': 'Adatexport: {{yes}}',
+  'pricing.checkoutError': 'Nem sikerült elindítani a pénztárat. Kérjük, próbálja újra.',
   'pricing.dailyWord': 'A napi szó',
   'pricing.heading': 'Válaszd ki a {{app}} csomagodat',
   'pricing.included': 'Tartalmazza',
@@ -111,7 +141,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'A napi szó mindig ingyenes. Frissíts korlátlan archívum-visszajátszásért és mélyebb statisztikákért.',
   'pricing.yearly': 'Éves',
+  'privacy.intro':
+    'A {{app}} tiszteletben tartja a magánszférádat. Ez az oldal összefoglalja, milyen adatokat tárolunk, miért tároljuk őket, és hogyan törölheted őket.',
   'privacy.title': 'Adatvédelmi tájékoztató',
+  'resetPassword.subhead': 'Válassz új jelszót, hogy visszatérhess a sorozatodhoz.',
   'settings.account': 'Fiók',
   'settings.danger.body':
     'Véglegesen töröld a {{appName}} fiókodat és az összes fejtörő-előzményt.',
@@ -121,17 +154,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'Vendég',
   'settings.language.title': 'Nyelv',
   'settings.subhead': 'Állítsd be a profilod, hangot és hogyan jelensz meg a rangsoron.',
+  'settings.unnamed': 'Sparq játékos',
   'settings.upgrade': 'Frissítés',
   'signup.eyebrow': 'Örökre ingyenes – napi egy szó',
   'signup.headline': 'Kezdd el a sorozatod.',
+  'signup.subhead':
+    'Hozz létre egy {{appName}}-fiókot, hogy játszhass a napi szóval, sorozatot építhess, és feljuthass a ranglistára.',
   'stats.currentStreak': 'Sorozat',
   'stats.distribution.title': 'Tippelési eloszlás',
   'stats.loadError': 'Nem sikerült betölteni a statisztikáidat.',
   'stats.maxStreak': 'Max sorozat',
   'stats.played': 'Játszott',
   'stats.playToday': 'Mai fejtörő játszása',
+  'stats.subhead': 'Csak a rangsorolt napi rejtvények számítanak — az archívumos gyakorlás soha.',
   'stats.title': 'Statisztikáid',
   'stats.winRate': 'Nyerési arány',
   'status.monthly': 'Havi',
+  'terms.intro':
+    'A {{app}} használatával elfogadod az alábbi szabályokat. Ha nem tudod elfogadni őket, kérjük, ne használd a szolgáltatást.',
   'terms.title': 'Felhasználási feltételek',
 }

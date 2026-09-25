@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite is een platform voor workflow-automatisering dat triggers, AI-voorwaarden en acties met meerdere stappen aan elkaar koppelt, zodat teams werk tussen systemen kunnen verplaatsen zonder lijmcode te hoeven schrijven.',
+  'about.philosophy':
+    'Elke workflow is een graaf van kleine, observeerbare stappen. Elke stap registreert zijn inputs, outputs en timing, zodat hij kan worden geïnspecteerd, opnieuw afgespeeld of teruggedraaid. Stel ze visueel samen, versioneer ze zoals code.',
   'about.title': 'Over Dendrite',
   'authShell.brand': 'Dendrite',
   'authShell.support': 'Ondersteuning',
@@ -15,9 +17,14 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Abonnement wijzigen',
   'billing.description':
     'Volg het gebruik, beheer uw abonnement en haal facturen op voor de boekhouding.',
+  'billing.eyebrow': 'Account · Abonnement & gebruik',
+  'billing.failedLabel': 'Mislukte runs · 24u',
+  'billing.invoicesEmpty':
+    'Nog geen facturen. Ze verschijnen hier na je eerste betaalde verlenging.',
   'billing.invoicesTitle': 'Factuurgeschiedenis',
   'billing.planNoteFree':
     'Gratis niveau — {{runs}} uitvoeringen en {{workflows}} actieve workflows. Upgrade voor hogere limieten.',
+  'billing.planNotePaid': 'Betaald abonnement — {{runs}} runs en {{workflows}} actieve workflows.',
   'billing.runsLabel': 'Uitvoeringen in laatste 24 uur',
   'billing.tiersBlurb':
     'Vergelijk elk niveau — uitvoeringen, actieve workflows, geavanceerde functies en ondersteuning — op de speciale prijspagina.',
@@ -35,10 +42,14 @@ export const ui: UiTranslations = {
     'Geen integraties geregistreerd. Configureer providersleutels om bonds in te schakelen.',
   'connections.error': 'Kan verbindingen niet laden.',
   'connections.eyebrow': 'Integraties · {{connected}} verbonden',
+  'connections.loading': 'Integraties laden…',
+  'connections.openEnv':
+    'Om deze provider te verbinden, stel je de API-sleutel in api/.env in en herstart je de server.',
   'dashboard.description':
     '{{active}} workflows actief. {{failed}} mislukt in de afgelopen 24 uur.',
   'dashboard.error': 'Kan dashboard niet laden.',
   'dashboard.eyebrow': 'Operaties · live',
+  'dashboard.hero.label': 'Runs vandaag',
   'dashboard.hero.medianLatency': 'p50-latentie',
   'dashboard.hero.queue': 'Wachtrijdiepte',
   'dashboard.hero.success': 'Succes',
@@ -46,14 +57,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Mediane duur',
   'dashboard.kpi.failedRuns': 'Mislukt · 24 u',
   'dashboard.kpi.outOf': 'van {{total}} totaal',
+  'dashboard.kpi.successRate': 'Slagingspercentage · 24u',
   'dashboard.loading': 'Dashboard wordt geladen…',
   'dashboard.recentRuns.empty':
     'Nog geen uitvoeringen. Door een workflow te activeren wordt deze feed gevuld.',
   'dashboard.recentRuns.title': 'Recente uitvoeringen',
   'dashboard.recentRuns.viewAll': 'Uitvoeringen openen →',
+  'dashboard.recentWorkflows.browse': 'Sjablonen bekijken →',
   'dashboard.recentWorkflows.empty':
     'Nog geen workflows. Installeer een sjabloon of bouw er een vanaf nul.',
   'dashboard.recentWorkflows.title': 'Recent uitgevoerd',
+  'dashboard.run.col.run': 'Ren',
   'dashboard.run.col.started': 'Gestart',
   'dashboard.run.col.trigger': 'Trigger',
   'dashboard.run.col.workflow': 'Workflow',
@@ -89,6 +103,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Workflow',
   'executions.description':
     'Elke workflowuitvoering, elke nieuwe poging, elke stapuitvoer — alles waarneembaar.',
+  'executions.empty.filter': 'Geen runs die overeenkomen met dit filter.',
   'executions.empty.first':
     'Nog geen uitvoeringen — activeer een workflow om deze lijst te vullen.',
   'executions.error': 'Kan uitvoeringen niet laden.',
@@ -99,30 +114,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Uitvoeringsgeschiedenis laden…',
   'executions.title': 'Uitvoeringen',
   'forgotPassword.confirmation': 'Resetlink verzonden naar {{email}}.',
+  'forgotPassword.subhead': 'Voer uw e-mailadres in om een herstellink te ontvangen.',
   'forgotPassword.successSubhead':
     'We hebben een resetlink verzonden naar {{email}}. Deze verloopt over 30 minuten.',
   'help.connections.body':
     'AI-, e-mail- en opslagstappen vereisen dat providersleutels worden ingesteld in het bestand api/.env. Zodra een sleutel is geconfigureerd, verschijnt de bijbehorende integratie als verbonden op de pagina Verbindingen.',
+  'help.connections.cta': 'Verbindingen openen →',
   'help.connections.title': 'Providers verbinden',
   'help.gettingStarted.body':
     'Nieuwe workflows kunnen worden geïnstalleerd vanuit de sjabloonbibliotheek of vanaf nul worden gebouwd in de workflowbuilder. Elke workflow heeft een trigger (handmatig, webhook of cron) en een reeks stappen die in volgorde worden uitgevoerd.',
+  'help.gettingStarted.cta': 'Blader door de sjablonenbibliotheek →',
+  'help.gettingStarted.title': 'Aan de slag',
   'help.intro':
     'Vind antwoorden op veelgestelde vragen over het bouwen van workflows, het configureren van verbindingen en het interpreteren van uitvoeringsuitvoer. De meest voorkomende onderwerpen worden hieronder vermeld; neem voor alles wat niet wordt behandeld contact op met de beheerder van uw werkruimte.',
   'help.runs.body':
     'Elke uitvoering registreert elke stap onafhankelijk met status (succes, fout, overgeslagen) en een fragment van de uitvoer. De pagina met uitvoeringsdetails toont het volledige stap-voor-stap-spoor plus afgeleide statistieken.',
+  'help.runs.cta': 'Uitvoeringen openen →',
   'help.runs.title': 'Uitvoeringsuitvoer lezen',
   'help.title': 'Helpcentrum',
   'integrationCard.manage': 'Beheren',
   'landing.brand': 'Dendrite',
   'landing.demo.action.subtitle': 'Round-robin · gebied',
+  'landing.demo.action.title': 'Vertegenwoordiger op de hoogte stellen',
   'landing.demo.condition.subtitle': 'AI-intentieclassificatie',
+  'landing.demo.condition.title': 'Score ≥ gemiddeld?',
   'landing.demo.trigger.subtitle': 'POST /forms/contact',
   'landing.demo.trigger.title': 'Inkomende webhook',
+  'landing.features.body':
+    'Triggers vuren. Conditions vertakken. Actions leveren het werk. Stel ze visueel samen, versioneer ze zoals code.',
   'landing.features.heading': 'Drie knooppunttypes. Oneindige vormen.',
   'landing.footer.help': 'Help',
   'landing.footer.tagline': 'Intelligentie in beweging',
+  'landing.hero.body':
+    '{{appName}} is de workflow-engine voor operationele teams die Zapier ontgroeid zijn. Trigger, condition, action — verbonden met elk systeem dat je daadwerkelijk gebruikt.',
   'landing.hero.eyebrow': 'Intelligentie in beweging',
   'landing.hero.headline': 'Verbind uw stack. Laat het werk gebeuren.',
+  'landing.hero.primaryCta': 'Bouw je eerste workflow',
   'landing.hero.proof.ai': 'AI-knooppunten ingebouwd',
   'landing.hero.proof.free': 'Gratis voor 1k uitvoeringen/maand',
   'landing.hero.proof.soc2': 'SOC 2 Type II',
@@ -130,10 +157,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Betaal voor uitvoeringen, niet voor zitplaatsen.',
   'landing.templates.body':
     'Vooraf bedrade workflows voor elk team — sales, ondersteuning, dev-ops, financiën. Met één klik installeren; alles aanpassen.',
+  'landing.templates.cta': 'Meld je aan om sjablonen te bekijken →',
   'landing.templates.eyebrow': 'Begin binnen seconden',
   'landing.templates.heading': 'Een bibliotheek met beproefde recepten.',
   'landing.templates.signupHint': 'Meld u aan om te installeren',
   'login.hidePassword': 'Wachtwoord verbergen',
+  'login.noAccount': 'Nieuw bij Tessera?',
   'login.showPassword': 'Wachtwoord tonen',
   'login.subhead': 'Log in om uw automatiseringen draaiende te houden.',
   'mobileNav.drawerLabel': 'Hoofdnavigatie',
@@ -149,8 +178,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Voer een workflow uit om deze feed te beginnen vullen.',
   'notifications.empty.title': 'U bent helemaal bij',
   'notifications.eyebrow': '{{n}} ongelezen',
+  'planUpdated.body':
+    'Je factuurwijziging is nu actief. Je kunt je abonnement op elk moment beheren vanaf de factuurpagina.',
+  'planUpdated.retry': 'Opnieuw proberen',
+  'planUpdated.verifyFailed': 'We hebben uw betaling nog niet kunnen bevestigen.',
+  'planUpdated.verifyFailedBody':
+    'Uw betaling wordt mogelijk nog verwerkt. Probeer het over een moment opnieuw.',
   'planUpdated.verifying': 'Je betaling bevestigen…',
   'pricing.heading': 'uitvoeringen',
+  'pricing.runsSuffix': 'runs',
   'pricing.workflowsSuffix': 'workflows',
   'privacy.collect.body':
     'We verzamelen het e-mailadres waarmee u zich aanmeldt, de workflows die u configureert en metagegevens over elke uitvoering (starttijd, eindtijd, status). We verzamelen of bewaren nooit payload-inhoud van triggers of stapuitvoer buiten wat nodig is om weer te geven in de uitvoeringsweergave voor de eigenaar van de werkruimte.',
@@ -166,12 +202,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Kan wachtwoord niet bijwerken.',
   'resetPassword.newPassword': 'Nieuw wachtwoord',
   'resetPassword.subhead': 'Kies iets wat alleen u zou raden.',
+  'settings.appearance.description': 'Schakel tussen lichte en donkere modus.',
+  'settings.appearance.title': 'Weergave',
   'settings.billingShortcut.cta': 'Facturering openen',
   'settings.billingShortcut.description':
     'Abonnement, gebruik en facturen staan op de speciale factureringspagina.',
   'settings.danger.confirm':
     'Weet u het zeker? Hiermee wordt uw werkruimte in de wachtrij voor verwijdering geplaatst.',
   'settings.danger.confirmYes': 'Ja, verwijdering in wachtrij plaatsen',
+  'settings.danger.deleteWorkspace.cta': 'Werkruimte verwijderen',
   'settings.danger.deleteWorkspace.hint':
     'Verwijdert alle workflows, uitvoeringen en verbindingen na een respijtperiode van 14 dagen.',
   'settings.danger.deleteWorkspace.title': 'Werkruimte verwijderen',
@@ -181,9 +220,13 @@ export const ui: UiTranslations = {
   'settings.description': 'Beheer uw account, werkruimte, integraties en facturering op één plek.',
   'settings.notifications.description':
     'Kies welke gebeurtenissen u oproepen, e-mailen of stil houden.',
+  'settings.notifications.failures.hint': 'E-mail- en in-app-melding bij elke mislukte run.',
+  'settings.notifications.failures.title': 'Workflow-fouten',
   'settings.notifications.product.hint': 'Af en toe e-mails over nieuwe sjablonen en functies.',
+  'settings.notifications.product.title': 'Productupdates',
   'settings.notifications.weekly.hint':
     'Maandagochtend samenvatting van de uitvoeringen en besparingen van vorige week.',
+  'settings.notifications.weekly.title': 'Wekelijkse samenvatting',
   'settings.profile.description':
     'Hoe u verschijnt binnen de workflow-runner. Gebruikt in werkruimteactiviteit.',
   'settings.profile.noEmail': 'Geen e-mail geregistreerd',
@@ -191,12 +234,23 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Kan profielwijzigingen niet opslaan.',
   'settings.profile.unnamedUser': 'Naamloze gebruiker',
   'settings.security.audit.hint': 'Stream elke actie naar uw SIEM via webhook.',
+  'settings.security.audit.title': 'Audit log forwarding',
   'settings.security.description': 'Tweefactorauthenticatie, SSO en actieve sessies.',
   'settings.security.sso.hint': 'Beschikbaar in de Scale- en Enterprise-abonnementen.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'Vereist voor elke actie van een workspace-eigenaar.',
+  'settings.security.totp.title': 'Tweestapsverificatie (TOTP)',
   'settings.twoFactorCode': 'Verificatiecode',
   'settings.twoFactorDisable': 'Uitschakelen',
+  'settings.twoFactorDisableTitle': 'Tweestapsverificatie uitschakelen',
   'settings.twoFactorEnable': 'Inschakelen',
+  'settings.twoFactorEnableTitle': 'Tweestapsverificatie inschakelen',
   'settings.twoFactorInvalidCode': 'Ongeldige code',
+  'settings.twoFactorOn': 'Op',
+  'settings.twoFactorQrAlt': 'Tweefactor QR-code',
+  'settings.twoFactorScan':
+    'Scan deze QR-code met je authenticator-app en voer vervolgens de 6-cijferige code in.',
+  'settings.twoFactorUnavailable': 'Tweefactorauthenticatie is niet beschikbaar voor deze app.',
   'settings.twoFactorVerify': 'Controleren en inschakelen',
   'settings.workspace.description':
     'Gedeelde identiteit, regio en uitvoeringsstandaarden voor uw team.',
@@ -225,6 +279,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Sjabloon',
   'templates.description':
     'Vooraf gebouwde blauwdrukken voor de meest voorkomende automatiseringen. Fork, pas aan, verzend.',
+  'templates.empty.filter': 'Geen sjablonen die overeenkomen met je zoekopdracht.',
   'templates.empty.first': 'Op dit moment zijn er geen sjablonen beschikbaar.',
   'templates.error': 'Kan sjablonen niet laden.',
   'templates.installs': 'installaties',
@@ -250,6 +305,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Uitschakelen',
   'workflowBuilder.enable': 'Inschakelen',
   'workflowBuilder.error': 'Kan workflow niet laden.',
+  'workflowBuilder.inspector.config': 'Config',
+  'workflowBuilder.inspector.cron': 'Cron-expressie',
+  'workflowBuilder.inspector.disabled': 'Uitgeschakeld — wordt niet automatisch uitgevoerd.',
   'workflowBuilder.inspector.enabled': 'Ingeschakeld — wordt uitgevoerd bij trigger.',
   'workflowBuilder.inspector.eyebrow': 'Inspecteur',
   'workflowBuilder.inspector.id': 'ID',
@@ -268,18 +326,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Schakelen mislukt.',
   'workflowBuilder.workflow': 'Workflow · v{{v}}',
   'workflowBuilder.zoom.in': 'Inzoomen',
+  'workflowBuilder.zoom.label': 'Zoomknoppen canvas',
+  'workflowBuilder.zoom.out': 'Uitzoomen',
   'workflowCard.lastRun': 'Laatste uitvoering {{when}}',
   'workflowCard.runs': '{{count}} uitvoeringen',
+  'workflowCard.success': '{{rate}}% geslaagd',
   'workflowHeroCard.last24h': 'Laatste 24 u',
+  'workflows.browseTemplates': 'Sjablonen bekijken →',
   'workflows.description':
     'Elke automatisering in uw werkruimte, met gezondheid en recente activiteit in één oogopslag.',
+  'workflows.empty.body': 'Probeer het filter te wissen of te beginnen vanuit een sjabloon.',
   'workflows.empty.firstBody': 'Installeer een sjabloon om binnen seconden van start te gaan.',
   'workflows.empty.firstTitle': 'Nog geen workflows',
   'workflows.empty.title': 'Geen workflows komen overeen',
   'workflows.error': 'Kan workflows niet laden.',
   'workflows.eyebrow': 'Bibliotheek · {{count}} totaal',
+  'workflows.loading': 'Workflows laden…',
   'workflows.newFromTemplate': 'Nieuw vanuit sjabloon',
   'workflows.searchPlaceholder': 'Workflows zoeken…',
+  'workflows.title': 'Workflows',
   'workflowSidebar.brand': 'Dendrite',
   'workflowSidebar.status': 'Alle systemen draaien',
   'workflowSidebar.tagline': 'Intelligentie in beweging',

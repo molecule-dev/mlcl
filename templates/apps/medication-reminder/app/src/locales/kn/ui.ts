@@ -1,7 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ಪ್ರಶ್ನೆಗಳು, ಪ್ರತಿಕ್ರಿಯೆ ಅಥವಾ ನಿಮ್ಮನ್ನು ಸರಿದಾರಿಯಲ್ಲಿ ಉಳಿಸಿಕೊಳ್ಳಲು ಸಹಾಯ ಮಾಡುವ ಯಾವುದೇ ಕಲ್ಪನೆ ಇದೆಯೇ? ನಿಮ್ಮ ಖಾತೆ ಸೆಟ್ಟಿಂಗ್ಗಳಿಂದ ಸಂಪರ್ಕಿಸಿ — ಪ್ರತಿ ಸಂದೇಶವೂ ತಂಡದ ನಿಜವಾದ ವ್ಯಕ್ತಿಯನ್ನು ತಲುಪುತ್ತದೆ.',
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.featureAdherence':
+    'ಅನುಸರಣೆ ವರದಿಗಳು — ಸಾಪ್ತಾಹಿಕ ಮತ್ತು ಮಾಸಿಕ ಚಾರ್ಟ್ಗಳ ಜೊತೆಗೆ ಡೋಸ್-ಬೈ-ಡೋಸ್ ಇತಿಹಾಸ, ಅದನ್ನು ರಫ್ತು ಮಾಡಿ ನಿಮ್ಮ ಆರೈಕೆ ತಂಡದೊಂದಿಗೆ ಹಂಚಿಕೊಳ್ಳಬಹುದು.',
+  'about.featureCaregivers':
+    'ಆರೈಕೆದಾರರ ಹಂಚಿಕೆ — ಕುಟುಂಬ ಅಥವಾ ವೈದ್ಯರನ್ನು ಓದಲು-ಮಾತ್ರ ವ್ಯೂಗೆ ಆಹ್ವಾನಿಸಿ, ಮತ್ತು ಅವರು ಏನನ್ನು ನೋಡಬಹುದು ಎಂಬುದನ್ನು ನಿಖರವಾಗಿ ನಿರ್ಧರಿಸಿ.',
+  'about.featureRefills':
+    'ರೀಫಿಲ್ ಎಚ್ಚರಿಕೆಗಳು — ನೈಜ-ಸಮಯದ ಮಾತ್ರೆ ಎಣಿಕೆ, ಹೀಗಾಗಿ ಮುಗಿದ ನಂತರವಲ್ಲ, ಮುಗಿಯುವ ಕೆಲವು ದಿನಗಳ ಮೊದಲೇ ಎಚ್ಚರಿಕೆ ಸಿಗುತ್ತದೆ.',
+  'about.featureReminders':
+    'ನಿಮ್ಮನ್ನು ಗೌರವಿಸುವ ಜ್ಞಾಪನೆಗಳು — ಸ್ನೂಜ್ ಮಾಡಬಹುದಾದ ಪುಶ್ ಅಧಿಸೂಚನೆಗಳು, ಡೋಸ್ ತಪ್ಪಿಹೋದರೆ ಆರೈಕೆದಾರರಿಗೆ ಎಸ್ಕಲೇಟ್ ಆಗಬಹುದು.',
+  'about.featureSchedules':
+    'ಹೊಂದಿಕೊಳ್ಳುವ ವೇಳಾಪಟ್ಟಿಗಳು — ದೈನಂದಿನ, ಮಧ್ಯಂತರ ಅಥವಾ ನಿರ್ದಿಷ್ಟ ದಿನಗಳು, ದಿನಕ್ಕೆ ಹಲವು ಬಾರಿ ಮತ್ತು ಆಹಾರದೊಂದಿಗೆ ಜ್ಞಾಪನೆಗಳೊಂದಿಗೆ.',
+  'about.featuresTitle': 'ನೀವು ಏನು ಪಡೆಯುತ್ತೀರಿ',
+  'about.missionBody':
+    'ಡೋಸ್ ತಪ್ಪಿಹೋಗುವುದು ಎಂದಿಗೂ ಮರೆತ ಅಲಾರಂ ಅಥವಾ ಖಾಲಿ ಬಾಟಲಿಯಿಂದ ಆಗಬಾರದು. ಚಿಕಿತ್ಸಾ ಯೋಜನೆಯನ್ನು ಪಾಲಿಸುವುದು ಸುಲಭವೆನಿಸುವಂತೆ ಮಾಡುವ ಶಾಂತ, ನಂಬಿಕಾರ್ಹ ಸಾಧನಗಳನ್ನು ನಾವು ನಿರ್ಮಿಸುತ್ತೇವೆ — ಮತ್ತು ನೀವು ಅನುಮತಿಸಿದಷ್ಟೇ ಮಟ್ಟಿಗೆ ಕುಟುಂಬ ಮತ್ತು ವೈದ್ಯರನ್ನು ಸದ್ದಿಲ್ಲದೆ ಜೊತೆಗೂಡಿಸುತ್ತೇವೆ.',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
+  'about.subtitle':
+    'ಪ್ರತಿ ಡೋಸ್, ಸಮಯಕ್ಕೆ ಸರಿಯಾಗಿ — ಮತ್ತು ನಿಮ್ಮ ಬಗ್ಗೆ ಕಾಳಜಿವಹಿಸುವ ಪ್ರತಿಯೊಬ್ಬರೂ ವಿಷಯ ತಿಳಿಯುವಂತೆ.',
   'addMedication.avoidAlcohol': 'ಮದ್ಯಪಾನ ತಪ್ಪಿಸಿ',
   'addMedication.backLink': 'ಎಲ್ಲಾ ಔಷಧಿಗಳು',
   'addMedication.doseAmount': 'ಡೋಸ್ (ಉದಾ. 10 ಮಿಗ್ರಾಂ)',
@@ -12,6 +31,7 @@ export const ui: UiTranslations = {
   'addMedication.pillColor': 'ಪಿಲ್ ಬಣ್ಣ (ದೃಶ್ಯ ID ಗಾಗಿ)',
   'addMedication.saveError': 'ಉಳಿಸಲು ವಿಫಲವಾಗಿದೆ.',
   'addMedication.saveLabel': 'ಔಷಧಿಗಳನ್ನು ಉಳಿಸಿ',
+  'addMedication.takeWithFood': 'ಆಹಾರದೊಂದಿಗೆ ತೆಗೆದುಕೊಳ್ಳಿ',
   'addMedication.warningsLabel': 'ಎಚ್ಚರಿಕೆಗಳು (ಅನ್ವಯವಾಗುವ ಯಾವುದನ್ನಾದರೂ ಆರಿಸಿ)',
   'adherence.byMedEmpty':
     'ಇನ್ನೂ ಯಾವುದೇ ಔಷಧಿಗಳಿಲ್ಲ - ಪ್ರತಿ ಔಷಧಿಯ ಅನುಸರಣೆಯನ್ನು ನೋಡಲು ಒಂದನ್ನು ಸೇರಿಸಿ.',
@@ -33,16 +53,26 @@ export const ui: UiTranslations = {
   'adherence.subheading': 'ಕಳೆದ 30 ದಿನಗಳು · ಉಪಯುಕ್ತವಾಗಿದ್ದರೆ ನಿಮ್ಮ ಆರೈಕೆ ತಂಡದೊಂದಿಗೆ ಹಂಚಿಕೊಳ್ಳಿ',
   'adherence.taken': 'ತೆಗೆದುಕೊಂಡಿದೆ',
   'adherence.title': 'ಅನುಸರಣಾ ವರದಿ',
+  'adherenceTriad.refills.eyebrow': 'ಮರುಪೂರಣಗಳು',
   'adherenceTriad.refills.meta': 'ಮರುಪೂರಣಗಳನ್ನು ನಿರ್ವಹಿಸಿ →',
+  'adherenceTriad.refills.unit': 'ಶೀಘ್ರದಲ್ಲೇ ಬರಬೇಕು',
   'adherenceTriad.refills.value': '{{count}}',
   'adherenceTriad.streak.eyebrow': 'ಸ್ಟ್ರೀಕ್',
   'adherenceTriad.streak.meta': 'ಅತಿ ಉದ್ದ: {{days}} ದಿನಗಳು',
+  'adherenceTriad.streak.unit': 'ದಿನಗಳು',
   'adherenceTriad.streak.value': '{{days}}',
   'adherenceTriad.today.meta': '{{count}} ಇನ್ನೂ ಮುಂದಿದೆ',
+  'adherenceTriad.today.unit': 'ತೆಗೆದುಕೊಂಡ ಡೋಸ್ಗಳು',
   'adherenceTriad.today.value': '{{taken}} / {{total}}',
+  'auth.forgotPassword.subtitle':
+    'ನಿಮ್ಮ ಇಮೇಲ್ ಅನ್ನು ನಮೂದಿಸಿ, ನಾವು ನಿಮಗೆ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಕಳುಹಿಸುತ್ತೇವೆ.',
+  'auth.resetPassword.subtitle':
+    'ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಮರುಪಡೆಯುವುದನ್ನು ಪೂರ್ಣಗೊಳಿಸಲು ಹೊಸ ಪಾಸ್ವರ್ಡ್ ಹೊಂದಿಸಿ.',
   'capsivaLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
+  'caregivers.email': 'ಆರೈಕೆದಾರರ ಇಮೇಲ್',
   'caregivers.empty': 'ಯಾವುದೇ ಆರೈಕೆದಾರರನ್ನು ಸೇರಿಸಲಾಗಿಲ್ಲ. ಸಹಾಯ ಮಾಡಲು ಯಾರನ್ನಾದರೂ ಆಹ್ವಾನಿಸಿ.',
   'caregivers.heading': 'ಆರೈಕೆದಾರರು',
+  'caregivers.invitedOn': 'ಆಹ್ವಾನಿಸಲಾಗಿದೆ {{when}}',
   'caregivers.inviteError': 'ಆಹ್ವಾನ ಕಳುಹಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'caregivers.inviteFormLabel': 'ಆರೈಕೆದಾರರ ಫಾರ್ಮ್ ಅನ್ನು ಆಹ್ವಾನಿಸಿ',
   'caregivers.inviteIncomplete':
@@ -64,6 +94,11 @@ export const ui: UiTranslations = {
   'dashboard.timelineHeading': 'ಇಂದಿನ ಡೋಸ್‌ಗಳು',
   'doseRow.markTaken': 'ತೆಗೆದುಕೊಳ್ಳಿ',
   'doseRow.subline': '{{dose}} · {{time}}',
+  'landing.about': '{{app}} ಬಗ್ಗೆ',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. ನಿಮ್ಮ ದಿನಚರಿಯ ಆರೈಕೆ.',
+  'landing.ctaButton': 'ಪ್ರಾರಂಭಿಸಿ — ಇದು ಉಚಿತ',
+  'landing.ctaSubtitle':
+    'ಪ್ರಾರಂಭಿಸಲು ಉಚಿತ. ಯಾವಾಗ ಬೇಕಾದರೂ ಆರೈಕೆದಾರರನ್ನು ಸೇರಿಸಿ. ಸೆಟ್ಟಿಂಗ್ಗಳಿಂದ ರದ್ದುಮಾಡಿ.',
   'landing.ctaTitle': 'ಎರಡು ನಿಮಿಷಗಳಲ್ಲಿ ನಿಮ್ಮ ಮೊದಲ ಜ್ಞಾಪನೆಯನ್ನು ಸೆಟಪ್ ಮಾಡಿ',
   'landing.eyebrow': 'ಔಷಧಿಗಳ ಅನುಸರಣೆ, ಆರೈಕೆ',
   'landing.featureEyebrow': 'ನೀವು ಏನು ಪಡೆಯುತ್ತೀರಿ',
@@ -74,7 +109,10 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'ವೇಳಾಪಟ್ಟಿಗಳು, ಜ್ಞಾಪನೆಗಳು, ಮರುಪೂರಣಗಳು ಮತ್ತು ನಿಮ್ಮ ಬಗ್ಗೆ ಕಾಳಜಿ ವಹಿಸುವ ಜನರೊಂದಿಗೆ ನೀವು ಹಂಚಿಕೊಳ್ಳಬಹುದಾದ ನೈಜ-ಸಮಯದ ಅನುಸರಣೆ ದಾಖಲೆ.',
   'landing.heroTitle': '{{tagline}}',
+  'landing.sampleDate': 'ಭಾನುವಾರ, ಏಪ್ರಿಲ್ 26',
   'medicationDetail.backLink': 'ಎಲ್ಲಾ ಔಷಧಿಗಳು',
+  'medicationDetail.confirmDeleteBody':
+    'ಇದು ಔಷಧಿ, ಅದರ ವೇಳಾಪಟ್ಟಿ, ಡೋಸ್ ಇತಿಹಾಸ ಮತ್ತು ಬಾಕಿ ಇರುವ ಯಾವುದೇ ರೀಫಿಲ್ ವಿನಂತಿಗಳನ್ನು ತೆಗೆದುಹಾಕುತ್ತದೆ. ಇದನ್ನು ರದ್ದುಮಾಡಲಾಗದು.',
   'medicationDetail.confirmDeleteHeading': 'ಅಳಿಸಿ {{name}} ?',
   'medicationDetail.confirmDeleteLabel': 'ಔಷಧಿಗಳನ್ನು ಅಳಿಸಿ',
   'medicationDetail.deleteError': 'ಅಳಿಸಲು ವಿಫಲವಾಗಿದೆ.',
@@ -96,14 +134,29 @@ export const ui: UiTranslations = {
   'medicationDetail.stat.remaining': 'ಉಳಿದ ಮಾತ್ರೆಗಳು',
   'medicationDetail.stat.taken': 'ತೆಗೆದುಕೊಂಡ ಡೋಸ್‌ಗಳು',
   'medicationDetail.warningsHeading': 'ಎಚ್ಚರಿಕೆಗಳು',
+  'medications.addLabel': 'ಔಷಧಿಗಳನ್ನು ಸೇರಿಸಿ',
   'medications.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಔಷಧಿಗಳಿಲ್ಲ. ಟ್ರ್ಯಾಕಿಂಗ್ ಪ್ರಾರಂಭಿಸಲು ಒಂದನ್ನು ಸೇರಿಸಿ.',
   'medications.heading': 'ಔಷಧಿಗಳು',
   'medications.loadError': 'ಔಷಧಿಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'medications.prescriber': 'Rx ಮೂಲಕ {{name}}',
+  'medications.refillBy': '{{date}} ರೊಳಗೆ ರೀಫಿಲ್ ಮಾಡಿ',
+  'medications.remaining': 'ಉಳಿದಿದೆ',
   'medications.subheading': '{{count}} ಸಕ್ರಿಯ ಔಷಧಗಳು',
   'notifications.heading': 'ಅಧಿಸೂಚನೆಗಳು',
+  'planUpdated.body':
+    'ನಿಮ್ಮ ಬಿಲ್ಲಿಂಗ್ ಬದಲಾವಣೆ ಈಗ ಸಕ್ರಿಯವಾಗಿದೆ. ಬಿಲ್ಲಿಂಗ್ ಪುಟದಿಂದ ಯಾವಾಗ ಬೇಕಾದರೂ ನಿಮ್ಮ ಯೋಜನೆಯನ್ನು ನಿರ್ವಹಿಸಬಹುದು.',
+  'planUpdated.retry': 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ',
+  'planUpdated.verifyFailed': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ನಮಗೆ ಇನ್ನೂ ಖಚಿತಪಡಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'planUpdated.verifyFailedBody':
+    'ನಿಮ್ಮ ಪಾವತಿ ಇನ್ನೂ ಪ್ರಕ್ರಿಯೆಗೊಳ್ಳುತ್ತಿರಬಹುದು. ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
+  'pricing.limits.advancedFeatures': 'ಸುಧಾರಿತ ವೈಶಿಷ್ಟ್ಯಗಳು:',
   'pricing.limits.canExport': 'ಡೇಟಾ ರಫ್ತು:',
+  'pricing.limits.maxAdherence': '{{count}} ಅನುಸರಣೆ',
+  'pricing.limits.maxDoses': '{{count}} ಡೋಸ್ಗಳು',
+  'pricing.limits.maxMedications': '{{count}} ಔಷಧಿಗಳು',
+  'pricing.limits.maxRefills': '{{count}} ರೀಫಿಲ್ಗಳು',
+  'pricing.limits.maxSchedules': '{{count}} ವೇಳಾಪಟ್ಟಿಗಳು',
   'pricing.no': '—',
   'pricing.yes': '✓',
   'profile.emergency.heading': 'ತುರ್ತು ಸಂಪರ್ಕ',
@@ -123,7 +176,9 @@ export const ui: UiTranslations = {
   'profile.security.error': 'ಪಾಸ್‌ವರ್ಡ್ ಬದಲಾಯಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'profile.security.next': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'profile.security.tooShort': 'ಪಾಸ್‌ವರ್ಡ್ ಕನಿಷ್ಠ 8 ಅಕ್ಷರಗಳನ್ನು ಹೊಂದಿರಬೇಕು.',
+  'refillAlertCard.daysAt': 'ದಿನಗಳು · {{count}} ಮಾತ್ರೆಗಳು',
   'refillAlertCard.pharmacyWithPhone': '{{pharmacy}} · {{phone}}',
+  'refillAlertCard.refillsRemaining': 'Rx ನಲ್ಲಿ {{count}} ರೀಫಿಲ್ಗಳು ಉಳಿದಿವೆ',
   'refillAlertCard.request': 'ವಿನಂತಿ',
   'refills.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಮರುಪೂರಣಗಳಿಲ್ಲ. ಟ್ರ್ಯಾಕಿಂಗ್ ಪ್ರಾರಂಭಿಸಲು ಔಷಧಿಯನ್ನು ಸೇರಿಸಿ.',
   'refills.eyebrow': 'ವಸತಿ ಸೌಕರ್ಯ',
@@ -136,11 +191,14 @@ export const ui: UiTranslations = {
   'refills.tile.dueSoonNote': 'ಮುಂದಿನ 30 ದಿನಗಳಲ್ಲಿ ಮರುಪೂರಣ ಮಾಡಿ',
   'refills.tile.fine': 'ಆರೋಗ್ಯಕರ ಪೂರೈಕೆ',
   'refills.tile.fineNote': 'ಯಾವುದೇ ಕ್ರಮ ಅಗತ್ಯವಿಲ್ಲ.',
+  'refills.tile.urgent': 'ತುರ್ತು',
   'refills.tile.urgentNote': 'ಒಂದು ವಾರದೊಳಗೆ ಹೊರಬರುತ್ತದೆ',
   'schedule.heading': 'ವಾರದ ವೇಳಾಪಟ್ಟಿ',
+  'schedule.legend': 'ತುಂಬಿದ ವೃತ್ತಗಳು = ತೆಗೆದುಕೊಂಡ ಅಥವಾ ಮುಂಬರುವ · ಮಸುಕಾದ ರೂಪರೇಖೆ = ತಪ್ಪಿಹೋದ ಡೋಸ್',
   'schedule.loadError': 'ವೇಳಾಪಟ್ಟಿಯನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'schedule.subheading': 'ಪ್ರತಿ ಡೋಸ್, ಪ್ರತಿದಿನ, ಒಂದು ನೋಟದಲ್ಲಿ.',
   'schedule.timeColumn': 'ಸಮಯ',
+  'settings.appearance.description': 'ಬೆಳಕು ಮತ್ತು ಕತ್ತಲೆ ಮೋಡ್ ನಡುವೆ ಟಾಗಲ್ ಮಾಡಿ.',
   'settings.appearance.highContrast': 'ಹೆಚ್ಚಿನ ಕಾಂಟ್ರಾಸ್ಟ್ ಬಣ್ಣಗಳು',
   'settings.appearance.largeText': 'ಎಲ್ಲೆಡೆ ದೊಡ್ಡ ಪಠ್ಯವನ್ನು ಬಳಸಿ',
   'settings.appearance.timeFormat': 'ಸಮಯ ಸ್ವರೂಪ',
@@ -166,15 +224,26 @@ export const ui: UiTranslations = {
   'settings.saving': 'ಉಳಿಸಲಾಗುತ್ತಿದೆ...',
   'settings.signingOutDevice': 'ಸೈನ್ ಔಟ್ ಮಾಡಲಾಗುತ್ತಿದೆ…',
   'settings.signOutDevice': 'ಸೈನ್ ಔಟ್ ಮಾಡಿ',
+  'settings.twoFactorBody':
+    'ನಿಮ್ಮ ಆರೋಗ್ಯ ಡೇಟಾಗೆ ಹೆಚ್ಚುವರಿ ರಕ್ಷಣೆಯ ಪದರಕ್ಕಾಗಿ ಸೈನ್-ಇನ್ ಸಮಯದಲ್ಲಿ ಪ್ರಾಮಾಣೀಕರಣ ಆ್ಯಪ್ನಿಂದ ಒಂದು-ಬಾರಿ ಕೋಡ್ ಅಗತ್ಯವಿದೆ.',
   'settings.twoFactorCode': 'ದೃಢೀಕರಣ ಕೋಡ್',
   'settings.twoFactorDisable': 'ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ',
+  'settings.twoFactorDisableBody':
+    'ಎರಡು-ಅಂಶ ಪ್ರಾಮಾಣೀಕರಣವನ್ನು ಆಫ್ ಮಾಡಲು ನಿಮ್ಮ ಪ್ರಾಮಾಣೀಕರಣ ಆ್ಯಪ್ನಿಂದ ಪ್ರಸ್ತುತ ಕೋಡ್ ನಮೂದಿಸಿ.',
   'settings.twoFactorEnable': 'ಸಕ್ರಿಯಗೊಳಿಸಿ',
   'settings.twoFactorInvalidCode': 'ಅಮಾನ್ಯ ಕೋಡ್.',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'ಎರಡು-ಅಂಶ QR ಕೋಡ್',
+  'settings.twoFactorScan':
+    'ನಿಮ್ಮ ದೃಢೀಕರಣ ಅಪ್ಲಿಕೇಶನ್ನಿಂದ ಈ QR ಕೋಡ್ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ, ನಂತರ 6-ಅಂಕಿಯ ಕೋಡ್ ನಮೂದಿಸಿ.',
+  'settings.twoFactorUnavailable': 'ಈ ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಎರಡು ಅಂಶದ ದೃಢೀಕರಣ ಲಭ್ಯವಿಲ್ಲ.',
   'settings.twoFactorVerify': 'ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಸಕ್ರಿಯಗೊಳಿಸಿ',
   'settings.unnamedDevice': 'ಹೆಸರಿಸದ ಸಾಧನ',
   'todayHeroCard.adherence': '{{pct}} %',
   'todayHeroCard.eyebrow': 'ಇಂದು · {{date}}',
+  'todayHeroCard.streak': '{{days}} - ದಿನದ ಸರಣಿ',
+  'todayHeroCard.summary':
+    '{{total}} ರಲ್ಲಿ {{taken}} ಡೋಸ್ಗಳು ತೆಗೆದುಕೊಳ್ಳಲಾಗಿದೆ · ಇಂದು ಇನ್ನೂ {{upcoming}} ಬಾಕಿ ಇದೆ',
   'userMenu.caregivers': 'ಆರೈಕೆದಾರರು',
   'userMenu.memberStatus': 'ನಿಮ್ಮ ದಿನಚರಿಯನ್ನು ನೋಡಿಕೊಳ್ಳುವುದು',
   'userMenu.profile': 'ಪ್ರೊಫೈಲ್ ಮತ್ತು ವೈದ್ಯಕೀಯ ಮಾಹಿತಿ',

@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'An bhfuil aiseolas agat, an bhfuair tú fabht, nó an bhfuil clár de do chuid féin uait ar {{appName}}? Oscail do Shocruithe chun teacht ar an bhfoireann — téann gach teachtaireacht chuig fíordhuine a léann í.',
+  'about.contactTitle': 'Labhair linn',
+  'about.featureModeration':
+    'Treochlár poiblí le lipéid ráithe, loga athruithe a iompaíonn obair seolta ina nótaí scaoileadh, agus deais a thaispeánann an rud is mó a theastaíonn ón slua.',
+  'about.featurePricing':
+    'Saor in aisce chun cúpla clár a reáchtáil; díghlónn na pleananna Pro agus Team níos mó clár, teorainneacha níos airde, agus onnmhairiú sonraí.',
+  'about.featureThreads':
+    'Cláir aiseolais phoiblí eagraithe de réir ábhair, le cumasc dúblach a chomhcheanglaíonn vótaí in aon chomhartha éilimh ionraic amháin.',
+  'about.featureVoting':
+    'Vóta amháin in aghaidh an úsáideora le sreabhadh stádais iomlán — oscailte, pleanáilte, ar siúl, seolta, nó diúltaithe — agus freagra oifigiúil ar gach cinneadh.',
+  'about.intro':
+    'Is ardán aiseolais táirge é {{appName}} — cláir phoiblí ina bhfoilsíonn custaiméirí iarratais, ina vótálann siad ar a bhfuil uathu, agus ina leanann siad gach smaoineamh ó phleanáil go seoladh. Stopann foirne ag buille faoi thuairim cad a thógfar ina dhiaidh seo mar go rangálann an t-éileamh é féin.',
+  'about.missionBody':
+    "Creidimid gur fearr cinntí táirge a dhéanamh go hoscailte. Tugann {{appName}} clár poiblí d'iarratais vótáilte do gach foireann, treochlár oifigiúil le ráithí spriocdháta, agus loga athruithe a dhúnann an ciorcal — ionas go bhfeiceann custaiméirí a dtionchar agus go bhfeiceann foirne a sainordú.",
+  'about.missionTitle': 'Ár misean',
   'admin.backToBoards': 'Ar ais go boird',
   'admin.denied': 'Riarthóirí amháin.',
   'admin.eyebrow': 'Foireann táirge',
@@ -11,6 +27,8 @@ export const ui: UiTranslations = {
   'admin.title': 'Deais aiseolais',
   'admin.topOpen': 'Barr-iarratais oscailte',
   'admin.totalVotes': '{{count}} iomlán',
+  'admin.votesChartLabel':
+    'Barrachairt de na vótaí a caitheadh in aghaidh na seachtaine thar na hocht seachtaine seo caite',
   'admin.votesOverTime': 'Vótaí le himeacht ama',
   'auth.forgotPassword.email': 'Ríomhphost',
   'auth.forgotPassword.sendResetLink': 'Seol nasc athshocraithe',
@@ -30,7 +48,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Cruthaigh do chuntas',
   'auth.username': 'Ainm úsáideora',
   'authShell.communities': 'Pobail',
+  'authShell.copyright': '{{appName}} — áirítear gach guth.',
   'authShell.trending': 'Ag treochtáil',
+  'boardCard.postCount': '{{count}} post',
   'boardDetail.allBoards': 'Gach bord',
   'boardDetail.backToBoards': 'Ar ais go boird',
   'boardDetail.empty': 'Níl aon phostálacha a mheaitseálann na scagairí seo fós.',
@@ -54,6 +74,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Thosaigh gach iontráil mar iarratas vótáilte. Chonaic vótálaithe ag bogadh é; seo an áit a tháinig sé.',
   'changelog.title': 'Seolta, le hadmhálacha',
+  'changelog.voteCount': 'Thóg {{count}} vóta é seo',
   'common.atLeast8Characters': '8 gcarachtar ar a laghad',
   'common.checkYourInbox': 'Seiceáil do bhosca isteach',
   'common.loadingEllipsis': 'Ag lódáil…',
@@ -64,6 +85,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Á chur isteach…',
   'footer.about': 'Maidir le {{appName}}',
   'footer.language': 'Teanga',
+  'forgotPassword.description':
+    'Cuir isteach do sheoladh ríomhphoist agus cuirfimid nasc chugat le hathshocrú.',
+  'forgotPassword.successBody':
+    'Chuireamar nasc athshocraithe chuig {{email}} Rachaidh sé in éag i gceann 30 nóiméad.',
   'forgotPassword.tryAnother': 'Bain triail as ríomhphost eile',
   'form.displayName': 'Ainm taispeána',
   'form.firstName': 'Ainm baiste',
@@ -74,6 +99,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'Do bhóthar oibre, tacaithe ag vótaí.',
   'landing.heroCtaPrimary': 'Tosaigh ag bailiú vótaí',
   'landing.heroCtaSecondary': 'Féach ar bhord beo',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Stop ag buille faoi thuairim. Seol an rud a vótálann siad air.',
+  'landing.heroLede':
+    'Iompaíonn {{appName}} iarratais ghnéithe scaipthe ina chlár poiblí smaointe vótáilte, ina threochlár oifigiúil, agus ina loga athruithe a léann do chustaiméirí i ndáiríre.',
   'landing.heroStat1': '3,200+',
   'landing.heroStat1Label': 'Foirne ag éisteacht',
   'landing.heroStat2': '1.4m',
@@ -85,9 +114,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Loga athruithe',
   'landing.navJoin': 'Bí le {{appName}}',
   'landing.navRoadmap': 'Bóthar oibre',
+  'landing.step1Body':
+    'Foilsíonn custaiméirí smaointe ar chláir phoiblí. Cumaisctear dúblaigh, comhcheanglaítear vótaí, agus rangálann an t-éileamh é féin.',
   'landing.step1Title': 'Bailigh',
+  'landing.step2Body':
+    'Marcáil iarratais mar phleanáilte nó ar siúl le ráithe spriocdháta — nuashonraítear an treochlár an nóiméad a dhéanann tú é.',
+  'landing.step2Title': 'Tiomantas',
   'landing.step3Body':
     'Éiríonn le postálacha seolta iontrálacha loga athruithe, agus feiceann gach vótálaí an toradh ar a liosta féin.',
+  'landing.step3Title': 'Seol',
   'landing.topSubtitle': 'Beo ón mbord seo — sínigh isteach chun do vóta a chur leis.',
   'landing.topTitle': 'Cad atá á lorg ag úsáideoirí faoi láthair',
   'landing.topViewAll': 'Gach bord',
@@ -95,14 +130,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Príomhúil',
   'layout.signUp': 'Cláraigh',
   'layout.submit': 'Cuir aiseolas isteach',
+  'login.description': 'Lean ar aghaidh san áit ar stop an comhrá.',
+  'login.heading': 'Sínigh isteach i Nimbus',
+  'login.noAccount': 'Nua anseo?',
   'login.passwordPlaceholder': 'Do phasfhocal',
   'login.twoFactorLabel': 'Cód 2FA (roghnach)',
   'login.twoFactorPlaceholder': 'Cód 6 ndigit',
+  'login.twoFactorRequiredHint':
+    "Tá fíordheimhniú dhá fhachtóir cumasaithe ar an gcuntas seo. Cuir isteach an cód 6 dhigit ó d'aip fhíordheimhniúcháin chun leanúint ar aghaidh.",
   'login.twoFactorRequiredLabel': 'Iontráil do chód 2FA',
+  'myActivity.browseCta': 'Brabhsáil boird',
+  'myActivity.emptyPosts': 'Níor phostáil tú iarratas fós.',
+  'myActivity.emptyVotes': 'Faic fós — brabhsáil na cláir agus tacaigh le smaoineamh.',
   'myActivity.eyebrow': 'Do ghníomhaíocht',
   'myActivity.loadError': 'Níorbh fhéidir do ghníomhaíocht a lódáil.',
   'myActivity.postsTitle': 'Iarratais a chuir tú isteach',
+  'myActivity.shippedNote': 'Seoladh {{count}} acu — go raibh maith agat as an bpointe.',
   'myActivity.submitCta': 'Postáil iarratas',
+  'myActivity.tabLabel': 'Amharc',
   'myActivity.tabPosts': 'Mo phostálacha',
   'myActivity.tabVotes': 'Mo vótaí',
   'myActivity.votesTitle': 'Iarratais a vótáil tú orthu',
@@ -137,8 +182,12 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Postáil gan aimsiú',
   'postsAdmin.backToDashboard': 'Painéal Rialaithe',
   'postsAdmin.eyebrow': 'Foireann táirge',
+  'postsAdmin.mergeApplied': 'Cumascadh — aistríodh {{votes}} vóta agus {{comments}} trácht.',
   'postsAdmin.mergeApply': 'Cumasc & bog vótaí',
   'postsAdmin.mergeChoose': 'Roghnaigh postáil sprice…',
+  'postsAdmin.mergeFailed': 'Theip ar an gcumasú.',
+  'postsAdmin.mergeHint':
+    'Comhcheanglaítear vótaí (ceann in aghaidh an úsáideora), aistrítear tráchtanna, agus faigheann an post seo nóta "aistrithe".',
   'postsAdmin.mergeLabel': 'Cumasc dúblach isteach i',
   'postsAdmin.responseLabel': 'Freagra oifigiúil',
   'postsAdmin.responsePlaceholder':
@@ -153,7 +202,13 @@ export const ui: UiTranslations = {
     'Socraigh an stádas oifigiúil, freagair go poiblí, lipéadaigh ráithe an bhóthair oibre, agus cumasc dúblaigh.',
   'postsAdmin.title': 'Bainistigh postálacha aiseolais',
   'postsAdmin.votes': '{{count}} vóta',
+  'pricing.limits.advancedFeatures': 'Gnéithe ardleibhéil:',
+  'pricing.limits.boards': '{{count}} boird',
   'pricing.limits.export': 'Easpórtáil sonraí:',
+  'pricing.limits.posts': '{{count}} post aiseolais',
+  'pricing.limits.votes': '{{count}} vóta',
+  'resetPassword.description':
+    'Roghnaigh ceann láidir. Déanfaimid síniú isteach thú a luaithe a éireoidh leis an athshocrú.',
   'resetPassword.newPasswordLabel': 'Pasfhocal nua',
   'resetPassword.tokenPlaceholder': 'Greamaigh comhartha an naisc',
   'roadmap.cardMeta': 'le {{author}} · {{board}}',
@@ -170,6 +225,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'Clóscríobh ceist chun iarratais atá ann cheana a aimsiú sula bpostálann tú dúblach.',
   'search.loadError': 'Theip ar an gcuardach — déan iarracht arís.',
+  'search.searching': 'Ag cuardach…',
   'search.submit': 'Cuardaigh',
   'search.submitNew': 'Postáil é mar iarratas nua',
   'search.title': 'Cuardaigh aiseolas',
@@ -178,12 +234,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'Billeáil',
   'settings.displaySubtitle': 'Roghnaigh cé chomh dlúth a bhraitheann fothaí.',
   'settings.displayTitle': 'Taispeáin',
+  'settings.emailDigestDesc': 'Na hiarratais oscailte is mó vótaí gach Luain.',
+  'settings.emailDigestLabel': 'Achoimre sheachtainiúil',
+  'settings.emailMentionsDesc': 'Nuair a fhreagraíonn duine post a leanann tú.',
+  'settings.emailMentionsLabel': 'Seol ríomhphost chugam faoi luaite',
+  'settings.emailRepliesDesc': 'Snáitheanna a thosaigh tú nó ar fhreagair tú.',
+  'settings.emailRepliesLabel': 'Seol ríomhphost chugam ar fhreagraí',
   'settings.loadError': 'Níorbh fhéidir do chuntas a lódáil.',
   'settings.loading': 'Ag lódáil do shocruithe…',
   'settings.notifications': 'Fógraí',
   'settings.notificationsSubtitle':
     'Socraigh cad a shroicheann do bhosca isteach vs do ghléas brúite.',
+  'settings.pushRepliesLabel': 'Brúigh le haghaidh freagraí',
+  'settings.pushVotesDesc': 'Ping tairsí ag 100, 500, 1000.',
+  'settings.pushVotesLabel': 'Brúigh ar son clocha míle vótála suas',
   'settings.saveAccount': 'Sábháil cuntas',
+  'settings.showFlair': 'Taispeáin sceallóga cláir ar phoist',
+  'settings.showThumbnails': 'Taispeáin mionsamhlacha nasc/íomhá',
   'settings.usernamePlaceholder': 'Roghnaigh lámhainm',
   'signup.confirmPlaceholder': 'Clóscríobh arís é',
   'signup.description': 'Múnlaigh cad a thógaimid.',

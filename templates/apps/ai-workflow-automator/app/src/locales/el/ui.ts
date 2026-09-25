@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Το Dendrite είναι μια πλατφόρμα αυτοματισμού ροών εργασίας που συνδέει εναύσματα, συνθήκες τεχνητής νοημοσύνης και πολυβηματικές ενέργειες, ώστε οι ομάδες να μπορούν να μεταφέρουν εργασία μεταξύ συστημάτων χωρίς να γράφουν κώδικα σύνδεσης.',
+  'about.philosophy':
+    'Κάθε ροή εργασίας είναι ένα γράφημα από μικρά, παρατηρήσιμα βήματα. Κάθε βήμα καταγράφει τις εισόδους, τις εξόδους και τον χρόνο του, ώστε να μπορεί να επιθεωρηθεί, να αναπαραχθεί ή να αναιρεθεί. Συνθέστε τις οπτικά, με εκδόσεις όπως τον κώδικα.',
   'about.title': 'Σχετικά με το Dendrite',
   'authShell.brand': 'Dendrite',
   'authShell.support': 'Υποστήριξη',
@@ -15,9 +17,15 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Αλλαγή πλάνου',
   'billing.description':
     'Παρακολουθήστε τη χρήση, διαχειριστείτε το πλάνο σας και λάβετε τιμολόγια για λογιστικούς σκοπούς.',
+  'billing.eyebrow': 'Λογαριασμός · Πλάνο & χρήση',
+  'billing.failedLabel': 'Αποτυχημένες εκτελέσεις · 24ω',
+  'billing.invoicesEmpty':
+    'Δεν υπάρχουν ακόμη τιμολόγια. Θα εμφανιστούν εδώ μετά την πρώτη πληρωμένη ανανέωσή σας.',
   'billing.invoicesTitle': 'Ιστορικό τιμολογίων',
   'billing.planNoteFree':
     'Δωρεάν επίπεδο — {{runs}} εκτελέσεις και {{workflows}} ενεργές ροές εργασίας. Κάντε αναβάθμιση για υψηλότερα όρια.',
+  'billing.planNotePaid':
+    'Πληρωμένο πλάνο — {{runs}} εκτελέσεις και {{workflows}} ενεργές ροές εργασίας.',
   'billing.runsLabel': 'Εκτελέσεις τις τελευταίες 24 ώρες',
   'billing.tiersBlurb':
     'Συγκρίνετε κάθε επίπεδο — εκτελέσεις, ενεργές ροές εργασίας, προηγμένες λειτουργίες και υποστήριξη — στην αφιερωμένη σελίδα τιμολόγησης.',
@@ -35,10 +43,14 @@ export const ui: UiTranslations = {
     'Δεν έχουν καταχωριστεί ενσωματώσεις. Ρυθμίστε τα κλειδιά παρόχων για να ενεργοποιήσετε δεσμούς.',
   'connections.error': 'Δεν ήταν δυνατή η φόρτωση συνδέσεων.',
   'connections.eyebrow': 'Ενσωματώσεις · {{connected}} συνδεδεμένες',
+  'connections.loading': 'Φόρτωση ενσωματώσεων…',
+  'connections.openEnv':
+    'Για να συνδέσετε αυτόν τον πάροχο, ορίστε το API key του στο api/.env και επανεκκινήστε τον διακομιστή.',
   'dashboard.description':
     '{{active}} ενεργές ροές εργασίας. {{failed}} απέτυχαν τις τελευταίες 24 ώρες.',
   'dashboard.error': 'Δεν ήταν δυνατή η φόρτωση του πίνακα ελέγχου.',
   'dashboard.eyebrow': 'Λειτουργίες · ζωντανά',
+  'dashboard.hero.label': 'Εκτελέσεις σήμερα',
   'dashboard.hero.medianLatency': 'Καθυστέρηση p50',
   'dashboard.hero.queue': 'Βάθος ουράς',
   'dashboard.hero.success': 'Επιτυχία',
@@ -46,14 +58,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Διάμεση διάρκεια',
   'dashboard.kpi.failedRuns': 'Αποτυχίες · 24 ώρες',
   'dashboard.kpi.outOf': 'από {{total}} συνολικά',
+  'dashboard.kpi.successRate': 'Ποσοστό επιτυχίας · 24ω',
   'dashboard.loading': 'Φόρτωση πίνακα ελέγχου…',
   'dashboard.recentRuns.empty':
     'Δεν υπάρχουν εκτελέσεις ακόμα. Ενεργοποιήστε μια ροή εργασίας για να συμπληρωθεί η τροφοδοσία.',
   'dashboard.recentRuns.title': 'Πρόσφατες εκτελέσεις',
   'dashboard.recentRuns.viewAll': 'Άνοιγμα εκτελέσεων →',
+  'dashboard.recentWorkflows.browse': 'Αναζήτηση προτύπων →',
   'dashboard.recentWorkflows.empty':
     'Δεν υπάρχουν ροές εργασίας ακόμα. Εγκαταστήστε ένα πρότυπο ή δημιουργήστε μία από την αρχή.',
   'dashboard.recentWorkflows.title': 'Πρόσφατα εκτελεσμένες',
+  'dashboard.run.col.run': 'Τρέξτε',
   'dashboard.run.col.started': 'Έναρξη',
   'dashboard.run.col.trigger': 'Έναυσμα',
   'dashboard.run.col.workflow': 'Ροή εργασίας',
@@ -89,6 +104,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Ροή εργασίας',
   'executions.description':
     'Κάθε εκτέλεση ροής εργασίας, κάθε επανάληψη, κάθε έξοδος βήματος — όλα παρατηρήσιμα.',
+  'executions.empty.filter': 'Καμία εκτέλεση δεν ταιριάζει με αυτό το φίλτρο.',
   'executions.empty.first':
     'Δεν υπάρχουν εκτελέσεις ακόμα — ενεργοποιήστε μια ροή εργασίας για να συμπληρωθεί η λίστα.',
   'executions.error': 'Δεν ήταν δυνατή η φόρτωση εκτελέσεων.',
@@ -99,29 +115,41 @@ export const ui: UiTranslations = {
   'executions.loading': 'Φόρτωση ιστορικού εκτελέσεων…',
   'executions.title': 'Εκτελέσεις',
   'forgotPassword.confirmation': 'Ο σύνδεσμος επαναφοράς στάλθηκε στο {{email}}.',
+  'forgotPassword.subhead': 'Εισαγάγετε το email σας για να λάβετε σύνδεσμο επαναφοράς.',
   'forgotPassword.successSubhead': 'Στείλαμε σύνδεσμο επαναφοράς στο {{email}}. Λήγει σε 30 λεπτά.',
   'help.connections.body':
     'Τα βήματα τεχνητής νοημοσύνης, email και αποθήκευσης απαιτούν τα κλειδιά παρόχων να έχουν οριστεί στο αρχείο api/.env. Μόλις ρυθμιστεί ένα κλειδί, η αντίστοιχη ενσωμάτωση εμφανίζεται ως συνδεδεμένη στη σελίδα Συνδέσεις.',
+  'help.connections.cta': 'Άνοιγμα συνδέσεων →',
   'help.connections.title': 'Σύνδεση παρόχων',
   'help.gettingStarted.body':
     'Νέες ροές εργασίας μπορούν να εγκατασταθούν από τη βιβλιοθήκη προτύπων ή να δημιουργηθούν από την αρχή στο εργαλείο δημιουργίας ροών εργασίας. Κάθε ροή εργασίας έχει ένα έναυσμα (χειροκίνητο, webhook ή cron) και μια ακολουθία βημάτων που εκτελούνται με σειρά.',
+  'help.gettingStarted.cta': 'Περιήγηση στη βιβλιοθήκη προτύπων →',
+  'help.gettingStarted.title': 'Ξεκινώντας',
   'help.intro':
     'Βρείτε απαντήσεις σε συνήθεις ερωτήσεις σχετικά με τη δημιουργία ροών εργασίας, τη ρύθμιση συνδέσεων και την ερμηνεία αποτελεσμάτων εκτέλεσης. Τα πιο συνηθισμένα θέματα παρατίθενται παρακάτω· για οτιδήποτε άλλο, επικοινωνήστε με τον διαχειριστή του χώρου εργασίας σας.',
   'help.runs.body':
     'Κάθε εκτέλεση καταγράφει κάθε βήμα ανεξάρτητα με κατάσταση (επιτυχία, αποτυχία, παράλειψη) και ένα απόσπασμα εξόδου. Η σελίδα λεπτομερειών εκτέλεσης εμφανίζει την πλήρη βηματική ανίχνευση και τις συναγόμενες μετρήσεις.',
+  'help.runs.cta': 'Άνοιγμα εκτελέσεων →',
   'help.runs.title': 'Ανάγνωση αποτελεσμάτων εκτέλεσης',
   'help.title': 'Κέντρο βοήθειας',
   'integrationCard.manage': 'Διαχείριση',
   'landing.brand': 'Dendrite',
   'landing.demo.action.subtitle': 'Round-robin · περιοχή',
+  'landing.demo.action.title': 'Ειδοποίηση εκπροσώπου',
   'landing.demo.condition.subtitle': 'Ταξινομητής προθέσεων ΤΝ',
+  'landing.demo.condition.title': 'Βαθμολογία ≥ μεσαία;',
   'landing.demo.trigger.subtitle': 'POST /forms/contact',
   'landing.demo.trigger.title': 'Εισερχόμενο webhook',
+  'landing.features.body':
+    'Τα triggers ενεργοποιούνται. Οι συνθήκες διακλαδίζονται. Οι ενέργειες παραδίδουν τη δουλειά. Συνθέστε τις οπτικά, με εκδόσεις όπως τον κώδικα.',
   'landing.features.heading': 'Τρεις τύποι κόμβων. Άπειρα σχήματα.',
   'landing.footer.help': 'Βοήθεια',
   'landing.footer.tagline': 'Νοημοσύνη σε κίνηση',
+  'landing.hero.body':
+    'Το {{appName}} είναι η μηχανή ροών εργασίας για ομάδες ops που ξεπέρασαν το Zapier. Trigger, συνθήκη, ενέργεια — συνδεδεμένα με κάθε σύστημα που πραγματικά χρησιμοποιείτε.',
   'landing.hero.eyebrow': 'Νοημοσύνη σε κίνηση',
   'landing.hero.headline': 'Συνδέστε τη στοίβα σας. Αφήστε τη δουλειά να γίνεται.',
+  'landing.hero.primaryCta': 'Δημιουργήστε την πρώτη σας ροή εργασίας',
   'landing.hero.proof.ai': 'Ενσωματωμένοι κόμβοι ΤΝ',
   'landing.hero.proof.free': 'Δωρεάν για 1.000 εκτελέσεις/μήνα',
   'landing.hero.proof.soc2': 'SOC 2 Type II',
@@ -129,10 +157,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Πληρώστε για εκτελέσεις, όχι για θέσεις.',
   'landing.templates.body':
     'Προκατασκευασμένες ροές εργασίας για κάθε ομάδα — πωλήσεις, υποστήριξη, devops, οικονομικά. Εγκατάσταση με ένα κλικ· προσαρμόστε οτιδήποτε.',
+  'landing.templates.cta': 'Εγγραφείτε για να περιηγηθείτε στα πρότυπα →',
   'landing.templates.eyebrow': 'Ξεκινήστε σε δευτερόλεπτα',
   'landing.templates.heading': 'Μια βιβλιοθήκη δοκιμασμένων συνταγών.',
   'landing.templates.signupHint': 'Εγγραφείτε για εγκατάσταση',
   'login.hidePassword': 'Απόκρυψη κωδικού',
+  'login.noAccount': 'Νέος στο Tessera;',
   'login.showPassword': 'Εμφάνιση κωδικού',
   'login.subhead': 'Συνδεθείτε για να διατηρήσετε τους αυτοματισμούς σας σε λειτουργία.',
   'mobileNav.drawerLabel': 'Κύρια πλοήγηση',
@@ -149,8 +179,15 @@ export const ui: UiTranslations = {
     'Εκτελέστε μια ροή εργασίας για να αρχίσει η πλήρωση αυτής της τροφοδοσίας.',
   'notifications.empty.title': 'Είστε πλήρως ενημερωμένοι',
   'notifications.eyebrow': '{{n}} μη αναγνωσμένες',
+  'planUpdated.body':
+    'Η αλλαγή χρέωσής σας είναι πλέον ενεργή. Μπορείτε να διαχειρίζεστε το πλάνο σας οποιαδήποτε στιγμή από τη σελίδα χρέωσης.',
+  'planUpdated.retry': 'Δοκιμάστε ξανά',
+  'planUpdated.verifyFailed': 'Δεν μπορέσαμε να επιβεβαιώσουμε ακόμη την πληρωμή σας.',
+  'planUpdated.verifyFailedBody':
+    'Η πληρωμή σας ενδέχεται να βρίσκεται ακόμη υπό επεξεργασία. Δοκιμάστε ξανά σε λίγο.',
   'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'pricing.heading': 'εκτελέσεις',
+  'pricing.runsSuffix': 'εκτελέσεις',
   'pricing.workflowsSuffix': 'ροές εργασίας',
   'privacy.collect.body':
     'Συλλέγουμε τη διεύθυνση email με την οποία εγγράφεστε, τις ροές εργασίας που ρυθμίζετε και μεταδεδομένα για κάθε εκτέλεση (ώρα έναρξης, ώρα λήξης, κατάσταση). Δεν συλλέγουμε ούτε αποθηκεύουμε ποτέ περιεχόμενο ωφέλιμου φορτίου από εναύσματα ή εξόδους βημάτων πέραν αυτού που είναι αναγκαίο για εμφάνιση στο πρόγραμμα προβολής εκτελέσεων του κατόχου χώρου εργασίας.',
@@ -166,12 +203,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Δεν ήταν δυνατή η ενημέρωση του κωδικού πρόσβασης.',
   'resetPassword.newPassword': 'Νέος κωδικός πρόσβασης',
   'resetPassword.subhead': 'Επιλέξτε κάτι που μόνο εσείς θα μαντέψατε.',
+  'settings.appearance.description': 'Εναλλαγή μεταξύ φωτεινής και σκοτεινής λειτουργίας.',
+  'settings.appearance.title': 'Εμφάνιση',
   'settings.billingShortcut.cta': 'Άνοιγμα τιμολόγησης',
   'settings.billingShortcut.description':
     'Το πλάνο, η χρήση και τα τιμολόγια βρίσκονται στην αφιερωμένη σελίδα τιμολόγησης.',
   'settings.danger.confirm':
     'Είστε σίγουροι; Αυτό θα προσθέσει τον χώρο εργασίας σας στην ουρά διαγραφής.',
   'settings.danger.confirmYes': 'Ναι, προσθήκη στην ουρά διαγραφής',
+  'settings.danger.deleteWorkspace.cta': 'Διαγραφή χώρου εργασίας',
   'settings.danger.deleteWorkspace.hint':
     'Αφαιρεί όλες τις ροές εργασίας, εκτελέσεις και συνδέσεις μετά από περίοδο χάριτος 14 ημερών.',
   'settings.danger.deleteWorkspace.title': 'Διαγραφή χώρου εργασίας',
@@ -183,9 +223,14 @@ export const ui: UiTranslations = {
     'Διαχειριστείτε τον λογαριασμό, τον χώρο εργασίας, τις ενσωματώσεις και την τιμολόγηση σε ένα μέρος.',
   'settings.notifications.description':
     'Επιλέξτε ποια γεγονότα σας ειδοποιούν, σας στέλνουν email ή παραμένουν σιωπηλά.',
+  'settings.notifications.failures.hint':
+    'Ειδοποίηση μέσω email και εντός εφαρμογής σε κάθε αποτυχημένη εκτέλεση.',
+  'settings.notifications.failures.title': 'Αποτυχίες ροών εργασίας',
   'settings.notifications.product.hint': 'Περιστασιακά email για νέα πρότυπα και λειτουργίες.',
+  'settings.notifications.product.title': 'Ενημερώσεις προϊόντος',
   'settings.notifications.weekly.hint':
     'Εβδομαδιαία ανασκόπηση Δευτέρας για εκτελέσεις και εξοικονομήσεις της προηγούμενης εβδομάδας.',
+  'settings.notifications.weekly.title': 'Εβδομαδιαία σύνοψη',
   'settings.profile.description':
     'Πώς εμφανίζεστε στο πρόγραμμα εκτέλεσης ροών εργασίας. Χρησιμοποιείται στη δραστηριότητα χώρου εργασίας.',
   'settings.profile.noEmail': 'Δεν υπάρχει email στα αρχεία',
@@ -193,12 +238,24 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Δεν ήταν δυνατή η αποθήκευση αλλαγών προφίλ.',
   'settings.profile.unnamedUser': 'Ανώνυμος χρήστης',
   'settings.security.audit.hint': 'Μεταδώστε κάθε ενέργεια στο SIEM σας μέσω webhook.',
+  'settings.security.audit.title': 'Προώθηση αρχείου ελέγχου',
   'settings.security.description': 'Έλεγχος ταυτότητας δύο παραγόντων, SSO και ενεργές συνεδρίες.',
   'settings.security.sso.hint': 'Διαθέσιμο στα πλάνα Scale και Enterprise.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'Απαιτείται για κάθε ενέργεια ιδιοκτήτη χώρου εργασίας.',
+  'settings.security.totp.title': 'Έλεγχος ταυτότητας δύο παραγόντων (TOTP)',
   'settings.twoFactorCode': 'Κωδικός επαλήθευσης',
   'settings.twoFactorDisable': 'Απενεργοποίηση',
+  'settings.twoFactorDisableTitle': 'Απενεργοποίηση ελέγχου ταυτότητας δύο παραγόντων',
   'settings.twoFactorEnable': 'Ενεργοποίηση',
+  'settings.twoFactorEnableTitle': 'Ενεργοποίηση ελέγχου ταυτότητας δύο παραγόντων',
   'settings.twoFactorInvalidCode': 'Μη έγκυρος κώδικας',
+  'settings.twoFactorOn': 'Στις',
+  'settings.twoFactorQrAlt': 'Κωδικός QR ταυτοποίησης δύο παραγόντων',
+  'settings.twoFactorScan':
+    'Σαρώστε αυτόν τον κωδικό QR με την εφαρμογή ελέγχου ταυτότητας και, στη συνέχεια, εισαγάγετε τον 6ψήφιο κωδικό.',
+  'settings.twoFactorUnavailable':
+    'Ο έλεγχος ταυτότητας δύο παραγόντων δεν είναι διαθέσιμος για αυτήν την εφαρμογή.',
   'settings.twoFactorVerify': 'Επαλήθευση και ενεργοποίηση',
   'settings.workspace.description':
     'Κοινή ταυτότητα, περιοχή και προεπιλογές εκτέλεσης για την ομάδα σας.',
@@ -227,6 +284,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Πρότυπο',
   'templates.description':
     'Προκατασκευασμένα σχέδια για τους πιο συνηθισμένους αυτοματισμούς. Δημιουργήστε διακλάδωση, προσαρμόστε, παραδώστε.',
+  'templates.empty.filter': 'Κανένα πρότυπο δεν ταιριάζει με την αναζήτησή σας.',
   'templates.empty.first': 'Δεν υπάρχουν διαθέσιμα πρότυπα αυτή τη στιγμή.',
   'templates.error': 'Δεν ήταν δυνατή η φόρτωση προτύπων.',
   'templates.installs': 'εγκαταστάσεις',
@@ -252,6 +310,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Απενεργοποίηση',
   'workflowBuilder.enable': 'Ενεργοποίηση',
   'workflowBuilder.error': 'Δεν ήταν δυνατή η φόρτωση της ροής εργασίας.',
+  'workflowBuilder.inspector.config': 'Διαμόρφωση',
+  'workflowBuilder.inspector.cron': 'Έκφραση cron',
+  'workflowBuilder.inspector.disabled': 'Ανενεργό — δεν θα εκτελείται αυτόματα.',
   'workflowBuilder.inspector.enabled': 'Ενεργοποιημένη — εκτελείται στο έναυσμα.',
   'workflowBuilder.inspector.eyebrow': 'Επιθεωρητής',
   'workflowBuilder.inspector.id': 'Αναγνωριστικό',
@@ -270,18 +331,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Η εναλλαγή απέτυχε.',
   'workflowBuilder.workflow': 'Ροή εργασίας · v{{v}}',
   'workflowBuilder.zoom.in': 'Μεγέθυνση',
+  'workflowBuilder.zoom.label': 'Στοιχεία ελέγχου ζουμ καμβά',
+  'workflowBuilder.zoom.out': 'Σμίκρυνση',
   'workflowCard.lastRun': 'Τελευταία εκτέλεση {{when}}',
   'workflowCard.runs': '{{count}} εκτελέσεις',
+  'workflowCard.success': '{{rate}}% επιτυχία',
   'workflowHeroCard.last24h': 'Τελευταίες 24 ώρες',
+  'workflows.browseTemplates': 'Αναζήτηση προτύπων →',
   'workflows.description':
     'Όλοι οι αυτοματισμοί στον χώρο εργασίας σας, με κατάσταση υγείας και πρόσφατη δραστηριότητα με μια ματιά.',
+  'workflows.empty.body': 'Δοκιμάστε να καθαρίσετε το φίλτρο ή να ξεκινήσετε από ένα πρότυπο.',
   'workflows.empty.firstBody': 'Εγκαταστήστε ένα πρότυπο για να ξεκινήσετε σε δευτερόλεπτα.',
   'workflows.empty.firstTitle': 'Δεν υπάρχουν ροές εργασίας ακόμα',
   'workflows.empty.title': 'Δεν υπάρχουν αντίστοιχες ροές εργασίας',
   'workflows.error': 'Δεν ήταν δυνατή η φόρτωση ροών εργασίας.',
   'workflows.eyebrow': 'Βιβλιοθήκη · {{count}} συνολικά',
+  'workflows.loading': 'Φόρτωση ροών εργασίας…',
   'workflows.newFromTemplate': 'Νέα από πρότυπο',
   'workflows.searchPlaceholder': 'Αναζήτηση ροών εργασίας…',
+  'workflows.title': 'Ροές εργασίας',
   'workflowSidebar.brand': 'Dendrite',
   'workflowSidebar.status': 'Όλα τα συστήματα λειτουργούν',
   'workflowSidebar.tagline': 'Νοημοσύνη σε κίνηση',

@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du en fråga, hittat en bugg eller vill flytta över dina böcker? Nå teamet på {{app}} via hello@{{app}}.example — en riktig person läser varje meddelande.',
   'about.contactTitle': 'Kontakta oss',
   'about.eyebrow': 'Om',
+  'about.intro':
+    '{{app}} är småföretagsredovisning som håller ordning på varenda krona — fakturor, utgifter, betalningar och rapporter på en och samma lugna plats för ägare, bokförare och revisorer.',
+  'about.missionBody':
+    'Att driva ett företag ska inte innebära att gruva sig för bokföringen. {{app}} ersätter kalkylarkskaoset med tydliga siffror du kan agera på, så att du lägger mindre tid på avstämning och mer tid på det arbete du faktiskt startade företaget för att göra.',
+  'about.missionTitle': 'Vårt uppdrag',
   'about.title': 'Om {{app}}',
   'accounts.count': '{{count}} konton',
+  'accounts.emptyBody':
+    'Konton i huvudboken spårar var pengar finns och rör sig. De visas här när din bokförare eller integration har ställt in dem.',
   'accounts.emptyTitle': 'Inga konton ännu',
   'accounts.heading': 'Kontoplan',
   'accounts.kpi.accounts': 'Konton',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Alla huvudbokskonton som ligger till grund för dina fakturor, utgifter och betalningar, grupperade efter typ.',
   'accounts.tag.inactive': 'inaktiv',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Ekonomichef, Horizon Tech',
   'authBrandPanel.eyebrow': 'Betrott av ekonomiteam',
   'authBrandPanel.label': 'Varumärkesvitrin',
   'authBrandPanel.quote': '“Ledger har förändrat hur vi spårar intäkter. Precision på sitt bästa.”',
@@ -30,7 +40,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Alla kunder',
   'customerDetail.invoiceMeta': 'Utfärdad{{issued}} · Förfallodag{{due}}',
   'customerDetail.loadError': 'Kunde inte ladda kund.',
+  'customerDetail.missingBody':
+    'Den begärda kundposten kunde inte läsas in. Den kan ha tagits bort, eller så har du inte åtkomst till den.',
   'customerDetail.missingHeading': 'Kundpost ej tillgänglig',
+  'customerDetail.missingHelp':
+    'Använd bakåtlänken ovan för att gå tillbaka till listan över kunder, eller välj en annan post därifrån.',
+  'customerDetail.noInvoices': 'Inga fakturor ännu.',
   'customerDetail.notesEmpty': 'Inga anteckningar ännu.',
   'customerDetail.paymentsEmpty': 'Inga registrerade betalningar.',
   'customerDetail.paymentTerms': 'Betalningsvillkor',
@@ -57,6 +72,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Avdragsgill',
   'expenseDetail.detailsHeading': 'Transaktionsdetaljer',
   'expenseDetail.loadError': 'Kunde inte ladda utgift.',
+  'expenseDetail.matched': 'Matchad · {{description}}',
   'expenseDetail.missingBody':
     'Den begärda utgiften kunde inte laddas. Den kan ha tagits bort eller så har du inte åtkomst till den.',
   'expenseDetail.missingHeading': 'Utgiftspost ej tillgänglig',
@@ -64,6 +80,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Kvitto',
   'expenseDetail.receiptHeading': 'Kvitto',
   'expenseDetail.reconciled': 'Avstämd',
+  'expenseDetail.unreconciled': 'Ej avstämda',
   'expenses.empty': 'Inga utgifter ännu.',
   'expenses.heading': 'Utgifter',
   'expenses.kpi.deductible': 'Avdragsgilla',
@@ -99,6 +116,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Kunde inte ladda fakturor.',
   'invoices.searchPlaceholder': 'Sök fakturanr. eller kund…',
   'invoices.summary.paid': 'Betalda denna period',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'Gratis i 30 dagar. Inget kort. Ta med din redovisare — de kommer att tacka dig.',
   'landing.ctaTitle': 'Flytta dina böcker till en lugnare plats.',
@@ -113,6 +131,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Kundfordringar',
   'ledgerStatTriad.eyebrow.mtd': 'Månad till dato',
   'ledgerStatTriad.netSub': 'Netto {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} försenade',
   'ledgerStatTriad.revenueLabel': 'Intäkter',
   'login.failed': 'Inloggning misslyckades.',
   'login.hidePassword': 'Dölj lösenord',
@@ -123,6 +142,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Logga in',
   'nav.legal': 'Juridiskt',
   'newExpense.back': 'Utgifter',
+  'newExpense.clearReceiptCta': 'Rensa bifogat kvitto',
   'newExpense.deductible': 'Skatteavdragsgill',
   'newExpense.dropPrompt': 'Släpp en kvittofoto eller PDF här för att bifoga.',
   'newExpense.failed': 'Kunde inte spara utgift.',
@@ -151,6 +171,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Kunde inte ladda betalningar.',
   'payments.unmatchedTag': 'oöverträffad',
   'planUpdated.pageLabel': 'Bekräftelse på uppdaterad plan',
+  'pricing.advancedFeatures': 'Avancerade funktioner: {{yes}}',
+  'pricing.canExport': 'Dataexport: {{yes}}',
+  'pricing.heading': 'Välj din {{app}}-plan',
+  'pricing.maxAccounts': '{{count}} konton',
+  'pricing.maxExpenses': '{{count}} utgifter',
+  'pricing.maxInvoices': '{{count}} fakturor',
+  'privacy.intro':
+    'Denna integritetspolicy beskriver hur {{app}} samlar in, använder och delar information om företag som använder tjänsten.',
   'privacy.lastUpdated': 'Senast uppdaterad: {{date}}',
   'privacy.section.collected.body':
     'Vi samlar in kontodetaljer (namn, e-post, företag), de finansiella poster du laddar upp (fakturor, utgifter, kunder, betalningar) och standardloggar för tjänstedrift (IP, user-agent, tidsstämplar).',
@@ -163,8 +191,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Information används för att driva tjänsten, generera de rapporter och PDF:er du begär, skicka transaktionsmejl via Mailgun och behandla betalningar via Stripe. Vi säljer eller hyr inte ut personlig information.',
   'recentInvoicesCard.dueMeta': 'Förfaller {{date}}',
+  'recentInvoicesCard.empty': 'Inga fakturor matchar.',
   'recentInvoicesCard.eyebrow': 'Kundfordringar',
   'recentInvoicesCard.searchAriaLabel': 'Sök fakturor',
+  'recentInvoicesCard.searchPlaceholder': 'Sök fakturor…',
   'recentInvoicesCard.title': 'Senaste fakturor',
   'recentInvoicesCard.viewAll': 'Visa alla fakturor →',
   'reports.assets': 'Tillgångar',
@@ -180,16 +210,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Resultat (12 månader)',
   'resetPassword.backToLogin': '← Tillbaka till inloggning',
   'resetPassword.hidePassword': 'Dölj lösenord',
+  'resetPassword.passwordLabel': 'Nytt lösenord',
   'resetPassword.showPassword': 'Visa lösenord',
+  'resetPassword.subheading': 'Välj ett starkt lösenord — minst åtta tecken.',
   'resetPassword.submit': 'Återställ lösenord',
   'resetPassword.tooShort': 'Lösenordet måste vara minst 8 tecken.',
   'settings.account.changePassword': 'Ändra lösenord',
   'settings.account.changingPassword': 'Ändrar…',
   'settings.account.currentPassword': 'Nuvarande lösenord',
+  'settings.account.dangerZone': 'Farozon',
   'settings.account.deleteAccount': 'Ta bort konto',
   'settings.account.deleteDescription':
     'Ta bort ditt konto och alla tillhörande uppgifter permanent.',
   'settings.account.deleteError': 'Det gick inte att ta bort kontot.',
+  'settings.account.deleteWarning':
+    'Detta raderar ditt konto permanent och kan inte ångras. Ange ditt lösenord för att bekräfta.',
   'settings.account.deleting': 'Tar bort…',
   'settings.account.devices': 'Enheter',
   'settings.account.email': 'E-post',
@@ -200,6 +235,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Lösenord',
   'settings.account.passwordError': 'Det gick inte att byta lösenord.',
   'settings.account.pushNotifications': 'Push-meddelanden på den här enheten',
+  'settings.account.revokeDeviceWarning':
+    'Enhetens åtkomst kommer att återkallas snart. Logga ut den?',
   'settings.account.saveError': 'Det gick inte att uppdatera profilen.',
   'settings.account.security': 'Säkerhet',
   'settings.account.signOutDevice': 'Logga ut',
@@ -207,12 +244,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Tvåfaktorsautentisering',
   'settings.account.twoFactorCode': 'Autentiseringskod',
   'settings.account.twoFactorDisable': 'Inaktivera',
+  'settings.account.twoFactorDisableTitle': 'Inaktivera tvåfaktorsautentisering',
   'settings.account.twoFactorEnable': 'Aktivera',
+  'settings.account.twoFactorEnableTitle': 'Aktivera tvåfaktorsautentisering',
   'settings.account.twoFactorInvalidCode': 'Ogiltig kod',
   'settings.account.twoFactorOn': 'Den',
+  'settings.account.twoFactorQrAlt': 'QR-kod för tvåfaktor',
+  'settings.account.twoFactorScan':
+    'Skanna denna QR-kod med din autentiseringsapp och ange sedan den 6-siffriga koden.',
+  'settings.account.twoFactorUnavailable':
+    'Tvåfaktorsautentisering är inte tillgängligt för den här appen.',
   'settings.account.twoFactorVerify': 'Kontrollera och aktivera',
   'settings.account.unknownDevice': 'Okänd enhet',
   'settings.company.email': 'Faktura-e-post',
+  'settings.company.heading': 'Företag & skatt',
   'settings.company.name': 'Juridiskt namn',
   'settings.company.saveButton': 'Spara företagsprofilen',
   'settings.company.taxId': 'Organisationsnummer / EIN',
@@ -255,6 +300,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Uppsk. kvartal',
   'taxes.kpi.owed': 'Skuld',
   'taxes.loadError': 'Kunde inte ladda skattesammanfattning.',
+  'taxes.remittedPct': '({{pct}} % inbetalt)',
+  'terms.intro':
+    'Dessa användarvillkor ("Villkoren") styr din åtkomst till och användning av {{app}}. Genom att skapa ett konto eller använda tjänsten godkänner du att vara bunden av dem.',
   'terms.lastUpdated': 'Senast uppdaterad: {{date}}',
   'terms.section.acceptable.body':
     'Du samtycker till att inte använda tjänsten för att bryta mot någon lag, kränka immateriella rättigheter, överföra skadlig kod eller försöka få obehörig åtkomst till andra konton eller vår infrastruktur.',

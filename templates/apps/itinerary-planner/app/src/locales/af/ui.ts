@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Het jy terugvoer, het jy 'n fout raakgesien, of beplan jy iets ambisieus? Bereik ons vanuit jou rekeninginstellings — elke boodskap gaan na 'n regte mens op die span.",
+  'about.contactTitle': 'Praat met ons',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Bespreekings in een inkassie — vlug-, hotel- en aktiwiteitsbevestigings beland op die presiese dag waarop hulle hoort.',
+  'about.featureCollab':
+    'Intydse samewerking — nooi tot vyf reisigers per reis, met elke verandering wat regstreeks sinkroniseer en kommentaar wat onder elke stop gerangskik word.',
+  'about.featureMapsBudget':
+    "Kaarte, bestemmings en 'n gedeelde begroting — sien die hele reis op 'n kaart, ontdek bestemmings wat deur redakteurs saamgestel is, en hou uitgawes dop sodat niemand te veel spandeer nie.",
+  'about.featureTimelines':
+    'Dag-vir-dag tydlyne — sleep stop om te herrangskik, voeg vervoersegmente by, en kyk hoe die reisplan herbereken word as een lewende dokument.',
+  'about.intro':
+    "{{app}} verander 'n gids vol halfgevormde planne in 'n enkele, gedeelde reis wat jou hele groep werklik kan volg. Bou 'n dag-vir-dag reisplan, voeg vlugte en hotelle by, karteer elke stop, en hou die begroting dop — alles op een rustige plek in plaas van 'n dosyn oortjies en 'n groepgeselsie.",
+  'about.missionBody':
+    "Reisbeplanning moet voel asof die reis alreeds beter word, nie soos huiswerk nie. {{app}} bestaan om samewerkende reise moeiteloos te maak — sodat elke reisiger opdaag met kennis van die plan, en elke stop 'n storie vertel wat die moeite werd is om te onthou.",
+  'about.missionTitle': 'Ons missie',
   'about.pageTitle': 'Oor {{app}}',
   'auth.legalConsent': 'Deur voort te gaan, stem jy in tot ons',
   'bookings.empty.body': "Voeg 'n vlug, hotel of aktiwiteit by om die inboks te begin.",
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Hotel',
   'bookings.type.other': 'Ander',
   'budgetSpendCard.budgetTotal': 'van {{total}} beplan',
+  'budgetSpendCard.overBy': '{{amount}} oor begroting',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} onlangs',
+  'budgetSpendCard.remaining': '{{amount}} oor',
   'calendar.eyebrow': 'Die jaar wat voorlê',
   'calendar.heading': "Elke reis op 'n enkele kalender.",
   'calendar.legendHeading': 'Reise hierdie maand',
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'en',
   'common.goToDashboard': 'Gaan na Dashboard',
   'dashboard.budgetHeading': 'Begrotingspols',
+  'dashboard.empty.body':
+    'Beplan jou eerste reis en jou paneel sal vol word met dag-vir-dag tydlyne, begrotingspols en besprekings.',
+  'dashboard.empty.cta': 'Beplan jou eerste reis',
   'dashboard.empty.heading': 'Geen reise nog nie — jou atlas is leeg.',
   'dashboard.eyebrow': 'Missiebeheer',
   'dashboard.heading': 'Jou volgende avontuur, in een stil hoekie.',
   'dashboard.newTripCta': "Begin 'n nuwe reis",
+  'dashboard.subheading':
+    "'n Aftelling na die volgende reis, vandag se bestedingspols, en 'n vinnige blik op elke reisplan wat aan die gang is.",
   'dashboard.tripsHeading': 'Reise in beweging',
   'dashboard.viewAllExpenses': 'Bekyk elke uitgawe',
   'dashboard.viewAllTrips': 'Sien elke reis',
   'dayTimelineRow.category.accommodation': 'Bly',
+  'dayTimelineRow.category.food': 'Kos & drank',
+  'dayTimelineRow.category.sightseeing': 'Besoek aan bezienswaardighede',
   'dayTimelineRow.category.transport': 'Vervoer',
   'destinationOrbCard.exploreCta': "Voeg by 'n reis",
   'destinationOrbCard.tripCount': '{{count}} reise',
+  'destinations.empty.body': 'Skakel terug na Alle en die redigeerder se vondste sal weer verskyn.',
   'destinations.empty.heading': 'Geen bestemmings nog nie.',
+  'destinations.emptyFiltered.heading': 'Nog niks so gemerk nie.',
   'destinations.errors.load': 'Kon nie bestemmings laai nie.',
   'destinations.eyebrow': 'Waarheen volgende',
   'destinations.heading': 'Gestoorde hoeke en redakteurvondste.',
@@ -70,7 +98,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Verkoper',
   'expenses.formHeading': 'Teken uitgawe aan vir {{trip}}',
   'expenses.heading': 'Waarheen die reisbegroting eintlik gaan.',
+  'expenses.heroBudget': '{{pct}}% van {{total}} beplan',
   'expenses.heroEyebrow': '{{trip}} • begrotingsoorsig',
+  'expenses.heroNoBudget': 'Nog geen begroting op hierdie reis gestel nie.',
   'expenses.noTrips.body': "Beplan eers 'n reis en uitgawes word aan 'n reisbegroting gekoppel.",
   'expenses.noTrips.heading': 'Geen reise nog nie.',
   'expenses.receiptCount': '{{count}} kwitansies',
@@ -82,12 +112,16 @@ export const ui: UiTranslations = {
     'Elke kwitansie en bevestiging word hier in die regte kategorie geplaas — geen sigblad nodig nie.',
   'forgotPassword.eyebrow': 'Herstel jou reisplan',
   'forgotPassword.heading': 'Wagwoord vergeet?',
+  'forgotPassword.subheading':
+    "Voer die e-posadres in wat jy vir {{appName}} gebruik het en ons sal 'n skakel stuur om jou wagwoord te herstel.",
   'forgotPassword.submit': 'Stuur herstel-e-pos',
   'forgotPassword.submitPending': 'Stuur tans herstel-e-pos…',
   'forgotPassword.successHint':
     "Nog geen e-pos nie? Gaan jou strooiposvouer na, of probeer weer met 'n ander adres.",
   'forgotPassword.successSubheading':
     "Ons het 'n herstelskakel gestuur na {{email}} Die skakel is vir 30 minute geldig.",
+  'forgotPassword.tryAgain': "Stuur na 'n ander e-posadres",
+  'landing.cta.eyebrow': 'Begin op die gratis plan',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Skep gratis rekening',
   'landing.cta.subheading':
@@ -99,8 +133,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': "Begin 'n gratis reis",
   'landing.hero.ctaSecondary': "Sien 'n voorbeeldreis",
+  'landing.hero.eyebrow': 'Reisbeplanner · {{tagline}}',
   'landing.hero.subtitle':
     "Waypoint verander 'n lêer vol halfgevormde planne in 'n gedeelde, daaglikse reisplan wat jou groep eintlik kan volg – met besprekings, kaarte en begroting wat op een plek dopgehou word.",
+  'landing.hero.title': 'Beplan dit een keer. Wandel dit saam.',
   'landing.nav.join': "Begin 'n gratis reis",
   'landing.nav.preview': 'Binne-wegpunt',
   'landing.preview.cta': 'Beplan een van jou eie',
@@ -108,6 +144,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': "'n Paar reise wat reisigers tans onderneem",
   'login.eyebrow': 'Lede-area',
   'login.heading': 'Welkom terug, reisiger',
+  'login.noAccount': 'Nuut by Tessera?',
   'login.signupLink': "Skep 'n gratis rekening",
   'login.subheading':
     'Meld aan om jou reise, dagplanne, besprekings en die joernaalinskrywings wat jy reeds begin het, te bestuur.',
@@ -118,6 +155,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Kon nie kennisgewing opdateer nie.',
   'notifications.heading': 'Wat het vandag tydens jou reise verander?',
   'notifications.markUnread': 'Merk as ongelees',
+  'notifications.subheading':
+    '{{count}} nuut — besprekingsbevestigings, samewerker-notas, tariefdalings en herinnerings.',
   'notifications.time.daysAgo': '{{count}} d gelede',
   'notifications.time.hoursAgo': '{{count}} uur gelede',
   'notifications.time.justNow': 'nou net',
@@ -136,6 +175,7 @@ export const ui: UiTranslations = {
     'Verbonde dienste, geldeenheid, stootkennisgewings en die geloofsbriewe waarmee jy aanmeld.',
   'signup.and': 'en',
   'signup.eyebrow': 'Sluit aan by Waypoint',
+  'signup.haveAccount': 'Dwaal jy alreeds?',
   'signup.heading': 'Beplan dit een keer. Wandel dit saam.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -147,6 +187,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Maak reisplan oop',
   'tripCountdownHeroCard.ctaSecondary': "Beplan nog 'n reis",
   'tripCountdownHeroCard.daysLabel': '{{days}} dae om te gaan',
+  'tripCountdownHeroCard.eyebrow': 'Volgende avontuur · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} nagte — jou reisplan is gereed om te reis.',
   'tripCoverCard.stops': '{{count}} stops',
   'tripCoverCard.travelers': '{{count}} reisigers',
   'tripDetail.addActivity': 'Voeg aktiwiteit by',
@@ -156,6 +199,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Aktiwiteitstitel',
   'tripDetail.adding': 'Voeg by…',
   'tripDetail.backToTrips': 'Terug na alle reise',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Reisigers',
   'tripDetail.dayLabel': 'Dag {{day}}',
   'tripDetail.empty': 'Geen aktiwiteite nog nie — voeg een by om die tydlyn te begin.',
@@ -166,14 +210,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Reisplan • {{country}}',
   'tripDetail.invite': 'Nooi uit',
   'tripDetail.inviteLabel': 'Nooi per e-pos uit',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'Uitnodiging gestuur na {{email}} .',
   'tripDetail.inviting': 'Stuur…',
   'tripDetail.loading': 'Laai reis_u2026',
   'tripDetail.noCollaborators': 'Net jy, vir nou.',
+  'tripDetail.notesHeading': 'Reisnotas',
   'tripDetail.notesPlaceholder': 'Geen notas nog nie.',
   'tripDetail.notFound.heading': 'Reis nie gevind nie',
   'tripDetail.openBookings': 'Maak besprekings-inboks oop',
   'tripDetail.shareCopied': 'Deel skakel gekopieer na knipbord:',
+  'tripDetail.shareReady': 'Deelskakel gereed:',
   'tripDetail.stops': '{{count}} stops',
   'tripDetail.timelineEyebrow': 'Dagtydlyn',
   'tripDetail.timelineHeading': 'Dag-vir-dag plan',
@@ -191,6 +238,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Reisigers',
   'tripPlanner.heading': "Skets 'n reis in minder as 'n minuut.",
   'tripPlanner.preview.eyebrow': 'Regstreekse voorskou',
+  'tripPlanner.preview.placeholderCountry': "Kies 'n land",
   'tripPlanner.preview.placeholderDestination': 'Jou volgende avontuur',
   'tripPlanner.section1.title': 'Waar & wanneer',
   'tripPlanner.section2.title': 'Reisigers en begroting',
@@ -199,10 +247,13 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Dag {{day}} Voeg haltes, vervoer en besprekings hier by.',
   'tripPlanner.section3.day2': 'Dag {{day}} Voeg haltes, vervoer en besprekings hier by.',
   'tripPlanner.section3.day3': 'Dag {{day}} Voeg haltes, vervoer en besprekings hier by.',
+  'tripPlanner.section3.title': 'Dagplan-beginpunt',
   'tripPlanner.subheading':
     'Los die basiese beginsels hieronder in · jy kan altyd medewerkers nooi, plekke insleep en besprekings later aanstuur.',
   'tripPlanner.submit': 'Skep reis',
   'tripPlanner.submitting': 'Skep…',
+  'trips.empty.body': 'Skakel terug na Alle reise of begin jou volgende dwaaltocht beplan.',
+  'trips.empty.cta': "Beplan 'n reis",
   'trips.empty.heading': 'Niks pas nog by daardie filter nie.',
   'trips.eyebrow': 'Die atlas',
   'trips.filterLabel': 'Filtreer reise volgens status',
@@ -213,6 +264,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Geen reise nog nie.',
   'trips.pastHeading': 'Verlede avonture',
   'trips.subheading': '{{count}} reisplanne — verlede, hede en eendag.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Beplan dit een keer. Dwaal dit saam. Onthou dit vir altyd.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · {{appName}} lede sedert 2024',
+  'waypointAuthShell.testimonial.quote':
+    "{{appName}} het 'n gejaagde 3-week reis deur vier lande verander in die rustigste reisplan wat ons nog ooit gedeel het.",
   'waypointLayout.mobileNavClose': 'Maak navigasiekieslys toe',
   'waypointLayout.primaryNavLabel': 'Primêre navigasie',
 }

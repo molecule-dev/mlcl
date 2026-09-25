@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Għandek feedback, sibt bug, jew qed tippjana xi ħaġa ambizzjuża? Ikkuntattjana mis-settings tal-kont tiegħek — kull messaġġ jasal għand persuna reali fit-tim.',
+  'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    "Prenotazzjonijiet f'inbox wieħed — konfermi ta' titjiriet, lukandi u attivitajiet jaslu eżatt fil-jum li jappartjenu għalih.",
+  'about.featureCollab':
+    "Kollaborazzjoni f'ħin reali — stieden sa ħames vjaġġaturi għal kull vjaġġ, b'kull bidla tissinkronizza live u l-kummenti jingħaqdu taħt kull waqfa.",
+  'about.featureMapsBudget':
+    'Mapep, destinazzjonijiet u baġit kondiviż — ara l-vjaġġ kollu fuq mappa, skopri destinazzjonijiet magħżula mill-edituri, u segwi l-ispejjeż biex ħadd ma jonfoq iżżejjed.',
+  'about.featureTimelines':
+    "Timelines jum b'jum — iġbed il-waqfiet biex terġa' tordna, żid segmenti tat-trasport, u ara l-itinerarju jerġa' jiġi kkalkulat bħala dokument ħaj wieħed.",
+  'about.intro':
+    "{{app}} ibiddel folder mimli pjanijiet nofshom lesti fi vjaġġ wieħed kondiviż li l-grupp kollu tiegħek jista' tassew isegwi. Ibni itinerarju jum b'jum, żid titjiriet u lukandi, immappa kull waqfa, u segwi l-baġit — kollox f'post wieħed kalmu minflok tużżana tabs u group chat.",
+  'about.missionBody':
+    'L-ippjanar tal-vjaġġi għandu jħossu bħallikieku l-vjaġġ diġà qed jitjieb, mhux bħal xogħol tad-dar. {{app}} jeżisti biex jagħmel il-vjaġġi kollaborattivi bla xogħol — biex kull vjaġġatur jidher jaf il-pjan, u kull waqfa tirrakkonta storja li jixirqilha tiftakar.',
+  'about.missionTitle': 'Il-missjoni tagħna',
   'about.pageTitle': 'Dwar {{app}}',
   'auth.legalConsent': 'Billi tkompli, taqbel mal-',
   'bookings.empty.body': 'Żid titjira, lukanda, jew attività biex tibda l-inbox.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Lukanda',
   'bookings.type.other': 'Ohra',
   'budgetSpendCard.budgetTotal': "ta' {{total}} ippjanat",
+  'budgetSpendCard.overBy': '{{amount}} fuq il-baġit',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} reċenti',
+  'budgetSpendCard.remaining': '{{amount}} li fadal',
   'calendar.eyebrow': 'Is-sena li ġejja',
   'calendar.heading': 'Kull vjaġġ fuq kalendarju wieħed.',
   'calendar.legendHeading': "Vjaġġi f'dan ix-xahar",
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'u',
   'common.goToDashboard': 'Mur għad-Dashboard',
   'dashboard.budgetHeading': 'Polz tal-baġit',
+  'dashboard.empty.body':
+    "Ippjana l-ewwel vjaġġ tiegħek u d-dashboard tiegħek jimtela b'timelines jum b'jum, pulse tal-baġit, u prenotazzjonijiet.",
+  'dashboard.empty.cta': 'Ippjana l-ewwel vjaġġ tiegħek',
   'dashboard.empty.heading': "Għad m'hemm l-ebda vjaġġi — l-atlas tiegħek huwa vojt.",
   'dashboard.eyebrow': 'Kontroll tal-missjoni',
   'dashboard.heading': "L-avventura li jmiss tiegħek, f'kantuniera kwieta.",
   'dashboard.newTripCta': 'Ibda vjaġġ ġdid',
+  'dashboard.subheading':
+    'Countdown għall-vjaġġ li jmiss, pulse tal-infiq tal-lum, u ħarsa malajr lejn kull itinerarju miexi.',
   'dashboard.tripsHeading': "Vjaġġi f'moviment",
   'dashboard.viewAllExpenses': 'Ara kull spiża',
   'dashboard.viewAllTrips': 'Ara kull vjaġġ',
   'dayTimelineRow.category.accommodation': "Ibqa'",
+  'dayTimelineRow.category.food': 'Ikel u xorb',
+  'dayTimelineRow.category.sightseeing': 'Sightseeing',
   'dayTimelineRow.category.transport': 'Trasport',
   'destinationOrbCard.exploreCta': "Żid ma' vjaġġ",
   'destinationOrbCard.tripCount': '{{count}} vjaġġi',
+  'destinations.empty.body': "Erġa' aqleb għal All u l-finds tal-editur jerġgħu jidhru.",
   'destinations.empty.heading': "Għad m'hemm l-ebda destinazzjoni.",
+  'destinations.emptyFiltered.heading': 'Għadha xejn ittikkettat hekk.',
   'destinations.errors.load': 'Ma setgħux jitgħabbew id-destinazzjonijiet.',
   'destinations.eyebrow': 'Fejn imiss',
   'destinations.heading': 'Kantunieri ssejvjati u sejbiet tal-editur.',
@@ -70,7 +98,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Bejjiegħ',
   'expenses.formHeading': 'Spejjeż tal-log għal {{trip}}',
   'expenses.heading': 'Fejn fil-fatt imur il-baġit tal-vjaġġ.',
+  'expenses.heroBudget': "{{pct}}% ta' {{total}} ippjanat",
   'expenses.heroEyebrow': '{{trip}} • stampa tal-baġit',
+  'expenses.heroNoBudget': 'Għadha l-ebda baġit stabbilit fuq dan il-vjaġġ.',
   'expenses.noTrips.body': "Ippjana vjaġġ l-ewwel — l-ispejjeż huma marbuta mal-baġit ta' vjaġġ.",
   'expenses.noTrips.heading': "Għad m'hemm l-ebda vjaġġi.",
   'expenses.receiptCount': '{{count}} irċevuti',
@@ -82,12 +112,16 @@ export const ui: UiTranslations = {
     'Kull irċevuta u konferma tidħol fil-kategorija t-tajba hawnhekk — l-ebda spreadsheet mhi meħtieġa.',
   'forgotPassword.eyebrow': 'Irkupra l-itinerarju tiegħek',
   'forgotPassword.heading': 'Insejt il-password tiegħek?',
+  'forgotPassword.subheading':
+    "Daħħal l-email li użajt għal {{appName}} u nibagħtulek link biex terġa' tissettja l-password tiegħek.",
   'forgotPassword.submit': "Ibgħat email ta' rkupru",
   'forgotPassword.submitPending': "Qed tintbagħat l-email ta' rkupru...",
   'forgotPassword.successHint':
     "Għad m'għandekx email? Iċċekkja l-folder tal-ispam tiegħek, jew erġa' pprova b'indirizz differenti.",
   'forgotPassword.successSubheading':
     "Bgħatna link ta' rkupru lil {{email}} Il-link huwa validu għal 30 minuta.",
+  'forgotPassword.tryAgain': 'Ibgħat lil email differenti',
+  'landing.cta.eyebrow': "Ibda bil-pjan b'xejn",
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': "Oħloq kont b'xejn",
   'landing.cta.subheading':
@@ -99,8 +133,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': "Ibda vjaġġ b'xejn",
   'landing.hero.ctaSecondary': 'Ara vjaġġ kampjun',
+  'landing.hero.eyebrow': 'Trip planner · {{tagline}}',
   'landing.hero.subtitle':
     "Waypoint ibiddel fowlder mimli pjanijiet nofshom iffurmati f'itinerarju kondiviż, ta' kuljum, li l-grupp tiegħek jista' fil-fatt isegwi — bil-bookings, il-mapep, u l-baġit traċċati f'post wieħed.",
+  'landing.hero.title': 'Ippjanaha darba. Imxu fiha flimkien.',
   'landing.nav.join': "Ibda vjaġġ b'xejn",
   'landing.nav.preview': "Punt ta' Referenza Ġewwa",
   'landing.preview.cta': 'Ippjana waħda tiegħek',
@@ -108,6 +144,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Ftit vjaġġi li l-vjaġġaturi qed jivvjaġġaw fihom bħalissa',
   'login.eyebrow': 'Żona tal-membri',
   'login.heading': 'Merħba lura, vjaġġatur',
+  'login.noAccount': "Ġdid f'Tessera?",
   'login.signupLink': "Oħloq kont b'xejn",
   'login.subheading':
     "Idħol biex timmaniġġja l-vjaġġi tiegħek, il-pjanijiet ta' ġurnata, il-bookings, u d-dħul fil-ġurnal li diġà bdejt.",
@@ -118,6 +155,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Ma setgħetx tiġi aġġornata n-notifika.',
   'notifications.heading': "X'inbidel fil-vjaġġi tiegħek illum.",
   'notifications.markUnread': 'Immarka bħala mhux moqri',
+  'notifications.subheading':
+    "{{count}} ġodda — konfermi ta' prenotazzjoni, noti tal-kollaboraturi, tnaqqis fil-prezzijiet, u tfakkiriet.",
   'notifications.time.daysAgo': '{{count}} jum ilu',
   'notifications.time.hoursAgo': '{{count}} siegħa ilu',
   'notifications.time.justNow': 'issa stess',
@@ -136,6 +175,7 @@ export const ui: UiTranslations = {
     'Servizzi konnessi, munita, notifiki push, u l-kredenzjali li tidħol bihom.',
   'signup.and': 'u',
   'signup.eyebrow': 'Ingħaqad mal-Waypoint',
+  'signup.haveAccount': 'Diġà qed tgħix il-vjaġġ?',
   'signup.heading': 'Ippjanaha darba. Imxu fiha flimkien.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -147,6 +187,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Itinerarju miftuħ',
   'tripCountdownHeroCard.ctaSecondary': 'Ippjana vjaġġ ieħor',
   'tripCountdownHeroCard.daysLabel': '{{days}} jiem li fadal',
+  'tripCountdownHeroCard.eyebrow': 'Avventura li jmiss · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} iljieli — l-itinerarju tiegħek lest għall-vjaġġ.',
   'tripCoverCard.stops': '{{count}} waqfiet',
   'tripCoverCard.travelers': '{{count}} vjaġġaturi',
   'tripDetail.addActivity': 'Żid attività',
@@ -156,6 +199,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Titlu tal-attività',
   'tripDetail.adding': 'Żieda…',
   'tripDetail.backToTrips': 'Lura għall-vjaġġi kollha',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Vjaġġaturi',
   'tripDetail.dayLabel': 'Jum {{day}}',
   'tripDetail.empty': "Għad m'hemm l-ebda attività — żid waħda biex tibda l-kronoloġija.",
@@ -166,14 +210,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Itinerarju • {{country}}',
   'tripDetail.invite': 'Stieden',
   'tripDetail.inviteLabel': 'Stieden bl-email',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'Stedina mibgħuta lil {{email}} .',
   'tripDetail.inviting': 'Qed nibgħat…',
   'tripDetail.loading': 'Tagħbija tal-vjaġġ…',
   'tripDetail.noCollaborators': 'Int biss, għalissa.',
+  'tripDetail.notesHeading': 'Noti tal-vjaġġ',
   'tripDetail.notesPlaceholder': "Għad m'hemm l-ebda noti.",
   'tripDetail.notFound.heading': 'Vjaġġ mhux misjub',
   'tripDetail.openBookings': 'Iftaħ l-inbox tal-bookings',
   'tripDetail.shareCopied': 'Il-link tal-kondiviżjoni ġie kkupjat fil-clipboard:',
+  'tripDetail.shareReady': 'Link tal-kondiviżjoni lest:',
   'tripDetail.stops': '{{count}} waqfiet',
   'tripDetail.timelineEyebrow': 'Kronoloġija tal-ġurnata',
   'tripDetail.timelineHeading': "Pjan ta' kuljum",
@@ -191,6 +238,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Vjaġġaturi',
   'tripPlanner.heading': "Abbozza vjaġġ f'inqas minn minuta.",
   'tripPlanner.preview.eyebrow': 'Previżjoni diretta',
+  'tripPlanner.preview.placeholderCountry': 'Agħżel pajjiż',
   'tripPlanner.preview.placeholderDestination': 'L-avventura li jmiss tiegħek',
   'tripPlanner.section1.title': 'Fejn u meta',
   'tripPlanner.section2.title': 'Vjaġġaturi u baġit',
@@ -199,10 +247,13 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Jum {{day}} — żid waqfiet, trasport, u prenotazzjonijiet hawn.',
   'tripPlanner.section3.day2': 'Jum {{day}} — żid waqfiet, trasport, u prenotazzjonijiet hawn.',
   'tripPlanner.section3.day3': 'Jum {{day}} — żid waqfiet, trasport, u prenotazzjonijiet hawn.',
+  'tripPlanner.section3.title': 'Bidu tal-pjan tal-ġurnata',
   'tripPlanner.subheading':
     "Poġġi l-affarijiet bażiċi hawn taħt — dejjem tista' tistieden kollaboraturi, tkaxkar il-waqfiet, u tibgħat il-bookings aktar tard.",
   'tripPlanner.submit': 'Oħloq vjaġġ',
   'tripPlanner.submitting': 'Il-ħolqien',
+  'trips.empty.body': "Erġa' aqleb għal All trips jew ibda tippjana l-vjaġġ li jmiss tiegħek.",
+  'trips.empty.cta': 'Ippjana vjaġġ',
   'trips.empty.heading': "Għadu ma hemm xejn li jaqbel ma' dak il-filtru.",
   'trips.eyebrow': 'L-atlas',
   'trips.filterLabel': 'Iffiltra l-vjaġġi skont l-istatus',
@@ -213,6 +264,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': "Għad m'hemm l-ebda vjaġġi.",
   'trips.pastHeading': 'Avventuri tal-passat',
   'trips.subheading': '{{count}} itinerarji — passat, preżent, u xi darba.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Ippjanah darba. Għixu flimkien. Ftakru għal dejjem.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · {{appName}} membri mill-2024',
+  'waypointAuthShell.testimonial.quote':
+    "{{appName}} ibiddel vjaġġ hectic ta' 3 ġimgħat f'erba' pajjiżi fl-aktar itinerarju rilassat li qatt kondivejna.",
   'waypointLayout.mobileNavClose': 'Agħlaq il-menù tan-navigazzjoni',
   'waypointLayout.primaryNavLabel': 'Navigazzjoni primarja',
 }

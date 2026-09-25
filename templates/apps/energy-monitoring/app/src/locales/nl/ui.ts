@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vragen, functieverzoeken of een meter die we zouden moeten ondersteunen? Bereik het {{appName}}-team via je accountinstellingen — elk bericht komt bij een echt persoon terecht.',
   'about.contactTitle': 'Neem contact met ons op',
   'about.eyebrow': 'Over',
+  'about.featuresTitle': 'Wat u krijgt',
+  'about.intro':
+    '{{appName}} is realtime energiemonitoring voor zonnepanelen-thuisgebruikers en facilitair teams. We veranderen de datastroom van meters, omvormers en batterijen in een rustig controlecentrum — live wattage, zonneproductie, kosten op basis van tijdstarief en meldingen, allemaal in één omgeving.',
+  'about.missionBody':
+    'Energie die je kunt zien, is energie die je kunt beheren. Wij vinden dat iedereen met een meter — een huishouden met zonnepanelen op het dak of een team dat een gebouw in de gaten houdt — inzicht van nutsbedrijf-niveau verdient, zonder een contract van nutsbedrijf-niveau. Elke functie is erop gericht om van het volgende kilowattuur een weloverwogen keuze te maken, niet een verrassing op de rekening.',
+  'about.missionTitle': 'Onze missie',
   'about.pageTitle': 'Over {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Bevestigen',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@yourdomain.com',
   'alertRule.eyebrow': 'Nieuwe regel',
   'alertRule.heading': 'Vang de piek op voordat deze u geld kost',
+  'alertRule.nameLabel': 'Regelnaam',
   'alertRule.namePlaceholder': 'bijv. HVAC-bewaking na sluitingstijd',
   'alertRule.subheading':
     'Kies een metriek, een drempel en waar de melding naartoe gestuurd moet worden. U kunt deze op elk moment bewerken of pauzeren.',
   'alertRule.submit': 'Regel opslaan',
   'alertRule.submitError': 'Kon de regel niet opslaan.',
   'alertRule.thresholdLabel': 'Drempel',
+  'alertRule.typeLabel': 'Triggertype',
   'alerts.checking': 'Controleren…',
   'alerts.confirmDelete': 'Bevestig verwijdering',
+  'alerts.empty': 'Niets te tonen — geen meldingen in deze status.',
   'alerts.emptyNoRules':
     'Nog geen meldingen — voeg een regel toe en klik vervolgens op “Nu evalueren” om deze te testen.',
   'alerts.errorAck': 'Kon niet bevestigen.',
@@ -41,12 +52,15 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Nu evalueren',
   'alerts.subheading':
     'Drempel- en patroonmeldingen die op uw meters afgaan, plus de regels die ze aansturen.',
+  'billing.activeBlurb': 'Je abonnement is actief. Beheer het wanneer je wilt.',
   'billing.cancelError': 'Kon abonnement niet annuleren.',
   'billing.cancelling': 'Annuleren…',
   'billing.currentBadge': 'Huidig',
   'billing.freeBlurb':
     'U heeft het Gratis-abonnement. Upgrade voor meer meters, langere geschiedenis en meer meldingsregels.',
   'billing.heading': 'Abonnementen & facturering',
+  'billing.historyEmpty':
+    'Betaalde facturen verschijnen hier zodra je abonnement wordt gefactureerd.',
   'billing.historyHeading': 'Factuurgeschiedenis',
   'billing.loadError': 'Kon facturering niet laden.',
   'billing.loading': 'Abonnementen laden…',
@@ -58,17 +72,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Neem contact op met sales',
   'common.goToDashboard': 'Ga naar Dashboard',
   'dailyCostMeter.cost': '{{symbol}}{{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} kWh piek · {{offPeak}} kWh dal',
   'dailyCostMeter.runningLabel': 'Lopend totaal',
   'dailyCostMeter.title': 'Kosten tot nu toe vandaag',
   'dailyCostMeter.utilizationLabel': 'Van dagbudget',
+  'dailyCostMeter.utilizationPct': '{{pct}}%',
+  'dashboard.addMeter': 'Meter toevoegen',
   'dashboard.alertsHeading': 'Actieve meldingen',
   'dashboard.devicesHeading': 'Topcircuits op dit moment',
   'dashboard.empty.body':
     'Voeg een slimme meter of zonneomvormer toe om live verbruik en productie te volgen.',
+  'dashboard.empty.title': 'Nog geen meters',
   'dashboard.eyebrow': 'Voltrace-controlekamer',
   'dashboard.heading': 'Live energie-momentopname',
   'dashboard.loadError': 'Kon live metingen niet laden.',
   'dashboard.loading': 'Afstemmen op uw meters…',
+  'dashboard.noAlerts': 'Alles rustig — niets overschrijdt je drempelwaarden.',
   'dashboard.noAlertsAndNoMeters':
     'Zodra u een meter aansluit, verschijnen meldingen op basis van uw drempels hier.',
   'dashboard.noCircuits': 'Nog geen circuits om weer te geven — voeg een meter toe om te beginnen.',
@@ -76,6 +95,7 @@ export const ui: UiTranslations = {
     'Verbruik van het hele huis, zonne-energieproductie en kosten tot nu toe vandaag.',
   'dashboard.viewAllAlerts': 'Meldingen beheren →',
   'dashboard.viewAllDevices': 'Elk apparaat →',
+  'deviceDetail.activeTokens': 'Actieve ingest-tokens',
   'deviceDetail.alreadyOff': 'Al gepauzeerd',
   'deviceDetail.back': 'Alle circuits',
   'deviceDetail.confirmDelete': 'Bevestig verwijdering',
@@ -115,21 +135,33 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Kon meters niet laden.',
   'devices.loading': 'Elke meter pollen…',
   'devices.newRule': 'Nieuwe meldingsregel',
+  'devices.noResults': 'Geen circuits voldoen aan dit filter.',
   'devices.placeholder.location': 'bijv. Technische ruimte',
   'devices.placeholder.name': 'bijv. Onderverdeler garage',
   'devices.subheading': 'Live wattage en de kWh van vandaag via elk circuit dat Voltrace kan zien.',
+  'deviceWattageRow.todayKwh': '{{kwh}} kWh vandaag',
+  'deviceWattageRow.watts': '{{watts}} W',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}}%',
   'energyMonitoringLayout.menu': 'Menu',
+  'energyMonitoringLayout.primaryNavLabel': 'Hoofdnavigatie',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    '{{appName}} werkt met de meeste nutsbedrijf-meters, zonne-omvormers en batterijsystemen — bedraad of via WiFi.',
   'landing.ctaHeading': 'Koppel uw meter, zie de watts binnen enkele minuten',
   'landing.eyebrow': 'Realtime energie-intelligentie',
+  'landing.featuresHeading': 'Elke watt, elke minuut, in één omgeving',
   'landing.getStarted': 'Voltrace aansluiten',
   'landing.heroCta': 'Voltrace aansluiten',
+  'landing.heroSubtitle':
+    'Live wattage, zonneproductie, kosten op basis van tijdstarief en meldingen bij hoog verbruik in een controlecentrum dat is gebouwd voor zonnepanelen-thuisgebruikers en facilitair teams.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Verbruik van het hele huis',
   'landing.sampleSolar': '+3.820 W zonne-energie',
   'landing.sampleSummary': '1.680 W exporteren naar net · 18,4 kWh vandaag',
   'landing.sampleWatts': '2.140 W',
   'powerHeroCard.solar': '+{{watts}} W zonne-energie',
   'powerHeroCard.title': 'Verbruik van het hele huis',
+  'powerHeroCard.todayKwh': '{{kwh}} kWh vandaag',
   'powerHeroCard.watts': '{{watts}} W',
   'pricing.choose': 'Kies {{name}}',
   'pricing.contact': 'Heeft u iets op maat nodig?',
@@ -143,6 +175,7 @@ export const ui: UiTranslations = {
   'pricing.unavailable':
     'Dit abonnement is momenteel niet beschikbaar — Stripe is niet geconfigureerd.',
   'profile.errorGeneric': 'Kon profielwijzigingen niet opslaan.',
+  'profile.errorGoal': 'Maandelijkse kWh-doelstelling moet een positief getal zijn.',
   'profile.errorHousehold': 'Huishoudgrootte moet een positief getal zijn.',
   'profile.householdHeading': 'Huishouden & doelen',
   'profile.householdSize': 'Huishoudgrootte',
@@ -159,9 +192,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'Metingen aggregeren…',
   'reports.subheading':
     'Dagelijkse totalen voor verbruik, productie en kosten — uitgesplitst per datum.',
+  'reports.tableHeading': 'Dagelijkse uitsplitsing',
   'settings.currency': 'Valuta',
   'settings.errorFlat': 'Vast tarief moet ≥ 0 zijn.',
   'settings.errorNotify': 'Kon notificatievoorkeuren niet opslaan.',
+  'settings.errorSave': 'Tariefplan kon niet worden opgeslagen.',
   'settings.errorTou': 'Piek-/daltarieven en een geldig piekvenster zijn vereist.',
   'settings.exportBody':
     'Download een CSV van de laatste 30 dagen aan dagelijkse totalen of haal een ingestie-token op van een meterdetailpagina om metingen programmatisch te pushen.',
@@ -181,10 +216,20 @@ export const ui: UiTranslations = {
   'settings.saving': 'Opslaan…',
   'settings.securityHeading': 'Tweestapsverificatie',
   'settings.subheading': 'Tarieven, notificaties en data-export.',
+  'settings.twoFactorBody':
+    'Vraag bij elke aanmelding een eenmalige code uit je authenticator-app.',
   'settings.twoFactorCode': 'Authenticatiecode',
   'settings.twoFactorDisable': 'Uitschakelen',
+  'settings.twoFactorDisableTitle': 'Tweestapsverificatie uitschakelen',
   'settings.twoFactorEnable': 'Inschakelen',
+  'settings.twoFactorEnableTitle': 'Tweestapsverificatie inschakelen',
   'settings.twoFactorInvalidCode': 'Ongeldige code',
+  'settings.twoFactorOAuth':
+    'Je account meldt zich aan via een verbonden provider, dus tweefactorauthenticatie wordt daar beheerd.',
   'settings.twoFactorOn': 'Op',
+  'settings.twoFactorQrAlt': 'Tweefactor QR-code',
+  'settings.twoFactorScan':
+    'Scan deze QR-code met je authenticator-app en voer vervolgens de 6-cijferige code in.',
+  'settings.twoFactorUnavailable': 'Tweefactorauthenticatie is niet beschikbaar voor deze app.',
   'settings.twoFactorVerify': 'Verifiëren en inschakelen',
 }

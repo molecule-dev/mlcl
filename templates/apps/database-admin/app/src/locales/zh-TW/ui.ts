@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '與我們聯絡',
   'about.eyebrow': '關於',
+  'about.featureConnections':
+    '安全儲存資料庫並以顏色區分的連線管理工具 — 認證資訊加密儲存，絕不以明文保存。',
+  'about.featureMonitoring':
+    '即時監控查詢效能與資料庫活動，並可透過鍵盤快速鍵與命令面板全程免手動操作。',
+  'about.featurePlans':
+    '與你一同成長的方案 — 免費版適合個人作業，Pro 與 Team 版提供更多連線、更長的查詢保留期、匯出功能與進階功能。',
+  'about.featureQueryEditor':
+    '由 Monaco 驅動的 SQL 編輯器，具備查詢歷史記錄、已儲存的查詢，以及一鍵將結果匯出為 CSV。',
+  'about.featureSchema':
+    '結構描述瀏覽器與資料表瀏覽器，可瀏覽資料庫、資料表與欄位，並直接檢視、篩選及編輯資料列。',
+  'about.missionTitle': '我們的使命',
   'authShell.commands': '指令',
   'authShell.ssoSupported': '支援單一登入 (SSO)',
   'common.run': '執行',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': '查詢',
   'connections.schema': '模式',
   'connections.subtitle': '管理您的資料庫連線。',
+  'connections.test': '測試',
   'databaseAdminLayout.adminRole': '管理員角色',
   'databaseAdminLayout.commandPalette': '命令面板',
   'databaseAdminLayout.commands': '指令',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': '新連線',
   'databaseAdminLayout.queries': '查詢',
   'databaseAdminLayout.ready': '準備好',
+  'databaseAdminLayout.searchPlaceholder': '⌘K 搜尋命令、查詢、資料表…',
   'databaseAdminLayout.user': '使用者',
   'editConnection.confirmDelete': '要刪除此連結嗎？',
   'editConnection.deleteButton': '刪除連線',
+  'editConnection.newPassword': '新密碼（留空表示維持不變）',
   'editConnection.saved': '已儲存連線。',
   'editConnection.title': '編輯連線',
   'forgotPassword.success': '如果該帳號確實存在，重設連結即將寄出。',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': '成功案例',
   'monitoring.title': '監測',
   'monitoring.totalQueries': '總查詢次數',
+  'nav.schema': '模式',
   'newConnection.database': '資料庫',
   'newConnection.engine': '引擎',
   'newConnection.host': '主持人',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': '此程式碼片段未綁定任何連線。',
   'savedQuery.notBound': '未裝訂',
   'savedQuery.title': '儲存的查詢',
+  'schema.columns': '列',
   'schema.foreignKeys': '外鍵',
   'schema.indexes': '索引',
   'schemaExplorer.browseRows': '瀏覽資料列',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': '可為空的',
   'schemaExplorer.colType': '類型',
   'schemaExplorer.noColumns': '沒有欄位。',
+  'schemaExplorer.noForeignKeys': '沒有外部索引鍵。',
   'schemaExplorer.noIndexes': '沒有索引。',
   'schemaExplorer.noTables': '沒有表格',
   'schemaExplorer.pickATable': '請從側邊欄中選擇一個表格。',
   'schemaExplorer.tables': '表格',
   'schemaExplorer.title': '模式瀏覽器',
+  'settings.session': '會議',
   'settings.subtitle': '管理您的帳戶與方案。',
   'signup.heading': '建立您的 Quarry 帳戶',
   'signup.tagline': '不到一分鐘即可啟用存取權限。',
   'tableBrowser.noRows': '此資料表目前尚無任何資料列。',
+  'tableBrowser.subtitle': '正在瀏覽遠端資料庫的資料列。',
   'tableBrowser.title': '瀏覽遠端資料庫中的資料列。',
 }

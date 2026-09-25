@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Skontaktuj się z nami',
   'about.eyebrow': 'O nas',
+  'about.featureConnections':
+    'Menedżer połączeń, który bezpiecznie przechowuje i oznacza kolorami Twoje bazy danych — dane uwierzytelniające są szyfrowane w spoczynku, nigdy jako zwykły tekst.',
+  'about.featureMonitoring':
+    'Monitorowanie wydajności zapytań i aktywności bazy danych na żywo, ze skrótami klawiszowymi i paletą poleceń, aby obsługiwać wszystko bez użycia rąk.',
+  'about.featurePlans':
+    'Plany, które rosną razem z Tobą — Free dla pracy solo, Pro i Team dla większej liczby połączeń, dłuższego przechowywania zapytań, eksportów i zaawansowanych funkcji.',
+  'about.featureQueryEditor':
+    'Edytor SQL oparty na Monaco z historią zapytań, zapisanymi zapytaniami i eksportem wyników do CSV jednym kliknięciem.',
+  'about.featureSchema':
+    'Eksplorator schematów i przeglądarka tabel do nawigowania po bazach danych, tabelach i kolumnach, a następnie przeglądania, filtrowania i edytowania wierszy w miejscu.',
+  'about.missionTitle': 'Nasza misja',
   'authShell.commands': 'Polecenia',
   'authShell.ssoSupported': 'Obsługa SSO',
   'common.run': 'Uruchom',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Zapytania',
   'connections.schema': 'Schemat',
   'connections.subtitle': 'Proszę zarządzać swoimi połączeniami z bazą danych.',
+  'connections.test': 'Test',
   'databaseAdminLayout.adminRole': 'Rola administratora',
   'databaseAdminLayout.commandPalette': 'Paleta poleceń',
   'databaseAdminLayout.commands': 'polecenia',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Nowe połączenie',
   'databaseAdminLayout.queries': 'Zapytania',
   'databaseAdminLayout.ready': 'Gotowe',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Szukaj poleceń, zapytań, tabel…',
   'databaseAdminLayout.user': 'Użytkownik',
   'editConnection.confirmDelete': 'Usunąć to połączenie?',
   'editConnection.deleteButton': 'Usuń połączenie',
+  'editConnection.newPassword': 'Nowe hasło (pozostaw puste, aby zachować obecne)',
   'editConnection.saved': 'Połączenie zapisane.',
   'editConnection.title': 'Edycja połączenia',
   'forgotPassword.success': 'Jeśli takie konto istnieje, link resetujący jest w drodze.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Sukcesy',
   'monitoring.title': 'Monitorowanie',
   'monitoring.totalQueries': 'Łączne zapytania',
+  'nav.schema': 'Schemat',
   'newConnection.database': 'Baza danych',
   'newConnection.engine': 'Silnik',
   'newConnection.host': 'Host',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Brak połączenia powiązanego z tym fragmentem.',
   'savedQuery.notBound': 'Niepowiązane',
   'savedQuery.title': 'Zapisane zapytanie',
+  'schema.columns': 'Kolumny',
   'schema.foreignKeys': 'Klucze obce',
   'schema.indexes': 'Indeksy',
   'schemaExplorer.browseRows': 'Przeglądaj wiersze',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'dopuszczający wartość null',
   'schemaExplorer.colType': 'typ',
   'schemaExplorer.noColumns': 'Brak kolumn.',
+  'schemaExplorer.noForeignKeys': 'Brak kluczy obcych.',
   'schemaExplorer.noIndexes': 'Brak indeksów.',
   'schemaExplorer.noTables': 'Brak tabel',
   'schemaExplorer.pickATable': 'Proszę wybrać tabelę z paska bocznego.',
   'schemaExplorer.tables': 'Tabele',
   'schemaExplorer.title': 'Eksplorator schematu',
+  'settings.session': 'Sesja',
   'settings.subtitle': 'Proszę zarządzać kontem i planem.',
   'signup.heading': 'Utwórz konto Quarry',
   'signup.tagline': 'Uzyskaj dostęp w mniej niż minutę.',
   'tableBrowser.noRows': 'Ta tabela nie zawiera jeszcze żadnych wierszy.',
+  'tableBrowser.subtitle': 'Przeglądanie wierszy z Twojej zdalnej bazy danych.',
   'tableBrowser.title': 'Przeglądanie wierszy ze zdalnej bazy danych.',
 }

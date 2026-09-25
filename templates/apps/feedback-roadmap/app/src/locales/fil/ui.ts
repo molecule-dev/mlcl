@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May feedback ka, may nahanap kang bug, o gusto mo ng sarili mong board sa {{appName}}? Buksan ang Iyong Settings para maabot ang team — bawat mensahe ay napupunta sa isang tunay na tao na nagbabasa nito.',
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
+  'about.featureModeration':
+    'Isang pampublikong roadmap na may mga label ng quarter, isang changelog na ginagawang release notes ang mga naipadalang gawain, at isang dashboard na nagpapakita kung ano ang pinakagusto ng nakararami.',
+  'about.featurePricing':
+    'Libre ang magpatakbo ng ilang board; binubuksan ng Pro at Team na mga plano ang mas maraming board, mas mataas na limitasyon, at pag-export ng data.',
+  'about.featureThreads':
+    'Mga pampublikong feedback board na inayos ayon sa paksa, na may pag-merge ng duplicate na nagsasama-sama ng boto sa isang tapat na senyales ng demand.',
+  'about.featureVoting':
+    'Isang-boto-bawat-user na pagboto na may kumpletong status workflow — open, planned, in progress, shipped, o declined — at opisyal na tugon sa bawat desisyon.',
+  'about.intro':
+    'Ang {{appName}} ay isang product-feedback platform — mga pampublikong board kung saan nagpo-post ang mga customer ng kahilingan, bumoboto para sa kailangan nila, at sinusubaybayan ang bawat ideya mula planned hanggang shipped. Tumitigil ang mga team sa paghula kung ano ang susunod na gagawin dahil ang demand mismo ang nagra-rank.',
+  'about.missionBody':
+    'Naniniwala kami na ang pinakamagagandang desisyon sa produkto ay ginagawa nang hayagan. Binibigyan ng {{appName}} ang bawat team ng pampublikong board ng mga binotong kahilingan, isang opisyal na roadmap na may target na quarter, at isang changelog na nagsasara ng loop — para makita ng mga customer ang kanilang epekto at makita ng mga team ang kanilang mandato.',
+  'about.missionTitle': 'Ang aming misyon',
   'admin.backToBoards': 'Bumalik sa mga board',
   'admin.denied': 'Mga admin lamang.',
   'admin.eyebrow': 'Koponan ng produkto',
@@ -11,6 +27,8 @@ export const ui: UiTranslations = {
   'admin.title': 'Dashboard ng feedback',
   'admin.topOpen': 'Nangungunang bukas na kahilingan',
   'admin.totalVotes': '{{count}} kabuuang boto',
+  'admin.votesChartLabel':
+    'Bar chart ng mga botong ibinigay kada linggo sa nakalipas na walong linggo',
   'admin.votesOverTime': 'Mga boto sa paglipas ng panahon',
   'auth.forgotPassword.email': 'Email',
   'auth.forgotPassword.sendResetLink': 'Ipadala ang reset link',
@@ -30,7 +48,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Gumawa ng iyong account',
   'auth.username': 'Username',
   'authShell.communities': 'Mga komunidad',
+  'authShell.copyright': '{{appName}} — bawat boses ay mahalaga.',
   'authShell.trending': 'Trending',
+  'boardCard.postCount': '{{count}} post',
   'boardDetail.allBoards': 'Lahat ng board',
   'boardDetail.backToBoards': 'Bumalik sa mga board',
   'boardDetail.empty': 'Walang mga post na tumutugma sa mga filter na ito.',
@@ -54,6 +74,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Bawat entry ay nagsimula bilang isang voted request. Nakita ng mga bumoto ang paglipat nito; narito kung saan ito nagtapos.',
   'changelog.title': 'Nai-ship, may resibo',
+  'changelog.voteCount': '{{count}} na boto ang nagpatayo nito',
   'common.atLeast8Characters': 'Hindi bababa sa 8 karakter',
   'common.checkYourInbox': 'Tingnan ang iyong inbox',
   'common.loadingEllipsis': 'Naglo-load…',
@@ -64,6 +85,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Nagsusumite…',
   'footer.about': 'Tungkol sa {{appName}}',
   'footer.language': 'Wika',
+  'forgotPassword.description':
+    'Ilagay ang iyong email at padadalhan ka namin ng link para i-reset.',
+  'forgotPassword.successBody':
+    'Nagpadala kami ng reset link sa {{email}}. Mag-e-expire ito sa loob ng 30 minuto.',
   'forgotPassword.tryAnother': 'Subukan ang ibang email',
   'form.displayName': 'Display name',
   'form.firstName': 'Pangalan',
@@ -74,6 +99,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'Ang iyong roadmap, sinusuportahan ng mga boto.',
   'landing.heroCtaPrimary': 'Magsimulang mangolekta ng boto',
   'landing.heroCtaSecondary': 'Tingnan ang live board',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Tigilan ang paghula. Ipadala ang binoboto nila.',
+  'landing.heroLede':
+    'Ginagawang {{appName}} ang mga nakakalat na feature request tungo sa isang pampublikong board ng mga binotong ideya, isang opisyal na roadmap, at isang changelog na talagang binabasa ng iyong mga customer.',
   'landing.heroStat1': '3,200+',
   'landing.heroStat1Label': 'Mga koponan na nakikinig',
   'landing.heroStat2': '1.4m',
@@ -85,9 +114,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Changelog',
   'landing.navJoin': 'Sumali sa {{appName}}',
   'landing.navRoadmap': 'Roadmap',
+  'landing.step1Body':
+    'Nagpo-post ang mga customer ng ideya sa mga pampublikong board. Nagsasama ang mga duplicate, nagsasama-sama ang mga boto, at ang demand mismo ang nagra-rank.',
   'landing.step1Title': 'Mangolekta',
+  'landing.step2Body':
+    'Markahan ang mga kahilingan bilang planned o in progress na may target na quarter — agad na nag-a-update ang roadmap kapag ginawa mo ito.',
+  'landing.step2Title': 'Mangako',
   'landing.step3Body':
     'Ang mga nai-ship na post ay nagiging changelog entry, at nakikita ng bawat bumoto ang resulta sa kanilang sariling listahan.',
+  'landing.step3Title': 'Ipadala',
   'landing.topSubtitle': 'Live mula sa board na ito — mag-sign in para magdagdag ng boto.',
   'landing.topTitle': 'Kung ano ang hinihiling ng mga user ngayon',
   'landing.topViewAll': 'Lahat ng board',
@@ -95,14 +130,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Pangunahin',
   'layout.signUp': 'Mag-sign up',
   'layout.submit': 'Magsumite ng feedback',
+  'login.description': 'Ituloy kung saan natapos ang usapan.',
+  'login.heading': 'Mag-sign in sa Nimbus',
+  'login.noAccount': 'Bago dito?',
   'login.passwordPlaceholder': 'Ang iyong password',
   'login.twoFactorLabel': '2FA code (opsyonal)',
   'login.twoFactorPlaceholder': '6-digit na code',
+  'login.twoFactorRequiredHint':
+    'Naka-enable ang two-factor authentication sa account na ito. Ilagay ang 6-digit na code mula sa iyong authenticator app para magpatuloy.',
   'login.twoFactorRequiredLabel': 'Ilagay ang iyong 2FA code',
+  'myActivity.browseCta': 'Mag-browse ng mga board',
+  'myActivity.emptyPosts': 'Wala ka pang nai-post na kahilingan.',
+  'myActivity.emptyVotes': 'Wala pa — i-browse ang mga board at suportahan ang isang ideya.',
   'myActivity.eyebrow': 'Ang iyong aktibidad',
   'myActivity.loadError': 'Hindi ma-load ang iyong aktibidad.',
   'myActivity.postsTitle': 'Mga kahilingang isinumite mo',
+  'myActivity.shippedNote': '{{count}} sa mga ito ang naipadala — salamat sa pagpapaalala.',
   'myActivity.submitCta': 'Mag-post ng kahilingan',
+  'myActivity.tabLabel': 'Tingnan',
   'myActivity.tabPosts': 'Aking mga post',
   'myActivity.tabVotes': 'Aking mga boto',
   'myActivity.votesTitle': 'Mga kahilingang binoto mo',
@@ -137,8 +182,12 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Hindi nahanap ang post',
   'postsAdmin.backToDashboard': 'Dashboard',
   'postsAdmin.eyebrow': 'Koponan ng produkto',
+  'postsAdmin.mergeApplied': 'Na-merge — inilipat ang {{votes}} boto at {{comments}} komento.',
   'postsAdmin.mergeApply': 'Pagsama at ilipat ang mga boto',
   'postsAdmin.mergeChoose': 'Pumili ng target post…',
+  'postsAdmin.mergeFailed': 'Nabigo ang pag-merge.',
+  'postsAdmin.mergeHint':
+    'Nagsasama-sama ang mga boto (isa bawat user), lumilipat ang mga komento, at nakakakuha ang post na ito ng "moved" na tala.',
   'postsAdmin.mergeLabel': 'Pagsama ang duplicate sa',
   'postsAdmin.responseLabel': 'Opisyal na tugon',
   'postsAdmin.responsePlaceholder':
@@ -153,7 +202,13 @@ export const ui: UiTranslations = {
     'Itakda ang opisyal na status, tumugon sa publiko, lagyan ng label ang roadmap quarter, at pagsama ang mga duplicate.',
   'postsAdmin.title': 'Pamahalaan ang mga feedback post',
   'postsAdmin.votes': '{{count}} boto',
+  'pricing.limits.advancedFeatures': 'Mga advanced na tampok:',
+  'pricing.limits.boards': '{{count}} mga tabla',
   'pricing.limits.export': 'Pag-export ng data:',
+  'pricing.limits.posts': '{{count}} feedback post',
+  'pricing.limits.votes': '{{count}} boto',
+  'resetPassword.description':
+    'Pumili ng matibay. Isa-sign in ka namin kapag nagtagumpay ang pag-reset.',
   'resetPassword.newPasswordLabel': 'Bagong password',
   'resetPassword.tokenPlaceholder': 'I-paste ang link token',
   'roadmap.cardMeta': 'ni {{author}} · {{board}}',
@@ -170,6 +225,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'Mag-type ng query para mahanap ang mga umiiral na kahilingan bago mag-post ng duplicate.',
   'search.loadError': 'Nabigo ang paghahanap — subukan muli.',
+  'search.searching': 'Naghahanap…',
   'search.submit': 'Maghanap',
   'search.submitNew': 'I-post ito bilang bagong kahilingan',
   'search.title': 'Maghanap ng feedback',
@@ -178,11 +234,22 @@ export const ui: UiTranslations = {
   'settings.billing': 'Pagsingil',
   'settings.displaySubtitle': 'Piliin kung gaano kasiksik ang mga feed.',
   'settings.displayTitle': 'Display',
+  'settings.emailDigestDesc': 'Ang pinakabinotong open na kahilingan tuwing Lunes.',
+  'settings.emailDigestLabel': 'Lingguhang digest',
+  'settings.emailMentionsDesc': 'Kapag may tumugon sa isang post na sinusubaybayan mo.',
+  'settings.emailMentionsLabel': 'I-email ako sa mga mention',
+  'settings.emailRepliesDesc': 'Mga thread na sinimulan o tinugunan mo.',
+  'settings.emailRepliesLabel': 'I-email ako sa mga tugon',
   'settings.loadError': 'Hindi ma-load ang iyong account.',
   'settings.loading': 'Naglo-load ng iyong mga setting…',
   'settings.notifications': 'Mga Notipikasyon',
   'settings.notificationsSubtitle': 'Magpasya kung ano ang aabot sa inbox vs sa push device mo.',
+  'settings.pushRepliesLabel': 'I-push para sa mga tugon',
+  'settings.pushVotesDesc': 'Threshold ping sa 100, 500, 1000.',
+  'settings.pushVotesLabel': 'Isulong ang mga milestone ng upvote',
   'settings.saveAccount': 'I-save ang account',
+  'settings.showFlair': 'Ipakita ang mga board chip sa mga post',
+  'settings.showThumbnails': 'Ipakita ang mga thumbnail ng link/larawan',
   'settings.usernamePlaceholder': 'Pumili ng handle',
   'signup.confirmPlaceholder': 'I-type ulit',
   'signup.description': 'Hubugin kung ano ang susunod naming buuin.',

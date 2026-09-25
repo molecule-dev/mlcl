@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May mga tanong, feedback, o ideya para sa {{app}}? Gusto naming marinig mula sa iyo — bawat mensahe ay nakakarating sa isang tunay na tao sa team.',
   'about.contactTitle': 'Makipag-ugnayan',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'about.intro':
+    'Ang {{app}} ay ang iyong matiyagang AI tutor para sa flashcards, quizzes, at Socratic dialogue. {{tagline}} — bumuo ng malalim at pangmatagalang pag-unawa sa anumang paksa sa sarili mong bilis.',
+  'about.missionBody':
+    'Ang tunay na pagkatuto ay nagmumula sa pag-unawa, hindi sa pagsasaulo. Pinagsasama-sama ng {{app}} ang adaptive tutoring, spaced repetition, at tapat na pagsubaybay sa progreso para ang bawat mag-aaral ay may maalam na gabay na sumasabay sa kanila — at hindi kailanman nawawalan ng pasensya.',
+  'about.missionTitle': 'Ang aming misyon',
+  'about.whatYouGetTitle': 'Ano ang matatanggap ninyo',
   'billing.cta.upgrade': 'Pumili ng plano',
   'billing.error': 'Hindi ma-load ang impormasyon sa pagsingil.',
   'billing.freeLabel': 'Libre',
@@ -11,11 +19,13 @@ export const ui: UiTranslations = {
   'billing.loading': 'Kino-load ang impormasyon ng plano…',
   'billing.popular': 'Pinakaminamahal',
   'billing.subtitle': 'Piliin ang planong angkop sa inyong bilis ng pag-aaral.',
+  'billing.viewPricing': 'Tingnan ang buong pagpepresyo →',
   'common.goToDashboard': 'Pumunta sa Dashboard',
   'common.today': 'Ngayon',
   'common.yesterday': 'Kahapon',
   'courseDetail.empty.body':
     'Magdagdag ng materyal sa pag-aaral upang simulan ang pag-master ng paksang ito.',
+  'courseDetail.empty.title': 'Wala pang mga aralin',
   'courseDetail.error': 'Hindi ma-load ang kurso.',
   'courseDetail.loading': 'Kino-load ang kurso…',
   'courseDetail.masteryHint':
@@ -32,8 +42,10 @@ export const ui: UiTranslations = {
   'courses.title': 'Inyong mga kurso',
   'courses.titleLabel': 'Pamagat ng kurso',
   'courses.titlePlaceholder': 'hal. Linear Algebra',
+  'dashboard.dueLabel': '{{count}} dapat suriin',
   'dashboard.error': 'Hindi ma-load ang dashboard.',
   'dashboard.greeting': 'Magandang umaga, {{name}}',
+  'dashboard.greetingGeneric': 'Magandang umaga',
   'dashboard.kpi.cards': 'Mga card na na-master',
   'dashboard.kpi.hours': 'Oras ng pag-aaral',
   'dashboard.kpi.hoursSuffix': 'oras',
@@ -50,7 +62,10 @@ export const ui: UiTranslations = {
   'dashboard.subgreeting': 'Handa na ba para sa isa pang sesyon?',
   'dashboard.timeline.cards': 'mga card',
   'dashboard.timeline.empty': 'Ang mga sesyong natapos ninyo ay lilitaw dito.',
+  'dashboard.timeline.qaDetail': '{{ai}} AI exchanges',
+  'dashboard.timeline.reviewDetail': '{{cards}} cards na nasuri',
   'dashboard.timeline.title': 'Timeline ng pag-aaral',
+  'dashboard.upToDate': 'Up to date',
   'deckDetail.addCard': '+ Magdagdag ng card',
   'deckDetail.addError': 'Hindi maidagdag ang card.',
   'deckDetail.addSubmit': 'Idagdag ang card',
@@ -63,6 +78,7 @@ export const ui: UiTranslations = {
   'deckDetail.error': 'Hindi ma-load ang deck.',
   'deckDetail.eyebrow': 'Deck',
   'deckDetail.frontLabel': 'Harap (tanong)',
+  'deckDetail.hint': 'Hint:',
   'deckDetail.loading': 'Kino-load ang deck…',
   'deckDetail.question': 'Tanong',
   'deckDetail.subtitle': 'Aktibong pag-alala — i-flip kapag handa na kayong sumagot.',
@@ -80,6 +96,7 @@ export const ui: UiTranslations = {
   'flashcards.loading': 'Kino-load ang mga deck…',
   'flashcards.mastery': 'Mastery',
   'flashcards.nameLabel': 'Pangalan ng deck',
+  'flashcards.noneDue': 'Up to date',
   'flashcards.subtitle': 'Spaced repetition na umaangkop sa inyong bilis.',
   'flashcards.title': 'Mga flashcard',
   'footer.copyright': '© {{year}} {{app}} . Matutong mabuti, matulog nang mahimbing.',
@@ -102,6 +119,7 @@ export const ui: UiTranslations = {
   'landing.heroLead': 'Tanungin ang lahat,',
   'landing.startLearning': 'Magsimulang matuto nang libre',
   'landing.streakBannerLead': 'Sumali sa 50,000+ estudyante na may streak — average na ',
+  'landing.streakBannerMid': '42-day',
   'landing.streakBannerTail': ' streak',
   'login.heading': 'Maligayang pagbabalik, mag-aaral',
   'login.hidePassword': 'Itago ang password',
@@ -109,6 +127,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Ipakita ang password',
   'login.signUp': 'Lumikha ng account — libre ito',
   'login.subheading': 'Panatilihin ang inyong streak.',
+  'masteryHeroCard.cardsMastered': '{{mastered}} ng {{total}} cards ang na-master',
   'masteryHeroCard.title': 'Kabuuang mastery',
   'masteryHeroCard.weeklyHours': '{{hours}} oras ngayong linggo',
   'masteryRing.label': 'Na-master',
@@ -122,16 +141,27 @@ export const ui: UiTranslations = {
     'Ang URL na iyon ay hindi pa natutuklasang lugar. Marahil ay typo, marahil ay tinanggal na aralin — kung papaano man, ibalik natin kayo sa pag-aaral.',
   'notFound.heading': 'Hindi nahanap ang pahina.',
   'notFound.label': '{{appName}} · 404',
+  'notifications.empty.body': 'Dito lalabas ang mga bagong update.',
   'notifications.empty.title': 'Napapanahon na kayo',
   'notifications.filter.${opt}': 'Naglo-load ng mga notification…',
+  'notifications.loading': 'Naglo-load ng mga notification…',
   'notifications.markAllError': 'Hindi mamarkahan ang lahat bilang nabasa.',
   'notifications.markError': 'Hindi mamarkahan bilang nabasa.',
   'notifications.subtitle': '{{count}} mga hindi pa nababasang update',
+  'planUpdated.body':
+    'Aktibo na ang pagbabago sa iyong billing. Maaari mong pamahalaan ang iyong plano anumang oras mula sa billing page.',
+  'planUpdated.retry': 'Subukan muli',
+  'planUpdated.verifyFailed': 'Hindi pa namin makumpirma ang iyong bayad.',
+  'planUpdated.verifyFailedBody':
+    'Maaaring pinoproseso pa rin ang iyong bayad. Subukan muli maya-maya.',
   'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'pricing.heading': 'mga pagsusulit',
+  'pricing.limits.quizzes': 'mga pagsusulit',
   'pricing.limits.topics': 'mga paksa',
   'privacy.collectBody':
     'Email ng account, mga kurso, deck, tala at mga pagtatangkang quiz na inyong nilikha, at pinagsama-samang aktibidad sa pag-aaral na ginagamit upang ipakita ang inyong mga chart ng progreso.',
+  'privacy.intro':
+    'Ginagalang ng {{app}} ang iyong privacy. Ipinapaliwanag ng pahinang ito kung ano ang kinokolekta namin, bakit, at paano ito kontrolin.',
   'privacy.shareBody':
     'Ang mga tanong sa AI tutor ay ipinapadala sa aming provider ng LLM para sa pagbuo. Ang mga bayad ay pinoproseso ng Stripe. Ang mga email sa pagpapatunay ay niruruta sa pamamagitan ng Mailgun.',
   'privacy.title': 'Patakaran sa privacy',
@@ -141,6 +171,7 @@ export const ui: UiTranslations = {
   'profile.kpi.badges': 'Mga badge na nakuha',
   'profile.kpi.hours': 'Kabuuang oras',
   'profile.kpi.quizzes': 'Mga quiz na ginawa',
+  'profile.kpi.subjects': 'Mga aktibong asignatura',
   'profile.locked': 'Naka-lock',
   'profile.member': 'Miyembro mula {{year}}',
   'profile.subtitle': 'Isang snapshot ng inyong pagkakakilanlan bilang mag-aaral.',
@@ -148,6 +179,7 @@ export const ui: UiTranslations = {
   'progress.chart.empty':
     'Wala pang aktibidad sa pag-aaral — ang inyong unang sesyon ay lilitaw dito.',
   'progress.chart.label': 'Lingguhang minuto',
+  'progress.chart.peak': 'Pinakamataas: {{peak}}m',
   'progress.chart.title': 'Inyong mga minuto sa pag-aaral — nakaraang 7 araw',
   'progress.error': 'Hindi ma-load ang progreso.',
   'progress.eyebrow': 'Mga pananaw',
@@ -155,6 +187,7 @@ export const ui: UiTranslations = {
   'progress.kpi.recall': 'Rate ng pag-alala',
   'progress.kpi.streak': 'Streak',
   'progress.kpi.streakValue': '{{count}} araw',
+  'progress.loading': 'Naglo-load ng progreso…',
   'progress.overall': 'Kabuuan',
   'progress.subjects': 'Mga trend ng paksa (nakaraang 30 araw)',
   'progress.subtitle':
@@ -166,6 +199,7 @@ export const ui: UiTranslations = {
   'quiz.endQuiz': 'Tapusin ang quiz',
   'quiz.error': 'Hindi ma-load ang quiz.',
   'quiz.eyebrow': 'Quiz',
+  'quiz.loading': 'Naglo-load ng pagsusulit…',
   'quiz.next': 'Susunod →',
   'quiz.prev': 'Nakaraan',
   'quiz.progress': 'Tanong {{current}} ng {{total}}',
@@ -177,8 +211,11 @@ export const ui: UiTranslations = {
   'quizResults.empty.body':
     'Gawin ang quiz na ito upang makita ang breakdown ng inyong score dito.',
   'quizResults.empty.title': 'Wala pang pagtatangka',
+  'quizResults.encouragement':
+    'Suriin ang mga paliwanag sa ibaba para sa mga tanong na hindi mo nasagot nang tama.',
   'quizResults.error': 'Hindi ma-load ang mga resulta ng quiz.',
   'quizResults.eyebrow': 'Mga resulta',
+  'quizResults.kpi.correct': 'Tama',
   'quizResults.kpi.incorrect': 'Mali',
   'quizResults.kpi.skipped': 'Nilaktawan',
   'quizResults.loading': 'Kino-load ang mga resulta…',
@@ -189,9 +226,11 @@ export const ui: UiTranslations = {
   'quizResults.title': 'Tapos na ang quiz',
   'quizResults.your': 'Inyong sagot:',
   'resetPassword.hidePassword': 'Itago ang password',
+  'resetPassword.newPasswordLabel': 'Bagong password',
   'resetPassword.showPassword': 'Ipakita ang password',
   'resetPassword.subtitle': 'Pumili ng isang bagay na hindi malilimutan — at natatangi.',
   'reviewQueueCard.cardsWaiting': '{{count}} card na naghihintay',
+  'reviewQueueCard.startReview': 'Simulan ang Pagsusuri',
   'search.empty.body': 'Subukan ang ibang keyword o filter.',
   'search.empty.title': 'Walang natuklasan.',
   'search.error': 'Hindi ma-load ang mga resulta.',
@@ -215,6 +254,7 @@ export const ui: UiTranslations = {
     'Awtomatikong gumamit ng freeze upang mapanatili ang inyong streak.',
   'settings.reminders.time': 'Oras ng pang-araw-araw na paalala',
   'settings.reminders.timeHelp': 'Kailan kami mag-aabiso sa inyo?',
+  'settings.reminders.weekend': 'Pagpapaluwag sa weekend',
   'settings.reminders.weekendHelp':
     'Mas mababang pang-araw-araw na layunin tuwing Sabado at Linggo.',
   'settings.saveError': 'Hindi ma-save ang mga setting.',
@@ -222,6 +262,7 @@ export const ui: UiTranslations = {
     'I-customize ang inyong karanasan sa pag-aaral para sa pinakamainam na pokus.',
   'signup.fullNamePrompt': 'Paano namin kayo tatawagin?',
   'signup.heading': 'Simulan ang inyong paglalakbay sa pag-aaral',
+  'signup.hidePassword': 'Itago ang password',
   'signup.showPassword': 'Ipakita ang password',
   'signup.subheading': 'Libre magpakailanman — hindi na kailangan ng credit card.',
   'streakBadge.days': '{{count}} sunod-sunod na araw',
@@ -235,17 +276,23 @@ export const ui: UiTranslations = {
   'studySession.loading': 'Kino-load ang sesyon ng pag-aaral…',
   'studySession.markError': 'Hindi mamarkahan bilang nasuri.',
   'studySession.markReviewed': 'Markahan bilang nasuri',
+  'studySession.masteryPct': '{{pct}}% na masterado',
   'studySession.reviewed': 'Nasuri',
   'studySession.thinking': 'Nag-iisip…',
   'studySession.title': 'Sesyon ng pag-aaral',
   'studySession.tutor.label': 'Tutor',
   'studySession.tutor.name': 'AI Tutor',
   'studySession.tutor.status': 'Matiyaga · Socratic · adaptive',
+  'studySession.welcomeGeneric':
+    'Nandito ako para tumulong. Magtanong ng kahit ano tungkol sa paksang ito.',
   'studySession.welcomeWithTopic':
     'Maligayang pagbabalik sa {{title}}. Magtanong ng kahit ano, o sabihing "buod" upang magsimula.',
+  'subjectCard.cardCount': '{{count}} mga card',
   'subjectCard.mastery': 'Mastery',
   'terms.contentBody':
     'Pinapanatili ninyo ang pagmamay-ari ng mga kurso, deck, tala at mga mensahe sa chat na inyong nilikha. Pinoproseso namin ang mga ito nang eksklusibo upang maihatid ang karanasan sa pag-aaral at mapanatiling ligtas ang inyong data.',
+  'terms.intro':
+    'Sa paggawa ng account sa {{app}}, sumasang-ayon kang mag-aral nang may paggalang, panatilihing pribado ang mga kredensyal ng iyong account, at gamitin ang platform para sa personal na pag-aaral.',
   'terms.terminationBody':
     'Maaari ninyong tanggalin ang inyong account anumang oras mula sa Mga Setting. Maaari naming i-suspend ang mga mapang-abusong account pagkatapos ng abiso. Sa pagwawakas, tatanggalin namin ang inyong data sa pag-aaral sa loob ng tatlumpung araw.',
   'terms.useBody':

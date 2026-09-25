@@ -1,32 +1,49 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Zure taldearentzat harrera beroagoa abiarazi nahi duzu, akats bat aurkitu duzu edo feedbacka eman nahi duzu? Idatzi zure kontuaren ezarpenetatik — mezu bakoitza laguntzeko prest dagoen benetako pertsona batengana iristen da.',
   'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
+  'about.missionTitle': 'Gure misioa',
   'auth.forgotPassword.emailPlaceholder': 'izena@zureenpresa.com',
   'auth.forgotPassword.heading': 'Berrezarri zure pasahitza.',
+  'auth.forgotPassword.panel.body':
+    'Berrezartzeak 30 segundo besterik ez ditu behar — zure zerrendaren aurrerapenak zain jarraitzen du.',
+  'auth.forgotPassword.panel.headline': 'Utzi zenuen tokian bertan.',
+  'auth.forgotPassword.subheading':
+    'Sartu zure laneko helbide elektronikoa eta berrezartzeko esteka bat bidaliko dizugu.',
   'auth.forgotPassword.successSubheading':
     'Begiratu zure sarrera-ontzia — berrezartzeko argibideak bidali dizkizugu.',
   'auth.login.emailPlaceholder': 'izena@zureenpresa.com',
   'auth.login.heading': 'Ongi etorri berriro.',
   'auth.login.passwordPlaceholder': 'Zure pasahitza',
+  'auth.login.signupPrompt': 'Zure taldean berria zara?',
   'auth.login.subheading': 'Hasi saioa zure hasierako bidaia utzi zenuen tokitik jarraitzeko.',
   'auth.login.submit': 'Jarraitu zure bidaia',
+  'auth.panel.body':
+    'Zure zerrenda pertsonala, prestakuntza-mugarriak eta taldekideen aurkezpenak — dena leku lasai bakarrean.',
   'auth.panel.footnote': '© Embark — gaurtik aurrera pertsonak lehenesten ditugu.',
   'auth.panel.headline': 'Hemen hasten dira lehen 90 egun ziurra.',
   'auth.resetPassword.heading': 'Ezarri pasahitz berri bat.',
   'auth.resetPassword.newPasswordLabel': 'Pasahitz berria',
+  'auth.resetPassword.panel.body':
+    'Gorde pasahitz berri bat eta zure onboarding bidaian sartuko zaitugu berriro.',
+  'auth.resetPassword.panel.headline': 'Ia barruan berriro.',
   'auth.resetPassword.subheading': 'Aukeratu gogoratuko duzun zerbait — gutxienez 8 karaktere.',
   'auth.signup.emailPlaceholder': 'izena@zureenpresa.com',
   'auth.signup.heading': 'Ongi etorri zure lehen 90 egunetara.',
   'auth.signup.panel.body':
     'Kontrol-zerrenda gidatua, rolen araberako prestakuntza eta aurkezpen pertsonalak — sartu aurretik prest.',
+  'auth.signup.panel.headline': 'Lehen eguna, lehen egunean.',
   'auth.signup.subheading': 'Sortu zure Embark kontua zure onboarding bidaia gidatua hasteko.',
   'checklist.empty.body': 'Aldatu iragazkia beste zeregin batzuk ikusteko.',
   'checklist.empty.title': 'Ez dago ezer hemen oraintxe bertan',
   'checklist.eyebrow': 'Onboarding · Kontrol-zerrenda',
   'checklist.loading': 'Kontrol-zerrenda kargatzen…',
   'checklist.stat.actionNeeded': 'Ekintza beharrezkoa',
+  'checklist.stat.completion': 'Amaiera',
+  'checklist.stat.inProgress': 'Prozesuan',
   'checklist.stat.inProgressHelper': 'Jarraitu utzi zenuen tokitik',
   'checklist.stat.overdueHelper': 'Hartu hauek lehenengo',
   'checklist.subtitle':
@@ -58,6 +75,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Oraindik ez dago dokumenturik',
   'documents.eyebrow': 'Onboarding · Dokumentuak',
   'documents.loading': 'Dokumentuak kargatzen…',
+  'documents.stat.actionNeeded': 'Sinatu orain',
+  'documents.stat.all': 'Dokumentu guztiak',
   'documents.stat.allHelper': 'Kategoria guztietan',
   'documents.stat.pending': 'Zain dauden sinadurak',
   'documents.stat.pendingHelper': 'Osatzeko beharrezkoa',
@@ -65,6 +84,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Segurtasunez gordeta',
   'documents.status.optional': 'Aukerakoa',
   'documents.status.required': 'Beharrezkoa',
+  'documents.status.signed': 'Sinatua',
   'documents.subtitle':
     'Zure eskuliburua, inprimakiak eta sinatutako akordioak — dena leku bakarrean.',
   'documents.title': 'Irakurri eta sinatu behar duzun guztia.',
@@ -72,10 +92,14 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'Ikuslea',
   'documentViewer.breadcrumbDocs': 'Dokumentuak',
   'documentViewer.downloadMeta': 'Deskargatu metadatuak',
+  'documentViewer.helpBody':
+    'People & Culture taldeak eskuliburuaren galerei erantzuten die Slackeko #ask-people kanalean.',
   'documentViewer.helpEyebrow': 'Laguntza behar duzu?',
   'documentViewer.loadError': 'Ezin izan dugu dokumentu hau kargatu.',
   'documentViewer.loading': 'Dokumentua kargatzen…',
   'documentViewer.notFound': 'Dokumentua ez da aurkitu',
+  'documentViewer.previewBody':
+    'Igoerak konfiguratuta daudenean, fitxategia bertan erakusten dugu. Oraingoz, metadatuen deskargak erregistroa benetakoa dela egiaztatzeko aukera ematen dizu.',
   'documentViewer.previewBodyExternal':
     'Erabili deskargatzeko botoia fitxategia fitxa berri batean irekitzeko.',
   'documentViewer.previewTitle': 'Dokumentuaren aurrebista',
@@ -83,6 +107,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Irakurri dokumentua, eta egin klik behean sinatzeko eta onartzeko.',
   'documentViewer.signatureHeading': 'Sinadura beharrezkoa da',
+  'documentViewer.signed': '✓ Sinatuta eta artxibatuta',
   'documentViewer.signing': 'Sinatzen…',
   'documentViewer.uploadedRecently': 'Duela gutxi igotakoak',
   'landing.closing.body':
@@ -92,10 +117,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Badaukat kontu bat',
   'landing.feature1.body':
     'Zeregin guztiak —paperak, kontuak, aurkezpenak— aldez aurretik antolatuta daude, epeak eta jabe egokiarekin.',
+  'landing.feature1.title': 'Zerrenda gidatua',
   'landing.feature2.body':
     'Moduluak 30/60/90 mugarritan desblokeatzen dira, kontratatutako langilea sartzen den rolera eta taldera egokituta.',
+  'landing.feature2.title': 'Rolaren araberako prestakuntza',
   'landing.feature3.body':
     'Lagunak, kudeatzaileak eta funtzio anitzeko aurkezpenak programatuta — inork ez dezan bakarrik hasi.',
+  'landing.feature3.title': 'Benetako aurkezpenak',
   'landing.featureEyebrow': 'Zergatik abiatu',
   'landing.featureHeadline': 'Hiru modu Embark-ek lehen egunean konfiantza irabazteko.',
   'landing.footer.rights': 'Eskubide guztiak erreserbatuta.',
@@ -105,6 +133,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Hurrengoa: Elkartu zure lagunarekin 30 minutuko kafe-hizketaldi bat egiteko — asteartea, 10:00etan.',
   'landing.preview.eyebrow': '90etik 14. eguna — aginte-panelen adibidea',
+  'landing.preview.headline': 'Ongi etorri berriro, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR prest',
   'landing.proof.teams': '50-5.000 laguneko taldeentzat eraikia',
   'landing.proof.time': '14 eguneko doako proba',
@@ -121,16 +150,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Dena prest duzu.',
   'planUpdated.preparing': 'Zure plana eguneratzen…',
+  'planUpdated.retry': 'Saiatu berriro',
+  'planUpdated.verifyFailed': 'Ezin izan dugu oraindik zure ordainketa baieztatu.',
+  'planUpdated.verifyFailedBody':
+    'Baliteke zure ordainketa prozesatzen ari izatea oraindik. Saiatu berriro une batean.',
   'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'pricing.documentsLabel': 'dokumentuak',
   'pricing.onboardingsLabel': 'sarrerak',
   'pricing.tasksLabel': 'zereginak',
   'profile.dayNumber': 'Eguna',
   'profile.detailsHeading': 'Onarpen xehetasunak',
+  'profile.encouragementBody':
+    'Eduki zure laguna eta zuzendaria jakinaren gainean — urrats txikiek metatzen dute.',
   'profile.milestones': 'Mugarriak',
   'profile.progressEyebrow': 'Onartze-aurrerapena',
   'profile.tasks': 'Zereginak',
   'profile.unknownName': 'Ongi etorri',
+  'settings.appearance.description': 'Aldatu modu argiaren eta ilunaren artean.',
+  'settings.appearance.title': 'Itxura',
+  'settings.subtitle':
+    'Doitu jakinarazpenak, segurtasuna, gailuak eta datuen esportazioa — dena hemen geratzen da, zure baldintzetan.',
   'settings.title': 'Ezarpenak eta lehentasunak.',
   'taskDetail.backToChecklist': 'Itzuli kontrol-zerrendara',
   'taskDetail.breadcrumbChecklist': 'Kontrol-zerrenda',
@@ -143,7 +182,10 @@ export const ui: UiTranslations = {
   'taskDetail.notFound': 'Zeregina ez da aurkitu',
   'taskDetail.notFoundBody':
     'Baliteke zeregin hau ezabatuta egotea edo beste erabiltzaile batena izatea.',
+  'taskDetail.tipBody':
+    'Blokeatuta bazaude, idatzi zure onboarding lagunari Slacken — bera da zure lehen laguntza-lerroa.',
   'taskDetail.tipEyebrow': 'Aholku azkarra',
+  'team.empty.body': 'Saiatu bilaketa zabalago batekin edo aukeratu beste sail bat.',
   'team.empty.title': 'Taldekideek ez dute partidarik jokatu',
   'team.eyebrow': 'Onboarding · Pertsonak',
   'team.loading': 'Taldekideak kargatzen…',
@@ -166,14 +208,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Mugarriak',
   'timeline.stat.current': 'Uneko mugarria',
   'timeline.stat.next': 'Hurrengo desblokeoa',
+  'timeline.stat.progress': 'Oro har',
   'timeline.subtitle':
     'Mugarri bakoitzak modulu, aurkezpen eta hazkunde elkarrizketa berriak desblokeatzen ditu. Presiorik gabe — aurrerapena besterik ez.',
+  'timeline.tipBody':
+    'Antolatu 30 minutuko hausnarketa bat 30., 60. eta 90. egunetan zure zuzendariarekin — horrek feedbacka zehatza eta aurrerapena ikusgai egiten ditu.',
   'timeline.tipEyebrow': 'Zuzendariaren aholkua',
+  'timeline.tipTitle': 'Blokeatu denbora egutegian mugarrietarako.',
   'timeline.title': 'Zure 30 / 60 / 90eko bidaia.',
   'training.badge.notStarted': 'Ez hasi',
   'training.empty': 'Oraindik ez dago prestakuntza modulurik.',
   'training.eyebrow': 'Onboarding · Prestakuntza',
   'training.loading': 'Moduluak kargatzen…',
+  'training.stat.all': 'Moduluak esleituta',
   'training.subtitle':
     'Moduluak 30/60/90ean desblokeatzen dira zure rolarekin bat etortzeko. Beharrezkoenak lehenengo datoz.',
   'training.title': 'Trebetasunak, tresnak eta istorioak — zure erritmoan.',
@@ -186,9 +233,12 @@ export const ui: UiTranslations = {
   'trainingModule.quizBody':
     'Modulu hau osatuta dagoela adierazteko, lortu % 80ko edo gehiagoko puntuazioa.',
   'trainingModule.quizHeading': 'Modulu amaierako galdetegia',
+  'trainingModule.quizLocked': 'Hasi modulua lehenik',
   'trainingModule.quizNone': 'Modulu honetan ez dago galdetegirik.',
   'trainingModule.quizRetry': 'Saiatu berriro',
+  'trainingModule.quizStart': 'Hasi galdetegia',
   'trainingModule.quizSubmit': 'Bidali erantzunak',
+  'trainingModule.start': 'Hasi modulua',
   'trainingModule.statusNotStarted': 'Ez hasi',
   'welcomeHeroCard.completeLabel': 'Osatu',
   'welcomeHeroCard.milestonesLabel': 'Mugarriak',

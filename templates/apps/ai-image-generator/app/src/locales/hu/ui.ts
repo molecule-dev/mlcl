@@ -1,14 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Van visszajelzésed, elakadtál, vagy elmondanád, mit fejlesszünk következőként? Írj a csapatnak a hello@reverie.app címre — minden üzenet egy igazi emberhez kerül, aki a terméket készíti.',
   'about.contactTitle': 'Lépj velünk kapcsolatba',
+  'about.missionTitle': 'Küldetésünk',
   'auth.fields.newPassword': 'Új jelszó',
   'collectionDetail.addImage': 'Készítés a gyűjteményhez',
   'collectionDetail.backCta': 'Vissza a gyűjteményekhez',
   'collectionDetail.coverNote': 'Válogatott hangulattábla {{count}} képpel.',
   'collectionDetail.editName': 'Gyűjtemény neve',
+  'collectionDetail.empty':
+    'Még nincsenek képek ebben a gyűjteményben — generálj valamit a hozzáadáshoz.',
   'collectionDetail.loading': 'Gyűjtemény betöltése…',
   'collectionDetail.loadingImages': 'Képek betöltése…',
+  'collectionDetail.notFoundBody': 'Ez a gyűjtemény eltávolításra került, vagy privát.',
   'collectionDetail.notFoundTitle': 'Gyűjtemény nem elérhető',
   'collectionDetail.shared': 'Láthatóság átkapcsolva',
   'collections.create': 'Új gyűjtemény',
@@ -16,6 +22,7 @@ export const ui: UiTranslations = {
     'Még nincsenek gyűjtemények. Hozzon létre egyet, hogy elkezdje rendszerezni munkáit.',
   'collections.imageCount': '{{count}} kép',
   'collections.loading': 'Gyűjtemények betöltése…',
+  'collections.noDescription': 'Még nincs leírás — nyisd meg a hozzáadáshoz.',
   'collections.subtitle': 'Hangulattáblák, leírások és folyamatban lévő sorozatok',
   'collections.title': 'Gyűjtemények',
   'collections.untitled': 'Cím nélkül · {{stamp}}',
@@ -55,6 +62,7 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'Adja meg a Reverie-fiókjához tartozó e-mail-címet, és küldünk egy visszaállítási linket.',
   'forgot.successBody': 'A visszaállítási link úton van a {{email}} címre.',
+  'gallery.empty.body': 'Próbálj másik állapotot, vagy generálj egy új köteget a stúdióból.',
   'gallery.empty.title': 'Semmi sem felel meg ennek a szűrőnek',
   'gallery.exportAll': 'Összes exportálása',
   'gallery.exported': 'Exportálás sorba állítva',
@@ -77,12 +85,15 @@ export const ui: UiTranslations = {
   'generate.controls.title': 'Az álom hangolása',
   'generate.defaultPrompt': 'Egy új álom',
   'generate.progress': 'Lépés {{step}} / {{total}}',
+  'generate.submitFailed':
+    'A generálást nem sikerült sorba állítani — ellenőrizd a kapcsolatot, és próbáld újra.',
   'generate.subtitle': 'Komponáljon promptot, állítsa be a vezérlőket, készítsen változatokat',
   'generate.title': 'Stúdió',
   'generation.created': '{{when}}',
   'imageDetail.acting': 'Munka folyamatban…',
   'imageDetail.actionFailed': 'A művelet sikertelen.',
   'imageDetail.actions': 'Képműveletek',
+  'imageDetail.downloadStarted': 'A letöltés elindult.',
   'imageDetail.downloadUnavailable': 'Még nem érhető el letölthető kép.',
   'imageDetail.fields.aspect': 'Arány',
   'imageDetail.fields.created': 'Létrehozva',
@@ -93,11 +104,17 @@ export const ui: UiTranslations = {
   'imageDetail.notFoundTitle': 'Kép nem elérhető',
   'imageDetail.noVariations': 'Még nincsenek változatok — kérjen egyet fent.',
   'imageDetail.openEditor': 'Megnyitás szerkesztőben',
+  'imageDetail.tips.lockSeed':
+    'Zárold a seedet, hogy a világításon iterálhass anélkül, hogy elveszítenéd a kompozíciót.',
+  'imageDetail.tips.upscale':
+    'Futtass 4× upscale-t exportálás előtt a nyomtatásra kész minőségért.',
   'imageDetail.tipsTitle': 'Álom finomítása',
+  'imageDetail.title': 'Kép',
   'imageDetail.upscaleQueued': 'Felskálázás sorba állítva',
   'imageDetail.variations': 'Változatok',
   'imageDetail.variationsQueued': 'Változatok sorba állítva',
   'imageDetail.visibilityToggled': 'Láthatóság frissítve',
+  'landing.copyright': '© {{year}} {{appName}} Labs. A Molecule.dev segítségével készült.',
   'landing.cta': 'Kezdjen el alkotni',
   'landing.eyebrow': 'Most a Reverie XL v3 szolgálja Önt',
   'landing.featuresEyebrow': 'Miért a Reverie',
@@ -137,8 +154,18 @@ export const ui: UiTranslations = {
     'A generálási tevékenység, megosztás és kreditértesítések itt fognak megjelenni.',
   'notifications.empty.title': 'Nincs jelenteni való',
   'notifications.subtitle': 'Generálási események napok szerint csoportosítva',
+  'planUpdated.confirmed': 'A {{planKey}} csomagod aktív, és a kreditek hozzáadásra kerültek.',
+  'planUpdated.error':
+    'Nem sikerült automatikusan megerősítenünk a frissítésedet. Kérjük, vedd fel a kapcsolatot az ügyfélszolgálattal.',
+  'planUpdated.retry': 'Próbálja újra',
+  'planUpdated.unpaid':
+    'A fizetési munkameneted nem került kifizetésre. Próbáld újra a Beállításokból.',
+  'planUpdated.verifyFailed': 'Még nem tudtuk megerősíteni a fizetését.',
+  'planUpdated.verifyFailedBody':
+    'Lehetséges, hogy a fizetése még feldolgozás alatt áll. Próbálja újra egy pillanat múlva.',
   'planUpdated.verifying': 'Fizetésed megerősítése…',
   'pricing.limits.gallery': '{{count}} galéria',
+  'pricing.limits.generations': '{{count}} generálás',
   'privacy.collect.body':
     'Amikor regisztrál, összegyűjtjük az Ön nevét, e-mail-címét és egy hash-elt jelszót. A Reverie használata során tároljuk az Ön által beküldött promptokat, az Önnek generált képeket, az elmentett stílusokat és gyűjteményeket, valamint metaadatokat, mint a használt modell, a generálási időbélyegek és a kreditegyenleg.',
   'privacy.cookies.body':
@@ -152,6 +179,8 @@ export const ui: UiTranslations = {
   'profile.followedBio': 'Most kezdte követni az alkotót',
   'profile.following': 'Követés…',
   'profile.loadingWorks': 'Nyilvános művek betöltése…',
+  'profile.noPublicWorks':
+    'Még nincsenek nyilvános munkák — ossz meg egy képet a galéria feltöltéséhez.',
   'profile.notFoundTitle': 'Profil nem elérhető',
   'profile.publicWorks': 'Nyilvános művek',
   'profile.subtitle': '@{{handle}} · nyilvános alkotói profil',
@@ -163,6 +192,7 @@ export const ui: UiTranslations = {
   'prompts.empty.cta': 'Stúdió megnyitása',
   'prompts.empty.title': 'Nincs egyező mentett prompt',
   'prompts.lastUsed': 'Használva: {{when}}',
+  'prompts.loading': 'Promptok betöltése…',
   'prompts.negativeLabel': 'NEG',
   'prompts.runAgain': 'Futtatás',
   'prompts.running': 'Futtatás…',
@@ -178,6 +208,7 @@ export const ui: UiTranslations = {
   'settings.account.saveFailed': 'A profilt nem sikerült menteni',
   'settings.account.title': 'Alkotói profil',
   'settings.accountSecurity': 'Fiók és biztonság',
+  'settings.accountSecurity.title': 'Bejelentkezés, eszközök és fiók',
   'settings.api.empty':
     'Még nincsenek API-kulcsok — hozzon létre egyet az integráció megkezdéséhez.',
   'settings.api.loading': 'API-kulcsok betöltése…',
@@ -197,12 +228,16 @@ export const ui: UiTranslations = {
   'sidebar.secondary': 'Másodlagos navigáció',
   'signup.failed': 'A regisztráció sikertelen. Próbálja újra.',
   'signup.firstNamePlaceholder': 'Aria',
+  'signup.haveAccount': 'Már álmodozó vagy?',
   'signup.heading': 'Kezdje el a reveriéjét',
   'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Hozzon létre fiókot és igényeljen 120 ingyenes kreditet.',
+  'styles.body':
+    'Minden preset saját modellt, samplert, prompt-állványzatot és stíluschipeket tartalmaz. Aktiválj egyet, hogy az egész stúdiót abba a hangulatba zárja — tökéletes sorozatmunkákhoz.',
   'styles.empty': 'Még nincsenek stílus-előbeállítások — az első bejelentkezés után jelennek meg.',
   'styles.eyebrow': 'Válogatott',
   'styles.headline': 'Alkossanak gyorsabban újrafelhasználható vizuális előbeállításokkal',
+  'styles.loading': 'Stíluskönyvtár betöltése…',
   'styles.subtitle': 'A Reverie stúdiócsapata által készített válogatott vizuális előbeállítások',
   'styles.title': 'Stíluskönyvtár',
   'terms.acceptableUse.body':

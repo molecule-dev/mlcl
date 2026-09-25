@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'တုံ့ပြန်ချက် ရှိပါသလား၊ ချို့ယွင်းချက် တွေ့ပါသလား၊ သို့မဟုတ် သင့်စတူဒီယို သို့မဟုတ် အဖွဲ့အတွက် {{app}} လိုချင်ပါသလား။ သင့်အကောင့်ဆက်တင်များမှ ဆက်သွယ်ပါ — မက်ဆေ့ခ်ျတိုင်း အဖွဲ့မှ လူတစ်ဦးထံ ရောက်ပါသည်။',
   'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
+  'about.intro':
+    '{{app}} သည် အယ်ဒီတာများ၊ စာရေးဆရာများနှင့် အဖွဲ့များ အချိန်နှင့်တပြေးညီ အတူတကွ မူကြမ်းရေးသားနိုင်သော ပူးပေါင်းရေးသားရေး စတူဒီယိုတစ်ခု ဖြစ်သည်။ စာရွက်စာတမ်းတစ်ခု ဖွင့်လိုက်သည်နှင့် စာမျက်နှာသည် မျှဝေထားသည့်အရာ ဖြစ်လာသည် — ကာဆာများ ရွေ့လျားသည်၊ မှတ်ချက်များသည် အနားသတ်တွင် စုစည်းသည်၊ ပြင်ဆင်မှုတိုင်းကို မှတ်တမ်းတွင် လုံခြုံစွာ သိမ်းဆည်းထားသည်။',
+  'about.missionBody':
+    'ရှည်လျားသော စာပေရေးသားမှုသည် အေးဆေးပြီး အာရုံစိုက်နိုင်သော နေရာတစ်ခု — အစည်းအဝေး သို့မဟုတ် ဝင်စာပုံးကို မဟုတ်ဘဲ မူကြမ်းကို အခြေခံတည်ဆောက်ထားသော နေရာတစ်ခု ထိုက်တန်သည်ဟု ကျွန်ုပ်တို့ ယုံကြည်သည်။ ကျွန်ုပ်တို့၏ အယ်ဒီတာ၊ အချိန်နှင့်တပြေးညီ တည်ရှိမှုနှင့် ဗားရှင်းမှတ်တမ်းအားလုံးကို ပူးပေါင်းလုပ်ဆောင်သူများ လျင်မြန်စွာ အတူတကွ လုပ်ဆောင်နိုင်ရန် ဒီဇိုင်းရေးဆွဲထားသည် — မည်သူမျှ စာပိုဒ်တစ်ခု သို့မဟုတ် အတွေးတစ်ခု မဆုံးရှုံးစေရန်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
+  'about.subtitle': 'အတူတကွ စဉ်းစားပါ၊ ထာဝရ ရေးသားပါ။',
   'about.title': '{{app}} အကြောင်း',
   'comments.addFailed': 'မှတ်ချက်ရေး၍မရပါ။',
   'comments.backToDoc': 'လက်ရေးစာမူသို့ ပြန်သွားရန်',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'မှတ်ချက်ပေးသည့် ခေါင်းစဉ်များ',
   'comments.loading': 'စာတွဲများကို တင်နေသည်…',
   'comments.newPlaceholder': 'လက်ရေးစာမူတွင် မှတ်ချက်ထည့်ပါ...',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'ပြန်ဖွင့်ပါ',
   'comments.reopenFailed': 'ပြန်ဖွင့်လို့မရခဲ့ပါဘူး။',
   'comments.replyFailed': 'ပြန်ကြားချက်တင်၍မရပါ။',
@@ -39,6 +48,7 @@ export const ui: UiTranslations = {
     'မကြာသေးမီက မူကြမ်းများ၊ မျှဝေထားသော လက်ရာများနှင့် နေ့စဉ် တည်းဖြတ်မှုများ။',
   'dashboard.viewFeed': 'ကျွေးမွေးရန် →',
   'editor.back': 'လက်ရေးစာမူများဆီသို့ ပြန်သွားပါ',
+  'editor.bodyLabel': 'စာရွက်စာတမ်း အကြောင်းအရာ',
   'editor.bodyPlaceholder': 'cursor မှိတ်တုတ်မှိတ်တုတ်ဖြစ်နေတဲ့နေရာကနေ စတင်ပါ။',
   'editor.comments': 'မှတ်ချက်များ',
   'editor.createFailed': 'စာရွက်စာတမ်းကို ဖန်တီး၍မရပါ။',
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody': 'အကောင့်တစ်ခုရှိနေပါက {{email}} , reset link တစ်ခု လာတော့မည်။',
+  'forgotPassword.sentHeading': 'သင့်အီးမေးလ်ကို စစ်ဆေးပါ',
+  'forgotPassword.submitting': 'ပို့နေသည်\\u2026',
   'forgotPassword.subtitle': 'ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ကို အီးမေးလ်ပို့ပေးပါမည်။',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . မော်လီကျူးဖြင့် တည်ဆောက်ထားသည်။',
+  'landing.ctaBody':
+    'တစ်ဦးတည်း စာရေးဆရာများအတွက် အခမဲ့။ အယ်ဒီတာများ၊ သရုပ်ဆောင်စာရေးဆရာများနှင့် သုံးသပ်သူများ၏ အဖွဲ့များအတွက် စတူဒီယို အစီအစဉ်များ။',
   'landing.ctaHeading': 'စာမျက်နှာကိုဖွင့်ပါ။ cursor ကိုစတင်ပါ။',
   'landing.ctaPrimary': 'စတူဒီယိုတစ်ခုဖွင့်ပါ',
   'landing.eyebrow': 'စာရေးဆရာများ၊ အယ်ဒီတာများနှင့် အဖွဲ့များအတွက်',
   'landing.featuresEyebrow': 'သင်ရရှိသောအရာ',
   'landing.featuresHeading': 'မူကြမ်းရှည်အတွက် စတူဒီယို။',
+  'landing.featuresSubtitle':
+    '{{appName}} သည် မူကြမ်းကို အခြေခံတည်ဆောက်ထားသည် — အစည်းအဝေး မဟုတ်၊ ဝင်စာပုံး မဟုတ်။',
   'landing.getStarted': 'စတူဒီယိုဖွင့်ပါ',
   'landing.heroCta': 'ရေးသားခြင်း စတင်ပါ',
   'landing.heroSubtitle':
@@ -95,6 +111,8 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} မဖတ်ရသေးသော · မှတ်ချက်များ၊ ဖော်ပြချက်များ၊ မျှဝေရန် ဖိတ်ကြားချက်များနှင့် အကြံပြုချက် တောင်းဆိုချက်များ။',
   'presenceAvatars.label': '{{count}} ပူးပေါင်းဆောင်ရွက်သူများ',
+  'privacy.intro':
+    'သင့်အချက်အလက်များကို ကျွန်ုပ်တို့ မည်သို့ စုဆောင်း၊ အသုံးပြုပြီး ကာကွယ်သည်ကို ဖော်ပြထားသည်။',
   'privacy.title': 'ကိုယ်ရေးအချက်အလက်မူဝါဒ',
   'profile.about.description':
     'သင့်ရဲ့ အများသူငှာပရိုဖိုင်နဲ့ ပံ့ပိုးကူညီသူစာမျက်နှာတွေအတွက် အကျဉ်းချုပ်အတ္ထုပ္ပတ္တိ။',
@@ -107,7 +125,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'ရှိနေခြင်း',
   'profile.pronouns': 'နာမ်စားများ',
   'profile.publicToggle': 'အသင်းဖော်တွေကို ပရိုဖိုင်ပြပါ',
+  'profile.role': 'အခန်းကဏ္ဍ / ရာထူး',
   'profile.subtitle': 'သင့်ရဲ့လုပ်ဖော်ကိုင်ဖက်တွေရှေ့မှာ သင့်ကို ဘယ်လိုမြင်လဲ။',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} စတူဒီယိုတွင် တက်ကြွစွာလှုပ်ရှားနေသော စာရေးဆရာများ',
   'quillonAuthBrandPanel.quote':
     '"ရေးသားခြင်းဆိုတာ ကျွန်မလုပ်တဲ့အခါ တခြားတစ်ခုခု လုပ်နေသင့်တယ်လို့ မခံစားရတဲ့ တစ်ခုတည်းသောအရာပါ။"',
@@ -115,6 +135,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'ဖွင့်ရန် →',
   'quillonKpiCard.trend': 'မကြာသေးမီက ခေတ်စားနေသော',
   'quillonLayout.menu': 'မီနူး',
+  'quillonLayout.mobileNavLabel': 'မိုဘိုင်း လမ်းညွှန်',
   'quillonLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'quillonStudioHero.collab': 'ပူးပေါင်းဆောင်ရွက်သူများ',
   'quillonStudioHero.docs': 'ထိမိသောစာရွက်စာတမ်းများ',
@@ -124,7 +145,9 @@ export const ui: UiTranslations = {
     'လက်ရေးစာမူကို ကောက်ယူပါ၊ မှတ်ချက်ပေးပါ၊ စာပိုဒ်တစ်ပိုဒ်ကို ရှေ့သို့တွန်းပါ။',
   'quillonStudioHero.words': 'ဒီနေ့ခေတ် စကားလုံးတွေ',
   'resetPassword.confirmPlaceholder': 'စကားဝှက်အသစ်ကို ထပ်ခါတလဲလဲ ရိုက်ထည့်ပါ',
+  'resetPassword.passwordLabel': 'စကားဝှက်အသစ်',
   'resetPassword.passwordPlaceholder': 'စကားဝှက်အသစ်တစ်ခုထည့်ပါ',
+  'resetPassword.submitting': 'ပြန်လည်သတ်မှတ်နေသည်…',
   'resetPassword.subtitle':
     'အနည်းဆုံး စာလုံး ၁၂ လုံးပါသော ခိုင်မာသည့် စကားဝှက်တစ်ခုကို ရွေးချယ်ပါ။',
   'settings.account.description': 'ဘယ်လို အကောင့်ဝင်ရမလဲ။',
@@ -135,7 +158,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'ပြင်ဆင်သတ်မှတ်မထားပါ',
   'settings.billing.updated': 'အစီအစဉ်ကို အပ်ဒိတ်လုပ်ပြီးပါပြီ။',
   'settings.editor.description': 'သင်ရေးနေစဉ် ပတ္တူက ဘယ်လိုပြုမူသလဲ။',
+  'settings.editor.title': 'အယ်ဒီတာ ဦးစားပေးမှုများ',
   'settings.eyebrow': 'စတူဒီယို ဦးစားပေးမှုများ',
+  'settings.language.title': 'ဘာသာစကား',
   'settings.notifications.${n.key}.description': 'ဘာသာစကား',
   'settings.notifications.description':
     'သင့် inbox ထဲသို့ မည်သည့်အရာများ ရောက်ရှိသည်ကို ရွေးချယ်ပါ။',
@@ -146,6 +171,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'ကျွန်ုပ်နှင့် မျှဝေထားသည်',
   'shared.loadFailed': 'မျှဝေထားသော စာရွက်စာတမ်းများကို တင်၍မရပါ။',
   'shared.subtitle': 'စတူဒီယို၏ ကျန်အပိုင်းမှ လက်ရေးစာမူများ၊ အကျဉ်းချုပ်များနှင့် မှတ်စုများ။',
+  'signup.brandAttribution': 'Anaïs Park — အယ်ဒီတာ၊ The Quarterly',
   'signup.brandQuote':
     '\\u201cမင်းရဲ့ ပထမဆုံးလက်ရေးစာမူက အခက်ခဲဆုံးပဲ။ Quillon က အထီးကျန်မှုနည်းအောင် လုပ်ပေးတယ်။\\u201d',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -153,6 +179,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'အာနိုင်းစ်',
   'signup.heading': 'သင့်ရဲ့ Quillon အကောင့်ကို ဖန်တီးပါ',
   'signup.lastNamePlaceholder': 'ပန်းခြံ',
+  'signup.submitting': 'သင့်စတူဒီယိုကို ဖွင့်နေသည်\\u2026',
   'signup.subtitle':
     'တိတ်ဆိတ်ငြိမ်သက်သော စားပွဲ၊ ပတ်ဝန်းကျင်ပူးပေါင်းဆောင်ရွက်သူများနှင့် သင့်လမ်းကြောင်းမှ ဖယ်ထုတ်ထားသော ရှည်လျားသောပုံစံတည်းဖြတ်သူ။',
   'templates.blank.subtitle': 'စာမျက်နှာသန့်ရှင်းသည်။ ကာဆာစတင်သည်။',
@@ -165,11 +192,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'ဂရုတစိုက်ဖွဲ့စည်းတည်ဆောက်ပုံဖြင့် စတင်ပါ။ အဆုံးမရှိ စိတ်ကြိုက်ပြင်ဆင်ပါ။',
   'templates.useFailed': 'ဤပုံစံမှ စာရွက်စာတမ်းတစ်ခု စတင်၍မရပါ။',
   'templates.useTemplate': 'ဒီ template ကိုသုံးပါ',
+  'terms.intro': 'ဤဝန်ဆောင်မှုကို သင်အသုံးပြုနိုင်သည့် အခြေအနေများ။',
   'terms.title': 'ဝန်ဆောင်မှုဆိုင်ရာ စည်းကမ်းချက်များ',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'ယခုပင်',
   'trash.confirmDelete': 'ဖျက်ရန် အတည်ပြုပါ',
+  'trash.confirmEmpty': 'အတည်ပြုပါ — အားလုံးကို ဖျက်ပါ',
   'trash.deleteFailed': 'ဖျက်၍မရပါ။',
   'trash.deleteForever': 'အပြီးတိုင်ဖျက်ရန်',
   'trash.empty': 'ဘာမှ ပြန်ကောင်းလာစရာ မရှိဘူး။',
@@ -185,7 +214,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'ပြင်ဆင်ချက်များ မရှိသေးပါ — မှတ်တမ်းကို စတင်ရန် စာရွက်စာတမ်းကို သိမ်းဆည်းပါ။',
   'versionHistory.heading': 'ဗားရှင်းမှတ်တမ်း',
+  'versionHistory.latest': 'နောက်ဆုံးပေါ်',
   'versionHistory.loadFailed': 'မှတ်တမ်းကို တင်၍မရပါ။',
+  'versionHistory.noContent': 'ဤပြင်ဆင်မှုအတွက် အကြောင်းအရာ မဖမ်းယူထားပါ။',
   'versionHistory.previewing': 'အစမ်းကြည့်ရှုခြင်း',
   'versionHistory.restore': 'ဤဗားရှင်းကို ပြန်လည်ရယူပါ',
   'versionHistory.restoreFailed': 'ပြန်လည်ရယူခြင်း မအောင်မြင်ပါ။',

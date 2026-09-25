@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Imate povratne informacije, pronašli ste grešku ili želite donijeti {{app}} u svoju školu ili tim? Čitamo svaku poruku — javite se iz postavki računa i odgovorit će vam stvarna osoba.',
   'about.contactTitle': 'Razgovarajte s nama',
   'about.eyebrow': 'Oko',
+  'about.intro':
+    '{{app}} je svakodnevna igra riječi. Pogodite riječ od pet slova u šest pokušaja, održite niz, podijelite svoju emoji mrežu i pogledajte kako je prošlo cijelo polje na današnjoj riječi.',
+  'about.missionBody':
+    'Dobra je zagonetka mala svakodnevna pobjeda. {{app}} se vrti oko jedne zajedničke riječi dnevno — dovoljno brzo za pauzu uz kavu, dovoljno zanimljivo da se vratite i sutra.',
+  'about.missionTitle': 'Naša misija',
   'about.title': 'O aplikaciji {{app}}',
   'archive.loadError': 'Nije moguće učitati arhivu.',
   'archive.missed': 'Propušteno',
   'archive.notPlayed': 'Nije odigrano',
+  'archive.subhead':
+    'Odigrajte ponovno bilo koji prošli dan kao vježbu — bez nizova, bez statistike, samo zabava.',
   'archive.title': 'Arhiva',
   'auth.backToHome': 'Natrag na početnu',
   'auth.backToHomeArrow': '← Natrag na početnu',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Zaboravili ste lozinku?',
   'auth.login.loggingIn': 'Prijava u tijeku…',
   'auth.login.logIn': 'Igrajte današnju riječ',
+  'auth.login.noAccount': 'Novi ste na Tesseri?',
   'auth.login.or': 'ili nastavite s',
   'auth.login.password': 'Lozinka',
   'auth.login.signInButton': 'Prijavite se',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Spremanje…',
   'common.sendingEllipsis': 'Slanje…',
   'common.startingEllipsis': 'Pokretanje…',
+  'forgotPassword.subhead':
+    'Unesite svoju e-mail adresu i poslat ćemo vam poveznicu za resetiranje.',
+  'forgotPassword.success.body':
+    'Ako postoji račun za {{email}} , dobit ćete poveznicu za resetiranje za nekoliko minuta.',
+  'forgotPassword.success.title': 'Provjerite pristiglu poštu.',
   'form.name': 'Ime',
   'howToPlay.cta.home': 'Natrag kući',
   'howToPlay.cta.play': 'Igrajte današnju zagonetku',
@@ -68,10 +83,14 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Serije koje mrzite prekinuti',
   'leaderboard.daily.title': 'Današnja rješenja',
   'leaderboard.loadError': 'Nije moguće učitati ljestvicu.',
+  'leaderboard.streaks.empty': 'Još nema nizova — budite prvi.',
+  'leaderboard.streaks.subhead': 'Najduži nizovi pobjeda svih vremena.',
   'leaderboard.streaks.title': 'Vođe u serijama',
+  'leaderboard.subhead': 'Kako je polje prošlo danas i tko drži najduže nizove.',
   'leaderboard.title': 'Ljestvica',
   'login.headline': 'Dobrodošli natrag.',
   'login.streakPill': 'Serija od {{days}} dana čeka',
+  'login.subhead': 'Prijavite se da održite niz i vidite kako ste prošli na današnjoj riječi.',
   'nav.archive': 'Arhiva',
   'nav.editProfile': 'Uredi profil',
   'nav.getStarted': 'Započnite',
@@ -89,6 +108,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Nema takve riječi',
   'notFound.title': 'Ta ruta je prazna.',
   'planUpdated.message': 'Vaš plan je aktivan.',
+  'planUpdated.retry': 'Pokušajte ponovno',
+  'planUpdated.verifyFailed': 'Još nismo mogli potvrditi vašu uplatu.',
+  'planUpdated.verifyFailedBody':
+    'Vaše plaćanje se možda još uvijek obrađuje. Pokušajte ponovno za trenutak.',
   'planUpdated.verifying': 'Potvrđivanje vaše uplate…',
   'play.alreadyFinished': 'Već ste završili ovu zagonetku',
   'play.answerWas': 'Riječ je bila',
@@ -104,6 +127,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Zagonetka za vježbu',
   'play.tooShort': 'Nedovoljno slova',
   'play.won': 'Riješili ste!',
+  'pricing.advancedStats': 'Napredna statistika: {{yes}}',
+  'pricing.archiveHistory': '{{count}} dana povijesti arhive',
+  'pricing.archivePlays': '{{count}} ponovnih igranja arhive / dan',
+  'pricing.archiveUnlimited': 'Neograničena povijest arhive',
+  'pricing.canExport': 'Izvoz podataka: {{yes}}',
+  'pricing.checkoutError': 'Nije moguće pokrenuti naplatu. Pokušajte ponovno.',
   'pricing.dailyWord': 'Dnevna riječ',
   'pricing.heading': 'Odaberite svoj {{app}} plan',
   'pricing.included': 'Uključeno',
@@ -111,7 +140,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Dnevna riječ je uvijek besplatna. Nadogradite za neograničena ponavljanja iz arhive i detaljniju statistiku.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} poštuje vašu privatnost. Ova stranica sažima podatke koje pohranjujemo, zašto ih pohranjujemo i kako ih ukloniti.',
   'privacy.title': 'Obavijest o privatnosti',
+  'resetPassword.subhead': 'Odaberite novu lozinku da se vratite svom nizu.',
   'settings.account': 'Račun',
   'settings.danger.body': 'Trajno uklonite svoj {{appName}} račun i svu povijest zagonetki.',
   'settings.danger.confirm': 'Da, izbriši zauvijek',
@@ -120,17 +152,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'Gost',
   'settings.language.title': 'Jezik',
   'settings.subhead': 'Prilagodite svoj profil, zvuk i kako se prikazujete na ljestvici.',
+  'settings.unnamed': 'Sparq igrač',
   'settings.upgrade': 'Nadogradite',
   'signup.eyebrow': 'Besplatno zauvijek — jedna riječ dnevno',
   'signup.headline': 'Započnite svoju seriju.',
+  'signup.subhead':
+    'Izradite {{appName}} račun da igrate dnevnu riječ, izgradite niz i popnete se na ljestvicu.',
   'stats.currentStreak': 'Serija',
   'stats.distribution.title': 'Distribucija pogađanja',
   'stats.loadError': 'Nije moguće učitati vašu statistiku.',
   'stats.maxStreak': 'Najveća serija',
   'stats.played': 'Odigrano',
   'stats.playToday': 'Igrajte današnju zagonetku',
+  'stats.subhead': 'Samo rangirane dnevne zagonetke — vježba iz arhive se nikad ne računa.',
   'stats.title': 'Vaša statistika',
   'stats.winRate': 'Stopa pobjeda',
   'status.monthly': 'Mjesečno',
+  'terms.intro':
+    'Korištenjem {{app}} prihvaćate pravila u nastavku. Ako ih ne možete prihvatiti, nemojte koristiti uslugu.',
   'terms.title': 'Uvjeti korištenja',
 }

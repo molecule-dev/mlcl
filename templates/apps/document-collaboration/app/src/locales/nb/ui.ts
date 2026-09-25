@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du tilbakemelding, funnet en feil, eller ønsker du {{app}} for studioet eller teamet ditt? Ta kontakt fra kontoinneinnstillingene dine — hver melding går til en ekte person på teamet.',
   'about.contactTitle': 'Snakk med oss',
+  'about.intro':
+    '{{app}} er et samarbeidsstudio for skriving der redaktører, forfattere og team skriver sammen i sanntid. Åpne et dokument, og siden blir delt — markører beveger seg, kommentarer trer i margen, og hver revisjon bevares trygt i historikken.',
+  'about.missionBody':
+    'Vi mener at langformskriving fortjener et rolig, fokusert hjem — bygget rundt manuskriptet, ikke møtet eller innboksen. Editoren vår, sanntidsnærvær og versjonshistorikk er alle utformet slik at samarbeidspartnere kan bevege seg raskt sammen uten at noen mister et avsnitt eller en tanke.',
+  'about.missionTitle': 'Vårt oppdrag',
+  'about.subtitle': 'Tenk sammen, skriv for alltid.',
   'about.title': 'Om {{app}}',
   'comments.addFailed': 'Det gikk ikke å legge inn kommentar.',
   'comments.backToDoc': 'Tilbake til manuskriptet',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Kommentartråder',
   'comments.loading': 'Laster tråder…',
   'comments.newPlaceholder': 'Legg til en kommentar til manuskriptet…',
+  'comments.newSubmit': 'Stolpe',
   'comments.reopen': 'Åpne igjen',
   'comments.reopenFailed': 'Kunne ikke åpne på nytt.',
   'comments.replyFailed': 'Det gikk ikke å legge ut svaret.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Siste utkast, delte dokumenter og dagens endringer.',
   'dashboard.viewFeed': 'Nyheter →',
   'editor.back': 'Tilbake til manuskriptene',
+  'editor.bodyLabel': 'Dokumenttekst',
   'editor.bodyPlaceholder': 'Begynn der markøren blinker.',
   'editor.comments': 'Kommentarer',
   'editor.createFailed': 'Det var ikke mulig å opprette dokumentet.',
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Hvis det finnes en konto for {{email}}, er en tilbakestillingslenke på vei.',
+  'forgotPassword.sentHeading': 'Sjekk e-posten din',
+  'forgotPassword.submitting': 'Sender\\u2026',
   'forgotPassword.subtitle': 'Vi sender deg en e-post med en lenke for å tilbakestille passordet.',
   'landing.copyright': '\\u00a9 {{year}} {{app}}. Laget med Molecule.',
+  'landing.ctaBody':
+    'Gratis for enkeltforfattere. Studio-planer for team av redaktører, spøkelsesskrivere og korrekturlesere.',
   'landing.ctaHeading': 'Åpne siden. La markøren komme i gang.',
   'landing.ctaPrimary': 'Åpne et studio',
   'landing.eyebrow': 'For forfattere, redaktører og team',
   'landing.featuresEyebrow': 'Det du får',
   'landing.featuresHeading': 'Et arbeidsrom for utkast til lengre tekster.',
+  'landing.featuresSubtitle':
+    '{{appName}} er bygget rundt manuskriptet — ikke møtet, ikke innboksen.',
   'landing.getStarted': 'Åpne studioet',
   'landing.heroCta': 'Begynn å skrive',
   'landing.heroSubtitle':
@@ -95,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} uleste · kommentarer, omtaler, delingsinvitasjoner og forespørsler om forslag.',
   'presenceAvatars.label': '{{count}} medarbeidere',
+  'privacy.intro': 'Hvordan vi samler inn, bruker og beskytter informasjonen din.',
   'privacy.title': 'Personvernerklæring',
   'profile.about.description': 'En kort biografi til din offentlige profil og bidragsyter-sidene.',
   'profile.eyebrow': 'Studioets identitet',
@@ -107,7 +124,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Tilstedeværelse',
   'profile.pronouns': 'Pronomen',
   'profile.publicToggle': 'Vis profilen til lagkameratene',
+  'profile.role': 'Rolle / tittel',
   'profile.subtitle': 'Hvordan du fremstår overfor kollegene dine.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} forfattere som jobber i studioet',
   'quillonAuthBrandPanel.quote':
     '«Å skrive er det eneste jeg gjør uten å føle at jeg burde gjøre noe annet.»',
@@ -115,6 +134,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Åpne →',
   'quillonKpiCard.trend': 'Den siste trenden',
   'quillonLayout.menu': 'Meny',
+  'quillonLayout.mobileNavLabel': 'Mobilnavigasjon',
   'quillonLayout.primaryNavLabel': 'Primær navigasjon',
   'quillonStudioHero.collab': 'Medarbeidere',
   'quillonStudioHero.docs': 'Dokumenter som er åpnet',
@@ -124,7 +144,9 @@ export const ui: UiTranslations = {
     'Ta en titt på manuset, legg igjen en kommentar, og hjelp til med å få teksten litt lenger.',
   'quillonStudioHero.words': 'Dagens ord',
   'resetPassword.confirmPlaceholder': 'Gjenta det nye passordet',
+  'resetPassword.passwordLabel': 'Nytt passord',
   'resetPassword.passwordPlaceholder': 'Skriv inn et nytt passord',
+  'resetPassword.submitting': 'Tilbakestiller…',
   'resetPassword.subtitle': 'Velg et sterkt passord – på minst 12 tegn.',
   'settings.account.description': 'Slik logger du deg på.',
   'settings.billing.canceled': 'Abonnement avbrutt.',
@@ -133,7 +155,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Ikke konfigurert',
   'settings.billing.updated': 'Planen er oppdatert.',
   'settings.editor.description': 'Hvordan lerretet oppfører seg mens du skriver.',
+  'settings.editor.title': 'Redigeringsinnstillinger',
   'settings.eyebrow': 'Innstillinger for Studio',
+  'settings.language.title': 'Språk',
   'settings.notifications.${n.key}.description': 'Språk',
   'settings.notifications.description': 'Velg hva som skal vises i innboksen din.',
   'settings.subtitle': 'Juster varslinger, redigeringsområdet og kontoinnstillingene dine.',
@@ -142,6 +166,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Delt med meg',
   'shared.loadFailed': 'Det var ikke mulig å laste inn delte dokumenter.',
   'shared.subtitle': 'Manuskripter, notater og notater fra resten av studioet.',
+  'signup.brandAttribution': 'Anaïs Park — redaktør, The Quarterly',
   'signup.brandQuote':
     '«Det første manuskriptet er det vanskeligste. Quillon gjør det mindre ensomt.»',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -149,6 +174,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Anaïs',
   'signup.heading': 'Opprett din Quillon-konto',
   'signup.lastNamePlaceholder': 'Park',
+  'signup.submitting': 'Åpner studioet ditt\\u2026',
   'signup.subtitle':
     'Et rolig skrivebord, samarbeidspartnere som skaper en behagelig atmosfære og et redigeringsverktøy for lengre tekster som ikke står i veien for deg.',
   'templates.blank.subtitle': 'En tom side. Markøren står klar.',
@@ -161,11 +187,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Begynn med en gjennomtenkt struktur. Tilpass den i det uendelige.',
   'templates.useFailed': 'Det var ikke mulig å opprette et dokument fra denne malen.',
   'templates.useTemplate': 'Bruk denne malen',
+  'terms.intro': 'Vilkårene for at du kan bruke denne tjenesten.',
   'terms.title': 'Tjenestevilkår',
   'time.daysAgo': '{{days}}d siden',
   'time.hoursAgo': '{{hours}}t siden',
   'time.justNow': 'akkurat nå',
   'trash.confirmDelete': 'Bekreft sletting',
+  'trash.confirmEmpty': 'Bekreft — slett alt',
   'trash.deleteFailed': 'Kunne ikke slette.',
   'trash.deleteForever': 'Slett for alltid',
   'trash.empty': 'Ingenting å gjenopprette.',
@@ -180,7 +208,9 @@ export const ui: UiTranslations = {
   'versionHistory.backToDoc': 'Tilbake til manuskriptet',
   'versionHistory.empty': 'Ingen endringer ennå — lagre dokumentet for å starte endringsloggen.',
   'versionHistory.heading': 'Versjonshistorikk',
+  'versionHistory.latest': 'Siste nytt',
   'versionHistory.loadFailed': 'Kunne ikke laste historikk.',
+  'versionHistory.noContent': 'Ingen innhold registrert for denne revisjonen.',
   'versionHistory.previewing': 'Forhåndsvisning',
   'versionHistory.restore': 'Gjenopprett denne versjonen',
   'versionHistory.restoreFailed': 'Gjenopprettingen mislyktes.',

@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May tanong ka, may nahanap kang bug, o gusto mong ilipat ang iyong mga libro? Makipag-ugnayan sa team ng {{app}} sa hello@{{app}}.example — may tunay na tao na nagbabasa ng bawat mensahe.',
   'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'about.intro':
+    'Ang {{app}} ay small-business accounting na tinitiyak na bawat sentimo ay naitatala — mga invoice, gastos, bayad, at ulat sa isang kalmadong lugar para sa mga may-ari, bookkeeper, at accountant.',
+  'about.missionBody':
+    'Ang pagpapatakbo ng negosyo ay hindi dapat mangahulugan ng pangamba sa iyong mga libro. Pinapalitan ng {{app}} ang kalat ng spreadsheet ng malinaw na mga numero na maaari mong aksyunan, kaya mas kaunting oras ang ginugugol mo sa reconciling at mas maraming oras sa trabahong talagang pinagmulan mo ng negosyo.',
+  'about.missionTitle': 'Ang aming misyon',
   'about.title': 'Tungkol sa {{app}}',
   'accounts.count': '{{count}} na mga account',
+  'accounts.emptyBody':
+    'Sinusubaybayan ng mga ledger account kung saan nakatira at gumagalaw ang pera. Lalabas ang mga ito dito kapag na-set up na ng iyong bookkeeper o integration.',
   'accounts.emptyTitle': 'Wala pang mga account',
   'accounts.heading': 'Tsart ng mga account',
   'accounts.kpi.accounts': 'Mga Account',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Ang bawat ledger account sa likod ng iyong mga invoice, gastos, at pagbabayad, ay naka-grupo ayon sa uri.',
   'accounts.tag.inactive': 'hindi aktibo',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Chief Financial Officer, Horizon Tech',
   'authBrandPanel.eyebrow': 'Pinagkakatiwalaan ng mga koponan sa pananalapi',
   'authBrandPanel.label': 'Pagtatanghal ng brand',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Lahat ng customer',
   'customerDetail.invoiceMeta': 'Inisyu {{issued}} · Takdang {{due}}',
   'customerDetail.loadError': 'Nabigo sa paglo-load ng customer.',
+  'customerDetail.missingBody':
+    'Hindi ma-load ang hiniling na customer record. Maaaring naalis na ito, o maaaring wala kang access dito.',
   'customerDetail.missingHeading': 'Hindi available ang rekord ng customer',
+  'customerDetail.missingHelp':
+    'Gamitin ang back link sa itaas upang bumalik sa listahan ng mga customer, o pumili ng ibang record mula doon.',
+  'customerDetail.noInvoices': 'Wala pang invoice.',
   'customerDetail.notesEmpty': 'Wala pang tala.',
   'customerDetail.paymentsEmpty': 'Walang naitalang bayad.',
   'customerDetail.paymentTerms': 'Mga tuntunin ng pagbabayad',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Maaaring ibawas',
   'expenseDetail.detailsHeading': 'Mga detalye ng transaksyon',
   'expenseDetail.loadError': 'Nabigo sa paglo-load ng gastusin.',
+  'expenseDetail.matched': 'Matched · {{description}}',
   'expenseDetail.missingBody':
     'Hindi maaaring i-load ang hiniling na gastusin. Maaaring naalis na ito, o wala Kayo ng access dito.',
   'expenseDetail.missingHeading': 'Hindi available ang rekord ng gastusin',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Resibo',
   'expenseDetail.receiptHeading': 'Resibo',
   'expenseDetail.reconciled': 'Naayos na',
+  'expenseDetail.unreconciled': 'Hindi pa naayos',
   'expenses.empty': 'Wala pang gastusin.',
   'expenses.heading': 'Mga Gastusin',
   'expenses.kpi.deductible': 'Maaaring ibawas',
@@ -101,6 +118,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Nabigo sa paglo-load ng mga invoice.',
   'invoices.searchPlaceholder': 'Maghanap ng invoice # o customer…',
   'invoices.summary.paid': 'Binayaran sa panahong ito',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'Libre sa loob ng 30 araw. Walang card. Dalhin ang inyong accountant — magpapasalamat sila sa inyo.',
   'landing.ctaTitle': 'Ilipat ang inyong mga libro sa mas tahimik na lugar.',
@@ -115,6 +133,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Mga account receivable',
   'ledgerStatTriad.eyebrow.mtd': 'Buwan hanggang ngayon',
   'ledgerStatTriad.netSub': 'Net {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} overdue',
   'ledgerStatTriad.revenueLabel': 'Kita',
   'login.failed': 'Nabigo ang pag-sign in.',
   'login.hidePassword': 'Itago ang password',
@@ -125,6 +144,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Mag-Sign In',
   'nav.legal': 'Legal',
   'newExpense.back': 'Mga gastusin',
+  'newExpense.clearReceiptCta': 'I-clear ang nakalakip na resibo',
   'newExpense.deductible': 'Maaaring ibawas sa buwis',
   'newExpense.dropPrompt': 'Mag-drop ng litrato ng resibo o PDF dito para ilakip.',
   'newExpense.failed': 'Hindi maaaring i-save ang gastusin.',
@@ -153,6 +173,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Nabigo sa paglo-load ng mga bayad.',
   'payments.unmatchedTag': 'walang kapantay',
   'planUpdated.pageLabel': 'Kumpirmasyon ng na-update na plano',
+  'pricing.advancedFeatures': 'Mga advanced na feature: {{yes}}',
+  'pricing.canExport': 'Data export: {{yes}}',
+  'pricing.heading': 'Pumili ng iyong {{app}} plano',
+  'pricing.maxAccounts': '{{count}} na mga account',
+  'pricing.maxExpenses': '{{count}} mga gastusin',
+  'pricing.maxInvoices': '{{count}} invoices',
+  'privacy.intro':
+    'Inilalarawan ng Privacy Policy na ito kung paano kinokolekta, ginagamit, at ibinubunyag ng {{app}} ang impormasyon tungkol sa mga negosyong gumagamit ng serbisyo.',
   'privacy.lastUpdated': 'Huling na-update: {{date}}',
   'privacy.section.collected.body':
     'Kinokolekta namin ang mga detalye ng account (pangalan, email, kumpanya), ang mga rekord sa pananalapi na in-upload ninyo (mga invoice, gastusin, customer, bayad), at mga standard na log ng operasyon ng serbisyo (IP, user-agent, mga timestamp).',
@@ -165,8 +193,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Ang impormasyon ay ginagamit para patakbuhin ang serbisyo, bumuo ng mga ulat at PDF na hiniling ninyo, magpadala ng transaksyonal na email sa pamamagitan ng Mailgun, at magproseso ng mga bayad sa pamamagitan ng Stripe. Hindi namin ibinebenta o inuupahan ang personal na impormasyon.',
   'recentInvoicesCard.dueMeta': 'Takdang petsa {{date}}',
+  'recentInvoicesCard.empty': 'Walang invoice na tumutugma.',
   'recentInvoicesCard.eyebrow': 'Mga account receivable',
   'recentInvoicesCard.searchAriaLabel': 'Maghanap ng mga invoice',
+  'recentInvoicesCard.searchPlaceholder': 'Maghanap ng mga invoice…',
   'recentInvoicesCard.title': 'Mga kamakailang invoice',
   'recentInvoicesCard.viewAll': 'Tingnan ang lahat ng invoice →',
   'reports.assets': 'Mga asset',
@@ -182,16 +212,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Kita at pagkawala (12 buwan)',
   'resetPassword.backToLogin': '← Bumalik sa Mag-sign In',
   'resetPassword.hidePassword': 'Itago ang password',
+  'resetPassword.passwordLabel': 'Bagong password',
   'resetPassword.showPassword': 'Ipakita ang password',
+  'resetPassword.subheading': 'Pumili ng matibay na password — minimum na walong character.',
   'resetPassword.submit': 'I-reset ang Password',
   'resetPassword.tooShort': 'Ang password ay dapat na hindi bababa sa 8 character.',
   'settings.account.changePassword': 'Baguhin ang password',
   'settings.account.changingPassword': 'Nagbabago…',
   'settings.account.currentPassword': 'Kasalukuyang password',
+  'settings.account.dangerZone': 'Sona ng panganib',
   'settings.account.deleteAccount': 'Burahin ang account',
   'settings.account.deleteDescription':
     'Permanenteng burahin ang iyong account at lahat ng nauugnay na data.',
   'settings.account.deleteError': 'Nabigong burahin ang account.',
+  'settings.account.deleteWarning':
+    'Permanenteng binubura nito ang iyong account at hindi na maibabalik. Ilagay ang iyong password upang kumpirmahin.',
   'settings.account.deleting': 'Binubura…',
   'settings.account.devices': 'Mga Kagamitan',
   'settings.account.email': 'I-email',
@@ -202,6 +237,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Password',
   'settings.account.passwordError': 'Nabigong baguhin ang password.',
   'settings.account.pushNotifications': 'Mga push notification sa device na ito',
+  'settings.account.revokeDeviceWarning':
+    'Mababawi ang access ng device na ito sa ilang sandali. I-sign out ito?',
   'settings.account.saveError': 'Nabigong i-update ang profile.',
   'settings.account.security': 'Seguridad',
   'settings.account.signOutDevice': 'Mag-sign out',
@@ -209,12 +246,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Dalawang-factor na pagpapatotoo',
   'settings.account.twoFactorCode': 'Kodigo ng pagpapatunay',
   'settings.account.twoFactorDisable': 'I-disable',
+  'settings.account.twoFactorDisableTitle': 'I-disable ang two-factor authentication',
   'settings.account.twoFactorEnable': 'I-enable',
+  'settings.account.twoFactorEnableTitle': 'I-enable ang two-factor authentication',
   'settings.account.twoFactorInvalidCode': 'Hindi wastong code',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'Two-factor QR code',
+  'settings.account.twoFactorScan':
+    'I-scan ang QR code na ito gamit ang iyong authenticator app, pagkatapos ay ilagay ang 6-digit na code.',
+  'settings.account.twoFactorUnavailable':
+    'Hindi available ang two-factor authentication para sa app na ito.',
   'settings.account.twoFactorVerify': 'I-verify at paganahin',
   'settings.account.unknownDevice': 'Hindi kilalang aparato',
   'settings.company.email': 'Email sa pagbibil',
+  'settings.company.heading': 'Company & tax',
   'settings.company.name': 'Legal na pangalan',
   'settings.company.saveButton': 'I-save ang profile ng kumpanya',
   'settings.company.taxId': 'Tax ID / TIN',
@@ -258,6 +303,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Tinant. quarterly',
   'taxes.kpi.owed': 'Dapat bayaran',
   'taxes.loadError': 'Nabigo sa paglo-load ng buod ng buwis.',
+  'taxes.remittedPct': '({{pct}}% remitted)',
+  'terms.intro':
+    'Ang mga Terms of Service na ito ("Terms") ay namamahala sa iyong access at paggamit ng {{app}}. Sa paggawa ng account o paggamit ng serbisyo, sumasang-ayon kang masusunod ang mga ito.',
   'terms.lastUpdated': 'Huling na-update: {{date}}',
   'terms.section.acceptable.body':
     'Sumasang-ayon Kayo na hindi gagamitin ang serbisyo para lumabag sa anumang batas, maglabag ng mga karapatan sa intelektwal na ari-arian, magpadala ng malware, o sumubok na makakuha ng hindi awtorisadong access sa ibang mga account o aming imprastraktura.',

@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Հարց ունե՞ք, սխալ եք գտել, թե՞ ուզում եք տեղափոխել ձեր գրքերը։ Կապվեք {{app}} թիմի հետ hello@{{app}}.example հասցեով — յուրաքանչյուր հաղորդագրություն կարդում է իրական մարդ։',
   'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
+  'about.intro':
+    '{{app}}-ը փոքր բիզնեսի հաշվապահություն է, որը հաշվի է առնում ամեն լումա՝ հաշիվ-ապրանքագրեր, ծախսեր, վճարումներ և հաշվետվություններ մեկ հանգիստ տեղում սեփականատերերի, հաշվապահների և հաշվապահ-մասնագետների համար։',
+  'about.missionBody':
+    'Բիզնես վարելը չպետք է նշանակի վախենալ ձեր հաշվապահությունից։ {{app}}-ը փոխարինում է աղյուսակների քաոսը հստակ թվերով, որոնց վրա կարող եք գործել, այնպես որ ավելի քիչ ժամանակ կծախսեք հաշտեցման վրա և ավելի շատ՝ այն աշխատանքի վրա, ինչի համար իրականում սկսել եք բիզնեսը։',
+  'about.missionTitle': 'Մեր առաքելությունը',
   'about.title': '{{app}}-ի մասին',
   'accounts.count': '{{count}} հաշիվ',
+  'accounts.emptyBody':
+    'Հաշվապահական հաշիվները հետևում են, թե որտեղ է գտնվում և տեղաշարժվում փողը։ Դրանք կհայտնվեն այստեղ, երբ ձեր հաշվապահը կամ ինտեգրացիան դրանք կարգավորի։',
   'accounts.emptyTitle': 'Հաշիվներ դեռ չկան',
   'accounts.heading': 'Հաշիվների գծապատկեր',
   'accounts.kpi.accounts': 'Հաշիվներ',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Ձեր հաշիվ-ապրանքագրերի, ծախսերի և վճարումների հետևում գտնվող յուրաքանչյուր գլխավոր հաշվապահական հաշիվ՝ խմբավորված ըստ տեսակի։',
   'accounts.tag.inactive': 'անգործուն',
   'authBrandPanel.attributionName': 'Սառա Ջենկինս',
+  'authBrandPanel.attributionRole': 'Ֆինանսական տնօրեն, Horizon Tech',
   'authBrandPanel.eyebrow': 'Վստահված է ֆինանսական թիմերի կողմից',
   'authBrandPanel.label': 'Բրենդի ցուցադրություն',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Բոլոր հաճախորդները',
   'customerDetail.invoiceMeta': 'Թողարկվել է {{issued}} · Վճարման ժամկետը {{due}}',
   'customerDetail.loadError': 'Հաճախորդի բեռնումը չհաջողվեց։',
+  'customerDetail.missingBody':
+    'Հարցված հաճախորդի գրառումը հնարավոր չեղավ բեռնել։ Հնարավոր է՝ այն հեռացվել է, կամ դուք մուտք չունեք դրան։',
   'customerDetail.missingHeading': 'Հաճախորդի գրառումը հասանելի չէ',
+  'customerDetail.missingHelp':
+    'Օգտագործեք վերևի հետադարձ հղումը՝ հաճախորդների ցանկին վերադառնալու համար, կամ այնտեղից ընտրեք այլ գրառում։',
+  'customerDetail.noInvoices': 'Հաշիվ-ապրանքագրեր դեռ չկան։',
   'customerDetail.notesEmpty': 'Դեռևս նշումներ չկան։',
   'customerDetail.paymentsEmpty': 'Վճարումներ չեն գրանցվել։',
   'customerDetail.paymentTerms': 'Վճարման պայմաններ',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Ֆրանշիզա',
   'expenseDetail.detailsHeading': 'Գործարքի մանրամասները',
   'expenseDetail.loadError': 'Ծախսը չհաջողվեց բեռնել։',
+  'expenseDetail.matched': 'Համընկնված · {{description}}',
   'expenseDetail.missingBody':
     'Հարցված ծախսը չի կարող բեռնվել։ Հնարավոր է՝ այն հեռացվել է, կամ դուք կարող է չունեք դրան մուտք գործելու հնարավորություն։',
   'expenseDetail.missingHeading': 'Ծախսերի գրանցումը հասանելի չէ',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Ապրանքագիր',
   'expenseDetail.receiptHeading': 'Ապրանքագիր',
   'expenseDetail.reconciled': 'Հաշտեցված',
+  'expenseDetail.unreconciled': 'Անհամաձայնեցված',
   'expenses.empty': 'Դեռևս ծախսեր չկան։',
   'expenses.heading': 'Ծախսեր',
   'expenses.kpi.deductible': 'Ֆրանշիզա',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Հաշիվ-ապրանքագրերը բեռնելը չհաջողվեց։',
   'invoices.searchPlaceholder': 'Որոնել հաշիվ-ապրանքագրի համարը կամ հաճախորդը…',
   'invoices.summary.paid': 'Վճարված է այս ժամանակահատվածում',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle': 'Անվճար 30 օր։ Քարտ չկա։ Բերեք ձեր հաշվապահին՝ նրանք շնորհակալ կլինեն։',
   'landing.ctaTitle': 'Տեղափոխեք ձեր գրքերը ավելի հանգիստ տեղ։',
   'landing.eyebrow': 'Փոքր բիզնեսի հաշվապահությունը՝ վերաիմաստավորված',
@@ -113,6 +131,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Դեբիտորական պարտքեր',
   'ledgerStatTriad.eyebrow.mtd': 'Ամսից մինչև օրս',
   'ledgerStatTriad.netSub': 'ցանց {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} ժամկետանց',
   'ledgerStatTriad.revenueLabel': 'Եկամուտ',
   'login.failed': 'Մուտք գործելը ձախողվեց։',
   'login.hidePassword': 'Թաքցնել գաղտնաբառը',
@@ -123,6 +142,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Մուտք գործել',
   'nav.legal': 'Իրավական',
   'newExpense.back': 'Ծախսեր',
+  'newExpense.clearReceiptCta': 'Մաքրել կցված անդորրագիրը',
   'newExpense.deductible': 'Հարկային արտոնություն',
   'newExpense.dropPrompt': 'Կցելու համար այստեղ տեղադրեք անդորրագրի լուսանկար կամ PDF ֆայլ։',
   'newExpense.failed': 'Չհաջողվեց խնայել ծախսերը։',
@@ -151,6 +171,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Վճարումները չհաջողվեց բեռնել։',
   'payments.unmatchedTag': 'անհամեմատելի',
   'planUpdated.pageLabel': 'Պլանի թարմացման հաստատում',
+  'pricing.advancedFeatures': 'Ընդլայնված գործառույթներ՝ {{yes}}',
+  'pricing.canExport': 'Տվյալների արտահանում՝ {{yes}}',
+  'pricing.heading': 'Ընտրեք ձեր {{app}} պլանը',
+  'pricing.maxAccounts': '{{count}} հաշիվ',
+  'pricing.maxExpenses': '{{count}} ծախսեր',
+  'pricing.maxInvoices': '{{count}} հաշիվ-ապրանքագիր',
+  'privacy.intro':
+    'Այս Գաղտնիության քաղաքականությունը նկարագրում է, թե ինչպես է {{app}}-ը հավաքում, օգտագործում և բացահայտում տեղեկատվություն ծառայությունից օգտվող բիզնեսների մասին։',
   'privacy.lastUpdated': 'Վերջին թարմացումը՝ {{ամսաթիվ}}',
   'privacy.section.collected.body':
     'Մենք հավաքում ենք հաշվի մանրամասները (անուն, էլ. փոստ, ընկերություն), ձեր կողմից վերբեռնված ֆինանսական գրառումները (հաշիվ-ապրանքագրեր, ծախսեր, հաճախորդներ, վճարումներ) և ստանդարտ ծառայությունների գործունեության գրանցամատյանները (IP, օգտատիրոջ գործակալ, ժամանակային դրոշմանիշներ):',
@@ -163,8 +191,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Տեղեկատվությունն օգտագործվում է ծառայությունը գործարկելու, ձեր կողմից պահանջվող հաշվետվություններն ու PDF ֆայլերը ստեղծելու, Mailgun-ի միջոցով գործարքային էլ.փոստ ուղարկելու և Stripe-ի միջոցով վճարումները մշակելու համար: Մենք չենք վաճառում կամ վարձակալության չենք տալիս անձնական տեղեկություններ:',
   'recentInvoicesCard.dueMeta': 'Վճարման ժամկետը {{date}}',
+  'recentInvoicesCard.empty': 'Հաշիվ-ապրանքագրերը համընկնում չեն։',
   'recentInvoicesCard.eyebrow': 'Դեբիտորական պարտքեր',
   'recentInvoicesCard.searchAriaLabel': 'Որոնել հաշիվ-ապրանքագրեր',
+  'recentInvoicesCard.searchPlaceholder': 'Որոնել հաշիվ-ապրանքագրեր…',
   'recentInvoicesCard.title': 'Վերջին հաշիվ-ապրանքագրերը',
   'recentInvoicesCard.viewAll': 'Դիտել բոլոր հաշիվ-ապրանքագրերը →',
   'reports.assets': 'Ակտիվներ',
@@ -180,15 +210,20 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Շահույթ և վնաս (12 ամիս)',
   'resetPassword.backToLogin': '← Վերադառնալ Մուտք գործել',
   'resetPassword.hidePassword': 'Թաքցնել գաղտնաբառը',
+  'resetPassword.passwordLabel': 'Նոր գաղտնաբառ',
   'resetPassword.showPassword': 'Ցուցադրել գաղտնաբառը',
+  'resetPassword.subheading': 'Ընտրեք ուժեղ գաղտնաբառ՝ նվազագույնը ութ նիշ։',
   'resetPassword.submit': 'Գաղտնաբառի վերակայում',
   'resetPassword.tooShort': 'Գաղտնաբառը պետք է լինի առնվազն 8 նիշ։',
   'settings.account.changePassword': 'Փոխել գաղտնաբառը',
   'settings.account.changingPassword': 'Փոփոխվում է…',
   'settings.account.currentPassword': 'Ընթացիկ գաղտնաբառ',
+  'settings.account.dangerZone': 'Վտանգավոր գոտի',
   'settings.account.deleteAccount': 'Ջնջել հաշիվը',
   'settings.account.deleteDescription': 'Մշտապես ջնջեք ձեր հաշիվը և դրան կից բոլոր տվյալները։',
   'settings.account.deleteError': 'Հաշիվը ջնջելը չհաջողվեց։',
+  'settings.account.deleteWarning':
+    'Սա ընդմիշտ ջնջում է ձեր հաշիվը և հնարավոր չէ հետարկել։ Հաստատելու համար մուտքագրեք ձեր գաղտնաբառը։',
   'settings.account.deleting': 'Ջնջվում է…',
   'settings.account.devices': 'Սարքեր',
   'settings.account.email': 'Էլ․ փոստ',
@@ -199,6 +234,7 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Գաղտնաբառ',
   'settings.account.passwordError': 'Գաղտնաբառը փոխելը չհաջողվեց։',
   'settings.account.pushNotifications': 'Push ծանուցումներ այս սարքի վրա',
+  'settings.account.revokeDeviceWarning': 'Այս սարքի մուտքը շուտով կանդադարի։ Դուրս գալ՞',
   'settings.account.saveError': 'Չհաջողվեց թարմացնել պրոֆիլը։',
   'settings.account.security': 'Անվտանգություն',
   'settings.account.signOutDevice': 'Ելք',
@@ -206,12 +242,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Երկփուլային նույնականացում',
   'settings.account.twoFactorCode': 'Հաստատման կոդ',
   'settings.account.twoFactorDisable': 'Անջատել',
+  'settings.account.twoFactorDisableTitle': 'Անջատել երկգործոն նույնականացումը',
   'settings.account.twoFactorEnable': 'Միացնել',
+  'settings.account.twoFactorEnableTitle': 'Միացնել երկգործոն նույնականացումը',
   'settings.account.twoFactorInvalidCode': 'Անվավեր կոդ',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'Երկկարգի նույնականացման QR կոդ',
+  'settings.account.twoFactorScan':
+    'Սկանավորեք այս QR կոդը ձեր նույնականացման հավելվածով, ապա մուտքագրեք 6-նիշանոց կոդը։',
+  'settings.account.twoFactorUnavailable':
+    'Երկփուլային նույնականացումը հասանելի չէ այս հավելվածի համար։',
   'settings.account.twoFactorVerify': 'Հաստատել և միացնել',
   'settings.account.unknownDevice': 'Անհայտ սարք',
   'settings.company.email': 'Հաշվառման էլ.փոստ',
+  'settings.company.heading': 'Ընկերություն և հարկեր',
   'settings.company.name': 'Իրավական անվանումը',
   'settings.company.saveButton': 'Պահպանել ընկերության պրոֆիլը',
   'settings.company.taxId': 'Հարկային համարանիշ / EIN',
@@ -255,6 +299,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Մոտավոր եռամսյակային',
   'taxes.kpi.owed': 'Պարտք',
   'taxes.loadError': 'Հարկային ամփոփագիրը չհաջողվեց բեռնել։',
+  'taxes.remittedPct': '({{pct}}% փոխանցված)',
+  'terms.intro':
+    'Այս Ծառայության պայմանները («Պայմաններ») կարգավորում են ձեր մուտքը և օգտագործումը {{app}}-ի։ Հաշիվ ստեղծելով կամ ծառայությունից օգտվելով՝ դուք համաձայնում եք պարտավորվել դրանցով։',
   'terms.lastUpdated': 'Վերջին թարմացումը՝ {{ամսաթիվ}}',
   'terms.section.acceptable.body':
     'Դուք համաձայն եք չօգտագործել ծառայությունը որևէ օրենք խախտելու, մտավոր սեփականության իրավունքները խախտելու, վնասակար ծրագրեր փոխանցելու կամ այլ հաշիվներին կամ մեր ենթակառուցվածքներին չարտոնված մուտք գործելու փորձ կատարելու համար։',

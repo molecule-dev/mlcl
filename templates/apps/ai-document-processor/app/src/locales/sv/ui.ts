@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du en fråga, hittat en bugg eller vill du ha en demo för ditt team? Hör av dig från dina kontoinställningar — varje meddelande går till en riktig person i teamet.',
   'about.contactTitle': 'Ta kontakt',
+  'about.intro':
+    '{{app}} förvandlar travar med skannade dokument och PDF:er till strukturerad, sökbar och arkiverad data. Släpp in fakturor, kvitton, kontrakt eller formulär och låt AI läsa, extrahera, klassificera och arkivera dem — med konfidensfärger så att ditt team bara granskar det som verkligen behöver en människa.',
+  'about.missionBody':
+    'Dokumentgöromål borde inte äta upp ditt teams dag. Vi anser att varje extraherat värde ska vara förklarligt och granskningsbart — så att du kan lita på automatiseringen utan att tappa pappersspåret. {{app}} är byggt för att spara timmar per trave samtidigt som en människa finns med i loopen där det räknas.',
+  'about.missionTitle': 'Vårt uppdrag',
+  'about.subtitle':
+    'OCR, AI-extrahering, klassificering och automatiserad arkivering för dina dokument.',
   'about.title': 'Om {{app}}',
+  'about.whatYouGetTitle': 'Vad du får',
   'authShell.backToLanding': '← Tillbaka till landningssidan',
   'common.goToDashboard': 'Gå till översikt',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Idag · Driftöversikt',
   'dashboard.heading': 'Dokumentintelligens',
+  'dashboard.metric.accuracy': 'Snittnoggrannhet',
   'dashboard.metric.filed': 'Arkiverade idag',
   'dashboard.metric.filedCaption': 'Dirigerade av arkiveringsregler',
   'dashboard.metric.processed': 'Bearbetade idag',
@@ -23,11 +34,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Dokument',
   'dashboard.recent.col.uploaded': 'Uppladdad',
   'dashboard.recent.heading': 'Senaste dokumenten',
+  'dashboard.recent.typeUnknown': 'Väntar på klassificering',
   'dashboard.subheading':
     'Varje sida klassificerad, extraherad och arkiverad — med förtroendefärger så att granskningen håller fokus.',
   'documentDetail.audit.heading': 'Granskningstidslinje',
+  'documentDetail.audit.subheading': 'Varje steg som tagits på detta dokument, med ansvarig aktör.',
   'documentDetail.back': 'Alla dokument',
   'documentDetail.downloadHint': 'Använd Ladda ner för att öppna originalfilen.',
+  'documentDetail.extracted.empty': 'Inga fält extraherade ännu.',
   'documentDetail.extracted.heading': 'Extraherade fält',
   'documentDetail.extracted.subheading':
     '{{count}} fält · klicka på valfritt fält för att markera på sidan',
@@ -55,13 +69,23 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Sök dokument…',
   'documents.subheading': '{{count}} dokument i ditt bibliotek, sorterade efter nyast först.',
   'documents.uploadCta': 'Ladda upp dokument',
+  'documentTypeBreakdown.barAria': 'Dokumentsammansättning per typ',
   'documentTypeBreakdown.empty': 'Inga dokument bearbetade ännu.',
   'documentTypeBreakdown.subtitle': '{{total}} bearbetade',
   'documentTypeBreakdown.title': 'Dokumentsammansättning',
+  'forgotPassword.backToSignIn': '← Tillbaka till inloggning',
   'forgotPassword.checkEmail': 'Kolla din e-post',
   'forgotPassword.tip': 'Inte fått den? Kolla skräpposten eller prova en annan adress.',
+  'landing.copyright': '© {{year}} {{app}}. Byggt för opsteam som granskar varje sida.',
+  'landing.ctaBody':
+    '14 dagars provperiod. Inget kort behövs. Avbryt när som helst. Byggt för opsteam som rör sig snabbt och granskar långsamt.',
   'landing.ctaHeading': 'Sluta skriva kvitton. Börja arkivera dem.',
   'landing.eyebrow': 'OCR · Extraktion · AI-arkivering',
+  'landing.featuresHeading': 'Dokumentintelligens som förklarar sig själv',
+  'landing.heroSubtitle':
+    'Släpp in en trave fakturor, kvitton, kontrakt eller formulär. {{app}} klassificerar, extraherar och arkiverar dem — med konfidensfärger så att ditt team bara granskar det som verkligen behöver en människa.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Daglig volym · senaste 7 dagarna',
   'landing.sampleCardLabel': 'Dokument bearbetade idag',
   'landing.sampleCardSubtitle':
     '96,2% genomsnittlig noggrannhet över fakturor, kvitton och formulär.',
@@ -75,6 +99,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Öppna landningssidan',
   'notFound.title': 'Den sidan finns inte i arkivet',
+  'parcelaHeroCard.accuracy': 'Snittnoggrannhet {{value}} % över alla extraheringar',
   'parcelaHeroCard.change': '{{sign}}{{amount}}% jämfört med igår',
   'parcelaHeroCard.title': 'Dokument bearbetade idag',
   'parcelaLayout.primaryNavLabel': 'Huvudnavigering',
@@ -82,6 +107,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'dokument',
   'pricing.processingLabel': 'bearbetningsjobb',
   'resetPassword.confirmPlaceholder': 'Upprepa det nya lösenordet',
+  'resetPassword.hidePassword': 'Dölj lösenord',
   'resetPassword.passwordLabel': 'Nytt lösenord',
   'resetPassword.showPassword': 'Visa lösenord',
   'resetPassword.subtitle': 'Välj något minst 8 tecken långt.',
@@ -98,10 +124,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Kunde inte ladda regler.',
   'rules.loading': 'Laddar regler…',
   'rules.matched30d': '{{count}} dokument matchade de senaste 30 dagarna',
+  'rules.neverUsed': 'Aldrig använd',
   'rules.newRule': 'Ny regel',
   'rules.saveError': 'Kunde inte spara regel.',
   'rules.subheading':
     'Tala om för systemet vart varje typ av dokument ska gå. Villkor kedjas uppifrån och ned — första matchningen vinner.',
+  'rules.templatesEmpty': 'Inga extraheringsmallar ännu.',
   'rules.templatesHeading': 'Extraktionsmallar',
   'rules.templatesSubheading': 'Fältscheman som extraktorn använder för varje dokumenttyp.',
   'rules.then': 'Då',
@@ -110,17 +138,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Workspace-namn',
   'settings.account.subheading':
     'Visningsnamn och primär e-post för aviseringar och granskningshistorik.',
+  'settings.api.confirmRevoke': 'Bekräfta?',
   'settings.api.copyOnce': 'Kopiera denna nyckel — den visas inte igen',
   'settings.api.createdOn': 'Skapad {{date}}',
   'settings.api.empty': 'Inga API-nycklar ännu. Generera en ovan.',
   'settings.api.error': 'Kunde inte skapa nyckel.',
+  'settings.api.generating': 'Genererar…',
+  'settings.api.heading': 'API-nycklar',
   'settings.api.labelPlaceholder': 'Nyckeletikett (t.ex. CI-uppladdare)',
+  'settings.api.loading': 'Laddar nycklar…',
   'settings.api.newKey': 'Generera nyckel',
   'settings.api.subheading':
     'Använd dessa för att pusha dokument från ett skript eller ditt ERP. Rotera en nyckel när som helst.',
   'settings.integrations.heading': 'Arkiveringsintegrationer',
   'settings.integrations.subheading':
     'Skicka arkiverade dokument till molndisken eller chattverktyget ditt team redan lever i.',
+  'settings.subheading':
+    'Hantera konto, API-nycklar och arkiveringsintegrationer för din {{app}}-arbetsyta.',
+  'signup.hidePassword': 'Dölj lösenord',
   'signup.identityPrompt': 'Hur ska vi tilltala dig?',
   'signup.showPassword': 'Visa lösenord',
   'signup.subtitle': '14 dagar gratis, inget kort krävs.',
@@ -128,6 +163,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Uppladdning misslyckades.',
   'upload.eyebrow': 'Ingestion',
   'upload.heading': 'Ladda upp dokument',
+  'upload.queue.clear': 'Rensa slutförda',
   'upload.queue.col.confidence': 'Förtroende',
   'upload.queue.col.file': 'Fil',
   'upload.queue.detecting': 'Identifierar…',
@@ -140,5 +176,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Eller släpp flera filer samtidigt för batchextraktion, klassificering och arkivering.',
   'uploadDropZone.cta': 'Välj filer',
+  'uploadDropZone.maxSize': 'Max 25 MB per fil · End-to-end-krypterat',
   'uploadDropZone.title': 'Släpp dokument för att starta bearbetning',
 }

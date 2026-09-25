@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Jautājumi, atsauksmes vai funkcijas pieprasījums? Rakstiet komandai uz hello@murmur.app — katra ziņa nonāk pie īsta cilvēka, kas strādā pie produkta.',
   'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
+  'about.intro':
+    '{{app}} ir sapulču inteliģence komandām, kas labprātāk pieņem lēmumus, nevis pieraksta piezīmes. Tas pievienojas jūsu zvaniem, pārraksta katru vārdu ar runātāju atzīmēm un sapulces beigās uzreiz sagatavo AI kopsavilkumu un piešķirtos darba uzdevumus.',
+  'about.missionBody':
+    'Sapulces ir vieta, kur komandas pieņem lēmumus — un kur šie lēmumi pazūd. {{app}} pastāv, lai nodrošinātu, ka sarunā paveiktais darbs pārdzīvo pašu sarunu: precīzs pieraksts, skaidrs kopsavilkums un atbildīgi nākamie soļi, automātiski.',
+  'about.missionTitle': 'Mūsu misija',
   'actions.empty': 'Nav atrastu atbilstošu uzdevumu.',
   'actions.heading': 'Veicamie pasākumi',
   'actions.loadError': 'Neizdevās ielādēt veicamos uzdevumus.',
@@ -10,11 +17,14 @@ export const ui: UiTranslations = {
     'Apkopoti dati par visām sanāksmēm. Filtrējiet pēc statusa, lai izvēlētos vajadzīgo.',
   'actions.toggleDoneLabel': 'Atzīmēt kā paveiktu',
   'actions.toggleReopenLabel': 'Atzīmēt kā atvērtu',
+  'auth.footer': '© {{year}} {{app}}. Katrs vārds, destilēts.',
   'calendar.heading': 'Kalendārs',
   'calendar.joinCta': 'Pievienojies',
   'calendar.loadError': 'Kalendāru neizdevās ielādēt.',
   'calendar.nextMonth': 'Nākamajā mēnesī',
   'calendar.noEventsForDay': 'Šai dienai nav plānotas nekādas sanāksmes.',
+  'calendar.noUpcomingEvents':
+    'Nav gaidāmu sapulču. Pievienojiet kalendāru sadaļā Integrācijas, lai aizpildītu šo sarakstu.',
   'calendar.previousMonth': 'Iepriekšējais mēnesis',
   'calendar.recent': 'Jaunākie',
   'common.daysAgo': '{{count}} pirms dienas',
@@ -26,9 +36,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} veicamie pasākumi',
   'dashboard.empty.body':
     'Sāciet ierakstu vai savienojiet ar Google kalendāru, lai Murmur automātiski pievienotos jūsu nākamajai sanāksmei.',
+  'dashboard.empty.cta': 'Sākt ierakstīšanu',
   'dashboard.empty.heading': 'Vēl nav notikušas sanāksmes',
   'dashboard.eyebrow': 'Jūsu sanāksmju plūsma',
   'dashboard.loadError': 'Neizdevās ielādēt informācijas paneli.',
+  'dashboard.noActions': 'Nav darbību',
   'dashboard.recentHeading': 'Nesenās sanāksmes',
   'dashboard.recordCta': 'Sanāksmes protokols',
   'dashboard.stat.actions': 'Veicamie pasākumi',
@@ -38,6 +50,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} Nelasītie kopsavilkumi kopš pēdējās reizes, kad tos pārbaudījāt. Murmur ir ierakstījis katru vārdu — šeit ir kopsavilkums.',
   'dashboard.viewCalendar': 'Skatīt kalendāru →',
+  'footer.linksLabel': 'Kājene',
   'forgot.failed': 'Neizdevās nosūtīt atjaunošanas e-pastu.',
   'forgot.sentBody':
     'Ja ir reģistrēts konts ar e-pasta adresi {{email}}, drīz saņemsiet saiti paroles atjaunošanai.',
@@ -50,14 +63,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Savienojiet kalendārus un videoplatformas, lai Murmur pievienotos automātiski.',
   'integrations.updateError': 'Atjaunināšana neizdevās.',
+  'landing.ctaBody':
+    'Bezmaksas pirmajām 5 sapulcēm katru mēnesi. Bez kredītkartes. Pievienojiet Google Calendar mazāk nekā minūtē.',
   'landing.ctaButton': 'Sāciet — tas ir bez maksas',
   'landing.ctaHeading': 'Pārstājiet veikt piezīmes. Sāciet pieņemt lēmumus.',
+  'landing.demo.aiBody':
+    'Palaišana pārcelta no 5. maija → 12. maijam, lai dotu laiku operāciju personālam. Informācijas paneļa pārveide atdalīta uz 26. maiju.',
   'landing.demo.aiLabel': 'AI kopsavilkums, sagatavots reāllaikā',
   'landing.demo.recording': 'Ieraksts · tiešraide',
   'landing.eyebrow': 'Mākslīgā intelekta sanāksme',
   'landing.featuresHeading': 'Viss, kas jūsu komandai nepieciešams pēc sanāksmes beigām',
+  'landing.featuresSubheading':
+    'Vairs nekāda "pagaidiet, kam tas pieder?" {{appName}} nosūta kopsavilkumu, pirms zvans tiek pārtraukts.',
   'landing.getStarted': 'Izmēģini bez maksas',
   'landing.heroSecondary': 'Noskaties 90 sekunžu ekskursiju',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} pievienojas jūsu zvaniem, pārraksta katru vārdu ar runātāju atzīmēm un sapulces beigās uzreiz sagatavo AI kopsavilkumus un piešķirtos darba uzdevumus.',
   'landing.heroTitle': 'Ierakstiet katru sanāksmi. Izceliet to, kas ir svarīgi.',
   'login.altPrompt': 'Vai jūs esat jauns Murmur lietotājs?',
   'login.failed': 'Neizdevās ieiet. Pārbaudiet savu e-pasta adresi un paroli.',
@@ -65,6 +86,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Veicamie pasākumi',
   'meetingDetail.back': 'Visas sanāksmes',
   'meetingDetail.decisionsHeading': 'Lēmumi',
+  'meetingDetail.dueDate': 'termiņš {{date}}',
   'meetingDetail.followupsHeading': 'Turpmākā rīcība',
   'meetingDetail.loadError': 'Neizdevās ielādēt sanāksmi.',
   'meetingDetail.noActions': 'Nav konstatēti veicamie pasākumi.',
@@ -78,7 +100,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Vēl nav notikušas sanāksmes',
   'meetings.heading': 'Sanāksmes',
   'meetings.loadError': 'Neizdevās ielādēt sanāksmes.',
+  'meetings.recordCta': 'Sanāksmes protokols',
   'meetings.subheading': 'Katra ierakstītā, augšupielādētā un sinhronizētā sanāksme.',
+  'murmurLayout.closeMenu': 'Aizvērt navigācijas izvēlni',
   'murmurLayout.openMenu': 'Atvērt navigācijas izvēlni',
   'murmurLayout.primaryNavLabel': 'Galvenā navigācija',
   'nav.legal': 'Juridiskā informācija',
@@ -103,7 +127,14 @@ export const ui: UiTranslations = {
   'profile.loading': 'Notiek ielāde…',
   'profile.navLabel': 'Profila profili',
   'profile.notifications.assignments': 'Man uzticētie uzdevumi',
+  'profile.notifications.assignmentsHint': 'Paziņot, kad jums tiek piešķirts darba uzdevums.',
+  'profile.notifications.mentions': 'Pieminēšana atšifrējumos',
+  'profile.notifications.mentionsHint': 'E-pasts + paziņojums, kad kāds jūs piemin ar @.',
+  'profile.notifications.subheading': 'Izvēlieties, kuri {{appName}} notikumi jums jāsaņem.',
   'profile.notifications.summaries': 'Nedēļas kopsavilkums',
+  'profile.notifications.summariesHint':
+    'Pirmdienas kopsavilkums par visām pagājušās nedēļas sapulcēm.',
+  'profile.preferences.speakerColor': 'Noklusējuma runātāja krāsa',
   'profile.preferences.subheading':
     'Noklusējumi, kas attiecas uz visiem ierakstiem, kuros piedalāties.',
   'profile.preferences.timezone': 'Laika zona',
@@ -116,17 +147,22 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Jūsu pārlūkprogramma neatbalsta ierakstīšanu. Izmēģiniet Chrome, Edge vai Safari.',
   'record.error.upload': 'Augšupielāde neizdevās. Mēģiniet vēlreiz.',
+  'record.errorLabel': 'Kaut kas nogāja greizi',
   'record.heading': 'Ieraksts',
   'record.idleLabel': 'Pieskarieties, lai sāktu ierakstīšanu',
   'record.processingLabel': 'Transkripcija ar „Whisper“, kopsavilkuma izveide ar „Claude“…',
+  'record.recordingLabel': 'Reģistrē…',
   'record.retryCta': 'Mēģini vēlreiz',
   'record.subheading':
     'Nospiediet mikrofonu, lai sāktu. Murmur ieraksta audio, pārraksta to ar Whisper palīdzību un izveido kopsavilkumu, izmantojot Claude.',
+  'record.titlePlaceholder': 'Sapulces nosaukums (neobligāts)',
+  'reset.altPrompt': 'Pārdomājāt?',
   'reset.hint': 'Izmantojiet vismaz 8 rakstzīmes, apvienojot burtus un ciparus.',
   'reset.missingToken':
     'Atjaunošanas saite nav pieejama vai tās derīguma termiņš ir beidzies. Pieprasiet jaunu.',
   'reset.newPassword': 'Jauna parole',
   'reset.subheading': 'Izvēlieties paroli, ko neizmantojat nekur citur.',
+  'reset.tooShort': 'Parolei jābūt vismaz 8 rakstzīmes garai.',
   'search.empty': 'Ierakstiet tekstu, lai meklētu transkripcijas.',
   'search.loadError': 'Meklēšana neizdevās. Mēģiniet vēlreiz.',
   'search.noResults': 'Nav rezultātu par „{{q}}“.',
@@ -142,7 +178,9 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Saglabāt audio',
   'settings.retention.heading': 'Saglabāšana',
   'settings.retention.transcript': 'Saglabājiet izrakstus',
+  'settings.revokeDeviceWarning': 'Šīs ierīces piekļuve drīz tiks atsaukta. Izrakstīt to?',
   'settings.saveError': 'Saglabāšana neizdevās.',
+  'settings.security.subheading': 'Atjauniniet paroli, ko izmantojat, lai pierakstītos.',
   'settings.sharing.exportFormat': 'Eksporta formāts',
   'settings.sharing.heading': 'Noklusējumu koplietošana',
   'settings.sharing.scope': 'Noklusējuma koplietošanas darbības joma',
@@ -160,6 +198,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Uzaicināt komandas biedru',
   'team.invitedAs': 'Uzaicināts kā „{{role}}“',
   'team.inviteFailed': 'Neizdevās nosūtīt uzaicinājumu.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'Nosūtīt ielūgumu',
   'team.inviteSubtitle': 'Viņi saņems e-pastu ar pievienošanās saiti.',
   'team.inviteTitle': 'Uzaicini komandas biedru',

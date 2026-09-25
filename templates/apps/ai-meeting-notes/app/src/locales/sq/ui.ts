@@ -1,19 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Pyetje, komente ose kërkesë për një veçori? Dërgojini një email ekipit në hello@murmur.app — çdo mesazh arrin te një njeri i vërtetë që punon për produktin.',
   'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth nesh',
+  'about.intro':
+    '{{app}} është inteligjencë mbledhjesh për ekipe që preferojnë të marrin vendime sesa të mbajnë shënime. Bashkohet me thirrjet e tua, transkripton çdo fjalë me etiketa folësish dhe dërgon një përmbledhje me AI plus detyra me përgjegjës sapo mbaron mbledhja.',
+  'about.missionBody':
+    "Mbledhjet janë aty ku ekipet vendosin — dhe aty ku ato vendime humbin. {{app}} ekziston për t'u siguruar që puna që ndodh në një bisedë t'i mbijetojë bisedës: një regjistrim besnik, një përmbledhje e qartë dhe hapa të ardhshëm me përgjegjësi, automatikisht.",
+  'about.missionTitle': 'Misioni ynë',
   'actions.empty': 'Nuk përputhet asnjë artikull veprimi.',
   'actions.heading': 'Artikuj veprimi',
   'actions.loadError': 'Ngarkimi i artikujve të veprimit dështoi.',
   'actions.subheading': 'Të përmbledhura në çdo takim. Filtro sipas statusit për t’u përqendruar.',
   'actions.toggleDoneLabel': 'Shëno si të përfunduar',
   'actions.toggleReopenLabel': 'Shëno si të hapur',
+  'auth.footer': '© {{year}} {{app}}. Çdo fjalë, e distiluar.',
   'calendar.heading': 'Kalendari',
   'calendar.joinCta': 'Bashkohu',
   'calendar.loadError': 'Ngarkimi i kalendarit dështoi.',
   'calendar.nextMonth': 'Muajin tjetër',
   'calendar.noEventsForDay': 'Nuk ka takime të planifikuara për këtë ditë.',
+  'calendar.noUpcomingEvents':
+    'Nuk ka mbledhje të ardhshme. Lidh një kalendar nga Integrimet për të plotësuar këtë listë.',
   'calendar.previousMonth': 'Muaji i kaluar',
   'calendar.recent': 'Kohët e fundit',
   'common.daysAgo': '{{count}} ditë më parë',
@@ -25,9 +35,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} artikuj veprimi',
   'dashboard.empty.body':
     'Filloni një regjistrim ose lidhni Google Calendar në mënyrë që Murmur të bashkohet automatikisht me takimin tuaj të radhës.',
+  'dashboard.empty.cta': 'Fillo regjistrimin',
   'dashboard.empty.heading': 'Nuk ka ende takime',
   'dashboard.eyebrow': 'Furnizimi juaj i takimit',
   'dashboard.loadError': 'Ngarkimi i panelit dështoi.',
+  'dashboard.noActions': 'Nuk ka detyra',
   'dashboard.recentHeading': 'Takimet e fundit',
   'dashboard.recordCta': 'Takim i regjistruar',
   'dashboard.stat.actions': 'Artikuj veprimi',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} përmbledhje të palexuara që nga kontrolli juaj i fundit. Murmurit kapi çdo fjalë - ja përmbledhja.',
   'dashboard.viewCalendar': 'Shiko kalendarin →',
+  'footer.linksLabel': 'Footer',
   'forgot.failed': 'Nuk mund të dërgohej email-i i rivendosjes.',
   'forgot.sentBody':
     'Nëse ekziston një llogari për {{email}}, së shpejti do të merrni një lidhje rivendosjeje.',
@@ -48,14 +61,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Lidh kalendarët dhe platformat e videove në mënyrë që Murmur të bashkohet automatikisht.',
   'integrations.updateError': 'Përditësimi dështoi.',
+  'landing.ctaBody':
+    'Falas për 5 mbledhjet e para çdo muaj. Pa kartë krediti. Lidh Google Calendar në më pak se një minutë.',
   'landing.ctaButton': 'Filloni — është falas',
   'landing.ctaHeading': 'Ndalo së mbajturi shënime. Fillo të marrësh vendime.',
+  'landing.demo.aiBody':
+    "Nisja u shty nga 5 maji → 12 maji për t'i dhënë hapësirë operacioneve të stafit. Rindizajni i panelit u nda më 26 maj.",
   'landing.demo.aiLabel': 'Përmbledhje e IA-së, hartuar drejtpërdrejt',
   'landing.demo.recording': 'Regjistrim · drejtpërdrejt',
   'landing.eyebrow': 'Inteligjenca e takimeve me inteligjencën artificiale',
   'landing.featuresHeading': 'Gjithçka që i duhet ekipit tuaj pas përfundimit të takimit',
+  'landing.featuresSubheading':
+    'Mjaft me "po, kush është përgjegjës për këtë?" {{appName}} dërgon përmbledhjen para se thirrja të shkëputet.',
   'landing.getStarted': 'Provo falas',
   'landing.heroSecondary': 'Shikoni turneun 90-sekondësh',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} bashkohet me thirrjet e tua, transkripton çdo fjalë me etiketa folësish dhe dërgon përmbledhje me AI plus detyra me përgjegjës sapo mbaron mbledhja.',
   'landing.heroTitle': 'Kap çdo takim. Nxirr në pah atë që ka rëndësi.',
   'login.altPrompt': 'I ri në Murmur?',
   'login.failed': 'Nuk mund të identifikohesha. Kontrollo email-in dhe fjalëkalimin tënd.',
@@ -63,6 +84,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Artikuj veprimi',
   'meetingDetail.back': 'Të gjitha takimet',
   'meetingDetail.decisionsHeading': 'Vendimet',
+  'meetingDetail.dueDate': 'afat {{date}}',
   'meetingDetail.followupsHeading': 'Ndjekjet',
   'meetingDetail.loadError': 'Ngarkimi i takimit dështoi.',
   'meetingDetail.noActions': 'Nuk u zbuluan artikuj veprimi.',
@@ -76,7 +98,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Nuk ka ende takime',
   'meetings.heading': 'Takime',
   'meetings.loadError': 'Ngarkimi i takimeve dështoi.',
+  'meetings.recordCta': 'Takim i regjistruar',
   'meetings.subheading': 'Çdo takim i regjistruar, i ngarkuar dhe i sinkronizuar.',
+  'murmurLayout.closeMenu': 'Mbyll menynë e navigimit',
   'murmurLayout.openMenu': 'Hap menynë e navigimit',
   'murmurLayout.primaryNavLabel': 'Navigimi kryesor',
   'nav.legal': 'Ligjore',
@@ -101,7 +125,14 @@ export const ui: UiTranslations = {
   'profile.loading': 'Duke u ngarkuar…',
   'profile.navLabel': 'Seksionet e profilit',
   'profile.notifications.assignments': 'Artikuj veprimi të caktuar për mua',
+  'profile.notifications.assignmentsHint': 'Njoftohu kur kapet një detyrë për ty.',
+  'profile.notifications.mentions': 'Përmendjet në transkripte',
+  'profile.notifications.mentionsHint': 'Email + njoftim kur dikush të përmend me @.',
+  'profile.notifications.subheading': 'Zgjidh cilat ngjarje të {{appName}} duhet të të arrijnë.',
   'profile.notifications.summaries': 'Përmbledhje javore',
+  'profile.notifications.summariesHint':
+    'Një përmbledhje e hënës për çdo mbledhje të javës së kaluar.',
+  'profile.preferences.speakerColor': 'Ngjyra e parazgjedhur e folësit',
   'profile.preferences.subheading':
     'Cilësimet fillestare që zbatohen për çdo regjistrim që bashkoheni.',
   'profile.preferences.timezone': 'Zona kohore',
@@ -114,16 +145,21 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Shfletuesi juaj nuk e mbështet regjistrimin. Provoni Chrome, Edge ose Safari.',
   'record.error.upload': 'Ngarkimi dështoi. Provo përsëri.',
+  'record.errorLabel': 'Diçka shkoi keq',
   'record.heading': 'Regjistro',
   'record.idleLabel': 'Trokit për të filluar regjistrimin',
   'record.processingLabel': 'Duke transkriptuar me Whisper, duke përmbledhur me Claude…',
+  'record.recordingLabel': 'Po regjistrohet…',
   'record.retryCta': 'Provo përsëri',
   'record.subheading':
     'Shtypni mikrofonin për të filluar. Murmur regjistron audion, transkripton nëpërmjet Whisper dhe shkruan një përmbledhje të mundësuar nga Claude.',
+  'record.titlePlaceholder': 'Titulli i mbledhjes (opsional)',
+  'reset.altPrompt': 'Ndryshove mendje?',
   'reset.hint': 'Përdorni të paktën 8 karaktere me një përzierje shkronjash dhe numrash.',
   'reset.missingToken': 'Lidhja e rivendosjes mungon ose ka skaduar. Kërko një të re.',
   'reset.newPassword': 'Fjalëkalim i ri',
   'reset.subheading': 'Zgjidhni një fjalëkalim që nuk e përdorni askund tjetër.',
+  'reset.tooShort': 'Fjalëkalimi duhet të jetë të paktën 8 karaktere.',
   'search.empty': 'Shkruaj për të kërkuar transkripte.',
   'search.loadError': 'Kërkimi dështoi. Provo përsëri.',
   'search.noResults': 'Nuk ka rezultate për " {{q}} ".',
@@ -138,7 +174,9 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Mbaj audion për',
   'settings.retention.heading': 'Mbajtja',
   'settings.retention.transcript': 'Mbaj transkriptet për',
+  'settings.revokeDeviceWarning': 'Qasja e kësaj pajisjeje do të hiqet së shpejti. Të dilet?',
   'settings.saveError': 'Ruajtja dështoi.',
+  'settings.security.subheading': "Përditëso fjalëkalimin që përdor për t'u identifikuar.",
   'settings.sharing.exportFormat': 'Formati i eksportit',
   'settings.sharing.heading': 'Parazgjedhjet e ndarjes',
   'settings.sharing.scope': 'Shtrirja e parazgjedhur e ndarjes',
@@ -156,6 +194,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Fto shokun e ekipit',
   'team.invitedAs': 'I ftuar si {{role}}',
   'team.inviteFailed': 'Nuk mundi të dërgonte ftesën.',
+  'team.invitePlaceholder': 'koleg@kompania.com',
   'team.inviteSubmit': 'Dërgo ftesë',
   'team.inviteSubtitle': 'Ata do të marrin një email me një lidhje anëtarësimi.',
   'team.inviteTitle': 'Fto një shok skuadre',

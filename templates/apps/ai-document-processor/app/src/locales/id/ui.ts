@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Punya pertanyaan, menemukan bug, atau ingin demo untuk tim Anda? Hubungi kami dari pengaturan akun Anda — setiap pesan diterima langsung oleh anggota tim kami.',
   'about.contactTitle': 'Hubungi kami',
+  'about.intro':
+    '{{app}} mengubah tumpukan dokumen hasil pindai dan PDF menjadi data terstruktur yang dapat dicari dan terarsip. Masukkan faktur, kuitansi, kontrak, atau formulir dan biarkan AI membaca, mengekstrak, mengklasifikasikan, dan mengarsipkannya — dengan warna keyakinan agar tim Anda hanya meninjau yang benar-benar perlu campur tangan manusia.',
+  'about.missionBody':
+    'Pekerjaan administratif dokumen seharusnya tidak menghabiskan waktu tim Anda. Kami percaya setiap nilai yang diekstrak harus dapat dijelaskan dan diaudit — sehingga Anda dapat mempercayai otomatisasi tanpa kehilangan jejak dokumen. {{app}} dirancang untuk menghemat berjam-jam per tumpukan sekaligus tetap melibatkan manusia di titik yang penting.',
+  'about.missionTitle': 'Misi kami',
+  'about.subtitle': 'OCR, ekstraksi AI, klasifikasi, dan pengarsipan otomatis untuk dokumen Anda.',
   'about.title': 'Tentang {{app}}',
+  'about.whatYouGetTitle': 'Apa yang Anda dapatkan',
   'authShell.backToLanding': '← Kembali ke landing',
   'common.goToDashboard': 'Ke Dashboard',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Hari ini · Ikhtisar operasi',
   'dashboard.heading': 'Intelijen dokumen',
+  'dashboard.metric.accuracy': 'Akurasi rata-rata',
   'dashboard.metric.filed': 'Diarsipkan hari ini',
   'dashboard.metric.filedCaption': 'Dirutekan oleh aturan pengarsipan',
   'dashboard.metric.processed': 'Diproses hari ini',
@@ -23,11 +33,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Dokumen',
   'dashboard.recent.col.uploaded': 'Diunggah',
   'dashboard.recent.heading': 'Dokumen terbaru',
+  'dashboard.recent.typeUnknown': 'Menunggu klasifikasi',
   'dashboard.subheading':
     'Setiap halaman diklasifikasikan, diekstraksi, dan diarsipkan — dengan warna keyakinan agar tinjauan tetap fokus.',
   'documentDetail.audit.heading': 'Linimasa audit',
+  'documentDetail.audit.subheading':
+    'Setiap langkah yang dilakukan pada dokumen ini, beserta pelakunya.',
   'documentDetail.back': 'Semua dokumen',
   'documentDetail.downloadHint': 'Gunakan Unduh untuk membuka file asli.',
+  'documentDetail.extracted.empty': 'Belum ada kolom yang diekstrak.',
   'documentDetail.extracted.heading': 'Bidang yang diekstraksi',
   'documentDetail.extracted.subheading':
     '{{count}} bidang · klik bidang apa pun untuk menyoroti pada halaman',
@@ -55,13 +69,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Cari dokumen…',
   'documents.subheading': '{{count}} dokumen di pustaka Anda, diurutkan terbaru dahulu.',
   'documents.uploadCta': 'Unggah dokumen',
+  'documentTypeBreakdown.barAria': 'Komposisi dokumen berdasarkan jenis',
   'documentTypeBreakdown.empty': 'Belum ada dokumen yang diproses.',
   'documentTypeBreakdown.subtitle': '{{total}} diproses',
   'documentTypeBreakdown.title': 'Komposisi dokumen',
+  'forgotPassword.backToSignIn': '← Kembali ke masuk',
   'forgotPassword.checkEmail': 'Periksa email Anda',
   'forgotPassword.tip': 'Belum diterima? Periksa spam atau coba alamat lain.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Dibuat untuk tim operasional yang mengaudit setiap halaman.',
+  'landing.ctaBody':
+    'Uji coba 14 hari. Tanpa kartu. Batal kapan saja. Dibuat untuk tim operasional yang bergerak cepat dan mengaudit dengan teliti.',
   'landing.ctaHeading': 'Berhenti mengetik tanda terima. Mulailah mengarsipkannya.',
   'landing.eyebrow': 'OCR · Ekstraksi · Pengarsipan AI',
+  'landing.featuresHeading': 'Kecerdasan dokumen yang menjelaskan dirinya sendiri',
+  'landing.heroSubtitle':
+    'Masukkan tumpukan faktur, kuitansi, kontrak, atau formulir. {{app}} mengklasifikasikan, mengekstrak, dan mengarsipkannya — dengan warna keyakinan agar tim Anda hanya meninjau yang benar-benar perlu campur tangan manusia.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Volume harian · 7 hari terakhir',
   'landing.sampleCardLabel': 'Dokumen diproses hari ini',
   'landing.sampleCardSubtitle': 'Akurasi rata-rata 96,2% pada faktur, tanda terima, dan formulir.',
   'login.hidePassword': 'Sembunyikan kata sandi',
@@ -74,6 +99,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Buka halaman landing',
   'notFound.title': 'Halaman itu tidak ada dalam arsip',
+  'parcelaHeroCard.accuracy': 'Akurasi rata-rata {{value}}% untuk semua ekstraksi',
   'parcelaHeroCard.change': '{{sign}}{{amount}}% vs kemarin',
   'parcelaHeroCard.title': 'Dokumen diproses hari ini',
   'parcelaLayout.primaryNavLabel': 'Navigasi utama',
@@ -81,6 +107,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'dokumen',
   'pricing.processingLabel': 'pekerjaan pemrosesan',
   'resetPassword.confirmPlaceholder': 'Ulangi kata sandi baru',
+  'resetPassword.hidePassword': 'Sembunyikan kata sandi',
   'resetPassword.passwordLabel': 'Kata sandi baru',
   'resetPassword.showPassword': 'Tampilkan kata sandi',
   'resetPassword.subtitle': 'Pilih sesuatu setidaknya 8 karakter.',
@@ -97,10 +124,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Gagal memuat aturan.',
   'rules.loading': 'Memuat aturan…',
   'rules.matched30d': '{{count}} dokumen cocok dalam 30 hari terakhir',
+  'rules.neverUsed': 'Tidak pernah digunakan',
   'rules.newRule': 'Aturan baru',
   'rules.saveError': 'Gagal menyimpan aturan.',
   'rules.subheading':
     'Beritahu sistem ke mana setiap jenis dokumen harus pergi. Kondisi berantai dari atas ke bawah — kecocokan pertama menang.',
+  'rules.templatesEmpty': 'Belum ada templat ekstraksi.',
   'rules.templatesHeading': 'Template ekstraksi',
   'rules.templatesSubheading': 'Skema bidang yang digunakan ekstraktor untuk setiap tipe dokumen.',
   'rules.then': 'Maka',
@@ -109,17 +138,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Nama workspace',
   'settings.account.subheading':
     'Nama tampilan dan email utama untuk notifikasi dan riwayat audit.',
+  'settings.api.confirmRevoke': 'Konfirmasi?',
   'settings.api.copyOnce': 'Salin kunci ini — tidak akan ditampilkan lagi',
   'settings.api.createdOn': 'Dibuat {{date}}',
   'settings.api.empty': 'Belum ada kunci API. Buat satu di atas.',
   'settings.api.error': 'Gagal membuat kunci.',
+  'settings.api.generating': 'Membuat…',
+  'settings.api.heading': 'Kunci API',
   'settings.api.labelPlaceholder': 'Label kunci (mis. pengunggah CI)',
+  'settings.api.loading': 'Memuat kunci…',
   'settings.api.newKey': 'Buat kunci',
   'settings.api.subheading':
     'Gunakan ini untuk mendorong dokumen dari skrip atau ERP Anda. Rotasi kunci apa pun kapan saja.',
   'settings.integrations.heading': 'Integrasi pengarsipan',
   'settings.integrations.subheading':
     'Kirim dokumen yang diarsipkan ke drive cloud atau alat chat yang sudah digunakan tim Anda.',
+  'settings.subheading':
+    'Kelola akun, kunci API, dan integrasi pengarsipan untuk ruang kerja {{app}} Anda.',
+  'signup.hidePassword': 'Sembunyikan kata sandi',
   'signup.identityPrompt': 'Bagaimana kami harus memanggil Anda?',
   'signup.showPassword': 'Tampilkan kata sandi',
   'signup.subtitle': '14 hari gratis, tanpa kartu.',
@@ -127,6 +163,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Unggah gagal.',
   'upload.eyebrow': 'Ingesti',
   'upload.heading': 'Unggah dokumen',
+  'upload.queue.clear': 'Hapus yang selesai',
   'upload.queue.col.confidence': 'Keyakinan',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Mendeteksi…',
@@ -139,5 +176,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Atau jatuhkan beberapa file sekaligus untuk ekstraksi, klasifikasi, dan pengarsipan batch.',
   'uploadDropZone.cta': 'Pilih file',
+  'uploadDropZone.maxSize': 'Maks 25 MB per file · Terenkripsi end-to-end',
   'uploadDropZone.title': 'Jatuhkan dokumen untuk memulai pemrosesan',
 }

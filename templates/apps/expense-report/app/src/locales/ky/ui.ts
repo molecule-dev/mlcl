@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Суроолор, пикирлер же функция сурамыңыз барбы? Орнотуулар → Эскертүүлөр бөлүмүнөн {{app}} командасына кайрылыңыз же каалаган убакта бизге жазыңыз — ар бир билдирүү чыныгы адамга жетет.',
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Жөнүндө',
+  'about.featureCapture':
+    'Сүрөт жүктөө менен чекти тартуу — сүрөттөр тиешелүү чыгымга сап боюнча тиркелет.',
+  'about.featureExport':
+    'Ар бир отчеттун, чыгымдын жана бекитүү абалынын текшерилүүчү CSV экспорттору — бухгалтерияңызга даяр.',
+  'about.featurePolicy':
+    'Саясат чектөөлөрү — күнүмдүк лимиттер, категория боюнча чектөөлөр жана чек милдеттүү болгон босголор тапшыруу учурунда колдонулат.',
+  'about.featureWorkflow':
+    'Эки деңгээлдүү бекитүү процесси: текшерүүчүнүн эскертүүлөрү, саясат бузуу белгилери жана бир басуу менен төлөмдү белгилөө.',
+  'about.intro':
+    '{{app}} — каржы командалары жана алар төлөп берген адамдар үчүн чыгымдарды башкаруу платформасы. Чекти тартыңыз, чыгымды каттаңыз, отчетту бекитүүгө жөнөтүңүз жана ар бир төлөмдү көзөмөлдөңүз — таблицалык азапсыз.',
+  'about.missionBody':
+    'Төлөм тез, адилеттүү жана текшерилүүчү болушу керек. Биз {{app}} долбоорун тапшыруучулар эч кимден сурабай эле акчасын алышы үчүн, бекитүүчүлөр эмнеге кол коюп жатканын так көрүшү үчүн жана каржы ар бир доллар боюнча таза из калтырышы үчүн — саясат текшерүүлөрү менен кошо — жараттык.',
+  'about.missionTitle': 'Биздин миссиябыз',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Бекитилүүдө…',
   'approvals.confirmReject': 'Баш тартууну ырастоо',
+  'approvals.empty': 'Баары окулду — күтүп турган отчет жок.',
   'approvals.eyebrow': 'Менеджердин кезеги',
   'approvals.kpi.flaggedLabel': 'Саясат белгиленди',
+  'approvals.kpi.queueLabel': 'Карап чыгууну күтүүдө',
   'approvals.kpi.totalLabel': 'Күтүлүп жаткан маани',
   'approvals.lineCount': '{{count}} чыгымдар',
   'approvals.queueFallback': 'Түз кезек жеткиликсиз — тандалган демо маалыматтар көрсөтүлүүдө.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Четке кагылууда…',
+  'approvals.rejectPlaceholder': 'Себеби (милдеттүү)',
   'approvals.rejectPrompt': 'Эмне үчүн бул отчетту четке кагып жатасыз?',
   'approvals.review': 'Сын-пикир',
   'approvals.title': 'Бекитүү күтүлүүдө',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Бекитилген · MTD',
   'dashboard.kpi.pendingDelta': 'Бул аптада +2',
+  'dashboard.kpi.pendingLabel': 'Карап чыгуу күтүлүүдө',
   'dashboard.kpi.receiptsDelta': 'Аракет талап кылынат',
   'dashboard.kpi.receiptsLabel': 'Квитанциялар күтүлүүдө',
   'dashboard.kpi.reimbursedDelta': '+2,4 миң доллар',
   'dashboard.kpi.reimbursedLabel': 'Кайтарылып берилген · MTD',
   'dashboard.newReport': 'Жаңы отчет',
+  'dashboard.recent.empty': 'Азырынча отчет жок — биринчисин жогорудан баштаңыз.',
   'dashboard.recent.title': 'Акыркы отчеттор',
   'dashboard.recent.viewAll': 'Бардык отчетторду көрүү',
   'dashboard.summaryFallback':
@@ -40,11 +61,19 @@ export const ui: UiTranslations = {
   'expenses.listFallback':
     'Түз эфирдеги тизме жеткиликсиз — тандалган демо маалыматтар көрсөтүлүүдө.',
   'expenses.searchPlaceholder': 'Соодагерди же категорияны издөө…',
+  'expenses.subtotal': '{{count}} чыгым · аралык сумма',
   'expenses.title': 'Чыгымдар',
+  'forgotPassword.continue': 'Менде код бар · Улантуу',
+  'forgotPassword.subheading':
+    'Жумуш электрондук почтаңызды киргизиңиз, биз жаңы сырсөз коюу үчүн шилтеме жөнөтөбүз.',
   'forgotPassword.successBody':
     'Эгерде аккаунт бар болсо {{email}} кийинки бир нече мүнөттүн ичинде сиз баштапкы абалга келтирүү шилтемесин аласыз.',
+  'landing.copyright': '© {{year}} {{app}}. Molecule.dev менен курулган.',
+  'landing.ctaBody':
+    'Айына алгачкы 25 чыгым акысыз. Кредиттик карта жок, киргизүү боюнча чалуу жок.',
   'landing.ctaHeading': 'Командаңызга карыз болгон нерсени кайтарып алууга даярсызбы?',
   'landing.eyebrow': 'Финансылык топтор үчүн чыгымдар жөнүндө отчеттор',
+  'landing.featuresHeading': 'Төлөм — бир тынч иш мейкиндигинде',
   'landing.heroSubtitle':
     'Электрондук жадыбалды толтуруу аземисиз эле бизнес чыгымдарын тапшырыңыз, бекитиңиз жана кайтарып бериңиз. Квитанциянын OCRи, саясатты текшерүү жана ачык-айкын бекитүү мөөнөтү — мунун баары бир тынч жумуш мейкиндигинде.',
   'landing.heroTitle': 'Ар бир квитанция калыбына келтирилди.',
@@ -62,10 +91,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Эскертүүлөр',
   'newExpense.descriptionPlaceholder':
     'Эмне үчүн бул чыгым бизнеске байланыштуу болгон (бекитүүчүңүзгө көрүнүп турат).',
+  'newExpense.eyebrow': 'Төлөнүүчү чыгым',
   'newExpense.merchant': 'Соодагер',
   'newExpense.merchantPlaceholder': 'Адлон Кемпински мейманканасы',
   'newExpense.policyHint':
     'Эскертүү: күнүнө 80 доллардан ашык тамак-аш же 250 доллардан ашык тамак-аш үчүн негиздөөчү кат талап кылынат.',
+  'newExpense.receipt': 'Квитанция',
+  'newExpense.receiptHint': 'JPG, PNG же PDF · максимум 10 MB',
   'newExpense.receiptOcrHint': 'OCR талааларды алдын ала толтурат',
   'newExpense.receiptPrompt':
     'Сүрөттү же PDF файлын бул жерге таштаңыз же карап чыгуу үчүн чыкылдатыңыз',
@@ -77,17 +109,21 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Квитанцияны тартып же жүктөп берсеңиз, Recoup сатуучуну, датаны жана жалпы сумманы алдын ала толтурат. Сактоодон мурун төмөндөгүлөрдүн баарын ырастаңыз.',
   'newExpense.title': 'Чыгымды кошуу',
+  'newReport.approverHint':
+    'Сиз бул отчетту карап чыгууга тапшырганыңызда, аларга электрондук кат келет.',
   'newReport.approverLabel': 'Бекитүүчүнүн электрондук почтасы (милдеттүү эмес)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'Жеткиликтүү чыгымдар',
   'newReport.createFailed': 'Отчет түзүлбөй койду. Кайра аракет кылып көрүңүз.',
   'newReport.draftsFallback':
     'Түз эфирдеги чыгымдардын тизмеси жеткиликсиз — тандалган демо маалыматтар көрсөтүлүүдө.',
+  'newReport.eyebrow': 'Чыгымдарды топтоо · бекитүүгө тапшыруу',
   'newReport.includedCount': '{{count}} камтылган',
   'newReport.purposeLabel': 'Ишкердик максат',
   'newReport.purposePlaceholder':
     'Бул чыгымдар тиешелүү болгон сапарды же долбоорду сүрөттөп бериңиз (бекитүүчүгө жана каржылоочуга көрүнүп турушу керек).',
   'newReport.saveDraft': 'Долбоор катары сактоо',
+  'newReport.saveDraftFailed': 'Каралама сакталбады. Кайра аракет кылыңыз.',
   'newReport.submit': 'Бекитүү үчүн тапшыруу',
   'newReport.submitFailed': 'Кабар жөнөтүлгөн жок. Кайра аракет кылып көрүңүз.',
   'newReport.summary': 'Отчеттун кыскача мазмуну',
@@ -100,17 +136,24 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'Жумуш ордундагы иш-аракет',
   'notifications.feedFallback': 'Түз эфир жеткиликсиз — тандалган демо маалыматтар көрсөтүлүүдө.',
   'notifications.openReport': 'Ачык отчет ›',
+  'pricing.approvalsLabel': 'бекитүүлөр',
   'pricing.expensesLabel': 'чыгымдар',
   'pricing.heading': 'бекитүүлөр',
   'pricing.policiesLabel': 'саясаттар',
   'pricing.receiptsLabel': 'квитанциялар',
   'recoveredAmountHeroCard.label': 'Кайтарып алынган сумма · Жыл башынан бери',
+  'recoveredAmountHeroCard.pending':
+    'Бардык бекитүүчүлөр боюнча азыр карап чыгууну күтүп турган {{count}} отчет.',
+  'reports.approvalFlow': 'Бекитүү агымы',
   'reports.backToList': 'Отчетторго кайтуу',
   'reports.detailFallback':
     'Түз эфирдеги отчет жеткиликсиз — тандалган демо маалыматтар көрсөтүлүүдө.',
   'reports.lineItems': 'Сап элементтери',
   'reports.lineItemsCount': '{{count}} чыгымдар',
+  'reports.lineItemsEmpty': 'Бул отчетто азырынча чыгым жок.',
+  'reports.openLibrary': 'Отчеттор китепканасын ачуу',
   'reports.policyTitle': 'Саясат белгиси',
+  'reports.selectPrompt': 'Деталдарын көрүү үчүн китепканадан отчет тандаңыз.',
   'reports.summary.lineCount': 'Сап элементтери',
   'reports.summary.reimbursable': 'Кайтарымдуу',
   'reports.summary.total': 'Жалпы сумма кабарланды',
@@ -120,6 +163,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Түз эфирдеги тизме жеткиликсиз — тандалган демо маалыматтар көрсөтүлүүдө.',
   'reportsList.newReport': 'Жаңы отчет',
+  'reportsList.submittedOn': '{{date}} жөнөтүлдү',
   'reportsList.title': 'Отчёт китепканасы',
   'resetPassword.hidePassword': 'Сырсөздү жашыруу',
   'resetPassword.newPasswordLabel': 'Жаңы сыр сөз',
@@ -145,6 +189,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Сакталган ✓',
   'settings.profileSaveFailed': 'Профиль жаңыртылган жок. Кайра аракет кылып көрүңүз.',
   'signup.heading': 'Recoup аккаунтуңузду түзүңүз',
+  'signup.hidePassword': 'Сырсөздү жашыруу',
   'signup.namePlaceholder': 'Майя Окафор',
   'signup.showPassword': 'Сырсөздү көрсөтүү',
   'signup.subheading': 'Ай сайын 25 чыгым үчүн акысыз — кредиттик картасыз.',

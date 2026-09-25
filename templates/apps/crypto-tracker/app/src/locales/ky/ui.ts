@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Жөнүндө',
+  'about.featureAlerts':
+    'Маанилүү шарттар боюнча баа эскертүүлөрү, электрондук почта жана push аркылуу жеткирилет, ошентип эч качан кыймылды өткөрүп жибербейсиз.',
+  'about.featureMarkets':
+    'Миңдеген монеталар боюнча реалдуу убакыттагы рынок маалыматтары жана баа графиктери, рыноктук капиталдашуу, көлөм жана импульс боюнча иреттелген.',
+  'about.featurePortfolio':
+    'Реалдуу пайда-зыян, чыгымдын негизи жана бөлүштүрүү менен портфелди көзөмөлдөө — транзакция тарыхыңызга туташтырылган.',
+  'about.featureWatchlist':
+    'Жеке көзөмөл тизмеси жана сиз көзөмөлдөгөн активдер боюнча сигналдар менен тандалма крипто жаңылыктары.',
+  'about.missionTitle': 'Биздин миссиябыз',
+  'alertConditionCard.armedSince': '{{when}} берки куралданган',
   'alertConditionCard.condition.${alert.condition}': 'Иштетилген {{качан}}',
   'alertConditionCard.confirmDelete': 'Өчүрүүнү ырастоо',
+  'alertConditionCard.deleteAriaLabel': 'Эскертүүнү өчүрүү',
   'alertConditionCard.pauseAriaLabel': 'Эскертүүнү тындыруу',
   'alertConditionCard.resumeAriaLabel': 'Улантууну улантуу жөнүндө эскертүү',
+  'alertConditionCard.triggeredAt': '{{when}} иштетилди',
   'alertNew.condition': 'Абал',
   'alertNew.createCta': 'Эскертүү түзүү',
   'alertNew.error': 'Эскертүү түзүлбөй койду.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Азырынча эскертүүлөр жок.',
   'alerts.eyebrow': 'Сигил трип-зымдары',
   'alerts.loadError': 'Эскертүүлөр жүктөлбөй калды.',
+  'alerts.newCta': '+ Жаңы трипвайр',
   'alerts.subheading': 'Баасы, өзгөрүүсү же көлөмү чектен ашканда, пингге чалыңыз.',
   'alerts.summary.armed': 'Куралдуу',
   'alerts.summary.triggered': 'Иштетилген',
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Бардык убактагы эң жогорку көрсөткүч',
   'coinDetail.allTimeLow': 'Бардык убактагы эң төмөнкү көрсөткүч',
   'coinDetail.back': 'Бардык базарлар',
+  'coinDetail.chartAriaLabel': '{{name}} баа графиги, акыркы 30 күн',
   'coinDetail.chartHeading': 'Баасы · акыркы 30 күндө',
   'coinDetail.circulating': 'Айланма камсыздоо',
   'coinDetail.fdv': 'Толугу менен суюлтулган баалоо',
@@ -59,6 +74,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Зымдуу шилтемени баштапкы абалга келтирүү.',
   'login.eyebrow': 'Терминалга кириңиз',
   'login.heading': 'Кайрадан кош келиңиз, сигналчы.',
+  'login.noAccountQuestion': 'Тессерага жаңы келдиңизби?',
   'login.secureNote': '🔒 Транзит учурунда шифрленген',
   'login.signingInCta': 'Кассетаны окуп жатат...',
   'login.signupLink': 'Эсеп ачуу →',
@@ -93,6 +109,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Сиз сканерлеген маршрут белгилүү тыйынга же баракка туура келбейт. Белгини кайра текшерип, кайра аракет кылыңыз.',
   'notFound.browseMarkets': 'Базарларды карап чыгуу',
+  'notFound.eyebrow': '{{appName}} сигналы жоголду',
+  'notFound.heading': 'Бул сигнал диапазондон тышкары',
+  'planUpdated.body':
+    'Төлөм өзгөртүүңүз эми активдүү. Планыңызды каалаган убакта төлөм барагынан башкара аласыз.',
+  'planUpdated.retry': 'Кайра аракет кыл',
+  'planUpdated.verifyFailed': 'Төлөмүңүздү азырынча ырастай алган жокпуз.',
+  'planUpdated.verifyFailedBody':
+    'Төлөмүңүз дагы эле иштетилип жатышы мүмкүн. Бир аздан кийин кайра аракет кылыңыз.',
   'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'portfolio.addError': 'Символду, оң сумманы жана баасын киргизиңиз.',
   'portfolio.addHoldingCta': '+ Акцияны кошуу',
@@ -116,12 +140,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Портфелдин жалпы наркы',
   'portfolioHeroCard.totalPnl': 'Жалпы киреше/чыгым',
   'pricing.heading': 'эскертүүлөр',
+  'pricing.limit.alerts': 'эскертүүлөр',
   'pricing.limit.coins': 'тыйындар',
   'pricing.limit.market': 'базар',
   'pricing.limit.portfolio': 'портфолио',
   'resetPassword.eyebrow': 'Жаңы шифр',
   'resetPassword.missingToken':
     'Бул баштапкы абалга келтирүү шилтемеси жок же жараксыз. Жаңысын сураңыз.',
+  'resetPassword.passwordPlaceholder': 'Жаңы сыр сөз',
   'resetPassword.subheading': 'Сиз чечмелей ала турган гана нерсени тандаңыз.',
   'settings.apiKeys.body':
     'Транзакция тарыхын импорттоо үчүн окууга гана арналган баскычтар. Жазылгандан кийин /pricing аркылуу OAuth аркылуу туташыңыз.',
@@ -133,17 +159,34 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Баалоо валютасы',
   'settings.preferences.locale': 'Жергиликтүү стандарт',
   'settings.preferences.push': 'Түртүү',
+  'settings.preferences.refresh': 'Бааны жаңылоо (секунд)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning':
+    'Бул түзмөктүн кирүү укугу жакында жокко чыгарылат. Чыгарылсынбы?',
   'settings.security.body': 'Сырсөз жана эки факторлуу жөндөөлөр аккаунтуңуз тарабынан башкарылат.',
   'settings.signOutDevice': 'Чыгуу',
   'settings.twoFactorCode': 'Аутентификация коду',
   'settings.twoFactorDisable': 'Өчүрүү',
+  'settings.twoFactorDisableTitle': 'Эки факторлуу аутентификацияны өчүрүү',
   'settings.twoFactorEnable': 'Иштетүү',
+  'settings.twoFactorEnableTitle': 'Эки факторлуу аутентификацияны күйгүзүү',
   'settings.twoFactorInvalidCode': 'Жараксыз код',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Эки факторлуу QR код',
+  'settings.twoFactorScan':
+    'Бул QR кодду аутентификатор колдонмоңуз менен скандаңыз, анан 6 орундуу кодду киргизиңиз.',
+  'settings.twoFactorUnavailable':
+    'Бул колдонмо үчүн эки факторлуу аутентификация жеткиликтүү эмес.',
   'settings.twoFactorVerify': 'Текшерүү жана иштетүү',
   'sigilAuthShell.backHomeCta': '← Сигилге кайтуу',
+  'sigilAuthShell.brandBody':
+    'Реалдуу убакыттагы баалар, портфелдин пайда/зыяны жана маанилүү шарттар боюнча туруктуу көзөмөл — баары бир терминалда.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — Molecule негизинде курулган',
+  'sigilAuthShell.brandHeadline': 'Бүткүл леджер боюнча ар бир сигналды чечмелеңиз.',
+  'sigilAuthShell.samplePortfolio': 'Үлгүлүү портфель',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Негизги навигация',
+  'signup.creating': 'Терминалыңыз ачылууда…',
   'signup.eyebrow': 'Терминалды ачуу',
   'signup.heading': 'Өзүңүздүн Bourse түзүңүз',
   'signup.subheading': 'Ар бир тыйынды көзөмөлдөп, ар бир катадан сактаныңыз. Баштоо акысыз.',
@@ -160,6 +203,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Транзакциялар жүктөлбөй калды.',
   'watchlist.addCta': 'Базарларды карап чыгуу',
   'watchlist.col.change24h': '24 саат',
+  'watchlist.col.coin': 'Тыйын',
   'watchlist.col.marketCap': 'Mkt капкагы',
   'watchlist.empty':
     'Байкоо тизмеңизде тыйындар жок — аларды кошуу үчүн /markets сайтынан жылдызчалап тыйындарды белгилеңиз.',

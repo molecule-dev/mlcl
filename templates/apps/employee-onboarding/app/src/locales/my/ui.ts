@@ -1,27 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'သင့်အဖွဲ့အတွက် ပိုမိုနွေးထွေးသော onboarding ကို စတင်လိုပါသလား၊ bug တစ်ခု တွေ့ပါသလား၊ သို့မဟုတ် အကြံပြုချက် ရှိပါသလား။ သင့်အကောင့် ဆက်တင်များမှ ဆက်သွယ်ပါ — မက်ဆေ့ချ်တိုင်းသည် အကူအညီပေးနိုင်သော လူတစ်ဦးထံ ရောက်ရှိပါသည်။',
   'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'သင့်စကားဝှက်ကို ပြန်လည်သတ်မှတ်ပါ။',
+  'auth.forgotPassword.panel.body':
+    'ပြန်လည်သတ်မှတ်ရန် ၃၀ စက္ကန့်သာ ကြာသည် — သင့် checklist တိုးတက်မှုကို စောင့်နေပါသည်။',
+  'auth.forgotPassword.panel.headline': 'သင်ရပ်ခဲ့သည့်နေရာသို့ ပြန်ရောက်ပါပြီ။',
+  'auth.forgotPassword.subheading':
+    'သင့်အလုပ်အီးမေးလ်ကို ထည့်ပါ၊ ကျွန်ုပ်တို့ ပြန်လည်သတ်မှတ်ရန် လင့်ခ် ပေးပို့ပါမည်။',
   'auth.forgotPassword.successSubheading':
     'သင့်ဝင်စာပုံးကို စစ်ဆေးပါ — ပြန်လည်သတ်မှတ်ရန် ညွှန်ကြားချက်များကို ကျွန်ုပ်တို့ ပေးပို့ပြီးပါပြီ။',
   'auth.login.emailPlaceholder': 'name@yourcompany.com',
   'auth.login.heading': 'ကြိုဆိုပါတယ်။',
   'auth.login.passwordPlaceholder': 'သင့်စကားဝှက်',
+  'auth.login.signupPrompt': 'သင့်အဖွဲ့အတွက် အသစ်လား။',
   'auth.login.subheading':
     'သင်ရပ်တန့်ခဲ့သော သင်၏ မိတ်ဆက်ခရီးစဉ်ကို ပြန်လည်စတင်ရန် လက်မှတ်ထိုးဝင်ပါ။',
   'auth.login.submit': 'သင့်ခရီးကို ဆက်သွားပါ',
+  'auth.panel.body':
+    'သင့်ကိုယ်ပိုင် checklist၊ လေ့ကျင့်ရေး မှတ်တိုင်များနှင့် အဖွဲ့မိတ်ဆက်မှုများ — အားလုံးကို အေးချမ်းသော နေရာတစ်ခုတွင်။',
   'auth.panel.footnote': '© Embark — ယနေ့မှစ၍ လူများကို ဦးစားပေး၍ မိတ်ဆက်ပေးခြင်း။',
   'auth.panel.headline': 'ယုံကြည်မှုရှိတဲ့ ပထမ ၉၀ ရက်ဟာ ဒီမှာ စတင်ပါတယ်။',
   'auth.resetPassword.heading': 'စကားဝှက်အသစ်တစ်ခု သတ်မှတ်ပါ။',
   'auth.resetPassword.newPasswordLabel': 'စကားဝှက်အသစ်',
+  'auth.resetPassword.panel.body':
+    'စကားဝှက်အသစ် သိမ်းဆည်းပါ၊ သင့် onboarding ခရီးစဉ်ထဲသို့ ကျွန်ုပ်တို့ ပြန်ပို့ပါမည်။',
+  'auth.resetPassword.panel.headline': 'ပြန်ဝင်ရန် နီးပါးပြီ။',
   'auth.resetPassword.subheading': 'သင်မှတ်မိမည့်အရာတစ်ခုကို ရွေးချယ်ပါ — အနည်းဆုံး စာလုံး ၈ လုံး။',
   'auth.signup.emailPlaceholder': 'name@yourcompany.com',
   'auth.signup.heading': 'သင့်ရဲ့ ပထမဆုံး ၉၀ ရက်ကို ကြိုဆိုပါတယ်။',
   'auth.signup.panel.body':
     'လမ်းညွှန်စစ်ဆေးရမည့်စာရင်း၊ အခန်းကဏ္ဍအလိုက် လေ့ကျင့်မှုနှင့် လူမိတ်ဆက်ခြင်း — သင်ဝင်ရောက်လာခြင်းမပြုမီ အသင့်ပြင်ဆင်ထားပါသည်။',
+  'auth.signup.panel.headline': 'ပထမနေ့၊ ပထမနေ့မှာတင်။',
   'auth.signup.subheading':
     'သင့်ရဲ့ လမ်းညွှန်မှုပါတဲ့ onboarding ခရီးကို စတင်ဖို့အတွက် Embark အကောင့်ကို ဖန်တီးပါ။',
   'checklist.empty.body': 'အခြားလုပ်ဆောင်စရာများကိုကြည့်ရှုရန် filter ကိုပြောင်းပါ။',
@@ -29,6 +44,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'မိတ်ဆက်ခြင်း · စစ်ဆေးရမည့်စာရင်း',
   'checklist.loading': 'သင့်စစ်ဆေးရမည့်စာရင်းကို တင်နေသည်…',
   'checklist.stat.actionNeeded': 'လုပ်ဆောင်ချက် လိုအပ်ပါသည်',
+  'checklist.stat.completion': 'ပြီးစီးမှု',
+  'checklist.stat.inProgress': 'ဆောင်ရွက်ဆဲဖြစ်သည်',
   'checklist.stat.inProgressHelper': 'သင်ထားခဲ့သည့်နေရာမှ ဆက်လုပ်ပါ',
   'checklist.stat.overdueHelper': 'ဒါတွေကို အရင်ရယူလိုက်ပါ',
   'checklist.subtitle':
@@ -60,6 +77,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'စာရွက်စာတမ်းများ မရှိသေးပါ',
   'documents.eyebrow': 'စာရင်းသွင်းခြင်း · စာရွက်စာတမ်းများ',
   'documents.loading': 'စာရွက်စာတမ်းများကို တင်နေသည်…',
+  'documents.stat.actionNeeded': 'ယခုပဲ လက်မှတ်ထိုးလိုက်ပါ',
+  'documents.stat.all': 'စာရွက်စာတမ်းအားလုံး',
   'documents.stat.allHelper': 'အမျိုးအစားများတစ်လျှောက်',
   'documents.stat.pending': 'ဆိုင်းငံ့ထားသော လက်မှတ်များ',
   'documents.stat.pendingHelper': 'ပြီးမြောက်ရန် လိုအပ်သည်',
@@ -67,6 +86,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'လုံခြုံစွာသိမ်းဆည်းထားသည်',
   'documents.status.optional': 'ရွေးချယ်နိုင်သည်',
   'documents.status.required': 'လိုအပ်သည်',
+  'documents.status.signed': 'လက်မှတ်ရေးထိုးပြီး',
   'documents.subtitle':
     'သင့်လက်စွဲစာအုပ်၊ ပုံစံများနှင့် လက်မှတ်ရေးထိုးထားသော သဘောတူညီချက်များ — အားလုံးတစ်နေရာတည်းတွင်။',
   'documents.title': 'သင်ဖတ်ရန်နှင့် လက်မှတ်ထိုးရန် လိုအပ်သမျှ။',
@@ -74,10 +94,14 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'ကြည့်ရှုသူ',
   'documentViewer.breadcrumbDocs': 'စာရွက်စာတမ်းများ',
   'documentViewer.downloadMeta': 'မက်တာဒေတာကို ဒေါင်းလုဒ်လုပ်ပါ',
+  'documentViewer.helpBody':
+    'လူများနှင့် ယဉ်ကျေးမှု (People & Culture) သည် Slack ရှိ #ask-people တွင် handbook မေးခွန်းများကို ဖြေကြားပါသည်။',
   'documentViewer.helpEyebrow': 'အကူအညီ လိုအပ်ပါသလား။',
   'documentViewer.loadError': 'ဤစာရွက်စာတမ်းကို ကျွန်ုပ်တို့ တင်၍မရပါ။',
   'documentViewer.loading': 'စာရွက်စာတမ်းတင်နေသည်…',
   'documentViewer.notFound': 'စာရွက်စာတမ်း ရှာမတွေ့ပါ',
+  'documentViewer.previewBody':
+    'အပ်လုဒ်များ သတ်မှတ်ပြီးပါက ဖိုင်ကို တိုက်ရိုက်ပြသပါမည်။ ယခုအချိန်တွင် metadata ဒေါင်းလုဒ်ဖြင့် မှတ်တမ်းသည် အမှန်ဖြစ်ကြောင်း အတည်ပြုနိုင်ပါသည်။',
   'documentViewer.previewBodyExternal':
     'ဖိုင်ကို tab အသစ်တစ်ခုတွင်ဖွင့်ရန် download ခလုတ်ကိုသုံးပါ။',
   'documentViewer.previewTitle': 'စာရွက်စာတမ်း အစမ်းကြည့်ရှုခြင်း',
@@ -85,6 +109,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'စာရွက်စာတမ်းကိုဖတ်ပါ၊ ထို့နောက် လက်မှတ်ရေးထိုးပြီး အတည်ပြုရန် အောက်ပါကိုနှိပ်ပါ။',
   'documentViewer.signatureHeading': 'လက်မှတ် လိုအပ်သည်',
+  'documentViewer.signed': '✓ လက်မှတ်ထိုး၍ သိမ်းဆည်းပြီး',
   'documentViewer.signing': 'လက်မှတ်ထိုးနေသည်…',
   'documentViewer.uploadedRecently': 'မကြာသေးမီက အပ်လုဒ်လုပ်ထားသည်',
   'landing.closing.body':
@@ -94,10 +119,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'ကျွန်တော်/ကျွန်မမှာ အကောင့်တစ်ခု ရှိပြီးသားပါ',
   'landing.feature1.body':
     'အလုပ်တိုင်း — စာရွက်စာတမ်း၊ အကောင့်များ၊ မိတ်ဆက်ခြင်း — ကို နောက်ဆုံးရက်များနှင့် ပိုင်ရှင်မှန်ဖြင့် ကြိုတင်ပြင်ဆင်ထားပြီးဖြစ်သည်။',
+  'landing.feature1.title': 'လမ်းညွှန် checklist',
   'landing.feature2.body':
     'မော်ဂျူးများသည် ၃၀/၆၀/၉၀ မှတ်တိုင်များတွင် လော့ခ်ဖွင့်ပြီး ဝန်ထမ်းခန့်အပ်မည့် အခန်းကဏ္ဍနှင့် အဖွဲ့အပေါ် မူတည်ပါသည်။',
+  'landing.feature2.title': 'အခန်းကဏ္ဍအလိုက် လေ့ကျင့်ရေး',
   'landing.feature3.body':
     'သူငယ်ချင်းများ၊ မန်နေဂျာများနှင့် လုပ်ငန်းဆောင်တာပေါင်းစုံ မိတ်ဆက်ခြင်းများကို စီစဉ်ထားပါသည် — ထို့ကြောင့် မည်သူမျှ တစ်ယောက်တည်း မစတင်ပါ။',
+  'landing.feature3.title': 'တကယ့် မိတ်ဆက်မှုများ',
   'landing.featureEyebrow': 'ဘာကြောင့် စတင်လုပ်ဆောင်သင့်သလဲ',
   'landing.featureHeadline': 'Embark သည် ပထမနေ့တွင် ယုံကြည်မှုရရှိရန် နည်းလမ်းသုံးခု။',
   'landing.footer.rights': 'မူပိုင်ခွင့်ကိုလက်ဝယ်ထားသည်။',
@@ -107,6 +135,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'နောက်တစ်ခု- သင့်သူငယ်ချင်းနဲ့ မိနစ် ၃၀ ကြာ ကော်ဖီသောက်ရင်း စကားပြောဆိုပါ — အင်္ဂါနေ့ နံနက် ၁၀:၀၀ နာရီ။',
   'landing.preview.eyebrow': '၉၀ ခုနှစ်၏ ၁၄ ရက်မြောက်နေ့ — နမူနာ ဒိုင်ခွက်',
+  'landing.preview.headline': 'ပြန်လည်ကြိုဆိုပါသည်၊ Maya။',
   'landing.proof.spec': 'SOC 2 + GDPR အသင့်ဖြစ်ပါပြီ',
   'landing.proof.teams': '၅၀ မှ ၅၀၀၀ အထိ အဖွဲ့များအတွက် တည်ဆောက်ထားသည်',
   'landing.proof.time': '၁၄ ရက် အခမဲ့ အစမ်းသုံးခွင့်',
@@ -123,16 +152,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'မနေ့က',
   'planUpdated.message': 'အားလုံး အဆင်သင့်ဖြစ်ပါပြီ။',
   'planUpdated.preparing': 'သင့်အစီအစဉ်ကို အပ်ဒိတ်လုပ်နေသည်…',
+  'planUpdated.retry': 'ထပ်ကြိုးစားပါ',
+  'planUpdated.verifyFailed': 'သင့်ငွေပေးချေမှုကို ကျွန်ုပ်တို့ အတည်မပြုနိုင်သေးပါ။',
+  'planUpdated.verifyFailedBody':
+    'သင့်ငွေပေးချေမှုကို လုပ်ဆောင်နေဆဲဖြစ်နိုင်ပါသည်။ ခဏအကြာတွင် ထပ်မံကြိုးစားပါ။',
   'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'pricing.documentsLabel': 'စာရွက်စာတမ်းများ',
   'pricing.onboardingsLabel': 'စာရင်းသွင်းခြင်း',
   'pricing.tasksLabel': 'တာဝန်များ',
   'profile.dayNumber': 'နေ့',
   'profile.detailsHeading': 'စာရင်းသွင်းခြင်း အသေးစိတ်အချက်အလက်များ',
+  'profile.encouragementBody':
+    'သင့် buddy နှင့် manager ကို အသိပေးထားပါ — အဆင့်ငယ်လေးများ စုပေါင်းလာပါသည်။',
   'profile.milestones': 'မှတ်တိုင်များ',
   'profile.progressEyebrow': 'မိတ်ဆက်ခြင်း တိုးတက်မှု',
   'profile.tasks': 'လုပ်ဆောင်စရာများ',
   'profile.unknownName': 'ကြိုဆိုပါတယ်',
+  'settings.appearance.description': 'အလင်းနှင့် အမှောင်မုဒ်အကြား ပြောင်းပါ။',
+  'settings.appearance.title': 'အသွင်အပြင်',
+  'settings.subtitle':
+    'အသိပေးချက်များ၊ လုံခြုံရေး၊ စက်ပစ္စည်းများနှင့် ဒေတာ ထုတ်ယူမှုကို ချိန်ညှိပါ — အားလုံးသည် ဤနေရာတွင်သာ၊ သင့်စည်းကမ်းချက်များအတိုင်း ရှိပါသည်။',
   'settings.title': 'ဆက်တင်များနှင့် ဦးစားပေးမှုများ။',
   'taskDetail.backToChecklist': 'စစ်ဆေးရမည့်စာရင်းသို့ ပြန်သွားရန်',
   'taskDetail.breadcrumbChecklist': 'စစ်ဆေးရမည့်စာရင်း',
@@ -145,7 +184,11 @@ export const ui: UiTranslations = {
   'taskDetail.notFound': 'လုပ်ဆောင်စရာ ရှာမတွေ့ပါ',
   'taskDetail.notFoundBody':
     'ဤလုပ်ဆောင်စရာကို ဖျက်လိုက်ခြင်း သို့မဟုတ် အခြားအသုံးပြုသူပိုင် ဖြစ်နိုင်သည်။',
+  'taskDetail.tipBody':
+    'သင်ပိတ်ဆို့နေပါက Slack တွင် သင့် onboarding buddy ကို မက်ဆေ့ချ်ပို့ပါ — သူတို့သည် သင့်ပထမဆုံး အကူအညီလမ်းကြောင်း ဖြစ်ပါသည်။',
   'taskDetail.tipEyebrow': 'အမြန်အကြံပြုချက်',
+  'team.empty.body':
+    'ပိုမိုကျယ်ပြန့်သော ရှာဖွေမှုကို စမ်းကြည့်ပါ သို့မဟုတ် အခြားဌာနတစ်ခုကို ရွေးပါ။',
   'team.empty.title': 'အသင်းဖော်တွေနဲ့ ယှဉ်ပြိုင်မှု မရှိဘူး',
   'team.eyebrow': 'မိတ်ဆက်ခြင်း · လူများ',
   'team.loading': 'အသင်းဖော်များကို တင်နေသည်…',
@@ -168,14 +211,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'မှတ်တိုင်များ',
   'timeline.stat.current': 'လက်ရှိမှတ်တိုင်',
   'timeline.stat.next': 'နောက်တစ်ကြိမ် လော့ခ်ဖွင့်ခြင်း',
+  'timeline.stat.progress': 'အလုံးစုံ',
   'timeline.subtitle':
     'မှတ်တိုင်တစ်ခုစီသည် မော်ဂျူးအသစ်များ၊ မိတ်ဆက်စကားဝိုင်းများနှင့် တိုးတက်မှုဆိုင်ရာ ဆွေးနွေးမှုများကို ဖွင့်လှစ်ပေးပါသည်။ ဖိအားမရှိပါ - တိုးတက်မှုသာရှိသည်။',
+  'timeline.tipBody':
+    'သင့် manager နှင့်အတူ ရက် ၃၀၊ ၆၀ နှင့် ၉၀ တွင် မိနစ် ၃၀ ကြာ ပြန်လည်သုံးသပ်ရန် အချိန်သတ်မှတ်ပါ — ၎င်းသည် အကြံပြုချက်ကို တိကျစေပြီး တိုးတက်မှုကို မြင်သာစေပါသည်။',
   'timeline.tipEyebrow': 'မန်နေဂျာ အကြံပြုချက်',
+  'timeline.tipTitle': 'မှတ်တိုင်များအတွက် ပြက္ခဒိန်တွင် အချိန်ပိတ်ထားပါ။',
   'timeline.title': 'မင်းရဲ့ ၃၀/၆၀/၉၀ ခရီး။',
   'training.badge.notStarted': 'မစတင်ရသေးပါ',
   'training.empty': 'သင်တန်း module များ မရှိသေးပါ။',
   'training.eyebrow': 'မိတ်ဆက်ခြင်း · လေ့ကျင့်ရေး',
   'training.loading': 'မော်ဂျူးများကို တင်နေသည်…',
+  'training.stat.all': 'သတ်မှတ်ထားသော module များ',
   'training.subtitle':
     'မော်ဂျူးများသည် သင့်အခန်းကဏ္ဍနှင့် ကိုက်ညီစေရန် 30/60/90 တွင် လော့ခ်ဖွင့်ပါသည်။ လိုအပ်သည်များကို ဦးစားပေးပါမည်။',
   'training.title': 'ကျွမ်းကျင်မှုများ၊ ကိရိယာများနှင့် ဇာတ်လမ်းများ — သင့်အရှိန်အဟုန်ဖြင့်။',
@@ -188,9 +236,12 @@ export const ui: UiTranslations = {
   'trainingModule.quizBody':
     'ဤ module ပြီးဆုံးကြောင်း အမှတ်အသားပြုရန် 80% သို့မဟုတ် ထို့ထက်ပိုသော အမှတ်များ ရရှိရန် လိုအပ်ပါသည်။',
   'trainingModule.quizHeading': 'မော်ဂျူးအဆုံး ဉာဏ်စမ်းပဟေဠိ',
+  'trainingModule.quizLocked': 'module ကို အရင်စတင်ပါ',
   'trainingModule.quizNone': 'ဤ module တွင် ဉာဏ်စမ်းပဟေဠိ မရှိပါ။',
   'trainingModule.quizRetry': 'ထပ်ကြိုးစားပါ',
+  'trainingModule.quizStart': 'quiz စတင်ပါ',
   'trainingModule.quizSubmit': 'အဖြေများ တင်သွင်းပါ',
+  'trainingModule.start': 'module စတင်ပါ',
   'trainingModule.statusNotStarted': 'မစတင်ရသေးပါ',
   'welcomeHeroCard.completeLabel': 'ပြီးမြောက်ပါပြီ',
   'welcomeHeroCard.milestonesLabel': 'မှတ်တိုင်များ',

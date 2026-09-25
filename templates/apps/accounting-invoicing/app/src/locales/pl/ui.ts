@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Masz pytanie, znalazłeś błąd lub chcesz przenieść swoje księgi? Napisz do zespołu {{app}} na hello@{{app}}.example — każdą wiadomość czyta prawdziwa osoba.',
   'about.contactTitle': 'Skontaktuj się z nami',
   'about.eyebrow': 'O nas',
+  'about.intro':
+    '{{app}} to księgowość dla małych firm, która pilnuje każdego grosza — faktury, wydatki, płatności i raporty w jednym spokojnym miejscu dla właścicieli, księgowych i biur rachunkowych.',
+  'about.missionBody':
+    'Prowadzenie firmy nie powinno oznaczać lęku przed księgowością. {{app}} zastępuje rozrastające się arkusze kalkulacyjne przejrzystymi liczbami, na których można działać, dzięki czemu spędzasz mniej czasu na uzgadnianiu, a więcej na pracy, dla której w ogóle założyłeś firmę.',
+  'about.missionTitle': 'Nasza misja',
   'about.title': 'O {{app}}',
   'accounts.count': '{{count}} konta',
+  'accounts.emptyBody':
+    'Konta księgowe śledzą, gdzie znajdują się pieniądze i dokąd przepływają. Pojawią się tutaj, gdy Twoja księgowość lub integracja je skonfiguruje.',
   'accounts.emptyTitle': 'Brak kont',
   'accounts.heading': 'Plan kont',
   'accounts.kpi.accounts': 'Konta',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Wszystkie konta księgowe związane z fakturami, wydatkami i płatnościami, pogrupowane według rodzaju.',
   'accounts.tag.inactive': 'nieaktywny',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Dyrektor finansowy, Horizon Tech',
   'authBrandPanel.eyebrow': 'Zaufany przez zespoły finansowe',
   'authBrandPanel.label': 'Prezentacja marki',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Wszyscy klienci',
   'customerDetail.invoiceMeta': 'Data wydania{{issued}} · Termin zwrotu{{due}}',
   'customerDetail.loadError': 'Nie udało się załadować klienta.',
+  'customerDetail.missingBody':
+    'Nie udało się wczytać żądanego rekordu klienta. Mógł zostać usunięty lub możesz nie mieć do niego dostępu.',
   'customerDetail.missingHeading': 'Rekord klienta niedostępny',
+  'customerDetail.missingHelp':
+    'Użyj powyższego linku powrotu, aby wrócić do listy klientów, lub wybierz z niej inny rekord.',
+  'customerDetail.noInvoices': 'Brak faktur.',
   'customerDetail.notesEmpty': 'Brak notatek.',
   'customerDetail.paymentsEmpty': 'Brak zarejestrowanych płatności.',
   'customerDetail.paymentTerms': 'Warunki płatności',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Podlegające odliczeniu',
   'expenseDetail.detailsHeading': 'Szczegóły transakcji',
   'expenseDetail.loadError': 'Nie udało się załadować wydatku.',
+  'expenseDetail.matched': 'Dopasowano · {{description}}',
   'expenseDetail.missingBody':
     'Żądany wydatek nie mógł zostać załadowany. Mógł zostać usunięty lub Pan/Pani nie ma do niego dostępu.',
   'expenseDetail.missingHeading': 'Rekord wydatku niedostępny',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Paragon',
   'expenseDetail.receiptHeading': 'Paragon',
   'expenseDetail.reconciled': 'Uzgodnione',
+  'expenseDetail.unreconciled': 'Nieuzgodnione',
   'expenses.empty': 'Brak wydatków.',
   'expenses.heading': 'Wydatki',
   'expenses.kpi.deductible': 'Podlegające odliczeniu',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Nie udało się załadować faktur.',
   'invoices.searchPlaceholder': 'Szukaj numer faktury lub klienta…',
   'invoices.summary.paid': 'Zapłacone w tym okresie',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'Bezpłatnie przez 30 dni. Bez karty. Proszę przyprowadzić księgowego — podziękuje Państwu.',
   'landing.ctaTitle': 'Proszę przenieść swoje księgi w spokojniejsze miejsce.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Należności handlowe',
   'ledgerStatTriad.eyebrow.mtd': 'Od początku miesiąca',
   'ledgerStatTriad.netSub': 'Netto {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} po terminie',
   'ledgerStatTriad.revenueLabel': 'Przychody',
   'login.failed': 'Logowanie nie powiodło się.',
   'login.hidePassword': 'Ukryj hasło',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Zaloguj się',
   'nav.legal': 'Prawne',
   'newExpense.back': 'Wydatki',
+  'newExpense.clearReceiptCta': 'Wyczyść załączony paragon',
   'newExpense.deductible': 'Podatkowo odliczalne',
   'newExpense.dropPrompt': 'Proszę upuścić zdjęcie paragonu lub PDF tutaj, aby załączyć.',
   'newExpense.failed': 'Nie można zapisać wydatku.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Nie udało się załadować płatności.',
   'payments.unmatchedTag': 'niezrównany',
   'planUpdated.pageLabel': 'Potwierdzenie aktualizacji planu',
+  'pricing.advancedFeatures': 'Funkcje zaawansowane: {{yes}}',
+  'pricing.canExport': 'Eksport danych: {{yes}}',
+  'pricing.heading': 'Wybierz plan {{app}}',
+  'pricing.maxAccounts': '{{count}} konta',
+  'pricing.maxExpenses': '{{count}} wydatków',
+  'pricing.maxInvoices': 'Faktury: {{count}}',
+  'privacy.intro':
+    'Niniejsza Polityka prywatności opisuje, w jaki sposób {{app}} gromadzi, wykorzystuje i ujawnia informacje o firmach korzystających z usługi.',
   'privacy.lastUpdated': 'Ostatnia aktualizacja: {{date}}',
   'privacy.section.collected.body':
     'Zbieramy dane konta (imię i nazwisko, e-mail, firma), zapisy finansowe, które Pan/Pani przesyła (faktury, wydatki, klienci, płatności) oraz standardowe dzienniki operacyjne usługi (IP, user-agent, znaczniki czasu).',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Informacje są wykorzystywane do obsługi usługi, generowania żądanych raportów i plików PDF, wysyłania e-maili transakcyjnych przez Mailgun oraz przetwarzania płatności przez Stripe. Nie sprzedajemy ani nie wynajmujemy danych osobowych.',
   'recentInvoicesCard.dueMeta': 'Termin {{date}}',
+  'recentInvoicesCard.empty': 'Brak pasujących faktur.',
   'recentInvoicesCard.eyebrow': 'Należności handlowe',
   'recentInvoicesCard.searchAriaLabel': 'Szukaj faktur',
+  'recentInvoicesCard.searchPlaceholder': 'Szukaj faktur…',
   'recentInvoicesCard.title': 'Ostatnie faktury',
   'recentInvoicesCard.viewAll': 'Zobacz wszystkie faktury →',
   'reports.assets': 'Aktywa',
@@ -181,15 +211,20 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Rachunek zysków i strat (12 miesięcy)',
   'resetPassword.backToLogin': '← Powrót do logowania',
   'resetPassword.hidePassword': 'Ukryj hasło',
+  'resetPassword.passwordLabel': 'Nowe hasło',
   'resetPassword.showPassword': 'Pokaż hasło',
+  'resetPassword.subheading': 'Wybierz silne hasło — minimum osiem znaków.',
   'resetPassword.submit': 'Resetuj hasło',
   'resetPassword.tooShort': 'Hasło musi mieć co najmniej 8 znaków.',
   'settings.account.changePassword': 'Zmień hasło',
   'settings.account.changingPassword': 'Zmiana…',
   'settings.account.currentPassword': 'Obecne hasło',
+  'settings.account.dangerZone': 'Strefa niebezpieczna',
   'settings.account.deleteAccount': 'Usuń konto',
   'settings.account.deleteDescription': 'Trwale usuń swoje konto i wszystkie powiązane z nim dane.',
   'settings.account.deleteError': 'Nie udało się usunąć konta.',
+  'settings.account.deleteWarning':
+    'Spowoduje to trwałe usunięcie konta i nie można tego cofnąć. Wpisz hasło, aby potwierdzić.',
   'settings.account.deleting': 'Usuwanie…',
   'settings.account.devices': 'Urządzenia',
   'settings.account.email': 'E-mail',
@@ -200,6 +235,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Hasło',
   'settings.account.passwordError': 'Nie udało się zmienić hasła.',
   'settings.account.pushNotifications': 'Powiadomienia push na tym urządzeniu',
+  'settings.account.revokeDeviceWarning':
+    'Dostęp tego urządzenia zostanie wkrótce cofnięty. Wylogować?',
   'settings.account.saveError': 'Nie udało się zaktualizować profilu.',
   'settings.account.security': 'Bezpieczeństwo',
   'settings.account.signOutDevice': 'Wyloguj się',
@@ -207,12 +244,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Uwierzytelnianie dwuskładnikowe',
   'settings.account.twoFactorCode': 'Kod uwierzytelniający',
   'settings.account.twoFactorDisable': 'Wyłącz',
+  'settings.account.twoFactorDisableTitle': 'Wyłącz uwierzytelnianie dwuskładnikowe',
   'settings.account.twoFactorEnable': 'Włącz',
+  'settings.account.twoFactorEnableTitle': 'Włącz uwierzytelnianie dwuskładnikowe',
   'settings.account.twoFactorInvalidCode': 'Nieprawidłowy kod',
   'settings.account.twoFactorOn': 'W dniu',
+  'settings.account.twoFactorQrAlt': 'Kod QR uwierzytelniania dwuskładnikowego',
+  'settings.account.twoFactorScan':
+    'Zeskanuj ten kod QR w aplikacji uwierzytelniającej, a następnie wpisz 6-cyfrowy kod.',
+  'settings.account.twoFactorUnavailable':
+    'Uwierzytelnianie dwuskładnikowe nie jest dostępne w tej aplikacji.',
   'settings.account.twoFactorVerify': 'Sprawdź i włącz',
   'settings.account.unknownDevice': 'Nieznane urządzenie',
   'settings.company.email': 'E-mail do rozliczeń',
+  'settings.company.heading': 'Firma i podatki',
   'settings.company.name': 'Nazwa prawna',
   'settings.company.saveButton': 'Zapisz profil firmy',
   'settings.company.taxId': 'NIP / EIN',
@@ -256,6 +301,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Szac. kwartalny',
   'taxes.kpi.owed': 'Należny',
   'taxes.loadError': 'Nie udało się załadować podsumowania podatkowego.',
+  'taxes.remittedPct': '({{pct}}% przekazano)',
+  'terms.intro':
+    'Niniejsze Warunki korzystania z usługi („Warunki”) regulują dostęp do {{app}} i korzystanie z niego. Tworząc konto lub korzystając z usługi, zgadzasz się na ich przestrzeganie.',
   'terms.lastUpdated': 'Ostatnia aktualizacja: {{date}}',
   'terms.section.acceptable.body':
     'Zobowiązuje się Pan/Pani do nieużywania usługi w celu naruszenia jakiegokolwiek prawa, naruszenia praw własności intelektualnej, przesyłania złośliwego oprogramowania lub próby uzyskania nieautoryzowanego dostępu do innych kont lub naszej infrastruktury.',

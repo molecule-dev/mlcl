@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kérdésed van, hibát találtál, vagy át szeretnéd hozni a könyveidet? Írj a {{app}} csapatnak a hello@{{app}}.example címre — minden üzenetet valódi ember olvas el.',
   'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Névjegy',
+  'about.intro':
+    'A {{app}} kisvállalkozások könyvelésére készült, amely minden fillért nyilván tart — számlák, kiadások, kifizetések és jelentések egy nyugodt helyen a tulajdonosok, könyvelők és számvitel szakemberek számára.',
+  'about.missionBody':
+    'Egy vállalkozás vezetése nem arról kell hogy szóljon, hogy rettegsz a könyveidtől. A {{app}} a táblázatok szétszórtsága helyett világos számokat ad, amelyekre építhetsz, így kevesebb időt töltesz egyeztetéssel, és többet azzal a munkával, amiért valójában elindítottad a vállalkozást.',
+  'about.missionTitle': 'Küldetésünk',
   'about.title': 'A {{app}} névjegye',
   'accounts.count': '{{count}} számlák',
+  'accounts.emptyBody':
+    'A főkönyvi számlák nyomon követik, hol van és hova mozog a pénz. Akkor jelennek meg itt, amikor a könyvelőd vagy az integráció beállítja őket.',
   'accounts.emptyTitle': 'Még nincsenek fiókok',
   'accounts.heading': 'Számlatükör',
   'accounts.kpi.accounts': 'Számlák',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'A számláid, kiadásaid és befizetéseid mögött álló összes főkönyvi számla, típus szerint csoportosítva.',
   'accounts.tag.inactive': 'inaktív',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Pénzügyi vezető, Horizon Tech',
   'authBrandPanel.eyebrow': 'Pénzügyi csapatok megbízható partnere',
   'authBrandPanel.label': 'Márka bemutató',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Összes ügyfél',
   'customerDetail.invoiceMeta': 'Kibocsátás dátuma{{issued}} · Esedékesség dátuma{{due}}',
   'customerDetail.loadError': 'Az ügyfél betöltése sikertelen.',
+  'customerDetail.missingBody':
+    'A kért ügyfélrekord nem tölthető be. Lehet, hogy eltávolították, vagy nincs hozzáférésed hozzá.',
   'customerDetail.missingHeading': 'Az ügyfélrekord nem elérhető',
+  'customerDetail.missingHelp':
+    'A fenti vissza hivatkozással térhetsz vissza az ügyfelek listájához, vagy választhatsz onnan egy másik rekordot.',
+  'customerDetail.noInvoices': 'Még nincsenek számlák.',
   'customerDetail.notesEmpty': 'Még nincs megjegyzés.',
   'customerDetail.paymentsEmpty': 'Nem rögzített kifizetések.',
   'customerDetail.paymentTerms': 'Fizetési feltételek',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Levonható',
   'expenseDetail.detailsHeading': 'Tranzakció részletei',
   'expenseDetail.loadError': 'A kiadás betöltése sikertelen.',
+  'expenseDetail.matched': 'Egyeztetve · {{description}}',
   'expenseDetail.missingBody':
     'A kért kiadás nem tölthető be. Lehetséges, hogy eltávolításra került, vagy Önnek nincs hozzáférése.',
   'expenseDetail.missingHeading': 'A kiadásrekord nem elérhető',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Nyugta',
   'expenseDetail.receiptHeading': 'Nyugta',
   'expenseDetail.reconciled': 'Egyeztetett',
+  'expenseDetail.unreconciled': 'Nem egyeztetett',
   'expenses.empty': 'Még nincs kiadás.',
   'expenses.heading': 'Kiadások',
   'expenses.kpi.deductible': 'Levonható',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'A számlák betöltése sikertelen.',
   'invoices.searchPlaceholder': 'Számla száma vagy ügyfél keresése…',
   'invoices.summary.paid': 'Ebben az időszakban fizetve',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     '30 napig ingyenes. Bankkártya nélkül. Hozza magával a könyvelőjét — hálás lesz Önnek.',
   'landing.ctaTitle': 'Vigye könyvelését egy nyugodtabb helyre.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Vevőkövetelések',
   'ledgerStatTriad.eyebrow.mtd': 'Hónap eddig',
   'ledgerStatTriad.netSub': 'Nettó {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} lejárt',
   'ledgerStatTriad.revenueLabel': 'Bevétel',
   'login.failed': 'A bejelentkezés sikertelen.',
   'login.hidePassword': 'Jelszó elrejtése',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Bejelentkezés',
   'nav.legal': 'Jogi',
   'newExpense.back': 'Kiadások',
+  'newExpense.clearReceiptCta': 'Csatolt bizonylat törlése',
   'newExpense.deductible': 'Adólevonható',
   'newExpense.dropPrompt': 'Húzzon ide egy nyugtaképet vagy PDF-et a csatoláshoz.',
   'newExpense.failed': 'A kiadás mentése sikertelen.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'A fizetések betöltése sikertelen.',
   'payments.unmatchedTag': 'páratlan',
   'planUpdated.pageLabel': 'Tervfrissítés megerősítése',
+  'pricing.advancedFeatures': 'Speciális funkciók: {{yes}}',
+  'pricing.canExport': 'Adatexport: {{yes}}',
+  'pricing.heading': 'Válaszd ki {{app}} csomagod',
+  'pricing.maxAccounts': '{{count}} számlák',
+  'pricing.maxExpenses': '{{count}} költségek',
+  'pricing.maxInvoices': '{{count}} számla',
+  'privacy.intro':
+    'Ez az Adatvédelmi szabályzat leírja, hogyan gyűjti, használja és osztja meg a {{app}} a szolgáltatást használó vállalkozásokra vonatkozó információkat.',
   'privacy.lastUpdated': 'Utolsó frissítés: {{date}}',
   'privacy.section.collected.body':
     'Fiókadatokat (név, e-mail, cégnév), a feltöltött pénzügyi nyilvántartásokat (számlák, kiadások, ügyfelek, fizetések) és szokásos szolgáltatásüzemeltetési naplókat (IP, user-agent, időbélyegek) gyűjtünk.',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Az adatokat a szolgáltatás üzemeltetésére, a kért jelentések és PDF-fájlok előállítására, tranzakciós e-mailek Mailgunon keresztüli küldésére és fizetések Stripe-on keresztüli feldolgozására használjuk. Személyes adatokat nem értékesítünk és nem adunk bérbe.',
   'recentInvoicesCard.dueMeta': 'Esedékes: {{date}}',
+  'recentInvoicesCard.empty': 'Nincs egyező számla.',
   'recentInvoicesCard.eyebrow': 'Vevőkövetelések',
   'recentInvoicesCard.searchAriaLabel': 'Számlák keresése',
+  'recentInvoicesCard.searchPlaceholder': 'Számlák keresése…',
   'recentInvoicesCard.title': 'Legutóbbi számlák',
   'recentInvoicesCard.viewAll': 'Összes számla megtekintése →',
   'reports.assets': 'Eszközök',
@@ -181,16 +211,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Eredménykimutatás (12 hónap)',
   'resetPassword.backToLogin': '← Vissza a bejelentkezéshez',
   'resetPassword.hidePassword': 'Jelszó elrejtése',
+  'resetPassword.passwordLabel': 'Új jelszó',
   'resetPassword.showPassword': 'Jelszó megjelenítése',
+  'resetPassword.subheading': 'Válassz erős jelszót — legalább nyolc karakter.',
   'resetPassword.submit': 'Jelszó visszaállítása',
   'resetPassword.tooShort': 'A jelszónak legalább 8 karakterből kell állnia.',
   'settings.account.changePassword': 'Jelszó módosítása',
   'settings.account.changingPassword': 'Változó…',
   'settings.account.currentPassword': 'Jelenlegi jelszó',
+  'settings.account.dangerZone': 'Veszélyzóna',
   'settings.account.deleteAccount': 'Számla törlése',
   'settings.account.deleteDescription':
     'Fiókjának és az ahhoz kapcsolódó összes adatnak a végleges törlése.',
   'settings.account.deleteError': 'Nem sikerült törölni a fiókot.',
+  'settings.account.deleteWarning':
+    'Ez véglegesen törli a fiókodat, és nem vonható vissza. A megerősítéshez add meg a jelszavadat.',
   'settings.account.deleting': 'Törlés…',
   'settings.account.devices': 'Eszközök',
   'settings.account.email': 'E-mail',
@@ -201,6 +236,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Jelszó',
   'settings.account.passwordError': 'Nem sikerült megváltoztatni a jelszót.',
   'settings.account.pushNotifications': 'Push-értesítések ezen az eszközön',
+  'settings.account.revokeDeviceWarning':
+    'Az eszköz hozzáférése hamarosan visszavonásra kerül. Kijelentkezteted?',
   'settings.account.saveError': 'Nem sikerült frissíteni a profilt.',
   'settings.account.security': 'Biztonság',
   'settings.account.signOutDevice': 'Kijelentkezés',
@@ -208,12 +245,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Kétfaktoros hitelesítés',
   'settings.account.twoFactorCode': 'Hitelesítési kód',
   'settings.account.twoFactorDisable': 'Letiltás',
+  'settings.account.twoFactorDisableTitle': 'Kétfaktoros hitelesítés kikapcsolása',
   'settings.account.twoFactorEnable': 'Engedélyezés',
+  'settings.account.twoFactorEnableTitle': 'Kétfaktoros hitelesítés bekapcsolása',
   'settings.account.twoFactorInvalidCode': 'Érvénytelen kód',
   'settings.account.twoFactorOn': 'A',
+  'settings.account.twoFactorQrAlt': 'Kétfaktoros QR-kód',
+  'settings.account.twoFactorScan':
+    'Olvasd be ezt a QR-kódot a hitelesítő alkalmazásoddal, majd add meg a 6 jegyű kódot.',
+  'settings.account.twoFactorUnavailable':
+    'A kétfaktoros hitelesítés nem érhető el ehhez az alkalmazáshoz.',
   'settings.account.twoFactorVerify': 'Ellenőrzés és engedélyezés',
   'settings.account.unknownDevice': 'Ismeretlen eszköz',
   'settings.company.email': 'Számlázási e-mail',
+  'settings.company.heading': 'Cég és adó',
   'settings.company.name': 'Hivatalos név',
   'settings.company.saveButton': 'Cégprofil mentése',
   'settings.company.taxId': 'Adószám / Cégjegyzékszám',
@@ -256,6 +301,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Becsült negyedéves',
   'taxes.kpi.owed': 'Fizetendő',
   'taxes.loadError': 'Az adóösszesítő betöltése sikertelen.',
+  'taxes.remittedPct': '({{pct}}% átutalva)',
+  'terms.intro':
+    'Ezek a Szolgáltatási feltételek („Feltételek”) szabályozzák a {{app}}-hoz való hozzáférésedet és annak használatát. A fiók létrehozásával vagy a szolgáltatás használatával elfogadod, hogy ezek köteleznek.',
   'terms.lastUpdated': 'Utolsó frissítés: {{date}}',
   'terms.section.acceptable.body':
     'Ön vállalja, hogy nem használja a szolgáltatást törvények megszegésére, szellemi tulajdonjogok megsértésére, kártevők terjesztésére, illetve más fiókok vagy infrastruktúránkhoz való jogosulatlan hozzáférési kísérletekre.',

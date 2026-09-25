@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пикир калтырғыңыз келеби, ката таптыңызбы же күнделик жүргүзүү сизге кандай жардам бергенин айткыңыз келеби? Биз ар бир билдирүүнү окуйбуз — каалаган убакта кайрылыңыз, жандуу адам сизге жооп берет.',
+  'about.contactTitle': 'Биз менен байланышуу',
+  'about.featureInsights':
+    'AI негизиндеги ой жүгүртүүлөр триггерлерди, темаларды жана ыраазычылыктарды жумшак белгилейт — өз үнүңүздү жоготпостон.',
+  'about.featureMood':
+    'Календарь көрүнүшү жана сизге гүлдөөгө жардам берген нерселерди ачыктаган тенденция графиктери менен маанайды жана активдүүлүктү көзөмөлдөө.',
+  'about.featurePrivacy':
+    'Учтан-учка шифрлөө, код кулпу жана толук CSV экспорту — ой жүгүртүүлөрүңүз жашыруун жана көчүрмөлөнүүчү бойдон калат.',
+  'about.featurePrompts':
+    'Күнүмдүк жумшак сунуштар аркылуу ар дайым баштоочу жериңиз болот — эч качан бош барак эмес.',
+  'about.intro':
+    '{{app}} — күнүмдүк ой жүгүртүү, маанайды көзөмөлдөө жана ыраазычылык үчүн жумшак, жашыруун психикалык саламаттык күндөлүгү. Ойлонулган сунуштар бош баракты алмаштырат, тынч мыйзам ченемдүүлүктү табуу эмне сезимиңизге таасир этээрин түшүнүүгө жардам берет, ал эми учтан-учка шифрлөө сөздөрүңүздү өзүңүздүкү кылып сактайт.',
+  'about.missionBody':
+    'Өзүңүз менен байланышуу тынч сезилиши керек, эч качан клиникалык эмес — жана көңүлүңүздү талап кылган дагы бир колдонмо сыяктуу эч качан болбошу керек деп ишенебиз. {{app}} жардам берүү үчүн жасалган, кыйкырбайт: күнүнө бир аз тынч мүнөт маанайыңызды байкоо, чын жүрөктөн жазуу жана акырында өзүңүздү ачыгыраак көрүү үчүн.',
+  'about.missionTitle': 'Биздин миссиябыз',
   'about.pageTitle': '{{app}} жөнүндө',
   'authShell.encryptionBadge': 'Жазууларыңыз башынан аягына чейин шифрленген.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': '{{day}}-күн — жазуу жок',
   'calendar.cellMood': 'Күн {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Бул айга кыскача көз чаптыруу',
   'calendar.eyebrow': 'Маанай бир караганда',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Көздөлгөн {{tracked}} ...нын {{total}} бул айдагы күндөр.',
   'common.goToDashboard': 'Башкы бетке өтүү',
   'common.tryAgain': 'Кайра аракет кыл',
+  'entryComposer.bodyPlaceholder':
+    'Чын жүрөктөн сезилген нерсени жазыңыз. Муну башка эч ким окубайт.',
   'entryComposer.cancel': 'Журналга кайтуу',
   'entryComposer.heading': 'Бүгүнкү чагылдыруу',
   'entryComposer.moodLabel': 'Кандай сезимдесиз?',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Алып салуу {{tag}}',
   'entryComposer.save': 'Чагылышууну сактоо',
   'entryComposer.saveError': 'Жазууңуз сакталган жок.',
+  'entryComposer.tagPlaceholder': 'Тег кошуп, Enter басыңыз',
   'entryComposer.titlePlaceholder': 'Бул чагылдырууга ат коюңуз…',
   'entryDetail.back': 'Журналга кайтуу',
   'entryDetail.delete': 'Бул жазууну өчүрүү',
@@ -36,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Чагылышуу жүктөлүүдө…',
   'entryDetail.notFound': 'Жазуу табылган жок.',
   'entryDetail.reflectionsHeading': 'Жасалма интеллекттин чагылдырылышы',
+  'forgotPassword.continueButton': 'Калыбына келтирүү кодун киргизиңиз',
   'forgotPassword.eyebrow': 'Кабатыр болбо',
   'forgotPassword.subheading':
     'Биз сиздин электрондук почтаңызга акырындык менен баштапкы абалга келтирүү шилтемесин жөнөтөбүз.',
@@ -59,14 +80,22 @@ export const ui: UiTranslations = {
     'Азырынча темалар жок — жазууларыңызга бир же эки тег кошуңуз, алар бул жерге топтолот.',
   'insights.themesHeading': 'Эң мыкты темалар',
   'insights.triggerFrequency': 'байкады {{count}} × бул айда',
+  'insights.triggersEmpty':
+    'Азырынча байкоого эч нерсе жок. Бир нече күндүн ичинде бир нече жазуу мыйзам ченемдүүлүктөрүңүздү көрсөтөт.',
   'insights.triggersHeading': 'Маанайыңызды которгон үлгүлөр',
+  'journal.empty':
+    'Эч кандай ой жүгүртүү дал келбейт — башка чыпканы колдонуп көрүңүз же жаңы жазуу жазыңыз.',
   'journal.eyebrow': 'Сиздин ой жүгүртүүлөрүңүз',
   'journal.heading': 'Журнал',
   'journal.loadError': 'Жазуулар жүктөлбөй калды.',
   'journal.loading': 'Жазуулар жүктөлүүдө…',
+  'journal.newEntry': 'Жаңы жазуу',
   'journal.searchPlaceholder': 'Бир сезимди, атты, бир көз ирмемди издеңиз...',
   'journal.subheading': '{{count}} жазуулар — ар бири сактоого арзыйт.',
   'journalEntryCard.encryptedLabel': 'Шифрленген',
+  'landing.ctaBody':
+    'Баштоо акысыз. Pro маалыматтарды экспорттоону, чоңураак күндөлүктү жана толук бир жылдык тарыхты ачат.',
+  'landing.ctaButton': 'Биринчи киришиңизди баштаңыз',
   'landing.ctaTitle': 'Күнүнө бир нече мүнөт тынч убакыт. Болгону ошол.',
   'landing.eyebrow': 'Күнүмдүк жумшак көнүгүү',
   'landing.featuresBody':
@@ -85,6 +114,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Күнүмдүк ой жүгүртүү үчүн жайлуу мейкиндик.',
   'mentalHealthJournalLayout.closeMenu': 'Менюну жабуу',
   'mentalHealthJournalLayout.openMenu': 'Менюну ачуу',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Негизги навигация',
+  'moodHeroCard.entriesThisWeek': '{{count}} бул аптада',
   'moodHeroCard.streakSuffix': 'күндүк серия',
   'moodHeroCard.title': 'Бүгүнкү чагылдыруу',
   'moodTrendChart.aiBadge': 'Жасалма интеллект боюнча маалымат даяр',
@@ -95,10 +126,12 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Сиздин сапарыңыз',
   'profile.fallbackName': 'Рефлектор',
   'profile.loadError': 'Статистика жүктөлбөй калды.',
+  'profile.loading': 'Статистикаңыз жаңыртылууда…',
   'profile.longestStreak': 'Эң узун серия',
   'profile.memberSince': 'Ошондон бери чагылдырып келет {{date}}',
   'profile.milestones': 'Этаптар',
   'profile.milestonesEmpty': 'Биринчи этапка бир кадам калды — даяр болгондо жазыңыз.',
+  'profile.moodMix': 'Бул сезондогу маанай аралашмаңыз',
   'profile.streakValue': '{{days}} д',
   'profile.totalEntries': 'Ой жүгүртүүлөр',
   'profile.totalWords': 'Жазылган сөздөр',
@@ -111,6 +144,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Бул тууралуу жазыңыз',
   'resetPassword.eyebrow': 'Жаңы башталыш',
   'resetPassword.mismatchError': 'Сырсөздөр дал келген жок.',
+  'resetPassword.passwordLabel': 'Жаңы сыр сөз',
   'resetPassword.subheading': 'Коопсуз нерсени тандаңыз - ой жүгүртүүлөрүңүз ошого татыктуу.',
   'resetPassword.tokenPlaceholder': 'Электрондук почтадан кодду баштапкы абалга келтирүү',
   'settings.dangerDescription':
@@ -123,11 +157,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     'Сөздөрүңүз ар дайым сизге таандык. Каалаган убакта көчүрмөсүн жүктөп алыңыз.',
   'settings.exportDone': 'Экспорттолгон {{format}}.',
+  'settings.exportError': 'Экспорттоо ишке ашкан жок.',
+  'settings.exportHeading': 'Ой жүгүртүүлөрүңүздү экспорттоңуз',
   'settings.exportLoading': 'Даярдалууда…',
   'settings.eyebrow': 'Сиздин мейкиндигиңиз, сиздин эрежелериңиз',
   'settings.languageHeading': 'Тил',
   'settings.privacyHeading': 'Купуялык жана шифрлөө',
   'settings.remindersHeading': 'Күнүмдүк эскертүү',
+  'settings.reminderToggleAria': 'Күнүмдүк эскертүүнү которуу',
   'settings.reminderToggleDescription':
     'Сиз тандаган учурда бир гана тынч эскертүү. Бейджиктер же бир нече жолу күнөөлөө сезимдери жок.',
   'settings.reminderToggleLabel': 'Жумшак түртүп жибериңиз',
@@ -140,6 +177,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Журнал түзүлүүдө…',
   'signup.subheading': 'Ойлоруңуз үчүн коопсуз мейкиндик.',
   'wellnessRingsTriad.mindfulnessCaption': 'Максат {{goal}} бүгүн мин',
+  'wellnessRingsTriad.mindfulnessLabel': 'Зейиндүүлүк',
   'wellnessRingsTriad.sleepCaption': 'Максат {{goal}} саат / түн',
   'wellnessRingsTriad.sleepLabel': 'Уйку',
+  'wellnessRingsTriad.sleepValue': '{{hours}} саат',
+  'wellnessRingsTriad.streakCaption': 'Максат {{goal}} күн',
+  'wellnessRingsTriad.streakLabel': 'Күндөлүк сериясы',
+  'wellnessRingsTriad.streakValue': '{{days}} д',
 }

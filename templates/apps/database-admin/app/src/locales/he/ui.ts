@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'דברו איתנו',
   'about.eyebrow': 'אוֹדוֹת',
+  'about.featureConnections':
+    'מנהל חיבורים שמאחסן את מסדי הנתונים שלך באופן מאובטח ומסמן אותם בצבעים — פרטי ההתחברות מוצפנים במנוחה, ולעולם לא בטקסט גלוי.',
+  'about.featureMonitoring':
+    'ניטור חי של ביצועי שאילתות ופעילות מסד הנתונים, עם קיצורי מקלדת ופלטת פקודות להפעלה מלאה ללא ידיים.',
+  'about.featurePlans':
+    'תוכניות שמתאימות את עצמן אליך — חינם לעבודה עצמאית, Pro ו-Team ליותר חיבורים, שמירת שאילתות ארוכה יותר, ייצוא ותכונות מתקדמות.',
+  'about.featureQueryEditor':
+    'עורך SQL מבוסס Monaco עם היסטוריית שאילתות, שאילתות שמורות וייצוא התוצאות ל-CSV בלחיצה אחת.',
+  'about.featureSchema':
+    'סייר סכימות ודפדפן טבלאות לניווט בין מסדי נתונים, טבלאות ועמודות, ואז עיון, סינון ועריכה של שורות במקום.',
+  'about.missionTitle': 'המשימה שלנו',
   'authShell.commands': 'פקודות',
   'authShell.ssoSupported': 'תמיכה בכניסה יחידה (SSO)',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'שאילתות',
   'connections.schema': 'סכֵימָה',
   'connections.subtitle': 'ניהול חיבורי מסד הנתונים שלך.',
+  'connections.test': 'מִבְחָן',
   'databaseAdminLayout.adminRole': 'תפקיד מנהל',
   'databaseAdminLayout.commandPalette': 'לוח פקודות',
   'databaseAdminLayout.commands': 'פקודות',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'חיבור חדש',
   'databaseAdminLayout.queries': 'שאילתות',
   'databaseAdminLayout.ready': 'מוּכָן',
+  'databaseAdminLayout.searchPlaceholder': '⌘K חיפוש פקודות, שאילתות, טבלאות…',
   'databaseAdminLayout.user': 'מִשׁתַמֵשׁ',
   'editConnection.confirmDelete': 'למחוק את החיבור הזה?',
   'editConnection.deleteButton': 'מחיקת חיבור',
+  'editConnection.newPassword': 'סיסמה חדשה (השאר ריק כדי לשמור)',
   'editConnection.saved': 'החיבור נשמר.',
   'editConnection.title': 'עריכת חיבור',
   'forgotPassword.success': 'אם חשבון זה קיים, קישור לאיפוס בדרך.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'הצלחות',
   'monitoring.title': 'ניטור',
   'monitoring.totalQueries': 'סך כל השאילתות',
+  'nav.schema': 'סכֵימָה',
   'newConnection.database': 'מסד נתונים',
   'newConnection.engine': 'מָנוֹעַ',
   'newConnection.host': 'מְאָרֵחַ',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'אין קשר מחובר לקטע זה.',
   'savedQuery.notBound': 'לא מחויב',
   'savedQuery.title': 'שאילתה שמורה',
+  'schema.columns': 'עמודות',
   'schema.foreignKeys': 'מפתחות זרים',
   'schema.indexes': 'אינדקסים',
   'schemaExplorer.browseRows': 'עיון בשורות',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'ניתן לאפס',
   'schemaExplorer.colType': 'סוּג',
   'schemaExplorer.noColumns': 'אין עמודות.',
+  'schemaExplorer.noForeignKeys': 'אין מפתחות זרים.',
   'schemaExplorer.noIndexes': 'אין אינדקסים.',
   'schemaExplorer.noTables': 'אין שולחנות',
   'schemaExplorer.pickATable': 'בחר טבלה מסרגל הצד.',
   'schemaExplorer.tables': 'שולחנות',
   'schemaExplorer.title': 'חוקר סכמות',
+  'settings.session': 'מוֹשָׁב',
   'settings.subtitle': 'נהל את החשבון והתוכנית שלך.',
   'signup.heading': 'צור את חשבון המחצבה שלך',
   'signup.tagline': 'הפעל את הגישה תוך פחות מדקה.',
   'tableBrowser.noRows': 'בטבלה זו עדיין אין שורות.',
+  'tableBrowser.subtitle': 'עיון בשורות ממסד הנתונים המרוחק שלך.',
   'tableBrowser.title': 'עיון בשורות ממסד הנתונים המרוחק שלך.',
 }

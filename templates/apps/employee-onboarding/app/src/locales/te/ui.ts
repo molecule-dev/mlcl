@@ -1,27 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'మీ టీమ్ కోసం మరింత ఆత్మీయమైన ఆన్‌బోర్డింగ్ ప్రారంభించాలనుకుంటున్నారా, బగ్ కనుగొన్నారా, లేదా ఫీడ్‌బ్యాక్ ఉందా? మీ ఖాతా సెట్టింగ్‌ల నుండి సంప్రదించండి — ప్రతి సందేశం సహాయం చేయగల నిజమైన వ్యక్తికే చేరుతుంది.',
   'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'గురించి',
+  'about.missionTitle': 'మా లక్ష్యం',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'మీ పాస్‌వర్డ్‌ను రీసెట్ చేసుకోండి.',
+  'auth.forgotPassword.panel.body':
+    'రీసెట్‌కు 30 సెకన్లు మాత్రమే — మీ చెక్‌లిస్ట్ పురోగతి మీ కోసం వేచి ఉంది.',
+  'auth.forgotPassword.panel.headline': 'మీరు ఆపిన చోటికే తిరిగి వచ్చారు.',
+  'auth.forgotPassword.subheading':
+    'మీ వర్క్ ఈమెయిల్ నమోదు చేయండి, మేము మీకు రీసెట్ లింక్ పంపుతాము.',
   'auth.forgotPassword.successSubheading':
     'మీ ఇన్‌బాక్స్‌ను తనిఖీ చేయండి — మేము రీసెట్ సూచనలను పంపాము.',
   'auth.login.emailPlaceholder': 'name@yourcompany.com',
   'auth.login.heading': 'తిరిగి స్వాగతం.',
   'auth.login.passwordPlaceholder': 'మీ పాస్‌వర్డ్',
+  'auth.login.signupPrompt': 'మీ టీమ్‌కు కొత్తవారా?',
   'auth.login.subheading':
     'మీరు ఆపివేసిన చోట నుండి మీ ఆన్‌బోర్డింగ్ ప్రయాణాన్ని కొనసాగించడానికి సైన్ ఇన్ చేయండి.',
   'auth.login.submit': 'మీ ప్రయాణాన్ని కొనసాగించండి',
+  'auth.panel.body':
+    'మీ వ్యక్తిగత చెక్‌లిస్ట్, శిక్షణ మైలురాళ్లు, టీమ్ పరిచయాలు — అన్నీ ఒకే ప్రశాంతమైన చోట.',
   'auth.panel.footnote': '© ఎంబార్క్ — నేటి నుండి ప్రజలకు ప్రాధాన్యతనిస్తూ ఆన్‌బోర్డింగ్.',
   'auth.panel.headline': 'ఆత్మవిశ్వాసంతో కూడిన మొదటి 90 రోజులు ఇక్కడి నుండే ప్రారంభమవుతాయి.',
   'auth.resetPassword.heading': 'కొత్త పాస్‌వర్డ్‌ను సెట్ చేయండి.',
   'auth.resetPassword.newPasswordLabel': 'కొత్త పాస్‌వర్డ్',
+  'auth.resetPassword.panel.body':
+    'కొత్త పాస్‌వర్డ్ సేవ్ చేయండి, మేము మిమ్మల్ని మీ ఆన్‌బోర్డింగ్ ప్రయాణంలోకి తిరిగి చేరుస్తాము.',
+  'auth.resetPassword.panel.headline': 'దాదాపు తిరిగి లోపలికి వచ్చారు.',
   'auth.resetPassword.subheading': 'మీకు గుర్తుండేలా ఉండేదాన్ని ఎంచుకోండి — కనీసం 8 అక్షరాలు.',
   'auth.signup.emailPlaceholder': 'name@yourcompany.com',
   'auth.signup.heading': 'మీ మొదటి 90 రోజులకు స్వాగతం.',
   'auth.signup.panel.body':
     'మీరు లోపలికి అడుగుపెట్టక ముందే, ఒక మార్గదర్శక చెక్‌లిస్ట్, పాత్ర-అవగాహనతో కూడిన శిక్షణ, మరియు వ్యక్తిగత పరిచయాలు — అన్నీ సిద్ధంగా ఉంటాయి.',
+  'auth.signup.panel.headline': 'మొదటి రోజే, మొదటి రోజున.',
   'auth.signup.subheading':
     'మీ గైడెడ్ ఆన్‌బోర్డింగ్ ప్రయాణాన్ని ప్రారంభించడానికి మీ ఎంబార్క్ ఖాతాను సృష్టించుకోండి.',
   'checklist.empty.body': 'ఇతర పనులను చూడటానికి ఫిల్టర్‌ను మార్చండి.',
@@ -29,6 +44,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'ఆన్‌బోర్డింగ్ · చెక్‌లిస్ట్',
   'checklist.loading': 'మీ చెక్‌లిస్ట్ లోడ్ అవుతోంది…',
   'checklist.stat.actionNeeded': 'చర్య అవసరం',
+  'checklist.stat.completion': 'పూర్తి',
+  'checklist.stat.inProgress': 'పురోగతిలో ఉంది',
   'checklist.stat.inProgressHelper': 'మీరు ఆపివేసిన చోట నుండి కొనసాగించండి',
   'checklist.stat.overdueHelper': 'ముందుగా వీటిని పట్టుకోండి',
   'checklist.subtitle':
@@ -60,6 +77,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'ఇంకా పత్రాలు లేవు',
   'documents.eyebrow': 'ఆన్‌బోర్డింగ్ · పత్రాలు',
   'documents.loading': 'పత్రాలు లోడ్ అవుతున్నాయి…',
+  'documents.stat.actionNeeded': 'ఇప్పుడే సంతకం చేయండి',
+  'documents.stat.all': 'అన్ని పత్రాలు',
   'documents.stat.allHelper': 'వర్గాలవారీగా',
   'documents.stat.pending': 'సంతకాలు పెండింగ్‌లో ఉన్నాయి',
   'documents.stat.pendingHelper': 'పూర్తి చేయడానికి అవసరం',
@@ -67,16 +86,21 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'సురక్షితంగా నిల్వ చేయబడింది',
   'documents.status.optional': 'ఐచ్ఛికం',
   'documents.status.required': 'అవసరం',
+  'documents.status.signed': 'సంతకం',
   'documents.subtitle': 'మీ హ్యాండ్‌బుక్, ఫారాలు మరియు సంతకం చేసిన ఒప్పందాలు — అన్నీ ఒకే చోట.',
   'documents.title': 'మీరు చదివి, సంతకం చేయవలసినవన్నీ.',
   'documents.uploadedRecently': 'ఇటీవల అప్‌లోడ్ చేయబడింది',
   'documentViewer.breadcrumbCurrent': 'వీక్షకుడు',
   'documentViewer.breadcrumbDocs': 'పత్రాలు',
   'documentViewer.downloadMeta': 'మెటాడేటాను డౌన్‌లోడ్ చేయండి',
+  'documentViewer.helpBody':
+    'People & Culture, Slack లో #ask-people లో హ్యాండ్‌బుక్ ప్రశ్నలకు సమాధానం ఇస్తుంది.',
   'documentViewer.helpEyebrow': 'సహాయం కావాలా?',
   'documentViewer.loadError': 'మేము ఈ పత్రాన్ని లోడ్ చేయలేకపోయాము.',
   'documentViewer.loading': 'పత్రం లోడ్ అవుతోంది…',
   'documentViewer.notFound': 'పత్రం కనుగొనబడలేదు',
+  'documentViewer.previewBody':
+    'అప్‌లోడ్‌లు కాన్ఫిగర్ చేసినప్పుడు మేము ఫైల్‌ను ఇన్‌లైన్‌లో చూపిస్తాము. ప్రస్తుతానికి, మెటాడేటా డౌన్‌లోడ్ రికార్డ్ నిజమైనదని నిర్ధారించడానికి మిమ్మల్ని అనుమతిస్తుంది.',
   'documentViewer.previewBodyExternal':
     'ఫైల్‌ను కొత్త ట్యాబ్‌లో తెరవడానికి డౌన్‌లోడ్ బటన్‌ను ఉపయోగించండి.',
   'documentViewer.previewTitle': 'పత్రం ప్రివ్యూ',
@@ -84,6 +108,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'పత్రాన్ని చదివి, ఆపై సంతకం చేసి, ధృవీకరించడానికి క్రింద క్లిక్ చేయండి.',
   'documentViewer.signatureHeading': 'సంతకం అవసరం',
+  'documentViewer.signed': '✓ సంతకం చేసి నమోదు చేయబడింది',
   'documentViewer.signing': 'సంతకం చేస్తున్నాను…',
   'documentViewer.uploadedRecently': 'ఇటీవల అప్‌లోడ్ చేయబడింది',
   'landing.closing.body':
@@ -93,10 +118,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'నాకు ఇప్పటికే ఒక ఖాతా ఉంది',
   'landing.feature1.body':
     'ప్రతి పని — పత్రాల పని, ఖాతాలు, పరిచయాలు — గడువు తేదీలు మరియు సరైన వ్యక్తితో ముందే సిద్ధం చేయబడతాయి.',
+  'landing.feature1.title': 'మార్గదర్శక చెక్‌లిస్ట్',
   'landing.feature2.body':
     'కొత్తగా చేరిన ఉద్యోగి యొక్క పాత్ర మరియు బృందానికి అనుగుణంగా, మాడ్యూల్స్ 30/60/90 మైలురాళ్ల వద్ద అన్‌లాక్ చేయబడతాయి.',
+  'landing.feature2.title': 'పాత్రను బట్టి శిక్షణ',
   'landing.feature3.body':
     'స్నేహితులు, మేనేజర్లు మరియు వివిధ విభాగాల పరిచయాలు షెడ్యూల్ చేయబడ్డాయి — కాబట్టి ఎవరూ ఒంటరిగా ప్రారంభించరు.',
+  'landing.feature3.title': 'నిజమైన పరిచయాలు',
   'landing.featureEyebrow': 'ఎందుకు ప్రారంభించాలి',
   'landing.featureHeadline': 'మొదటి రోజునే ఎంబార్క్ నమ్మకాన్ని సంపాదించే మూడు మార్గాలు.',
   'landing.footer.rights': 'సర్వ హక్కులు సంరక్షించబడినవి.',
@@ -106,6 +134,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'తదుపరి: మీ స్నేహితుడితో 30 నిమిషాల కాఫీ ముచ్చట్ల కోసం కలవండి — మంగళవారం ఉదయం 10:00 గంటలకు.',
   'landing.preview.eyebrow': '90 రోజులలో 14వ రోజు — నమూనా డాష్‌బోర్డ్',
+  'landing.preview.headline': 'తిరిగి స్వాగతం, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR సిద్ధంగా ఉంది',
   'landing.proof.teams': '50–5,000 మంది సభ్యులు గల బృందాల కోసం నిర్మించబడింది',
   'landing.proof.time': '14 రోజుల ఉచిత ట్రయల్',
@@ -122,16 +151,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'నిన్న',
   'planUpdated.message': 'మీరు సిద్ధంగా ఉన్నారు.',
   'planUpdated.preparing': 'మీ ప్లాన్‌ను అప్‌డేట్ చేస్తోంది…',
+  'planUpdated.retry': 'మళ్ళీ ప్రయత్నించండి',
+  'planUpdated.verifyFailed': 'మేము మీ చెల్లింపును ఇంకా ధృవీకరించలేకపోయాము.',
+  'planUpdated.verifyFailedBody':
+    'మీ చెల్లింపు ఇంకా ప్రాసెస్ అవుతూ ఉండవచ్చు. కాసేపటి తర్వాత మళ్ళీ ప్రయత్నించండి.',
   'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'pricing.documentsLabel': 'పత్రాలు',
   'pricing.onboardingsLabel': 'ఆన్‌బోర్డింగ్‌లు',
   'pricing.tasksLabel': 'పనులు',
   'profile.dayNumber': 'రోజు',
   'profile.detailsHeading': 'ఆన్‌బోర్డింగ్ వివరాలు',
+  'profile.encouragementBody':
+    'మీ బడ్డీ మరియు మేనేజర్‌ను లూప్‌లో ఉంచండి — చిన్న అడుగులు పెద్ద మార్పు తెస్తాయి.',
   'profile.milestones': 'మైలురాళ్లు',
   'profile.progressEyebrow': 'ఆన్‌బోర్డింగ్ పురోగతి',
   'profile.tasks': 'పనులు',
   'profile.unknownName': 'స్వాగతం',
+  'settings.appearance.description': 'లైట్ మరియు డార్క్ మోడ్‌ల మధ్య మారండి.',
+  'settings.appearance.title': 'స్వరూపం',
+  'settings.subtitle':
+    'నోటిఫికేషన్‌లు, భద్రత, పరికరాలు, డేటా ఎగుమతి — అన్నీ ఇక్కడే, మీ షరతుల ప్రకారమే ఉంటాయి.',
   'settings.title': 'సెట్టింగ్‌లు మరియు ప్రాధాన్యతలు.',
   'taskDetail.backToChecklist': 'చెక్‌లిస్ట్‌కు తిరిగి వెళ్లండి',
   'taskDetail.breadcrumbChecklist': 'చెక్‌లిస్ట్',
@@ -144,7 +183,10 @@ export const ui: UiTranslations = {
   'taskDetail.notFound': 'టాస్క్ కనుగొనబడలేదు',
   'taskDetail.notFoundBody':
     'ఈ టాస్క్ తొలగించబడి ఉండవచ్చు లేదా మరొక వినియోగదారునికి చెందినది కావచ్చు.',
+  'taskDetail.tipBody':
+    'మీకు అడ్డంకి ఉంటే, Slack లో మీ ఆన్‌బోర్డింగ్ బడ్డీకి సందేశం పంపండి — వారే మీ మొదటి సహాయం.',
   'taskDetail.tipEyebrow': 'త్వరిత చిట్కా',
+  'team.empty.body': 'విస్తృతంగా వెతకండి లేదా వేరే విభాగాన్ని ఎంచుకోండి.',
   'team.empty.title': 'జట్టు సభ్యుల మ్యాచ్ లేదు',
   'team.eyebrow': 'ఆన్‌బోర్డింగ్ · వ్యక్తులు',
   'team.loading': 'జట్టు సభ్యులను లోడ్ చేస్తోంది…',
@@ -167,14 +209,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'మైలురాళ్లు',
   'timeline.stat.current': 'ప్రస్తుత మైలురాయి',
   'timeline.stat.next': 'తదుపరి అన్‌లాక్ చేయండి',
+  'timeline.stat.progress': 'మొత్తంమీద',
   'timeline.subtitle':
     'ప్రతి మైలురాయి కొత్త మాడ్యూల్స్, పరిచయాలు మరియు అభివృద్ధి సంభాషణలను తెరుస్తుంది. ఒత్తిడి లేదు — కేవలం పురోగతి మాత్రమే.',
+  'timeline.tipBody':
+    '30, 60, 90 రోజుల్లో మీ మేనేజర్‌తో 30 నిమిషాల ఆత్మపరిశీలన షెడ్యూల్ చేయండి — ఇది ఫీడ్‌బ్యాక్‌ను నిర్దిష్టంగా, పురోగతిని స్పష్టంగా చేస్తుంది.',
   'timeline.tipEyebrow': 'మేనేజర్ సూచన',
+  'timeline.tipTitle': 'మైలురాళ్ల కోసం క్యాలెండర్‌లో సమయం బ్లాక్ చేయండి.',
   'timeline.title': 'మీ 30 / 60 / 90 ప్రయాణం.',
   'training.badge.notStarted': 'ప్రారంభించబడలేదు',
   'training.empty': 'ఇంకా శిక్షణా మాడ్యూల్స్ ఏవీ లేవు.',
   'training.eyebrow': 'ఆన్‌బోర్డింగ్ · శిక్షణ',
   'training.loading': 'మాడ్యూల్స్ లోడ్ అవుతున్నాయి…',
+  'training.stat.all': 'మాడ్యూల్స్ కేటాయించబడ్డాయి',
   'training.subtitle':
     'మీ పాత్రకు సరిపోయేలా మాడ్యూల్స్ 30/60/90 వద్ద అన్‌లాక్ అవుతాయి. అవసరమైనవి మొదట వస్తాయి.',
   'training.title': 'నైపుణ్యాలు, సాధనాలు మరియు కథలు — మీకు నచ్చిన వేగంతో.',
@@ -187,9 +234,12 @@ export const ui: UiTranslations = {
   'trainingModule.quizBody':
     'ఈ మాడ్యూల్‌ను పూర్తి చేయడానికి 80% లేదా అంతకంటే ఎక్కువ మార్కులు సాధించండి.',
   'trainingModule.quizHeading': 'మాడ్యూల్ చివరి క్విజ్',
+  'trainingModule.quizLocked': 'మొదట మాడ్యూల్ ప్రారంభించండి',
   'trainingModule.quizNone': 'ఈ మాడ్యూల్‌పై క్విజ్ లేదు.',
   'trainingModule.quizRetry': 'మళ్ళీ ప్రయత్నించండి',
+  'trainingModule.quizStart': 'క్విజ్ ప్రారంభించండి',
   'trainingModule.quizSubmit': 'సమాధానాలను సమర్పించండి',
+  'trainingModule.start': 'మాడ్యూల్ ప్రారంభించండి',
   'trainingModule.statusNotStarted': 'ప్రారంభించబడలేదు',
   'welcomeHeroCard.completeLabel': 'పూర్తి',
   'welcomeHeroCard.milestonesLabel': 'మైలురాళ్లు',

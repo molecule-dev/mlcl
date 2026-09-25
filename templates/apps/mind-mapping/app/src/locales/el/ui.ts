@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχεις σχόλια, βρήκες κάποιο σφάλμα ή θέλεις να μας πεις πώς χαρτογραφείς τις ιδέες σου; Διαβάζουμε κάθε σημείωση — επικοινώνησε μαζί μας οποιαδήποτε στιγμή και ένα πραγματικό μέλος της ομάδας θα σου απαντήσει.',
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.featureCanvas':
+    'Ένας άπειρος καμβάς με κόμβους που μετακινούνται, συνδέσεις με ομαλές καμπύλες και ρευστό ζουμ και μετατόπιση.',
+  'about.featureCollab':
+    'Συνεργασία σε πραγματικό χρόνο με ζωντανούς κέρσορες, ώστε η ομάδα σου να διακλαδίζεται μαζί σου αντί να περιμένει τη σειρά της.',
+  'about.featurePricing':
+    'Δωρεάν για πάντα για μεμονωμένους στοχαστές· τα προγράμματα Pro και Team προσθέτουν περισσότερους χάρτες, περισσότερους κόμβους, προηγμένες λειτουργίες και εξαγωγή δεδομένων.',
+  'about.featureTemplates':
+    'Μια βιβλιοθήκη έτοιμων προτύπων μαζί με πλήρες ιστορικό εκδόσεων, ώστε να ξεκινάς γρήγορα έναν χάρτη και να επαναφέρεις οποιαδήποτε αλλαγή.',
+  'about.intro':
+    'Το {{app}} είναι ένας ευρύχωρος, άπειρος καμβάς για νοητική χαρτογράφηση — καταιγισμούς ιδεών, διαγράμματα εννοιών, SWOT και σχέδια έργων. Μετακίνησε κόμβους όπου θέλεις, σύνδεσε ιδέες με ρέουσες συνδέσεις, κάνε ζουμ και μετατόπιση χωρίς να χτυπάς σε άκρα, και άφησε τον χάρτη να μεγαλώνει μαζί με τη σκέψη σου.',
+  'about.missionBody':
+    'Η σκέψη φωναχτά πρέπει να είναι αβίαστη και κοινόχρηστη. Φτιάχνουμε εργαλεία που δεν μπαίνουν εμπόδιο — χωρίς άκαμπτα πλέγματα, χωρίς περιοριστικά πρότυπα, χωρίς UI που κλέβει την προσοχή — ώστε άτομα και ομάδες να καταγράφουν ιδέες τη στιγμή που τους έρχονται και να τις διαμορφώνουν μαζί.',
+  'about.missionTitle': 'Η αποστολή μας',
   'about.pageTitle': 'Σχετικά με το {{app}}',
   'auth.brandEyebrow': 'Όπου οι ιδέες διακλαδώνονται',
   'auth.brandStatement':
@@ -13,19 +29,26 @@ export const ui: UiTranslations = {
   'billing.feature.export': 'Εξαγωγή σε SVG / PNG',
   'billing.feature.maps': '{{count}} χάρτες',
   'billing.feature.nodes': '{{count}} κόμβοι ανά χάρτη',
+  'billing.freeNoticeBody':
+    'Διάλεξε ένα πρόγραμμα επί πληρωμή παραπάνω για να ξεκλειδώσεις περισσότερους χάρτες.',
   'billing.loadError': 'Δεν ήταν δυνατή η φόρτωση της κατάστασης χρέωσης.',
+  'billing.loading': 'Φόρτωση χρέωσης…',
   'billing.perMonth': ' / μήνα',
   'billing.plansTitle': 'Πλάνα',
+  'billing.priceMissing': 'Το Stripe price ID δεν έχει ρυθμιστεί.',
   'billing.starting': 'Εκκίνηση checkout…',
   'billing.title': 'Χρέωση και πρόγραμμα',
   'billing.unavailableTier':
     'Αυτό το επίπεδο δεν έχει ρυθμιστεί ακόμη για ολοκλήρωση αγοράς — ορίστε το αναγνωριστικό τιμής Stripe στο περιβάλλον σας.',
   'billing.unlimited': 'Απεριόριστο',
   'billing.upgradeMonthly': 'Αναβάθμιση σε {{name}} (μηνιαίος)',
+  'billing.upgradeYearly': 'Ετήσια πληρωμή · {{price}}',
   'brand.tagline': 'Όπου οι ιδέες διακλαδώνονται',
   'common.and': 'και',
   'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'dashboard.activityAction': 'ενημέρωσε',
+  'dashboard.activityEmpty':
+    'Δεν υπάρχει ακόμη δραστηριότητα — επεξεργάσου έναν χάρτη για να ξεκινήσει το χρονολόγιό σου.',
   'dashboard.daysAgo': '{{count}}η πριν',
   'dashboard.empty.body':
     'Δημιουργήστε έναν χάρτη για να ξεκινήσετε την διακλάδωση ιδεών. Τα πρότυπα διευκολύνουν την έναρξη.',
@@ -44,26 +67,35 @@ export const ui: UiTranslations = {
   'dendriteHero.activeMaps': 'Ενεργοί χάρτες',
   'dendriteHero.eyebrow': 'Σήμερα στον καμβά',
   'dendriteHero.greeting': 'Διακλαδώστε νέες ιδέες, {{name}}',
+  'dendriteHero.greetingAnon': 'Διακλάδωσε νέες ιδέες',
   'dendriteHero.openMaps': 'Άνοιγμα χαρτών',
   'dendriteHero.subtitle':
     'Σύρετε, συνδεθείτε και αφήστε τη σκέψη σας να αναπτυχθεί. Κάθε σπίθα απέχει έναν κόμβο από τον επόμενο.',
   'dendriteHero.weeklyChange': '{{sign}} {{count}} αυτή την εβδομάδα',
+  'forgotPassword.brandStatement':
+    'Οι χάρτες σου είναι ασφαλείς. Θα σε επιστρέψουμε στις διακλαδώσεις σου σε λίγο.',
   'forgotPassword.subheading':
     'Εισαγάγετε το email σας και θα σας στείλουμε έναν νέο σύνδεσμο επαναφοράς.',
   'forgotPassword.success':
     'Εάν υπάρχει λογαριασμός με αυτή τη διεύθυνση email, θα σας σταλεί σύντομα ένας σύνδεσμος επαναφοράς.',
   'landing.cta.body':
     'Δωρεάν για πάντα για όσους σκέφτονται μεμονωμένα. Αναβαθμίστε μόνο όταν η ομάδα σας αρχίσει να αναπτύσσεται παράλληλα με εσάς.',
+  'landing.cta.button': 'Δημιούργησε τον πρώτο σου χάρτη',
   'landing.cta.title': 'Φύτεψε την πρώτη σου ιδέα σήμερα.',
   'landing.feature.branch.body':
     'Σύρετε έναν κόμβο από οποιονδήποτε άλλο κόμβο — οι συνδέσεις ρέουν ως ομαλές καμπύλες, δεν απαιτείται άκαμπτο πλέγμα.',
+  'landing.feature.branch.title': 'Οργανική διακλάδωση',
   'landing.feature.canvas.body':
     'Μετακινήστε το χάρτη σε πανοραμική λήψη, κάντε ζουμ και αφήστε τον να αναπτυχθεί χωρίς να χτυπήσει στις άκρες. Η σκέψη σας αξίζει χώρο για να αναπνεύσει.',
   'landing.feature.canvas.title': 'Άπειρος καμβάς',
   'landing.feature.collab.body':
     'Δείτε τους συμπαίκτες σας να συνεργάζονται σε πραγματικό χρόνο. Καταιγισμός ιδεών μαζί, όχι σε σειρά.',
+  'landing.feature.collab.title': 'Κέρσορες συνεργασίας',
   'landing.feature.shortcuts.body':
     'Πατήστε Tab για να προσθέσετε ένα παιδί, Enter για ένα αδελφό ή αδερφή, ⌘K για να μεταβείτε οπουδήποτε. Οι έμπειροι χρήστες παραμένουν σε ροή.',
+  'landing.feature.shortcuts.title': 'Πρώτα το πληκτρολόγιο',
+  'landing.featuresBody':
+    'Οι γραμμές εργαλείων, τα πάνελ και οι συντομεύσεις είναι διακριτικά — παρόντα όταν τα χρειάζεσαι, αόρατα όταν δεν τα χρειάζεσαι.',
   'landing.featuresEyebrow': 'Φτιαγμένο για στοχαστές',
   'landing.featuresTitle': 'Κάθε αλληλεπίδραση κερδίζει τη θέση της στον καμβά',
   'landing.footer.copyright': '© {{year}} {{appName}} . Κατασκευασμένο με Molecule.dev.',
@@ -71,6 +103,7 @@ export const ui: UiTranslations = {
     '{{appName}} είναι ένας ευρύχωρος άπειρος καμβάς για καταιγισμό ιδεών, διαγράμματα εννοιών και SWOTs. Σύρετε, συνδεθείτε και αφήστε τον χάρτη να αναπτυχθεί μαζί σας — χωρίς άκαμπτα πλέγματα, χωρίς πρότυπα σε πλαίσια.',
   'landing.hero.ctaPrimary': 'Ξεκινήστε να δημιουργείτε διακλαδώσεις δωρεάν',
   'landing.hero.eyebrow': 'Χαρτογράφηση μυαλού για σχεδιαστές και στοχαστές',
+  'landing.hero.title': 'Εκεί όπου οι ιδέες διακλαδίζονται.',
   'landing.nav.start': 'Έναρξη διακλάδωσης',
   'landing.proof.export': 'Εξαγωγή σε PNG, SVG ή Markdown',
   'landing.proof.free': 'Δωρεάν για 3 χάρτες',
@@ -78,6 +111,7 @@ export const ui: UiTranslations = {
   'layout.closeMenu': 'Κλείσιμο μενού πλοήγησης',
   'layout.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'layout.searchPlaceholder': 'Αναζήτηση χαρτών, προτύπων ή κόμβων…',
+  'login.noAccount': 'Νέος εδώ;',
   'login.signIn': 'Σύνδεση στο Nimbus',
   'login.subheading':
     'Συνδεθείτε για να συνεχίσετε την ανάπτυξη διακλάδωσης από εκεί που σταματήσατε.',
@@ -97,9 +131,11 @@ export const ui: UiTranslations = {
     'Επιλέξτε το εργαλείο + και, στη συνέχεια, κάντε κλικ οπουδήποτε για να προσθέσετε τον πρώτο σας κόμβο',
   'mapEditor.export': 'Εξαγωγή',
   'mapEditor.exportError': 'Δεν ήταν δυνατή η εξαγωγή του χάρτη.',
+  'mapEditor.exportLocked': 'Η εξαγωγή είναι λειτουργία Pro.',
   'mapEditor.exportMarkdown': 'Markdown (.md)',
   'mapEditor.exportPng': 'Εικόνα (.png)',
   'mapEditor.exportSvg': 'Διάνυσμα (.svg)',
+  'mapEditor.exportUpgrade': 'Αναβάθμιση για εξαγωγή →',
   'mapEditor.hint.add': 'Κάντε κλικ στον καμβά για να αποθέσετε έναν κόμβο',
   'mapEditor.hint.connectSource': 'Κάντε κλικ στον κόμβο πηγής…',
   'mapEditor.hint.connectTarget': 'Κάντε κλικ στον κόμβο-στόχο…',
@@ -108,6 +144,7 @@ export const ui: UiTranslations = {
   'mapEditor.loading': 'Φόρτωση του καμβά…',
   'mapEditor.newNodeText': 'New idea',
   'mapEditor.panel.color': 'Χρώμα',
+  'mapEditor.panel.eyebrow': 'Επιλεγμένος κόμβος',
   'mapEditor.panel.nodes': 'Κόμβοι',
   'mapEditor.panel.noSelection': 'Κάντε κλικ σε έναν κόμβο για να τον επεξεργαστείτε.',
   'mapEditor.panel.stats': 'Στατιστικά χάρτη',
@@ -147,11 +184,18 @@ export const ui: UiTranslations = {
   'notifications.accept': 'Αποδέχομαι',
   'notifications.acceptAndOpen': 'Αποδοχή & άνοιγμα',
   'notifications.acceptedInvite': 'Έγινε μέλος {{title}}.',
+  'notifications.acceptError': 'Δεν ήταν δυνατή η αποδοχή της πρόσκλησης.',
   'notifications.empty.body': 'Όταν οι συμπαίκτες σας προσκαλούν σε χάρτες, θα εμφανίζονται εδώ.',
   'notifications.empty.title': 'Δεν υπάρχουν εκκρεμείς προσκλήσεις',
+  'notifications.inviteBody': 'Στάλθηκε στο {{email}}',
   'notifications.inviteTitle': 'Προσκλήθηκε ως {{role}} σε "{{title}}"',
   'notifications.subtitle': '{{count}} προσκλήσεις σε εκκρεμότητα.',
   'notifications.view': 'Προβολή',
+  'pricing.limit.advanced': 'Προηγμένες λειτουργίες: {{state}}',
+  'pricing.limit.connections': '{{count}} συνδέσεις',
+  'pricing.limit.export': 'Εξαγωγή δεδομένων: {{state}}',
+  'pricing.limit.maps': '{{count}} χάρτες',
+  'pricing.limit.nodes': '{{count}} κόμβοι ανά χάρτη',
   'profile.loading': 'Φόρτωση στατιστικών στοιχείων…',
   'profile.stat.collabs': 'Συνεργασίες',
   'profile.stat.maps': 'Χάρτες που δημιουργήθηκαν',
@@ -164,25 +208,37 @@ export const ui: UiTranslations = {
     'Αυτός ο χάρτης δεν είναι πλέον κοινόχρηστος ή ο σύνδεσμος δεν είναι έγκυρος.',
   'publicMap.loading': 'Φόρτωση του χάρτη…',
   'publicMap.notFound': 'Ο χάρτης δεν βρέθηκε.',
+  'resetPassword.newPassword': 'Νέος κωδικός πρόσβασης',
   'resetPassword.subheading': 'Διαλέξτε κάτι που θα θυμάστε. Θα σας συνδέσουμε ξανά αυτόματα.',
   'resetPassword.submit': 'Επαναφορά κωδικού πρόσβασης και σύνδεση',
   'resetPassword.tokenPlaceholder': 'Αντιγραφή από το email σας',
   'settings.account.subtitle':
     'Ενημερώστε το εμφανιζόμενο όνομα και τη διεύθυνση ηλεκτρονικού ταχυδρομείου σας.',
+  'settings.field.currentPassword': 'Τρέχων κωδικός',
   'settings.field.newPassword': 'Νέος κωδικός πρόσβασης',
   'settings.password.subtitle': 'Επιλέξτε έναν ισχυρό κωδικό πρόσβασης (τουλάχιστον 8 χαρακτήρες).',
   'settings.passwordError':
     'Δεν ήταν δυνατή η αλλαγή του κωδικού πρόσβασης. Ελέγξτε τον τρέχοντα κωδικό πρόσβασής σας.',
+  'settings.passwordMismatch': 'Οι νέοι κωδικοί πρόσβασης δεν ταιριάζουν.',
   'settings.passwordSaved': 'Ο κωδικός πρόσβασης άλλαξε με επιτυχία.',
   'settings.passwordTooShort': 'Ο κωδικός πρόσβασης πρέπει να έχει τουλάχιστον 8 χαρακτήρες.',
   'settings.profileError': 'Δεν ήταν δυνατή η αποθήκευση αλλαγών προφίλ.',
   'settings.subtitle': 'Ρυθμίστε τον λογαριασμό και την ασφάλειά σας.',
   'settings.twoFactorCode': 'Κωδικός ελέγχου ταυτότητας',
   'settings.twoFactorDisable': 'Απενεργοποίηση',
+  'settings.twoFactorDisableTitle': 'Απενεργοποίηση ελέγχου ταυτότητας δύο παραγόντων',
   'settings.twoFactorEnable': 'Ενεργοποίηση',
+  'settings.twoFactorEnableTitle': 'Ενεργοποίηση ελέγχου ταυτότητας δύο παραγόντων',
   'settings.twoFactorInvalidCode': 'Μη έγκυρος κωδικός. Δοκιμάστε ξανά.',
+  'settings.twoFactorOffLine': 'Ο έλεγχος ταυτότητας δύο παραγόντων είναι ανενεργός.',
+  'settings.twoFactorOnLine': 'Ο έλεγχος ταυτότητας δύο παραγόντων είναι ενεργός.',
+  'settings.twoFactorQrAlt': 'Κωδικός QR ταυτοποίησης δύο παραγόντων',
+  'settings.twoFactorScan':
+    'Σαρώστε αυτόν τον κωδικό QR με την εφαρμογή ελέγχου ταυτότητας και, στη συνέχεια, εισαγάγετε τον 6ψήφιο κωδικό.',
   'settings.twoFactorSubtitle':
     'Προσθέστε έναν κωδικό μίας χρήσης από την εφαρμογή ελέγχου ταυτότητας εκτός από τον κωδικό πρόσβασής σας.',
+  'settings.twoFactorUnavailable':
+    'Ο έλεγχος ταυτότητας δύο παραγόντων δεν είναι διαθέσιμος για αυτήν την εφαρμογή.',
   'settings.twoFactorVerify': 'Επαλήθευση και ενεργοποίηση',
   'share.accepted': 'Δεκτός',
   'share.backToMap': 'Επιστροφή στον χάρτη',
@@ -193,7 +249,10 @@ export const ui: UiTranslations = {
   'share.copySuccess': 'Ο σύνδεσμος αντιγράφηκε.',
   'share.invite.button': 'Καλώ',
   'share.invite.title': 'Πρόσκληση μέσω email',
+  'share.inviteError': 'Δεν ήταν δυνατή η αποστολή πρόσκλησης.',
   'share.inviteSuccess': 'Καλεσμένος {{email}}.',
+  'share.link.disabledHint':
+    'Ενεργοποίησε για να δημιουργήσεις έναν δημόσιο σύνδεσμο μόνο για ανάγνωση προς αυτόν τον χάρτη.',
   'share.link.title': 'Δημόσιος σύνδεσμος',
   'share.loadError': 'Δεν ήταν δυνατή η φόρτωση των ρυθμίσεων κοινής χρήσης.',
   'share.pending': 'Εκκρεμής πρόσκληση',
@@ -205,13 +264,19 @@ export const ui: UiTranslations = {
   'share.roleError': 'Δεν ήταν δυνατή η ενημέρωση ρόλου.',
   'share.title': 'Κοινοποίηση αυτού του χάρτη',
   'share.unnamedCollaborator': 'Εκκρεμής πρόσκληση',
+  'signup.brandStatement':
+    'Ένας καμβάς αρκετά πλατύς για τον πιο τολμηρό καταιγισμό ιδεών — και αρκετά ήσυχος για να σκεφτείς.',
+  'signup.haveAccount': 'Είστε ήδη μέλος;',
   'signup.heading': 'Φυτέψτε την πρώτη σας ιδέα',
   'signup.namePlaceholder': 'Άβερι Τσεν',
   'signup.subheading': 'Δωρεάν για πάντα για 3 χάρτες. Δεν απαιτείται πιστωτική κάρτα.',
   'templateDetail.backToTemplates': 'Όλα τα πρότυπα',
   'templateDetail.browseMore': 'Περιηγηθείτε σε περισσότερα',
+  'templateDetail.editableHint':
+    'Κάθε κόμβος και ακμή είναι πλήρως επεξεργάσιμα μόλις δημιουργήσεις το πρότυπο.',
   'templateDetail.instantiateError': 'Δεν ήταν δυνατή η δημιουργία χάρτη από αυτό το πρότυπο.',
   'templateDetail.loadError': 'Δεν ήταν δυνατή η φόρτωση αυτού του προτύπου.',
+  'templateDetail.loading': 'Φόρτωση προτύπου…',
   'templateDetail.nodes': 'Προ-seeded κόμβοι',
   'templateDetail.notFound': 'Το πρότυπο δεν βρέθηκε.',
   'templateDetail.systemEyebrow': 'Ενσωματωμένο πρότυπο',
@@ -235,6 +300,7 @@ export const ui: UiTranslations = {
     'Δεν υπάρχει τίποτα που να περιμένει να καθαριστεί. Τα κλαδιά σας είναι ασφαλή.',
   'trash.empty.title': 'Ο κάδος απορριμμάτων είναι άδειος',
   'trash.loadError': 'Δεν ήταν δυνατή η φόρτωση χαρτών που έχουν απορριφθεί.',
+  'trash.loading': 'Φόρτωση κάδου…',
   'trash.restore': 'Επαναφορά',
   'trash.restoreError': 'Δεν ήταν δυνατή η επαναφορά του χάρτη.',
   'trash.subtitle': 'Οι χάρτες παραμένουν εδώ για {{days}} ημέρες πριν διαγραφούν οριστικά.',
@@ -242,11 +308,13 @@ export const ui: UiTranslations = {
   'versionHistory.backToMap': 'Επιστροφή στον χάρτη',
   'versionHistory.empty':
     'Δεν υπάρχουν ακόμη στιγμιότυπα. Αποθηκεύστε το πρώτο σας για να διατηρήσετε ένα σημείο ελέγχου.',
+  'versionHistory.emptyDetail': 'Αποθήκευσε ένα στιγμιότυπο για να ξεκινήσει το χρονολόγιό σου.',
   'versionHistory.loadError': 'Δεν ήταν δυνατή η φόρτωση του ιστορικού εκδόσεων.',
   'versionHistory.nodeCount': 'Κόμβοι',
   'versionHistory.restoreButton': 'Επαναφορά αυτής της έκδοσης',
   'versionHistory.restoreError': 'Δεν ήταν δυνατή η επαναφορά του στιγμιότυπου.',
   'versionHistory.restoreSuccess': 'Το στιγμιότυπο αποκαταστάθηκε.',
+  'versionHistory.selectHint': 'Διάλεξε ένα στιγμιότυπο για να το δεις.',
   'versionHistory.snapshotDefault': 'Χειροκίνητο στιγμιότυπο',
   'versionHistory.snapshotError': 'Δεν ήταν δυνατή η αποθήκευση του στιγμιότυπου.',
   'versionHistory.snapshotEyebrow': 'Στιγμιότυπο',

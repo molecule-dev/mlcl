@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Ynglŷn â',
+  'about.featureConnections':
+    "Rheolwr cysylltiadau sy'n storio eich cronfeydd data'n ddiogel ac yn rhoi cod lliw iddynt — mae tystlythyrau'n cael eu hamgryptio wrth eu storio, byth yn glir.",
+  'about.featureMonitoring':
+    "Monitro perfformiad ymholiadau a gweithgaredd cronfa ddata'n fyw, gyda'r llwybrau bysellau a'r palet gorchmynnau i'w gyrru i gyd yn ddi-law.",
+  'about.featurePlans':
+    "Cynlluniau sy'n tyfu gyda chi — Am ddim ar gyfer gwaith unigol, Pro a Tîm ar gyfer mwy o gysylltiadau, cadw ymholiadau'n hirach, allforion, a nodweddion uwch.",
+  'about.featureQueryEditor':
+    "Golygydd SQL wedi'i bweru gan Monaco gyda hanes ymholiadau, ymholiadau wedi'u cadw, ac allforio CSV un clic o'ch canlyniadau.",
+  'about.featureSchema':
+    'Archwiliwr sgema a phorwr tablau i lywio cronfeydd data, tablau a cholofnau, yna pori, hidlo a golygu rhesi ar-lein.',
+  'about.missionTitle': 'Ein cenhadaeth',
   'authShell.commands': 'Gorchmynion',
   'authShell.ssoSupported': 'Cefnogir SSO',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Ymholiadau',
   'connections.schema': 'Cynllun',
   'connections.subtitle': 'Rheoli eich cysylltiadau cronfa ddata.',
+  'connections.test': 'Prawf',
   'databaseAdminLayout.adminRole': 'Rôl gweinyddwr',
   'databaseAdminLayout.commandPalette': 'Palet gorchymyn',
   'databaseAdminLayout.commands': 'gorchmynion',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Cysylltiad newydd',
   'databaseAdminLayout.queries': 'Ymholiadau',
   'databaseAdminLayout.ready': 'Parod',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Chwilio gorchmynnau, ymholiadau, tablau…',
   'databaseAdminLayout.user': 'Defnyddiwr',
   'editConnection.confirmDelete': "Dileu'r cysylltiad hwn?",
   'editConnection.deleteButton': 'Dileu cysylltiad',
+  'editConnection.newPassword': 'Cyfrinair newydd (gadewch yn wag i gadw)',
   'editConnection.saved': "Cysylltiad wedi'i gadw.",
   'editConnection.title': 'Golygu cysylltiad',
   'forgotPassword.success': "Os yw'r cyfrif hwnnw'n bodoli, mae dolen ailosod ar ei ffordd.",
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Llwyddiannau',
   'monitoring.title': 'Monitro',
   'monitoring.totalQueries': 'Cyfanswm yr ymholiadau',
+  'nav.schema': 'Cynllun',
   'newConnection.database': 'Cronfa Ddata',
   'newConnection.engine': 'Peiriant',
   'newConnection.host': 'Gwesteiwr',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': "Dim cysylltiad wedi'i rwymo i'r darn hwn.",
   'savedQuery.notBound': 'Heb ei rwymo',
   'savedQuery.title': "Ymholiad wedi'i gadw",
+  'schema.columns': 'Colofnau',
   'schema.foreignKeys': 'Allweddi tramor',
   'schema.indexes': 'Mynegeion',
   'schemaExplorer.browseRows': 'Pori rhesi',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'nullable',
   'schemaExplorer.colType': 'math',
   'schemaExplorer.noColumns': 'Dim colofnau.',
+  'schemaExplorer.noForeignKeys': 'Dim allweddi tramor.',
   'schemaExplorer.noIndexes': 'Dim mynegeion.',
   'schemaExplorer.noTables': 'Dim byrddau',
   'schemaExplorer.pickATable': "Dewiswch dabl o'r bar ochr.",
   'schemaExplorer.tables': 'Tablau',
   'schemaExplorer.title': 'Archwiliwr sgema',
+  'settings.session': 'Sesiwn',
   'settings.subtitle': "Rheoli eich cyfrif a'ch cynllun.",
   'signup.heading': 'Creu eich cyfrif Chwarel',
   'signup.tagline': 'Troelli mynediad mewn llai na munud.',
   'tableBrowser.noRows': 'Nid oes gan y tabl hwn unrhyw resi eto.',
+  'tableBrowser.subtitle': "Pori rhesi o'ch cronfa ddata o bell.",
   'tableBrowser.title': "Pori rhesi o'ch cronfa ddata o bell.",
 }

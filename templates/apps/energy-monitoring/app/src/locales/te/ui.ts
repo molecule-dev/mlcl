@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ప్రశ్నలు, ఫీచర్ అభ్యర్థనలు లేదా మేము మద్దతు ఇవ్వాల్సిన మీటర్ ఉన్నాయా? మీ ఖాతా సెట్టింగ్‌ల నుండి {{appName}} టీమ్‌ను సంప్రదించండి — ప్రతి సందేశం నిజమైన వ్యక్తికి చేరుతుంది.',
   'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'గురించి',
+  'about.featuresTitle': 'మీకు లభించేది',
+  'about.intro':
+    '{{appName}} సోలార్ ఇళ్లు మరియు సౌకర్యాల టీమ్‌ల కోసం రియల్‌టైమ్ పవర్ మానిటరింగ్. మేము మీటర్, ఇన్వర్టర్ మరియు బ్యాటరీ డేటా ప్రవాహాన్ని ప్రశాంతమైన కంట్రోల్-రూమ్ వ్యూ‌గా మారుస్తాము — లైవ్ వాటేజ్, సోలార్ ఉత్పత్తి, టైమ్-ఆఫ్-యూజ్ ఖర్చు మరియు హెచ్చరికలు, అన్నీ ఒకే షెల్‌లో.',
+  'about.missionBody':
+    'మీరు చూడగలిగే శక్తినే మీరు నిర్వహించగలరు. మీటర్ నడిపే ప్రతి ఒక్కరూ — రూఫ్‌టాప్ సోలార్ ఉన్న ఇల్లు లేదా భవనాన్ని గమనిస్తున్న టీమ్ — యుటిలిటీ-గ్రేడ్ ఒప్పందం లేకుండా యుటిలిటీ-గ్రేడ్ అంతర్దృష్టిని పొందాలని మేము నమ్ముతాము. ప్రతి ఫీచర్ తదుపరి కిలోవాట్-అవర్‌ను బిల్లుపై ఆశ్చర్యం కాకుండా సమాచారంతో కూడిన ఎంపికగా మార్చడానికి రూపొందించబడింది.',
+  'about.missionTitle': 'మా లక్ష్యం',
   'about.pageTitle': 'గురించి {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'అక్',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@yourdomain.com',
   'alertRule.eyebrow': 'కొత్త నియమం',
   'alertRule.heading': 'మీకు నష్టం వాటిల్లక ముందే ఆ పెరుగుదలను పట్టుకోండి',
+  'alertRule.nameLabel': 'నియమం పేరు',
   'alertRule.namePlaceholder': 'ఉదా: పనివేళల తర్వాత HVAC పర్యవేక్షణ',
   'alertRule.subheading':
     'ఒక కొలమానాన్ని, ఒక పరిమితిని మరియు హెచ్చరికను ఎక్కడికి పంపించాలో ఎంచుకోండి. మీరు దీన్ని ఎప్పుడైనా సవరించవచ్చు లేదా పాజ్ చేయవచ్చు.',
   'alertRule.submit': 'నియమాన్ని సేవ్ చేయండి',
   'alertRule.submitError': 'నియమాన్ని కాపాడలేకపోయాను.',
   'alertRule.thresholdLabel': 'థ్రెషోల్డ్',
+  'alertRule.typeLabel': 'ట్రిగ్గర్ రకం',
   'alerts.checking': 'తనిఖీ చేస్తోంది',
   'alerts.confirmDelete': 'తొలగింపును నిర్ధారించండి',
+  'alerts.empty': 'చూపించడానికి ఏమీ లేదు — ఈ స్థితిలో హెచ్చరికలు లేవు.',
   'alerts.emptyNoRules':
     'ఇంకా హెచ్చరికలు లేవు — ఒక నియమాన్ని జోడించి, ఆపై దానిని పరీక్షించడానికి “ఇప్పుడే మూల్యాంకనం చేయండి” పై క్లిక్ చేయండి.',
   'alerts.errorAck': 'ధృవీకరించలేకపోయాను.',
@@ -41,12 +52,15 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'ఇప్పుడే మూల్యాంకనం చేయండి',
   'alerts.subheading':
     'మీ మీటర్లలో కనిపించే థ్రెషోల్డ్ మరియు ప్యాటర్న్ హెచ్చరికలు, అలాగే వాటిని నిర్దేశించే నియమాలు.',
+  'billing.activeBlurb': 'మీ సబ్స్క్రిప్షన్ యాక్టివ్గా ఉంది. ఎప్పుడైనా నిర్వహించుకోవచ్చు.',
   'billing.cancelError': 'సభ్యత్వాన్ని రద్దు చేయలేకపోయాను.',
   'billing.cancelling': 'రద్దు చేయడం™',
   'billing.currentBadge': 'ప్రస్తుత',
   'billing.freeBlurb':
     'మీరు ఉచిత ప్లాన్‌లో ఉన్నారు. మరిన్ని మీటర్లు, సుదీర్ఘ చరిత్ర మరియు మరిన్ని హెచ్చరిక నియమాల కోసం అప్‌గ్రేడ్ చేసుకోండి.',
   'billing.heading': 'ప్రణాళికలు & బిల్లింగ్',
+  'billing.historyEmpty':
+    'మీ సబ్స్క్రిప్షన్ బిల్ చేయబడిన తర్వాత చెల్లించిన ఇన్వాయిస్లు ఇక్కడ కనిపిస్తాయి.',
   'billing.historyHeading': 'ఇన్‌వాయిస్ చరిత్ర',
   'billing.loadError': 'బిల్లింగ్‌ను లోడ్ చేయలేకపోయింది.',
   'billing.loading': 'ప్లాన్‌లను లోడ్ చేస్తోంది',
@@ -58,17 +72,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'అమ్మకాల విభాగాన్ని సంప్రదించండి',
   'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} పీక్ · {{offPeak}} ఆఫ్-పీక్ kWh',
   'dailyCostMeter.runningLabel': 'నడుస్తున్న మొత్తం',
   'dailyCostMeter.title': 'ఈ రోజు వరకు అయిన ఖర్చు',
   'dailyCostMeter.utilizationLabel': 'రోజువారీ బడ్జెట్',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'మీటర్ జోడించండి',
   'dashboard.alertsHeading': 'యాక్టివ్ హెచ్చరికలు',
   'dashboard.devicesHeading': 'ప్రస్తుతం అగ్రశ్రేణి సర్క్యూట్‌లు',
   'dashboard.empty.body':
     'విద్యుత్ వినియోగం మరియు ఉత్పత్తిని ప్రత్యక్షంగా పర్యవేక్షించడం ప్రారంభించడానికి స్మార్ట్ మీటర్ లేదా సోలార్ ఇన్వర్టర్‌ను జోడించండి.',
+  'dashboard.empty.title': 'ఇంకా మీటర్లు లేవు',
   'dashboard.eyebrow': 'వోల్ట్రేస్ నియంత్రణ గది',
   'dashboard.heading': 'ప్రత్యక్ష శక్తి స్నాప్‌షాట్',
   'dashboard.loadError': 'ప్రత్యక్ష రీడింగ్‌లను లోడ్ చేయలేకపోయింది.',
   'dashboard.loading': 'మీ మీటర్లను గమనించడం…',
+  'dashboard.noAlerts': 'అంతా ప్రశాంతం — మీ థ్రెషోల్డ్‌లను ఏదీ దాటడం లేదు.',
   'dashboard.noAlertsAndNoMeters':
     'మీరు మీటర్‌ను అనుసంధానించిన తర్వాత, మీ పరిమితుల ఆధారంగా హెచ్చరికలు ఇక్కడ కనిపిస్తాయి.',
   'dashboard.noCircuits':
@@ -77,6 +96,7 @@ export const ui: UiTranslations = {
     'ఈ రోజు వరకు మొత్తం ఇంటి విద్యుత్ వినియోగం, సౌర విద్యుత్ ఉత్పత్తి మరియు ఖర్చు.',
   'dashboard.viewAllAlerts': 'హెచ్చరికలను నిర్వహించండి →',
   'dashboard.viewAllDevices': 'ప్రతి పరికరం →',
+  'deviceDetail.activeTokens': 'యాక్టివ్ ఇన్‌జెస్ట్ టోకెన్‌లు',
   'deviceDetail.alreadyOff': 'ఇప్పటికే పాజ్ చేయబడింది',
   'deviceDetail.back': 'అన్ని సర్క్యూట్లు',
   'deviceDetail.confirmDelete': 'తొలగింపును నిర్ధారించండి',
@@ -117,22 +137,34 @@ export const ui: UiTranslations = {
   'devices.loadError': 'మీటర్లను లోడ్ చేయలేకపోయింది.',
   'devices.loading': 'ప్రతి మీటరుకు పోలింగ్™',
   'devices.newRule': 'కొత్త హెచ్చరిక నియమం',
+  'devices.noResults': 'ఈ ఫిల్టర్‌కు సరిపోయే సర్క్యూట్‌లు లేవు.',
   'devices.placeholder.location': 'ఉదా. మెకానికల్ గది',
   'devices.placeholder.name': 'ఉదా గ్యారేజ్ సబ్‌ప్యానెల్',
   'devices.subheading':
     'వోల్ట్రేస్ చూడగలిగే ప్రతి సర్క్యూట్ ద్వారా ప్రత్యక్ష వాటేజ్ మరియు నేటి kWh.',
+  'deviceWattageRow.todayKwh': 'ఈరోజు {{kwh}} kWh',
+  'deviceWattageRow.watts': '{{watts}} డబ్ల్యూ',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'మెనూ',
+  'energyMonitoringLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    '{{appName}} చాలా వరకు యుటిలిటీ-గ్రేడ్ మీటర్లు, సోలార్ ఇన్వర్టర్లు మరియు బ్యాటరీ స్టాక్‌లతో మాట్లాడుతుంది — వైర్డ్ లేదా WiFi ద్వారా.',
   'landing.ctaHeading': 'మీ మీటర్‌ను జత చేయండి, నిమిషాల్లో వాట్‌లను చూడండి',
   'landing.eyebrow': 'రియల్ టైమ్ ఎనర్జీ ఇంటెలిజెన్స్',
+  'landing.featuresHeading': 'ప్రతి వాట్, ప్రతి నిమిషం, ఒకే షెల్‌లో',
   'landing.getStarted': 'ప్లగ్ ఇన్ వోల్ట్రేస్',
   'landing.heroCta': 'ప్లగ్ ఇన్ వోల్ట్రేస్',
+  'landing.heroSubtitle':
+    'సోలార్ ఇళ్లు మరియు సౌకర్యాల టీమ్‌ల కోసం రూపొందించిన కంట్రోల్-రూమ్ షెల్‌లో లైవ్ వాటేజ్, సోలార్ ఉత్పత్తి, టైమ్-ఆఫ్-యూజ్ ఖర్చు మరియు అధిక వినియోగ హెచ్చరికలు.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'మొత్తం ఇంటి డ్రా',
   'landing.sampleSolar': '+3,820 W సౌర',
   'landing.sampleSummary': 'గ్రిడ్‌కు 1,680 W ఎగుమతి · ఈ రోజు 18.4 kWh',
   'landing.sampleWatts': '2,140 W',
   'powerHeroCard.solar': '+ {{watts}} W సోలార్',
   'powerHeroCard.title': 'మొత్తం ఇంటి డ్రా',
+  'powerHeroCard.todayKwh': 'ఈరోజు {{kwh}} kWh',
   'powerHeroCard.watts': '{{watts}} డబ్ల్యూ',
   'pricing.choose': 'ఎంచుకోండి {{name}}',
   'pricing.contact': 'మీకు ప్రత్యేకంగా ఏదైనా కావాలా?',
@@ -145,6 +177,7 @@ export const ui: UiTranslations = {
     'ఉచితంగా ప్రారంభించండి. మీకు మరిన్ని మీటర్లు, ఎక్కువ హిస్టరీ లేదా మరిన్ని అలర్ట్ రూల్స్ అవసరమైనప్పుడు అప్‌గ్రేడ్ చేసుకోండి.',
   'pricing.unavailable': 'ఈ ప్లాన్ ప్రస్తుతం అందుబాటులో లేదు — స్ట్రైప్ కాన్ఫిగర్ చేయబడలేదు.',
   'profile.errorGeneric': 'ప్రొఫైల్ మార్పులను సేవ్ చేయలేకపోయాను.',
+  'profile.errorGoal': 'నెలవారీ kWh లక్ష్యం ధనాత్మక సంఖ్య అయి ఉండాలి.',
   'profile.errorHousehold': 'కుటుంబ సభ్యుల సంఖ్య ధనాత్మకంగా ఉండాలి.',
   'profile.householdHeading': 'గృహ మరియు లక్ష్యాలు',
   'profile.householdSize': 'గృహ పరిమాణం',
@@ -162,9 +195,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'రీడింగ్‌లను సమీకరించడం…',
   'reports.subheading':
     'వినియోగం, ఉత్పత్తి మరియు వ్యయం యొక్క రోజువారీ మొత్తం — తేదీల వారీగా విభజించబడింది.',
+  'reports.tableHeading': 'రోజువారీ విభజన',
   'settings.currency': 'కరెన్సీ',
   'settings.errorFlat': 'ఫ్లాట్ రేటు తప్పనిసరిగా ≥ 0 ఉండాలి.',
   'settings.errorNotify': 'నోటిఫికేషన్ ప్రాధాన్యతలను సేవ్ చేయలేకపోయాను.',
+  'settings.errorSave': 'రేట్ ప్లాన్ సేవ్ చేయలేకపోయాము.',
   'settings.errorTou': 'పీక్/ఆఫ్-పీక్ రేట్లు మరియు చెల్లుబాటు అయ్యే పీక్ విండో అవసరం.',
   'settings.exportBody':
     'గత 30 రోజుల రోజువారీ మొత్తం రీడింగ్‌ల CSV ఫైల్‌ను డౌన్‌లోడ్ చేసుకోండి లేదా ప్రోగ్రామాటిక్‌గా రీడింగ్‌లను పంపడానికి ఏదైనా మీటర్ వివరాల పేజీ నుండి ఇన్‌జెస్ట్ టోకెన్‌ను పొందండి.',
@@ -184,10 +219,20 @@ export const ui: UiTranslations = {
   'settings.saving': 'పొదుపు™',
   'settings.securityHeading': 'రెండు-కారకాల ప్రమాణీకరణ',
   'settings.subheading': 'రేట్లు, నోటిఫికేషన్‌లు మరియు డేటా ఎగుమతి.',
+  'settings.twoFactorBody':
+    'మీరు ప్రతిసారీ సైన్ ఇన్ చేసినప్పుడు మీ ఆథెంటికేటర్ యాప్ నుండి వన్-టైమ్ కోడ్ అవసరం.',
   'settings.twoFactorCode': 'ప్రమాణీకరణ కోడ్',
   'settings.twoFactorDisable': 'నిలిపివేయండి',
+  'settings.twoFactorDisableTitle': 'రెండు-కారకాల ప్రామాణీకరణను నిలిపివేయండి',
   'settings.twoFactorEnable': 'ప్రారంభించండి',
+  'settings.twoFactorEnableTitle': 'రెండు-కారకాల ప్రామాణీకరణను ప్రారంభించండి',
   'settings.twoFactorInvalidCode': 'చెల్లని కోడ్',
+  'settings.twoFactorOAuth':
+    'మీ ఖాతా కనెక్ట్ చేసిన ప్రొవైడర్ ద్వారా సైన్ ఇన్ అవుతుంది, కాబట్టి టూ-ఫ్యాక్టర్ అక్కడే నిర్వహించబడుతుంది.',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'రెండు-కారకాల QR కోడ్',
+  'settings.twoFactorScan':
+    'మీ ప్రామాణీకరణ యాప్తో ఈ QR కోడ్ను స్కాన్ చేయండి, ఆపై 6-అంకెల కోడ్ను నమోదు చేయండి.',
+  'settings.twoFactorUnavailable': 'ఈ యాప్‌కు టూ-ఫ్యాక్టర్ అథెంటికేషన్ అందుబాటులో లేదు.',
   'settings.twoFactorVerify': 'ధృవీకరించి, ప్రారంభించండి',
 }

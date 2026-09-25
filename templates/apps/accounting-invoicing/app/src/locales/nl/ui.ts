@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Heb je een vraag, een bug gevonden of wil je je boeken overzetten? Bereik het {{app}}-team via hello@{{app}}.example — een echt persoon leest elk bericht.',
   'about.contactTitle': 'Neem contact met ons op',
   'about.eyebrow': 'Over',
+  'about.intro':
+    '{{app}} is boekhouding voor kleine bedrijven die elke cent verantwoordt — facturen, uitgaven, betalingen en rapporten op één rustige plek voor ondernemers, boekhouders en accountants.',
+  'about.missionBody':
+    'Een bedrijf runnen zou niet betekenen dat je opziet tegen je boekhouding. {{app}} vervangt de wirwar aan spreadsheets door duidelijke cijfers waarop je kunt handelen, zodat je minder tijd besteedt aan afstemmen en meer aan het werk waarvoor je het bedrijf bent begonnen.',
+  'about.missionTitle': 'Onze missie',
   'about.title': 'Over {{app}}',
   'accounts.count': '{{count}} rekeningen',
+  'accounts.emptyBody':
+    'Grootboekrekeningen volgen waar geld zich bevindt en naartoe gaat. Ze verschijnen hier zodra je boekhouder of integratie ze heeft ingesteld.',
   'accounts.emptyTitle': 'Nog geen accounts',
   'accounts.heading': 'Rekeningschema',
   'accounts.kpi.accounts': 'Rekeningen',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Alle grootboekrekeningen die ten grondslag liggen aan uw facturen, uitgaven en betalingen, gegroepeerd per type.',
   'accounts.tag.inactive': 'inactief',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Chief Financial Officer, Horizon Tech',
   'authBrandPanel.eyebrow': 'Vertrouwd door financiële teams',
   'authBrandPanel.label': 'Merkpresentatie',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Alle klanten',
   'customerDetail.invoiceMeta': 'Verschijningsdatum{{issued}} · Uiterste datum{{due}}',
   'customerDetail.loadError': 'Kan klant niet laden.',
+  'customerDetail.missingBody':
+    'Het opgevraagde klantrecord kon niet worden geladen. Het is mogelijk verwijderd, of je hebt er geen toegang toe.',
   'customerDetail.missingHeading': 'Klantrecord niet beschikbaar',
+  'customerDetail.missingHelp':
+    'Gebruik de teruglink hierboven om terug te gaan naar de klantenlijst, of kies daar een ander record.',
+  'customerDetail.noInvoices': 'Nog geen facturen.',
   'customerDetail.notesEmpty': 'Nog geen notities.',
   'customerDetail.paymentsEmpty': 'Geen betalingen geregistreerd.',
   'customerDetail.paymentTerms': 'Betalingsvoorwaarden',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Aftrekbaar',
   'expenseDetail.detailsHeading': 'Transactiegegevens',
   'expenseDetail.loadError': 'Kan uitgave niet laden.',
+  'expenseDetail.matched': 'Gematcht · {{description}}',
   'expenseDetail.missingBody':
     'De opgevraagde uitgave kan niet worden geladen. Het is mogelijk verwijderd of u heeft er geen toegang toe.',
   'expenseDetail.missingHeading': 'Uitgavenrecord niet beschikbaar',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Bon',
   'expenseDetail.receiptHeading': 'Bon',
   'expenseDetail.reconciled': 'Verrekend',
+  'expenseDetail.unreconciled': 'Niet verrekend',
   'expenses.empty': 'Nog geen uitgaven.',
   'expenses.heading': 'Uitgaven',
   'expenses.kpi.deductible': 'Aftrekbaar',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Kan facturen niet laden.',
   'invoices.searchPlaceholder': 'Zoek factuur # of klant…',
   'invoices.summary.paid': 'Betaald deze periode',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     '30 dagen gratis. Geen creditcard. Neem uw accountant mee — die zal u dankbaar zijn.',
   'landing.ctaTitle': 'Verplaats uw boeken naar een rustigere plek.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Debiteuren',
   'ledgerStatTriad.eyebrow.mtd': 'Maand tot heden',
   'ledgerStatTriad.netSub': 'Netto {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} te laat',
   'ledgerStatTriad.revenueLabel': 'Omzet',
   'login.failed': 'Inloggen mislukt.',
   'login.hidePassword': 'Wachtwoord verbergen',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Inloggen',
   'nav.legal': 'Juridisch',
   'newExpense.back': 'Uitgaven',
+  'newExpense.clearReceiptCta': 'Bonnetje bijvoegen wissen',
   'newExpense.deductible': 'Fiscaal aftrekbaar',
   'newExpense.dropPrompt': 'Sleep hier een bonfoto of pdf naartoe om bij te voegen.',
   'newExpense.failed': 'Kon uitgave niet opslaan.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Kan betalingen niet laden.',
   'payments.unmatchedTag': 'ongeëvenaard',
   'planUpdated.pageLabel': 'Bevestiging bijgewerkt plan',
+  'pricing.advancedFeatures': 'Geavanceerde functies: {{yes}}',
+  'pricing.canExport': 'Gegevensexport: {{yes}}',
+  'pricing.heading': 'Kies je {{app}}-abonnement',
+  'pricing.maxAccounts': '{{count}} rekeningen',
+  'pricing.maxExpenses': '{{count}} uitgaven',
+  'pricing.maxInvoices': '{{count}} facturen',
+  'privacy.intro':
+    'Dit Privacybeleid beschrijft hoe {{app}} informatie verzamelt, gebruikt en openbaar maakt over bedrijven die de dienst gebruiken.',
   'privacy.lastUpdated': 'Laatst bijgewerkt: {{date}}',
   'privacy.section.collected.body':
     'Wij verzamelen accountgegevens (naam, e-mail, bedrijf), de financiële gegevens die u uploadt (facturen, uitgaven, klanten, betalingen) en standaard servicebedrijfslogboeken (IP, user-agent, tijdstempels).',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     "Informatie wordt gebruikt om de service te exploiteren, de gevraagde rapporten en pdf's te genereren, transactionele e-mail via Mailgun te versturen en betalingen via Stripe te verwerken. Wij verkopen of verhuren geen persoonlijke informatie.",
   'recentInvoicesCard.dueMeta': 'Vervaldatum {{date}}',
+  'recentInvoicesCard.empty': 'Geen facturen overeenkomen.',
   'recentInvoicesCard.eyebrow': 'Debiteuren',
   'recentInvoicesCard.searchAriaLabel': 'Facturen zoeken',
+  'recentInvoicesCard.searchPlaceholder': 'Facturen zoeken…',
   'recentInvoicesCard.title': 'Recente facturen',
   'recentInvoicesCard.viewAll': 'Alle facturen bekijken →',
   'reports.assets': 'Activa',
@@ -181,16 +211,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Winst & verlies (12 maanden)',
   'resetPassword.backToLogin': '← Terug naar inloggen',
   'resetPassword.hidePassword': 'Wachtwoord verbergen',
+  'resetPassword.passwordLabel': 'Nieuw wachtwoord',
   'resetPassword.showPassword': 'Wachtwoord tonen',
+  'resetPassword.subheading': 'Kies een sterk wachtwoord — minimaal acht tekens.',
   'resetPassword.submit': 'Wachtwoord herstellen',
   'resetPassword.tooShort': 'Wachtwoord moet minimaal 8 tekens bevatten.',
   'settings.account.changePassword': 'Wachtwoord wijzigen',
   'settings.account.changingPassword': 'Wijzigen…',
   'settings.account.currentPassword': 'Huidig wachtwoord',
+  'settings.account.dangerZone': 'Gevarenzone',
   'settings.account.deleteAccount': 'Account verwijderen',
   'settings.account.deleteDescription':
     'Je account en alle bijbehorende gegevens definitief verwijderen.',
   'settings.account.deleteError': 'Kan account niet verwijderen.',
+  'settings.account.deleteWarning':
+    'Dit verwijdert je account permanent en kan niet ongedaan worden gemaakt. Voer je wachtwoord in om te bevestigen.',
   'settings.account.deleting': 'Verwijderen…',
   'settings.account.devices': 'Apparaten',
   'settings.account.email': 'E-mail',
@@ -201,6 +236,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Wachtwoord',
   'settings.account.passwordError': 'Kan wachtwoord niet wijzigen.',
   'settings.account.pushNotifications': 'Pushmeldingen op dit apparaat',
+  'settings.account.revokeDeviceWarning':
+    'De toegang van dit apparaat wordt binnenkort ingetrokken. Uitloggen?',
   'settings.account.saveError': 'Kan profiel niet bijwerken.',
   'settings.account.security': 'Beveiliging',
   'settings.account.signOutDevice': 'Uitloggen',
@@ -208,12 +245,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Tweestapsverificatie',
   'settings.account.twoFactorCode': 'Verificatiecode',
   'settings.account.twoFactorDisable': 'Uitschakelen',
+  'settings.account.twoFactorDisableTitle': 'Tweestapsverificatie uitschakelen',
   'settings.account.twoFactorEnable': 'Inschakelen',
+  'settings.account.twoFactorEnableTitle': 'Tweestapsverificatie inschakelen',
   'settings.account.twoFactorInvalidCode': 'Ongeldige code',
   'settings.account.twoFactorOn': 'Op',
+  'settings.account.twoFactorQrAlt': 'Tweefactor QR-code',
+  'settings.account.twoFactorScan':
+    'Scan deze QR-code met je authenticator-app en voer vervolgens de 6-cijferige code in.',
+  'settings.account.twoFactorUnavailable':
+    'Tweefactorauthenticatie is niet beschikbaar voor deze app.',
   'settings.account.twoFactorVerify': 'Controleren en inschakelen',
   'settings.account.unknownDevice': 'Onbekend apparaat',
   'settings.company.email': 'Factuur-e-mail',
+  'settings.company.heading': 'Bedrijf & belasting',
   'settings.company.name': 'Wettelijke naam',
   'settings.company.saveButton': 'Bedrijfsprofiel opslaan',
   'settings.company.taxId': 'Btw-nummer / EIN',
@@ -256,6 +301,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Gesch. kwartaal',
   'taxes.kpi.owed': 'Verschuldigd',
   'taxes.loadError': 'Kan belastingoverzicht niet laden.',
+  'taxes.remittedPct': '({{pct}}% afgedragen)',
+  'terms.intro':
+    'Deze Servicevoorwaarden ("Voorwaarden") regelen je toegang tot en gebruik van {{app}}. Door een account aan te maken of de dienst te gebruiken, stem je ermee in eraan gebonden te zijn.',
   'terms.lastUpdated': 'Laatst bijgewerkt: {{date}}',
   'terms.section.acceptable.body':
     'U stemt ermee in de service niet te gebruiken om enige wet te overtreden, intellectuele eigendomsrechten te schenden, malware te verzenden of te proberen ongeautoriseerde toegang te krijgen tot andere accounts of onze infrastructuur.',

@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     "Mae Dendrite yn blatfform awtomeiddio llif gwaith sy'n cysylltu sbardunau, amodau AI, a chamau gweithredu aml-gam gyda'i gilydd fel y gall timau symud gwaith rhwng systemau heb ysgrifennu cod gludiog.",
+  'about.philosophy':
+    "Mae pob llif gwaith yn graff o gamau bach, arsylwadwy. Mae pob cam yn cofnodi ei fewnbynnau, ei allbynnau a'i amseru fel y gellir ei archwilio, ei ailchwarae neu ei ddad-wneud. Cyfansoddwch nhw'n weledol, fersiynwch nhw fel cod.",
   'about.title': 'Ynglŷn â Dendrit',
   'authShell.brand': 'Dendrit',
   'authShell.support': 'Cymorth',
@@ -15,9 +17,15 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Newid cynllun',
   'billing.description':
     'Tracio defnydd, rheoli eich cynllun, a chasglu anfonebau ar gyfer cyfrifyddu.',
+  'billing.eyebrow': 'Cyfrif · Cynllun a defnydd',
+  'billing.failedLabel': 'Rhediadau wedi methu · 24 awr',
+  'billing.invoicesEmpty':
+    'Dim anfonebau eto. Byddant yn ymddangos yma ar ôl eich adnewyddiad taledig cyntaf.',
   'billing.invoicesTitle': 'Hanes anfonebau',
   'billing.planNoteFree':
     'Haen am ddim — {{runs}} rhedeg a {{workflows}} llifau gwaith gweithredol. Uwchraddiwch am derfynau uwch.',
+  'billing.planNotePaid':
+    'Cynllun taledig — {{runs}} rhediad a {{workflows}} llif gwaith gweithredol.',
   'billing.runsLabel': 'Yn rhedeg yn y 24 awr ddiwethaf',
   'billing.tiersBlurb':
     'Cymharwch bob haen — rhediadau, llifau gwaith gweithredol, nodweddion uwch, a chymorth — ar y dudalen brisio bwrpasol.',
@@ -35,10 +43,14 @@ export const ui: UiTranslations = {
     "Dim integreiddiadau wedi'u cofrestru. Ffurfweddwch allweddi darparwr i alluogi bondiau.",
   'connections.error': 'Methwyd llwytho cysylltiadau.',
   'connections.eyebrow': 'Integreiddiadau · {{connected}} cysylltiedig',
+  'connections.loading': "Wrthi'n llwytho integreiddiadau…",
+  'connections.openEnv':
+    "I gysylltu'r darparwr hwn, gosodwch ei allwedd API yn api/.env ac ailgychwynnwch y gweinydd.",
   'dashboard.description':
     '{{active}} llifau gwaith yn weithredol. Methodd {{failed}} wedi methu yn ystod y 24 awr ddiwethaf.',
   'dashboard.error': "Methwyd llwytho'r dangosfwrdd.",
   'dashboard.eyebrow': 'Gweithrediadau · byw',
+  'dashboard.hero.label': 'Rhediadau heddiw',
   'dashboard.hero.medianLatency': 'oedi p50',
   'dashboard.hero.queue': 'Dyfnder y ciw',
   'dashboard.hero.success': 'Llwyddiant',
@@ -46,14 +58,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Hyd canolrifol',
   'dashboard.kpi.failedRuns': 'Methodd · 24 awr',
   'dashboard.kpi.outOf': 'o {{total}} cyfanswm',
+  'dashboard.kpi.successRate': 'Cyfradd lwyddiant · 24 awr',
   'dashboard.loading': "Wrthi'n llwytho'r dangosfwrdd…",
   'dashboard.recentRuns.empty':
     "Dim rhediadau eto. Bydd sbarduno llif gwaith yn llenwi'r ffrwd hon.",
   'dashboard.recentRuns.title': 'Rhediadau diweddar',
   'dashboard.recentRuns.viewAll': 'Dienyddiadau agored →',
+  'dashboard.recentWorkflows.browse': 'Pori templedi →',
   'dashboard.recentWorkflows.empty':
     "Dim llif gwaith eto. Gosodwch dempled neu adeiladwch un o'r dechrau.",
   'dashboard.recentWorkflows.title': 'Rhedeg yn ddiweddar',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'Dechreuodd',
   'dashboard.run.col.trigger': 'Sbardun',
   'dashboard.run.col.workflow': 'Llif gwaith',
@@ -89,6 +104,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Llif gwaith',
   'executions.description':
     'Pob rhediad llif gwaith, pob ailymgais, pob allbwn cam — i gyd yn arsylladwy.',
+  'executions.empty.filter': "Nid oes unrhyw rediadau'n cyfateb i'r hidlydd hwn.",
   'executions.empty.first': "Dim rhediadau eto — sbarduno llif gwaith i lenwi'r rhestr hon.",
   'executions.error': 'Methu llwytho gweithrediadau.',
   'executions.eyebrow': 'Hanes rhedeg',
@@ -98,30 +114,42 @@ export const ui: UiTranslations = {
   'executions.loading': "Wrthi'n llwytho hanes rhedeg…",
   'executions.title': 'Dienyddiadau',
   'forgotPassword.confirmation': 'Ailosod dolen a anfonwyd at {{email}} .',
+  'forgotPassword.subhead': 'Rhowch eich e-bost i dderbyn dolen ailosod.',
   'forgotPassword.successSubhead':
     "Fe wnaethon ni anfon dolen ailosod i {{email}} Mae'n dod i ben ymhen 30 munud.",
   'help.connections.body':
     "Mae camau AI, e-bost a storio yn ei gwneud yn ofynnol i allweddi darparwr gael eu gosod yn y ffeil api/.env. Unwaith y bydd allwedd wedi'i ffurfweddu, mae'r integreiddiad cyfatebol yn ymddangos fel un sydd wedi'i gysylltu ar y dudalen Cysylltiadau.",
+  'help.connections.cta': 'Agor cysylltiadau →',
   'help.connections.title': 'Cysylltu darparwyr',
   'help.gettingStarted.body':
     "Gellir gosod llifau gwaith newydd o'r llyfrgell templedi neu eu hadeiladu o'r dechrau yn yr adeiladwr llif gwaith. Mae gan bob llif gwaith sbardun (llawlyfr, gwe-fach, neu cron) a dilyniant o gamau sy'n rhedeg yn nhrefn.",
+  'help.gettingStarted.cta': "Pori'r llyfrgell templedi →",
+  'help.gettingStarted.title': 'Cychwyn arni',
   'help.intro':
     "Dewch o hyd i atebion i gwestiynau cyffredin am adeiladu llifau gwaith, ffurfweddu cysylltiadau, a dehongli allbwn rhedeg. Rhestrir y pynciau mwyaf cyffredin isod; am unrhyw beth nad yw wedi'i gynnwys, cysylltwch â gweinyddwr eich gweithle.",
   'help.runs.body':
     "Mae pob rhediad yn cofnodi pob cam yn annibynnol gyda statws (llwyddiant, methiant, wedi'i hepgor) a darn o allbwn. Mae'r dudalen manylion gweithredu yn dangos yr olrhain cam wrth gam llawn ynghyd â metrigau a gasglwyd.",
+  'help.runs.cta': 'Dienyddiadau agored →',
   'help.runs.title': 'Darllen allbwn rhediad',
   'help.title': 'Canolfan gymorth',
   'integrationCard.manage': 'Rheoli',
   'landing.brand': 'Dendrit',
   'landing.demo.action.subtitle': 'Rownd-robin · tiriogaeth',
+  'landing.demo.action.title': "Hysbysu'r cynrychiolydd",
   'landing.demo.condition.subtitle': 'Dosbarthwr bwriad AI',
+  'landing.demo.condition.title': 'Sgôr ≥ canolig?',
   'landing.demo.trigger.subtitle': 'POST /ffurflenni/cyswllt',
   'landing.demo.trigger.title': "Bachyn gwe sy'n dod i mewn",
+  'landing.features.body':
+    "Mae sbardunau'n tanio. Mae amodau'n canghennu. Mae gweithredoedd yn danfon y gwaith. Cyfansoddwch nhw'n weledol, fersiynwch nhw fel cod.",
   'landing.features.heading': 'Tri math o nod. Siapiau anfeidrol.',
   'landing.footer.help': 'Cymorth',
   'landing.footer.tagline': 'Deallusrwydd mewn symudiad',
+  'landing.hero.body':
+    "{{appName}} yw'r peiriant llif gwaith i dimau gweithrediadau sydd wedi tyfu'n rhy fawr i Zapier. Sbardun, amod, gweithred — wedi'u cysylltu â phob system rydych chi'n ei defnyddio mewn gwirionedd.",
   'landing.hero.eyebrow': 'Deallusrwydd mewn symudiad',
   'landing.hero.headline': "Gwifrwch eich pentwr at ei gilydd. Gadewch i'r gwaith ddigwydd.",
+  'landing.hero.primaryCta': 'Adeiladwch eich llif gwaith cyntaf',
   'landing.hero.proof.ai': "Nodau AI wedi'u hadeiladu i mewn",
   'landing.hero.proof.free': 'Am ddim am 1k o rediadau/mis',
   'landing.hero.proof.soc2': 'SOC 2 Math II',
@@ -129,10 +157,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Talu am rhediadau, nid seddi.',
   'landing.templates.body':
     "Llifau gwaith wedi'u gwifrau ymlaen llaw ar gyfer pob tîm — gwerthu, cymorth, datblygu, cyllid. Gosodwch gydag un clic; addaswch unrhyw beth.",
+  'landing.templates.cta': 'Cofrestrwch i bori templedi →',
   'landing.templates.eyebrow': 'Dechrau mewn eiliadau',
   'landing.templates.heading': "Llyfrgell o ryseitiau wedi'u gwirio.",
   'landing.templates.signupHint': 'Cofrestrwch i osod',
   'login.hidePassword': "Cuddio'r cyfrinair",
+  'login.noAccount': 'Newydd i Tessera?',
   'login.showPassword': 'Dangos cyfrinair',
   'login.subhead': "Mewngofnodwch i gadw'ch awtomeiddio i fynd.",
   'mobileNav.drawerLabel': 'Prif lywio',
@@ -148,8 +178,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': "Rhedeg llif gwaith i ddechrau llenwi'r porthiant hwn.",
   'notifications.empty.title': 'Rydych chi i gyd wedi dal i fyny',
   'notifications.eyebrow': '{{n}} heb ei ddarllen',
+  'planUpdated.body':
+    "Mae eich newid bilio bellach yn weithredol. Gallwch reoli eich cynllun ar unrhyw adeg o'r dudalen filio.",
+  'planUpdated.retry': 'Rhowch gynnig arall arni',
+  'planUpdated.verifyFailed': 'Ni allem gadarnhau eich taliad eto.',
+  'planUpdated.verifyFailedBody':
+    "Mae'n bosibl bod eich taliad yn dal i gael ei brosesu. Rhowch gynnig arall arni ymhen eiliad.",
   'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'pricing.heading': 'rhedeg',
+  'pricing.runsSuffix': 'rhediadau',
   'pricing.workflowsSuffix': 'llifau gwaith',
   'privacy.collect.body':
     "Rydym yn casglu'r cyfeiriad e-bost rydych chi'n cofrestru ag ef, y llifau gwaith rydych chi'n eu ffurfweddu, a metadata am bob rhediad (amser cychwyn, amser gorffen, statws). Nid ydym byth yn casglu nac yn storio cynnwys llwyth tâl o sbardunau nac allbynnau cam y tu hwnt i'r hyn sy'n angenrheidiol i'w arddangos yn y gwyliwr rhediad ar gyfer perchennog y gweithle.",
@@ -165,12 +202,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': "Methwyd diweddaru'r cyfrinair.",
   'resetPassword.newPassword': 'Cyfrinair newydd',
   'resetPassword.subhead': "Dewiswch rywbeth y byddech chi'n dyfalu yn unig.",
+  'settings.appearance.description': 'Newid rhwng modd golau a thywyll.',
+  'settings.appearance.title': 'Ymddangosiad',
   'settings.billingShortcut.cta': 'Bilio agored',
   'settings.billingShortcut.description':
     'Mae cynllun, defnydd ac anfonebau yn fyw ar y dudalen bilio bwrpasol.',
   'settings.danger.confirm':
     "Ydych chi'n siŵr? Bydd hyn yn rhoi eich gweithle yn y ciw i'w ddileu.",
   'settings.danger.confirmYes': 'Ie, dileu ciw',
+  'settings.danger.deleteWorkspace.cta': "Dileu'r gweithle",
   'settings.danger.deleteWorkspace.hint':
     'Yn dileu pob llif gwaith, rhediad a chysylltiad ar ôl cyfnod gras o 14 diwrnod.',
   'settings.danger.deleteWorkspace.title': "Dileu'r gweithle",
@@ -181,10 +221,14 @@ export const ui: UiTranslations = {
     "Rheoli eich cyfrif, eich gweithle, eich integreiddiadau a'ch bilio mewn un lle.",
   'settings.notifications.description':
     "Dewiswch pa ddigwyddiadau sy'n eich tudalennu, yn eich e-bostio, neu'n aros yn dawel.",
+  'settings.notifications.failures.hint': 'Hysbysiad e-bost ac yn yr ap ar bob rhediad wedi methu.',
+  'settings.notifications.failures.title': 'Methiannau llif gwaith',
   'settings.notifications.product.hint':
     'Negeseuon e-bost achlysurol am dempledi a nodweddion newydd.',
+  'settings.notifications.product.title': 'Diweddariadau cynnyrch',
   'settings.notifications.weekly.hint':
     'Crynodeb bore Llun o rediadau ac arbedion yr wythnos diwethaf.',
+  'settings.notifications.weekly.title': 'Crynodeb wythnosol',
   'settings.profile.description':
     "Sut rydych chi'n ymddangos y tu mewn i'r rhedwr llif gwaith. Wedi'i ddefnyddio mewn gweithgaredd gweithle.",
   'settings.profile.noEmail': "Dim e-bost wedi'i gofnodi",
@@ -192,12 +236,22 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Methwyd cadw newidiadau proffil.',
   'settings.profile.unnamedUser': 'Defnyddiwr dienw',
   'settings.security.audit.hint': "Ffrydiwch bob gweithred i'ch SIEM trwy webhook.",
+  'settings.security.audit.title': 'Anfon cofnod archwilio ymlaen',
   'settings.security.description': 'Awdurdodi dau ffactor, SSO, a sesiynau gweithredol.',
   'settings.security.sso.hint': 'Ar gael ar gynlluniau Graddfa a Menter.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'Yn ofynnol ar gyfer unrhyw weithred gan berchennog y gweithle.',
+  'settings.security.totp.title': 'Dilysu dau ffactor (TOTP)',
   'settings.twoFactorCode': 'Cod dilysu',
   'settings.twoFactorDisable': 'Analluogi',
+  'settings.twoFactorDisableTitle': 'Analluogi dilysu dau ffactor',
   'settings.twoFactorEnable': 'Galluogi',
+  'settings.twoFactorEnableTitle': 'Galluogi dilysu dau ffactor',
   'settings.twoFactorInvalidCode': 'Cod annilys',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Cod QR dau ffactor',
+  'settings.twoFactorScan': "Sganiwch y cod QR hwn gyda'ch ap dilysu, yna rhowch y cod 6 digid.",
+  'settings.twoFactorUnavailable': 'Nid yw dilysu dau ffactor ar gael ar gyfer yr ap hwn.',
   'settings.twoFactorVerify': 'Dilysu a galluogi',
   'settings.workspace.description':
     'Hunaniaeth, rhanbarth, a rhagosodiadau rhedeg a rennir ar gyfer eich tîm.',
@@ -226,6 +280,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Templed',
   'templates.description':
     'Glasbrintiau parod ar gyfer yr awtomeiddio mwyaf cyffredin. Fforchio, addasu, cludo.',
+  'templates.empty.filter': "Nid oes unrhyw dempledi'n cyfateb i'ch chwiliad.",
   'templates.empty.first': 'Dim templedi ar gael ar hyn o bryd.',
   'templates.error': 'Methwyd llwytho templedi.',
   'templates.installs': 'gosodiadau',
@@ -251,6 +306,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Analluogi',
   'workflowBuilder.enable': 'Galluogi',
   'workflowBuilder.error': "Methwyd llwytho'r llif gwaith.",
+  'workflowBuilder.inspector.config': 'Ffurfweddiad',
+  'workflowBuilder.inspector.cron': 'Mynegiant cron',
+  'workflowBuilder.inspector.disabled': "Wedi'i analluogi — ni fydd yn rhedeg yn awtomatig.",
   'workflowBuilder.inspector.enabled': "Wedi'i alluogi — yn rhedeg ar sbardun.",
   'workflowBuilder.inspector.eyebrow': 'Arolygydd',
   'workflowBuilder.inspector.id': 'ID',
@@ -268,18 +326,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Methodd y togl.',
   'workflowBuilder.workflow': 'Llif gwaith · v {{v}}',
   'workflowBuilder.zoom.in': 'Chwyddo i mewn',
+  'workflowBuilder.zoom.label': "Rheolyddion chwyddo'r cynfas",
+  'workflowBuilder.zoom.out': 'Chwyddo allan',
   'workflowCard.lastRun': 'Rhediad olaf {{when}}',
   'workflowCard.runs': '{{count}} rhedeg',
+  'workflowCard.success': '{{rate}}% llwyddiant',
   'workflowHeroCard.last24h': '24 awr ddiwethaf',
+  'workflows.browseTemplates': 'Pori templedi →',
   'workflows.description':
     'Pob awtomeiddio yn eich gweithle, gydag iechyd a gweithgaredd diweddar ar gipolwg.',
+  'workflows.empty.body': "Ceisiwch glirio'r hidlydd neu ddechrau o dempled.",
   'workflows.empty.firstBody': 'Gosodwch dempled i ddechrau mewn eiliadau.',
   'workflows.empty.firstTitle': 'Dim llifau gwaith eto',
   'workflows.empty.title': 'Dim llifau gwaith yn cyfateb',
   'workflows.error': 'Methwyd llwytho llifau gwaith.',
   'workflows.eyebrow': 'Llyfrgell · {{count}} cyfanswm',
+  'workflows.loading': "Wrthi'n llwytho llif gwaith…",
   'workflows.newFromTemplate': "Newydd o'r templed",
   'workflows.searchPlaceholder': 'Chwilio am lifau gwaith…',
+  'workflows.title': 'Llif gwaith',
   'workflowSidebar.brand': 'Dendrit',
   'workflowSidebar.status': "Pob system sy'n rhedeg",
   'workflowSidebar.tagline': 'Deallusrwydd mewn symudiad',

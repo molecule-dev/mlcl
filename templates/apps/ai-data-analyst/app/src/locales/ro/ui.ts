@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ai întrebări, feedback sau un set de date care a dat bătăi de cap modelului? Contactează echipa {{app}} din meniul de ajutor din aplicație — fiecare mesaj ajunge la o persoană reală care lucrează la produs.',
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
+  'about.intro':
+    '{{app}} este un analist de date AI care transformă datele brute în răspunsuri. Încarcă un CSV sau conectează un depozit de date, pune o întrebare în limbaj natural și primești graficul potrivit, tabelul justificativ și SQL-ul care l-a generat — {{tagline}}.',
+  'about.missionBody':
+    'Analiza datelor nu ar trebui să necesite un tichet în backlog și o săptămână de așteptare. {{app}} pune un analist capabil în spatele unei casete de text, astfel încât echipele de produs, operațiuni și financiar să își poată răspunde singure la întrebări în câteva minute — păstrând în același timp fiecare rezultat reproductibil și auditabil.',
+  'about.missionTitle': 'Misiunea noastră',
   'about.pageTitle': 'Despre {{app}}',
+  'about.whatYouGet': 'Ce primiți',
+  'askClarionBar.ariaLabel': 'Pune o întrebare lui {{appName}}',
   'askClarionBar.askCta': 'Întrebați',
   'askClarionBar.placeholder':
     'Adresați o întrebare despre datele dvs. — de ex. „top 10 clienți după veniturile din T3”',
@@ -19,16 +29,19 @@ export const ui: UiTranslations = {
   'dashboard.insightsEyebrow': 'Detectat de AI',
   'dashboard.insightsHeading': 'Informații recente',
   'dashboard.noInsights': 'Nicio informație deocamdată — încărcați un set de date pentru a începe.',
+  'dashboard.subhead': 'Trei informații noi de ieri. O anomalie care merită o privire mai atentă.',
   'dashboard.uploadCta': 'Încărcați date',
   'datasetCard.analyzedPrefix': 'analizat {{when}}',
   'datasetCard.cols': 'Coloane',
   'datasetCard.rows': 'Rânduri',
+  'datasetDetail.aiHeading': 'Perspective AI',
   'datasetDetail.back': 'Seturi de date',
   'datasetDetail.col.example': 'Exemplu',
   'datasetDetail.col.name': 'Câmp',
   'datasetDetail.col.nullable': 'Acceptă valori nule',
   'datasetDetail.col.unique': 'Unic',
   'datasetDetail.cols': 'Coloane',
+  'datasetDetail.lineageEmpty': 'Importat din încărcare — fără transformări în amonte.',
   'datasetDetail.loadError': 'Setul de date nu a putut fi încărcat.',
   'datasetDetail.notFound': 'Setul de date nu a fost găsit.',
   'datasetDetail.queriesEmpty': 'Nicio interogare salvată pentru acest set de date încă.',
@@ -42,17 +55,22 @@ export const ui: UiTranslations = {
   'datasetDetail.tab.${tk}': 'Câmp',
   'datasets.empty': 'Niciun set de date deocamdată — încărcați unul pentru a începe.',
   'datasets.eyebrow': '{{count}} seturi de date · {{rows}} rânduri',
+  'datasets.heading': 'Seturi de date',
   'datasets.loadError': 'Seturile de date nu au putut fi încărcate.',
   'datasets.subhead':
     'Fișiere pe care Clarion le-a indexat și le-a făcut disponibile pentru interogare. Faceți clic pe un card pentru a inspecta schema, statisticile și originea.',
   'datasets.uploadCta': 'Încărcați set de date',
+  'forgotPassword.backPrompt': 'Ți-ai amintit până la urmă? ',
   'forgotPassword.checkSpam':
     'Dacă nu o vedeți în decurs de un minut, verificați dosarul de spam sau încercați să o retrimiteți.',
   'forgotPassword.emailRequired': 'E-mailul este obligatoriu',
+  'forgotPassword.resend': 'Trimite din nou',
   'forgotPassword.sendError': 'E-mailul de resetare nu a putut fi trimis',
   'forgotPassword.sentHeading': 'Verificați e-mailul',
   'forgotPassword.sentSubheading':
     'Am trimis un link de resetare la {{email}}. Linkul expiră în 30 de minute.',
+  'forgotPassword.subheading':
+    'Introdu adresa de e-mail de serviciu și îți vom trimite un link pentru a seta o parolă nouă.',
   'googleSignInButton.label': 'Continuați cu Google',
   'insightFeedCard.viewCta': 'Vizualizați',
   'insightHeroCard.subtitle':
@@ -62,36 +80,54 @@ export const ui: UiTranslations = {
   'landing.closing.cta': 'Încercați Clarion gratuit',
   'landing.closing.heading':
     'Opriți construirea tablourilor de bord. Începeți să puneți întrebări.',
+  'landing.closing.subhead':
+    'Gratuit timp de 14 zile. Adu un CSV și obține primele trei informații în mai puțin de cinci minute.',
   'landing.features.eyebrow': 'Cum funcționează Clarion',
   'landing.features.heading': 'Aruncați un CSV. Puneți o întrebare. Obțineți răspunsul.',
+  'landing.features.subhead':
+    'Nu necesită SQL. Fără dashboard-uri împrăștiate. Fiecare răspuns este un grafic, un tabel și SQL-ul care a rulat — exportabile cu un singur clic.',
   'landing.hero.eyebrow': 'AI Data Analyst · pentru echipele de produs și operațiuni',
   'landing.hero.primaryCta': 'Încercați Clarion gratuit timp de 14 zile',
   'landing.hero.secondaryCta': 'Vedeți o interogare exemplu',
   'landing.hero.subtitle':
     'Încărcați un set de date, puneți întrebări în limba română, obțineți graficul potrivit înapoi. Clarion se ocupă de SQL, descoperirea schemei și originea — astfel încât analiștii să poată livra de 10× mai repede.',
+  'landing.hero.title': '{{tagline}}.',
   'landing.hero.trust1': 'Fără card de credit',
   'landing.hero.trust2': 'SOC 2 tip II',
   'landing.hero.trust3': 'Origine pe fiecare grafic',
   'landing.nav.tryFree': 'Încercați gratuit',
+  'landing.preview.cta': 'Încearcă o interogare',
   'landing.preview.label': 'Informații identificate în această lună',
   'landing.proof.heading': 'Construit pentru echipe serioase de analiză',
   'login.hidePassword': 'Ascundeți parola',
+  'login.newUserPrompt': 'Ești nou la {{appName}}? ',
   'login.showPassword': 'Afișați parola',
   'login.subheading':
     'Autentificați-vă pentru a continua să puneți întrebări mai bune datelor dvs.',
+  'login.trialCta': 'Începe perioada de probă de {{days}} zile',
   'mobileNav.closeMenu': 'Închide meniul de navigare',
   'mobileNav.openMenu': 'Deschide meniul de navigare',
+  'planUpdated.body':
+    'Modificarea facturării este acum activă. Îți poți gestiona planul oricând din pagina de facturare.',
+  'planUpdated.retry': 'Încercați din nou',
+  'planUpdated.verifyFailed': 'Nu am putut încă să vă confirmăm plata.',
+  'planUpdated.verifyFailedBody':
+    'Este posibil ca plata dvs. să fie încă în curs de procesare. Încercați din nou imediat.',
   'planUpdated.verifying': 'Se confirmă plata…',
+  'pricing.limits.advanced': 'Funcții avansate',
   'queryEditor.aiBadge': 'Generat de AI',
   'queryEditor.aiSummary': 'Rezumat AI',
   'queryEditor.copyFailed': 'Nu s-a putut copia în clipboard.',
   'queryEditor.dataHeading': 'Date',
+  'queryEditor.emptyBody':
+    '{{appName}} răspunde în trei părți: un grafic, tabelul de date subiacent și SQL-ul care a rulat.',
   'queryEditor.emptyHeading': 'Alegeți o sugestie sau introduceți una proprie',
   'queryEditor.emptyResult': 'Niciun răspuns returnat. Încercați o altă întrebare.',
   'queryEditor.exportCsv': 'CSV',
   'queryEditor.eyebrow': 'Întrebați Clarion · Interogare în limbaj natural',
   'queryEditor.heading': 'Ce doriți să știți?',
   'queryEditor.questionEyebrow': 'Ați întrebat',
+  'queryEditor.runFailed': 'Interogarea nu a putut fi rulată. Te rugăm să încerci din nou.',
   'queryEditor.sqlHeading': 'SQL generat',
   'queryEditor.subhead':
     'Introduceți o întrebare în limbaj natural. Clarion alege graficul, execută SQL și vă arată originea.',
@@ -108,8 +144,11 @@ export const ui: UiTranslations = {
   'reports.subhead':
     'Analize salvate pe care le puteți partaja, programa și exporta. Faceți clic pe o miniatură pentru a deschide raportul complet.',
   'reportThumbnailCard.onDemand': 'la cerere',
+  'reportThumbnailCard.runPrefix': 'rulează {{when}}',
+  'resetPassword.hidePassword': 'Ascundeți parola',
   'resetPassword.newPasswordLabel': 'Parolă nouă',
   'resetPassword.newPasswordPlaceholder': 'Parolă nouă',
+  'resetPassword.passwordTooShort': 'Parola trebuie să aibă cel puțin {{min}} caractere',
   'resetPassword.resetFailed': 'Resetarea a eșuat',
   'resetPassword.showPassword': 'Afișați parola',
   'resetPassword.subheading':
@@ -125,19 +164,26 @@ export const ui: UiTranslations = {
   'settings.apiKeys.createCta': 'Generați',
   'settings.apiKeys.created': 'Cheie API nouă generată.',
   'settings.apiKeys.createError': 'Cheia API nu a putut fi creată.',
+  'settings.apiKeys.creating': 'Se generează…',
   'settings.apiKeys.deleted': 'Cheia API a fost revocată.',
   'settings.apiKeys.deleteError': 'Cheia API nu a putut fi revocată.',
+  'settings.apiKeys.empty': 'Încă nu există chei API — generează una mai sus.',
   'settings.apiKeys.heading': 'Chei API',
   'settings.apiKeys.namePlaceholder': 'Numele cheii (de ex. CI bot)',
   'settings.apiKeys.rotateCta': 'Rotați',
   'settings.apiKeys.rotated': 'Cheia API a fost rotită. Actualizați integrările.',
+  'settings.apiKeys.rotateError': 'Cheia API nu a putut fi rotită.',
+  'settings.appearance.description': 'Comutați între modul luminos și întunecat.',
   'settings.appearance.title': 'Aspect',
   'settings.dangerZone': 'Zonă periculoasă',
   'settings.integrations.body':
     'Conectați un depozit pentru a interoga date live în loc să încărcați fișiere.',
   'settings.integrations.connected': 'Conexiunea pentru {{source}} a fost actualizată.',
   'settings.integrations.connectedTag': 'conectat',
+  'settings.integrations.error': 'Nu s-a putut actualiza integrarea.',
   'settings.integrations.heading': 'Surse de date',
+  'settings.revokeDeviceWarning':
+    'Accesul acestui dispozitiv va fi revocat în curând. Îl deconectezi?',
   'settings.security.heading': 'Securitate',
   'settings.signOutDevice': 'Deconectați-vă',
   'settings.team.empty':
@@ -145,21 +191,31 @@ export const ui: UiTranslations = {
   'settings.team.removed': 'Membrul echipei a fost eliminat.',
   'settings.twoFactorCode': 'Cod de autentificare',
   'settings.twoFactorDisable': 'Dezactivați',
+  'settings.twoFactorDisableTitle': 'Dezactivează autentificarea în doi factori',
   'settings.twoFactorEnable': 'Activați',
+  'settings.twoFactorEnableTitle': 'Activează autentificarea în doi factori',
   'settings.twoFactorInvalidCode': 'Cod nevalid',
   'settings.twoFactorOn': 'Pe',
+  'settings.twoFactorQrAlt': 'Cod QR pentru autentificare în doi pași',
+  'settings.twoFactorScan':
+    'Scanează acest cod QR cu aplicația ta de autentificare, apoi introdu codul din 6 cifre.',
+  'settings.twoFactorUnavailable':
+    'Autentificarea cu doi factori nu este disponibilă pentru această aplicație.',
   'settings.twoFactorVerify': 'Verifică și activează',
   'sideNavBar.appSubtitle': 'AI Data Analyst',
   'sideNavBar.datasets': 'Seturi de date',
   'sideNavBar.newAnalysis': 'Analiză nouă',
   'sideNavBar.queries': 'Interogări',
   'signup.failed': 'Înregistrarea a eșuat',
+  'signup.haveAccount': 'Ai deja un cont? ',
+  'signup.hidePassword': 'Ascundeți parola',
   'signup.showPassword': 'Afișați parola',
   'signup.subheading':
     '14 zile gratuit. Fără card de credit. Aduceți un CSV — Clarion face restul.',
   'topNavBar.help': 'Ajutor',
   'topNavBar.lastDays': 'Ultimele {{days}} zile',
   'topNavBar.userProfileAlt': 'Profil utilizator',
+  'upload.dropPrompt': 'Trage un fișier aici sau fă clic pentru a naviga',
   'upload.maxSize': 'Max {{size}}',
   'upload.noRecent': 'Nicio încărcare deocamdată.',
   'upload.recentHeading': 'Încărcări recente',
@@ -170,9 +226,13 @@ export const ui: UiTranslations = {
   'upload.uploading': 'Se încarcă…',
   'upload.viewCta': 'Seturi de date →',
   'uploadDropZone.eyebrow': 'Trageți un fișier · sau faceți clic pentru a naviga',
+  'uploadDropZone.fileInputLabel': 'Alege un fișier de încărcat',
+  'uploadDropZone.maxSize':
+    'Dimensiune maximă a fișierului {{size}} · CSV preferat pentru seturi de date mari',
   'uploadDropZone.readyEyebrow': 'Gata de analizat',
   'uploadDropZone.subtitle':
     'Clarion detectează automat schema, rulează statistici și identifică anomalii în momentul în care fișierul dvs. sosește.',
+  'uploadDropZone.title': 'Încarcă setul tău de date',
   'uploadDropZone.unknownType': 'tip necunoscut',
   'userMenu.datasets': 'Seturile mele de date',
 }

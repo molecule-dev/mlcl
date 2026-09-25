@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கருத்து உள்ளதா, பிழை கண்டீர்களா, அல்லது ஏதேனும் பெரிய திட்டமா? உங்கள் கணக்கு அமைப்புகளிலிருந்து எங்களை அணுகவும் — ஒவ்வொரு செய்தியும் குழுவில் உள்ள ஒரு உண்மையான மனிதரையே சென்றடையும்.',
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'ஒரே இன்பாக்ஸில் புக்கிங்ஸ் — விமானம், ஹோட்டல் மற்றும் செயல்பாட்டு உறுதிப்படுத்தல்கள் அவை சேர வேண்டிய அதே நாளில் வந்து சேரும்.',
+  'about.featureCollab':
+    'நிகழ்நேர ஒத்துழைப்பு — ஒரு பயணத்திற்கு ஐந்து பயணிகள் வரை அழைக்கலாம், ஒவ்வொரு மாற்றமும் நேரலையில் ஒத்திசைந்து, ஒவ்வொரு நிறுத்தத்தின் கீழும் கருத்துகள் தொடராக இணையும்.',
+  'about.featureMapsBudget':
+    'வரைபடங்கள், இடங்கள் மற்றும் பகிரப்பட்ட பட்ஜெட் — முழு பயணத்தையும் வரைபடத்தில் பாருங்கள், ஆசிரியர்கள் தேர்ந்தெடுத்த இடங்களைக் கண்டறியுங்கள், செலவுகளைக் கண்காணியுங்கள் — யாரும் அதிகம் செலவழிக்க மாட்டார்கள்.',
+  'about.featureTimelines':
+    'நாள் வாரியான காலவரிசைகள் — நிறுத்தங்களை இழுத்து வரிசைப்படுத்துங்கள், போக்குவரத்துப் பகுதிகளைச் சேருங்கள், ஒரு உயிருள்ள ஆவணமாக பயணத்திட்டம் மீண்டும் கணக்கிடப்படுவதைப் பாருங்கள்.',
+  'about.intro':
+    '{{app}} பாதியாக முடிந்த திட்டங்கள் நிறைந்த ஒரு கோப்புறையை, உங்கள் முழு குழுவும் உண்மையில் பின்பற்றக்கூடிய ஒரே பகிரப்பட்ட பயணமாக மாற்றுகிறது. நாள் வாரியான பயணத்திட்டத்தை உருவாக்குங்கள், விமானங்களையும் ஹோட்டல்களையும் சேருங்கள், ஒவ்வொரு நிறுத்தத்தையும் வரைபடத்தில் குறியுங்கள், பட்ஜெட்டைக் கண்காணியுங்கள் — பன்னிரண்டு தாவல்களுக்கும் ஒரு குழு அரட்டைக்கும் பதிலாக, இவை அனைத்தும் ஒரே அமைதியான இடத்தில்.',
+  'about.missionBody':
+    'பயணத் திட்டமிடல், வீட்டுப்பாடம் போல அல்லாமல், பயணமே ஏற்கனவே சிறப்பாகிக் கொண்டிருப்பது போல் உணர வைக்க வேண்டும். கூட்டுப் பயணங்களை எளிதாக்கவே {{app}} உள்ளது — ஒவ்வொரு பயணியும் திட்டத்தை அறிந்தவராக வருவார், ஒவ்வொரு நிறுத்தமும் நினைவில் நிற்கும் ஒரு கதையைச் சொல்லும்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'about.pageTitle': '{{app}} பற்றி',
   'auth.legalConsent': 'தொடர்வதன் மூலம், நீங்கள் எங்கள் விதிமுறைகளை ஏற்கிறீர்கள்',
   'bookings.empty.body':
@@ -32,7 +48,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'ஹோட்டல்',
   'bookings.type.other': 'மற்றவை',
   'budgetSpendCard.budgetTotal': 'இன் {{total}} திட்டமிடப்பட்டது',
+  'budgetSpendCard.overBy': '{{amount}} பட்ஜெட்டுக்கு மேல்',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} சமீபத்திய',
+  'budgetSpendCard.remaining': '{{amount}} மீதம்',
   'calendar.eyebrow': 'வரவிருக்கும் ஆண்டு',
   'calendar.heading': 'ஒவ்வொரு பயணமும் ஒரே நாட்காட்டியில்.',
   'calendar.legendHeading': 'இந்த மாத பயணங்கள்',
@@ -43,19 +62,28 @@ export const ui: UiTranslations = {
   'common.and': 'மற்றும்',
   'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'dashboard.budgetHeading': 'பட்ஜெட் துடிப்பு',
+  'dashboard.empty.body':
+    'உங்கள் முதல் பயணத்தைத் திட்டமிடுங்கள், உங்கள் டாஷ்போர்டு நாள் வாரியான காலவரிசைகள், பட்ஜெட் நிலை மற்றும் புக்கிங்ஸால் நிரம்பும்.',
+  'dashboard.empty.cta': 'உங்கள் முதல் பயணத்தைத் திட்டமிடுங்கள்',
   'dashboard.empty.heading':
     'இன்னும் பயணங்கள் எதுவும் இல்லை — உங்கள் நிலப்படப் புத்தகம் காலியாக உள்ளது.',
   'dashboard.eyebrow': 'பணி கட்டுப்பாடு',
   'dashboard.heading': 'உங்கள் அடுத்த சாகசம், ஓர் அமைதியான மூலையில்.',
   'dashboard.newTripCta': 'புதிய பயணத்தைத் தொடங்குங்கள்',
+  'dashboard.subheading':
+    'அடுத்த பயணத்திற்கான கவுண்ட்டவுன், இன்றைய செலவு நிலை, மற்றும் நடைபெறும் ஒவ்வொரு பயணத்திட்டத்தின் ஒரு விரைவுப் பார்வை.',
   'dashboard.tripsHeading': 'இயக்கத்தில் பயணங்கள்',
   'dashboard.viewAllExpenses': 'ஒவ்வொரு செலவையும் பார்க்கவும்',
   'dashboard.viewAllTrips': 'ஒவ்வொரு பயணத்தையும் பாருங்கள்',
   'dayTimelineRow.category.accommodation': 'தங்கு',
+  'dayTimelineRow.category.food': 'உணவு & பானம்',
+  'dayTimelineRow.category.sightseeing': 'இடங்களைப் பார்ப்பது',
   'dayTimelineRow.category.transport': 'போக்குவரத்து',
   'destinationOrbCard.exploreCta': 'ஒரு பயணத்தில் சேர்க்கவும்',
   'destinationOrbCard.tripCount': '{{count}} பயணங்கள்',
+  'destinations.empty.body': 'All-க்கு மீண்டும் மாறினால் ஆசிரியர் தேர்வுகள் மீண்டும் தோன்றும்.',
   'destinations.empty.heading': 'இன்னும் இலக்குகள் எதுவும் இல்லை.',
+  'destinations.emptyFiltered.heading': 'அப்படி எதுவும் இன்னும் குறியிடப்படவில்லை.',
   'destinations.errors.load': 'இலக்குகளை ஏற்ற முடியவில்லை.',
   'destinations.eyebrow': 'அடுத்து எங்கே',
   'destinations.heading': 'சேமிக்கப்பட்ட மூலைகள் மற்றும் எடிட்டர் கண்டறிந்தவை.',
@@ -74,6 +102,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'விற்பனையாளர்',
   'expenses.formHeading': '{{trip}} க்கான செலவைப் பதிவு செய்க',
   'expenses.heading': 'பயணத்திற்கான பட்ஜெட் உண்மையில் எங்கே செலவாகிறது.',
+  'expenses.heroBudget': '{{total}} திட்டமிடப்பட்டதில் {{pct}}%',
+  'expenses.heroEyebrow': '{{trip}} \\u2022 பட்ஜெட் நிலை',
+  'expenses.heroNoBudget': 'இந்தப் பயணத்தில் இன்னும் பட்ஜெட் அமைக்கப்படவில்லை.',
   'expenses.noTrips.body':
     'முதலில் ஒரு பயணத்தைத் திட்டமிடுங்கள் – செலவுகள் பயணத்தின் வரவுசெலவுத் திட்டத்துடன் இணைந்தே வரும்.',
   'expenses.noTrips.heading': 'இன்னும் பயணங்கள் எதுவும் இல்லை.',
@@ -86,12 +117,16 @@ export const ui: UiTranslations = {
     'ஒவ்வொரு ரசீதும் உறுதிப்படுத்தலும் இங்கே சரியான பிரிவில் அடங்கும் – விரிதாள் தேவையில்லை.',
   'forgotPassword.eyebrow': 'உங்கள் பயணத் திட்டத்தை மீட்டெடுக்கவும்',
   'forgotPassword.heading': 'உங்கள் கடவுச்சொல்லை மறந்துவிட்டீர்களா?',
+  'forgotPassword.subheading':
+    '{{appName}}-க்கு நீங்கள் பயன்படுத்திய மின்னஞ்சலை உள்ளிடுங்கள், உங்கள் கடவுச்சொல்லை மீட்டமைக்க ஒரு இணைப்பை அனுப்புவோம்.',
   'forgotPassword.submit': 'மீட்பு மின்னஞ்சலை அனுப்பவும்',
   'forgotPassword.submitPending': 'மீட்பு மின்னஞ்சல் அனுப்பப்படுகிறது…',
   'forgotPassword.successHint':
     'இன்னும் மின்னஞ்சல் வரவில்லையா? உங்கள் ஸ்பேம் கோப்புறையைச் சரிபார்க்கவும், அல்லது வேறு முகவரியுடன் மீண்டும் முயற்சிக்கவும்.',
   'forgotPassword.successSubheading':
     'நாங்கள் ஒரு மீட்பு இணைப்பை அனுப்பினோம் {{email}} இந்த இணைப்பு 30 நிமிடங்களுக்குச் செல்லுபடியாகும்.',
+  'forgotPassword.tryAgain': 'வேறு மின்னஞ்சலுக்கு அனுப்பு',
+  'landing.cta.eyebrow': 'இலவச திட்டத்தில் தொடங்குங்கள்',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'இலவச கணக்கை உருவாக்கவும்',
   'landing.cta.subheading':
@@ -103,8 +138,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'இலவசப் பயணத்தைத் தொடங்குங்கள்',
   'landing.hero.ctaSecondary': 'ஒரு மாதிரிப் பயணத்தைப் பாருங்கள்',
+  'landing.hero.eyebrow': 'பயணத் திட்டமிடல் · {{tagline}}',
   'landing.hero.subtitle':
     'முழுமையடையாத திட்டங்கள் நிறைந்த ஒரு கோப்புறையை, உங்கள் குழு உண்மையில் பின்பற்றக்கூடிய, பகிரப்பட்ட, நாள் வாரியான பயணத் திட்டமாக வேபாயிண்ட் மாற்றுகிறது — இதில் முன்பதிவுகள், வரைபடங்கள் மற்றும் பட்ஜெட் ஆகியவை ஒரே இடத்தில் கண்காணிக்கப்படுகின்றன.',
+  'landing.hero.title': 'ஒருமுறை திட்டமிடுங்கள். ஒன்றாகப் பயணித்து மகிழுங்கள்.',
   'landing.nav.join': 'இலவசப் பயணத்தைத் தொடங்குங்கள்',
   'landing.nav.preview': 'வழிப்புள்ளிக்குள்',
   'landing.preview.cta': 'உங்களுக்கென ஒன்றை திட்டமிடுங்கள்',
@@ -112,6 +149,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'பயணிகள் தற்போது மேற்கொண்டு வரும் சில பயணங்கள்',
   'login.eyebrow': 'உறுப்பினர்கள் பகுதி',
   'login.heading': 'மீண்டும் வருக, பயணியே.',
+  'login.noAccount': 'டெஸ்ஸெராவுக்குப் புதியவரா?',
   'login.signupLink': 'இலவச கணக்கை உருவாக்கவும்',
   'login.subheading':
     'உங்கள் பயணங்கள், தினசரித் திட்டங்கள், முன்பதிவுகள் மற்றும் நீங்கள் ஏற்கனவே தொடங்கியுள்ள நாட்குறிப்புப் பதிவுகளை நிர்வகிக்க உள்நுழையவும்.',
@@ -122,6 +160,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'அறிவிப்பைப் புதுப்பிக்க முடியவில்லை.',
   'notifications.heading': 'இன்று உங்கள் பயணங்களில் என்னென்ன மாற்றங்கள் நிகழ்ந்தன?',
   'notifications.markUnread': 'படிக்காததாகக் குறிக்கவும்',
+  'notifications.subheading':
+    '{{count}} புதியது — புக்கிங் உறுதிப்படுத்தல்கள், ஒத்துழைப்பாளர் குறிப்புகள், கட்டணக் குறைப்புகள் மற்றும் நினைவூட்டல்கள்.',
   'notifications.time.daysAgo': '{{count}} டி நோ',
   'notifications.time.hoursAgo': '{{count}} எச் முன்பு',
   'notifications.time.justNow': 'இப்போதே',
@@ -140,6 +180,7 @@ export const ui: UiTranslations = {
     'இணைக்கப்பட்ட சேவைகள், நாணயம், புஷ் அறிவிப்புகள் மற்றும் நீங்கள் உள்நுழையப் பயன்படுத்தும் சான்றுகள்.',
   'signup.and': 'மற்றும்',
   'signup.eyebrow': 'இணைப்பு வழிப்புள்ளி',
+  'signup.haveAccount': 'ஏற்கனவே அலைந்து திரிகிறீர்களா?',
   'signup.heading': 'ஒருமுறை திட்டமிடுங்கள். ஒன்றாகப் பயணித்து மகிழுங்கள்.',
   'signup.namePlaceholder': 'ஐரிஸ் லார்சன்',
   'signup.subheading':
@@ -152,6 +193,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'பயணத்திட்டத்தைத் திறக்கவும்',
   'tripCountdownHeroCard.ctaSecondary': 'மற்றொரு பயணத்தைத் திட்டமிடுங்கள்',
   'tripCountdownHeroCard.daysLabel': '{{days}} இன்னும் சில நாட்கள் உள்ளன',
+  'tripCountdownHeroCard.eyebrow': 'அடுத்த சாகசம் · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} இரவுகள் — உங்கள் பயணத்திட்டம் பயணத்திற்குத் தயார்.',
   'tripCoverCard.stops': '{{count}} நிறுத்தங்கள்',
   'tripCoverCard.travelers': '{{count}} பயணிகள்',
   'tripDetail.addActivity': 'செயல்பாட்டைச் சேர்க்கவும்',
@@ -161,6 +205,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'செயல்பாட்டின் தலைப்பு',
   'tripDetail.adding': 'சேர்த்தல்',
   'tripDetail.backToTrips': 'அனைத்து பயணங்களுக்கும் திரும்பு',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'பயணிகள்',
   'tripDetail.dayLabel': 'வாரம் {{day}}',
   'tripDetail.empty':
@@ -172,14 +217,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'பயணத் திட்டம் • {{country}}',
   'tripDetail.invite': 'அழைப்பு',
   'tripDetail.inviteLabel': 'மின்னஞ்சல் மூலம் அழைக்கவும்',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'அழைப்பிதழ் அனுப்பப்பட்டது {{email}} .',
   'tripDetail.inviting': 'அனுப்புகிறது…',
   'tripDetail.loading': 'ஏற்றும் பயணம்...',
   'tripDetail.noCollaborators': 'இப்போதைக்கு நீ மட்டும்.',
+  'tripDetail.notesHeading': 'பயணக் குறிப்புகள்',
   'tripDetail.notesPlaceholder': 'இன்னும் குறிப்புகள் இல்லை.',
   'tripDetail.notFound.heading': 'பயணம் காணப்படவில்லை',
   'tripDetail.openBookings': 'முன்பதிவுகள் இன்பாக்ஸைத் திறக்கவும்',
   'tripDetail.shareCopied': 'பகிர்வு இணைப்பு கிளிப்போர்டுக்கு நகலெடுக்கப்பட்டது:',
+  'tripDetail.shareReady': 'பகிர்வு இணைப்பு தயார்:',
   'tripDetail.stops': '{{count}} நிறுத்தங்கள்',
   'tripDetail.timelineEyebrow': 'நாள் காலவரிசை',
   'tripDetail.timelineHeading': 'தினசரி திட்டம்',
@@ -197,6 +245,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'பயணிகள்',
   'tripPlanner.heading': 'ஒரு நிமிடத்திற்குள் ஒரு பயணத்தை வரைந்து காட்டுங்கள்.',
   'tripPlanner.preview.eyebrow': 'நேரடி முன்னோட்டம்',
+  'tripPlanner.preview.placeholderCountry': 'ஒரு நாட்டைத் தேர்ந்தெடுங்கள்',
   'tripPlanner.preview.placeholderDestination': 'உங்கள் அடுத்த சாகசம்',
   'tripPlanner.section1.title': 'எங்கே & எப்போது',
   'tripPlanner.section2.title': 'பயணிகள் மற்றும் பட்ஜெட்',
@@ -208,10 +257,14 @@ export const ui: UiTranslations = {
     'வாரம் {{day}} — நிறுத்தங்கள், போக்குவரத்து மற்றும் முன்பதிவுகளை இங்கே சேர்க்கவும்.',
   'tripPlanner.section3.day3':
     'வாரம் {{day}} — நிறுத்தங்கள், போக்குவரத்து மற்றும் முன்பதிவுகளை இங்கே சேர்க்கவும்.',
+  'tripPlanner.section3.title': 'நாள் திட்ட தொடக்கம்',
   'tripPlanner.subheading':
     'அடிப்படைகளை கீழே உள்ளிடவும் – நீங்கள் எப்போது வேண்டுமானாலும் கூட்டாளிகளை அழைக்கலாம், நிறுத்தங்களைச் சேர்க்கலாம், மற்றும் முன்பதிவுகளைப் பின்னர் முன்னனுப்பலாம்.',
   'tripPlanner.submit': 'பயணத்தை உருவாக்கு',
   'tripPlanner.submitting': 'உருவாக்குதல்—',
+  'trips.empty.body':
+    'All trips-க்கு மீண்டும் மாறுங்கள் அல்லது உங்கள் அடுத்த அலைச்சலைத் திட்டமிடத் தொடங்குங்கள்.',
+  'trips.empty.cta': 'பயணத்தைத் திட்டமிடுங்கள்',
   'trips.empty.heading': 'இன்னும் அந்த வடிகட்டியுடன் எதுவும் பொருந்தவில்லை.',
   'trips.eyebrow': 'அட்லஸ்',
   'trips.filterLabel': 'நிலையின் அடிப்படையில் பயணங்களை வடிகட்டவும்',
@@ -224,6 +277,12 @@ export const ui: UiTranslations = {
   'trips.pastHeading': 'கடந்த கால சாகசங்கள்',
   'trips.subheading':
     '{{count}} பயணத் திட்டங்கள் — கடந்த காலம், நிகழ்காலம், மற்றும் எதிர்காலத்திற்கானவை.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading':
+    'ஒருமுறை திட்டமிடுங்கள். ஒன்றாக அலைந்து திரியுங்கள். என்றென்றும் நினைவில் கொள்ளுங்கள்.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · 2024 முதல் {{appName}} உறுப்பினர்கள்',
+  'waypointAuthShell.testimonial.quote':
+    'நான்கு நாடுகளில் நடந்த பரபரப்பான 3 வாரப் பயணத்தை, நாங்கள் இதுவரை பகிர்ந்த மிக அமைதியான பயணத்திட்டமாக {{appName}} மாற்றியது.',
   'waypointLayout.mobileNavClose': 'வழிசெலுத்தல் மெனுவை மூடுக',
   'waypointLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
 }

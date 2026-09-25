@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens preguntes, comentaris o vols demanar una funció? Contacta amb l'equip d'{{app}} des de Configuració → Notificacions, o escriu-nos quan vulguis: cada missatge arriba a una persona real.",
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre',
+  'about.featureCapture':
+    'Captura de rebuts amb pujada de fotos que adjunta les imatges a la despesa correcta, línia per línia.',
+  'about.featureExport':
+    "Exportacions CSV auditables de cada informe, despesa i estat d'aprovació, a punt per al teu equip de comptabilitat.",
+  'about.featurePolicy':
+    "Límits de política: topalls diaris, límits per categoria i llindars de rebut obligatori aplicats en el moment d'enviar.",
+  'about.featureWorkflow':
+    "Un flux d'aprovació de dos nivells amb notes del revisor, indicadors de violació de política i marcatge de reemborsament amb un sol toc.",
+  'about.intro':
+    '{{app}} és una plataforma de gestió de despeses per a equips financers i les persones a qui reemborsen. Captura un rebut, registra una despesa, envia un informe a aprovació i segueix cada reemborsament, sense la cerimònia dels fulls de càlcul.',
+  'about.missionBody':
+    'El reemborsament hauria de ser ràpid, just i auditable. Hem creat {{app}} perquè qui envia cobri sense haver de reclamar, qui aprova vegi exactament què està autoritzant i finances tingui un rastre clar de cada euro, amb totes les comprovacions de política.',
+  'about.missionTitle': 'La nostra missió',
   'approvals.approve': 'Approve',
   'approvals.approving': "S'està aprovant…",
   'approvals.confirmReject': 'Confirma el rebuig',
+  'approvals.empty': 'Estàs al dia: no hi ha cap informe pendent.',
   'approvals.eyebrow': 'Cua de gestor',
   'approvals.kpi.flaggedLabel': 'Política marcada',
+  'approvals.kpi.queueLabel': 'Pendent de revisió',
   'approvals.kpi.totalLabel': 'Valor pendent',
   'approvals.lineCount': '{{count}} despeses',
   'approvals.queueFallback':
     'Cua en directe no disponible: es mostren dades de demostració seleccionades.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Rebutjant…',
+  'approvals.rejectPlaceholder': 'Motiu (obligatori)',
   'approvals.rejectPrompt': 'Per què rebutges aquest informe?',
   'approvals.review': 'Revisió',
   'approvals.title': 'Aprovacions pendents',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Aprovat · MTD',
   'dashboard.kpi.pendingDelta': '+2 aquesta setmana',
+  'dashboard.kpi.pendingLabel': 'Pendent de revisió',
   'dashboard.kpi.receiptsDelta': 'Acció requerida',
   'dashboard.kpi.receiptsLabel': 'Rebuts pendents',
   'dashboard.kpi.reimbursedDelta': '+2,4 mil dòlars',
   'dashboard.kpi.reimbursedLabel': 'Reemborsat · MTD',
   'dashboard.newReport': 'Nou informe',
+  'dashboard.recent.empty': 'Encara no hi ha informes: comença el primer a dalt.',
   'dashboard.recent.title': 'Informes recents',
   'dashboard.recent.viewAll': 'Veure tots els informes',
   'dashboard.summaryFallback':
@@ -41,11 +62,19 @@ export const ui: UiTranslations = {
   'expenses.listFallback':
     'Llista en directe no disponible: es mostren dades de demostració seleccionades.',
   'expenses.searchPlaceholder': 'Cerca comerciant o categoria…',
+  'expenses.subtotal': '{{count}} despeses · subtotal',
   'expenses.title': 'Despeses',
+  'forgotPassword.continue': 'Tinc un codi · Continua',
+  'forgotPassword.subheading':
+    "Introdueix el teu correu de feina i t'enviarem un enllaç per establir una contrasenya nova.",
   'forgotPassword.successBody':
     'Si existeix un compte per a {{email}} Rebràs un enllaç de restabliment en els propers minuts.',
+  'landing.copyright': '© {{year}} {{app}}. Creat amb Molecule.dev.',
+  'landing.ctaBody':
+    "Gratuït per a les primeres 25 despeses cada mes. Sense targeta de crèdit ni trucada d'implementació.",
   'landing.ctaHeading': 'A punt per recuperar el que es deu al teu equip?',
   'landing.eyebrow': 'Informes de despeses per a equips financers',
+  'landing.featuresHeading': 'Reemborsament, en un sol espai tranquil',
   'landing.heroSubtitle':
     "Envieu, aproveu i reemborseu despeses empresarials sense la cerimònia del full de càlcul. OCR de rebuts, comprovació de polítiques i un calendari d'aprovació transparent, tot en un espai de treball tranquil.",
   'landing.heroTitle': 'Cada rebut, recuperat.',
@@ -63,10 +92,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Notes',
   'newExpense.descriptionPlaceholder':
     "Per què aquesta despesa estava relacionada amb l'empresa (visible per al vostre aprovador).",
+  'newExpense.eyebrow': 'Concepte reemborsable',
   'newExpense.merchant': 'comerciant',
   'newExpense.merchantPlaceholder': 'Hotel Adlon Kempinski',
   'newExpense.policyHint':
     'Recordatori: els àpats superiors a 80 $/dia o qualsevol article superior a 250 $ requereixen una nota justificativa.',
+  'newExpense.receipt': 'Rebut',
+  'newExpense.receiptHint': 'JPG, PNG o PDF · 10 MB màx.',
   'newExpense.receiptOcrHint': 'Camps preemplenats per OCR',
   'newExpense.receiptPrompt': 'Deixa anar una foto o un PDF aquí o fes clic per navegar',
   'newExpense.receiptUploadFailed':
@@ -77,17 +109,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Fes una foto o puja un rebut i Recoup omplirà prèviament el comerciant, la data i el total. Confirma tot el que hi ha a continuació abans de desar.',
   'newExpense.title': 'Afegeix una despesa',
+  'newReport.approverHint': 'Rebrà un correu electrònic quan enviïs aquest informe per a revisió.',
   'newReport.approverLabel': "Correu electrònic de l'aprovador (opcional)",
   'newReport.approverPlaceholder': 'gerent@latevaempresa.com',
   'newReport.availableExpenses': 'Despeses disponibles',
   'newReport.createFailed': "No s'ha pogut crear l'informe. Torna-ho a provar.",
   'newReport.draftsFallback':
     'Llista de despeses en directe no disponible: es mostren dades de demostració seleccionades.',
+  'newReport.eyebrow': 'Agrupa despeses · envia per a aprovació',
   'newReport.includedCount': '{{count}} inclòs',
   'newReport.purposeLabel': 'Propòsit empresarial',
   'newReport.purposePlaceholder':
     'Descriviu el viatge o projecte al qual es refereixen aquestes despeses (visible per al vostre aprovador i les finances).',
   'newReport.saveDraft': 'Desa com a esborrany',
+  'newReport.saveDraftFailed': "No s'ha pogut desar l'esborrany. Torna-ho a provar.",
   'newReport.submit': 'Enviar per a aprovació',
   'newReport.submitFailed': "No s'ha pogut enviar l'informe. Torna-ho a intentar.",
   'newReport.summary': "Resum de l'informe",
@@ -101,17 +136,24 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'El flux en directe no està disponible: es mostren dades de demostració seleccionades.',
   'notifications.openReport': "Obre l'informe ›",
+  'pricing.approvalsLabel': 'aprovacions',
   'pricing.expensesLabel': 'despeses',
   'pricing.heading': 'aprovacions',
   'pricing.policiesLabel': 'polítiques',
   'pricing.receiptsLabel': 'rebuts',
   'recoveredAmountHeroCard.label': 'Reemborsament recuperat · YTD',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} informe(s) pendent(s) de revisió entre tots els aprovadors.',
+  'reports.approvalFlow': "Flux d'aprovació",
   'reports.backToList': 'Torna als informes',
   'reports.detailFallback':
     'Informe en directe no disponible: es mostren dades de demostració seleccionades.',
   'reports.lineItems': 'Línies de comanda',
   'reports.lineItemsCount': '{{count}} despeses',
+  'reports.lineItemsEmpty': 'Encara no hi ha despeses en aquest informe.',
+  'reports.openLibrary': "Obre la biblioteca d'informes",
   'reports.policyTitle': 'Bandera de política',
+  'reports.selectPrompt': "Selecciona un informe de la biblioteca per veure'n el detall.",
   'reports.summary.lineCount': 'Línies de comanda',
   'reports.summary.reimbursable': 'Reemborsable',
   'reports.summary.total': 'Total reportat',
@@ -121,6 +163,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Llista en directe no disponible: es mostren dades de demostració seleccionades.',
   'reportsList.newReport': 'Nou informe',
+  'reportsList.submittedOn': 'Enviat el {{date}}',
   'reportsList.title': "Biblioteca d'informes",
   'resetPassword.hidePassword': 'Amaga la contrasenya',
   'resetPassword.newPasswordLabel': 'Nova contrasenya',
@@ -147,6 +190,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Desat ✓',
   'settings.profileSaveFailed': "No s'ha pogut actualitzar el perfil. Torna-ho a provar.",
   'signup.heading': 'Crea el teu compte Recoup',
+  'signup.hidePassword': 'Amaga la contrasenya',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Mostra la contrasenya',
   'signup.subheading': 'Gratuït per a 25 despeses cada mes, sense targeta de crèdit.',

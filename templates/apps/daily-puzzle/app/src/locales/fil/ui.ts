@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May feedback ka, may nahanap kang bug, o gusto mong dalhin ang {{app}} sa iyong paaralan o team? Binabasa namin ang bawat mensahe — makipag-ugnayan mula sa settings ng iyong account at may tunay na tao na sasagot.',
   'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'about.intro':
+    'Ang {{app}} ay isang pang-araw-araw na word puzzle. Hulaan ang limang-letrang salita sa anim na pagsubok, panatilihing buhay ang iyong streak, ibahagi ang iyong emoji grid, at tingnan kung paano nagtagumpay ang lahat sa salita ngayong araw.',
+  'about.missionBody':
+    'Ang magandang puzzle ay isang maliit na panalo araw-araw. Ang {{app}} ay nakasentro sa isang shared na salita bawat araw — sapat na mabilis para sa coffee break, sapat na kawili-wili para balikan bukas.',
+  'about.missionTitle': 'Ang aming misyon',
   'about.title': 'Tungkol sa {{app}}',
   'archive.loadError': 'Hindi ma-load ang archive.',
   'archive.missed': 'Nalampasan',
   'archive.notPlayed': 'Hindi nilaro',
+  'archive.subhead':
+    'I-replay ang anumang nakaraang araw bilang practice — walang streaks, walang stats, lahat ng saya.',
   'archive.title': 'I-archive',
   'auth.backToHome': 'Bumalik sa home',
   'auth.backToHomeArrow': '← Bumalik sa home',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Nakalimutan ang password?',
   'auth.login.loggingIn': 'Nagsa-sign in ka…',
   'auth.login.logIn': 'Laruin ang salita ngayong araw',
+  'auth.login.noAccount': 'Bago sa Tessera?',
   'auth.login.or': 'o magpatuloy gamit ang',
   'auth.login.password': 'Password',
   'auth.login.signInButton': 'Mag-sign in',
@@ -32,6 +42,10 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Nagse-save…',
   'common.sendingEllipsis': 'Nagpapadala…',
   'common.startingEllipsis': 'Nagsisimula…',
+  'forgotPassword.subhead': 'Ilagay ang iyong email at padadalhan ka namin ng link para i-reset.',
+  'forgotPassword.success.body':
+    'Kung mayroong account para sa {{email}} , makakakuha ka ng link sa pag-reset sa loob ng ilang minuto.',
+  'forgotPassword.success.title': 'Tingnan ang iyong inbox.',
   'form.name': 'Pangalan',
   'howToPlay.cta.home': 'Bumalik sa home',
   'howToPlay.cta.play': 'Laruin ang puzzle ngayong araw',
@@ -68,10 +82,16 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Mga streaks na ayaw mong maputol',
   'leaderboard.daily.title': 'Mga nakasolve ngayon',
   'leaderboard.loadError': 'Hindi ma-load ang leaderboard.',
+  'leaderboard.streaks.empty': 'Wala pang streaks — maging una.',
+  'leaderboard.streaks.subhead': 'Pinakamahabang win streaks sa lahat ng panahon.',
   'leaderboard.streaks.title': 'Mga pinuno sa streak',
+  'leaderboard.subhead':
+    'Kung paano nagtagumpay ang lahat ngayong araw, at kung sino ang may pinakamahabang streaks.',
   'leaderboard.title': 'Leaderboard',
   'login.headline': 'Maligayang pagbabalik.',
   'login.streakPill': 'Naghihintay ang {{days}}-araw na streak',
+  'login.subhead':
+    'Mag-sign in para panatilihing buhay ang iyong streak at tingnan kung paano ka nagtagumpay sa salita ngayong araw.',
   'nav.archive': 'I-archive',
   'nav.editProfile': 'I-edit ang profile',
   'nav.getStarted': 'Magsimula',
@@ -89,6 +109,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Walang ganitong salita',
   'notFound.title': 'Walang laman ang rutang iyan.',
   'planUpdated.message': 'Live na ang iyong plano.',
+  'planUpdated.retry': 'Subukan muli',
+  'planUpdated.verifyFailed': 'Hindi pa namin makumpirma ang iyong bayad.',
+  'planUpdated.verifyFailedBody':
+    'Maaaring pinoproseso pa rin ang iyong bayad. Subukan muli maya-maya.',
   'planUpdated.verifying': 'Kinukumpirma ang iyong bayad…',
   'play.alreadyFinished': 'Natapos mo na ang puzzle na ito',
   'play.answerWas': 'Ang salita ay',
@@ -104,6 +128,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Practice puzzle',
   'play.tooShort': 'Kulang ang mga letra',
   'play.won': 'Nasolve mo!',
+  'pricing.advancedStats': 'Advanced stats: {{yes}}',
+  'pricing.archiveHistory': '{{count}} araw ng archive history',
+  'pricing.archivePlays': '{{count}} archive replays / araw',
+  'pricing.archiveUnlimited': 'Walang limitasyong archive history',
+  'pricing.canExport': 'Data export: {{yes}}',
+  'pricing.checkoutError': 'Hindi masimulan ang checkout. Pakisubukang muli.',
   'pricing.dailyWord': 'Ang arawang salita',
   'pricing.heading': 'Pumili ng iyong {{app}} plan',
   'pricing.included': 'Kasama',
@@ -111,7 +141,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Ang arawang salita ay palaging libre. Mag-upgrade para sa walang hanggang archive replays at mas malalim na stats.',
   'pricing.yearly': 'Taon-taon',
+  'privacy.intro':
+    'Ginagalang ng {{app}} ang iyong privacy. Ang pahinang ito ay nagbubuod ng data na iniimbak namin, kung bakit namin ito iniimbak, at kung paano ito alisin.',
   'privacy.title': 'Paunawa sa privacy',
+  'resetPassword.subhead': 'Pumili ng bagong password para makabalik sa iyong streak.',
   'settings.account': 'Account',
   'settings.danger.body':
     'Permanenteng alisin ang iyong {{appName}} account at lahat ng kasaysayan sa puzzle.',
@@ -121,17 +154,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'Bisita',
   'settings.language.title': 'Wika',
   'settings.subhead': 'I-tune ang iyong profile, tunog, at kung paano ka lumilitaw sa leaderboard.',
+  'settings.unnamed': 'Manlalaro ng Sparq',
   'settings.upgrade': 'Mag-upgrade',
   'signup.eyebrow': 'Libre magpakailanman — isang salita sa isang araw',
   'signup.headline': 'Simulan ang iyong streak.',
+  'signup.subhead':
+    'Gumawa ng {{appName}} account para maglaro ng daily word, bumuo ng streak, at umakyat sa leaderboard.',
   'stats.currentStreak': 'Streak',
   'stats.distribution.title': 'Distribusyon ng hula',
   'stats.loadError': 'Hindi ma-load ang iyong stats.',
   'stats.maxStreak': 'Max na streak',
   'stats.played': 'Nilaro',
   'stats.playToday': 'Laruin ang puzzle ngayong araw',
+  'stats.subhead': 'Ranked daily puzzles lang — hindi kailanman binibilang ang archive practice.',
   'stats.title': 'Iyong stats',
   'stats.winRate': 'Win rate',
   'status.monthly': 'Buwanan',
+  'terms.intro':
+    'Sa paggamit ng {{app}} sumasang-ayon ka sa mga patakaran sa ibaba. Kung hindi mo ito matanggap, mangyaring huwag gamitin ang serbisyo.',
   'terms.title': 'Mga tuntunin ng serbisyo',
 }

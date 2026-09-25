@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Ị nwere nzaghachi, ị hụrụ nsogbu, ma ọ bụ chọrọ iweta {{app}} n'ụlọ akwụkwọ gị ma ọ bụ n'òtù gị? Anyị na-agụ ozi ọ bụla — kpọtụrụ anyị site na ntọala akaụntụ gị, mmadụ n'ezie ga-aza.",
   'about.contactTitle': 'Gwa anyị okwu',
   'about.eyebrow': 'Banyere',
+  'about.intro':
+    '{{app}} bụ egwuregwu okwu kwa ụbọchị. Chee okwu nwere mkpụrụedemede ise na nnwale isii, debe usoro mmeri gị, kesaa grid emoji gị, ma hụ otú ndị niile mere na okwu taa.',
+  'about.missionBody':
+    'Egwuregwu ọma bụ obere mmeri kwa ụbọchị. Ewubere {{app}} gburugburu otu okwu a na-ekerịta kwa ụbọchị — ngwa ngwa maka ezumike kọfị, ma dịkwa nkọ nke ga-eme ka ị lọghachi echi.',
+  'about.missionTitle': 'Ọrụ anyị',
   'about.title': 'Gbasara {{app}}',
   'archive.loadError': 'Enweghị ike ibu ebe nchekwa ahụ.',
   'archive.missed': 'Atụfuru',
   'archive.notPlayed': 'Egwughị',
+  'archive.subhead':
+    'Kpọgharịa ụbọchị ọ bụla gara aga dịka omume — enweghị usoro mmeri, enweghị ọnụ ọgụgụ, naanị anụrị.',
   'archive.title': 'Ebe nchekwa',
   'auth.backToHome': "Laghachi n'ụlọ",
   'auth.backToHomeArrow': "← Laghachi n'ụlọ",
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Chefuru okwuntughe?',
   'auth.login.loggingIn': 'Na-abanye gị…',
   'auth.login.logIn': 'Gbuọ okwu taa',
+  'auth.login.noAccount': 'Ị bụ onye ọhụrụ na Tessera?',
   'auth.login.or': "ma ọ bụ gaa n'ihu na",
   'auth.login.password': 'Okwuntughe',
   'auth.login.signInButton': 'Banye',
@@ -32,6 +42,10 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Na-echekwa…',
   'common.sendingEllipsis': 'Na-eziga…',
   'common.startingEllipsis': 'Na-amalite…',
+  'forgotPassword.subhead': 'Tinye ozi-e gị, anyị ga-ezitere gị njikọ iji tọgharịa ya.',
+  'forgotPassword.success.body':
+    "Ọ bụrụ na akaụntụ dị maka {{email}} , ị ga-enweta njikọ nrụpụta n'ime nkeji ole na ole.",
+  'forgotPassword.success.title': 'Lelee igbe mbata gị.',
   'form.name': 'Aha',
   'howToPlay.cta.home': "Laghachi n'ụlọ",
   'howToPlay.cta.play': 'Gbuọ egwuregwu taa',
@@ -68,10 +82,14 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Streaks ị kpọrọ asị imebi',
   'leaderboard.daily.title': 'Ngwọta taa',
   'leaderboard.loadError': 'Enweghị ike ibu bọọdụ ndị ndu.',
+  'leaderboard.streaks.empty': 'Enwebeghị usoro mmeri — bụrụ onye mbụ.',
+  'leaderboard.streaks.subhead': "Usoro mmeri kachasị ogologo n'oge niile.",
   'leaderboard.streaks.title': 'Ndị ndu streak',
+  'leaderboard.subhead': 'Otú ndị niile mere taa, na ndị na-ejide usoro mmeri kachasị ogologo.',
   'leaderboard.title': 'Bọọdụ ndị ndu',
   'login.headline': 'Nnọọ.',
   'login.streakPill': 'Streak ụbọchị {{days}} na-eche',
+  'login.subhead': 'Banye iji debe usoro mmeri gị ma hụ otú i mere na okwu taa.',
   'nav.archive': 'Ebe nchekwa',
   'nav.editProfile': 'Dezie profaịlụ',
   'nav.getStarted': 'Malite',
@@ -89,6 +107,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Enweghị okwu dị otú ahụ',
   'notFound.title': 'Ụzọ ahụ tọgbọrọ chakoo.',
   'planUpdated.message': 'Atụmatụ gị adịla ndụ.',
+  'planUpdated.retry': 'Nwaa ọzọ',
+  'planUpdated.verifyFailed': 'Anyị enwebeghị ike ịkwado ịkwụ ụgwọ gị.',
+  'planUpdated.verifyFailedBody':
+    "Ịkwụ ụgwọ gị ka nwere ike ịdị na-aga n'ihu. Nwaa ọzọ n'ime obere oge.",
   'planUpdated.verifying': 'Na-akwado ịkwụ ụgwọ gị…',
   'play.alreadyFinished': 'Ị gụchalarị egwuregwu a',
   'play.answerWas': 'Okwu ahụ bụ',
@@ -104,6 +126,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Egwuregwu mmemme',
   'play.tooShort': 'Mkpụrụedemede ezughi',
   'play.won': 'Edozila ya!',
+  'pricing.advancedStats': 'Ọnụ ọgụgụ dị elu: {{yes}}',
+  'pricing.archiveHistory': '{{count}} ụbọchị nke akụkọ ihe mere eme',
+  'pricing.archivePlays': '{{count}} nkpagharị akụkọ ihe mere eme / ụbọchị',
+  'pricing.archiveUnlimited': 'Akụkọ ihe mere eme na-enweghị njedebe',
+  'pricing.canExport': 'Mbupụ data: {{yes}}',
+  'pricing.checkoutError': 'Enweghị m ike ịmalite ịkwụ ụgwọ. Biko nwaa ọzọ.',
   'pricing.dailyWord': 'Okwu kwa ụbọchị',
   'pricing.heading': 'Họrọ atụmatụ {{app}} gị',
   'pricing.included': 'Etinyere',
@@ -111,7 +139,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     "Okwu kwa ụbọchị bụ n'efu mgbe niile. Kwalite maka mmegharị nchekwa na-enweghị njedebe na ndekọ miri emi.",
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} na-asọpụrụ nzuzo gị. Peeji a na-akọwa data anyị na-echekwa, ihe kpatara anyị ji echekwa ya, na otú ị ga-esi wepụ ya.',
   'privacy.title': 'Ọkwa nzuzo',
+  'resetPassword.subhead': 'Họrọ paswọọdụ ọhụrụ iji laghachi na usoro mmeri gị.',
   'settings.account': 'Akaụntụ',
   'settings.danger.body':
     'Wepụ akaụntụ {{appName}} gị na akụkọ egwuregwu niile ruo mgbe ebighị ebi.',
@@ -121,17 +152,24 @@ export const ui: UiTranslations = {
   'settings.guest': 'Ọbịa',
   'settings.language.title': 'Asụsụ',
   'settings.subhead': 'Dozie profaịlụ gị, ụda, na otu ị si apụta na bọọdụ ndị ndu.',
+  'settings.unnamed': 'Onye ọkpụkpọ Sparq',
   'settings.upgrade': 'Kwalite',
   'signup.eyebrow': "N'efu ruo mgbe ebighị ebi — otu okwu kwa ụbọchị",
   'signup.headline': 'Malite streak gị.',
+  'signup.subhead':
+    'Mepụta akaụntụ {{appName}} iji kpọọ okwu kwa ụbọchị, wuo usoro mmeri, ma rịa elu na ndepụta ndị kachasị elu.',
   'stats.currentStreak': 'Streak',
   'stats.distribution.title': 'Nkesa mmegharị',
   'stats.loadError': 'Enweghị ike ibu stats gị.',
   'stats.maxStreak': 'Streak kacha ukwuu',
   'stats.played': 'Egwurula',
   'stats.playToday': 'Gbuọ egwuregwu taa',
+  'stats.subhead':
+    'Naanị egwuregwu kwa ụbọchị a na-enye ọkwa — omume akụkọ ihe mere eme anaghị agụta.',
   'stats.title': 'Stats gị',
   'stats.winRate': 'Ọnụego mmeri',
   'status.monthly': 'Kwa ọnwa',
+  'terms.intro':
+    "Site n'iji {{app}} ị na-ekwenye na iwu ndị dị n'okpuru. Ọ bụrụ na ị nweghị ike ịnakwere ha, biko ejila ọrụ ahụ.",
   'terms.title': 'Usoro ọrụ',
 }

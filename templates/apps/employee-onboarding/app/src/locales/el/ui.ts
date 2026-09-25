@@ -1,28 +1,43 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Θέλετε να εφαρμόσετε ένα πιο ζεστό onboarding για την ομάδα σας, βρήκατε κάποιο σφάλμα ή έχετε σχόλια; Επικοινωνήστε από τις ρυθμίσεις του λογαριασμού σας — κάθε μήνυμα πηγαίνει σε έναν πραγματικό άνθρωπο που μπορεί να βοηθήσει.',
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.missionTitle': 'Η αποστολή μας',
   'auth.forgotPassword.emailPlaceholder': 'όνομα@ηεταιρίασας.com',
   'auth.forgotPassword.heading': 'Επαναφέρετε τον κωδικό πρόσβασής σας.',
+  'auth.forgotPassword.panel.body':
+    'Η επαναφορά διαρκεί 30 δευτερόλεπτα — η πρόοδός σας στη λίστα ελέγχου σας περιμένει.',
+  'auth.forgotPassword.panel.headline': 'Ακριβώς εκεί που σταματήσατε.',
+  'auth.forgotPassword.subheading':
+    'Εισαγάγετε το επαγγελματικό σας email και θα σας στείλουμε έναν σύνδεσμο επαναφοράς.',
   'auth.forgotPassword.successSubheading':
     'Ελέγξτε τα εισερχόμενά σας — σας στείλαμε οδηγίες επαναφοράς.',
   'auth.login.emailPlaceholder': 'όνομα@ηεταιρίασας.com',
   'auth.login.heading': 'Καλώς ήρθες πίσω.',
   'auth.login.passwordPlaceholder': 'Ο κωδικός πρόσβασής σας',
+  'auth.login.signupPrompt': 'Νέοι στην ομάδα σας;',
   'auth.login.subheading':
     'Συνδεθείτε για να συνεχίσετε το ταξίδι ένταξης από εκεί που το αφήσατε.',
   'auth.login.submit': 'Συνεχίστε το ταξίδι σας',
+  'auth.panel.body':
+    'Η προσωπική σας λίστα ελέγχου, τα ορόσημα εκπαίδευσης και οι συστάσεις της ομάδας — όλα σε ένα ήρεμο μέρος.',
   'auth.panel.footnote':
     '© Embark — η ενσωμάτωση των ανθρώπων γίνεται με προτεραιότητα από σήμερα.',
   'auth.panel.headline': 'Οι πρώτες 90 μέρες με αυτοπεποίθηση ξεκινούν εδώ.',
   'auth.resetPassword.heading': 'Ορίστε έναν νέο κωδικό πρόσβασης.',
   'auth.resetPassword.newPasswordLabel': 'Νέος κωδικός πρόσβασης',
+  'auth.resetPassword.panel.body':
+    'Αποθηκεύστε έναν νέο κωδικό πρόσβασης και θα σας επιστρέψουμε αμέσως στο ταξίδι onboarding σας.',
+  'auth.resetPassword.panel.headline': 'Σχεδόν επιστρέψατε.',
   'auth.resetPassword.subheading': 'Διάλεξε κάτι που θα θυμάσαι — τουλάχιστον 8 χαρακτήρες.',
   'auth.signup.emailPlaceholder': 'όνομα@ηεταιρίασας.com',
   'auth.signup.heading': 'Καλώς ήρθατε στις πρώτες 90 ημέρες σας.',
   'auth.signup.panel.body':
     'Μια καθοδηγούμενη λίστα ελέγχου, εκπαίδευση με επίγνωση των ρόλων και γνωριμίες με ανθρώπους — έτοιμα πριν μπείτε μέσα.',
+  'auth.signup.panel.headline': 'Πρώτη μέρα, από την πρώτη μέρα.',
   'auth.signup.subheading':
     'Δημιουργήστε τον λογαριασμό σας Embark για να ξεκινήσετε το ταξίδι σας με καθοδήγηση για την ενσωμάτωση.',
   'checklist.empty.body': 'Αλλάξτε το φίλτρο για να δείτε άλλες εργασίες.',
@@ -30,6 +45,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'Ένταξη · Λίστα ελέγχου',
   'checklist.loading': 'Φόρτωση της λίστας ελέγχου σας…',
   'checklist.stat.actionNeeded': 'Απαιτείται δράση',
+  'checklist.stat.completion': 'Ολοκλήρωση',
+  'checklist.stat.inProgress': 'Σε εξέλιξη',
   'checklist.stat.inProgressHelper': 'Συνέχισε από εκεί που σταμάτησες',
   'checklist.stat.overdueHelper': 'Πρόλαβε πρώτα αυτά',
   'checklist.subtitle':
@@ -61,6 +78,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Δεν υπάρχουν ακόμη έγγραφα',
   'documents.eyebrow': 'Ένταξη · Έγγραφα',
   'documents.loading': 'Φόρτωση εγγράφων…',
+  'documents.stat.actionNeeded': 'Υπογράψτε τώρα',
+  'documents.stat.all': 'Όλα τα έγγραφα',
   'documents.stat.allHelper': 'Σε όλες τις κατηγορίες',
   'documents.stat.pending': 'Εκκρεμείς υπογραφές',
   'documents.stat.pendingHelper': 'Απαιτείται για την ολοκλήρωση',
@@ -68,6 +87,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Αποθηκεύεται με ασφάλεια',
   'documents.status.optional': 'Προαιρετικός',
   'documents.status.required': 'Απαιτείται',
+  'documents.status.signed': 'Υπογεγραμμένο',
   'documents.subtitle':
     'Το εγχειρίδιό σας, οι φόρμες και οι υπογεγραμμένες συμφωνίες σας — όλα σε ένα μέρος.',
   'documents.title': 'Όλα όσα πρέπει να διαβάσετε και να υπογράψετε.',
@@ -75,10 +95,14 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'Προβολέας',
   'documentViewer.breadcrumbDocs': 'Έγγραφα',
   'documentViewer.downloadMeta': 'Λήψη μεταδεδομένων',
+  'documentViewer.helpBody':
+    'Το People & Culture απαντά σε ερωτήσεις του εγχειριδίου στο #ask-people στο Slack.',
   'documentViewer.helpEyebrow': 'Χρειάζεστε βοήθεια;',
   'documentViewer.loadError': 'Δεν ήταν δυνατή η φόρτωση αυτού του εγγράφου.',
   'documentViewer.loading': 'Φόρτωση εγγράφου…',
   'documentViewer.notFound': 'Δεν βρέθηκε έγγραφο',
+  'documentViewer.previewBody':
+    'Όταν έχουν ρυθμιστεί οι μεταφορτώσεις, εμφανίζουμε το αρχείο ενσωματωμένο. Προς το παρόν, η λήψη μεταδεδομένων σάς επιτρέπει να επιβεβαιώσετε ότι η εγγραφή είναι πραγματική.',
   'documentViewer.previewBodyExternal':
     'Χρησιμοποιήστε το κουμπί λήψης για να ανοίξετε το αρχείο σε νέα καρτέλα.',
   'documentViewer.previewTitle': 'Προεπισκόπηση εγγράφου',
@@ -86,6 +110,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Διαβάστε το έγγραφο και, στη συνέχεια, κάντε κλικ παρακάτω για να υπογράψετε και να επιβεβαιώσετε.',
   'documentViewer.signatureHeading': 'Απαιτείται υπογραφή',
+  'documentViewer.signed': '✓ Υπογεγραμμένο & καταχωρισμένο',
   'documentViewer.signing': 'Υπογραφή…',
   'documentViewer.uploadedRecently': 'Πρόσφατα μεταφορτώθηκε',
   'landing.closing.body':
@@ -95,10 +120,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Έχω ήδη έναν λογαριασμό',
   'landing.feature1.body':
     'Κάθε εργασία — γραφειοκρατία, λογαριασμοί, εισαγωγές — προετοιμάζεται εκ των προτέρων με ημερομηνίες λήξης και τον κατάλληλο κάτοχο.',
+  'landing.feature1.title': 'Μια καθοδηγούμενη λίστα ελέγχου',
   'landing.feature2.body':
     'Οι ενότητες ξεκλειδώνονται στα ορόσημα 30/60/90, ανάλογα με τον ρόλο και την ομάδα στην οποία εντάσσεται ένας υπάλληλος.',
+  'landing.feature2.title': 'Εκπαίδευση βάσει ρόλου',
   'landing.feature3.body':
     'Φίλοι, διευθυντές και διαλειτουργικές εισαγωγές έχουν προγραμματιστεί — ώστε κανείς να μην ξεκινά μόνος του.',
+  'landing.feature3.title': 'Πραγματικές συστάσεις',
   'landing.featureEyebrow': 'Γιατί να ξεκινήσετε',
   'landing.featureHeadline':
     'Τρεις τρόποι με τους οποίους η Embark κερδίζει την εμπιστοσύνη από την πρώτη κιόλας μέρα.',
@@ -109,6 +137,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Στη συνέχεια: Γνωρίστε τον φίλο σας για μια 30λεπτη κουβεντούλα για καφέ — Τρίτη 10:00 π.μ.',
   'landing.preview.eyebrow': 'Ημέρα 14 από 90 — δείγμα πίνακα ελέγχου',
+  'landing.preview.headline': 'Καλώς ήρθατε ξανά, Maya.',
   'landing.proof.spec': 'Έτοιμο για SOC 2 + GDPR',
   'landing.proof.teams': 'Κατασκευασμένο για ομάδες 50–5.000 ατόμων',
   'landing.proof.time': 'Δωρεάν δοκιμή 14 ημερών',
@@ -125,16 +154,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'εχθές',
   'planUpdated.message': 'Είστε έτοιμοι.',
   'planUpdated.preparing': 'Ενημέρωση του προγράμματός σας…',
+  'planUpdated.retry': 'Δοκιμάστε ξανά',
+  'planUpdated.verifyFailed': 'Δεν μπορέσαμε να επιβεβαιώσουμε ακόμη την πληρωμή σας.',
+  'planUpdated.verifyFailedBody':
+    'Η πληρωμή σας ενδέχεται να βρίσκεται ακόμη υπό επεξεργασία. Δοκιμάστε ξανά σε λίγο.',
   'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'pricing.documentsLabel': 'έγγραφα',
   'pricing.onboardingsLabel': 'εντάξεις',
   'pricing.tasksLabel': 'εργασίες',
   'profile.dayNumber': 'Ημέρα',
   'profile.detailsHeading': 'Λεπτομέρειες ενσωμάτωσης',
+  'profile.encouragementBody':
+    'Κρατήστε τον buddy και τον manager σας ενήμερους — τα μικρά βήματα συσσωρεύονται.',
   'profile.milestones': 'Ορόσημα',
   'profile.progressEyebrow': 'Πρόοδος ενσωμάτωσης',
   'profile.tasks': 'Εργασίες',
   'profile.unknownName': 'Καλωσόρισμα',
+  'settings.appearance.description': 'Εναλλαγή μεταξύ φωτεινής και σκοτεινής λειτουργίας.',
+  'settings.appearance.title': 'Εμφάνιση',
+  'settings.subtitle':
+    'Ρυθμίστε ειδοποιήσεις, ασφάλεια, συσκευές και εξαγωγή δεδομένων — όλα μένουν εδώ, με τους δικούς σας όρους.',
   'settings.title': 'Ρυθμίσεις και προτιμήσεις.',
   'taskDetail.backToChecklist': 'Επιστροφή στη λίστα ελέγχου',
   'taskDetail.breadcrumbChecklist': 'Λίστα ελέγχου',
@@ -147,7 +186,10 @@ export const ui: UiTranslations = {
   'taskDetail.notFound': 'Η εργασία δεν βρέθηκε',
   'taskDetail.notFoundBody':
     'Αυτή η εργασία ενδέχεται να έχει διαγραφεί ή να ανήκει σε άλλον χρήστη.',
+  'taskDetail.tipBody':
+    'Αν έχετε κολλήσει, στείλτε μήνυμα στον buddy του onboarding σας στο Slack — είναι η πρώτη γραμμή βοήθειας.',
   'taskDetail.tipEyebrow': 'Γρήγορη συμβουλή',
+  'team.empty.body': 'Δοκιμάστε μια ευρύτερη αναζήτηση ή επιλέξτε διαφορετικό τμήμα.',
   'team.empty.title': 'Δεν υπάρχουν συμπαίκτες που να ταιριάζουν',
   'team.eyebrow': 'Ένταξη · Άνθρωποι',
   'team.loading': 'Φόρτωση συμπαικτών…',
@@ -170,14 +212,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Ορόσημα',
   'timeline.stat.current': 'Τρέχον ορόσημο',
   'timeline.stat.next': 'Επόμενο ξεκλείδωμα',
+  'timeline.stat.progress': 'Γενικά',
   'timeline.subtitle':
     'Κάθε ορόσημο ξεκλειδώνει νέες ενότητες, εισαγωγικές παρουσιάσεις και συζητήσεις ανάπτυξης. Καμία πίεση — μόνο πρόοδος.',
+  'timeline.tipBody':
+    'Προγραμματίστε μια ανασκόπηση 30 λεπτών στις ημέρες 30, 60 και 90 με τον manager σας — κάνει τα σχόλια συγκεκριμένα και την πρόοδο ορατή.',
   'timeline.tipEyebrow': 'Συμβουλή διευθυντή',
+  'timeline.tipTitle': 'Δεσμεύστε χρόνο στο ημερολόγιο για τα ορόσημα.',
   'timeline.title': 'Το ταξίδι σας 30/60/90.',
   'training.badge.notStarted': 'Δεν ξεκίνησε',
   'training.empty': 'Δεν υπάρχουν ακόμη εκπαιδευτικές ενότητες.',
   'training.eyebrow': 'Ένταξη · Εκπαίδευση',
   'training.loading': 'Φόρτωση ενοτήτων…',
+  'training.stat.all': 'Ενότητες που ανατέθηκαν',
   'training.subtitle':
     'Οι ενότητες ξεκλειδώνονται στις 30/60/90 για να ταιριάζουν με τον ρόλο σας. Οι απαιτούμενες έρχονται πρώτες.',
   'training.title': 'Δεξιότητες, εργαλεία και ιστορίες — στον ρυθμό σας.',
@@ -190,9 +237,12 @@ export const ui: UiTranslations = {
   'trainingModule.quizBody':
     'Βαθμολογία 80% ή περισσότερο για να χαρακτηρίσετε αυτήν την ενότητα ως ολοκληρωμένη.',
   'trainingModule.quizHeading': 'Κουίζ τέλους ενότητας',
+  'trainingModule.quizLocked': 'Ξεκινήστε πρώτα την ενότητα',
   'trainingModule.quizNone': 'Δεν υπάρχει κουίζ σε αυτήν την ενότητα.',
   'trainingModule.quizRetry': 'Δοκιμάστε ξανά',
+  'trainingModule.quizStart': 'Έναρξη κουίζ',
   'trainingModule.quizSubmit': 'Υποβολή απαντήσεων',
+  'trainingModule.start': 'Έναρξη ενότητας',
   'trainingModule.statusNotStarted': 'Δεν ξεκίνησε',
   'welcomeHeroCard.completeLabel': 'Πλήρης',
   'welcomeHeroCard.milestonesLabel': 'Ορόσημα',

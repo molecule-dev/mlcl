@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite on työnkulun automatisointialusta, joka yhdistää laukaisijat, tekoälyehdot ja monivaiheisia toimintoja, jotta tiimit voivat siirtää työtä järjestelmien välillä kirjoittamatta liimakoodia.',
+  'about.philosophy':
+    'Jokainen työnkulku on kaavio pienistä, havaittavista vaiheista. Kukin vaihe tallentaa syötteensä, tulosteensa ja ajoituksensa, jotta se voidaan tarkastaa, toistaa tai peruuttaa. Kokoa ne visuaalisesti, versioi ne kuin koodi.',
   'about.title': 'Tietoa Dendritestä',
   'authShell.brand': 'Dendrite',
   'authShell.support': 'Tuki',
@@ -14,9 +16,15 @@ export const ui: UiTranslations = {
   'billing.cancelPlan': 'Peruuta tilaus',
   'billing.changePlan': 'Vaihda tilausta',
   'billing.description': 'Seuraa käyttöä, hallinnoi tilauksiasi ja hae laskuja kirjanpitoa varten.',
+  'billing.eyebrow': 'Tili · Paketti ja käyttö',
+  'billing.failedLabel': 'Epäonnistuneet ajot · 24 h',
+  'billing.invoicesEmpty':
+    'Ei vielä laskuja. Ne ilmestyvät tänne ensimmäisen maksullisen uudistuksesi jälkeen.',
   'billing.invoicesTitle': 'Laskuhistoria',
   'billing.planNoteFree':
     'Ilmainen taso — {{runs}} ajoa ja {{workflows}} aktiivista työnkulkua. Päivitä korkeampiin rajoihin.',
+  'billing.planNotePaid':
+    'Maksullinen paketti — {{runs}} ajoa ja {{workflows}} aktiivista työnkulkua.',
   'billing.runsLabel': 'Ajot viimeisen 24 tunnin aikana',
   'billing.tiersBlurb':
     'Vertaile kaikkia tasoja — ajot, aktiiviset työnkulut, lisäominaisuudet ja tuki — erillisellä hinnoittelusivulla.',
@@ -34,10 +42,14 @@ export const ui: UiTranslations = {
     'Integraatioita ei ole rekisteröity. Määritä palveluntarjoajan avaimet ottaaksesi sidokset käyttöön.',
   'connections.error': 'Yhteyksien lataaminen epäonnistui.',
   'connections.eyebrow': 'Integraatiot · {{connected}} yhdistetty',
+  'connections.loading': 'Ladataan integraatioita…',
+  'connections.openEnv':
+    'Yhdistä tämä palveluntarjoaja asettamalla sen API-avain tiedostoon api/.env ja käynnistämällä palvelin uudelleen.',
   'dashboard.description':
     '{{active}} työnkulkua aktiivisena. {{failed}} epäonnistui viimeisen 24 tunnin aikana.',
   'dashboard.error': 'Koontinäyttöä ei voitu ladata.',
   'dashboard.eyebrow': 'Toiminta · suorana',
+  'dashboard.hero.label': 'Ajoja tänään',
   'dashboard.hero.medianLatency': 'p50-latenssi',
   'dashboard.hero.queue': 'Jonon syvyys',
   'dashboard.hero.success': 'Onnistuminen',
@@ -45,13 +57,16 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Mediaaniaika',
   'dashboard.kpi.failedRuns': 'Epäonnistuneet · 24 t',
   'dashboard.kpi.outOf': '/ {{total}} yhteensä',
+  'dashboard.kpi.successRate': 'Onnistumisprosentti · 24 h',
   'dashboard.loading': 'Ladataan koontinäyttöä…',
   'dashboard.recentRuns.empty': 'Ei vielä ajoja. Käynnistä työnkulku täyttääksesi tämän syötteen.',
   'dashboard.recentRuns.title': 'Viimeisimmät ajot',
   'dashboard.recentRuns.viewAll': 'Avaa suoritukset →',
+  'dashboard.recentWorkflows.browse': 'Selaa malleja →',
   'dashboard.recentWorkflows.empty':
     'Ei vielä työnkulkuja. Asenna malli tai rakenna yksi alusta alkaen.',
   'dashboard.recentWorkflows.title': 'Viimeksi ajetut',
+  'dashboard.run.col.run': 'Suorita',
   'dashboard.run.col.started': 'Aloitettu',
   'dashboard.run.col.trigger': 'Laukaisija',
   'dashboard.run.col.workflow': 'Työnkulku',
@@ -87,6 +102,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Työnkulku',
   'executions.description':
     'Jokainen työnkulun ajo, jokainen uudelleenyritys, jokainen vaiheen tuloste — kaikki tarkasteltavissa.',
+  'executions.empty.filter': 'Yksikään ajo ei vastaa tätä suodatinta.',
   'executions.empty.first': 'Ei vielä ajoja — käynnistä työnkulku täyttääksesi tämän luettelon.',
   'executions.error': 'Suorituksia ei voitu ladata.',
   'executions.eyebrow': 'Ajohistoria',
@@ -96,30 +112,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Ladataan ajohistoriaa…',
   'executions.title': 'Suoritukset',
   'forgotPassword.confirmation': 'Nollauslinkki lähetetty osoitteeseen {{email}}.',
+  'forgotPassword.subhead': 'Anna sähköpostiosoitteesi saadaksesi palautuslinkin.',
   'forgotPassword.successSubhead':
     'Lähetimme nollauslinkin osoitteeseen {{email}}. Se vanhenee 30 minuutissa.',
   'help.connections.body':
     'Tekoäly-, sähköposti- ja tallennusvaiheet edellyttävät palveluntarjoajan avaimia api/.env-tiedostossa. Kun avain on määritetty, vastaava integraatio näkyy yhdistettynä Yhteydet-sivulla.',
+  'help.connections.cta': 'Avoimet yhteydet →',
   'help.connections.title': 'Palveluntarjoajien yhdistäminen',
   'help.gettingStarted.body':
     'Uusia työnkulkuja voidaan asentaa mallikirjastosta tai rakentaa alusta alkaen työnkulun rakentajassa. Jokaisella työnkululla on laukaisija (manuaalinen, webhook tai cron) ja järjestyksessä suoritettavien vaiheiden sarja.',
+  'help.gettingStarted.cta': 'Selaa mallikirjastoa →',
+  'help.gettingStarted.title': 'Aloittaminen',
   'help.intro':
     'Löydä vastauksia yleisiin kysymyksiin työnkulkujen rakentamisesta, yhteyksien määrittämisestä ja ajotulosten tulkinnasta. Yleisimmät aiheet on lueteltu alla; kaiken muun suhteen ota yhteyttä työtilasi ylläpitäjään.',
   'help.runs.body':
     'Jokainen ajo kirjaa kukin vaihe erikseen tiloineen (onnistuminen, epäonnistuminen, ohitettu) ja tulosteen katkelmana. Suorituksen yksityiskohtasivu näyttää täydellisen vaiheittaisen jäljityksen sekä johdetut mittarit.',
+  'help.runs.cta': 'Avaa suoritukset →',
   'help.runs.title': 'Ajotulosten lukeminen',
   'help.title': 'Ohje',
   'integrationCard.manage': 'Hallinnoi',
   'landing.brand': 'Dendrite',
   'landing.demo.action.subtitle': 'Round-robin · alue',
+  'landing.demo.action.title': 'Ilmoita edustajalle',
   'landing.demo.condition.subtitle': 'Tekoälyn tarkoitusluokitin',
+  'landing.demo.condition.title': 'Pisteet ≥ keskitaso?',
   'landing.demo.trigger.subtitle': 'POST /forms/contact',
   'landing.demo.trigger.title': 'Saapuva webhook',
+  'landing.features.body':
+    'Laukaisimet laukeavat. Ehdot haarautuvat. Toiminnot hoitavat työn. Kokoa ne visuaalisesti, versioi ne kuin koodi.',
   'landing.features.heading': 'Kolme solmutyyppiä. Rajattomat muodot.',
   'landing.footer.help': 'Ohje',
   'landing.footer.tagline': 'Älykkyys liikkeessä',
+  'landing.hero.body':
+    '{{appName}} on työnkulkumoottori ops-tiimeille, jotka ovat kasvaneet ulos Zapierista. Laukaisin, ehto, toiminto — kytkettynä jokaiseen järjestelmään, jota todella käytät.',
   'landing.hero.eyebrow': 'Älykkyys liikkeessä',
   'landing.hero.headline': 'Yhdistä pinosi. Anna työn tapahtua.',
+  'landing.hero.primaryCta': 'Rakenna ensimmäinen työnkulku',
   'landing.hero.proof.ai': 'Tekoälysolmut sisäänrakennettu',
   'landing.hero.proof.free': 'Ilmainen 1 000 ajoon/kk',
   'landing.hero.proof.soc2': 'SOC 2 Type II',
@@ -127,10 +155,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Maksa ajoista, et paikoista.',
   'landing.templates.body':
     'Valmiiksi kootut työnkulut jokaiselle tiimille — myynti, tuki, devops, talous. Asenna yhdellä napsautuksella; mukauta mitä tahansa.',
+  'landing.templates.cta': 'Rekisteröidy selataksesi malleja →',
   'landing.templates.eyebrow': 'Aloita sekunneissa',
   'landing.templates.heading': 'Kirjasto testatuista resepteistä.',
   'landing.templates.signupHint': 'Rekisteröidy asentaaksesi',
   'login.hidePassword': 'Piilota salasana',
+  'login.noAccount': 'Uusi Tesseraan?',
   'login.showPassword': 'Näytä salasana',
   'login.subhead': 'Kirjaudu sisään pitääksesi automaatiosi toiminnassa.',
   'mobileNav.drawerLabel': 'Päävalikko',
@@ -146,8 +176,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Aja työnkulku aloittaaksesi tämän syötteen täyttämisen.',
   'notifications.empty.title': 'Olet ajan tasalla',
   'notifications.eyebrow': '{{n}} lukematonta',
+  'planUpdated.body':
+    'Laskutustietojesi muutos on nyt voimassa. Voit hallita suunnitelmaasi milloin tahansa laskutussivulta.',
+  'planUpdated.retry': 'Yritä uudelleen',
+  'planUpdated.verifyFailed': 'Emme voineet vielä vahvistaa maksuasi.',
+  'planUpdated.verifyFailedBody':
+    'Maksusi käsittely saattaa olla vielä kesken. Yritä uudelleen hetken kuluttua.',
   'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'pricing.heading': 'ajoa',
+  'pricing.runsSuffix': 'ajoa',
   'pricing.workflowsSuffix': 'työnkulkua',
   'privacy.collect.body':
     'Keräämme rekisteröitymiseen käyttämäsi sähköpostiosoitteen, määrittämäsi työnkulut ja metatiedot kustakin ajosta (aloitusaika, lopetusaika, tila). Emme koskaan kerää tai tallenna laukaisijasta peräisin olevia hyötykuorman sisältöjä tai vaiheiden tulosteita enempää kuin on tarpeen työtilan omistajan ajonäkymässä näyttämiseksi.',
@@ -163,11 +200,14 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Salasanan päivitys epäonnistui.',
   'resetPassword.newPassword': 'Uusi salasana',
   'resetPassword.subhead': 'Valitse jotain, jota vain sinä arvaisi.',
+  'settings.appearance.description': 'Vaihda vaalean ja tumman tilan välillä.',
+  'settings.appearance.title': 'Ulkoasu',
   'settings.billingShortcut.cta': 'Avaa laskutus',
   'settings.billingShortcut.description':
     'Tilaus, käyttö ja laskut löytyvät erilliseltä laskutussivulta.',
   'settings.danger.confirm': 'Oletko varma? Tämä asettaa työtilasi jonoon poistettavaksi.',
   'settings.danger.confirmYes': 'Kyllä, aseta jonoon poistettavaksi',
+  'settings.danger.deleteWorkspace.cta': 'Poista työtila',
   'settings.danger.deleteWorkspace.hint':
     'Poistaa kaikki työnkulut, ajot ja yhteydet 14 päivän lisäajan jälkeen.',
   'settings.danger.deleteWorkspace.title': 'Poista työtila',
@@ -178,10 +218,15 @@ export const ui: UiTranslations = {
     'Hallinnoi tiliäsi, työtilaa, integraatioita ja laskutusta yhdessä paikassa.',
   'settings.notifications.description':
     'Valitse, mitkä tapahtumat lähettävät ilmoituksen, sähköpostin tai pysyvät hiljaa.',
+  'settings.notifications.failures.hint':
+    'Sähköposti- ja sovelluksen sisäinen ilmoitus jokaisesta epäonnistuneesta ajosta.',
+  'settings.notifications.failures.title': 'Työnkulun virheet',
   'settings.notifications.product.hint':
     'Satunnaiset sähköpostit uusista malleista ja ominaisuuksista.',
+  'settings.notifications.product.title': 'Tuotepäivitykset',
   'settings.notifications.weekly.hint':
     'Maanantaiaamun yhteenveto edellisen viikon ajoista ja säästöistä.',
+  'settings.notifications.weekly.title': 'Viikoittainen kooste',
   'settings.profile.description':
     'Miten näyt työnkulun suorittimessa. Käytetään työtilan toiminnassa.',
   'settings.profile.noEmail': 'Ei rekisteröityä sähköpostia',
@@ -189,12 +234,24 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Profiilimuutosten tallentaminen epäonnistui.',
   'settings.profile.unnamedUser': 'Nimetön käyttäjä',
   'settings.security.audit.hint': 'Lähetä kaikki toiminnot SIEM-järjestelmään webhookin kautta.',
+  'settings.security.audit.title': 'Tarkastuslokin välitys',
   'settings.security.description': 'Kaksivaiheinen todennus, SSO ja aktiiviset istunnot.',
   'settings.security.sso.hint': 'Saatavilla Scale- ja Enterprise-tilauksissa.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'Vaaditaan kaikkiin työtilan omistajan toimiin.',
+  'settings.security.totp.title': 'Kaksivaiheinen tunnistautuminen (TOTP)',
   'settings.twoFactorCode': 'Todentamiskoodi',
   'settings.twoFactorDisable': 'Poista käytöstä',
+  'settings.twoFactorDisableTitle': 'Poista kaksivaiheinen tunnistautuminen käytöstä',
   'settings.twoFactorEnable': 'Ota käyttöön',
+  'settings.twoFactorEnableTitle': 'Ota kaksivaiheinen tunnistautuminen käyttöön',
   'settings.twoFactorInvalidCode': 'Virheellinen koodi',
+  'settings.twoFactorOn': 'Päivämäärä',
+  'settings.twoFactorQrAlt': 'Kaksivaiheisen QR-koodi',
+  'settings.twoFactorScan':
+    'Skannaa tämä QR-koodi tunnistautumissovelluksellasi ja syötä sitten 6-numeroinen koodi.',
+  'settings.twoFactorUnavailable':
+    'Kaksivaiheinen todennus ei ole käytettävissä tälle sovellukselle.',
   'settings.twoFactorVerify': 'Tarkista ja ota käyttöön',
   'settings.workspace.description': 'Tiimin yhteinen identiteetti, alue ja ajojen oletusasetukset.',
   'settings.workspace.maxRuns': 'Samanaikaisten ajojen raja',
@@ -222,6 +279,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Malli',
   'templates.description':
     'Valmiit mallit yleisimmille automaatioille. Haaroita, mukauta, toimita.',
+  'templates.empty.filter': 'Yksikään malli ei vastaa hakuasi.',
   'templates.empty.first': 'Ei malleja saatavilla tällä hetkellä.',
   'templates.error': 'Mallien lataaminen epäonnistui.',
   'templates.installs': 'asennusta',
@@ -247,6 +305,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Poista käytöstä',
   'workflowBuilder.enable': 'Ota käyttöön',
   'workflowBuilder.error': 'Työnkulkua ei voitu ladata.',
+  'workflowBuilder.inspector.config': 'Määritykset',
+  'workflowBuilder.inspector.cron': 'Cron-lauseke',
+  'workflowBuilder.inspector.disabled': 'Poistettu käytöstä — ei suoriteta automaattisesti.',
   'workflowBuilder.inspector.enabled': 'Käytössä — ajaa laukaisijalla.',
   'workflowBuilder.inspector.eyebrow': 'Tarkastelija',
   'workflowBuilder.inspector.id': 'Tunnus',
@@ -264,18 +325,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Tilan vaihto epäonnistui.',
   'workflowBuilder.workflow': 'Työnkulku · v{{v}}',
   'workflowBuilder.zoom.in': 'Lähennä',
+  'workflowBuilder.zoom.label': 'Piirtoalueen zoomauspainikkeet',
+  'workflowBuilder.zoom.out': 'Loitonna',
   'workflowCard.lastRun': 'Viimeksi ajettu {{when}}',
   'workflowCard.runs': '{{count}} ajoa',
+  'workflowCard.success': '{{rate}} % onnistui',
   'workflowHeroCard.last24h': 'Viimeiset 24 t',
+  'workflows.browseTemplates': 'Selaa malleja →',
   'workflows.description':
     'Kaikki työtilasi automaatiot, kunto ja viimeaikainen toiminta yhdellä silmäyksellä.',
+  'workflows.empty.body': 'Kokeile tyhjentää suodatin tai aloita mallista.',
   'workflows.empty.firstBody': 'Asenna malli päästäksesi alkuun sekunneissa.',
   'workflows.empty.firstTitle': 'Ei vielä työnkulkuja',
   'workflows.empty.title': 'Ei vastaavia työnkulkuja',
   'workflows.error': 'Työnkulkuja ei voitu ladata.',
   'workflows.eyebrow': 'Kirjasto · {{count}} yhteensä',
+  'workflows.loading': 'Ladataan työnkulkuja…',
   'workflows.newFromTemplate': 'Uusi mallista',
   'workflows.searchPlaceholder': 'Hae työnkulkuja…',
+  'workflows.title': 'Työnkulut',
   'workflowSidebar.brand': 'Dendrite',
   'workflowSidebar.status': 'Kaikki järjestelmät toimivat',
   'workflowSidebar.tagline': 'Älykkyys liikkeessä',

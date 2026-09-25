@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ಪ್ರಶ್ನೆಗಳು, ಪ್ರತಿಕ್ರಿಯೆ, ಅಥವಾ ನಿಮ್ಮ ತಂಡಕ್ಕಾಗಿ ಡೆಮೊ ಬೇಕೇ? hello@conduit.dev ಗೆ ಇಮೇಲ್ ಮಾಡಿ — ಪ್ರತಿ ಸಂದೇಶವೂ ತಂಡದ ನಿಜವಾದ ವ್ಯಕ್ತಿಯನ್ನು ತಲುಪುತ್ತದೆ.',
   'about.contactHeading': 'ಸಂಪರ್ಕದಲ್ಲಿರಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.featuresHeading': 'ನೀವು ಏನು ಪಡೆಯುತ್ತೀರಿ',
+  'about.introBody':
+    '{{app}} GitHub Actions-ಶೈಲಿಯ ನಿರಂತರ ವಿತರಣೆಯನ್ನು ಒಂದೇ ವೇಗದ ಡ್ಯಾಶ್ಬೋರ್ಡ್ಗೆ ತರುತ್ತದೆ: ಪೈಪ್ಲೈನ್ಗಳು, ಬಿಲ್ಡ್ ಲಾಗ್ಗಳು, ಆರ್ಟಿಫ್ಯಾಕ್ಟ್ಗಳು, ಸ್ಥಿತಿ ಬ್ಯಾಡ್ಜ್ಗಳು ಮತ್ತು ನಿಮ್ಮ ಎಲ್ಲಾ ರೆಪೊಸಿಟರಿಗಳಿಗೆ ಡಿಪ್ಲಾಯ್ಮೆಂಟ್ ಪರಿಸರಗಳು ಒಂದೇ ಸ್ಥಳದಲ್ಲಿ. ಟ್ಯಾಬ್-ಹಾಪಿಂಗ್ ಇಲ್ಲ, ಯಾವ ಬಿಲ್ಡ್ ಮುರಿಯಿತು ಎಂಬ ಊಹೆ ಇಲ್ಲ — ಪ್ರತಿ ರನ್, ಲಾಗ್ ಸಾಲು ಮತ್ತು ಡಿಪ್ಲಾಯ್ ಒಂದೇ ಕ್ಲಿಕ್ನಲ್ಲಿ.',
+  'about.introHeading': '{{app}} ಎಂದರೇನು',
+  'about.missionBody':
+    'ಸಾಫ್ಟ್ವೇರ್ ಬಿಡುಗಡೆ ಮಾಡುವುದು ಭಯದ ಮೂಲವಾಗಿರದೆ ಶಾಂತ ಮತ್ತು ಊಹಿಸಬಹುದಾದದ್ದಾಗಿರಬೇಕು. ಕಮಿಟ್ನಿಂದ ಉತ್ಪಾದನೆಯವರೆಗಿನ ದಾರಿ ವೇಗವಾಗಿ, ಸ್ಪಷ್ಟವಾಗಿ ಮತ್ತು ವಿಶ್ವಾಸಾರ್ಹವಾಗಿರಲು ನಾವು ಪೈಪ್ಲೈನ್ಗಳು, ಲಾಗ್ಗಳು ಮತ್ತು ಡಿಪ್ಲಾಯ್ ಟೂಲಿಂಗ್ ಅನ್ನು ನಿರ್ಮಿಸುತ್ತೇವೆ — ಐದು ನಿಮಿಷಗಳಲ್ಲಿ ಮೊದಲ ಹಸಿರು ಬಿಲ್ಡ್, ಮತ್ತು ಅದರ ನಂತರದ ಪ್ರತಿ ಬಿಲ್ಡ್ ಕೂಡ ಅಷ್ಟೇ ಸ್ಪಷ್ಟ.',
+  'about.missionHeading': 'ನಮ್ಮ ಧ್ಯೇಯ',
+  'about.subtitle':
+    '{{app}} ಪ್ರತಿ ರೆಪೊಸಿಟರಿಯಾದ್ಯಂತ ಬಿಲ್ಡ್ಗಳು, ಡಿಪ್ಲಾಯ್ಮೆಂಟ್ಗಳು ಮತ್ತು ಪರಿಸರಗಳನ್ನು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡಲು ಬಯಸುವ ತಂಡಗಳಿಗಾಗಿ ಒಂದು CI/CD ಡ್ಯಾಶ್ಬೋರ್ಡ್ — ಮತ್ತು ಖಚಿತತೆಯಿಂದ ಬಿಡುಗಡೆ ಮಾಡಿ.',
   'artifacts.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಕಲಾಕೃತಿಗಳು ಇಲ್ಲ.',
   'artifacts.heading': 'ಕಲಾಕೃತಿಗಳು',
   'artifacts.loadError': 'ಕಲಾಕೃತಿಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ ವಾಹಕ env --ಪಟ್ಟಿ',
   'environments.heading': 'ಪರಿಸರಗಳು',
   'environments.loadError': 'ಪರಿಸರಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
+  'environments.loading': 'ಪರಿಸರಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'environments.subheading': 'ಪ್ರತಿಯೊಂದು ಗುರಿಯಾದ್ಯಂತ ಲೈವ್ ನಿಯೋಜನೆ ಸ್ಥಿತಿ.',
   'forgotPassword.runnerStatus': 'ಮರುಹೊಂದಿಸಿ · ಸುರಕ್ಷಿತ ಸುರಂಗ',
+  'forgotPassword.success':
+    'ಆ ಇಮೇಲ್‌ಗಾಗಿ ಖಾತೆ ಅಸ್ತಿತ್ವದಲ್ಲಿದ್ದರೆ, ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಬರುತ್ತಿದೆ. ನಿಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್ ಪರಿಶೀಲಿಸಿ.',
   'insights.changeFailureRate': 'ವೈಫಲ್ಯ ದರವನ್ನು ಬದಲಾಯಿಸಿ',
   'insights.deployFrequency': 'ನಿಯೋಜನೆಗಳು / ದಿನ',
   'insights.empty': 'ಇನ್ನೂ ಸಾಕಷ್ಟು ಡೇಟಾ ಇಲ್ಲ.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'ಒಳನೋಟಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'insights.meanP95': 'ಸರಾಸರಿ {{mean}} · ಪಿ95 {{p95}}',
   'insights.mttr': 'ಎಂಟಿಟಿಆರ್',
+  'insights.slowestStepsHeading': 'ನಿಧಾನವಾದ ಪೈಪ್ಲೈನ್ ಹಂತಗಳು',
   'insights.successRateHeading': 'ಪೈಪ್‌ಲೈನ್ ಯಶಸ್ಸಿನ ಪ್ರಮಾಣ (ಕಳೆದ 14 ದಿನಗಳು)',
   'landing.choosePlan': 'ಯೋಜನೆಯನ್ನು ಆರಿಸಿ',
+  'landing.copyright': '© {{year}} {{app}}. ಖಚಿತತೆಯಿಂದ ಬಿಡುಗಡೆ ಮಾಡಿ.',
   'landing.ctaBody':
     'ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್ ಇಲ್ಲ. ಪ್ಲಾಟ್‌ಫಾರ್ಮ್ ಎಂಜಿನಿಯರ್ ಅಗತ್ಯವಿಲ್ಲ. ಐದು ನಿಮಿಷಗಳಲ್ಲಿ ಮೊದಲ ಪೈಪ್‌ಲೈನ್‌ಗೆ ಹಸಿರು ಬಣ್ಣ ಬಳಿಯಿರಿ.',
   'landing.ctaHeading': 'ಖಚಿತತೆಯಿಂದ ಸಾಗಿಸಿ.',
   'landing.featuresEyebrow': '// ವೇದಿಕೆಯ ವೈಶಿಷ್ಟ್ಯಗಳು',
   'landing.featuresHeading': 'ಸಾಗಣೆದಾರರಿಗಾಗಿ, ಸಾಗಣೆದಾರರಿಂದ ನಿರ್ಮಿಸಲಾಗಿದೆ',
+  'landing.heroSubtitle':
+    'ಸೆಕೆಂಡುಗಳಲ್ಲಿ ಮುಗಿಯುವ ಪೈಪ್ಲೈನ್ಗಳು. ಓದಬಹುದಾದ ಲಾಗ್ಗಳು. ನಂಬಬಹುದಾದ ಡಿಪ್ಲಾಯ್ಗಳು.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit ನಿಯೋಜನೆ --ಸುರಕ್ಷಿತವಾಗಿ',
   'landing.pricingEyebrow': '// $ ಬೆಲೆ ನಿಗದಿ --ಸರಳ',
   'landing.pricingHeading': 'ಸರಳ, ಊಹಿಸಬಹುದಾದ ಬೆಲೆ ನಿಗದಿ',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'ಈಗ ಹಾರುತ್ತಿದ್ದೇನೆ',
   'pipelines.metric.successCaption': '{{count}} ನ {{total}} ಓಡುತ್ತದೆ',
   'pipelines.metric.successRate': 'ಯಶಸ್ಸಿನ ಪ್ರಮಾಣ',
+  'pipelines.realtimeOn': 'ನೈಜ ಸಮಯ',
   'pipelines.subheading': 'ವೀಕ್ಷಿಸಿದ ಪ್ರತಿಯೊಂದು ರೆಪೊಸಿಟರಿಯಿಂದ ಲೈವ್ ನವೀಕರಣಗಳು.',
+  'pricing.advancedFeatures': 'ಸುಧಾರಿತ ವೈಶಿಷ್ಟ್ಯಗಳು: {{mark}}',
+  'pricing.canExport': 'ಡೇಟಾ ರಫ್ತು: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} ಆರ್ಟಿಫ್ಯಾಕ್ಟ್ಗಳು',
+  'pricing.maxBuilds': '{{count}} ಬಿಲ್ಡ್ಗಳು',
+  'pricing.maxPipelines': '{{count}} ಪೈಪ್ಲೈನ್ಗಳು',
   'privacy.dataAccount': 'ಖಾತೆ: ಹೆಸರು, ಇಮೇಲ್, ಹ್ಯಾಶ್ ಮಾಡಿದ ಪಾಸ್‌ವರ್ಡ್, ಯೋಜನಾ ಶ್ರೇಣಿ.',
   'privacy.intro':
     '{{ಅಪ್ಲಿಕೇಶನ್}} ನಿಮ್ಮ ನಿರಂತರ-ವಿತರಣಾ ಖಾತೆಯನ್ನು ನಿರ್ವಹಿಸಲು ನಮಗೆ ಅಗತ್ಯವಿರುವ ಕನಿಷ್ಠ ಡೇಟಾವನ್ನು ಮಾತ್ರ ಸಂಗ್ರಹಿಸುತ್ತದೆ: ನಿಮ್ಮ ಇಮೇಲ್, ನೀವು ಸಂಪರ್ಕಿಸುವ ರೆಪೊಸಿಟರಿಗಳು, ನಿಮ್ಮ ರನ್ನರ್‌ಗಳು ಉತ್ಪಾದಿಸುವ ಕಮಿಟ್‌ಗಳು ಮತ್ತು ಬಿಲ್ಡ್ ಮೆಟಾಡೇಟಾ ಮತ್ತು ನೀವು ನಮ್ಮೊಂದಿಗೆ ಸಂಗ್ರಹಿಸಲು ಆಯ್ಕೆ ಮಾಡಿದ ರಹಸ್ಯಗಳು. ಬಿಲ್ಡ್ ರನ್ನರ್‌ನ ಹೊರಗೆ ನಾವು ನಿಮ್ಮ ಮೂಲ ಕೋಡ್ ಅನ್ನು ಎಂದಿಗೂ ಓದುವುದಿಲ್ಲ; ಕಾನ್ಫಿಗರ್ ಮಾಡಿದಾಗ ಬಿಲ್ಡ್ ಆರ್ಟಿಫ್ಯಾಕ್ಟ್‌ಗಳನ್ನು ನಿಮ್ಮ S3 ಬಕೆಟ್‌ನಲ್ಲಿ ಸಂಗ್ರಹಿಸಲಾಗುತ್ತದೆ.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'ನಾವು ಬಿಲ್ಲಿಂಗ್‌ಗಾಗಿ ಸ್ಟ್ರೈಪ್, ವಹಿವಾಟಿನ ಇಮೇಲ್‌ಗಾಗಿ ಮೇಲ್‌ಗನ್ ಮತ್ತು ಬಿಲ್ಡ್ ಆರ್ಟಿಫ್ಯಾಕ್ಟ್ ಸಂಗ್ರಹಣೆಗಾಗಿ AWS S3 ಅನ್ನು ಬಳಸುತ್ತೇವೆ. ಪ್ರತಿಯೊಂದೂ ತನ್ನ ಸೇವೆಯನ್ನು ನೀಡಲು ಅಗತ್ಯವಿರುವ ಕನಿಷ್ಠ ಡೇಟಾ ವ್ಯಾಪ್ತಿಗೆ ಒಪ್ಪಂದದ ಪ್ರಕಾರ ಬದ್ಧವಾಗಿದೆ.',
   'privacy.rightsBody':
     'ನಿಮ್ಮ ಡೇಟಾದ ಪ್ರತಿ ಬೈಟ್ ಅನ್ನು ನೀವು ರಫ್ತು ಮಾಡಬಹುದು, ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಂದ ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಅಳಿಸಬಹುದು ಮತ್ತು ನಿಮ್ಮ ಖಾತೆಯಲ್ಲಿನ ಪ್ರತಿಯೊಂದು ವೆಬ್‌ಹುಕ್ ವಿತರಣೆಯ ದಾಖಲೆಯನ್ನು ವಿನಂತಿಸಬಹುದು. ನಾವು 30 ದಿನಗಳಲ್ಲಿ GDPR / CCPA ವಿನಂತಿಗಳಿಗೆ ಪ್ರತಿಕ್ರಿಯಿಸುತ್ತೇವೆ.',
+  'privacy.subtitle':
+    'ನಾವು ನಿಮ್ಮ ಪೈಪ್ಲೈನ್ಗಳನ್ನು ಚಲಾಯಿಸುವಾಗ {{app}} ನಿಮ್ಮ ಡೇಟಾವನ್ನು ಹೇಗೆ ಸಂಗ್ರಹಿಸುತ್ತದೆ, ಸಂಗ್ರಹಿಸಿಡುತ್ತದೆ ಮತ್ತು ರಕ್ಷಿಸುತ್ತದೆ.',
   'privacy.title': 'ಗೌಪ್ಯತಾ ನೀತಿ',
   'repositories.empty': 'ಯಾವುದೇ ರೆಪೊಸಿಟರಿಗಳನ್ನು ಸಂಪರ್ಕಿಸಲಾಗಿಲ್ಲ.',
   'repositories.heading': 'ಸಂಗ್ರಹಾಲಯಗಳು',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'ಎಲ್ಲಾ ರೆಪೊಸಿಟರಿಗಳು',
   'repositoryDetail.configHeading': '.ಕಾಂಡ್ಯೂಟ್.ವೈಎಂಎಲ್',
   'repositoryDetail.loadError': 'ರೆಪೊಸಿಟರಿಯನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
+  'repositoryDetail.meanDuration': 'ಸರಾಸರಿ ಅವಧಿ',
   'repositoryDetail.notFound': 'ಸಂಗ್ರಹಾಲಯ ಕಂಡುಬಂದಿಲ್ಲ.',
+  'repositoryDetail.successRate': 'ಯಶಸ್ಸಿನ ಪ್ರಮಾಣ',
   'repositoryDetail.totalBuilds': 'ಒಟ್ಟು ನಿರ್ಮಾಣಗಳು',
   'repositoryDetail.webhookActive': 'ಸಕ್ರಿಯ',
   'repositoryDetail.webhookPaused': 'ವಿರಾಮಗೊಳಿಸಲಾಗಿದೆ',
   'repositoryDetail.webhooksHeading': 'ವೆಬ್‌ಹುಕ್‌ಗಳು',
+  'resetPassword.passwordLabel': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'resetPassword.runnerStatus': 'ಮರುಹೊಂದಿಸಿ · ಟೋಕನ್ ಪರಿಶೀಲಿಸಲಾಗಿದೆ',
   'resetPassword.subtitle': 'ನೀವು ಮೊದಲು ಬಳಸದ ಬಲವಾದ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಆರಿಸಿ.',
   'resetPassword.tokenPlaceholder': 'ಇಮೇಲ್‌ನಿಂದ ಅಂಟಿಸಿ',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'ರೆಪೊಸಿಟರಿಗಳು ಕಂಡ್ಯೂಟ್ ಕೈಗಡಿಯಾರಗಳು. ಈವೆಂಟ್‌ಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳುವುದನ್ನು ನಿಲ್ಲಿಸಲು ನಿಮ್ಮ VCS ಪೂರೈಕೆದಾರರಿಂದ ಸಂಪರ್ಕ ಕಡಿತಗೊಳಿಸಿ.',
   'settings.repositories.empty': 'ಯಾವುದೇ ರೆಪೊಸಿಟರಿಗಳು ಇನ್ನೂ ಸಂಪರ್ಕಗೊಂಡಿಲ್ಲ.',
+  'settings.repositories.heading': 'ರೆಪೊಸಿಟರಿ ಸಂಪರ್ಕಗಳು',
   'settings.repositories.loadError': 'ರೆಪೊಸಿಟರಿಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'settings.secrets.addCta': 'ರಹಸ್ಯವನ್ನು ಸೇರಿಸಿ',
   'settings.secrets.addError': 'ರಹಸ್ಯವನ್ನು ಸೇರಿಸಲು ವಿಫಲವಾಗಿದೆ.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'ರಹಸ್ಯವನ್ನು ಅಳಿಸಲು ವಿಫಲವಾಗಿದೆ.',
   'settings.secrets.empty': 'ಯಾವುದೇ ರಹಸ್ಯಗಳನ್ನು ಸಂಗ್ರಹಿಸಲಾಗಿಲ್ಲ.',
   'settings.secrets.heading': 'ರಹಸ್ಯಗಳು',
+  'settings.secrets.lastUsed': 'ಕೊನೆಯದಾಗಿ ಬಳಸಿದ್ದು {{date}}',
   'settings.secrets.loadError': 'ರಹಸ್ಯಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'settings.secrets.neverUsed': 'ಎಂದಿಗೂ ಬಳಸಿಲ್ಲ',
   'settings.secrets.rotateCta': 'ತಿರುಗಿಸಿ',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'ವೆಬ್‌ಹುಕ್ ಅನ್ನು ನವೀಕರಿಸಲು ವಿಫಲವಾಗಿದೆ.',
   'signup.namePlaceholder': 'ರಿಲೇ ಪಾರ್ಕ್',
   'signup.runnerStatus': 'ಉಚಿತ ಶ್ರೇಣಿ · 1,000 ನಿರ್ಮಾಣ ನಿಮಿಷ/ತಿಂಗಳು',
+  'terms.intro':
+    '{{app}} ಖಾತೆಯನ್ನು ರಚಿಸುವ ಮೂಲಕ ನೀವು ಈ ನಿಯಮಗಳಿಗೆ ಒಪ್ಪುತ್ತೀರಿ. ಅವು ಬಿಲ್ಡ್ ರನ್ನರ್ಗಳ ಸ್ವೀಕಾರಾರ್ಹ ಬಳಕೆ, ನಮ್ಮ SLA ಯ ಮಿತಿಗಳು ಮತ್ತು ದುರುಪಯೋಗದ ವರ್ಕ್ಲೋಡ್ಗಳಿಗಾಗಿ ನಿಮ್ಮ ಖಾತೆಯನ್ನು ನಾವು ಅಮಾನತುಗೊಳಿಸಬಹುದಾದ ಅಥವಾ ಮುಕ್ತಾಯಗೊಳಿಸಬಹುದಾದ ಷರತ್ತುಗಳನ್ನು ಒಳಗೊಳ್ಳುತ್ತವೆ.',
   'terms.slaBody':
     'ಪ್ರೊ ಮತ್ತು ತಂಡದ ಯೋಜನೆಗಳು API ಮತ್ತು ರನ್ನರ್ ಪೂಲ್‌ಗಾಗಿ 99.95% ಮಾಸಿಕ ಅಪ್‌ಟೈಮ್ ಅನ್ನು ಗುರಿಯಾಗಿರಿಸಿಕೊಳ್ಳುತ್ತವೆ. ಉಚಿತ ಯೋಜನೆಯನ್ನು ಹಾಗೆಯೇ ಒದಗಿಸಲಾಗಿದೆ. ಸ್ಥಗಿತಗಳನ್ನು status.conduit.dev ನಲ್ಲಿ ವರದಿ ಮಾಡಲಾಗುತ್ತದೆ ಮತ್ತು ನಿಮ್ಮ ಇನ್‌ವಾಯ್ಸ್‌ನಲ್ಲಿರುವ ಸೂತ್ರದ ಪ್ರಕಾರ ಕ್ರೆಡಿಟ್ ಮಾಡಲಾಗುತ್ತದೆ.',
   'terms.terminationBody':

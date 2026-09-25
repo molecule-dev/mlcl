@@ -5,7 +5,13 @@ export const ui: UiTranslations = {
     'கருத்து, புதிய அம்சக் கோரிக்கை உள்ளதா அல்லது பிழையைக் கண்டறிந்தீர்களா? உங்கள் கணக்கு மெனுவில் உள்ள ஆதரவு இணைப்பு வழியாக {{app}} குழுவைத் தொடர்பு கொள்ளுங்கள் — ஒவ்வொரு செய்தியும் ஒரு உண்மையான மனிதரைச் சென்றடையும்.',
   'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.intro':
+    '{{app}} என்பது குரல்-இயல்பான AI உதவியாளர். இயற்கையாகப் பேசுங்கள், உங்கள் வார்த்தைகள் உரையாக மாறுவதைப் பாருங்கள், பேசப்பட்ட பதில்களைத் திரும்பப் பெறுங்கள் — எனவே எல்லாவற்றையும் தட்டச்சு செய்வதற்குப் பதிலாக சத்தமாகச் சிந்திக்கலாம்.',
+  'about.missionBody':
+    'உங்கள் கருத்துகளுக்கும் அவற்றை வெளியிடுவதற்கும் இடையே தட்டச்சு ஒரு தடையாக உள்ளது. அதை நீக்கவே {{app}} உள்ளது: கருத்துத் திரட்ட, வரைவு தயாரிக்க, முடிவெடுக்க — கைகள் தேவையில்லாத, உரையாடல் வழி — சிறந்த பேச்சு மற்றும் பகுத்தறிவு மாதிரிகளால் இயக்கப்படுகிறது, உங்கள் தரவு தனியுரிமையுடன் பாதுகாக்கப்படுகிறது.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'agentDetail.back': 'அனைத்து முகவர்களும்',
+  'agentDetail.behavior': 'நடத்தை',
   'agentDetail.capabilities': 'திறன்கள்',
   'agentDetail.delete': 'ஆளுமையை நீக்கு',
   'agentDetail.deleteConfirm':
@@ -41,14 +47,20 @@ export const ui: UiTranslations = {
   'agents.subtitle':
     'ஒவ்வொரு முகவருக்கும் அதற்கே உரிய தொனி, வேகம் மற்றும் சிறப்பு அம்சம் உண்டு. உரையாடலின் நடுவில் எப்போது வேண்டுமானாலும் மாறலாம்.',
   'agents.title': 'சிந்திப்பதற்கு ஏற்ற ஒரு குரலைத் தேர்ந்தெடுங்கள்.',
+  'authShell.tagline': '{{tagline}} — {{brand}}',
+  'billing.cardNoneBody':
+    'நீங்கள் மேம்படுத்தும்போது ஒன்றைச் சேர்க்கவும் — சேமிப்பை Stripe கையாள்கிறது.',
   'billing.cardNoneTitle': 'கோப்பில் அட்டை இல்லை',
   'billing.choose': 'சுவிட்ச்',
   'billing.currentPlan': 'உங்கள் திட்டம்',
+  'billing.currentPlanReadout': '{{plan}} திட்டம்',
   'billing.eyebrow': 'திட்டம் மற்றும் பயன்பாடு',
   'billing.fetchError': 'கட்டணத் தகவலை ஏற்ற முடியவில்லை.',
+  'billing.loadingStatus': 'நிலை ஏற்றப்படுகிறது…',
   'billing.noTiers': 'தற்போது எந்தத் திட்டங்களும் கிடைக்கவில்லை.',
   'billing.plansTitle': 'திட்டங்கள்',
   'billing.switching': 'மாறுதல்…',
+  'billing.updateAcknowledged': '{{time}} இல் புதுப்பிப்பு ஏற்கப்பட்டது',
   'billing.updateError': 'புதுப்பித்தலைத் தொடங்க முடியவில்லை.',
   'billing.usageHeading': 'இந்த சுழற்சியில் குரல் பயன்பாடு',
   'chatBubble.source.text': 'உரை',
@@ -68,11 +80,13 @@ export const ui: UiTranslations = {
   'conversation.title': 'பேசித் தீர்க்கவும்',
   'conversation.toggleMic': 'மைக்ரோஃபோனை நிலைமாற்று',
   'conversation.toggleVoicePlayback': 'குரல் பின்னணி',
+  'conversation.transcribeError': 'ஆடியோவை எழுத்தாக்க முடியவில்லை.',
   'conversation.transcriptionEmpty': 'எங்களுக்கு எதுவும் கேட்கவில்லை. மீண்டும் முயற்சிக்கவும்?',
   'conversation.voiceOff': 'குரல் அணைக்கப்பட்டது',
   'conversation.voiceOn': 'குரல் ஆன்',
   'conversationDetail.assistant': 'உதவியாளர்',
   'conversationDetail.back': 'வரலாற்றுக்குத் திரும்பு',
+  'conversationDetail.elapsed': '00:00 / {{duration}}',
   'conversationDetail.empty': 'இந்த உரையாடலில் இன்னும் செய்திகள் எதுவும் இல்லை.',
   'conversationDetail.eyebrow': 'படியெடுத்தல்',
   'conversationDetail.fetchError': 'படியை ஏற்ற முடியவில்லை.',
@@ -80,8 +94,10 @@ export const ui: UiTranslations = {
   'conversationDetail.meta': '{{duration}} · {{count}} திருப்பங்கள்',
   'conversationDetail.pause': 'இயக்கத்தை இடைநிறுத்து',
   'conversationDetail.play': 'பிளே பிளேபேக்',
+  'conversationDetail.setSpeed': 'இயக்க வேகத்தை {{speed}} ஆக அமைக்கவும்',
   'conversationDetail.system': 'அமைப்பு',
   'conversationDetail.untitled': 'தலைப்பிடப்படாத உரையாடல்',
+  'conversationListItem.messageCount': '{{count}} செய்தி',
   'forgotPassword.subheading':
     'உங்கள் மின்னஞ்சலை உள்ளிடவும், நாங்கள் உங்களுக்கு மீட்டமைப்பு இணைப்பை அனுப்புவோம்.',
   'forgotPassword.successBody':
@@ -99,6 +115,8 @@ export const ui: UiTranslations = {
   'history.voiceOnly': 'குரல் மட்டும்',
   'landing.copyright': '© {{year}} {{brand}} சத்தமாக யோசியுங்கள்.',
   'landing.demoMessage1': 'ஹாய் சாரா — புதிய பிரச்சாரம் குறித்து ஆலோசிக்கத் தயாரா?',
+  'landing.demoMessage2': 'ஆம் — Q3 க்கான இயற்கை வளர்ச்சி உத்திகளில் கவனம் செலுத்துவோம்.',
+  'landing.demoMessage3': 'அருமை. சமூகம் வழிநடத்தும் முயற்சியில் தொடங்குவேன். நிலைகளை வரையறுக்கவா?',
   'landing.eyebrow': 'குரல்வழி செயற்கை நுண்ணறிவு',
   'landing.featuresSubtitle':
     'இயல்பான உரையாடலுக்காக உருவாக்கப்பட்டது — உங்கள் வேகம், தொனி மற்றும் சூழலுக்கு ஏற்ப தன்னை மாற்றியமைத்துக் கொள்ளும்.',
@@ -128,10 +146,12 @@ export const ui: UiTranslations = {
   'parlanceLayout.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'parlanceLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'pricing.conversations': '{{count}} உரையாடல்கள்',
+  'pricing.cta.start': '{{tierName}} தேர்ந்தெடுக்கவும்',
   'pricing.cta.startFree': 'இலவசமாகத் தொடங்குங்கள்',
   'pricing.cta.upgrade': 'மேம்படுத்த {{tierName}}',
   'pricing.empty': 'தற்போது எந்தத் திட்டங்களும் கிடைக்கவில்லை.',
   'pricing.error': 'விலை விவரங்களை ஏற்ற முடியவில்லை. பின்னர் மீண்டும் முயற்சிக்கவும்.',
+  'pricing.speech': '{{count}} பேச்சு',
   'pricing.subtitle':
     'உங்கள் உதவியாளரிடம் நீங்கள் பேசும் அதிர்வெண்ணுக்குப் பொருத்தமான ஒரு திட்டத்தைத் தேர்ந்தெடுங்கள்.',
   'privacy.collection.account': 'உங்கள் கணக்கு மின்னஞ்சல் மற்றும் காண்பிக்கப்படும் பெயர்',
@@ -140,6 +160,8 @@ export const ui: UiTranslations = {
   'privacy.deletion.body':
     'தொடர்புடைய பக்கத்திலிருந்து நீங்கள் எந்த நேரத்திலும் ஒரு உரையாடல், ஆளுமை அல்லது ஒலித்துண்டை நீக்கலாம். அமைப்புகளிலிருந்து உங்கள் கணக்கை நீக்குவது, உங்கள் பணிச்சூழலுடன் இணைக்கப்பட்ட ஒவ்வொரு உரையாடல், படியெடுத்த உரை மற்றும் ஆளுமை வரிசையையும் முற்றிலுமாக அழித்துவிடும்.',
   'privacy.eyebrow': 'சட்டப்பூர்வமான',
+  'privacy.intro':
+    'நீங்கள் உருவாக்கும் உரையாடல்களையும் குரல் கிளிப்புகளையும் உதவியாளர் அனுபவத்தை வழங்கத் தேவையான காலம் வரை மட்டுமே {{app}} சேமிக்கிறது. உங்கள் தரவை நாங்கள் ஒருபோதும் விற்கமாட்டோம், வாடிக்கையாளர் ஆடியோ அல்லது டிரான்ஸ்கிரிப்ட்களை வெளிப்புற AI மாதிரிகளுக்குப் பயிற்சியளிக்க ஒருபோதும் பயன்படுத்தமாட்டோம்.',
   'privacy.lastUpdated': 'கடைசியாகப் புதுப்பிக்கப்பட்டது: 2026-05-01',
   'privacy.processors.body':
     'நீங்கள் உங்கள் உதவியாளரிடம் பேசும்போது, உங்கள் ஆடியோவை எழுத்துப்பெயர்ப்புக்காக OpenAI Whisper-க்கும், உங்கள் எழுத்துப்பிரதியை பதிலுக்காக Anthropic (Claude)-க்கும், அந்தப் பதிலை குரல் தொகுப்புக்காக ElevenLabs அல்லது OpenAI-க்கும் நாங்கள் அனுப்புகிறோம். ஒவ்வொரு சேவை வழங்குநரும் அதன் சொந்த தரவு செயலாக்க விதிமுறைகளுக்குக் கட்டுப்பட்டவர்கள்; மறுபயிற்சிக்காக எதுவும் தக்கவைக்கப்படுவதில்லை.',
@@ -161,13 +183,19 @@ export const ui: UiTranslations = {
   'resetPassword.newPassword': 'புதிய கடவுச்சொல்',
   'resetPassword.subheading': 'தொடர்ந்து உரையாட, புதிய கடவுச்சொல்லைத் தேர்ந்தெடுக்கவும்.',
   'search.agentPreview': 'விளக்கம் இல்லை',
+  'search.emptyBody': 'வேறு முக்கியச் சொல்லை முயற்சிக்கவும் அல்லது அதைச் சத்தமாகச் சொல்லவும்.',
   'search.emptyTitle': 'போட்டிகள் இல்லை',
   'search.eyebrow': 'கட்டளைத் தட்டு',
   'search.fetchError': 'தேடல் அட்டவணையை ஏற்ற முடியவில்லை.',
+  'search.static.billing.preview': 'திட்டங்கள், கட்டண முறை மற்றும் விலைப்பட்டியல்கள்',
+  'search.static.billing.title': 'பில்லிங்',
   'search.static.profile.preview': 'காட்சிப் பெயர், பயனர்பெயர், சுயவிவரம்',
+  'search.static.profile.title': 'சுயவிவரம்',
+  'search.static.voice.preview': 'இயல்புநிலை குரல் மற்றும் மொழி விருப்பங்கள்',
   'search.static.voice.title': 'குரல்',
   'search.title': 'தேடல் சொற்களம்',
   'search.transcriptPreview': 'திறந்த டிரான்ஸ்கிரிப்ட்',
+  'settings.appearance.description': 'ஒளி மற்றும் இருண்ட பயன்முறைகளுக்கு இடையே மாறவும்.',
   'settings.appearance.title': 'தோற்றம்',
   'settings.loadError': 'அமைப்புகளை ஏற்ற முடியவில்லை.',
   'settings.privacy.${row.key}.label': 'அறிவிப்புகள்',
@@ -184,6 +212,8 @@ export const ui: UiTranslations = {
   'terms.changes.body':
     'இந்த விதிமுறைகளில் குறிப்பிடத்தக்க மாற்றங்கள் ஏற்பட்டால், நாங்கள் செயலியிலேயே உங்களுக்குத் தெரிவிப்போம்; அறிவிப்புக்குப் பிறகும் தொடர்ந்து பயன்படுத்துவது, அந்தப் புதுப்பிப்புகளை நீங்கள் ஏற்றுக்கொள்கிறீர்கள் என்பதைக் குறிக்கும்.',
   'terms.eyebrow': 'சட்டப்பூர்வமான',
+  'terms.intro':
+    'இந்த விதிமுறைகள் {{app}} இன் உங்கள் பயன்பாட்டை நிர்வகிக்கின்றன. கணக்கை உருவாக்குவதன் மூலம் அவற்றை ஏற்கிறீர்கள்.',
   'terms.lastUpdated': 'கடைசியாகப் புதுப்பிக்கப்பட்டது: 2026-05-01',
   'terms.title': 'சேவை விதிமுறைகள்',
   'terms.usage.body':

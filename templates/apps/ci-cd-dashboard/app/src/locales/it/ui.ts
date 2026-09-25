@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Domande, feedback o vuoi una demo per il tuo team? Scrivici a hello@conduit.dev — ogni messaggio arriva a una persona reale del team.',
   'about.contactHeading': 'Si metta in contatto',
   'about.eyebrow': 'Informazioni',
+  'about.featuresHeading': 'Cosa ottiene',
+  'about.introBody':
+    "{{app}} porta la continuous delivery in stile GitHub Actions in un'unica dashboard veloce: pipeline, log di build, artefatti, badge di stato e ambienti di deployment per tutti i tuoi repository in un solo posto. Niente salti tra schede, niente dubbi su quale build si è rotta — ogni esecuzione, riga di log e deploy è a un clic di distanza.",
+  'about.introHeading': "Cos'è {{app}}",
+  'about.missionBody':
+    'Rilasciare software dovrebbe essere calmo e prevedibile, non motivo di angoscia. Costruiamo le pipeline, i log e gli strumenti di deploy perché il percorso dal commit alla produzione sia veloce, visibile e affidabile — la prima build verde in cinque minuti, e ogni build successiva altrettanto chiara.',
+  'about.missionHeading': 'La nostra missione',
+  'about.subtitle':
+    '{{app}} è una dashboard CI/CD per team che vogliono monitorare build, deployment e ambienti su ogni repository — e rilasciare con certezza.',
   'artifacts.empty': 'Nessun artefatto ancora.',
   'artifacts.heading': 'Artefatti',
   'artifacts.loadError': 'Impossibile caricare gli artefatti.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Ambienti',
   'environments.loadError': 'Impossibile caricare gli ambienti.',
+  'environments.loading': 'Caricamento ambienti…',
   'environments.subheading': 'Stato di deploy in tempo reale per ogni destinazione.',
   'forgotPassword.runnerStatus': 'reset · tunnel sicuro',
+  'forgotPassword.success':
+    'Se esiste un account per questa email, il link di reset sta arrivando. Controlli la casella di posta.',
   'insights.changeFailureRate': 'Tasso di fallimento delle modifiche',
   'insights.deployFrequency': 'Deploy / giorno',
   'insights.empty': 'Dati ancora insufficienti.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Impossibile caricare gli insight.',
   'insights.meanP95': 'media {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Passaggi di pipeline più lenti',
   'insights.successRateHeading': 'Tasso di successo pipeline (ultimi 14 giorni)',
   'landing.choosePlan': 'Scelga il piano',
+  'landing.copyright': '© {{year}} {{app}}. Rilascia con certezza.',
   'landing.ctaBody':
     'Senza carta di credito. Senza platform engineer. La prima pipeline verde in cinque minuti.',
   'landing.ctaHeading': 'Distribuisca con certezza.',
   'landing.featuresEyebrow': '// funzionalità della piattaforma',
   'landing.featuresHeading': 'Costruito per chi spedisce, da chi spedisce',
+  'landing.heroSubtitle':
+    'Pipeline che finiscono in secondi. Log che puoi leggere. Deploy di cui ti puoi fidare.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Prezzi semplici e prevedibili',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'In corso ora',
   'pipelines.metric.successCaption': '{{count}} su {{total}} esecuzioni',
   'pipelines.metric.successRate': 'Tasso di successo',
+  'pipelines.realtimeOn': 'tempo reale',
   'pipelines.subheading': 'Aggiornamenti in tempo reale da ogni repository monitorato.',
+  'pricing.advancedFeatures': 'Funzionalità avanzate: {{mark}}',
+  'pricing.canExport': 'Esportazione dati: {{mark}}',
+  'pricing.maxArtifacts': 'Artefatti di {{count}}',
+  'pricing.maxBuilds': 'Build di {{count}}',
+  'pricing.maxPipelines': 'Pipeline di {{count}}',
   'privacy.dataAccount': 'Account: nome, email, password sottoposta a hash, livello del piano.',
   'privacy.intro':
     '{{app}} raccoglie solo i dati minimi necessari per gestire il Suo account di continuous delivery: la Sua email, i repository che collega, i commit e i metadati di build prodotti dai Suoi runner e i secret che sceglie di archiviare con noi. Non leggiamo mai il Suo codice sorgente al di fuori del runner di build; gli artefatti di build sono archiviati nel Suo bucket S3 quando configurato.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     "Usiamo Stripe per la fatturazione, Mailgun per le email transazionali e AWS S3 per l'archiviazione degli artefatti di build. Ciascuno è vincolato contrattualmente all'ambito minimo di dati necessari per fornire il proprio servizio.",
   'privacy.rightsBody':
     'Puoi esportare ogni singolo byte dei tuoi dati, eliminare il tuo account in qualsiasi momento dalle Impostazioni e richiedere un registro di ogni invio di webhook sul tuo account. Rispondiamo alle richieste GDPR/CCPA entro 30 giorni.',
+  'privacy.subtitle':
+    'Come {{app}} raccoglie, archivia e protegge i tuoi dati mentre eseguiamo le tue pipeline.',
   'privacy.title': 'Informativa sulla privacy',
   'repositories.empty': 'Nessun repository collegato.',
   'repositories.heading': 'Repository',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Tutti i repository',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Impossibile caricare il repository.',
+  'repositoryDetail.meanDuration': 'Durata media',
   'repositoryDetail.notFound': 'Repository non trovato.',
+  'repositoryDetail.successRate': 'Tasso di successo',
   'repositoryDetail.totalBuilds': 'Build totali',
   'repositoryDetail.webhookActive': 'attivi',
   'repositoryDetail.webhookPaused': 'pausa',
   'repositoryDetail.webhooksHeading': 'Webhook',
+  'resetPassword.passwordLabel': 'Nuova password',
   'resetPassword.runnerStatus': 'reset · token verificato',
   'resetPassword.subtitle': 'Scelga una password robusta che non ha mai usato prima.',
   'resetPassword.tokenPlaceholder': "incolli dall'email",
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     "Repository monitorati da Conduit. Disconnetta dal Suo provider VCS per interrompere l'ingestione degli eventi.",
   'settings.repositories.empty': 'Nessun repository ancora collegato.',
+  'settings.repositories.heading': 'Connessioni ai repository',
   'settings.repositories.loadError': 'Impossibile caricare i repository.',
   'settings.secrets.addCta': 'Aggiungi secret',
   'settings.secrets.addError': 'Impossibile aggiungere il segreto.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Impossibile eliminare il segreto.',
   'settings.secrets.empty': 'Nessun secret archiviato.',
   'settings.secrets.heading': 'Secret',
+  'settings.secrets.lastUsed': 'ultimo utilizzo {{date}}',
   'settings.secrets.loadError': 'Impossibile caricare i secret.',
   'settings.secrets.neverUsed': 'mai usato',
   'settings.secrets.rotateCta': 'Ruota',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Impossibile aggiornare il webhook.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'piano gratuito · 1.000 min build/mese',
+  'terms.intro':
+    "Creando un account {{app}} accetti questi termini. Coprono l'uso accettabile dei runner di build, i limiti del nostro SLA e le condizioni in base alle quali possiamo sospendere o chiudere il tuo account per carichi di lavoro abusivi.",
   'terms.slaBody':
     "I piani Pro e Team mirano al 99,95% di uptime mensile per l'API e il pool di runner. Il piano Free è fornito così com'è. I disservizi sono segnalati su status.conduit.dev e accreditati secondo la formula nella Sua fattura.",
   'terms.terminationBody':

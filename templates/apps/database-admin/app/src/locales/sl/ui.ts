@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'O nas',
+  'about.featureConnections':
+    'Upravitelj povezav, ki varno shranjuje vaše podatkovne baze in jim dodeli barvne oznake — poverilnice so šifrirane v mirovanju, nikoli v čistem besedilu.',
+  'about.featureMonitoring':
+    'Sprotno spremljanje zmogljivosti poizvedb in dejavnosti podatkovne baze, s tipkovnimi bližnjicami in paleto ukazov za upravljanje brez rok.',
+  'about.featurePlans':
+    'Načrti, ki rastejo z vami — brezplačno za samostojno delo, Pro in Team za več povezav, daljše hranjenje poizvedb, izvoze in napredne funkcije.',
+  'about.featureQueryEditor':
+    'Urejevalnik SQL, ki ga poganja Monaco, z zgodovino poizvedb, shranjenimi poizvedbami in izvozom rezultatov v CSV z enim klikom.',
+  'about.featureSchema':
+    'Raziskovalec sheme in brskalnik tabel za krmarjenje po podatkovnih bazah, tabelah in stolpcih, nato pa brskanje, filtriranje in urejanje vrstic v mestu.',
+  'about.missionTitle': 'Naše poslanstvo',
   'authShell.commands': 'Ukazi',
   'authShell.ssoSupported': 'Podpora za SSO',
   'common.run': 'Teči',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Vprašanja',
   'connections.schema': 'Shema',
   'connections.subtitle': 'Upravljajte povezave z bazami podatkov.',
+  'connections.test': 'Preizkus',
   'databaseAdminLayout.adminRole': 'Vloga skrbnika',
   'databaseAdminLayout.commandPalette': 'Paleta ukazov',
   'databaseAdminLayout.commands': 'ukazi',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Nova povezava',
   'databaseAdminLayout.queries': 'Vprašanja',
   'databaseAdminLayout.ready': 'Pripravljen',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Iskanje ukazov, poizvedb, tabel …',
   'databaseAdminLayout.user': 'Uporabnik',
   'editConnection.confirmDelete': 'Želite to povezavo izbrisati?',
   'editConnection.deleteButton': 'Izbriši povezavo',
+  'editConnection.newPassword': 'Novo geslo (pustite prazno, da obdržite)',
   'editConnection.saved': 'Povezava je shranjena.',
   'editConnection.title': 'Uredi povezavo',
   'forgotPassword.success': 'Če ta račun obstaja, vam bomo kmalu poslali povezavo za ponastavitev.',
@@ -47,6 +62,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Uspehi',
   'monitoring.title': 'Spremljanje',
   'monitoring.totalQueries': 'Skupno poizvedb',
+  'nav.schema': 'Shema',
   'newConnection.database': 'Podatkovna baza',
   'newConnection.engine': 'Motor',
   'newConnection.host': 'Gostitelj',
@@ -82,6 +98,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'S tem odlomkom ni povezana nobena povezava.',
   'savedQuery.notBound': 'Ni vezano',
   'savedQuery.title': 'Shranjeno poizvedbo',
+  'schema.columns': 'Stolpci',
   'schema.foreignKeys': 'Tujke',
   'schema.indexes': 'Kazalniki',
   'schemaExplorer.browseRows': 'Pregled vrstic',
@@ -90,14 +107,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'lahko je ničelna',
   'schemaExplorer.colType': 'tip',
   'schemaExplorer.noColumns': 'Brez stolpcev.',
+  'schemaExplorer.noForeignKeys': 'Ni tujih ključev.',
   'schemaExplorer.noIndexes': 'Ni indeksov.',
   'schemaExplorer.noTables': 'Brez tabel',
   'schemaExplorer.pickATable': 'Izberite tabelo iz stranskega menija.',
   'schemaExplorer.tables': 'Tabele',
   'schemaExplorer.title': 'Raziskovalec shem',
+  'settings.session': 'Seja',
   'settings.subtitle': 'Upravljajte svoj račun in paket.',
   'signup.heading': 'Ustvarite svoj račun na Quarry',
   'signup.tagline': 'Dostop vzpostavite v manj kot minuti.',
   'tableBrowser.noRows': 'Ta tabela še nima nobenih vrstic.',
+  'tableBrowser.subtitle': 'Brskanje po vrsticah iz vaše oddaljene podatkovne baze.',
   'tableBrowser.title': 'Pregledovanje vrstic iz oddaljene zbirke podatkov.',
 }

@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'មានមតិកែលម្អ រកឃើញកំហុស ឬកំពុងរៀបចំគម្រោងដ៏អស្ចារ្យ? ទាក់ទងពួកយើងពីការកំណត់គណនីរបស់អ្នក — រាល់សារទាំងអស់ទៅដល់មនុស្សពិតប្រាកដក្នុងក្រុម។',
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'ការកក់ទាំងអស់ក្នុងប្រអប់សារតែមួយ — ការបញ្ជាក់ជើងហោះហើរ សណ្ឋាគារ និងសកម្មភាពមកដល់ថ្ងៃជាក់លាក់ដែលពួកវាជាកម្មសិទ្ធិ។',
+  'about.featureCollab':
+    'ការសហការពេលវេលាពិត — អញ្ជើញអ្នកធ្វើដំណើររហូតដល់ប្រាំនាក់ក្នុងមួយដំណើរ ដោយរាល់ការផ្លាស់ប្តូរធ្វើសមកាលកម្មផ្ទាល់ និងមតិយោបល់រៀបជាខ្សែក្រោមចំណុចឈប់នីមួយៗ។',
+  'about.featureMapsBudget':
+    'ផែនទី គោលដៅ និងថវិការួម — មើលដំណើរទាំងមូលលើផែនទី ស្វែងរកគោលដៅដែលជ្រើសរើសដោយអ្នកកែសម្រួល និងតាមដានចំណាយ ដើម្បីកុំឱ្យនរណាម្នាក់ចំណាយលើស។',
+  'about.featureTimelines':
+    'កាលវិភាគប្រចាំថ្ងៃ — អូសចំណុចឈប់ដើម្បីរៀបលំដាប់ឡើងវិញ បន្ថែមផ្នែកធ្វើដំណើរ និងមើលកាលវិភាគគណនាឡើងវិញជាឯកសាររស់រវើកតែមួយ។',
+  'about.intro':
+    '{{app}} បំប្លែងថតដែលពេញទៅដោយគម្រោងមិនពេញលេញទៅជាដំណើររួមតែមួយ ដែលក្រុមទាំងមូលរបស់អ្នកអាចអនុវត្តតាមបានពិតប្រាកដ។ បង្កើតកាលវិភាគប្រចាំថ្ងៃ បន្ថែមជើងហោះហើរ និងសណ្ឋាគារ ដាក់ចំណុចឈប់នីមួយៗលើផែនទី និងតាមដានថវិកា — ទាំងអស់ក្នុងកន្លែងស្ងប់ស្ងាត់តែមួយ ជំនួសឱ្យផ្ទាំងរាប់សិប និងការជជែកក្នុងក្រុម។',
+  'about.missionBody':
+    'ការរៀបចំផែនការធ្វើដំណើរគួរតែធ្វើឱ្យអ្នកមានអារម្មណ៍ថាដំណើរកំពុងប្រសើរឡើងហើយ មិនមែនដូចជាកិច្ចការផ្ទះទេ។ {{app}} មានឡើងដើម្បីធ្វើឱ្យដំណើរសហការងាយស្រួល — ដើម្បីឱ្យអ្នកធ្វើដំណើរគ្រប់រូបមកដល់ដោយដឹងផែនការ ហើយចំណុចឈប់នីមួយៗនិទានរឿងដែលគួរចងចាំ។',
+  'about.missionTitle': 'បេសកកម្មរបស់យើង',
   'about.pageTitle': 'អំពី {{app}}',
   'auth.legalConsent': 'តាមរយៈការបន្ត អ្នកយល់ព្រមទៅនឹង',
   'bookings.empty.body': 'បន្ថែមជើងហោះហើរ សណ្ឋាគារ ឬសកម្មភាព ដើម្បីចាប់ផ្តើមប្រអប់សំបុត្រ។',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'សណ្ឋាគារ',
   'bookings.type.other': 'ផ្សេងទៀត',
   'budgetSpendCard.budgetTotal': 'នៃ {{total}} បានគ្រោងទុក',
+  'budgetSpendCard.overBy': '{{amount}} លើសថវិកា',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} ថ្មីៗ',
+  'budgetSpendCard.remaining': '{{amount}} នៅសល់',
   'calendar.eyebrow': 'ឆ្នាំខាងមុខ',
   'calendar.heading': 'ដំណើរកម្សាន្តនីមួយៗនៅលើប្រតិទិនតែមួយ។',
   'calendar.legendHeading': 'ដំណើរកម្សាន្តក្នុងខែនេះ',
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'និង',
   'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'dashboard.budgetHeading': 'ជីពចរថវិកា',
+  'dashboard.empty.body':
+    'រៀបចំផែនការដំណើរដំបូងរបស់អ្នក ហើយផ្ទាំងគ្រប់គ្រងរបស់អ្នកនឹងពេញទៅដោយកាលវិភាគប្រចាំថ្ងៃ ស្ថានភាពថវិកា និងការកក់។',
+  'dashboard.empty.cta': 'រៀបចំផែនការដំណើរដំបូងរបស់អ្នក',
   'dashboard.empty.heading': 'មិនទាន់មានដំណើរកម្សាន្តនៅឡើយទេ — ផែនទីរបស់អ្នកទទេ។',
   'dashboard.eyebrow': 'ការគ្រប់គ្រងបេសកកម្ម',
   'dashboard.heading': 'ដំណើរផ្សងព្រេងបន្ទាប់របស់អ្នក នៅជ្រុងស្ងាត់មួយ។',
   'dashboard.newTripCta': 'ចាប់ផ្តើមដំណើរកម្សាន្តថ្មីមួយ',
+  'dashboard.subheading':
+    'ការរាប់ថយក្រោយទៅដំណើរបន្ទាប់ ស្ថានភាពចំណាយថ្ងៃនេះ និងការមើលរហ័សលើគ្រប់កាលវិភាគដែលកំពុងដំណើរការ។',
   'dashboard.tripsHeading': 'ដំណើរកម្សាន្តក្នុងចលនា',
   'dashboard.viewAllExpenses': 'មើលរាល់ការចំណាយ',
   'dashboard.viewAllTrips': 'មើលដំណើរកម្សាន្តនីមួយៗ',
   'dayTimelineRow.category.accommodation': 'ស្នាក់នៅ',
+  'dayTimelineRow.category.food': 'អាហារ និងភេសជ្ជៈ',
+  'dayTimelineRow.category.sightseeing': 'ទស្សនាទេសភាព',
   'dayTimelineRow.category.transport': 'ការដឹកជញ្ជូន',
   'destinationOrbCard.exploreCta': 'បន្ថែមទៅក្នុងដំណើរកម្សាន្ត',
   'destinationOrbCard.tripCount': '{{count}} ដំណើរកម្សាន្ត',
+  'destinations.empty.body': 'ត្រឡប់ទៅ ទាំងអស់ វិញ ហើយលទ្ធផលស្វែងរករបស់អ្នកកែសម្រួលនឹងលេចឡើងវិញ។',
   'destinations.empty.heading': 'មិនទាន់មានគោលដៅនៅឡើយទេ។',
+  'destinations.emptyFiltered.heading': 'មិនទាន់មានអ្វីដែលដាក់ស្លាកបែបនោះទេ។',
   'destinations.errors.load': 'មិនអាចផ្ទុកគោលដៅបានទេ។',
   'destinations.eyebrow': 'ទៅណាបន្ទាប់',
   'destinations.heading': 'ជ្រុងដែលបានរក្សាទុក និងការរកឃើញរបស់អ្នកកែសម្រួល។',
@@ -71,7 +99,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'អ្នកលក់',
   'expenses.formHeading': 'កត់ត្រាការចំណាយសម្រាប់ {{trip}}',
   'expenses.heading': 'កន្លែងដែលថវិកាធ្វើដំណើរពិតជាទៅ។',
+  'expenses.heroBudget': '{{pct}}% នៃ {{total}} បានរៀបចំផែនការ',
   'expenses.heroEyebrow': '{{trip}} • ទិដ្ឋភាពទូទៅនៃថវិកា',
+  'expenses.heroNoBudget': 'មិនទាន់កំណត់ថវិកាសម្រាប់ដំណើរនេះទេ។',
   'expenses.noTrips.body':
     'រៀបចំផែនការធ្វើដំណើរជាមុនសិន — ការចំណាយត្រូវភ្ជាប់ទៅនឹងថវិកានៃការធ្វើដំណើរ។',
   'expenses.noTrips.heading': 'មិនទាន់មានដំណើរកម្សាន្តនៅឡើយទេ។',
@@ -84,12 +114,16 @@ export const ui: UiTranslations = {
     'បង្កាន់ដៃ និងការបញ្ជាក់នីមួយៗត្រូវបានដាក់ចូលទៅក្នុងប្រភេទត្រឹមត្រូវនៅទីនេះ — មិនត្រូវការសៀវភៅបញ្ជីទេ។',
   'forgotPassword.eyebrow': 'ស្ដារ​ផែនការ​ធ្វើដំណើរ​របស់​អ្នក​ឡើង​វិញ',
   'forgotPassword.heading': 'ភ្លេចពាក្យសម្ងាត់របស់អ្នក?',
+  'forgotPassword.subheading':
+    'បញ្ចូលអ៊ីមែលដែលអ្នកបានប្រើសម្រាប់ {{appName}} ហើយយើងនឹងផ្ញើតំណដើម្បីកំណត់ពាក្យសម្ងាត់របស់អ្នកឡើងវិញ។',
   'forgotPassword.submit': 'ផ្ញើអ៊ីមែលសង្គ្រោះ',
   'forgotPassword.submitPending': 'កំពុងផ្ញើអ៊ីមែលសង្គ្រោះ…',
   'forgotPassword.successHint':
     'មិនទាន់មានអ៊ីមែលនៅឡើយទេ? សូមពិនិត្យមើលថតសារឥតបានការរបស់អ្នក ឬព្យាយាមម្តងទៀតជាមួយអាសយដ្ឋានផ្សេង។',
   'forgotPassword.successSubheading':
     'យើងបានផ្ញើតំណភ្ជាប់សង្គ្រោះទៅ {{email}} តំណភ្ជាប់នេះមានសុពលភាពរយៈពេល 30 នាទី។',
+  'forgotPassword.tryAgain': 'ផ្ញើទៅអ៊ីមែលផ្សេង',
+  'landing.cta.eyebrow': 'ចាប់ផ្តើមជាមួយគម្រោងឥតគិតថ្លៃ',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'បង្កើតគណនីដោយឥតគិតថ្លៃ',
   'landing.cta.subheading':
@@ -101,8 +135,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'ចាប់ផ្តើមដំណើរកម្សាន្តដោយឥតគិតថ្លៃ',
   'landing.hero.ctaSecondary': 'មើលដំណើរកម្សាន្តគំរូ',
+  'landing.hero.eyebrow': 'កម្មវិធីរៀបចំដំណើរ · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint ប្រែក្លាយថតឯកសារដែលពោរពេញទៅដោយផែនការពាក់កណ្តាលដែលបានបង្កើតឡើងទៅជាផ្លូវធ្វើដំណើរដែលបានចែករំលែកប្រចាំថ្ងៃដែលក្រុមរបស់អ្នកពិតជាអាចតាមដានបាន — ជាមួយនឹងការកក់ ផែនទី និងថវិកាត្រូវបានតាមដាននៅកន្លែងតែមួយ។',
+  'landing.hero.title': 'រៀបចំផែនការម្តង។ ដើរលេងជាមួយគ្នា។',
   'landing.nav.join': 'ចាប់ផ្តើមដំណើរកម្សាន្តដោយឥតគិតថ្លៃ',
   'landing.nav.preview': 'ចំណុច​ផ្លូវ​ខាងក្នុង',
   'landing.preview.cta': 'រៀបចំផែនការផ្ទាល់ខ្លួនរបស់អ្នកមួយ',
@@ -110,6 +146,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'ដំណើរកម្សាន្តមួយចំនួនដែលអ្នកធ្វើដំណើរកំពុងវង្វេងនៅពេលនេះ',
   'login.eyebrow': 'តំបន់សមាជិក',
   'login.heading': 'សូមស្វាគមន៍មកវិញ អ្នកធ្វើដំណើរ',
+  'login.noAccount': 'ទើបតែស្គាល់ Tessera?',
   'login.signupLink': 'បង្កើតគណនីឥតគិតថ្លៃ',
   'login.subheading':
     'ចូលដើម្បីគ្រប់គ្រងដំណើរកម្សាន្ត ផែនការប្រចាំថ្ងៃ ការកក់ និងធាតុកំណត់ហេតុប្រចាំថ្ងៃដែលអ្នកបានចាប់ផ្តើមរួចហើយ។',
@@ -120,6 +157,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'មិនអាចធ្វើបច្ចុប្បន្នភាពការជូនដំណឹងបានទេ។',
   'notifications.heading': 'អ្វីដែលបានផ្លាស់ប្តូរនៅទូទាំងដំណើរកម្សាន្តរបស់អ្នកនៅថ្ងៃនេះ។',
   'notifications.markUnread': 'សម្គាល់ថាមិនទាន់អាន',
+  'notifications.subheading':
+    '{{count}} ថ្មី — ការបញ្ជាក់ការកក់ កំណត់ចំណាំពីអ្នកសហការ ការធ្លាក់ថ្លៃសំបុត្រ និងការរំលឹក។',
   'notifications.time.daysAgo': '{{count}} ថ្ងៃមុន',
   'notifications.time.hoursAgo': '{{count}} ម៉ោងមុន',
   'notifications.time.justNow': 'អម្បាញ់មិញ',
@@ -138,6 +177,7 @@ export const ui: UiTranslations = {
     'សេវាកម្មដែលបានភ្ជាប់ រូបិយប័ណ្ណ ការជូនដំណឹងជំរុញ និងព័ត៌មានផ្ទៀងផ្ទាត់ដែលអ្នកចូលដោយប្រើ។',
   'signup.and': 'និង',
   'signup.eyebrow': 'ចូលរួមជាមួយ Waypoint',
+  'signup.haveAccount': 'កំពុងវង្វេងហើយមែនទេ?',
   'signup.heading': 'រៀបចំផែនការម្តង។ ដើរលេងជាមួយគ្នា។',
   'signup.namePlaceholder': 'អ៊ីរីស ឡាសិន',
   'signup.subheading':
@@ -149,6 +189,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'បើក​ដំណើរ​ការ​សិក្សា',
   'tripCountdownHeroCard.ctaSecondary': 'រៀបចំផែនការធ្វើដំណើរមួយផ្សេងទៀត',
   'tripCountdownHeroCard.daysLabel': '{{days}} ថ្ងៃ​ដែល​ត្រូវ​ទៅ',
+  'tripCountdownHeroCard.eyebrow': 'ដំណើរផ្សងព្រេងបន្ទាប់ · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} យប់ — កាលវិភាគរបស់អ្នករួចរាល់សម្រាប់ការធ្វើដំណើរ។',
   'tripCoverCard.stops': '{{count}} ឈប់',
   'tripCoverCard.travelers': '{{count}} អ្នកធ្វើដំណើរ',
   'tripDetail.addActivity': 'បន្ថែមសកម្មភាព',
@@ -158,6 +201,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'ចំណងជើងសកម្មភាព',
   'tripDetail.adding': 'កំពុងបន្ថែម…',
   'tripDetail.backToTrips': 'ត្រឡប់ទៅដំណើរកម្សាន្តទាំងអស់វិញ',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'អ្នកធ្វើដំណើរ',
   'tripDetail.dayLabel': 'ថ្ងៃ {{day}}',
   'tripDetail.empty': 'មិនទាន់មានសកម្មភាពនៅឡើយទេ — សូមបន្ថែមមួយដើម្បីចាប់ផ្តើមបន្ទាត់ពេលវេលា។',
@@ -168,14 +212,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'ផែនការធ្វើដំណើរ • {{country}}',
   'tripDetail.invite': 'អញ្ជើញ',
   'tripDetail.inviteLabel': 'អញ្ជើញតាមអ៊ីមែល',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'ការអញ្ជើញត្រូវបានផ្ញើទៅ {{email}} ។',
   'tripDetail.inviting': 'កំពុងផ្ញើ…',
   'tripDetail.loading': 'កំពុងផ្ទុកដំណើរកម្សាន្ត…',
   'tripDetail.noCollaborators': 'សម្រាប់តែអ្នកប៉ុណ្ណោះ សម្រាប់ពេលនេះ។',
+  'tripDetail.notesHeading': 'កំណត់ចំណាំដំណើរ',
   'tripDetail.notesPlaceholder': 'មិនទាន់មានកំណត់ចំណាំនៅឡើយទេ។',
   'tripDetail.notFound.heading': 'រកមិនឃើញដំណើរកម្សាន្ត',
   'tripDetail.openBookings': 'បើកប្រអប់សំបុត្រកក់',
   'tripDetail.shareCopied': 'ចែករំលែកតំណដែលបានចម្លងទៅក្ដារតម្បៀតខ្ទាស់៖',
+  'tripDetail.shareReady': 'តំណចែករំលែករួចរាល់៖',
   'tripDetail.stops': '{{count}} ឈប់',
   'tripDetail.timelineEyebrow': 'កាលវិភាគប្រចាំថ្ងៃ',
   'tripDetail.timelineHeading': 'ផែនការប្រចាំថ្ងៃ',
@@ -194,6 +241,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'អ្នកធ្វើដំណើរ',
   'tripPlanner.heading': 'គូសវាសដំណើរកម្សាន្តក្នុងរយៈពេលតិចជាងមួយនាទី។',
   'tripPlanner.preview.eyebrow': 'ការមើលជាមុនផ្ទាល់',
+  'tripPlanner.preview.placeholderCountry': 'ជ្រើសរើសប្រទេស',
   'tripPlanner.preview.placeholderDestination': 'ដំណើរផ្សងព្រេងបន្ទាប់របស់អ្នក',
   'tripPlanner.section1.title': 'កន្លែងណា និងពេលណា',
   'tripPlanner.section2.title': 'អ្នកធ្វើដំណើរ និងថវិកា',
@@ -202,10 +250,13 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'ថ្ងៃ {{day}} — បន្ថែមចំណត ការដឹកជញ្ជូន និងការកក់នៅទីនេះ។',
   'tripPlanner.section3.day2': 'ថ្ងៃ {{day}} — បន្ថែមចំណត ការដឹកជញ្ជូន និងការកក់នៅទីនេះ។',
   'tripPlanner.section3.day3': 'ថ្ងៃ {{day}} — បន្ថែមចំណត ការដឹកជញ្ជូន និងការកក់នៅទីនេះ។',
+  'tripPlanner.section3.title': 'គំរូផែនការប្រចាំថ្ងៃ',
   'tripPlanner.subheading':
     'សូម​ដាក់​ចំណុច​មូលដ្ឋាន​នៅ​ខាងក្រោម — អ្នក​តែងតែ​អាច​អញ្ជើញ​អ្នកសហការ អូស​ចំណត និង​បញ្ជូន​ការកក់​បន្ត​នៅ​ពេល​ក្រោយ​បាន។',
   'tripPlanner.submit': 'បង្កើតដំណើរកម្សាន្ត',
   'tripPlanner.submitting': 'កំពុងបង្កើត…',
+  'trips.empty.body': 'ត្រឡប់ទៅ ដំណើរទាំងអស់ វិញ ឬចាប់ផ្តើមរៀបចំផែនការដំណើរបន្ទាប់របស់អ្នក។',
+  'trips.empty.cta': 'រៀបចំដំណើរ',
   'trips.empty.heading': 'គ្មានអ្វីត្រូវគ្នានឹងតម្រងនោះទេនៅឡើយ។',
   'trips.eyebrow': 'ផែនទី',
   'trips.filterLabel': 'ត្រងដំណើរកម្សាន្តតាមស្ថានភាព',
@@ -216,6 +267,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'មិនទាន់មានដំណើរកម្សាន្តនៅឡើយទេ។',
   'trips.pastHeading': 'ដំណើរផ្សងព្រេងកន្លងមក',
   'trips.subheading': '{{count}} ដំណើរកម្សាន្ត - អតីតកាល បច្ចុប្បន្នកាល និងថ្ងៃណាមួយ។',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'រៀបចំផែនការម្តង។ វង្វេងជាមួយគ្នា។ ចងចាំជារៀងរហូត។',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · សមាជិក {{appName}} ចាប់តាំងពីឆ្នាំ 2024',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} បំប្លែងដំណើរដ៏រវល់រយៈពេល 3 សប្តាហ៍ឆ្លងកាត់បួនប្រទេសទៅជាកាលវិភាគដ៏ស្ងប់ស្ងាត់បំផុតដែលពួកយើងធ្លាប់ចែករំលែក។',
   'waypointLayout.mobileNavClose': 'បិទម៉ឺនុយរុករក',
   'waypointLayout.primaryNavLabel': 'ការរុករកចម្បង',
 }

@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Buq tapdınız, funksiya təklifiniz var, ya da növbəti nə quracağımızı bizə demək istəyirsiniz? hello@pylon.dev ünvanına e-poçt göndərin — hər mesaj komandadakı real mühəndisə çatır.',
   'about.contactTitle': 'Bizimlə əlaqə saxlayın',
+  'about.intro':
+    '{{app}} terminalda yaşayan mühəndislər üçün sürətli, klaviaturaya əsaslanan API test iş dəzgahıdır — Postman üslubunda sorğular, kolleksiyalar, mühitlər və tarixçə, lakin artıq yüklər olmadan.',
+  'about.missionBody':
+    'API-lər müasir proqram təminatının əsasını təşkil edir, lakin onları sınamaq üçün alətlər yavaş, ağır və siçanla idarə olunur. {{app}} developerlərə kəskin, sürətli, terminal səviyyəli iş dəzgahı vermək üçün mövcuddur: sorğular göndərin, inam qazanın və klaviaturanı tərk etmədən buraxın.',
+  'about.missionTitle': 'Missiyamız',
   'about.pageTitle': '{{app}} haqqında',
   'authShell.statusLabel': 'onlayn qaçışçılar',
   'collections.createError': 'Kolleksiya yaradıla bilmədi.',
   'collections.defaultName': 'Başlıqsız kolleksiya {{n}}',
+  'collections.empty':
+    'Hələ kolleksiya yoxdur — ilk qovluğunuzu yaratmaq üçün “New collection” düyməsinə klikləyin.',
   'collections.eyebrow': '$ pylon kolleksiyaları --ağac',
   'collections.fetchError': 'Kolleksiyalar yüklənə bilmədi.',
   'collections.heading': 'Kolleksiyalar',
   'collections.loading': 'Kolleksiyalar yüklənir…',
+  'collections.metric.allGreen': 'Hamısı yaşıl',
   'collections.metric.collections': 'Kolleksiyalar',
   'collections.metric.failing': 'Uğursuzluq',
   'collections.metric.failingCaption': 'Sonuncu dəfə uğursuz oldu',
@@ -24,6 +34,8 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Dəyişənlər',
   'environments.createError': 'Mühit yarada bilmədim.',
   'environments.defaultName': 'Başlıqsız mühit {{n}}',
+  'environments.empty':
+    'Hələ mühit yoxdur — birini əlavə etmək üçün “New environment” düyməsinə klikləyin.',
   'environments.eyebrow': '$ pylon mühiti --switch',
   'environments.fetchError': 'Mühitləri yükləmək mümkün olmadı.',
   'environments.heading': 'Mühitlər',
@@ -31,8 +43,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Yeni mühit',
   'environments.subheading':
     'Göndərmə zamanı sorğulara çevrilən dəyişənlər. Hər iş sahəsi üçün bir aktiv mühit.',
+  'forgotPassword.statusLabel': 'sıfırlama · təhlükəsiz tunel',
   'forgotPassword.success':
     'Əgər həmin e-poçt üçün hesab mövcuddursa, sıfırlama linki göndərilir. Gələnlər qutunuzu yoxlayın.',
+  'history.empty': 'Burada hələ heç nə yoxdur — ilk sorğunuzu Workspace tabından göndərin.',
   'history.eyebrow': '$ pylon tarixi --tail',
   'history.fetchError': 'Tarixçəni yükləmək mümkün olmadı.',
   'history.heading': 'İşləmə tarixçəsi',
@@ -41,9 +55,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Son 50',
+  'history.realtime': 'real vaxt',
   'history.subheading':
     'Bu iş sahəsindəki hər bir sorğu status, gecikmə və faydalı yük ölçüsü ilə birlikdə işə salındı.',
   'landing.choosePlan': 'Plan seçin',
+  'landing.copyright': '© {{year}} {{app}} Engineering. İnam qazan.',
   'landing.ctaBody':
     'Kredit kartı yoxdur. Platforma mühəndisi tələb olunmur. ⌘K-nı açın və ilk sorğunuzu beş dəqiqədən az müddətdə göndərin.',
   'landing.ctaHeading': 'Özünəinam qazan.',
@@ -86,6 +102,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Orta gecikmə',
   'mocks.metric.live': 'İctimai',
   'mocks.metric.servers': 'Sınaqlar',
+  'mocks.ms': 'xanım',
   'mocks.newMock': 'Yeni istehza',
   'mocks.online': 'İctimai',
   'mocks.paused': 'Şəxsi',
@@ -110,9 +127,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Sağlam',
   'monitors.metric.uptime': 'Orta iş vaxtı',
   'monitors.newMonitor': 'Yeni monitor',
+  'monitors.paused': 'fasilə verildi',
   'monitors.run': 'Qaç',
   'monitors.runError': 'İşləmə şəbəkə xətası ilə başa çatdı: {{error}}',
+  'monitors.runFailed': 'İcra uğursuz oldu.',
   'monitors.running': 'Qaçış…',
+  'monitors.runSuccess': '{{status}} icra edildi — yuxarı axın {{ms}}ms ərzində {{code}} qaytardı.',
   'monitors.sparkLabel': 'Gecikmə trendi',
   'monitors.subheading':
     'Yadda saxlanılan istənilən test üçün tələb üzrə yoxlamalar. Testi bağlayın, "Çalış" düyməsini basın və hər yanğınla 24 saatlıq uğur nisbətinin yenilənməsini izləyin.',
@@ -121,27 +141,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'İşləmə müddəti · 24 saat',
   'nav.legal': 'Hüquqi',
   'notFound.backToWorkspace': 'İş sahəsinə qayıt',
+  'notFound.body':
+    '{{app}} bu URL üçün sorğu göndərdi və heç nə qayıtmadı. Marşrutu iki dəfə yoxlayın və ya iş sahəsinə qayıdın.',
   'notFound.eyebrow': '$ pylon həlli --strict',
   'notFound.title': 'Marşrut tapılmadı',
+  'planUpdated.body':
+    'Ödəniş dəyişikliyiniz artıq aktivdir. Planınızı istənilən vaxt ödəniş səhifəsindən idarə edə bilərsiniz.',
+  'planUpdated.retry': 'Yenidən cəhd edin',
+  'planUpdated.verifyFailed': 'Ödənişinizi hələ təsdiqləyə bilmədik.',
+  'planUpdated.verifyFailedBody':
+    'Ödənişiniz hələ də emal oluna bilər. Bir an sonra yenidən cəhd edin.',
   'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
+  'pricing.advancedFeatures': 'Qabaqcıl funksiyalar: {{yes}}',
+  'pricing.canExport': 'Məlumat ixracı: {{yes}}',
+  'pricing.heading': '{{app}} planınızı seçin',
+  'pricing.maxCollections': '{{count}} kolleksiya',
+  'pricing.maxEnvironments': '{{count}} mühit',
+  'pricing.maxHistory': '{{count}} tarixçə qeydi',
+  'pricing.maxRequests': '{{count}} istəklər',
   'privacy.collect.account':
     'Hesab: e-poçt ünvanınız, heş edilmiş parolunuz, ekran adınız və son girişinizin vaxt möhürü.',
+  'privacy.intro':
+    '{{app}} məxfiliyinizə hörmət edir. Bu səhifə hansı məlumatları topladığımızı, niyə topladığımızı və onları necə siləcəyinizi ümumiləşdirir.',
   'privacy.rights.body':
     'Kolleksiyalarınızı + mühitlərinizi istənilən vaxt ixrac edə və ya 30 gün ərzində bütün məlumatları birdəfəlik silmək üçün hesabınızı Parametrlərdən silə bilərsiniz.',
   'privacy.share.body':
     'Yalnız siz. Biz heç vaxt iş sahənizin məzmununu üçüncü tərəflərə satmırıq, paylaşmırıq və ya icarəyə vermirik. Server qeydləri hadisəyə cavab vermək üçün 30 gün saxlanılır və sonra silinir.',
   'privacy.title': 'Məxfilik bildirişi',
+  'profile.bio':
+    'Şəxsi {{app}} iş sahəniz — kolleksiyaları bərkidin, mühitləri paylaşın və məhsulu buraxan API-ləri izləyin.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'qoşulub {{when}}',
+  'profile.metric.collections': 'Kolleksiyalar',
   'profile.metric.monitors': 'Monitorlar',
   'profile.metric.requests': 'Yadda saxlanılan sorğular',
+  'profile.noActivity':
+    'Hələ heç bir sorğu göndərilməyib — sorğu göndərmək üçün Workspace tabına keçin.',
   'profile.signedOut': 'Profilinizə baxmaq üçün daxil olun',
   'pylonShell.primaryNavLabel': 'Əsas naviqasiya',
+  'resetPassword.passwordLabel': 'Yeni parol',
+  'resetPassword.statusLabel': 'sıfırlama · token təsdiqləndi',
   'resetPassword.subtitle': 'Əvvəllər istifadə etmədiyiniz güclü bir parol seçin.',
   'resetPassword.tokenPlaceholder': 'e-poçtdan yapışdırın',
+  'settings.accountManagement.desc':
+    'E-poçtunuzu və parolunuzu yeniləyin, bildirişləri və cihazları idarə edin, çıxış edin və ya hesabınızı silin.',
+  'settings.accountManagement.title': 'Hesab və təhlükəsizlik',
   'settings.eyebrow': '$ pylon parametrləri --redaktə edin',
   'settings.fetchError': 'Parametrləri yükləmək mümkün olmadı.',
   'settings.language.title': 'Dil',
+  'settings.seeding': 'Başladılır…',
   'settings.seedStarter': 'Toxum başlanğıcının tərkibi',
   'settings.starterCollection': 'Başlanğıc kolleksiyası',
   'settings.starterCollectionDesc': 'Parametrlərdən yaradılıb {{ts}}',
@@ -155,6 +203,8 @@ export const ui: UiTranslations = {
     'Şifrənizin qorunmasına görə məsuliyyət daşıyırsınız. Pulsuz və ya Pro planlarında bir hesabı birdən çox insanla paylaşmağa icazə verilmir — ortaq iş sahələri üçün Komanda abunəliyi alın.',
   'terms.billing.body':
     'Ödənişli abunəliklər hər ödəniş dövrü avtomatik olaraq yenilənir. İstənilən vaxt Parametrlərdən ləğv edin; girişiniz cari dövrün sonuna qədər davam edəcək.',
+  'terms.intro':
+    '{{app}} hesabı yaratmaqla aşağıdakı şərtləri qəbul edirsiniz. Onları bir dəfə oxuyun; geriyə dönük dəyişikliklərlə sizi təəccübləndirməyəcəyik.',
   'terms.title': 'Xidmət Şərtləri',
   'terms.usage.body':
     'Sahib olmadığınız və ya sınaq üçün açıq icazəniz olmayan xidmətlərə sorğu göndərmək üçün Pylon-dan istifadə etməyin. Tarif limitlərini aşmaq və ya fırıldaqçılıq etmək üçün Pylon-dan istifadə etməyin.',
@@ -175,16 +225,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'İşlədilmir',
   'testRunner.metric.passed': 'Keçdi',
   'testRunner.never': 'Heç vaxt qaçma',
+  'testRunner.newTest': 'Yeni test',
   'testRunner.noAssertions': 'Bu testlə bağlı hələlik heç bir iddia yoxdur.',
+  'testRunner.noRunsYet':
+    'Hələ heç bir icra qeydə alınmayıb — tarixçəni doldurmaq üçün “Run all” düyməsinə basın.',
   'testRunner.passed': 'ötürmə',
+  'testRunner.recentRuns': 'Son qaçışlar',
   'testRunner.runAll': 'Hamısını işə salın',
   'testRunner.running': 'Qaçış…',
   'testRunner.runOne': 'Qaç',
   'testRunner.subheading': 'Suite nəticələri, təsdiq fərqləri və son 50 cəhd.',
+  'testRunner.suites': 'Dəstlər',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Daxil olduğum şəxs',
   'workspace.auth.keyName': 'Başlıq adı',
   'workspace.auth.keyValue': 'Açar dəyər',
+  'workspace.auth.noneHint': 'Bu sorğu ilə heç bir avtorizasiya başlığı göndərilməyəcək.',
   'workspace.auth.password': 'Şifrə',
   'workspace.auth.username': 'İstifadəçi adı',
   'workspace.authOption.apikey': 'API Açarı',
@@ -194,13 +250,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Növü',
   'workspace.authTypeLabel': 'Təsdiq növü',
+  'workspace.body.contentLabel': 'Sorğunun əsas hissəsi',
+  'workspace.body.hint':
+    '{{envVars}} sorğu göndərilməzdən əvvəl əvəz olunur. Gövdələr POST/PUT/PATCH/DELETE ilə göndərilir.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Heç biri',
+  'workspace.body.noneHint':
+    'Heç bir sorğu gövdəsi göndərilməyəcək. Əlavə etmək üçün JSON və ya xam mətn seçin.',
   'workspace.body.text': 'Xam mətn',
   'workspace.body.type': 'Növü',
   'workspace.environment': 'Ətraf mühit yoxdur',
   'workspace.envVar': 'ətraf mühit dəyişəni',
   'workspace.eyebrow': '$ pylon iş sahəsi --pane split',
+  'workspace.failedCount': '{{count}} uğursuz',
+  'workspace.idle': 'Boş',
   'workspace.kv.addHeader': 'Başlıq əlavə edin',
   'workspace.kv.addParam': 'Parametr əlavə edin',
   'workspace.kv.headerKey': 'Başlıq adı',
@@ -213,12 +276,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP metodu',
   'workspace.metric.latency': 'Gecikmə',
   'workspace.metric.latencyCaption': 'Bu qaçışdan gediş-dönüş',
+  'workspace.metric.size': 'Yük',
   'workspace.metric.sizeCaption': 'Cavab gövdəsi baytları',
   'workspace.metric.statusCaption': 'Son cavab',
   'workspace.metric.tests': 'Testlər',
+  'workspace.metric.testsAllPassing': 'Bütün yoxlamalar yaşıl',
   'workspace.metric.testsFailing': '{{count}} uğursuz',
+  'workspace.metric.testsIdle': 'Qiymətləndirmək üçün sorğu göndərin',
   'workspace.noAssertions': 'Daxili təsdiqləri qiymətləndirmək üçün bir sorğu işə salın.',
   'workspace.noResponseYet': 'Hələ cavab yoxdur',
+  'workspace.passedCount': '{{count}} keçdi',
   'workspace.responseHint':
     '// Sorğunu işə salmaq və cavabı qeyd etmək üçün Göndər düyməsini basın.',
   'workspace.saveError': 'Sorğu yadda saxlanıla bilmədi.',
@@ -228,10 +295,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Bir sorğu yazın, onu işə salın və sonra cavabı təsdiqləyin — hamısı bir paneldə.',
   'workspace.testResults': 'Test nəticələri',
+  'workspace.tests.autoHint':
+    'Status ailəsi, gecikmə, gövdə ölçüsü və ötürmə sağlamlığı avtomatik yoxlanılır — nəticələr cavab panelindəki “Test results” altında görünür.',
+  'workspace.tests.autoTitle': 'Hər cavabda daxili yoxlamalar işləyir',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Səlahiyyət olaraq göndərildi: Daşıyıcı<token> bu kolleksiyadakı hər bir sorğu üçün.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Başlıqsız sorğu',
+  'workspace.urlLabel': 'URL sorğusu',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

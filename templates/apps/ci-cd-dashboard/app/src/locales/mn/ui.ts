@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Асуулт, санал хүсэлт, эсвэл багтаа демо хүсэж байна уу? Бидэн рүү hello@conduit.dev хаягаар имэйл илгээгээрэй — мессеж бүр багийн бодит хүнд хүрдэг.',
   'about.contactHeading': 'Холбоо барих',
   'about.eyebrow': 'Тухай',
+  'about.featuresHeading': 'Таны авах зүйлс',
+  'about.introBody':
+    '{{app}} нь GitHub Actions маягийн тасралтгүй хүргэлтийг нэг хурдан хянах самбарт нэгтгэдэг: бүх репозиторийн pipeline, build лог, artifact, төлөвийн badge, deploy орчин нэг дор. Таб хооронд үсрэх шаардлагагүй, аль build эвдэрснийг таах шаардлагагүй — ажиллагаа, лог мөр, deploy бүр нэг товшилтын зайд.',
+  'about.introHeading': '{{app}} гэж юу вэ',
+  'about.missionBody':
+    'Програм хангамж хүргэх нь айдас төрүүлэх биш, тайван, урьдчилан таамаглахуйц байх ёстой. Бид commit-оос production хүрэх зам хурдан, ил тод, итгэлтэй байхын тулд pipeline, лог, deploy хэрэгслийг бүтээдэг — эхний ногоон build таван минутад, дараагийн build бүр ч мөн адил тодорхой.',
+  'about.missionHeading': 'Бидний эрхэм зорилго',
+  'about.subtitle':
+    '{{app}} нь бүх репозиторийн build, deploy, орчныг хянахыг хүсдэг багуудад зориулсан CI/CD хянах самбар бөгөөд итгэлтэйгээр хүргэх боломжийг олгоно.',
   'artifacts.empty': 'Одоогоор ямар ч эд өлгийн зүйл алга.',
   'artifacts.heading': 'Эд өлгийн зүйлс',
   'artifacts.loadError': 'Эд өлгийн зүйлсийг ачаалж чадсангүй.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ сувагны орчин --жагсаалт',
   'environments.heading': 'Орчин',
   'environments.loadError': 'Орчнуудыг ачаалж чадсангүй.',
+  'environments.loading': 'Орчнуудыг ачаалж байна…',
   'environments.subheading': 'Бай бүрт шууд байршуулалтын төлөв.',
   'forgotPassword.runnerStatus': 'дахин тохируулах · аюулгүй туннель',
+  'forgotPassword.success':
+    'Хэрэв тухайн имэйлд бүртгэл байгаа бол дахин тохируулах холбоос гарч ирнэ. Ирсэн имэйлээ шалгана уу.',
   'insights.changeFailureRate': 'Алдаа дутагдлын түвшинг өөрчлөх',
   'insights.deployFrequency': 'Байршуулалт / өдөр',
   'insights.empty': 'Одоогоор хангалттай мэдээлэл алга.',
@@ -39,13 +53,17 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Статистикийг ачаалж чадсангүй.',
   'insights.meanP95': 'утга учиртай {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Хамгийн удаан pipeline алхмууд',
   'insights.successRateHeading': 'Шугам хоолойн амжилтын түвшин (сүүлийн 14 хоног)',
   'landing.choosePlan': 'Төлөвлөгөө сонгох',
+  'landing.copyright': '© {{year}} {{app}}. Итгэлтэйгээр хүргэ.',
   'landing.ctaBody':
     'Зээлийн карт шаардлагагүй. Платформын инженер шаардлагагүй. Эхний дамжуулах хоолойг таван минутын дотор ногоон болгоорой.',
   'landing.ctaHeading': 'Баталгаажуулан хүргэнэ үү.',
   'landing.featuresEyebrow': '// платформын онцлогууд',
   'landing.featuresHeading': 'Тээвэрлэгчдэд зориулж, тээвэрлэгчид бүтээжээ',
+  'landing.heroSubtitle': 'Секундэд дуусдаг pipeline. Уншиж болох лог. Итгэж болох deploy.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit байршуулах --safely',
   'landing.pricingEyebrow': '// $ үнэ --plain',
   'landing.pricingHeading': 'Энгийн, урьдчилан таамаглах боломжтой үнэ',
@@ -84,7 +102,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Одоо нислэгт байна',
   'pipelines.metric.successCaption': '{{count}} -ын {{total}} гүйлт',
   'pipelines.metric.successRate': 'Амжилтын түвшин',
+  'pipelines.realtimeOn': 'бодит цаг',
   'pipelines.subheading': 'Үзсэн бүх репозитороос шууд шинэчлэлтүүд.',
+  'pricing.advancedFeatures': 'Нарийвчилсан боломжууд: {{mark}}',
+  'pricing.canExport': 'Өгөгдөл экспортлох: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artifact',
+  'pricing.maxBuilds': '{{count}} build',
+  'pricing.maxPipelines': '{{count}} pipeline',
   'privacy.dataAccount': 'Бүртгэл: нэр, имэйл, хэшлэгдсэн нууц үг, төлөвлөгөөний түвшин.',
   'privacy.intro':
     '{{апп}} таны тасралтгүй хүргэлтийн бүртгэлийг ажиллуулахад шаардлагатай хамгийн бага өгөгдлийг л цуглуулдаг: таны имэйл хаяг, таны холбосон репозиторууд, таны ажиллуулагчийн үүсгэсэн коммит болон бүтээх мета өгөгдөл, мөн таны бидэнтэй хамт хадгалахаар сонгосон нууцууд. Бид таны эх кодыг хэзээ ч build runner-ээс гадуур уншдаггүй; бүтээх эд өлгийн зүйлсийг тохируулсны дараа таны S3 саванд хадгалдаг.',
@@ -92,6 +116,8 @@ export const ui: UiTranslations = {
     'Бид төлбөр тооцоонд Stripe, гүйлгээний имэйлд Mailgun, мөн эд өлгийн зүйлсийг хадгалахад AWS S3 ашигладаг. Тус бүр нь гэрээний дагуу үйлчилгээгээ хүргэхэд шаардлагатай хамгийн бага өгөгдлийн хүрээнд үүрэг хүлээдэг.',
   'privacy.rightsBody':
     'Та өгөгдлийнхөө байт бүрийг экспортлох, Тохиргооноос хүссэн үедээ бүртгэлээ устгах, мөн бүртгэл дээрх вэбхук хүргэлт бүрийн бүртгэлийг хүсэх боломжтой. Бид GDPR / CCPA хүсэлтэд 30 хоногийн дотор хариу өгдөг.',
+  'privacy.subtitle':
+    'Бид таны pipeline-уудыг ажиллуулах үед {{app}} таны өгөгдлийг хэрхэн цуглуулж, хадгалж, хамгаалдаг.',
   'privacy.title': 'Нууцлалын бодлого',
   'repositories.empty': 'Холбогдсон репозитор байхгүй байна.',
   'repositories.heading': 'Хадгалах газрууд',
@@ -100,11 +126,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Бүх хадгалах газрууд',
   'repositoryDetail.configHeading': '.суваг.yml',
   'repositoryDetail.loadError': 'Репозиторыг ачаалж чадсангүй.',
+  'repositoryDetail.meanDuration': 'Дундаж үргэлжлэх хугацаа',
   'repositoryDetail.notFound': 'Хадгалах сан олдсонгүй.',
+  'repositoryDetail.successRate': 'Амжилтын түвшин',
   'repositoryDetail.totalBuilds': 'Нийт бүтээн байгуулалт',
   'repositoryDetail.webhookActive': 'идэвхтэй',
   'repositoryDetail.webhookPaused': 'түр зогссон',
   'repositoryDetail.webhooksHeading': 'Вэбхукууд',
+  'resetPassword.passwordLabel': 'Шинэ нууц үг',
   'resetPassword.runnerStatus': 'дахин тохируулах · токен баталгаажсан',
   'resetPassword.subtitle': 'Өмнө нь ашиглаж байгаагүй хүчтэй нууц үг сонгоно уу.',
   'resetPassword.tokenPlaceholder': 'имэйлээс буулгах',
@@ -117,6 +146,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Хадгалах сангууд Сувгийн цагнууд. Үйл явдлуудыг дамжуулахаа зогсоохын тулд VCS үйлчилгээ үзүүлэгчээсээ салга.',
   'settings.repositories.empty': 'Одоогоор ямар ч репозитор холбогдоогүй байна.',
+  'settings.repositories.heading': 'Репозиторийн холболтууд',
   'settings.repositories.loadError': 'Хадгалах санг ачаалж чадсангүй.',
   'settings.secrets.addCta': 'Нууц нэмэх',
   'settings.secrets.addError': 'Нууцыг нэмж чадсангүй.',
@@ -124,6 +154,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Нууцыг устгаж чадсангүй.',
   'settings.secrets.empty': 'Нууц хадгалагдаагүй.',
   'settings.secrets.heading': 'Нууцууд',
+  'settings.secrets.lastUsed': 'сүүлд ашигласан {{date}}',
   'settings.secrets.loadError': 'Нууцуудыг ачаалж чадсангүй.',
   'settings.secrets.neverUsed': 'хэзээ ч ашиглагдаагүй',
   'settings.secrets.rotateCta': 'Эргүүлэх',
@@ -147,6 +178,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Вэбхукийг шинэчилж чадсангүй.',
   'signup.namePlaceholder': 'Райли Парк',
   'signup.runnerStatus': 'үнэгүй түвшин · Сард хамгийн багадаа 1000 бүтээлт',
+  'terms.intro':
+    '{{app}} бүртгэл үүсгэснээр та эдгээр нөхцөлийг зөвшөөрч байна. Эдгээр нь build runner-уудыг зөвшөөрөгдөхүйц ашиглах, манай SLA-ийн хязгаар, мөн хүчирхийлэлт ачааллын улмаас таны бүртгэлийг түр зогсоох эсвэл цуцлах нөхцөлийг хамарна.',
   'terms.slaBody':
     'Pro болон Team төлөвлөгөөнүүд нь API болон runner сангийн сарын 99.95%-ийн ажиллах хугацааг чиглүүлдэг. Үнэгүй төлөвлөгөөг байгаагаар нь өгдөг. Тасалдлыг status.conduit.dev хаягаар мэдээлж, таны нэхэмжлэх дэх томъёоны дагуу тооцдог.',
   'terms.terminationBody':

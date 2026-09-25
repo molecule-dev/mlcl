@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vprašanja, povratne informacije ali želite demo za svojo ekipo? Pišite nam na hello@conduit.dev — vsako sporočilo doseže pravo osebo v ekipi.',
   'about.contactHeading': 'Stopite v stik',
   'about.eyebrow': 'O nas',
+  'about.featuresHeading': 'Kaj dobite',
+  'about.introBody':
+    '{{app}} prinaša neprekinjeno dostavo v slogu GitHub Actions v eno hitro nadzorno ploščo: cevovodi, dnevniki gradnje, artefakti, statusne značke in okolja za uvajanje za vse vaše repozitorije na enem mestu. Brez preklapljanja med zavihki, brez ugibanja, katera gradnja se je zlomila — vsak zagon, vrstica dnevnika in uvajanje so oddaljeni en klik.',
+  'about.introHeading': 'Kaj je {{app}}',
+  'about.missionBody':
+    'Dostava programske opreme bi morala biti mirna in predvidljiva, ne vir strahu. Gradimo cevovode, dnevnike in orodja za uvajanje, da je pot od potrditve do produkcije hitra, pregledna in zanesljiva — prva uspešna gradnja v petih minutah in vsaka naslednja prav tako jasna.',
+  'about.missionHeading': 'Naše poslanstvo',
+  'about.subtitle':
+    '{{app}} je nadzorna plošča CI/CD za ekipe, ki želijo spremljati gradnje, uvajanja in okolja v vseh repozitorijih — in dostavljati z gotovostjo.',
   'artifacts.empty': 'Zaenkrat še ni nobenih artefaktov.',
   'artifacts.heading': 'Predmeti',
   'artifacts.loadError': 'Naložitev artefaktov ni uspela.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Okolja',
   'environments.loadError': 'Naložitev okolij ni uspela.',
+  'environments.loading': 'Nalaganje okolij …',
   'environments.subheading': 'Stanje razporeditve v realnem času na vseh ciljih.',
   'forgotPassword.runnerStatus': 'ponastavi · varen tunel',
+  'forgotPassword.success':
+    'Če za ta e-poštni naslov že obstaja račun, je povezava za ponastavitev na poti. Preverite svoj nabiralnik.',
   'insights.changeFailureRate': 'Stopnja neuspešnosti',
   'insights.deployFrequency': 'Število namestitev na dan',
   'insights.empty': 'Podatkov še ni dovolj.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Prenos statističnih podatkov ni uspel.',
   'insights.meanP95': 'povezava {{mean}} · str. 95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Najpočasnejši koraki cevovoda',
   'insights.successRateHeading': 'Stopnja uspešnosti prodajnega procesa (zadnjih 14 dni)',
   'landing.choosePlan': 'Izberi paket',
+  'landing.copyright': '© {{year}} {{app}}. Dostavljajte z gotovostjo.',
   'landing.ctaBody':
     'Brez kreditne kartice. Ni potreben inženir za platformo. Prvi potek postavi v zeleno v petih minutah.',
   'landing.ctaHeading': 'Pošiljajte brez skrbi.',
   'landing.featuresEyebrow': '// funkcije platforme',
   'landing.featuresHeading': 'Ustvarjeno za pošiljatelje, s strani pošiljateljev',
+  'landing.heroSubtitle':
+    'Cevovodi, ki se končajo v sekundah. Dnevniki, ki jih lahko berete. Uvajanja, ki jim lahko zaupate.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Preprosta in predvidljiva cena',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Trenutno v zraku',
   'pipelines.metric.successCaption': '{{count}} iz serije »{{total}}«',
   'pipelines.metric.successRate': 'Stopnja uspešnosti',
+  'pipelines.realtimeOn': 'v realnem času',
   'pipelines.subheading': 'Spremljajte v živo spremembe v vseh repozitorijih, ki jih spremljate.',
+  'pricing.advancedFeatures': 'Napredne funkcije: {{mark}}',
+  'pricing.canExport': 'Izvoz podatkov: {{mark}}',
+  'pricing.maxArtifacts': 'Artefakti {{count}}',
+  'pricing.maxBuilds': 'Gradnje {{count}}',
+  'pricing.maxPipelines': 'Cevovodi {{count}}',
   'privacy.dataAccount': 'Račun: ime, e-poštni naslov, šifrirano geslo, paket.',
   'privacy.intro':
     '{{app}} zbiramo le najnujnejše podatke, ki jih potrebujemo za delovanje vašega računa za neprekinjeno dostavo: vaš e-poštni naslov, repozitorije, ki jih povežete, metapodatke o posodobitvah in gradnji, ki jih ustvarijo vaši izvajalci, ter skrivne podatke, ki se odločite shraniti pri nas. Vašega izvorne kode nikoli ne pregledujemo zunaj izvajalca gradnje; artefakti gradnje se shranijo v vaš S3-skladišče, če je to nastavljeno.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Za zaračunavanje uporabljamo Stripe, za transakcijska e-poštna sporočila Mailgun, za shranjevanje gradbenih artefaktov pa AWS S3. Vsak od njih je pogodbeno zavezan k uporabi le najmanjšega obsega podatkov, potrebnega za izvajanje svoje storitve.',
   'privacy.rightsBody':
     'Izvozite lahko vsak bajt svojih podatkov, kadarkoli izbrišete svoj račun v nastavitvah ter zahtevate zapis o vsaki dostavi webhooka na vašem računu. Na zahtevke v skladu z GDPR/CCPA odgovorimo v 30 dneh.',
+  'privacy.subtitle':
+    'Kako {{app}} zbira, shranjuje in ščiti vaše podatke, medtem ko izvajamo vaše cevovode.',
   'privacy.title': 'Politika zasebnosti',
   'repositories.empty': 'Ni povezanih repozitorijev.',
   'repositories.heading': 'Repozitoriji',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Vsa skladišča',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Naložitev repozitorija ni uspela.',
+  'repositoryDetail.meanDuration': 'Povprečno trajanje',
   'repositoryDetail.notFound': 'Repozitorij ni bil najden.',
+  'repositoryDetail.successRate': 'Stopnja uspešnosti',
   'repositoryDetail.totalBuilds': 'Skupno število zgradb',
   'repositoryDetail.webhookActive': 'aktiven',
   'repositoryDetail.webhookPaused': 'zaustavljeno',
   'repositoryDetail.webhooksHeading': 'Spletni kavlji',
+  'resetPassword.passwordLabel': 'Novo geslo',
   'resetPassword.runnerStatus': 'ponastavi · žeton potrjen',
   'resetPassword.subtitle': 'Izberite močno geslo, ki ga še niste uporabili.',
   'resetPassword.tokenPlaceholder': 'prilepi iz e-pošte',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Repozitoriji, ki jih spremlja Conduit. Prekinite povezavo s ponudnikom sistema za nadzor različic (VCS), da se preneha zajemanje dogodkov.',
   'settings.repositories.empty': 'Še ni povezanih repozitorijev.',
+  'settings.repositories.heading': 'Povezave repozitorijev',
   'settings.repositories.loadError': 'Naložitev repozitorijev ni uspela.',
   'settings.secrets.addCta': 'Dodaj geslo',
   'settings.secrets.addError': 'Dodajanje gesla ni uspelo.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Izbris skrivnosti ni uspel.',
   'settings.secrets.empty': 'Ni shranjenih skrivnosti.',
   'settings.secrets.heading': 'Skrivnosti',
+  'settings.secrets.lastUsed': 'nazadnje uporabljeno {{date}}',
   'settings.secrets.loadError': 'Naložitev skrivnosti ni uspela.',
   'settings.secrets.neverUsed': 'nikoli uporabljen',
   'settings.secrets.rotateCta': 'Zavrtite',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Posodobitev spletnega kavlja ni uspela.',
   'signup.namePlaceholder': 'Park Riley',
   'signup.runnerStatus': 'brezplačni paket · 1.000 zgradb na mesec',
+  'terms.intro':
+    'Z ustvarjanjem računa {{app}} se strinjate s temi pogoji. Zajemajo sprejemljivo uporabo izvajalcev gradnje, meje naše SLA in pogoje, pod katerimi lahko vaš račun zaradi zlorabe delovnih obremenitev začasno ali trajno onemogočimo.',
   'terms.slaBody':
     'Paketi Pro in Team zagotavljajo 99,95-odstotno mesečno razpoložljivost API-ja in sklopa izvajalcev. Brezplačni paket se ponuja tak, kot je. Izpadi se objavljajo na spletni strani status.conduit.dev, nadomestilo pa se izračuna po formuli, navedeni na vašem računu.',
   'terms.terminationBody':

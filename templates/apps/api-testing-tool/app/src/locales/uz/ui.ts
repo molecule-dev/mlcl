@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Xatolik topdingizmi, funksiya taklifingiz bormi yoki keyin nima qurishimizni aytmoqchimisiz? hello@pylon.dev manziliga yozing — har bir xabar jamoamizdagi haqiqiy muhandisga yetib boradi.',
   'about.contactTitle': "Biz bilan bog'laning",
+  'about.intro':
+    '{{app}} — terminalda yashaydigan muhandislar uchun tez, klaviaturaga moslashgan API sinov dastgohi: Postman uslubidagi so‘rovlar, kolleksiyalar, muhitlar va tarix, ortiqcha yuklamalarsiz.',
+  'about.missionBody':
+    'APIlar zamonaviy dasturiy ta’minotning asosi, ammo ularni sinash vositalari sekin, og‘ir va sichqonchaga bog‘liq. {{app}} dasturchilarga o‘tkir, tez, terminal darajasidagi dastgoh berish uchun yaratilgan: so‘rovlarni yuboring, ishonchni mustahkamlang va klaviaturani tark etmasdan ishga tushiring.',
+  'about.missionTitle': 'Bizning vazifamiz',
   'about.pageTitle': '{{app}} haqida',
   'authShell.statusLabel': 'onlayn yuguruvchilar',
   'collections.createError': "To'plam yaratib bo'lmadi.",
   'collections.defaultName': "Nomsiz to'plam {{n}}",
+  'collections.empty':
+    'Hali kolleksiyalar yo‘q — birinchi jildingizni yaratish uchun “Yangi kolleksiya” tugmasini bosing.',
   'collections.eyebrow': "$ pylon to'plamlari --daraxt",
   'collections.fetchError': "To'plamlarni yuklab bo'lmadi.",
   'collections.heading': "To'plamlar",
   'collections.loading': "To'plamlar yuklanmoqda…",
+  'collections.metric.allGreen': 'Hammasi yashil',
   'collections.metric.collections': "To'plamlar",
   'collections.metric.failing': 'Muvaffaqiyatsiz',
   'collections.metric.failingCaption': "So'nggi yugurish muvaffaqiyatsizlikka uchradi",
@@ -24,6 +34,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': "O'zgaruvchilar",
   'environments.createError': "Atrof-muhit yaratib bo'lmadi.",
   'environments.defaultName': 'Nomsiz muhit {{n}}',
+  'environments.empty': 'Hali muhitlar yo‘q — qo‘shish uchun “Yangi muhit” tugmasini bosing.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': "Muhitlarni yuklab bo'lmadi.",
   'environments.heading': 'Atrof-muhit',
@@ -31,8 +42,11 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Yangi muhit',
   'environments.subheading':
     "Yuborish vaqtida so'rovlarga almashinadigan o'zgaruvchilar. Har bir ish maydoni uchun bitta faol muhit.",
+  'forgotPassword.statusLabel': "qayta o'rnatish · xavfsiz tunnel",
   'forgotPassword.success':
     "Agar o'sha elektron pochta uchun hisob mavjud bo'lsa, qayta tiklash havolasi yo'lda. Pochta qutingizni tekshiring.",
+  'history.empty':
+    'Bu yerda hali hech narsa yo‘q — birinchi so‘rovingizni Ish maydoni yorlig‘idan yuboring.',
   'history.eyebrow': '$ pylon tarixi --tail',
   'history.fetchError': "Tarixni yuklab bo'lmadi.",
   'history.heading': 'Yugurish tarixi',
@@ -41,9 +55,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Oxirgi 50 ta',
+  'history.realtime': 'real vaqtda',
   'history.subheading':
     "Ushbu ish maydonida har bir so'rov holati, kechikishi va foydali yuk hajmi bilan ishga tushirildi.",
   'landing.choosePlan': 'Rejani tanlang',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Ishonchni mustahkamlang.',
   'landing.ctaBody':
     "Kredit karta yo'q. Platforma muhandisi talab qilinmaydi. ⌘K ni oching va birinchi so'rovingizni besh daqiqadan kamroq vaqt ichida yuboring.",
   'landing.ctaHeading': 'Ishonchni mustahkamlang.',
@@ -86,6 +102,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': "O'rtacha kechikish",
   'mocks.metric.live': 'Ommaviy',
   'mocks.metric.servers': 'Masxarabozlar',
+  'mocks.ms': 'Xonim',
   'mocks.newMock': 'Yangi maket',
   'mocks.online': 'Ommaviy',
   'mocks.paused': 'Xususiy',
@@ -110,9 +127,13 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': "Sog'lom",
   'monitors.metric.uptime': "O'rtacha ish vaqti",
   'monitors.newMonitor': 'Yangi monitor',
+  'monitors.paused': "to'xtatildi",
   'monitors.run': 'Yugurish',
   'monitors.runError': 'Tarmoq xatosi bilan ishga tushirish tugadi: {{error}}',
+  'monitors.runFailed': 'Ishga tushirish muvaffaqiyatsiz tugadi.',
   'monitors.running': 'Yugurmoqda…',
+  'monitors.runSuccess':
+    '{{status}} ishga tushirildi — yuqori oqim {{ms}}ms ichida {{code}} qaytardi.',
   'monitors.sparkLabel': 'Kechikish tendentsiyasi',
   'monitors.subheading':
     'Saqlangan har qanday test uchun talab bo\'yicha tekshiruvlar. Testni bog\'lang, "Ishga tushirish" tugmasini bosing va har bir olovda 24 soatlik muvaffaqiyat darajasi yangilanishini tomosha qiling.',
@@ -121,27 +142,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Ish vaqti · 24 soat',
   'nav.legal': 'Huquqiy',
   'notFound.backToWorkspace': 'Ish joyiga qaytish',
+  'notFound.body':
+    '{{app}} bu URL uchun so‘rov yubordi va hech narsa qaytmadi. Marshrutni qayta tekshiring yoki ish maydoniga qayting.',
   'notFound.eyebrow': '$ pylon rezolyutsiyasi --strict',
   'notFound.title': "Yo'nalish topilmadi",
+  'planUpdated.body':
+    "Hisob-kitob o'zgarishingiz endi faol. Tarifingizni istalgan vaqtda hisob-kitob sahifasidan boshqarishingiz mumkin.",
+  'planUpdated.retry': 'Qayta urinib ko’ring',
+  'planUpdated.verifyFailed': "To'lovingizni hali tasdiqlay olmadik.",
+  'planUpdated.verifyFailedBody':
+    "To'lovingiz hali ham amalga oshirilayotgan bo'lishi mumkin. Birozdan keyin qayta urinib ko'ring.",
   'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
+  'pricing.advancedFeatures': 'Kengaytirilgan funksiyalar: {{yes}}',
+  'pricing.canExport': "Ma'lumotlarni eksport qilish: {{yes}}",
+  'pricing.heading': '{{app}} rejasini tanlang',
+  'pricing.maxCollections': '{{count}} kolleksiya',
+  'pricing.maxEnvironments': '{{count}} muhit',
+  'pricing.maxHistory': '{{count}} tarix yozuvi',
+  'pricing.maxRequests': "{{count}} so'rovlar",
   'privacy.collect.account':
     "Hisob: elektron pochta manzilingiz, xeshlangan parolingiz, ko'rsatiladigan ismingiz va oxirgi marta kirgan vaqtingiz belgisi.",
+  'privacy.intro':
+    '{{app}} maxfiyligingizni hurmat qiladi. Bu sahifa qanday ma’lumotlarni to‘plashimizni, nima uchun to‘plashimizni va ularni qanday o‘chirishni tushuntiradi.',
   'privacy.rights.body':
     "Siz istalgan vaqtda to'plamlaringiz + muhitlaringizni eksport qilishingiz yoki 30 kun ichida barcha ma'lumotlarni butunlay olib tashlash uchun Sozlamalar orqali hisobingizni o'chirishingiz mumkin.",
   'privacy.share.body':
     "Faqat siz. Biz hech qachon ish joyingizdagi kontentni uchinchi shaxslarga sotmaymiz, ulashmaymiz yoki ijaraga bermaymiz. Server jurnallari hodisaga javob berish uchun 30 kun davomida saqlanadi va keyin o'chiriladi.",
   'privacy.title': "Maxfiylik to'g'risidagi bildirishnoma",
+  'profile.bio':
+    'Shaxsiy {{app}} ish maydoningiz — kolleksiyalarni mahkamlang, muhitlarni ulashing va mahsulotni yetkazib beruvchi APIlarni kuzatib boring.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': "qo'shildi {{when}}",
+  'profile.metric.collections': "To'plamlar",
   'profile.metric.monitors': 'Monitorlar',
   'profile.metric.requests': "Saqlangan so'rovlar",
+  'profile.noActivity':
+    'Hali hech qanday so‘rov yuborilmagan — bittasini yaratish uchun Ish maydoni yorlig‘iga o‘ting.',
   'profile.signedOut': "Profilingizni ko'rish uchun tizimga kiring",
   'pylonShell.primaryNavLabel': 'Asosiy navigatsiya',
+  'resetPassword.passwordLabel': 'Yangi parol',
+  'resetPassword.statusLabel': "qayta o'rnatish · token tasdiqlandi",
   'resetPassword.subtitle': 'Ilgari foydalanmagan kuchli parolni tanlang.',
   'resetPassword.tokenPlaceholder': 'elektron pochtadan joylashtirish',
+  'settings.accountManagement.desc':
+    'Elektron pochta va parolingizni yangilang, bildirishnomalar va qurilmalarni boshqaring, tizimdan chiqing yoki hisobingizni o‘chiring.',
+  'settings.accountManagement.title': 'Hisob va xavfsizlik',
   'settings.eyebrow': '$ pylon sozlamalari --tahrirlash',
   'settings.fetchError': 'Sozlamalar yuklanmadi.',
   'settings.language.title': 'Til',
+  'settings.seeding': 'Tayyorlanmoqda…',
   'settings.seedStarter': "Urug'lik boshlang'ich tarkibi",
   'settings.starterCollection': "Boshlang'ich to'plam",
   'settings.starterCollectionDesc': 'Sozlamalar yoqilgan joydan yaratilgan {{ts}}',
@@ -155,6 +204,8 @@ export const ui: UiTranslations = {
     'Parolingizni himoya qilish uchun siz javobgarsiz. Bepul yoki Pro rejalarida bitta hisobni bir nechta odam bilan ulashishga ruxsat berilmaydi — umumiy ish joylari uchun Team obunasini sotib oling.',
   'terms.billing.body':
     'Pullik obunalar har bir hisob-kitob davrida avtomatik ravishda yangilanadi. Istalgan vaqtda Sozlamalar orqali bekor qilishingiz mumkin; kirish huquqingiz joriy davr oxirigacha davom etadi.',
+  'terms.intro':
+    '{{app}} hisobini yaratish bilan quyidagi shartlarga rozilik bildirasiz. Ularni bir marta o‘qing; biz sizni orqaga qarab o‘zgartirishlar bilan hayratda qoldirmaymiz.',
   'terms.title': "Xizmat ko'rsatish shartlari",
   'terms.usage.body':
     "Sizga tegishli bo'lmagan yoki sinovdan o'tkazish uchun aniq ruxsatnomangiz bo'lmagan xizmatlarga so'rov yuborish uchun Pylondan foydalanmang. Pylondan tarif cheklovlarini chetlab o'tish yoki firibgarlik qilish uchun foydalanmang.",
@@ -175,16 +226,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Ishlamayapti',
   'testRunner.metric.passed': "O'tdi",
   'testRunner.never': 'Hech qachon ishga tushmang',
+  'testRunner.newTest': 'Yangi test',
   'testRunner.noAssertions': "Ushbu test bo'yicha hali hech qanday tasdiq yo'q.",
+  'testRunner.noRunsYet':
+    'Hali hech qanday ishga tushirish qayd etilmagan — tarixni to‘ldirish uchun “Hammasini ishga tushirish” tugmasini bosing.',
   'testRunner.passed': "o'tib ketayotgan",
+  'testRunner.recentRuns': "So'nggi yugurishlar",
   'testRunner.runAll': 'Hammasini ishga tushiring',
   'testRunner.running': 'Yugurmoqda…',
   'testRunner.runOne': 'Yugurish',
   'testRunner.subheading': 'Suite natijalari, tasdiqlash farqlari va oxirgi 50 ta yugurish.',
+  'testRunner.suites': 'To‘plamlar',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Tizimga kirgan:',
   'workspace.auth.keyName': 'Sarlavha nomi',
   'workspace.auth.keyValue': 'Kalit qiymati',
+  'workspace.auth.noneHint': 'Bu so‘rov bilan hech qanday avtorizatsiya sarlavhasi yuborilmaydi.',
   'workspace.auth.password': 'Parol',
   'workspace.auth.username': 'Foydalanuvchi nomi',
   'workspace.authOption.apikey': 'API kaliti',
@@ -194,13 +251,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Turi',
   'workspace.authTypeLabel': 'Avtorizatsiya turi',
+  'workspace.body.contentLabel': "So'rov matni",
+  'workspace.body.hint':
+    '{{envVars}} so‘rov yuborilishidan oldin almashtiriladi. Tanalar POST/PUT/PATCH/DELETE so‘rovlarida yuboriladi.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Hech biri',
+  'workspace.body.noneHint':
+    'Hech qanday so‘rov tanasi yuborilmaydi. Qo‘shish uchun JSON yoki oddiy matnni tanlang.',
   'workspace.body.text': 'Xom matn',
   'workspace.body.type': 'Turi',
   'workspace.environment': "Konvert yo'q",
   'workspace.envVar': "muhit o'zgaruvchisi",
   'workspace.eyebrow': '$ pylon ish maydoni --pane split',
+  'workspace.failedCount': '{{count}} muvaffaqiyatsiz',
+  'workspace.idle': "Bo'sh rejim",
   'workspace.kv.addHeader': "Sarlavha qo'shish",
   'workspace.kv.addParam': "Parametr qo'shish",
   'workspace.kv.headerKey': 'Sarlavha nomi',
@@ -213,12 +277,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP usuli',
   'workspace.metric.latency': 'Kechikish',
   'workspace.metric.latencyCaption': 'Ushbu yugurishdan keyin ikki tomonga sayohat',
+  'workspace.metric.size': 'Yuk',
   'workspace.metric.sizeCaption': 'Javob tanasi baytlari',
   'workspace.metric.statusCaption': 'Oxirgi javob',
   'workspace.metric.tests': 'Sinovlar',
+  'workspace.metric.testsAllPassing': 'Barcha tekshiruvlar yashil',
   'workspace.metric.testsFailing': '{{count}} muvaffaqiyatsizlikka uchragan',
+  'workspace.metric.testsIdle': 'Baholash uchun so‘rov yuboring',
   'workspace.noAssertions': "O'rnatilgan tasdiqlarni baholash uchun so'rovni ishga tushiring.",
   'workspace.noResponseYet': "Hali javob yo'q",
+  'workspace.passedCount': "{{count}} o'tdi",
   'workspace.responseHint':
     '// So\'rovni ishga tushirish va javobni olish uchun "Yuborish" tugmasini bosing.',
   'workspace.saveError': 'Soʻrovni saqlab boʻlmadi.',
@@ -228,10 +296,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     "So'rov yozing, uni ishga tushiring va keyin javobni tasdiqlang - barchasi bitta panelda.",
   'workspace.testResults': 'Sinov natijalari',
+  'workspace.tests.autoHint':
+    'Holat oilasi, kechikish, tana hajmi va transport sog‘lomligi avtomatik tekshiriladi — natijalar javob panelidagi “Test natijalari” bo‘limida ko‘rinadi.',
+  'workspace.tests.autoTitle': 'Har bir javobda o‘rnatilgan tekshiruvlar ishlaydi',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     "Avtorizatsiya sifatida yuborildi: Tashuvchi<token> ushbu to'plamdagi har bir so'rov bo'yicha.",
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': "Nomsiz so'rov",
+  'workspace.urlLabel': "So'rov URL manzili",
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ada soalan tentang tempahan, maklum balas, atau hartanah yang anda rasa patut ada di {{app}}? Hubungi pasukan kami dari akaun anda — setiap mesej sampai kepada manusia sebenar yang boleh membantu.',
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang kami',
+  'about.featureLoyalty':
+    'Kadar khas ahli dan program kesetiaan yang memberi mata, daftar keluar lewat, dan naik taraf bilik pada setiap tempahan.',
+  'about.featureReviews':
+    'Ulasan tetamu yang disahkan dan pilihan editor supaya anda boleh mempercayai penginapan sebelum tiba.',
+  'about.featureRooms':
+    'Bilik, kadar, dan kemudahan bersebelahan dengan harga telus dan menyeluruh — cukai dan fi resort termasuk sebelum anda bayar.',
+  'about.featureSearch':
+    'Carian masa nyata merentas hotel yang disahkan dengan ketersediaan langsung, paparan peta, dan galeri foto yang kaya.',
+  'about.featureTrips':
+    'Kegemaran yang disimpan dan papan pemuka Trips yang menyimpan setiap tempahan, itinerari, dan pengesahan di satu tempat.',
+  'about.intro':
+    '{{app}} ialah platform tempahan hotel untuk pengembara yang mementingkan kualiti. Setiap hartanah disahkan sendiri oleh pasukan editorial kami — tiada inventori agregator, tiada penyenaraian umpan. Cari ketersediaan sebenar, bandingkan bilik, kadar, dan kemudahan bersebelahan, kemudian tempah dalam beberapa ketikan dengan harga menyeluruh yang jelas.',
+  'about.missionBody':
+    'Menempah tempat penginapan sepatutnya terasa tenang dan jujur. Kami menunjukkan kadar telus dengan cukai dan fi resort di hadapan, memberi ganjaran kepada tetamu setia dan bukan mengenakan caj tersembunyi, serta mengutamakan penginapan yang berbaloi — supaya anda boleh luangkan lebih sedikit masa membandingkan tab dan lebih banyak masa menikmati perjalanan itu sendiri.',
+  'about.missionTitle': 'Misi kami',
+  'about.subtitle': 'Cara terpilih dan telus untuk mencari dan menempah hotel yang betul.',
   'account.loyalty.activitySummary': '{{nights}} malam · {{spend}} dihabiskan tahun ini',
+  'account.loyalty.benefitsHeading': 'Faedah anda',
   'account.loyalty.heading': 'Kesetiaan',
   'account.loyalty.loading': 'Memuatkan kesetiaan…',
-  'account.loyalty.pointsTowardNext': '{{mata}} / {{seterusnya}} menunjuk ke {{nextTier}}',
+  'account.loyalty.maxTier': 'Tahap tertinggi — nikmati faedah anda.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} mata kepada {{nextTier}}',
   'account.loyalty.tier': 'Peringkat semasa',
   'account.loyalty.unavailable': 'Maklumat kesetiaan tidak tersedia.',
   'account.navLabel': 'Bahagian akaun',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Sahkan tempahan · {{total}}',
   'bookingCheckout.datesRequired': 'Sila pilih tarikh daftar masuk dan daftar keluar anda.',
   'bookingCheckout.guestHeading': 'Tetamu utama',
+  'bookingCheckout.heading': 'Sahkan dan tempah',
   'bookingCheckout.loadError': 'Gagal memuatkan harta.',
   'bookingCheckout.nights': '{{rate}} × {{count}} malam-malam',
   'bookingCheckout.notFound': 'Harta tidak ditemui.',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Cukai & yuran',
   'bookingCheckout.tripHeading': 'Perjalanan anda',
   'bookingConfirmation.allTripsCta': 'Semua perjalanan',
+  'bookingConfirmation.confNumber': 'Nombor pengesahan: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Tempahan anda sedang diproses.',
   'bookingConfirmation.heading': 'Tempahan disahkan',
   'bookingConfirmation.loading': 'Memuatkan tempahan anda…',
   'bookingConfirmation.searchMoreCta': 'Layari lebih banyak penginapan',
   'bookingConfirmation.subheadingForTrip':
-    '{{harta}} dalam {{bandar}} , {{negara}} Kita jumpa lagi di {{daftarmasuk}} .',
+    '{{property}} di {{city}}, {{country}}. Jumpa anda pada {{checkIn}}.',
   'bookingConfirmation.total': 'Jumlah {{total}}',
   'bookingConfirmation.viewTripCta': 'Lihat perjalanan',
   'common.goToDashboard': 'Pergi ke Papan Pemuka',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Gagal memuatkan kegemaran.',
   'favorites.pricePerNight': '{{price}} / malam',
   'favorites.removeCta': 'Nyahsimpan',
+  'favorites.removing': 'Mengeluarkan…',
   'forgotPassword.subheading':
     'Masukkan e-mel pada akaun anda dan kami akan menghantar pautan tetapan semula yang selamat kepada anda.',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Ahli-ahli yang bermalam',
   'landing.cta.heading': 'Kadar khusus ahli. Setiap tempahan, setiap masa.',
   'landing.cta.signup': 'Cipta akaun percuma',
+  'landing.cta.subheading':
+    'Kumpul mata kesetiaan pada setiap penginapan, buka daftar keluar lewat dan naik taraf bilik, serta dapat akses awal kepada hartanah baharu sebelum disenaraikan secara umum.',
   'landing.destinations.eyebrow': 'Ke mana seterusnya',
   'landing.destinations.heading': 'Destinasi pilihan',
   'landing.destinations.seeAll': 'Lihat semua destinasi',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Cerita-cerita yang berbaloi untuk dibungkus',
   'landing.nav.join': 'Sertai Persinggahan',
   'landing.nav.search': 'Carian kekal',
+  'landing.preview.browseAll': 'Layari koleksi penuh',
   'landing.preview.eyebrow': 'Sekilas pandang ke dalam',
   'landing.preview.heading': 'Penginapan pilihan bulan ini',
+  'landing.preview.subheading':
+    'Setiap hartanah di {{appName}} disahkan sendiri oleh pasukan editorial kami — tiada inventori agregator, tiada penyenaraian umpan.',
   'login.eyebrow': 'Kawasan ahli',
+  'login.noAccount': 'Baru di Tessera?',
   'login.signupLink': 'Cipta akaun percuma',
   'login.subheading':
     'Log masuk untuk mengurus perjalanan anda, melihat pengesahan dan menyambung dari tempat anda berhenti.',
+  'loyaltyTierBadge.points': '{{points}} mata',
   'planUpdated.heading': 'Pelan dikemas kini',
+  'planUpdated.retry': 'Cuba lagi',
+  'planUpdated.verifyFailed': 'Kami belum dapat mengesahkan pembayaran anda.',
+  'planUpdated.verifyFailedBody':
+    'Pembayaran anda mungkin masih diproses. Cuba lagi sebentar lagi.',
   'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
   'pricing.limit.advancedFeatures': 'Ciri-ciri lanjutan:',
   'pricing.limit.canExport': 'Eksport data:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Apa yang ditawarkan oleh tempat ini',
   'propertyDetail.backLink': 'Kembali ke carian',
   'propertyDetail.bookCta': 'Rizab',
+  'propertyDetail.bookmarkAria': 'Simpan harta benda',
   'propertyDetail.bookmarkAriaSaved': 'Alih keluar daripada sifat yang disimpan',
+  'propertyDetail.galleryImageAlt': 'Foto {{name}} daripada {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} gambar wira',
   'propertyDetail.hidePhotos': 'Sembunyikan foto',
   'propertyDetail.lineCleaning': 'Yuran pembersihan',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'malam',
   'propertyDetail.noChargeYet': 'Anda tidak akan dikenakan bayaran lagi',
   'propertyDetail.notFound': 'Harta tidak ditemui.',
+  'propertyDetail.perNight': '/ malam',
+  'propertyDetail.pickDatesHint': 'Pilih tarikh anda untuk melihat pecahan harga penuh.',
   'propertyDetail.reviewCount': '( {{count}} ulasan)',
   'propertyDetail.reviewsHeading': 'Ulasan terkini',
   'propertyDetail.roomCapacity': 'Tidur {{count}}',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Kata laluan baharu',
   'resetPassword.subheading':
     'Pilih kata laluan baharu untuk akaun Auberge anda. Gunakan sekurang-kurangnya 8 aksara; kami mengesyorkan frasa laluan.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Tiada hartanah yang sepadan dengan carian anda.',
   'searchResults.emptyHint':
     'Cuba luaskan penapis anda atau alih keluar siling harga — Auberge mempunyai penginapan di 14 buah negara.',
@@ -108,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Penginapan yang dipilih susun',
   'searchResults.headingForQuery': 'Kekal untuk " {{q}} "',
   'searchResults.loadError': 'Gagal memuatkan sifat.',
+  'searchResults.mapHint':
+    'Tuding kad untuk menyerlahkannya pada peta. Jubin Mapbox langsung dalam produksi.',
   'searchResults.mapPinAria': '{{name}} — {{price}} setiap malam',
   'searchResults.sortLabel': 'Isih mengikut',
   'searchResults.subheading': '{{count}} hartanah · {{guests}} tetamu',
   'signup.eyebrow': 'Jadilah ahli',
   'signup.subheading':
     'Sertai Auberge untuk mendapatkan kadar khusus ahli, daftar keluar lewat dan akses pertama ke hartanah baharu.',
+  'sojournAuthShell.brand.eyebrow': 'Menginap di tempat yang luar biasa',
+  'sojournAuthShell.brand.heading':
+    'Koleksi hartanah terpilih — dipersembahkan dengan indah, berharga telus.',
   'sojournHeroSearchCard.checkInAria': 'Tarikh daftar masuk',
   'sojournHeroSearchCard.checkOutAria': 'Tarikh daftar keluar',
+  'sojournHeroSearchCard.destAria': 'Destinasi',
+  'sojournHeroSearchCard.destLabel': 'Di mana',
   'sojournHeroSearchCard.destPlaceholder': 'Bandar, wilayah atau harta benda',
   'sojournHeroSearchCard.eyebrow': 'Penginapan yang dipilih susun · Kadar khusus ahli',
   'sojournHeroSearchCard.guestsOption': '{{n}} tetamu',
   'sojournHeroSearchCard.subtitle':
     'Koleksi hotel butik, hartanah bercorak reka bentuk termaju dan tempat percutian yang jarang ditemui — harga yang telus, dipersembahkan dengan indah.',
+  'sojournHeroSearchCard.title': 'Menginap di tempat yang luar biasa',
+  'sojournHeroSearchCard.trustLoyalty': 'Kumpul mata pada setiap penginapan',
   'sojournHeroSearchCard.trustNoFees': 'Tiada yuran tersembunyi, sama sekali',
   'sojournHeroSearchCard.trustVetted': 'Hartanah yang telah diperiksa sendiri sahaja',
   'sojournLayout.primaryNavLabel': 'Navigasi utama',

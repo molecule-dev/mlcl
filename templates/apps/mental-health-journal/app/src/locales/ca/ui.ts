@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens comentaris, has trobat un error o vols explicar-nos com t'ha ajudat escriure un diari? Llegim cada missatge — posa't en contacte quan vulguis i una persona real et respondrà.",
+  'about.contactTitle': 'Parla amb nosaltres',
+  'about.featureInsights':
+    'Reflexions amb IA que destaquen suaument els desencadenants, els temes i les gratituds — sense perdre la teva veu.',
+  'about.featureMood':
+    "Seguiment de l'estat d'ànim i l'activitat amb una vista de calendari i gràfics de tendències que mostren què t'ajuda a prosperar.",
+  'about.featurePrivacy':
+    "Xifratge d'extrem a extrem, bloqueig amb codi d'accés i exportació completa a CSV perquè les teves reflexions segueixin sent privades i portables.",
+  'about.featurePrompts':
+    'Indicacions diàries suaus perquè sempre tinguis per on començar — mai una pàgina en blanc.',
+  'about.intro':
+    "{{app}} és un diari de salut mental suau i privat per a la reflexió diària, el seguiment de l'estat d'ànim i la gratitud. Les indicacions reflexives substitueixen la pàgina en blanc, la cerca silenciosa de patrons t'ajuda a entendre què afecta com et sents, i el xifratge d'extrem a extrem manté les teves paraules com a teves.",
+  'about.missionBody':
+    "Creiem que fer un repàs de com estàs hauria de ser tranquil, mai clínic — i mai com una altra aplicació que et reclama l'atenció. {{app}} està dissenyat per ajudar, no per insistir: uns quants minuts tranquils al dia per adonar-te del teu estat d'ànim, escriure amb sinceritat i, a poc a poc, veure't més clarament.",
+  'about.missionTitle': 'La nostra missió',
   'about.pageTitle': 'Sobre {{app}}',
   'authShell.encryptionBadge': 'Les teves entrades estan xifrades de punta a punta.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Dia {{day}} — cap entrada',
   'calendar.cellMood': 'Dia {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Aquest mes, en breu',
   'calendar.eyebrow': "L'estat d'ànim d'un cop d'ull",
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Seguiment {{tracked}} de {{total}} dies aquest mes.',
   'common.goToDashboard': 'Anar al panell',
   'common.tryAgain': 'Torna-ho a intentar',
+  'entryComposer.bodyPlaceholder': 'Escriu el que et sembli sincer. Ningú més no ho llegirà.',
   'entryComposer.cancel': 'Torna al diari',
   'entryComposer.heading': "La reflexió d'avui",
   'entryComposer.moodLabel': 'Com et sents?',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Elimina {{tag}}',
   'entryComposer.save': 'Desa la reflexió',
   'entryComposer.saveError': "No s'ha pogut desar la teva entrada.",
+  'entryComposer.tagPlaceholder': 'Afegeix una etiqueta i prem enter',
   'entryComposer.titlePlaceholder': 'Posa nom a aquesta reflexió…',
   'entryDetail.back': 'Torna al diari',
   'entryDetail.delete': 'Suprimeix aquesta entrada',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': "S'està carregant la reflexió…",
   'entryDetail.notFound': 'Entrada no trobada.',
   'entryDetail.reflectionsHeading': 'Reflexions de la IA',
+  'forgotPassword.continueButton': 'Introdueix el codi de restabliment',
   'forgotPassword.eyebrow': 'Cap problema',
   'forgotPassword.subheading':
     "T'enviarem un enllaç de restabliment automàtic al teu correu electrònic.",
@@ -59,14 +79,22 @@ export const ui: UiTranslations = {
     "Encara no hi ha temes: afegeix una o dues etiquetes a les teves entrades i s'aplegaran aquí.",
   'insights.themesHeading': 'Temes principals',
   'insights.triggerFrequency': 'notat {{count}} × aquest mes',
+  'insights.triggersEmpty':
+    "Encara no hi ha res a destacar. Unes quantes entrades al llarg d'uns dies mostraran els teus patrons.",
   'insights.triggersHeading': "Patrons que canvien el teu estat d'ànim",
+  'journal.empty':
+    'No hi ha cap reflexió que coincideixi — prova un altre filtre o escriu una entrada nova.',
   'journal.eyebrow': 'Les teves reflexions',
   'journal.heading': 'Diari',
   'journal.loadError': "No s'han pogut carregar les entrades.",
   'journal.loading': "S'estan carregant les entrades…",
+  'journal.newEntry': 'Nova entrada',
   'journal.searchPlaceholder': 'Busca un sentiment, un nom, un moment…',
   'journal.subheading': '{{count}} entrades — totes i cadascuna que val la pena conservar.',
   'journalEntryCard.encryptedLabel': 'Xifrat',
+  'landing.ctaBody':
+    "Gratuït per començar. Pro desbloqueja l'exportació de dades, un diari més gran i un any complet d'historial.",
+  'landing.ctaButton': 'Comença la teva primera entrada',
   'landing.ctaTitle': 'Uns minuts de tranquil·litat al dia. Això és tot.',
   'landing.eyebrow': 'Una pràctica diària suau',
   'landing.featuresBody':
@@ -85,6 +113,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Un espai suau per a la reflexió diària.',
   'mentalHealthJournalLayout.closeMenu': 'Tanca el menú',
   'mentalHealthJournalLayout.openMenu': 'Obre el menú',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Navegació principal',
+  'moodHeroCard.entriesThisWeek': '{{count}} aquesta setmana',
   'moodHeroCard.streakSuffix': 'ratxa de dia',
   'moodHeroCard.title': "La reflexió d'avui",
   'moodTrendChart.aiBadge': "Informació d'IA preparada",
@@ -95,11 +125,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'El teu viatge',
   'profile.fallbackName': 'Reflector',
   'profile.loadError': "No s'han pogut carregar les estadístiques.",
+  'profile.loading': 'Actualitzant les teves estadístiques…',
   'profile.longestStreak': 'Ratxa més llarga',
   'profile.memberSince': 'Reflexionant des de {{date}}',
   'profile.milestones': 'Fites',
   'profile.milestonesEmpty':
     'La teva primera fita està a una entrada de distància: escriu quan et sentis a punt.',
+  'profile.moodMix': "La teva barreja d'estats d'ànim aquesta temporada",
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'Reflexions',
   'profile.totalWords': 'Paraules escrites',
@@ -112,6 +144,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Escriu sobre això',
   'resetPassword.eyebrow': 'Un nou començament',
   'resetPassword.mismatchError': 'Les contrasenyes no coincideixen.',
+  'resetPassword.passwordLabel': 'Nova contrasenya',
   'resetPassword.subheading': "Tria alguna cosa segura: les teves reflexions s'ho mereixen.",
   'resetPassword.tokenPlaceholder': 'Restableix el codi del correu electrònic',
   'settings.dangerDescription':
@@ -124,11 +157,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     "Les teves paraules sempre et pertanyen. Descarrega'n una còpia quan vulguis.",
   'settings.exportDone': 'Exportat {{format}}.',
+  'settings.exportError': "L'exportació ha fallat.",
+  'settings.exportHeading': 'Exporta les teves reflexions',
   'settings.exportLoading': 'Preparant…',
   'settings.eyebrow': 'El teu espai, les teves normes',
   'settings.languageHeading': 'Llengua',
   'settings.privacyHeading': 'Privacitat i xifratge',
   'settings.remindersHeading': 'Recordatori diari',
+  'settings.reminderToggleAria': 'Activa o desactiva el recordatori diari',
   'settings.reminderToggleDescription':
     'Un únic recordatori tranquil en el moment que triïs. Sense insígnies ni culpabilitat per ratxa.',
   'settings.reminderToggleLabel': 'Envia una empenta suau',
@@ -141,6 +177,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Creant el diari…',
   'signup.subheading': 'Un espai segur per als teus pensaments.',
   'wellnessRingsTriad.mindfulnessCaption': 'Gol {{goal}} min avui',
+  'wellnessRingsTriad.mindfulnessLabel': 'Atenció plena',
   'wellnessRingsTriad.sleepCaption': 'Gol {{goal}} h / nit',
   'wellnessRingsTriad.sleepLabel': 'Dormir',
+  'wellnessRingsTriad.sleepValue': '{{hours}} h',
+  'wellnessRingsTriad.streakCaption': 'Objectiu {{goal}} dies',
+  'wellnessRingsTriad.streakLabel': 'Ratxa de diari',
+  'wellnessRingsTriad.streakValue': '{{days}} d',
 }

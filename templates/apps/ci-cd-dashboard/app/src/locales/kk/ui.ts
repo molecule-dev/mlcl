@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Сұрақтарыңыз, пікіріңіз бар ма, әлде командаңызға демо көрсеткіңіз келе ме? Бізге hello@conduit.dev мекенжайына жазыңыз — әрбір хабарлама командадағы нақты адамға жетеді.',
   'about.contactHeading': 'Байланыс',
   'about.eyebrow': 'Туралы',
+  'about.featuresHeading': 'Сіз не аласыз',
+  'about.introBody':
+    '{{app}} GitHub Actions стиліндегі үздіксіз жеткізуді бір жылдам бақылау тақтасына біріктіреді: барлық репозиторийлеріңіз үшін пайплайндар, құрастыру журналдары, артефактілер, күй белгілері және орналастыру орталары бір жерде. Қойындылар арасында секірмейсіз, қай құрастыру бұзылғанын болжамайсыз — әрбір іске қосу, журнал жолы және орналастыру бір басу қашықтықта.',
+  'about.introHeading': '{{app}} дегеніміз не',
+  'about.missionBody':
+    'Бағдарламалық жасақтаманы шығару тыныш әрі болжамды болуы керек, қорқыныш көзі емес. Біз пайплайндарды, журналдарды және орналастыру құралдарын жасаймыз, сондықтан коммиттен өндіріске дейінгі жол жылдам, көрнекі және сенімді — алғашқы сәтті құрастыру бес минутта, ал одан кейінгі әрбір құрастыру дәл сондай анық.',
+  'about.missionHeading': 'Біздің миссиямыз',
+  'about.subtitle':
+    '{{app}} — әрбір репозиторий бойынша құрастыруларды, орналастыруларды және орталарды бақылап, сенімділікпен шығарғысы келетін командаларға арналған CI/CD бақылау тақтасы.',
   'artifacts.empty': 'Әзірге артефактілер жоқ.',
   'artifacts.heading': 'Артефактілер',
   'artifacts.loadError': 'Артефактілерді жүктеу сәтсіз аяқталды.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ арна ортасы --тізім',
   'environments.heading': 'Орталар',
   'environments.loadError': 'Орталарды жүктеу сәтсіз аяқталды.',
+  'environments.loading': 'Орталар жүктелуде…',
   'environments.subheading': 'Әрбір нысана бойынша тікелей орналастыру мәртебесі.',
   'forgotPassword.runnerStatus': 'қалпына келтіру · қауіпсіз туннель',
+  'forgotPassword.success':
+    'Егер сол электрондық пошта үшін тіркелгі болса, қалпына келтіру сілтемесі жолда. Кіріс жәшігіңіздегі поштаны тексеріңіз.',
   'insights.changeFailureRate': 'Қателік деңгейін өзгерту',
   'insights.deployFrequency': 'Орналастыру / күн',
   'insights.empty': 'Әзірге деректер жеткіліксіз.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Статистика жүктелмеді.',
   'insights.meanP95': 'мағынасыз {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Ең баяу пайплайн қадамдары',
   'insights.successRateHeading': 'Құбырдың сәттілік көрсеткіші (соңғы 14 күн)',
   'landing.choosePlan': 'Жоспарды таңдаңыз',
+  'landing.copyright': '© {{year}} {{app}}. Сенімділікпен шығарыңыз.',
   'landing.ctaBody':
     'Несие картасы қажет емес. Платформа инженері қажет емес. Бес минут ішінде алғашқы құбыр желісін іске қосыңыз.',
   'landing.ctaHeading': 'Сенімді түрде жіберіңіз.',
   'landing.featuresEyebrow': '// платформа мүмкіндіктері',
   'landing.featuresHeading': 'Жүк жөнелтушілер үшін, жүк жөнелтушілермен жасалған',
+  'landing.heroSubtitle':
+    'Секундтарда аяқталатын пайплайндар. Оқуға болатын журналдар. Сенуге болатын орналастырулар.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit орналастыру --қауіпсіз',
   'landing.pricingEyebrow': '// $ баға белгілеу --қарапайым',
   'landing.pricingHeading': 'Қарапайым, болжамды баға',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Қазір ұшақта',
   'pipelines.metric.successCaption': '{{count}} -ның {{total}} жүгірулер',
   'pipelines.metric.successRate': 'Табыс деңгейі',
+  'pipelines.realtimeOn': 'нақты уақыт',
   'pipelines.subheading': 'Әрбір қаралған репозиторийден тікелей жаңартулар.',
+  'pricing.advancedFeatures': 'Кеңейтілген мүмкіндіктер: {{mark}}',
+  'pricing.canExport': 'Деректерді экспорттау: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} артефактілері',
+  'pricing.maxBuilds': '{{count}} құрастырулары',
+  'pricing.maxPipelines': '{{count}} пайплайндары',
   'privacy.dataAccount':
     'Тіркелгі: аты-жөні, электрондық поштасы, хэштелген құпия сөз, жоспар деңгейі.',
   'privacy.intro':
@@ -93,6 +118,8 @@ export const ui: UiTranslations = {
     'Біз есеп айырысу үшін Stripe, транзакциялық электрондық пошта үшін Mailgun және құрастырылған артефактілерді сақтау үшін AWS S3 пайдаланамыз. Әрқайсысы келісімшарт бойынша өз қызметін жеткізу үшін қажетті ең аз деректер көлеміне байланысты.',
   'privacy.rightsBody':
     'Сіз деректеріңіздің әрбір байтын экспорттай аласыз, кез келген уақытта «Параметрлер» бөлімінен тіркелгіңізді жоя аласыз және тіркелгіңіздегі әрбір вебхук жеткізілімінің жазбасын сұрай аласыз. Біз GDPR / CCPA сұрауларына 30 күн ішінде жауап береміз.',
+  'privacy.subtitle':
+    '{{app}} біз пайплайндарыңызды іске қосқан кезде деректеріңізді қалай жинайды, сақтайды және қорғайды.',
   'privacy.title': 'Құпиялылық саясаты',
   'repositories.empty': 'Қосылған репозиторийлер жоқ.',
   'repositories.heading': 'Репозиторийлер',
@@ -101,11 +128,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Барлық репозиторийлер',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Репозиторийді жүктеу сәтсіз аяқталды.',
+  'repositoryDetail.meanDuration': 'Орташа ұзақтық',
   'repositoryDetail.notFound': 'Қойма табылмады.',
+  'repositoryDetail.successRate': 'Табыс деңгейі',
   'repositoryDetail.totalBuilds': 'Жалпы құрылыстар',
   'repositoryDetail.webhookActive': 'белсенді',
   'repositoryDetail.webhookPaused': 'кідіртілді',
   'repositoryDetail.webhooksHeading': 'Вебхуктар',
+  'resetPassword.passwordLabel': 'Жаңа құпия сөз',
   'resetPassword.runnerStatus': 'қалпына келтіру · токен тексерілді',
   'resetPassword.subtitle': 'Бұрын қолданбаған күшті құпия сөзді таңдаңыз.',
   'resetPassword.tokenPlaceholder': 'электрондық поштадан қою',
@@ -118,6 +148,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Репозиторийлер Арна сағаттары. Оқиғаларды қабылдауды тоқтату үшін VCS провайдеріңізден ажыратыңыз.',
   'settings.repositories.empty': 'Әлі ешқандай репозиторийлер қосылған жоқ.',
+  'settings.repositories.heading': 'Репозиторий байланыстары',
   'settings.repositories.loadError': 'Репозиторийлерді жүктеу сәтсіз аяқталды.',
   'settings.secrets.addCta': 'Құпия қосу',
   'settings.secrets.addError': 'Құпия ақпарат қосылмады.',
@@ -125,6 +156,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Құпияны жою сәтсіз аяқталды.',
   'settings.secrets.empty': 'Ешқандай құпия сақталмаған.',
   'settings.secrets.heading': 'Құпиялар',
+  'settings.secrets.lastUsed': 'соңғы рет {{date}} пайдаланылды',
   'settings.secrets.loadError': 'Құпияларды жүктеу сәтсіз аяқталды.',
   'settings.secrets.neverUsed': 'ешқашан пайдаланылмаған',
   'settings.secrets.rotateCta': 'Айналдыру',
@@ -148,6 +180,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Вебхук жаңартылмады.',
   'signup.namePlaceholder': 'Райли саябағы',
   'signup.runnerStatus': 'тегін деңгей · айына 1000 құрастыру мин.',
+  'terms.intro':
+    '{{app}} тіркелгісін жасау арқылы сіз осы шарттармен келісесіз. Олар құрастыру жүргізушілерін қолайлы пайдалануды, біздің SLA шекараларын және теріс пайдалану жүктемелері үшін тіркелгіңізді тоқтата алатын немесе жоя алатын жағдайларды қамтиды.',
   'terms.slaBody':
     'Pro және Team жоспарлары API және Runner пулының ай сайынғы жұмыс уақытын 99,95% қамтамасыз етуге бағытталған. Тегін жоспар сол қалпында ұсынылады. Ажыратулар status.conduit.dev сайтында көрсетіледі және шот-фактурадағы формулаға сәйкес есептеледі.',
   'terms.terminationBody':

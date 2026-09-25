@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Naišli ste na grešku, imate predlog za funkciju ili želite da nam kažete šta da napravimo sledeće? Pišite na hello@pylon.dev — svaka poruka stiže do pravog inženjera u timu.',
   'about.contactTitle': 'Kontaktirajte nas',
+  'about.intro':
+    '{{app}} je brza radna stanica za testiranje API-ja prilagođena tastaturi, namenjena inženjerima koji žive u terminalu — Postman-style zahtevi, kolekcije, okruženja i istorija bez suvišnog balasta.',
+  'about.missionBody':
+    'API-ji su kičma modernog softvera, ali alati za njihovo testiranje su spori, glomazni i zahtevaju miš. {{app}} postoji da bi programerima pružio oštru, brzu radnu stanicu terminalnog kvaliteta: šaljite zahteve, gradite poverenje i isporučujte bez napuštanja tastature.',
+  'about.missionTitle': 'Наша мисија',
   'about.pageTitle': 'O aplikaciji {{app}}',
   'authShell.statusLabel': 'тркачи на мрежи',
   'collections.createError': 'Није могуће креирати колекцију.',
   'collections.defaultName': 'Неименована колекција {{n}}',
+  'collections.empty':
+    'Još nema kolekcija — kliknite na „Nova kolekcija“ da napravite svoju prvu fasciklu.',
   'collections.eyebrow': '$ pylon колекције --tree',
   'collections.fetchError': 'Није могуће учитати колекције.',
   'collections.heading': 'Колекције',
   'collections.loading': 'Учитавање колекција…',
+  'collections.metric.allGreen': 'Sve zeleno',
   'collections.metric.collections': 'Колекције',
   'collections.metric.failing': 'Неуспех',
   'collections.metric.failingCaption': 'Последње трчање је имало неуспеха',
@@ -24,6 +34,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Променљиве',
   'environments.createError': 'Није могуће креирати окружење.',
   'environments.defaultName': 'Неименовано окружење {{n}}',
+  'environments.empty': 'Još nema okruženja — kliknite na „Novo okruženje“ da ga dodate.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'Није могуће учитати окружења.',
   'environments.heading': 'Окружења',
@@ -31,8 +42,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Ново окружење',
   'environments.subheading':
     'Променљиве које се претварају у захтеве приликом слања. Једно активно окружење по радном простору.',
+  'forgotPassword.statusLabel': 'ресетовање · безбедан тунел',
   'forgotPassword.success':
     'Ако постоји налог за ту имејл адресу, линк за ресетовање је ускоро. Проверите пријемно сандуче.',
+  'history.empty': 'Ovde još nema ničega — pošaljite svoj prvi zahtev iz kartice Radni prostor.',
   'history.eyebrow': 'Историја $ пилона --реп',
   'history.fetchError': 'Није могуће учитати историју.',
   'history.heading': 'Историја трчања',
@@ -41,9 +54,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Последњих 50',
+  'history.realtime': 'u realnom vremenu',
   'history.subheading':
     'Сваки захтев покренут у овом радном простору, са статусом, латенцијом и величином корисног оптерећења.',
   'landing.choosePlan': 'Изаберите план',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Gradite poverenje.',
   'landing.ctaBody':
     'Без кредитне картице. Није потребан платформски инжењер. Отворите ⌘K и пошаљите свој први захтев за мање од пет минута.',
   'landing.ctaHeading': 'Створите самопоуздање.',
@@ -85,6 +100,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Просечна латенција',
   'mocks.metric.live': 'Јавно',
   'mocks.metric.servers': 'Руга се',
+  'mocks.ms': 'мс',
   'mocks.newMock': 'Нови лажни примерак',
   'mocks.online': 'Јавно',
   'mocks.paused': 'Приватно',
@@ -108,9 +124,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Здраво',
   'monitors.metric.uptime': 'Просечно време непрекидног рада',
   'monitors.newMonitor': 'Нови монитор',
+  'monitors.paused': 'паузирано',
   'monitors.run': 'Трчи',
   'monitors.runError': 'Покретање је завршено са мрежном грешком: {{error}}',
+  'monitors.runFailed': 'Pokretanje nije uspelo.',
   'monitors.running': 'Трчање…',
+  'monitors.runSuccess': 'Pokreni {{status}} — uzvodni servis je vratio {{code}} za {{ms}}ms.',
   'monitors.sparkLabel': 'Тренд латенције',
   'monitors.subheading':
     'Провере на захтев за било који сачувани тест. Повежите тест, кликните на Покрени и пратите како се стопа успеха ажурира у последњих 24 сата са сваким покретањем.',
@@ -119,27 +138,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Време непрекидног рада · 24 сата',
   'nav.legal': 'Правни',
   'notFound.backToWorkspace': 'Назад на радни простор',
+  'notFound.body':
+    '{{app}} je poslao zahtev za ovaj URL i nije dobio nikakav odgovor. Proverite rutu ili se vratite u radni prostor.',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Рута није пронађена',
+  'planUpdated.body':
+    'Promena naplate je sada aktivna. Svojim planom možete upravljati u svakom trenutku sa stranice za naplatu.',
+  'planUpdated.retry': 'Покушај поново',
+  'planUpdated.verifyFailed': 'Још увек нисмо могли да потврдимо вашу уплату.',
+  'planUpdated.verifyFailedBody':
+    'Ваша уплата је можда још увек у обради. Покушајте поново за тренутак.',
   'planUpdated.verifying': 'Потврђивање уплате…',
+  'pricing.advancedFeatures': 'Napredne funkcije: {{yes}}',
+  'pricing.canExport': 'Izvoz podataka: {{yes}}',
+  'pricing.heading': 'Изаберите ваш {{app}} план',
+  'pricing.maxCollections': '{{count}} kolekcija',
+  'pricing.maxEnvironments': '{{count}} okruženja',
+  'pricing.maxHistory': '{{count}} unosa istorije',
+  'pricing.maxRequests': '{{count}} захтеви',
   'privacy.collect.account':
     'Налог: ваша имејл адреса, хеширана лозинка, приказано име и временска ознака вашег последњег пријављивања.',
+  'privacy.intro':
+    '{{app}} poštuje vašu privatnost. Ova stranica opisuje koje podatke prikupljamo, zašto ih prikupljamo i kako da ih uklonite.',
   'privacy.rights.body':
     'Можете да извезете своје колекције + окружења у било ком тренутку или да избришете свој налог из Подешавања да бисте трајно уклонили све податке у року од 30 дана.',
   'privacy.share.body':
     'Само ви. Никада не продајемо, не делимо нити изнајмљујемо садржај вашег радног простора трећим лицима. Серверски логови се чувају 30 дана ради реаговања на инциденте, а затим се бришу.',
   'privacy.title': 'Обавештење о приватности',
+  'profile.bio':
+    'Vaš lični {{app}} radni prostor — zakačite kolekcije, delite okruženja i pratite API-je koji isporučuju proizvod.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'придружио се {{when}}',
+  'profile.metric.collections': 'Колекције',
   'profile.metric.monitors': 'Монитори',
   'profile.metric.requests': 'Сачувани захтеви',
+  'profile.noActivity':
+    'Još nijedan zahtev nije poslat — idite na karticu Radni prostor da ga pošaljete.',
   'profile.signedOut': 'Пријавите се да бисте видели свој профил',
   'pylonShell.primaryNavLabel': 'Примарна навигација',
+  'resetPassword.passwordLabel': 'Нова лозинка',
+  'resetPassword.statusLabel': 'ресетовање · токен верификован',
   'resetPassword.subtitle': 'Изаберите јаку лозинку коју раније нисте користили.',
   'resetPassword.tokenPlaceholder': 'налепи из имејла',
+  'settings.accountManagement.desc':
+    'Ažurirajte imejl i lozinku, upravljajte obaveštenjima i uređajima, odjavite se ili obrišite nalog.',
+  'settings.accountManagement.title': 'Налог и безбедност',
   'settings.eyebrow': '$ подешавања пилона --уреди',
   'settings.fetchError': 'Није могуће учитати подешавања.',
   'settings.language.title': 'Језик',
+  'settings.seeding': 'Popunjavanje…',
   'settings.seedStarter': 'Садржај стартера семена',
   'settings.starterCollection': 'Почетна колекција',
   'settings.starterCollectionDesc': 'Направљено из подешавања {{ts}}',
@@ -153,6 +200,8 @@ export const ui: UiTranslations = {
     'Ви сте одговорни за заштиту своје лозинке. Дељење једног налога са више људи није дозвољено на бесплатним или Про плановима — купите тимску претплату за дељене радне просторе.',
   'terms.billing.body':
     'Плаћене претплате се аутоматски обнављају у сваком обрачунском периоду. Можете их отказати у Подешавањима у било ком тренутку; ваш приступ се наставља до краја текућег периода.',
+  'terms.intro':
+    'Kreiranjem {{app}} naloga prihvatate uslove u nastavku. Pročitajte ih jednom; nećemo vas iznenaditi retroaktivnim izmenama.',
   'terms.title': 'Услови коришћења услуге',
   'terms.usage.body':
     'Не користите Pylon за слање захтева ка сервисима које не поседујете или за које немате експлицитну дозволу за тестирање. Не користите Pylon за заобилажење ограничења брзине или вршење преваре.',
@@ -173,16 +222,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Није покренуто',
   'testRunner.metric.passed': 'Прошао/ла',
   'testRunner.never': 'Никад не трчи',
+  'testRunner.newTest': 'Novi test',
   'testRunner.noAssertions': 'Још нема тврдњи о овом тесту.',
+  'testRunner.noRunsYet':
+    'Još nema zabeleženih pokretanja — kliknite na „Pokreni sve“ da popunite istoriju.',
   'testRunner.passed': 'пролазећи',
+  'testRunner.recentRuns': 'Недавна трчања',
   'testRunner.runAll': 'Покрени све',
   'testRunner.running': 'Трчање…',
   'testRunner.runOne': 'Трчи',
   'testRunner.subheading': 'Резултати пакета, разлике у тврдњама и последњих 50 извршавања.',
+  'testRunner.suites': 'Paketi',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Пријављен/а као',
   'workspace.auth.keyName': 'Назив заглавља',
   'workspace.auth.keyValue': 'Кључна вредност',
+  'workspace.auth.noneHint': 'Uz ovaj zahtev neće biti poslat zaglavlje za autorizaciju.',
   'workspace.auth.password': 'Лозинка',
   'workspace.auth.username': 'Корисничко име',
   'workspace.authOption.apikey': 'API кључ',
@@ -192,13 +247,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Тип',
   'workspace.authTypeLabel': 'Тип овлашћења',
+  'workspace.body.contentLabel': 'Тело захтева',
+  'workspace.body.hint':
+    '{{envVars}} se zamenjuju pre nego što se zahtev pošalje. Tela se šalju uz POST/PUT/PATCH/DELETE.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Ниједан',
+  'workspace.body.noneHint':
+    'Neće biti poslato telo zahteva. Izaberite JSON ili sirovi tekst da ga dodate.',
   'workspace.body.text': 'Сирови текст',
   'workspace.body.type': 'Тип',
   'workspace.environment': 'Без окружења',
   'workspace.envVar': 'променљива окружења',
   'workspace.eyebrow': '$ pylon радни простор --pane подељен',
+  'workspace.failedCount': '{{count}} неуспешно',
+  'workspace.idle': 'Мировање',
   'workspace.kv.addHeader': 'Додај заглавље',
   'workspace.kv.addParam': 'Додај параметар',
   'workspace.kv.headerKey': 'Назив заглавља',
@@ -211,12 +273,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP метод',
   'workspace.metric.latency': 'Латенција',
   'workspace.metric.latencyCaption': 'Повратно путовање са ове вожње',
+  'workspace.metric.size': 'Sadržaj',
   'workspace.metric.sizeCaption': 'Бајтови тела одговора',
   'workspace.metric.statusCaption': 'Последњи одговор',
   'workspace.metric.tests': 'Тестови',
+  'workspace.metric.testsAllPassing': 'Sve provere prolaze',
   'workspace.metric.testsFailing': '{{count}} неуспех',
+  'workspace.metric.testsIdle': 'Pošaljite zahtev za procenu',
   'workspace.noAssertions': 'Покрените захтев за процену уграђених тврдњи.',
   'workspace.noResponseYet': 'Још нема одговора',
+  'workspace.passedCount': '{{count}} прошао',
   'workspace.responseHint': '// Притисните Пошаљи да бисте покренули захтев и снимили одговор.',
   'workspace.saveError': 'Није могуће сачувати захтев.',
   'workspace.statusError': 'Није могуће послати захтев.',
@@ -225,9 +291,13 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Саставите захтев, покрените га, а затим потврдите одговор — све у једном окну.',
   'workspace.testResults': 'Резултати теста',
+  'workspace.tests.autoHint':
+    'Porodica statusa, latencija, veličina tela i zdravlje prenosa se proveravaju automatski — rezultati se pojavljuju pod „Rezultati testa“ u panelu odgovora.',
+  'workspace.tests.autoTitle': 'Ugrađene provere se pokreću na svaki odgovor',
   'workspace.token': 'Токен',
   'workspace.tokenHint': 'Послато као овлашћење: Носилац<token> на сваки захтев у овој колекцији.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Захтев без наслова',
+  'workspace.urlLabel': 'URL захтева',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

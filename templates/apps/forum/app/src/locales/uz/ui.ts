@@ -1,20 +1,44 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Fikr-mulohazangiz bormi, xatolik topdingizmi yoki {{appName}}da hamjamiyat ochmoqchimisiz? Jamoaga yetib borish uchun Sozlamalarni oching — har bir xabar uni o‘qiydigan haqiqiy insonga boradi.',
+  'about.contactTitle': "Biz bilan bog'laning",
+  'about.featureModeration':
+    'O‘rnatilgan moderatsiya navbati va shikoyat qilish vositalari — har bir hamjamiyat sog‘lom va o‘zini o‘zi boshqaradigan bo‘lib qolishi uchun.',
+  'about.featurePricing':
+    'Qo‘shilish va qatnashish bepul; Pro va Team tariflari yuqori limitlar, ilg‘or moderatsiya va ma’lumotlarni eksport qilish imkonini beradi.',
+  'about.featureThreads':
+    'Tartibli hamjamiyatlar va turkumlar, oson kuzatiladigan va qidiriladigan mavzuli, markdown bilan boyitilgan muhokamalar.',
+  'about.featureVoting':
+    'Yuqoriga/pastga ovoz berish va qo‘lga kiritilgan obro‘ tizimi eng foydali mualliflar va eng yaxshi javoblarni yuzaga chiqaradi.',
+  'about.intro':
+    '{{appName}} — hamjamiyatga ustuvorlik beruvchi muhokama platformasi: Reddit uslubidagi mavzular, ovoz berish va obro‘ — bitta yaxshi suhbatni cheksiz lenta ortidan quvishdan afzal ko‘rganlar uchun. Har bir ovoz muhim, eng yaxshi g‘oyalar esa hajm emas, saviyasi bilan yuzaga chiqadi.',
+  'about.missionBody':
+    'Onlayn muhokama shov-shuvni emas, mulohazalilikni taqdirlashi kerak deb hisoblaymiz. {{appName}} har bir hamjamiyatga xushmuomala va o‘zini o‘zi boshqaradigan bo‘lib qolish vositalarini beradi — shaffof ovoz berish, qo‘lga kiritilgan obro‘ va ishonchli a’zolarni boshqaruvga qo‘yadigan moderatsiya — shunda mavzular qaytib kelishga arzigulik narsaga aylanadi.',
+  'about.missionTitle': 'Bizning vazifamiz',
   'authShell.communities': 'Jamiyatlar',
+  'authShell.copyright': '{{appName}} — har bir ovoz muhim.',
   'authShell.trending': 'Trenddagi',
+  'categories.emptyFilter': 'Ko‘rsatiladigan hamjamiyatlar yo‘q.',
+  'categories.emptySubscribed': 'Siz hali biror hamjamiyatga obuna bo‘lmagansiz.',
+  'categories.emptySubscribedHint':
+    'Hamjamiyatni oching va uni bu yerga qo‘shish uchun Obuna bo‘lish tugmasini bosing.',
   'categories.eyebrow': 'Jamiyatlar',
   'categories.loadError': "Hamjamiyatlarni yuklab bo'lmadi.",
   'categories.loading': 'Hamjamiyatlar yuklanmoqda…',
   'categories.subtitle':
     "Agora hamjamiyatlarini faollik, mavzu va ularning qanchalik shovqinli ekanligi bo'yicha ko'rib chiqing. Uyingizga tasma qo'shish uchun obuna bo'ling.",
   'categories.title': 'Xonangizni toping',
+  'categoryCard.activeNow': '{{count}} faol',
   'categoryCard.namePrefix': 'c/',
   'categoryCard.subscribers': "{{count}} a'zolar",
   'categoryDetail.empty': "Bu yerda hali hech qanday mavzu yo'q.",
   'categoryDetail.namePrefix': 'c/',
   'categoryDetail.newPost': 'Yangi post',
   'categoryDetail.ruleBeKind': "Mehribon bo'ling. Ishni muhokama qiling, odamni emas.",
+  'categoryDetail.ruleNoSpam': 'Spam yo‘q, bozor havolalari yo‘q.',
+  'categoryDetail.ruleStayOnTopic': 'Bu hamjamiyat mavzusidan chetlashmang.',
   'categoryDetail.startFirst': 'Birinchi mavzuni boshlang →',
   'categoryDetail.subscribe': "Obuna bo'lish",
   'categoryDetail.subscribed': "Obuna bo'lgan",
@@ -35,6 +59,7 @@ export const ui: UiTranslations = {
   'compose.eyebrow': 'Mavzuni boshlang',
   'compose.flairLabel': 'Flair (ixtiyoriy)',
   'compose.imageUrlPrompt': 'Rasm URL manzili',
+  'compose.insertUrl': "Qo'shish",
   'compose.linkUrlPrompt': 'Havola URL manzili',
   'compose.markdownHint': "Markdown qo'llab-quvvatlanadi.",
   'compose.publishFailed': 'Mavzuni nashr etishda xatolik yuz berdi.',
@@ -52,11 +77,18 @@ export const ui: UiTranslations = {
   'feed.empty': "Hali hech qanday mavzu yo'q.",
   'feed.emptyHint': "Munozarani birinchi bo'lib boshlang — Yozish bo'limiga o'ting.",
   'feed.loadError': "Tasmani yuklab bo'lmadi.",
+  'feed.metaCommunityDescription':
+    '{{appName}}ni shakllantiradigan har bir kishi uchun meta hamjamiyat — ovoz berish, boshqaruv va funksiyalar muhokamasi.',
+  'feed.ruleBeCivil': 'Xushmuomala bo‘ling. Doim.',
   'feed.ruleBeCivilDesc':
     'Insoniylikdan mahrum qilmasdan rozi emasman. Moderatorlar shaxsiy hujumlarda tez kuchayadi.',
+  'feed.ruleCiteSources': 'Munosabat bildirayotgan narsangizga havola qo‘ying.',
+  'feed.ruleOnePerWeek': 'Har bir akkaunt uchun haftada bitta meta post.',
   'feed.subtitle':
     "Siz kuzatayotgan hamjamiyatlardan, shuningdek, kuzatishingiz mumkin bo'lgan bir nechta mavzular. Algoritmni o'rgatish uchun ovoz bering.",
   'feed.title': 'Sizning tasmangiz',
+  'forgotPassword.description':
+    'Elektron pochtangizni kiriting va biz sizga qayta tiklash uchun havola yuboramiz.',
   'forgotPassword.successBody':
     "Biz qayta tiklash havolasini yubordik {{email}} Uning amal qilish muddati 30 daqiqadan so'ng tugaydi.",
   'forgotPassword.tryAnother': "Boshqa elektron pochta manzilini sinab ko'ring",
@@ -67,9 +99,15 @@ export const ui: UiTranslations = {
   'landing.communitiesSubtitle':
     "Karma toping, ishingizni baham ko'ring, yaxshiroq savollar bering.",
   'landing.communitiesTitle': 'Boshlash uchun jamoalar',
+  'landing.ctaBody':
+    'Bepul ro‘yxatdan o‘ting. Siz uchun muhim mavzularda obro‘ qozoning va qolganlarimizga biroz aniqroq fikrlashga yordam bering.',
   'landing.ctaEyebrow': "Tayyor bo'lganingizda",
   'landing.ctaHeadline': "O'z jamoangizni toping. Ovozingizni bildiring.",
   'landing.heroCtaSecondary': "Hamjamiyatlarni ko'rib chiqing",
+  'landing.heroEyebrow': '{{appName}}ga xush kelibsiz — {{tagline}}',
+  'landing.heroHeadline': 'Yo‘qolib ketadigan emas, to‘planib boradigan muhokamalar.',
+  'landing.heroLede':
+    '{{appName}} — havaskorlar, ijodkorlar va jimgina o‘z fikriga ega mutaxassislar uchun sekin pishitilgan forum. Har bitta yaxshi mavzu bilan obro‘ qozoning.',
   'landing.heroStat1': '847 ming',
   'landing.heroStat2': '2180',
   'landing.heroStat2Label': 'Jamiyatlar',
@@ -84,13 +122,17 @@ export const ui: UiTranslations = {
   'landing.trendingViewAll': "Barchasini ko'rish",
   'login.description': "Suhbatni to'xtagan joydan davom ettiring.",
   'login.heading': 'Agoraga kiring',
+  'login.noAccount': 'Bu yerda yangimisiz?',
   'login.passwordPlaceholder': 'Parolingiz',
   'login.twoFactorLabel': '2FA kodi (ixtiyoriy)',
   'login.twoFactorPlaceholder': '6 xonali kod',
+  'login.twoFactorRequiredHint':
+    'Bu hisobda ikki faktorli autentifikatsiya yoqilgan. Davom etish uchun autentifikator ilovangizdagi 6 xonali kodni kiriting.',
   'login.twoFactorRequiredLabel': '2FA kodingizni kiriting',
   'modQueue.automodEmpty':
     'Bu hamjamiyat uchun hali avtomatik modifikatsiya qoidalari sozlanmagan.',
   'modQueue.automodTitle': 'Avtomatik modifikatsiya faolligi (oxirgi 24 soat)',
+  'modQueue.empty': 'Kiruvchi xabarlar nolga tushdi. Kutilayotgan narsa yo‘q.',
   'modQueue.eyebrow': 'Moderatsiya',
   'modQueue.kindThread': 'Mavzu',
   'modQueue.loadError': "Hisobotlarni yuklab bo'lmadi.",
@@ -117,8 +159,12 @@ export const ui: UiTranslations = {
   'notifications.mentionedYouIn': "sizni eslatib o'tdi",
   'notifications.repliedTo': 'javob berdi',
   'notifications.subtitle': "Sizda .. Bor {{count}} o'qilmagan bildirishnomalar.",
+  'pricing.limits.advancedFeatures': 'Kengaytirilgan xususiyatlar:',
   'pricing.limits.categories': '{{count}} toifalar',
   'pricing.limits.export': "Ma'lumotlarni eksport qilish:",
+  'pricing.limits.moderation': '{{count}} moderatsiya amallari',
+  'pricing.limits.threads': '{{count}} iplar',
+  'pricing.limits.votes': '{{count}} ovoz',
   'profile.noComments': "Hozircha izohlar yo'q.",
   'profile.noPosts': "Hali hech qanday post yo'q.",
   'profile.noSaved': "Hali saqlangan postlar yo'q.",
@@ -129,6 +175,7 @@ export const ui: UiTranslations = {
     "Kuchlisini tanlang. Qayta tiklash muvaffaqiyatli amalga oshirilgandan so'ng, sizni tizimga kiritamiz.",
   'resetPassword.newPasswordLabel': 'Yangi parol',
   'resetPassword.tokenPlaceholder': 'Havola tokenini joylashtiring',
+  'search.clear': 'Toza',
   'search.communitiesEmpty': 'Hech qanday jamoa mos kelmaydi.',
   'search.communitiesHeading': 'Jamiyatlar',
   'search.empty': 'Hech qanday mos keladigan mavzu topilmadi.',
@@ -142,19 +189,27 @@ export const ui: UiTranslations = {
   'settings.displayTitle': 'Displey',
   'settings.emailDigestDesc':
     "Har dushanba kuni obuna bo'lgan hamjamiyatlaringizdan eng yaxshi mavzular.",
+  'settings.emailDigestLabel': 'Haftalik dayjest',
+  'settings.emailMentionsDesc': 'Kimdir sizni mavzu yoki izohda @-eslatganda.',
+  'settings.emailMentionsLabel': 'Eslatmalar haqida menga email yubor',
+  'settings.emailRepliesDesc': 'Siz boshlagan yoki javob bergan mavzular.',
   'settings.emailRepliesLabel': "Javoblar bo'yicha menga elektron pochta orqali xabar yuboring",
   'settings.loadError': "Akkauntingizni yuklash imkoni bo'lmadi.",
   'settings.loading': 'Sozlamalaringiz yuklanmoqda…',
   'settings.notificationsSubtitle':
     'Kiruvchi xabarlar qutingizga nima yetib borishini va push-qurilmangizga nima yetib borishini hal qiling.',
+  'settings.pushRepliesLabel': 'Javoblar uchun push yubor',
+  'settings.pushVotesDesc': '100, 500, 1000 da chegara signali.',
   'settings.pushVotesLabel': 'Ijobiy ovoz berish bosqichlariga intiling',
   'settings.saveAccount': 'Hisobni saqlash',
   'settings.showFlair': "Mavzularda kategoriya jozibasini ko'rsatish",
+  'settings.showThumbnails': "Havola/rasm kichik rasmlarini ko'rsatish",
   'settings.usernamePlaceholder': 'Tutqichni tanlang',
   'signup.confirmPlaceholder': 'Qaytadan tering',
   'signup.description': "Bir vaqtning o'zida bitta yaxshi ipni tik turing.",
   'signup.eyebrow': "Xonaga qo'shiling",
   'threadRow.authorPrefix': 'u/',
+  'threadRow.commentCount': '{{count}} sharh',
   'threadRow.statusFlagged': "Ko'rib chiqilmoqda",
   'threadRow.statusHot': 'Issiq',
   'threadRow.statusLocked': 'Qulflangan',
@@ -176,6 +231,7 @@ export const ui: UiTranslations = {
   'threadView.lockedNotice': "Bu mavzu qulflangan. Yangi javoblar o'chirib qo'yilgan.",
   'threadView.modActionFailed': 'Moderator harakati amalga oshmadi.',
   'threadView.modTools': 'Mod vositalari',
+  'threadView.noComments': 'Hali izohlar yo‘q. Birinchi bo‘ling.',
   'threadView.notFound': 'Mavzu topilmadi.',
   'threadView.pin': 'Pin',
   'threadView.pinned': 'Mahkamlangan',

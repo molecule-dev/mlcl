@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite ialah platform automasi aliran kerja yang menghubungkan pencetus, syarat AI, dan tindakan berbilang langkah supaya pasukan boleh mengalihkan kerja antara sistem tanpa menulis kod perekat.',
+  'about.philosophy':
+    'Setiap aliran kerja ialah graf langkah kecil yang boleh diperhati. Setiap langkah merekod input, output dan masanya supaya boleh diperiksa, dimainkan semula atau dikembalikan. Susunnya secara visual, versikannya seperti kod.',
   'about.title': 'Tentang Dendrite',
   'authShell.brand': 'Dendrite',
   'authShell.support': 'Sokongan',
@@ -14,9 +16,14 @@ export const ui: UiTranslations = {
   'billing.cancelPlan': 'Batalkan pelan',
   'billing.changePlan': 'Tukar pelan',
   'billing.description': 'Jejak penggunaan, urus pelan anda, dan ambil invois untuk perakaunan.',
+  'billing.eyebrow': 'Akaun · Pelan & penggunaan',
+  'billing.failedLabel': 'Jalankan yang gagal · 24j',
+  'billing.invoicesEmpty':
+    'Belum ada invois. Ia akan muncul di sini selepas pembaharuan berbayar pertama anda.',
   'billing.invoicesTitle': 'Sejarah invois',
   'billing.planNoteFree':
     'Peringkat percuma — {{runs}} jalankan dan {{workflows}} aliran kerja aktif. Naik taraf untuk had lebih tinggi.',
+  'billing.planNotePaid': 'Pelan berbayar — {{runs}} jalan dan {{workflows}} aliran kerja aktif.',
   'billing.runsLabel': 'Jalankan dalam 24 jam terakhir',
   'billing.tiersBlurb':
     'Bandingkan setiap peringkat — jalankan, aliran kerja aktif, ciri lanjutan, dan sokongan — di halaman harga yang didedikasikan.',
@@ -34,9 +41,13 @@ export const ui: UiTranslations = {
     'Tiada integrasi didaftarkan. Konfigurasikan kunci penyedia untuk mengaktifkan bon.',
   'connections.error': 'Tidak dapat memuatkan sambungan.',
   'connections.eyebrow': 'Integrasi · {{connected}} disambungkan',
+  'connections.loading': 'Memuatkan integrasi…',
+  'connections.openEnv':
+    'Untuk menyambung penyedia ini, tetapkan kunci API-nya dalam api/.env dan mulakan semula pelayan.',
   'dashboard.description': '{{active}} aliran kerja aktif. {{failed}} gagal dalam 24 jam terakhir.',
   'dashboard.error': 'Tidak dapat memuatkan papan pemuka.',
   'dashboard.eyebrow': 'Operasi · langsung',
+  'dashboard.hero.label': 'Jalan hari ini',
   'dashboard.hero.medianLatency': 'Kependaman p50',
   'dashboard.hero.queue': 'Kedalaman baris gilir',
   'dashboard.hero.success': 'Berjaya',
@@ -44,13 +55,16 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Tempoh median',
   'dashboard.kpi.failedRuns': 'Gagal · 24j',
   'dashboard.kpi.outOf': 'daripada {{total}} jumlah',
+  'dashboard.kpi.successRate': 'Kadar kejayaan · 24j',
   'dashboard.loading': 'Memuatkan papan pemuka…',
   'dashboard.recentRuns.empty':
     'Tiada jalankan lagi. Pencetus aliran kerja untuk mengisi suapan ini.',
   'dashboard.recentRuns.title': 'Jalankan terkini',
   'dashboard.recentRuns.viewAll': 'Buka pelaksanaan →',
+  'dashboard.recentWorkflows.browse': 'Layari templat →',
   'dashboard.recentWorkflows.empty': 'Tiada aliran kerja lagi. Pasang templat atau bina dari awal.',
   'dashboard.recentWorkflows.title': 'Baru-baru ini dijalankan',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'Dimulakan',
   'dashboard.run.col.trigger': 'Pencetus',
   'dashboard.run.col.workflow': 'Aliran kerja',
@@ -86,6 +100,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Aliran kerja',
   'executions.description':
     'Setiap jalankan aliran kerja, setiap percubaan semula, setiap output langkah — semua boleh diperhati.',
+  'executions.empty.filter': 'Tiada jalan sepadan dengan penapis ini.',
   'executions.empty.first':
     'Tiada jalankan lagi — pencetus aliran kerja untuk mengisi senarai ini.',
   'executions.error': 'Tidak dapat memuatkan pelaksanaan.',
@@ -96,30 +111,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Memuatkan sejarah jalankan…',
   'executions.title': 'Pelaksanaan',
   'forgotPassword.confirmation': 'Pautan tetapan semula dihantar ke {{email}}.',
+  'forgotPassword.subhead': 'Masukkan e-mel Anda untuk menerima pautan tetapan semula.',
   'forgotPassword.successSubhead':
     'Kami menghantar pautan tetapan semula ke {{email}}. Ia tamat tempoh dalam 30 minit.',
   'help.connections.body':
     'Langkah AI, e-mel, dan storan memerlukan kunci penyedia ditetapkan dalam fail api/.env. Setelah kunci dikonfigurasikan, integrasi yang sepadan muncul sebagai disambungkan di halaman Sambungan.',
+  'help.connections.cta': 'Buka sambungan →',
   'help.connections.title': 'Menghubungkan penyedia',
   'help.gettingStarted.body':
     'Aliran kerja baharu boleh dipasang dari perpustakaan templat atau dibina dari awal dalam pembina aliran kerja. Setiap aliran kerja mempunyai pencetus (manual, webhook, atau cron) dan urutan langkah yang dijalankan mengikut tertib.',
+  'help.gettingStarted.cta': 'Layari pustaka templat →',
+  'help.gettingStarted.title': 'Bermula',
   'help.intro':
     'Cari jawapan kepada soalan lazim tentang membina aliran kerja, mengkonfigurasi sambungan, dan mentafsir output jalankan. Topik paling biasa disenaraikan di bawah; untuk perkara lain, hubungi pentadbir ruang kerja anda.',
   'help.runs.body':
     'Setiap jalankan merekodkan setiap langkah secara bebas dengan status (berjaya, gagal, dilangkau) dan petikan output. Halaman butiran pelaksanaan menunjukkan jejak langkah demi langkah penuh serta metrik yang disimpulkan.',
+  'help.runs.cta': 'Buka pelaksanaan →',
   'help.runs.title': 'Membaca output jalankan',
   'help.title': 'Pusat bantuan',
   'integrationCard.manage': 'Urus',
   'landing.brand': 'Dendrite',
   'landing.demo.action.subtitle': 'Round-robin · wilayah',
+  'landing.demo.action.title': 'Beritahu wakil',
   'landing.demo.condition.subtitle': 'Pengelas niat AI',
+  'landing.demo.condition.title': 'Skor ≥ sederhana?',
   'landing.demo.trigger.subtitle': 'POST /forms/contact',
   'landing.demo.trigger.title': 'Webhook masuk',
+  'landing.features.body':
+    'Pencetus tercetus. Syarat bercabang. Tindakan menghantar kerja. Susunnya secara visual, versikannya seperti kod.',
   'landing.features.heading': 'Tiga jenis nod. Bentuk tanpa had.',
   'landing.footer.help': 'Bantuan',
   'landing.footer.tagline': 'Kecerdasan dalam gerakan',
+  'landing.hero.body':
+    '{{appName}} ialah enjin aliran kerja untuk pasukan operasi yang telah melampaui Zapier. Pencetus, syarat, tindakan — disambung ke setiap sistem yang anda benar-benar gunakan.',
   'landing.hero.eyebrow': 'Kecerdasan dalam gerakan',
   'landing.hero.headline': 'Sambungkan tindanan anda. Biar kerja berlaku.',
+  'landing.hero.primaryCta': 'Bina aliran kerja pertama anda',
   'landing.hero.proof.ai': 'Nod AI terbina dalam',
   'landing.hero.proof.free': 'Percuma untuk 1k jalankan/bln',
   'landing.hero.proof.soc2': 'SOC 2 Type II',
@@ -127,10 +154,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Bayar untuk jalankan, bukan kerusi.',
   'landing.templates.body':
     'Aliran kerja pra-kabel untuk setiap pasukan — jualan, sokongan, devops, kewangan. Pasang dengan satu klik; sesuaikan apa sahaja.',
+  'landing.templates.cta': 'Daftar untuk melayari templat →',
   'landing.templates.eyebrow': 'Mulakan dalam beberapa saat',
   'landing.templates.heading': 'Perpustakaan resipi yang telah disahkan.',
   'landing.templates.signupHint': 'Daftar untuk memasang',
   'login.hidePassword': 'Sembunyikan kata laluan',
+  'login.noAccount': 'Baru di Tessera?',
   'login.showPassword': 'Tunjukkan kata laluan',
   'login.subhead': 'Log masuk untuk memastikan automasi anda terus berjalan.',
   'mobileNav.drawerLabel': 'Navigasi utama',
@@ -146,8 +175,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Jalankan aliran kerja untuk mula mengisi suapan ini.',
   'notifications.empty.title': 'Anda sudah terkini',
   'notifications.eyebrow': '{{n}} belum dibaca',
+  'planUpdated.body':
+    'Perubahan bil anda kini aktif. Anda boleh urus pelan anda bila-bila masa dari halaman bil.',
+  'planUpdated.retry': 'Cuba lagi',
+  'planUpdated.verifyFailed': 'Kami belum dapat mengesahkan pembayaran anda.',
+  'planUpdated.verifyFailedBody':
+    'Pembayaran anda mungkin masih diproses. Cuba lagi sebentar lagi.',
   'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
   'pricing.heading': 'jalankan',
+  'pricing.runsSuffix': 'jalan',
   'pricing.workflowsSuffix': 'aliran kerja',
   'privacy.collect.body':
     'Kami mengumpul alamat e-mel yang anda gunakan untuk mendaftar, aliran kerja yang anda konfigurasi, dan metadata tentang setiap jalankan (masa mula, masa tamat, status). Kami tidak pernah mengumpul atau menyimpan kandungan muatan daripada pencetus atau output langkah melebihi apa yang diperlukan untuk dipaparkan dalam pemapar jalankan bagi pemilik ruang kerja.',
@@ -163,12 +199,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Tidak dapat mengemas kini kata laluan.',
   'resetPassword.newPassword': 'Kata laluan baharu',
   'resetPassword.subhead': 'Pilih sesuatu yang hanya anda akan teka.',
+  'settings.appearance.description': 'Togol antara mod cerah dan gelap.',
+  'settings.appearance.title': 'Penampilan',
   'settings.billingShortcut.cta': 'Buka pengebilan',
   'settings.billingShortcut.description':
     'Pelan, penggunaan, dan invois terdapat di halaman pengebilan yang didedikasikan.',
   'settings.danger.confirm':
     'Anda pasti? Ini akan membaris gilir ruang kerja anda untuk dihapuskan.',
   'settings.danger.confirmYes': 'Ya, baris gilir untuk dihapuskan',
+  'settings.danger.deleteWorkspace.cta': 'Hapuskan ruang kerja',
   'settings.danger.deleteWorkspace.hint':
     'Menghapus semua aliran kerja, jalankan, dan sambungan selepas tempoh tangguh 14 hari.',
   'settings.danger.deleteWorkspace.title': 'Hapuskan ruang kerja',
@@ -179,9 +218,14 @@ export const ui: UiTranslations = {
   'settings.description': 'Urus akaun, ruang kerja, integrasi, dan pengebilan anda di satu tempat.',
   'settings.notifications.description':
     'Pilih acara yang memberitahu anda, menghantar e-mel kepada anda, atau kekal senyap.',
+  'settings.notifications.failures.hint':
+    'E-mel dan pemberitahuan dalam aplikasi pada setiap jalan yang gagal.',
+  'settings.notifications.failures.title': 'Kegagalan aliran kerja',
   'settings.notifications.product.hint': 'E-mel sesekali tentang templat dan ciri baharu.',
+  'settings.notifications.product.title': 'Kemas kini produk',
   'settings.notifications.weekly.hint':
     'Ringkasan pagi Isnin tentang jalankan dan penjimatan minggu lalu.',
+  'settings.notifications.weekly.title': 'Ringkasan mingguan',
   'settings.profile.description':
     'Cara anda muncul dalam pelari aliran kerja. Digunakan dalam aktiviti ruang kerja.',
   'settings.profile.noEmail': 'Tiada e-mel dalam rekod',
@@ -189,12 +233,23 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Tidak dapat menyimpan perubahan profil.',
   'settings.profile.unnamedUser': 'Pengguna tanpa nama',
   'settings.security.audit.hint': 'Strim setiap tindakan ke SIEM anda melalui webhook.',
+  'settings.security.audit.title': 'Pemajuan log audit',
   'settings.security.description': 'Pengesahan dua faktor, SSO, dan sesi aktif.',
   'settings.security.sso.hint': 'Tersedia dalam pelan Scale dan Enterprise.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'Diperlukan untuk sebarang tindakan pemilik ruang kerja.',
+  'settings.security.totp.title': 'Pengesahan dua faktor (TOTP)',
   'settings.twoFactorCode': 'Kod pengesahan',
   'settings.twoFactorDisable': 'Lumpuhkan',
+  'settings.twoFactorDisableTitle': 'Nyahdayakan pengesahan dua faktor',
   'settings.twoFactorEnable': 'Aktifkan',
+  'settings.twoFactorEnableTitle': 'Dayakan pengesahan dua faktor',
   'settings.twoFactorInvalidCode': 'Kod tidak sah',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Kod QR dua faktor',
+  'settings.twoFactorScan':
+    'Imbas kod QR ini dengan aplikasi pengesah anda, kemudian masukkan kod 6 digit.',
+  'settings.twoFactorUnavailable': 'Pengesahan dua faktor tidak tersedia untuk aplikasi ini.',
   'settings.twoFactorVerify': 'Sahkan & dayakan',
   'settings.workspace.description':
     'Identiti bersama, rantau, dan lalai jalankan untuk pasukan anda.',
@@ -223,6 +278,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Templat',
   'templates.description':
     'Pelan pra-bina untuk automasi yang paling biasa. Fork, sesuaikan, hantar.',
+  'templates.empty.filter': 'Tiada templat sepadan dengan carian anda.',
   'templates.empty.first': 'Tiada templat tersedia buat masa ini.',
   'templates.error': 'Tidak dapat memuatkan templat.',
   'templates.installs': 'pemasangan',
@@ -248,6 +304,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Lumpuhkan',
   'workflowBuilder.enable': 'Aktifkan',
   'workflowBuilder.error': 'Tidak dapat memuatkan aliran kerja.',
+  'workflowBuilder.inspector.config': 'Konfigurasi',
+  'workflowBuilder.inspector.cron': 'Ungkapan cron',
+  'workflowBuilder.inspector.disabled': 'Dilumpuhkan — tidak akan berjalan secara automatik.',
   'workflowBuilder.inspector.enabled': 'Diaktifkan — berjalan pada pencetus.',
   'workflowBuilder.inspector.eyebrow': 'Pemeriksa',
   'workflowBuilder.inspector.id': 'ID',
@@ -265,18 +324,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Togol gagal.',
   'workflowBuilder.workflow': 'Aliran kerja · v{{v}}',
   'workflowBuilder.zoom.in': 'Zum masuk',
+  'workflowBuilder.zoom.label': 'Kawalan zum kanvas',
+  'workflowBuilder.zoom.out': 'Zum keluar',
   'workflowCard.lastRun': 'Terakhir dijalankan {{when}}',
   'workflowCard.runs': '{{count}} jalankan',
+  'workflowCard.success': '{{rate}}% kejayaan',
   'workflowHeroCard.last24h': '24j terakhir',
+  'workflows.browseTemplates': 'Layari templat →',
   'workflows.description':
     'Semua automasi dalam ruang kerja anda, dengan kesihatan dan aktiviti terkini sekali pandang.',
+  'workflows.empty.body': 'Cuba kosongkan penapis atau mula daripada templat.',
   'workflows.empty.firstBody': 'Pasang templat untuk bermula dalam beberapa saat.',
   'workflows.empty.firstTitle': 'Tiada aliran kerja lagi',
   'workflows.empty.title': 'Tiada aliran kerja yang sepadan',
   'workflows.error': 'Tidak dapat memuatkan aliran kerja.',
   'workflows.eyebrow': 'Perpustakaan · {{count}} jumlah',
+  'workflows.loading': 'Memuatkan aliran kerja…',
   'workflows.newFromTemplate': 'Baharu daripada templat',
   'workflows.searchPlaceholder': 'Cari aliran kerja…',
+  'workflows.title': 'Aliran kerja',
   'workflowSidebar.brand': 'Dendrite',
   'workflowSidebar.status': 'Semua sistem berjalan',
   'workflowSidebar.tagline': 'Kecerdasan dalam gerakan',

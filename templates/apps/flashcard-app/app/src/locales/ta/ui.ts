@@ -1,11 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கருத்து உள்ளதா, பிழை கண்டீர்களா, அல்லது ஒரு அம்சத்தை பரிந்துரைக்க விரும்புகிறீர்களா? ஒவ்வொரு செய்தியும் {{app}} குழுவில் உள்ள ஒரு உண்மையான நபரை அடைகிறது — நீங்கள் கற்றுக்கொள்வதைக் கேட்க நாங்கள் விரும்புகிறோம்.',
   'about.contactTitle': 'தொடர்பு கொள்ளுங்கள்',
   'about.eyebrow': '{{app}} பற்றி',
+  'about.intro':
+    '{{app}} என்பது அறிவு உண்மையிலேயே நிலைத்திருக்க வேண்டும் என விரும்புவோருக்கான இடைவெளி-மீள்பயிற்சி ஃபிளாஷ்கார்டு செயலி. நீங்கள் ஒரு மொழியைக் கற்கிறீர்களா, சூத்திரங்களை மனப்பாடம் செய்கிறீர்களா, அல்லது ஒரு தேர்வுக்காக கருத்துகளைப் பயிற்சி செய்கிறீர்களா — நீங்கள் மறக்கப்போகும் சரியான தருணத்தில் ஒவ்வொரு அட்டையையும் இது திட்டமிடுகிறது — நினைவாற்றல் அறிவியல் கண்டறிந்த மிகச் சிறந்த வழியில் தகவல்களை நீண்டகால நினைவுக்கு மாற்றுகிறது.',
+  'about.missionBody':
+    'பெரும்பாலான படிப்புக் கருவிகள் செலவழித்த நேரத்தை மேம்படுத்துகின்றன, தக்கவைத்த அறிவை அல்ல. {{app}} இதற்கு நேர்மாறாக மேம்படுத்துகிறது: முக்கியமானதை உங்கள் நினைவில் வைத்திருக்கும் மிகக் குறைந்த மீள்பார்வைகள். கற்றல் அமைதியாகவும், அளவிடக்கூடியதாகவும், உங்களுடையதாகவும் இருக்க வேண்டும் என நாங்கள் நம்புகிறோம் — திறந்த தரவு, இருண்ட வடிவங்கள் இல்லை, பல ஆண்டுகள் தொடரக்கூடிய ஒரு பழக்கம்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'about.pageTitle': '{{tagline}}.',
   'authShell.sampleBack': 'வில்னியஸ் — 1.2 வினாடிகளில் திரும்ப அழைக்கப்பட்டது.',
   'authShell.sampleEyebrow': 'உங்கள் எதிர்கால அட்டைக் கட்டிலிருந்து ஒரு அட்டை',
+  'authShell.sampleFront': '“லிதுவேனியாவின் தலைநகரம்.”',
+  'authShell.sampleRetention': '{{pct}}% தக்கவைப்பு',
   'authShell.sampleStreak': '{{days}} -நாள் தொடர்',
   'cardEdit.title': 'ஃபிளாஷ் கார்டைத் திருத்து',
   'cardEditor.backLink': 'மீண்டும் தளத்திற்கு',
@@ -36,6 +45,8 @@ export const ui: UiTranslations = {
   'dashboard.kpi.days': 'நாட்கள்',
   'deckDetail.backLink': 'அனைத்து டெக்குகளும்',
   'deckDetail.deleteError': 'டெக்கை நீக்க முடியவில்லை.',
+  'deckDetail.empty.body': 'நினைவாற்றலை உருவாக்க உங்கள் முதல் அட்டையைச் சேர்க்கவும்.',
+  'deckDetail.empty.cta': 'உங்கள் முதல் அட்டையைச் சேர்க்கவும்',
   'deckDetail.empty.heading': 'இந்தக் கட்டில் இன்னும் அட்டைகள் இல்லை',
   'deckDetail.filterEmpty': 'இந்த நிலை வடிகட்டியுடன் எந்த அட்டைகளும் பொருந்தவில்லை.',
   'deckDetail.filterLabel': 'மாநில வாரியாக அட்டைகளை வடிகட்டவும்',
@@ -48,7 +59,10 @@ export const ui: UiTranslations = {
   'deckDetail.stat.total': 'அட்டைகள்',
   'deckDetail.studyDueLabel': 'ஆய்வு {{count}} காரணமாக',
   'deckProgressCard.cardCount': '{{count}} அட்டைகள்',
+  'deckProgressCard.masteredTooltip': '{{count}} தேர்ச்சி',
   'deckProgressCard.studyCta': 'ஆய்வு {{count}}',
+  'decks.confirmDelete':
+    'இந்த டெக்கையும் அதன் அனைத்து அட்டைகளையும் நீக்கவா? இதை மீளச் செய்ய முடியாது.',
   'decks.create.heading': 'ஒரு டெக்கை உருவாக்குங்கள்',
   'decks.create.nameLabel': 'டெக் பெயர்',
   'decks.create.submit': 'டெக்கிங்கை உருவாக்கவும்',
@@ -59,6 +73,7 @@ export const ui: UiTranslations = {
   'decks.heading': 'டெக்குகள்',
   'decks.loadError': 'தளங்களை ஏற்ற முடியவில்லை.',
   'decks.loading': 'ஏற்றப்படுகிறது…',
+  'decks.newDeckLabel': 'புதிய தளம்',
   'decks.retention': 'தக்கவைத்துக்கொள்',
   'decks.studyArrow': 'படிப்பு →',
   'decks.subheading': '{{count}} டெக்குகள் · மதிப்பாய்வு செய்து நிர்வகிக்கவும்',
@@ -82,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'எனக்கு ஏற்கனவே ஒரு கணக்கு உள்ளது',
   'landing.heroSubtitle':
     'இடைவெளி விட்டு மீண்டும் மீண்டும் பயிற்சி செய்வது, மனப்பாடம் செய்வதற்கும் நினைவில் வைத்துக்கொள்வதற்கும் உள்ள வித்தியாசத்தை ஏற்படுத்துகிறது. தினமும் ஐந்து நிமிடங்கள், வருடம் வருடம் பயிற்சி செய்தால், மொழி மனதில் பதிந்துவிடும்.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.proof.export': 'திறந்த தரவு, கட்டுப்பாடின்மை',
   'landing.proof.free': 'தனிப்பட்ட பயன்பாட்டிற்கு என்றென்றும் இலவசம்.',
   'landing.proof.import': '.apkg / CSV ஐ இறக்குமதி செய்யவும்',
@@ -96,13 +112,17 @@ export const ui: UiTranslations = {
   'login.heading': 'உங்கள் டெக்குகளுக்கு மீண்டும் வருக.',
   'login.orDivider': 'அல்லது தொடரவும்',
   'login.signupLink': 'இலவசமாகப் படிக்கத் தொடங்குங்கள்',
+  'login.signupPrompt': 'இங்கு புதிதா?',
   'login.subtitle':
     'நீங்கள் விட்ட இடத்திலிருந்து தொடருங்கள் — உங்கள் தொடர் வெற்றி உங்களுக்காகக் காத்திருக்கிறது.',
   'mobileNav.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
   'mobileNav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'notifications.markAllReadError': 'அனைத்தையும் படித்ததாகக் குறிக்கத் தவறிவிட்டது.',
   'pricing.heading': 'அட்டைகள்',
+  'pricing.limits.cards': 'அட்டைகள்',
   'pricing.limits.decks': 'டெக்குகள்',
+  'pricing.limits.historyDays': '{{days}}-நாள் மீள்பார்வை வரலாறு',
+  'pricing.limits.historyUnlimited': 'வரம்பற்ற மீள்பார்வை வரலாறு',
   'pricing.limits.stats': 'புள்ளிவிவரங்கள்',
   'pricing.limits.study': 'ஆய்வு',
   'resetPassword.passwordLabel': 'புதிய கடவுச்சொல்',
@@ -115,17 +135,30 @@ export const ui: UiTranslations = {
   'sessionSummary.heading': 'நன்றாக செய்தீர்கள்.',
   'sessionSummary.label': 'அமர்வு நிறைவடைந்தது',
   'settings.changePasswordError': 'கடவுச்சொல்லை மாற்ற முடியவில்லை.',
+  'settings.confirmPassword': 'உங்கள் கடவுச்சொல்லை உறுதிப்படுத்தவும்',
   'settings.currentPassword': 'தற்போதைய கடவுச்சொல்',
+  'settings.dangerZone': 'அபாய மண்டலம்',
+  'settings.deleteAccountHint':
+    'உங்கள் கணக்கையும் அனைத்து படிப்புத் தரவையும் நிரந்தரமாக நீக்கவும். இதை மீளச் செய்ய முடியாது.',
+  'settings.deleteAccountWarning':
+    'இது உங்கள் கணக்கையும் அனைத்து டெக்குகள், அட்டைகள் மற்றும் படிப்பு வரலாற்றையும் நிரந்தரமாக நீக்குகிறது. இதை மீளச் செய்ய முடியாது.',
   'settings.deleteError':
     'கணக்கை நீக்க முடியவில்லை. உங்கள் கடவுச்சொல்லைச் சரிபார்த்து மீண்டும் முயற்சிக்கவும்.',
   'settings.deleting': 'நீக்குகிறது…',
+  'settings.devicesHint': 'தற்போது உங்கள் கணக்கில் பதிவு செய்யப்பட்ட சாதனங்கள்.',
   'settings.newPassword': 'புதிய கடவுச்சொல்',
   'settings.password': 'கடவுச்சொல்',
   'settings.passwordChanged': 'கடவுச்சொல் புதுப்பிக்கப்பட்டது.',
+  'settings.passwordHint': 'உள்நுழைய நீங்கள் பயன்படுத்தும் கடவுச்சொல்லை மாற்றவும்.',
   'settings.reminders.atRisk': 'தொடர் வெற்றி அபாய எச்சரிக்கை (இரவு 8:00 மணிக்கு மேல்)',
+  'settings.reminders.daily': 'தினசரி நினைவூட்டல் (காலை 8:00)',
   'settings.reminders.heading': 'நினைவூட்டல்கள்',
+  'settings.reminders.milestones': 'மைல்கல் கொண்டாட்டங்கள்',
   'settings.reminders.note':
     'இந்தச் சாதனத்தில் சேமிக்கப்பட்டுள்ளது. இந்த உலாவியைத் திறக்கும் ஆய்வை மாற்றவும்; மீண்டும் ஏற்றும்போது விருப்பத்தேர்வுகள் ஒத்திசைக்கப்படும்.',
+  'settings.reminders.weekly': 'வாராந்திர தக்கவைப்பு சுருக்கம் (ஞாயிற்றுக்கிழமைகள்)',
+  'settings.revokeDeviceWarning':
+    'இந்தச் சாதனத்தின் அணுகல் விரைவில் ரத்து செய்யப்படும். வெளியேற்றவா?',
   'settings.saved': 'சேமிக்கப்பட்டது.',
   'settings.saveError': 'சேமிக்க முடியவில்லை.',
   'settings.saving': 'சேமிப்பு…',
@@ -141,6 +174,7 @@ export const ui: UiTranslations = {
   'signup.legal':
     'கணக்கை உருவாக்குவதன் மூலம் எங்கள் விதிமுறைகள் மற்றும் தனியுரிமைக் கொள்கைக்கு ஒப்புக்கொள்கிறீர்கள்.',
   'signup.nameLabel': 'உங்கள் பெயர் (விருப்பப்பட்டால்)',
+  'signup.orDivider': 'அல்லது இதன் மூலம் பதிவு செய்யவும்',
   'signup.subtitle': 'ஒரு நாளைக்கு ஐந்து நிமிடங்கள். நினைவில் கொள்ளும் ஒரு எதிர்காலம்.',
   'stats.byStateHeading': 'மாநில வாரியான அட்டைகள்',
   'stats.dailyHeading': 'தினசரி மதிப்புரைகள் (கடந்த 30 நாட்கள்)',
@@ -165,6 +199,7 @@ export const ui: UiTranslations = {
   'study.gradeError': 'உங்கள் மதிப்பாய்வைச் சேமிக்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.',
   'study.gradeKeyHint': 'ஃபிளிப்பிற்குப் பிறகு தரப்படுத்து',
   'study.loadError': 'கற்றல் அமர்வை ஏற்ற முடியவில்லை.',
+  'study.progressLabel': '{{total}} இல் {{reviewed}}',
   'study.summary.body':
     '{{reviewed}} அட்டைகள் · மீண்டும் {{again}} கடினம் {{hard}} {{good}} எளிது · {{easy}}',
   'study.summary.done': 'முழு சுருக்கத்தைக் காண்க',
@@ -174,6 +209,8 @@ export const ui: UiTranslations = {
   'todayHeroCard.dueValue': '{{count}} செலுத்த வேண்டிய அட்டைகள்',
   'todayHeroCard.eyebrow': 'இன்று · {{date}}',
   'todayHeroCard.goalLabel': 'தினசரி இலக்கு',
+  'todayHeroCard.goalProgress': '{{reviewed}} / {{goal}}',
   'todayHeroCard.streakBadge': '{{days}} -நாள் தொடர்',
+  'todayHeroCard.studyCta': 'படிக்கத் தொடங்கு',
   'userMenu.stats': 'எனது புள்ளிவிவரங்கள்',
 }

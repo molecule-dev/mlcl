@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Pitanja, povratne informacije ili predlog za funkciju? Obratite se {{app}} timu preko Podešavanja → Obaveštenja ili nam pišite u svako doba — svaka poruka stiže do pravog čoveka.',
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'О нама',
+  'about.featureCapture':
+    'Snimanje računa uz otpremanje fotografije koje prilaže slike odgovarajućem trošku, stavku po stavku.',
+  'about.featureExport':
+    'CSV izvozi svakog izveštaja, troška i statusa odobrenja koji se mogu revidirati — spremni za vaš računovodstveni tim.',
+  'about.featurePolicy':
+    'Zaštitne mere politike — dnevni limiti, ograničenja po kategoriji i pragovi obaveznog računa koji se primenjuju u trenutku podnošenja.',
+  'about.featureWorkflow':
+    'Dvonivojski tok odobravanja sa napomenama recenzenta, oznakama kršenja politike i označavanjem nadoknade jednim dodirom.',
+  'about.intro':
+    '{{app}} je platforma za upravljanje troškovima namenjena finansijskim timovima i ljudima kojima oni nadoknađuju troškove. Snimite račun, prijavite trošak, pošaljite izveštaj na odobrenje i pratite svaku nadoknadu — bez tabelarne ceremonije.',
+  'about.missionBody':
+    'Nadoknada treba da bude brza, pravična i proverljiva. Napravili smo {{app}} tako da podnosioci budu isplaćeni bez podsećanja, odobravaoci tačno vide šta potpisuju, a finansije imaju čist trag za svaki dinar — uz provere politike i sve ostalo.',
+  'about.missionTitle': 'Наша мисија',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Одобравање…',
   'approvals.confirmReject': 'Потврди одбијање',
+  'approvals.empty': 'Sve je ažurno — nema izveštaja na čekanju.',
   'approvals.eyebrow': 'Ред менаџера',
   'approvals.kpi.flaggedLabel': 'Пријављено због смерница',
+  'approvals.kpi.queueLabel': 'Čeka pregled',
   'approvals.kpi.totalLabel': 'Вредност на чекању',
   'approvals.lineCount': '{{count}} трошкови',
   'approvals.queueFallback': 'Ред чекања уживо није доступан — приказују се курирани демо подаци.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Одбацивање…',
+  'approvals.rejectPlaceholder': 'Razlog (obavezno)',
   'approvals.rejectPrompt': 'Зашто одбацујете овај извештај?',
   'approvals.review': 'Рецензија',
   'approvals.title': 'Чекајућа одобрења',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Одобрено · МТД',
   'dashboard.kpi.pendingDelta': '+2 ове недеље',
+  'dashboard.kpi.pendingLabel': 'Чека на преглед',
   'dashboard.kpi.receiptsDelta': 'Потребна је акција',
   'dashboard.kpi.receiptsLabel': 'Чекају се рачуни',
   'dashboard.kpi.reimbursedDelta': '+2,4 хиљаде долара',
   'dashboard.kpi.reimbursedLabel': 'Надокнађено · МТД',
   'dashboard.newReport': 'Нови извештај',
+  'dashboard.recent.empty': 'Još nema izveštaja — započnite prvi iznad.',
   'dashboard.recent.title': 'Недавни извештаји',
   'dashboard.recent.viewAll': 'Погледајте све извештаје',
   'dashboard.summaryFallback': 'Резиме уживо није доступан — приказују се курирани демо подаци.',
@@ -38,11 +59,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'Признанице и ставке које се надокнађују',
   'expenses.listFallback': 'Листа уживо није доступна — приказују се курирани демо подаци.',
   'expenses.searchPlaceholder': 'Претражите трговца или категорију…',
+  'expenses.subtotal': '{{count}} troškova · podzbirac',
   'expenses.title': 'Трошкови',
+  'forgotPassword.continue': 'Imam kod · Nastavi',
+  'forgotPassword.subheading':
+    'Unesite svoju poslovnu imejl adresu i poslaćemo vam link za postavljanje nove lozinke.',
   'forgotPassword.successBody':
     'Ако постоји налог за {{email}} Добићете линк за ресетовање у наредних неколико минута.',
+  'landing.copyright': '© {{year}} {{app}}. Napravljeno uz Molecule.dev.',
+  'landing.ctaBody':
+    'Besplatno za prvih 25 troškova svakog meseca. Bez kreditne kartice, bez uvodnog poziva.',
   'landing.ctaHeading': 'Спремни да надокнадите оно што се дугује вашем тиму?',
   'landing.eyebrow': 'Извештаји о трошковима за финансијске тимове',
+  'landing.featuresHeading': 'Nadoknada, u jednom mirnom radnom prostoru',
   'landing.heroSubtitle':
     'Поднесите, одобрите и надокнадите пословне трошкове без церемоније са табелама. Опис препознавања знања (OCR), провере политика и транспарентан временски оквир за одобравање — све у једном мирном радном простору.',
   'landing.heroTitle': 'Сваки рачун, враћен.',
@@ -60,10 +89,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Белешке',
   'newExpense.descriptionPlaceholder':
     'Зашто је овај трошак био пословни (видљиво вашем одобриоцу).',
+  'newExpense.eyebrow': 'Stavka koja se nadoknađuje',
   'newExpense.merchant': 'Трговац',
   'newExpense.merchantPlaceholder': 'Хотел Адлон Кемпински',
   'newExpense.policyHint':
     'Подсетник: за оброке преко 80 долара дневно или било коју ставку преко 250 долара потребно је образложење.',
+  'newExpense.receipt': 'Признаница',
+  'newExpense.receiptHint': 'JPG, PNG ili PDF · najviše 10 MB',
   'newExpense.receiptOcrHint': 'OCR унапред попуњава поља',
   'newExpense.receiptPrompt': 'Овде убаците фотографију или ПДФ или кликните да бисте прегледали',
   'newExpense.receiptUploadFailed':
@@ -74,17 +106,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Направите или отпремите рачун, а Recoup ће унапред попунити податке о продавцу, датуму и укупном износу. Потврдите све испод пре чувања.',
   'newExpense.title': 'Додај трошак',
+  'newReport.approverHint': 'Dobiće imejl kada pošaljete ovaj izveštaj na pregled.',
   'newReport.approverLabel': 'Имејл адреса одобриоца (опционо)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'Доступни трошкови',
   'newReport.createFailed': 'Није могуће креирати извештај. Молимо покушајте поново.',
   'newReport.draftsFallback':
     'Листа трошкова уживо није доступна — приказују се курирани демо подаци.',
+  'newReport.eyebrow': 'Grupni troškovi · pošalji na odobrenje',
   'newReport.includedCount': '{{count}} укључено',
   'newReport.purposeLabel': 'Пословна сврха',
   'newReport.purposePlaceholder':
     'Опишите путовање или пројекат на који се ови трошкови односе (видљиво вашем одобриоцу и финансијеру).',
   'newReport.saveDraft': 'Сачувај као нацрт',
+  'newReport.saveDraftFailed': 'Čuvanje nacrta nije uspelo. Pokušajte ponovo.',
   'newReport.submit': 'Пошаљи на одобрење',
   'newReport.submitFailed': 'Није могуће послати извештај. Молимо покушајте поново.',
   'newReport.summary': 'Резиме извештаја',
@@ -97,16 +132,23 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'Активност на радном простору',
   'notifications.feedFallback': 'Пренос уживо није доступан — приказују се курирани демо подаци.',
   'notifications.openReport': 'Отвори извештај ›',
+  'pricing.approvalsLabel': 'odobrenja',
   'pricing.expensesLabel': 'трошкови',
   'pricing.heading': 'одобрења',
   'pricing.policiesLabel': 'политике',
   'pricing.receiptsLabel': 'рачуни',
   'recoveredAmountHeroCard.label': 'Повраћај новца · од почетка године',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} izveštaja trenutno čeka pregled kod svih odobravalaca.',
+  'reports.approvalFlow': 'Tok odobravanja',
   'reports.backToList': 'Назад на извештаје',
   'reports.detailFallback': 'Извештај уживо није доступан — приказују се курирани демо подаци.',
   'reports.lineItems': 'Ставке поруџбине',
   'reports.lineItemsCount': '{{count}} трошкови',
+  'reports.lineItemsEmpty': 'Još nema troškova na ovom izveštaju.',
+  'reports.openLibrary': 'Otvori biblioteku izveštaja',
   'reports.policyTitle': 'Ознака смерница',
+  'reports.selectPrompt': 'Izaberite izveštaj iz biblioteke da vidite njegove detalje.',
   'reports.summary.lineCount': 'Ставке поруџбине',
   'reports.summary.reimbursable': 'Накнадно',
   'reports.summary.total': 'Пријављени укупан износ',
@@ -115,6 +157,7 @@ export const ui: UiTranslations = {
   'reportsList.lineItems': '{{count}} трошкови',
   'reportsList.listFallback': 'Листа уживо није доступна — приказују се курирани демо подаци.',
   'reportsList.newReport': 'Нови извештај',
+  'reportsList.submittedOn': 'Послато {{date}}',
   'reportsList.title': 'Библиотека извештаја',
   'resetPassword.hidePassword': 'Сакриј лозинку',
   'resetPassword.newPasswordLabel': 'Нова лозинка',
@@ -140,6 +183,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Сачувано ✓',
   'settings.profileSaveFailed': 'Није могуће ажурирати профил. Молимо покушајте поново.',
   'signup.heading': 'Направите свој налог за повраћај новца',
+  'signup.hidePassword': 'Сакриј лозинку',
   'signup.namePlaceholder': 'Маја Окафор',
   'signup.showPassword': 'Прикажи лозинку',
   'signup.subheading': 'Бесплатно за 25 трошкова сваког месеца — без кредитне картице.',

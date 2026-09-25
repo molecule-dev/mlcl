@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Kuna da ra'ayi, kun sami matsala, ko kuna son {{app}} don ɗakin aikinku ko ƙungiyarku? Tuntuɓe mu daga saitunan asusunku — kowane saƙo yana zuwa ga wani mutum na gaske a ƙungiyar.",
   'about.contactTitle': 'Yi magana da mu',
+  'about.intro':
+    '{{app}} ɗakin rubutu ne na haɗin gwiwa inda editoci, marubuta, da ƙungiyoyi suke yin rubutu tare a lokaci ɗaya. Buɗe takarda sai shafin ya zama na kowa — masu nuni suna motsi, sharhi suna tafiya a gefe, kuma kowane gyare-gyare ana adana shi lafiya a tarihi.',
+  'about.missionBody':
+    'Mun yi imani cewa rubutu mai tsawo ya cancanci wuri mai natsuwa da mai da hankali — wanda aka gina shi a kan rubutun, ba taro ko akwatin saƙo ba. Editanmu, kasancewar lokaci ɗaya, da tarihin sigogi duk an tsara su ne domin masu haɗin gwiwa su iya tafiya da sauri tare ba tare da wani ya rasa sakin layi ko tunani ba.',
+  'about.missionTitle': 'Manufarmu',
+  'about.subtitle': 'Yi tunani tare, rubuta har abada.',
   'about.title': 'Game da {{app}}',
   'comments.addFailed': 'Ban iya saka sharhi ba.',
   'comments.backToDoc': 'Komawa ga rubutun hannu',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Zaren sharhi',
   'comments.loading': 'Ana loda zaren…',
   'comments.newPlaceholder': 'Ƙara sharhi a cikin rubutun…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Sake buɗewa',
   'comments.reopenFailed': 'Ba a iya sake buɗewa ba.',
   'comments.replyFailed': 'Ban iya aika amsa ba.',
@@ -39,6 +48,7 @@ export const ui: UiTranslations = {
     'Zane-zane na baya-bayan nan, ayyukan da aka raba, da kuma gyare-gyaren yau da kullun.',
   'dashboard.viewFeed': 'Ciyarwa →',
   'editor.back': 'Komawa ga rubuce-rubucen hannu',
+  'editor.bodyLabel': 'Jikin takarda',
   'editor.bodyPlaceholder': 'Fara inda siginar ke kylanta.',
   'editor.comments': 'Sharhi',
   'editor.createFailed': 'Ba a iya ƙirƙirar takardar ba.',
@@ -64,13 +74,18 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Idan akwai asusu don {{email}} , hanyar haɗin sake saitawa tana kan hanya.',
+  'forgotPassword.sentHeading': 'Duba imel ɗinka',
+  'forgotPassword.submitting': 'Ana aikawa\\u2026',
   'forgotPassword.subtitle': 'Za mu aiko muku da hanyar haɗin sake saitawa ta imel.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . An gina shi da ƙwayoyin halitta.',
+  'landing.ctaBody':
+    'Kyauta ga marubuta ɗaya. Shirye-shiryen Studio don ƙungiyoyin editoci, marubutan fatalwa, da masu bita.',
   'landing.ctaHeading': 'Buɗe shafin. Bari siginar ta fara.',
   'landing.ctaPrimary': 'Bude situdiyo',
   'landing.eyebrow': 'Ga marubuta, editoci, da ƙungiyoyi',
   'landing.featuresEyebrow': 'Abin da za ku samu',
   'landing.featuresHeading': 'Studio don daftarin aiki mai tsawo.',
+  'landing.featuresSubtitle': 'An gina {{appName}} a kan rubutun — ba taro ba, ba akwatin saƙo ba.',
   'landing.getStarted': 'Bude sitidiyon',
   'landing.heroCta': 'Fara rubutu',
   'landing.heroSubtitle':
@@ -96,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} ba a karanta ba · tsokaci, ambato, raba gayyata, da buƙatun shawarwari.',
   'presenceAvatars.label': '{{count}} masu haɗin gwiwa',
+  'privacy.intro': 'Yadda muke tattarawa, amfani, da kare bayananka.',
   'privacy.title': 'Takardar kebantawa',
   'profile.about.description':
     "Takaitaccen tarihin rayuwar ku don bayanan jama'a da shafukan masu ba da gudummawa.",
@@ -109,7 +125,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Kasancewa',
   'profile.pronouns': 'Karin magana',
   'profile.publicToggle': 'Nuna bayanin martaba ga abokan wasan',
+  'profile.role': 'Matsayi / lakabi',
   'profile.subtitle': 'Yadda kake bayyana ga abokan aikinka.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} marubutan da ke aiki a cikin ɗakin studio',
   'quillonAuthBrandPanel.quote':
     '"Rubutu shine kawai abin da, idan na yi shi, ban ji ya kamata in yi wani abu daban ba."',
@@ -117,6 +135,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'A buɗe →',
   'quillonKpiCard.trend': 'Yanayin kwanan nan',
   'quillonLayout.menu': 'Menu',
+  'quillonLayout.mobileNavLabel': 'Kewayawa ta wayar hannu',
   'quillonLayout.primaryNavLabel': 'Babban kewayawa',
   'quillonStudioHero.collab': 'Masu haɗin gwiwa',
   'quillonStudioHero.docs': 'Takardun da aka taɓa',
@@ -125,7 +144,9 @@ export const ui: UiTranslations = {
   'quillonStudioHero.subtitle': 'Ɗauki rubutun, saka sharhi, tura sakin layi gaba.',
   'quillonStudioHero.words': 'Kalmomi a yau',
   'resetPassword.confirmPlaceholder': 'Maimaita sabuwar kalmar sirri',
+  'resetPassword.passwordLabel': 'Sabuwar kalmar sirri',
   'resetPassword.passwordPlaceholder': 'Shigar da sabuwar kalmar sirri',
+  'resetPassword.submitting': 'Sake saitawa…',
   'resetPassword.subtitle': 'Zaɓi kalmar sirri mai ƙarfi — aƙalla haruffa 12.',
   'settings.account.description': 'Yadda kake shiga.',
   'settings.billing.canceled': 'An soke biyan kuɗi.',
@@ -134,7 +155,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Ba a saita ba',
   'settings.billing.updated': 'An sabunta shirin.',
   'settings.editor.description': 'Yadda zane ke aiki yayin da kake rubutu.',
+  'settings.editor.title': 'Abubuwan da edita ke so',
   'settings.eyebrow': 'Abubuwan da ake so a ɗakin studio',
+  'settings.language.title': 'Harshe',
   'settings.notifications.${n.key}.description': 'Harshe',
   'settings.notifications.description': 'Zaɓi abin da zai kai ga akwatin saƙonka.',
   'settings.subtitle':
@@ -144,6 +167,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'An raba ni da ni',
   'shared.loadFailed': 'Ba a iya loda takardun da aka raba ba.',
   'shared.subtitle': 'Rubuce-rubuce, taƙaitaccen bayani, da kuma bayanai daga sauran ɗakin studio.',
+  'signup.brandAttribution': 'Anaïs Park — Edita, The Quarterly',
   'signup.brandQuote':
     '\\u201cRubutunka na farko shine mafi wahala. Quillon yana sa ya rage kaɗaici.\\u201d',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -151,6 +175,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Anaïs',
   'signup.heading': 'Ƙirƙiri asusun Quillon ɗinku',
   'signup.lastNamePlaceholder': 'Wurin shakatawa',
+  'signup.submitting': 'Ana buɗe ɗakin aikinka\\u2026',
   'signup.subtitle':
     'Tebur mai natsuwa, masu haɗin gwiwa a yanayi, da kuma edita mai dogon tsari wanda ke da amfani a gare ku.',
   'templates.blank.subtitle': 'Shafi mai tsabta. Siginar ta fara.',
@@ -163,11 +188,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Fara da tsari mai kyau. Keɓance shi ba tare da iyaka ba.',
   'templates.useFailed': 'Ba zan iya fara daftarin aiki daga wannan samfurin ba.',
   'templates.useTemplate': 'Yi amfani da wannan samfur',
+  'terms.intro': 'Sharuɗɗan da za ka iya amfani da wannan sabis ɗin a ƙarƙashinsu.',
   'terms.title': 'Sharuɗɗan sabis',
   'time.daysAgo': '{{days}} d da suka wuce',
   'time.hoursAgo': '{{hours}} h da ya wuce',
   'time.justNow': 'yanzu kawai',
   'trash.confirmDelete': 'Tabbatar da gogewa',
+  'trash.confirmEmpty': 'Tabbatar — share komai',
   'trash.deleteFailed': 'Ba za a iya gogewa ba.',
   'trash.deleteForever': 'Share har abada',
   'trash.empty': 'Babu abin da zai warke.',
@@ -182,7 +209,9 @@ export const ui: UiTranslations = {
   'versionHistory.backToDoc': 'Komawa ga rubutun hannu',
   'versionHistory.empty': 'Babu wani gyara tukuna — ajiye takardar don fara tarihinta.',
   'versionHistory.heading': 'Tarihin sigar',
+  'versionHistory.latest': 'Na Kwanan Nan',
   'versionHistory.loadFailed': 'Ba za a iya loda tarihi ba.',
+  'versionHistory.noContent': 'Ba a ɗauki wani abun ciki don wannan sigar ba.',
   'versionHistory.previewing': 'Ana yin samfoti',
   'versionHistory.restore': 'Mayar da wannan sigar',
   'versionHistory.restoreFailed': 'Gyara ya gaza.',

@@ -1,15 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கேள்விகள், கருத்துகள் அல்லது உங்கள் பணியமர்த்தல் குழுவுக்கு ஒரு வழிகாட்டல் வேண்டுமா? hello@example.com க்கு மின்னஞ்சல் அனுப்புங்கள், குழுவில் உள்ள ஒரு உண்மையான நபர் இரண்டு வேலை நாட்களுக்குள் உங்களைத் தொடர்பு கொள்வார்.',
   'about.contactHeading': 'தொடர்பு கொள்ளுங்கள்',
+  'about.intro':
+    '{{app}} என்பது சத்தமல்ல, சமிக்ஞை வேண்டும் என்று விரும்பும் ஆட்சேர்ப்பாளர்கள் மற்றும் பணியமர்த்தல் மேலாளர்களுக்கான விண்ணப்பதாரர் கண்காணிப்பு அமைப்பு — ஒரு தெளிவான பைப்லைன், தன்னை விளக்கும் AI திரையிடல், மற்றும் பணியமர்த்தல் பகுப்பாய்வு, அனைத்தும் ஒரே இடத்தில்.',
+  'about.missionBody':
+    'ஒரு குழு எடுக்கும் மிக உயர்ந்த பங்கு முடிவுகளில் பணியமர்த்தலும் ஒன்று, ஆனால் அதில் பெரும்பாலானவை இன்னும் சிதறிய விரிதாள்களிலும் மின்னஞ்சல் தொடர்களிலும் தான் உள்ளன. {{app}} முழு சுழற்சியையும் ஒரே பலகையில் கொண்டு வருகிறது, அதனால் ஒவ்வொரு விண்ணப்பதாரரும் கண்காணிக்கப்படுகிறார், ஒவ்வொரு நேர்காணலும் ஒழுங்கமைக்கப்படுகிறது, ஒவ்வொரு முடிவும் நியாயமானதாக, விரைவானதாக, விளக்கக்கூடியதாக இருக்கிறது.',
+  'about.missionHeading': 'எங்கள் நோக்கம்',
   'auth.legalConsent': 'தொடர்வதன் மூலம், நீங்கள் எங்கள் விதிமுறைகளை ஏற்கிறீர்கள்',
   'billing.cardExp': 'காலாவதியாகிறது {{exp}}',
+  'billing.cardLinkError': 'அப்டேட்-கார்டு ஓட்டத்தைத் தொடங்க முடியவில்லை.',
   'billing.cardLinkSent':
     'அட்டை புதுப்பித்தல் செயல்முறை தொடங்கிவிட்டது — உங்கள் மின்னஞ்சலைச் சரிபார்க்கவும்.',
+  'billing.cardLinkUnavailable':
+    'கார்டு புதுப்பிப்புகள் கிடைக்கவில்லை — இந்தப் பயன்பாட்டில் கட்டண வழங்குநர் எதுவும் அமைக்கப்படவில்லை.',
   'billing.cardMissing': 'கோப்பில் அட்டை இல்லை',
   'billing.col.invoice': 'விலைப்பட்டியல்',
   'billing.downloadUnavailable': '—',
   'billing.editCard': 'புதுப்பிப்பு அட்டை',
+  'billing.eyebrow': 'திட்டம் மற்றும் பயன்பாடு',
   'billing.invoiceHeading': 'சமீபத்திய விலைப்பட்டியல்கள்',
   'billing.invoicesEmpty': 'இன்னும் விலைப்பட்டியல்கள் வரவில்லை.',
   'billing.invoicesLoading': 'விலைப்பட்டியல்கள் ஏற்றப்படுகின்றன…',
@@ -18,12 +29,12 @@ export const ui: UiTranslations = {
   'billing.nextChargeHint': 'ஆன் {{date}}',
   'billing.nextChargeLabel': 'அடுத்த கட்டணம்',
   'billing.planLoading': 'ஏற்றும் திட்டம்…',
-  'billing.planSummary':
-    'ஒரு இருக்கைக்கு / இருக்கை · {{இருக்கைகள்}} இருக்கைகள் · {{மொத்தம்}} / மாதம்',
+  'billing.planSummary': '{{perSeat}} / இருக்கை · {{seats}} இருக்கைகள் · {{total}} / மாதம்',
   'billing.seatsAdded': 'இருக்கைகளின் எண்ணிக்கை புதுப்பிக்கப்பட்டது.',
   'billing.seatsError':
     'இந்தத் திட்டம் ஒரு இருக்கைக்கானது. பல இருக்கைப் பயன்பாட்டிற்கு, குழுத் திட்டத்திற்கு மேம்படுத்தவும்.',
   'billing.seatsHint': '{{used}} இன் {{max}} சேர்க்கப்பட்டது',
+  'billing.seatsLabel': 'செயலில் உள்ள இருக்கைகள்',
   'billing.spentLabel': 'ஆண்டு இதுவரை செலவிடப்பட்டது',
   'billing.subheading': 'சந்தா, இருக்கைகள், AI திரையிடல் பயன்பாடு மற்றும் விலைப்பட்டியல்கள்.',
   'billing.unlimited': 'வரம்பற்ற',
@@ -39,6 +50,7 @@ export const ui: UiTranslations = {
   'candidateDetail.advanceError': 'நிலையைப் புதுப்பிக்க முடியவில்லை.',
   'candidateDetail.advanceFinal': 'ஏற்கனவே இறுதிக் கட்டத்தில் உள்ளது.',
   'candidateDetail.advanceHeading': 'மேடைக்கு நகர்த்தவும்',
+  'candidateDetail.appliedOn': '{{source}} வழியாக {{date}} அன்று விண்ணப்பித்தார்.',
   'candidateDetail.back': 'அனைத்து வேட்பாளர்களும்',
   'candidateDetail.loadError': 'வேட்பாளரை ஏற்ற முடியவில்லை.',
   'candidateDetail.noInterviews': 'இன்னும் நேர்காணல்கள் எதுவும் நடைபெறவில்லை.',
@@ -48,8 +60,14 @@ export const ui: UiTranslations = {
   'candidateDetail.notePlaceholder':
     'பின்னூட்டங்கள், நேர்காணல் அனுபவங்கள், அடுத்தகட்ட நடவடிக்கைகள் ஆகியவற்றைப் பகிருங்கள்…',
   'candidateDetail.noteSave': 'குறிப்பைச் சேமிக்கவும்',
+  'candidateDetail.panel': 'குழு: {{panel}}',
+  'candidateDetail.panelScore': 'குழு மதிப்பெண்: {{score}}/100',
+  'candidateDetail.resumeMissing':
+    'இந்த விண்ணப்பதாரருக்கு இன்னும் ரெஸ்யூமே முன்னோட்டம் கிடைக்கவில்லை.',
   'candidateDetail.scheduleError': 'நேர்காணலைத் திட்டமிட முடியவில்லை.',
+  'candidateDetail.scheduleHeading': 'நேர்காணலைத் திட்டமிடு',
   'candidateDetail.scheduleInterviewer': 'நேர்காணல் செய்பவர்',
+  'candidateDetail.scheduleInterviewerPlaceholder': 'நேர்காணல் செய்பவரின் பெயர்',
   'candidateDetail.scheduleMinutes': 'கால அளவு (நிமிடம்)',
   'candidateDetail.scheduleMissing': 'முதலில் ஒரு தேதியையும் நேரத்தையும் தேர்ந்தெடுங்கள்.',
   'candidateDetail.scoreEmpty': 'செயற்கை நுண்ணறிவு மதிப்பீட்டிற்காகக் காத்திருக்கிறது.',
@@ -72,6 +90,7 @@ export const ui: UiTranslations = {
   'candidates.heading': 'வேட்பாளர்கள்',
   'candidates.loadError': 'வேட்பாளர்களை ஏற்ற முடியவில்லை.',
   'candidates.searchPlaceholder': 'வேட்பாளர், பதவி அல்லது வேலையைத் தேடுங்கள்…',
+  'candidates.sourceLabel': 'ஆதாரம்',
   'candidates.sourcePlaceholder': 'ஆதாரம் (லிங்க்டின், பரிந்துரை…)',
   'candidates.subheading':
     'செயற்கை நுண்ணறிவு மதிப்பெண் மற்றும் மூலக் குறிப்புடன் கூடிய பல்வேறு பணிகளுக்கான விண்ணப்பதாரர் தரவுத்தளம்.',
@@ -86,6 +105,7 @@ export const ui: UiTranslations = {
   'dashboard.kpi.interviews': 'இந்த வார நேர்காணல்கள்',
   'dashboard.kpi.openJobs': 'திறந்த வேலைகள்',
   'dashboard.loading': 'ஏற்றப்படுகிறது—',
+  'dashboard.newJobCta': 'ஒரு வேலையை இடுகையிடவும்',
   'dashboard.subheading':
     'பணி வாய்ப்பு நிலை, நேர்காணல் சுமை மற்றும் பரிசீலனையில் உள்ள பணி வாய்ப்புகள்.',
   'dashboard.topEmpty': 'இன்னும் வேட்பாளர்கள் இல்லை.',
@@ -107,6 +127,7 @@ export const ui: UiTranslations = {
   'jobDetail.back': 'அனைத்து வேலைகளும்',
   'jobDetail.descriptionEyebrow': 'பணி விளக்கம்',
   'jobDetail.descriptionMissing': 'இன்னும் விளக்கம் எதுவும் வழங்கப்படவில்லை.',
+  'jobDetail.employmentType': 'வேலைவாய்ப்பு வகை: {{type}}',
   'jobDetail.empty': 'இன்னும் விண்ணப்பதாரர்கள் இல்லை.',
   'jobDetail.funnelEyebrow': 'மேடை புனல்',
   'jobDetail.funnelHeading': 'விண்ணப்பதாரர்கள் எந்த நிலையில் உள்ளனர்',
@@ -115,6 +136,7 @@ export const ui: UiTranslations = {
   'jobDetail.kpi.hires': 'பணியமர்த்தல்கள்',
   'jobDetail.kpi.inInterview': 'நேர்காணலில்',
   'jobDetail.loadError': 'பணியை ஏற்ற முடியவில்லை.',
+  'jobDetail.requirementsHeading': 'தேவைகள்',
   'jobDetail.topEyebrow': 'சிறந்த விண்ணப்பதாரர்கள்',
   'jobDetail.topHeading': 'AI-யுடன் முதலில் பொருந்தியது',
   'jobDetail.unavailable': 'இந்தப் பணி இனி பட்டியலிடப்படவில்லை.',
@@ -130,6 +152,7 @@ export const ui: UiTranslations = {
   'jobs.heading': 'வேலைகள்',
   'jobs.loadError': 'பணிகளை ஏற்ற முடியவில்லை.',
   'jobs.newCta': 'வேலையை இடுகையிடவும்',
+  'landing.copyright': '© {{year}} {{app}} மாலிக்யூல் கொண்டு உருவாக்கப்பட்டது.',
   'landing.eyebrow': 'செயற்கை நுண்ணறிவு உதவியுடன் ஆள்சேர்ப்பு · v2',
   'landing.featuresEyebrow': 'இது எப்படி வேலை செய்கிறது',
   'landing.featuresHeading': 'சமிக்ஞை — விரிதாள்கள் அல்ல.',
@@ -139,8 +162,11 @@ export const ui: UiTranslations = {
   'landing.heroProof':
     'கடன் அட்டை தேவையில்லை. எப்போது வேண்டுமானாலும் ரத்து செய்யலாம். ப்ரோ மாடலில் SSO வசதி உள்ளது.',
   'landing.heroSecondary': 'விலை விவரங்களைப் பார்க்கவும் →',
+  'landing.heroSubtitle':
+    'ஒரு தெளிவான கான்பான் பைப்லைன், தன்னை விளக்கும் AI திரையிடல், மற்றும் நிலை வாரியான நியாயப் பகுப்பாய்வு. சத்தமல்ல — சமிக்ஞை வேண்டும் என்று விரும்பும் ஆட்சேர்ப்பாளர்கள் மற்றும் பணியமர்த்தல் மேலாளர்களுக்காக உருவாக்கப்பட்டது.',
   'landing.heroTitle': 'தெளிவுடன் பணியமர்த்துங்கள்.',
   'landing.previewHeading': 'மூத்த பின்தள பொறியாளர்',
+  'landing.previewLabel': 'பைப்லைன் · பொறியியல்',
   'landing.pricingEyebrow': 'விலை நிர்ணயம்',
   'landing.pricingHeading': 'அனைத்து அணி அளவுகளுக்கும் ஏற்ற திட்டங்கள்.',
   'landing.socialEyebrow': 'ஆட்சேர்ப்பு குழுக்களால் பயன்படுத்தப்படுகிறது',
@@ -158,6 +184,9 @@ export const ui: UiTranslations = {
   'loginBrandPanel.headlineLine2': 'தெளிவு.',
   'loginBrandPanel.stage.interview': 'நேர்காணல்',
   'loginBrandPanel.stage.screening': 'திரையிடல்',
+  'loginBrandPanel.stage.sourced': 'தேடிக் கண்டறியப்பட்டது',
+  'loginBrandPanel.subtext':
+    'Sourced → Screening → Interview → Offer → Hired வழியாக விண்ணப்பதாரர்களை இழுத்துச் செல்லுங்கள். AI திரையிடுகிறது. நியாயத் துடிப்பு ஒவ்வொரு நிலையையும் நேர்மையாக வைத்திருக்கிறது.',
   'nav.closeMenu': 'மெனுவை மூடுக',
   'nav.legal': 'சட்டப்பூர்வமான',
   'nav.openMenu': 'மெனுவைத் திறக்கவும்',
@@ -166,6 +195,7 @@ export const ui: UiTranslations = {
     'தகுதிகளின் அடிப்படையில் விண்ணப்பங்கள் தரவரிசைப்படுத்தப்படுகின்றன; ஆட்சேர்ப்பாளர் முதலில் மிகவும் பொருத்தமானவற்றை மதிப்பாய்வு செய்கிறார்.',
   'newJob.aiToggle': 'புதிய விண்ணப்பதாரர்களைத் தானாக மதிப்பிடுங்கள்',
   'newJob.back': 'வேலைகளுக்குத் திரும்பு',
+  'newJob.basicsHeading': 'பங்கின் அடிப்படைகள்',
   'newJob.compHeading': 'இழப்பீடு',
   'newJob.departmentLabel': 'துறை',
   'newJob.descHeading': 'விளக்கம் மற்றும் தேவை',
@@ -176,6 +206,7 @@ export const ui: UiTranslations = {
   'newJob.failed': 'வேலையைச் சேமிக்க முடியவில்லை.',
   'newJob.heading': 'ஒரு வேலையை இடுகையிடவும்',
   'newJob.publish': 'வேலையை வெளியிடு',
+  'newJob.reqLabel': 'தேவைகள் (ஒரு வரிக்கு ஒன்று)',
   'newJob.salaryMax': 'அதிகபட்ச சம்பளம் (அமெரிக்க டாலர்)',
   'newJob.salaryMin': 'குறைந்தபட்ச சம்பளம் (அமெரிக்க டாலர்)',
   'newJob.stagesHeading': 'குழாய் நிலைகள்',
@@ -191,6 +222,7 @@ export const ui: UiTranslations = {
   'newJob.type.fullTime': 'முழுநேரம்',
   'newJob.type.partTime': 'பகுதி நேர',
   'newJob.typeLabel': 'வேலைவாய்ப்பு வகை',
+  'pipeline.advanceTo': 'முன்னேற்று',
   'pipeline.allRoles': 'அனைத்து பாத்திரங்களும்',
   'pipeline.daysInStage': '{{days}} டி',
   'pipeline.empty': 'வேட்பாளர்கள் இல்லை',
@@ -204,13 +236,22 @@ export const ui: UiTranslations = {
     'போட்டியாளர்களை நிலைகளுக்கு இடையே இழுத்துச் செல்லவும். ஒவ்வொரு அட்டையிலும் AI மதிப்பெண்ணும், ஒரு நிலையில் செலவழித்த நாட்களும் காட்டப்படும்.',
   'pipeline.viewTable': 'அட்டவணைக் காட்சி →',
   'pipelineFunnelHero.totalLabel': 'இயக்கத்தில்',
+  'planUpdated.body':
+    'உங்கள் பில்லிங் மாற்றம் இப்போது செயலில் உள்ளது. பில்லிங் பக்கத்திலிருந்து எப்போது வேண்டுமானாலும் உங்கள் திட்டத்தை நிர்வகிக்கலாம்.',
+  'planUpdated.retry': 'மீண்டும் முயற்சிக்கவும்',
+  'planUpdated.verifyFailed': 'உங்கள் கட்டணத்தை எங்களால் இன்னும் உறுதிப்படுத்த முடியவில்லை.',
+  'planUpdated.verifyFailedBody':
+    'உங்கள் கட்டணம் இன்னும் செயலாக்கத்தில் இருக்கலாம். சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.',
   'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'pricing.heading': 'பயன்பாடுகள்',
+  'pricing.limits.applications': 'விண்ணப்பங்கள்',
   'pricing.limits.candidates': 'வேட்பாளர்கள்',
   'pricing.limits.jobs': 'வேலைகள்',
   'pricing.limits.scorecards': 'மதிப்பெண் அட்டைகள்',
   'privacy.dataBody':
     'கணக்கு மின்னஞ்சல், ஹேஷ் செய்யப்பட்ட கடவுச்சொல், சுயவிவர மெட்டாடேட்டா மற்றும் நீங்கள் உருவாக்கும் விண்ணப்பதாரர் / பணிப் பதிவுகள். நாங்கள் இந்தத் தரவை ஒருபோதும் விற்பதோ பகிர்வதோ இல்லை.',
+  'privacy.intro':
+    '{{app}} வாடிக்கையாளர்களின் சார்பாக ஆட்சேர்ப்புத் தரவைச் செயலாக்குகிறது. விண்ணப்பதாரர் பதிவுகள், ரெஸ்யூமேக்கள் மற்றும் பணியமர்த்தல் குழு தொடர்புகளை நாங்கள் ரகசியமாகக் கருதி, அவற்றை சேமிப்பில் என்க்ரிப்ட் செய்து வைக்கிறோம்.',
   'privacy.retentionBody':
     'அமைப்புகள் பகுதியிலிருந்து உங்கள் கணக்கை எப்போது வேண்டுமானாலும் நீக்கலாம். சட்டப்படி தக்கவைப்பு தேவைப்படும் இடங்களைத் தவிர, தொடர்புடைய பதிவுகளை 30 நாட்களுக்குள் நாங்கள் அழித்துவிடுவோம்.',
   'privacy.title': 'தனியுரிமைக் கொள்கை',
@@ -220,6 +261,7 @@ export const ui: UiTranslations = {
     'வேலை அறிவிப்புகளில், வேட்பாளர்களும் விண்ணப்பதாரர்களும் உங்கள் பெயரையும் பதவியையும் காண அனுமதியுங்கள்.',
   'profile.publicLabel': 'பொது சுயவிவரம்',
   'profile.publicOff': 'மறைக்கப்பட்ட',
+  'profile.publicOn': 'தெரியும்',
   'profile.recentEmpty': 'இன்னும் வேலைவாய்ப்புகள் எதுவும் வழங்கப்படவில்லை.',
   'profile.recentError': 'சமீபத்திய வேலைவாய்ப்புகளை ஏற்ற முடியவில்லை.',
   'profile.recentEyebrow': 'சமீபத்திய வேலைவாய்ப்புகள்',
@@ -246,9 +288,14 @@ export const ui: UiTranslations = {
   'resetPassword.missingToken':
     'மீட்டமைப்பு இணைப்பு காணவில்லை அல்லது காலாவதியாகிவிட்டது — புதிய இணைப்பைக் கோரவும்.',
   'resetPassword.passwordLabel': 'புதிய கடவுச்சொல்',
+  'resetPassword.signInCta': 'உள்நுழை →',
+  'resetPassword.signInPrompt': 'உள்நுழைய உங்கள் புதிய கடவுச்சொல்லைப் பயன்படுத்துங்கள்.',
   'resetPassword.subheading':
     'வலிமையான கடவுச்சொல்லைத் தேர்ந்தெடுக்கவும் — குறைந்தது 12 எழுத்துக்கள் மற்றும் கலப்பு எழுத்துகள் கொண்டதாக இருக்க வேண்டும்.',
+  'settings.appearance.description': 'ஒளி மற்றும் இருண்ட பயன்முறைகளுக்கு இடையே மாறவும்.',
   'settings.appearance.title': 'தோற்றம்',
+  'settings.deleteAccountModal.confirm':
+    'உறுதிப்படுத்த உங்கள் கடவுச்சொல்லை உள்ளிடுங்கள். இந்தச் செயல் நிரந்தரமானது.',
   'settings.emailTemplates.empty': 'இன்னும் வார்ப்புருக்கள் எதுவும் உள்ளமைக்கப்படவில்லை.',
   'settings.emailTemplates.heading': 'மின்னஞ்சல் வார்ப்புருக்கள்',
   'settings.emailTemplates.loadError': 'வார்ப்புருக்களை ஏற்ற முடியவில்லை.',
@@ -259,10 +306,17 @@ export const ui: UiTranslations = {
   'settings.integrations.statusDisconnected': 'இணைப்பு இல்லை',
   'settings.integrations.updateError': 'ஒருங்கிணைப்பைப் புதுப்பிக்க முடியவில்லை.',
   'settings.name': 'பெயர்',
+  'settings.passwordHelp': 'உள்நுழையப் பயன்படுத்தும் கடவுச்சொல்லைப் புதுப்பிக்கவும்.',
+  'settings.revokeDeviceWarning':
+    'இந்தச் சாதனத்தின் அணுகல் விரைவில் ரத்து செய்யப்படும். வெளியேற்றவா?',
   'settings.saveEmail': 'மின்னஞ்சலைச் சேமிக்கவும்',
   'settings.signOutDevice': 'வெளியேறு',
   'settings.stages.empty': 'இன்னும் எந்த நிலைகளும் உள்ளமைக்கப்படவில்லை.',
+  'settings.stages.heading': 'குழாய் நிலைகள்',
+  'settings.stages.help':
+    'விண்ணப்பதாரர்கள் கடந்து செல்லும் நிலைகள். நீங்கள் பயன்படுத்தாதவற்றை அகற்றுங்கள்.',
   'settings.stages.loadError': 'நிலைகளை ஏற்ற முடியவில்லை.',
+  'settings.stages.loading': 'நிலைகள் ஏற்றப்படுகின்றன…',
   'settings.stages.removeAria': 'அகற்று {{name}} மேடை',
   'settings.stages.removeError': 'மேடையை அகற்ற முடியவில்லை.',
   'settings.team.empty':
@@ -279,9 +333,15 @@ export const ui: UiTranslations = {
   'settings.team.removeError': 'உறுப்பினரை நீக்க முடியவில்லை.',
   'settings.twoFactorCode': 'அங்கீகாரக் குறியீடு',
   'settings.twoFactorDisable': 'முடக்கு',
+  'settings.twoFactorDisableTitle': 'இரு-காரணி அங்கீகாரத்தை முடக்கு',
   'settings.twoFactorEnable': 'இயக்கு',
+  'settings.twoFactorEnableTitle': 'இரு-காரணி அங்கீகாரத்தை இயக்கு',
   'settings.twoFactorInvalidCode': 'தவறான குறியீடு',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'இரு-காரணி QR குறியீடு',
+  'settings.twoFactorScan':
+    'உங்கள் அங்கீகரிப்பு செயலியில் இந்த QR குறியீட்டை ஸ்கேன் செய்து, 6 இலக்கக் குறியீட்டை உள்ளிடவும்.',
+  'settings.twoFactorUnavailable': 'இந்த செயலியில் இரு காரணி அங்கீகாரம் கிடைக்காது.',
   'settings.twoFactorVerify': 'சரிபார்த்து இயக்கு',
   'settings.unknownDevice': 'அறியப்படாத சாதனம்',
   'signup.confirmPlaceholder': 'உங்கள் கடவுச்சொல்லை மீண்டும் உள்ளிடவும்',
@@ -292,6 +352,8 @@ export const ui: UiTranslations = {
     '60 வினாடிகளில் ஒரு ஆட்சேர்ப்புப் பலகையைத் தயார் செய்யுங்கள். பிறகு குழுவினரை அழையுங்கள்.',
   'terms.acceptableUseBody':
     'நீங்கள் இந்தச் சேவையைத் தவறாகப் பயன்படுத்தவோ, தானியங்குத் தரவுச் சேகரிப்பை இயக்கவோ, பாதுகாப்பை மீற முயற்சிக்கவோ, அல்லது பாதுகாக்கப்பட்ட பிரிவினருக்கு எதிராகப் பாகுபாடு காட்ட இதைப் பயன்படுத்தவோ கூடாது.',
+  'terms.intro':
+    '{{app}} ஐப் பயன்படுத்துவதன் மூலம் இந்த விதிமுறைகளை ஏற்கிறீர்கள். இந்தச் சேவை கீழே விவரிக்கப்பட்டுள்ள கடமைகள் மற்றும் வரம்புகளுடன், உள்ளபடியே வழங்கப்படுகிறது.',
   'terms.subscriptionBody':
     'கட்டணத் திட்டங்கள் ரத்து செய்யப்படும் வரை மாதந்தோறும் புதுப்பிக்கப்படும். நீங்கள் பில்லிங்கில் இருந்து எப்போது வேண்டுமானாலும் ரத்து செய்யலாம்; உங்கள் திட்டம் தற்போதைய காலம் முடியும் வரை செயலில் இருக்கும்.',
   'terms.title': 'சேவை விதிமுறைகள்',

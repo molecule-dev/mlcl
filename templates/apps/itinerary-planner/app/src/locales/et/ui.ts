@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'On tagasisidet, leidsid vea või plaanid midagi suurejoonelist? Võta meiega ühendust konto seadete kaudu — iga sõnum jõuab tiimi päris inimeseni.',
+  'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Broneeringud ühes postkastis — lennu-, hotelli- ja tegevuskinnitused jõuavad täpselt õigesse päeva.',
+  'about.featureCollab':
+    'Reaalajas koostöö — kutsu kuni viis reisijat reisi kohta, kõik muudatused sünkroonitakse reaalajas ja kommentaarid on iga peatuspunkti all.',
+  'about.featureMapsBudget':
+    'Kaardid, sihtkohad ja ühine eelarve — vaata kogu reisi kaardil, avasta toimetajate valitud sihtkohti ja jälgi kulutusi, et keegi ei kulutaks üle.',
+  'about.featureTimelines':
+    'Päev-päeva ajateljed — lohista peatuspunkte ümber, lisa transpordilõike ja vaata, kuidas marsruut ühe elava dokumendina ümber arvutatakse.',
+  'about.intro':
+    '{{app}} muudab poolikute plaanide kausta üheks ühiseks reisiks, mida kogu seltskond saab tegelikult järgida. Koosta päev-päeva marsruut, lisa lennud ja hotellid, kaardista iga peatuspunkt ja jälgi eelarvet — kõik ühes rahulikus kohas, mitte tosina vahekaardi ja grupivestluse asemel.',
+  'about.missionBody':
+    'Reisiplaneerimine peaks tunduma nii, nagu reis läheks juba paremaks, mitte nagu kodutöö. {{app}} on loodud muutma ühised reisid vaevatuks — et iga reisija tuleks kohale plaaniga kursis ja iga peatuspunkt räägiks loo, mida tasub meeles pidada.',
+  'about.missionTitle': 'Meie missioon',
   'about.pageTitle': 'Teave rakenduse {{app}} kohta',
   'auth.legalConsent': 'Jätkates nõustute meie',
   'bookings.empty.body': 'Postkasti avamiseks lisa lend, hotell või tegevus.',
@@ -29,7 +45,11 @@ export const ui: UiTranslations = {
   'bookings.type.flight': 'Lend',
   'bookings.type.hotel': 'Hotell',
   'bookings.type.other': 'Muu',
+  'budgetSpendCard.budgetTotal': '{{total}}-st planeeritud',
+  'budgetSpendCard.overBy': '{{amount}} üle eelarve',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} hiljutist',
+  'budgetSpendCard.remaining': '{{amount}} jäänud',
   'calendar.eyebrow': 'Eelseisev aasta',
   'calendar.heading': 'Iga reis ühes kalendris.',
   'calendar.legendHeading': 'Selle kuu reisid',
@@ -40,18 +60,28 @@ export const ui: UiTranslations = {
   'common.and': 'ja',
   'common.goToDashboard': 'Mine töölauani',
   'dashboard.budgetHeading': 'Eelarvepulss',
+  'dashboard.empty.body':
+    'Planeeri oma esimene reis ja sinu töölaud täitub päev-päeva ajatelgede, eelarve ülevaate ja broneeringutega.',
+  'dashboard.empty.cta': 'Planeeri oma esimene reis',
   'dashboard.empty.heading': 'Reise veel pole – teie atlas on tühi.',
   'dashboard.eyebrow': 'Missiooni juhtimine',
   'dashboard.heading': 'Sinu järgmine seiklus ühes vaikses nurgas.',
   'dashboard.newTripCta': 'Alusta uut reisi',
+  'dashboard.subheading':
+    'Loendus järgmise reisini, tänane kulutuste ülevaade ja kiire pilk igale käimasolevale marsruudile.',
   'dashboard.tripsHeading': 'Reisid liikumises',
   'dashboard.viewAllExpenses': 'Vaata iga kulu',
   'dashboard.viewAllTrips': 'Vaata iga reisi',
   'dayTimelineRow.category.accommodation': 'Jää',
+  'dayTimelineRow.category.food': 'Toit ja jook',
+  'dayTimelineRow.category.sightseeing': 'Vaatamisväärsused',
   'dayTimelineRow.category.transport': 'Transport',
   'destinationOrbCard.exploreCta': 'Lisa reisile',
   'destinationOrbCard.tripCount': '{{count}} reisid',
+  'destinations.empty.body':
+    'Lülita tagasi jaotisele Kõik ja toimetaja leitud kohad ilmuvad uuesti.',
   'destinations.empty.heading': 'Sihtkohti veel pole.',
+  'destinations.emptyFiltered.heading': 'Sellise sildiga pole veel midagi.',
   'destinations.errors.load': 'Sihtkohti ei õnnestunud laadida.',
   'destinations.eyebrow': 'Kuhu edasi',
   'destinations.heading': 'Salvestatud nurgad ja toimetaja leiud.',
@@ -69,7 +99,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Müüja',
   'expenses.formHeading': 'Palgikulu eest {{trip}}',
   'expenses.heading': 'Kuhu reisi eelarve tegelikult läheb.',
+  'expenses.heroBudget': '{{pct}}% {{total}}-st planeeritud',
   'expenses.heroEyebrow': '{{trip}} eelarve ülevaade',
+  'expenses.heroNoBudget': 'Sellele reisile pole veel eelarvet seatud.',
   'expenses.noTrips.body': 'Planeeri reis kõigepealt – lisa reisi eelarvele kulud.',
   'expenses.noTrips.heading': 'Reise veel pole.',
   'expenses.receiptCount': '{{count}} kviitungid',
@@ -81,12 +113,16 @@ export const ui: UiTranslations = {
     'Iga kviitung ja kinnitus koondatakse siia õigesse kategooriasse — arvutustabelit pole vaja.',
   'forgotPassword.eyebrow': 'Taasta oma reisiplaan',
   'forgotPassword.heading': 'Unustasid parooli?',
+  'forgotPassword.subheading':
+    'Sisesta e-posti aadress, mida kasutasid {{appName}} jaoks, ja saadame lingi parooli lähtestamiseks.',
   'forgotPassword.submit': 'Saada taastamismeil',
   'forgotPassword.submitPending': 'Taastamismeili saatmine…',
   'forgotPassword.successHint':
     'Pole veel e-posti aadressi? Kontrollige rämpsposti kausta või proovige uuesti teise aadressiga.',
   'forgotPassword.successSubheading':
     'Saatsime taastamislingi aadressile {{email}} Link kehtib 30 minutit.',
+  'forgotPassword.tryAgain': 'Saada teisele e-posti aadressile',
+  'landing.cta.eyebrow': 'Alusta tasuta plaaniga',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Loo tasuta konto',
   'landing.cta.subheading':
@@ -98,8 +134,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Alusta tasuta reisi',
   'landing.hero.ctaSecondary': 'Vaata näidisreisi',
+  'landing.hero.eyebrow': 'Reisiplaneerija · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint muudab poolikute plaanidega täidetud kausta jagatud päevast päeva järgitavaks teekonnaks, mida teie grupp saab järgida – broneeringud, kaardid ja eelarve on ühes kohas jälgitavad.',
+  'landing.hero.title': 'Planeerige see üks kord. Rännake seal koos.',
   'landing.nav.join': 'Alusta tasuta reisi',
   'landing.nav.preview': 'Teekonnapunkti sees',
   'landing.preview.cta': 'Planeeri üks oma',
@@ -107,6 +145,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Mõned reisid, mida reisijad praegu uitavad',
   'login.eyebrow': 'Liikmete ala',
   'login.heading': 'Tere tulemast tagasi, rändur',
+  'login.noAccount': 'Kas oled Tesseras uus?',
   'login.signupLink': 'Loo tasuta konto',
   'login.subheading':
     'Logi sisse, et hallata oma reise, päevaplaane, broneeringuid ja juba alustatud päevikukirjeid.',
@@ -117,6 +156,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Teavitust ei õnnestunud uuendada.',
   'notifications.heading': 'Mis teie reiside jooksul täna muutus?',
   'notifications.markUnread': 'Märgi lugemata',
+  'notifications.subheading':
+    '{{count}} uut — broneeringukinnitused, kaasautorite märkmed, hinnamuutused ja meeldetuletused.',
   'notifications.time.daysAgo': '{{count}} päeva tagasi',
   'notifications.time.hoursAgo': '{{count}} tund aega tagasi',
   'notifications.time.justNow': 'just praegu',
@@ -135,6 +176,7 @@ export const ui: UiTranslations = {
     'Ühendatud teenused, valuuta, tõuketeated ja sisselogimiseks vajalikud volitused.',
   'signup.and': 'ja',
   'signup.eyebrow': 'Liitu teekonnapunktiga',
+  'signup.haveAccount': 'Juba rändamas?',
   'signup.heading': 'Planeerige see üks kord. Rännake seal koos.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -146,6 +188,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Ava reisiplaan',
   'tripCountdownHeroCard.ctaSecondary': 'Planeeri teine reis',
   'tripCountdownHeroCard.daysLabel': '{{days}} päeva veel',
+  'tripCountdownHeroCard.eyebrow': 'Järgmine seiklus · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} ööd — sinu marsruut on reisimiseks valmis.',
   'tripCoverCard.stops': '{{count}} peatused',
   'tripCoverCard.travelers': '{{count}} reisijad',
   'tripDetail.addActivity': 'Lisa tegevus',
@@ -155,6 +200,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Tegevuse pealkiri',
   'tripDetail.adding': 'Lisamine',
   'tripDetail.backToTrips': 'Tagasi kõigi reiside juurde',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Reisijad',
   'tripDetail.dayLabel': 'Päev {{day}}',
   'tripDetail.empty': 'Tegevusi pole veel — lisage üks ajajoone alustamiseks.',
@@ -165,14 +211,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Reisiplaan • {{country}}',
   'tripDetail.invite': 'Kutsu',
   'tripDetail.inviteLabel': 'Kutsu e-posti teel',
+  'tripDetail.invitePlaceholder': 'keegi@näidis.ee',
   'tripDetail.inviteSent': 'Kutse saadeti aadressile {{email}} .',
   'tripDetail.inviting': 'Saadetakse…',
   'tripDetail.loading': 'Reisi laadimine…',
   'tripDetail.noCollaborators': 'Ainult sina, praegu.',
+  'tripDetail.notesHeading': 'Reisi märkmed',
   'tripDetail.notesPlaceholder': 'Märkmeid veel pole.',
   'tripDetail.notFound.heading': 'Reisi ei leitud',
   'tripDetail.openBookings': 'Ava broneeringute postkast',
   'tripDetail.shareCopied': 'Lõikelauale kopeeritud jagamislink:',
+  'tripDetail.shareReady': 'Jagamislink valmis:',
   'tripDetail.stops': '{{count}} peatused',
   'tripDetail.timelineEyebrow': 'Päeva ajajoon',
   'tripDetail.timelineHeading': 'Päevade kaupa plaan',
@@ -190,6 +239,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Reisijad',
   'tripPlanner.heading': 'Visanda reis vähem kui minutiga.',
   'tripPlanner.preview.eyebrow': 'Reaalajas eelvaade',
+  'tripPlanner.preview.placeholderCountry': 'Vali riik',
   'tripPlanner.preview.placeholderDestination': 'Sinu järgmine seiklus',
   'tripPlanner.section1.title': 'Kus ja millal',
   'tripPlanner.section2.title': 'Reisijad ja eelarve',
@@ -198,10 +248,14 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Päev {{day}} Lisa siia peatused, transport ja broneeringud.',
   'tripPlanner.section3.day2': 'Päev {{day}} Lisa siia peatused, transport ja broneeringud.',
   'tripPlanner.section3.day3': 'Päev {{day}} Lisa siia peatused, transport ja broneeringud.',
+  'tripPlanner.section3.title': 'Päevaplaani algus',
   'tripPlanner.subheading':
     'Lisa põhitõed allpool — saate alati kutsuda kaastöötajaid, lohistada peatusi ja edastada broneeringuid hiljem.',
   'tripPlanner.submit': 'Loo reis',
   'tripPlanner.submitting': 'Loomine',
+  'trips.empty.body':
+    'Lülita tagasi jaotisele Kõik reisid või alusta järgmise rännaku planeerimist.',
+  'trips.empty.cta': 'Planeeri reis',
   'trips.empty.heading': 'Sellele filtrile ei vasta veel ükski vaste.',
   'trips.eyebrow': 'Atlas',
   'trips.filterLabel': 'Filtreeri reise staatuse järgi',
@@ -212,6 +266,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Reise veel pole.',
   'trips.pastHeading': 'Varasemad seiklused',
   'trips.subheading': '{{count}} marsruudid – minevik, olevik ja kunagi tulevikus.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Planeeri korra. Rända koos. Jäta igaveseks meelde.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · {{appName}} liiget alates 2024',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} muutis kiire kolmenädalase nelja riigi reisi kõige rahulikumaks marsruudiks, mida oleme kunagi jaganud.',
   'waypointLayout.mobileNavClose': 'Sulge navigeerimismenüü',
   'waypointLayout.primaryNavLabel': 'Peamine navigeerimine',
 }

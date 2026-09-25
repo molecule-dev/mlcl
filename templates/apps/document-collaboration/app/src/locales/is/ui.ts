@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ertu með endurgjöf, fannst villu eða vilt {{app}} fyrir vinnustofuna þína eða teymið? Hafðu samband í stillingum reikningsins — hver skilaboð fara til raunverulegs einstaklings í teyminu.',
   'about.contactTitle': 'Hafðu samband við okkur',
+  'about.intro':
+    '{{app}} er samvinnuvinnustofa fyrir rithöfunda þar sem ritstjórar, höfundar og teymi skrifa saman í rauntíma. Opnaðu skjal og síðan verður sameiginleg — bendlar hreyfast, athugasemdir raðast í spássíuna og hver endurskoðun er varðveitt í sögunni.',
+  'about.missionBody':
+    'Við teljum að langir textar eigi skilið rólegan, einbeittan stað — byggðan í kringum handritið, ekki fundinn eða pósthólfið. Ritillinn okkar, rauntímaviðvera og útgáfusaga eru öll hönnuð svo samstarfsfólk geti unnið hratt saman án þess að nokkur tapi málsgrein eða hugsun.',
+  'about.missionTitle': 'Markmið okkar',
+  'about.subtitle': 'Hugsaðu saman, skrifaðu að eilífu.',
   'about.title': 'Um {{app}}',
   'comments.addFailed': 'Gat ekki skrifað athugasemd.',
   'comments.backToDoc': 'Til baka í handritið',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Athugasemdaþræðir',
   'comments.loading': 'Hleður þráðum…',
   'comments.newPlaceholder': 'Bæta við athugasemd við handritið…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Opna aftur',
   'comments.reopenFailed': 'Gat ekki opnað aftur',
   'comments.replyFailed': 'Gat ekki birt svar.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Nýleg drög, sameiginleg verk og breytingar dagsins.',
   'dashboard.viewFeed': 'Fæða →',
   'editor.back': 'Til baka í handritin',
+  'editor.bodyLabel': 'Skjalsmeginmál',
   'editor.bodyPlaceholder': 'Byrjaðu þar sem bendillinn blikkar.',
   'editor.comments': 'Athugasemdir',
   'editor.createFailed': 'Gat ekki búið til skjalið.',
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'rithöfundur@studio.com',
   'forgotPassword.sentBody':
     'Ef reikningur er til staðar fyrir {{email}} , tengill fyrir endurstillingu er á leiðinni.',
+  'forgotPassword.sentHeading': 'Athugaðu tölvupóstinn þinn',
+  'forgotPassword.submitting': 'Sendi\\u2026',
   'forgotPassword.subtitle': 'Við sendum þér tölvupóst með tengil til að endurstilla.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Smíðað með Molecule.',
+  'landing.ctaBody':
+    'Ókeypis fyrir einstaka rithöfunda. Vinnustofuáskriftir fyrir teymi ritstjóra, skrímslahöfunda og yfirlesara.',
   'landing.ctaHeading': 'Opnaðu síðuna. Láttu bendilinn byrja.',
   'landing.ctaPrimary': 'Opna vinnustofu',
   'landing.eyebrow': 'Fyrir rithöfunda, ritstjóra og teymi',
   'landing.featuresEyebrow': 'Það sem þú færð',
   'landing.featuresHeading': 'Stúdíó fyrir lengri drög.',
+  'landing.featuresSubtitle':
+    '{{appName}} er byggt í kringum handritið — ekki fundinn, ekki pósthólfið.',
   'landing.getStarted': 'Opnaðu vinnustofuna',
   'landing.heroCta': 'Byrjaðu að skrifa',
   'landing.heroSubtitle':
@@ -95,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} ólesin · athugasemdir, ummæli, boð um deilingu og beiðnir um tillögur.',
   'presenceAvatars.label': '{{count}} samstarfsaðilar',
+  'privacy.intro': 'Hvernig við söfnum, notum og verndum upplýsingarnar þínar.',
   'privacy.title': 'Persónuverndarstefna',
   'profile.about.description':
     'Stutt æviágrip fyrir opinbera prófílinn þinn og síður með framlagi.',
@@ -102,12 +119,15 @@ export const ui: UiTranslations = {
   'profile.handle': 'Handfang',
   'profile.identity.description':
     'Nafnið, notandanafnið og fornöfnin sem birtast við hliðina á bendilinn þinn.',
+  'profile.presence.color': 'Bendillitur {{color}}',
   'profile.presence.description':
     'Veldu litinn sem bendillinn þinn notar í sameiginlegum skjölum. Sami litur er notaður fyrir val, athugasemdir og prófílmynd.',
   'profile.presence.title': 'Viðvera',
   'profile.pronouns': 'Fornöfn',
   'profile.publicToggle': 'Sýna prófíl fyrir liðsfélaga',
+  'profile.role': 'Hlutverk / titill',
   'profile.subtitle': 'Hvernig þú birtist samstarfsmönnum þínum.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} rithöfundar virkir í vinnustofunni',
   'quillonAuthBrandPanel.quote':
     '„Að skrifa er það eina sem, þegar ég geri það, finnst mér ekki að ég ætti að vera að gera eitthvað annað.“',
@@ -115,6 +135,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Opna →',
   'quillonKpiCard.trend': 'Nýleg þróun',
   'quillonLayout.menu': 'Matseðill',
+  'quillonLayout.mobileNavLabel': 'Farsímanavigering',
   'quillonLayout.primaryNavLabel': 'Aðalflakk',
   'quillonStudioHero.collab': 'Samstarfsaðilar',
   'quillonStudioHero.docs': 'Skjöl snert',
@@ -123,7 +144,9 @@ export const ui: UiTranslations = {
   'quillonStudioHero.subtitle': 'Taktu upp handritið, skrifaðu athugasemd, ýttu málsgrein áfram.',
   'quillonStudioHero.words': 'Orð í dag',
   'resetPassword.confirmPlaceholder': 'Endurtakið nýja lykilorðið',
+  'resetPassword.passwordLabel': 'Nýtt lykilorð',
   'resetPassword.passwordPlaceholder': 'Sláðu inn nýtt lykilorð',
+  'resetPassword.submitting': 'Endurstillir…',
   'resetPassword.subtitle': 'Veldu sterkt lykilorð — að minnsta kosti 12 stafir.',
   'settings.account.description': 'Hvernig þú skráir þig inn.',
   'settings.billing.canceled': 'Áskrift hætt.',
@@ -132,7 +155,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Ekki stillt',
   'settings.billing.updated': 'Áætlun uppfærð.',
   'settings.editor.description': 'Hvernig striginn hegðar sér á meðan þú skrifar.',
+  'settings.editor.title': 'Stillingar ritstjóra',
   'settings.eyebrow': 'Stillingar stúdíósins',
+  'settings.language.title': 'Tungumál',
   'settings.notifications.${n.key}.description': 'Tungumál',
   'settings.notifications.description': 'Veldu hvað berst í pósthólfið þitt.',
   'settings.subtitle': 'Stilltu tilkynningar, ritstjórnarsvæðið og reikningsstillingar þínar.',
@@ -141,12 +166,14 @@ export const ui: UiTranslations = {
   'shared.heading': 'Deilt með mér',
   'shared.loadFailed': 'Ekki tókst að hlaða sameiginlegum skjölum.',
   'shared.subtitle': 'Handrit, stuttar greinar og glósur frá restinni af vinnustofunni.',
+  'signup.brandAttribution': 'Anaïs Park — ritstjóri, The Quarterly',
   'signup.brandQuote': 'Fyrsta handritið þitt er erfiðast. Quillon gerir það minna einmanalegt.',
   'signup.emailPlaceholder': 'rithöfundur@studio.com',
   'signup.eyebrow': 'Opnaðu vinnustofuna',
   'signup.firstNamePlaceholder': 'Anaïs',
   'signup.heading': 'Stofnaðu Quillon reikninginn þinn',
   'signup.lastNamePlaceholder': 'Garður',
+  'signup.submitting': 'Opna vinnustofuna þína\\u2026',
   'signup.subtitle':
     'Rólegt skrifborð, notalegir samstarfsaðilar og ritstjóri sem vinnur með lengri texta og fer úr vegi.',
   'templates.blank.subtitle': 'Hrein síða. Bendillinn byrjar.',
@@ -159,11 +186,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Byrjaðu með úthugsaðri uppbyggingu. Sérsníddu endalaust.',
   'templates.useFailed': 'Gat ekki ræst skjal úr þessu sniðmáti.',
   'templates.useTemplate': 'Notaðu þetta sniðmát',
+  'terms.intro': 'Skilmálar fyrir notkun þjónustunnar.',
   'terms.title': 'Þjónustuskilmálar',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'rétt í þessu',
   'trash.confirmDelete': 'Staðfesta eyðingu',
+  'trash.confirmEmpty': 'Staðfesta — eyða öllu',
   'trash.deleteFailed': 'Gat ekki eytt.',
   'trash.deleteForever': 'Eyða fyrir fullt og allt',
   'trash.empty': 'Ekkert til að endurheimta.',
@@ -178,7 +207,9 @@ export const ui: UiTranslations = {
   'versionHistory.backToDoc': 'Til baka í handritið',
   'versionHistory.empty': 'Engar breytingar enn — vistaðu skjalið til að hefja feril þess.',
   'versionHistory.heading': 'Útgáfusaga',
+  'versionHistory.latest': 'Nýjasta',
   'versionHistory.loadFailed': 'Gat ekki hlaðið inn sögu.',
+  'versionHistory.noContent': 'Ekkert efni skráð fyrir þessa endurskoðun.',
   'versionHistory.previewing': 'Forskoðun',
   'versionHistory.restore': 'Endurheimta þessa útgáfu',
   'versionHistory.restoreFailed': 'Endurheimt mistókst.',

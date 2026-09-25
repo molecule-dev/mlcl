@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
+  'about.featureConnections':
+    'Un manager de conexiuni care îți stochează bazele de date în siguranță și le codifică prin culori — credențialele sunt criptate în repaus, niciodată în text simplu.',
+  'about.featureMonitoring':
+    'Monitorizare în timp real a performanței interogărilor și a activității bazei de date, cu scurtături de tastatură și paletă de comenzi pentru a controla totul fără mâini.',
+  'about.featurePlans':
+    'Planuri care cresc odată cu tine — Gratuit pentru lucru individual, Pro și Team pentru mai multe conexiuni, retenție mai lungă a interogărilor, exporturi și funcții avansate.',
+  'about.featureQueryEditor':
+    'Un editor SQL bazat pe Monaco, cu istoricul interogărilor, interogări salvate și export CSV al rezultatelor cu un singur clic.',
+  'about.featureSchema':
+    'Un explorator de scheme și navigator de tabele pentru a naviga bazele de date, tabelele și coloanele, apoi pentru a răsfoi, filtra și edita rândurile direct în pagină.',
+  'about.missionTitle': 'Misiunea noastră',
   'authShell.commands': 'Comenzi',
   'authShell.ssoSupported': 'Compatibil cu SSO',
   'common.run': 'Alergați',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Interogări',
   'connections.schema': 'Schema',
   'connections.subtitle': 'Gestionați conexiunile la baza de date.',
+  'connections.test': 'Test',
   'databaseAdminLayout.adminRole': 'Rolul de administrator',
   'databaseAdminLayout.commandPalette': 'Paletă de comenzi',
   'databaseAdminLayout.commands': 'comenzi',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Conexiune nouă',
   'databaseAdminLayout.queries': 'Interogări',
   'databaseAdminLayout.ready': 'Pregătit',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Caută comenzi, interogări, tabele…',
   'databaseAdminLayout.user': 'Utilizator',
   'editConnection.confirmDelete': 'Doriți să ștergeți această conexiune?',
   'editConnection.deleteButton': 'Șterge conexiunea',
+  'editConnection.newPassword': 'Parolă nouă (lasă gol pentru a păstra)',
   'editConnection.saved': 'Conexiunea a fost salvată.',
   'editConnection.title': 'Editează conexiunea',
   'forgotPassword.success':
@@ -47,6 +62,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Realizări',
   'monitoring.title': 'Monitorizare',
   'monitoring.totalQueries': 'Total interogări',
+  'nav.schema': 'Schema',
   'newConnection.database': 'Baza de date',
   'newConnection.engine': 'Motor',
   'newConnection.host': 'Gazdă',
@@ -82,6 +98,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Nu există nicio conexiune asociată acestui fragment de cod.',
   'savedQuery.notBound': 'Fără legături',
   'savedQuery.title': 'Interogare salvată',
+  'schema.columns': 'Coloane',
   'schema.foreignKeys': 'Chei externe',
   'schema.indexes': 'Indexuri',
   'schemaExplorer.browseRows': 'Răsfoiește rândurile',
@@ -90,14 +107,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'care poate fi nul',
   'schemaExplorer.colType': 'tip',
   'schemaExplorer.noColumns': 'Fără coloane.',
+  'schemaExplorer.noForeignKeys': 'Fără chei străine.',
   'schemaExplorer.noIndexes': 'Nu există indexuri.',
   'schemaExplorer.noTables': 'Fără tabele',
   'schemaExplorer.pickATable': 'Alege o masă din bara laterală.',
   'schemaExplorer.tables': 'Tabele',
   'schemaExplorer.title': 'Explorator de scheme',
+  'settings.session': 'Sesiune',
   'settings.subtitle': 'Gestionează-ți contul și abonamentul.',
   'signup.heading': 'Creează-ți contul Quarry',
   'signup.tagline': 'Configurează accesul în mai puțin de un minut.',
   'tableBrowser.noRows': 'Acest tabel nu conține încă rânduri.',
+  'tableBrowser.subtitle': 'Răsfoirea rândurilor din baza ta de date la distanță.',
   'tableBrowser.title': 'Răsfoirea rândurilor din baza de date la distanță.',
 }

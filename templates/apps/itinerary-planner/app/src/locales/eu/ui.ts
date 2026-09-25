@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Iritzia duzu, akats bat aurkitu duzu edo zerbait handia antolatzen ari zara? Idatziguzu zure kontuaren ezarpenetatik — mezu bakoitza taldeko benetako pertsona batengana iristen da.',
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Erreserbak sarrera-ontzi bakarrean — hegaldiak, hotelak eta jardueren berrespenak dagokien egun zehatzean agertzen dira.',
+  'about.featureCollab':
+    'Denbora errealeko lankidetza — gonbidatu bidaia bakoitzeko bost bidaiari arte, aldaketa guztiak zuzenean sinkronizatuta eta iruzkinak geldialdi bakoitzaren azpian harilkatuta.',
+  'about.featureMapsBudget':
+    'Mapak, helmugak eta aurrekontu partekatua — ikusi bidaia osoa mapan, aurkitu editoreek hautatutako helmugak eta jarraitu gastuak inork gehiegi gastatu ez dezan.',
+  'about.featureTimelines':
+    'Eguneko kronologiak — arrastatu geldialdiak ordena aldatzeko, txertatu garraio-tarteak eta ikusi ibilbidea dokumentu bizidun bakar gisa birkalkulatzen.',
+  'about.intro':
+    '{{app}}-ek erdi amaitutako planak biltzen dituen karpeta bat zure talde osoak benetan jarraitu dezakeen bidaia partekatu bakar bihurtzen du. Eraiki eguneko ibilbidea, txertatu hegaldiak eta hotelak, mapatu geldialdi bakoitza eta jarraitu aurrekontua — dena leku lasai bakarrean, dozena bat fitxa eta talde-txat baten ordez.',
+  'about.missionBody':
+    'Bidaia bat planifikatzeak bidaia jada hobetzen ari dela sentitu beharko luke, etxeko lanak izan beharrean. {{app}} existitzen da taldeko bidaiak ahaleginik gabeak izan daitezen — bidaiari bakoitza plana ezagututa ager dadin, eta geldialdi bakoitzak gogoratzeko merezi duen istorio bat konta dezan.',
+  'about.missionTitle': 'Gure misioa',
   'about.pageTitle': '{{app}}(r)i buruz',
   'auth.legalConsent': 'Jarraituz gero, onartzen dituzu gure',
   'bookings.empty.body': 'Gehitu hegaldi, hotel edo jarduera bat sarrera-ontzia hasteko.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Hotela',
   'bookings.type.other': 'Bestelakoa',
   'budgetSpendCard.budgetTotal': '-ren {{total}} planifikatuta',
+  'budgetSpendCard.overBy': '{{amount}} aurrekontutik kanpo',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} azken',
+  'budgetSpendCard.remaining': '{{amount}} geratzen',
   'calendar.eyebrow': 'Hurrengo urtea',
   'calendar.heading': 'Bidaia guztiak egutegi bakarrean.',
   'calendar.legendHeading': 'Hilabete honetako bidaiak',
@@ -41,18 +60,28 @@ export const ui: UiTranslations = {
   'common.and': 'eta',
   'common.goToDashboard': 'Joan aginte-panelera',
   'dashboard.budgetHeading': 'Aurrekontu-pultsua',
+  'dashboard.empty.body':
+    'Planifikatu zure lehen bidaia eta zure panela eguneko kronologiekin, aurrekontuaren taupadarekin eta erreserbekin beteko da.',
+  'dashboard.empty.cta': 'Planifikatu zure lehen bidaia',
   'dashboard.empty.heading': 'Oraindik ez duzu bidaiarik egin — zure atlasa hutsik dago.',
   'dashboard.eyebrow': 'Misioaren kontrol',
   'dashboard.heading': 'Zure hurrengo abentura, txoko lasai batean.',
   'dashboard.newTripCta': 'Bidaia berri bat hasi',
+  'dashboard.subheading':
+    'Hurrengo bidaiarako atzerako kontaketa, gaurko gastuaren taupada eta martxan dagoen ibilbide bakoitzari begirada azkarra.',
   'dashboard.tripsHeading': 'Mugimenduan bidaiak.',
   'dashboard.viewAllExpenses': 'Ikusi gastu guztiak',
   'dashboard.viewAllTrips': 'Ikusi bidaia guztiak',
   'dayTimelineRow.category.accommodation': 'Egon',
+  'dayTimelineRow.category.food': 'Janari eta edaria',
+  'dayTimelineRow.category.sightseeing': 'Turismoa',
   'dayTimelineRow.category.transport': 'Garraioa',
   'destinationOrbCard.exploreCta': 'Gehitu bidaia bati',
   'destinationOrbCard.tripCount': '{{count}} bidaiak',
+  'destinations.empty.body':
+    'Itzuli All aukerara eta editorearen aurkikuntzak berriro agertuko dira.',
   'destinations.empty.heading': 'Oraindik ez dago helmugarik.',
+  'destinations.emptyFiltered.heading': 'Oraindik ez dago horrela etiketatutako ezer.',
   'destinations.errors.load': 'Ezin izan dira helmugak kargatu.',
   'destinations.eyebrow': 'Nora hurrengoa',
   'destinations.heading': 'Gordetako txokoak eta editorearen aurkikuntzak.',
@@ -70,7 +99,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Saltzailea',
   'expenses.formHeading': 'Erregistroko gastua {{trip}}',
   'expenses.heading': 'Bidaiaren aurrekontua benetan non gastatzen den.',
+  'expenses.heroBudget': '{{total}}-ren %{{pct}} planifikatuta',
   'expenses.heroEyebrow': '{{trip}} • aurrekontuaren laburpena',
+  'expenses.heroNoBudget': 'Bidaia honetan ez da aurrekonturik ezarri oraindik.',
   'expenses.noTrips.body':
     'Planifikatu bidaia lehenik — gastuak bidaiaren aurrekontuari lotuta daude.',
   'expenses.noTrips.heading': 'Bidaiarik ez oraindik.',
@@ -83,12 +114,16 @@ export const ui: UiTranslations = {
     'Ordainagiri eta baieztapen guztiak kategoria egokian sartzen dira hemen, kalkulu-orririk gabe.',
   'forgotPassword.eyebrow': 'Berreskuratu zure ibilbidea',
   'forgotPassword.heading': 'Pasahitza ahaztu duzu?',
+  'forgotPassword.subheading':
+    'Sartu {{appName}}-erako erabili zenuen helbide elektronikoa eta zure pasahitza berrezartzeko esteka bat bidaliko dizugu.',
   'forgotPassword.submit': 'Bidali berreskuratzeko mezu elektronikoa',
   'forgotPassword.submitPending': 'Berreskuratzeko mezu elektronikoa bidaltzen…',
   'forgotPassword.successHint':
     'Oraindik ez duzu e-postarik? Begiratu spam karpeta edo saiatu berriro beste helbide batekin.',
   'forgotPassword.successSubheading':
     'Berreskuratzeko esteka bat bidali dugu honera: {{email}} Esteka 30 minutuz balio du.',
+  'forgotPassword.tryAgain': 'Bidali beste helbide elektroniko batera',
+  'landing.cta.eyebrow': 'Hasi doako planean',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Sortu doako kontua',
   'landing.cta.subheading':
@@ -100,8 +135,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Doako bidaia bat hasi',
   'landing.hero.ctaSecondary': 'Ikusi bidaia-lagin bat',
+  'landing.hero.eyebrow': 'Bidaia-planifikatzailea · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint-ek erdi-osatutako planez betetako karpeta bat eguneroko ibilbide partekatu bihurtzen du, zure taldeak jarrai dezakeena — erreserbak, mapak eta aurrekontua leku bakarrean kontrolatuta.',
+  'landing.hero.title': 'Planifikatu behin. Elkarrekin ibili.',
   'landing.nav.join': 'Doako bidaia bat hasi',
   'landing.nav.preview': 'Barruko bide-puntua',
   'landing.preview.cta': 'Planifikatu zeure bat',
@@ -109,6 +146,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Bidaiariek oraintxe bertan egiten dituzten bidaia batzuk',
   'login.eyebrow': 'Bazkideen eremua',
   'login.heading': 'Ongi etorri berriro, bidaiari',
+  'login.noAccount': 'Tesseran berria zara?',
   'login.signupLink': 'Sortu doako kontu bat',
   'login.subheading':
     'Hasi saioa zure bidaiak, eguneko planak, erreserbak eta hasi dituzun egunkariko sarrerak kudeatzeko.',
@@ -119,6 +157,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Ezin izan da jakinarazpena eguneratu.',
   'notifications.heading': 'Zer aldatu da gaur zure bidaietan.',
   'notifications.markUnread': 'Markatu irakurri gabeko gisa',
+  'notifications.subheading':
+    '{{count}} berri — erreserben berrespenak, kolaboratzaileen oharrak, tarifa-jaitsierak eta abisuak.',
   'notifications.time.daysAgo': '{{count}} duela egun batzuk',
   'notifications.time.hoursAgo': '{{count}} duela ordu batzuk',
   'notifications.time.justNow': 'oraintxe bertan',
@@ -137,6 +177,7 @@ export const ui: UiTranslations = {
     'Konektatutako zerbitzuak, moneta, push jakinarazpenak eta saioa hasteko erabiltzen dituzun kredentzialak.',
   'signup.and': 'eta',
   'signup.eyebrow': 'Batu zaitez Waypoint-era',
+  'signup.haveAccount': 'Jada noraezean?',
   'signup.heading': 'Planifikatu behin. Elkarrekin ibili.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -148,6 +189,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Ireki ibilbidea',
   'tripCountdownHeroCard.ctaSecondary': 'Beste bidaia bat planifikatu',
   'tripCountdownHeroCard.daysLabel': '{{days}} egunak falta dira',
+  'tripCountdownHeroCard.eyebrow': 'Hurrengo abentura · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} gau — zure ibilbidea bidaiatzeko prest dago.',
   'tripCoverCard.stops': '{{count}} geldialdiak',
   'tripCoverCard.travelers': '{{count}} bidaiariak',
   'tripDetail.addActivity': 'Gehitu jarduera',
@@ -157,6 +201,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Jardueraren izenburua',
   'tripDetail.adding': 'Gehitzen…',
   'tripDetail.backToTrips': 'Bidaia guztietara itzuli',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Bidaiariak',
   'tripDetail.dayLabel': 'Eguna {{day}}',
   'tripDetail.empty': 'Ez dago jarduerarik oraindik — gehitu bat denbora-lerroa hasteko.',
@@ -167,14 +212,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Ibilbidea • {{country}}',
   'tripDetail.invite': 'Gonbidatu',
   'tripDetail.inviteLabel': 'Gonbidatu posta elektronikoz',
+  'tripDetail.invitePlaceholder': 'norbaitek@adibidea.eus',
   'tripDetail.inviteSent': 'Gonbidapena bidali zaio {{email}} .',
   'tripDetail.inviting': 'Bidaltzen…',
   'tripDetail.loading': 'Bidaia kargatzen…',
   'tripDetail.noCollaborators': 'Zu bakarrik, oraingoz.',
+  'tripDetail.notesHeading': 'Bidaiaren oharrak',
   'tripDetail.notesPlaceholder': 'Oraindik ez dago oharrik.',
   'tripDetail.notFound.heading': 'Bidaia ez da aurkitu',
   'tripDetail.openBookings': 'Ireki erreserba-sarrerako ontzia',
   'tripDetail.shareCopied': 'Partekatzeko esteka arbelean kopiatu da:',
+  'tripDetail.shareReady': 'Partekatzeko esteka prest:',
   'tripDetail.stops': '{{count}} geldialdiak',
   'tripDetail.timelineEyebrow': 'Eguneko denbora-lerroa',
   'tripDetail.timelineHeading': 'Egunez eguneko plana',
@@ -192,6 +240,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Bidaiariak',
   'tripPlanner.heading': 'Marraztu bidaia bat minutu batean baino gutxiagoan.',
   'tripPlanner.preview.eyebrow': 'Zuzeneko aurrebista',
+  'tripPlanner.preview.placeholderCountry': 'Aukeratu herrialde bat',
   'tripPlanner.preview.placeholderDestination': 'Zure hurrengo abentura',
   'tripPlanner.section1.title': 'Non eta noiz',
   'tripPlanner.section2.title': 'Bidaiariak eta aurrekontua',
@@ -200,10 +249,14 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Eguna {{day}} — Gehitu geldialdiak, garraioa eta erreserbak hemen.',
   'tripPlanner.section3.day2': 'Eguna {{day}} — Gehitu geldialdiak, garraioa eta erreserbak hemen.',
   'tripPlanner.section3.day3': 'Eguna {{day}} — Gehitu geldialdiak, garraioa eta erreserbak hemen.',
+  'tripPlanner.section3.title': 'Eguneko planaren abiapuntua',
   'tripPlanner.subheading':
     'Oinarrizkoak behean utzi: beti gonbidatu ditzakezu kolaboratzaileak, arrastatu geldialdiak eta erreserbak geroago birbidal ditzakezu.',
   'tripPlanner.submit': 'Sortu bidaia',
   'tripPlanner.submitting': 'Sortzen…',
+  'trips.empty.body':
+    'Itzuli Bidaia guztiak aukerara edo hasi zure hurrengo noraeza planifikatzen.',
+  'trips.empty.cta': 'Planifikatu bidaia',
   'trips.empty.heading': 'Ez dago iragazki horrekin bat datorren ezer oraindik.',
   'trips.eyebrow': 'Atlasa',
   'trips.filterLabel': 'Iragazi bidaiak egoeraren arabera',
@@ -214,6 +267,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Bidaiarik ez oraindik.',
   'trips.pastHeading': 'Iraganeko abenturak',
   'trips.subheading': '{{count}} ibilbideak — iragana, oraina eta noizbait.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Planifikatu behin. Noraezean elkarrekin. Gogoratu betiko.',
+  'waypointAuthShell.testimonial.author': 'Iris eta Jonas · {{appName}} kide 2024az geroztik',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}}-ek lau herrialdetako 3 asteko bidaia kaotikoa inoiz partekatu dugun ibilbiderik lasaiena bihurtu zuen.',
   'waypointLayout.mobileNavClose': 'Itxi nabigazio menua',
   'waypointLayout.primaryNavLabel': 'Nabigazio nagusia',
 }

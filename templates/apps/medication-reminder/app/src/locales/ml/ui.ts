@@ -1,7 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'പാതയിൽ തുടരാൻ സഹായിക്കുന്ന ചോദ്യങ്ങളോ ഫീഡ്ബാക്കോ ഒരു ആശയമോ ഉണ്ടോ? നിങ്ങളുടെ അക്കൗണ്ട് ക്രമീകരണങ്ങളിൽ നിന്ന് ഞങ്ങളെ സമീപിക്കുക — ഓരോ സന്ദേശവും ടീമിലെ ഒരു യഥാർത്ഥ വ്യക്തിയിലേക്ക് എത്തുന്നു.',
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
+  'about.featureAdherence':
+    'അനുസരണ റിപ്പോർട്ടുകൾ — പ്രതിവാര, മാസിക ചാർട്ടുകളും ഡോസ് തോറുമുള്ള ചരിത്രവും, അത് കയറ്റുമതി ചെയ്ത് നിങ്ങളുടെ പരിചരണ സംഘത്തിനൊപ്പം പങ്കിടാം.',
+  'about.featureCaregivers':
+    'പരിചരണക്കാരുമായുള്ള പങ്കിടൽ — കുടുംബാംഗങ്ങളെയോ ക്ലിനിഷ്യൻമാരെയോ വായിക്കാൻ മാത്രമുള്ള കാഴ്ചയിലേക്ക് ക്ഷണിക്കുക, അവർക്ക് എന്തെല്ലാം കാണാമെന്ന് കൃത്യമായി തീരുമാനിക്കുക.',
+  'about.featureRefills':
+    'റീഫിൽ മുന്നറിയിപ്പുകൾ — തത്സമയ ഗുളിക കണക്കുകൾ, അതുവഴി തീരുന്നതിന് ദിവസങ്ങൾക്ക് മുമ്പേ മുന്നറിയിപ്പ് ലഭിക്കും, കഴിഞ്ഞതിന് ശേഷമല്ല.',
+  'about.featureReminders':
+    'നിങ്ങളെ മാനിക്കുന്ന ഓർമ്മപ്പെടുത്തലുകൾ — സ്നൂസ് ചെയ്യാവുന്ന പുഷ് അറിയിപ്പുകൾ, ഒരു ഡോസ് വിട്ടുപോയാൽ പരിചരണക്കാരനിലേക്ക് വർധിപ്പിക്കാനും കഴിയും.',
+  'about.featureSchedules':
+    'വഴക്കമുള്ള ഷെഡ്യൂളുകൾ — ദൈനംദിനം, ഇടവേള, അല്ലെങ്കിൽ നിർദ്ദിഷ്ട ദിവസങ്ങൾ, ഒരു ദിവസം ഒന്നിലധികം തവണയും ഭക്ഷണത്തോടൊപ്പം ഓർമ്മപ്പെടുത്തലുകളും.',
+  'about.featuresTitle': 'നിങ്ങൾക്ക് ലഭിക്കുന്നത്',
+  'about.missionBody':
+    'ഒരു ഡോസ് വിട്ടുപോകുന്നത് മറന്നുപോയ അലാറം കൊണ്ടോ കാലിയായ കുപ്പി കൊണ്ടോ ആകരുത്. ചികിത്സാ പദ്ധതി പാലിക്കുന്നത് അനായാസമാക്കുന്ന ശാന്തവും വിശ്വസനീയവുമായ ഉപകരണങ്ങൾ ഞങ്ങൾ നിർമ്മിക്കുന്നു — നിങ്ങൾ അനുവദിക്കുന്നത്ര മാത്രം കുടുംബത്തെയും ക്ലിനിഷ്യൻമാരെയും നിശ്ശബ്ദമായി ഒപ്പം കൊണ്ടുവരുന്നു.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
+  'about.subtitle': 'ഓരോ ഡോസും, കൃത്യസമയത്ത് — നിങ്ങളെക്കുറിച്ച് കരുതുന്ന എല്ലാവരും വിവരമറിയുന്നു.',
   'addMedication.avoidAlcohol': 'മദ്യം ഒഴിവാക്കുക',
   'addMedication.backLink': 'എല്ലാ മരുന്നുകളും',
   'addMedication.doseAmount': 'ഡോസ് (ഉദാ. 10 മി.ഗ്രാം)',
@@ -12,6 +30,7 @@ export const ui: UiTranslations = {
   'addMedication.pillColor': 'പിൽ നിറം (വിഷ്വൽ ഐഡിക്ക്)',
   'addMedication.saveError': 'സംരക്ഷിക്കുന്നതിൽ പരാജയപ്പെട്ടു.',
   'addMedication.saveLabel': 'മരുന്ന് സംരക്ഷിക്കുക',
+  'addMedication.takeWithFood': 'ഭക്ഷണത്തോടൊപ്പം കഴിക്കുക',
   'addMedication.warningsLabel': 'മുന്നറിയിപ്പുകൾ (ബാധകമായ ഏതെങ്കിലും തിരഞ്ഞെടുക്കുക)',
   'adherence.byMedEmpty':
     'ഇതുവരെ മരുന്നുകളൊന്നുമില്ല — ഓരോ മരുന്നിനും എത്ര കൃത്യമായി പാലിക്കുന്നു എന്ന് കാണാൻ ഒന്ന് ചേർക്കുക.',
@@ -33,16 +52,26 @@ export const ui: UiTranslations = {
   'adherence.subheading': 'കഴിഞ്ഞ 30 ദിവസം · ഉപയോഗപ്രദമാണെങ്കിൽ നിങ്ങളുടെ കെയർ ടീമുമായി പങ്കിടുക',
   'adherence.taken': 'എടുത്തത്',
   'adherence.title': 'അഡ്ഹെറൻസ് റിപ്പോർട്ട്',
+  'adherenceTriad.refills.eyebrow': 'റീഫില്ലുകൾ',
   'adherenceTriad.refills.meta': 'റീഫില്ലുകൾ കൈകാര്യം ചെയ്യുക →',
+  'adherenceTriad.refills.unit': 'ഉടൻ ബാക്കിയാകും',
   'adherenceTriad.refills.value': '{{count}}',
   'adherenceTriad.streak.eyebrow': 'സ്ട്രീക്ക്',
   'adherenceTriad.streak.meta': 'ഏറ്റവും ദൈർഘ്യമേറിയത്: {{days}} ദിവസങ്ങൾ',
+  'adherenceTriad.streak.unit': 'ദിവസങ്ങൾ',
   'adherenceTriad.streak.value': '{{days}}',
   'adherenceTriad.today.meta': '{{count}} ഇനിയും മുന്നിലാണ്',
+  'adherenceTriad.today.unit': 'എടുത്ത ഡോസുകൾ',
   'adherenceTriad.today.value': '{{taken}} / {{total}}',
+  'auth.forgotPassword.subtitle':
+    'നിങ്ങളുടെ ഇമെയിൽ നൽകുക, ഞങ്ങൾ നിങ്ങൾക്ക് ഒരു റീസെറ്റ് ലിങ്ക് അയയ്ക്കും.',
+  'auth.resetPassword.subtitle':
+    'നിങ്ങളുടെ അക്കൗണ്ട് വീണ്ടെടുക്കൽ പൂർത്തിയാക്കാൻ ഒരു പുതിയ പാസ്വേഡ് സജ്ജീകരിക്കുക.',
   'capsivaLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
+  'caregivers.email': 'പരിചരണക്കാരന്റെ ഇമെയിൽ',
   'caregivers.empty': 'പരിചരണകരെ ചേർത്തിട്ടില്ല. സഹായിക്കാൻ ആരെയെങ്കിലും ക്ഷണിക്കുക.',
   'caregivers.heading': 'പരിചരണം നൽകുന്നവർ',
+  'caregivers.invitedOn': 'ക്ഷണിച്ചു {{when}}',
   'caregivers.inviteError': 'ക്ഷണം അയയ്ക്കാൻ കഴിഞ്ഞില്ല.',
   'caregivers.inviteFormLabel': 'കെയർഗിവർ ഫോമിനെ ക്ഷണിക്കുക',
   'caregivers.inviteIncomplete':
@@ -64,6 +93,11 @@ export const ui: UiTranslations = {
   'dashboard.timelineHeading': 'ഇന്നത്തെ ഡോസുകൾ',
   'doseRow.markTaken': 'എടുക്കുക',
   'doseRow.subline': '{{dose}} · {{time}}',
+  'landing.about': '{{app}} നെക്കുറിച്ച്',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. നിങ്ങളുടെ ദിനചര്യ പരിപാലിക്കുന്നു.',
+  'landing.ctaButton': 'ആരംഭിക്കൂ — ഇത് സൗജന്യമാണ്',
+  'landing.ctaSubtitle':
+    'സൗജന്യമായി ആരംഭിക്കുക. എപ്പോൾ വേണമെങ്കിലും പരിചരണക്കാരെ ചേർക്കുക. ക്രമീകരണങ്ങളിൽ നിന്ന് റദ്ദാക്കുക.',
   'landing.ctaTitle': 'രണ്ട് മിനിറ്റിനുള്ളിൽ നിങ്ങളുടെ ആദ്യ ഓർമ്മപ്പെടുത്തൽ സജ്ജീകരിക്കുക',
   'landing.eyebrow': 'മരുന്ന് പാലിക്കൽ, പരിചരണം ഉറപ്പാക്കൽ',
   'landing.featureEyebrow': 'നിങ്ങൾക്ക് ലഭിക്കുന്നത്',
@@ -75,7 +109,10 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'നിങ്ങളെ പരിപാലിക്കുന്ന ആളുകളുമായി പങ്കിടാൻ കഴിയുന്ന ഷെഡ്യൂളുകൾ, ഓർമ്മപ്പെടുത്തലുകൾ, റീഫില്ലുകൾ, തത്സമയ പാലിക്കൽ റെക്കോർഡ്.',
   'landing.heroTitle': '{{tagline}}',
+  'landing.sampleDate': 'ഞായറാഴ്ച, ഏപ്രിൽ 26',
   'medicationDetail.backLink': 'എല്ലാ മരുന്നുകളും',
+  'medicationDetail.confirmDeleteBody':
+    'ഇത് മരുന്നും അതിന്റെ ഷെഡ്യൂളും ഡോസ് ചരിത്രവും കൂടാതെ കാത്തിരിക്കുന്ന റീഫിൽ അഭ്യർത്ഥനകളും നീക്കം ചെയ്യുന്നു. ഇത് പഴയപടിയാക്കാൻ കഴിയില്ല.',
   'medicationDetail.confirmDeleteHeading': 'ഇല്ലാതാക്കുക {{name}} ?',
   'medicationDetail.confirmDeleteLabel': 'മരുന്നുകൾ ഇല്ലാതാക്കുക',
   'medicationDetail.deleteError': 'ഇല്ലാതാക്കാനായില്ല.',
@@ -97,14 +134,29 @@ export const ui: UiTranslations = {
   'medicationDetail.stat.remaining': 'ഗുളികകൾ ബാക്കി',
   'medicationDetail.stat.taken': 'എടുത്ത ഡോസുകൾ',
   'medicationDetail.warningsHeading': 'മുന്നറിയിപ്പുകൾ',
+  'medications.addLabel': 'മരുന്നുകൾ ചേർക്കുക',
   'medications.empty': 'ഇതുവരെ മരുന്നുകളൊന്നുമില്ല. ട്രാക്കിംഗ് ആരംഭിക്കാൻ ഒന്ന് ചേർക്കുക.',
   'medications.heading': 'മരുന്നുകൾ',
   'medications.loadError': 'മരുന്നുകൾ ലോഡ് ചെയ്യാനായില്ല.',
   'medications.prescriber': 'ആർ‌എക്സ് പ്രകാരം {{name}}',
+  'medications.refillBy': '{{date}} ഓടെ റീഫിൽ ചെയ്യുക',
+  'medications.remaining': 'ബാക്കിയുള്ളത്',
   'medications.subheading': '{{count}} സജീവ മരുന്നുകൾ',
   'notifications.heading': 'അറിയിപ്പുകൾ',
+  'planUpdated.body':
+    'നിങ്ങളുടെ ബില്ലിംഗ് മാറ്റം ഇപ്പോൾ സജീവമാണ്. ബില്ലിംഗ് പേജിൽ നിന്ന് എപ്പോൾ വേണമെങ്കിലും നിങ്ങളുടെ പ്ലാൻ മാനേജ് ചെയ്യാം.',
+  'planUpdated.retry': 'വീണ്ടും ശ്രമിക്കുക',
+  'planUpdated.verifyFailed': 'നിങ്ങളുടെ പേയ്‌മെന്റ് ഞങ്ങൾക്ക് ഇതുവരെ സ്ഥിരീകരിക്കാൻ കഴിഞ്ഞില്ല.',
+  'planUpdated.verifyFailedBody':
+    'നിങ്ങളുടെ പേയ്‌മെന്റ് ഇപ്പോഴും പ്രോസസ്സ് ചെയ്തുകൊണ്ടിരിക്കുകയായിരിക്കാം. അൽപ്പസമയത്തിനുള്ളിൽ വീണ്ടും ശ്രമിക്കുക.',
   'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
+  'pricing.limits.advancedFeatures': 'വിപുലമായ സവിശേഷതകൾ:',
   'pricing.limits.canExport': 'ഡാറ്റ കയറ്റുമതി:',
+  'pricing.limits.maxAdherence': '{{count}} അനുസരണം',
+  'pricing.limits.maxDoses': '{{count}} ഡോസുകൾ',
+  'pricing.limits.maxMedications': '{{count}} മരുന്നുകൾ',
+  'pricing.limits.maxRefills': '{{count}} റീഫിലുകൾ',
+  'pricing.limits.maxSchedules': '{{count}} ഷെഡ്യൂളുകൾ',
   'pricing.no': '—',
   'pricing.yes': '✓',
   'profile.emergency.heading': 'അടിയന്തര കോൺടാക്റ്റ്',
@@ -124,7 +176,9 @@ export const ui: UiTranslations = {
   'profile.security.error': 'പാസ്‌വേഡ് മാറ്റാൻ കഴിഞ്ഞില്ല.',
   'profile.security.next': 'പുതിയ പാസ്വേഡ്',
   'profile.security.tooShort': 'പാസ്‌വേഡിൽ കുറഞ്ഞത് 8 പ്രതീകങ്ങളെങ്കിലും ഉണ്ടായിരിക്കണം.',
+  'refillAlertCard.daysAt': 'ദിവസങ്ങൾ · {{count}} ഗുളികകൾ',
   'refillAlertCard.pharmacyWithPhone': '{{pharmacy}} · {{phone}}',
+  'refillAlertCard.refillsRemaining': 'Rx-ൽ {{count}} റീഫിലുകൾ ബാക്കി',
   'refillAlertCard.request': 'അഭ്യർത്ഥന',
   'refills.empty': 'ഇതുവരെ റീഫില്ലുകളൊന്നുമില്ല. ട്രാക്കിംഗ് ആരംഭിക്കാൻ ഒരു മരുന്ന് ചേർക്കുക.',
   'refills.eyebrow': 'താമസ സൗകര്യം ലഭ്യമാണ്',
@@ -137,11 +191,15 @@ export const ui: UiTranslations = {
   'refills.tile.dueSoonNote': 'അടുത്ത 30 ദിവസത്തിനുള്ളിൽ വീണ്ടും നിറയ്ക്കുക',
   'refills.tile.fine': 'ആരോഗ്യകരമായ വിതരണം',
   'refills.tile.fineNote': 'നടപടിയൊന്നും ആവശ്യമില്ല',
+  'refills.tile.urgent': 'അടിയന്തരം',
   'refills.tile.urgentNote': 'ഒരു ആഴ്ചയ്ക്കുള്ളിൽ പുറത്തിറങ്ങും',
   'schedule.heading': 'ആഴ്ചതോറുമുള്ള ഷെഡ്യൂൾ',
+  'schedule.legend':
+    'നിറഞ്ഞ വൃത്തങ്ങൾ = എടുത്തതോ വരാനിരിക്കുന്നതോ · മങ്ങിയ രൂപരേഖ = വിട്ടുപോയ ഡോസ്',
   'schedule.loadError': 'ഷെഡ്യൂൾ ലോഡ് ചെയ്യാനായില്ല.',
   'schedule.subheading': 'ഓരോ ഡോസും, എല്ലാ ദിവസവും, ഒറ്റനോട്ടത്തിൽ.',
   'schedule.timeColumn': 'സമയം',
+  'settings.appearance.description': 'ലൈറ്റ്, ഡാർക്ക് മോഡുകൾക്കിടയിൽ ടോഗിൾ ചെയ്യുക.',
   'settings.appearance.highContrast': 'ഉയർന്ന ദൃശ്യതീവ്രതയുള്ള നിറങ്ങൾ',
   'settings.appearance.largeText': 'എല്ലായിടത്തും വലിയ ടെക്സ്റ്റ് ഉപയോഗിക്കുക',
   'settings.appearance.timeFormat': 'സമയ ഫോർമാറ്റ്',
@@ -167,15 +225,26 @@ export const ui: UiTranslations = {
   'settings.saving': 'സംരക്ഷിക്കുന്നു...',
   'settings.signingOutDevice': 'സൈൻ ഔട്ട് ചെയ്യുന്നു…',
   'settings.signOutDevice': 'സൈൻ ഔട്ട്',
+  'settings.twoFactorBody':
+    'നിങ്ങളുടെ ആരോഗ്യ ഡാറ്റയ്ക്ക് അധിക സംരക്ഷണ പാളിക്കായി സൈൻ-ഇൻ ചെയ്യുമ്പോൾ ഒരു ഓതന്റിക്കേറ്റർ ആപ്പിൽ നിന്നുള്ള ഒറ്റത്തവണ കോഡ് ആവശ്യപ്പെടുക.',
   'settings.twoFactorCode': 'പ്രാമാണീകരണ കോഡ്',
   'settings.twoFactorDisable': 'പ്രവർത്തനരഹിതമാക്കുക',
+  'settings.twoFactorDisableBody':
+    'ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ ഓഫ് ചെയ്യാൻ നിങ്ങളുടെ ഓതന്റിക്കേറ്റർ ആപ്പിൽ നിന്നുള്ള നിലവിലെ കോഡ് നൽകുക.',
   'settings.twoFactorEnable': 'പ്രാപ്തമാക്കുക',
   'settings.twoFactorInvalidCode': 'കോഡ് അസാധുവാണ്.',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'രണ്ട്-ഘടക QR കോഡ്',
+  'settings.twoFactorScan':
+    'നിങ്ങളുടെ ഓതന്റിക്കേറ്റർ ആപ്പ് ഉപയോഗിച്ച് ഈ QR കോഡ് സ്കാൻ ചെയ്യുക, തുടർന്ന് 6 അക്ക കോഡ് നൽകുക.',
+  'settings.twoFactorUnavailable': 'ഈ ആപ്പിന് ടു-ഫാക്ടർ പ്രാമാണീകരണം ലഭ്യമല്ല.',
   'settings.twoFactorVerify': 'പരിശോധിച്ചുറപ്പിക്കുക, പ്രാപ്തമാക്കുക',
   'settings.unnamedDevice': 'പേരില്ലാത്ത ഉപകരണം',
   'todayHeroCard.adherence': '{{pct}} %',
   'todayHeroCard.eyebrow': 'ഇന്ന് · {{date}}',
+  'todayHeroCard.streak': '{{days}} -ദിവസങ്ങളുടെ പരമ്പര',
+  'todayHeroCard.summary':
+    '{{total}} ഡോസുകളിൽ {{taken}} എടുത്തു · ഇന്ന് {{upcoming}} ഇനിയും ബാക്കിയുണ്ട്',
   'userMenu.caregivers': 'പരിചരണം നൽകുന്നവർ',
   'userMenu.memberStatus': 'നിങ്ങളുടെ ദിനചര്യ ശ്രദ്ധിക്കുന്നു',
   'userMenu.profile': 'പ്രൊഫൈലും മെഡിക്കൽ വിവരങ്ങളും',

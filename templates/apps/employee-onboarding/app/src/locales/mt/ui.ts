@@ -1,26 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Trid tniedi onboarding aktar sħun għat-tim tiegħek, sibt bug, jew għandek feedback? Ikkuntattjana mis-settings tal-kont tiegħek — kull messaġġ jasal għand bniedem reali li jista' jgħin.",
   'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwar',
+  'about.missionTitle': 'Il-missjoni tagħna',
   'auth.forgotPassword.emailPlaceholder': 'isem@il-kumpanija tiegħek.com',
   'auth.forgotPassword.heading': 'Irrisettja l-password tiegħek.',
+  'auth.forgotPassword.panel.body':
+    'Ir-reset jieħu 30 sekonda — il-progress tal-checklist tiegħek qed jistenna.',
+  'auth.forgotPassword.panel.headline': 'Lura eżatt minn fejn ħallejt.',
+  'auth.forgotPassword.subheading':
+    'Daħħal l-email tax-xogħol tiegħek u nibagħtulek link biex tirresetja l-password.',
   'auth.forgotPassword.successSubheading':
     'Iċċekkja l-inbox tiegħek — bgħatna struzzjonijiet għar-reset.',
   'auth.login.emailPlaceholder': 'isem@il-kumpanija tiegħek.com',
   'auth.login.heading': 'Merħba lura.',
   'auth.login.passwordPlaceholder': 'Il-password tiegħek',
+  'auth.login.signupPrompt': 'Ġdid fit-tim tiegħek?',
   'auth.login.subheading': "Idħol biex tkompli l-vjaġġ ta' onboarding tiegħek minn fejn ħallejt.",
   'auth.login.submit': 'Kompli l-vjaġġ tiegħek',
+  'auth.panel.body':
+    "Il-checklist personali tiegħek, il-milestones tat-taħriġ, u l-introduzzjonijiet mat-tim — kollha f'post wieħed kwiet.",
   'auth.panel.footnote': '© Embark — qed nintegraw lin-nies l-ewwel minn illum.',
   'auth.panel.headline': 'L-ewwel 90 jum ta’ fiduċja jibdew hawn.',
   'auth.resetPassword.heading': 'Issettja password ġdida.',
   'auth.resetPassword.newPasswordLabel': 'Password ġdida',
+  'auth.resetPassword.panel.body':
+    'Salva password ġdida u nerġgħu ndaħħluk fil-vjaġġ tal-onboarding tiegħek.',
+  'auth.resetPassword.panel.headline': 'Kważi lura ġew.',
   'auth.resetPassword.subheading': 'Agħżel xi ħaġa li tiftakar — mill-inqas 8 karattri.',
   'auth.signup.emailPlaceholder': 'isem@il-kumpanija tiegħek.com',
   'auth.signup.heading': 'Merħba għall-ewwel 90 jum tiegħek.',
   'auth.signup.panel.body':
     "Lista ta' kontroll iggwidata, taħriġ konxju tar-rwoli, u introduzzjonijiet umani — lesti qabel ma tidħol.",
+  'auth.signup.panel.headline': 'L-ewwel jum, fl-ewwel jum.',
   'auth.signup.subheading':
     "Oħloq il-kont Embark tiegħek biex tibda l-vjaġġ iggwidat tiegħek ta' onboarding.",
   'checklist.empty.body': 'Ibdel il-filtru biex tara kompiti oħra.',
@@ -28,6 +43,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': "Onboarding · Lista ta' Kontroll",
   'checklist.loading': "Qed titgħabba l-lista ta' kontroll tiegħek...",
   'checklist.stat.actionNeeded': 'Azzjoni meħtieġa',
+  'checklist.stat.completion': 'Tlestija',
+  'checklist.stat.inProgress': 'Għadu għaddej',
   'checklist.stat.inProgressHelper': 'Kompli minn fejn ħallejt',
   'checklist.stat.overdueHelper': 'Aqbad dawn l-ewwel',
   'checklist.subtitle':
@@ -59,6 +76,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': "Għad m'hemm l-ebda dokumenti",
   'documents.eyebrow': 'Inkorporazzjoni · Dokumenti',
   'documents.loading': 'Qed jitgħabbew id-dokumenti…',
+  'documents.stat.actionNeeded': 'Iffirma issa',
+  'documents.stat.all': 'Id-dokumenti kollha',
   'documents.stat.allHelper': 'Fil-kategoriji kollha',
   'documents.stat.pending': 'Firem pendenti',
   'documents.stat.pendingHelper': 'Meħtieġ għat-tlestija',
@@ -66,6 +85,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': "Maħżun b'mod sigur",
   'documents.status.optional': 'Mhux obbligatorju',
   'documents.status.required': 'Meħtieġ',
+  'documents.status.signed': 'Iffirmat',
   'documents.subtitle':
     "Il-manwal, il-formoli, u l-ftehimiet iffirmati tiegħek — kollha f'post wieħed.",
   'documents.title': 'Dak kollu li għandek bżonn taqra u tiffirma.',
@@ -73,10 +93,14 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'Telespettatur',
   'documentViewer.breadcrumbDocs': 'Dokumenti',
   'documentViewer.downloadMeta': 'Niżżel il-metadata',
+  'documentViewer.helpBody':
+    "People & Culture iwieġbu l-mistoqsijiet tal-handbook f'#ask-people fuq Slack.",
   'documentViewer.helpEyebrow': 'Teħtieġ għajnuna?',
   'documentViewer.loadError': 'Ma stajniex intellgħu dan id-dokument.',
   'documentViewer.loading': 'Qed jitgħabba d-dokument…',
   'documentViewer.notFound': 'Dokument mhux misjub',
+  'documentViewer.previewBody':
+    'Meta l-uploads ikunu kkonfigurati, nuru l-file inline. Għalissa, id-download tal-metadata jħallik tikkonferma li r-rekord huwa reali.',
   'documentViewer.previewBodyExternal':
     "Uża l-buttuna tat-tniżżil biex tiftaħ il-fajl f'tab ġdida.",
   'documentViewer.previewTitle': 'Previżjoni tad-dokument',
@@ -84,6 +108,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Aqra d-dokument, imbagħad ikklikkja hawn taħt biex tiffirma u tirrikonoxxi.',
   'documentViewer.signatureHeading': 'Firma meħtieġa',
+  'documentViewer.signed': '✓ Iffirmat u arkivjat',
   'documentViewer.signing': 'Iffirmar…',
   'documentViewer.uploadedRecently': "Imtella' dan l-aħħar",
   'landing.closing.body':
@@ -93,10 +118,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Diġà għandi kont',
   'landing.feature1.body':
     "Kull kompitu — burokrazija, kontijiet, introduzzjonijiet — ippreparat minn qabel b'dati ta' skadenza u s-sid it-tajjeb.",
+  'landing.feature1.title': 'Checklist iggwidata',
   'landing.feature2.body':
     'Il-moduli jinfetħu meta jilħqu 30/60/90 tragward, skont ir-rwol u t-tim li l-impjegat ikun qed jingħaqad miegħu.',
+  'landing.feature2.title': 'Taħriġ skont ir-rwol',
   'landing.feature3.body':
     'Ħbieb, maniġers, u intros interfunzjonali skedati — sabiex ħadd ma jibda waħdu.',
+  'landing.feature3.title': 'Introduzzjonijiet reali',
   'landing.featureEyebrow': 'Għaliex Tibbarka',
   'landing.featureHeadline': 'Tliet modi kif Embark tirbaħ il-fiduċja mill-ewwel jum.',
   'landing.footer.rights': 'Id-drittijiet kollha riżervati.',
@@ -106,6 +134,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     "Li jmiss: Iltaqa' mal-ħabib tiegħek għal konverżazzjoni ta' 30 minuta dwar il-kafè — It-Tlieta 10:00 AM.",
   'landing.preview.eyebrow': 'Jum 14 minn 90 — dashboard kampjun',
+  'landing.preview.headline': 'Merħba lura, Maya.',
   'landing.proof.spec': 'Lest għas-SOC 2 + GDPR',
   'landing.proof.teams': "Magħmul għal timijiet ta' 50–5,000 ruħ",
   'landing.proof.time': "Prova bla ħlas ta' 14-il jum",
@@ -122,16 +151,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Lest kollox.',
   'planUpdated.preparing': 'Qed taġġorna l-pjan tiegħek…',
+  'planUpdated.retry': 'Erġa’ pprova',
+  'planUpdated.verifyFailed': 'Għadna ma stajniex nikkonfermaw il-ħlas tiegħek.',
+  'planUpdated.verifyFailedBody':
+    "Jista' jkun li l-ħlas tiegħek għadu qed jiġi pproċessat. Erġa' pprova fi ftit ħin.",
   'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
   'pricing.documentsLabel': 'dokumenti',
   'pricing.onboardingsLabel': 'onboardings',
   'pricing.tasksLabel': 'kompiti',
   'profile.dayNumber': 'Jum',
   'profile.detailsHeading': 'Dettalji tal-onboarding',
+  'profile.encouragementBody':
+    'Żomm lill-buddy u lill-manager tiegħek infurmati — passi żgħar jikkomponu.',
   'profile.milestones': 'Avvenimenti Importanti',
   'profile.progressEyebrow': 'Progress fl-integrazzjoni',
   'profile.tasks': 'Kompiti',
   'profile.unknownName': 'Merħba',
+  'settings.appearance.description': 'Aqleb bejn il-modalità ċara u skura.',
+  'settings.appearance.title': 'Dehra',
+  'settings.subtitle':
+    "Irranġa n-notifiki, is-sigurtà, l-apparati, u l-esportazzjoni tad-data — kollox jibqa' hawn, skont il-kundizzjonijiet tiegħek.",
   'settings.title': 'Issettjar u preferenzi.',
   'taskDetail.backToChecklist': "Lura għal-lista ta' kontroll",
   'taskDetail.breadcrumbChecklist': "Lista ta' kontroll",
@@ -143,7 +182,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': "L-ebda data ta' skadenza",
   'taskDetail.notFound': 'Biċċa xogħol ma nstabx',
   'taskDetail.notFoundBody': 'Din il-ħidma setgħet ġiet imħassra jew tappartjeni lil utent ieħor.',
+  'taskDetail.tipBody':
+    "Jekk tkun imblukkat, ibgħat messaġġ lill-buddy tal-onboarding tiegħek fuq Slack — huma l-ewwel linja ta' għajnuna tiegħek.",
   'taskDetail.tipEyebrow': 'Ħjiel rapidu',
+  'team.empty.body': 'Ipprova tfittxija aktar wiesgħa jew agħżel dipartiment differenti.',
   'team.empty.title': 'L-ebda sieħeb fit-tim ma jaqbel',
   'team.eyebrow': 'Inkorporazzjoni · Nies',
   'team.loading': 'Qed jitgħabbew sħabek fit-tim…',
@@ -165,14 +207,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Avvenimenti Importanti',
   'timeline.stat.current': 'Tragward attwali',
   'timeline.stat.next': 'Li jmiss nisfrutta',
+  'timeline.stat.progress': "B'mod ġenerali",
   'timeline.subtitle':
     'Kull pass importanti jiftaħ moduli ġodda, introduzzjonijiet, u konversazzjonijiet dwar it-tkabbir. L-ebda pressjoni — biss progress.',
+  'timeline.tipBody':
+    "Iskeda riflessjoni ta' 30 minuta fil-jiem 30, 60, u 90 mal-manager tiegħek — tagħmel il-feedback speċifiku u l-progress viżibbli.",
   'timeline.tipEyebrow': 'Ħjiel għall-maniġer',
+  'timeline.tipTitle': 'Ippjana ħin fil-kalendarju għall-milestones.',
   'timeline.title': "Il-vjaġġ tiegħek ta' 30 / 60 / 90.",
   'training.badge.notStarted': 'Mhux mibdi',
   'training.empty': "Għad m'hemm l-ebda moduli ta' taħriġ.",
   'training.eyebrow': 'Inkorporazzjoni · Taħriġ',
   'training.loading': 'Qed jitgħabbew il-moduli…',
+  'training.stat.all': 'Moduli assenjati',
   'training.subtitle':
     'Il-moduli jinfetħu fi 30/60/90 biex jaqblu mar-rwol tiegħek. Dawk meħtieġa jiġu l-ewwel.',
   'training.title': 'Ħiliet, għodod, u stejjer — bil-pass tiegħek.',
@@ -185,9 +232,12 @@ export const ui: UiTranslations = {
   'trainingModule.quizBody':
     "Ikseb punteġġ ta' 80% jew aktar biex timmarka dan il-modulu bħala komplut.",
   'trainingModule.quizHeading': "Kwizz ta' tmiem il-modulu",
+  'trainingModule.quizLocked': 'Ibda l-modulu l-ewwel',
   'trainingModule.quizNone': "M'hemm l-ebda kwizz f'dan il-modulu.",
   'trainingModule.quizRetry': 'Erġa’ pprova',
+  'trainingModule.quizStart': 'Ibda l-quiz',
   'trainingModule.quizSubmit': 'Ibgħat it-tweġibiet',
+  'trainingModule.start': 'Ibda l-modulu',
   'trainingModule.statusNotStarted': 'Mhux mibdi',
   'welcomeHeroCard.completeLabel': 'Komplet',
   'welcomeHeroCard.milestonesLabel': 'Avvenimenti Importanti',

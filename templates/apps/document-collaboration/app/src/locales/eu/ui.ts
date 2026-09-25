@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Iritzia eman, akats bat aurkitu, edo zure estudio edo taldearentzat {{app}} nahi duzu? Jarri harremanetan zure kontuaren ezarpenetatik — mezu bakoitza taldeko benetako pertsona batengana iristen da.',
   'about.contactTitle': 'Hitz egin gurekin',
+  'about.intro':
+    '{{app}} idazketa-estudio kolaboratiboa da, non editoreek, idazleek eta taldeek denbora errealean elkarrekin idazten duten. Ireki dokumentu bat eta orria partekatua bihurtzen da — kurtsoreak mugitu egiten dira, iruzkinak ertzean harilkatzen dira, eta berrikuspen bakoitza seguru gordetzen da historian.',
+  'about.missionBody':
+    'Uste dugu formatu luzeko idazketak etxe lasai eta kontzentratu bat merezi duela — eskuizkribuaren inguruan eraikia, ez bileraren edo sarrera-ontziaren inguruan. Gure editorea, denbora errealeko presentzia eta bertsio-historia guztiak kolaboratzaileek elkarrekin azkar mugi daitezen diseinatuta daude, inork paragrafo bat edo pentsamendu bat galdu gabe.',
+  'about.missionTitle': 'Gure misioa',
+  'about.subtitle': 'Pentsatu elkarrekin, idatzi betiko.',
   'about.title': '{{app}}(r)i buruz',
   'comments.addFailed': 'Ezin izan da iruzkina argitaratu.',
   'comments.backToDoc': 'Eskuizkribua itzuli',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Iruzkin-hariak',
   'comments.loading': 'Hariak kargatzen…',
   'comments.newPlaceholder': 'Gehitu iruzkin bat eskuizkribuari…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Berriro ireki',
   'comments.reopenFailed': 'Ezin izan da berriro ireki.',
   'comments.replyFailed': 'Ezin izan da erantzuna argitaratu.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Azken zirriborroak, partekatutako lanak eta eguneko edizioak.',
   'dashboard.viewFeed': 'Elikatu →',
   'editor.back': 'Eskuizkribuetara itzuli',
+  'editor.bodyLabel': 'Dokumentuaren gorputza',
   'editor.bodyPlaceholder': 'Hasi kurtsorea keinuka dagoen tokian.',
   'editor.comments': 'Iruzkinak',
   'editor.createFailed': 'Ezin izan da dokumentua sortu.',
@@ -62,13 +72,19 @@ export const ui: UiTranslations = {
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'idazle@estudio.com',
   'forgotPassword.sentBody': 'Kontu bat badago {{email}} , berrezartzeko esteka bidean da.',
+  'forgotPassword.sentHeading': 'Begiratu zure posta elektronikoa',
+  'forgotPassword.submitting': 'Bidaltzen\\u2026',
   'forgotPassword.subtitle': 'Berrezartzeko esteka bat bidaliko dizugu posta elektronikoz.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Molecule-rekin eraikia.',
+  'landing.ctaBody':
+    'Doakoa idazle bakarrekoentzat. Estudio-planak editore, idazle fantasma eta berrikusle taldeentzat.',
   'landing.ctaHeading': 'Ireki orria. Hasi dadila kurtsorea.',
   'landing.ctaPrimary': 'Ireki estudio bat.',
   'landing.eyebrow': 'Idazle, editore eta taldeentzat',
   'landing.featuresEyebrow': 'Zer lortzen duzun',
   'landing.featuresHeading': 'Zirriborro luzerako estudio bat.',
+  'landing.featuresSubtitle':
+    '{{appName}} eskuizkribuaren inguruan eraikia dago — ez bileraren, ez sarrera-ontziaren inguruan.',
   'landing.getStarted': 'Ireki estudioa.',
   'landing.heroCta': 'Hasi idazten',
   'landing.heroSubtitle':
@@ -94,6 +110,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} irakurri gabe · iruzkinak, aipamenak, partekatzeko gonbidapenak eta iradokizun eskaerak.',
   'presenceAvatars.label': '{{count}} kolaboratzaileak',
+  'privacy.intro': 'Nola biltzen, erabiltzen eta babesten dugun zure informazioa.',
   'privacy.title': 'Pribatutasun politika',
   'profile.about.description':
     'Biografia labur bat zure profil publikorako eta kolaboratzaileen orrialdeetarako.',
@@ -107,7 +124,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Presentzia',
   'profile.pronouns': 'Izenordainak',
   'profile.publicToggle': 'Erakutsi profila taldekideei',
+  'profile.role': 'Rola / kargua',
   'profile.subtitle': 'Nola agertzen zareten zure lankideei.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} estudioan aktibo dauden idazleak',
   'quillonAuthBrandPanel.quote':
     '«Idaztea da egiten dudanean beste zerbait egin behar ez dudanik sentitzen dudan gauza bakarra».',
@@ -115,6 +134,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Ireki →',
   'quillonKpiCard.trend': 'Azken joera',
   'quillonLayout.menu': 'Menua',
+  'quillonLayout.mobileNavLabel': 'Mugikorreko nabigazioa',
   'quillonLayout.primaryNavLabel': 'Nabigazio nagusia',
   'quillonStudioHero.collab': 'Lankideak',
   'quillonStudioHero.docs': 'Ukitutako dokumentuak',
@@ -124,7 +144,9 @@ export const ui: UiTranslations = {
     'Hartu eskuizkribua, utzi iruzkin bat, bultzatu paragrafo bat aurrera.',
   'quillonStudioHero.words': 'Gaurko hitzak',
   'resetPassword.confirmPlaceholder': 'Errepikatu pasahitz berria',
+  'resetPassword.passwordLabel': 'Pasahitz berria',
   'resetPassword.passwordPlaceholder': 'Sartu pasahitz berri bat',
+  'resetPassword.submitting': 'Berrezartzen…',
   'resetPassword.subtitle': 'Aukeratu pasahitz sendo bat — gutxienez 12 karaktere dituena.',
   'settings.account.description': 'Nola hasten duzun saioa.',
   'settings.billing.canceled': 'Harpidetza bertan behera utzi da.',
@@ -133,7 +155,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Konfiguratu gabe',
   'settings.billing.updated': 'Plana eguneratuta.',
   'settings.editor.description': 'Nola jokatzen duen mihiseak idazten duzun bitartean.',
+  'settings.editor.title': 'Editorearen hobespenak',
   'settings.eyebrow': 'Estudioko lehentasunak',
+  'settings.language.title': 'Hizkuntza',
   'settings.notifications.${n.key}.description': 'Hizkuntza',
   'settings.notifications.description': 'Aukeratu zer iristen den zure sarrera-ontzian.',
   'settings.subtitle': 'Doitu jakinarazpenak, editorearen mihisea eta zure kontuaren hobespenak.',
@@ -142,6 +166,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Nirekin partekatua',
   'shared.loadFailed': 'Ezin izan dira partekatutako dokumentuak kargatu.',
   'shared.subtitle': 'Estudioko gainerako eskuizkribuak, laburpenak eta oharrak.',
+  'signup.brandAttribution': 'Anaïs Park — Editorea, The Quarterly',
   'signup.brandQuote':
     'Zure lehen eskuizkribua da zailena. Quillonek bakardade gutxiago ematen dizu.',
   'signup.emailPlaceholder': 'idazle@estudio.com',
@@ -149,6 +174,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Anaïs',
   'signup.heading': 'Sortu zure Quillon kontua',
   'signup.lastNamePlaceholder': 'Parkea',
+  'signup.submitting': 'Zure estudioa irekitzen\\u2026',
   'signup.subtitle':
     'Mahaigain lasaia, kolaboratzaile girotuak eta zure bidetik aldenduko den formatu luzeko editore bat.',
   'templates.blank.subtitle': 'Orrialde garbi bat. Kurtsorea hasten da.',
@@ -161,11 +187,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Hasi egitura pentsakor batekin. Pertsonalizatu etengabe.',
   'templates.useFailed': 'Ezin izan da dokumentu bat txantiloi honetatik hasi.',
   'templates.useTemplate': 'Erabili txantiloi hau',
+  'terms.intro': 'Zerbitzu hau erabiltzeko baldintzak.',
   'terms.title': 'Zerbitzu-baldintzak',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'oraintxe bertan',
   'trash.confirmDelete': 'Berretsi ezabatzea',
+  'trash.confirmEmpty': 'Berretsi — ezabatu dena',
   'trash.deleteFailed': 'Ezin izan da ezabatu.',
   'trash.deleteForever': 'Ezabatu betiko',
   'trash.empty': 'Ez dago ezer berreskuratzeko.',
@@ -179,7 +207,9 @@ export const ui: UiTranslations = {
   'versionHistory.backToDoc': 'Eskuizkribua itzuli',
   'versionHistory.empty': 'Ez dago aldaketarik oraindik — gorde dokumentua bere historia hasteko.',
   'versionHistory.heading': 'Bertsioen historia',
+  'versionHistory.latest': 'Azkena',
   'versionHistory.loadFailed': 'Ezin izan da historia kargatu.',
+  'versionHistory.noContent': 'Ez da edukirik jaso berrikuspen honetarako.',
   'versionHistory.previewing': 'Aurreikuspena',
   'versionHistory.restore': 'Berrezarri bertsio hau',
   'versionHistory.restoreFailed': 'Berreskuratzeak huts egin du.',

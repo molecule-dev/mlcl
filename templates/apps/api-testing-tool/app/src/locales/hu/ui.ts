@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Hibát találtál, funkciót szeretnél kérni, vagy elmondanád, mit építsünk legközelebb? Írj a hello@pylon.dev címre — minden üzenet eljut a csapat egy igazi mérnökéhez.',
   'about.contactTitle': 'Lépj velünk kapcsolatba',
+  'about.intro':
+    'A {{app}} egy gyors, billentyűzet-központú API-tesztelő munkapad olyan mérnököknek, akik a terminálban élnek — Postman-stílusú kérések, gyűjtemények, környezetek és előzmények felesleges ballaszt nélkül.',
+  'about.missionBody':
+    'Az API-k a modern szoftver gerincét adják, de a használatukhoz való eszközök lassúak, dagadtak és egérvezéreltek. A {{app}} azért létezik, hogy a fejlesztőknek éles, gyors, terminálszintű munkapadot adjon: indíts kéréseket, építs bizalmat, és szállíts anélkül, hogy elhagynád a billentyűzetet.',
+  'about.missionTitle': 'Küldetésünk',
   'about.pageTitle': 'A {{app}} névjegye',
   'authShell.statusLabel': 'runners online',
   'collections.createError': 'A gyűjteményt nem sikerült létrehozni.',
   'collections.defaultName': 'Névtelen gyűjtemény {{n}}',
+  'collections.empty':
+    'Még nincsenek gyűjtemények — kattints az „Új gyűjtemény” gombra az első mappád létrehozásához.',
   'collections.eyebrow': '$ pylon collections --tree',
   'collections.fetchError': 'A gyűjteményeket nem sikerült betölteni.',
   'collections.heading': 'Gyűjtemények',
   'collections.loading': 'Gyűjtemények betöltése…',
+  'collections.metric.allGreen': 'Minden zöld',
   'collections.metric.collections': 'Gyűjtemények',
   'collections.metric.failing': 'Sikertelen',
   'collections.metric.failingCaption': 'Az utolsó futtatás hibákat tartalmazott',
@@ -24,6 +34,8 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Változók',
   'environments.createError': 'A környezetet nem sikerült létrehozni.',
   'environments.defaultName': 'Névtelen környezet {{n}}',
+  'environments.empty':
+    'Még nincsenek környezetek — kattints az „Új környezet” gombra az egyik hozzáadásához.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'A környezeteket nem sikerült betölteni.',
   'environments.heading': 'Környezetek',
@@ -31,8 +43,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Új környezet',
   'environments.subheading':
     'Változók, amelyek behelyettesítődnek a kérésekbe küldéskor. Munkaterületenként egy aktív környezet.',
+  'forgotPassword.statusLabel': 'visszaállítás · biztonságos alagút',
   'forgotPassword.success':
     'Ha létezik fiók ahhoz az e-mailhez, a visszaállítási link úton van. Ellenőrizze beérkező leveleit.',
+  'history.empty': 'Itt még nincs semmi — indítsd el az első kérésedet a Workspace lapon.',
   'history.eyebrow': '$ pylon history --tail',
   'history.fetchError': 'Az előzményeket nem sikerült betölteni.',
   'history.heading': 'Futtatási előzmények',
@@ -41,9 +55,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Utolsó 50',
+  'history.realtime': 'valós idő',
   'history.subheading':
     'Minden ebben a munkaterületen elküldött kérés állapottal, késleltetéssel és payload mérettel.',
   'landing.choosePlan': 'Csomag választása',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Forge confidence.',
   'landing.ctaBody':
     'Nincs szükség bankkártyára. Nem kell platform-mérnök. Nyissa meg a ⌘K billentyűt, és küldje el az első kérést öt percen belül.',
   'landing.ctaHeading': 'Építsen bizalmat.',
@@ -85,6 +101,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Átl. késleltetés',
   'mocks.metric.live': 'Nyilvános',
   'mocks.metric.servers': 'Mockok',
+  'mocks.ms': 'ms',
   'mocks.newMock': 'Új mock',
   'mocks.online': 'Nyilvános',
   'mocks.paused': 'Privát',
@@ -109,9 +126,13 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Egészséges',
   'monitors.metric.uptime': 'Átl. rendelkezésre állás',
   'monitors.newMonitor': 'Új monitor',
+  'monitors.paused': 'szüneteltetett',
   'monitors.run': 'Futtatás',
   'monitors.runError': 'A futtatás hálózati hibával fejeződött be: {{error}}',
+  'monitors.runFailed': 'A futtatás sikertelen.',
   'monitors.running': 'Futtatás…',
+  'monitors.runSuccess':
+    '{{status}} futtatása — a felsőbb réteg {{code}} választ adott {{ms}}ms alatt.',
   'monitors.sparkLabel': 'Késleltetési trend',
   'monitors.subheading':
     'Igény szerinti ellenőrzések bármelyik mentett teszthez. Csatoljon egy tesztet, nyomja meg a Futtatás gombot, és figyelje, ahogy a 24 órás sikerességi arány minden indításnál frissül.',
@@ -120,27 +141,54 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Rendelkezésre állás · 24h',
   'nav.legal': 'Jogi',
   'notFound.backToWorkspace': 'Vissza a munkaterületre',
+  'notFound.body':
+    'A {{app}} kérést indított ehhez az URL-hez, de nem kapott vissza semmit. Ellenőrizd az útvonalat, vagy ugorj vissza a munkaterületre.',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Az útvonal nem található',
+  'planUpdated.body':
+    'A számlázási módosításod mostantól aktív. A csomagodat bármikor kezelheted a számlázási oldalon.',
+  'planUpdated.retry': 'Próbálja újra',
+  'planUpdated.verifyFailed': 'Még nem tudtuk megerősíteni a fizetését.',
+  'planUpdated.verifyFailedBody':
+    'Lehetséges, hogy a fizetése még feldolgozás alatt áll. Próbálja újra egy pillanat múlva.',
   'planUpdated.verifying': 'Fizetésed megerősítése…',
+  'pricing.advancedFeatures': 'Speciális funkciók: {{yes}}',
+  'pricing.canExport': 'Adatexport: {{yes}}',
+  'pricing.heading': 'Válaszd ki {{app}} csomagod',
+  'pricing.maxCollections': '{{count}} gyűjtemény',
+  'pricing.maxEnvironments': '{{count}} környezet',
+  'pricing.maxHistory': '{{count}} előzménybejegyzés',
+  'pricing.maxRequests': '{{count}} kérések',
   'privacy.collect.account':
     'Fiók: e-mail-címe, kivonolt jelszava, megjelenített neve és az utolsó bejelentkezés időbélyege.',
+  'privacy.intro':
+    'A {{app}} tiszteletben tartja a magánéletedet. Ez az oldal összefoglalja, milyen adatokat gyűjtünk, miért gyűjtjük őket, és hogyan törölheted őket.',
   'privacy.rights.body':
     'Bármikor exportálhatja gyűjteményeit és környezeteit, vagy törölheti fiókját a Beállításokban, hogy 30 napon belül véglegesen eltávolítson minden adatot.',
   'privacy.share.body':
     'Csak Ön. Soha nem adjuk el, osztjuk meg vagy béreljük ki munkaterülete tartalmát harmadik feleknek. A szervernaplókat incidenskezelés céljából 30 napig tároljuk, majd töröljük.',
   'privacy.title': 'Adatvédelmi nyilatkozat',
+  'profile.bio':
+    'A személyes {{app}} munkaterületed — tűzd ki a gyűjteményeket, oszd meg a környezeteket, és figyeld azokat az API-kat, amelyek a terméket szállítják.',
   'profile.eyebrow': '@{{handle}}',
   'profile.joined': 'csatlakozott {{when}}',
+  'profile.metric.collections': 'Gyűjtemények',
   'profile.metric.monitors': 'Monitorok',
   'profile.metric.requests': 'Mentett kérések',
+  'profile.noActivity': 'Még nem indult kérés — menj a Workspace lapra, és indíts egyet.',
   'profile.signedOut': 'Jelentkezzen be a profil megtekintéséhez',
   'pylonShell.primaryNavLabel': 'Elsődleges navigáció',
+  'resetPassword.passwordLabel': 'Új jelszó',
+  'resetPassword.statusLabel': 'visszaállítás · token ellenőrizve',
   'resetPassword.subtitle': 'Válasszon egy erős jelszót, amelyet még nem használt.',
   'resetPassword.tokenPlaceholder': 'illessze be az e-mailből',
+  'settings.accountManagement.desc':
+    'Frissítsd az e-mail-címedet és a jelszavadat, kezeld az értesítéseket és az eszközöket, jelentkezz ki, vagy töröld a fiókodat.',
+  'settings.accountManagement.title': 'Fiók és biztonság',
   'settings.eyebrow': '$ pylon settings --edit',
   'settings.fetchError': 'A beállításokat nem sikerült betölteni.',
   'settings.language.title': 'Nyelv',
+  'settings.seeding': 'Előkészítés…',
   'settings.seedStarter': 'Kezdeti tartalom feltöltése',
   'settings.starterCollection': 'Kezdeti gyűjtemény',
   'settings.starterCollectionDesc': 'Létrehozva a Beállításokból {{ts}}',
@@ -154,6 +202,8 @@ export const ui: UiTranslations = {
     'Ön felelős a jelszava védelméért. Egy fiók megosztása több emberrel nem megengedett az Ingyenes vagy Pro terveken — vásároljon Team előfizetést megosztott munkaterületekhez.',
   'terms.billing.body':
     'A fizetett előfizetések minden számlázási időszakban automatikusan megújulnak. Lemondhat a Beállításokban bármikor; a hozzáférése a jelenlegi időszak végéig folytatódik.',
+  'terms.intro':
+    'A {{app}} fiók létrehozásával elfogadod az alábbi feltételeket. Olvasd el egyszer; nem fogunk visszamenőleges változtatásokkal meglepni.',
   'terms.title': 'Szolgáltatási feltételek',
   'terms.usage.body':
     'Ne használja a Pylont kérések küldésére olyan szolgáltatásokhoz, amelyeket nem Ön tulajdonol, vagy amelyek teszteléséhez nincs kifejezett engedélye. Ne használja a Pylont a sebességkorlátozások megkerülésére vagy csalás elkövetésére.',
@@ -174,16 +224,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Nem futtatva',
   'testRunner.metric.passed': 'Sikeres',
   'testRunner.never': 'Soha nem futtatva',
+  'testRunner.newTest': 'Új teszt',
   'testRunner.noAssertions': 'Még nincsenek állítások ehhez a teszthez.',
+  'testRunner.noRunsYet':
+    'Még nincs rögzített futtatás — nyomd meg a „Run all” gombot az előzmények feltöltéséhez.',
   'testRunner.passed': 'sikeres',
+  'testRunner.recentRuns': 'Legutóbbi futtatások',
   'testRunner.runAll': 'Összes futtatása',
   'testRunner.running': 'Futtatás…',
   'testRunner.runOne': 'Futtatás',
   'testRunner.subheading': 'Csomag eredmények, állítás különbségek és az utolsó 50 futtatás.',
+  'testRunner.suites': 'Csomagok',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Bejelentkezve mint',
   'workspace.auth.keyName': 'Fejléc neve',
   'workspace.auth.keyValue': 'Kulcsérték',
+  'workspace.auth.noneHint': 'Ehhez a kéréshez nem kerül elküldésre engedélyezési fejléc.',
   'workspace.auth.password': 'Jelszó',
   'workspace.auth.username': 'Felhasználónév',
   'workspace.authOption.apikey': 'API-kulcs',
@@ -193,13 +249,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Típus',
   'workspace.authTypeLabel': 'Hitelesítés típusa',
+  'workspace.body.contentLabel': 'Request body',
+  'workspace.body.hint':
+    'A {{envVars}} a kérés elküldése előtt helyettesítődik. A törzsek POST/PUT/PATCH/DELETE esetén kerülnek elküldésre.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Nincs',
+  'workspace.body.noneHint':
+    'Nem kerül elküldésre kéréstörzs. Válassz JSON-t vagy nyers szöveget az egyik hozzáadásához.',
   'workspace.body.text': 'Szerkesztetlen szöveg',
   'workspace.body.type': 'Típus',
   'workspace.environment': 'Nincs környezet',
   'workspace.envVar': 'környezeti változó',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.failedCount': '{{count}} sikertelen',
+  'workspace.idle': 'Inaktív',
   'workspace.kv.addHeader': 'Fejléc hozzáadása',
   'workspace.kv.addParam': 'Paraméter hozzáadása',
   'workspace.kv.headerKey': 'Fejléc neve',
@@ -212,12 +275,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP method',
   'workspace.metric.latency': 'Késleltetés',
   'workspace.metric.latencyCaption': 'Oda-vissza menet ebből a futtatásból',
+  'workspace.metric.size': 'Adatcsomag',
   'workspace.metric.sizeCaption': 'Response body bájtok',
   'workspace.metric.statusCaption': 'Legutóbbi response',
   'workspace.metric.tests': 'Tesztek',
+  'workspace.metric.testsAllPassing': 'Minden állítás zöld',
   'workspace.metric.testsFailing': '{{count}} sikertelen',
+  'workspace.metric.testsIdle': 'Küldj egy kérést az értékeléshez',
   'workspace.noAssertions': 'Futtasson kérést a beépített állítások kiértékeléséhez.',
   'workspace.noResponseYet': 'Még nincs response',
+  'workspace.passedCount': '{{count}} elfogadva',
   'workspace.responseHint':
     '// Nyomja meg a Küldés gombot a kérés végrehajtásához és a response rögzítéséhez.',
   'workspace.saveError': 'A kérést nem sikerült menteni.',
@@ -227,10 +294,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Állítson össze egy kérést, küldje el, majd ellenőrizze a response-t — mindezt egyetlen panelen.',
   'workspace.testResults': 'Teszt eredmények',
+  'workspace.tests.autoHint':
+    'A státuszkategória, a késleltetés, a törzs mérete és az átvitel állapota automatikusan ellenőrzésre kerül — az eredmények a válaszpanel „Test results” szakaszában jelennek meg.',
+  'workspace.tests.autoTitle': 'Beépített állítások futnak minden válaszon',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Minden kéréshez elküldve Authorization: Bearer <token> fejlécként ebben a gyűjteményben.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Névtelen kérés',
+  'workspace.urlLabel': 'Kérés URL-je',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

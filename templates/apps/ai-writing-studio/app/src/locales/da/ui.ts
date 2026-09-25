@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du feedback, fundet en fejl eller ønsker du en funktion? Skriv til os fra dine kontoindstillinger — hver besked går til en rigtig person på teamet.',
   'about.contactTitle': 'Kontakt os',
   'about.eyebrow': 'Om',
+  'about.intro':
+    '{{app}} er et AI-skrivestudie til forfattere, der går meget op i deres prosa. Det kombinerer langformet AI-generering med en rolig editor, SEO-scoring og billedgenerering, så du kan tage et stykke fra blank side til publiceret — uden nogensinde at miste din stemme.',
+  'about.missionBody':
+    'Vi mener, at AI skal skrive ved siden af dig, aldrig i stedet for dig. {{app}} holder forslag tydeligt adskilt fra dine egne ord, lader dig være ejer af ethvert dokument, du opretter, og holder værktøjerne ude af vejen for skrivningen.',
+  'about.missionTitle': 'Vores mission',
   'about.pageTitle': 'Om {{app}}',
   'aiSuggestionCard.applied': 'Forslag anvendt',
   'aiSuggestionCard.apply': 'Anvend',
@@ -24,7 +31,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Trafikkilder',
   'billing.activePlan': 'Abonnement aktivt.',
   'billing.aiWordsLabel': 'Inkluderede AI-genereringer',
+  'billing.cancelFailed': 'Kunne ikke annullere abonnementet.',
   'billing.cancelPlan': 'Annuller plan',
+  'billing.cancelPlanConfirm': 'Bekræft annullering?',
   'billing.cancelSuccess': 'Abonnement annulleret. Opdater for at se ændringen.',
   'billing.changePlan': 'Skift plan',
   'billing.col.invoice': 'Faktura',
@@ -41,26 +50,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'Se planer',
   'common.goToDashboard': 'Gå til Dashboard',
   'dashboard.continueWriting': 'Fortsæt med at skrive',
+  'dashboard.createFirst': 'Opret dokument',
   'dashboard.days.sat': 'Lør',
   'dashboard.days.sun': 'Søn',
   'dashboard.defaultWriterName': 'Forfatter',
   'dashboard.greeting': 'God morgen, {{name}}',
   'dashboard.loadError': 'Dit dashboard kunne ikke indlæses.',
+  'dashboard.loading': 'Indlæser dit studie…',
   'dashboard.loadingDocs': 'Indlæser seneste dokumenter…',
   'dashboard.noDocuments': 'Ingen dokumenter endnu — start dit første.',
   'dashboard.startWriting': 'Start et nyt dokument',
+  'dashboard.streakBody': 'Du har skrevet {{words}} ord i denne uge.',
   'dashboard.streakTitle': '{{count}} dages streak',
+  'dashboard.subgreeting': '{{count}} dokumenter i dit bibliotek — hold gang i momentum.',
+  'documentCard.seoScoreTitle': 'SEO-score: {{score}}/100',
+  'documents.createNew': 'Opret nyt dokument',
   'documents.empty': 'Dit bibliotek venter — start dit første dokument.',
+  'documents.emptyFiltered': 'Ingen dokumenter matcher dine filtre endnu.',
   'documents.loadError': 'Dokumenter kunne ikke indlæses.',
   'documents.loading': 'Indlæser dit bibliotek…',
   'documents.new': 'Nyt dokument',
+  'documents.searchAriaLabel': 'Søg dokumenter',
   'documents.searchPlaceholder': 'Søg i dokumenter…',
   'documents.subtitle': '{{count}} dokumenter i dit bibliotek.',
   'documents.title': 'Dokumenter',
   'editor.aiPanelTitle': 'Plume Intelligence',
+  'editor.aiSuggestion.empty':
+    'Ingen aktive forbedringer. Bed {{appName}} om et forslag, når du vil have et ekstra sæt øjne.',
   'editor.aiSuggestion.failed': 'Forslag kunne ikke indlæses lige nu.',
   'editor.aiSuggestion.loadingBody': 'Genererer en klarheds­forfining…',
   'editor.backToDocuments': 'Alle dokumenter',
+  'editor.bodyAriaLabel': 'Dokumentets indhold',
   'editor.closeAiPanel': 'Luk AI-panel',
   'editor.createFailed': 'Dokumentet kunne ikke oprettes.',
   'editor.exported': 'Eksporteret som »{{format}}«.',
@@ -76,18 +96,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'Anmod om en forfining',
   'editor.saveBeforePublish': 'Gem dokumentet inden publicering.',
   'editor.status.chars': '{{count}} tegn',
+  'editor.status.readTime': '{{minutes}} min. læsning',
   'editor.status.savedAt': 'Gemt {{time}}',
   'editor.status.saveError': 'Gem mislykkedes',
+  'editor.status.unsaved': 'Ikke gemt endnu',
   'editor.titleAriaLabel': 'Dokumenttitel',
   'editor.titlePlaceholder': 'Unavngivet dokument',
   'editor.toggleAiPanel': 'Slå AI-panel til/fra',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'forfatter@eksempel.dk',
+  'forgotPassword.sent': 'Hvis {{email}} er registreret, er et nulstillingslink på vej.',
   'imageGenerator.failed': 'Billedgenerering mislykkedes.',
   'imageGenerator.generate': 'Generer billede',
   'imageGenerator.generating': 'Genererer...',
   'imageGenerator.placeholder': 'Beskriv det billede, du vil generere...',
+  'imageGenerator.promptAriaLabel': 'Billedprompt',
+  'imageGenerator.subtitle': 'Beskriv et coverbillede, og lad AI illustrere det.',
   'imageGenerator.title': 'AI-billedgenerator',
+  'landing.aiSuggestionBody':
+    'på altanen på 42. sal følte Elias byen presse sig mod sig — vinden skar den omgivende summen bort og efterlod ham svævende i et iskoldt, stille tomrum over det glødende gitter.',
   'landing.eyebrow': 'AI-skrivestudie for seriøse forfattere',
   'landing.featuresHeading': 'Værktøjer, der holder sig i baggrunden',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -97,14 +124,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Et studie skabt til forfattere, der holder af deres prosa, rytme og præcision. Plume skriver ved din side — aldrig i stedet for dig.',
   'landing.heroTitle.eloquence': 'veltalenhed',
+  'landing.heroTitle.intelligence': 'Intelligens møder ',
   'landing.nav.testimonials': 'Anmeldelser',
   'landing.plan.cta': 'Start med denne plan',
   'landing.plan.popular': 'Mest elsket',
   'landing.pricingEyebrow': 'Priser',
   'landing.pricingHeading': 'Vælg det, der passer til dit arbejde',
   'landing.sampleDocTitle': 'Stilhedens arkitektur',
+  'landing.sampleParagraph1':
+    'Byen var aldrig rigtig stille. Selv i nattens dybeste timer vibrerede en lav summen gennem betonfundamentet — et mekanisk hjerteslag af metrotog og ventilationsskakter.',
+  'landing.sampleParagraph2.after': ' mod glasset.',
+  'landing.sampleParagraph2.before': 'Men ',
   'landing.sampleParagraph2.highlight':
     'stående på balkonen på 42. etage følte Elias en dyb fornemmelse af isolation',
+  'landing.showcaseBody':
+    'Markér en sætning, og {{appName}} tilbyder en forbedring. Accepter den, juster den, eller afvis den. Forslag er altid farvet lilla, så du ved, hvad du selv skrev, og hvad der blev foreslået.',
+  'landing.showcaseHeading': 'Et ekstra sæt øjne — aldrig en medforfatter.',
   'landing.startWriting': 'Begynd at skrive',
   'login.emailPlaceholder': 'forfatter@eksempel.dk',
   'login.failed': 'Log ind mislykkedes',
@@ -119,8 +154,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Åbn dashboard',
   'notFound.title': 'Dette kapitel er endnu ikke skrevet.',
   'plumeSidebarLayout.primaryNavLabel': 'Primær navigation',
+  'pricing.maxDocuments': '{{count}} dokumenter',
+  'pricing.maxGenerate': '{{count}} AI-genereringer',
+  'pricing.maxImages': '{{count}} billedgenereringer',
   'privacy.data':
     'Din konto-e-mail og en krypteret adgangskode. Dokumenter og skabeloner, du opretter. AI-forslagslogfiler (input + output) til fakturering og analyser. Stripe-kunde- og abonnementsidentifikatorer; vi gemmer aldrig fulde kortnumre.',
+  'privacy.intro':
+    'Vi indsamler kun de data, der er nødvendige for at drive {{app}}: din e-mail, de dokumenter, du opretter, og de AI-anmodninger, du sender. Vi sælger aldrig din tekst eller dine prompts.',
   'profile.loadError': 'Din profil kunne ikke indlæses.',
   'profile.loading': 'Indlæser din profil…',
   'profile.loadingPublished': 'Indlæser udgivne dokumenter…',
@@ -131,7 +171,13 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Ny adgangskode',
   'seoAnalysis.backToEditor': 'Tilbage til editor',
   'seoAnalysis.eyebrow': 'SEO-analyse',
+  'seoAnalysis.heroBody':
+    '{{count}} forslag at anvende. Hvert enkelt er et strukturelt eller nøgleordsmæssigt løft, ikke en mur af røde flag.',
+  'seoAnalysis.heroBodyEmpty':
+    'Klik på "Kør analyse" for at score læsbarhed, nøgleordsdensitet og struktur.',
   'seoAnalysis.heroEmpty': 'Ingen analyse endnu. Kør en analyse for at score dette udkast.',
+  'seoAnalysis.heroNeedsWork': 'Nogle strukturelle løft vil øge rækkevidden.',
+  'seoAnalysis.heroStrong': 'Stærkt stykke — kun små løft fra fremragende.',
   'seoAnalysis.historyEmpty': 'Ingen tidligere analyser registreret.',
   'seoAnalysis.historyTitle': 'Analysehistorik',
   'seoAnalysis.keywordEmpty':
@@ -158,8 +204,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'Tilpas Plume til din skrivestil.',
   'settings.toggleIntegrationFailed': 'Integration kunne ikke opdateres.',
   'settings.writing.aiSuggestions': 'Inline AI-forslag under skrivning',
+  'settings.writing.aiSuggestionsBody':
+    'Viser forbedringer, mens du skriver. Forslag er altid valgfrie per sætning.',
   'settings.writing.autoSave': 'Gem automatisk hvert 30. sekund',
+  'settings.writing.autoSaveBody':
+    '{{appName}} gemmer et snapshot af dit udkast, så du kan gendanne fra enhver fane.',
   'settings.writing.notifyEmail': 'Send mig ugentlige skrivesammendrag via e-mail',
+  'settings.writing.notifyEmailBody':
+    'Et kort søndagsresumé af streaks, udkast og SEO-forbedringer.',
   'settings.writing.title': 'Skriveindstillinger',
   'settings.writing.tone': 'Standard tonepræset',
   'signup.emailPlaceholder': 'forfatter@eksempel.dk',
@@ -171,8 +223,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'Ingen beskrivelse angivet.',
   'templates.subtitle':
     'Start med et gennemprøvet redaktionelt rammeværk, og gør det til dit eget.',
+  'terms.intro':
+    'Disse vilkår gælder for din brug af {{app}}. Ved at oprette en konto accepterer du at bruge tjenesten til lovlig skrivning og at holde dine kontooplysninger fortrolige.',
   'terms.license':
     'Du beholder ejerskabet over ethvert dokument, skabelon og AI-generering, du opretter. Vi har brug for en ikke-eksklusiv licens til at hoste og levere dit arbejde tilbage til dig og til at behandle AI-forespørgsler via de udbydere, du vælger.',
   'writingStreakHeroCard.change': '{{sign}}{{amount}} ord',
   'writingStreakHeroCard.greeting': 'God dag, {{name}}',
+  'writingStreakHeroCard.subtitle': 'Ord skrevet i denne uge — {{count}} dages streak',
+  'writingStreakHeroCard.tagline': 'En side om dagen holder musen i gang.',
 }

@@ -1,12 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Spurningar, endurgjöf eða villa sem þarf að tilkynna? Hafðu samband við teymið í stillingum reikningsins — hver skilaboð fara til raunverulegrar manneskju sem er líka að læra tungumál.',
   'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um okkur',
+  'about.missionTitle': 'Markmið okkar',
+  'about.whatYouGet': 'Það sem þú færð',
   'common.goToDashboard': 'Fara á yfirlit',
   'common.logout': 'Útskráning',
+  'dailyStatsTriad.heartsHint': 'Fylltu á við hverja kennslustund',
   'dailyStatsTriad.heartsLabel': 'Hjörtu',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
+  'dailyStatsTriad.minutesHint': 'Úr æfingum dagsins',
   'dailyStatsTriad.minutesLabel': 'Fundargerð í dag',
   'dailyStatsTriad.minutesValue': '{{count}} mín.',
   'dailyStatsTriad.wordsLabel': 'Orð náð tökum á',
@@ -15,18 +21,29 @@ export const ui: UiTranslations = {
   'dashboard.heading': 'Góðan daginn, {{name}} .',
   'dashboard.loadError':
     'Gat ekki hlaðið inn nýjustu framvindu — sýnir gildi sem geymd voru í skyndiminni.',
+  'dashboard.loading': 'Hressandi…',
   'dashboard.noLessons': 'Engar kennslustundir í boði ennþá — kíktu aftur bráðlega.',
+  'dashboard.startPractice': 'Byrjaðu talæfingu',
+  'dashboard.subheading':
+    'Haltu áfram þar sem þú varst — þrjár stuttar lotur og þú nærð markmiði dagsins.',
   'dashboard.viewAllLessons': 'Allar kennslustundir →',
+  'forgotPassword.subheading': 'Sláðu inn netfangið þitt og við sendum endurstillingartengil.',
   'forgotPassword.successBody':
     'Athugaðu pósthólfið þitt — við sendum þér tengil til að endurstilla það.',
   'forgotPassword.successHint':
     'Ef {{email}} passar við reikning, þá berst tengillinn innan mínútu.',
+  'landing.copyright': '© {{year}} {{app}}. Byggt fyrir fullorðna námsmenn.',
   'landing.ctaBody':
     'Engin þörf á korti. Sendu netfangið þitt, veldu tungumál og byrjaðu á morgun.',
   'landing.ctaHeading': 'Tilbúinn/n að finna hreiminn þinn?',
   'landing.eyebrow': 'Dagleg tungumálaæfing fyrir fullorðna',
   'landing.featuresHeading': 'Æfingalykkja sem virðir tíma þinn',
+  'landing.featuresSubheading':
+    'Hannað fyrir fullorðna með þrjátíu mínútur á dag, ekki þrjátíu klukkustundir á viku.',
   'landing.heroCta': 'Byrjaðu 7 daga röð',
+  'landing.heroSubtitle':
+    'Fimm mínútna kennslustundir sem passa í kaffihlé. Æfingar, orðaforði, tal — allt í rás sem þú heldur í raun út.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.languagesEyebrow': 'Veldu tungumál',
   'landing.languagesHeading': 'Fjórtán tungumál, ein dagleg venja',
   'landing.proof.languages': '{{count}} tungumál',
@@ -41,11 +58,18 @@ export const ui: UiTranslations = {
   'leaderboard.heading': 'Stigatafla',
   'leaderboard.loadError': 'Ekki tókst að hlaða stigatöflunni.',
   'leaderboard.loading': 'Hleður stigatöflu…',
+  'leaderboard.rewardBody':
+    'Þrjár vikur í röð í gulli færa þig upp í demant. Aðeins vingjarnleg veðmál.',
+  'leaderboard.rewardEyebrow': 'Verðlaun vikunnar',
+  'leaderboard.rewardHeading': '{{count}} efstu fá gull-deildarmerkið',
   'leaderboard.subheading':
     'XP í þessari viku. Endurstillist á sunnudaginn klukkan miðnætti að staðartíma þínum.',
   'leaderboard.weeklyPeriod': 'Í þessari viku · vinir',
+  'leaderboardPanel.rankSuffix': 'Röðun # {{rank}}',
   'leaderboardPanel.title': 'Stigatafla vina',
+  'leaderboardPanel.xp': '{{xp}} XP',
   'leaderboardPanel.you': '(Þú)',
+  'lessonCard.continue': 'Halda áfram →',
   'lessonCard.duration': '{{min}} mín.',
   'lessonCard.level': 'Stig {{level}}',
   'lessonCard.progressPercent': '{{percent}} % lokið',
@@ -54,14 +78,17 @@ export const ui: UiTranslations = {
   'lessonDetail.check': 'Athugaðu',
   'lessonDetail.checking': 'Athuga…',
   'lessonDetail.correct': 'Frábært!',
+  'lessonDetail.correctHint': '+{{xp}} XP. Haltu áfram.',
   'lessonDetail.empty': 'Engar æfingar í þessum tíma.',
   'lessonDetail.exit': 'Hætta í kennslustund',
   'lessonDetail.fillBlank': 'Fyllið í eyðuna',
   'lessonDetail.finish': 'Ljúka kennslustund',
   'lessonDetail.incorrect': 'Ekki alveg —“ {{answer}} „',
+  'lessonDetail.incorrectHint': 'Þú munt sjá þetta aftur í upprifjun morgundagsins.',
   'lessonDetail.lessonId': 'Kennslustund · {{id}}',
   'lessonDetail.loadError': 'Gat ekki hlaðið inn æfingum.',
   'lessonDetail.loading': 'Hleður inn kennslustund…',
+  'lessonDetail.pronunciation': 'Veldu rétta framburðinn',
   'lessonDetail.submitError': 'Gat ekki sent inn svar.',
   'lessonDetail.translation': 'Þýddu orðasambandið',
   'lessonDetail.xpEarned': 'XP aflað · {{xp}}',
@@ -80,6 +107,12 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'Opna flakkvalmynd',
   'parlanceLayout.nav.profile': 'Prófíll',
   'parlanceLayout.primaryNavLabel': 'Aðalflakk',
+  'planUpdated.body':
+    'Greiðslubreytingin þín er nú virk. Þú getur stýrt áskriftinni þinni hvenær sem er á greiðslusíðunni.',
+  'planUpdated.retry': 'Reyndu aftur',
+  'planUpdated.verifyFailed': 'Við gátum ekki staðfest greiðsluna þína ennþá.',
+  'planUpdated.verifyFailedBody':
+    'Greiðslan þín gæti enn verið í vinnslu. Reyndu aftur eftir smástund.',
   'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'practice.empty': 'Engar orðasambönd tiltæk ennþá.',
   'practice.eyebrow': 'Æfing í ræðumennsku',
@@ -103,6 +136,9 @@ export const ui: UiTranslations = {
   'pricing.limits.progress': 'framvindufærslur',
   'profile.anonymous': 'Nemandi',
   'profile.avatarAlt': '{{name}} Notandamynd \\u2019s',
+  'profile.eyebrow': 'Meðlimur síðan {{joined}}',
+  'profile.eyebrowNew': 'Nýr námsmaður',
+  'profile.langLessonCount': '{{count}} kennslustundir',
   'profile.langLevel': 'Stig {{level}}',
   'profile.languages': 'Tungumál',
   'profile.languagesHeading': 'Tungumál í vinnslu',
@@ -111,6 +147,7 @@ export const ui: UiTranslations = {
   'profile.streak': 'Röð',
   'profile.totalXp': 'Heildarupphæð reynslu',
   'resetPassword.confirmPlaceholder': 'Skrifaðu það aftur',
+  'resetPassword.mismatch': 'Lykilorð passa ekki saman.',
   'resetPassword.newPasswordLabel': 'Nýtt lykilorð',
   'resetPassword.newPasswordPlaceholder': 'Átta stafir eða fleiri',
   'resetPassword.subheading': 'Veldu eitthvað eftirminnilegt, átta stafi eða fleiri.',
@@ -118,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Óskir um æfingar',
   'settings.goalBody':
     'Hversu margar reynslusögur (XP) þú stefnir að á hverjum degi. Raðir eru geymdar í hvert skipti sem þú nærð markmiðinu.',
+  'settings.goalHeading': 'Daglegt markmið',
   'settings.goalMinutes': '~ {{min}} mín./dag',
   'settings.language.description':
     'Veldu tungumálið sem notað er í valmyndum og merkimiðum forritsins.',

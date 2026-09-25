@@ -5,7 +5,13 @@ export const ui: UiTranslations = {
     'ಪ್ರತಿಕ್ರಿಯೆ, ವೈಶಿಷ್ಟ್ಯ ವಿನಂತಿ ಇದೆಯೇ ಅಥವಾ ದೋಷ ಕಂಡುಬಂದಿದೆಯೇ? ನಿಮ್ಮ ಖಾತೆ ಮೆನುವಿನಲ್ಲಿರುವ ಬೆಂಬಲ ಲಿಂಕ್ ಮೂಲಕ {{app}} ತಂಡವನ್ನು ತಲುಪಿ — ಪ್ರತಿಯೊಂದು ಸಂದೇಶವು ನಿಜವಾದ ಮನುಷ್ಯನಿಗೆ ಹೋಗುತ್ತದೆ.',
   'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.intro':
+    '{{app}} ಒಂದು ಧ್ವನಿ-ಸ್ಥಳೀಯ AI ಸಹಾಯಕ. ಸ್ವಾಭಾವಿಕವಾಗಿ ಮಾತನಾಡಿ, ನಿಮ್ಮ ಮಾತುಗಳು ಪಠ್ಯವಾಗಿ ಬದಲಾಗುವುದನ್ನು ನೋಡಿ, ಮತ್ತು ಮಾತಿನ ಉತ್ತರಗಳನ್ನು ಪಡೆಯಿರಿ — ಹೀಗಾಗಿ ಎಲ್ಲವನ್ನೂ ಟೈಪ್ ಮಾಡುವ ಬದಲು ಗಟ್ಟಿಯಾಗಿ ಯೋಚಿಸಬಹುದು.',
+  'about.missionBody':
+    'ನಿಮ್ಮ ಆಲೋಚನೆಗಳು ಮತ್ತು ಅವುಗಳನ್ನು ಹೊರತರುವ ನಡುವೆ ಟೈಪಿಂಗ್ ಒಂದು ಅಡಚಣೆ. ಅದನ್ನು ತೊಡೆದುಹಾಕಲು {{app}} ಇದೆ: ಕೈಗಳಿಲ್ಲದೆ, ಸಂಭಾಷಣಾತ್ಮಕವಾಗಿ ಕಲ್ಪನೆಗಳನ್ನು ಹೊಳೆಸಲು, ಕರಡು ರಚಿಸಲು ಮತ್ತು ನಿರ್ಧರಿಸಲು ಒಂದು ಮಾರ್ಗ — ಅತ್ಯುತ್ತಮ ಧ್ವನಿ ಮತ್ತು ತಾರ್ಕಿಕ ಮಾದರಿಗಳಿಂದ ಚಾಲಿತ, ನಿಮ್ಮ ಡೇಟಾ ಖಾಸಗಿಯಾಗಿ ಉಳಿಯುತ್ತದೆ.',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
   'agentDetail.back': 'ಎಲ್ಲಾ ಏಜೆಂಟ್‌ಗಳು',
+  'agentDetail.behavior': 'ವರ್ತನೆ',
   'agentDetail.capabilities': 'ಸಾಮರ್ಥ್ಯಗಳು',
   'agentDetail.delete': 'ವ್ಯಕ್ತಿತ್ವವನ್ನು ಅಳಿಸಿ',
   'agentDetail.deleteConfirm': 'ಈ ವ್ಯಕ್ತಿತ್ವವನ್ನು ಅಳಿಸಬೇಕೇ? ಇದನ್ನು ರದ್ದುಗೊಳಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ.',
@@ -38,15 +44,20 @@ export const ui: UiTranslations = {
   'agents.subtitle':
     'ಪ್ರತಿಯೊಂದು ಏಜೆಂಟ್ ತನ್ನದೇ ಆದ ಸ್ವರ, ಗತಿ ಮತ್ತು ವಿಶೇಷತೆಯನ್ನು ಹೊಂದಿದೆ. ಸಂಭಾಷಣೆಯ ಮಧ್ಯದಲ್ಲಿ ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ಬದಲಾಯಿಸಿ.',
   'agents.title': 'ಯೋಚಿಸಲು ಒಂದು ಧ್ವನಿಯನ್ನು ಆರಿಸಿ.',
+  'authShell.tagline': '{{tagline}} — {{brand}}',
+  'billing.cardNoneBody':
+    'ಅಪ್ಗ್ರೇಡ್ ಮಾಡುವಾಗ ಒಂದನ್ನು ಸೇರಿಸಿ — ಸಂಗ್ರಹಣೆಯನ್ನೆಲ್ಲ Stripe ನಿರ್ವಹಿಸುತ್ತದೆ.',
   'billing.cardNoneTitle': 'ಫೈಲ್‌ನಲ್ಲಿ ಯಾವುದೇ ಕಾರ್ಡ್ ಇಲ್ಲ.',
   'billing.choose': 'ಬದಲಿಸಿ',
   'billing.currentPlan': 'ನಿಮ್ಮ ಯೋಜನೆ',
   'billing.currentPlanReadout': '{{plan}} ಯೋಜನೆ',
   'billing.eyebrow': 'ಯೋಜನೆ ಮತ್ತು ಬಳಕೆ',
   'billing.fetchError': 'ಬಿಲ್ಲಿಂಗ್ ಮಾಹಿತಿಯನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'billing.loadingStatus': 'ಸ್ಥಿತಿಯನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ…',
   'billing.noTiers': 'ಇದೀಗ ಯಾವುದೇ ಯೋಜನೆಗಳು ಲಭ್ಯವಿಲ್ಲ.',
   'billing.plansTitle': 'ಯೋಜನೆಗಳು',
   'billing.switching': 'ಬದಲಾಯಿಸಲಾಗುತ್ತಿದೆ...',
+  'billing.updateAcknowledged': '{{time}} ಕ್ಕೆ ನವೀಕರಣ ಸ್ವೀಕರಿಸಲಾಗಿದೆ',
   'billing.updateError': 'ನವೀಕರಣವನ್ನು ಪ್ರಾರಂಭಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'billing.usageHeading': 'ಈ ಚಕ್ರದಲ್ಲಿ ಧ್ವನಿ ಬಳಕೆ',
   'chatBubble.source.text': 'ಪಠ್ಯ',
@@ -66,11 +77,13 @@ export const ui: UiTranslations = {
   'conversation.title': 'ಹೇಳಿ ಮುಗಿಸಿ',
   'conversation.toggleMic': 'ಮೈಕ್ರೋಫೋನ್ ಅನ್ನು ಟಾಗಲ್ ಮಾಡಿ',
   'conversation.toggleVoicePlayback': 'ಧ್ವನಿ ಪ್ಲೇಬ್ಯಾಕ್',
+  'conversation.transcribeError': 'ಆಡಿಯೋವನ್ನು ಪ್ರತಿಲಿಪಿ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'conversation.transcriptionEmpty': 'ನಮಗೆ ಏನೂ ಕೇಳಿಸಲಿಲ್ಲ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸುವುದೇ?',
   'conversation.voiceOff': 'ಧ್ವನಿ ಆಫ್',
   'conversation.voiceOn': 'ಧ್ವನಿ ಆನ್',
   'conversationDetail.assistant': 'ಸಹಾಯಕ',
   'conversationDetail.back': 'ಇತಿಹಾಸಕ್ಕೆ ಹಿಂತಿರುಗಿ',
+  'conversationDetail.elapsed': '00:00 / {{duration}}',
   'conversationDetail.empty': 'ಈ ಸಂಭಾಷಣೆಯಲ್ಲಿ ಇನ್ನೂ ಯಾವುದೇ ಸಂದೇಶಗಳಿಲ್ಲ.',
   'conversationDetail.eyebrow': 'ಪ್ರತಿಲಿಪಿ',
   'conversationDetail.fetchError': 'ಪ್ರತಿಲೇಖನವನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
@@ -81,6 +94,7 @@ export const ui: UiTranslations = {
   'conversationDetail.setSpeed': 'ಪ್ಲೇಬ್ಯಾಕ್ ವೇಗವನ್ನು ಇದಕ್ಕೆ ಹೊಂದಿಸಿ {{speed}}',
   'conversationDetail.system': 'ವ್ಯವಸ್ಥೆ',
   'conversationDetail.untitled': 'ಶೀರ್ಷಿಕೆರಹಿತ ಸಂಭಾಷಣೆ',
+  'conversationListItem.messageCount': '{{count}} ಸಂದೇಶ',
   'forgotPassword.subheading':
     'ನಿಮ್ಮ ಇಮೇಲ್ ಅನ್ನು ನಮೂದಿಸಿ, ನಾವು ನಿಮಗೆ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಕಳುಹಿಸುತ್ತೇವೆ.',
   'forgotPassword.successBody': 'ನಾವು ಇದೀಗ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಕಳುಹಿಸಿದ್ದೇವೆ {{email}} .',
@@ -97,6 +111,9 @@ export const ui: UiTranslations = {
   'history.voiceOnly': 'ಧ್ವನಿ ಮಾತ್ರ',
   'landing.copyright': '© {{year}} {{brand}} . ಜೋರಾಗಿ ಯೋಚಿಸಿ.',
   'landing.demoMessage1': 'ಹಾಯ್ ಸಾರಾ — ಹೊಸ ಅಭಿಯಾನದ ಬಗ್ಗೆ ಚಿಂತನೆ ನಡೆಸಲು ಸಿದ್ಧರಿದ್ದೀರಾ?',
+  'landing.demoMessage2': 'ಹೌದು — Q3 ಗಾಗಿ ಸಾವಯವ ಬೆಳವಣಿಗೆ ತಂತ್ರಗಳ ಮೇಲೆ ಗಮನ ಹರಿಸೋಣ.',
+  'landing.demoMessage3':
+    'ಚೆನ್ನಾಗಿದೆ. ನಾನು ಸಮುದಾಯ-ನೇತೃತ್ವದ ಉಪಕ್ರಮದಿಂದ ಪ್ರಾರಂಭಿಸುತ್ತೇನೆ. ಹಂತಗಳನ್ನು ವಿವರಿಸಲೇ?',
   'landing.eyebrow': 'ಧ್ವನಿ-ಸ್ಥಳೀಯ AI',
   'landing.featuresSubtitle':
     'ನೈಸರ್ಗಿಕ ಸಂಭಾಷಣೆಗಾಗಿ ನಿರ್ಮಿಸಲಾಗಿದೆ — ನಿಮ್ಮ ವೇಗ, ಸ್ವರ ಮತ್ತು ಸಂದರ್ಭಕ್ಕೆ ಹೊಂದಿಕೊಳ್ಳುತ್ತದೆ.',
@@ -125,10 +142,12 @@ export const ui: UiTranslations = {
   'parlanceLayout.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'parlanceLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'pricing.conversations': '{{count}} ಸಂಭಾಷಣೆಗಳು',
+  'pricing.cta.start': '{{tierName}} ಆಯ್ಕೆಮಾಡಿ',
   'pricing.cta.startFree': 'ಉಚಿತವಾಗಿ ಪ್ರಾರಂಭಿಸಿ',
   'pricing.cta.upgrade': 'ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ {{tierName}}',
   'pricing.empty': 'ಇದೀಗ ಯಾವುದೇ ಯೋಜನೆಗಳು ಲಭ್ಯವಿಲ್ಲ.',
   'pricing.error': 'ಬೆಲೆಯನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
+  'pricing.speech': '{{count}} ಧ್ವನಿ',
   'pricing.subtitle':
     'ನಿಮ್ಮ ಸಹಾಯಕರೊಂದಿಗೆ ನೀವು ಎಷ್ಟು ಬಾರಿ ಮಾತನಾಡುತ್ತೀರಿ ಎಂಬುದಕ್ಕೆ ಸೂಕ್ತವಾದ ಯೋಜನೆಯನ್ನು ಆರಿಸಿ.',
   'privacy.collection.account': 'ನಿಮ್ಮ ಖಾತೆಯ ಇಮೇಲ್ ವಿಳಾಸ ಮತ್ತು ಪ್ರದರ್ಶನ ಹೆಸರು',
@@ -137,6 +156,8 @@ export const ui: UiTranslations = {
   'privacy.deletion.body':
     'ನೀವು ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ಸಂಬಂಧಿತ ಪುಟದಿಂದ ಸಂಭಾಷಣೆ, ವ್ಯಕ್ತಿತ್ವ ಅಥವಾ ಆಡಿಯೊ ಕ್ಲಿಪ್ ಅನ್ನು ಅಳಿಸಬಹುದು. ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಂದ ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಅಳಿಸುವುದರಿಂದ ನಿಮ್ಮ ಕಾರ್ಯಸ್ಥಳಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಪ್ರತಿಯೊಂದು ಸಂಭಾಷಣೆ, ಪ್ರತಿಲೇಖನ ಮತ್ತು ವ್ಯಕ್ತಿತ್ವ ಸಾಲನ್ನು ಶುದ್ಧೀಕರಿಸಲಾಗುತ್ತದೆ.',
   'privacy.eyebrow': 'ಕಾನೂನುಬದ್ಧ',
+  'privacy.intro':
+    'ನೀವು ರಚಿಸುವ ಸಂಭಾಷಣೆಗಳನ್ನು ಮತ್ತು ಧ್ವನಿ ಕ್ಲಿಪ್ಗಳನ್ನು ಸಹಾಯಕ ಅನುಭವವನ್ನು ನೀಡಲು ಅಗತ್ಯವಿರುವಷ್ಟು ಕಾಲ ಮಾತ್ರ {{app}} ಸಂಗ್ರಹಿಸುತ್ತದೆ. ನಾವು ನಿಮ್ಮ ಡೇಟಾವನ್ನು ಎಂದಿಗೂ ಮಾರುವುದಿಲ್ಲ, ಮತ್ತು ಬಾಹ್ಯ AI ಮಾದರಿಗಳನ್ನು ತರಬೇತಿಗೊಳಿಸಲು ಗ್ರಾಹಕರ ಆಡಿಯೋ ಅಥವಾ ಪ್ರತಿಲಿಪಿಗಳನ್ನು ಎಂದಿಗೂ ಬಳಸುವುದಿಲ್ಲ.',
   'privacy.lastUpdated': 'ಕೊನೆಯದಾಗಿ ನವೀಕರಿಸಿದ್ದು: 2026-05-01',
   'privacy.processors.body':
     'ನೀವು ನಿಮ್ಮ ಸಹಾಯಕರೊಂದಿಗೆ ಮಾತನಾಡುವಾಗ, ನಿಮ್ಮ ಆಡಿಯೊವನ್ನು ಪ್ರತಿಲೇಖನಕ್ಕಾಗಿ OpenAI Whisper ಗೆ, ಪ್ರತ್ಯುತ್ತರಕ್ಕಾಗಿ ನಿಮ್ಮ ಪ್ರತಿಲೇಖನವನ್ನು ಆಂಥ್ರೊಪಿಕ್ (ಕ್ಲೌಡ್) ಗೆ ಮತ್ತು ಧ್ವನಿ ಸಂಶ್ಲೇಷಣೆಗಾಗಿ ElevenLabs ಅಥವಾ OpenAI ಗೆ ರವಾನಿಸುತ್ತೇವೆ. ಪ್ರತಿಯೊಂದು ಪೂರೈಕೆದಾರರು ತನ್ನದೇ ಆದ ಡೇಟಾ-ಸಂಸ್ಕರಣಾ ನಿಯಮಗಳಿಗೆ ಬದ್ಧರಾಗಿರುತ್ತಾರೆ; ಮರುತರಬೇತಿಗಾಗಿ ಏನನ್ನೂ ಉಳಿಸಿಕೊಳ್ಳಲಾಗುವುದಿಲ್ಲ.',
@@ -158,13 +179,19 @@ export const ui: UiTranslations = {
   'resetPassword.newPassword': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'resetPassword.subheading': 'ಮಾತನಾಡುತ್ತಲೇ ಇರಲು ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಆಯ್ಕೆಮಾಡಿ.',
   'search.agentPreview': 'ವಿವರಣೆ ಇಲ್ಲ',
+  'search.emptyBody': 'ಬೇರೆ ಕೀವರ್ಡ್ ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ಅದನ್ನು ಗಟ್ಟಿಯಾಗಿ ಹೇಳಿ.',
   'search.emptyTitle': 'ಯಾವುದೇ ಹೊಂದಾಣಿಕೆಗಳಿಲ್ಲ',
   'search.eyebrow': 'ಕಮಾಂಡ್ ಪ್ಯಾಲೆಟ್',
   'search.fetchError': 'ಹುಡುಕಾಟ ಸೂಚಿಯನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'search.static.billing.preview': 'ಯೋಜನೆಗಳು, ಪಾವತಿ ವಿಧಾನ ಮತ್ತು ಇನ್ವಾಯ್ಸ್ಗಳು',
+  'search.static.billing.title': 'ಬಿಲ್ಲಿಂಗ್',
   'search.static.profile.preview': 'ಪ್ರದರ್ಶನ ಹೆಸರು, ಹ್ಯಾಂಡಲ್, ಜೀವನ ಚರಿತ್ರೆ',
+  'search.static.profile.title': 'ಪ್ರೊಫೈಲ್',
+  'search.static.voice.preview': 'ಡೀಫಾಲ್ಟ್ ಧ್ವನಿ ಮತ್ತು ಭಾಷೆ ಆದ್ಯತೆಗಳು',
   'search.static.voice.title': 'ಧ್ವನಿ',
   'search.title': 'ಪರಿಭಾಷೆಯಲ್ಲಿ ಹುಡುಕಿ',
   'search.transcriptPreview': 'ಪ್ರತಿಲೇಖನವನ್ನು ತೆರೆಯಿರಿ',
+  'settings.appearance.description': 'ಬೆಳಕು ಮತ್ತು ಕತ್ತಲೆ ಮೋಡ್ ನಡುವೆ ಟಾಗಲ್ ಮಾಡಿ.',
   'settings.appearance.title': 'ಗೋಚರತೆ',
   'settings.loadError': 'ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'settings.privacy.${row.key}.label': 'ಅಧಿಸೂಚನೆಗಳು',
@@ -181,6 +208,8 @@ export const ui: UiTranslations = {
   'terms.changes.body':
     'ಈ ನಿಯಮಗಳು ಗಣನೀಯವಾಗಿ ಬದಲಾದರೆ ನಾವು ನಿಮಗೆ ಅಪ್ಲಿಕೇಶನ್‌ನಲ್ಲಿ ತಿಳಿಸುತ್ತೇವೆ; ಸೂಚನೆಯ ನಂತರವೂ ಬಳಸುವುದನ್ನು ಮುಂದುವರಿಸುವುದು ಎಂದರೆ ನೀವು ನವೀಕರಣಗಳನ್ನು ಸ್ವೀಕರಿಸುತ್ತೀರಿ ಎಂದರ್ಥ.',
   'terms.eyebrow': 'ಕಾನೂನುಬದ್ಧ',
+  'terms.intro':
+    'ಈ ನಿಯಮಗಳು {{app}} ನಿಮ್ಮ ಬಳಕೆಯನ್ನು ನಿಯಂತ್ರಿಸುತ್ತವೆ. ಖಾತೆ ರಚಿಸುವ ಮೂಲಕ ನೀವು ಅವುಗಳಿಗೆ ಒಪ್ಪುತ್ತೀರಿ.',
   'terms.lastUpdated': 'ಕೊನೆಯದಾಗಿ ನವೀಕರಿಸಿದ್ದು: 2026-05-01',
   'terms.title': 'ಸೇವಾ ನಿಯಮಗಳು',
   'terms.usage.body':

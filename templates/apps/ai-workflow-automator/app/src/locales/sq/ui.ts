@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite është një platformë automatizimi e rrjedhës së punës që lidh së bashku shkaktarët, kushtet e inteligjencës artificiale dhe veprimet me shumë hapa, në mënyrë që ekipet të mund të zhvendosin punën midis sistemeve pa shkruar kod ngjitës.',
+  'about.philosophy':
+    'Çdo rrjedhë pune është një grafik hapash të vegjël e të vëzhgueshëm. Çdo hap regjistron hyrjet, daljet dhe kohën e tij, kështu që mund të inspektohet, riprodhohet ose kthehet mbrapsht. Ndërtoji vizualisht, versionoji si kod.',
   'about.title': 'Rreth Dendritit',
   'authShell.brand': 'Dendrit',
   'authShell.support': 'Mbështetje',
@@ -15,9 +17,15 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Ndrysho planin',
   'billing.description':
     'Ndiqni përdorimin, menaxhoni planin tuaj dhe nxirrni faturat për kontabilitet.',
+  'billing.eyebrow': 'Llogaria · Plani dhe përdorimi',
+  'billing.failedLabel': 'Ekzekutime të dështuara · 24h',
+  'billing.invoicesEmpty':
+    'Nuk ka fatura ende. Ato do të shfaqen këtu pas rinovimit të parë me pagesë.',
   'billing.invoicesTitle': 'Historiku i faturave',
   'billing.planNoteFree':
     'Shtresa e lirë — {{runs}} vrapon dhe {{workflows}} rrjedha pune aktive. Përmirësojeni për kufij më të lartë.',
+  'billing.planNotePaid':
+    'Plan me pagesë — {{runs}} ekzekutime dhe {{workflows}} rrjedha pune aktive.',
   'billing.runsLabel': 'Ekzekutohet në 24 orët e fundit',
   'billing.tiersBlurb':
     'Krahasoni çdo nivel — ekzekutimet, rrjedhat aktive të punës, veçoritë e përparuara dhe mbështetjen — në faqen e dedikuar të çmimeve.',
@@ -35,10 +43,14 @@ export const ui: UiTranslations = {
     'Nuk janë regjistruar integrime. Konfiguroni çelësat e ofruesit për të aktivizuar lidhjet.',
   'connections.error': 'Nuk mund të ngarkoheshin lidhjet.',
   'connections.eyebrow': 'Integrime · {{connected}} i lidhur',
+  'connections.loading': 'Duke ngarkuar integrimet…',
+  'connections.openEnv':
+    'Për të lidhur këtë ofrues, vendos çelësin e tij API në api/.env dhe rinis serverin.',
   'dashboard.description':
     '{{active}} rrjedhat e punës janë aktive. {{failed}} dështoi në 24 orët e fundit.',
   'dashboard.error': 'Paneli i kontrollit nuk mund të ngarkohej.',
   'dashboard.eyebrow': 'Operacione · drejtpërdrejt',
+  'dashboard.hero.label': 'Ekzekutime sot',
   'dashboard.hero.medianLatency': 'latenca e p50',
   'dashboard.hero.queue': 'Thellësia e radhës',
   'dashboard.hero.success': 'Sukses',
@@ -46,14 +58,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Kohëzgjatja mesatare',
   'dashboard.kpi.failedRuns': 'Dështoi · 24 orë',
   'dashboard.kpi.outOf': 'e {{total}} total',
+  'dashboard.kpi.successRate': 'Norma e suksesit · 24h',
   'dashboard.loading': 'Paneli po ngarkohet…',
   'dashboard.recentRuns.empty':
     'Ende nuk ka ekzekutime. Aktivizimi i një fluksi pune do ta mbushë këtë burim.',
   'dashboard.recentRuns.title': 'Vrapimet e fundit',
   'dashboard.recentRuns.viewAll': 'Ekzekutime të hapura →',
+  'dashboard.recentWorkflows.browse': 'Shfleto shabllonet →',
   'dashboard.recentWorkflows.empty':
     'Ende nuk ka rrjedha pune. Instaloni një shabllon ose ndërtoni një nga e para.',
   'dashboard.recentWorkflows.title': 'Ekzekutuar së fundmi',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'Filloi',
   'dashboard.run.col.trigger': 'Shkaktues',
   'dashboard.run.col.workflow': 'Fluksi i punës',
@@ -89,6 +104,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Fluksi i punës',
   'executions.description':
     'Çdo ekzekutim i fluksit të punës, çdo ripërpjekje, çdo rezultat i çdo hapi — të gjitha të vëzhgueshme.',
+  'executions.empty.filter': 'Asnjë ekzekutim nuk përputhet me këtë filtër.',
   'executions.empty.first':
     'Ende nuk ka ekzekutime — aktivizoni një rrjedhë pune për të populluar këtë listë.',
   'executions.error': 'Nuk mund të ngarkoheshin ekzekutimet.',
@@ -99,30 +115,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Duke ngarkuar historikun e ekzekutimeve…',
   'executions.title': 'Ekzekutime',
   'forgotPassword.confirmation': 'Lidhja e rivendosjes u dërgua te {{email}} .',
+  'forgotPassword.subhead': 'Shkruani email-in tuaj për të marrë një lidhje rivendosjeje.',
   'forgotPassword.successSubhead':
     'Ne dërguam një lidhje rivendosjeje te {{email}} Skadon për 30 minuta.',
   'help.connections.body':
     'Hapat e inteligjencës artificiale, email-it dhe ruajtjes kërkojnë që çelësat e ofruesit të vendosen në skedarin api/.env. Pasi të konfigurohet një çelës, integrimi përkatës shfaqet si i lidhur në faqen Lidhjet.',
+  'help.connections.cta': 'Hap lidhjet →',
   'help.connections.title': 'Lidhja e ofruesve',
   'help.gettingStarted.body':
     'Flukset e reja të punës mund të instalohen nga biblioteka e shablloneve ose të ndërtohen nga e para në ndërtuesin e rrjedhës së punës. Çdo rrjedhë pune ka një shkaktar (manual, webhook ose cron) dhe një sekuencë hapash që ekzekutohen me radhë.',
+  'help.gettingStarted.cta': 'Shfleto bibliotekën e shablloneve →',
+  'help.gettingStarted.title': 'Si të filloni',
   'help.intro':
     'Gjeni përgjigje për pyetje të zakonshme në lidhje me ndërtimin e rrjedhave të punës, konfigurimin e lidhjeve dhe interpretimin e rezultateve të ekzekutuara. Temat më të zakonshme janë renditur më poshtë; për çdo gjë që nuk trajtohet, kontaktoni administratorin e hapësirës suaj të punës.',
   'help.runs.body':
     'Çdo ekzekutim regjistron çdo hap në mënyrë të pavarur me statusin (sukses, dështim, anashkaluar) dhe një fragment të rezultatit. Faqja e detajeve të ekzekutimit tregon gjurmën e plotë hap pas hapi plus metrikat e nxjerra.',
+  'help.runs.cta': 'Ekzekutime të hapura →',
   'help.runs.title': 'Leximi i rezultatit të ekzekutimit',
   'help.title': 'Qendra e ndihmës',
   'integrationCard.manage': 'Menaxho',
   'landing.brand': 'Dendrit',
   'landing.demo.action.subtitle': 'Round-robin · territor',
+  'landing.demo.action.title': 'Njofto përfaqësuesin',
   'landing.demo.condition.subtitle': 'Klasifikuesi i qëllimit të IA-së',
+  'landing.demo.condition.title': 'Pikët ≥ mesatare?',
   'landing.demo.trigger.subtitle': 'POST /formularë/kontakt',
   'landing.demo.trigger.title': 'Webhook hyrës',
+  'landing.features.body':
+    'Shkaktuesit aktivizohen. Kushtet degëzohen. Veprimet dërgojnë punën. Ndërtoji vizualisht, versionoji si kod.',
   'landing.features.heading': 'Tre lloje nyjesh. Forma të pafundme.',
   'landing.footer.help': 'Ndihmë',
   'landing.footer.tagline': 'Inteligjenca në lëvizje',
+  'landing.hero.body':
+    '{{appName}} është motori i rrjedhave të punës për ekipet e operacioneve që e kanë tejkaluar Zapier. Shkaktues, kusht, veprim — të lidhur me çdo sistem që përdorni vërtet.',
   'landing.hero.eyebrow': 'Inteligjenca në lëvizje',
   'landing.hero.headline': 'Lidhni pirgun tuaj së bashku. Lëreni punën të ndodhë.',
+  'landing.hero.primaryCta': 'Ndërto rrjedhën tënde të parë të punës',
   'landing.hero.proof.ai': 'Nyje të integruara të inteligjencës artificiale',
   'landing.hero.proof.free': 'Falas për 1k vrapim/muaj',
   'landing.hero.proof.soc2': 'SOC 2 Tipi II',
@@ -130,10 +158,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Paguaj për vrapime, jo për vende.',
   'landing.templates.body':
     'Flukse pune të parapërgatitura për çdo ekip — shitje, mbështetje, zhvillim, financa. Instaloni me një klikim; modifikoni çdo gjë.',
+  'landing.templates.cta': 'Regjistrohu për të shfletuar shabllonet →',
   'landing.templates.eyebrow': 'Filloni në sekonda',
   'landing.templates.heading': 'Një bibliotekë me receta të verifikuara.',
   'landing.templates.signupHint': 'Regjistrohu për të instaluar',
   'login.hidePassword': 'Fshih fjalëkalimin',
+  'login.noAccount': 'I ri në Tessera?',
   'login.showPassword': 'Shfaq fjalëkalimin',
   'login.subhead': 'Kyçu për të mbajtur automatizimet e tua në funksionim.',
   'mobileNav.drawerLabel': 'Navigimi kryesor',
@@ -149,8 +179,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Ekzekutoni një rrjedhë pune për të filluar mbushjen e këtij burimi.',
   'notifications.empty.title': 'Je i informuar plotësisht',
   'notifications.eyebrow': '{{n}} i palexuar',
+  'planUpdated.body':
+    'Ndryshimi i faturimit tani është aktiv. Mund ta menaxhoni planin tuaj në çdo kohë nga faqja e faturimit.',
+  'planUpdated.retry': 'Provo përsëri',
+  'planUpdated.verifyFailed': 'Nuk mundëm ta konfirmonim ende pagesën tuaj.',
+  'planUpdated.verifyFailedBody':
+    'Pagesa juaj mund të jetë ende duke u përpunuar. Provoni përsëri pas pak.',
   'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'pricing.heading': 'vrapon',
+  'pricing.runsSuffix': 'ekzekutime',
   'pricing.workflowsSuffix': 'rrjedhat e punës',
   'privacy.collect.body':
     "Ne mbledhim adresën e email-it me të cilën regjistroheni, rrjedhat e punës që konfiguroni dhe meta të dhënat rreth çdo ekzekutimi (ora e fillimit, koha e mbarimit, statusi). Ne nuk mbledhim ose ruajmë kurrë përmbajtje nga ngarkesa e dobishme nga shkaktarët ose rezultatet e hapave përtej asaj që është e nevojshme për t'u shfaqur në shikuesin e ekzekutimit për pronarin e hapësirës së punës.",
@@ -166,12 +203,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Fjalëkalimi nuk mund të përditësohej.',
   'resetPassword.newPassword': 'Fjalëkalim i ri',
   'resetPassword.subhead': 'Zgjidhni diçka që vetëm ju do ta merrni me mend.',
+  'settings.appearance.description': 'Kaloni midis modalitetit të ndriçuar dhe të errët.',
+  'settings.appearance.title': 'Pamja',
   'settings.billingShortcut.cta': 'Faturim i hapur',
   'settings.billingShortcut.description':
     'Plani, përdorimi dhe faturat janë të disponueshme në faqen e dedikuar të faturimit.',
   'settings.danger.confirm':
     'Je i sigurt? Kjo do ta vendosë hapësirën tënde të punës në radhë për fshirje.',
   'settings.danger.confirmYes': 'Po, fshirja e radhës',
+  'settings.danger.deleteWorkspace.cta': 'Fshi hapësirën e punës',
   'settings.danger.deleteWorkspace.hint':
     'Heq të gjitha rrjedhat e punës, ekzekutimet dhe lidhjet pas një periudhe hiri 14-ditore.',
   'settings.danger.deleteWorkspace.title': 'Fshi hapësirën e punës',
@@ -182,10 +222,15 @@ export const ui: UiTranslations = {
     'Menaxhoni llogarinë, hapësirën e punës, integrimet dhe faturimin tuaj në një vend.',
   'settings.notifications.description':
     'Zgjidhni se cilat ngjarje ju faqojnë, ju dërgojnë email ose qëndroni në heshtje.',
+  'settings.notifications.failures.hint':
+    'Njoftim me email dhe në aplikacion për çdo ekzekutim të dështuar.',
+  'settings.notifications.failures.title': 'Dështimet e rrjedhave të punës',
   'settings.notifications.product.hint':
     'Email-e të herëpashershme rreth shablloneve dhe veçorive të reja.',
+  'settings.notifications.product.title': 'Përditësimet e produktit',
   'settings.notifications.weekly.hint':
     'Përmbledhje e të hënës në mëngjes e vrapimeve dhe kursimeve të javës së kaluar.',
+  'settings.notifications.weekly.title': 'Përmbledhje javore',
   'settings.profile.description':
     'Si dukeni brenda ekzekutuesit të rrjedhës së punës. Përdoret në aktivitetin e hapësirës së punës.',
   'settings.profile.noEmail': 'Nuk ka email të regjistruar',
@@ -193,12 +238,24 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Nuk mund të ruheshin ndryshimet e profilit.',
   'settings.profile.unnamedUser': 'Përdorues i paemërtuar',
   'settings.security.audit.hint': 'Transmetoni çdo veprim në SIEM-in tuaj nëpërmjet webhook-ut.',
+  'settings.security.audit.title': 'Përcjellja e regjistrit të auditimit',
   'settings.security.description': 'Autorizimi me dy faktorë, SSO dhe seancat aktive.',
   'settings.security.sso.hint': 'Në dispozicion në planet Scale dhe Enterprise.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'E nevojshme për çdo veprim të pronarit të hapësirës së punës.',
+  'settings.security.totp.title': 'Vërtetim me dy faktorë (TOTP)',
   'settings.twoFactorCode': 'Kodi i vërtetimit',
   'settings.twoFactorDisable': 'Çaktivizo',
+  'settings.twoFactorDisableTitle': 'Çaktivizo vërtetimin me dy faktorë',
   'settings.twoFactorEnable': 'Aktivizo',
+  'settings.twoFactorEnableTitle': 'Aktivizo vërtetimin me dy faktorë',
   'settings.twoFactorInvalidCode': 'Kod i pavlefshëm',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Kodi QR dy faktorë',
+  'settings.twoFactorScan':
+    'Skano këtë kod QR me aplikacionin e vërtetimit, pastaj shkruaj kodin 6-shifror.',
+  'settings.twoFactorUnavailable':
+    'Autentifikimi me dy faktorë nuk është i disponueshëm për këtë aplikacion.',
   'settings.twoFactorVerify': 'Verifiko dhe aktivizo',
   'settings.workspace.description':
     'Identitet i përbashkët, rajon dhe parazgjedhje ekzekutimi për ekipin tuaj.',
@@ -227,6 +284,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Shabllon',
   'templates.description':
     'Plane të parapërgatitura për automatizimet më të zakonshme. Përziej, personalizo, dërgo.',
+  'templates.empty.filter': 'Asnjë shabllon nuk përputhet me kërkimin tënd.',
   'templates.empty.first': 'Nuk ka shabllone të disponueshme tani për tani.',
   'templates.error': 'Nuk mund të ngarkoheshin shabllonet.',
   'templates.installs': 'instalime',
@@ -252,6 +310,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Çaktivizo',
   'workflowBuilder.enable': 'Aktivizo',
   'workflowBuilder.error': 'Nuk mund të ngarkohej rrjedha e punës.',
+  'workflowBuilder.inspector.config': 'Konfigurimi',
+  'workflowBuilder.inspector.cron': 'Shprehje cron',
+  'workflowBuilder.inspector.disabled': 'Çaktivizuar — nuk do të ekzekutohet automatikisht.',
   'workflowBuilder.inspector.enabled': 'Aktivizuar — ekzekutohet kur aktivizohet.',
   'workflowBuilder.inspector.eyebrow': 'Inspektor',
   'workflowBuilder.inspector.id': 'ID',
@@ -269,18 +330,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Aktivizimi dështoi.',
   'workflowBuilder.workflow': 'Fluksi i punës · v {{v}}',
   'workflowBuilder.zoom.in': 'Zmadho',
+  'workflowBuilder.zoom.label': 'Kontrollet e zmadhimit të kanavacës',
+  'workflowBuilder.zoom.out': 'Zvogëlo',
   'workflowCard.lastRun': 'Vrapimi i fundit {{when}}',
   'workflowCard.runs': '{{count}} vrapon',
+  'workflowCard.success': '{{rate}}% sukses',
   'workflowHeroCard.last24h': '24 orët e fundit',
+  'workflows.browseTemplates': 'Shfleto shabllonet →',
   'workflows.description':
     'Çdo automatizim në hapësirën tuaj të punës, me një shikim të shpejtë mbi gjendjen dhe aktivitetin e fundit.',
+  'workflows.empty.body': 'Provo të pastrosh filtrin ose nis nga një shabllon.',
   'workflows.empty.firstBody': 'Instaloni një shabllon për të filluar brenda sekondash.',
   'workflows.empty.firstTitle': 'Ende nuk ka rrjedha pune',
   'workflows.empty.title': 'Nuk përputhen rrjedhat e punës',
   'workflows.error': 'Nuk mund të ngarkoheshin rrjedhat e punës.',
   'workflows.eyebrow': 'Biblioteka · {{count}} total',
+  'workflows.loading': 'Po ngarkohen rrjedhat e punës…',
   'workflows.newFromTemplate': 'E re nga shablloni',
   'workflows.searchPlaceholder': 'Kërkoni rrjedhat e punës…',
+  'workflows.title': 'Rrjedhat e punës',
   'workflowSidebar.brand': 'Dendrit',
   'workflowSidebar.status': 'Të gjitha sistemet në funksionim',
   'workflowSidebar.tagline': 'Inteligjenca në lëvizje',

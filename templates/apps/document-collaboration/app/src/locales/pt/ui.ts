@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tem feedback, encontrou um bug ou quer {{app}} para o seu estúdio ou equipa? Contacte-nos a partir das definições da sua conta — todas as mensagens chegam a uma pessoa real da equipa.',
   'about.contactTitle': 'Fale connosco',
+  'about.intro':
+    '{{app}} é um estúdio de escrita colaborativa onde editores, escritores e equipas escrevem em conjunto em tempo real. Abra um documento e a página torna-se partilhada — os cursores movem-se, os comentários organizam-se na margem e todas as revisões ficam guardadas em segurança no histórico.',
+  'about.missionBody':
+    'Acreditamos que a escrita de longa duração merece um espaço calmo e focado — construído em torno do manuscrito, não da reunião nem da caixa de entrada. O nosso editor, a presença em tempo real e o histórico de versões foram todos concebidos para que os colaboradores avancem rapidamente em conjunto sem que ninguém perca um parágrafo ou uma ideia.',
+  'about.missionTitle': 'Nossa missão',
+  'about.subtitle': 'Pensem juntos, escrevam para sempre.',
   'about.title': 'Sobre {{app}}',
   'comments.addFailed': 'Não foi possível publicar o comentário.',
   'comments.backToDoc': 'Voltar ao manuscrito',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Tópicos de comentários',
   'comments.loading': 'Carregando tópicos…',
   'comments.newPlaceholder': 'Adicione um comentário ao manuscrito…',
+  'comments.newSubmit': 'Publicar',
   'comments.reopen': 'Reabrir',
   'comments.reopenFailed': 'Não foi possível reabrir.',
   'comments.replyFailed': 'Não foi possível publicar a resposta.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Rascunhos recentes, trabalhos compartilhados e as edições do dia.',
   'dashboard.viewFeed': 'Feed →',
   'editor.back': 'Voltar aos manuscritos',
+  'editor.bodyLabel': 'Corpo do documento',
   'editor.bodyPlaceholder': 'Comece onde o cursor pisca.',
   'editor.comments': 'Comentários',
   'editor.createFailed': 'Não foi possível criar o documento.',
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'escritor@studio.com',
   'forgotPassword.sentBody':
     'Se existir uma conta para {{email}}, um link de redefinição está a caminho.',
+  'forgotPassword.sentHeading': 'Verifique seu e-mail',
+  'forgotPassword.submitting': 'Enviando…',
   'forgotPassword.subtitle': 'Enviaremos um link de redefinição por e-mail.',
   'landing.copyright': '\\u00a9 {{year}} {{app}}. Desenvolvido com Molecule.',
+  'landing.ctaBody':
+    'Gratuito para escritores individuais. Planos Studio para equipas de editores, ghostwriters e revisores.',
   'landing.ctaHeading': 'Abra a página. Deixe o cursor começar.',
   'landing.ctaPrimary': 'Abrir um estúdio',
   'landing.eyebrow': 'Para escritores, editores e equipes',
   'landing.featuresEyebrow': 'O que você ganha',
   'landing.featuresHeading': 'Um estúdio para o rascunho longo.',
+  'landing.featuresSubtitle':
+    '{{appName}} é construído em torno do manuscrito — não da reunião, não da caixa de entrada.',
   'landing.getStarted': 'Abrir o estúdio',
   'landing.heroCta': 'Começar a escrever',
   'landing.heroSubtitle':
@@ -95,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} não lidas · comentários, menções, convites de compartilhamento e pedidos de sugestão.',
   'presenceAvatars.label': '{{count}} colaboradores',
+  'privacy.intro': 'Como recolhemos, utilizamos e protegemos a sua informação.',
   'privacy.title': 'Política de privacidade',
   'profile.about.description':
     'Uma biografia curta para o seu perfil público e as páginas de colaboradores.',
@@ -108,7 +125,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Presença',
   'profile.pronouns': 'Pronomes',
   'profile.publicToggle': 'Mostrar o perfil aos colegas',
+  'profile.role': 'Função / cargo',
   'profile.subtitle': 'Como você aparece para os seus colaboradores.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} escritores atuantes no estúdio',
   'quillonAuthBrandPanel.quote':
     '“Escrever é a única coisa que, quando faço, não sinto que deveria estar fazendo outra coisa.”',
@@ -116,6 +135,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Abrir →',
   'quillonKpiCard.trend': 'Tendência recente',
   'quillonLayout.menu': 'Menu',
+  'quillonLayout.mobileNavLabel': 'Navegação móvel',
   'quillonLayout.primaryNavLabel': 'Navegação principal',
   'quillonStudioHero.collab': 'Colaboradores',
   'quillonStudioHero.docs': 'Documentos tocados',
@@ -125,7 +145,9 @@ export const ui: UiTranslations = {
     'Retome o manuscrito, deixe um comentário, empurre um parágrafo adiante.',
   'quillonStudioHero.words': 'Palavras hoje',
   'resetPassword.confirmPlaceholder': 'Repita a nova senha',
+  'resetPassword.passwordLabel': 'Nova senha',
   'resetPassword.passwordPlaceholder': 'Digite uma nova senha',
+  'resetPassword.submitting': 'Redefinindo…',
   'resetPassword.subtitle': 'Escolha uma senha forte — pelo menos 12 caracteres.',
   'settings.account.description': 'Como você entra.',
   'settings.billing.canceled': 'Assinatura cancelada.',
@@ -134,7 +156,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Não configurado',
   'settings.billing.updated': 'Plano atualizado.',
   'settings.editor.description': 'Como a tela se comporta enquanto você escreve.',
+  'settings.editor.title': 'Preferências do editor',
   'settings.eyebrow': 'Preferências do estúdio',
+  'settings.language.title': 'Idioma',
   'settings.notifications.${n.key}.description': 'Idioma',
   'settings.notifications.description': 'Escolha o que chega na sua caixa de entrada.',
   'settings.subtitle': 'Ajuste notificações, a tela do editor e as preferências da conta.',
@@ -143,6 +167,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Compartilhados comigo',
   'shared.loadFailed': 'Não foi possível carregar os documentos compartilhados.',
   'shared.subtitle': 'Manuscritos, briefings e notas do restante do estúdio.',
+  'signup.brandAttribution': 'Anaïs Park — Editora, The Quarterly',
   'signup.brandQuote':
     '“Seu primeiro manuscrito é o mais difícil. O Quillon o torna menos solitário.”',
   'signup.emailPlaceholder': 'escritor@studio.com',
@@ -150,6 +175,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Anaïs',
   'signup.heading': 'Crie a sua conta Quillon',
   'signup.lastNamePlaceholder': 'Park',
+  'signup.submitting': 'A abrir o seu estúdio\\u2026',
   'signup.subtitle':
     'Uma mesa silenciosa, colaboradores discretos e um editor longo que não atrapalha.',
   'templates.blank.subtitle': 'Uma página limpa. O cursor começa.',
@@ -162,11 +188,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Comece com uma estrutura pensada. Personalize sem limites.',
   'templates.useFailed': 'Não foi possível iniciar um documento a partir deste modelo.',
   'templates.useTemplate': 'Usar este modelo',
+  'terms.intro': 'As condições ao abrigo das quais pode utilizar este serviço.',
   'terms.title': 'Termos de serviço',
   'time.daysAgo': 'há {{days}} d',
   'time.hoursAgo': 'há {{hours}} h',
   'time.justNow': 'agora mesmo',
   'trash.confirmDelete': 'Confirmar exclusão',
+  'trash.confirmEmpty': 'Confirmar — eliminar tudo',
   'trash.deleteFailed': 'Não foi possível excluir.',
   'trash.deleteForever': 'Excluir definitivamente',
   'trash.empty': 'Nada para recuperar.',
@@ -180,7 +208,9 @@ export const ui: UiTranslations = {
   'versionHistory.backToDoc': 'Voltar ao manuscrito',
   'versionHistory.empty': 'Sem revisões ainda — salve o documento para iniciar o histórico.',
   'versionHistory.heading': 'Histórico de versões',
+  'versionHistory.latest': 'Mais recente',
   'versionHistory.loadFailed': 'Não foi possível carregar o histórico.',
+  'versionHistory.noContent': 'Nenhum conteúdo capturado para esta revisão.',
   'versionHistory.previewing': 'Pré-visualizando',
   'versionHistory.restore': 'Restaurar esta versão',
   'versionHistory.restoreFailed': 'Falha ao restaurar.',

@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Punya masukan, menemukan bug, atau ingin membawa {{app}} ke sekolah atau timmu? Kami membaca setiap pesan — hubungi kami dari pengaturan akunmu dan manusia sungguhan akan membalas.',
   'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.intro':
+    '{{app}} adalah teka-teki kata harian. Tebak kata lima huruf dalam enam percobaan, jaga runtutan kemenanganmu, bagikan kisi emojimu, dan lihat bagaimana semua pemain berhasil pada kata hari ini.',
+  'about.missionBody':
+    'Teka-teki yang bagus adalah kemenangan kecil setiap hari. {{app}} dibangun di sekitar satu kata bersama setiap hari — cukup cepat untuk jeda kopi, cukup menantang untuk kembali besok.',
+  'about.missionTitle': 'Misi kami',
   'about.title': 'Tentang {{app}}',
   'archive.loadError': 'Tidak dapat memuat arsip.',
   'archive.missed': 'Terlewat',
   'archive.notPlayed': 'Belum dimainkan',
+  'archive.subhead':
+    'Mainkan ulang hari mana pun sebagai latihan — tanpa runtutan, tanpa statistik, tetap seru.',
   'archive.title': 'Arsip',
   'auth.backToHome': 'Kembali ke beranda',
   'auth.backToHomeArrow': '← Kembali ke beranda',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Lupa kata sandi?',
   'auth.login.loggingIn': 'Memasukkan Anda…',
   'auth.login.logIn': 'Mainkan kata hari ini',
+  'auth.login.noAccount': 'Baru di Tessera?',
   'auth.login.or': 'atau lanjutkan dengan',
   'auth.login.password': 'Kata sandi',
   'auth.login.signInButton': 'Masuk',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Menyimpan…',
   'common.sendingEllipsis': 'Mengirim…',
   'common.startingEllipsis': 'Memulai…',
+  'forgotPassword.subhead':
+    'Masukkan email Anda dan kami akan mengirim tautan untuk mengatur ulang.',
+  'forgotPassword.success.body':
+    'Jika akun untuk {{email}} ada, Anda akan menerima tautan reset dalam beberapa menit.',
+  'forgotPassword.success.title': 'Periksa kotak masuk Anda.',
   'form.name': 'Nama',
   'howToPlay.cta.home': 'Kembali ke beranda',
   'howToPlay.cta.play': 'Mainkan teka-teki hari ini',
@@ -68,10 +83,16 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Streak yang tak ingin diputus',
   'leaderboard.daily.title': 'Yang menyelesaikan hari ini',
   'leaderboard.loadError': 'Tidak dapat memuat papan peringkat.',
+  'leaderboard.streaks.empty': 'Belum ada runtutan — jadilah yang pertama.',
+  'leaderboard.streaks.subhead': 'Runtutan kemenangan terpanjang sepanjang masa.',
   'leaderboard.streaks.title': 'Pemimpin streak',
+  'leaderboard.subhead':
+    'Bagaimana semua pemain berhasil hari ini, dan siapa yang memegang runtutan terpanjang.',
   'leaderboard.title': 'Papan peringkat',
   'login.headline': 'Selamat datang kembali.',
   'login.streakPill': 'Streak {{days}} hari menunggu',
+  'login.subhead':
+    'Masuk untuk menjaga runtutan kemenanganmu dan lihat bagaimana hasilmu pada kata hari ini.',
   'nav.archive': 'Arsip',
   'nav.editProfile': 'Edit profil',
   'nav.getStarted': 'Mulai',
@@ -89,6 +110,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Tidak ada kata seperti itu',
   'notFound.title': 'Rute itu kosong.',
   'planUpdated.message': 'Paket Anda sudah aktif.',
+  'planUpdated.retry': 'Coba lagi',
+  'planUpdated.verifyFailed': 'Kami belum dapat mengkonfirmasi pembayaran Anda.',
+  'planUpdated.verifyFailedBody':
+    'Pembayaran Anda mungkin masih diproses. Coba lagi sebentar lagi.',
   'planUpdated.verifying': 'Mengonfirmasi pembayaran Anda…',
   'play.alreadyFinished': 'Anda sudah menyelesaikan teka-teki ini',
   'play.answerWas': 'Katanya adalah',
@@ -104,6 +129,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Teka-teki latihan',
   'play.tooShort': 'Huruf kurang',
   'play.won': 'Berhasil!',
+  'pricing.advancedStats': 'Statistik lanjutan: {{yes}}',
+  'pricing.archiveHistory': '{{count}} hari riwayat arsip',
+  'pricing.archivePlays': '{{count}} main ulang arsip / hari',
+  'pricing.archiveUnlimited': 'Riwayat arsip tanpa batas',
+  'pricing.canExport': 'Ekspor data: {{yes}}',
+  'pricing.checkoutError': 'Tidak dapat memulai checkout. Silakan coba lagi.',
   'pricing.dailyWord': 'Kata harian',
   'pricing.heading': 'Pilih paket {{app}} Anda',
   'pricing.included': 'Termasuk',
@@ -111,7 +142,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Kata harian selalu gratis. Upgrade untuk tayangan ulang arsip tanpa batas dan statistik lebih mendalam.',
   'pricing.yearly': 'Tahunan',
+  'privacy.intro':
+    '{{app}} menghormati privasimu. Halaman ini merangkum data yang kami simpan, alasan kami menyimpannya, dan cara menghapusnya.',
   'privacy.title': 'Pemberitahuan privasi',
+  'resetPassword.subhead': 'Pilih kata sandi baru untuk kembali ke runtutanmu.',
   'settings.account': 'Akun',
   'settings.danger.body': 'Hapus permanen akun {{appName}} Anda dan semua riwayat teka-teki.',
   'settings.danger.confirm': 'Ya, hapus selamanya',
@@ -120,17 +154,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'Tamu',
   'settings.language.title': 'Bahasa',
   'settings.subhead': 'Sesuaikan profil, suara, dan bagaimana Anda tampil di papan peringkat.',
+  'settings.unnamed': 'Pemain Sparq',
   'settings.upgrade': 'Upgrade',
   'signup.eyebrow': 'Gratis selamanya — satu kata sehari',
   'signup.headline': 'Mulai streak Anda.',
+  'signup.subhead':
+    'Buat akun {{appName}} untuk memainkan kata harian, membangun runtutan, dan menaiki papan peringkat.',
   'stats.currentStreak': 'Streak',
   'stats.distribution.title': 'Distribusi tebakan',
   'stats.loadError': 'Tidak dapat memuat statistik Anda.',
   'stats.maxStreak': 'Streak maksimal',
   'stats.played': 'Dimainkan',
   'stats.playToday': 'Mainkan teka-teki hari ini',
+  'stats.subhead': 'Hanya teka-teki harian berperingkat — latihan arsip tidak pernah dihitung.',
   'stats.title': 'Statistik Anda',
   'stats.winRate': 'Tingkat kemenangan',
   'status.monthly': 'Bulanan',
+  'terms.intro':
+    'Dengan menggunakan {{app}} kamu menyetujui aturan di bawah ini. Jika kamu tidak dapat menerimanya, mohon jangan gunakan layanan ini.',
   'terms.title': 'Ketentuan layanan',
 }

@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kas sul on tagasisidet, leidsid vea või soovid {{app}} oma stuudiole või meeskonnale? Võta ühendust konto seadete kaudu — iga sõnum jõuab päris inimeseni meeskonnas.',
   'about.contactTitle': 'Võta meiega ühendust',
+  'about.intro':
+    '{{app}} on koostöö kirjutamisstuudio, kus toimetajad, kirjutajad ja meeskonnad koostavad tekste reaalajas. Ava dokument ja leht muutub ühiseks — kursorid liiguvad, kommentaarid kogunevad veerisele ja iga redaktsioon säilib turvaliselt ajaloos.',
+  'about.missionBody':
+    'Usume, et pikem kirjutamine väärib rahulikku ja keskendunud kodu — sellist, mis on üles ehitatud käsikirja, mitte koosoleku või postkasti ümber. Meie redaktor, reaalajas kohalolu ja versiooniajalugu on kõik loodud nii, et kaastöötajad saavad koos kiiresti edasi liikuda, ilma et keegi kaotaks lõigu või mõtte.',
+  'about.missionTitle': 'Meie missioon',
+  'about.subtitle': 'Mõtle koos, kirjuta igavesti.',
   'about.title': 'Teave rakenduse {{app}} kohta',
   'comments.addFailed': 'Kommentaari ei õnnestunud postitada.',
   'comments.backToDoc': 'Tagasi käsikirja juurde',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Kommentaarid',
   'comments.loading': 'Laadin teemasid…',
   'comments.newPlaceholder': 'Lisa käsikirjale kommentaar…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Uuesti avada',
   'comments.reopenFailed': 'Ei õnnestunud uuesti avada.',
   'comments.replyFailed': 'Vastust ei õnnestunud postitada.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Viimased kavandid, jagatud tööd ja tänased muudatused.',
   'dashboard.viewFeed': 'Uudised →',
   'editor.back': 'Tagasi käsikirjade juurde',
+  'editor.bodyLabel': 'Dokumendi sisu',
   'editor.bodyPlaceholder': 'Alusta kohast, kus kursor vilgub.',
   'editor.comments': 'Kommentaarid',
   'editor.createFailed': 'Dokumenti ei õnnestunud luua.',
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Kui kasutajale {{email}} on konto olemas, saadetakse talle varsti parooli taastamise link.',
+  'forgotPassword.sentHeading': 'Vaata oma e-posti',
+  'forgotPassword.submitting': 'Saadetakse\\u2026',
   'forgotPassword.subtitle': 'Saadame sulle e-postiga parooli taastamise lingi.',
   'landing.copyright': "\\u00a9 {{year}} {{app}} . Ehitatud Molecule'i abil.",
+  'landing.ctaBody':
+    'Tasuta üksikutele kirjutajatele. Stuudio plaanid toimetajate, kummituskirjutajate ja retsensentide meeskondadele.',
   'landing.ctaHeading': 'Ava leht. Alusta kirjutamist.',
   'landing.ctaPrimary': 'Avada stuudio',
   'landing.eyebrow': 'Kirjanikele, toimetajatele ja meeskondadele',
   'landing.featuresEyebrow': 'Mida sa saad',
   'landing.featuresHeading': 'Töökoda pikkade tekstide kavandite jaoks.',
+  'landing.featuresSubtitle':
+    '{{appName}} on üles ehitatud käsikirja ümber — mitte koosoleku, mitte postkasti.',
   'landing.getStarted': 'Ava stuudio',
   'landing.heroCta': 'Alusta kirjutamist',
   'landing.heroSubtitle':
@@ -95,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} loetamata · kommentaarid, mainimised, jagamiskutsed ja soovituste taotlused.',
   'presenceAvatars.label': '{{count}} kaasautorid',
+  'privacy.intro': 'Kuidas me kogume, kasutame ja kaitseme sinu teavet.',
   'privacy.title': 'Andmekaitsepoliitika',
   'profile.about.description':
     'Lühike elulugu sinu avalikule profiilile ja kaastöötajate lehekülgedele.',
@@ -107,7 +124,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Kohalolek',
   'profile.pronouns': 'Asesõnad',
   'profile.publicToggle': 'Näita profiili meeskonnakaaslastele',
+  'profile.role': 'Roll / ametinimetus',
   'profile.subtitle': 'Milline mulje jätad oma koostööpartneritele.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} stuudios tegutsevad kirjanikud',
   'quillonAuthBrandPanel.quote':
     '„Kirjutamine on ainus asi, mille juures ma ei tunne, et peaksin tegelema millegi muuga.“',
@@ -115,6 +134,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Ava →',
   'quillonKpiCard.trend': 'Viimase aja suundumus',
   'quillonLayout.menu': 'Menüü',
+  'quillonLayout.mobileNavLabel': 'Mobiilinavigatsioon',
   'quillonLayout.primaryNavLabel': 'Peamine navigeerimine',
   'quillonStudioHero.collab': 'Kaastöötajad',
   'quillonStudioHero.docs': 'Muudetud dokumendid',
@@ -123,7 +143,9 @@ export const ui: UiTranslations = {
   'quillonStudioHero.subtitle': 'Võta käsikiri kätte, jäta kommentaar, vii lõik edasi.',
   'quillonStudioHero.words': 'Tänased sõnad',
   'resetPassword.confirmPlaceholder': 'Korda uut parooli',
+  'resetPassword.passwordLabel': 'Uus parool',
   'resetPassword.passwordPlaceholder': 'Sisesta uus parool',
+  'resetPassword.submitting': 'Lähtestamine',
   'resetPassword.subtitle': 'Vali tugev parool – vähemalt 12 tähemärki.',
   'settings.account.description': 'Kuidas sisse logida.',
   'settings.billing.canceled': 'Tellimus on tühistatud.',
@@ -132,7 +154,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Ei ole konfigureeritud',
   'settings.billing.updated': 'Kava on uuendatud.',
   'settings.editor.description': 'Kuidas tööpind käitub kirjutamise ajal.',
+  'settings.editor.title': 'Redaktori eelistused',
   'settings.eyebrow': 'Stuudio eelistused',
+  'settings.language.title': 'Keel',
   'settings.notifications.${n.key}.description': 'Keel',
   'settings.notifications.description': 'Vali, millised kirjad jõuavad sinu postkasti.',
   'settings.subtitle': 'Kohanda teavitusi, redigeerimisala ja oma konto seadeid.',
@@ -141,6 +165,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Mulle edastatud',
   'shared.loadFailed': 'Jagatud dokumente ei õnnestunud laadida.',
   'shared.subtitle': 'Käsikirjad, kokkuvõtted ja märkmed stuudio teistest osadest.',
+  'signup.brandAttribution': 'Anaïs Park — toimetaja, The Quarterly',
   'signup.brandQuote':
     '„Esimene käsikiri on kõige raskem. Quillon muudab selle protsessi vähem üksildaseks.“',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -148,6 +173,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Anaïs',
   'signup.heading': 'Loo oma Quillon-konto',
   'signup.lastNamePlaceholder': 'Park',
+  'signup.submitting': 'Stuudio avamine\\u2026',
   'signup.subtitle':
     'Vaikne töölaud, meeldiv töökeskkond ja pika teksti redigeerimisprogramm, mis ei sega tööd.',
   'templates.blank.subtitle': 'Tühi leht. Kursor on valmis.',
@@ -160,11 +186,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Alusta läbimõeldud struktuuriga. Kohanda seda lõpmatult.',
   'templates.useFailed': 'Sellest mallist ei õnnestunud dokumenti avada.',
   'templates.useTemplate': 'Kasuta seda mall',
+  'terms.intro': 'Tingimused, mille alusel võid seda teenust kasutada.',
   'terms.title': 'Kasutustingimused',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'just praegu',
   'trash.confirmDelete': 'Kinnita kustutamine',
+  'trash.confirmEmpty': 'Kinnita — kustuta kõik',
   'trash.deleteFailed': 'Kustutamine ebaõnnestus.',
   'trash.deleteForever': 'Kustuta lõplikult',
   'trash.empty': 'Ei ole midagi taastada.',
@@ -179,7 +207,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'Muudatusi pole veel tehtud – salvesta dokument, et alustada selle ajalugu.',
   'versionHistory.heading': 'Versioonide ajalugu',
+  'versionHistory.latest': 'Viimased',
   'versionHistory.loadFailed': 'Ajalugu ei õnnestunud laadida.',
+  'versionHistory.noContent': 'Selle redaktsiooni kohta pole sisu salvestatud.',
   'versionHistory.previewing': 'Eelvaade',
   'versionHistory.restore': 'Taasta see versioon',
   'versionHistory.restoreFailed': 'Taastamine ebaõnnestus.',

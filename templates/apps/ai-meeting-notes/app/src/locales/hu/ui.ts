@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kérdésed, visszajelzésed vagy funkciójavaslatod van? Írj a csapatnak a hello@murmur.app címre — minden üzenet eljut egy igazi emberhez, aki a terméken dolgozik.',
   'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Rólunk',
+  'about.intro':
+    'A {{app}} megbeszélés-intelligencia olyan csapatoknak, amelyek inkább döntenek, mint jegyzetelnek. Csatlakozik a hívásaidhoz, minden szót leír beszélőcímkékkel, és a megbeszélés végének pillanatában elküldi az AI-összefoglalót és a felelősökhöz rendelt feladatokat.',
+  'about.missionBody':
+    'A megbeszélések azok, ahol a csapatok döntenek — és ahol ezek a döntések elvesznek. A {{app}} azért létezik, hogy a beszélgetésben végzett munka túlélje a beszélgetést: hű feljegyzés, világos összefoglaló és számon kérhető következő lépések, automatikusan.',
+  'about.missionTitle': 'Küldetésünk',
   'actions.empty': 'Nincs egyező teendő.',
   'actions.heading': 'Teendők',
   'actions.loadError': 'A teendők betöltése sikertelen.',
@@ -10,11 +17,14 @@ export const ui: UiTranslations = {
     'Összesítve az összes értekezletről. Szűrjön állapot szerint a fókuszáláshoz.',
   'actions.toggleDoneLabel': 'Megjelölés befejezettként',
   'actions.toggleReopenLabel': 'Megjelölés nyitottként',
+  'auth.footer': '© {{year}} {{app}}. Minden szó, sűrítve.',
   'calendar.heading': 'Naptár',
   'calendar.joinCta': 'Csatlakozás',
   'calendar.loadError': 'A naptár betöltése sikertelen.',
   'calendar.nextMonth': 'Következő hónap',
   'calendar.noEventsForDay': 'Erre a napra nincs ütemezett értekezlet.',
+  'calendar.noUpcomingEvents':
+    'Nincs közelgő megbeszélés. Csatlakoztass egy naptárat az Integrációkban a lista feltöltéséhez.',
   'calendar.previousMonth': 'Előző hónap',
   'calendar.recent': 'Legutóbbi',
   'common.daysAgo': '{{count}}n ezelőtt',
@@ -26,9 +36,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} teendő',
   'dashboard.empty.body':
     'Indítson el egy felvételt, vagy csatlakoztassa a Google Naptárat, hogy a Murmur automatikusan csatlakozzon a következő értekezletéhez.',
+  'dashboard.empty.cta': 'Felvétel indítása',
   'dashboard.empty.heading': 'Még nincsenek értekezletek',
   'dashboard.eyebrow': 'Az Ön értekezlet-hírfolyama',
   'dashboard.loadError': 'Az irányítópult betöltése sikertelen.',
+  'dashboard.noActions': 'Nincsenek feladatok',
   'dashboard.recentHeading': 'Legutóbbi értekezletek',
   'dashboard.recordCta': 'Értekezlet rögzítése',
   'dashboard.stat.actions': 'Teendők',
@@ -38,6 +50,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} olvasatlan összefoglaló az utolsó ellenőrzés óta. A Murmur minden szót rögzített – itt a visszatekintő.',
   'dashboard.viewCalendar': 'Naptár megtekintése →',
+  'footer.linksLabel': 'Lábléc',
   'forgot.failed': 'A visszaállítási e-mail küldése sikertelen.',
   'forgot.sentBody':
     'Ha létezik fiók a(z) {{email}} címhez, hamarosan kap egy visszaállítási hivatkozást.',
@@ -49,14 +62,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Csatlakoztasson naptárakat és videoplatformokat, hogy a Murmur automatikusan csatlakozzon.',
   'integrations.updateError': 'Frissítés sikertelen.',
+  'landing.ctaBody':
+    'Az első 5 megbeszélés minden hónapban ingyenes. Bankkártya nélkül. Csatlakoztasd a Google Naptárat egy perc alatt.',
   'landing.ctaButton': 'Kezdje el – ingyenes',
   'landing.ctaHeading': 'Hagyja abba a jegyzetek készítését. Kezdjen döntéseket hozni.',
+  'landing.demo.aiBody':
+    'A bevezetés május 5-ről május 12-re tolódott, hogy az üzemeltetés létszámot tudjon biztosítani. Az irányítópult újratervezése különvált május 26-ra.',
   'landing.demo.aiLabel': 'AI összefoglaló, élőben szerkesztve',
   'landing.demo.recording': 'Felvétel · élő',
   'landing.eyebrow': 'AI értekezlet-intelligencia',
   'landing.featuresHeading': 'Minden, amire csapatának szüksége van az értekezlet után',
+  'landing.featuresSubheading':
+    'Nincs több „várjunk, kié ez?” A {{appName}} még a hívás bontása előtt elküldi az összefoglalót.',
   'landing.getStarted': 'Próbálja ki ingyen',
   'landing.heroSecondary': '90 másodperces bemutató megtekintése',
+  'landing.heroSubtitle':
+    '{{tagline}}. A {{appName}} csatlakozik a hívásaidhoz, minden szót leír beszélőcímkékkel, és a megbeszélés végének pillanatában elküldi az AI-összefoglalókat és a felelősökhöz rendelt feladatokat.',
   'landing.heroTitle': 'Rögzítsen minden értekezletet. Felszínre hozza, ami számít.',
   'login.altPrompt': 'Ön új a Murmuron?',
   'login.failed': 'A bejelentkezés sikertelen. Ellenőrizze e-mail-címét és jelszavát.',
@@ -64,6 +85,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Teendők',
   'meetingDetail.back': 'Összes értekezlet',
   'meetingDetail.decisionsHeading': 'Döntések',
+  'meetingDetail.dueDate': 'határidő: {{date}}',
   'meetingDetail.followupsHeading': 'Utókövetések',
   'meetingDetail.loadError': 'Az értekezlet betöltése sikertelen.',
   'meetingDetail.noActions': 'Nem található teendő.',
@@ -77,7 +99,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Még nincsenek értekezletek',
   'meetings.heading': 'Értekezletek',
   'meetings.loadError': 'Az értekezletek betöltése sikertelen.',
+  'meetings.recordCta': 'Értekezlet rögzítése',
   'meetings.subheading': 'Minden rögzített, feltöltött és szinkronizált értekezlet.',
+  'murmurLayout.closeMenu': 'A navigációs menü bezárása',
   'murmurLayout.openMenu': 'Navigációs menü megnyitása',
   'murmurLayout.primaryNavLabel': 'Elsődleges navigáció',
   'nav.legal': 'Jogi',
@@ -101,7 +125,13 @@ export const ui: UiTranslations = {
   'profile.loading': 'Betöltés…',
   'profile.navLabel': 'Profilszakaszok',
   'profile.notifications.assignments': 'Nekem hozzárendelt teendők',
+  'profile.notifications.assignmentsHint': 'Értesítés, ha feladatot rögzítenek hozzád.',
+  'profile.notifications.mentions': 'Említések az átiratokban',
+  'profile.notifications.mentionsHint': 'E-mail + push értesítés, ha valaki @-megemlít.',
+  'profile.notifications.subheading': 'Válaszd ki, mely {{appName}} események érjenek el.',
   'profile.notifications.summaries': 'Heti kivonat',
+  'profile.notifications.summariesHint': 'Hétfői összefoglaló az előző heti összes megbeszélésről.',
+  'profile.preferences.speakerColor': 'Alapértelmezett beszélőszín',
   'profile.preferences.subheading': 'Az összes felvételre vonatkozó alapértelmezett beállítások.',
   'profile.preferences.timezone': 'Időzóna',
   'profile.preferences.title': 'Munkakör',
@@ -113,16 +143,21 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'A böngészője nem támogatja a felvételt. Próbálja Chrome-mal, Edge-dzsel vagy Safarival.',
   'record.error.upload': 'A feltöltés sikertelen. Próbálja újra.',
+  'record.errorLabel': 'Valami hiba történt',
   'record.heading': 'Felvétel',
   'record.idleLabel': 'Koppintson a felvétel indításához',
   'record.processingLabel': 'Átiratkészítés Whisperrel, összefoglalás Claude-dal…',
+  'record.recordingLabel': 'Rögzítés…',
   'record.retryCta': 'Próbálja újra',
   'record.subheading':
     'Nyomja meg a mikrofont a kezdéshez. A Murmur rögzíti a hangot, Whisperrel átiratot készít, és Claude alapú összefoglalót ír.',
+  'record.titlePlaceholder': 'Megbeszélés címe (nem kötelező)',
+  'reset.altPrompt': 'Meggondoltad magad?',
   'reset.hint': 'Legalább 8 karaktert használjon, betűk és számok keverékével.',
   'reset.missingToken': 'A visszaállítási hivatkozás hiányzik vagy lejárt. Kérjen újat.',
   'reset.newPassword': 'Új jelszó',
   'reset.subheading': 'Válasszon olyan jelszót, amelyet máshol nem használ.',
+  'reset.tooShort': 'A jelszónak legalább 8 karakterből kell állnia.',
   'search.empty': 'Írjon az átiratok kereséséhez.',
   'search.loadError': 'A keresés sikertelen volt. Próbálja meg újra.',
   'search.noResults': 'Nincs találat a következőre: „ {{q}} „”.',
@@ -138,7 +173,10 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Hang megőrzése',
   'settings.retention.heading': 'Megőrzés',
   'settings.retention.transcript': 'Átiratok megőrzése',
+  'settings.revokeDeviceWarning':
+    'Az eszköz hozzáférése hamarosan visszavonásra kerül. Kijelentkezteted?',
   'settings.saveError': 'A mentés sikertelen.',
+  'settings.security.subheading': 'Frissítsd a bejelentkezéshez használt jelszavadat.',
   'settings.sharing.exportFormat': 'Exportformátum',
   'settings.sharing.heading': 'Alapértelmezett megosztási beállítások',
   'settings.sharing.scope': 'Alapértelmezett megosztási kör',
@@ -156,6 +194,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Csapattag meghívása',
   'team.invitedAs': 'Meghívva: {{role}}',
   'team.inviteFailed': 'A meghívó küldése sikertelen.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'Meghívó küldése',
   'team.inviteSubtitle': 'Egy csatlakozási hivatkozást tartalmazó e-mailt kapnak.',
   'team.inviteTitle': 'Csapattag meghívása',

@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Вопросы, пожелания по функциям или нужен счётчик, который мы должны поддержать? Напишите команде {{appName}} из настроек аккаунта — каждое сообщение попадает к реальному человеку.',
   'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
+  'about.featuresTitle': 'Что вы получите',
+  'about.intro':
+    '{{appName}} — это мониторинг энергии в реальном времени для домов с солнечными панелями и команд объектов. Мы превращаем поток данных со счётчиков, инверторов и батарей в спокойный вид диспетчерской — текущая мощность, выработка солнечной энергии, стоимость по тарифам и оповещения, всё в одной оболочке.',
+  'about.missionBody':
+    'Энергию, которую видно, можно контролировать. Мы считаем, что каждый, кто следит за счётчиком — домохозяйство с солнечными панелями на крыше или команда, наблюдающая за зданием, — заслуживает точности коммунального уровня без коммунального договора. Каждая функция создана, чтобы следующий киловатт-час был осознанным выбором, а не сюрпризом в счёте.',
+  'about.missionTitle': 'Наша миссия',
   'about.pageTitle': 'О {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Ак',
@@ -14,6 +22,7 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@yourdomain.com',
   'alertRule.eyebrow': 'Новое правило',
   'alertRule.heading': 'Уловите всплеск активности, прежде чем он вам навредит.',
+  'alertRule.nameLabel': 'Название правила',
   'alertRule.namePlaceholder':
     'например, круглосуточное наблюдение за системами отопления, вентиляции и кондиционирования воздуха.',
   'alertRule.subheading':
@@ -21,8 +30,10 @@ export const ui: UiTranslations = {
   'alertRule.submit': 'Сохранить правило',
   'alertRule.submitError': 'Сохранить правило не удалось.',
   'alertRule.thresholdLabel': 'Порог',
+  'alertRule.typeLabel': 'Тип триггера',
   'alerts.checking': 'Проверка™',
   'alerts.confirmDelete': 'Подтвердить удаление',
+  'alerts.empty': 'Нечего показать — в этом состоянии нет оповещений.',
   'alerts.emptyNoRules':
     'Пока нет оповещений — добавьте правило, затем нажмите «Проверить сейчас», чтобы протестировать его.',
   'alerts.errorAck': 'Не могу подтвердить.',
@@ -42,12 +53,14 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Оцените сейчас',
   'alerts.subheading':
     'Срабатывание пороговых и шаблонных оповещений на ваших счетчиках, а также правила, которые ими управляют.',
+  'billing.activeBlurb': 'Ваша подписка активна. Управляйте ею в любое время.',
   'billing.cancelError': 'Не удалось отменить подписку.',
   'billing.cancelling': 'Отмена™',
   'billing.currentBadge': 'Текущий',
   'billing.freeBlurb':
     'Вы используете бесплатный тариф. Переход на платный тариф позволит получить больше счетчиков, более длительную историю показаний и больше правил оповещения.',
   'billing.heading': 'Тарифы и выставление счетов',
+  'billing.historyEmpty': 'Оплаченные счета появятся здесь после выставления платежей по подписке.',
   'billing.historyHeading': 'История счетов',
   'billing.loadError': 'Не удалось загрузить данные для выставления счетов.',
   'billing.loading': 'Планы погрузки™',
@@ -60,17 +73,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Связаться с отделом продаж',
   'common.goToDashboard': 'Перейти к панели',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} пик · {{offPeak}} непиковые кВт·ч',
   'dailyCostMeter.runningLabel': 'Итоговая сумма',
   'dailyCostMeter.title': 'Стоимость на сегодняшний день',
   'dailyCostMeter.utilizationLabel': 'из ежедневного бюджета',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Добавить счётчик',
   'dashboard.alertsHeading': 'Активные оповещения',
   'dashboard.devicesHeading': 'Лучшие трассы прямо сейчас',
   'dashboard.empty.body':
     'Установите интеллектуальный счетчик или солнечный инвертор, чтобы начать отслеживать потребление и выработку электроэнергии в режиме реального времени.',
+  'dashboard.empty.title': 'Счётчиков пока нет',
   'dashboard.eyebrow': 'диспетчерская Voltrace',
   'dashboard.heading': 'Текущий энергетический баланс',
   'dashboard.loadError': 'Не удалось загрузить данные текущих показаний.',
   'dashboard.loading': 'Настройтесь на свои измерительные приборы…',
+  'dashboard.noAlerts': 'Всё тихо — ничего не превышает ваши пороги.',
   'dashboard.noAlertsAndNoMeters':
     'После подключения счетчика здесь будут появляться оповещения, основанные на установленных вами пороговых значениях.',
   'dashboard.noCircuits':
@@ -79,6 +97,7 @@ export const ui: UiTranslations = {
     'Потребление электроэнергии всем домом, выработка солнечной энергии и затраты на сегодняшний день.',
   'dashboard.viewAllAlerts': 'Управление оповещениями →',
   'dashboard.viewAllDevices': 'Каждое устройство →',
+  'deviceDetail.activeTokens': 'Активные токены приёма данных',
   'deviceDetail.alreadyOff': 'Уже приостановлено',
   'deviceDetail.back': 'Все цепи',
   'deviceDetail.confirmDelete': 'Подтвердить удаление',
@@ -119,23 +138,35 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Не удалось загрузить данные со счетчиков.',
   'devices.loading': 'Опрос каждого счетчика™',
   'devices.newRule': 'Новое правило оповещения',
+  'devices.noResults': 'Ни одна цепь не соответствует этому фильтру.',
   'devices.placeholder.location': 'например, механическое помещение',
   'devices.placeholder.name': 'например, подпанель гаража',
   'devices.subheading':
     'Текущая мощность и сегодняшняя мощность в кВт·ч по каждой цепи, которую может отслеживать Voltrace.',
+  'deviceWattageRow.todayKwh': '{{kwh}} кВт·ч сегодня',
+  'deviceWattageRow.watts': '{{watts}} В',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Меню',
+  'energyMonitoringLayout.primaryNavLabel': 'Основная навигация',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    '{{appName}} работает с большинством коммунальных счётчиков, солнечных инверторов и батарейных систем — по проводу или WiFi.',
   'landing.ctaHeading':
     'Подключите измерительный прибор и узнайте показания мощности в ваттах за минуты.',
   'landing.eyebrow': 'Информация об энергопотреблении в режиме реального времени',
+  'landing.featuresHeading': 'Каждый ватт, каждую минуту, в одной оболочке',
   'landing.getStarted': 'Подключите Voltrace',
   'landing.heroCta': 'Подключите Voltrace',
+  'landing.heroSubtitle':
+    'Текущая мощность, выработка солнечной энергии, стоимость по тарифам и оповещения о высоком потреблении в оболочке диспетчерской, созданной для домов с солнечными панелями и команд объектов.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Розыгрыш всего дома',
   'landing.sampleSolar': '+3820 Вт солнечной энергии',
   'landing.sampleSummary': 'Экспорт в сеть 1680 Вт · 18,4 кВт·ч сегодня',
   'landing.sampleWatts': '2140 Вт',
   'powerHeroCard.solar': '+ {{watts}} Вт солнечная',
   'powerHeroCard.title': 'Розыгрыш всего дома',
+  'powerHeroCard.todayKwh': '{{kwh}} кВт·ч сегодня',
   'powerHeroCard.watts': '{{watts}} В',
   'pricing.choose': 'Выбирать {{name}}',
   'pricing.contact': 'Вам нужно что-то на заказ?',
@@ -148,6 +179,7 @@ export const ui: UiTranslations = {
     'Начните бесплатно. Перейдите на платный тариф, когда вам потребуется больше счетчиков, более длительная история или больше правил оповещения.',
   'pricing.unavailable': 'Этот тарифный план в данный момент недоступен — Stripe не настроен.',
   'profile.errorGeneric': 'Не удалось сохранить изменения профиля.',
+  'profile.errorGoal': 'Месячная цель по кВт·ч должна быть положительным числом.',
   'profile.errorHousehold': 'Размер домохозяйства должен быть положительным числом.',
   'profile.householdHeading': 'Домашнее хозяйство и цели',
   'profile.householdSize': 'Размер домохозяйства',
@@ -166,9 +198,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'Сводные данные о прочитанных материалах…',
   'reports.subheading':
     'Сводные данные за сутки по потреблению, производству и затратам — с разбивкой по датам.',
+  'reports.tableHeading': 'Разбивка по дням',
   'settings.currency': 'Валюта',
   'settings.errorFlat': 'Фиксированная ставка должна быть ≥ 0.',
   'settings.errorNotify': 'Не удалось сохранить настройки уведомлений.',
+  'settings.errorSave': 'Не удалось сохранить тарифный план.',
   'settings.errorTou':
     'Требуются тарифы в часы пик и вне часов пик, а также действительный период действия тарифов в часы пик.',
   'settings.exportBody':
@@ -189,10 +223,20 @@ export const ui: UiTranslations = {
   'settings.saving': 'Экономия™',
   'settings.securityHeading': 'Двухфакторная аутентификация',
   'settings.subheading': 'Тарифы, уведомления и экспорт данных.',
+  'settings.twoFactorBody':
+    'Требовать одноразовый код из приложения-аутентификатора при каждом входе.',
   'settings.twoFactorCode': 'Код аутентификации',
   'settings.twoFactorDisable': 'Отключить',
+  'settings.twoFactorDisableTitle': 'Отключить двухфакторную аутентификацию',
   'settings.twoFactorEnable': 'Включить',
+  'settings.twoFactorEnableTitle': 'Включить двухфакторную аутентификацию',
   'settings.twoFactorInvalidCode': 'Неверный код',
+  'settings.twoFactorOAuth':
+    'Ваш аккаунт входит через подключённого провайдера, поэтому двухфакторная аутентификация управляется там.',
   'settings.twoFactorOn': 'О',
+  'settings.twoFactorQrAlt': 'QR-код для двухфакторной аутентификации',
+  'settings.twoFactorScan':
+    'Отсканируйте этот QR-код в приложении-аутентификаторе, затем введите 6-значный код.',
+  'settings.twoFactorUnavailable': 'Двухфакторная аутентификация для этого приложения недоступна.',
   'settings.twoFactorVerify': 'Проверить и включить',
 }

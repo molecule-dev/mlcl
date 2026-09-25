@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Savolingiz bormi, xatolik topdingizmi yoki jamoangiz uchun demo ko'rmoqchimisiz? Hisob sozlamalaridan murojaat qiling — har bir xabar jamoadagi haqiqiy odamga yetib boradi.",
   'about.contactTitle': "Bog'laning",
+  'about.intro':
+    "{{app}} skanerlangan hujjatlar va PDF to'plamlarini tuzilgan, qidiriladigan, tartiblangan ma'lumotlarga aylantiradi. Hisob-fakturalar, kvitansiyalar, shartnomalar yoki shakllarni tashlang va AI ularni o'qib, ajratib, tasniflab va tartiblab bersin — ishonch ranglari bilan, shunda jamoangiz faqat haqiqatan inson tekshiruvi kerak bo'lgan narsalarni ko'rib chiqadi.",
+  'about.missionBody':
+    "Hujjatlar bilan bog'liq zerikarli ishlar jamoangiz kunini yeb qo'ymasligi kerak. Har bir ajratilgan qiymat tushunarli va tekshiriladigan bo'lishi kerak deb hisoblaymiz — shunda avtomatlashtirishga ishonishingiz mumkin, hujjat izlari esa yo'qolmaydi. {{app}} har bir to'plamda soatlarni tejash uchun yaratilgan va muhim joylarda inson nazoratini saqlab qoladi.",
+  'about.missionTitle': 'Bizning vazifamiz',
+  'about.subtitle':
+    'Hujjatlaringiz uchun OCR, AI orqali ajratish, tasniflash va avtomatik tartiblash.',
   'about.title': '{{app}} haqida',
+  'about.whatYouGetTitle': 'Sizga nima beriladi',
   'authShell.backToLanding': "← Qo'nish joyiga qaytish",
   'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': "Bugun · Operatsiyalar haqida umumiy ma'lumot",
   'dashboard.heading': 'Hujjatlarni tahlil qilish',
+  'dashboard.metric.accuracy': "O'rtacha aniqlik",
   'dashboard.metric.filed': 'Bugun topshirildi',
   'dashboard.metric.filedCaption': "Fayllarni topshirish qoidalari bo'yicha yo'naltirilgan",
   'dashboard.metric.processed': 'Bugun qayta ishlandi',
@@ -23,11 +34,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Hujjat',
   'dashboard.recent.col.uploaded': 'Yuklandi',
   'dashboard.recent.heading': "So'nggi hujjatlar",
+  'dashboard.recent.typeUnknown': 'Tasniflash kutilmoqda',
   'dashboard.subheading':
     "Har bir sahifa tasniflangan, ajratib olingan va arxivlangan — ishonchli ranglar bilan, shuning uchun sharh diqqat markazida bo'ladi.",
   'documentDetail.audit.heading': 'Audit xronologiyasi',
+  'documentDetail.audit.subheading':
+    "Bu hujjat bo'yicha amalga oshirilgan har bir qadam va mas'ul shaxs.",
   'documentDetail.back': 'Barcha hujjatlar',
   'documentDetail.downloadHint': 'Asl faylni ochish uchun Yuklab olish funksiyasidan foydalaning.',
+  'documentDetail.extracted.empty': 'Hozircha maydonlar ajratilmagan.',
   'documentDetail.extracted.heading': 'Ajratib olingan maydonlar',
   'documentDetail.extracted.subheading':
     "{{count}} maydonlar · sahifada ajratib ko'rsatish uchun istalgan maydonni bosing",
@@ -56,13 +71,24 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} kutubxonangizdagi hujjatlar, eng yangilaridan oldin saralangan.',
   'documents.uploadCta': 'Hujjatlarni yuklang',
+  'documentTypeBreakdown.barAria': "Hujjatlar tarkibi turi bo'yicha",
   'documentTypeBreakdown.empty': 'Hali hech qanday hujjat qayta ishlanmadi.',
   'documentTypeBreakdown.subtitle': '{{total}} qayta ishlangan',
   'documentTypeBreakdown.title': 'Hujjat tarkibi',
+  'forgotPassword.backToSignIn': '← Kirish uchun qaytish',
   'forgotPassword.checkEmail': 'Elektron pochtangizni tekshiring',
   'forgotPassword.tip': "Tushunmadingizmi? Spamni tekshiring yoki boshqa manzilni sinab ko'ring.",
+  'landing.copyright':
+    '© {{year}} {{app}}. Har bir sahifani tekshiradigan operatsion jamoalar uchun yaratilgan.',
+  'landing.ctaBody':
+    '14 kunlik sinov. Karta talab qilinmaydi. Istalgan vaqtda bekor qiling. Tez harakat qiladigan va sekin tekshiradigan operatsion jamoalar uchun yaratilgan.',
   'landing.ctaHeading': "Cheklarni yozishni to'xtating. Ularni arxivlashni boshlang.",
   'landing.eyebrow': "OCR · Ekstraksiya · Sun'iy intellekt faylini yaratish",
+  'landing.featuresHeading': "O'zini tushuntirib beradigan hujjat intellekti",
+  'landing.heroSubtitle':
+    "Hisob-fakturalar, kvitansiyalar, shartnomalar yoki shakllar to'plamini tashlang. {{app}} ularni tasniflaydi, ajratadi va tartiblaydi — ishonch ranglari bilan, shunda jamoangiz faqat haqiqatan inson tekshiruvi kerak bo'lgan narsalarni ko'rib chiqadi.",
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Kunlik hajm · oxirgi 7 kun',
   'landing.sampleCardLabel': 'Bugun qayta ishlangan hujjatlar',
   'landing.sampleCardSubtitle':
     "Fakturalar, kvitansiyalar va shakllar bo'yicha o'rtacha 96,2% aniqlik.",
@@ -76,6 +102,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': "Qo'nish sahifasini ochish",
   'notFound.title': "Bu sahifa faylda yo'q",
+  'parcelaHeroCard.accuracy': "Barcha ajratishlar bo'yicha o'rtacha aniqlik {{value}}%",
   'parcelaHeroCard.change': '{{sign}} {{amount}} kechagiga nisbatan %',
   'parcelaHeroCard.title': 'Bugun qayta ishlangan hujjatlar',
   'parcelaLayout.primaryNavLabel': 'Asosiy navigatsiya',
@@ -83,6 +110,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'hujjatlar',
   'pricing.processingLabel': 'qayta ishlash ishlari',
   'resetPassword.confirmPlaceholder': 'Yangi parolni takrorlang',
+  'resetPassword.hidePassword': 'Parolni yashirish',
   'resetPassword.passwordLabel': 'Yangi parol',
   'resetPassword.showPassword': "Parolni ko'rsatish",
   'resetPassword.subtitle': 'Kamida 8 ta belgidan iborat narsani tanlang.',
@@ -100,10 +128,12 @@ export const ui: UiTranslations = {
   'rules.loadError': "Qoidalarni yuklab bo'lmadi.",
   'rules.loading': 'Qoidalar yuklanmoqda…',
   'rules.matched30d': '{{count}} oxirgi 30 kun ichida mos kelgan hujjatlar',
+  'rules.neverUsed': 'Hech qachon ishlatilmagan',
   'rules.newRule': 'Yangi qoida',
   'rules.saveError': "Qoidani saqlab bo'lmadi.",
   'rules.subheading':
     "Tizimga har bir turdagi hujjat qayerga borishi kerakligini ayting. Shartlar yuqoridan pastgacha zanjirlanadi — birinchi o'yin g'alaba qozonadi.",
+  'rules.templatesEmpty': "Hozircha ajratish shablonlari yo'q.",
   'rules.templatesHeading': 'Ekstraksiya shablonlari',
   'rules.templatesSubheading':
     'Ekstraktor har bir hujjat turi uchun foydalanadigan maydon sxemalari.',
@@ -113,17 +143,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Ish maydoni nomi',
   'settings.account.subheading':
     "Bildirishnomalar va audit tarixi uchun ko'rsatiladigan ism va asosiy elektron pochta manzili.",
+  'settings.api.confirmRevoke': 'Tasdiqlash kerakmi?',
   'settings.api.copyOnce': "Ushbu kalitni nusxalash — u boshqa ko'rsatilmaydi",
   'settings.api.createdOn': 'Yaratilgan {{date}}',
   'settings.api.empty': "Hali API kalitlari yo'q. Yuqorida bittasini yarating.",
   'settings.api.error': "Kalit yaratib bo'lmadi.",
+  'settings.api.generating': 'Yaratilmoqda…',
+  'settings.api.heading': 'API kalitlari',
   'settings.api.labelPlaceholder': "Kalit yorlig'i (masalan, CI yuklovchisi)",
+  'settings.api.loading': 'Kalitlar yuklanmoqda…',
   'settings.api.newKey': 'Kalit yaratish',
   'settings.api.subheading':
     'Bulardan skript yoki ERP dan hujjatlarni yuborish uchun foydalaning. Istalgan vaqtda istalgan tugmani aylantiring.',
   'settings.integrations.heading': 'Fayllarni integratsiyalash',
   'settings.integrations.subheading':
     'Arxivlangan hujjatlarni jamoangiz allaqachon yashayotgan bulutli diskka yoki chat vositasiga yuboring.',
+  'settings.subheading':
+    '{{app}} ish maydoningiz uchun hisob, API kalitlari va tartiblash integratsiyalarini boshqaring.',
+  'signup.hidePassword': 'Parolni yashirish',
   'signup.identityPrompt': 'Sizga qanday murojaat qilishimiz kerak?',
   'signup.showPassword': "Parolni ko'rsatish",
   'signup.subtitle': '14 kun bepul, karta talab qilinmaydi.',
@@ -131,6 +168,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Yuklash amalga oshmadi.',
   'upload.eyebrow': 'Yutish',
   'upload.heading': 'Hujjatlarni yuklang',
+  'upload.queue.clear': 'Bajarilganlarni tozalash',
   'upload.queue.col.confidence': 'Ishonch',
   'upload.queue.col.file': 'Fayl',
   'upload.queue.detecting': 'Aniqlanmoqda…',
@@ -143,5 +181,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     "Yoki ommaviy ravishda ajratib olish, tasniflash va arxivlash uchun bir vaqtning o'zida bir nechta fayllarni tashlang.",
   'uploadDropZone.cta': 'Fayllarni tanlang',
+  'uploadDropZone.maxSize': 'Har bir fayl uchun maks. 25 MB · Uchdan-uchga shifrlangan',
   'uploadDropZone.title': 'Qayta ishlashni boshlash uchun hujjatlarni tashlang',
 }

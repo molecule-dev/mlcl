@@ -1,26 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Dëshironi të nisni një onboarding më të ngrohtë për ekipin tuaj, gjetët një gabim ose keni komente? Na shkruani nga cilësimet e llogarisë — çdo mesazh shkon te një person real që mund t'ju ndihmojë.",
   'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
+  'about.missionTitle': 'Misioni ynë',
   'auth.forgotPassword.emailPlaceholder': 'emri@kompaniajuaj.com',
   'auth.forgotPassword.heading': 'Rivendos fjalëkalimin tënd.',
+  'auth.forgotPassword.panel.body':
+    'Rivendosja zgjat 30 sekonda — përparimi i listës suaj të kontrollit po ju pret.',
+  'auth.forgotPassword.panel.headline': 'Pikërisht aty ku e latë.',
+  'auth.forgotPassword.subheading':
+    "Vendosni emailin e punës dhe do t'ju dërgojmë një lidhje rivendosjeje.",
   'auth.forgotPassword.successSubheading':
     'Kontrolloni kutinë tuaj postare — ne kemi dërguar udhëzime për rivendosjen.',
   'auth.login.emailPlaceholder': 'emri@kompaniajuaj.com',
   'auth.login.heading': 'Mirë se erdhe përsëri.',
   'auth.login.passwordPlaceholder': 'Fjalëkalimi juaj',
+  'auth.login.signupPrompt': 'I ri në ekipin tuaj?',
   'auth.login.subheading': 'Kyçu për të vazhduar udhëtimin tënd të integrimit aty ku e latë.',
   'auth.login.submit': 'Vazhdoni udhëtimin tuaj',
+  'auth.panel.body':
+    'Lista juaj personale e kontrollit, arritjet e trajnimit dhe prezantimet me ekipin — të gjitha në një vend të qetë.',
   'auth.panel.footnote': '© Embark — që nga sot, njerëzit janë në plan të parë.',
   'auth.panel.headline': 'Një periudhë 90-ditore e sigurt fillon këtu.',
   'auth.resetPassword.heading': 'Vendosni një fjalëkalim të ri.',
   'auth.resetPassword.newPasswordLabel': 'Fjalëkalim i ri',
+  'auth.resetPassword.panel.body':
+    "Ruani një fjalëkalim të ri dhe do t'ju kthejmë menjëherë në udhëtimin tuaj të onboarding-ut.",
+  'auth.resetPassword.panel.headline': 'Pothuajse u kthyet.',
   'auth.resetPassword.subheading': 'Zgjidh diçka që do ta mbash mend — të paktën 8 karaktere.',
   'auth.signup.emailPlaceholder': 'emri@kompaniajuaj.com',
   'auth.signup.heading': 'Mirë se vini në 90 ditët tuaja të para.',
   'auth.signup.panel.body':
     'Një listë kontrolli me udhëzime, trajnim i vetëdijshëm për rolet dhe prezantime njerëzore — gati përpara se të hyni brenda.',
+  'auth.signup.panel.headline': 'Dita e parë, që në ditën e parë.',
   'auth.signup.subheading':
     'Krijo llogarinë tënde Embark për të filluar udhëtimin tënd të udhëhequr të integrimit.',
   'checklist.empty.body': 'Ndërro filtrin për të parë detyra të tjera.',
@@ -28,6 +43,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'Integrimi · Lista e Kontrollit',
   'checklist.loading': 'Duke ngarkuar listën tuaj të kontrollit…',
   'checklist.stat.actionNeeded': 'Veprim i nevojshëm',
+  'checklist.stat.completion': 'Përfundimi',
+  'checklist.stat.inProgress': 'Në vazhdim',
   'checklist.stat.inProgressHelper': 'Vazhdo aty ku e latë',
   'checklist.stat.overdueHelper': 'Kapni këto së pari',
   'checklist.subtitle':
@@ -59,6 +76,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Ende nuk ka dokumente',
   'documents.eyebrow': 'Integrimi · Dokumente',
   'documents.loading': 'Duke ngarkuar dokumentet…',
+  'documents.stat.actionNeeded': 'Nënshkruaj tani',
+  'documents.stat.all': 'Të gjitha dokumentet',
   'documents.stat.allHelper': 'Në të gjitha kategoritë',
   'documents.stat.pending': 'Nënshkrime në pritje',
   'documents.stat.pendingHelper': 'E nevojshme për përfundim',
@@ -66,6 +85,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Ruajtur në mënyrë të sigurt',
   'documents.status.optional': 'Opsionale',
   'documents.status.required': 'E detyrueshme',
+  'documents.status.signed': 'Nënshkruar',
   'documents.subtitle':
     'Manuali, formularët dhe marrëveshjet e nënshkruara — të gjitha në një vend.',
   'documents.title': 'Gjithçka që duhet të lexoni dhe nënshkruani.',
@@ -73,10 +93,14 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'Shikues',
   'documentViewer.breadcrumbDocs': 'Dokumente',
   'documentViewer.downloadMeta': 'Shkarkoni metadatat e të dhënave',
+  'documentViewer.helpBody':
+    'People & Culture u përgjigjet pyetjeve të manualit në #ask-people në Slack.',
   'documentViewer.helpEyebrow': 'Keni nevojë për ndihmë?',
   'documentViewer.loadError': 'Nuk mundëm ta ngarkojmë këtë dokument.',
   'documentViewer.loading': 'Duke ngarkuar dokumentin…',
   'documentViewer.notFound': 'Dokumenti nuk u gjet',
+  'documentViewer.previewBody':
+    'Kur ngarkimet janë konfiguruar, ne e shfaqim skedarin brenda faqes. Për tani, shkarkimi i metadata-ve ju lejon të konfirmoni se regjistrimi është real.',
   'documentViewer.previewBodyExternal':
     'Përdorni butonin e shkarkimit për të hapur skedarin në një skedë të re.',
   'documentViewer.previewTitle': 'Pamje paraprake e dokumentit',
@@ -84,6 +108,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Lexoni dokumentin, pastaj klikoni më poshtë për të nënshkruar dhe pranuar.',
   'documentViewer.signatureHeading': 'Kërkohet firmë',
+  'documentViewer.signed': '✓ Nënshkruar dhe arkivuar',
   'documentViewer.signing': 'Nënshkrimi…',
   'documentViewer.uploadedRecently': 'Ngarkuar së fundmi',
   'landing.closing.body':
@@ -93,10 +118,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Unë tashmë kam një llogari',
   'landing.feature1.body':
     'Çdo detyrë — dokumente, llogari, prezantime — e parapërgatitur me data dhe pronarin e duhur.',
+  'landing.feature1.title': 'Një listë kontrolli e udhëhequr',
   'landing.feature2.body':
     'Modulet zhbllokohen në momentet 30/60/90, të sinkronizuara me rolin dhe ekipin të cilit po i bashkohet një i punësuar.',
+  'landing.feature2.title': 'Trajnim sipas rolit',
   'landing.feature3.body':
     'Shokë, menaxherë dhe prezantime ndërfunksionale të planifikuara — kështu që askush nuk fillon vetëm.',
+  'landing.feature3.title': 'Prezantime të vërteta',
   'landing.featureEyebrow': 'Pse të nisesh',
   'landing.featureHeadline': 'Tre mënyra se si Embark fiton besim që në ditën e parë.',
   'landing.footer.rights': 'Të gjitha të drejtat e rezervuara.',
@@ -106,6 +134,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Më pas: Takoni shokun/shoqen tuaj për një bisedë 30-minutëshe për kafe — e martë, ora 10:00 e mëngjesit.',
   'landing.preview.eyebrow': 'Dita 14 e 90 - shembull i tabelës së kontrollit',
+  'landing.preview.headline': 'Mirë se u ktheve, Maya.',
   'landing.proof.spec': 'Gati për SOC 2 + GDPR',
   'landing.proof.teams': 'Ndërtuar për ekipe prej 50–5,000 personash',
   'landing.proof.time': 'Provë falas 14-ditore',
@@ -122,16 +151,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Je gati.',
   'planUpdated.preparing': 'Duke përditësuar planin tuaj…',
+  'planUpdated.retry': 'Provo përsëri',
+  'planUpdated.verifyFailed': 'Nuk mundëm ta konfirmonim ende pagesën tuaj.',
+  'planUpdated.verifyFailedBody':
+    'Pagesa juaj mund të jetë ende duke u përpunuar. Provoni përsëri pas pak.',
   'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'pricing.documentsLabel': 'dokumente',
   'pricing.onboardingsLabel': 'integrime',
   'pricing.tasksLabel': 'detyrat',
   'profile.dayNumber': 'Dita',
   'profile.detailsHeading': 'Detajet e regjistrimit',
+  'profile.encouragementBody':
+    'Mbajini buddy-n dhe menaxherin tuaj në dijeni — hapat e vegjël shtohen.',
   'profile.milestones': 'Gjëra të rëndësishme',
   'profile.progressEyebrow': 'Progresi i integrimit',
   'profile.tasks': 'Detyrat',
   'profile.unknownName': 'Mirë se vini',
+  'settings.appearance.description': 'Kaloni midis modalitetit të ndriçuar dhe të errët.',
+  'settings.appearance.title': 'Pamja',
+  'settings.subtitle':
+    'Rregulloni njoftimet, sigurinë, pajisjet dhe eksportimin e të dhënave — gjithçka mbetet këtu, sipas kushteve tuaja.',
   'settings.title': 'Cilësimet dhe preferencat.',
   'taskDetail.backToChecklist': 'Kthehu te lista e kontrollit. ...',
   'taskDetail.breadcrumbChecklist': 'Lista e kontrollit',
@@ -143,7 +182,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'Pa datë skadimi',
   'taskDetail.notFound': 'Detyra nuk u gjet',
   'taskDetail.notFoundBody': 'Kjo detyrë mund të jetë fshirë ose i përket një përdoruesi tjetër.',
+  'taskDetail.tipBody':
+    'Nëse jeni bllokuar, shkruajini buddy-t tuaj të onboarding-ut në Slack — ai është linja juaj e parë e ndihmës.',
   'taskDetail.tipEyebrow': 'Këshillë e shpejtë',
+  'team.empty.body': 'Provoni një kërkim më të gjerë ose zgjidhni një departament tjetër.',
   'team.empty.title': 'Asnjë ndeshje mes shokëve të skuadrës nuk ndeshet me ta.',
   'team.eyebrow': 'Integrimi · Njerëz',
   'team.loading': 'Duke ngarkuar shokët e ekipit…',
@@ -166,14 +208,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Gjëra të rëndësishme',
   'timeline.stat.current': 'Arritja aktuale',
   'timeline.stat.next': 'Zhbllokimi tjetër',
+  'timeline.stat.progress': 'Në përgjithësi',
   'timeline.subtitle':
     'Çdo arritje hap module të reja, hyrje dhe biseda për rritje. Pa presion - vetëm progres.',
+  'timeline.tipBody':
+    'Planifikoni një reflektim 30-minutësh në ditët 30, 60 dhe 90 me menaxherin tuaj — kjo i bën komentet specifike dhe përparimin të dukshëm.',
   'timeline.tipEyebrow': 'Këshillë për menaxherin',
+  'timeline.tipTitle': 'Bllokoni kohë në kalendar për arritjet.',
   'timeline.title': 'Udhëtimi juaj 30/60/90.',
   'training.badge.notStarted': 'Nuk ka filluar',
   'training.empty': 'Ende nuk ka module trajnimi.',
   'training.eyebrow': 'Orientimi · Trajnimi',
   'training.loading': 'Duke ngarkuar modulet…',
+  'training.stat.all': 'Modulet e caktuara',
   'training.subtitle':
     "Modulet zhbllokohen në 30/60/90 për t'iu përshtatur rolit tuaj. Modulet e kërkuara vijnë të parat.",
   'training.title': 'Aftësi, mjete dhe histori — me ritmin tuaj.',
@@ -186,9 +233,12 @@ export const ui: UiTranslations = {
   'trainingModule.quizBody':
     'Merrni 80% ose më shumë pikë për ta shënuar këtë modul të përfunduar.',
   'trainingModule.quizHeading': 'Kuiz në fund të modulit',
+  'trainingModule.quizLocked': 'Filloni modulin së pari',
   'trainingModule.quizNone': 'Nuk ka kuiz për këtë modul.',
   'trainingModule.quizRetry': 'Provo përsëri',
+  'trainingModule.quizStart': 'Filloni kuizin',
   'trainingModule.quizSubmit': 'Dërgo përgjigjet',
+  'trainingModule.start': 'Filloni modulin',
   'trainingModule.statusNotStarted': 'Nuk ka filluar',
   'welcomeHeroCard.completeLabel': 'Përfundo',
   'welcomeHeroCard.milestonesLabel': 'Gjëra të rëndësishme',

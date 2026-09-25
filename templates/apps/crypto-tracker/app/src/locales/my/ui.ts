@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.featureAlerts':
+    'အရေးပါသော အခြေအနေများအတွက် စျေးနှုန်းသတိပေးချက်များကို အီးမေးလ်နှင့် push ဖြင့် ပေးပို့သဖြင့် အရေးကြီးသော ပြောင်းလဲမှုများကို လွတ်သွားမည်မဟုတ်ပါ။',
+  'about.featureMarkets':
+    'ဈေးကွက်တန်ဖိုး၊ ကုန်သွယ်မှုပမာဏနှင့် အရှိန်အဟုန်ဖြင့် အဆင့်သတ်မှတ်ထားသော ဒင်္ဂါးထောင်ပေါင်းများစွာအတွက် တိုက်ရိုက်ဈေးကွက်ဒေတာနှင့် ဈေးနှုန်းဇယားများ။',
+  'about.featurePortfolio':
+    'အမှန်တကယ် အမြတ်အရှုံး၊ ကုန်ကျစရိတ်အခြေခံနှင့် ခွဲဝေမှုဖြင့် အစုစုခြေရာခံခြင်း — သင့်ငွေလွှဲမှုမှတ်တမ်းနှင့် ချိတ်ဆက်ထားသည်။',
+  'about.featureWatchlist':
+    'ကိုယ်ပိုင်စောင့်ကြည့်စာရင်းနှင့် သင်လိုက်နာသော ပိုင်ဆိုင်မှုများအတွက် အချက်ပြမှုများပါသော ရွေးချယ်ထားသော crypto သတင်းများ။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
+  'alertConditionCard.armedSince': '{{when}} ကတည်းက အသင့်ဖြစ်နေသည်',
   'alertConditionCard.condition.${alert.condition}': 'စတင်လိုက်ပါပြီ {{ဘယ်တော့လဲ}}',
   'alertConditionCard.confirmDelete': 'ဖျက်ရန် အတည်ပြုပါ',
+  'alertConditionCard.deleteAriaLabel': 'သတိပေးချက်ကို ဖျက်ပါ',
   'alertConditionCard.pauseAriaLabel': 'သတိပေးချက်ကို ခေတ္တရပ်ပါ',
   'alertConditionCard.resumeAriaLabel': 'ဆက်လုပ်ရန် သတိပေးချက်',
+  'alertConditionCard.triggeredAt': '{{when}} တွင် စတင်လုပ်ဆောင်ခဲ့သည်',
   'alertNew.condition': 'အခြေအနေ',
   'alertNew.createCta': 'သတိပေးချက် ဖန်တီးပါ',
   'alertNew.error': 'သတိပေးချက် ဖန်တီး၍မရပါ။',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'သတိပေးချက်များ မရှိသေးပါ။',
   'alerts.eyebrow': 'Bourse tripwires',
   'alerts.loadError': 'သတိပေးချက်များကို တင်၍မရပါ။',
+  'alerts.newCta': '+ tripwire အသစ်',
   'alerts.subheading':
     'ဈေးနှုန်း၊ ပြောင်းလဲမှု သို့မဟုတ် ပမာဏက သင့်မျဉ်းကို ဖြတ်ကျော်သွားသောအခါ ping ရယူပါ။',
   'alerts.summary.armed': 'လက်နက်ကိုင်ဆောင်ထားသည်',
@@ -24,6 +38,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'အမြင့်ဆုံးစံချိန်တင်',
   'coinDetail.allTimeLow': 'တစ်လျှောက်လုံး အနိမ့်ဆုံးအဆင့်',
   'coinDetail.back': 'ဈေးကွက်အားလုံး',
+  'coinDetail.chartAriaLabel': '{{name}} ဈေးနှုန်းဇယား၊ နောက်ဆုံး ၃၀ ရက်',
   'coinDetail.chartHeading': 'ဈေးနှုန်း · ပြီးခဲ့သော ၃၀ ရက်',
   'coinDetail.circulating': 'လည်ပတ်နေသော ထောက်ပံ့မှု',
   'coinDetail.fdv': 'အပြည့်အဝ ရောနှောထားသော တန်ဖိုးဖြတ်ခြင်း',
@@ -60,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'လင့်ခ်ကို ပြန်လည်သတ်မှတ်ပြီးပါပြီ။',
   'login.eyebrow': 'ဂိတ်ထဲကို ဝင်လိုက်ပါ',
   'login.heading': 'ပြန်လည်ကြိုဆိုပါတယ်၊ signaler။',
+  'login.noAccountQuestion': 'Tessera ကို အသစ်လား။',
   'login.secureNote': '🔒 ပို့ဆောင်နေစဉ် ကုဒ်ဝှက်ထားသည်',
   'login.signingInCta': 'တိပ်ခွေကိုဖတ်ခြင်း…',
   'login.signupLink': 'အကောင့်တစ်ခုဖွင့်ပါ →',
@@ -95,6 +111,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'သင်စကင်ဖတ်ထားသောလမ်းကြောင်းသည် သိရှိထားသောဒင်္ဂါးပြား သို့မဟုတ် စာမျက်နှာသို့ မရောက်ရှိပါ။ သင်္ကေတကို ပြန်လည်စစ်ဆေးပြီး ထပ်မံကြိုးစားပါ။',
   'notFound.browseMarkets': 'ဈေးကွက်များကို ကြည့်ရှုပါ',
+  'notFound.eyebrow': '{{appName}} အချက်ပြမှု ပျောက်ဆုံးသွားသည်',
+  'notFound.heading': 'ဤအချက်ပြမှုသည် အတိုင်းအတာပြင်ပတွင် ရှိသည်',
+  'planUpdated.body':
+    'သင့်ငွေတောင်းခံမှု ပြောင်းလဲမှုသည် ယခု အသက်ဝင်နေပါပြီ။ သင့်အစီအစဉ်ကို ငွေတောင်းခံမှုစာမျက်နှာမှ မည်သည့်အချိန်တွင်မဆို စီမံနိုင်ပါသည်။',
+  'planUpdated.retry': 'ထပ်ကြိုးစားပါ',
+  'planUpdated.verifyFailed': 'သင့်ငွေပေးချေမှုကို ကျွန်ုပ်တို့ အတည်မပြုနိုင်သေးပါ။',
+  'planUpdated.verifyFailedBody':
+    'သင့်ငွေပေးချေမှုကို လုပ်ဆောင်နေဆဲဖြစ်နိုင်ပါသည်။ ခဏအကြာတွင် ထပ်မံကြိုးစားပါ။',
   'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'portfolio.addError': 'သင်္ကေတ၊ အပေါင်းပမာဏ နှင့် ကုန်ကျစရိတ်ကို ရိုက်ထည့်ပါ။',
   'portfolio.addHoldingCta': '+ ပိုင်ဆိုင်မှုထည့်ရန်',
@@ -118,12 +142,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'စုစုပေါင်း ရင်းနှီးမြှုပ်နှံမှုတန်ဖိုး',
   'portfolioHeroCard.totalPnl': 'စုစုပေါင်း အမြတ်/အစွန်း',
   'pricing.heading': 'သတိပေးချက်များ',
+  'pricing.limit.alerts': 'သတိပေးချက်များ',
   'pricing.limit.coins': 'ဒင်္ဂါးများ',
   'pricing.limit.market': 'ဈေးကွက်',
   'pricing.limit.portfolio': 'အစုစု',
   'resetPassword.eyebrow': 'ကုဒ်ဝှက်စနစ်အသစ်',
   'resetPassword.missingToken':
     'ဤပြန်လည်သတ်မှတ်လင့်ခ် ပျောက်ဆုံးနေပါသည် သို့မဟုတ် မမှန်ကန်ပါ။ အသစ်တစ်ခု တောင်းဆိုပါ။',
+  'resetPassword.passwordPlaceholder': 'စကားဝှက်အသစ်',
   'resetPassword.subheading': 'သင်တစ်ယောက်တည်းသာ ကုဒ်ဖော်နိုင်သည့်အရာကို ရွေးချယ်ပါ။',
   'settings.apiKeys.body':
     'ငွေပေးငွေယူမှတ်တမ်းကို တင်သွင်းရန် ဖတ်ရှုရန်သာ သော့များ။ စာရင်းသွင်းပြီးသည်နှင့် /pricing မှ OAuth မှတစ်ဆင့် ချိတ်ဆက်ပါ။',
@@ -135,17 +161,33 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'ငွေကြေးကိုးကားချက်',
   'settings.preferences.locale': 'ဒေသ',
   'settings.preferences.push': 'တွန်း',
+  'settings.preferences.refresh': 'ဈေးနှုန်းပြန်လည်ဆွဲယူခြင်း (စက္ကန့်)',
   'settings.preferences.sms': 'အက်စ်အမ်အက်စ်',
+  'settings.revokeDeviceWarning': 'ဤစက်ပစ္စည်း၏ ဝင်ခွင့်ကို မကြာမီ ပယ်ဖျက်ပါမည်။ ထွက်မည်လား?',
   'settings.security.body': 'စကားဝှက်နှင့် နှစ်ဆင့်ဆက်တင်များကို သင့်အကောင့်မှ စီမံခန့်ခွဲပါသည်။',
   'settings.signOutDevice': 'ဆိုင်းအောက်',
   'settings.twoFactorCode': 'အထောက်အထားစိစစ်ရေးကုဒ်',
   'settings.twoFactorDisable': 'ပိတ်ရန်',
+  'settings.twoFactorDisableTitle': 'နှစ်ဆင့်အတည်ပြုခြင်းကို ပိတ်ပါ',
   'settings.twoFactorEnable': 'ဖွင့်ပါ',
+  'settings.twoFactorEnableTitle': 'နှစ်ဆင့်အတည်ပြုခြင်းကို ဖွင့်ပါ',
   'settings.twoFactorInvalidCode': 'ကုဒ် မမှန်ကန်ပါ',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'နှစ်ဆင့် QR ကုဒ်',
+  'settings.twoFactorScan':
+    'ဤ QR ကုဒ်ကို သင့်အတည်ပြုကိရိယာအက်ပ်ဖြင့် စကင်ဖတ်ပြီး ၆ လုံးပါ ကုဒ်ကို ထည့်ပါ။',
+  'settings.twoFactorUnavailable': 'ဤအက်ပ်အတွက် နှစ်ဆင့်အထောက်အထားစိစစ်ခြင်း မရရှိနိုင်ပါ။',
   'settings.twoFactorVerify': 'အတည်ပြုပြီး ဖွင့်ပါ',
   'sigilAuthShell.backHomeCta': '← ဆိုင်းဂီလ်သို့ ပြန်သွားရန်',
+  'sigilAuthShell.brandBody':
+    'အချိန်နှင့်တပြေးညီ ဈေးနှုန်းများ၊ အစုစု အမြတ်/အရှုံးနှင့် အရေးပါသော အခြေအနေများအတွက် အမြဲတမ်းစောင့်ကြည့်မှုများ — အားလုံးကို terminal တစ်ခုတည်းတွင်။',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — Molecule ပေါ်တွင် တည်ဆောက်ထားသည်',
+  'sigilAuthShell.brandHeadline':
+    'မှတ်တမ်းစာအုပ်တစ်ခုလုံးရှိ အချက်ပြမှုတိုင်းကို ကုဒ်ဖြင့်ဖော်ပြပါ။',
+  'sigilAuthShell.samplePortfolio': 'နမူနာ အစုစု',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
+  'signup.creating': 'သင့် terminal ကို ဖွင့်နေသည်…',
   'signup.eyebrow': 'တာမီနယ်တစ်ခုဖွင့်ပါ',
   'signup.heading': 'သင့်ရဲ့ Bourse ကို ဖန်တီးပါ',
   'signup.subheading': 'ဒင်္ဂါးတိုင်းကို ခြေရာခံပါ၊ လွဲချော်မှုတိုင်းကို ကာကွယ်ပါ။ စတင်ရန် အခမဲ့။',
@@ -162,6 +204,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'ငွေပေးငွေယူများကို တင်၍မရပါ။',
   'watchlist.addCta': 'ဈေးကွက်များကို ကြည့်ရှုပါ',
   'watchlist.col.change24h': '၂၄ နာရီ',
+  'watchlist.col.coin': 'ဒင်္ဂါးပြား',
   'watchlist.col.marketCap': 'ဈေးကွက်ဦးထုပ်',
   'watchlist.empty':
     'သင့်ရဲ့ စောင့်ကြည့်စာရင်းမှာ ဒင်္ဂါးပြားတွေ မရှိပါဘူး — /markets က ဒင်္ဂါးပြားတွေကို ကြယ်ပွင့်ပြပြီး ထည့်နိုင်ပါတယ်။',

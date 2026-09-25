@@ -1,7 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχετε ερωτήσεις, σχόλια ή μια ιδέα που θα σας βοηθούσε να μείνετε σε τροχιά; Επικοινωνήστε από τις ρυθμίσεις του λογαριασμού σας — κάθε μήνυμα φτάνει σε ένα πραγματικό μέλος της ομάδας.',
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.featureAdherence':
+    'Αναφορές συμμόρφωσης — εβδομαδιαία και μηνιαία γραφήματα, καθώς και ιστορικό δόσης προς δόση που μπορείτε να εξάγετε και να μοιραστείτε με τη θεραπευτική σας ομάδα.',
+  'about.featureCaregivers':
+    'Κοινή χρήση με φροντιστή — προσκαλέστε την οικογένεια ή κλινικούς σε προβολή μόνο ανάγνωσης και αποφασίστε ακριβώς τι μπορούν να βλέπουν.',
+  'about.featureRefills':
+    'Ειδοποιήσεις ανεφοδιασμού — καταμέτρηση χαπιών σε πραγματικό χρόνο, ώστε να ειδοποιείστε μέρες πριν ξεμείνετε, όχι μετά.',
+  'about.featureReminders':
+    'Υπενθυμίσεις που σας σέβονται — ειδοποιήσεις push με αναβολή που μπορούν να κλιμακωθούν σε φροντιστή αν χαθεί μια δόση.',
+  'about.featureSchedules':
+    'Ευέλικτα προγράμματα — καθημερινά, ανά διαστήματα ή συγκεκριμένες ημέρες, με πολλαπλές ώρες την ημέρα και υπενθυμίσεις με φαγητό.',
+  'about.featuresTitle': 'Τι αποκτάτε',
+  'about.missionBody':
+    'Η παράλειψη μιας δόσης δεν πρέπει να εξαρτάται από ένα ξεχασμένο ξυπνητήρι ή ένα άδειο μπουκάλι. Φτιάχνουμε ήρεμα, αξιόπιστα εργαλεία που κάνουν την τήρηση ενός θεραπευτικού πλάνου να μοιάζει αβίαστη — και που φέρνουν διακριτικά κοντά την οικογένεια και τους κλινικούς, μόνο όσο επιτρέπετε.',
+  'about.missionTitle': 'Η αποστολή μας',
+  'about.subtitle': 'Κάθε δόση, στην ώρα της — και όλοι όσοι νοιάζονται για εσάς ενήμεροι.',
   'addMedication.avoidAlcohol': 'Αποφύγετε το αλκοόλ',
   'addMedication.backLink': 'Όλα τα φάρμακα',
   'addMedication.doseAmount': 'Δόση (π.χ. 10 mg)',
@@ -12,6 +30,7 @@ export const ui: UiTranslations = {
   'addMedication.pillColor': 'Χρώμα χαπιού (για οπτική αναγνώριση)',
   'addMedication.saveError': 'Αποτυχία αποθήκευσης.',
   'addMedication.saveLabel': 'Αποθήκευση φαρμάκων',
+  'addMedication.takeWithFood': 'Λήψη με φαγητό',
   'addMedication.warningsLabel': 'Προειδοποιήσεις (επιλέξτε ό,τι ισχύει)',
   'adherence.byMedEmpty':
     'Δεν υπάρχουν ακόμη φάρμακα — προσθέστε ένα για να δείτε την τήρηση ανά φαρμακευτική αγωγή.',
@@ -34,16 +53,26 @@ export const ui: UiTranslations = {
     'Τελευταίες 30 ημέρες · κοινοποιήστε το στην ομάδα φροντίδας σας εάν είναι χρήσιμο',
   'adherence.taken': 'Λήψη',
   'adherence.title': 'Έκθεση Συμμόρφωσης',
+  'adherenceTriad.refills.eyebrow': 'Αναπληρώσεις',
   'adherenceTriad.refills.meta': 'Διαχείριση αναπληρώσεων →',
+  'adherenceTriad.refills.unit': 'πλησιάζει',
   'adherenceTriad.refills.value': '{{count}}',
   'adherenceTriad.streak.eyebrow': 'Σειρά',
   'adherenceTriad.streak.meta': 'Μεγαλύτερο σε διάρκεια: {{days}} ημέρες',
+  'adherenceTriad.streak.unit': 'ημέρες',
   'adherenceTriad.streak.value': '{{days}}',
   'adherenceTriad.today.meta': '{{count}} ακόμα μπροστά',
+  'adherenceTriad.today.unit': 'δόσεις που λήφθηκαν',
   'adherenceTriad.today.value': '{{taken}} / {{total}}',
+  'auth.forgotPassword.subtitle':
+    'Εισαγάγετε το email σας και θα σας στείλουμε έναν σύνδεσμο επαναφοράς.',
+  'auth.resetPassword.subtitle':
+    'Ορίστε νέο κωδικό πρόσβασης για να ολοκληρώσετε την ανάκτηση του λογαριασμού σας.',
   'capsivaLayout.primaryNavLabel': 'Κύρια πλοήγηση',
+  'caregivers.email': 'Email φροντιστή',
   'caregivers.empty': 'Δεν προστέθηκαν φροντιστές. Προσκαλέστε κάποιον να βοηθήσει.',
   'caregivers.heading': 'Φροντιστές',
+  'caregivers.invitedOn': 'Προσκλήθηκε {{when}}',
   'caregivers.inviteError': 'Δεν ήταν δυνατή η αποστολή της πρόσκλησης.',
   'caregivers.inviteFormLabel': 'Φόρμα πρόσκλησης φροντιστή',
   'caregivers.inviteIncomplete': 'Ο διακομιστής δεν επέστρεψε φροντιστή — δοκιμάστε ξανά.',
@@ -65,6 +94,11 @@ export const ui: UiTranslations = {
   'dashboard.timelineHeading': 'Οι σημερινές δόσεις',
   'doseRow.markTaken': 'Παίρνω',
   'doseRow.subline': '{{dose}} · {{time}}',
+  'landing.about': 'Σχετικά με το {{app}}',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Φροντίδα για τη ρουτίνα σας.',
+  'landing.ctaButton': 'Ξεκινήστε — είναι δωρεάν',
+  'landing.ctaSubtitle':
+    'Δωρεάν για να ξεκινήσετε. Προσθέστε φροντιστές οποτεδήποτε. Ακύρωση από τις ρυθμίσεις.',
   'landing.ctaTitle': 'Ρυθμίστε την πρώτη σας υπενθύμιση σε δύο λεπτά',
   'landing.eyebrow': 'Η τήρηση της φαρμακευτικής αγωγής, με φροντίδα',
   'landing.featureEyebrow': 'Τι αποκτάτε',
@@ -76,7 +110,10 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Προγράμματα, υπενθυμίσεις, ανανεώσεις και ένα αρχείο τήρησης σε πραγματικό χρόνο που μπορείτε να μοιραστείτε με τους ανθρώπους που σας νοιάζονται.',
   'landing.heroTitle': '{{tagline}}',
+  'landing.sampleDate': 'Κυριακή, 26 Απριλίου',
   'medicationDetail.backLink': 'Όλα τα φάρμακα',
+  'medicationDetail.confirmDeleteBody':
+    'Αυτό αφαιρεί το φάρμακο, το πρόγραμμά του, το ιστορικό δόσεων και τυχόν εκκρεμή αιτήματα ανεφοδιασμού. Δεν μπορεί να αναιρεθεί.',
   'medicationDetail.confirmDeleteHeading': 'Διαγράφω {{name}} ;',
   'medicationDetail.confirmDeleteLabel': 'Διαγραφή φαρμάκου',
   'medicationDetail.deleteError': 'Η διαγραφή απέτυχε.',
@@ -98,15 +135,30 @@ export const ui: UiTranslations = {
   'medicationDetail.stat.remaining': 'Χάπια που έμειναν',
   'medicationDetail.stat.taken': 'Δόσεις που λήφθηκαν',
   'medicationDetail.warningsHeading': 'Προειδοποιήσεις',
+  'medications.addLabel': 'Προσθήκη φαρμάκου',
   'medications.empty':
     'Δεν υπάρχουν ακόμη φάρμακα. Προσθέστε ένα για να ξεκινήσετε την παρακολούθηση.',
   'medications.heading': 'Φάρμακα',
   'medications.loadError': 'Αποτυχία φόρτωσης φαρμάκων.',
   'medications.prescriber': 'Λήψη από {{name}}',
+  'medications.refillBy': 'Ανεφοδιασμός έως {{date}}',
+  'medications.remaining': 'απομένουν',
   'medications.subheading': '{{count}} δραστικά φάρμακα',
   'notifications.heading': 'Ειδοποιήσεις',
+  'planUpdated.body':
+    'Η αλλαγή χρέωσής σας είναι πλέον ενεργή. Μπορείτε να διαχειρίζεστε το πλάνο σας οποιαδήποτε στιγμή από τη σελίδα χρέωσης.',
+  'planUpdated.retry': 'Δοκιμάστε ξανά',
+  'planUpdated.verifyFailed': 'Δεν μπορέσαμε να επιβεβαιώσουμε ακόμη την πληρωμή σας.',
+  'planUpdated.verifyFailedBody':
+    'Η πληρωμή σας ενδέχεται να βρίσκεται ακόμη υπό επεξεργασία. Δοκιμάστε ξανά σε λίγο.',
   'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
+  'pricing.limits.advancedFeatures': 'Προηγμένες λειτουργίες:',
   'pricing.limits.canExport': 'Εξαγωγή δεδομένων:',
+  'pricing.limits.maxAdherence': '{{count}} συμμόρφωση',
+  'pricing.limits.maxDoses': '{{count}} δόσεις',
+  'pricing.limits.maxMedications': '{{count}} φάρμακα',
+  'pricing.limits.maxRefills': '{{count}} ανεφοδιασμοί',
+  'pricing.limits.maxSchedules': '{{count}} προγράμματα',
   'pricing.no': '—',
   'pricing.yes': '✓',
   'profile.emergency.heading': 'Επαφή έκτακτης ανάγκης',
@@ -126,7 +178,9 @@ export const ui: UiTranslations = {
   'profile.security.error': 'Δεν ήταν δυνατή η αλλαγή του κωδικού πρόσβασης.',
   'profile.security.next': 'Νέος κωδικός πρόσβασης',
   'profile.security.tooShort': 'Ο κωδικός πρόσβασης πρέπει να έχει τουλάχιστον 8 χαρακτήρες.',
+  'refillAlertCard.daysAt': 'ημέρες · {{count}} χάπια',
   'refillAlertCard.pharmacyWithPhone': '{{pharmacy}} · {{phone}}',
+  'refillAlertCard.refillsRemaining': '{{count}} ανεφοδιασμοί απομένουν στη συνταγή',
   'refillAlertCard.request': 'Αίτημα',
   'refills.empty':
     'Δεν υπάρχουν ακόμη αναπληρώσεις. Προσθέστε ένα φάρμακο για να ξεκινήσετε την παρακολούθηση.',
@@ -140,11 +194,15 @@ export const ui: UiTranslations = {
   'refills.tile.dueSoonNote': 'Αναπλήρωση στις επόμενες 30 ημέρες',
   'refills.tile.fine': 'Υγιής εφοδιασμός',
   'refills.tile.fineNote': 'Δεν απαιτείται καμία ενέργεια',
+  'refills.tile.urgent': 'Επείγουσα',
   'refills.tile.urgentNote': 'Έξοδος μέσα σε μια εβδομάδα',
   'schedule.heading': 'Εβδομαδιαίο πρόγραμμα',
+  'schedule.legend':
+    'Συμπληρωμένοι κύκλοι = λήφθηκε ή επερχόμενη · ξεθωριασμένο περίγραμμα = χαμένη δόση',
   'schedule.loadError': 'Αποτυχία φόρτωσης χρονοδιαγράμματος.',
   'schedule.subheading': 'Κάθε δόση, κάθε μέρα, με μια ματιά.',
   'schedule.timeColumn': 'Χρόνος',
+  'settings.appearance.description': 'Εναλλαγή μεταξύ φωτεινής και σκοτεινής λειτουργίας.',
   'settings.appearance.highContrast': 'Χρώματα υψηλής αντίθεσης',
   'settings.appearance.largeText': 'Χρησιμοποιήστε μεγαλύτερο κείμενο παντού',
   'settings.appearance.timeFormat': 'Μορφή ώρας',
@@ -170,15 +228,27 @@ export const ui: UiTranslations = {
   'settings.saving': 'Αποθήκευση…',
   'settings.signingOutDevice': 'Αποσύνδεση…',
   'settings.signOutDevice': 'Αποσύνδεση',
+  'settings.twoFactorBody':
+    'Απαιτήστε έναν κωδικό μίας χρήσης από εφαρμογή authenticator κατά τη σύνδεση για ένα επιπλέον επίπεδο προστασίας των δεδομένων υγείας σας.',
   'settings.twoFactorCode': 'Κωδικός ελέγχου ταυτότητας',
   'settings.twoFactorDisable': 'Απενεργοποίηση',
+  'settings.twoFactorDisableBody':
+    'Εισαγάγετε έναν τρέχοντα κωδικό από την εφαρμογή authenticator για να απενεργοποιήσετε τον έλεγχο ταυτότητας δύο παραγόντων.',
   'settings.twoFactorEnable': 'Ενεργοποίηση',
   'settings.twoFactorInvalidCode': 'Μη έγκυρος κωδικός.',
   'settings.twoFactorOn': 'Στις',
+  'settings.twoFactorQrAlt': 'Κωδικός QR ταυτοποίησης δύο παραγόντων',
+  'settings.twoFactorScan':
+    'Σαρώστε αυτόν τον κωδικό QR με την εφαρμογή ελέγχου ταυτότητας και, στη συνέχεια, εισαγάγετε τον 6ψήφιο κωδικό.',
+  'settings.twoFactorUnavailable':
+    'Ο έλεγχος ταυτότητας δύο παραγόντων δεν είναι διαθέσιμος για αυτήν την εφαρμογή.',
   'settings.twoFactorVerify': 'Επαλήθευση και ενεργοποίηση',
   'settings.unnamedDevice': 'Άγνωστη συσκευή',
   'todayHeroCard.adherence': '{{pct}} %',
   'todayHeroCard.eyebrow': 'Σήμερα · {{date}}',
+  'todayHeroCard.streak': '{{days}} -ημερήσια σειρά',
+  'todayHeroCard.summary':
+    '{{taken}} από {{total}} δόσεις λήφθηκαν · {{upcoming}} ακόμη μπροστά για σήμερα',
   'userMenu.caregivers': 'Φροντιστές',
   'userMenu.memberStatus': 'Φροντίζοντας τη ρουτίνα σας',
   'userMenu.profile': 'Προφίλ και ιατρικές πληροφορίες',

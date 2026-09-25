@@ -1,10 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Une remarque, un bug repéré, ou envie de lancer un nouveau sub ? Écrivez à l'équipe à hello@{{app}}.example — chaque message arrive à une vraie personne qui lit aussi {{app}}.",
   'about.contactTitle': 'Contactez-nous',
   'about.eyebrow': '{{tagline}}',
+  'about.intro':
+    "{{app}} est un agrégateur de liens communautaire — un petit endroit tranquille pour rassembler, voter et discuter des liens qui valent la peine d'être marqués. Un peu comme une page d'accueil plus sereine, construite par celles et ceux qui la lisent.",
+  'about.missionBody':
+    'Nous croyons que le web ouvert est à son meilleur quand ce sont les communautés, et non les algorithmes, qui décident de ce qui remonte en haut. {{app}} offre aux curieux un espace partagé pour faire émerger de bons liens, débattre de bonne foi et se bâtir une réputation qui vaut la peine — sans publicité, sans défilement infini et sans appâts à colère.',
+  'about.missionTitle': 'Notre mission',
   'about.pageTitle': 'À propos de {{app}}',
+  'auth.legalConsent.prefix':
+    'En continuant, vous acceptez les conditions d’utilisation de {{appName}}',
   'brandHeader.tagline': '{{tagline}}',
+  'commentThreadItem.childCount': 'Réponses de {{count}} masquées',
   'commentThreadItem.collapse': 'Réduire',
   'commentThreadItem.expand': 'Développer',
   'commentThreadItem.karma': '{{karma}} karma',
@@ -13,8 +23,11 @@ export const ui: UiTranslations = {
   'feed.clearTag': 'Effacer le filtre d’étiquette',
   'feed.controls': 'Trier le fil',
   'feed.empty': 'Il n’y a rien ici pour l’instant — soyez le premier à marquer un chemin.',
+  'feed.heroBody':
+    "Trié par les conversations qui valent la peine d'être suivies \\u2014 pas celles conçues pour vous retenir ici.",
   'feed.heroEyebrow': "Votre page d'accueil",
   'feed.heroHeadline': 'Trois communautés. Une seule chronologie partagée et lente.',
+  'feed.heroPill': 'Empilez votre cairn',
   'feed.loadError': 'Échec du chargement des publications.',
   'feed.loading': 'Chargement de la page d’accueil…',
   'feed.trendingEyebrow': 'Subs en tendance',
@@ -27,11 +40,17 @@ export const ui: UiTranslations = {
   'landing.footerCopy': '\\u00a9 {{appName}} \\u2014 Marquer le chemin.',
   'landing.headline': 'Un petit endroit tranquille pour les liens qui méritent d’être marqués.',
   'landing.heroPreview': 'Aperçu de Digest',
+  'landing.subhead':
+    "{{appName}} est un agrégateur de liens communautaire : votez, discutez et empilez les choses que vous voulez faire lire à d'autres curieux.",
   'landing.subsEyebrow': 'Subs actifs',
   'landing.subsHeadline': 'Petites communautés, grandes conversations.',
   'landing.todayEyebrow': 'Aujourd’hui sur Digest',
   'landing.todayHeadline': 'Un aperçu de la page d’accueil.',
+  'landing.trendingBody':
+    "Trois sous-communautés, des dizaines de conversations, une seule page d'accueil partagée.",
   'landing.trendingEyebrow': "Tendance aujourd'hui",
+  'landing.trendingHeadline': '12 400 lecteurs ont empilé leur cairn cette semaine.',
+  'landing.trendingPill': "+18 % d'une semaine à l'autre",
   'linkAggregatorLayout.mobileNav': 'Principal',
   'linkAggregatorLayout.searchAria': 'Rechercher dans Vox',
   'linkAggregatorLayout.searchPlaceholder': 'Rechercher des liens, étiquettes, utilisateurs…',
@@ -43,6 +62,7 @@ export const ui: UiTranslations = {
   'linkDetail.commentError': "Le commentaire n'a pas pu être publié ; veuillez réessayer.",
   'linkDetail.commentPlaceholder': 'Ajoutez une réponse réfléchie…',
   'linkDetail.commentsHeading': '{{count}} commentaires',
+  'linkDetail.commentSort': 'Meilleur en premier',
   'linkDetail.commentSubmit': 'Publier le commentaire',
   'linkDetail.commentSubmitting': 'Publication…',
   'linkDetail.loadError': 'Échec du chargement de ce lien.',
@@ -50,12 +70,15 @@ export const ui: UiTranslations = {
   'linkDetail.noComments': 'Aucun commentaire pour l’instant — empilez la première pierre.',
   'linkDetail.notFound': 'Ce lien s’est égaré.',
   'linkPostCard.byUser': 'par {{user}}',
+  'linkPostCard.commentsCount': '{{count}} commentaires',
   'login.noAccount': 'Nouveau sur Tessera ?',
   'login.orContinue': 'ou continuer avec',
   'login.signingIn': 'Connexion en cours…',
   'login.subtitle': '{{tagline}}',
   'login.welcome': 'Bon retour sur le cairn.',
   'nav.legal': 'Mentions légales',
+  'notifications.heroBody':
+    "Une boîte de réception ciblée pour les conversations et les moments de karma qui valent la peine d'y revenir.",
   'notifications.heroHeadline': 'Réponses, mentions et étapes importantes.',
   'notifications.loading': 'Chargement de la boîte de réception…',
   'notifications.title.mention': 'On vous a mentionné',
@@ -64,7 +87,21 @@ export const ui: UiTranslations = {
   'notifications.title.reply': 'Nouvelle réponse',
   'notifications.title.vote': 'Votre publication a reçu un vote',
   'notifications.view': 'Voir le fil',
+  'planUpdated.body':
+    'Votre changement de facturation est maintenant actif. Vous pouvez gérer votre offre à tout moment depuis la page de facturation.',
+  'planUpdated.retry': 'Réessayer',
+  'planUpdated.verifyFailed': "Nous n'avons pas encore pu confirmer votre paiement.",
+  'planUpdated.verifyFailedBody':
+    'Votre paiement est peut-être encore en cours de traitement. Veuillez réessayer dans quelques instants.',
   'planUpdated.verifying': 'Confirmation de votre paiement…',
+  'pricing.advancedFeatures': 'Fonctionnalités avancées : {{yes}}',
+  'pricing.canExport': 'Exportation des données : {{yes}}',
+  'pricing.heading': 'Choisissez votre forfait {{app}}',
+  'pricing.maxComments': '{{count}} commentaires',
+  'pricing.maxLinks': 'Liens soumis sur {{count}}',
+  'pricing.maxVotes': '{{count}} votes',
+  'privacy.intro':
+    'Cette politique de confidentialité décrit comment {{app}} collecte, utilise et divulgue des informations sur les personnes qui publient, votent, commentent et lisent sur la plateforme.',
   'privacy.lastUpdated': 'Dernière mise à jour : {{date}}',
   'privacy.section.collected.body':
     'Nous collectons les informations du compte (nom d’utilisateur, e-mail), le contenu que vous publiez (liens, commentaires, votes, éléments enregistrés, abonnements aux subs) et les journaux standard d’exploitation du service (IP, agent utilisateur, horodatages).',
@@ -95,10 +132,15 @@ export const ui: UiTranslations = {
   'saved.heroBody':
     'Vos favoris se trouvent ici — organisez-les en collections pour y revenir plus facilement.',
   'saved.heroHeadline': 'Votre bibliothèque privée.',
+  'saved.heroPill': 'Pierres marquées sur {{count}}',
   'saved.loadError': 'Échec du chargement des publications enregistrées.',
   'saved.loading': 'Ouverture de votre bibliothèque…',
   'search.empty': 'Aucun résultat pour « {{query}} ».',
+  'search.heroBody':
+    "Tapez une phrase, un tag ou un nom d'utilisateur \\u2014 les résultats se mettent à jour au fil de la saisie.",
   'search.heroHeadline': 'Trouvez une pierre dans le cairn.',
+  'search.heroPillIdle': 'Essayer une requête',
+  'search.heroPillResults': '{{count}} résultats',
   'search.idle': 'Saisissez une requête ci-dessus pour commencer à rechercher.',
   'search.karma': '{{karma}} karma',
   'search.loading': 'Recherche…',
@@ -113,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.heroBody':
     'Compte, flux, notifications et confidentialité : tout est regroupé au même endroit. Les modifications sont appliquées immédiatement.',
   'settings.heroHeadline': 'Adaptez Digest à votre goût.',
+  'settings.heroPill': 'Personnalisez votre fil',
   'settings.notifications.digest': 'Résumé hebdomadaire des points forts',
   'settings.notifications.heading': 'Notifications',
   'settings.notifications.mentions': 'Mentions @ dans les commentaires',
@@ -123,12 +166,14 @@ export const ui: UiTranslations = {
   'settings.privacy.exporting': "Préparation de l'exportation…",
   'settings.saveFailed': 'Échec de l’enregistrement des paramètres.',
   'settings.saving': 'Enregistrement…',
+  'settings.unsaved': 'Modifications non enregistrées',
   'signup.heading': 'Créez votre compte Digest.',
   'signup.mismatch': 'Les mots de passe ne correspondent pas.',
   'signup.orContinue': 'ou continuer avec',
   'signup.submitting': 'Création du compte…',
   'signup.subtitle': 'Rejoignez une petite communauté tranquille de partage de liens.',
   'subBadge.join': 'Rejoindre',
+  'subBadge.joined': 'Inscrit',
   'subBadge.memberCount': '{{count}} membres',
   'subDetail.bodyFallback': 'Une petite communauté ciblée.',
   'subDetail.descriptionFallback': 'Une petite communauté ciblée sur Digest.',
@@ -136,11 +181,15 @@ export const ui: UiTranslations = {
     'Aucune publication ici pour l’instant — partagez un lien pour lancer la conversation.',
   'subDetail.eyebrow': 'sous-communauté',
   'subDetail.join': 'Rejoindre le sub',
+  'subDetail.joined': 'Inscrit',
   'subDetail.loading': 'Chargement du sub…',
   'subDetail.modsEyebrow': 'Modérateurs',
   'subDetail.pill': '{{count}} membres',
   'subDetail.rulesEyebrow': 'Règles du sub',
+  'submitLink.heroBody':
+    'Partagez un lien ou écrivez une courte publication texte. Choisissez le sub qui convient, ajoutez un tag ou deux, et la communauté décide si ça grimpe.',
   'submitLink.heroHeadline': 'Empilez une pierre sur le cairn.',
+  'submitLink.heroPill': 'Nouvelle publication',
   'submitLink.subLabel': 'Publier dans le sub',
   'submitLink.submit': 'Publier sur Digest',
   'submitLink.submitError': 'Échec de la publication — réessayez.',
@@ -153,11 +202,16 @@ export const ui: UiTranslations = {
   'submitLink.urlLabel': 'URL',
   'submitLink.urlRequired': 'Une URL est requise pour les publications de lien.',
   'subs.empty': 'Aucun sub pour l’instant — soyez le premier à en créer un.',
+  'subs.heroBody':
+    'Chaque sub est une petite communauté ciblée. Rejoignez-en quelques-unes \\u2014 votre fil ne montre que ce que vous choisissez.',
   'subs.heroEyebrow': 'Sous-communautés',
   'subs.heroHeadline': 'Choisissez vos pierres. Construisez votre cairn.',
+  'subs.heroPill': 'Subs actifs sur {{count}}',
   'subs.loadError': 'Échec du chargement des subs.',
   'subs.loading': 'Rassemblement des subs…',
   'subs.searchPlaceholder': 'Rechercher des subs…',
+  'terms.intro':
+    "Les présentes Conditions d'utilisation (« Conditions ») régissent votre accès à {{app}} et son utilisation. En créant un compte ou en utilisant le service, vous acceptez d'être lié par celles-ci.",
   'terms.lastUpdated': 'Dernière mise à jour : {{date}}',
   'terms.section.acceptable.body':
     'Vous acceptez de ne pas utiliser le service pour enfreindre une quelconque loi, harceler d’autres utilisateurs, publier du spam, transmettre des logiciels malveillants ou tenter un accès non autorisé à d’autres comptes ou à notre infrastructure.',

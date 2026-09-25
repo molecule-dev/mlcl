@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vous avez des retours, vous avez trouvé un bug, ou vous voulez nous raconter comment vous cartographiez vos idées ? Nous lisons chaque message — écrivez-nous quand vous voulez et un vrai membre de l’équipe vous répondra.',
+  'about.contactTitle': 'Contactez-nous',
   'about.eyebrow': 'À propos',
+  'about.featureCanvas':
+    'Un canevas infini avec des nœuds déplaçables, des connexions aux courbes fluides, et un zoom et un déplacement tout en douceur.',
+  'about.featureCollab':
+    'Collaboration en temps réel avec curseurs en direct, pour que votre équipe puisse ramifier à vos côtés au lieu d’attendre son tour.',
+  'about.featurePricing':
+    'Gratuit pour toujours pour les penseurs solo ; les offres Pro et Team ajoutent plus de cartes, plus de nœuds, des fonctionnalités avancées et l’export de données.',
+  'about.featureTemplates':
+    'Une bibliothèque de modèles de départ et un historique complet des versions, pour lancer une carte en un instant et revenir sur n’importe quelle modification.',
+  'about.intro':
+    '{{app}} est un canevas spacieux et infini pour le mind mapping — brainstormings, schémas conceptuels, SWOT et plans de projet. Déplacez les nœuds où vous voulez, reliez les idées par des liens fluides, zoomez et déplacez la vue sans buter sur les bords, et laissez la carte grandir avec votre réflexion.',
+  'about.missionBody':
+    'Penser à voix haute devrait être simple et partagé. Nous créons des outils qui s’effacent — pas de grilles rigides, pas de modèles enfermants, pas d’interface qui capte l’attention — pour que les individus et les équipes capturent les idées à l’instant où elles surgissent et les façonnent ensemble.',
+  'about.missionTitle': 'Notre mission',
   'about.pageTitle': 'À propos de {{app}}',
   'auth.brandEyebrow': 'Là où les idées se ramifient',
   'auth.brandStatement':
@@ -13,19 +29,25 @@ export const ui: UiTranslations = {
   'billing.feature.export': 'Exporter en SVG / PNG',
   'billing.feature.maps': '{{count}} cartes',
   'billing.feature.nodes': '{{count}} nœuds par carte',
+  'billing.freeNoticeBody': 'Choisissez une offre payante ci-dessus pour débloquer plus de cartes.',
   'billing.loadError': 'Impossible de charger l’état de facturation.',
+  'billing.loading': 'Chargement de la facturation…',
   'billing.perMonth': ' / mois',
   'billing.plansTitle': 'Plans',
+  'billing.priceMissing': 'ID de prix Stripe non configuré.',
   'billing.starting': 'Démarrage du paiement…',
   'billing.title': 'Facturation et plan',
   'billing.unavailableTier':
     'Ce palier n’est pas encore configuré pour le paiement — définissez l’ID de prix Stripe dans votre environnement.',
   'billing.unlimited': 'Illimité',
   'billing.upgradeMonthly': 'Passer à {{name}} (mensuel)',
+  'billing.upgradeYearly': 'Paiement annuel · {{price}}',
   'brand.tagline': 'Là où les idées se ramifient',
   'common.and': 'et',
   'common.goToDashboard': 'Aller au tableau de bord',
   'dashboard.activityAction': 'a mis à jour',
+  'dashboard.activityEmpty':
+    'Aucune activité pour l’instant — modifiez une carte pour démarrer votre chronologie.',
   'dashboard.daysAgo': 'il y a {{count}}j',
   'dashboard.empty.body':
     'Créez une carte pour commencer à ramifier vos idées. Les modèles facilitent le démarrage.',
@@ -44,26 +66,35 @@ export const ui: UiTranslations = {
   'dendriteHero.activeMaps': 'Cartes actives',
   'dendriteHero.eyebrow': 'Aujourd’hui sur le canevas',
   'dendriteHero.greeting': 'Ramifiez de nouvelles idées, {{name}}',
+  'dendriteHero.greetingAnon': 'Ramifier de nouvelles idées',
   'dendriteHero.openMaps': 'Ouvrir mes cartes',
   'dendriteHero.subtitle':
     'Glissez, connectez et laissez votre pensée s’épanouir. Chaque étincelle est à un nœud de la suivante.',
   'dendriteHero.weeklyChange': '{{sign}}{{count}} cette semaine',
+  'forgotPassword.brandStatement':
+    'Vos cartes sont en sécurité. Nous vous ramenons à vos branches dans un instant.',
   'forgotPassword.subheading':
     'Saisissez votre e-mail et nous vous enverrons un nouveau lien de réinitialisation.',
   'forgotPassword.success':
     'Si un compte avec cet e-mail existe, un lien de réinitialisation est en route.',
   'landing.cta.body':
     'Gratuit pour toujours pour les penseurs solo. Mettez à niveau seulement quand votre équipe commence à ramifier avec vous.',
+  'landing.cta.button': 'Créez votre première carte',
   'landing.cta.title': 'Plantez votre première idée aujourd’hui.',
   'landing.feature.branch.body':
     'Glissez un nœud depuis n’importe quel autre — les connexions s’écoulent en courbes douces, sans grille rigide.',
+  'landing.feature.branch.title': 'Ramification organique',
   'landing.feature.canvas.body':
     'Déplacez, zoomez et laissez la carte grandir sans heurter les bords. Votre pensée mérite de l’espace pour respirer.',
   'landing.feature.canvas.title': 'Canevas infini',
   'landing.feature.collab.body':
     'Voyez vos coéquipiers ramifier à vos côtés en temps réel. Brainstormez ensemble, pas en série.',
+  'landing.feature.collab.title': 'Curseurs collaboratifs',
   'landing.feature.shortcuts.body':
     'Tab pour ajouter un enfant, Entrée pour un frère, ⌘K pour sauter n’importe où. Les utilisateurs avancés restent dans le flux.',
+  'landing.feature.shortcuts.title': "Clavier d'abord",
+  'landing.featuresBody':
+    'Les barres d’outils, les panneaux et les raccourcis se font discrets — présents quand vous en avez besoin, invisibles sinon.',
   'landing.featuresEyebrow': 'Conçu pour les penseurs',
   'landing.featuresTitle': 'Chaque interaction gagne sa place sur le canevas',
   'landing.footer.copyright': '© {{year}} {{appName}} . Développé avec Molecule.dev.',
@@ -71,6 +102,7 @@ export const ui: UiTranslations = {
     '{{appName}} est un vaste espace de travail infini pour le brainstorming, les diagrammes conceptuels et les analyses SWOT. Glissez, connectez et laissez la carte évoluer avec vous : pas de grilles rigides, pas de modèles prédéfinis.',
   'landing.hero.ctaPrimary': 'Commencez à ramifier gratuitement',
   'landing.hero.eyebrow': 'Cartographie mentale pour designers et penseurs',
+  'landing.hero.title': 'Là où les idées se ramifient.',
   'landing.nav.start': 'Commencer à ramifier',
   'landing.proof.export': 'Exportez en PNG, SVG ou Markdown',
   'landing.proof.free': 'Gratuit pour 3 cartes',
@@ -78,6 +110,7 @@ export const ui: UiTranslations = {
   'layout.closeMenu': 'Fermer le menu de navigation',
   'layout.openMenu': 'Ouvrir le menu de navigation',
   'layout.searchPlaceholder': 'Rechercher des cartes, modèles ou nœuds…',
+  'login.noAccount': 'Nouveau ici ?',
   'login.signIn': 'Se connecter à Nimbus',
   'login.subheading': 'Connectez-vous pour continuer à ramifier là où vous vous êtes arrêté.',
   'login.twoFactor': 'Jeton à deux facteurs (si activé)',
@@ -96,9 +129,11 @@ export const ui: UiTranslations = {
     'Choisissez l’outil +, puis cliquez n’importe où pour ajouter votre premier nœud',
   'mapEditor.export': 'Exporter',
   'mapEditor.exportError': "Impossible d'exporter la carte.",
+  'mapEditor.exportLocked': 'L’export est une fonctionnalité Pro.',
   'mapEditor.exportMarkdown': 'Markdown (.md)',
   'mapEditor.exportPng': 'Image (.png)',
   'mapEditor.exportSvg': 'Vecteur (.svg)',
+  'mapEditor.exportUpgrade': 'Passer à Pro pour exporter →',
   'mapEditor.hint.add': 'Cliquez sur le canevas pour déposer un nœud',
   'mapEditor.hint.connectSource': 'Cliquez sur le nœud source…',
   'mapEditor.hint.connectTarget': 'Cliquez sur le nœud cible…',
@@ -107,6 +142,7 @@ export const ui: UiTranslations = {
   'mapEditor.loading': 'Chargement du canevas…',
   'mapEditor.newNodeText': 'Nouvelle idée',
   'mapEditor.panel.color': 'Couleur',
+  'mapEditor.panel.eyebrow': 'Nœud sélectionné',
   'mapEditor.panel.nodes': 'Nœuds',
   'mapEditor.panel.noSelection': 'Cliquez sur un nœud pour le modifier.',
   'mapEditor.panel.stats': 'Statistiques de la carte',
@@ -147,12 +183,19 @@ export const ui: UiTranslations = {
   'notifications.accept': 'Accepter',
   'notifications.acceptAndOpen': 'Accepter et ouvrir',
   'notifications.acceptedInvite': 'Vous avez rejoint {{title}}.',
+  'notifications.acceptError': 'Impossible d’accepter l’invitation.',
   'notifications.empty.body':
     'Quand vos coéquipiers vous inviteront à des cartes, elles apparaîtront ici.',
   'notifications.empty.title': 'Aucune invitation en attente',
+  'notifications.inviteBody': 'Envoyé à {{email}}',
   'notifications.inviteTitle': 'Invité comme {{role}} à "{{title}}"',
   'notifications.subtitle': '{{count}} invitations en attente.',
   'notifications.view': 'Voir',
+  'pricing.limit.advanced': 'Fonctionnalités avancées : {{state}}',
+  'pricing.limit.connections': '{{count}} connexions',
+  'pricing.limit.export': 'Export de données : {{state}}',
+  'pricing.limit.maps': '{{count}} cartes',
+  'pricing.limit.nodes': '{{count}} nœuds par carte',
   'profile.loading': 'Chargement de vos statistiques…',
   'profile.stat.collabs': 'Collaborations',
   'profile.stat.maps': 'Cartes créées',
@@ -164,25 +207,37 @@ export const ui: UiTranslations = {
   'publicMap.loadError': "Cette carte n'est plus partagée, ou le lien est invalide.",
   'publicMap.loading': 'Chargement de la carte…',
   'publicMap.notFound': 'Carte introuvable.',
+  'resetPassword.newPassword': 'Nouveau mot de passe',
   'resetPassword.subheading':
     'Choisissez quelque chose de mémorable. Nous vous reconnecterons automatiquement.',
   'resetPassword.submit': 'Réinitialiser le mot de passe et se connecter',
   'resetPassword.tokenPlaceholder': 'Collé depuis votre e-mail',
   'settings.account.subtitle': 'Mettez à jour votre nom d’affichage et votre adresse e-mail.',
+  'settings.field.currentPassword': 'Mot de passe actuel',
   'settings.field.newPassword': 'Nouveau mot de passe',
   'settings.password.subtitle': 'Choisissez un mot de passe fort (au moins 8 caractères).',
   'settings.passwordError':
     'Impossible de changer le mot de passe. Vérifiez votre mot de passe actuel.',
+  'settings.passwordMismatch': 'Les nouveaux mots de passe ne correspondent pas.',
   'settings.passwordSaved': 'Mot de passe changé avec succès.',
   'settings.passwordTooShort': 'Le mot de passe doit comporter au moins 8 caractères.',
   'settings.profileError': 'Impossible d’enregistrer les modifications du profil.',
   'settings.subtitle': 'Ajustez votre compte et sa sécurité.',
   'settings.twoFactorCode': "Code d'authentification",
   'settings.twoFactorDisable': 'Désactiver',
+  'settings.twoFactorDisableTitle': "Désactiver l'authentification à deux facteurs",
   'settings.twoFactorEnable': 'Activer',
+  'settings.twoFactorEnableTitle': "Activer l'authentification à deux facteurs",
   'settings.twoFactorInvalidCode': 'Code invalide. Veuillez réessayer.',
+  'settings.twoFactorOffLine': 'L’authentification à deux facteurs est désactivée.',
+  'settings.twoFactorOnLine': 'L’authentification à deux facteurs est activée.',
+  'settings.twoFactorQrAlt': "QR code d'authentification à deux facteurs",
+  'settings.twoFactorScan':
+    "Scannez ce QR code avec votre application d'authentification, puis saisissez le code à 6 chiffres.",
   'settings.twoFactorSubtitle':
     "Ajoutez un code à usage unique provenant de votre application d'authentification en plus de votre mot de passe.",
+  'settings.twoFactorUnavailable':
+    "L'authentification à deux facteurs n'est pas disponible pour cette application.",
   'settings.twoFactorVerify': 'Vérifier et activer',
   'share.accepted': 'Accepté',
   'share.backToMap': 'Retour à la carte',
@@ -193,7 +248,10 @@ export const ui: UiTranslations = {
   'share.copySuccess': 'Lien copié.',
   'share.invite.button': 'Inviter',
   'share.invite.title': 'Inviter par e-mail',
+  'share.inviteError': "Impossible d'envoyer l'invitation.",
   'share.inviteSuccess': '{{email}} invité.',
+  'share.link.disabledHint':
+    'Activez pour générer un lien public en lecture seule vers cette carte.',
   'share.link.title': 'Lien public',
   'share.loadError': 'Impossible de charger les paramètres de partage.',
   'share.pending': 'Invitation en attente',
@@ -205,13 +263,19 @@ export const ui: UiTranslations = {
   'share.roleError': 'Impossible de mettre à jour le rôle.',
   'share.title': 'Partager cette carte',
   'share.unnamedCollaborator': 'Invitation en attente',
+  'signup.brandStatement':
+    'Un canevas assez vaste pour le brainstorming le plus audacieux — et assez silencieux pour réfléchir.',
+  'signup.haveAccount': 'Déjà membre ?',
   'signup.heading': 'Plantez votre première idée',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.subheading': 'Gratuit pour toujours pour 3 cartes. Aucune carte bancaire requise.',
   'templateDetail.backToTemplates': 'Tous les modèles',
   'templateDetail.browseMore': 'Parcourir plus',
+  'templateDetail.editableHint':
+    'Chaque nœud et chaque lien est entièrement modifiable une fois le modèle instancié.',
   'templateDetail.instantiateError': 'Impossible de créer une carte à partir de ce modèle.',
   'templateDetail.loadError': 'Impossible de charger ce modèle.',
+  'templateDetail.loading': 'Chargement du modèle…',
   'templateDetail.nodes': 'Nœuds préconfigurés',
   'templateDetail.notFound': 'Modèle introuvable.',
   'templateDetail.systemEyebrow': 'Modèle intégré',
@@ -234,6 +298,7 @@ export const ui: UiTranslations = {
   'trash.empty.body': 'Rien à vider. Vos branches sont en sécurité.',
   'trash.empty.title': 'La corbeille est vide',
   'trash.loadError': 'Impossible de charger les cartes supprimées.',
+  'trash.loading': 'Chargement de la corbeille…',
   'trash.restore': 'Restaurer',
   'trash.restoreError': 'Impossible de restaurer la carte.',
   'trash.subtitle':
@@ -242,11 +307,13 @@ export const ui: UiTranslations = {
   'versionHistory.backToMap': 'Retour à la carte',
   'versionHistory.empty':
     'Aucun instantané pour le moment. Enregistrez le premier pour garder un point de contrôle.',
+  'versionHistory.emptyDetail': 'Enregistrez un instantané pour démarrer votre chronologie.',
   'versionHistory.loadError': 'Impossible de charger l’historique des versions.',
   'versionHistory.nodeCount': 'Nœuds',
   'versionHistory.restoreButton': 'Restaurer cette version',
   'versionHistory.restoreError': 'Impossible de restaurer l’instantané.',
   'versionHistory.restoreSuccess': 'Instantané restauré.',
+  'versionHistory.selectHint': 'Sélectionnez un instantané pour l’afficher.',
   'versionHistory.snapshotDefault': 'Instantané manuel',
   'versionHistory.snapshotError': 'Impossible d’enregistrer l’instantané.',
   'versionHistory.snapshotEyebrow': 'Instantané',

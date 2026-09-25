@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite, tetikleyiciləri, süni intellekt şərtlərini və çoxmərhələli hərəkətləri birləşdirən bir iş axını avtomatlaşdırma platformasıdır ki, komandalar yapışqan kodu yazmadan işləri sistemlər arasında hərəkət etdirə bilsinlər.',
+  'about.philosophy':
+    'Hər iş axını kiçik, müşahidə edilə bilən addımlardan ibarət qrafikdir. Hər addım öz girişlərini, çıxışlarını və vaxtını qeyd edir ki, onu yoxlamaq, təkrar oynatmaq və ya geri qaytarmaq mümkün olsun. Onları vizual şəkildə qur, kod kimi versiyala.',
   'about.title': 'Dendrit haqqında',
   'authShell.brand': 'Dendrit',
   'authShell.support': 'Dəstək',
@@ -15,9 +17,14 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Planı dəyişdirin',
   'billing.description':
     'İstifadəni izləyin, planınızı idarə edin və mühasibat uçotu üçün fakturaları çəkin.',
+  'billing.eyebrow': 'Hesab · Plan və istifadə',
+  'billing.failedLabel': 'Uğursuz işləmələr · 24 saat',
+  'billing.invoicesEmpty':
+    'Hələ faktura yoxdur. İlk ödənişli yeniləmənizdən sonra burada görünəcək.',
   'billing.invoicesTitle': 'Faktura tarixçəsi',
   'billing.planNoteFree':
     'Pulsuz səviyyə — {{runs}} qaçır və {{workflows}} Aktiv iş axınları. Daha yüksək limitlər üçün təkmilləşdirin.',
+  'billing.planNotePaid': 'Ödənişli plan — {{runs}} işləmə və {{workflows}} aktiv iş axını.',
   'billing.runsLabel': 'Son 24 saat ərzində işlədilənlər',
   'billing.tiersBlurb':
     'Xüsusi qiymət səhifəsində hər səviyyəni — çalışmaları, aktiv iş axınlarını, inkişaf etmiş xüsusiyyətləri və dəstəyi — müqayisə edin.',
@@ -35,10 +42,14 @@ export const ui: UiTranslations = {
     'Qeydiyyatdan keçmiş inteqrasiya yoxdur. Bağlantıları aktivləşdirmək üçün provayder açarlarını konfiqurasiya edin.',
   'connections.error': 'Bağlantıları yükləmək mümkün olmadı.',
   'connections.eyebrow': 'İnteqrasiyalar · {{connected}} bağlı',
+  'connections.loading': 'İnteqrasiyalar yüklənir…',
+  'connections.openEnv':
+    'Bu provayderi qoşmaq üçün onun API açarını api/.env faylında təyin edin və serveri yenidən başladın.',
   'dashboard.description':
     '{{active}} iş axınları aktivdir. {{failed}} son 24 saat ərzində uğursuz oldu.',
   'dashboard.error': 'İdarəetmə paneli yüklənə bilmədi.',
   'dashboard.eyebrow': 'Əməliyyatlar · canlı',
+  'dashboard.hero.label': 'Bugünkü işləmələr',
   'dashboard.hero.medianLatency': 'p50 gecikməsi',
   'dashboard.hero.queue': 'Növbənin dərinliyi',
   'dashboard.hero.success': 'Uğur',
@@ -46,14 +57,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Orta müddət',
   'dashboard.kpi.failedRuns': 'Uğursuz · 24 saat',
   'dashboard.kpi.outOf': '-ın {{total}} cəmi',
+  'dashboard.kpi.successRate': 'Uğur nisbəti · 24 saat',
   'dashboard.loading': 'İdarəetmə paneli yüklənir…',
   'dashboard.recentRuns.empty':
     'Hələ ki, heç bir iş yoxdur. İş axınını işə salmaq bu lenti dolduracaq.',
   'dashboard.recentRuns.title': 'Son qaçışlar',
   'dashboard.recentRuns.viewAll': 'Açıq edamlar →',
+  'dashboard.recentWorkflows.browse': 'Şablonlara baxın →',
   'dashboard.recentWorkflows.empty':
     'Hələ iş axınları yoxdur. Şablon quraşdırın və ya sıfırdan yaradın.',
   'dashboard.recentWorkflows.title': 'Bu yaxınlarda işlədilib',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'Başladı',
   'dashboard.run.col.trigger': 'Tetikleyici',
   'dashboard.run.col.workflow': 'İş axını',
@@ -88,6 +102,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'İş axını',
   'executions.description':
     'Hər iş axını, hər təkrar cəhd, hər addım çıxışı — hamısı müşahidə olunur.',
+  'executions.empty.filter': 'Bu filtrə uyğun işləmə yoxdur.',
   'executions.empty.first':
     'Hələ ki, heç bir iş yoxdur — bu siyahını doldurmaq üçün iş axınını işə salın.',
   'executions.error': 'İcralar yüklənə bilmədi.',
@@ -98,30 +113,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'İşləmə tarixçəsi yüklənir…',
   'executions.title': 'Edamlar',
   'forgotPassword.confirmation': 'Sıfırlama linki göndərildi {{email}} .',
+  'forgotPassword.subhead': 'Yeniləmə linki almaq üçün e-poçt ünvanınızı daxil edin.',
   'forgotPassword.successSubhead':
     'Sıfırlama linki göndərdik {{email}} 30 dəqiqədən sonra müddəti bitir.',
   'help.connections.body':
     'Süni intellekt, e-poçt və yaddaş addımları provayder açarlarının api/.env faylında təyin edilməsini tələb edir. Açar konfiqurasiya edildikdən sonra müvafiq inteqrasiya Bağlantılar səhifəsində qoşulmuş kimi görünür.',
+  'help.connections.cta': 'Açıq bağlantılar →',
   'help.connections.title': 'Provayderləri birləşdirir',
   'help.gettingStarted.body':
     'Yeni iş axınları şablon kitabxanasından quraşdırıla və ya iş axını qurucusunda sıfırdan yaradıla bilər. Hər bir iş axınının bir tetikleyicisi (əl ilə, veb-hook və ya cron) və ardıcıllıqla işləyən addımlar ardıcıllığı var.',
+  'help.gettingStarted.cta': 'Şablon kitabxanasına bax →',
+  'help.gettingStarted.title': 'Başlarkən',
   'help.intro':
     'İş axınlarının qurulması, əlaqələrin konfiqurasiyası və çıxış çıxışının şərhi ilə bağlı ümumi suallara cavab tapın. Ən çox yayılmış mövzular aşağıda verilmişdir; əhatə olunmayan hər hansı bir mövzu üçün iş sahəsi administratorunuzla əlaqə saxlayın.',
   'help.runs.body':
     'Hər bir icra mərhələsi hər bir addımı status (uğur, uğursuzluq, buraxılmış) və çıxışın bir hissəsi ilə müstəqil olaraq qeyd edir. İcra təfərrüatları səhifəsində tam addım-addım izləmə və ehtimal olunan metriklər göstərilir.',
+  'help.runs.cta': 'Açıq edamlar →',
   'help.runs.title': 'Çalışma çıxışını oxumaq',
   'help.title': 'Yardım mərkəzi',
   'integrationCard.manage': 'İdarə et',
   'landing.brand': 'Dendrit',
   'landing.demo.action.subtitle': 'Dairəvi · ərazi',
+  'landing.demo.action.title': 'Nümayəndəni xəbərdar et',
   'landing.demo.condition.subtitle': 'Süni intellekt niyyət təsnifatçısı',
+  'landing.demo.condition.title': 'Bal ≥ orta?',
   'landing.demo.trigger.subtitle': 'POST /formalar/əlaqə',
   'landing.demo.trigger.title': 'Daxil olan veb-hook',
+  'landing.features.body':
+    'Tətiklər işə düşür. Şərtlər budaqlanır. Fəaliyyətlər işi çatdırır. Onları vizual şəkildə qur, kod kimi versiyala.',
   'landing.features.heading': 'Üç düyün növü. Sonsuz formalar.',
   'landing.footer.help': 'Kömək',
   'landing.footer.tagline': 'Hərəkətdə olan zəka',
+  'landing.hero.body':
+    '{{appName}} Zapier-dən kənara çıxan əməliyyat komandaları üçün iş axını mühərrikidir. Tətik, şərt, fəaliyyət — faktiki istifadə etdiyiniz hər sistemə qoşulub.',
   'landing.hero.eyebrow': 'Hərəkətdə olan zəka',
   'landing.hero.headline': 'Yığını birləşdirin. İşin görülməsinə icazə verin.',
+  'landing.hero.primaryCta': 'İlk iş axınınızı yaradın',
   'landing.hero.proof.ai': 'Daxili süni intellekt qovşaqları',
   'landing.hero.proof.free': 'Ayda 1 min qaçış üçün pulsuz',
   'landing.hero.proof.soc2': 'SOC 2 Tip II',
@@ -129,10 +156,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Oturacaqlar üçün deyil, yarışlar üçün pul ödəyin.',
   'landing.templates.body':
     'Hər komanda üçün əvvəlcədən hazırlanmış iş axınları — satış, dəstək, inkişaf əməliyyatları, maliyyə. Bir kliklə quraşdırın; istənilən şeyi tənzimləyin.',
+  'landing.templates.cta': 'Şablonlara baxmaq üçün qeydiyyatdan keçin →',
   'landing.templates.eyebrow': 'Saniyələr içində başlayın',
   'landing.templates.heading': 'Yoxlanılmış reseptlər kitabxanası.',
   'landing.templates.signupHint': 'Quraşdırmaq üçün qeydiyyatdan keçin',
   'login.hidePassword': 'Şifrəni gizlət',
+  'login.noAccount': 'Tessera-da yenisiniz?',
   'login.showPassword': 'Şifrəni göstər',
   'login.subhead': 'Avtomatlaşdırmalarınızın işləməsini təmin etmək üçün daxil olun.',
   'mobileNav.drawerLabel': 'Əsas naviqasiya',
@@ -148,8 +177,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Bu lenti doldurmağa başlamaq üçün iş axınını işə salın.',
   'notifications.empty.title': 'Hamınız məlumatsızsınız',
   'notifications.eyebrow': '{{n}} oxunmamış',
+  'planUpdated.body':
+    'Ödəniş dəyişikliyiniz artıq aktivdir. Planınızı istənilən vaxt ödəniş səhifəsindən idarə edə bilərsiniz.',
+  'planUpdated.retry': 'Yenidən cəhd edin',
+  'planUpdated.verifyFailed': 'Ödənişinizi hələ təsdiqləyə bilmədik.',
+  'planUpdated.verifyFailedBody':
+    'Ödənişiniz hələ də emal oluna bilər. Bir an sonra yenidən cəhd edin.',
   'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
   'pricing.heading': 'qaçışlar',
+  'pricing.runsSuffix': 'işləmə',
   'pricing.workflowsSuffix': 'iş axınları',
   'privacy.collect.body':
     'Qeydiyyatdan keçdiyiniz e-poçt ünvanını, konfiqurasiya etdiyiniz iş axınlarını və hər bir işə salma haqqında metaməlumatları (başlama vaxtı, bitmə vaxtı, status) toplayırıq. İş sahəsi sahibi üçün işə salma görüntüləyicisində göstərmək üçün lazım olandan artıq tetikleyicilərdən və ya addım çıxışlarından faydalı yük məzmununu heç vaxt toplamırıq və ya saxlamırıq.',
@@ -165,11 +201,14 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Şifrəni yeniləmək mümkün olmadı.',
   'resetPassword.newPassword': 'Yeni parol',
   'resetPassword.subhead': 'Yalnız təxmin edə biləcəyiniz bir şey seçin.',
+  'settings.appearance.description': 'İşıq və qaranlıq rejim arasında keçid edin.',
+  'settings.appearance.title': 'Görünüş',
   'settings.billingShortcut.cta': 'Açıq faktura',
   'settings.billingShortcut.description':
     'Plan, istifadə və fakturalar xüsusi faktura səhifəsində canlı yayımlanır.',
   'settings.danger.confirm': 'Əminsiniz? Bu, iş sahənizi silmək üçün növbəyə qoyacaq.',
   'settings.danger.confirmYes': 'Bəli, növbənin silinməsi',
+  'settings.danger.deleteWorkspace.cta': 'İş sahəsini silin',
   'settings.danger.deleteWorkspace.hint':
     '14 günlük güzəşt müddətindən sonra bütün iş axınlarını, işə salmaları və əlaqələri silir.',
   'settings.danger.deleteWorkspace.title': 'İş sahəsini silin',
@@ -181,10 +220,15 @@ export const ui: UiTranslations = {
     'Hesabınızı, iş sahənizi, inteqrasiyalarınızı və ödənişlərinizi bir yerdə idarə edin.',
   'settings.notifications.description':
     'Hansı tədbirləri səhifələdiyinizi, sizə e-poçt göndərdiyinizi və ya səssiz qaldığınızı seçin.',
+  'settings.notifications.failures.hint':
+    'Hər uğursuz işləmə üçün e-poçt və tətbiqdaxili bildiriş.',
+  'settings.notifications.failures.title': 'İş axını uğursuzluqları',
   'settings.notifications.product.hint':
     'Yeni şablonlar və xüsusiyyətlər haqqında bəzən e-poçtlar.',
+  'settings.notifications.product.title': 'Məhsul yenilikləri',
   'settings.notifications.weekly.hint':
     'Bazar ertəsi səhəri ötən həftənin qaçışları və qənaətlərinin xülasəsi.',
+  'settings.notifications.weekly.title': 'Həftəlik xülasə',
   'settings.profile.description':
     'İş axını çalıştırıcısının içərisində necə göründüyünüz. İş sahəsi fəaliyyətində istifadə olunur.',
   'settings.profile.noEmail': 'Qeydiyyatda e-poçt yoxdur',
@@ -192,12 +236,23 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Profil dəyişiklikləri yadda saxlanıla bilmədi.',
   'settings.profile.unnamedUser': 'Adsız istifadəçi',
   'settings.security.audit.hint': 'Hər bir hərəkəti webhook vasitəsilə SIEM-inizə yayımlayın.',
+  'settings.security.audit.title': 'Audit jurnalının ötürülməsi',
   'settings.security.description': 'İki faktorlu autentifikasiya, SSO və aktiv sessiyalar.',
   'settings.security.sso.hint': 'Scale və Enterprise planlarında mövcuddur.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'İstənilən iş sahəsi sahibi əməliyyatı üçün tələb olunur.',
+  'settings.security.totp.title': 'İki faktorlu autentifikasiya (TOTP)',
   'settings.twoFactorCode': 'Doğrulama kodu',
   'settings.twoFactorDisable': 'Deaktiv edin',
+  'settings.twoFactorDisableTitle': 'İki faktorlu autentifikasiyanı deaktiv et',
   'settings.twoFactorEnable': 'Aktivləşdirin',
+  'settings.twoFactorEnableTitle': 'İki faktorlu autentifikasiyanı aktiv et',
   'settings.twoFactorInvalidCode': 'Yanlış kod',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'İki faktorlu QR kodu',
+  'settings.twoFactorScan':
+    'Bu QR kodu autentifikator tətbiqinizlə skan edin, sonra 6 rəqəmli kodu daxil edin.',
+  'settings.twoFactorUnavailable': 'Bu tətbiq üçün iki faktorlu identifikasiya mövcud deyil.',
   'settings.twoFactorVerify': 'Təsdiqləyin və aktivləşdirin',
   'settings.workspace.description':
     'Komandanız üçün paylaşılan kimlik, region və icra standartları.',
@@ -226,6 +281,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Şablon',
   'templates.description':
     'Ən çox yayılmış avtomatlaşdırmalar üçün əvvəlcədən hazırlanmış eskizlər. Çəngəlləyin, fərdiləşdirin, göndərin.',
+  'templates.empty.filter': 'Axtarışınıza uyğun şablon yoxdur.',
   'templates.empty.first': 'Hazırda şablon mövcud deyil.',
   'templates.error': 'Şablonları yükləmək mümkün olmadı.',
   'templates.installs': 'quraşdırmalar',
@@ -251,6 +307,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Deaktiv edin',
   'workflowBuilder.enable': 'Aktivləşdirin',
   'workflowBuilder.error': 'İş axınını yükləmək mümkün olmadı.',
+  'workflowBuilder.inspector.config': 'Konfiqurasiya',
+  'workflowBuilder.inspector.cron': 'Cron ifadəsi',
+  'workflowBuilder.inspector.disabled': 'Deaktiv — avtomatik işləməyəcək.',
   'workflowBuilder.inspector.enabled': 'Aktivdir — tetikleyicidə işləyir.',
   'workflowBuilder.inspector.eyebrow': 'Müfəttiş',
   'workflowBuilder.inspector.id': 'İd',
@@ -268,18 +327,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Aç/bağlamaq alınmadı.',
   'workflowBuilder.workflow': 'İş axını · v {{v}}',
   'workflowBuilder.zoom.in': 'Yaxınlaşdırın',
+  'workflowBuilder.zoom.label': 'Kanvas miqyası idarəetmələri',
+  'workflowBuilder.zoom.out': 'Uzaqlaşdır',
   'workflowCard.lastRun': 'Son qaçış {{when}}',
   'workflowCard.runs': '{{count}} qaçışlar',
+  'workflowCard.success': '{{rate}}% uğur',
   'workflowHeroCard.last24h': 'Son 24 saat',
+  'workflows.browseTemplates': 'Şablonlara baxın →',
   'workflows.description':
     'İş sahənizdəki hər bir avtomatlaşdırma, sağlamlıq və son fəaliyyətlə birlikdə.',
+  'workflows.empty.body': 'Filtri təmizləməyi və ya şablondan başlamağı sınayın.',
   'workflows.empty.firstBody': 'Bir neçə saniyə ərzində başlamaq üçün şablon quraşdırın.',
   'workflows.empty.firstTitle': 'Hələ iş axınları yoxdur',
   'workflows.empty.title': 'Uyğun iş axınları yoxdur',
   'workflows.error': 'İş axınlarını yükləmək mümkün olmadı.',
   'workflows.eyebrow': 'Kitabxana · {{count}} cəmi',
+  'workflows.loading': 'İş axınları yüklənir…',
   'workflows.newFromTemplate': 'Şablondan yeni',
   'workflows.searchPlaceholder': 'İş axınlarını axtarın...',
+  'workflows.title': 'İş axınları',
   'workflowSidebar.brand': 'Dendrit',
   'workflowSidebar.status': 'Bütün sistemlər işləyir',
   'workflowSidebar.tagline': 'Hərəkətdə olan zəka',

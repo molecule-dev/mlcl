@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'بازخوردی دارید، باگی پیدا کرده‌اید یا نقشه‌ای بلندپروازانه در سر دارید؟ از تنظیمات حساب خود با ما در تماس باشید — هر پیام به دست یک انسان واقعی در تیم می‌رسد.',
+  'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'همه رزروها در یک صندوق ورودی — تأییدیه‌های پرواز، هتل و فعالیت‌ها دقیقاً در روزی که به آن تعلق دارند قرار می‌گیرند.',
+  'about.featureCollab':
+    'همکاری در لحظه — تا پنج همسفر را به هر سفر دعوت کنید، هر تغییر به‌صورت زنده همگام‌سازی می‌شود و دیدگاه‌ها زیر هر توقف به‌صورت رشته‌ای ثبت می‌شوند.',
+  'about.featureMapsBudget':
+    'نقشه، مقصدها و بودجه مشترک — کل سفر را روی نقشه ببینید، مقصدهای منتخب تحریریه را کشف کنید و هزینه‌ها را پیگیری کنید تا هیچ‌کس بیش از حد خرج نکند.',
+  'about.featureTimelines':
+    'برنامه‌های روزبه‌روز — توقف‌ها را بکشید و جابه‌جا کنید، بخش‌های حمل‌ونقل را اضافه کنید و ببینید که برنامه سفر مثل یک سند زنده دوباره محاسبه می‌شود.',
+  'about.intro':
+    '{{app}} پوشه‌ای پر از نقشه‌های نیمه‌کاره را به یک سفر مشترک و یکپارچه تبدیل می‌کند که کل گروه واقعاً می‌تواند دنبالش کند. یک برنامه سفر روزبه‌روز بسازید، پروازها و هتل‌ها را اضافه کنید، هر توقف را روی نقشه بگذارید و بودجه را پیگیری کنید — همه در یک جای آرام، به‌جای ده‌ها تب و یک گروه چت.',
+  'about.missionBody':
+    'برنامه‌ریزی سفر باید حس این را بدهد که سفر همین حالا دارد بهتر می‌شود، نه اینکه مثل تکلیف مدرسه باشد. {{app}} برای این ساخته شده که سفرهای گروهی بی‌دردسر شوند — تا هر مسافر با آگاهی از برنامه حاضر شود و هر توقف داستانی به‌یادماندنی تعریف کند.',
+  'about.missionTitle': 'ماموریت ما',
   'about.pageTitle': 'درباره {{app}}',
   'auth.legalConsent': 'با ادامه، شما با شرایط ما موافقت می‌کنید',
   'bookings.empty.body': 'برای شروع صندوق ورودی، یک پرواز، هتل یا فعالیت اضافه کنید.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'هتل',
   'bookings.type.other': 'سایر',
   'budgetSpendCard.budgetTotal': 'از {{total}} برنامه‌ریزی شده',
+  'budgetSpendCard.overBy': '{{amount}} بیش از بودجه',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} اخیر',
+  'budgetSpendCard.remaining': '{{amount}} باقی‌مانده',
   'calendar.eyebrow': 'سال پیش رو',
   'calendar.heading': 'هر سفر در یک تقویم واحد.',
   'calendar.legendHeading': 'سفرهای این ماه',
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'و',
   'common.goToDashboard': 'رفتن به داشبورد',
   'dashboard.budgetHeading': 'نبض بودجه',
+  'dashboard.empty.body':
+    'اولین سفرتان را برنامه‌ریزی کنید تا داشبوردتان پر شود از برنامه‌های روزبه‌روز، نبض بودجه و رزروها.',
+  'dashboard.empty.cta': 'اولین سفرتان را برنامه‌ریزی کنید',
   'dashboard.empty.heading': 'هنوز سفری انجام نشده است - نقشه شما خالی است.',
   'dashboard.eyebrow': 'کنترل ماموریت',
   'dashboard.heading': 'ماجراجویی بعدی شما، در یک گوشه آرام.',
   'dashboard.newTripCta': 'شروع یک سفر جدید',
+  'dashboard.subheading':
+    'شمارش معکوس تا سفر بعدی، نبض خرج امروز و نگاهی سریع به هر برنامه سفری که در جریان است.',
   'dashboard.tripsHeading': 'سفرهای در حال حرکت',
   'dashboard.viewAllExpenses': 'مشاهده هر هزینه',
   'dashboard.viewAllTrips': 'هر سفر را ببینید',
   'dayTimelineRow.category.accommodation': 'اقامت',
+  'dayTimelineRow.category.food': 'غذا و نوشیدنی',
+  'dayTimelineRow.category.sightseeing': 'گشت‌وگذار',
   'dayTimelineRow.category.transport': 'حمل و نقل',
   'destinationOrbCard.exploreCta': 'به سفر اضافه کنید',
   'destinationOrbCard.tripCount': '{{count}} سفرها',
+  'destinations.empty.body': 'به «همه» برگردید تا یافته‌های ویرایشگر دوباره ظاهر شوند.',
   'destinations.empty.heading': 'هنوز مقصدی وجود ندارد.',
+  'destinations.emptyFiltered.heading': 'هنوز چیزی با این برچسب وجود ندارد.',
   'destinations.errors.load': 'مقصدها بارگیری نشدند.',
   'destinations.eyebrow': 'کجای بعدی',
   'destinations.heading': 'گوشه‌ها و یافته‌های ویرایشگر ذخیره شده.',
@@ -70,7 +98,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'فروشنده',
   'expenses.formHeading': 'هزینه ثبت برای {{trip}}',
   'expenses.heading': 'بودجه سفر واقعاً کجا خرج می‌شود.',
+  'expenses.heroBudget': '{{pct}}٪ از {{total}} برنامه‌ریزی شده',
   'expenses.heroEyebrow': '{{trip}} • تصویر کلی بودجه',
+  'expenses.heroNoBudget': 'هنوز بودجه‌ای برای این سفر تعیین نشده است.',
   'expenses.noTrips.body': 'ابتدا یک سفر را برنامه‌ریزی کنید - هزینه‌ها به بودجه سفر متصل می‌شوند.',
   'expenses.noTrips.heading': 'هنوز هیچ سفری انجام نشده است.',
   'expenses.receiptCount': '{{count}} رسیدها',
@@ -82,12 +112,16 @@ export const ui: UiTranslations = {
     'هر رسید و تأییدیه در اینجا در دسته بندی مناسب قرار می‌گیرد - نیازی به صفحه گسترده نیست.',
   'forgotPassword.eyebrow': 'برنامه سفر خود را بازیابی کنید',
   'forgotPassword.heading': 'رمز عبور خود را فراموش کرده‌اید؟',
+  'forgotPassword.subheading':
+    'ایمیلی را که برای {{appName}} استفاده کردید وارد کنید تا لینک بازنشانی رمز عبور را برایتان بفرستیم.',
   'forgotPassword.submit': 'ارسال ایمیل بازیابی',
   'forgotPassword.submitPending': 'ارسال ایمیل بازیابی…',
   'forgotPassword.successHint':
     'هنوز ایمیلی دریافت نکرده‌اید؟ پوشه هرزنامه (spam) خود را بررسی کنید، یا با آدرس دیگری دوباره امتحان کنید.',
   'forgotPassword.successSubheading':
     'ما یک لینک بازیابی برای شما ارسال کردیم {{email}} لینک به مدت 30 دقیقه معتبر است.',
+  'forgotPassword.tryAgain': 'ارسال به ایمیل دیگر',
+  'landing.cta.eyebrow': 'شروع با طرح رایگان',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'ایجاد حساب کاربری رایگان',
   'landing.cta.subheading':
@@ -99,8 +133,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'شروع یک سفر رایگان',
   'landing.hero.ctaSecondary': 'نمونه سفر را ببینید',
+  'landing.hero.eyebrow': 'برنامه‌ریز سفر · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint یک پوشه پر از برنامه‌های نیمه‌کاره را به یک برنامه سفر مشترک و روزانه تبدیل می‌کند که گروه شما می‌تواند واقعاً آن را دنبال کند - با رزروها، نقشه‌ها و بودجه که در یک مکان قابل پیگیری هستند.',
+  'landing.hero.title': 'یک بار برنامه‌ریزی کنید. با هم در آن پرسه بزنید.',
   'landing.nav.join': 'شروع یک سفر رایگان',
   'landing.nav.preview': 'داخل نقطه مسیر',
   'landing.preview.cta': 'یکی از کارهای خودتان را برنامه‌ریزی کنید',
@@ -108,6 +144,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'چند سفری که مسافران در حال حاضر در حال انجام آن هستند',
   'login.eyebrow': 'بخش اعضا',
   'login.heading': 'خوش برگشتی مسافر',
+  'login.noAccount': 'تازه با تسرا آشنا شدید؟',
   'login.signupLink': 'ایجاد حساب کاربری رایگان',
   'login.subheading':
     'برای مدیریت سفرها، برنامه‌های روزانه، رزروها و یادداشت‌های روزانه‌ای که از قبل شروع کرده‌اید، وارد سیستم شوید.',
@@ -118,6 +155,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'نتوانستم اعلان را به‌روزرسانی کنم.',
   'notifications.heading': 'چه چیزهایی در طول سفرهای امروزتان تغییر کرد؟',
   'notifications.markUnread': 'علامت‌گذاری به عنوان خوانده نشده',
+  'notifications.subheading':
+    '{{count}} جدید — تأییدیه‌های رزرو، یادداشت‌های همکاران، کاهش نرخ بلیت و یادآوری‌ها.',
   'notifications.time.daysAgo': '{{count}} د پیش',
   'notifications.time.hoursAgo': '{{count}} ساعت پیش',
   'notifications.time.justNow': 'هم‌اکنون',
@@ -136,6 +175,7 @@ export const ui: UiTranslations = {
     'سرویس‌های متصل، ارز، اعلان‌های فوری و اطلاعات کاربری که با آنها وارد سیستم می‌شوید.',
   'signup.and': 'و',
   'signup.eyebrow': 'به وی پوینت بپیوندید',
+  'signup.haveAccount': 'همین حالا در سفرید؟',
   'signup.heading': 'یک بار برنامه‌ریزی کنید. با هم در آن پرسه بزنید.',
   'signup.namePlaceholder': 'آیریس لارسن',
   'signup.subheading':
@@ -147,6 +187,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'برنامه سفر باز',
   'tripCountdownHeroCard.ctaSecondary': 'سفر دیگری را برنامه‌ریزی کنید',
   'tripCountdownHeroCard.daysLabel': '{{days}} روزهای باقی مانده',
+  'tripCountdownHeroCard.eyebrow': 'ماجراجویی بعدی · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} شب — برنامه سفرتان آماده سفر است.',
   'tripCoverCard.stops': '{{count}} توقف‌ها',
   'tripCoverCard.travelers': '{{count}} مسافران',
   'tripDetail.addActivity': 'افزودن فعالیت',
@@ -156,6 +199,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'عنوان فعالیت',
   'tripDetail.adding': 'در حال افزودن…',
   'tripDetail.backToTrips': 'بازگشت به همه سفرها',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'مسافران',
   'tripDetail.dayLabel': 'روز {{day}}',
   'tripDetail.empty': 'هنوز فعالیتی وجود ندارد — یکی را برای شروع جدول زمانی اضافه کنید.',
@@ -166,14 +210,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'برنامه سفر • {{country}}',
   'tripDetail.invite': 'دعوت کردن',
   'tripDetail.inviteLabel': 'دعوت از طریق ایمیل',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'دعوتنامه ارسال شد {{email}} .',
   'tripDetail.inviting': 'در حال ارسال…',
   'tripDetail.loading': 'بارگیری…',
   'tripDetail.noCollaborators': 'فقط تو، فعلاً.',
+  'tripDetail.notesHeading': 'یادداشت‌های سفر',
   'tripDetail.notesPlaceholder': 'هنوز یادداشتی وجود ندارد.',
   'tripDetail.notFound.heading': 'سفر پیدا نشد',
   'tripDetail.openBookings': 'صندوق ورودی رزروها را باز کنید',
   'tripDetail.shareCopied': 'اشتراک‌گذاری لینک کپی‌شده در کلیپ‌بورد:',
+  'tripDetail.shareReady': 'لینک اشتراک‌گذاری آماده است:',
   'tripDetail.stops': '{{count}} توقف‌ها',
   'tripDetail.timelineEyebrow': 'جدول زمانی روز',
   'tripDetail.timelineHeading': 'طرح روزانه',
@@ -191,6 +238,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'مسافران',
   'tripPlanner.heading': 'یک سفر را در کمتر از یک دقیقه طراحی کنید.',
   'tripPlanner.preview.eyebrow': 'پیش‌نمایش زنده',
+  'tripPlanner.preview.placeholderCountry': 'یک کشور انتخاب کنید',
   'tripPlanner.preview.placeholderDestination': 'ماجراجویی بعدی شما',
   'tripPlanner.section1.title': 'کجا و چه زمانی',
   'tripPlanner.section2.title': 'مسافران و بودجه',
@@ -199,10 +247,13 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'روز {{day}} — ایستگاه‌ها، حمل و نقل و رزروها را اینجا اضافه کنید.',
   'tripPlanner.section3.day2': 'روز {{day}} — ایستگاه‌ها، حمل و نقل و رزروها را اینجا اضافه کنید.',
   'tripPlanner.section3.day3': 'روز {{day}} — ایستگاه‌ها، حمل و نقل و رزروها را اینجا اضافه کنید.',
+  'tripPlanner.section3.title': 'شروع‌کننده برنامه روز',
   'tripPlanner.subheading':
     'موارد اساسی را در زیر قرار دهید. همیشه می‌توانید همکاران را دعوت کنید، توقف‌ها را بکشید و رزروها را بعداً ارسال کنید.',
   'tripPlanner.submit': 'ایجاد سفر',
   'tripPlanner.submitting': 'ایجاد…',
+  'trips.empty.body': 'به «همه سفرها» برگردید یا برنامه‌ریزی برای ماجراجویی بعدی‌تان را شروع کنید.',
+  'trips.empty.cta': 'برنامه‌ریزی سفر',
   'trips.empty.heading': 'هنوز هیچ چیزی با آن فیلتر مطابقت ندارد.',
   'trips.eyebrow': 'اطلس',
   'trips.filterLabel': 'فیلتر کردن سفرها بر اساس وضعیت',
@@ -213,6 +264,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'هنوز هیچ سفری انجام نشده است.',
   'trips.pastHeading': 'ماجراهای گذشته',
   'trips.subheading': '{{count}} برنامه‌های سفر - گذشته، حال و روزی.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'یک‌بار برنامه‌ریزی کن. با هم بگرد. برای همیشه به یاد بسپار.',
+  'waypointAuthShell.testimonial.author': 'آیریس و یوناس · {{appName}} عضو از ۲۰۲۴',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} یک سفر پرمشغله سه‌هفته‌ای در چهار کشور را به آرام‌ترین برنامه سفری تبدیل کرد که تا به حال به اشتراک گذاشته‌ایم.',
   'waypointLayout.mobileNavClose': 'بستن منوی ناوبری',
   'waypointLayout.primaryNavLabel': 'ناوبری اولیه',
 }

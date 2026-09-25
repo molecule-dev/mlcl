@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ಪ್ರತಿಕ್ರಿಯೆ ಇದೆಯೇ, ದೋಷ ಕಂಡುಬಂದಿದೆಯೇ, ಅಥವಾ ವೈಶಿಷ್ಟ್ಯ ಬೇಕೇ? ನಿಮ್ಮ ಖಾತೆ ಸೆಟ್ಟಿಂಗ್ಗಳಿಂದ ಸಂಪರ್ಕಿಸಿ — ಪ್ರತಿ ಸಂದೇಶವೂ ತಂಡದ ನಿಜವಾದ ವ್ಯಕ್ತಿಗೆ ತಲುಪುತ್ತದೆ.',
   'about.contactTitle': 'ಸಂಪರ್ಕದಲ್ಲಿರಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.intro':
+    '{{app}} ಎಂಬುದು ತಮ್ಮ ಬರವಣಿಗೆಯ ಬಗ್ಗೆ ಆಳವಾದ ಕಾಳಜಿ ಹೊಂದಿರುವ ಬರಹಗಾರರಿಗಾಗಿ ಒಂದು AI ಬರವಣಿಗಾ ಸ್ಟುಡಿಯೋ. ಇದು ದೀರ್ಘ-ರೂಪದ AI ಜನರೇಷನ್ ಅನ್ನು ಶಾಂತ ಸಂಪಾದಕ, SEO ಸ್ಕೋರಿಂಗ್ ಮತ್ತು ಚಿತ್ರ ಜನರೇಷನ್ ಜೊತೆ ಜೋಡಿಸುತ್ತದೆ — ಹೀಗಾಗಿ ನಿಮ್ಮ ಧ್ವನಿಯನ್ನು ಎಂದಿಗೂ ಕಳೆದುಕೊಳ್ಳದೆ ಒಂದು ಬರಹವನ್ನು ಖಾಲಿ ಪುಟದಿಂದ ಪ್ರಕಟಿತದವರೆಗೆ ಕೊಂಡೊಯ್ಯಬಹುದು.',
+  'about.missionBody':
+    'AI ನಿಮ್ಮ ಜೊತೆಗೆ ಕರಡು ಬರೆಯಬೇಕು, ಎಂದಿಗೂ ನಿಮ್ಮ ಬದಲಿಗೆ ಅಲ್ಲ ಎಂದು ನಾವು ನಂಬುತ್ತೇವೆ. {{app}} ಸೂಚನೆಗಳನ್ನು ನಿಮ್ಮ ಸ್ವಂತ ಪದಗಳಿಂದ ಸ್ಪಷ್ಟವಾಗಿ ಪ್ರತ್ಯೇಕವಾಗಿ ಇಡುತ್ತದೆ, ನೀವು ರಚಿಸುವ ಪ್ರತಿ ದಾಖಲೆಯ ಮಾಲೀಕತ್ವವನ್ನು ನಿಮಗೇ ಬಿಡುತ್ತದೆ, ಮತ್ತು ಬರವಣಿಗೆಯ ದಾರಿಯಿಂದ ಉಪಕರಣಗಳನ್ನು ಪಕ್ಕಕ್ಕೆ ಸರಿಸುತ್ತದೆ.',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
   'about.pageTitle': '{{app}} ಬಗ್ಗೆ',
   'aiSuggestionCard.applied': 'ಸಲಹೆಯನ್ನು ಅನ್ವಯಿಸಲಾಗಿದೆ',
   'aiSuggestionCard.apply': 'ಅನ್ವಯಿಸು',
@@ -24,7 +31,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'ಸಂಚಾರ ಮೂಲಗಳು',
   'billing.activePlan': 'ಚಂದಾದಾರಿಕೆ ಸಕ್ರಿಯವಾಗಿದೆ.',
   'billing.aiWordsLabel': 'AI ಪೀಳಿಗೆಗಳು ಸೇರಿವೆ',
+  'billing.cancelFailed': 'ಚಂದಾದಾರಿಕೆಯನ್ನು ರದ್ದುಗೊಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'billing.cancelPlan': 'ಯೋಜನೆಯನ್ನು ರದ್ದುಗೊಳಿಸಿ',
+  'billing.cancelPlanConfirm': 'ರದ್ದುಪಡಿಸುವುದನ್ನು ಖಚಿತಪಡಿಸುವಿರಾ?',
   'billing.cancelSuccess': 'ಚಂದಾದಾರಿಕೆಯನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗಿದೆ. ಯೋಜನೆಯನ್ನು ನವೀಕರಿಸಲು ರಿಫ್ರೆಶ್ ಮಾಡಿ.',
   'billing.changePlan': 'ಯೋಜನೆಯನ್ನು ಬದಲಾಯಿಸಿ',
   'billing.col.invoice': 'ಸರಕುಪಟ್ಟಿ',
@@ -42,26 +51,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'ಯೋಜನೆಗಳನ್ನು ವೀಕ್ಷಿಸಿ',
   'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'dashboard.continueWriting': 'ಬರೆಯುವುದನ್ನು ಮುಂದುವರಿಸಿ',
+  'dashboard.createFirst': 'ದಾಖಲೆ ರಚಿಸಿ',
   'dashboard.days.sat': 'Sat',
   'dashboard.days.sun': 'Sun',
   'dashboard.defaultWriterName': 'ಬರಹಗಾರ',
   'dashboard.greeting': 'ಶುಭೋದಯ, {{name}}',
   'dashboard.loadError': 'ನಿಮ್ಮ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'dashboard.loading': 'ನಿಮ್ಮ ಸ್ಟುಡಿಯೋ ಲೋಡ್ ಆಗುತ್ತಿದೆ…',
   'dashboard.loadingDocs': 'ಇತ್ತೀಚಿನ ದಾಖಲೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'dashboard.noDocuments': 'ಇನ್ನೂ ಯಾವುದೇ ದಾಖಲೆಗಳಿಲ್ಲ - ನಿಮ್ಮ ಮೊದಲನೆಯದನ್ನು ಪ್ರಾರಂಭಿಸಿ.',
   'dashboard.startWriting': 'ಹೊಸ ಡಾಕ್ಯುಮೆಂಟ್ ಅನ್ನು ಪ್ರಾರಂಭಿಸಿ',
+  'dashboard.streakBody': 'ಈ ವಾರ ನೀವು {{words}} ಪದಗಳನ್ನು ಬರೆದಿದ್ದೀರಿ.',
   'dashboard.streakTitle': '{{count}} - ದಿನದ ಸರಣಿ',
+  'dashboard.subgreeting': 'ನಿಮ್ಮ ಲೈಬ್ರರಿಯಲ್ಲಿ {{count}} ದಾಖಲೆಗಳಿವೆ — ಈ ವೇಗವನ್ನು ಮುಂದುವರಿಸಿ.',
+  'documentCard.seoScoreTitle': 'SEO ಸ್ಕೋರ್: {{score}}/100',
+  'documents.createNew': 'ಹೊಸ ದಾಖಲೆ ರಚಿಸಿ',
   'documents.empty': 'ನಿಮ್ಮ ಗ್ರಂಥಾಲಯ ಕಾಯುತ್ತಿದೆ — ನಿಮ್ಮ ಮೊದಲ ಡಾಕ್ಯುಮೆಂಟ್ ಅನ್ನು ಪ್ರಾರಂಭಿಸಿ.',
+  'documents.emptyFiltered': 'ನಿಮ್ಮ ಫಿಲ್ಟರ್ಗಳಿಗೆ ಇನ್ನೂ ಯಾವುದೇ ದಾಖಲೆಗಳು ಹೊಂದಿಕೆಯಾಗುತ್ತಿಲ್ಲ.',
   'documents.loadError': 'ದಾಖಲೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'documents.loading': 'ನಿಮ್ಮ ಲೈಬ್ರರಿಯನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'documents.new': 'ಹೊಸ ಡಾಕ್ಯುಮೆಂಟ್',
+  'documents.searchAriaLabel': 'ದಾಖಲೆಗಳನ್ನು ಹುಡುಕಿ',
   'documents.searchPlaceholder': 'ದಾಖಲೆಗಳನ್ನು ಹುಡುಕಿ...',
   'documents.subtitle': '{{count}} ನಿಮ್ಮ ಗ್ರಂಥಾಲಯದಲ್ಲಿರುವ ದಾಖಲೆಗಳು.',
   'documents.title': 'ದಾಖಲೆಗಳು',
   'editor.aiPanelTitle': 'ಪ್ಲುಮ್ ಇಂಟೆಲಿಜೆನ್ಸ್',
+  'editor.aiSuggestion.empty':
+    'ಸಕ್ರಿಯ ಸುಧಾರಣೆಗಳಿಲ್ಲ. ಎರಡನೇ ಕಣ್ಣಿನ ಅಗತ್ಯವಿದ್ದಾಗ {{appName}} ಅನ್ನು ಸೂಚನೆಗಾಗಿ ಕೇಳಿ.',
   'editor.aiSuggestion.failed': 'ಇದೀಗ ಸಲಹೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'editor.aiSuggestion.loadingBody': 'ಸ್ಪಷ್ಟತೆಯ ಪರಿಷ್ಕರಣೆಯನ್ನು ರಚಿಸಲಾಗುತ್ತಿದೆ...',
   'editor.backToDocuments': 'ಎಲ್ಲಾ ದಾಖಲೆಗಳು',
+  'editor.bodyAriaLabel': 'ದಾಖಲೆಯ ಮುಖ್ಯ ಭಾಗ',
   'editor.closeAiPanel': 'AI ಫಲಕವನ್ನು ಮುಚ್ಚಿ',
   'editor.createFailed': 'ಡಾಕ್ಯುಮೆಂಟ್ ರಚಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'editor.exported': '{{format}} ಆಗಿ ರಫ್ತು ಮಾಡಲಾಗಿದೆ.',
@@ -77,18 +97,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'ಪರಿಷ್ಕರಣೆಯನ್ನು ವಿನಂತಿಸಿ',
   'editor.saveBeforePublish': 'ಪ್ರಕಟಿಸುವ ಮೊದಲು ಡಾಕ್ಯುಮೆಂಟ್ ಅನ್ನು ಉಳಿಸಿ.',
   'editor.status.chars': '{{count}} ಪಾತ್ರಗಳು',
+  'editor.status.readTime': '{{minutes}} ಕನಿಷ್ಠ ಓದಲು',
   'editor.status.savedAt': 'ಉಳಿಸಲಾಗಿದೆ {{time}}',
   'editor.status.saveError': 'ಉಳಿಸುವಿಕೆ ವಿಫಲವಾಗಿದೆ',
+  'editor.status.unsaved': 'ಇನ್ನೂ ಉಳಿಸಲಾಗಿಲ್ಲ',
   'editor.titleAriaLabel': 'ಡಾಕ್ಯುಮೆಂಟ್ ಶೀರ್ಷಿಕೆ',
   'editor.titlePlaceholder': 'ಶೀರ್ಷಿಕೆರಹಿತ ಡಾಕ್ಯುಮೆಂಟ್',
   'editor.toggleAiPanel': 'AI ಪ್ಯಾನೆಲ್ ಅನ್ನು ಟಾಗಲ್ ಮಾಡಿ',
   'editor.viewSeo': 'ಎಸ್‌ಇಒ',
   'forgotPassword.emailPlaceholder': 'ಲೇಖಕ@example.com',
+  'forgotPassword.sent': '{{email}} ದಾಖಲೆಯಲ್ಲಿದ್ದರೆ, ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ದಾರಿಯಲ್ಲಿದೆ.',
   'imageGenerator.failed': 'ಚಿತ್ರ ರಚನೆ ವಿಫಲವಾಗಿದೆ.',
   'imageGenerator.generate': 'ಚಿತ್ರವನ್ನು ರಚಿಸಿ',
   'imageGenerator.generating': 'ಉತ್ಪಾದಿಸಲಾಗುತ್ತಿದೆ...',
   'imageGenerator.placeholder': 'ನೀವು ರಚಿಸಲು ಬಯಸುವ ಚಿತ್ರವನ್ನು ವಿವರಿಸಿ...',
+  'imageGenerator.promptAriaLabel': 'ಚಿತ್ರ ಪ್ರಾಂಪ್ಟ್',
+  'imageGenerator.subtitle': 'ಕವರ್ ಚಿತ್ರವನ್ನು ವಿವರಿಸಿ ಮತ್ತು AI ಅದನ್ನು ಚಿತ್ರಿಸಲಿ.',
   'imageGenerator.title': 'AI ಇಮೇಜ್ ಜನರೇಟರ್',
+  'landing.aiSuggestionBody':
+    '42ನೇ ಮಹಡಿಯ ಬಾಲ್ಕನಿಯಲ್ಲಿ ನಿಂತಿರುವಾಗ, ಎಲಿಯಾಸ್ ನಗರವು ತನ್ನ ಮೇಲೆ ಒತ್ತಡ ಹೇರುತ್ತಿರುವುದನ್ನು ಅನುಭವಿಸಿದ — ಗಾಳಿಯು ಸುತ್ತಲಿನ ಮಂದಧ್ವನಿಯನ್ನು ಕೊಚ್ಚಿಹಾಕಿತು, ಹೊಳೆಯುವ ಗ್ರಿಡ್ನ ಮೇಲೆ ಅವನನ್ನು ಶೀತಲ, ನಿಶ್ಶಬ್ದ ಶೂನ್ಯದಲ್ಲಿ ತೇಲಿಬಿಟ್ಟಿತು.',
   'landing.eyebrow': 'ಗಂಭೀರ ಬರಹಗಾರರಿಗೆ AI ಬರವಣಿಗೆ ಸ್ಟುಡಿಯೋ',
   'landing.featuresHeading': 'ದಾರಿ ತಪ್ಪುವ ಪರಿಕರಗಳು',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -98,14 +125,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'ತಮ್ಮ ಗದ್ಯ, ವೇಗ ಮತ್ತು ನಿಖರತೆಯ ಬಗ್ಗೆ ಕಾಳಜಿ ವಹಿಸುವ ಬರಹಗಾರರಿಗಾಗಿ ರಚಿಸಲಾದ ಸ್ಟುಡಿಯೋ. ನಿಮ್ಮ ಪಕ್ಕದಲ್ಲಿ ಪ್ಲಮ್ ಡ್ರಾಫ್ಟ್‌ಗಳು - ನಿಮ್ಮ ಬದಲು ಎಂದಿಗೂ.',
   'landing.heroTitle.eloquence': 'ವಾಗ್ಮಿತೆ',
+  'landing.heroTitle.intelligence': 'ಬುದ್ಧಿಮತ್ತೆ ಸೇರಿಕೊಳ್ಳುತ್ತದೆ ',
   'landing.nav.testimonials': 'ಪ್ರಶಂಸಾಪತ್ರಗಳು',
   'landing.plan.cta': 'ಈ ಯೋಜನೆಯೊಂದಿಗೆ ಪ್ರಾರಂಭಿಸಿ',
   'landing.plan.popular': 'ಅತ್ಯಂತ ಪ್ರಿಯವಾದದ್ದು',
   'landing.pricingEyebrow': 'ಬೆಲೆ ನಿಗದಿ',
   'landing.pricingHeading': 'ನಿಮ್ಮ ಅಭ್ಯಾಸಕ್ಕೆ ಸೂಕ್ತವಾದದ್ದನ್ನು ಆರಿಸಿ',
   'landing.sampleDocTitle': 'ಮೌನದ ವಾಸ್ತುಶಿಲ್ಪ',
+  'landing.sampleParagraph1':
+    'ನಗರ ಎಂದಿಗೂ ನಿಜವಾಗಿ ನಿಶ್ಶಬ್ದವಾಗಿರಲಿಲ್ಲ. ರಾತ್ರಿಯ ಅತ್ಯಂತ ಆಳವಾದ ಗಂಟೆಗಳಲ್ಲೂ, ಕಾಂಕ್ರೀಟ್ ಅಡಿಪಾಯಗಳ ಮೂಲಕ ಒಂದು ತಗ್ಗು ಮಂದಧ್ವನಿ ಕಂಪಿಸುತ್ತಿತ್ತು — ಸಬ್ವೇ ರೈಲುಗಳ ಮತ್ತು ವಾತಾಯನ ಕೊಳವೆಗಳ ಯಾಂತ್ರಿಕ ಹೃದಯಬಡಿತ.',
+  'landing.sampleParagraph2.after': ' ಗಾಜಿನ ವಿರುದ್ಧ.',
+  'landing.sampleParagraph2.before': 'ಆದರೆ ',
   'landing.sampleParagraph2.highlight':
     '42 ನೇ ಮಹಡಿಯ ಬಾಲ್ಕನಿಯಲ್ಲಿ ನಿಂತಾಗ, ಎಲಿಯಾಸ್ ಆಳವಾದ ಒಂಟಿತನದ ಭಾವನೆಯನ್ನು ಅನುಭವಿಸಿದರು.',
+  'landing.showcaseBody':
+    'ಒಂದು ವಾಕ್ಯವನ್ನು ಹೈಲೈಟ್ ಮಾಡಿ ಮತ್ತು {{appName}} ಒಂದು ಸುಧಾರಣೆಯನ್ನು ಸೂಚಿಸುತ್ತದೆ. ಅದನ್ನು ಸ್ವೀಕರಿಸಿ, ಸ್ವಲ್ಪ ಬದಲಿಸಿ, ಅಥವಾ ತಳ್ಳಿಹಾಕಿ. ಸೂಚನೆಗಳು ಯಾವಾಗಲೂ ನೇರಳೆ ಬಣ್ಣದಲ್ಲಿರುತ್ತವೆ — ಹೀಗಾಗಿ ನೀವು ಬರೆದದ್ದು ಮತ್ತು ಸೂಚಿಸಲಾದದ್ದು ಯಾವುದೆಂದು ನಿಮಗೆ ತಿಳಿಯುತ್ತದೆ.',
+  'landing.showcaseHeading': 'ಎರಡನೇ ಕಣ್ಣು — ಎಂದಿಗೂ ಎರಡನೇ ಲೇಖಕ ಅಲ್ಲ.',
   'landing.startWriting': 'ಬರೆಯಲು ಪ್ರಾರಂಭಿಸಿ',
   'login.emailPlaceholder': 'ಲೇಖಕ@example.com',
   'login.failed': 'ಸೈನ್ ಇನ್ ವಿಫಲವಾಗಿದೆ',
@@ -120,8 +155,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್ ತೆರೆಯಿರಿ',
   'notFound.title': 'ಈ ಅಧ್ಯಾಯವನ್ನು ಇನ್ನೂ ಬರೆಯಲಾಗಿಲ್ಲ.',
   'plumeSidebarLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
+  'pricing.maxDocuments': '{{count}} ದಾಖಲೆಗಳು',
+  'pricing.maxGenerate': '{{count}} AI ಜನರೇಷನ್ಗಳು',
+  'pricing.maxImages': '{{count}} ಚಿತ್ರ ಜನರೇಷನ್ಗಳು',
   'privacy.data':
     'ನಿಮ್ಮ ಖಾತೆಯ ಇಮೇಲ್ ಮತ್ತು ಹ್ಯಾಶ್ ಮಾಡಿದ ಪಾಸ್‌ವರ್ಡ್. ನೀವು ರಚಿಸುವ ದಾಖಲೆಗಳು ಮತ್ತು ಟೆಂಪ್ಲೇಟ್‌ಗಳು. ಬಿಲ್ಲಿಂಗ್ ಮತ್ತು ವಿಶ್ಲೇಷಣೆಗಾಗಿ AI ಸಲಹೆ ದಾಖಲೆಗಳು (ಇನ್‌ಪುಟ್ + ಔಟ್‌ಪುಟ್). ಸ್ಟ್ರೈಪ್ ಗ್ರಾಹಕ + ಚಂದಾದಾರಿಕೆ ಗುರುತಿಸುವಿಕೆಗಳು; ನಾವು ಎಂದಿಗೂ ಪೂರ್ಣ ಕಾರ್ಡ್ ಸಂಖ್ಯೆಗಳನ್ನು ಸಂಗ್ರಹಿಸುವುದಿಲ್ಲ.',
+  'privacy.intro':
+    '{{app}} ಅನ್ನು ನಿರ್ವಹಿಸಲು ಅಗತ್ಯವಾದ ಡೇಟಾವನ್ನು ಮಾತ್ರ ನಾವು ಸಂಗ್ರಹಿಸುತ್ತೇವೆ: ನಿಮ್ಮ ಇಮೇಲ್, ನೀವು ರಚಿಸುವ ದಾಖಲೆಗಳು, ಮತ್ತು ನೀವು ಮಾಡುವ AI ವಿನಂತಿಗಳು. ನಿಮ್ಮ ಬರವಣಿಗೆಯನ್ನಾಗಲಿ ನಿಮ್ಮ ಪ್ರಾಂಪ್ಟ್ಗಳನ್ನಾಗಲಿ ನಾವು ಎಂದಿಗೂ ಮಾರುವುದಿಲ್ಲ.',
   'profile.loadError': 'ನಿಮ್ಮ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'profile.loading': 'ನಿಮ್ಮ ಪ್ರೊಫೈಲ್ ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
   'profile.loadingPublished': 'ಪ್ರಕಟಿತ ದಾಖಲೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
@@ -132,8 +172,14 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'seoAnalysis.backToEditor': 'ಸಂಪಾದಕಕ್ಕೆ ಹಿಂತಿರುಗಿ',
   'seoAnalysis.eyebrow': 'SEO ವಿಶ್ಲೇಷಣೆ',
+  'seoAnalysis.heroBody':
+    'ಅನ್ವಯಿಸಲು {{count}} ಸೂಚನೆ(ಗಳು). ಪ್ರತಿಯೊಂದೂ ರಚನಾತ್ಮಕ ಅಥವಾ ಕೀವರ್ಡ್ ಸುಧಾರಣೆ, ಕೆಂಪು ಧ್ವಜಗಳ ಗೋಡೆಯಲ್ಲ.',
+  'seoAnalysis.heroBodyEmpty':
+    'ಓದಲು ಸುಲಭತೆ, ಕೀವರ್ಡ್ ಸಾಂದ್ರತೆ ಮತ್ತು ರಚನೆಯನ್ನು ಸ್ಕೋರ್ ಮಾಡಲು "Run analysis" ಕ್ಲಿಕ್ ಮಾಡಿ.',
   'seoAnalysis.heroEmpty':
     'ಇನ್ನೂ ಯಾವುದೇ ವಿಶ್ಲೇಷಣೆ ಇಲ್ಲ. ಈ ಡ್ರಾಫ್ಟ್ ಅನ್ನು ಸ್ಕೋರ್ ಮಾಡಲು ಒಂದನ್ನು ರನ್ ಮಾಡಿ.',
+  'seoAnalysis.heroNeedsWork': 'ಕೆಲವು ರಚನಾತ್ಮಕ ಸುಧಾರಣೆಗಳು ತಲುಪುವಿಕೆಯನ್ನು ಹೆಚ್ಚಿಸುತ್ತವೆ.',
+  'seoAnalysis.heroStrong': 'ಬಲವಾದ ಬರಹ — ಅತ್ಯುತ್ತಮಕ್ಕೆ ಕೆಲವೇ ಸುಧಾರಣೆಗಳಷ್ಟೇ ಬಾಕಿ.',
   'seoAnalysis.historyEmpty': 'ಹಿಂದಿನ ಯಾವುದೇ ವಿಶ್ಲೇಷಣೆಗಳು ದಾಖಲಾಗಿಲ್ಲ.',
   'seoAnalysis.historyTitle': 'ವಿಶ್ಲೇಷಣೆಯ ಇತಿಹಾಸ',
   'seoAnalysis.keywordEmpty':
@@ -160,8 +206,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'ನೀವು ಬರೆಯುವ ರೀತಿಗೆ ಹೊಂದಿಕೆಯಾಗುವಂತೆ ಪ್ಲೂಮ್ ಅನ್ನು ಟ್ಯೂನ್ ಮಾಡಿ.',
   'settings.toggleIntegrationFailed': 'ಏಕೀಕರಣ ನವೀಕರಣ ವಿಫಲವಾಗಿದೆ.',
   'settings.writing.aiSuggestions': 'ಟೈಪ್ ಮಾಡುವಾಗ ಇನ್‌ಲೈನ್ AI ಸಲಹೆಗಳು',
+  'settings.writing.aiSuggestionsBody':
+    'ನೀವು ಬರೆಯುವಾಗ ಸುಧಾರಣೆಗಳನ್ನು ತೋರಿಸುತ್ತದೆ. ಸೂಚನೆಗಳು ಯಾವಾಗಲೂ ಪ್ರತಿ ವಾಕ್ಯಕ್ಕೂ ಆಯ್ಕೆಮಾಡಿಕೊಳ್ಳುವಂತಿರುತ್ತವೆ.',
   'settings.writing.autoSave': 'ಪ್ರತಿ 30 ಸೆಕೆಂಡುಗಳಿಗೊಮ್ಮೆ ಸ್ವಯಂ ಉಳಿಸಿ',
+  'settings.writing.autoSaveBody':
+    'ಯಾವುದೇ ಟ್ಯಾಬ್ನಿಂದ ಚೇತರಿಸಿಕೊಳ್ಳಲು {{appName}} ನಿಮ್ಮ ಕರಡಿನ ಒಂದು ಸ್ನ್ಯಾಪ್ಶಾಟ್ ಅನ್ನು ಇಟ್ಟುಕೊಳ್ಳುತ್ತದೆ.',
   'settings.writing.notifyEmail': 'ವಾರಕ್ಕೊಮ್ಮೆ ಬರೆಯುವ ಸಾರಾಂಶಗಳನ್ನು ನನಗೆ ಇಮೇಲ್ ಮಾಡಿ',
+  'settings.writing.notifyEmailBody':
+    'ಸ್ಟ್ರೀಕ್ಗಳ, ಕರಡುಗಳ ಮತ್ತು SEO ಸುಧಾರಣೆಗಳ ಒಂದು ಸಣ್ಣ ಭಾನುವಾರದ ಸಾರಾಂಶ.',
   'settings.writing.title': 'ಬರವಣಿಗೆಯ ಆದ್ಯತೆಗಳು',
   'settings.writing.tone': 'ಡೀಫಾಲ್ಟ್ ಟೋನ್ ಪೂರ್ವನಿಗದಿ',
   'signup.emailPlaceholder': 'ಲೇಖಕ@example.com',
@@ -173,8 +225,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'ಯಾವುದೇ ವಿವರಣೆಯನ್ನು ಒದಗಿಸಲಾಗಿಲ್ಲ.',
   'templates.subtitle':
     'ಯುದ್ಧ-ಪರೀಕ್ಷಿತ ಸಂಪಾದಕೀಯ ಚೌಕಟ್ಟಿನಿಂದ ಪ್ರಾರಂಭಿಸಿ, ನಂತರ ಅದನ್ನು ನಿಮ್ಮದಾಗಿಸಿಕೊಳ್ಳಿ.',
+  'terms.intro':
+    'ಈ ನಿಯಮಗಳು {{app}} ನಿಮ್ಮ ಬಳಕೆಯನ್ನು ನಿಯಂತ್ರಿಸುತ್ತವೆ. ಖಾತೆ ರಚಿಸುವ ಮೂಲಕ ನೀವು ಸೇವೆಯನ್ನು ಕಾನೂನುಬದ್ಧ ಬರವಣಿಗೆಗೆ ಬಳಸಲು ಮತ್ತು ನಿಮ್ಮ ಖಾತೆ ರುಜುವಾತುಗಳನ್ನು ಗೋಪ್ಯವಾಗಿ ಇಟ್ಟುಕೊಳ್ಳಲು ಒಪ್ಪುತ್ತೀರಿ.',
   'terms.license':
     'ನೀವು ರಚಿಸುವ ಪ್ರತಿಯೊಂದು ದಾಖಲೆ, ಟೆಂಪ್ಲೇಟ್ ಮತ್ತು AI ಉತ್ಪಾದನೆಯ ಮಾಲೀಕತ್ವವನ್ನು ನೀವು ಉಳಿಸಿಕೊಳ್ಳುತ್ತೀರಿ. ನಿಮ್ಮ ಕೆಲಸವನ್ನು ಹೋಸ್ಟ್ ಮಾಡಲು ಮತ್ತು ನಿಮಗೆ ಮರಳಿ ನೀಡಲು ಮತ್ತು ನೀವು ಆಯ್ಕೆ ಮಾಡಿದ ಬಂಧಿತ ಪೂರೈಕೆದಾರರ ಮೂಲಕ AI ವಿನಂತಿಗಳನ್ನು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲು ನಮಗೆ ವಿಶೇಷವಲ್ಲದ ಪರವಾನಗಿ ಅಗತ್ಯವಿದೆ.',
   'writingStreakHeroCard.change': '{{sign}} {{amount}} ಪದಗಳು',
   'writingStreakHeroCard.greeting': 'ಶುಭ ದಿನ, {{name}}',
+  'writingStreakHeroCard.subtitle': 'ಈ ವಾರ ಬರೆದ ಪದಗಳು — {{count}}-ದಿನಗಳ ಸ್ಟ್ರೀಕ್',
+  'writingStreakHeroCard.tagline': 'ದಿನಕ್ಕೊಂದು ಪುಟ ಮ್ಯೂಸ್ ಅನ್ನು ತೊಡಗಿಸಿಡುತ್ತದೆ.',
 }

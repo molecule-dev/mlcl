@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Асуулт, шинэ функцын хүсэлт эсвэл бидний дэмжих ёстой тоолуур байна уу? Бүртгэлийн тохиргооноос {{appName}} багтай холбогдоорой — илгээсэн мессеж бүр бодит хүнд хүрдэг.',
   'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
+  'about.featuresTitle': 'Таны авах зүйлс',
+  'about.intro':
+    '{{appName}} нь нарны эрчим хүчтэй гэр, байгууламжийн багуудад зориулсан бодит цагийн эрчим хүчний хяналт юм. Бид тоолуур, инвертер, батерейны өгөгдлийн урсгалыг тайван удирдлагын өрөөний харагдац болгон хувиргадаг — шууд ватт, нарны үйлдвэрлэл, цаг хугацааны тарифын зардал, анхааруулга бүгд нэг бүрхүүлд.',
+  'about.missionBody':
+    'Харж чадаж буй эрчим хүчээ удирдаж чадна. Бид тоолуур ажиллуулж буй хүн бүр — дээврийн нарны эрчим хүчтэй өрх эсвэл барилга хянаж буй баг — коммуналын түвшний гэрээгүйгээр коммуналын түвшний ойлголт авах ёстой гэж үздэг. Функц бүр дараагийн киловатт-цагийг төлбөрийн гэнэтийн зүйл биш, мэдээлэлтэй сонголт болгохоор бүтээгдсэн.',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
   'about.pageTitle': 'Тухай {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Акк',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@yourdomain.com',
   'alertRule.eyebrow': 'Шинэ дүрэм',
   'alertRule.heading': 'Өсөлтийн хурд танд зардал гарахаас өмнө түүнийгээ гүйцээгээрэй',
+  'alertRule.nameLabel': 'Дүрмийн нэр',
   'alertRule.namePlaceholder': 'жишээ нь: ажлын бус цагаар ажилладаг HVAC цаг',
   'alertRule.subheading':
     'Хэмжүүр, босго болон сэрэмжлүүлгийг хаашаа илгээхээ сонгоно уу. Та хүссэн үедээ засах эсвэл түр зогсоох боломжтой.',
   'alertRule.submit': 'Дүрмийг хадгалах',
   'alertRule.submitError': 'Дүрмийг хадгалж чадсангүй.',
   'alertRule.thresholdLabel': 'Босго',
+  'alertRule.typeLabel': 'Триггерийн төрөл',
   'alerts.checking': 'Шалгаж байна…',
   'alerts.confirmDelete': 'Устгахыг баталгаажуулах',
+  'alerts.empty': 'Харуулах зүйл алга — энэ төлөвт анхааруулга байхгүй.',
   'alerts.emptyNoRules':
     'Одоогоор анхааруулга алга байна — дүрэм нэмээд, дараа нь туршихын тулд "Одоо үнэлэх" дээр дарна уу.',
   'alerts.errorAck': 'Хүлээн зөвшөөрч чадсангүй.',
@@ -42,12 +53,14 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Одоо үнэл',
   'alerts.subheading':
     'Таны тоолуур дээр буудаж буй босго болон хэв маягийн дохиолол, түүнчлэн тэдгээрийг удирддаг дүрмүүд.',
+  'billing.activeBlurb': 'Таны захиалга идэвхтэй байна. Хүссэн үедээ удирдаарай.',
   'billing.cancelError': 'Захиалгыг цуцалж чадсангүй.',
   'billing.cancelling': 'Цуцалж байна…',
   'billing.currentBadge': 'Одоогийн',
   'billing.freeBlurb':
     'Та үнэгүй төлөвлөгөөнд байна. Илүү олон тоолуур, урт түүх болон илүү олон сэрэмжлүүлгийн дүрмийг авахын тулд шинэчилнэ үү.',
   'billing.heading': 'Төлөвлөгөө ба төлбөр тооцоо',
+  'billing.historyEmpty': 'Захиалгын төлбөр гарсны дараа төлсөн нэхэмжлэхүүд энд харагдана.',
   'billing.historyHeading': 'Нэхэмжлэхийн түүх',
   'billing.loadError': 'Төлбөр тооцоог ачаалж чадсангүй.',
   'billing.loading': 'Төлөвлөгөөг ачаалж байна…',
@@ -59,17 +72,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Борлуулалттай холбоо барих',
   'common.goToDashboard': 'Хянах самбар руу очих',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} оргил · {{offPeak}} оргил бус кВт.ц',
   'dailyCostMeter.runningLabel': 'Нийт гүйлт',
   'dailyCostMeter.title': 'Өнөөдрийн байдлаарх зардал',
   'dailyCostMeter.utilizationLabel': 'Өдөр тутмын төсвийн',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Тоолуур нэмэх',
   'dashboard.alertsHeading': 'Идэвхтэй сэрэмжлүүлэг',
   'dashboard.devicesHeading': 'Одоогоор шилдэг тойргууд',
   'dashboard.empty.body':
     'Шууд зураг төсөл болон үйлдвэрлэлийг хянахын тулд ухаалаг тоолуур эсвэл нарны инвертер нэмнэ үү.',
+  'dashboard.empty.title': 'Одоогоор тоолуур алга',
   'dashboard.eyebrow': 'Хүчдэлийн хяналтын өрөө',
   'dashboard.heading': 'Эрчим хүчний шууд агшин зураг',
   'dashboard.loadError': 'Шууд уншилтыг ачаалж чадсангүй.',
   'dashboard.loading': 'Таны тоолуурыг тохируулж байна...',
+  'dashboard.noAlerts': 'Бүгд тайван — босгыг тань хэтрүүлж байгаа зүйл алга.',
   'dashboard.noAlertsAndNoMeters':
     'Та тоолуурыг холбосны дараа таны босго дээр суурилсан мэдэгдэл энд гарч ирнэ.',
   'dashboard.noCircuits':
@@ -78,6 +96,7 @@ export const ui: UiTranslations = {
     'Бүхэл бүтэн байшингийн зураг төсөл, нарны эрчим хүчний үйлдвэрлэл, өнөөдрийн өртөг.',
   'dashboard.viewAllAlerts': 'Мэдэгдлийг удирдах →',
   'dashboard.viewAllDevices': 'Төхөөрөмж бүр →',
+  'deviceDetail.activeTokens': 'Идэвхтэй хүлээн авах токен',
   'deviceDetail.alreadyOff': 'Аль хэдийн түр зогссон',
   'deviceDetail.back': 'Бүх хэлхээ',
   'deviceDetail.confirmDelete': 'Устгахыг баталгаажуулах',
@@ -118,22 +137,34 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Тоолуурыг ачаалж чадсангүй.',
   'devices.loading': 'Тоолуур бүрээс санал авч байна…',
   'devices.newRule': 'Шинэ сэрэмжлүүлгийн дүрэм',
+  'devices.noResults': 'Энэ шүүлтэд тохирох хэлхээ алга.',
   'devices.placeholder.location': 'жишээ нь Механик өрөө',
   'devices.placeholder.name': 'жишээ нь Гаражийн дэд самбар',
   'devices.subheading':
     'Voltrace-ийн харж чадах хэлхээ бүрийн одоогийн ватт болон өнөөдрийн кВт.цаг.',
+  'deviceWattageRow.todayKwh': 'Өнөөдөр {{kwh}} кВт.ц',
+  'deviceWattageRow.watts': '{{watts}} Б',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Цэс',
+  'energyMonitoringLayout.primaryNavLabel': 'Үндсэн навигаци',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    '{{appName}} нь ихэнх коммуналын түвшний тоолуур, нарны инвертер, батерейны системтэй холбогддог — утсаар эсвэл WiFi-ээр.',
   'landing.ctaHeading': 'Тоолуураа холбож, ваттын хэмжээг хэдхэн минутын дотор харна уу',
   'landing.eyebrow': 'Бодит цагийн эрчим хүчний оюун ухаан',
+  'landing.featuresHeading': 'Ватт бүр, минут бүр, нэг бүрхүүлд',
   'landing.getStarted': 'Залгуурын хүчдэл',
   'landing.heroCta': 'Залгуурын хүчдэл',
+  'landing.heroSubtitle':
+    'Нарны эрчим хүчтэй гэр, байгууламжийн багуудад зориулсан удирдлагын өрөөний бүрхүүлд шууд ватт, нарны үйлдвэрлэл, цаг хугацааны тарифын зардал, өндөр хэрэглээний анхааруулга.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Бүхэл бүтэн талбайн сугалаа',
   'landing.sampleSolar': '+3,820 Вт нарны эрчим хүч',
   'landing.sampleSummary': 'Өнөөдөр 1680 Вт эрчим хүчийг сүлжээнд экспортлож байна · 18.4 кВт.ц',
   'landing.sampleWatts': '2,140 Вт',
   'powerHeroCard.solar': '+ {{watts}} W нарны',
   'powerHeroCard.title': 'Бүхэл бүтэн талбайн сугалаа',
+  'powerHeroCard.todayKwh': 'Өнөөдөр {{kwh}} кВт.ц',
   'powerHeroCard.watts': '{{watts}} Б',
   'pricing.choose': 'Сонгох {{name}}',
   'pricing.contact': 'Захиалгат зүйл хэрэгтэй байна уу?',
@@ -146,6 +177,7 @@ export const ui: UiTranslations = {
     'Үнэгүй эхлүүлээрэй. Илүү олон тоолуур, урт түүх эсвэл илүү олон сэрэмжлүүлгийн дүрэм хэрэгтэй үед шинэчлээрэй.',
   'pricing.unavailable': 'Энэ төлөвлөгөө одоогоор боломжгүй байна — Stripe тохируулагдаагүй байна.',
   'profile.errorGeneric': 'Профайлын өөрчлөлтийг хадгалж чадсангүй.',
+  'profile.errorGoal': 'Сарын кВт.ц зорилт эерэг тоо байх ёстой.',
   'profile.errorHousehold': 'Өрхийн хэмжээ эерэг тоо байх ёстой.',
   'profile.householdHeading': 'Гэр бүл ба зорилго',
   'profile.householdSize': 'Өрхийн хэмжээ',
@@ -162,9 +194,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'Уншилтыг нэгтгэж байна…',
   'reports.subheading':
     'Хэрэглээ, үйлдвэрлэл, зардлын өдөр тутмын нийт дүн — огноогоор нь задалсан.',
+  'reports.tableHeading': 'Өдрийн задаргаа',
   'settings.currency': 'Валют',
   'settings.errorFlat': 'Тогтмол хувь нь ≥ 0 байх ёстой.',
   'settings.errorNotify': 'Мэдэгдлийн тохиргоог хадгалж чадсангүй.',
+  'settings.errorSave': 'Тарифын төлөвлөгөөг хадгалж чадсангүй.',
   'settings.errorTou':
     'Оргил/оргил бус үеийн түвшин болон хүчинтэй оргил цагийн цонх шаардлагатай.',
   'settings.exportBody':
@@ -185,10 +219,20 @@ export const ui: UiTranslations = {
   'settings.saving': 'Хадгалж байна…',
   'settings.securityHeading': 'Хоёр хүчин зүйлийн баталгаажуулалт',
   'settings.subheading': 'Үнэ, мэдэгдэл болон өгөгдөл экспортлох.',
+  'settings.twoFactorBody': 'Нэвтрэх бүрдээ баталгаажуулагч аппаас нэг удаагийн код шаардах.',
   'settings.twoFactorCode': 'Баталгаажуулах код',
   'settings.twoFactorDisable': 'Идэвхгүй болгох',
+  'settings.twoFactorDisableTitle': 'Хоёр шатлалт баталгаажуулалтыг идэвхгүй болгох',
   'settings.twoFactorEnable': 'Идэвхжүүлэх',
+  'settings.twoFactorEnableTitle': 'Хоёр шатлалт баталгаажуулалтыг идэвхжүүлэх',
   'settings.twoFactorInvalidCode': 'Буруу код',
+  'settings.twoFactorOAuth':
+    'Таны бүртгэл холбогдсон үйлчилгээ үзүүлэгчээр нэвтэрдэг тул хоёр шатлалт баталгаажуулалтыг тэнд удирддаг.',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Хоёр хүчин зүйлийн QR код',
+  'settings.twoFactorScan':
+    'Энэ QR кодыг баталгаажуулагч аппаараа сканнердаж, дараа нь 6 оронтой кодыг оруулна уу.',
+  'settings.twoFactorUnavailable':
+    'Энэ аппликейшнд хоёр хүчин зүйлийн баталгаажуулалт боломжгүй байна.',
   'settings.twoFactorVerify': 'Баталгаажуулах ба идэвхжүүлэх',
 }

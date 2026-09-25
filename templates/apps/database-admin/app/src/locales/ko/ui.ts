@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '문의하기',
   'about.eyebrow': '소개',
+  'about.featureConnections':
+    '데이터베이스를 안전하게 저장하고 색상으로 구분하는 연결 관리자 — 자격 증명은 평문이 아닌 암호화된 상태로 저장됩니다.',
+  'about.featureMonitoring':
+    '쿼리 성능과 데이터베이스 활동을 실시간으로 모니터링하며, 키보드 단축키와 명령 팔레트로 모든 작업을 마우스 없이 처리할 수 있습니다.',
+  'about.featurePlans':
+    '함께 확장되는 요금제 — 개인 작업에는 Free, 더 많은 연결과 긴 쿼리 보존, 내보내기, 고급 기능이 필요하면 Pro와 Team을 이용하세요.',
+  'about.featureQueryEditor':
+    '쿼리 기록, 저장된 쿼리, 결과의 원클릭 CSV 내보내기를 지원하는 Monaco 기반 SQL 편집기.',
+  'about.featureSchema':
+    '데이터베이스, 테이블, 컬럼을 탐색하고 행을 인라인으로 조회, 필터링, 편집할 수 있는 스키마 탐색기와 테이블 브라우저.',
+  'about.missionTitle': '우리의 사명',
   'authShell.commands': '명령',
   'authShell.ssoSupported': 'SSO 지원',
   'common.run': '실행',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': '쿼리',
   'connections.schema': '스키마',
   'connections.subtitle': '데이터베이스 연결을 관리하십시오.',
+  'connections.test': '테스트',
   'databaseAdminLayout.adminRole': '관리자 역할',
   'databaseAdminLayout.commandPalette': '명령 팔레트',
   'databaseAdminLayout.commands': '명령',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': '새 연결',
   'databaseAdminLayout.queries': '쿼리',
   'databaseAdminLayout.ready': '준비됨',
+  'databaseAdminLayout.searchPlaceholder': '⌘K 명령, 쿼리, 테이블 검색…',
   'databaseAdminLayout.user': '사용자',
   'editConnection.confirmDelete': '이 연결을 삭제하시겠습니까?',
   'editConnection.deleteButton': '연결 삭제',
+  'editConnection.newPassword': '새 비밀번호 (유지하려면 비워 두세요)',
   'editConnection.saved': '연결이 저장되었습니다.',
   'editConnection.title': '연결 편집',
   'forgotPassword.success': '해당 계정이 존재한다면 재설정 링크가 발송됩니다.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': '성과',
   'monitoring.title': '모니터링',
   'monitoring.totalQueries': '전체 쿼리 수',
+  'nav.schema': '스키마',
   'newConnection.database': '데이터베이스',
   'newConnection.engine': '엔진',
   'newConnection.host': '호스트',
@@ -82,6 +98,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': '이 스니펫에 바인딩된 연결이 없습니다.',
   'savedQuery.notBound': '바인딩되지 않음',
   'savedQuery.title': '저장된 쿼리',
+  'schema.columns': '열',
   'schema.foreignKeys': '외래 키',
   'schema.indexes': '색인',
   'schemaExplorer.browseRows': '행 둘러보기',
@@ -90,14 +107,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'null 허용',
   'schemaExplorer.colType': '유형',
   'schemaExplorer.noColumns': '열이 없습니다.',
+  'schemaExplorer.noForeignKeys': '외래 키가 없습니다.',
   'schemaExplorer.noIndexes': '인덱스가 없습니다.',
   'schemaExplorer.noTables': '테이블 없음',
   'schemaExplorer.pickATable': '사이드바에서 테이블을 선택하십시오.',
   'schemaExplorer.tables': '테이블',
   'schemaExplorer.title': '스키마 탐색기',
+  'settings.session': '세션',
   'settings.subtitle': '계정과 요금제를 관리하십시오.',
   'signup.heading': 'Quarry 계정 만들기',
   'signup.tagline': '1분 안에 액세스를 시작하십시오.',
   'tableBrowser.noRows': '이 테이블에는 아직 행이 없습니다.',
+  'tableBrowser.subtitle': '원격 데이터베이스의 행을 조회하는 중입니다.',
   'tableBrowser.title': '원격 데이터베이스에서 행을 탐색합니다.',
 }

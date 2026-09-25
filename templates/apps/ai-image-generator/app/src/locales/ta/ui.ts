@@ -1,14 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கருத்து உள்ளதா, சிக்கல் ஏற்பட்டதா, அல்லது அடுத்து என்ன உருவாக்க வேண்டும் என்பதை எங்களிடம் சொல்ல விரும்புகிறீர்களா? hello@reverie.app இல் குழுவை அணுகவும் — ஒவ்வொரு செய்தியும் தயாரிப்பை உருவாக்கும் உண்மையான நபரையே சென்றடையும்.',
   'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'auth.fields.newPassword': 'புதிய கடவுச்சொல்',
   'collectionDetail.addImage': 'சேகரிப்புக்காக மந்திரம் செய்',
   'collectionDetail.backCta': 'சேகரிப்புகளுக்குத் திரும்பு',
   'collectionDetail.coverNote': 'தொகுக்கப்பட்ட மூட்-போர்டு உடன் {{count}} படங்கள்.',
   'collectionDetail.editName': 'தொகுப்பின் பெயர்',
+  'collectionDetail.empty':
+    'இந்தத் தொகுப்பில் இன்னும் படங்கள் இல்லை — சேர்ப்பதற்கு ஏதாவது உருவாக்கவும்.',
   'collectionDetail.loading': 'தொகுப்பு ஏற்றப்படுகிறது…',
   'collectionDetail.loadingImages': 'படங்கள் ஏற்றப்படுகின்றன…',
+  'collectionDetail.notFoundBody': 'இந்தத் தொகுப்பு நீக்கப்பட்டுவிட்டது அல்லது தனியானது.',
   'collectionDetail.notFoundTitle': 'சேகரிப்பு கிடைக்கவில்லை',
   'collectionDetail.shared': 'பார்வை நிலை மாற்றப்பட்டது',
   'collections.create': 'புதிய தொகுப்பு',
@@ -16,6 +22,7 @@ export const ui: UiTranslations = {
     'இன்னும் தொகுப்புகள் எதுவும் இல்லை. உங்கள் படைப்புகளைத் தொகுக்கத் தொடங்க, ஒன்றை உருவாக்குங்கள்.',
   'collections.imageCount': '{{count}} படங்கள்',
   'collections.loading': 'தொகுப்புகள் ஏற்றப்படுகின்றன…',
+  'collections.noDescription': 'இன்னும் விவரணை இல்லை — சேர்க்கத் திறக்கவும்.',
   'collections.subtitle': 'மனநிலை பலகைகள், சுருக்கங்கள் மற்றும் தொடர் வரிசைகள்',
   'collections.title': 'சேகரிப்புகள்',
   'collections.untitled': 'தலைப்பிடப்படாத · {{stamp}}',
@@ -25,6 +32,7 @@ export const ui: UiTranslations = {
   'common.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'credits.eyebrow': '{{plan}} திட்டம்',
   'credits.renewsCopy': 'திட்டம் புதுப்பிக்கப்படுகிறது {{date}}',
+  'credits.trail': '{{appName}} · {{plan}} தரம்',
   'credits.units': 'மீதமுள்ள வரவுகள்',
   'credits.upgrade': 'மேம்படுத்தல் திட்டம்',
   'credits.usage': '{{pct}} மீதமுள்ள சதவீதம்',
@@ -55,6 +63,8 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'உங்கள் Reverie கணக்குடன் இணைக்கப்பட்ட மின்னஞ்சல் முகவரியை உள்ளிடவும், நாங்கள் மீட்டமைப்பு இணைப்பை அனுப்புவோம்.',
   'forgot.successBody': 'மீட்டமைப்பு இணைப்பு ஒன்று விரைவில் வந்து கொண்டிருக்கிறது. {{email}} .',
+  'gallery.empty.body':
+    'வேறு நிலையை முயற்சிக்கவும் அல்லது ஸ்டுடியோவில் புதிய தொகுதியை உருவாக்கவும்.',
   'gallery.empty.title': 'அந்த வடிகட்டிக்கு எதுவும் ஈடாகாது.',
   'gallery.exportAll': 'அனைத்தையும் ஏற்றுமதி செய்',
   'gallery.exported': 'ஏற்றுமதி வரிசையில்',
@@ -78,6 +88,8 @@ export const ui: UiTranslations = {
   'generate.controls.title': 'கனவை இசைக்கு ஏற்றவாறு மாற்று',
   'generate.defaultPrompt': 'ஒரு புதிய கனவு',
   'generate.progress': 'மீன் {{step}} / {{total}}',
+  'generate.submitFailed':
+    'உருவாக்கத்தை வரிசையில் சேர்க்க முடியவில்லை — இணைப்பைச் சரிபார்த்து மீண்டும் முயற்சிக்கவும்.',
   'generate.subtitle':
     'ஒரு தூண்டலை உருவாக்குங்கள், கட்டுப்பாடுகளைச் சரிசெய்யுங்கள், மாற்று வழிகளை உருவாக்குங்கள்',
   'generate.title': 'ஸ்டுடியோ',
@@ -85,6 +97,7 @@ export const ui: UiTranslations = {
   'imageDetail.acting': 'வேலை நடக்கிறது…',
   'imageDetail.actionFailed': 'நடவடிக்கை தோல்வியடைந்தது.',
   'imageDetail.actions': 'படச் செயல்பாடுகள்',
+  'imageDetail.downloadStarted': 'பதிவிறக்கம் தொடங்கியது.',
   'imageDetail.downloadUnavailable': 'இன்னும் பதிவிறக்கம் செய்ய படம் எதுவும் கிடைக்கவில்லை.',
   'imageDetail.fields.aspect': 'அம்சம்',
   'imageDetail.fields.created': 'உருவாக்கப்பட்டது',
@@ -95,11 +108,17 @@ export const ui: UiTranslations = {
   'imageDetail.notFoundTitle': 'படம் கிடைக்கவில்லை',
   'imageDetail.noVariations': 'இன்னும் மாற்றங்கள் இல்லை — மேலே ஒன்றைக் கோரவும்.',
   'imageDetail.openEditor': 'எடிட்டரில் திறக்கவும்',
+  'imageDetail.tips.lockSeed':
+    'கூறமைப்பை இழக்காமல் வெளிச்சத்தில் மாற்றங்களைச் செய்ய விதையைப் பூட்டவும்.',
+  'imageDetail.tips.upscale':
+    'அச்சுக்குத் தயாரான தரத்திற்கு ஏற்றுமதி செய்வதற்கு முன் 4× உயர்த்தலை இயக்கவும்.',
   'imageDetail.tipsTitle': 'கனவை மெருகேற்றுங்கள்',
+  'imageDetail.title': 'Image',
   'imageDetail.upscaleQueued': 'உயர்த்தப்பட்ட வரிசையில்',
   'imageDetail.variations': 'மாறுபாடுகள்',
   'imageDetail.variationsQueued': 'மாறுபாடுகள் வரிசைப்படுத்தப்பட்டன',
   'imageDetail.visibilityToggled': 'பார்வை புதுப்பிக்கப்பட்டது',
+  'landing.copyright': '© {{year}} {{appName}} Labs. Molecule.dev மூலம் உருவாக்கப்பட்டது.',
   'landing.cta': 'உருவாக்கத் தொடங்குங்கள்',
   'landing.eyebrow': 'தற்போது Reverie XL v3 வழங்கப்படுகிறது',
   'landing.featuresEyebrow': 'ஏன் கனவு',
@@ -141,8 +160,19 @@ export const ui: UiTranslations = {
     'உற்பத்தி செயல்பாடு, பகிர்வு மற்றும் வரவு தொடர்பான அறிவிப்புகள் இங்கே தோன்றும்.',
   'notifications.empty.title': 'அறிவிக்க ஒன்றுமில்லை.',
   'notifications.subtitle': 'நாள் வாரியாக தொகுக்கப்பட்ட உற்பத்தி நிகழ்வுகள்',
+  'planUpdated.confirmed':
+    'உங்கள் {{planKey}} திட்டம் செயலில் உள்ளது, கிரெடிட்கள் சேர்க்கப்பட்டுள்ளன.',
+  'planUpdated.error':
+    'உங்கள் மேம்படுத்தலைத் தானாக உறுதிப்படுத்த முடியவில்லை. ஆதரவைத் தொடர்பு கொள்ளவும்.',
+  'planUpdated.retry': 'மீண்டும் முயற்சிக்கவும்',
+  'planUpdated.unpaid':
+    'உங்கள் செக்அவுட் அமர்வுக்கு பணம் செலுத்தப்படவில்லை. அமைப்புகளில் இருந்து மீண்டும் முயற்சிக்கவும்.',
+  'planUpdated.verifyFailed': 'உங்கள் கட்டணத்தை எங்களால் இன்னும் உறுதிப்படுத்த முடியவில்லை.',
+  'planUpdated.verifyFailedBody':
+    'உங்கள் கட்டணம் இன்னும் செயலாக்கத்தில் இருக்கலாம். சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.',
   'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'pricing.limits.gallery': '{{count}} கேலரி',
+  'pricing.limits.generations': '{{count}} உருவாக்கங்கள்',
   'privacy.collect.body':
     'நீங்கள் பதிவு செய்யும்போது, உங்கள் பெயர், மின்னஞ்சல் முகவரி மற்றும் ஹேஷ் செய்யப்பட்ட கடவுச்சொல் ஆகியவற்றை நாங்கள் சேகரிக்கிறோம். நீங்கள் ரெவெரியைப் பயன்படுத்தும்போது, நீங்கள் சமர்ப்பிக்கும் அறிவுறுத்தல்கள், நாங்கள் உங்களுக்காக உருவாக்கும் படங்கள், நீங்கள் சேமிக்கும் ஸ்டைல்கள் மற்றும் தொகுப்புகள், மேலும் பயன்படுத்தப்பட்ட மாடல், உருவாக்கப்பட்ட நேர முத்திரைகள், வரவு இருப்பு போன்ற மெட்டாடேட்டாவையும் நாங்கள் சேமித்து வைக்கிறோம்.',
   'privacy.cookies.body':
@@ -156,6 +186,8 @@ export const ui: UiTranslations = {
   'profile.followedBio': 'சற்று முன்பு ஒரு படைப்பாளரைப் பின்தொடர்ந்தேன்',
   'profile.following': 'தொடர்ந்து…',
   'profile.loadingWorks': 'பொதுப்பணித்துறை ஏற்றப்படுகிறது…',
+  'profile.noPublicWorks':
+    'இன்னும் பொதுப் படைப்புகள் இல்லை — இந்தத் தொகுப்பை நிரப்ப ஒரு படத்தைப் பகிரவும்.',
   'profile.notFoundTitle': 'சுயவிவரம் கிடைக்கவில்லை',
   'profile.publicWorks': 'பொதுப்பணிகள்',
   'profile.subtitle': '@ {{handle}} · பொது உருவாக்குநர் சுயவிவரம்',
@@ -168,6 +200,7 @@ export const ui: UiTranslations = {
   'prompts.empty.cta': 'திறந்த ஸ்டுடியோ',
   'prompts.empty.title': 'சேமிக்கப்பட்ட தூண்டுதல்கள் எதுவும் பொருந்தவில்லை',
   'prompts.lastUsed': 'பயன்படுத்தப்பட்ட {{when}}',
+  'prompts.loading': 'ஏற்றும் அறிவிப்புகள்…',
   'prompts.negativeLabel': 'எதிர்மறை',
   'prompts.runAgain': 'ஓடு',
   'prompts.running': 'ஓடிக்கொண்டிருக்கிறது…',
@@ -183,6 +216,7 @@ export const ui: UiTranslations = {
   'settings.account.saveFailed': 'சுயவிவரத்தை சேமிக்க முடியவில்லை',
   'settings.account.title': 'உருவாக்கியவர் சுயவிவரம்',
   'settings.accountSecurity': 'கணக்கு மற்றும் பாதுகாப்பு',
+  'settings.accountSecurity.title': 'உள்நுழைவு, சாதனங்கள் & கணக்கு',
   'settings.api.empty':
     'இன்னும் API விசைகள் உருவாக்கப்படவில்லை — ஒருங்கிணைப்பைத் தொடங்க ஒன்றை உருவாக்கவும்.',
   'settings.api.loading': 'API திறவிகளை ஏற்றுகிறது…',
@@ -202,13 +236,17 @@ export const ui: UiTranslations = {
   'sidebar.secondary': 'இரண்டாம் நிலை வழிசெலுத்தல்',
   'signup.failed': 'பதிவு தோல்வியடைந்தது. மீண்டும் முயற்சிக்கவும்.',
   'signup.firstNamePlaceholder': 'ஆரியா',
+  'signup.haveAccount': 'ஏற்கனவே ஒரு கனவாளரா?',
   'signup.heading': 'உங்கள் கனவுலகைத் தொடங்குங்கள்',
   'signup.lastNamePlaceholder': 'லின்',
   'signup.subheading': 'ஒரு கணக்கை உருவாக்கி, 120 இலவச கிரெடிட்களைப் பெறுங்கள்.',
+  'styles.body':
+    'ஒவ்வொரு முன்னமைவும் அதன் சொந்த மாடல், மாதிரி எடுப்பான், ப்ராம்ப்ட் கட்டமைப்பு மற்றும் பாணி சில்லுகளை உள்ளடக்கியது. ஒன்றைச் செயல்படுத்தினால் முழு ஸ்டுடியோவும் அந்த மனநிலைக்கு பூட்டப்படும் — தொடர் பணிகளுக்கு ஏற்றது.',
   'styles.empty': 'இன்னும் ஸ்டைல் முன்னமைவுகள் இல்லை — முதல் முறை உள்நுழைந்த பிறகு அவை தோன்றும்.',
   'styles.eyebrow': 'தொகுக்கப்பட்டது',
   'styles.headline':
     'மீண்டும் பயன்படுத்தக்கூடிய காட்சி முன்னமைவுகளைக் கொண்டு வேகமாக உருவாக்குங்கள்',
+  'styles.loading': 'பாணி நூலகம் ஏற்றப்படுகிறது…',
   'styles.subtitle':
     'ரெவெரி ஸ்டுடியோ குழுவினரால் வடிவமைக்கப்பட்ட, கவனமாகத் தேர்ந்தெடுக்கப்பட்ட காட்சி முன்னமைவுகள்',
   'styles.title': 'பாணி நூலகம்',

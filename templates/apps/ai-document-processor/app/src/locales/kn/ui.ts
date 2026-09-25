@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ಪ್ರಶ್ನೆ ಇದೆಯೇ, ಬಗ್ ಕಂಡುಬಂದಿದೆಯೇ, ಅಥವಾ ನಿಮ್ಮ ತಂಡಕ್ಕೆ ಡೆಮೊ ಬೇಕೇ? ನಿಮ್ಮ ಖಾತೆ ಸೆಟ್ಟಿಂಗ್ಗಳಿಂದ ಸಂಪರ್ಕಿಸಿ — ಪ್ರತಿ ಸಂದೇಶವೂ ತಂಡದ ನಿಜವಾದ ವ್ಯಕ್ತಿಗೆ ತಲುಪುತ್ತದೆ.',
   'about.contactTitle': 'ಸಂಪರ್ಕದಲ್ಲಿರಿ',
+  'about.intro':
+    '{{app}} ಸ್ಕ್ಯಾನ್ ಮಾಡಿದ ದಾಖಲೆಗಳ ಮತ್ತು PDFಗಳ ರಾಶಿಗಳನ್ನು ರಚನಾತ್ಮಕ, ಹುಡುಕಬಹುದಾದ, ಫೈಲ್ ಮಾಡಿದ ಡೇಟಾವಾಗಿ ಪರಿವರ್ತಿಸುತ್ತದೆ. ಇನ್ವಾಯ್ಸ್ಗಳು, ರಸೀದಿಗಳು, ಒಪ್ಪಂದಗಳು ಅಥವಾ ಫಾರ್ಮ್ಗಳನ್ನು ಹಾಕಿ — AI ಅವನ್ನು ಓದಿ, ಹೊರತೆಗೆದು, ವರ್ಗೀಕರಿಸಿ, ಫೈಲ್ ಮಾಡಲಿ — ವಿಶ್ವಾಸ ಬಣ್ಣಗಳೊಂದಿಗೆ, ಇದರಿಂದ ನಿಮ್ಮ ತಂಡ ನಿಜವಾಗಿಯೂ ಮನುಷ್ಯನ ಪರಿಶೀಲನೆ ಬೇಕಾದದ್ದನ್ನು ಮಾತ್ರ ಪರಿಶೀಲಿಸುತ್ತದೆ.',
+  'about.missionBody':
+    'ದಾಖಲೆಗಳ ಕೆಲಸ ನಿಮ್ಮ ತಂಡದ ದಿನವನ್ನು ತಿನ್ನಬಾರದು. ಹೊರತೆಗೆದ ಪ್ರತಿ ಮೌಲ್ಯವೂ ವಿವರಿಸಬಹುದಾದ ಮತ್ತು ಆಡಿಟ್ ಮಾಡಬಹುದಾದದ್ದಾಗಿರಬೇಕು ಎಂದು ನಾವು ನಂಬುತ್ತೇವೆ — ಇದರಿಂದ ಕಾಗದದ ದಾಖಲೆ ಕಳೆದುಕೊಳ್ಳದೆ ಆಟೊಮೇಷನ್ ಅನ್ನು ನೀವು ನಂಬಬಹುದು. ಪ್ರತಿ ರಾಶಿಗೂ ಗಂಟೆಗಳನ್ನು ಉಳಿಸಲು {{app}} ನಿರ್ಮಿಸಲಾಗಿದೆ, ಅಗತ್ಯವಿರುವಲ್ಲಿ ಮನುಷ್ಯನನ್ನು ಸಂಪರ್ಕದಲ್ಲಿಟ್ಟುಕೊಂಡು.',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
+  'about.subtitle': 'ನಿಮ್ಮ ದಾಖಲೆಗಳಿಗಾಗಿ OCR, AI ಹೊರತೆಗೆಯುವಿಕೆ, ವರ್ಗೀಕರಣ ಮತ್ತು ಸ್ವಯಂಚಾಲಿತ ಫೈಲಿಂಗ್.',
   'about.title': '{{app}} ಬಗ್ಗೆ',
+  'about.whatYouGetTitle': 'ನೀವು ಏನು ಪಡೆಯುತ್ತೀರಿ',
   'authShell.backToLanding': '← ಇಳಿಯುವಿಕೆಗೆ ಹಿಂತಿರುಗಿ',
   'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'ಇಂದು · ಕಾರ್ಯಾಚರಣೆಗಳ ಅವಲೋಕನ',
   'dashboard.heading': 'ದಾಖಲೆ ಬುದ್ಧಿಮತ್ತೆ',
+  'dashboard.metric.accuracy': 'ಸರಾಸರಿ ನಿಖರತೆ',
   'dashboard.metric.filed': 'ಇಂದು ಸಲ್ಲಿಸಲಾಗಿದೆ',
   'dashboard.metric.filedCaption': 'ಫೈಲಿಂಗ್ ನಿಯಮಗಳ ಮೂಲಕ ರೂಟ್ ಮಾಡಲಾಗಿದೆ',
   'dashboard.metric.processed': 'ಇಂದು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲಾಗಿದೆ',
@@ -23,11 +33,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'ಡಾಕ್ಯುಮೆಂಟ್',
   'dashboard.recent.col.uploaded': 'ಅಪ್‌ಲೋಡ್ ಮಾಡಲಾಗಿದೆ',
   'dashboard.recent.heading': 'ಇತ್ತೀಚಿನ ದಾಖಲೆಗಳು',
+  'dashboard.recent.typeUnknown': 'ವರ್ಗೀಕರಣಕ್ಕಾಗಿ ಕಾಯುತ್ತಿದೆ',
   'dashboard.subheading':
     'ಪ್ರತಿಯೊಂದು ಪುಟವನ್ನು ವರ್ಗೀಕರಿಸಲಾಗಿದೆ, ಹೊರತೆಗೆಯಲಾಗಿದೆ ಮತ್ತು ಸಲ್ಲಿಸಲಾಗಿದೆ - ವಿಶ್ವಾಸಾರ್ಹ ಬಣ್ಣಗಳೊಂದಿಗೆ ಆದ್ದರಿಂದ ವಿಮರ್ಶೆಯು ಕೇಂದ್ರೀಕೃತವಾಗಿರುತ್ತದೆ.',
   'documentDetail.audit.heading': 'ಲೆಕ್ಕಪರಿಶೋಧನಾ ಕಾಲರೇಖೆ',
+  'documentDetail.audit.subheading':
+    'ಈ ದಾಖಲೆಯ ಮೇಲೆ ತೆಗೆದುಕೊಂಡ ಪ್ರತಿ ಹೆಜ್ಜೆ, ಜವಾಬ್ದಾರರಾದ ವ್ಯಕ್ತಿಯೊಂದಿಗೆ.',
   'documentDetail.back': 'ಎಲ್ಲಾ ದಾಖಲೆಗಳು',
   'documentDetail.downloadHint': 'ಮೂಲ ಫೈಲ್ ತೆರೆಯಲು ಡೌನ್‌ಲೋಡ್ ಬಳಸಿ.',
+  'documentDetail.extracted.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಕ್ಷೇತ್ರಗಳನ್ನು ಹೊರತೆಗೆಯಲಾಗಿಲ್ಲ.',
   'documentDetail.extracted.heading': 'ಹೊರತೆಗೆಯಲಾದ ಕ್ಷೇತ್ರಗಳು',
   'documentDetail.extracted.subheading':
     '{{count}} ಕ್ಷೇತ್ರಗಳು · ಪುಟದಲ್ಲಿ ಹೈಲೈಟ್ ಮಾಡಲು ಯಾವುದೇ ಕ್ಷೇತ್ರವನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ.',
@@ -55,13 +69,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'ದಾಖಲೆಗಳನ್ನು ಹುಡುಕಿ...',
   'documents.subheading': '{{count}} ನಿಮ್ಮ ಗ್ರಂಥಾಲಯದಲ್ಲಿರುವ ದಾಖಲೆಗಳು, ಹೊಸದನ್ನು ಮೊದಲು ವಿಂಗಡಿಸಿ.',
   'documents.uploadCta': 'ದಾಖಲೆಗಳನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ',
+  'documentTypeBreakdown.barAria': 'ಪ್ರಕಾರದ ಪ್ರಕಾರ ದಾಖಲೆ ಸಂಯೋಜನೆ',
   'documentTypeBreakdown.empty': 'ಯಾವುದೇ ದಾಖಲೆಗಳನ್ನು ಇನ್ನೂ ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲಾಗಿಲ್ಲ.',
   'documentTypeBreakdown.subtitle': '{{total}} ಸಂಸ್ಕರಿಸಿದ',
   'documentTypeBreakdown.title': 'ದಾಖಲೆ ಸಂಯೋಜನೆ',
+  'forgotPassword.backToSignIn': '← ಸೈನ್ ಇನ್‌ಗೆ ಹಿಂತಿರುಗಿ',
   'forgotPassword.checkEmail': 'ನಿಮ್ಮ ಇಮೇಲ್ ಪರಿಶೀಲಿಸಿ',
   'forgotPassword.tip': 'ಅರ್ಥವಾಗಲಿಲ್ಲವೇ? ಸ್ಪ್ಯಾಮ್ ಪರಿಶೀಲಿಸಿ ಅಥವಾ ಬೇರೆ ವಿಳಾಸವನ್ನು ಪ್ರಯತ್ನಿಸಿ.',
+  'landing.copyright':
+    '© {{year}} {{app}}. ಪ್ರತಿ ಪುಟವನ್ನೂ ಆಡಿಟ್ ಮಾಡುವ ಆಪ್ಸ್ ತಂಡಗಳಿಗಾಗಿ ನಿರ್ಮಿಸಲಾಗಿದೆ.',
+  'landing.ctaBody':
+    '14-ದಿನಗಳ ಪ್ರಯೋಗ. ಕಾರ್ಡ್ ಬೇಕಿಲ್ಲ. ಯಾವಾಗ ಬೇಕಾದರೂ ರದ್ದುಮಾಡಿ. ವೇಗವಾಗಿ ಚಲಿಸಿ ನಿಧಾನವಾಗಿ ಆಡಿಟ್ ಮಾಡುವ ಆಪ್ಸ್ ತಂಡಗಳಿಗಾಗಿ ನಿರ್ಮಿಸಲಾಗಿದೆ.',
   'landing.ctaHeading': 'ರಸೀದಿಗಳನ್ನು ಟೈಪ್ ಮಾಡುವುದನ್ನು ನಿಲ್ಲಿಸಿ. ಅವುಗಳನ್ನು ಸಲ್ಲಿಸಲು ಪ್ರಾರಂಭಿಸಿ.',
   'landing.eyebrow': 'OCR · ಹೊರತೆಗೆಯುವಿಕೆ · AI ಫೈಲಿಂಗ್',
+  'landing.featuresHeading': 'ತನ್ನನ್ನೇ ವಿವರಿಸುವ ದಾಖಲೆ ಬುದ್ಧಿಮತ್ತೆ',
+  'landing.heroSubtitle':
+    'ಇನ್ವಾಯ್ಸ್ಗಳು, ರಸೀದಿಗಳು, ಒಪ್ಪಂದಗಳು ಅಥವಾ ಫಾರ್ಮ್ಗಳ ರಾಶಿಯನ್ನು ಹಾಕಿ. {{app}} ಅವನ್ನು ವರ್ಗೀಕರಿಸಿ, ಹೊರತೆಗೆದು, ಫೈಲ್ ಮಾಡುತ್ತದೆ — ವಿಶ್ವಾಸ ಬಣ್ಣಗಳೊಂದಿಗೆ, ಇದರಿಂದ ನಿಮ್ಮ ತಂಡ ನಿಜವಾಗಿಯೂ ಮನುಷ್ಯನ ಪರಿಶೀಲನೆ ಬೇಕಾದದ್ದನ್ನು ಮಾತ್ರ ಪರಿಶೀಲಿಸುತ್ತದೆ.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'ದೈನಂದಿನ ಪ್ರಮಾಣ · ಕಳೆದ 7 ದಿನಗಳು',
   'landing.sampleCardLabel': 'ಇಂದು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲಾದ ದಾಖಲೆಗಳು',
   'landing.sampleCardSubtitle': 'ಇನ್‌ವಾಯ್ಸ್‌ಗಳು, ರಶೀದಿಗಳು ಮತ್ತು ಫಾರ್ಮ್‌ಗಳಲ್ಲಿ 96.2% ಸರಾಸರಿ ನಿಖರತೆ.',
   'login.hidePassword': 'ಪಾಸ್‌ವರ್ಡ್ ಮರೆಮಾಡಿ',
@@ -74,6 +99,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'ಲ್ಯಾಂಡಿಂಗ್ ಪುಟವನ್ನು ತೆರೆಯಿರಿ',
   'notFound.title': 'ಆ ಪುಟವು ಫೈಲ್‌ನಲ್ಲಿಲ್ಲ.',
+  'parcelaHeroCard.accuracy': 'ಎಲ್ಲಾ ಹೊರತೆಗೆಯುವಿಕೆಗಳಲ್ಲಿ ಸರಾಸರಿ ನಿಖರತೆ {{value}}%',
   'parcelaHeroCard.change': '{{sign}} {{amount}} ನಿನ್ನೆಯೊಂದಿಗೆ ಹೋಲಿಸಿದರೆ %',
   'parcelaHeroCard.title': 'ಇಂದು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲಾದ ದಾಖಲೆಗಳು',
   'parcelaLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
@@ -81,6 +107,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'ದಾಖಲೆಗಳು',
   'pricing.processingLabel': 'ಸಂಸ್ಕರಣಾ ಕೆಲಸಗಳು',
   'resetPassword.confirmPlaceholder': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಪುನರಾವರ್ತಿಸಿ',
+  'resetPassword.hidePassword': 'ಪಾಸ್‌ವರ್ಡ್ ಮರೆಮಾಡಿ',
   'resetPassword.passwordLabel': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'resetPassword.showPassword': 'ಪಾಸ್‌ವರ್ಡ್ ತೋರಿಸಿ',
   'resetPassword.subtitle': 'ಕನಿಷ್ಠ 8 ಅಕ್ಷರಗಳಷ್ಟು ಉದ್ದವಿರುವ ಯಾವುದನ್ನಾದರೂ ಆರಿಸಿ.',
@@ -97,10 +124,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'ನಿಯಮಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'rules.loading': 'ನಿಯಮಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'rules.matched30d': '{{count}} ಕಳೆದ 30 ದಿನಗಳಲ್ಲಿ ಹೊಂದಾಣಿಕೆಯಾದ ದಾಖಲೆಗಳು',
+  'rules.neverUsed': 'ಎಂದಿಗೂ ಬಳಸಿಲ್ಲ',
   'rules.newRule': 'ಹೊಸ ನಿಯಮ',
   'rules.saveError': 'ನಿಯಮವನ್ನು ಉಳಿಸಲು ವಿಫಲವಾಗಿದೆ.',
   'rules.subheading':
     'ಪ್ರತಿಯೊಂದು ರೀತಿಯ ದಾಖಲೆ ಎಲ್ಲಿಗೆ ಹೋಗಬೇಕೆಂದು ವ್ಯವಸ್ಥೆಗೆ ತಿಳಿಸಿ. ಷರತ್ತುಗಳ ಸರಪಳಿ ಮೇಲಿನಿಂದ ಕೆಳಕ್ಕೆ — ಮೊದಲ ಪಂದ್ಯದ ಗೆಲುವುಗಳು.',
+  'rules.templatesEmpty': 'ಇನ್ನೂ ಯಾವುದೇ ಹೊರತೆಗೆಯುವಿಕೆ ಟೆಂಪ್ಲೇಟ್ಗಳಿಲ್ಲ.',
   'rules.templatesHeading': 'ಹೊರತೆಗೆಯುವ ಟೆಂಪ್ಲೇಟ್‌ಗಳು',
   'rules.templatesSubheading':
     'ಪ್ರತಿಯೊಂದು ದಾಖಲೆ ಪ್ರಕಾರಕ್ಕೂ ಎಕ್ಸ್‌ಟ್ರಾಕ್ಟರ್ ಬಳಸುವ ಕ್ಷೇತ್ರ ಸ್ಕೀಮಾಗಳು.',
@@ -110,17 +139,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'ಕಾರ್ಯಸ್ಥಳದ ಹೆಸರು',
   'settings.account.subheading':
     'ಅಧಿಸೂಚನೆಗಳು ಮತ್ತು ಆಡಿಟ್ ಇತಿಹಾಸಕ್ಕಾಗಿ ಹೆಸರು ಮತ್ತು ಪ್ರಾಥಮಿಕ ಇಮೇಲ್ ಅನ್ನು ಪ್ರದರ್ಶಿಸಿ.',
+  'settings.api.confirmRevoke': 'ದೃಢೀಕರಿಸುವುದೇ?',
   'settings.api.copyOnce': 'ಈ ಕೀಲಿಯನ್ನು ನಕಲಿಸಿ — ಅದನ್ನು ಮತ್ತೆ ತೋರಿಸಲಾಗುವುದಿಲ್ಲ.',
   'settings.api.createdOn': 'ರಚಿಸಲಾಗಿದೆ {{date}}',
   'settings.api.empty': 'ಇನ್ನೂ ಯಾವುದೇ API ಕೀಗಳಿಲ್ಲ. ಮೇಲೆ ಒಂದನ್ನು ರಚಿಸಿ.',
   'settings.api.error': 'ಕೀಲಿಯನ್ನು ರಚಿಸಲು ವಿಫಲವಾಗಿದೆ.',
+  'settings.api.generating': 'ರಚಿಸಲಾಗುತ್ತಿದೆ…',
+  'settings.api.heading': 'API ಕೀಗಳು',
   'settings.api.labelPlaceholder': 'ಕೀ ಲೇಬಲ್ (ಉದಾ. CI ಅಪ್‌ಲೋಡರ್)',
+  'settings.api.loading': 'ಕೀಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ…',
   'settings.api.newKey': 'ಕೀಲಿಯನ್ನು ರಚಿಸಿ',
   'settings.api.subheading':
     'ಸ್ಕ್ರಿಪ್ಟ್ ಅಥವಾ ನಿಮ್ಮ ERP ಯಿಂದ ಡಾಕ್ಯುಮೆಂಟ್‌ಗಳನ್ನು ತಳ್ಳಲು ಇವುಗಳನ್ನು ಬಳಸಿ. ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ಯಾವುದೇ ಕೀಲಿಯನ್ನು ತಿರುಗಿಸಿ.',
   'settings.integrations.heading': 'ಫೈಲಿಂಗ್ ಸಂಯೋಜನೆಗಳು',
   'settings.integrations.subheading':
     'ನಿಮ್ಮ ತಂಡವು ಈಗಾಗಲೇ ವಾಸಿಸುತ್ತಿರುವ ಕ್ಲೌಡ್ ಡ್ರೈವ್ ಅಥವಾ ಚಾಟ್ ಟೂಲ್‌ಗೆ ಸಲ್ಲಿಸಿದ ದಾಖಲೆಗಳನ್ನು ಕಳುಹಿಸಿ.',
+  'settings.subheading':
+    'ನಿಮ್ಮ {{app}} ಕಾರ್ಯಕ್ಷೇತ್ರಕ್ಕಾಗಿ ಖಾತೆ, API ಕೀಗಳು ಮತ್ತು ಫೈಲಿಂಗ್ ಇಂಟಿಗ್ರೇಷನ್ಗಳನ್ನು ನಿರ್ವಹಿಸಿ.',
+  'signup.hidePassword': 'ಪಾಸ್‌ವರ್ಡ್ ಮರೆಮಾಡಿ',
   'signup.identityPrompt': 'ನಾವು ನಿಮ್ಮನ್ನು ಹೇಗೆ ಸಂಬೋಧಿಸಬೇಕು?',
   'signup.showPassword': 'ಪಾಸ್‌ವರ್ಡ್ ತೋರಿಸಿ',
   'signup.subtitle': '14 ದಿನಗಳು ಉಚಿತ, ಯಾವುದೇ ಕಾರ್ಡ್ ಅಗತ್ಯವಿಲ್ಲ.',
@@ -128,6 +164,7 @@ export const ui: UiTranslations = {
   'upload.error': 'ಅಪ್‌ಲೋಡ್ ವಿಫಲವಾಗಿದೆ.',
   'upload.eyebrow': 'ಸೇವನೆ',
   'upload.heading': 'ದಾಖಲೆಗಳನ್ನು ಅಪ್‌ಲೋಡ್ ಮಾಡಿ',
+  'upload.queue.clear': 'ಪೂರ್ಣಗೊಂಡವನ್ನು ತೆರವುಗೊಳಿಸಿ',
   'upload.queue.col.confidence': 'ವಿಶ್ವಾಸ',
   'upload.queue.col.file': 'ಫೈಲ್',
   'upload.queue.detecting': 'ಪತ್ತೆಹಚ್ಚಲಾಗುತ್ತಿದೆ...',
@@ -140,5 +177,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'ಅಥವಾ ಬ್ಯಾಚ್ ಹೊರತೆಗೆಯುವಿಕೆ, ವರ್ಗೀಕರಣ ಮತ್ತು ಫೈಲಿಂಗ್‌ಗಾಗಿ ಒಂದೇ ಬಾರಿಗೆ ಬಹು ಫೈಲ್‌ಗಳನ್ನು ಬಿಡಿ.',
   'uploadDropZone.cta': 'ಫೈಲ್‌ಗಳನ್ನು ಆರಿಸಿ',
+  'uploadDropZone.maxSize': 'ಪ್ರತಿ ಫೈಲ್ಗೆ ಗರಿಷ್ಠ 25 MB · ಎಂಡ್-ಟು-ಎಂಡ್ ಎನ್ಕ್ರಿಪ್ಟ್ ಮಾಡಲಾಗಿದೆ',
   'uploadDropZone.title': 'ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲು ದಾಖಲೆಗಳನ್ನು ಬಿಡಿ',
 }

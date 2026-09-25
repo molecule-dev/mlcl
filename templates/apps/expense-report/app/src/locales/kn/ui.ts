@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ಪ್ರಶ್ನೆಗಳು, ಪ್ರತಿಕ್ರಿಯೆ ಅಥವಾ ವೈಶಿಷ್ಟ್ಯ ವಿನಂತಿ ಇದೆಯೇ? ಸೆಟ್ಟಿಂಗ್ಸ್ → ಅಧಿಸೂಚನೆಗಳಿಂದ {{app}} ತಂಡವನ್ನು ಸಂಪರ್ಕಿಸಿ, ಅಥವಾ ಯಾವಾಗ ಬೇಕಾದರೂ ನಮಗೆ ಬರೆಯಿರಿ — ಪ್ರತಿ ಸಂದೇಶವೂ ನಿಜವಾದ ವ್ಯಕ್ತಿಯ ಬಳಿಗೆ ತಲುಪುತ್ತದೆ.',
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.featureCapture':
+    'ಫೋಟೋ ಅಪ್ಲೋಡ್ ಮೂಲಕ ರಸೀದಿ ಸೆರೆಹಿಡಿಯುವಿಕೆ, ಪ್ರತಿ ಸಾಲಿನಲ್ಲೂ ಸರಿಯಾದ ಖರ್ಚಿಗೆ ಚಿತ್ರಗಳನ್ನು ಲಗತ್ತಿಸುತ್ತದೆ.',
+  'about.featureExport':
+    'ಪ್ರತಿ ವರದಿ, ಖರ್ಚು ಮತ್ತು ಅನುಮೋದನೆ ಸ್ಥಿತಿಯ ಆಡಿಟ್ ಮಾಡಬಹುದಾದ CSV ರಫ್ತುಗಳು — ನಿಮ್ಮ ಲೆಕ್ಕಪತ್ರ ತಂಡಕ್ಕೆ ಸಿದ್ಧ.',
+  'about.featurePolicy':
+    'ನೀತಿ ಕಾವಲುಗಳು — ದೈನಂದಿನ ಮಿತಿಗಳು, ಪ್ರತಿ ವರ್ಗದ ಮಿತಿಗಳು ಮತ್ತು ರಸೀದಿ ಅಗತ್ಯದ ಮಿತಿಗಳು ಸಲ್ಲಿಸುವ ಸಮಯದಲ್ಲೇ ಜಾರಿಗೊಳ್ಳುತ್ತವೆ.',
+  'about.featureWorkflow':
+    'ವಿಮರ್ಶಕರ ಟಿಪ್ಪಣಿಗಳು, ನೀತಿ-ಉಲ್ಲಂಘನೆ ಫ್ಲ್ಯಾಗ್ಗಳು ಮತ್ತು ಒಂದೇ ಟ್ಯಾಪ್ನ ಮರುಪಾವತಿ ಗುರುತಿಸುವಿಕೆಯೊಂದಿಗೆ ಎರಡು ಹಂತದ ಅನುಮೋದನೆ ಕಾರ್ಯಪ್ರವಾಹ.',
+  'about.intro':
+    '{{app}} ಎಂಬುದು ಹಣಕಾಸು ತಂಡಗಳಿಗೆ ಮತ್ತು ಅವರು ಮರುಪಾವತಿ ಮಾಡುವವರಿಗಾಗಿ ಒಂದು ಖರ್ಚು ನಿರ್ವಹಣಾ ವೇದಿಕೆ. ರಸೀದಿ ಸೆರೆಹಿಡಿಯಿರಿ, ಖರ್ಚು ದಾಖಲಿಸಿ, ವರದಿಯನ್ನು ಅನುಮೋದನೆಗೆ ಕಳುಹಿಸಿ ಮತ್ತು ಪ್ರತಿ ಮರುಪಾವತಿಯನ್ನೂ ಟ್ರ್ಯಾಕ್ ಮಾಡಿ — ಸ್ಪ್ರೆಡ್ಶೀಟ್ ಆಡಂಬರವಿಲ್ಲದೆ.',
+  'about.missionBody':
+    'ಮರುಪಾವತಿ ವೇಗವಾಗಿ, ನ್ಯಾಯಯುತವಾಗಿ ಮತ್ತು ಆಡಿಟ್ ಮಾಡಬಹುದಾದಂತಿರಬೇಕು. ಸಲ್ಲಿಸುವವರು ಪೀಡಿಸದೆಯೇ ಹಣ ಪಡೆಯಲು, ಅನುಮೋದಕರು ಏನಿಗೆ ಸಹಿ ಹಾಕುತ್ತಿದ್ದಾರೆ ಎಂಬುದನ್ನು ನಿಖರವಾಗಿ ನೋಡಲು ಮತ್ತು ಹಣಕಾಸು ವಿಭಾಗಕ್ಕೆ ಪ್ರತಿ ಡಾಲರ್ಗೂ ಸ್ವಚ್ಛ ದಾಖಲೆ ಇರಲು — ನೀತಿ ಪರಿಶೀಲನೆಗಳ ಸಹಿತ — ನಾವು {{app}} ಅನ್ನು ನಿರ್ಮಿಸಿದ್ದೇವೆ.',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
   'approvals.approve': 'Approve',
   'approvals.approving': 'ಅನುಮೋದಿಸಲಾಗುತ್ತಿದೆ...',
   'approvals.confirmReject': 'ತಿರಸ್ಕರಿಸುವುದನ್ನು ದೃಢೀಕರಿಸಿ',
+  'approvals.empty': 'ನೀವು ಎಲ್ಲವನ್ನೂ ಪೂರ್ಣಗೊಳಿಸಿದ್ದೀರಿ — ಕಾಯುತ್ತಿರುವ ವರದಿಗಳಿಲ್ಲ.',
   'approvals.eyebrow': 'ವ್ಯವಸ್ಥಾಪಕರ ಸರದಿ',
   'approvals.kpi.flaggedLabel': 'ನೀತಿಯನ್ನು ಫ್ಲ್ಯಾಗ್ ಮಾಡಲಾಗಿದೆ',
+  'approvals.kpi.queueLabel': 'ವಿಮರ್ಶೆಗೆ ಕಾಯುತ್ತಿದೆ',
   'approvals.kpi.totalLabel': 'ಬಾಕಿ ಇರುವ ಮೌಲ್ಯ',
   'approvals.lineCount': '{{count}} ವೆಚ್ಚಗಳು',
   'approvals.queueFallback': 'ಲೈವ್ ಕ್ಯೂ ಲಭ್ಯವಿಲ್ಲ — ಕ್ಯುರೇಟೆಡ್ ಡೆಮೊ ಡೇಟಾವನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'ತಿರಸ್ಕರಿಸಲಾಗುತ್ತಿದೆ...',
+  'approvals.rejectPlaceholder': 'ಕಾರಣ (ಅಗತ್ಯ)',
   'approvals.rejectPrompt': 'ನೀವು ಈ ವರದಿಯನ್ನು ಏಕೆ ತಿರಸ್ಕರಿಸುತ್ತಿದ್ದೀರಿ?',
   'approvals.review': 'ವಿಮರ್ಶೆ',
   'approvals.title': 'ಬಾಕಿ ಉಳಿದಿರುವ ಅನುಮೋದನೆಗಳು',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+ 18%',
   'dashboard.kpi.approvedLabel': 'ಅನುಮೋದಿಸಲಾಗಿದೆ · MTD',
   'dashboard.kpi.pendingDelta': 'ಈ ವಾರ +2',
+  'dashboard.kpi.pendingLabel': 'ಪರಿಶೀಲನೆ ಬಾಕಿ ಇದೆ',
   'dashboard.kpi.receiptsDelta': 'ಕ್ರಮ ಅಗತ್ಯವಿದೆ',
   'dashboard.kpi.receiptsLabel': 'ರಸೀದಿಗಳಿಗಾಗಿ ಕಾಯಲಾಗುತ್ತಿದೆ',
   'dashboard.kpi.reimbursedDelta': '+$2.4 ಸಾವಿರ',
   'dashboard.kpi.reimbursedLabel': 'ಮರುಪಾವತಿಸಲಾಗಿದೆ · MTD',
   'dashboard.newReport': 'ಹೊಸ ವರದಿ',
+  'dashboard.recent.empty': 'ಇನ್ನೂ ವರದಿಗಳಿಲ್ಲ — ಮೇಲೆ ನಿಮ್ಮ ಮೊದಲನೆಯದನ್ನು ಪ್ರಾರಂಭಿಸಿ.',
   'dashboard.recent.title': 'ಇತ್ತೀಚಿನ ವರದಿಗಳು',
   'dashboard.recent.viewAll': 'ಎಲ್ಲಾ ವರದಿಗಳನ್ನು ವೀಕ್ಷಿಸಿ',
   'dashboard.summaryFallback': 'ಲೈವ್ ಸಾರಾಂಶ ಲಭ್ಯವಿಲ್ಲ — ಕ್ಯುರೇಟೆಡ್ ಡೆಮೊ ಡೇಟಾವನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ.',
@@ -38,11 +59,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'ರಶೀದಿಗಳು ಮತ್ತು ಮರುಪಾವತಿಸಬಹುದಾದ ವಸ್ತುಗಳು',
   'expenses.listFallback': 'ಲೈವ್ ಪಟ್ಟಿ ಲಭ್ಯವಿಲ್ಲ — ಕ್ಯುರೇಟೆಡ್ ಡೆಮೊ ಡೇಟಾವನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ.',
   'expenses.searchPlaceholder': 'ವ್ಯಾಪಾರಿ ಅಥವಾ ವರ್ಗವನ್ನು ಹುಡುಕಿ...',
+  'expenses.subtotal': '{{count}} ಖರ್ಚುಗಳು · ಉಪಮೊತ್ತ',
   'expenses.title': 'ವೆಚ್ಚಗಳು',
+  'forgotPassword.continue': 'ನನ್ನ ಬಳಿ ಕೋಡ್ ಇದೆ · ಮುಂದುವರಿಸಿ',
+  'forgotPassword.subheading':
+    'ನಿಮ್ಮ ಕೆಲಸದ ಇಮೇಲ್ ನಮೂದಿಸಿ, ಹೊಸ ಪಾಸ್ವರ್ಡ್ ಹೊಂದಿಸಲು ನಾವು ಲಿಂಕ್ ಕಳುಹಿಸುತ್ತೇವೆ.',
   'forgotPassword.successBody':
     'ಖಾತೆ ಅಸ್ತಿತ್ವದಲ್ಲಿದ್ದರೆ {{email}} ಮುಂದಿನ ಕೆಲವು ನಿಮಿಷಗಳಲ್ಲಿ ನೀವು ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಸ್ವೀಕರಿಸುತ್ತೀರಿ.',
+  'landing.copyright': '© {{year}} {{app}}. Molecule.dev ನಿಂದ ನಿರ್ಮಿಸಲಾಗಿದೆ.',
+  'landing.ctaBody':
+    'ಪ್ರತಿ ತಿಂಗಳ ಮೊದಲ 25 ಖರ್ಚುಗಳಿಗೆ ಉಚಿತ. ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್ ಇಲ್ಲ, ಅನುಷ್ಠಾನ ಕರೆ ಇಲ್ಲ.',
   'landing.ctaHeading': 'ನಿಮ್ಮ ತಂಡಕ್ಕೆ ನೀಡಬೇಕಾದ ಸಾಲವನ್ನು ಮರುಪಡೆಯಲು ಸಿದ್ಧರಿದ್ದೀರಾ?',
   'landing.eyebrow': 'ಹಣಕಾಸು ತಂಡಗಳಿಗೆ ವೆಚ್ಚ ವರದಿಗಳು',
+  'landing.featuresHeading': 'ಮರುಪಾವತಿ, ಒಂದೇ ಶಾಂತ ಕಾರ್ಯಕ್ಷೇತ್ರದಲ್ಲಿ',
   'landing.heroSubtitle':
     'ಸ್ಪ್ರೆಡ್‌ಶೀಟ್ ಸಮಾರಂಭವಿಲ್ಲದೆಯೇ ವ್ಯಾಪಾರ ವೆಚ್ಚಗಳನ್ನು ಸಲ್ಲಿಸಿ, ಅನುಮೋದಿಸಿ ಮತ್ತು ಮರುಪಾವತಿ ಮಾಡಿ. ರಶೀದಿ OCR, ನೀತಿ ಪರಿಶೀಲನೆಗಳು ಮತ್ತು ಪಾರದರ್ಶಕ ಅನುಮೋದನೆ ಟೈಮ್‌ಲೈನ್ - ಎಲ್ಲವೂ ಒಂದೇ ಶಾಂತ ಕಾರ್ಯಕ್ಷೇತ್ರದಲ್ಲಿ.',
   'landing.heroTitle': 'ಪ್ರತಿ ರಶೀದಿಯನ್ನು ಮರುಪಡೆಯಲಾಗಿದೆ.',
@@ -59,10 +88,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'ಟಿಪ್ಪಣಿಗಳು',
   'newExpense.descriptionPlaceholder':
     'ಈ ವೆಚ್ಚವು ವ್ಯವಹಾರಕ್ಕೆ ಏಕೆ ಸಂಬಂಧಿಸಿದೆ (ನಿಮ್ಮ ಅನುಮೋದಕರಿಗೆ ಗೋಚರಿಸುತ್ತದೆ).',
+  'newExpense.eyebrow': 'ಮರುಪಾವತಿಸಬಹುದಾದ ವಸ್ತು',
   'newExpense.merchant': 'ವ್ಯಾಪಾರಿ',
   'newExpense.merchantPlaceholder': 'ಹೋಟೆಲ್ ಅಡ್ಲಾನ್ ಕೆಂಪಿನ್ಸ್ಕಿ',
   'newExpense.policyHint':
     'ಜ್ಞಾಪನೆ: ದಿನಕ್ಕೆ $80 ಕ್ಕಿಂತ ಹೆಚ್ಚಿನ ಊಟ ಅಥವಾ $250 ಕ್ಕಿಂತ ಹೆಚ್ಚಿನ ಯಾವುದೇ ವಸ್ತುವಿಗೆ ಸಮರ್ಥನೆ ಟಿಪ್ಪಣಿ ಅಗತ್ಯವಿದೆ.',
+  'newExpense.receipt': 'ರಶೀದಿ',
+  'newExpense.receiptHint': 'JPG, PNG ಅಥವಾ PDF · ಗರಿಷ್ಠ 10 MB',
   'newExpense.receiptOcrHint': 'OCR ಪೂರ್ವ-ಭರ್ತಿ ಕ್ಷೇತ್ರಗಳು',
   'newExpense.receiptPrompt': 'ಫೋಟೋ ಅಥವಾ PDF ಅನ್ನು ಇಲ್ಲಿ ಬಿಡಿ, ಅಥವಾ ಬ್ರೌಸ್ ಮಾಡಲು ಕ್ಲಿಕ್ ಮಾಡಿ',
   'newExpense.receiptUploadFailed':
@@ -73,17 +105,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'ರಶೀದಿಯನ್ನು ಸ್ನ್ಯಾಪ್ ಮಾಡಿ ಅಥವಾ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ ಮತ್ತು ಮರುಪಾವತಿಯು ವ್ಯಾಪಾರಿ, ದಿನಾಂಕ ಮತ್ತು ಮೊತ್ತವನ್ನು ಮೊದಲೇ ಭರ್ತಿ ಮಾಡುತ್ತದೆ. ಉಳಿಸುವ ಮೊದಲು ಕೆಳಗಿನ ಎಲ್ಲವನ್ನೂ ದೃಢೀಕರಿಸಿ.',
   'newExpense.title': 'ವೆಚ್ಚವನ್ನು ಸೇರಿಸಿ',
+  'newReport.approverHint': 'ಈ ವರದಿಯನ್ನು ವಿಮರ್ಶೆಗೆ ಸಲ್ಲಿಸಿದಾಗ ಅವರಿಗೆ ಇಮೇಲ್ ಬರುತ್ತದೆ.',
   'newReport.approverLabel': 'ಅನುಮೋದಕರ ಇಮೇಲ್ (ಐಚ್ಛಿಕ)',
   'newReport.approverPlaceholder': 'ಮ್ಯಾನೇಜರ್@ನಿಮ್ಮಕಂಪನಿ.ಕಾಮ್',
   'newReport.availableExpenses': 'ಲಭ್ಯವಿರುವ ವೆಚ್ಚಗಳು',
   'newReport.createFailed': 'ವರದಿಯನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'newReport.draftsFallback':
     'ಲೈವ್ ವೆಚ್ಚದ ಪಟ್ಟಿ ಲಭ್ಯವಿಲ್ಲ — ಕ್ಯುರೇಟೆಡ್ ಡೆಮೊ ಡೇಟಾವನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ.',
+  'newReport.eyebrow': 'ಖರ್ಚುಗಳನ್ನು ಗುಂಪು ಮಾಡಿ · ಅನುಮೋದನೆಗೆ ಸಲ್ಲಿಸಿ',
   'newReport.includedCount': '{{count}} ಸೇರಿಸಲಾಗಿದೆ',
   'newReport.purposeLabel': 'ವ್ಯಾಪಾರ ಉದ್ದೇಶ',
   'newReport.purposePlaceholder':
     'ಈ ವೆಚ್ಚಗಳು ಸಂಬಂಧಿಸಿರುವ ಪ್ರವಾಸ ಅಥವಾ ಯೋಜನೆಯನ್ನು ವಿವರಿಸಿ (ನಿಮ್ಮ ಅನುಮೋದಕ ಮತ್ತು ಹಣಕಾಸುದಾರರಿಗೆ ಗೋಚರಿಸುತ್ತದೆ).',
   'newReport.saveDraft': 'ಡ್ರಾಫ್ಟ್ ಆಗಿ ಉಳಿಸಿ',
+  'newReport.saveDraftFailed': 'ಕರಡು ಉಳಿಸಲಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'newReport.submit': 'ಅನುಮೋದನೆಗಾಗಿ ಸಲ್ಲಿಸಿ',
   'newReport.submitFailed': 'ವರದಿ ಸಲ್ಲಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'newReport.summary': 'ವರದಿ ಸಾರಾಂಶ',
@@ -96,16 +131,23 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'ಕಾರ್ಯಸ್ಥಳದ ಚಟುವಟಿಕೆ',
   'notifications.feedFallback': 'ಲೈವ್ ಫೀಡ್ ಲಭ್ಯವಿಲ್ಲ — ಕ್ಯುರೇಟೆಡ್ ಡೆಮೊ ಡೇಟಾವನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ.',
   'notifications.openReport': 'ವರದಿಯನ್ನು ತೆರೆಯಿರಿ ›',
+  'pricing.approvalsLabel': 'ಅನುಮೋದನೆಗಳು',
   'pricing.expensesLabel': 'ವೆಚ್ಚಗಳು',
   'pricing.heading': 'ಅನುಮೋದನೆಗಳು',
   'pricing.policiesLabel': 'ನೀತಿಗಳು',
   'pricing.receiptsLabel': 'ರಶೀದಿಗಳು',
   'recoveredAmountHeroCard.label': 'ಮರುಪಾವತಿಯನ್ನು ಮರುಪಡೆಯಲಾಗಿದೆ · YTD',
+  'recoveredAmountHeroCard.pending':
+    'ಎಲ್ಲಾ ಅನುಮೋದಕರಲ್ಲಿ ಪ್ರಸ್ತುತ {{count}} ವರದಿ(ಗಳು) ವಿಮರ್ಶೆಗೆ ಬಾಕಿ ಇವೆ.',
+  'reports.approvalFlow': 'ಅನುಮೋದನೆ ಹರಿವು',
   'reports.backToList': 'ವರದಿಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
   'reports.detailFallback': 'ಲೈವ್ ವರದಿ ಲಭ್ಯವಿಲ್ಲ — ಕ್ಯುರೇಟೆಡ್ ಡೆಮೊ ಡೇಟಾವನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ.',
   'reports.lineItems': 'ಸಾಲಿನ ಐಟಂಗಳು',
   'reports.lineItemsCount': '{{count}} ವೆಚ್ಚಗಳು',
+  'reports.lineItemsEmpty': 'ಈ ವರದಿಯಲ್ಲಿ ಇನ್ನೂ ಖರ್ಚುಗಳಿಲ್ಲ.',
+  'reports.openLibrary': 'ವರದಿ ಗ್ರಂಥಾಲಯ ತೆರೆಯಿರಿ',
   'reports.policyTitle': 'ನೀತಿ ಧ್ವಜ',
+  'reports.selectPrompt': 'ಅದರ ವಿವರ ನೋಡಲು ಗ್ರಂಥಾಲಯದಿಂದ ಒಂದು ವರದಿ ಆಯ್ಕೆಮಾಡಿ.',
   'reports.summary.lineCount': 'ಸಾಲಿನ ಐಟಂಗಳು',
   'reports.summary.reimbursable': 'ಮರುಪಾವತಿಸಬಹುದಾದ',
   'reports.summary.total': 'ವರದಿಯಾದ ಒಟ್ಟು',
@@ -114,6 +156,7 @@ export const ui: UiTranslations = {
   'reportsList.lineItems': '{{count}} ವೆಚ್ಚಗಳು',
   'reportsList.listFallback': 'ಲೈವ್ ಪಟ್ಟಿ ಲಭ್ಯವಿಲ್ಲ — ಕ್ಯುರೇಟೆಡ್ ಡೆಮೊ ಡೇಟಾವನ್ನು ತೋರಿಸಲಾಗುತ್ತಿದೆ.',
   'reportsList.newReport': 'ಹೊಸ ವರದಿ',
+  'reportsList.submittedOn': '{{date}} ಗೆ ಸಲ್ಲಿಸಲಾಗಿದೆ',
   'reportsList.title': 'ವರದಿ ಗ್ರಂಥಾಲಯ',
   'resetPassword.hidePassword': 'ಪಾಸ್‌ವರ್ಡ್ ಮರೆಮಾಡಿ',
   'resetPassword.newPasswordLabel': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
@@ -139,6 +182,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'ಉಳಿಸಲಾಗಿದೆ ✓',
   'settings.profileSaveFailed': 'ಪ್ರೊಫೈಲ್ ನವೀಕರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'signup.heading': 'ನಿಮ್ಮ ಮರುಪಾವತಿ ಖಾತೆಯನ್ನು ರಚಿಸಿ',
+  'signup.hidePassword': 'ಪಾಸ್‌ವರ್ಡ್ ಮರೆಮಾಡಿ',
   'signup.namePlaceholder': 'ಮಾಯಾ ಒಕಾಫೋರ್',
   'signup.showPassword': 'ಪಾಸ್‌ವರ್ಡ್ ತೋರಿಸಿ',
   'signup.subheading': 'ಪ್ರತಿ ತಿಂಗಳು 25 ಖರ್ಚುಗಳಿಗೆ ಉಚಿತ — ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್ ಇಲ್ಲ.',

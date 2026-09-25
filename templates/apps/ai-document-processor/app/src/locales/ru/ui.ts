@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Есть вопрос, нашли ошибку или хотите демо для своей команды? Напишите нам из настроек аккаунта — каждое сообщение попадает к реальному человеку из команды.',
   'about.contactTitle': 'Свяжитесь с нами',
+  'about.intro':
+    '{{app}} превращает стопки отсканированных документов и PDF в структурированные, доступные для поиска и разложенные по папкам данные. Загружайте счета, квитанции, договоры или формы — и позвольте ИИ прочитать, извлечь, классифицировать и разложить их, с цветами уверенности, чтобы ваша команда проверяла только то, что действительно требует человека.',
+  'about.missionBody':
+    'Бумажная рутина не должна съедать день вашей команды. Мы считаем, что каждое извлечённое значение должно быть объяснимым и проверяемым — чтобы вы могли доверять автоматизации, не теряя документальный след. {{app}} создан, чтобы экономить часы на каждой стопке, сохраняя человека в процессе там, где это важно.',
+  'about.missionTitle': 'Наша миссия',
+  'about.subtitle':
+    'OCR, извлечение с помощью ИИ, классификация и автоматическая раскладка ваших документов.',
   'about.title': 'О {{app}}',
+  'about.whatYouGetTitle': 'Что вы получите',
   'authShell.backToLanding': '← Вернуться на главную страницу',
   'common.goToDashboard': 'Перейти к панели',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Сегодня · Обзор операционной деятельности',
   'dashboard.heading': 'Анализ документов',
+  'dashboard.metric.accuracy': 'Средняя точность',
   'dashboard.metric.filed': 'Подано сегодня',
   'dashboard.metric.filedCaption': 'Сортируется в соответствии с правилами архивирования',
   'dashboard.metric.processed': 'Обработано сегодня',
@@ -23,11 +34,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Документ',
   'dashboard.recent.col.uploaded': 'Загружено',
   'dashboard.recent.heading': 'Последние документы',
+  'dashboard.recent.typeUnknown': 'Ожидает классификации',
   'dashboard.subheading':
     'Каждая страница промаркирована, выделена и занесена в файл — с использованием цветовой кодировки, чтобы обзор оставался четким.',
   'documentDetail.audit.heading': 'График проведения аудита',
+  'documentDetail.audit.subheading': 'Каждое действие с этим документом и ответственный за него.',
   'documentDetail.back': 'Все документы',
   'documentDetail.downloadHint': 'Нажмите «Скачать», чтобы открыть исходный файл.',
+  'documentDetail.extracted.empty': 'Поля ещё не извлечены.',
   'documentDetail.extracted.heading': 'Извлеченные поля',
   'documentDetail.extracted.subheading':
     '{{count}} поля · щелкните любое поле, чтобы выделить его на странице',
@@ -56,14 +70,25 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} документы в вашей библиотеке, отсортированные по дате (от самых новых к самым старым).',
   'documents.uploadCta': 'Загрузить документы',
+  'documentTypeBreakdown.barAria': 'Состав документов по типам',
   'documentTypeBreakdown.empty': 'Документы пока не обработаны.',
   'documentTypeBreakdown.subtitle': '{{total}} обработанный',
   'documentTypeBreakdown.title': 'Структура документа',
+  'forgotPassword.backToSignIn': '← Назад к входу',
   'forgotPassword.checkEmail': 'Проверьте свою электронную почту',
   'forgotPassword.tip':
     'Не получили письмо? Проверьте папку «Спам» или попробуйте использовать другой адрес.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Создано для операционных команд, которые проверяют каждую страницу.',
+  'landing.ctaBody':
+    '14-дневный пробный период. Карта не нужна. Отмена в любое время. Создано для операционных команд, которые быстро работают и не спешат с проверкой.',
   'landing.ctaHeading': 'Хватит вводить чеки. Начните их систематизировать.',
   'landing.eyebrow': 'OCR · Извлечение данных · Автоматическая классификация с помощью ИИ',
+  'landing.featuresHeading': 'Интеллект для документов, который объясняет сам себя',
+  'landing.heroSubtitle':
+    'Загрузите стопку счетов, квитанций, договоров или форм. {{app}} классифицирует, извлекает и раскладывает их — с цветами уверенности, чтобы ваша команда проверяла только то, что действительно требует человека.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Дневной объём · последние 7 дней',
   'landing.sampleCardLabel': 'Документы, обработанные сегодня',
   'landing.sampleCardSubtitle':
     'Средняя точность составляет 96,2 % по счетам, квитанциям и бланкам.',
@@ -77,6 +102,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Открыть целевую страницу',
   'notFound.title': 'Эта страница отсутствует',
+  'parcelaHeroCard.accuracy': 'Средняя точность {{value}}% по всем извлечениям',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % по сравнению со вчерашним днём',
   'parcelaHeroCard.title': 'Документы, обработанные сегодня',
   'parcelaLayout.primaryNavLabel': 'Основная навигация',
@@ -84,6 +110,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'документы',
   'pricing.processingLabel': 'задания на обработку',
   'resetPassword.confirmPlaceholder': 'Введите новый пароль еще раз',
+  'resetPassword.hidePassword': 'Скрыть пароль',
   'resetPassword.passwordLabel': 'Новый пароль',
   'resetPassword.showPassword': 'Показать пароль',
   'resetPassword.subtitle': 'Введите слово длиной не менее 8 символов.',
@@ -101,10 +128,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Не удалось загрузить правила.',
   'rules.loading': 'Загрузка правил…',
   'rules.matched30d': '{{count}} документы, найденные за последние 30 дней',
+  'rules.neverUsed': 'Никогда не использовался',
   'rules.newRule': 'Новое правило',
   'rules.saveError': 'Не удалось сохранить правило.',
   'rules.subheading':
     'Укажите системе, куда следует направлять каждый тип документа. Условия проверяются по порядку сверху вниз — при первом совпадении поиск завершается.',
+  'rules.templatesEmpty': 'Шаблонов извлечения ещё нет.',
   'rules.templatesHeading': 'Шаблоны извлечения',
   'rules.templatesSubheading':
     'Полевые схемы, используемые экстрактором для каждого типа документа.',
@@ -114,17 +143,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Название рабочей области',
   'settings.account.subheading':
     'Отображаемое имя и основной адрес электронной почты для получения уведомлений и ведения журнала аудита.',
+  'settings.api.confirmRevoke': 'Подтвердить?',
   'settings.api.copyOnce': 'Скопируйте этот ключ — он больше не будет отображаться',
   'settings.api.createdOn': 'Создано {{date}}',
   'settings.api.empty': 'API-ключей пока нет. Создайте его выше.',
   'settings.api.error': 'Не удалось создать ключ.',
+  'settings.api.generating': 'Создание…',
+  'settings.api.heading': 'Ключи API',
   'settings.api.labelPlaceholder': 'Ключевая метка (например, «CI uploader»)',
+  'settings.api.loading': 'Загрузка ключей…',
   'settings.api.newKey': 'Сгенерировать ключ',
   'settings.api.subheading':
     'Используйте их для отправки документов из скрипта или вашей системы ERP. В любой момент можно поменять любую клавишу.',
   'settings.integrations.heading': 'Интеграции с системами подачи документов',
   'settings.integrations.subheading':
     'Отправляйте заполненные документы на облачный диск или в чат, которым ваша команда уже пользуется.',
+  'settings.subheading':
+    'Управляйте аккаунтом, API-ключами и интеграциями для раскладки документов в вашем рабочем пространстве {{app}}.',
+  'signup.hidePassword': 'Скрыть пароль',
   'signup.identityPrompt': 'Как к вам обращаться?',
   'signup.showPassword': 'Показать пароль',
   'signup.subtitle': '14 дней бесплатно, без необходимости ввода данных банковской карты.',
@@ -132,6 +168,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Загрузка не удалась.',
   'upload.eyebrow': 'Проглатывание',
   'upload.heading': 'Загрузить документы',
+  'upload.queue.clear': 'Очистить выполненные',
   'upload.queue.col.confidence': 'Уверенность',
   'upload.queue.col.file': 'Файл',
   'upload.queue.detecting': 'Обнаружение…',
@@ -144,5 +181,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Или перетащите сразу несколько файлов для пакетного извлечения, классификации и архивирования.',
   'uploadDropZone.cta': 'Выберите файлы',
+  'uploadDropZone.maxSize': 'Макс. 25 МБ на файл · Сквозное шифрование',
   'uploadDropZone.title': 'Перетащите документы, чтобы начать обработку',
 }

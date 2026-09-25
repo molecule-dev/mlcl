@@ -1,33 +1,50 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ਆਪਣੀ ਟੀਮ ਲਈ ਇੱਕ warmer onboarding ਸ਼ੁਰੂ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ, ਕੋਈ ਬੱਗ ਮਿਲਿਆ ਹੈ, ਜਾਂ ਸੁਝਾਅ ਹੈ? ਆਪਣੀ ਖਾਤਾ ਸੈਟਿੰਗਾਂ ਤੋਂ ਸੰਪਰਕ ਕਰੋ — ਹਰ ਸੁਨੇਹਾ ਇੱਕ ਅਸਲੀ ਇਨਸਾਨ ਕੋਲ ਜਾਂਦਾ ਹੈ ਜੋ ਮਦਦ ਕਰ ਸਕਦਾ ਹੈ।',
   'about.contactTitle': 'ਸਾਡੇ ਨਾਲ ਗੱਲ ਕਰੋ',
   'about.eyebrow': 'ਬਾਰੇ',
+  'about.missionTitle': 'ਸਾਡਾ ਮਿਸ਼ਨ',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'ਆਪਣਾ ਪਾਸਵਰਡ ਰੀਸੈਟ ਕਰੋ।',
+  'auth.forgotPassword.panel.body':
+    'ਰੀਸੈਟ ਵਿੱਚ 30 ਸਕਿੰਟ ਲੱਗਦੇ ਹਨ — ਤੁਹਾਡੀ ਚੈੱਕਲਿਸਟ ਦੀ ਪ੍ਰਗਤੀ ਉਡੀਕ ਕਰ ਰਹੀ ਹੈ।',
+  'auth.forgotPassword.panel.headline': 'ਬਿਲਕੁਲ ਉੱਥੇ ਜਿੱਥੇ ਤੁਸੀਂ ਛੱਡਿਆ ਸੀ।',
+  'auth.forgotPassword.subheading':
+    'ਆਪਣਾ ਕੰਮ ਵਾਲਾ ਈਮੇਲ ਦਰਜ ਕਰੋ ਅਤੇ ਅਸੀਂ ਤੁਹਾਨੂੰ ਰੀਸੈਟ ਲਿੰਕ ਭੇਜਾਂਗੇ।',
   'auth.forgotPassword.successSubheading':
     'ਆਪਣਾ ਇਨਬਾਕਸ ਚੈੱਕ ਕਰੋ — ਅਸੀਂ ਰੀਸੈਟ ਨਿਰਦੇਸ਼ ਭੇਜ ਦਿੱਤੇ ਹਨ।',
   'auth.login.emailPlaceholder': 'name@yourcompany.com',
   'auth.login.heading': 'ਵਾਪਸ ਸਵਾਗਤ.',
   'auth.login.passwordPlaceholder': 'ਤੁਹਾਡਾ ਪਾਸਵਰਡ',
+  'auth.login.signupPrompt': 'ਆਪਣੀ ਟੀਮ ਵਿੱਚ ਨਵੇਂ ਹੋ?',
   'auth.login.subheading':
     'ਆਪਣੀ ਔਨਬੋਰਡਿੰਗ ਯਾਤਰਾ ਨੂੰ ਉੱਥੋਂ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਸਾਈਨ ਇਨ ਕਰੋ ਜਿੱਥੇ ਤੁਸੀਂ ਛੱਡਿਆ ਸੀ।',
   'auth.login.submit': 'ਆਪਣੀ ਯਾਤਰਾ ਜਾਰੀ ਰੱਖੋ',
+  'auth.panel.body':
+    "ਤੁਹਾਡੀ ਨਿੱਜੀ ਚੈੱਕਲਿਸਟ, ਸਿਖਲਾਈ ਦੇ ਮੀਲਪੱਥਰ, ਅਤੇ ਟੀਮ ਜਾਣ-ਪਛਾਣ — ਸਭ ਇੱਕ ਸ਼ਾਂਤ ਥਾਂ 'ਤੇ।",
   'auth.panel.footnote': '© Embark — ਅੱਜ ਤੋਂ ਪਹਿਲਾਂ ਲੋਕਾਂ ਨੂੰ ਸ਼ਾਮਲ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ।',
   'auth.panel.headline': 'ਇੱਕ ਆਤਮਵਿਸ਼ਵਾਸੀ ਪਹਿਲੇ 90 ਦਿਨ ਇੱਥੋਂ ਸ਼ੁਰੂ ਹੁੰਦੇ ਹਨ।',
   'auth.resetPassword.heading': 'ਇੱਕ ਨਵਾਂ ਪਾਸਵਰਡ ਸੈੱਟ ਕਰੋ।',
   'auth.resetPassword.newPasswordLabel': 'ਨਵਾਂ ਪਾਸਵਰਡ',
+  'auth.resetPassword.panel.body':
+    'ਇੱਕ ਨਵਾਂ ਪਾਸਵਰਡ ਸੇਵ ਕਰੋ ਅਤੇ ਅਸੀਂ ਤੁਹਾਨੂੰ ਸਿੱਧਾ ਤੁਹਾਡੇ onboarding ਸਫ਼ਰ ਵਿੱਚ ਵਾਪਸ ਲੈ ਆਵਾਂਗੇ।',
+  'auth.resetPassword.panel.headline': 'ਲਗਭਗ ਵਾਪਸ ਆ ਗਏ।',
   'auth.resetPassword.subheading': 'ਕੁਝ ਅਜਿਹਾ ਚੁਣੋ ਜੋ ਤੁਹਾਨੂੰ ਯਾਦ ਰਹੇਗਾ — ਘੱਟੋ-ਘੱਟ 8 ਅੱਖਰ।',
   'auth.signup.emailPlaceholder': 'name@yourcompany.com',
   'auth.signup.heading': 'ਤੁਹਾਡੇ ਪਹਿਲੇ 90 ਦਿਨਾਂ ਵਿੱਚ ਤੁਹਾਡਾ ਸਵਾਗਤ ਹੈ।',
   'auth.signup.panel.body':
     'ਇੱਕ ਗਾਈਡਡ ਚੈੱਕਲਿਸਟ, ਭੂਮਿਕਾ-ਜਾਗਰੂਕ ਸਿਖਲਾਈ, ਅਤੇ ਮਨੁੱਖੀ ਜਾਣ-ਪਛਾਣ - ਤੁਹਾਡੇ ਅੰਦਰ ਆਉਣ ਤੋਂ ਪਹਿਲਾਂ ਤਿਆਰ।',
+  'auth.signup.panel.headline': 'ਪਹਿਲਾ ਦਿਨ, ਪਹਿਲੇ ਦਿਨ ਹੀ।',
   'auth.signup.subheading': 'ਆਪਣੀ ਗਾਈਡਡ ਔਨਬੋਰਡਿੰਗ ਯਾਤਰਾ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਆਪਣਾ Embark ਖਾਤਾ ਬਣਾਓ।',
   'checklist.empty.body': 'ਹੋਰ ਕਾਰਜ ਦੇਖਣ ਲਈ ਫਿਲਟਰ ਬਦਲੋ।',
   'checklist.empty.title': 'ਇਸ ਵੇਲੇ ਇੱਥੇ ਕੁਝ ਨਹੀਂ ਹੈ',
   'checklist.eyebrow': 'ਆਨਬੋਰਡਿੰਗ · ਚੈੱਕਲਿਸਟ',
   'checklist.loading': 'ਤੁਹਾਡੀ ਚੈੱਕਲਿਸਟ ਲੋਡ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'checklist.stat.actionNeeded': 'ਕਾਰਵਾਈ ਦੀ ਲੋੜ ਹੈ',
+  'checklist.stat.completion': 'ਸੰਪੂਰਨਤਾ',
+  'checklist.stat.inProgress': 'ਤਰੱਕੀ ਹੋ ਰਹੀ ਹੈ',
   'checklist.stat.inProgressHelper': 'ਉੱਥੋਂ ਸ਼ੁਰੂ ਕਰੋ ਜਿੱਥੇ ਤੁਸੀਂ ਛੱਡਿਆ ਸੀ',
   'checklist.stat.overdueHelper': 'ਪਹਿਲਾਂ ਇਹਨਾਂ ਨੂੰ ਫੜੋ',
   'checklist.subtitle':
@@ -59,6 +76,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'ਅਜੇ ਕੋਈ ਦਸਤਾਵੇਜ਼ ਨਹੀਂ ਹਨ',
   'documents.eyebrow': 'ਆਨਬੋਰਡਿੰਗ · ਦਸਤਾਵੇਜ਼',
   'documents.loading': 'ਦਸਤਾਵੇਜ਼ ਲੋਡ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ...',
+  'documents.stat.actionNeeded': 'ਹੁਣੇ ਸਾਈਨ ਕਰੋ',
+  'documents.stat.all': 'ਸਾਰੇ ਦਸਤਾਵੇਜ਼',
   'documents.stat.allHelper': 'ਸ਼੍ਰੇਣੀਆਂ ਵਿੱਚ',
   'documents.stat.pending': 'ਲੰਬਿਤ ਦਸਤਖਤ',
   'documents.stat.pendingHelper': 'ਪੂਰਾ ਕਰਨ ਲਈ ਲੋੜੀਂਦਾ ਹੈ',
@@ -66,16 +85,21 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਸਟੋਰ ਕੀਤਾ ਗਿਆ',
   'documents.status.optional': 'ਵਿਕਲਪਿਕ',
   'documents.status.required': 'ਲੋੜੀਂਦਾ',
+  'documents.status.signed': 'ਦਸਤਖਤ ਕੀਤੇ',
   'documents.subtitle': "ਤੁਹਾਡੀ ਹੈਂਡਬੁੱਕ, ਫਾਰਮ, ਅਤੇ ਦਸਤਖਤ ਕੀਤੇ ਸਮਝੌਤੇ - ਸਭ ਇੱਕੋ ਥਾਂ 'ਤੇ।",
   'documents.title': 'ਹਰ ਚੀਜ਼ ਜੋ ਤੁਹਾਨੂੰ ਪੜ੍ਹਨ ਅਤੇ ਦਸਤਖਤ ਕਰਨ ਦੀ ਲੋੜ ਹੈ।',
   'documents.uploadedRecently': 'ਹਾਲ ਹੀ ਵਿੱਚ ਅੱਪਲੋਡ ਕੀਤਾ ਗਿਆ',
   'documentViewer.breadcrumbCurrent': 'ਦਰਸ਼ਕ',
   'documentViewer.breadcrumbDocs': 'ਦਸਤਾਵੇਜ਼',
   'documentViewer.downloadMeta': 'ਮੈਟਾਡੇਟਾ ਡਾਊਨਲੋਡ ਕਰੋ',
+  'documentViewer.helpBody':
+    "People & Culture #ask-people 'ਤੇ Slack ਵਿੱਚ ਹੈਂਡਬੁੱਕ ਦੇ ਸਵਾਲਾਂ ਦੇ ਜਵਾਬ ਦਿੰਦੇ ਹਨ।",
   'documentViewer.helpEyebrow': 'ਮਦਦ ਚਾਹੀਦੀ ਹੈ?',
   'documentViewer.loadError': 'ਅਸੀਂ ਇਸ ਦਸਤਾਵੇਜ਼ ਨੂੰ ਲੋਡ ਨਹੀਂ ਕਰ ਸਕੇ।',
   'documentViewer.loading': 'ਦਸਤਾਵੇਜ਼ ਲੋਡ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…',
   'documentViewer.notFound': 'ਦਸਤਾਵੇਜ਼ ਨਹੀਂ ਮਿਲਿਆ',
+  'documentViewer.previewBody':
+    'ਜਦੋਂ ਅੱਪਲੋਡ ਕਨਫਿਗਰ ਹੁੰਦੇ ਹਨ ਤਾਂ ਅਸੀਂ ਫਾਈਲ ਨੂੰ ਇਨਲਾਈਨ ਦਿਖਾਉਂਦੇ ਹਾਂ। ਫਿਲਹਾਲ, ਮੈਟਾਡੇਟਾ ਡਾਊਨਲੋਡ ਤੁਹਾਨੂੰ ਇਹ ਪੁਸ਼ਟੀ ਕਰਨ ਦਿੰਦਾ ਹੈ ਕਿ ਰਿਕਾਰਡ ਅਸਲੀ ਹੈ।',
   'documentViewer.previewBodyExternal':
     'ਫਾਈਲ ਨੂੰ ਨਵੀਂ ਟੈਬ ਵਿੱਚ ਖੋਲ੍ਹਣ ਲਈ ਡਾਊਨਲੋਡ ਬਟਨ ਦੀ ਵਰਤੋਂ ਕਰੋ।',
   'documentViewer.previewTitle': 'ਦਸਤਾਵੇਜ਼ ਪੂਰਵਦਰਸ਼ਨ',
@@ -83,6 +107,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'ਦਸਤਾਵੇਜ਼ ਪੜ੍ਹੋ, ਫਿਰ ਦਸਤਖਤ ਕਰਨ ਅਤੇ ਸਵੀਕਾਰ ਕਰਨ ਲਈ ਹੇਠਾਂ ਕਲਿੱਕ ਕਰੋ।',
   'documentViewer.signatureHeading': 'ਦਸਤਖਤ ਦੀ ਲੋੜ ਹੈ',
+  'documentViewer.signed': '✓ ਦਸਤਖਤ ਅਤੇ ਫਾਈਲ ਕੀਤਾ',
   'documentViewer.signing': 'ਦਸਤਖਤ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ…',
   'documentViewer.uploadedRecently': 'ਹਾਲ ਹੀ ਵਿੱਚ ਅੱਪਲੋਡ ਕੀਤਾ ਗਿਆ',
   'landing.closing.body':
@@ -92,10 +117,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'ਮੇਰੇ ਕੋਲ ਪਹਿਲਾਂ ਹੀ ਇੱਕ ਖਾਤਾ ਹੈ।',
   'landing.feature1.body':
     'ਹਰ ਕੰਮ - ਕਾਗਜ਼ੀ ਕਾਰਵਾਈ, ਖਾਤੇ, ਜਾਣ-ਪਛਾਣ - ਨਿਰਧਾਰਤ ਮਿਤੀਆਂ ਅਤੇ ਸਹੀ ਮਾਲਕ ਦੇ ਨਾਲ ਪਹਿਲਾਂ ਤੋਂ ਹੀ ਤਿਆਰ।',
+  'landing.feature1.title': 'ਇੱਕ ਗਾਈਡਡ ਚੈੱਕਲਿਸਟ',
   'landing.feature2.body':
     "ਮਾਡਿਊਲ 30/60/90 ਮੀਲ ਪੱਥਰਾਂ 'ਤੇ ਅਨਲੌਕ ਹੁੰਦੇ ਹਨ, ਭੂਮਿਕਾ ਅਤੇ ਇੱਕ ਭਾੜੇ ਦੀ ਟੀਮ ਦੇ ਨਾਲ ਜੁੜੇ ਹੋਏ ਹਨ।",
+  'landing.feature2.title': 'ਰੋਲ-ਅਨੁਕੂਲ ਸਿਖਲਾਈ',
   'landing.feature3.body':
     'ਦੋਸਤ, ਪ੍ਰਬੰਧਕ, ਅਤੇ ਕਰਾਸ-ਫੰਕਸ਼ਨਲ ਜਾਣ-ਪਛਾਣ ਤਹਿ ਕੀਤੀ ਗਈ ਹੈ — ਇਸ ਲਈ ਕੋਈ ਵੀ ਇਕੱਲਾ ਸ਼ੁਰੂਆਤ ਨਹੀਂ ਕਰਦਾ।',
+  'landing.feature3.title': 'ਅਸਲੀ ਜਾਣ-ਪਛਾਣ',
   'landing.featureEyebrow': 'ਕਿਉਂ ਸ਼ੁਰੂ ਕਰੋ',
   'landing.featureHeadline': 'ਪਹਿਲੇ ਦਿਨ ਹੀ Embark ਵਿਸ਼ਵਾਸ ਕਮਾਉਣ ਦੇ ਤਿੰਨ ਤਰੀਕੇ।',
   'landing.footer.rights': 'ਸਾਰੇ ਹੱਕ ਰਾਖਵੇਂ ਹਨ.',
@@ -105,6 +133,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'ਅੱਗੇ: ਆਪਣੇ ਦੋਸਤ ਨੂੰ 30 ਮਿੰਟ ਦੀ ਕੌਫੀ ਚੈਟ ਲਈ ਮਿਲੋ — ਮੰਗਲਵਾਰ ਸਵੇਰੇ 10:00 ਵਜੇ।',
   'landing.preview.eyebrow': '90 ਵਿੱਚੋਂ 14ਵਾਂ ਦਿਨ — ਨਮੂਨਾ ਡੈਸ਼ਬੋਰਡ',
+  'landing.preview.headline': 'ਵਾਪਸ ਜੀ ਆਇਆਂ, Maya।',
   'landing.proof.spec': 'SOC 2 + GDPR ਤਿਆਰ ਹੈ',
   'landing.proof.teams': '50-5,000 ਦੀਆਂ ਟੀਮਾਂ ਲਈ ਬਣਾਇਆ ਗਿਆ',
   'landing.proof.time': '14-ਦਿਨਾਂ ਦੀ ਮੁਫ਼ਤ ਪਰਖ',
@@ -121,16 +150,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'ਕੱਲ੍ਹ',
   'planUpdated.message': 'ਤੁਸੀਂ ਪੂਰੀ ਤਰ੍ਹਾਂ ਤਿਆਰ ਹੋ।',
   'planUpdated.preparing': 'ਤੁਹਾਡੀ ਯੋਜਨਾ ਨੂੰ ਅੱਪਡੇਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…',
+  'planUpdated.retry': 'ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ',
+  'planUpdated.verifyFailed': 'ਅਸੀਂ ਅਜੇ ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਨਹੀਂ ਕਰ ਸਕੇ।',
+  'planUpdated.verifyFailedBody':
+    'ਤੁਹਾਡਾ ਭੁਗਤਾਨ ਅਜੇ ਵੀ ਪ੍ਰਕਿਰਿਆ ਅਧੀਨ ਹੋ ਸਕਦਾ ਹੈ। ਕੁਝ ਦੇਰ ਬਾਅਦ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।',
   'planUpdated.verifying': 'ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…',
   'pricing.documentsLabel': 'ਦਸਤਾਵੇਜ਼',
   'pricing.onboardingsLabel': 'ਆਨਬੋਰਡਿੰਗ',
   'pricing.tasksLabel': 'ਕੰਮ',
   'profile.dayNumber': 'ਦਿਨ',
   'profile.detailsHeading': 'ਆਨਬੋਰਡਿੰਗ ਵੇਰਵੇ',
+  'profile.encouragementBody':
+    'ਆਪਣੇ ਬੱਡੀ ਅਤੇ ਮੈਨੇਜਰ ਨੂੰ ਜਾਣਕਾਰੀ ਦਿੰਦੇ ਰਹੋ — ਛੋਟੇ ਕਦਮ ਵੱਡਾ ਫਰਕ ਲਿਆਉਂਦੇ ਹਨ।',
   'profile.milestones': 'ਮੀਲ ਪੱਥਰ',
   'profile.progressEyebrow': 'ਆਨਬੋਰਡਿੰਗ ਪ੍ਰਗਤੀ',
   'profile.tasks': 'ਕੰਮ',
   'profile.unknownName': 'ਸਵਾਗਤ ਹੈ',
+  'settings.appearance.description': 'ਲਾਈਟ ਅਤੇ ਡਾਰਕ ਮੋਡ ਵਿਚਕਾਰ ਟੌਗਲ ਕਰੋ।',
+  'settings.appearance.title': 'ਦਿੱਖ',
+  'settings.subtitle':
+    "ਨੋਟੀਫਿਕੇਸ਼ਨ, ਸੁਰੱਖਿਆ, ਡਿਵਾਈਸ, ਅਤੇ ਡੇਟਾ ਐਕਸਪੋਰਟ ਨੂੰ ਟਿਊਨ ਕਰੋ — ਸਭ ਕੁਝ ਇੱਥੇ ਰਹਿੰਦਾ ਹੈ, ਤੁਹਾਡੀਆਂ ਸ਼ਰਤਾਂ 'ਤੇ।",
   'settings.title': 'ਸੈਟਿੰਗਾਂ ਅਤੇ ਪਸੰਦਾਂ।',
   'taskDetail.backToChecklist': "ਚੈੱਕਲਿਸਟ 'ਤੇ ਵਾਪਸ ਜਾਓ",
   'taskDetail.breadcrumbChecklist': 'ਚੈੱਕਲਿਸਟ',
@@ -143,7 +182,10 @@ export const ui: UiTranslations = {
   'taskDetail.notFound': 'ਕਾਰਜ ਨਹੀਂ ਮਿਲਿਆ',
   'taskDetail.notFoundBody':
     'ਇਹ ਕੰਮ ਮਿਟਾ ਦਿੱਤਾ ਗਿਆ ਹੋ ਸਕਦਾ ਹੈ ਜਾਂ ਕਿਸੇ ਹੋਰ ਵਰਤੋਂਕਾਰ ਨਾਲ ਸੰਬੰਧਿਤ ਹੈ।',
+  'taskDetail.tipBody':
+    'ਜੇ ਤੁਸੀਂ ਰੁਕੇ ਹੋ, ਤਾਂ Slack ਵਿੱਚ ਆਪਣੇ onboarding ਬੱਡੀ ਨੂੰ ਸੁਨੇਹਾ ਭੇਜੋ — ਉਹ ਤੁਹਾਡੀ ਪਹਿਲੀ ਮਦਦ ਹਨ।',
   'taskDetail.tipEyebrow': 'ਤੇਜ਼ ਸੁਝਾਅ',
+  'team.empty.body': 'ਵੱਡੀ ਖੋਜ ਕਰੋ ਜਾਂ ਕੋਈ ਹੋਰ ਵਿਭਾਗ ਚੁਣੋ।',
   'team.empty.title': 'ਕੋਈ ਟੀਮਮੈਨ ਮੇਲ ਨਹੀਂ ਖਾਂਦਾ',
   'team.eyebrow': 'ਆਨਬੋਰਡਿੰਗ · ਲੋਕ',
   'team.loading': 'ਟੀਮਮੇਟ ਲੋਡ ਹੋ ਰਹੇ ਹਨ...',
@@ -166,14 +208,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'ਮੀਲ ਪੱਥਰ',
   'timeline.stat.current': 'ਮੌਜੂਦਾ ਮੀਲ ਪੱਥਰ',
   'timeline.stat.next': 'ਅਗਲਾ ਅਨਲੌਕ',
+  'timeline.stat.progress': 'ਕੁੱਲ ਮਿਲਾ ਕੇ',
   'timeline.subtitle':
     'ਹਰੇਕ ਮੀਲ ਪੱਥਰ ਨਵੇਂ ਮਾਡਿਊਲ, ਜਾਣ-ਪਛਾਣ, ਅਤੇ ਵਿਕਾਸ ਗੱਲਬਾਤ ਨੂੰ ਖੋਲ੍ਹਦਾ ਹੈ। ਕੋਈ ਦਬਾਅ ਨਹੀਂ - ਸਿਰਫ਼ ਤਰੱਕੀ।',
+  'timeline.tipBody':
+    "ਦਿਨ 30, 60, ਅਤੇ 90 'ਤੇ ਆਪਣੇ ਮੈਨੇਜਰ ਨਾਲ 30 ਮਿੰਟ ਦਾ ਰਿਫਲੈਕਸ਼ਨ ਸ਼ੈਡਿਊਲ ਕਰੋ — ਇਹ ਫੀਡਬੈਕ ਨੂੰ ਖਾਸ ਅਤੇ ਪ੍ਰਗਤੀ ਨੂੰ ਦਿਖਣਯੋਗ ਬਣਾਉਂਦਾ ਹੈ।",
   'timeline.tipEyebrow': 'ਮੈਨੇਜਰ ਸੁਝਾਅ',
+  'timeline.tipTitle': 'ਮੀਲਪੱਥਰਾਂ ਲਈ ਕੈਲੰਡਰ ਸਮਾਂ ਬਲਾਕ ਕਰੋ।',
   'timeline.title': 'ਤੁਹਾਡੀ 30/60/90 ਦੀ ਯਾਤਰਾ।',
   'training.badge.notStarted': 'ਸ਼ੁਰੂ ਨਹੀਂ ਹੋਇਆ',
   'training.empty': 'ਅਜੇ ਕੋਈ ਸਿਖਲਾਈ ਮਾਡਿਊਲ ਨਹੀਂ ਹੈ।',
   'training.eyebrow': 'ਆਨਬੋਰਡਿੰਗ · ਸਿਖਲਾਈ',
   'training.loading': 'ਮਾਡਿਊਲ ਲੋਡ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ…',
+  'training.stat.all': 'ਮੌਡਿਊਲ ਅਸਾਈਨ ਕੀਤੇ',
   'training.subtitle':
     "ਤੁਹਾਡੀ ਭੂਮਿਕਾ ਨਾਲ ਮੇਲ ਕਰਨ ਲਈ ਮਾਡਿਊਲ 30/60/90 'ਤੇ ਅਨਲੌਕ ਹੁੰਦੇ ਹਨ। ਲੋੜੀਂਦੇ ਮਾਡਿਊਲ ਪਹਿਲਾਂ ਆਉਂਦੇ ਹਨ।",
   'training.title': 'ਹੁਨਰ, ਔਜ਼ਾਰ, ਅਤੇ ਕਹਾਣੀਆਂ — ਤੁਹਾਡੀ ਰਫ਼ਤਾਰ ਨਾਲ।',
@@ -185,9 +232,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'ਮਾਡਿਊਲ ਨਹੀਂ ਮਿਲਿਆ',
   'trainingModule.quizBody': 'ਇਸ ਮੋਡੀਊਲ ਨੂੰ ਪੂਰਾ ਕਰਨ ਲਈ 80% ਜਾਂ ਵੱਧ ਅੰਕ ਪ੍ਰਾਪਤ ਕਰੋ।',
   'trainingModule.quizHeading': 'ਮੋਡੀਊਲ ਦੇ ਅੰਤ ਦਾ ਕੁਇਜ਼',
+  'trainingModule.quizLocked': 'ਪਹਿਲਾਂ ਮੌਡਿਊਲ ਸ਼ੁਰੂ ਕਰੋ',
   'trainingModule.quizNone': "ਇਸ ਮਾਡਿਊਲ 'ਤੇ ਕੋਈ ਕਵਿਜ਼ ਨਹੀਂ ਹੈ।",
   'trainingModule.quizRetry': 'ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ',
+  'trainingModule.quizStart': 'ਕਵਿਜ਼ ਸ਼ੁਰੂ ਕਰੋ',
   'trainingModule.quizSubmit': 'ਜਵਾਬ ਜਮ੍ਹਾਂ ਕਰੋ',
+  'trainingModule.start': 'ਮੌਡਿਊਲ ਸ਼ੁਰੂ ਕਰੋ',
   'trainingModule.statusNotStarted': 'ਸ਼ੁਰੂ ਨਹੀਂ ਹੋਇਆ',
   'welcomeHeroCard.completeLabel': 'ਪੂਰਾ',
   'welcomeHeroCard.milestonesLabel': 'ਮੀਲ ਪੱਥਰ',

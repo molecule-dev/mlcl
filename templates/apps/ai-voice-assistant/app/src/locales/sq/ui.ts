@@ -5,7 +5,13 @@ export const ui: UiTranslations = {
     'Keni reagime, një kërkesë për një veçori ose keni gjetur një gabim? Kontaktoni ekipin e {{app}} përmes lidhjes së mbështetjes në menynë e llogarisë suaj - çdo mesazh i shkon një njeriu të vërtetë.',
   'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
+  'about.intro':
+    '{{app}} është një asistent AI me zë në thelb. Flit natyrshëm, shiko fjalët e tua duke u kthyer në tekst dhe merr përgjigje të folura — kështu që mund të mendosh me zë të lartë në vend që të shkruash gjithçka.',
+  'about.missionBody':
+    'Shtypja është një pengesë mes ideve të tua dhe realizimit të tyre. {{app}} ekziston për ta hequr atë: një mënyrë bisedore, pa duar, për të bërë brainstorming, për të hartuar dhe për të vendosur — e mundësuar nga modelet më të mira të të folurit dhe arsyetimit, me të dhënat e tua të mbajtura private.',
+  'about.missionTitle': 'Misioni ynë',
   'agentDetail.back': 'Të gjithë agjentët',
+  'agentDetail.behavior': 'Sjellja',
   'agentDetail.capabilities': 'Aftësitë',
   'agentDetail.delete': 'Fshij personazhin',
   'agentDetail.deleteConfirm': 'Të fshihet ky personazh? Kjo nuk mund të zhbëhet.',
@@ -38,15 +44,19 @@ export const ui: UiTranslations = {
   'agents.subtitle':
     'Çdo agjent ka tonin, tempon dhe specialitetin e vet. Ndërroni në çdo kohë gjatë bisedës.',
   'agents.title': 'Zgjidhni një zë për të menduar.',
+  'authShell.tagline': '{{tagline}} — {{brand}}',
+  'billing.cardNoneBody': 'Shto një kur të përmirësosh — Stripe kujdeset për të gjithë ruajtjen.',
   'billing.cardNoneTitle': 'Nuk ka kartë në dosje',
   'billing.choose': 'Ndërro',
   'billing.currentPlan': 'Plani juaj',
   'billing.currentPlanReadout': '{{plan}} plan',
   'billing.eyebrow': 'Plani dhe përdorimi',
   'billing.fetchError': 'Informacioni i faturimit nuk mund të ngarkohej.',
+  'billing.loadingStatus': 'Duke ngarkuar statusin…',
   'billing.noTiers': 'Nuk ka plane të disponueshme tani për tani.',
   'billing.plansTitle': 'Planet',
   'billing.switching': 'Duke ndërruar…',
+  'billing.updateAcknowledged': 'Përditësimi u konfirmua në {{time}}',
   'billing.updateError': 'Nuk mundi të nisë përditësimin.',
   'billing.usageHeading': 'Përdorimi i zërit këtë cikël',
   'chatBubble.source.text': 'tekst',
@@ -65,11 +75,13 @@ export const ui: UiTranslations = {
   'conversation.title': 'Diskutojeni mirë',
   'conversation.toggleMic': 'Aktivizo/çaktivizo mikrofonin',
   'conversation.toggleVoicePlayback': 'Luajtja e zërit',
+  'conversation.transcribeError': 'Nuk mund të transkriptohej audioja.',
   'conversation.transcriptionEmpty': 'Nuk mundëm të dëgjonim asgjë. Do ta provosh përsëri?',
   'conversation.voiceOff': 'Zëri i fikur',
   'conversation.voiceOn': 'Zëri aktiv',
   'conversationDetail.assistant': 'Asistent',
   'conversationDetail.back': 'Kthim në histori',
+  'conversationDetail.elapsed': '00:00 / {{duration}}',
   'conversationDetail.empty': 'Nuk ka ende mesazhe në këtë bisedë.',
   'conversationDetail.eyebrow': 'Transkripti',
   'conversationDetail.fetchError': 'Transkripti nuk mund të ngarkohej.',
@@ -80,6 +92,7 @@ export const ui: UiTranslations = {
   'conversationDetail.setSpeed': 'Vendos shpejtësinë e luajtjes në {{speed}}',
   'conversationDetail.system': 'Sistemi',
   'conversationDetail.untitled': 'Bisedë pa titull',
+  'conversationListItem.messageCount': '{{count}} mesazh',
   'forgotPassword.subheading':
     "Shkruani email-in tuaj dhe ne do t'ju dërgojmë një lidhje rivendosjeje.",
   'forgotPassword.successBody': 'Sapo dërguam një lidhje rivendosjeje te {{email}} .',
@@ -96,6 +109,10 @@ export const ui: UiTranslations = {
   'history.voiceOnly': 'Vetëm zëri',
   'landing.copyright': '© {{year}} {{brand}} Mendo me zë të lartë.',
   'landing.demoMessage1': 'Përshëndetje Sarah — gati për të menduar për fushatën e re?',
+  'landing.demoMessage2':
+    'Po — le të fokusohemi në strategjitë e rritjes organike për tremujorin e tretë.',
+  'landing.demoMessage3':
+    'Shkëlqyeshëm. Do të filloja me një iniciativë të udhëhequr nga komuniteti. Dëshiron që të përshkruaj fazat?',
   'landing.eyebrow': 'AI me zë të bazuar',
   'landing.featuresSubtitle':
     'I ndërtuar për dialog natyral — përshtatet me shpejtësinë, tonin dhe kontekstin tuaj.',
@@ -124,10 +141,12 @@ export const ui: UiTranslations = {
   'parlanceLayout.openMenu': 'Hap menynë e navigimit',
   'parlanceLayout.primaryNavLabel': 'Navigimi kryesor',
   'pricing.conversations': '{{count}} biseda',
+  'pricing.cta.start': 'Zgjidh {{tierName}}',
   'pricing.cta.startFree': 'Filloni falas',
   'pricing.cta.upgrade': 'Përmirëso në {{tierName}}',
   'pricing.empty': 'Nuk ka plane të disponueshme tani për tani.',
   'pricing.error': 'Nuk mund të ngarkohej çmimi. Provo përsëri më vonë.',
+  'pricing.speech': '{{count}} të folur',
   'pricing.subtitle': 'Zgjidh një plan që i përshtatet shpeshtësisë së bisedës me asistentin tënd.',
   'privacy.collection.account': 'Email-i i llogarisë suaj dhe emri i shfaqur',
   'privacy.contact.body':
@@ -135,6 +154,8 @@ export const ui: UiTranslations = {
   'privacy.deletion.body':
     'Mund të fshish një bisedë, personazh ose klip audio në çdo kohë nga faqja përkatëse. Fshirja e llogarisë tënde nga Cilësimet fshin çdo bisedë, transkript dhe rresht personazhesh të lidhur me hapësirën tënde të punës.',
   'privacy.eyebrow': 'Ligjore',
+  'privacy.intro':
+    '{{app}} i ruan bisedat dhe klipet zanore që krijon vetëm për aq kohë sa është e nevojshme për të ofruar përvojën e asistentit. Ne nuk i shesim kurrë të dhënat e tua dhe nuk i përdorim kurrë audiot ose transkriptet e klientëve për të trajnuar modele të jashtme AI.',
   'privacy.lastUpdated': 'Përditësuar për herë të fundit: 2026-05-01',
   'privacy.processors.body':
     'Kur flisni me asistentin tuaj, ne e dërgojmë audion tuaj te OpenAI Whisper për transkriptim, transkriptin tuaj te Anthropic (Claude) për përgjigje dhe përgjigjen te ElevenLabs ose OpenAI për sintezën e zërit. Çdo ofrues është i detyruar nga kushtet e veta të përpunimit të të dhënave; asgjë nuk ruhet për rikualifikim.',
@@ -155,13 +176,19 @@ export const ui: UiTranslations = {
   'resetPassword.newPassword': 'Fjalëkalim i ri',
   'resetPassword.subheading': 'Zgjidh një fjalëkalim të ri për të vazhduar të flasësh.',
   'search.agentPreview': 'Pa përshkrim',
+  'search.emptyBody': 'Provo një fjalë kyçe tjetër ose thuaje me zë të lartë.',
   'search.emptyTitle': 'Nuk ka përputhje',
   'search.eyebrow': 'Paleta e komandave',
   'search.fetchError': 'Nuk mund të ngarkohej indeksi i kërkimit.',
+  'search.static.billing.preview': 'Planet, mënyra e pagesës dhe faturat',
+  'search.static.billing.title': 'Faturimi',
   'search.static.profile.preview': 'Emri i shfaqur, emri i përdoruesit, biografia',
+  'search.static.profile.title': 'Profili',
+  'search.static.voice.preview': 'Preferencat e paracaktuara të zërit dhe gjuhës',
   'search.static.voice.title': 'Zëri',
   'search.title': 'Kërko në Fjalorin e Diturisë',
   'search.transcriptPreview': 'Transkript i hapur',
+  'settings.appearance.description': 'Kaloni midis modalitetit të ndriçuar dhe të errët.',
   'settings.appearance.title': 'Pamja',
   'settings.loadError': 'Nuk mund të ngarkoheshin cilësimet.',
   'settings.privacy.${row.key}.label': 'Njoftime',
@@ -178,6 +205,8 @@ export const ui: UiTranslations = {
   'terms.changes.body':
     "Do t'ju njoftojmë në aplikacion nëse këto kushte ndryshojnë materialisht; përdorimi i vazhdueshëm pas njoftimit do të thotë që ju pranoni përditësimet.",
   'terms.eyebrow': 'Ligjore',
+  'terms.intro':
+    'Këto kushte rregullojnë përdorimin e {{app}}. Duke krijuar një llogari, ju pranoni ato.',
   'terms.lastUpdated': 'Përditësuar për herë të fundit: 2026-05-01',
   'terms.title': 'Kushtet e shërbimit',
   'terms.usage.body':

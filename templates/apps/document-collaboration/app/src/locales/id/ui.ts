@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Punya masukan, menemukan bug, atau ingin {{app}} untuk studio atau tim Anda? Hubungi kami dari pengaturan akun Anda — setiap pesan diterima langsung oleh anggota tim kami.',
   'about.contactTitle': 'Hubungi kami',
+  'about.intro':
+    '{{app}} adalah studio penulisan kolaboratif tempat editor, penulis, dan tim menyusun draf bersama secara real-time. Buka dokumen dan halaman menjadi bersama — kursor bergerak, komentar tersusun di margin, dan setiap revisi tersimpan aman dalam riwayat.',
+  'about.missionBody':
+    'Kami percaya penulisan panjang layak mendapat tempat yang tenang dan fokus — yang dibangun di sekitar naskah, bukan rapat atau kotak masuk. Editor, kehadiran real-time, dan riwayat versi kami dirancang agar kolaborator dapat bergerak cepat bersama tanpa ada yang kehilangan paragraf atau gagasan.',
+  'about.missionTitle': 'Misi kami',
+  'about.subtitle': 'Berpikir bersama, menulis selamanya.',
   'about.title': 'Tentang {{app}}',
   'comments.addFailed': 'Komentar tidak dapat dikirim.',
   'comments.backToDoc': 'Kembali ke naskah',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Utas komentar',
   'comments.loading': 'Memuat utas…',
   'comments.newPlaceholder': 'Tambahkan komentar pada naskah…',
+  'comments.newSubmit': 'Kirim',
   'comments.reopen': 'Buka kembali',
   'comments.reopenFailed': 'Tidak dapat dibuka kembali.',
   'comments.replyFailed': 'Balasan tidak dapat dikirim.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Draf terbaru, karya yang dibagikan, dan suntingan hari ini.',
   'dashboard.viewFeed': 'Umpan →',
   'editor.back': 'Kembali ke naskah',
+  'editor.bodyLabel': 'Isi dokumen',
   'editor.bodyPlaceholder': 'Mulailah di mana kursor berkedip.',
   'editor.comments': 'Komentar',
   'editor.createFailed': 'Tidak dapat membuat dokumen.',
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Jika akun ada untuk {{email}}, tautan pengaturan ulang sedang dalam perjalanan.',
+  'forgotPassword.sentHeading': 'Periksa email Anda',
+  'forgotPassword.submitting': 'Mengirim…',
   'forgotPassword.subtitle': 'Kami akan mengirim Anda tautan pengaturan ulang.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Dibangun dengan Molecule.',
+  'landing.ctaBody':
+    'Gratis untuk penulis solo. Paket Studio untuk tim editor, penulis bayangan, dan peninjau.',
   'landing.ctaHeading': 'Buka halaman. Biarkan kursor mulai.',
   'landing.ctaPrimary': 'Buka studio',
   'landing.eyebrow': 'Untuk penulis, editor, dan tim',
   'landing.featuresEyebrow': 'Yang Anda dapatkan',
   'landing.featuresHeading': 'Studio untuk draf panjang.',
+  'landing.featuresSubtitle':
+    '{{appName}} dibangun di sekitar naskah — bukan rapat, bukan kotak masuk.',
   'landing.getStarted': 'Buka studio',
   'landing.heroCta': 'Mulai menulis',
   'landing.heroSubtitle':
@@ -95,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} belum dibaca · komentar, sebutan, undangan berbagi, dan permintaan saran.',
   'presenceAvatars.label': '{{count}} kolaborator',
+  'privacy.intro': 'Bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi Anda.',
   'privacy.title': 'Kebijakan privasi',
   'profile.about.description': 'Bio singkat untuk profil publik dan halaman kontributor Anda.',
   'profile.eyebrow': 'Identitas studio',
@@ -107,7 +124,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Kehadiran',
   'profile.pronouns': 'Kata ganti',
   'profile.publicToggle': 'Tampilkan profil ke rekan satu tim',
+  'profile.role': 'Peran / jabatan',
   'profile.subtitle': 'Bagaimana Anda terlihat oleh kolaborator Anda.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} penulis yang aktif di studio',
   'quillonAuthBrandPanel.quote':
     '“Menulis adalah satu-satunya hal yang, ketika saya melakukannya, saya tidak merasa harus melakukan hal lain.”',
@@ -115,6 +134,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Buka →',
   'quillonKpiCard.trend': 'Tren terbaru',
   'quillonLayout.menu': 'Menu',
+  'quillonLayout.mobileNavLabel': 'Navigasi seluler',
   'quillonLayout.primaryNavLabel': 'Navigasi utama',
   'quillonStudioHero.collab': 'Kolaborator',
   'quillonStudioHero.docs': 'Dokumen yang disentuh',
@@ -124,7 +144,9 @@ export const ui: UiTranslations = {
     'Ambil naskahnya, tinggalkan komentar, dorong satu paragraf ke depan.',
   'quillonStudioHero.words': 'Kata-kata hari ini',
   'resetPassword.confirmPlaceholder': 'Ulangi kata sandi baru',
+  'resetPassword.passwordLabel': 'Kata sandi baru',
   'resetPassword.passwordPlaceholder': 'Masukkan kata sandi baru',
+  'resetPassword.submitting': 'Mengatur ulang…',
   'resetPassword.subtitle': 'Pilih kata sandi yang kuat — setidaknya 12 karakter.',
   'settings.account.description': 'Cara Anda masuk.',
   'settings.billing.canceled': 'Langganan dibatalkan.',
@@ -133,7 +155,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Tidak dikonfigurasi',
   'settings.billing.updated': 'Paket diperbarui.',
   'settings.editor.description': 'Bagaimana kanvas berperilaku saat Anda menulis.',
+  'settings.editor.title': 'Preferensi editor',
   'settings.eyebrow': 'Preferensi studio',
+  'settings.language.title': 'Bahasa',
   'settings.notifications.${n.key}.description': 'Bahasa',
   'settings.notifications.description': 'Pilih apa yang sampai ke kotak masuk Anda.',
   'settings.subtitle': 'Sesuaikan notifikasi, kanvas editor, dan preferensi akun Anda.',
@@ -142,6 +166,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Dibagikan dengan saya',
   'shared.loadFailed': 'Tidak dapat memuat dokumen yang dibagikan.',
   'shared.subtitle': 'Naskah, ringkasan, dan catatan dari studio lainnya.',
+  'signup.brandAttribution': 'Anaïs Park — Editor, The Quarterly',
   'signup.brandQuote':
     '“Naskah pertama Anda adalah yang tersulit. Quillon membuatnya kurang sepi.”',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -149,6 +174,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Anaïs',
   'signup.heading': 'Buat akun Quillon Anda',
   'signup.lastNamePlaceholder': 'Park',
+  'signup.submitting': 'Membuka studio Anda\\u2026',
   'signup.subtitle':
     'Meja yang tenang, kolaborator ambien, dan editor draf panjang yang menyingkir dari jalan Anda.',
   'templates.blank.subtitle': 'Halaman bersih. Kursor dimulai.',
@@ -161,11 +187,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Mulai dengan struktur yang penuh perhatian. Kustomisasi tanpa batas.',
   'templates.useFailed': 'Tidak dapat memulai dokumen dari templat ini.',
   'templates.useTemplate': 'Gunakan templat ini',
+  'terms.intro': 'Ketentuan penggunaan layanan ini.',
   'terms.title': 'Persyaratan layanan',
   'time.daysAgo': '{{days}}h lalu',
   'time.hoursAgo': '{{hours}}j lalu',
   'time.justNow': 'baru saja',
   'trash.confirmDelete': 'Konfirmasi penghapusan',
+  'trash.confirmEmpty': 'Konfirmasi — hapus semuanya',
   'trash.deleteFailed': 'Tidak dapat dihapus.',
   'trash.deleteForever': 'Hapus selamanya',
   'trash.empty': 'Tidak ada yang dipulihkan.',
@@ -179,7 +207,9 @@ export const ui: UiTranslations = {
   'versionHistory.backToDoc': 'Kembali ke naskah',
   'versionHistory.empty': 'Belum ada revisi — simpan dokumen untuk memulai riwayatnya.',
   'versionHistory.heading': 'Riwayat versi',
+  'versionHistory.latest': 'Terbaru',
   'versionHistory.loadFailed': 'Tidak dapat memuat riwayat.',
+  'versionHistory.noContent': 'Tidak ada konten yang tersimpan untuk revisi ini.',
   'versionHistory.previewing': 'Pratinjau',
   'versionHistory.restore': 'Pulihkan versi ini',
   'versionHistory.restoreFailed': 'Gagal memulihkan.',

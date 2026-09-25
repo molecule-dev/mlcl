@@ -1,14 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'అభిప్రాయం ఉందా, ఏదైనా అడ్డంకి ఎదురైందా, లేదా తర్వాత ఏమి నిర్మించాలో మాకు చెప్పాలనుకుంటున్నారా? hello@reverie.app వద్ద టీమ్ను సంప్రదించండి — ప్రతి సందేశం ఉత్పత్తిని తయారుచేసే నిజమైన వ్యక్తికే చేరుతుంది.',
   'about.contactTitle': 'మాతో మాట్లాడండి',
+  'about.missionTitle': 'మా లక్ష్యం',
   'auth.fields.newPassword': 'కొత్త పాస్‌వర్డ్',
   'collectionDetail.addImage': 'సేకరణ కోసం మంత్రం',
   'collectionDetail.backCta': 'సేకరణలకు తిరిగి వెళ్లండి',
   'collectionDetail.coverNote': 'క్యూరేటెడ్ మూడ్-బోర్డ్ {{count}} చిత్రాలు.',
   'collectionDetail.editName': 'సేకరణ పేరు',
+  'collectionDetail.empty': 'ఈ కలెక్షన్లో ఇంకా చిత్రాలు లేవు — జోడించడానికి ఏదైనా జనరేట్ చేయండి.',
   'collectionDetail.loading': 'సేకరణ లోడ్ అవుతోంది…',
   'collectionDetail.loadingImages': 'చిత్రాలు లోడ్ అవుతున్నాయి…',
+  'collectionDetail.notFoundBody': 'ఈ కలెక్షన్ తీసివేయబడింది లేదా ప్రైవేట్గా ఉంది.',
   'collectionDetail.notFoundTitle': 'సేకరణ అందుబాటులో లేదు',
   'collectionDetail.shared': 'దృశ్యమానత టోగుల్ చేయబడింది',
   'collections.create': 'కొత్త సేకరణ',
@@ -16,6 +21,7 @@ export const ui: UiTranslations = {
     'ఇంకా కలెక్షన్‌లు ఏవీ లేవు. మీ పనిని క్రమబద్ధీకరించడం ప్రారంభించడానికి ఒకదాన్ని సృష్టించండి.',
   'collections.imageCount': '{{count}} చిత్రాలు',
   'collections.loading': 'కలెక్షన్‌లు లోడ్ అవుతున్నాయి…',
+  'collections.noDescription': 'ఇంకా వివరణ లేదు — జోడించడానికి తెరవండి.',
   'collections.subtitle': 'మూడ్-బోర్డులు, బ్రీఫ్‌లు మరియు కొనసాగుతున్న సిరీస్‌లు',
   'collections.title': 'సేకరణలు',
   'collections.untitled': 'శీర్షిక లేనిది · {{stamp}}',
@@ -54,6 +60,7 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'మీ Reverie ఖాతాకు అనుసంధానించబడిన ఇమెయిల్‌ను నమోదు చేయండి, మేము రీసెట్ లింక్‌ను పంపుతాము.',
   'forgot.successBody': 'రీసెట్ లింక్ పంపబడుతోంది {{email}} .',
+  'gallery.empty.body': 'వేరే స్టేట్ ప్రయత్నించండి లేదా స్టూడియో నుండి కొత్త బ్యాచ్ జనరేట్ చేయండి.',
   'gallery.empty.title': 'ఆ ఫిల్టర్‌కి ఏదీ సరిపోలడం లేదు',
   'gallery.exportAll': 'అన్నింటినీ ఎగుమతి చేయండి',
   'gallery.exported': 'ఎగుమతి క్యూలో ఉంది',
@@ -76,6 +83,8 @@ export const ui: UiTranslations = {
   'generate.controls.title': 'కలను ట్యూన్ చేయండి',
   'generate.defaultPrompt': 'ఒక కొత్త కల',
   'generate.progress': 'దశ {{step}} / {{total}}',
+  'generate.submitFailed':
+    'జనరేషన్ను క్యూలో చేర్చలేకపోయాం — మీ కనెక్షన్ను తనిఖీ చేసి మళ్లీ ప్రయత్నించండి.',
   'generate.subtitle':
     'ప్రాంప్ట్‌ను రూపొందించండి, నియంత్రణలను సర్దుబాటు చేయండి, విభిన్న రూపాలను సృష్టించండి',
   'generate.title': 'స్టూడియో',
@@ -83,6 +92,7 @@ export const ui: UiTranslations = {
   'imageDetail.acting': 'పని చేస్తోంది…',
   'imageDetail.actionFailed': 'చర్య విఫలమైంది.',
   'imageDetail.actions': 'చిత్ర చర్యలు',
+  'imageDetail.downloadStarted': 'డౌన్లోడ్ ప్రారంభమైంది.',
   'imageDetail.downloadUnavailable': 'డౌన్‌లోడ్ చేయడానికి ఇంకా చిత్రం అందుబాటులో లేదు.',
   'imageDetail.fields.aspect': 'అంశం',
   'imageDetail.fields.created': 'సృష్టించబడింది',
@@ -93,11 +103,17 @@ export const ui: UiTranslations = {
   'imageDetail.notFoundTitle': 'చిత్రం అందుబాటులో లేదు',
   'imageDetail.noVariations': 'ఇంకా ఎలాంటి మార్పులు లేవు — పైన ఒకదానిని అభ్యర్థించండి.',
   'imageDetail.openEditor': 'ఎడిటర్‌లో తెరవండి',
+  'imageDetail.tips.lockSeed':
+    'కంపోజిషన్ కోల్పోకుండా లైటింగ్పై పునరావృతం చేయడానికి సీడ్ను లాక్ చేయండి.',
+  'imageDetail.tips.upscale':
+    'ప్రింట్-సిద్ధ నాణ్యత కోసం ఎగుమతి చేయడానికి ముందు 4× అప్స్కేల్ అమలు చేయండి.',
   'imageDetail.tipsTitle': 'కలను మెరుగుపరచండి',
+  'imageDetail.title': 'Image',
   'imageDetail.upscaleQueued': 'అప్‌స్కేల్ క్యూలో ఉంది',
   'imageDetail.variations': 'వైవిధ్యాలు',
   'imageDetail.variationsQueued': 'వైవిధ్యాలు వరుసలో ఉన్నాయి',
   'imageDetail.visibilityToggled': 'దృశ్యమానత నవీకరించబడింది',
+  'landing.copyright': '© {{year}} {{appName}} Labs. Molecule.dev తో నిర్మించబడింది.',
   'landing.cta': 'సృష్టించడం ప్రారంభించండి',
   'landing.eyebrow': 'ఇప్పుడు Reverie XL v3 అందిస్తున్నాము',
   'landing.featuresEyebrow': 'రివెరీ ఎందుకు',
@@ -138,8 +154,17 @@ export const ui: UiTranslations = {
     'జనరేషన్ యాక్టివిటీ, షేరింగ్ మరియు క్రెడిట్ అలర్ట్‌లు ఇక్కడ కనిపిస్తాయి.',
   'notifications.empty.title': 'నివేదించడానికి ఏమీ లేదు',
   'notifications.subtitle': 'రోజు వారీగా వర్గీకరించబడిన తరం ఈవెంట్‌లు',
+  'planUpdated.confirmed': 'మీ {{planKey}} ప్లాన్ యాక్టివ్గా ఉంది మరియు క్రెడిట్లు జోడించబడ్డాయి.',
+  'planUpdated.error':
+    'మీ అప్గ్రేడ్ను స్వయంచాలకంగా నిర్ధారించలేకపోయాం. దయచేసి సపోర్ట్ను సంప్రదించండి.',
+  'planUpdated.retry': 'మళ్ళీ ప్రయత్నించండి',
+  'planUpdated.unpaid': 'మీ చెక్అవుట్ సెషన్ చెల్లించబడలేదు. సెట్టింగ్స్ నుండి మళ్లీ ప్రయత్నించండి.',
+  'planUpdated.verifyFailed': 'మేము మీ చెల్లింపును ఇంకా ధృవీకరించలేకపోయాము.',
+  'planUpdated.verifyFailedBody':
+    'మీ చెల్లింపు ఇంకా ప్రాసెస్ అవుతూ ఉండవచ్చు. కాసేపటి తర్వాత మళ్ళీ ప్రయత్నించండి.',
   'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'pricing.limits.gallery': '{{count}} గ్యాలరీ',
+  'pricing.limits.generations': '{{count}} జనరేషన్లు',
   'privacy.collect.body':
     'మీరు సైన్ అప్ చేసినప్పుడు మేము మీ పేరు, ఇమెయిల్ చిరునామా మరియు హ్యాష్ చేయబడిన పాస్‌వర్డ్‌ను సేకరిస్తాము. మీరు రెవెరీని ఉపయోగిస్తున్నప్పుడు, మీరు సమర్పించే ప్రాంప్ట్‌లు, మేము మీ కోసం రూపొందించే చిత్రాలు, మీరు సేవ్ చేసే స్టైల్స్ మరియు కలెక్షన్‌లు, ఇంకా ఉపయోగించిన మోడల్, జనరేషన్ టైమ్‌స్టాంప్‌లు మరియు క్రెడిట్ బ్యాలెన్స్ వంటి మెటాడేటాను మేము నిల్వ చేస్తాము.',
   'privacy.cookies.body':
@@ -153,6 +178,8 @@ export const ui: UiTranslations = {
   'profile.followedBio': 'ఇప్పుడే ఒక సృష్టికర్తను అనుసరించాను',
   'profile.following': 'తరువాత…',
   'profile.loadingWorks': 'ప్రజా పనులు లోడ్ అవుతున్నాయి…',
+  'profile.noPublicWorks':
+    'ఇంకా పబ్లిక్ పనులు లేవు — ఈ గ్యాలరీని నింపడానికి ఒక చిత్రాన్ని షేర్ చేయండి.',
   'profile.notFoundTitle': 'ప్రొఫైల్ అందుబాటులో లేదు',
   'profile.publicWorks': 'ప్రజా పనులు',
   'profile.subtitle': '@ {{handle}} · పబ్లిక్ క్రియేటర్ ప్రొఫైల్',
@@ -165,6 +192,7 @@ export const ui: UiTranslations = {
   'prompts.empty.cta': 'ఓపెన్ స్టూడియో',
   'prompts.empty.title': 'సేవ్ చేయబడిన ప్రాంప్ట్‌లు ఏవీ సరిపోలడం లేదు',
   'prompts.lastUsed': 'ఉపయోగించబడింది {{when}}',
+  'prompts.loading': 'ప్రాంప్ట్‌లు లోడ్ అవుతున్నాయి…',
   'prompts.negativeLabel': 'నెగ్',
   'prompts.runAgain': 'పరుగెత్తు',
   'prompts.running': 'పరుగెత్తడం…',
@@ -180,6 +208,7 @@ export const ui: UiTranslations = {
   'settings.account.saveFailed': 'ప్రొఫైల్‌ను సేవ్ చేయలేకపోయారు',
   'settings.account.title': 'సృష్టికర్త ప్రొఫైల్',
   'settings.accountSecurity': 'ఖాతా మరియు భద్రత',
+  'settings.accountSecurity.title': 'సైన్-ఇన్, పరికరాలు & ఖాతా',
   'settings.api.empty': 'ఇంకా API కీలు లేవు — అనుసంధానం ప్రారంభించడానికి ఒకదాన్ని సృష్టించండి.',
   'settings.api.loading': 'API కీలు లోడ్ అవుతున్నాయి…',
   'settings.api.revoked': 'API కీ రద్దు చేయబడింది',
@@ -198,12 +227,16 @@ export const ui: UiTranslations = {
   'sidebar.secondary': 'ద్వితీయ నావిగేషన్',
   'signup.failed': 'నమోదు విఫలమైంది. మళ్ళీ ప్రయత్నించండి.',
   'signup.firstNamePlaceholder': 'ఆరియా',
+  'signup.haveAccount': 'ఇప్పటికే డ్రీమరా?',
   'signup.heading': 'మీ కలల ప్రపంచాన్ని ప్రారంభించండి',
   'signup.lastNamePlaceholder': 'లిన్',
   'signup.subheading': 'ఖాతాను సృష్టించి 120 ఉచిత క్రెడిట్‌లను పొందండి.',
+  'styles.body':
+    'ప్రతి ప్రీసెట్ దాని స్వంత మోడల్, శాంప్లర్, ప్రాంప్ట్ స్కాఫోల్డింగ్ మరియు స్టైల్ చిప్లను కలిగి ఉంటుంది. మొత్తం స్టూడియోను ఆ మూడ్లోకి లాక్ చేయడానికి ఒకదాన్ని యాక్టివేట్ చేయండి — సిరీస్ పనులకు సరైనది.',
   'styles.empty': 'ఇంకా స్టైల్ ప్రీసెట్‌లు లేవు — అవి మొదటి సైన్-ఇన్ తర్వాత కనిపిస్తాయి.',
   'styles.eyebrow': 'క్యూరేటెడ్',
   'styles.headline': 'పునర్వినియోగించదగిన విజువల్ ప్రీసెట్‌లతో వేగంగా సృష్టించండి',
+  'styles.loading': 'స్టైల్ లైబ్రరీ లోడ్ అవుతోంది…',
   'styles.subtitle': 'రెవెరీ స్టూడియో బృందం రూపొందించిన క్యూరేటెడ్ విజువల్ ప్రీసెట్‌లు',
   'styles.title': 'శైలి గ్రంథాలయం',
   'terms.acceptableUse.body':

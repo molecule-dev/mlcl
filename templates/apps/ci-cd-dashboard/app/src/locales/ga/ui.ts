@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ceisteanna, aiseolas, nó ag iarraidh taispeántas do do fhoireann? Seol ríomhphost chugainn ag hello@conduit.dev — sroicheann gach teachtaireacht duine fíor ar an bhfoireann.',
   'about.contactHeading': 'Téigh i dteagmháil',
   'about.eyebrow': 'Maidir',
+  'about.featuresHeading': 'Cad a gheobhaidh tú',
+  'about.introBody':
+    'Tugann {{app}} seachadadh leanúnach ar nós GitHub Actions isteach i dheaisbhord amháin thapa: píblínte, logaí tógála, déantáin, suaitheantais stádais, agus timpeallachtaí imlonnaithe do do stórtha go léir in aon áit amháin. Níl aon léimneach idir cluaisíní, níl aon tomhas cé acu tógáil a bhris — tá gach rith, líne loga, agus imlonnú faoi achar clice amháin.',
+  'about.introHeading': 'Cad is {{app}} ann',
+  'about.missionBody':
+    'Ba cheart go mbeadh seachadadh bogearraí socair agus intuartha, ní ina chúis eagla. Tógaimid na píblínte, na logaí, agus na huirlisí imlonnaithe ionas go mbeidh an bealach ó thiomantas go táirgeadh tapa, sofheicthe, agus iontaofa — an chéad tógáil ghlas i gceann cúig nóiméad, agus gach tógáil ina diaidh chomh soiléir céanna.',
+  'about.missionHeading': 'Ár misean',
+  'about.subtitle':
+    "Is deaisbhord CI/CD é {{app}} d'fhoirne ar mian leo tógálacha, imlonnuithe, agus timpeallachtaí a mhonatóiriú ar fud gach stóir — agus seachadadh le cinnteacht.",
   'artifacts.empty': 'Gan aon déantáin fós.',
   'artifacts.heading': 'Déantáin',
   'artifacts.loadError': 'Theip ar lódáil na n-artefakta.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Timpeallachtaí',
   'environments.loadError': 'Theip ar lódáil na timpeallachtaí.',
+  'environments.loading': 'Timpeallachtaí á lódáil…',
   'environments.subheading': 'Stádas imscartha beo ar fud gach sprice.',
   'forgotPassword.runnerStatus': 'athshocrú · tollán slán',
+  'forgotPassword.success':
+    'Má tá cuntas ann don ríomhphost sin, tá nasc athshocraithe ar an mbealach. Seiceáil do bhosca isteach.',
   'insights.changeFailureRate': 'Athraigh an ráta teipe',
   'insights.deployFrequency': 'Imscaradh / lá',
   'insights.empty': 'Níl dóthain sonraí ann fós.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Theip ar léargais a lódáil.',
   'insights.meanP95': 'ciallmhar {{mean}} · lch95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Na céimeanna píblíne is moille',
   'insights.successRateHeading': 'Ráta rathúlachta píblíne (le 14 lá anuas)',
   'landing.choosePlan': 'Roghnaigh plean',
+  'landing.copyright': '© {{year}} {{app}}. Seachadadh le cinnteacht.',
   'landing.ctaBody':
     'Gan cárta creidmheasa. Gan innealtóir ardáin ag teastáil. Faigh an chéad phíblíne glas i gceann cúig nóiméad.',
   'landing.ctaHeading': 'Loingseoireacht le cinnteacht.',
   'landing.featuresEyebrow': '// gnéithe ardáin',
   'landing.featuresHeading': 'Tógtha do loingseoirí, ag loingseoirí',
+  'landing.heroSubtitle':
+    'Píblínte a chríochnaíonn i soicindí. Logaí ar féidir leat iad a léamh. Imlonnuithe ar féidir leat muinín a bheith agat astu.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit imscaradh --go sábháilte',
   'landing.pricingEyebrow': '// $ praghsáil --plain',
   'landing.pricingHeading': 'Praghsáil shimplí, intuartha',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Ar eitilt anois',
   'pipelines.metric.successCaption': '{{count}} de {{total}} ritheann',
   'pipelines.metric.successRate': 'Ráta rathúlachta',
+  'pipelines.realtimeOn': 'fíor-am',
   'pipelines.subheading': 'Nuashonruithe beo ó gach stór faire.',
+  'pricing.advancedFeatures': 'Gnéithe casta: {{mark}}',
+  'pricing.canExport': 'Easpórtáil sonraí: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} déantán',
+  'pricing.maxBuilds': '{{count}} tógáil',
+  'pricing.maxPipelines': '{{count}} píblín',
   'privacy.dataAccount': 'Cuntas: ainm, ríomhphost, pasfhocal haisithe, leibhéal plean.',
   'privacy.intro':
     '{{aip}} Ní bhailíonn sé ach an t-íosmhéid sonraí a theastaíonn uainn chun do chuntas seachadta leanúnaigh a oibriú: do r-phost, na stórtha a nascann tú, na meiteashonraí tiomantais agus tógála a tháirgeann do reathaithe, agus na rúin a roghnaíonn tú a stóráil linn. Ní léimid do chód foinse riamh lasmuigh den reathaí tógála; stóráiltear déantáin tógála i do bhuicéad S3 nuair a chumraítear iad.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Úsáidimid Stripe le haghaidh billeála, Mailgun le haghaidh ríomhphoist idirbheartaíochta, agus AWS S3 le haghaidh stóráil déantán tógála. Tá gach ceann acu faoi cheangal conarthach don raon íosta sonraí atá riachtanach chun a sheirbhís a sheachadadh.',
   'privacy.rightsBody':
     'Is féidir leat gach beart de do shonraí a easpórtáil, do chuntas a scriosadh tráth ar bith ó na Socruithe, agus taifead a iarraidh ar gach seachadadh webhook ar do chuntas. Freagraímid iarratais GDPR / CCPA laistigh de 30 lá.',
+  'privacy.subtitle':
+    'Conas a bhailíonn, a stórálann, agus a chosnaíonn {{app}} do chuid sonraí agus muid ag rith do chuid píblínte.',
   'privacy.title': 'Polasaí príobháideachta',
   'repositories.empty': 'Níl aon stórtha ceangailte.',
   'repositories.heading': 'Stórtha',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Gach stórlann',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Theip ar luchtú an stórais.',
+  'repositoryDetail.meanDuration': 'Meánfhad',
   'repositoryDetail.notFound': 'Níor aimsíodh an stórlann.',
+  'repositoryDetail.successRate': 'Ráta rathúlachta',
   'repositoryDetail.totalBuilds': 'Iomlán na dtógáil',
   'repositoryDetail.webhookActive': 'gníomhach',
   'repositoryDetail.webhookPaused': 'curtha ar sos',
   'repositoryDetail.webhooksHeading': 'Crúcaí Gréasáin',
+  'resetPassword.passwordLabel': 'Pasfhocal nua',
   'resetPassword.runnerStatus': 'athshocrú · comhartha fíoraithe',
   'resetPassword.subtitle': 'Roghnaigh pasfhocal láidir nár úsáid tú cheana.',
   'resetPassword.tokenPlaceholder': 'greamaigh ó ríomhphost',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Faireachas Conduit, stórtha. Dícheangail ó do sholáthraí VCS chun stop a chur le himeachtaí a ionghabháil.',
   'settings.repositories.empty': 'Níl aon stórtha ceangailte fós.',
+  'settings.repositories.heading': 'Naisc stóir',
   'settings.repositories.loadError': 'Theip ar luchtú na stórtha.',
   'settings.secrets.addCta': 'Cuir rún leis',
   'settings.secrets.addError': 'Theip ar rún a chur leis.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Theip ar an rún a scriosadh.',
   'settings.secrets.empty': 'Gan aon rúin stóráilte.',
   'settings.secrets.heading': 'Rúin',
+  'settings.secrets.lastUsed': 'úsáidte go deireanach {{date}}',
   'settings.secrets.loadError': 'Theip ar rúin a lódáil.',
   'settings.secrets.neverUsed': 'níor úsáideadh riamh é',
   'settings.secrets.rotateCta': 'Rothlaigh',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Theip ar an ngréasán gréasáin a nuashonrú.',
   'signup.namePlaceholder': 'Páirc Riley',
   'signup.runnerStatus': 'sraith saor in aisce · 1,000 tógáil nóim/mí',
+  'terms.intro':
+    'Trí chuntas {{app}} a chruthú, aontaíonn tú leis na téarmaí seo. Clúdaíonn siad úsáid inghlactha na ritheoirí tógála, teorainneacha ár SLA, agus na coinníollacha faoina féidir linn do chuntas a chur ar fionraí nó a fhoirceannadh mar gheall ar ualaí oibre mhí-úsáide.',
   'terms.slaBody':
     'Tá sé mar aidhm ag pleananna Pro agus Team 99.95% d’am oibriúcháin míosúil a bhaint amach don API agus don linn reathaithe. Cuirtear an plean Saor in Aisce ar fáil mar atá. Tuairiscítear briseadh ar status.conduit.dev agus creidiúnaítear iad de réir na foirmle i do shonrasc.',
   'terms.terminationBody':

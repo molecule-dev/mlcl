@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Keni komente, keni gjetur një gabim ose dëshironi një funksion të ri? Na shkruani nga cilësimet e llogarisë — çdo mesazh shkon te një person i vërtetë i ekipit. Shënim: asgjë këtu nuk është këshillë investimi; ju mbeteni në kontroll të çdo transaksioni.',
+  'about.contactTitle': 'Kontaktoni me ne',
+  'about.featureAttribution':
+    'Atribuimi i performancës — zbërtheni kthimet sipas sektorit, rajonit dhe klasës së aktiveve, dhe krahasoni me indeksin në çdo periudhë.',
+  'about.featureRebalance':
+    'Ribalancim i disiplinuar — vendosni alokimet e synuara dhe kufijtë e tolerancës, shihni devijimin e sinjalizuar herët dhe merrni transaksionet që ju kthejnë në synim.',
+  'about.featureTax':
+    'Rregullsi e dokumenteve tatimore — fitimet e realizuara dhe të parealizuara, dividentët dhe dokumentet 1099 në një vend, me sinjalizimet për wash-sale të përfshira.',
+  'about.featureUnified':
+    'Një portofol i unifikuar — aksione, ETF, fonde të përbashkëta, obligacione e më shumë, të mbledhura së bashku nga çdo llogari brokerimi.',
+  'about.featureWatchlist':
+    'Lista ndjekëse, lajme dhe alarme çmimesh, që të veproni për atë që ka rëndësi pa zhurmë.',
+  'about.intro':
+    '{{app}} është një panel portofoli me shumë aktive për investitorë individualë dhe këshilltarë të pavarur. Aksione, ETF, fonde të përbashkëta, obligacione, pasuri të paluajtshme dhe cash — çdo zotërim në çdo llogari, në një vend, me disiplinën e një tavoline profesioniste.',
+  'about.missionBody':
+    'Investimi i mirë është kryesisht disiplinë: një alokim i qartë i synuar, atribuim i ndershëm i performancës dhe regjistra tatimorë të rregullt. {{app}} i sjell këto zakone institucionale kujtdo, që të ribalanconi me qëllim e jo me impuls — dhe të mos e humbni kurrë nga sytë se çfarë po bën në të vërtetë portofoli juaj.',
+  'about.missionTitle': 'Misioni ynë',
   'about.pageTitle': 'Rreth {{app}}',
   'argentAuthShell.brandEyebrow': 'Argjend · Mjete Pasurore',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Nuk është këshillë investimi.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Një panel kontrolli portofoli për investitorë dhe këshilltarë individualë që duan ribalancim të disiplinuar, atribuim të mprehtë të performancës dhe higjienë të dokumentacionit tatimor — pa zhurmë.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · Performanca e kaluar nuk garanton rezultate të ardhshme.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) sot',
+  'argentAuthShell.sampleLabel': 'Vlera e Portofolit',
   'argentAuthShell.sampleValue': '1,032,251 dollarë',
   'argentLayout.primaryNavLabel': 'Navigimi kryesor',
   'assetAllocationDonut.heading': 'Si investohen paratë tuaja',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'sot',
   'assetDetail.txEmpty': 'Nuk ka transaksione për këtë tiker.',
   'assetDetail.txHeading': 'Transaksionet tuaja',
+  'auth.legalConsent.prefix': 'Duke vazhduar, ju pranoni kushtet e {{appName}}',
   'common.and': 'dhe',
   'common.goToDashboard': 'Shko te paneli',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'sot',
   'dashboard.topHoldings.heading': 'Ku po funksionojnë paratë tuaja',
   'dashboard.topHoldings.label': 'Mbajtjet kryesore',
+  'forgotPassword.gotLinkCta': 'Kam një lidhje rivendosjeje →',
+  'forgotPassword.subheading':
+    "Futni email-in në llogarinë tuaj Gavl dhe ne do t'ju dërgojmë një lidhje të sigurt rivendosjeje.",
   'forgotPassword.successBody':
     'Nëse nuk e shihni brenda pak minutash, kontrolloni dosjen e spamit ose provoni një email tjetër.',
   'forgotPassword.successSubheading':
     'Kontrolloni {{email}} për një lidhje rivendosjeje. Skadon pas 60 minutash.',
+  'forgotPassword.successTitle': 'Emaili i rivendosjes është në rrugë',
   'holdingHighlightRow.todayLabel': 'sot',
   'holdings.addCta': 'Bli',
   'holdings.col.allocation': 'Alok',
@@ -58,6 +87,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Nuk është këshillë investimi. Performanca e kaluar nuk garanton rezultatet e ardhshme.',
   'landing.eyebrow': 'Argent · Një platformë për mjete pasurie',
   'landing.features.heading': 'Gjithçka që një këshilltar do të ndërtonte për veten e tij.',
+  'landing.finalCta.body':
+    'Lidhni llogarinë tuaj të brokerimit me dy klikime. {{appName}} bën pjesën tjetër.',
+  'landing.finalCta.cta': 'Hap llogarinë tënde Argent',
   'landing.finalCta.heading': 'Rikthejeni disiplinën në portofolin tuaj.',
   'landing.footerSignup': 'Hap një llogari',
   'landing.getStarted': 'Hap një llogari',
@@ -65,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Shih çmimet',
   'landing.heroSubtitle':
     'Një panel kontrolli portofoli për investitorë dhe këshilltarë individualë që duan ribalancim të disiplinuar, atribuim të mprehtë të performancës dhe higjienë të dokumentacionit tatimor — pa zhurmë.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Një pamje paraprake e drejtpërdrejtë nga një portofol përfaqësues',
   'login.heading': 'Hyr në Argent',
   'login.subheading':
@@ -76,6 +109,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} orë më parë',
   'news.justNow': 'pikërisht tani',
   'news.loadError': 'Ngarkimi i lajmeve dështoi.',
+  'planUpdated.body':
+    'Ndryshimi i faturimit tani është aktiv. Mund ta menaxhoni planin tuaj në çdo kohë nga faqja e faturimit.',
+  'planUpdated.retry': 'Provo përsëri',
+  'planUpdated.verifyFailed': 'Nuk mundëm ta konfirmonim ende pagesën tuaj.',
+  'planUpdated.verifyFailedBody':
+    'Pagesa juaj mund të jetë ende duke u përpunuar. Provoni përsëri pas pak.',
   'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'portfolioHeroCard.label': 'Vlera e Portofolit',
   'pricing.holdingsLabel': 'zotërimet',
@@ -86,12 +125,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Zhvendosja e alokimit',
   'rebalance.empty': 'Ende nuk janë vendosur objektiva.',
   'rebalance.executeCta': 'Vend {{count}} tregti',
+  'rebalance.executeError': 'Dështoi vendosja e transaksioneve.',
   'rebalance.executeOk': 'Vendosur {{count}} tregtime. Shihini ato në faqen e Transaksioneve.',
+  'rebalance.executing': 'Po vendosen…',
   'rebalance.eyebrow': 'Ribalancim · Këshilltar i Argjent',
   'rebalance.heading': 'Rikthejeni portofolin tuaj në disiplinë',
   'rebalance.loadError': 'Ngarkimi i planit të ribalancimit dështoi.',
+  'rebalance.plan.driftLine': 'aktualisht {{current}}% · synimi {{target}}%',
   'rebalance.planHeading': 'Biletë Argjent — shqyrtim para vendosjes',
   'rebalance.planLabel': 'Plani i sugjeruar tregtar',
+  'rebalance.subheading':
+    'Rreshtat jashtë kufirit të tolerancës nxisin sugjerime transaksionesh. {{appName}} vepron vetëm me konfirmimin tuaj.',
   'rebalance.summary.buyLabel': 'Blerje',
   'rebalance.summary.buySub': 'pozicione për t’u plotësuar',
   'rebalance.summary.driftLabel': 'Jashtë brezit',
@@ -100,6 +144,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'nëpër tregtimet e sugjeruara',
   'rebalance.summary.sellLabel': 'Shet',
   'rebalance.summary.sellSub': 'pozicione për t’u shkurtuar',
+  'rebalanceDriftCard.drift': 'devijim {{sign}}{{pct}}% · kufiri ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'objektiv {{pct}} %',
   'reports.attributionHeading': 'Atribuimi i performancës (1V)',
   'reports.col.alpha': 'Alfa',
@@ -113,37 +158,68 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Viti',
   'reports.gainsHeading': 'Fitimet e realizuara dhe të parealizuara',
   'reports.noAttribution': 'Ende nuk ka të dhëna atribuimi.',
+  'reports.noGains': 'Nuk ka ende të dhëna për fitimet e realizuara/të parealizuara.',
   'reports.noPerformance': 'Ende nuk ka të dhëna për performancën.',
   'reports.noTaxDocs': 'Ende nuk ka dokumente tatimore.',
   'reports.performanceHeading': 'Performanca kundrejt pikës referuese',
   'reports.taxHeading': 'Dokumentet tatimore',
   'resetPassword.heading': 'Zgjidhni një fjalëkalim të ri të fortë',
+  'resetPassword.passwordPlaceholder': 'Fjalëkalim i ri',
   'resetPassword.subheading':
     'Argent do t’ju identifikojë automatikisht sapo të vendosni fjalëkalimin tuaj.',
   'resetPassword.tokenPlaceholder': 'Rivendos tokenin nga emaili',
+  'settings.appearance.description': 'Kaloni midis modalitetit të ndriçuar dhe të errët.',
   'settings.appearance.title': 'Pamja',
+  'settings.devices.body': 'Pajisjet janë aktualisht të identifikuara në llogarinë tënde.',
+  'settings.devices.empty': 'Nuk u gjet asnjë pajisje.',
   'settings.devices.heading': 'Pajisjet',
+  'settings.devices.revokeWarning': 'Qasja e kësaj pajisjeje do të hiqet së shpejti. Të dilet?',
   'settings.devices.signOut': 'Dil nga llogaria',
   'settings.devices.thisDevice': 'Kjo pajisje',
   'settings.devices.unknown': 'Pajisje e panjohur',
   'settings.linked.body':
     'Sinkronizimi i ndërmjetësimit kërkon një lidhës të palës së tretë (Plaid, Yodlee, etj.). Konfiguroni ofruesin tuaj në mjedisin tuaj për të aktivizuar importimin automatik.',
   'settings.linked.heading': 'Llogaritë e lidhura të ndërmjetësimit',
+  'settings.linked.placeholder': 'Nuk ka ende llogari të lidhura.',
+  'settings.notifications.dividendsPaid': 'Dividentët e paguar',
   'settings.notifications.error': 'Nuk mund të përditësohej preferenca.',
   'settings.notifications.priceAlerts': 'Njoftime çmimesh',
+  'settings.notifications.rebalanceDrift': 'Devijimi i ribalancimit',
+  'settings.notifications.taxDocsReady': 'Dokumentet tatimore gati',
   'settings.profile.advisor': 'Email-i i këshilltarit (opsional)',
   'settings.profile.heading': 'Profili',
   'settings.security.changePassword': 'Ndrysho fjalëkalimin',
+  'settings.security.changePasswordTitle': 'Ndrysho fjalëkalimin',
   'settings.security.changing': 'Duke ndryshuar…',
+  'settings.security.confirmPassword': 'Fjalëkalimi',
+  'settings.security.currentPassword': 'Fjalëkalimi aktual',
   'settings.security.deleteAccount': 'Fshi llogarinë',
   'settings.security.deleteError': 'Nuk mundi të fshijë llogarinë.',
   'settings.security.deleteHeading': 'Fshi llogarinë',
+  'settings.security.deleteModalWarning':
+    'Kjo fshin përgjithmonë llogarinë dhe të dhënat tuaja. Shkruani fjalëkalimin për të konfirmuar.',
+  'settings.security.deleteWarning':
+    'Fshi përgjithmonë llogarinë tuaj dhe të gjitha të dhënat e lidhura. Ky veprim nuk mund të kthehet.',
   'settings.security.deleting': 'Duke fshirë…',
   'settings.security.heading': 'Siguria',
   'settings.security.newPassword': 'Fjalëkalim i ri',
   'settings.security.password': 'Fjalëkalimi',
+  'settings.security.passwordError': 'Nuk mundi të ndryshojë fjalëkalimin.',
+  'settings.security.passwordHint': "Ndryshoni fjalëkalimin që përdorni për t'u identifikuar.",
+  'settings.security.twoFactor': 'Autentifikimi me dy faktorë',
+  'settings.security.twoFactorCode': 'Kodi i vërtetimit',
+  'settings.security.twoFactorDisable': 'Çaktivizo',
+  'settings.security.twoFactorDisableTitle': 'Çaktivizo vërtetimin me dy faktorë',
   'settings.security.twoFactorEnable': 'Aktivizo',
+  'settings.security.twoFactorEnableTitle': 'Aktivizo vërtetimin me dy faktorë',
+  'settings.security.twoFactorHint': 'Shtoni një shtresë ekstra mbrojtjeje për llogarinë tuaj.',
   'settings.security.twoFactorInvalidCode': 'Kod i pavlefshëm',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'Kodi QR dy faktorë',
+  'settings.security.twoFactorScan':
+    'Skano këtë kod QR me aplikacionin e vërtetimit, pastaj shkruaj kodin 6-shifror.',
+  'settings.security.twoFactorUnavailable':
+    'Autentifikimi me dy faktorë nuk është i disponueshëm për këtë aplikacion.',
   'settings.security.twoFactorVerify': 'Verifiko dhe aktivizo',
   'settings.tax.error': 'Metoda e taksës nuk mund të përditësohej.',
   'settings.tax.heading': 'Kontabiliteti i taksave të loteve',
@@ -154,6 +230,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Metoda e taksimit u ruajt.',
   'signup.eyebrow': 'Hap një llogari',
   'signup.heading': 'Hap llogarinë tënde Argent',
+  'signup.legalPrefix': 'Duke krijuar një llogari, ju pranoni {{appName}}',
   'signup.subheading': 'Falas për 30 ditë. Nuk kërkohet kartë. Anulojeni në çdo kohë.',
   'signup.terms':
     'Duke krijuar një llogari, ju pranoni Kushtet e Shërbimit dhe Politikën e Privatësisë të Argent.',

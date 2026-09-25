@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Rəy bildirmək, xəta tapmaq və ya funksiya istəyirsiniz? Hesab parametrlərinizdən bizə yazın — hər mesaj komandada real bir şəxsə çatır.',
   'about.contactTitle': 'Əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
+  'about.intro':
+    '{{app}} yazılarına dərindən önəm verən yazıçılar üçün AI yazı studiyasıdır. Uzunformatlı AI generasiyasını sakit redaktor, SEO balı və şəkil generasiyası ilə birləşdirir ki, əsəri boş səhifədən dərcə qədər — öz səsinizi heç vaxt itirmədən — apara biləsiniz.',
+  'about.missionBody':
+    'İnanırıq ki, AI sizin yerinizə deyil, yanınızda yazmalıdır. {{app}} təklifləri öz sözlərinizdən görünən şəkildə fərqləndirir, yaratdığınız hər sənədin sahibi siz qalırsınız və alətlər yazmağa mane olmur.',
+  'about.missionTitle': 'Missiyamız',
   'about.pageTitle': '{{app}} haqqında',
   'aiSuggestionCard.applied': 'Təklif tətbiq edildi',
   'aiSuggestionCard.apply': 'Tətbiq edin',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Trafik mənbələri',
   'billing.activePlan': 'Abunəlik aktivdir.',
   'billing.aiWordsLabel': 'Süni intellekt nəsilləri daxildir',
+  'billing.cancelFailed': 'Abunəliyi ləğv etmək mümkün olmadı.',
   'billing.cancelPlan': 'Planı ləğv edin',
+  'billing.cancelPlanConfirm': 'Ləğvi təsdiqləyirsiniz?',
   'billing.cancelSuccess': 'Abunəlik ləğv edildi. Planı yeniləmək üçün yeniləyin.',
   'billing.changePlan': 'Planı dəyişdirin',
   'billing.col.invoice': 'Faktura',
@@ -43,26 +52,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'Planlara baxın',
   'common.goToDashboard': 'İdarə panelinə keç',
   'dashboard.continueWriting': 'Yazmağa davam edin',
+  'dashboard.createFirst': 'Sənəd yarat',
   'dashboard.days.sat': 'Sat',
   'dashboard.days.sun': 'Sun',
   'dashboard.defaultWriterName': 'Yazıçı',
   'dashboard.greeting': 'Sabahınız xeyir, {{name}}',
   'dashboard.loadError': 'İdarəetmə panelinizi yükləmək mümkün olmadı.',
+  'dashboard.loading': 'Studiyanız yüklənir…',
   'dashboard.loadingDocs': 'Son sənədlər yüklənir…',
   'dashboard.noDocuments': 'Hələ sənəd yoxdur — birincisinə başlayın.',
   'dashboard.startWriting': 'Yeni sənədə başlayın',
+  'dashboard.streakBody': 'Bu həftə {{words}} söz yazdınız.',
   'dashboard.streakTitle': '{{count}} -günlük seriya',
+  'dashboard.subgreeting': 'Kitabxananızda {{count}} sənəd var — tempi saxlayın.',
+  'documentCard.seoScoreTitle': 'SEO balı: {{score}}/100',
+  'documents.createNew': 'Yeni sənəd yarat',
   'documents.empty': 'Kitabxananız gözləyir — ilk sənədinizi başlayın.',
+  'documents.emptyFiltered': 'Hələ ki filtrinizə uyğun sənəd yoxdur.',
   'documents.loadError': 'Sənədləri yükləmək mümkün olmadı.',
   'documents.loading': 'Kitabxananız yüklənir…',
   'documents.new': 'Yeni sənəd',
+  'documents.searchAriaLabel': 'Sənədləri axtarın',
   'documents.searchPlaceholder': 'Sənədləri axtarın...',
   'documents.subtitle': '{{count}} kitabxananızdakı sənədlər.',
   'documents.title': 'Sənədlər',
   'editor.aiPanelTitle': 'Tülkü Zəkası',
+  'editor.aiSuggestion.empty':
+    'Aktiv təkmilləşdirmə yoxdur. İkinci baxış istədiyinizdə {{appName}}-dən təklif istəyin.',
   'editor.aiSuggestion.failed': 'Hazırda təklifləri yükləmək mümkün deyil.',
   'editor.aiSuggestion.loadingBody': 'Aydınlıq yaratmaq...',
   'editor.backToDocuments': 'Bütün sənədlər',
+  'editor.bodyAriaLabel': 'Sənəd mətni',
   'editor.closeAiPanel': 'Süni intellekt panelini bağlayın',
   'editor.createFailed': 'Sənəd yaradıla bilmədi.',
   'editor.exported': '{{format}} olaraq ixrac edildi.',
@@ -79,18 +99,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'Təkmilləşdirmə tələb edin',
   'editor.saveBeforePublish': 'Sənədi dərc etməzdən əvvəl saxlayın.',
   'editor.status.chars': '{{count}} personajlar',
+  'editor.status.readTime': '{{minutes}} minimum oxuma',
   'editor.status.savedAt': 'Yadda saxlanıldı {{time}}',
   'editor.status.saveError': 'Yadda saxlamaq alınmadı',
+  'editor.status.unsaved': 'Hələ yadda saxlanmayıb',
   'editor.titleAriaLabel': 'Sənəd başlığı',
   'editor.titlePlaceholder': 'Başlıqsız sənəd',
   'editor.toggleAiPanel': 'Süni intellekt panelini aç/bağla',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'müəllif@example.com',
+  'forgotPassword.sent': 'Əgər {{email}} qeydiyyatdadırsa, sıfırlama linki yoldadır.',
   'imageGenerator.failed': 'Şəkil yaratmaq uğursuz oldu.',
   'imageGenerator.generate': 'Şəkil Yarat',
   'imageGenerator.generating': 'Yaradılır...',
   'imageGenerator.placeholder': 'Yaratmaq istədiyiniz şəkli təsvir edin...',
+  'imageGenerator.promptAriaLabel': 'Şəkil sorğusu',
+  'imageGenerator.subtitle': 'Üz qabığı şəklini təsvir edin və AI onu illüstrasiya etsin.',
   'imageGenerator.title': 'Süni intellekt Şəkil Generatoru',
+  'landing.aiSuggestionBody':
+    '42-ci mərtəbənin balkonunda dayanan Elias şəhərin ona təzyiq etdiyini hiss etdi — külək ətraf səs-küyü qoparıb apardı və onu parlayan şəbəkənin üzərində buz kimi, səssiz bir boşluqda asılı qoydu.',
   'landing.eyebrow': 'Ciddi yazıçılar üçün süni intellekt yazı studiyası',
   'landing.featuresHeading': 'Yoldan çıxan alətlər',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -100,14 +127,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Nəsrinə, tempinə və dəqiqliyinə önəm verən yazıçılar üçün hazırlanmış bir studiya. Yanınızda lətifələr - sizin yerinizə heç vaxt.',
   'landing.heroTitle.eloquence': 'fəsahət',
+  'landing.heroTitle.intelligence': 'İntellekt görüşür ',
   'landing.nav.testimonials': 'Rəylər',
   'landing.plan.cta': 'Bu planla başlayın',
   'landing.plan.popular': 'Ən çox sevilən',
   'landing.pricingEyebrow': 'Qiymətləndirmə',
   'landing.pricingHeading': 'Təcrübənizə uyğun olanı seçin',
   'landing.sampleDocTitle': 'Səssizliyin Memarlığı',
+  'landing.sampleParagraph1':
+    'Şəhər heç vaxt həqiqətən sakit olmamışdı. Gecənin ən dərin saatlarında belə beton təməllərdən aşağı bir uğultu keçirdi — metro qatarlarının və havalandırma şaxtalarının mexaniki ürək döyüntüsü.',
+  'landing.sampleParagraph2.after': ' şüşəyə.',
+  'landing.sampleParagraph2.before': 'Amma ',
   'landing.sampleParagraph2.highlight':
     '42-ci mərtəbənin eyvanında dayanan Elias dərin bir təcrid hissi keçirdi',
+  'landing.showcaseBody':
+    'Bir cümləni seçin və {{appName}} təkmilləşdirmə təklif edir. Qəbul edin, düzəldin və ya rədd edin. Təkliflər həmişə bənövşəyi rəngdə göstərilir ki, nəyi özünüz yazdığınızı və nəyin təklif edildiyini biləsiniz.',
+  'landing.showcaseHeading': 'İkinci baxış — heç vaxt ikinci müəllif deyil.',
   'landing.startWriting': 'Yazmağa başlayın',
   'login.emailPlaceholder': 'müəllif@example.com',
   'login.failed': 'Giriş uğursuz oldu',
@@ -122,8 +157,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Paneli açın',
   'notFound.title': 'Bu fəsil hələ yazılmayıb.',
   'plumeSidebarLayout.primaryNavLabel': 'Əsas naviqasiya',
+  'pricing.maxDocuments': '{{count}} sənədlər',
+  'pricing.maxGenerate': '{{count}} AI generasiyası',
+  'pricing.maxImages': '{{count}} şəkil generasiyası',
   'privacy.data':
     'Hesabınızın e-poçt ünvanı və heş edilmiş parol. Yaratdığınız sənədlər və şablonlar. Ödəniş və analitika üçün süni intellekt təklif qeydləri (giriş + çıxış). Zolaqlı müştəri + abunə identifikatorları; biz heç vaxt tam kart nömrələrini saxlamırıq.',
+  'privacy.intro':
+    'Yalnız {{app}}-i işlətmək üçün lazım olan məlumatları toplayırıq: e-poçtunuz, yaratdığınız sənədlər və etdiyiniz AI sorğuları. Yazılarınızı və promptlarınızı heç vaxt satmırıq.',
   'profile.loadError': 'Profilinizi yükləmək mümkün olmadı.',
   'profile.loading': 'Profiliniz yüklənir…',
   'profile.loadingPublished': 'Dərc olunmuş sənədlər yüklənir...',
@@ -134,7 +174,13 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Yeni parol',
   'seoAnalysis.backToEditor': 'Redaktora qayıt',
   'seoAnalysis.eyebrow': 'SEO təhlili',
+  'seoAnalysis.heroBody':
+    'Tətbiq ediləcək {{count}} təklif. Hər biri struktur və ya açar söz yüksəlişidir, qırmızı bayraqlar divarı deyil.',
+  'seoAnalysis.heroBodyEmpty':
+    'Oxunaqlılığı, açar söz sıxlığını və strukturu qiymətləndirmək üçün "Analiz et" düyməsinə klikləyin.',
   'seoAnalysis.heroEmpty': 'Hələ təhlil yoxdur. Bu layihəni qiymətləndirmək üçün birini işlədin.',
+  'seoAnalysis.heroNeedsWork': 'Bəzi struktur yüksəlişləri əhatəni artıracaq.',
+  'seoAnalysis.heroStrong': 'Güclü əsər — əla səviyyəyə az qalıb.',
   'seoAnalysis.historyEmpty': 'Əvvəlki analizlər qeydə alınmayıb.',
   'seoAnalysis.historyTitle': 'Təhlil tarixi',
   'seoAnalysis.keywordEmpty':
@@ -161,8 +207,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'Yazdığınız üsula uyğun olaraq lələyi kökləyin.',
   'settings.toggleIntegrationFailed': 'İnteqrasiya yeniləməsi uğursuz oldu.',
   'settings.writing.aiSuggestions': 'Yazarkən daxili süni intellekt təklifləri',
+  'settings.writing.aiSuggestionsBody':
+    'Yazarkən təkmilləşdirmələri göstərir. Təkliflər həmişə hər cümlə üçün istəyə bağlıdır.',
   'settings.writing.autoSave': 'Hər 30 saniyədə avtomatik yadda saxla',
+  'settings.writing.autoSaveBody':
+    '{{appName}} qaralamanızın anlıq görüntüsünü saxlayır ki, istənilən tabdan bərpa edə biləsiniz.',
   'settings.writing.notifyEmail': 'Həftəlik yazı xülasələrini mənə e-poçtla göndərin',
+  'settings.writing.notifyEmailBody':
+    'Seriyalar, qaralamalar və SEO təkmilləşdirmələri haqqında qısa bazar günü xülasəsi.',
   'settings.writing.title': 'Yazı seçimləri',
   'settings.writing.tone': 'Standart ton əvvəlcədən təyin olunmuş',
   'signup.emailPlaceholder': 'müəllif@example.com',
@@ -174,8 +226,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'Heç bir təsvir verilməyib.',
   'templates.subtitle':
     'Döyüşlərdə sınaqdan keçirilmiş redaksiya kadrından başlayın, sonra onu özünüzə uyğunlaşdırın.',
+  'terms.intro':
+    'Bu şərtlər {{app}}-dən istifadənizi tənzimləyir. Hesab yaratmaqla xidmətdən qanuni yazı üçün istifadə etməyi və hesab məlumatlarınızı məxfi saxlamağı qəbul edirsiniz.',
   'terms.license':
     'Yaratdığınız hər bir sənəd, şablon və süni intellekt nəsli üzərində mülkiyyət hüququnuzu özündə saxlayırsınız. İşlərinizi sizə yerləşdirmək və geri qaytarmaq, eləcə də seçdiyiniz zəmanətli provayderlər vasitəsilə süni intellekt sorğularını emal etmək üçün qeyri-eksklüziv lisenziyaya ehtiyacımız var.',
   'writingStreakHeroCard.change': '{{sign}} {{amount}} sözlər',
   'writingStreakHeroCard.greeting': 'Gününüz xeyir, {{name}}',
+  'writingStreakHeroCard.subtitle': 'Bu həftə yazılan sözlər — {{count}} günlük seriya',
+  'writingStreakHeroCard.tagline': 'Gündə bir səhifə ilham pərisini işdə saxlayır.',
 }

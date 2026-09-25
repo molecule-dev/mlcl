@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Намерихте бъг, имате заявка за функция или искате да ни кажете какво да изградим следващо? Пишете на hello@pylon.dev — всяко съобщение стига до истински инженер от екипа.',
   'about.contactTitle': 'Свържете се с нас',
+  'about.intro':
+    '{{app}} е бърза, клавиатурно ориентирана работна среда за тестване на API за инженери, които живеят в терминала — заявки в стил Postman, колекции, среди и история без излишъци.',
+  'about.missionBody':
+    'API-тата са гръбнакът на съвременния софтуер, но инструментите за работа с тях са бавни, тежки и изискват мишка. {{app}} съществува, за да даде на разработчиците прецизна, бърза работна среда от клас терминал: изпращайте заявки, изковавайте увереност и доставяйте, без да напускате клавиатурата.',
+  'about.missionTitle': 'Нашата мисия',
   'about.pageTitle': 'За {{app}}',
   'authShell.statusLabel': 'бегачи онлайн',
   'collections.createError': 'Не можа да се създаде колекция.',
   'collections.defaultName': 'Неозаглавена колекция {{n}}',
+  'collections.empty':
+    'Още няма колекции — натиснете „New collection“, за да създадете първата си папка.',
   'collections.eyebrow': '$ pylon колекции --tree',
   'collections.fetchError': 'Не можаха да се заредят колекциите.',
   'collections.heading': 'Колекции',
   'collections.loading': 'Зареждане на колекции…',
+  'collections.metric.allGreen': 'Всичко е наред',
   'collections.metric.collections': 'Колекции',
   'collections.metric.failing': 'Неуспешно',
   'collections.metric.failingCaption': 'Последното изпълнение имаше неуспехи',
@@ -24,6 +34,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Променливи',
   'environments.createError': 'Не можа да се създаде среда.',
   'environments.defaultName': 'Неозаглавена среда {{n}}',
+  'environments.empty': 'Още няма среди — натиснете „New environment“, за да добавите.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'Не можаха да се заредят среди.',
   'environments.heading': 'Среди',
@@ -31,8 +42,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Нова среда',
   'environments.subheading':
     'Променливи, които се превключват в заявки по време на изпращане. Една активна среда на работно пространство.',
+  'forgotPassword.statusLabel': 'нулиране · защитен тунел',
   'forgotPassword.success':
     'Ако съществува акаунт за този имейл адрес, линк за нулиране е на път. Проверете входящата си поща.',
+  'history.empty': 'Тук още няма нищо — изпратете първата си заявка от раздела Workspace.',
   'history.eyebrow': 'история на $ pylon --tail',
   'history.fetchError': 'Не можа да се зареди историята.',
   'history.heading': 'История на изпълнението',
@@ -41,9 +54,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Последните 50',
+  'history.realtime': 'в реално време',
   'history.subheading':
     'Всяка заявка, задействана в това работно пространство, със състояние, латентност и размер на полезния товар.',
   'landing.choosePlan': 'Изберете план',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Forge confidence.',
   'landing.ctaBody':
     'Без кредитна карта. Не е необходим платформен инженер. Отворете ⌘K и изпратете първата си заявка за по-малко от пет минути.',
   'landing.ctaHeading': 'Изградете увереност.',
@@ -85,6 +100,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Средна латентност',
   'mocks.metric.live': 'Публично',
   'mocks.metric.servers': 'Подиграва се',
+  'mocks.ms': 'г-жа',
   'mocks.newMock': 'Нов макет',
   'mocks.online': 'Публично',
   'mocks.paused': 'Частен',
@@ -108,9 +124,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Здравословен',
   'monitors.metric.uptime': 'Средно време на работа',
   'monitors.newMonitor': 'Нов монитор',
+  'monitors.paused': 'паузирано',
   'monitors.run': 'Стартирай',
   'monitors.runError': 'Изпълнението завърши с мрежова грешка: {{error}}',
+  'monitors.runFailed': 'Изпълнението се провали.',
   'monitors.running': 'Бягане…',
+  'monitors.runSuccess': 'Изпълнение {{status}} — upstream върна {{code}} за {{ms}}ms.',
   'monitors.sparkLabel': 'Тенденция на латентността',
   'monitors.subheading':
     'Проверки при поискване за всеки запазен тест. Свържете тест, натиснете „Изпълни“ и наблюдавайте 24-часовата актуализация на процента на успех с всеки задействан тест.',
@@ -119,27 +138,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Време на работа · 24 часа',
   'nav.legal': 'Правни',
   'notFound.backToWorkspace': 'Обратно към работното пространство',
+  'notFound.body':
+    '{{app}} изпрати заявка за този URL и не получи нищо в отговор. Проверете отново маршрута или се върнете в работното пространство.',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Маршрутът не е намерен',
+  'planUpdated.body':
+    'Промяната в таксуването вече е активна. Можете да управлявате плана си по всяко време от страницата за таксуване.',
+  'planUpdated.retry': 'Опитайте отново',
+  'planUpdated.verifyFailed': 'Все още не успяхме да потвърдим плащането ви.',
+  'planUpdated.verifyFailedBody':
+    'Възможно е плащането ви все още да се обработва. Опитайте отново след малко.',
   'planUpdated.verifying': 'Потвърждаване на плащането…',
+  'pricing.advancedFeatures': 'Разширени функции: {{yes}}',
+  'pricing.canExport': 'Експорт на данни: {{yes}}',
+  'pricing.heading': 'Изберете {{app}} план',
+  'pricing.maxCollections': '{{count}} колекции',
+  'pricing.maxEnvironments': '{{count}} среди',
+  'pricing.maxHistory': '{{count}} записа в историята',
+  'pricing.maxRequests': '{{count}} заявки',
   'privacy.collect.account':
     'Акаунт: вашият имейл, хеширана парола, показвано име и времевият печат на последното ви влизане.',
+  'privacy.intro':
+    '{{app}} зачита поверителността ви. Тази страница обобщава какви данни събираме, защо ги събираме и как да ги изтриете.',
   'privacy.rights.body':
     'Можете да експортирате колекциите + среди по всяко време или да изтриете акаунта си от „Настройки“, за да премахнете окончателно всички данни в рамките на 30 дни.',
   'privacy.share.body':
     'Само вие. Никога не продаваме, не споделяме и не отдаваме под наем съдържанието на вашето работно пространство на трети страни. Сървърните лог файлове се съхраняват 30 дни за реагиране при инциденти и след това се изтриват.',
   'privacy.title': 'Известие за поверителност',
+  'profile.bio':
+    'Вашето лично работно пространство в {{app}} — закачайте колекции, споделяйте среди и наблюдавайте API-тата, които движат продукта.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'присъединил се {{when}}',
+  'profile.metric.collections': 'Колекции',
   'profile.metric.monitors': 'Монитори',
   'profile.metric.requests': 'Запазени заявки',
+  'profile.noActivity':
+    'Още не са изпращани заявки — отидете в раздела Workspace, за да направите една.',
   'profile.signedOut': 'Влезте, за да видите профила си',
   'pylonShell.primaryNavLabel': 'Основна навигация',
+  'resetPassword.passwordLabel': 'Нова парола',
+  'resetPassword.statusLabel': 'Възстановяване · Токенът е потвърден',
   'resetPassword.subtitle': 'Изберете силна парола, която не сте използвали досега.',
   'resetPassword.tokenPlaceholder': 'копирано от имейл',
+  'settings.accountManagement.desc':
+    'Актуализирайте имейла и паролата си, управлявайте известията и устройствата, излезте или изтрийте акаунта си.',
+  'settings.accountManagement.title': 'Профил и сигурност',
   'settings.eyebrow': '$ настройки на пилона --редактиране',
   'settings.fetchError': 'Не можаха да се заредят настройките.',
   'settings.language.title': 'Език',
+  'settings.seeding': 'Зареждане…',
   'settings.seedStarter': 'Съдържание на закваската',
   'settings.starterCollection': 'Стартова колекция',
   'settings.starterCollectionDesc': 'Създадено от Настройки на {{ts}}',
@@ -153,6 +200,8 @@ export const ui: UiTranslations = {
     'Вие носите отговорност за защитата на паролата си. Споделянето на един акаунт с няколко души не е разрешено в безплатните или професионалните планове — закупете екипен абонамент за споделени работни пространства.',
   'terms.billing.body':
     'Платените абонаменти се подновяват автоматично за всеки период на фактуриране. Можете да ги анулирате от „Настройки“ по всяко време; достъпът ви продължава до края на текущия период.',
+  'terms.intro':
+    'Създавайки акаунт в {{app}}, вие се съгласявате с условията по-долу. Прочетете ги веднъж; няма да ви изненадаме с промени с обратна сила.',
   'terms.title': 'Условия за ползване',
   'terms.usage.body':
     'Не използвайте Pylon, за да изпращате заявки към услуги, които не притежавате или нямате изрично разрешение да тествате. Не използвайте Pylon, за да заобикаляте ограниченията на скоростта или да извършвате измами.',
@@ -173,16 +222,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Не се изпълнява',
   'testRunner.metric.passed': 'Приет',
   'testRunner.never': 'Никога не бягай',
+  'testRunner.newTest': 'Нов тест',
   'testRunner.noAssertions': 'Все още няма твърдения за този тест.',
+  'testRunner.noRunsYet':
+    'Още няма записани изпълнения — натиснете „Run all“, за да напълните историята.',
   'testRunner.passed': 'преминаване',
+  'testRunner.recentRuns': 'Последни бягания',
   'testRunner.runAll': 'Изпълни всички',
   'testRunner.running': 'Бягане…',
   'testRunner.runOne': 'Стартирай',
   'testRunner.subheading': 'Резултати от пакета, разлики в твърденията и последните 50 изпълнения.',
+  'testRunner.suites': 'Набори',
   'userMenu.shortcut': '⌘Л',
   'userMenu.signedInAs': 'Влезли сте като',
   'workspace.auth.keyName': 'Име на заглавието',
   'workspace.auth.keyValue': 'Ключова стойност',
+  'workspace.auth.noneHint': 'С тази заявка няма да бъде изпратен заглавка за авторизация.',
   'workspace.auth.password': 'Парола',
   'workspace.auth.username': 'Потребителско име',
   'workspace.authOption.apikey': 'API ключ',
@@ -192,13 +247,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Тип',
   'workspace.authTypeLabel': 'Тип удостоверяване',
+  'workspace.body.contentLabel': 'Текст на заявката',
+  'workspace.body.hint':
+    '{{envVars}} се заместват преди изпращането на заявката. Тялото се изпраща при POST/PUT/PATCH/DELETE.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Няма',
+  'workspace.body.noneHint':
+    'Няма да бъде изпратено тяло на заявката. Изберете JSON или необработен текст, за да добавите.',
   'workspace.body.text': 'Неотредактиран текст',
   'workspace.body.type': 'Тип',
   'workspace.environment': 'Без обкръжение',
   'workspace.envVar': 'променлива на околната среда',
   'workspace.eyebrow': '$ pylon работно пространство --pane разделяне',
+  'workspace.failedCount': '{{count}} неуспешен',
+  'workspace.idle': 'Бездействие',
   'workspace.kv.addHeader': 'Добавяне на заглавка',
   'workspace.kv.addParam': 'Добави параметър',
   'workspace.kv.headerKey': 'Име на заглавието',
@@ -211,12 +273,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP метод',
   'workspace.metric.latency': 'Забавяне',
   'workspace.metric.latencyCaption': 'Обиколка от това бягане',
+  'workspace.metric.size': 'Полезен товар',
   'workspace.metric.sizeCaption': 'Байтове на тялото на отговора',
   'workspace.metric.statusCaption': 'Последен отговор',
   'workspace.metric.tests': 'Тестове',
+  'workspace.metric.testsAllPassing': 'Всички проверки са успешни',
   'workspace.metric.testsFailing': '{{count}} неуспешен',
+  'workspace.metric.testsIdle': 'Изпратете заявка за оценяване',
   'workspace.noAssertions': 'Изпълнете заявка за оценка на вградени твърдения.',
   'workspace.noResponseYet': 'Все още няма отговор',
+  'workspace.passedCount': '{{count}} приет',
   'workspace.responseHint':
     '// Натиснете „Изпрати“, за да задействате заявката и да получите отговора.',
   'workspace.saveError': 'Заявката не можа да бъде запазена.',
@@ -226,10 +292,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Съставете заявка, задействайте я и след това потвърдете отговора – всичко това в един панел.',
   'workspace.testResults': 'Резултати от тестовете',
+  'workspace.tests.autoHint':
+    'Семейството на статуса, латентността, размерът на тялото и здравето на транспорта се проверяват автоматично — резултатите се показват под „Test results“ в панела с отговора.',
+  'workspace.tests.autoTitle': 'Вградените проверки се изпълняват при всеки отговор',
   'workspace.token': 'Токен',
   'workspace.tokenHint':
     'Изпратено като оторизация: Приносител<token> по всяко запитване в тази колекция.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Незаглавена заявка',
+  'workspace.urlLabel': 'URL на заявката',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

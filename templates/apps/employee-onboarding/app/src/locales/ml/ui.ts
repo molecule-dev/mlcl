@@ -1,28 +1,43 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'നിങ്ങളുടെ ടീമിനായി കൂടുതൽ ഊഷ്മളമായ ഒരു ഓൺബോർഡിംഗ് ആരംഭിക്കണോ, ഒരു ബഗ് കണ്ടെത്തിയോ, അല്ലെങ്കിൽ ഫീഡ്ബാക്ക് ഉണ്ടോ? നിങ്ങളുടെ അക്കൗണ്ട് സെറ്റിംഗ്സിൽ നിന്ന് ഞങ്ങളെ ബന്ധപ്പെടുക — ഓരോ സന്ദേശവും സഹായിക്കാൻ കഴിയുന്ന ഒരു യഥാർത്ഥ മനുഷ്യനിലേക്കാണ് എത്തുന്നത്.',
   'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'നിങ്ങളുടെ പാസ്‌വേഡ് പുനഃസജ്ജമാക്കുക.',
+  'auth.forgotPassword.panel.body':
+    'റീസെറ്റിന് 30 സെക്കൻഡ് മാത്രം — നിങ്ങളുടെ ചെക്ക്ലിസ്റ്റ് പുരോഗതി കാത്തിരിക്കുന്നു.',
+  'auth.forgotPassword.panel.headline': 'നിങ്ങൾ നിർത്തിയിടത്തേക്ക് തന്നെ തിരികെ.',
+  'auth.forgotPassword.subheading':
+    'നിങ്ങളുടെ വർക്ക് ഇമെയിൽ നൽകുക, ഞങ്ങൾ ഒരു റീസെറ്റ് ലിങ്ക് അയയ്ക്കാം.',
   'auth.forgotPassword.successSubheading':
     'നിങ്ങളുടെ ഇൻബോക്സ് പരിശോധിക്കുക — ഞങ്ങൾ പുനഃസജ്ജീകരണ നിർദ്ദേശങ്ങൾ അയച്ചിട്ടുണ്ട്.',
   'auth.login.emailPlaceholder': 'name@yourcompany.com',
   'auth.login.heading': 'തിരികെ സ്വാഗതം.',
   'auth.login.passwordPlaceholder': 'നിങ്ങളുടെ പാസ്‌വേഡ്',
+  'auth.login.signupPrompt': 'നിങ്ങളുടെ ടീമിൽ പുതിയതാണോ?',
   'auth.login.subheading':
     'നിങ്ങൾ നിർത്തിയ ഇടത്ത് നിന്ന് ഓൺബോർഡിംഗ് യാത്ര ആരംഭിക്കാൻ സൈൻ ഇൻ ചെയ്യുക.',
   'auth.login.submit': 'നിങ്ങളുടെ യാത്ര തുടരുക',
+  'auth.panel.body':
+    'നിങ്ങളുടെ വ്യക്തിഗത ചെക്ക്ലിസ്റ്റ്, പരിശീലന നാഴികക്കല്ലുകൾ, ടീം പരിചയപ്പെടുത്തലുകൾ — എല്ലാം ഒരു ശാന്തമായ ഇടത്തിൽ.',
   'auth.panel.footnote': '© എംബാർക്ക് — ഇന്ന് മുതൽ ആളുകളെ ആദ്യം കയറ്റുന്നു.',
   'auth.panel.headline': 'ആത്മവിശ്വാസത്തോടെയുള്ള ആദ്യ 90 ദിവസങ്ങൾ ഇവിടെ ആരംഭിക്കുന്നു.',
   'auth.resetPassword.heading': 'ഒരു പുതിയ പാസ്‌വേഡ് സജ്ജമാക്കുക.',
   'auth.resetPassword.newPasswordLabel': 'പുതിയ പാസ്വേഡ്',
+  'auth.resetPassword.panel.body':
+    'ഒരു പുതിയ പാസ്വേഡ് സേവ് ചെയ്യുക, ഞങ്ങൾ നിങ്ങളെ നിങ്ങളുടെ ഓൺബോർഡിംഗ് യാത്രയിലേക്ക് തന്നെ തിരികെ കൊണ്ടുവരും.',
+  'auth.resetPassword.panel.headline': 'ഏകദേശം തിരികെ എത്തി.',
   'auth.resetPassword.subheading':
     'നിങ്ങൾക്ക് ഓർമ്മിക്കാൻ കഴിയുന്ന എന്തെങ്കിലും തിരഞ്ഞെടുക്കുക - കുറഞ്ഞത് 8 പ്രതീകങ്ങളെങ്കിലും.',
   'auth.signup.emailPlaceholder': 'name@yourcompany.com',
   'auth.signup.heading': 'നിങ്ങളുടെ ആദ്യ 90 ദിവസത്തേക്ക് സ്വാഗതം.',
   'auth.signup.panel.body':
     'ഗൈഡഡ് ചെക്ക്‌ലിസ്റ്റ്, റോൾ-അവേർ പരിശീലനം, മനുഷ്യരെ പരിചയപ്പെടുത്തൽ - നിങ്ങൾ പ്രവേശിക്കുന്നതിന് മുമ്പ് തയ്യാറാണ്.',
+  'auth.signup.panel.headline': 'ഒന്നാം ദിവസം, ഒന്നാം ദിവസം തന്നെ.',
   'auth.signup.subheading':
     'ഗൈഡഡ് ഓൺബോർഡിംഗ് യാത്ര ആരംഭിക്കാൻ നിങ്ങളുടെ എംബാർക്ക് അക്കൗണ്ട് സൃഷ്ടിക്കുക.',
   'checklist.empty.body': 'മറ്റ് ജോലികൾ കാണാൻ ഫിൽട്ടർ മാറ്റുക.',
@@ -30,6 +45,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'ഓൺബോർഡിംഗ് · ചെക്ക്‌ലിസ്റ്റ്',
   'checklist.loading': 'നിങ്ങളുടെ ചെക്ക്‌ലിസ്റ്റ് ലോഡ് ചെയ്യുന്നു...',
   'checklist.stat.actionNeeded': 'നടപടി ആവശ്യമാണ്',
+  'checklist.stat.completion': 'പൂർത്തീകരണം',
+  'checklist.stat.inProgress': 'പുരോഗതിയിൽ',
   'checklist.stat.inProgressHelper': 'നിർത്തിയിടത്ത് നിന്ന് തുടരുക',
   'checklist.stat.overdueHelper': 'ആദ്യം ഇവ പിടിക്കൂ',
   'checklist.subtitle':
@@ -61,6 +78,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'ഇതുവരെ രേഖകളൊന്നുമില്ല.',
   'documents.eyebrow': 'ഓൺബോർഡിംഗ് · ഡോക്യുമെന്റുകൾ',
   'documents.loading': 'പ്രമാണങ്ങൾ ലോഡ് ചെയ്യുന്നു...',
+  'documents.stat.actionNeeded': 'ഇപ്പോൾ ഒപ്പിടുക',
+  'documents.stat.all': 'എല്ലാ രേഖകളും',
   'documents.stat.allHelper': 'വിഭാഗങ്ങളിലുടനീളം',
   'documents.stat.pending': 'തീർച്ചപ്പെടുത്താത്ത ഒപ്പുകൾ',
   'documents.stat.pendingHelper': 'പൂർത്തിയാക്കാൻ ആവശ്യമാണ്',
@@ -68,22 +87,28 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'സുരക്ഷിതമായി സൂക്ഷിച്ചിരിക്കുന്നു',
   'documents.status.optional': 'ഓപ്ഷണൽ',
   'documents.status.required': 'ആവശ്യമാണ്',
+  'documents.status.signed': 'ഒപ്പിട്ടു',
   'documents.subtitle': 'നിങ്ങളുടെ കൈപ്പുസ്തകം, ഫോമുകൾ, ഒപ്പിട്ട കരാറുകൾ - എല്ലാം ഒരിടത്ത്.',
   'documents.title': 'നിങ്ങൾ വായിക്കുകയും ഒപ്പിടുകയും ചെയ്യേണ്ടതെല്ലാം.',
   'documents.uploadedRecently': 'അടുത്തിടെ അപ്‌ലോഡ് ചെയ്‌തത്',
   'documentViewer.breadcrumbCurrent': 'കാഴ്‌ചക്കാരൻ',
   'documentViewer.breadcrumbDocs': 'രേഖകൾ',
   'documentViewer.downloadMeta': 'മെറ്റാഡാറ്റ ഡൗൺലോഡ് ചെയ്യുക',
+  'documentViewer.helpBody':
+    'People & Culture ഹാൻഡ്ബുക്ക് ചോദ്യങ്ങൾക്ക് Slack-ലെ #ask-people-ൽ ഉത്തരം നൽകുന്നു.',
   'documentViewer.helpEyebrow': 'സഹായം ആവശ്യമുണ്ടോ?',
   'documentViewer.loadError': 'ഞങ്ങൾക്ക് ഈ പ്രമാണം ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'documentViewer.loading': 'പ്രമാണം ലോഡുചെയ്യുന്നു…',
   'documentViewer.notFound': 'പ്രമാണം കണ്ടെത്തിയില്ല.',
+  'documentViewer.previewBody':
+    'അപ്ലോഡുകൾ കോൺഫിഗർ ചെയ്തിരിക്കുമ്പോൾ ഞങ്ങൾ ഫയൽ ഇൻലൈൻ ആയി റെൻഡർ ചെയ്യുന്നു. ഇപ്പോൾ, മെറ്റാഡാറ്റ ഡൗൺലോഡ് റെക്കോർഡ് യഥാർത്ഥമാണെന്ന് സ്ഥിരീകരിക്കാൻ നിങ്ങളെ അനുവദിക്കുന്നു.',
   'documentViewer.previewBodyExternal': 'പുതിയ ടാബിൽ ഫയൽ തുറക്കാൻ ഡൗൺലോഡ് ബട്ടൺ ഉപയോഗിക്കുക.',
   'documentViewer.previewTitle': 'ഡോക്യുമെന്റ് പ്രിവ്യൂ',
   'documentViewer.sign': 'ഒപ്പിട്ട് അംഗീകരിക്കുക',
   'documentViewer.signatureBody':
     'പ്രമാണം വായിക്കുക, തുടർന്ന് ഒപ്പിടാനും അംഗീകരിക്കാനും താഴെ ക്ലിക്ക് ചെയ്യുക.',
   'documentViewer.signatureHeading': 'ഒപ്പ് ആവശ്യമാണ്',
+  'documentViewer.signed': '✓ ഒപ്പിട്ട് ഫയൽ ചെയ്തു',
   'documentViewer.signing': 'ഒപ്പിടുന്നു...',
   'documentViewer.uploadedRecently': 'അടുത്തിടെ അപ്‌ലോഡ് ചെയ്‌തത്',
   'landing.closing.body':
@@ -93,10 +118,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'എനിക്ക് ഇതിനകം ഒരു അക്കൗണ്ട് ഉണ്ട്.',
   'landing.feature1.body':
     'എല്ലാ ജോലികളും - പേപ്പർ വർക്കുകൾ, അക്കൗണ്ടുകൾ, ആമുഖങ്ങൾ - നിശ്ചിത തീയതികളും ശരിയായ ഉടമയും മുൻകൂട്ടി നിശ്ചയിച്ചിട്ടുണ്ട്.',
+  'landing.feature1.title': 'ഒരു ഗൈഡഡ് ചെക്ക്ലിസ്റ്റ്',
   'landing.feature2.body':
     '30/60/90 നാഴികക്കല്ലുകളിൽ മൊഡ്യൂളുകൾ അൺലോക്ക് ചെയ്യുന്നു, റോളിനും ഒരു നിയമനം ചേരുന്ന ടീമിനും അനുസൃതമായി ട്യൂൺ ചെയ്യപ്പെടുന്നു.',
+  'landing.feature2.title': 'റോൾ-അവെയർ പരിശീലനം',
   'landing.feature3.body':
     'സുഹൃത്തുക്കൾ, മാനേജർമാർ, വിവിധ മേഖലകളിൽ നിന്നുള്ള ആമുഖങ്ങൾ എന്നിവ ഷെഡ്യൂൾ ചെയ്‌തിരിക്കുന്നു - അതിനാൽ ആരും ഒറ്റയ്ക്ക് ആരംഭിക്കരുത്.',
+  'landing.feature3.title': 'യഥാർത്ഥ പരിചയപ്പെടുത്തലുകൾ',
   'landing.featureEyebrow': 'എന്തിനാണ് ഇറങ്ങുന്നത്',
   'landing.featureHeadline': 'ആദ്യ ദിവസം തന്നെ എംബാർക്കിന് വിശ്വാസം നേടാനുള്ള മൂന്ന് വഴികൾ.',
   'landing.footer.rights': 'എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.',
@@ -106,6 +134,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'അടുത്തത്: 30 മിനിറ്റ് കോഫി ചാറ്റിനായി നിങ്ങളുടെ സുഹൃത്തിനെ കാണുക - ചൊവ്വാഴ്ച രാവിലെ 10:00 ന്.',
   'landing.preview.eyebrow': '90-ൽ 14-ാം ദിവസം — സാമ്പിൾ ഡാഷ്‌ബോർഡ്',
+  'landing.preview.headline': 'തിരികെ സ്വാഗതം, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR തയ്യാറാണ്',
   'landing.proof.teams': '50–5,000 പേരടങ്ങുന്ന ടീമുകൾക്കായി നിർമ്മിച്ചത്',
   'landing.proof.time': '14 ദിവസത്തെ സൗജന്യ ട്രയൽ',
@@ -122,16 +151,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'ഇന്നലെ',
   'planUpdated.message': 'നിങ്ങൾ തയ്യാറായിക്കഴിഞ്ഞു.',
   'planUpdated.preparing': 'നിങ്ങളുടെ പ്ലാൻ അപ്ഡേറ്റ് ചെയ്യുന്നു...',
+  'planUpdated.retry': 'വീണ്ടും ശ്രമിക്കുക',
+  'planUpdated.verifyFailed': 'നിങ്ങളുടെ പേയ്‌മെന്റ് ഞങ്ങൾക്ക് ഇതുവരെ സ്ഥിരീകരിക്കാൻ കഴിഞ്ഞില്ല.',
+  'planUpdated.verifyFailedBody':
+    'നിങ്ങളുടെ പേയ്‌മെന്റ് ഇപ്പോഴും പ്രോസസ്സ് ചെയ്തുകൊണ്ടിരിക്കുകയായിരിക്കാം. അൽപ്പസമയത്തിനുള്ളിൽ വീണ്ടും ശ്രമിക്കുക.',
   'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'pricing.documentsLabel': 'രേഖകൾ',
   'pricing.onboardingsLabel': 'ഓൺബോർഡിംഗുകൾ',
   'pricing.tasksLabel': 'ചുമതലകൾ',
   'profile.dayNumber': 'ദിവസം',
   'profile.detailsHeading': 'ഓൺബോർഡിംഗ് വിശദാംശങ്ങൾ',
+  'profile.encouragementBody':
+    'നിങ്ങളുടെ ബഡിയെയും മാനേജരെയും വിവരം അറിയിക്കുക — ചെറിയ ചുവടുകൾ കൂടിച്ചേരുന്നു.',
   'profile.milestones': 'നാഴികക്കല്ലുകൾ',
   'profile.progressEyebrow': 'ഓൺബോർഡിംഗ് പുരോഗതി',
   'profile.tasks': 'ചുമതലകൾ',
   'profile.unknownName': 'സ്വാഗതം',
+  'settings.appearance.description': 'ലൈറ്റ്, ഡാർക്ക് മോഡുകൾക്കിടയിൽ ടോഗിൾ ചെയ്യുക.',
+  'settings.appearance.title': 'രൂപഭാവം',
+  'settings.subtitle':
+    'നോട്ടിഫിക്കേഷനുകൾ, സെക്യൂരിറ്റി, ഉപകരണങ്ങൾ, ഡാറ്റ എക്സ്പോർട്ട് എന്നിവ ട്യൂൺ ചെയ്യുക — എല്ലാം ഇവിടെ തന്നെ, നിങ്ങളുടെ നിബന്ധനകൾക്കനുസരിച്ച്.',
   'settings.title': 'ക്രമീകരണങ്ങളും മുൻഗണനകളും.',
   'taskDetail.backToChecklist': 'ചെക്ക്‌ലിസ്റ്റിലേക്ക് മടങ്ങുക',
   'taskDetail.breadcrumbChecklist': 'ചെക്ക്‌ലിസ്റ്റ്',
@@ -144,7 +183,11 @@ export const ui: UiTranslations = {
   'taskDetail.notFound': 'ടാസ്‌ക് കണ്ടെത്തിയില്ല',
   'taskDetail.notFoundBody':
     'ഈ ടാസ്‌ക് ഇല്ലാതാക്കിയിരിക്കാം അല്ലെങ്കിൽ മറ്റൊരു ഉപയോക്താവിന്റേതായിരിക്കാം.',
+  'taskDetail.tipBody':
+    'നിങ്ങൾ തടസ്സപ്പെട്ടാൽ, Slack-ൽ നിങ്ങളുടെ ഓൺബോർഡിംഗ് ബഡിക്ക് സന്ദേശം അയയ്ക്കുക — അവരാണ് നിങ്ങളുടെ ആദ്യ സഹായം.',
   'taskDetail.tipEyebrow': 'ഒരു ചെറിയ നുറുങ്ങ്',
+  'team.empty.body':
+    'കൂടുതൽ വിശാലമായ ഒരു തിരയൽ പരീക്ഷിക്കുക അല്ലെങ്കിൽ മറ്റൊരു ഡിപ്പാർട്ട്മെന്റ് തിരഞ്ഞെടുക്കുക.',
   'team.empty.title': 'ഒരു ടീമംഗവും പൊരുത്തപ്പെടുന്നില്ല',
   'team.eyebrow': 'ഓൺബോർഡിംഗ് · ആളുകൾ',
   'team.loading': 'സഹതാരങ്ങളെ ലോഡ് ചെയ്യുന്നു...',
@@ -167,14 +210,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'നാഴികക്കല്ലുകൾ',
   'timeline.stat.current': 'നിലവിലെ മൈൽസ്റ്റോൺ',
   'timeline.stat.next': 'അടുത്ത അൺലോക്ക്',
+  'timeline.stat.progress': 'മൊത്തത്തിൽ',
   'timeline.subtitle':
     'ഓരോ നാഴികക്കല്ലുകളും പുതിയ മൊഡ്യൂളുകൾ, ആമുഖങ്ങൾ, വളർച്ചാ സംഭാഷണങ്ങൾ എന്നിവ തുറക്കുന്നു. സമ്മർദ്ദമില്ല - പുരോഗതി മാത്രം.',
+  'timeline.tipBody':
+    '30, 60, 90 ദിവസങ്ങളിൽ നിങ്ങളുടെ മാനേജരുമായി 30 മിനിറ്റ് റിഫ്ലക്ഷൻ ഷെഡ്യൂൾ ചെയ്യുക — ഇത് ഫീഡ്ബാക്ക് കൃത്യമാക്കുകയും പുരോഗതി ദൃശ്യമാക്കുകയും ചെയ്യുന്നു.',
   'timeline.tipEyebrow': 'മാനേജർക്കുള്ള നുറുങ്ങ്',
+  'timeline.tipTitle': 'നാഴികക്കല്ലുകൾക്കായി കലണ്ടറിൽ സമയം ബ്ലോക്ക് ചെയ്യുക.',
   'timeline.title': 'നിങ്ങളുടെ 30 / 60 / 90 യാത്ര.',
   'training.badge.notStarted': 'ആരംഭിച്ചിട്ടില്ല',
   'training.empty': 'ഇതുവരെ പരിശീലന മൊഡ്യൂളുകളൊന്നുമില്ല.',
   'training.eyebrow': 'ഓൺബോർഡിംഗ് · പരിശീലനം',
   'training.loading': 'മൊഡ്യൂളുകൾ ലോഡ് ചെയ്യുന്നു...',
+  'training.stat.all': 'മൊഡ്യൂളുകൾ അസൈൻ ചെയ്തു',
   'training.subtitle':
     'നിങ്ങളുടെ റോളുമായി പൊരുത്തപ്പെടുന്നതിന് മൊഡ്യൂളുകൾ 30/60/90 ന് അൺലോക്ക് ചെയ്യും. ആവശ്യമുള്ളവയാണ് ആദ്യം വരുന്നത്.',
   'training.title': 'കഴിവുകൾ, ഉപകരണങ്ങൾ, കഥകൾ - നിങ്ങളുടെ വേഗതയിൽ.',
@@ -187,9 +235,12 @@ export const ui: UiTranslations = {
   'trainingModule.quizBody':
     'ഈ മൊഡ്യൂൾ പൂർത്തിയായി എന്ന് അടയാളപ്പെടുത്താൻ 80% അല്ലെങ്കിൽ അതിൽ കൂടുതൽ സ്കോർ ചെയ്യുക.',
   'trainingModule.quizHeading': 'മൊഡ്യൂളിന്റെ അവസാനം വരെയുള്ള ക്വിസ്',
+  'trainingModule.quizLocked': 'ആദ്യം മൊഡ്യൂൾ ആരംഭിക്കുക',
   'trainingModule.quizNone': 'ഈ മൊഡ്യൂളിൽ ക്വിസ് ഇല്ല.',
   'trainingModule.quizRetry': 'വീണ്ടും ശ്രമിക്കുക',
+  'trainingModule.quizStart': 'ക്വിസ് ആരംഭിക്കുക',
   'trainingModule.quizSubmit': 'ഉത്തരങ്ങൾ സമർപ്പിക്കുക',
+  'trainingModule.start': 'മൊഡ്യൂൾ ആരംഭിക്കുക',
   'trainingModule.statusNotStarted': 'ആരംഭിച്ചിട്ടില്ല',
   'welcomeHeroCard.completeLabel': 'പൂർത്തിയായി',
   'welcomeHeroCard.milestonesLabel': 'നാഴികക്കല്ലുകൾ',

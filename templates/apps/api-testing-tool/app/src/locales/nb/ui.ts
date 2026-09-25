@@ -1,15 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Funnet en bug, har et funksjonsønske, eller vil du fortelle oss hva vi bør bygge neste gang? Send e-post til hello@pylon.dev — hver melding når en ekte ingeniør på teamet.',
   'about.contactTitle': 'Snakk med oss',
+  'about.intro':
+    '{{app}} er en rask, tastaturvennlig arbeidsbenk for API-testing for ingeniører som lever i terminalen — Postman-lignende forespørsler, samlinger, miljøer og historikk uten unødvendig bagasje.',
+  'about.missionBody':
+    'API-er er ryggraden i moderne programvare, men verktøyene for å teste dem er trege, oppblåste og musestyrte. {{app}} finnes for å gi utviklere en skarp, rask arbeidsbenk på terminalnivå: send forespørsler, bygg trygghet og lever uten å forlate tastaturet.',
+  'about.missionTitle': 'Vårt oppdrag',
   'about.pageTitle': 'Om {{app}}',
   'authShell.statusLabel': 'runners tilkoblet',
   'collections.createError': 'Kunne ikke opprette samlingen.',
   'collections.defaultName': 'Uten navn samling {{n}}',
+  'collections.empty': 'Ingen samlinger ennå — klikk «Ny samling» for å opprette din første mappe.',
   'collections.eyebrow': '$ pylon collections --tree',
   'collections.fetchError': 'Kunne ikke laste samlinger.',
   'collections.heading': 'Samlinger',
   'collections.loading': 'Laster samlinger…',
+  'collections.metric.allGreen': 'Alt grønt',
   'collections.metric.collections': 'Samlinger',
   'collections.metric.failing': 'Feilende',
   'collections.metric.failingCaption': 'Siste kjøring hadde feil',
@@ -24,6 +33,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Variabler',
   'environments.createError': 'Kunne ikke opprette miljøet.',
   'environments.defaultName': 'Uten navn miljø {{n}}',
+  'environments.empty': 'Ingen miljøer ennå — klikk «Nytt miljø» for å legge til ett.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'Kunne ikke laste miljøer.',
   'environments.heading': 'Miljøer',
@@ -31,8 +41,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Nytt miljø',
   'environments.subheading':
     'Variabler som byttes inn i forespørsler ved sending. Én aktiv miljø per arbeidsområde.',
+  'forgotPassword.statusLabel': 'tilbakestill · sikker tunnel',
   'forgotPassword.success':
     'Hvis det finnes en konto for den e-posten, er en tilbakestillingslenke på vei. Sjekk innboksen din.',
+  'history.empty': 'Ingenting her ennå — send din første forespørsel fra Arbeidsområde-fanen.',
   'history.eyebrow': '$ pylon history --tail',
   'history.fetchError': 'Kunne ikke laste historikk.',
   'history.heading': 'Kjørehistorikk',
@@ -41,9 +53,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Siste 50',
+  'history.realtime': 'sanntid',
   'history.subheading':
     'Alle forespørsler sendt i dette arbeidsområdet, med status, latens og nyttelaststørrelse.',
   'landing.choosePlan': 'Velg plan',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Bygg trygghet.',
   'landing.ctaBody':
     'Inget kredittkort. Ingen plattformingeniør nødvendig. Åpne ⌘K og send din første forespørsel på under fem minutter.',
   'landing.ctaHeading': 'Bygg tillit.',
@@ -85,6 +99,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Gj.sn. latens',
   'mocks.metric.live': 'Offentlig',
   'mocks.metric.servers': 'Mocks',
+  'mocks.ms': 'ms',
   'mocks.newMock': 'Ny mock',
   'mocks.online': 'Offentlig',
   'mocks.paused': 'Privat',
@@ -108,9 +123,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Frisk',
   'monitors.metric.uptime': 'Gj.sn. oppetid',
   'monitors.newMonitor': 'Ny monitor',
+  'monitors.paused': 'satt på pause',
   'monitors.run': 'Kjør',
   'monitors.runError': 'Kjøringen avsluttet med en nettverksfeil: {{error}}',
+  'monitors.runFailed': 'Kjøring mislyktes.',
   'monitors.running': 'Kjører…',
+  'monitors.runSuccess': 'Kjør {{status}} — oppstrøms returnerte {{code}} på {{ms}}ms.',
   'monitors.sparkLabel': 'Latens-trend',
   'monitors.subheading':
     'On-demand-sjekker for enhver lagret test. Bind en test, trykk Kjør, og se 24-timers suksessraten oppdatere seg ved hver avfyring.',
@@ -119,27 +137,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Oppetid · 24t',
   'nav.legal': 'Juridisk',
   'notFound.backToWorkspace': 'Tilbake til arbeidsområdet',
+  'notFound.body':
+    '{{app}} sendte en forespørsel for denne URL-en og fikk ingenting tilbake. Dobbeltsjekk ruten eller hopp tilbake til arbeidsområdet.',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Rute ikke funnet',
+  'planUpdated.body':
+    'Endringen i faktureringen din er nå aktiv. Du kan administrere abonnementet ditt når som helst fra faktureringssiden.',
+  'planUpdated.retry': 'Prøv igjen',
+  'planUpdated.verifyFailed': 'Vi kunne ikke bekrefte betalingen din ennå.',
+  'planUpdated.verifyFailedBody':
+    'Betalingen din kan fortsatt være under behandling. Prøv igjen om et øyeblikk.',
   'planUpdated.verifying': 'Bekrefter betalingen din…',
+  'pricing.advancedFeatures': 'Avanserte funksjoner: {{yes}}',
+  'pricing.canExport': 'Dataeksport: {{yes}}',
+  'pricing.heading': 'Velg ditt {{app}}-abonnement',
+  'pricing.maxCollections': '{{count}} samlinger',
+  'pricing.maxEnvironments': '{{count}} miljøer',
+  'pricing.maxHistory': '{{count}} historikkoppføringer',
+  'pricing.maxRequests': '{{count}} forespørsler',
   'privacy.collect.account':
     'Konto: e-posten din, hashet passord, visningsnavn og tidsstempelet for siste innlogging.',
+  'privacy.intro':
+    '{{app}} respekterer personvernet ditt. Denne siden oppsummerer dataene vi samler inn, hvorfor vi samler dem inn, og hvordan du sletter dem.',
   'privacy.rights.body':
     'Du kan eksportere samlinger og miljøer når som helst, eller slette kontoen din fra Innstillinger for å permanent fjerne alle data innen 30 dager.',
   'privacy.share.body':
     'Kun deg. Vi selger, deler eller leier aldri ut innholdet i arbeidsområdet ditt til tredjeparter. Serverlogger oppbevares i 30 dager for hendelsesrespons og slettes deretter.',
   'privacy.title': 'Personvernerklæring',
+  'profile.bio':
+    'Ditt personlige {{app}}-arbeidsområde — fest samlinger, del miljøer og overvåk API-ene som leverer produktet.',
   'profile.eyebrow': '@{{handle}}',
   'profile.joined': 'ble med {{when}}',
+  'profile.metric.collections': 'Samlinger',
   'profile.metric.monitors': 'Monitorer',
   'profile.metric.requests': 'Lagrede forespørsler',
+  'profile.noActivity':
+    'Ingen forespørsler er sendt ennå — gå til Arbeidsområde-fanen for å sende en.',
   'profile.signedOut': 'Logg inn for å se profilen din',
   'pylonShell.primaryNavLabel': 'Primær navigasjon',
+  'resetPassword.passwordLabel': 'Nytt passord',
+  'resetPassword.statusLabel': 'tilbakestill · token bekreftet',
   'resetPassword.subtitle': 'Velg et sterkt passord du ikke har brukt før.',
   'resetPassword.tokenPlaceholder': 'lim inn fra e-post',
+  'settings.accountManagement.desc':
+    'Oppdater e-postadressen og passordet ditt, administrer varsler og enheter, logg ut eller slett kontoen din.',
+  'settings.accountManagement.title': 'Konto og sikkerhet',
   'settings.eyebrow': '$ pylon settings --edit',
   'settings.fetchError': 'Kunne ikke laste innstillinger.',
   'settings.language.title': 'Språk',
+  'settings.seeding': 'Forbereder …',
   'settings.seedStarter': 'Opprett startinnhold',
   'settings.starterCollection': 'Startsamling',
   'settings.starterCollectionDesc': 'Opprettet fra Innstillinger {{ts}}',
@@ -153,6 +199,8 @@ export const ui: UiTranslations = {
     'Du er ansvarlig for å beskytte passordet ditt. Det er ikke tillatt å dele én konto med flere personer på Free- eller Pro-planer — kjøp et Team-abonnement for delte arbeidsområder.',
   'terms.billing.body':
     'Betalte abonnementer fornyes automatisk hver faktureringsperiode. Avbryt fra Innstillinger når som helst; tilgangen din fortsetter til slutten av gjeldende periode.',
+  'terms.intro':
+    'Ved å opprette en {{app}}-konto godtar du vilkårene nedenfor. Les dem én gang; vi overrasker deg ikke med tilbakevirkende endringer.',
   'terms.title': 'Tjenestevilkår',
   'terms.usage.body':
     'Ikke bruk Pylon til å sende forespørsler til tjenester du ikke eier eller har uttrykkelig tillatelse til å teste. Ikke bruk Pylon til å omgå hastighetsbegrensninger eller begå svindel.',
@@ -173,16 +221,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Ikke kjørt',
   'testRunner.metric.passed': 'Bestått',
   'testRunner.never': 'Aldri kjørt',
+  'testRunner.newTest': 'Ny test',
   'testRunner.noAssertions': 'Ingen påstander på denne testen ennå.',
+  'testRunner.noRunsYet':
+    'Ingen kjøringer registrert ennå — trykk «Kjør alle» for å fylle historikken.',
   'testRunner.passed': 'bestått',
+  'testRunner.recentRuns': 'Nylige kjøringer',
   'testRunner.runAll': 'Kjør alle',
   'testRunner.running': 'Kjører…',
   'testRunner.runOne': 'Kjør',
   'testRunner.subheading': 'Suite-resultater, påstandsdiffs og de siste 50 kjøringene.',
+  'testRunner.suites': 'Suiter',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Logget inn som',
   'workspace.auth.keyName': 'Tittelnavn',
   'workspace.auth.keyValue': 'Nøkkelverdi',
+  'workspace.auth.noneHint': 'Ingen autorisasjonsheader sendes med denne forespørselen.',
   'workspace.auth.password': 'Passord',
   'workspace.auth.username': 'Brukernavn',
   'workspace.authOption.apikey': 'API-nøkkel',
@@ -192,13 +246,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Type',
   'workspace.authTypeLabel': 'Godkjenningstype',
+  'workspace.body.contentLabel': 'Request body',
+  'workspace.body.hint':
+    '{{envVars}} erstattes før forespørselen sendes. Bodyer sendes ved POST/PUT/PATCH/DELETE.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Ingen',
+  'workspace.body.noneHint':
+    'Ingen forespørselsbody sendes. Velg JSON eller råtekst for å legge til en.',
   'workspace.body.text': 'Råtekst',
   'workspace.body.type': 'Type',
   'workspace.environment': 'Intet miljø',
   'workspace.envVar': 'miljøvariabel',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.failedCount': '{{count}} mislyktes',
+  'workspace.idle': 'Inaktiv',
   'workspace.kv.addHeader': 'Legg til overskrift',
   'workspace.kv.addParam': 'Legg til parameter',
   'workspace.kv.headerKey': 'Tittelnavn',
@@ -211,12 +272,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP-method',
   'workspace.metric.latency': 'Latens',
   'workspace.metric.latencyCaption': 'Tur-retur fra denne kjøringen',
+  'workspace.metric.size': 'Nyttelast',
   'workspace.metric.sizeCaption': 'Response body-byte',
   'workspace.metric.statusCaption': 'Siste response',
   'workspace.metric.tests': 'Tester',
+  'workspace.metric.testsAllPassing': 'Alle påstander grønne',
   'workspace.metric.testsFailing': '{{count}} feilende',
+  'workspace.metric.testsIdle': 'Send en forespørsel for å evaluere',
   'workspace.noAssertions': 'Kjør en forespørsel for å evaluere innebygde påstander.',
   'workspace.noResponseYet': 'Ingen response ennå',
+  'workspace.passedCount': '{{count}} vedtatt',
   'workspace.responseHint': '// Trykk Send for å sende forespørselen og fange responsen.',
   'workspace.saveError': 'Kunne ikke lagre forespørselen.',
   'workspace.statusError': 'Kunne ikke sende forespørselen.',
@@ -225,10 +290,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Sett sammen en forespørsel, send den, og bekreft responsen — alt i én rute.',
   'workspace.testResults': 'Testresultater',
+  'workspace.tests.autoHint':
+    'Statusfamilie, latens, bodystørrelse og transporttilstand kontrolleres automatisk — resultatene vises under «Testresultater» i responspanelet.',
+  'workspace.tests.autoTitle': 'Innebygde påstander kjøres på hver respons',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Sendes som Authorization: Bearer <token> på alle forespørsler i denne samlingen.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Uten navn forespørsel',
+  'workspace.urlLabel': 'Forespørsels-URL',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

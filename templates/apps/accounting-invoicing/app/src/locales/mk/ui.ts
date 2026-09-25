@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Имате прашање, најдовте грешка или сакате да ги префрлите вашите книги? Контактирајте го тимот на {{app}} на hello@{{app}}.example — вистинска личност ја чита секоја порака.',
   'about.contactTitle': 'Контактирајте не',
   'about.eyebrow': 'За',
+  'about.intro':
+    '{{app}} е сметководство за мали бизниси што води сметка за секој денар — фактури, трошоци, плаќања и извештаи на едно мирно место за сопственици, книговодители и сметководители.',
+  'about.missionBody':
+    'Водењето бизнис не треба да значи страв од вашите книги. {{app}} ја заменува разраснатата табела со јасни бројки врз кои можете да дејствувате, за да поминувате помалку време во усогласување, а повеќе време правејќи ја работата поради која всушност го основавте бизнисот.',
+  'about.missionTitle': 'Нашата мисија',
   'about.title': 'За {{app}}',
   'accounts.count': '{{count}} сметки',
+  'accounts.emptyBody':
+    'Сметките во главната книга следат каде живеат и се движат парите. Тие се појавуваат овде откако вашиот книговодител или интеграцијата ќе ги постави.',
   'accounts.emptyTitle': 'Сè уште нема сметки',
   'accounts.heading': 'Сметковен план',
   'accounts.kpi.accounts': 'Сметки',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Секоја сметка во главната книга зад вашите фактури, трошоци и плаќања, групирана по тип.',
   'accounts.tag.inactive': 'неактивен',
   'authBrandPanel.attributionName': 'Сара Џенкинс',
+  'authBrandPanel.attributionRole': 'Главен финансиски директор, Horizon Tech',
   'authBrandPanel.eyebrow': 'Доверлив од финансиски тимови',
   'authBrandPanel.label': 'Презентација на брендот',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Сите клиенти',
   'customerDetail.invoiceMeta': 'Издадено {{issued}} · Доспева {{due}}',
   'customerDetail.loadError': 'Не успеа да се вчита клиентот.',
+  'customerDetail.missingBody':
+    'Бараниот запис за клиент не можеше да се вчита. Можеби е отстранет или можеби немате пристап до него.',
   'customerDetail.missingHeading': 'Евиденцијата на клиентот е недостапна',
+  'customerDetail.missingHelp':
+    'Користете ја врската за назад погоре за да се вратите на списокот со клиенти или изберете друг запис од таму.',
+  'customerDetail.noInvoices': 'Сè уште нема фактури.',
   'customerDetail.notesEmpty': 'Сè уште нема белешки.',
   'customerDetail.paymentsEmpty': 'Не се евидентирани плаќања.',
   'customerDetail.paymentTerms': 'Услови за плаќање',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Одбивка',
   'expenseDetail.detailsHeading': 'Детали за трансакцијата',
   'expenseDetail.loadError': 'Неуспешно вчитување на трошокот.',
+  'expenseDetail.matched': 'Совпаднато · {{description}}',
   'expenseDetail.missingBody':
     'Бараниот трошок не можеше да се вчита. Можеби е отстранет или можеби немате пристап до него.',
   'expenseDetail.missingHeading': 'Евиденцијата за трошоци е недостапна',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Сметка',
   'expenseDetail.receiptHeading': 'Сметка',
   'expenseDetail.reconciled': 'Усогласено',
+  'expenseDetail.unreconciled': 'Неусогласено',
   'expenses.empty': 'Сè уште нема трошоци.',
   'expenses.heading': 'Трошоци',
   'expenses.kpi.deductible': 'Одбивка',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Не успеаја да се вчитаат фактурите.',
   'invoices.searchPlaceholder': 'Пребарајте број на фактура или клиент…',
   'invoices.summary.paid': 'Платено во овој период',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'Бесплатно 30 дена. Без картичка. Доведете го вашиот сметководител — тој ќе ви биде благодарен.',
   'landing.ctaTitle': 'Преместете ги книгите на помирно место.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Побарувања од сметки',
   'ledgerStatTriad.eyebrow.mtd': 'Месец до денес',
   'ledgerStatTriad.netSub': 'Мрежа {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} задоцнето',
   'ledgerStatTriad.revenueLabel': 'Приход',
   'login.failed': 'Најавувањето не успеа.',
   'login.hidePassword': 'Сокриј ја лозинката',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Најави се',
   'nav.legal': 'Правни',
   'newExpense.back': 'Трошоци',
+  'newExpense.clearReceiptCta': 'Исчисти го прикачениот сметкопотврда',
   'newExpense.deductible': 'Даночно одбивање',
   'newExpense.dropPrompt':
     'Ставете фотографија или PDF-документ од сметката тука за да ја прикачите.',
@@ -153,6 +173,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Неуспешно вчитување на плаќањата.',
   'payments.unmatchedTag': 'неспоредлив',
   'planUpdated.pageLabel': 'Потврда за ажурирање на планот',
+  'pricing.advancedFeatures': 'Напредни функции: {{yes}}',
+  'pricing.canExport': 'Извоз на податоци: {{yes}}',
+  'pricing.heading': 'Изберете го вашиот {{app}} план',
+  'pricing.maxAccounts': '{{count}} сметки',
+  'pricing.maxExpenses': '{{count}} трошоци',
+  'pricing.maxInvoices': '{{count}} фактури',
+  'privacy.intro':
+    'Оваа Политика за приватност опишува како {{app}} собира, користи и открива информации за бизнисите што ја користат услугата.',
   'privacy.lastUpdated': 'Последно ажурирано: {{датум}}',
   'privacy.section.collected.body':
     'Собираме детали за сметката (име, е-пошта, компанија), финансиските записи што ги прикачувате (фактури, трошоци, клиенти, плаќања) и стандардни логови за работење на услугите (IP адреса, кориснички агент, временски печати).',
@@ -165,8 +193,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Информациите се користат за работа на услугата, генерирање на извештаите и PDF-датотеките што ги барате, испраќање трансакциска е-пошта преку Mailgun и обработка на плаќања преку Stripe. Ние не продаваме ниту изнајмуваме лични информации.',
   'recentInvoicesCard.dueMeta': 'Долг {{date}}',
+  'recentInvoicesCard.empty': 'Нема совпаѓање на фактури.',
   'recentInvoicesCard.eyebrow': 'Побарувања од сметки',
   'recentInvoicesCard.searchAriaLabel': 'Пребарување фактури',
+  'recentInvoicesCard.searchPlaceholder': 'Пребарај фактури…',
   'recentInvoicesCard.title': 'Неодамнешни фактури',
   'recentInvoicesCard.viewAll': 'Погледнете ги сите фактури →',
   'reports.assets': 'Средства',
@@ -182,16 +212,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Добивка и загуба (12 месеци)',
   'resetPassword.backToLogin': '← Назад кон најавување',
   'resetPassword.hidePassword': 'Сокриј ја лозинката',
+  'resetPassword.passwordLabel': 'Нова лозинка',
   'resetPassword.showPassword': 'Прикажи лозинка',
+  'resetPassword.subheading': 'Изберете силна лозинка — минимум осум знаци.',
   'resetPassword.submit': 'Ресетирај лозинка',
   'resetPassword.tooShort': 'Лозинката мора да биде најмалку 8 знаци.',
   'settings.account.changePassword': 'Промени ја лозинката',
   'settings.account.changingPassword': 'Се менува…',
   'settings.account.currentPassword': 'Тековна лозинка',
+  'settings.account.dangerZone': 'Опасна зона',
   'settings.account.deleteAccount': 'Избриши сметка',
   'settings.account.deleteDescription':
     'Трајно избришете ја вашата сметка и сите поврзани податоци.',
   'settings.account.deleteError': 'Неуспешно бришење на сметката.',
+  'settings.account.deleteWarning':
+    'Ова трајно ја брише вашата сметка и не може да се врати. Внесете ја вашата лозинка за потврда.',
   'settings.account.deleting': 'Бришење…',
   'settings.account.devices': 'Уреди',
   'settings.account.email': 'Е-пошта',
@@ -202,6 +237,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Лозинка',
   'settings.account.passwordError': 'Неуспешна промена на лозинката.',
   'settings.account.pushNotifications': 'Push известувања на овој уред',
+  'settings.account.revokeDeviceWarning':
+    'Пристапот на овој уред ќе биде повлечен наскоро. Одјавете го?',
   'settings.account.saveError': 'Неуспешно ажурирање на профилот.',
   'settings.account.security': 'Безбедност',
   'settings.account.signOutDevice': 'Одјави се',
@@ -209,12 +246,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Двофакторска автентикација',
   'settings.account.twoFactorCode': 'Код за автентикација',
   'settings.account.twoFactorDisable': 'Оневозможи',
+  'settings.account.twoFactorDisableTitle': 'Оневозможи двофакторска автентикација',
   'settings.account.twoFactorEnable': 'Овозможи',
+  'settings.account.twoFactorEnableTitle': 'Овозможи двофакторска автентикација',
   'settings.account.twoFactorInvalidCode': 'Неважечки код',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'Двофакторски QR код',
+  'settings.account.twoFactorScan':
+    'Скенирајте го овој QR-код со вашата апликација за автентикација, потоа внесете го 6-цифрениот код.',
+  'settings.account.twoFactorUnavailable':
+    'Двофакторската автентикација не е достапна за оваа апликација.',
   'settings.account.twoFactorVerify': 'Потврди и овозможи',
   'settings.account.unknownDevice': 'Непознат уред',
   'settings.company.email': 'Е-пошта за фактурирање',
+  'settings.company.heading': 'Компанија и данок',
   'settings.company.name': 'Правно име',
   'settings.company.saveButton': 'Зачувај профил на компанијата',
   'settings.company.taxId': 'Даночен број / ЕМД',
@@ -258,6 +303,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Проценето квартално',
   'taxes.kpi.owed': 'Должен',
   'taxes.loadError': 'Неуспешно вчитување на даночниот резиме.',
+  'taxes.remittedPct': '({{pct}}% уплатено)',
+  'terms.intro':
+    'Овие Услови за користење („Услови“) го регулираат вашиот пристап до и користењето на {{app}}. Со создавање сметка или користење на услугата се согласувате да бидете обврзани со нив.',
   'terms.lastUpdated': 'Последно ажурирано: {{датум}}',
   'terms.section.acceptable.body':
     'Се согласувате да не ја користите услугата за кршење на кој било закон, повреда на правата на интелектуална сопственост, пренесување на малициозен софтвер или обид за добивање неовластен пристап до други сметки или нашата инфраструктура.',

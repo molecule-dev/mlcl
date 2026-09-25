@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Алдаа олсон, шинэ функц хүсэх, эсвэл дараа нь юу хийхийг хэлэхийг хүсэж байна уу? hello@pylon.dev хаяг руу имэйл бичээрэй — мессеж бүр багийн жинхэнэ инженерт хүрдэг.',
   'about.contactTitle': 'Бидэнтэй холбогдох',
+  'about.intro':
+    '{{app}} нь терминал дээр ажилладаг инженерүүдэд зориулсан хурдан, гар удирдлагад суурилсан API туршилтын ажлын талбар — Postman маягийн хүсэлт, цуглуулга, орчин, түүх, илүүдэл жингүйгээр.',
+  'about.missionBody':
+    'API нь орчин үеийн програмын тулгуур багана боловч тэдгээрийг турших хэрэгслүүд удаан, хүнд, хулганаар удирддаг. {{app}} нь хөгжүүлэгчдэд хурц, хурдан, терминалын түвшний ажлын талбар өгөхөөр бий болсон: хүсэлт илгээ, итгэлээ бэхжүүл, гарнаасаа гаралгүйгээр хүргэ.',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
   'about.pageTitle': '{{app}}-ийн тухай',
   'authShell.statusLabel': 'онлайн гүйгчид',
   'collections.createError': 'Цуглуулга үүсгэж чадсангүй.',
   'collections.defaultName': 'Гарчиггүй цуглуулга {{n}}',
+  'collections.empty':
+    'Цуглуулга байхгүй байна — эхний хавтсаа үүсгэхийн тулд “New collection” дээр дарна уу.',
   'collections.eyebrow': '$ пилон цуглуулга --tree',
   'collections.fetchError': 'Цуглуулгыг ачаалж чадсангүй.',
   'collections.heading': 'Цуглуулга',
   'collections.loading': 'Цуглуулгыг ачаалж байна…',
+  'collections.metric.allGreen': 'Бүгд ногоон',
   'collections.metric.collections': 'Цуглуулга',
   'collections.metric.failing': 'Амжилтгүй болсон',
   'collections.metric.failingCaption': 'Сүүлийн гүйлт амжилтгүй болсон',
@@ -23,6 +33,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Хувьсагч',
   'environments.createError': 'Орчин бүрдүүлж чадсангүй.',
   'environments.defaultName': 'Гарчиггүй орчин {{n}}',
+  'environments.empty': 'Орчин байхгүй байна — нэмэхийн тулд “New environment” дээр дарна уу.',
   'environments.eyebrow': '$ пилон орчныг өөрчлөх',
   'environments.fetchError': 'Орчнуудыг ачаалж чадсангүй.',
   'environments.heading': 'Орчин',
@@ -30,8 +41,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Шинэ орчин',
   'environments.subheading':
     'Илгээх үед хүсэлт болгон солигддог хувьсагчууд. Ажлын талбар бүрт нэг идэвхтэй орчин.',
+  'forgotPassword.statusLabel': 'дахин тохируулах · аюулгүй туннель',
   'forgotPassword.success':
     'Хэрэв тухайн имэйлд бүртгэл байгаа бол дахин тохируулах холбоос гарч ирнэ. Ирсэн имэйлээ шалгана уу.',
+  'history.empty': 'Энд одоогоор юу ч байхгүй — Workspace табаас эхний хүсэлтээ илгээнэ үү.',
   'history.eyebrow': '$ пилоны түүх --tail',
   'history.fetchError': 'Түүхийг ачаалж чадсангүй.',
   'history.heading': 'Ажиллуулах түүх',
@@ -40,9 +53,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Сүүлийн 50',
+  'history.realtime': 'бодит цаг',
   'history.subheading':
     'Энэ ажлын талбарт илгээсэн хүсэлт бүр, төлөв, хоцрогдол болон ашигтай ачааллын хэмжээг харуулсан.',
   'landing.choosePlan': 'Төлөвлөгөө сонгох',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Итгэлээ бэхжүүл.',
   'landing.ctaBody':
     'Зээлийн карт шаардлагагүй. Платформ инженер шаардлагагүй. ⌘K-г нээгээд эхний хүсэлтээ таван минутаас бага хугацаанд илгээнэ үү.',
   'landing.ctaHeading': 'Итгэл үнэмшлээ бэхжүүл.',
@@ -84,6 +99,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Дундаж хоцрогдол',
   'mocks.metric.live': 'Олон нийтийн',
   'mocks.metric.servers': 'Хуурамч зүйлс',
+  'mocks.ms': 'хатагтай',
   'mocks.newMock': 'Шинэ загвар',
   'mocks.online': 'Олон нийтийн',
   'mocks.paused': 'Хувийн',
@@ -108,9 +124,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Эрүүл',
   'monitors.metric.uptime': 'Дундаж ажиллах хугацаа',
   'monitors.newMonitor': 'Шинэ монитор',
+  'monitors.paused': 'түр зогссон',
   'monitors.run': 'Гүйх',
   'monitors.runError': 'Сүлжээний алдаатайгаар ажил дууссан: {{error}}',
+  'monitors.runFailed': 'Ажиллагаа амжилтгүй боллоо.',
   'monitors.running': 'Гүйж байна...',
+  'monitors.runSuccess': '{{status}} ажиллуулах — дээд тал {{ms}}мс-д {{code}} буцаав.',
   'monitors.sparkLabel': 'Хоцрогдлын чиг хандлага',
   'monitors.subheading':
     'Хадгалсан аливаа тестийг хүсэлтийн дагуу шалгана уу. Тестийг холбож, Run товчийг дарж, гал асаах бүрт 24 цагийн амжилтын түвшний шинэчлэлтийг үзээрэй.',
@@ -119,27 +138,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Ажиллах хугацаа · 24 цаг',
   'nav.legal': 'Хууль эрх зүйн',
   'notFound.backToWorkspace': 'Ажлын талбар руу буцах',
+  'notFound.body':
+    '{{app}} энэ URL-д хүсэлт илгээсэн боловч хариу ирсэнгүй. Маршрутыг дахин шалгах эсвэл ажлын талбар руу буцаарай.',
   'notFound.eyebrow': '$ пилон шийдвэр --strict',
   'notFound.title': 'Маршрут олдсонгүй',
+  'planUpdated.body':
+    'Таны төлбөрийн өөрчлөлт идэвхжлээ. Та төлбөрийн хуудаснаас төлөвлөгөөгөө хүссэн үедээ удирдах боломжтой.',
+  'planUpdated.retry': 'Дахин оролдоно уу',
+  'planUpdated.verifyFailed': 'Бид таны төлбөрийг хараахан баталгаажуулж чадсангүй.',
+  'planUpdated.verifyFailedBody':
+    'Таны төлбөрийг боловсруулж байж магадгүй. Хэсэг хугацааны дараа дахин оролдоно уу.',
   'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
+  'pricing.advancedFeatures': 'Дэвшилтэт функцууд: {{yes}}',
+  'pricing.canExport': 'Өгөгдөл экспортлох: {{yes}}',
+  'pricing.heading': '{{app}}-ийн төлөвлөгөө сонгох',
+  'pricing.maxCollections': '{{count}} цуглуулга',
+  'pricing.maxEnvironments': '{{count}} орчин',
+  'pricing.maxHistory': '{{count}} түүхийн бичлэг',
+  'pricing.maxRequests': '{{count}} хүсэлтүүд',
   'privacy.collect.account':
     'Бүртгэл: таны имэйл хаяг, хэшлэгдсэн нууц үг, дэлгэцийн нэр болон таны сүүлд нэвтэрсэн цагийн тэмдэг.',
+  'privacy.intro':
+    '{{app}} таны нууцлалыг хүндэтгэдэг. Энэ хуудас бид ямар өгөгдөл цуглуулдаг, яагаад цуглуулдаг, хэрхэн устгах талаар товч тайлбарлана.',
   'privacy.rights.body':
     'Та цуглуулга + орчноо хүссэн үедээ экспортлох эсвэл 30 хоногийн дотор бүх өгөгдлийг бүрмөсөн устгахын тулд Тохиргооноос бүртгэлээ устгаж болно.',
   'privacy.share.body':
     'Зөвхөн та. Бид таны ажлын талбарын контентыг хэзээ ч гуравдагч этгээдэд зардаггүй, хуваалцдаггүй эсвэл түрээслүүлдэггүй. Серверийн бүртгэлийг ослын хариу арга хэмжээ авах зорилгоор 30 хоногийн турш хадгалж, дараа нь устгадаг.',
   'privacy.title': 'Нууцлалын мэдэгдэл',
+  'profile.bio':
+    'Таны хувийн {{app}} ажлын талбар — цуглуулгуудыг бэхлэ, орчнуудыг хуваалца, бүтээгдэхүүн хүргэдэг API-уудыг хяна.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'нэгдсэн {{when}}',
+  'profile.metric.collections': 'Цуглуулга',
   'profile.metric.monitors': 'Мониторууд',
   'profile.metric.requests': 'Хадгалсан хүсэлтүүд',
+  'profile.noActivity':
+    'Одоогоор хүсэлт илгээгээгүй байна — илгээхийн тулд Workspace таб руу орно уу.',
   'profile.signedOut': 'Профайлаа харахын тулд нэвтэрнэ үү',
   'pylonShell.primaryNavLabel': 'Үндсэн навигаци',
+  'resetPassword.passwordLabel': 'Шинэ нууц үг',
+  'resetPassword.statusLabel': 'дахин тохируулах · токен баталгаажсан',
   'resetPassword.subtitle': 'Өмнө нь ашиглаж байгаагүй хүчтэй нууц үг сонгоно уу.',
   'resetPassword.tokenPlaceholder': 'имэйлээс буулгах',
+  'settings.accountManagement.desc':
+    'Имэйл, нууц үгээ шинэчил, мэдэгдэл болон төхөөрөмжөө удирд, гарах, эсвэл бүртгэлээ устга.',
+  'settings.accountManagement.title': 'Бүртгэл ба аюулгүй байдал',
   'settings.eyebrow': '$ пилоны тохиргоо --засварлах',
   'settings.fetchError': 'Тохиргоог ачаалж чадсангүй.',
   'settings.language.title': 'Хэл',
+  'settings.seeding': 'Бэлтгэж байна…',
   'settings.seedStarter': 'Үрийн эхлэлийн агуулга',
   'settings.starterCollection': 'Эхлүүлэгчийн цуглуулга',
   'settings.starterCollectionDesc': 'Тохиргооноос үүсгэсэн {{ts}}',
@@ -154,6 +201,8 @@ export const ui: UiTranslations = {
     'Та нууц үгээ хамгаалах үүрэгтэй. Үнэгүй эсвэл Pro төлөвлөгөөнд нэг бүртгэлийг олон хүнтэй хуваалцахыг зөвшөөрдөггүй — хуваалцсан ажлын талбарт Team захиалга худалдаж аваарай.',
   'terms.billing.body':
     'Төлбөртэй захиалга нь төлбөрийн хугацаа бүрт автоматаар шинэчлэгддэг. Тохиргооноос хүссэн үедээ цуцлах боломжтой; таны хандалт одоогийн хугацааны төгсгөл хүртэл үргэлжилнэ.',
+  'terms.intro':
+    '{{app}} бүртгэл үүсгэснээр та доорх нөхцөлийг зөвшөөрч байна. Нэг удаа уншаарай; бид буцаах хүчинтэй өөрчлөлтөөр таныг гайхшруулахгүй.',
   'terms.title': 'Үйлчилгээний нөхцөл',
   'terms.usage.body':
     'Өөрийн эзэмшдэггүй эсвэл шалгах зөвшөөрөлгүй үйлчилгээнүүд рүү хүсэлт илгээхэд Pylon-г бүү ашиглаарай. Үнийн хязгаарыг тойрч гарах эсвэл залилан мэхлэхийн тулд Pylon-г бүү ашиглаарай.',
@@ -174,16 +223,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Ажиллаагүй байна',
   'testRunner.metric.passed': 'Тэнцсэн',
   'testRunner.never': 'Хэзээ ч ажиллуулахгүй байх',
+  'testRunner.newTest': 'Шинэ тест',
   'testRunner.noAssertions': 'Энэ туршилтын талаар одоогоор ямар ч баталгаа алга.',
+  'testRunner.noRunsYet':
+    'Одоогоор ажиллагаа бүртгэгдээгүй байна — түүхийг дүүргэхийн тулд “Run all” дээр дарна уу.',
   'testRunner.passed': 'дамжуулалт',
+  'testRunner.recentRuns': 'Саяхны гүйлтүүд',
   'testRunner.runAll': 'Бүгдийг ажиллуулах',
   'testRunner.running': 'Гүйж байна...',
   'testRunner.runOne': 'Гүйх',
   'testRunner.subheading': 'Suite-ийн үр дүн, баталгааны зөрүү болон сүүлийн 50 гүйлт.',
+  'testRunner.suites': 'Багцууд',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Нэвтэрсэн нэр',
   'workspace.auth.keyName': 'Толгой хэсгийн нэр',
   'workspace.auth.keyValue': 'Түлхүүр утга',
+  'workspace.auth.noneHint': 'Энэ хүсэлтэд зөвшөөрлийн толгой илгээгдэхгүй.',
   'workspace.auth.password': 'Нууц үг',
   'workspace.auth.username': 'Хэрэглэгчийн нэр',
   'workspace.authOption.apikey': 'API түлхүүр',
@@ -193,13 +248,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Төрөл',
   'workspace.authTypeLabel': 'Баталгаажуулах төрөл',
+  'workspace.body.contentLabel': 'Хүсэлтийн үндсэн хэсэг',
+  'workspace.body.hint':
+    'Хүсэлт илгээгдэхээс өмнө {{envVars}} орлуулагдана. Биеийг POST/PUT/PATCH/DELETE дээр илгээнэ.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Байхгүй',
+  'workspace.body.noneHint':
+    'Хүсэлтийн бие илгээгдэхгүй. Нэмэхийн тулд JSON эсвэл түүхий текст сонгоно уу.',
   'workspace.body.text': 'Түүхий текст',
   'workspace.body.type': 'Төрөл',
   'workspace.environment': 'Хүрээ байхгүй',
   'workspace.envVar': 'орчны хувьсагч',
   'workspace.eyebrow': '$ пилон ажлын талбар --pane хуваах',
+  'workspace.failedCount': '{{count}} бүтэлгүйтсэн',
+  'workspace.idle': 'Сул зогсолт',
   'workspace.kv.addHeader': 'Толгой хэсэг нэмэх',
   'workspace.kv.addParam': 'Параметр нэмэх',
   'workspace.kv.headerKey': 'Толгой хэсгийн нэр',
@@ -212,12 +274,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP арга',
   'workspace.metric.latency': 'Хоцрогдол',
   'workspace.metric.latencyCaption': 'Энэ гүйлтээс хойш хоёр талын аялал',
+  'workspace.metric.size': 'Ачаалал',
   'workspace.metric.sizeCaption': 'Хариу үйлдлийн биеийн байтууд',
   'workspace.metric.statusCaption': 'Сүүлийн хариулт',
   'workspace.metric.tests': 'Тестүүд',
+  'workspace.metric.testsAllPassing': 'Бүх баталгаа ногоон',
   'workspace.metric.testsFailing': '{{count}} бүтэлгүйтсэн',
+  'workspace.metric.testsIdle': 'Үнэлэхийн тулд хүсэлт илгээнэ үү',
   'workspace.noAssertions': 'Суурилуулсан баталгааг үнэлэх хүсэлтийг ажиллуулна уу.',
   'workspace.noResponseYet': 'Хариу алга байна',
+  'workspace.passedCount': '{{count}} тэнцсэн',
   'workspace.responseHint': '// Хүсэлтийг илгээж, хариултыг авахын тулд Илгээх товчийг дарна уу.',
   'workspace.saveError': 'Хүсэлтийг хадгалж чадсангүй.',
   'workspace.statusError': 'Хүсэлтийг илгээж чадсангүй.',
@@ -226,10 +292,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Хүсэлт бичиж, ажиллуулаад, дараа нь хариултыг баталгаажуулна уу - бүгдийг нь нэг цонхонд хийнэ үү.',
   'workspace.testResults': 'Туршилтын үр дүн',
+  'workspace.tests.autoHint':
+    'Төлөвийн бүлэг, хоцролт, биеийн хэмжээ, дамжуулалтын эрүүл байдал автоматаар баталгаажина — үр дүн хариуны самбарын “Test results” хэсэгт харагдана.',
+  'workspace.tests.autoTitle': 'Хариу бүрт суурилагдсан баталгаа ажиллана',
   'workspace.token': 'Токен',
   'workspace.tokenHint':
     'Зөвшөөрөл болгон илгээсэн: Эзэмшигч<token> энэ цуглуулга дахь бүх хүсэлт дээр.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Гарчиггүй хүсэлт',
+  'workspace.urlLabel': 'Хүсэлтийн URL',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

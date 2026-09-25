@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Имате повратна информација, најдовте грешка или сакате да го донесете {{app}} во вашето училиште или тим? Ја читаме секоја порака — обратете се од поставките на вашиот профил и вистински човек ќе ви одговори.',
   'about.contactTitle': 'Контактирајте не',
   'about.eyebrow': 'За',
+  'about.intro':
+    '{{app}} е дневна игра со зборови. Погодете го зборот од пет букви во шест обиди, задржете ја низата победи, споделете ја вашата емодзи-мрежа и видете како поминаа сите со денешниот збор.',
+  'about.missionBody':
+    'Добрата загатка е мала дневна победа. {{app}} е изградена околу еден заеднички збор дневно — доволно брза за пауза за кафе, доволно интересна за да се вратите и утре.',
+  'about.missionTitle': 'Нашата мисија',
   'about.title': 'За {{app}}',
   'archive.loadError': 'Не може да се вчита архивата.',
   'archive.missed': 'Пропуштено',
   'archive.notPlayed': 'Не е играно',
+  'archive.subhead':
+    'Преиграјте кој било претходен ден како вежба — без низи победи, без статистики, само забава.',
   'archive.title': 'Архива',
   'auth.backToHome': 'Назад кон почетна',
   'auth.backToHomeArrow': '← Назад кон почетна',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Заборавена лозинка?',
   'auth.login.loggingIn': 'Ве најавуваме…',
   'auth.login.logIn': 'Играјте го денешниот збор',
+  'auth.login.noAccount': 'Нов во Тесера?',
   'auth.login.or': 'или продолжете со',
   'auth.login.password': 'Лозинка',
   'auth.login.signInButton': 'Најави се',
@@ -32,6 +42,10 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Се зачувува…',
   'common.sendingEllipsis': 'Се испраќа…',
   'common.startingEllipsis': 'Се стартува…',
+  'forgotPassword.subhead': 'Внесете ја вашата е-пошта и ние ќе ви испратиме линк за ресетирање.',
+  'forgotPassword.success.body':
+    'Ако постои сметка за {{email}} , ќе добиете линк за ресетирање за неколку минути.',
+  'forgotPassword.success.title': 'Проверете го вашето сандаче.',
   'form.name': 'Име',
   'howToPlay.cta.home': 'Назад кон дома',
   'howToPlay.cta.play': 'Играјте ја денешната загатка',
@@ -68,10 +82,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Серии што мразите да ги прекинете',
   'leaderboard.daily.title': 'Денешни решенија',
   'leaderboard.loadError': 'Не може да се вчита табелата на лидери.',
+  'leaderboard.streaks.empty': 'Сè уште нема низи победи — бидете први.',
+  'leaderboard.streaks.subhead': 'Најдолги низи победи на сите времиња.',
   'leaderboard.streaks.title': 'Лидери по серии',
+  'leaderboard.subhead': 'Како поминаа сите денес и кој ги држи најдолгите низи победи.',
   'leaderboard.title': 'Табела на лидери',
   'login.headline': 'Добредојдовте назад.',
   'login.streakPill': '{{days}}-дневна серија ве чека',
+  'login.subhead':
+    'Најавете се за да ја задржите низата победи и да видите како поминавте со денешниот збор.',
   'nav.archive': 'Архива',
   'nav.editProfile': 'Уреди профил',
   'nav.getStarted': 'Започнете',
@@ -89,6 +108,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Нема таков збор',
   'notFound.title': 'Таа рута е празна.',
   'planUpdated.message': 'Вашиот план е активен.',
+  'planUpdated.retry': 'Обидете се повторно',
+  'planUpdated.verifyFailed': 'Сè уште не можевме да ја потврдиме вашата уплата.',
+  'planUpdated.verifyFailedBody':
+    'Вашето плаќање можеби сè уште се обработува. Обидете се повторно за момент.',
   'planUpdated.verifying': 'Се потврдува вашата уплата…',
   'play.alreadyFinished': 'Веќе ја завршивте оваа загатка',
   'play.answerWas': 'Зборот беше',
@@ -104,6 +127,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Вежбовна загатка',
   'play.tooShort': 'Недоволно букви',
   'play.won': 'Решено!',
+  'pricing.advancedStats': 'Напредна статистика: {{yes}}',
+  'pricing.archiveHistory': '{{count}} дена историја на архивата',
+  'pricing.archivePlays': '{{count}} преигрувања од архивата / ден',
+  'pricing.archiveUnlimited': 'Неограничена историја на архивата',
+  'pricing.canExport': 'Извоз на податоци: {{yes}}',
+  'pricing.checkoutError': 'Не може да се започне со наплата. Обидете се повторно.',
   'pricing.dailyWord': 'Дневниот збор',
   'pricing.heading': 'Изберете го вашиот {{app}} план',
   'pricing.included': 'Вклучено',
@@ -111,7 +140,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Дневниот збор е секогаш бесплатен. Надградете се за неограничени повторувања од архивата и подетални статистики.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} ја почитува вашата приватност. Оваа страница ги сумира податоците што ги чуваме, зошто ги чуваме и како да ги избришете.',
   'privacy.title': 'Известување за приватност',
+  'resetPassword.subhead': 'Изберете нова лозинка за да се вратите на вашата низа победи.',
   'settings.account': 'Сметка',
   'settings.danger.body':
     'Трајно отстранете ја вашата {{appName}} сметка и целата историја на загатки.',
@@ -122,17 +154,23 @@ export const ui: UiTranslations = {
   'settings.language.title': 'Јазик',
   'settings.subhead':
     'Прилагодете го вашиот профил, звук и како се појавувате на табелата на лидери.',
+  'settings.unnamed': 'Играч на Sparq',
   'settings.upgrade': 'Надгради',
   'signup.eyebrow': 'Бесплатно засекогаш — еден збор дневно',
   'signup.headline': 'Започнете ја вашата серија.',
+  'signup.subhead':
+    'Создајте профил на {{appName}} за да играте дневниот збор, да изградите низа победи и да се искачите на табелата со резултати.',
   'stats.currentStreak': 'Серија',
   'stats.distribution.title': 'Дистрибуција на обиди',
   'stats.loadError': 'Не може да се вчитаат вашите статистики.',
   'stats.maxStreak': 'Макс серија',
   'stats.played': 'Играни',
   'stats.playToday': 'Играјте ја денешната загатка',
+  'stats.subhead': 'Само рангирани дневни загатки — вежбањето од архивата никогаш не се брои.',
   'stats.title': 'Ваши статистики',
   'stats.winRate': 'Процент на победи',
   'status.monthly': 'Месечен',
+  'terms.intro':
+    'Со користење на {{app}} се согласувате со правилата подолу. Ако не можете да ги прифатите, ве молиме не користете ја услугата.',
   'terms.title': 'Услови за користење',
 }

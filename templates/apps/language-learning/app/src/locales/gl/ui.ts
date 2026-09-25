@@ -1,12 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tes preguntas, suxestións ou un erro que reportar? Contacta co equipo desde a configuración da túa conta — cada mensaxe chega a unha persoa real que tamén aprende idiomas.',
   'about.contactTitle': 'Fala connosco',
   'about.eyebrow': 'Sobre nós',
+  'about.missionTitle': 'A nosa misión',
+  'about.whatYouGet': 'O que obtés',
   'common.goToDashboard': 'Ir ao panel',
   'common.logout': 'Pechar sesión',
+  'dailyStatsTriad.heartsHint': 'Reabastece ao comezo de cada lección',
   'dailyStatsTriad.heartsLabel': 'Corazóns',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
+  'dailyStatsTriad.minutesHint': 'Dos exercicios de hoxe',
   'dailyStatsTriad.minutesLabel': 'Minutos hoxe',
   'dailyStatsTriad.minutesValue': '{{count}} min',
   'dailyStatsTriad.wordsLabel': 'Palabras dominadas',
@@ -15,17 +21,29 @@ export const ui: UiTranslations = {
   'dashboard.heading': 'Bos días, {{name}} .',
   'dashboard.loadError':
     'Non se puido cargar o progreso máis recente: móstranse os valores almacenados na caché.',
+  'dashboard.loading': 'Refrescante…',
   'dashboard.noLessons': 'Aínda non hai leccións dispoñibles. Volva pronto.',
+  'dashboard.startPractice': 'Comeza a practicar a fala',
+  'dashboard.subheading':
+    'Retoma onde o deixaches — tres sesións curtas e acadarás o obxectivo de hoxe.',
   'dashboard.viewAllLessons': 'Todas as leccións →',
+  'forgotPassword.subheading':
+    'Deixa o teu correo e enviarémosche unha ligazón de restablecemento.',
   'forgotPassword.successBody':
     'Consulta a túa caixa de entrada: enviámosche unha ligazón para restablecela.',
   'forgotPassword.successHint': 'Se {{email}} coincide cunha conta, a ligazón chegará nun minuto.',
+  'landing.copyright': '© {{year}} {{app}}. Feito para persoas adultas que aprenden.',
   'landing.ctaBody':
     'Non se precisa tarxeta. Déixanos o teu correo electrónico, escolle un idioma e comeza mañá.',
   'landing.ctaHeading': 'Listo/a para atopar o teu acento?',
   'landing.eyebrow': 'Práctica diaria de linguaxe para adultos',
   'landing.featuresHeading': 'Un bucle de práctica que respecta o teu tempo',
+  'landing.featuresSubheading':
+    'Deseñado para persoas adultas con trinta minutos ao día, non trinta horas á semana.',
   'landing.heroCta': 'Comeza unha racha de 7 días',
+  'landing.heroSubtitle':
+    'Leccións de cinco minutos que caben nunha pausa para o café. Exercicios, vocabulario, fala — todo dentro dunha racha que de verdade manterás.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.languagesEyebrow': 'Escolle un idioma',
   'landing.languagesHeading': 'Catorce linguas, un hábito cotián',
   'landing.proof.languages': '{{count}} linguas',
@@ -40,11 +58,18 @@ export const ui: UiTranslations = {
   'leaderboard.heading': 'Táboa de clasificación',
   'leaderboard.loadError': 'Non se puido cargar a táboa de clasificación.',
   'leaderboard.loading': 'Cargando a táboa de clasificación…',
+  'leaderboard.rewardBody':
+    'Manter o ouro tres semanas seguidas promóchete a diamante. Só apostas amigables.',
+  'leaderboard.rewardEyebrow': 'O premio desta semana',
+  'leaderboard.rewardHeading': 'Os {{count}} mellores gañan a insignia da liga de ouro',
   'leaderboard.subheading':
     'XP esta semana. Reinicializa o domingo á medianoite na túa hora local.',
   'leaderboard.weeklyPeriod': 'Esta semana · amigos',
+  'leaderboardPanel.rankSuffix': 'Rango nº {{rank}}',
   'leaderboardPanel.title': 'Táboa de clasificación de amigos',
+  'leaderboardPanel.xp': '{{xp}} XP',
   'leaderboardPanel.you': '(Ti)',
+  'lessonCard.continue': 'Continuar →',
   'lessonCard.duration': '{{min}} min',
   'lessonCard.level': 'Nivel {{level}}',
   'lessonCard.progressPercent': '{{percent}} % completado',
@@ -53,14 +78,17 @@ export const ui: UiTranslations = {
   'lessonDetail.check': 'Comprobar',
   'lessonDetail.checking': 'Comprobando…',
   'lessonDetail.correct': 'Brillante!',
+  'lessonDetail.correctHint': '+{{xp}} XP. Segue así.',
   'lessonDetail.empty': 'Non hai exercicios nesta lección.',
   'lessonDetail.exit': 'Saír da lección',
   'lessonDetail.fillBlank': 'Completa o espazo en branco',
   'lessonDetail.finish': 'Rematar a lección',
   'lessonDetail.incorrect': 'Non exactamente — “ {{answer}} "',
+  'lessonDetail.incorrectHint': 'Volverás ver esta en repaso de mañá.',
   'lessonDetail.lessonId': 'Lección · {{id}}',
   'lessonDetail.loadError': 'Non se puideron cargar os exercicios.',
   'lessonDetail.loading': 'Cargando lección…',
+  'lessonDetail.pronunciation': 'Escolle a pronuncia correcta',
   'lessonDetail.submitError': 'Non se puido enviar a resposta.',
   'lessonDetail.translation': 'Traducir a frase',
   'lessonDetail.xpEarned': 'XP gañado · {{xp}}',
@@ -79,6 +107,12 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'Abrir menú de navegación',
   'parlanceLayout.nav.profile': 'Perfil',
   'parlanceLayout.primaryNavLabel': 'Navegación principal',
+  'planUpdated.body':
+    'O cambio da túa facturación xa está activo. Podes xestionar o teu plan en calquera momento desde a páxina de facturación.',
+  'planUpdated.retry': 'Téntao de novo',
+  'planUpdated.verifyFailed': 'Aínda non puidemos confirmar o teu pagamento.',
+  'planUpdated.verifyFailedBody':
+    'É posible que o teu pago aínda estea procesándose. Téntao de novo nun momento.',
   'planUpdated.verifying': 'Confirmando o teu pago…',
   'practice.empty': 'Aínda non hai frases dispoñibles.',
   'practice.eyebrow': 'Práctica oral',
@@ -102,6 +136,9 @@ export const ui: UiTranslations = {
   'pricing.limits.progress': 'entradas de progreso',
   'profile.anonymous': 'Aprendiz',
   'profile.avatarAlt': '{{name}} Avatar de \\u2019s',
+  'profile.eyebrow': 'Membro desde {{joined}}',
+  'profile.eyebrowNew': 'Novo estudante',
+  'profile.langLessonCount': '{{count}} leccións',
   'profile.langLevel': 'Nivel {{level}}',
   'profile.languages': 'Linguas',
   'profile.languagesHeading': 'Idiomas en curso',
@@ -110,6 +147,7 @@ export const ui: UiTranslations = {
   'profile.streak': 'Raia',
   'profile.totalXp': 'XP total',
   'resetPassword.confirmPlaceholder': 'Escríbeo de novo',
+  'resetPassword.mismatch': 'Os contrasinais non coinciden.',
   'resetPassword.newPasswordLabel': 'Novo contrasinal',
   'resetPassword.newPasswordPlaceholder': 'Oito caracteres ou máis',
   'resetPassword.subheading': 'Escolle algo memorable, oito personaxes ou máis.',
@@ -117,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Preferencias de práctica',
   'settings.goalBody':
     'Canto XP queres conseguir cada día. As rachas mantéñense sempre que alcanzas o obxectivo.',
+  'settings.goalHeading': 'Obxectivo diario',
   'settings.goalMinutes': '~ {{min}} min/día',
   'settings.language.description':
     'Escolle o idioma que se usa nos menús e etiquetas da aplicación.',

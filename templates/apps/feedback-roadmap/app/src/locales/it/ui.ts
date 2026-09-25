@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Hai un feedback, hai trovato un bug o vuoi una board tutta tua su {{appName}}? Apri le Impostazioni per contattare il team — ogni messaggio arriva a una persona reale che lo legge.',
+  'about.contactTitle': 'Contattaci',
+  'about.featureModeration':
+    'Una roadmap pubblica con etichette trimestrali, un changelog che trasforma il lavoro rilasciato in note di rilascio e una dashboard che mostra cosa vuole di più la community.',
+  'about.featurePricing':
+    'Puoi gestire un paio di board gratis; i piani Pro e Team sbloccano più board, limiti più alti ed esportazione dei dati.',
+  'about.featureThreads':
+    'Board di feedback pubbliche organizzate per argomento, con unione dei duplicati che raccoglie i voti in un unico segnale di domanda autentico.',
+  'about.featureVoting':
+    'Voto unico per utente con un flusso di stati completo — aperto, pianificato, in corso, rilasciato o rifiutato — e una risposta ufficiale su ogni decisione.',
+  'about.intro':
+    '{{appName}} è una piattaforma di feedback di prodotto — board pubbliche dove i clienti pubblicano richieste, votano ciò di cui hanno bisogno e seguono ogni idea da pianificata a rilasciata. I team smettono di tirare a indovinare cosa costruire perché la domanda si classifica da sola.',
+  'about.missionBody':
+    'Crediamo che le migliori decisioni di prodotto si prendano allo scoperto. {{appName}} offre a ogni team una board pubblica di richieste votate, una roadmap ufficiale con trimestri obiettivo e un changelog che chiude il cerchio — così i clienti vedono il loro impatto e i team vedono il loro mandato.',
+  'about.missionTitle': 'La nostra missione',
   'admin.backToBoards': 'Torna alle bacheche',
   'admin.denied': 'Solo amministratori.',
   'admin.eyebrow': 'Team di prodotto',
@@ -11,6 +27,8 @@ export const ui: UiTranslations = {
   'admin.title': 'Dashboard feedback',
   'admin.topOpen': 'Principali richieste aperte',
   'admin.totalVotes': '{{count}} totali',
+  'admin.votesChartLabel':
+    'Grafico a barre dei voti espressi a settimana nelle ultime otto settimane',
   'admin.votesOverTime': 'Voti nel tempo',
   'auth.forgotPassword.email': 'Email',
   'auth.forgotPassword.sendResetLink': 'Invia link di reset',
@@ -30,7 +48,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Crea il tuo account',
   'auth.username': 'Nome utente',
   'authShell.communities': 'Comunità',
+  'authShell.copyright': '{{appName}} — ogni voce conta.',
   'authShell.trending': 'Di tendenza',
+  'boardCard.postCount': '{{count}} post',
   'boardDetail.allBoards': 'Tutte le bacheche',
   'boardDetail.backToBoards': 'Torna alle bacheche',
   'boardDetail.empty': 'Nessun post corrisponde a questi filtri.',
@@ -54,6 +74,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     "Ogni elemento è iniziato come una richiesta votata. I votanti l'hanno vista muoversi; qui è dove è atterrata.",
   'changelog.title': 'Rilasciato, con ricevute',
+  'changelog.voteCount': '{{count}} voti hanno reso possibile tutto questo',
   'common.atLeast8Characters': 'Almeno 8 caratteri',
   'common.checkYourInbox': 'Controlla la tua casella di posta',
   'common.loadingEllipsis': 'Caricamento…',
@@ -64,6 +85,9 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Invio…',
   'footer.about': 'Informazioni su {{appName}}',
   'footer.language': 'Lingua',
+  'forgotPassword.description': 'Inserisca la sua email e le invieremo un link per reimpostarla.',
+  'forgotPassword.successBody':
+    'Abbiamo inviato un link di ripristino a {{email}}. Scade in 30 minuti.',
   'forgotPassword.tryAnother': "Prova un'altra email",
   'form.displayName': 'Nome visualizzato',
   'form.firstName': 'Nome',
@@ -74,6 +98,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'La tua roadmap, sostenuta dai voti.',
   'landing.heroCtaPrimary': 'Inizia a raccogliere voti',
   'landing.heroCtaSecondary': 'Vedi una bacheca live',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Smetti di indovinare. Rilascia ciò che votano.',
+  'landing.heroLede':
+    '{{appName}} trasforma richieste di funzionalità sparse in una board pubblica di idee votate, una roadmap ufficiale e un changelog che i tuoi clienti leggono davvero.',
   'landing.heroStat1': '3.200+',
   'landing.heroStat1Label': 'Team in ascolto',
   'landing.heroStat2': '1,4m',
@@ -85,9 +113,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Changelog',
   'landing.navJoin': 'Unisciti a {{appName}}',
   'landing.navRoadmap': 'Roadmap',
+  'landing.step1Body':
+    'I clienti pubblicano idee sulle board pubbliche. I duplicati si uniscono, i voti si sommano e la domanda si classifica da sola.',
   'landing.step1Title': 'Raccogli',
+  'landing.step2Body':
+    'Segna le richieste come pianificate o in corso con un trimestre obiettivo — la roadmap si aggiorna nel momento in cui lo fai.',
+  'landing.step2Title': 'Impegnarsi',
   'landing.step3Body':
     'I post rilasciati diventano voci del changelog, e ogni votante vede il risultato nella propria lista.',
+  'landing.step3Title': 'Rilascia',
   'landing.topSubtitle': 'Live da questa bacheca — accedi per aggiungere il tuo voto.',
   'landing.topTitle': 'Cosa stanno chiedendo gli utenti in questo momento',
   'landing.topViewAll': 'Tutte le bacheche',
@@ -95,14 +129,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Primaria',
   'layout.signUp': 'Registrati',
   'layout.submit': 'Invia feedback',
+  'login.description': 'Riprenda da dove era rimasta la conversazione.',
+  'login.heading': 'Acceda a Nimbus',
+  'login.noAccount': 'Nuovo qui?',
   'login.passwordPlaceholder': 'La tua password',
   'login.twoFactorLabel': 'Codice 2FA (facoltativo)',
   'login.twoFactorPlaceholder': 'Codice a 6 cifre',
+  'login.twoFactorRequiredHint':
+    "Questo account ha l'autenticazione a due fattori attiva. Inserisci il codice a 6 cifre della tua app di autenticazione per continuare.",
   'login.twoFactorRequiredLabel': 'Inserisci il tuo codice 2FA',
+  'myActivity.browseCta': 'Sfoglia le bacheche',
+  'myActivity.emptyPosts': 'Non hai ancora pubblicato una richiesta.',
+  'myActivity.emptyVotes': "Ancora niente — sfoglia le board e sostieni un'idea.",
   'myActivity.eyebrow': 'La tua attività',
   'myActivity.loadError': 'Impossibile caricare la tua attività.',
   'myActivity.postsTitle': 'Richieste che hai inviato',
+  'myActivity.shippedNote': '{{count}} di queste sono state rilasciate — grazie per la spinta.',
   'myActivity.submitCta': 'Pubblica una richiesta',
+  'myActivity.tabLabel': 'Vedi',
   'myActivity.tabPosts': 'I miei post',
   'myActivity.tabVotes': 'I miei voti',
   'myActivity.votesTitle': 'Richieste che hai votato',
@@ -137,8 +181,12 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Post non trovato',
   'postsAdmin.backToDashboard': 'Pannello di controllo',
   'postsAdmin.eyebrow': 'Team di prodotto',
+  'postsAdmin.mergeApplied': 'Unita — {{votes}} voti e {{comments}} commenti spostati.',
   'postsAdmin.mergeApply': 'Unisci e sposta voti',
   'postsAdmin.mergeChoose': 'Scegli un post di destinazione…',
+  'postsAdmin.mergeFailed': 'Unione non riuscita.',
+  'postsAdmin.mergeHint':
+    'I voti si sommano (uno per utente), i commenti si spostano e questo post riceve una nota "spostato".',
   'postsAdmin.mergeLabel': 'Unisci duplicato in',
   'postsAdmin.responseLabel': 'Risposta ufficiale',
   'postsAdmin.responsePlaceholder':
@@ -153,7 +201,13 @@ export const ui: UiTranslations = {
     'Imposta lo stato ufficiale, rispondi pubblicamente, etichetta il trimestre della roadmap e unisci i duplicati.',
   'postsAdmin.title': 'Gestisci post feedback',
   'postsAdmin.votes': '{{count}} voti',
+  'pricing.limits.advancedFeatures': 'Funzionalità avanzate:',
+  'pricing.limits.boards': '{{count}} lavagne',
   'pricing.limits.export': 'Esportazione dati:',
+  'pricing.limits.posts': '{{count}} post di feedback',
+  'pricing.limits.votes': '{{count}} voti',
+  'resetPassword.description':
+    'Scelga una password sicura. Verrà connesso automaticamente al completamento del reset.',
   'resetPassword.newPasswordLabel': 'Nuova password',
   'resetPassword.tokenPlaceholder': 'Incolla il token del link',
   'roadmap.cardMeta': 'da {{author}} · {{board}}',
@@ -170,6 +224,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'Digita una query per trovare richieste esistenti prima di pubblicare un duplicato.',
   'search.loadError': 'Ricerca non riuscita — riprova.',
+  'search.searching': 'Ricerca in corso…',
   'search.submit': 'Cerca',
   'search.submitNew': 'Pubblicalo come nuova richiesta',
   'search.title': 'Cerca feedback',
@@ -178,12 +233,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'Fatturazione',
   'settings.displaySubtitle': 'Scegli quanto densi appaiono i feed.',
   'settings.displayTitle': 'Visualizzazione',
+  'settings.emailDigestDesc': 'Le richieste aperte più votate ogni lunedì.',
+  'settings.emailDigestLabel': 'Riepilogo settimanale',
+  'settings.emailMentionsDesc': 'Quando qualcuno risponde a un post che segui.',
+  'settings.emailMentionsLabel': 'Avvisami via email sulle menzioni',
+  'settings.emailRepliesDesc': 'Discussioni che hai avviato o a cui hai risposto.',
+  'settings.emailRepliesLabel': 'Inviami email sulle risposte',
   'settings.loadError': 'Impossibile caricare il tuo account.',
   'settings.loading': 'Caricamento delle tue impostazioni…',
   'settings.notifications': 'Notifiche',
   'settings.notificationsSubtitle':
     'Decidi cosa arriva nella tua casella di posta rispetto al tuo dispositivo push.',
+  'settings.pushRepliesLabel': 'Notifiche push per le risposte',
+  'settings.pushVotesDesc': 'Avviso di soglia a 100, 500, 1000.',
+  'settings.pushVotesLabel': 'Push per traguardi di voti positivi',
   'settings.saveAccount': 'Salva account',
+  'settings.showFlair': 'Mostra i chip delle board sui post',
+  'settings.showThumbnails': 'Mostra le miniature di link/immagini',
   'settings.usernamePlaceholder': 'Scegli un handle',
   'signup.confirmPlaceholder': 'Digitala di nuovo',
   'signup.description': 'Modella cosa costruiremo dopo.',

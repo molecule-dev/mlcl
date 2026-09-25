@@ -5,7 +5,13 @@ export const ui: UiTranslations = {
     'Turite atsiliepimų, norite pasiūlyti naują funkciją ar radote klaidą? Susisiekite su „{{app}}“ komanda naudodamiesi pagalbos nuoroda, esančia jūsų paskyros meniu – kiekvieną žinutę perskaito tikras žmogus.',
   'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
+  'about.intro':
+    '{{app}} yra balsu valdomas dirbtinio intelekto asistentas. Kalbėkite natūraliai, stebėkite, kaip jūsų žodžiai virsta tekstu, ir gaukite atsakymus balsu – taip galite mąstyti garsiai, o ne viską rinkti klaviatūra.',
+  'about.missionBody':
+    'Rašymas klaviatūra yra kliūtis tarp jūsų idėjų ir jų išreiškimo. {{app}} sukurta ją pašalinti: rankų nereikalaujantis, pokalbio principu veikiantis būdas generuoti idėjas, rengti juodraščius ir priimti sprendimus – paremtas geriausiais kalbos ir samprotavimo modeliais, o jūsų duomenys išlieka privatūs.',
+  'about.missionTitle': 'Mūsų misija',
   'agentDetail.back': 'Visi agentai',
+  'agentDetail.behavior': 'Elgsena',
   'agentDetail.capabilities': 'Galimybės',
   'agentDetail.delete': 'Ištrinti asmenį',
   'agentDetail.deleteConfirm': 'Ištrinti šią asmenybę? Šio veiksmo negalima atšaukti.',
@@ -37,15 +43,19 @@ export const ui: UiTranslations = {
   'agents.subtitle':
     'Kiekvienas agentas turi savo toną, tempą ir specializaciją. Galite bet kada perjungti pokalbio metu.',
   'agents.title': 'Pasirinkite balsą, kuriuo mąstysite.',
+  'authShell.tagline': '{{tagline}} — {{brand}}',
+  'billing.cardNoneBody': 'Pridėkite vieną atnaujinę planą – „Stripe“ pasirūpina visu saugojimu.',
   'billing.cardNoneTitle': 'Nėra kortelės byloje',
   'billing.choose': 'Jungiklis',
   'billing.currentPlan': 'Jūsų planas',
   'billing.currentPlanReadout': '{{plan}} planas',
   'billing.eyebrow': 'Planas ir naudojimas',
   'billing.fetchError': 'Nepavyko įkelti atsiskaitymo informacijos.',
+  'billing.loadingStatus': 'Kraunama būsena…',
   'billing.noTiers': 'Šiuo metu nėra galimų planų.',
   'billing.plansTitle': 'Planai',
   'billing.switching': 'Perjungimas…',
+  'billing.updateAcknowledged': 'Atnaujinimas patvirtintas {{time}}',
   'billing.updateError': 'Nepavyko pradėti atnaujinimo.',
   'billing.usageHeading': 'Balso naudojimas šiame cikle',
   'chatBubble.source.text': 'tekstas',
@@ -65,11 +75,13 @@ export const ui: UiTranslations = {
   'conversation.title': 'Aptarkite tai',
   'conversation.toggleMic': 'Perjungti mikrofoną',
   'conversation.toggleVoicePlayback': 'Balso atkūrimas',
+  'conversation.transcribeError': 'Nepavyko transkribuoti garso.',
   'conversation.transcriptionEmpty': 'Nieko negirdėjome. Bandyti dar kartą?',
   'conversation.voiceOff': 'Balsas išjungtas',
   'conversation.voiceOn': 'Balsas įjungtas',
   'conversationDetail.assistant': 'Asistentas',
   'conversationDetail.back': 'Atgal į istoriją',
+  'conversationDetail.elapsed': '00:00 / {{duration}}',
   'conversationDetail.empty': 'Šiame pokalbyje dar nėra pranešimų.',
   'conversationDetail.eyebrow': 'Transkripcija',
   'conversationDetail.fetchError': 'Nepavyko įkelti transkripcijos.',
@@ -80,6 +92,7 @@ export const ui: UiTranslations = {
   'conversationDetail.setSpeed': 'Nustatyti atkūrimo greitį {{speed}}',
   'conversationDetail.system': 'Sistema',
   'conversationDetail.untitled': 'Be pavadinimo pokalbis',
+  'conversationListItem.messageCount': '{{count}} žinutė',
   'forgotPassword.subheading':
     'Įveskite savo el. pašto adresą ir mes atsiųsime jums atstatymo nuorodą.',
   'forgotPassword.successBody': 'Ką tik išsiuntėme atstatymo nuorodą {{email}} .',
@@ -96,6 +109,10 @@ export const ui: UiTranslations = {
   'history.voiceOnly': 'Tik balsu',
   'landing.copyright': '© {{year}} {{brand}} . Mąstykite garsiai.',
   'landing.demoMessage1': 'Sveika, Sara, ar pasiruošusi kurti naują kampaniją?',
+  'landing.demoMessage2':
+    'Taip – sutelkime dėmesį į organinės plėtros strategijas trečiajam ketvirčiui.',
+  'landing.demoMessage3':
+    'Puiku. Pradėčiau nuo bendruomenės iniciatyvos. Ar norite, kad apibūdinčiau etapus?',
   'landing.eyebrow': 'Balsu valdomas dirbtinis intelektas',
   'landing.featuresSubtitle':
     'Sukurtas natūraliam dialogui – prisitaiko prie jūsų greičio, tono ir konteksto.',
@@ -124,10 +141,12 @@ export const ui: UiTranslations = {
   'parlanceLayout.openMenu': 'Atidaryti navigacijos meniu',
   'parlanceLayout.primaryNavLabel': 'Pagrindinė navigacija',
   'pricing.conversations': '{{count}} pokalbiai',
+  'pricing.cta.start': 'Pasirinkite {{tierName}}',
   'pricing.cta.startFree': 'Pradėkite nemokamai',
   'pricing.cta.upgrade': 'Atnaujinti į {{tierName}}',
   'pricing.empty': 'Šiuo metu nėra galimų planų.',
   'pricing.error': 'Kainodaros įkelti nepavyko. Bandykite dar kartą vėliau.',
+  'pricing.speech': '{{count}} kalba',
   'pricing.subtitle': 'Pasirinkite planą, kuris atitiktų jūsų pokalbių su asistentu dažnumą.',
   'privacy.collection.account': 'Jūsų paskyros el. pašto adresas ir rodomas vardas',
   'privacy.contact.body':
@@ -135,6 +154,8 @@ export const ui: UiTranslations = {
   'privacy.deletion.body':
     'Pokalbį, personažą ar garso įrašą galite bet kada ištrinti iš atitinkamo puslapio. Ištrynus paskyrą iš nustatymų, ištrinami visi su jūsų darbo sritimi susieti pokalbiai, transkripcijos ir personažo eilutės.',
   'privacy.eyebrow': 'Teisinis',
+  'privacy.intro':
+    '{{app}} saugo jūsų sukurtus pokalbius ir balso įrašus tik tiek, kiek reikia asistento veikimui užtikrinti. Niekada neparduodame jūsų duomenų ir niekada nenaudojame klientų garso įrašų ar transkripcijų išoriniams dirbtinio intelekto modeliams mokyti.',
   'privacy.lastUpdated': 'Paskutinį kartą atnaujinta: 2026-05-01',
   'privacy.processors.body':
     "Kai kalbatės su savo asistentu, jūsų garso įrašą persiunčiame į „OpenAI Whisper“ transkripcijai, jūsų transkripciją – į „Anthropic“ (Claude'as) atsakymui, o atsakymą – į „ElevenLabs“ arba „OpenAI“ balso sintezei. Kiekvienas paslaugų teikėjas privalo laikytis savo duomenų apdorojimo sąlygų; niekas neišsaugoma pakartotiniam mokymui.",
@@ -155,13 +176,19 @@ export const ui: UiTranslations = {
   'resetPassword.newPassword': 'Naujas slaptažodis',
   'resetPassword.subheading': 'Pasirinkite naują slaptažodį, kad galėtumėte toliau kalbėti.',
   'search.agentPreview': 'Nėra aprašymo',
+  'search.emptyBody': 'Išbandykite kitą raktinį žodį arba ištarkite jį garsiai.',
   'search.emptyTitle': 'Nėra atitikmenų',
   'search.eyebrow': 'Komandų paletė',
   'search.fetchError': 'Nepavyko įkelti paieškos indekso.',
+  'search.static.billing.preview': 'Planai, mokėjimo būdas ir sąskaitos',
+  'search.static.billing.title': 'Atsiskaitymas',
   'search.static.profile.preview': 'Rodomasis vardas, slapyvardis, aprašymas',
+  'search.static.profile.title': 'Profilis',
+  'search.static.voice.preview': 'Numatytieji balso ir kalbos nustatymai',
   'search.static.voice.title': 'Balsas',
   'search.title': 'Paieškos terminologija',
   'search.transcriptPreview': 'Atidaryti transkriptą',
+  'settings.appearance.description': 'Perjungti šviesų ir tamsų režimus.',
   'settings.appearance.title': 'Išvaizda',
   'settings.loadError': 'Nepavyko įkelti nustatymų.',
   'settings.privacy.${row.key}.label': 'Pranešimai',
@@ -178,6 +205,8 @@ export const ui: UiTranslations = {
   'terms.changes.body':
     'Jei šios sąlygos iš esmės pasikeis, apie tai pranešime programėlėje; tolesnis naudojimas po pranešimo reiškia, kad sutinkate su atnaujinimais.',
   'terms.eyebrow': 'Teisinis',
+  'terms.intro':
+    'Šios sąlygos reglamentuoja jūsų naudojimąsi {{app}}. Sukurdami paskyrą sutinkate su jomis.',
   'terms.lastUpdated': 'Paskutinį kartą atnaujinta: 2026-05-01',
   'terms.title': 'Naudojimosi sąlygos',
   'terms.usage.body':

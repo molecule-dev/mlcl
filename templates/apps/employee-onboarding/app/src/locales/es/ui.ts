@@ -1,27 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '¿Quieres implementar un onboarding más cálido para tu equipo, encontraste un error o tienes comentarios? Escríbenos desde la configuración de tu cuenta — cada mensaje llega a una persona real que puede ayudarte.',
   'about.contactTitle': 'Habla con nosotros',
   'about.eyebrow': 'Acerca de',
+  'about.missionTitle': 'Nuestra misión',
   'auth.forgotPassword.emailPlaceholder': 'nombre@tuempresa.com',
   'auth.forgotPassword.heading': 'Restablece tu contraseña.',
+  'auth.forgotPassword.panel.body':
+    'Restablecer toma 30 segundos — tu progreso en la lista de verificación te espera.',
+  'auth.forgotPassword.panel.headline': 'Justo donde lo dejaste.',
+  'auth.forgotPassword.subheading':
+    'Ingresa tu correo de trabajo y te enviaremos un enlace de restablecimiento.',
   'auth.forgotPassword.successSubheading':
     'Revisa tu bandeja de entrada: te enviamos las instrucciones de restablecimiento.',
   'auth.login.emailPlaceholder': 'nombre@tuempresa.com',
   'auth.login.heading': 'Bienvenido de nuevo.',
   'auth.login.passwordPlaceholder': 'Tu contraseña',
+  'auth.login.signupPrompt': '¿Nuevo en tu equipo?',
   'auth.login.subheading':
     'Inicia sesión para continuar tu proceso de incorporación donde lo dejaste.',
   'auth.login.submit': 'Continúa tu recorrido',
+  'auth.panel.body':
+    'Tu lista de verificación personal, hitos de formación y presentaciones del equipo — todo en un solo lugar tranquilo.',
   'auth.panel.footnote': '© Embark — incorporando personas primero desde hoy.',
   'auth.panel.headline': 'Unos primeros 90 días con confianza empiezan aquí.',
   'auth.resetPassword.heading': 'Define una nueva contraseña.',
   'auth.resetPassword.newPasswordLabel': 'Nueva contraseña',
+  'auth.resetPassword.panel.body':
+    'Guarda una nueva contraseña y te devolveremos directo a tu proceso de onboarding.',
+  'auth.resetPassword.panel.headline': 'Casi de vuelta.',
   'auth.resetPassword.subheading': 'Elige algo que recuerdes: al menos 8 caracteres.',
   'auth.signup.emailPlaceholder': 'nombre@tuempresa.com',
   'auth.signup.heading': 'Bienvenido a tus primeros 90 días.',
   'auth.signup.panel.body':
     'Una lista guiada, formación según el puesto e introducciones humanas: listo antes de tu llegada.',
+  'auth.signup.panel.headline': 'El primer día, desde el primer día.',
   'auth.signup.subheading':
     'Crea tu cuenta de Embark para comenzar tu proceso de incorporación guiado.',
   'checklist.empty.body': 'Cambia el filtro para ver otras tareas.',
@@ -29,6 +44,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'Incorporación · Lista',
   'checklist.loading': 'Cargando tu lista…',
   'checklist.stat.actionNeeded': 'Requiere acción',
+  'checklist.stat.completion': 'Finalización',
+  'checklist.stat.inProgress': 'En curso',
   'checklist.stat.inProgressHelper': 'Retoma donde lo dejaste',
   'checklist.stat.overdueHelper': 'Ponte al día con estas primero',
   'checklist.subtitle':
@@ -60,6 +77,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Aún no hay documentos',
   'documents.eyebrow': 'Incorporación · Documentos',
   'documents.loading': 'Cargando documentos…',
+  'documents.stat.actionNeeded': 'Firmar ahora',
+  'documents.stat.all': 'Todos los documentos',
   'documents.stat.allHelper': 'En todas las categorías',
   'documents.stat.pending': 'Firmas pendientes',
   'documents.stat.pendingHelper': 'Necesarias para finalizar',
@@ -67,16 +86,21 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Almacenados de forma segura',
   'documents.status.optional': 'Opcional',
   'documents.status.required': 'Obligatorio',
+  'documents.status.signed': 'Firmados',
   'documents.subtitle': 'Tu manual, formularios y acuerdos firmados: todo en un mismo lugar.',
   'documents.title': 'Todo lo que necesitas leer y firmar.',
   'documents.uploadedRecently': 'Subido recientemente',
   'documentViewer.breadcrumbCurrent': 'Visor',
   'documentViewer.breadcrumbDocs': 'Documentos',
   'documentViewer.downloadMeta': 'Descargar metadatos',
+  'documentViewer.helpBody':
+    'People & Culture responde preguntas del manual en #ask-people en Slack.',
   'documentViewer.helpEyebrow': '¿Necesitas ayuda?',
   'documentViewer.loadError': 'No pudimos cargar este documento.',
   'documentViewer.loading': 'Cargando documento…',
   'documentViewer.notFound': 'Documento no encontrado',
+  'documentViewer.previewBody':
+    'Cuando las cargas están configuradas, mostramos el archivo en línea. Por ahora, la descarga de metadatos te permite confirmar que el registro es real.',
   'documentViewer.previewBodyExternal':
     'Usa el botón de descarga para abrir el archivo en una pestaña nueva.',
   'documentViewer.previewTitle': 'Vista previa del documento',
@@ -84,6 +108,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Lea el documento y, a continuación, haga clic a continuación para firmar y confirmar su conformidad.',
   'documentViewer.signatureHeading': 'Firma requerida',
+  'documentViewer.signed': '✓ Firmado y archivado',
   'documentViewer.signing': 'Firmando…',
   'documentViewer.uploadedRecently': 'Subido recientemente',
   'landing.closing.body':
@@ -93,10 +118,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Ya tengo una cuenta',
   'landing.feature1.body':
     'Cada tarea (trámites, cuentas, presentaciones) preparada con fechas límite y la persona responsable adecuada.',
+  'landing.feature1.title': 'Una lista de verificación guiada',
   'landing.feature2.body':
     'Los módulos se desbloquean en los hitos de 30/60/90 días, ajustados al puesto y al equipo al que se incorpora la persona.',
+  'landing.feature2.title': 'Formación según tu rol',
   'landing.feature3.body':
     'Mentores, responsables e introducciones interdepartamentales programadas: nadie empieza solo.',
+  'landing.feature3.title': 'Presentaciones reales',
   'landing.featureEyebrow': 'Por qué Embark',
   'landing.featureHeadline': 'Tres formas en que Embark gana confianza desde el primer día.',
   'landing.footer.rights': 'Todos los derechos reservados.',
@@ -106,6 +134,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'A continuación: conoce a tu mentor en un café de 30 minutos — martes a las 10:00.',
   'landing.preview.eyebrow': 'Día 14 de 90 — panel de ejemplo',
+  'landing.preview.headline': 'Bienvenida de nuevo, Maya.',
   'landing.proof.spec': 'Listo para SOC 2 y RGPD',
   'landing.proof.teams': 'Pensado para equipos de 50 a 5.000',
   'landing.proof.time': 'Prueba gratuita de 14 días',
@@ -122,16 +151,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'ayer',
   'planUpdated.message': 'Ya está todo listo.',
   'planUpdated.preparing': 'Actualizando tu plan…',
+  'planUpdated.retry': 'Intentar de nuevo',
+  'planUpdated.verifyFailed': 'Todavía no hemos podido confirmar su pago.',
+  'planUpdated.verifyFailedBody':
+    'Es posible que tu pago aún se esté procesando. Inténtalo de nuevo en un momento.',
   'planUpdated.verifying': 'Confirmando tu pago…',
   'pricing.documentsLabel': 'documentos',
   'pricing.onboardingsLabel': 'incorporaciones',
   'pricing.tasksLabel': 'tareas',
   'profile.dayNumber': 'Día',
   'profile.detailsHeading': 'Detalles de incorporación',
+  'profile.encouragementBody':
+    'Mantén informados a tu buddy y a tu manager — los pequeños pasos se acumulan.',
   'profile.milestones': 'Hitos',
   'profile.progressEyebrow': 'Progreso de incorporación',
   'profile.tasks': 'Tareas',
   'profile.unknownName': 'Bienvenido',
+  'settings.appearance.description': 'Alterna entre el modo claro y el modo oscuro.',
+  'settings.appearance.title': 'Apariencia',
+  'settings.subtitle':
+    'Ajusta notificaciones, seguridad, dispositivos y exportación de datos — todo se queda aquí, en tus términos.',
   'settings.title': 'Ajustes y preferencias.',
   'taskDetail.backToChecklist': 'Volver a la lista',
   'taskDetail.breadcrumbChecklist': 'Lista',
@@ -143,7 +182,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'Sin fecha límite',
   'taskDetail.notFound': 'Tarea no encontrada',
   'taskDetail.notFoundBody': 'Esta tarea pudo haberse eliminado o pertenece a otro usuario.',
+  'taskDetail.tipBody':
+    'Si estás bloqueado, escribe a tu buddy de onboarding en Slack — es tu primera línea de ayuda.',
   'taskDetail.tipEyebrow': 'Consejo rápido',
+  'team.empty.body': 'Prueba una búsqueda más amplia o elige otro departamento.',
   'team.empty.title': 'Ningún compañero coincide',
   'team.eyebrow': 'Incorporación · Personas',
   'team.loading': 'Cargando compañeros…',
@@ -166,14 +208,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Hitos',
   'timeline.stat.current': 'Hito actual',
   'timeline.stat.next': 'Próximo desbloqueo',
+  'timeline.stat.progress': 'General',
   'timeline.subtitle':
     'Cada hito desbloquea nuevos módulos, presentaciones y conversaciones de crecimiento. Sin presión: solo progreso.',
+  'timeline.tipBody':
+    'Agenda una reflexión de 30 minutos a los días 30, 60 y 90 con tu manager — hace que los comentarios sean específicos y el progreso visible.',
   'timeline.tipEyebrow': 'Consejo del responsable',
+  'timeline.tipTitle': 'Bloquea tiempo en el calendario para los hitos.',
   'timeline.title': 'Tu recorrido de 30 / 60 / 90 días.',
   'training.badge.notStarted': 'Sin empezar',
   'training.empty': 'Aún no hay módulos de formación.',
   'training.eyebrow': 'Incorporación · Formación',
   'training.loading': 'Cargando módulos…',
+  'training.stat.all': 'Módulos asignados',
   'training.subtitle':
     'Los módulos se desbloquean a los 30/60/90 días según tu puesto. Los obligatorios van primero.',
   'training.title': 'Habilidades, herramientas e historias: a tu ritmo.',
@@ -186,9 +233,12 @@ export const ui: UiTranslations = {
   'trainingModule.quizBody':
     'Obtén una puntuación del 80% o superior para marcar este módulo como completado.',
   'trainingModule.quizHeading': 'Cuestionario final del módulo',
+  'trainingModule.quizLocked': 'Inicia primero el módulo',
   'trainingModule.quizNone': 'Este módulo no tiene cuestionario.',
   'trainingModule.quizRetry': 'Intentar de nuevo',
+  'trainingModule.quizStart': 'Iniciar cuestionario',
   'trainingModule.quizSubmit': 'Enviar respuestas',
+  'trainingModule.start': 'Iniciar módulo',
   'trainingModule.statusNotStarted': 'Sin empezar',
   'welcomeHeroCard.completeLabel': 'Completado',
   'welcomeHeroCard.milestonesLabel': 'Hitos',

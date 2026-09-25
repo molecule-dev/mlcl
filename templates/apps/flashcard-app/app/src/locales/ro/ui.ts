@@ -1,11 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ai feedback, ai găsit un bug sau vrei să sugerezi o funcție? Fiecare mesaj ajunge la o persoană reală din echipa {{app}} — ne-ar plăcea să aflăm ce înveți.',
   'about.contactTitle': 'Contactați-ne',
   'about.eyebrow': 'Despre {{app}}',
+  'about.intro':
+    '{{app}} este o aplicație de flashcards cu repetiție spațiată pentru cei care vor ca cunoștințele să rămână cu adevărat. Fie că înveți o limbă, memorezi formule sau exersezi concepte pentru un examen, programează fiecare card exact în momentul în care ești pe punctul de a-l uita — cea mai eficientă metodă găsită de știința memoriei pentru a muta informațiile în memoria pe termen lung.',
+  'about.missionBody':
+    'Majoritatea instrumentelor de studiu optimizează timpul petrecut, nu cunoștințele reținute. {{app}} optimizează opusul: cele mai puține recapitulări care păstrează în minte ceea ce contează. Credem că învățarea ar trebui să fie calmă, măsurabilă și a ta — date deschise, fără modele manipulatoare și un obicei pe care îl poți menține ani de zile.',
+  'about.missionTitle': 'Misiunea noastră',
   'about.pageTitle': '{{tagline}}.',
   'authShell.sampleBack': 'Vilnius — rechemat în 1,2 secunde.',
   'authShell.sampleEyebrow': 'O carte din pachetul tău viitor',
+  'authShell.sampleFront': '„Capitala Lituaniei.”',
+  'authShell.sampleRetention': '{{pct}}% retenție',
   'authShell.sampleStreak': '{{days}} serie de zile',
   'cardEdit.title': 'Editează fișa de lucru',
   'cardEditor.backLink': 'Înapoi pe punte',
@@ -35,6 +44,8 @@ export const ui: UiTranslations = {
   'dashboard.kpi.days': 'zile',
   'deckDetail.backLink': 'Toate pachetele de cărți',
   'deckDetail.deleteError': 'Nu s-a putut șterge pachetul de cărți.',
+  'deckDetail.empty.body': 'Adaugă primul card pentru a începe să-ți construiești memoria.',
+  'deckDetail.empty.cta': 'Adaugă primul card',
   'deckDetail.empty.heading': 'Nu există cărți în acest pachet încă',
   'deckDetail.filterEmpty': 'Niciun card nu corespunde acestui filtru de stare.',
   'deckDetail.filterLabel': 'Filtrați cardurile după stat',
@@ -47,7 +58,10 @@ export const ui: UiTranslations = {
   'deckDetail.stat.total': 'Cărți',
   'deckDetail.studyDueLabel': 'Studiu {{count}} datorat',
   'deckProgressCard.cardCount': '{{count}} carduri',
+  'deckProgressCard.masteredTooltip': '{{count}} stăpânite',
   'deckProgressCard.studyCta': 'Studiu {{count}}',
+  'decks.confirmDelete':
+    'Ștergi acest pachet și toate cardurile lui? Această acțiune nu poate fi anulată.',
   'decks.create.heading': 'Creați un pachet',
   'decks.create.nameLabel': 'Numele pachetului',
   'decks.create.submit': 'Creați un pachet',
@@ -58,6 +72,7 @@ export const ui: UiTranslations = {
   'decks.heading': 'Pachete',
   'decks.loadError': 'Nu s-au putut încărca pachetele de cărți.',
   'decks.loading': 'Se încarcă…',
+  'decks.newDeckLabel': 'Pachet nou',
   'decks.retention': 'Reţine',
   'decks.studyArrow': 'Studiu →',
   'decks.subheading': '{{count}} pachete · revizuire și gestionare',
@@ -81,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Am deja un cont',
   'landing.heroSubtitle':
     'Repetiția spațiată face diferența dintre a înghesui și a reține. Cinci minute pe zi, an după an, și limbajul rămâne.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.proof.export': 'Date deschise, fără obligații',
   'landing.proof.free': 'Gratuit pentru totdeauna pentru uz personal',
   'landing.proof.import': 'Importă .apkg / CSV',
@@ -95,12 +111,16 @@ export const ui: UiTranslations = {
   'login.heading': 'Bine ați revenit pe punțile voastre',
   'login.orDivider': 'sau continuați cu',
   'login.signupLink': 'Începeți să studiați gratuit',
+  'login.signupPrompt': 'Nou aici?',
   'login.subtitle': 'Reia de unde ai rămas — seria ta te așteaptă.',
   'mobileNav.closeMenu': 'Închide meniul de navigare',
   'mobileNav.openMenu': 'Deschide meniul de navigare',
   'notifications.markAllReadError': 'Nu s-au putut marca toate ca citite.',
   'pricing.heading': 'carduri',
+  'pricing.limits.cards': 'carduri',
   'pricing.limits.decks': 'punți',
+  'pricing.limits.historyDays': 'Istoric de recapitulare de {{days}} zile',
+  'pricing.limits.historyUnlimited': 'Istoric de recapitulare nelimitat',
   'pricing.limits.stats': 'statistici',
   'pricing.limits.study': 'studiu',
   'resetPassword.passwordLabel': 'Parolă nouă',
@@ -112,16 +132,29 @@ export const ui: UiTranslations = {
   'sessionSummary.heading': 'Bine făcut.',
   'sessionSummary.label': 'Sesiune finalizată',
   'settings.changePasswordError': 'Nu s-a putut schimba parola.',
+  'settings.confirmPassword': 'Confirmă-ți parola',
   'settings.currentPassword': 'Parola actuală',
+  'settings.dangerZone': 'Zonă periculoasă',
+  'settings.deleteAccountHint':
+    'Șterge definitiv contul și toate datele de studiu. Această acțiune nu poate fi anulată.',
+  'settings.deleteAccountWarning':
+    'Aceasta îți șterge definitiv contul și toate pachetele, cardurile și istoricul de studiu. Această acțiune nu poate fi anulată.',
   'settings.deleteError': 'Ștergerea contului a eșuat. Verificați parola și încercați din nou.',
   'settings.deleting': 'Se șterge…',
+  'settings.devicesHint': 'Dispozitive înregistrate în prezent în contul tău.',
   'settings.newPassword': 'Parolă nouă',
   'settings.password': 'Parolă',
   'settings.passwordChanged': 'Parolă actualizată.',
+  'settings.passwordHint': 'Schimbă parola pe care o folosești pentru autentificare.',
   'settings.reminders.atRisk': 'Alertă de risc de serie (după ora 20:00)',
+  'settings.reminders.daily': 'Memento zilnic (8:00)',
   'settings.reminders.heading': 'Mementouri',
+  'settings.reminders.milestones': 'Sărbătorirea etapelor importante',
   'settings.reminders.note':
     'Stocat pe acest dispozitiv. Comută ce informații de studiu sunt afișate în acest browser; preferințele se sincronizează la reîncărcare.',
+  'settings.reminders.weekly': 'Rezumat săptămânal al retenției (duminica)',
+  'settings.revokeDeviceWarning':
+    'Accesul acestui dispozitiv va fi revocat în curând. Îl deconectezi?',
   'settings.saved': 'Salvat.',
   'settings.saveError': 'Nu s-a putut salva.',
   'settings.saving': 'Se salvează…',
@@ -137,6 +170,7 @@ export const ui: UiTranslations = {
   'signup.legal':
     'Prin crearea unui cont, sunteți de acord cu Termenii și Politica noastră de confidențialitate.',
   'signup.nameLabel': 'Numele dumneavoastră (opțional)',
+  'signup.orDivider': 'sau înregistrează-te cu',
   'signup.subtitle': 'Cinci minute pe zi. Un sine din viitor care își amintește.',
   'stats.byStateHeading': 'Carduri pe stat',
   'stats.dailyHeading': 'Recenzii pe zi (ultimele 30 de zile)',
@@ -173,5 +207,6 @@ export const ui: UiTranslations = {
   'todayHeroCard.goalLabel': 'Obiectiv zilnic',
   'todayHeroCard.goalProgress': '{{reviewed}} / {{goal}}',
   'todayHeroCard.streakBadge': '{{days}} serie de zile',
+  'todayHeroCard.studyCta': 'Începe studiul',
   'userMenu.stats': 'Statisticile mele',
 }

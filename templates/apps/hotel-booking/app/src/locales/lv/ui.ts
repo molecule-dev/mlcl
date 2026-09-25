@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vai jums ir jautājumi par rezervāciju, atsauksmes vai īpašums, kas, jūsuprāt, būtu jāiekļauj {{app}}? Sazinieties ar mūsu komandu no sava konta — katra ziņa nonāk pie īsta cilvēka, kas var palīdzēt.',
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
+  'about.featureLoyalty':
+    'Cenas tikai biedriem un lojalitātes programma, kas dod punktus, vēlāku izrakstīšanos un istabu uzlabojumus katrā rezervācijā.',
+  'about.featureReviews':
+    'Pārbaudītas viesu atsauksmes un redakcijas izlase, lai jūs varētu uzticēties uzturēšanās vietai pirms ierašanās.',
+  'about.featureRooms':
+    'Istabas, cenas un ērtības blakus salīdzinājumā ar caurspīdīgu, visaptverošu cenu — nodokļi un kūrorta nodevas iekļautas pirms apmaksas.',
+  'about.featureSearch':
+    'Reāllaika meklēšana pārbaudītos viesnīcās ar aktuālu pieejamību, kartes skatu un bagātīgām foto galerijām.',
+  'about.featureTrips':
+    'Saglabātie favorīti un Ceļojumu panelis, kas visas rezervācijas, maršrutus un apstiprinājumus glabā vienuviet.',
+  'about.intro':
+    '{{app}} ir viesnīcu rezervēšanas platforma ceļotājiem, kuriem rūp kvalitāte. Katru īpašumu personīgi pārbauda mūsu redakcijas komanda — nekādu agregatoru piedāvājumu, nekādu maldinošu sludinājumu. Meklējiet reālu pieejamību, salīdziniet istabas, cenas un ērtības blakus, pēc tam rezervējiet dažos pieskārienos ar skaidru, visaptverošu cenu.',
+  'about.missionBody':
+    'Naktsmītnes rezervēšanai vajadzētu būt mierīgai un godīgai. Mēs parādām caurspīdīgas cenas ar nodokļiem un kūrorta nodevām uzreiz, atalgojam lojālus viesus, nevis iekasējam sīkas maksas, un pirmajā vietā izvirzām naktsmītnes, kas ir jūsu naudas vērtas — lai jūs varētu mazāk laika veltīt cilņu salīdzināšanai un vairāk pašam ceļojumam.',
+  'about.missionTitle': 'Mūsu misija',
+  'about.subtitle': 'Pārdomāts, caurspīdīgs veids, kā atrast un rezervēt īsto viesnīcu.',
   'account.loyalty.activitySummary': '{{nights}} naktis · {{spend}} iztērēts šogad',
+  'account.loyalty.benefitsHeading': 'Jūsu priekšrocības',
   'account.loyalty.heading': 'Lojalitāte',
   'account.loyalty.loading': 'Notiek lojalitātes programmas ielāde…',
-  'account.loyalty.pointsTowardNext': '{{punkti}} / {{nākamais}} norāda uz {{nākamāLīmeņa}}',
+  'account.loyalty.maxTier': 'Augstākais līmenis — izbaudiet savas priekšrocības.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} punkti līdz {{nextTier}}',
   'account.loyalty.tier': 'Pašreizējais līmenis',
   'account.loyalty.unavailable': 'Informācija par lojalitāti nav pieejama.',
   'account.navLabel': 'Konta sadaļas',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Apstiprināt rezervāciju · {{total}}',
   'bookingCheckout.datesRequired': 'Lūdzu, izvēlieties ierašanās un izrakstīšanās datumus.',
   'bookingCheckout.guestHeading': 'Galvenais viesis',
+  'bookingCheckout.heading': 'Apstiprināt un rezervēt',
   'bookingCheckout.loadError': 'Neizdevās ielādēt īpašumu.',
   'bookingCheckout.nights': '{{rate}} × {{count}} naktis',
   'bookingCheckout.notFound': 'Īpašums nav atrasts.',
@@ -32,11 +54,15 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Nodokļi un nodevas',
   'bookingCheckout.tripHeading': 'Jūsu ceļojums',
   'bookingConfirmation.allTripsCta': 'Visi braucieni',
+  'bookingConfirmation.confNumber': 'Apstiprinājuma numurs: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Jūsu rezervācija tiek apstrādāta.',
   'bookingConfirmation.heading': 'Rezervācija apstiprināta',
   'bookingConfirmation.loading': 'Notiek rezervācijas ielāde…',
   'bookingConfirmation.searchMoreCta': 'Pārlūkot citus uzturēšanās laikus',
   'bookingConfirmation.subheadingForTrip':
-    '{{īpašums}} iekšā {{pilsēta}} , {{valsts}} Tiksimies {{checkIn}} .',
+    '{{property}}, {{city}}, {{country}}. Uz tikšanos {{checkIn}}.',
+  'bookingConfirmation.total': 'Kopā {{total}}',
   'bookingConfirmation.viewTripCta': 'Skatīt ceļojumu',
   'common.goToDashboard': 'Uz informācijas paneli',
   'destinationDiscoveryCard.exploreCta': 'Izpētiet naktsmītnes',
@@ -45,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Neizdevās ielādēt izlasi.',
   'favorites.pricePerNight': '{{price}} / nakts',
   'favorites.removeCta': 'Atcelt saglabāšanu',
+  'favorites.removing': 'Noņemšana…',
   'forgotPassword.subheading':
     'Ievadiet sava konta e-pasta adresi, un mēs nosūtīsim jums drošu atiestatīšanas saiti.',
   'forgotPassword.successBody':
@@ -52,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Uzturēšanās biedri',
   'landing.cta.heading': 'Cenas tikai biedriem. Katrā rezervācijā, katrā reizē.',
   'landing.cta.signup': 'Izveidot bezmaksas kontu',
+  'landing.cta.subheading':
+    'Pelni lojalitātes punktus par katru uzturēšanos, atslēdz vēlāku izrakstīšanos un istabu uzlabojumus un iegūsti pirmo piekļuvi jauniem īpašumiem pirms to publiskas ievietošanas.',
   'landing.destinations.eyebrow': 'Kurp doties tālāk',
   'landing.destinations.heading': 'Ieteicamie galamērķi',
   'landing.destinations.seeAll': 'Skatīt visus galamērķus',
@@ -60,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Stāsti, kuru dēļ ir vērts iesaiņot',
   'landing.nav.join': 'Pievienojieties Auberge',
   'landing.nav.search': 'Meklēt uzturēšanās',
+  'landing.preview.browseAll': 'Pārlūkot visu kolekciju',
   'landing.preview.eyebrow': 'Ieskats iekšpusē',
   'landing.preview.heading': 'Šomēnes īpaši izvēlētas naktsmītnes',
+  'landing.preview.subheading':
+    'Katru īpašumu vietnē {{appName}} personīgi pārbauda mūsu redakcijas komanda — nekādu agregatoru piedāvājumu, nekādu maldinošu sludinājumu.',
   'login.eyebrow': 'Dalībnieku zona',
+  'login.noAccount': 'Jauns lietotājs Tessera?',
   'login.signupLink': 'Izveidojiet bezmaksas kontu',
   'login.subheading':
     'Pierakstieties, lai pārvaldītu savus braucienus, skatītu apstiprinājumus un turpinātu no vietas, kur pārtraucāt.',
+  'loyaltyTierBadge.points': '{{points}} punkti',
   'planUpdated.heading': 'Plāns atjaunināts',
+  'planUpdated.retry': 'Mēģini vēlreiz',
+  'planUpdated.verifyFailed': 'Mēs vēl nevarējām apstiprināt jūsu maksājumu.',
+  'planUpdated.verifyFailedBody':
+    'Jūsu maksājums, iespējams, joprojām tiek apstrādāts. Pēc brīža mēģiniet vēlreiz.',
   'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'pricing.limit.advancedFeatures': 'Paplašinātās funkcijas:',
   'pricing.limit.canExport': 'Datu eksports:',
@@ -78,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Ko šī vieta piedāvā',
   'propertyDetail.backLink': 'Atpakaļ uz meklēšanu',
   'propertyDetail.bookCta': 'Rezerve',
+  'propertyDetail.bookmarkAria': 'Saglabāt īpašumu',
   'propertyDetail.bookmarkAriaSaved': 'Noņemt no saglabātajām īpašībām',
+  'propertyDetail.galleryImageAlt': '{{name}} foto {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} varoņa fotogrāfija',
   'propertyDetail.hidePhotos': 'Slēpt fotoattēlus',
   'propertyDetail.lineCleaning': 'Tīrīšanas maksa',
@@ -88,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'nakts',
   'propertyDetail.noChargeYet': 'No jums vēl netiks iekasēta maksa',
   'propertyDetail.notFound': 'Īpašums nav atrasts.',
+  'propertyDetail.perNight': '/ nakts',
+  'propertyDetail.pickDatesHint': 'Izvēlieties datumus, lai redzētu pilnu cenas sadalījumu.',
   'propertyDetail.reviewCount': '( {{count}} atsauksmes)',
   'propertyDetail.reviewsHeading': 'Jaunākās atsauksmes',
   'propertyDetail.roomCapacity': 'Guļ {{count}}',
@@ -100,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Jauna parole',
   'resetPassword.subheading':
     'Izvēlieties jaunu paroli savam Auberge kontam. Izmantojiet vismaz 8 rakstzīmes; mēs iesakām paroli.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Nav jūsu meklēšanas vaicājumam atbilstošu īpašumu.',
   'searchResults.emptyHint':
     'Mēģiniet paplašināt filtrus vai noņemt cenu griestus — Auberge ir nodrošinājis uzturēšanos 14 valstīs.',
@@ -107,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Izvēlētas uzturēšanās vietas',
   'searchResults.headingForQuery': 'Uzturēšanās laiks " {{q}} "',
   'searchResults.loadError': 'Neizdevās ielādēt rekvizītus.',
+  'searchResults.mapHint':
+    'Novietojiet kursoru uz kartītes, lai to izceltu kartē. Ražošanā darbojas Mapbox flīzes.',
   'searchResults.mapPinAria': '{{name}} — {{price}} par nakti',
   'searchResults.sortLabel': 'Kārtot pēc',
   'searchResults.subheading': '{{count}} īpašības · {{guests}} viesi',
   'signup.eyebrow': 'Kļūsti par biedru',
   'signup.subheading':
     'Pievienojieties Auberge, lai atbloķētu tikai biedriem paredzētas cenas, vēlu izrakstīšanos un pirmie piekļūtu jaunām naktsmītnēm.',
+  'sojournAuthShell.brand.eyebrow': 'Uzturieties kaut kur ārkārtējā',
+  'sojournAuthShell.brand.heading':
+    'Pārdomāta īpašumu kolekcija — skaisti prezentēta, caurspīdīgi izcenota.',
   'sojournHeroSearchCard.checkInAria': 'Ierašanās datums',
   'sojournHeroSearchCard.checkOutAria': 'Izrakstīšanās datums',
+  'sojournHeroSearchCard.destAria': 'Galamērķis',
+  'sojournHeroSearchCard.destLabel': 'Kur',
   'sojournHeroSearchCard.destPlaceholder': 'Pilsēta, reģions vai īpašums',
   'sojournHeroSearchCard.eyebrow': 'Izvēlētas uzturēšanās iespējas · Cenas tikai biedriem',
   'sojournHeroSearchCard.guestsOption': '{{n}} viesi',
   'sojournHeroSearchCard.subtitle':
     'Izsmalcināta butika stila viesnīcu, dizaina ziņā progresīvu naktsmītņu un retu atpūtas vietu kolekcija — pārredzamas cenas, skaisti noformēts.',
+  'sojournHeroSearchCard.title': 'Uzturieties kaut kur ārkārtējā',
+  'sojournHeroSearchCard.trustLoyalty': 'Pelni punktus par katru uzturēšanos',
   'sojournHeroSearchCard.trustNoFees': 'Nav slēptu maksu',
   'sojournHeroSearchCard.trustVetted': 'Tikai manuāli pārbaudītas īpašības',
   'sojournLayout.primaryNavLabel': 'Galvenā navigācija',

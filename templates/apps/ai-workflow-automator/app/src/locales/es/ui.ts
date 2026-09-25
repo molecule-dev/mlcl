@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite es una plataforma de automatización de flujos de trabajo que conecta disparadores, condiciones de IA y acciones de varios pasos para que los equipos puedan mover trabajo entre sistemas sin escribir código de pegamento.',
+  'about.philosophy':
+    'Cada flujo de trabajo es un grafo de pasos pequeños y observables. Cada paso registra sus entradas, salidas y tiempos para poder inspeccionarlo, reproducirlo o revertirlo. Compónlos visualmente, versiónalos como código.',
   'about.title': 'Acerca de Dendrite',
   'authShell.brand': 'Dendrite',
   'authShell.support': 'Soporte',
@@ -14,9 +16,15 @@ export const ui: UiTranslations = {
   'billing.cancelPlan': 'Cancelar plan',
   'billing.changePlan': 'Cambiar plan',
   'billing.description': 'Sigue el uso, gestiona tu plan y descarga facturas para contabilidad.',
+  'billing.eyebrow': 'Cuenta · Plan y uso',
+  'billing.failedLabel': 'Ejecuciones fallidas · 24 h',
+  'billing.invoicesEmpty':
+    'Aún no hay facturas. Aparecerán aquí tras tu primera renovación de pago.',
   'billing.invoicesTitle': 'Historial de facturas',
   'billing.planNoteFree':
     'Nivel gratuito — {{runs}} ejecuciones y {{workflows}} flujos activos. Mejora para obtener límites más altos.',
+  'billing.planNotePaid':
+    'Plan de pago — {{runs}} ejecuciones y {{workflows}} flujos de trabajo activos.',
   'billing.runsLabel': 'Ejecuciones en las últimas 24 h',
   'billing.tiersBlurb':
     'Compara cada nivel — ejecuciones, flujos activos, funciones avanzadas y soporte — en la página de precios dedicada.',
@@ -34,10 +42,14 @@ export const ui: UiTranslations = {
     'No hay integraciones registradas. Configura las claves del proveedor para habilitar los bonds.',
   'connections.error': 'No se pudieron cargar las conexiones.',
   'connections.eyebrow': 'Integraciones · {{connected}} conectadas',
+  'connections.loading': 'Cargando integraciones…',
+  'connections.openEnv':
+    'Para conectar este proveedor, configura su clave de API en api/.env y reinicia el servidor.',
   'dashboard.description':
     '{{active}} flujos activos. {{failed}} fallidos en las últimas 24 horas.',
   'dashboard.error': 'No se pudo cargar el panel.',
   'dashboard.eyebrow': 'Operaciones · en vivo',
+  'dashboard.hero.label': 'Ejecuciones de hoy',
   'dashboard.hero.medianLatency': 'Latencia p50',
   'dashboard.hero.queue': 'Profundidad de cola',
   'dashboard.hero.success': 'Éxito',
@@ -45,13 +57,16 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Duración mediana',
   'dashboard.kpi.failedRuns': 'Fallidos · 24 h',
   'dashboard.kpi.outOf': 'de {{total}} en total',
+  'dashboard.kpi.successRate': 'Tasa de éxito · 24 h',
   'dashboard.loading': 'Cargando panel…',
   'dashboard.recentRuns.empty': 'Aún no hay ejecuciones. Disparar un flujo poblará este feed.',
   'dashboard.recentRuns.title': 'Ejecuciones recientes',
   'dashboard.recentRuns.viewAll': 'Abrir ejecuciones →',
+  'dashboard.recentWorkflows.browse': 'Ver plantillas →',
   'dashboard.recentWorkflows.empty':
     'Aún no hay flujos. Instala una plantilla o crea uno desde cero.',
   'dashboard.recentWorkflows.title': 'Ejecutados recientemente',
+  'dashboard.run.col.run': 'Correr',
   'dashboard.run.col.started': 'Iniciado',
   'dashboard.run.col.trigger': 'Disparador',
   'dashboard.run.col.workflow': 'Flujo',
@@ -87,6 +102,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Flujo',
   'executions.description':
     'Cada ejecución de flujo, cada reintento, cada salida de paso — todo observable.',
+  'executions.empty.filter': 'Ninguna ejecución coincide con este filtro.',
   'executions.empty.first': 'Aún no hay ejecuciones — dispara un flujo para poblar esta lista.',
   'executions.error': 'No se pudieron cargar las ejecuciones.',
   'executions.eyebrow': 'Historial de ejecuciones',
@@ -96,30 +112,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Cargando historial de ejecuciones…',
   'executions.title': 'Ejecuciones',
   'forgotPassword.confirmation': 'Enlace de restablecimiento enviado a {{email}}.',
+  'forgotPassword.subhead': 'Introduce tu correo para recibir un enlace de restablecimiento.',
   'forgotPassword.successSubhead':
     'Enviamos un enlace de restablecimiento a {{email}}. Caduca en 30 minutos.',
   'help.connections.body':
     'Los pasos de IA, correo y almacenamiento requieren claves de proveedor configuradas en el archivo api/.env. Una vez configurada una clave, la integración correspondiente aparece como conectada en la página de Conexiones.',
+  'help.connections.cta': 'Abrir conexiones →',
   'help.connections.title': 'Conectar proveedores',
   'help.gettingStarted.body':
-    'Los nuevos flujos se pueden instalar desde la biblioteca de plantillas o crear desde cero en el function Object() { [native code] } de flujos. Cada flujo tiene un disparador (manual, webhook o cron) y una secuencia de pasos que se ejecutan en orden.',
+    'Los nuevos flujos de trabajo se pueden instalar desde la biblioteca de plantillas o crear desde cero en el constructor de flujos. Cada flujo tiene un desencadenador (manual, webhook o cron) y una secuencia de pasos que se ejecutan en orden.',
+  'help.gettingStarted.cta': 'Explorar la biblioteca de plantillas →',
+  'help.gettingStarted.title': 'Primeros pasos',
   'help.intro':
     'Encuentra respuestas a preguntas comunes sobre cómo construir flujos, configurar conexiones e interpretar resultados de ejecución. Los temas más comunes se listan abajo; para cualquier cosa no cubierta, contacta al administrador del espacio de trabajo.',
   'help.runs.body':
     'Cada ejecución registra cada paso de forma independiente con su estado (éxito, fallo, omitido) y un fragmento de salida. La página de detalle de ejecución muestra la traza completa paso a paso más métricas inferidas.',
+  'help.runs.cta': 'Abrir ejecuciones →',
   'help.runs.title': 'Leer salidas de ejecución',
   'help.title': 'Centro de ayuda',
   'integrationCard.manage': 'Gestionar',
   'landing.brand': 'Dendrite',
   'landing.demo.action.subtitle': 'Rotación · territorio',
+  'landing.demo.action.title': 'Notificar al representante',
   'landing.demo.condition.subtitle': 'Clasificador de intención IA',
+  'landing.demo.condition.title': '¿Puntuación ≥ media?',
   'landing.demo.trigger.subtitle': 'POST /forms/contact',
   'landing.demo.trigger.title': 'Webhook entrante',
+  'landing.features.body':
+    'Los desencadenadores se activan. Las condiciones ramifican. Las acciones entregan el trabajo. Compónlos visualmente, versiónalos como código.',
   'landing.features.heading': 'Tres tipos de nodos. Formas infinitas.',
   'landing.footer.help': 'Ayuda',
   'landing.footer.tagline': 'Inteligencia en movimiento',
+  'landing.hero.body':
+    '{{appName}} es el motor de flujos de trabajo para equipos de operaciones que superaron Zapier. Desencadenador, condición, acción — conectados a todos los sistemas que realmente usas.',
   'landing.hero.eyebrow': 'Inteligencia en movimiento',
   'landing.hero.headline': 'Conecta tu stack. Deja que el trabajo suceda.',
+  'landing.hero.primaryCta': 'Crea tu primer flujo de trabajo',
   'landing.hero.proof.ai': 'Nodos de IA integrados',
   'landing.hero.proof.free': 'Gratis para 1k ejecuciones/mes',
   'landing.hero.proof.soc2': 'SOC 2 Type II',
@@ -127,10 +155,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Paga por ejecuciones, no por puestos.',
   'landing.templates.body':
     'Flujos preconfigurados para cada equipo — ventas, soporte, dev-ops, finanzas. Instala con un clic; modifica cualquier cosa.',
+  'landing.templates.cta': 'Regístrate para explorar plantillas →',
   'landing.templates.eyebrow': 'Empieza en segundos',
   'landing.templates.heading': 'Una biblioteca de recetas verificadas.',
   'landing.templates.signupHint': 'Regístrate para instalar',
   'login.hidePassword': 'Ocultar contraseña',
+  'login.noAccount': '¿Nuevo en Tessera?',
   'login.showPassword': 'Mostrar contraseña',
   'login.subhead': 'Inicia sesión para mantener tus automatizaciones en marcha.',
   'mobileNav.drawerLabel': 'Navegación principal',
@@ -146,8 +176,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Ejecuta un flujo para empezar a poblar este feed.',
   'notifications.empty.title': 'Estás al día',
   'notifications.eyebrow': '{{n}} sin leer',
+  'planUpdated.body':
+    'Tu cambio de facturación ya está activo. Puedes gestionar tu plan en cualquier momento desde la página de facturación.',
+  'planUpdated.retry': 'Intentar de nuevo',
+  'planUpdated.verifyFailed': 'Todavía no hemos podido confirmar su pago.',
+  'planUpdated.verifyFailedBody':
+    'Es posible que tu pago aún se esté procesando. Inténtalo de nuevo en un momento.',
   'planUpdated.verifying': 'Confirmando tu pago…',
   'pricing.heading': 'ejecuciones',
+  'pricing.runsSuffix': 'ejecuciones',
   'pricing.workflowsSuffix': 'flujos',
   'privacy.collect.body':
     'Recopilamos la dirección de correo con la que te registras, los flujos que configuras y metadatos sobre cada ejecución (hora de inicio, hora de fin, estado). Nunca recopilamos ni almacenamos el contenido de las cargas útiles de disparadores o salidas de pasos más allá de lo necesario para mostrarlo en el visor de ejecución al propietario del espacio.',
@@ -163,12 +200,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'No se pudo actualizar la contraseña.',
   'resetPassword.newPassword': 'Nueva contraseña',
   'resetPassword.subhead': 'Elige algo que solo tú puedas adivinar.',
+  'settings.appearance.description': 'Alterna entre el modo claro y el modo oscuro.',
+  'settings.appearance.title': 'Apariencia',
   'settings.billingShortcut.cta': 'Abrir facturación',
   'settings.billingShortcut.description':
     'El plan, el uso y las facturas viven en la página de facturación dedicada.',
   'settings.danger.confirm':
     '¿Estás seguro? Esto pondrá tu espacio de trabajo en cola para eliminación.',
   'settings.danger.confirmYes': 'Sí, poner en cola la eliminación',
+  'settings.danger.deleteWorkspace.cta': 'Eliminar espacio de trabajo',
   'settings.danger.deleteWorkspace.hint':
     'Elimina todos los flujos, ejecuciones y conexiones tras un período de gracia de 14 días.',
   'settings.danger.deleteWorkspace.title': 'Eliminar espacio de trabajo',
@@ -179,9 +219,14 @@ export const ui: UiTranslations = {
     'Gestiona tu cuenta, espacio de trabajo, integraciones y facturación en un solo lugar.',
   'settings.notifications.description':
     'Elige qué eventos te avisan, te envían correo o se mantienen en silencio.',
+  'settings.notifications.failures.hint':
+    'Notificación por correo electrónico y en la aplicación en cada ejecución fallida.',
+  'settings.notifications.failures.title': 'Fallos de flujos de trabajo',
   'settings.notifications.product.hint': 'Correos ocasionales sobre nuevas plantillas y funciones.',
+  'settings.notifications.product.title': 'Novedades del producto',
   'settings.notifications.weekly.hint':
     'Resumen del lunes por la mañana de las ejecuciones y ahorros de la semana anterior.',
+  'settings.notifications.weekly.title': 'Resumen semanal',
   'settings.profile.description':
     'Cómo apareces dentro del ejecutor de flujos. Usado en la actividad del espacio de trabajo.',
   'settings.profile.noEmail': 'No hay correo registrado',
@@ -189,12 +234,25 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'No se pudieron guardar los cambios del perfil.',
   'settings.profile.unnamedUser': 'Usuario sin nombre',
   'settings.security.audit.hint': 'Transmite cada acción a tu SIEM vía webhook.',
+  'settings.security.audit.title': 'Reenvío del registro de auditoría',
   'settings.security.description': 'Autenticación de dos factores, SSO y sesiones activas.',
   'settings.security.sso.hint': 'Disponible en planes Scale y Enterprise.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint':
+    'Obligatorio para cualquier acción del propietario del espacio de trabajo.',
+  'settings.security.totp.title': 'Autenticación de dos factores (TOTP)',
   'settings.twoFactorCode': 'Código de autenticación',
   'settings.twoFactorDisable': 'Desactivar',
+  'settings.twoFactorDisableTitle': 'Desactivar la autenticación de dos factores',
   'settings.twoFactorEnable': 'Activar',
+  'settings.twoFactorEnableTitle': 'Activar la autenticación de dos factores',
   'settings.twoFactorInvalidCode': 'Código no válido',
+  'settings.twoFactorOn': 'El',
+  'settings.twoFactorQrAlt': 'Código QR de dos factores',
+  'settings.twoFactorScan':
+    'Escanea este código QR con tu aplicación de autenticación, luego ingresa el código de 6 dígitos.',
+  'settings.twoFactorUnavailable':
+    'La autenticación de dos factores no está disponible para esta aplicación.',
   'settings.twoFactorVerify': 'Comprobar y activar',
   'settings.workspace.description':
     'Identidad compartida, región y valores predeterminados de ejecución para tu equipo.',
@@ -223,6 +281,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Plantilla',
   'templates.description':
     'Planos prediseñados para las automatizaciones más comunes. Bifurca, personaliza, despliega.',
+  'templates.empty.filter': 'Ninguna plantilla coincide con tu búsqueda.',
   'templates.empty.first': 'No hay plantillas disponibles ahora mismo.',
   'templates.error': 'No se pudieron cargar las plantillas.',
   'templates.installs': 'instalaciones',
@@ -248,6 +307,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Deshabilitar',
   'workflowBuilder.enable': 'Habilitar',
   'workflowBuilder.error': 'No se pudo cargar el flujo.',
+  'workflowBuilder.inspector.config': 'Configuración',
+  'workflowBuilder.inspector.cron': 'Expresión cron',
+  'workflowBuilder.inspector.disabled': 'Deshabilitado — no se ejecutará automáticamente.',
   'workflowBuilder.inspector.enabled': 'Habilitado — se ejecuta con el disparador.',
   'workflowBuilder.inspector.eyebrow': 'Inspector',
   'workflowBuilder.inspector.id': 'Id',
@@ -265,18 +327,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Error al alternar.',
   'workflowBuilder.workflow': 'Flujo · v{{v}}',
   'workflowBuilder.zoom.in': 'Acercar',
+  'workflowBuilder.zoom.label': 'Controles de zoom del lienzo',
+  'workflowBuilder.zoom.out': 'Alejar',
   'workflowCard.lastRun': 'Última ejecución {{when}}',
   'workflowCard.runs': '{{count}} ejecuciones',
+  'workflowCard.success': '{{rate}} % de éxito',
   'workflowHeroCard.last24h': 'Últimas 24 h',
+  'workflows.browseTemplates': 'Ver plantillas →',
   'workflows.description':
     'Cada automatización en tu espacio, con salud y actividad reciente de un vistazo.',
+  'workflows.empty.body': 'Intenta borrar el filtro o empezar desde una plantilla.',
   'workflows.empty.firstBody': 'Instala una plantilla para empezar en segundos.',
   'workflows.empty.firstTitle': 'Aún no hay flujos',
   'workflows.empty.title': 'Ningún flujo coincide',
   'workflows.error': 'No se pudieron cargar los flujos.',
   'workflows.eyebrow': 'Biblioteca · {{count}} en total',
+  'workflows.loading': 'Cargando flujos de trabajo…',
   'workflows.newFromTemplate': 'Nuevo desde plantilla',
   'workflows.searchPlaceholder': 'Buscar flujos…',
+  'workflows.title': 'Flujos de trabajo',
   'workflowSidebar.brand': 'Dendrite',
   'workflowSidebar.status': 'Todos los sistemas en marcha',
   'workflowSidebar.tagline': 'Inteligencia en movimiento',

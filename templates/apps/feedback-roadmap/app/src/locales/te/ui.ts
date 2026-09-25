@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ఫీడ్‌బ్యాక్ ఉందా, బగ్ కనుగొన్నారా, లేదా {{appName}}లో మీ సొంత బోర్డు కావాలా? టీమ్‌ను చేరుకోవడానికి మీ సెట్టింగ్‌లను తెరవండి — ప్రతి సందేశం దానిని చదివే నిజమైన మనిషి దగ్గరకే వెళ్తుంది.',
+  'about.contactTitle': 'మాతో మాట్లాడండి',
+  'about.featureModeration':
+    'క్వార్టర్ లేబుళ్లతో ఒక పబ్లిక్ రోడ్‌మ్యాప్, షిప్ చేసిన పనిని రిలీజ్ నోట్స్‌గా మార్చే ఒక చేంజ్‌లాగ్, మరియు ప్రజలు ఎక్కువగా ఏమి కోరుకుంటున్నారో చూపించే ఒక డాష్‌బోర్డ్.',
+  'about.featurePricing':
+    'కొన్ని బోర్డులను ఉచితంగా నడపవచ్చు; Pro మరియు Team ప్లాన్‌లు ఎక్కువ బోర్డులు, అధిక పరిమితులు, మరియు డేటా ఎక్స్‌పోర్ట్‌ను అన్‌లాక్ చేస్తాయి.',
+  'about.featureThreads':
+    'అంశం ప్రకారం అమర్చిన పబ్లిక్ ఫీడ్‌బ్యాక్ బోర్డులు, డూప్లికేట్ విలీనంతో ఓట్లు ఒకే నిజాయితీ డిమాండ్ సిగ్నల్‌గా కలుస్తాయి.',
+  'about.featureVoting':
+    'పూర్తి స్టేటస్ వర్క్‌ఫ్లోతో ఒక్కో యూజర్‌కు ఒక ఓటు — open, planned, in progress, shipped, లేదా declined — మరియు ప్రతి నిర్ణయంపై అధికారిక స్పందన.',
+  'about.intro':
+    '{{appName}} ఒక ప్రొడక్ట్-ఫీడ్‌బ్యాక్ ప్లాట్‌ఫారమ్ — కస్టమర్లు రిక్వెస్ట్‌లు పోస్ట్ చేసే, తమకు కావాల్సిన వాటికి ఓటు వేసే, మరియు ప్రతి ఆలోచనను planned నుండి shipped వరకు ఫాలో అయ్యే పబ్లిక్ బోర్డులు. డిమాండ్ తనంతట తానే ర్యాంక్ అవ్వడంతో, తదుపరి ఏమి నిర్మించాలో టీమ్‌లు ఊహించడం ఆపేస్తాయి.',
+  'about.missionBody':
+    'ఉత్తమ ప్రొడక్ట్ నిర్ణయాలు బహిరంగంగానే తీసుకుంటారని మేము నమ్ముతాము. {{appName}} ప్రతి టీమ్‌కు ఓటు వేసిన రిక్వెస్ట్‌ల పబ్లిక్ బోర్డు, లక్ష్య క్వార్టర్లతో అధికారిక రోడ్‌మ్యాప్, మరియు లూప్‌ను ముగించే చేంజ్‌లాగ్‌ను ఇస్తుంది — దీనితో కస్టమర్లు తమ ప్రభావాన్ని చూస్తారు, టీమ్‌లు తమ మ్యాండేట్‌ను చూస్తాయి.',
+  'about.missionTitle': 'మా లక్ష్యం',
   'admin.backToBoards': 'బోర్డులకు తిరిగి వెళ్లు',
   'admin.denied': 'అడ్మిన్‌లకు మాత్రమే.',
   'admin.eyebrow': 'ప్రోడక్ట్ టీమ్',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'admin.title': 'ఫీడ్‌బ్యాక్ డ్యాష్‌బోర్డ్',
   'admin.topOpen': 'టాప్ ఓపెన్ అభ్యర్థనలు',
   'admin.totalVotes': '{{count}} మొత్తం',
+  'admin.votesChartLabel': 'గత ఎనిమిది వారాల్లో వారానికి వేసిన ఓట్ల బార్ చార్ట్',
   'admin.votesOverTime': 'కాలక్రమంలో ఓట్లు',
   'auth.forgotPassword.email': 'ఇమెయిల్',
   'auth.forgotPassword.sendResetLink': 'రీసెట్ లింక్ పంపండి',
@@ -30,7 +47,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'మీ ఖాతాను సృష్టించండి',
   'auth.username': 'యూజర్‌నేమ్',
   'authShell.communities': 'కమ్యూనిటీలు',
+  'authShell.copyright': '{{appName}} — ప్రతి స్వరం లెక్కించబడుతుంది.',
   'authShell.trending': 'ట్రెండింగ్',
+  'boardCard.postCount': '{{count}} పోస్ట్‌లు',
   'boardDetail.allBoards': 'అన్ని బోర్డులు',
   'boardDetail.backToBoards': 'బోర్డులకు తిరిగి వెళ్లు',
   'boardDetail.empty': 'ఈ ఫిల్టర్‌లకు సరిపోయే పోస్ట్‌లు ఇంకా లేవు.',
@@ -54,6 +73,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'ప్రతి ఎంట్రీ ఓటు పొందిన అభ్యర్థనగా ప్రారంభమైంది. ఓటర్లు దాన్ని కదలడం చూశారు; ఇది ఎక్కడ ల్యాండ్ అయిందో ఇక్కడ ఉంది.',
   'changelog.title': 'షిప్ అయింది, రసీదులతో',
+  'changelog.voteCount': '{{count}} ఓట్లతో ఇది నిర్మించబడింది',
   'common.atLeast8Characters': 'కనీసం 8 అక్షరాలు',
   'common.checkYourInbox': 'మీ ఇన్‌బాక్స్ చూడండి',
   'common.loadingEllipsis': 'లోడ్ చేస్తోంది…',
@@ -64,6 +84,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'సమర్పిస్తోంది…',
   'footer.about': '{{appName}} గురించి',
   'footer.language': 'భాష',
+  'forgotPassword.description':
+    'మీ ఇమెయిల్‌ను నమోదు చేయండి, మేము మీకు రీసెట్ చేయడానికి ఒక లింక్‌ను పంపుతాము.',
+  'forgotPassword.successBody':
+    'మేము రీసెట్ లింక్‌ను పంపాము {{email}} 30 నిమిషాల్లో గడువు ముగుస్తుంది.',
   'forgotPassword.tryAnother': 'వేరే ఇమెయిల్ ప్రయత్నించండి',
   'form.displayName': 'ప్రదర్శన పేరు',
   'form.firstName': 'మొదటి పేరు',
@@ -74,6 +98,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'మీ రోడ్‌మ్యాప్, ఓట్లచే మద్దతు.',
   'landing.heroCtaPrimary': 'ఓట్లు సేకరించడం ప్రారంభించండి',
   'landing.heroCtaSecondary': 'లైవ్ బోర్డ్ చూడండి',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'ఊహించడం ఆపండి. వారు ఓటు వేసినది షిప్ చేయండి.',
+  'landing.heroLede':
+    '{{appName}} చెల్లాచెదురుగా ఉన్న ఫీచర్ రిక్వెస్ట్‌లను ఓటు వేసిన ఆలోచనల పబ్లిక్ బోర్డుగా, అధికారిక రోడ్‌మ్యాప్‌గా, మరియు మీ కస్టమర్లు నిజంగా చదివే చేంజ్‌లాగ్‌గా మారుస్తుంది.',
   'landing.heroStat1': '3,200+',
   'landing.heroStat1Label': 'వినే టీములు',
   'landing.heroStat2': '1.4m',
@@ -85,9 +113,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Changelog',
   'landing.navJoin': '{{appName}}లో చేరండి',
   'landing.navRoadmap': 'రోడ్‌మ్యాప్',
+  'landing.step1Body':
+    'కస్టమర్లు పబ్లిక్ బోర్డులపై ఆలోచనలు పోస్ట్ చేస్తారు. డూప్లికేట్‌లు విలీనమవుతాయి, ఓట్లు కలుస్తాయి, మరియు డిమాండ్ తనంతట తానే ర్యాంక్ అవుతుంది.',
   'landing.step1Title': 'సేకరించు',
+  'landing.step2Body':
+    'లక్ష్య క్వార్టర్‌తో రిక్వెస్ట్‌లను planned లేదా in progress అని గుర్తించండి — మీరు గుర్తించిన క్షణమే రోడ్‌మ్యాప్ అప్‌డేట్ అవుతుంది.',
+  'landing.step2Title': 'కమిట్',
   'landing.step3Body':
     'షిప్ అయిన పోస్ట్‌లు చేంజ్‌లాగ్ ఎంట్రీలుగా మారతాయి, మరియు ప్రతి ఓటరుకు వారి స్వంత లిస్ట్‌లో ఫలితం కనిపిస్తుంది.',
+  'landing.step3Title': 'షిప్',
   'landing.topSubtitle': 'ఈ బోర్డు నుండి లైవ్ — మీ ఓటు జోడించడానికి సైన్ ఇన్ చేయండి.',
   'landing.topTitle': 'యూజర్లు ప్రస్తుతం అడుగుతున్నవి',
   'landing.topViewAll': 'అన్ని బోర్డులు',
@@ -95,14 +129,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'ప్రాథమిక',
   'layout.signUp': 'నమోదు చేసుకోండి',
   'layout.submit': 'ఫీడ్‌బ్యాక్ సమర్పించండి',
+  'login.description': 'సంభాషణ ఎక్కడ ఆగిపోయిందో అక్కడి నుండి కొనసాగించండి.',
+  'login.heading': 'Nimbus లోకి సైన్ ఇన్ చేయండి',
+  'login.noAccount': 'ఇక్కడికి కొత్తగా వచ్చారా?',
   'login.passwordPlaceholder': 'మీ పాస్‌వర్డ్',
   'login.twoFactorLabel': '2FA కోడ్ (ఐచ్ఛికం)',
   'login.twoFactorPlaceholder': '6-అంకెల కోడ్',
+  'login.twoFactorRequiredHint':
+    'ఈ ఖాతాకు టూ-ఫ్యాక్టర్ ప్రామాణీకరణ ప్రారంభించబడింది. కొనసాగించడానికి మీ ఆథెంటికేటర్ యాప్ నుండి 6-అంకెల కోడ్‌ను నమోదు చేయండి.',
   'login.twoFactorRequiredLabel': 'మీ 2FA కోడ్‌ను నమోదు చేయండి',
+  'myActivity.browseCta': 'బోర్డులను బ్రౌజ్ చేయండి',
+  'myActivity.emptyPosts': 'మీరు ఇంకా ఏ రిక్వెస్ట్‌ను పోస్ట్ చేయలేదు.',
+  'myActivity.emptyVotes': 'ఇంకా ఏమీ లేదు — బోర్డులను బ్రౌజ్ చేసి ఒక ఆలోచనకు మద్దతు ఇవ్వండి.',
   'myActivity.eyebrow': 'మీ కార్యాచరణ',
   'myActivity.loadError': 'మీ యాక్టివిటీని లోడ్ చేయలేకపోయాము.',
   'myActivity.postsTitle': 'మీరు సమర్పించిన అభ్యర్థనలు',
+  'myActivity.shippedNote': 'వాటిలో {{count}} షిప్ అయ్యాయి — ప్రోత్సాహానికి ధన్యవాదాలు.',
   'myActivity.submitCta': 'అభ్యర్థన పోస్ట్ చేయండి',
+  'myActivity.tabLabel': 'వీక్షణ',
   'myActivity.tabPosts': 'నా పోస్ట్‌లు',
   'myActivity.tabVotes': 'నా ఓట్లు',
   'myActivity.votesTitle': 'మీరు ఓటు వేసిన అభ్యర్థనలు',
@@ -137,8 +181,13 @@ export const ui: UiTranslations = {
   'posts.notFound': 'పోస్ట్ దొరకలేదు',
   'postsAdmin.backToDashboard': 'డాష్‌బోర్డ్',
   'postsAdmin.eyebrow': 'ప్రోడక్ట్ టీమ్',
+  'postsAdmin.mergeApplied':
+    'విలీనం చేయబడింది — {{votes}} ఓట్లు మరియు {{comments}} వ్యాఖ్యలు తరలించబడ్డాయి.',
   'postsAdmin.mergeApply': 'విలీనం చేసి ఓట్లను తరలించు',
   'postsAdmin.mergeChoose': 'టార్గెట్ పోస్ట్‌ను ఎంచుకోండి…',
+  'postsAdmin.mergeFailed': 'విలీనం విఫలమైంది.',
+  'postsAdmin.mergeHint':
+    'ఓట్లు కలుస్తాయి (ఒక్కో యూజర్‌కు ఒకటి), వ్యాఖ్యలు తరలుతాయి, మరియు ఈ పోస్ట్‌కు "moved" గమనిక వస్తుంది.',
   'postsAdmin.mergeLabel': 'డూప్లికేట్‌ను ఇందులో విలీనం చేయండి',
   'postsAdmin.responseLabel': 'అధికారిక ప్రతిస్పందన',
   'postsAdmin.responsePlaceholder':
@@ -153,7 +202,13 @@ export const ui: UiTranslations = {
     'అధికారిక స్థితిని సెట్ చేయండి, బహిరంగంగా స్పందించండి, రోడ్‌మ్యాప్ క్వార్టర్‌కు లేబుల్ చేయండి, మరియు డూప్లికేట్‌లను విలీనం చేయండి.',
   'postsAdmin.title': 'ఫీడ్‌బ్యాక్ పోస్ట్‌లను నిర్వహించండి',
   'postsAdmin.votes': '{{count}} ఓట్లు',
+  'pricing.limits.advancedFeatures': 'అధునాతన ఫీచర్లు:',
+  'pricing.limits.boards': '{{count}} బోర్డులు',
   'pricing.limits.export': 'డేటా ఎగుమతి:',
+  'pricing.limits.posts': '{{count}} ఫీడ్‌బ్యాక్ పోస్ట్‌లు',
+  'pricing.limits.votes': '{{count}} ఓట్లు',
+  'resetPassword.description':
+    'బలమైనదాన్ని ఎంచుకోండి. రీసెట్ విజయవంతం అయిన తర్వాత మేము మిమ్మల్ని లాగిన్ చేస్తాము.',
   'resetPassword.newPasswordLabel': 'కొత్త పాస్‌వర్డ్',
   'resetPassword.tokenPlaceholder': 'లింక్ టోకెన్‌ను పేస్ట్ చేయండి',
   'roadmap.cardMeta': '{{author}} ద్వారా · {{board}}',
@@ -170,6 +225,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'డూప్లికేట్ పోస్ట్ చేయడానికి ముందు ఇప్పటికే ఉన్న అభ్యర్థనలను కనుగొనడానికి క్వెరీ టైప్ చేయండి.',
   'search.loadError': 'శోధన విఫలమైంది — మళ్ళీ ప్రయత్నించండి.',
+  'search.searching': 'వెతుకుతోంది…',
   'search.submit': 'శోధన',
   'search.submitNew': 'కొత్త అభ్యర్థనగా పోస్ట్ చేయండి',
   'search.title': 'ఫీడ్‌బ్యాక్ శోధించండి',
@@ -178,12 +234,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'బిల్లింగ్',
   'settings.displaySubtitle': 'ఫీడ్‌లు ఎంత సాంద్రంగా అనిపించాలో ఎంచుకోండి.',
   'settings.displayTitle': 'ప్రదర్శన',
+  'settings.emailDigestDesc': 'ప్రతి సోమవారం అత్యధిక ఓట్లు పొందిన ఓపెన్ రిక్వెస్ట్‌లు.',
+  'settings.emailDigestLabel': 'వారపు సారాంశం',
+  'settings.emailMentionsDesc': 'మీరు ఫాలో అయ్యే పోస్ట్‌కు ఎవరైనా రిప్లై ఇచ్చినప్పుడు.',
+  'settings.emailMentionsLabel': 'మెన్షన్‌లపై నాకు ఇమెయిల్ చేయండి',
+  'settings.emailRepliesDesc': 'మీరు ప్రారంభించిన లేదా రిప్లై ఇచ్చిన థ్రెడ్‌లు.',
+  'settings.emailRepliesLabel': 'ప్రత్యుత్తరాలపై నాకు ఇమెయిల్ చేయండి',
   'settings.loadError': 'మీ ఖాతాను లోడ్ చేయలేకపోయింది.',
   'settings.loading': 'మీ సెట్టింగ్‌లు లోడ్ చేస్తోంది…',
   'settings.notifications': 'నోటిఫికేషన్‌లు',
   'settings.notificationsSubtitle':
     'మీ ఇన్‌బాక్స్ vs పుష్ డివైస్‌కు ఏమి చేరుకోవాలో నిర్ణయించుకోండి.',
+  'settings.pushRepliesLabel': 'రిప్లైల కోసం పుష్',
+  'settings.pushVotesDesc': '100, 500, 1000 వద్ద థ్రెషోల్డ్ పింగ్.',
+  'settings.pushVotesLabel': 'అప్‌వోట్ మైలురాళ్ల కోసం ఒత్తిడి',
   'settings.saveAccount': 'ఖాతాను సేవ్ చేయండి',
+  'settings.showFlair': 'పోస్ట్‌లపై బోర్డ్ చిప్‌లను చూపించు',
+  'settings.showThumbnails': 'లింక్/ఇమేజ్ థంబ్‌నెయిల్స్ చూపించు',
   'settings.usernamePlaceholder': 'హ్యాండిల్ ఎంచుకోండి',
   'signup.confirmPlaceholder': 'మళ్లీ టైప్ చేయండి',
   'signup.description': 'మేము తర్వాత ఏమి నిర్మిస్తామో ఆకారం ఇవ్వండి.',

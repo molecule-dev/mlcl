@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Cwestiynau, adborth, neu eisiau demo i'ch tîm? Anfonwch e-bost atom yn hello@conduit.dev — mae pob neges yn cyrraedd person go iawn ar y tîm.",
   'about.contactHeading': 'Cysylltwch â ni',
   'about.eyebrow': 'Ynglŷn â',
+  'about.featuresHeading': 'Yr hyn a gewch',
+  'about.introBody':
+    'Mae {{app}} yn dod â chyflenwi parhaus ar ffurf GitHub Actions i un dangosfwrdd cyflym: piblinellau, logiau adeiladu, arteffactau, bathodynnau statws, ac amgylcheddau defnyddio ar gyfer eich holl ystorfeydd mewn un lle. Dim neidio rhwng tabiau, dim dyfalu pa adeiladwaith a dorrodd — mae pob rhediad, llinell log, a defnyddio un clic i ffwrdd.',
+  'about.introHeading': 'Beth yw {{app}}',
+  'about.missionBody':
+    "Dylai cludo meddalwedd fod yn dawel ac yn rhagweladwy, nid yn achos ofn. Rydym yn adeiladu'r piblinellau, y logiau, a'r offer defnyddio fel bod y llwybr o ymrwymiad i gynhyrchu yn gyflym, yn weladwy, ac yn ddibynadwy — yr adeiladwaith gwyrdd cyntaf mewn pum munud, a phob adeiladwaith wedyn yr un mor glir.",
+  'about.missionHeading': 'Ein cenhadaeth',
+  'about.subtitle':
+    "Mae {{app}} yn ddangosfwrdd CI/CD ar gyfer timau sydd eisiau monitro adeiladweithiau, defnyddiadau, ac amgylcheddau ar draws pob ystorfa — a chludo'n sicr.",
   'artifacts.empty': 'Dim arteffactau eto.',
   'artifacts.heading': 'Arteffactau',
   'artifacts.loadError': 'Methwyd llwytho arteffactau.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Amgylcheddau',
   'environments.loadError': 'Methwyd llwytho amgylcheddau.',
+  'environments.loading': "Wrthi'n llwytho amgylcheddau…",
   'environments.subheading': 'Statws lleoli byw ar draws pob targed.',
   'forgotPassword.runnerStatus': 'ailosod · twnnel diogel',
+  'forgotPassword.success':
+    'Os oes cyfrif yn bodoli ar gyfer yr e-bost hwnnw, mae dolen ailosod ar y ffordd. Gwiriwch eich mewnflwch.',
   'insights.changeFailureRate': 'Newid cyfradd methiant',
   'insights.deployFrequency': 'Defnyddio / diwrnod',
   'insights.empty': 'Dim digon o ddata eto.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Methwyd llwytho mewnwelediadau.',
   'insights.meanP95': 'golygu {{mean}} · t95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Camau piblinell arafaf',
   'insights.successRateHeading': 'Cyfradd llwyddiant y biblinell (14 diwrnod diwethaf)',
   'landing.choosePlan': 'Dewiswch gynllun',
+  'landing.copyright': "© {{year}} {{app}}. Cludo'n sicr.",
   'landing.ctaBody':
     'Dim cerdyn credyd. Dim angen peiriannydd platfform. Sicrhewch fod y biblinell gyntaf yn wyrdd mewn pum munud.',
   'landing.ctaHeading': 'Llong gyda sicrwydd.',
   'landing.featuresEyebrow': '// nodweddion y platfform',
   'landing.featuresHeading': "Wedi'i adeiladu ar gyfer cludwyr, gan gludwyr",
+  'landing.heroSubtitle':
+    "Piblinellau sy'n gorffen mewn eiliadau. Logiau y gallwch eu darllen. Defnyddiadau y gallwch ymddiried ynddynt.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ prisio --plain',
   'landing.pricingHeading': 'Prisio syml, rhagweladwy',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Ar hedfan nawr',
   'pipelines.metric.successCaption': '{{count}} o {{total}} rhedeg',
   'pipelines.metric.successRate': 'Cyfradd llwyddiant',
+  'pipelines.realtimeOn': 'amser real',
   'pipelines.subheading': "Diweddariadau byw o bob storfa sy'n cael ei gwylio.",
+  'pricing.advancedFeatures': 'Nodweddau uwch: {{mark}}',
+  'pricing.canExport': 'Allgludo data: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} arteffact',
+  'pricing.maxBuilds': '{{count}} adeiladwaith',
+  'pricing.maxPipelines': '{{count}} piblinell',
   'privacy.dataAccount': "Cyfrif: enw, e-bost, cyfrinair wedi'i hasio, haen cynllun.",
   'privacy.intro':
     "{{ap}} yn casglu dim ond y data lleiaf sydd ei angen arnom i weithredu eich cyfrif cyflwyno parhaus: eich e-bost, y storfeydd rydych chi'n eu cysylltu, y metadata ymrwymiadau a'r adeiladu y mae eich rhedwyr yn eu cynhyrchu, a'r cyfrinachau rydych chi'n dewis eu storio gyda ni. Nid ydym byth yn darllen eich cod ffynhonnell y tu allan i'r rhedwr adeiladu; mae arteffactau adeiladu yn cael eu storio yn eich bwced S3 pan gânt eu ffurfweddu.",
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     "Rydym yn defnyddio Stripe ar gyfer bilio, Mailgun ar gyfer e-bost trafodion, ac AWS S3 ar gyfer storio arteffactau adeiladu. Mae pob un wedi'i rwymo'n gytundebol i'r cwmpas lleiaf o ddata sydd ei angen i ddarparu ei wasanaeth.",
   'privacy.rightsBody':
     "Gallwch allforio pob beit o'ch data, dileu'ch cyfrif ar unrhyw adeg o'r Gosodiadau, a gofyn am gofnod o bob danfoniad webhook ar eich cyfrif. Rydym yn ymateb i geisiadau GDPR / CCPA o fewn 30 diwrnod.",
+  'privacy.subtitle':
+    'Sut mae {{app}} yn casglu, yn storio, ac yn diogelu eich data wrth i ni redeg eich piblinellau.',
   'privacy.title': 'Polisi preifatrwydd',
   'repositories.empty': "Dim ystorfeydd wedi'u cysylltu.",
   'repositories.heading': 'Storfeydd',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Pob ystorfa',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': "Methwyd llwytho'r storfa.",
+  'repositoryDetail.meanDuration': 'Hyd cymedrig',
   'repositoryDetail.notFound': 'Ni chanfuwyd ystorfa.',
+  'repositoryDetail.successRate': 'Cyfradd llwyddiant',
   'repositoryDetail.totalBuilds': 'Cyfanswm yr adeiladwaith',
   'repositoryDetail.webhookActive': 'gweithredol',
   'repositoryDetail.webhookPaused': "wedi'i oedi",
   'repositoryDetail.webhooksHeading': 'Bachau Gwe',
+  'resetPassword.passwordLabel': 'Cyfrinair newydd',
   'resetPassword.runnerStatus': "ailosod · tocyn wedi'i wirio",
   'resetPassword.subtitle': "Dewiswch gyfrinair cryf nad ydych wedi'i ddefnyddio o'r blaen.",
   'resetPassword.tokenPlaceholder': 'gludo o e-bost',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     "Storfeydd Mae Conduit yn gwylio. Datgysylltwch o'ch darparwr VCS i roi'r gorau i lyncu digwyddiadau.",
   'settings.repositories.empty': "Dim ystorfeydd wedi'u cysylltu eto.",
+  'settings.repositories.heading': 'Cysylltiadau ystorfeydd',
   'settings.repositories.loadError': 'Methwyd llwytho ystorfeydd.',
   'settings.secrets.addCta': 'Ychwanegu cyfrinach',
   'settings.secrets.addError': 'Methwyd ychwanegu cyfrinach.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': "Methwyd dileu'r gyfrinach.",
   'settings.secrets.empty': "Dim cyfrinachau wedi'u storio.",
   'settings.secrets.heading': 'Cyfrinachau',
+  'settings.secrets.lastUsed': 'defnyddiwyd ddiwethaf {{date}}',
   'settings.secrets.loadError': 'Methwyd llwytho cyfrinachau.',
   'settings.secrets.neverUsed': "erioed wedi'i ddefnyddio",
   'settings.secrets.rotateCta': 'Cylchdroi',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': "Methwyd diweddaru'r bachyn gwe.",
   'signup.namePlaceholder': 'Parc Riley',
   'signup.runnerStatus': 'haen am ddim · 1,000 adeiladu mun/mis',
+  'terms.intro':
+    "Trwy greu cyfrif {{app}} rydych yn cytuno i'r telerau hyn. Maent yn ymdrin â defnydd derbyniol o'r rhedwyr adeiladu, ffiniau ein SLA, a'r amodau y gallwn atal neu derfynu eich cyfrif o danonynt am lwythi gwaith camdriniol.",
   'terms.slaBody':
     "Mae cynlluniau Pro a Team yn targedu amser gweithredu misol o 99.95% ar gyfer yr API a'r gronfa rhedwyr. Darperir y cynllun Am Ddim fel y mae. Adroddir ar doriadau ar status.conduit.dev a'u credydu yn ôl y fformiwla yn eich anfoneb.",
   'terms.terminationBody':

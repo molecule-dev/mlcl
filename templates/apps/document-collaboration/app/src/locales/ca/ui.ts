@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens comentaris, has trobat un error o vols {{app}} per al teu estudi o equip? Escriu-nos des de la configuració del teu compte — cada missatge arriba a una persona real de l'equip.",
   'about.contactTitle': 'Parla amb nosaltres',
+  'about.intro':
+    "{{app}} és un estudi d'escriptura col·laborativa on editors, escriptors i equips redacten junts en temps real. Obre un document i la pàgina esdevé compartida — els cursors es mouen, els comentaris s'enfilen al marge i cada revisió es conserva segura a l'historial.",
+  'about.missionBody':
+    "Creiem que l'escriptura de text llarg mereix una llar tranquil·la i concentrada — una llar construïda al voltant del manuscrit, no de la reunió ni de la safata d'entrada. El nostre editor, la presència en temps real i l'historial de versions estan dissenyats perquè els col·laboradors avancin ràpidament junts sense que ningú perdi un paràgraf ni una idea.",
+  'about.missionTitle': 'La nostra missió',
+  'about.subtitle': 'Penseu junts, escriviu per sempre.',
   'about.title': 'Sobre {{app}}',
   'comments.addFailed': "No s'ha pogut publicar el comentari.",
   'comments.backToDoc': 'Torna al manuscrit',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Fils de comentaris',
   'comments.loading': "S'estan carregant els fils…",
   'comments.newPlaceholder': 'Afegeix un comentari al manuscrit…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Reobrir',
   'comments.reopenFailed': "No s'ha pogut tornar a obrir.",
   'comments.replyFailed': "No s'ha pogut publicar la resposta.",
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Esborranys recents, treballs compartits i edicions del dia.',
   'dashboard.viewFeed': 'Alimentació →',
   'editor.back': 'Torna als manuscrits',
+  'editor.bodyLabel': 'Cos del document',
   'editor.bodyPlaceholder': 'Comença on parpelleja el cursor.',
   'editor.comments': 'Comentaris',
   'editor.createFailed': "No s'ha pogut crear el document.",
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Si existeix un compte per a {{email}} , un enllaç de restabliment està en camí.',
+  'forgotPassword.sentHeading': 'Revisa el teu correu electrònic',
+  'forgotPassword.submitting': 'Enviant\\u2026',
   'forgotPassword.subtitle': "T'enviarem un enllaç de restabliment per correu electrònic.",
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Construït amb Molecule.',
+  'landing.ctaBody':
+    "Gratuït per a escriptors en solitari. Plans d'estudi per a equips d'editors, negres i revisors.",
   'landing.ctaHeading': 'Obre la pàgina. Deixa que comenci el cursor.',
   'landing.ctaPrimary': 'Obre un estudi',
   'landing.eyebrow': 'Per a escriptors, editors i equips',
   'landing.featuresEyebrow': 'El que obtens',
   'landing.featuresHeading': "Un estudi per a l'esborrany de format llarg.",
+  'landing.featuresSubtitle':
+    "{{appName}} està construït al voltant del manuscrit — no de la reunió, no de la safata d'entrada.",
   'landing.getStarted': "Obre l'estudi",
   'landing.heroCta': 'Comença a escriure',
   'landing.heroSubtitle':
@@ -95,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} comentaris, mencions, invitacions per compartir i sol·licituds de suggeriments sense llegir.',
   'presenceAvatars.label': '{{count}} col·laboradors',
+  'privacy.intro': 'Com recollim, utilitzem i protegim la teva informació.',
   'privacy.title': 'Política de privacitat',
   'profile.about.description':
     'Una breu biografia per al vostre perfil públic i les pàgines de col·laboradors.',
@@ -108,7 +125,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Presència',
   'profile.pronouns': 'Pronoms',
   'profile.publicToggle': "Mostra el perfil als companys d'equip",
+  'profile.role': 'Rol / càrrec',
   'profile.subtitle': 'Com apareixes als teus col·laboradors.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': "{{count}} escriptors actius a l'estudi",
   'quillonAuthBrandPanel.quote':
     "«Escriure és l'única cosa que, quan faig, no sento que hauria de fer una altra cosa.»",
@@ -116,6 +135,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Obre →',
   'quillonKpiCard.trend': 'Tendència recent',
   'quillonLayout.menu': 'Menú',
+  'quillonLayout.mobileNavLabel': 'Navegació mòbil',
   'quillonLayout.primaryNavLabel': 'Navegació principal',
   'quillonStudioHero.collab': 'Col·laboradors',
   'quillonStudioHero.docs': 'Documents tocats',
@@ -124,7 +144,9 @@ export const ui: UiTranslations = {
   'quillonStudioHero.subtitle': 'Agafa el manuscrit, deixa un comentari, avança un paràgraf.',
   'quillonStudioHero.words': "Paraules d'avui",
   'resetPassword.confirmPlaceholder': 'Repetiu la nova contrasenya',
+  'resetPassword.passwordLabel': 'Nova contrasenya',
   'resetPassword.passwordPlaceholder': 'Introduïu una contrasenya nova',
+  'resetPassword.submitting': 'Restableix',
   'resetPassword.subtitle': 'Trieu una contrasenya segura: com a mínim 12 caràcters.',
   'settings.account.description': 'Com inicieu la sessió.',
   'settings.billing.canceled': 'Subscripció cancel·lada.',
@@ -134,7 +156,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'No configurat',
   'settings.billing.updated': 'Pla actualitzat.',
   'settings.editor.description': 'Com es comporta el llenç mentre escrius.',
+  'settings.editor.title': "Preferències de l'editor",
   'settings.eyebrow': "Preferències d'estudi",
+  'settings.language.title': 'Llengua',
   'settings.notifications.${n.key}.description': 'Llengua',
   'settings.notifications.description': "Tria què arriba a la teva safata d'entrada.",
   'settings.subtitle':
@@ -144,12 +168,14 @@ export const ui: UiTranslations = {
   'shared.heading': 'Compartit amb mi',
   'shared.loadFailed': "No s'han pogut carregar els documents compartits.",
   'shared.subtitle': "Manuscrits, informes i notes de la resta de l'estudi.",
+  'signup.brandAttribution': 'Anaïs Park — Editora, The Quarterly',
   'signup.brandQuote': 'El primer manuscrit és el més difícil. Quillon el fa menys solitari.',
   'signup.emailPlaceholder': 'writer@studio.com',
   'signup.eyebrow': "Obre l'estudi",
   'signup.firstNamePlaceholder': 'Anaïs',
   'signup.heading': 'Crea el teu compte Quillon',
   'signup.lastNamePlaceholder': 'Parc',
+  'signup.submitting': "S'està obrint el teu estudi\\u2026",
   'signup.subtitle':
     'Un escriptori tranquil, col·laboradors ambientals i un editor de format llarg que no et molesta.',
   'templates.blank.subtitle': 'Una pàgina neta. El cursor comença.',
@@ -162,11 +188,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Comença amb una estructura ben pensada. Personalitza-la sense parar.',
   'templates.useFailed': "No s'ha pogut iniciar un document des d'aquesta plantilla.",
   'templates.useTemplate': 'Utilitza aquesta plantilla',
+  'terms.intro': 'Les condicions sota les quals pots utilitzar aquest servei.',
   'terms.title': 'Condicions del servei',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'ara mateix',
   'trash.confirmDelete': "Confirma l'eliminació",
+  'trash.confirmEmpty': 'Confirma — elimina-ho tot',
   'trash.deleteFailed': "No s'ha pogut suprimir.",
   'trash.deleteForever': 'Suprimeix per sempre',
   'trash.empty': 'Res a recuperar.',
@@ -182,7 +210,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     "Encara no hi ha revisions: deseu el document per iniciar-ne l'historial.",
   'versionHistory.heading': 'Historial de versions',
+  'versionHistory.latest': 'Últim',
   'versionHistory.loadFailed': "No s'ha pogut carregar l'historial.",
+  'versionHistory.noContent': "No s'ha capturat cap contingut per a aquesta revisió.",
   'versionHistory.previewing': 'Previsualització',
   'versionHistory.restore': 'Restaura aquesta versió',
   'versionHistory.restoreFailed': 'La restauració ha fallat.',

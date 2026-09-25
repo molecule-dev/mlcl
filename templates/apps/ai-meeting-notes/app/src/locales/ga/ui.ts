@@ -1,19 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ceisteanna, aiseolas nó iarratas ar ghné? Seol ríomhphost chuig an bhfoireann ag hello@murmur.app — sroicheann gach teachtaireacht duine fíor a oibríonn ar an táirge.',
   'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Fúinn',
+  'about.intro':
+    'Is é {{app}} faisnéis chruinnithe do fhoirne ar fearr leo cinntí a dhéanamh ná nótaí a thógáil. Tagann sé isteach i do ghlaonna, déanann sé gach focal a thrascríobh le lipéid chainteora, agus seolann sé achoimre AI móide míreanna gnímh faoi úinéireacht chomh luath agus a chríochnaíonn an cruinniú.',
+  'about.missionBody':
+    'Is i gcruinnithe a dhéanann foirne cinntí — agus is ann a chailleann na cinntí sin. Tá {{app}} ann lena chinntiú go maireann an obair a tharlaíonn i gcomhrá níos faide ná an comhrá: taifead dílis, achoimre shoiléir agus céimeanna leanúnacha freagracha, go huathoibríoch.',
+  'about.missionTitle': 'Ár misean',
   'actions.empty': 'Níl aon mhíreanna gníomhaíochta ag teacht le chéile.',
   'actions.heading': 'Míreanna gníomhaíochta',
   'actions.loadError': 'Theip ar lódáil na míreanna gníomhaíochta.',
   'actions.subheading': 'Comhiomlánaithe i ngach cruinniú. Scag de réir stádais chun díriú.',
   'actions.toggleDoneLabel': 'Marcáil mar déanta',
   'actions.toggleReopenLabel': 'Marcáil mar oscailte',
+  'auth.footer': '© {{year}} {{app}}. Gach focal, driogtha.',
   'calendar.heading': 'Féilire',
   'calendar.joinCta': 'Bígí Linn',
   'calendar.loadError': 'Theip ar an bhféilire a lódáil.',
   'calendar.nextMonth': 'An mhí seo chugainn',
   'calendar.noEventsForDay': 'Níl aon chruinnithe sceidealaithe don lá seo.',
+  'calendar.noUpcomingEvents':
+    'Níl aon chruinnithe le teacht. Ceangail féilire ó Integrations chun an liosta seo a líonadh.',
   'calendar.previousMonth': 'An mhí roimhe sin',
   'calendar.recent': 'Le déanaí',
   'common.daysAgo': '{{count}} lá ó shin',
@@ -25,9 +35,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} míreanna gníomhaíochta',
   'dashboard.empty.body':
     'Tosaigh taifeadadh nó ceangail Google Calendar ionas go mbeidh Murmur páirteach i do chéad chruinniú eile go huathoibríoch.',
+  'dashboard.empty.cta': 'Tosaigh ag taifeadadh',
   'dashboard.empty.heading': 'Gan aon chruinnithe fós',
   'dashboard.eyebrow': 'Do bheatha cruinnithe',
   'dashboard.loadError': 'Theip ar an deais a lódáil.',
+  'dashboard.noActions': 'Níl aon ghníomhartha ann',
   'dashboard.recentHeading': 'Cruinnithe le déanaí',
   'dashboard.recordCta': 'Cruinniú a thaifeadadh',
   'dashboard.stat.actions': 'Míreanna gníomhaíochta',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} Achoimrí gan léamh ó rinne tú seiceáil dheireanach. Ghabh Murmur gach focal — seo an achoimre.',
   'dashboard.viewCalendar': 'Féach ar an bhféilire →',
+  'footer.linksLabel': 'Buntásc',
   'forgot.failed': 'Níorbh fhéidir ríomhphost athshocraithe a sheoladh.',
   'forgot.sentBody': 'Má tá cuntas ann do {{email}}, gheobhaidh tú nasc athshocraithe go luath.',
   'forgot.sentSubheading': 'Seiceáil do bhosca isteach le haghaidh an nasc athshocraithe.',
@@ -48,15 +61,23 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Ceangail féilirí agus ardáin físe ionas go mbeidh Murmur páirteach go huathoibríoch.',
   'integrations.updateError': 'Theip ar nuashonrú.',
+  'landing.ctaBody':
+    'Saor in aisce don chéad 5 chruinniú gach mí. Gan cárta creidmheasa. Ceangail Google Calendar i níos lú ná nóiméad.',
   'landing.ctaButton': 'Tosaigh — tá sé saor in aisce',
   'landing.ctaHeading': 'Stop ag glacadh nótaí. Tosaigh ag déanamh cinntí.',
+  'landing.demo.aiBody':
+    "Cuireadh an seoladh ó 5 Bealtaine → 12 Bealtaine chun spás foirne a thabhairt d'oibríochtaí. Scoireadh athdhearadh an deais go 26 Bealtaine.",
   'landing.demo.aiLabel': 'Achoimre ar AI, dréachtaithe beo',
   'landing.demo.recording': 'Taifeadadh · beo',
   'landing.eyebrow': 'Faisnéis chruinnithe AI',
   'landing.featuresHeading':
     'Gach rud a theastaíonn ó d’fhoireann tar éis dheireadh an chruinnithe',
+  'landing.featuresSubheading':
+    'Níos mó "fan, cé leis é seo?" Seolann {{appName}} an achoimre sula ndícheanglaíonn an glao.',
   'landing.getStarted': 'Bain triail as saor in aisce',
   'landing.heroSecondary': 'Féach ar chamchuairt 90 soicind',
+  'landing.heroSubtitle':
+    '{{tagline}}. Tagann {{appName}} isteach i do ghlaonna, déanann sé gach focal a thrascríobh le lipéid chainteora, agus seolann sé achoimrí AI móide míreanna gnímh faoi úinéireacht chomh luath agus a chríochnaíonn an cruinniú.',
   'landing.heroTitle': 'Gabh gach cruinniú. Tabhair chun solais an rud is tábhachtaí.',
   'login.altPrompt': 'Nua le Murmur?',
   'login.failed': 'Níorbh fhéidir síniú isteach. Seiceáil do ríomhphost agus do phasfhocal.',
@@ -64,6 +85,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Míreanna gníomhaíochta',
   'meetingDetail.back': 'Gach cruinniú',
   'meetingDetail.decisionsHeading': 'Cinntí',
+  'meetingDetail.dueDate': 'dlite {{date}}',
   'meetingDetail.followupsHeading': 'Leanúnachas',
   'meetingDetail.loadError': 'Theip ar an gcruinniú a lódáil.',
   'meetingDetail.noActions': 'Níor braitheadh aon mhíreanna gníomhaíochta.',
@@ -77,7 +99,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Gan aon chruinnithe fós',
   'meetings.heading': 'Cruinnithe',
   'meetings.loadError': 'Theip ar lódáil cruinnithe.',
+  'meetings.recordCta': 'Cruinniú a thaifeadadh',
   'meetings.subheading': 'Gach cruinniú taifeadta, uaslódáilte agus sioncronaithe.',
+  'murmurLayout.closeMenu': 'Dún an roghchlár nascleanúna',
   'murmurLayout.openMenu': 'Oscail an roghchlár nascleanúna',
   'murmurLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'nav.legal': 'Dlíthiúil',
@@ -103,7 +127,15 @@ export const ui: UiTranslations = {
   'profile.loading': 'Ag lódáil…',
   'profile.navLabel': 'Rannóga próifíle',
   'profile.notifications.assignments': 'Míreanna gníomhaíochta sannta dom',
+  'profile.notifications.assignmentsHint': 'Cuir in iúl dom nuair a ghabhtar mír ghnímh dom.',
+  'profile.notifications.mentions': 'Luaite i dtrascríbhinní',
+  'profile.notifications.mentionsHint': 'Ríomhphost + fógra nuair a luaíonn duine thú le @.',
+  'profile.notifications.subheading':
+    'Roghnaigh cé na himeachtaí {{appName}} ar cheart teacht chugat.',
   'profile.notifications.summaries': 'Achoimre sheachtainiúil',
+  'profile.notifications.summariesHint':
+    'Achoimre Dé Luain ar gach cruinniú ón tseachtain seo caite.',
+  'profile.preferences.speakerColor': 'Dath réamhshocraithe an chainteora',
   'profile.preferences.subheading':
     'Réamhshocruithe a bhaineann le gach taifeadadh a nglacann tú páirt ann.',
   'profile.preferences.timezone': 'Crios ama',
@@ -116,16 +148,21 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Ní thacaíonn do bhrabhsálaí le taifeadadh. Bain triail as Chrome, Edge, nó Safari.',
   'record.error.upload': 'Theip ar an uaslódáil. Déan iarracht eile.',
+  'record.errorLabel': 'Chuaigh rud éigin mícheart',
   'record.heading': 'Taifead',
   'record.idleLabel': 'Tapáil chun tús a chur le taifeadadh',
   'record.processingLabel': 'Ag tras-scríobh le Whisper, ag achoimriú le Claude…',
+  'record.recordingLabel': 'Á thaifeadadh…',
   'record.retryCta': 'Déan iarracht arís',
   'record.subheading':
     'Brúigh an micreafón le tosú. Gabhann Murmur an fhuaim, déanann sé trascríobh trí Whisper, agus scríobhann sé achoimre faoi thiomáint Claude.',
+  'record.titlePlaceholder': 'Teideal an chruinnithe (roghnach)',
+  'reset.altPrompt': "D'athraigh tú d'intinn?",
   'reset.hint': 'Bain úsáid as 8 gcarachtar ar a laghad le meascán de litreacha agus uimhreacha.',
   'reset.missingToken': 'Tá an nasc athshocraithe ar iarraidh nó imithe in éag. Iarr ceann nua.',
   'reset.newPassword': 'Pasfhocal nua',
   'reset.subheading': 'Roghnaigh pasfhocal nach n-úsáideann tú in áit ar bith eile.',
+  'reset.tooShort': 'Ní mór don phasfhocal a bheith 8 gcarachtar ar a laghad.',
   'search.empty': 'Clóscríobh chun trascríbhinní a chuardach.',
   'search.loadError': 'Theip ar an gcuardach. Déan iarracht eile.',
   'search.noResults': 'Gan aon torthaí le haghaidh “ {{q}} ".',
@@ -141,7 +178,10 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Coinnigh fuaim ar feadh',
   'settings.retention.heading': 'Coinneáil',
   'settings.retention.transcript': 'Coinnigh trascríbhinní le haghaidh',
+  'settings.revokeDeviceWarning':
+    'Cuirfear deireadh le rochtain an ghléis seo go luath. Sínigh amach é?',
   'settings.saveError': 'Theip ar an sábháil.',
+  'settings.security.subheading': 'Nuashonraigh an focal faire a úsáideann tú chun síniú isteach.',
   'settings.sharing.exportFormat': 'Formáid easpórtála',
   'settings.sharing.heading': 'Réamhshocruithe comhroinnte',
   'settings.sharing.scope': 'Raon feidhme réamhshocraithe roinnte',
@@ -159,6 +199,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Tabhair cuireadh do chomhghleacaí foirne',
   'team.invitedAs': 'Tugadh cuireadh dó mar {{role}}',
   'team.inviteFailed': 'Níorbh fhéidir an cuireadh a sheoladh.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'Seol cuireadh',
   'team.inviteSubtitle': 'Gheobhaidh siad ríomhphost le nasc rannpháirtíochta.',
   'team.inviteTitle': 'Tabhair cuireadh do chomhghleacaí foirne',

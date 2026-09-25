@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Vrae oor 'n bespreking, terugvoer, of 'n eiendom wat jy dink op {{app}} hoort? Bereik ons span vanaf jou rekening — elke boodskap gaan na 'n regte mens wat kan help.",
+  'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Oor ons',
+  'about.featureLoyalty':
+    "Ledepryse en 'n lojaliteitsprogram wat punte verdien, laat uitkloktye, en kameropgraderings by elke bespreking.",
+  'about.featureReviews':
+    'Geverifieerde gaste-resensies en redaksionele keuses sodat jy die verblyf kan vertrou voordat jy arriveer.',
+  'about.featureRooms':
+    'Kamers, pryse en geriewe langs mekaar met deursigtige, alles-ingesluit pryse — belasting en oordfooie ingesluit voordat jy betaal.',
+  'about.featureSearch':
+    'Intydse soektog oor gekeurde hotelle met lewendige beskikbaarheid, kaart-aansig, en ryk fotogalerye.',
+  'about.featureTrips':
+    "Gestoorde gunstelinge en 'n Trips-kontroleskerm wat elke bespreking, reisplan en bevestiging op een plek hou.",
+  'about.intro':
+    "{{app}} is 'n hotelbesprekingsplatform vir reisigers wat om kwaliteit gee. Elke eiendom word persoonlik deur ons redaksionele span gekeur — geen aggregator-voorraad, geen lok-en-ruil-lysies nie. Soek werklike beskikbaarheid, vergelyk kamers, pryse en geriewe langs mekaar, en bespreek dan in 'n paar tikke teen 'n duidelike, alles-ingesluit prys.",
+  'about.missionBody':
+    "Om 'n plek om te bly te bespreek behoort kalm en eerlik te voel. Ons wys deursigtige pryse met belasting en oordfooie vooraf, beloon lojale gaste eerder as om hulle uit te melk, en sit die verblyf wat jou geld werd is eerste — sodat jy minder tyd aan oop tabs kan spandeer en meer tyd aan die reis self.",
+  'about.missionTitle': 'Ons missie',
+  'about.subtitle': "'n Gekureerde, deursigtige manier om die regte hotel te vind en te bespreek.",
   'account.loyalty.activitySummary': '{{nights}} nagte · {{spend}} hierdie jaar bestee',
+  'account.loyalty.benefitsHeading': 'Jou voordele',
   'account.loyalty.heading': 'Lojaliteit',
   'account.loyalty.loading': 'Laai lojaliteit...',
-  'account.loyalty.pointsTowardNext': '{{punte}} / {{volgende}} wys na {{volgendeVlak}}',
+  'account.loyalty.maxTier': 'Topvlak — geniet jou voordele.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} punte tot {{nextTier}}',
   'account.loyalty.tier': 'Huidige vlak',
   'account.loyalty.unavailable': 'Lojaliteitsinligting is nie beskikbaar nie.',
   'account.navLabel': 'Rekeningafdelings',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Bevestig bespreking · {{total}}',
   'bookingCheckout.datesRequired': 'Kies asseblief u inklok- en uitklokdatums.',
   'bookingCheckout.guestHeading': 'Hoofgas',
+  'bookingCheckout.heading': 'Bevestig en bespreek',
   'bookingCheckout.loadError': 'Kon nie eienskap laai nie.',
   'bookingCheckout.nights': '{{rate}} × {{count}} nagte',
   'bookingCheckout.notFound': 'Eiendom nie gevind nie.',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Belasting en fooie',
   'bookingCheckout.tripHeading': 'Jou reis',
   'bookingConfirmation.allTripsCta': 'Alle reise',
+  'bookingConfirmation.confNumber': 'Bevestigingsnommer: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Jou bespreking word verwerk.',
   'bookingConfirmation.heading': 'Bespreking bevestig',
   'bookingConfirmation.loading': 'Laai jou bespreking…',
   'bookingConfirmation.searchMoreCta': 'Blaai deur meer verblyf',
   'bookingConfirmation.subheadingForTrip':
-    '{{eiendom}} in {{stad}} , {{land}} Ons sien jou weer op {{checkIn}} .',
+    '{{property}} in {{city}}, {{country}}. Ons sien jou op {{checkIn}}.',
   'bookingConfirmation.total': 'Totaal {{total}}',
   'bookingConfirmation.viewTripCta': 'Bekyk reis',
   'common.goToDashboard': 'Gaan na Dashboard',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Kon nie gunstelinge laai nie.',
   'favorites.pricePerNight': '{{price}} / nag',
   'favorites.removeCta': 'Ontstoor',
+  'favorites.removing': 'Verwyder…',
   'forgotPassword.subheading':
     "Voer die e-posadres van jou rekening in en ons sal vir jou 'n veilige herstelskakel stuur.",
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Auberge-lede',
   'landing.cta.heading': 'Slegs-vir-lede tariewe. Elke bespreking, elke keer.',
   'landing.cta.signup': 'Skep gratis rekening',
+  'landing.cta.subheading':
+    'Verdien lojaliteitspunte by elke verblyf, ontsluit laat uitkloktye en kameropgraderings, en kry eerste toegang tot nuwe eiendomme voordat hulle publiek gelys word.',
   'landing.destinations.eyebrow': 'Waarheen volgende',
   'landing.destinations.heading': 'Aanbevole bestemmings',
   'landing.destinations.seeAll': 'Sien alle bestemmings',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Stories wat die moeite werd is om voor te pak',
   'landing.nav.join': 'Sluit aan by Auberge',
   'landing.nav.search': 'Soek verblyf',
+  'landing.preview.browseAll': 'Blaai deur die volledige versameling',
   'landing.preview.eyebrow': "'n Kykie binne",
   'landing.preview.heading': 'Handgekose verblyf hierdie maand',
+  'landing.preview.subheading':
+    'Elke eiendom op {{appName}} word persoonlik deur ons redaksionele span gekeur — geen aggregator-voorraad, geen lok-en-ruil-lysies nie.',
   'login.eyebrow': 'Lede-area',
+  'login.noAccount': 'Nuut by Tessera?',
   'login.signupLink': "Skep 'n gratis rekening",
   'login.subheading':
     'Meld aan om jou reise te bestuur, bevestigings te sien en voort te gaan waar jy opgehou het.',
+  'loyaltyTierBadge.points': '{{points}} punte',
   'planUpdated.heading': 'Plan opgedateer',
+  'planUpdated.retry': 'Probeer weer',
+  'planUpdated.verifyFailed': 'Ons kon nog nie jou betaling bevestig nie.',
+  'planUpdated.verifyFailedBody':
+    "Jou betaling word dalk steeds verwerk. Probeer weer oor 'n oomblik.",
   'planUpdated.verifying': 'Bevestig jou betaling…',
   'pricing.limit.advancedFeatures': 'Gevorderde kenmerke:',
   'pricing.limit.canExport': 'Data-uitvoer:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Wat hierdie plek bied',
   'propertyDetail.backLink': 'Terug na soektog',
   'propertyDetail.bookCta': 'Reserveer',
+  'propertyDetail.bookmarkAria': 'Stoor eiendom',
   'propertyDetail.bookmarkAriaSaved': 'Verwyder van gestoorde eienskappe',
+  'propertyDetail.galleryImageAlt': '{{name}} foto {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} heldfoto',
   'propertyDetail.hidePhotos': "Versteek foto's",
   'propertyDetail.lineCleaning': 'Skoonmaakfooi',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'nag',
   'propertyDetail.noChargeYet': 'Jy sal nog nie gehef word nie',
   'propertyDetail.notFound': 'Eiendom nie gevind nie.',
+  'propertyDetail.perNight': '/ nag',
+  'propertyDetail.pickDatesHint': 'Kies jou datums om die volledige prysverdeling te sien.',
   'propertyDetail.reviewCount': '( {{count}} resensies)',
   'propertyDetail.reviewsHeading': 'Onlangse resensies',
   'propertyDetail.roomCapacity': 'Slaap {{count}}',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Nuwe wagwoord',
   'resetPassword.subheading':
     "Kies 'n nuwe wagwoord vir jou Auberge-rekening. Gebruik ten minste 8 karakters; ons beveel 'n wagwoordfrase aan.",
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Geen eiendomme stem ooreen met jou soektog nie.',
   'searchResults.emptyHint':
     'Probeer om jou filters te verbreed of die prysplafon te verwyder — Auberge het verblyf in 14 lande.',
@@ -108,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Gekurateerde verblyf',
   'searchResults.headingForQuery': 'Bly vir " {{q}} "',
   'searchResults.loadError': 'Kon nie eienskappe laai nie.',
+  'searchResults.mapHint':
+    "Wys oor 'n kaart om dit op die kaart uit te lig. Lewendige Mapbox-teëls in produksie.",
   'searchResults.mapPinAria': '{{name}} — {{price}} per nag',
   'searchResults.sortLabel': 'Sorteer volgens',
   'searchResults.subheading': '{{count}} eiendomme · {{guests}} gaste',
   'signup.eyebrow': "Word 'n lid",
   'signup.subheading':
     'Sluit aan by Auberge om slegs-vir-lede-tariewe, laat uitklok en eerste toegang tot nuwe eiendomme te ontsluit.',
+  'sojournAuthShell.brand.eyebrow': "Bly op 'n buitengewone plek",
+  'sojournAuthShell.brand.heading':
+    "'n Gekureerde versameling eiendomme — pragtig aangebied, deursigtig geprys.",
   'sojournHeroSearchCard.checkInAria': 'Inklokdatum',
   'sojournHeroSearchCard.checkOutAria': 'Uitklokdatum',
+  'sojournHeroSearchCard.destAria': 'Bestemming',
+  'sojournHeroSearchCard.destLabel': 'Waar',
   'sojournHeroSearchCard.destPlaceholder': 'Stad, streek of eiendom',
   'sojournHeroSearchCard.eyebrow': 'Gekureerde verblyf · Slegs-lede tariewe',
   'sojournHeroSearchCard.guestsOption': '{{n}} gaste',
   'sojournHeroSearchCard.subtitle':
     "'n Gekurateerde versameling boetiekhotelle, ontwerp-vooruitstrewende eiendomme en seldsame toevlugsoorde – deursigtig geprys, pragtig aangebied.",
+  'sojournHeroSearchCard.title': "Bly op 'n buitengewone plek",
+  'sojournHeroSearchCard.trustLoyalty': 'Verdien punte by elke verblyf',
   'sojournHeroSearchCard.trustNoFees': 'Geen versteekte fooie ooit nie',
   'sojournHeroSearchCard.trustVetted': 'Slegs handgekeurde eiendomme',
   'sojournLayout.primaryNavLabel': 'Primêre navigasie',

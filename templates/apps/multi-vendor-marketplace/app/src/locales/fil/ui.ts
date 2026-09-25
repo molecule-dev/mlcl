@@ -1,16 +1,40 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Gusto mong magbukas ng shop, mag-ulat ng isyu, o mag-hello lang? Makipag-ugnayan sa amin mula sa Help center — bawat mensahe ay napupunta sa isang tunay na tao sa team.',
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
+  'about.featureNotifications':
+    'Real-time na mga notification para sa mga bagong order, shipping updates, at reviews, kasama ang role-based na mga permission na naghihiwalay sa shopper at vendor tools.',
+  'about.featurePayments':
+    'Secure na checkout na pinapagana ng Stripe, awtomatikong commission splits, at naka-iskedyul na payouts — laging alam ng mga vendor nang eksakto ang kanilang kinita.',
+  'about.featureShop':
+    'Isang searchable na catalog na sumasaklaw sa libu-libong independent vendors, may verified shops, ratings, at reviews para makabili ka nang may kumpiyansa.',
+  'about.featureVendor':
+    'Isang kumpletong vendor toolkit: branded storefront, product at inventory management, image uploads, at order fulfilment sa isang dashboard.',
+  'about.intro':
+    'Ang {{name}} ay isang curated marketplace kung saan nagbubukas ng sariling shop ang mga independent maker at natutuklasan ng mga shopper ang mga produktong hindi nila makikita kahit saan pa. Mula sa hand-thrown ceramics hanggang block-printed textiles, bawat listing ay galing sa isang tunay na vendor na may kuwento sa likod nito.',
+  'about.missionBody':
+    'Naniniwala kami na dapat panatilihin ng mga maker ang nagpapabukod-tangi sa kanilang craft. Ang {{name}} ay naniningil ng flat at transparent na komisyon, nagbabayad nang maaasahan tuwing linggo, at nagbibigay sa bawat vendor ng storefront na lubos nilang kontrolado — para makapag-focus sila sa trabaho habang pinapatakbo namin ang marketplace.',
+  'about.missionTitle': 'Ang aming misyon',
   'about.pageTitle': 'Tungkol sa {{name}}',
   'cart.checkoutCta': 'Magpatuloy sa pag-checkout',
   'cart.decreaseAria': 'Bawasan ang dami',
+  'cart.deliveryEstimate': 'Tinatayang delivery {{range}}',
   'cart.empty.body': 'Mag-browse sa katalogo at magdagdag ng ilang mga tagagawa sa iyong bag.',
+  'cart.empty.cta': 'Mag-browse sa katalogo',
   'cart.empty.title': 'Walang laman ang iyong cart',
   'cart.eyebrow': 'Ang iyong kariton',
+  'cart.increaseAria': 'Dagdagan ang dami',
   'cart.loadError': 'Hindi ma-load ang iyong cart. Pakisubukang muli.',
   'cart.loading': 'Nilo-load ang iyong cart…',
+  'cart.protectionNote':
+    'Pinoprotektahan ng {{appName}} ang bawat order. Libreng returns sa loob ng 30 araw.',
   'cart.removeError': 'Hindi maalis ang item.',
   'cart.shippingFromVendor': 'Pagpapadala mula sa vendor na ito: {{amount}}',
+  'cart.subtitle':
+    'Bawat vendor ay nagpapadala nang sarili — isang beses ka lang mag-check out. Ang {{appName}} ang bahala sa iba.',
+  'cart.subtotalGroup': 'Subtotal {{amount}}',
   'cart.summaryItems': 'Mga Aytem',
   'cart.summaryShipping': 'Pagpapadala (pinagsama)',
   'cart.title': 'Kariton · {{count}} mga bagay mula sa {{vendorCount}} mga nagtitinda',
@@ -23,6 +47,7 @@ export const ui: UiTranslations = {
   'catalog.featuredVendors': 'Mga itinatampok na tindahan',
   'catalog.loading': 'Naglo-load ng mga produkto…',
   'catalog.resultCount': '{{count}} mga produkto',
+  'catalog.searchAria': 'Maghanap sa catalog',
   'catalog.searchPlaceholder': 'Maghanap ng mga produkto, vendor, o tag…',
   'catalog.sortBy': 'Ayusin ayon sa',
   'catalog.subtitle':
@@ -30,6 +55,7 @@ export const ui: UiTranslations = {
   'catalog.title': 'Mag-browse sa bawat tindahan sa Vendry',
   'checkout.emptyCta': 'Mag-browse sa katalogo',
   'checkout.emptyTitle': 'Walang laman ang iyong kariton.',
+  'checkout.eyebrow': 'Ligtas na pag-checkout',
   'checkout.loadError': 'Hindi ma-load ang iyong cart. Pakisubukang muli.',
   'checkout.loading': 'Nilo-load ang iyong cart…',
   'checkout.payment.testNote':
@@ -39,12 +65,14 @@ export const ui: UiTranslations = {
   'checkout.placingOrder': 'Naglalagay ng order…',
   'checkout.review.shipTo': 'Pagpapadala sa',
   'checkout.review.subtotal': 'Subtotal ng Nagbebenta',
+  'checkout.review.title': 'I-review ang iyong order, vendor by vendor',
   'checkout.shipping.title': 'Saan tayo dapat magpadala?',
   'checkout.shippingValidation': 'Pakipunan ang lahat ng kinakailangang field para sa pagpapadala.',
   'checkout.summary.shipping': 'Shipping',
   'checkout.summary.tax': 'Tinatayang buwis',
   'checkout.title': 'Isang checkout, maraming gumagawa',
   'common.and': 'at',
+  'forgotPassword.continue': 'Mayroon akong reset code',
   'forgotPassword.emailLabel': 'Email ng account',
   'forgotPassword.heading': 'Nakalimutan mo ba ang iyong password?',
   'forgotPassword.subheading':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'forgotPassword.submit': 'Link sa pag-reset ng email',
   'forgotPassword.success':
     'Suriin {{email}} para sa isang reset link — magagamit ito para sa susunod na 30 minuto.',
+  'landing.featured.cta': 'I-browse ang lahat ng vendor',
   'landing.featured.eyebrow': 'Mga tindahan ng spotlight',
   'landing.featured.title': 'Mga nagtitinda na sumisikat ngayong buwan',
   'landing.footer.becomeVendor': 'Maging isang tindero',
@@ -61,6 +90,9 @@ export const ui: UiTranslations = {
   'landing.nav.sell': 'Ibenta sa Vendry',
   'landing.nav.shop': 'Tindahan',
   'landing.nav.signUp': 'Sumali',
+  'landing.sellPitch.cta': 'Mag-apply para magbenta',
+  'landing.sellPitch.description':
+    'Isang flat na 8% komisyon, payouts tuwing Biyernes, ang iyong storefront, ang iyong kuwento. Kami ang bahala sa marketplace; manatili ka sa iyong craft.',
   'landing.sellPitch.eyebrow': 'Para sa mga gumagawa',
   'landing.sellPitch.title': 'Magbukas ng tindahan. Panatilihin kung ano ang nagpapa-sa iyo.',
   'landing.trending.cta': 'Mamili sa katalogo',
@@ -69,6 +101,7 @@ export const ui: UiTranslations = {
   'login.accountTypeAria': 'Uri ng account',
   'login.heading': 'Maligayang pagbabalik sa Vendry',
   'login.legalPrefix': 'Sa pamamagitan ng pag-sign in, sumasang-ayon ka sa aming',
+  'login.signupPrompt': 'Bago sa Tessera?',
   'login.subheading': 'Mag-sign in para makapagpatuloy sa pamimili o bumalik sa iyong tindahan.',
   'login.submitShopper': 'Mag-sign in para mamili',
   'login.submitVendor': 'Mag-sign in sa aking tindahan',
@@ -84,37 +117,51 @@ export const ui: UiTranslations = {
   'notifications.markAllError': 'Hindi mamarkahan bilang nabasa na lahat.',
   'notifications.read': 'Nabasa',
   'notifications.time.daysAgo': '{{count}} mga araw na ang nakalipas',
+  'notifications.time.hourAgo': '1 oras ang nakalipas',
+  'notifications.time.hoursAgo': '{{count}} oras ang nakalipas',
   'notifications.time.justNow': 'ngayon lang',
+  'notifications.time.minutesAgo': '{{count}} min nakalipas',
+  'notifications.time.yesterday': 'Kahapon',
   'orderDetail.backToOrders': 'Balik sa lahat ng order',
   'orderDetail.eyebrow': 'Detalye ng order',
   'orderDetail.helpBody':
     'Sumasagot ang suporta ng Vendry sa loob ng 4 na oras, kahit na sa katapusan ng linggo.',
+  'orderDetail.helpCta': 'Makipag-ugnayan sa suporta',
   'orderDetail.helpTitle': 'May kakaiba sa utos na ito?',
   'orderDetail.summary':
     'Inilagay {{date}} · {{vendorCount}} vendor(s) · katuparan ng maraming vendor',
+  'orderDetail.timelineTitle': 'Order journey',
   'orders.empty': 'Wala pang mga order na tumutugma sa filter na ito.',
   'orders.emptyTitle': 'Wala pang mga order dito',
   'orders.eyebrow': 'Ang iyong mga binili',
   'orders.subtitle':
     'Tingnan kung sino ang nagpadala ng ano, sundan ang pagsubaybay sa bawat vendor, at huwag nang mawalan ng parsela muli.',
   'orders.title': 'Mga order, naka-grupo ayon sa vendor',
+  'planUpdated.retry': 'Subukan muli',
+  'planUpdated.verifyFailed': 'Hindi pa namin makumpirma ang iyong bayad.',
+  'planUpdated.verifyFailedBody':
+    'Maaaring pinoproseso pa rin ang iyong bayad. Subukan muli maya-maya.',
   'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'productDetail.addToCart': 'Idagdag sa cart',
   'productDetail.addToCartError': 'Hindi maidagdag sa cart.',
   'productDetail.addToCartSuccess': '" {{name}} "idinagdag sa iyong cart.',
   'productDetail.backToCatalog': 'Balik sa katalogo',
   'productDetail.breadcrumbCatalog': 'Katalogo',
+  'productDetail.colorLabel': 'Kulay · {{name}}',
   'productDetail.decreaseAria': 'Bawasan ang dami',
   'productDetail.description': 'Ginawa ng isang independiyenteng tagagawa sa Vendry.',
   'productDetail.featuredBadge': 'Itinatampok na tagagawa',
   'productDetail.galleryThumbAria': 'Ipakita ang larawan {{index}}',
+  'productDetail.increaseAria': 'Dagdagan ang dami',
   'productDetail.loading': 'Naglo-load ng produkto…',
   'productDetail.notFound': 'Hindi natagpuan ang produkto.',
   'productDetail.relatedTitle': 'Higit pa mula sa tagagawa na ito',
   'productDetail.reviewsTitle': 'Ang sinabi ng mga mamimili',
   'productDetail.trust.protection': 'Proteksyon ng paninda',
+  'productDetail.trust.returns': '30-day returns',
   'productDetail.trust.shipping': 'Ipapadala sa loob ng 2 araw',
   'productDetail.verifiedAria': 'Na-verify na vendor',
+  'resetPassword.didntGetCode': 'Hindi nakatanggap ng code?',
   'resetPassword.emailLabel': 'Email ng account',
   'resetPassword.mismatch': 'Hindi pa magkatugma ang mga password.',
   'resetPassword.newPasswordLabel': 'Bagong password',
@@ -123,8 +170,10 @@ export const ui: UiTranslations = {
     'Ilagay ang code na ipinadala namin sa iyo sa pamamagitan ng email, pagkatapos ay pumili ng bagong password para tapusin ang pag-sign in muli.',
   'resetPassword.submit': 'I-reset at mag-sign in',
   'resetPassword.submitting': 'Ina-update ang password…',
+  'settings.appearance.description': 'Mag-toggle sa pagitan ng light at dark mode.',
   'settings.appearance.title': 'Hitsura',
   'settings.language.description': 'Piliin ang wikang gagamitin sa buong pamilihan.',
+  'settings.payouts.accountLabel': 'Account number / IBAN',
   'settings.payouts.body':
     'Nagbabayad ang Vendry tuwing Biyernes sa iyong lokal na pera, bawas ang 8% na komisyon.',
   'settings.payouts.save': 'I-save ang mga detalye ng payout',
@@ -143,6 +192,7 @@ export const ui: UiTranslations = {
   'signup.mismatch': 'Hindi pa magkatugma ang mga password.',
   'signup.subheading':
     'Mag-browse ng mahigit 4,000 independiyenteng tagagawa, o magbukas ng sarili mong tindahan.',
+  'signup.submit': 'Sumali sa pamilihan',
   'status.delivered': 'Naihatid',
   'status.refunded': 'Naibalik',
   'userMenu.marketplaceSettings': 'Mga setting ng Marketplace',
@@ -152,19 +202,29 @@ export const ui: UiTranslations = {
   'vendorDashboard.heroCaption':
     '{{payout}} na-clear pagkatapos ng komisyon ni Vendry. Susunod na payout sa Biyernes.',
   'vendorDashboard.heroLabel': 'Kabuuang benta · huling 30 araw',
+  'vendorDashboard.kpi.conversion': 'Pagbabago',
   'vendorDashboard.kpi.conversionCaption': 'Bisitahin para mag-order ngayong linggo',
   'vendorDashboard.kpi.netPayout': 'Netong bayad',
   'vendorDashboard.kpi.netPayoutCaption': 'Pagkatapos ng 8% na komisyon sa paninda',
   'vendorDashboard.kpi.orders': 'Mga Order',
   'vendorDashboard.kpi.ordersCaption': 'kumpara sa huling 30 araw',
+  'vendorDashboard.kpi.pendingPayout': 'Pending payout',
   'vendorDashboard.kpi.pendingPayoutCaption': 'Mga ilalabas ngayong Biyernes',
   'vendorDashboard.newProductCta': 'Bagong produkto',
   'vendorDashboard.payoutsCta': 'Tingnan ang mga payout',
   'vendorDashboard.recentOrders.cta': 'Tingnan ang lahat ng order →',
+  'vendorDashboard.recentOrders.emptyBody':
+    'Lalabas dito ang mga order para sa iyong shop sa sandaling mag-check out ang mga customer.',
+  'vendorDashboard.recentOrders.emptyCta': 'Idagdag ang iyong unang produkto',
+  'vendorDashboard.recentOrders.emptyTitle': 'Wala pang mga order',
   'vendorDashboard.recentOrders.title': 'Mga kamakailang order',
+  'vendorDashboard.subtitle': 'Narito ang performance ng iyong shop ngayong linggo.',
+  'vendorDashboard.title': 'Maligayang pagbabalik, {{name}}',
   'vendorOnboarding.about': 'Sabihin sa amin ang tungkol sa iyong tindahan',
   'vendorOnboarding.aboutPlaceholder':
     'Saan ka gumagawa, ano ang ginagawa mo, at bakit ito mahalaga.',
+  'vendorOnboarding.bankLabel': 'Bank account / IBAN',
+  'vendorOnboarding.categoriesHint': 'Piliin ang lahat ng bagay — maaari mong ayusin mamaya.',
   'vendorOnboarding.currencyLabel': 'Mag-ayos sa pera',
   'vendorOnboarding.errors.shopName': 'Kinakailangan ang pangalan ng tindahan.',
   'vendorOnboarding.errors.submit': 'Hindi maisumite ang iyong aplikasyon.',
@@ -173,8 +233,14 @@ export const ui: UiTranslations = {
   'vendorOnboarding.field.shopName': 'Pangalan ng tindahan',
   'vendorOnboarding.heroBody':
     'Isang patag na 8% na komisyon, mga payout tuwing Biyernes, ang iyong tindahan, ang iyong kwento. Magkwento ka ng kaunti tungkol sa iyong tindahan at makikipag-ugnayan kami sa iyo sa loob ng 48 oras.',
+  'vendorOnboarding.review.categories': 'Mga Kategorya',
   'vendorOnboarding.review.contact': 'Makipag-ugnayan',
   'vendorOnboarding.review.currency': 'Pera',
+  'vendorOnboarding.review.point1':
+    'Ang {{appName}} ay naniningil ng flat na 8% komisyon — walang listing fees, walang hidden charges.',
+  'vendorOnboarding.review.point2':
+    'Nababayaran ang payouts tuwing Biyernes sa iyong lokal na currency.',
+  'vendorOnboarding.review.point3': 'Maaari mong i-pause ang iyong shop o alisin ito anumang oras.',
   'vendorOnboarding.review.tagline': 'Tagline',
   'vendorOnboarding.review.website': 'Website',
   'vendorOnboarding.reviewBody':
@@ -185,6 +251,8 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'Naisumite na ang aplikasyon! Susuriin namin ang iyong tindahan at mag-e-email sa iyo sa loob ng 48 oras.',
   'vendorOnboarding.taxIdLabel': 'ID ng Buwis',
+  'vendorOrders.emptyBody':
+    'Kapag bumili ang mga customer ng iyong mga produkto, lalabas dito ang kanilang mga order.',
   'vendorOrders.emptyTitle': 'Wala pang mga order na kailangang gawin',
   'vendorOrders.eyebrow': 'Admin ng nagtitinda',
   'vendorOrders.kpi.awaiting': 'Naghihintay ng katuparan',
@@ -192,6 +260,8 @@ export const ui: UiTranslations = {
   'vendorOrders.subtitle':
     'Mag-print ng mga label, markahan ang mga natapos, at sagutin ang mga tanong — lahat nang hindi umaalis sa Vendry.',
   'vendorOrders.title': 'Mga papasok na order',
+  'vendorPayouts.emptyBody':
+    'Inilalabas ang payouts tuwing Biyernes kapag na-clear na ng iyong mga benta ang 8% komisyon.',
   'vendorPayouts.emptyTitle': 'Wala pang mga payout',
   'vendorPayouts.eyebrow': 'Pananalapi ng vendor',
   'vendorPayouts.heroCaption': 'Nag-ayos sa Banco BPI {{account}} · 1–2 araw ng negosyo',
@@ -216,6 +286,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.images.body':
     'Mag-drag-and-drop ng hanggang 8 na larawan. Ang unang larawan ang magiging pabalat ng tindahan.',
   'vendorProductForm.images.cta': 'I-drag ang mga larawan dito o mag-browse',
+  'vendorProductForm.images.hint': 'PNG / JPG · max 8MB bawat isa',
   'vendorProductForm.images.title': 'Mga Larawan',
   'vendorProductForm.nameLabel': 'Pangalan ng produkto',
   'vendorProductForm.preview.namePlaceholder': 'Pangalan ng produkto',
@@ -225,6 +296,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.title': 'Ipaalam sa mga mamimili ang tungkol sa iyong produkto',
   'vendorProductForm.variants.colInventory': 'Imbentaryo',
   'vendorProductForm.variants.colVariant': 'Baryante',
+  'vendorProductForm.variants.title': 'Variants & inventory',
   'vendorProducts.eyebrow': 'Admin ng nagtitinda',
   'vendorProducts.kpi.draft': 'Mga draft',
   'vendorProducts.kpi.lowStock': 'Mababang stock',
@@ -251,6 +323,7 @@ export const ui: UiTranslations = {
     'Mag-sign in para pamahalaan ang iyong tindahan, subaybayan ang mga order sa bawat vendor, at tumuklas ng mga matatapang na koleksyon mula sa mga independiyenteng gumagawa.',
   'vendryAuthShell.sampleVendorMeta': 'Na-verify · 4.9 ★ · 1,240 na benta',
   'vendryAuthShell.sampleVendorName': 'Mira & Co. Ceramics',
+  'vendryAuthShell.sampleVendorTag': 'Itinatampok',
   'vendryMarketHero.description':
     'Tuklasin ang libu-libong independiyenteng tindero, mga koleksyon na ginawa ng kamay, at mga tindahan na pinapatakbo ng mga taong buong pusong nakikibahagi sa mga ito. Mamili nang matapang, suportahan ang mga tunay na gumagawa.',
   'vendryMarketHero.eyebrow': 'Pinagsama-samang pamilihan · koleksyon noong 2026',
@@ -259,11 +332,13 @@ export const ui: UiTranslations = {
   'vendryMarketHero.stat1Label': 'Mga independiyenteng tagagawa',
   'vendryMarketHero.stat2Label': 'Mga produktong pinili',
   'vendryMarketHero.stat3Label': 'Karaniwang rating',
+  'vendryMarketHero.title': 'Bawat maker, isang marketplace.',
   'vendryOrderCard.idLabel': 'Umorder',
   'vendryOrderCard.placedOn': 'Inilagay {{date}}',
   'vendryOrderCard.qty': 'Dami {{count}}',
   'vendryOrderCard.vendorCount': '{{count}} vendor(s) sa ganitong pagkakasunud-sunod',
   'vendryOrderCard.verifiedAria': 'Na-verify na vendor',
+  'vendryOrderCard.viewDetails': 'Tingnan ang mga detalye',
   'vendryProductCard.favoriteAria': 'I-save sa mga paborito',
   'vendryProductCard.saleBadge': 'Benta',
   'vendryProductCard.verified': 'Na-verify na vendor',

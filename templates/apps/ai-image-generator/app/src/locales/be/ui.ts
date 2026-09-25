@@ -1,20 +1,27 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ёсць водгук, наткнуліся на праблему ці хочаце сказаць нам, што стварыць далей? Напішыце камандзе на hello@reverie.app — кожнае паведамленне трапляе да рэальнага чалавека, які стварае прадукт.',
   'about.contactTitle': 'Звяжыцеся з намі',
+  'about.missionTitle': 'Наша місія',
   'auth.fields.newPassword': 'Новы пароль',
   'collectionDetail.addImage': 'Заклінаць для збору',
   'collectionDetail.backCta': 'Назад да калекцый',
   'collectionDetail.coverNote': 'Курыраваная дошка настрою з {{count}} выявы.',
   'collectionDetail.editName': 'Назва калекцыі',
+  'collectionDetail.empty':
+    'У гэтай калекцыі пакуль няма выяў — згенеруйце што-небудзь, каб дадаць.',
   'collectionDetail.loading': 'Загрузка калекцыі…',
   'collectionDetail.loadingImages': 'Загрузка малюнкаў…',
+  'collectionDetail.notFoundBody': "Гэтая калекцыя была выдалена або з'яўляецца прыватнай.",
   'collectionDetail.notFoundTitle': 'Калекцыя недаступная',
   'collectionDetail.shared': 'Бачнасць пераключана',
   'collections.create': 'Новая калекцыя',
   'collections.empty': 'Пакуль няма калекцый. Стварыце адну, каб пачаць курыраваць свае працы.',
   'collections.imageCount': '{{count}} выявы',
   'collections.loading': 'Загрузка калекцый…',
+  'collections.noDescription': 'Апісання пакуль няма — адкрыйце, каб дадаць.',
   'collections.subtitle': 'Мудборды, брыфінгі і бягучыя серыі',
   'collections.title': 'Калекцыі',
   'collections.untitled': 'Без назвы · {{stamp}}',
@@ -53,6 +60,7 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'Увядзіце адрас электроннай пошты, прывязаны да вашага ўліковага запісу Reverie, і мы дашлем вам спасылку для скіду налад.',
   'forgot.successBody': 'Спасылка для скіду ўжо ў дарозе {{email}} .',
+  'gallery.empty.body': 'Паспрабуйце іншы стан або згенеруйце новую партыю са студыі.',
   'gallery.empty.title': 'Нічога не адпавядае гэтаму фільтру',
   'gallery.exportAll': 'Экспартаваць усё',
   'gallery.exported': 'Экспарт у чарзе',
@@ -75,12 +83,15 @@ export const ui: UiTranslations = {
   'generate.controls.title': 'Наладзьце мару',
   'generate.defaultPrompt': 'Новая мара',
   'generate.progress': 'Крок {{step}} / {{total}}',
+  'generate.submitFailed':
+    'Не ўдалося паставіць генерацыю ў чаргу — праверце злучэнне і паспрабуйце зноў.',
   'generate.subtitle': 'Складзіце падказку, наладзьце элементы кіравання, прыдумайце варыянты',
   'generate.title': 'Студыя',
   'generation.created': '{{when}}',
   'imageDetail.acting': 'Працую…',
   'imageDetail.actionFailed': 'Дзеянне не атрымалася.',
   'imageDetail.actions': 'Дзеянні з выявамі',
+  'imageDetail.downloadStarted': 'Спампоўванне пачалося.',
   'imageDetail.downloadUnavailable': 'Пакуль няма малюнкаў для запампоўкі.',
   'imageDetail.fields.aspect': 'Аспект',
   'imageDetail.fields.created': 'Створана',
@@ -91,11 +102,17 @@ export const ui: UiTranslations = {
   'imageDetail.notFoundTitle': 'Выява недаступная',
   'imageDetail.noVariations': 'Пакуль няма варыяцый — запытайце адну вышэй.',
   'imageDetail.openEditor': 'Адкрыць у рэдактары',
+  'imageDetail.tips.lockSeed':
+    'Заблакуйце seed, каб працаваць над асвятленнем, не губляючы кампазіцыю.',
+  'imageDetail.tips.upscale':
+    'Запусціце павелічэнне 4× перад экспартам для якасці, гатовай да друку.',
   'imageDetail.tipsTitle': 'Удасканаліць мару',
+  'imageDetail.title': 'Image',
   'imageDetail.upscaleQueued': 'Павышэнне маштабу ў чарзе',
   'imageDetail.variations': 'Варыяцыі',
   'imageDetail.variationsQueued': 'Варыяцыі пастаўлены ў чаргу',
   'imageDetail.visibilityToggled': 'Бачнасць абноўлена',
+  'landing.copyright': '© {{year}} {{appName}} Labs. Створана з дапамогай Molecule.dev.',
   'landing.cta': 'Пачніце ствараць',
   'landing.eyebrow': 'Зараз працуе Reverie XL v3',
   'landing.featuresEyebrow': 'Чаму мары',
@@ -136,8 +153,17 @@ export const ui: UiTranslations = {
     'Тут будуць адлюстроўвацца абвесткі аб актыўнасці генерацыі, абагульванні і крэдытах.',
   'notifications.empty.title': 'Няма чаго паведаміць',
   'notifications.subtitle': 'Падзеі генерацыі, згрупаваныя па днях',
+  'planUpdated.confirmed': 'Ваш план {{planKey}} актыўны, і крэдыты былі дададзены.',
+  'planUpdated.error':
+    'Мы не змаглі аўтаматычна пацвердзіць ваша павышэнне. Калі ласка, звяжыцеся з падтрымкай.',
+  'planUpdated.retry': 'Паспрабуйце яшчэ раз',
+  'planUpdated.unpaid': 'Ваша сесія аплаты не была аплачана. Паспрабуйце зноў з Налад.',
+  'planUpdated.verifyFailed': 'Нам пакуль не ўдалося пацвердзіць ваш плацёж.',
+  'planUpdated.verifyFailedBody':
+    'Магчыма, ваш плацёж усё яшчэ апрацоўваецца. Паўтарыце спробу праз хвіліну.',
   'planUpdated.verifying': 'Пацвярджэнне аплаты…',
   'pricing.limits.gallery': '{{count}} галерэя',
+  'pricing.limits.generations': '{{count}} генерацый',
   'privacy.collect.body':
     'Калі вы рэгіструецеся, мы збіраем ваша імя, адрас электроннай пошты і хэшаваны пароль. Падчас выкарыстання Reverie мы захоўваем адпраўленыя вамі запыты, выявы, якія мы ствараем для вас, стылі і калекцыі, якія вы захоўваеце, а таксама метададзеныя, такія як выкарыстоўваная мадэль, часовыя меткі стварэння і баланс крэдыту.',
   'privacy.cookies.body':
@@ -151,6 +177,8 @@ export const ui: UiTranslations = {
   'profile.followedBio': 'Толькі што падпісаўся на стваральніка',
   'profile.following': 'Пасля…',
   'profile.loadingWorks': 'Загрузка грамадскіх работ…',
+  'profile.noPublicWorks':
+    'Публічных прац пакуль няма — падзяліцеся выявай, каб запоўніць гэтую галерэю.',
   'profile.notFoundTitle': 'Профіль недаступны',
   'profile.publicWorks': 'Грамадскія работы',
   'profile.subtitle': '@ {{handle}} · публічны профіль стваральніка',
@@ -162,6 +190,7 @@ export const ui: UiTranslations = {
   'prompts.empty.cta': 'Адкрытая студыя',
   'prompts.empty.title': 'Няма адпаведных захаваных падказак',
   'prompts.lastUsed': 'Выкарыстана {{when}}',
+  'prompts.loading': 'Загрузка падказак…',
   'prompts.negativeLabel': 'АДМОЎНЫ',
   'prompts.runAgain': 'Бегчы',
   'prompts.running': 'Выконваецца…',
@@ -177,6 +206,7 @@ export const ui: UiTranslations = {
   'settings.account.saveFailed': 'Не ўдалося захаваць профіль',
   'settings.account.title': 'Профіль стваральніка',
   'settings.accountSecurity': 'Уліковы запіс і бяспека',
+  'settings.accountSecurity.title': 'Уваход, прылады і ўліковы запіс',
   'settings.api.empty': 'Пакуль няма ключоў API — стварыце адзін, каб пачаць інтэграцыю.',
   'settings.api.loading': 'Загрузка ключоў API…',
   'settings.api.revoked': 'Ключ API ануляваны',
@@ -195,14 +225,18 @@ export const ui: UiTranslations = {
   'sidebar.secondary': 'Дадатковая навігацыя',
   'signup.failed': 'Рэгістрацыя не атрымалася. Паспрабуйце яшчэ раз.',
   'signup.firstNamePlaceholder': 'Арыя',
+  'signup.haveAccount': 'Ужо марыце?',
   'signup.heading': 'Пачніце свае мары',
   'signup.lastNamePlaceholder': 'Лін',
   'signup.subheading': 'Стварыце ўліковы запіс і атрымайце 120 бясплатных крэдытаў.',
+  'styles.body':
+    'Кожны прэсет уключае ўласную мадэль, сэмплер, аснову промпта і стылявыя чыпы. Актывуйце адзін, каб замацаваць усю студыю ў гэтым настроі — ідэальна для серыйнай працы.',
   'styles.empty':
     "Пакуль няма загадзя наладжаных стыляў — яны з'явяцца пасля першага ўваходу ў сістэму.",
   'styles.eyebrow': 'Курыравана',
   'styles.headline':
     'Хутчэй стварайце чары з дапамогай візуальных прэсетаў паўторнага выкарыстання',
+  'styles.loading': 'Загрузка бібліятэкі стыляў…',
   'styles.subtitle': 'Візуальныя прэсеты, створаныя камандай студыі Reverie',
   'styles.title': 'Бібліятэка стыляў',
   'terms.acceptableUse.body':

@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'মতামত আছে, বাগ পেয়েছেন, বা বড় কিছু পরিকল্পনা করছেন? আপনার অ্যাকাউন্ট সেটিংস থেকে আমাদের সাথে যোগাযোগ করুন — প্রতিটি বার্তা টিমের একজন প্রকৃত মানুষের কাছে পৌঁছায়।',
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'একটি ইনবক্সে সব বুকিং — ফ্লাইট, হোটেল এবং অ্যাক্টিভিটি কনফার্মেশন ঠিক যে দিনের সেগুলো সেই দিনেই এসে পড়ে।',
+  'about.featureCollab':
+    'রিয়েল-টাইম সহযোগিতা — প্রতি ট্রিপে সর্বোচ্চ পাঁচজন ভ্রমণকারীকে আমন্ত্রণ জানান, প্রতিটি পরিবর্তন লাইভ সিঙ্ক হয় এবং প্রতিটি স্টপের নিচে কমেন্ট থ্রেড হয়।',
+  'about.featureMapsBudget':
+    'ম্যাপ, গন্তব্য এবং একটি শেয়ার করা বাজেট — পুরো ট্রিপ ম্যাপে দেখুন, এডিটর-বাছাই করা গন্তব্য আবিষ্কার করুন এবং খরচ ট্র্যাক করুন যাতে কেউ বেশি খরচ না করে।',
+  'about.featureTimelines':
+    'দিন-ভিত্তিক টাইমলাইন — স্টপ টেনে পুনর্বিন্যাস করুন, ট্রান্সপোর্ট সেগমেন্ট যোগ করুন, আর দেখুন কীভাবে একটি জীবন্ত ডকুমেন্ট হিসেবে ইটিনেরারি নিজে থেকেই পুনর্গণনা হয়।',
+  'about.intro':
+    '{{app}} আধা-গঠিত পরিকল্পনায় ভরা একটি ফোল্ডারকে আপনার পুরো দলের সত্যিই অনুসরণযোগ্য একটি একক, শেয়ার করা ট্রিপে পরিণত করে। দিন-ভিত্তিক ইটিনেরারি তৈরি করুন, ফ্লাইট ও হোটেল যোগ করুন, প্রতিটি স্টপ ম্যাপে বসান এবং বাজেট ট্র্যাক করুন — সবকিছু এক শান্ত জায়গায়, ডজনখানেক ট্যাব আর একটি গ্রুপ চ্যাটের বদলে।',
+  'about.missionBody':
+    'ভ্রমণ পরিকল্পনা এমন অনুভূতি দেওয়া উচিত যেন ট্রিপটা এখনই আরও ভালো হয়ে যাচ্ছে, হোমওয়ার্কের মতো নয়। {{app}} আছে সহযোগিতামূলক ট্রিপকে অনায়াস করতে — যাতে প্রতিটি ভ্রমণকারী পরিকল্পনা জেনেই হাজির হয়, আর প্রতিটি স্টপ বলে একটি স্মরণীয় গল্প।',
+  'about.missionTitle': 'আমাদের লক্ষ্য',
   'about.pageTitle': '{{app}} সম্পর্কে',
   'auth.legalConsent': 'অব্যাহত রেখে, আপনি আমাদের সাথে সম্মত হচ্ছেন',
   'bookings.empty.body': 'ইনবক্স শুরু করতে একটি ফ্লাইট, হোটেল বা কার্যকলাপ যোগ করুন।',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'হোটেল',
   'bookings.type.other': 'অন্যান্য',
   'budgetSpendCard.budgetTotal': 'এর {{total}} পরিকল্পিত',
+  'budgetSpendCard.overBy': '{{amount}} বাজেটের বেশি',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} সাম্প্রতিক',
+  'budgetSpendCard.remaining': '{{amount}} বাকি',
   'calendar.eyebrow': 'আগামী বছর',
   'calendar.heading': 'একই ক্যালেন্ডারে প্রতিটি ভ্রমণ।',
   'calendar.legendHeading': 'এই মাসের ভ্রমণ',
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'এবং',
   'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'dashboard.budgetHeading': 'বাজেট স্পন্দন',
+  'dashboard.empty.body':
+    'আপনার প্রথম ট্রিপ পরিকল্পনা করুন, তাহলে আপনার ড্যাশবোর্ড দিন-ভিত্তিক টাইমলাইন, বাজেট পালস এবং বুকিং দিয়ে ভরে উঠবে।',
+  'dashboard.empty.cta': 'আপনার প্রথম ট্রিপ পরিকল্পনা করুন',
   'dashboard.empty.heading': 'এখনো কোনো ভ্রমণ হয়নি — আপনার মানচিত্রটি খালি।',
   'dashboard.eyebrow': 'মিশন নিয়ন্ত্রণ',
   'dashboard.heading': 'আপনার পরবর্তী অভিযান, এক নিস্তব্ধ কোণে।',
   'dashboard.newTripCta': 'একটি নতুন যাত্রা শুরু করুন',
+  'dashboard.subheading':
+    'পরবর্তী ট্রিপের কাউন্টডাউন, আজকের খরচের পালস এবং চলমান প্রতিটি ইটিনেরারি এক নজরে।',
   'dashboard.tripsHeading': 'গতিশীল ভ্রমণ',
   'dashboard.viewAllExpenses': 'প্রতিটি খরচ দেখুন',
   'dashboard.viewAllTrips': 'প্রতিটি ভ্রমণ দেখুন',
   'dayTimelineRow.category.accommodation': 'থাকুন',
+  'dayTimelineRow.category.food': 'খাবার ও পানীয়',
+  'dayTimelineRow.category.sightseeing': 'দর্শনীয় স্থান',
   'dayTimelineRow.category.transport': 'পরিবহন',
   'destinationOrbCard.exploreCta': 'ভ্রমণে যোগ করুন',
   'destinationOrbCard.tripCount': '{{count}} ভ্রমণ',
+  'destinations.empty.body': 'আবার All-এ ফিরে গেলে এডিটরের ফলাফলগুলো আবার দেখা যাবে।',
   'destinations.empty.heading': 'এখনো কোনো গন্তব্য ঠিক করা হয়নি।',
+  'destinations.emptyFiltered.heading': 'এমন ট্যাগে এখনো কিছু নেই।',
   'destinations.errors.load': 'গন্তব্যস্থলগুলো লোড করা যায়নি।',
   'destinations.eyebrow': 'এরপর কোথায়?',
   'destinations.heading': 'সংরক্ষিত কোণা এবং সম্পাদকের প্রাপ্ত ফলাফল।',
@@ -70,6 +98,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'বিক্রেতা',
   'expenses.formHeading': '{{trip}} এর খরচ লিপিবদ্ধ করুন',
   'expenses.heading': 'ভ্রমণের বাজেট আসলে কোথায় খরচ হয়।',
+  'expenses.heroBudget': '{{total}} পরিকল্পনার {{pct}}%',
+  'expenses.heroEyebrow': '{{trip}} \\u2022 বাজেট স্ন্যাপশট',
+  'expenses.heroNoBudget': 'এই ট্রিপে এখনো কোনো বাজেট সেট করা হয়নি।',
   'expenses.noTrips.body': 'প্রথমে ভ্রমণের পরিকল্পনা করুন – খরচ ভ্রমণের বাজেটের সাথে জড়িত থাকে।',
   'expenses.noTrips.heading': 'এখনো কোনো ভ্রমণ হয়নি।',
   'expenses.receiptCount': '{{count}} রসিদ',
@@ -81,12 +112,16 @@ export const ui: UiTranslations = {
     'প্রতিটি রসিদ এবং নিশ্চিতকরণ এখানে সঠিক বিভাগে চলে আসে – কোনো স্প্রেডশিটের প্রয়োজন নেই।',
   'forgotPassword.eyebrow': 'আপনার ভ্রমণসূচী পুনরুদ্ধার করুন',
   'forgotPassword.heading': 'আপনার পাসওয়ার্ড ভুলে গেছেন?',
+  'forgotPassword.subheading':
+    '{{appName}}-এর জন্য ব্যবহৃত ইমেইলটি লিখুন, আমরা আপনার পাসওয়ার্ড রিসেট করার একটি লিংক পাঠাব।',
   'forgotPassword.submit': 'পুনরুদ্ধার ইমেল পাঠান',
   'forgotPassword.submitPending': 'পুনরুদ্ধার ইমেল পাঠানো হচ্ছে…',
   'forgotPassword.successHint':
     'এখনো ইমেল পাননি? আপনার স্প্যাম ফোল্ডারটি দেখুন, অথবা অন্য একটি ঠিকানা দিয়ে আবার চেষ্টা করুন।',
   'forgotPassword.successSubheading':
     'আমরা একটি পুনরুদ্ধার লিঙ্ক পাঠিয়েছি {{email}} লিঙ্কটি ৩০ মিনিটের জন্য বৈধ।',
+  'forgotPassword.tryAgain': 'অন্য ইমেইলে পাঠান',
+  'landing.cta.eyebrow': 'ফ্রি প্ল্যানে শুরু করুন',
   'landing.cta.heading': '{{tagline}}।',
   'landing.cta.signup': 'বিনামূল্যে অ্যাকাউন্ট তৈরি করুন',
   'landing.cta.subheading':
@@ -98,8 +133,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}।',
   'landing.hero.ctaPrimary': 'একটি বিনামূল্যে ভ্রমণ শুরু করুন',
   'landing.hero.ctaSecondary': 'একটি নমুনা ভ্রমণ দেখুন',
+  'landing.hero.eyebrow': 'ট্রিপ প্ল্যানার · {{tagline}}',
   'landing.hero.subtitle':
     'ওয়েপয়েন্ট অগোছালো পরিকল্পনায় ভরা একটি ফোল্ডারকে একটি যৌথ, দিনভিত্তিক ভ্রমণসূচিতে পরিণত করে যা আপনার দল সত্যিই অনুসরণ করতে পারে — যেখানে বুকিং, মানচিত্র এবং বাজেট এক জায়গায় ট্র্যাক করা যায়।',
+  'landing.hero.title': 'একবার পরিকল্পনা করুন। একসঙ্গে ঘুরে আসুন।',
   'landing.nav.join': 'একটি বিনামূল্যে ভ্রমণ শুরু করুন',
   'landing.nav.preview': 'ভিতরে ওয়েপয়েন্ট',
   'landing.preview.cta': 'আপনার নিজের একটি পরিকল্পনা করুন',
@@ -107,6 +144,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'কয়েকটি ভ্রমণ যা নিয়ে ভ্রমণকারীরা এখন ঘুরে বেড়াচ্ছেন',
   'login.eyebrow': 'সদস্যদের এলাকা',
   'login.heading': 'ভ্রমণকারী, আবার স্বাগতম।',
+  'login.noAccount': 'টেসেরা-তে নতুন?',
   'login.signupLink': 'একটি বিনামূল্যে অ্যাকাউন্ট তৈরি করুন',
   'login.subheading':
     'আপনার ভ্রমণ, দিনের পরিকল্পনা, বুকিং এবং ইতিমধ্যে শুরু করা জার্নাল এন্ট্রিগুলো পরিচালনা করতে সাইন ইন করুন।',
@@ -117,6 +155,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'বিজ্ঞপ্তি আপডেট করা সম্ভব হয়নি।',
   'notifications.heading': 'আজ আপনার ভ্রমণগুলোতে কী পরিবর্তন এসেছে?',
   'notifications.markUnread': 'অপঠিত হিসাবে চিহ্নিত করুন',
+  'notifications.subheading':
+    '{{count}} নতুন — বুকিং কনফার্মেশন, সহযোগীর নোট, ভাড়া কমার খবর এবং রিমাইন্ডার।',
   'notifications.time.daysAgo': '{{count}} দিন আগে',
   'notifications.time.hoursAgo': '{{count}} কয়েক ঘন্টা আগে',
   'notifications.time.justNow': 'এইমাত্র',
@@ -135,6 +175,7 @@ export const ui: UiTranslations = {
     'সংযুক্ত পরিষেবা, মুদ্রা, পুশ নোটিফিকেশন এবং আপনার সাইন-ইন করার ক্রেডেনশিয়াল।',
   'signup.and': 'এবং',
   'signup.eyebrow': 'ওয়েপয়েন্টে যোগ দিন',
+  'signup.haveAccount': 'আগেই ঘুরতে বেরিয়ে পড়েছেন?',
   'signup.heading': 'একবার পরিকল্পনা করুন। একসঙ্গে ঘুরে আসুন।',
   'signup.namePlaceholder': 'আইরিস লারসেন',
   'signup.subheading':
@@ -146,6 +187,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'উন্মুক্ত ভ্রমণসূচী',
   'tripCountdownHeroCard.ctaSecondary': 'আরেকটি ভ্রমণের পরিকল্পনা করুন।',
   'tripCountdownHeroCard.daysLabel': '{{days}} আর মাত্র কয়েক দিন বাকি',
+  'tripCountdownHeroCard.eyebrow': 'পরবর্তী অ্যাডভেঞ্চার · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} রাত — আপনার ইটিনেরারি ভ্রমণের জন্য প্রস্তুত।',
   'tripCoverCard.stops': '{{count}} থামে',
   'tripCoverCard.travelers': '{{count}} ভ্রমণকারীরা',
   'tripDetail.addActivity': 'কার্যকলাপ যোগ করুন',
@@ -155,6 +199,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'কার্যকলাপের শিরোনাম',
   'tripDetail.adding': 'যোগ করা হচ্ছে...',
   'tripDetail.backToTrips': 'সমস্ত ভ্রমণে ফিরে যান',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'ভ্রমণকারীরা',
   'tripDetail.dayLabel': 'দিন {{day}}',
   'tripDetail.empty': 'এখনো কোনো কার্যকলাপ নেই – টাইমলাইন শুরু করতে একটি যোগ করুন।',
@@ -165,14 +210,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'ভ্রমণসূচী • {{country}}',
   'tripDetail.invite': 'আমন্ত্রণ',
   'tripDetail.inviteLabel': 'ইমেইলের মাধ্যমে আমন্ত্রণ জানান',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'আমন্ত্রণ পাঠানো হয়েছে {{email}} .',
   'tripDetail.inviting': 'পাঠানো হচ্ছে...',
   'tripDetail.loading': 'লোডিং ট্রিপ •',
   'tripDetail.noCollaborators': 'আপাতত শুধু তুমি।',
+  'tripDetail.notesHeading': 'ট্রিপ নোট',
   'tripDetail.notesPlaceholder': 'এখনো কোনো নোট নেই।',
   'tripDetail.notFound.heading': 'ভ্রমণটি খুঁজে পাওয়া যায়নি',
   'tripDetail.openBookings': 'বুকিং ইনবক্স খোলা আছে',
   'tripDetail.shareCopied': 'শেয়ার লিঙ্ক ক্লিপবোর্ডে কপি করা হয়েছে:',
+  'tripDetail.shareReady': 'শেয়ার লিংক প্রস্তুত:',
   'tripDetail.stops': '{{count}} থামে',
   'tripDetail.timelineEyebrow': 'দিনের সময়রেখা',
   'tripDetail.timelineHeading': 'দিনভিত্তিক পরিকল্পনা',
@@ -181,6 +229,7 @@ export const ui: UiTranslations = {
   'tripPlanner.errors.generic': 'ট্রিপটি তৈরি করা যায়নি — আবার চেষ্টা করুন।',
   'tripPlanner.errors.noId': 'ট্রিপ তৈরি হয়েছে কিন্তু কোনো আইডি ফেরত আসেনি।',
   'tripPlanner.eyebrow': 'নতুন ভ্রমণসূচী',
+  'tripPlanner.fields.budgetLabel': 'বাজেট \\u00b7 {{amount}}',
   'tripPlanner.fields.countryLabel': 'দেশ / অঞ্চল',
   'tripPlanner.fields.countryPlaceholder': 'যেমন আইসল্যান্ড',
   'tripPlanner.fields.destinationLabel': 'গন্তব্য',
@@ -189,6 +238,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'ভ্রমণকারীরা',
   'tripPlanner.heading': 'এক মিনিটেরও কম সময়ে একটি ভ্রমণ পরিকল্পনা তৈরি করুন।',
   'tripPlanner.preview.eyebrow': 'লাইভ প্রিভিউ',
+  'tripPlanner.preview.placeholderCountry': 'একটি দেশ বেছে নিন',
   'tripPlanner.preview.placeholderDestination': 'আপনার পরবর্তী অভিযান',
   'tripPlanner.section1.title': 'কোথায় ও কখন',
   'tripPlanner.section2.title': 'ভ্রমণকারী ও বাজেট',
@@ -197,10 +247,13 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'দিন {{day}} এখানে স্টপ, পরিবহন এবং বুকিং যোগ করুন।',
   'tripPlanner.section3.day2': 'দিন {{day}} এখানে স্টপ, পরিবহন এবং বুকিং যোগ করুন।',
   'tripPlanner.section3.day3': 'দিন {{day}} এখানে স্টপ, পরিবহন এবং বুকিং যোগ করুন।',
+  'tripPlanner.section3.title': 'দিনের পরিকল্পনা স্টার্টার',
   'tripPlanner.subheading':
     'নিচে প্রয়োজনীয় তথ্যগুলো দিন — আপনি পরে যেকোনো সময় সহযোগীদের আমন্ত্রণ জানাতে, স্টপ যোগ করতে এবং বুকিং ফরওয়ার্ড করতে পারবেন।',
   'tripPlanner.submit': 'ভ্রমণ তৈরি করুন',
   'tripPlanner.submitting': 'তৈরি করা...',
+  'trips.empty.body': 'আবার All trips-এ ফিরে যান বা আপনার পরবর্তী ভ্রমণের পরিকল্পনা শুরু করুন।',
+  'trips.empty.cta': 'একটি ভ্রমণ পরিকল্পনা করুন',
   'trips.empty.heading': 'এখনো সেই ফিল্টারের সাথে মেলে এমন কিছুই নেই।',
   'trips.eyebrow': 'অ্যাটলাস',
   'trips.filterLabel': 'অবস্থা অনুযায়ী ট্রিপ ফিল্টার করুন',
@@ -212,6 +265,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'এখনো কোনো ভ্রমণ হয়নি।',
   'trips.pastHeading': 'অতীতের অভিযান',
   'trips.subheading': '{{count}} ভ্রমণসূচী — অতীত, বর্তমান এবং ভবিষ্যতের।',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'একবার পরিকল্পনা করুন। একসাথে ঘুরুন। চিরকাল মনে রাখুন।',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · 2024 থেকে {{appName}} সদস্য',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} চার দেশজুড়ে ব্যস্ত তিন সপ্তাহের একটি ট্রিপকে আমাদের এ পর্যন্ত শেয়ার করা সবচেয়ে আরামদায়ক ইটিনেরারিতে পরিণত করেছে।',
   'waypointLayout.mobileNavClose': 'নেভিগেশন মেনু বন্ধ করুন',
   'waypointLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
 }

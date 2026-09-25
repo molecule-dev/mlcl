@@ -1,19 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Асуулт, санал хүсэлт эсвэл шинэ функцын хүсэлт байна уу? Баг руу hello@murmur.app хаягаар имэйл илгээгээрэй — мессеж бүр бүтээгдэхүүн дээр ажилладаг жинхэнэ хүнд хүрдэг.',
   'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Бидний тухай',
+  'about.intro':
+    '{{app}} бол тэмдэглэл хөтлөхөөс илүү шийдвэр гаргахыг хүсдэг багуудад зориулсан уулзалтын оюун ухаан юм. Энэ нь таны дуудлагад нэгдэж, үг бүрийг ярьсан хүний шошготойгоор хөрвүүлж, уулзалт дуусах тэр мөчид AI хураангуй болон хариуцагчтай үйлдлийн зүйлсийг хүргэдэг.',
+  'about.missionBody':
+    'Уулзалт бол багууд шийдвэр гаргадаг газар — мөн тэр шийдвэрүүд алга болдог газар. {{app}} нь ярианы үеэр хийгдсэн ажил ярианаас урт насалж үлдэхийг баталгаажуулахын тулд оршдог: үнэн зөв бүртгэл, тодорхой хураангуй, хариуцлагатай дараагийн алхмууд, автоматаар.',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
   'actions.empty': 'Тохирох үйлдлийн зүйл алга.',
   'actions.heading': 'Үйлдлийн зүйлс',
   'actions.loadError': 'Үйлдлийн зүйлсийг ачаалж чадсангүй.',
   'actions.subheading': 'Уулзалт бүрээр нэгтгэсэн. Төвлөрлийг нь шүүж, анхаарлаа төвлөрүүлнэ үү.',
   'actions.toggleDoneLabel': 'Дууссан гэж тэмдэглэх',
   'actions.toggleReopenLabel': 'Нээлттэй гэж тэмдэглэх',
+  'auth.footer': '© {{year}} {{app}}. Үг бүр, нэрмэл.',
   'calendar.heading': 'Хуанли',
   'calendar.joinCta': 'Нэгдэх',
   'calendar.loadError': 'Хуанли ачаалж чадсангүй.',
   'calendar.nextMonth': 'Дараагийн сар',
   'calendar.noEventsForDay': 'Энэ өдөр уулзалт төлөвлөөгүй байна.',
+  'calendar.noUpcomingEvents':
+    'Удахгүй болох уулзалт байхгүй. Энэ жагсаалтыг дүүргэхийн тулд Интеграциас хуанли холбоно уу.',
   'calendar.previousMonth': 'Өмнөх сар',
   'calendar.recent': 'Саяхны',
   'common.daysAgo': '{{count}} өдрийн өмнө',
@@ -25,9 +35,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} үйлдлийн зүйлс',
   'dashboard.empty.body':
     'Мурмур таны дараагийн уулзалтад автоматаар нэгдэхийн тулд бичлэг эхлүүлэх эсвэл Google Календарийг холбоно уу.',
+  'dashboard.empty.cta': 'Бичлэг хийж эхлэх',
   'dashboard.empty.heading': 'Одоогоор уулзалт байхгүй байна',
   'dashboard.eyebrow': 'Таны уулзалтын тэжээл',
   'dashboard.loadError': 'Хяналтын самбарыг ачаалж чадсангүй.',
+  'dashboard.noActions': 'Үйлдэл байхгүй',
   'dashboard.recentHeading': 'Саяхны уулзалтууд',
   'dashboard.recordCta': 'Уулзалтын бичлэг',
   'dashboard.stat.actions': 'Үйлдлийн зүйлс',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} Таны сүүлд шалгаснаас хойш уншаагүй хураангуй. Шүүмж үг бүрийг тэмдэглэсэн - энд товч тойм байна.',
   'dashboard.viewCalendar': 'Хуанли харах →',
+  'footer.linksLabel': 'Хөл хэсэг',
   'forgot.failed': 'Дахин тохируулах имэйл илгээж чадсангүй.',
   'forgot.sentBody':
     'Хэрэв данс байгаа бол {{email}}, та удахгүй дахин тохируулах холбоос авах болно.',
@@ -48,14 +61,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Murmur автоматаар нэгдэхийн тулд хуанли болон видео платформуудыг холбоно уу.',
   'integrations.updateError': 'Шинэчлэлт амжилтгүй.',
+  'landing.ctaBody':
+    'Сар бүрийн эхний 5 уулзалт үнэгүй. Кредит карт шаардлагагүй. Google Calendar-ыг нэг минутаас бага хугацаанд холбоно уу.',
   'landing.ctaButton': 'Эхлээрэй - энэ үнэгүй',
   'landing.ctaHeading': 'Тэмдэглэл хөтлөхөө боль. Шийдвэр гаргаж эхэл.',
+  'landing.demo.aiBody':
+    'Ажиллагааны боловсон хүчний нөөц гаргахын тулд нээлтийг 5-р сарын 5-аас → 5-р сарын 12 болгон хойшлуулав. Хяналтын самбарын шинэчлэлийг 5-р сарын 26-нд тусад нь гаргав.',
   'landing.demo.aiLabel': 'Хиймэл оюун ухааны хураангуй, шууд хувилбар',
   'landing.demo.recording': 'Бичлэг · шууд',
   'landing.eyebrow': 'Хиймэл оюун ухааны уулзалтын тагнуул',
   'landing.featuresHeading': 'Уулзалт дууссаны дараа танай багт хэрэгтэй бүх зүйл',
+  'landing.featuresSubheading':
+    '"Хүлээгээрэй, энийг хэн хариуцах вэ?" гэдэг байхгүй боллоо. {{appName}} дуудлага тасрахаас өмнө хураангуйг хүргэдэг.',
   'landing.getStarted': 'Үнэгүй туршаад үзээрэй',
   'landing.heroSecondary': '90 секундын аяллыг үзээрэй',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} таны дуудлагад нэгдэж, үг бүрийг ярьсан хүний шошготойгоор хөрвүүлж, уулзалт дуусах тэр мөчид AI хураангуй болон хариуцагчтай үйлдлийн зүйлсийг хүргэдэг.',
   'landing.heroTitle': 'Уулзалт бүрийг бичиж ав. Чухал зүйлсийг ил гарга.',
   'login.altPrompt': 'Мурмурт шинээр орж байна уу?',
   'login.failed': 'Нэвтэрч чадсангүй. Имэйл болон нууц үгээ шалгана уу.',
@@ -63,6 +84,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Үйлдлийн зүйлс',
   'meetingDetail.back': 'Бүх уулзалтууд',
   'meetingDetail.decisionsHeading': 'Шийдвэрүүд',
+  'meetingDetail.dueDate': '{{date}} хүртэл',
   'meetingDetail.followupsHeading': 'Дараагийн үйлдлүүд',
   'meetingDetail.loadError': 'Уулзалтыг ачаалж чадсангүй.',
   'meetingDetail.noActions': 'Үйлдлийн зүйл илэрсэнгүй.',
@@ -76,7 +98,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Одоогоор уулзалт байхгүй байна',
   'meetings.heading': 'Уулзалтууд',
   'meetings.loadError': 'Уулзалтуудыг ачаалж чадсангүй.',
+  'meetings.recordCta': 'Уулзалтын бичлэг',
   'meetings.subheading': 'Бичсэн, байршуулсан, синк хийсэн бүх уулзалт.',
+  'murmurLayout.closeMenu': 'Навигацийн цэсийг хаах',
   'murmurLayout.openMenu': 'Навигацийн цэсийг нээх',
   'murmurLayout.primaryNavLabel': 'Үндсэн навигаци',
   'nav.legal': 'Хууль эрх зүйн',
@@ -102,7 +126,14 @@ export const ui: UiTranslations = {
   'profile.loading': 'Ачааллаж байна…',
   'profile.navLabel': 'Профайлын хэсгүүд',
   'profile.notifications.assignments': 'Надад оноогдсон үйлдлийн зүйлс',
+  'profile.notifications.assignmentsHint': 'Танд үйлдлийн зүйл бүртгэгдэх үед мэдэгдэх.',
+  'profile.notifications.mentions': 'Хөрвүүлэлт дэх дурдалтууд',
+  'profile.notifications.mentionsHint': 'Хэн нэгэн таныг @-д дурдах үед имэйл + push илгээх.',
+  'profile.notifications.subheading': '{{appName}}-ийн ямар үйл явдлууд танд хүрэхийг сонгоно уу.',
   'profile.notifications.summaries': 'Долоо хоногийн тойм',
+  'profile.notifications.summariesHint':
+    'Өнгөрсөн долоо хоногийн уулзалт бүрийн Даваа гарагийн хураангуй.',
+  'profile.preferences.speakerColor': 'Ярьсан хүний өгөгдмөл өнгө',
   'profile.preferences.subheading': 'Таны нэгдсэн бичлэг бүрт хамаарах анхдагч тохиргоонууд.',
   'profile.preferences.timezone': 'Цагийн бүс',
   'profile.preferences.title': 'Албан тушаал',
@@ -114,17 +145,22 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Таны хөтөч бичлэг хийхийг дэмждэггүй. Chrome, Edge эсвэл Safari-г туршаад үзээрэй.',
   'record.error.upload': 'Байршуулалт амжилтгүй боллоо. Дахин оролдоно уу.',
+  'record.errorLabel': 'Алдаа гарлаа',
   'record.heading': 'Бичлэг',
   'record.idleLabel': 'Бичлэг хийж эхлэхийн тулд товшино уу',
   'record.processingLabel': 'Шившээр бичиж, Клодтой нэгтгэн дүгнэж байна...',
+  'record.recordingLabel': 'Бүртгэж байна…',
   'record.retryCta': 'Дахин оролдоно уу',
   'record.subheading':
     'Эхлүүлэхийн тулд микрофон дээр дарна уу. Мөрмөр аудиог бичиж аваад, Whisper-ээр дамжуулан бичээд, Клодын удирдлага дор товч агуулга бичнэ.',
+  'record.titlePlaceholder': 'Уулзалтын гарчиг (заавал биш)',
+  'reset.altPrompt': 'Бодлоо өөрчилсөн үү?',
   'reset.hint': 'Үсэг болон тоонуудын холимог ашиглан дор хаяж 8 тэмдэгт ашиглаарай.',
   'reset.missingToken':
     'Дахин тохируулах холбоос байхгүй эсвэл хугацаа нь дууссан байна. Шинэ холбоос хүснэ үү.',
   'reset.newPassword': 'Шинэ нууц үг',
   'reset.subheading': 'Өөр хаана ч ашиглахгүй нууц үгээ сонгоно уу.',
+  'reset.tooShort': 'Нууц үг дор хаяж 8 тэмдэгтээс бүрдэх ёстой.',
   'search.empty': 'Бичлэгийг хайхын тулд бичнэ үү.',
   'search.loadError': 'Хайлт амжилтгүй боллоо. Дахин оролдоно уу.',
   'search.noResults': '""-д ямар ч үр дүн алга {{q}} ".',
@@ -140,7 +176,9 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Аудиог хадгалах',
   'settings.retention.heading': 'Хадгалалт',
   'settings.retention.transcript': 'Транскриптийг хадгалах',
+  'settings.revokeDeviceWarning': 'Энэ төхөөрөмжийн хандалт удахгүй хаагдана. Гаргах уу?',
   'settings.saveError': 'Хадгалах амжилтгүй.',
+  'settings.security.subheading': 'Нэвтрэхэд ашигладаг нууц үгээ шинэчилнэ үү.',
   'settings.sharing.exportFormat': 'Экспортын формат',
   'settings.sharing.heading': 'Хуваалцах анхдагч тохиргоонууд',
   'settings.sharing.scope': 'Анхдагч хуваалцах хүрээ',
@@ -158,6 +196,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Багийн гишүүнээ урих',
   'team.invitedAs': 'Уригдсан {{role}}',
   'team.inviteFailed': 'Урилга илгээж чадсангүй.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'Урилга илгээх',
   'team.inviteSubtitle': 'Тэд нэгдэх холбоос бүхий имэйл хүлээн авах болно.',
   'team.inviteTitle': 'Багийн гишүүнээ урих',

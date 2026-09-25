@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kérdések, funkciókérések, vagy egy mérőóra, amit támogatnunk kellene? A fiókbeállításaidból érheted el a {{appName}} csapatát — minden üzenet valódi emberhez kerül.',
   'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Névjegy',
+  'about.featuresTitle': 'Amit kap',
+  'about.intro':
+    'A {{appName}} valós idejű energiafigyelés napelemes otthonok és létesítménykezelő csapatok számára. A mérőórák, inverterek és akkumulátorok adatfolyamát nyugodt irányítótermi nézetté alakítjuk — élő teljesítmény, napelemes termelés, időszakos díjszabás szerinti költség és riasztások, mindez egy felületen.',
+  'about.missionBody':
+    'A látható energia kezelhető energia. Hiszünk abban, hogy mindenki, aki mérőórát üzemeltet — legyen az napelemes háztartás vagy egy épületet figyelő csapat —, megérdemli a közműszintű betekintést közműszintű szerződés nélkül. Minden funkció arra készült, hogy a következő kilowattóra tudatos döntés legyen, ne meglepetés a számlán.',
+  'about.missionTitle': 'Küldetésünk',
   'about.pageTitle': 'A {{appName}}-ről',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Ak',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@yourdomain.com',
   'alertRule.eyebrow': 'Új szabály',
   'alertRule.heading': 'Kapd el a lökést, mielőtt megéri',
+  'alertRule.nameLabel': 'Szabály neve',
   'alertRule.namePlaceholder': 'pl. Záróidőn túli HVAC-figyelés',
   'alertRule.subheading':
     'Válasszon egy mutatót, egy küszöbértéket, és azt, hogy hová küldje a riasztást. Bármikor szerkesztheti vagy szüneteltetheti.',
   'alertRule.submit': 'Szabály mentése',
   'alertRule.submitError': 'Nem sikerült menteni a szabályt.',
   'alertRule.thresholdLabel': 'Küszöb',
+  'alertRule.typeLabel': 'Trigger típusa',
   'alerts.checking': 'Ellenőrzés…',
   'alerts.confirmDelete': 'Törlés megerősítése',
+  'alerts.empty': 'Nincs mit megjeleníteni — ebben az állapotban nincsenek riasztások.',
   'alerts.emptyNoRules':
     'Még nincsenek riasztások – adjon hozzá egy szabályt, majd kattintson az „Értékelés most” gombra a teszteléséhez.',
   'alerts.errorAck': 'Nem tudtam tudomásul venni.',
@@ -41,12 +52,15 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Értékeljen most',
   'alerts.subheading':
     'Küszöbérték- és mintajelzések a mérőeszközeiden, valamint az azokat vezérlő szabályok.',
+  'billing.activeBlurb': 'Az előfizetésed aktív. Bármikor kezelheted.',
   'billing.cancelError': 'Az előfizetést nem sikerült lemondani.',
   'billing.cancelling': 'Lemondás…',
   'billing.currentBadge': 'Jelenlegi',
   'billing.freeBlurb':
     'Ingyenes csomagot használsz. Válts több mérőműszerre, hosszabb előzményekre és további riasztási szabályokra.',
   'billing.heading': 'Csomagok és számlázás',
+  'billing.historyEmpty':
+    'A kifizetett számlák itt jelennek meg, amint az előfizetésedről számlázunk.',
   'billing.historyHeading': 'Számlatörténet',
   'billing.loadError': 'A számlázás nem tölthető be.',
   'billing.loading': 'Tervek betöltése…',
@@ -58,17 +72,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Lépjen kapcsolatba az értékesítési csapattal',
   'common.goToDashboard': 'Ugrás a műszerfalra',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} csúcsidő · {{offPeak}} csúcsidőn kívüli kWh',
   'dailyCostMeter.runningLabel': 'Futó összesen',
   'dailyCostMeter.title': 'Eddigi költség ma',
   'dailyCostMeter.utilizationLabel': 'A napi költségkeretből',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Mérőóra hozzáadása',
   'dashboard.alertsHeading': 'Aktív riasztások',
   'dashboard.devicesHeading': 'Legjobb áramkörök most',
   'dashboard.empty.body':
     'Adjon hozzá okosmérőt vagy napelemes invertert a valós idejű fogyasztás és termelés nyomon követéséhez.',
+  'dashboard.empty.title': 'Még nincsenek mérőórák',
   'dashboard.eyebrow': 'Voltrace irányítóterem',
   'dashboard.heading': 'Élő energia pillanatkép',
   'dashboard.loadError': 'Nem sikerült betölteni az élő méréseket.',
   'dashboard.loading': 'Ráhangolódsz a mérőóráidra…',
+  'dashboard.noAlerts': 'Minden csendes — semmi nem lépi át a küszöbértékeidet.',
   'dashboard.noAlertsAndNoMeters':
     'Miután bekötött egy mérőt, a küszöbértékeken alapuló riasztások jelennek meg itt.',
   'dashboard.noCircuits':
@@ -77,6 +96,7 @@ export const ui: UiTranslations = {
     'Az egész otthonra kiterjedő energiafogyasztás, napelemes termelés és a költségek eddig a mai napig.',
   'dashboard.viewAllAlerts': 'Riasztások kezelése →',
   'dashboard.viewAllDevices': 'Minden eszköz →',
+  'deviceDetail.activeTokens': 'Aktív adatbeviteli tokenek',
   'deviceDetail.alreadyOff': 'Már szüneteltetett',
   'deviceDetail.back': 'Minden áramkör',
   'deviceDetail.confirmDelete': 'Törlés megerősítése',
@@ -117,22 +137,34 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Nem sikerült betölteni a mérőórákat.',
   'devices.loading': 'Minden mérő lekérdezése…',
   'devices.newRule': 'Új riasztási szabály',
+  'devices.noResults': 'Egyetlen áramkör sem felel meg ennek a szűrőnek.',
   'devices.placeholder.location': 'pl. gépészeti szoba',
   'devices.placeholder.name': 'pl. Garázs alpanel',
   'devices.subheading':
     'Valós idejű teljesítmény és a mai kWh-érték minden olyan áramkörön, amelyet a Voltrace lát.',
+  'deviceWattageRow.todayKwh': '{{kwh}} kWh ma',
+  'deviceWattageRow.watts': '{{watts}} Ny',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Menü',
+  'energyMonitoringLayout.primaryNavLabel': 'Elsődleges navigáció',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    'A {{appName}} a legtöbb közműszintű mérőórával, napelemes inverterrel és akkumulátorteleppel kommunikál — vezetékesen vagy WiFi-n.',
   'landing.ctaHeading': 'Párosítsa a mérőjét, és nézze meg a wattokat percekben',
   'landing.eyebrow': 'Valós idejű energiaintelligencia',
+  'landing.featuresHeading': 'Minden watt, minden perc, egy felületen',
   'landing.getStarted': 'Csatlakoztassa a Voltrace-t',
   'landing.heroCta': 'Csatlakoztassa a Voltrace-t',
+  'landing.heroSubtitle':
+    'Élő teljesítmény, napelemes termelés, időszakos díjszabás szerinti költség és magas fogyasztási riasztások egy napelemes otthonokra és létesítménykezelő csapatokra tervezett irányítótermi felületen.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Teljes otthoni döntetlen',
   'landing.sampleSolar': '+3820 W napelemes',
   'landing.sampleSummary': '1680 W hálózatba exportálása · 18,4 kWh ma',
   'landing.sampleWatts': '2140 W',
   'powerHeroCard.solar': '+ {{watts}} napelemes rendszer',
   'powerHeroCard.title': 'Teljes otthoni döntetlen',
+  'powerHeroCard.todayKwh': '{{kwh}} kWh ma',
   'powerHeroCard.watts': '{{watts}} Ny',
   'pricing.choose': '{{name}} választása',
   'pricing.contact': 'Szüksége van valami egyedire?',
@@ -145,6 +177,7 @@ export const ui: UiTranslations = {
     'Ingyenes kezdés. Bővítsd a szolgáltatást, ha több mérőre, hosszabb előzményekre vagy több riasztási szabályra van szükséged.',
   'pricing.unavailable': 'Ez a csomag jelenleg nem érhető el — A Stripe nincs konfigurálva.',
   'profile.errorGeneric': 'A profilmódosítások mentése nem sikerült.',
+  'profile.errorGoal': 'A havi kWh-célnak pozitív számnak kell lennie.',
   'profile.errorHousehold': 'A háztartás méretének pozitív számnak kell lennie.',
   'profile.householdHeading': 'Háztartás és célok',
   'profile.householdSize': 'Háztartás mérete',
@@ -162,9 +195,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'Összesített mérések…',
   'reports.subheading':
     'Napi összesítések a fogyasztásról, a termelésről és a költségekről – dátum szerinti bontásban.',
+  'reports.tableHeading': 'Napi bontás',
   'settings.currency': 'Pénznem',
   'settings.errorFlat': 'Az átalánydíjnak ≥ 0-nak kell lennie.',
   'settings.errorNotify': 'Nem sikerült menteni az értesítési beállításokat.',
+  'settings.errorSave': 'Nem sikerült menteni a díjszabástervet.',
   'settings.errorTou':
     'Csúcsidőszaki/csúcsidőn kívüli díjszabás és érvényes csúcsidőszaki ablak szükséges.',
   'settings.exportBody':
@@ -185,10 +220,21 @@ export const ui: UiTranslations = {
   'settings.saving': 'Mentés…',
   'settings.securityHeading': 'Kétfaktoros hitelesítés',
   'settings.subheading': 'Díjak, értesítések és adatexportálás.',
+  'settings.twoFactorBody':
+    'Minden bejelentkezéskor kérjen egyszeri kódot a hitelesítő alkalmazásodból.',
   'settings.twoFactorCode': 'Hitelesítési kód',
   'settings.twoFactorDisable': 'Letiltás',
+  'settings.twoFactorDisableTitle': 'Kétfaktoros hitelesítés kikapcsolása',
   'settings.twoFactorEnable': 'Engedélyezés',
+  'settings.twoFactorEnableTitle': 'Kétfaktoros hitelesítés bekapcsolása',
   'settings.twoFactorInvalidCode': 'Érvénytelen kód',
+  'settings.twoFactorOAuth':
+    'A fiókod egy csatlakoztatott szolgáltatón keresztül jelentkezik be, így a kétfaktoros hitelesítést ott kezelik.',
   'settings.twoFactorOn': 'A',
+  'settings.twoFactorQrAlt': 'Kétfaktoros QR-kód',
+  'settings.twoFactorScan':
+    'Olvasd be ezt a QR-kódot a hitelesítő alkalmazásoddal, majd add meg a 6 jegyű kódot.',
+  'settings.twoFactorUnavailable':
+    'A kétfaktoros hitelesítés nem érhető el ehhez az alkalmazáshoz.',
   'settings.twoFactorVerify': 'Ellenőrzés és engedélyezés',
 }

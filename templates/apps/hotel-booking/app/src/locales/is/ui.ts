@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Spurningar um bókun, endurgjöf eða gististað sem þér finnst eiga heima á {{app}}? Hafðu samband við teymið okkar frá reikningnum þínum — hver skilaboð fara til alvöru manneskju sem getur hjálpað.',
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um okkur',
+  'about.featureLoyalty':
+    'Verð aðeins fyrir meðlimi og tryggðakerfi sem gefur punkta, seinna útritun og uppfærslur á herbergjum við hverja bókun.',
+  'about.featureReviews':
+    'Staðfestar umsagnir gesta og val ritstjórnar svo þú getir treyst gistingu áður en þú kemur.',
+  'about.featureRooms':
+    'Herbergi, verð og þægindi hlið við hlið með gagnsæju, heildarverði — skattar og dvalargjöld innifalin áður en þú borgar.',
+  'about.featureSearch':
+    'Leit í rauntíma yfir yfirfarna hótela með lifandi framboði, kortasýn og ríkulegum myndasöfnum.',
+  'about.featureTrips':
+    'Vistaðir eftirlætisstaðir og ferðamælaborð sem heldur hverri bókun, ferðaáætlun og staðfestingu á einum stað.',
+  'about.intro':
+    '{{app}} er hótelbókunarvettvangur fyrir ferðalanga sem leggja áherslu á gæði. Hver gististaður er persónulega yfirfarinn af ritstjórnarteyminu okkar — ekkert safnaraefni, engar villandi skráningar. Leitaðu að raunverulegu framboði, berðu saman herbergi, verð og þægindi hlið við hlið og bókaðu svo í nokkrum snertingum með skýru, heildarverði.',
+  'about.missionBody':
+    'Að bóka gistingu á að vera rólegt og heiðarlegt. Við sýnum gagnsætt verð með sköttum og dvalargjöldum strax, verðlaunum trygga gesti í stað þess að rukka þá fyrir hvert smáatriði og setjum gistinguna sem er peninganna virði í fyrsta sæti — svo þú getir eytt minni tíma í að bera saman flipa og meiri tíma í ferðina sjálfa.',
+  'about.missionTitle': 'Markmið okkar',
+  'about.subtitle': 'Ritskoðuð, gagnsæ leið til að finna og bóka rétta hótelið.',
   'account.loyalty.activitySummary': '{{nights}} nætur · {{spend}} eyddi þessu ári',
+  'account.loyalty.benefitsHeading': 'Þínir fríðindi',
   'account.loyalty.heading': 'Tryggð',
   'account.loyalty.loading': 'Hleður inn hollustu...',
-  'account.loyalty.pointsTowardNext': '{{stig}} / {{næsti}} bendir til {{næsta stig}}',
+  'account.loyalty.maxTier': 'Hæsta stig — njóttu fríðinda þinna.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} punktar í {{nextTier}}',
   'account.loyalty.tier': 'Núverandi stig',
   'account.loyalty.unavailable': 'Upplýsingar um tryggð eru ekki tiltækar.',
   'account.navLabel': 'Reikningshlutar',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Staðfesta bókun · {{total}}',
   'bookingCheckout.datesRequired': 'Vinsamlegast veldu innritunar- og útritunardagsetningar.',
   'bookingCheckout.guestHeading': 'Aðalgestur',
+  'bookingCheckout.heading': 'Staðfesta og bóka',
   'bookingCheckout.loadError': 'Mistókst að hlaða inn eiginleika.',
   'bookingCheckout.nights': '{{rate}} × {{count}} nætur',
   'bookingCheckout.notFound': 'Eign fannst ekki.',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Skattar og gjöld',
   'bookingCheckout.tripHeading': 'Ferðin þín',
   'bookingConfirmation.allTripsCta': 'Allar ferðir',
+  'bookingConfirmation.confNumber': 'Staðfestingarnúmer: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Bókunin þín er í vinnslu.',
   'bookingConfirmation.heading': 'Bókun staðfest',
   'bookingConfirmation.loading': 'Hleður bókunina þína…',
   'bookingConfirmation.searchMoreCta': 'Skoða fleiri gistingar',
   'bookingConfirmation.subheadingForTrip':
-    '{{eign}} í {{borg}} , {{land}} Við sjáumst á {{innritun}} .',
+    '{{property}} í {{city}}, {{country}}. Við sjáumst {{checkIn}}.',
   'bookingConfirmation.total': 'Samtals {{total}}',
   'bookingConfirmation.viewTripCta': 'Skoða ferð',
   'common.goToDashboard': 'Fara á yfirlit',
@@ -44,7 +69,9 @@ export const ui: UiTranslations = {
   'favorites.empty': 'Engar vistaðar eignir enn.',
   'favorites.heading': 'Vistaðar eignir',
   'favorites.loadError': 'Mistókst að hlaða uppáhalds.',
+  'favorites.pricePerNight': '{{price}} / nótt',
   'favorites.removeCta': 'Afturkalla vistun',
+  'favorites.removing': 'Fjarlægir…',
   'forgotPassword.subheading':
     'Sláðu inn netfangið á reikningnum þínum og við sendum þér öruggan endurstillingarhlekk.',
   'forgotPassword.successBody':
@@ -52,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Dvalarfélagar',
   'landing.cta.heading': 'Verð eingöngu fyrir meðlimi. Við hverja bókun, í hvert skipti.',
   'landing.cta.signup': 'Stofna ókeypis aðgang',
+  'landing.cta.subheading':
+    'Þénaðu tryggðarpunkta við hverja dvöl, opnaðu seinna útritun og uppfærslur á herbergjum og fáðu fyrstur aðgang að nýjum gististöðum áður en þeir birtast opinberlega.',
   'landing.destinations.eyebrow': 'Hvert á að fara næst',
   'landing.destinations.heading': 'Áfangastaðir í boði',
   'landing.destinations.seeAll': 'Sjá alla áfangastaði',
@@ -60,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Sögur sem vert er að pakka fyrir',
   'landing.nav.join': 'Skráðu þig í Auberge',
   'landing.nav.search': 'Leita að gistingu',
+  'landing.preview.browseAll': 'Skoða alla safnið',
   'landing.preview.eyebrow': 'Kíktu inn',
   'landing.preview.heading': 'Handvaldar gistingar í þessum mánuði',
+  'landing.preview.subheading':
+    'Hver gististaður á {{appName}} er persónulega yfirfarinn af ritstjórnarteyminu okkar — ekkert safnaraefni, engar villandi skráningar.',
   'login.eyebrow': 'Meðlimasvæði',
+  'login.noAccount': 'Nýr/ný í Tessera?',
   'login.signupLink': 'Stofna ókeypis aðgang',
   'login.subheading':
     'Skráðu þig inn til að stjórna ferðum þínum, skoða staðfestingar og halda áfram þar sem frá var horfið.',
+  'loyaltyTierBadge.points': '{{points}} stig',
   'planUpdated.heading': 'Áætlun uppfærð',
+  'planUpdated.retry': 'Reyndu aftur',
+  'planUpdated.verifyFailed': 'Við gátum ekki staðfest greiðsluna þína ennþá.',
+  'planUpdated.verifyFailedBody':
+    'Greiðslan þín gæti enn verið í vinnslu. Reyndu aftur eftir smástund.',
   'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'pricing.limit.advancedFeatures': 'Ítarlegri eiginleikar:',
   'pricing.limit.canExport': 'Útflutningur gagna:',
@@ -78,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Það sem þessi staður býður upp á',
   'propertyDetail.backLink': 'Til baka í leit',
   'propertyDetail.bookCta': 'Panta',
+  'propertyDetail.bookmarkAria': 'Vista eign',
   'propertyDetail.bookmarkAriaSaved': 'Fjarlægja úr vistuðum eiginleikum',
+  'propertyDetail.galleryImageAlt': '{{name}} mynd {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} hetjuljósmynd',
   'propertyDetail.hidePhotos': 'Fela myndir',
   'propertyDetail.lineCleaning': 'Þrifgjald',
@@ -88,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'nótt',
   'propertyDetail.noChargeYet': 'Þú verður ekki rukkaður ennþá',
   'propertyDetail.notFound': 'Eign fannst ekki.',
+  'propertyDetail.perNight': '/ nótt',
+  'propertyDetail.pickDatesHint': 'Veldu dagsetningar til að sjá alla verðsundurliðun.',
   'propertyDetail.reviewCount': '( {{count}} umsagnir)',
   'propertyDetail.reviewsHeading': 'Nýlegar umsagnir',
   'propertyDetail.roomCapacity': 'Sefur {{count}}',
@@ -100,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Nýtt lykilorð',
   'resetPassword.subheading':
     'Veldu nýtt lykilorð fyrir Auberge aðganginn þinn. Notaðu að minnsta kosti 8 stafi; við mælum með lykilorði.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Engar eignir passa við leitina þína.',
   'searchResults.emptyHint':
     'Prófaðu að víkka síurnar þínar eða fjarlægja verðþakið — Auberge býður upp á gistingu í 14 löndum.',
@@ -107,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Valdar gistingar',
   'searchResults.headingForQuery': 'Dvelur í " {{q}} "',
   'searchResults.loadError': 'Mistókst að hlaða inn eiginleikum.',
+  'searchResults.mapHint':
+    'Farðu yfir kort til að auðkenna á kortinu. Lifandi Mapbox flísar í framleiðslu.',
   'searchResults.mapPinAria': '{{name}} — {{price}} á nótt',
   'searchResults.sortLabel': 'Raða eftir',
   'searchResults.subheading': '{{count}} eignir · {{guests}} gestir',
   'signup.eyebrow': 'Gerast meðlimur',
   'signup.subheading':
     'Skráðu þig í Auberge til að fá aðgang að verðum eingöngu fyrir meðlimi, seinkaðri útritun og fyrstu aðgang að nýjum eignum.',
+  'sojournAuthShell.brand.eyebrow': 'Gistu á einhverjum óvenjulegum stað',
+  'sojournAuthShell.brand.heading':
+    'Ritskoðað safn gististaða — fallega framsett, gagnsætt verðlagt.',
   'sojournHeroSearchCard.checkInAria': 'Innritunardagur',
   'sojournHeroSearchCard.checkOutAria': 'Útritunardagur',
+  'sojournHeroSearchCard.destAria': 'Áfangastaður',
+  'sojournHeroSearchCard.destLabel': 'Hvar',
   'sojournHeroSearchCard.destPlaceholder': 'Borg, svæði eða eign',
   'sojournHeroSearchCard.eyebrow': 'Valdar gistingar · Verð eingöngu fyrir meðlimi',
   'sojournHeroSearchCard.guestsOption': '{{n}} gestir',
   'sojournHeroSearchCard.subtitle':
     'Sérvalið safn af tískuhótelum, hönnunarhótelum og sjaldgæfum dvalarstöðum — gagnsætt verð, fallega framsett.',
+  'sojournHeroSearchCard.title': 'Gistu á einhverjum óvenjulegum stað',
+  'sojournHeroSearchCard.trustLoyalty': 'Þénaðu punkta við hverja dvöl',
   'sojournHeroSearchCard.trustNoFees': 'Engin falin gjöld, aldrei',
   'sojournHeroSearchCard.trustVetted': 'Aðeins handskoðaðar eignir',
   'sojournLayout.primaryNavLabel': 'Aðalflakk',

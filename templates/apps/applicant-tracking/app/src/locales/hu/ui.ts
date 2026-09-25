@@ -1,14 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kérdése van, visszajelzést adna, vagy bemutatót szeretne a felvételi csapatának? Írjon a hello@example.com címre, és a csapat egy igazi tagja két munkanapon belül válaszol.',
   'about.contactHeading': 'Lépjen kapcsolatba velünk',
+  'about.intro':
+    'A {{app}} egy jelentkezőkövető rendszer toborzóknak és felvételi vezetőknek, akik jelet akarnak, nem zajt — tiszta folyamat, önmagát magyarázó AI-szűrés és felvételi elemzések, mindez egy helyen.',
+  'about.missionBody':
+    'A felvétel az egyik legnagyobb tétű döntés, amit egy csapat hozhat, mégis nagy része szétszórt táblázatokban és e-mail-fonalakban él. A {{app}} egyetlen táblára hozza a teljes folyamatot, így minden jelölt nyomon követhető, minden interjú strukturált, és minden döntés tisztességes, gyors és megmagyarázható.',
+  'about.missionHeading': 'Küldetésünk',
   'auth.legalConsent': 'A folytatással elfogadod a',
   'billing.cardExp': 'Lejár: {{exp}}',
+  'billing.cardLinkError': 'Nem sikerült elindítani a kártyafrissítési folyamatot.',
   'billing.cardLinkSent': 'A kártyafrissítés elindult — ellenőrizze e-mailjét.',
+  'billing.cardLinkUnavailable':
+    'A kártyafrissítés nem érhető el — ebben a telepítésben nincs fizetési szolgáltató beállítva.',
   'billing.cardMissing': 'Nincs mentett bankkártya',
   'billing.col.invoice': 'Számla',
   'billing.downloadUnavailable': '—',
   'billing.editCard': 'Kártya frissítése',
+  'billing.eyebrow': 'Csomag és használat',
   'billing.invoiceHeading': 'Legutóbbi számlák',
   'billing.invoicesEmpty': 'Még nincs számla.',
   'billing.invoicesLoading': 'Számlák betöltése…',
@@ -22,6 +33,7 @@ export const ui: UiTranslations = {
   'billing.seatsError':
     'Ez a csomag egyszemélyes. Több személyes használathoz váltson Team csomagra.',
   'billing.seatsHint': '{{used}} / {{max}} belefoglalva',
+  'billing.seatsLabel': 'Aktív helyek',
   'billing.spentLabel': 'Évben eddig elköltve',
   'billing.subheading': 'Előfizetés, helyek, AI szűrési felhasználás és számlák.',
   'billing.unlimited': 'Korlátlan',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'candidateDetail.advanceError': 'Nem sikerült frissíteni a szakaszt.',
   'candidateDetail.advanceFinal': 'Már az utolsó szakaszon van.',
   'candidateDetail.advanceHeading': 'Áthelyezés szakaszba',
+  'candidateDetail.appliedOn': 'Jelentkezés: {{date}}, ekkor: {{source}}.',
   'candidateDetail.back': 'Összes jelölt',
   'candidateDetail.loadError': 'Nem sikerült betölteni a jelöltet.',
   'candidateDetail.noInterviews': 'Még nincs interjú.',
@@ -46,8 +59,13 @@ export const ui: UiTranslations = {
   'candidateDetail.notePlaceholder':
     'Osszátok meg velünk a visszajelzéseiteket, az interjúval kapcsolatos benyomásaitokat, a következő lépéseket…',
   'candidateDetail.noteSave': 'Jegyzet mentése',
+  'candidateDetail.panel': 'Panel: {{panel}}',
+  'candidateDetail.panelScore': 'Panel pontszám: {{score}}/100',
+  'candidateDetail.resumeMissing': 'Ehhez a jelölthöz még nincs elérhető önéletrajz-előnézet.',
   'candidateDetail.scheduleError': 'Nem sikerült ütemezni az interjút.',
+  'candidateDetail.scheduleHeading': 'Interjú ütemezése',
   'candidateDetail.scheduleInterviewer': 'Interjúztató',
+  'candidateDetail.scheduleInterviewerPlaceholder': 'Interjúztató neve',
   'candidateDetail.scheduleMinutes': 'Időtartam (perc)',
   'candidateDetail.scheduleMissing': 'Először válasszon dátumot és időpontot.',
   'candidateDetail.scoreEmpty': 'Vár az AI kiértékelésére.',
@@ -70,6 +88,7 @@ export const ui: UiTranslations = {
   'candidates.heading': 'Jelöltek',
   'candidates.loadError': 'Nem sikerült betölteni a jelölteket.',
   'candidates.searchPlaceholder': 'Jelölt, szerepkör vagy állás keresése…',
+  'candidates.sourceLabel': 'Forrás',
   'candidates.sourcePlaceholder': 'Forrás (LinkedIn, Ajánlás…)',
   'candidates.subheading':
     'Pozíciókon átívelő jelöltadatbázis AI pontozással és forráskimutatással.',
@@ -84,6 +103,7 @@ export const ui: UiTranslations = {
   'dashboard.kpi.interviews': 'Interjúk ezen a héten',
   'dashboard.kpi.openJobs': 'Nyitott állások',
   'dashboard.loading': 'Betöltés…',
+  'dashboard.newJobCta': 'Állás meghirdetése',
   'dashboard.subheading': 'Pipeline egészsége, interjúterhelés és folyamatban lévő ajánlatok.',
   'dashboard.topEmpty': 'Még nincs jelölt.',
   'dashboard.topEyebrow': 'Legjobb AI egyezések',
@@ -104,6 +124,7 @@ export const ui: UiTranslations = {
   'jobDetail.back': 'Összes álláshirdetés',
   'jobDetail.descriptionEyebrow': 'Szerepkör leírása',
   'jobDetail.descriptionMissing': 'Még nincs leírás megadva.',
+  'jobDetail.employmentType': 'Foglalkoztatás típusa: {{type}}',
   'jobDetail.empty': 'Még nincs jelentkező.',
   'jobDetail.funnelEyebrow': 'Szakasz tölcsér',
   'jobDetail.funnelHeading': 'Jelentkezők állása',
@@ -112,6 +133,7 @@ export const ui: UiTranslations = {
   'jobDetail.kpi.hires': 'Felvett',
   'jobDetail.kpi.inInterview': 'Interjún',
   'jobDetail.loadError': 'Nem sikerült betölteni az álláshirdetést.',
+  'jobDetail.requirementsHeading': 'Követelmények',
   'jobDetail.topEyebrow': 'Legjobb jelentkezők',
   'jobDetail.topHeading': 'AI egyezések elöl',
   'jobDetail.unavailable': 'Ez az álláshirdetés már nem aktív.',
@@ -127,6 +149,7 @@ export const ui: UiTranslations = {
   'jobs.heading': 'Álláshirdetések',
   'jobs.loadError': 'Nem sikerült betölteni az álláshirdetéseket.',
   'jobs.newCta': 'Állás meghirdetése',
+  'landing.copyright': '© {{year}} {{app}}. Molecule segítségével készült.',
   'landing.eyebrow': 'AI-támogatott felvétel · v2',
   'landing.featuresEyebrow': 'Hogyan működik',
   'landing.featuresHeading': 'Jelzés — nem táblázatok.',
@@ -135,8 +158,11 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Kezdje el ingyen 30 napra',
   'landing.heroProof': 'Nincs bankkártya. Bármikor lemondható. SSO elérhető Pro csomagban.',
   'landing.heroSecondary': 'Árak megtekintése →',
+  'landing.heroSubtitle':
+    'Letisztult kanban folyamat, önmagát magyarázó AI-szűrés és szakaszonkénti méltányossági elemzések. Toborzóknak és felvételi vezetőknek készült, akik jelet akarnak — nem zajt.',
   'landing.heroTitle': 'Vegyen fel egyértelműen.',
   'landing.previewHeading': 'Senior Backend fejlesztő',
+  'landing.previewLabel': 'Folyamat · Engineering',
   'landing.pricingEyebrow': 'Árazás',
   'landing.pricingHeading': 'Csomagok minden méretű csapatnak.',
   'landing.socialEyebrow': 'Felvételi csapatok használják',
@@ -152,6 +178,9 @@ export const ui: UiTranslations = {
   'loginBrandPanel.headlineLine2': 'egyértelműen.',
   'loginBrandPanel.stage.interview': 'Interjú',
   'loginBrandPanel.stage.screening': 'Szűrés',
+  'loginBrandPanel.stage.sourced': 'Felkutatva',
+  'loginBrandPanel.subtext':
+    'Húzza a jelölteket a Felkutatva → Szűrés → Interjú → Ajánlat → Felvéve szakaszokon át. Az AI szűr. A méltányossági pulzus minden szakaszt tisztán tart.',
   'nav.closeMenu': 'Menü bezárása',
   'nav.legal': 'Jogi',
   'nav.openMenu': 'Menü megnyitása',
@@ -160,6 +189,7 @@ export const ui: UiTranslations = {
     'Az önéletrajzokat a követelmények alapján rangsorolja; a recruiter először a legjobb egyezéseket tekinti át.',
   'newJob.aiToggle': 'Új jelentkezők automatikus pontozása',
   'newJob.back': 'Vissza az álláshirdetésekhez',
+  'newJob.basicsHeading': 'Szerepkör alapjai',
   'newJob.compHeading': 'Kompenzáció',
   'newJob.departmentLabel': 'Osztály',
   'newJob.descHeading': 'Leírás és követelmények',
@@ -169,6 +199,7 @@ export const ui: UiTranslations = {
   'newJob.failed': 'Nem sikerült menteni az álláshirdetést.',
   'newJob.heading': 'Állás meghirdetése',
   'newJob.publish': 'Álláshirdetés közzététele',
+  'newJob.reqLabel': 'Követelmények (soronként egy)',
   'newJob.salaryMax': 'Maximális fizetés (USD)',
   'newJob.salaryMin': 'Minimális fizetés (USD)',
   'newJob.stagesHeading': 'Pipeline szakaszok',
@@ -184,6 +215,7 @@ export const ui: UiTranslations = {
   'newJob.type.fullTime': 'Teljes munkaidő',
   'newJob.type.partTime': 'Részmunkaidő',
   'newJob.typeLabel': 'Foglalkoztatás típusa',
+  'pipeline.advanceTo': 'Előreléptetés',
   'pipeline.allRoles': 'Minden szerepkör',
   'pipeline.daysInStage': '{{days}} nap',
   'pipeline.empty': 'Nincs jelölt',
@@ -197,13 +229,22 @@ export const ui: UiTranslations = {
     'Húzza a jelölteket a szakaszok között. Minden kártyán látható az AI pontszám és a szakaszban töltött napok.',
   'pipeline.viewTable': 'Táblázatos nézet →',
   'pipelineFunnelHero.totalLabel': 'Folyamatban',
+  'planUpdated.body':
+    'A számlázási módosításod mostantól aktív. A csomagodat bármikor kezelheted a számlázási oldalon.',
+  'planUpdated.retry': 'Próbálja újra',
+  'planUpdated.verifyFailed': 'Még nem tudtuk megerősíteni a fizetését.',
+  'planUpdated.verifyFailedBody':
+    'Lehetséges, hogy a fizetése még feldolgozás alatt áll. Próbálja újra egy pillanat múlva.',
   'planUpdated.verifying': 'Fizetésed megerősítése…',
   'pricing.heading': 'alkalmazások',
+  'pricing.limits.applications': 'jelentkezés',
   'pricing.limits.candidates': 'jelölt',
   'pricing.limits.jobs': 'álláshirdetés',
   'pricing.limits.scorecards': 'értékelőlap',
   'privacy.dataBody':
     'Fiók e-mail, hashelt jelszó, profilmetaadatok és az Ön által létrehozott jelölt-/állásbejegyzések. Ezeket az adatokat soha nem adjuk el vagy osztjuk meg.',
+  'privacy.intro':
+    'A {{app}} az ügyfelek nevében dolgozza fel a toborzási adatokat. A jelölti adatokat, önéletrajzokat és a felvételi csapat kommunikációját bizalmasan kezeljük, és titkosítva tároljuk.',
   'privacy.retentionBody':
     'Fiókját bármikor törölheti a Beállítások menüből. A kapcsolódó rekordokat 30 napon belül töröljük, kivéve, ha a jogszabályok megőrzést írnak elő.',
   'privacy.title': 'Adatvédelmi szabályzat',
@@ -213,6 +254,7 @@ export const ui: UiTranslations = {
     'Engedélyezze, hogy a jelöltek és jelentkezők lássák nevét és szerepkörét az álláshirdetéseken.',
   'profile.publicLabel': 'Nyilvános profil',
   'profile.publicOff': 'Rejtett',
+  'profile.publicOn': 'Látható',
   'profile.recentEmpty': 'Még nincs elhelyezés.',
   'profile.recentError': 'Nem sikerült betölteni a legutóbbi elhelyezéseket.',
   'profile.recentEyebrow': 'Legutóbbi elhelyezések',
@@ -238,9 +280,14 @@ export const ui: UiTranslations = {
   'resetPassword.missingFields': 'Válasszon és erősítsen meg egy új jelszót.',
   'resetPassword.missingToken': 'A visszaállítási link hiányzik vagy lejárt — kérjen újat.',
   'resetPassword.passwordLabel': 'Új jelszó',
+  'resetPassword.signInCta': 'Bejelentkezés →',
+  'resetPassword.signInPrompt': 'Jelentkezzen be az új jelszavával.',
   'resetPassword.subheading':
     'Válasszon erős jelszót — legalább 12 karakter, kis- és nagybetűk keveréke.',
+  'settings.appearance.description': 'Váltás a világos és sötét mód között.',
   'settings.appearance.title': 'Megjelenés',
+  'settings.deleteAccountModal.confirm':
+    'Adja meg a jelszavát a megerősítéshez. Ez a művelet végleges.',
   'settings.emailTemplates.empty': 'Még nincs konfigurált sablon.',
   'settings.emailTemplates.heading': 'E-mail sablonok',
   'settings.emailTemplates.loadError': 'Nem sikerült betölteni a sablonokat.',
@@ -251,10 +298,17 @@ export const ui: UiTranslations = {
   'settings.integrations.statusDisconnected': 'Nincs csatlakozva',
   'settings.integrations.updateError': 'Nem sikerült frissíteni az integrációt.',
   'settings.name': 'Név',
+  'settings.passwordHelp': 'Frissítsd a bejelentkezéshez használt jelszavadat.',
+  'settings.revokeDeviceWarning':
+    'Az eszköz hozzáférése hamarosan visszavonásra kerül. Kijelentkezteted?',
   'settings.saveEmail': 'E-mail mentése',
   'settings.signOutDevice': 'Kijelentkezés',
   'settings.stages.empty': 'Még nincs konfigurált szakasz.',
+  'settings.stages.heading': 'Pipeline szakaszok',
+  'settings.stages.help':
+    'A szakaszok, amelyeken a jelöltek végighaladnak. Távolítsa el, amelyeket nem használ.',
   'settings.stages.loadError': 'Nem sikerült betölteni a szakaszokat.',
+  'settings.stages.loading': 'Szakaszok betöltése…',
   'settings.stages.removeAria': '{{name}} szakasz eltávolítása',
   'settings.stages.removeError': 'Nem sikerült eltávolítani a szakaszt.',
   'settings.team.empty': 'Még nincs kolléga — hívja meg az elsőt lent.',
@@ -270,9 +324,16 @@ export const ui: UiTranslations = {
   'settings.team.removeError': 'Nem sikerült eltávolítani a tagot.',
   'settings.twoFactorCode': 'Hitelesítési kód',
   'settings.twoFactorDisable': 'Letiltás',
+  'settings.twoFactorDisableTitle': 'Kétfaktoros hitelesítés kikapcsolása',
   'settings.twoFactorEnable': 'Engedélyezés',
+  'settings.twoFactorEnableTitle': 'Kétfaktoros hitelesítés bekapcsolása',
   'settings.twoFactorInvalidCode': 'Érvénytelen kód',
   'settings.twoFactorOn': 'A',
+  'settings.twoFactorQrAlt': 'Kétfaktoros QR-kód',
+  'settings.twoFactorScan':
+    'Olvasd be ezt a QR-kódot a hitelesítő alkalmazásoddal, majd add meg a 6 jegyű kódot.',
+  'settings.twoFactorUnavailable':
+    'A kétfaktoros hitelesítés nem érhető el ehhez az alkalmazáshoz.',
   'settings.twoFactorVerify': 'Ellenőrzés és engedélyezés',
   'settings.unknownDevice': 'Ismeretlen eszköz',
   'signup.confirmPlaceholder': 'Adja meg újra a jelszót',
@@ -283,6 +344,8 @@ export const ui: UiTranslations = {
     'Hozzon létre egy felvételi táblát 60 másodperc alatt. A csapatot később hívhatja meg.',
   'terms.acceptableUseBody':
     'Nem szabad visszaélni a szolgáltatással, automatizált adatgyűjtést futtatni, megpróbálni feltörni a biztonságot, vagy védett csoportokat hátrányosan megkülönböztetni.',
+  'terms.intro':
+    'A {{app}} használatával elfogadja ezeket a feltételeket. A szolgáltatás jelen állapotában, az alábbi kötelezettségekkel és korlátozásokkal érhető el.',
   'terms.subscriptionBody':
     'A fizetős csomagok havonta megújulnak a lemondásig. A Számlázás menüből bármikor lemondhat; csomagja az aktuális időszak végéig aktív marad.',
   'terms.title': 'Szolgáltatási feltételek',

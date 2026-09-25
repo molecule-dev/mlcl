@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre',
+  'about.featureConnections':
+    "Un gestor de connexions que emmagatzema de manera segura i assigna colors als teus bases de dades — les credencials s'encripten en repòs, mai en text pla.",
+  'about.featureMonitoring':
+    "Monitoratge en directe del rendiment de les consultes i l'activitat de la base de dades, amb dreceres de teclat i paleta d'ordres per controlar-ho tot sense mans.",
+  'about.featurePlans':
+    'Plans que creixen amb tu — Gratuït per a treball individual, Pro i Team per a més connexions, retenció de consultes més llarga, exportacions i funcions avançades.',
+  'about.featureQueryEditor':
+    'Un editor SQL amb tecnologia Monaco, amb historial de consultes, consultes desades i exportació de resultats a CSV amb un sol clic.',
+  'about.featureSchema':
+    "Un explorador d'esquemes i navegador de taules per navegar per bases de dades, taules i columnes, i després explorar, filtrar i editar files en línia.",
+  'about.missionTitle': 'La nostra missió',
   'authShell.commands': 'Comandes',
   'authShell.ssoSupported': 'Compatible amb SSO',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Consultes',
   'connections.schema': 'Esquema',
   'connections.subtitle': 'Gestioneu les connexions de la vostra base de dades.',
+  'connections.test': 'Prova',
   'databaseAdminLayout.adminRole': "Rol d'administrador",
   'databaseAdminLayout.commandPalette': "Paleta d'ordres",
   'databaseAdminLayout.commands': 'ordres',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Nova connexió',
   'databaseAdminLayout.queries': 'Consultes',
   'databaseAdminLayout.ready': 'Llest',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Cerca ordres, consultes, taules…',
   'databaseAdminLayout.user': 'Usuari',
   'editConnection.confirmDelete': 'Voleu suprimir aquesta connexió?',
   'editConnection.deleteButton': 'Suprimeix la connexió',
+  'editConnection.newPassword': 'Contrasenya nova (deixa-ho en blanc per mantenir-la)',
   'editConnection.saved': 'Connexió desada.',
   'editConnection.title': 'Edita la connexió',
   'forgotPassword.success': 'Si aquest compte existeix, un enllaç de restabliment està en camí.',
@@ -47,6 +62,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Èxits',
   'monitoring.title': 'Monitorització',
   'monitoring.totalQueries': 'Consultes totals',
+  'nav.schema': 'Esquema',
   'newConnection.database': 'Base de dades',
   'newConnection.engine': 'Motor',
   'newConnection.host': 'Amfitrió',
@@ -83,6 +99,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'No hi ha cap connexió vinculada a aquest fragment.',
   'savedQuery.notBound': 'No vinculat',
   'savedQuery.title': 'Consulta desada',
+  'schema.columns': 'Columnes',
   'schema.foreignKeys': 'Claus externes',
   'schema.indexes': 'Índexs',
   'schemaExplorer.browseRows': 'Navega per les files',
@@ -91,14 +108,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'nul·lable',
   'schemaExplorer.colType': 'tipus',
   'schemaExplorer.noColumns': 'Sense columnes.',
+  'schemaExplorer.noForeignKeys': 'Sense claus foranes.',
   'schemaExplorer.noIndexes': 'Sense índexs.',
   'schemaExplorer.noTables': 'Sense taules',
   'schemaExplorer.pickATable': 'Trieu una taula de la barra lateral.',
   'schemaExplorer.tables': 'Taules',
   'schemaExplorer.title': "Explorador d'esquemes",
+  'settings.session': 'Sessió',
   'settings.subtitle': 'Gestiona el teu compte i el teu pla.',
   'signup.heading': 'Crea el teu compte de Quarry',
   'signup.tagline': "Accés accelerat en menys d'un minut.",
   'tableBrowser.noRows': 'Aquesta taula encara no té files.',
+  'tableBrowser.subtitle': 'Explorant files de la teva base de dades remota.',
   'tableBrowser.title': 'Navegant per files de la vostra base de dades remota.',
 }

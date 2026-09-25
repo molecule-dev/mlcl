@@ -1,14 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Imibuzo, impendulo, noma ufuna ukuqondiswa kweqembu lakho lokuqasha? Thumela i-imeyili ku-hello@example.com futhi umuntu wangempela eqenjini uzokuphendula phakathi kwezinsuku ezimbili zokusebenza.',
   'about.contactHeading': 'Xhumana nathi',
+  'about.intro':
+    'I-{{app}} iwuhlelo lokulandelela abafakizicelo lwabagashi nabaphathi bokuqasha abafuna isignali, hhayi umsindo — ipayipi elihlanzekile, ukuhlolwa kwe-AI okuzichaza, kanye nokuhlaziywa kokuqasha, konke endaweni eyodwa.',
+  'about.missionBody':
+    'Ukuqasha kungenye yezinqumo ezisematheni kakhulu ezenziwa yiqembu, nokho iningi lalo lusahlala kumaspredishithi ahlakazekile kanye nezingxoxo ze-imeyili. I-{{app}} iletha wonke umjikelezo ebhodini elilodwa ukuze wonke umfakizicelo alandelelwe, yonke inhlolokhono ihlelwe, futhi zonke izinqumo zibe nokulingana, zisheshe, futhi zichazeke.',
+  'about.missionHeading': 'Umsebenzi wethu',
   'auth.legalConsent': 'Ngokuqhubeka, uyavuma',
   'billing.cardExp': 'Iphelelwa yisikhathi {{exp}}',
+  'billing.cardLinkError': 'Ayikwazanga ukuqala inqubo yokubuyekeza ikhadi.',
   'billing.cardLinkSent': 'Ukugeleza kokubuyekezwa kwekhadi kuqalile — hlola i-imeyili yakho.',
+  'billing.cardLinkUnavailable':
+    'Ukubuyekezwa kwamakhadi akutholakali — lokhu kusetshenziswa akunamhlinzeki wokukhokha ohleliwe.',
   'billing.cardMissing': 'Akukho khadi eligciniwe',
   'billing.col.invoice': 'Irisidi',
   'billing.downloadUnavailable': '—',
   'billing.editCard': 'Buyekeza ikhadi',
+  'billing.eyebrow': 'Uhlelo nokusetshenziswa',
   'billing.invoiceHeading': 'Ama-invoyisi akamuva',
   'billing.invoicesEmpty': 'Azikho ama-invoyisi okwamanje.',
   'billing.invoicesLoading': 'Ilayisha ama-invoyisi…',
@@ -17,11 +28,12 @@ export const ui: UiTranslations = {
   'billing.nextChargeHint': 'Kuvuliwe {{date}}',
   'billing.nextChargeLabel': 'Inkokhelo elandelayo',
   'billing.planLoading': 'Ilayisha uhlelo…',
-  'billing.planSummary': '{{ngeSitulo}} / isihlalo · {{izihlalo}} izihlalo · {{isamba}} / inyanga',
+  'billing.planSummary': '{{perSeat}} / isihlalo · {{seats}} izihlalo · {{total}} / ngenyanga',
   'billing.seatsAdded': 'Inani lezihlalo libuyekeziwe.',
   'billing.seatsError':
     'Lolu hlelo lunezihlalo ezilodwa. Thuthukela ku-Team ukuze lusetshenziswe izihlalo eziningi.',
   'billing.seatsHint': '{{used}} kwe {{max}} kufakiwe',
+  'billing.seatsLabel': 'Izihlalo ezisebenzayo',
   'billing.spentLabel': 'Kusetshenziswe unyaka wonke kuze kube manje',
   'billing.subheading':
     'Ukubhalisa, izihlalo, ukusetshenziswa kokuhlolwa kwe-AI, kanye nama-invoyisi.',
@@ -38,6 +50,7 @@ export const ui: UiTranslations = {
   'candidateDetail.advanceError': 'Ayikwazanga ukubuyekeza isigaba.',
   'candidateDetail.advanceFinal': 'Sesivele sisesigabeni sokugcina.',
   'candidateDetail.advanceHeading': 'Yiya esiteji',
+  'candidateDetail.appliedOn': 'Kufakwe isicelo {{date}} nge-{{source}}.',
   'candidateDetail.back': 'Bonke abantu abazongenela ukhetho',
   'candidateDetail.loadError': 'Yehlulekile ukulayisha i-candidate.',
   'candidateDetail.noInterviews': 'Azikho izingxoxo okwamanje.',
@@ -47,8 +60,14 @@ export const ui: UiTranslations = {
   'candidateDetail.notePlaceholder':
     'Yabelana ngempendulo, imibono yengxoxo, nezinyathelo ezilandelayo...',
   'candidateDetail.noteSave': 'Londoloza inothi',
+  'candidateDetail.panel': 'Iphaneli: {{panel}}',
+  'candidateDetail.panelScore': 'Amaphuzu ephaneli: {{score}}/100',
+  'candidateDetail.resumeMissing':
+    'Akukho ukubuka kuqala kwe-resume okutholakalayo kulo mfakizicelo okwamanje.',
   'candidateDetail.scheduleError': 'Ayikwazanga ukuhlela ingxoxo.',
+  'candidateDetail.scheduleHeading': 'Hlela inhlolokhono',
   'candidateDetail.scheduleInterviewer': 'Umxoxi',
+  'candidateDetail.scheduleInterviewerPlaceholder': 'Igama lomhloli',
   'candidateDetail.scheduleMinutes': 'Ubude (iminithi)',
   'candidateDetail.scheduleMissing': 'Khetha usuku nesikhathi kuqala.',
   'candidateDetail.scoreEmpty': 'Kulindwe ukuhlolwa kwe-AI.',
@@ -71,6 +90,7 @@ export const ui: UiTranslations = {
   'candidates.heading': 'Abazongenela ukhetho',
   'candidates.loadError': 'Yehlulekile ukulayisha abantu abazongenela ukhetho.',
   'candidates.searchPlaceholder': 'Sesha umuntu ozongenela ukhetho, indima, noma umsebenzi\\u2026',
+  'candidates.sourceLabel': 'Umthombo',
   'candidates.sourcePlaceholder': 'Umthombo (i-LinkedIn, i-Referral…)',
   'candidates.subheading':
     'Idathabheyisi yabantu abazongenela umsebenzi ohlukahlukene enamaphuzu e-AI kanye nokunikezwa komthombo.',
@@ -85,6 +105,7 @@ export const ui: UiTranslations = {
   'dashboard.kpi.interviews': 'Izingxoxo kuleli sonto',
   'dashboard.kpi.openJobs': 'Imisebenzi evulekile',
   'dashboard.loading': 'Iyalayisha...',
+  'dashboard.newJobCta': 'Thumela umsebenzi',
   'dashboard.subheading': 'Impilo yepayipi, umthwalo wengxoxo, kanye nezipesheli ezisaqhubeka.',
   'dashboard.topEmpty': 'Azikho izimbangi okwamanje.',
   'dashboard.topEyebrow': 'Okufanayo okuphezulu kwe-AI',
@@ -105,6 +126,7 @@ export const ui: UiTranslations = {
   'jobDetail.back': 'Yonke imisebenzi',
   'jobDetail.descriptionEyebrow': 'Incazelo yendima',
   'jobDetail.descriptionMissing': 'Akukho ncazelo enikeziwe okwamanje.',
+  'jobDetail.employmentType': 'Uhlobo lokuqashwa: {{type}}',
   'jobDetail.empty': 'Abekho abafakizicelo okwamanje.',
   'jobDetail.funnelEyebrow': 'I-funnel yesiteji',
   'jobDetail.funnelHeading': 'Abafakizicelo bakuphi',
@@ -113,6 +135,7 @@ export const ui: UiTranslations = {
   'jobDetail.kpi.hires': 'Ukuqasha',
   'jobDetail.kpi.inInterview': 'Engxoxweni',
   'jobDetail.loadError': 'Yehlulekile ukulayisha umsebenzi.',
+  'jobDetail.requirementsHeading': 'Izidingo',
   'jobDetail.topEyebrow': 'Abafakizicelo abaphezulu',
   'jobDetail.topHeading': 'Kuqhathaniswe i-AI kuqala',
   'jobDetail.unavailable': 'Lo msebenzi awusafakwa ohlwini.',
@@ -128,6 +151,7 @@ export const ui: UiTranslations = {
   'jobs.heading': 'Imisebenzi',
   'jobs.loadError': 'Yehlulekile ukulayisha imisebenzi.',
   'jobs.newCta': 'Umsebenzi weposi',
+  'landing.copyright': '© {{year}} {{app}} Yakhiwe ngeMolekyuli.',
   'landing.eyebrow': 'Ukuqashwa okusizwa yi-AI · v2',
   'landing.featuresEyebrow': 'Indlela esebenza ngayo',
   'landing.featuresHeading': 'Isiginali — hhayi amaspredishithi.',
@@ -136,8 +160,11 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Qala mahhala izinsuku ezingu-30',
   'landing.heroProof': 'Ayikho ikhadi lesikweletu. Khansela noma nini. I-SSO iyatholakala ku-Pro.',
   'landing.heroSecondary': 'Bheka amanani →',
+  'landing.heroSubtitle':
+    'Ipayipi le-kanban elihlanzekile, ukuhlolwa kwe-AI okuzichaza, kanye nokuhlaziywa kokulingana ngesigaba. Yakhelwe abagashi nabaphathi bokuqasha abafuna isignali — hhayi umsindo.',
   'landing.heroTitle': 'Qasha ngokusobala.',
   'landing.previewHeading': 'Unjiniyela Omkhulu We-Backend',
+  'landing.previewLabel': 'Ipayipi · Ubunjiniyela',
   'landing.pricingEyebrow': 'Intengo',
   'landing.pricingHeading': 'Amapulani awo wonke usayizi weqembu.',
   'landing.socialEyebrow': 'Kusetshenziswa amaqembu aqashayo e-',
@@ -153,6 +180,9 @@ export const ui: UiTranslations = {
   'loginBrandPanel.headlineLine2': 'ukucaca.',
   'loginBrandPanel.stage.interview': 'Ingxoxo',
   'loginBrandPanel.stage.screening': 'Ukuhlola',
+  'loginBrandPanel.stage.sourced': 'Kutholwe',
+  'loginBrandPanel.subtext':
+    'Hudula abafakizicelo ku-Sourced → Screening → Interview → Offer → Hired. I-AI iyahlola. Ukushaya kokulingana kugcina isigaba ngasinye sithembekile.',
   'nav.closeMenu': 'Vala imenyu',
   'nav.legal': 'Ezomthetho',
   'nav.openMenu': 'Vula imenyu',
@@ -160,6 +190,7 @@ export const ui: UiTranslations = {
   'newJob.aiHelp': 'Ama-CV ahlelwe ngokwezidingo; umqashi ubuyekeza imidlalo engcono kuqala.',
   'newJob.aiToggle': 'Faka amaphuzu ngokuzenzakalela kubafakizicelo abasha',
   'newJob.back': 'Buyela emisebenzini',
+  'newJob.basicsHeading': 'Okuyisisekelo sendima',
   'newJob.compHeading': 'Isinxephezelo',
   'newJob.departmentLabel': 'Umnyango',
   'newJob.descHeading': 'Incazelo kanye nezidingo',
@@ -169,6 +200,7 @@ export const ui: UiTranslations = {
   'newJob.failed': 'Ayikwazanga ukulondoloza umsebenzi.',
   'newJob.heading': 'Thumela umsebenzi',
   'newJob.publish': 'Shicilela umsebenzi',
+  'newJob.reqLabel': 'Izidingo (okukodwa ngomugqa)',
   'newJob.salaryMax': 'Umkhawulo womholo (i-USD)',
   'newJob.salaryMin': 'Umholo omncane (i-USD)',
   'newJob.stagesHeading': 'Izigaba zomugqa wephayiphi',
@@ -183,6 +215,7 @@ export const ui: UiTranslations = {
   'newJob.type.fullTime': 'Isikhathi esigcwele',
   'newJob.type.partTime': 'Okwesikhashana',
   'newJob.typeLabel': 'Uhlobo lomsebenzi',
+  'pipeline.advanceTo': 'Qhubekisela phambili',
   'pipeline.allRoles': 'Zonke izindima',
   'pipeline.daysInStage': '{{days}} d',
   'pipeline.empty': 'Azikho izikhandidethi',
@@ -196,13 +229,22 @@ export const ui: UiTranslations = {
     'Hudula abantu abazongenela ukhetho phakathi kwezigaba. Isikolo se-AI kanye nezinsuku ezilandelanayo eziboniswa ekhadini ngalinye.',
   'pipeline.viewTable': 'Ukubuka kwethebula →',
   'pipelineFunnelHero.totalLabel': 'Kuhamba',
+  'planUpdated.body':
+    'Ushintsho lwakho lokukhokha lusebenza manje. Ungaphatha uhlelo lwakho noma nini kusuka ekhasini lokukhokha.',
+  'planUpdated.retry': 'Zama futhi',
+  'planUpdated.verifyFailed': 'Asikwazanga ukuqinisekisa inkokhelo yakho okwamanje.',
+  'planUpdated.verifyFailedBody':
+    'Inkokhelo yakho ingase isacutshungulwa. Zama futhi ngemva kwesikhashana.',
   'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'pricing.heading': 'izinhlelo zokusebenza',
+  'pricing.limits.applications': 'izicelo',
   'pricing.limits.candidates': 'abantu abazongenela ukhetho',
   'pricing.limits.jobs': 'imisebenzi',
   'pricing.limits.scorecards': 'amakhadi wamaphuzu',
   'privacy.dataBody':
     'I-imeyili ye-akhawunti, iphasiwedi esheshisiwe, imethadatha yephrofayela, kanye namarekhodi omuntu ozongenela ukhetho/omsebenzi owakhayo. Asilokothi sithengise noma sabelane ngale datha.',
+  'privacy.intro':
+    'I-{{app}} icubungula idatha yokuqasha egameni lamakhasimende. Sithatha amarekhodi abafakizicelo, ama-resume, kanye nokuxhumana kweqembu lokuqasha njengokuyimfihlo futhi siwagcina ebhokisini elibethelwe.',
   'privacy.retentionBody':
     'Ungasusa i-akhawunti yakho nganoma yisiphi isikhathi kuzilungiselelo. Sihlanza amarekhodi ahlobene zingakapheli izinsuku ezingu-30, ngaphandle kwalapho ukugcinwa kuyadingeka ngokomthetho.',
   'privacy.title': 'Inqubomgomo yobumfihlo',
@@ -212,6 +254,7 @@ export const ui: UiTranslations = {
     'Vumela abantu abazongenela ukhetho kanye nabafakizicelo ukuthi babone igama lakho kanye nesikhundla sakho ezikhundleni zomsebenzi.',
   'profile.publicLabel': 'Iphrofayela yomphakathi',
   'profile.publicOff': 'Kufihliwe',
+  'profile.publicOn': 'Kuyabonakala',
   'profile.recentEmpty': 'Azikho izindawo okwamanje.',
   'profile.recentError': 'Ayikwazanga ukulayisha izindawo zakamuva.',
   'profile.recentEyebrow': 'Ukubekwa kwakamuva',
@@ -238,9 +281,14 @@ export const ui: UiTranslations = {
   'resetPassword.missingToken':
     'Isixhumanisi sokusetha kabusha asikho noma siphelelwe yisikhathi — cela esisha.',
   'resetPassword.passwordLabel': 'Iphasiwedi Entsha',
+  'resetPassword.signInCta': 'Ngena ngemvume →',
+  'resetPassword.signInPrompt': 'Sebenzisa iphasiwedi yakho entsha ukungena.',
   'resetPassword.subheading':
     'Khetha iphasiwedi eqinile — okungenani izinhlamvu ezingu-12 ezinobumba obuxubile.',
+  'settings.appearance.description': 'Shintsha phakathi kwemodi yokukhanya neyomnyama.',
   'settings.appearance.title': 'Ukubukeka',
+  'settings.deleteAccountModal.confirm':
+    'Faka iphasiwedi yakho ukuze uqinisekise. Lesi senzo sisonke unomphela.',
   'settings.emailTemplates.empty': 'Azikho izifanekiso ezilungisiwe okwamanje.',
   'settings.emailTemplates.heading': 'Amathempulethi e-imeyili',
   'settings.emailTemplates.loadError': 'Ayikwazanga ukulayisha amathempulethi.',
@@ -251,10 +299,16 @@ export const ui: UiTranslations = {
   'settings.integrations.statusDisconnected': 'Akuxhunyiwe',
   'settings.integrations.updateError': 'Ayikwazanga ukubuyekeza ukuhlanganiswa.',
   'settings.name': 'Igama',
+  'settings.passwordHelp': 'Buyekeza iphasiwedi oyisebenzisayo ukungena.',
+  'settings.revokeDeviceWarning': 'Ukufinyelela kwaledivayisi kuyokhishwa maduze. Yiphulise?',
   'settings.saveEmail': 'Londoloza i-imeyili',
   'settings.signOutDevice': 'Phuma ngemvume',
   'settings.stages.empty': 'Azikho izigaba ezilungiselelwe okwamanje.',
+  'settings.stages.heading': 'Izigaba zomugqa wephayiphi',
+  'settings.stages.help':
+    'Izinyathelo abafakizicelo abadlula kuzo. Susa noma yiziphi ongazisebenzisi.',
   'settings.stages.loadError': 'Ayikwazanga ukulayisha izigaba.',
+  'settings.stages.loading': 'Ilayisha izinyathelo…',
   'settings.stages.removeAria': 'Susa {{name}} isiteji',
   'settings.stages.removeError': 'Ayikwazanga ukususa isiteji.',
   'settings.team.empty': 'Akunabo ozakwethu okwamanje — mema owokuqala ngezansi.',
@@ -270,9 +324,16 @@ export const ui: UiTranslations = {
   'settings.team.removeError': 'Ayikwazanga ukususa ilungu.',
   'settings.twoFactorCode': 'Ikhodi yokuqinisekisa',
   'settings.twoFactorDisable': 'Khubaza',
+  'settings.twoFactorDisableTitle': 'Vala ukufakazela ubuwena ngezinto ezimbili',
   'settings.twoFactorEnable': 'Nika amandla',
+  'settings.twoFactorEnableTitle': 'Vula ukufakazela ubuwena ngezinto ezimbili',
   'settings.twoFactorInvalidCode': 'Ikhodi engavumelekile',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Ikhodi ye-QR yezigaba ezimbili',
+  'settings.twoFactorScan':
+    'Skena le khodi ye-QR ngohlelo lwakho lokufakazela ubuwena, bese ufaka ikhodi enezinombolo eziyisithupha.',
+  'settings.twoFactorUnavailable':
+    'Ukuqinisekiswa kwezinto ezimbili akutholakali kulolu hlelo lokusebenza.',
   'settings.twoFactorVerify': 'Qinisekisa futhi unike amandla',
   'settings.unknownDevice': 'Idivayisi engaziwa',
   'signup.confirmPlaceholder': 'Faka kabusha iphasiwedi yakho',
@@ -282,6 +343,8 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Yenza ibhodi lokuqasha ngemizuzwana engama-60. Mema ithimba kamuva.',
   'terms.acceptableUseBody':
     'Ngeke usebenzise kabi isevisi, usebenzise ukuskena okuzenzakalelayo, uzame ukwephula ukuphepha, noma ukuyisebenzisela ukubandlulula izigaba ezivikelwe.',
+  'terms.intro':
+    'Ngokusebenzisa i-{{app}} uyavuma le migomo. Isevisi inikezwa ngendlela enjengoba injalo ngezibopho nemikhawulo echazwe ngezansi.',
   'terms.subscriptionBody':
     'Izinhlelo ezikhokhelwayo zivuselelwa njalo ngenyanga kuze kube yilapho zikhanselwa. Ungakhansela ekukhokhisweni nganoma yisiphi isikhathi; uhlelo lwakho luhlala lusebenza kuze kube sekupheleni kwesikhathi samanje.',
   'terms.title': 'Imigomo yesevisi',

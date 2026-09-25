@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tambayoyi game da ajiyar wuri, ra'ayi, ko wani gida da kuke tsammanin ya kamata ya kasance a {{app}}? Tuntuɓi ƙungiyarmu daga asusunku — kowane saƙo yana zuwa ga ainihin mutum wanda zai iya taimakawa.",
+  'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da mu',
+  'about.featureLoyalty':
+    'Farashin membobi kawai da shirin aminci da ke samun maki, fitarwa a makare, da haɓaka ɗaki a kowane ajiya.',
+  'about.featureReviews':
+    'Bita na baƙi da aka tabbatar da zaɓaɓɓun editoci domin ku amince da zaman kafin ku isa.',
+  'about.featureRooms':
+    'Dakuna, farashi, da kayan morewa gefe da gefe tare da cikakken farashi bayyananne — haraji da kuɗin wurin shakatawa sun haɗa kafin ku biya.',
+  'about.featureSearch':
+    'Bincike na lokaci-lokaci a cikin otal ɗin da aka tantance tare da samuwa kai tsaye, kallon taswira, da ɗakunan hoto masu arziki.',
+  'about.featureTrips':
+    'Abubuwan da aka ajiye da dashboard na Tafiyoyi da ke ajiye kowane ajiya, jadawalin tafiya, da tabbaci a wuri ɗaya.',
+  'about.intro':
+    "{{app}} dandali ne na ajiyar otal ga matafiya da suka damu da inganci. Kowane gida ƙungiyarmu ta edita ta tantance shi da kanta — babu kayan haɗaɗɗiya, babu jerin yaudara. Bincika ainihin samuwa, kwatanta dakuna, farashi, da kayan morewa gefe da gefe, sannan yi ajiya cikin 'yan matakai tare da bayyanannen farashi cikakke.",
+  'about.missionBody':
+    'Ajiyar wurin zama ya kamata ya kasance cikin kwanciyar hankali da gaskiya. Muna nuna farashi bayyananne tare da haraji da kuɗin wurin shakatawa tun da farko, muna ba da lada ga baƙi masu aminci maimakon cin zarafinsu, kuma muna fifita wuraren da suka cancanci kuɗinku — domin ku rage lokacin kwatanta shafuka kuma ku ƙara lokaci kan tafiyar kanta.',
+  'about.missionTitle': 'Manufarmu',
+  'about.subtitle': 'Hanya mai tsari kuma bayyananne don nemo da yin ajiyar otal ɗin da ya dace.',
   'account.loyalty.activitySummary': '{{nights}} dare · {{spend}} wanda aka yi a wannan shekarar',
+  'account.loyalty.benefitsHeading': 'Amfanin ku',
   'account.loyalty.heading': 'Aminci',
   'account.loyalty.loading': 'Ana loda aminci…',
-  'account.loyalty.pointsTowardNext': '{{maki}} / {{na gaba}} yana nuna zuwa {{nextTier}}',
+  'account.loyalty.maxTier': 'Matakin farko — ji daɗin amfanin ku.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} maki zuwa {{nextTier}}',
   'account.loyalty.tier': 'Matakin yanzu',
   'account.loyalty.unavailable': 'Ba a samun bayanai game da aminci.',
   'account.navLabel': 'Sashen asusu',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Tabbatar da yin booking · {{total}}',
   'bookingCheckout.datesRequired': 'Da fatan za a zaɓi kwanakin rajista da kuma ranar fita.',
   'bookingCheckout.guestHeading': 'Babban baƙo',
+  'bookingCheckout.heading': 'Tabbatar kuma yi ajiya',
   'bookingCheckout.loadError': 'An kasa loda kadarori.',
   'bookingCheckout.nights': '{{rate}} × {{count}} dare',
   'bookingCheckout.notFound': 'Ba a sami kadarorin ba.',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Haraji & kuɗaɗe',
   'bookingCheckout.tripHeading': 'Tafiyarku',
   'bookingConfirmation.allTripsCta': 'Duk tafiye-tafiye',
+  'bookingConfirmation.confNumber': 'Lambar tabbaci: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Ana sarrafa ajiyar ku.',
   'bookingConfirmation.heading': 'An tabbatar da yin rajista',
   'bookingConfirmation.loading': 'Ana loda ajiyar ku…',
   'bookingConfirmation.searchMoreCta': 'Bincika ƙarin zama',
   'bookingConfirmation.subheadingForTrip':
-    '{{kadarori}} a cikin {{birni}} , {{ƙasa}} Za mu sake haduwa a {{rajistan shiga}} .',
+    '{{property}} a {{city}}, {{country}}. Za mu gan ku ranar {{checkIn}}.',
   'bookingConfirmation.total': 'Jimilla {{total}}',
   'bookingConfirmation.viewTripCta': 'Duba tafiya',
   'common.goToDashboard': 'Je zuwa Dashboard',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'An kasa loda abubuwan da aka fi so.',
   'favorites.pricePerNight': '{{price}} / dare',
   'favorites.removeCta': 'Cire Ajiye',
+  'favorites.removing': 'Ana cirewa…',
   'forgotPassword.subheading':
     'Shigar da imel ɗin a asusunka kuma za mu aiko maka da hanyar haɗin sake saitawa mai tsaro.',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Membobin baƙi',
   'landing.cta.heading': 'Farashin membobin kawai. Kowace rajista, kowane lokaci.',
   'landing.cta.signup': 'Ƙirƙiri asusu kyauta',
+  'landing.cta.subheading':
+    'Sami maki na aminci a kowane zama, buɗe fitarwa a makare da haɓaka ɗaki, kuma sami damar farko ga sabbin gidaje kafin a jera su a fili.',
   'landing.destinations.eyebrow': 'Ina zuwa na gaba',
   'landing.destinations.heading': 'Wuraren da aka fi so',
   'landing.destinations.seeAll': 'Duba duk wurare da ake zuwa',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Labarun da suka cancanci a tattara su',
   'landing.nav.join': 'Shiga Auberge',
   'landing.nav.search': 'Wurin bincike',
+  'landing.preview.browseAll': 'Duba cikakken tarin',
   'landing.preview.eyebrow': 'Kallo a ciki',
   'landing.preview.heading': 'Zaɓuɓɓukan da aka zaɓa da hannu a wannan watan',
+  'landing.preview.subheading':
+    'Kowane gida a {{appName}} ƙungiyarmu ta edita ta tantance shi da kanta — babu kayan haɗaɗɗiya, babu jerin yaudara.',
   'login.eyebrow': 'Yankin membobi',
+  'login.noAccount': 'Sabo ne ga Tessera?',
   'login.signupLink': 'Ƙirƙiri asusu kyauta',
   'login.subheading':
     'Shiga don gudanar da tafiye-tafiyenku, duba tabbatarwa, da kuma ci gaba daga inda kuka tsaya.',
+  'loyaltyTierBadge.points': '{{points}} maki',
   'planUpdated.heading': 'An sabunta shirin',
+  'planUpdated.retry': 'Gwada kuma',
+  'planUpdated.verifyFailed': 'Ba mu iya tabbatar da biyan kuɗin ku ba tukuna.',
+  'planUpdated.verifyFailedBody':
+    'Ana iya ci gaba da aiwatar da biyan kuɗin ku. Gwada kuma nan ba da jimawa ba.',
   'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'pricing.limit.advancedFeatures': 'Sifofi masu ci gaba:',
   'pricing.limit.canExport': 'Fitar da bayanai:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Abin da wannan wuri ke bayarwa',
   'propertyDetail.backLink': 'Komawa bincike',
   'propertyDetail.bookCta': 'Ajiye',
+  'propertyDetail.bookmarkAria': 'Ajiye kadarori',
   'propertyDetail.bookmarkAriaSaved': 'Cire daga kadarorin da aka adana',
+  'propertyDetail.galleryImageAlt': 'Hoto {{name}} na {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} hoton jarumi',
   'propertyDetail.hidePhotos': 'Ɓoye hotuna',
   'propertyDetail.lineCleaning': 'Kudin tsaftacewa',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'dare',
   'propertyDetail.noChargeYet': 'Ba za a caje ka ba tukuna',
   'propertyDetail.notFound': 'Ba a sami kadarorin ba.',
+  'propertyDetail.perNight': '/ dare',
+  'propertyDetail.pickDatesHint': 'Zaɓi kwanakinku don ganin cikakken rarrabuwar farashi.',
   'propertyDetail.reviewCount': '( {{count}} sake dubawa)',
   'propertyDetail.reviewsHeading': 'Sharhin da aka yi kwanan nan',
   'propertyDetail.roomCapacity': 'Barci {{count}}',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Sabuwar kalmar sirri',
   'resetPassword.subheading':
     'Zaɓi sabuwar kalmar sirri don asusun Auberge ɗinku. Yi amfani da aƙalla haruffa 8; muna ba da shawarar kalmar sirri.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Babu wani kadara da ya dace da bincikenka.',
   'searchResults.emptyHint':
     'Gwada faɗaɗa matatunka ko cire rufin farashin — Auberge yana da zama a ƙasashe 14.',
@@ -108,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Zama da aka tsara',
   'searchResults.headingForQuery': 'Ya tsaya don " {{q}} "',
   'searchResults.loadError': 'An kasa loda kaddarorin.',
+  'searchResults.mapHint':
+    'Ka nuna kan kati don haskakawa a taswira. Fayilolin Mapbox kai tsaye a samarwa.',
   'searchResults.mapPinAria': '{{name}} — {{price}} a kowace dare',
   'searchResults.sortLabel': 'Kasa',
   'searchResults.subheading': '{{count}} kadarori · {{guests}} baƙi',
   'signup.eyebrow': 'Zama memba',
   'signup.subheading':
     'Shiga Auberge don buɗe farashin membobi kawai, biyan kuɗi a makare, da kuma samun damar shiga sabbin kadarori na farko.',
+  'sojournAuthShell.brand.eyebrow': 'Zauna a wani wuri na musamman',
+  'sojournAuthShell.brand.heading':
+    'Tarin gidaje mai tsari — an gabatar da su da kyau, an nuna farashi a fili.',
   'sojournHeroSearchCard.checkInAria': 'Ranar shiga',
   'sojournHeroSearchCard.checkOutAria': 'Ranar fita',
+  'sojournHeroSearchCard.destAria': 'Inda za a je',
+  'sojournHeroSearchCard.destLabel': 'A ina',
   'sojournHeroSearchCard.destPlaceholder': 'Birni, yanki, ko kadara',
   'sojournHeroSearchCard.eyebrow': 'Zama da aka tsara · Kuɗin membobin kawai',
   'sojournHeroSearchCard.guestsOption': '{{n}} baƙi',
   'sojournHeroSearchCard.subtitle':
     'Tarin otal-otal masu kyau, kadarori masu tsari, da wuraren shakatawa masu sauƙi — waɗanda aka bayyana a sarari, waɗanda aka gabatar da su da kyau.',
+  'sojournHeroSearchCard.title': 'Zauna a wani wuri na musamman',
+  'sojournHeroSearchCard.trustLoyalty': 'Sami maki a kowane zama',
   'sojournHeroSearchCard.trustNoFees': 'Babu ɓoyayyun kuɗaɗe, har abada',
   'sojournHeroSearchCard.trustVetted': 'Kadarorin da aka tantance da hannu kawai',
   'sojournLayout.primaryNavLabel': 'Babban kewayawa',

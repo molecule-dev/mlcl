@@ -1,19 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Galderak, iritzia edo eginbide-eskaera bat? Idatzi taldeari hello@murmur.app helbidera — mezu guztiak produktuan lanean ari den benetako pertsona batengana iristen dira.',
   'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Guri buruz',
+  'about.intro':
+    '{{app}} bileren adimena da oharrak hartu baino erabakiak hartu nahiago dituzten taldeentzat. Zure deietara batu, hitz guztiak transkribatzen ditu hiztunen etiketekin, eta AI laburpen bat eta esleitutako ekintza-elementuak bidaltzen ditu bilera amaitzen den unean.',
+  'about.missionBody':
+    'Bilerak taldeek erabakiak hartzen dituzten lekuak dira — eta erabaki horiek galtzen diren lekua. {{app}} existitzen da elkarrizketa batean egiten den lanak elkarrizketa baino gehiago iraun dezan: erregistro fidela, laburpen argia eta hurrengo urrats eskuragarriak, automatikoki.',
+  'about.missionTitle': 'Gure misioa',
   'actions.empty': 'Ez dago bat datorren ekintza-elementurik.',
   'actions.heading': 'Ekintza-elementuak',
   'actions.loadError': 'Ekintza-elementuak kargatzea huts egin da.',
   'actions.subheading': 'Bilera guztietan bilduta. Egoeraren arabera iragazi arreta jartzeko.',
   'actions.toggleDoneLabel': 'Markatu eginda gisa',
   'actions.toggleReopenLabel': 'Markatu irekita gisa',
+  'auth.footer': '© {{year}} {{app}}. Hitz bakoitza, destilatuta.',
   'calendar.heading': 'Egutegia',
   'calendar.joinCta': 'Batu',
   'calendar.loadError': 'Egutegia kargatzea huts egin du.',
   'calendar.nextMonth': 'Hurrengo hilabetean',
   'calendar.noEventsForDay': 'Ez dago bilerarik programatuta egun honetarako.',
+  'calendar.noUpcomingEvents':
+    'Ez dago datozen bilerarik. Konektatu egutegi bat Integrazioetatik zerrenda hau betetzeko.',
   'calendar.previousMonth': 'Aurreko hilabetea',
   'calendar.recent': 'Azkenak',
   'common.daysAgo': '{{count}} duela egun batzuk',
@@ -25,9 +35,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} ekintza-elementuak',
   'dashboard.empty.body':
     'Hasi grabaketa bat edo konektatu Google Calendar-a Murmur zure hurrengo bileran automatikoki sartzeko.',
+  'dashboard.empty.cta': 'Hasi grabatzen',
   'dashboard.empty.heading': 'Ez dago bilerarik oraindik',
   'dashboard.eyebrow': 'Zure bilera-jarioa',
   'dashboard.loadError': 'Ezin izan da aginte-panela kargatu.',
+  'dashboard.noActions': 'Ekintzarik ez',
   'dashboard.recentHeading': 'Azken bilerak',
   'dashboard.recordCta': 'Grabatu bilera',
   'dashboard.stat.actions': 'Ekintza-elementuak',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} Azken begiratu zenuenetik irakurri gabeko laburpenak. Murmur-ek hitz guztiak jaso zituen — hona hemen laburpena.',
   'dashboard.viewCalendar': 'Ikusi egutegia →',
+  'footer.linksLabel': 'Orri-oina',
   'forgot.failed': 'Ezin izan da berrezartzeko mezu elektronikoa bidali.',
   'forgot.sentBody': 'Kontu bat badago {{email}}, laster berrezartzeko esteka bat jasoko duzu.',
   'forgot.sentSubheading': 'Begiratu zure sarrera-ontzia berrezartzeko esteka lortzeko.',
@@ -48,14 +61,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Konektatu egutegiak eta bideo plataformak Murmur automatikoki batu dadin.',
   'integrations.updateError': 'Eguneraketak huts egin du.',
+  'landing.ctaBody':
+    'Doan hilero lehen 5 bileretarako. Kreditu-txartelik gabe. Konektatu Google Calendar minutu bat baino gutxiagoan.',
   'landing.ctaButton': 'Hasi zaitez — doakoa da',
   'landing.ctaHeading': 'Utzi oharrak hartzeari. Hasi erabakiak hartzen.',
+  'landing.demo.aiBody':
+    'Abiaraztea maiatzaren 5etik maiatzaren 12ra atzeratu da, operazioetako langileei tartea emateko. Dashboardaren diseinu berria maiatzaren 26ra bereizi da.',
   'landing.demo.aiLabel': 'IA laburpena, zuzenean idatzia',
   'landing.demo.recording': 'Grabaketa · zuzenean',
   'landing.eyebrow': 'AI bilera-inteligentzia',
   'landing.featuresHeading': 'Bilera amaitu ondoren zure taldeak behar duen guztia',
+  'landing.featuresSubheading':
+    'Ez da gehiago "tira, nork du hau bere gain?" {{appName}}-k laburpena bidaltzen du deia deskonektatu aurretik.',
   'landing.getStarted': 'Probatu doan',
   'landing.heroSecondary': 'Ikusi 90 segundoko bira',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} zure deietara batzen da, hitz guztiak transkribatzen ditu hiztunen etiketekin, eta AI laburpenak eta esleitutako ekintza-elementuak bidaltzen ditu bilera amaitzen den unean.',
   'landing.heroTitle': 'Bilera guztiak grabatu. Garrantzitsua dena azaleratu.',
   'login.altPrompt': 'Murmurren berria zara?',
   'login.failed': 'Ezin izan da saioa hasi. Egiaztatu zure posta elektronikoa eta pasahitza.',
@@ -63,6 +84,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Ekintza-elementuak',
   'meetingDetail.back': 'Bilera guztiak',
   'meetingDetail.decisionsHeading': 'Erabakiak',
+  'meetingDetail.dueDate': '{{date}}(e)rako',
   'meetingDetail.followupsHeading': 'Jarraipenak',
   'meetingDetail.loadError': 'Bilera kargatzea huts egin da.',
   'meetingDetail.noActions': 'Ez da ekintza-elementurik detektatu.',
@@ -76,7 +98,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Ez dago bilerarik oraindik',
   'meetings.heading': 'Bilerak',
   'meetings.loadError': 'Bilerak kargatzea huts egin da.',
+  'meetings.recordCta': 'Grabatu bilera',
   'meetings.subheading': 'Grabatutako, igotako eta sinkronizatutako bilera guztiak.',
+  'murmurLayout.closeMenu': 'Itxi nabigazio menua',
   'murmurLayout.openMenu': 'Ireki nabigazio menua',
   'murmurLayout.primaryNavLabel': 'Nabigazio nagusia',
   'nav.legal': 'Legezko',
@@ -102,7 +126,15 @@ export const ui: UiTranslations = {
   'profile.loading': 'Kargatzen…',
   'profile.navLabel': 'Profil atalak',
   'profile.notifications.assignments': 'Niri esleitutako ekintza-elementuak',
+  'profile.notifications.assignmentsHint':
+    'Jakinarazi zuretzat ekintza-elementu bat jasotzen denean.',
+  'profile.notifications.mentions': 'Transkripzioetako aipamenak',
+  'profile.notifications.mentionsHint':
+    'Posta elektronikoa + push norbait zutaz @-aipatzen duenean.',
+  'profile.notifications.subheading': 'Aukeratu zein {{appName}} gertaera iritsi behar zaizkizun.',
   'profile.notifications.summaries': 'Asteko laburpena',
+  'profile.notifications.summariesHint': 'Aurreko asteko bilera guztien asteleheneko laburpena.',
+  'profile.preferences.speakerColor': 'Hiztunaren kolore lehenetsia',
   'profile.preferences.subheading':
     'Sartzen zaren grabazio guztietan aplikatzen diren lehenetsitako balioak.',
   'profile.preferences.timezone': 'Ordu-zona',
@@ -115,16 +147,21 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Zure arakatzaileak ez du grabaketa onartzen. Saiatu Chrome, Edge edo Safari erabiltzen.',
   'record.error.upload': 'Kargatzeak huts egin du. Saiatu berriro.',
+  'record.errorLabel': 'Zerbait gaizki joan da',
   'record.heading': 'Erregistroa',
   'record.idleLabel': 'Sakatu grabatzen hasteko',
   'record.processingLabel': 'Whisperrekin transkribatzen, Clauderekin laburbiltzen…',
+  'record.recordingLabel': 'Erregistratzen…',
   'record.retryCta': 'Saiatu berriro',
   'record.subheading':
     'Sakatu mikrofonoa hasteko. Murmurrek audioa grabatzen du, Whisper bidez transkribatzen du eta Claude-k bultzatutako laburpen bat idazten du.',
+  'record.titlePlaceholder': 'Bileraren izenburua (aukerakoa)',
+  'reset.altPrompt': 'Iritzia aldatu duzu?',
   'reset.hint': 'Erabili gutxienez 8 karaktere, letrak eta zenbakiak nahastuz.',
   'reset.missingToken': 'Berrezartzeko esteka falta da edo iraungi da. Eskatu berri bat.',
   'reset.newPassword': 'Pasahitz berria',
   'reset.subheading': 'Aukeratu beste inon erabiltzen ez duzun pasahitz bat.',
+  'reset.tooShort': 'Pasahitzak gutxienez 8 karaktere izan behar ditu.',
   'search.empty': 'Idatzi transkripzioak bilatzeko.',
   'search.loadError': 'Bilaketak huts egin du. Saiatu berriro.',
   'search.noResults': 'Ez dago emaitzarik " {{q}} ".',
@@ -140,7 +177,9 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Gorde audioa honetarako',
   'settings.retention.heading': 'Atxikipena',
   'settings.retention.transcript': 'Gorde transkripzioak honetarako',
+  'settings.revokeDeviceWarning': 'Gailu honen sarbidea laster kendu egingo da. Itxi saioa?',
   'settings.saveError': 'Gordetzeak huts egin du.',
+  'settings.security.subheading': 'Eguneratu saioa hasteko erabiltzen duzun pasahitza.',
   'settings.sharing.exportFormat': 'Esportazio formatua',
   'settings.sharing.heading': 'Partekatzeko lehenetsiak',
   'settings.sharing.scope': 'Partekatze-eremu lehenetsia',
@@ -158,6 +197,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Gonbidatu taldekidea',
   'team.invitedAs': 'Gonbidatuta honela {{role}}',
   'team.inviteFailed': 'Ezin izan da gonbidapena bidali.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'Bidali gonbidapena',
   'team.inviteSubtitle': 'Sartzeko esteka duen mezu elektroniko bat jasoko dute.',
   'team.inviteTitle': 'Gonbidatu taldekide bat',

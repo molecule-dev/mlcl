@@ -1,32 +1,49 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vil du rulle en varmere onboarding ud til dit team, har du fundet en fejl, eller har du feedback? Skriv til os fra dine kontoindstillinger — hver besked går til et rigtigt menneske, der kan hjælpe.',
   'about.contactTitle': 'Kontakt os',
   'about.eyebrow': 'Om',
+  'about.missionTitle': 'Vores mission',
   'auth.forgotPassword.emailPlaceholder': 'navn@dinvirksomhed.com',
   'auth.forgotPassword.heading': 'Nulstil din adgangskode.',
+  'auth.forgotPassword.panel.body':
+    'Nulstilling tager 30 sekunder — dine tjeklistefremskridt venter.',
+  'auth.forgotPassword.panel.headline': 'Tilbage præcis hvor du sluttede.',
+  'auth.forgotPassword.subheading':
+    'Indtast din arbejdsmail, og vi sender dig et nulstillingslink.',
   'auth.forgotPassword.successSubheading':
     'Tjek din indbakke – vi har sendt dig instruktioner til nulstilling.',
   'auth.login.emailPlaceholder': 'navn@dinvirksomhed.com',
   'auth.login.heading': 'Velkommen tilbage.',
   'auth.login.passwordPlaceholder': 'Din adgangskode',
+  'auth.login.signupPrompt': 'Ny på dit team?',
   'auth.login.subheading': 'Log ind for at fortsætte din onboarding-rejse, hvor du slap.',
   'auth.login.submit': 'Fortsæt din rejse',
+  'auth.panel.body':
+    'Din personlige tjekliste, træningsmilepæle og teamintroduktioner — alt på ét roligt sted.',
   'auth.panel.footnote': '© Embark — onboarding med mennesker i centrum siden i dag.',
   'auth.panel.headline': 'De første 90 dage med selvtillid starter her.',
   'auth.resetPassword.heading': 'Indtast en ny adgangskode.',
   'auth.resetPassword.newPasswordLabel': 'Ny adgangskode',
+  'auth.resetPassword.panel.body':
+    'Gem en ny adgangskode, og vi sender dig direkte tilbage til din onboardingrejse.',
+  'auth.resetPassword.panel.headline': 'Næsten tilbage igen.',
   'auth.resetPassword.subheading': 'Vælg noget, du vil huske – mindst 8 tegn.',
   'auth.signup.emailPlaceholder': 'navn@dinvirksomhed.com',
   'auth.signup.heading': 'Velkommen til dine første 90 dage.',
   'auth.signup.panel.body':
     'En guidet tjekliste, rollebevidst træning og introduktioner til mennesker – klar inden du træder ind.',
+  'auth.signup.panel.headline': 'Dag et, på dag et.',
   'auth.signup.subheading': 'Opret din Embark-konto for at starte din guidede onboarding-rejse.',
   'checklist.empty.body': 'Skift filteret for at se andre opgaver.',
   'checklist.empty.title': 'Intet her lige nu',
   'checklist.eyebrow': 'Onboarding · Tjekliste',
   'checklist.loading': 'Indlæser din tjekliste…',
   'checklist.stat.actionNeeded': 'Handling nødvendig',
+  'checklist.stat.completion': 'Færdiggørelse',
+  'checklist.stat.inProgress': 'I gang',
   'checklist.stat.inProgressHelper': 'Fortsæt der, hvor du slap',
   'checklist.stat.overdueHelper': 'Få fat i disse først',
   'checklist.subtitle':
@@ -58,6 +75,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Ingen dokumenter endnu',
   'documents.eyebrow': 'Onboarding · Dokumenter',
   'documents.loading': 'Indlæser dokumenter…',
+  'documents.stat.actionNeeded': 'Underskriv nu',
+  'documents.stat.all': 'Alle dokumenter',
   'documents.stat.allHelper': 'På tværs af kategorier',
   'documents.stat.pending': 'Afventende underskrifter',
   'documents.stat.pendingHelper': 'Kræves for færdiggørelse',
@@ -65,6 +84,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Opbevares sikkert',
   'documents.status.optional': 'Valgfri',
   'documents.status.required': 'Påkrævet',
+  'documents.status.signed': 'Underskrevet',
   'documents.subtitle':
     'Din håndbog, dine formularer og dine underskrevne aftaler – alt samlet ét sted.',
   'documents.title': 'Alt du skal læse og underskrive.',
@@ -72,16 +92,20 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'Seer',
   'documentViewer.breadcrumbDocs': 'Dokumenter',
   'documentViewer.downloadMeta': 'Download metadata',
+  'documentViewer.helpBody': 'People & Culture svarer på håndbogsspørgsmål i #ask-people på Slack.',
   'documentViewer.helpEyebrow': 'Brug for hjælp?',
   'documentViewer.loadError': 'Vi kunne ikke indlæse dette dokument.',
   'documentViewer.loading': 'Indlæser dokument…',
   'documentViewer.notFound': 'Dokumentet blev ikke fundet',
+  'documentViewer.previewBody':
+    'Når uploads er konfigureret, viser vi filen direkte. Indtil da kan du bruge metadata-downloadet til at bekræfte, at posten er rigtig.',
   'documentViewer.previewBodyExternal': 'Brug downloadknappen til at åbne filen i en ny fane.',
   'documentViewer.previewTitle': 'Dokumentforhåndsvisning',
   'documentViewer.sign': 'Underskriv og anerkend',
   'documentViewer.signatureBody':
     'Læs dokumentet, og klik derefter nedenfor for at underskrive og bekræfte.',
   'documentViewer.signatureHeading': 'Underskrift påkrævet',
+  'documentViewer.signed': '✓ Underskrevet & arkiveret',
   'documentViewer.signing': 'Underskriver…',
   'documentViewer.uploadedRecently': 'Nyligt uploadet',
   'landing.closing.body':
@@ -91,10 +115,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Jeg har allerede en konto',
   'landing.feature1.body':
     'Enhver opgave – papirarbejde, regnskaber, introduktioner – er forudplanlagt med forfaldsdatoer og den rette ejer.',
+  'landing.feature1.title': 'En guidet tjekliste',
   'landing.feature2.body':
     'Moduler låses op ved 30/60/90 milepæle, tilpasset den rolle og det team, en medarbejder bliver en del af.',
+  'landing.feature2.title': 'Rolletilpasset træning',
   'landing.feature3.body':
     'Venner, ledere og tværfaglige introduktioner planlagt — så ingen starter alene.',
+  'landing.feature3.title': 'Rigtige præsentationer',
   'landing.featureEyebrow': 'Hvorfor tage afsted',
   'landing.featureHeadline': 'Tre måder Embark vinder tillid på fra dag ét.',
   'landing.footer.rights': 'Alle rettigheder forbeholdes.',
@@ -104,6 +131,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Næste skridt: Mød din ven til en 30-minutters kaffesnak — tirsdag kl. 10:00.',
   'landing.preview.eyebrow': 'Dag 14 af 90 — eksempel på dashboard',
+  'landing.preview.headline': 'Velkommen tilbage, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR-klar',
   'landing.proof.teams': 'Bygget til hold på 50-5.000',
   'landing.proof.time': '14-dages gratis prøveperiode',
@@ -120,16 +148,25 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'i går',
   'planUpdated.message': 'Du er klar.',
   'planUpdated.preparing': 'Opdaterer din plan…',
+  'planUpdated.retry': 'Prøv igen',
+  'planUpdated.verifyFailed': 'Vi kunne ikke bekræfte din betaling endnu.',
+  'planUpdated.verifyFailedBody':
+    'Din betaling er muligvis stadig under behandling. Prøv igen om et øjeblik.',
   'planUpdated.verifying': 'Bekræfter din betaling…',
   'pricing.documentsLabel': 'dokumenter',
   'pricing.onboardingsLabel': 'onboardings',
   'pricing.tasksLabel': 'opgaver',
   'profile.dayNumber': 'Dag',
   'profile.detailsHeading': 'Onboarding-detaljer',
+  'profile.encouragementBody': 'Hold din buddy og leder i loopet — små skridt gør en forskel.',
   'profile.milestones': 'Milepæle',
   'profile.progressEyebrow': 'Onboarding-forløb',
   'profile.tasks': 'Opgaver',
   'profile.unknownName': 'Velkomst',
+  'settings.appearance.description': 'Skift mellem lys og mørk tilstand.',
+  'settings.appearance.title': 'Udseende',
+  'settings.subtitle':
+    'Tilpas notifikationer, sikkerhed, enheder og dataeksport — alt bliver her, på dine vilkår.',
   'settings.title': 'Indstillinger og præferencer.',
   'taskDetail.backToChecklist': 'Tilbage til tjeklisten',
   'taskDetail.breadcrumbChecklist': 'Tjekliste',
@@ -142,7 +179,10 @@ export const ui: UiTranslations = {
   'taskDetail.notFound': 'Opgaven blev ikke fundet',
   'taskDetail.notFoundBody':
     'Denne opgave er muligvis blevet slettet eller tilhører en anden bruger.',
+  'taskDetail.tipBody':
+    'Hvis du er gået i stå, så skriv til din onboarding-buddy i Slack — de er din første hjælp.',
   'taskDetail.tipEyebrow': 'Hurtigt tip',
+  'team.empty.body': 'Prøv en bredere søgning, eller vælg en anden afdeling.',
   'team.empty.title': 'Ingen holdkammerater kamper',
   'team.eyebrow': 'Onboarding · Personer',
   'team.loading': 'Indlæser holdkammerater…',
@@ -165,14 +205,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Milepæle',
   'timeline.stat.current': 'Nuværende milepæl',
   'timeline.stat.next': 'Næste oplåsning',
+  'timeline.stat.progress': 'Samlet',
   'timeline.subtitle':
     'Hver milepæl åbner op for nye moduler, introduktioner og udviklingssamtaler. Intet pres – kun fremskridt.',
+  'timeline.tipBody':
+    'Planlæg en 30-minutters refleksion på dag 30, 60 og 90 med din leder — det gør feedback konkret og fremgang synlig.',
   'timeline.tipEyebrow': 'Manager-tip',
+  'timeline.tipTitle': 'Bloker kalendertid til milepælene.',
   'timeline.title': 'Din 30 / 60 / 90 rejse.',
   'training.badge.notStarted': 'Ikke påbegyndt',
   'training.empty': 'Ingen træningsmoduler endnu.',
   'training.eyebrow': 'Onboarding · Træning',
   'training.loading': 'Indlæser moduler…',
+  'training.stat.all': 'Moduler tildelt',
   'training.subtitle':
     'Moduler låses op ved 30/60/90 for at matche din rolle. Nødvendige moduler kommer først.',
   'training.title': 'Færdigheder, værktøjer og historier – i dit tempo.',
@@ -185,9 +230,12 @@ export const ui: UiTranslations = {
   'trainingModule.quizBody':
     'Få en score på 80% eller mere for at bedømme dette modul som fuldført.',
   'trainingModule.quizHeading': 'Quiz ved modulafslutning',
+  'trainingModule.quizLocked': 'Start modulet først',
   'trainingModule.quizNone': 'Ingen quiz på dette modul.',
   'trainingModule.quizRetry': 'Prøv igen',
+  'trainingModule.quizStart': 'Start quiz',
   'trainingModule.quizSubmit': 'Indsend svar',
+  'trainingModule.start': 'Start modul',
   'trainingModule.statusNotStarted': 'Ikke påbegyndt',
   'welcomeHeroCard.completeLabel': 'Komplet',
   'welcomeHeroCard.milestonesLabel': 'Milepæle',

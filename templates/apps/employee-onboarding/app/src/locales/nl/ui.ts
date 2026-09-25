@@ -1,32 +1,48 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Wil je een warmere onboarding voor je team uitrollen, heb je een bug gevonden of heb je feedback? Laat het weten via je accountinstellingen — elk bericht komt bij een echt persoon terecht die kan helpen.',
   'about.contactTitle': 'Neem contact met ons op',
   'about.eyebrow': 'Over',
+  'about.missionTitle': 'Onze missie',
   'auth.forgotPassword.emailPlaceholder': 'naam@uwbedrijf.com',
   'auth.forgotPassword.heading': 'Stel uw wachtwoord opnieuw in.',
+  'auth.forgotPassword.panel.body':
+    'Opnieuw instellen duurt 30 seconden — je checklistvoortgang staat op je te wachten.',
+  'auth.forgotPassword.panel.headline': 'Weer precies waar je gebleven was.',
+  'auth.forgotPassword.subheading': 'Vul je werk-e-mailadres in en we sturen je een herstellink.',
   'auth.forgotPassword.successSubheading':
     'Controleer uw inbox — we hebben de resetinstructies verzonden.',
   'auth.login.emailPlaceholder': 'naam@uwbedrijf.com',
   'auth.login.heading': 'Welkom terug.',
   'auth.login.passwordPlaceholder': 'Uw wachtwoord',
+  'auth.login.signupPrompt': 'Nieuw in je team?',
   'auth.login.subheading': 'Meld u aan en pak uw onboardingreis op waar u gebleven was.',
   'auth.login.submit': 'Vervolg uw reis',
+  'auth.panel.body':
+    'Je persoonlijke checklist, trainingsmijlpalen en teamintroducties — allemaal op één rustige plek.',
   'auth.panel.footnote': '© Embark — onboarding met mensen voorop, vanaf vandaag.',
   'auth.panel.headline': 'Een vol vertrouwen eerste 90 dagen begint hier.',
   'auth.resetPassword.heading': 'Stel een nieuw wachtwoord in.',
   'auth.resetPassword.newPasswordLabel': 'Nieuw wachtwoord',
+  'auth.resetPassword.panel.body':
+    'Stel een nieuw wachtwoord in en we brengen je direct terug naar je onboardingtraject.',
+  'auth.resetPassword.panel.headline': 'Bijna weer binnen.',
   'auth.resetPassword.subheading': 'Kies iets dat u onthoudt — minimaal 8 tekens.',
   'auth.signup.emailPlaceholder': 'naam@uwbedrijf.com',
   'auth.signup.heading': 'Welkom bij uw eerste 90 dagen.',
   'auth.signup.panel.body':
     'Een begeleide checklist, rolafhankelijke training en menselijke introducties — klaar voordat u binnenstapt.',
+  'auth.signup.panel.headline': 'Dag één, op dag één.',
   'auth.signup.subheading': 'Maak uw Embark-account aan om uw begeleide onboardingreis te starten.',
   'checklist.empty.body': 'Wissel het filter om andere taken te zien.',
   'checklist.empty.title': 'Hier staat nu niets',
   'checklist.eyebrow': 'Onboarding · Checklist',
   'checklist.loading': 'Uw checklist wordt geladen…',
   'checklist.stat.actionNeeded': 'Actie nodig',
+  'checklist.stat.completion': 'Voltooiing',
+  'checklist.stat.inProgress': 'Bezig',
   'checklist.stat.inProgressHelper': 'Pak op waar u gebleven was',
   'checklist.stat.overdueHelper': 'Werk deze eerst bij',
   'checklist.subtitle':
@@ -58,6 +74,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Nog geen documenten',
   'documents.eyebrow': 'Onboarding · Documenten',
   'documents.loading': 'Documenten laden…',
+  'documents.stat.actionNeeded': 'Nu ondertekenen',
+  'documents.stat.all': 'Alle documenten',
   'documents.stat.allHelper': 'Over alle categorieën',
   'documents.stat.pending': 'Wachtende handtekeningen',
   'documents.stat.pendingHelper': 'Vereist voor voltooiing',
@@ -65,6 +83,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Veilig opgeslagen',
   'documents.status.optional': 'Optioneel',
   'documents.status.required': 'Verplicht',
+  'documents.status.signed': 'Ondertekend',
   'documents.subtitle':
     'Uw handboek, formulieren en ondertekende overeenkomsten — alles op één plek.',
   'documents.title': 'Alles wat u moet lezen en ondertekenen.',
@@ -72,10 +91,14 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'Weergave',
   'documentViewer.breadcrumbDocs': 'Documenten',
   'documentViewer.downloadMeta': 'Metadata downloaden',
+  'documentViewer.helpBody':
+    'People & Culture beantwoordt vragen over het handboek in #ask-people op Slack.',
   'documentViewer.helpEyebrow': 'Hulp nodig?',
   'documentViewer.loadError': 'We konden dit document niet laden.',
   'documentViewer.loading': 'Document laden…',
   'documentViewer.notFound': 'Document niet gevonden',
+  'documentViewer.previewBody':
+    'Wanneer uploads zijn geconfigureerd, tonen we het bestand inline. Voor nu kun je met de metadatadownload bevestigen dat het record echt is.',
   'documentViewer.previewBodyExternal':
     'Gebruik de downloadknop om het bestand in een nieuw tabblad te openen.',
   'documentViewer.previewTitle': 'Documentvoorbeeld',
@@ -83,6 +106,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Lees het document en klik vervolgens hieronder om te ondertekenen en te bevestigen.',
   'documentViewer.signatureHeading': 'Handtekening vereist',
+  'documentViewer.signed': '✓ Ondertekend en gearchiveerd',
   'documentViewer.signing': 'Ondertekenen…',
   'documentViewer.uploadedRecently': 'Recent geüpload',
   'landing.closing.body':
@@ -92,10 +116,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Ik heb al een account',
   'landing.feature1.body':
     'Elke taak — papierwerk, accounts, introducties — staat klaar met einddatums en de juiste verantwoordelijke.',
+  'landing.feature1.title': 'Een begeleide checklist',
   'landing.feature2.body':
     'Modules ontgrendelen op 30/60/90-mijlpalen, afgestemd op de rol en het team waar iemand zich bij voegt.',
+  'landing.feature2.title': 'Rolbewuste training',
   'landing.feature3.body':
     "Buddy's, managers en cross-functionele introducties worden ingepland — zodat niemand alleen begint.",
+  'landing.feature3.title': 'Echte introducties',
   'landing.featureEyebrow': 'Waarom Embark',
   'landing.featureHeadline': 'Drie manieren waarop Embark vertrouwen wint op dag één.',
   'landing.footer.rights': 'Alle rechten voorbehouden.',
@@ -105,6 +132,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Hierna: ontmoet uw buddy voor een koffiegesprek van 30 minuten — di 10:00.',
   'landing.preview.eyebrow': 'Dag 14 van 90 — voorbeelddashboard',
+  'landing.preview.headline': 'Welkom terug, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR-klaar',
   'landing.proof.teams': 'Gebouwd voor teams van 50–5.000',
   'landing.proof.time': 'Gratis proefperiode van 14 dagen',
@@ -121,16 +149,25 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'gisteren',
   'planUpdated.message': 'Je bent er helemaal klaar voor.',
   'planUpdated.preparing': 'Uw plan wordt bijgewerkt…',
+  'planUpdated.retry': 'Opnieuw proberen',
+  'planUpdated.verifyFailed': 'We hebben uw betaling nog niet kunnen bevestigen.',
+  'planUpdated.verifyFailedBody':
+    'Uw betaling wordt mogelijk nog verwerkt. Probeer het over een moment opnieuw.',
   'planUpdated.verifying': 'Je betaling bevestigen…',
   'pricing.documentsLabel': 'documenten',
   'pricing.onboardingsLabel': 'onboardings',
   'pricing.tasksLabel': 'taken',
   'profile.dayNumber': 'Dag',
   'profile.detailsHeading': 'Onboardinggegevens',
+  'profile.encouragementBody': 'Houd je buddy en manager op de hoogte — kleine stappen tellen op.',
   'profile.milestones': 'Mijlpalen',
   'profile.progressEyebrow': 'Onboardingvoortgang',
   'profile.tasks': 'Taken',
   'profile.unknownName': 'Welkom',
+  'settings.appearance.description': 'Schakel tussen lichte en donkere modus.',
+  'settings.appearance.title': 'Weergave',
+  'settings.subtitle':
+    'Stel meldingen, beveiliging, apparaten en gegevensexport in — alles blijft hier, op jouw voorwaarden.',
   'settings.title': 'Instellingen & voorkeuren.',
   'taskDetail.backToChecklist': 'Terug naar checklist',
   'taskDetail.breadcrumbChecklist': 'Checklist',
@@ -143,7 +180,10 @@ export const ui: UiTranslations = {
   'taskDetail.notFound': 'Taak niet gevonden',
   'taskDetail.notFoundBody':
     'Deze taak is mogelijk verwijderd of behoort tot een andere gebruiker.',
+  'taskDetail.tipBody':
+    'Loop je vast, stuur dan je onboardingbuddy een bericht in Slack — zij zijn je eerste hulplijn.',
   'taskDetail.tipEyebrow': 'Snelle tip',
+  'team.empty.body': 'Probeer een bredere zoekopdracht of kies een andere afdeling.',
   'team.empty.title': 'Geen overeenkomende teamleden',
   'team.eyebrow': 'Onboarding · Mensen',
   'team.loading': 'Teamleden laden…',
@@ -166,14 +206,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Mijlpalen',
   'timeline.stat.current': 'Huidige mijlpaal',
   'timeline.stat.next': 'Volgende ontgrendeling',
+  'timeline.stat.progress': 'Algemeen',
   'timeline.subtitle':
     'Elke mijlpaal ontgrendelt nieuwe modules, introducties en groeigesprekken. Geen druk — gewoon vooruitgang.',
+  'timeline.tipBody':
+    'Plan op dag 30, 60 en 90 een reflectiemoment van 30 minuten met je manager — dat maakt feedback concreet en voortgang zichtbaar.',
   'timeline.tipEyebrow': 'Managertip',
+  'timeline.tipTitle': 'Blokkeer tijd in je agenda voor de mijlpalen.',
   'timeline.title': 'Uw 30 / 60 / 90 reis.',
   'training.badge.notStarted': 'Niet gestart',
   'training.empty': 'Nog geen trainingsmodules.',
   'training.eyebrow': 'Onboarding · Training',
   'training.loading': 'Modules laden…',
+  'training.stat.all': 'Modules toegewezen',
   'training.subtitle':
     'Modules ontgrendelen op 30/60/90 aansluitend op uw rol. Verplichte modules komen eerst.',
   'training.title': 'Vaardigheden, tools en verhalen — in uw eigen tempo.',
@@ -185,9 +230,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'Module niet gevonden',
   'trainingModule.quizBody': 'Behaal een score van 80% of hoger om deze module af te ronden.',
   'trainingModule.quizHeading': 'Quiz aan einde van module',
+  'trainingModule.quizLocked': 'Start eerst de module',
   'trainingModule.quizNone': 'Geen quiz bij deze module.',
   'trainingModule.quizRetry': 'Opnieuw proberen',
+  'trainingModule.quizStart': 'Start quiz',
   'trainingModule.quizSubmit': 'Verstuur antwoorden',
+  'trainingModule.start': 'Start module',
   'trainingModule.statusNotStarted': 'Niet gestart',
   'welcomeHeroCard.completeLabel': 'Voltooid',
   'welcomeHeroCard.milestonesLabel': 'Mijlpalen',

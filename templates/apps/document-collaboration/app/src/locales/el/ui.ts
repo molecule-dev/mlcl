@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχετε σχόλια, βρήκατε κάποιο σφάλμα ή θέλετε {{app}} για το στούντιο ή την ομάδα σας; Επικοινωνήστε από τις ρυθμίσεις του λογαριασμού σας — κάθε μήνυμα φτάνει σε ένα πραγματικό μέλος της ομάδας.',
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.intro':
+    'Το {{app}} είναι ένα συνεργατικό στούντιο συγγραφής όπου συντάκτες, συγγραφείς και ομάδες γράφουν μαζί σε πραγματικό χρόνο. Ανοίξτε ένα έγγραφο και η σελίδα γίνεται κοινόχρηστη — οι κέρσορες κινούνται, τα σχόλια συνδέονται στο περιθώριο και κάθε αναθεώρηση διατηρείται με ασφάλεια στο ιστορικό.',
+  'about.missionBody':
+    'Πιστεύουμε ότι η εκτενής συγγραφή αξίζει ένα ήρεμο, συγκεντρωμένο περιβάλλον — ένα που χτίζεται γύρω από το χειρόγραφο, όχι τη συνάντηση ή τα εισερχόμενα. Ο επεξεργαστής μας, η παρουσία σε πραγματικό χρόνο και το ιστορικό εκδόσεων είναι όλα σχεδιασμένα ώστε οι συνεργάτες να κινούνται γρήγορα μαζί χωρίς κανείς να χάνει μια παράγραφο ή μια σκέψη.',
+  'about.missionTitle': 'Η αποστολή μας',
+  'about.subtitle': 'Σκεφτείτε μαζί, γράψτε για πάντα.',
   'about.title': 'Σχετικά με το {{app}}',
   'comments.addFailed': 'Δεν ήταν δυνατή η δημοσίευση του σχολίου.',
   'comments.backToDoc': 'Επιστροφή στο χειρόγραφο',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Σχόλια',
   'comments.loading': 'Φόρτωση θεμάτων…',
   'comments.newPlaceholder': 'Προσθέστε ένα σχόλιο στο χειρόγραφο…',
+  'comments.newSubmit': 'Θέση',
   'comments.reopen': 'Επανέναρξη',
   'comments.reopenFailed': 'Δεν ήταν δυνατή η επαναφορά.',
   'comments.replyFailed': 'Δεν ήταν δυνατή η δημοσίευση της απάντησης.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Πρόσφατα προσχέδια, κοινόχρηστα έργα και οι τροποποιήσεις της ημέρας.',
   'dashboard.viewFeed': 'Τροφοδοσία →',
   'editor.back': 'Επιστροφή στα χειρόγραφα',
+  'editor.bodyLabel': 'Σώμα εγγράφου',
   'editor.bodyPlaceholder': 'Ξεκινήστε από το σημείο όπου αναβοσβήνει ο δρομέας.',
   'editor.comments': 'Σχόλια',
   'editor.createFailed': 'Δεν ήταν δυνατή η δημιουργία του εγγράφου.',
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Εάν υπάρχει λογαριασμός με τη διεύθυνση {{email}}, θα σας σταλεί σύντομα ένας σύνδεσμος επαναφοράς.',
+  'forgotPassword.sentHeading': 'Ελέγξτε το email σας',
+  'forgotPassword.submitting': 'Αποστολή\\u2026',
   'forgotPassword.subtitle': 'Θα σας στείλουμε μέσω email έναν σύνδεσμο επαναφοράς.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Κατασκευασμένο με Molecule.',
+  'landing.ctaBody':
+    'Δωρεάν για μεμονωμένους συγγραφείς. Σχέδια Studio για ομάδες συντακτών, ghostwriters και αξιολογητών.',
   'landing.ctaHeading': 'Άνοιξε τη σελίδα. Άσε τον κέρσορα να ξεκινήσει.',
   'landing.ctaPrimary': 'Άνοιξε ένα στούντιο',
   'landing.eyebrow': 'Για συγγραφείς, συντάκτες και ομάδες',
   'landing.featuresEyebrow': 'Τι αποκτάτε',
   'landing.featuresHeading': 'Ένα στούντιο για το προσχέδιο μεγάλου μήκους.',
+  'landing.featuresSubtitle':
+    'Το {{appName}} είναι χτισμένο γύρω από το χειρόγραφο — όχι τη συνάντηση, όχι τα εισερχόμενα.',
   'landing.getStarted': 'Άνοιξε το στούντιο',
   'landing.heroCta': 'Ξεκινήστε να γράφετε',
   'landing.heroSubtitle':
@@ -95,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} μη αναγνωσμένα · σχόλια, αναφορές, προσκλήσεις κοινοποίησης και αιτήματα για προτάσεις.',
   'presenceAvatars.label': '{{count}} συνεργάτες',
+  'privacy.intro': 'Πώς συλλέγουμε, χρησιμοποιούμε και προστατεύουμε τις πληροφορίες σας.',
   'privacy.title': 'Πολιτική απορρήτου',
   'profile.about.description':
     'Μια σύντομη βιογραφία για το δημόσιο προφίλ σας και τις σελίδες των συντελεστών.',
@@ -108,7 +125,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Παρουσία',
   'profile.pronouns': 'Αντωνυμίες',
   'profile.publicToggle': 'Εμφάνιση προφίλ στους συμπαίκτες',
+  'profile.role': 'Ρόλος / τίτλος',
   'profile.subtitle': 'Πώς σας βλέπουν οι συνεργάτες σας.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} συγγραφείς που δραστηριοποιούνται στο στούντιο',
   'quillonAuthBrandPanel.quote':
     '«Το γράψιμο είναι το μόνο πράγμα που, όταν το κάνω, δεν νιώθω ότι θα έπρεπε να κάνω κάτι άλλο.»',
@@ -116,6 +135,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Άνοιγμα →',
   'quillonKpiCard.trend': 'Πρόσφατη τάση',
   'quillonLayout.menu': 'Μενού',
+  'quillonLayout.mobileNavLabel': 'Πλοήγηση για κινητά',
   'quillonLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'quillonStudioHero.collab': 'Συνεργάτες',
   'quillonStudioHero.docs': 'Έγγραφα στα οποία έγινε αναφορά',
@@ -124,7 +144,9 @@ export const ui: UiTranslations = {
   'quillonStudioHero.subtitle': 'Πάρτε το χειρόγραφο, αφήστε ένα σχόλιο, προωθήστε μια παράγραφο.',
   'quillonStudioHero.words': 'Λέξεις σήμερα',
   'resetPassword.confirmPlaceholder': 'Επαναλάβετε τον νέο κωδικό',
+  'resetPassword.passwordLabel': 'Νέος κωδικός πρόσβασης',
   'resetPassword.passwordPlaceholder': 'Εισάγετε έναν νέο κωδικό πρόσβασης',
+  'resetPassword.submitting': 'Επαναφορά…',
   'resetPassword.subtitle': 'Επιλέξτε έναν ισχυρό κωδικό πρόσβασης — τουλάχιστον 12 χαρακτήρες.',
   'settings.account.description': 'Πώς να συνδεθείτε.',
   'settings.billing.canceled': 'Η συνδρομή ακυρώθηκε.',
@@ -133,7 +155,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Δεν έχει ρυθμιστεί',
   'settings.billing.updated': 'Το σχέδιο ενημερώθηκε.',
   'settings.editor.description': 'Πώς συμπεριφέρεται ο καμβάς ενώ γράφετε.',
+  'settings.editor.title': 'Προτιμήσεις επεξεργαστή',
   'settings.eyebrow': 'Προτιμήσεις στούντιο',
+  'settings.language.title': 'Γλώσσα',
   'settings.notifications.${n.key}.description': 'Γλώσσα',
   'settings.notifications.description': 'Επιλέξτε τι θα λαμβάνετε στο inbox σας.',
   'settings.subtitle':
@@ -143,6 +167,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Μου το έδειξε',
   'shared.loadFailed': 'Δεν ήταν δυνατή η φόρτωση των κοινόχρηστων εγγράφων.',
   'shared.subtitle': 'Χειρόγραφα, υπομνήματα και σημειώσεις από το υπόλοιπο στούντιο.',
+  'signup.brandAttribution': 'Anaïs Park — Συντάκτρια, The Quarterly',
   'signup.brandQuote':
     '«Το πρώτο σου χειρόγραφο είναι το πιο δύσκολο. Το Quillon το κάνει λιγότερο μοναχικό.»',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -150,6 +175,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Αναΐς',
   'signup.heading': 'Δημιουργήστε τον λογαριασμό σας στο Quillon',
   'signup.lastNamePlaceholder': 'Πάρκο',
+  'signup.submitting': 'Άνοιγμα του στούντιο σας…',
   'signup.subtitle':
     'Ένα ήσυχο γραφείο, συνεργάτες που δημιουργούν ευχάριστη ατμόσφαιρα και ένα πρόγραμμα επεξεργασίας κειμένων μεγάλου μήκους που δεν σας εμποδίζει.',
   'templates.blank.subtitle': 'Μια κενή σελίδα. Ο δρομέας ξεκινά.',
@@ -163,11 +189,13 @@ export const ui: UiTranslations = {
     'Ξεκινήστε με μια προσεκτικά σχεδιασμένη δομή. Προσαρμόστε την όπως θέλετε.',
   'templates.useFailed': 'Δεν ήταν δυνατή η δημιουργία εγγράφου από αυτό το πρότυπο.',
   'templates.useTemplate': 'Χρησιμοποιήστε αυτό το πρότυπο',
+  'terms.intro': 'Οι όροι υπό τους οποίους μπορείτε να χρησιμοποιήσετε αυτήν την υπηρεσία.',
   'terms.title': 'Όροι παροχής υπηρεσιών',
   'time.daysAgo': '{{days}}η πριν',
   'time.hoursAgo': '{{hours}}ω πριν',
   'time.justNow': 'μόλις τώρα',
   'trash.confirmDelete': 'Επιβεβαίωση διαγραφής',
+  'trash.confirmEmpty': 'Επιβεβαίωση — διαγραφή όλων',
   'trash.deleteFailed': 'Δεν ήταν δυνατή η διαγραφή.',
   'trash.deleteForever': 'Οριστική διαγραφή',
   'trash.empty': 'Δεν υπάρχει τίποτα να ανακτήσω.',
@@ -183,7 +211,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'Δεν υπάρχουν ακόμη αλλαγές — αποθηκεύστε το έγγραφο για να ξεκινήσει το ιστορικό του.',
   'versionHistory.heading': 'Ιστορικό εκδόσεων',
+  'versionHistory.latest': 'Τελευταία νέα',
   'versionHistory.loadFailed': 'Δεν ήταν δυνατή η φόρτωση του ιστορικού.',
+  'versionHistory.noContent': 'Δεν καταγράφηκε περιεχόμενο για αυτήν την αναθεώρηση.',
   'versionHistory.previewing': 'Προεπισκόπηση',
   'versionHistory.restore': 'Επαναφορά αυτής της έκδοσης',
   'versionHistory.restoreFailed': 'Η επαναφορά απέτυχε.',

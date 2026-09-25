@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Հարցեր ամրագրման, կարծիքի կամ գույքի մասին, որը, ձեր կարծիքով, պետք է լինի {{app}}-ում։ Կապվեք մեր թիմի հետ ձեր հաշվից — յուրաքանչյուր հաղորդագրություն հասնում է իրական մարդու, որը կարող է օգնել։',
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մեր մասին',
+  'about.featureLoyalty':
+    'Միայն անդամների համար նախատեսված գներ և հավատարմության ծրագիր, որը միավորներ, ուշացած դուրս գրանցում և սենյակի բարելավում է տալիս յուրաքանչյուր ամրագրման համար։',
+  'about.featureReviews':
+    'Ստուգված հյուրերի կարծիքներ և խմբագրական ընտրանի, որպեսզի կարողանաք վստահել կացությանը նախքան ժամանելը։',
+  'about.featureRooms':
+    'Սենյակների, գների և հարմարությունների կողք-կողքի համեմատում՝ թափանցիկ, ամբողջական գնով — հարկերն ու հանգստավայրի վճարները ներառված են վճարելուց առաջ։',
+  'about.featureSearch':
+    'Իրական ժամանակում որոնում ստուգված հյուրանոցների շրջանում՝ կենդանի հասանելիությամբ, քարտեզի տեսքով և հարուստ լուսանկարների պատկերասրահներով։',
+  'about.featureTrips':
+    'Պահված ընտրյալներ և Ուղևորությունների վահանակ, որը պահում է բոլոր ամրագրումները, երթուղին և հաստատումները մեկ տեղում։',
+  'about.intro':
+    '{{app}}-ը հյուրանոցների ամրագրման հարթակ է ճանապարհորդների համար, ովքեր կարևորում են որակը։ Յուրաքանչյուր գույք անձամբ ստուգվում է մեր խմբագրական թիմի կողմից — ոչ ագրեգատորի պաշար, ոչ խաբուսիկ հայտարարություններ։ Որոնեք իրական հասանելիություն, համեմատեք սենյակները, գները և հարմարությունները կողք-կողքի, ապա ամրագրեք մի քանի հպումով՝ հստակ, ամբողջական գնով։',
+  'about.missionBody':
+    'Կացության տեղ ամրագրելը պետք է լինի հանգիստ և ազնիվ։ Մենք ցուցադրում ենք թափանցիկ գներ՝ հարկերն ու հանգստավայրի վճարները նախապես ներառված, պարգևատրում ենք հավատարիմ հյուրերին՝ փոխարենը նրանցից մանր գումարներ կորզելու, և առաջին տեղում դնում ենք ձեր գումարին արժանի կացությունները — որպեսզի ավելի քիչ ժամանակ ծախսեք ներդիրները համեմատելով և ավելի շատ՝ հենց ուղևորության վրա։',
+  'about.missionTitle': 'Մեր առաքելությունը',
+  'about.subtitle': 'Ճշգրտված, թափանցիկ միջոց՝ ճիշտ հյուրանոցը գտնելու և ամրագրելու համար։',
   'account.loyalty.activitySummary': '{{nights}} գիշերներ · {{spend}} այս տարի անցկացրած',
+  'account.loyalty.benefitsHeading': 'Ձեր առավելությունները',
   'account.loyalty.heading': 'Հավատարմություն',
   'account.loyalty.loading': 'Հավատարմության ծրագիրը բեռնվում է…',
-  'account.loyalty.pointsTowardNext': '{{միավորներ}} / {{հաջորդ}} մատնանշում է {{հաջորդ մակարդակ}}',
+  'account.loyalty.maxTier': 'Ամենաբարձր մակարդակ — վայելեք ձեր առավելությունները։',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} միավոր մինչև {{nextTier}}',
   'account.loyalty.tier': 'Ընթացիկ մակարդակ',
   'account.loyalty.unavailable': 'Հավատարմության մասին տեղեկատվությունը հասանելի չէ։',
   'account.navLabel': 'Հաշվի բաժիններ',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Հաստատեք ամրագրումը · {{total}}',
   'bookingCheckout.datesRequired': 'Խնդրում ենք ընտրել ձեր մուտքի և ելքի ամսաթվերը։',
   'bookingCheckout.guestHeading': 'Առաջատար հյուր',
+  'bookingCheckout.heading': 'Հաստատել և ամրագրել',
   'bookingCheckout.loadError': 'Հատկությունը չհաջողվեց բեռնել։',
   'bookingCheckout.nights': '{{rate}} × {{count}} գիշերներ',
   'bookingCheckout.notFound': 'Հատկությունը չի գտնվել։',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Հարկեր և վճարներ',
   'bookingCheckout.tripHeading': 'Ձեր ուղևորությունը',
   'bookingConfirmation.allTripsCta': 'Բոլոր ուղևորությունները',
+  'bookingConfirmation.confNumber': 'Հաստատման համար՝ {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Ձեր ամրագրումը մշակվում է։',
   'bookingConfirmation.heading': 'Ամրագրումը հաստատված է',
   'bookingConfirmation.loading': 'Ձեր ամրագրումը բեռնվում է…',
   'bookingConfirmation.searchMoreCta': 'Դիտել ավելի շատ կացարաններ',
   'bookingConfirmation.subheadingForTrip':
-    '{{գույք}} մեջ {{քաղաք}} , {{երկիր}} Կհանդիպենք {{checkIn}} .',
+    '{{property}}՝ {{city}}-ում, {{country}}։ Կհանդիպենք {{checkIn}}-ին։',
   'bookingConfirmation.total': 'Ընդհանուր {{total}}',
   'bookingConfirmation.viewTripCta': 'Դիտել ուղևորությունը',
   'common.goToDashboard': 'Անցնել վահանակ',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Չհաջողվեց բեռնել նախընտրածները։',
   'favorites.pricePerNight': '{{price}} / գիշեր',
   'favorites.removeCta': 'Չեղարկել պահպանումը',
+  'favorites.removing': 'Հեռացվում է…',
   'forgotPassword.subheading':
     'Մուտքագրեք ձեր հաշվի էլ․ հասցեն, և մենք ձեզ կուղարկենք անվտանգ վերակայման հղում։',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Սոջըրնի անդամներ',
   'landing.cta.heading': 'Միայն անդամների համար նախատեսված գներ։ Ամեն ամրագրում, ամեն անգամ։',
   'landing.cta.signup': 'Ստեղծեք անվճար հաշիվ',
+  'landing.cta.subheading':
+    'Միավորներ վաստակեք յուրաքանչյուր կացության համար, բացեք ուշացած դուրս գրանցումը և սենյակի բարելավումը, և առաջինը ստացեք հասանելիություն նոր գույքերին նախքան դրանք հրապարակայնորեն ցուցադրվելը։',
   'landing.destinations.eyebrow': 'Ուր գնալ հաջորդը',
   'landing.destinations.heading': 'Առաջարկվող ուղղություններ',
   'landing.destinations.seeAll': 'Դիտել բոլոր ուղղությունները',
@@ -61,13 +89,21 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Պատմություններ, որոնց համար արժե փաթեթավորել',
   'landing.nav.join': 'Միացե՛ք Auberge-ին',
   'landing.nav.search': 'Որոնումը մնում է',
+  'landing.preview.browseAll': 'Դիտել ամբողջ հավաքածուն',
   'landing.preview.eyebrow': 'Ներսից մի հայացք',
   'landing.preview.heading': 'Այս ամսվա ընթացքում ընտրված կացարաններ',
+  'landing.preview.subheading':
+    '{{appName}}-ի յուրաքանչյուր գույք անձամբ ստուգվում է մեր խմբագրական թիմի կողմից — ոչ ագրեգատորի պաշար, ոչ խաբուսիկ հայտարարություններ։',
   'login.eyebrow': 'Անդամների տարածք',
+  'login.noAccount': 'Նորեկ եք Tessera-ում։',
   'login.signupLink': 'Ստեղծեք անվճար հաշիվ',
   'login.subheading':
     'Մուտք գործեք՝ ձեր ուղևորությունները կառավարելու, հաստատումները դիտելու և այնտեղից շարունակելու համար։',
+  'loyaltyTierBadge.points': '{{points}} միավորներ',
   'planUpdated.heading': 'Պլանը թարմացված է',
+  'planUpdated.retry': 'Փորձեք կրկին',
+  'planUpdated.verifyFailed': 'Մենք դեռ չենք կարող հաստատել ձեր վճարումը։',
+  'planUpdated.verifyFailedBody': 'Ձեր վճարումը կարող է դեռ մշակվել։ Փորձեք կրկին մի փոքր ուշ։',
   'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'pricing.limit.advancedFeatures': 'Ընդլայնված հնարավորություններ՝',
   'pricing.limit.canExport': 'Տվյալների արտահանում:',
@@ -79,7 +115,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Ինչ է առաջարկում այս վայրը',
   'propertyDetail.backLink': 'Վերադառնալ որոնմանը',
   'propertyDetail.bookCta': 'Ամրագրել',
+  'propertyDetail.bookmarkAria': 'Պահպանել հատկությունը',
   'propertyDetail.bookmarkAriaSaved': 'Հեռացնել պահպանված հատկություններից',
+  'propertyDetail.galleryImageAlt': '{{name}} լուսանկար {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} հերոսի լուսանկար',
   'propertyDetail.hidePhotos': 'Թաքցնել լուսանկարները',
   'propertyDetail.lineCleaning': 'Մաքրման վճար',
@@ -89,6 +127,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'գիշեր',
   'propertyDetail.noChargeYet': 'Ձեզանից դեռ գումար չի գանձվի',
   'propertyDetail.notFound': 'Հատկությունը չի գտնվել։',
+  'propertyDetail.perNight': '/ գիշեր',
+  'propertyDetail.pickDatesHint': 'Ընտրեք ձեր ամսաթվերը՝ գնի ամբողջական բաշխումը տեսնելու համար։',
   'propertyDetail.reviewCount': '( {{count}} ակնարկներ)',
   'propertyDetail.reviewsHeading': 'Վերջին ակնարկները',
   'propertyDetail.roomCapacity': 'Քնում է {{count}}',
@@ -101,6 +141,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Նոր գաղտնաբառ',
   'resetPassword.subheading':
     'Ընտրեք նոր գաղտնաբառ ձեր Auberge հաշվի համար: Օգտագործեք առնվազն 8 նիշ. խորհուրդ ենք տալիս օգտագործել գաղտնաբառ:',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Ձեր որոնմանը համապատասխանող հատկություններ չկան։',
   'searchResults.emptyHint':
     'Փորձեք ընդլայնել ձեր ֆիլտրերը կամ հանել գնի առաստաղը. Auberge-ը հյուրանոցներ ունի 14 երկրներում։',
@@ -108,19 +149,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Ընտրված կացարաններ',
   'searchResults.headingForQuery': 'Մնում է « {{q}} «',
   'searchResults.loadError': 'Հատկությունները չհաջողվեց բեռնել։',
+  'searchResults.mapHint':
+    'Սավառնեք քարտի վրա՝ քարտեզի վրա ընդգծելու համար։ Mapbox-ի կենդանի սալիկներ արտադրական միջավայրում։',
   'searchResults.mapPinAria': '{{name}} — {{price}} մեկ գիշերվա համար',
   'searchResults.sortLabel': 'Դասավորել ըստ',
   'searchResults.subheading': '{{count}} հատկություններ · {{guests}} հյուրեր',
   'signup.eyebrow': 'Դարձեք անդամ',
   'signup.subheading':
     'Միացե՛ք Auberge-ին՝ անդամների համար նախատեսված միայն գներ, ուշացած վճարումներ և նոր անշարժ գույքի առաջին մուտք գործելու հնարավորություն ստանալու համար։',
+  'sojournAuthShell.brand.eyebrow': 'Մնացեք արտասովոր մի տեղում',
+  'sojournAuthShell.brand.heading':
+    'Գույքերի ճշգրտված հավաքածու — գեղեցիկ ներկայացված, թափանցիկ գնով։',
   'sojournHeroSearchCard.checkInAria': 'Մուտքի ամսաթիվը',
   'sojournHeroSearchCard.checkOutAria': 'Ելքի ամսաթիվ',
+  'sojournHeroSearchCard.destAria': 'Նպատակակետ',
+  'sojournHeroSearchCard.destLabel': 'Որտեղ',
   'sojournHeroSearchCard.destPlaceholder': 'Քաղաք, շրջան կամ անշարժ գույք',
   'sojournHeroSearchCard.eyebrow': 'Ընտրված կացարաններ · Միայն անդամների համար նախատեսված գներ',
   'sojournHeroSearchCard.guestsOption': '{{n}} հյուրեր',
   'sojournHeroSearchCard.subtitle':
     'Բուտիկ հյուրանոցների, ժամանակակից դիզայնով զբաղվող հյուրանոցների և հազվագյուտ հանգստավայրերի ընտրված հավաքածու՝ թափանցիկ գներով, գեղեցիկ ներկայացված։',
+  'sojournHeroSearchCard.title': 'Մնացեք արտասովոր մի տեղում',
+  'sojournHeroSearchCard.trustLoyalty': 'Միավորներ վաստակեք յուրաքանչյուր կացության համար',
   'sojournHeroSearchCard.trustNoFees': 'Ոչ մի թաքնված վճար, երբեք',
   'sojournHeroSearchCard.trustVetted': 'Միայն ձեռքով ստուգված անշարժ գույք',
   'sojournLayout.primaryNavLabel': 'Հիմնական նավիգացիա',

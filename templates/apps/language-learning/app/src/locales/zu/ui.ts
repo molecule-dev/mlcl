@@ -1,12 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Imibuzo, impendulo, noma iphutha ofuna ukulibika? Xhumana neqembu kusuka kuzilungiselelo ze-akhawunti yakho — yonke imiyalezo ifinyelela kumuntu wangempela ofunda izilimi futhi.',
   'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana NATHI',
+  'about.missionTitle': 'Umsebenzi wethu',
+  'about.whatYouGet': 'Lokho okutholayo',
   'common.goToDashboard': 'Yiya ku-Dashboard',
   'common.logout': 'Phuma',
+  'dailyStatsTriad.heartsHint': 'Gcwalisa kabusha ekuqaleni kwesifundo ngasinye',
   'dailyStatsTriad.heartsLabel': 'Izinhliziyo',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
+  'dailyStatsTriad.minutesHint': 'Kusuka emisebenzini yanamuhla',
   'dailyStatsTriad.minutesLabel': 'Amaminithi namuhla',
   'dailyStatsTriad.minutesValue': '{{count}} umzuzu',
   'dailyStatsTriad.wordsLabel': 'Amagama aqondwe kahle',
@@ -15,17 +21,29 @@ export const ui: UiTranslations = {
   'dashboard.heading': 'Buenos días, {{name}} .',
   'dashboard.loadError':
     'Ayikwazanga ukulayisha inqubekela phambili yakamuva — ibonisa amanani agcinwe kunqolobane.',
+  'dashboard.loading': 'Iyavuselela…',
   'dashboard.noLessons': 'Azikho izifundo ezitholakalayo okwamanje — hlola futhi maduze.',
+  'dashboard.startPractice': 'Qala ukuzilolonga ukukhuluma',
+  'dashboard.subheading':
+    'Qhubeka lapho ugcine khona — izikhathi ezintathu ezimfushane futhi uzofinyelela umgomo wanamuhla.',
   'dashboard.viewAllLessons': 'Zonke izifundo →',
+  'forgotPassword.subheading':
+    'Faka i-imeyili yakho futhi sizokuthumela isixhumanisi sokuqalisa kabusha.',
   'forgotPassword.successBody':
     'Hlola ibhokisi lakho lokungenayo — sithumele isixhumanisi sokulisetha kabusha.',
   'forgotPassword.successHint':
     'Uma {{email}} uma ifana ne-akhawunti, isixhumanisi sizofika kungakapheli umzuzu.',
+  'landing.copyright': '© {{year}} {{app}}. Yakhelwe abafundi abadala.',
   'landing.ctaBody': 'Akudingeki ikhadi. Lahla i-imeyili yakho, khetha ulimi, qala kusasa.',
   'landing.ctaHeading': 'Ukulungele ukuthola indlela yakho yokukhuluma?',
   'landing.eyebrow': 'Ukuzijwayeza ulimi kwansuku zonke kwabantu abadala',
   'landing.featuresHeading': 'I-loop yokuzijwayeza ehlonipha isikhathi sakho',
+  'landing.featuresSubheading':
+    'Yakhelwe abadala abanesikhathi samaminithi angamashumi amathathu ngosuku, hhayi amahora angamashumi amathathu ngesonto.',
   'landing.heroCta': 'Qala uchungechunge lwezinsuku eziyi-7',
+  'landing.heroSubtitle':
+    'Izifundo zemizuzu emihlanu ezilingana nekhefu lekhofi. Ukuzilolonga, amagama, ukukhuluma — konke kuhambisana ne-streak ozoyigcina ngempela.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.languagesEyebrow': 'Khetha ulimi',
   'landing.languagesHeading': 'Izilimi eziyishumi nane, umkhuba owodwa wansuku zonke',
   'landing.proof.languages': '{{count}} izilimi',
@@ -40,11 +58,18 @@ export const ui: UiTranslations = {
   'leaderboard.heading': 'Ibhodi yabaphambili',
   'leaderboard.loadError': 'Ayikwazanga ukulayisha ibhodi yabaphambili.',
   'leaderboard.loading': 'Ilayisha ibhodi yabaphambili…',
+  'leaderboard.rewardBody':
+    'Ukubamba igolide amaviki amathathu elandelana kukukhwezela kudayimane. Izigaba ezinobungane kuphela.',
+  'leaderboard.rewardEyebrow': 'Umklomelo waleli viki',
+  'leaderboard.rewardHeading': 'Abaphezulu abangu-{{count}} bathola ibheji yeligi yegolide',
   'leaderboard.subheading':
     'I-XP kuleli sonto. Isethwa kabusha ngeSonto phakathi kwamabili ngesikhathi sendawo yakini.',
   'leaderboard.weeklyPeriod': 'Kuleli sonto · bangani',
+  'leaderboardPanel.rankSuffix': 'Isikhundla # {{rank}}',
   'leaderboardPanel.title': 'Ibhodi yabaphambili yabangani',
+  'leaderboardPanel.xp': '{{xp}} XP',
   'leaderboardPanel.you': '(Wena)',
+  'lessonCard.continue': 'Qhubeka →',
   'lessonCard.duration': '{{min}} umzuzu',
   'lessonCard.level': 'Izinga {{level}}',
   'lessonCard.progressPercent': '{{percent}} % ephelele',
@@ -53,14 +78,17 @@ export const ui: UiTranslations = {
   'lessonDetail.check': 'Isheke',
   'lessonDetail.checking': 'Iyahlola…',
   'lessonDetail.correct': 'I-Brillante!',
+  'lessonDetail.correctHint': '+{{xp}} XP. Qhubeka.',
   'lessonDetail.empty': 'Azikho izivivinyo kulesi sifundo.',
   'lessonDetail.exit': 'Isifundo sokuphuma',
   'lessonDetail.fillBlank': 'Gcwalisa isikhala esingenalutho',
   'lessonDetail.finish': 'Qedela isifundo',
   'lessonDetail.incorrect': 'Akuyona neze — “ {{answer}} "',
+  'lessonDetail.incorrectHint': 'Uzoyibona futhi lokhu ekubuyekezweni kwakusasa.',
   'lessonDetail.lessonId': 'Isifundo · {{id}}',
   'lessonDetail.loadError': 'Ayikwazanga ukulayisha izivivinyo.',
   'lessonDetail.loading': 'Ilayisha isifundo…',
+  'lessonDetail.pronunciation': 'Khetha ukubiza okulungile',
   'lessonDetail.submitError': 'Ayikwazanga ukuthumela impendulo.',
   'lessonDetail.translation': 'Humusha umusho',
   'lessonDetail.xpEarned': 'I-XP ezuziwe · {{xp}}',
@@ -79,6 +107,12 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'Vula imenyu yokuzulazula',
   'parlanceLayout.nav.profile': 'Iphrofayela',
   'parlanceLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
+  'planUpdated.body':
+    'Ushintsho lwakho lokukhokha lusebenza manje. Ungaphatha uhlelo lwakho noma nini kusuka ekhasini lokukhokha.',
+  'planUpdated.retry': 'Zama futhi',
+  'planUpdated.verifyFailed': 'Asikwazanga ukuqinisekisa inkokhelo yakho okwamanje.',
+  'planUpdated.verifyFailedBody':
+    'Inkokhelo yakho ingase isacutshungulwa. Zama futhi ngemva kwesikhashana.',
   'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'practice.empty': 'Azikho imisho etholakalayo okwamanje.',
   'practice.eyebrow': 'Ukuzijwayeza ukukhuluma',
@@ -102,6 +136,9 @@ export const ui: UiTranslations = {
   'pricing.limits.progress': 'okufakiwe kwenqubekela phambili',
   'profile.anonymous': 'Umfundi',
   'profile.avatarAlt': '{{name}} isithombe',
+  'profile.eyebrow': 'Ilungu kusukela {{joined}}',
+  'profile.eyebrowNew': 'Umfundi omusha',
+  'profile.langLessonCount': '{{count}} izifundo',
   'profile.langLevel': 'Izinga {{level}}',
   'profile.languages': 'Izilimi',
   'profile.languagesHeading': 'Izilimi ezisaqhubeka',
@@ -111,6 +148,7 @@ export const ui: UiTranslations = {
   'profile.streak': 'Umugqa',
   'profile.totalXp': 'Isamba se-XP',
   'resetPassword.confirmPlaceholder': 'Kuthayiphe futhi',
+  'resetPassword.mismatch': 'Amaphasiwedi awafani.',
   'resetPassword.newPasswordLabel': 'Iphasiwedi Entsha',
   'resetPassword.newPasswordPlaceholder': 'Izinhlamvu eziyisishiyagalombili noma ngaphezulu',
   'resetPassword.subheading':
@@ -119,6 +157,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Izintandokazi zokuzijwayeza',
   'settings.goalBody':
     'Ingakanani i-XP oyihlose nsuku zonke. Imigqa igcinwa noma nini lapho ufinyelela umgomo.',
+  'settings.goalHeading': 'Umgomo wansuku zonke',
   'settings.goalMinutes': '~ {{min}} iminithi/ngosuku',
   'settings.language.description':
     'Khetha ulimi olusetshenziswa kuwo wonke amamenyu namalebula ohlelo lokusebenza.',

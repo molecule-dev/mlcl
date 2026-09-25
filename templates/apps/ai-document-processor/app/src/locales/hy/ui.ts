@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Հարց ունե՞ք, սխալ եք գտել, թե՞ թիմի համար դեմո եք ուզում։ Կապվեք ձեր հաշվի կարգավորումներից — յուրաքանչյուր հաղորդագրություն հասնում է թիմի իրական մարդու։',
   'about.contactTitle': 'Կապվեք մեզ հետ',
+  'about.intro':
+    '{{app}}-ը սկանավորված փաստաթղթերի ու PDF-ների կույտերը վերածում է կառուցվածքավորված, որոնելի, դասավորված տվյալների։ Ներբեռնեք հաշիվ-ապրանքագրեր, անդորրագրեր, պայմանագրեր կամ ձևաթղթեր և թողեք, որ AI-ը կարդա, արտահանի, դասակարգի ու դասավորի դրանք — վստահության գույներով, որպեսզի ձեր թիմը ստուգի միայն այն, ինչն իսկապես մարդու կարիք ունի։',
+  'about.missionBody':
+    'Փաստաթղթային ձանձրալի աշխատանքը չպետք է խլի ձեր թիմի օրը։ Մենք հավատում ենք, որ յուրաքանչյուր արտահանված արժեք պետք է լինի բացատրելի և ստուգելի — որպեսզի կարողանաք վստահել ավտոմատացմանը՝ չկորցնելով թղթային հետքը։ {{app}}-ը ստեղծված է յուրաքանչյուր կույտից ժամեր խնայելու համար՝ մարդուն ներգրավված պահելով այնտեղ, որտեղ դա կարևոր է։',
+  'about.missionTitle': 'Մեր առաքելությունը',
+  'about.subtitle': 'OCR, AI արտահանում, դասակարգում և ավտոմատ դասավորում ձեր փաստաթղթերի համար։',
   'about.title': '{{app}}-ի մասին',
+  'about.whatYouGetTitle': 'Ինչ եք ստանում',
   'authShell.backToLanding': '← Վերադառնալ վայրէջք',
   'common.goToDashboard': 'Անցնել վահանակ',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Այսօր · Գործունեության ակնարկ',
   'dashboard.heading': 'Փաստաթղթային հետախուզություն',
+  'dashboard.metric.accuracy': 'Միջին ճշգրտություն',
   'dashboard.metric.filed': 'Ներկայացվել է այսօր',
   'dashboard.metric.filedCaption': 'Ուղղորդվում է ներկայացման կանոններով',
   'dashboard.metric.processed': 'Մշակվել է այսօր',
@@ -23,11 +33,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Փաստաթուղթ',
   'dashboard.recent.col.uploaded': 'Վերբեռնված է',
   'dashboard.recent.heading': 'Վերջին փաստաթղթերը',
+  'dashboard.recent.typeUnknown': 'Սպասում է դասակարգմանը',
   'dashboard.subheading':
     'Յուրաքանչյուր էջ դասակարգվում, արդյունահանվում և արխիվացվում է՝ վստահելի գույներով, որպեսզի վերանայումը մնա կենտրոնացած։',
   'documentDetail.audit.heading': 'Աուդիտի ժամանակացույց',
+  'documentDetail.audit.subheading':
+    'Այս փաստաթղթի վրա կատարված յուրաքանչյուր քայլ՝ պատասխանատու կատարողի հետ։',
   'documentDetail.back': 'Բոլոր փաստաթղթերը',
   'documentDetail.downloadHint': 'Օգտագործեք «Ներբեռնել» կոճակը՝ բնօրինակ ֆայլը բացելու համար։',
+  'documentDetail.extracted.empty': 'Դեռ դաշտեր արտահանված չեն։',
   'documentDetail.extracted.heading': 'Արդյունահանված դաշտեր',
   'documentDetail.extracted.subheading':
     '{{count}} դաշտեր · սեղմեք ցանկացած դաշտ՝ էջում ընդգծելու համար',
@@ -55,13 +69,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Փաստաթղթերի որոնում…',
   'documents.subheading': '{{count}} ձեր գրադարանի փաստաթղթերը՝ տեսակավորված ըստ նորերի։',
   'documents.uploadCta': 'Վերբեռնեք փաստաթղթեր',
+  'documentTypeBreakdown.barAria': 'Փաստաթղթերի կազմը ըստ տեսակի',
   'documentTypeBreakdown.empty': 'Դեռևս փաստաթղթեր չեն մշակվել։',
   'documentTypeBreakdown.subtitle': '{{total}} մշակված',
   'documentTypeBreakdown.title': 'Փաստաթղթի կազմը',
+  'forgotPassword.backToSignIn': '← Վերադառնալ մուտք գործելուն',
   'forgotPassword.checkEmail': 'Ստուգեք ձեր էլ. փոստը',
   'forgotPassword.tip': 'Չե՞ք ստացել։ Ստուգեք սպամը կամ փորձեք այլ հասցե։',
+  'landing.copyright':
+    '© {{year}} {{app}}։ Ստեղծված է այն օպերացիոն թիմերի համար, որոնք ստուգում են ամեն էջ։',
+  'landing.ctaBody':
+    '14-օրյա փորձաշրջան։ Քարտ չի պահանջվում։ Չեղարկեք ցանկացած պահի։ Ստեղծված է արագ շարժվող և դանդաղ ստուգող օպերացիոն թիմերի համար։',
   'landing.ctaHeading': 'Դադարեք մուտքագրել կտրոնները։ Սկսեք դրանք արխիվացնել։',
   'landing.eyebrow': 'OCR · Արդյունահանում · Արհեստական բանականության գրանցում',
+  'landing.featuresHeading': 'Փաստաթղթային ինտելեկտ, որը բացատրում է ինքն իրեն',
+  'landing.heroSubtitle':
+    'Ներբեռնեք հաշիվ-ապրանքագրերի, անդորրագրերի, պայմանագրերի կամ ձևաթղթերի կույտ։ {{app}}-ը դասակարգում, արտահանում և դասավորում է դրանք — վստահության գույներով, որպեսզի ձեր թիմը ստուգի միայն այն, ինչն իսկապես մարդու կարիք ունի։',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Օրական ծավալ · վերջին 7 օր',
   'landing.sampleCardLabel': 'Փաստաթղթերը մշակվել են այսօր',
   'landing.sampleCardSubtitle':
     'Հաշիվ-ապրանքագրերի, կտրոնների և ձևաթղթերի միջին ճշգրտությունը՝ 96.2%։',
@@ -75,6 +100,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Բացել վայրէջքի էջը',
   'notFound.title': 'Այդ էջը ֆայլում չէ',
+  'parcelaHeroCard.accuracy': 'Միջին ճշգրտություն {{value}}% բոլոր արտահանումների համար',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % երեկվա համեմատ',
   'parcelaHeroCard.title': 'Փաստաթղթերը մշակվել են այսօր',
   'parcelaLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
@@ -82,6 +108,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'փաստաթղթեր',
   'pricing.processingLabel': 'մշակման աշխատանքներ',
   'resetPassword.confirmPlaceholder': 'Կրկնեք նոր գաղտնաբառը',
+  'resetPassword.hidePassword': 'Թաքցնել գաղտնաբառը',
   'resetPassword.passwordLabel': 'Նոր գաղտնաբառ',
   'resetPassword.showPassword': 'Ցուցադրել գաղտնաբառը',
   'resetPassword.subtitle': 'Ընտրեք առնվազն 8 նիշանոց մի բան։',
@@ -98,10 +125,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Կանոնները չհաջողվեց բեռնել։',
   'rules.loading': 'Կանոնները բեռնվում են…',
   'rules.matched30d': '{{count}} վերջին 30 օրվա ընթացքում համընկած փաստաթղթեր',
+  'rules.neverUsed': 'Երբեք չի օգտագործվել',
   'rules.newRule': 'Նոր կանոն',
   'rules.saveError': 'Չհաջողվեց պահպանել կանոնը։',
   'rules.subheading':
     'Ասեք համակարգին, թե որտեղ պետք է գնա յուրաքանչյուր տեսակի փաստաթուղթ։ Պայմանների շղթան վերևից ներքև՝ հաղթում է առաջին համընկնումը։',
+  'rules.templatesEmpty': 'Դեռ արտահանման ձևանմուշներ չկան։',
   'rules.templatesHeading': 'Արդյունահանման ձևանմուշներ',
   'rules.templatesSubheading':
     'Դաշտային սխեմաներ, որոնք արդյունահանողը օգտագործում է յուրաքանչյուր փաստաթղթի տեսակի համար։',
@@ -111,17 +140,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Աշխատանքային տարածքի անվանումը',
   'settings.account.subheading':
     'Ծանուցումների և աուդիտի պատմության համար ցուցադրվող անունը և հիմնական էլ․ հասցեն։',
+  'settings.api.confirmRevoke': 'Հաստատե՞լ։',
   'settings.api.copyOnce': 'Պատճենեք այս բանալին՝ այն այլևս չի ցուցադրվի',
   'settings.api.createdOn': 'Ստեղծվել է {{date}}',
   'settings.api.empty': 'API բանալիներ դեռ չկան։ Ստեղծեք մեկը վերևում։',
   'settings.api.error': 'Չհաջողվեց ստեղծել բանալին։',
+  'settings.api.generating': 'Ստեղծվում է…',
+  'settings.api.heading': 'API բանալիներ',
   'settings.api.labelPlaceholder': 'Հիմնական պիտակ (օրինակ՝ CI վերբեռնիչ)',
+  'settings.api.loading': 'Բանալիները բեռնվում են…',
   'settings.api.newKey': 'Ստեղծել բանալի',
   'settings.api.subheading':
     'Օգտագործեք սրանք՝ սկրիպտից կամ ձեր ERP-ից փաստաթղթեր ուղարկելու համար: Ցանկացած պահի պտտեք ցանկացած ստեղն:',
   'settings.integrations.heading': 'Հաշվառման ինտեգրացիաներ',
   'settings.integrations.subheading':
     'Ուղարկեք ներկայացված փաստաթղթերը այն ամպային սկավառակին կամ զրուցարանին, որտեղ ձեր թիմն արդեն իսկ գտնվում է։',
+  'settings.subheading':
+    'Կառավարեք հաշիվը, API բանալիները և դասավորման ինտեգրացիաները ձեր {{app}} աշխատանքային տարածքի համար։',
+  'signup.hidePassword': 'Թաքցնել գաղտնաբառը',
   'signup.identityPrompt': 'Ինչպե՞ս պետք է դիմենք ձեզ։',
   'signup.showPassword': 'Ցուցադրել գաղտնաբառը',
   'signup.subtitle': '14 օր անվճար, քարտ անհրաժեշտ չէ։',
@@ -129,6 +165,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Վերբեռնումը ձախողվեց։',
   'upload.eyebrow': 'Կուլ տալը',
   'upload.heading': 'Վերբեռնեք փաստաթղթեր',
+  'upload.queue.clear': 'Մաքրել ավարտվածները',
   'upload.queue.col.confidence': 'Վստահություն',
   'upload.queue.col.file': 'Ֆայլ',
   'upload.queue.detecting': 'Հայտնաբերվում է…',
@@ -141,5 +178,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Կամ միաժամանակ մի քանի ֆայլ գցեք՝ խմբաքանակով արդյունահանման, դասակարգման և արխիվացման համար:',
   'uploadDropZone.cta': 'Ընտրեք ֆայլեր',
+  'uploadDropZone.maxSize': 'Առավելագույնը 25 ՄԲ մեկ ֆայլի համար · Ծայրից ծայր գաղտնագրված',
   'uploadDropZone.title': 'Թողեք փաստաթղթերը՝ մշակումը սկսելու համար',
 }

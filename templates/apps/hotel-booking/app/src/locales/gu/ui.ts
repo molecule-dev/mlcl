@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'બુકિંગ, પ્રતિસાદ અથવા {{app}} પર હોવું જોઈએ એવી મિલકત વિશે પ્રશ્નો? તમારા એકાઉન્ટમાંથી અમારી ટીમનો સંપર્ક કરો — દરેક સંદેશ સાચા માણસ સુધી પહોંચે છે જે મદદ કરી શકે.',
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'about.eyebrow': 'અમારા વિશે',
+  'about.featureLoyalty':
+    'ફક્ત સભ્યો માટેના દરો અને લોયલ્ટી પ્રોગ્રામ જે દરેક બુકિંગ પર પોઈન્ટ, મોડા ચેકઆઉટ અને રૂમ અપગ્રેડ આપે છે.',
+  'about.featureReviews':
+    'ચકાસાયેલ મહેમાન સમીક્ષાઓ અને એડિટોરિયલ પસંદગીઓ જેથી તમે પહોંચતા પહેલા જ રહેવાની જગ્યા પર ભરોસો મૂકી શકો.',
+  'about.featureRooms':
+    'સાથે-સાથે રૂમ, દરો અને સુવિધાઓ — પારદર્શક, સંપૂર્ણ ભાવ સાથે, ચૂકવતા પહેલા જ ટેક્સ અને રિસોર્ટ ફી સહિત.',
+  'about.featureSearch':
+    'ચકાસાયેલ હોટેલ્સમાં રીઅલ-ટાઇમ શોધ, લાઇવ ઉપલબ્ધતા, નકશા દૃશ્ય અને સમૃદ્ધ ફોટો ગેલેરીઓ સાથે.',
+  'about.featureTrips':
+    'સાચવેલી મનપસંદ અને Trips ડેશબોર્ડ જે દરેક આરક્ષણ, યાત્રા-કાર્યક્રમ અને પુષ્ટિ એક જ જગ્યાએ રાખે છે.',
+  'about.intro':
+    '{{app}} એ ગુણવત્તાની કદર કરતા પ્રવાસીઓ માટેનું હોટેલ-બુકિંગ પ્લેટફોર્મ છે. દરેક મિલકત અમારી એડિટોરિયલ ટીમ દ્વારા વ્યક્તિગત રીતે ચકાસાયેલી છે — કોઈ એગ્રીગેટર ઇન્વેન્ટરી નહીં, કોઈ ભ્રામક લિસ્ટિંગ નહીં. સાચી ઉપલબ્ધતા શોધો, રૂમ, દરો અને સુવિધાઓની સરખામણી કરો, પછી સ્પષ્ટ, સંપૂર્ણ ભાવ સાથે થોડા ટેપમાં બુક કરો.',
+  'about.missionBody':
+    'રહેવાની જગ્યા બુક કરવી શાંત અને પ્રામાણિક લાગવી જોઈએ. અમે ટેક્સ અને રિસોર્ટ ફી સહિત પારદર્શક દરો પહેલેથી બતાવીએ છીએ, વફાદાર મહેમાનોને નાણાં પડાવવાને બદલે પુરસ્કાર આપીએ છીએ, અને તમારા પૈસાને લાયક રહેવાની જગ્યાઓને પ્રથમ રાખીએ છીએ — જેથી તમે ટેબની સરખામણીમાં ઓછો સમય અને યાત્રામાં વધુ સમય ગાળી શકો.',
+  'about.missionTitle': 'અમારું ધ્યેય',
+  'about.subtitle': 'યોગ્ય હોટેલ શોધવા અને બુક કરવાની એક ક્યુરેટેડ, પારદર્શક રીત.',
   'account.loyalty.activitySummary': '{{nights}} રાતો · {{spend}} આ વર્ષે ખર્ચ કર્યો',
+  'account.loyalty.benefitsHeading': 'તમારા લાભો',
   'account.loyalty.heading': 'વફાદારી',
   'account.loyalty.loading': 'લોયલ્ટી લોડ કરી રહ્યું છે…',
-  'account.loyalty.pointsTowardNext': '{{પોઇન્ટ્સ}} / {{આગળ}} નિર્દેશ કરે છે {{આગામી સ્તર}}',
+  'account.loyalty.maxTier': 'ટોચનું સ્તર — તમારા લાભોનો આનંદ લો.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} પોઈન્ટથી {{nextTier}}',
   'account.loyalty.tier': 'વર્તમાન સ્તર',
   'account.loyalty.unavailable': 'લોયલ્ટી માહિતી ઉપલબ્ધ નથી.',
   'account.navLabel': 'ખાતા વિભાગો',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'બુકિંગ કન્ફર્મ કરો · {{total}}',
   'bookingCheckout.datesRequired': 'કૃપા કરીને તમારી ચેક-ઇન અને ચેક-આઉટ તારીખો પસંદ કરો.',
   'bookingCheckout.guestHeading': 'મુખ્ય મહેમાન',
+  'bookingCheckout.heading': 'પુષ્ટિ કરો અને બુક કરો',
   'bookingCheckout.loadError': 'પ્રોપર્ટી લોડ કરવામાં નિષ્ફળ.',
   'bookingCheckout.nights': '{{rate}} × {{count}} રાતો',
   'bookingCheckout.notFound': 'મિલકત મળી નથી.',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'કર અને ફી',
   'bookingCheckout.tripHeading': 'તમારી સફર',
   'bookingConfirmation.allTripsCta': 'બધી ટ્રિપ',
+  'bookingConfirmation.confNumber': 'પુષ્ટિ નંબર: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'તમારું આરક્ષણ પ્રક્રિયામાં છે.',
   'bookingConfirmation.heading': 'બુકિંગ કન્ફર્મ થયું',
   'bookingConfirmation.loading': 'તમારું રિઝર્વેશન લોડ કરી રહ્યું છે…',
   'bookingConfirmation.searchMoreCta': 'વધુ રોકાણ બ્રાઉઝ કરો',
   'bookingConfirmation.subheadingForTrip':
-    '{{મિલકત}} માં {{શહેર}} , {{દેશ}} . આપણે મળીશું {{ચેકઇન}} .',
+    '{{city}}, {{country}}માં {{property}}. {{checkIn}}ના રોજ મળીએ.',
   'bookingConfirmation.total': 'કુલ {{total}}',
   'bookingConfirmation.viewTripCta': 'ટ્રિપ જુઓ',
   'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'મનપસંદ લોડ કરવામાં નિષ્ફળ.',
   'favorites.pricePerNight': '{{price}} / રાત્રિ',
   'favorites.removeCta': 'સાચવવાનું રદ કરો',
+  'favorites.removing': 'દૂર કરી રહ્યું છે...',
   'forgotPassword.subheading':
     'તમારા એકાઉન્ટ પર ઇમેઇલ દાખલ કરો અને અમે તમને એક સુરક્ષિત રીસેટ લિંક મોકલીશું.',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'સોજોર્ન સભ્યો',
   'landing.cta.heading': 'ફક્ત સભ્યો માટે દર. દરેક બુકિંગ, દરેક વખતે.',
   'landing.cta.signup': 'મફત ખાતું બનાવો',
+  'landing.cta.subheading':
+    'દરેક રહેવા પર લોયલ્ટી પોઈન્ટ કમાઓ, મોડા ચેકઆઉટ અને રૂમ અપગ્રેડ અનલૉક કરો, અને નવી મિલકતો જાહેરમાં લિસ્ટ થાય તે પહેલાં તેમની પ્રથમ ઍક્સેસ મેળવો.',
   'landing.destinations.eyebrow': 'આગળ ક્યાં જવું?',
   'landing.destinations.heading': 'ફીચર્ડ સ્થળો',
   'landing.destinations.seeAll': 'બધા ગંતવ્ય સ્થાનો જુઓ',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'પેક કરવા લાયક વાર્તાઓ',
   'landing.nav.join': 'સોજોર્નમાં જોડાઓ',
   'landing.nav.search': 'શોધ રહે છે',
+  'landing.preview.browseAll': 'સંપૂર્ણ સંગ્રહ બ્રાઉઝ કરો',
   'landing.preview.eyebrow': 'અંદર એક નજર',
   'landing.preview.heading': 'આ મહિને હાથથી પસંદ કરેલા રોકાણો',
+  'landing.preview.subheading':
+    '{{appName}} પરની દરેક મિલકત અમારી એડિટોરિયલ ટીમ દ્વારા વ્યક્તિગત રીતે ચકાસાયેલી છે — કોઈ એગ્રીગેટર ઇન્વેન્ટરી નહીં, કોઈ ભ્રામક લિસ્ટિંગ નહીં.',
   'login.eyebrow': 'સભ્યોનો વિસ્તાર',
+  'login.noAccount': 'ટેસેરામાં નવા છો?',
   'login.signupLink': 'મફત ખાતું બનાવો',
   'login.subheading':
     'તમારી ટ્રિપ્સ મેનેજ કરવા, કન્ફર્મેશન જોવા અને તમે જ્યાંથી છોડ્યું હતું ત્યાંથી શરૂ કરવા માટે સાઇન ઇન કરો.',
+  'loyaltyTierBadge.points': '{{points}} પોઈન્ટ',
   'planUpdated.heading': 'પ્લાન અપડેટ કર્યો',
+  'planUpdated.retry': 'ફરી પ્રયાસ કરો',
+  'planUpdated.verifyFailed': 'અમે હજુ સુધી તમારી ચુકવણીની પુષ્ટિ કરી શક્યા નથી.',
+  'planUpdated.verifyFailedBody':
+    'તમારી ચુકવણી હજુ પણ પ્રક્રિયામાં હોઈ શકે છે. થોડીવારમાં ફરી પ્રયાસ કરો.',
   'planUpdated.verifying': 'તમારી ચુકવણીની પુષ્ટિ કરી રહ્યા છીએ…',
   'pricing.limit.advancedFeatures': 'અદ્યતન સુવિધાઓ:',
   'pricing.limit.canExport': 'ડેટા નિકાસ:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'આ સ્થાન શું ઑફર કરે છે',
   'propertyDetail.backLink': 'શોધ પર પાછા જાઓ',
   'propertyDetail.bookCta': 'અનામત',
+  'propertyDetail.bookmarkAria': 'મિલકત સાચવો',
   'propertyDetail.bookmarkAriaSaved': 'સાચવેલા ગુણધર્મોમાંથી દૂર કરો',
+  'propertyDetail.galleryImageAlt': '{{name}} ફોટો {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} હીરો ફોટોગ્રાફ',
   'propertyDetail.hidePhotos': 'ફોટા છુપાવો',
   'propertyDetail.lineCleaning': 'સફાઈ ફી',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'રાત',
   'propertyDetail.noChargeYet': 'તમારી પાસેથી હજુ સુધી શુલ્ક લેવામાં આવશે નહીં',
   'propertyDetail.notFound': 'મિલકત મળી નથી.',
+  'propertyDetail.perNight': '/ રાત્રિ',
+  'propertyDetail.pickDatesHint': 'સંપૂર્ણ ભાવ વિભાજન જોવા માટે તમારી તારીખો પસંદ કરો.',
   'propertyDetail.reviewCount': '( {{count}} સમીક્ષાઓ)',
   'propertyDetail.reviewsHeading': 'તાજેતરના રિવ્યૂ',
   'propertyDetail.roomCapacity': 'ઊંઘે છે {{count}}',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'નવો પાસવર્ડ',
   'resetPassword.subheading':
     'તમારા Auberge એકાઉન્ટ માટે નવો પાસવર્ડ પસંદ કરો. ઓછામાં ઓછા 8 અક્ષરોનો ઉપયોગ કરો; અમે પાસફ્રેઝની ભલામણ કરીએ છીએ.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'તમારી શોધ સાથે કોઈ ગુણધર્મો મેળ ખાતી નથી.',
   'searchResults.emptyHint':
     'તમારા ફિલ્ટર્સને વિસ્તૃત કરવાનો અથવા કિંમત મર્યાદા દૂર કરવાનો પ્રયાસ કરો — સોજોર્ન 14 દેશોમાં રહે છે.',
@@ -108,19 +150,27 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'ક્યુરેટ કરેલા રોકાણો',
   'searchResults.headingForQuery': '" માટે રહે છે {{q}} "',
   'searchResults.loadError': 'ગુણધર્મો લોડ કરવામાં નિષ્ફળ.',
+  'searchResults.mapHint':
+    'નકશા પર હાઇલાઇટ કરવા કાર્ડ પર હોવર કરો. પ્રોડક્શનમાં લાઇવ Mapbox ટાઇલ્સ.',
   'searchResults.mapPinAria': '{{name}} — {{price}} પ્રતિ રાત્રિ',
   'searchResults.sortLabel': 'સૉર્ટ કરો',
   'searchResults.subheading': '{{count}} ગુણધર્મો · {{guests}} મહેમાનો',
   'signup.eyebrow': 'સભ્ય બનો',
   'signup.subheading':
     'ફક્ત સભ્યો માટેના દર, મોડા ચેકઆઉટ અને નવી મિલકતોની પ્રથમ ઍક્સેસ મેળવવા માટે Auberge માં જોડાઓ.',
+  'sojournAuthShell.brand.eyebrow': 'ક્યાંક અસાધારણ રહો',
+  'sojournAuthShell.brand.heading': 'મિલકતોનો ક્યુરેટેડ સંગ્રહ — સુંદર રજૂઆત, પારદર્શક ભાવ.',
   'sojournHeroSearchCard.checkInAria': 'ચેક-ઇન તારીખ',
   'sojournHeroSearchCard.checkOutAria': 'ચેક-આઉટ તારીખ',
+  'sojournHeroSearchCard.destAria': 'ગંતવ્ય',
+  'sojournHeroSearchCard.destLabel': 'ક્યાં',
   'sojournHeroSearchCard.destPlaceholder': 'શહેર, પ્રદેશ અથવા મિલકત',
   'sojournHeroSearchCard.eyebrow': 'ક્યુરેટ કરેલા રોકાણો · ફક્ત સભ્યો માટેના દર',
   'sojournHeroSearchCard.guestsOption': '{{n}} મહેમાનો',
   'sojournHeroSearchCard.subtitle':
     'બુટિક હોટલ, ડિઝાઇન-ફોરવર્ડ પ્રોપર્ટીઝ અને દુર્લભ-શોધતા રીટ્રીટ્સનો ક્યુરેટેડ સંગ્રહ - પારદર્શક કિંમતે, સુંદર રીતે રજૂ કરાયેલ.',
+  'sojournHeroSearchCard.title': 'ક્યાંક અસાધારણ રહો',
+  'sojournHeroSearchCard.trustLoyalty': 'દરેક રહેવા પર પોઈન્ટ કમાઓ',
   'sojournHeroSearchCard.trustNoFees': 'કોઈ છુપી ફી નહીં, ક્યારેય',
   'sojournHeroSearchCard.trustVetted': 'ફક્ત હાથથી તપાસેલી મિલકતો',
   'sojournLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',

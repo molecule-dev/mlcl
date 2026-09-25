@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Fale connosco',
   'about.eyebrow': 'Sobre',
+  'about.featureAlerts':
+    'Alertas de preço nas condições que importam, entregues por e-mail e push para você nunca perder uma movimentação.',
+  'about.featureMarkets':
+    'Dados de mercado ao vivo e gráficos de preço de milhares de moedas, classificados por valor de mercado, volume e momentum.',
+  'about.featurePortfolio':
+    'Acompanhamento de portfólio com lucro e prejuízo reais, base de custo e alocação — conectado ao seu histórico de transações.',
+  'about.featureWatchlist':
+    'Uma watchlist pessoal e notícias de cripto selecionadas com sinais sobre os ativos que você acompanha.',
+  'about.missionTitle': 'Nossa missão',
+  'alertConditionCard.armedSince': 'Armado desde {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'Acionado {{when}}',
   'alertConditionCard.confirmDelete': 'Confirmar exclusão',
+  'alertConditionCard.deleteAriaLabel': 'Excluir alerta',
   'alertConditionCard.pauseAriaLabel': 'Pausar alerta',
   'alertConditionCard.resumeAriaLabel': 'Retomar alerta',
+  'alertConditionCard.triggeredAt': 'Disparado {{when}}',
   'alertNew.condition': 'Condição',
   'alertNew.createCta': 'Criar alerta',
   'alertNew.error': 'Não foi possível criar o alerta.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Ainda não há alertas.',
   'alerts.eyebrow': 'Gatilhos do Bourse',
   'alerts.loadError': 'Falha ao carregar os alertas.',
+  'alerts.newCta': '+ Nova armadilha',
   'alerts.subheading': 'Receba um aviso quando preço, variação ou volume cruzar seu limite.',
   'alerts.summary.armed': 'Armado',
   'alerts.summary.triggered': 'Acionado',
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Máxima histórica',
   'coinDetail.allTimeLow': 'Mínima histórica',
   'coinDetail.back': 'Todos os mercados',
+  'coinDetail.chartAriaLabel': 'Gráfico de preço de {{name}}, últimos 30 dias',
   'coinDetail.chartHeading': 'Preço · últimos 30 dias',
   'coinDetail.circulating': 'Oferta em circulação',
   'coinDetail.fdv': 'Avaliação totalmente diluída',
@@ -59,6 +74,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Link de redefinição enviado.',
   'login.eyebrow': 'Entre no terminal',
   'login.heading': 'Bem-vindo de volta, sinalizador.',
+  'login.noAccountQuestion': 'Novo no Tessera?',
   'login.secureNote': '🔒 Criptografado em trânsito',
   'login.signingInCta': 'Lendo a fita…',
   'login.signupLink': 'Abrir uma conta →',
@@ -93,6 +109,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'A rota que você escaneou não corresponde a uma moeda ou página conhecida. Verifique o símbolo e tente novamente.',
   'notFound.browseMarkets': 'Explorar mercados',
+  'notFound.eyebrow': 'Sinal de {{appName}} perdido',
+  'notFound.heading': 'Este sinal está fora de alcance',
+  'planUpdated.body':
+    'A sua alteração de faturação está agora ativa. Pode gerir o seu plano a qualquer momento na página de faturação.',
+  'planUpdated.retry': 'Tentar novamente',
+  'planUpdated.verifyFailed': 'Ainda não foi possível confirmar o seu pagamento.',
+  'planUpdated.verifyFailedBody':
+    'Seu pagamento ainda pode estar sendo processado. Tente novamente em instantes.',
   'planUpdated.verifying': 'A confirmar o seu pagamento…',
   'portfolio.addError': 'Insira o símbolo, a quantidade positiva e o custo.',
   'portfolio.addHoldingCta': '+ Adicionar posição',
@@ -116,12 +140,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Valor total do portfólio',
   'portfolioHeroCard.totalPnl': 'L/P total',
   'pricing.heading': 'alertas',
+  'pricing.limit.alerts': 'alertas',
   'pricing.limit.coins': 'moedas',
   'pricing.limit.market': 'mercado',
   'pricing.limit.portfolio': 'portfólio',
   'resetPassword.eyebrow': 'Nova cifra',
   'resetPassword.missingToken':
     'Este link de redefinição está ausente ou inválido. Solicite um novo.',
+  'resetPassword.passwordPlaceholder': 'Nova senha',
   'resetPassword.subheading': 'Escolha algo que só você consiga decifrar.',
   'settings.apiKeys.body':
     'Chaves somente leitura para importar o histórico de transações. Conecte via OAuth a partir de /pricing após assinar.',
@@ -133,18 +159,35 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Moeda de cotação',
   'settings.preferences.locale': 'Localidade',
   'settings.preferences.push': 'Push',
+  'settings.preferences.refresh': 'Atualização de preço (segundos)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning':
+    'O acesso deste dispositivo será revogado em breve. Terminar sessão?',
   'settings.security.body':
     'As configurações de senha e dois fatores são gerenciadas pela sua conta.',
   'settings.signOutDevice': 'Sair',
   'settings.twoFactorCode': 'Código de autenticação',
   'settings.twoFactorDisable': 'Desativar',
+  'settings.twoFactorDisableTitle': 'Desativar a autenticação de dois fatores',
   'settings.twoFactorEnable': 'Ativar',
+  'settings.twoFactorEnableTitle': 'Ativar a autenticação de dois fatores',
   'settings.twoFactorInvalidCode': 'Código inválido',
   'settings.twoFactorOn': 'Em',
+  'settings.twoFactorQrAlt': 'Código QR de dois fatores',
+  'settings.twoFactorScan':
+    'Digitalize este código QR com a sua aplicação de autenticação e introduza o código de 6 dígitos.',
+  'settings.twoFactorUnavailable':
+    'A autenticação de dois fatores não está disponível para este aplicativo.',
   'settings.twoFactorVerify': 'Verificar e ativar',
   'sigilAuthShell.backHomeCta': '← Voltar ao Bourse',
+  'sigilAuthShell.brandBody':
+    'Preços em tempo real, L/P do portfólio e vigilâncias ativas nas condições que importam — tudo em um só terminal.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — desenvolvido no Molecule',
+  'sigilAuthShell.brandHeadline': 'Decodifique cada sinal em todo o registro.',
+  'sigilAuthShell.samplePortfolio': 'Portfólio de exemplo',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Navegação principal',
+  'signup.creating': 'Abrindo seu terminal…',
   'signup.eyebrow': 'Abrir um terminal',
   'signup.heading': 'Crie seu Bourse',
   'signup.subheading': 'Acompanhe cada moeda, não perca nada. Grátis para começar.',
@@ -161,6 +204,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Falha ao carregar as transações.',
   'watchlist.addCta': 'Explorar mercados',
   'watchlist.col.change24h': '24h',
+  'watchlist.col.coin': 'Moeda',
   'watchlist.col.marketCap': 'Cap. merc.',
   'watchlist.empty':
     'Nenhuma moeda na sua lista de observação — marque moedas em /markets para adicioná-las.',

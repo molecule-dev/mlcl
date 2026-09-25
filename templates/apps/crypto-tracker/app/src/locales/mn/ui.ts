@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
+  'about.featureAlerts':
+    'Чухал нөхцөлд үнийн анхааруулга илгээж, имэйл болон пуш-аар хүргэх тул ямар ч хөдөлгөөнийг алдахгүй.',
+  'about.featureMarkets':
+    'Мянга мянган зоосны зах зээлийн шууд өгөгдөл болон үнийн график, зах зээлийн үнэлгээ, эргэлт, импульсээр эрэмбэлсэн.',
+  'about.featurePortfolio':
+    'Бодит ашиг алдагдал, өртгийн суурь, хуваарилалт бүхий багцын хяналт — таны гүйлгээний түүхтэй холбогдсон.',
+  'about.featureWatchlist':
+    'Хувийн хяналтын жагсаалт болон таны дагаж буй хөрөнгүүдийн дохио бүхий сонгомол крипто мэдээ.',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
+  'alertConditionCard.armedSince': '{{when}}-аас хойш идэвхтэй',
   'alertConditionCard.condition.${alert.condition}': 'Өдөөгдсөн {{хэзээ}}',
   'alertConditionCard.confirmDelete': 'Устгахыг баталгаажуулах',
+  'alertConditionCard.deleteAriaLabel': 'Сэрэмжлүүлгийг устгах',
   'alertConditionCard.pauseAriaLabel': 'Сэрэмжлүүлгийг түр зогсоох',
   'alertConditionCard.resumeAriaLabel': 'Үргэлжлүүлэх сэрэмжлүүлэг',
+  'alertConditionCard.triggeredAt': '{{when}}-д идэвхжсэн',
   'alertNew.condition': 'Нөхцөл байдал',
   'alertNew.createCta': 'Анхааруулга үүсгэх',
   'alertNew.error': 'Анхааруулга үүсгэж чадсангүй.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Одоогоор анхааруулга алга.',
   'alerts.eyebrow': 'Сигил трипвайрууд',
   'alerts.loadError': 'Мэдэгдлийг ачаалж чадсангүй.',
+  'alerts.newCta': '+ Шинэ tripwire',
   'alerts.subheading': 'Үнэ, өөрчлөлт эсвэл хэмжээ таны хязгаарыг давсан үед пинг хүлээн аваарай.',
   'alerts.summary.armed': 'Зэвсэглэсэн',
   'alerts.summary.triggered': 'Өдөөгдсөн',
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Бүх цаг үеийн хамгийн өндөр үзүүлэлт',
   'coinDetail.allTimeLow': 'Бүх цаг үеийн хамгийн доод үзүүлэлт',
   'coinDetail.back': 'Бүх зах зээл',
+  'coinDetail.chartAriaLabel': '{{name}} үнийн график, сүүлийн 30 хоног',
   'coinDetail.chartHeading': 'Үнэ · сүүлийн 30 хоног',
   'coinDetail.circulating': 'Эргэлтийн хангамж',
   'coinDetail.fdv': 'Бүрэн шингэрүүлсэн үнэлгээ',
@@ -59,6 +74,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Холбоосыг дахин тохируулсан.',
   'login.eyebrow': 'Терминал руу ороорой',
   'login.heading': 'Эргээд тавтай морил, дохиочин.',
+  'login.noAccountQuestion': 'Тессератай шинээр танилцаж байна уу?',
   'login.secureNote': '🔒 Дамжин өнгөрөхдөө шифрлэгдсэн',
   'login.signingInCta': 'Бичлэгийг уншиж байна...',
   'login.signupLink': 'Данс нээх →',
@@ -93,6 +109,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Таны сканнердсан маршрут мэдэгдэж буй зоос эсвэл хуудас руу чиглэхгүй байна. Тэмдгийг дахин шалгаад дахин оролдоно уу.',
   'notFound.browseMarkets': 'Зах зээлүүдийг үзэх',
+  'notFound.eyebrow': '{{appName}} дохио алдагдсан',
+  'notFound.heading': 'Энэ дохио хүрээнээс гадуур байна',
+  'planUpdated.body':
+    'Таны төлбөрийн өөрчлөлт идэвхжлээ. Та төлбөрийн хуудаснаас төлөвлөгөөгөө хүссэн үедээ удирдах боломжтой.',
+  'planUpdated.retry': 'Дахин оролдоно уу',
+  'planUpdated.verifyFailed': 'Бид таны төлбөрийг хараахан баталгаажуулж чадсангүй.',
+  'planUpdated.verifyFailedBody':
+    'Таны төлбөрийг боловсруулж байж магадгүй. Хэсэг хугацааны дараа дахин оролдоно уу.',
   'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'portfolio.addError': 'Тэмдэг, эерэг тоо болон өртгийг оруулна уу.',
   'portfolio.addHoldingCta': '+ Барьцаа нэмэх',
@@ -116,12 +140,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Нийт портфолиогийн үнэ цэнэ',
   'portfolioHeroCard.totalPnl': 'Нийт ашиг/зээл',
   'pricing.heading': 'сэрэмжлүүлэг',
+  'pricing.limit.alerts': 'анхааруулга',
   'pricing.limit.coins': 'зоос',
   'pricing.limit.market': 'зах зээл',
   'pricing.limit.portfolio': 'портфолио',
   'resetPassword.eyebrow': 'Шинэ шифр',
   'resetPassword.missingToken':
     'Энэ дахин тохируулах холбоос байхгүй эсвэл хүчингүй байна. Шинээр холбоос хүснэ үү.',
+  'resetPassword.passwordPlaceholder': 'Шинэ нууц үг',
   'resetPassword.subheading': 'Зөвхөн өөрийнхөө декодлож чадах зүйлийг сонгоорой.',
   'settings.apiKeys.body':
     'Гүйлгээний түүхийг импортлох зөвхөн унших түлхүүрүүд. Бүртгүүлсний дараа /pricing-с OAuth-аар холбогдоно уу.',
@@ -133,17 +159,33 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Валютын үнийн санал',
   'settings.preferences.locale': 'Локал',
   'settings.preferences.push': 'Түлхэх',
+  'settings.preferences.refresh': 'Үнэ шинэчлэх (секунд)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning': 'Энэ төхөөрөмжийн хандалт удахгүй хаагдана. Гаргах уу?',
   'settings.security.body': 'Нууц үг болон хоёр хүчин зүйлийн тохиргоог таны бүртгэл удирддаг.',
   'settings.signOutDevice': 'Гарах',
   'settings.twoFactorCode': 'Баталгаажуулах код',
   'settings.twoFactorDisable': 'Идэвхгүй болгох',
+  'settings.twoFactorDisableTitle': 'Хоёр шатлалт баталгаажуулалтыг идэвхгүй болгох',
   'settings.twoFactorEnable': 'Идэвхжүүлэх',
+  'settings.twoFactorEnableTitle': 'Хоёр шатлалт баталгаажуулалтыг идэвхжүүлэх',
   'settings.twoFactorInvalidCode': 'Буруу код',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Хоёр хүчин зүйлийн QR код',
+  'settings.twoFactorScan':
+    'Энэ QR кодыг баталгаажуулагч аппаараа сканнердаж, дараа нь 6 оронтой кодыг оруулна уу.',
+  'settings.twoFactorUnavailable':
+    'Энэ аппликейшнд хоёр хүчин зүйлийн баталгаажуулалт боломжгүй байна.',
   'settings.twoFactorVerify': 'Баталгаажуулах ба идэвхжүүлэх',
   'sigilAuthShell.backHomeCta': '← Сигил руу буцах',
+  'sigilAuthShell.brandBody':
+    'Шууд үнэ, багцын ашиг/алдагдал, чухал нөхцөлд идэвхтэй хамгаалалт — бүгд нэг терминал дээр.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — Molecule дээр бүтээгдсэн',
+  'sigilAuthShell.brandHeadline': 'Бүх бүртгэлийн дохиог бүрэн тайл.',
+  'sigilAuthShell.samplePortfolio': 'Жишээ багц',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Үндсэн навигаци',
+  'signup.creating': 'Терминалыг нээж байна…',
   'signup.eyebrow': 'Терминал нээх',
   'signup.heading': 'Өөрийн Bourse-ийг үүсгээрэй',
   'signup.subheading': 'Зоос бүрийг хянаж, алдаа бүрээс сэргийл. Үнэгүй эхлээрэй.',
@@ -160,6 +202,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Гүйлгээг ачаалж чадсангүй.',
   'watchlist.addCta': 'Зах зээлүүдийг үзэх',
   'watchlist.col.change24h': '24 цаг',
+  'watchlist.col.coin': 'Зоос',
   'watchlist.col.marketCap': 'Mkt cap',
   'watchlist.empty':
     'Таны үзэх жагсаалтад зоос байхгүй — /markets-с зоос нэмэхийн тулд од тавина уу.',

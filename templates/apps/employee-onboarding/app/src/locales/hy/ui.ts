@@ -1,27 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ուզու՞մ եք ձեր թիմի համար ավելի ջերմ ողջույնի գործընթաց ներդնել, սխալ եք գտել, թե՞ կարծիք ունեք։ Գրեք ձեր հաշվի կարգավորումներից — ամեն հաղորդագրություն հասնում է իրական մարդու, որը կարող է օգնել։',
   'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
+  'about.missionTitle': 'Մեր առաքելությունը',
   'auth.forgotPassword.emailPlaceholder': 'name@ձերընկերությունը.com',
   'auth.forgotPassword.heading': 'Վերագործարկեք ձեր գաղտնաբառը։',
+  'auth.forgotPassword.panel.body':
+    'Վերականգնումը տևում է 30 վայրկյան — ձեր ստուգաթերթի առաջընթացը սպասում է։',
+  'auth.forgotPassword.panel.headline': 'Հենց այնտեղ, որտեղ կանգ էիք առել։',
+  'auth.forgotPassword.subheading':
+    'Մուտքագրեք ձեր աշխատանքային էլ. փոստը, և մենք ձեզ կուղարկենք վերականգնման հղում։',
   'auth.forgotPassword.successSubheading':
     'Ստուգեք ձեր էլ. փոստը՝ մենք վերակայման հրահանգներ ենք ուղարկել։',
   'auth.login.emailPlaceholder': 'name@ձերընկերությունը.com',
   'auth.login.heading': 'Բարի վերադարձ։',
   'auth.login.passwordPlaceholder': 'Ձեր գաղտնաբառը',
+  'auth.login.signupPrompt': 'Նո՞ր եք ձեր թիմում։',
   'auth.login.subheading':
     'Մուտք գործեք՝ ձեր ներգրավման գործընթացը շարունակելու համար այնտեղից, որտեղ կանգ եք առել։',
   'auth.login.submit': 'Շարունակեք ձեր ճանապարհորդությունը',
+  'auth.panel.body':
+    'Ձեր անձնական ստուգաթերթը, ուսուցման նշաձողերը և թիմային ծանոթությունները — ամենը մեկ հանգիստ վայրում։',
   'auth.panel.footnote': '© Embark — այսօրվանից մարդկանց ներգրավումը առաջնահերթ է։',
   'auth.panel.headline': 'Վստահ առաջին 90 օրերը սկսվում են այստեղից։',
   'auth.resetPassword.heading': 'Սահմանեք նոր գաղտնաբառ։',
   'auth.resetPassword.newPasswordLabel': 'Նոր գաղտնաբառ',
+  'auth.resetPassword.panel.body':
+    'Պահպանեք նոր գաղտնաբառ, և մենք ձեզ անմիջապես կվերադարձնենք ձեր ողջույնի ճանապարհորդություն։',
+  'auth.resetPassword.panel.headline': 'Գրեթե վերադարձել եք։',
   'auth.resetPassword.subheading': 'Ընտրեք մի բան, որը կհիշեք՝ առնվազն 8 նիշ։',
   'auth.signup.emailPlaceholder': 'name@ձերընկերությունը.com',
   'auth.signup.heading': 'Բարի գալուստ ձեր առաջին 90 օրվան։',
   'auth.signup.panel.body':
     'Ուղղորդվող ստուգաթերթիկ, դերերի վերաբերյալ իրազեկված ուսուցում և մարդկանց հետ ծանոթացումներ՝ պատրաստ են նախքան ներս մտնելը։',
+  'auth.signup.panel.headline': 'Առաջին օրը՝ հենց առաջին օրը։',
   'auth.signup.subheading':
     'Ստեղծեք ձեր Embark հաշիվը՝ ձեր ուղղորդվող ներգրավման ճանապարհը սկսելու համար։',
   'checklist.empty.body': 'Փոխեք ֆիլտրը՝ այլ առաջադրանքներ տեսնելու համար։',
@@ -29,6 +44,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'Ներգրավում · Ստուգաթերթիկ',
   'checklist.loading': 'Ձեր ստուգաթերթիկը բեռնվում է…',
   'checklist.stat.actionNeeded': 'Անհրաժեշտ գործողություն',
+  'checklist.stat.completion': 'Ավարտ',
+  'checklist.stat.inProgress': 'Ընթացքի մեջ է',
   'checklist.stat.inProgressHelper': 'Շարունակեք այնտեղից, որտեղ կանգ եք առել',
   'checklist.stat.overdueHelper': 'Նախ սրանք բռնեք',
   'checklist.subtitle':
@@ -60,6 +77,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Դեռևս փաստաթղթեր չկան',
   'documents.eyebrow': 'Ներգրավում · Փաստաթղթեր',
   'documents.loading': 'Փաստաթղթերի բեռնում…',
+  'documents.stat.actionNeeded': 'Գրանցվեք հիմա',
+  'documents.stat.all': 'Բոլոր փաստաթղթերը',
   'documents.stat.allHelper': 'Տարբեր կատեգորիաներում',
   'documents.stat.pending': 'Սպասող ստորագրություններ',
   'documents.stat.pendingHelper': 'Ավարտման համար անհրաժեշտ է',
@@ -67,16 +86,21 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Անվտանգ պահված է',
   'documents.status.optional': 'Ըստ ցանկության',
   'documents.status.required': 'Պարտադիր',
+  'documents.status.signed': 'Ստորագրված',
   'documents.subtitle': 'Ձեր ձեռնարկը, ձևաթղթերը և ստորագրված համաձայնագրերը՝ բոլորը մեկ տեղում։',
   'documents.title': 'Ամեն ինչ, ինչ դուք պետք է կարդաք և ստորագրեք։',
   'documents.uploadedRecently': 'Վերջերս վերբեռնված',
   'documentViewer.breadcrumbCurrent': 'Դիտող',
   'documentViewer.breadcrumbDocs': 'Փաստաթղթեր',
   'documentViewer.downloadMeta': 'Ներբեռնել մետատվյալները',
+  'documentViewer.helpBody':
+    'People & Culture-ը պատասխանում է ձեռնարկի հարցերին Slack-ի #ask-people ալիքում։',
   'documentViewer.helpEyebrow': 'Օգնություն պե՞տք է։',
   'documentViewer.loadError': 'Մենք չկարողացանք բեռնել այս փաստաթուղթը։',
   'documentViewer.loading': 'Փաստաթուղթը բեռնվում է…',
   'documentViewer.notFound': 'Փաստաթուղթը չի գտնվել',
+  'documentViewer.previewBody':
+    'Երբ վերբեռնումները կարգավորված են, մենք ֆայլը ցուցադրում ենք ներկառուցված։ Առայժմ մետատվյալների ներբեռնումը թույլ է տալիս հաստատել, որ գրառումն իրական է։',
   'documentViewer.previewBodyExternal':
     'Օգտագործեք «Ներբեռնել» կոճակը՝ ֆայլը նոր ներդիրում բացելու համար։',
   'documentViewer.previewTitle': 'Փաստաթղթի նախադիտում',
@@ -84,6 +108,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Կարդացեք փաստաթուղթը, ապա սեղմեք ստորև՝ ստորագրելու և հաստատելու համար։',
   'documentViewer.signatureHeading': 'Ստորագրությունը պարտադիր է',
+  'documentViewer.signed': '✓ Ստորագրված և արխիվացված',
   'documentViewer.signing': 'Ստորագրում…',
   'documentViewer.uploadedRecently': 'Վերջերս վերբեռնված',
   'landing.closing.body':
@@ -93,10 +118,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Ես արդեն ունեմ հաշիվ',
   'landing.feature1.body':
     'Յուրաքանչյուր առաջադրանք՝ թղթաբանություն, հաշիվներ, ներածություններ՝ նախապես կազմված է՝ վերջնաժամկետներով և ճիշտ սեփականատիրոջով։',
+  'landing.feature1.title': 'Ուղղորդված ստուգաթերթ',
   'landing.feature2.body':
     'Մոդուլները բացվում են 30/60/90 փուլերին՝ համապատասխանեցնելով դրանք դերին և թիմին, որին միանում է վարձու աշխատակիցը։',
+  'landing.feature2.title': 'Դերին համապատասխան ուսուցում',
   'landing.feature3.body':
     'Ընկերների, ղեկավարների և միջֆունկցիոնալ ներկայացուցիչների ներածություններ՝ պլանավորված, որպեսզի ոչ ոք մենակ չսկսի։',
+  'landing.feature3.title': 'Իրական ծանոթություններ',
   'landing.featureEyebrow': 'Ինչու՞ Embark',
   'landing.featureHeadline':
     'Երեք եղանակ, որոնցով Embark-ը վստահություն է ձեռք բերում առաջին իսկ օրվանից։',
@@ -107,6 +135,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Հաջորդը՝ հանդիպեք ձեր ընկերոջ հետ 30 րոպեանոց սուրճի զրույցի համար՝ երեքշաբթի, ժամը 10:00-ին։',
   'landing.preview.eyebrow': '90-ից 14-րդ օրը՝ վահանակի նմուշ',
+  'landing.preview.headline': 'Բարի վերադարձ, Maya։',
   'landing.proof.spec': 'SOC 2 + GDPR-ի համար պատրաստ է',
   'landing.proof.teams': 'Ստեղծված է 50-5000 հոգանոց թիմերի համար',
   'landing.proof.time': '14-օրյա անվճար փորձաշրջան',
@@ -123,16 +152,24 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'երեկ',
   'planUpdated.message': 'Դուք պատրաստ եք։',
   'planUpdated.preparing': 'Ձեր պլանը թարմացվում է…',
+  'planUpdated.retry': 'Փորձեք կրկին',
+  'planUpdated.verifyFailed': 'Մենք դեռ չենք կարող հաստատել ձեր վճարումը։',
+  'planUpdated.verifyFailedBody': 'Ձեր վճարումը կարող է դեռ մշակվել։ Փորձեք կրկին մի փոքր ուշ։',
   'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'pricing.documentsLabel': 'փաստաթղթեր',
   'pricing.onboardingsLabel': 'ներգրավումներ',
   'pricing.tasksLabel': 'առաջադրանքներ',
   'profile.dayNumber': 'Օր',
   'profile.detailsHeading': 'Ներգրավման մանրամասներ',
+  'profile.encouragementBody': 'Ձեր բադին և ղեկավարին տեղյակ պահեք — փոքր քայլերը կուտակվում են։',
   'profile.milestones': 'Կարևորագույն պահեր',
   'profile.progressEyebrow': 'Ներգրավման ընթացքը',
   'profile.tasks': 'Առաջադրանքներ',
   'profile.unknownName': 'Բարի գալուստ',
+  'settings.appearance.description': 'Անցնել բաց և մութ ռեժիմների միջև։',
+  'settings.appearance.title': 'Արտաքին տեսք',
+  'settings.subtitle':
+    'Կարգավորեք ծանուցումները, անվտանգությունը, սարքերը և տվյալների արտահանումը — ամեն ինչ մնում է այստեղ՝ ձեր պայմաններով։',
   'settings.title': 'Կարգավորումներ և նախընտրություններ։',
   'taskDetail.backToChecklist': 'Վերադառնալ ստուգաթերթիկին',
   'taskDetail.breadcrumbChecklist': 'Ստուգաթերթիկ',
@@ -145,7 +182,10 @@ export const ui: UiTranslations = {
   'taskDetail.notFound': 'Առաջադրանքը չի գտնվել',
   'taskDetail.notFoundBody':
     'Այս առաջադրանքը կարող է ջնջված լինել կամ պատկանել է մեկ այլ օգտատիրոջ։',
+  'taskDetail.tipBody':
+    'Եթե արգելափակված եք, գրեք ձեր ողջույնի բադին Slack-ում — նա ձեր օգնության առաջին գիծն է։',
   'taskDetail.tipEyebrow': 'Արագ խորհուրդ',
+  'team.empty.body': 'Փորձեք ավելի լայն որոնում կամ ընտրեք այլ բաժին։',
   'team.empty.title': 'Ոչ մի թիմակից չի համապատասխանում',
   'team.eyebrow': 'Ներգրավում · Մարդիկ',
   'team.loading': 'Թիմակիցների բեռնում…',
@@ -168,14 +208,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Կարևորագույն պահեր',
   'timeline.stat.current': 'Ընթացիկ փուլ',
   'timeline.stat.next': 'Հաջորդ ապակողպումը',
+  'timeline.stat.progress': 'Ընդհանուր',
   'timeline.subtitle':
     'Յուրաքանչյուր նվաճում բացում է նոր մոդուլներ, ներածություններ և զարգացման զրույցներ։ Ոչ մի ճնշում՝ միայն առաջընթաց։',
+  'timeline.tipBody':
+    'Պլանավորեք 30-րոպեանոց ամփոփում 30-րդ, 60-րդ և 90-րդ օրերին ձեր ղեկավարի հետ — դա հետադարձ կապը դարձնում է կոնկրետ, իսկ առաջընթացը՝ տեսանելի։',
   'timeline.tipEyebrow': 'Մենեջերի խորհուրդ',
+  'timeline.tipTitle': 'Օրացույցում ժամանակ ամրագրեք նշաձողերի համար։',
   'timeline.title': 'Ձեր 30/60/90 ճանապարհորդությունը։',
   'training.badge.notStarted': 'Սկսված չէ',
   'training.empty': 'Դեռևս ուսումնական մոդուլներ չկան։',
   'training.eyebrow': 'Ներգրավում · Ուսուցում',
   'training.loading': 'Մոդուլները բեռնվում են…',
+  'training.stat.all': 'Մոդուլները նշանակված են',
   'training.subtitle':
     'Մոդուլները բացվում են 30/60/90-ին՝ համապատասխանեցնելով ձեր դերին։ Պարտադիրները տրվում են առաջին հերթին։',
   'training.title': 'Հմտություններ, գործիքներ և պատմություններ՝ ձեր տեմպով։',
@@ -187,9 +232,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'Մոդուլը չի գտնվել',
   'trainingModule.quizBody': 'Հավաքեք 80% կամ ավելի միավոր՝ այս մոդուլն ավարտված համարելու համար։',
   'trainingModule.quizHeading': 'Մոդուլի ավարտի թեստ',
+  'trainingModule.quizLocked': 'Սկզբում սկսեք մոդուլը',
   'trainingModule.quizNone': 'Այս մոդուլի համար թեստ չկա։',
   'trainingModule.quizRetry': 'Փորձեք կրկին',
+  'trainingModule.quizStart': 'Սկսել թեստը',
   'trainingModule.quizSubmit': 'Ուղարկել պատասխանները',
+  'trainingModule.start': 'Սկսել մոդուլը',
   'trainingModule.statusNotStarted': 'Սկսված չէ',
   'welcomeHeroCard.completeLabel': 'Ավարտված',
   'welcomeHeroCard.milestonesLabel': 'Կարևորագույն պահեր',

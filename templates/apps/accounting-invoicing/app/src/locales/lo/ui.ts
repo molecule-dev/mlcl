@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ມີຄຳຖາມ, ພົບບັກ, ຫຼືຕ້ອງການຍ້າຍປຶ້ມຂອງທ່ານມາ? ຕິດຕໍ່ທີມ {{app}} ທີ່ hello@{{app}}.example — ມີຄົນຈິງອ່ານທຸກຂໍ້ຄວາມ.',
   'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ກ່ຽວກັບ',
+  'about.intro':
+    '{{app}} ແມ່ນການບັນຊີສຳລັບທຸລະກິດຂະໜາດນ້ອຍທີ່ຕິດຕາມທຸກສະຕາງ — ໃບເກັບເງິນ, ລາຍຈ່າຍ, ການຈ່າຍເງິນ, ແລະລາຍງານ ຢູ່ໃນບ່ອນດຽວທີ່ສະຫງົບ ສຳລັບເຈົ້າຂອງທຸລະກິດ, ນັກບັນຊີ, ແລະນັກບັນຊີມືອາຊີບ.',
+  'about.missionBody':
+    'ການດຳເນີນທຸລະກິດບໍ່ຄວນໝາຍເຖິງການຢ້ານປຶ້ມບັນຊີຂອງທ່ານ. {{app}} ປ່ຽນແທນຄວາມວຸ້ນວາຍຂອງສະເປຣດຊີດດ້ວຍຕົວເລກທີ່ຊັດເຈນທີ່ທ່ານສາມາດປະຕິບັດໄດ້, ດັ່ງນັ້ນທ່ານຈະໃຊ້ເວລາໜ້ອຍລົງໃນການກວດສອບ ແລະໃຊ້ເວລາຫຼາຍຂຶ້ນໃນການເຮັດວຽກທີ່ທ່ານເລີ່ມທຸລະກິດມາເພື່ອເຮັດ.',
+  'about.missionTitle': 'ພາລະກິດຂອງພວກເຮົາ',
   'about.title': 'ກ່ຽວກັບ {{app}}',
   'accounts.count': 'ບັນຊີ {{count}}',
+  'accounts.emptyBody':
+    'ບັນຊີແລດເຈີຕິດຕາມບ່ອນທີ່ເງິນຢູ່ ແລະເຄື່ອນຍ້າຍ. ພວກມັນຈະປາກົດຢູ່ນີ້ເມື່ອນັກບັນຊີ ຫຼືການເຊື່ອມຕໍ່ຂອງທ່ານຕັ້ງຄ່າພວກມັນ.',
   'accounts.emptyTitle': 'ຍັງບໍ່ມີບັນຊີເທື່ອ',
   'accounts.heading': 'ບັນຊີ',
   'accounts.kpi.accounts': 'ບັນຊີ',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'ບັນຊີແຍກປະເພດທຸກໆບັນຊີທີ່ຢູ່ເບື້ອງຫຼັງໃບແຈ້ງໜີ້, ຄ່າໃຊ້ຈ່າຍ ແລະ ການຈ່າຍເງິນຂອງທ່ານ, ຈັດກຸ່ມຕາມປະເພດ.',
   'accounts.tag.inactive': 'ບໍ່ເຄື່ອນໄຫວ',
   'authBrandPanel.attributionName': 'ຊາຣາ ເຈນກິນສ໌',
+  'authBrandPanel.attributionRole': 'ຫົວໜ້າຝ່າຍການເງິນ, Horizon Tech',
   'authBrandPanel.eyebrow': 'ໄດ້ຮັບຄວາມໄວ້ວາງໃຈຈາກທີມງານການເງິນ',
   'authBrandPanel.label': 'ງານວາງສະແດງຍີ່ຫໍ້',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'ລູກຄ້າທຸກຄົນ',
   'customerDetail.invoiceMeta': 'ອອກໃຫ້ແລ້ວ {{issued}} · ຄົບກຳນົດ {{due}}',
   'customerDetail.loadError': 'ໂຫຼດລູກຄ້າບໍ່ສຳເລັດ.',
+  'customerDetail.missingBody':
+    'ບັນທຶກລູກຄ້າທີ່ຮ້ອງຂໍບໍ່ສາມາດໂຫຼດໄດ້. ມັນອາດຈະຖືກລຶບອອກແລ້ວ, ຫຼືທ່ານອາດຈະບໍ່ມີສິດເຂົ້າເຖິງມັນ.',
   'customerDetail.missingHeading': 'ບໍ່ມີບັນທຶກລູກຄ້າ',
+  'customerDetail.missingHelp':
+    'ໃຊ້ລິ້ງກັບຄືນຂ້າງເທິງເພື່ອກັບໄປຫາລາຍຊື່ລູກຄ້າ, ຫຼືເລືອກບັນທຶກອື່ນຈາກບ່ອນນັ້ນ.',
+  'customerDetail.noInvoices': 'ຍັງບໍ່ມີໃບແຈ້ງໜີ້ເທື່ອ.',
   'customerDetail.notesEmpty': 'ຍັງບໍ່ມີບັນທຶກເທື່ອ.',
   'customerDetail.paymentsEmpty': 'ບໍ່ມີການບັນທຶກການຈ່າຍເງິນ.',
   'customerDetail.paymentTerms': 'ເງື່ອນໄຂການຊໍາລະ',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'ສາມາດຫັກອອກໄດ້',
   'expenseDetail.detailsHeading': 'ລາຍລະອຽດທຸລະກຳ',
   'expenseDetail.loadError': 'ໂຫຼດຄ່າໃຊ້ຈ່າຍບໍ່ສຳເລັດ.',
+  'expenseDetail.matched': 'ກົງກັນ · {{description}}',
   'expenseDetail.missingBody':
     'ບໍ່ສາມາດໂຫຼດຄ່າໃຊ້ຈ່າຍທີ່ຮ້ອງຂໍໄດ້. ມັນອາດຈະຖືກລຶບອອກແລ້ວ, ຫຼື ທ່ານອາດຈະບໍ່ສາມາດເຂົ້າເຖິງມັນໄດ້.',
   'expenseDetail.missingHeading': 'ບໍ່ມີບັນທຶກຄ່າໃຊ້ຈ່າຍ',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'ໃບຮັບເງິນ',
   'expenseDetail.receiptHeading': 'ໃບຮັບເງິນ',
   'expenseDetail.reconciled': 'ໄດ້ຮັບການປະນີປະນອມແລ້ວ',
+  'expenseDetail.unreconciled': 'ບໍ່ໄດ້ປະນີປະນອມ',
   'expenses.empty': 'ຍັງບໍ່ມີຄ່າໃຊ້ຈ່າຍເທື່ອ.',
   'expenses.heading': 'ຄ່າໃຊ້ຈ່າຍ',
   'expenses.kpi.deductible': 'ສາມາດຫັກອອກໄດ້',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'ໂຫຼດໃບແຈ້ງໜີ້ບໍ່ສຳເລັດ.',
   'invoices.searchPlaceholder': 'ຄົ້ນຫາເລກທີໃບແຈ້ງໜີ້ ຫຼື ລູກຄ້າ…',
   'invoices.summary.paid': 'ຈ່າຍໄລຍະນີ້ແລ້ວ',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'ຟຣີ 30 ມື້. ບໍ່ຕ້ອງມີບັດ. ເອົານັກບັນຊີຂອງທ່ານມານຳ - ເຂົາເຈົ້າຈະຂອບໃຈທ່ານ.',
   'landing.ctaTitle': 'ຍ້າຍປຶ້ມຂອງເຈົ້າໄປບ່ອນທີ່ສະຫງົບກວ່າ.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'ລູກໜີ້',
   'ledgerStatTriad.eyebrow.mtd': 'ເດືອນຫາວັນທີ',
   'ledgerStatTriad.netSub': 'ສຸດທິ {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} ເກີນກຳນົດ',
   'ledgerStatTriad.revenueLabel': 'ລາຍຮັບ',
   'login.failed': 'ເຂົ້າສູ່ລະບົບບໍ່ສຳເລັດ.',
   'login.hidePassword': 'ເຊື່ອງລະຫັດຜ່ານ',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'ເຂົ້າສູ່ລະບົບ',
   'nav.legal': 'ທາງດ້ານກົດໝາຍ',
   'newExpense.back': 'ຄ່າໃຊ້ຈ່າຍ',
+  'newExpense.clearReceiptCta': 'ລ້າງໃບບິນທີ່ແນບມາ',
   'newExpense.deductible': 'ຫັກອອກຈາກພາສີ',
   'newExpense.dropPrompt': 'ວາງຮູບໃບຮັບເງິນ ຫຼື PDF ລົງບ່ອນນີ້ເພື່ອແນບມາພ້ອມ.',
   'newExpense.failed': 'ບໍ່ສາມາດປະຫຍັດຄ່າໃຊ້ຈ່າຍໄດ້.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'ໂຫຼດການຈ່າຍເງິນບໍ່ສຳເລັດ.',
   'payments.unmatchedTag': 'ບໍ່ມີທີ່ທຽບໄດ້',
   'planUpdated.pageLabel': 'ການຢືນຢັນການອັບເດດແຜນການ',
+  'pricing.advancedFeatures': 'ຄຸນສົມບັດຂັ້ນສູງ: {{yes}}',
+  'pricing.canExport': 'ການສົ່ງອອກຂໍ້ມູນ: {{yes}}',
+  'pricing.heading': 'ເລືອກແຜນ {{app}} ຂອງທ່ານ',
+  'pricing.maxAccounts': 'ບັນຊີ {{count}}',
+  'pricing.maxExpenses': '{{count}} ຄ່າໃຊ້ຈ່າຍ',
+  'pricing.maxInvoices': '{{count}} ໃບເກັບເງິນ',
+  'privacy.intro':
+    'ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວນີ້ອະທິບາຍວ່າ {{app}} ເກັບກຳ, ໃຊ້, ແລະເປີດເຜີຍຂໍ້ມູນກ່ຽວກັບທຸລະກິດທີ່ໃຊ້ບໍລິການນີ້ແນວໃດ.',
   'privacy.lastUpdated': 'ອັບເດດຫຼ້າສຸດ: ວັນທີ',
   'privacy.section.collected.body':
     'ພວກເຮົາເກັບກຳລາຍລະອຽດບັນຊີ (ຊື່, ອີເມວ, ບໍລິສັດ), ບັນທຶກທາງການເງິນທີ່ທ່ານອັບໂຫຼດ (ໃບແຈ້ງໜີ້, ຄ່າໃຊ້ຈ່າຍ, ລູກຄ້າ, ການຈ່າຍເງິນ), ແລະບັນທຶກການດຳເນີນງານການບໍລິການມາດຕະຖານ (IP, ຕົວແທນຜູ້ໃຊ້, ປະທັບເວລາ).',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'ຂໍ້ມູນຖືກນໍາໃຊ້ເພື່ອດໍາເນີນການບໍລິການ, ສ້າງບົດລາຍງານ ແລະ PDF ທີ່ທ່ານຮ້ອງຂໍ, ສົ່ງອີເມວທຸລະກໍາຜ່ານ Mailgun, ແລະ ດໍາເນີນການຊໍາລະເງິນຜ່ານ Stripe. ພວກເຮົາບໍ່ຂາຍ ຫຼື ໃຫ້ເຊົ່າຂໍ້ມູນສ່ວນຕົວ.',
   'recentInvoicesCard.dueMeta': 'ຄົບກຳນົດສົ່ງ {{date}}',
+  'recentInvoicesCard.empty': 'ບໍ່ມີໃບແຈ້ງໜີ້ທີ່ກົງກັນ.',
   'recentInvoicesCard.eyebrow': 'ລູກໜີ້',
   'recentInvoicesCard.searchAriaLabel': 'ຄົ້ນຫາໃບແຈ້ງໜີ້',
+  'recentInvoicesCard.searchPlaceholder': 'ຄົ້ນຫາໃບເກັບເງິນ…',
   'recentInvoicesCard.title': 'ໃບແຈ້ງໜີ້ຫຼ້າສຸດ',
   'recentInvoicesCard.viewAll': 'ເບິ່ງໃບແຈ້ງໜີ້ທັງໝົດ →',
   'reports.assets': 'ຊັບສິນ',
@@ -181,15 +211,20 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'ກຳໄລ ແລະ ຂາດທຶນ (12 ເດືອນ)',
   'resetPassword.backToLogin': '← ກັບໄປທີ່ເຂົ້າສູ່ລະບົບ',
   'resetPassword.hidePassword': 'ເຊື່ອງລະຫັດຜ່ານ',
+  'resetPassword.passwordLabel': 'ລະຫັດຜ່ານໃໝ່',
   'resetPassword.showPassword': 'ສະແດງລະຫັດຜ່ານ',
+  'resetPassword.subheading': 'ເລືອກລະຫັດຜ່ານທີ່ແຂງແກ່ນ — ຢ່າງໜ້ອຍແປດຕົວອັກສອນ.',
   'resetPassword.submit': 'ຕັ້ງຄ່າລະຫັດຜ່ານໃໝ່',
   'resetPassword.tooShort': 'ລະຫັດຜ່ານຕ້ອງມີຢ່າງໜ້ອຍ 8 ຕົວອັກສອນ.',
   'settings.account.changePassword': 'ປ່ຽນລະຫັດຜ່ານ',
   'settings.account.changingPassword': 'ກຳລັງປ່ຽນ...',
   'settings.account.currentPassword': 'ລະຫັດຜ່ານປັດຈຸບັນ',
+  'settings.account.dangerZone': 'ເຂດອັນຕະລາຍ',
   'settings.account.deleteAccount': 'ລຶບບັນຊີ',
   'settings.account.deleteDescription': 'ລຶບບັນຊີຂອງທ່ານ ແລະ ຂໍ້ມູນທີ່ກ່ຽວຂ້ອງທັງໝົດຢ່າງຖາວອນ.',
   'settings.account.deleteError': 'ລຶບບັນຊີບໍ່ສຳເລັດ.',
+  'settings.account.deleteWarning':
+    'ການດຳເນີນການນີ້ຈະລຶບບັນຊີຂອງທ່ານຢ່າງຖາວອນ ແລະບໍ່ສາມາດຍົກເລິກໄດ້. ປ້ອນລະຫັດຜ່ານຂອງທ່ານເພື່ອຢືນຢັນ.',
   'settings.account.deleting': 'ກຳລັງລຶບ...',
   'settings.account.devices': 'ອຸປະກອນ',
   'settings.account.email': 'ອີເມວ',
@@ -200,6 +235,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'ລະຫັດຜ່ານ',
   'settings.account.passwordError': 'ປ່ຽນລະຫັດຜ່ານບໍ່ສຳເລັດ.',
   'settings.account.pushNotifications': 'ການແຈ້ງເຕືອນໃນອຸປະກອນນີ້',
+  'settings.account.revokeDeviceWarning':
+    'ການເຂົ້າເຖິງຂອງອຸປະກອນນີ້ຈະຖືກຍົກເລີກໄວໆນີ້. ອອກຈາກລະບົບບໍ?',
   'settings.account.saveError': 'ອັບເດດໂປຣໄຟລ໌ບໍ່ສຳເລັດ.',
   'settings.account.security': 'ຄວາມປອດໄພ',
   'settings.account.signOutDevice': 'ອອກຈາກລະບົບ',
@@ -207,12 +244,19 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'ການພິສູດຢືນຢັນສອງປັດໄຈ',
   'settings.account.twoFactorCode': 'ລະຫັດການພິສູດຢືນຢັນຕົວຕົນ',
   'settings.account.twoFactorDisable': 'ປິດການໃຊ້ງານ',
+  'settings.account.twoFactorDisableTitle': 'ປິດການຢືນຢັນສອງຂັ້ນຕອນ',
   'settings.account.twoFactorEnable': 'ເປີດໃຊ້',
+  'settings.account.twoFactorEnableTitle': 'ເປີດການຢືນຢັນສອງຂັ້ນຕອນ',
   'settings.account.twoFactorInvalidCode': 'ລະຫັດບໍ່ຖືກຕ້ອງ',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'QR code ການຢືນຢັນສອງປັດໃຈ',
+  'settings.account.twoFactorScan':
+    'ສະແກນລະຫັດ QR ນີ້ດ້ວຍແອັບຢືນຢັນຕົວຕົນຂອງທ່ານ, ແລ້ວປ້ອນລະຫັດ 6 ຕົວເລກ.',
+  'settings.account.twoFactorUnavailable': 'ການພິສູດຢືນຢັນສອງປັດໄຈບໍ່ສາມາດໃຊ້ໄດ້ສຳລັບແອັບນີ້.',
   'settings.account.twoFactorVerify': 'ຢືນຢັນ ແລະ ເປີດໃຊ້',
   'settings.account.unknownDevice': 'ອຸປະກອນທີ່ບໍ່ຮູ້ຈັກ',
   'settings.company.email': 'ອີເມວຮຽກເກັບເງິນ',
+  'settings.company.heading': 'ບໍລິສັດ & ພາສີ',
   'settings.company.name': 'ຊື່ທາງກົດໝາຍ',
   'settings.company.saveButton': 'ບັນທຶກໂປຣໄຟລ໌ບໍລິສັດ',
   'settings.company.taxId': 'ລະຫັດຜູ້ເສຍພາສີ / EIN',
@@ -256,6 +300,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'ຄາດຄະເນລາຍໄຕມາດ',
   'taxes.kpi.owed': 'ເປັນໜີ້',
   'taxes.loadError': 'ໂຫຼດສະຫຼຸບພາສີບໍ່ສຳເລັດ.',
+  'taxes.remittedPct': '(ສົ່ງແລ້ວ {{pct}}%)',
+  'terms.intro':
+    'ເງື່ອນໄຂການໃຫ້ບໍລິການເຫຼົ່ານີ້ ("ເງື່ອນໄຂ") ຄຸ້ມຄອງການເຂົ້າເຖິງ ແລະການໃຊ້ {{app}} ຂອງທ່ານ. ໂດຍການສ້າງບັນຊີ ຫຼືໃຊ້ບໍລິການ ທ່ານຕົກລົງທີ່ຈະຜູກພັນຕາມເງື່ອນໄຂເຫຼົ່ານີ້.',
   'terms.lastUpdated': 'ອັບເດດຫຼ້າສຸດ: ວັນທີ',
   'terms.section.acceptable.body':
     'ທ່ານຕົກລົງທີ່ຈະບໍ່ໃຊ້ບໍລິການເພື່ອລະເມີດກົດໝາຍໃດໆ, ລະເມີດສິດທິຊັບສິນທາງປັນຍາ, ສົ່ງຕໍ່ມັລແວ ຫຼື ພະຍາຍາມເຂົ້າເຖິງບັນຊີອື່ນ ຫຼື ໂຄງສ້າງພື້ນຖານຂອງພວກເຮົາໂດຍບໍ່ໄດ້ຮັບອະນຸຍາດ.',

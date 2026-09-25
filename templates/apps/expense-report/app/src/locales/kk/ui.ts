@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Сұрақтарыңыз, пікіріңіз немесе мүмкіндік сұрауыңыз бар ма? Параметрлер → Хабарламалар арқылы {{app}} командасына хабарласыңыз немесе кез келген уақытта бізге жазыңыз — әрбір хабарлама нақты адамға жетеді.',
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Туралы',
+  'about.featureCapture':
+    'Түбіртекті фотосуретті жүктеп түсіру — суреттерді тиісті шығысқа жолма-жол тіркейді.',
+  'about.featureExport':
+    'Әрбір есептің, шығыстың және бекіту күйінің тексерілетін CSV экспорты — бухгалтерияңызға дайын.',
+  'about.featurePolicy':
+    'Саясат шектеулері — күнделікті лимиттер, санат бойынша шектеулер және түбіртек міндетті шектері тапсыру кезінде қолданылады.',
+  'about.featureWorkflow':
+    'Рецензент ескертпелері, саясатты бұзу жалаушалары және бір түртумен өтемақы белгілеуі бар екі деңгейлі бекіту процесі.',
+  'about.intro':
+    '{{app}} — қаржы топтары мен олар өтемақы төлейтін адамдарға арналған шығыстарды басқару платформасы. Түбіртекті түсіріңіз, шығысты тіркеңіз, есепті бекітуге жіберіңіз және әрбір өтемақыны қадағалаңыз — электрондық кесте рәсімдерінсіз.',
+  'about.missionBody':
+    'Өтемақы жылдам, әділ және тексерілетін болуы керек. Біз {{app}}-ді тапсырушылар жалынбай-ақ ақшасын қайтарып алатындай, бекітушілер нені мақұлдап жатқанын дәл көретіндей және қаржы әрбір доллар үшін таза із қалдыратындай етіп жасадық — саясат тексерулерімен қоса.',
+  'about.missionTitle': 'Біздің миссиямыз',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Мақұлдануда…',
   'approvals.confirmReject': 'Қабылдамауын растау',
+  'approvals.empty': 'Барлығын қарап шықтыңыз — күтіп тұрған есеп жоқ.',
   'approvals.eyebrow': 'Менеджер кезегі',
   'approvals.kpi.flaggedLabel': 'Саясат белгіленді',
+  'approvals.kpi.queueLabel': 'Қарау күтілуде',
   'approvals.kpi.totalLabel': 'Күтілетін мән',
   'approvals.lineCount': '{{count}} шығындар',
   'approvals.queueFallback':
     'Тікелей кезек қолжетімді емес — сұрыпталған демо деректер көрсетілуде.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Қабылданбауда…',
+  'approvals.rejectPlaceholder': 'Себебі (міндетті)',
   'approvals.rejectPrompt': 'Неліктен сіз бұл есепті жоққа шығарасыз?',
   'approvals.review': 'Пікір',
   'approvals.title': 'Мақұлдау күтілуде',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Бекітілген · MTD',
   'dashboard.kpi.pendingDelta': 'Осы аптада +2',
+  'dashboard.kpi.pendingLabel': 'Қарап шығу күтілуде',
   'dashboard.kpi.receiptsDelta': 'Әрекет қажет',
   'dashboard.kpi.receiptsLabel': 'Түбіртектер күтілуде',
   'dashboard.kpi.reimbursedDelta': '+2,4 мың АҚШ доллары',
   'dashboard.kpi.reimbursedLabel': 'Өтемақы төленді · MTD',
   'dashboard.newReport': 'Жаңа есеп',
+  'dashboard.recent.empty': 'Әзірге есеп жоқ — жоғарыда біріншісін бастаңыз.',
   'dashboard.recent.title': 'Соңғы есептер',
   'dashboard.recent.viewAll': 'Барлық есептерді қарау',
   'dashboard.summaryFallback':
@@ -40,11 +61,18 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'Түбіртектер және қайтарылатын заттар',
   'expenses.listFallback': 'Тікелей тізім қолжетімді емес — сұрыпталған демо деректер көрсетілуде.',
   'expenses.searchPlaceholder': 'Сатушыны немесе санатты іздеу…',
+  'expenses.subtotal': '{{count}} шығыс · аралық қорытынды',
   'expenses.title': 'Шығындар',
+  'forgotPassword.continue': 'Менде код бар · Жалғастыру',
+  'forgotPassword.subheading':
+    'Жұмыс электрондық поштаңызды енгізіңіз, біз жаңа құпия сөзді орнату сілтемесін жібереміз.',
   'forgotPassword.successBody':
     'Егер тіркелгі бар болса {{email}} алдағы бірнеше минут ішінде сіз қалпына келтіру сілтемесін аласыз.',
+  'landing.copyright': '© {{year}} {{app}}. Molecule.dev көмегімен жасалған.',
+  'landing.ctaBody': 'Ай сайын алғашқы 25 шығыс тегін. Несие картасы жоқ, енгізу қоңырауы жоқ.',
   'landing.ctaHeading': 'Командаңызға қарыз болған соманы өндіріп алуға дайынсыз ба?',
   'landing.eyebrow': 'Қаржы топтарына арналған шығындар туралы есептер',
+  'landing.featuresHeading': 'Өтемақы — бір тыныш жұмыс кеңістігінде',
   'landing.heroSubtitle':
     'Электрондық кесте рәсімінсіз бизнес шығындарын жіберіңіз, мақұлдаңыз және өтеңіз. Түбіртек OCR, саясатты тексеру және ашық бекіту мерзімі — мұның бәрі бір тыныш жұмыс кеңістігінде.',
   'landing.heroTitle': 'Әрбір түбіртек қалпына келтірілді.',
@@ -61,10 +89,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Ескертпелер',
   'newExpense.descriptionPlaceholder':
     'Неліктен бұл шығын бизнеске қатысты болды (мақұлдаушыға көрінеді).',
+  'newExpense.eyebrow': 'Өтемақыға жататын элемент',
   'newExpense.merchant': 'Саудагер',
   'newExpense.merchantPlaceholder': 'Адлон Кемпински қонақ үйі',
   'newExpense.policyHint':
     'Ескерту: күніне 80 доллардан асатын тамақтану немесе 250 доллардан асатын кез келген тағам үшін негіздеме жазбасы қажет.',
+  'newExpense.receipt': 'Түбіртек',
+  'newExpense.receiptHint': 'JPG, PNG немесе PDF · максимум 10 МБ',
   'newExpense.receiptOcrHint': 'OCR өрістерді алдын ала толтырады',
   'newExpense.receiptPrompt':
     'Фотосуретті немесе PDF файлын осы жерге қойыңыз немесе шолу үшін басыңыз',
@@ -75,17 +106,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Түбіртекті жүктеп салыңыз немесе жүктеңіз, сонда Recoup сатушыны, күнді және жалпы соманы алдын ала толтырады. Сақтамас бұрын төмендегінің барлығын растаңыз.',
   'newExpense.title': 'Шығындарды қосу',
+  'newReport.approverHint': 'Сіз бұл есепті қарауға тапсырғанда, олар электрондық хат алады.',
   'newReport.approverLabel': 'Мақұлдаушының электрондық поштасы (міндетті емес)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'Қолжетімді шығындар',
   'newReport.createFailed': 'Есеп жасау мүмкін болмады. Қайталап көріңіз.',
   'newReport.draftsFallback':
     'Нақты шығындар тізімі қолжетімді емес — таңдалған демо деректер көрсетілуде.',
+  'newReport.eyebrow': 'Шығыстарды топтастыру · бекітуге жіберу',
   'newReport.includedCount': '{{count}} қосылған',
   'newReport.purposeLabel': 'Бизнес мақсаты',
   'newReport.purposePlaceholder':
     'Осы шығындарға қатысты сапарды немесе жобаны сипаттаңыз (мақұлдаушы мен қаржыландырушыға көрінеді).',
   'newReport.saveDraft': 'Жоба ретінде сақтау',
+  'newReport.saveDraftFailed': 'Жобаны сақтау мүмкін болмады. Қайталап көріңіз.',
   'newReport.submit': 'Мақұлдау үшін жіберу',
   'newReport.submitFailed': 'Есеп жіберу мүмкін болмады. Қайталап көріңіз.',
   'newReport.summary': 'Есептің қысқаша мазмұны',
@@ -99,16 +133,23 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Тікелей эфир қолжетімді емес — сұрыпталған демо деректер көрсетілуде.',
   'notifications.openReport': 'Ашық есеп ›',
+  'pricing.approvalsLabel': 'бекітулер',
   'pricing.expensesLabel': 'шығындар',
   'pricing.heading': 'мақұлдау',
   'pricing.policiesLabel': 'саясаттар',
   'pricing.receiptsLabel': 'түбіртектер',
   'recoveredAmountHeroCard.label': 'Өтемақы қайтарылды · Жыл басынан бері',
+  'recoveredAmountHeroCard.pending':
+    'Барлық бекітушілер бойынша қазір қарауда тұрған {{count}} есеп.',
+  'reports.approvalFlow': 'Бекіту ағыны',
   'reports.backToList': 'Есептерге оралу',
   'reports.detailFallback': 'Тікелей есеп қолжетімді емес — сұрыпталған демо деректер көрсетілуде.',
   'reports.lineItems': 'Жол элементтері',
   'reports.lineItemsCount': '{{count}} шығындар',
+  'reports.lineItemsEmpty': 'Бұл есепте әзірге шығыс жоқ.',
+  'reports.openLibrary': 'Есептер кітапханасын ашу',
   'reports.policyTitle': 'Саясат жалаушасы',
+  'reports.selectPrompt': 'Мәліметтерін көру үшін кітапханадан есепті таңдаңыз.',
   'reports.summary.lineCount': 'Жол элементтері',
   'reports.summary.reimbursable': 'Өтемақы төленетін',
   'reports.summary.total': 'Жалпы есеп',
@@ -118,6 +159,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Тікелей тізім қолжетімді емес — сұрыпталған демо деректер көрсетілуде.',
   'reportsList.newReport': 'Жаңа есеп',
+  'reportsList.submittedOn': '{{date}} жіберілді',
   'reportsList.title': 'Есептер жинағы',
   'resetPassword.hidePassword': 'Құпия сөзді жасыру',
   'resetPassword.newPasswordLabel': 'Жаңа құпия сөз',
@@ -143,6 +185,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Сақталған ✓',
   'settings.profileSaveFailed': 'Профильді жаңарту мүмкін болмады. Қайталап көріңіз.',
   'signup.heading': 'Recoup тіркелгісін жасаңыз',
+  'signup.hidePassword': 'Құпия сөзді жасыру',
   'signup.namePlaceholder': 'Майя Окафор',
   'signup.showPassword': 'Құпия сөзді көрсету',
   'signup.subheading': 'Ай сайын 25 шығынға тегін — несие картасы қажет емес.',

@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Có thắc mắc, phát hiện lỗi hay muốn chuyển dữ liệu sổ sách sang? Liên hệ đội ngũ {{app}} tại hello@{{app}}.example — luôn có người thật đọc từng tin nhắn.',
   'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Giới thiệu',
+  'about.intro':
+    '{{app}} là phần mềm kế toán cho doanh nghiệp nhỏ, giúp bạn kiểm soát từng đồng — hóa đơn, chi phí, thanh toán và báo cáo trong một nơi gọn gàng cho chủ doanh nghiệp, kế toán viên và chuyên gia kế toán.',
+  'about.missionBody':
+    'Kinh doanh không có nghĩa là phải lo lắng về sổ sách. {{app}} thay thế mớ bảng tính lộn xộn bằng những con số rõ ràng để bạn hành động, giúp bạn dành ít thời gian đối chiếu hơn và nhiều thời gian hơn cho công việc mà bạn thực sự bắt đầu kinh doanh để làm.',
+  'about.missionTitle': 'Sứ mệnh của chúng tôi',
   'about.title': 'Giới thiệu {{app}}',
   'accounts.count': '{{count}} tài khoản',
+  'accounts.emptyBody':
+    'Tài khoản sổ cái theo dõi tiền nằm ở đâu và luân chuyển thế nào. Chúng sẽ xuất hiện ở đây sau khi kế toán viên hoặc tích hợp của bạn thiết lập.',
   'accounts.emptyTitle': 'Chưa có tài khoản nào',
   'accounts.heading': 'Sơ đồ tài khoản',
   'accounts.kpi.accounts': 'Tài khoản',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Tất cả các tài khoản sổ cái liên quan đến hóa đơn, chi phí và thanh toán của bạn, được nhóm theo loại.',
   'accounts.tag.inactive': 'không hoạt động',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Giám đốc Tài chính, Horizon Tech',
   'authBrandPanel.eyebrow': 'Được các đội tài chính tin tưởng',
   'authBrandPanel.label': 'Trưng bày thương hiệu',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Tất cả khách hàng',
   'customerDetail.invoiceMeta': 'Đã phát hành {{issued}} · Đến hạn {{due}}',
   'customerDetail.loadError': 'Không tải được khách hàng.',
+  'customerDetail.missingBody':
+    'Không thể tải hồ sơ khách hàng được yêu cầu. Có thể hồ sơ đã bị xóa hoặc bạn không có quyền truy cập.',
   'customerDetail.missingHeading': 'Hồ sơ khách hàng không khả dụng',
+  'customerDetail.missingHelp':
+    'Dùng liên kết quay lại ở trên để trở về danh sách khách hàng, hoặc chọn một hồ sơ khác từ đó.',
+  'customerDetail.noInvoices': 'Chưa có hóa đơn nào.',
   'customerDetail.notesEmpty': 'Chưa có ghi chú.',
   'customerDetail.paymentsEmpty': 'Chưa ghi nhận thanh toán nào.',
   'customerDetail.paymentTerms': 'Điều khoản thanh toán',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Khấu trừ được',
   'expenseDetail.detailsHeading': 'Chi tiết giao dịch',
   'expenseDetail.loadError': 'Không tải được chi phí.',
+  'expenseDetail.matched': 'Đã khớp · {{description}}',
   'expenseDetail.missingBody':
     'Không thể tải chi phí yêu cầu. Có thể đã bị xóa hoặc bạn không có quyền truy cập.',
   'expenseDetail.missingHeading': 'Hồ sơ chi phí không khả dụng',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Biên lai',
   'expenseDetail.receiptHeading': 'Biên lai',
   'expenseDetail.reconciled': 'Đã đối chiếu',
+  'expenseDetail.unreconciled': 'Chưa đối chiếu',
   'expenses.empty': 'Chưa có chi phí.',
   'expenses.heading': 'Chi phí',
   'expenses.kpi.deductible': 'Khấu trừ được',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Không tải được hóa đơn.',
   'invoices.searchPlaceholder': 'Tìm số hóa đơn hoặc khách hàng…',
   'invoices.summary.paid': 'Đã thanh toán kỳ này',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'Miễn phí 30 ngày. Không cần thẻ. Hãy mời kế toán viên của bạn — họ sẽ cảm ơn bạn.',
   'landing.ctaTitle': 'Chuyển sổ sách của bạn đến nơi yên tĩnh hơn.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Khoản phải thu',
   'ledgerStatTriad.eyebrow.mtd': 'Từ đầu tháng đến nay',
   'ledgerStatTriad.netSub': 'Ròng {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} quá hạn',
   'ledgerStatTriad.revenueLabel': 'Doanh thu',
   'login.failed': 'Đăng nhập thất bại.',
   'login.hidePassword': 'Ẩn mật khẩu',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Đăng nhập',
   'nav.legal': 'Pháp lý',
   'newExpense.back': 'Chi phí',
+  'newExpense.clearReceiptCta': 'Xóa biên lai đính kèm',
   'newExpense.deductible': 'Khấu trừ thuế',
   'newExpense.dropPrompt': 'Thả ảnh biên lai hoặc PDF vào đây để đính kèm.',
   'newExpense.failed': 'Không thể lưu chi phí.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Không tải được thanh toán.',
   'payments.unmatchedTag': 'vô song',
   'planUpdated.pageLabel': 'Xác nhận cập nhật kế hoạch',
+  'pricing.advancedFeatures': 'Tính năng nâng cao: {{yes}}',
+  'pricing.canExport': 'Xuất dữ liệu: {{yes}}',
+  'pricing.heading': 'Chọn gói {{app}} của bạn',
+  'pricing.maxAccounts': '{{count}} tài khoản',
+  'pricing.maxExpenses': '{{count}} chi phí',
+  'pricing.maxInvoices': '{{count}} hóa đơn',
+  'privacy.intro':
+    'Chính sách Bảo mật này mô tả cách {{app}} thu thập, sử dụng và tiết lộ thông tin về các doanh nghiệp sử dụng dịch vụ.',
   'privacy.lastUpdated': 'Cập nhật lần cuối: {{date}}',
   'privacy.section.collected.body':
     'Chúng tôi thu thập chi tiết tài khoản (tên, email, công ty), hồ sơ tài chính bạn tải lên (hóa đơn, chi phí, khách hàng, thanh toán) và nhật ký vận hành dịch vụ tiêu chuẩn (IP, user-agent, dấu thời gian).',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Thông tin được sử dụng để vận hành dịch vụ, tạo các báo cáo và PDF bạn yêu cầu, gửi email giao dịch qua Mailgun và xử lý thanh toán qua Stripe. Chúng tôi không bán hay cho thuê thông tin cá nhân.',
   'recentInvoicesCard.dueMeta': 'Hạn {{date}}',
+  'recentInvoicesCard.empty': 'Không có hóa đơn nào khớp.',
   'recentInvoicesCard.eyebrow': 'Khoản phải thu',
   'recentInvoicesCard.searchAriaLabel': 'Tìm kiếm hóa đơn',
+  'recentInvoicesCard.searchPlaceholder': 'Tìm hóa đơn…',
   'recentInvoicesCard.title': 'Hóa đơn gần đây',
   'recentInvoicesCard.viewAll': 'Xem tất cả hóa đơn →',
   'reports.assets': 'Tài sản',
@@ -181,16 +211,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Lãi & lỗ (12 tháng)',
   'resetPassword.backToLogin': '← Quay lại đăng nhập',
   'resetPassword.hidePassword': 'Ẩn mật khẩu',
+  'resetPassword.passwordLabel': 'Mật khẩu mới',
   'resetPassword.showPassword': 'Hiện mật khẩu',
+  'resetPassword.subheading': 'Chọn một mật khẩu mạnh — tối thiểu tám ký tự.',
   'resetPassword.submit': 'Đặt lại mật khẩu',
   'resetPassword.tooShort': 'Mật khẩu phải có ít nhất 8 ký tự.',
   'settings.account.changePassword': 'Đổi mật khẩu',
   'settings.account.changingPassword': 'Đang thay đổi…',
   'settings.account.currentPassword': 'Mật khẩu hiện tại',
+  'settings.account.dangerZone': 'Vùng nguy hiểm',
   'settings.account.deleteAccount': 'Xóa tài khoản',
   'settings.account.deleteDescription':
     'Xóa vĩnh viễn tài khoản của bạn và tất cả dữ liệu liên quan.',
   'settings.account.deleteError': 'Không thể xóa tài khoản.',
+  'settings.account.deleteWarning':
+    'Thao tác này sẽ xóa vĩnh viễn tài khoản của bạn và không thể hoàn tác. Nhập mật khẩu để xác nhận.',
   'settings.account.deleting': 'Đang xóa…',
   'settings.account.devices': 'Thiết bị',
   'settings.account.email': 'E-mail',
@@ -201,6 +236,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Mật khẩu',
   'settings.account.passwordError': 'Không thể đổi mật khẩu.',
   'settings.account.pushNotifications': 'Thông báo đẩy trên thiết bị này',
+  'settings.account.revokeDeviceWarning':
+    'Quyền truy cập của thiết bị này sẽ bị thu hồi. Đăng xuất?',
   'settings.account.saveError': 'Không thể cập nhật hồ sơ.',
   'settings.account.security': 'Bảo mật',
   'settings.account.signOutDevice': 'Đăng xuất',
@@ -208,12 +245,19 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Xác thực hai yếu tố',
   'settings.account.twoFactorCode': 'Mã xác thực',
   'settings.account.twoFactorDisable': 'Vô hiệu hóa',
+  'settings.account.twoFactorDisableTitle': 'Tắt xác thực hai yếu tố',
   'settings.account.twoFactorEnable': 'Kích hoạt',
+  'settings.account.twoFactorEnableTitle': 'Bật xác thực hai yếu tố',
   'settings.account.twoFactorInvalidCode': 'Mã không hợp lệ',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'Mã QR xác thực hai yếu tố',
+  'settings.account.twoFactorScan':
+    'Quét mã QR này bằng ứng dụng xác thực của bạn, sau đó nhập mã 6 chữ số.',
+  'settings.account.twoFactorUnavailable': 'Ứng dụng này không hỗ trợ xác thực hai yếu tố.',
   'settings.account.twoFactorVerify': 'Xác minh và kích hoạt',
   'settings.account.unknownDevice': 'Thiết bị không xác định',
   'settings.company.email': 'Email lập hóa đơn',
+  'settings.company.heading': 'Công ty & thuế',
   'settings.company.name': 'Tên pháp lý',
   'settings.company.saveButton': 'Lưu hồ sơ công ty',
   'settings.company.taxId': 'Mã số thuế / EIN',
@@ -256,6 +300,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Ước. hàng quý',
   'taxes.kpi.owed': 'Còn nợ',
   'taxes.loadError': 'Không tải được tóm tắt thuế.',
+  'taxes.remittedPct': '(đã nộp {{pct}}%)',
+  'terms.intro':
+    'Điều khoản Dịch vụ này ("Điều khoản") điều chỉnh quyền truy cập và việc sử dụng {{app}} của bạn. Bằng việc tạo tài khoản hoặc sử dụng dịch vụ, bạn đồng ý bị ràng buộc bởi các Điều khoản này.',
   'terms.lastUpdated': 'Cập nhật lần cuối: {{date}}',
   'terms.section.acceptable.body':
     'Bạn đồng ý không sử dụng dịch vụ để vi phạm bất kỳ luật nào, xâm phạm quyền sở hữu trí tuệ, truyền tải phần mềm độc hại hoặc cố gắng truy cập trái phép vào các tài khoản khác hoặc cơ sở hạ tầng của chúng tôi.',

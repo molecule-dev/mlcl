@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ερωτήσεις, σχόλια ή αίτημα για νέα λειτουργία; Επικοινωνήστε με την ομάδα {{app}} από τις Ρυθμίσεις → Ειδοποιήσεις ή γράψτε μας οποιαδήποτε στιγμή — κάθε μήνυμα φτάνει σε πραγματικό άνθρωπο.',
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.featureCapture':
+    'Καταγραφή αποδείξεων με μεταφόρτωση φωτογραφίας που επισυνάπτει εικόνες στο σωστό έξοδο, γραμμή προς γραμμή.',
+  'about.featureExport':
+    'Ελέγξιμες εξαγωγές CSV για κάθε αναφορά, έξοδο και κατάσταση έγκρισης — έτοιμες για την ομάδα λογιστηρίου σας.',
+  'about.featurePolicy':
+    'Κανόνες πολιτικής — ημερήσια όρια, όρια ανά κατηγορία και όρια υποχρεωτικής απόδειξης που εφαρμόζονται κατά την υποβολή.',
+  'about.featureWorkflow':
+    'Ροή έγκρισης δύο επιπέδων με σημειώσεις ελεγκτή, επισημάνσεις παραβίασης πολιτικής και σήμανση αποζημίωσης με ένα πάτημα.',
+  'about.intro':
+    'Το {{app}} είναι μια πλατφόρμα διαχείρισης εξόδων για ομάδες οικονομικών και τους ανθρώπους που αποζημιώνουν. Καταγράψτε μια απόδειξη, καταχωρίστε ένα έξοδο, στείλτε μια αναφορά προς έγκριση και παρακολουθήστε κάθε αποζημίωση — χωρίς την ταλαιπωρία του υπολογιστικού φύλλου.',
+  'about.missionBody':
+    'Η αποζημίωση πρέπει να είναι γρήγορη, δίκαιη και ελέγξιμη. Φτιάξαμε το {{app}} ώστε οι υποβάλλοντες να πληρώνονται χωρίς γκρίνια, οι εγκρίνοντες να βλέπουν ακριβώς τι εγκρίνουν και τα οικονομικά να έχουν καθαρό ίχνος για κάθε ευρώ — με όλους τους ελέγχους πολιτικής.',
+  'about.missionTitle': 'Η αποστολή μας',
   'approvals.approve': 'Έγκριση',
   'approvals.approving': 'Έγκριση…',
   'approvals.confirmReject': 'Επιβεβαίωση απόρριψης',
+  'approvals.empty': 'Είστε ενημερωμένοι — δεν εκκρεμούν αναφορές.',
   'approvals.eyebrow': 'Ουρά διαχειριστή',
   'approvals.kpi.flaggedLabel': 'Η πολιτική επισημάνθηκε',
+  'approvals.kpi.queueLabel': 'Σε αναμονή ελέγχου',
   'approvals.kpi.totalLabel': 'Εκκρεμής τιμή',
   'approvals.lineCount': '{{count}} έξοδα',
   'approvals.queueFallback':
     'Η ζωντανή ουρά δεν είναι διαθέσιμη — εμφανίζονται επιμελημένα δεδομένα επίδειξης.',
   'approvals.reject': 'Απόρριψη',
   'approvals.rejecting': 'Απόρριψη…',
+  'approvals.rejectPlaceholder': 'Αιτιολογία (υποχρεωτική)',
   'approvals.rejectPrompt': 'Γιατί απορρίπτετε αυτήν την αναφορά;',
   'approvals.review': 'Έλεγχος',
   'approvals.title': 'Εκκρεμείς εγκρίσεις',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Εγκρίθηκε · MTD',
   'dashboard.kpi.pendingDelta': '+2 αυτή την εβδομάδα',
+  'dashboard.kpi.pendingLabel': 'Εκκρεμεί έλεγχος',
   'dashboard.kpi.receiptsDelta': 'Απαιτούμενη ενέργεια',
   'dashboard.kpi.receiptsLabel': 'Αναμονή αποδείξεων',
   'dashboard.kpi.reimbursedDelta': '+2,4 χιλιάδες δολάρια',
   'dashboard.kpi.reimbursedLabel': 'Επιστράφηκε · MTD',
   'dashboard.newReport': 'Νέα αναφορά',
+  'dashboard.recent.empty': 'Δεν υπάρχουν αναφορές ακόμη — ξεκινήστε την πρώτη σας παραπάνω.',
   'dashboard.recent.title': 'Πρόσφατες αναφορές',
   'dashboard.recent.viewAll': 'Δείτε όλες τις αναφορές',
   'dashboard.summaryFallback':
@@ -41,11 +62,19 @@ export const ui: UiTranslations = {
   'expenses.listFallback':
     'Η ζωντανή λίστα δεν είναι διαθέσιμη — εμφανίζονται επιμελημένα δεδομένα επίδειξης.',
   'expenses.searchPlaceholder': 'Αναζήτηση εμπόρου ή κατηγορίας…',
+  'expenses.subtotal': '{{count}} έξοδα · υποσύνολο',
   'expenses.title': 'Έξοδα',
+  'forgotPassword.continue': 'Έχω κωδικό · Συνέχεια',
+  'forgotPassword.subheading':
+    'Βάλε το email εργασίας σου και θα σου στείλουμε έναν σύνδεσμο για να ορίσεις νέο κωδικό πρόσβασης.',
   'forgotPassword.successBody':
     'Εάν υπάρχει λογαριασμός για {{email}} Θα λάβετε έναν σύνδεσμο επαναφοράς μέσα στα επόμενα λεπτά.',
+  'landing.copyright': '© {{year}} {{app}}. Κατασκευασμένο με Molecule.dev.',
+  'landing.ctaBody':
+    'Δωρεάν για τα πρώτα 25 έξοδα κάθε μήνα. Χωρίς πιστωτική κάρτα, χωρίς τηλεφώνημα υλοποίησης.',
   'landing.ctaHeading': 'Είστε έτοιμοι να ανακτήσετε ό,τι χρωστάει η ομάδα σας;',
   'landing.eyebrow': 'Αναφορές εξόδων για ομάδες οικονομικών',
+  'landing.featuresHeading': 'Αποζημίωση, σε ένα ήρεμο περιβάλλον εργασίας',
   'landing.heroSubtitle':
     'Υποβολή, έγκριση και επιστροφή επιχειρηματικών εξόδων χωρίς την τελετή υπολογιστικών φύλλων. OCR παραλαβής, έλεγχοι πολιτικής και ένα διαφανές χρονοδιάγραμμα έγκρισης — όλα σε έναν ήρεμο χώρο εργασίας.',
   'landing.heroTitle': 'Κάθε απόδειξη, ανακτήθηκε.',
@@ -63,10 +92,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Σημειώσεις',
   'newExpense.descriptionPlaceholder':
     'Γιατί αυτή η δαπάνη σχετιζόταν με την επιχείρηση (ορατό στον υπεύθυνο έγκρισης).',
+  'newExpense.eyebrow': 'Αποζημιώσιμο στοιχείο',
   'newExpense.merchant': 'Πωλητής',
   'newExpense.merchantPlaceholder': 'Ξενοδοχείο Adlon Kempinski',
   'newExpense.policyHint':
     'Υπενθύμιση: για γεύματα άνω των 80$/ημέρα ή για οποιοδήποτε είδος άνω των 250$ απαιτείται αιτιολογική έκθεση.',
+  'newExpense.receipt': 'Απόδειξη',
+  'newExpense.receiptHint': 'JPG, PNG ή PDF · έως 10 MB',
   'newExpense.receiptOcrHint': 'Πεδία προ-συμπλήρωσης OCR',
   'newExpense.receiptPrompt': 'Αποθέστε εδώ μια φωτογραφία ή ένα PDF ή κάντε κλικ για περιήγηση',
   'newExpense.receiptUploadFailed':
@@ -77,17 +109,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Τραβήξτε ή ανεβάστε μια απόδειξη και το Recoup θα προσυμπληρώσει τον έμπορο, την ημερομηνία και το σύνολο. Επιβεβαιώστε τα παρακάτω πριν από την αποθήκευση.',
   'newExpense.title': 'Προσθήκη εξόδων',
+  'newReport.approverHint': 'Θα λάβουν email όταν υποβάλετε αυτή την αναφορά για έλεγχο.',
   'newReport.approverLabel': 'Ηλεκτρονικό ταχυδρομείο υπευθύνου έγκρισης (προαιρετικό)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'Διαθέσιμα έξοδα',
   'newReport.createFailed': 'Δεν ήταν δυνατή η δημιουργία αναφοράς. Δοκιμάστε ξανά.',
   'newReport.draftsFallback':
     'Η λίστα εξόδων σε πραγματικό χρόνο δεν είναι διαθέσιμη — εμφανίζονται επιμελημένα δεδομένα επίδειξης.',
+  'newReport.eyebrow': 'Ομαδοποίηση εξόδων · υποβολή για έγκριση',
   'newReport.includedCount': '{{count}} συμπεριλαμβανομένος',
   'newReport.purposeLabel': 'Επιχειρηματικός σκοπός',
   'newReport.purposePlaceholder':
     'Περιγράψτε το ταξίδι ή το έργο στο οποίο σχετίζονται αυτά τα έξοδα (ορατό στον υπεύθυνο έγκρισης και χρηματοδότησης).',
   'newReport.saveDraft': 'Αποθήκευση ως πρόχειρο',
+  'newReport.saveDraftFailed': 'Δεν ήταν δυνατή η αποθήκευση του προσχεδίου. Δοκιμάστε ξανά.',
   'newReport.submit': 'Υποβολή για έγκριση',
   'newReport.submitFailed': 'Δεν ήταν δυνατή η υποβολή της αναφοράς. Δοκιμάστε ξανά.',
   'newReport.summary': 'Σύνοψη αναφοράς',
@@ -101,17 +136,25 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Η ζωντανή ροή δεν είναι διαθέσιμη — εμφανίζονται επιμελημένα δεδομένα επίδειξης.',
   'notifications.openReport': 'Άνοιγμα αναφοράς ›',
+  'pricing.approvalsLabel': 'εγκρίσεις',
   'pricing.expensesLabel': 'έξοδα',
   'pricing.heading': 'εγκρίσεις',
   'pricing.policiesLabel': 'πολιτικές',
   'pricing.receiptsLabel': 'αποδείξεις',
   'recoveredAmountHeroCard.label': 'Επιστροφή χρημάτων που ανακτήθηκε · YTD',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} αναφορά(ές) εκκρεμούν προς έλεγχο σε όλους τους εγκρίνοντες.',
+  'reports.approvalFlow': 'Ροή έγκρισης',
   'reports.backToList': 'Επιστροφή στις αναφορές',
   'reports.detailFallback':
     'Δεν υπάρχει διαθέσιμη ζωντανή αναφορά — εμφανίζονται επιμελημένα δεδομένα επίδειξης.',
   'reports.lineItems': 'Στοιχεία γραμμής',
   'reports.lineItemsCount': '{{count}} έξοδα',
+  'reports.lineItemsEmpty': 'Δεν υπάρχουν έξοδα σε αυτή την αναφορά ακόμη.',
+  'reports.openLibrary': 'Άνοιγμα βιβλιοθήκης αναφορών',
   'reports.policyTitle': 'Σημαία πολιτικής',
+  'reports.selectPrompt':
+    'Επιλέξτε μια αναφορά από τη βιβλιοθήκη για να δείτε τις λεπτομέρειές της.',
   'reports.summary.lineCount': 'Στοιχεία γραμμής',
   'reports.summary.reimbursable': 'Επιστρεφόμενο',
   'reports.summary.total': 'Αναφερόμενο σύνολο',
@@ -121,6 +164,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Η ζωντανή λίστα δεν είναι διαθέσιμη — εμφανίζονται επιμελημένα δεδομένα επίδειξης.',
   'reportsList.newReport': 'Νέα αναφορά',
+  'reportsList.submittedOn': 'Υποβλήθηκε {{date}}',
   'reportsList.title': 'Βιβλιοθήκη αναφορών',
   'resetPassword.hidePassword': 'Απόκρυψη κωδικού',
   'resetPassword.newPasswordLabel': 'Νέος κωδικός πρόσβασης',
@@ -146,6 +190,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Αποθηκεύτηκε ✓',
   'settings.profileSaveFailed': 'Δεν ήταν δυνατή η ενημέρωση του προφίλ. Δοκιμάστε ξανά.',
   'signup.heading': 'Δημιουργήστε τον λογαριασμό σας Recoup',
+  'signup.hidePassword': 'Απόκρυψη κωδικού',
   'signup.namePlaceholder': 'Μάγια Οκάφορ',
   'signup.showPassword': 'Εμφάνιση κωδικού',
   'signup.subheading': 'Δωρεάν για 25 έξοδα κάθε μήνα — χωρίς πιστωτική κάρτα.',

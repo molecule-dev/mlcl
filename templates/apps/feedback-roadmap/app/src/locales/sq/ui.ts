@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Keni komente, keni gjetur një gabim ose dëshironi një tabelë tuajën në {{appName}}? Hapni Cilësimet për të kontaktuar ekipin — çdo mesazh lexohet nga një person i vërtetë.',
+  'about.contactTitle': 'Kontaktoni me ne',
+  'about.featureModeration':
+    'Një plan rrugëtimor publik me etiketa tremujore, një regjistër ndryshimesh që i kthen punët e dorëzuara në shënime versioni dhe një panel që tregon çfarë kërkon më shumë publiku.',
+  'about.featurePricing':
+    'Falas për të drejtuar disa tabela; planet Pro dhe Team zbulojnë më shumë tabela, kufij më të lartë dhe eksportim të dhënash.',
+  'about.featureThreads':
+    'Tabela publike komentesh të organizuara sipas temës, me bashkim dublikatësh që grumbullon votat në një sinjal të vetëm e të ndershëm kërkese.',
+  'about.featureVoting':
+    'Votim me një votë për përdorur me një rrjedhë të plotë statusesh — e hapur, e planifikuar, në proces, e dorëzuar ose e refuzuar — dhe një përgjigje zyrtare për çdo vendim.',
+  'about.intro':
+    '{{appName}} është një platformë komentesh për produkte — tabela publike ku klientët postojnë kërkesa, votojnë për atë që u nevojitet dhe ndjekin çdo ide nga planifikimi te dorëzimi. Ekipet nuk hamendësojnë më se çfarë të ndërtojnë, sepse kërkesa renditet vetë.',
+  'about.missionBody':
+    'Ne besojmë se vendimet më të mira për produktin merren hapur. {{appName}} i jep çdo ekipi një tabelë publike kërkesash të votuara, një plan rrugëtimor zyrtar me tremujorët e synuar dhe një regjistër ndryshimesh që e mbyll ciklin — kështu klientët e shohin ndikimin e tyre dhe ekipet e shohin mandatin e tyre.',
+  'about.missionTitle': 'Misioni ynë',
   'admin.backToBoards': 'Kthehu te bordet',
   'admin.denied': 'Vetëm për administratorë.',
   'admin.eyebrow': 'Ekipi i produktit',
@@ -11,6 +27,8 @@ export const ui: UiTranslations = {
   'admin.title': 'Paneli i komenteve',
   'admin.topOpen': 'Kërkesat kryesore të hapura',
   'admin.totalVotes': '{{count}} gjithsej',
+  'admin.votesChartLabel':
+    'Grafik me shtylla i votave të hedhura në javë gjatë tetë javëve të fundit',
   'admin.votesOverTime': 'Vota me kalimin e kohës',
   'auth.forgotPassword.email': 'Email',
   'auth.forgotPassword.sendResetLink': 'Dërgo lidhje rivendosjeje',
@@ -30,7 +48,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Krijo llogarinë tënde',
   'auth.username': 'Emri i përdoruesit',
   'authShell.communities': 'Komunitete',
+  'authShell.copyright': '{{appName}} — çdo zë ka rëndësi.',
   'authShell.trending': 'Në trend',
+  'boardCard.postCount': '{{count}} postime',
   'boardDetail.allBoards': 'Të gjitha bordet',
   'boardDetail.backToBoards': 'Kthehu te bordet',
   'boardDetail.empty': 'Asnjë postim nuk përputhet me këto filtra ende.',
@@ -54,6 +74,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Çdo hyrje filloi si një kërkesë e votuar. Votuesit e panë lëvizjen; këtu është ku arriti.',
   'changelog.title': 'Të dërguara, me prova',
+  'changelog.voteCount': '{{count}} vota e mundësuan këtë',
   'common.atLeast8Characters': 'Të paktën 8 karaktere',
   'common.checkYourInbox': 'Kontrollo inbox-in',
   'common.loadingEllipsis': 'Duke u ngarkuar…',
@@ -64,6 +85,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Duke u dërguar…',
   'footer.about': 'Rreth {{appName}}',
   'footer.language': 'Gjuha',
+  'forgotPassword.description':
+    "Shkruani email-in tuaj dhe ne do t'ju dërgojmë një lidhje për të rivendosur.",
+  'forgotPassword.successBody':
+    'Ne dërguam një lidhje rivendosjeje te {{email}} Skadon për 30 minuta.',
   'forgotPassword.tryAnother': 'Provo një email tjetër',
   'form.displayName': 'Emri për shfaqje',
   'form.firstName': 'Emri',
@@ -74,6 +99,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'Roadmap-i yt, i mbështetur nga votat.',
   'landing.heroCtaPrimary': 'Fillo të mbledhësh vota',
   'landing.heroCtaSecondary': 'Shiko një bord të drejtpërdrejtë',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Ndal hamendësimin. Dorëzo atë për të cilën votojnë.',
+  'landing.heroLede':
+    '{{appName}} i kthen kërkesat e shpërndara për veçori në një tabelë publike idesh të votuara, një plan rrugëtimor zyrtar dhe një regjistër ndryshimesh që klientët tuaj vërtet e lexojnë.',
   'landing.heroStat1': '3,200+',
   'landing.heroStat1Label': 'Ekipe duke dëgjuar',
   'landing.heroStat2': '1.4m',
@@ -85,9 +114,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Ditari i ndryshimeve',
   'landing.navJoin': 'Bashkohu me {{appName}}',
   'landing.navRoadmap': 'Roadmap',
+  'landing.step1Body':
+    'Klientët postojnë ide në tabela publike. Dublikatët bashkohen, votat grumbullohen dhe kërkesa renditet vetë.',
   'landing.step1Title': 'Mbledhja',
+  'landing.step2Body':
+    'Shënoni kërkesat si të planifikuara ose në proces me një tremujor të synuar — plani rrugëtimor përditësohet sapo ta bëni.',
+  'landing.step2Title': 'Kryej',
   'landing.step3Body':
     'Postimet e dërguara bëhen hyrje në ditarin e ndryshimeve, dhe çdo votues sheh rezultatin në listën e tij.',
+  'landing.step3Title': 'Dorëzo',
   'landing.topSubtitle': 'Drejtpërdrejt nga ky bord — hyr për të shtuar votën tënde.',
   'landing.topTitle': 'Çfarë po kërkojnë përdoruesit tani',
   'landing.topViewAll': 'Të gjitha bordet',
@@ -95,14 +130,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Kryesore',
   'layout.signUp': 'Regjistrohu',
   'layout.submit': 'Dërgo koment',
+  'login.description': 'Vazhdoni bisedën aty ku mbaroi.',
+  'login.heading': 'Hyr në Nimbus',
+  'login.noAccount': 'I ri këtu?',
   'login.passwordPlaceholder': 'Fjalëkalimi yt',
   'login.twoFactorLabel': 'Kodi 2FA (opsional)',
   'login.twoFactorPlaceholder': 'Kodi 6-shifror',
+  'login.twoFactorRequiredHint':
+    'Kjo llogari ka aktivizuar vërtetimin me dy faktorë. Për të vazhduar, shkruani kodin 6-shifror nga aplikacioni juaj i vërtetimit.',
   'login.twoFactorRequiredLabel': 'Fut kodin tënd 2FA',
+  'myActivity.browseCta': 'Shfleto tabelat',
+  'myActivity.emptyPosts': 'Nuk keni postuar ende një kërkesë.',
+  'myActivity.emptyVotes': 'Asgjë ende — shfletoni tabelat dhe përkrahni një ide.',
   'myActivity.eyebrow': 'Aktiviteti yt',
   'myActivity.loadError': 'Nuk mund të ngarkohej aktiviteti juaj.',
   'myActivity.postsTitle': 'Kërkesat që ke dërguar',
+  'myActivity.shippedNote': '{{count}} prej tyre u dorëzuan — faleminderit për nxitjen.',
   'myActivity.submitCta': 'Posto një kërkesë',
+  'myActivity.tabLabel': 'Pamje',
   'myActivity.tabPosts': 'Postimet e mia',
   'myActivity.tabVotes': 'Votat e mia',
   'myActivity.votesTitle': 'Kërkesat për të cilat ke votuar',
@@ -137,8 +182,12 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Postimi nuk u gjet',
   'postsAdmin.backToDashboard': 'Paneli i kontrollit',
   'postsAdmin.eyebrow': 'Ekipi i produktit',
+  'postsAdmin.mergeApplied': 'U bashkuan — {{votes}} vota dhe {{comments}} komente u zhvendosën.',
   'postsAdmin.mergeApply': 'Bashko & lëviz votat',
   'postsAdmin.mergeChoose': 'Zgjidh një postim të synuar…',
+  'postsAdmin.mergeFailed': 'Bashkimi dështoi.',
+  'postsAdmin.mergeHint':
+    'Votat grumbullohen (një për përdorues), komentet zhvendosen dhe ky postim merr një shënim "u zhvendos".',
   'postsAdmin.mergeLabel': 'Bashko dublikatin me',
   'postsAdmin.responseLabel': 'Përgjigje zyrtare',
   'postsAdmin.responsePlaceholder': 'Çfarë vendosi ekipi dhe pse — shfaqet publikisht në postim.',
@@ -152,7 +201,13 @@ export const ui: UiTranslations = {
     'Vendos statusin zyrtar, përgjigju publikisht, etiketo tremujorin e roadmap-it dhe bashko dublikatat.',
   'postsAdmin.title': 'Menaxho postimet e komenteve',
   'postsAdmin.votes': '{{count}} vota',
+  'pricing.limits.advancedFeatures': 'Karakteristika të avancuara:',
+  'pricing.limits.boards': '{{count}} dërrasa',
   'pricing.limits.export': 'Eksportimi i të dhënave:',
+  'pricing.limits.posts': '{{count}} postime komentesh',
+  'pricing.limits.votes': '{{count}} vota',
+  'resetPassword.description':
+    'Zgjidh një të fortë. Do të të identifikojmë sapo rivendosja të ketë sukses.',
   'resetPassword.newPasswordLabel': 'Fjalëkalimi i ri',
   'resetPassword.tokenPlaceholder': 'Ngjit token-in nga lidhja',
   'roadmap.cardMeta': 'nga {{author}} · {{board}}',
@@ -169,6 +224,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'Shkruaj një pyetje për të gjetur kërkesa ekzistuese para se të postosh një dublikat.',
   'search.loadError': 'Kërkimi dështoi - provoni përsëri.',
+  'search.searching': 'Duke kërkuar…',
   'search.submit': 'Kërko',
   'search.submitNew': 'Postoje si kërkesë të re',
   'search.title': 'Kërko komente',
@@ -177,11 +233,22 @@ export const ui: UiTranslations = {
   'settings.billing': 'Faturimi',
   'settings.displaySubtitle': 'Zgjidh sa të dendur të ndihen feed-et.',
   'settings.displayTitle': 'Shfaqja',
+  'settings.emailDigestDesc': 'Kërkesat e hapura me më shumë vota çdo të hënë.',
+  'settings.emailDigestLabel': 'Përmbledhje javore',
+  'settings.emailMentionsDesc': 'Kur dikush përgjigjet në një postim që ndiqni.',
+  'settings.emailMentionsLabel': 'Njoftomë me email kur më përmendin',
+  'settings.emailRepliesDesc': 'Temat që keni nisur ose ku jeni përgjigjur.',
+  'settings.emailRepliesLabel': 'Më dërgo email për përgjigjet që më jep.',
   'settings.loadError': 'Nuk u ngarkua llogaria jote.',
   'settings.loading': 'Duke u ngarkuar cilësimet e tua…',
   'settings.notifications': 'Njoftimet',
   'settings.notificationsSubtitle': 'Vendos çfarë arrin në inbox kundrejt pajisjes së push.',
+  'settings.pushRepliesLabel': 'Njoftim për përgjigjet',
+  'settings.pushVotesDesc': 'Njoftim në pragun 100, 500, 1000.',
+  'settings.pushVotesLabel': 'Kërkoni vota pozitive për arritjet e objektivave',
   'settings.saveAccount': 'Ruaj llogarinë',
+  'settings.showFlair': 'Shfaq etiketat e tabelës në postime',
+  'settings.showThumbnails': 'Shfaq miniaturat e lidhjeve/imazheve',
   'settings.usernamePlaceholder': 'Zgjidh një pseudonim',
   'signup.confirmPlaceholder': 'Shkruaje përsëri',
   'signup.description': 'Formo çfarë ndërtojmë tjetër.',

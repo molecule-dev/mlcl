@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Bir sorunuz mu var, bir hata mı buldunuz yoksa ekibiniz için demo mu istiyorsunuz? Hesap ayarlarınızdan bize ulaşın — her mesaj ekibimizdeki gerçek bir kişiye gider.',
   'about.contactTitle': 'İletişime geçin',
+  'about.intro':
+    "{{app}}, yığınlarca taranmış belgeyi ve PDF'i yapılandırılmış, aranabilir, dosyalanmış veriye dönüştürür. Faturaları, fişleri, sözleşmeleri veya formları bırakın; AI onları okusun, çıkarsın, sınıflandırsın ve dosyalasın — güven renkleriyle, böylece ekibiniz yalnızca gerçekten insan gerektirenleri inceler.",
+  'about.missionBody':
+    'Belge angaryası ekibinizin gününü yemesin. Her çıkarılan değerin açıklanabilir ve denetlenebilir olması gerektiğine inanıyoruz — böylece kağıt izini kaybetmeden otomasyona güvenebilirsiniz. {{app}}, yığın başına saatler kazandırmak için tasarlandı ve önemli olan her yerde bir insanı döngüde tutar.',
+  'about.missionTitle': 'Misyonumuz',
+  'about.subtitle': 'Belgeleriniz için OCR, AI çıkarımı, sınıflandırma ve otomatik dosyalama.',
   'about.title': '{{app}} hakkında',
+  'about.whatYouGetTitle': 'Neler elde edersiniz',
   'authShell.backToLanding': '← Açılış sayfasına dön',
   'common.goToDashboard': 'Panele Git',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Bugün · Operasyon genel bakışı',
   'dashboard.heading': 'Belge zekâsı',
+  'dashboard.metric.accuracy': 'Ort. doğruluk',
   'dashboard.metric.filed': 'Bugün dosyalandı',
   'dashboard.metric.filedCaption': 'Dosyalama kurallarıyla yönlendirildi',
   'dashboard.metric.processed': 'Bugün işlendi',
@@ -23,11 +33,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Belge',
   'dashboard.recent.col.uploaded': 'Yüklendi',
   'dashboard.recent.heading': 'Son belgeler',
+  'dashboard.recent.typeUnknown': 'Sınıflandırma bekleniyor',
   'dashboard.subheading':
     'Her sayfa sınıflandırılır, çıkarılır ve dosyalanır — güven renkleriyle inceleme odaklı kalır.',
   'documentDetail.audit.heading': 'Denetim zaman çizelgesi',
+  'documentDetail.audit.subheading': 'Bu belgede atılan her adım, sorumlu aktörle birlikte.',
   'documentDetail.back': 'Tüm belgeler',
   'documentDetail.downloadHint': "Orijinal dosyayı açmak için İndir'i kullanın.",
+  'documentDetail.extracted.empty': 'Henüz alan çıkarılmadı.',
   'documentDetail.extracted.heading': 'Çıkarılan alanlar',
   'documentDetail.extracted.subheading':
     '{{count}} alan · sayfada vurgulamak için herhangi bir alana tıklayın',
@@ -55,13 +68,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Belgelerde ara…',
   'documents.subheading': 'Kütüphanenizde {{count}} belge, en yeniden sıralı.',
   'documents.uploadCta': 'Belgeleri yükle',
+  'documentTypeBreakdown.barAria': 'Türe göre belge bileşimi',
   'documentTypeBreakdown.empty': 'Henüz işlenmiş belge yok.',
   'documentTypeBreakdown.subtitle': '{{total}} işlendi',
   'documentTypeBreakdown.title': 'Belge kompozisyonu',
+  'forgotPassword.backToSignIn': '← Girişe dön',
   'forgotPassword.checkEmail': 'E-postanızı kontrol edin',
   'forgotPassword.tip': "Almadınız mı? Spam'i kontrol edin veya farklı bir adres deneyin.",
+  'landing.copyright':
+    '© {{year}} {{app}}. Her sayfayı denetleyen operasyon ekipleri için tasarlandı.',
+  'landing.ctaBody':
+    '14 günlük deneme. Kart gerekmez. İstediğiniz zaman iptal edin. Hızlı hareket eden ve yavaş denetleyen operasyon ekipleri için tasarlandı.',
   'landing.ctaHeading': 'Fişleri yazmayı bırakın. Dosyalamaya başlayın.',
   'landing.eyebrow': 'OCR · Çıkarma · AI dosyalama',
+  'landing.featuresHeading': 'Kendini açıklayan belge zekası',
+  'landing.heroSubtitle':
+    'Bir yığın fatura, fiş, sözleşme veya form bırakın. {{app}} bunları sınıflandırır, çıkarır ve dosyalar — güven renkleriyle, böylece ekibiniz yalnızca gerçekten insan gerektirenleri inceler.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Günlük hacim · son 7 gün',
   'landing.sampleCardLabel': 'Bugün işlenen belgeler',
   'landing.sampleCardSubtitle': 'Faturalar, fişler ve formlar arasında ortalama %96,2 doğruluk.',
   'login.hidePassword': 'Parolayı gizle',
@@ -74,6 +98,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Açılış sayfasını aç',
   'notFound.title': 'O sayfa dosyada yok',
+  'parcelaHeroCard.accuracy': 'Tüm çıkarımlarda ort. doğruluk {{value}}%',
   'parcelaHeroCard.change': 'Düne göre {{sign}}%{{amount}}',
   'parcelaHeroCard.title': 'Bugün işlenen belgeler',
   'parcelaLayout.primaryNavLabel': 'Birincil gezinme',
@@ -81,6 +106,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'belgeler',
   'pricing.processingLabel': 'işleme görevleri',
   'resetPassword.confirmPlaceholder': 'Yeni parolayı tekrarlayın',
+  'resetPassword.hidePassword': 'Parolayı gizle',
   'resetPassword.passwordLabel': 'Yeni parola',
   'resetPassword.showPassword': 'Parolayı göster',
   'resetPassword.subtitle': 'En az 8 karakter uzunluğunda bir şey seçin.',
@@ -97,10 +123,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Kurallar yüklenemedi.',
   'rules.loading': 'Kurallar yükleniyor…',
   'rules.matched30d': 'Son 30 günde {{count}} belge eşleşti',
+  'rules.neverUsed': 'Hiç kullanılmadı',
   'rules.newRule': 'Yeni kural',
   'rules.saveError': 'Kural kaydedilemedi.',
   'rules.subheading':
     'Sisteme her tür belgenin nereye gitmesi gerektiğini söyleyin. Koşullar yukarıdan aşağıya zincirlenir — ilk eşleşme kazanır.',
+  'rules.templatesEmpty': 'Henüz çıkarım şablonu yok.',
   'rules.templatesHeading': 'Çıkarma şablonları',
   'rules.templatesSubheading': 'Çıkarıcının her belge türü için kullandığı alan şemaları.',
   'rules.then': 'O zaman',
@@ -109,17 +137,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Çalışma alanı adı',
   'settings.account.subheading':
     'Bildirimler ve denetim geçmişi için görünen ad ve birincil e-posta.',
+  'settings.api.confirmRevoke': 'Onaylıyor musunuz?',
   'settings.api.copyOnce': 'Bu anahtarı kopyalayın — bir daha gösterilmeyecek',
   'settings.api.createdOn': '{{date}} oluşturuldu',
   'settings.api.empty': 'Henüz API anahtarı yok. Yukarıdan bir tane oluşturun.',
   'settings.api.error': 'Anahtar oluşturulamadı.',
+  'settings.api.generating': 'Oluşturuluyor…',
+  'settings.api.heading': 'API anahtarları',
   'settings.api.labelPlaceholder': 'Anahtar etiketi (ör. CI yükleyicisi)',
+  'settings.api.loading': 'Anahtarlar yükleniyor…',
   'settings.api.newKey': 'Anahtar oluştur',
   'settings.api.subheading':
     "Bunları bir komut dosyasından veya ERP'nizden belge göndermek için kullanın. İstediğiniz zaman herhangi bir anahtarı döndürün.",
   'settings.integrations.heading': 'Dosyalama entegrasyonları',
   'settings.integrations.subheading':
     'Dosyalanan belgeleri ekibinizin zaten kullandığı bulut sürücüsüne veya sohbet aracına gönderin.',
+  'settings.subheading':
+    '{{app}} çalışma alanınız için hesabı, API anahtarlarını ve dosyalama entegrasyonlarını yönetin.',
+  'signup.hidePassword': 'Parolayı gizle',
   'signup.identityPrompt': 'Size nasıl hitap etmemizi istersiniz?',
   'signup.showPassword': 'Parolayı göster',
   'signup.subtitle': '14 gün ücretsiz, kart gerekmez.',
@@ -127,6 +162,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Yükleme başarısız.',
   'upload.eyebrow': 'Alım',
   'upload.heading': 'Belgeleri yükle',
+  'upload.queue.clear': 'Tamamlananları temizle',
   'upload.queue.col.confidence': 'Güven',
   'upload.queue.col.file': 'Dosya',
   'upload.queue.detecting': 'Tespit ediliyor…',
@@ -139,5 +175,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Veya toplu çıkarma, sınıflandırma ve dosyalama için aynı anda birden fazla dosya bırakın.',
   'uploadDropZone.cta': 'Dosyaları seç',
+  'uploadDropZone.maxSize': 'Dosya başına en fazla 25 MB · Uçtan uca şifreli',
   'uploadDropZone.title': 'İşlemeyi başlatmak için belgeleri bırakın',
 }

@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Des questions, des retours, ou envie d'une démo pour votre équipe ? Écrivez-nous à hello@conduit.dev — chaque message parvient à une vraie personne de l'équipe.",
   'about.contactHeading': 'Nous contacter',
   'about.eyebrow': 'À propos',
+  'about.featuresHeading': 'Ce que vous obtenez',
+  'about.introBody':
+    '{{app}} réunit la livraison continue façon GitHub Actions dans un seul tableau de bord rapide : pipelines, journaux de build, artefacts, badges de statut et environnements de déploiement pour tous vos dépôts, au même endroit. Fini les allers-retours entre onglets et les doutes sur le build qui a cassé — chaque exécution, chaque ligne de log et chaque déploiement est à un clic.',
+  'about.introHeading': "Ce qu'est {{app}}",
+  'about.missionBody':
+    "Livrer du logiciel devrait être calme et prévisible, pas une source d'angoisse. Nous concevons les pipelines, les journaux et les outils de déploiement pour que le chemin du commit à la production soit rapide, visible et fiable — le premier build vert en cinq minutes, et tous les suivants tout aussi clairs.",
+  'about.missionHeading': 'Notre mission',
+  'about.subtitle':
+    '{{app}} est un tableau de bord CI/CD pour les équipes qui veulent suivre les builds, les déploiements et les environnements de chaque dépôt — et livrer en toute confiance.',
   'artifacts.empty': 'Aucun artefact pour le moment.',
   'artifacts.heading': 'Artefacts',
   'artifacts.loadError': 'Échec du chargement des artefacts.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Environnements',
   'environments.loadError': 'Échec du chargement des environnements.',
+  'environments.loading': 'Chargement des environnements…',
   'environments.subheading': 'Statut de déploiement en direct sur chaque cible.',
   'forgotPassword.runnerStatus': 'réinitialisation · tunnel sécurisé',
+  'forgotPassword.success':
+    'Si un compte existe pour cet e-mail, un lien de réinitialisation est en route. Consultez votre boîte de réception.',
   'insights.changeFailureRate': "Taux d'échec des changements",
   'insights.deployFrequency': 'Déploiements / jour',
   'insights.empty': 'Pas encore assez de données.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Échec du chargement des analyses.',
   'insights.meanP95': 'moyenne {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Étapes de pipeline les plus lentes',
   'insights.successRateHeading': 'Taux de réussite des pipelines (14 derniers jours)',
   'landing.choosePlan': 'Choisir un plan',
+  'landing.copyright': '© {{year}} {{app}}. Livrez en toute confiance.',
   'landing.ctaBody':
     'Sans carte bancaire. Sans ingénieur plateforme. Mettez votre premier pipeline au vert en cinq minutes.',
   'landing.ctaHeading': 'Déployez en toute confiance.',
   'landing.featuresEyebrow': '// fonctionnalités de la plateforme',
   'landing.featuresHeading': 'Conçu par des shippers, pour des shippers',
+  'landing.heroSubtitle':
+    'Des pipelines qui se terminent en quelques secondes. Des journaux lisibles. Des déploiements fiables.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Tarifs simples et prévisibles',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': "En cours d'exécution",
   'pipelines.metric.successCaption': '{{count}} sur {{total}} exécutions',
   'pipelines.metric.successRate': 'Taux de réussite',
+  'pipelines.realtimeOn': 'temps réel',
   'pipelines.subheading': 'Mises à jour en direct depuis chaque dépôt surveillé.',
+  'pricing.advancedFeatures': 'Fonctionnalités avancées : {{mark}}',
+  'pricing.canExport': 'Export de données : {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artefacts',
+  'pricing.maxBuilds': '{{count}} builds',
+  'pricing.maxPipelines': '{{count}} pipelines',
   'privacy.dataAccount': 'Compte : nom, e-mail, mot de passe haché, niveau de plan.',
   'privacy.intro':
     "{{app}} ne collecte que les données strictement nécessaires au fonctionnement de votre compte de livraison continue : votre e-mail, les dépôts que vous connectez, les commits et métadonnées de build produits par vos runners, et les secrets que vous choisissez d'y stocker. Nous ne lisons jamais votre code source en dehors du runner de build ; les artefacts de build sont stockés dans votre bucket S3 lorsqu'il est configuré.",
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Nous utilisons Stripe pour la facturation, Mailgun pour les e-mails transactionnels et AWS S3 pour le stockage des artefacts de build. Chacun est contractuellement tenu au strict minimum de données nécessaire à la prestation de son service.',
   'privacy.rightsBody':
     "Vous pouvez exporter l'intégralité de vos données, supprimer votre compte à tout moment depuis les Paramètres et demander un relevé de chaque envoi de webhook sur votre compte. Nous répondons aux demandes RGPD/CCPA sous 30 jours.",
+  'privacy.subtitle':
+    'Comment {{app}} collecte, stocke et protège vos données pendant que nous exécutons vos pipelines.',
   'privacy.title': 'Politique de confidentialité',
   'repositories.empty': 'Aucun dépôt connecté.',
   'repositories.heading': 'Dépôts',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Tous les dépôts',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Échec du chargement du dépôt.',
+  'repositoryDetail.meanDuration': 'Durée moyenne',
   'repositoryDetail.notFound': 'Dépôt introuvable.',
+  'repositoryDetail.successRate': 'Taux de réussite',
   'repositoryDetail.totalBuilds': 'Builds totales',
   'repositoryDetail.webhookActive': 'actifs',
   'repositoryDetail.webhookPaused': 'pause',
   'repositoryDetail.webhooksHeading': 'Webhooks',
+  'resetPassword.passwordLabel': 'Nouveau mot de passe',
   'resetPassword.runnerStatus': 'réinitialisation · jeton vérifié',
   'resetPassword.subtitle':
     "Choisissez un mot de passe robuste que vous n'avez jamais utilisé auparavant.",
@@ -118,6 +148,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Dépôts surveillés par Conduit. Déconnectez-vous de votre fournisseur VCS pour cesser de recevoir des événements.',
   'settings.repositories.empty': 'Aucun dépôt connecté pour le moment.',
+  'settings.repositories.heading': 'Connexions aux dépôts',
   'settings.repositories.loadError': 'Échec du chargement des dépôts.',
   'settings.secrets.addCta': 'Ajouter un secret',
   'settings.secrets.addError': "Impossible d'ajouter le secret.",
@@ -125,6 +156,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Échec de la suppression du secret.',
   'settings.secrets.empty': 'Aucun secret stocké.',
   'settings.secrets.heading': 'Secrets',
+  'settings.secrets.lastUsed': 'dernière utilisation {{date}}',
   'settings.secrets.loadError': 'Échec du chargement des secrets.',
   'settings.secrets.neverUsed': 'jamais utilisé',
   'settings.secrets.rotateCta': 'Renouveler',
@@ -148,6 +180,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Échec de la mise à jour du webhook.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'offre gratuite · 1 000 min de build/mois',
+  'terms.intro':
+    "En créant un compte {{app}}, vous acceptez ces conditions. Elles couvrent l'usage acceptable des runners de build, les limites de notre SLA et les conditions dans lesquelles nous pouvons suspendre ou résilier votre compte en cas de charges de travail abusives.",
   'terms.slaBody':
     "Les plans Pro et Team visent 99,95 % de disponibilité mensuelle pour l'API et le pool de runners. Le plan Free est fourni en l'état. Les interruptions sont signalées sur status.conduit.dev et créditées selon la formule indiquée sur votre facture.",
   'terms.terminationBody':

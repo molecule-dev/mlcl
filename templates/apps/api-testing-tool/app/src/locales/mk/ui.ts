@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Најдовте грешка, имате предлог за функција или сакате да ни кажете што да изградиме следно? Пишете на hello@pylon.dev — секоја порака стигнува до вистински инженер во тимот.',
   'about.contactTitle': 'Контактирајте не',
+  'about.intro':
+    '{{app}} е брза, тастатура-нативна работна маса за тестирање API за инженери кои живеат во терминалот — барања во стил на Postman, колекции, средини и историја без надуеност.',
+  'about.missionBody':
+    "API-јата се 'рбетот на модерниот софтвер, но алатките за нивно вежбање се бавни, надуени и управувани со глувче. {{app}} постои за да им даде на развивачите остра, брза работна маса од терминалски ранг: испраќај барања, изгради доверба и испорачувај без да ја напуштиш тастатурата.",
+  'about.missionTitle': 'Нашата мисија',
   'about.pageTitle': 'За {{app}}',
   'authShell.statusLabel': 'тркачи онлајн',
   'collections.createError': 'Не можеше да се создаде колекција.',
   'collections.defaultName': 'Колекција без наслов {{n}}',
+  'collections.empty':
+    'Сè уште нема колекции — кликнете „Нова колекција“ за да ја поставите вашата прва папка.',
   'collections.eyebrow': '$ колекции на пилони --дрво',
   'collections.fetchError': 'Не можеше да се вчитаат колекциите.',
   'collections.heading': 'Колекции',
   'collections.loading': 'Се вчитуваат колекциите…',
+  'collections.metric.allGreen': 'Сè е во ред',
   'collections.metric.collections': 'Колекции',
   'collections.metric.failing': 'Неуспех',
   'collections.metric.failingCaption': 'Последното трчање имаше неуспеси',
@@ -24,6 +34,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Променливи',
   'environments.createError': 'Не можеше да се создаде околина.',
   'environments.defaultName': 'Без насловна средина {{n}}',
+  'environments.empty': 'Сè уште нема средини — кликнете „Нова средина“ за да додадете.',
   'environments.eyebrow': '$ пилон енв --прекинувач',
   'environments.fetchError': 'Не можеше да се вчитаат средините.',
   'environments.heading': 'Околини',
@@ -31,8 +42,11 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Нова средина',
   'environments.subheading':
     'Променливи што се менуваат во барања во времето на испраќање. Една активна средина по работен простор.',
+  'forgotPassword.statusLabel': 'ресетирање · безбеден тунел',
   'forgotPassword.success':
     'Доколку постои сметка за таа е-пошта, линкот за ресетирање е на пат. Проверете го вашето сандаче.',
+  'history.empty':
+    'Сè уште нема ништо овде — испратете го вашето прво барање од табот Работен простор.',
   'history.eyebrow': '$ историја на пилон --опашка',
   'history.fetchError': 'Не можеше да се вчита историјата.',
   'history.heading': 'Историја на извршување',
@@ -41,9 +55,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Последните 50',
+  'history.realtime': 'во реално време',
   'history.subheading':
     'Секое барање испратено во овој работен простор, со статус, латентност и големина на корисниот товар.',
   'landing.choosePlan': 'Изберете план',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Изгради доверба.',
   'landing.ctaBody':
     'Без кредитна картичка. Не е потребен инженер за платформа. Отворете ⌘K и испратете го вашето прво барање за помалку од пет минути.',
   'landing.ctaHeading': 'Изградете самодоверба.',
@@ -85,6 +101,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Просечна латенција',
   'mocks.metric.live': 'Јавно',
   'mocks.metric.servers': 'Мокови',
+  'mocks.ms': 'ms',
   'mocks.newMock': 'Нова проекција',
   'mocks.online': 'Јавно',
   'mocks.paused': 'Приватно',
@@ -108,9 +125,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Здраво',
   'monitors.metric.uptime': 'Просечно време на работа',
   'monitors.newMonitor': 'Нов монитор',
+  'monitors.paused': 'паузирано',
   'monitors.run': 'Стартувај',
   'monitors.runError': 'Извршувањето заврши со мрежна грешка: {{error}}',
+  'monitors.runFailed': 'Извршувањето не успеа.',
   'monitors.running': 'Трчање…',
+  'monitors.runSuccess': 'Изврши {{status}} — upstream врати {{code}} за {{ms}}ms.',
   'monitors.sparkLabel': 'Тренд на латенција',
   'monitors.subheading':
     'Проверки на барање за кој било зачуван тест. Поврзете тест, притиснете Run и гледајте го 24-часовното ажурирање на стапката на успех со секое палење.',
@@ -119,27 +139,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Време на работа · 24 часа',
   'nav.legal': 'Правни',
   'notFound.backToWorkspace': 'Назад кон работниот простор',
+  'notFound.body':
+    '{{app}} испрати барање за овој URL и не доби ништо назад. Проверете ја рутата или скокнете назад во работниот простор.',
   'notFound.eyebrow': '$ пилон реши --строг',
   'notFound.title': 'Рутата не е пронајдена',
+  'planUpdated.body':
+    'Промената на наплатата е сега активна. Можете да го управувате планот во секое време од страницата за наплата.',
+  'planUpdated.retry': 'Обидете се повторно',
+  'planUpdated.verifyFailed': 'Сè уште не можевме да ја потврдиме вашата уплата.',
+  'planUpdated.verifyFailedBody':
+    'Вашето плаќање можеби сè уште се обработува. Обидете се повторно за момент.',
   'planUpdated.verifying': 'Се потврдува вашата уплата…',
+  'pricing.advancedFeatures': 'Напредни функции: {{yes}}',
+  'pricing.canExport': 'Извоз на податоци: {{yes}}',
+  'pricing.heading': 'Изберете го вашиот {{app}} план',
+  'pricing.maxCollections': '{{count}} колекции',
+  'pricing.maxEnvironments': '{{count}} средини',
+  'pricing.maxHistory': '{{count}} записи во историјата',
+  'pricing.maxRequests': '{{count}} барања',
   'privacy.collect.account':
     'Сметка: вашата е-пошта, хеширана лозинка, име за прикажување и временска ознака на вашето последно најавување.',
+  'privacy.intro':
+    '{{app}} ја почитува вашата приватност. Оваа страница ги сумира податоците што ги собираме, зошто ги собираме и како да ги отстраните.',
   'privacy.rights.body':
     'Можете да ги извезете вашите колекции + средини во секое време или да ја избришете вашата сметка од Поставки за трајно да ги отстраните сите податоци во рок од 30 дена.',
   'privacy.share.body':
     'Само вие. Никогаш не ја продаваме, споделуваме или изнајмуваме содржината на вашиот работен простор на трети страни. Дневниците на серверот се чуваат 30 дена за одговор на инциденти, а потоа се бришат.',
   'privacy.title': 'Известување за приватност',
+  'profile.bio':
+    'Вашиот личен работен простор {{app}} — закачете колекции, споделете средини и следете ги API-јата што испорачуваат производ.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'се придружи {{when}}',
+  'profile.metric.collections': 'Колекции',
   'profile.metric.monitors': 'Монитори',
   'profile.metric.requests': 'Зачувани барања',
+  'profile.noActivity':
+    'Сè уште не се испратени барања — одете во табот Работен простор за да испратите.',
   'profile.signedOut': 'Најавете се за да го видите вашиот профил',
   'pylonShell.primaryNavLabel': 'Примарна навигација',
+  'resetPassword.passwordLabel': 'Нова лозинка',
+  'resetPassword.statusLabel': 'ресетирање · токенот е потврден',
   'resetPassword.subtitle': 'Изберете силна лозинка што не сте ја користеле претходно.',
   'resetPassword.tokenPlaceholder': 'залепете од е-пошта',
+  'settings.accountManagement.desc':
+    'Ажурирајте ја вашата е-пошта и лозинка, управувајте со известувања и уреди, одјавете се или избришете ја вашата сметка.',
+  'settings.accountManagement.title': 'Сметка и безбедност',
   'settings.eyebrow': '$ поставки за пилон --уреди',
   'settings.fetchError': 'Не можеше да се вчитаат поставките.',
   'settings.language.title': 'Јазик',
+  'settings.seeding': 'Се вчитува…',
   'settings.seedStarter': 'Содржина за почетници за семе',
   'settings.starterCollection': 'Почетна колекција',
   'settings.starterCollectionDesc': 'Создадено од Поставки на {{ts}}',
@@ -154,6 +202,8 @@ export const ui: UiTranslations = {
     'Вие сте одговорни за заштитата на вашата лозинка. Споделувањето на една сметка со повеќе луѓе не е дозволено кај бесплатните или Pro плановите — купете Team претплата за споделени работни простори.',
   'terms.billing.body':
     'Платените претплати се обновуваат автоматски во секој период на наплата. Откажете од Поставки во секое време; вашиот пристап продолжува до крајот на тековниот период.',
+  'terms.intro':
+    'Со создавање на сметка на {{app}} се согласувате со условите подолу. Прочитајте ги еднаш; нема да ве изненадиме со ретроактивни промени.',
   'terms.title': 'Услови за користење',
   'terms.usage.body':
     'Не го користете Pylon за испраќање барања до услуги што не ги поседувате или немате изречна дозвола да ги тестирате. Не го користете Pylon за заобиколување на ограничувањата на цените или за извршување измама.',
@@ -174,17 +224,23 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Не се извршува',
   'testRunner.metric.passed': 'Поминато',
   'testRunner.never': 'Никогаш не трчај',
+  'testRunner.newTest': 'Нов тест',
   'testRunner.noAssertions': 'Сè уште нема тврдења за овој тест.',
+  'testRunner.noRunsYet':
+    'Сè уште нема запишани извршувања — кликнете „Изврши сè“ за да ја пополните историјата.',
   'testRunner.passed': 'поминување',
+  'testRunner.recentRuns': 'Неодамнешни трчања',
   'testRunner.runAll': 'Изврши ги сите',
   'testRunner.running': 'Трчање…',
   'testRunner.runOne': 'Стартувај',
   'testRunner.subheading':
     'Резултати од комплетот, разлики во тврдењата и последните 50 извршувања.',
+  'testRunner.suites': 'Комплети',
   'userMenu.shortcut': '⌘Л',
   'userMenu.signedInAs': 'Најавено како',
   'workspace.auth.keyName': 'Име на заглавие',
   'workspace.auth.keyValue': 'Клучна вредност',
+  'workspace.auth.noneHint': 'Со ова барање нема да се испрати заглавие за авторизација.',
   'workspace.auth.password': 'Лозинка',
   'workspace.auth.username': 'Корисничко име',
   'workspace.authOption.apikey': 'API клуч',
@@ -194,13 +250,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Тип',
   'workspace.authTypeLabel': 'Тип на авторизација',
+  'workspace.body.contentLabel': 'Тело на барањето',
+  'workspace.body.hint':
+    '{{envVars}} се заменуваат пред да се испрати барањето. Телата се испраќаат на POST/PUT/PATCH/DELETE.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Ништо',
+  'workspace.body.noneHint':
+    'Нема да се испрати тело на барањето. Изберете JSON или суров текст за да додадете.',
   'workspace.body.text': 'Необработен текст',
   'workspace.body.type': 'Тип',
   'workspace.environment': 'Без околини',
   'workspace.envVar': 'променлива на env',
   'workspace.eyebrow': '$ работен простор на пилон --поделба на панелот',
+  'workspace.failedCount': '{{count}} неуспешен',
+  'workspace.idle': 'Неактивен',
   'workspace.kv.addHeader': 'Додај заглавие',
   'workspace.kv.addParam': 'Додај параметар',
   'workspace.kv.headerKey': 'Име на заглавие',
@@ -213,12 +276,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP метод',
   'workspace.metric.latency': 'Латентност',
   'workspace.metric.latencyCaption': 'Повратно патување од ова патување',
+  'workspace.metric.size': 'Податоци',
   'workspace.metric.sizeCaption': 'Бајти во телото на одговорот',
   'workspace.metric.statusCaption': 'Последен одговор',
   'workspace.metric.tests': 'Тестови',
+  'workspace.metric.testsAllPassing': 'Сите тврдења се во ред',
   'workspace.metric.testsFailing': '{{count}} неуспешен',
+  'workspace.metric.testsIdle': 'Испратете барање за да се оцени',
   'workspace.noAssertions': 'Извршете барање за евалуација на вградените тврдења.',
   'workspace.noResponseYet': 'Сè уште нема одговор',
+  'workspace.passedCount': '{{count}} помина',
   'workspace.responseHint':
     '// Притиснете Испрати за да го активирате барањето и да го снимите одговорот.',
   'workspace.saveError': 'Не можеше да се зачува барањето.',
@@ -228,10 +295,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Составете барање, отпуштете го, а потоа потврдете го одговорот - сè во еден панел.',
   'workspace.testResults': 'Резултати од тестот',
+  'workspace.tests.autoHint':
+    'Семејството на статусот, латентноста, големината на телото и здравјето на транспортот се проверуваат автоматски — резултатите се појавуваат под „Резултати од тестот“ во панелот за одговор.',
+  'workspace.tests.autoTitle': 'Вградените тврдења се извршуваат на секој одговор',
   'workspace.token': 'Токен',
   'workspace.tokenHint':
     'Испратено како овластување: Носител<token> на секое барање во оваа колекција.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Барање без наслов',
+  'workspace.urlLabel': 'Барање URL',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

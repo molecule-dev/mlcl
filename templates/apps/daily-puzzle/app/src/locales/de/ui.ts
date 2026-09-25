@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Hast du Feedback, einen Bug gefunden oder möchtest du {{app}} an deine Schule oder dein Team bringen? Wir lesen jede Nachricht – melde dich in deinen Kontoeinstellungen und ein echter Mensch wird antworten.',
   'about.contactTitle': 'Sprechen Sie mit uns',
   'about.eyebrow': 'Über',
+  'about.intro':
+    '{{app}} ist ein tägliches Worträtsel. Errate das fünfstellige Wort in sechs Versuchen, halte deine Serie am Leben, teile dein Emoji-Raster und sieh, wie das ganze Feld beim heutigen Wort abgeschnitten hat.',
+  'about.missionBody':
+    'Ein gutes Rätsel ist ein kleiner täglicher Erfolg. {{app}} dreht sich um ein gemeinsames Wort pro Tag – schnell genug für eine Kaffeepause, gut genug, um morgen wiederzukommen.',
+  'about.missionTitle': 'Unsere Mission',
   'about.title': 'Über {{app}}',
   'archive.loadError': 'Das Archiv konnte nicht geladen werden.',
   'archive.missed': 'Verpasst',
   'archive.notPlayed': 'Nicht gespielt',
+  'archive.subhead':
+    'Spiele jeden vergangenen Tag als Übung erneut – keine Serien, keine Statistiken, nur der Spaß.',
   'archive.title': 'Archivieren',
   'auth.backToHome': 'Zurück zur Startseite',
   'auth.backToHomeArrow': '← Zurück zur Startseite',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Passwort vergessen?',
   'auth.login.loggingIn': 'Melde dich an…',
   'auth.login.logIn': 'Heutiges Wort spielen',
+  'auth.login.noAccount': 'Neu bei Tessera?',
   'auth.login.or': 'oder fortfahren mit',
   'auth.login.password': 'Passwort',
   'auth.login.signInButton': 'Anmelden',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Wird gespeichert…',
   'common.sendingEllipsis': 'Wird gesendet…',
   'common.startingEllipsis': 'Wird gestartet…',
+  'forgotPassword.subhead':
+    'Geben Sie Ihre E-Mail ein und wir senden Ihnen einen Link zum Zurücksetzen.',
+  'forgotPassword.success.body':
+    'Falls ein Konto für {{email}} existiert, erhalten Sie in wenigen Minuten einen Reset-Link.',
+  'forgotPassword.success.title': 'Prüfen Sie Ihren Posteingang.',
   'form.name': 'Name',
   'howToPlay.cta.home': 'Zurück zur Startseite',
   'howToPlay.cta.play': 'Heutiges Rätsel spielen',
@@ -68,10 +83,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Serien, die man ungern bricht',
   'leaderboard.daily.title': 'Heutige Lösungen',
   'leaderboard.loadError': 'Die Bestenliste konnte nicht geladen werden.',
+  'leaderboard.streaks.empty': 'Noch keine Serien – sei der Erste.',
+  'leaderboard.streaks.subhead': 'Die längsten Siegesserien aller Zeiten.',
   'leaderboard.streaks.title': 'Serien-Anführer',
+  'leaderboard.subhead': 'Wie das Feld heute abgeschnitten hat und wer die längsten Serien hält.',
   'leaderboard.title': 'Bestenliste',
   'login.headline': 'Willkommen zurück.',
   'login.streakPill': '{{days}}-Tage-Serie wartet',
+  'login.subhead':
+    'Melde dich an, um deine Serie am Leben zu halten und zu sehen, wie du beim heutigen Wort abgeschnitten hast.',
   'nav.archive': 'Archivieren',
   'nav.editProfile': 'Profil bearbeiten',
   'nav.getStarted': 'Loslegen',
@@ -89,6 +109,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Kein solches Wort',
   'notFound.title': 'Diese Route ist leer.',
   'planUpdated.message': 'Dein Plan ist aktiv.',
+  'planUpdated.retry': 'Erneut versuchen',
+  'planUpdated.verifyFailed': 'Wir konnten deine Zahlung noch nicht bestätigen.',
+  'planUpdated.verifyFailedBody':
+    'Deine Zahlung wird möglicherweise noch verarbeitet. Versuche es gleich noch einmal.',
   'planUpdated.verifying': 'Zahlung wird bestätigt…',
   'play.alreadyFinished': 'Du hast dieses Rätsel bereits gelöst',
   'play.answerWas': 'Das Wort war',
@@ -104,6 +128,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Übungsrätsel',
   'play.tooShort': 'Nicht genug Buchstaben',
   'play.won': 'Gelöst!',
+  'pricing.advancedStats': 'Erweiterte Statistiken: {{yes}}',
+  'pricing.archiveHistory': '{{count}} Tage Archivverlauf',
+  'pricing.archivePlays': '{{count}} Archiv-Wiederholungen / Tag',
+  'pricing.archiveUnlimited': 'Unbegrenzter Archivverlauf',
+  'pricing.canExport': 'Datenexport: {{yes}}',
+  'pricing.checkoutError': 'Kasse konnte nicht gestartet werden. Bitte erneut versuchen.',
   'pricing.dailyWord': 'Das tägliche Wort',
   'pricing.heading': 'Wähle deinen {{app}}-Plan',
   'pricing.included': 'Inbegriffen',
@@ -111,7 +141,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Das tägliche Wort ist immer kostenlos. Upgrade für unbegrenzte Archiv-Wiederholungen und detailliertere Statistiken.',
   'pricing.yearly': 'Jährlich',
+  'privacy.intro':
+    '{{app}} respektiert deine Privatsphäre. Diese Seite fasst zusammen, welche Daten wir speichern, warum wir sie speichern und wie du sie entfernen kannst.',
   'privacy.title': 'Datenschutzhinweis',
+  'resetPassword.subhead': 'Wähle ein neues Passwort, um zu deiner Serie zurückzukehren.',
   'settings.account': 'Konto',
   'settings.danger.body': 'Entferne dein {{appName}}-Konto und alle Rätselverläufe dauerhaft.',
   'settings.danger.confirm': 'Ja, für immer löschen',
@@ -120,17 +153,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'Gast',
   'settings.language.title': 'Sprache',
   'settings.subhead': 'Passe dein Profil, Sound und dein Erscheinen auf der Bestenliste an.',
+  'settings.unnamed': 'Sparq-Spieler',
   'settings.upgrade': 'Upgrade',
   'signup.eyebrow': 'Für immer kostenlos – ein Wort pro Tag',
   'signup.headline': 'Starte deine Serie.',
+  'signup.subhead':
+    'Erstelle ein {{appName}}-Konto, um das tägliche Wort zu spielen, eine Serie aufzubauen und in der Bestenliste aufzusteigen.',
   'stats.currentStreak': 'Serie',
   'stats.distribution.title': 'Versuchsverteilung',
   'stats.loadError': 'Deine Statistiken konnten nicht geladen werden.',
   'stats.maxStreak': 'Max. Serie',
   'stats.played': 'Gespielt',
   'stats.playToday': 'Heutiges Rätsel spielen',
+  'stats.subhead': 'Nur gewertete tägliche Rätsel — Archiv-Übungen zählen nie.',
   'stats.title': 'Deine Statistiken',
   'stats.winRate': 'Gewinnrate',
   'status.monthly': 'Monatlich',
+  'terms.intro':
+    'Durch die Nutzung von {{app}} stimmst du den folgenden Regeln zu. Wenn du sie nicht akzeptieren kannst, nutze den Dienst bitte nicht.',
   'terms.title': 'Nutzungsbedingungen',
 }

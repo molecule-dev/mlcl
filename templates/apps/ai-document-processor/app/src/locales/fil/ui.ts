@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May tanong ka ba, may nahanap kang bug, o gusto mo ng demo para sa iyong team? Makipag-ugnayan mula sa settings ng iyong account — bawat mensahe ay napupunta sa isang tunay na tao sa team.',
   'about.contactTitle': 'Makipag-ugnayan',
+  'about.intro':
+    'Ang {{app}} ay ginagawang structured, searchable, at nakatalang data ang mga tambak ng na-scan na dokumento at PDF. Ihulog ang mga invoice, resibo, kontrata, o form at hayaang basahin, i-extract, i-classify, at i-file ng AI ang mga ito — may mga confidence color para ang team mo lang ang mag-review ng talagang kailangan ng tao.',
+  'about.missionBody':
+    'Hindi dapat ubusin ng dokumentong busywork ang araw ng team mo. Naniniwala kami na bawat na-extract na value ay dapat maipaliwanag at ma-audit — para mapagkatiwalaan mo ang automation nang hindi nawawala ang paper trail. Ang {{app}} ay ginawa para makatipid ng oras sa bawat stack habang may taong kasama sa loop saanman ito mahalaga.',
+  'about.missionTitle': 'Ang aming misyon',
+  'about.subtitle':
+    'OCR, AI extraction, classification, at automated filing para sa iyong mga dokumento.',
   'about.title': 'Tungkol sa {{app}}',
+  'about.whatYouGetTitle': 'Ano ang matatanggap ninyo',
   'authShell.backToLanding': '← Bumalik sa landing page po',
   'common.goToDashboard': 'Pumunta sa Dashboard',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Ngayon · Pangkalahatang-tanaw ng operasyon',
   'dashboard.heading': 'Document intelligence',
+  'dashboard.metric.accuracy': 'Avg accuracy',
   'dashboard.metric.filed': 'Na-file ngayon',
   'dashboard.metric.filedCaption': 'Idinaan sa filing rules',
   'dashboard.metric.processed': 'Na-process ngayon',
@@ -23,11 +34,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Dokumento',
   'dashboard.recent.col.uploaded': 'Na-upload',
   'dashboard.recent.heading': 'Mga pinakabagong dokumento',
+  'dashboard.recent.typeUnknown': 'Naghihintay ng classification',
   'dashboard.subheading':
     'Bawat pahina ay nakla-classify, na-extract at na-file — na may confidence colors para manatiling pokus po ang inyong pagsusuri.',
   'documentDetail.audit.heading': 'Audit timeline',
+  'documentDetail.audit.subheading':
+    'Bawat hakbang na ginawa sa dokumentong ito, kasama ang taong responsable.',
   'documentDetail.back': 'Lahat ng dokumento',
   'documentDetail.downloadHint': 'Gamitin po ang Download para buksan ang orihinal na file.',
+  'documentDetail.extracted.empty': 'Wala pang na-extract na field.',
   'documentDetail.extracted.heading': 'Mga na-extract na field',
   'documentDetail.extracted.subheading':
     '{{count}} fields · i-click ang anumang field para i-highlight sa pahina',
@@ -55,13 +70,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Maghanap ng mga dokumento…',
   'documents.subheading': '{{count}} dokumento sa inyong aklatan, naka-sort mula sa pinakabago.',
   'documents.uploadCta': 'Mag-upload ng mga dokumento',
+  'documentTypeBreakdown.barAria': 'Komposisyon ng dokumento ayon sa uri',
   'documentTypeBreakdown.empty': 'Wala pang naprocess na dokumento po.',
   'documentTypeBreakdown.subtitle': '{{total}} naprocess',
   'documentTypeBreakdown.title': 'Komposisyon ng dokumento',
+  'forgotPassword.backToSignIn': '← Bumalik sa pag-sign in',
   'forgotPassword.checkEmail': 'Tingnan po ang inyong email',
   'forgotPassword.tip': 'Hindi po dumating? Tingnan ang spam o subukan ang ibang address.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Ginawa para sa mga ops team na nag-audit ng bawat pahina.',
+  'landing.ctaBody':
+    '14-day trial. Walang kailangang card. Kanselahin anumang oras. Ginawa para sa mga ops team na mabilis kumilos at mabagal mag-audit.',
   'landing.ctaHeading': 'Itigil ang pag-type ng mga resibo. Simulan po ang pag-file ng mga ito.',
   'landing.eyebrow': 'OCR · Extraction · AI filing',
+  'landing.featuresHeading': 'Document intelligence na nagpapaliwanag sa sarili nito',
+  'landing.heroSubtitle':
+    'Ihulog ang isang stack ng mga invoice, resibo, kontrata, o form. Ini-classify, ini-extract, at ini-file ng {{app}} ang mga ito — may mga confidence color para ang team mo lang ang mag-review ng talagang kailangan ng tao.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Araw-araw na volume · huling 7 araw',
   'landing.sampleCardLabel': 'Mga dokumentong naprocess ngayon',
   'landing.sampleCardSubtitle': '96.2 % na avg accuracy sa mga invoice, resibo at form.',
   'login.hidePassword': 'Itago ang password',
@@ -74,6 +100,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Buksan ang landing page',
   'notFound.title': 'Ang pahinang iyan ay wala sa talaan po',
+  'parcelaHeroCard.accuracy': 'Avg accuracy {{value}}% sa lahat ng extraction',
   'parcelaHeroCard.change': '{{sign}}{{amount}} % vs. kahapon',
   'parcelaHeroCard.title': 'Mga dokumentong naprocess ngayon',
   'parcelaLayout.primaryNavLabel': 'Pangunahing navigation',
@@ -81,6 +108,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'mga dokumento',
   'pricing.processingLabel': 'mga processing job',
   'resetPassword.confirmPlaceholder': 'Ulitin ang bagong password',
+  'resetPassword.hidePassword': 'Itago ang password',
   'resetPassword.passwordLabel': 'Bagong password',
   'resetPassword.showPassword': 'Ipakita ang password',
   'resetPassword.subtitle': 'Pumili po ng hindi bababa sa 8 character ang haba.',
@@ -97,10 +125,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Hindi na-load ang mga panuntunan po.',
   'rules.loading': 'Naglo-load ng mga panuntunan po…',
   'rules.matched30d': '{{count}} dokumento ang tumugma sa nakaraang 30 araw',
+  'rules.neverUsed': 'Hindi kailanman nagamit',
   'rules.newRule': 'Bagong panuntunan',
   'rules.saveError': 'Hindi na-save ang panuntunan po.',
   'rules.subheading':
     'Sabihan po ang sistema kung saan dapat mapunta ang bawat uri ng dokumento. Ang mga kondisyon ay nakakadena mula taas pababa — ang unang tumugma ang mananalo.',
+  'rules.templatesEmpty': 'Wala pang extraction template.',
   'rules.templatesHeading': 'Extraction templates',
   'rules.templatesSubheading':
     'Mga schema ng field na ginagamit ng extractor para sa bawat uri ng dokumento.',
@@ -110,17 +140,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Pangalan ng workspace',
   'settings.account.subheading':
     'Display name at pangunahing email para sa mga notification at audit history.',
+  'settings.api.confirmRevoke': 'Kumpirmahin?',
   'settings.api.copyOnce': 'Kopyahin po ang key na ito — hindi na ito ipapakita ulit',
   'settings.api.createdOn': 'Ginawa {{date}}',
   'settings.api.empty': 'Wala pang API keys. Mag-generate po ng isa sa itaas.',
   'settings.api.error': 'Hindi nagawa ang key po.',
+  'settings.api.generating': 'Nige-generate…',
+  'settings.api.heading': 'Mga API key',
   'settings.api.labelPlaceholder': 'Label ng key (hal. CI uploader)',
+  'settings.api.loading': 'Naglo-load ng mga key…',
   'settings.api.newKey': 'Mag-generate ng key',
   'settings.api.subheading':
     'Gamitin po ang mga ito para magsulong ng mga dokumento mula sa script o sa inyong ERP. I-rotate ang anumang key anumang oras.',
   'settings.integrations.heading': 'Mga integrasyon sa filing',
   'settings.integrations.subheading':
     'Ipadala po ang mga na-file na dokumento sa cloud drive o chat tool na ginagamit na ng inyong team.',
+  'settings.subheading':
+    'Pamahalaan ang account, API key, at filing integration para sa iyong {{app}} workspace.',
+  'signup.hidePassword': 'Itago ang password',
   'signup.identityPrompt': 'Paano po namin kayo tatawagin?',
   'signup.showPassword': 'Ipakita ang password',
   'signup.subtitle': '14 araw na libre, walang kailangan na card.',
@@ -128,6 +165,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Nabigo ang pag-upload po.',
   'upload.eyebrow': 'Ingestion',
   'upload.heading': 'Mag-upload ng mga dokumento',
+  'upload.queue.clear': 'I-clear ang mga natapos',
   'upload.queue.col.confidence': 'Confidence',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Tinutuklas po…',
@@ -140,5 +178,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'O mag-drop ng ilang file nang sabay-sabay para sa batch extraction, classification at filing.',
   'uploadDropZone.cta': 'Pumili ng mga file',
+  'uploadDropZone.maxSize': 'Max 25 MB bawat file · End-to-end encrypted',
   'uploadDropZone.title': 'Mag-drop ng mga dokumento para magsimula ang pagproseso',
 }

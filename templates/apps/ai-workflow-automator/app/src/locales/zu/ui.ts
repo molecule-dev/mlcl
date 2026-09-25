@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'I-Dendrite iyipulatifomu yokuzenzakalela komsebenzi exhumanisa izintambo, izimo ze-AI, kanye nezenzo zezinyathelo eziningi ndawonye ukuze amaqembu akwazi ukuhambisa umsebenzi phakathi kwezinhlelo ngaphandle kokubhala ikhodi yeglue.',
+  'about.philosophy':
+    'Yonke inqubo yokusebenza iwugrafu yezinyathelo ezincane ezibonakalayo. Isinyathelo ngasinye sirekhoda okokufaka kwaso, okokuphuma kwaso, nesikhathi saso ukuze kuhlolwe, kudlalwe kabusha, noma kubuyiselwe emuva. Zihlanganise ngokubonakalayo, zifake izinguqulo njengekhodi.',
   'about.title': 'Mayelana ne-Dendrite',
   'authShell.brand': 'I-Dendrite',
   'authShell.support': 'Usekelo',
@@ -15,9 +17,15 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Uhlelo lokushintsha',
   'billing.description':
     'Landelela ukusetshenziswa, phatha uhlelo lwakho, bese udonsa ama-invoyisi ukuze kubhalwe phansi.',
+  'billing.eyebrow': 'I-akhawunti · Uhlelo lokusebenza nokusetshenziswa',
+  'billing.failedLabel': 'Ukuqalisa okwehlulekile · 24h',
+  'billing.invoicesEmpty':
+    'Awekho ama-invoyisi okwamanje. Azovela lapha ngemuva kokuvuselelwa kwakho kokuqala okukhokhelwayo.',
   'billing.invoicesTitle': 'Umlando werisidi',
   'billing.planNoteFree':
     'Izinga lamahhala — {{runs}} ugijima futhi {{workflows}} imisebenzi esebenzayo. Thuthukisa ukuze uthole imikhawulo ephezulu.',
+  'billing.planNotePaid':
+    'Uhlelo olukhokhelwayo — {{runs}} ukuqalisa kanye {{workflows}} inqubo zokusebenza ezisebenzayo.',
   'billing.runsLabel': 'Igijime emahoreni angu-24 edlule',
   'billing.tiersBlurb':
     'Qhathanisa zonke izigaba — ukusebenza, imisebenzi esebenzayo, izici ezithuthukisiwe, kanye nokusekelwa — ekhasini elizinikele lamanani.',
@@ -35,10 +43,14 @@ export const ui: UiTranslations = {
     'Akukho ukuhlanganiswa okubhalisiwe. Lungiselela okhiye bomhlinzeki ukuze unike amandla amabhondi.',
   'connections.error': 'Ayikwazanga ukulayisha uxhumano.',
   'connections.eyebrow': 'Ukuhlanganiswa · {{connected}} kuxhunyiwe',
+  'connections.loading': 'Ilayisha ukuhlanganiswa…',
+  'connections.openEnv':
+    'Ukuze uxhume lo mhlinzeki, setha ukhiye wakhe we-API ku-api/.env bese uqala kabusha iseva.',
   'dashboard.description':
     '{{active}} imisebenzi iyasebenza. {{failed}} kwehlulekile emahoreni angu-24 edlule.',
   'dashboard.error': 'Ayikwazanga ukulayisha ideshibhodi.',
   'dashboard.eyebrow': 'Imisebenzi · bukhoma',
+  'dashboard.hero.label': 'Ukuqalisa namuhla',
   'dashboard.hero.medianLatency': 'ukubambezeleka kwe-p50',
   'dashboard.hero.queue': 'Ukujula komugqa',
   'dashboard.hero.success': 'Impumelelo',
@@ -46,14 +58,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Ubude obuphakathi',
   'dashboard.kpi.failedRuns': 'Yehlulekile · amahora angu-24',
   'dashboard.kpi.outOf': 'kwe {{total}} isamba',
+  'dashboard.kpi.successRate': 'Izinga lokuphumelela · 24h',
   'dashboard.loading': 'Ilayisha ideshibhodi…',
   'dashboard.recentRuns.empty':
     'Akukho ukusebenza okwamanje. Ukuqalisa ukuhamba komsebenzi kuzogcwalisa lokhu okuphakelayo.',
   'dashboard.recentRuns.title': 'Ukugijima kwakamuva',
   'dashboard.recentRuns.viewAll': 'Ukubulawa Okuvulekile →',
+  'dashboard.recentWorkflows.browse': 'Dlulisa amehlo kumathempulethi →',
   'dashboard.recentWorkflows.empty':
     'Azikho izinhlelo zokusebenza okwamanje. Faka ithempulethi noma wakhe kusukela ekuqaleni.',
   'dashboard.recentWorkflows.title': 'Kusetshenziswe muva nje',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'Kuqalile',
   'dashboard.run.col.trigger': 'Isiqalisi',
   'dashboard.run.col.workflow': 'Ukuhamba komsebenzi',
@@ -89,6 +104,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Ukuhamba komsebenzi',
   'executions.description':
     'Yonke imisebenzi iyasebenza, konke okuzanywa kabusha, konke okukhiphayo kwesinyathelo — konke kuyabonakala.',
+  'executions.empty.filter': 'Akukho ukuqalisa okuhambisana nalesi sihlungi.',
   'executions.empty.first':
     'Akukho ukugijima okwamanje — qala uhlelo lokusebenza ukuze lugcwalise lolu hlu.',
   'executions.error': 'Ayikwazanga ukulayisha ukwenziwa.',
@@ -99,30 +115,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Ilayisha umlando wokusebenza…',
   'executions.title': 'Ukubulawa',
   'forgotPassword.confirmation': 'Setha kabusha isixhumanisi esithunyelwe ku- {{email}} .',
+  'forgotPassword.subhead': 'Faka i-imeyili yakho ukuze uthole isixhumanisi sokusetha kabusha.',
   'forgotPassword.successSubhead':
     'Sithumele isixhumanisi sokusetha kabusha ku- {{email}} Iphelelwa yisikhathi ngemizuzu engama-30.',
   'help.connections.body':
     'Izinyathelo ze-AI, i-imeyili, kanye nesitoreji zidinga ukuthi okhiye bomhlinzeki babekwe kufayela le-api/.env. Uma ukhiye usulungisiwe, ukuhlanganiswa okuhambisanayo kuvela njengokuxhunyiwe ekhasini le-Connections.',
+  'help.connections.cta': 'Vula ukuxhumana →',
   'help.connections.title': 'Ukuxhumanisa abahlinzeki',
   'help.gettingStarted.body':
     'Ama-workflow amasha angafakwa kusuka kulabhulali yamathempulethi noma akhiwe kusukela ekuqaleni ku-workflow builder. I-workflow ngayinye ine-trigger (manual, webhook, noma cron) kanye nochungechunge lwezinyathelo ezisebenza ngokulandelana.',
+  'help.gettingStarted.cta': 'Phequlula umtapo wamathimba →',
+  'help.gettingStarted.title': 'Ukuqala',
   'help.intro':
     'Thola izimpendulo zemibuzo evamile mayelana nokwakha imisebenzi, ukumisa ukuxhumana, kanye nokuhumusha umphumela wokusebenza. Izihloko ezivame kakhulu zibhalwe ngezansi; nganoma yini engamboziwe, xhumana nomphathi wakho wendawo yokusebenza.',
   'help.runs.body':
     'Ukugijima ngakunye kubhala isinyathelo ngasinye ngokuzimela ngesimo (impumelelo, ukwehluleka, ukweqiwe) kanye nesiqephu somphumela. Ikhasi lemininingwane yokusebenza libonisa umkhondo ogcwele wesinyathelo ngesinyathelo kanye nezilinganiso eziqageliwe.',
+  'help.runs.cta': 'Ukubulawa Okuvulekile →',
   'help.runs.title': 'Ukufunda okukhiphayo kokuqalisa',
   'help.title': 'Isikhungo sosizo',
   'integrationCard.manage': 'Phatha',
   'landing.brand': 'I-Dendrite',
   'landing.demo.action.subtitle': 'I-robin eyindilinga · indawo',
+  'landing.demo.action.title': 'Yazisa ummeleli',
   'landing.demo.condition.subtitle': 'Isihlukanisi sezinhloso ze-AI',
+  'landing.demo.condition.title': 'Amaphuzu ≥ aphakathi?',
   'landing.demo.trigger.subtitle': 'THUMELA /amafomu/oxhumana naye',
   'landing.demo.trigger.title': 'I-webhook engenayo',
+  'landing.features.body':
+    'Izibangeli ziyadubula. Izimo ziyahlukanisa. Izenzo zithumela umsebenzi. Zihlanganise ngokubonakalayo, zifake izinguqulo njengekhodi.',
   'landing.features.heading': 'Izinhlobo ezintathu zama-node. Izimo ezingenamkhawulo.',
   'landing.footer.help': 'Usizo',
   'landing.footer.tagline': 'Ubuhlakani buyaqhubeka',
+  'landing.hero.body':
+    '{{appName}} iyinjini yokusebenza yamaqembu okusebenza asekhulile ku-Zapier. Isibangeli, isimo, isenzo — kuxhunywe kuyo yonke inhlelo oyisebenzisayo ngempela.',
   'landing.hero.eyebrow': 'Ubuhlakani buyaqhubeka',
   'landing.hero.headline': 'Hlanganisa inqwaba yakho. Vumela umsebenzi uqhubeke.',
+  'landing.hero.primaryCta': 'Yakha inqubo yakho yokusebenza yokuqala',
   'landing.hero.proof.ai': 'Ama-node e-AI akhelwe ngaphakathi',
   'landing.hero.proof.free': 'Kumahhala ukugijima okungu-1k/ngenyanga',
   'landing.hero.proof.soc2': 'Uhlobo lwe-SOC 2 II',
@@ -130,10 +158,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Khokhela ama-run, hhayi izihlalo.',
   'landing.templates.body':
     'Imisebenzi yokusebenza exhunywe kusengaphambili yawo wonke amaqembu — ukuthengisa, ukwesekwa, ukuthuthukiswa, ezezimali. Faka ngokuchofoza okukodwa; lungisa noma yini.',
+  'landing.templates.cta': 'Bhalisa ukuze uphequlule amathimba →',
   'landing.templates.eyebrow': 'Qala ngemizuzwana',
   'landing.templates.heading': 'Umtapo wezindlela zokupheka ezihlolwe ngokucophelela.',
   'landing.templates.signupHint': 'Bhalisela ukufaka',
   'login.hidePassword': 'Fihla iphasiwedi',
+  'login.noAccount': 'Usanda kufika eTessera?',
   'login.showPassword': 'Bonisa iphasiwedi',
   'login.subhead': 'Ngena ngemvume ukuze ugcine okuzenzakalelayo kwakho kuqhubeka.',
   'mobileNav.drawerLabel': 'Ukuzulazula okuyinhloko',
@@ -150,8 +180,15 @@ export const ui: UiTranslations = {
     'Sebenzisa uhlelo lokusebenza ukuze uqale ukugcwalisa lokhu okuphakelayo.',
   'notifications.empty.title': 'Nonke nibambekile',
   'notifications.eyebrow': '{{n}} okungafundiwe',
+  'planUpdated.body':
+    'Ushintsho lwakho lokukhokha lusebenza manje. Ungaphatha uhlelo lwakho noma nini kusuka ekhasini lokukhokha.',
+  'planUpdated.retry': 'Zama futhi',
+  'planUpdated.verifyFailed': 'Asikwazanga ukuqinisekisa inkokhelo yakho okwamanje.',
+  'planUpdated.verifyFailedBody':
+    'Inkokhelo yakho ingase isacutshungulwa. Zama futhi ngemva kwesikhashana.',
   'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'pricing.heading': 'ukugijima',
+  'pricing.runsSuffix': 'ukuqalisa',
   'pricing.workflowsSuffix': 'imisebenzi yokusebenza',
   'privacy.collect.body':
     'Siqoqa ikheli le-imeyili obhalisa ngalo, imisebenzi oyilungiselelayo, kanye nemethadatha mayelana nokusebenza ngakunye (isikhathi sokuqala, isikhathi sokuqeda, isimo). Asilokothi siqoqe noma sigcine okuqukethwe komthwalo wemali kusuka ku-trigger noma imiphumela yesinyathelo ngaphezu kwalokho okudingekayo ukuze kuboniswe ku-run viewer yomnikazi wendawo yokusebenza.',
@@ -167,12 +204,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Ayikwazanga ukubuyekeza iphasiwedi.',
   'resetPassword.newPassword': 'Iphasiwedi Entsha',
   'resetPassword.subhead': 'Khetha into ongayiqagela kuphela.',
+  'settings.appearance.description': 'Shintsha phakathi kwemodi yokukhanya neyomnyama.',
+  'settings.appearance.title': 'Ukubukeka',
   'settings.billingShortcut.cta': 'Vula inkokhelo',
   'settings.billingShortcut.description':
     'Uhlelo, ukusetshenziswa kanye nama-invoyisi bukhoma ekhasini lokukhokha elizinikele.',
   'settings.danger.confirm':
     'Uqinisekile? Lokhu kuzobeka endaweni yakho yokusebenza emgqeni ukuze kusulwe.',
   'settings.danger.confirmYes': 'Yebo, ukususwa komugqa',
+  'settings.danger.deleteWorkspace.cta': 'Susa indawo yokusebenza',
   'settings.danger.deleteWorkspace.hint':
     'Isusa yonke imisebenzi, ukusebenza, kanye nokuxhumeka ngemuva kwesikhathi somusa sezinsuku ezingu-14.',
   'settings.danger.deleteWorkspace.title': 'Susa indawo yokusebenza',
@@ -183,10 +223,15 @@ export const ui: UiTranslations = {
     'Phatha i-akhawunti yakho, indawo yokusebenza, ukuhlanganiswa, kanye nokukhokha endaweni eyodwa.',
   'settings.notifications.description':
     'Khetha ukuthi yimiphi imicimbi ekukhasisa, ekuthumelela i-imeyili, noma okuthule.',
+  'settings.notifications.failures.hint':
+    'I-imeyili nesaziso esingaphakathi kohlelo kukho konke ukuqalisa okwehlulekile.',
+  'settings.notifications.failures.title': 'Ukwehluleka kwenqubo yokusebenza',
   'settings.notifications.product.hint':
     'Ama-imeyili ngezikhathi ezithile mayelana nezifanekiso ezintsha nezici.',
+  'settings.notifications.product.title': 'Izibuyekezo zomkhiqizo',
   'settings.notifications.weekly.hint':
     'Isifinyezo sangoMsombuluko ekuseni sokugijima kanye nokonga kwesonto eledlule.',
+  'settings.notifications.weekly.title': 'Inhlolovo yamasonto onke',
   'settings.profile.description':
     'Indlela obonakala ngayo ngaphakathi kwesiqalisi somsebenzi. Isetshenziswa emsebenzini wendawo yokusebenza.',
   'settings.profile.noEmail': 'Akukho imeyili erekhodiwe',
@@ -194,13 +239,25 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Ayikwazanga ukulondoloza izinguquko zephrofayela.',
   'settings.profile.unnamedUser': 'Umsebenzisi ongaqanjwanga igama',
   'settings.security.audit.hint': 'Sakaza yonke into ku-SIEM yakho nge-webhook.',
+  'settings.security.audit.title': 'Ukudluliswa kwelogi yokucwaninga',
   'settings.security.description':
     'Ukuqinisekiswa kwezinto ezimbili, i-SSO, kanye nezikhathi ezisebenzayo.',
   'settings.security.sso.hint': 'Kutholakala ngezinhlelo ze-Scale kanye neze-Enterprise.',
+  'settings.security.sso.title': 'I-SAML SSO',
+  'settings.security.totp.hint': 'Kudingeka kunoma yisiphi isenzo somnikazi wendawo yokusebenza.',
+  'settings.security.totp.title': 'Ukuqinisekiswa kwezinto ezimbili (TOTP)',
   'settings.twoFactorCode': 'Ikhodi yokuqinisekisa',
   'settings.twoFactorDisable': 'Khubaza',
+  'settings.twoFactorDisableTitle': 'Vala ukufakazela ubuwena ngezinto ezimbili',
   'settings.twoFactorEnable': 'Nika amandla',
+  'settings.twoFactorEnableTitle': 'Vula ukufakazela ubuwena ngezinto ezimbili',
   'settings.twoFactorInvalidCode': 'Ikhodi engavumelekile',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Ikhodi ye-QR yezigaba ezimbili',
+  'settings.twoFactorScan':
+    'Skena le khodi ye-QR ngohlelo lwakho lokufakazela ubuwena, bese ufaka ikhodi enezinombolo eziyisithupha.',
+  'settings.twoFactorUnavailable':
+    'Ukuqinisekiswa kwezinto ezimbili akutholakali kulolu hlelo lokusebenza.',
   'settings.twoFactorVerify': 'Qinisekisa futhi unike amandla',
   'settings.workspace.description':
     'Ubunikazi obabiwe, isifunda, kanye nokusetshenziswa okuzenzakalelayo kwethimba lakho.',
@@ -229,6 +286,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Isifanekiso',
   'templates.description':
     'Amapulani akhiwe ngaphambilini ezinto ezizenzakalelayo ezivame kakhulu. Foloko, yenza ngezifiso, thumela.',
+  'templates.empty.filter': 'Awekho amathimba ahambisana nokusesha kwakho.',
   'templates.empty.first': 'Azikho izifanekiso ezitholakalayo njengamanje.',
   'templates.error': 'Ayikwazanga ukulayisha amathempulethi.',
   'templates.installs': 'ukufakwa',
@@ -254,6 +312,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Khubaza',
   'workflowBuilder.enable': 'Nika amandla',
   'workflowBuilder.error': 'Ayikwazanga ukulayisha umsebenzi.',
+  'workflowBuilder.inspector.config': 'Ukulungiselela',
+  'workflowBuilder.inspector.cron': 'Isisho se-Cron',
+  'workflowBuilder.inspector.disabled': 'Kukhutshaziwe — ngeke kusebenze ngokuzenzakalelayo.',
   'workflowBuilder.inspector.enabled': 'Ivuliwe — isebenza ku-trigger.',
   'workflowBuilder.inspector.eyebrow': 'Umhloli',
   'workflowBuilder.inspector.id': 'I-Id',
@@ -272,18 +333,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Ukuguqula kuhlulekile.',
   'workflowBuilder.workflow': 'Ukuhamba komsebenzi · v {{v}}',
   'workflowBuilder.zoom.in': 'Sondeza isithombe',
+  'workflowBuilder.zoom.label': 'Izilawuli zokusondeza zekhanvasi',
+  'workflowBuilder.zoom.out': 'Hlehlisa isithombe',
   'workflowCard.lastRun': 'Ukugijima kokugcina {{when}}',
   'workflowCard.runs': '{{count}} ukugijima',
+  'workflowCard.success': '{{rate}}% ukuphumelela',
   'workflowHeroCard.last24h': 'Amahora angu-24 edlule',
+  'workflows.browseTemplates': 'Dlulisa amehlo kumathempulethi →',
   'workflows.description':
     'Konke okuzenzakalelayo endaweni yakho yokusebenza, ngempilo kanye nemisebenzi yakamuva ngokushesha.',
+  'workflows.empty.body': 'Zama ukususa isihlungi noma uqale ngethimba.',
   'workflows.empty.firstBody': 'Faka ithempulethi ukuze uqalise ngemizuzwana.',
   'workflows.empty.firstTitle': 'Azikho izinhlelo zokusebenza okwamanje',
   'workflows.empty.title': 'Akukho ukusebenza okufanayo',
   'workflows.error': 'Ayikwazanga ukulayisha imisebenzi.',
   'workflows.eyebrow': 'Umtapo Wezincwadi · {{count}} isamba',
+  'workflows.loading': 'Ilayisha inqubo zokusebenza…',
   'workflows.newFromTemplate': 'Okusha okuvela kuthempulethi',
   'workflows.searchPlaceholder': 'Sesha imisebenzi…',
+  'workflows.title': 'Inqubo zokusebenza',
   'workflowSidebar.brand': 'I-Dendrite',
   'workflowSidebar.status': 'Zonke izinhlelo ziyasebenza',
   'workflowSidebar.tagline': 'Ubuhlakani buyaqhubeka',

@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Phát hiện lỗi, có yêu cầu tính năng mới, hay muốn gợi ý chúng tôi nên xây dựng gì tiếp theo? Gửi email đến hello@pylon.dev — mọi tin nhắn đều đến tay một kỹ sư thực sự trong đội ngũ.',
   'about.contactTitle': 'Liên hệ với chúng tôi',
+  'about.intro':
+    '{{app}} là một bàn thử nghiệm API nhanh, thuần bàn phím dành cho các kỹ sư sống trong terminal — request kiểu Postman, collection, environment và lịch sử mà không cồng kềnh.',
+  'about.missionBody':
+    'API là xương sống của phần mềm hiện đại, nhưng các công cụ để thử nghiệm chúng lại chậm, cồng kềnh và phụ thuộc chuột. {{app}} ra đời để mang đến cho lập trình viên một bàn làm việc sắc bén, nhanh, chuẩn terminal: bắn request, tạo dựng sự tự tin và ship mà không cần rời tay khỏi bàn phím.',
+  'about.missionTitle': 'Sứ mệnh của chúng tôi',
   'about.pageTitle': 'Giới thiệu {{app}}',
   'authShell.statusLabel': 'runner trực tuyến',
   'collections.createError': 'Không thể tạo bộ sưu tập.',
   'collections.defaultName': 'Bộ sưu tập chưa đặt tên {{n}}',
+  'collections.empty':
+    'Chưa có collection nào — nhấp vào “New collection” để tạo thư mục đầu tiên.',
   'collections.eyebrow': '$ pylon collections --tree',
   'collections.fetchError': 'Không thể tải bộ sưu tập.',
   'collections.heading': 'Bộ sưu tập',
   'collections.loading': 'Đang tải bộ sưu tập…',
+  'collections.metric.allGreen': 'Tất cả đều xanh',
   'collections.metric.collections': 'Bộ sưu tập',
   'collections.metric.failing': 'Thất bại',
   'collections.metric.failingCaption': 'Lần chạy gần nhất có lỗi',
@@ -23,6 +33,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Biến',
   'environments.createError': 'Không thể tạo môi trường.',
   'environments.defaultName': 'Môi trường chưa đặt tên {{n}}',
+  'environments.empty': 'Chưa có environment nào — nhấp vào “New environment” để thêm một cái.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'Không thể tải môi trường.',
   'environments.heading': 'Môi trường',
@@ -30,8 +41,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Môi trường mới',
   'environments.subheading':
     'Các biến được thay thế vào yêu cầu khi gửi. Mỗi workspace có một môi trường hoạt động.',
+  'forgotPassword.statusLabel': 'đặt lại · đường hầm an toàn',
   'forgotPassword.success':
     'Nếu có tài khoản tồn tại với email đó, liên kết đặt lại đang trên đường tới. Vui lòng kiểm tra hộp thư đến.',
+  'history.empty': 'Chưa có gì ở đây — hãy bắn request đầu tiên từ tab Workspace.',
   'history.eyebrow': '$ pylon history --tail',
   'history.fetchError': 'Không thể tải lịch sử.',
   'history.heading': 'Lịch sử chạy',
@@ -40,9 +53,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': '50 gần nhất',
+  'history.realtime': 'thời gian thực',
   'history.subheading':
     'Mỗi yêu cầu đã được gửi trong workspace này, kèm trạng thái, độ trễ và kích thước payload.',
   'landing.choosePlan': 'Chọn gói',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Forge confidence.',
   'landing.ctaBody':
     'Không cần thẻ tín dụng. Không cần kỹ sư nền tảng. Mở ⌘K và gửi yêu cầu đầu tiên của bạn trong dưới năm phút.',
   'landing.ctaHeading': 'Tôi luyện sự tự tin.',
@@ -84,6 +99,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Độ trễ TB',
   'mocks.metric.live': 'Công khai',
   'mocks.metric.servers': 'Mock',
+  'mocks.ms': 'ms',
   'mocks.newMock': 'Mock mới',
   'mocks.online': 'Công khai',
   'mocks.paused': 'Riêng tư',
@@ -107,9 +123,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Khỏe mạnh',
   'monitors.metric.uptime': 'Thời gian hoạt động TB',
   'monitors.newMonitor': 'Monitor mới',
+  'monitors.paused': 'tạm dừng',
   'monitors.run': 'Chạy',
   'monitors.runError': 'Lần chạy kết thúc với lỗi mạng: {{error}}',
+  'monitors.runFailed': 'Chạy thất bại.',
   'monitors.running': 'Đang chạy…',
+  'monitors.runSuccess': 'Chạy {{status}} — upstream trả về {{code}} trong {{ms}}ms.',
   'monitors.sparkLabel': 'Xu hướng độ trễ',
   'monitors.subheading':
     'Kiểm tra theo yêu cầu cho bất kỳ kiểm thử đã lưu nào. Liên kết một kiểm thử, nhấn Chạy và xem tỷ lệ thành công 24 giờ cập nhật sau mỗi lần chạy.',
@@ -118,27 +137,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Hoạt động · 24h',
   'nav.legal': 'Pháp lý',
   'notFound.backToWorkspace': 'Quay lại workspace',
+  'notFound.body':
+    '{{app}} đã bắn một request cho URL này và không nhận được gì. Kiểm tra lại route hoặc quay về workspace.',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Không tìm thấy đường dẫn',
+  'planUpdated.body':
+    'Thay đổi thanh toán của bạn đã có hiệu lực. Bạn có thể quản lý gói của mình bất cứ lúc nào từ trang thanh toán.',
+  'planUpdated.retry': 'Thử lại',
+  'planUpdated.verifyFailed': 'Chúng tôi chưa thể xác nhận thanh toán của bạn.',
+  'planUpdated.verifyFailedBody':
+    'Giao dịch thanh toán của bạn có thể vẫn đang được xử lý. Vui lòng thử lại sau một lát.',
   'planUpdated.verifying': 'Đang xác nhận thanh toán…',
+  'pricing.advancedFeatures': 'Tính năng nâng cao: {{yes}}',
+  'pricing.canExport': 'Xuất dữ liệu: {{yes}}',
+  'pricing.heading': 'Chọn gói {{app}} của bạn',
+  'pricing.maxCollections': '{{count}} collection',
+  'pricing.maxEnvironments': '{{count}} environment',
+  'pricing.maxHistory': '{{count}} mục lịch sử',
+  'pricing.maxRequests': '{{count}} yêu cầu',
   'privacy.collect.account':
     'Tài khoản: email, mật khẩu đã băm, tên hiển thị và thời điểm đăng nhập gần nhất của bạn.',
+  'privacy.intro':
+    '{{app}} tôn trọng quyền riêng tư của bạn. Trang này tóm tắt dữ liệu chúng tôi thu thập, lý do thu thập và cách xóa chúng.',
   'privacy.rights.body':
     'Bạn có thể xuất bộ sưu tập và môi trường bất cứ lúc nào, hoặc xóa tài khoản từ Cài đặt để xóa vĩnh viễn toàn bộ dữ liệu trong vòng 30 ngày.',
   'privacy.share.body':
     'Chỉ riêng bạn. Chúng tôi không bao giờ bán, chia sẻ hoặc cho thuê nội dung workspace của bạn cho bên thứ ba. Nhật ký máy chủ được lưu 30 ngày để xử lý sự cố rồi xóa.',
   'privacy.title': 'Thông báo quyền riêng tư',
+  'profile.bio':
+    'Workspace cá nhân {{app}} của bạn — ghim collection, chia sẻ environment và giám sát các API tạo nên sản phẩm.',
   'profile.eyebrow': '@{{handle}}',
   'profile.joined': 'tham gia {{when}}',
+  'profile.metric.collections': 'Bộ sưu tập',
   'profile.metric.monitors': 'Monitor',
   'profile.metric.requests': 'Yêu cầu đã lưu',
+  'profile.noActivity':
+    'Chưa có request nào được bắn — hãy đến tab Workspace để thực hiện một cái.',
   'profile.signedOut': 'Xin đăng nhập để xem hồ sơ của bạn',
   'pylonShell.primaryNavLabel': 'Điều hướng chính',
+  'resetPassword.passwordLabel': 'Mật khẩu mới',
+  'resetPassword.statusLabel': 'đặt lại · mã thông báo đã xác minh',
   'resetPassword.subtitle': 'Xin chọn một mật khẩu mạnh mà bạn chưa từng sử dụng.',
   'resetPassword.tokenPlaceholder': 'dán từ email',
+  'settings.accountManagement.desc':
+    'Cập nhật email và mật khẩu, quản lý thông báo và thiết bị, đăng xuất hoặc xóa tài khoản.',
+  'settings.accountManagement.title': 'Tài khoản và bảo mật',
   'settings.eyebrow': '$ pylon settings --edit',
   'settings.fetchError': 'Không thể tải cài đặt.',
   'settings.language.title': 'Ngôn ngữ',
+  'settings.seeding': 'Đang khởi tạo…',
   'settings.seedStarter': 'Tạo nội dung khởi đầu',
   'settings.starterCollection': 'Bộ sưu tập khởi đầu',
   'settings.starterCollectionDesc': 'Được tạo từ Cài đặt vào {{ts}}',
@@ -152,6 +199,8 @@ export const ui: UiTranslations = {
     'Bạn chịu trách nhiệm bảo vệ mật khẩu của mình. Không được chia sẻ một tài khoản giữa nhiều người trên gói Free hoặc Pro — xin mua gói Team cho workspace dùng chung.',
   'terms.billing.body':
     'Các gói trả phí tự động gia hạn vào mỗi kỳ thanh toán. Bạn có thể hủy từ Cài đặt bất cứ lúc nào; quyền truy cập vẫn duy trì đến hết kỳ hiện tại.',
+  'terms.intro':
+    'Khi tạo tài khoản {{app}}, bạn đồng ý với các điều khoản bên dưới. Hãy đọc một lần; chúng tôi sẽ không gây bất ngờ với các thay đổi hồi tố.',
   'terms.title': 'Điều khoản dịch vụ',
   'terms.usage.body':
     'Xin không dùng Pylon để gửi yêu cầu đến các dịch vụ mà bạn không sở hữu hoặc không có phép kiểm thử rõ ràng. Xin không dùng Pylon để vượt giới hạn tốc độ hoặc thực hiện hành vi gian lận.',
@@ -171,16 +220,21 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Chưa chạy',
   'testRunner.metric.passed': 'Vượt qua',
   'testRunner.never': 'Chưa từng chạy',
+  'testRunner.newTest': 'Bài test mới',
   'testRunner.noAssertions': 'Kiểm thử này chưa có khẳng định nào.',
+  'testRunner.noRunsYet': 'Chưa có lần chạy nào được ghi lại — nhấn “Run all” để tạo lịch sử.',
   'testRunner.passed': 'đạt',
+  'testRunner.recentRuns': 'Lần chạy gần đây',
   'testRunner.runAll': 'Chạy tất cả',
   'testRunner.running': 'Đang chạy…',
   'testRunner.runOne': 'Chạy',
   'testRunner.subheading': 'Kết quả bộ kiểm thử, khác biệt khẳng định và 50 lần chạy gần nhất.',
+  'testRunner.suites': 'Bộ test',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Đã đăng nhập với tư cách',
   'workspace.auth.keyName': 'Tên tiêu đề',
   'workspace.auth.keyValue': 'Giá trị khóa',
+  'workspace.auth.noneHint': 'Không có header authorization nào được gửi kèm request này.',
   'workspace.auth.password': 'Mật khẩu',
   'workspace.auth.username': 'Tên người dùng',
   'workspace.authOption.apikey': 'Khóa API',
@@ -190,13 +244,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Loại',
   'workspace.authTypeLabel': 'Loại xác thực',
+  'workspace.body.contentLabel': 'Nội dung yêu cầu',
+  'workspace.body.hint':
+    '{{envVars}} được thay thế trước khi request được bắn. Body được gửi với POST/PUT/PATCH/DELETE.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Không có',
+  'workspace.body.noneHint':
+    'Không có body request nào được gửi. Chọn JSON hoặc văn bản thô để thêm.',
   'workspace.body.text': 'Văn bản thô',
   'workspace.body.type': 'Loại',
   'workspace.environment': 'Không có môi trường',
   'workspace.envVar': 'biến env',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.failedCount': '{{count}} thất bại',
+  'workspace.idle': 'Nhàn rỗi',
   'workspace.kv.addHeader': 'Thêm tiêu đề',
   'workspace.kv.addParam': 'Thêm tham số',
   'workspace.kv.headerKey': 'Tên tiêu đề',
@@ -209,12 +270,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'Phương thức HTTP',
   'workspace.metric.latency': 'Độ trễ',
   'workspace.metric.latencyCaption': 'Thời gian khứ hồi của lần chạy này',
+  'workspace.metric.size': 'Payload',
   'workspace.metric.sizeCaption': 'Số byte của thân phản hồi',
   'workspace.metric.statusCaption': 'Phản hồi gần nhất',
   'workspace.metric.tests': 'Kiểm thử',
+  'workspace.metric.testsAllPassing': 'Tất cả assertion đều xanh',
   'workspace.metric.testsFailing': '{{count}} thất bại',
+  'workspace.metric.testsIdle': 'Gửi một request để đánh giá',
   'workspace.noAssertions': 'Xin chạy yêu cầu để đánh giá các khẳng định tích hợp sẵn.',
   'workspace.noResponseYet': 'Chưa có phản hồi',
+  'workspace.passedCount': '{{count}} đi qua',
   'workspace.responseHint': '// Xin nhấn Gửi để phóng yêu cầu và bắt phản hồi.',
   'workspace.saveError': 'Không thể lưu yêu cầu.',
   'workspace.statusError': 'Không thể gửi yêu cầu.',
@@ -223,10 +288,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Soạn một yêu cầu, gửi đi, rồi xác nhận phản hồi — tất cả trong một bảng.',
   'workspace.testResults': 'Kết quả kiểm tra',
+  'workspace.tests.autoHint':
+    'Nhóm trạng thái, độ trễ, kích thước body và tình trạng truyền tải được assertion tự động — kết quả hiện dưới “Test results” trong bảng phản hồi.',
+  'workspace.tests.autoTitle': 'Assertion tích hợp chạy trên mọi phản hồi',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Được gửi dưới dạng Authorization: Bearer <token> trên mọi yêu cầu trong bộ sưu tập này.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Yêu cầu chưa đặt tên',
+  'workspace.urlLabel': 'URL yêu cầu',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

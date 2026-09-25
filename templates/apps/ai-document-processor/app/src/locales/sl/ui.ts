@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Imate vprašanje, ste našli napako ali želite predstavitev za svojo ekipo? Obrnite se na nas v nastavitvah računa — vsako sporočilo prebere resnična oseba iz ekipe.',
   'about.contactTitle': 'Stopite v stik',
+  'about.intro':
+    '{{app}} spremeni sklade skeniranih dokumentov in PDF-jev v strukturirane, iskljive in arhivirane podatke. Vstavite račune, potrdila, pogodbe ali obrazce in pustite AI, da jih prebere, izlušči, razvrsti in arhivira — z barvami zaupanja, da vaša ekipa pregleda le tisto, kar resnično potrebuje človeka.',
+  'about.missionBody':
+    'Dokumentno opravilo ne bi smelo pojesti dneva vaše ekipe. Verjamemo, da mora biti vsaka izluščena vrednost razložljiva in sledljiva — da lahko zaupate avtomatizaciji, ne da bi izgubili sled dokumentov. {{app}} je zasnovan tako, da prihrani ure na sklad, hkrati pa ohrani človeka v zanki povsod, kjer je to pomembno.',
+  'about.missionTitle': 'Naše poslanstvo',
+  'about.subtitle': 'OCR, AI izluščanje, razvrščanje in samodejno arhiviranje vaših dokumentov.',
   'about.title': 'O aplikaciji {{app}}',
+  'about.whatYouGetTitle': 'Kaj dobite',
   'authShell.backToLanding': '← Nazaj na začetno stran',
   'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Danes · Pregled poslovanja',
   'dashboard.heading': 'Inteligentna obdelava dokumentov',
+  'dashboard.metric.accuracy': 'Povpr. natančnost',
   'dashboard.metric.filed': 'Vloženo danes',
   'dashboard.metric.filedCaption': 'Razvrščeno po pravilih za arhiviranje',
   'dashboard.metric.processed': 'Obdelano danes',
@@ -23,11 +33,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'Naloženo',
   'dashboard.recent.heading': 'Najnovejši dokumenti',
+  'dashboard.recent.typeUnknown': 'Čaka na razvrstitev',
   'dashboard.subheading':
     'Vsaka stran je razvrščena, izpisana in arhivirana – z barvami, ki omogočajo osredotočen pregled.',
   'documentDetail.audit.heading': 'Časovni razpored revizije',
+  'documentDetail.audit.subheading': 'Vsak korak, opravljen na tem dokumentu, z odgovorno osebo.',
   'documentDetail.back': 'Vsi dokumenti',
   'documentDetail.downloadHint': 'S klikom na »Prenesi« odprite izvirno datoteko.',
+  'documentDetail.extracted.empty': 'Ni še izluščenih polj.',
   'documentDetail.extracted.heading': 'Izpisana polja',
   'documentDetail.extracted.subheading':
     '{{count}} polja · kliknite katero koli polje, da ga označite na strani',
@@ -56,14 +69,25 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} dokumenti v vaši knjižnici, razvrščeni po datumu, najnovejši na vrhu.',
   'documents.uploadCta': 'Naloži dokumente',
+  'documentTypeBreakdown.barAria': 'Sestava dokumentov po vrsti',
   'documentTypeBreakdown.empty': 'Dokumenti še niso bili obdelani.',
   'documentTypeBreakdown.subtitle': '{{total}} obdelano',
   'documentTypeBreakdown.title': 'Sestava dokumenta',
+  'forgotPassword.backToSignIn': '← Nazaj na prijavo',
   'forgotPassword.checkEmail': 'Preverite svojo elektronsko pošto',
   'forgotPassword.tip':
     'Niste prejeli sporočila? Preverite mapo za neželeno pošto ali poskusite z drugim naslovom.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Zgrajeno za operativne ekipe, ki pregledajo vsako stran.',
+  'landing.ctaBody':
+    '14-dnevna preizkusna doba. Brez kartice. Prekličite kadarkoli. Zgrajeno za operativne ekipe, ki hitijo in temeljito pregledujejo.',
   'landing.ctaHeading': 'Ne vnašajte več računov. Začnite jih arhivirati.',
   'landing.eyebrow': 'OCR · Izpisovanje · Urejanje datotek z umetno inteligenco',
+  'landing.featuresHeading': 'Dokumentna inteligenca, ki se sama razloži',
+  'landing.heroSubtitle':
+    'Vstavite sklad računov, potrdil, pogodb ali obrazcev. {{app}} jih razvrsti, izlušči in arhivira — z barvami zaupanja, da vaša ekipa pregleda le tisto, kar resnično potrebuje človeka.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Dnevni obseg · zadnjih 7 dni',
   'landing.sampleCardLabel': 'Danes obdelani dokumenti',
   'landing.sampleCardSubtitle': 'Povprečna natančnost 96,2 % pri računih, potrdilih in obrazcih.',
   'login.hidePassword': 'Skrij geslo',
@@ -76,6 +100,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Odpri ciljno stran',
   'notFound.title': 'Te strani ni v arhivu',
+  'parcelaHeroCard.accuracy': 'Povpr. natančnost {{value}} % pri vseh izluščanjih',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % v primerjavi z včeraj',
   'parcelaHeroCard.title': 'Danes obdelani dokumenti',
   'parcelaLayout.primaryNavLabel': 'Primarna navigacija',
@@ -83,6 +108,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'dokumenti',
   'pricing.processingLabel': 'obdelava nalog',
   'resetPassword.confirmPlaceholder': 'Ponovite novo geslo',
+  'resetPassword.hidePassword': 'Skrij geslo',
   'resetPassword.passwordLabel': 'Novo geslo',
   'resetPassword.showPassword': 'Pokaži geslo',
   'resetPassword.subtitle': 'Izberite geslo, ki ima vsaj 8 znakov.',
@@ -100,10 +126,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Pravila se niso uspela naložiti.',
   'rules.loading': 'Prenos pravil…',
   'rules.matched30d': '{{count}} dokumenti, ki so bili najdeni v zadnjih 30 dneh',
+  'rules.neverUsed': 'Nikoli uporabljeno',
   'rules.newRule': 'Novo pravilo',
   'rules.saveError': 'Shranjevanje pravila ni uspelo.',
   'rules.subheading':
     'Sistemu določite, kam naj se posamezne vrste dokumentov shranijo. Pogoji se preverjajo od zgoraj navzdol – zmaga prvi, ki ustreza.',
+  'rules.templatesEmpty': 'Ni še predlog za izluščanje.',
   'rules.templatesHeading': 'Predloge za izpis',
   'rules.templatesSubheading':
     'Sheme polj, ki jih izvlečevalnik uporablja za posamezne vrste dokumentov.',
@@ -113,17 +141,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Ime delovnega prostora',
   'settings.account.subheading':
     'Prikazno ime in primarni e-poštni naslov za obvestila in zgodovino revizij.',
+  'settings.api.confirmRevoke': 'Potrditi?',
   'settings.api.copyOnce': 'Skopiraj ta ključ – ne bo se več prikazal',
   'settings.api.createdOn': 'Ustvarjeno {{date}}',
   'settings.api.empty': 'API ključev še ni. Ustvarite ga zgoraj.',
   'settings.api.error': 'Ustvarjanje ključa ni uspelo.',
+  'settings.api.generating': 'Ustvarjanje …',
+  'settings.api.heading': 'API-ključi',
   'settings.api.labelPlaceholder': 'Oznaka ključa (npr. CI uploader)',
+  'settings.api.loading': 'Nalaganje ključev …',
   'settings.api.newKey': 'Ustvari ključ',
   'settings.api.subheading':
     'Te funkcije uporabite za prenos dokumentov iz skripta ali vašega ERP-sistema. Ključ lahko kadarkoli zamenjate.',
   'settings.integrations.heading': 'Integracije za vlaganje',
   'settings.integrations.subheading':
     'Poslani dokumente shranite v oblak ali v klepetalnik, ki ga vaša ekipa že uporablja.',
+  'settings.subheading':
+    'Upravljajte račun, API-ključe in integracije za arhiviranje v svojem delovnem prostoru {{app}}.',
+  'signup.hidePassword': 'Skrij geslo',
   'signup.identityPrompt': 'Kako naj vas naslavljamo?',
   'signup.showPassword': 'Pokaži geslo',
   'signup.subtitle': '14 dni brezplačno, brez potrebe po kreditni kartici.',
@@ -131,6 +166,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Prenos ni uspel.',
   'upload.eyebrow': 'Zaužitje',
   'upload.heading': 'Naloži dokumente',
+  'upload.queue.clear': 'Počisti dokončano',
   'upload.queue.col.confidence': 'Zaupanje',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Iskanje…',
@@ -143,5 +179,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Ali pa naenkrat povlecite več datotek za skupinsko izpisovanje, razvrščanje in arhiviranje.',
   'uploadDropZone.cta': 'Izberi datoteke',
+  'uploadDropZone.maxSize': 'Največ 25 MB na datoteko · Šifriranje od začetka do konca',
   'uploadDropZone.title': 'Povlecite dokumente, da se začne obdelava',
 }

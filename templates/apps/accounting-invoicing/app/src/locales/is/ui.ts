@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ertu með spurningu, fannst þú villu eða vilt flytja bækurnar þínar yfir? Hafðu samband við {{app}} teymið á hello@{{app}}.example — alvöru manneskja les hver skilaboð.',
   'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um',
+  'about.intro':
+    '{{app}} er bókhald fyrir lítil fyrirtæki sem heldur utan um hverja einustu krónu — reikningar, útgjöld, greiðslur og skýrslur á einum rólegum stað fyrir eigendur, bókara og endurskoðendur.',
+  'about.missionBody':
+    'Að reka fyrirtæki ætti ekki að þýða að hryllta við bókhaldið. {{app}} kemur í staðinn fyrir óreiðu töflureikna með skýrum tölum sem þú getur brugðist við, svo þú eyðir minni tíma í afstemmingar og meira í það sem þú stofnaðir fyrirtækið til að gera.',
+  'about.missionTitle': 'Markmið okkar',
   'about.title': 'Um {{app}}',
   'accounts.count': '{{count}} reikningar',
+  'accounts.emptyBody':
+    'Höfuðbókarreikningar fylgjast með hvar peningar eru og hvert þeir fara. Þeir birtast hér þegar bókarinn þinn eða samþætting setur þá upp.',
   'accounts.emptyTitle': 'Engir reikningar ennþá',
   'accounts.heading': 'Bókhaldslykill',
   'accounts.kpi.accounts': 'Accounts',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Sérhver bókhaldsreikningur á bak við reikninga, útgjöld og greiðslur, flokkaður eftir tegund.',
   'accounts.tag.inactive': 'óvirkur',
   'authBrandPanel.attributionName': 'Sara Jenkins',
+  'authBrandPanel.attributionRole': 'Fjármálastjóri, Horizon Tech',
   'authBrandPanel.eyebrow': 'Treyst af fjármálateymum',
   'authBrandPanel.label': 'Vörumerkjasýning',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Allir viðskiptavinir',
   'customerDetail.invoiceMeta': 'Gefið út {{issued}} · Gjalddagi {{due}}',
   'customerDetail.loadError': 'Mistókst að hlaða viðskiptavini.',
+  'customerDetail.missingBody':
+    'Ekki tókst að hlaða umbeðinni viðskiptavinafærslu. Hún gæti hafa verið fjarlægð eða þú hefur ekki aðgang að henni.',
   'customerDetail.missingHeading': 'Viðskiptavinaskrá ekki tiltæk',
+  'customerDetail.missingHelp':
+    'Notaðu hlekkinn hér að ofan til að fara aftur í viðskiptavinalistann eða veldu aðra færslu þaðan.',
+  'customerDetail.noInvoices': 'Engir reikningar ennþá.',
   'customerDetail.notesEmpty': 'Engar athugasemdir ennþá.',
   'customerDetail.paymentsEmpty': 'Engar greiðslur skráðar.',
   'customerDetail.paymentTerms': 'Greiðsluskilmálar',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Sjálfsábyrgð',
   'expenseDetail.detailsHeading': 'Upplýsingar um færslu',
   'expenseDetail.loadError': 'Mistókst að hlaða kostnaði.',
+  'expenseDetail.matched': 'Samsvarað · {{description}}',
   'expenseDetail.missingBody':
     'Ekki var hægt að hlaða inn umbeðnum kostnaði. Hann gæti hafa verið fjarlægður eða þú gætir ekki haft aðgang að honum.',
   'expenseDetail.missingHeading': 'Útgjaldaskrá ekki tiltæk',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Kvittun',
   'expenseDetail.receiptHeading': 'Kvittun',
   'expenseDetail.reconciled': 'Samræmt',
+  'expenseDetail.unreconciled': 'Ósamræmt',
   'expenses.empty': 'Engin útgjöld ennþá.',
   'expenses.heading': 'Útgjöld',
   'expenses.kpi.deductible': 'Sjálfsábyrgð',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Mistókst að hlaða reikningum.',
   'invoices.searchPlaceholder': 'Leita að reikningsnúmeri eða viðskiptavini…',
   'invoices.summary.paid': 'Greitt á þessu tímabili',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'Ókeypis í 30 daga. Engin kortnotkun. Taktu með þér endurskoðandann þinn — hann mun þakka þér.',
   'landing.ctaTitle': 'Færðu bækurnar þínar á rólegri stað.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Viðskiptakröfur',
   'ledgerStatTriad.eyebrow.mtd': 'Mánaðarlega til þessa',
   'ledgerStatTriad.netSub': 'Nettó {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} á gjalddaga',
   'ledgerStatTriad.revenueLabel': 'Tekjur',
   'login.failed': 'Innskráning mistókst.',
   'login.hidePassword': 'Fela lykilorð',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Innskráning',
   'nav.legal': 'Löglegt',
   'newExpense.back': 'Útgjöld',
+  'newExpense.clearReceiptCta': 'Hreinsaðu meðfylgjandi kvittun',
   'newExpense.deductible': 'Skattfrjáls',
   'newExpense.dropPrompt': 'Settu mynd eða PDF af kvittun hér til að hengja við.',
   'newExpense.failed': 'Gat ekki sparað útgjöld.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Mistókst að hlaða greiðslum.',
   'payments.unmatchedTag': 'óviðjafnanlegt',
   'planUpdated.pageLabel': 'Staðfesting á uppfærðri áætlun',
+  'pricing.advancedFeatures': 'Ítarlegir eiginleikar: {{yes}}',
+  'pricing.canExport': 'Útflutningur gagna: {{yes}}',
+  'pricing.heading': 'Veldu {{app}} áætlunina þína',
+  'pricing.maxAccounts': '{{count}} reikningar',
+  'pricing.maxExpenses': '{{count}} útgjöld',
+  'pricing.maxInvoices': '{{count}} reikningar',
+  'privacy.intro':
+    'Þessi persónuverndarstefna lýsir því hvernig {{app}} safnar, notar og miðlar upplýsingum um fyrirtæki sem nota þjónustuna.',
   'privacy.lastUpdated': 'Síðast uppfært: {{dagsetning}}',
   'privacy.section.collected.body':
     'Við söfnum reikningsupplýsingum (nafni, netfangi, fyrirtæki), fjárhagsgögnum sem þú hleður upp (reikningum, útgjöldum, viðskiptavinum, greiðslum) og stöðluðum þjónusturekstrarskrám (IP, notandaumboðsmanni, tímastimplum).',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Upplýsingar eru notaðar til að reka þjónustuna, búa til skýrslur og PDF skjöl sem þú óskar eftir, senda tölvupóst með Mailgun og vinna úr greiðslum í gegnum Stripe. Við seljum ekki né leigjum persónuupplýsingar.',
   'recentInvoicesCard.dueMeta': 'Gjalddagi {{date}}',
+  'recentInvoicesCard.empty': 'Engir reikningar passa saman.',
   'recentInvoicesCard.eyebrow': 'Viðskiptakröfur',
   'recentInvoicesCard.searchAriaLabel': 'Leita að reikningum',
+  'recentInvoicesCard.searchPlaceholder': 'Leita í reikningum…',
   'recentInvoicesCard.title': 'Nýlegir reikningar',
   'recentInvoicesCard.viewAll': 'Skoða alla reikninga →',
   'reports.assets': 'Eignir',
@@ -181,16 +211,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Hagnaður og tap (12 mánuðir)',
   'resetPassword.backToLogin': '← Til baka í innskráningu',
   'resetPassword.hidePassword': 'Fela lykilorð',
+  'resetPassword.passwordLabel': 'Nýtt lykilorð',
   'resetPassword.showPassword': 'Sýna lykilorð',
+  'resetPassword.subheading': 'Veldu sterkt lykilorð — að minnsta kosti átta stafi.',
   'resetPassword.submit': 'Endurstilla lykilorð',
   'resetPassword.tooShort': 'Lykilorðið verður að vera að minnsta kosti 8 stafir.',
   'settings.account.changePassword': 'Breyta lykilorði',
   'settings.account.changingPassword': 'Að breytast…',
   'settings.account.currentPassword': 'Núverandi lykilorð',
+  'settings.account.dangerZone': 'Hættusvæði',
   'settings.account.deleteAccount': 'Eyða reikningi',
   'settings.account.deleteDescription':
     'Eyða reikningnum þínum og öllum tengdum gögnum fyrir fullt og allt.',
   'settings.account.deleteError': 'Mistókst að eyða reikningi.',
+  'settings.account.deleteWarning':
+    'Þetta eyðir reikningnum þínum varanlega og er ekki hægt að afturkalla. Sláðu inn lykilorðið þitt til að staðfesta.',
   'settings.account.deleting': 'Eyðir…',
   'settings.account.devices': 'Tæki',
   'settings.account.email': 'Tölvupóstur',
@@ -201,6 +236,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Lykilorð',
   'settings.account.passwordError': 'Mistókst að breyta lykilorðinu.',
   'settings.account.pushNotifications': 'Tilkynningar í þessu tæki',
+  'settings.account.revokeDeviceWarning':
+    'Aðgangur þessa tækis verður afturkallaður fljótlega. Skrá það út?',
   'settings.account.saveError': 'Mistókst að uppfæra prófílinn.',
   'settings.account.security': 'Öryggi',
   'settings.account.signOutDevice': 'Skrá út',
@@ -208,12 +245,19 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Tvíþátta auðkenning',
   'settings.account.twoFactorCode': 'Auðkenningarkóði',
   'settings.account.twoFactorDisable': 'Slökkva',
+  'settings.account.twoFactorDisableTitle': 'Slökkva á tveggja þátta auðkenningu',
   'settings.account.twoFactorEnable': 'Virkja',
+  'settings.account.twoFactorEnableTitle': 'Kveikja á tveggja þátta auðkenningu',
   'settings.account.twoFactorInvalidCode': 'Ógildur kóði',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'Tveggja þátta QR kóði',
+  'settings.account.twoFactorScan':
+    'Skannaðu þennan QR-kóða með auðkenningarforritinu þínu og sláðu síðan inn 6 stafa kóðann.',
+  'settings.account.twoFactorUnavailable': 'Tvíþátta auðkenning er ekki í boði fyrir þetta forrit.',
   'settings.account.twoFactorVerify': 'Staðfesta og virkja',
   'settings.account.unknownDevice': 'Óþekkt tæki',
   'settings.company.email': 'Reikningsnetfang',
+  'settings.company.heading': 'Fyrirtæki og skattur',
   'settings.company.name': 'Löglegt nafn',
   'settings.company.saveButton': 'Vista fyrirtækjaprófíl',
   'settings.company.taxId': 'Skattnúmer / EIN',
@@ -257,6 +301,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Áætlað ársfjórðungslega',
   'taxes.kpi.owed': 'Skuldaði',
   'taxes.loadError': 'Mistókst að hlaða skattyfirliti.',
+  'taxes.remittedPct': '({{pct}}% greitt)',
+  'terms.intro':
+    'Þessi þjónustuskilmálar („skilmálar“) gilda um aðgang þinn að {{app}} og notkun þess. Með því að stofna reikning eða nota þjónustuna samþykkir þú að vera bundinn af þeim.',
   'terms.lastUpdated': 'Síðast uppfært: {{dagsetning}}',
   'terms.section.acceptable.body':
     'Þú samþykkir að nota ekki þjónustuna til að brjóta gegn lögum, brjóta gegn hugverkaréttindum, dreifa spilliforritum eða reyna að fá óheimilan aðgang að öðrum reikningum eða innviðum okkar.',

@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ප්‍රශ්න, ප්‍රතිචාර, නැතහොත් විශේෂාංග ඉල්ලීමක්? සැකසුම් → දැනුම්දීම් හරහා {{app}} කණ්ඩායම හමුවන්න, නැතහොත් ඕනෑම වේලාවක අපට ලියන්න — සෑම පණිවිඩයක්ම සැබෑ මිනිසෙකුට යයි.',
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
+  'about.featureCapture':
+    'නිවැරදි වියදමට පින්තූර අමුණන ඡායාරූප උඩුගත කිරීම සහිත රිසිට් ලබාගැනීම, පේළියෙන් පේළිය.',
+  'about.featureExport':
+    'සෑම වාර්තාවක්, වියදමක් සහ අනුමැති තත්ත්වයක් පිළිබඳ විගණනය කළ හැකි CSV නිර්යාත — ඔබේ ගිණුම් කණ්ඩායම සඳහා සූදානම්.',
+  'about.featurePolicy':
+    'ප්‍රතිපත්ති ආරක්ෂණ — දෛනික සීමා, ප්‍රවර්ගය අනුව සීමා, සහ රිසිට් අවශ්‍ය සීමාවන් ඉදිරිපත් කිරීමේදීම බලාත්මක කෙරේ.',
+  'about.featureWorkflow':
+    'සමාලෝචක සටහන්, ප්‍රතිපත්ති උල්ලංඝනය කිරීමේ ධජ, සහ එක් ස්පර්ශයකින් අපහරණය සලකුණු කිරීම සහිත ද්වි-ස්තරීය අනුමැති කාර්ය ප්‍රවාහයක්.',
+  'about.intro':
+    '{{app}} යනු මූල්‍ය කණ්ඩායම් සහ ඔවුන් අපහරණය කරන පුද්ගලයින් සඳහා වන වියදම් කළමනාකරණ වේදිකාවකි. රිසිට් එකක් ලබාගන්න, වියදමක් ගොනු කරන්න, වාර්තාවක් අනුමැතිය හරහා යවන්න, සහ සෑම අපහරණයක්ම නිරීක්ෂණය කරන්න — පැතුරුම්පත් චාරිත්‍රයකින් තොරව.',
+  'about.missionBody':
+    'අපහරණය ඉක්මන්, සාධාරණ සහ විගණනය කළ හැකි විය යුතුය. ඉදිරිපත් කරන්නන්ට හිරිහැරයකින් තොරව මුදල් ආපසු ලැබෙන පරිදි, අනුමත කරන්නන් තමන් අනුමත කරන දේ හරියටම දකින පරිදි, සහ මූල්‍ය අංශයට සෑම ඩොලරයක් සඳහාම ප්‍රතිපත්ති පරීක්ෂා ඇතුළුව පිරිසිදු වාර්තාවක් තිබෙන පරිදි අපි {{app}} ගොඩනැගුවෙමු.',
+  'about.missionTitle': 'අපගේ මෙහෙවර',
   'approvals.approve': 'Approve',
   'approvals.approving': 'අනුමත කරමින්...',
   'approvals.confirmReject': 'ප්‍රතික්ෂේප කිරීම තහවුරු කරන්න',
+  'approvals.empty': 'ඔබ සියල්ල අල්ලාගෙන ඉවරයි — රැඳී සිටින වාර්තා නැත.',
   'approvals.eyebrow': 'කළමනාකරු පෝලිම',
   'approvals.kpi.flaggedLabel': 'ප්‍රතිපත්තිය සලකුණු කරන ලදී',
+  'approvals.kpi.queueLabel': 'සමාලෝචනය අපේක්ෂිතයි',
   'approvals.kpi.totalLabel': 'අපේක්ෂිත අගය',
   'approvals.lineCount': '{{count}} වියදම්',
   'approvals.queueFallback': 'සජීවී පෝලිම නොමැත — තෝරාගත් ආදර්ශන දත්ත පෙන්වයි.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'ප්‍රතික්ෂේප කරමින්...',
+  'approvals.rejectPlaceholder': 'හේතුව (අවශ්‍යයි)',
   'approvals.rejectPrompt': 'ඔබ මෙම වාර්තාව ප්‍රතික්ෂේප කරන්නේ ඇයි?',
   'approvals.review': 'සමාලෝචනය කරන්න',
   'approvals.title': 'අපේක්ෂිත අනුමැතීන්',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+ 18%',
   'dashboard.kpi.approvedLabel': 'අනුමත · MTD',
   'dashboard.kpi.pendingDelta': 'මේ සතියේ +2',
+  'dashboard.kpi.pendingLabel': 'සමාලෝචනය පොරොත්තුයි',
   'dashboard.kpi.receiptsDelta': 'ක්‍රියාමාර්ගයක් අවශ්‍යයි',
   'dashboard.kpi.receiptsLabel': 'ලැබීම් බලාපොරොත්තුවෙන්',
   'dashboard.kpi.reimbursedDelta': '+ඩොලර් 2.4 දහසක්',
   'dashboard.kpi.reimbursedLabel': 'ආපසු ගෙවන ලද · MTD',
   'dashboard.newReport': 'නව වාර්තාව',
+  'dashboard.recent.empty': 'තවම වාර්තා නැත — ඉහතින් ඔබේ පළමු වාර්තාව අරඹන්න.',
   'dashboard.recent.title': 'මෑත වාර්තා',
   'dashboard.recent.viewAll': 'සියලුම වාර්තා බලන්න',
   'dashboard.summaryFallback': 'සජීවී සාරාංශය නොමැත — තෝරාගත් ආදර්ශන දත්ත පෙන්වයි.',
@@ -38,11 +59,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'ලැබීම් සහ ආපසු ගෙවිය හැකි අයිතම',
   'expenses.listFallback': 'සජීවී ලැයිස්තුව නොමැත — තෝරාගත් ආදර්ශන දත්ත පෙන්වයි.',
   'expenses.searchPlaceholder': 'වෙළෙන්දා හෝ කාණ්ඩය සොයන්න...',
+  'expenses.subtotal': '{{count}} වියදම් · උප එකතුව',
   'expenses.title': 'වියදම්',
+  'forgotPassword.continue': 'මට කේතයක් ඇත · ඉදිරියට',
+  'forgotPassword.subheading':
+    'ඔබේ සේවා ඊමේල් ඇතුළත් කරන්න, නව මුරපදයක් සැකසීමට සබැඳියක් අපි එවන්නෙමු.',
   'forgotPassword.successBody':
     'ගිණුමක් තිබේ නම් {{email}} ඉදිරි මිනිත්තු කිහිපය තුළ ඔබට යළි පිහිටුවීමේ සබැඳියක් ලැබෙනු ඇත.',
+  'landing.copyright': '© {{year}} {{app}}. Molecule.dev සමඟ නිර්මිතයි.',
+  'landing.ctaBody':
+    'සෑම මාසයකම පළමු වියදම් 25 සඳහා නොමිලේ. ණය කාඩ්පතක් නැත, ක්‍රියාත්මක කිරීමේ ඇමතුමක් නැත.',
   'landing.ctaHeading': 'ඔබේ කණ්ඩායමට ගෙවිය යුතු දේ අයකර ගැනීමට සූදානම්ද?',
   'landing.eyebrow': 'මූල්‍ය කණ්ඩායම් සඳහා වියදම් වාර්තා',
+  'landing.featuresHeading': 'ප්‍රතිපූරණය, එක් සන්සුන් කාර්ය අවකාශයක',
   'landing.heroSubtitle':
     'පැතුරුම්පත් උත්සවයකින් තොරව ව්‍යාපාරික වියදම් ඉදිරිපත් කිරීම, අනුමත කිරීම සහ ප්‍රතිපූරණය කිරීම. රිසිට්පත් OCR, ප්‍රතිපත්ති පරීක්ෂාවන් සහ විනිවිද පෙනෙන අනුමත කාලරාමුවක් - සියල්ල එකම සන්සුන් වැඩබිමක.',
   'landing.heroTitle': 'සෑම රිසිට්පතක්ම, ආපසු ලබා ගන්නා ලදී.',
@@ -60,10 +89,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'සටහන්',
   'newExpense.descriptionPlaceholder':
     'මෙම වියදම ව්‍යාපාරයට අදාළ වූයේ ඇයි (ඔබේ අනුමත කරන්නාට දෘශ්‍යමාන වේ).',
+  'newExpense.eyebrow': 'ප්‍රතිපූරණය කළ හැකි අයිතමය',
   'newExpense.merchant': 'වෙළෙන්දා',
   'newExpense.merchantPlaceholder': 'ඇඩ්ලොන් කෙම්පින්ස්කි හෝටලය',
   'newExpense.policyHint':
     'මතක් කිරීම: දිනකට ඩොලර් 80 ට වැඩි ආහාර වේලක් හෝ ඩොලර් 250 ට වැඩි ඕනෑම අයිතමයක් සඳහා සාධාරණීකරණ සටහනක් අවශ්‍ය වේ.',
+  'newExpense.receipt': 'රිසිට්පත',
+  'newExpense.receiptHint': 'JPG, PNG, හෝ PDF · උපරිම 10 MB',
   'newExpense.receiptOcrHint': 'OCR පූර්ව පිරවුම් ක්ෂේත්‍ර',
   'newExpense.receiptPrompt':
     'ඡායාරූපයක් හෝ PDF එකක් මෙහි දමන්න, නැතහොත් බ්‍රවුස් කිරීමට ක්ලික් කරන්න.',
@@ -75,16 +107,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'කුවිතාන්සියක් ගන්න හෝ උඩුගත කරන්න, එවිට ප්‍රතිපූරණය වෙළෙන්දා, දිනය සහ මුළු මුදල පූර්ව-පුරවනු ඇත. සුරැකීමට පෙර පහත සියල්ල තහවුරු කරන්න.',
   'newExpense.title': 'වියදම එකතු කරන්න',
+  'newReport.approverHint':
+    'ඔබ මෙම වාර්තාව සමාලෝචනය සඳහා ඉදිරිපත් කළ විට ඔවුන්ට ඊමේල් එකක් ලැබෙනු ඇත.',
   'newReport.approverLabel': 'අනුමත කරන්නාගේ විද්‍යුත් තැපෑල (විකල්ප)',
   'newReport.approverPlaceholder': 'කළමනාකරු@ඔබේකම්පැනි.කොම්',
   'newReport.availableExpenses': 'පවතින වියදම්',
   'newReport.createFailed': 'වාර්තාවක් නිර්මාණය කිරීමට නොහැකි විය. කරුණාකර නැවත උත්සාහ කරන්න.',
   'newReport.draftsFallback': 'සජීවී වියදම් ලැයිස්තුව නොමැත — තෝරාගත් ආදර්ශන දත්ත පෙන්වයි.',
+  'newReport.eyebrow': 'කණ්ඩායම් වියදම් · අනුමැතිය සඳහා ඉදිරිපත් කරන්න',
   'newReport.includedCount': '{{count}} ඇතුළත්',
   'newReport.purposeLabel': 'ව්‍යාපාරික අරමුණ',
   'newReport.purposePlaceholder':
     'මෙම වියදම් අදාළ වන සංචාරය හෝ ව්‍යාපෘතිය විස්තර කරන්න (ඔබේ අනුමත කරන්නාට සහ මූල්‍ය ආයතනයට දෘශ්‍යමාන වේ).',
   'newReport.saveDraft': 'කෙටුම්පතක් ලෙස සුරකින්න',
+  'newReport.saveDraftFailed': 'කෙටුම්පත සුරැකිය නොහැකි විය. කරුණාකර නැවත උත්සාහ කරන්න.',
   'newReport.submit': 'අනුමැතිය සඳහා ඉදිරිපත් කරන්න',
   'newReport.submitFailed': 'වාර්තාව ඉදිරිපත් කිරීමට නොහැකි විය. කරුණාකර නැවත උත්සාහ කරන්න.',
   'newReport.summary': 'වාර්තා සාරාංශය',
@@ -97,16 +133,23 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'වැඩබිම් ක්‍රියාකාරකම්',
   'notifications.feedFallback': 'සජීවී සංග්‍රහය නොමැත — තෝරාගත් ආදර්ශන දත්ත පෙන්වයි.',
   'notifications.openReport': 'වාර්තාව විවෘත කරන්න ›',
+  'pricing.approvalsLabel': 'අනුමැතීන්',
   'pricing.expensesLabel': 'වියදම්',
   'pricing.heading': 'අනුමැතීන්',
   'pricing.policiesLabel': 'ප්‍රතිපත්ති',
   'pricing.receiptsLabel': 'රිසිට්පත්',
   'recoveredAmountHeroCard.label': 'ආපසු ගෙවීම අයකර ගන්නා ලදී · YTD',
+  'recoveredAmountHeroCard.pending':
+    'සියලුම අනුමත කරන්නන් හරහා දැනට සමාලෝචනය සඳහා පොරොත්තුවෙන් පවතින වාර්තා {{count}}ක්.',
+  'reports.approvalFlow': 'අනුමැති ප්‍රවාහය',
   'reports.backToList': 'වාර්තා වෙත ආපසු',
   'reports.detailFallback': 'සජීවී වාර්තාව නොමැත — තෝරාගත් ආදර්ශන දත්ත පෙන්වයි.',
   'reports.lineItems': 'රේඛා අයිතම',
   'reports.lineItemsCount': '{{count}} වියදම්',
+  'reports.lineItemsEmpty': 'මෙම වාර්තාවේ තවමත් වියදම් නොමැත.',
+  'reports.openLibrary': 'වාර්තා පුස්තකාලය විවෘත කරන්න',
   'reports.policyTitle': 'ප්‍රතිපත්ති ධජය',
+  'reports.selectPrompt': 'එහි විස්තර බැලීමට පුස්තකාලයෙන් වාර්තාවක් තෝරන්න.',
   'reports.summary.lineCount': 'රේඛා අයිතම',
   'reports.summary.reimbursable': 'ආපසු ගෙවිය හැකි',
   'reports.summary.total': 'වාර්තා කළ මුළු එකතුව',
@@ -115,6 +158,7 @@ export const ui: UiTranslations = {
   'reportsList.lineItems': '{{count}} වියදම්',
   'reportsList.listFallback': 'සජීවී ලැයිස්තුව නොමැත — තෝරාගත් ආදර්ශන දත්ත පෙන්වයි.',
   'reportsList.newReport': 'නව වාර්තාව',
+  'reportsList.submittedOn': '{{date}} හි ඉදිරිපත් කරන ලදී',
   'reportsList.title': 'පුස්තකාලය වාර්තා කරන්න',
   'resetPassword.hidePassword': 'මුරපදය සඟවන්න',
   'resetPassword.newPasswordLabel': 'නව මුරපදය',
@@ -139,6 +183,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'සුරකින ලදී ✓',
   'settings.profileSaveFailed': 'පැතිකඩ යාවත්කාලීන කළ නොහැකි විය. කරුණාකර නැවත උත්සාහ කරන්න.',
   'signup.heading': 'ඔබේ ප්‍රතිපූරණ ගිණුම සාදන්න',
+  'signup.hidePassword': 'මුරපදය සඟවන්න',
   'signup.namePlaceholder': 'මායා ඔකාෆෝර්',
   'signup.showPassword': 'මුරපදය පෙන්වන්න',
   'signup.subheading': 'සෑම මසකම වියදම් 25ක් සඳහා නොමිලේ — ක්‍රෙඩිට් කාඩ්පතක් නැත.',

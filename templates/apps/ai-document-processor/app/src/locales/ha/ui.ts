@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kuna da tambaya, kun sami matsala, ko kuna son demo ga ƙungiyar ku? Tuntuɓe mu daga saitunan asusun ku — kowane saƙo yana zuwa ga ainihin mutum a ƙungiyar.',
   'about.contactTitle': 'Tuntuɓi mu',
+  'about.intro':
+    '{{app}} yana juya tarin takardun da aka sikanne da PDFs zuwa bayanai masu tsari, masu iya bincike, kuma an adana su. Sanya daftari, rasit, kwangila, ko fomai bari AI ya karanta, ya ciro, ya rarraba, kuma ya adana su — tare da launukan tabbaci domin ƙungiyar ku ta duba kawai abin da ke buƙatar ɗan adam.',
+  'about.missionBody':
+    "Ayyukan takardu na yau da kullum bai kamata su cinye ranar ƙungiyar ku ba. Mun yi imani kowane ƙima da aka ciro ya kamata ya zama mai bayani kuma mai iya dubawa — domin ku amince da sarrafa kai ba tare da rasa tarihin takarda ba. An gina {{app}} don adana sa'o'i a kowane tari yayin da ake riƙe ɗan adam a cikin tsari a duk inda ya dace.",
+  'about.missionTitle': 'Manufarmu',
+  'about.subtitle': 'OCR, ciro bayanai ta AI, rarrabewa, da adana takardun ku ta atomatik.',
   'about.title': 'Game da {{app}}',
+  'about.whatYouGetTitle': 'Abin da za ku samu',
   'authShell.backToLanding': '← Komawa zuwa saukowa',
   'common.goToDashboard': 'Je zuwa Dashboard',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Yau · Bayanin Ayyuka',
   'dashboard.heading': 'Bayanan sirri na takardu',
+  'dashboard.metric.accuracy': 'Matsakaicin daidaito',
   'dashboard.metric.filed': 'An shigar a yau',
   'dashboard.metric.filedCaption': 'An tsara shi ta hanyar dokokin fayil',
   'dashboard.metric.processed': 'Ana sarrafa shi a yau',
@@ -23,11 +33,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'An loda',
   'dashboard.recent.heading': 'Takardu na baya-bayan nan',
+  'dashboard.recent.typeUnknown': 'Ana jiran rarrabewa',
   'dashboard.subheading':
     'Kowane shafi da aka rarraba, aka cire, aka kuma shigar da shi - tare da launuka masu ƙarfi don haka bita ta kasance mai da hankali.',
   'documentDetail.audit.heading': 'Jadawalin lokacin duba kuɗi',
+  'documentDetail.audit.subheading':
+    'Kowane mataki da aka ɗauka kan wannan takarda, tare da wanda ya yi shi.',
   'documentDetail.back': 'Duk takardu',
   'documentDetail.downloadHint': 'Yi amfani da Saukewa don buɗe fayil ɗin asali.',
+  'documentDetail.extracted.empty': 'Ba a ciro wani fili ba tukuna.',
   'documentDetail.extracted.heading': 'Filayen da aka cire',
   'documentDetail.extracted.subheading':
     '{{count}} filaye · danna kowane fili don haskakawa a shafi',
@@ -55,13 +69,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Bincika takardu…',
   'documents.subheading': '{{count}} takardu a cikin ɗakin karatunku, an fara tsara su sabo-sabo.',
   'documents.uploadCta': 'Loda takardu',
+  'documentTypeBreakdown.barAria': "Tsarin takardu bisa nau'i",
   'documentTypeBreakdown.empty': 'Babu takaddun da aka sarrafa tukuna.',
   'documentTypeBreakdown.subtitle': '{{total}} an sarrafa shi',
   'documentTypeBreakdown.title': 'Tsarin daftarin aiki',
+  'forgotPassword.backToSignIn': '← Komawa zuwa shiga',
   'forgotPassword.checkEmail': 'Duba imel ɗinka',
   'forgotPassword.tip': 'Ban fahimta ba? Duba wasikun banza ko gwada wani adireshin daban.',
+  'landing.copyright':
+    '© {{year}} {{app}}. An gina wa ƙungiyoyin aiki waɗanda ke duba kowane shafi.',
+  'landing.ctaBody':
+    'Gwajin kwana 14. Ba a buƙatar kati. Soke kowane lokaci. An gina wa ƙungiyoyin aiki waɗanda ke tafiya da sauri kuma suna duba a hankali.',
   'landing.ctaHeading': 'Dakatar da buga rasit. Fara shigar da su.',
   'landing.eyebrow': 'OCR · Cirewa · AI fayil',
+  'landing.featuresHeading': 'Fahimtar takardu da ke bayyana kanta',
+  'landing.heroSubtitle':
+    'Sanya tarin daftari, rasit, kwangila, ko fomai. {{app}} yana rarrabewa, ciro, da adana su — tare da launukan tabbaci domin ƙungiyar ku ta duba kawai abin da ke buƙatar ɗan adam.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Adadin yau da kullum · kwanaki 7 da suka gabata',
   'landing.sampleCardLabel': 'Ana sarrafa takardu a yau',
   'landing.sampleCardSubtitle': 'Matsakaicin daidaito na kashi 96.2% a cikin rasit, rasit, da fom.',
   'login.hidePassword': 'Ɓoye kalmar sirri',
@@ -74,6 +99,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Buɗe shafin saukowa',
   'notFound.title': 'Wannan shafin ba ya kan fayil',
+  'parcelaHeroCard.accuracy': 'Matsakaicin daidaito {{value}}% a duk abubuwan da aka ciro',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % idan aka kwatanta da jiya',
   'parcelaHeroCard.title': 'Ana sarrafa takardu a yau',
   'parcelaLayout.primaryNavLabel': 'Babban kewayawa',
@@ -81,6 +107,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'takardu',
   'pricing.processingLabel': 'ayyukan sarrafawa',
   'resetPassword.confirmPlaceholder': 'Maimaita sabuwar kalmar sirri',
+  'resetPassword.hidePassword': 'Ɓoye kalmar sirri',
   'resetPassword.passwordLabel': 'Sabuwar kalmar sirri',
   'resetPassword.showPassword': 'Nuna kalmar sirri',
   'resetPassword.subtitle': 'Zaɓi wani abu mai tsawon harafi 8 aƙalla.',
@@ -97,10 +124,12 @@ export const ui: UiTranslations = {
   'rules.loadError': "An kasa loda ƙa'idodi.",
   'rules.loading': 'Dokokin lodawa…',
   'rules.matched30d': '{{count}} takardun da suka dace a cikin kwanaki 30 da suka gabata',
+  'rules.neverUsed': 'Ba a taɓa amfani da shi ba',
   'rules.newRule': 'Sabuwar doka',
   'rules.saveError': 'An kasa adana doka.',
   'rules.subheading':
     'Faɗa wa tsarin inda kowace irin takarda ya kamata ta je. Sharuɗɗa sarkar sama-ƙasa — nasarar farko a wasan.',
+  'rules.templatesEmpty': 'Ba a sami samfuran ciro ba tukuna.',
   'rules.templatesHeading': 'Samfuran cirewa',
   'rules.templatesSubheading': "Tsarin filin yana amfani da mai cirewa don kowane nau'in takarda.",
   'rules.then': 'Sannan',
@@ -108,17 +137,24 @@ export const ui: UiTranslations = {
   'settings.account.error': 'An kasa adanawa.',
   'settings.account.nameLabel': 'Sunan wurin aiki',
   'settings.account.subheading': 'Nuna suna da babban imel don sanarwa da tarihin binciken kuɗi.',
+  'settings.api.confirmRevoke': 'Tabbatar?',
   'settings.api.copyOnce': 'Kwafi wannan maɓalli — ba za a sake nuna shi ba',
   'settings.api.createdOn': 'An ƙirƙira {{date}}',
   'settings.api.empty': 'Babu maɓallan API tukuna. Samar da ɗaya a sama.',
   'settings.api.error': 'An kasa ƙirƙirar maɓalli.',
+  'settings.api.generating': 'Ana ƙirƙirawa…',
+  'settings.api.heading': 'Maɓallan API',
   'settings.api.labelPlaceholder': 'Lakabin maɓalli (misali mai loda CI)',
+  'settings.api.loading': 'Ana loda maɓallai…',
   'settings.api.newKey': 'Samar da maɓalli',
   'settings.api.subheading':
     'Yi amfani da waɗannan don tura takardu daga rubutun ko ERP ɗinka. Juya kowane maɓalli a kowane lokaci.',
   'settings.integrations.heading': 'Haɗakar fayil',
   'settings.integrations.subheading':
     'Aika takardun da aka shigar zuwa ga kayan aikin girgije ko kayan aikin hira da ƙungiyar ku ta riga ta ke zaune a ciki.',
+  'settings.subheading':
+    'Sarrafa asusu, maɓallan API, da haɗin gwiwar adana takardu don wurin aikin {{app}}.',
+  'signup.hidePassword': 'Ɓoye kalmar sirri',
   'signup.identityPrompt': 'Ta yaya ya kamata mu yi muku magana?',
   'signup.showPassword': 'Nuna kalmar sirri',
   'signup.subtitle': 'Kwanaki 14 kyauta, babu buƙatar kati.',
@@ -126,6 +162,7 @@ export const ui: UiTranslations = {
   'upload.error': 'An kasa lodawa.',
   'upload.eyebrow': 'Cin Abinci',
   'upload.heading': 'Loda takardu',
+  'upload.queue.clear': 'Share waɗanda aka kammala',
   'upload.queue.col.confidence': 'Kwarin gwiwa',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Ana ganowa…',
@@ -138,5 +175,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Ko kuma a sauke fayiloli da yawa a lokaci guda don cirewa, rarrabawa, da kuma yin fayil.',
   'uploadDropZone.cta': 'Zaɓi fayiloli',
+  'uploadDropZone.maxSize': 'Mafi girman 25 MB kowane fayil · An ɓoye shi daga ƙarshe zuwa ƙarshe',
   'uploadDropZone.title': 'Ajiye takardu don fara aiki',
 }

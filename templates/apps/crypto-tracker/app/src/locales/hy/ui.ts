@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
+  'about.featureAlerts':
+    'Գնային ծանուցումներ կարևոր պայմանների դեպքում՝ ուղարկվում են էլ. փոստով և push-ով, որպեսզի երբեք բաց չթողնեք շարժը։',
+  'about.featureMarkets':
+    'Իրական ժամանակի շուկայական տվյալներ և գնային գրաֆիկներ հազարավոր մետաղադրամների համար՝ դասակարգված ըստ շուկայական կապիտալիզացիայի, ծավալի և մոմենտի։',
+  'about.featurePortfolio':
+    'Պորտֆելի հետևում իրական շահույթ-վնասով, ինքնարժեքով և բաշխվածությամբ՝ կապված ձեր գործարքների պատմության հետ։',
+  'about.featureWatchlist':
+    'Անձնական դիտացանկ և ընտրված կրիպտո նորություններ՝ ազդանշաններով ձեր հետևած ակտիվների վերաբերյալ։',
+  'about.missionTitle': 'Մեր առաքելությունը',
+  'alertConditionCard.armedSince': 'Զինված է {{when}}-ից',
   'alertConditionCard.condition.${alert.condition}': 'Ակտիվացված {{երբ}}',
   'alertConditionCard.confirmDelete': 'Հաստատեք ջնջումը',
+  'alertConditionCard.deleteAriaLabel': 'Ջնջել ծանուցումը',
   'alertConditionCard.pauseAriaLabel': 'Դադարեցնել ծանուցումը',
   'alertConditionCard.resumeAriaLabel': 'Վերականգնման ծանուցում',
+  'alertConditionCard.triggeredAt': 'Գործարկվել է {{when}}',
   'alertNew.condition': 'Վիճակը',
   'alertNew.createCta': 'Ստեղծել ծանուցում',
   'alertNew.error': 'Չհաջողվեց ստեղծել ծանուցում։',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Դեռևս ահազանգեր չկան։',
   'alerts.eyebrow': 'Սիգիլային արգելքներ',
   'alerts.loadError': 'Չհաջողվեց բեռնել ծանուցումները։',
+  'alerts.newCta': '+ Նոր ազդանշան',
   'alerts.subheading':
     'Ստացեք ծանուցում, երբ գինը, փոփոխությունը կամ ծավալը հատում են ձեր սահմանը։',
   'alerts.summary.armed': 'զինված',
@@ -24,6 +38,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Բոլոր ժամանակների ամենաբարձր ցուցանիշը',
   'coinDetail.allTimeLow': 'Բոլոր ժամանակների ամենացածր ցուցանիշը',
   'coinDetail.back': 'Բոլոր շուկաները',
+  'coinDetail.chartAriaLabel': '{{name}} գնային գրաֆիկ, վերջին 30 օրը',
   'coinDetail.chartHeading': 'Գին · վերջին 30 օրվա ընթացքում',
   'coinDetail.circulating': 'Շրջանառվող մատակարարում',
   'coinDetail.fdv': 'Լիովին նոսրացված գնահատում',
@@ -60,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Վերականգնել միացված կապը։',
   'login.eyebrow': 'Մտեք տերմինալ',
   'login.heading': 'Բարի վերադարձ, ազդանշանային։',
+  'login.noAccountQuestion': 'Նորեկ եք Tessera-ում։',
   'login.secureNote': '🔒 Գաղտնագրված է տեղափոխման ընթացքում',
   'login.signingInCta': 'Ժապավենի ընթերցումը…',
   'login.signupLink': 'Բացեք հաշիվ →',
@@ -94,6 +110,13 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Ձեր սկանավորված երթուղին չի համապատասխանում հայտնի մետաղադրամին կամ էջին: Վերստուգեք խորհրդանիշը և փորձեք կրկին:',
   'notFound.browseMarkets': 'Զննել շուկաները',
+  'notFound.eyebrow': '{{appName}} ազդանշանը կորած է',
+  'notFound.heading': 'Այս ազդանշանը տիրույթից դուրս է',
+  'planUpdated.body':
+    'Ձեր վճարման փոփոխությունն այժմ ակտիվ է։ Դուք կարող եք ցանկացած պահի կառավարել ձեր պլանը վճարման էջից։',
+  'planUpdated.retry': 'Փորձեք կրկին',
+  'planUpdated.verifyFailed': 'Մենք դեռ չենք կարող հաստատել ձեր վճարումը։',
+  'planUpdated.verifyFailedBody': 'Ձեր վճարումը կարող է դեռ մշակվել։ Փորձեք կրկին մի փոքր ուշ։',
   'planUpdated.verifying': 'Հաստատվում է ձեր վճարումը…',
   'portfolio.addError': 'Մուտքագրեք նշանը, դրական գումարը և արժեքը։',
   'portfolio.addHoldingCta': '+ Ավելացնել պահուստ',
@@ -117,11 +140,13 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Ընդհանուր պորտֆելի արժեքը',
   'portfolioHeroCard.totalPnl': 'Ընդհանուր շահույթ/շահույթ',
   'pricing.heading': 'ահազանգեր',
+  'pricing.limit.alerts': 'ծանուցումներ',
   'pricing.limit.coins': 'մետաղադրամներ',
   'pricing.limit.market': 'շուկա',
   'pricing.limit.portfolio': 'պորտֆել',
   'resetPassword.eyebrow': 'Նոր գաղտնագիր',
   'resetPassword.missingToken': 'Այս վերակայման հղումը բացակայում է կամ անվավեր է։ Խնդրեք նորը։',
+  'resetPassword.passwordPlaceholder': 'Նոր գաղտնաբառ',
   'resetPassword.subheading': 'Ընտրեք մի բան, որը միայն դուք կարող եք վերծանել։',
   'settings.apiKeys.body':
     'Գործարքների պատմությունը ներմուծելու համար միայն ընթերցման համար նախատեսված բանալիներ: Բաժանորդագրվելուց հետո կապվեք OAuth-ի միջոցով /pricing-ից:',
@@ -133,18 +158,33 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Գնանշեք արժույթը',
   'settings.preferences.locale': 'Տեղայնություն',
   'settings.preferences.push': 'Հրել',
+  'settings.preferences.refresh': 'Գնի թարմացում (վայրկյան)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning': 'Այս սարքի մուտքը շուտով կանդադարի։ Դուրս գալ՞',
   'settings.security.body':
     'Գաղտնաբառը և երկփուլային կարգավորումները կառավարվում են ձեր հաշվի կողմից։',
   'settings.signOutDevice': 'Ելք',
   'settings.twoFactorCode': 'Հաստատման կոդ',
   'settings.twoFactorDisable': 'Անջատել',
+  'settings.twoFactorDisableTitle': 'Անջատել երկգործոն նույնականացումը',
   'settings.twoFactorEnable': 'Միացնել',
+  'settings.twoFactorEnableTitle': 'Միացնել երկգործոն նույնականացումը',
   'settings.twoFactorInvalidCode': 'Անվավեր կոդ',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Երկկարգի նույնականացման QR կոդ',
+  'settings.twoFactorScan':
+    'Սկանավորեք այս QR կոդը ձեր նույնականացման հավելվածով, ապա մուտքագրեք 6-նիշանոց կոդը։',
+  'settings.twoFactorUnavailable': 'Երկփուլային նույնականացումը հասանելի չէ այս հավելվածի համար։',
   'settings.twoFactorVerify': 'Հաստատել և միացնել',
   'sigilAuthShell.backHomeCta': '← Վերադառնալ Սիգիլ',
+  'sigilAuthShell.brandBody':
+    'Իրական ժամանակի գներ, պորտֆելի շահույթ/վնաս և մշտական հսկումներ կարևոր պայմանների նկատմամբ՝ ամենը մեկ տերմինալում։',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — կառուցված Molecule-ի վրա',
+  'sigilAuthShell.brandHeadline': 'Վերծանեք ամեն ազդանշան ամբողջ մատյանում։',
+  'sigilAuthShell.samplePortfolio': 'Օրինակ պորտֆել',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
+  'signup.creating': 'Բացվում է ձեր տերմինալը…',
   'signup.eyebrow': 'Բացել տերմինալ',
   'signup.heading': 'Ստեղծեք ձեր Սիգիլը',
   'signup.subheading':
@@ -162,6 +202,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Գործարքները չհաջողվեց բեռնել։',
   'watchlist.addCta': 'Զննել շուկաները',
   'watchlist.col.change24h': '24 ժամ',
+  'watchlist.col.coin': 'Մետաղադրամ',
   'watchlist.col.marketCap': 'Շուկայի կապիտալիզացիա',
   'watchlist.empty':
     'Ձեր դիտացանկում մետաղադրամներ չկան՝ աստղային մետաղադրամներ /markets-ից՝ դրանք ավելացնելու համար։',

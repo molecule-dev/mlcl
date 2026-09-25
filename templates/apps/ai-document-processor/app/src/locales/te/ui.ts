@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ప్రశ్న ఉందా, బగ్ కనుగొన్నారా, లేదా మీ టీమ్ కోసం డెమో కావాలా? మీ ఖాతా సెట్టింగ్‌ల నుండి సంప్రదించండి — ప్రతి సందేశం టీమ్‌లోని నిజమైన వ్యక్తికి చేరుతుంది.',
   'about.contactTitle': 'సంప్రదించండి',
+  'about.intro':
+    '{{app}} స్కాన్ చేసిన పత్రాలు మరియు PDFల కుప్పలను నిర్మిత, శోధించగల, ఫైల్ చేసిన డేటాగా మారుస్తుంది. ఇన్‌వాయిస్‌లు, రసీదులు, ఒప్పందాలు లేదా ఫారమ్‌లను డ్రాప్ చేయండి — AI వాటిని చదివి, సంగ్రహించి, వర్గీకరించి, ఫైల్ చేయనివ్వండి — కాన్ఫిడెన్స్ రంగులతో, తద్వారా మీ టీమ్ నిజంగా మనిషి సమీక్ష అవసరమైన వాటిని మాత్రమే చూస్తుంది.',
+  'about.missionBody':
+    'పత్రాల డాక్యుమెంట్ పనులు మీ టీమ్ రోజును తినకూడదు. ప్రతి సంగ్రహించిన విలువ వివరించదగినది మరియు ఆడిట్ చేయదగినది అయి ఉండాలని మేము నమ్ముతాము — తద్వారా పేపర్ ట్రైల్ కోల్పోకుండా ఆటోమేషన్‌ను నమ్మవచ్చు. {{app}} ప్రతి కుప్పకు గంటలు ఆదా చేయడానికి నిర్మించబడింది, అవసరమైన చోట మనిషిని లూప్‌లో ఉంచుతుంది.',
+  'about.missionTitle': 'మా లక్ష్యం',
+  'about.subtitle': 'మీ పత్రాల కోసం OCR, AI సంగ్రహణ, వర్గీకరణ మరియు ఆటోమేటెడ్ ఫైలింగ్.',
   'about.title': '{{app}} గురించి',
+  'about.whatYouGetTitle': 'మీకు లభించేది',
   'authShell.backToLanding': '← ల్యాండింగ్‌కు తిరిగి వెళ్లండి',
   'common.goToDashboard': 'డాష్‌బోర్డ్‌కు వెళ్ళు',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'ఈరోజు · కార్యకలాపాల అవలోకనం',
   'dashboard.heading': 'డాక్యుమెంట్ ఇంటెలిజెన్స్',
+  'dashboard.metric.accuracy': 'సగటు ఖచ్చితత్వం',
   'dashboard.metric.filed': 'ఈరోజు దాఖలు చేయబడింది',
   'dashboard.metric.filedCaption': 'ఫైలింగ్ నియమాల ద్వారా మార్గనిర్దేశం చేయబడింది',
   'dashboard.metric.processed': 'ఈరోజు ప్రాసెస్ చేయబడింది',
@@ -23,11 +33,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'పత్రం',
   'dashboard.recent.col.uploaded': 'అప్‌లోడ్ చేయబడింది',
   'dashboard.recent.heading': 'ఇటీవలి పత్రాలు',
+  'dashboard.recent.typeUnknown': 'వర్గీకరణ కోసం వేచి ఉంది',
   'dashboard.subheading':
     'ప్రతి పేజీ వర్గీకరించబడి, సంగ్రహించబడి, ఫైల్ చేయబడింది — సమీక్ష స్పష్టంగా ఉండేలా విశ్వాస రంగులతో.',
   'documentDetail.audit.heading': 'ఆడిట్ కాలక్రమం',
+  'documentDetail.audit.subheading': 'ఈ పత్రంపై తీసుకున్న ప్రతి దశ, బాధ్యులైన వ్యక్తితో సహా.',
   'documentDetail.back': 'అన్ని పత్రాలు',
   'documentDetail.downloadHint': 'అసలు ఫైల్‌ను తెరవడానికి డౌన్‌లోడ్‌ను ఉపయోగించండి.',
+  'documentDetail.extracted.empty': 'ఇంకా ఫీల్డ్‌లు సంగ్రహించబడలేదు.',
   'documentDetail.extracted.heading': 'సంగ్రహించబడిన ఫీల్డ్‌లు',
   'documentDetail.extracted.subheading':
     '{{count}} ఫీల్డ్‌లు · పేజీలో హైలైట్ చేయడానికి ఏదైనా ఫీల్డ్‌పై క్లిక్ చేయండి',
@@ -55,13 +68,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'పత్రాలను శోధించండి…',
   'documents.subheading': '{{count}} మీ లైబ్రరీలోని పత్రాలు, కొత్తవి మొదటగా వచ్చే క్రమంలో ఉంటాయి.',
   'documents.uploadCta': 'పత్రాలను అప్‌లోడ్ చేయండి',
+  'documentTypeBreakdown.barAria': 'రకం ప్రకారం పత్రాల కూర్పు',
   'documentTypeBreakdown.empty': 'ఇంకా ఏ పత్రాలూ ప్రాసెస్ చేయబడలేదు.',
   'documentTypeBreakdown.subtitle': '{{total}} ప్రాసెస్ చేయబడింది',
   'documentTypeBreakdown.title': 'పత్ర కూర్పు',
+  'forgotPassword.backToSignIn': '← సైన్ ఇన్ చేయడానికి తిరిగి వెళ్లండి',
   'forgotPassword.checkEmail': 'మీ ఇమెయిల్‌ను తనిఖీ చేయండి',
   'forgotPassword.tip': 'రాలేదా? స్పామ్ తనిఖీ చేయండి లేదా వేరే చిరునామాను ప్రయత్నించండి.',
+  'landing.copyright':
+    '© {{year}} {{app}}. ప్రతి పేజీని ఆడిట్ చేసే ఆప్స్ టీమ్‌ల కోసం నిర్మించబడింది.',
+  'landing.ctaBody':
+    '14 రోజుల ట్రయల్. కార్డ్ అవసరం లేదు. ఎప్పుడైనా రద్దు చేయండి. వేగంగా కదిలే మరియు నెమ్మదిగా ఆడిట్ చేసే ఆప్స్ టీమ్‌ల కోసం నిర్మించబడింది.',
   'landing.ctaHeading': 'రసీదులు టైప్ చేయడం ఆపండి. వాటిని ఫైల్ చేయడం మొదలుపెట్టండి.',
   'landing.eyebrow': 'OCR · సంగ్రహణ · AI ఫైలింగ్',
+  'landing.featuresHeading': 'తనను తాను వివరించుకునే పత్ర మేధస్సు',
+  'landing.heroSubtitle':
+    'ఇన్‌వాయిస్‌లు, రసీదులు, ఒప్పందాలు లేదా ఫారమ్‌ల కుప్పను డ్రాప్ చేయండి. {{app}} వాటిని వర్గీకరించి, సంగ్రహించి, ఫైల్ చేస్తుంది — కాన్ఫిడెన్స్ రంగులతో, తద్వారా మీ టీమ్ నిజంగా మనిషి సమీక్ష అవసరమైన వాటిని మాత్రమే చూస్తుంది.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'రోజువారీ వాల్యూమ్ · చివరి 7 రోజులు',
   'landing.sampleCardLabel': 'ఈరోజు ప్రాసెస్ చేయబడిన పత్రాలు',
   'landing.sampleCardSubtitle': 'ఇన్‌వాయిస్‌లు, రసీదులు మరియు ఫారమ్‌లలో సగటున 96.2% ఖచ్చితత్వం.',
   'login.hidePassword': 'పాస్‌వర్డ్‌ను దాచండి',
@@ -74,6 +98,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'ల్యాండింగ్ పేజీని తెరవండి',
   'notFound.title': 'ఆ పేజీ ఫైల్‌లో లేదు',
+  'parcelaHeroCard.accuracy': 'అన్ని సంగ్రహణలలో సగటు ఖచ్చితత్వం {{value}}%',
   'parcelaHeroCard.change': '{{sign}} {{amount}} నిన్నటితో పోలిస్తే శాతం',
   'parcelaHeroCard.title': 'ఈరోజు ప్రాసెస్ చేయబడిన పత్రాలు',
   'parcelaLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
@@ -81,6 +106,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'పత్రాలు',
   'pricing.processingLabel': 'ప్రాసెసింగ్ ఉద్యోగాలు',
   'resetPassword.confirmPlaceholder': 'కొత్త పాస్‌వర్డ్‌ను పునరావృతం చేయండి',
+  'resetPassword.hidePassword': 'పాస్‌వర్డ్‌ను దాచండి',
   'resetPassword.passwordLabel': 'కొత్త పాస్‌వర్డ్',
   'resetPassword.showPassword': 'పాస్‌వర్డ్‌ను చూపించు',
   'resetPassword.subtitle': 'కనీసం 8 అక్షరాల పొడవున్నదాన్ని ఎంచుకోండి.',
@@ -98,10 +124,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'నియమాలను లోడ్ చేయడంలో విఫలమైంది.',
   'rules.loading': 'నియమాలు లోడ్ అవుతున్నాయి…',
   'rules.matched30d': '{{count}} గత 30 రోజులలో సరిపోలిన పత్రాలు',
+  'rules.neverUsed': 'ఎప్పుడూ ఉపయోగించలేదు',
   'rules.newRule': 'కొత్త నియమం',
   'rules.saveError': 'నియమాన్ని సేవ్ చేయడంలో విఫలమయ్యాను.',
   'rules.subheading':
     'ప్రతి రకమైన పత్రం ఎక్కడ ఉండాలో సిస్టమ్‌కు చెప్పండి. షరతులు పై నుండి క్రిందికి ఒక గొలుసులా ఉంటాయి — మొదట సరిపోలినది గెలుస్తుంది.',
+  'rules.templatesEmpty': 'ఇంకా సంగ్రహణ టెంప్లేట్‌లు లేవు.',
   'rules.templatesHeading': 'వెలికితీత టెంప్లేట్లు',
   'rules.templatesSubheading':
     'ప్రతి డాక్యుమెంట్ రకం కోసం ఎక్స్‌ట్రాక్టర్ ఉపయోగించే ఫీల్డ్ స్కీమాలు.',
@@ -111,17 +139,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'వర్క్‌స్పేస్ పేరు',
   'settings.account.subheading':
     'నోటిఫికేషన్‌లు మరియు ఆడిట్ హిస్టరీ కోసం ప్రదర్శన పేరు మరియు ప్రాథమిక ఇమెయిల్.',
+  'settings.api.confirmRevoke': 'నిర్ధారించండి?',
   'settings.api.copyOnce': 'ఈ కీని కాపీ చేసుకోండి — ఇది మళ్లీ చూపబడదు',
   'settings.api.createdOn': 'సృష్టించబడింది {{date}}',
   'settings.api.empty': 'ఇంకా API కీలు లేవు. పైన ఒకదాన్ని రూపొందించండి.',
   'settings.api.error': 'కీని సృష్టించడంలో విఫలమైంది.',
+  'settings.api.generating': 'జనరేట్ చేస్తోంది…',
+  'settings.api.heading': 'API కీలు',
   'settings.api.labelPlaceholder': 'కీ లేబుల్ (ఉదా. CI అప్‌లోడర్)',
+  'settings.api.loading': 'కీలు లోడ్ అవుతున్నాయి…',
   'settings.api.newKey': 'కీని రూపొందించండి',
   'settings.api.subheading':
     'స్క్రిప్ట్ లేదా మీ ERP నుండి డాక్యుమెంట్‌లను పంపడానికి వీటిని ఉపయోగించండి. ఏ కీనైనా ఎప్పుడైనా మార్చండి.',
   'settings.integrations.heading': 'ఫైలింగ్ ఇంటిగ్రేషన్లు',
   'settings.integrations.subheading':
     'ఫైల్ చేసిన పత్రాలను మీ బృందం ఇప్పటికే ఉపయోగిస్తున్న క్లౌడ్ డ్రైవ్ లేదా చాట్ టూల్‌కు పంపండి.',
+  'settings.subheading':
+    'మీ {{app}} వర్క్‌స్పేస్ కోసం ఖాతా, API కీలు మరియు ఫైలింగ్ ఇంటిగ్రేషన్‌లను నిర్వహించండి.',
+  'signup.hidePassword': 'పాస్‌వర్డ్‌ను దాచండి',
   'signup.identityPrompt': 'మేము మిమ్మల్ని ఎలా సంబోధించాలి?',
   'signup.showPassword': 'పాస్‌వర్డ్‌ను చూపించు',
   'signup.subtitle': '14 రోజులు ఉచితం, కార్డు అవసరం లేదు.',
@@ -129,6 +164,7 @@ export const ui: UiTranslations = {
   'upload.error': 'అప్‌లోడ్ విఫలమైంది.',
   'upload.eyebrow': 'తీసుకోవడం',
   'upload.heading': 'పత్రాలను అప్‌లోడ్ చేయండి',
+  'upload.queue.clear': 'పూర్తయినవి క్లియర్ చేయండి',
   'upload.queue.col.confidence': 'విశ్వాసం',
   'upload.queue.col.file': 'ఫైల్',
   'upload.queue.detecting': 'గుర్తిస్తోంది…',
@@ -141,5 +177,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'లేదా బ్యాచ్ ఎక్స్‌ట్రాక్షన్, వర్గీకరణ మరియు ఫైలింగ్ కోసం ఒకేసారి బహుళ ఫైల్‌లను డ్రాప్ చేయండి.',
   'uploadDropZone.cta': 'ఫైళ్ళను ఎంచుకోండి',
+  'uploadDropZone.maxSize': 'ఫైల్‌కు గరిష్ఠం 25 MB · ఎండ్-టు-ఎండ్ ఎన్‌క్రిప్టెడ్',
   'uploadDropZone.title': 'ప్రాసెసింగ్ ప్రారంభించడానికి పత్రాలను సమర్పించండి',
 }

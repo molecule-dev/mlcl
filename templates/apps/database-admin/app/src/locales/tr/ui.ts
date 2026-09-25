@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkında',
+  'about.featureConnections':
+    'Veritabanlarınızı güvenli şekilde saklayan ve renk kodlarıyla ayıran bir bağlantı yöneticisi — kimlik bilgileri bekleme durumunda şifrelenir, asla düz metin olarak tutulmaz.',
+  'about.featureMonitoring':
+    'Sorgu performansının ve veritabanı etkinliğinin canlı izlenmesi; tümünü klavye kısayolları ve komut paletiyle elinizi kullanmadan yönetin.',
+  'about.featurePlans':
+    'Sizinle birlikte ölçeklenen planlar — Tek başına çalışmak için Ücretsiz, daha fazla bağlantı, daha uzun sorgu saklama, dışa aktarımlar ve gelişmiş özellikler için Pro ve Team.',
+  'about.featureQueryEditor':
+    'Sorgu geçmişi, kaydedilmiş sorgular ve sonuçlarınızı tek tıkla CSV olarak dışa aktarma özellikli Monaco destekli bir SQL düzenleyici.',
+  'about.featureSchema':
+    'Veritabanları, tablolar ve sütunlar arasında gezinmek, ardından satırları satır içinde taramak, filtrelemek ve düzenlemek için bir şema gezgini ve tablo tarayıcısı.',
+  'about.missionTitle': 'Misyonumuz',
   'authShell.commands': 'Komutlar',
   'authShell.ssoSupported': 'SSO destekli',
   'common.run': 'Koş',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Sorgular',
   'connections.schema': 'Şema',
   'connections.subtitle': 'Veritabanı bağlantılarınızı yönetin.',
+  'connections.test': 'Test',
   'databaseAdminLayout.adminRole': 'Yönetici rolü',
   'databaseAdminLayout.commandPalette': 'Komut paleti',
   'databaseAdminLayout.commands': 'komut',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Yeni bağlantı',
   'databaseAdminLayout.queries': 'Sorgular',
   'databaseAdminLayout.ready': 'Hazır',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Komutları, sorguları, tabloları ara…',
   'databaseAdminLayout.user': 'Kullanıcı',
   'editConnection.confirmDelete': 'Bu bağlantıyı silmek istiyor musunuz?',
   'editConnection.deleteButton': 'Bağlantıyı sil',
+  'editConnection.newPassword': 'Yeni parola (korumak için boş bırakın)',
   'editConnection.saved': 'Bağlantı kaydedildi.',
   'editConnection.title': 'Bağlantıyı düzenle',
   'forgotPassword.success': 'Eğer bu hesap mevcutsa, sıfırlama bağlantısı yola çıktı.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Başarılar',
   'monitoring.title': 'İzleme',
   'monitoring.totalQueries': 'Toplam sorgu',
+  'nav.schema': 'Şema',
   'newConnection.database': 'Veritabanı',
   'newConnection.engine': 'Motor',
   'newConnection.host': 'Sunucu',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Bu parçacığa bağlı bir bağlantı yok.',
   'savedQuery.notBound': 'Bağlı değil',
   'savedQuery.title': 'Kaydedilmiş sorgu',
+  'schema.columns': 'Sütunlar',
   'schema.foreignKeys': 'Yabancı anahtarlar',
   'schema.indexes': 'Dizinler',
   'schemaExplorer.browseRows': 'Satırlara göz at',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'boş bırakılabilir',
   'schemaExplorer.colType': 'tür',
   'schemaExplorer.noColumns': 'Sütun yok.',
+  'schemaExplorer.noForeignKeys': 'Yabancı anahtar yok.',
   'schemaExplorer.noIndexes': 'Dizin yok.',
   'schemaExplorer.noTables': 'Tablo yok',
   'schemaExplorer.pickATable': 'Kenar çubuğundan bir tablo seçin.',
   'schemaExplorer.tables': 'Tablolar',
   'schemaExplorer.title': 'Şema gezgini',
+  'settings.session': 'Oturum',
   'settings.subtitle': 'Hesabınızı ve planınızı yönetin.',
   'signup.heading': 'Quarry hesabınızı oluşturun',
   'signup.tagline': 'Bir dakikadan kısa sürede erişim açın.',
   'tableBrowser.noRows': 'Bu tabloda henüz satır yok.',
+  'tableBrowser.subtitle': 'Uzak veritabanınızdaki satırlara göz atılıyor.',
   'tableBrowser.title': 'Uzak veritabanınızdaki satırları görüntüleme.',
 }

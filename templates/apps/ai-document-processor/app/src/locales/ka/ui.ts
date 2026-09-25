@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'გაქვთ შეკითხვა, იპოვეთ ხარვეზი ან გსურთ დემო თქვენი გუნდისთვის? დაგვიკავშირდით ანგარიშის პარამეტრებიდან — ყველა შეტყობინება ხვდება გუნდის რეალურ ადამიანს.',
   'about.contactTitle': 'დაგვიკავშირდით',
+  'about.intro':
+    '{{app}} სკანირებული დოკუმენტებისა და PDF-ების დასტებს აქცევს სტრუქტურირებულ, ძიებად, დალაგებულ მონაცემებად. ჩააგდეთ ინვოისები, ქვითრები, კონტრაქტები ან ფორმები და მიეცით AI-ს წაკითხვის, ამოღების, კლასიფიკაციისა და დალაგების საშუალება — სანდოობის ფერებით, რომ თქვენი გუნდი მხოლოდ იმას გადაამოწმებს, რაც ნამდვილად საჭიროებს ადამიანს.',
+  'about.missionBody':
+    'დოკუმენტური საქმიანობა არ უნდა ჭამდეს თქვენი გუნდის დღეს. ჩვენ გვჯერა, რომ ყველა ამოღებული მნიშვნელობა უნდა იყოს ახსნადი და აუდიტირებადი — რომ ავტომატიზაციას ენდოთ დოკუმენტური კვალის დაკარგვის გარეშე. {{app}} შექმნილია იმისთვის, რომ დასტაზე საათები დაზოგოს და ადამიანი ჩართული დარჩეს ყველგან, სადაც ეს მნიშვნელოვანია.',
+  'about.missionTitle': 'ჩვენი მისია',
+  'about.subtitle': 'OCR, AI ამოღება, კლასიფიკაცია და ავტომატური დალაგება თქვენი დოკუმენტებისთვის.',
   'about.title': '{{app}}-ის შესახებ',
+  'about.whatYouGetTitle': 'რას იღებთ',
   'authShell.backToLanding': '← დაბრუნება დაშვებაზე',
   'common.goToDashboard': 'დაბრუნება მთავარ გვერდზე',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'დღეს · ოპერაციების მიმოხილვა',
   'dashboard.heading': 'დოკუმენტის ინტელექტი',
+  'dashboard.metric.accuracy': 'საშუალო სიზუსტე',
   'dashboard.metric.filed': 'დღეს წარდგენილია',
   'dashboard.metric.filedCaption': 'წარდგენის წესებით მარშრუტიზებული',
   'dashboard.metric.processed': 'დღეს დამუშავდა',
@@ -23,11 +33,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'დოკუმენტი',
   'dashboard.recent.col.uploaded': 'ატვირთულია',
   'dashboard.recent.heading': 'ბოლო დოკუმენტები',
+  'dashboard.recent.typeUnknown': 'კლასიფიკაციის მოლოდინში',
   'dashboard.subheading':
     'ყველა გვერდი კლასიფიცირებული, ამოღებული და დაარქივებულია — ფერების ნდობით, რათა მიმოხილვა ფოკუსირებული იყოს.',
   'documentDetail.audit.heading': 'აუდიტის ვადები',
+  'documentDetail.audit.subheading':
+    'ამ დოკუმენტზე გადადგმული ყველა ნაბიჯი, პასუხისმგებელ პირთან ერთად.',
   'documentDetail.back': 'ყველა დოკუმენტი',
   'documentDetail.downloadHint': 'ორიგინალი ფაილის გასახსნელად გამოიყენეთ ჩამოტვირთვა.',
+  'documentDetail.extracted.empty': 'ჯერ არცერთი ველი არ არის ამოღებული.',
   'documentDetail.extracted.heading': 'ამოღებული ველები',
   'documentDetail.extracted.subheading':
     '{{count}} ველები · დააწკაპუნეთ ნებისმიერ ველზე გვერდზე მოსანიშნად',
@@ -56,13 +70,24 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} თქვენს ბიბლიოთეკაში არსებული დოკუმენტები, დალაგებული უახლესის მიხედვით.',
   'documents.uploadCta': 'დოკუმენტების ატვირთვა',
+  'documentTypeBreakdown.barAria': 'დოკუმენტების შემადგენლობა ტიპის მიხედვით',
   'documentTypeBreakdown.empty': 'დოკუმენტები ჯერ არ დამუშავებულა.',
   'documentTypeBreakdown.subtitle': '{{total}} დამუშავებული',
   'documentTypeBreakdown.title': 'დოკუმენტის შემადგენლობა',
+  'forgotPassword.backToSignIn': '← უკან შესვლაზე',
   'forgotPassword.checkEmail': 'შეამოწმეთ თქვენი ელ.ფოსტა',
   'forgotPassword.tip': 'ვერ მიხვდით? შეამოწმეთ სპამი ან სცადეთ სხვა მისამართი.',
+  'landing.copyright':
+    '© {{year}} {{app}}. შექმნილია ოპერაციული გუნდებისთვის, რომლებიც ყველა გვერდს ამოწმებენ.',
+  'landing.ctaBody':
+    '14-დღიანი საცდელი პერიოდი. ბარათი არ არის საჭირო. გააუქმეთ ნებისმიერ დროს. შექმნილია ოპერაციული გუნდებისთვის, რომლებიც სწრაფად მოქმედებენ და ნელა ამოწმებენ.',
   'landing.ctaHeading': 'შეწყვიტე ქვითრების აკრეფა. დაიწყე მათი ჩაბარება.',
   'landing.eyebrow': 'OCR · ექსტრაქცია · ხელოვნური ინტელექტის ფაილირება',
+  'landing.featuresHeading': 'დოკუმენტური ინტელექტი, რომელიც თავად იხსნება',
+  'landing.heroSubtitle':
+    'ჩააგდეთ ინვოისების, ქვითრების, კონტრაქტების ან ფორმების დასტა. {{app}} ახდენს მათ კლასიფიკაციას, ამოღებას და დალაგებას — სანდოობის ფერებით, რომ თქვენი გუნდი მხოლოდ იმას გადაამოწმებს, რაც ნამდვილად საჭიროებს ადამიანს.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'დღიური მოცულობა · ბოლო 7 დღე',
   'landing.sampleCardLabel': 'დოკუმენტები დღეს დამუშავდება',
   'landing.sampleCardSubtitle': 'ინვოისების, ქვითრებისა და ფორმების საშუალო სიზუსტე 96.2%.',
   'login.hidePassword': 'პაროლის დამალვა',
@@ -75,6 +100,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'გახსენით სადესანტო გვერდი',
   'notFound.title': 'ეს გვერდი ფაილში არ არის',
+  'parcelaHeroCard.accuracy': 'საშუალო სიზუსტე {{value}}% ყველა ამოღების მიხედვით',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % გუშინდელთან შედარებით',
   'parcelaHeroCard.title': 'დოკუმენტები დღეს დამუშავდება',
   'parcelaLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
@@ -82,6 +108,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'დოკუმენტები',
   'pricing.processingLabel': 'სამუშაოების დამუშავება',
   'resetPassword.confirmPlaceholder': 'გაიმეორეთ ახალი პაროლი',
+  'resetPassword.hidePassword': 'პაროლის დამალვა',
   'resetPassword.passwordLabel': 'ახალი პაროლი',
   'resetPassword.showPassword': 'პაროლის ჩვენება',
   'resetPassword.subtitle': 'აირჩიეთ მინიმუმ 8 სიმბოლოსგან შემდგარი რამ.',
@@ -98,10 +125,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'წესების ჩატვირთვა ვერ მოხერხდა.',
   'rules.loading': 'წესები იტვირთება…',
   'rules.matched30d': '{{count}} დოკუმენტები, რომლებიც ბოლო 30 დღის განმავლობაში დაემთხვა',
+  'rules.neverUsed': 'არასდროს გამოუყენებია',
   'rules.newRule': 'ახალი წესი',
   'rules.saveError': 'წესის შენახვა ვერ მოხერხდა.',
   'rules.subheading':
     'უთხარით სისტემას, სად უნდა განთავსდეს თითოეული სახის დოკუმენტი. პირობების ჯაჭვი ზემოდან ქვემოთ — პირველი მატჩი იმარჯვებს.',
+  'rules.templatesEmpty': 'ჯერ არცერთი ამოღების შაბლონი არ არის.',
   'rules.templatesHeading': 'ექსტრაქციის შაბლონები',
   'rules.templatesSubheading':
     'ველის სქემები, რომლებსაც ექსტრაქტორი იყენებს თითოეული დოკუმენტის ტიპისთვის.',
@@ -111,17 +140,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'სამუშაო სივრცის სახელი',
   'settings.account.subheading':
     'შეტყობინებებისა და აუდიტის ისტორიისთვის საჩვენებელი სახელი და ძირითადი ელ. ფოსტა.',
+  'settings.api.confirmRevoke': 'დადასტურება?',
   'settings.api.copyOnce': 'ამ გასაღების კოპირება — ის აღარ გამოჩნდება',
   'settings.api.createdOn': 'შექმნილია {{date}}',
   'settings.api.empty': 'API გასაღებები ჯერ არ არის. შექმენით ერთი ზემოთ.',
   'settings.api.error': 'გასაღების შექმნა ვერ მოხერხდა.',
+  'settings.api.generating': 'იქმნება…',
+  'settings.api.heading': 'API გასაღებები',
   'settings.api.labelPlaceholder': 'გასაღების ეტიკეტი (მაგ. CI ატვირთვა)',
+  'settings.api.loading': 'გასაღებები იტვირთება…',
   'settings.api.newKey': 'გასაღების გენერირება',
   'settings.api.subheading':
     'გამოიყენეთ ეს კლავიშები სკრიპტიდან ან თქვენი ERP-დან დოკუმენტების გადასატანად. ნებისმიერ დროს შეგიძლიათ ნებისმიერი ღილაკის შემობრუნება.',
   'settings.integrations.heading': 'ფაილების ინტეგრაციები',
   'settings.integrations.subheading':
     'გაგზავნეთ შეტანილი დოკუმენტები ღრუბლოვან დისკზე ან ჩატის ინსტრუმენტზე, რომელშიც თქვენი გუნდი უკვე იმყოფება.',
+  'settings.subheading':
+    'მართეთ ანგარიში, API გასაღებები და დალაგების ინტეგრაციები თქვენი {{app}} სამუშაო სივრცისთვის.',
+  'signup.hidePassword': 'პაროლის დამალვა',
   'signup.identityPrompt': 'როგორ უნდა მოგმართოთ?',
   'signup.showPassword': 'პაროლის ჩვენება',
   'signup.subtitle': '14 დღე უფასოდ, ბარათი არ არის საჭირო.',
@@ -129,6 +165,7 @@ export const ui: UiTranslations = {
   'upload.error': 'ატვირთვა ვერ მოხერხდა.',
   'upload.eyebrow': 'გადაყლაპვა',
   'upload.heading': 'დოკუმენტების ატვირთვა',
+  'upload.queue.clear': 'დასრულებულების გასუფთავება',
   'upload.queue.col.confidence': 'თავდაჯერებულობა',
   'upload.queue.col.file': 'ფაილი',
   'upload.queue.detecting': 'მიმდინარეობს აღმოჩენა…',
@@ -141,5 +178,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'ან ერთდროულად გადააგდეთ რამდენიმე ფაილი პარტიული ამოღებისთვის, კლასიფიკაციისთვის და ფაილების შესანახად.',
   'uploadDropZone.cta': 'ფაილების არჩევა',
+  'uploadDropZone.maxSize': 'მაქს. 25 MB თითო ფაილზე · ბოლომდე დაშიფრული',
   'uploadDropZone.title': 'დამუშავების დასაწყებად დოკუმენტების ჩაგდება',
 }

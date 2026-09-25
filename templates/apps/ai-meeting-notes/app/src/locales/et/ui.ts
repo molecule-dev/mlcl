@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Küsimused, tagasiside või funktsioonisoov? Kirjuta tiimile aadressil hello@murmur.app — iga sõnum jõuab päris inimeseni, kes toote kallal töötab.',
   'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Meist',
+  'about.intro':
+    '{{app}} on koosolekute intelligentsus tiimidele, kes eelistavad otsuseid teha, mitte märkmeid võtta. See liitub sinu kõnedega, transkribeerib iga sõna kõnelejate siltidega ning saadab kohe pärast koosoleku lõppu AI kokkuvõtte ja vastutajatega tegevusüksused.',
+  'about.missionBody':
+    'Koosolekud on koht, kus tiimid otsustavad — ja kus need otsused kaotsi lähevad. {{app}} on loodud selleks, et vestluses tehtud töö elaks vestlusest kauem: ustav ülestähendus, selge kokkuvõte ja vastutajatega järgmised sammud, automaatselt.',
+  'about.missionTitle': 'Meie missioon',
   'actions.empty': 'Sobivaid tegevusi ei leitud.',
   'actions.heading': 'Tegevused',
   'actions.loadError': 'Tegevuste laadimine ebaõnnestus.',
@@ -10,11 +17,14 @@ export const ui: UiTranslations = {
     'Kõigi koosolekute kohta kokkuvõtlikult. Filtreeri staatuse järgi, et keskenduda.',
   'actions.toggleDoneLabel': 'Märgi lõpetatuks',
   'actions.toggleReopenLabel': 'Märgi avatuks',
+  'auth.footer': '© {{year}} {{app}}. Iga sõna, destilleeritud.',
   'calendar.heading': 'Kalender',
   'calendar.joinCta': 'Liitu',
   'calendar.loadError': 'Kalendrit ei õnnestunud laadida.',
   'calendar.nextMonth': 'Järgmisel kuul',
   'calendar.noEventsForDay': 'Sel päeval ei ole koosolekuid kavandatud.',
+  'calendar.noUpcomingEvents':
+    'Tulevasi koosolekuid pole. Ühenda kalender jaotises Integratsioonid, et see loend täita.',
   'calendar.previousMonth': 'Eelmine kuu',
   'calendar.recent': 'Hiljutised',
   'common.daysAgo': '{{count}} päeva tagasi',
@@ -26,9 +36,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} tegevused',
   'dashboard.empty.body':
     'Alusta salvestamist või ühenda Google Kalender, et Murmur liituks sinu järgmise koosolekuga automaatselt.',
+  'dashboard.empty.cta': 'Alusta salvestamist',
   'dashboard.empty.heading': 'Koosolekuid pole veel olnud',
   'dashboard.eyebrow': 'Teie koosolekute uudisvoog',
   'dashboard.loadError': 'Armatuurlaua laadimine ebaõnnestus.',
+  'dashboard.noActions': 'Tegevusi pole',
   'dashboard.recentHeading': 'Viimased kohtumised',
   'dashboard.recordCta': 'Koosoleku protokoll',
   'dashboard.stat.actions': 'Tegevused',
@@ -38,6 +50,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} Lugemata kokkuvõtted alates viimasest külastusest. Murmur on salvestanud iga sõna – siin on kokkuvõte.',
   'dashboard.viewCalendar': 'Vaata kalendrit →',
+  'footer.linksLabel': 'Jalus',
   'forgot.failed': 'Taastamiskirja saatmine ebaõnnestus.',
   'forgot.sentBody':
     'Kui aadressil {{email}} on olemas konto, saad peagi lingi parooli taastamiseks.',
@@ -48,14 +61,22 @@ export const ui: UiTranslations = {
   'integrations.notConnectedTag': 'Ühendus puudub',
   'integrations.subheading': 'Ühenda kalendrid ja videoplatvormid, et Murmur liituks automaatselt.',
   'integrations.updateError': 'Uuendamine ebaõnnestus.',
+  'landing.ctaBody':
+    'Tasuta esimese 5 koosoleku eest igas kuus. Krediitkaarti pole vaja. Ühenda Google Calendar vähem kui minutiga.',
   'landing.ctaButton': 'Alusta – see on tasuta',
   'landing.ctaHeading': 'Lõpeta märkmete tegemine. Hakka otsuseid langetama.',
+  'landing.demo.aiBody':
+    'Käivitamine lükkus 5. maist → 12. maini, et anda operatsioonidele personali. Armatuurlaua ümberkujundus eraldati 26. maiks.',
   'landing.demo.aiLabel': 'Tehisintellekti kokkuvõte, koostatud reaalajas',
   'landing.demo.recording': 'Salvestus · otseülekanne',
   'landing.eyebrow': 'Tehisintellekti kohtumine',
   'landing.featuresHeading': 'Kõik, mida teie meeskond vajab pärast koosoleku lõppu',
+  'landing.featuresSubheading':
+    'Ei enam "oot, kelle vastutusel see on?" {{appName}} saadab kokkuvõtte enne, kui kõne katkeb.',
   'landing.getStarted': 'Proovi tasuta',
   'landing.heroSecondary': 'Vaata 90-sekundilist tutvustust',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} liitub sinu kõnedega, transkribeerib iga sõna kõnelejate siltidega ning saadab kohe pärast koosoleku lõppu AI kokkuvõtted ja vastutajatega tegevusüksused.',
   'landing.heroTitle': 'Salvestage iga koosolek. Tooge esile oluline.',
   'login.altPrompt': 'Kas oled Murmuri uus kasutaja?',
   'login.failed': 'Sisselogimine ebaõnnestus. Kontrolli oma e-posti aadressi ja parooli.',
@@ -63,6 +84,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Tegevused',
   'meetingDetail.back': 'Kõik koosolekud',
   'meetingDetail.decisionsHeading': 'Otsused',
+  'meetingDetail.dueDate': 'tähtaeg {{date}}',
   'meetingDetail.followupsHeading': 'Järgnevad meetmed',
   'meetingDetail.loadError': 'Koosolekut ei õnnestunud laadida.',
   'meetingDetail.noActions': 'Tegevusi ei leitud.',
@@ -76,7 +98,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Koosolekuid pole veel olnud',
   'meetings.heading': 'Koosolekud',
   'meetings.loadError': 'Koosolekute laadimine ebaõnnestus.',
+  'meetings.recordCta': 'Koosoleku protokoll',
   'meetings.subheading': 'Iga salvestatud, üles laaditud ja sünkroniseeritud koosolek.',
+  'murmurLayout.closeMenu': 'Sulge navigeerimismenüü',
   'murmurLayout.openMenu': 'Ava navigeerimismenüü',
   'murmurLayout.primaryNavLabel': 'Peamine navigeerimine',
   'nav.legal': 'Õiguslik',
@@ -101,7 +125,14 @@ export const ui: UiTranslations = {
   'profile.loading': 'Laadimine…',
   'profile.navLabel': 'Profiililõigud',
   'profile.notifications.assignments': 'Mulle määratud tegevused',
+  'profile.notifications.assignmentsHint': 'Teavita, kui sinu jaoks luuakse tegevusüksus.',
+  'profile.notifications.mentions': 'Mainimised transkriptsioonides',
+  'profile.notifications.mentionsHint': 'E-post + tõuketeavitus, kui keegi sind @-mainib.',
+  'profile.notifications.subheading': 'Vali, millised {{appName}} sündmused peaksid sinuni jõudma.',
   'profile.notifications.summaries': 'Nädalane ülevaade',
+  'profile.notifications.summariesHint':
+    'Esmaspäevane kokkuvõte kõigist eelmise nädala koosolekutest.',
+  'profile.preferences.speakerColor': 'Kõneleja vaikevärv',
   'profile.preferences.subheading':
     'Vaikimisi seaded, mis kehtivad kõigi salvestuste puhul, milles osaled.',
   'profile.preferences.timezone': 'Ajavöönd',
@@ -114,16 +145,21 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Teie brauser ei toeta salvestamist. Proovige Chrome’i, Edge’i või Safari’t.',
   'record.error.upload': 'Üleslaadimine ebaõnnestus. Proovi uuesti.',
+  'record.errorLabel': 'Midagi läks valesti',
   'record.heading': 'Rekord',
   'record.idleLabel': 'Puuduta, et salvestamist alustada',
   'record.processingLabel': 'Transkribeerimine Whisperiga, kokkuvõtete koostamine Claude’iga…',
+  'record.recordingLabel': 'Salvestan…',
   'record.retryCta': 'Proovi uuesti',
   'record.subheading':
     "Alustamiseks vajuta mikrofoni nuppu. Murmur salvestab heli, transkribeerib selle Whisperi abil ja koostab Claude'i abil kokkuvõtte.",
+  'record.titlePlaceholder': 'Koosoleku pealkiri (valikuline)',
+  'reset.altPrompt': 'Mõtlesid ümber?',
   'reset.hint': 'Kasuta vähemalt 8 tähemärki, mis koosnevad tähtedest ja numbritest.',
   'reset.missingToken': 'Taastamislingi pole või selle kehtivusaeg on lõppenud. Palu uut linki.',
   'reset.newPassword': 'Uus parool',
   'reset.subheading': 'Vali parool, mida sa mujal ei kasuta.',
+  'reset.tooShort': 'Parool peab olema vähemalt 8 tähemärki pikk.',
   'search.empty': 'Sisesta tekst, et otsida transkripte.',
   'search.loadError': 'Otsing ebaõnnestus. Proovi uuesti.',
   'search.noResults': 'Tulemusi otsingule „{{q}}“ ei leitud.',
@@ -138,7 +174,9 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Säilita heli',
   'settings.retention.heading': 'Kliendilojaalsus',
   'settings.retention.transcript': 'Säilitage akadeemilised väljavõtted',
+  'settings.revokeDeviceWarning': 'Selle seadme ligipääs tühistatakse peagi. Logi see välja?',
   'settings.saveError': 'Salvestamine ebaõnnestus.',
+  'settings.security.subheading': 'Uuenda parooli, millega sisse logid.',
   'settings.sharing.exportFormat': 'Ekspordivorming',
   'settings.sharing.heading': 'Vaikimisi seaded',
   'settings.sharing.scope': 'Vaikimisi jagamisulatus',
@@ -155,6 +193,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Kutsu meeskonnakaaslane',
   'team.invitedAs': 'Kutsutud esinejana üritusel „{{role}}“',
   'team.inviteFailed': 'Kutset ei õnnestunud saata.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'Saada kutse',
   'team.inviteSubtitle': 'Nad saavad e-kirja, milles on osalemislink.',
   'team.inviteTitle': 'Kutsu meeskonnakaaslane',

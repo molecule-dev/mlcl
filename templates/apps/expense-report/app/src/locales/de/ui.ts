@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Fragen, Feedback oder ein Funktionswunsch? Erreiche das {{app}}-Team über Einstellungen → Benachrichtigungen oder schreib uns jederzeit — jede Nachricht landet bei einem echten Menschen.',
+  'about.contactTitle': 'Sprechen Sie uns an',
   'about.eyebrow': 'Über',
+  'about.featureCapture':
+    'Belegerfassung mit Foto-Upload, die Bilder der richtigen Ausgabe zuordnet – Zeile für Zeile.',
+  'about.featureExport':
+    'Prüfbare CSV-Exporte jeder Abrechnung, Ausgabe und jedes Genehmigungsstatus — bereit für dein Buchhaltungsteam.',
+  'about.featurePolicy':
+    'Richtlinien-Leitplanken — Tageslimits, Limits pro Kategorie und Belegpflicht-Schwellenwerte, die bei der Einreichung durchgesetzt werden.',
+  'about.featureWorkflow':
+    'Ein zweistufiger Genehmigungsworkflow mit Prüfernotizen, Richtlinienverstoß-Markierungen und Erstattung per Ein-Tipp-Markierung.',
+  'about.intro':
+    '{{app}} ist eine Ausgabenmanagement-Plattform für Finanzteams und die Menschen, die sie erstatten. Beleg erfassen, Ausgabe einreichen, Abrechnung durch die Genehmigung schicken und jede Erstattung verfolgen — ohne Tabellenkalkulations-Zeremonie.',
+  'about.missionBody':
+    'Erstattung sollte schnell, fair und prüfbar sein. Wir haben {{app}} entwickelt, damit Einreichende ohne Nachhaken ihr Geld zurückbekommen, Genehmigende genau sehen, was sie freigeben, und die Finanzabteilung für jeden Dollar eine saubere Spur hat — inklusive Richtlinienprüfungen.',
+  'about.missionTitle': 'Unsere Mission',
   'approvals.approve': 'Genehmigen',
   'approvals.approving': 'Genehmigen…',
   'approvals.confirmReject': 'Ablehnung bestätigen',
+  'approvals.empty': 'Du bist auf dem neuesten Stand — keine Abrechnungen warten.',
   'approvals.eyebrow': 'Manager-Warteschlange',
   'approvals.kpi.flaggedLabel': 'Richtlinienverstoß markiert',
+  'approvals.kpi.queueLabel': 'Wartet auf Prüfung',
   'approvals.kpi.totalLabel': 'Ausstehender Wert',
   'approvals.lineCount': '{{count}} Ausgaben',
   'approvals.queueFallback':
     'Live-Warteschlange nicht verfügbar — kuratierte Demo-Daten werden angezeigt.',
   'approvals.reject': 'Ablehnen',
   'approvals.rejecting': 'Ablehnen…',
+  'approvals.rejectPlaceholder': 'Grund (erforderlich)',
   'approvals.rejectPrompt': 'Warum lehnen Sie diesen Bericht ab?',
   'approvals.review': 'Prüfen',
   'approvals.title': 'Ausstehende Genehmigungen',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18 %',
   'dashboard.kpi.approvedLabel': 'Genehmigt · MTD',
   'dashboard.kpi.pendingDelta': '+2 diese Woche',
+  'dashboard.kpi.pendingLabel': 'Zur Prüfung',
   'dashboard.kpi.receiptsDelta': 'Aktion erforderlich',
   'dashboard.kpi.receiptsLabel': 'Belege ausstehend',
   'dashboard.kpi.reimbursedDelta': '+2,4 Tsd. $',
   'dashboard.kpi.reimbursedLabel': 'Erstattet · MTD',
   'dashboard.newReport': 'Neuer Bericht',
+  'dashboard.recent.empty': 'Noch keine Abrechnungen — starte deine erste oben.',
   'dashboard.recent.title': 'Aktuelle Berichte',
   'dashboard.recent.viewAll': 'Alle Berichte anzeigen',
   'dashboard.summaryFallback':
@@ -40,11 +61,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'Belege und erstattungsfähige Posten',
   'expenses.listFallback': 'Live-Liste nicht verfügbar — kuratierte Demo-Daten werden angezeigt.',
   'expenses.searchPlaceholder': 'Händler oder Kategorie suchen…',
+  'expenses.subtotal': '{{count}} Ausgaben · Zwischensumme',
   'expenses.title': 'Ausgaben',
+  'forgotPassword.continue': 'Ich habe einen Code · Weiter',
+  'forgotPassword.subheading':
+    'Gib deine Arbeits-E-Mail ein und wir senden dir einen Link zum Festlegen eines neuen Passworts.',
   'forgotPassword.successBody':
     'Wenn ein Konto für {{email}} existiert, erhalten Sie in den nächsten Minuten einen Zurücksetzungslink.',
+  'landing.copyright': '© {{year}} {{app}}. Erstellt mit Molecule.dev.',
+  'landing.ctaBody':
+    'Kostenlos für die ersten 25 Ausgaben pro Monat. Keine Kreditkarte, kein Implementierungsgespräch.',
   'landing.ctaHeading': 'Bereit, das zurückzuholen, was Ihrem Team zusteht?',
   'landing.eyebrow': 'Spesenabrechnungen für Finanzteams',
+  'landing.featuresHeading': 'Erstattung, in einem ruhigen Arbeitsbereich',
   'landing.heroSubtitle':
     'Geschäftliche Ausgaben einreichen, genehmigen und erstatten – ganz ohne umständliche Tabellenkalkulation. Belegerkennung per OCR, Richtlinienprüfung und ein transparenter Genehmigungsprozess – alles in einem übersichtlichen Arbeitsbereich.',
   'landing.heroTitle': 'Alle Quittungen wurden wiederhergestellt.',
@@ -62,10 +91,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Notizen',
   'newExpense.descriptionPlaceholder':
     'Warum diese Ausgabe geschäftlich begründet war (für Ihren Genehmiger sichtbar).',
+  'newExpense.eyebrow': 'Erstattungsfähiger Posten',
   'newExpense.merchant': 'Händler',
   'newExpense.merchantPlaceholder': 'Hotel Adlon Kempinski',
   'newExpense.policyHint':
     'Erinnerung: Mahlzeiten über 80 $/Tag oder jeder Posten über 250 $ erfordern eine Begründungsnotiz.',
+  'newExpense.receipt': 'Beleg',
+  'newExpense.receiptHint': 'JPG, PNG oder PDF · max. 10 MB',
   'newExpense.receiptOcrHint': 'OCR füllt Felder vorab aus',
   'newExpense.receiptPrompt':
     'Ziehen Sie ein Foto oder PDF hierher oder klicken Sie zum Durchsuchen',
@@ -77,17 +109,21 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Foto eines Belegs aufnehmen oder hochladen, und Recoup füllt Händler, Datum und Gesamtbetrag aus. Bestätigen Sie unten alles, bevor Sie speichern.',
   'newExpense.title': 'Ausgabe hinzufügen',
+  'newReport.approverHint':
+    'Sie erhalten eine E-Mail, wenn du diese Abrechnung zur Prüfung einreichst.',
   'newReport.approverLabel': 'E-Mail des Genehmigers (optional)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'Verfügbare Ausgaben',
   'newReport.createFailed': 'Bericht konnte nicht erstellt werden. Bitte erneut versuchen.',
   'newReport.draftsFallback':
     'Live-Ausgabenliste nicht verfügbar – es werden ausgewählte Demodaten angezeigt.',
+  'newReport.eyebrow': 'Ausgaben gruppieren · zur Genehmigung einreichen',
   'newReport.includedCount': '{{count}} enthalten',
   'newReport.purposeLabel': 'Geschäftszweck',
   'newReport.purposePlaceholder':
     'Beschreiben Sie die Reise oder das Projekt, auf das sich diese Ausgaben beziehen (sichtbar für Ihren Genehmiger und die Finanzabteilung).',
   'newReport.saveDraft': 'Als Entwurf speichern',
+  'newReport.saveDraftFailed': 'Entwurf konnte nicht gespeichert werden. Bitte versuche es erneut.',
   'newReport.submit': 'Zur Genehmigung einreichen',
   'newReport.submitFailed': 'Bericht konnte nicht eingereicht werden. Bitte erneut versuchen.',
   'newReport.summary': 'Berichtszusammenfassung',
@@ -101,17 +137,24 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Live-Feed nicht verfügbar — kuratierte Demo-Daten werden angezeigt.',
   'notifications.openReport': 'Bericht öffnen ›',
+  'pricing.approvalsLabel': 'Genehmigungen',
   'pricing.expensesLabel': 'Ausgaben',
   'pricing.heading': 'Genehmigungen',
   'pricing.policiesLabel': 'Richtlinien',
   'pricing.receiptsLabel': 'Belege',
   'recoveredAmountHeroCard.label': 'Erstattung zurückerhalten · YTD',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} Abrechnung(en) warten derzeit bei allen Genehmigenden auf Prüfung.',
+  'reports.approvalFlow': 'Genehmigungsablauf',
   'reports.backToList': 'Zurück zu Berichten',
   'reports.detailFallback':
     'Live-Bericht nicht verfügbar — kuratierte Demo-Daten werden angezeigt.',
   'reports.lineItems': 'Posten',
   'reports.lineItemsCount': '{{count}} Ausgaben',
+  'reports.lineItemsEmpty': 'Noch keine Ausgaben in dieser Abrechnung.',
+  'reports.openLibrary': 'Abrechnungsbibliothek öffnen',
   'reports.policyTitle': 'Richtlinienkennzeichnung',
+  'reports.selectPrompt': 'Wähle eine Abrechnung aus der Bibliothek, um ihre Details zu sehen.',
   'reports.summary.lineCount': 'Posten',
   'reports.summary.reimbursable': 'Erstattungsfähig',
   'reports.summary.total': 'Gemeldete Summe',
@@ -122,6 +165,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Live-Liste nicht verfügbar — kuratierte Demo-Daten werden angezeigt.',
   'reportsList.newReport': 'Neuer Bericht',
+  'reportsList.submittedOn': 'Eingereicht {{date}}',
   'reportsList.title': 'Berichtsbibliothek',
   'resetPassword.hidePassword': 'Passwort ausblenden',
   'resetPassword.newPasswordLabel': 'Neues Passwort',
@@ -149,6 +193,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Gespeichert ✓',
   'settings.profileSaveFailed': 'Profil konnte nicht aktualisiert werden. Bitte erneut versuchen.',
   'signup.heading': 'Erstellen Sie Ihr Recoup-Konto',
+  'signup.hidePassword': 'Passwort ausblenden',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Passwort anzeigen',
   'signup.subheading': 'Kostenlos für 25 Ausgaben pro Monat — keine Kreditkarte.',

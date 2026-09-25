@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Iritzia duzu, akats bat aurkitu duzu edo funtzio bat nahi duzu? Jarri harremanetan zure kontuaren ezarpenetatik — mezu bakoitza taldeko benetako pertsona batengana iristen da.',
   'about.contactTitle': 'Jarri gurekin harremanetan',
   'about.eyebrow': 'Buruz',
+  'about.intro':
+    '{{app}} idazketa-estudio bat da AI bidezkoa, beren prosa oso maite duten idazleentzat. AI bidezko sorkuntza luzea editore lasai batekin, SEO puntuazioarekin eta irudi-sorkuntzarekin uztartzen ditu, orrialde zuritik argitaratu arteko bidea egin dezazun — zure ahotsa inoiz galdu gabe.',
+  'about.missionBody':
+    'Uste dugu AIak zure ondoan idatzi behar duela, ez zure ordez. {{app}}-k iradokizunak zure hitzetatik argi eta garbi bereizita mantentzen ditu, sortzen duzun dokumentu bakoitzaren jabe zara, eta tresnak idazketaren bidetik kentzen ditu.',
+  'about.missionTitle': 'Gure misioa',
   'about.pageTitle': '{{app}}(r)i buruz',
   'aiSuggestionCard.applied': 'Iradokizuna aplikatu da',
   'aiSuggestionCard.apply': 'Aplikatu',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Trafiko iturriak',
   'billing.activePlan': 'Harpidetza aktibo.',
   'billing.aiWordsLabel': 'IA belaunaldiak barne',
+  'billing.cancelFailed': 'Ezin izan da harpidetza bertan behera utzi.',
   'billing.cancelPlan': 'Utzi plana',
+  'billing.cancelPlanConfirm': 'Ezeztatzea berretsi?',
   'billing.cancelSuccess': 'Harpidetza bertan behera utzi da. Plana eguneratzeko, freskatu.',
   'billing.changePlan': 'Aldatu plana',
   'billing.col.invoice': 'Faktura',
@@ -44,26 +53,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'Ikusi planak',
   'common.goToDashboard': 'Joan aginte-panelera',
   'dashboard.continueWriting': 'Jarraitu idazten',
+  'dashboard.createFirst': 'Sortu dokumentua',
   'dashboard.days.sat': 'Sat',
   'dashboard.days.sun': 'Sun',
   'dashboard.defaultWriterName': 'Idazlea',
   'dashboard.greeting': 'Egun on, {{name}}',
   'dashboard.loadError': 'Ezin izan da aginte-panela kargatu.',
+  'dashboard.loading': 'Zure estudioa kargatzen…',
   'dashboard.loadingDocs': 'Azken dokumentuak kargatzen…',
   'dashboard.noDocuments': 'Oraindik ez duzu dokumenturik — hasi lehenengoa.',
   'dashboard.startWriting': 'Dokumentu berri bat hasi',
+  'dashboard.streakBody': 'Aste honetan {{words}} hitz idatzi dituzu.',
   'dashboard.streakTitle': '{{count}} eguneko segida',
+  'dashboard.subgreeting': '{{count}} dokumentu zure liburutegian — eutsi bultzadari.',
+  'documentCard.seoScoreTitle': 'SEO puntuazioa: {{score}}/100',
+  'documents.createNew': 'Sortu dokumentu berria',
   'documents.empty': 'Zure liburutegia zain dago — hasi zure lehen dokumentua.',
+  'documents.emptyFiltered': 'Oraindik ez dago dokumenturik zure iragazkiekin bat egiten duenik.',
   'documents.loadError': 'Ezin izan dira dokumentuak kargatu.',
   'documents.loading': 'Liburutegia kargatzen…',
   'documents.new': 'Dokumentu berria',
+  'documents.searchAriaLabel': 'Bilatu dokumentuak',
   'documents.searchPlaceholder': 'Bilatu dokumentuak…',
   'documents.subtitle': '{{count}} zure liburutegiko dokumentuak.',
   'documents.title': 'Dokumentuak',
   'editor.aiPanelTitle': 'Plume Intelligence',
+  'editor.aiSuggestion.empty':
+    'Ez dago hobekuntza aktiborik. Eskatu {{appName}}-ri iradokizun bat bigarren begirada bat nahi duzunean.',
   'editor.aiSuggestion.failed': 'Ezin izan dira iradokizunak kargatu une honetan.',
   'editor.aiSuggestion.loadingBody': 'Argitasun fintzea sortzen…',
   'editor.backToDocuments': 'Dokumentu guztiak',
+  'editor.bodyAriaLabel': 'Dokumentuaren gorputza',
   'editor.closeAiPanel': 'Itxi IA panela',
   'editor.createFailed': 'Ezin izan da dokumentua sortu.',
   'editor.exported': '{{format}} gisa esportatu da.',
@@ -80,18 +100,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'Eskatu doikuntza bat',
   'editor.saveBeforePublish': 'Gorde dokumentua argitaratu aurretik.',
   'editor.status.chars': '{{count}} pertsonaiak',
+  'editor.status.readTime': '{{minutes}} irakurketa minutukoa',
   'editor.status.savedAt': 'Gordeta {{time}}',
   'editor.status.saveError': 'Gordetzeak huts egin du',
+  'editor.status.unsaved': 'Oraindik ez da gorde',
   'editor.titleAriaLabel': 'Dokumentuaren izenburua',
   'editor.titlePlaceholder': 'Izenik gabeko dokumentua',
   'editor.toggleAiPanel': 'IA panela aktibatu/desaktibatu',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'egilea@adibidea.com',
+  'forgotPassword.sent': '{{email}} fitxategian badago, berrezartzeko esteka bidean da.',
   'imageGenerator.failed': 'Irudiaren sorkuntzak huts egin du.',
   'imageGenerator.generate': 'Irudia sortu',
   'imageGenerator.generating': 'Sortzen...',
   'imageGenerator.placeholder': 'Sortu nahi duzun irudia deskribatu...',
+  'imageGenerator.promptAriaLabel': 'Irudi-gonbita',
+  'imageGenerator.subtitle': 'Deskribatu azaleko irudi bat eta utzi AIari ilustra dezan.',
   'imageGenerator.title': 'AI Irudi Sortzailea',
+  'landing.aiSuggestionBody':
+    '42. solairuko balkoian zutik, Eliasek hiria beraren aurka estutzen zuela sentitu zuen — haizeak inguruko zurrumurrua eraman zuen, eta sare distiratsuaren gaineko huts izoztu eta isil batean zintzilik utzi zuen.',
   'landing.eyebrow': 'Idazle serioentzako AI idazketa estudioa',
   'landing.featuresHeading': 'Bidetik ateratzen diren tresnak',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -101,14 +128,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Prosa, erritmoa eta zehaztasunaz arduratzen diren idazleentzat sortutako estudioa. Plume-k zure ondoan zirriborroak egiten ditu — inoiz ez zure ordez.',
   'landing.heroTitle.eloquence': 'elokuentzia',
+  'landing.heroTitle.intelligence': 'Adimena elkartzen da ',
   'landing.nav.testimonials': 'Testigantzak',
   'landing.plan.cta': 'Plan honekin hasi',
   'landing.plan.popular': 'Maitatuena',
   'landing.pricingEyebrow': 'Prezioak',
   'landing.pricingHeading': 'Aukeratu zure praktikarako egokia dena',
   'landing.sampleDocTitle': 'Isiltasunaren Arkitektura.',
+  'landing.sampleParagraph1':
+    'Hiria ez zen inoiz benetan isilik egon. Gaueko ordu ilunenetan ere, zurrumurru baxu batek hormigoizko oinarriak dardaratzen zituen — metro-trenen eta aireztapen-putzuen bihotz-taupada mekanikoa.',
+  'landing.sampleParagraph2.after': ' beiraren aurka.',
+  'landing.sampleParagraph2.before': 'Baina ',
   'landing.sampleParagraph2.highlight':
     '42. solairuko balkoian zutik, Eliasek isolamendu sakona sentitu zuen',
+  'landing.showcaseBody':
+    'Nabarmendu esaldi bat eta {{appName}}-k hobekuntza bat eskainiko du. Onartu, doitu edo baztertu. Iradokizunak beti morez tindatuta daude, zer idatzi duzun eta zer eskaini zaizun jakin dezazun.',
+  'landing.showcaseHeading': 'Bigarren begirada bat — inoiz ez bigarren egile bat.',
   'landing.startWriting': 'Hasi idazten',
   'login.emailPlaceholder': 'egilea@adibidea.com',
   'login.failed': 'Saioa hasi ez da',
@@ -123,8 +158,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Ireki aginte-panela',
   'notFound.title': 'Kapitulu hau oraindik ez da idatzi.',
   'plumeSidebarLayout.primaryNavLabel': 'Nabigazio nagusia',
+  'pricing.maxDocuments': '{{count}} dokumentuak',
+  'pricing.maxGenerate': '{{count}} AI sorkuntza',
+  'pricing.maxImages': '{{count}} irudi-sorkuntza',
   'privacy.data':
     'Zure kontuaren helbide elektronikoa eta pasahitz hash bat. Zuk sortutako dokumentuak eta txantiloiak. Fakturazio eta analisietarako adimen artifizialaren iradokizunen erregistroak (sarrera + irteera). Stripe bezeroen eta harpidetzen identifikatzaileak; ez ditugu inoiz txartelen zenbaki osoak gordetzen.',
+  'privacy.intro':
+    '{{app}} erabiltzeko beharrezkoak diren datuak baino ez ditugu biltzen: zure helbide elektronikoa, sortzen dituzun dokumentuak eta egiten dituzun AI eskaerak. Ez ditugu inoiz zure idazkiak edo promptak saltzen.',
   'profile.loadError': 'Ezin izan da zure profila kargatu.',
   'profile.loading': 'Zure profila kargatzen…',
   'profile.loadingPublished': 'Argitaratutako dokumentuak kargatzen…',
@@ -136,7 +176,13 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Pasahitz berria',
   'seoAnalysis.backToEditor': 'Editorearengana itzuli',
   'seoAnalysis.eyebrow': 'SEO analisia',
+  'seoAnalysis.heroBody':
+    'Aplikatzeko {{count}} iradokizun. Bakoitza egitura edo gako-hitz hobekuntza bat da, ez bandera gorrien horma bat.',
+  'seoAnalysis.heroBodyEmpty':
+    'Egin klik "Exekutatu analisia" irakurgarritasuna, gako-hitzen dentsitatea eta egitura puntuatzeko.',
   'seoAnalysis.heroEmpty': 'Oraindik ez dago analisirik. Egin bat zirriborro hau puntuatzeko.',
+  'seoAnalysis.heroNeedsWork': 'Egitura-hobekuntza batzuek irismena handituko dute.',
+  'seoAnalysis.heroStrong': 'Pieza sendoa — hobekuntza txiki batzuk bikain izateko.',
   'seoAnalysis.historyEmpty': 'Ez da aurreko analisirik erregistratu.',
   'seoAnalysis.historyTitle': 'Analisiaren historia',
   'seoAnalysis.keywordEmpty':
@@ -163,8 +209,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'Doitu Plume idazteko moduarekin bat etortzeko.',
   'settings.toggleIntegrationFailed': 'Integrazioaren eguneraketak huts egin du.',
   'settings.writing.aiSuggestions': 'Idazten ari zaren bitartean, IA iradokizunak linean',
+  'settings.writing.aiSuggestionsBody':
+    'Hobekuntzak erakusten ditu idazten duzun bitartean. Iradokizunak beti esaldi bakoitzeko aukerakoak dira.',
   'settings.writing.autoSave': 'Gorde automatikoki 30 segundoro',
+  'settings.writing.autoSaveBody':
+    '{{appName}}-k zure zirriborroaren argazki bat gordetzen du, edozein fitxatik berreskuratu ahal izateko.',
   'settings.writing.notifyEmail': 'Bidali astero idazlanen laburpenak posta elektronikoz',
+  'settings.writing.notifyEmailBody':
+    'Igandeetako digest labur bat: boladak, zirriborroak eta SEO hobekuntzak.',
   'settings.writing.title': 'Idazketa-lehentasunak',
   'settings.writing.tone': 'Tonu lehenetsiaren aurrezarpena',
   'signup.emailPlaceholder': 'egilea@adibidea.com',
@@ -176,8 +228,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'Ez da deskribapenik eman.',
   'templates.subtitle':
     'Hasi borrokan frogatutako marko editorial batetik, eta gero egin ezazu zurea.',
+  'terms.intro':
+    'Termino hauek {{app}} erabiltzea arautzen dute. Kontu bat sortzean, zerbitzua idazteko legezko erabilerarako erabiltzea eta zure kontuaren kredentzialak isilpean gordetzea onartzen duzu.',
   'terms.license':
     'Sortzen dituzun dokumentu, txantiloi eta IA belaunaldi guztien jabetza zuk mantentzen duzu. Lizentzia ez-esklusiboa behar dugu zure lana ostatatzeko eta zuri itzultzeko, eta aukeratzen dituzun hornitzaile lotuen bidez IA eskaerak prozesatzeko.',
   'writingStreakHeroCard.change': '{{sign}} {{amount}} hitzak',
   'writingStreakHeroCard.greeting': 'Egun on, {{name}}',
+  'writingStreakHeroCard.subtitle': 'Aste honetan idatzitako hitzak — {{count}} eguneko bolada',
+  'writingStreakHeroCard.tagline': 'Egunean orrialde batek musa aktibo mantentzen du.',
 }

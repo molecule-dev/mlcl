@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Turite atsiliepimų, radote klaidą ar planuojate ką nors ambicingo? Susisiekite su mumis per savo paskyros nustatymus — kiekviena žinutė pasiekia tikrą komandos žmogų.',
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Visos rezervacijos vienoje vietoje — skrydžių, viešbučių ir veiklų patvirtinimai atsiranda tą pačią dieną, kuriai priklauso.',
+  'about.featureCollab':
+    'Bendradarbiavimas realiuoju laiku — pakvieskite iki penkių keliautojų į kelionę, visi pakeitimai sinchronizuojami gyvai, o komentarai susiejami po kiekviena stotele.',
+  'about.featureMapsBudget':
+    'Žemėlapiai, kryptys ir bendras biudžetas — matykite visą kelionę žemėlapyje, atraskite redaktorių atrinktas kryptis ir sekite išlaidas, kad niekas neišleistų per daug.',
+  'about.featureTimelines':
+    'Dienos po dienos grafikai — tempkite stoteles, kad pakeistumėte tvarką, įterpkite transporto atkarpas ir stebėkite, kaip maršrutas perskaičiuojamas kaip vienas gyvas dokumentas.',
+  'about.intro':
+    '{{app}} paverčia aplanką pilną nebaigtų planų viena bendra kelione, kurią visa jūsų grupė tikrai gali sekti. Sukurkite dienos po dienos maršrutą, įterpkite skrydžius ir viešbučius, pažymėkite kiekvieną stotelę žemėlapyje ir sekite biudžetą — visa tai vienoje ramioje vietoje, o ne dešimtyse atidarytų kortelių ir grupės pokalbyje.',
+  'about.missionBody':
+    'Kelionių planavimas turėtų jaustis taip, lyg kelionė jau gerėtų, o ne kaip namų darbai. {{app}} egzistuoja tam, kad bendros kelionės būtų be pastangų — kad kiekvienas keliautojas atvyktų žinodamas planą, o kiekviena stotelė pasakotų istoriją, kurią verta prisiminti.',
+  'about.missionTitle': 'Mūsų misija',
   'about.pageTitle': 'Apie {{app}}',
   'auth.legalConsent': 'Tęsdami sutinkate su mūsų',
   'bookings.empty.body':
@@ -31,7 +47,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Viešbutis',
   'bookings.type.other': 'Kita',
   'budgetSpendCard.budgetTotal': 'iš {{total}} suplanuotas',
+  'budgetSpendCard.overBy': '{{amount}} viršija biudžetą',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} naujausi',
+  'budgetSpendCard.remaining': '{{amount}} liko',
   'calendar.eyebrow': 'Ateinantys metai',
   'calendar.heading': 'Kiekviena kelionė viename kalendoriuje.',
   'calendar.legendHeading': 'Šio mėnesio kelionės',
@@ -42,18 +61,27 @@ export const ui: UiTranslations = {
   'common.and': 'ir',
   'common.goToDashboard': 'Eiti į suvestinę',
   'dashboard.budgetHeading': 'Biudžeto pulsas',
+  'dashboard.empty.body':
+    'Suplanuokite pirmąją kelionę ir jūsų suvestinė prisipildys dienos po dienos grafikų, biudžeto pulso ir rezervacijų.',
+  'dashboard.empty.cta': 'Suplanuokite pirmąją kelionę',
   'dashboard.empty.heading': 'Dar nėra kelionių – jūsų atlasas tuščias.',
   'dashboard.eyebrow': 'Misijos valdymo centras',
   'dashboard.heading': 'Kitas jūsų nuotykis viename ramiame kampelyje.',
   'dashboard.newTripCta': 'Pradėti naują kelionę',
+  'dashboard.subheading':
+    'Skaičiuotuvas iki kitos kelionės, šiandienos išlaidų pulsas ir greita apžvalga visų vykstančių maršrutų.',
   'dashboard.tripsHeading': 'Kelionės judesyje',
   'dashboard.viewAllExpenses': 'Peržiūrėti visas išlaidas',
   'dashboard.viewAllTrips': 'Žiūrėti kiekvieną kelionę',
   'dayTimelineRow.category.accommodation': 'Apsistoti',
+  'dayTimelineRow.category.food': 'Maistas ir gėrimai',
+  'dayTimelineRow.category.sightseeing': 'Aplankymas',
   'dayTimelineRow.category.transport': 'Transportas',
   'destinationOrbCard.exploreCta': 'Pridėti prie kelionės',
   'destinationOrbCard.tripCount': '{{count}} kelionės',
+  'destinations.empty.body': 'Grįžkite į „Visi“ ir redaktoriaus pasiūlymai vėl pasirodys.',
   'destinations.empty.heading': 'Kol kas nėra kelionių tikslų.',
+  'destinations.emptyFiltered.heading': 'Dar nieko taip nepažymėta.',
   'destinations.errors.load': 'Nepavyko įkelti paskirties vietų.',
   'destinations.eyebrow': 'Kur toliau',
   'destinations.heading': 'Išsaugoti kampai ir redaktoriaus radiniai.',
@@ -71,7 +99,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Pardavėjas',
   'expenses.formHeading': 'Rąstų išlaidos {{trip}}',
   'expenses.heading': 'Kur iš tikrųjų išeina kelionės biudžetas.',
+  'expenses.heroBudget': '{{pct}} % iš {{total}} suplanuota',
   'expenses.heroEyebrow': '{{trip}} Biudžeto apžvalga',
+  'expenses.heroNoBudget': 'Šiai kelionei dar nenustatytas biudžetas.',
   'expenses.noTrips.body':
     'Pirmiausia suplanuokite kelionę – prie kelionės biudžeto pridėkite išlaidas.',
   'expenses.noTrips.heading': 'Kelionių dar nėra.',
@@ -84,12 +114,16 @@ export const ui: UiTranslations = {
     'Kiekvienas kvitas ir patvirtinimas čia patenka į tinkamą kategoriją — nereikia skaičiuoklės.',
   'forgotPassword.eyebrow': 'Atkurti savo maršrutą',
   'forgotPassword.heading': 'Pamiršote slaptažodį?',
+  'forgotPassword.subheading':
+    'Įveskite el. paštą, kurį naudojote {{appName}}, ir atsiųsime nuorodą slaptažodžiui atkurti.',
   'forgotPassword.submit': 'Siųsti atkūrimo el. laišką',
   'forgotPassword.submitPending': 'Siunčiamas atkūrimo el. laiškas…',
   'forgotPassword.successHint':
     'Dar negavote el. pašto? Patikrinkite šlamšto aplanką arba bandykite dar kartą naudodami kitą adresą.',
   'forgotPassword.successSubheading':
     'Išsiuntėme atkūrimo nuorodą adresu {{email}} Nuoroda galioja 30 minučių.',
+  'forgotPassword.tryAgain': 'Siųsti kitu el. paštu',
+  'landing.cta.eyebrow': 'Pradėkite nuo nemokamo plano',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Sukurkite nemokamą paskyrą',
   'landing.cta.subheading':
@@ -101,8 +135,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Pradėkite nemokamą kelionę',
   'landing.hero.ctaSecondary': 'Žiūrėti pavyzdinę kelionę',
+  'landing.hero.eyebrow': 'Kelionių planuoklis · {{tagline}}',
   'landing.hero.subtitle':
     '„Waypoint“ paverčia aplanką, pilną nebaigtų planų, bendru, kasdieniu kelionės planu, kuriuo jūsų grupė gali vadovautis – vienoje vietoje stebint užsakymus, žemėlapius ir biudžetą.',
+  'landing.hero.title': 'Suplanuokite kartą. Keliaukite kartu.',
   'landing.nav.join': 'Pradėkite nemokamą kelionę',
   'landing.nav.preview': 'Vidinis kelio taškas',
   'landing.preview.cta': 'Suplanuokite vieną savo',
@@ -110,6 +146,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Kelios kelionės, kuriomis keliautojai šiuo metu klaidžioja',
   'login.eyebrow': 'Narių zona',
   'login.heading': 'Sveikas sugrįžęs, keliautojau',
+  'login.noAccount': 'Naujokas „Tessera“?',
   'login.signupLink': 'Sukurkite nemokamą paskyrą',
   'login.subheading':
     'Prisijunkite, kad galėtumėte tvarkyti savo keliones, dienos planus, rezervacijas ir jau pradėtus žurnalo įrašus.',
@@ -120,6 +157,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Nepavyko atnaujinti pranešimo.',
   'notifications.heading': 'Kas pasikeitė jūsų kelionėse šiandien.',
   'notifications.markUnread': 'Pažymėti kaip neskaitytą',
+  'notifications.subheading':
+    '{{count}} nauji \\u2014 rezervacijų patvirtinimai, bendradarbių pastabos, bilietų kainų kritimas ir priminimai.',
   'notifications.time.daysAgo': '{{count}} prieš d.',
   'notifications.time.hoursAgo': '{{count}} prieš val.',
   'notifications.time.justNow': 'ką tik',
@@ -138,6 +177,7 @@ export const ui: UiTranslations = {
     'Prijungtos paslaugos, valiuta, tiesioginiai pranešimai ir prisijungimo duomenys.',
   'signup.and': 'ir',
   'signup.eyebrow': 'Prisijunkite prie kelio taško',
+  'signup.haveAccount': 'Jau klajojate?',
   'signup.heading': 'Suplanuokite kartą. Keliaukite kartu.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -149,6 +189,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Atidaryti maršrutą',
   'tripCountdownHeroCard.ctaSecondary': 'Planuoti kitą kelionę',
   'tripCountdownHeroCard.daysLabel': '{{days}} dienų liko',
+  'tripCountdownHeroCard.eyebrow': 'Kita nuotykis · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} naktys — jūsų maršrutas paruoštas kelionei.',
   'tripCoverCard.stops': '{{count}} sustojimai',
   'tripCoverCard.travelers': '{{count}} keliautojai',
   'tripDetail.addActivity': 'Pridėti veiklą',
@@ -158,6 +201,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Veiklos pavadinimas',
   'tripDetail.adding': 'Pridedama…',
   'tripDetail.backToTrips': 'Atgal į visas keliones',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Keliautojai',
   'tripDetail.dayLabel': 'Diena {{day}}',
   'tripDetail.empty': 'Dar nėra veiklų — pridėkite vieną, kad pradėtumėte laiko juostą.',
@@ -168,14 +212,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Maršrutas • {{country}}',
   'tripDetail.invite': 'Pakviesti',
   'tripDetail.inviteLabel': 'Pakviesti el. paštu',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'Kvietimas išsiųstas {{email}} .',
   'tripDetail.inviting': 'Siunčiama…',
   'tripDetail.loading': 'Kraunama kelionė…',
   'tripDetail.noCollaborators': 'Tik tu, kol kas.',
+  'tripDetail.notesHeading': 'Kelionės pastabos',
   'tripDetail.notesPlaceholder': 'Dar nėra užrašų.',
   'tripDetail.notFound.heading': 'Kelionė nerasta',
   'tripDetail.openBookings': 'Atidaryti užsakymų pašto dėžutę',
   'tripDetail.shareCopied': 'Bendrinimo nuoroda, nukopijuota į iškarpinę:',
+  'tripDetail.shareReady': 'Bendrinimo nuoroda paruošta:',
   'tripDetail.stops': '{{count}} sustojimai',
   'tripDetail.timelineEyebrow': 'Dienos laiko juosta',
   'tripDetail.timelineHeading': 'Dienos planas',
@@ -193,6 +240,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Keliautojai',
   'tripPlanner.heading': 'Nubraižykite kelionę per mažiau nei minutę.',
   'tripPlanner.preview.eyebrow': 'Tiesioginė peržiūra',
+  'tripPlanner.preview.placeholderCountry': 'Pasirinkite šalį',
   'tripPlanner.preview.placeholderDestination': 'Jūsų kitas nuotykis',
   'tripPlanner.section1.title': 'Kur ir kada',
   'tripPlanner.section2.title': 'Keliautojai ir biudžetas',
@@ -204,10 +252,13 @@ export const ui: UiTranslations = {
     'Diena {{day}} Čia galite pridėti stoteles, transportą ir užsakymus.',
   'tripPlanner.section3.day3':
     'Diena {{day}} Čia galite pridėti stoteles, transportą ir užsakymus.',
+  'tripPlanner.section3.title': 'Dienos plano pradžia',
   'tripPlanner.subheading':
     'Žemiau pateikite pagrindinius duomenis – visada galite pakviesti bendradarbius, nuvilkti sustojimus ir vėliau persiųsti užsakymus.',
   'tripPlanner.submit': 'Sukurti kelionę',
   'tripPlanner.submitting': 'Kuriama…',
+  'trips.empty.body': 'Grįžkite į „Visos kelionės“ arba pradėkite planuoti kitą klajonę.',
+  'trips.empty.cta': 'Planuoti kelionę',
   'trips.empty.heading': 'Kol kas niekas neatitinka šio filtro.',
   'trips.eyebrow': 'Atlasas',
   'trips.filterLabel': 'Filtruoti keliones pagal būseną',
@@ -219,6 +270,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Kelionių dar nėra.',
   'trips.pastHeading': 'Ankstesni nuotykiai',
   'trips.subheading': '{{count}} maršrutai – praeitis, dabartis ir kada nors.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Suplanuok kartą. Klajokite kartu. Prisiminkite amžinai.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · {{appName}} nariai nuo 2024 m.',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} pavertė įtemptą 3 savaičių kelionę per keturias šalis ramiausiu maršrutu, kokį esame bendrinę.',
   'waypointLayout.mobileNavClose': 'Uždaryti navigacijos meniu',
   'waypointLayout.primaryNavLabel': 'Pagrindinė navigacija',
 }

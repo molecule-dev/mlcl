@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
+  'about.featureAlerts':
+    'Cenu brīdinājumi par svarīgajiem nosacījumiem, piegādāti e-pastā un push paziņojumos, lai jūs nekad nepalaistu garām izmaiņas.',
+  'about.featureMarkets':
+    'Tirgus dati un cenu diagrammas reāllaikā tūkstošiem monētu, sakārtotas pēc tirgus kapitalizācijas, apjoma un dinamikas.',
+  'about.featurePortfolio':
+    'Portfeļa izsekošana ar reālu peļņu un zaudējumiem, izmaksu bāzi un sadalījumu — savienota ar jūsu darījumu vēsturi.',
+  'about.featureWatchlist':
+    'Personīgais novērošanas saraksts un atlasītas kriptovalūtu ziņas ar signāliem par aktīviem, kurus sekojat.',
+  'about.missionTitle': 'Mūsu misija',
+  'alertConditionCard.armedSince': 'Aktīvs kopš {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'Aktivizēts {{kad}}',
   'alertConditionCard.confirmDelete': 'Apstiprināt dzēšanu',
+  'alertConditionCard.deleteAriaLabel': 'Dzēst brīdinājumu',
   'alertConditionCard.pauseAriaLabel': 'Pārtraukt brīdinājumu',
   'alertConditionCard.resumeAriaLabel': 'Atsākt brīdinājumu',
+  'alertConditionCard.triggeredAt': 'Aktivizēts {{when}}',
   'alertNew.condition': 'Stāvoklis',
   'alertNew.createCta': 'Izveidot brīdinājumu',
   'alertNew.error': 'Nevarēja izveidot brīdinājumu.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Vēl nav brīdinājumu.',
   'alerts.eyebrow': 'Bourse atslēdzamās stieples',
   'alerts.loadError': 'Neizdevās ielādēt brīdinājumus.',
+  'alerts.newCta': '+ Jauns signāls',
   'alerts.subheading':
     'Saņemiet ping signālu, kad cena, izmaiņas vai apjoms pārsniedz jūsu noteikto robežu.',
   'alerts.summary.armed': 'Bruņots',
@@ -24,6 +38,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Visu laiku augstākais rādītājs',
   'coinDetail.allTimeLow': 'Visu laiku zemākais līmenis',
   'coinDetail.back': 'Visos tirgos',
+  'coinDetail.chartAriaLabel': '{{name}} cenu diagramma, pēdējās 30 dienas',
   'coinDetail.chartHeading': 'Cena · pēdējās 30 dienas',
   'coinDetail.circulating': 'Cirkulācijas padeve',
   'coinDetail.fdv': 'Pilnībā atšķaidīta novērtēšana',
@@ -60,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Atiestatīt vadu saiti.',
   'login.eyebrow': 'Ieejiet terminālī',
   'login.heading': 'Laipni lūdzam atpakaļ, signalizator!',
+  'login.noAccountQuestion': 'Jauns lietotājs Tessera?',
   'login.secureNote': '🔒 Šifrēts pārsūtīšanas laikā',
   'login.signingInCta': 'Lasot ierakstu…',
   'login.signupLink': 'Atvērt kontu →',
@@ -95,6 +111,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Skenētais maršruts nedod rezultātu līdz zināmai monētai vai lapai. Pārbaudiet simbolu un mēģiniet vēlreiz.',
   'notFound.browseMarkets': 'Pārlūkot tirgus',
+  'notFound.eyebrow': '{{appName}} signāls zaudēts',
+  'notFound.heading': 'Šis signāls ir ārpus diapazona',
+  'planUpdated.body':
+    'Tavas norēķinu izmaiņas tagad ir aktīvas. Plānu vari pārvaldīt jebkurā laikā norēķinu lapā.',
+  'planUpdated.retry': 'Mēģini vēlreiz',
+  'planUpdated.verifyFailed': 'Mēs vēl nevarējām apstiprināt jūsu maksājumu.',
+  'planUpdated.verifyFailedBody':
+    'Jūsu maksājums, iespējams, joprojām tiek apstrādāts. Pēc brīža mēģiniet vēlreiz.',
   'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'portfolio.addError': 'Ievadiet simbolu, pozitīvu summu un izmaksas.',
   'portfolio.addHoldingCta': '+ Pievienot holdingu',
@@ -118,11 +142,13 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Kopējā portfeļa vērtība',
   'portfolioHeroCard.totalPnl': 'Kopējais P/Z',
   'pricing.heading': 'brīdinājumi',
+  'pricing.limit.alerts': 'brīdinājumi',
   'pricing.limit.coins': 'monētas',
   'pricing.limit.market': 'tirgus',
   'pricing.limit.portfolio': 'portfelis',
   'resetPassword.eyebrow': 'Jauns šifrs',
   'resetPassword.missingToken': 'Šī atiestatīšanas saite trūkst vai ir nederīga. Pieprasiet jaunu.',
+  'resetPassword.passwordPlaceholder': 'Jauna parole',
   'resetPassword.subheading': 'Izvēlies kaut ko tādu, ko vari atšifrēt tikai tu.',
   'settings.apiKeys.body':
     'Tikai lasāmas atslēgas darījumu vēstures importēšanai. Pēc abonēšanas izveidojiet savienojumu, izmantojot OAuth no /pricing.',
@@ -134,17 +160,32 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Citāta valūta',
   'settings.preferences.locale': 'Lokalizācija',
   'settings.preferences.push': 'Stumt',
+  'settings.preferences.refresh': 'Cenu atjaunināšana (sekundes)',
   'settings.preferences.sms': 'Īsziņa',
+  'settings.revokeDeviceWarning': 'Šīs ierīces piekļuve drīz tiks atsaukta. Izrakstīt to?',
   'settings.security.body': 'Paroles un divfaktoru iestatījumus pārvalda jūsu konts.',
   'settings.signOutDevice': 'Izrakstīties',
   'settings.twoFactorCode': 'Autentifikācijas kods',
   'settings.twoFactorDisable': 'Atspējot',
+  'settings.twoFactorDisableTitle': 'Atspējot divpakāpju autentifikāciju',
   'settings.twoFactorEnable': 'Ieslēgt',
+  'settings.twoFactorEnableTitle': 'Iespējot divpakāpju autentifikāciju',
   'settings.twoFactorInvalidCode': 'Nepareizs kods',
   'settings.twoFactorOn': 'Par',
+  'settings.twoFactorQrAlt': 'Divfaktoru QR kods',
+  'settings.twoFactorScan':
+    'Noskenējiet šo QR kodu ar savu autentifikācijas lietotni, pēc tam ievadiet 6 ciparu kodu.',
+  'settings.twoFactorUnavailable': 'Divfaktoru autentifikācija šai lietotnei nav pieejama.',
   'settings.twoFactorVerify': 'Pārbaudīt un aktivizēt',
   'sigilAuthShell.backHomeCta': '← Atpakaļ uz Bourse',
+  'sigilAuthShell.brandBody':
+    'Cenas reāllaikā, portfeļa P/L un pastāvīgi brīdinājumi par svarīgajiem nosacījumiem — viss vienā terminālī.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — veidots uz Molecule',
+  'sigilAuthShell.brandHeadline': 'Atšifrē katru signālu visā virsgrāmatā.',
+  'sigilAuthShell.samplePortfolio': 'Parauga portfelis',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Galvenā navigācija',
+  'signup.creating': 'Atveram jūsu termināli…',
   'signup.eyebrow': 'Atveriet termināli',
   'signup.heading': 'Izveidojiet savu Bourse',
   'signup.subheading':
@@ -162,6 +203,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Neizdevās ielādēt darījumus.',
   'watchlist.addCta': 'Pārlūkot tirgus',
   'watchlist.col.change24h': '24 stundas',
+  'watchlist.col.coin': 'Monēta',
   'watchlist.col.marketCap': 'Tirgus ierobežojums',
   'watchlist.empty':
     'Jūsu vērošanas sarakstā nav monētu — pievienojiet tās, izmantojot zvaigžņu monētas no /markets.',

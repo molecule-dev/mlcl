@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ertu með endurgjöf, fannst þú villu eða vilt þú þitt eigið borð á {{appName}}? Opnaðu stillingarnar til að ná í teymið — hver skilaboð fara til raunverulegrar manneskju sem les þau.',
+  'about.contactTitle': 'Hafðu samband við okkur',
+  'about.featureModeration':
+    'Opinber vegvísir með fjórðungsmerkingum, breytingaskrá sem breytir afgreiddri vinnu í útgáfuskýrslur og mælaborð sem sýnir hvað fólkið vill helst.',
+  'about.featurePricing':
+    'Ókeypis að reka nokkur borð; Pro- og Team-áskriftir opna fleiri borð, hærri mörk og gagnadreifingu.',
+  'about.featureThreads':
+    'Opinber endurgjafaborð skipulögð eftir efni, með samruni tvítekninga sem safnar atkvæðum í eitt heiðarlegt eftirspurnarmerki.',
+  'about.featureVoting':
+    'Eitt atkvæði á notanda með fullu stöðuflæði — opið, áætlað, í vinnslu, afgreitt eða hafnað — og opinbert svar við hverri ákvörðun.',
+  'about.intro':
+    '{{appName}} er vettvangur fyrir vöruendurgjöf — opinber borð þar sem viðskiptavinir senda inn beiðnir, greiða atkvæði um það sem þeir þurfa og fylgjast með hverri hugmynd frá áætlun til afgreiðslu. Teymi hætta að giska á hvað á að byggja næst því eftirspurnin raðar sér sjálf.',
+  'about.missionBody':
+    'Við trúum því að bestu vöruákvarðanir séu teknar í opnum dúr. {{appName}} gefur hverju teymi opinbert borð með atkvæðagreinum, opinberan vegvísir með markfjórðungum og breytingaskrá sem lýkur hringnum — svo viðskiptavinir sjái áhrif sín og teymi sjái umboð sitt.',
+  'about.missionTitle': 'Markmið okkar',
   'admin.backToBoards': 'Til baka í spjöll',
   'admin.denied': 'Aðeins stjórnendur.',
   'admin.eyebrow': 'Vöruteymi',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'admin.title': 'Yfirlit endurgjafar',
   'admin.topOpen': 'Helstu opnar beiðnir',
   'admin.totalVotes': '{{count}} samtals',
+  'admin.votesChartLabel': 'Súlurit yfir atkvæði á viku síðustu átta vikur',
   'admin.votesOverTime': 'Atkvæði yfir tíma',
   'auth.forgotPassword.email': 'Netfang',
   'auth.forgotPassword.sendResetLink': 'Senda endurstillingartengil',
@@ -30,7 +47,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Stofna aðganginn þinn',
   'auth.username': 'Notandanafn',
   'authShell.communities': 'Samféög',
+  'authShell.copyright': '{{appName}} — hver rödd skiptir máli.',
   'authShell.trending': 'Vinsælast',
+  'boardCard.postCount': '{{count}} færslur',
   'boardDetail.allBoards': 'Öll spjöll',
   'boardDetail.backToBoards': 'Til baka í spjöll',
   'boardDetail.empty': 'Engar færslur passa við þessar síur ennþá.',
@@ -54,6 +73,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Hver færsla byrjaði sem kosin beiðni. Kjósendur sáu hana færast; hér er niðurstaðan.',
   'changelog.title': 'Sent út, með kvittunum',
+  'changelog.voteCount': '{{count}} atkvæði komu þessu í gegn',
   'common.atLeast8Characters': 'Að minnsta kosti 8 stafir',
   'common.checkYourInbox': 'Athugaðu innhólfið þitt',
   'common.loadingEllipsis': 'Hleð inn…',
@@ -64,6 +84,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Sendi inn…',
   'footer.about': 'Um {{appName}}',
   'footer.language': 'Tungumál',
+  'forgotPassword.description':
+    'Sláðu inn netfangið þitt og við sendum þér tengil til að endurstilla.',
+  'forgotPassword.successBody':
+    'Við sendum endurstillingarhlekk til {{email}} Það rennur út eftir 30 mínútur.',
   'forgotPassword.tryAnother': 'Prófa annað netfang',
   'form.displayName': 'Birtingarnafn',
   'form.firstName': 'Fornafn',
@@ -74,6 +98,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'Vegvísirinn þinn, studdur af atkvæðum.',
   'landing.heroCtaPrimary': 'Byrja að safna atkvæðum',
   'landing.heroCtaSecondary': 'Sjá spjald í beinni',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Hættu að giska. Sendu það sem þau greiða atkvæði um.',
+  'landing.heroLede':
+    '{{appName}} breytir dreifðum eiginleikabeiðnum í opinbert borð með atkvæðagreinum, opinberan vegvísir og breytingaskrá sem viðskiptavinir þínir lesa í raun.',
   'landing.heroStat1': '3.200+',
   'landing.heroStat1Label': 'Teymi að hlusta',
   'landing.heroStat2': '1,4m',
@@ -85,9 +113,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Breytingaskrá',
   'landing.navJoin': 'Skrá sig í {{appName}}',
   'landing.navRoadmap': 'Vegvísir',
+  'landing.step1Body':
+    'Viðskiptavinir senda hugmyndir á opinber borð. Tvítekningar sameinast, atkvæði safnast og eftirspurnin raðar sér sjálf.',
   'landing.step1Title': 'Safna',
+  'landing.step2Body':
+    'Merktu beiðnir sem áætlaðar eða í vinnslu með markfjórðungi — vegvísirinn uppfærist um leið og þú gerir það.',
+  'landing.step2Title': 'Skuldbinda sig',
   'landing.step3Body':
     'Sendar færslur verða færslur í breytingaskrá og allir kjósendur sjá niðurstöðuna á sínum lista.',
+  'landing.step3Title': 'Senda',
   'landing.topSubtitle': 'Beint frá þessu spjaldi — skráðu þig inn til að bæta við atkvæði þínu.',
   'landing.topTitle': 'Það sem notendur eru að biðja um núna',
   'landing.topViewAll': 'Öll spjöll',
@@ -95,14 +129,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Aðal',
   'layout.signUp': 'Skráning',
   'layout.submit': 'Senda endurgjöf',
+  'login.description': 'Taktu upp þar sem samtalinu var hætt.',
+  'login.heading': 'Skráðu þig inn í Nimbus',
+  'login.noAccount': 'Nýr hér?',
   'login.passwordPlaceholder': 'Lykilorðið þitt',
   'login.twoFactorLabel': '2FA kóði (valfrjálst)',
   'login.twoFactorPlaceholder': '6 stafa kóði',
+  'login.twoFactorRequiredHint':
+    'Þessi reikningur er með tvíþátta auðkenningu virka. Sláðu inn 6 stafa kóðann úr auðkenningarforritinu þínu til að halda áfram.',
   'login.twoFactorRequiredLabel': 'Sláðu inn 2FA kóðann þinn',
+  'myActivity.browseCta': 'Skoða töflur',
+  'myActivity.emptyPosts': 'Þú hefur ekki sent inn beiðni ennþá.',
+  'myActivity.emptyVotes': 'Ekkert ennþá — skoðaðu borðin og styddu hugmynd.',
   'myActivity.eyebrow': 'Virkni þín',
   'myActivity.loadError': 'Ekki tókst að hlaða virkni þinni.',
   'myActivity.postsTitle': 'Beiðnir sem þú sendir inn',
+  'myActivity.shippedNote': '{{count}} þeirra voru afgreidd — takk fyrir áminninguna.',
   'myActivity.submitCta': 'Setja inn beiðni',
+  'myActivity.tabLabel': 'Skoða',
   'myActivity.tabPosts': 'Færslurnar mínar',
   'myActivity.tabVotes': 'Atkvæðin mín',
   'myActivity.votesTitle': 'Beiðnir sem þú kaust',
@@ -137,8 +181,12 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Færsla fannst ekki',
   'postsAdmin.backToDashboard': 'Mælaborð',
   'postsAdmin.eyebrow': 'Vöruteymi',
+  'postsAdmin.mergeApplied': 'Sameinað — {{votes}} atkvæði og {{comments}} athugasemdir flutt.',
   'postsAdmin.mergeApply': 'Sameina og færa atkvæði',
   'postsAdmin.mergeChoose': 'Veldu markfærslu…',
+  'postsAdmin.mergeFailed': 'Sameining mistókst.',
+  'postsAdmin.mergeHint':
+    'Atkvæði safnast (eitt á notanda), athugasemdir flytjast og þessi færsla fær „flutt“ athugasemd.',
   'postsAdmin.mergeLabel': 'Sameina tvítekna inn í',
   'postsAdmin.responseLabel': 'Opinbert svar',
   'postsAdmin.responsePlaceholder':
@@ -153,7 +201,13 @@ export const ui: UiTranslations = {
     'Settu opinbera stöðu, svaraðu opinberlega, merktu vegvísisfjórðung og sameinaðu tvítekningar.',
   'postsAdmin.title': 'Stjórna endurgjafafærslum',
   'postsAdmin.votes': '{{count}} atkvæði',
+  'pricing.limits.advancedFeatures': 'Ítarlegri eiginleikar:',
+  'pricing.limits.boards': '{{count}} borð',
   'pricing.limits.export': 'Gagnaútflutningur:',
+  'pricing.limits.posts': '{{count}} endurgjafarfaerslur',
+  'pricing.limits.votes': '{{count}} atkvæði',
+  'resetPassword.description':
+    'Veldu öflugan. Við munum skrá þig inn um leið og endurstillingin tekst.',
   'resetPassword.newPasswordLabel': 'Nýtt lykilorð',
   'resetPassword.tokenPlaceholder': 'Límdu inn tengilinn',
   'roadmap.cardMeta': 'eftir {{author}} · {{board}}',
@@ -170,6 +224,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'Sláðu inn leitarorð til að finna fyrirliggjandi beiðnir áður en þú sendir inn tvítekna.',
   'search.loadError': 'Leit mistókst — reyndu aftur.',
+  'search.searching': 'Leitar…',
   'search.submit': 'Leita',
   'search.submitNew': 'Setja það inn sem nýja beiðni',
   'search.title': 'Leita að endurgjöf',
@@ -178,11 +233,22 @@ export const ui: UiTranslations = {
   'settings.billing': 'Greiðslur',
   'settings.displaySubtitle': 'Veldu hversu þétt straumar líta út.',
   'settings.displayTitle': 'Birting',
+  'settings.emailDigestDesc': 'Efstu opnu beiðnir hvers mánudags.',
+  'settings.emailDigestLabel': 'Vikuleg samantekt',
+  'settings.emailMentionsDesc': 'Þegar einhver svarar færslu sem þú fylgist með.',
+  'settings.emailMentionsLabel': 'Senda mér tölvupóst um tilvitnanir',
+  'settings.emailRepliesDesc': 'Þræðir sem þú byrjaðir eða svaraðir.',
+  'settings.emailRepliesLabel': 'Sendu mér tölvupóst í svörum',
   'settings.loadError': 'Gat ekki hlaðið aðgangnum þínum.',
   'settings.loading': 'Hleð inn stillingum þínum…',
   'settings.notifications': 'Tilkynningar',
   'settings.notificationsSubtitle': 'Ákveddu hvað berst í innhólfið þitt á móti ýtitækinu þínu.',
+  'settings.pushRepliesLabel': 'Ýta tilkynningu fyrir svör',
+  'settings.pushVotesDesc': 'Tilkynning við 100, 500, 1000.',
+  'settings.pushVotesLabel': 'Ýttu á eftir áfanga í uppatkvæðagreiðslu',
   'settings.saveAccount': 'Vista aðgang',
+  'settings.showFlair': 'Sýna borðmerki á færslum',
+  'settings.showThumbnails': 'Sýna smámyndir af hlekkjum/myndum',
   'settings.usernamePlaceholder': 'Veldu auðkenni',
   'signup.confirmPlaceholder': 'Sláðu það inn aftur',
   'signup.description': 'Móta það sem við smíðum næst.',

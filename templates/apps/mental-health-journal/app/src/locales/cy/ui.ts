@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Oes gennych adborth, wedi dod o hyd i fyg, neu eisiau dweud wrthym sut mae cadw dyddiadur wedi helpu? Rydym yn darllen pob neges — cysylltwch unrhyw bryd a bydd person go iawn yn ymateb.',
+  'about.contactTitle': 'Siaradwch â ni',
+  'about.featureInsights':
+    "Myfyrdodau sy'n cael eu pweru gan AI sy'n tynnu sylw'n dyner at sbardunau, themâu a diolchiadau — heb golli eich llais.",
+  'about.featureMood':
+    "Olrhain hwyliau a gweithgaredd gyda golwg calendr a siartiau tueddiadau sy'n dangos yr hyn sy'n eich helpu i ffynnu.",
+  'about.featurePrivacy':
+    "Amgryptio o'r dechrau i'r diwedd, clo cod mynediad, ac allforio CSV llawn fel bod eich myfyrdodau'n aros yn breifat ac yn gludadwy.",
+  'about.featurePrompts':
+    'Anogiadau dyddiol tyner fel bod gennych rywle i ddechrau bob amser — byth tudalen wag.',
+  'about.intro':
+    "Mae {{app}} yn ddyddiadur iechyd meddwl tyner a phreifat ar gyfer myfyrio dyddiol, olrhain hwyliau a diolchgarwch. Mae anogiadau meddylgar yn cymryd lle'r dudalen wag, mae dod o hyd i batrymau'n dawel yn eich helpu i ddeall beth sy'n effeithio ar sut rydych yn teimlo, ac mae amgryptio o'r dechrau i'r diwedd yn cadw eich geiriau'n eiddo i chi.",
+  'about.missionBody':
+    "Rydym yn credu y dylai gwirio i mewn gyda chi'ch hun deimlo'n dawel, byth yn glinigol — a byth fel ap arall yn mynnu eich sylw. Mae {{app}} wedi'i adeiladu i helpu, nid i flino: ychydig funudau tawel y dydd i sylwi ar eich hwyliau, ysgrifennu'n onest, ac yn araf weld eich hun yn gliriach.",
+  'about.missionTitle': 'Ein cenhadaeth',
   'about.pageTitle': 'Ynghylch {{app}}',
   'authShell.encryptionBadge': "Mae eich cofnodion wedi'u hamgryptio o'r dechrau i'r diwedd.",
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Diwrnod {{day}} — dim cofnod',
   'calendar.cellMood': 'Dydd {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Cipolwg ar y mis hwn',
   'calendar.eyebrow': 'Hwyliau ar yr olwg gyntaf',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': "Wedi'i olrhain {{tracked}} o {{total}} dyddiau'r mis hwn.",
   'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'common.tryAgain': 'Rhowch gynnig arall arni',
+  'entryComposer.bodyPlaceholder':
+    "Ysgrifennwch beth bynnag sy'n teimlo'n onest. Ni fydd neb arall yn darllen hwn.",
   'entryComposer.cancel': "Yn ôl i'r cyfnodolyn",
   'entryComposer.heading': 'Myfyrdod heddiw',
   'entryComposer.moodLabel': "Sut wyt ti'n teimlo?",
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Tynnu {{tag}}',
   'entryComposer.save': 'Cadw adlewyrchiad',
   'entryComposer.saveError': 'Methwyd cadw eich cofnod.',
+  'entryComposer.tagPlaceholder': 'Ychwanegwch dag a gwasgwch enter',
   'entryComposer.titlePlaceholder': "Rhowch enw i'r adlewyrchiad hwn…",
   'entryDetail.back': "Yn ôl i'r cyfnodolyn",
   'entryDetail.delete': "Dileu'r cofnod hwn",
@@ -36,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': "Wrthi'n llwytho adlewyrchiad…",
   'entryDetail.notFound': 'Ni chanfuwyd y cofnod.',
   'entryDetail.reflectionsHeading': 'Myfyrdodau AI',
+  'forgotPassword.continueButton': 'Rhowch god ailosod',
   'forgotPassword.eyebrow': 'Dim pryderon',
   'forgotPassword.subheading': "Byddwn yn anfon dolen ailosod ysgafn i'ch e-bost.",
   'forgotPassword.successBody':
@@ -58,14 +79,22 @@ export const ui: UiTranslations = {
     'Dim themâu eto — ychwanegwch dag neu ddau at eich cofnodion a byddant yn ymgynnull yma.',
   'insights.themesHeading': 'Themâu gorau',
   'insights.triggerFrequency': 'sylwi {{count}} × y mis hwn',
+  'insights.triggersEmpty':
+    "Dim byd i'w sylwi eto. Bydd ychydig o gofnodion dros rai dyddiau yn dangos eich patrymau.",
   'insights.triggersHeading': "Patrymau sy'n newid eich hwyliau",
+  'journal.empty':
+    "Nid oes myfyrdodau'n cyfateb — rhowch gynnig ar hidlydd gwahanol neu ysgrifennwch gofnod newydd.",
   'journal.eyebrow': 'Eich myfyrdodau',
   'journal.heading': 'Cylchgrawn',
   'journal.loadError': 'Methwyd llwytho cofnodion.',
   'journal.loading': "Wrthi'n llwytho cofnodion…",
+  'journal.newEntry': 'Cofnod newydd',
   'journal.searchPlaceholder': 'Chwiliwch am deimlad, enw, eiliad…',
   'journal.subheading': '{{count}} cofnodion — pob un yn werth ei gadw.',
   'journalEntryCard.encryptedLabel': "Wedi'i amgryptio",
+  'landing.ctaBody':
+    'Am ddim i ddechrau. Mae Pro yn datgloi allforio data, dyddiadur mwy, a blwyddyn lawn o hanes.',
+  'landing.ctaButton': 'Dechreuwch eich cofnod cyntaf',
   'landing.ctaTitle': "Ychydig funudau tawel y dydd. Dyna'r cyfan.",
   'landing.eyebrow': 'Ymarfer dyddiol ysgafn',
   'landing.featuresBody':
@@ -84,6 +113,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Gofod tyner ar gyfer myfyrio bob dydd.',
   'mentalHealthJournalLayout.closeMenu': "Cau'r ddewislen",
   'mentalHealthJournalLayout.openMenu': 'Agor y ddewislen',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Prif lywio',
+  'moodHeroCard.entriesThisWeek': '{{count}} yr wythnos hon',
   'moodHeroCard.streakSuffix': 'rhes dydd',
   'moodHeroCard.title': 'Myfyrdod heddiw',
   'moodTrendChart.aiBadge': 'Parod i ddeall AI',
@@ -94,11 +125,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Eich taith',
   'profile.fallbackName': 'Adlewyrchydd',
   'profile.loadError': 'Methwyd llwytho ystadegau.',
+  'profile.loading': 'Yn adnewyddu eich ystadegau…',
   'profile.longestStreak': 'Y rhediad hiraf',
   'profile.memberSince': 'Yn myfyrio ers hynny {{date}}',
   'profile.milestones': 'Cerrig milltir',
   'profile.milestonesEmpty':
     "Mae eich carreg filltir gyntaf un cofnod i ffwrdd — ysgrifennwch pryd bynnag y byddwch chi'n teimlo'n barod.",
+  'profile.moodMix': 'Eich cymysgedd hwyliau y tymor hwn',
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'Myfyrdodau',
   'profile.totalWords': "Geiriau wedi'u hysgrifennu",
@@ -111,6 +144,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Ysgrifennwch am hyn',
   'resetPassword.eyebrow': 'Dechrau newydd',
   'resetPassword.mismatchError': "Nid yw'r cyfrineiriau'n cyfateb.",
+  'resetPassword.passwordLabel': 'Cyfrinair newydd',
   'resetPassword.subheading': "Dewiswch rywbeth diogel — mae eich myfyrdodau'n ei haeddu.",
   'resetPassword.tokenPlaceholder': "Ailosod cod o'r e-bost",
   'settings.dangerDescription':
@@ -123,11 +157,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     'Mae eich geiriau bob amser yn eiddo i chi. Lawrlwythwch gopi unrhyw bryd.',
   'settings.exportDone': 'Allforiwyd {{format}}.',
+  'settings.exportError': 'Methodd yr allforio.',
+  'settings.exportHeading': 'Allforiwch eich myfyrdodau',
   'settings.exportLoading': 'Yn paratoi…',
   'settings.eyebrow': 'Eich gofod, eich rheolau',
   'settings.languageHeading': 'Iaith',
   'settings.privacyHeading': 'Preifatrwydd ac amgryptio',
   'settings.remindersHeading': 'Atgoffa dyddiol',
+  'settings.reminderToggleAria': 'Toglo nodyn dyddiol',
   'settings.reminderToggleDescription':
     'Un atgoffa tawel ar yr amser a ddewiswch. Dim bathodynnau na theimlad o euogrwydd.',
   'settings.reminderToggleLabel': 'Anfonwch wthiad ysgafn',
@@ -140,6 +177,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Yn creu dyddiadur…',
   'signup.subheading': 'Lle diogel ar gyfer eich meddyliau.',
   'wellnessRingsTriad.mindfulnessCaption': 'Gôl {{goal}} munud heddiw',
+  'wellnessRingsTriad.mindfulnessLabel': 'Ymwybyddiaeth',
   'wellnessRingsTriad.sleepCaption': 'Gôl {{goal}} awr / nos',
   'wellnessRingsTriad.sleepLabel': 'Cwsg',
+  'wellnessRingsTriad.sleepValue': '{{hours}}a',
+  'wellnessRingsTriad.streakCaption': 'Nod {{goal}} diwrnod',
+  'wellnessRingsTriad.streakLabel': 'Cyfres ddyddiadur',
+  'wellnessRingsTriad.streakValue': '{{days}} d',
 }

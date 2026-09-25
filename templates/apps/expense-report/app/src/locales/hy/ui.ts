@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Հարցեր, կարծիքներ կամ նոր գործառույթի առաջարկ ունե՞ք։ Կապվեք {{app}} թիմի հետ Կարգավորումներ → Ծանուցումներ բաժնից կամ գրեք մեզ ցանկացած պահի — ամեն հաղորդագրություն հասնում է իրական մարդու։',
+  'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
+  'about.featureCapture':
+    'Ստացականների նկարահանում՝ լուսանկարի վերբեռնմամբ, որը պատկերները կցում է ճիշտ ծախսին՝ տող առ տող։',
+  'about.featureExport':
+    'Աուդիտի ենթակա CSV արտահանումներ յուրաքանչյուր հաշվետվության, ծախսի և հաստատման կարգավիճակի համար — պատրաստ ձեր հաշվապահական թիմի համար։',
+  'about.featurePolicy':
+    'Քաղաքականության սահմանափակումներ — օրական առավելագույն չափեր, կատեգորիայով սահմանաչափեր և ստացական պահանջող շեմեր, որոնք կիրառվում են ներկայացման պահին։',
+  'about.featureWorkflow':
+    'Երկաստիճան հաստատման հոսք՝ գնահատողի նշումներով, քաղաքականության խախտման նշիչներով և մեկ հպումով փոխհատուցումը նշելու հնարավորությամբ։',
+  'about.intro':
+    '{{app}}-ը ծախսերի կառավարման հարթակ է ֆինանսական թիմերի և նրանց փոխհատուցվող աշխատակիցների համար։ Ստացեք ստացական, գրանցեք ծախս, ուղարկեք հաշվետվությունը հաստատման և հետևեք յուրաքանչյուր փոխհատուցմանը — առանց աղյուսակային արարողության։',
+  'about.missionBody':
+    'Փոխհատուցումը պետք է լինի արագ, արդար և աուդիտի ենթակա։ Մենք ստեղծել ենք {{app}}-ը, որպեսզի ներկայացնողները գումարը հետ ստանան առանց հիշեցնելու, հաստատողները հստակ տեսնեն, թե ինչի համար են ստորագրում, և ֆինանսական բաժինը յուրաքանչյուր դրամի համար ունենա մաքուր հետք՝ ներառյալ քաղաքականության ստուգումները։',
+  'about.missionTitle': 'Մեր առաքելությունը',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Հաստատվում է…',
   'approvals.confirmReject': 'Հաստատեք մերժումը',
+  'approvals.empty': 'Դուք ամեն ինչ ստուգել եք — սպասող հաշվետվություններ չկան։',
   'approvals.eyebrow': 'Վարիչի հերթ',
   'approvals.kpi.flaggedLabel': 'Քաղաքականությունը նշվել է',
+  'approvals.kpi.queueLabel': 'Սպասում է վերանայման',
   'approvals.kpi.totalLabel': 'Սպասող արժեք',
   'approvals.lineCount': '{{count}} ծախսեր',
   'approvals.queueFallback': 'Հերթը հասանելի չէ՝ ցուցադրվում են ընտրված դեմո տվյալները։',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Մերժում…',
+  'approvals.rejectPlaceholder': 'Պատճառ (պարտադիր)',
   'approvals.rejectPrompt': 'Ինչո՞ւ եք մերժում այս զեկույցը։',
   'approvals.review': 'Վերանայել',
   'approvals.title': 'Սպասող հաստատումներ',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Հաստատված · MTD',
   'dashboard.kpi.pendingDelta': '+2 այս շաբաթ',
+  'dashboard.kpi.pendingLabel': 'Սպասվում է վերանայում',
   'dashboard.kpi.receiptsDelta': 'Պահանջվող գործողություն',
   'dashboard.kpi.receiptsLabel': 'Սպասում ենք ստացականների',
   'dashboard.kpi.reimbursedDelta': '+$2.4 հազար',
   'dashboard.kpi.reimbursedLabel': 'Փոխհատուցված · MTD',
   'dashboard.newReport': 'Նոր հաշվետվություն',
+  'dashboard.recent.empty': 'Դեռ հաշվետվություններ չկան — սկսեք ձեր առաջինը վերևում։',
   'dashboard.recent.title': 'Վերջին հաշվետվությունները',
   'dashboard.recent.viewAll': 'Դիտել բոլոր հաշվետվությունները',
   'dashboard.summaryFallback':
@@ -39,11 +60,18 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'Անդորրագրեր և փոխհատուցվող ապրանքներ',
   'expenses.listFallback': 'Ակտիվ ցանկը հասանելի չէ՝ ցուցադրվում են ընտրված դեմո տվյալները։',
   'expenses.searchPlaceholder': 'Որոնել վաճառող կամ կատեգորիա…',
+  'expenses.subtotal': '{{count}} ծախս · ենթագումար',
   'expenses.title': 'Ծախսեր',
+  'forgotPassword.continue': 'Կոդ ունեմ · Շարունակել',
+  'forgotPassword.subheading':
+    'Մուտքագրեք ձեր աշխատանքային էլ. փոստը, և մենք կուղարկենք հղում՝ նոր գաղտնաբառ սահմանելու համար։',
   'forgotPassword.successBody':
     'Եթե հաշիվ գոյություն ունի {{email}} Դուք կստանաք վերակայման հղում հաջորդ մի քանի րոպեների ընթացքում։',
+  'landing.copyright': '© {{year}} {{app}}։ Կառուցված է Molecule.dev-ով։',
+  'landing.ctaBody': 'Անվճար է ամսվա առաջին 25 ծախսերի համար։ Ոչ բանկային քարտ, ոչ ներդրման զանգ։',
   'landing.ctaHeading': 'Պատրա՞ստ եք վերադարձնել ձեր թիմի պարտքը։',
   'landing.eyebrow': 'Ֆինանսական թիմերի ծախսերի հաշվետվություններ',
+  'landing.featuresHeading': 'Փոխհատուցում՝ մեկ հանգիստ աշխատանքային տարածքում',
   'landing.heroSubtitle':
     'Ներկայացրեք, հաստատեք և փոխհատուցեք գործարար ծախսերը առանց աղյուսակի արարողության: Անդորրագրի OCR, քաղաքականության ստուգումներ և թափանցիկ հաստատման ժամանակացույց՝ այս ամենը մեկ հանգիստ աշխատանքային տարածքում:',
   'landing.heroTitle': 'Յուրաքանչյուր կտրոն, վերականգնված։',
@@ -61,10 +89,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Նշումներ',
   'newExpense.descriptionPlaceholder':
     'Ինչու էր այս ծախսը կապված բիզնեսի հետ (տեսանելի է ձեր հաստատողին):',
+  'newExpense.eyebrow': 'Փոխհատուցվող կետ',
   'newExpense.merchant': 'Վաճառական',
   'newExpense.merchantPlaceholder': 'Հյուրանոց «Ադլոն Կեմպինսկի»',
   'newExpense.policyHint':
     'Հիշեցում՝ օրական 80 դոլարից ավելի արժողությամբ սննդի կամ 250 դոլարից ավելի արժողությամբ ցանկացած ապրանքի համար անհրաժեշտ է հիմնավորող փաստաթուղթ։',
+  'newExpense.receipt': 'Ապրանքագիր',
+  'newExpense.receiptHint': 'JPG, PNG կամ PDF · առավելագույնը 10 ՄԲ',
   'newExpense.receiptOcrHint': 'OCR նախնական լրացման դաշտեր',
   'newExpense.receiptPrompt': 'Տեղադրեք լուսանկար կամ PDF ֆայլ այստեղ կամ սեղմեք՝ զննելու համար',
   'newExpense.receiptUploadFailed':
@@ -75,17 +106,21 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Կտրեք կամ վերբեռնեք անդորրագիր, և Recoup-ը նախապես կլրացնի վաճառողի, ամսաթվի և ընդհանուր գումարի տվյալները: Հաստատեք ստորև նշված ամեն ինչ՝ նախքան պահպանելը:',
   'newExpense.title': 'Ավելացնել ծախս',
+  'newReport.approverHint':
+    'Նրանք էլ. նամակ կստանան, երբ դուք այս հաշվետվությունը ներկայացնեք վերանայման։',
   'newReport.approverLabel': 'Հաստատողի էլ. փոստը (ըստ ցանկության)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'Հասանելի ծախսեր',
   'newReport.createFailed': 'Հնարավոր չէ ստեղծել հաշվետվություն։ Խնդրում ենք կրկին փորձել։',
   'newReport.draftsFallback':
     'Իրական ծախսերի ցանկը հասանելի չէ՝ ցուցադրվում են ընտրված դեմո տվյալները։',
+  'newReport.eyebrow': 'Խմբավորել ծախսերը · ներկայացնել հաստատման',
   'newReport.includedCount': '{{count}} ներառված',
   'newReport.purposeLabel': 'Գործարար նպատակ',
   'newReport.purposePlaceholder':
     'Նկարագրեք այն ուղևորությունը կամ նախագիծը, որին վերաբերում են այս ծախսերը (տեսանելի է ձեր հաստատողի և ֆինանսիստի համար):',
   'newReport.saveDraft': 'Պահպանել որպես սևագիր',
+  'newReport.saveDraftFailed': 'Չհաջողվեց պահպանել սևագիրը։ Խնդրում ենք կրկին փորձել։',
   'newReport.submit': 'Հաստատման համար ներկայացնել',
   'newReport.submitFailed': 'Հնարավոր չէ ուղարկել հաղորդումը։ Խնդրում ենք կրկին փորձել։',
   'newReport.summary': 'Հաշվետվության ամփոփում',
@@ -99,17 +134,24 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Ուղիղ հեռարձակումը հասանելի չէ՝ ցուցադրվում են ընտրված դեմո տվյալները։',
   'notifications.openReport': 'Բացել հաշվետվությունը ›',
+  'pricing.approvalsLabel': 'հաստատումներ',
   'pricing.expensesLabel': 'ծախսեր',
   'pricing.heading': 'հաստատումներ',
   'pricing.policiesLabel': 'քաղաքականություններ',
   'pricing.receiptsLabel': 'ստացականներ',
   'recoveredAmountHeroCard.label': 'Փոխհատուցումը վերականգնվել է · YTD',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} հաշվետվություն ներկայումս սպասում է վերանայման բոլոր հաստատողների մոտ։',
+  'reports.approvalFlow': 'Հաստատման հոսք',
   'reports.backToList': 'Վերադառնալ հաշվետվություններին',
   'reports.detailFallback':
     'Առցանց հաշվետվությունը հասանելի չէ՝ ցուցադրվում են ընտրված դեմո տվյալները։',
   'reports.lineItems': 'Գծային տարրեր',
   'reports.lineItemsCount': '{{count}} ծախսեր',
+  'reports.lineItemsEmpty': 'Այս հաշվետվության վրա դեռ ծախսեր չկան։',
+  'reports.openLibrary': 'Բացել հաշվետվությունների գրադարանը',
   'reports.policyTitle': 'Քաղաքականության դրոշ',
+  'reports.selectPrompt': 'Դետալները տեսնելու համար գրադարանից ընտրեք հաշվետվություն։',
   'reports.summary.lineCount': 'Գծային տարրեր',
   'reports.summary.reimbursable': 'Փոխհատուցվող',
   'reports.summary.total': 'Հաղորդված ընդհանուր',
@@ -118,6 +160,7 @@ export const ui: UiTranslations = {
   'reportsList.lineItems': '{{count}} ծախսեր',
   'reportsList.listFallback': 'Ակտիվ ցանկը հասանելի չէ՝ ցուցադրվում են ընտրված դեմո տվյալները։',
   'reportsList.newReport': 'Նոր հաշվետվություն',
+  'reportsList.submittedOn': 'Ուղարկվել է {{date}}',
   'reportsList.title': 'Հաշվետվությունների գրադարան',
   'resetPassword.hidePassword': 'Թաքցնել գաղտնաբառը',
   'resetPassword.newPasswordLabel': 'Նոր գաղտնաբառ',
@@ -143,6 +186,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Պահպանված ✓',
   'settings.profileSaveFailed': 'Հնարավոր չէ թարմացնել պրոֆիլը։ Խնդրում ենք կրկին փորձել։',
   'signup.heading': 'Ստեղծեք ձեր Recoup հաշիվը',
+  'signup.hidePassword': 'Թաքցնել գաղտնաբառը',
   'signup.namePlaceholder': 'Մայա Օկաֆոր',
   'signup.showPassword': 'Ցուցադրել գաղտնաբառը',
   'signup.subheading': 'Անվճար ամսական 25 ծախսի համար՝ առանց վարկային քարտի։',

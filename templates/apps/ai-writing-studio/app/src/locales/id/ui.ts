@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Punya masukan, menemukan bug, atau ingin fitur? Hubungi kami dari pengaturan akun Anda — setiap pesan sampai ke orang sungguhan di tim kami.',
   'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.intro':
+    '{{app}} adalah studio penulisan AI untuk penulis yang sangat peduli pada tulisannya. Studio ini memadukan pembuatan teks panjang dengan AI, editor yang tenang, penilaian SEO, dan pembuatan gambar sehingga Anda bisa membawa sebuah karya dari halaman kosong hingga terbit — tanpa pernah kehilangan gaya khas Anda.',
+  'about.missionBody':
+    'Kami percaya AI seharusnya menulis di samping Anda, bukan menggantikan Anda. {{app}} menjaga saran tetap terlihat berbeda dari kata-kata Anda sendiri, menjadikan Anda pemilik setiap dokumen yang Anda buat, dan menyingkirkan perkakas dari jalan menuju tulisan.',
+  'about.missionTitle': 'Misi kami',
   'about.pageTitle': 'Tentang {{app}}',
   'aiSuggestionCard.applied': 'Saran diterapkan',
   'aiSuggestionCard.apply': 'Terapkan',
@@ -24,7 +31,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Sumber lalu lintas',
   'billing.activePlan': 'Langganan aktif.',
   'billing.aiWordsLabel': 'Generasi AI termasuk',
+  'billing.cancelFailed': 'Tidak dapat membatalkan langganan.',
   'billing.cancelPlan': 'Batalkan paket',
+  'billing.cancelPlanConfirm': 'Konfirmasi pembatalan?',
   'billing.cancelSuccess': 'Langganan dibatalkan. Segarkan untuk memperbarui paket.',
   'billing.changePlan': 'Ubah paket',
   'billing.col.invoice': 'Faktur',
@@ -41,26 +50,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'Lihat paket',
   'common.goToDashboard': 'Ke Dashboard',
   'dashboard.continueWriting': 'Lanjutkan menulis',
+  'dashboard.createFirst': 'Buat dokumen',
   'dashboard.days.sat': 'Sab',
   'dashboard.days.sun': 'Min',
   'dashboard.defaultWriterName': 'Penulis',
   'dashboard.greeting': 'Selamat pagi, {{name}}',
   'dashboard.loadError': 'Tidak dapat memuat dasbor Anda.',
+  'dashboard.loading': 'Memuat studio Anda…',
   'dashboard.loadingDocs': 'Memuat dokumen terbaru…',
   'dashboard.noDocuments': 'Belum ada dokumen — mulai dokumen pertama Anda.',
   'dashboard.startWriting': 'Mulai dokumen baru',
+  'dashboard.streakBody': 'Anda telah menulis {{words}} kata minggu ini.',
   'dashboard.streakTitle': 'Rangkaian {{count}} hari',
+  'dashboard.subgreeting': '{{count}} dokumen di pustaka Anda — jaga momentumnya.',
+  'documentCard.seoScoreTitle': 'Skor SEO: {{score}}/100',
+  'documents.createNew': 'Buat dokumen baru',
   'documents.empty': 'Pustaka Anda menunggu — mulai dokumen pertama Anda.',
+  'documents.emptyFiltered': 'Belum ada dokumen yang cocok dengan filter Anda.',
   'documents.loadError': 'Tidak dapat memuat dokumen.',
   'documents.loading': 'Memuat pustaka Anda…',
   'documents.new': 'Dokumen baru',
+  'documents.searchAriaLabel': 'Cari dokumen',
   'documents.searchPlaceholder': 'Cari dokumen…',
   'documents.subtitle': '{{count}} dokumen di pustaka Anda.',
   'documents.title': 'Dokumen',
   'editor.aiPanelTitle': 'Plume Intelligence',
+  'editor.aiSuggestion.empty':
+    'Tidak ada penyempurnaan aktif. Minta saran dari {{appName}} saat Anda ingin pandangan kedua.',
   'editor.aiSuggestion.failed': 'Tidak dapat memuat saran sekarang.',
   'editor.aiSuggestion.loadingBody': 'Membuat penyempurnaan kejelasan…',
   'editor.backToDocuments': 'Semua dokumen',
+  'editor.bodyAriaLabel': 'Isi dokumen',
   'editor.closeAiPanel': 'Tutup panel AI',
   'editor.createFailed': 'Tidak dapat membuat dokumen.',
   'editor.exported': 'Diekspor sebagai berkas {{format}}.',
@@ -77,18 +97,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'Minta penyempurnaan',
   'editor.saveBeforePublish': 'Simpan dokumen sebelum menerbitkan.',
   'editor.status.chars': '{{count}} karakter',
+  'editor.status.readTime': 'Baca {{minutes}} menit',
   'editor.status.savedAt': 'Disimpan {{time}}',
   'editor.status.saveError': 'Penyimpanan gagal',
+  'editor.status.unsaved': 'Belum disimpan',
   'editor.titleAriaLabel': 'Judul dokumen',
   'editor.titlePlaceholder': 'Dokumen tanpa judul',
   'editor.toggleAiPanel': 'Alihkan panel AI',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'penulis@contoh.com',
+  'forgotPassword.sent': 'Jika {{email}} terdaftar, tautan reset sedang dikirim.',
   'imageGenerator.failed': 'Pembuatan gambar gagal.',
   'imageGenerator.generate': 'Buat Gambar',
   'imageGenerator.generating': 'Sedang memproses...',
   'imageGenerator.placeholder': 'Jelaskan gambar yang ingin Anda buat...',
+  'imageGenerator.promptAriaLabel': 'Prompt gambar',
+  'imageGenerator.subtitle': 'Deskripsikan gambar sampul dan biarkan AI mengilustrasikannya.',
   'imageGenerator.title': 'Generator Gambar AI',
+  'landing.aiSuggestionBody':
+    'berdiri di balkon lantai 42, Elias merasakan kota menekannya — angin menyingkirkan dengung sekitar, membiarkannya tergantung dalam kehampaan yang dingin dan sunyi di atas jaringan cahaya.',
   'landing.eyebrow': 'Studio penulisan AI untuk penulis serius',
   'landing.featuresHeading': 'Alat yang menyingkir',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -98,14 +125,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Studio yang dibuat untuk penulis yang peduli pada prosa, ritme, dan presisi mereka. Plume merancang di samping Anda — tidak pernah menggantikan Anda.',
   'landing.heroTitle.eloquence': 'kefasihan',
+  'landing.heroTitle.intelligence': 'Kecerdasan bertemu ',
   'landing.nav.testimonials': 'Kesaksian',
   'landing.plan.cta': 'Mulai dengan paket ini',
   'landing.plan.popular': 'Paling disukai',
   'landing.pricingEyebrow': 'Harga',
   'landing.pricingHeading': 'Pilih yang sesuai dengan praktik Anda',
   'landing.sampleDocTitle': 'Arsitektur Keheningan',
+  'landing.sampleParagraph1':
+    'Kota tidak pernah benar-benar sunyi. Bahkan di jam-jam paling larut, dengung rendah bergetar melalui fondasi beton — detak jantung mekanis dari kereta bawah tanah dan poros ventilasi.',
+  'landing.sampleParagraph2.after': ' di kaca.',
+  'landing.sampleParagraph2.before': 'Tapi ',
   'landing.sampleParagraph2.highlight':
     'berdiri di balkon lantai ke-42, Elias merasakan rasa isolasi yang mendalam',
+  'landing.showcaseBody':
+    'Sorot satu kalimat dan {{appName}} menawarkan penyempurnaan. Terima, ubah, atau abaikan. Saran selalu berwarna ungu agar Anda tahu mana yang Anda tulis dan mana yang ditawarkan.',
+  'landing.showcaseHeading': 'Pandangan kedua — bukan penulis kedua.',
   'landing.startWriting': 'Mulai menulis',
   'login.emailPlaceholder': 'penulis@contoh.com',
   'login.failed': 'Masuk gagal',
@@ -120,8 +155,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Buka dasbor',
   'notFound.title': 'Bab ini belum ditulis.',
   'plumeSidebarLayout.primaryNavLabel': 'Navigasi utama',
+  'pricing.maxDocuments': '{{count}} dokumen',
+  'pricing.maxGenerate': '{{count}} generasi AI',
+  'pricing.maxImages': '{{count}} generasi gambar',
   'privacy.data':
     'Email akun Anda dan kata sandi yang di-hash. Dokumen dan templat yang Anda buat. Log saran AI (input + output) untuk penagihan dan analitik. Pengidentifikasi pelanggan + langganan Stripe; kami tidak pernah menyimpan nomor kartu lengkap.',
+  'privacy.intro':
+    'Kami hanya mengumpulkan data yang diperlukan untuk mengoperasikan {{app}}: email Anda, dokumen yang Anda buat, dan permintaan AI yang Anda lakukan. Kami tidak pernah menjual tulisan atau prompt Anda.',
   'profile.loadError': 'Tidak dapat memuat profil Anda.',
   'profile.loading': 'Memuat profil Anda…',
   'profile.loadingPublished': 'Memuat dokumen yang diterbitkan…',
@@ -132,7 +172,13 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Kata sandi baru',
   'seoAnalysis.backToEditor': 'Kembali ke editor',
   'seoAnalysis.eyebrow': 'Analisis SEO',
+  'seoAnalysis.heroBody':
+    '{{count}} saran untuk diterapkan. Masing-masing adalah peningkatan struktur atau kata kunci, bukan dinding tanda merah.',
+  'seoAnalysis.heroBodyEmpty':
+    'Klik "Jalankan analisis" untuk menilai keterbacaan, kepadatan kata kunci, dan struktur.',
   'seoAnalysis.heroEmpty': 'Belum ada analisis. Jalankan satu untuk menilai draf ini.',
+  'seoAnalysis.heroNeedsWork': 'Beberapa peningkatan struktur akan menambah jangkauan.',
+  'seoAnalysis.heroStrong': 'Karya yang kuat — sedikit lagi menuju luar biasa.',
   'seoAnalysis.historyEmpty': 'Tidak ada analisis sebelumnya yang tercatat.',
   'seoAnalysis.historyTitle': 'Riwayat analisis',
   'seoAnalysis.keywordEmpty':
@@ -159,8 +205,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'Setel Plume sesuai dengan cara Anda menulis.',
   'settings.toggleIntegrationFailed': 'Pembaruan integrasi gagal.',
   'settings.writing.aiSuggestions': 'Saran AI inline saat mengetik',
+  'settings.writing.aiSuggestionsBody':
+    'Menampilkan penyempurnaan saat Anda menulis. Saran selalu bersifat opsional per kalimat.',
   'settings.writing.autoSave': 'Simpan otomatis setiap 30 detik',
+  'settings.writing.autoSaveBody':
+    '{{appName}} menyimpan cuplikan draf Anda sehingga Anda bisa memulihkannya dari tab mana pun.',
   'settings.writing.notifyEmail': 'Email saya ringkasan penulisan mingguan',
+  'settings.writing.notifyEmailBody':
+    'Rangkuman singkat setiap Minggu tentang rentetan, draf, dan peningkatan SEO.',
   'settings.writing.title': 'Preferensi penulisan',
   'settings.writing.tone': 'Prasetel nada default',
   'signup.emailPlaceholder': 'penulis@contoh.com',
@@ -172,8 +224,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'Tidak ada deskripsi yang diberikan.',
   'templates.subtitle':
     'Mulai dari kerangka editorial yang teruji pertempuran, lalu jadikan milik Anda sendiri.',
+  'terms.intro':
+    'Ketentuan ini mengatur penggunaan Anda atas {{app}}. Dengan membuat akun, Anda setuju menggunakan layanan ini untuk penulisan yang sah dan menjaga kerahasiaan kredensial akun Anda.',
   'terms.license':
     'Anda mempertahankan kepemilikan atas setiap dokumen, templat, dan generasi AI yang Anda buat. Kami memerlukan lisensi non-eksklusif untuk meng-hosting dan menyajikan kembali karya Anda, dan untuk memproses permintaan AI melalui penyedia terikat yang Anda pilih.',
   'writingStreakHeroCard.change': '{{sign}}{{amount}} kata',
   'writingStreakHeroCard.greeting': 'Selamat siang, {{name}}',
+  'writingStreakHeroCard.subtitle': 'Kata yang ditulis minggu ini — rentetan {{count}} hari',
+  'writingStreakHeroCard.tagline': 'Satu halaman sehari membuat inspirasi tetap hidup.',
 }

@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ai feedback, ai găsit un bug sau vrei să aduci {{app}} în școala sau echipa ta? Citim fiecare mesaj — scrie-ne din setările contului și îți va răspunde un om real.',
   'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
+  'about.intro':
+    '{{app}} este un puzzle zilnic de cuvinte. Ghicește cuvântul de cinci litere în șase încercări, menține-ți seria, distribuie grila cu emoji și vezi cum s-a descurcat toată lumea la cuvântul de azi.',
+  'about.missionBody':
+    'Un puzzle bun este o mică victorie zilnică. {{app}} este construit în jurul unui singur cuvânt pe zi — suficient de rapid pentru o pauză de cafea, suficient de captivant ca să revii și mâine.',
+  'about.missionTitle': 'Misiunea noastră',
   'about.title': 'Despre {{app}}',
   'archive.loadError': 'Nu s-a putut încărca arhiva.',
   'archive.missed': 'Ratat',
   'archive.notPlayed': 'Nejucat',
+  'archive.subhead':
+    'Reia orice zi din trecut ca exercițiu — fără serii, fără statistici, doar distracție.',
   'archive.title': 'Arhivați',
   'auth.backToHome': 'Înapoi la pagina principală',
   'auth.backToHomeArrow': '← Înapoi la pagina principală',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Ai uitat parola?',
   'auth.login.loggingIn': 'Te conectăm…',
   'auth.login.logIn': 'Joacă cuvântul de azi',
+  'auth.login.noAccount': 'Nou în Tessera?',
   'auth.login.or': 'sau continuă cu',
   'auth.login.password': 'Parolă',
   'auth.login.signInButton': 'Autentificare',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Se salvează…',
   'common.sendingEllipsis': 'Se trimite…',
   'common.startingEllipsis': 'Se pornește…',
+  'forgotPassword.subhead':
+    'Introdu adresa ta de e-mail și îți vom trimite un link pentru resetare.',
+  'forgotPassword.success.body':
+    'Dacă există un cont pentru {{email}} , vei primi un link de resetare în câteva minute.',
+  'forgotPassword.success.title': 'Verificați căsuța de e-mail.',
   'form.name': 'Nume',
   'howToPlay.cta.home': 'Înapoi acasă',
   'howToPlay.cta.play': 'Joacă puzzle-ul de azi',
@@ -68,10 +83,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Serii pe care urăști să le întrerupi',
   'leaderboard.daily.title': 'Rezolvări de azi',
   'leaderboard.loadError': 'Nu s-a putut încărca clasamentul.',
+  'leaderboard.streaks.empty': 'Încă nicio serie — fii primul.',
+  'leaderboard.streaks.subhead': 'Cele mai lungi serii de victorii din toate timpurile.',
   'leaderboard.streaks.title': 'Lideri ai seriilor',
+  'leaderboard.subhead': 'Cum s-a descurcat lumea azi și cine are cele mai lungi serii.',
   'leaderboard.title': 'Clasament',
   'login.headline': 'Bine ai revenit.',
   'login.streakPill': 'Serie de {{days}} zile te așteaptă',
+  'login.subhead':
+    'Autentifică-te pentru a-ți menține seria și a vedea cum te-ai descurcat la cuvântul de azi.',
   'nav.archive': 'Arhivați',
   'nav.editProfile': 'Editează profilul',
   'nav.getStarted': 'Începeți',
@@ -89,6 +109,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Nu există acest cuvânt',
   'notFound.title': 'Acea rută este goală.',
   'planUpdated.message': 'Planul tău este activ.',
+  'planUpdated.retry': 'Încercați din nou',
+  'planUpdated.verifyFailed': 'Nu am putut încă să vă confirmăm plata.',
+  'planUpdated.verifyFailedBody':
+    'Este posibil ca plata dvs. să fie încă în curs de procesare. Încercați din nou imediat.',
   'planUpdated.verifying': 'Se confirmă plata…',
   'play.alreadyFinished': 'Ai terminat deja acest puzzle',
   'play.answerWas': 'Cuvântul era',
@@ -104,6 +128,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Puzzle de antrenament',
   'play.tooShort': 'Insuficiente litere',
   'play.won': 'L-ai rezolvat!',
+  'pricing.advancedStats': 'Statistici avansate: {{yes}}',
+  'pricing.archiveHistory': '{{count}} zile de istoric în arhivă',
+  'pricing.archivePlays': '{{count}} reluări din arhivă / zi',
+  'pricing.archiveUnlimited': 'Istoric nelimitat în arhivă',
+  'pricing.canExport': 'Export de date: {{yes}}',
+  'pricing.checkoutError': 'Nu s-a putut iniția casa de plată. Vă rugăm să încercați din nou.',
   'pricing.dailyWord': 'Cuvântul zilnic',
   'pricing.heading': 'Alege-ți planul {{app}}',
   'pricing.included': 'Inclus',
@@ -111,7 +141,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Cuvântul zilnic este mereu gratuit. Fă upgrade pentru reluări nelimitate din arhivă și statistici mai detaliate.',
   'pricing.yearly': 'Anual',
+  'privacy.intro':
+    '{{app}} îți respectă confidențialitatea. Această pagină rezumă datele pe care le stocăm, de ce le stocăm și cum le poți șterge.',
   'privacy.title': 'Notificare de confidențialitate',
+  'resetPassword.subhead': 'Alege o parolă nouă pentru a-ți relua seria.',
   'settings.account': 'Cont',
   'settings.danger.body':
     'Elimină permanent contul tău {{appName}} și tot istoricul de puzzle-uri.',
@@ -121,17 +154,24 @@ export const ui: UiTranslations = {
   'settings.guest': 'Vizitator',
   'settings.language.title': 'Limbă',
   'settings.subhead': 'Ajustează-ți profilul, sunetul și cum apari în clasament.',
+  'settings.unnamed': 'Jucător Sparq',
   'settings.upgrade': 'Upgrade',
   'signup.eyebrow': 'Gratuit pentru totdeauna — un cuvânt pe zi',
   'signup.headline': 'Începe-ți seria.',
+  'signup.subhead':
+    'Creează un cont {{appName}} pentru a juca cuvântul zilnic, a-ți construi o serie și a urca în clasament.',
   'stats.currentStreak': 'Serie',
   'stats.distribution.title': 'Distribuția încercărilor',
   'stats.loadError': 'Nu s-au putut încărca statisticile tale.',
   'stats.maxStreak': 'Serie maximă',
   'stats.played': 'Jucate',
   'stats.playToday': 'Joacă puzzle-ul de azi',
+  'stats.subhead':
+    'Doar puzzle-uri zilnice clasate — exercițiile din arhivă nu contează niciodată.',
   'stats.title': 'Statisticile tale',
   'stats.winRate': 'Rată de câștig',
   'status.monthly': 'Lunar',
+  'terms.intro':
+    'Prin utilizarea {{app}} ești de acord cu regulile de mai jos. Dacă nu le poți accepta, te rugăm să nu folosești serviciul.',
   'terms.title': 'Termeni și condiții',
 }

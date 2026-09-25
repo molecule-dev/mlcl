@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Hai un feedback, hai trovato un bug o vuoi portare {{app}} nella tua scuola o nel tuo team? Leggiamo ogni messaggio — scrivici dalle impostazioni del tuo account e ti risponderà una persona reale.',
   'about.contactTitle': 'Contattaci',
   'about.eyebrow': 'Informazioni',
+  'about.intro':
+    '{{app}} è un puzzle di parole quotidiano. Indovina la parola di cinque lettere in sei tentativi, mantieni viva la tua serie, condividi la tua griglia di emoji e scopri come se la sono cavata tutti con la parola di oggi.',
+  'about.missionBody':
+    'Un buon puzzle è una piccola vittoria quotidiana. {{app}} è costruito attorno a una parola condivisa al giorno — veloce quanto una pausa caffè, avvincente abbastanza per tornare domani.',
+  'about.missionTitle': 'La nostra missione',
   'about.title': 'Informazioni su {{app}}',
   'archive.loadError': "Impossibile caricare l'archivio.",
   'archive.missed': 'Persi',
   'archive.notPlayed': 'Non giocati',
+  'archive.subhead':
+    'Rigioca qualsiasi giorno passato come allenamento — niente serie, niente statistiche, tutto il divertimento.',
   'archive.title': 'Archivia',
   'auth.backToHome': 'Torna alla home',
   'auth.backToHomeArrow': '← Torna alla home',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Password dimenticata?',
   'auth.login.loggingIn': 'Accesso in corso…',
   'auth.login.logIn': 'Gioca la parola di oggi',
+  'auth.login.noAccount': 'Nuovo su Tessera?',
   'auth.login.or': 'oppure continua con',
   'auth.login.password': 'Password',
   'auth.login.signInButton': 'Accedi',
@@ -32,6 +42,10 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Salvataggio…',
   'common.sendingEllipsis': 'Invio…',
   'common.startingEllipsis': 'Avvio…',
+  'forgotPassword.subhead': 'Inserisca la sua email e le invieremo un link per reimpostarla.',
+  'forgotPassword.success.body':
+    'Se esiste un account per {{email}}, riceverà un link di reimpostazione tra qualche minuto.',
+  'forgotPassword.success.title': 'Controlli la posta in arrivo.',
   'form.name': 'Nome',
   'howToPlay.cta.home': 'Torna alla home',
   'howToPlay.cta.play': 'Gioca il puzzle di oggi',
@@ -68,10 +82,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Serie che odi interrompere',
   'leaderboard.daily.title': 'Soluzioni di oggi',
   'leaderboard.loadError': 'Impossibile caricare la classifica.',
+  'leaderboard.streaks.empty': 'Ancora nessuna serie — sii il primo.',
+  'leaderboard.streaks.subhead': 'Le serie di vittorie più lunghe di sempre.',
   'leaderboard.streaks.title': 'Leader delle serie',
+  'leaderboard.subhead': 'Come se la sono cavata tutti oggi e chi ha le serie più lunghe.',
   'leaderboard.title': 'Classifica',
   'login.headline': 'Bentornato.',
   'login.streakPill': 'Serie di {{days}} giorni in attesa',
+  'login.subhead':
+    'Accedi per mantenere viva la tua serie e vedere come te la sei cavata con la parola di oggi.',
   'nav.archive': 'Archivia',
   'nav.editProfile': 'Modifica profilo',
   'nav.getStarted': 'Inizia',
@@ -89,6 +108,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Nessuna parola trovata',
   'notFound.title': 'Questa pagina è vuota.',
   'planUpdated.message': 'Il tuo piano è attivo.',
+  'planUpdated.retry': 'Riprovi',
+  'planUpdated.verifyFailed': 'Non abbiamo ancora potuto confermare il pagamento.',
+  'planUpdated.verifyFailedBody':
+    'Il pagamento potrebbe essere ancora in fase di elaborazione. Riprova tra un attimo.',
   'planUpdated.verifying': 'Conferma del pagamento…',
   'play.alreadyFinished': 'Hai già completato questo puzzle',
   'play.answerWas': 'La parola era',
@@ -104,6 +127,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Puzzle di esercizio',
   'play.tooShort': 'Lettere insufficienti',
   'play.won': 'Risolto!',
+  'pricing.advancedStats': 'Statistiche avanzate: {{yes}}',
+  'pricing.archiveHistory': '{{count}} giorni di archivio storico',
+  'pricing.archivePlays': "{{count}} rigiocate dell'archivio / giorno",
+  'pricing.archiveUnlimited': 'Archivio storico illimitato',
+  'pricing.canExport': 'Esportazione dati: {{yes}}',
+  'pricing.checkoutError': 'Impossibile avviare il checkout. Riprovi.',
   'pricing.dailyWord': 'La parola del giorno',
   'pricing.heading': 'Scegli il tuo piano {{app}}',
   'pricing.included': 'Incluso',
@@ -111,7 +140,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     "La parola quotidiana è sempre gratuita. Passa alla versione premium per replay illimitati dell'archivio e statistiche più dettagliate.",
   'pricing.yearly': 'Annuale',
+  'privacy.intro':
+    '{{app}} rispetta la tua privacy. Questa pagina riassume i dati che conserviamo, perché li conserviamo e come rimuoverli.',
   'privacy.title': 'Informativa sulla privacy',
+  'resetPassword.subhead': 'Scegli una nuova password per tornare alla tua serie.',
   'settings.account': 'Account',
   'settings.danger.body':
     'Elimina permanentemente il tuo account {{appName}} e tutta la cronologia dei puzzle.',
@@ -121,17 +153,24 @@ export const ui: UiTranslations = {
   'settings.guest': 'Ospite',
   'settings.language.title': 'Lingua',
   'settings.subhead': 'Configura il tuo profilo, il suono e come appari nella classifica.',
+  'settings.unnamed': 'Giocatore Sparq',
   'settings.upgrade': 'Passa al piano superiore',
   'signup.eyebrow': 'Gratis per sempre — una parola al giorno',
   'signup.headline': 'Inizia la tua serie.',
+  'signup.subhead':
+    'Crea un account {{appName}} per giocare alla parola del giorno, costruire una serie e scalare la classifica.',
   'stats.currentStreak': 'Serie',
   'stats.distribution.title': 'Distribuzione tentativi',
   'stats.loadError': 'Impossibile caricare le tue statistiche.',
   'stats.maxStreak': 'Serie massima',
   'stats.played': 'Giocati',
   'stats.playToday': 'Gioca il puzzle di oggi',
+  'stats.subhead':
+    "Solo puzzle quotidiani classificati — l'allenamento con l'archivio non conta mai.",
   'stats.title': 'Le tue statistiche',
   'stats.winRate': 'Tasso di vittoria',
   'status.monthly': 'Mensile',
+  'terms.intro':
+    'Usando {{app}} accetti le regole seguenti. Se non puoi accettarle, ti preghiamo di non usare il servizio.',
   'terms.title': 'Termini di servizio',
 }

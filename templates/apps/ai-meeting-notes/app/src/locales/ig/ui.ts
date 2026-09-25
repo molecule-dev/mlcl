@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ajụjụ, nzaghachi, ma ọ bụ arịrịọ atụmatụ? Zitere ndị otu ozi na hello@murmur.app — ozi ọ bụla na-erute ezigbo mmadụ na-arụ ọrụ na ngwaahịa ahụ.',
   'about.contactTitle': 'Gwa anyị okwu',
   'about.eyebrow': 'Gbasara anyị',
+  'about.intro':
+    '{{app}} bụ ọgụgụ isi nzukọ maka ndị otu na-ahọrọ ime mkpebi karịa ide ihe. Ọ na-esonye na oku gị, na-ede okwu ọ bụla na akara onye na-ekwu, ma na-eziga nchịkọta AI tinyere ihe omume ndị nwere onye nwe ozugbo nzukọ gwụchara.',
+  'about.missionBody':
+    'Nzukọ bụ ebe ndị otu na-eme mkpebi — nakwa ebe mkpebi ndị ahụ na-efu. {{app}} dị iji hụ na ọrụ na-eme na mkparịta ụka na-adị ndụ karịa mkparịta ụka ahụ: ndekọ kwesịrị ntụkwasị obi, nchịkọta doro anya, na usoro ọzọ nwere onye na-aza ajụjụ, na-akpaghị aka.',
+  'about.missionTitle': 'Ọrụ anyị',
   'actions.empty': 'Ọ dịghị ihe omume ọ bụla dakọtara.',
   'actions.heading': 'Ihe omume',
   'actions.loadError': 'Adọghị m ibu ihe omume.',
@@ -10,11 +17,14 @@ export const ui: UiTranslations = {
     'A chịkọtara ya n’ọgbakọ ọ bụla. Nyochaa site n’ọkwa gaa na nke lekwasịrị anya.',
   'actions.toggleDoneLabel': 'Kanye akara dịka emechara',
   'actions.toggleReopenLabel': 'Kanye akara dị ka emeghere emepe',
+  'auth.footer': '© {{year}} {{app}}. Okwu ọ bụla, achịkọtara.',
   'calendar.heading': 'Kalenda',
   'calendar.joinCta': 'Jikọọ',
   'calendar.loadError': 'Ibupu kalenda agaghị arụ ọrụ.',
   'calendar.nextMonth': 'Ọnwa na-abịa',
   'calendar.noEventsForDay': 'Enweghị nzukọ emere maka ụbọchị a.',
+  'calendar.noUpcomingEvents':
+    'Enweghị nzukọ na-abịa. Jikọọ kalenda site na Integrations iji mejupụta ndepụta a.',
   'calendar.previousMonth': 'Ọnwa gara aga',
   'calendar.recent': 'Nso nso a',
   'common.daysAgo': '{{count}} gara aga',
@@ -26,9 +36,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} ihe omume',
   'dashboard.empty.body':
     'Malite ndekọ ma ọ bụ jikọọ Google Kalenda ka Murmur wee sonye na nzukọ gị na-esote na akpaghị aka.',
+  'dashboard.empty.cta': 'Malite ndekọ',
   'dashboard.empty.heading': 'Enweghị nzukọ ugbu a',
   'dashboard.eyebrow': 'Ntanetị nzukọ gị',
   'dashboard.loadError': 'Ịbuli dashboard agaghị arụ ọrụ.',
+  'dashboard.noActions': 'Enweghị ihe omume',
   'dashboard.recentHeading': 'Nzukọ ndị na-adịbeghị anya',
   'dashboard.recordCta': 'Nzukọ ndekọ',
   'dashboard.stat.actions': 'Ihe omume',
@@ -38,6 +50,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} Nchịkọta agụghị kemgbe ị lere anya ikpeazụ. Mkpesa ahụ jidere okwu niile — lee nchịkọta ahụ.',
   'dashboard.viewCalendar': 'Lee kalenda →',
+  'footer.linksLabel': 'Ala',
   'forgot.failed': 'Enweghị ike izipu ozi-e nrụpụta.',
   'forgot.sentBody':
     'Ọ bụrụ na akaụntụ dị maka {{email}}, ị ga-enweta njikọ nrụpụta n’oge na-adịghị anya.',
@@ -49,14 +62,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Jikọọ kalenda na ikpo okwu vidiyo ka Murmur wee sonyere na akpaghị aka.',
   'integrations.updateError': 'Mmelite dara ada.',
+  'landing.ctaBody':
+    "N'efu maka nzukọ 5 mbụ kwa ọnwa. Enweghị kaadị kredit. Jikọọ Google Calendar n'ime ihe na-erughị otu nkeji.",
   'landing.ctaButton': 'Malite — ọ bụ n’efu',
   'landing.ctaHeading': 'Kwụsị idetu ihe. Malite ime mkpebi.',
+  'landing.demo.aiBody':
+    'Ebugara mmalite site na May 5 → May 12 iji nye ndị ọrụ ohere. E kewapụrụ nhazigharị Dashboard gaa May 26.',
   'landing.demo.aiLabel': 'Nchịkọta AI, edebere ndụ',
   'landing.demo.recording': 'Ndekọ · ndụ',
   'landing.eyebrow': 'ọgụgụ isi nzukọ AI',
   'landing.featuresHeading': 'Ihe niile ndị otu gị chọrọ mgbe nzukọ ahụ gwụchara',
+  'landing.featuresSubheading':
+    'Enweghịzi "chere, onye nwe nke a?" {{appName}} na-eziga nchịkọta tupu oku akwụsị.',
   'landing.getStarted': 'Nwaa n’efu',
   'landing.heroSecondary': 'Lelee njem nlegharị anya nke sekọnd 90',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} na-esonye na oku gị, na-ede okwu ọ bụla na akara onye na-ekwu, ma na-eziga nchịkọta AI tinyere ihe omume ndị nwere onye nwe ozugbo nzukọ gwụchara.',
   'landing.heroTitle': 'See ihe niile gbasara nzukọ. Chọpụta ihe dị mkpa.',
   'login.altPrompt': 'Ọ dị ọhụrụ na Murmur?',
   'login.failed': 'Enweghị m ike ịbanye. Lelee email na paswọọdụ gị.',
@@ -64,6 +85,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Ihe omume',
   'meetingDetail.back': 'Nzukọ niile',
   'meetingDetail.decisionsHeading': 'Mkpebi',
+  'meetingDetail.dueDate': 'ga-agwụ {{date}}',
   'meetingDetail.followupsHeading': 'Ndị na-esochi',
   'meetingDetail.loadError': 'Adịghị ebugo nzukọ ahụ.',
   'meetingDetail.noActions': 'Achọpụtaghị ihe omume ọ bụla.',
@@ -77,7 +99,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Enweghị nzukọ ugbu a',
   'meetings.heading': 'Nzukọ',
   'meetings.loadError': 'Adịghị ebugo nzukọ.',
+  'meetings.recordCta': 'Nzukọ ndekọ',
   'meetings.subheading': 'Nzukọ ọ bụla e dekọrọ, bugoro, ma mekọrịtara.',
+  'murmurLayout.closeMenu': 'Mechie menu nsoroụzọ',
   'murmurLayout.openMenu': 'Mepee menu nsoroụzọ',
   'murmurLayout.primaryNavLabel': 'Ntugharị isi',
   'nav.legal': 'Iwu kwadoro',
@@ -102,7 +126,13 @@ export const ui: UiTranslations = {
   'profile.loading': 'Na-ebugo…',
   'profile.navLabel': 'Ngalaba profaịlụ',
   'profile.notifications.assignments': 'E kenyere m ihe omume e mere',
+  'profile.notifications.assignmentsHint': 'Kwee mgbe e jidere ihe omume maka gị.',
+  'profile.notifications.mentions': 'Ntụ aka na transcript',
+  'profile.notifications.mentionsHint': 'Email + push mgbe mmadụ kpọrọ aha gị na @-mention.',
+  'profile.notifications.subheading': 'Họrọ ihe omume {{appName}} kwesịrị irute gị.',
   'profile.notifications.summaries': 'Nchịkọta izu ụka',
+  'profile.notifications.summariesHint': 'Nchịkọta Mọnde nke nzukọ ọ bụla nke izu gara aga.',
+  'profile.preferences.speakerColor': 'Agba onye na-ekwu ndabara',
   'profile.preferences.subheading': 'Ndekọ ndị dị mkpa maka ndekọ ọ bụla ị sonyere.',
   'profile.preferences.timezone': 'Mpaghara oge',
   'profile.preferences.title': 'Aha ọrụ',
@@ -114,17 +144,22 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Ihe nchọgharị gị anaghị akwado ndekọ. Nwaa Chrome, Edge, ma ọ bụ Safari.',
   'record.error.upload': 'Mbugo ahụ agaghị nke ọma. Nwaa ọzọ.',
+  'record.errorLabel': 'Ihe adịghị mma',
   'record.heading': 'Ndekọ',
   'record.idleLabel': 'Pịa iji malite ndekọ',
   'record.processingLabel': 'Na-edegharị ihe na Whisper, na-achịkọta ya na Claude…',
+  'record.recordingLabel': 'Na-edekọ…',
   'record.retryCta': 'Nwaa ọzọ',
   'record.subheading':
     'Pịa igwe okwu ahụ ka ọ malite. Murmur na-ejide ọdịyo ahụ, na-edegharị ya site na Whisper, wee dee nchịkọta nke Claude na-akwado.',
+  'record.titlePlaceholder': 'Aha nzukọ (ọ bụghị iwu)',
+  'reset.altPrompt': 'Ị gbanwere obi gị?',
   'reset.hint':
     'Jiri ma ọ dịkarịa ala mkpụrụedemede asatọ nwere ngwakọta nke mkpụrụedemede na ọnụọgụgụ.',
   'reset.missingToken': 'Tọgharịa njikọ ahụ efuola ma ọ bụ gwụchaa. Rịọ maka nke ọhụrụ.',
   'reset.newPassword': 'Okwuntughe Ọhụrụ',
   'reset.subheading': 'Họrọ paswọọdụ ị na-anaghị eji ebe ọzọ.',
+  'reset.tooShort': 'Paswọọdụ ga-abụrịrị ma ọ dịkarịa ala mkpụrụedemede 8.',
   'search.empty': 'Pịnye iji chọọ ihe ndị e dere ede.',
   'search.loadError': 'Nchọgharị ahụ agaghị nke ọma. Nwaa ọzọ.',
   'search.noResults': 'Enweghị nsonaazụ maka " {{q}} ".',
@@ -140,7 +175,9 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Debe ọdịyo maka',
   'settings.retention.heading': 'Njide',
   'settings.retention.transcript': 'Debe ederede maka',
+  'settings.revokeDeviceWarning': "A ga-ewepụ ohere ngwaọrụ a n'oge na-adịghị anya. Pụọ ya?",
   'settings.saveError': 'Nchekwa agaghị nke ọma.',
+  'settings.security.subheading': 'Melite paswọọdụ ị na-eji abanye.',
   'settings.sharing.exportFormat': 'Usoro mbupụ',
   'settings.sharing.heading': 'Nkekọrịta ndabara',
   'settings.sharing.scope': 'Oke nkesa ndabara',
@@ -157,6 +194,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Kpọọ onye otu egwuregwu',
   'team.invitedAs': 'A kpọrọ oku dịka {{role}}',
   'team.inviteFailed': 'Enweghị m ike izipu oku.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'Zipu òkù',
   'team.inviteSubtitle': 'Ha ga-enweta ozi-e nwere njikọ isonye.',
   'team.inviteTitle': 'Kpọọ onye otu egwuregwu',

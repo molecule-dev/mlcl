@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Una maoni, umepata hitilafu, au unataka kipengele? Wasiliana nasi kupitia mipangilio ya akaunti yako — kila ujumbe humfikia mtu halisi wa timu.',
   'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
+  'about.intro':
+    '{{app}} ni studio ya uandishi wa AI kwa waandishi wanaojali sana maandishi yao. Inaunganisha uzalishaji wa AI wa maandishi marefu na kihariri tulivu, ukadiriaji wa SEO, na uzalishaji wa picha ili uweze kupeleka kipande kutoka ukurasa mtupu hadi kuchapishwa — bila kupoteza sauti yako.',
+  'about.missionBody':
+    'Tunaamini AI inapaswa kuandika kando yako, kamwe si badala yako. {{app}} huweka mapendekezo wazi tofauti na maneno yako mwenyewe, hukufanya kuwa mmiliki wa kila hati unayounda, na huondoa zana zisizohitajika kwenye njia ya uandishi.',
+  'about.missionTitle': 'Dhamira yetu',
   'about.pageTitle': 'Kuhusu {{app}}',
   'aiSuggestionCard.applied': 'Pendekezo limetumika',
   'aiSuggestionCard.apply': 'Tuma maombi',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Vyanzo vya trafiki',
   'billing.activePlan': 'Usajili unaendelea.',
   'billing.aiWordsLabel': 'Vizazi vya AI vimejumuishwa',
+  'billing.cancelFailed': 'Haikuweza kughairi usajili.',
   'billing.cancelPlan': 'Ghairi mpango',
+  'billing.cancelPlanConfirm': 'Thibitisha kughairi?',
   'billing.cancelSuccess': 'Usajili umeghairiwa. Onyesha upya ili kusasisha mpango.',
   'billing.changePlan': 'Mpango wa mabadiliko',
   'billing.col.invoice': 'Ankara',
@@ -42,26 +51,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'Tazama mipango',
   'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'dashboard.continueWriting': 'Endelea kuandika',
+  'dashboard.createFirst': 'Unda hati',
   'dashboard.days.sat': 'Sat',
   'dashboard.days.sun': 'Sun',
   'dashboard.defaultWriterName': 'Mwandishi',
   'dashboard.greeting': 'Habari za asubuhi, {{name}}',
   'dashboard.loadError': 'Haikuweza kupakia dashibodi yako.',
+  'dashboard.loading': 'Inapakia studio yako…',
   'dashboard.loadingDocs': 'Inapakia hati za hivi karibuni...',
   'dashboard.noDocuments': 'Hakuna hati bado — anza hati yako ya kwanza.',
   'dashboard.startWriting': 'Anzisha hati mpya',
+  'dashboard.streakBody': 'Umeandika maneno {{words}} wiki hii.',
   'dashboard.streakTitle': '{{count}} -mfululizo wa siku',
+  'dashboard.subgreeting': 'Hati {{count}} katika maktaba yako — endeleza kasi.',
+  'documentCard.seoScoreTitle': 'Alama ya SEO: {{score}}/100',
+  'documents.createNew': 'Unda hati mpya',
   'documents.empty': 'Maktaba yako inasubiri — anza hati yako ya kwanza.',
+  'documents.emptyFiltered': 'Hakuna hati zinazolingana na vichujio vyako bado.',
   'documents.loadError': 'Haikuweza kupakia hati.',
   'documents.loading': 'Inapakia maktaba yako…',
   'documents.new': 'Hati mpya',
+  'documents.searchAriaLabel': 'Tafuta hati',
   'documents.searchPlaceholder': 'Tafuta hati…',
   'documents.subtitle': '{{count}} hati katika maktaba yako.',
   'documents.title': 'Nyaraka',
   'editor.aiPanelTitle': 'Akili ya Plume',
+  'editor.aiSuggestion.empty':
+    'Hakuna marekebisho yanayoendelea. Omba pendekezo kwa {{appName}} unapotaka macho ya pili.',
   'editor.aiSuggestion.failed': 'Haikuweza kupakia mapendekezo sasa hivi.',
   'editor.aiSuggestion.loadingBody': 'Kuzalisha uboreshaji wa uwazi…',
   'editor.backToDocuments': 'Nyaraka zote',
+  'editor.bodyAriaLabel': 'Maudhui ya hati',
   'editor.closeAiPanel': 'Funga paneli ya AI',
   'editor.createFailed': 'Haikuweza kuunda hati.',
   'editor.exported': 'Imehamishwa kama {{format}} .',
@@ -77,18 +97,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'Omba uboreshaji',
   'editor.saveBeforePublish': 'Hifadhi hati kabla ya kuchapisha.',
   'editor.status.chars': '{{count}} wahusika',
+  'editor.status.readTime': '{{minutes}} kusoma kwa dakika',
   'editor.status.savedAt': 'Imehifadhiwa {{time}}',
   'editor.status.saveError': 'Imeshindwa kuhifadhi',
+  'editor.status.unsaved': 'Bado haijahifadhiwa',
   'editor.titleAriaLabel': 'Kichwa cha hati',
   'editor.titlePlaceholder': 'Hati isiyo na kichwa',
   'editor.toggleAiPanel': 'Badilisha paneli ya AI',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'mwandishi@example.com',
+  'forgotPassword.sent': 'Ikiwa {{email}} ipo kwenye kumbukumbu, kiungo cha kuweka upya kinakuja.',
   'imageGenerator.failed': 'Uundaji wa picha umeshindwa.',
   'imageGenerator.generate': 'Tengeneza Picha',
   'imageGenerator.generating': 'Inazalisha...',
   'imageGenerator.placeholder': 'Eleza picha unayotaka kutengeneza...',
+  'imageGenerator.promptAriaLabel': 'Kidokezo cha picha',
+  'imageGenerator.subtitle': 'Eleza picha ya jalada na acha AI iichore.',
   'imageGenerator.title': 'Jenereta ya Picha ya AI',
+  'landing.aiSuggestionBody':
+    "amesimama kwenye balcony ya ghorofa ya 42, Elias alihisi mji ukimsonga — upepo uliondoa mvumo wa mazingira, ukamwacha akining'inia katika utupu wa baridi na kimya juu ya gridi inayong'aa.",
   'landing.eyebrow': 'Studio ya uandishi wa AI kwa waandishi makini',
   'landing.featuresHeading': 'Zana zinazotoka nje ya njia',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -98,14 +125,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Studio iliyoundwa kwa ajili ya waandishi wanaojali kuhusu nathari zao, mwendo wao, na usahihi wao. Rasimu za maandishi kando yako — kamwe badala yako.',
   'landing.heroTitle.eloquence': 'ufasaha',
+  'landing.heroTitle.intelligence': 'Akili hukutana na ',
   'landing.nav.testimonials': 'Ushuhuda',
   'landing.plan.cta': 'Anza na mpango huu',
   'landing.plan.popular': 'Inapendwa zaidi',
   'landing.pricingEyebrow': 'Bei',
   'landing.pricingHeading': 'Chagua kinachofaa mazoezi yako',
   'landing.sampleDocTitle': 'Usanifu wa Ukimya',
+  'landing.sampleParagraph1':
+    'Mji haukuwa kimya kamwe. Hata katika saa za usiku zilizozama zaidi, mvumo wa chini ulitetema kupitia misingi ya zege — mapigo ya moyo ya mitambo ya treni za chini ya ardhi na mashimo ya uingizaji hewa.',
+  'landing.sampleParagraph2.after': ' dhidi ya kioo.',
+  'landing.sampleParagraph2.before': 'Lakini ',
   'landing.sampleParagraph2.highlight':
     'akiwa amesimama kwenye roshani ya ghorofa ya 42, Elias alihisi hisia kubwa ya upweke',
+  'landing.showcaseBody':
+    'Angazia sentensi na {{appName}} hutoa marekebisho. Yakubali, yarekebishe, au yaache. Mapendekezo huwa na rangi ya zambarau kila wakati ili ujue ulichoandika dhidi ya kilichotolewa.',
+  'landing.showcaseHeading': 'Macho ya pili — kamwe si mwandishi wa pili.',
   'landing.startWriting': 'Anza kuandika',
   'login.emailPlaceholder': 'mwandishi@example.com',
   'login.failed': 'Kuingia hakukufaulu',
@@ -120,8 +155,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Fungua dashibodi',
   'notFound.title': 'Sura hii haijaandikwa bado.',
   'plumeSidebarLayout.primaryNavLabel': 'Usogezaji mkuu',
+  'pricing.maxDocuments': '{{count}} hati',
+  'pricing.maxGenerate': 'Uzalishaji wa AI wa {{count}}',
+  'pricing.maxImages': 'Uzalishaji wa picha wa {{count}}',
   'privacy.data':
     'Barua pepe ya akaunti yako na nenosiri lililoharakishwa. Nyaraka na violezo unavyounda. Kumbukumbu za mapendekezo ya akili bandia (ingizo + matokeo) kwa ajili ya bili na uchanganuzi. Vitambulisho vya mteja wa Stripe + usajili; hatuhifadhi nambari kamili za kadi.',
+  'privacy.intro':
+    'Tunakusanya tu data inayohitajika kuendesha {{app}}: barua pepe yako, hati unazounda, na maombi ya AI unayofanya. Hatuuzi maandishi yako wala maagizo yako.',
   'profile.loadError': 'Haikuweza kupakia wasifu wako.',
   'profile.loading': 'Inapakia wasifu wako…',
   'profile.loadingPublished': 'Inapakia hati zilizochapishwa...',
@@ -132,7 +172,13 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Nenosiri jipya',
   'seoAnalysis.backToEditor': 'Rudi kwenye kihariri',
   'seoAnalysis.eyebrow': 'Uchambuzi wa SEO',
+  'seoAnalysis.heroBody':
+    'Pendekezo {{count}} la kutumia. Kila moja ni mwongozo wa kimuundo au wa maneno muhimu, si ukuta wa bendera nyekundu.',
+  'seoAnalysis.heroBodyEmpty':
+    'Bofya "Endesha uchambuzi" ili kupima usomaji, msongamano wa maneno muhimu, na muundo.',
   'seoAnalysis.heroEmpty': 'Hakuna uchambuzi bado. Fanya moja ili kupata alama kwenye rasimu hii.',
+  'seoAnalysis.heroNeedsWork': 'Baadhi ya mwongozo wa kimuundo utaongeza ufikiaji.',
+  'seoAnalysis.heroStrong': 'Kipande kizuri — hatua ndogo kutoka bora kabisa.',
   'seoAnalysis.historyEmpty': 'Hakuna uchambuzi wowote uliopita uliorekodiwa.',
   'seoAnalysis.historyTitle': 'Historia ya uchambuzi',
   'seoAnalysis.keywordEmpty':
@@ -159,8 +205,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'Rekebisha Plume ili iendane na jinsi unavyoandika.',
   'settings.toggleIntegrationFailed': 'Sasisho la ujumuishaji halikufaulu.',
   'settings.writing.aiSuggestions': 'Mapendekezo ya akili bandia ya ndani wakati wa kuandika',
+  'settings.writing.aiSuggestionsBody':
+    'Huonyesha marekebisho unapoandika. Mapendekezo huwa ya hiari kwa kila sentensi.',
   'settings.writing.autoSave': 'Hifadhi kiotomatiki kila baada ya sekunde 30',
+  'settings.writing.autoSaveBody':
+    '{{appName}} huweka nakala ya rasimu yako ili uweze kurejesha kutoka kichupo chochote.',
   'settings.writing.notifyEmail': 'Nitumie barua pepe muhtasari wa uandishi wa kila wiki',
+  'settings.writing.notifyEmailBody':
+    'Muhtasari mfupi wa Jumapili wa mfululizo, rasimu, na maboresho ya SEO.',
   'settings.writing.title': 'Mapendeleo ya uandishi',
   'settings.writing.tone': 'Mpangilio chaguomsingi wa toni',
   'signup.emailPlaceholder': 'mwandishi@example.com',
@@ -172,8 +224,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'Hakuna maelezo yaliyotolewa.',
   'templates.subtitle':
     'Anza kutoka kwa fremu ya uhariri iliyojaribiwa kwa vita, kisha ifanye iwe yako mwenyewe.',
+  'terms.intro':
+    'Masharti haya yanatawala matumizi yako ya {{app}}. Kwa kuunda akaunti unakubali kutumia huduma kwa uandishi halali na kuweka siri ya vitambulisho vya akaunti yako.',
   'terms.license':
     'Unahifadhi umiliki wa kila hati, kiolezo, na kizazi cha AI unachounda. Tunahitaji leseni isiyo ya kipekee ili kupangisha na kuhudumia kazi yako, na kushughulikia maombi ya AI kupitia watoa huduma waliounganishwa unaowachagua.',
   'writingStreakHeroCard.change': '{{sign}} {{amount}} maneno',
   'writingStreakHeroCard.greeting': 'Siku njema, {{name}}',
+  'writingStreakHeroCard.subtitle': 'Maneno yaliyoandikwa wiki hii — mfululizo wa siku {{count}}',
+  'writingStreakHeroCard.tagline': 'Ukurasa mmoja kwa siku hufanya muse ashiriki.',
 }

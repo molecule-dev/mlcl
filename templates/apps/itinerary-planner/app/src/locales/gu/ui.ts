@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'પ્રતિસાદ છે, બગ મળ્યો છે, કે કંઈક મહત્ત્વાકાંક્ષી યોજના બનાવી રહ્યા છો? તમારા એકાઉન્ટ સેટિંગ્સમાંથી અમને સંપર્ક કરો — દરેક સંદેશ ટીમના સાચા માણસ સુધી પહોંચે છે.',
+  'about.contactTitle': 'અમારી સાથે વાત કરો',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'એક જ ઇનબોક્સમાં બુકિંગ — ફ્લાઇટ, હોટેલ અને પ્રવૃત્તિની પુષ્ટિઓ તે જ દિવસે આવે છે જે દિવસની તે હોય.',
+  'about.featureCollab':
+    'રીઅલ-ટાઇમ સહયોગ — પ્રતિ ટ્રિપ પાંચ મુસાફરો સુધી આમંત્રિત કરો, દરેક ફેરફાર લાઇવ સિંક થાય અને દરેક સ્ટોપ હેઠળ ટિપ્પણીઓ થ્રેડ થાય.',
+  'about.featureMapsBudget':
+    'નકશા, સ્થળો અને સહિયારું બજેટ — આખી ટ્રિપ નકશા પર જુઓ, એડિટર-ક્યુરેટેડ સ્થળો શોધો અને ખર્ચ ટ્રૅક કરો જેથી કોઈ વધુ પૈસા ન ખર્ચે.',
+  'about.featureTimelines':
+    'દિવસ-પ્રતિ-દિવસ સમયરેખા — સ્ટોપ ખેંચીને ફરી ગોઠવો, ટ્રાન્સપોર્ટ સેગમેન્ટ ઉમેરો અને એક જીવંત દસ્તાવેજ તરીકે ઇટિનરરી ફરી ગણાતી જુઓ.',
+  'about.intro':
+    '{{app}} અધૂરી યોજનાઓથી ભરેલી ફોલ્ડરને એક જ સહિયારી ટ્રિપમાં ફેરવે છે જે તમારો આખો સમૂહ ખરેખર અનુસરી શકે. દિવસ-પ્રતિ-દિવસ ઇટિનરરી બનાવો, ફ્લાઇટ અને હોટેલ ઉમેરો, દરેક સ્ટોપ નકશા પર મૂકો અને બજેટ ટ્રૅક કરો — બધું એક શાંત જગ્યામાં, ડઝનબંધ ટૅબ અને ગ્રુપ ચેટને બદલે.',
+  'about.missionBody':
+    'ટ્રાવેલ પ્લાનિંગ એવું લાગવું જોઈએ કે ટ્રિપ પહેલેથી સારી થઈ રહી છે, હોમવર્ક જેવું નહીં. {{app}} સહયોગી ટ્રિપ્સને સહેલી બનાવવા માટે છે — જેથી દરેક મુસાફર પ્લાન જાણીને આવે, અને દરેક સ્ટોપ યાદ રાખવા લાયક વાર્તા કહે.',
+  'about.missionTitle': 'અમારું ધ્યેય',
   'about.pageTitle': '{{app}} વિશે',
   'auth.legalConsent': 'ચાલુ રાખીને, તમે અમારી સાથે સંમત થાઓ છો',
   'bookings.empty.body': 'ઇનબોક્સ શરૂ કરવા માટે ફ્લાઇટ, હોટેલ અથવા પ્રવૃત્તિ ઉમેરો.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'હોટેલ',
   'bookings.type.other': 'અન્ય',
   'budgetSpendCard.budgetTotal': 'ના {{total}} આયોજન કરેલ',
+  'budgetSpendCard.overBy': '{{amount}} બજેટથી વધુ',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} તાજેતરનું',
+  'budgetSpendCard.remaining': '{{amount}} બાકી',
   'calendar.eyebrow': 'આગામી વર્ષ',
   'calendar.heading': 'દરેક સફર એક જ કેલેન્ડર પર.',
   'calendar.legendHeading': 'આ મહિનાની ટ્રિપ્સ',
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'અને',
   'common.goToDashboard': 'ડેશબોર્ડ પર જાઓ',
   'dashboard.budgetHeading': 'બજેટ પલ્સ',
+  'dashboard.empty.body':
+    'તમારી પહેલી ટ્રિપનું પ્લાનિંગ કરો અને તમારું ડેશબોર્ડ દિવસ-પ્રતિ-દિવસ સમયરેખા, બજેટ પલ્સ અને બુકિંગથી ભરાઈ જશે.',
+  'dashboard.empty.cta': 'તમારી પહેલી ટ્રિપનું પ્લાનિંગ કરો',
   'dashboard.empty.heading': 'હજુ સુધી કોઈ ટ્રિપ નથી — તમારો એટલાસ ખાલી છે.',
   'dashboard.eyebrow': 'મિશન નિયંત્રણ',
   'dashboard.heading': 'તમારું આગામી સાહસ, એક શાંત ખૂણામાં.',
   'dashboard.newTripCta': 'નવી સફર શરૂ કરો',
+  'dashboard.subheading':
+    'આગલી ટ્રિપની ઉલટગણતરી, આજના ખર્ચની પલ્સ અને ચાલુ દરેક ઇટિનરરી પર એક નજર.',
   'dashboard.tripsHeading': 'ગતિશીલ પ્રવાસો',
   'dashboard.viewAllExpenses': 'દરેક ખર્ચ જુઓ',
   'dashboard.viewAllTrips': 'દરેક ટ્રિપ જુઓ',
   'dayTimelineRow.category.accommodation': 'રહો',
+  'dayTimelineRow.category.food': 'ખાવાનું અને પીણું',
+  'dayTimelineRow.category.sightseeing': 'જોવાલાયક સ્થળો',
   'dayTimelineRow.category.transport': 'પરિવહન',
   'destinationOrbCard.exploreCta': 'ટ્રિપમાં ઉમેરો',
   'destinationOrbCard.tripCount': '{{count}} પ્રવાસો',
+  'destinations.empty.body': 'All પર પાછા સ્વિચ કરો અને એડિટરના શોધ ફરી દેખાશે.',
   'destinations.empty.heading': 'હજુ સુધી કોઈ ગંતવ્ય સ્થાન નથી.',
+  'destinations.emptyFiltered.heading': 'હજી સુધી એવું કંઈ ટૅગ થયેલું નથી.',
   'destinations.errors.load': 'ગંતવ્ય સ્થાનો લોડ કરી શકાયા નથી.',
   'destinations.eyebrow': 'આગળ ક્યાં જવું?',
   'destinations.heading': 'સાચવેલા ખૂણા અને સંપાદક શોધો.',
@@ -70,7 +98,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'વિક્રેતા',
   'expenses.formHeading': 'લોગ ખર્ચ {{trip}}',
   'expenses.heading': 'ટ્રિપનું બજેટ ખરેખર ક્યાં જાય છે.',
+  'expenses.heroBudget': '{{total}}માંથી {{pct}}% પ્લાન થયું',
   'expenses.heroEyebrow': '{{trip}} • બજેટ સ્નેપશોટ',
+  'expenses.heroNoBudget': 'આ ટ્રિપ પર હજી બજેટ સેટ કરેલું નથી.',
   'expenses.noTrips.body': 'પહેલા ટ્રિપનું આયોજન કરો અને ટ્રિપના બજેટ સાથે જોડાયેલા ખર્ચાઓ.',
   'expenses.noTrips.heading': 'હજુ સુધી કોઈ ટ્રિપ નથી.',
   'expenses.receiptCount': '{{count}} રસીદો',
@@ -82,12 +112,16 @@ export const ui: UiTranslations = {
     'દરેક રસીદ અને પુષ્ટિકરણ અહીં યોગ્ય શ્રેણીમાં આવે છે — કોઈ સ્પ્રેડશીટની જરૂર નથી.',
   'forgotPassword.eyebrow': 'તમારા પ્રવાસ કાર્યક્રમને પુનઃપ્રાપ્ત કરો',
   'forgotPassword.heading': 'તમારો પાસવર્ડ ભૂલી ગયા છો?',
+  'forgotPassword.subheading':
+    'તમે {{appName}} માટે વાપરેલો ઈમેલ દાખલ કરો અને અમે તમારો પાસવર્ડ રીસેટ કરવા લિંક મોકલીશું.',
   'forgotPassword.submit': 'પુનઃપ્રાપ્તિ ઇમેઇલ મોકલો',
   'forgotPassword.submitPending': 'પુનઃપ્રાપ્તિ ઇમેઇલ મોકલી રહ્યું છે…',
   'forgotPassword.successHint':
     'હજુ સુધી કોઈ ઇમેઇલ નથી? તમારું સ્પામ ફોલ્ડર તપાસો, અથવા બીજા સરનામાં સાથે ફરી પ્રયાસ કરો.',
   'forgotPassword.successSubheading':
     'અમે રિકવરી લિંક મોકલી છે {{email}} . આ લિંક 30 મિનિટ માટે માન્ય છે.',
+  'forgotPassword.tryAgain': 'બીજા ઈમેલ પર મોકલો',
+  'landing.cta.eyebrow': 'ફ્રી પ્લાન પર શરૂ કરો',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'મફત ખાતું બનાવો',
   'landing.cta.subheading':
@@ -99,8 +133,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'મફત ટ્રિપ શરૂ કરો',
   'landing.hero.ctaSecondary': 'એક નમૂનાની સફર જુઓ',
+  'landing.hero.eyebrow': 'ટ્રિપ પ્લાનર · {{tagline}}',
   'landing.hero.subtitle':
     'વેપોઇન્ટ અડધા-રચિત યોજનાઓથી ભરેલા ફોલ્ડરને એક શેર કરેલ, દૈનિક પ્રવાસ કાર્યક્રમમાં ફેરવે છે જેને તમારું જૂથ ખરેખર અનુસરી શકે છે - બુકિંગ, નકશા અને બજેટને એક જ જગ્યાએ ટ્રેક કરીને.',
+  'landing.hero.title': 'એક વાર પ્લાન કરો. સાથે ફરો.',
   'landing.nav.join': 'મફત ટ્રિપ શરૂ કરો',
   'landing.nav.preview': 'અંદરનો વેપોઇન્ટ',
   'landing.preview.cta': 'તમારી પોતાની યોજના બનાવો',
@@ -108,6 +144,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'પ્રવાસીઓ હાલમાં જે પ્રવાસ કરી રહ્યા છે તે કેટલીક યાત્રાઓ',
   'login.eyebrow': 'સભ્યોનો વિસ્તાર',
   'login.heading': 'ફરી સ્વાગત છે, પ્રવાસી',
+  'login.noAccount': 'ટેસેરામાં નવા છો?',
   'login.signupLink': 'મફત ખાતું બનાવો',
   'login.subheading':
     'તમારી ટ્રિપ્સ, દિવસની યોજનાઓ, બુકિંગ અને તમે પહેલેથી જ શરૂ કરેલી જર્નલ એન્ટ્રીઓનું સંચાલન કરવા માટે સાઇન ઇન કરો.',
@@ -117,6 +154,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'સૂચના અપડેટ કરી શકાઈ નથી.',
   'notifications.heading': 'આજે તમારી ટ્રિપ્સમાં શું બદલાવ આવ્યો?',
   'notifications.markUnread': 'વાંચ્યા વગરના તરીકે ચિહ્નિત કરો',
+  'notifications.subheading':
+    '{{count}} નવું — બુકિંગ પુષ્ટિઓ, સહયોગીઓની નોંધ, ભાડામાં ઘટાડો અને રિમાઇન્ડર.',
   'notifications.time.daysAgo': '{{count}} દિવસ પહેલા',
   'notifications.time.hoursAgo': '{{count}} કલાક પહેલા',
   'notifications.time.justNow': 'હમણાં જ',
@@ -134,6 +173,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'કનેક્ટેડ સેવાઓ, ચલણ, પુશ સૂચનાઓ અને તમે સાઇન ઇન કરો છો તે ઓળખપત્રો.',
   'signup.and': 'અને',
   'signup.eyebrow': 'વેપોઇન્ટમાં જોડાઓ',
+  'signup.haveAccount': 'પહેલેથી ભટકી રહ્યા છો?',
   'signup.heading': 'એક વાર પ્લાન કરો. સાથે ફરો.',
   'signup.namePlaceholder': 'આઇરિસ લાર્સન',
   'signup.subheading':
@@ -145,6 +185,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'પ્રવાસ યોજના ખોલો',
   'tripCountdownHeroCard.ctaSecondary': 'બીજી સફરની યોજના બનાવો',
   'tripCountdownHeroCard.daysLabel': '{{days}} દિવસો બાકી છે',
+  'tripCountdownHeroCard.eyebrow': 'આગલું સાહસ · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} રાત — તમારી ઇટિનરરી મુસાફરી માટે તૈયાર છે.',
   'tripCoverCard.stops': '{{count}} અટકે છે',
   'tripCoverCard.travelers': '{{count}} પ્રવાસીઓ',
   'tripDetail.addActivity': 'પ્રવૃત્તિ ઉમેરો',
@@ -154,6 +197,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'પ્રવૃત્તિનું શીર્ષક',
   'tripDetail.adding': 'ઉમેરી રહ્યા છીએ…',
   'tripDetail.backToTrips': 'બધી ટ્રિપ પર પાછા જાઓ',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'પ્રવાસીઓ',
   'tripDetail.dayLabel': 'દિવસ {{day}}',
   'tripDetail.empty': 'હજુ સુધી કોઈ પ્રવૃત્તિ નથી — સમયરેખા શરૂ કરવા માટે એક પ્રવૃત્તિ ઉમેરો.',
@@ -164,14 +208,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'પ્રવાસ યોજના • {{country}}',
   'tripDetail.invite': 'આમંત્રણ આપો',
   'tripDetail.inviteLabel': 'ઇમેઇલ દ્વારા આમંત્રણ આપો',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'આમંત્રણ મોકલ્યું {{email}} .',
   'tripDetail.inviting': 'મોકલી રહ્યું છે...',
   'tripDetail.loading': 'ટ્રિપ લોડ કરી રહ્યું છે...',
   'tripDetail.noCollaborators': 'હમણાં માટે ફક્ત તમે.',
+  'tripDetail.notesHeading': 'ટ્રિપ નોંધ',
   'tripDetail.notesPlaceholder': 'હજુ સુધી કોઈ નોંધ નથી.',
   'tripDetail.notFound.heading': 'ટ્રિપ મળી નથી',
   'tripDetail.openBookings': 'બુકિંગ ઇનબોક્સ ખોલો',
   'tripDetail.shareCopied': 'ક્લિપબોર્ડ પર કૉપિ કરેલી લિંક શેર કરો:',
+  'tripDetail.shareReady': 'શેર લિંક તૈયાર:',
   'tripDetail.stops': '{{count}} અટકે છે',
   'tripDetail.timelineEyebrow': 'દિવસની સમયરેખા',
   'tripDetail.timelineHeading': 'દિવસ-દર-દિવસ યોજના',
@@ -189,6 +236,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'પ્રવાસીઓ',
   'tripPlanner.heading': 'એક મિનિટમાં એક સફરનું સ્કેચ બનાવો.',
   'tripPlanner.preview.eyebrow': 'લાઇવ પૂર્વાવલોકન',
+  'tripPlanner.preview.placeholderCountry': 'દેશ પસંદ કરો',
   'tripPlanner.preview.placeholderDestination': 'તમારું આગામી સાહસ',
   'tripPlanner.section1.title': 'ક્યાં અને ક્યારે',
   'tripPlanner.section2.title': 'પ્રવાસીઓ અને બજેટ',
@@ -197,10 +245,13 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'દિવસ {{day}} — અહીં સ્ટોપ, પરિવહન અને બુકિંગ ઉમેરો.',
   'tripPlanner.section3.day2': 'દિવસ {{day}} — અહીં સ્ટોપ, પરિવહન અને બુકિંગ ઉમેરો.',
   'tripPlanner.section3.day3': 'દિવસ {{day}} — અહીં સ્ટોપ, પરિવહન અને બુકિંગ ઉમેરો.',
+  'tripPlanner.section3.title': 'દિવસ પ્લાન સ્ટાર્ટર',
   'tripPlanner.subheading':
     'નીચે મૂળભૂત બાબતો મૂકો — તમે હંમેશા સહયોગીઓને આમંત્રિત કરી શકો છો, સ્ટોપ ખેંચી શકો છો અને બુકિંગ પછીથી ફોરવર્ડ કરી શકો છો.',
   'tripPlanner.submit': 'ટ્રિપ બનાવો',
   'tripPlanner.submitting': 'બનાવી રહ્યું છે...',
+  'trips.empty.body': 'All trips પર પાછા સ્વિચ કરો અથવા તમારી આગલી સફરનું પ્લાનિંગ શરૂ કરો.',
+  'trips.empty.cta': 'સફર આયોજન કરો',
   'trips.empty.heading': 'તે ફિલ્ટર સાથે હજુ સુધી કંઈ મેળ ખાતું નથી.',
   'trips.eyebrow': 'એટલાસ',
   'trips.filterLabel': 'સ્ટેટસ દ્વારા ટ્રિપ્સ ફિલ્ટર કરો',
@@ -211,6 +262,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'હજુ સુધી કોઈ ટ્રિપ નથી.',
   'trips.pastHeading': 'ભૂતકાળના સાહસો',
   'trips.subheading': '{{count}} પ્રવાસ યોજનાઓ - ભૂતકાળ, વર્તમાન અને કોઈ દિવસ.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'એક વાર પ્લાન કરો. સાથે ભટકો. હંમેશા યાદ રાખો.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · 2024 થી {{appName}} સભ્યો',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}}એ ચાર દેશોની ધમાલભરી 3 અઠવાડિયાની ટ્રિપને અમે આજ સુધી શેર કરેલી સૌથી આરામદાયક ઇટિનરરીમાં ફેરવી.',
   'waypointLayout.mobileNavClose': 'નેવિગેશન મેનૂ બંધ કરો',
   'waypointLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',
 }

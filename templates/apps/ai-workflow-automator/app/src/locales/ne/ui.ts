@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'डेन्ड्राइट एउटा कार्यप्रवाह स्वचालन प्लेटफर्म हो जसले ट्रिगरहरू, एआई अवस्थाहरू, र बहु-चरण कार्यहरूलाई एकसाथ तार गर्दछ ताकि टोलीहरूले ग्लु कोड नलेखी प्रणालीहरू बीच काम सार्न सकून्।',
+  'about.philosophy':
+    'प्रत्येक वर्कफ्लो साना, अवलोकनयोग्य चरणहरूको ग्राफ हो। प्रत्येक चरणले आफ्ना इनपुट, आउटपुट र समय रेकर्ड गर्छ, ताकि यसलाई निरीक्षण, पुनःचलाउन वा रोलब्याक गर्न सकियोस्। तिनलाई दृश्यात्मक रूपमा रचना गर्नुहोस्, कोडजस्तै संस्करण गर्नुहोस्।',
   'about.title': 'डेन्ड्राइटको बारेमा',
   'authShell.brand': 'डेन्ड्राइट',
   'authShell.support': 'सहयोग',
@@ -15,9 +17,14 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'योजना परिवर्तन गर्नुहोस्',
   'billing.description':
     'प्रयोग ट्र्याक गर्नुहोस्, आफ्नो योजना व्यवस्थापन गर्नुहोस्, र लेखाको लागि बीजकहरू तान्नुहोस्।',
+  'billing.eyebrow': 'खाता · योजना र प्रयोग',
+  'billing.failedLabel': 'असफल रनहरू · २४ घण्टा',
+  'billing.invoicesEmpty':
+    'अहिलेसम्म कुनै इनभ्वाइस छैन। तपाईंको पहिलो सशुल्क नवीकरणपछि तिनीहरू यहाँ देखिनेछन्।',
   'billing.invoicesTitle': 'बीजक इतिहास',
   'billing.planNoteFree':
     'नि:शुल्क तह — {{runs}} दौडिन्छ र {{workflows}} सक्रिय कार्यप्रवाहहरू। उच्च सीमाहरूको लागि स्तरवृद्धि गर्नुहोस्।',
+  'billing.planNotePaid': 'सशुल्क योजना — {{runs}} रन र {{workflows}} सक्रिय वर्कफ्लो।',
   'billing.runsLabel': 'पछिल्लो २४ घण्टामा चलेको',
   'billing.tiersBlurb':
     'समर्पित मूल्य निर्धारण पृष्ठमा प्रत्येक तह - रनहरू, सक्रिय कार्यप्रवाहहरू, उन्नत सुविधाहरू, र समर्थन - तुलना गर्नुहोस्।',
@@ -35,10 +42,14 @@ export const ui: UiTranslations = {
     'कुनै पनि एकीकरण दर्ता गरिएको छैन। बन्डहरू सक्षम गर्न प्रदायक कुञ्जीहरू कन्फिगर गर्नुहोस्।',
   'connections.error': 'जडानहरू लोड गर्न सकिएन।',
   'connections.eyebrow': 'एकीकरण · {{connected}} जोडिएको',
+  'connections.loading': 'एकीकरणहरू लोड गर्दै…',
+  'connections.openEnv':
+    'यो प्रदायक जोड्न, api/.env मा यसको API कुञ्जी सेट गर्नुहोस् र सर्भर पुनःसुरु गर्नुहोस्।',
   'dashboard.description':
     '{{active}} कार्यप्रवाहहरू सक्रिय। {{failed}} पछिल्लो २४ घण्टामा असफल भयो।',
   'dashboard.error': 'ड्यासबोर्ड लोड गर्न सकिएन।',
   'dashboard.eyebrow': 'सञ्चालन · प्रत्यक्ष',
+  'dashboard.hero.label': 'आजका रनहरू',
   'dashboard.hero.medianLatency': 'p50 विलम्बता',
   'dashboard.hero.queue': 'लामको गहिराइ',
   'dashboard.hero.success': 'सफलता',
@@ -46,14 +57,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'मध्य अवधि',
   'dashboard.kpi.failedRuns': 'असफल भयो · २४ घण्टा',
   'dashboard.kpi.outOf': 'को {{total}} जम्मा',
+  'dashboard.kpi.successRate': 'सफलता दर · २४ घण्टा',
   'dashboard.loading': 'ड्यासबोर्ड लोड गर्दै...',
   'dashboard.recentRuns.empty':
     'अहिलेसम्म कुनै पनि रन छैन। कार्यप्रवाह ट्रिगर गर्नाले यो फिड भरिनेछ।',
   'dashboard.recentRuns.title': 'हालसालैका रनहरू',
   'dashboard.recentRuns.viewAll': 'खुला कार्यान्वयन →',
+  'dashboard.recentWorkflows.browse': 'टेम्प्लेटहरू ब्राउज गर्नुहोस् →',
   'dashboard.recentWorkflows.empty':
     'अहिलेसम्म कुनै कार्यप्रवाह छैन। टेम्प्लेट स्थापना गर्नुहोस् वा सुरुबाट एउटा बनाउनुहोस्।',
   'dashboard.recentWorkflows.title': 'हालसालै चलाइएको',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'सुरु भयो',
   'dashboard.run.col.trigger': 'ट्रिगर',
   'dashboard.run.col.workflow': 'कार्यप्रवाह',
@@ -88,6 +102,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'कार्यप्रवाह',
   'executions.description':
     'प्रत्येक कार्यप्रवाह चल्ने, प्रत्येक पुन: प्रयास गर्ने, प्रत्येक चरण आउटपुट - सबै अवलोकनयोग्य।',
+  'executions.empty.filter': 'यो फिल्टरसँग मिल्ने कुनै रन छैन।',
   'executions.empty.first': 'अहिलेसम्म कुनै रन छैन — यो सूची भर्न कार्यप्रवाह ट्रिगर गर्नुहोस्।',
   'executions.error': 'कार्यान्वयनहरू लोड गर्न सकिएन।',
   'executions.eyebrow': 'चलाइएको इतिहास',
@@ -97,30 +112,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'रन इतिहास लोड गर्दै...',
   'executions.title': 'मृत्युदण्डहरू',
   'forgotPassword.confirmation': 'पठाइएको लिङ्क रिसेट गर्नुहोस् {{email}} ।',
+  'forgotPassword.subhead': 'रिसेट लिङ्क प्राप्त गर्न आफ्नो इमेल प्रविष्ट गर्नुहोस्।',
   'forgotPassword.successSubhead':
     'हामीले रिसेट लिङ्क पठायौं {{email}} । यो ३० मिनेटमा समाप्त हुन्छ।',
   'help.connections.body':
     'एआई, इमेल, र भण्डारण चरणहरूका लागि प्रदायक कुञ्जीहरू api/.env फाइलमा सेट गर्न आवश्यक पर्दछ। एक पटक कुञ्जी कन्फिगर भएपछि, सम्बन्धित एकीकरण जडान पृष्ठमा जडान गरिएको रूपमा देखा पर्दछ।',
+  'help.connections.cta': 'खुला जडानहरू →',
   'help.connections.title': 'कनेक्टिङ प्रदायकहरू',
   'help.gettingStarted.body':
     'नयाँ कार्यप्रवाहहरू टेम्प्लेट लाइब्रेरीबाट स्थापना गर्न सकिन्छ वा कार्यप्रवाह बिल्डरमा स्क्र्याचबाट निर्माण गर्न सकिन्छ। प्रत्येक कार्यप्रवाहमा ट्रिगर (म्यानुअल, वेबहुक, वा क्रोन) र क्रमबद्ध रूपमा चल्ने चरणहरूको अनुक्रम हुन्छ।',
+  'help.gettingStarted.cta': 'टेम्प्लेट लाइब्रेरी हेर्नुहोस् →',
+  'help.gettingStarted.title': 'सुरु गर्दै',
   'help.intro':
     'कार्यप्रवाह निर्माण गर्ने, जडानहरू कन्फिगर गर्ने, र रन आउटपुटको व्याख्या गर्ने बारे सामान्य प्रश्नहरूको उत्तर खोज्नुहोस्। सबैभन्दा सामान्य विषयहरू तल सूचीबद्ध छन्; समेटिएको छैन भने, आफ्नो कार्यस्थान प्रशासकलाई सम्पर्क गर्नुहोस्।',
   'help.runs.body':
     'प्रत्येक रनले प्रत्येक चरणलाई स्थिति (सफलता, असफलता, छोडिएको) र आउटपुटको स्निपेटको साथ स्वतन्त्र रूपमा लग गर्छ। कार्यान्वयन विवरण पृष्ठले पूर्ण चरण-दर-चरण ट्रेस र अनुमानित मेट्रिक्स देखाउँछ।',
+  'help.runs.cta': 'खुला कार्यान्वयन →',
   'help.runs.title': 'रन आउटपुट पढ्दै',
   'help.title': 'मद्दत केन्द्र',
   'integrationCard.manage': 'व्यवस्थापन गर्नुहोस्',
   'landing.brand': 'डेन्ड्राइट',
   'landing.demo.action.subtitle': 'राउन्ड-रोबिन · क्षेत्र',
+  'landing.demo.action.title': 'प्रतिनिधिलाई सूचित गर्नुहोस्',
   'landing.demo.condition.subtitle': 'एआई इन्टेन्ट वर्गीकरणकर्ता',
+  'landing.demo.condition.title': 'स्कोर ≥ मध्यम?',
   'landing.demo.trigger.subtitle': 'पोस्ट / फारमहरू / सम्पर्क',
   'landing.demo.trigger.title': 'इनबाउन्ड वेबहुक',
+  'landing.features.body':
+    'ट्रिगरहरू सक्रिय हुन्छन्। सर्तहरू शाखा बनाउँछन्। कार्यहरूले काम सम्पन्न गर्छन्। तिनलाई दृश्यात्मक रूपमा रचना गर्नुहोस्, कोडजस्तै संस्करण गर्नुहोस्।',
   'landing.features.heading': 'तीन प्रकारका नोडहरू। अनन्त आकारहरू।',
   'landing.footer.help': 'मद्दत',
   'landing.footer.tagline': 'गतिशील बुद्धिमत्ता',
+  'landing.hero.body':
+    '{{appName}} Zapier भन्दा अगाडि बढेका अप्स टोलीहरूका लागि वर्कफ्लो इन्जिन हो। ट्रिगर, सर्त, कार्य — तपाईंले वास्तवमै प्रयोग गर्ने हरेक प्रणालीसँग जोडिएको।',
   'landing.hero.eyebrow': 'गतिशील बुद्धिमत्ता',
   'landing.hero.headline': 'आफ्नो स्ट्याकलाई तारले बाँध्नुहोस्। काम हुन दिनुहोस्।',
+  'landing.hero.primaryCta': 'आफ्नो पहिलो वर्कफ्लो बनाउनुहोस्',
   'landing.hero.proof.ai': 'निर्मित एआई नोडहरू',
   'landing.hero.proof.free': 'प्रति महिना १ हजार रनको लागि नि:शुल्क',
   'landing.hero.proof.soc2': 'SOC २ प्रकार II',
@@ -128,10 +155,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'दौडको लागि तिर्नुहोस्, सिटको लागि होइन।',
   'landing.templates.body':
     'प्रत्येक टोलीको लागि पूर्व-वायर्ड कार्यप्रवाहहरू — बिक्री, समर्थन, विकास-अप्स, वित्त। एक क्लिकमा स्थापना गर्नुहोस्; जे पनि ट्वीक गर्नुहोस्।',
+  'landing.templates.cta': 'टेम्प्लेट हेर्न साइन अप गर्नुहोस् →',
   'landing.templates.eyebrow': 'केही सेकेन्डमा सुरु गर्नुहोस्',
   'landing.templates.heading': 'जाँच गरिएका रेसिपीहरूको पुस्तकालय।',
   'landing.templates.signupHint': 'स्थापना गर्न साइन अप गर्नुहोस्',
   'login.hidePassword': 'पासवर्ड लुकाउनुहोस्',
+  'login.noAccount': 'टेसेरामा नयाँ हुनुहुन्छ?',
   'login.showPassword': 'पासवर्ड देखाउनुहोस्',
   'login.subhead': 'आफ्नो स्वचालनलाई निरन्तरता दिन साइन इन गर्नुहोस्।',
   'mobileNav.drawerLabel': 'मुख्य नेभिगेसन',
@@ -147,8 +176,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'यो फिड भर्न सुरु गर्न कार्यप्रवाह चलाउनुहोस्।',
   'notifications.empty.title': 'तपाईं सबै हेर्नुभयो।',
   'notifications.eyebrow': '{{n}} नपढिएको',
+  'planUpdated.body':
+    'तपाईंको बिलिङ परिवर्तन अब सक्रिय छ। तपाईं बिलिङ पृष्ठबाट कुनै पनि समय आफ्नो योजना व्यवस्थापन गर्न सक्नुहुन्छ।',
+  'planUpdated.retry': 'फेरि प्रयास गर्नुहोस्',
+  'planUpdated.verifyFailed': 'हामीले तपाईंको भुक्तानी अझै पुष्टि गर्न सकेनौं।',
+  'planUpdated.verifyFailedBody':
+    'तपाईंको भुक्तानी अझै पनि प्रशोधन भइरहेको हुन सक्छ। केही बेरमा फेरि प्रयास गर्नुहोस्।',
   'planUpdated.verifying': 'तपाईंको भुक्तानी पुष्टि गर्दै…',
   'pricing.heading': 'दौडिन्छ',
+  'pricing.runsSuffix': 'रनहरू',
   'pricing.workflowsSuffix': 'कार्यप्रवाहहरू',
   'privacy.collect.body':
     'हामी तपाईंले साइन अप गर्नुभएको इमेल ठेगाना, तपाईंले कन्फिगर गर्नुभएको कार्यप्रवाह र प्रत्येक रनको बारेमा मेटाडेटा (सुरु समय, समाप्ति समय, स्थिति) सङ्कलन गर्छौं। हामी कार्यस्थान मालिकको लागि रन भ्यूअरमा प्रदर्शन गर्न आवश्यक पर्ने भन्दा बाहिर ट्रिगरहरू वा चरण आउटपुटहरूबाट पेलोड सामग्रीहरू कहिल्यै सङ्कलन वा भण्डारण गर्दैनौं।',
@@ -164,12 +200,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'पासवर्ड अपडेट गर्न सकिएन।',
   'resetPassword.newPassword': 'नयाँ पासवर्ड',
   'resetPassword.subhead': 'तपाईंले मात्र अनुमान गर्न सक्ने कुरा छान्नुहोस्।',
+  'settings.appearance.description': 'लाइट र डार्क मोड बीच टगल गर्नुहोस्।',
+  'settings.appearance.title': 'उपस्थिति',
   'settings.billingShortcut.cta': 'बिलिङ खोल्नुहोस्',
   'settings.billingShortcut.description':
     'योजना, प्रयोग र बीजकहरू समर्पित बिलिङ पृष्ठमा प्रत्यक्ष छन्।',
   'settings.danger.confirm':
     'के तपाईं निश्चित हुनुहुन्छ? यसले तपाईंको कार्यस्थानलाई मेटाउनको लागि लामबद्ध गर्नेछ।',
   'settings.danger.confirmYes': 'हो, लाम मेटाउने',
+  'settings.danger.deleteWorkspace.cta': 'कार्यस्थान मेटाउनुहोस्',
   'settings.danger.deleteWorkspace.hint':
     '१४-दिनको ग्रेस अवधि पछि सबै कार्यप्रवाह, रन र जडानहरू हटाउँछ।',
   'settings.danger.deleteWorkspace.title': 'कार्यस्थान मेटाउनुहोस्',
@@ -180,8 +219,12 @@ export const ui: UiTranslations = {
     'आफ्नो खाता, कार्यस्थान, एकीकरण, र बिलिङ एकै ठाउँमा व्यवस्थापन गर्नुहोस्।',
   'settings.notifications.description':
     'कुन घटनाहरूले तपाईंलाई पृष्ठ बनाउने, इमेल गर्ने वा मौन बस्ने छनौट गर्नुहोस्।',
+  'settings.notifications.failures.hint': 'हरेक असफल रनमा इमेल र इन-एप सूचना।',
+  'settings.notifications.failures.title': 'वर्कफ्लो असफलताहरू',
   'settings.notifications.product.hint': 'नयाँ टेम्प्लेट र सुविधाहरूको बारेमा कहिलेकाहीं इमेलहरू।',
+  'settings.notifications.product.title': 'उत्पादन अपडेटहरू',
   'settings.notifications.weekly.hint': 'सोमबार बिहानको गत हप्ताको दौड र बचतको सारांश।',
+  'settings.notifications.weekly.title': 'साप्ताहिक सारांश',
   'settings.profile.description':
     'कार्यप्रवाह धावक भित्र तपाईं कसरी देखा पर्नुहुन्छ। कार्यस्थान गतिविधिमा प्रयोग गरिन्छ।',
   'settings.profile.noEmail': 'रेकर्डमा कुनै इमेल छैन',
@@ -189,12 +232,23 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'प्रोफाइल परिवर्तनहरू बचत गर्न सकिएन।',
   'settings.profile.unnamedUser': 'नाम नभएको प्रयोगकर्ता',
   'settings.security.audit.hint': 'वेबहुक मार्फत तपाईंको SIEM मा हरेक कार्य स्ट्रिम गर्नुहोस्।',
+  'settings.security.audit.title': 'अडिट लग फर्वार्डिङ',
   'settings.security.description': 'दुई-कारक प्रमाणीकरण, SSO, र सक्रिय सत्रहरू।',
   'settings.security.sso.hint': 'स्केल र इन्टरप्राइज योजनाहरूमा उपलब्ध छ।',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'कुनै पनि वर्कस्पेस मालिक कार्यका लागि आवश्यक।',
+  'settings.security.totp.title': 'दुई-कारक प्रमाणीकरण (TOTP)',
   'settings.twoFactorCode': 'प्रमाणीकरण कोड',
   'settings.twoFactorDisable': 'असक्षम पार्नुहोस्',
+  'settings.twoFactorDisableTitle': 'दुई-कारक प्रमाणीकरण अक्षम गर्नुहोस्',
   'settings.twoFactorEnable': 'सक्षम पार्नुहोस्',
+  'settings.twoFactorEnableTitle': 'दुई-कारक प्रमाणीकरण सक्षम गर्नुहोस्',
   'settings.twoFactorInvalidCode': 'अमान्य कोड',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'दुई-कारक QR कोड',
+  'settings.twoFactorScan':
+    'यो QR कोड आफ्नो प्रमाणीकरण एपले स्क्यान गर्नुहोस्, त्यसपछि ६ अंकको कोड लेख्नुहोस्।',
+  'settings.twoFactorUnavailable': 'यो एपमा दुई-कारक प्रमाणीकरण उपलब्ध छैन।',
   'settings.twoFactorVerify': 'प्रमाणित गर्नुहोस् र सक्षम गर्नुहोस्',
   'settings.workspace.description':
     'तपाईंको टोलीको लागि साझा पहिचान, क्षेत्र, र रन पूर्वनिर्धारितहरू।',
@@ -223,6 +277,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'टेम्प्लेट',
   'templates.description':
     'सबैभन्दा सामान्य स्वचालनका लागि पूर्व-निर्मित खाकाहरू। फोर्क, अनुकूलन, ढुवानी।',
+  'templates.empty.filter': 'तपाईंको खोजसँग मिल्ने कुनै टेम्प्लेट छैन।',
   'templates.empty.first': 'अहिले कुनै पनि टेम्प्लेट उपलब्ध छैन।',
   'templates.error': 'टेम्प्लेटहरू लोड गर्न सकिएन।',
   'templates.installs': 'स्थापना गर्छ',
@@ -248,6 +303,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'असक्षम पार्नुहोस्',
   'workflowBuilder.enable': 'सक्षम पार्नुहोस्',
   'workflowBuilder.error': 'कार्यप्रवाह लोड गर्न सकिएन।',
+  'workflowBuilder.inspector.config': 'कन्फिग',
+  'workflowBuilder.inspector.cron': 'क्रोन अभिव्यक्ति',
+  'workflowBuilder.inspector.disabled': 'अक्षम — स्वचालित रूपमा चल्ने छैन।',
   'workflowBuilder.inspector.enabled': 'सक्षम पारिएको — ट्रिगरमा चल्छ।',
   'workflowBuilder.inspector.eyebrow': 'निरीक्षक',
   'workflowBuilder.inspector.id': 'आईडी',
@@ -266,18 +324,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'टगल गर्न असफल भयो।',
   'workflowBuilder.workflow': 'कार्यप्रवाह · v {{v}}',
   'workflowBuilder.zoom.in': 'जुम इन गर्नुहोस्',
+  'workflowBuilder.zoom.label': 'क्यानभास जुम नियन्त्रणहरू',
+  'workflowBuilder.zoom.out': 'जुम आउट गर्नुहोस्',
   'workflowCard.lastRun': 'अन्तिम दौड {{when}}',
   'workflowCard.runs': '{{count}} दौडिन्छ',
+  'workflowCard.success': '{{rate}}% सफलता',
   'workflowHeroCard.last24h': 'पछिल्लो २४ घण्टा',
+  'workflows.browseTemplates': 'टेम्प्लेटहरू ब्राउज गर्नुहोस् →',
   'workflows.description':
     'तपाईंको कार्यस्थानमा रहेको हरेक स्वचालन, स्वास्थ्य र हालसालैका गतिविधिहरू एकै नजरमा।',
+  'workflows.empty.body': 'फिल्टर हटाएर वा टेम्प्लेटबाट सुरु गरेर प्रयास गर्नुहोस्।',
   'workflows.empty.firstBody': 'केही सेकेन्डमै सुरु गर्न टेम्प्लेट स्थापना गर्नुहोस्।',
   'workflows.empty.firstTitle': 'अहिलेसम्म कुनै पनि कार्यप्रवाह छैन',
   'workflows.empty.title': 'कुनै पनि कार्यप्रवाह मिलेन',
   'workflows.error': 'कार्यप्रवाहहरू लोड गर्न सकिएन।',
   'workflows.eyebrow': 'पुस्तकालय · {{count}} जम्मा',
+  'workflows.loading': 'वर्कफ्लोहरू लोड हुँदैछन्…',
   'workflows.newFromTemplate': 'टेम्प्लेटबाट नयाँ',
   'workflows.searchPlaceholder': 'कार्यप्रवाहहरू खोज्नुहोस्...',
+  'workflows.title': 'वर्कफ्लोहरू',
   'workflowSidebar.brand': 'डेन्ड्राइट',
   'workflowSidebar.status': 'सबै प्रणालीहरू चलिरहेका छन्',
   'workflowSidebar.tagline': 'गतिशील बुद्धिमत्ता',

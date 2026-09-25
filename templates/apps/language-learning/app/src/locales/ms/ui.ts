@@ -1,12 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ada soalan, maklum balas atau pepijat untuk dilaporkan? Hubungi pasukan kami melalui tetapan akaun anda — setiap mesej sampai kepada manusia sebenar yang juga belajar bahasa.',
   'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang kami',
+  'about.missionTitle': 'Misi kami',
+  'about.whatYouGet': 'Yang Anda dapatkan',
   'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'common.logout': 'Log keluar',
+  'dailyStatsTriad.heartsHint': 'Isi semula pada setiap permulaan pelajaran',
   'dailyStatsTriad.heartsLabel': 'Hati',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
+  'dailyStatsTriad.minutesHint': 'Daripada latihan hari ini',
   'dailyStatsTriad.minutesLabel': 'Minit hari ini',
   'dailyStatsTriad.minutesValue': '{{count}} min',
   'dailyStatsTriad.wordsLabel': 'Perkataan yang dikuasai',
@@ -15,17 +21,28 @@ export const ui: UiTranslations = {
   'dashboard.heading': 'Buenos días, {{name}} .',
   'dashboard.loadError':
     'Tidak dapat memuatkan kemajuan terkini — menunjukkan nilai yang disimpan dalam cache.',
+  'dashboard.loading': 'Menyegarkan…',
   'dashboard.noLessons': 'Tiada pelajaran tersedia lagi — sila semak semula nanti.',
+  'dashboard.startPractice': 'Mula latihan bertutur',
+  'dashboard.subheading':
+    'Sambung dari tempat anda berhenti — tiga sesi pendek dan anda akan capai sasaran hari ini.',
   'dashboard.viewAllLessons': 'Semua pelajaran →',
+  'forgotPassword.subheading': 'Masukkan e-mel anda dan kami akan hantar pautan set semula.',
   'forgotPassword.successBody':
     'Semak peti masuk anda — kami telah menghantar pautan untuk menetapkannya semula.',
   'forgotPassword.successHint':
     'Jika {{email}} sepadan dengan akaun, pautan tersebut akan tiba dalam masa seminit.',
+  'landing.copyright': '© {{year}} {{app}}. Dibina untuk pelajar dewasa.',
   'landing.ctaBody': 'Kad tidak diperlukan. Tinggalkan emel anda, pilih bahasa, mula esok.',
   'landing.ctaHeading': 'Bersedia untuk mencari loghat anda?',
   'landing.eyebrow': 'Latihan bahasa harian untuk orang dewasa',
   'landing.featuresHeading': 'Gelung latihan yang menghormati masa anda',
+  'landing.featuresSubheading':
+    'Direka untuk orang dewasa yang ada tiga puluh minit sehari, bukan tiga puluh jam seminggu.',
   'landing.heroCta': 'Mulakan rentetan 7 hari',
+  'landing.heroSubtitle':
+    'Pelajaran lima minit yang sesuai untuk waktu rehat kopi. Latih tubi, kosa kata, bertutur — semuanya dibalut dalam rentetan yang anda benar-benar akan kekalkan.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.languagesEyebrow': 'Pilih bahasa',
   'landing.languagesHeading': 'Empat belas bahasa, satu tabiat harian',
   'landing.proof.languages': '{{count}} bahasa',
@@ -40,11 +57,18 @@ export const ui: UiTranslations = {
   'leaderboard.heading': 'Papan Pendahulu',
   'leaderboard.loadError': 'Tidak dapat memuatkan papan pendahulu.',
   'leaderboard.loading': 'Memuatkan papan pendahulu…',
+  'leaderboard.rewardBody':
+    'Mengekalkan emas tiga minggu berturut-turut menaikkan anda ke berlian. Pertaruhan mesra sahaja.',
+  'leaderboard.rewardEyebrow': 'Hadiah minggu ini',
+  'leaderboard.rewardHeading': '{{count}} teratas mendapat lencana liga emas',
   'leaderboard.subheading':
     'XP minggu ini. Akan ditetapkan semula pada tengah malam Ahad dalam waktu tempatan anda.',
   'leaderboard.weeklyPeriod': 'Minggu ini · kawan-kawan',
+  'leaderboardPanel.rankSuffix': 'Pangkat # {{rank}}',
   'leaderboardPanel.title': 'Papan pendahulu rakan',
+  'leaderboardPanel.xp': '{{xp}} XP',
   'leaderboardPanel.you': '(Awak)',
+  'lessonCard.continue': 'Teruskan →',
   'lessonCard.duration': '{{min}} min',
   'lessonCard.level': 'Aras {{level}}',
   'lessonCard.progressPercent': '{{percent}} % selesai',
@@ -53,14 +77,17 @@ export const ui: UiTranslations = {
   'lessonDetail.check': 'Semak',
   'lessonDetail.checking': 'Memeriksa…',
   'lessonDetail.correct': 'Cemerlang!',
+  'lessonDetail.correctHint': '+{{xp}} XP. Teruskan.',
   'lessonDetail.empty': 'Tiada latihan dalam pelajaran ini.',
   'lessonDetail.exit': 'Keluar dari pelajaran',
   'lessonDetail.fillBlank': 'Isi tempat kosong',
   'lessonDetail.finish': 'Selesaikan pelajaran',
   'lessonDetail.incorrect': 'Tidak sepenuhnya — “ {{answer}} "',
+  'lessonDetail.incorrectHint': 'Anda akan lihat yang ini lagi dalam ulasan esok.',
   'lessonDetail.lessonId': 'Pelajaran · {{id}}',
   'lessonDetail.loadError': 'Tidak dapat memuatkan latihan.',
   'lessonDetail.loading': 'Memuatkan pelajaran…',
+  'lessonDetail.pronunciation': 'Pilih sebutan yang betul',
   'lessonDetail.submitError': 'Tidak dapat menyerahkan jawapan.',
   'lessonDetail.translation': 'Terjemahkan frasa tersebut',
   'lessonDetail.xpEarned': 'XP yang diperolehi · {{xp}}',
@@ -79,6 +106,12 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'Buka menu navigasi',
   'parlanceLayout.nav.profile': 'Profil',
   'parlanceLayout.primaryNavLabel': 'Navigasi utama',
+  'planUpdated.body':
+    'Perubahan bil anda kini aktif. Anda boleh urus pelan anda bila-bila masa dari halaman bil.',
+  'planUpdated.retry': 'Cuba lagi',
+  'planUpdated.verifyFailed': 'Kami belum dapat mengesahkan pembayaran anda.',
+  'planUpdated.verifyFailedBody':
+    'Pembayaran anda mungkin masih diproses. Cuba lagi sebentar lagi.',
   'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
   'practice.empty': 'Tiada frasa yang tersedia lagi.',
   'practice.eyebrow': 'Latihan berucap',
@@ -102,6 +135,9 @@ export const ui: UiTranslations = {
   'pricing.limits.progress': 'entri kemajuan',
   'profile.anonymous': 'Pelajar',
   'profile.avatarAlt': '{{name}} avatar',
+  'profile.eyebrow': 'Ahli sejak {{joined}}',
+  'profile.eyebrowNew': 'Pelajar baharu',
+  'profile.langLessonCount': '{{count}} pelajaran',
   'profile.langLevel': 'Aras {{level}}',
   'profile.languages': 'Bahasa',
   'profile.languagesHeading': 'Bahasa yang sedang dibangunkan',
@@ -111,6 +147,7 @@ export const ui: UiTranslations = {
   'profile.streak': 'Siri',
   'profile.totalXp': 'Jumlah XP',
   'resetPassword.confirmPlaceholder': 'Taipkannya semula',
+  'resetPassword.mismatch': 'Kata laluan tidak sepadan.',
   'resetPassword.newPasswordLabel': 'Kata laluan baharu',
   'resetPassword.newPasswordPlaceholder': 'Lapan aksara atau lebih',
   'resetPassword.subheading': 'Pilih sesuatu yang tidak dapat dilupakan, lapan aksara atau lebih.',
@@ -118,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Keutamaan amalan',
   'settings.goalBody':
     'Berapa banyak XP yang anda sasarkan setiap hari. Rentetan akan dikekalkan setiap kali anda mencapai matlamat.',
+  'settings.goalHeading': 'Matlamat harian',
   'settings.goalMinutes': '~ {{min}} min/hari',
   'settings.language.description':
     'Pilih bahasa yang digunakan di seluruh menu dan label aplikasi.',

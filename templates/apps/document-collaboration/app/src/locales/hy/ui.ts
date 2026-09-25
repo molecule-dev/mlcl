@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ունե՞ք արձագանք, գտե՞լ եք սխալ, թե՞ ցանկանում եք {{app}} ձեր ստուդիայի կամ թիմի համար։ Կապվեք մեզ հետ ձեր հաշվի կարգավորումներից — յուրաքանչյուր հաղորդագրություն հասնում է թիմի իրական մարդու։',
   'about.contactTitle': 'Կապվեք մեզ հետ',
+  'about.intro':
+    '{{app}}-ը համագործակցային գրելու ստուդիա է, որտեղ խմբագիրները, գրողները և թիմերը միասին ստեղծագործում են իրական ժամանակում։ Բացեք փաստաթուղթ, և էջը դառնում է ընդհանուր — կուրսորները շարժվում են, մեկնաբանությունները հոսում են լուսանցքում, և յուրաքանչյուր վերանայում ապահով պահվում է պատմության մեջ։',
+  'about.missionBody':
+    'Մենք հավատում ենք, որ երկար ձևաչափի գրությունը արժանի է հանգիստ, կենտրոնացված տան — որը կառուցված է ձեռագրի շուրջ, ոչ թե հանդիպման կամ փոստարկղի։ Մեր խմբագիրը, իրական ժամանակի ներկայությունը և տարբերակների պատմությունը նախագծված են այնպես, որ համահեղինակները կարողանան արագ առաջ շարժվել միասին՝ առանց որևէ մեկի պարբերություն կամ միտք կորցնելու։',
+  'about.missionTitle': 'Մեր առաքելությունը',
+  'about.subtitle': 'Մտածեք միասին, գրեք հավերժ։',
   'about.title': '{{app}}-ի մասին',
   'comments.addFailed': 'Չհաջողվեց մեկնաբանություն հրապարակել։',
   'comments.backToDoc': 'Վերադառնալ ձեռագրին',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Մեկնաբանությունների թեմաներ',
   'comments.loading': 'Բեռնվում են թեմաները…',
   'comments.newPlaceholder': 'Ձեռագրին մեկնաբանություն ավելացնել…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Վերաբացել',
   'comments.reopenFailed': 'Հնարավոր չէ վերաբացել։',
   'comments.replyFailed': 'Չհաջողվեց հրապարակել պատասխանը։',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Վերջին սևագրերը, համատեղ աշխատանքները և օրվա խմբագրումները։',
   'dashboard.viewFeed': 'Կերակրում →',
   'editor.back': 'Վերադառնալ ձեռագրերին',
+  'editor.bodyLabel': 'Փաստաթղթի բովանդակությունը',
   'editor.bodyPlaceholder': 'Սկսեք այնտեղից, որտեղ կուրսորը թարթում է։',
   'editor.comments': 'Մեկնաբանություններ',
   'editor.createFailed': 'Հնարավոր չէ ստեղծել փաստաթուղթը։',
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'գրող@studio.com',
   'forgotPassword.sentBody':
     'Եթե հաշիվ գոյություն ունի {{email}} , վերակայման հղումը ճանապարհին է։',
+  'forgotPassword.sentHeading': 'Ստուգեք ձեր էլ. փոստը',
+  'forgotPassword.submitting': 'Ուղարկվում է\\u2026',
   'forgotPassword.subtitle': 'Մենք ձեզ կուղարկենք վերակայման հղում էլ. փոստով։',
   'landing.copyright': '\\u00a9 {{year}} {{app}} ։ Կառուցված է Molecule-ով։',
+  'landing.ctaBody':
+    'Անվճար է անհատ գրողների համար։ Ստուդիայի փաթեթները՝ խմբագիրների, ուրվական գրողների և գրախոսների թիմերի համար։',
   'landing.ctaHeading': 'Բացեք էջը։ Թող կուրսորը սկսի շարժվել։',
   'landing.ctaPrimary': 'Բացեք ստուդիա',
   'landing.eyebrow': 'Գրողների, խմբագիրների և թիմերի համար',
   'landing.featuresEyebrow': 'Ինչ եք ստանում',
   'landing.featuresHeading': 'Երկարաժամկետ նախագծի համար ստուդիա։',
+  'landing.featuresSubtitle':
+    '{{appName}}-ը կառուցված է ձեռագրի շուրջ — ոչ հանդիպման, ոչ փոստարկղի։',
   'landing.getStarted': 'Բացեք ստուդիան',
   'landing.heroCta': 'Սկսեք գրել',
   'landing.heroSubtitle':
@@ -95,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} չկարդացված · մեկնաբանություններ, հիշատակումներ, համօգտագործման հրավերներ և առաջարկների հարցումներ:',
   'presenceAvatars.label': '{{count}} համագործակիցներ',
+  'privacy.intro': 'Ինչպես ենք մենք հավաքում, օգտագործում և պաշտպանում ձեր տեղեկատվությունը։',
   'privacy.title': 'Գաղտնիության քաղաքականություն',
   'profile.about.description': 'Կարճ կենսագրություն ձեր հանրային էջի և հեղինակների էջերի համար։',
   'profile.eyebrow': 'Ստուդիայի ինքնությունը',
@@ -107,7 +124,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Ներկայություն',
   'profile.pronouns': 'Դերանուններ',
   'profile.publicToggle': 'Ցուցադրել պրոֆիլը թիմակիցներին',
+  'profile.role': 'Դեր / պաշտոն',
   'profile.subtitle': 'Ինչպես եք երևում ձեր գործընկերներին։',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} ստուդիայում ակտիվ գրողներ',
   'quillonAuthBrandPanel.quote':
     '«Գրելը միակ բանն է, որով զբաղվելիս չեմ զգում, որ պետք է ուրիշ բան անեմ»։',
@@ -115,6 +134,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Բացել →',
   'quillonKpiCard.trend': 'Վերջին միտումը',
   'quillonLayout.menu': 'Մենյու',
+  'quillonLayout.mobileNavLabel': 'Բջջային նավիգացիա',
   'quillonLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
   'quillonStudioHero.collab': 'Համագործակիցներ',
   'quillonStudioHero.docs': 'Փաստաթղթերը շոշափվեցին',
@@ -124,7 +144,9 @@ export const ui: UiTranslations = {
     'Վերցրեք ձեռագիրը, թողեք մեկնաբանություն, առաջ մղեք մեկ պարբերություն։',
   'quillonStudioHero.words': 'Բառեր այսօր',
   'resetPassword.confirmPlaceholder': 'Կրկնեք նոր գաղտնաբառը',
+  'resetPassword.passwordLabel': 'Նոր գաղտնաբառ',
   'resetPassword.passwordPlaceholder': 'Մուտքագրեք նոր գաղտնաբառ',
+  'resetPassword.submitting': 'Վերագործարկվում է…',
   'resetPassword.subtitle': 'Ընտրեք ուժեղ գաղտնաբառ՝ առնվազն 12 նիշ։',
   'settings.account.description': 'Մուտք գործելու եղանակը։',
   'settings.billing.canceled': 'Բաժանորդագրությունը չեղարկվել է։',
@@ -133,7 +155,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Կարգավորված չէ',
   'settings.billing.updated': 'Պլանը թարմացված է։',
   'settings.editor.description': 'Ինչպես է կտավը պահում իրեն, երբ դու գրում ես։',
+  'settings.editor.title': 'Խմբագրի նախընտրություններ',
   'settings.eyebrow': 'Ստուդիայի նախընտրությունները',
+  'settings.language.title': 'Լեզու',
   'settings.notifications.${n.key}.description': 'Լեզու',
   'settings.notifications.description': 'Ընտրեք, թե ինչ է հասնում ձեր էլ. փոստին։',
   'settings.subtitle': 'Կարգավորեք ծանուցումները, խմբագրիչի կտավը և ձեր հաշվի նախընտրությունները։',
@@ -142,6 +166,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Կիսվել է ինձ հետ',
   'shared.loadFailed': 'Հնարավոր չէ բեռնել համօգտագործվող փաստաթղթերը։',
   'shared.subtitle': 'Ձեռագրեր, համառոտ տեղեկանքներ և նշումներ ստուդիայի մնացած մասից։',
+  'signup.brandAttribution': 'Anaïs Park — Խմբագիր, The Quarterly',
   'signup.brandQuote':
     '\\u201cՁեր առաջին ձեռագիրն ամենադժվարն է։ Քվիլոնը այն պակաս միայնակ է դարձնում։\\u201d',
   'signup.emailPlaceholder': 'գրող@studio.com',
@@ -149,6 +174,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Անաիս',
   'signup.heading': 'Ստեղծեք ձեր Quillon հաշիվը',
   'signup.lastNamePlaceholder': 'Այգի',
+  'signup.submitting': 'Բացվում է ձեր ստուդիան…',
   'signup.subtitle':
     'Հանգիստ սեղան, շրջապատող համագործակիցներ և երկարատև խմբագրիչ, որը կխանգարի ձեզ։',
   'templates.blank.subtitle': 'Մաքուր էջ։ Կուրսորը սկսում է շարժվել։',
@@ -161,11 +187,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Սկսեք մտածված կառուցվածքից։ Անվերջ անհատականացրեք։',
   'templates.useFailed': 'Հնարավոր չէ փաստաթուղթ սկսել այս ձևանմուշից։',
   'templates.useTemplate': 'Օգտագործեք այս ձևանմուշը',
+  'terms.intro': 'Այն պայմանները, որոնց համաձայն կարող եք օգտվել այս ծառայությունից։',
   'terms.title': 'Ծառայության պայմաններ',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'հենց հիմա',
   'trash.confirmDelete': 'Հաստատեք ջնջումը',
+  'trash.confirmEmpty': 'Հաստատել — ջնջել ամեն ինչ',
   'trash.deleteFailed': 'Հնարավոր չէ ջնջել։',
   'trash.deleteForever': 'Ջնջել ընդմիշտ',
   'trash.empty': 'Վերականգնելու ոչինչ չկա։',
@@ -180,7 +208,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'Դեռևս փոփոխություններ չկան. պահպանեք փաստաթուղթը՝ դրա պատմությունը սկսելու համար։',
   'versionHistory.heading': 'Տարբերակների պատմություն',
+  'versionHistory.latest': 'Վերջին',
   'versionHistory.loadFailed': 'Հնարավոր չէ բեռնել պատմությունը։',
+  'versionHistory.noContent': 'Այս վերանայման համար բովանդակություն չի գրանցվել։',
   'versionHistory.previewing': 'Նախադիտում',
   'versionHistory.restore': 'Վերականգնել այս տարբերակը',
   'versionHistory.restoreFailed': 'Վերականգնումը ձախողվեց։',

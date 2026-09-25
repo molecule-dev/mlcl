@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Ị nwere nzaghachi, chọtara nsogbu, ma ọ bụ chọrọ {{app}} maka ụlọ ọrụ ma ọ bụ otu gị? Kpọtụrụ anyị site na ntọala akaụntụ gị — ozi ọ bụla na-erute onye nọ n'otu ahụ.",
   'about.contactTitle': 'Gwa anyị okwu',
+  'about.intro':
+    "{{app}} bụ ụlọ ọrụ ide ihe na-emekọ ihe ọnụ ebe ndị nchịkọta akụkọ, ndị edemede, na otu dị iche iche na-edekọ ihe n'otu oge. Mepee akwụkwọ, ibe ahụ ga-aghọ nke a na-ekerịta — cursors na-akwagharị, okwu na-agbakọ na nsọtụ, na ndekọ ọ bụla na-echekwa na akụkọ ihe mere eme.",
+  'about.missionBody':
+    "Anyị kwenyere na ide ihe ogologo kwesịrị ebe dị jụụ, lekwasịrị anya — nke e wuru gburugburu ihe odide ahụ, ọ bụghị nzukọ ma ọ bụ igbe ozi. Onye nchịkọta akụkọ anyị, ọnụnọ oge-ewe, na akụkọ nsụgharị niile e mere ka ndị na-emekọ ihe nwee ike ịga ngwa ngwa ọnụ n'enweghị onye tụfuru paragraf ma ọ bụ echiche.",
+  'about.missionTitle': 'Ọrụ anyị',
+  'about.subtitle': 'Chee echiche ọnụ, dee ruo mgbe ebighị ebi.',
   'about.title': 'Gbasara {{app}}',
   'comments.addFailed': 'Enweghị m ike ide okwu.',
   'comments.backToDoc': 'Laghachi na akwụkwọ edemede',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Isiokwu ndị na-ekwu okwu',
   'comments.loading': 'Na-ebugo eriri...',
   'comments.newPlaceholder': 'Tinye okwu na akwụkwọ edemede ahụ…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Meghee ọzọ',
   'comments.reopenFailed': 'Enweghị ike imepeghachi.',
   'comments.replyFailed': 'Enweghị m ike izipu azịza.',
@@ -39,6 +48,7 @@ export const ui: UiTranslations = {
     "Edemede ndị e dekọrọ n'oge na-adịbeghị anya, ọrụ ndị e kesara, na ndezi nke ụbọchị ahụ.",
   'dashboard.viewFeed': 'Nri →',
   'editor.back': 'Laghachi na akwụkwọ edemede',
+  'editor.bodyLabel': 'Ahụ akwụkwọ',
   'editor.bodyPlaceholder': 'Malite ebe kọsọ ahụ na-afụ ọkụ.',
   'editor.comments': 'Okwu ndị mmadụ na-ekwu',
   'editor.createFailed': 'Enweghị ike ịmepụta akwụkwọ ahụ.',
@@ -62,13 +72,19 @@ export const ui: UiTranslations = {
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody': 'Ọ bụrụ na akaụntụ dị maka {{email}} , njikọ nrụpụta na-abịa.',
+  'forgotPassword.sentHeading': 'Lelee email gị',
+  'forgotPassword.submitting': 'Na-eziga\\u2026',
   'forgotPassword.subtitle': 'Anyị ga-ezitere gị njikọ nrụpụta email.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Ejiri Molekulu rụọ ya.',
+  'landing.ctaBody':
+    "N'efu maka ndị edemede naanị ha. Atụmatụ ụlọ ọrụ maka otu ndị nchịkọta akụkọ, ndị na-ede akwụkwọ, na ndị na-enyocha.",
   'landing.ctaHeading': 'Mepee peeji ahụ. Ka kọsọ malite.',
   'landing.ctaPrimary': 'Mepee ụlọ ihe nkiri',
   'landing.eyebrow': 'Maka ndị edemede, ndị nchịkọta akụkọ, na ndị otu',
   'landing.featuresEyebrow': 'Ihe ị nwetara',
   'landing.featuresHeading': 'Studio maka usoro ogologo oge.',
+  'landing.featuresSubtitle':
+    'E wuru {{appName}} gburugburu ihe odide ahụ — ọ bụghị nzukọ, ọ bụghị igbe ozi.',
   'landing.getStarted': 'Mepee studio ahụ',
   'landing.heroCta': 'Malite ide ihe',
   'landing.heroSubtitle':
@@ -95,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} agụghị · okwu, okwu ndị a kpọtụrụ aha, ịkpọ òkù, na arịrịọ aro.',
   'presenceAvatars.label': '{{count}} ndị na-emekọ ihe ọnụ',
+  'privacy.intro': 'Otu anyị si anakọta, jiri, na chekwaa ozi gị.',
   'privacy.title': 'Amụma nzuzo',
   'profile.about.description':
     'Nkọwa dị mkpirikpi maka profaịlụ ọha gị na ibe ndị na-enye onyinye.',
@@ -107,7 +124,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Ọnụnọ',
   'profile.pronouns': 'Mkpọaha',
   'profile.publicToggle': 'Gosi profaịlụ nye ndị otu egwuregwu',
+  'profile.role': 'Ọrụ / aha',
   'profile.subtitle': "Otu esi egosipụta onwe gị n'ebe ndị ọrụ ibe gị nọ.",
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} ndị edemede na-arụsi ọrụ ike na studio',
   'quillonAuthBrandPanel.quote':
     '"Ide ihe bụ naanị ihe m na-eme, mgbe m na-eme ya, anaghị m eche na m kwesịrị ime ihe ọzọ."',
@@ -115,6 +134,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Mepee →',
   'quillonKpiCard.trend': 'Usoro kachasị ọhụrụ',
   'quillonLayout.menu': 'Ndepụta nri',
+  'quillonLayout.mobileNavLabel': 'Nchịkọta mkpanaka',
   'quillonLayout.primaryNavLabel': 'Ntugharị isi',
   'quillonStudioHero.collab': 'Ndị na-arụkọ ọrụ',
   'quillonStudioHero.docs': 'Metụrụ akwụkwọ ndị ahụ aka',
@@ -123,7 +143,9 @@ export const ui: UiTranslations = {
   'quillonStudioHero.subtitle': "Were akwụkwọ edemede ahụ, tinye okwu, pịa paragraf gaa n'ihu.",
   'quillonStudioHero.words': 'Okwu taa',
   'resetPassword.confirmPlaceholder': 'Megharịa paswọọdụ ọhụrụ ahụ',
+  'resetPassword.passwordLabel': 'Okwuntughe Ọhụrụ',
   'resetPassword.passwordPlaceholder': 'Tinye paswọọdụ ọhụrụ',
+  'resetPassword.submitting': 'Ịtọgharị…',
   'resetPassword.subtitle': 'Họrọ paswọọdụ siri ike — opekata mpe mkpụrụedemede iri na abụọ.',
   'settings.account.description': 'Otu esi abanye.',
   'settings.billing.canceled': 'Kagburu ndenye aha.',
@@ -132,7 +154,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Ahazighị ya',
   'settings.billing.updated': 'Emelitere atụmatụ ahụ.',
   'settings.editor.description': 'Otú ákwà ahụ si akpa àgwà mgbe ị na-ede ihe.',
+  'settings.editor.title': 'Mmasị onye nchịkọta akụkọ',
   'settings.eyebrow': 'Mmasị ụlọ ihe nkiri',
+  'settings.language.title': 'Asụsụ',
   'settings.notifications.${n.key}.description': 'Asụsụ',
   'settings.notifications.description': 'Họrọ ihe ruru igbe mbata gị.',
   'settings.subtitle': 'Hazie ọkwa, ihe nchịkọta akụkọ, na mmasị akaụntụ gị.',
@@ -141,6 +165,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Ekekọrịtara m',
   'shared.loadFailed': 'Enweghị ike ibuli akwụkwọ ndị a na-ekerịta.',
   'shared.subtitle': "Akwụkwọ edemede, obere akwụkwọ, na ihe ndị ọzọ e dere n'akụkụ ụlọ ọrụ ahụ.",
+  'signup.brandAttribution': 'Anaïs Park — Onye nchịkọta akụkọ, The Quarterly',
   'signup.brandQuote':
     '\\u201cIhe odide mbụ gị kacha sie ike. Quillon na-eme ka ọ ghara ịnọ naanị ya.\\u201d',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -148,6 +173,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Anais',
   'signup.heading': 'Mepụta akaụntụ Quillon gị',
   'signup.lastNamePlaceholder': 'Ogige ntụrụndụ',
+  'signup.submitting': 'Na-emepe ụlọ ọrụ gị\\u2026',
   'signup.subtitle':
     'Tebụl dị jụụ, ndị ọrụ ibe gburugburu, na onye nchịkọta akụkọ ogologo oge nke na-eme ihe dị gị mkpa.',
   'templates.blank.subtitle': 'Ibe dị ọcha. Kọọsụ ahụ na-amalite.',
@@ -160,11 +186,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': "Malite site n'usoro dị mma. Hazie ya nke ọma ruo mgbe ebighị ebi.",
   'templates.useFailed': 'Enweghị ike ịmalite akwụkwọ site na ndebiri a.',
   'templates.useTemplate': 'Jiri ndebiri a',
+  'terms.intro': 'Ọnọdụ ndị ị nwere ike iji ọrụ a.',
   'terms.title': 'Usoro ọrụ',
   'time.daysAgo': '{{days}} gara aga',
   'time.hoursAgo': '{{hours}} awa gara aga',
   'time.justNow': 'naanị ugbu a',
   'trash.confirmDelete': 'Kwenye nhichapụ',
+  'trash.confirmEmpty': 'Kwenye — hichapụ ihe niile',
   'trash.deleteFailed': 'Enweghị ike ihichapụ.',
   'trash.deleteForever': 'Hichapụ ruo mgbe ebighị ebi',
   'trash.empty': 'Ọ dịghị ihe ga-eme ka ọ dịghachi ndụ.',
@@ -180,7 +208,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'Enwebeghị mgbanwe ọ bụla — chekwaa akwụkwọ ahụ ka ọ malite akụkọ ihe mere eme ya.',
   'versionHistory.heading': 'Akụkọ ihe mere eme nke ụdị ahụ',
+  'versionHistory.latest': 'Kacha ọhụrụ',
   'versionHistory.loadFailed': 'Enweghị ike ibuli akụkọ ihe mere eme.',
+  'versionHistory.noContent': 'Ọ dịghị ọdịnaya e jidere maka nsụgharị a.',
   'versionHistory.previewing': 'Nlele anya',
   'versionHistory.restore': 'Weghachite ụdị a',
   'versionHistory.restoreFailed': 'Ndozigharị ahụ agaghị arụ ọrụ.',

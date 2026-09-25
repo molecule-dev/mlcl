@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Fikr-mulohazangiz bormi, xatolik topdingizmi yoki {{app}} ni maktabingiz yoki jamoangizga olib kelmoqchimisiz? Biz har bir xabarni o'qiymiz — hisob sozlamalaridan murojaat qiling va haqiqiy inson javob beradi.",
   'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
+  'about.intro':
+    "{{app}} — kunlik so'z topishmoq. Besh harfli so'zni olti urinishda toping, seriyangizni davom ettiring, emoji jadvalingizni ulashing va bugungi so'zda hamma qanday natija ko'rsatganini ko'ring.",
+  'about.missionBody':
+    "Yaxshi topishmoq — bu kichik kunlik g'alaba. {{app}} kuniga bitta umumiy so'z atrofida qurilgan — qahva tanaffusiga yetarli tez, ertaga qaytishga yetarli qiziqarli.",
+  'about.missionTitle': 'Bizning vazifamiz',
   'about.title': '{{app}} haqida',
   'archive.loadError': "Arxivni yuklab bo'lmadi.",
   'archive.missed': "O'tkazib yuborilgan",
   'archive.notPlayed': "O'ynalmagan",
+  'archive.subhead':
+    "Istalgan o'tgan kunni mashq sifatida qayta o'ynang — seriya yo'q, statistika yo'q, faqat zavq.",
   'archive.title': 'Arxiv',
   'auth.backToHome': 'Bosh sahifaga qaytish',
   'auth.backToHomeArrow': '← Bosh sahifaga qaytish',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Parolni unutdingizmi?',
   'auth.login.loggingIn': 'Tizimga kiryapsiz…',
   'auth.login.logIn': "Bugungi so'zni o'ynang",
+  'auth.login.noAccount': 'Tesserada yangimisiz?',
   'auth.login.or': 'yoki davom eting',
   'auth.login.password': 'Parol',
   'auth.login.signInButton': 'Kirish',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Saqlanmoqda…',
   'common.sendingEllipsis': 'Yuborilmoqda…',
   'common.startingEllipsis': 'Boshlanmoqda…',
+  'forgotPassword.subhead':
+    'Elektron pochtangizni kiriting va biz sizga qayta tiklash uchun havola yuboramiz.',
+  'forgotPassword.success.body':
+    "Agar hisob mavjud bo'lsa {{email}} , siz bir necha daqiqadan so'ng tiklash havolasini olasiz.",
+  'forgotPassword.success.title': 'Pochta qutingizni tekshiring.',
   'form.name': 'Ism',
   'howToPlay.cta.home': 'Uyga qaytish',
   'howToPlay.cta.play': "Bugungi topishmoqni o'ynang",
@@ -68,10 +83,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Buzishni xohlamaydigan ketma-ketlik',
   'leaderboard.daily.title': 'Bugungi yechimlar',
   'leaderboard.loadError': "Yetakchilar jadvalini yuklab bo'lmadi.",
+  'leaderboard.streaks.empty': "Hali seriya yo'q — birinchi bo'ling.",
+  'leaderboard.streaks.subhead': "Eng uzoq g'alaba seriyalari.",
   'leaderboard.streaks.title': 'Ketma-ketlik liderlari',
+  'leaderboard.subhead': "Bugun hamma qanday natija ko'rsatdi va kim eng uzoq seriyaga ega.",
   'leaderboard.title': 'Liderlar jadvali',
   'login.headline': 'Xush kelibsiz.',
   'login.streakPill': '{{days}} kunlik ketma-ketlik kutmoqda',
+  'login.subhead':
+    "Seriyangizni davom ettirish va bugungi so'zda qanday natija ko'rsatganingizni ko'rish uchun tizimga kiring.",
   'nav.archive': 'Arxiv',
   'nav.editProfile': 'Profilni tahrirlash',
   'nav.getStarted': 'Boshlash',
@@ -89,6 +109,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': "404 · Bunday so'z yo'q",
   'notFound.title': "Bu yo'nalish bo'sh.",
   'planUpdated.message': 'Rejangiz faol.',
+  'planUpdated.retry': 'Qayta urinib ko’ring',
+  'planUpdated.verifyFailed': "To'lovingizni hali tasdiqlay olmadik.",
+  'planUpdated.verifyFailedBody':
+    "To'lovingiz hali ham amalga oshirilayotgan bo'lishi mumkin. Birozdan keyin qayta urinib ko'ring.",
   'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'play.alreadyFinished': 'Siz bu jumboqni allaqachon tugatgansiz',
   'play.answerWas': "So'z edi",
@@ -104,6 +128,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Mashq jumboq',
   'play.tooShort': 'Harflar yetarli emas',
   'play.won': 'Yechildi!',
+  'pricing.advancedStats': 'Kengaytirilgan statistika: {{yes}}',
+  'pricing.archiveHistory': '{{count}} kunlik arxiv tarixi',
+  'pricing.archivePlays': "Kuniga {{count}} arxiv qayta o'ynash",
+  'pricing.archiveUnlimited': 'Cheksiz arxiv tarixi',
+  'pricing.canExport': "Ma'lumotlarni eksport qilish: {{yes}}",
+  'pricing.checkoutError': "To'lovni boshlash imkoni bo'lmadi. Qaytadan urinib ko'ring.",
   'pricing.dailyWord': "Kunlik so'z",
   'pricing.heading': '{{app}} rejangizni tanlang',
   'pricing.included': 'Kiritilgan',
@@ -111,7 +141,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     "Kunlik so'z har doim bepul. Arxivni cheksiz qayta o'ynash va batafsil statistika uchun yangilang.",
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    "{{app}} maxfiyligingizni hurmat qiladi. Bu sahifada biz saqlaydigan ma'lumotlar, ularni nima uchun saqlashimiz va ularni qanday o'chirish haqida qisqacha ma'lumot berilgan.",
   'privacy.title': 'Maxfiylik xabarnomasi',
+  'resetPassword.subhead': 'Seriyangizga qaytish uchun yangi parol tanlang.',
   'settings.account': 'Hisob',
   'settings.danger.body':
     "{{appName}} hisobingizni va barcha topishmoq tarixini butunlay o'chiring.",
@@ -122,17 +155,24 @@ export const ui: UiTranslations = {
   'settings.language.title': 'Til',
   'settings.subhead':
     "Profilingizni, ovozni va yetakchilar jadvalida qanday ko'rinishingizni sozlang.",
+  'settings.unnamed': "Sparq o'yinchisi",
   'settings.upgrade': 'Yangilash',
   'signup.eyebrow': "Abadiy bepul — kuniga bitta so'z",
   'signup.headline': 'Ketma-ketligingizni boshlang.',
+  'signup.subhead':
+    "Kunlik so'zni o'ynash, seriya to'plash va reyting jadvalida ko'tarilish uchun {{appName}} hisobini yarating.",
   'stats.currentStreak': 'Ketma-ketlik',
   'stats.distribution.title': 'Urinishlar taqsimoti',
   'stats.loadError': "Statistikangizni yuklab bo'lmadi.",
   'stats.maxStreak': 'Eng uzun ketma-ketlik',
   'stats.played': "O'ynalgan",
   'stats.playToday': "Bugungi topishmoqni o'ynang",
+  'stats.subhead':
+    'Faqat reytingli kunlik topishmoqlar — arxiv mashqi hech qachon hisobga olinmaydi.',
   'stats.title': 'Statistikangiz',
   'stats.winRate': "G'alabalar foizi",
   'status.monthly': 'Oylik',
+  'terms.intro':
+    '{{app}} dan foydalanish bilan quyidagi qoidalarga rozilik bildirasiz. Agar ularni qabul qila olmasangiz, iltimos, xizmatdan foydalanmang.',
   'terms.title': 'Xizmat shartlari',
 }

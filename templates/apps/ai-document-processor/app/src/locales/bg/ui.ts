@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Имате въпрос, открихте бъг или искате демонстрация за екипа си? Свържете се с нас от настройките на акаунта си — всяко съобщение стига до реален човек от екипа.',
   'about.contactTitle': 'Свържете се с нас',
+  'about.intro':
+    '{{app}} превръща купчини сканирани документи и PDF файлове в структурирани, търсими и подредени данни. Пуснете фактури, касови бележки, договори или формуляри и оставете AI да ги прочете, извлече, класифицира и подреди — с цветове за увереност, така че екипът ви да преглежда само това, което наистина се нуждае от човек.',
+  'about.missionBody':
+    'Досадната работа с документи не бива да изяжда деня на екипа ви. Вярваме, че всяка извлечена стойност трябва да бъде обяснима и одитируема — за да можете да се доверите на автоматизацията, без да губите следата. {{app}} е създаден да спестява часове на купчина, като запазва човек в процеса там, където е важно.',
+  'about.missionTitle': 'Нашата мисия',
+  'about.subtitle':
+    'OCR, AI извличане, класификация и автоматизирано подреждане на вашите документи.',
   'about.title': 'За {{app}}',
+  'about.whatYouGetTitle': 'Какво получавате',
   'authShell.backToLanding': '← Назад към началната страница',
   'common.goToDashboard': 'Към таблото',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Днес · Общ преглед на операциите',
   'dashboard.heading': 'Интелигентност на документите',
+  'dashboard.metric.accuracy': 'Средна точност',
   'dashboard.metric.filed': 'Подадено днес',
   'dashboard.metric.filedCaption': 'Сортирани според правилата за архивиране',
   'dashboard.metric.processed': 'Обработено днес',
@@ -23,11 +34,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Документ',
   'dashboard.recent.col.uploaded': 'Качено',
   'dashboard.recent.heading': 'Последни документи',
+  'dashboard.recent.typeUnknown': 'Очаква класификация',
   'dashboard.subheading':
     'Всяка страница е класифицирана, извлечена и архивирана — с отличителни цветове, за да се запази фокусът при прегледа.',
   'documentDetail.audit.heading': 'График на одита',
+  'documentDetail.audit.subheading':
+    'Всяка стъпка, предприета с този документ, с отговорното лице.',
   'documentDetail.back': 'Всички документи',
   'documentDetail.downloadHint': 'Използвайте бутона „Изтегли“, за да отворите оригиналния файл.',
+  'documentDetail.extracted.empty': 'Още няма извлечени полета.',
   'documentDetail.extracted.heading': 'Извлечени полета',
   'documentDetail.extracted.subheading':
     '{{count}} полета · кликнете върху някое поле, за да го маркирате на страницата',
@@ -56,13 +71,24 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} документите във вашата библиотека, подредени по дата – най-новите първи.',
   'documents.uploadCta': 'Качи документи',
+  'documentTypeBreakdown.barAria': 'Състав на документите по тип',
   'documentTypeBreakdown.empty': 'Все още няма обработени документи.',
   'documentTypeBreakdown.subtitle': '{{total}} обработени',
   'documentTypeBreakdown.title': 'Структура на документа',
+  'forgotPassword.backToSignIn': '← Назад към вход',
   'forgotPassword.checkEmail': 'Проверете електронната си поща',
   'forgotPassword.tip': 'Не сте го получили? Проверете папката със спам или опитайте с друг адрес.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Създадено за оперативни екипи, които одитират всяка страница.',
+  'landing.ctaBody':
+    '14-дневен пробен период. Без карта. Отказ по всяко време. Създадено за оперативни екипи, които действат бързо и одитират бавно.',
   'landing.ctaHeading': 'Спрете да въвеждате разписки. Започнете да ги архивирате.',
   'landing.eyebrow': 'OCR · Извличане · Архивиране с изкуствен интелект',
+  'landing.featuresHeading': 'Интелигентност за документи, която се обяснява сама',
+  'landing.heroSubtitle':
+    'Пуснете купчина фактури, касови бележки, договори или формуляри. {{app}} ги класифицира, извлича и подрежда — с цветове за увереност, така че екипът ви да преглежда само това, което наистина се нуждае от човек.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Дневен обем · последните 7 дни',
   'landing.sampleCardLabel': 'Документи, обработени днес',
   'landing.sampleCardSubtitle': 'Средна точност от 96,2% при фактури, разписки и формуляри.',
   'login.hidePassword': 'Скрий паролата',
@@ -75,6 +101,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Отвори началната страница',
   'notFound.title': 'Тази страница не е намерена',
+  'parcelaHeroCard.accuracy': 'Средна точност {{value}}% за всички извличания',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % спрямо вчера',
   'parcelaHeroCard.title': 'Документи, обработени днес',
   'parcelaLayout.primaryNavLabel': 'Основна навигация',
@@ -82,6 +109,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'документи',
   'pricing.processingLabel': 'задачи за обработка',
   'resetPassword.confirmPlaceholder': 'Въведете отново новата парола',
+  'resetPassword.hidePassword': 'Скрий паролата',
   'resetPassword.passwordLabel': 'Нова парола',
   'resetPassword.showPassword': 'Покажи паролата',
   'resetPassword.subtitle': 'Изберете нещо, което се състои от поне 8 символа.',
@@ -99,10 +127,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Не успях да заредя правилата.',
   'rules.loading': 'Зареждане на правила…',
   'rules.matched30d': '{{count}} документи, намерени през последните 30 дни',
+  'rules.neverUsed': 'Никога не е използван',
   'rules.newRule': 'Ново правило',
   'rules.saveError': 'Не успях да запазя правилото.',
   'rules.subheading':
     'Укажете на системата къде трябва да бъде класифициран всеки вид документ. Условията се прилагат последователно отгоре надолу — първото съвпадение е решаващо.',
+  'rules.templatesEmpty': 'Още няма шаблони за извличане.',
   'rules.templatesHeading': 'Шаблони за извличане',
   'rules.templatesSubheading': 'Полеви схеми, които екстракторът използва за всеки тип документ.',
   'rules.then': 'След това',
@@ -111,17 +141,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Име на работната среда',
   'settings.account.subheading':
     'Име за показване и основен имейл адрес за известия и история на одитите.',
+  'settings.api.confirmRevoke': 'Потвърждавате ли?',
   'settings.api.copyOnce': 'Копирайте този ключ — той няма да се показва отново',
   'settings.api.createdOn': 'Създаден на {{date}}',
   'settings.api.empty': 'Все още нямате API ключ. Генерирайте такъв по-горе.',
   'settings.api.error': 'Не успях да създам ключ.',
+  'settings.api.generating': 'Генериране…',
+  'settings.api.heading': 'API ключове',
   'settings.api.labelPlaceholder': 'Ключова етикетка (например CI uploader)',
+  'settings.api.loading': 'Зареждане на ключове…',
   'settings.api.newKey': 'Генериране на ключ',
   'settings.api.subheading':
     'Използвайте ги, за да прехвърляте документи от скрипт или от вашата ERP система. Можете да сменяте всеки ключ по всяко време.',
   'settings.integrations.heading': 'Интеграции за подаване на документи',
   'settings.integrations.subheading':
     'Изпратете архивираните документи в облачното хранилище или чат приложението, което вашият екип вече използва.',
+  'settings.subheading':
+    'Управлявайте акаунта, API ключовете и интеграциите за подреждане за вашето {{app}} работно пространство.',
+  'signup.hidePassword': 'Скрий паролата',
   'signup.identityPrompt': 'Как да се обръщаме към Вас?',
   'signup.showPassword': 'Покажи паролата',
   'signup.subtitle': '14 дни безплатно, без да се изисква кредитна карта.',
@@ -129,6 +166,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Качването се провали.',
   'upload.eyebrow': 'Поглъщане',
   'upload.heading': 'Качи документи',
+  'upload.queue.clear': 'Изчисти завършените',
   'upload.queue.col.confidence': 'Увереност',
   'upload.queue.col.file': 'Файл',
   'upload.queue.detecting': 'Откриване…',
@@ -141,5 +179,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Или просто пуснете няколко файла наведнъж за пакетно извличане, класифициране и архивиране.',
   'uploadDropZone.cta': 'Изберете файлове',
+  'uploadDropZone.maxSize': 'Макс. 25 MB на файл · Шифроване от край до край',
   'uploadDropZone.title': 'Плъзнете документите, за да започне обработката',
 }

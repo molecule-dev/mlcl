@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens comentaris, has trobat un error o vols un tauler propi a {{appName}}? Obre la configuració per contactar amb l'equip: cada missatge arriba a una persona real que el llegeix.",
+  'about.contactTitle': 'Parla amb nosaltres',
+  'about.featureModeration':
+    'Un full de ruta públic amb etiquetes de trimestre, un registre de canvis que converteix la feina publicada en notes de versió i un tauler que mostra què vol més la gent.',
+  'about.featurePricing':
+    'Pots gestionar un parell de taulers gratis; els plans Pro i Team desbloquegen més taulers, límits més alts i exportació de dades.',
+  'about.featureThreads':
+    'Taulers de comentaris públics organitzats per tema, amb fusió de duplicats que agrupa els vots en un sol senyal de demanda honest.',
+  'about.featureVoting':
+    "Votació d'un vot per usuari amb un flux d'estats complet — obert, planificat, en curs, publicat o rebutjat — i una resposta oficial a cada decisió.",
+  'about.intro':
+    "{{appName}} és una plataforma de comentaris de producte: taulers públics on els clients publiquen peticions, voten el que necessiten i segueixen cada idea des de planificada fins a publicada. Els equips deixen d'endevinar què han de construir perquè la demanda es classifica sola.",
+  'about.missionBody':
+    'Creiem que les millors decisions de producte es prenen en obert. {{appName}} dona a cada equip un tauler públic de peticions votades, un full de ruta oficial amb trimestres objectiu i un registre de canvis que tanca el cercle, perquè els clients vegin el seu impacte i els equips vegin el seu mandat.',
+  'about.missionTitle': 'La nostra missió',
   'admin.backToBoards': 'Tornar als taulers',
   'admin.denied': 'Només administradors.',
   'admin.eyebrow': 'Equip de producte',
@@ -11,6 +27,8 @@ export const ui: UiTranslations = {
   'admin.title': 'Tauler de comentaris',
   'admin.topOpen': 'Principals sol·licituds obertes',
   'admin.totalVotes': '{{count}} total',
+  'admin.votesChartLabel':
+    'Diagrama de barres dels vots emesos per setmana durant les últimes vuit setmanes',
   'admin.votesOverTime': 'Vots al llarg del temps',
   'auth.forgotPassword.email': 'Correu electrònic',
   'auth.forgotPassword.sendResetLink': 'Enviar enllaç de restabliment',
@@ -30,7 +48,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Crea el teu compte',
   'auth.username': "Nom d'usuari",
   'authShell.communities': 'Comunitats',
+  'authShell.copyright': '{{appName}} — cada veu compta.',
   'authShell.trending': 'Tendències',
+  'boardCard.postCount': '{{count}} publicacions',
   'boardDetail.allBoards': 'Tots els taulers',
   'boardDetail.backToBoards': 'Tornar als taulers',
   'boardDetail.empty': 'Encara no hi ha publicacions que coincideixin amb aquests filtres.',
@@ -54,6 +74,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Cada entrada va començar com una sol·licitud votada. Els votants van veure el seu progrés; aquí és on va acabar.',
   'changelog.title': 'Lliurat, amb proves',
+  'changelog.voteCount': '{{count}} vots van fer possible això',
   'common.atLeast8Characters': 'Almenys 8 caràcters',
   'common.checkYourInbox': "Revisa la safata d'entrada",
   'common.loadingEllipsis': 'Carregant…',
@@ -64,6 +85,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Enviant…',
   'footer.about': 'Sobre {{appName}}',
   'footer.language': 'Idioma',
+  'forgotPassword.description':
+    "Introdueix el teu correu electrònic i t'enviarem un enllaç per restablir-lo.",
+  'forgotPassword.successBody':
+    'Hem enviat un enllaç de restabliment a {{email}} Caduca en 30 minuts.',
   'forgotPassword.tryAnother': 'Prova amb un altre correu electrònic',
   'form.displayName': 'Nom visible',
   'form.firstName': 'Nom',
@@ -74,6 +99,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'El teu full de ruta, recolzat per vots.',
   'landing.heroCtaPrimary': 'Comença a recollir vots',
   'landing.heroCtaSecondary': 'Veure un tauler en directe',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': "Deixa d'endevinar. Publica el que voten.",
+  'landing.heroLede':
+    "{{appName}} converteix les peticions de funcions disperses en un tauler públic d'idees votades, un full de ruta oficial i un registre de canvis que els teus clients llegeixen de debò.",
   'landing.heroStat1': '3.200+',
   'landing.heroStat1Label': 'Equips escoltant',
   'landing.heroStat2': '1,4m',
@@ -85,9 +114,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Registre de canvis',
   'landing.navJoin': 'Uneix-te a {{appName}}',
   'landing.navRoadmap': 'Full de ruta',
+  'landing.step1Body':
+    "Els clients publiquen idees als taulers públics. Els duplicats es fusionen, els vots s'agrupen i la demanda es classifica sola.",
   'landing.step1Title': 'Recollir',
+  'landing.step2Body':
+    "Marca les peticions com a planificades o en curs amb un trimestre objectiu: el full de ruta s'actualitza en el moment que ho fas.",
+  'landing.step2Title': 'Compromís',
   'landing.step3Body':
     'Les publicacions lliurades es converteixen en entrades del registre de canvis, i cada votant veu el resultat a la seva pròpia llista.',
+  'landing.step3Title': 'Publica',
   'landing.topSubtitle': "En directe des d'aquest tauler — inicia sessió per afegir el teu vot.",
   'landing.topTitle': 'El que els usuaris demanen ara mateix',
   'landing.topViewAll': 'Tots els taulers',
@@ -95,14 +130,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Primària',
   'layout.signUp': "Registra't",
   'layout.submit': 'Enviar comentaris',
+  'login.description': 'Reprendre la conversa on va acabar.',
+  'login.heading': 'Inicia la sessió a Nimbus',
+  'login.noAccount': 'Ets nou aquí?',
   'login.passwordPlaceholder': 'La teva contrasenya',
   'login.twoFactorLabel': 'Codi 2FA (opcional)',
   'login.twoFactorPlaceholder': 'Codi de 6 dígits',
+  'login.twoFactorRequiredHint':
+    "Aquest compte té l'autenticació de dos factors activada. Introdueix el codi de 6 dígits de la teva aplicació d'autenticació per continuar.",
   'login.twoFactorRequiredLabel': 'Introdueix el teu codi 2FA',
+  'myActivity.browseCta': 'Navega pels taulers',
+  'myActivity.emptyPosts': 'Encara no has publicat cap petició.',
+  'myActivity.emptyVotes': 'Encara no hi ha res: explora els taulers i dona suport a una idea.',
   'myActivity.eyebrow': 'La teva activitat',
   'myActivity.loadError': "No s'ha pogut carregar la teva activitat.",
   'myActivity.postsTitle': 'Sol·licituds que has enviat',
+  'myActivity.shippedNote': "{{count}} d'elles publicades — gràcies per l'empenta.",
   'myActivity.submitCta': 'Publicar una sol·licitud',
+  'myActivity.tabLabel': 'Vista',
   'myActivity.tabPosts': 'Les meves publicacions',
   'myActivity.tabVotes': 'Els meus vots',
   'myActivity.votesTitle': 'Sol·licituds que has votat',
@@ -137,8 +182,12 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Publicació no trobada',
   'postsAdmin.backToDashboard': 'Tauler de control',
   'postsAdmin.eyebrow': 'Equip de producte',
+  'postsAdmin.mergeApplied': 'Fusionat — {{votes}} vots i {{comments}} comentaris traslladats.',
   'postsAdmin.mergeApply': 'Fusionar i moure vots',
   'postsAdmin.mergeChoose': 'Tria una publicació de destinació…',
+  'postsAdmin.mergeFailed': 'La fusió ha fallat.',
+  'postsAdmin.mergeHint':
+    'Els vots s\'agrupen (un per usuari), els comentaris es traslladen i aquesta publicació rep una nota de "traslladat".',
   'postsAdmin.mergeLabel': 'Fusionar duplicat amb',
   'postsAdmin.responseLabel': 'Resposta oficial',
   'postsAdmin.responsePlaceholder':
@@ -154,7 +203,13 @@ export const ui: UiTranslations = {
     "Estableix l'estat oficial, respon públicament, etiqueta el trimestre del full de ruta i fusiona duplicats.",
   'postsAdmin.title': 'Gestionar publicacions de comentaris',
   'postsAdmin.votes': '{{count}} vots',
+  'pricing.limits.advancedFeatures': 'Funcions avançades:',
+  'pricing.limits.boards': '{{count}} taulers',
   'pricing.limits.export': 'Exportació de dades:',
+  'pricing.limits.posts': '{{count}} publicacions de comentaris',
+  'pricing.limits.votes': '{{count}} vots',
+  'resetPassword.description':
+    "Tria'n un de fort. Iniciarem la sessió quan el restabliment s'hagi completat correctament.",
   'resetPassword.newPasswordLabel': 'Contrasenya nova',
   'resetPassword.tokenPlaceholder': "Enganxa el token de l'enllaç",
   'roadmap.cardMeta': 'per {{author}} · {{board}}',
@@ -171,6 +226,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'Escriu una consulta per trobar sol·licituds existents abans de publicar un duplicat.',
   'search.loadError': 'La cerca ha fallat. Torna-ho a intentar.',
+  'search.searching': 'Cercant…',
   'search.submit': 'Cerca',
   'search.submitNew': 'Publicar-ho com a sol·licitud nova',
   'search.title': 'Cercar comentaris',
@@ -179,12 +235,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'Facturació',
   'settings.displaySubtitle': 'Tria la densitat dels fluxos.',
   'settings.displayTitle': 'Visualització',
+  'settings.emailDigestDesc': 'Les peticions obertes més votades cada dilluns.',
+  'settings.emailDigestLabel': 'Resum setmanal',
+  'settings.emailMentionsDesc': 'Quan algú respon a una publicació que segueixes.',
+  'settings.emailMentionsLabel': "Envia'm un correu quan em mencionin",
+  'settings.emailRepliesDesc': 'Fils que has iniciat o als quals has respost.',
+  'settings.emailRepliesLabel': "Envia'm un correu electrònic quan hi hagi respostes.",
   'settings.loadError': "No s'ha pogut carregar el teu compte.",
   'settings.loading': 'Carregant la teva configuració…',
   'settings.notifications': 'Notificacions',
   'settings.notificationsSubtitle':
     "Decideix què arriba a la teva safata d'entrada o al teu dispositiu de notificacions.",
+  'settings.pushRepliesLabel': 'Notificació push per a les respostes',
+  'settings.pushVotesDesc': 'Avís en arribar a 100, 500, 1000.',
+  'settings.pushVotesLabel': 'Impulsar els fites dels vots positius',
   'settings.saveAccount': 'Desar compte',
+  'settings.showFlair': 'Mostra les etiquetes del tauler a les publicacions',
+  'settings.showThumbnails': "Mostra les miniatures d'enllaços i imatges",
   'settings.usernamePlaceholder': 'Tria un identificador',
   'signup.confirmPlaceholder': 'Torna a escriure-la',
   'signup.description': 'Dona forma al que construïm després.',

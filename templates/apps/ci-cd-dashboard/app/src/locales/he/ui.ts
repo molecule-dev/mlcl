@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'שאלות, משוב, או רוצים הדגמה לצוות שלכם? כתבו לנו לכתובת hello@conduit.dev — כל הודעה מגיעה לאדם אמיתי בצוות.',
   'about.contactHeading': 'לְהִתְקַשֵׁר',
   'about.eyebrow': 'אוֹדוֹת',
+  'about.featuresHeading': 'מה שאתה מקבל',
+  'about.introBody':
+    '{{app}} מביא מסירה רציפה בסגנון GitHub Actions אל לוח בקרה מהיר אחד: צינורות, יומני בנייה, ארטיפקטים, תגי סטטוס וסביבות פריסה לכל המאגרים שלכם במקום אחד. בלי לקפוץ בין לשוניות, בלי לנחש איזו בנייה נשברה — כל הרצה, שורת יומן ופריסה במרחק לחיצה אחת.',
+  'about.introHeading': 'מה זה {{app}}',
+  'about.missionBody':
+    'שחרור תוכנה צריך להיות רגוע וצפוי, לא מקור לחרדה. אנחנו בונים את הצינורות, היומנים וכלי הפריסה כך שהדרך מקומיט לפרודקשן תהיה מהירה, גלויה ואמינה — הבנייה הירוקה הראשונה בתוך חמש דקות, וכל בנייה אחריה ברורה באותה מידה.',
+  'about.missionHeading': 'המשימה שלנו',
+  'about.subtitle':
+    '{{app}} הוא לוח בקרה ל-CI/CD לצוותים שרוצים לנטר בנייות, פריסות וסביבות בכל מאגר — ולשחרר בביטחון.',
   'artifacts.empty': 'עדיין אין חפצים.',
   'artifacts.heading': 'חפצים',
   'artifacts.loadError': 'טעינת החפצים נכשלה.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'סביבות',
   'environments.loadError': 'טעינת הסביבות נכשלה.',
+  'environments.loading': 'טוען סביבות...',
   'environments.subheading': 'סטטוס פריסה בזמן אמת בכל יעד.',
   'forgotPassword.runnerStatus': 'איפוס · מנהרה מאובטחת',
+  'forgotPassword.success':
+    'אם קיים חשבון עבור כתובת האימייל הזו, קישור לאיפוס בדרך. בדוק את תיבת הדואר הנכנס שלך.',
   'insights.changeFailureRate': 'שינוי שיעור הכישלון',
   'insights.deployFrequency': 'פריסות / יום',
   'insights.empty': 'עדיין אין מספיק נתונים.',
@@ -39,13 +53,17 @@ export const ui: UiTranslations = {
   'insights.loadError': 'טעינת התובנות נכשלה.',
   'insights.meanP95': "מְמוּצָע {{mean}} · עמ' 95 {{p95}}",
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'שלבי הצינור האיטיים ביותר',
   'insights.successRateHeading': 'שיעור הצלחה בצינור (14 הימים האחרונים)',
   'landing.choosePlan': 'בחר תוכנית',
+  'landing.copyright': '© {{year}} {{app}}. לשחרר בביטחון.',
   'landing.ctaBody':
     'אין כרטיס אשראי. אין צורך בטכנאי פלטפורמה. הפוך את הצינור הראשון לירוק תוך חמש דקות.',
   'landing.ctaHeading': 'לשלוח בוודאות.',
   'landing.featuresEyebrow': '// תכונות פלטפורמה',
   'landing.featuresHeading': 'נבנה עבור משלחים, על ידי משלחים',
+  'landing.heroSubtitle': 'צינורות שמסתיימים בשניות. יומנים שאפשר לקרוא. פריסות שאפשר לסמוך עליהן.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': 'פריסה בטוחה של $ ./conduit',
   'landing.pricingEyebrow': '// תמחור $ --רגיל',
   'landing.pricingHeading': 'תמחור פשוט וצפוי',
@@ -84,7 +102,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'בטיסה עכשיו',
   'pipelines.metric.successCaption': '{{count}} שֶׁל {{total}} ריצות',
   'pipelines.metric.successRate': 'שיעור ההצלחה',
+  'pipelines.realtimeOn': 'בזמן אמת',
   'pipelines.subheading': 'עדכונים חיים מכל מאגר שנצפה.',
+  'pricing.advancedFeatures': 'תכונות מתקדמות: {{mark}}',
+  'pricing.canExport': 'ייצוא נתונים: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} ארטיפקטים',
+  'pricing.maxBuilds': '{{count}} בנייות',
+  'pricing.maxPipelines': '{{count}} צינורות',
   'privacy.dataAccount': 'חשבון: שם, דוא"ל, סיסמה מגובבת, רמת תוכנית.',
   'privacy.intro':
     'אפליקציה אוסף רק את הנתונים המינימליים שאנו צריכים כדי להפעיל את חשבון המסירה הרציפה שלך: הדוא"ל שלך, המאגרים שאתה מתחבר אליהם, פעולות הקומיט ומטא-דאטה של הבנייה שהרצים שלך מייצרים, והסודות שאתה בוחר לאחסן אצלנו. אנחנו אף פעם לא קוראים את קוד המקור שלך מחוץ לרצף הבנייה; ארטיפקטים של הבנייה מאוחסנים בדלי S3 שלך לאחר הגדרתם.',
@@ -92,6 +116,8 @@ export const ui: UiTranslations = {
     'אנו משתמשים ב-Stripe לחיוב, ב-Mailgun לדוא"ל טרנזקציונלי וב-AWS S3 לאחסון אובייקטים של בנייה. כל אחד מהם מחויב חוזית להיקף הנתונים המינימלי הנדרש למתן השירות שלו.',
   'privacy.rightsBody':
     'באפשרותך לייצא כל בייט של הנתונים שלך, למחוק את החשבון שלך בכל עת דרך ההגדרות ולבקש תיעוד של כל מסירת webhook בחשבונך. אנו מגיבים לבקשות GDPR / CCPA תוך 30 יום.',
+  'privacy.subtitle':
+    'איך {{app}} אוסף, שומר ומגן על הנתונים שלכם בזמן שאנחנו מריצים את הצינורות שלכם.',
   'privacy.title': 'מדיניות הפרטיות',
   'repositories.empty': 'אין מאגרים מחוברים.',
   'repositories.heading': 'מאגרים',
@@ -100,11 +126,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'כל המאגרים',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'טעינת המאגר נכשלה.',
+  'repositoryDetail.meanDuration': 'משך זמן ממוצע',
   'repositoryDetail.notFound': 'המאגר לא נמצא.',
+  'repositoryDetail.successRate': 'שיעור ההצלחה',
   'repositoryDetail.totalBuilds': 'סך כל הבניינים',
   'repositoryDetail.webhookActive': 'פָּעִיל',
   'repositoryDetail.webhookPaused': 'מושהה',
   'repositoryDetail.webhooksHeading': 'וובים',
+  'resetPassword.passwordLabel': 'סיסמה חדשה',
   'resetPassword.runnerStatus': 'איפוס · אומת אסימון',
   'resetPassword.subtitle': 'בחרו סיסמה חזקה שלא השתמשתם בה בעבר.',
   'resetPassword.tokenPlaceholder': 'הדבקה מהאימייל',
@@ -117,6 +146,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'מאגרים עוקבים אחר Conduit. התנתקו מספק ה-VCS שלכם כדי להפסיק לקלוט אירועים.',
   'settings.repositories.empty': 'עדיין אין מאגרים מחוברים.',
+  'settings.repositories.heading': 'חיבורי מאגרים',
   'settings.repositories.loadError': 'טעינת המאגרים נכשלה.',
   'settings.secrets.addCta': 'הוסף סוד',
   'settings.secrets.addError': 'הוספת סוד נכשלה.',
@@ -124,6 +154,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'מחיקת הסוד נכשלה.',
   'settings.secrets.empty': 'אין סודות שמורים.',
   'settings.secrets.heading': 'סודות',
+  'settings.secrets.lastUsed': 'בשימוש אחרון {{date}}',
   'settings.secrets.loadError': 'טעינת הסודות נכשלה.',
   'settings.secrets.neverUsed': 'מעולם לא השתמשתי בו',
   'settings.secrets.rotateCta': 'לְסוֹבֵב',

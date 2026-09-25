@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'A Dendrite egy munkafolyamat-automatizálási platform, amely triggereket, AI-feltételeket és többlépéses műveleteket köt össze, hogy a csapatok ragasztókód írása nélkül mozgathassák a munkát a rendszerek között.',
+  'about.philosophy':
+    'Minden munkafolyamat apró, megfigyelhető lépések gráfja. Minden lépés rögzíti a bemeneteit, kimeneteit és az időzítését, így átvizsgálható, újrajátszható vagy visszaállítható. Állítsd össze őket vizuálisan, verziózd őket, mint a kódot.',
   'about.title': 'A Dendrite-ről',
   'authShell.brand': 'Dendrite',
   'authShell.support': 'Támogatás',
@@ -15,9 +17,14 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Terv módosítása',
   'billing.description':
     'Kövesse nyomon a felhasználást, kezelje tervét, és töltse le a számlákat könyveléshez.',
+  'billing.eyebrow': 'Fiók · Csomag és használat',
+  'billing.failedLabel': 'Sikertelen futások · 24 óra',
+  'billing.invoicesEmpty':
+    'Még nincsenek számlák. Az első fizetős megújítás után jelennek meg itt.',
   'billing.invoicesTitle': 'Számlakimutatás',
   'billing.planNoteFree':
     'Ingyenes szint — {{runs}} futtatás és {{workflows}} aktív munkafolyamat. Frissítsen magasabb korlátokért.',
+  'billing.planNotePaid': 'Fizetős csomag — {{runs}} futás és {{workflows}} aktív munkafolyamat.',
   'billing.runsLabel': 'Futtatások az elmúlt 24 órában',
   'billing.tiersBlurb':
     'Hasonlítson össze minden szintet — futtatásokat, aktív munkafolyamatokat, speciális funkciókat és támogatást — a dedikált árazási oldalon.',
@@ -35,10 +42,14 @@ export const ui: UiTranslations = {
     'Nincs regisztrált integráció. Konfigurálja a szolgáltató kulcsait a kötések engedélyezéséhez.',
   'connections.error': 'A kapcsolatok betöltése nem sikerült.',
   'connections.eyebrow': 'Integrációk · {{connected}} csatlakoztatva',
+  'connections.loading': 'Integrációk betöltése…',
+  'connections.openEnv':
+    'A szolgáltató csatlakoztatásához állítsd be az API-kulcsát az api/.env fájlban, és indítsd újra a szervert.',
   'dashboard.description':
     '{{active}} aktív munkafolyamat. {{failed}} sikertelen az elmúlt 24 órában.',
   'dashboard.error': 'Az irányítópult betöltése nem sikerült.',
   'dashboard.eyebrow': 'Műveletek · élő',
+  'dashboard.hero.label': 'Mai futások',
   'dashboard.hero.medianLatency': 'p50 késleltetés',
   'dashboard.hero.queue': 'Sor mélysége',
   'dashboard.hero.success': 'Siker',
@@ -46,14 +57,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Medián időtartam',
   'dashboard.kpi.failedRuns': 'Sikertelen · 24 ó',
   'dashboard.kpi.outOf': '/ {{total}} összesen',
+  'dashboard.kpi.successRate': 'Sikerarány · 24 óra',
   'dashboard.loading': 'Irányítópult betöltése…',
   'dashboard.recentRuns.empty':
     'Még nincsenek futtatások. Indítson el egy munkafolyamatot a hírcsatorna feltöltéséhez.',
   'dashboard.recentRuns.title': 'Legutóbbi futtatások',
   'dashboard.recentRuns.viewAll': 'Végrehajtások megnyitása →',
+  'dashboard.recentWorkflows.browse': 'Sablonok böngészése →',
   'dashboard.recentWorkflows.empty':
     'Még nincsenek munkafolyamatok. Telepítsen egy sablont, vagy hozzon létre egyet a semmiből.',
   'dashboard.recentWorkflows.title': 'Nemrég futtatott',
+  'dashboard.run.col.run': 'Futtatás',
   'dashboard.run.col.started': 'Elindítva',
   'dashboard.run.col.trigger': 'Trigger',
   'dashboard.run.col.workflow': 'Munkafolyamat',
@@ -89,6 +103,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Munkafolyamat',
   'executions.description':
     'Minden munkafolyamat-futtatás, minden újrapróbálkozás, minden lépés kimenete — mind megfigyelhető.',
+  'executions.empty.filter': 'Nincs a szűrőnek megfelelő futás.',
   'executions.empty.first':
     'Még nincsenek futtatások — indítson el egy munkafolyamatot a lista feltöltéséhez.',
   'executions.error': 'A végrehajtások betöltése nem sikerült.',
@@ -99,30 +114,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Futtatási előzmények betöltése…',
   'executions.title': 'Végrehajtások',
   'forgotPassword.confirmation': 'Visszaállítási hivatkozás elküldve: {{email}}.',
+  'forgotPassword.subhead': 'Adja meg e-mail-címét a visszaállítási hivatkozás megkapásához.',
   'forgotPassword.successSubhead':
     'Visszaállítási hivatkozást küldtünk a(z) {{email}} címre. 30 perc múlva lejár.',
   'help.connections.body':
     'Az AI-, e-mail- és tárolási lépésekhez szükséges, hogy a szolgáltató kulcsai be legyenek állítva az api/.env fájlban. Miután egy kulcs konfigurálva van, a megfelelő integráció csatlakozottként jelenik meg a Kapcsolatok oldalon.',
+  'help.connections.cta': 'Kapcsolatok megnyitása →',
   'help.connections.title': 'Szolgáltatók csatlakoztatása',
   'help.gettingStarted.body':
     'Új munkafolyamatok telepíthetők a sablonkönyvtárból, vagy felépíthetők a semmiből a munkafolyamat-készítőben. Minden munkafolyamatnak van triggere (manuális, webhook vagy cron) és sorban futó lépések sorozata.',
+  'help.gettingStarted.cta': 'Templates könyvtár böngészése →',
+  'help.gettingStarted.title': 'Első lépések',
   'help.intro':
     'Találjon válaszokat a munkafolyamatok felépítésével, a kapcsolatok konfigurálásával és a futtatási kimenetek értelmezésével kapcsolatos gyakori kérdésekre. A leggyakoribb témák alább láthatók; minden egyébért forduljon munkaterülete rendszergazdájához.',
   'help.runs.body':
     'Minden futtatás minden lépést önállóan rögzít állapottal (siker, hiba, kihagyva) és a kimenet egy részletével. A végrehajtás részletező oldala a teljes lépésről-lépésre nyomkövetést, valamint a levezetett mérőszámokat jeleníti meg.',
+  'help.runs.cta': 'Végrehajtások megnyitása →',
   'help.runs.title': 'Futtatási kimenetek olvasása',
   'help.title': 'Súgóközpont',
   'integrationCard.manage': 'Kezelés',
   'landing.brand': 'Dendrite',
   'landing.demo.action.subtitle': 'Round-robin · terület',
+  'landing.demo.action.title': 'Értesítsd a felelőst',
   'landing.demo.condition.subtitle': 'AI szándékbesoroló',
+  'landing.demo.condition.title': 'Pontszám ≥ közepes?',
   'landing.demo.trigger.subtitle': 'POST /forms/contact',
   'landing.demo.trigger.title': 'Bejövő webhook',
+  'landing.features.body':
+    'Az eseményindítók elindulnak. A feltételek elágaznak. A műveletek elvégzik a munkát. Állítsd össze őket vizuálisan, verziózd őket, mint a kódot.',
   'landing.features.heading': 'Három csomóponttípus. Végtelen formák.',
   'landing.footer.help': 'Súgó',
   'landing.footer.tagline': 'Intelligencia mozgásban',
+  'landing.hero.body':
+    'A {{appName}} a munkafolyamat-motor azoknak az üzemeltetési csapatoknak, amelyek kinőtték a Zapier-t. Eseményindító, feltétel, művelet — minden rendszerhez bekötve, amelyet valóban használsz.',
   'landing.hero.eyebrow': 'Intelligencia mozgásban',
   'landing.hero.headline': 'Kösse össze a stackjét. Hagyja, hogy a munka megtörténjen.',
+  'landing.hero.primaryCta': 'Készítsd el az első munkafolyamatodat',
   'landing.hero.proof.ai': 'Beépített AI-csomópontok',
   'landing.hero.proof.free': 'Ingyenes 1 000 futtatás/hó esetén',
   'landing.hero.proof.soc2': 'SOC 2 Type II',
@@ -130,10 +157,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Fizessen a futtatásokért, ne a helyekért.',
   'landing.templates.body':
     'Előre összeállított munkafolyamatok minden csapat számára — értékesítés, támogatás, devops, pénzügy. Telepítse egy kattintással; szabjon testre bármit.',
+  'landing.templates.cta': 'Regisztrálj a templates böngészéséhez →',
   'landing.templates.eyebrow': 'Kezdjen el másodpercek alatt',
   'landing.templates.heading': 'Ellenőrzött receptek könyvtára.',
   'landing.templates.signupHint': 'Regisztráljon a telepítéshez',
   'login.hidePassword': 'Jelszó elrejtése',
+  'login.noAccount': 'Új a Tesserában?',
   'login.showPassword': 'Jelszó megjelenítése',
   'login.subhead': 'Jelentkezzen be, hogy automatizálásai működőképesek maradjanak.',
   'mobileNav.drawerLabel': 'Fő navigáció',
@@ -149,8 +178,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Futtasson egy munkafolyamatot a hírcsatorna feltöltéséhez.',
   'notifications.empty.title': 'Teljesen naprakész',
   'notifications.eyebrow': '{{n}} olvasatlan',
+  'planUpdated.body':
+    'A számlázási módosításod mostantól aktív. A csomagodat bármikor kezelheted a számlázási oldalon.',
+  'planUpdated.retry': 'Próbálja újra',
+  'planUpdated.verifyFailed': 'Még nem tudtuk megerősíteni a fizetését.',
+  'planUpdated.verifyFailedBody':
+    'Lehetséges, hogy a fizetése még feldolgozás alatt áll. Próbálja újra egy pillanat múlva.',
   'planUpdated.verifying': 'Fizetésed megerősítése…',
   'pricing.heading': 'futtatás',
+  'pricing.runsSuffix': 'futás',
   'pricing.workflowsSuffix': 'munkafolyamat',
   'privacy.collect.body':
     'Összegyűjtjük a regisztrációhoz megadott e-mail-címet, a konfigurált munkafolyamatokat és az egyes futtatásokra vonatkozó metaadatokat (kezdési idő, befejezési idő, állapot). Soha nem gyűjtünk és tárolunk triggerpayload-tartalmakat vagy lépéskimeneteket azon felül, ami szükséges a munkaterület tulajdonosának futtatásnézőjében való megjelenítéshez.',
@@ -166,11 +202,14 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'A jelszó nem frissíthető.',
   'resetPassword.newPassword': 'Új jelszó',
   'resetPassword.subhead': 'Válasszon olyat, amit csak Ön tud kitalálni.',
+  'settings.appearance.description': 'Váltás a világos és sötét mód között.',
+  'settings.appearance.title': 'Megjelenés',
   'settings.billingShortcut.cta': 'Számlázás megnyitása',
   'settings.billingShortcut.description':
     'A csomag, a felhasználás és a számlák a dedikált számlázási oldalon találhatók.',
   'settings.danger.confirm': 'Biztos benne? Ez törlési sorba helyezi a munkaterületet.',
   'settings.danger.confirmYes': 'Igen, törlési sorba helyezés',
+  'settings.danger.deleteWorkspace.cta': 'Munkaterület törlése',
   'settings.danger.deleteWorkspace.hint':
     '14 napos türelmi idő után eltávolítja az összes munkafolyamatot, futtatást és kapcsolatot.',
   'settings.danger.deleteWorkspace.title': 'Munkaterület törlése',
@@ -182,9 +221,14 @@ export const ui: UiTranslations = {
     'Kezelje fiókját, munkaterületét, integrációit és számlázását egy helyen.',
   'settings.notifications.description':
     'Válassza ki, mely események értesítik Önt, küldenek e-mailt, vagy maradnak néma.',
+  'settings.notifications.failures.hint':
+    'E-mail- és alkalmazáson belüli értesítés minden sikertelen futásról.',
+  'settings.notifications.failures.title': 'Munkafolyamat-hibák',
   'settings.notifications.product.hint': 'Alkalmi e-mailek új sablonokról és funkciókról.',
+  'settings.notifications.product.title': 'Termékfrissítések',
   'settings.notifications.weekly.hint':
     'Hétfő reggeli összefoglaló az előző hét futtatásairól és megtakarításairól.',
+  'settings.notifications.weekly.title': 'Heti kivonat',
   'settings.profile.description':
     'Hogyan jelenik meg a munkafolyamat-futóban. A munkaterület-tevékenységben használt.',
   'settings.profile.noEmail': 'Nincs rögzített e-mail',
@@ -192,12 +236,24 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'A profilmódosítások mentése nem sikerült.',
   'settings.profile.unnamedUser': 'Névtelen felhasználó',
   'settings.security.audit.hint': 'Minden műveletet streamelje SIEM-jébe webhookon keresztül.',
+  'settings.security.audit.title': 'Napló továbbítása',
   'settings.security.description': 'Kétfaktoros hitelesítés, SSO és aktív munkamenetek.',
   'settings.security.sso.hint': 'Elérhető a Scale és az Enterprise csomagokban.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'Bármely munkaterület-tulajdonosi művelethez szükséges.',
+  'settings.security.totp.title': 'Kétfaktoros hitelesítés (TOTP)',
   'settings.twoFactorCode': 'Hitelesítési kód',
   'settings.twoFactorDisable': 'Letiltás',
+  'settings.twoFactorDisableTitle': 'Kétfaktoros hitelesítés kikapcsolása',
   'settings.twoFactorEnable': 'Engedélyezés',
+  'settings.twoFactorEnableTitle': 'Kétfaktoros hitelesítés bekapcsolása',
   'settings.twoFactorInvalidCode': 'Érvénytelen kód',
+  'settings.twoFactorOn': 'A',
+  'settings.twoFactorQrAlt': 'Kétfaktoros QR-kód',
+  'settings.twoFactorScan':
+    'Olvasd be ezt a QR-kódot a hitelesítő alkalmazásoddal, majd add meg a 6 jegyű kódot.',
+  'settings.twoFactorUnavailable':
+    'A kétfaktoros hitelesítés nem érhető el ehhez az alkalmazáshoz.',
   'settings.twoFactorVerify': 'Ellenőrzés és engedélyezés',
   'settings.workspace.description':
     'A csapat közös identitása, régiója és futtatási alapértelmezései.',
@@ -226,6 +282,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Sablon',
   'templates.description':
     'Előre összeállított tervek a leggyakoribb automatizálásokhoz. Elágaztatás, testreszabás, kiszállítás.',
+  'templates.empty.filter': 'Nincs a keresésnek megfelelő sablon.',
   'templates.empty.first': 'Jelenleg nincsenek elérhető sablonok.',
   'templates.error': 'A sablonok betöltése nem sikerült.',
   'templates.installs': 'telepítés',
@@ -251,6 +308,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Letiltás',
   'workflowBuilder.enable': 'Engedélyezés',
   'workflowBuilder.error': 'A munkafolyamat nem tölthető be.',
+  'workflowBuilder.inspector.config': 'Konfiguráció',
+  'workflowBuilder.inspector.cron': 'Cron-kifejezés',
+  'workflowBuilder.inspector.disabled': 'Letiltva — nem fut automatikusan.',
   'workflowBuilder.inspector.enabled': 'Engedélyezve — triggerre fut.',
   'workflowBuilder.inspector.eyebrow': 'Ellenőr',
   'workflowBuilder.inspector.id': 'Azonosító',
@@ -268,18 +328,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Az átváltás sikertelen.',
   'workflowBuilder.workflow': 'Munkafolyamat · v{{v}}',
   'workflowBuilder.zoom.in': 'Nagyítás',
+  'workflowBuilder.zoom.label': 'Vászon nagyítási vezérlői',
+  'workflowBuilder.zoom.out': 'Kicsinyítés',
   'workflowCard.lastRun': 'Utoljára futtatva: {{when}}',
   'workflowCard.runs': '{{count}} futtatás',
+  'workflowCard.success': '{{rate}}% siker',
   'workflowHeroCard.last24h': 'Utolsó 24 ó',
+  'workflows.browseTemplates': 'Sablonok böngészése →',
   'workflows.description':
     'A munkaterület összes automatizálása, állapottal és legutóbbi tevékenységgel egy pillantásra.',
+  'workflows.empty.body': 'Próbáld törölni a szűrőt, vagy indulj el egy sablonból.',
   'workflows.empty.firstBody': 'Telepítsen sablont a gyors kezdéshez.',
   'workflows.empty.firstTitle': 'Még nincsenek munkafolyamatok',
   'workflows.empty.title': 'Nincs egyező munkafolyamat',
   'workflows.error': 'A munkafolyamatok betöltése nem sikerült.',
   'workflows.eyebrow': 'Könyvtár · {{count}} összesen',
+  'workflows.loading': 'Munkafolyamatok betöltése…',
   'workflows.newFromTemplate': 'Új sablonból',
   'workflows.searchPlaceholder': 'Munkafolyamatok keresése…',
+  'workflows.title': 'Munkafolyamatok',
   'workflowSidebar.brand': 'Dendrite',
   'workflowSidebar.status': 'Minden rendszer fut',
   'workflowSidebar.tagline': 'Intelligencia mozgásban',

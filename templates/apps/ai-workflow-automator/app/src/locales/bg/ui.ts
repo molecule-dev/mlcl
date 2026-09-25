@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite е платформа за автоматизация на работни процеси, която свързва тригери, условия с изкуствен интелект и многостъпкови действия, така че екипите да могат да преместват работа между системите, без да пишат свързващ код.',
+  'about.philosophy':
+    'Всеки работен поток е граф от малки, наблюдаеми стъпки. Всяка стъпка записва своите входни данни, изходни данни и времетраене, така че да може да бъде прегледана, възпроизведена или върната назад. Композирайте ги визуално, версионирайте ги като код.',
   'about.title': 'Относно Дендрит',
   'authShell.brand': 'Дендрит',
   'authShell.support': 'Поддръжка',
@@ -15,9 +17,15 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Промяна на плана',
   'billing.description':
     'Проследявайте употребата, управлявайте плана си и извличайте фактури за счетоводство.',
+  'billing.eyebrow': 'Акаунт · План и използване',
+  'billing.failedLabel': 'Неуспешни изпълнения · 24 ч.',
+  'billing.invoicesEmpty':
+    'Още няма фактури. Те ще се появят тук след първото ви платено подновяване.',
   'billing.invoicesTitle': 'История на фактурите',
   'billing.planNoteFree':
     'Безплатно ниво — {{runs}} бяга и {{workflows}} активни работни потоци. Надстройте за по-високи лимити.',
+  'billing.planNotePaid':
+    'Платен план — {{runs}} изпълнения и {{workflows}} активни работни потока.',
   'billing.runsLabel': 'Изпълнява се през последните 24 часа',
   'billing.tiersBlurb':
     'Сравнете всяко ниво – изпълнения, активни работни процеси, разширени функции и поддръжка – на специалната страница с цени.',
@@ -35,10 +43,14 @@ export const ui: UiTranslations = {
     'Няма регистрирани интеграции. Конфигурирайте ключове на доставчика, за да активирате облигации.',
   'connections.error': 'Не можаха да се заредят връзките.',
   'connections.eyebrow': 'Интеграции · {{connected}} свързан',
+  'connections.loading': 'Зареждане на интеграции…',
+  'connections.openEnv':
+    'За да свържете този доставчик, задайте неговия API ключ в api/.env и рестартирайте сървъра.',
   'dashboard.description':
     '{{active}} активни работни процеси. {{failed}} неуспешно през последните 24 часа.',
   'dashboard.error': 'Таблото за управление не можа да се зареди.',
   'dashboard.eyebrow': 'Операции · на живо',
+  'dashboard.hero.label': 'Изпълнения днес',
   'dashboard.hero.medianLatency': 'латентност на p50',
   'dashboard.hero.queue': 'Дълбочина на опашката',
   'dashboard.hero.success': 'Успех',
@@ -46,14 +58,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Медианна продължителност',
   'dashboard.kpi.failedRuns': 'Неуспешно · 24 часа',
   'dashboard.kpi.outOf': 'от {{total}} общо',
+  'dashboard.kpi.successRate': 'Процент на успех · 24 ч.',
   'dashboard.loading': 'Зареждане на таблото за управление…',
   'dashboard.recentRuns.empty':
     'Все още няма изпълнения. Задействането на работен процес ще попълни тази емисия.',
   'dashboard.recentRuns.title': 'Последни бягания',
   'dashboard.recentRuns.viewAll': 'Отворени екзекуции →',
+  'dashboard.recentWorkflows.browse': 'Разгледайте шаблони →',
   'dashboard.recentWorkflows.empty':
     'Все още няма работни потоци. Инсталирайте шаблон или създайте такъв от нулата.',
   'dashboard.recentWorkflows.title': 'Наскоро стартирано',
+  'dashboard.run.col.run': 'Стартирай',
   'dashboard.run.col.started': 'Започна',
   'dashboard.run.col.trigger': 'Спусък',
   'dashboard.run.col.workflow': 'Работен процес',
@@ -89,6 +104,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Работен процес',
   'executions.description':
     'Всяко изпълнение на работния процес, всеки повторен опит, всяка стъпка на изхода – всичко е наблюдаемо.',
+  'executions.empty.filter': 'Няма изпълнения, отговарящи на този филтър.',
   'executions.empty.first':
     'Все още няма изпълнения — задействайте работен процес за попълване на този списък.',
   'executions.error': 'Не можаха да се заредят екзекуциите.',
@@ -99,30 +115,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Зареждане на историята на бяганията…',
   'executions.title': 'Екзекуции',
   'forgotPassword.confirmation': 'Връзката за нулиране е изпратена до {{email}} .',
+  'forgotPassword.subhead': 'Въведете имейла си, за да получите линк за нулиране.',
   'forgotPassword.successSubhead':
     'Изпратихме линк за нулиране на {{email}} Изтича след 30 минути.',
   'help.connections.body':
     'Стъпките за изкуствен интелект, имейл и съхранение изискват ключове на доставчици да бъдат зададени във файла api/.env. След като ключът бъде конфигуриран, съответната интеграция се показва като свързана на страницата „Връзки“.',
+  'help.connections.cta': 'Отвори връзките →',
   'help.connections.title': 'Свързване на доставчици',
   'help.gettingStarted.body':
     'Нови работни потоци могат да бъдат инсталирани от библиотеката с шаблони или създадени от нулата в конструктора на работни потоци. Всеки работен поток има спусък (ръчен, уеб кука или cron) и поредица от стъпки, които се изпълняват по ред.',
+  'help.gettingStarted.cta': 'Разгледай библиотеката с шаблони →',
+  'help.gettingStarted.title': 'Първи стъпки',
   'help.intro':
     'Намерете отговори на често задавани въпроси относно изграждането на работни потоци, конфигурирането на връзки и интерпретирането на изхода от изпълнението. Най-често срещаните теми са изброени по-долу; за всичко, което не е обхванато, се обърнете към администратора на работното ви пространство.',
   'help.runs.body':
     'Всяко изпълнение регистрира всяка стъпка независимо със статус (успех, неуспех, пропуснато) и фрагмент от резултата. Страницата с подробности за изпълнението показва пълната поетапна трасировка плюс изведените показатели.',
+  'help.runs.cta': 'Отворени екзекуции →',
   'help.runs.title': 'Четене на изхода от изпълнението',
   'help.title': 'Център за помощ',
   'integrationCard.manage': 'Управление',
   'landing.brand': 'Дендрит',
   'landing.demo.action.subtitle': 'Територия с кръгова система',
+  'landing.demo.action.title': 'Уведоми представителя',
   'landing.demo.condition.subtitle': 'Класификатор на намерения с изкуствен интелект',
+  'landing.demo.condition.title': 'Оценка ≥ средна?',
   'landing.demo.trigger.subtitle': 'ПУБЛИКАЦИЯ /формуляри/контакти',
   'landing.demo.trigger.title': 'Входящ уеб кукичка',
+  'landing.features.body':
+    'Тригерите се задействат. Условията разклоняват. Действията изпълняват работата. Композирайте ги визуално, версионирайте ги като код.',
   'landing.features.heading': 'Три вида възли. Безкрайни форми.',
   'landing.footer.help': 'Помощ',
   'landing.footer.tagline': 'Интелигентност в движение',
+  'landing.hero.body':
+    '{{appName}} е машината за работни потоци за оперативни екипи, които са прерастнали Zapier. Тригер, условие, действие — свързани с всяка система, която наистина използвате.',
   'landing.hero.eyebrow': 'Интелигентност в движение',
   'landing.hero.headline': 'Свържете стека си с кабели. Оставете работата да се случи.',
+  'landing.hero.primaryCta': 'Създайте първия си работен поток',
   'landing.hero.proof.ai': 'Вградени AI възли',
   'landing.hero.proof.free': 'Безплатно за 1000 бягания/месец',
   'landing.hero.proof.soc2': 'SOC 2 Тип II',
@@ -130,10 +158,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Плащайте за бягания, а не за места.',
   'landing.templates.body':
     'Предварително зададени работни процеси за всеки екип — продажби, поддръжка, разработка, финанси. Инсталирайте с едно щракване; настройвайте всичко.',
+  'landing.templates.cta': 'Регистрирайте се, за да разгледате шаблоните →',
   'landing.templates.eyebrow': 'Старт за секунди',
   'landing.templates.heading': 'Библиотека с проверени рецепти.',
   'landing.templates.signupHint': 'Регистрирайте се за инсталиране',
   'login.hidePassword': 'Скрий паролата',
+  'login.noAccount': 'Нови ли сте в Тесера?',
   'login.showPassword': 'Покажи паролата',
   'login.subhead': 'Влезте, за да поддържате автоматизациите си работещи.',
   'mobileNav.drawerLabel': 'Основна навигация',
@@ -150,8 +180,15 @@ export const ui: UiTranslations = {
     'Изпълнете работен процес, за да започнете да попълвате този информационен канал.',
   'notifications.empty.title': 'Вече сте наваксали',
   'notifications.eyebrow': '{{n}} непрочетено',
+  'planUpdated.body':
+    'Промяната в таксуването вече е активна. Можете да управлявате плана си по всяко време от страницата за таксуване.',
+  'planUpdated.retry': 'Опитайте отново',
+  'planUpdated.verifyFailed': 'Все още не успяхме да потвърдим плащането ви.',
+  'planUpdated.verifyFailedBody':
+    'Възможно е плащането ви все още да се обработва. Опитайте отново след малко.',
   'planUpdated.verifying': 'Потвърждаване на плащането…',
   'pricing.heading': 'бяга',
+  'pricing.runsSuffix': 'изпълнения',
   'pricing.workflowsSuffix': 'работни процеси',
   'privacy.collect.body':
     'Събираме имейл адреса, с който се регистрирате, работните процеси, които конфигурирате, и метаданните за всяко изпълнение (време на начало, време на край, състояние). Никога не събираме и не съхраняваме съдържание на полезни данни от тригери или изходи на стъпки, освен това, което е необходимо за показване във визуализатора на изпълнение за собственика на работното пространство.',
@@ -167,12 +204,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Паролата не можа да се актуализира.',
   'resetPassword.newPassword': 'Нова парола',
   'resetPassword.subhead': 'Изберете нещо, за което само вие бихте предположили.',
+  'settings.appearance.description': 'Превключване между светъл и тъмен режим.',
+  'settings.appearance.title': 'Външен вид',
   'settings.billingShortcut.cta': 'Отворено фактуриране',
   'settings.billingShortcut.description':
     'Планът, потреблението и фактурите са налични на специалната страница за фактуриране.',
   'settings.danger.confirm':
     'Сигурни ли сте? Това ще постави работното ви пространство на опашка за изтриване.',
   'settings.danger.confirmYes': 'Да, изтриване на опашката',
+  'settings.danger.deleteWorkspace.cta': 'Изтриване на работното пространство',
   'settings.danger.deleteWorkspace.hint':
     'Премахва всички работни потоци, изпълнения и връзки след 14-дневен гратисен период.',
   'settings.danger.deleteWorkspace.title': 'Изтриване на работното пространство',
@@ -184,9 +224,14 @@ export const ui: UiTranslations = {
     'Управлявайте акаунта, работното си пространство, интеграциите и фактурирането си на едно място.',
   'settings.notifications.description':
     'Изберете кои събития ще ви изпращат съобщения по имейл, ще ви изпращат съобщения или ще мълчат.',
+  'settings.notifications.failures.hint':
+    'Имейл и известие в приложението при всяко неуспешно изпълнение.',
+  'settings.notifications.failures.title': 'Неуспешни работни потоци',
   'settings.notifications.product.hint': 'Периодични имейли за нови шаблони и функции.',
+  'settings.notifications.product.title': 'Продуктови актуализации',
   'settings.notifications.weekly.hint':
     'Обобщение на резултатите и спестяванията от миналата седмица в понеделник сутринта.',
+  'settings.notifications.weekly.title': 'Седмичен обзор',
   'settings.profile.description':
     'Как изглеждате в инструмента за изпълнение на работния процес. Използва се в дейностите на работното пространство.',
   'settings.profile.noEmail': 'Няма регистриран имейл',
@@ -194,12 +239,24 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Не можаха да се запазят промените в профила.',
   'settings.profile.unnamedUser': 'Неназован потребител',
   'settings.security.audit.hint': 'Предавайте всяко действие към вашия SIEM чрез webhook.',
+  'settings.security.audit.title': 'Препращане на одитен журнал',
   'settings.security.description': 'Двуфакторно удостоверяване, SSO и активни сесии.',
   'settings.security.sso.hint': 'Предлага се за планове Scale и Enterprise.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint':
+    'Изисква се за всяко действие на собственик на работно пространство.',
+  'settings.security.totp.title': 'Двуфакторно удостоверяване (TOTP)',
   'settings.twoFactorCode': 'Код за удостоверяване',
   'settings.twoFactorDisable': 'Деактивирай',
+  'settings.twoFactorDisableTitle': 'Изключване на двуфакторното удостоверяване',
   'settings.twoFactorEnable': 'Активирай',
+  'settings.twoFactorEnableTitle': 'Включване на двуфакторното удостоверяване',
   'settings.twoFactorInvalidCode': 'Невалиден код',
+  'settings.twoFactorOn': 'На',
+  'settings.twoFactorQrAlt': 'QR код за двуфакторна автентикация',
+  'settings.twoFactorScan':
+    'Сканирайте този QR код с приложението си за удостоверяване, след което въведете 6-цифрения код.',
+  'settings.twoFactorUnavailable': 'Двуфакторното удостоверяване не е налично за това приложение.',
   'settings.twoFactorVerify': 'Провери и активирай',
   'settings.workspace.description':
     'Споделени настройки по подразбиране за идентичност, регион и изпълнение за вашия екип.',
@@ -228,6 +285,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Шаблон',
   'templates.description':
     'Предварително изградени чертежи за най-често срещаните автоматизации. Разклонете, персонализирайте, доставете.',
+  'templates.empty.filter': 'Няма шаблони, отговарящи на търсенето ви.',
   'templates.empty.first': 'В момента няма налични шаблони.',
   'templates.error': 'Не можаха да се заредят шаблоните.',
   'templates.installs': 'инсталирания',
@@ -253,6 +311,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Деактивирай',
   'workflowBuilder.enable': 'Активирай',
   'workflowBuilder.error': 'Не можа да се зареди работният процес.',
+  'workflowBuilder.inspector.config': 'Конфигурация',
+  'workflowBuilder.inspector.cron': 'Cron израз',
+  'workflowBuilder.inspector.disabled': 'Изключено — няма да се изпълнява автоматично.',
   'workflowBuilder.inspector.enabled': 'Активирано — изпълнява се при задействане.',
   'workflowBuilder.inspector.eyebrow': 'Инспектор',
   'workflowBuilder.inspector.id': 'Идентификационен номер',
@@ -270,18 +331,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Превключването не бе успешно.',
   'workflowBuilder.workflow': 'Работен процес · v {{v}}',
   'workflowBuilder.zoom.in': 'Увеличаване',
+  'workflowBuilder.zoom.label': 'Контроли за мащабиране на платното',
+  'workflowBuilder.zoom.out': 'Намаляване на мащаба',
   'workflowCard.lastRun': 'Последно бягане {{when}}',
   'workflowCard.runs': '{{count}} бяга',
+  'workflowCard.success': '{{rate}}% успех',
   'workflowHeroCard.last24h': 'Последните 24 часа',
+  'workflows.browseTemplates': 'Разгледайте шаблони →',
   'workflows.description':
     'Всяка автоматизация във вашето работно пространство, с преглед на състоянието и скорошната активност.',
+  'workflows.empty.body': 'Опитайте да изчистите филтъра или да започнете от шаблон.',
   'workflows.empty.firstBody': 'Инсталирайте шаблон, за да започнете за секунди.',
   'workflows.empty.firstTitle': 'Все още няма работни потоци',
   'workflows.empty.title': 'Няма съответстващи работни процеси',
   'workflows.error': 'Не можаха да се заредят работните процеси.',
   'workflows.eyebrow': 'Библиотека · {{count}} общо',
+  'workflows.loading': 'Зареждане на работни потоци…',
   'workflows.newFromTemplate': 'Ново от шаблон',
   'workflows.searchPlaceholder': 'Търсене на работни потоци…',
+  'workflows.title': 'Работни потоци',
   'workflowSidebar.brand': 'Дендрит',
   'workflowSidebar.status': 'Всички системи работят',
   'workflowSidebar.tagline': 'Интелигентност в движение',

@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'బగ్ కనుగొన్నారా, ఫీచర్ అభ్యర్థన ఉందా, లేదా తదుపరి ఏమి నిర్మించాలో మాకు చెప్పాలనుకుంటున్నారా? hello@pylon.dev కు ఇమెయిల్ చేయండి — ప్రతి సందేశం టీమ్‌లోని నిజమైన ఇంజినీర్‌కు చేరుతుంది.',
   'about.contactTitle': 'మాతో మాట్లాడండి',
+  'about.intro':
+    '{{app}} అనేది టెర్మినల్‌లో జీవించే ఇంజినీర్ల కోసం ఒక వేగవంతమైన, కీబోర్డ్-నేటివ్ API పరీక్షా వర్క్‌బెంచ్ — బ్లోట్ లేకుండా Postman-శైలి అభ్యర్థనలు, సేకరణలు, ఎన్విరాన్‌మెంట్‌లు మరియు చరిత్ర.',
+  'about.missionBody':
+    'APIలు ఆధునిక సాఫ్ట్‌వేర్ వెన్నెముక, కానీ వాటిని వినియోగించే సాధనాలు నెమ్మదిగా, బ్లోట్‌గా, మౌస్-ఆధారితంగా ఉంటాయి. {{app}} డెవలపర్లకు పదునైన, వేగవంతమైన, టెర్మినల్-గ్రేడ్ వర్క్‌బెంచ్‌ను అందించడానికి ఉంది: అభ్యర్థనలు పంపండి, నమ్మకాన్ని నిర్మించండి, కీబోర్డ్ వదలకుండా షిప్ చేయండి.',
+  'about.missionTitle': 'మా లక్ష్యం',
   'about.pageTitle': '{{app}} గురించి',
   'authShell.statusLabel': 'ఆన్‌లైన్‌లో రన్నర్లు',
   'collections.createError': 'సేకరణను సృష్టించలేకపోయింది.',
   'collections.defaultName': 'పేరులేని సేకరణ {{n}}',
+  'collections.empty':
+    'ఇంకా సేకరణలు లేవు — మీ మొదటి ఫోల్డర్‌ను సృష్టించడానికి “New collection” క్లిక్ చేయండి.',
   'collections.eyebrow': '$ పైలాన్ కలెక్షన్స్ --ట్రీ',
   'collections.fetchError': 'కలెక్షన్‌లను లోడ్ చేయలేకపోయింది.',
   'collections.heading': 'సేకరణలు',
   'collections.loading': 'కలెక్షన్‌లు లోడ్ అవుతున్నాయి…',
+  'collections.metric.allGreen': 'అంతా ఆకుపచ్చ',
   'collections.metric.collections': 'సేకరణలు',
   'collections.metric.failing': 'విఫలమవుతోంది',
   'collections.metric.failingCaption': 'చివరి ప్రయత్నంలో వైఫల్యాలు ఎదురయ్యాయి',
@@ -24,6 +34,8 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'వేరియబుల్స్',
   'environments.createError': 'వాతావరణాన్ని సృష్టించలేకపోయింది.',
   'environments.defaultName': 'పేరులేని వాతావరణం {{n}}',
+  'environments.empty':
+    'ఇంకా ఎన్విరాన్‌మెంట్‌లు లేవు — ఒకటి జోడించడానికి “New environment” క్లిక్ చేయండి.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'ఎన్విరాన్మెంట్లను లోడ్ చేయలేకపోయింది.',
   'environments.heading': 'పర్యావరణాలు',
@@ -31,8 +43,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'కొత్త వాతావరణం',
   'environments.subheading':
     'పంపే సమయంలో అభ్యర్థనలలోకి మారే వేరియబుల్స్. ప్రతి వర్క్‌స్పేస్‌కు ఒక క్రియాశీలక ఎన్విరాన్‌మెంట్.',
+  'forgotPassword.statusLabel': 'రీసెట్ · సురక్షిత సొరంగం',
   'forgotPassword.success':
     'ఆ ఇమెయిల్‌కు ఖాతా ఉన్నట్లయితే, రీసెట్ లింక్ పంపబడుతుంది. మీ ఇన్‌బాక్స్‌ను తనిఖీ చేయండి.',
+  'history.empty': 'ఇక్కడ ఇంకా ఏమీ లేదు — Workspace ట్యాబ్ నుండి మీ మొదటి అభ్యర్థనను పంపండి.',
   'history.eyebrow': '$ పైలాన్ చరిత్ర --టెయిల్',
   'history.fetchError': 'చరిత్రను లోడ్ చేయలేకపోయింది.',
   'history.heading': 'పరుగు చరిత్ర',
@@ -41,9 +55,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'చివరి 50',
+  'history.realtime': 'రియల్‌టైమ్',
   'history.subheading':
     'ఈ వర్క్‌స్పేస్‌లో పంపబడిన ప్రతి అభ్యర్థన, దాని స్థితి, జాప్యం మరియు పేలోడ్ పరిమాణంతో సహా.',
   'landing.choosePlan': 'ప్రణాళికను ఎంచుకోండి',
+  'landing.copyright': '© {{year}} {{app}} Engineering. నమ్మకాన్ని నిర్మించండి.',
   'landing.ctaBody':
     'క్రెడిట్ కార్డ్ అవసరం లేదు. ప్లాట్‌ఫారమ్ ఇంజనీర్ అవసరం లేదు. ⌘K ఓపెన్ చేసి, ఐదు నిమిషాలలోపు మీ మొదటి రిక్వెస్ట్‌ను షిప్ చేయండి.',
   'landing.ctaHeading': 'విశ్వాసాన్ని పెంపొందించుకోండి.',
@@ -86,6 +102,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'సగటు జాప్యం',
   'mocks.metric.live': 'ప్రజలు',
   'mocks.metric.servers': 'మాక్',
+  'mocks.ms': 'ఎంఎస్',
   'mocks.newMock': 'కొత్త మాక్',
   'mocks.online': 'ప్రజలు',
   'mocks.paused': 'ప్రైవేట్',
@@ -110,9 +127,13 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'ఆరోగ్యకరమైన',
   'monitors.metric.uptime': 'సగటు అప్‌టైమ్',
   'monitors.newMonitor': 'కొత్త మానిటర్',
+  'monitors.paused': 'విరామం',
   'monitors.run': 'పరుగెత్తు',
   'monitors.runError': 'నెట్‌వర్క్ లోపంతో రన్ ముగిసింది: {{error}}',
+  'monitors.runFailed': 'రన్ విఫలమైంది.',
   'monitors.running': 'పరుగెత్తడం…',
+  'monitors.runSuccess':
+    '{{status}} రన్ చేయండి — అప్‌స్ట్రీమ్ {{ms}}msలో {{code}} తిరిగి ఇచ్చింది.',
   'monitors.sparkLabel': 'జాప్య ధోరణి',
   'monitors.subheading':
     'సేవ్ చేసిన ఏ టెస్ట్ కోసమైనా అవసరాన్ని బట్టి తనిఖీలు. ఒక టెస్ట్‌ను బైండ్ చేసి, రన్ నొక్కండి, ఆపై ప్రతి ఫైర్‌తో 24-గంటల సక్సెస్ రేట్ అప్‌డేట్ అవ్వడాన్ని చూడండి.',
@@ -121,27 +142,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'అప్‌టైమ్ · 24 గంటలు',
   'nav.legal': 'చట్టపరమైన',
   'notFound.backToWorkspace': 'కార్యస్థలానికి తిరిగి వెళ్లండి',
+  'notFound.body':
+    '{{app}} ఈ URL కోసం అభ్యర్థన పంపింది కానీ ఏమీ తిరిగి రాలేదు. రూట్‌ను మళ్లీ తనిఖీ చేయండి లేదా వర్క్‌స్పేస్‌కు తిరిగి వెళ్లండి.',
   'notFound.eyebrow': '$ పైలాన్ రిసాల్వ్ --స్ట్రిక్ట్',
   'notFound.title': 'మార్గం కనుగొనబడలేదు',
+  'planUpdated.body':
+    'మీ బిల్లింగ్ మార్పు ఇప్పుడు యాక్టివ్గా ఉంది. మీ ప్లాన్ను బిల్లింగ్ పేజీ నుండి ఎప్పుడైనా నిర్వహించవచ్చు.',
+  'planUpdated.retry': 'మళ్ళీ ప్రయత్నించండి',
+  'planUpdated.verifyFailed': 'మేము మీ చెల్లింపును ఇంకా ధృవీకరించలేకపోయాము.',
+  'planUpdated.verifyFailedBody':
+    'మీ చెల్లింపు ఇంకా ప్రాసెస్ అవుతూ ఉండవచ్చు. కాసేపటి తర్వాత మళ్ళీ ప్రయత్నించండి.',
   'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
+  'pricing.advancedFeatures': 'అధునాతన ఫీచర్లు: {{yes}}',
+  'pricing.canExport': 'డేటా ఎగుమతి: {{yes}}',
+  'pricing.heading': 'మీ {{app}} ప్లాన్ ఎంచుకోండి',
+  'pricing.maxCollections': '{{count}} సేకరణలు',
+  'pricing.maxEnvironments': '{{count}} ఎన్విరాన్‌మెంట్‌లు',
+  'pricing.maxHistory': '{{count}} చరిత్ర నమోదులు',
+  'pricing.maxRequests': '{{count}} అభ్యర్థనలు',
   'privacy.collect.account':
     'ఖాతా: మీ ఇమెయిల్, హ్యాష్ చేసిన పాస్‌వర్డ్, డిస్‌ప్లే పేరు మరియు మీరు చివరిసారిగా సైన్-ఇన్ చేసిన సమయం.',
+  'privacy.intro':
+    '{{app}} మీ గోప్యతను గౌరవిస్తుంది. ఈ పేజీ మేము సేకరించే డేటా, ఎందుకు సేకరిస్తాము మరియు దానిని ఎలా తొలగించాలో సంగ్రహిస్తుంది.',
   'privacy.rights.body':
     'మీరు మీ కలెక్షన్‌లు + ఎన్విరాన్‌మెంట్‌లను ఎప్పుడైనా ఎక్స్‌పోర్ట్ చేయవచ్చు, లేదా 30 రోజులలోపు మొత్తం డేటాను శాశ్వతంగా తీసివేయడానికి సెట్టింగ్‌ల నుండి మీ ఖాతాను తొలగించవచ్చు.',
   'privacy.share.body':
     'మీకు మాత్రమే. మేము మీ వర్క్‌స్పేస్ కంటెంట్‌ను మూడవ పక్షాలకు ఎప్పటికీ అమ్మము, పంచుకోము లేదా అద్దెకు ఇవ్వము. సంఘటన ప్రతిస్పందన కోసం సర్వర్ లాగ్‌లు 30 రోజుల పాటు ఉంచబడతాయి, ఆ తర్వాత తొలగించబడతాయి.',
   'privacy.title': 'గోప్యతా ప్రకటన',
+  'profile.bio':
+    'మీ వ్యక్తిగత {{app}} వర్క్‌స్పేస్ — సేకరణలను పిన్ చేయండి, ఎన్విరాన్‌మెంట్‌లను షేర్ చేయండి మరియు ఉత్పత్తిని షిప్ చేసే APIలను పర్యవేక్షించండి.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'చేరారు {{when}}',
+  'profile.metric.collections': 'సేకరణలు',
   'profile.metric.monitors': 'మానిటర్లు',
   'profile.metric.requests': 'సేవ్ చేసిన అభ్యర్థనలు',
+  'profile.noActivity':
+    'ఇంకా ఎలాంటి అభ్యర్థనలు పంపబడలేదు — ఒకటి చేయడానికి Workspace ట్యాబ్‌కు వెళ్లండి.',
   'profile.signedOut': 'మీ ప్రొఫైల్‌ను వీక్షించడానికి సైన్ ఇన్ చేయండి',
   'pylonShell.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
+  'resetPassword.passwordLabel': 'కొత్త పాస్‌వర్డ్',
+  'resetPassword.statusLabel': 'రీసెట్ · టోకెన్ ధృవీకరించబడింది',
   'resetPassword.subtitle': 'మీరు ఇంతకు ముందు ఉపయోగించని బలమైన పాస్‌వర్డ్‌ను ఎంచుకోండి.',
   'resetPassword.tokenPlaceholder': 'ఇమెయిల్ నుండి అతికించండి',
+  'settings.accountManagement.desc':
+    'మీ ఇమెయిల్ మరియు పాస్‌వర్డ్‌ను నవీకరించండి, నోటిఫికేషన్‌లు మరియు పరికరాలను నిర్వహించండి, సైన్ అవుట్ చేయండి లేదా మీ ఖాతాను తొలగించండి.',
+  'settings.accountManagement.title': 'ఖాతా మరియు భద్రత',
   'settings.eyebrow': '$ పైలాన్ సెట్టింగ్‌లు --సవరించు',
   'settings.fetchError': 'సెట్టింగ్‌లను లోడ్ చేయలేకపోయింది.',
   'settings.language.title': 'భాష',
+  'settings.seeding': 'సీడింగ్…',
   'settings.seedStarter': 'సీడ్ స్టార్టర్ కంటెంట్',
   'settings.starterCollection': 'స్టార్టర్ కలెక్షన్',
   'settings.starterCollectionDesc': 'సెట్టింగ్‌ల నుండి సృష్టించబడింది {{ts}}',
@@ -155,6 +204,8 @@ export const ui: UiTranslations = {
     'మీ పాస్‌వర్డ్‌ను సురక్షితంగా ఉంచుకోవాల్సిన బాధ్యత మీదే. ఉచిత లేదా ప్రో ప్లాన్‌లలో ఒకే ఖాతాను పలువురితో పంచుకోవడానికి అనుమతి లేదు — ఉమ్మడి కార్యస్థలాల కోసం టీమ్ సబ్‌స్క్రిప్షన్‌ను కొనుగోలు చేయండి.',
   'terms.billing.body':
     'చెల్లింపు సబ్‌స్క్రిప్షన్‌లు ప్రతి బిల్లింగ్ వ్యవధిలో స్వయంచాలకంగా పునరుద్ధరించబడతాయి. సెట్టింగ్‌ల నుండి ఎప్పుడైనా రద్దు చేసుకోండి; ప్రస్తుత వ్యవధి ముగిసే వరకు మీ యాక్సెస్ కొనసాగుతుంది.',
+  'terms.intro':
+    '{{app}} ఖాతాను సృష్టించడం ద్వారా మీరు క్రింది నిబంధనలకు అంగీకరిస్తారు. వాటిని ఒకసారి చదవండి; రెట్రోయాక్టివ్ మార్పులతో మేము మిమ్మల్ని ఆశ్చర్యపరచము.',
   'terms.title': 'సేవా నిబంధనలు',
   'terms.usage.body':
     'మీకు స్వంతం కాని లేదా పరీక్షించడానికి స్పష్టమైన అనుమతి లేని సేవలకు అభ్యర్థనలు పంపడానికి పైలాన్‌ను ఉపయోగించవద్దు. రేటు పరిమితులను తప్పించుకోవడానికి లేదా మోసానికి పాల్పడటానికి పైలాన్‌ను ఉపయోగించవద్దు.',
@@ -175,16 +226,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'పరుగెత్తవద్దు',
   'testRunner.metric.passed': 'ఉత్తీర్ణత సాధించారు',
   'testRunner.never': 'ఎప్పుడూ పరుగెత్తవద్దు',
+  'testRunner.newTest': 'కొత్త పరీక్ష',
   'testRunner.noAssertions': 'ఈ పరీక్షపై ఇంకా ఎలాంటి నిర్ధారణలు లేవు.',
+  'testRunner.noRunsYet':
+    'ఇంకా ఎలాంటి రన్‌లు నమోదు కాలేదు — చరిత్రను నింపడానికి “Run all” నొక్కండి.',
   'testRunner.passed': 'ఉత్తీర్ణత',
+  'testRunner.recentRuns': 'ఇటీవలి పరుగుల పోటీలు',
   'testRunner.runAll': 'అన్నింటినీ అమలు చేయండి',
   'testRunner.running': 'పరుగెత్తడం…',
   'testRunner.runOne': 'పరుగెత్తు',
   'testRunner.subheading': 'సూట్ ఫలితాలు, అసర్షన్ వ్యత్యాసాలు మరియు చివరి 50 రన్‌లు.',
+  'testRunner.suites': 'సూట్‌లు',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'ఇలా లాగిన్ అయ్యారు',
   'workspace.auth.keyName': 'శీర్షిక పేరు',
   'workspace.auth.keyValue': 'కీలక విలువ',
+  'workspace.auth.noneHint': 'ఈ అభ్యర్థనతో ఎలాంటి ఆథరైజేషన్ హెడర్ పంపబడదు.',
   'workspace.auth.password': 'పాస్‌వర్డ్',
   'workspace.auth.username': 'వినియోగదారు పేరు',
   'workspace.authOption.apikey': 'API కీ',
@@ -194,13 +251,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'రకం',
   'workspace.authTypeLabel': 'ప్రామాణీకరణ రకం',
+  'workspace.body.contentLabel': 'అభ్యర్థన బాడీ',
+  'workspace.body.hint':
+    'అభ్యర్థన పంపే ముందు {{envVars}} ప్రతిక్షేపించబడతాయి. బాడీలు POST/PUT/PATCH/DELETEలో పంపబడతాయి.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'ఏదీ లేదు',
+  'workspace.body.noneHint':
+    'ఎలాంటి అభ్యర్థన బాడీ పంపబడదు. ఒకటి జోడించడానికి JSON లేదా రా టెక్స్ట్ ఎంచుకోండి.',
   'workspace.body.text': 'ముడి వచనం',
   'workspace.body.type': 'రకం',
   'workspace.environment': 'పర్యావరణం లేదు',
   'workspace.envVar': 'env వేరియబుల్',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.failedCount': '{{count}} విఫలమయ్యాడు',
+  'workspace.idle': 'నిష్క్రియంగా',
   'workspace.kv.addHeader': 'హెడర్‌ను జోడించండి',
   'workspace.kv.addParam': 'పారామితిని జోడించండి',
   'workspace.kv.headerKey': 'శీర్షిక పేరు',
@@ -213,13 +277,17 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP పద్ధతి',
   'workspace.metric.latency': 'జాప్యం',
   'workspace.metric.latencyCaption': 'ఈ పరుగు నుండి రౌండ్ ట్రిప్',
+  'workspace.metric.size': 'పేలోడ్',
   'workspace.metric.sizeCaption': 'ప్రతిస్పందన బాడీ బైట్‌లు',
   'workspace.metric.statusCaption': 'చివరి ప్రతిస్పందన',
   'workspace.metric.tests': 'పరీక్షలు',
+  'workspace.metric.testsAllPassing': 'అన్ని అసర్షన్‌లు ఆకుపచ్చ',
   'workspace.metric.testsFailing': '{{count}} విఫలమవుతోంది',
+  'workspace.metric.testsIdle': 'మూల్యాంకనం చేయడానికి ఒక అభ్యర్థన పంపండి',
   'workspace.noAssertions':
     'అంతర్నిర్మిత నిర్ధారణలను మూల్యాంకనం చేయడానికి ఒక అభ్యర్థనను అమలు చేయండి.',
   'workspace.noResponseYet': 'ఇంకా స్పందన రాలేదు',
+  'workspace.passedCount': '{{count}} ఉత్తీర్ణత సాధించారు',
   'workspace.responseHint':
     '// అభ్యర్థనను పంపడానికి మరియు ప్రతిస్పందనను పొందడానికి పంపు (Send) నొక్కండి.',
   'workspace.saveError': 'అభ్యర్థనను సేవ్ చేయలేకపోయింది.',
@@ -229,9 +297,13 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'ఒకే ప్యానెల్‌లో అభ్యర్థనను రూపొందించి, దాన్ని పంపి, ఆపై ప్రతిస్పందనను నిర్ధారించండి.',
   'workspace.testResults': 'పరీక్ష ఫలితాలు',
+  'workspace.tests.autoHint':
+    'స్టేటస్ ఫ్యామిలీ, లేటెన్సీ, బాడీ పరిమాణం మరియు ట్రాన్స్‌పోర్ట్ ఆరోగ్యం స్వయంచాలకంగా నిర్ధారించబడతాయి — ఫలితాలు ప్రతిస్పందన ప్యానెల్‌లో “Test results” కింద కనిపిస్తాయి.',
+  'workspace.tests.autoTitle': 'ప్రతి ప్రతిస్పందనపై అంతర్నిర్మిత అసర్షన్‌లు అమలవుతాయి',
   'workspace.token': 'టోకెన్',
   'workspace.tokenHint': 'అధికారంగా పంపబడింది: బేరర్<token> ఈ సేకరణలోని ప్రతి అభ్యర్థనపై.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'పేరులేని అభ్యర్థన',
+  'workspace.urlLabel': 'అభ్యర్థన URL',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Imate povratne informacije, pronašli ste grešku ili planirate nešto ambiciozno? Javite nam se iz postavki računa — svaka poruka stiže stvarnoj osobi u timu.',
+  'about.contactTitle': 'Razgovarajte s nama',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Rezervacije u jednom pretincu — potvrde za letove, hotele i aktivnosti stižu točno na dan kojem pripadaju.',
+  'about.featureCollab':
+    'Suradnja u stvarnom vremenu — pozovite do pet putnika po putovanju, a svaka se promjena sinkronizira uživo uz komentare vezane uz svaku postaju.',
+  'about.featureMapsBudget':
+    'Karte, odredišta i zajednički proračun — vidite cijelo putovanje na karti, otkrijte odredišta koja je odabrao urednik i pratite troškove kako nitko ne bi potrošio previše.',
+  'about.featureTimelines':
+    'Dnevni rasporedi — povucite postaje da promijenite redoslijed, ubacite segmente prijevoza i gledajte kako se plan putovanja preračunava kao jedan živi dokument.',
+  'about.intro':
+    '{{app}} pretvara mapu punu nedovršenih planova u jedno zajedničko putovanje koje cijela grupa može stvarno pratiti. Izradite dnevni raspored, ubacite letove i hotele, smjestite svaku postaju na kartu i pratite proračun — sve na jednom mirnom mjestu umjesto desetak kartica i grupne poruke.',
+  'about.missionBody':
+    'Planiranje putovanja trebalo bi izgledati kao da putovanje već postaje bolje, a ne kao domaća zadaća. {{app}} postoji kako bi zajednička putovanja bila jednostavna — da svaki putnik dođe znajući plan i da svaka postaja ispriča priču vrijednu pamćenja.',
+  'about.missionTitle': 'Naša misija',
   'about.pageTitle': 'O aplikaciji {{app}}',
   'auth.legalConsent': 'Nastavljanjem prihvaćate naše',
   'bookings.empty.body': 'Dodajte let, hotel ili aktivnost da biste pokrenuli pristiglu poštu.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Hotel',
   'bookings.type.other': 'Ostalo',
   'budgetSpendCard.budgetTotal': 'od {{total}} planirano',
+  'budgetSpendCard.overBy': '{{amount}} iznad proračuna',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} nedavno',
+  'budgetSpendCard.remaining': '{{amount}} preostalo',
   'calendar.eyebrow': 'Godina koja je pred nama',
   'calendar.heading': 'Svako putovanje u jednom kalendaru.',
   'calendar.legendHeading': 'Putovanja ovog mjeseca',
@@ -41,18 +60,28 @@ export const ui: UiTranslations = {
   'common.and': 'i',
   'common.goToDashboard': 'Idi na kontrolnu ploču',
   'dashboard.budgetHeading': 'Puls proračuna',
+  'dashboard.empty.body':
+    'Isplanirajte prvo putovanje i vaša će se nadzorna ploča ispuniti dnevnim rasporedima, pregledom proračuna i rezervacijama.',
+  'dashboard.empty.cta': 'Isplanirajte prvo putovanje',
   'dashboard.empty.heading': 'Još nema putovanja — vaš atlas je prazan.',
   'dashboard.eyebrow': 'Kontrola misije',
   'dashboard.heading': 'Vaša sljedeća avantura, u jednom mirnom kutku.',
   'dashboard.newTripCta': 'Započnite novo putovanje',
+  'dashboard.subheading':
+    'Odbrojavanje do sljedećeg putovanja, današnji pregled potrošnje i brz pogled na svaki plan putovanja u tijeku.',
   'dashboard.tripsHeading': 'Putovanja u pokretu',
   'dashboard.viewAllExpenses': 'Pogledajte svaki trošak',
   'dashboard.viewAllTrips': 'Pogledajte svako putovanje',
   'dayTimelineRow.category.accommodation': 'Boravak',
+  'dayTimelineRow.category.food': 'Hrana i piće',
+  'dayTimelineRow.category.sightseeing': 'Razgledavanje',
   'dayTimelineRow.category.transport': 'Prijevoz',
   'destinationOrbCard.exploreCta': 'Dodaj u putovanje',
   'destinationOrbCard.tripCount': '{{count}} putovanja',
+  'destinations.empty.body':
+    'Vratite se na Sve i pronađeni sadržaji urednika ponovno će se pojaviti.',
   'destinations.empty.heading': 'Još nema odredišta.',
+  'destinations.emptyFiltered.heading': 'Još ništa nije tako označeno.',
   'destinations.errors.load': 'Nije moguće učitati odredišta.',
   'destinations.eyebrow': 'Kamo dalje',
   'destinations.heading': 'Spremljeni kutovi i nalazi urednika.',
@@ -70,7 +99,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Dobavljač',
   'expenses.formHeading': 'Trošak prijave za {{trip}}',
   'expenses.heading': 'Kamo zapravo ide putni budžet.',
+  'expenses.heroBudget': '{{pct}}% od {{total}} isplanirano',
   'expenses.heroEyebrow': '{{trip}} • pregled proračuna',
+  'expenses.heroNoBudget': 'Na ovom putovanju još nije postavljen proračun.',
   'expenses.noTrips.body': 'Prvo isplanirajte putovanje —. troškovi se dodaju proračunu putovanja.',
   'expenses.noTrips.heading': 'Još nema putovanja.',
   'expenses.receiptCount': '{{count}} računi',
@@ -82,12 +113,16 @@ export const ui: UiTranslations = {
     'Svaki račun i potvrda ovdje se svrstavaju u pravu kategoriju — nije potrebna proračunska tablica.',
   'forgotPassword.eyebrow': 'Obnovite svoj itinerar',
   'forgotPassword.heading': 'Zaboravili ste lozinku?',
+  'forgotPassword.subheading':
+    'Unesite adresu e-pošte koju ste koristili za {{appName}} i poslat ćemo vam poveznicu za ponovno postavljanje lozinke.',
   'forgotPassword.submit': 'Pošalji e-poruku za oporavak',
   'forgotPassword.submitPending': 'Slanje e-pošte za oporavak…',
   'forgotPassword.successHint':
     'Još nemate e-poštu? Provjerite mapu neželjene pošte ili pokušajte ponovno s drugom adresom.',
   'forgotPassword.successSubheading':
     'Poslali smo poveznicu za oporavak na {{email}} Link vrijedi 30 minuta.',
+  'forgotPassword.tryAgain': 'Pošalji na drugu adresu e-pošte',
+  'landing.cta.eyebrow': 'Započnite s besplatnim planom',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Izradi besplatni račun',
   'landing.cta.subheading':
@@ -99,8 +134,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Započnite besplatno putovanje',
   'landing.hero.ctaSecondary': 'Pogledajte primjer putovanja',
+  'landing.hero.eyebrow': 'Planer putovanja · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint pretvara mapu punu napola oblikovanih planova u zajednički, dnevni itinerar kojeg vaša grupa zapravo može slijediti - s rezervacijama, kartama i proračunom koji se prate na jednom mjestu.',
+  'landing.hero.title': 'Planirajte to jednom. Lutajte zajedno.',
   'landing.nav.join': 'Započnite besplatno putovanje',
   'landing.nav.preview': 'Unutarnja točka puta',
   'landing.preview.cta': 'Planirajte jedan svoj',
@@ -108,6 +145,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Nekoliko putovanja kojima putnici trenutno lutaju',
   'login.eyebrow': 'Članovi',
   'login.heading': 'Dobrodošao natrag, putniče',
+  'login.noAccount': 'Novi ste na Tesseri?',
   'login.signupLink': 'Izradite besplatan račun',
   'login.subheading':
     'Prijavite se kako biste upravljali svojim putovanjima, dnevnim planovima, rezervacijama i unosima u dnevnik koje ste već započeli.',
@@ -118,6 +156,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Nije moguće ažurirati obavijest.',
   'notifications.heading': 'Što se promijenilo tijekom vaših današnjih putovanja.',
   'notifications.markUnread': 'Označi kao nepročitano',
+  'notifications.subheading':
+    '{{count}} novo — potvrde rezervacija, bilješke suradnika, padovi cijena i podsjetnici.',
   'notifications.time.daysAgo': '{{count}} prije d',
   'notifications.time.hoursAgo': '{{count}} prije h',
   'notifications.time.justNow': 'upravo sada',
@@ -136,6 +176,7 @@ export const ui: UiTranslations = {
     'Povezane usluge, valuta, push obavijesti i vjerodajnice s kojima se prijavljujete.',
   'signup.and': 'i',
   'signup.eyebrow': 'Pridruži se točki puta',
+  'signup.haveAccount': 'Već lutate?',
   'signup.heading': 'Planirajte to jednom. Lutajte zajedno.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -147,6 +188,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Otvori plan putovanja',
   'tripCountdownHeroCard.ctaSecondary': 'Planiraj još jedno putovanje',
   'tripCountdownHeroCard.daysLabel': '{{days}} dana do kraja',
+  'tripCountdownHeroCard.eyebrow': 'Sljedeća avantura · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} noći — vaš je plan putovanja spreman za put.',
   'tripCoverCard.stops': '{{count}} zaustavlja se',
   'tripCoverCard.travelers': '{{count}} putnici',
   'tripDetail.addActivity': 'Dodaj aktivnost',
@@ -156,6 +200,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Naziv aktivnosti',
   'tripDetail.adding': 'Dodavanje…',
   'tripDetail.backToTrips': 'Natrag na sva putovanja',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Putnici',
   'tripDetail.dayLabel': 'Dan {{day}}',
   'tripDetail.empty': 'Još nema aktivnosti — dodajte jednu za početak vremenske crte.',
@@ -166,14 +211,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Plan putovanja • {{country}}',
   'tripDetail.invite': 'Pozvati',
   'tripDetail.inviteLabel': 'Pozovi putem e-pošte',
+  'tripDetail.invitePlaceholder': 'netko@primjer.com',
   'tripDetail.inviteSent': 'Pozivnica poslana {{email}} .',
   'tripDetail.inviting': 'Slanje…',
   'tripDetail.loading': 'Učitavanje putovanja…',
   'tripDetail.noCollaborators': 'Samo ti, za sada.',
+  'tripDetail.notesHeading': 'Bilješke o putovanju',
   'tripDetail.notesPlaceholder': 'Još nema bilješki.',
   'tripDetail.notFound.heading': 'Putovanje nije pronađeno',
   'tripDetail.openBookings': 'Otvori pristiglu poštu za rezervacije',
   'tripDetail.shareCopied': 'Veza za dijeljenje kopirana u međuspremnik:',
+  'tripDetail.shareReady': 'Poveznica za dijeljenje spremna:',
   'tripDetail.stops': '{{count}} zaustavlja se',
   'tripDetail.timelineEyebrow': 'Vremenska crta dana',
   'tripDetail.timelineHeading': 'Dnevni plan',
@@ -191,6 +239,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Putnici',
   'tripPlanner.heading': 'Skicirajte putovanje za manje od minute.',
   'tripPlanner.preview.eyebrow': 'Pregled uživo',
+  'tripPlanner.preview.placeholderCountry': 'Odaberite državu',
   'tripPlanner.preview.placeholderDestination': 'Vaša sljedeća avantura',
   'tripPlanner.section1.title': 'Gdje i kada',
   'tripPlanner.section2.title': 'Putnici i budžet',
@@ -199,10 +248,13 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Dan {{day}} — dodajte ovdje stanice, prijevoz i rezervacije.',
   'tripPlanner.section3.day2': 'Dan {{day}} — dodajte ovdje stanice, prijevoz i rezervacije.',
   'tripPlanner.section3.day3': 'Dan {{day}} — dodajte ovdje stanice, prijevoz i rezervacije.',
+  'tripPlanner.section3.title': 'Predložak dnevnog plana',
   'tripPlanner.subheading':
     'U nastavku unesite osnove - uvijek možete pozvati suradnike, povući stanice i kasnije proslijediti rezervacije.',
   'tripPlanner.submit': 'Izradi putovanje',
   'tripPlanner.submitting': 'Izrada…',
+  'trips.empty.body': 'Vratite se na Sva putovanja ili počnite planirati sljedeće lutanje.',
+  'trips.empty.cta': 'Planirajte putovanje',
   'trips.empty.heading': 'Još ništa ne odgovara tom filteru.',
   'trips.eyebrow': 'Atlas',
   'trips.filterLabel': 'Filtriraj putovanja po statusu',
@@ -213,6 +265,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Još nema putovanja.',
   'trips.pastHeading': 'Prošle avanture',
   'trips.subheading': '{{count}} itinerari - prošli, sadašnji i budući.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Isplanirajte jednom. Lutajte zajedno. Pamtite zauvijek.',
+  'waypointAuthShell.testimonial.author': 'Iris i Jonas · {{appName}} članova od 2024.',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} je užurban put od 3 tjedna kroz četiri zemlje pretvorio u najopušteniji plan putovanja koji smo ikad podijelili.',
   'waypointLayout.mobileNavClose': 'Zatvori navigacijski izbornik',
   'waypointLayout.primaryNavLabel': 'Primarna navigacija',
 }

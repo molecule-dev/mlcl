@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഫീഡ്ബാക്ക് ഉണ്ടോ, ഒരു ബഗ് കണ്ടെത്തിയോ, അല്ലെങ്കിൽ {{appName}}-ൽ നിങ്ങളുടേതായ ഒരു ബോർഡ് വേണോ? ടീമിനെ സമീപിക്കാൻ നിങ്ങളുടെ Settings തുറക്കുക — ഓരോ സന്ദേശവും വായിക്കുന്ന ഒരു യഥാർത്ഥ മനുഷ്യനിലേക്കാണ് പോകുന്നത്.',
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
+  'about.featureModeration':
+    'ക്വാർട്ടർ ലേബലുകളുള്ള ഒരു പൊതു റോഡ്മാപ്പ്, ഷിപ്പ് ചെയ്ത ജോലികളെ റിലീസ് കുറിപ്പുകളാക്കി മാറ്റുന്ന ഒരു ചേഞ്ച്ലോഗ്, ജനങ്ങൾ ഏറ്റവും കൂടുതൽ ആഗ്രഹിക്കുന്നത് കാണിക്കുന്ന ഒരു ഡാഷ്ബോർഡ്.',
+  'about.featurePricing':
+    'കുറച്ച് ബോർഡുകൾ നടത്താൻ സൗജന്യം; Pro, Team പ്ലാനുകൾ കൂടുതൽ ബോർഡുകളും ഉയർന്ന പരിധികളും ഡാറ്റ എക്സ്പോർട്ടും അൺലോക്ക് ചെയ്യുന്നു.',
+  'about.featureThreads':
+    'വിഷയം അനുസരിച്ച് ക്രമീകരിച്ച പൊതു ഫീഡ്ബാക്ക് ബോർഡുകൾ, ഡ്യൂപ്ലിക്കേറ്റുകൾ കൂട്ടിച്ചേർക്കുന്നതിലൂടെ വോട്ടുകൾ ഒരു സത്യസന്ധമായ ഡിമാൻഡ് സിഗ്നലായി ഒന്നിക്കുന്നു.',
+  'about.featureVoting':
+    'ഒരു ഉപയോക്താവിന് ഒരു വോട്ട് എന്ന നിലയിലുള്ള അപ്വോട്ടിംഗ്, പൂർണ്ണ സ്റ്റാറ്റസ് വർക്ക്ഫ്ലോയോടെ — open, planned, in progress, shipped, അല്ലെങ്കിൽ declined — ഓരോ തീരുമാനത്തിനും ഒരു ഔദ്യോഗിക പ്രതികരണവും.',
+  'about.intro':
+    '{{appName}} ഒരു പ്രൊഡക്റ്റ്-ഫീഡ്ബാക്ക് പ്ലാറ്റ്ഫോമാണ് — ഉപഭോക്താക്കൾ അഭ്യർത്ഥനകൾ പോസ്റ്റ് ചെയ്യുന്നതും, തങ്ങൾക്ക് വേണ്ടതിന് വോട്ട് ചെയ്യുന്നതും, ഓരോ ആശയവും planned മുതൽ shipped വരെ പിന്തുടരുന്നതുമായ പൊതു ബോർഡുകൾ. അടുത്തതായി എന്ത് നിർമ്മിക്കണമെന്ന് ടീമുകൾ ഊഹിക്കേണ്ടതില്ല, കാരണം ഡിമാൻഡ് സ്വയം റാങ്ക് ചെയ്യുന്നു.',
+  'about.missionBody':
+    'മികച്ച പ്രൊഡക്റ്റ് തീരുമാനങ്ങൾ തുറന്ന് എടുക്കുന്നതാണ് എന്ന് ഞങ്ങൾ വിശ്വസിക്കുന്നു. {{appName}} ഓരോ ടീമിനും വോട്ട് ചെയ്ത അഭ്യർത്ഥനകളുടെ ഒരു പൊതു ബോർഡും, ലക്ഷ്യ ക്വാർട്ടറുകളുള്ള ഒരു ഔദ്യോഗിക റോഡ്മാപ്പും, ലൂപ്പ് അടയ്ക്കുന്ന ഒരു ചേഞ്ച്ലോഗും നൽകുന്നു — അതുവഴി ഉപഭോക്താക്കൾ അവരുടെ സ്വാധീനം കാണുന്നു, ടീമുകൾ അവരുടെ അധികാരം കാണുന്നു.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'admin.backToBoards': 'ബോർഡുകളിലേക്ക് മടങ്ങുക',
   'admin.denied': 'അഡ്മിനുകൾക്ക് മാത്രം.',
   'admin.eyebrow': 'ഉൽപ്പന്ന ടീം',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'admin.title': 'ഫീഡ്‌ബാക്ക് ഡാഷ്‌ബോർഡ്',
   'admin.topOpen': 'മുൻനിര തുറന്ന അഭ്യർത്ഥനകൾ',
   'admin.totalVotes': '{{count}} ആകെ',
+  'admin.votesChartLabel': 'കഴിഞ്ഞ എട്ട് ആഴ്ചകളിലെ ആഴ്ചയിലെ വോട്ടുകളുടെ ബാർ ചാർട്ട്',
   'admin.votesOverTime': 'കാലക്രമത്തിൽ വോട്ടുകൾ',
   'auth.forgotPassword.email': 'ഇമെയിൽ',
   'auth.forgotPassword.sendResetLink': 'റീസെറ്റ് ലിങ്ക് അയയ്ക്കുക',
@@ -30,7 +47,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'നിങ്ങളുടെ അക്കൗണ്ട് സൃഷ്ടിക്കുക',
   'auth.username': 'യൂസർനെയിം',
   'authShell.communities': 'കമ്മ്യൂണിറ്റികൾ',
+  'authShell.copyright': '{{appName}} — ഓരോ ശബ്ദവും പ്രധാനം.',
   'authShell.trending': 'ട്രെൻഡിംഗ്',
+  'boardCard.postCount': '{{count}} പോസ്റ്റുകൾ',
   'boardDetail.allBoards': 'എല്ലാ ബോർഡുകളും',
   'boardDetail.backToBoards': 'ബോർഡുകളിലേക്ക് മടങ്ങുക',
   'boardDetail.empty': 'ഈ ഫിൽട്ടറുകളുമായി യോജിക്കുന്ന പോസ്റ്റുകൾ ഇതുവരെ ഇല്ല.',
@@ -54,6 +73,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'ഓരോ എൻട്രിയും വോട്ട് ചെയ്ത അഭ്യർത്ഥനയായി തുടങ്ങി. വോട്ടർമാർ അത് നീങ്ങുന്നത് കണ്ടു; അത് എത്തിച്ചേർന്നത് ഇവിടെയാണ്.',
   'changelog.title': 'ഷിപ്പ് ചെയ്തു, രസീതുകളോടെ',
+  'changelog.voteCount': '{{count}} വോട്ടുകൾ ഇത് നിർമ്മിക്കാൻ കാരണമായി',
   'common.atLeast8Characters': 'കുറഞ്ഞത് 8 പ്രതീകങ്ങൾ',
   'common.checkYourInbox': 'നിങ്ങളുടെ ഇൻബോക്സ് പരിശോധിക്കുക',
   'common.loadingEllipsis': 'ലോഡ് ചെയ്യുന്നു…',
@@ -64,6 +84,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'സമർപ്പിക്കുന്നു…',
   'footer.about': '{{appName}} കുറിച്ച്',
   'footer.language': 'ഭാഷ',
+  'forgotPassword.description':
+    'നിങ്ങളുടെ ഇമെയിൽ നൽകുക, പുനഃസജ്ജമാക്കുന്നതിനുള്ള ഒരു ലിങ്ക് ഞങ്ങൾ നിങ്ങൾക്ക് അയയ്ക്കും.',
+  'forgotPassword.successBody':
+    'ഞങ്ങൾ ഒരു റീസെറ്റ് ലിങ്ക് അയച്ചു {{email}} . ഇത് 30 മിനിറ്റിനുള്ളിൽ കാലഹരണപ്പെടും.',
   'forgotPassword.tryAnother': 'മറ്റൊരു ഇമെയിൽ പരീക്ഷിക്കുക',
   'form.displayName': 'പ്രദർശന നാമം',
   'form.firstName': 'പേരിന്റെ ആദ്യഭാഗം',
@@ -74,6 +98,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'നിങ്ങളുടെ റോഡ്മാപ്, വോട്ടുകളാൽ പിന്തുണയ്ക്കപ്പെടുന്നു.',
   'landing.heroCtaPrimary': 'വോട്ടുകൾ ശേഖരിക്കാൻ ആരംഭിക്കുക',
   'landing.heroCtaSecondary': 'തത്സമയ ബോർഡ് കാണുക',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'ഊഹിക്കുന്നത് നിർത്തുക. അവർ വോട്ട് ചെയ്യുന്നത് ഷിപ്പ് ചെയ്യുക.',
+  'landing.heroLede':
+    '{{appName}} ചിതറിക്കിടക്കുന്ന ഫീച്ചർ അഭ്യർത്ഥനകളെ വോട്ട് ചെയ്ത ആശയങ്ങളുടെ ഒരു പൊതു ബോർഡും, ഒരു ഔദ്യോഗിക റോഡ്മാപ്പും, നിങ്ങളുടെ ഉപഭോക്താക്കൾ യഥാർത്ഥത്തിൽ വായിക്കുന്ന ഒരു ചേഞ്ച്ലോഗും ആക്കി മാറ്റുന്നു.',
   'landing.heroStat1': '3,200+',
   'landing.heroStat1Label': 'കേൾക്കുന്ന ടീമുകൾ',
   'landing.heroStat2': '1.4m',
@@ -85,9 +113,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'മാറ്റങ്ങളുടെ പട്ടിക',
   'landing.navJoin': '{{appName}}-ൽ ചേരുക',
   'landing.navRoadmap': 'റോഡ്മാപ്',
+  'landing.step1Body':
+    'ഉപഭോക്താക്കൾ പൊതു ബോർഡുകളിൽ ആശയങ്ങൾ പോസ്റ്റ് ചെയ്യുന്നു. ഡ്യൂപ്ലിക്കേറ്റുകൾ കൂട്ടിച്ചേർക്കുന്നു, വോട്ടുകൾ ഒന്നിക്കുന്നു, ഡിമാൻഡ് സ്വയം റാങ്ക് ചെയ്യുന്നു.',
   'landing.step1Title': 'ശേഖരിക്കുക',
+  'landing.step2Body':
+    'ഒരു ലക്ഷ്യ ക്വാർട്ടറോടെ അഭ്യർത്ഥനകൾ planned അല്ലെങ്കിൽ in progress എന്ന് അടയാളപ്പെടുത്തുക — നിങ്ങൾ അങ്ങനെ ചെയ്യുന്ന നിമിഷം റോഡ്മാപ്പ് അപ്ഡേറ്റ് ആകുന്നു.',
+  'landing.step2Title': 'കമ്മിറ്റ് ചെയ്യുക',
   'landing.step3Body':
     'ഷിപ്പ് ചെയ്ത പോസ്റ്റുകൾ മാറ്റങ്ങളുടെ പട്ടിക എൻട്രികളായി മാറുന്നു, ഓരോ വോട്ടറും അവരുടെ സ്വന്തം പട്ടികയിൽ ഫലം കാണുന്നു.',
+  'landing.step3Title': 'ഷിപ്പ്',
   'landing.topSubtitle': 'ഈ ബോർഡിൽ നിന്ന് തത്സമയം — നിങ്ങളുടെ വോട്ട് ചേർക്കാൻ സൈൻ ഇൻ ചെയ്യുക.',
   'landing.topTitle': 'ഉപയോക്താക്കൾ ഇപ്പോൾ എന്താണ് ആവശ്യപ്പെടുന്നത്',
   'landing.topViewAll': 'എല്ലാ ബോർഡുകളും',
@@ -95,14 +129,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'പ്രാഥമികം',
   'layout.signUp': 'സൈൻ അപ്പ് ചെയ്യുക',
   'layout.submit': 'ഫീഡ്‌ബാക്ക് സമർപ്പിക്കുക',
+  'login.description': 'സംഭാഷണം നിർത്തിയ ഇടത്തു നിന്ന് തുടരുക.',
+  'login.heading': 'നിംബസിൽ സൈൻ ഇൻ ചെയ്യുക',
+  'login.noAccount': 'ഇവിടെ പുതിയ ആളാണോ?',
   'login.passwordPlaceholder': 'നിങ്ങളുടെ പാസ്‌വേഡ്',
   'login.twoFactorLabel': '2FA കോഡ് (ഐച്ഛികം)',
   'login.twoFactorPlaceholder': '6 അക്ക കോഡ്',
+  'login.twoFactorRequiredHint':
+    'ഈ അക്കൗണ്ടിൽ ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ പ്രവർത്തനക്ഷമമാണ്. തുടരാൻ നിങ്ങളുടെ ഓതന്റിക്കേറ്റർ ആപ്പിൽ നിന്നുള്ള 6 അക്ക കോഡ് നൽകുക.',
   'login.twoFactorRequiredLabel': 'നിങ്ങളുടെ 2FA കോഡ് നൽകുക',
+  'myActivity.browseCta': 'ബോർഡുകൾ ബ്രൗസ് ചെയ്യുക',
+  'myActivity.emptyPosts': 'നിങ്ങൾ ഇതുവരെ ഒരു അഭ്യർത്ഥനയും പോസ്റ്റ് ചെയ്തിട്ടില്ല.',
+  'myActivity.emptyVotes': 'ഇതുവരെ ഒന്നുമില്ല — ബോർഡുകൾ ബ്രൗസ് ചെയ്ത് ഒരു ആശയത്തെ പിന്തുണയ്ക്കുക.',
   'myActivity.eyebrow': 'നിങ്ങളുടെ പ്രവർത്തനം',
   'myActivity.loadError': 'നിങ്ങളുടെ ആക്റ്റിവിറ്റി ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'myActivity.postsTitle': 'നിങ്ങൾ സമർപ്പിച്ച അഭ്യർത്ഥനകൾ',
+  'myActivity.shippedNote': 'അവയിൽ {{count}} എണ്ണം ഷിപ്പ് ചെയ്തു — ഓർമ്മപ്പെടുത്തലിന് നന്ദി.',
   'myActivity.submitCta': 'ഒരു അഭ്യർത്ഥന പോസ്റ്റ് ചെയ്യുക',
+  'myActivity.tabLabel': 'കാണുക',
   'myActivity.tabPosts': 'എന്റെ പോസ്റ്റുകൾ',
   'myActivity.tabVotes': 'എന്റെ വോട്ടുകൾ',
   'myActivity.votesTitle': 'നിങ്ങൾ വോട്ട് ചെയ്ത അഭ്യർത്ഥനകൾ',
@@ -137,8 +181,13 @@ export const ui: UiTranslations = {
   'posts.notFound': 'പോസ്റ്റ് കണ്ടെത്തിയില്ല',
   'postsAdmin.backToDashboard': 'ഡാഷ്ബോർഡ്',
   'postsAdmin.eyebrow': 'ഉൽപ്പന്ന ടീം',
+  'postsAdmin.mergeApplied':
+    'കൂട്ടിച്ചേർത്തു — {{votes}} വോട്ടുകളും {{comments}} കമന്റുകളും മാറ്റി.',
   'postsAdmin.mergeApply': 'ലയിപ്പിച്ച് വോട്ടുകൾ നീക്കുക',
   'postsAdmin.mergeChoose': 'ടാർഗറ്റ് പോസ്റ്റ് തിരഞ്ഞെടുക്കുക…',
+  'postsAdmin.mergeFailed': 'കൂട്ടിച്ചേർക്കൽ പരാജയപ്പെട്ടു.',
+  'postsAdmin.mergeHint':
+    'വോട്ടുകൾ ഒന്നിക്കുന്നു (ഓരോ ഉപയോക്താവിനും ഒന്ന്), കമന്റുകൾ മാറുന്നു, ഈ പോസ്റ്റിന് ഒരു "moved" കുറിപ്പ് ലഭിക്കുന്നു.',
   'postsAdmin.mergeLabel': 'ഇതിൽ ഡ്യൂപ്ലിക്കേറ്റ് ലയിപ്പിക്കുക',
   'postsAdmin.responseLabel': 'ഔദ്യോഗിക പ്രതികരണം',
   'postsAdmin.responsePlaceholder':
@@ -153,7 +202,13 @@ export const ui: UiTranslations = {
     'ഔദ്യോഗിക സ്റ്റാറ്റസ് സജ്ജമാക്കുക, പരസ്യമായി പ്രതികരിക്കുക, റോഡ്മാപ് ക്വാർട്ടർ ലേബൽ ചെയ്യുക, ഡ്യൂപ്ലിക്കേറ്റുകൾ ലയിപ്പിക്കുക.',
   'postsAdmin.title': 'ഫീഡ്‌ബാക്ക് പോസ്റ്റുകൾ കൈകാര്യം ചെയ്യുക',
   'postsAdmin.votes': '{{count}} വോട്ടുകൾ',
+  'pricing.limits.advancedFeatures': 'വിപുലമായ സവിശേഷതകൾ:',
+  'pricing.limits.boards': '{{count}} ബോർഡുകൾ',
   'pricing.limits.export': 'ഡാറ്റ എക്‌സ്‌പോർട്ട്:',
+  'pricing.limits.posts': '{{count}} ഫീഡ്ബാക്ക് പോസ്റ്റുകൾ',
+  'pricing.limits.votes': '{{count}} വോട്ടുകൾ',
+  'resetPassword.description':
+    'ശക്തമായ ഒന്ന് തിരഞ്ഞെടുക്കുക. പുനഃസജ്ജീകരണം വിജയിച്ചുകഴിഞ്ഞാൽ ഞങ്ങൾ നിങ്ങളെ സൈൻ ഇൻ ചെയ്യും.',
   'resetPassword.newPasswordLabel': 'പുതിയ പാസ്‌വേഡ്',
   'resetPassword.tokenPlaceholder': 'ലിങ്ക് ടോക്കൺ ഒട്ടിക്കുക',
   'roadmap.cardMeta': '{{author}} · {{board}}',
@@ -170,6 +225,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'ഡ്യൂപ്ലിക്കേറ്റ് പോസ്റ്റ് ചെയ്യുന്നതിനു മുമ്പ് നിലവിലുള്ള അഭ്യർത്ഥനകൾ കണ്ടെത്താൻ ഒരു ചോദ്യം ടൈപ്പ് ചെയ്യുക.',
   'search.loadError': 'തിരയൽ പരാജയപ്പെട്ടു — വീണ്ടും ശ്രമിക്കുക.',
+  'search.searching': 'തിരയുന്നു...',
   'search.submit': 'തിരയുക',
   'search.submitNew': 'പുതിയ അഭ്യർത്ഥനയായി പോസ്റ്റ് ചെയ്യുക',
   'search.title': 'ഫീഡ്‌ബാക്ക് തിരയുക',
@@ -178,12 +234,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'ബില്ലിംഗ്',
   'settings.displaySubtitle': 'ഫീഡുകൾ എത്ര സാന്ദ്രമാണെന്ന് തിരഞ്ഞെടുക്കുക.',
   'settings.displayTitle': 'പ്രദർശനം',
+  'settings.emailDigestDesc': 'എല്ലാ തിങ്കളാഴ്ചയും ഏറ്റവും കൂടുതൽ വോട്ടുള്ള open അഭ്യർത്ഥനകൾ.',
+  'settings.emailDigestLabel': 'ആഴ്ചതോറുമുള്ള ഡൈജസ്റ്റ്',
+  'settings.emailMentionsDesc': 'നിങ്ങൾ പിന്തുടരുന്ന ഒരു പോസ്റ്റിന് ആരെങ്കിലും മറുപടി നൽകുമ്പോൾ.',
+  'settings.emailMentionsLabel': 'മെൻഷനുകളിൽ എനിക്ക് ഇമെയിൽ അയക്കുക',
+  'settings.emailRepliesDesc': 'നിങ്ങൾ ആരംഭിച്ചതോ മറുപടി നൽകിയതോ ആയ ത്രെഡുകൾ.',
+  'settings.emailRepliesLabel': 'മറുപടികളിൽ എനിക്ക് ഇമെയിൽ അയയ്ക്കുക',
   'settings.loadError': 'നിങ്ങളുടെ അക്കൗണ്ട് ലോഡ് ചെയ്യാനായില്ല.',
   'settings.loading': 'നിങ്ങളുടെ ക്രമീകരണങ്ങൾ ലോഡ് ചെയ്യുന്നു…',
   'settings.notifications': 'അറിയിപ്പുകൾ',
   'settings.notificationsSubtitle':
     'നിങ്ങളുടെ ഇൻബോക്സിലും പുഷ് ഉപകരണത്തിലും എന്താണ് എത്തേണ്ടതെന്ന് തീരുമാനിക്കുക.',
+  'settings.pushRepliesLabel': 'മറുപടികൾക്ക് പുഷ്',
+  'settings.pushVotesDesc': '100, 500, 1000 എന്നിവയിൽ ത്രെഷോൾഡ് പിംഗ്.',
+  'settings.pushVotesLabel': 'അപ്‌വോട്ട് നാഴികക്കല്ലുകൾക്ക് വേണ്ടിയുള്ള ശ്രമങ്ങൾ',
   'settings.saveAccount': 'അക്കൗണ്ട് സേവ് ചെയ്യുക',
+  'settings.showFlair': 'പോസ്റ്റുകളിൽ ബോർഡ് ചിപ്പുകൾ കാണിക്കുക',
+  'settings.showThumbnails': 'ലിങ്ക്/ഇമേജ് തംബ്നെയിലുകൾ കാണിക്കുക',
   'settings.usernamePlaceholder': 'ഒരു ഹാൻഡിൽ തിരഞ്ഞെടുക്കുക',
   'signup.confirmPlaceholder': 'വീണ്ടും ടൈപ്പ് ചെയ്യുക',
   'signup.description': 'അടുത്തതായി ഞങ്ങൾ നിർമ്മിക്കുന്നത് രൂപപ്പെടുത്തുക.',

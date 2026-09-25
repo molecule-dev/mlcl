@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχεις σχόλια, βρήκες κάποιο σφάλμα ή σχεδιάζεις κάτι φιλόδοξο; Επικοινώνησε μαζί μας από τις ρυθμίσεις του λογαριασμού σου — κάθε μήνυμα φτάνει σε έναν πραγματικό άνθρωπο της ομάδας.',
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Κρατήσεις σε ένα inbox — πτήσεις, ξενοδοχεία και επιβεβαιώσεις δραστηριοτήτων εμφανίζονται την ακριβή ημέρα που ανήκουν.',
+  'about.featureCollab':
+    'Συνεργασία σε πραγματικό χρόνο — προσκάλεσε έως πέντε ταξιδιώτες ανά ταξίδι, με κάθε αλλαγή να συγχρονίζεται ζωντανά και τα σχόλια να οργανώνονται κάτω από κάθε στάση.',
+  'about.featureMapsBudget':
+    'Χάρτες, προορισμοί και κοινός προϋπολογισμός — δες όλο το ταξίδι σε χάρτη, ανακάλυψε προορισμούς επιλεγμένους από την ομάδα μας και παρακολούθησε τα έξοδα ώστε να μην ξοδέψει κανείς παραπάνω.',
+  'about.featureTimelines':
+    'Χρονολόγια ημέρα προς ημέρα — σύρε τις στάσεις για αναδιάταξη, πρόσθεσε τμήματα μεταφοράς και δες το πρόγραμμα να επαναϋπολογίζεται σαν ένα ζωντανό έγγραφο.',
+  'about.intro':
+    'Το {{app}} μετατρέπει έναν φάκελο γεμάτο μισοτελειωμένα σχέδια σε ένα ενιαίο, κοινόχρηστο ταξίδι που όλη η παρέα μπορεί πραγματικά να ακολουθήσει. Φτιάξε ένα πρόγραμμα ημέρα προς ημέρα, πρόσθεσε πτήσεις και ξενοδοχεία, αποτύπωσε κάθε στάση σε χάρτη και παρακολούθησε τον προϋπολογισμό — όλα σε ένα ήρεμο μέρος αντί για δεκάδες καρτέλες και ένα group chat.',
+  'about.missionBody':
+    'Ο σχεδιασμός ταξιδιού πρέπει να μοιάζει σαν το ταξίδι να γίνεται ήδη καλύτερο, όχι σαν διάβασμα. Το {{app}} υπάρχει για να κάνει τα συνεργατικά ταξίδια αβίαστα — ώστε κάθε ταξιδιώτης να έρχεται γνωρίζοντας το πλάνο και κάθε στάση να αφηγείται μια ιστορία που αξίζει να θυμάσαι.',
+  'about.missionTitle': 'Η αποστολή μας',
   'about.pageTitle': 'Σχετικά με το {{app}}',
   'auth.legalConsent': 'Συνεχίζοντας, συμφωνείτε με τους',
   'bookings.empty.body':
@@ -31,7 +47,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Ξενοδοχείο',
   'bookings.type.other': 'Αλλος',
   'budgetSpendCard.budgetTotal': 'του {{total}} σχεδιασμένος',
+  'budgetSpendCard.overBy': '{{amount}} πάνω από τον προϋπολογισμό',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} πρόσφατα',
+  'budgetSpendCard.remaining': '{{amount}} απομένουν',
   'calendar.eyebrow': 'Η χρονιά που έρχεται',
   'calendar.heading': 'Κάθε ταξίδι σε ένα μόνο ημερολόγιο.',
   'calendar.legendHeading': 'Ταξίδια αυτόν τον μήνα',
@@ -42,18 +61,27 @@ export const ui: UiTranslations = {
   'common.and': 'και',
   'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'dashboard.budgetHeading': 'Παλμός προϋπολογισμού',
+  'dashboard.empty.body':
+    'Σχεδίασε το πρώτο σου ταξίδι και ο πίνακας ελέγχου σου θα γεμίσει με χρονολόγια ημέρα προς ημέρα, παλμό προϋπολογισμού και κρατήσεις.',
+  'dashboard.empty.cta': 'Σχεδίασε το πρώτο σου ταξίδι',
   'dashboard.empty.heading': 'Δεν υπάρχουν ακόμη ταξίδια — ο άτλας σας είναι κενός.',
   'dashboard.eyebrow': 'Έλεγχος αποστολής',
   'dashboard.heading': 'Η επόμενη περιπέτειά σας, σε μια ήσυχη γωνιά.',
   'dashboard.newTripCta': 'Ξεκινήστε ένα νέο ταξίδι',
+  'dashboard.subheading':
+    'Μια αντίστροφη μέτρηση για το επόμενο ταξίδι, ο σημερινός παλμός εξόδων και μια γρήγορη ματιά σε κάθε πρόγραμμα που βρίσκεται σε εξέλιξη.',
   'dashboard.tripsHeading': 'Ταξίδια εν κινήσει',
   'dashboard.viewAllExpenses': 'Δείτε κάθε έξοδο',
   'dashboard.viewAllTrips': 'Δείτε κάθε ταξίδι',
   'dayTimelineRow.category.accommodation': 'Διαμονή',
+  'dayTimelineRow.category.food': 'Φαγητό & ποτό',
+  'dayTimelineRow.category.sightseeing': 'Αξιοθέατα',
   'dayTimelineRow.category.transport': 'Μεταφορά',
   'destinationOrbCard.exploreCta': 'Προσθήκη σε ένα ταξίδι',
   'destinationOrbCard.tripCount': '{{count}} ταξίδια',
+  'destinations.empty.body': 'Επιστρέψε στο Όλα και οι επιλογές του συντάκτη θα εμφανιστούν ξανά.',
   'destinations.empty.heading': 'Δεν υπάρχουν ακόμη προορισμοί.',
+  'destinations.emptyFiltered.heading': 'Δεν υπάρχει ακόμη κάτι με τέτοια ετικέτα.',
   'destinations.errors.load': 'Δεν ήταν δυνατή η φόρτωση προορισμών.',
   'destinations.eyebrow': 'Πού θα πάμε στη συνέχεια',
   'destinations.heading': 'Αποθηκευμένες γωνίες και ευρήματα του συντάκτη.',
@@ -72,7 +100,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Προμηθευτής',
   'expenses.formHeading': 'Έξοδα καταγραφής για {{trip}}',
   'expenses.heading': 'Πού πηγαίνει στην πραγματικότητα ο προϋπολογισμός του ταξιδιού.',
+  'expenses.heroBudget': '{{pct}}% από {{total}} προγραμματισμένα',
   'expenses.heroEyebrow': '{{trip}} • σύνοψη προϋπολογισμού',
+  'expenses.heroNoBudget': 'Δεν έχει οριστεί ακόμη προϋπολογισμός σε αυτό το ταξίδι.',
   'expenses.noTrips.body':
     'Σχεδιάστε πρώτα ένα ταξίδι και τα έξοδα θα πρέπει να περιλαμβάνονται στον προϋπολογισμό του ταξιδιού.',
   'expenses.noTrips.heading': 'Δεν υπάρχουν ακόμη ταξίδια.',
@@ -85,12 +115,16 @@ export const ui: UiTranslations = {
     'Κάθε απόδειξη και επιβεβαίωση συγκεντρώνεται στη σωστή κατηγορία εδώ — δεν χρειάζεται υπολογιστικό φύλλο.',
   'forgotPassword.eyebrow': 'Ανακτήστε το δρομολόγιό σας',
   'forgotPassword.heading': 'Ξεχάσατε τον κωδικό πρόσβασής σας;',
+  'forgotPassword.subheading':
+    'Εισάγετε το email που χρησιμοποιήσατε για το {{appName}} και θα σας στείλουμε έναν σύνδεσμο για επαναφορά του κωδικού πρόσβασης.',
   'forgotPassword.submit': 'Αποστολή email ανάκτησης',
   'forgotPassword.submitPending': 'Αποστολή email ανάκτησης…',
   'forgotPassword.successHint':
     'Δεν έχετε λάβει ακόμα email; Ελέγξτε τον φάκελο ανεπιθύμητης αλληλογραφίας ή δοκιμάστε ξανά με διαφορετική διεύθυνση.',
   'forgotPassword.successSubheading':
     'Στείλαμε έναν σύνδεσμο ανάκτησης στο {{email}} Ο σύνδεσμος ισχύει για 30 λεπτά.',
+  'forgotPassword.tryAgain': 'Αποστολή σε διαφορετικό email',
+  'landing.cta.eyebrow': 'Ξεκίνα με το δωρεάν πλάνο',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Δημιουργήστε δωρεάν λογαριασμό',
   'landing.cta.subheading':
@@ -102,8 +136,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Ξεκινήστε ένα δωρεάν ταξίδι',
   'landing.hero.ctaSecondary': 'Δείτε ένα δείγμα εκδρομής',
+  'landing.hero.eyebrow': 'Σχεδιαστής ταξιδιών · {{tagline}}',
   'landing.hero.subtitle':
     'Το Waypoint μετατρέπει έναν φάκελο γεμάτο με ημιτελή σχέδια σε ένα κοινόχρηστο, καθημερινό δρομολόγιο που μπορεί πραγματικά να ακολουθήσει η ομάδα σας — με κρατήσεις, χάρτες και προϋπολογισμό που παρακολουθούνται σε ένα μέρος.',
+  'landing.hero.title': 'Σχεδιάστε το μία φορά. Περιπλανηθείτε μαζί.',
   'landing.nav.join': 'Ξεκινήστε ένα δωρεάν ταξίδι',
   'landing.nav.preview': 'Εσωτερικό σημείο αναφοράς',
   'landing.preview.cta': 'Σχεδιάστε ένα δικό σας',
@@ -111,6 +147,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Μερικά ταξίδια που κάνουν οι ταξιδιώτες αυτή τη στιγμή',
   'login.eyebrow': 'Περιοχή μελών',
   'login.heading': 'Καλώς ήρθες πίσω, ταξιδιώτη',
+  'login.noAccount': 'Νέος στο Tessera;',
   'login.signupLink': 'Δημιουργήστε έναν δωρεάν λογαριασμό',
   'login.subheading':
     'Συνδεθείτε για να διαχειριστείτε τα ταξίδια σας, τα ημερήσια σχέδια, τις κρατήσεις και τις καταχωρήσεις ημερολογίου που έχετε ήδη ξεκινήσει.',
@@ -121,6 +158,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Δεν ήταν δυνατή η ενημέρωση της ειδοποίησης.',
   'notifications.heading': 'Τι άλλαξε στα ταξίδια σας σήμερα.',
   'notifications.markUnread': 'Επισήμανση ως μη αναγνωσμένου',
+  'notifications.subheading':
+    '{{count}} νέα \\u2014 επιβεβαιώσεις κρατήσεων, σημειώσεις συνεργατών, μειώσεις ναύλων και υπενθυμίσεις.',
   'notifications.time.daysAgo': '{{count}}η πριν',
   'notifications.time.hoursAgo': '{{count}}ω πριν',
   'notifications.time.justNow': 'μόλις τώρα',
@@ -139,6 +178,7 @@ export const ui: UiTranslations = {
     'Συνδεδεμένες υπηρεσίες, νόμισμα, ειδοποιήσεις push και τα διαπιστευτήρια με τα οποία συνδέεστε.',
   'signup.and': 'και',
   'signup.eyebrow': 'Εγγραφή στο Waypoint',
+  'signup.haveAccount': 'Ήδη περιπλανιέσαι;',
   'signup.heading': 'Σχεδιάστε το μία φορά. Περιπλανηθείτε μαζί.',
   'signup.namePlaceholder': 'Ίρις Λάρσεν',
   'signup.subheading':
@@ -150,6 +190,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Άνοιγμα δρομολογίου',
   'tripCountdownHeroCard.ctaSecondary': 'Σχεδιάστε ένα άλλο ταξίδι',
   'tripCountdownHeroCard.daysLabel': '{{days}} μέρες που απομένουν',
+  'tripCountdownHeroCard.eyebrow': 'Επόμενη περιπέτεια · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} διανυκτερεύσεις — το πρόγραμμά σου είναι έτοιμο για ταξίδι.',
   'tripCoverCard.stops': '{{count}} στάσεις',
   'tripCoverCard.travelers': '{{count}} ταξιδιώτες',
   'tripDetail.addActivity': 'Προσθήκη δραστηριότητας',
@@ -159,6 +202,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Τίτλος δραστηριότητας',
   'tripDetail.adding': 'Προσθήκη…',
   'tripDetail.backToTrips': 'Πίσω σε όλα τα ταξίδια',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Ταξιδιώτες',
   'tripDetail.dayLabel': 'Ημέρα {{day}}',
   'tripDetail.empty':
@@ -170,14 +214,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Δρομολόγιο • {{country}}',
   'tripDetail.invite': 'Καλώ',
   'tripDetail.inviteLabel': 'Πρόσκληση μέσω email',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'Η πρόσκληση στάλθηκε στο {{email}}.',
   'tripDetail.inviting': 'Αποστολή…',
   'tripDetail.loading': 'Φόρτωση διαδρομής…',
   'tripDetail.noCollaborators': 'Μόνο εσύ, προς το παρόν.',
+  'tripDetail.notesHeading': 'Σημειώσεις ταξιδιού',
   'tripDetail.notesPlaceholder': 'Δεν υπάρχουν ακόμη σημειώσεις.',
   'tripDetail.notFound.heading': 'Δεν βρέθηκε ταξίδι',
   'tripDetail.openBookings': 'Άνοιγμα εισερχομένων κρατήσεων',
   'tripDetail.shareCopied': 'Ο σύνδεσμος κοινής χρήσης αντιγράφηκε στο πρόχειρο:',
+  'tripDetail.shareReady': 'Ο σύνδεσμος κοινοποίησης είναι έτοιμος:',
   'tripDetail.stops': '{{count}} στάσεις',
   'tripDetail.timelineEyebrow': 'Χρονολόγιο ημέρας',
   'tripDetail.timelineHeading': 'Πρόγραμμα ανά ημέρα',
@@ -195,6 +242,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Ταξιδιώτες',
   'tripPlanner.heading': 'Σχεδιάστε ένα ταξίδι σε λιγότερο από ένα λεπτό.',
   'tripPlanner.preview.eyebrow': 'Προεπισκόπηση',
+  'tripPlanner.preview.placeholderCountry': 'Διάλεξε χώρα',
   'tripPlanner.preview.placeholderDestination': 'Η επόμενη περιπέτειά σας',
   'tripPlanner.section1.title': 'Πού και πότε',
   'tripPlanner.section2.title': 'Ταξιδιώτες και προϋπολογισμός',
@@ -203,10 +251,14 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Ημέρα {{day}} — προσθέστε στάσεις, μεταφορές και κρατήσεις εδώ.',
   'tripPlanner.section3.day2': 'Ημέρα {{day}} — προσθέστε στάσεις, μεταφορές και κρατήσεις εδώ.',
   'tripPlanner.section3.day3': 'Ημέρα {{day}} — προσθέστε στάσεις, μεταφορές και κρατήσεις εδώ.',
+  'tripPlanner.section3.title': 'Οδηγός ημερήσιου πλάνου',
   'tripPlanner.subheading':
     'Παρακάτω παρατίθενται τα βασικά στοιχεία — μπορείτε πάντα να προσκαλέσετε συνεργάτες, να σύρετε στάσεις και να προωθήσετε κρατήσεις αργότερα.',
   'tripPlanner.submit': 'Δημιουργία ταξιδιού',
   'tripPlanner.submitting': 'Δημιουργία…',
+  'trips.empty.body':
+    'Επιστρέψε σε Όλα τα ταξίδια ή ξεκίνα να σχεδιάζεις την επόμενη περιπλάνησή σου.',
+  'trips.empty.cta': 'Προγραμματίστε ταξίδι',
   'trips.empty.heading': 'Δεν υπάρχει τίποτα που να ταιριάζει με αυτό το φίλτρο ακόμα.',
   'trips.eyebrow': 'Ο άτλας',
   'trips.filterLabel': 'Φιλτράρισμα ταξιδιών κατά κατάσταση',
@@ -218,6 +270,12 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Δεν υπάρχουν ακόμη ταξίδια.',
   'trips.pastHeading': 'Προηγούμενες περιπέτειες',
   'trips.subheading': '{{count}} δρομολόγια — παρελθόν, παρόν και κάποια μέρα.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading':
+    'Σχεδίασέ το μία φορά. Περιπλανηθείτε μαζί. Θυμηθείτε το για πάντα.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · {{appName}} μέλη από το 2024',
+  'waypointAuthShell.testimonial.quote':
+    'Το {{appName}} μετέτρεψε ένα χαοτικό ταξίδι 3 εβδομάδων σε τέσσερις χώρες στο πιο χαλαρό πρόγραμμα που έχουμε μοιραστεί ποτέ.',
   'waypointLayout.mobileNavClose': 'Κλείσιμο μενού πλοήγησης',
   'waypointLayout.primaryNavLabel': 'Κύρια πλοήγηση',
 }

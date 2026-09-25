@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ప్రశ్నలు, అభిప్రాయం, లేదా మీ బృందానికి డెమో కావాలా? hello@conduit.dev కు ఇమెయిల్ చేయండి — ప్రతి సందేశం బృందంలోని నిజమైన వ్యక్తికి చేరుతుంది.',
   'about.contactHeading': 'సంప్రదించండి',
   'about.eyebrow': 'గురించి',
+  'about.featuresHeading': 'మీకు లభించేది',
+  'about.introBody':
+    '{{app}} GitHub Actions-శైలి నిరంతర డెలివరీని ఒక వేగవంతమైన డాష్‌బోర్డ్‌లోకి తెస్తుంది: మీ అన్ని రిపాజిటరీల కోసం పైప్‌లైన్లు, బిల్డ్ లాగ్‌లు, ఆర్టిఫాక్ట్‌లు, స్టేటస్ బ్యాడ్జ్‌లు మరియు డిప్లాయ్‌మెంట్ ఎన్విరాన్‌మెంట్‌లు ఒకే చోట. ట్యాబ్-హాపింగ్ లేదు, ఏ బిల్డ్ విరిగిందో ఊహించడం లేదు — ప్రతి రన్, లాగ్ లైన్ మరియు డిప్లాయ్ ఒక క్లిక్ దూరంలో ఉంటాయి.',
+  'about.introHeading': '{{app}} అంటే ఏమిటి',
+  'about.missionBody':
+    'సాఫ్ట్‌వేర్ షిప్ చేయడం ప్రశాంతంగా మరియు ఊహించదగినదిగా ఉండాలి, భయానికి మూలం కాదు. కమిట్ నుండి ప్రొడక్షన్ వరకు మార్గం వేగవంతంగా, స్పష్టంగా మరియు నమ్మదగినదిగా ఉండేలా మేము పైప్‌లైన్లు, లాగ్‌లు మరియు డిప్లాయ్ టూలింగ్‌ను నిర్మిస్తాము — ఐదు నిమిషాల్లో మొదటి గ్రీన్ బిల్డ్, ఆ తర్వాత ప్రతి బిల్డ్ కూడా అంతే స్పష్టంగా.',
+  'about.missionHeading': 'మా లక్ష్యం',
+  'about.subtitle':
+    '{{app}} అనేది ప్రతి రిపాజిటరీలో బిల్డ్‌లు, డిప్లాయ్‌మెంట్‌లు మరియు ఎన్విరాన్‌మెంట్‌లను పర్యవేక్షించాలనుకునే బృందాల కోసం ఒక CI/CD డాష్‌బోర్డ్ — మరియు నిశ్చయంతో షిప్ చేయండి.',
   'artifacts.empty': 'ఇంకా ఎలాంటి కళాఖండాలు లభించలేదు.',
   'artifacts.heading': 'కళాఖండాలు',
   'artifacts.loadError': 'ఆర్టిఫ్యాక్ట్‌లను లోడ్ చేయడంలో విఫలమైంది.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'పర్యావరణాలు',
   'environments.loadError': 'ఎన్విరాన్మెంట్లను లోడ్ చేయడంలో విఫలమైంది.',
+  'environments.loading': 'పరిసరాలు లోడ్ అవుతున్నాయి…',
   'environments.subheading': 'ప్రతి టార్గెట్‌లో ప్రత్యక్ష అమలు స్థితి.',
   'forgotPassword.runnerStatus': 'రీసెట్ · సురక్షిత సొరంగం',
+  'forgotPassword.success':
+    'ఆ ఇమెయిల్‌కు ఖాతా ఉన్నట్లయితే, రీసెట్ లింక్ పంపబడుతుంది. మీ ఇన్‌బాక్స్‌ను తనిఖీ చేయండి.',
   'insights.changeFailureRate': 'వైఫల్య రేటును మార్చండి',
   'insights.deployFrequency': 'మోహరిస్తుంది / రోజు',
   'insights.empty': 'ఇంకా తగినంత సమాచారం లేదు.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'అంతర్దృష్టులను లోడ్ చేయడంలో విఫలమైంది.',
   'insights.meanP95': 'అంటే {{mean}} · పేజీ 95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'నెమ్మదైన పైప్‌లైన్ దశలు',
   'insights.successRateHeading': 'పైప్‌లైన్ విజయ రేటు (గత 14 రోజులు)',
   'landing.choosePlan': 'ప్రణాళికను ఎంచుకోండి',
+  'landing.copyright': '© {{year}} {{app}}. నిశ్చయంతో షిప్ చేయండి.',
   'landing.ctaBody':
     'క్రెడిట్ కార్డ్ అవసరం లేదు. ప్లాట్‌ఫారమ్ ఇంజనీర్ అవసరం లేదు. ఐదు నిమిషాల్లో మొదటి పైప్‌లైన్‌కు గ్రీన్ పొందండి.',
   'landing.ctaHeading': 'నిశ్చింతగా రవాణా చేయండి.',
   'landing.featuresEyebrow': '// ప్లాట్‌ఫారమ్ ఫీచర్లు',
   'landing.featuresHeading': 'రవాణాదారుల కోసం, రవాణాదారులచే నిర్మించబడింది',
+  'landing.heroSubtitle':
+    'సెకన్లలో పూర్తయ్యే పైప్‌లైన్లు. మీరు చదవగలిగే లాగ్‌లు. మీరు నమ్మగలిగే డిప్లాయ్‌లు.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'సరళమైన, ఊహించదగిన ధరల విధానం',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'ప్రస్తుతం విమానంలో',
   'pipelines.metric.successCaption': '{{count}} యొక్క {{total}} పరుగు',
   'pipelines.metric.successRate': 'విజయ రేటు',
+  'pipelines.realtimeOn': 'రియల్‌టైమ్',
   'pipelines.subheading': 'మీరు గమనిస్తున్న ప్రతి రిపోజిటరీ నుండి ప్రత్యక్ష నవీకరణలు.',
+  'pricing.advancedFeatures': 'అధునాతన ఫీచర్లు: {{mark}}',
+  'pricing.canExport': 'డేటా ఎగుమతి: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} ఆర్టిఫాక్ట్‌లు',
+  'pricing.maxBuilds': '{{count}} బిల్డ్‌లు',
+  'pricing.maxPipelines': '{{count}} పైప్‌లైన్లు',
   'privacy.dataAccount': 'ఖాతా: పేరు, ఇమెయిల్, హ్యాష్ చేసిన పాస్‌వర్డ్, ప్లాన్ శ్రేణి.',
   'privacy.intro':
     '{{app}} మీ నిరంతర-డెలివరీ ఖాతాను నిర్వహించడానికి మాకు అవసరమైన కనీస డేటాను మాత్రమే మేము సేకరిస్తాము: మీ ఇమెయిల్, మీరు కనెక్ట్ చేసే రిపోజిటరీలు, మీ రన్నర్‌లు ఉత్పత్తి చేసే కమిట్‌లు మరియు బిల్డ్ మెటాడేటా, మరియు మీరు మాతో నిల్వ చేయడానికి ఎంచుకున్న సీక్రెట్‌లు. మేము బిల్డ్ రన్నర్ వెలుపల మీ సోర్స్ కోడ్‌ను ఎప్పుడూ చదవము; కాన్ఫిగర్ చేసినప్పుడు బిల్డ్ ఆర్టిఫ్యాక్ట్‌లు మీ S3 బకెట్‌లో నిల్వ చేయబడతాయి.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'మేము బిల్లింగ్ కోసం స్ట్రైప్‌ను, లావాదేవీల ఇమెయిల్ కోసం మెయిల్‌గన్‌ను, మరియు బిల్డ్ ఆర్టిఫ్యాక్ట్ నిల్వ కోసం AWS S3ని ఉపయోగిస్తాము. ప్రతి ఒక్కటీ దాని సేవను అందించడానికి అవసరమైన కనీస డేటా పరిధికి ఒప్పందపరంగా కట్టుబడి ఉంటుంది.',
   'privacy.rightsBody':
     'మీరు మీ డేటాలోని ప్రతి బైట్‌ను ఎగుమతి చేసుకోవచ్చు, సెట్టింగ్స్ నుండి ఎప్పుడైనా మీ ఖాతాను తొలగించుకోవచ్చు మరియు మీ ఖాతాలోని ప్రతి వెబ్‌హుక్ డెలివరీ యొక్క రికార్డును అభ్యర్థించవచ్చు. మేము GDPR / CCPA అభ్యర్థనలకు 30 రోజులలోపు స్పందిస్తాము.',
+  'privacy.subtitle':
+    'మేము మీ పైప్‌లైన్లను నడుపుతున్నప్పుడు {{app}} మీ డేటాను ఎలా సేకరిస్తుంది, నిల్వ చేస్తుంది మరియు రక్షిస్తుంది.',
   'privacy.title': 'గోప్యతా విధానం',
   'repositories.empty': 'ఏ రిపోజిటరీలూ అనుసంధానించబడలేదు.',
   'repositories.heading': 'రిపోజిటరీలు',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'అన్ని రిపోజిటరీలు',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'రిపోజిటరీని లోడ్ చేయడంలో విఫలమైంది.',
+  'repositoryDetail.meanDuration': 'సగటు వ్యవధి',
   'repositoryDetail.notFound': 'రిపోజిటరీ కనుగొనబడలేదు.',
+  'repositoryDetail.successRate': 'విజయ రేటు',
   'repositoryDetail.totalBuilds': 'మొత్తం నిర్మాణాలు',
   'repositoryDetail.webhookActive': 'చురుకుగా',
   'repositoryDetail.webhookPaused': 'విరామం',
   'repositoryDetail.webhooksHeading': 'వెబ్‌హుక్స్',
+  'resetPassword.passwordLabel': 'కొత్త పాస్‌వర్డ్',
   'resetPassword.runnerStatus': 'రీసెట్ · టోకెన్ ధృవీకరించబడింది',
   'resetPassword.subtitle': 'మీరు ఇంతకు ముందు ఉపయోగించని బలమైన పాస్‌వర్డ్‌ను ఎంచుకోండి.',
   'resetPassword.tokenPlaceholder': 'ఇమెయిల్ నుండి అతికించండి',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'రిపోజిటరీస్ కాండ్యూట్ వాచెస్. ఈవెంట్‌లను స్వీకరించడాన్ని ఆపడానికి మీ VCS ప్రొవైడర్ నుండి డిస్‌కనెక్ట్ అవ్వండి.',
   'settings.repositories.empty': 'ఇంకా ఏ రిపోజిటరీలూ అనుసంధానించబడలేదు.',
+  'settings.repositories.heading': 'రిపాజిటరీ కనెక్షన్లు',
   'settings.repositories.loadError': 'రిపోజిటరీలను లోడ్ చేయడంలో విఫలమైంది.',
   'settings.secrets.addCta': 'రహస్యాన్ని జోడించండి',
   'settings.secrets.addError': 'రహస్యాన్ని జోడించడంలో విఫలమయ్యాము.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'రహస్యాన్ని తొలగించడంలో విఫలమయ్యాను.',
   'settings.secrets.empty': 'రహస్యాలు ఏవీ నిల్వ చేయబడవు.',
   'settings.secrets.heading': 'రహస్యాలు',
+  'settings.secrets.lastUsed': 'చివరిగా ఉపయోగించినది {{date}}',
   'settings.secrets.loadError': 'రహస్యాలను లోడ్ చేయడంలో విఫలమైంది.',
   'settings.secrets.neverUsed': 'ఎప్పుడూ ఉపయోగించలేదు',
   'settings.secrets.rotateCta': 'తిప్పండి',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'వెబ్‌హుక్‌ను అప్‌డేట్ చేయడంలో విఫలమైంది.',
   'signup.namePlaceholder': 'రైలీ పార్క్',
   'signup.runnerStatus': 'ఉచిత శ్రేణి · నెలకు కనీసం 1,000 నిర్మాణాలు',
+  'terms.intro':
+    '{{app}} ఖాతాను సృష్టించడం ద్వారా మీరు ఈ నిబంధనలకు అంగీకరిస్తారు. అవి బిల్డ్ రన్నర్ల ఆమోదయోగ్యమైన వినియోగం, మా SLA పరిమితులు మరియు దుర్వినియోగ వర్క్‌లోడ్‌ల కోసం మేము మీ ఖాతాను సస్పెండ్ చేయగల లేదా రద్దు చేయగల షరతులను కవర్ చేస్తాయి.',
   'terms.slaBody':
     'ప్రో మరియు టీమ్ ప్లాన్‌లు API మరియు రన్నర్ పూల్ కోసం 99.95% నెలవారీ అప్‌టైమ్‌ను లక్ష్యంగా చేసుకుంటాయి. ఉచిత ప్లాన్ ఉన్నది ఉన్నట్లుగా అందించబడుతుంది. అంతరాయాలు status.conduit.devలో నివేదించబడతాయి మరియు మీ ఇన్‌వాయిస్‌లోని ఫార్ములా ప్రకారం క్రెడిట్ చేయబడతాయి.',
   'terms.terminationBody':

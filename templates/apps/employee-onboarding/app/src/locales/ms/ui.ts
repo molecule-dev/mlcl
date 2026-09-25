@@ -1,28 +1,43 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ingin melancarkan onboarding yang lebih mesra untuk pasukan anda, menemui pepijat, atau mempunyai maklum balas? Hubungi kami dari tetapan akaun anda — setiap mesej sampai kepada manusia sebenar yang boleh membantu.',
   'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.missionTitle': 'Misi kami',
   'auth.forgotPassword.emailPlaceholder': 'nama@syarikatanda.com',
   'auth.forgotPassword.heading': 'Tetapkan semula kata laluan anda.',
+  'auth.forgotPassword.panel.body':
+    'Set semula mengambil masa 30 saat — kemajuan senarai semak anda sedang menunggu.',
+  'auth.forgotPassword.panel.headline': 'Terus kembali ke tempat anda berhenti.',
+  'auth.forgotPassword.subheading':
+    'Masukkan e-mel kerja anda dan kami akan menghantar pautan set semula.',
   'auth.forgotPassword.successSubheading':
     'Semak peti masuk anda — kami telah menghantar arahan tetapan semula.',
   'auth.login.emailPlaceholder': 'nama@syarikatanda.com',
   'auth.login.heading': 'Selamat kembali.',
   'auth.login.passwordPlaceholder': 'Kata laluan anda',
+  'auth.login.signupPrompt': 'Baru dalam pasukan anda?',
   'auth.login.subheading':
     'Daftar masuk untuk meneruskan perjalanan onboarding anda dari tempat anda berhenti.',
   'auth.login.submit': 'Teruskan perjalanan anda',
+  'auth.panel.body':
+    'Senarai semak peribadi anda, pencapaian latihan, dan perkenalan pasukan — semuanya di satu tempat yang tenang.',
   'auth.panel.footnote': '© Embark — mengutamakan orang ramai sejak hari ini.',
   'auth.panel.headline': '90 hari pertama yang yakin bermula di sini.',
   'auth.resetPassword.heading': 'Tetapkan kata laluan baharu.',
   'auth.resetPassword.newPasswordLabel': 'Kata laluan baharu',
+  'auth.resetPassword.panel.body':
+    'Simpan kata laluan baharu dan kami akan membawa anda kembali ke perjalanan onboarding anda.',
+  'auth.resetPassword.panel.headline': 'Hampir kembali masuk.',
   'auth.resetPassword.subheading':
     'Pilih sesuatu yang anda akan ingat — sekurang-kurangnya 8 aksara.',
   'auth.signup.emailPlaceholder': 'nama@syarikatanda.com',
   'auth.signup.heading': 'Selamat datang ke 90 hari pertama anda.',
   'auth.signup.panel.body':
     'Senarai semak berpandu, latihan kesedaran peranan dan pengenalan manusia — sedia sebelum anda masuk.',
+  'auth.signup.panel.headline': 'Hari pertama, pada hari pertama.',
   'auth.signup.subheading':
     'Cipta akaun Embark anda untuk memulakan perjalanan onboarding berpandu anda.',
   'checklist.empty.body': 'Tukar penapis untuk melihat tugasan lain.',
@@ -30,6 +45,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'Penyertaan · Senarai Semak',
   'checklist.loading': 'Memuatkan senarai semak anda…',
   'checklist.stat.actionNeeded': 'Tindakan diperlukan',
+  'checklist.stat.completion': 'Penyiapan',
+  'checklist.stat.inProgress': 'Sedang dijalankan',
   'checklist.stat.inProgressHelper': 'Sambung dari tempat anda berhenti',
   'checklist.stat.overdueHelper': 'Tangkap ini dahulu',
   'checklist.subtitle':
@@ -61,6 +78,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Tiada dokumen lagi',
   'documents.eyebrow': 'Pendaftaran · Dokumen',
   'documents.loading': 'Memuatkan dokumen…',
+  'documents.stat.actionNeeded': 'Daftar sekarang',
+  'documents.stat.all': 'Semua dokumen',
   'documents.stat.allHelper': 'Merentasi kategori',
   'documents.stat.pending': 'Tandatangan belum selesai',
   'documents.stat.pendingHelper': 'Diperlukan untuk penyiapan',
@@ -68,6 +87,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Disimpan dengan selamat',
   'documents.status.optional': 'Pilihan',
   'documents.status.required': 'Diperlukan',
+  'documents.status.signed': 'Ditandatangani',
   'documents.subtitle':
     'Buku panduan, borang dan perjanjian yang ditandatangani anda — semuanya di satu tempat.',
   'documents.title': 'Semua yang anda perlu baca & tandatangan.',
@@ -75,10 +95,14 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'Penonton',
   'documentViewer.breadcrumbDocs': 'Dokumen',
   'documentViewer.downloadMeta': 'Muat turun metadata',
+  'documentViewer.helpBody':
+    'People & Culture menjawab soalan buku panduan di #ask-people pada Slack.',
   'documentViewer.helpEyebrow': 'Perlukan bantuan?',
   'documentViewer.loadError': 'Kami tidak dapat memuatkan dokumen ini.',
   'documentViewer.loading': 'Memuatkan dokumen…',
   'documentViewer.notFound': 'Dokumen tidak ditemui',
+  'documentViewer.previewBody':
+    'Apabila muat naik dikonfigurasikan kami memaparkan fail secara sebaris. Buat masa ini, muat turun metadata membolehkan anda mengesahkan rekod itu benar.',
   'documentViewer.previewBodyExternal':
     'Gunakan butang muat turun untuk membuka fail dalam tab baharu.',
   'documentViewer.previewTitle': 'Pratonton dokumen',
@@ -86,6 +110,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Baca dokumen tersebut, kemudian klik di bawah untuk menandatangani dan mengesahkannya.',
   'documentViewer.signatureHeading': 'Tandatangan diperlukan',
+  'documentViewer.signed': '✓ Ditandatangani & difailkan',
   'documentViewer.signing': 'Menandatangani…',
   'documentViewer.uploadedRecently': 'Baru dimuat naik',
   'landing.closing.body':
@@ -95,10 +120,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Saya sudah mempunyai akaun',
   'landing.feature1.body':
     'Setiap tugasan — kertas kerja, akaun, pengenalan — telah disusun terlebih dahulu dengan tarikh akhir dan pemilik yang betul.',
+  'landing.feature1.title': 'Senarai semak berpandu',
   'landing.feature2.body':
     'Modul dibuka pada pencapaian 30/60/90, disesuaikan dengan peranan dan pasukan yang disertai oleh pekerja.',
+  'landing.feature2.title': 'Latihan mengikut peranan',
   'landing.feature3.body':
     'Rakan, pengurus dan pengenalan pelbagai fungsi dijadualkan — jadi tiada siapa yang bermula bersendirian.',
+  'landing.feature3.title': 'Perkenalan sebenar',
   'landing.featureEyebrow': 'Mengapa Memulakan',
   'landing.featureHeadline': 'Tiga cara Embark memperoleh kepercayaan pada hari pertama.',
   'landing.footer.rights': 'Semua hak cipta terpelihara.',
@@ -108,6 +136,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Seterusnya: Jumpa rakan anda untuk berbual sambil minum kopi selama 30 minit — Selasa 10:00 PG.',
   'landing.preview.eyebrow': 'Hari ke-14 daripada 90 — contoh papan pemuka',
+  'landing.preview.headline': 'Selamat kembali, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR sedia',
   'landing.proof.teams': 'Dibina untuk pasukan seramai 50–5,000 orang',
   'landing.proof.time': 'Percubaan percuma 14 hari',
@@ -124,16 +153,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'semalam',
   'planUpdated.message': 'Awak dah siap.',
   'planUpdated.preparing': 'Mengemas kini pelan anda…',
+  'planUpdated.retry': 'Cuba lagi',
+  'planUpdated.verifyFailed': 'Kami belum dapat mengesahkan pembayaran anda.',
+  'planUpdated.verifyFailedBody':
+    'Pembayaran anda mungkin masih diproses. Cuba lagi sebentar lagi.',
   'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
   'pricing.documentsLabel': 'dokumen',
   'pricing.onboardingsLabel': 'onboarding',
   'pricing.tasksLabel': 'tugasan',
   'profile.dayNumber': 'Hari',
   'profile.detailsHeading': 'Butiran penyertaan',
+  'profile.encouragementBody':
+    'Pastikan rakan sekerja dan pengurus anda sentiasa dimaklumkan — langkah kecil memberi kesan besar.',
   'profile.milestones': 'Pencapaian',
   'profile.progressEyebrow': 'Kemajuan onboarding',
   'profile.tasks': 'Tugasan',
   'profile.unknownName': 'Selamat datang',
+  'settings.appearance.description': 'Togol antara mod cerah dan gelap.',
+  'settings.appearance.title': 'Penampilan',
+  'settings.subtitle':
+    'Selaraskan pemberitahuan, keselamatan, peranti, dan eksport data — semuanya kekal di sini, mengikut syarat anda.',
   'settings.title': 'Tetapan & pilihan.',
   'taskDetail.backToChecklist': 'Kembali ke senarai semak',
   'taskDetail.breadcrumbChecklist': 'Senarai Semak',
@@ -145,7 +184,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'Tiada tarikh akhir',
   'taskDetail.notFound': 'Tugasan tidak ditemui',
   'taskDetail.notFoundBody': 'Tugasan ini mungkin telah dipadam atau milik pengguna lain.',
+  'taskDetail.tipBody':
+    'Jika anda tersekat, mesej rakan onboarding anda di Slack — mereka barisan pertama bantuan anda.',
   'taskDetail.tipEyebrow': 'Petua ringkas',
+  'team.empty.body': 'Cuba carian yang lebih luas atau pilih jabatan lain.',
   'team.empty.title': 'Tiada perlawanan rakan sepasukan',
   'team.eyebrow': 'Penyertaan · Orang',
   'team.loading': 'Memuatkan rakan sepasukan…',
@@ -168,14 +210,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Pencapaian',
   'timeline.stat.current': 'Pencapaian semasa',
   'timeline.stat.next': 'Buka kunci seterusnya',
+  'timeline.stat.progress': 'Keseluruhan',
   'timeline.subtitle':
     'Setiap peristiwa penting membuka modul, pengenalan dan perbualan pertumbuhan baharu. Tiada tekanan — hanya kemajuan.',
+  'timeline.tipBody':
+    'Jadualkan refleksi 30 minit pada hari ke-30, 60, dan 90 dengan pengurus anda — ia menjadikan maklum balas lebih spesifik dan kemajuan lebih jelas.',
   'timeline.tipEyebrow': 'Petua pengurus',
+  'timeline.tipTitle': 'Blok masa kalendar untuk pencapaian tersebut.',
   'timeline.title': 'Perjalanan 30/60/90 anda.',
   'training.badge.notStarted': 'Belum dimulakan',
   'training.empty': 'Tiada modul latihan lagi.',
   'training.eyebrow': 'Pendaftaran · Latihan',
   'training.loading': 'Memuatkan modul…',
+  'training.stat.all': 'Modul ditetapkan',
   'training.subtitle':
     'Modul dibuka pada 30/60/90 untuk dipadankan dengan peranan anda. Modul yang diperlukan didahulukan.',
   'training.title': 'Kemahiran, alatan dan cerita — mengikut rentak anda.',
@@ -187,9 +234,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'Modul tidak ditemui',
   'trainingModule.quizBody': 'Skor 80% atau lebih untuk menandakan modul ini selesai.',
   'trainingModule.quizHeading': 'Kuiz akhir modul',
+  'trainingModule.quizLocked': 'Mulakan modul dahulu',
   'trainingModule.quizNone': 'Tiada kuiz untuk modul ini.',
   'trainingModule.quizRetry': 'Cuba lagi',
+  'trainingModule.quizStart': 'Mulakan kuiz',
   'trainingModule.quizSubmit': 'Hantar jawapan',
+  'trainingModule.start': 'Mulakan modul',
   'trainingModule.statusNotStarted': 'Belum dimulakan',
   'welcomeHeroCard.completeLabel': 'Selesai',
   'welcomeHeroCard.milestonesLabel': 'Pencapaian',

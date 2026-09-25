@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Hast du Feedback, einen Bug gefunden oder einen Wunsch für eine Funktion? Melde dich in deinen Kontoeinstellungen — jede Nachricht erreicht eine echte Person im Team. Hinweis: Nichts hiervon ist Anlageberatung; du behältst die Kontrolle über jeden Trade.',
+  'about.contactTitle': 'Sprechen Sie uns an',
+  'about.featureAttribution':
+    'Performance-Attribution — zerlege Renditen nach Sektor, Region und Anlageklasse und vergleiche sie über jeden Zeitraum.',
+  'about.featureRebalance':
+    'Diszipliniertes Rebalancing — lege Zielallokationen und Toleranzbänder fest, sieh Abweichungen frühzeitig markiert und erhalte die Trades, die dich zurückbringen.',
+  'about.featureTax':
+    'Steuerunterlagen in Ordnung — realisierte und unrealisierte Gewinne, Dividenden und 1099-Dokumente an einem Ort, inklusive Wash-Sale-Kennzeichnungen.',
+  'about.featureUnified':
+    'Ein einheitliches Portfolio — Aktien, ETFs, Investmentfonds, Anleihen und mehr, zusammengeführt über alle Brokerage-Konten hinweg.',
+  'about.featureWatchlist':
+    'Watchlists, News und Preisalarme, damit du auf das reagieren kannst, was zählt — ohne das Rauschen.',
+  'about.intro':
+    '{{app}} ist ein Multi-Asset-Portfolio-Dashboard für Privatanleger und unabhängige Berater. Aktien, ETFs, Investmentfonds, Anleihen, Immobilien und Cash — jede Position in jedem Konto an einem Ort, mit der Disziplin eines professionellen Desks.',
+  'about.missionBody':
+    'Gutes Investieren ist vor allem Disziplin: eine klare Zielallokation, ehrliche Performance-Attribution und ordentliche Steuerunterlagen. {{app}} bringt diese institutionellen Gewohnheiten jedem näher, damit du bewusst statt impulsiv rebalancieren kannst — und nie aus den Augen verlierst, was dein Portfolio tatsächlich macht.',
+  'about.missionTitle': 'Unsere Mission',
   'about.pageTitle': 'Über {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Vermögensverwaltungs-Tools',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Keine Anlageberatung.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Ein Portfolio-Dashboard für Privatanleger und Berater, die diszipliniertes Rebalancing, scharfe Performance-Attribution und saubere Steuerunterlagen wollen — ohne Lärm.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · Die Wertentwicklung in der Vergangenheit ist keine Garantie für zukünftige Ergebnisse.',
   'argentAuthShell.sampleChange': '+2.841 $ (+0,28 %) heute',
+  'argentAuthShell.sampleLabel': 'Portfoliowert',
   'argentAuthShell.sampleValue': '1.032.251 $',
   'argentLayout.primaryNavLabel': 'Hauptnavigation',
   'assetAllocationDonut.heading': 'Wie Ihr Geld investiert ist',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'heute',
   'assetDetail.txEmpty': 'Keine Transaktionen für dieses Ticker.',
   'assetDetail.txHeading': 'Ihre Transaktionen',
+  'auth.legalConsent.prefix': 'Indem du fortfährst, stimmst du den Bedingungen von {{appName}} zu',
   'common.and': 'und',
   'common.goToDashboard': 'Zum Dashboard',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'heute',
   'dashboard.topHoldings.heading': 'Wo Ihr Geld arbeitet',
   'dashboard.topHoldings.label': 'Top-Positionen',
+  'forgotPassword.gotLinkCta': 'Ich habe einen Link zum Zurücksetzen →',
+  'forgotPassword.subheading':
+    'Geben Sie die E-Mail Ihres Gavl-Kontos ein und wir senden Ihnen einen sicheren Reset-Link.',
   'forgotPassword.successBody':
     'Wenn Sie ihn in wenigen Minuten nicht sehen, prüfen Sie Ihren Spam-Ordner oder versuchen Sie eine andere E-Mail-Adresse.',
   'forgotPassword.successSubheading':
     'Prüfen Sie {{email}} auf einen Zurücksetzungslink. Er läuft in 60 Minuten ab.',
+  'forgotPassword.successTitle': 'E-Mail zum Zurücksetzen ist unterwegs',
   'holdingHighlightRow.todayLabel': 'heute',
   'holdings.addCta': 'Kaufen',
   'holdings.col.allocation': 'Alloc',
@@ -58,6 +87,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Keine Anlageberatung. Die Wertentwicklung in der Vergangenheit ist keine Garantie für zukünftige Ergebnisse.',
   'landing.eyebrow': 'Argent · Eine Vermögensverwaltungs-Plattform',
   'landing.features.heading': 'Alles, was ein Berater für sich selbst bauen würde.',
+  'landing.finalCta.body':
+    'Verbinde dein Brokerage mit zwei Klicks. {{appName}} erledigt den Rest.',
+  'landing.finalCta.cta': 'Eröffnen Sie Ihr Argent-Konto',
   'landing.finalCta.heading': 'Bringen Sie Disziplin zurück in Ihr Portfolio.',
   'landing.footerSignup': 'Konto eröffnen',
   'landing.getStarted': 'Konto eröffnen',
@@ -65,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Preise ansehen',
   'landing.heroSubtitle':
     'Ein Portfolio-Dashboard für Privatanleger und Berater, die diszipliniertes Rebalancing, scharfe Performance-Attribution und saubere Steuerunterlagen wollen — ohne Lärm.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Eine Live-Vorschau eines repräsentativen Portfolios',
   'login.heading': 'Bei Argent anmelden',
   'login.subheading':
@@ -76,6 +109,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': 'vor {{count}} Std',
   'news.justNow': 'gerade eben',
   'news.loadError': 'Nachrichten konnten nicht geladen werden.',
+  'planUpdated.body':
+    'Deine Abrechnungsänderung ist jetzt aktiv. Du kannst deinen Tarif jederzeit über die Abrechnungsseite verwalten.',
+  'planUpdated.retry': 'Erneut versuchen',
+  'planUpdated.verifyFailed': 'Wir konnten deine Zahlung noch nicht bestätigen.',
+  'planUpdated.verifyFailedBody':
+    'Deine Zahlung wird möglicherweise noch verarbeitet. Versuche es gleich noch einmal.',
   'planUpdated.verifying': 'Bestätige Ihre Zahlung…',
   'portfolioHeroCard.label': 'Portfoliowert',
   'pricing.holdingsLabel': 'Bestände',
@@ -86,12 +125,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Allokationsabweichung',
   'rebalance.empty': 'Noch keine Ziele festgelegt.',
   'rebalance.executeCta': '{{count}} Orders platzieren',
+  'rebalance.executeError': 'Trades konnten nicht platziert werden.',
   'rebalance.executeOk': '{{count}} Orders platziert. Ansehen auf der Seite Transaktionen.',
+  'rebalance.executing': 'Wird platziert…',
   'rebalance.eyebrow': 'Rebalancing · Argent-Berater',
   'rebalance.heading': 'Bringen Sie Ihr Portfolio zurück in die Disziplin',
   'rebalance.loadError': 'Rebalancing-Plan konnte nicht geladen werden.',
+  'rebalance.plan.driftLine': 'aktuell {{current}} % · Ziel {{target}} %',
   'rebalance.planHeading': 'Argent-Ticket — vor der Platzierung prüfen',
   'rebalance.planLabel': 'Vorgeschlagener Handelsplan',
+  'rebalance.subheading':
+    'Positionen außerhalb ihres Toleranzbands lösen Trade-Vorschläge aus. {{appName}} handelt nur auf deine Bestätigung hin.',
   'rebalance.summary.buyLabel': 'Käufe',
   'rebalance.summary.buySub': 'aufzustockende Positionen',
   'rebalance.summary.driftLabel': 'Außerhalb',
@@ -100,6 +144,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'über vorgeschlagene Trades',
   'rebalance.summary.sellLabel': 'Verkäufe',
   'rebalance.summary.sellSub': 'zu reduzierende Positionen',
+  'rebalanceDriftCard.drift': 'Abweichung {{sign}}{{pct}} % · Band ±{{tolerance}} %',
   'rebalanceDriftCard.targetLabel': 'Ziel {{pct}} %',
   'reports.attributionHeading': 'Performance-Attribution (1 J)',
   'reports.col.alpha': 'Alpha',
@@ -113,37 +158,68 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Jahr',
   'reports.gainsHeading': 'Realisierte und nicht realisierte Gewinne',
   'reports.noAttribution': 'Noch keine Attributionsdaten.',
+  'reports.noGains': 'Noch keine Daten zu realisierten/unrealisierten Gewinnen.',
   'reports.noPerformance': 'Noch keine Performance-Daten.',
   'reports.noTaxDocs': 'Noch keine Steuerunterlagen.',
   'reports.performanceHeading': 'Performance vs. Benchmark',
   'reports.taxHeading': 'Steuerunterlagen',
   'resetPassword.heading': 'Wählen Sie ein starkes neues Passwort',
+  'resetPassword.passwordPlaceholder': 'Neues Passwort',
   'resetPassword.subheading':
     'Argent meldet Sie automatisch an, sobald Ihr Passwort festgelegt ist.',
   'resetPassword.tokenPlaceholder': 'Zurücksetzungs-Token aus E-Mail',
+  'settings.appearance.description': 'Zwischen hellem und dunklem Modus umschalten.',
   'settings.appearance.title': 'Erscheinungsbild',
+  'settings.devices.body': 'Geräte, die aktuell mit Ihrem Konto angemeldet sind.',
+  'settings.devices.empty': 'Keine Geräte gefunden.',
   'settings.devices.heading': 'Geräte',
+  'settings.devices.revokeWarning': 'Der Zugriff dieses Geräts wird in Kürze widerrufen. Abmelden?',
   'settings.devices.signOut': 'Abmelden',
   'settings.devices.thisDevice': 'Dieses Gerät',
   'settings.devices.unknown': 'Unbekanntes Gerät',
   'settings.linked.body':
     'Die Broker-Synchronisierung erfordert einen Drittanbieter-Connector (Plaid, Yodlee usw.). Konfigurieren Sie Ihren Anbieter in Ihrer Umgebung, um den automatischen Import zu aktivieren.',
   'settings.linked.heading': 'Verknüpfte Broker-Konten',
+  'settings.linked.placeholder': 'Noch keine Konten verknüpft.',
+  'settings.notifications.dividendsPaid': 'Gezahlte Dividenden',
   'settings.notifications.error': 'Einstellung konnte nicht aktualisiert werden.',
   'settings.notifications.priceAlerts': 'Preiswarnungen',
+  'settings.notifications.rebalanceDrift': 'Rebalancing-Abweichung',
+  'settings.notifications.taxDocsReady': 'Steuerunterlagen bereit',
   'settings.profile.advisor': 'E-Mail des Beraters (optional)',
   'settings.profile.heading': 'Profil',
   'settings.security.changePassword': 'Passwort ändern',
+  'settings.security.changePasswordTitle': 'Passwort ändern',
   'settings.security.changing': 'Wird geändert…',
+  'settings.security.confirmPassword': 'Passwort',
+  'settings.security.currentPassword': 'Aktuelles Passwort',
   'settings.security.deleteAccount': 'Konto löschen',
   'settings.security.deleteError': 'Konto konnte nicht gelöscht werden.',
   'settings.security.deleteHeading': 'Konto löschen',
+  'settings.security.deleteModalWarning':
+    'Dies löscht dein Konto und deine Daten dauerhaft. Gib zur Bestätigung dein Passwort ein.',
+  'settings.security.deleteWarning':
+    'Löschen Sie Ihr Konto und alle zugehörigen Daten dauerhaft. Dies kann nicht rückgängig gemacht werden.',
   'settings.security.deleting': 'Wird gelöscht…',
   'settings.security.heading': 'Sicherheit',
   'settings.security.newPassword': 'Neues Passwort',
   'settings.security.password': 'Passwort',
+  'settings.security.passwordError': 'Passwort konnte nicht geändert werden.',
+  'settings.security.passwordHint': 'Ändere das Passwort, mit dem du dich anmeldest.',
+  'settings.security.twoFactor': 'Zwei-Faktor-Authentifizierung',
+  'settings.security.twoFactorCode': 'Authentifizierungscode',
+  'settings.security.twoFactorDisable': 'Deaktivieren',
+  'settings.security.twoFactorDisableTitle': 'Zwei-Faktor-Authentifizierung deaktivieren',
   'settings.security.twoFactorEnable': 'Aktivieren',
+  'settings.security.twoFactorEnableTitle': 'Zwei-Faktor-Authentifizierung aktivieren',
+  'settings.security.twoFactorHint': 'Füge deinem Konto eine zusätzliche Schutzebene hinzu.',
   'settings.security.twoFactorInvalidCode': 'Ungültiger Code',
+  'settings.security.twoFactorOn': 'Am',
+  'settings.security.twoFactorQrAlt': 'Zwei-Faktor-QR-Code',
+  'settings.security.twoFactorScan':
+    'Scannen Sie diesen QR-Code mit Ihrer Authentifizierungs-App und geben Sie dann den 6-stelligen Code ein.',
+  'settings.security.twoFactorUnavailable':
+    'Die Zwei-Faktor-Authentifizierung ist für diese App nicht verfügbar.',
   'settings.security.twoFactorVerify': 'Überprüfen und aktivieren',
   'settings.tax.error': 'Steuermethode konnte nicht aktualisiert werden.',
   'settings.tax.heading': 'Steuerlot-Buchhaltung',
@@ -154,6 +230,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Steuermethode gespeichert.',
   'signup.eyebrow': 'Konto eröffnen',
   'signup.heading': 'Eröffnen Sie Ihr Argent-Konto',
+  'signup.legalPrefix': 'Mit der Erstellung eines Kontos stimmst du der {{appName}} zu',
   'signup.subheading': '30 Tage kostenlos. Keine Karte erforderlich. Jederzeit kündbar.',
   'signup.terms':
     'Mit dem Erstellen eines Kontos stimmen Sie den Argent-Nutzungsbedingungen und der Datenschutzerklärung zu.',

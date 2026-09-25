@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχεις σχόλια, βρήκες κάποιο σφάλμα ή θέλεις το δικό σου board στο {{appName}}; Άνοιξε τις Ρυθμίσεις για να επικοινωνήσεις με την ομάδα — κάθε μήνυμα πηγαίνει σε έναν πραγματικό άνθρωπο που το διαβάζει.',
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
+  'about.featureModeration':
+    'Ένας δημόσιος οδικός χάρτης με ετικέτες τριμήνων, ένα changelog που μετατρέπει τη δουλειά που παραδίδεται σε σημειώσεις έκδοσης και ένας πίνακας ελέγχου που δείχνει τι θέλει περισσότερο ο κόσμος.',
+  'about.featurePricing':
+    'Δωρεάν για λίγα boards· τα πλάνα Pro και Team ξεκλειδώνουν περισσότερα boards, υψηλότερα όρια και εξαγωγή δεδομένων.',
+  'about.featureThreads':
+    'Δημόσια boards σχολίων οργανωμένα ανά θέμα, με συγχώνευση διπλότυπων που συγκεντρώνει τις ψήφους σε ένα ειλικρινές σήμα ζήτησης.',
+  'about.featureVoting':
+    'Ψηφοφορία με μία ψήφο ανά χρήστη και πλήρη ροή καταστάσεων — ανοιχτό, προγραμματισμένο, σε εξέλιξη, παραδοθέν ή απορριφθέν — και επίσημη απάντηση σε κάθε απόφαση.',
+  'about.intro':
+    'Το {{appName}} είναι μια πλατφόρμα σχολίων προϊόντος — δημόσια boards όπου οι πελάτες δημοσιεύουν αιτήματα, ψηφίζουν για ό,τι χρειάζονται και παρακολουθούν κάθε ιδέα από το προγραμματισμένο έως το παραδοθέν. Οι ομάδες σταματούν να μαντεύουν τι να φτιάξουν μετά, γιατί η ζήτηση κατατάσσεται μόνη της.',
+  'about.missionBody':
+    'Πιστεύουμε ότι οι καλύτερες αποφάσεις για ένα προϊόν λαμβάνονται ανοιχτά. Το {{appName}} δίνει σε κάθε ομάδα ένα δημόσιο board με ψηφισμένα αιτήματα, έναν επίσημο οδικό χάρτη με τρίμηνα-στόχους και ένα changelog που κλείνει τον κύκλο — ώστε οι πελάτες να βλέπουν τον αντίκτυπό τους και οι ομάδες την εντολή τους.',
+  'about.missionTitle': 'Η αποστολή μας',
   'admin.backToBoards': 'Επιστροφή στους πίνακες',
   'admin.denied': 'Μόνο για διαχειριστές.',
   'admin.eyebrow': 'Ομάδα προϊόντος',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'admin.title': 'Πίνακας σχολίων',
   'admin.topOpen': 'Κορυφαία ανοιχτά αιτήματα',
   'admin.totalVotes': '{{count}} σύνολο',
+  'admin.votesChartLabel': 'Ραβδόγραμμα ψήφων ανά εβδομάδα τις τελευταίες οκτώ εβδομάδες',
   'admin.votesOverTime': 'Ψήφοι με την πάροδο του χρόνου',
   'auth.forgotPassword.email': 'Email',
   'auth.forgotPassword.sendResetLink': 'Αποστολή συνδέσμου επαναφοράς',
@@ -30,7 +47,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Δημιουργήστε τον λογαριασμό σας',
   'auth.username': 'Όνομα χρήστη',
   'authShell.communities': 'Κοινότητες',
+  'authShell.copyright': '{{appName}} — κάθε φωνή μετράει.',
   'authShell.trending': 'Δημοφιλή',
+  'boardCard.postCount': '{{count}} αναρτήσεις',
   'boardDetail.allBoards': 'Όλοι οι πίνακες',
   'boardDetail.backToBoards': 'Επιστροφή στους πίνακες',
   'boardDetail.empty': 'Καμία ανάρτηση δεν ταιριάζει με αυτά τα φίλτρα ακόμα.',
@@ -54,6 +73,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Κάθε καταχώρηση ξεκίνησε ως ένα αίτημα με ψήφους. Οι ψηφοφόροι το είδαν να κινείται· εδώ είναι που κατέληξε.',
   'changelog.title': 'Παραδόθηκε, με αποδεικτικά',
+  'changelog.voteCount': '{{count}} ψήφοι το έφεραν στη ζωή',
   'common.atLeast8Characters': 'Τουλάχιστον 8 χαρακτήρες',
   'common.checkYourInbox': 'Ελέγξτε τα εισερχόμενά σας',
   'common.loadingEllipsis': 'Φόρτωση…',
@@ -64,6 +84,9 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Υποβολή…',
   'footer.about': 'Σχετικά με το {{appName}}',
   'footer.language': 'Γλώσσα',
+  'forgotPassword.description':
+    'Εισαγάγετε το email σας και θα σας στείλουμε έναν σύνδεσμο για επαναφορά.',
+  'forgotPassword.successBody': 'Στείλαμε σύνδεσμο επαναφοράς στο {{email}}. Λήγει σε 30 λεπτά.',
   'forgotPassword.tryAnother': 'Δοκιμάστε άλλο email',
   'form.displayName': 'Εμφανιζόμενο όνομα',
   'form.firstName': 'Όνομα',
@@ -74,6 +97,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'Ο χάρτης πορείας σας, με βάση τις ψήφους.',
   'landing.heroCtaPrimary': 'Ξεκινήστε να συλλέγετε ψήφους',
   'landing.heroCtaSecondary': 'Δείτε έναν ζωντανό πίνακα',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Σταμάτα να μαντεύεις. Παράδωσε ό,τι ψηφίζουν.',
+  'landing.heroLede':
+    'Το {{appName}} μετατρέπει τα διάσπαρτα αιτήματα λειτουργιών σε ένα δημόσιο board με ψηφισμένες ιδέες, έναν επίσημο οδικό χάρτη και ένα changelog που οι πελάτες σου διαβάζουν πραγματικά.',
   'landing.heroStat1': '3.200+',
   'landing.heroStat1Label': 'Ομάδες που ακούν',
   'landing.heroStat2': '1,4εκ',
@@ -85,9 +112,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Αρχείο αλλαγών',
   'landing.navJoin': 'Εγγραφή στο {{appName}}',
   'landing.navRoadmap': 'Χάρτης πορείας',
+  'landing.step1Body':
+    'Οι πελάτες δημοσιεύουν ιδέες σε δημόσια boards. Τα διπλότυπα συγχωνεύονται, οι ψήφοι συγκεντρώνονται και η ζήτηση κατατάσσεται μόνη της.',
   'landing.step1Title': 'Συλλογή',
+  'landing.step2Body':
+    'Σημείωσε τα αιτήματα ως προγραμματισμένα ή σε εξέλιξη με ένα τρίμηνο-στόχο — ο οδικός χάρτης ενημερώνεται τη στιγμή που το κάνεις.',
+  'landing.step2Title': 'Διαπράττω',
   'landing.step3Body':
     'Οι παραδοθείσες αναρτήσεις γίνονται καταχωρήσεις αρχείου αλλαγών και κάθε ψηφοφόρος βλέπει το αποτέλεσμα στη δική του λίστα.',
+  'landing.step3Title': 'Παράδοση',
   'landing.topSubtitle':
     'Ζωντανά από αυτόν τον πίνακα — συνδεθείτε για να προσθέσετε την ψήφο σας.',
   'landing.topTitle': 'Τι ζητούν οι χρήστες αυτή τη στιγμή',
@@ -96,14 +129,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Πρωτοβάθμια',
   'layout.signUp': 'Εγγραφή',
   'layout.submit': 'Υποβολή σχολίου',
+  'login.description': 'Συνεχίστε από εκεί που σταμάτησε η συζήτηση.',
+  'login.heading': 'Σύνδεση στο Nimbus',
+  'login.noAccount': 'Νέος εδώ;',
   'login.passwordPlaceholder': 'Ο κωδικός σας',
   'login.twoFactorLabel': 'Κωδικός 2FA (προαιρετικό)',
   'login.twoFactorPlaceholder': 'Κωδικός 6 ψηφίων',
+  'login.twoFactorRequiredHint':
+    'Αυτός ο λογαριασμός έχει ενεργοποιημένο τον έλεγχο ταυτότητας δύο παραγόντων. Εισαγάγετε τον 6ψήφιο κωδικό από την εφαρμογή ελέγχου ταυτότητας για να συνεχίσετε.',
   'login.twoFactorRequiredLabel': 'Εισαγάγετε τον κωδικό 2FA',
+  'myActivity.browseCta': 'Περιήγηση σε πίνακες',
+  'myActivity.emptyPosts': 'Δεν έχεις δημοσιεύσει ακόμη κάποιο αίτημα.',
+  'myActivity.emptyVotes': 'Τίποτα ακόμη — περιηγήσου στα boards και υποστήριξε μια ιδέα.',
   'myActivity.eyebrow': 'Η δραστηριότητά σας',
   'myActivity.loadError': 'Δεν ήταν δυνατή η φόρτωση της δραστηριότητάς σας.',
   'myActivity.postsTitle': 'Αιτήματα που υποβάλατε',
+  'myActivity.shippedNote': '{{count}} από αυτά παραδόθηκαν — ευχαριστούμε για την ώθηση.',
   'myActivity.submitCta': 'Δημοσιεύστε ένα αίτημα',
+  'myActivity.tabLabel': 'Προβολή',
   'myActivity.tabPosts': 'Οι αναρτήσεις μου',
   'myActivity.tabVotes': 'Οι ψήφοι μου',
   'myActivity.votesTitle': 'Αιτήματα που ψηφίσατε',
@@ -139,8 +182,12 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Η ανάρτηση δεν βρέθηκε',
   'postsAdmin.backToDashboard': 'Πίνακας ελέγχου',
   'postsAdmin.eyebrow': 'Ομάδα προϊόντος',
+  'postsAdmin.mergeApplied': 'Συγχωνεύτηκε — μεταφέρθηκαν {{votes}} ψήφοι και {{comments}} σχόλια.',
   'postsAdmin.mergeApply': 'Συγχώνευση & μεταφορά ψήφων',
   'postsAdmin.mergeChoose': 'Επιλέξτε μια ανάρτηση προορισμού…',
+  'postsAdmin.mergeFailed': 'Η συγχώνευση απέτυχε.',
+  'postsAdmin.mergeHint':
+    'Οι ψήφοι συγκεντρώνονται (μία ανά χρήστη), τα σχόλια μεταφέρονται και αυτή η δημοσίευση παίρνει μια σημείωση "μεταφέρθηκε".',
   'postsAdmin.mergeLabel': 'Συγχώνευση διπλότυπου σε',
   'postsAdmin.responseLabel': 'Επίσημη απάντηση',
   'postsAdmin.responsePlaceholder':
@@ -156,7 +203,13 @@ export const ui: UiTranslations = {
     'Ορίστε την επίσημη κατάσταση, απαντήστε δημόσια, ετικετάρετε το τρίμηνο του χάρτη πορείας και συγχωνεύστε διπλότυπα.',
   'postsAdmin.title': 'Διαχείριση αναρτήσεων σχολίων',
   'postsAdmin.votes': '{{count}} ψήφοι',
+  'pricing.limits.advancedFeatures': 'Προηγμένες λειτουργίες:',
+  'pricing.limits.boards': '{{count}} σανίδες',
   'pricing.limits.export': 'Εξαγωγή δεδομένων:',
+  'pricing.limits.posts': '{{count}} δημοσιεύσεις σχολίων',
+  'pricing.limits.votes': '{{count}} ψήφοι',
+  'resetPassword.description':
+    'Επιλέξτε ένα ισχυρό. Θα σας συνδέσουμε μόλις η επαναφορά ολοκληρωθεί με επιτυχία.',
   'resetPassword.newPasswordLabel': 'Νέος κωδικός',
   'resetPassword.tokenPlaceholder': 'Επικολλήστε το διακριτικό συνδέσμου',
   'roadmap.cardMeta': 'από {{author}} · {{board}}',
@@ -173,6 +226,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'Πληκτρολογήστε ένα ερώτημα για να βρείτε υπάρχοντα αιτήματα πριν δημοσιεύσετε διπλότυπο.',
   'search.loadError': 'Η αναζήτηση απέτυχε — δοκιμάστε ξανά.',
+  'search.searching': 'Αναζήτηση…',
   'search.submit': 'Αναζήτηση',
   'search.submitNew': 'Δημοσιεύστε το ως νέο αίτημα',
   'search.title': 'Αναζήτηση σχολίων',
@@ -181,12 +235,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'Χρέωση',
   'settings.displaySubtitle': 'Επιλέξτε πόσο πυκνές φαίνονται οι ροές.',
   'settings.displayTitle': 'Εμφάνιση',
+  'settings.emailDigestDesc': 'Τα κορυφαία σε ψήφους ανοιχτά αιτήματα κάθε Δευτέρα.',
+  'settings.emailDigestLabel': 'Εβδομαδιαία σύνοψη',
+  'settings.emailMentionsDesc': 'Όταν κάποιος απαντήσει σε μια δημοσίευση που ακολουθείς.',
+  'settings.emailMentionsLabel': 'Στείλε μου email για αναφορές',
+  'settings.emailRepliesDesc': 'Νήματα που ξεκίνησες ή στα οποία απάντησες.',
+  'settings.emailRepliesLabel': 'Στείλτε μου email για απαντήσεις',
   'settings.loadError': 'Δεν ήταν δυνατή η φόρτωση του λογαριασμού σας.',
   'settings.loading': 'Φόρτωση των ρυθμίσεών σας…',
   'settings.notifications': 'Ειδοποιήσεις',
   'settings.notificationsSubtitle':
     'Αποφασίστε τι φτάνει στα εισερχόμενά σας έναντι της συσκευής push σας.',
+  'settings.pushRepliesLabel': 'Push για απαντήσεις',
+  'settings.pushVotesDesc': 'Ειδοποίηση κατωφλίου στα 100, 500, 1000.',
+  'settings.pushVotesLabel': 'Πιέστε για ορόσημα θετικής ψήφου',
   'settings.saveAccount': 'Αποθήκευση λογαριασμού',
+  'settings.showFlair': 'Εμφάνιση ετικετών board στις δημοσιεύσεις',
+  'settings.showThumbnails': 'Εμφάνιση μικρογραφιών συνδέσμων/εικόνων',
   'settings.usernamePlaceholder': 'Επιλέξτε ένα όνομα χρήστη',
   'signup.confirmPlaceholder': 'Πληκτρολογήστε το ξανά',
   'signup.description': 'Διαμορφώστε τι θα κατασκευάσουμε στη συνέχεια.',

@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கேள்வி உள்ளதா, பிழை கண்டீர்களா, அல்லது உங்கள் குழுவுக்கு டெமோ வேண்டுமா? உங்கள் கணக்கு அமைப்புகளிலிருந்து தொடர்பு கொள்ளுங்கள் — ஒவ்வொரு செய்தியும் குழுவில் உள்ள ஒரு உண்மையான நபருக்கே செல்கிறது.',
   'about.contactTitle': 'தொடர்பு கொள்ளுங்கள்',
+  'about.intro':
+    '{{app}} ஸ்கேன் செய்யப்பட்ட ஆவணங்கள் மற்றும் PDF குவியல்களை கட்டமைக்கப்பட்ட, தேடக்கூடிய, கோப்பு செய்யப்பட்ட தரவாக மாற்றுகிறது. இன்வாய்ஸ்கள், ரசீதுகள், ஒப்பந்தங்கள் அல்லது படிவங்களை இட்டு, AI அவற்றை படிக்க, பிரித்தெடுக்க, வகைப்படுத்தி கோப்பு செய்ய அனுமதியுங்கள் — நம்பிக்கை நிறங்களுடன், உண்மையில் மனிதர் தேவைப்படுவதை மட்டுமே உங்கள் குழு மதிப்பாய்வு செய்யும்.',
+  'about.missionBody':
+    'ஆவணங்களின் சலிப்பான வேலை உங்கள் குழுவின் நாளை விழுங்கக்கூடாது. பிரித்தெடுக்கப்படும் ஒவ்வொரு மதிப்பும் விளக்கக்கூடியதாகவும் தணிக்கை செய்யக்கூடியதாகவும் இருக்க வேண்டும் என்று நாங்கள் நம்புகிறோம் — எனவே ஆவணச் சுவடு இழக்காமல் தானியக்கத்தை நம்பலாம். ஒவ்வொரு குவியலுக்கும் மணிநேரங்களைச் சேமிக்கும் வகையில் {{app}} வடிவமைக்கப்பட்டுள்ளது, முக்கியமான இடங்களில் மனிதரைச் சுழற்சியில் வைத்திருக்கிறது.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
+  'about.subtitle':
+    'உங்கள் ஆவணங்களுக்கான OCR, AI பிரித்தெடுத்தல், வகைப்படுத்தல் மற்றும் தானியங்கி கோப்பு செய்தல்.',
   'about.title': '{{app}} பற்றி',
+  'about.whatYouGetTitle': 'நீங்கள் பெறுவது',
   'authShell.backToLanding': '← தரையிறக்கத்திற்குத் திரும்பு',
   'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'இன்று · செயல்பாடுகள் கண்ணோட்டம்',
   'dashboard.heading': 'ஆவண நுண்ணறிவு',
+  'dashboard.metric.accuracy': 'சராசரி துல்லியம்',
   'dashboard.metric.filed': 'இன்று தாக்கல் செய்யப்பட்டது',
   'dashboard.metric.filedCaption': 'தாக்கல் விதிகளின்படி அனுப்பப்பட்டது',
   'dashboard.metric.processed': 'இன்று செயலாக்கப்பட்டது',
@@ -23,11 +34,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'ஆவணம்',
   'dashboard.recent.col.uploaded': 'பதிவேற்றப்பட்டது',
   'dashboard.recent.heading': 'சமீபத்திய ஆவணங்கள்',
+  'dashboard.recent.typeUnknown': 'வகைப்படுத்தலுக்காக காத்திருக்கிறது',
   'dashboard.subheading':
     'ஒவ்வொரு பக்கமும் வகைப்படுத்தப்பட்டு, பிரித்தெடுக்கப்பட்டு, கோப்பிடப்பட்டுள்ளது — மதிப்பாய்வு ஒருமுகப்படுத்தப்படுவதற்காக நம்பிக்கையூட்டும் வண்ணங்கள் பயன்படுத்தப்பட்டுள்ளன.',
   'documentDetail.audit.heading': 'தணிக்கை காலவரிசை',
+  'documentDetail.audit.subheading':
+    'இந்த ஆவணத்தில் எடுக்கப்பட்ட ஒவ்வொரு படியும், அதற்குப் பொறுப்பான நபருடன்.',
   'documentDetail.back': 'அனைத்து ஆவணங்களும்',
   'documentDetail.downloadHint': 'அசல் கோப்பைத் திறக்க, பதிவிறக்கு என்பதைப் பயன்படுத்தவும்.',
+  'documentDetail.extracted.empty': 'இன்னும் புலங்கள் எதுவும் பிரித்தெடுக்கப்படவில்லை.',
   'documentDetail.extracted.heading': 'பிரித்தெடுக்கப்பட்ட புலங்கள்',
   'documentDetail.extracted.subheading':
     '{{count}} புலங்கள் · பக்கத்தில் முன்னிலைப்படுத்த ஏதேனும் ஒரு புலத்தைச் சொடுக்கவும்',
@@ -56,15 +71,26 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} உங்கள் நூலகத்தில் உள்ள ஆவணங்கள், புதியவை முதலில் வரும்படி வரிசைப்படுத்தப்பட்டுள்ளன.',
   'documents.uploadCta': 'ஆவணங்களைப் பதிவேற்றவும்',
+  'documentTypeBreakdown.barAria': 'வகை வாரியாக ஆவண அமைப்பு',
   'documentTypeBreakdown.empty': 'இதுவரை எந்த ஆவணங்களும் செயலாக்கப்படவில்லை.',
   'documentTypeBreakdown.subtitle': '{{total}} பதப்படுத்தப்பட்ட',
   'documentTypeBreakdown.title': 'ஆவண உருவாக்கம்',
+  'forgotPassword.backToSignIn': '← உள்நுழைவுக்குத் திரும்பு',
   'forgotPassword.checkEmail': 'உங்கள் மின்னஞ்சலைச் சரிபார்க்கவும்',
   'forgotPassword.tip':
     'கிடைக்கவில்லையா? ஸ்பேம் கோப்புறையைச் சரிபார்க்கவும் அல்லது வேறு முகவரியை முயற்சி செய்யவும்.',
+  'landing.copyright':
+    '© {{year}} {{app}}. ஒவ்வொரு பக்கத்தையும் தணிக்கை செய்யும் செயல்பாட்டுக் குழுக்களுக்காக உருவாக்கப்பட்டது.',
+  'landing.ctaBody':
+    '14-நாள் சோதனை. கார்டு தேவையில்லை. எப்போது வேண்டுமானாலும் ரத்து செய்யலாம். வேகமாக நகர்ந்து மெதுவாக தணிக்கை செய்யும் செயல்பாட்டுக் குழுக்களுக்காக உருவாக்கப்பட்டது.',
   'landing.ctaHeading':
     'ரசீதுகளைத் தட்டச்சு செய்வதை நிறுத்துங்கள். அவற்றை கோப்பு செய்யத் தொடங்குங்கள்.',
   'landing.eyebrow': 'OCR · பிரித்தெடுத்தல் · AI தாக்கல்',
+  'landing.featuresHeading': 'தன்னை விளக்கிக்கொள்ளும் ஆவண நுண்ணறிவு',
+  'landing.heroSubtitle':
+    'இன்வாய்ஸ்கள், ரசீதுகள், ஒப்பந்தங்கள் அல்லது படிவங்களின் குவியலை இட்டு விடுங்கள். {{app}} அவற்றை வகைப்படுத்தி, பிரித்தெடுத்து, கோப்பு செய்கிறது — நம்பிக்கை நிறங்களுடன், உண்மையில் மனிதர் தேவைப்படுவதை மட்டுமே உங்கள் குழு மதிப்பாய்வு செய்யும்.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'தினசரி அளவு · கடந்த 7 நாட்கள்',
   'landing.sampleCardLabel': 'இன்று செயலாக்கப்பட்ட ஆவணங்கள்',
   'landing.sampleCardSubtitle':
     'விலைப்பட்டியல்கள், ரசீதுகள் மற்றும் படிவங்கள் அனைத்திலும் 96.2% சராசரி துல்லியம்.',
@@ -78,6 +104,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'முகப்புப் பக்கத்தைத் திறக்கவும்',
   'notFound.title': 'அந்தப் பக்கம் கோப்பில் இல்லை.',
+  'parcelaHeroCard.accuracy': 'அனைத்து பிரித்தெடுத்தல்களிலும் சராசரி துல்லியம் {{value}}%',
   'parcelaHeroCard.change': '{{sign}} {{amount}} நேற்றைய தினத்துடன் ஒப்பிடுகையில் சதவீதம்',
   'parcelaHeroCard.title': 'இன்று செயலாக்கப்பட்ட ஆவணங்கள்',
   'parcelaLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
@@ -85,6 +112,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'ஆவணங்கள்',
   'pricing.processingLabel': 'செயலாக்கப் பணிகள்',
   'resetPassword.confirmPlaceholder': 'புதிய கடவுச்சொல்லை மீண்டும் உள்ளிடவும்',
+  'resetPassword.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
   'resetPassword.passwordLabel': 'புதிய கடவுச்சொல்',
   'resetPassword.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'resetPassword.subtitle': 'குறைந்தது 8 எழுத்துகள் நீளமுள்ள ஒன்றைத் தேர்ந்தெடுக்கவும்.',
@@ -102,10 +130,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'விதிகளை ஏற்ற முடியவில்லை.',
   'rules.loading': 'ஏற்றுதல் விதிகள்…',
   'rules.matched30d': '{{count}} கடந்த 30 நாட்களில் பொருந்திய ஆவணங்கள்',
+  'rules.neverUsed': 'ஒருபோதும் பயன்படுத்தப்படவில்லை',
   'rules.newRule': 'புதிய விதி',
   'rules.saveError': 'விதியைச் சேமிக்க முடியவில்லை.',
   'rules.subheading':
     'ஒவ்வொரு வகை ஆவணமும் எங்கு செல்ல வேண்டும் என்பதை கணினி அமைப்புக்குத் தெரிவிக்கவும். நிபந்தனைகள் மேலிருந்து கீழாகத் தொடரும் — முதலில் பொருந்துபவருக்கே முன்னுரிமை.',
+  'rules.templatesEmpty': 'இன்னும் பிரித்தெடுத்தல் டெம்ப்ளேட்டுகள் இல்லை.',
   'rules.templatesHeading': 'பிரித்தெடுப்பு வார்ப்புருக்கள்',
   'rules.templatesSubheading':
     'ஒவ்வொரு ஆவண வகைக்கும் பிரித்தெடுப்பான் பயன்படுத்தும் புலத் திட்டங்கள்.',
@@ -115,17 +145,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'பணியிடத்தின் பெயர்',
   'settings.account.subheading':
     'அறிவிப்புகள் மற்றும் தணிக்கை வரலாற்றிற்கான காட்சிப் பெயர் மற்றும் முதன்மை மின்னஞ்சல்.',
+  'settings.api.confirmRevoke': 'உறுதிப்படுத்தவா?',
   'settings.api.copyOnce': 'இந்தச் சாவியை நகலெடுக்கவும் — இது மீண்டும் காட்டப்படாது.',
   'settings.api.createdOn': 'உருவாக்கப்பட்டது {{date}}',
   'settings.api.empty': 'இன்னும் API திறவிகள் உருவாக்கப்படவில்லை. மேலே ஒன்றை உருவாக்கவும்.',
   'settings.api.error': 'திறவுகோலை உருவாக்க முடியவில்லை.',
+  'settings.api.generating': 'உருவாக்கப்படுகிறது…',
+  'settings.api.heading': 'API விசைகள்',
   'settings.api.labelPlaceholder': 'முக்கிய லேபிள் (எ.கா. CI பதிவேற்றி)',
+  'settings.api.loading': 'விசைகள் ஏற்றப்படுகின்றன…',
   'settings.api.newKey': 'சாவியை உருவாக்கு',
   'settings.api.subheading':
     'ஒரு ஸ்கிரிப்ட் அல்லது உங்கள் ERP-இலிருந்து ஆவணங்களை அனுப்ப இவற்றைப் பயன்படுத்தவும். எந்த விசையையும் எப்போது வேண்டுமானாலும் சுழற்றலாம்.',
   'settings.integrations.heading': 'கோப்பு ஒருங்கிணைப்புகள்',
   'settings.integrations.subheading':
     'தாக்கல் செய்யப்பட்ட ஆவணங்களை, உங்கள் குழு ஏற்கனவே பயன்படுத்தும் கிளவுட் டிரைவ் அல்லது அரட்டைக் கருவிக்கு அனுப்பவும்.',
+  'settings.subheading':
+    'உங்கள் {{app}} பணியிடத்திற்கான கணக்கு, API விசைகள் மற்றும் கோப்பு ஒருங்கிணைப்புகளை நிர்வகிக்கவும்.',
+  'signup.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
   'signup.identityPrompt': 'நாங்கள் உங்களை எவ்வாறு அழைக்க வேண்டும்?',
   'signup.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'signup.subtitle': '14 நாட்கள் இலவசம், அட்டை தேவையில்லை.',
@@ -133,6 +170,7 @@ export const ui: UiTranslations = {
   'upload.error': 'பதிவேற்றம் தோல்வியடைந்தது.',
   'upload.eyebrow': 'உட்கொள்ளல்',
   'upload.heading': 'ஆவணங்களைப் பதிவேற்றவும்',
+  'upload.queue.clear': 'முடிந்தவற்றை அழி',
   'upload.queue.col.confidence': 'நம்பிக்கை',
   'upload.queue.col.file': 'கோப்பு',
   'upload.queue.detecting': 'கண்டறிதல்…',
@@ -145,5 +183,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'அல்லது, கோப்புகளைத் தொகுப்பாகப் பிரித்தெடுத்தல், வகைப்படுத்துதல் மற்றும் கோப்பிடுதல் ஆகியவற்றுக்காகப் பல கோப்புகளை ஒரே நேரத்தில் உள்ளிடவும்.',
   'uploadDropZone.cta': 'கோப்புகளைத் தேர்ந்தெடுக்கவும்',
+  'uploadDropZone.maxSize': 'ஒரு கோப்புக்கு அதிகபட்சம் 25 MB · முழுமையாக மறையாக்கப்பட்டது',
   'uploadDropZone.title': 'செயலாக்கத்தைத் தொடங்க ஆவணங்களைச் சமர்ப்பிக்கவும்.',
 }

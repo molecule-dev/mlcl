@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Прашања за резервација, повратни информации или објект што мислите дека треба да биде на {{app}}? Контактирајте го нашиот тим од вашата сметка — секоја порака стигнува до вистински човек кој може да помогне.',
+  'about.contactTitle': 'Контактирајте не',
   'about.eyebrow': 'За нас',
+  'about.featureLoyalty':
+    'Цени само за членови и програма за лојалност што носи поени, подоцнежни одјавувања и надградби на соби при секоја резервација.',
+  'about.featureReviews':
+    'Проверени оценки од гости и уреднички избори за да можете да имате доверба во престојот пред да пристигнете.',
+  'about.featureRooms':
+    'Соби, цени и погодности едно до друго со транспарентна, сеопфатна цена — даноци и такси за одморалиште вклучени пред да платите.',
+  'about.featureSearch':
+    'Пребарување во реално време низ проверени хотели со достапност во живо, приказ на карта и богати фото галерии.',
+  'about.featureTrips':
+    'Зачувани омилени и контролна табла Патувања што ја чува секоја резервација, маршрута и потврда на едно место.',
+  'about.intro':
+    '{{app}} е платформа за резервирање хотели за патници на кои им е важна квалитетот. Секој објект е лично проверен од нашиот уреднички тим — без инвентар од агрегатори, без измамнички огласи. Пребарувајте вистинска достапност, споредете соби, цени и погодности едно до друго, потоа резервирајте со неколку допири со јасна, сеопфатна цена.',
+  'about.missionBody':
+    'Резервирањето место за престој треба да биде смирено и чесно. Прикажуваме транспарентни цени со даноци и такси за одморалиште однапред, ги наградуваме лојалните гости наместо да ги цедиме за секој денар и ги ставаме престоите вредни за вашите пари на прво место — за да поминувате помалку време споредувајќи табови и повеќе време на самото патување.',
+  'about.missionTitle': 'Нашата мисија',
+  'about.subtitle': 'Куриран, транспарентен начин да го најдете и резервирате вистинскиот хотел.',
   'account.loyalty.activitySummary': '{{nights}} ноќи · {{spend}} поминато оваа година',
+  'account.loyalty.benefitsHeading': 'Вашите бенефиции',
   'account.loyalty.heading': 'Лојалност',
   'account.loyalty.loading': 'Се вчитува лојалност…',
-  'account.loyalty.pointsTowardNext': '{{поени}} / {{следно}} покажува кон {{следно ниво}}',
+  'account.loyalty.maxTier': 'Највисоко ниво — уживајте во вашите бенефиции.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} поени до {{nextTier}}',
   'account.loyalty.tier': 'Тековно ниво',
   'account.loyalty.unavailable': 'Информациите за лојалност се недостапни.',
   'account.navLabel': 'Секции на сметката',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Потврди резервација · {{total}}',
   'bookingCheckout.datesRequired': 'Ве молиме изберете ги датумите за пријавување и одјавување.',
   'bookingCheckout.guestHeading': 'Главен гостин',
+  'bookingCheckout.heading': 'Потврди и резервирај',
   'bookingCheckout.loadError': 'Не успеа да се вчита својството.',
   'bookingCheckout.nights': '{{rate}} × {{count}} ноќи',
   'bookingCheckout.notFound': 'Својството не е пронајдено.',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Даноци и такси',
   'bookingCheckout.tripHeading': 'Вашето патување',
   'bookingConfirmation.allTripsCta': 'Сите патувања',
+  'bookingConfirmation.confNumber': 'Број на потврда: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Вашата резервација се обработува.',
   'bookingConfirmation.heading': 'Резервацијата е потврдена',
   'bookingConfirmation.loading': 'Се вчитува вашата резервација…',
   'bookingConfirmation.searchMoreCta': 'Прелистајте повеќе престои',
   'bookingConfirmation.subheadingForTrip':
-    '{{имот}} во {{град}} , {{земја}} Ќе се видиме на {{проверка}} .',
+    '{{property}} во {{city}}, {{country}}. Се гледаме на {{checkIn}}.',
   'bookingConfirmation.total': 'Вкупно {{total}}',
   'bookingConfirmation.viewTripCta': 'Прикажи патување',
   'common.goToDashboard': 'Оди до контролна табла',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Не успеа да се вчитаат омилените.',
   'favorites.pricePerNight': '{{price}} / ноќ',
   'favorites.removeCta': 'Отстрани зачувување',
+  'favorites.removing': 'Се отстранува…',
   'forgotPassword.subheading':
     'Внесете ја е-поштата на вашата сметка и ние ќе ви испратиме линк за безбедно ресетирање.',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Членови на престојот',
   'landing.cta.heading': 'Цени само за членови. Секоја резервација, секој пат.',
   'landing.cta.signup': 'Креирај бесплатна сметка',
+  'landing.cta.subheading':
+    'Заработете поени за лојалност при секој престој, отклучете подоцнежни одјавувања и надградби на соби и добијте прв пристап до нови објекти пред јавно да бидат објавени.',
   'landing.destinations.eyebrow': 'Каде понатаму',
   'landing.destinations.heading': 'Препорачани дестинации',
   'landing.destinations.seeAll': 'Видете ги сите дестинации',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Приказни што вреди да се спакуваат за нив',
   'landing.nav.join': 'Придружете се на Auberge',
   'landing.nav.search': 'Пребарувањето останува',
+  'landing.preview.browseAll': 'Прегледајте ја целата колекција',
   'landing.preview.eyebrow': 'Поглед внатре',
   'landing.preview.heading': 'Внимателно избрани сместувања овој месец',
+  'landing.preview.subheading':
+    'Секој објект на {{appName}} е лично проверен од нашиот уреднички тим — без инвентар од агрегатори, без измамнички огласи.',
   'login.eyebrow': 'Членска област',
+  'login.noAccount': 'Нов во Тесера?',
   'login.signupLink': 'Креирај бесплатна сметка',
   'login.subheading':
     'Најавете се за да управувате со вашите патувања, да ги прегледувате потврдите и да продолжите таму каде што сте застанале.',
+  'loyaltyTierBadge.points': '{{points}} поени',
   'planUpdated.heading': 'Планот е ажуриран',
+  'planUpdated.retry': 'Обидете се повторно',
+  'planUpdated.verifyFailed': 'Сè уште не можевме да ја потврдиме вашата уплата.',
+  'planUpdated.verifyFailedBody':
+    'Вашето плаќање можеби сè уште се обработува. Обидете се повторно за момент.',
   'planUpdated.verifying': 'Се потврдува вашата уплата…',
   'pricing.limit.advancedFeatures': 'Напредни функции:',
   'pricing.limit.canExport': 'Извоз на податоци:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Што нуди ова место',
   'propertyDetail.backLink': 'Назад кон пребарувањето',
   'propertyDetail.bookCta': 'Резервирај',
+  'propertyDetail.bookmarkAria': 'Зачувај го имотот',
   'propertyDetail.bookmarkAriaSaved': 'Отстрани од зачуваните својства',
+  'propertyDetail.galleryImageAlt': '{{name}} фотографија {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} фотографија од херој',
   'propertyDetail.hidePhotos': 'Сокриј фотографии',
   'propertyDetail.lineCleaning': 'Надомест за чистење',
@@ -89,6 +128,9 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'ноќ',
   'propertyDetail.noChargeYet': 'Сè уште нема да ви биде наплатено',
   'propertyDetail.notFound': 'Својството не е пронајдено.',
+  'propertyDetail.perNight': '/ ноќ',
+  'propertyDetail.pickDatesHint':
+    'Изберете ги датумите за да го видите целосниот преглед на цената.',
   'propertyDetail.reviewCount': '( {{count}} прегледи)',
   'propertyDetail.reviewsHeading': 'Неодамнешни прегледи',
   'propertyDetail.roomCapacity': 'Спие {{count}}',
@@ -101,6 +143,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Нова лозинка',
   'resetPassword.subheading':
     'Изберете нова лозинка за вашата сметка на Auberge. Користете најмалку 8 знаци; препорачуваме лозинка.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Нема својства што одговараат на вашето пребарување.',
   'searchResults.emptyHint':
     'Обидете се да ги проширите филтрите или да го отстраните горниот лимит на цените — Auberge има престој во 14 земји.',
@@ -108,19 +151,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Курирани престојувања',
   'searchResults.headingForQuery': 'Останува за „ {{q}} „',
   'searchResults.loadError': 'Не успеа да се вчитаат својствата.',
+  'searchResults.mapHint':
+    'Поминете со курсорот над картичката за да ја истакнете на картата. Mapbox плочки во живо во продукција.',
   'searchResults.mapPinAria': '{{name}} — {{price}} по ноќ',
   'searchResults.sortLabel': 'Сортирај по',
   'searchResults.subheading': '{{count}} својства · {{guests}} гости',
   'signup.eyebrow': 'Стани член',
   'signup.subheading':
     'Придружете се на Auberge за да отклучите цени само за членови, доцни наплати и прв пристап до нови објекти.',
+  'sojournAuthShell.brand.eyebrow': 'Одседнете некаде извонредно',
+  'sojournAuthShell.brand.heading':
+    'Курирана колекција на објекти — прекрасно претставени, транспарентно ценети.',
   'sojournHeroSearchCard.checkInAria': 'Датум на пријавување',
   'sojournHeroSearchCard.checkOutAria': 'Датум на одјавување',
+  'sojournHeroSearchCard.destAria': 'Дестинација',
+  'sojournHeroSearchCard.destLabel': 'Каде',
   'sojournHeroSearchCard.destPlaceholder': 'Град, регион или имот',
   'sojournHeroSearchCard.eyebrow': 'Курирани престои · Цени само за членови',
   'sojournHeroSearchCard.guestsOption': '{{n}} гости',
   'sojournHeroSearchCard.subtitle':
     'Курирана колекција од бутик хотели, дизајнерски објекти и ретки одморалишта — транспарентно по цени, убаво презентирани.',
+  'sojournHeroSearchCard.title': 'Одседнете некаде извонредно',
+  'sojournHeroSearchCard.trustLoyalty': 'Заработете поени при секој престој',
   'sojournHeroSearchCard.trustNoFees': 'Без скриени трошоци, никогаш',
   'sojournHeroSearchCard.trustVetted': 'Само рачно проверени имоти',
   'sojournLayout.primaryNavLabel': 'Примарна навигација',

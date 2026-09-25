@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kas sul on küsimus, leidsid vea või soovid oma meeskonnale demo? Võta ühendust konto seadete kaudu — iga sõnum jõuab päris inimeseni meeskonnas.',
   'about.contactTitle': 'Võtke ühendust',
+  'about.intro':
+    '{{app}} muudab skaneeritud dokumentide ja PDF-ide virnad struktureeritud, otsitavaks ja arhiveeritud andmeteks. Laadi sisse arveid, kviitungeid, lepinguid või vorme ning lase AI-l need läbi lugeda, andmed eraldada, liigitada ja arhiveerida — usaldusvärvidega, et sinu meeskond vaataks üle ainult selle, mis tõesti vajab inimest.',
+  'about.missionBody':
+    'Dokumentidega seotud tüütöö ei tohiks sinu meeskonna päeva ära süüa. Usume, et iga eraldatud väärtus peaks olema selgitatav ja auditeeritav — et saaksid automatiseerimist usaldada ilma paberjälge kaotamata. {{app}} on loodud säästma virna kohta tunde, hoides inimest vajalikes kohtades protsessi kaasatud.',
+  'about.missionTitle': 'Meie missioon',
+  'about.subtitle':
+    'OCR, AI-põhine andmete eraldamine, liigitamine ja automaatne arhiveerimine sinu dokumentidele.',
   'about.title': 'Teave rakenduse {{app}} kohta',
+  'about.whatYouGetTitle': 'Mida sa saad',
   'authShell.backToLanding': '← Tagasi avalehele',
   'common.goToDashboard': 'Mine töölauani',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Täna · Tegevuse ülevaade',
   'dashboard.heading': 'Dokumentide analüüs',
+  'dashboard.metric.accuracy': 'Keskmine täpsus',
   'dashboard.metric.filed': 'Esitati täna',
   'dashboard.metric.filedCaption': 'Suunatud arhiveerimiseeskirjade alusel',
   'dashboard.metric.processed': 'Täna töödeldud',
@@ -23,11 +34,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'Üles laaditud',
   'dashboard.recent.heading': 'Viimased dokumendid',
+  'dashboard.recent.typeUnknown': 'Ootab liigitamist',
   'dashboard.subheading':
     'Iga leht on liigitatud, väljavõetud ja arhiveeritud – selgete värvidega, et ülevaatamine oleks sihipärane.',
   'documentDetail.audit.heading': 'Auditi ajakava',
+  'documentDetail.audit.subheading': 'Iga selle dokumendiga tehtud samm koos vastutava osalejaga.',
   'documentDetail.back': 'Kõik dokumendid',
   'documentDetail.downloadHint': 'Kasuta nuppu „Lae alla“, et avada originaalfail.',
+  'documentDetail.extracted.empty': 'Ühtegi välja pole veel eraldatud.',
   'documentDetail.extracted.heading': 'Väljavõetud väljad',
   'documentDetail.extracted.subheading':
     '{{count}} väljad · klõpsa mis tahes väljal, et see lehel esile tõsta',
@@ -56,13 +70,24 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} teie raamatukogus olevad dokumendid, järjestatud uuemate järgi.',
   'documents.uploadCta': 'Laadi dokumendid üles',
+  'documentTypeBreakdown.barAria': 'Dokumentide koosseis tüübi järgi',
   'documentTypeBreakdown.empty': 'Dokumente pole veel töödeldud.',
   'documentTypeBreakdown.subtitle': '{{total}} töödeldud',
   'documentTypeBreakdown.title': 'Dokumendi koostamine',
+  'forgotPassword.backToSignIn': '← Tagasi sisselogimiseks',
   'forgotPassword.checkEmail': 'Vaata oma e-posti',
   'forgotPassword.tip': 'Ei saanud kirja kätte? Vaata rämpsposti kausta või proovi teist aadressi.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Loodud operatsioonimeeskondadele, kes auditeerivad iga lehte.',
+  'landing.ctaBody':
+    '14-päevane prooviversioon. Kaarti pole vaja. Tühista igal ajal. Loodud operatsioonimeeskondadele, kes liiguvad kiiresti ja auditeerivad rahulikult.',
   'landing.ctaHeading': 'Ära enam kviitungeid arvutisse sisesta. Hakka neid hoopis arhiveerima.',
   'landing.eyebrow': 'OCR · Andmete väljavõtmine · AI-põhine dokumenteerimine',
+  'landing.featuresHeading': 'Dokumendiintellekt, mis selgitab iseennast',
+  'landing.heroSubtitle':
+    'Laadi sisse virn arveid, kviitungeid, lepinguid või vorme. {{app}} liigitab, eraldab andmed ja arhiveerib need — usaldusvärvidega, et sinu meeskond vaataks üle ainult selle, mis tõesti vajab inimest.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Päevane maht · viimased 7 päeva',
   'landing.sampleCardLabel': 'Täna töödeldud dokumendid',
   'landing.sampleCardSubtitle': 'Keskmine täpsus arvetel, kviitungitel ja vormidel on 96,2%.',
   'login.hidePassword': 'Peida parool',
@@ -75,6 +100,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Ava sihtleht',
   'notFound.title': 'Seda lehekülge pole andmebaasis',
+  'parcelaHeroCard.accuracy': 'Keskmine täpsus {{value}}% kõigi eraldamiste lõikes',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % võrreldes eilsete näitajatega',
   'parcelaHeroCard.title': 'Täna töödeldud dokumendid',
   'parcelaLayout.primaryNavLabel': 'Peamine navigeerimine',
@@ -82,6 +108,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'dokumendid',
   'pricing.processingLabel': 'töötlemisülesanded',
   'resetPassword.confirmPlaceholder': 'Korda uut parooli',
+  'resetPassword.hidePassword': 'Peida parool',
   'resetPassword.passwordLabel': 'Uus parool',
   'resetPassword.showPassword': 'Näita parooli',
   'resetPassword.subtitle': 'Vali vähemalt 8-kohaline märgijada.',
@@ -98,10 +125,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Reeglite laadimine ebaõnnestus.',
   'rules.loading': 'Laaditakse reegleid…',
   'rules.matched30d': '{{count}} viimase 30 päeva jooksul leitud dokumendid',
+  'rules.neverUsed': 'Mitte kunagi kasutatud',
   'rules.newRule': 'Uus eeskiri',
   'rules.saveError': 'Reegli salvestamine ebaõnnestus.',
   'rules.subheading':
     'Määra süsteemile, kuhu iga tüüpi dokumendid paigutada. Tingimused on järjestatud ülevalt alla – esimene sobivus võidab.',
+  'rules.templatesEmpty': 'Eraldamismalle pole veel.',
   'rules.templatesHeading': 'Väljavõtte mallid',
   'rules.templatesSubheading': 'Väljaskeemid, mida väljavõtja kasutab iga dokumenditüübi puhul.',
   'rules.then': 'Siis',
@@ -110,17 +139,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Töökoha nimi',
   'settings.account.subheading':
     'Näidatav nimi ja peamine e-posti aadress teavituste ja auditeerimisajaloo jaoks.',
+  'settings.api.confirmRevoke': 'Kinnitada?',
   'settings.api.copyOnce': 'Kopeeri see võti – seda enam ei kuvata',
   'settings.api.createdOn': 'Loodud {{date}}',
   'settings.api.empty': 'API-võtmeid pole veel. Loo see eespool.',
   'settings.api.error': 'Võtme loomine ebaõnnestus.',
+  'settings.api.generating': 'Loomine…',
+  'settings.api.heading': 'API-võtmed',
   'settings.api.labelPlaceholder': 'Võtmesilt (nt CI-üleslaadija)',
+  'settings.api.loading': 'Laadin võtmeid…',
   'settings.api.newKey': 'Loo võti',
   'settings.api.subheading':
     'Kasutage neid dokumentide edastamiseks skriptist või oma ERP-süsteemist. Võite mis tahes võtme igal ajal vahetada.',
   'settings.integrations.heading': 'Andmete esitamise integratsioonid',
   'settings.integrations.subheading':
     'Saada salvestatud dokumendid pilvemällu või vestlusrakendusse, mida teie meeskond juba kasutab.',
+  'settings.subheading':
+    'Halda kontot, API-võtmeid ja arhiveerimise integratsioone oma {{app}} tööruumis.',
+  'signup.hidePassword': 'Peida parool',
   'signup.identityPrompt': 'Kuidas peaksime teid pöörduma?',
   'signup.showPassword': 'Näita parooli',
   'signup.subtitle': '14 päeva tasuta, krediitkaarti pole vaja.',
@@ -128,6 +164,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Üleslaadimine ebaõnnestus.',
   'upload.eyebrow': 'Allaneelamine',
   'upload.heading': 'Laadi dokumendid üles',
+  'upload.queue.clear': 'Tühjenda lõpetatud',
   'upload.queue.col.confidence': 'Enesekindlus',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Otsin…',
@@ -140,5 +177,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Või lohista korraga mitu faili, et neid korraga välja tõmmata, liigitada ja arhiveerida.',
   'uploadDropZone.cta': 'Vali failid',
+  'uploadDropZone.maxSize': 'Max 25 MB faili kohta · Otsast otsani krüptitud',
   'uploadDropZone.title': 'Lohistage dokumendid töötlemise alustamiseks',
 }

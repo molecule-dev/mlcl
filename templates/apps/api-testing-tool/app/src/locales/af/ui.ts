@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Het jy 'n fout gekry, wil jy 'n kenmerk versoek, of wil jy vir ons sê wat om volgende te bou? E-pos hello@pylon.dev — elke boodskap bereik 'n regte ingenieur op die span.",
   'about.contactTitle': 'Praat met ons',
+  'about.intro':
+    "{{app}} is 'n vinnige, sleutelbord-inheemse API-toetswerkbank vir ingenieurs wat in die terminaal leef — Postman-styl versoeke, versamelings, omgewings en geskiedenis sonder die ballas.",
+  'about.missionBody':
+    "API's is die ruggraat van moderne sagteware, maar die gereedskap om hulle te oefen is stadig, opgeblase en muisgedrewe. {{app}} bestaan om ontwikkelaars 'n skerp, vinnige, terminaal-gehalte werkbank te gee: vuur versoeke af, smee vertroue, en lewer sonder om die sleutelbord te verlaat.",
+  'about.missionTitle': 'Ons missie',
   'about.pageTitle': 'Oor {{app}}',
   'authShell.statusLabel': 'hardlopers aanlyn',
   'collections.createError': 'Kon nie versameling skep nie.',
   'collections.defaultName': 'Naamlose versameling {{n}}',
+  'collections.empty':
+    'Nog geen versamelings nie — klik “Nuwe versameling” om jou eerste gids te skep.',
   'collections.eyebrow': '$ pyloon versamelings --tree',
   'collections.fetchError': 'Kon nie versamelings laai nie.',
   'collections.heading': 'Versamelings',
   'collections.loading': 'Laai versamelings…',
+  'collections.metric.allGreen': 'Alles groen',
   'collections.metric.collections': 'Versamelings',
   'collections.metric.failing': 'Mislukking',
   'collections.metric.failingCaption': 'Laaste lopie het mislukkings gehad',
@@ -23,6 +33,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Veranderlikes',
   'environments.createError': 'Kon nie omgewing skep nie.',
   'environments.defaultName': 'Ongetitelde omgewing {{n}}',
+  'environments.empty': 'Nog geen omgewings nie — klik “Nuwe omgewing” om een by te voeg.',
   'environments.eyebrow': '$ pyloon omgewing --skakelaar',
   'environments.fetchError': 'Kon nie omgewings laai nie.',
   'environments.heading': 'Omgewings',
@@ -30,8 +41,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Nuwe omgewing',
   'environments.subheading':
     'Veranderlikes wat tydens versending in versoeke omskakel. Een aktiewe omgewing per werkspasie.',
+  'forgotPassword.statusLabel': 'herstel · veilige tonnel',
   'forgotPassword.success':
     "Indien 'n rekening vir daardie e-posadres bestaan, is 'n terugstelskakel oppad. Gaan jou inboks na.",
+  'history.empty': 'Nog niks hier nie — vuur jou eerste versoek af vanaf die Werkarea-oortjie.',
   'history.eyebrow': '$ pyloon geskiedenis --tail',
   'history.fetchError': 'Kon nie geskiedenis laai nie.',
   'history.heading': 'Loopgeskiedenis',
@@ -40,9 +53,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Laaste 50',
+  'history.realtime': 'intyds',
   'history.subheading':
     'Elke versoek wat in hierdie werkspasie afgevuur word, met status, latensie en vraggrootte.',
   'landing.choosePlan': 'Kies plan',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Smee vertroue.',
   'landing.ctaBody':
     'Geen kredietkaart nie. Geen platformingenieur benodig nie. Maak ⌘K oop en stuur jou eerste versoek in minder as vyf minute.',
   'landing.ctaHeading': 'Smee selfvertroue.',
@@ -84,6 +99,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Gem. latensie',
   'mocks.metric.live': 'Openbaar',
   'mocks.metric.servers': 'Spottings',
+  'mocks.ms': 'ms.',
   'mocks.newMock': 'Nuwe spot',
   'mocks.online': 'Openbaar',
   'mocks.paused': 'Privaat',
@@ -107,9 +123,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Gesond',
   'monitors.metric.uptime': 'Gemiddelde bedryfstyd',
   'monitors.newMonitor': 'Nuwe monitor',
+  'monitors.paused': 'gepouseer',
   'monitors.run': 'Hardloop',
   'monitors.runError': "Loop voltooi met 'n netwerkfout: {{error}}",
+  'monitors.runFailed': 'Loop het misluk.',
   'monitors.running': 'Hardloop…',
+  'monitors.runSuccess': 'Loop {{status}} — stroomop het {{code}} in {{ms}}ms teruggegee.',
   'monitors.sparkLabel': 'Latensie-tendens',
   'monitors.subheading':
     'Kontroleer op aanvraag vir enige gestoorde toets. Bind \'n toets, druk "Begin" en kyk na die 24-uur sukseskoersopdatering met elke vuur.',
@@ -118,27 +137,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Beskikbaarheid · 24 uur',
   'nav.legal': 'Regs',
   'notFound.backToWorkspace': 'Terug na werkruimte',
+  'notFound.body':
+    "{{app}} het 'n versoek vir hierdie URL afgevuur en niks teruggekry nie. Kyk die roete na of spring terug na die werkarea.",
   'notFound.eyebrow': '$ pyloon resolve --strict',
   'notFound.title': 'Roete nie gevind nie',
+  'planUpdated.body':
+    'Jou faktureringsverandering is nou aktief. Jy kan jou plan enige tyd vanaf die faktureringsbladsy bestuur.',
+  'planUpdated.retry': 'Probeer weer',
+  'planUpdated.verifyFailed': 'Ons kon nog nie jou betaling bevestig nie.',
+  'planUpdated.verifyFailedBody':
+    "Jou betaling word dalk steeds verwerk. Probeer weer oor 'n oomblik.",
   'planUpdated.verifying': 'Bevestig jou betaling…',
+  'pricing.advancedFeatures': 'Gevorderde kenmerke: {{yes}}',
+  'pricing.canExport': 'Data-uitvoer: {{yes}}',
+  'pricing.heading': 'Kies jou {{app}} plan',
+  'pricing.maxCollections': '{{count}} versamelings',
+  'pricing.maxEnvironments': '{{count}} omgewings',
+  'pricing.maxHistory': '{{count}} geskiedenis-inskrywings',
+  'pricing.maxRequests': '{{count}} versoeke',
   'privacy.collect.account':
     'Rekening: jou e-pos, gehashte wagwoord, vertoonnaam en die tydstempel van jou laaste aanmelding.',
+  'privacy.intro':
+    "{{app}} respekteer jou privaatheid. Hierdie bladsy gee 'n opsomming van die data wat ons insamel, hoekom ons dit insamel, en hoe om dit te verwyder.",
   'privacy.rights.body':
     'Jy kan jou versamelings + omgewings te eniger tyd uitvoer, of jou rekening uit Instellings verwyder om alle data permanent binne 30 dae te verwyder.',
   'privacy.share.body':
     'Slegs jy. Ons verkoop, deel of verhuur nooit jou werkspasie-inhoud aan derde partye nie. Bedienerlogboeke word vir 30 dae behou vir voorvalreaksie en dan uitgevee.',
   'privacy.title': 'Privaatheidskennisgewing',
+  'profile.bio':
+    "Jou persoonlike {{app}}-werkarea — pen versamelings vas, deel omgewings, en monitor die API's wat produk lewer.",
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'aangesluit {{when}}',
+  'profile.metric.collections': 'Versamelings',
   'profile.metric.monitors': 'Monitore',
   'profile.metric.requests': 'Gestoorde versoeke',
+  'profile.noActivity':
+    'Nog geen versoeke is afgevuur nie — gaan na die Werkarea-oortjie om een te maak.',
   'profile.signedOut': 'Meld aan om jou profiel te sien',
   'pylonShell.primaryNavLabel': 'Primêre navigasie',
+  'resetPassword.passwordLabel': 'Nuwe wagwoord',
+  'resetPassword.statusLabel': 'herstel · teken geverifieer',
   'resetPassword.subtitle': "Kies 'n sterk wagwoord wat jy nog nie voorheen gebruik het nie.",
   'resetPassword.tokenPlaceholder': 'plak vanaf e-pos',
+  'settings.accountManagement.desc':
+    'Werk jou e-pos en wagwoord by, bestuur kennisgewings en toestelle, teken uit, of verwyder jou rekening.',
+  'settings.accountManagement.title': 'Rekening en sekuriteit',
   'settings.eyebrow': '$ pylon instellings --wysig',
   'settings.fetchError': 'Kon nie instellings laai nie.',
   'settings.language.title': 'Taal',
+  'settings.seeding': 'Saai tans…',
   'settings.seedStarter': 'Saadbeginnerinhoud',
   'settings.starterCollection': 'Beginnersversameling',
   'settings.starterCollectionDesc': 'Geskep vanaf Instellings op {{ts}}',
@@ -152,6 +199,8 @@ export const ui: UiTranslations = {
     "Jy is verantwoordelik vir die beskerming van jou wagwoord. Om een rekening met verskeie mense te deel, word nie toegelaat op Gratis- of Pro-planne nie – koop 'n Span-intekening vir gedeelde werkruimtes.",
   'terms.billing.body':
     'Betaalde intekeninge hernu outomaties elke faktuurperiode. Kanselleer te eniger tyd vanaf Instellings; jou toegang duur voort tot die einde van die huidige periode.',
+  'terms.intro':
+    "Deur 'n {{app}}-rekening te skep, stem jy in tot die bepalings hieronder. Lees dit een keer; ons sal jou nie met terugwerkende veranderinge verras nie.",
   'terms.title': 'Diensbepalings',
   'terms.usage.body':
     'Moenie Pylon gebruik om versoeke te stuur na dienste wat jy nie besit of uitdruklike toestemming het om te toets nie. Moenie Pylon gebruik om tarieflimiete te omseil of bedrog te pleeg nie.',
@@ -172,16 +221,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Nie hardloop nie',
   'testRunner.metric.passed': 'Geslaag',
   'testRunner.never': 'Moet nooit hardloop nie',
+  'testRunner.newTest': 'Nuwe toets',
   'testRunner.noAssertions': 'Geen bewerings oor hierdie toets nog nie.',
+  'testRunner.noRunsYet':
+    'Nog geen lopies aangeteken nie — druk “Loop alles” om geskiedenis te vul.',
   'testRunner.passed': 'verbygaan',
+  'testRunner.recentRuns': 'Onlangse lopies',
   'testRunner.runAll': 'Begin alles',
   'testRunner.running': 'Hardloop…',
   'testRunner.runOne': 'Hardloop',
   'testRunner.subheading': 'Suite-resultate, beweringverskille en die laaste 50 lopies.',
+  'testRunner.suites': 'Suites',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Aangemeld as',
   'workspace.auth.keyName': 'Kopnaam',
   'workspace.auth.keyValue': 'Sleutelwaarde',
+  'workspace.auth.noneHint': 'Geen magtigingsopskrif sal met hierdie versoek gestuur word nie.',
   'workspace.auth.password': 'Wagwoord',
   'workspace.auth.username': 'Gebruikersnaam',
   'workspace.authOption.apikey': 'API-sleutel',
@@ -191,13 +246,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Tipe',
   'workspace.authTypeLabel': 'Magtigingsoort',
+  'workspace.body.contentLabel': 'Versoekliggaam',
+  'workspace.body.hint':
+    '{{envVars}} word vervang voordat die versoek afgevuur word. Liggame word op POST/PUT/PATCH/DELETE gestuur.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Geen',
+  'workspace.body.noneHint':
+    'Geen versoekliggaam sal gestuur word nie. Kies JSON of rou teks om een by te voeg.',
   'workspace.body.text': 'Rou teks',
   'workspace.body.type': 'Tipe',
   'workspace.environment': 'Geen omhulsel',
   'workspace.envVar': 'omgewing veranderlike',
   'workspace.eyebrow': '$ pyloon werkspasie --paneel split',
+  'workspace.failedCount': '{{count}} misluk',
+  'workspace.idle': 'Idle',
   'workspace.kv.addHeader': 'Voeg koptekst by',
   'workspace.kv.addParam': 'Voeg parameter by',
   'workspace.kv.headerKey': 'Kopnaam',
@@ -210,12 +272,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP-metode',
   'workspace.metric.latency': 'Latensie',
   'workspace.metric.latencyCaption': 'Rondrit vanaf hierdie rit',
+  'workspace.metric.size': 'Lading',
   'workspace.metric.sizeCaption': 'Antwoordliggaam grepe',
   'workspace.metric.statusCaption': 'Laaste reaksie',
   'workspace.metric.tests': 'Toetse',
+  'workspace.metric.testsAllPassing': 'Alle bewerings groen',
   'workspace.metric.testsFailing': '{{count}} mislukking',
+  'workspace.metric.testsIdle': "Stuur 'n versoek om te evalueer",
   'workspace.noAssertions': "Voer 'n versoek uit om ingeboude bewerings te evalueer.",
   'workspace.noResponseYet': 'Geen reaksie nog nie',
+  'workspace.passedCount': '{{count}} geslaag',
   'workspace.responseHint': '// Druk Stuur om die versoek te aktiveer en die antwoord vas te lê.',
   'workspace.saveError': 'Kon nie die versoek stoor nie.',
   'workspace.statusError': 'Kon nie die versoek stuur nie.',
@@ -224,10 +290,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     "Stel 'n versoek op, stuur dit af en bevestig dan die antwoord – alles in een paneel.",
   'workspace.testResults': 'Toetsresultate',
+  'workspace.tests.autoHint':
+    'Statusfamilie, latensie, liggaamsgrootte en vervoergesondheid word outomaties getoets — resultate verskyn onder “Toetsresultate” in die reaksiepaneel.',
+  'workspace.tests.autoTitle': 'Ingeboude bewerings loop op elke reaksie',
   'workspace.token': 'Teken',
   'workspace.tokenHint':
     'Gestuur as Magtiging: Draer<token> op elke versoek in hierdie versameling.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Naamlose versoek',
+  'workspace.urlLabel': 'Versoek URL',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

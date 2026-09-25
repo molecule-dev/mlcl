@@ -1,12 +1,33 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Cwestiynau am archeb, adborth, neu eiddo yr ydych yn credu a ddylai fod ar {{app}}? Cysylltwch â'n tîm o'ch cyfrif — mae pob neges yn mynd at berson go iawn a all helpu.",
+  'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Amdanom ni',
+  'about.featureLoyalty':
+    "Cyfraddau i aelodau yn unig a rhaglen teyrngarwch sy'n ennill pwyntiau, gwybodaeth hwyr, ac uwchraddiadau ystafell ar bob archeb.",
+  'about.featureReviews':
+    "Adolygiadau gwesteion wedi'u dilysu a dewisiadau golygyddol fel y gallwch ymddiried yn yr arhosiad cyn i chi gyrraedd.",
+  'about.featureRooms':
+    "Ystafelloedd, cyfraddau, a chyfleusterau ochr yn ochr â phrisiau tryloyw, cynhwysol — trethi a ffioedd gwesty wedi'u cynnwys cyn i chi dalu.",
+  'about.featureSearch':
+    "Chwiliad amser real ar draws gwestai wedi'u dilysu gydag argaeledd byw, golygfa map, a galerïau lluniau cyfoethog.",
+  'about.featureTrips':
+    "Ffefrynnau wedi'u cadw a dangosfwrdd Trips sy'n cadw pob archeb, taith, a chadarnhad mewn un lle.",
+  'about.intro':
+    "Mae {{app}} yn blatfform archebu gwestai i deithwyr sy'n poeni am ansawdd. Mae pob eiddo'n cael ei ddilysu'n bersonol gan ein tîm golygyddol — dim stoc agregydd, dim rhestrau twyllodrus. Chwiliwch am argaeledd go iawn, cymharwch ystafelloedd, cyfraddau, a chyfleusterau ochr yn ochr, yna archebwch mewn ychydig o dapiau gyda phris clir, cynhwysol.",
+  'about.missionBody':
+    "Dylai archebu lle i aros deimlo'n dawel ac yn onest. Rydym yn dangos cyfraddau tryloyw gyda threthi a ffioedd gwesty ymlaen llaw, yn gwobrwyo gwesteion teyrngar yn lle eu gwasgu am bob ceiniog, ac yn rhoi'r arhosiad sy'n werth eich arian yn gyntaf — fel y gallwch dreulio llai o amser yn cymharu tabiau a mwy o amser ar y daith ei hun.",
+  'about.missionTitle': 'Ein cenhadaeth',
+  'about.subtitle': "Ffordd gywrain, dryloyw o ddod o hyd i'r gwesty iawn a'i archebu.",
   'account.loyalty.activitySummary':
     "{{nights}} nosweithiau · {{spend}} wedi treulio'r flwyddyn hon",
+  'account.loyalty.benefitsHeading': 'Eich buddion',
   'account.loyalty.heading': 'Teyrngarwch',
   'account.loyalty.loading': "Wrthi'n llwytho teyrngarwch…",
-  'account.loyalty.pointsTowardNext': '{{pwyntiau}} / {{nesaf}} pwyntiau i {{Haen nesaf}}',
+  'account.loyalty.maxTier': 'Y lefel uchaf — mwynhewch eich buddion.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} pwynt i {{nextTier}}',
   'account.loyalty.tier': 'Haen gyfredol',
   'account.loyalty.unavailable': 'Nid yw gwybodaeth teyrngarwch ar gael.',
   'account.navLabel': 'Adrannau cyfrif',
@@ -23,6 +44,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Cadarnhau archeb · {{total}}',
   'bookingCheckout.datesRequired': 'Dewiswch eich dyddiadau cyrraedd a gadael.',
   'bookingCheckout.guestHeading': 'Gwestai blaenllaw',
+  'bookingCheckout.heading': 'Cadarnhau ac archebu',
   'bookingCheckout.loadError': "Methwyd llwytho'r eiddo.",
   'bookingCheckout.nights': '{{rate}} × {{count}} nosweithiau',
   'bookingCheckout.notFound': 'Ni chanfuwyd eiddo.',
@@ -33,11 +55,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Trethi a ffioedd',
   'bookingCheckout.tripHeading': 'Eich taith',
   'bookingConfirmation.allTripsCta': 'Pob taith',
+  'bookingConfirmation.confNumber': 'Rhif cadarnhau: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Mae eich archeb yn cael ei phrosesu.',
   'bookingConfirmation.heading': "Archeb wedi'i chadarnhau",
   'bookingConfirmation.loading': "Wrthi'n llwytho eich archeb…",
   'bookingConfirmation.searchMoreCta': 'Pori mwy o arosfannau',
   'bookingConfirmation.subheadingForTrip':
-    '{{eiddo}} yn {{dinas}} , {{gwlad}} Gwelwn ni chi ar {{checkIn}} .',
+    '{{property}} yn {{city}}, {{country}}. Welwn ni chi ar {{checkIn}}.',
   'bookingConfirmation.total': 'Cyfanswm {{total}}',
   'bookingConfirmation.viewTripCta': 'Gweld y daith',
   'common.goToDashboard': "Mynd i'r Dangosfwrdd",
@@ -47,6 +72,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Methwyd llwytho ffefrynnau.',
   'favorites.pricePerNight': '{{price}} / nos',
   'favorites.removeCta': 'Dad-gadw',
+  'favorites.removing': 'Yn tynnu…',
   'forgotPassword.subheading':
     'Rhowch yr e-bost ar eich cyfrif a byddwn yn anfon dolen ailosod ddiogel atoch.',
   'forgotPassword.successBody':
@@ -54,6 +80,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Aelodau Auberge',
   'landing.cta.heading': 'Prisiau i aelodau yn unig. Pob archeb, bob tro.',
   'landing.cta.signup': 'Creu cyfrif am ddim',
+  'landing.cta.subheading':
+    "Enillwch bwyntiau teyrngarwch ar bob arhosiad, datgloi gwybodaeth hwyr ac uwchraddiadau ystafell, a chael mynediad cyntaf at eiddo newydd cyn iddynt gael eu rhestru'n gyhoeddus.",
   'landing.destinations.eyebrow': 'Ble nesaf',
   'landing.destinations.heading': 'Cyrchfannau dan sylw',
   'landing.destinations.seeAll': 'Gweld pob cyrchfan',
@@ -62,13 +90,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': "Straeon sy'n werth eu pacio ar eu cyfer",
   'landing.nav.join': 'Ymunwch â Auberge',
   'landing.nav.search': 'Chwilio am arosiadau',
+  'landing.preview.browseAll': "Pori'r casgliad llawn",
   'landing.preview.eyebrow': 'Cipolwg i mewn',
   'landing.preview.heading': "Arosiadau wedi'u dewis â llaw y mis hwn",
+  'landing.preview.subheading':
+    "Mae pob eiddo ar {{appName}} yn cael ei ddilysu'n bersonol gan ein tîm golygyddol — dim stoc agregydd, dim rhestrau twyllodrus.",
   'login.eyebrow': 'Ardal aelodau',
+  'login.noAccount': 'Newydd i Tessera?',
   'login.signupLink': 'Creu cyfrif am ddim',
   'login.subheading':
     'Mewngofnodwch i reoli eich teithiau, gweld cadarnhadau, a pharhau o ble gwnaethoch chi adael.',
+  'loyaltyTierBadge.points': '{{points}} pwyntiau',
   'planUpdated.heading': "Cynllun wedi'i ddiweddaru",
+  'planUpdated.retry': 'Rhowch gynnig arall arni',
+  'planUpdated.verifyFailed': 'Ni allem gadarnhau eich taliad eto.',
+  'planUpdated.verifyFailedBody':
+    "Mae'n bosibl bod eich taliad yn dal i gael ei brosesu. Rhowch gynnig arall arni ymhen eiliad.",
   'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'pricing.limit.advancedFeatures': 'Nodweddion uwch:',
   'pricing.limit.canExport': 'Allforio data:',
@@ -80,7 +117,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': "Beth mae'r lle hwn yn ei gynnig",
   'propertyDetail.backLink': "Yn ôl i'r chwiliad",
   'propertyDetail.bookCta': 'Wrth Gefn',
+  'propertyDetail.bookmarkAria': 'Cadw eiddo',
   'propertyDetail.bookmarkAriaSaved': "Dileu o'r priodweddau sydd wedi'u cadw",
+  'propertyDetail.galleryImageAlt': '{{name}} llun {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} llun arwr',
   'propertyDetail.hidePhotos': 'Cuddio lluniau',
   'propertyDetail.lineCleaning': 'Ffi glanhau',
@@ -90,6 +129,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'nos',
   'propertyDetail.noChargeYet': 'Ni fyddwch yn cael eich codi tâl eto',
   'propertyDetail.notFound': 'Ni chanfuwyd eiddo.',
+  'propertyDetail.perNight': '/ noson',
+  'propertyDetail.pickDatesHint': 'Dewiswch eich dyddiadau i weld y dadansoddiad pris llawn.',
   'propertyDetail.reviewCount': '( {{count}} adolygiadau)',
   'propertyDetail.reviewsHeading': 'Adolygiadau diweddar',
   'propertyDetail.roomCapacity': 'Cysgu {{count}}',
@@ -102,6 +143,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Cyfrinair newydd',
   'resetPassword.subheading':
     'Dewiswch gyfrinair newydd ar gyfer eich cyfrif Auberge. Defnyddiwch o leiaf 8 nod; rydym yn argymell cyfrinair.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': "Does dim eiddo yn cyfateb i'ch chwiliad.",
   'searchResults.emptyHint':
     'Rhowch gynnig ar ehangu eich hidlwyr neu gael gwared ar y nenfwd pris — mae gan Auberge arhosiadau mewn 14 gwlad.',
@@ -109,19 +151,27 @@ export const ui: UiTranslations = {
   'searchResults.heading': "Arhosiadau wedi'u curadu",
   'searchResults.headingForQuery': 'Yn aros am " {{q}} "',
   'searchResults.loadError': 'Methwyd llwytho priodweddau.',
+  'searchResults.mapHint': "Hofiwch gerdyn i'w amlygu ar y map. Teils Mapbox byw mewn cynhyrchiad.",
   'searchResults.mapPinAria': '{{name}} — {{price}} y noson',
   'searchResults.sortLabel': 'Trefnu yn ôl',
   'searchResults.subheading': '{{count}} eiddo · {{guests}} gwesteion',
   'signup.eyebrow': 'Dewch yn aelod',
   'signup.subheading':
     'Ymunwch â Auberge i ddatgloi cyfraddau i aelodau yn unig, gadael yn hwyr, a mynediad cyntaf i eiddo newydd.',
+  'sojournAuthShell.brand.eyebrow': 'Arhoswch yn rhywle anghyffredin',
+  'sojournAuthShell.brand.heading':
+    "Casgliad cywrain o eiddo — wedi'u cyflwyno'n hardd, â phrisiau tryloyw.",
   'sojournHeroSearchCard.checkInAria': 'Dyddiad cofrestru',
   'sojournHeroSearchCard.checkOutAria': 'Dyddiad gadael',
+  'sojournHeroSearchCard.destAria': 'Cyrchfan',
+  'sojournHeroSearchCard.destLabel': 'Ble',
   'sojournHeroSearchCard.destPlaceholder': 'Dinas, rhanbarth, neu eiddo',
   'sojournHeroSearchCard.eyebrow': "Arosiadau wedi'u curadu · Cyfraddau i aelodau yn unig",
   'sojournHeroSearchCard.guestsOption': '{{n}} gwesteion',
   'sojournHeroSearchCard.subtitle':
     "Casgliad wedi'i guradu o westai bwtic, eiddo sy'n canolbwyntio ar ddylunio, ac encilfeydd prin - wedi'u prisio'n dryloyw, wedi'u cyflwyno'n hyfryd.",
+  'sojournHeroSearchCard.title': 'Arhoswch yn rhywle anghyffredin',
+  'sojournHeroSearchCard.trustLoyalty': 'Enillwch bwyntiau ar bob arhosiad',
   'sojournHeroSearchCard.trustNoFees': 'Dim ffioedd cudd, byth',
   'sojournHeroSearchCard.trustVetted': "Eiddo wedi'u gwirio â llaw yn unig",
   'sojournLayout.primaryNavLabel': 'Prif lywio',

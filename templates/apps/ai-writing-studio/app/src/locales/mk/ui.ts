@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Имате повратна информација, најдовте грешка или сакате нова функција? Обратете се од поставките на вашата сметка — секоја порака стигнува до вистинска личност од тимот.',
   'about.contactTitle': 'Стапете во контакт',
   'about.eyebrow': 'За',
+  'about.intro':
+    '{{app}} е AI студио за пишување за писатели на кои многу им е важно нивното пишување. Тоа комбинира долгометражно AI генерирање со мирен уредувач, SEO оценување и генерирање слики, за да можете да го пренесете текстот од празна страница до објавен — без никогаш да го изгубите својот глас.',
+  'about.missionBody':
+    'Веруваме дека AI треба да пишува покрај вас, никогаш наместо вас. {{app}} ги држи предлозите видливо одвоени од вашите сопствени зборови, ве остава сопственик на секој документ што ќе го создадете и ја трга алатката од патот на пишувањето.',
+  'about.missionTitle': 'Нашата мисија',
   'about.pageTitle': 'За {{app}}',
   'aiSuggestionCard.applied': 'Предлогот е применет',
   'aiSuggestionCard.apply': 'Примени',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Извори на сообраќај',
   'billing.activePlan': 'Претплатата е активна.',
   'billing.aiWordsLabel': 'Вклучени се генерации на вештачка интелигенција',
+  'billing.cancelFailed': 'Не може да се откаже претплатата.',
   'billing.cancelPlan': 'Откажи план',
+  'billing.cancelPlanConfirm': 'Потврди откажување?',
   'billing.cancelSuccess': 'Претплатата е откажана. Освежете за да го ажурирате планот.',
   'billing.changePlan': 'Промени план',
   'billing.col.invoice': 'Фактура',
@@ -43,26 +52,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'Погледнете ги плановите',
   'common.goToDashboard': 'Оди до контролна табла',
   'dashboard.continueWriting': 'Продолжи со пишување',
+  'dashboard.createFirst': 'Создај документ',
   'dashboard.days.sat': 'Sat',
   'dashboard.days.sun': 'Sun',
   'dashboard.defaultWriterName': 'Писател',
   'dashboard.greeting': 'Добро утро, {{name}}',
   'dashboard.loadError': 'Не можеше да се вчита вашата контролна табла.',
+  'dashboard.loading': 'Се вчитува вашето студио…',
   'dashboard.loadingDocs': 'Се вчитуваат неодамнешни документи…',
   'dashboard.noDocuments': 'Сè уште нема документи — започнете го првиот.',
   'dashboard.startWriting': 'Започнете нов документ',
+  'dashboard.streakBody': 'Оваа недела напишавте {{words}} зборови.',
   'dashboard.streakTitle': '{{count}} -дневна низа',
+  'dashboard.subgreeting': '{{count}} документи во вашата библиотека — продолжете со темпото.',
+  'documentCard.seoScoreTitle': 'SEO оценка: {{score}}/100',
+  'documents.createNew': 'Создај нов документ',
   'documents.empty': 'Вашата библиотека чека — започнете го вашиот прв документ.',
+  'documents.emptyFiltered': 'Сè уште нема документи што одговараат на вашите филтри.',
   'documents.loadError': 'Не можеше да се вчитаат документите.',
   'documents.loading': 'Се вчитува вашата библиотека…',
   'documents.new': 'Нов документ',
+  'documents.searchAriaLabel': 'Пребарување документи',
   'documents.searchPlaceholder': 'Пребарувај документи…',
   'documents.subtitle': '{{count}} документи во вашата библиотека.',
   'documents.title': 'Документи',
   'editor.aiPanelTitle': 'Интелигенција на пердуви',
+  'editor.aiSuggestion.empty':
+    'Нема активни доработки. Побарајте предлог од {{appName}} кога сакате второ мислење.',
   'editor.aiSuggestion.failed': 'Не може да се вчитаат предлози во моментов.',
   'editor.aiSuggestion.loadingBody': 'Генерирање на јасност…',
   'editor.backToDocuments': 'Сите документи',
+  'editor.bodyAriaLabel': 'Содржина на документот',
   'editor.closeAiPanel': 'Затвори панел со вештачка интелигенција',
   'editor.createFailed': 'Не можеше да се креира документ.',
   'editor.exported': 'Извезено како {{format}} .',
@@ -78,18 +98,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'Побарајте прецизирање',
   'editor.saveBeforePublish': 'Зачувајте го документот пред објавување.',
   'editor.status.chars': '{{count}} ликови',
+  'editor.status.readTime': '{{minutes}} мин. читање',
   'editor.status.savedAt': 'Зачувано {{time}}',
   'editor.status.saveError': 'Зачувувањето не успеа',
+  'editor.status.unsaved': 'Сè уште не е зачувано',
   'editor.titleAriaLabel': 'Наслов на документот',
   'editor.titlePlaceholder': 'Без наслов документ',
   'editor.toggleAiPanel': 'Вклучи/исклучи панел со вештачка интелигенција',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'автор@пример.com',
+  'forgotPassword.sent': 'Ако {{email}} е евидентиран, линкот за ресетирање е на пат.',
   'imageGenerator.failed': 'Генерирањето на сликата не успеа.',
   'imageGenerator.generate': 'Генерирај слика',
   'imageGenerator.generating': 'Генерирање...',
   'imageGenerator.placeholder': 'Опишете ја сликата што сакате да ја генерирате...',
+  'imageGenerator.promptAriaLabel': 'Слика за потсетување',
+  'imageGenerator.subtitle': 'Опишете насловна слика и оставете AI да ја илустрира.',
   'imageGenerator.title': 'Генератор на слики со вештачка интелигенција',
+  'landing.aiSuggestionBody':
+    'стоејќи на балконот на 42-от кат, Елиас го почувствува градот како притиска врз него — ветрот го однесе амбиенталниот шум, оставајќи го обесен во ледена, тивка празнина над сјајната мрежа.',
   'landing.eyebrow': 'Студио за пишување со вештачка интелигенција за сериозни писатели',
   'landing.featuresHeading': 'Алатки што се тргаат од патот',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -99,14 +126,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Студио создадено за писатели на кои им е грижа за својата проза, темпо и прецизност. Plume пишува нацрти покрај вас - никогаш наместо вас.',
   'landing.heroTitle.eloquence': 'елоквенција',
+  'landing.heroTitle.intelligence': 'Интелигенцијата се среќава со ',
   'landing.nav.testimonials': 'Препораки',
   'landing.plan.cta': 'Започнете со овој план',
   'landing.plan.popular': 'Најомилени',
   'landing.pricingEyebrow': 'Цени',
   'landing.pricingHeading': 'Изберете што одговара на вашата пракса',
   'landing.sampleDocTitle': 'Архитектурата на тишината',
+  'landing.sampleParagraph1':
+    'Градот никогаш не беше навистина тивок. Дури и во најдлабоките часови од ноќта, низ бетонските темели вибрираше низок шум — механичко чукање на срцето на подземните возови и вентилационите шахти.',
+  'landing.sampleParagraph2.after': ' против стаклото.',
+  'landing.sampleParagraph2.before': 'Но ',
   'landing.sampleParagraph2.highlight':
     'Стоејќи на балконот на 42-ри кат, Елиас почувствува длабоко чувство на изолација',
+  'landing.showcaseBody':
+    'Означете реченица и {{appName}} нуди доработка. Прифатете ја, прилагодете ја или отфрлете ја. Предлозите секогаш се виолетово обоени, за да знаете што напишавте вие, а што е понудено.',
+  'landing.showcaseHeading': 'Второ мислење — никогаш втор автор.',
   'landing.startWriting': 'Започнете со пишување',
   'login.emailPlaceholder': 'автор@пример.com',
   'login.failed': 'Најавувањето не успеа',
@@ -121,8 +156,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Отвори контролна табла',
   'notFound.title': 'Ова поглавје сè уште не е напишано.',
   'plumeSidebarLayout.primaryNavLabel': 'Примарна навигација',
+  'pricing.maxDocuments': '{{count}} документи',
+  'pricing.maxGenerate': '{{count}} AI генерирања',
+  'pricing.maxImages': '{{count}} генерирања на слики',
   'privacy.data':
     'Е-пошта на вашата сметка и хаширана лозинка. Документи и шаблони што ги креирате. Дневници за предлози со вештачка интелигенција (влез + излез) за фактурирање и аналитика. Идентификатори на клиенти + претплати на Stripe; никогаш не ги чуваме целосните броеви на картички.',
+  'privacy.intro':
+    'Собираме само податоци потребни за работата на {{app}}: вашата е-пошта, документите што ги создавате и AI барањата што ги правите. Никогаш не го продаваме вашето пишување или вашите барања.',
   'profile.loadError': 'Не можеше да се вчита вашиот профил.',
   'profile.loading': 'Се вчитува вашиот профил…',
   'profile.loadingPublished': 'Се вчитуваат објавените документи…',
@@ -133,7 +173,13 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Нова лозинка',
   'seoAnalysis.backToEditor': 'Назад кон уредникот',
   'seoAnalysis.eyebrow': 'SEO анализа',
+  'seoAnalysis.heroBody':
+    '{{count}} предлог(и) за примена. Секој е структурно или клучно подобрување, а не ѕид од црвени знаменца.',
+  'seoAnalysis.heroBodyEmpty':
+    'Кликнете „Стартувај анализа“ за да се оцени читливоста, густината на клучните зборови и структурата.',
   'seoAnalysis.heroEmpty': 'Сè уште нема анализа. Направете една за да го оцените овој драфт.',
+  'seoAnalysis.heroNeedsWork': 'Некои структурни подобрувања ќе го зголемат дофатот.',
+  'seoAnalysis.heroStrong': 'Силно дело — мали подобрувања до одлично.',
   'seoAnalysis.historyEmpty': 'Не се евидентирани претходни анализи.',
   'seoAnalysis.historyTitle': 'Историја на анализа',
   'seoAnalysis.keywordEmpty':
@@ -160,8 +206,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'Намести го перјето за да одговара на начинот на кој пишуваш.',
   'settings.toggleIntegrationFailed': 'Ажурирањето на интеграцијата не успеа.',
   'settings.writing.aiSuggestions': 'Вградени предлози од вештачка интелигенција при пишување',
+  'settings.writing.aiSuggestionsBody':
+    'Ги прикажува доработките додека пишувате. Предлозите секогаш се избираат по реченица.',
   'settings.writing.autoSave': 'Автоматско зачувување на секои 30 секунди',
+  'settings.writing.autoSaveBody':
+    '{{appName}} чува снимка од вашиот нацрт, за да можете да се вратите од кој било таб.',
   'settings.writing.notifyEmail': 'Испрати ми е-пошта за неделните резимеа на пишување',
+  'settings.writing.notifyEmailBody':
+    'Краток неделен преглед на низите, нацртите и SEO подобрувањата.',
   'settings.writing.title': 'Преференции за пишување',
   'settings.writing.tone': 'Стандардно претходно поставено тон',
   'signup.emailPlaceholder': 'автор@пример.com',
@@ -173,8 +225,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'Не е даден опис.',
   'templates.subtitle':
     'Започнете од уредничка рамка тестирана во битки, а потоа направете ја своја.',
+  'terms.intro':
+    'Овие услови го регулираат вашето користење на {{app}}. Со создавање сметка се согласувате да ја користите услугата за законито пишување и да ги чувате податоците за вашата сметка доверливи.',
   'terms.license':
     'Вие ја задржувате сопственоста врз секој документ, шаблон и генерација на вештачка интелигенција што ја креирате. Ни треба неексклузивна лиценца за да ви го хостираме и да ви го сервираме вашето дело, како и да ги обработуваме барањата за вештачка интелигенција преку осигурените добавувачи што ќе ги изберете.',
   'writingStreakHeroCard.change': '{{sign}} {{amount}} зборови',
   'writingStreakHeroCard.greeting': 'Добар ден, {{name}}',
+  'writingStreakHeroCard.subtitle': 'Напишани зборови оваа недела — низа од {{count}} дена',
+  'writingStreakHeroCard.tagline': 'Страница дневно ја држи музата ангажирана.',
 }

@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ունե՞ք արձագանք, գտե՞լ եք սխալ կամ ցանկանում եք նոր հնարավորություն։ Գրեք մեզ ձեր հաշվի կարգավորումներից․ ամեն հաղորդագրություն հասնում է թիմի իրական մարդու։',
   'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
+  'about.intro':
+    '{{app}}-ը AI գրելու ստուդիա է գրողների համար, ովքեր խորապես հոգ են տանում իրենց տեքստի մասին։ Այն միավորում է երկար ձևաչափի AI գեներացումը հանգիստ խմբագրի, SEO գնահատման և պատկերների գեներացման հետ, որպեսզի դուք ստեղծագործությունը դատարկ էջից հասցնեք հրապարակման՝ երբեք չկորցնելով ձեր ձայնը։',
+  'about.missionBody':
+    'Մենք հավատում ենք, որ AI-ն պետք է ստեղծագործի ձեր կողքին, ոչ երբեք ձեր փոխարեն։ {{app}}-ը առաջարկները տեսանելիորեն տարբերում է ձեր իսկ բառերից, ձեզ է թողնում ձեր ստեղծած ամեն փաստաթղթի սեփականությունը և գործիքները հեռու է պահում գրելուց։',
+  'about.missionTitle': 'Մեր առաքելությունը',
   'about.pageTitle': '{{app}}-ի մասին',
   'aiSuggestionCard.applied': 'Առաջարկը կիրառվեց',
   'aiSuggestionCard.apply': 'Կիրառել',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Տրաֆիկի աղբյուրներ',
   'billing.activePlan': 'Բաժանորդագրությունը ակտիվ է։',
   'billing.aiWordsLabel': 'Արհեստական բանականության սերունդները ներառված են',
+  'billing.cancelFailed': 'Անհնար էր չեղարկել բաժանորդագրությունը։',
   'billing.cancelPlan': 'Չեղարկել պլանը',
+  'billing.cancelPlanConfirm': 'Հաստատե՞լ չեղարկումը։',
   'billing.cancelSuccess': 'Բաժանորդագրությունը չեղարկված է։ Թարմացրեք՝ պլանը թարմացնելու համար։',
   'billing.changePlan': 'Փոխել պլանը',
   'billing.col.invoice': 'Հաշիվ-ապրանքագիր',
@@ -44,26 +53,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'Դիտել պլանները',
   'common.goToDashboard': 'Անցնել վահանակ',
   'dashboard.continueWriting': 'Շարունակեք գրել',
+  'dashboard.createFirst': 'Ստեղծել փաստաթուղթ',
   'dashboard.days.sat': 'Sat',
   'dashboard.days.sun': 'Sun',
   'dashboard.defaultWriterName': 'Գրող',
   'dashboard.greeting': 'Բարի լույս, {{name}}',
   'dashboard.loadError': 'Չհաջողվեց բեռնել ձեր վահանակը։',
+  'dashboard.loading': 'Ձեր ստուդիան բեռնվում է…',
   'dashboard.loadingDocs': 'Վերջին փաստաթղթերը բեռնվում են…',
   'dashboard.noDocuments': 'Դեռևս փաստաթղթեր չկան՝ սկսեք ձեր առաջինը։',
   'dashboard.startWriting': 'Սկսել նոր փաստաթուղթ',
+  'dashboard.streakBody': 'Այս շաբաթ դուք գրել եք {{words}} բառ։',
   'dashboard.streakTitle': '{{count}} -օրյա շարք',
+  'dashboard.subgreeting': 'Ձեր գրադարանում {{count}} փաստաթուղթ կա․ շարունակեք նույն թափով։',
+  'documentCard.seoScoreTitle': 'SEO գնահատական՝ {{score}}/100',
+  'documents.createNew': 'Ստեղծել նոր փաստաթուղթ',
   'documents.empty': 'Ձեր գրադարանը սպասում է. սկսեք ձեր առաջին փաստաթուղթը։',
+  'documents.emptyFiltered': 'Ձեր զտիչներին դեռ ոչ մի փաստաթուղթ չի համապատասխանում։',
   'documents.loadError': 'Հնարավոր չէ բեռնել փաստաթղթերը։',
   'documents.loading': 'Բեռնվում է ձեր գրադարանը…',
   'documents.new': 'Նոր փաստաթուղթ',
+  'documents.searchAriaLabel': 'Որոնել փաստաթղթեր',
   'documents.searchPlaceholder': 'Փաստաթղթերի որոնում…',
   'documents.subtitle': '{{count}} փաստաթղթեր ձեր գրադարանում։',
   'documents.title': 'Փաստաթղթեր',
   'editor.aiPanelTitle': 'Փլումի հետախուզություն',
+  'editor.aiSuggestion.empty':
+    'Ակտիվ լրացումներ չկան։ Երբ ցանկանաք երկրորդ հայացք, առաջարկ խնդրեք {{appName}}-ից։',
   'editor.aiSuggestion.failed': 'Այս պահին հնարավոր չէ բեռնել առաջարկները։',
   'editor.aiSuggestion.loadingBody': 'Պարզության կատարելագործում…',
   'editor.backToDocuments': 'Բոլոր փաստաթղթերը',
+  'editor.bodyAriaLabel': 'Փաստաթղթի բովանդակությունը',
   'editor.closeAiPanel': 'Փակել արհեստական բանականության վահանակը',
   'editor.createFailed': 'Հնարավոր չէ ստեղծել փաստաթուղթ։',
   'editor.exported': 'Արտահանվել է որպես {{format}} ։',
@@ -79,18 +99,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'Խնդրեք ճշգրտում',
   'editor.saveBeforePublish': 'Հրապարակելուց առաջ պահպանեք փաստաթուղթը։',
   'editor.status.chars': '{{count}} կերպարներ',
+  'editor.status.readTime': '{{minutes}} ընթերցանության րոպե',
   'editor.status.savedAt': 'Պահպանված է {{time}}',
   'editor.status.saveError': 'Պահպանումը ձախողվեց',
+  'editor.status.unsaved': 'Դեռ չի պահպանվել',
   'editor.titleAriaLabel': 'Փաստաթղթի վերնագիր',
   'editor.titlePlaceholder': 'Անվերնագիր փաստաթուղթ',
   'editor.toggleAiPanel': 'Միացնել/անջատել արհեստական բանականության վահանակը',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'հեղինակ@example.com',
+  'forgotPassword.sent': 'Եթե {{email}}-ը գրանցված է, վերականգնման հղումն արդեն ուղարկված է։',
   'imageGenerator.failed': 'Պատկերի ստեղծումը ձախողվեց։',
   'imageGenerator.generate': 'Ստեղծել պատկեր',
   'imageGenerator.generating': 'Ստեղծվում է...',
   'imageGenerator.placeholder': 'Նկարագրեք այն պատկերը, որը ցանկանում եք ստեղծել...',
+  'imageGenerator.promptAriaLabel': 'Պատկերի հուշում',
+  'imageGenerator.subtitle': 'Նկարագրեք կազմի պատկերը, և թող AI-ն նկարազարդի այն։',
   'imageGenerator.title': 'Արհեստական բանականության պատկերի գեներատոր',
+  'landing.aiSuggestionBody':
+    'կանգնած 42-րդ հարկի պատշգամբում՝ Էլիասը զգաց, թե ինչպես քաղաքը սեղմվում է իր վրա․ քամին քշեց տարավ շրջակա խշշոցը՝ նրան կախված թողնելով փայլող ցանցի վերևում գտնվող սառցե, լուռ դատարկության մեջ։',
   'landing.eyebrow': 'Արհեստական բանականության գրելու ստուդիա լուրջ գրողների համար',
   'landing.featuresHeading': 'Գործիքներ, որոնք խանգարում են',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -100,14 +127,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Ստուդիա, որը ստեղծվել է այն գրողների համար, ովքեր հոգ են տանում իրենց արձակի, տեմպի և ճշգրտության մասին: Plume-ը նախագծեր է գրում ձեր կողքին՝ երբեք ձեր փոխարեն:',
   'landing.heroTitle.eloquence': 'ճարտասանություն',
+  'landing.heroTitle.intelligence': 'Խելքը հանդիպում է ',
   'landing.nav.testimonials': 'Հաճախորդների կարծիքներ',
   'landing.plan.cta': 'Սկսեք այս պլանից',
   'landing.plan.popular': 'Ամենասիրվածը',
   'landing.pricingEyebrow': 'Գնագոյացում',
   'landing.pricingHeading': 'Ընտրեք այն, ինչը համապատասխանում է ձեր պրակտիկային',
   'landing.sampleDocTitle': 'Լռության ճարտարապետությունը',
+  'landing.sampleParagraph1':
+    'Քաղաքը երբեք իսկապես հանգիստ չէր։ Նույնիսկ գիշերվա ամենախոր ժամերին բետոնե հիմքերի միջով ցածր բզզոց էր թրթռում՝ մետրոյի գնացքների ու օդափոխման հանքերի մեխանիկական սրտի բաբախյունը։',
+  'landing.sampleParagraph2.after': ' ապակու դեմ։',
+  'landing.sampleParagraph2.before': 'Բայց ',
   'landing.sampleParagraph2.highlight':
     'Կանգնած 42-րդ հարկի պատշգամբում, Էլիասը խորը մեկուսացման զգացում զգաց',
+  'landing.showcaseBody':
+    'Ընդգծիր նախադասություն, և {{appName}}-ը կառաջարկի ճշգրտում։ Ընդունիր այն, փոփոխիր, կամ մերժիր։ Առաջարկները միշտ մանուշակագույն են, որպեսզի իմանաս, թե ինչ ես գրել դու և ինչ է առաջարկվել։',
+  'landing.showcaseHeading': 'Երկրորդ զույգ աչքեր՝ երբեք երկրորդ հեղինակ։',
   'landing.startWriting': 'Սկսեք գրել',
   'login.emailPlaceholder': 'հեղինակ@example.com',
   'login.failed': 'Մուտք գործելը ձախողվեց',
@@ -122,8 +157,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Բացել վահանակը',
   'notFound.title': 'Այս գլուխը դեռ չի գրվել։',
   'plumeSidebarLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
+  'pricing.maxDocuments': '{{count}} փաստաթղթեր',
+  'pricing.maxGenerate': '{{count}} AI գեներացիաներ',
+  'pricing.maxImages': '{{count}} պատկերի գեներացիաներ',
   'privacy.data':
     'Ձեր հաշվի էլ. փոստը և հեշավորված գաղտնաբառը: Ձեր կողմից ստեղծվող փաստաթղթերն ու ձևանմուշները: Արհեստական մտածողության առաջարկների գրանցամատյանները (մուտքագրում + ելք)՝ հաշիվ-ապրանքագրերի և վերլուծությունների համար: Stripe հաճախորդի + բաժանորդագրության նույնականացուցիչներ. մենք երբեք չենք պահպանում քարտի ամբողջական համարները:',
+  'privacy.intro':
+    'Մենք հավաքում ենք միայն {{app}}-ի աշխատանքի համար անհրաժեշտ տվյալները՝ ձեր էլ. փոստը, ձեր ստեղծած փաստաթղթերը և ձեր արված AI հարցումները։ Մենք երբեք չենք վաճառում ձեր գրառումները կամ հուշումները։',
   'profile.loadError': 'Չհաջողվեց բեռնել ձեր պրոֆիլը։',
   'profile.loading': 'Ձեր պրոֆիլը բեռնվում է…',
   'profile.loadingPublished': 'Հրապարակված փաստաթղթերի բեռնում…',
@@ -134,7 +174,14 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Նոր գաղտնաբառ',
   'seoAnalysis.backToEditor': 'Վերադառնալ խմբագրիչին',
   'seoAnalysis.eyebrow': 'SEO վերլուծություն',
+  'seoAnalysis.heroBody':
+    'Կիրառելու {{count}} առաջարկ։ Յուրաքանչյուրը կառուցվածքային կամ հիմնաբառային բարելավում է, ոչ թե կարմիր դրոշների պատ։',
+  'seoAnalysis.heroBodyEmpty':
+    'Սեղմեք «Run analysis»՝ ընթեռնելիությունը, հիմնաբառերի խտությունը և կառուցվածքը գնահատելու համար։',
   'seoAnalysis.heroEmpty': 'Դեռևս վերլուծություն չկա։ Անցկացրեք մեկը՝ այս դրաֆթը գնահատելու համար։',
+  'seoAnalysis.heroNeedsWork': 'Կառուցվածքային որոշ բարելավումներ կմեծացնեն հասանելիությունը։',
+  'seoAnalysis.heroStrong':
+    'Ուժեղ աշխատանք․ ընդամենը փոքր բարելավումներ են մնացել գերազանցությանը։',
   'seoAnalysis.historyEmpty': 'Նախկինում վերլուծություններ չեն գրանցվել։',
   'seoAnalysis.historyTitle': 'Վերլուծության պատմություն',
   'seoAnalysis.keywordEmpty':
@@ -161,9 +208,15 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'Կարգավորեք «Plume»-ը՝ համապատասխանեցնելով ձեր գրելաոճին։',
   'settings.toggleIntegrationFailed': 'Ինտեգրացիայի թարմացումը ձախողվեց։',
   'settings.writing.aiSuggestions': 'Տողային արհեստական ինտելեկտի առաջարկներ մուտքագրման ընթացքում',
+  'settings.writing.aiSuggestionsBody':
+    'Ցույց է տալիս բարելավումները գրելիս։ Առաջարկները միշտ ընտրովի են յուրաքանչյուր նախադասության համար։',
   'settings.writing.autoSave': 'Ավտոմատ կերպով պահպանել յուրաքանչյուր 30 վայրկյանը մեկ',
+  'settings.writing.autoSaveBody':
+    '{{appName}}-ը պահպանում է ձեր սևագրի պատճենը, որպեսզի կարողանաք վերականգնել ցանկացած ներդիրից։',
   'settings.writing.notifyEmail':
     'Ուղարկեք ինձ շաբաթական գրավոր աշխատանքների ամփոփագրերը էլեկտրոնային փոստով',
+  'settings.writing.notifyEmailBody':
+    'Կարճ կիրակնօրյա ամփոփում շարքերի, սևագրերի և SEO բարելավումների մասին։',
   'settings.writing.title': 'Գրելու նախընտրություններ',
   'settings.writing.tone': 'Նախադրված ձայնի կարգավորում',
   'signup.emailPlaceholder': 'հեղինակ@example.com',
@@ -175,8 +228,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'Նկարագրություն չի տրամադրվել։',
   'templates.subtitle':
     'Սկսեք մարտական փորձություն անցած խմբագրական շրջանակից, ապա դարձրեք այն ձերը։',
+  'terms.intro':
+    'Այս պայմանները կարգավորում են ձեր օգտագործումը {{app}}-ի։ Հաշիվ ստեղծելով՝ դուք համաձայնում եք օգտագործել ծառայությունը օրինական գրելու համար և գաղտնի պահել ձեր հաշվի մուտքի տվյալները։',
   'terms.license':
     'Դուք պահպանում եք ձեր ստեղծած յուրաքանչյուր փաստաթղթի, ձևանմուշի և արհեստական բանականության սերնդի սեփականության իրավունքը: Մեզ անհրաժեշտ է ոչ բացառիկ լիցենզիա՝ ձեր աշխատանքը ձեզ հյուրընկալելու և ձեզ հետ վերադարձնելու, ինչպես նաև ձեր ընտրած երաշխավորված մատակարարների միջոցով արհեստական բանականության հարցումները մշակելու համար:',
   'writingStreakHeroCard.change': '{{sign}} {{amount}} բառեր',
   'writingStreakHeroCard.greeting': 'Բարի օր, {{name}}',
+  'writingStreakHeroCard.subtitle': 'Այս շաբաթ գրված բառեր — {{count}}-օրյա շարք',
+  'writingStreakHeroCard.tagline': 'Օրական մեկ էջը մուսային ներգրավված է պահում։',
 }

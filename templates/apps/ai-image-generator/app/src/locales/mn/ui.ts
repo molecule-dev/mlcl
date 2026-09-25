@@ -1,14 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Санал хүсэлт байна уу, саад тотгор гарлаа уу, эсвэл дараа нь юу бүтээхийг хэлмээр байна уу? hello@reverie.app хаягаар багтай холбогдоорой — мессеж бүр бүтээгдэхүүнийг бүтээдэг жинхэнэ хүнд хүрдэг.',
   'about.contactTitle': 'Бидэнтэй холбогдох',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
   'auth.fields.newPassword': 'Шинэ нууц үг',
   'collectionDetail.addImage': 'Цуглуулгын төлөө ид шид',
   'collectionDetail.backCta': 'Цуглуулга руу буцах',
   'collectionDetail.coverNote': 'Сонгосон сэтгэл санааны самбар {{count}} зургууд.',
   'collectionDetail.editName': 'Цуглуулгын нэр',
+  'collectionDetail.empty':
+    'Энэ цуглуулгад одоогоор зураг байхгүй — нэмэхийн тулд ямар нэгэн зүйл үүсгээрэй.',
   'collectionDetail.loading': 'Цуглуулгыг ачаалж байна…',
   'collectionDetail.loadingImages': 'Зургуудыг ачаалж байна…',
+  'collectionDetail.notFoundBody': 'Энэ цуглуулгыг устгасан эсвэл хувийн байна.',
   'collectionDetail.notFoundTitle': 'Цуглуулга байхгүй байна',
   'collectionDetail.shared': 'Харагдацыг асаасан',
   'collections.create': 'Шинэ цуглуулга',
@@ -16,6 +22,7 @@ export const ui: UiTranslations = {
     'Цуглуулга хараахан байхгүй байна. Бүтээлээ сонгож эхлэхийн тулд нэгийг үүсгэнэ үү.',
   'collections.imageCount': '{{count}} зураг',
   'collections.loading': 'Цуглуулгыг ачаалж байна…',
+  'collections.noDescription': 'Тайлбар байхгүй байна — нэмэхийн тулд нээгээрэй.',
   'collections.subtitle': 'Сэтгэл санааны самбар, товч мэдээлэл болон үргэлжилж буй цувралууд',
   'collections.title': 'Цуглуулга',
   'collections.untitled': 'Гарчиггүй · {{stamp}}',
@@ -56,6 +63,7 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'Reverie бүртгэлтэйгээ холбоотой имэйл хаягаа оруулна уу, бид дахин тохируулах холбоос илгээх болно.',
   'forgot.successBody': 'Дахин тохируулах холбоос гарч ирж байна {{email}} .',
+  'gallery.empty.body': 'Өөр төлөв туршаад үзээрэй эсвэл студиос шинэ багц үүсгээрэй.',
   'gallery.empty.title': 'Энэ шүүлтүүртэй тохирох зүйл алга',
   'gallery.exportAll': 'Бүгдийг экспортлох',
   'gallery.exported': 'Экспорт дараалалд орсон',
@@ -78,12 +86,15 @@ export const ui: UiTranslations = {
   'generate.controls.title': 'Мөрөөдлийг тохируул',
   'generate.defaultPrompt': 'Шинэ мөрөөдөл',
   'generate.progress': 'Алхам {{step}} / {{total}}',
+  'generate.submitFailed':
+    'Үүсгэлтийг дараалалд оруулж чадсангүй — холболтоо шалгаад дахин оролдоно уу.',
   'generate.subtitle': 'Санал хүсэлт бичих, удирдлагыг оруулах, хувилбаруудыг сэдэх',
   'generate.title': 'Студио',
   'generation.created': '{{when}}',
   'imageDetail.acting': 'Ажиллаж байна...',
   'imageDetail.actionFailed': 'Үйлдэл амжилтгүй боллоо.',
   'imageDetail.actions': 'Зургийн үйлдлүүд',
+  'imageDetail.downloadStarted': 'Таталт эхэллээ.',
   'imageDetail.downloadUnavailable': 'Татаж авах зураг хараахан байхгүй байна.',
   'imageDetail.fields.aspect': 'Аспект',
   'imageDetail.fields.created': 'Үүсгэсэн',
@@ -94,11 +105,17 @@ export const ui: UiTranslations = {
   'imageDetail.notFoundTitle': 'Зураг байхгүй байна',
   'imageDetail.noVariations': 'Одоогоор хувилбар алга - дээрээс нэгийг хүснэ үү.',
   'imageDetail.openEditor': 'Редакторт нээх',
+  'imageDetail.tips.lockSeed':
+    'Найрлага алдалгүйгээр гэрэлтүүлгийг давтахын тулд үрийг түгжинэ үү.',
+  'imageDetail.tips.upscale':
+    'Хэвлэхэд бэлэн чанарын хувьд экспортлохын өмнө 4× томруулж ажиллуулна уу.',
   'imageDetail.tipsTitle': 'Мөрөөдлийг тодотго',
+  'imageDetail.title': 'Image',
   'imageDetail.upscaleQueued': 'Дээд зэрэглэлийн дараалалд орсон',
   'imageDetail.variations': 'Хувилбарууд',
   'imageDetail.variationsQueued': 'Хувилбарууд дараалалд орсон',
   'imageDetail.visibilityToggled': 'Харагдацыг шинэчилсэн',
+  'landing.copyright': '© {{year}} {{appName}} Labs. Molecule.dev-ээр бүтээв.',
   'landing.cta': 'Бүтээж эхлэх',
   'landing.eyebrow': 'Одоо Reverie XL v3-г үйлчилж байна',
   'landing.featuresEyebrow': 'Яагаад Ревери гэж?',
@@ -139,8 +156,17 @@ export const ui: UiTranslations = {
     'Үе үеийн үйл ажиллагаа, хуваалцах болон зээлийн мэдэгдэл энд гарч ирнэ.',
   'notifications.empty.title': 'Мэдээлэх зүйл алга',
   'notifications.subtitle': 'Үе үеийн үйл явдлуудыг өдрөөр нь бүлэглэсэн',
+  'planUpdated.confirmed': 'Таны {{planKey}} багц идэвхтэй бөгөөд кредит нэмэгдлээ.',
+  'planUpdated.error':
+    'Бид таны шинэчлэлтийг автоматаар баталгаажуулж чадсангүй. Дэмжлэгтэй холбогдоно уу.',
+  'planUpdated.retry': 'Дахин оролдоно уу',
+  'planUpdated.unpaid': 'Таны төлбөрийн сесс төлөгдөөгүй байна. Тохиргооноос дахин оролдоно уу.',
+  'planUpdated.verifyFailed': 'Бид таны төлбөрийг хараахан баталгаажуулж чадсангүй.',
+  'planUpdated.verifyFailedBody':
+    'Таны төлбөрийг боловсруулж байж магадгүй. Хэсэг хугацааны дараа дахин оролдоно уу.',
   'planUpdated.verifying': 'Таны төлбөрийг баталгаажуулж байна…',
   'pricing.limits.gallery': '{{count}} галерей',
+  'pricing.limits.generations': '{{count}} үүсгэлт',
   'privacy.collect.body':
     'Та бүртгүүлэх үед бид таны нэр, имэйл хаяг, хэшлэгдсэн нууц үгийг цуглуулдаг. Та Reverie-г ашиглах үед бид таны илгээсэн заавар, танд зориулж үүсгэсэн зургууд, таны хадгалсан хэв маяг, цуглуулга, ашигласан загвар, үүсгэсэн хугацааны тэмдэг, зээлийн үлдэгдэл зэрэг мета өгөгдлийг хадгалдаг.',
   'privacy.cookies.body':
@@ -154,6 +180,8 @@ export const ui: UiTranslations = {
   'profile.followedBio': 'Дөнгөж сая нэг зохиогчийг дагалаа',
   'profile.following': 'Дараах…',
   'profile.loadingWorks': 'Олон нийтийн ажлыг ачаалж байна…',
+  'profile.noPublicWorks':
+    'Одоогоор нийтийн бүтээл байхгүй — энэ галерейг дүүргэхийн тулд зураг хуваалцаарай.',
   'profile.notFoundTitle': 'Профайл боломжгүй байна',
   'profile.publicWorks': 'Олон нийтийн ажил',
   'profile.subtitle': '@ {{handle}} · Олон нийтийн бүтээгчийн профайл',
@@ -166,6 +194,7 @@ export const ui: UiTranslations = {
   'prompts.empty.cta': 'Нээлттэй студи',
   'prompts.empty.title': 'Хадгалсан тохирох сануулга алга',
   'prompts.lastUsed': 'Ашигласан {{when}}',
+  'prompts.loading': 'Сануулгыг ачаалж байна…',
   'prompts.negativeLabel': 'NEG',
   'prompts.runAgain': 'Гүйх',
   'prompts.running': 'Гүйж байна...',
@@ -181,6 +210,7 @@ export const ui: UiTranslations = {
   'settings.account.saveFailed': 'Профайлыг хадгалж чадсангүй',
   'settings.account.title': 'Бүтээгчийн профайл',
   'settings.accountSecurity': 'Бүртгэл ба аюулгүй байдал',
+  'settings.accountSecurity.title': 'Нэвтрэх, төхөөрөмж ба бүртгэл',
   'settings.api.empty': 'API түлхүүр хараахан алга — нэгтгэж эхлэхийн тулд нэгийг үүсгэнэ үү.',
   'settings.api.loading': 'API түлхүүрүүдийг ачаалж байна…',
   'settings.api.revoked': 'API түлхүүр хүчингүй болсон',
@@ -199,14 +229,18 @@ export const ui: UiTranslations = {
   'sidebar.secondary': 'Хоёрдогч навигаци',
   'signup.failed': 'Бүртгүүлж чадсангүй. Дахин оролдоно уу.',
   'signup.firstNamePlaceholder': 'Ариа',
+  'signup.haveAccount': 'Аль хэдийн мөрөөдөгч үү?',
   'signup.heading': 'Мөрөөдлөө эхлүүлээрэй',
   'signup.lastNamePlaceholder': 'Лин',
   'signup.subheading': 'Бүртгэл үүсгээд 120 үнэгүй кредит аваарай.',
+  'styles.body':
+    'Урьдчилан тохируулга бүр өөрийн загвар, дээжлэгч, промпт бүтэц болон стилийн чипийг багцалдаг. Нэгийг идэвхжүүлснээр бүх студи тэр уур амьсгалд түгжигдэнэ — цуврал ажилд төгс тохиромжтой.',
   'styles.empty':
     'Загварын урьдчилсан тохиргоо хараахан байхгүй байна — тэдгээр нь анх нэвтэрсний дараа гарч ирнэ.',
   'styles.eyebrow': 'Сонгосон',
   'styles.headline':
     'Дахин ашиглах боломжтой харааны тохиргооны тусламжтайгаар илүү хурдан төсөөлөөрэй',
+  'styles.loading': 'Стилийн санг ачаалж байна…',
   'styles.subtitle': 'Reverie студийн багийн бүтээсэн харааны тохиргоонууд',
   'styles.title': 'Загварын сан',
   'terms.acceptableUse.body':

@@ -1,7 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Fragen, Feedback oder eine Idee, die dir helfen würde, dranzubleiben? Melde dich in deinen Kontoeinstellungen — jede Nachricht erreicht eine echte Person im Team.',
+  'about.contactTitle': 'Sprechen Sie uns an',
   'about.eyebrow': 'Über',
+  'about.featureAdherence':
+    'Einnahmeberichte — wöchentliche und monatliche Diagramme plus ein Verlauf Dosis für Dosis, den du exportieren und mit deinem Behandlungsteam teilen kannst.',
+  'about.featureCaregivers':
+    'Teilen mit Betreuenden — lade Familie oder medizinisches Personal zu einer schreibgeschützten Ansicht ein und entscheide genau, was sie sehen dürfen.',
+  'about.featureRefills':
+    'Nachfüll-Erinnerungen — Echtzeit-Tablettenzähler, damit du Tage vorher gewarnt wirst, bevor dir die Tabletten ausgehen, nicht danach.',
+  'about.featureReminders':
+    'Erinnerungen, die dich respektieren — verschiebbare Push-Benachrichtigungen, die bei einer verpassten Dosis an eine betreuende Person eskaliert werden können.',
+  'about.featureSchedules':
+    'Flexible Zeitpläne — täglich, in Intervallen oder an bestimmten Tagen, mit mehreren Uhrzeiten pro Tag und Erinnerungen zur Einnahme mit dem Essen.',
+  'about.featuresTitle': 'Was Sie erhalten',
+  'about.missionBody':
+    'Eine verpasste Dosis sollte nie an einem vergessenen Wecker oder einer leeren Packung scheitern. Wir entwickeln ruhige, verlässliche Tools, mit denen die Einhaltung eines Behandlungsplans mühelos wirkt — und die Familie und medizinisches Personal still mit einbeziehen, nur so weit, wie du es erlaubst.',
+  'about.missionTitle': 'Unsere Mission',
+  'about.subtitle': 'Jede Dosis, pünktlich — und alle, die sich um dich sorgen, informiert.',
   'addMedication.avoidAlcohol': 'Alkohol vermeiden',
   'addMedication.backLink': 'Alle Medikamente',
   'addMedication.doseAmount': 'Dosis (z. B. 10 mg)',
@@ -12,6 +30,7 @@ export const ui: UiTranslations = {
   'addMedication.pillColor': 'Tablettenfarbe (für die visuelle Identifikation)',
   'addMedication.saveError': 'Speichern fehlgeschlagen.',
   'addMedication.saveLabel': 'Medikament speichern',
+  'addMedication.takeWithFood': 'Mit dem Essen einnehmen',
   'addMedication.warningsLabel': 'Warnhinweise (Zutreffendes auswählen)',
   'adherence.byMedEmpty':
     'Noch keine Medikamente – fügen Sie eines hinzu, um die Einhaltung der Medikamenteneinnahme zu überprüfen.',
@@ -33,17 +52,27 @@ export const ui: UiTranslations = {
   'adherence.subheading': 'Letzte 30 Tage · bei Bedarf mit Ihrem Behandlungsteam teilen',
   'adherence.taken': 'Eingenommen',
   'adherence.title': 'Therapietreue-Bericht',
+  'adherenceTriad.refills.eyebrow': 'Nachbestellungen',
   'adherenceTriad.refills.meta': 'Nachfüllungen verwalten →',
+  'adherenceTriad.refills.unit': 'bald fällig',
   'adherenceTriad.refills.value': '{{count}}',
   'adherenceTriad.streak.eyebrow': 'Serie',
   'adherenceTriad.streak.meta': 'Längste: {{days}} Tage',
+  'adherenceTriad.streak.unit': 'Tage',
   'adherenceTriad.streak.value': '{{days}}',
   'adherenceTriad.today.meta': '{{count}} stehen noch aus',
+  'adherenceTriad.today.unit': 'eingenommene Dosen',
   'adherenceTriad.today.value': '{{taken}}/{{total}}',
+  'auth.forgotPassword.subtitle':
+    'Geben Sie Ihre E-Mail ein und wir senden Ihnen einen Reset-Link.',
+  'auth.resetPassword.subtitle':
+    'Lege ein neues Passwort fest, um die Wiederherstellung deines Kontos abzuschließen.',
   'capsivaLayout.primaryNavLabel': 'Hauptnavigation',
+  'caregivers.email': 'E-Mail der betreuenden Person',
   'caregivers.empty':
     'Keine Pflegepersonen hinzugefügt. Laden Sie jemanden ein, der Sie unterstützt.',
   'caregivers.heading': 'Pflegepersonen',
+  'caregivers.invitedOn': 'Eingeladen {{when}}',
   'caregivers.inviteError': 'Einladung konnte nicht gesendet werden.',
   'caregivers.inviteFormLabel': 'Formular zur Einladung von Pflegepersonen',
   'caregivers.inviteIncomplete':
@@ -65,6 +94,11 @@ export const ui: UiTranslations = {
   'dashboard.timelineHeading': 'Heutige Dosen',
   'doseRow.markTaken': 'Einnehmen',
   'doseRow.subline': '{{dose}} · {{time}}',
+  'landing.about': 'Über „{{app}}“',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Wir kümmern uns um deine Routine.',
+  'landing.ctaButton': 'Loslegen – kostenlos',
+  'landing.ctaSubtitle':
+    'Kostenlos starten. Betreuende jederzeit hinzufügen. Jederzeit in den Einstellungen kündbar.',
   'landing.ctaTitle': 'Richten Sie Ihre erste Erinnerung in zwei Minuten ein',
   'landing.eyebrow': 'Therapietreue, mit Fürsorge gestaltet',
   'landing.featureEyebrow': 'Was Sie erhalten',
@@ -76,7 +110,10 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Zeitpläne, Erinnerungen, Nachbestellungen und ein Echtzeit-Therapietreue-Bericht, den Sie mit den Menschen teilen können, die sich um Sie kümmern.',
   'landing.heroTitle': '{{tagline}}',
+  'landing.sampleDate': 'Sonntag, 26. April',
   'medicationDetail.backLink': 'Alle Medikamente',
+  'medicationDetail.confirmDeleteBody':
+    'Dadurch werden das Medikament, sein Zeitplan, der Dosisverlauf und alle ausstehenden Nachfüll-Anfragen entfernt. Das kann nicht rückgängig gemacht werden.',
   'medicationDetail.confirmDeleteHeading': '{{name}} löschen?',
   'medicationDetail.confirmDeleteLabel': 'Medikament löschen',
   'medicationDetail.deleteError': 'Löschen fehlgeschlagen.',
@@ -98,15 +135,30 @@ export const ui: UiTranslations = {
   'medicationDetail.stat.remaining': 'Verbleibende Tabletten',
   'medicationDetail.stat.taken': 'Eingenommene Dosen',
   'medicationDetail.warningsHeading': 'Warnhinweise',
+  'medications.addLabel': 'Medikament hinzufügen',
   'medications.empty':
     'Noch keine Medikamente. Fügen Sie eines hinzu, um mit dem Tracking zu beginnen.',
   'medications.heading': 'Medikamente',
   'medications.loadError': 'Medikamente konnten nicht geladen werden.',
   'medications.prescriber': 'Verschrieben von {{name}}',
+  'medications.refillBy': 'Nachfüllen bis {{date}}',
+  'medications.remaining': 'verbleibend',
   'medications.subheading': '{{count}} aktive Medikamente',
   'notifications.heading': 'Benachrichtigungen',
+  'planUpdated.body':
+    'Deine Abrechnungsänderung ist jetzt aktiv. Du kannst deinen Tarif jederzeit über die Abrechnungsseite verwalten.',
+  'planUpdated.retry': 'Erneut versuchen',
+  'planUpdated.verifyFailed': 'Wir konnten deine Zahlung noch nicht bestätigen.',
+  'planUpdated.verifyFailedBody':
+    'Deine Zahlung wird möglicherweise noch verarbeitet. Versuche es gleich noch einmal.',
   'planUpdated.verifying': 'Bestätige Ihre Zahlung…',
+  'pricing.limits.advancedFeatures': 'Erweiterte Funktionen:',
   'pricing.limits.canExport': 'Datenexport:',
+  'pricing.limits.maxAdherence': '{{count}} Einnahmetreue',
+  'pricing.limits.maxDoses': '{{count}} Dosen',
+  'pricing.limits.maxMedications': '{{count}} Medikamente',
+  'pricing.limits.maxRefills': '{{count}} Nachfüllungen',
+  'pricing.limits.maxSchedules': '{{count}} Zeitpläne',
   'pricing.no': '—',
   'pricing.yes': '✓',
   'profile.emergency.heading': 'Notfallkontakt',
@@ -126,7 +178,9 @@ export const ui: UiTranslations = {
   'profile.security.error': 'Passwort konnte nicht geändert werden.',
   'profile.security.next': 'Neues Passwort',
   'profile.security.tooShort': 'Das Passwort muss mindestens 8 Zeichen lang sein.',
+  'refillAlertCard.daysAt': 'Tage · {{count}} Tabletten',
   'refillAlertCard.pharmacyWithPhone': '{{pharmacy}} · {{phone}}',
+  'refillAlertCard.refillsRemaining': '{{count}} Nachfüllungen auf Rezept übrig',
   'refillAlertCard.request': 'Anfordern',
   'refills.empty':
     'Noch keine Nachbestellungen. Fügen Sie ein Medikament hinzu, um mit dem Tracking zu beginnen.',
@@ -140,11 +194,15 @@ export const ui: UiTranslations = {
   'refills.tile.dueSoonNote': 'Nachbestellung in den nächsten 30 Tagen',
   'refills.tile.fine': 'Vorrat ausreichend',
   'refills.tile.fineNote': 'Keine Aktion erforderlich',
+  'refills.tile.urgent': 'Dringend',
   'refills.tile.urgentNote': 'Innerhalb einer Woche aufgebraucht',
   'schedule.heading': 'Wochenplan',
+  'schedule.legend':
+    'Ausgefüllte Kreise = eingenommen oder anstehend · blasser Umriss = verpasste Dosis',
   'schedule.loadError': 'Zeitplan konnte nicht geladen werden.',
   'schedule.subheading': 'Jede Dosis, jeden Tag, auf einen Blick.',
   'schedule.timeColumn': 'Zeit',
+  'settings.appearance.description': 'Zwischen hellem und dunklem Modus umschalten.',
   'settings.appearance.highContrast': 'Hochkontrast-Farben',
   'settings.appearance.largeText': 'Überall größeren Text verwenden',
   'settings.appearance.timeFormat': 'Zeitformat',
@@ -169,15 +227,27 @@ export const ui: UiTranslations = {
   'settings.saving': 'Wird gespeichert…',
   'settings.signingOutDevice': 'Meldet ab…',
   'settings.signOutDevice': 'Abmelden',
+  'settings.twoFactorBody':
+    'Verlange bei der Anmeldung einen Einmalcode aus einer Authenticator-App für eine zusätzliche Schutzebene deiner Gesundheitsdaten.',
   'settings.twoFactorCode': 'Authentifizierungscode',
   'settings.twoFactorDisable': 'Deaktivieren',
+  'settings.twoFactorDisableBody':
+    'Gib einen aktuellen Code aus deiner Authenticator-App ein, um die Zwei-Faktor-Authentifizierung zu deaktivieren.',
   'settings.twoFactorEnable': 'Aktivieren',
   'settings.twoFactorInvalidCode': 'Ungültiger Code.',
   'settings.twoFactorOn': 'Am',
+  'settings.twoFactorQrAlt': 'Zwei-Faktor-QR-Code',
+  'settings.twoFactorScan':
+    'Scannen Sie diesen QR-Code mit Ihrer Authentifizierungs-App und geben Sie dann den 6-stelligen Code ein.',
+  'settings.twoFactorUnavailable':
+    'Die Zwei-Faktor-Authentifizierung ist für diese App nicht verfügbar.',
   'settings.twoFactorVerify': 'Überprüfen und aktivieren',
   'settings.unnamedDevice': 'Unbenanntes Gerät',
   'todayHeroCard.adherence': '{{pct}} %',
   'todayHeroCard.eyebrow': 'Heute · {{date}}',
+  'todayHeroCard.streak': '{{days}}-tägige Serie',
+  'todayHeroCard.summary':
+    '{{taken}} von {{total}} Dosen eingenommen · {{upcoming}} heute noch ausstehend',
   'userMenu.caregivers': 'Pflegepersonen',
   'userMenu.memberStatus': 'Achten auf Ihre Routine',
   'userMenu.profile': 'Profil und medizinische Angaben',

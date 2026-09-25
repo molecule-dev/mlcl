@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Suallarınız, rəyiniz var, yoxsa komandanız üçün demo istəyirsiniz? Bizə hello@conduit.dev ünvanına e-poçt göndərin — hər mesaj komandadakı real bir şəxsə çatır.',
   'about.contactHeading': 'Əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
+  'about.featuresHeading': 'Nə əldə edirsən',
+  'about.introBody':
+    '{{app}} GitHub Actions üslubunda davamlı çatdırılmanı bir sürətli idarə panelinə gətirir: bütün repozitoriyalarınız üçün pipeline-lar, build jurnalları, artefaktlar, status nişanları və yerləşdirmə mühitləri bir yerdə. Tab dəyişdirmək yoxdur, hansı build-in pozulduğunu təxmin etmək yoxdur — hər işə salma, jurnal sətri və yerləşdirmə bir klik uzaqlığındadır.',
+  'about.introHeading': '{{app}} nədir',
+  'about.missionBody':
+    'Proqram təminatının yayımlanması qorxu mənbəyi deyil, sakit və proqnozlaşdırıla bilən olmalıdır. Biz pipeline-ları, jurnalları və yerləşdirmə alətlərini elə qururuq ki, commit-dən istehsala gedən yol sürətli, görünən və etibarlı olsun — ilk yaşıl build beş dəqiqəyə, ondan sonrakı hər build də eyni dərəcədə aydın.',
+  'about.missionHeading': 'Missiyamız',
+  'about.subtitle':
+    '{{app}} hər repozitoriya üzrə build-ləri, yerləşdirmələri və mühitləri izləmək və əminliklə yayımlamaq istəyən komandalar üçün CI/CD idarə panelidir.',
   'artifacts.empty': 'Hələlik heç bir artefakt yoxdur.',
   'artifacts.heading': 'Əşyalar',
   'artifacts.loadError': 'Artefaktları yükləmək alınmadı.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ kanal mühiti --list',
   'environments.heading': 'Mühitlər',
   'environments.loadError': 'Mühitləri yükləmək alınmadı.',
+  'environments.loading': 'Mühitlər yüklənir…',
   'environments.subheading': 'Hər hədəf üzrə canlı yerləşdirmə statusu.',
   'forgotPassword.runnerStatus': 'sıfırlama · təhlükəsiz tunel',
+  'forgotPassword.success':
+    'Əgər həmin e-poçt üçün hesab mövcuddursa, sıfırlama linki göndərilir. Gələnlər qutunuzu yoxlayın.',
   'insights.changeFailureRate': 'Xəta nisbətini dəyişdirin',
   'insights.deployFrequency': 'Yerləşdirir / gün',
   'insights.empty': 'Hələ ki, kifayət qədər məlumat yoxdur.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Statistikaları yükləmək alınmadı.',
   'insights.meanP95': 'mənasız {{mean}} · səh95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Ən yavaş pipeline addımları',
   'insights.successRateHeading': 'Boru kəmərinin uğur nisbəti (son 14 gün)',
   'landing.choosePlan': 'Plan seçin',
+  'landing.copyright': '© {{year}} {{app}}. Əminliklə yayımla.',
   'landing.ctaBody':
     'Kredit kartı yoxdur. Platforma mühəndisi tələb olunmur. İlk boru kəmərini beş dəqiqəyə yaşıllaşdırın.',
   'landing.ctaHeading': 'Əminliklə göndərin.',
   'landing.featuresEyebrow': '// platforma xüsusiyyətləri',
   'landing.featuresHeading': 'Göndərənlər tərəfindən, göndərənlər üçün tikilib',
+  'landing.heroSubtitle':
+    'Saniyələr içində tamamlanan pipeline-lar. Oxuna bilən jurnallar. Etibar edə biləcəyiniz yerləşdirmələr.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit yerləşdirmək --safely',
   'landing.pricingEyebrow': '// $ qiymət --düzgün',
   'landing.pricingHeading': 'Sadə, proqnozlaşdırıla bilən qiymət',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Hazırda uçuşda',
   'pipelines.metric.successCaption': '{{count}} -ın {{total}} qaçışlar',
   'pipelines.metric.successRate': 'Uğur nisbəti',
+  'pipelines.realtimeOn': 'real vaxt',
   'pipelines.subheading': 'İzlənən hər bir depodan canlı yeniləmələr.',
+  'pricing.advancedFeatures': 'Qabaqcıl funksiyalar: {{mark}}',
+  'pricing.canExport': 'Məlumat ixracı: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artefaktları',
+  'pricing.maxBuilds': '{{count}} build-ləri',
+  'pricing.maxPipelines': '{{count}} pipeline-ları',
   'privacy.dataAccount': 'Hesab: ad, e-poçt, heş edilmiş parol, plan səviyyəsi.',
   'privacy.intro':
     '{{tətbiq}} Davamlı çatdırılma hesabınızı idarə etmək üçün yalnız lazım olan minimum məlumatları toplayır: e-poçtunuz, qoşduğunuz depolar, runnerlərinizin yaratdığı commit və build metaməlumatları və bizimlə saxlamağı seçdiyiniz sirlər. Mənbə kodunuzu build runner-dən kənarda heç vaxt oxumuruq; build artefaktları konfiqurasiya edildikdə S3 çömçənizdə saxlanılır.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Biz ödəniş üçün Stripe, əməliyyat e-poçtu üçün Mailgun və quruluş artefakt saxlama üçün AWS S3 istifadə edirik. Hər biri müqavilə üzrə xidmətini göstərmək üçün lazım olan minimum məlumat həcminə bağlıdır.',
   'privacy.rightsBody':
     'Məlumatlarınızın hər baytını ixrac edə, istənilən vaxt Parametrlərdən hesabınızı silə və hesabınızdakı hər bir vebhook çatdırılmasının qeydini tələb edə bilərsiniz. GDPR / CCPA sorğularına 30 gün ərzində cavab veririk.',
+  'privacy.subtitle':
+    'Biz pipeline-larınızı işlədərkən {{app}} məlumatlarınızı necə toplayır, saxlayır və qoruyur.',
   'privacy.title': 'Məxfilik siyasəti',
   'repositories.empty': 'Heç bir depo qoşulmayıb.',
   'repositories.heading': 'Depolar',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Bütün depolar',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Repozitoriyanı yükləmək alınmadı.',
+  'repositoryDetail.meanDuration': 'Orta müddət',
   'repositoryDetail.notFound': 'Depo tapılmadı.',
+  'repositoryDetail.successRate': 'Uğur nisbəti',
   'repositoryDetail.totalBuilds': 'Ümumi tikililər',
   'repositoryDetail.webhookActive': 'aktiv',
   'repositoryDetail.webhookPaused': 'fasilə verildi',
   'repositoryDetail.webhooksHeading': 'Vebhooklar',
+  'resetPassword.passwordLabel': 'Yeni parol',
   'resetPassword.runnerStatus': 'sıfırlama · token təsdiqləndi',
   'resetPassword.subtitle': 'Əvvəllər istifadə etmədiyiniz güclü bir parol seçin.',
   'resetPassword.tokenPlaceholder': 'e-poçtdan yapışdırın',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Repozitoriyaları Kanal saatları. Hadisələrin qəbulunu dayandırmaq üçün VCS provayderinizdən əlaqəni kəsin.',
   'settings.repositories.empty': 'Hələ ki, heç bir depo qoşulmayıb.',
+  'settings.repositories.heading': 'Repozitoriya bağlantıları',
   'settings.repositories.loadError': 'Depoları yükləmək alınmadı.',
   'settings.secrets.addCta': 'Sirr əlavə edin',
   'settings.secrets.addError': 'Sirr əlavə etmək alınmadı.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Sirri silmək alınmadı.',
   'settings.secrets.empty': 'Heç bir sirr saxlanılmayıb.',
   'settings.secrets.heading': 'Sirlər',
+  'settings.secrets.lastUsed': 'son istifadə {{date}}',
   'settings.secrets.loadError': 'Sirrləri yükləmək alınmadı.',
   'settings.secrets.neverUsed': 'heç vaxt istifadə olunmayıb',
   'settings.secrets.rotateCta': 'Döndür',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Vebhooku yeniləmək alınmadı.',
   'signup.namePlaceholder': 'Riley Parkı',
   'signup.runnerStatus': 'pulsuz səviyyə · ayda 1000 min qurma',
+  'terms.intro':
+    '{{app}} hesabı yaratmaqla bu şərtləri qəbul edirsiniz. Onlar build runner-larından məqbul istifadəni, SLA-ımızın sərhədlərini və sui-istifadə xarakterli iş yüklərinə görə hesabınızı dayandıra və ya ləğv edə biləcəyimiz şərtləri əhatə edir.',
   'terms.slaBody':
     'Pro və Team planları API və qaçış hovuzu üçün aylıq 99.95% işləmə müddətini hədəfləyir. Pulsuz plan olduğu kimi təqdim olunur. Kəsintilər status.conduit.dev saytında bildirilir və fakturanızdakı düstura uyğun olaraq hesablanır.',
   'terms.terminationBody':

@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Heb je feedback, heb je een bug gevonden, of wil je ons vertellen hoe journaling je heeft geholpen? We lezen elk bericht — neem gerust contact op en een echt persoon neemt contact met je op.',
+  'about.contactTitle': 'Neem contact met ons op',
+  'about.featureInsights':
+    "AI-gestuurde reflecties die op een milde manier triggers, thema's en dankbaarheden belichten — zonder je eigen stem te verliezen.",
+  'about.featureMood':
+    'Stemming- en activiteitentracking met een kalenderweergave en trendgrafieken die laten zien wat jou helpt te floreren.',
+  'about.featurePrivacy':
+    'End-to-end-encryptie, een toegangscodevergrendeling en volledige CSV-export zodat je reflecties privé en overdraagbaar blijven.',
+  'about.featurePrompts':
+    'Milde dagelijkse prompts zodat je altijd ergens kunt beginnen — nooit een lege pagina.',
+  'about.intro':
+    '{{app}} is een mild, privé dagboek voor geestelijke gezondheid voor dagelijkse reflectie, stemmingtracking en dankbaarheid. Doordachte prompts vervangen de lege pagina, rustig patronen vinden helpt je begrijpen wat je gevoel beïnvloedt, en end-to-end-encryptie houdt je woorden van jou.',
+  'about.missionBody':
+    'Wij vinden dat even bij jezelf stilstaan rustig moet voelen, nooit klinisch — en nooit als een app die om je aandacht zeurt. {{app}} is gemaakt om te helpen, niet om te zeuren: een paar rustige minuten per dag om je stemming op te merken, eerlijk te schrijven en jezelf langzaam duidelijker te zien.',
+  'about.missionTitle': 'Onze missie',
   'about.pageTitle': 'Over {{app}}',
   'authShell.encryptionBadge': 'Uw gegevens worden van begin tot eind versleuteld.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Dag {{day}} — geen entry',
   'calendar.cellMood': 'Dag {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Deze maand in vogelvlucht',
   'calendar.eyebrow': 'Stemming in één oogopslag',
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': '{{tracked}} van {{total}} dagen bijgehouden deze maand.',
   'common.goToDashboard': 'Ga naar Dashboard',
   'common.tryAgain': 'Opnieuw proberen',
+  'entryComposer.bodyPlaceholder': 'Schrijf wat eerlijk voelt. Niemand anders leest dit.',
   'entryComposer.cancel': 'Terug naar dagboek',
   'entryComposer.heading': 'Reflectie van vandaag',
   'entryComposer.moodLabel': 'Hoe voelt u zich?',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Verwijder {{tag}}',
   'entryComposer.save': 'Reflectie opslaan',
   'entryComposer.saveError': 'Kan uw notitie niet opslaan.',
+  'entryComposer.tagPlaceholder': 'Voeg een tag toe en druk op enter',
   'entryComposer.titlePlaceholder': 'Geef deze reflectie een naam…',
   'entryDetail.back': 'Terug naar dagboek',
   'entryDetail.delete': 'Verwijder dit item',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Reflectie laden…',
   'entryDetail.notFound': 'Notitie niet gevonden.',
   'entryDetail.reflectionsHeading': 'AI-reflecties',
+  'forgotPassword.continueButton': 'Resetcode invoeren',
   'forgotPassword.eyebrow': 'Geen zorgen',
   'forgotPassword.subheading': 'We sturen u een zachte herstellink per e-mail.',
   'forgotPassword.successBody':
@@ -58,14 +78,22 @@ export const ui: UiTranslations = {
     "Nog geen thema's — voeg een of twee tags toe aan je inzendingen en ze worden hier verzameld.",
   'insights.themesHeading': 'Top thema’s',
   'insights.triggerFrequency': '{{count}}× opgemerkt deze maand',
+  'insights.triggersEmpty':
+    'Nog niets om op te merken. Een paar entries over een aantal dagen laten je patronen zien.',
   'insights.triggersHeading': 'Patronen die uw stemming beïnvloeden',
+  'journal.empty':
+    'Geen reflecties gevonden — probeer een ander filter of schrijf een nieuwe entry.',
   'journal.eyebrow': 'Uw reflecties',
   'journal.heading': 'Dagboek',
   'journal.loadError': 'Kon notities niet laden.',
   'journal.loading': 'Notities laden…',
+  'journal.newEntry': 'Nieuwe notitie',
   'journal.searchPlaceholder': 'Zoek naar een gevoel, een naam, een moment…',
   'journal.subheading': '{{count}} notities — elk de moeite waard om te bewaren.',
   'journalEntryCard.encryptedLabel': 'Versleuteld',
+  'landing.ctaBody':
+    'Gratis om te beginnen. Pro ontgrendelt data-export, een groter dagboek en een heel jaar geschiedenis.',
+  'landing.ctaButton': 'Begin uw eerste notitie',
   'landing.ctaTitle': 'Een paar rustige minuten per dag. Dat is alles.',
   'landing.eyebrow': 'Een zachte dagelijkse gewoonte',
   'landing.featuresBody':
@@ -84,6 +112,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Een zachte ruimte voor dagelijkse reflectie.',
   'mentalHealthJournalLayout.closeMenu': 'Menu sluiten',
   'mentalHealthJournalLayout.openMenu': 'Menu openen',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Hoofdnavigatie',
+  'moodHeroCard.entriesThisWeek': '{{count}} deze week',
   'moodHeroCard.streakSuffix': 'dagen op rij',
   'moodHeroCard.title': 'Reflectie van vandaag',
   'moodTrendChart.aiBadge': 'AI-inzicht klaar',
@@ -94,11 +124,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Uw reis',
   'profile.fallbackName': 'Reflectant',
   'profile.loadError': 'Kon statistieken niet laden.',
+  'profile.loading': 'Je statistieken vernieuwen…',
   'profile.longestStreak': 'Langste reeks',
   'profile.memberSince': 'Reflecteert sinds {{date}}',
   'profile.milestones': 'Mijlpalen',
   'profile.milestonesEmpty':
     'Je eerste mijlpaal is slechts één bericht verwijderd — schrijf wanneer je er klaar voor bent.',
+  'profile.moodMix': 'Jouw stemmingsmix dit seizoen',
   'profile.streakValue': '{{days}}d',
   'profile.totalEntries': 'Reflecties',
   'profile.totalWords': 'Geschreven woorden',
@@ -111,6 +143,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Schrijf hierover',
   'resetPassword.eyebrow': 'Een frisse start',
   'resetPassword.mismatchError': 'Wachtwoorden komen niet overeen.',
+  'resetPassword.passwordLabel': 'Nieuw wachtwoord',
   'resetPassword.subheading': 'Kies iets veiligs — uw reflecties verdienen het.',
   'resetPassword.tokenPlaceholder': 'Herstelcode uit e-mail',
   'settings.dangerDescription':
@@ -123,11 +156,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     'Uw woorden behoren altijd aan u toe. Download op elk moment een kopie.',
   'settings.exportDone': '{{format}} geëxporteerd.',
+  'settings.exportError': 'Exporteren mislukt.',
+  'settings.exportHeading': 'Exporteer je reflecties',
   'settings.exportLoading': 'Voorbereiden…',
   'settings.eyebrow': 'Uw ruimte, uw regels',
   'settings.languageHeading': 'Taal',
   'settings.privacyHeading': 'Privacy en versleuteling',
   'settings.remindersHeading': 'Dagelijkse herinnering',
+  'settings.reminderToggleAria': 'Dagelijkse herinnering in-/uitschakelen',
   'settings.reminderToggleDescription':
     'Eén kalme herinnering op de tijd die u kiest. Geen badges of streak-schuldgevoel.',
   'settings.reminderToggleLabel': 'Stuur een zacht zetje',
@@ -140,6 +176,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Dagboek aanmaken…',
   'signup.subheading': 'Een veilige ruimte voor uw gedachten.',
   'wellnessRingsTriad.mindfulnessCaption': 'Doel {{goal}} min vandaag',
+  'wellnessRingsTriad.mindfulnessLabel': 'Mindfulness',
   'wellnessRingsTriad.sleepCaption': 'Doel {{goal}}u / nacht',
   'wellnessRingsTriad.sleepLabel': 'Slaap',
+  'wellnessRingsTriad.sleepValue': '{{hours}}u',
+  'wellnessRingsTriad.streakCaption': 'Doel {{goal}} dagen',
+  'wellnessRingsTriad.streakLabel': 'Dagboekreeks',
+  'wellnessRingsTriad.streakValue': '{{days}}d',
 }

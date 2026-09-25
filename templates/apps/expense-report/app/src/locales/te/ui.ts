@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ప్రశ్నలు, ఫీడ్‌బ్యాక్ లేదా ఫీచర్ అభ్యర్థన ఉందా? సెట్టింగ్‌లు → నోటిఫికేషన్‌ల నుండి {{app}} టీమ్‌ను సంప్రదించండి, లేదా ఎప్పుడైనా మాకు రాయండి — ప్రతి సందేశం నిజమైన వ్యక్తికే చేరుతుంది.',
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'గురించి',
+  'about.featureCapture':
+    'ఫోటో అప్‌లోడ్‌తో రసీదు క్యాప్చర్, ఇది చిత్రాలను సరైన ఖర్చుకు లైన్ బై లైన్ జోడిస్తుంది.',
+  'about.featureExport':
+    'ప్రతి రిపోర్ట్, ఖర్చు మరియు ఆమోద స్థితి యొక్క ఆడిట్ చేయగల CSV ఎగుమతులు — మీ అకౌంటింగ్ టీమ్ కోసం సిద్ధం.',
+  'about.featurePolicy':
+    'పాలసీ గార్డ్‌రైల్స్ — రోజువారీ పరిమితులు, ప్రతి వర్గం పరిమితులు మరియు రసీదు తప్పనిసరి థ్రెషోల్డ్‌లు సమర్పణ సమయంలో అమలవుతాయి.',
+  'about.featureWorkflow':
+    'సమీక్షకుల నోట్స్, పాలసీ-ఉల్లంఘన ఫ్లాగ్‌లు మరియు ఒక్క ట్యాప్‌తో రీయింబర్స్‌మెంట్ మార్కింగ్‌తో రెండు-స్థాయి ఆమోద వర్క్‌ఫ్లో.',
+  'about.intro':
+    '{{app}} అనేది ఫైనాన్స్ టీమ్‌ల కోసం మరియు వారు రీయింబర్స్ చేసే వ్యక్తుల కోసం ఒక ఖర్చు నిర్వహణ ప్లాట్‌ఫారమ్. రసీదును క్యాప్చర్ చేయండి, ఖర్చును నమోదు చేయండి, రిపోర్ట్‌ను ఆమోదం కోసం పంపండి మరియు ప్రతి రీయింబర్స్‌మెంట్‌ను ట్రాక్ చేయండి — స్ప్రెడ్‌షీట్ హంగామా లేకుండా.',
+  'about.missionBody':
+    'రీయింబర్స్‌మెంట్ వేగంగా, న్యాయంగా మరియు ఆడిట్ చేయగలిగి ఉండాలి. సమర్పించేవారు పదే పదే అడగకుండా డబ్బు తిరిగి పొందేలా, ఆమోదించేవారు తాము ఆమోదిస్తున్నది ఏమిటో సరిగ్గా చూసేలా, మరియు ఫైనాన్స్‌కు ప్రతి డాలర్‌కు పాలసీ తనిఖీలతో సహా స్పష్టమైన ట్రైల్ ఉండేలా మేము {{app}}ను నిర్మించాము.',
+  'about.missionTitle': 'మా లక్ష్యం',
   'approvals.approve': 'Approve',
   'approvals.approving': 'ఆమోదిస్తున్నాను…',
   'approvals.confirmReject': 'తిరస్కరణను నిర్ధారించండి',
+  'approvals.empty': 'మీరు అన్నీ పూర్తి చేసారు — సమీక్ష కోసం ఎటువంటి రిపోర్ట్‌లు లేవు.',
   'approvals.eyebrow': 'మేనేజర్ క్యూ',
   'approvals.kpi.flaggedLabel': 'పాలసీ ఫ్లాగ్ చేయబడింది',
+  'approvals.kpi.queueLabel': 'సమీక్ష కోసం వేచి ఉంది',
   'approvals.kpi.totalLabel': 'పెండింగ్ విలువ',
   'approvals.lineCount': '{{count}} ఖర్చులు',
   'approvals.queueFallback': 'లైవ్ క్యూ అందుబాటులో లేదు — ఎంపిక చేసిన డెమో డేటాను ప్రదర్శిస్తోంది.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'తిరస్కరిస్తూ…',
+  'approvals.rejectPlaceholder': 'కారణం (తప్పనిసరి)',
   'approvals.rejectPrompt': 'మీరు ఈ నివేదికను ఎందుకు తిరస్కరిస్తున్నారు?',
   'approvals.review': 'సమీక్ష',
   'approvals.title': 'ఆమోదాలు పెండింగ్‌లో ఉన్నాయి',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'ఆమోదించబడింది · MTD',
   'dashboard.kpi.pendingDelta': 'ఈ వారం +2',
+  'dashboard.kpi.pendingLabel': 'సమీక్ష పెండింగ్‌లో ఉంది',
   'dashboard.kpi.receiptsDelta': 'చర్య అవసరం',
   'dashboard.kpi.receiptsLabel': 'రసీదుల కోసం వేచి ఉంది',
   'dashboard.kpi.reimbursedDelta': '+$2.4వేలు',
   'dashboard.kpi.reimbursedLabel': 'తిరిగి చెల్లించబడింది · MTD',
   'dashboard.newReport': 'కొత్త నివేదిక',
+  'dashboard.recent.empty': 'ఇంకా రిపోర్ట్‌లు లేవు — పైన మీ మొదటి దాన్ని ప్రారంభించండి.',
   'dashboard.recent.title': 'ఇటీవలి నివేదికలు',
   'dashboard.recent.viewAll': 'అన్ని నివేదికలను వీక్షించండి',
   'dashboard.summaryFallback':
@@ -40,11 +61,19 @@ export const ui: UiTranslations = {
   'expenses.listFallback':
     'ప్రత్యక్ష జాబితా అందుబాటులో లేదు — ఎంపిక చేసిన డెమో డేటాను ప్రదర్శిస్తోంది.',
   'expenses.searchPlaceholder': 'వ్యాపారి లేదా వర్గాన్ని శోధించండి…',
+  'expenses.subtotal': '{{count}} ఖర్చులు · ఉపమొత్తం',
   'expenses.title': 'ఖర్చులు',
+  'forgotPassword.continue': 'నా దగ్గర కోడ్ ఉంది · కొనసాగించు',
+  'forgotPassword.subheading':
+    'మీ పని ఇమెయిల్ నమోదు చేయండి, కొత్త పాస్వర్డ్ సెట్ చేయడానికి మేము లింక్ పంపుతాము.',
   'forgotPassword.successBody':
     'ఖాతా ఉంటే {{email}} రాబోయే కొన్ని నిమిషాల్లో మీకు రీసెట్ లింక్ వస్తుంది.',
+  'landing.copyright': '© {{year}} {{app}}. Molecule.devతో నిర్మించబడింది.',
+  'landing.ctaBody':
+    'ప్రతి నెల మొదటి 25 ఖర్చులకు ఉచితం. క్రెడిట్ కార్డ్ లేదు, ఇంప్లిమెంటేషన్ కాల్ లేదు.',
   'landing.ctaHeading': 'మీ జట్టుకు రావలసిన బకాయిలను తిరిగి పొందడానికి సిద్ధంగా ఉన్నారా?',
   'landing.eyebrow': 'ఫైనాన్స్ బృందాల కోసం ఖర్చు నివేదికలు',
+  'landing.featuresHeading': 'రీయింబర్స్‌మెంట్, ఒక ప్రశాంతమైన వర్క్‌స్పేస్‌లో',
   'landing.heroSubtitle':
     'స్ప్రెడ్‌షీట్ తతంగం లేకుండా వ్యాపార ఖర్చులను సమర్పించండి, ఆమోదించండి మరియు తిరిగి చెల్లించండి. రసీదు OCR, పాలసీ తనిఖీలు మరియు పారదర్శక ఆమోద కాలక్రమం — ఇవన్నీ ఒకే ప్రశాంతమైన కార్యస్థలంలో.',
   'landing.heroTitle': 'ప్రతి రసీదు తిరిగి పొందబడింది.',
@@ -62,10 +91,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'గమనికలు',
   'newExpense.descriptionPlaceholder':
     'ఈ ఖర్చు వ్యాపార సంబంధమైనది ఎందుకు (మీ ఆమోదకర్తకు కనిపించేది).',
+  'newExpense.eyebrow': 'రీయింబర్స్ చేయగల అంశం',
   'newExpense.merchant': 'వ్యాపారి',
   'newExpense.merchantPlaceholder': 'హోటల్ అడ్లాన్ కెంపిన్స్కి',
   'newExpense.policyHint':
     'గమనిక: రోజుకు $80 కంటే ఎక్కువ ఖరీదు చేసే భోజనాలకు లేదా $250 కంటే ఎక్కువ ఖరీదు చేసే ఏ వస్తువుకైనా సమర్థన పత్రం అవసరం.',
+  'newExpense.receipt': 'రసీదు',
+  'newExpense.receiptHint': 'JPG, PNG, లేదా PDF · గరిష్ఠం 10 MB',
   'newExpense.receiptOcrHint': 'OCR ఫీల్డ్‌లను ముందుగానే పూరిస్తుంది',
   'newExpense.receiptPrompt':
     'ఇక్కడ ఒక ఫోటో లేదా PDFను పోస్ట్ చేయండి, లేదా బ్రౌజ్ చేయడానికి క్లిక్ చేయండి.',
@@ -77,17 +109,21 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'రసీదును స్నాప్ చేయండి లేదా అప్‌లోడ్ చేయండి, రికూప్ వ్యాపారి, తేదీ మరియు మొత్తాన్ని ముందుగానే పూరిస్తుంది. సేవ్ చేసే ముందు కింద ఉన్నవన్నీ నిర్ధారించండి.',
   'newExpense.title': 'ఖర్చును జోడించండి',
+  'newReport.approverHint':
+    'మీరు ఈ రిపోర్ట్‌ను సమీక్ష కోసం సమర్పించినప్పుడు వారికి ఇమెయిల్ వస్తుంది.',
   'newReport.approverLabel': 'ఆమోదించేవారి ఇమెయిల్ (ఐచ్ఛికం)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'అందుబాటులో ఉన్న ఖర్చులు',
   'newReport.createFailed': 'నివేదికను రూపొందించలేకపోయాము. దయచేసి మళ్ళీ ప్రయత్నించండి.',
   'newReport.draftsFallback':
     'ప్రత్యక్ష ఖర్చుల జాబితా అందుబాటులో లేదు — ఎంపిక చేసిన డెమో డేటాను చూపుతోంది.',
+  'newReport.eyebrow': 'ఖర్చులను గ్రూప్ చేయండి · ఆమోదం కోసం సమర్పించండి',
   'newReport.includedCount': '{{count}} చేర్చబడింది',
   'newReport.purposeLabel': 'వ్యాపార ప్రయోజనం',
   'newReport.purposePlaceholder':
     'ఈ ఖర్చులు ఏ ప్రయాణం లేదా ప్రాజెక్ట్‌కు సంబంధించినవో వివరించండి (మీ ఆమోదకర్త మరియు ఆర్థిక విభాగానికి కనిపించేలా).',
   'newReport.saveDraft': 'డ్రాఫ్ట్‌గా సేవ్ చేయండి',
+  'newReport.saveDraftFailed': 'డ్రాఫ్ట్ సేవ్ చేయలేకపోయాము. దయచేసి మళ్లీ ప్రయత్నించండి.',
   'newReport.submit': 'ఆమోదం కోసం సమర్పించండి',
   'newReport.submitFailed': 'నివేదికను సమర్పించలేకపోయాము. దయచేసి మళ్ళీ ప్రయత్నించండి.',
   'newReport.summary': 'నివేదిక సారాంశం',
@@ -101,17 +137,24 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'ప్రత్యక్ష ప్రసారం అందుబాటులో లేదు — ఎంపిక చేసిన డెమో డేటాను ప్రదర్శిస్తోంది.',
   'notifications.openReport': 'నివేదికను తెరవండి ›',
+  'pricing.approvalsLabel': 'ఆమోదాలు',
   'pricing.expensesLabel': 'ఖర్చులు',
   'pricing.heading': 'ఆమోదాలు',
   'pricing.policiesLabel': 'విధానాలు',
   'pricing.receiptsLabel': 'రసీదులు',
   'recoveredAmountHeroCard.label': 'తిరిగి పొందిన మొత్తం · YTD',
+  'recoveredAmountHeroCard.pending':
+    'ప్రస్తుతం అన్ని ఆమోదకులలో సమీక్ష కోసం పెండింగ్‌లో ఉన్న {{count}} రిపోర్ట్(లు).',
+  'reports.approvalFlow': 'ఆమోద ప్రవాహం',
   'reports.backToList': 'నివేదికలకు తిరిగి వెళ్లండి',
   'reports.detailFallback':
     'ప్రత్యక్ష నివేదిక అందుబాటులో లేదు — ఎంపిక చేసిన డెమో డేటాను ప్రదర్శిస్తోంది.',
   'reports.lineItems': 'లైన్ అంశాలు',
   'reports.lineItemsCount': '{{count}} ఖర్చులు',
+  'reports.lineItemsEmpty': 'ఈ రిపోర్ట్‌లో ఇంకా ఖర్చులు లేవు.',
+  'reports.openLibrary': 'రిపోర్ట్ లైబ్రరీని తెరవండి',
   'reports.policyTitle': 'పాలసీ ఫ్లాగ్',
+  'reports.selectPrompt': 'దాని వివరాలను చూడటానికి లైబ్రరీ నుండి ఒక రిపోర్ట్‌ను ఎంచుకోండి.',
   'reports.summary.lineCount': 'లైన్ అంశాలు',
   'reports.summary.reimbursable': 'తిరిగి చెల్లించదగినది',
   'reports.summary.total': 'నివేదించబడిన మొత్తం',
@@ -121,6 +164,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'ప్రత్యక్ష జాబితా అందుబాటులో లేదు — ఎంపిక చేసిన డెమో డేటాను ప్రదర్శిస్తోంది.',
   'reportsList.newReport': 'కొత్త నివేదిక',
+  'reportsList.submittedOn': '{{date}} న సమర్పించారు',
   'reportsList.title': 'నివేదిక లైబ్రరీ',
   'resetPassword.hidePassword': 'పాస్‌వర్డ్‌ను దాచండి',
   'resetPassword.newPasswordLabel': 'కొత్త పాస్‌వర్డ్',
@@ -146,6 +190,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'సేవ్ చేయబడింది ✓',
   'settings.profileSaveFailed': 'ప్రొఫైల్‌ను అప్‌డేట్ చేయలేకపోయాము. దయచేసి మళ్ళీ ప్రయత్నించండి.',
   'signup.heading': 'మీ రికూప్ ఖాతాను సృష్టించండి',
+  'signup.hidePassword': 'పాస్‌వర్డ్‌ను దాచండి',
   'signup.namePlaceholder': 'మాయా ఓకాఫోర్',
   'signup.showPassword': 'పాస్‌వర్డ్‌ను చూపించు',
   'signup.subheading': 'ప్రతి నెలా 25 ఖర్చుల వరకు ఉచితం — క్రెడిట్ కార్డ్ అవసరం లేదు.',

@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Imate povratno informacijo, ste našli napako ali načrtujete kaj ambicioznega? Pišite nam v nastavitvah računa — vsako sporočilo prebere resničen človek iz ekipe.',
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Rezervacije v enem predalu — potrditve letov, hotelov in dejavnosti prispejo točno na dan, h kateremu spadajo.',
+  'about.featureCollab':
+    'Sodelovanje v realnem času — povabite do pet popotnikov na potovanje, vsaka sprememba se sinhronizira v živo, komentarji pa so nitasti pod vsakim postankom.',
+  'about.featureMapsBudget':
+    'Zemljevidi, destinacije in skupni proračun — oglejte si celotno potovanje na zemljevidu, odkrijte destinacije, ki jih je izbral urednik, in spremljajte stroške, da nihče ne zapravi preveč.',
+  'about.featureTimelines':
+    'Časovnice po dnevih — povlecite postanke za preurejanje, vstavite segmente prevoza in opazujte, kako se načrt preračuna kot en živ dokument.',
+  'about.intro':
+    '{{app}} spremeni mapo polno nedokončanih načrtov v eno samo skupno potovanje, ki mu lahko sledi vsa vaša skupina. Sestavite načrt po dnevih, vstavite lete in hotele, vnesite vsak postanek na zemljevid in spremljajte proračun — vse na enem mirnem mestu namesto ducata zavihkov in skupinskega klepeta.',
+  'about.missionBody':
+    'Načrtovanje potovanja bi moralo dati občutek, da je potovanje že boljše, ne pa kot domača naloga. {{app}} obstaja zato, da so skupna potovanja preprosta — da vsak popotnik pride z znanim načrtom in vsak postanek pripoveduje zgodbo, vredno spomina.',
+  'about.missionTitle': 'Naše poslanstvo',
   'about.pageTitle': 'O aplikaciji {{app}}',
   'auth.legalConsent': 'S nadaljevanjem se strinjate z našimi',
   'bookings.empty.body': 'Dodajte let, hotel ali dejavnost, da odprete mapo »Prejeto«.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Hotel',
   'bookings.type.other': 'Drugo',
   'budgetSpendCard.budgetTotal': 'od {{total}} načrtovano',
+  'budgetSpendCard.overBy': '{{amount}} nad proračunom',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} nedavno',
+  'budgetSpendCard.remaining': '{{amount}} preostalo',
   'calendar.eyebrow': 'Leto, ki je pred nami',
   'calendar.heading': 'Vsako potovanje v enem samem koledarju.',
   'calendar.legendHeading': 'Potovanja v tem mesecu',
@@ -41,18 +60,28 @@ export const ui: UiTranslations = {
   'common.and': 'in',
   'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'dashboard.budgetHeading': 'Proračunski utrip',
+  'dashboard.empty.body':
+    'Načrtujte prvo potovanje in vaša nadzorna plošča se bo napolnila s časovnicami po dnevih, utripom proračuna in rezervacijami.',
+  'dashboard.empty.cta': 'Načrtujte prvo potovanje',
   'dashboard.empty.heading': 'Še ni potovanj – vaš atlas je prazen.',
   'dashboard.eyebrow': 'Nadzor misije',
   'dashboard.heading': 'Vaša naslednja pustolovščina, v enem mirnem kotičku.',
   'dashboard.newTripCta': 'Začni novo potovanje',
+  'dashboard.subheading':
+    'Odštevanje do naslednjega potovanja, današnji utrip porabe in hiter pogled na vsak načrt v teku.',
   'dashboard.tripsHeading': 'Potovanja v gibanju',
   'dashboard.viewAllExpenses': 'Oglejte si vsak strošek',
   'dashboard.viewAllTrips': 'Oglejte si vsako potovanje',
   'dayTimelineRow.category.accommodation': 'Ostani',
+  'dayTimelineRow.category.food': 'Hrana in pijača',
+  'dayTimelineRow.category.sightseeing': 'Ogledovanje znamenitosti',
   'dayTimelineRow.category.transport': 'Prevoz',
   'destinationOrbCard.exploreCta': 'Dodaj k potovanju',
   'destinationOrbCard.tripCount': '{{count}} potovanja',
+  'destinations.empty.body':
+    'Preklopite nazaj na Vse in najdbe urejevalnika se bodo znova prikazale.',
   'destinations.empty.heading': 'Še ni destinacij.',
+  'destinations.emptyFiltered.heading': 'Nič še ni označeno tako.',
   'destinations.errors.load': 'Ciljev ni bilo mogoče naložiti.',
   'destinations.eyebrow': 'Kam naprej',
   'destinations.heading': 'Shranjeni kotički in najdbe urednika.',
@@ -70,7 +99,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Prodajalec',
   'expenses.formHeading': 'Stroški dnevnika za {{trip}}',
   'expenses.heading': 'Kam dejansko gre potovalni proračun.',
+  'expenses.heroBudget': '{{pct}} % od {{total}} načrtovanega',
   'expenses.heroEyebrow': '{{trip}} • posnetek proračuna',
+  'expenses.heroNoBudget': 'Na tem potovanju še ni nastavljenega proračuna.',
   'expenses.noTrips.body':
     'Najprej načrtujte potovanje - stroški so priloženi proračunu potovanja.',
   'expenses.noTrips.heading': 'Še ni izletov.',
@@ -83,12 +114,16 @@ export const ui: UiTranslations = {
     'Vsak račun in potrditev se tukaj zbereta v pravo kategorijo - preglednica ni potrebna.',
   'forgotPassword.eyebrow': 'Obnovite svoj načrt poti',
   'forgotPassword.heading': 'Ste pozabili geslo?',
+  'forgotPassword.subheading':
+    'Vnesite e-poštni naslov, ki ste ga uporabili za {{appName}}, in poslali vam bomo povezavo za ponastavitev gesla.',
   'forgotPassword.submit': 'Pošlji e-poštno sporočilo za obnovitev',
   'forgotPassword.submitPending': 'Pošiljanje e-poštnega sporočila za obnovitev …',
   'forgotPassword.successHint':
     'Še nimate e-pošte? Preverite mapo z neželeno pošto ali poskusite znova z drugim naslovom.',
   'forgotPassword.successSubheading':
     'Poslali smo povezavo za obnovitev na {{email}} Povezava je veljavna 30 minut.',
+  'forgotPassword.tryAgain': 'Pošlji na drug e-poštni naslov',
+  'landing.cta.eyebrow': 'Začnite z brezplačnim paketom',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Ustvari brezplačen račun',
   'landing.cta.subheading':
@@ -100,8 +135,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Začnite brezplačno potovanje',
   'landing.hero.ctaSecondary': 'Oglejte si vzorec potovanja',
+  'landing.hero.eyebrow': 'Načrtovalec potovanj · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint mapo, polno napol oblikovanih načrtov, spremeni v skupen, dnevni itinerar, ki mu lahko vaša skupina dejansko sledi – z rezervacijami, zemljevidi in proračunom, ki so na enem mestu sledljivi.',
+  'landing.hero.title': 'Načrtujte enkrat. Sprehodite se skupaj.',
   'landing.nav.join': 'Začnite brezplačno potovanje',
   'landing.nav.preview': 'Znotraj smerne točke',
   'landing.preview.cta': 'Načrtujte svojega',
@@ -109,6 +146,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Nekaj potovanj, po katerih se popotniki trenutno sprehajajo',
   'login.eyebrow': 'Območje za člane',
   'login.heading': 'Dobrodošel nazaj, popotnik',
+  'login.noAccount': 'Ste novi v Tesseri?',
   'login.signupLink': 'Ustvarite brezplačen račun',
   'login.subheading':
     'Prijavite se, če želite upravljati svoja potovanja, dnevne načrte, rezervacije in vnose v dnevnik, ki ste jih že začeli.',
@@ -119,6 +157,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Obvestila ni bilo mogoče posodobiti.',
   'notifications.heading': 'Kaj se je spremenilo na vaših današnjih potovanjih.',
   'notifications.markUnread': 'Označi kot neprebrano',
+  'notifications.subheading':
+    '{{count}} novo — potrditve rezervacij, opombe sodelavcev, padci cen in opomniki.',
   'notifications.time.daysAgo': '{{count}} pred dnevi',
   'notifications.time.hoursAgo': '{{count}} pred h',
   'notifications.time.justNow': 'ravnokar',
@@ -137,6 +177,7 @@ export const ui: UiTranslations = {
     'Povezane storitve, valuta, potisna obvestila in poverilnice, s katerimi se prijavite.',
   'signup.and': 'in',
   'signup.eyebrow': 'Pridruži se točki poti',
+  'signup.haveAccount': 'Že tavate?',
   'signup.heading': 'Načrtujte enkrat. Sprehodite se skupaj.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -148,6 +189,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Odpri načrt poti',
   'tripCountdownHeroCard.ctaSecondary': 'Načrtujte še eno potovanje',
   'tripCountdownHeroCard.daysLabel': '{{days}} dni do cilja',
+  'tripCountdownHeroCard.eyebrow': 'Naslednja pustolovščina · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} noči — vaš načrt je pripravljen na pot.',
   'tripCoverCard.stops': '{{count}} postanki',
   'tripCoverCard.travelers': '{{count}} popotniki',
   'tripDetail.addActivity': 'Dodaj dejavnost',
@@ -157,6 +201,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Naslov dejavnosti',
   'tripDetail.adding': 'Dodajanje…',
   'tripDetail.backToTrips': 'Nazaj na vsa potovanja',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Popotniki',
   'tripDetail.dayLabel': 'Dan {{day}}',
   'tripDetail.empty': 'Še ni dejavnosti — dodajte eno, da začnete časovnico.',
@@ -167,14 +212,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Načrt poti • {{country}}',
   'tripDetail.invite': 'Povabi',
   'tripDetail.inviteLabel': 'Povabilo po e-pošti',
+  'tripDetail.invitePlaceholder': 'nekdo@example.com',
   'tripDetail.inviteSent': 'Povabilo poslano osebi {{email}} .',
   'tripDetail.inviting': 'Pošiljanje…',
   'tripDetail.loading': 'Nalaganje potovanja…',
   'tripDetail.noCollaborators': 'Samo ti, zaenkrat.',
+  'tripDetail.notesHeading': 'Opombe potovanja',
   'tripDetail.notesPlaceholder': 'Še ni zapiskov.',
   'tripDetail.notFound.heading': 'Potovanja ni bilo mogoče najti',
   'tripDetail.openBookings': 'Odpri mapo »Prejeto« za rezervacije',
   'tripDetail.shareCopied': 'Povezava za deljenje je bila kopirana v odložišče:',
+  'tripDetail.shareReady': 'Povezava za deljenje je pripravljena:',
   'tripDetail.stops': '{{count}} postanki',
   'tripDetail.timelineEyebrow': 'Dnevna časovnica',
   'tripDetail.timelineHeading': 'Dnevni načrt',
@@ -192,6 +240,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Popotniki',
   'tripPlanner.heading': 'Skicirajte potovanje v manj kot minuti.',
   'tripPlanner.preview.eyebrow': 'Predogled v živo',
+  'tripPlanner.preview.placeholderCountry': 'Izberite državo',
   'tripPlanner.preview.placeholderDestination': 'Vaša naslednja pustolovščina',
   'tripPlanner.section1.title': 'Kje in kdaj',
   'tripPlanner.section2.title': 'Popotniki in proračun',
@@ -200,10 +249,13 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Dan {{day}} — dodajte postanke, prevoz in rezervacije tukaj.',
   'tripPlanner.section3.day2': 'Dan {{day}} — dodajte postanke, prevoz in rezervacije tukaj.',
   'tripPlanner.section3.day3': 'Dan {{day}} — dodajte postanke, prevoz in rezervacije tukaj.',
+  'tripPlanner.section3.title': 'Začetni dnevni načrt',
   'tripPlanner.subheading':
     'Osnove spustite spodaj - vedno lahko povabite sodelavce, povlečete postanke in posredujete rezervacije pozneje.',
   'tripPlanner.submit': 'Ustvari potovanje',
   'tripPlanner.submitting': 'Ustvarjanje…',
+  'trips.empty.body': 'Preklopite nazaj na Vsa potovanja ali začnite načrtovati naslednje tavanje.',
+  'trips.empty.cta': 'Načrtuj pot',
   'trips.empty.heading': 'Temu filtru se še nič ne ujema.',
   'trips.eyebrow': 'Atlas',
   'trips.filterLabel': 'Filtriraj potovanja po stanju',
@@ -214,6 +266,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Še ni izletov.',
   'trips.pastHeading': 'Pretekle dogodivščine',
   'trips.subheading': '{{count}} poti – preteklost, sedanjost in nekega dne.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Načrtuj enkrat. Tavajta skupaj. Zapomnita si za vedno.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · {{appName}} članov od leta 2024',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} je naporno 3-tedensko potovanje po štirih državah spremenil v najbolj sproščen načrt, ki smo ga kdaj delili.',
   'waypointLayout.mobileNavClose': 'Zapri navigacijski meni',
   'waypointLayout.primaryNavLabel': 'Primarna navigacija',
 }

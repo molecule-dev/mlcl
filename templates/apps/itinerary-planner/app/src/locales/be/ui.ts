@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ёсць водгук, знайшлі памылку ці плануеце нешта грандыёзнае? Напішыце нам з налад акаўнта — кожнае паведамленне трапляе да рэальнага чалавека з каманды.',
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Браніраванні ў адной скрыні — пацверджанні рэйсаў, гатэляў і актыўнасцей трапляюць менавіта на той дзень, да якога належаць.',
+  'about.featureCollab':
+    'Сумесная праца ў рэальным часе — запрасіце да пяці падарожнікаў на паездку, усе змены сінхранізуюцца ўжыўую, а каментарыі згрупаваны пад кожнай прыпынкам.',
+  'about.featureMapsBudget':
+    'Карты, напрамкі і агульны бюджэт — убачце ўсю паездку на карце, адкрыйце для сябе напрамкі, адабраныя рэдактарамі, і адсочвайце выдаткі, каб ніхто не перавысіў бюджэт.',
+  'about.featureTimelines':
+    'Планы па днях — перацягвайце прыпынкі, каб змяніць парадак, дадавайце транспартныя адрэзкі і назірайце, як маршрут пералічваецца як адзін жывы дакумент.',
+  'about.intro':
+    '{{app}} ператварае папку, поўную няпоўных планаў, у адну сумесную паездку, якой уся ваша група сапраўды зможа прытрымлівацца. Стварыце план па днях, дадайце рэйсы і гатэлі, адзначце кожны прыпынак на карце і адсочвайце бюджэт — усё ў адным спакойным месцы замест дзясятка ўкладак і групавога чата.',
+  'about.missionBody':
+    'Планаванне паездкі павінна адчувацца так, быццам паездка ўжо робіцца лепшай, а не як хатняя праца. {{app}} існуе, каб зрабіць сумесныя паездкі лёгкімі — каб кожны падарожнік прыходзіў, ведаючы план, і кожны прыпынак расказваў гісторыю, якую варта запомніць.',
+  'about.missionTitle': 'Наша місія',
   'about.pageTitle': 'Пра {{app}}',
   'auth.legalConsent': 'Працягваючы, вы згаджаецеся з нашымі',
   'bookings.empty.body':
@@ -31,7 +47,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Гатэль',
   'bookings.type.other': 'Іншае',
   'budgetSpendCard.budgetTotal': 'з {{total}} запланаваны',
+  'budgetSpendCard.overBy': '{{amount}} перавышае бюджэт',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} нядаўніх',
+  'budgetSpendCard.remaining': '{{amount}} засталося',
   'calendar.eyebrow': 'На наступны год',
   'calendar.heading': 'Кожная паездка ў адным календары.',
   'calendar.legendHeading': 'Паездкі ў гэтым месяцы',
@@ -42,18 +61,27 @@ export const ui: UiTranslations = {
   'common.and': 'і',
   'common.goToDashboard': 'Перайсці да панэлі',
   'dashboard.budgetHeading': 'Бюджэтны пульс',
+  'dashboard.empty.body':
+    'Сплануйце сваю першую паездку, і ваша панэль напоўніцца планамі па днях, пульсам бюджэту і браніраваннямі.',
+  'dashboard.empty.cta': 'Сплануйце сваю першую паездку',
   'dashboard.empty.heading': 'Пакуль што паездак няма — ваш атлас пусты.',
   'dashboard.eyebrow': 'Кіраванне палётамі',
   'dashboard.heading': 'Ваша наступная прыгода, у адным ціхім кутку.',
   'dashboard.newTripCta': 'Пачаць новую паездку',
+  'dashboard.subheading':
+    'Зваротны адлік да наступнай паездкі, пульс сённяшніх выдаткаў і хуткі позірк на кожны маршрут у руху.',
   'dashboard.tripsHeading': 'Падарожжы ў руху',
   'dashboard.viewAllExpenses': 'Праглядзіце ўсе выдаткі',
   'dashboard.viewAllTrips': 'Глядзіце кожную паездку',
   'dayTimelineRow.category.accommodation': 'Заставацца',
+  'dayTimelineRow.category.food': 'Ежа і напоі',
+  'dayTimelineRow.category.sightseeing': 'Агляд славутасцей',
   'dayTimelineRow.category.transport': 'Транспарт',
   'destinationOrbCard.exploreCta': 'Дадаць у паездку',
   'destinationOrbCard.tripCount': '{{count}} паездкі',
+  'destinations.empty.body': "Пераключыцеся назад на «Усе», і знойдзенае рэдактарам з'явіцца зноў.",
   'destinations.empty.heading': 'Пакуль няма пунктаў прызначэння.',
+  'destinations.emptyFiltered.heading': 'Пакуль нічога з такімі пазнакамі.',
   'destinations.errors.load': 'Не атрымалася загрузіць пункты прызначэння.',
   'destinations.eyebrow': 'Куды далей',
   'destinations.heading': 'Захаваныя куткі і знаходкі рэдактара.',
@@ -72,7 +100,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Пастаўшчык',
   'expenses.formHeading': 'Выдаткі на ўлік для {{trip}}',
   'expenses.heading': 'Куды насамрэч ідзе бюджэт паездкі.',
+  'expenses.heroBudget': '{{pct}}% з {{total}} запланавана',
   'expenses.heroEyebrow': '{{trip}} • Здымак бюджэту',
+  'expenses.heroNoBudget': 'У гэтай паездцы яшчэ не зададзены бюджэт.',
   'expenses.noTrips.body': 'Спачатку сплануйце паездку — выдаткі ўключаюцца ў бюджэт паездкі.',
   'expenses.noTrips.heading': 'Пакуль што паездак няма.',
   'expenses.receiptCount': '{{count}} квітанцыі',
@@ -84,12 +114,16 @@ export const ui: UiTranslations = {
     'Тут кожная квітанцыя і пацверджанне трапляюць у патрэбную катэгорыю — электронная табліца не патрэбная.',
   'forgotPassword.eyebrow': 'Аднавіце свой маршрут',
   'forgotPassword.heading': 'Забыліся пароль?',
+  'forgotPassword.subheading':
+    'Увядзіце электронную пошту, якую вы выкарыстоўвалі для {{appName}}, і мы дашлём спасылку для скіду пароля.',
   'forgotPassword.submit': 'Адправіць электронны ліст для аднаўлення',
   'forgotPassword.submitPending': 'Адпраўка электроннага ліста для аднаўлення…',
   'forgotPassword.successHint':
     'Пакуль няма электроннай пошты? Праверце папку са спамам або паспрабуйце з іншым адрасам.',
   'forgotPassword.successSubheading':
     'Мы даслалі спасылку для аднаўлення на {{email}} Спасылка дзейнічае 30 хвілін.',
+  'forgotPassword.tryAgain': 'Адправіць на іншую пошту',
+  'landing.cta.eyebrow': 'Пачаць на бясплатным плане',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Стварыць бясплатны ўліковы запіс',
   'landing.cta.subheading':
@@ -101,8 +135,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Пачніце бясплатную паездку',
   'landing.hero.ctaSecondary': 'Глядзіце прыклад паездкі',
+  'landing.hero.eyebrow': 'Планавальнік паездак · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint ператварае папку, поўную напалову сфарміраваных планаў, у агульны штодзённы маршрут, якому ваша група можа прытрымлівацца — з браніраваннямі, картамі і бюджэтам, якія адсочваюцца ў адным месцы.',
+  'landing.hero.title': 'Сплануйце гэта адзін раз. Паблукайце разам.',
   'landing.nav.join': 'Пачніце бясплатную паездку',
   'landing.nav.preview': 'Унутры пункта маршруту',
   'landing.preview.cta': 'Сплануйце свой уласны',
@@ -110,6 +146,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Некалькі паездак, якія падарожнікі зараз робяць',
   'login.eyebrow': 'Зона для ўдзельнікаў',
   'login.heading': 'З вяртаннем, падарожнік',
+  'login.noAccount': 'Вы ўпершыню карыстаецеся Тэсерай?',
   'login.signupLink': 'Стварыце бясплатны ўліковы запіс',
   'login.subheading':
     'Увайдзіце, каб кіраваць сваімі паездкамі, планамі на дзень, браніраваннямі і запісамі ў дзённіку, якія вы ўжо пачалі.',
@@ -120,6 +157,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Не атрымалася абнавіць апавяшчэнне.',
   'notifications.heading': 'Што змянілася падчас вашых сённяшніх паездак.',
   'notifications.markUnread': 'Адзначыць як непрачытанае',
+  'notifications.subheading':
+    '{{count}} новых — пацверджанні браніраванняў, нататкі сааўтараў, зніжэнне коштаў і напаміны.',
   'notifications.time.daysAgo': '{{count}} д. таму',
   'notifications.time.hoursAgo': '{{count}} г. таму',
   'notifications.time.justNow': 'толькі што',
@@ -137,6 +176,7 @@ export const ui: UiTranslations = {
     'Падключаныя сэрвісы, валюта, push-паведамленні і ўліковыя дадзеныя, з дапамогай якіх вы ўваходзіце ў сістэму.',
   'signup.and': 'і',
   'signup.eyebrow': 'Далучыцца да пункта шляху',
+  'signup.haveAccount': 'Ужо ў дарозе?',
   'signup.heading': 'Сплануйце гэта адзін раз. Паблукайце разам.',
   'signup.namePlaceholder': 'Ірыс Ларсен',
   'signup.subheading':
@@ -148,6 +188,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Адкрыць маршрут',
   'tripCountdownHeroCard.ctaSecondary': 'Плануйце яшчэ адну паездку',
   'tripCountdownHeroCard.daysLabel': '{{days}} дзён засталося',
+  'tripCountdownHeroCard.eyebrow': 'Наступная прыгода · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} начэй — ваш маршрут гатовы да падарожжа.',
   'tripCoverCard.stops': '{{count}} прыпынкі',
   'tripCoverCard.travelers': '{{count}} падарожнікі',
   'tripDetail.addActivity': 'Дадаць актыўнасць',
@@ -157,6 +200,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Назва занятку',
   'tripDetail.adding': 'Дадаецца…',
   'tripDetail.backToTrips': 'Назад да ўсіх паездак',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Падарожнікі',
   'tripDetail.dayLabel': 'Дзень {{day}}',
   'tripDetail.empty': 'Пакуль няма дзеянняў — дадайце адну, каб пачаць храналогію.',
@@ -167,14 +211,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Маршрут • {{country}}',
   'tripDetail.invite': 'Запрасіць',
   'tripDetail.inviteLabel': 'Запрасіць па электроннай пошце',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'Запрашэнне адпраўлена {{email}} .',
   'tripDetail.inviting': 'Адпраўка…',
   'tripDetail.loading': 'Загрузка паездкі…',
   'tripDetail.noCollaborators': 'Толькі ты, пакуль што.',
+  'tripDetail.notesHeading': 'Нататкі да паездкі',
   'tripDetail.notesPlaceholder': 'Пакуль няма заўваг.',
   'tripDetail.notFound.heading': 'Паездка не знойдзена',
   'tripDetail.openBookings': 'Адкрыць паштовую скрыню браніраванняў',
   'tripDetail.shareCopied': 'Спасылка для сумеснага выкарыстання скапіравана ў буфер абмену:',
+  'tripDetail.shareReady': 'Спасылка для сумеснага доступу гатова:',
   'tripDetail.stops': '{{count}} прыпынкі',
   'tripDetail.timelineEyebrow': 'Храналогія дня',
   'tripDetail.timelineHeading': 'Штодзённы план',
@@ -192,6 +239,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Падарожнікі',
   'tripPlanner.heading': 'Намалюйце падарожжа менш чым за хвіліну.',
   'tripPlanner.preview.eyebrow': 'Папярэдні прагляд у рэжыме рэальнага часу',
+  'tripPlanner.preview.placeholderCountry': 'Выберыце краіну',
   'tripPlanner.preview.placeholderDestination': 'Ваша наступная прыгода',
   'tripPlanner.section1.title': 'Дзе і калі',
   'tripPlanner.section2.title': 'Падарожнікі і бюджэт',
@@ -200,10 +248,14 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Дзень {{day}} — дадайце сюды прыпынкі, транспарт і браніраванне.',
   'tripPlanner.section3.day2': 'Дзень {{day}} — дадайце сюды прыпынкі, транспарт і браніраванне.',
   'tripPlanner.section3.day3': 'Дзень {{day}} — дадайце сюды прыпынкі, транспарт і браніраванне.',
+  'tripPlanner.section3.title': 'Аснова плана дня',
   'tripPlanner.subheading':
     'Апусціце асноўныя звесткі ніжэй — вы заўсёды можаце запрасіць супрацоўнікаў, перацягнуць прыпынкі і пераслаць браніраванне пазней.',
   'tripPlanner.submit': 'Стварыць паездку',
   'tripPlanner.submitting': 'Стварэнне…',
+  'trips.empty.body':
+    'Пераключыцеся назад на «Усе паездкі» або пачніце планаваць наступнае падарожжа.',
+  'trips.empty.cta': 'Спланаваць паездку',
   'trips.empty.heading': 'Пакуль што нічога не адпавядае гэтаму фільтру.',
   'trips.eyebrow': 'Атлас',
   'trips.filterLabel': 'Фільтраваць паездкі па статусе',
@@ -214,6 +266,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Пакуль што паездак няма.',
   'trips.pastHeading': 'Мінулыя прыгоды',
   'trips.subheading': '{{count}} маршруты — мінулыя, цяперашнія і калі-небудзь.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Сплануйце аднойчы. Вандруйце разам. Памятайце назаўсёды.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · {{appName}} удзельнікаў з 2024',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} ператварыў напружаную 3-тыднёвую паездку па чатырох краінах у самы спакойны маршрут, які мы калі-небудзь дзялілі.',
   'waypointLayout.mobileNavClose': 'Закрыць меню навігацыі',
   'waypointLayout.primaryNavLabel': 'Асноўная навігацыя',
 }

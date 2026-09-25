@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ප්‍රතිචාර තිබේද, දෝෂයක් හමු වුණාද, නැතහොත් ඔබේ ස්ටුඩියෝවට හෝ කණ්ඩායමට {{app}} අවශ්‍යද? ඔබේ ගිණුම් සැකසුම් වෙතින් අප හා සම්බන්ධ වන්න — සෑම පණිවිඩයක්ම කණ්ඩායමේ සැබෑ පුද්ගලයෙකුට ලැබේ.',
   'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
+  'about.intro':
+    '{{app}} යනු සංස්කාරකයන්, ලේඛකයන් සහ කණ්ඩායම් එක්ව තත්‍ය කාලීනව කෙටුම්පත් කරන සහයෝගී ලේඛන ස්ටුඩියෝවකි. ලේඛනයක් විවෘත කළ විට පිටුව බෙදාගත් එකක් බවට පත්වේ — කර්සර චලනය වේ, මාජිනයේ අදහස් ගෙතේ, සහ සෑම සංශෝධනයක්ම ඉතිහාසයේ ආරක්ෂිතව තබා ගැනේ.',
+  'about.missionBody':
+    'දිගු ආකෘති ලේඛන සඳහා සන්සුන්, ඒකාග්‍ර නිවහනක් ලැබිය යුතු යැයි අපි විශ්වාස කරමු — එය රැස්වීම හෝ එන ලිපි පෙට්ටිය වටා නොව, අත්පිටපත වටා ගොඩනැගිය යුතුය. අපගේ සංස්කාරකය, තත්‍ය කාලීන සහභාගිත්වය සහ අනුවාද ඉතිහාසය සියල්ල නිර්මාණය කර ඇත්තේ සහයෝගීන්ට එකට වේගයෙන් ගමන් කළ හැකි වන පරිදි, කිසිවෙකුට ඡේදයක් හෝ අදහසක් අහිමි නොවන ලෙසය.',
+  'about.missionTitle': 'අපගේ මෙහෙවර',
+  'about.subtitle': 'එකට සිතන්න, සදාකාලිකව ලියන්න.',
   'about.title': '{{app}} පිළිබඳව',
   'comments.addFailed': 'අදහස පළ කිරීමට නොහැකි විය.',
   'comments.backToDoc': 'අත්පිටපත වෙත ආපසු',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'අදහස් නූල්',
   'comments.loading': 'නූල් පූරණය වෙමින්…',
   'comments.newPlaceholder': 'අත්පිටපතට අදහසක් එක් කරන්න...',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'නැවත විවෘත කරන්න',
   'comments.reopenFailed': 'නැවත විවෘත කිරීමට නොහැකි විය.',
   'comments.replyFailed': 'පිළිතුර පළ කිරීමට නොහැකි විය.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'මෑත කෙටුම්පත්, බෙදා ගත් කෘති සහ දවසේ සංස්කරණ.',
   'dashboard.viewFeed': 'සංග්‍රහය →',
   'editor.back': 'අත්පිටපත් වෙත ආපසු',
+  'editor.bodyLabel': 'ලේඛනයේ අන්තර්ගතය',
   'editor.bodyPlaceholder': 'කර්සරය දැල්වෙන තැනින් පටන් ගන්න.',
   'editor.comments': 'අදහස්',
   'editor.createFailed': 'ලේඛනය නිර්මාණය කිරීමට නොහැකි විය.',
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'ගිණුමක් තිබේ නම් {{email}} , යළි පිහිටුවීමේ සබැඳියක් පැමිණෙමින් තිබේ.',
+  'forgotPassword.sentHeading': 'ඔබගේ විද්‍යුත් තැපෑල පරීක්ෂා කරන්න',
+  'forgotPassword.submitting': 'යවමින්\\u2026',
   'forgotPassword.subtitle': 'අපි ඔබට යළි පිහිටුවීමේ සබැඳියක් ඊමේල් කරන්නෙමු.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . අණු සමඟ ගොඩනගා ඇත.',
+  'landing.ctaBody':
+    'තනි ලේඛකයන්ට නොමිලේ. සංස්කාරකයන්, අවතාර ලේඛකයන් සහ සමාලෝචකයන්ගේ කණ්ඩායම් සඳහා ස්ටුඩියෝ සැලසුම්.',
   'landing.ctaHeading': 'පිටුව විවෘත කරන්න. කර්සරය ආරම්භ කිරීමට ඉඩ දෙන්න.',
   'landing.ctaPrimary': 'චිත්‍රාගාරයක් විවෘත කරන්න',
   'landing.eyebrow': 'ලේඛකයින්, සංස්කාරකවරුන් සහ කණ්ඩායම් සඳහා',
   'landing.featuresEyebrow': 'ඔබට ලැබෙන දේ',
   'landing.featuresHeading': 'දිගු ආකාරයේ කෙටුම්පත සඳහා චිත්‍රාගාරයක්.',
+  'landing.featuresSubtitle':
+    '{{appName}} ගොඩනගා ඇත්තේ අත්පිටපත වටා — රැස්වීම වටා නොව, එන ලිපි පෙට්ටිය වටා නොවේ.',
   'landing.getStarted': 'මැදිරිය විවෘත කරන්න',
   'landing.heroCta': 'ලිවීම ආරම්භ කරන්න',
   'landing.heroSubtitle':
@@ -96,6 +112,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} නොකියවූ · අදහස්, සඳහන් කිරීම්, බෙදාගැනීමේ ආරාධනා සහ යෝජනා ඉල්ලීම්.',
   'presenceAvatars.label': '{{count}} සහයෝගිතාකරුවන්',
+  'privacy.intro': 'අපි ඔබේ තොරතුරු රැස් කරන, භාවිත කරන සහ ආරක්ෂා කරන ආකාරය.',
   'privacy.title': 'රහස්යතා ප්රතිපත්තිය',
   'profile.about.description': 'ඔබගේ පොදු පැතිකඩ සහ දායක පිටු සඳහා කෙටි චරිතාපදානයක්.',
   'profile.eyebrow': 'ස්ටුඩියෝ අනන්‍යතාවය',
@@ -107,7 +124,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'පැවැත්ම',
   'profile.pronouns': 'සර්වනාම',
   'profile.publicToggle': 'කණ්ඩායමේ සාමාජිකයින්ට පැතිකඩ පෙන්වන්න',
+  'profile.role': 'භූමිකාව / තනතුර',
   'profile.subtitle': 'ඔබ ඔබේ සහකරුවන්ට පෙනෙන ආකාරය.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} චිත්‍රාගාරයේ ක්‍රියාකාරී ලේඛකයින්',
   'quillonAuthBrandPanel.quote':
     '"ලිවීම තමයි එකම දේ, මම ඒක කරනකොට, මම වෙන දෙයක් කළ යුතුයි කියලා මට හිතෙන්නේ නැහැ."',
@@ -115,6 +134,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'විවෘත කරන්න →',
   'quillonKpiCard.trend': 'මෑත කාලීන ප්‍රවණතාවය',
   'quillonLayout.menu': 'මෙනුව',
+  'quillonLayout.mobileNavLabel': 'ජංගම සංචාලනය',
   'quillonLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
   'quillonStudioHero.collab': 'සහයෝගිතාකරුවන්',
   'quillonStudioHero.docs': 'ස්පර්ශ කළ ලේඛන',
@@ -123,7 +143,9 @@ export const ui: UiTranslations = {
   'quillonStudioHero.subtitle': 'අත්පිටපත ගන්න, අදහසක් දක්වන්න, ඡේදයක් ඉදිරියට තල්ලු කරන්න.',
   'quillonStudioHero.words': 'අද වචන',
   'resetPassword.confirmPlaceholder': 'නව මුරපදය නැවත කරන්න',
+  'resetPassword.passwordLabel': 'නව මුරපදය',
   'resetPassword.passwordPlaceholder': 'නව මුරපදයක් ඇතුළත් කරන්න',
+  'resetPassword.submitting': 'යළි සකසමින්…',
   'resetPassword.subtitle': 'ශක්තිමත් මුරපදයක් තෝරන්න - අවම වශයෙන් අක්ෂර 12 ක්.',
   'settings.account.description': 'ඔබ පුරනය වන ආකාරය.',
   'settings.billing.canceled': 'දායකත්වය අවලංගු කරන ලදී.',
@@ -132,7 +154,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'වින්‍යාස කර නැත',
   'settings.billing.updated': 'සැලැස්ම යාවත්කාලීන කරන ලදී.',
   'settings.editor.description': 'ඔබ ලියන අතරතුර කැන්වසය හැසිරෙන ආකාරය.',
+  'settings.editor.title': 'සංස්කාරක මනාපයන්',
   'settings.eyebrow': 'ස්ටුඩියෝ මනාපයන්',
+  'settings.language.title': 'භාෂාව',
   'settings.notifications.${n.key}.description': 'භාෂාව',
   'settings.notifications.description': 'ඔබගේ එන ලිපි පෙට්ටියට ළඟා වන දේ තෝරන්න.',
   'settings.subtitle': 'දැනුම්දීම්, සංස්කාරක කැන්වසය සහ ඔබේ ගිණුම් මනාපයන් සුසර කරන්න.',
@@ -141,6 +165,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'මා සමඟ බෙදාගත්',
   'shared.loadFailed': 'බෙදාගත් ලේඛන පූරණය කළ නොහැකි විය.',
   'shared.subtitle': 'චිත්‍රාගාරයේ ඉතිරි කොටස් වලින් අත්පිටපත්, කෙටි සටහන් සහ සටහන්.',
+  'signup.brandAttribution': 'Anaïs Park — සංස්කාරක, The Quarterly',
   'signup.brandQuote':
     '\\u201cඔබේ පළමු අත්පිටපත අමාරුම එකයි. Quillon එය අඩු පාළුවක් බවට පත් කරයි.\\u201d',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -148,6 +173,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'අනායිස්',
   'signup.heading': 'ඔබේ Quillon ගිණුම සාදන්න',
   'signup.lastNamePlaceholder': 'උද්‍යානය',
+  'signup.submitting': 'ඔබේ ස්ටුඩියෝව විවෘත වෙමින්\\u2026',
   'signup.subtitle':
     'නිහඬ මේසයක්, පරිසර සහයෝගිතාකරුවන් සහ ඔබේ මාර්ගයෙන් බැහැර වන දිගු ආකෘති සංස්කාරකයෙක්.',
   'templates.blank.subtitle': 'පිරිසිදු පිටුවක්. කර්සරය ආරම්භ වේ.',
@@ -160,11 +186,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'කල්පනාකාරී ව්‍යුහයකින් පටන් ගන්න. නිමක් නැතිව අභිරුචිකරණය කරන්න.',
   'templates.useFailed': 'මෙම සැකිල්ලෙන් ලේඛනයක් ආරම්භ කිරීමට නොහැකි විය.',
   'templates.useTemplate': 'මෙම සැකිල්ල භාවිතා කරන්න',
+  'terms.intro': 'ඔබට මෙම සේවාව භාවිත කළ හැකි කොන්දේසි.',
   'terms.title': 'සේවා කොන්දේසි',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'මේ දැන්',
   'trash.confirmDelete': 'මැකීම තහවුරු කරන්න',
+  'trash.confirmEmpty': 'තහවුරු කරන්න — සියල්ල මකන්න',
   'trash.deleteFailed': 'මැකීමට නොහැකි විය.',
   'trash.deleteForever': 'සදහටම මකන්න',
   'trash.empty': 'නැවත ලබා ගැනීමට කිසිවක් නැත.',
@@ -178,7 +206,9 @@ export const ui: UiTranslations = {
   'versionHistory.backToDoc': 'අත්පිටපත වෙත ආපසු',
   'versionHistory.empty': 'තවම සංශෝධන නොමැත — එහි ඉතිහාසය ආරම්භ කිරීමට ලේඛනය සුරකින්න.',
   'versionHistory.heading': 'අනුවාද ඉතිහාසය',
+  'versionHistory.latest': 'නවතම',
   'versionHistory.loadFailed': 'ඉතිහාසය පූරණය කළ නොහැකි විය.',
+  'versionHistory.noContent': 'මෙම සංශෝධනය සඳහා කිසිදු අන්තර්ගතයක් ග්‍රහණය කර නැත.',
   'versionHistory.previewing': 'පෙරදසුන් කරමින්',
   'versionHistory.restore': 'මෙම අනුවාදය ප්‍රතිසාධනය කරන්න',
   'versionHistory.restoreFailed': 'ප්‍රතිසාධනය අසාර්ථක විය.',

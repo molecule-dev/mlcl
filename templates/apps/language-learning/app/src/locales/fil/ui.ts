@@ -1,12 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May mga tanong, feedback, o bug na gustong i-report? Makipag-ugnayan sa team mula sa settings ng iyong account — bawat mensahe ay napupunta sa tunay na tao na nag-aaral din ng mga wika.',
   'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol sa amin',
+  'about.missionTitle': 'Ang aming misyon',
+  'about.whatYouGet': 'Ano ang matatanggap ninyo',
   'common.goToDashboard': 'Pumunta sa Dashboard',
   'common.logout': 'Mag-logout',
+  'dailyStatsTriad.heartsHint': 'Mag-refill sa simula ng bawat aralin',
   'dailyStatsTriad.heartsLabel': 'Mga Puso',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
+  'dailyStatsTriad.minutesHint': 'Mula sa mga ehersisyo ngayong araw',
   'dailyStatsTriad.minutesLabel': 'Minuto ngayon',
   'dailyStatsTriad.minutesValue': '{{count}} minuto',
   'dailyStatsTriad.wordsLabel': 'Mga salitang pinag-aralan',
@@ -15,19 +21,30 @@ export const ui: UiTranslations = {
   'dashboard.heading': 'Buenos días, {{name}} .',
   'dashboard.loadError':
     'Hindi ma-load ang pinakabagong progreso — ipinapakita ang mga naka-cache na value.',
+  'dashboard.loading': 'Nakakapresko…',
   'dashboard.noLessons':
     'Wala pang mga aralin na magagamit — bumalik muli sa lalong madaling panahon.',
+  'dashboard.startPractice': 'Simulan ang pagsasanay sa pagsasalita',
+  'dashboard.subheading':
+    'Ipagpatuloy kung saan ka tumigil — tatlong maiikling sesyon at maaabot mo na ang target ngayong araw.',
   'dashboard.viewAllLessons': 'Lahat ng aralin →',
+  'forgotPassword.subheading': 'Ilagay ang iyong email at magpapadala kami ng reset link.',
   'forgotPassword.successBody':
     'Tingnan ang iyong inbox — nagpadala kami ng link para i-reset ito.',
   'forgotPassword.successHint':
     'Kung {{email}} tumutugma sa isang account, darating ang link sa loob ng isang minuto.',
+  'landing.copyright': '© {{year}} {{app}}. Ginawa para sa mga adultong nag-aaral.',
   'landing.ctaBody':
     'Hindi kailangan ng card. I-drop ang iyong email, pumili ng wika, magsimula bukas.',
   'landing.ctaHeading': 'Handa ka na bang mahanap ang iyong accent?',
   'landing.eyebrow': 'Pang-araw-araw na pagsasanay sa wika para sa mga matatanda',
   'landing.featuresHeading': 'Isang siklo ng pagsasanay na gumagalang sa iyong oras',
+  'landing.featuresSubheading':
+    'Dinisenyo para sa mga adulto na may tatlumpung minuto sa isang araw, hindi tatlumpung oras sa isang linggo.',
   'landing.heroCta': 'Magsimula ng 7-araw na sunod-sunod na panahon',
+  'landing.heroSubtitle':
+    'Limang-minutong mga aralin na kasya sa coffee break. Mga drill, vocab, pagsasalita — lahat nakabalot sa streak na talagang mapananatili mo.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.languagesEyebrow': 'Pumili ng wika',
   'landing.languagesHeading': 'Labing-apat na wika, isang pang-araw-araw na gawi',
   'landing.proof.languages': '{{count}} wika',
@@ -42,11 +59,18 @@ export const ui: UiTranslations = {
   'leaderboard.heading': 'Leaderboard',
   'leaderboard.loadError': 'Hindi ma-load ang leaderboard.',
   'leaderboard.loading': 'Naglo-load ng leaderboard…',
+  'leaderboard.rewardBody':
+    'Ang paghawak ng ginto sa tatlong linggo nang sunod-sunod ay nagpo-promote sa iyo sa diamond. Friendly na stakes lang.',
+  'leaderboard.rewardEyebrow': 'Premyo ngayong linggo',
+  'leaderboard.rewardHeading': 'Ang nangungunang {{count}} ay makakakuha ng gold league badge',
   'leaderboard.subheading':
     'XP ngayong linggo. Magre-reset sa Linggo ng hatinggabi sa iyong lokal na oras.',
   'leaderboard.weeklyPeriod': 'Ngayong linggo · mga kaibigan',
+  'leaderboardPanel.rankSuffix': 'Ranggo # {{rank}}',
   'leaderboardPanel.title': 'Leaderboard ng mga kaibigan',
+  'leaderboardPanel.xp': '{{xp}} XP',
   'leaderboardPanel.you': '(Ikaw)',
+  'lessonCard.continue': 'Magpatuloy →',
   'lessonCard.duration': '{{min}} minuto',
   'lessonCard.level': 'Antas {{level}}',
   'lessonCard.progressPercent': '{{percent}} % kumpleto',
@@ -55,14 +79,17 @@ export const ui: UiTranslations = {
   'lessonDetail.check': 'Suriin',
   'lessonDetail.checking': 'Sinusuri…',
   'lessonDetail.correct': 'Napakatalino!',
+  'lessonDetail.correctHint': '+{{xp}} XP. Magpatuloy ka lang.',
   'lessonDetail.empty': 'Walang mga pagsasanay sa araling ito.',
   'lessonDetail.exit': 'Paglabas ng aralin',
   'lessonDetail.fillBlank': 'Punan ang patlang',
   'lessonDetail.finish': 'Tapusin ang aralin',
   'lessonDetail.incorrect': 'Hindi naman talaga — " {{answer}} ""',
+  'lessonDetail.incorrectHint': 'Makikita mo ulit ito sa review bukas.',
   'lessonDetail.lessonId': 'Aralin · {{id}}',
   'lessonDetail.loadError': 'Hindi ma-load ang mga ehersisyo.',
   'lessonDetail.loading': 'Naglo-load ng aralin…',
+  'lessonDetail.pronunciation': 'Piliin ang tamang pagbigkas',
   'lessonDetail.submitError': 'Hindi maisumite ang sagot.',
   'lessonDetail.translation': 'Isalin ang parirala',
   'lessonDetail.xpEarned': 'XP na nakuha · {{xp}}',
@@ -81,6 +108,12 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'Buksan ang menu ng nabigasyon',
   'parlanceLayout.nav.profile': 'Profile',
   'parlanceLayout.primaryNavLabel': 'Pangunahing navigation',
+  'planUpdated.body':
+    'Aktibo na ang pagbabago sa iyong billing. Maaari mong pamahalaan ang iyong plano anumang oras mula sa billing page.',
+  'planUpdated.retry': 'Subukan muli',
+  'planUpdated.verifyFailed': 'Hindi pa namin makumpirma ang iyong bayad.',
+  'planUpdated.verifyFailedBody':
+    'Maaaring pinoproseso pa rin ang iyong bayad. Subukan muli maya-maya.',
   'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'practice.empty': 'Wala pang magagamit na mga parirala.',
   'practice.eyebrow': 'Pagsasanay sa pagsasalita',
@@ -104,6 +137,9 @@ export const ui: UiTranslations = {
   'pricing.limits.progress': 'mga entry sa pag-unlad',
   'profile.anonymous': 'Mag-aaral',
   'profile.avatarAlt': '{{name}} avatar ng',
+  'profile.eyebrow': 'Miyembro mula {{joined}}',
+  'profile.eyebrowNew': 'Bagong nag-aaral',
+  'profile.langLessonCount': '{{count}} mga aralin',
   'profile.langLevel': 'Antas {{level}}',
   'profile.languages': 'Mga wika',
   'profile.languagesHeading': 'Mga wikang isinasagawa',
@@ -114,6 +150,7 @@ export const ui: UiTranslations = {
   'profile.streak': 'Streak',
   'profile.totalXp': 'Kabuuang XP',
   'resetPassword.confirmPlaceholder': 'I-type mo ulit',
+  'resetPassword.mismatch': 'Hindi tugma ang mga password.',
   'resetPassword.newPasswordLabel': 'Bagong password',
   'resetPassword.newPasswordPlaceholder': 'Walong karakter o higit pa',
   'resetPassword.subheading':
@@ -122,6 +159,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Mga kagustuhan sa pagsasanay',
   'settings.goalBody':
     'Gaano karaming XP ang iyong target bawat araw. May mga streak na pinapanatili tuwing naabot mo ang layunin.',
+  'settings.goalHeading': 'Pang-araw-araw na layunin',
   'settings.goalMinutes': '~ {{min}} minuto/araw',
   'settings.language.description': 'Piliin ang wikang gagamitin sa mga menu at label ng app.',
   'settings.language.title': 'Wika ng interface',

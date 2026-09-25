@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
+  'about.featureAlerts':
+    'Arifa za bei kwa masharti muhimu, zinazotumwa kwa barua pepe na push ili usikose mwendo wowote.',
+  'about.featureMarkets':
+    'Data ya soko ya moja kwa moja na chati za bei kwa maelfu ya sarafu, zilizopangwa kwa market cap, volume, na momentum.',
+  'about.featurePortfolio':
+    'Ufuatiliaji wa portfolio na faida-na-hasara halisi, cost basis, na mgawanyo — umeunganishwa na historia yako ya miamala.',
+  'about.featureWatchlist':
+    'Orodha ya ufuatiliaji ya kibinafsi na habari za crypto zilizochaguliwa zenye ishara kuhusu mali unazofuatilia.',
+  'about.missionTitle': 'Dhamira yetu',
+  'alertConditionCard.armedSince': 'Imewekwa tayari tangu {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'Imechochewa {{wakati}}',
   'alertConditionCard.confirmDelete': 'Thibitisha kufuta',
+  'alertConditionCard.deleteAriaLabel': 'Futa arifa',
   'alertConditionCard.pauseAriaLabel': 'Sitisha arifa',
   'alertConditionCard.resumeAriaLabel': 'Arifa ya wasifu',
+  'alertConditionCard.triggeredAt': 'Imeanzishwa {{when}}',
   'alertNew.condition': 'Hali',
   'alertNew.createCta': 'Unda arifa',
   'alertNew.error': 'Haikuweza kuunda arifa.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Hakuna arifa bado.',
   'alerts.eyebrow': 'Bourse tripwires',
   'alerts.loadError': 'Imeshindwa kupakia arifa.',
+  'alerts.newCta': '+ Tripwire mpya',
   'alerts.subheading': 'Unasumbuliwa wakati bei, mabadiliko, au ujazo unavuka mstari wako.',
   'alerts.summary.armed': 'Silaha',
   'alerts.summary.triggered': 'Imechochewa',
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Kiwango cha juu cha wakati wote',
   'coinDetail.allTimeLow': 'Kiwango cha chini cha wakati wote',
   'coinDetail.back': 'Masoko yote',
+  'coinDetail.chartAriaLabel': 'Chati ya bei ya {{name}}, siku 30 zilizopita',
   'coinDetail.chartHeading': 'Bei · siku 30 zilizopita',
   'coinDetail.circulating': 'Ugavi unaozunguka',
   'coinDetail.fdv': 'Thamani iliyopunguzwa kikamilifu',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Weka upya kiungo kilichounganishwa kwa waya.',
   'login.eyebrow': 'Ingia kwenye kituo',
   'login.heading': 'Karibu tena, mtoa ishara.',
+  'login.noAccountQuestion': 'Mgeni kwa Tessera?',
   'login.secureNote': '🔒 Imesimbwa kwa njia fiche wakati wa usafiri',
   'login.signingInCta': 'Kusoma kanda…',
   'login.signupLink': 'Fungua akaunti →',
@@ -93,6 +109,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Njia uliyochanganua haibadiliki kuwa sarafu au ukurasa unaojulikana. Angalia tena alama hiyo na ujaribu tena.',
   'notFound.browseMarkets': 'Vinjari masoko',
+  'notFound.eyebrow': 'Ishara ya {{appName}} imepotea',
+  'notFound.heading': 'Ishara hii iko nje ya masafa',
+  'planUpdated.body':
+    'Mabadiliko yako ya malipo sasa yanafanya kazi. Unaweza kusimamia mpango wako wakati wowote kutoka ukurasa wa malipo.',
+  'planUpdated.retry': 'Jaribu tena',
+  'planUpdated.verifyFailed': 'Hatukuweza kuthibitisha malipo yako bado.',
+  'planUpdated.verifyFailedBody':
+    'Huenda malipo yako bado yanashughulikiwa. Jaribu tena baada ya muda mfupi.',
   'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'portfolio.addError': 'Ingiza ishara, kiasi chanya, na gharama.',
   'portfolio.addHoldingCta': '+ Ongeza kushikilia',
@@ -116,11 +140,13 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Jumla ya thamani ya kwingineko',
   'portfolioHeroCard.totalPnl': 'Jumla ya P/L',
   'pricing.heading': 'arifa',
+  'pricing.limit.alerts': 'arifa',
   'pricing.limit.coins': 'sarafu',
   'pricing.limit.market': 'soko',
   'pricing.limit.portfolio': 'kwingineko',
   'resetPassword.eyebrow': 'Msimbo mpya wa siri',
   'resetPassword.missingToken': 'Kiungo hiki cha kuweka upya hakipo au si sahihi. Omba kipya.',
+  'resetPassword.passwordPlaceholder': 'Nenosiri jipya',
   'resetPassword.subheading': 'Chagua kitu ambacho unaweza tu kukitambua.',
   'settings.apiKeys.body':
     'Funguo za kusoma pekee ili kuingiza historia ya miamala. Unganisha kupitia OAuth kutoka /bei mara tu unapojisajili.',
@@ -132,18 +158,34 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Sarafu ya nukuu',
   'settings.preferences.locale': 'Eneo',
   'settings.preferences.push': 'Sukuma',
+  'settings.preferences.refresh': 'Usasishaji wa bei (sekunde)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning': 'Ufikiaji wa kifaa hiki utabatilishwa hivi karibuni. Kiondoe?',
   'settings.security.body':
     'Mipangilio ya nenosiri na vipengele viwili inadhibitiwa na akaunti yako.',
   'settings.signOutDevice': 'Toka',
   'settings.twoFactorCode': 'Nambari ya uthibitishaji',
   'settings.twoFactorDisable': 'Zima',
+  'settings.twoFactorDisableTitle': 'Zima uthibitishaji wa hatua mbili',
   'settings.twoFactorEnable': 'Washa',
+  'settings.twoFactorEnableTitle': 'Washa uthibitishaji wa hatua mbili',
   'settings.twoFactorInvalidCode': 'Nambari batili',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Msimbo wa QR wa hatua mbili',
+  'settings.twoFactorScan':
+    'Skani msimbo huu wa QR kwa programu yako ya uthibitishaji, kisha weka msimbo wa tarakimu 6.',
+  'settings.twoFactorUnavailable':
+    'Uthibitishaji wa vipengele viwili haupatikani kwa programu hii.',
   'settings.twoFactorVerify': 'Thibitisha na uwashe',
   'sigilAuthShell.backHomeCta': '← Rudi kwenye Bourse',
+  'sigilAuthShell.brandBody':
+    'Bei za moja kwa moja, P/L ya portfolio, na wards zilizosimama kwa masharti muhimu — zote kwenye terminal moja.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — imejengwa kwenye Molecule',
+  'sigilAuthShell.brandHeadline': 'Tambua kila ishara katika leja nzima.',
+  'sigilAuthShell.samplePortfolio': 'Portfolio ya mfano',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Usogezaji mkuu',
+  'signup.creating': 'Inafungua terminal yako…',
   'signup.eyebrow': 'Fungua kituo',
   'signup.heading': 'Unda Bourse yako',
   'signup.subheading': 'Fuatilia kila sarafu, zuia kila kosa. Huru kuanza.',
@@ -160,6 +202,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Imeshindwa kupakia miamala.',
   'watchlist.addCta': 'Vinjari masoko',
   'watchlist.col.change24h': 'Saa 24',
+  'watchlist.col.coin': 'Sarafu',
   'watchlist.col.marketCap': 'Kofia ya Mkt',
   'watchlist.empty':
     'Hakuna sarafu kwenye orodha yako ya kutazama — nyota sarafu kutoka /markets za kuziongeza.',

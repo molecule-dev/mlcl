@@ -1,26 +1,40 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'તમારી ટીમ માટે વધુ ઉષ્માભર્યું ઓનબોર્ડિંગ શરૂ કરવું છે, બગ મળ્યો છે, કે પ્રતિસાદ આપવો છે? તમારા એકાઉન્ટ સેટિંગ્સમાંથી સંપર્ક કરો — દરેક સંદેશ સાચા માણસ સુધી પહોંચે છે જે મદદ કરી શકે.',
   'about.contactTitle': 'અમારી સાથે વાત કરો',
   'about.eyebrow': 'વિશે',
+  'about.missionTitle': 'અમારું ધ્યેય',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com પર જાઓ',
   'auth.forgotPassword.heading': 'તમારો પાસવર્ડ રીસેટ કરો.',
+  'auth.forgotPassword.panel.body':
+    'રીસેટમાં 30 સેકન્ડ લાગે છે — તમારી ચેકલિસ્ટની પ્રગતિ રાહ જોઈ રહી છે.',
+  'auth.forgotPassword.panel.headline': 'તમે જ્યાં છોડ્યું હતું ત્યાં જ પાછા.',
+  'auth.forgotPassword.subheading': 'તમારો વર્ક ઈમેલ દાખલ કરો અને અમે તમને રીસેટ લિંક મોકલીશું.',
   'auth.forgotPassword.successSubheading': 'તમારા ઇનબોક્સ તપાસો — અમે રીસેટ સૂચનાઓ મોકલી છે.',
   'auth.login.emailPlaceholder': 'name@yourcompany.com પર જાઓ',
   'auth.login.heading': 'ફરી સ્વાગત છે.',
   'auth.login.passwordPlaceholder': 'તમારો પાસવર્ડ',
+  'auth.login.signupPrompt': 'તમારી ટીમમાં નવા છો?',
   'auth.login.subheading':
     'તમારી ઓનબોર્ડિંગ યાત્રા જ્યાંથી છોડી હતી ત્યાંથી શરૂ કરવા માટે સાઇન ઇન કરો.',
   'auth.login.submit': 'તમારી યાત્રા ચાલુ રાખો',
+  'auth.panel.body':
+    'તમારી વ્યક્તિગત ચેકલિસ્ટ, તાલીમના માઈલસ્ટોન અને ટીમ પરિચય — બધું એક શાંત જગ્યામાં.',
   'auth.panel.footnote': '© એમ્બાર્ક — આજથી પહેલા લોકોને ઓનબોર્ડ કરી રહ્યા છીએ.',
   'auth.panel.headline': 'આત્મવિશ્વાસપૂર્ણ પહેલા 90 દિવસ અહીંથી શરૂ થાય છે.',
   'auth.resetPassword.heading': 'નવો પાસવર્ડ સેટ કરો.',
   'auth.resetPassword.newPasswordLabel': 'નવો પાસવર્ડ',
+  'auth.resetPassword.panel.body':
+    'નવો પાસવર્ડ સાચવો અને અમે તમને તમારી ઓનબોર્ડિંગ યાત્રામાં પાછા લઈ જઈશું.',
+  'auth.resetPassword.panel.headline': 'લગભગ પાછા આવી ગયા.',
   'auth.resetPassword.subheading': 'તમને યાદ રહે તેવી કોઈ વસ્તુ પસંદ કરો - ઓછામાં ઓછા 8 અક્ષરો.',
   'auth.signup.emailPlaceholder': 'name@yourcompany.com પર જાઓ',
   'auth.signup.heading': 'તમારા પહેલા ૯૦ દિવસમાં આપનું સ્વાગત છે.',
   'auth.signup.panel.body':
     'માર્ગદર્શિત ચેકલિસ્ટ, ભૂમિકા-જાગૃત તાલીમ, અને માનવ પરિચય - તમે અંદર આવો તે પહેલાં તૈયાર.',
+  'auth.signup.panel.headline': 'પહેલા દિવસે જ, પહેલા દિવસે.',
   'auth.signup.subheading':
     'તમારી માર્ગદર્શિત ઓનબોર્ડિંગ યાત્રા શરૂ કરવા માટે તમારું એમ્બાર્ક એકાઉન્ટ બનાવો.',
   'checklist.empty.body': 'અન્ય કાર્યો જોવા માટે ફિલ્ટર સ્વિચ કરો.',
@@ -28,6 +42,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'ઓનબોર્ડિંગ · ચેકલિસ્ટ',
   'checklist.loading': 'તમારી ચેકલિસ્ટ લોડ કરી રહ્યું છે…',
   'checklist.stat.actionNeeded': 'કાર્યવાહી જરૂરી છે',
+  'checklist.stat.completion': 'પૂર્ણતા',
+  'checklist.stat.inProgress': 'પ્રગતિમાં છે',
   'checklist.stat.inProgressHelper': 'તમે જ્યાંથી છોડ્યું હતું ત્યાંથી શરૂ કરો',
   'checklist.stat.overdueHelper': 'પહેલા આને પકડો',
   'checklist.subtitle':
@@ -59,6 +75,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'હજુ સુધી કોઈ દસ્તાવેજો નથી',
   'documents.eyebrow': 'ઓનબોર્ડિંગ · દસ્તાવેજો',
   'documents.loading': 'દસ્તાવેજો લોડ કરી રહ્યું છે...',
+  'documents.stat.actionNeeded': 'હમણાં સાઇન ઇન કરો',
+  'documents.stat.all': 'બધા દસ્તાવેજો',
   'documents.stat.allHelper': 'શ્રેણીઓમાં',
   'documents.stat.pending': 'બાકી સહીઓ',
   'documents.stat.pendingHelper': 'પૂર્ણ કરવા માટે જરૂરી',
@@ -66,21 +84,27 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'સુરક્ષિત રીતે સંગ્રહિત',
   'documents.status.optional': 'વૈકલ્પિક',
   'documents.status.required': 'જરૂરી',
+  'documents.status.signed': 'સહી કરેલ',
   'documents.subtitle': 'તમારી હેન્ડબુક, ફોર્મ્સ અને હસ્તાક્ષરિત કરારો - બધું એક જ જગ્યાએ.',
   'documents.title': 'તમારે વાંચવા અને સહી કરવા માટે જરૂરી બધું.',
   'documents.uploadedRecently': 'તાજેતરમાં અપલોડ કરેલ',
   'documentViewer.breadcrumbCurrent': 'દર્શક',
   'documentViewer.breadcrumbDocs': 'દસ્તાવેજો',
   'documentViewer.downloadMeta': 'મેટાડેટા ડાઉનલોડ કરો',
+  'documentViewer.helpBody':
+    'People & Culture હેન્ડબુકના પ્રશ્નોના જવાબ Slack પર #ask-people માં આપે છે.',
   'documentViewer.helpEyebrow': 'મદદ જોઈએ છે?',
   'documentViewer.loadError': 'અમે આ દસ્તાવેજ લોડ કરી શક્યા નથી.',
   'documentViewer.loading': 'દસ્તાવેજ લોડ કરી રહ્યું છે…',
   'documentViewer.notFound': 'દસ્તાવેજ મળ્યો નથી',
+  'documentViewer.previewBody':
+    'અપલોડ ગોઠવાયેલા હોય ત્યારે અમે ફાઈલ ઈનલાઈન દર્શાવીએ છીએ. હાલમાં, મેટાડેટા ડાઉનલોડ તમને રેકોર્ડ સાચો છે તેની ખાતરી કરવા દે છે.',
   'documentViewer.previewBodyExternal': 'ફાઇલને નવા ટેબમાં ખોલવા માટે ડાઉનલોડ બટનનો ઉપયોગ કરો.',
   'documentViewer.previewTitle': 'દસ્તાવેજ પૂર્વાવલોકન',
   'documentViewer.sign': 'સહી કરો અને સ્વીકારો',
   'documentViewer.signatureBody': 'દસ્તાવેજ વાંચો, પછી સહી કરવા અને સ્વીકારવા માટે નીચે ક્લિક કરો.',
   'documentViewer.signatureHeading': 'સહી જરૂરી છે',
+  'documentViewer.signed': '✓ સહી થઈ અને ફાઈલ થયું',
   'documentViewer.signing': 'સહી કરી રહ્યું છે...',
   'documentViewer.uploadedRecently': 'તાજેતરમાં અપલોડ કરેલ',
   'landing.closing.body':
@@ -90,10 +114,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'મારી પાસે પહેલેથી જ એક ખાતું છે.',
   'landing.feature1.body':
     'દરેક કાર્ય - કાગળકામ, હિસાબ, પ્રસ્તાવના - નિયત તારીખો અને યોગ્ય માલિક સાથે પૂર્વ-પગલું.',
+  'landing.feature1.title': 'માર્ગદર્શિત ચેકલિસ્ટ',
   'landing.feature2.body':
     '૩૦/૬૦/૯૦ માઇલસ્ટોન પર મોડ્યુલ્સ અનલોક થાય છે, ભૂમિકા અને ભાડે રાખેલી ટીમ સાથે સુસંગત.',
+  'landing.feature2.title': 'ભૂમિકા-જાગૃત તાલીમ',
   'landing.feature3.body':
     'મિત્રો, મેનેજરો અને ક્રોસ-ફંક્શનલ ઇન્ટ્રો શેડ્યૂલ કરેલ છે — જેથી કોઈ એકલા શરૂઆત ન કરે.',
+  'landing.feature3.title': 'સાચા પરિચય',
   'landing.featureEyebrow': 'શા માટે એમ્બાર્ક',
   'landing.featureHeadline': 'એમ્બાર્ક પ્રથમ દિવસે વિશ્વાસ કમાવવાની ત્રણ રીતો.',
   'landing.footer.rights': 'બધા હકો અમારી પાસે રાખેલા છે.',
@@ -103,6 +130,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'આગળ: મંગળવાર સવારે 10:00 વાગ્યે - 30 મિનિટની કોફી ચેટ માટે તમારા મિત્રને મળો.',
   'landing.preview.eyebrow': '90 માંથી 14મો દિવસ — નમૂના ડેશબોર્ડ',
+  'landing.preview.headline': 'પાછા સ્વાગત, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR તૈયાર છે',
   'landing.proof.teams': '50-5,000 ની ટીમો માટે બનાવેલ',
   'landing.proof.time': '૧૪-દિવસની મફત અજમાયશ',
@@ -119,16 +147,25 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'ગઈકાલે',
   'planUpdated.message': 'તમે બધું તૈયાર છો.',
   'planUpdated.preparing': 'તમારો પ્લાન અપડેટ કરી રહ્યાં છીએ…',
+  'planUpdated.retry': 'ફરી પ્રયાસ કરો',
+  'planUpdated.verifyFailed': 'અમે હજુ સુધી તમારી ચુકવણીની પુષ્ટિ કરી શક્યા નથી.',
+  'planUpdated.verifyFailedBody':
+    'તમારી ચુકવણી હજુ પણ પ્રક્રિયામાં હોઈ શકે છે. થોડીવારમાં ફરી પ્રયાસ કરો.',
   'planUpdated.verifying': 'તમારી ચુકવણીની પુષ્ટિ કરી રહ્યા છીએ…',
   'pricing.documentsLabel': 'દસ્તાવેજો',
   'pricing.onboardingsLabel': 'ઓનબોર્ડિંગ',
   'pricing.tasksLabel': 'કાર્યો',
   'profile.dayNumber': 'દિવસ',
   'profile.detailsHeading': 'ઓનબોર્ડિંગ વિગતો',
+  'profile.encouragementBody': 'તમારા બડી અને મેનેજરને જાણમાં રાખો — નાના પગલાં એકઠા થાય છે.',
   'profile.milestones': 'સીમાચિહ્નો',
   'profile.progressEyebrow': 'ઓનબોર્ડિંગ પ્રગતિ',
   'profile.tasks': 'કાર્યો',
   'profile.unknownName': 'સ્વાગત છે',
+  'settings.appearance.description': 'લાઇટ અને ડાર્ક મોડ વચ્ચે ટૉગલ કરો.',
+  'settings.appearance.title': 'દેખાવ',
+  'settings.subtitle':
+    'સૂચનાઓ, સુરક્ષા, ઉપકરણો અને ડેટા એક્સપોર્ટ ગોઠવો — બધું અહીં જ રહે છે, તમારી શરતો પર.',
   'settings.title': 'સેટિંગ્સ અને પસંદગીઓ.',
   'taskDetail.backToChecklist': 'ચેકલિસ્ટ પર પાછા જાઓ',
   'taskDetail.breadcrumbChecklist': 'ચેકલિસ્ટ',
@@ -141,7 +178,10 @@ export const ui: UiTranslations = {
   'taskDetail.notFound': 'કાર્ય મળ્યું નથી',
   'taskDetail.notFoundBody':
     'આ કાર્ય કાઢી નાખવામાં આવ્યું હોઈ શકે છે અથવા બીજા વપરાશકર્તાનું હોઈ શકે છે.',
+  'taskDetail.tipBody':
+    'જો તમે અટકી ગયા હો, તો Slack પર તમારા ઓનબોર્ડિંગ બડીને સંદેશ મોકલો — તેઓ તમારી પ્રથમ મદદ છે.',
   'taskDetail.tipEyebrow': 'ઝડપી ટિપ',
+  'team.empty.body': 'વધુ વ્યાપક શોધ અજમાવો અથવા બીજો વિભાગ પસંદ કરો.',
   'team.empty.title': 'કોઈ ટીમના સાથીઓ મેળ ખાતા નથી',
   'team.eyebrow': 'ઓનબોર્ડિંગ · લોકો',
   'team.loading': 'ટીમના સાથીઓને લોડ કરી રહ્યું છે...',
@@ -164,14 +204,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'સીમાચિહ્નો',
   'timeline.stat.current': 'વર્તમાન સીમાચિહ્નરૂપ',
   'timeline.stat.next': 'આગલું અનલૉક',
+  'timeline.stat.progress': 'એકંદરે',
   'timeline.subtitle':
     'દરેક સીમાચિહ્નરૂપ નવા મોડ્યુલો, પ્રસ્તાવનાઓ અને વૃદ્ધિ વાર્તાલાપ ખોલે છે. કોઈ દબાણ નહીં - ફક્ત પ્રગતિ.',
+  'timeline.tipBody':
+    'તમારા મેનેજર સાથે દિવસ 30, 60 અને 90 પર 30 મિનિટનું વિચાર-મંથન ગોઠવો — તે પ્રતિસાદને ચોક્કસ અને પ્રગતિને દૃશ્યમાન બનાવે છે.',
   'timeline.tipEyebrow': 'મેનેજર ટિપ',
+  'timeline.tipTitle': 'માઈલસ્ટોન માટે કેલેન્ડરમાં સમય બ્લોક કરો.',
   'timeline.title': 'તમારી ૩૦/૬૦/૯૦ ની યાત્રા.',
   'training.badge.notStarted': 'શરૂ થયું નથી',
   'training.empty': 'હજુ સુધી કોઈ તાલીમ મોડ્યુલ નથી.',
   'training.eyebrow': 'ઓનબોર્ડિંગ · તાલીમ',
   'training.loading': 'મોડ્યુલ્સ લોડ કરી રહ્યું છે…',
+  'training.stat.all': 'મોડ્યુલ સોંપાયા',
   'training.subtitle':
     'તમારી ભૂમિકા સાથે મેળ ખાતા મોડ્યુલ 30/60/90 વાગ્યે અનલૉક થાય છે. જરૂરી મોડ્યુલ પહેલા આવે છે.',
   'training.title': 'કુશળતા, સાધનો અને વાર્તાઓ - તમારી ગતિએ.',
@@ -183,9 +228,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'મોડ્યુલ મળ્યું નથી',
   'trainingModule.quizBody': 'આ મોડ્યુલને પૂર્ણ તરીકે ચિહ્નિત કરવા માટે 80% કે તેથી વધુ સ્કોર કરો.',
   'trainingModule.quizHeading': 'મોડ્યુલના અંતની ક્વિઝ',
+  'trainingModule.quizLocked': 'પહેલા મોડ્યુલ શરૂ કરો',
   'trainingModule.quizNone': 'આ મોડ્યુલ પર કોઈ ક્વિઝ નથી.',
   'trainingModule.quizRetry': 'ફરી પ્રયાસ કરો',
+  'trainingModule.quizStart': 'ક્વિઝ શરૂ કરો',
   'trainingModule.quizSubmit': 'જવાબો સબમિટ કરો',
+  'trainingModule.start': 'મોડ્યુલ શરૂ કરો',
   'trainingModule.statusNotStarted': 'શરૂ થયું નથી',
   'welcomeHeroCard.completeLabel': 'પૂર્ણ',
   'welcomeHeroCard.milestonesLabel': 'સીમાચિહ્નો',

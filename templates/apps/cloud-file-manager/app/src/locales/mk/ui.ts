@@ -1,12 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Прашања, повратни информации или идеи за партнерство? Пишете му на тимот на {{appName}} на hello@nimbus.example — ја читаме секоја порака.',
   'about.contactTitle': 'Стапете во контакт',
   'about.eyebrow': 'За',
+  'about.highlightsTitle': 'Што добивате',
   'about.intro':
     'Nimbus е мирен, сигурен дом за датотеките што навистина сакате да ги пронајдете. Поставувајте, споделувајте и обновувајте со брзината на десктоп и издржливоста на облакот.',
+  'about.mission':
+    'Нашата мисија е едноставна: да го направиме складирањето во облак да изгледа бестежинско. Без неред, без вртелки, без погодување каде отишол некој файл — само јасност, за поединци и тимови подеднакво.',
+  'about.subtitle': 'Бестежинскиот архив за твојот дигитален живот.',
   'about.title': 'За Nimbus',
   'authShell.copyright': '© {{year}} Архива на Nimbus',
+  'authShell.footer': 'Безбедно складирање во облак · Шифрирање од крај до крај',
   'common.goToDashboard': 'Оди до контролна табла',
   'fileDetail.about.eyebrow': 'За оваа датотека',
   'fileDetail.actions.delete': 'Премести во корпа',
@@ -39,18 +46,24 @@ export const ui: UiTranslations = {
     'Внесете ја вашата е-пошта и ние ќе ви испратиме линк за да изберете нова.',
   'forgotPassword.successSubheading':
     'Испративме линк за ресетирање на лозинката до {{email}} Линкот важи 60 минути.',
+  'help.backHome': '← Назад на почетната страница на {{appName}}',
   'help.contactBody':
     'Испратете е-пошта на support@nimbus.example и ние ќе ви одговориме во рок од еден работен ден. Про и тимските планови добиваат приоритетно насочување.',
+  'help.contactTitle': 'Ви треба човек?',
   'help.eyebrow': 'Поддршка',
   'help.intro':
     'Повеќето одговори се достапни со еден клик. Влечете ги датотеките во лентата за прикачување за да ги додадете, кликнете на „Сподели“ на кој било ред за да креирате врска и посетете ја страницата „Корпа“ за да вратите сè што сте отстраниле во последните 30 дена.',
+  'help.subtitle': 'Одговори на честите прашања за {{appName}}.',
   'help.title': 'Помош и поддршка',
   'landing.cta.body':
     'Започнете со 15 GB бесплатни. Надградете на Pro за 200 GB или поканете го вашиот тим на заеднички простор - сето тоа со истото флуидно Nimbus искуство.',
   'landing.cta.primary': 'Креирај ја твојата архива',
   'landing.cta.title': 'Скрши го нередот. Продолжи со работата.',
+  'landing.features.body':
+    'Создадено за поединци и тимови кои сакаат нивните датотеки да изгледаат бестежински — брзи за пронаоѓање, безбедни за споделување и задоволство за организирање.',
   'landing.features.eyebrow': 'Зошто Nimbus',
   'landing.features.title': 'Простор за складирање што ви се трга настрана.',
+  'landing.footer.copyright': '© {{year}} {{appName}}. Создадено за бестежинските.',
   'landing.hero.body':
     'Бестежинската архива за вашиот дигитален живот. Унифициран складишен простор во облак кој се чувствува како да дише свеж воздух. Без неред, само јасност.',
   'landing.hero.eyebrow': 'Претставување на Nimbus v2',
@@ -68,6 +81,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Прикажи лозинка',
   'login.subheading': 'Најавете се за да пристапите до вашата архива.',
   'myFiles.breadcrumb.folder': 'Папка',
+  'myFiles.breadcrumb.home': 'Тесера',
   'myFiles.breadcrumb.myFiles': 'Мои датотеки',
   'myFiles.fetchError': 'Не можев да ги вчитам вашите датотеки.',
   'myFiles.files.col.modified': 'Изменето',
@@ -81,12 +95,17 @@ export const ui: UiTranslations = {
   'myFiles.folders.justCreated': 'Тукушто создадено',
   'myFiles.folders.seeAll': 'Види ги сите',
   'myFiles.folders.title': 'Папки',
+  'myFiles.hero.bodyDynamic': '{{files}} синхронизирани датотеки — досега искористени {{used}}.',
+  'myFiles.hero.bodyEmpty':
+    'Прикачете датотека за да започнете — вашиот архив ќе се синхронизира насекаде.',
   'myFiles.hero.eyebrow': 'Вашата архива',
   'myFiles.hero.recentCta': 'Видете ја неодамнешната активност',
   'myFiles.hero.title': 'Добредојде назад, {{name}} .',
   'myFiles.hero.uploadCta': 'Постави датотеки',
   'myFiles.hero.youFallback': 'таму',
   'myFiles.refresh': 'Освежи',
+  'myFiles.stats.collaboratorsDetail': 'Низ споделените датотеки',
+  'myFiles.stats.foldersDetail': 'Низ вашиот архив',
   'myFiles.stats.totalFilesDetail': '{{count}} со ѕвезда означено со ѕвездичка',
   'myFiles.stats.usageDetail': 'од {{total}} на Про',
   'myFiles.time.daysAgo': '{{count}} пред еден ден',
@@ -107,6 +126,7 @@ export const ui: UiTranslations = {
   'nimbusSideNav.upgradeCta': 'План за надградба',
   'nimbusStorageMeter.ariaLabel': 'Искористен простор за складирање',
   'nimbusStorageMeter.compactLabel': 'Складирање',
+  'nimbusStorageMeter.compactSummary': '{{used}} од {{total}} користено',
   'nimbusStorageMeter.percentUsed': '{{percent}} %',
   'nimbusStorageMeter.usedLabel': 'Искористен простор за складирање',
   'nimbusStorageMeter.usedOfTotal': '{{used}} од {{total}}',
@@ -115,10 +135,20 @@ export const ui: UiTranslations = {
   'notFound.code': '404',
   'notFound.heading': 'Оваа датотека не е во вашата архива.',
   'notFound.primaryCta': 'Отвори ги моите датотеки',
+  'planUpdated.currentPlan': 'Моментално сте на {{plan}} план.',
+  'planUpdated.retry': 'Обидете се повторно',
+  'planUpdated.verifyFailed': 'Сè уште не можевме да ја потврдиме вашата уплата.',
+  'planUpdated.verifyFailedBody':
+    'Вашето плаќање можеби сè уште се обработува. Обидете се повторно за момент.',
   'planUpdated.verifying': 'Се потврдува вашата уплата…',
+  'pricing.limit.advancedFeatures': 'Напредни функции:',
   'pricing.limit.canExport': 'Извоз на податоци:',
+  'pricing.limit.files': '{{count}} датотеки',
+  'pricing.limit.folders': '{{count}} папки',
+  'pricing.limit.shares': '{{count}} споделувања',
   'privacy.intro':
     'Ги собираме минималните информации потребни за работа на Nimbus: е-поштата на вашата сметка, датотеките што ги прикачувате и метаподатоците потребни за нивно прикажување и пребарување. Никогаш не ги продаваме вашите податоци.',
+  'privacy.subtitle': 'Како {{appName}} постапува со вашите датотеки и лични информации.',
   'recent.activity.empty': 'Сè уште нема ништо за прикажување.',
   'recent.activity.youInitials': 'Y',
   'recent.crumbs.home': 'Nimbus',
@@ -137,14 +167,17 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Минимум 8 знаци',
   'resetPassword.signIn': 'Најавете се на Nimbus',
   'resetPassword.subheading': 'Изберете силна лозинка - најмалку 8 знаци.',
+  'resetPassword.successHeading': 'Ресетирање на лозинка',
   'resetPassword.successSubheading': 'Сега можете да се најавите со вашата нова лозинка.',
   'search.backToFiles': 'Назад кон сите датотеки',
   'search.clearLabel': 'Исчисти пребарување',
   'search.crumbs.home': 'Nimbus',
+  'search.emptyNoQuery': 'Внесете барање погоре за да го пребарате вашиот архив.',
   'search.emptyWithQuery': 'Нема датотеки што се совпаѓаат“ {{query}} „.“',
   'search.fetchError': 'Не можеше да се вчитаат датотеки.',
   'search.hero.body':
     'Филтрирајте по тип за да се фокусирате. Допрете кој било резултат за да го отворите.',
+  'search.hero.titleEmpty': 'Пребарајте го вашиот архив',
   'search.hero.titleWithQuery': '{{count}} резултати за „ {{query}} „',
   'search.input.placeholder': 'Пребарај Nimbus…',
   'search.section.allFiles': 'Совпаѓачки датотеки',
@@ -160,9 +193,12 @@ export const ui: UiTranslations = {
   'shared.empty':
     'Сè уште нема споделени датотеки. Отворете која било датотека и допрете Сподели за да испратите линк.',
   'shared.fetchError': 'Не можеше да се вчитаат споделените датотеки.',
+  'shared.hero.body':
+    'Секоја датотека што ја споделувате преку врска или покана се појавува овде. Вклучете дозвола за да видите каков пристап е доделен.',
   'shared.hero.title': '{{count}} датотеки со активни врски',
   'shared.list.subtitle': '{{count}} датотеки',
   'shared.list.title': 'Неодамна споделено',
+  'shared.row.sharedSummary': '{{count}} врска(и)',
   'shared.time.daysAgo': '{{count}} пред еден ден',
   'shared.time.hoursAgo': '{{count}} пред неколку часа',
   'shared.time.minutesAgo': '{{count}} пред мин',
@@ -172,6 +208,7 @@ export const ui: UiTranslations = {
   'sharePublic.eyebrow': 'Споделено преку Nimbus',
   'sharePublic.fetchError': 'Не можеше да се вчита споделената датотека.',
   'sharePublic.home': 'Назад кон домот на Nimbus',
+  'sharePublic.loading': 'Се решава врската за споделување…',
   'sharePublic.missingToken': 'Не е обезбеден токен за споделување.',
   'sharePublic.notFound': 'Линкот за споделување не е пронајден или е истечен.',
   'sharePublic.permission': '{{permission}}',
@@ -187,7 +224,10 @@ export const ui: UiTranslations = {
   'starred.empty':
     'Сè уште нема ништо означено со ѕвезда. Допрете ја ѕвездата на која било датотека за да ја држите при рака.',
   'starred.fetchError': 'Не можеше да се вчитаат датотеките означени со ѕвезда.',
+  'starred.hero.body':
+    'Означете со ѕвезда сè што ќе ви треба повторно. Го прикажуваме на секој уред, во секој работен простор, секој пат.',
   'starred.hero.title': '{{count}} омилени, спремни за употреба',
+  'starred.row.meta': '{{size}} · {{modified}}',
   'starred.time.daysAgo': '{{count}} пред еден ден',
   'starred.time.hoursAgo': '{{count}} пред неколку часа',
   'starred.time.minutesAgo': '{{count}} пред мин',
@@ -197,7 +237,10 @@ export const ui: UiTranslations = {
   'storage.crumbs.home': 'Nimbus',
   'storage.crumbs.storage': 'Складирање',
   'storage.fetchError': 'Не можеше да се вчита складиштето.',
+  'storage.hero.body':
+    'Има доволно простор за раст. Ќе ве предупредиме кога ќе поминете 75% — и повторно на 90% — за да можете да го исчистите тешкото пред да го забави некого.',
   'storage.hero.eyebrow': 'Преглед на складирање',
+  'storage.hero.headroom': '{{headroom}} слободен простор',
   'storage.hero.meterLabel': '{{percent}} % од планот',
   'storage.hero.title': '{{used}} од {{total}} користено',
   'storage.plans.body':
@@ -205,12 +248,15 @@ export const ui: UiTranslations = {
   'storage.plans.choose': 'Изберете {{name}}',
   'storage.plans.included': '{{storage}} вклучено',
   'storage.plans.maxFiles': '{{count}} датотеки',
+  'storage.plans.maxFolders': '{{count}} папки',
+  'storage.plans.maxShares': '{{count}} споделувања',
   'storage.plans.title': 'Планови што растат со вас',
   'storage.plans.unavailable':
     'Информациите за планот ќе се појават тука откако ќе се конфигурираат.',
   'storage.plans.youreOn': 'Вие сте на овој план',
   'terms.intro':
     'Со користење на Nimbus, се согласувате да ги чувате информациите за вашата сметка доверливи и да прикачувате само содржина што имате право да ја чувате и споделувате.',
+  'terms.subtitle': 'Условите под кои можете да го користите {{appName}}.',
   'trash.actions.emptyAll': 'Испразнете го ѓубрето',
   'trash.actions.emptyConfirm': 'Да, празно',
   'trash.actions.emptyConfirmPrompt': 'Трајно да се избришат сите?',
@@ -229,7 +275,9 @@ export const ui: UiTranslations = {
   'trash.restoreError': 'Не можеше да се врати датотеката.',
   'trash.row.daysAgo': '{{count}} пред еден ден',
   'trash.row.deleteConfirm': 'Избриши',
+  'trash.row.deleteConfirmPrompt': 'Да се избрише засекогаш?',
   'trash.row.deleteForever': 'Избриши засекогаш',
+  'trash.row.expires': '{{days}} дена останаа',
   'trash.row.hoursAgo': '{{count}} пред неколку часа',
   'trash.row.meta': 'Избришано {{deletedAt}}',
   'trash.row.minutesAgo': '{{count}} пред мин',
@@ -249,6 +297,7 @@ export const ui: UiTranslations = {
   'upload.progress.error': 'Поставувањето не успеа.',
   'upload.progress.uploadFailed': 'Поставувањето не успеа.',
   'upload.progress.uploading': 'Се прикачуваат бајти…',
+  'upload.queue.clearDone': 'Синхронизирано е јасно',
   'upload.queue.emptyHint':
     'Пуштете ги датотеките во областа погоре или користете ги копчињата Избери за да започнете.',
   'upload.queue.idle': 'Нема активни прикачувања.',

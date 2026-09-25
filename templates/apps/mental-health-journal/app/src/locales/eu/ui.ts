@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Iritzia duzu, akats bat aurkitu duzu, edo egunkarigintzak nola lagundu dizun kontatu nahi diguzu? Mezu guztiak irakurtzen ditugu — idatzi edonoiz eta benetako pertsona batek erantzungo dizu.',
+  'about.contactTitle': 'Hitz egin gurekin',
+  'about.featureInsights':
+    'IA bidezko hausnarketak, trigerrak, gaiak eta eskerrak ematekoak modu leunean nabarmentzen dituztenak — zure ahotsa galdu gabe.',
+  'about.featureMood':
+    'Aldartearen eta jardueraren jarraipena, egutegi-ikuspegiarekin eta joera-grafikoekin, ondo sentitzen laguntzen dizuna agerian jarriz.',
+  'about.featurePrivacy':
+    'Muturretik muturrerako enkriptatzea, pasakodearen blokeoa eta CSV esportazio osoa, zure hausnarketak pribatu eta eramangarri izan daitezen.',
+  'about.featurePrompts':
+    'Eguneroko gonbidapen leunak, beti nonbaitetik hasteko — inoiz ez orri zuririk.',
+  'about.intro':
+    '{{app}} osasun mentaleko egunkari leun eta pribatua da, eguneroko hausnarketarako, aldartearen jarraipenerako eta esker ona adierazteko. Gonbidapen pentsatuek orri zuria ordezkatzen dute, patroien bilaketa isilak zure sentimenduei eragiten diena ulertzen laguntzen dizu, eta muturretik muturrerako enkriptatzeak zure hitzak zuretzat gordetzen ditu.',
+  'about.missionBody':
+    'Uste dugu norberarekin harremanetan jartzea lasaia izan behar dela, inoiz ez klinikoa — eta inoiz ez zure arreta eskatzen duen beste aplikazio bat bezala. {{app}} laguntzeko sortu da, ez etengabe esateko: eguneko minutu lasai batzuk zure aldartea nabaritzeko, zintzotasunez idazteko eta pixkanaka zeure burua argiago ikusteko.',
+  'about.missionTitle': 'Gure misioa',
   'about.pageTitle': '{{app}}(r)i buruz',
   'authShell.encryptionBadge': 'Zure sarrerak muturretik muturrerako enkriptatuta daude.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': '{{day}}. eguna — sarrerarik ez',
   'calendar.cellMood': 'Eguna {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Hilabete honetako begirada batean',
   'calendar.eyebrow': 'Begirada batean aldartea',
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Jarraipena egin zaio {{tracked}} -ren {{total}} egun hilabete honetan.',
   'common.goToDashboard': 'Joan aginte-panelera',
   'common.tryAgain': 'Saiatu berriro',
+  'entryComposer.bodyPlaceholder': 'Idatzi zintzoa iruditzen zaizuna. Inork ez du hau irakurriko.',
   'entryComposer.cancel': 'Egunkarira itzuli',
   'entryComposer.heading': 'Gaurko hausnarketa.',
   'entryComposer.moodLabel': 'Nola sentitzen zara?',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Kendu {{tag}}',
   'entryComposer.save': 'Gorde isla',
   'entryComposer.saveError': 'Ezin izan da sarrera gorde.',
+  'entryComposer.tagPlaceholder': 'Gehitu etiketa bat eta sakatu sartzeko tekla',
   'entryComposer.titlePlaceholder': 'Eman izen bat isla honi…',
   'entryDetail.back': 'Egunkarira itzuli',
   'entryDetail.delete': 'Ezabatu sarrera hau',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Islapena kargatzen…',
   'entryDetail.notFound': 'Sarrera ez da aurkitu.',
   'entryDetail.reflectionsHeading': 'IAren islapenak',
+  'forgotPassword.continueButton': 'Sartu berrezartze-kodea',
   'forgotPassword.eyebrow': 'Ez kezkatu.',
   'forgotPassword.subheading': 'Berrezarpen leun bat bidaliko dizugu zure posta elektronikora.',
   'forgotPassword.successBody': 'Kontu bat badago {{email}}, berrezartzeko esteka bidean da.',
@@ -56,14 +76,22 @@ export const ui: UiTranslations = {
     'Oraindik ez dago gairik — gehitu etiketa bat edo bi zure sarreretan eta hemen bilduko dira.',
   'insights.themesHeading': 'Gai nagusiak',
   'insights.triggerFrequency': 'ohartu {{count}} × hilabete honetan',
+  'insights.triggersEmpty':
+    'Oraindik ez dago nabarmentzekorik. Egun batzuetan zehar hainbat sarrerek zure patroiak erakutsiko dituzte.',
   'insights.triggersHeading': 'Zure aldartea aldatzen duten ereduak',
+  'journal.empty':
+    'Ez dago hausnarketa bat datorrenik — probatu beste iragazki bat edo idatzi sarrera berri bat.',
   'journal.eyebrow': 'Zure hausnarketak',
   'journal.heading': 'Egunkaria',
   'journal.loadError': 'Sarrerak kargatzea huts egin da.',
   'journal.loading': 'Sarrerak kargatzen…',
+  'journal.newEntry': 'Sarrera berria',
   'journal.searchPlaceholder': 'Bilatu sentimendu bat, izen bat, une bat…',
   'journal.subheading': '{{count}} sarrerak — guztiak gordetzeko modukoak.',
   'journalEntryCard.encryptedLabel': 'Enkriptatuta',
+  'landing.ctaBody':
+    'Doan hasteko. Pro-ak datuen esportazioa, egunkari handiagoa eta urte osoko historia desblokeatzen ditu.',
+  'landing.ctaButton': 'Hasi zure lehen sarrera',
   'landing.ctaTitle': 'Egunero minutu lasai batzuk. Hori da dena.',
   'landing.eyebrow': 'Eguneroko praktika leuna.',
   'landing.featuresBody':
@@ -82,6 +110,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Eguneroko hausnarketarako espazio leun bat.',
   'mentalHealthJournalLayout.closeMenu': 'Itxi menua',
   'mentalHealthJournalLayout.openMenu': 'Ireki menua',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Nabigazio nagusia',
+  'moodHeroCard.entriesThisWeek': '{{count}} aste honetan',
   'moodHeroCard.streakSuffix': 'egun-bolada',
   'moodHeroCard.title': 'Gaurko hausnarketa.',
   'moodTrendChart.aiBadge': 'Adimen artifizialaren ikuspegia prest',
@@ -92,11 +122,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Zure bidaia',
   'profile.fallbackName': 'Islatzailea',
   'profile.loadError': 'Ezin izan dira estatistikak kargatu.',
+  'profile.loading': 'Zure estatistikak freskatzen…',
   'profile.longestStreak': 'Bolada luzeena',
   'profile.memberSince': 'Harrezkero hausnartzen {{date}}',
   'profile.milestones': 'Mugarriak',
   'profile.milestonesEmpty':
     'Zure lehen mugarria sarrera baten faltan dago — idatzi prest sentitzen zarenean.',
+  'profile.moodMix': 'Zure aldarteen nahasketa denboraldi honetan',
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'Hausnarketak',
   'profile.totalWords': 'Idatzitako hitzak',
@@ -109,6 +141,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Idatzi honi buruz',
   'resetPassword.eyebrow': 'Hasiera berri bat',
   'resetPassword.mismatchError': 'Pasahitzak ez datoz bat.',
+  'resetPassword.passwordLabel': 'Pasahitz berria',
   'resetPassword.subheading': 'Aukeratu zerbait segurua — zure hausnarketek merezi dute.',
   'resetPassword.tokenPlaceholder': 'Berrezarri kodea posta elektronikotik',
   'settings.dangerDescription': 'Ezabatu betiko zure kontua eta isla guztiak. Hau ezin da desegin.',
@@ -120,11 +153,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     'Zure hitzak beti zureak dira. Deskargatu kopia bat edozein unetan.',
   'settings.exportDone': 'Esportatua {{format}}.',
+  'settings.exportError': 'Esportazioa huts egin du.',
+  'settings.exportHeading': 'Esportatu zure hausnarketak',
   'settings.exportLoading': 'Prestatzen…',
   'settings.eyebrow': 'Zure espazioa, zure arauak',
   'settings.languageHeading': 'Hizkuntza',
   'settings.privacyHeading': 'Pribatutasuna eta enkriptatzea',
   'settings.remindersHeading': 'Eguneroko abisua',
+  'settings.reminderToggleAria': 'Txandakatu eguneroko abisua',
   'settings.reminderToggleDescription':
     'Gogorarazpen lasai bakarra zuk aukeratzen duzun unean. Ez txaparik ez erruduntasunik.',
   'settings.reminderToggleLabel': 'Bultzadatxo leun bat bidali',
@@ -137,6 +173,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Egunkaria sortzen…',
   'signup.subheading': 'Zure pentsamenduentzako leku seguru bat.',
   'wellnessRingsTriad.mindfulnessCaption': 'Helburua {{goal}} minutu gaur',
+  'wellnessRingsTriad.mindfulnessLabel': 'Kontzientzia osoa',
   'wellnessRingsTriad.sleepCaption': 'Helburua {{goal}} ordu / gaua',
   'wellnessRingsTriad.sleepLabel': 'Loa',
+  'wellnessRingsTriad.sleepValue': '{{hours}}h',
+  'wellnessRingsTriad.streakCaption': '{{goal}} eguneko helburua',
+  'wellnessRingsTriad.streakLabel': 'Egunkariko bolada',
+  'wellnessRingsTriad.streakValue': '{{days}} d',
 }

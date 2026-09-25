@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ìbéèrè, èsì, tàbí o fẹ́ rí àfihàn fún ẹgbẹ́ rẹ? Rán ímeèlì sí wa ní hello@conduit.dev — gbogbo ìṣẹ́ rẹ̀ dé ọ̀dọ̀ ènìyàn gidi nínú ẹgbẹ́.',
   'about.contactHeading': 'Kan si wa',
   'about.eyebrow': 'Nípa',
+  'about.featuresHeading': 'Ohun tí o gbà',
+  'about.introBody':
+    '{{app}} ń mú ìfijíṣẹ́ ìtẹ̀síwájú irú GitHub Actions wá sínú pátákó ìṣàkóso kan tí ó yára: àwọn ojú-ọ̀nà ìṣiṣẹ́, àkọsílẹ̀ ìkọ́, àwọn ohun tí a ṣẹ̀dá, àwọn àmì ipò, àti àwọn àyíká ìfijíṣẹ́ fún gbogbo àwọn ibi-ìpamọ́ rẹ ní ibi kan ṣoṣo. Kò sí fífo ojú-ìwé, kò sí àròsọ nípa ìkọ́ tí ó bàjẹ́ — gbogbo ìṣiṣẹ́, ìlà àkọsílẹ̀, àti ìfijíṣẹ́ wà ní ìtẹ̀ kan.',
+  'about.introHeading': 'Kí ni {{app}}',
+  'about.missionBody':
+    'Fífi sọfítíwé ránṣẹ́ yẹ kí ó jẹ́ àlàáfíà àti àfojúsùn, kì í ṣe orísun ẹ̀rù. A ń kọ́ àwọn ojú-ọ̀nà ìṣiṣẹ́, àwọn àkọsílẹ̀, àti àwọn irinṣẹ́ ìfijíṣẹ́ kí ọ̀nà láti ìfisílẹ̀ sí iṣẹ́ ìgbẹ̀yìn lè yára, hàn kedere, àti ní ìgbẹ́kẹ̀lé — ìkọ́ aláwọ̀ ewé àkọ́kọ́ ní ìṣẹ́jú márùn-ún, àti gbogbo ìkọ́ tí ó tẹ̀lé e pẹ̀lú kedere kanna.',
+  'about.missionHeading': 'Iṣẹ́ àwa',
+  'about.subtitle':
+    '{{app}} jẹ́ pátákó ìṣàkóso CI/CD fún àwọn ẹgbẹ́ tí wọ́n fẹ́ ṣàbẹ̀wò àwọn ìkọ́, àwọn ìfijíṣẹ́, àti àwọn àyíká káàkiri gbogbo ibi-ìpamọ́ — kí wọ́n sì fi ìdánilójú ránṣẹ́.',
   'artifacts.empty': 'Kò sí ohun ìṣẹ̀dá kankan síbẹ̀.',
   'artifacts.heading': 'Àwọn ohun ìṣẹ̀dá',
   'artifacts.loadError': 'Kò ṣeé ṣe láti gbé àwọn ohun ìṣẹ̀dá sórí ayélujára.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Àwọn Àyíká',
   'environments.loadError': 'Kò ṣeé ṣe láti gbé àwọn àyíká sókè.',
+  'environments.loading': 'N n gbe awọn ayika soke…',
   'environments.subheading': 'Ipo imuṣiṣẹ laaye kọja gbogbo ibi-afẹde.',
   'forgotPassword.runnerStatus': 'tunṣe · ihò ààbò',
+  'forgotPassword.success':
+    'Tí àkọọ́lẹ̀ kan bá wà fún ìmeeli yẹn, ìjápọ̀ àtúntò kan ń bọ̀. Ṣàyẹ̀wò àpótí ìforúkọsílẹ̀ rẹ.',
   'insights.changeFailureRate': 'Yi oṣuwọn ikuna pada',
   'insights.deployFrequency': 'Ifilọlẹ / ọjọ',
   'insights.empty': 'Dátà kò tó síbẹ̀.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Kò ṣeé ṣe láti gbé àwọn ìjìnlẹ̀ jáde.',
   'insights.meanP95': 'àìtọ́ {{mean}} · ojú ìwé 95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Àwọn ìgbésẹ̀ ojú-ọ̀nà ìṣiṣẹ́ tí ó lọra jùlọ',
   'insights.successRateHeading': 'Oṣuwọn aṣeyọri ti opo gigun (ọjọ 14 to kọja)',
   'landing.choosePlan': 'Yan ètò',
+  'landing.copyright': '© {{year}} {{app}}. Fi ìdánilójú ránṣẹ́.',
   'landing.ctaBody':
     'Kò sí káàdì ìsanwó. Kò sí onímọ̀ ẹ̀rọ ìtàgé tí a nílò. Gba àwọ̀ ewé àkọ́kọ́ ní ìṣẹ́jú márùn-ún.',
   'landing.ctaHeading': 'Fi ìdánilójú gbé e.',
   'landing.featuresEyebrow': '// Awọn ẹya ara ẹrọ pẹpẹ',
   'landing.featuresHeading': 'A ṣe é fún àwọn olùfiránṣẹ́, láti ọwọ́ àwọn olùfiránṣẹ́',
+  'landing.heroSubtitle':
+    'Àwọn ojú-ọ̀nà ìṣiṣẹ́ tí ó parí ní ìṣẹ́jú àáyá. Àwọn àkọsílẹ̀ tí o lè kà. Àwọn ìfijíṣẹ́ tí o lè gbẹ́kẹ̀lé.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit gbe lọ --lailewu',
   'landing.pricingEyebrow': '// $ idiyele --pípé',
   'landing.pricingHeading': 'Iye owo ti o rọrun ati asọtẹlẹ',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Mo wa ninu ọkọ ofurufu nisinsinyi',
   'pipelines.metric.successCaption': '{{count}} ti {{total}} àwọn ìsáré',
   'pipelines.metric.successRate': 'Oṣuwọn Aṣeyọri',
+  'pipelines.realtimeOn': 'àkókò gidi',
   'pipelines.subheading': 'Àwọn àtúnṣe láyè láti gbogbo ibi ìpamọ́ tí a wò.',
+  'pricing.advancedFeatures': 'Àwọn ẹ̀yà tí ó ti tẹ̀síwájú: {{mark}}',
+  'pricing.canExport': 'Ìkójáde dátà: {{mark}}',
+  'pricing.maxArtifacts': 'Àwọn ohun tí a ṣẹ̀dá {{count}}',
+  'pricing.maxBuilds': 'Àwọn ìkọ́ {{count}}',
+  'pricing.maxPipelines': 'Àwọn ojú-ọ̀nà ìṣiṣẹ́ {{count}}',
   'privacy.dataAccount': 'Àkọọ́lẹ̀: orúkọ, ìmeeli, ọ̀rọ̀ìpamọ́ hashed, ipele ètò.',
   'privacy.intro':
     '{{app}} Ó ń kó àwọn ìwífún tó kéré jùlọ tí a nílò láti ṣiṣẹ́ àkọọ́lẹ̀ ìfijiṣẹ́ rẹ nígbà gbogbo jọ: ìmeeli rẹ, àwọn ibi ìpamọ́ tí o so pọ̀, àwọn ìdámọ̀ràn àti ìkọ́lé tí àwọn olùṣiṣẹ́ rẹ ń ṣe, àti àwọn àṣírí tí o yàn láti tọ́jú pẹ̀lú wa. A kì í ka koodu orísun rẹ níta ìkọ́lé; àwọn ohun èlò ìkọ́lé ni a ń tọ́jú sínú àpótí S3 rẹ nígbà tí a bá ṣètò wọn.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'A lo Stripe fún ìsanwó, Mailgun fún ìmeeli ìṣòwò, àti AWS S3 fún ìtọ́jú ohun èlò ìkọ́lé. Olúkúlùkù ni a so mọ́ ààlà ìwọ̀n data tó kéré jùlọ tí a nílò láti fi iṣẹ́ wọn hàn.',
   'privacy.rightsBody':
     'O le gbe gbogbo baiti data rẹ jade, paarẹ akọọlẹ rẹ nigbakugba lati Awọn Eto, ki o si beere fun igbasilẹ ti gbogbo ifijiṣẹ webhook lori akọọlẹ rẹ. A dahun si awọn ibeere GDPR / CCPA laarin ọjọ 30.',
+  'privacy.subtitle':
+    'Bí {{app}} ṣe ń kó, tọ́jú, àti dáàbò bo dátà rẹ nígbà tí a ń ṣiṣẹ́ àwọn ojú-ọ̀nà ìṣiṣẹ́ rẹ.',
   'privacy.title': 'Ètò ìpamọ́',
   'repositories.empty': 'Ko si asopọ awọn ibi ipamọ.',
   'repositories.heading': 'Àwọn ibi ìkópamọ́',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Gbogbo ibi ipamọ',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Kò ṣeé ṣe láti gbé ibi ìpamọ́ sórí ìpamọ́.',
+  'repositoryDetail.meanDuration': 'Àpapọ̀ àkókò',
   'repositoryDetail.notFound': 'A ko ri ibi ipamọ.',
+  'repositoryDetail.successRate': 'Oṣuwọn Aṣeyọri',
   'repositoryDetail.totalBuilds': 'Àpapọ̀ ìkọ́lé',
   'repositoryDetail.webhookActive': 'ti nṣiṣe lọwọ',
   'repositoryDetail.webhookPaused': 'dákẹ́',
   'repositoryDetail.webhooksHeading': 'Àwọn ìkọ́kọ́ wẹ́ẹ̀bù',
+  'resetPassword.passwordLabel': 'Ọrọ aṣina Tuntun',
   'resetPassword.runnerStatus': 'àtúntò · àmì ìdánilójú ti jẹ́rìí sí',
   'resetPassword.subtitle': 'Yan ọrọ igbaniwọle to lagbara ti o ko ti lo tẹlẹ.',
   'resetPassword.tokenPlaceholder': 'lẹẹmọ lati inu imeeli',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Àwọn aago ìtọ́jú omi. Gé ẹ̀rọ ìtọ́jú omi VCS rẹ kúrò láti dẹ́kun mímu àwọn ìṣẹ̀lẹ̀.',
   'settings.repositories.empty': 'Ko si awọn ibi ipamọ ti a sopọ mọ sibẹsibẹ.',
+  'settings.repositories.heading': 'Àwọn ìsopọ̀ ibi-ìpamọ́',
   'settings.repositories.loadError': 'Kò ṣeé ṣe láti gbé àwọn ibi ìpamọ́ sórí àwọn nǹkan.',
   'settings.secrets.addCta': 'Fi àṣírí kún un',
   'settings.secrets.addError': 'Kò ṣeé ṣe láti fi àṣírí kún un.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Kò ṣeé ṣe láti pa àṣírí rẹ́.',
   'settings.secrets.empty': 'Kò sí àṣírí kankan tí a pamọ́.',
   'settings.secrets.heading': 'Àwọn àṣírí',
+  'settings.secrets.lastUsed': 'ìkẹ̀yìn tí a lò {{date}}',
   'settings.secrets.loadError': 'Kò ṣeé ṣe láti gbé àwọn àṣírí sórí ayélujára.',
   'settings.secrets.neverUsed': 'a ko lo rara',
   'settings.secrets.rotateCta': 'Yípo',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Kò ṣeé ṣe láti ṣe àtúnṣe webhook.',
   'signup.namePlaceholder': 'Páàkì Riley',
   'signup.runnerStatus': 'ipele ọfẹ · 1,000 ìkọ́lé ìṣẹ́jú/oṣù',
+  'terms.intro':
+    'Nípa ṣíṣe àkọsílẹ̀ {{app}} o gbà àwọn ìlànà wọ̀nyí. Wọ́n bo ìlò tí ó yẹ fún àwọn ẹ̀rọ ìkọ́, àwọn ààlà SLA wa, àti àwọn ipò tí a lè fi dá àkọsílẹ̀ rẹ dúró tàbí fòpin sí i fún iṣẹ́ ìlòkúlò.',
   'terms.slaBody':
     'Àwọn ètò Pro àti Team ń fojú sí àkókò ìṣiṣẹ́ oṣù 99.95% fún API àti runner pool. Ètò ọ̀fẹ́ náà wà ní ìbámu pẹ̀lú bí ó ti rí. A ń ròyìn àwọn ìjákulẹ̀ lórí status.conduit.dev àti gẹ́gẹ́ bí agbekalẹ tí ó wà nínú ìwé-ẹ̀rí rẹ.',
   'terms.terminationBody':

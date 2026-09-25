@@ -1,7 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Fragen, Feedback oder ein Feature, das du dir für {{app}} wünschst? Wir lesen jede Nachricht — melde dich in deinen Kontoeinstellungen und ein echtes Teammitglied wird sich bei dir melden.',
+  'about.contactTitle': 'Sprechen Sie uns an',
   'about.eyebrow': 'Über uns',
+  'about.intro':
+    '{{app}} ist Planungssoftware für Menschen, deren Zeit ihr Produkt ist. Teile einen Buchungslink, lege deine Verfügbarkeit einmal fest und überlass uns die Kalenderberechnung über alle Zeitzonen hinweg — damit Meetings ohne Hin und Her gebucht werden.',
+  'about.missionBody':
+    'Wir glauben, dass Terminplanung im Hintergrund verschwinden sollte. Gründer, Recruiter, Berater und Support-Teams sollten keine Stunden mit E-Mail-Ping-Pong verlieren — sie sollten einen Link senden und weiterarbeiten. {{app}} ist darauf ausgelegt, jede Buchung mühelos und markenkonform zu machen.',
+  'about.missionTitle': 'Unsere Mission',
+  'about.whatYouGetTitle': 'Was Sie erhalten',
   'availability.closed': 'Geschlossen',
   'availability.eyebrow': 'Öffnungszeiten',
   'availability.loadError': 'Verfügbarkeitsregeln konnten nicht geladen werden.',
@@ -18,7 +27,11 @@ export const ui: UiTranslations = {
   'billing.checkoutError':
     'Bezahlvorgang konnte nicht gestartet werden — bitte gleich erneut versuchen.',
   'billing.compareHeading': 'Tarife vergleichen',
+  'billing.confirmCancel':
+    'Abo kündigen? Du wirst zum Ende des Abrechnungszeitraums auf Free herabgestuft.',
   'billing.freeNote': 'Sie sind im kostenlosen Tarif.',
+  'billing.invoiceBody':
+    'Rechnungen in deinem Stripe-Kundenportal ansehen, herunterladen und verwalten — erreichbar über die E-Mail mit deiner Abo-Rechnung.',
   'billing.invoiceHeading': 'Rechnungsverlauf',
   'billing.loadError': 'Abrechnungsdetails konnten nicht geladen werden.',
   'billing.loading': 'Tarife werden geladen…',
@@ -33,9 +46,12 @@ export const ui: UiTranslations = {
   'bookingConfirmation.cancelError': 'Konnte nicht storniert werden — bitte erneut versuchen.',
   'bookingConfirmation.cancelledEyebrow': 'Buchung storniert',
   'bookingConfirmation.cancelledHeading': 'Kein Problem — Sie können jederzeit neu buchen.',
+  'bookingConfirmation.eyebrow': 'Du bist gebucht',
+  'bookingConfirmation.heading': 'Bis bald',
   'bookingConfirmation.loading': 'Ihre Buchung wird geladen…',
   'bookingConfirmation.missingToken': 'Dem Bestätigungslink fehlt der Token.',
   'bookingConfirmation.notFound': 'Diese Buchungsbestätigung wurde nicht gefunden.',
+  'bookingConfirmation.poweredBy': 'Bereitgestellt von {{app}}',
   'bookingConfirmation.scheduledFor': 'Geplant für',
   'bookingConfirmation.subheading': 'Buchung mit {{host}} für {{meeting}} bestätigt.',
   'bookingConfirmation.timezone': '{{tz}}',
@@ -43,11 +59,13 @@ export const ui: UiTranslations = {
   'bookingPage.availabilityError':
     'Verfügbare Zeiten konnten nicht geladen werden — bitte erneut versuchen.',
   'bookingPage.confirm': 'Buchung bestätigen',
+  'bookingPage.confirmDisabled': 'Wähle eine Zeit, um fortzufahren',
   'bookingPage.eventLine': '{{name}} · {{mins}} Minuten',
   'bookingPage.eyebrow': 'Termin buchen',
   'bookingPage.field.email': 'Ihre E-Mail',
   'bookingPage.field.notes': 'Möchten Sie etwas hinzufügen? (optional)',
   'bookingPage.host': 'Gastgeber',
+  'bookingPage.loadError': 'Dieser Buchungslink konnte nicht geladen werden.',
   'bookingPage.loading': 'Buchungslink wird geladen…',
   'bookingPage.loadingSlots': 'Zeiten werden geladen…',
   'bookingPage.notFound': 'Dieser Buchungslink ist nicht mehr aktiv.',
@@ -56,7 +74,9 @@ export const ui: UiTranslations = {
   'bookingPage.slotTaken': 'Dieser Termin wurde gerade vergeben — bitte einen anderen wählen.',
   'bookingPage.submitError':
     'Buchung erstellt, aber kein Token zurückgegeben. Bitte aktualisieren.',
+  'bookingPage.submitting': 'Buchung läuft…',
   'bookingPage.timezone': 'Zeiten angezeigt in {{tz}}',
+  'bookings.empty.body': 'Buchungen erscheinen hier, sobald Eingeladene einen Slot wählen.',
   'bookings.empty.title': 'Hier ist noch nichts',
   'bookings.loadError': 'Ihre Buchungen konnten nicht geladen werden.',
   'bookings.loading': 'Buchungen werden geladen…',
@@ -71,10 +91,12 @@ export const ui: UiTranslations = {
   'common.goToDashboard': 'Zum Dashboard',
   'common.retry': 'Erneut versuchen',
   'dashboard.empty.body': 'Teilen Sie einen Buchungslink, um Ihren Kalender zu füllen.',
+  'dashboard.empty.cta': 'Erstelle deinen ersten Buchungslink',
   'dashboard.empty.title': 'Keine bevorstehenden Termine',
   'dashboard.greeting': 'Ihr Plan auf einen Blick',
   'dashboard.kpis.bookedToday': 'Heute gebucht',
   'dashboard.kpis.bookedTodaySub': '{{count}} bestätigt',
+  'dashboard.kpis.pending': 'Wartet auf Antwort',
   'dashboard.kpis.pendingSub': 'Erinnerungen gehen heute Abend raus',
   'dashboard.kpis.weekTotal': 'Diese Woche gebucht',
   'dashboard.kpis.weekTotalSub': 'Letzte 7 Tage',
@@ -85,6 +107,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Heutige Termine, anstehende Anfragen und wie sich die Woche entwickelt.',
   'dashboard.upcomingHeading': 'Bevorstehende Termine',
   'dashboard.viewAll': 'Alle Buchungen anzeigen →',
+  'eventTypeCard.bookingsThisWeek': '{{count}} diese Woche',
   'eventTypeCard.editLink': 'Bearbeiten →',
   'eventTypeCard.noDescription':
     'Ein klares Terminfenster — teilen Sie den Link, um Buchungen entgegenzunehmen.',
@@ -93,14 +116,20 @@ export const ui: UiTranslations = {
   'eventTypeEditor.advanced.heading': 'Puffer und Vorlauf',
   'eventTypeEditor.advanced.minNotice': 'Min. Vorlauf (Min.)',
   'eventTypeEditor.back': 'Zurück zu Termintypen',
+  'eventTypeEditor.confirmDelete':
+    'Diesen Ereignistyp löschen? Bestehende Buchungen bleiben erhalten.',
   'eventTypeEditor.deleteError': 'Termintyp konnte nicht gelöscht werden.',
   'eventTypeEditor.fields.location': 'Standard-Ort',
   'eventTypeEditor.fields.name': 'Name',
   'eventTypeEditor.fields.slug': 'Slug des Buchungslinks',
   'eventTypeEditor.loadError': 'Dieser Termintyp konnte nicht geladen werden.',
+  'eventTypeEditor.loading': 'Ereignistyp wird geladen…',
   'eventTypeEditor.notFound': 'Termintyp nicht gefunden.',
   'eventTypeEditor.preview.copy': 'Link kopieren',
   'eventTypeEditor.preview.heading': 'Vorschau des Buchungslinks',
+  'eventTypeEditor.reminders.body':
+    'E-Mail-Erinnerungen werden automatisch versendet — Eingeladene erhalten sofort eine Bestätigung und der Host eine „Neue Buchung“-Benachrichtigung.',
+  'eventTypeEditor.reminders.heading': 'Erinnerungen',
   'eventTypeEditor.saveErrorMissing':
     'Speichern lieferte keinen Datensatz zurück — bitte erneut versuchen.',
   'eventTypeEditor.toggleError': 'Aktiv-Status konnte nicht geändert werden.',
@@ -108,6 +137,7 @@ export const ui: UiTranslations = {
   'eventTypes.create': 'Neuer Termintyp',
   'eventTypes.empty.body':
     'Erstellen Sie Ihren ersten Buchungslink — wählen Sie Name, Slug und Dauer; den Rest übernehmen wir.',
+  'eventTypes.empty.cta': 'Ereignistyp erstellen',
   'eventTypes.empty.title': 'Noch keine Termintypen',
   'eventTypes.eyebrow': 'Buchbare Links',
   'eventTypes.loadError': 'Termintypen konnten nicht geladen werden.',
@@ -115,6 +145,8 @@ export const ui: UiTranslations = {
   'eventTypes.subtitle':
     'Jeder Link ist ein Termintyp mit fester Dauer. Verfügbarkeit, Puffer und Erinnerungen lassen sich unabhängig anpassen.',
   'eventTypes.title': 'Termintypen',
+  'forgotPassword.subheading':
+    'Gib deine E-Mail ein und wir senden dir einen Link zum Zurücksetzen.',
   'forgotPassword.successBody':
     'Wir haben gerade einen Link zum Zurücksetzen an {{email}} gesendet. Der Link läuft in 30 Minuten ab.',
   'integrations.connected': 'Verbunden',
@@ -124,11 +156,17 @@ export const ui: UiTranslations = {
   'integrations.saveError': 'Status der Integration konnte nicht gespeichert werden.',
   'integrations.subtitle':
     'Schalten Sie die Integrationen ein, die Sie nutzen. Kalender-/Video-Sync läuft nach der OAuth-Einrichtung über Ihre Anbietereinstellungen.',
+  'landing.copyright': '© {{year}} {{app}}. Wo Zeitpläne zusammenpassen.',
+  'landing.ctaBody':
+    'Kostenlos starten, von Anfang an ausgereift. Pro bietet unbegrenzte Buchungslinks und individuelles Branding; Team bietet Round-Robin und gemeinsame Verfügbarkeit.',
   'landing.ctaHeading': 'Schluss mit dem Hinterherjagen von Antworten. Verschicken Sie Links.',
   'landing.eyebrow': 'Terminplanung für Profis',
   'landing.featuresHeading': 'Besprechungen, die sich selbst terminieren',
   'landing.getStarted': 'Mit der Planung starten',
   'landing.heroCta': 'Buchungslink erstellen',
+  'landing.heroSubtitle':
+    'Teile einen Buchungslink, lege deine Verfügbarkeit fest und überlass {{app}} die Kalenderberechnung über alle Zeitzonen hinweg.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.pricingCta': 'Preise ansehen',
   'landing.sampleCardLabel': 'Heutiger Plan',
   'landing.sampleCardNext': 'Als Nächstes: Avery Liu in 28 m',
@@ -143,14 +181,23 @@ export const ui: UiTranslations = {
   'meetingDetail.defaultEventType': 'Termin',
   'meetingDetail.endsAt': 'Ende',
   'meetingDetail.joinCall': 'Videoanruf beitreten',
+  'meetingDetail.loading': 'Meeting wird geladen…',
   'meetingDetail.notes': 'Notizen des Eingeladenen',
   'meetingDetail.notFound': 'Dieser Termin existiert nicht mehr.',
   'meetingDetail.startsAt': 'Beginn',
+  'meetingDetail.timezoneNote':
+    'Zeitzone der eingeladenen Person: {{tz}} — Zeiten in deiner Zeitzone angezeigt',
   'meetingDetail.viewAll': 'Alle Buchungen ansehen',
   'meridianLayout.closeMenu': 'Navigationsmenü schließen',
   'meridianLayout.openMenu': 'Navigationsmenü öffnen',
   'meridianLayout.primaryNavLabel': 'Hauptnavigation',
   'notifications.channels': 'Kanäle',
+  'notifications.feed.bookedBody': 'Geplant für {{when}}',
+  'notifications.feed.bookedTitle': '{{name}} hat ein Meeting gebucht',
+  'notifications.feed.cancelledBody': 'Ursprünglich für {{when}}',
+  'notifications.feed.cancelledTitle': '{{name}} hat abgesagt',
+  'notifications.feed.updatedBody': 'Jetzt {{when}}',
+  'notifications.feed.updatedTitle': '{{name}} hat aktualisiert',
   'notifications.reminders': 'Erinnerungen',
   'notifications.saveError': 'Einstellungen konnten nicht gespeichert werden.',
   'notifications.time.daysAgo': 'vor {{count}} T',
@@ -163,19 +210,25 @@ export const ui: UiTranslations = {
   'resetPassword.passwordLabel': 'Neues Passwort',
   'resetPassword.subheading': 'Wählen Sie ein starkes Passwort — wir melden Sie direkt danach an.',
   'settings.loadError': 'Ihr Profil konnte nicht geladen werden.',
+  'settings.preferences.heading': 'Buchungsstandards',
   'settings.save': 'Änderungen speichern',
   'settings.saving': 'Wird gespeichert…',
+  'settings.security.confirmSignOut':
+    'Von diesem Gerät abmelden? Du wirst zur Anmeldung weitergeleitet.',
   'settings.security.currentPwd': 'Aktuelles Passwort',
   'settings.security.newPwd': 'Neues Passwort',
   'settings.security.passwordError':
     'Passwort konnte nicht geändert werden — bitte aktuelles Passwort prüfen und erneut versuchen.',
+  'settings.security.savedAt': 'Aktualisiert am {{time}}',
   'settings.security.weakPassword': 'Das neue Passwort muss mindestens 8 Zeichen lang sein.',
   'settings.tab.billing': 'Abrechnung',
   'signup.namePlaceholder': 'Avery Liu',
   'signup.subheading': 'Für die Basics dauerhaft kostenlos — jederzeit upgraden.',
+  'signup.submitting': 'Dein Buchungslink wird erstellt…',
   'timeSlotPicker.empty.subtitle':
     'Versuchen Sie einen anderen Tag — Meridian öffnet jeden Morgen neue Slots.',
   'timeSlotPicker.empty.title': 'Keine Zeiten verfügbar',
+  'timeSlotPicker.label': 'Verfügbare Zeiten',
   'timeSlotPicker.unavailable': 'Gebucht',
   'todayHeroCard.nextMeeting': 'Nächster: {{invitee}} {{when}}',
   'todayHeroCard.title': 'Heutiger Plan',

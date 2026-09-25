@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Сурооңуз барбы, ката таптыңызбы же командаңыз үчүн демо көргүңүз келеби? Аккаунт жөндөөлөрүңүздөн байланышыңыз — ар бир билдирүү командадагы чыныгы адамга жетет.',
   'about.contactTitle': 'Байланышка чыгыңыз',
+  'about.intro':
+    '{{app}} сканерленген документтердин жана PDF файлдардын үймөктөрүн структуралуу, издөөгө мүмкүн болгон, иреттелген маалыматка айландырат. Эсеп-фактураларды, квитанцияларды, келишимдерди же формаларды жүктөңүз — AI аларды окуп, чыгарып, классификациялап, иреттеп коёт — ишеним түстөрү менен, ошондо командаңыз чындап адам көзөмөлүн талап кылган нерселерди гана текшерет.',
+  'about.missionBody':
+    'Документтер менен байланышкан күнүмдүк жумуш командаңыздын күнүн жебеши керек. Биз ар бир чыгарылган маани түшүндүрүлүүчү жана текшерилүүчү болушу керек деп эсептейбиз — ошентип, кагаз изин жоготпостон автоматташтырууга ишене аласыз. {{app}} ар бир үймөк үчүн сааттарды үнөмдөө үчүн курулган, ошол эле учурда маанилүү жерлерде адамды процесске катыштырат.',
+  'about.missionTitle': 'Биздин миссиябыз',
+  'about.subtitle':
+    'Документтериңиз үчүн OCR, AI аркылуу чыгаруу, классификациялоо жана автоматтык иреттөө.',
   'about.title': '{{app}} жөнүндө',
+  'about.whatYouGetTitle': 'Эмне аласыз',
   'authShell.backToLanding': '← Конууга кайтуу',
   'common.goToDashboard': 'Башкы бетке өтүү',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Бүгүн · Операцияларга сереп',
   'dashboard.heading': 'Документтик чалгындоо',
+  'dashboard.metric.accuracy': 'Орточо тактык',
   'dashboard.metric.filed': 'Бүгүн тапшырылды',
   'dashboard.metric.filedCaption': 'Файлдарды толтуруу эрежелери боюнча багытталат',
   'dashboard.metric.processed': 'Бүгүн иштетилди',
@@ -23,11 +34,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'Жүктөлгөн',
   'dashboard.recent.heading': 'Акыркы документтер',
+  'dashboard.recent.typeUnknown': 'Классификация күтүлүүдө',
   'dashboard.subheading':
     'Ар бир барак классификацияланган, бөлүнүп алынган жана архивделген — ишенимдүү түстөр менен, ошондуктан карап чыгуу көңүлдүн борборунда калат.',
   'documentDetail.audit.heading': 'Аудиттин убактысы',
+  'documentDetail.audit.subheading':
+    'Бул документ боюнча жасалган ар бир кадам, жооптуу адам менен.',
   'documentDetail.back': 'Бардык документтер',
   'documentDetail.downloadHint': 'Баштапкы файлды ачуу үчүн "Жүктөп алуу" функциясын колдонуңуз.',
+  'documentDetail.extracted.empty': 'Азырынча талаалар чыгарыла элек.',
   'documentDetail.extracted.heading': 'Алынып алынган талаалар',
   'documentDetail.extracted.subheading':
     '{{count}} талаалар · барактан белгилөө үчүн каалаган талааны басыңыз',
@@ -56,13 +71,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Документтерди издөө…',
   'documents.subheading': '{{count}} китепканаңыздагы документтер, эң жаңысынан баштап иреттелген.',
   'documents.uploadCta': 'Документтерди жүктөө',
+  'documentTypeBreakdown.barAria': 'Документтердин түрү боюнча курамы',
   'documentTypeBreakdown.empty': 'Азырынча эч кандай документтер иштетиле элек.',
   'documentTypeBreakdown.subtitle': '{{total}} иштетилген',
   'documentTypeBreakdown.title': 'Документтин курамы',
+  'forgotPassword.backToSignIn': '← Кирүү үчүн кайтуу',
   'forgotPassword.checkEmail': 'Электрондук почтаңызды текшериңиз',
   'forgotPassword.tip': 'Түшүнгөн жоксузбу? Спамды текшериңиз же башка даректи колдонуп көрүңүз.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Ар бир баракты текшерген операциялык командалар үчүн курулган.',
+  'landing.ctaBody':
+    '14 күндүк сыноо. Карта талап кылынбайт. Каалаган убакта токтотсоңуз болот. Тез иштеген жана жай текшерген операциялык командалар үчүн курулган.',
   'landing.ctaHeading': 'Квитанцияларды терүүнү токтотуңуз. Аларды архивге сала баштаңыз.',
   'landing.eyebrow': 'OCR · Чыгаруу · Жасалма интеллект файлы',
+  'landing.featuresHeading': 'Өзүн түшүндүргөн документ интеллекти',
+  'landing.heroSubtitle':
+    'Эсеп-фактуралардын, квитанциялардын, келишимдердин же формалардын үймөгүн жүктөңүз. {{app}} аларды классификациялайт, чыгарат жана иреттейт — ишеним түстөрү менен, ошондо командаңыз чындап адам көзөмөлүн талап кылган нерселерди гана текшерет.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Күнүмдүк көлөм · акыркы 7 күн',
   'landing.sampleCardLabel': 'Бүгүн иштетилген документтер',
   'landing.sampleCardSubtitle':
     'Эсеп-фактуралар, квитанциялар жана формалар боюнча орточо тактык 96,2%.',
@@ -76,6 +102,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Баштапкы бетти ачуу',
   'notFound.title': 'Ал барак файлда жок',
+  'parcelaHeroCard.accuracy': 'Бардык чыгаруулар боюнча орточо тактык {{value}}%',
   'parcelaHeroCard.change': '{{sign}} {{amount}} кечээкиге салыштырмалуу %',
   'parcelaHeroCard.title': 'Бүгүн иштетилген документтер',
   'parcelaLayout.primaryNavLabel': 'Негизги навигация',
@@ -83,6 +110,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'документтер',
   'pricing.processingLabel': 'иштетүү жумуштары',
   'resetPassword.confirmPlaceholder': 'Жаңы сырсөздү кайталаңыз',
+  'resetPassword.hidePassword': 'Сырсөздү жашыруу',
   'resetPassword.passwordLabel': 'Жаңы сыр сөз',
   'resetPassword.showPassword': 'Сырсөздү көрсөтүү',
   'resetPassword.subtitle': 'Кеминде 8 символдон турган нерсени тандаңыз.',
@@ -99,10 +127,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Эрежелер жүктөлбөй калды.',
   'rules.loading': 'Эрежелер жүктөлүүдө…',
   'rules.matched30d': '{{count}} акыркы 30 күндүн ичинде дал келген документтер',
+  'rules.neverUsed': 'Эч качан колдонулган эмес',
   'rules.newRule': 'Жаңы эреже',
   'rules.saveError': 'Эреже сакталган жок.',
   'rules.subheading':
     'Системага ар бир документтин түрү кайда барышы керектигин айтыңыз. Шарттар жогорудан төмөн карай чынжырланат — биринчи беттеш жеңет.',
+  'rules.templatesEmpty': 'Азырынча чыгаруу шаблондору жок.',
   'rules.templatesHeading': 'Чыгаруу шаблондору',
   'rules.templatesSubheading':
     'Экстракциялоочу ар бир документ түрү үчүн колдонгон талаа схемалары.',
@@ -112,17 +142,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Жумуш мейкиндигинин аталышы',
   'settings.account.subheading':
     'Эскертмелер жана аудит тарыхы үчүн көрсөтүлүүчү аты-жөнү жана негизги электрондук почта дареги.',
+  'settings.api.confirmRevoke': 'Ырастоо?',
   'settings.api.copyOnce': 'Бул ачкычты көчүрүңүз — ал кайра көрсөтүлбөйт',
   'settings.api.createdOn': 'Түзүлдү {{date}}',
   'settings.api.empty': 'Азырынча API ачкычтары жок. Жогоруда бирөөсүн түзүңүз.',
   'settings.api.error': 'Ачкыч түзүлбөй калды.',
+  'settings.api.generating': 'Түзүлүүдө…',
+  'settings.api.heading': 'API ачкычтары',
   'settings.api.labelPlaceholder': 'Ачкычтын аталышы (мисалы, CI жүктөөчүсү)',
+  'settings.api.loading': 'Ачкычтар жүктөлүүдө…',
   'settings.api.newKey': 'Ачкычты түзүү',
   'settings.api.subheading':
     'Буларды скрипттен же ERPден документтерди түртүү үчүн колдонуңуз. Каалаган убакта каалаган баскычты айландырыңыз.',
   'settings.integrations.heading': 'Файлдарды интеграциялоо',
   'settings.integrations.subheading':
     'Тиркелген документтерди булут дискине же командаңыз мурунтан эле жашаган чат куралына жөнөтүңүз.',
+  'settings.subheading':
+    '{{app}} иш мейкиндигиңиз үчүн аккаунтту, API ачкычтарын жана иреттөө интеграцияларын башкарыңыз.',
+  'signup.hidePassword': 'Сырсөздү жашыруу',
   'signup.identityPrompt': 'Сизге кандай кайрылышыбыз керек?',
   'signup.showPassword': 'Сырсөздү көрсөтүү',
   'signup.subtitle': '14 күн акысыз, карта талап кылынбайт.',
@@ -130,6 +167,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Жүктөө ишке ашкан жок.',
   'upload.eyebrow': 'Сиңирүү',
   'upload.heading': 'Документтерди жүктөө',
+  'upload.queue.clear': 'Аяктагандарды тазалоо',
   'upload.queue.col.confidence': 'Ишеним',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Аныкталууда…',
@@ -142,5 +180,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Же болбосо, бир эле учурда бир нече файлды топтом менен бөлүп алуу, классификациялоо жана сактоо үчүн таштаңыз.',
   'uploadDropZone.cta': 'Файлдарды тандаңыз',
+  'uploadDropZone.maxSize': 'Файлга максимум 25 MB · Учтан-учка чейин шифрленген',
   'uploadDropZone.title': 'Иштетүүнү баштоо үчүн документтерди таштаңыз',
 }

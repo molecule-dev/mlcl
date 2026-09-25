@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Máte dotaz, našli jste chybu nebo chcete demo pro svůj tým? Ozvěte se z nastavení účtu — každá zpráva se dostane ke skutečnému člověku z týmu.',
   'about.contactTitle': 'Kontaktujte nás',
+  'about.intro':
+    '{{app}} mění hromady naskenovaných dokumentů a PDF na strukturovaná, prohledávatelná a zařazená data. Nahrajte faktury, účtenky, smlouvy nebo formuláře a nechte AI je přečíst, vytáhnout data, klasifikovat a zařadit — s barvami spolehlivosti, takže váš tým zkontroluje jen to, co skutečně potřebuje člověka.',
+  'about.missionBody':
+    'Zdlouhavá práce s dokumenty by neměla pohlcovat den vašeho týmu. Věříme, že každá vytěžená hodnota by měla být vysvětlitelná a auditovatelná — abyste mohli automatizaci důvěřovat, aniž byste ztratili papírovou stopu. {{app}} je navržen tak, aby ušetřil hodiny na každé hromadě a přitom tam, kde na tom záleží, ponechal člověka ve smyčce.',
+  'about.missionTitle': 'Naše poslání',
+  'about.subtitle': 'OCR, AI extrakce, klasifikace a automatizované zařazování vašich dokumentů.',
   'about.title': 'O aplikaci {{app}}',
+  'about.whatYouGetTitle': 'Co získáte',
   'authShell.backToLanding': '← Zpět na úvodní stránku',
   'common.goToDashboard': 'Přejít na Dashboard',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Dnes · Provozní přehled',
   'dashboard.heading': 'Inteligence dokumentů',
+  'dashboard.metric.accuracy': 'Průměrná přesnost',
   'dashboard.metric.filed': 'Dnes založeno',
   'dashboard.metric.filedCaption': 'Směrováno pravidly zakládání',
   'dashboard.metric.processed': 'Dnes zpracováno',
@@ -23,11 +33,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Dokument',
   'dashboard.recent.col.uploaded': 'Nahráno',
   'dashboard.recent.heading': 'Nedávné dokumenty',
+  'dashboard.recent.typeUnknown': 'Čeká na klasifikaci',
   'dashboard.subheading':
     'Každá stránka klasifikována, vytěžena a založena — s barvami jistoty, aby Vaše kontrola zůstala soustředěná.',
   'documentDetail.audit.heading': 'Časová osa auditu',
+  'documentDetail.audit.subheading':
+    'Každý krok provedený u tohoto dokumentu, včetně odpovědné osoby.',
   'documentDetail.back': 'Všechny dokumenty',
   'documentDetail.downloadHint': 'Pomocí Stáhnout otevřete původní soubor.',
+  'documentDetail.extracted.empty': 'Zatím nebyly vytěženy žádné položky.',
   'documentDetail.extracted.heading': 'Vytěžená pole',
   'documentDetail.extracted.subheading':
     '{{count}} polí · klikněte na pole pro zvýraznění na stránce',
@@ -55,13 +69,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Hledat dokumenty…',
   'documents.subheading': '{{count}} dokumentů ve Vaší knihovně, seřazeno od nejnovějších.',
   'documents.uploadCta': 'Nahrát dokumenty',
+  'documentTypeBreakdown.barAria': 'Složení dokumentů podle typu',
   'documentTypeBreakdown.empty': 'Zatím nebyly zpracovány žádné dokumenty.',
   'documentTypeBreakdown.subtitle': 'Zpracováno: {{total}}',
   'documentTypeBreakdown.title': 'Složení dokumentů',
+  'forgotPassword.backToSignIn': '← Zpět na přihlášení',
   'forgotPassword.checkEmail': 'Zkontrolujte svůj e-mail',
   'forgotPassword.tip': 'Nepřišel? Zkontrolujte spam nebo zkuste jinou adresu.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Vytvořeno pro provozní týmy, které auditují každou stránku.',
+  'landing.ctaBody':
+    '14denní zkušební verze. Bez karty. Zrušit můžete kdykoli. Vytvořeno pro provozní týmy, které jednají rychle a auditují pomalu.',
   'landing.ctaHeading': 'Přestaňte přepisovat účtenky. Začněte je zakládat.',
   'landing.eyebrow': 'OCR · Extrakce · AI zakládání',
+  'landing.featuresHeading': 'Dokumentová inteligence, která se sama vysvětlí',
+  'landing.heroSubtitle':
+    'Nahrajte hromadu faktur, účtenek, smluv nebo formulářů. {{app}} je klasifikuje, vytěží z nich data a zařadí — s barvami spolehlivosti, takže váš tým zkontroluje jen to, co skutečně potřebuje člověka.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Denní objem · posledních 7 dní',
   'landing.sampleCardLabel': 'Dnes zpracovaných dokumentů',
   'landing.sampleCardSubtitle': 'Průměrně 96,2 % přesnost u faktur, účtenek a formulářů.',
   'login.hidePassword': 'Skrýt heslo',
@@ -74,6 +99,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Otevřít úvodní stránku',
   'notFound.title': 'Tato stránka není v evidenci',
+  'parcelaHeroCard.accuracy': 'Průměrná přesnost {{value}} % u všech extrakcí',
   'parcelaHeroCard.change': '{{sign}}{{amount}} % oproti včerejšku',
   'parcelaHeroCard.title': 'Dnes zpracovaných dokumentů',
   'parcelaLayout.primaryNavLabel': 'Hlavní navigace',
@@ -81,6 +107,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'dokumenty',
   'pricing.processingLabel': 'úloh zpracování',
   'resetPassword.confirmPlaceholder': 'Zopakujte nové heslo',
+  'resetPassword.hidePassword': 'Skrýt heslo',
   'resetPassword.passwordLabel': 'Nové heslo',
   'resetPassword.showPassword': 'Zobrazit heslo',
   'resetPassword.subtitle': 'Vyberte něco alespoň 8 znaků dlouhého.',
@@ -97,10 +124,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Nepodařilo se načíst pravidla.',
   'rules.loading': 'Načítání pravidel…',
   'rules.matched30d': '{{count}} dokumentů odpovídalo za posledních 30 dní',
+  'rules.neverUsed': 'Nikdy nepoužité',
   'rules.newRule': 'Nové pravidlo',
   'rules.saveError': 'Nepodařilo se uložit pravidlo.',
   'rules.subheading':
     'Řekněte systému, kam má každý typ dokumentu patřit. Podmínky se řetězí shora dolů — první shoda vyhrává.',
+  'rules.templatesEmpty': 'Zatím žádné šablony extrakce.',
   'rules.templatesHeading': 'Šablony pro extrakci',
   'rules.templatesSubheading': 'Schémata polí, která extraktor používá pro každý typ dokumentu.',
   'rules.then': 'Pak',
@@ -109,17 +138,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Název pracovního prostoru',
   'settings.account.subheading':
     'Zobrazované jméno a primární e-mail pro oznámení a historii auditu.',
+  'settings.api.confirmRevoke': 'Potvrdit?',
   'settings.api.copyOnce': 'Zkopírujte tento klíč — již nebude znovu zobrazen',
   'settings.api.createdOn': 'Vytvořeno {{date}}',
   'settings.api.empty': 'Zatím žádné API klíče. Vygenerujte jeden výše.',
   'settings.api.error': 'Nepodařilo se vytvořit klíč.',
+  'settings.api.generating': 'Generování…',
+  'settings.api.heading': 'API klíče',
   'settings.api.labelPlaceholder': 'Štítek klíče (např. CI nahrávač)',
+  'settings.api.loading': 'Načítání klíčů…',
   'settings.api.newKey': 'Vygenerovat klíč',
   'settings.api.subheading':
     'Použijte je pro zasílání dokumentů ze skriptu nebo Vašeho ERP. Klíč můžete kdykoli rotovat.',
   'settings.integrations.heading': 'Integrace zakládání',
   'settings.integrations.subheading':
     'Posílejte založené dokumenty do cloudového úložiště nebo chatovacího nástroje, který Váš tým již používá.',
+  'settings.subheading':
+    'Spravujte účet, API klíče a integrace zařazování pro svůj pracovní prostor {{app}}.',
+  'signup.hidePassword': 'Skrýt heslo',
   'signup.identityPrompt': 'Jak Vás máme oslovovat?',
   'signup.showPassword': 'Zobrazit heslo',
   'signup.subtitle': '14 dní zdarma, bez nutnosti karty.',
@@ -127,6 +163,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Nahrání selhalo.',
   'upload.eyebrow': 'Příjem',
   'upload.heading': 'Nahrát dokumenty',
+  'upload.queue.clear': 'Vymazat dokončené',
   'upload.queue.col.confidence': 'Jistota',
   'upload.queue.col.file': 'Soubor',
   'upload.queue.detecting': 'Detekce…',
@@ -139,5 +176,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Nebo vložte více souborů najednou pro dávkovou extrakci, klasifikaci a zakládání.',
   'uploadDropZone.cta': 'Zvolit soubory',
+  'uploadDropZone.maxSize': 'Max. 25 MB na soubor · Kompletně šifrováno',
   'uploadDropZone.title': 'Vložte dokumenty pro zahájení zpracování',
 }

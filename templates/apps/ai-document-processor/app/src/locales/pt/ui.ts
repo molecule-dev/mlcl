@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tem uma dúvida, encontrou um bug ou quer uma demonstração para a sua equipe? Fale conosco pelas configurações da sua conta — cada mensagem chega a uma pessoa real da equipe.',
   'about.contactTitle': 'Fale com a gente',
+  'about.intro':
+    'O {{app}} transforma pilhas de documentos digitalizados e PDFs em dados estruturados, pesquisáveis e arquivados. Envie faturas, recibos, contratos ou formulários e deixe a IA ler, extrair, classificar e arquivar — com cores de confiança para que sua equipe só revise o que realmente precisa de um humano.',
+  'about.missionBody':
+    'A papelada não deveria consumir o dia da sua equipe. Acreditamos que todo valor extraído deve ser explicável e auditável — para que você confie na automação sem perder o histórico. O {{app}} foi feito para economizar horas por pilha, mantendo um humano no circuito onde for importante.',
+  'about.missionTitle': 'Nossa missão',
+  'about.subtitle':
+    'OCR, extração por IA, classificação e arquivamento automatizado para seus documentos.',
   'about.title': 'Sobre {{app}}',
+  'about.whatYouGetTitle': 'O que você ganha',
   'authShell.backToLanding': '← Voltar para a página inicial',
   'common.goToDashboard': 'Ir para o Painel',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Hoje · Visão geral das operações',
   'dashboard.heading': 'Inteligência documental',
+  'dashboard.metric.accuracy': 'Precisão média',
   'dashboard.metric.filed': 'Arquivados hoje',
   'dashboard.metric.filedCaption': 'Roteados pelas regras de arquivamento',
   'dashboard.metric.processed': 'Processados hoje',
@@ -23,11 +34,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Documento',
   'dashboard.recent.col.uploaded': 'Enviado',
   'dashboard.recent.heading': 'Documentos recentes',
+  'dashboard.recent.typeUnknown': 'Aguardando classificação',
   'dashboard.subheading':
     'Cada página classificada, extraída e arquivada — com cores de confiança para que a revisão permaneça focada.',
   'documentDetail.audit.heading': 'Linha do tempo de auditoria',
+  'documentDetail.audit.subheading':
+    'Cada etapa realizada neste documento, com o responsável pela ação.',
   'documentDetail.back': 'Todos os documentos',
   'documentDetail.downloadHint': 'Use Baixar para abrir o arquivo original.',
+  'documentDetail.extracted.empty': 'Nenhum campo extraído ainda.',
   'documentDetail.extracted.heading': 'Campos extraídos',
   'documentDetail.extracted.subheading':
     '{{count}} campos · clique em qualquer campo para destacar na página',
@@ -56,13 +71,24 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} documentos em sua biblioteca, ordenados do mais recente ao mais antigo.',
   'documents.uploadCta': 'Enviar documentos',
+  'documentTypeBreakdown.barAria': 'Composição dos documentos por tipo',
   'documentTypeBreakdown.empty': 'Nenhum documento processado ainda.',
   'documentTypeBreakdown.subtitle': '{{total}} processados',
   'documentTypeBreakdown.title': 'Composição de documentos',
+  'forgotPassword.backToSignIn': '← Voltar para entrar',
   'forgotPassword.checkEmail': 'Verifique seu e-mail',
   'forgotPassword.tip': 'Não recebeu? Verifique o spam ou tente outro endereço.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Feito para equipes de operações que auditam cada página.',
+  'landing.ctaBody':
+    'Teste de 14 dias. Sem cartão. Cancele quando quiser. Feito para equipes de operações que avançam rápido e auditam devagar.',
   'landing.ctaHeading': 'Pare de digitar recibos. Comece a arquivá-los.',
   'landing.eyebrow': 'OCR · Extração · Arquivamento com IA',
+  'landing.featuresHeading': 'Inteligência de documentos que se explica sozinha',
+  'landing.heroSubtitle':
+    'Solte uma pilha de faturas, recibos, contratos ou formulários. O {{app}} classifica, extrai e arquiva tudo — com cores de confiança para que sua equipe só revise o que realmente precisa de um humano.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Volume diário · últimos 7 dias',
   'landing.sampleCardLabel': 'Documentos processados hoje',
   'landing.sampleCardSubtitle': '96,2% de precisão média em notas fiscais, recibos e formulários.',
   'login.hidePassword': 'Ocultar senha',
@@ -75,6 +101,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Abrir página inicial',
   'notFound.title': 'Esta página não está nos arquivos',
+  'parcelaHeroCard.accuracy': 'Precisão média de {{value}}% em todas as extrações',
   'parcelaHeroCard.change': '{{sign}}{{amount}}% vs ontem',
   'parcelaHeroCard.title': 'Documentos processados hoje',
   'parcelaLayout.primaryNavLabel': 'Navegação principal',
@@ -82,6 +109,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'documentos',
   'pricing.processingLabel': 'tarefas de processamento',
   'resetPassword.confirmPlaceholder': 'Repita a nova senha',
+  'resetPassword.hidePassword': 'Ocultar senha',
   'resetPassword.passwordLabel': 'Nova senha',
   'resetPassword.showPassword': 'Mostrar senha',
   'resetPassword.subtitle': 'Escolha uma com pelo menos 8 caracteres.',
@@ -98,10 +126,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Falha ao carregar as regras.',
   'rules.loading': 'Carregando regras…',
   'rules.matched30d': '{{count}} documentos correspondidos nos últimos 30 dias',
+  'rules.neverUsed': 'Nunca usado',
   'rules.newRule': 'Nova regra',
   'rules.saveError': 'Falha ao salvar a regra.',
   'rules.subheading':
     'Diga ao sistema para onde cada tipo de documento deve ir. As condições encadeiam de cima para baixo — a primeira correspondência vence.',
+  'rules.templatesEmpty': 'Ainda não há modelos de extração.',
   'rules.templatesHeading': 'Modelos de extração',
   'rules.templatesSubheading': 'Esquemas de campos que o extrator usa para cada tipo de documento.',
   'rules.then': 'Então',
@@ -110,17 +140,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Nome do espaço de trabalho',
   'settings.account.subheading':
     'Nome de exibição e e-mail principal para notificações e histórico de auditoria.',
+  'settings.api.confirmRevoke': 'Confirmar?',
   'settings.api.copyOnce': 'Copie esta chave — ela não será mostrada novamente',
   'settings.api.createdOn': 'Criada em {{date}}',
   'settings.api.empty': 'Ainda não há chaves de API. Gere uma acima.',
   'settings.api.error': 'Falha ao criar a chave.',
+  'settings.api.generating': 'A gerar…',
+  'settings.api.heading': 'Chaves de API',
   'settings.api.labelPlaceholder': 'Rótulo da chave (por exemplo, uploader de CI)',
+  'settings.api.loading': 'Carregando chaves…',
   'settings.api.newKey': 'Gerar chave',
   'settings.api.subheading':
     'Use-as para enviar documentos a partir de um script ou seu ERP. Rotacione qualquer chave a qualquer momento.',
   'settings.integrations.heading': 'Integrações de arquivamento',
   'settings.integrations.subheading':
     'Envie documentos arquivados para o disco em nuvem ou ferramenta de chat que sua equipe já usa.',
+  'settings.subheading':
+    'Gerencie a conta, as chaves de API e as integrações de arquivamento do seu workspace {{app}}.',
+  'signup.hidePassword': 'Ocultar senha',
   'signup.identityPrompt': 'Como devemos chamá-lo?',
   'signup.showPassword': 'Mostrar senha',
   'signup.subtitle': '14 dias grátis, sem cartão necessário.',
@@ -128,6 +165,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Falha no envio.',
   'upload.eyebrow': 'Ingestão',
   'upload.heading': 'Enviar documentos',
+  'upload.queue.clear': 'Limpar concluídos',
   'upload.queue.col.confidence': 'Confiança',
   'upload.queue.col.file': 'Arquivo',
   'upload.queue.detecting': 'Detectando…',
@@ -140,5 +178,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Ou solte vários arquivos de uma vez para extração, classificação e arquivamento em lote.',
   'uploadDropZone.cta': 'Escolher arquivos',
+  'uploadDropZone.maxSize': 'Máx. 25 MB por arquivo · Criptografia de ponta a ponta',
   'uploadDropZone.title': 'Solte documentos para iniciar o processamento',
 }

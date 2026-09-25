@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'कोई सवाल है, कोई बग मिला है, या अपनी टीम के लिए डेमो चाहते हैं? अपनी अकाउंट सेटिंग्स से संपर्क करें — हर संदेश टीम के किसी असली व्यक्ति तक पहुँचता है।',
   'about.contactTitle': 'संपर्क करें',
+  'about.intro':
+    '{{app}} स्कैन किए गए दस्तावेज़ों और PDFs के ढेर को संरचित, खोजने योग्य, फ़ाइल किए गए डेटा में बदल देता है। इनवॉइस, रसीदें, अनुबंध या फ़ॉर्म डालें और AI को उन्हें पढ़ने, निकालने, वर्गीकृत करने और फ़ाइल करने दें — कॉन्फ़िडेंस रंगों के साथ ताकि आपकी टीम केवल उन्हीं की समीक्षा करे जिनमें वाकई इंसान की ज़रूरत हो।',
+  'about.missionBody':
+    'दस्तावेज़ों का बेकार काम आपकी टीम का दिन नहीं खा जाना चाहिए। हमारा मानना है कि हर निकाला गया मान व्याख्यायोग्य और ऑडिट-योग्य होना चाहिए — ताकि आप पेपर ट्रेल खोए बिना ऑटोमेशन पर भरोसा कर सकें। {{app}} को हर ढेर पर घंटों बचाने के लिए बनाया गया है, साथ ही जहाँ ज़रूरी हो वहाँ इंसान को लूप में रखता है।',
+  'about.missionTitle': 'हमारा विशेष कार्य',
+  'about.subtitle': 'आपके दस्तावेज़ों के लिए OCR, AI एक्सट्रैक्शन, वर्गीकरण और स्वचालित फ़ाइलिंग।',
   'about.title': '{{app}} के बारे में',
+  'about.whatYouGetTitle': 'आपको क्या मिलता है',
   'authShell.backToLanding': '← लैंडिंग पर वापस जाएँ',
   'common.goToDashboard': 'डैशबोर्ड पर जाएं',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'आज · संचालन अवलोकन',
   'dashboard.heading': 'दस्तावेज़ इंटेलिजेंस',
+  'dashboard.metric.accuracy': 'औसत सटीकता',
   'dashboard.metric.filed': 'आज दाखिल',
   'dashboard.metric.filedCaption': 'दाखिल नियमों द्वारा रूट किया गया',
   'dashboard.metric.processed': 'आज संसाधित',
@@ -23,11 +33,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'दस्तावेज़',
   'dashboard.recent.col.uploaded': 'अपलोडेड',
   'dashboard.recent.heading': 'हाल के दस्तावेज़',
+  'dashboard.recent.typeUnknown': 'वर्गीकरण की प्रतीक्षा में',
   'dashboard.subheading':
     'प्रत्येक पृष्ठ वर्गीकृत, निकाला और दाखिल किया गया — विश्वास रंगों के साथ ताकि समीक्षा केंद्रित रहे।',
   'documentDetail.audit.heading': 'ऑडिट टाइमलाइन',
+  'documentDetail.audit.subheading': 'इस दस्तावेज़ पर उठाया गया हर कदम, ज़िम्मेदार व्यक्ति के साथ।',
   'documentDetail.back': 'सभी दस्तावेज़',
   'documentDetail.downloadHint': 'मूल फ़ाइल खोलने के लिए डाउनलोड का उपयोग करें।',
+  'documentDetail.extracted.empty': 'अभी तक कोई फ़ील्ड नहीं निकाली गई।',
   'documentDetail.extracted.heading': 'निकाली गई फ़ील्ड',
   'documentDetail.extracted.subheading':
     '{{count}} फ़ील्ड · पृष्ठ पर हाइलाइट करने के लिए किसी भी फ़ील्ड पर क्लिक करें',
@@ -55,13 +68,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'दस्तावेज़ खोजें…',
   'documents.subheading': 'आपकी लाइब्रेरी में {{count}} दस्तावेज़, नवीनतम पहले क्रमबद्ध।',
   'documents.uploadCta': 'दस्तावेज़ अपलोड करें',
+  'documentTypeBreakdown.barAria': 'प्रकार के अनुसार दस्तावेज़ संरचना',
   'documentTypeBreakdown.empty': 'अभी तक कोई दस्तावेज़ संसाधित नहीं।',
   'documentTypeBreakdown.subtitle': '{{total}} संसाधित',
   'documentTypeBreakdown.title': 'दस्तावेज़ संरचना',
+  'forgotPassword.backToSignIn': '← साइन इन पर वापस जाएँ',
   'forgotPassword.checkEmail': 'अपना ईमेल देखें',
   'forgotPassword.tip': 'नहीं मिला? स्पैम देखें या किसी अन्य पते का प्रयास करें।',
+  'landing.copyright':
+    '© {{year}} {{app}}. उन ऑप्स टीमों के लिए बनाया गया जो हर पेज का ऑडिट करती हैं।',
+  'landing.ctaBody':
+    '14-दिन का ट्रायल। कार्ड की ज़रूरत नहीं। कभी भी कैंसल करें। उन ऑप्स टीमों के लिए बनाया गया जो तेज़ी से चलती हैं और धीरे ऑडिट करती हैं।',
   'landing.ctaHeading': 'रसीदें टाइप करना बंद करें। उन्हें दाखिल करना शुरू करें।',
   'landing.eyebrow': 'OCR · निष्कर्षण · AI दाखिला',
+  'landing.featuresHeading': 'दस्तावेज़ इंटेलिजेंस जो खुद को समझाती है',
+  'landing.heroSubtitle':
+    'इनवॉइस, रसीदों, अनुबंधों या फ़ॉर्मों का ढेर डालें। {{app}} उन्हें वर्गीकृत करता है, निकालता है और फ़ाइल करता है — कॉन्फ़िडेंस रंगों के साथ ताकि आपकी टीम केवल उन्हीं की समीक्षा करे जिनमें वाकई इंसान की ज़रूरत हो।',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'दैनिक वॉल्यूम · पिछले 7 दिन',
   'landing.sampleCardLabel': 'आज संसाधित दस्तावेज़',
   'landing.sampleCardSubtitle': 'इनवॉइस, रसीदों और फ़ॉर्म पर 96.2% औसत सटीकता।',
   'login.hidePassword': 'पासवर्ड छिपाएँ',
@@ -74,6 +98,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'लैंडिंग पृष्ठ खोलें',
   'notFound.title': 'वह पृष्ठ फ़ाइल में नहीं है',
+  'parcelaHeroCard.accuracy': 'सभी एक्सट्रैक्शन में औसत सटीकता {{value}}%',
   'parcelaHeroCard.change': '{{sign}}{{amount}}% कल की तुलना में',
   'parcelaHeroCard.title': 'आज संसाधित दस्तावेज़',
   'parcelaLayout.primaryNavLabel': 'प्राथमिक नेविगेशन',
@@ -81,6 +106,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'दस्तावेज़',
   'pricing.processingLabel': 'प्रसंस्करण कार्य',
   'resetPassword.confirmPlaceholder': 'नया पासवर्ड दोहराएँ',
+  'resetPassword.hidePassword': 'पासवर्ड छिपाएं',
   'resetPassword.passwordLabel': 'नया पासवर्ड',
   'resetPassword.showPassword': 'पासवर्ड दिखाएँ',
   'resetPassword.subtitle': 'कम से कम 8 वर्ण की कोई चीज़ चुनें।',
@@ -97,10 +123,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'नियम लोड करने में विफल।',
   'rules.loading': 'नियम लोड हो रहे हैं…',
   'rules.matched30d': 'पिछले 30 दिनों में {{count}} दस्तावेज़ मिले',
+  'rules.neverUsed': 'कभी उपयोग नहीं किया',
   'rules.newRule': 'नया नियम',
   'rules.saveError': 'नियम सहेजने में विफल।',
   'rules.subheading':
     'सिस्टम को बताएँ कि प्रत्येक प्रकार का दस्तावेज़ कहाँ जाना चाहिए। शर्तें ऊपर से नीचे जुड़ती हैं — पहला मेल जीतता है।',
+  'rules.templatesEmpty': 'अभी तक कोई एक्सट्रैक्शन टेम्पलेट नहीं।',
   'rules.templatesHeading': 'निष्कर्षण टेम्पलेट',
   'rules.templatesSubheading':
     'प्रत्येक दस्तावेज़ प्रकार के लिए निष्कर्षक द्वारा उपयोग की जाने वाली फ़ील्ड स्कीमा।',
@@ -109,17 +137,24 @@ export const ui: UiTranslations = {
   'settings.account.error': 'सहेजने में विफल।',
   'settings.account.nameLabel': 'वर्कस्पेस नाम',
   'settings.account.subheading': 'अधिसूचनाओं और ऑडिट इतिहास के लिए प्रदर्शन नाम और प्राथमिक ईमेल।',
+  'settings.api.confirmRevoke': 'पुष्टि करना?',
   'settings.api.copyOnce': 'इस कुंजी को कॉपी करें — यह फिर से नहीं दिखाई जाएगी',
   'settings.api.createdOn': '{{date}} बनाई गई',
   'settings.api.empty': 'अभी तक कोई API कुंजी नहीं। ऊपर एक बनाएँ।',
   'settings.api.error': 'कुंजी बनाने में विफल।',
+  'settings.api.generating': 'जनरेट हो रहा है…',
+  'settings.api.heading': 'API कुंजियाँ',
   'settings.api.labelPlaceholder': 'कुंजी लेबल (जैसे CI अपलोडर)',
+  'settings.api.loading': 'कीज़ लोड हो रही हैं…',
   'settings.api.newKey': 'कुंजी बनाएँ',
   'settings.api.subheading':
     'इनका उपयोग किसी स्क्रिप्ट या अपने ERP से दस्तावेज़ पुश करने के लिए करें। किसी भी समय किसी भी कुंजी को रोटेट करें।',
   'settings.integrations.heading': 'दाखिल एकीकरण',
   'settings.integrations.subheading':
     'दाखिल किए गए दस्तावेज़ों को क्लाउड ड्राइव या चैट टूल पर भेजें जहाँ आपकी टीम पहले से रहती है।',
+  'settings.subheading':
+    'अपने {{app}} वर्कस्पेस के लिए अकाउंट, API कीज़ और फ़ाइलिंग इंटीग्रेशन प्रबंधित करें।',
+  'signup.hidePassword': 'पासवर्ड छिपाएं',
   'signup.identityPrompt': 'हम आपको कैसे संबोधित करें?',
   'signup.showPassword': 'पासवर्ड दिखाएँ',
   'signup.subtitle': '14 दिन मुफ़्त, कोई कार्ड आवश्यक नहीं।',
@@ -127,6 +162,7 @@ export const ui: UiTranslations = {
   'upload.error': 'अपलोड विफल।',
   'upload.eyebrow': 'इंजेशन',
   'upload.heading': 'दस्तावेज़ अपलोड करें',
+  'upload.queue.clear': 'पूर्ण किए गए साफ़ करें',
   'upload.queue.col.confidence': 'विश्वास',
   'upload.queue.col.file': 'फ़ाइल',
   'upload.queue.detecting': 'पता लगाया जा रहा है…',
@@ -138,5 +174,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.aria': 'अपलोड करने के लिए दस्तावेज़ ड्रॉप करें',
   'uploadDropZone.body': 'या बैच निष्कर्षण, वर्गीकरण और दाखिल के लिए एक साथ कई फ़ाइलें ड्रॉप करें।',
   'uploadDropZone.cta': 'फ़ाइलें चुनें',
+  'uploadDropZone.maxSize': 'प्रति फ़ाइल अधिकतम 25 MB · एंड-टू-एंड एन्क्रिप्टेड',
   'uploadDropZone.title': 'प्रसंस्करण शुरू करने के लिए दस्तावेज़ ड्रॉप करें',
 }

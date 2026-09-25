@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.featureConnections':
+    'ನಿಮ್ಮ ಡೇಟಾಬೇಸ್ಗಳನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಸಂಗ್ರಹಿಸಿ ಬಣ್ಣ-ಕೋಡ್ ಮಾಡುವ ಸಂಪರ್ಕ ನಿರ್ವಾಹಕ — ರುಜುವಾತುಗಳು ವಿಶ್ರಾಂತಿಯಲ್ಲಿ ಎನ್ಕ್ರಿಪ್ಟ್ ಆಗಿರುತ್ತವೆ, ಎಂದಿಗೂ ಸ್ಪಷ್ಟ ಪಠ್ಯದಲ್ಲಿ ಇರುವುದಿಲ್ಲ.',
+  'about.featureMonitoring':
+    'ಪ್ರಶ್ನೆ ಕಾರ್ಯಕ್ಷಮತೆ ಮತ್ತು ಡೇಟಾಬೇಸ್ ಚಟುವಟಿಕೆಯ ನೇರ ಮೇಲ್ವಿಚಾರಣೆ, ಕೀಬೋರ್ಡ್ ಶಾರ್ಟ್ಕಟ್ಗಳು ಮತ್ತು ಕಮಾಂಡ್ ಪ್ಯಾಲೆಟ್ನೊಂದಿಗೆ ಎಲ್ಲವನ್ನೂ ಕೈಬಿಟ್ಟು ನಿಯಂತ್ರಿಸಬಹುದು.',
+  'about.featurePlans':
+    'ನಿಮ್ಮೊಂದಿಗೆ ಬೆಳೆಯುವ ಯೋಜನೆಗಳು — ಏಕಾಂಗಿ ಕೆಲಸಕ್ಕೆ ಉಚಿತ, ಹೆಚ್ಚು ಸಂಪರ್ಕಗಳು, ದೀರ್ಘ ಪ್ರಶ್ನೆ ಧಾರಣೆ, ರಫ್ತುಗಳು ಮತ್ತು ಸುಧಾರಿತ ವೈಶಿಷ್ಟ್ಯಗಳಿಗಾಗಿ Pro ಮತ್ತು Team.',
+  'about.featureQueryEditor':
+    'ಪ್ರಶ್ನೆ ಇತಿಹಾಸ, ಉಳಿಸಿದ ಪ್ರಶ್ನೆಗಳು ಮತ್ತು ನಿಮ್ಮ ಫಲಿತಾಂಶಗಳ ಒಂದು-ಕ್ಲಿಕ್ CSV ರಫ್ತಿನೊಂದಿಗೆ Monaco-ಚಾಲಿತ SQL ಸಂಪಾದಕ.',
+  'about.featureSchema':
+    'ಡೇಟಾಬೇಸ್ಗಳು, ಕೋಷ್ಟಕಗಳು ಮತ್ತು ಕಾಲಮ್ಗಳನ್ನು ನ್ಯಾವಿಗೇಟ್ ಮಾಡಲು ಸ್ಕೀಮಾ ಎಕ್ಸ್ಪ್ಲೋರರ್ ಮತ್ತು ಕೋಷ್ಟಕ ಬ್ರೌಸರ್, ನಂತರ ಸಾಲುಗಳನ್ನು ಇನ್ಲೈನ್ನಲ್ಲಿ ಬ್ರೌಸ್ ಮಾಡಿ, ಫಿಲ್ಟರ್ ಮಾಡಿ ಮತ್ತು ಸಂಪಾದಿಸಿ.',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
   'authShell.commands': 'ಆಜ್ಞೆಗಳು',
   'authShell.ssoSupported': 'SSO ಬೆಂಬಲಿತವಾಗಿದೆ',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'ಪ್ರಶ್ನೆಗಳು',
   'connections.schema': 'ಸ್ಕೀಮಾ',
   'connections.subtitle': 'ನಿಮ್ಮ ಡೇಟಾಬೇಸ್ ಸಂಪರ್ಕಗಳನ್ನು ನಿರ್ವಹಿಸಿ.',
+  'connections.test': 'ಪರೀಕ್ಷೆ',
   'databaseAdminLayout.adminRole': 'ನಿರ್ವಾಹಕರ ಪಾತ್ರ',
   'databaseAdminLayout.commandPalette': 'ಕಮಾಂಡ್ ಪ್ಯಾಲೆಟ್',
   'databaseAdminLayout.commands': 'ಆಜ್ಞೆಗಳು',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'ಹೊಸ ಸಂಪರ್ಕ',
   'databaseAdminLayout.queries': 'ಪ್ರಶ್ನೆಗಳು',
   'databaseAdminLayout.ready': 'ಸಿದ್ಧವಾಗಿದೆ',
+  'databaseAdminLayout.searchPlaceholder': '⌘K ಆಜ್ಞೆಗಳು, ಪ್ರಶ್ನೆಗಳು, ಕೋಷ್ಟಕಗಳನ್ನು ಹುಡುಕಿ…',
   'databaseAdminLayout.user': 'ಬಳಕೆದಾರ',
   'editConnection.confirmDelete': 'ಈ ಸಂಪರ್ಕವನ್ನು ಅಳಿಸುವುದೇ?',
   'editConnection.deleteButton': 'ಸಂಪರ್ಕ ಅಳಿಸಿ',
+  'editConnection.newPassword': 'ಹೊಸ ಪಾಸ್ವರ್ಡ್ (ಇದೇ ರೀತಿ ಇರಿಸಲು ಖಾಲಿ ಬಿಡಿ)',
   'editConnection.saved': 'ಸಂಪರ್ಕ ಉಳಿಸಲಾಗಿದೆ.',
   'editConnection.title': 'ಸಂಪರ್ಕವನ್ನು ಸಂಪಾದಿಸಿ',
   'forgotPassword.success': 'ಆ ಖಾತೆ ಅಸ್ತಿತ್ವದಲ್ಲಿದ್ದರೆ, ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಬರುತ್ತಿದೆ.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'ಯಶಸ್ಸುಗಳು',
   'monitoring.title': 'ಮೇಲ್ವಿಚಾರಣೆ',
   'monitoring.totalQueries': 'ಒಟ್ಟು ಪ್ರಶ್ನೆಗಳು',
+  'nav.schema': 'ಸ್ಕೀಮಾ',
   'newConnection.database': 'ಡೇಟಾಬೇಸ್',
   'newConnection.engine': 'ಎಂಜಿನ್',
   'newConnection.host': 'ಹೋಸ್ಟ್',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'ಈ ತುಣುಕಿಗೆ ಯಾವುದೇ ಸಂಪರ್ಕವಿಲ್ಲ.',
   'savedQuery.notBound': 'ಬೌಂಡ್ ಅಲ್ಲ',
   'savedQuery.title': 'ಉಳಿಸಲಾದ ಪ್ರಶ್ನೆ',
+  'schema.columns': 'ಕಾಲಮ್‌ಗಳು',
   'schema.foreignKeys': 'ವಿದೇಶಿ ಕೀಲಿಗಳು',
   'schema.indexes': 'ಸೂಚ್ಯಂಕಗಳು',
   'schemaExplorer.browseRows': 'ಸಾಲುಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'ರದ್ದುಗೊಳಿಸಬಹುದಾದ',
   'schemaExplorer.colType': 'ಮಾದರಿ',
   'schemaExplorer.noColumns': 'ಯಾವುದೇ ಕಾಲಮ್‌ಗಳಿಲ್ಲ.',
+  'schemaExplorer.noForeignKeys': 'ವಿದೇಶಿ ಕೀಗಳಿಲ್ಲ.',
   'schemaExplorer.noIndexes': 'ಯಾವುದೇ ಸೂಚ್ಯಂಕಗಳಿಲ್ಲ.',
   'schemaExplorer.noTables': 'ಟೇಬಲ್‌ಗಳಿಲ್ಲ',
   'schemaExplorer.pickATable': 'ಸೈಡ್‌ಬಾರ್‌ನಿಂದ ಟೇಬಲ್ ಆರಿಸಿ.',
   'schemaExplorer.tables': 'ಕೋಷ್ಟಕಗಳು',
   'schemaExplorer.title': 'ಸ್ಕೀಮಾ ಎಕ್ಸ್‌ಪ್ಲೋರರ್',
+  'settings.session': 'ಅಧಿವೇಶನ',
   'settings.subtitle': 'ನಿಮ್ಮ ಖಾತೆಯನ್ನು ನಿರ್ವಹಿಸಿ ಮತ್ತು ಯೋಜಿಸಿ.',
   'signup.heading': 'ನಿಮ್ಮ ಕ್ವಾರಿ ಖಾತೆಯನ್ನು ರಚಿಸಿ',
   'signup.tagline': 'ಒಂದು ನಿಮಿಷಕ್ಕಿಂತ ಕಡಿಮೆ ಅವಧಿಯಲ್ಲಿ ಪ್ರವೇಶವನ್ನು ಹೆಚ್ಚಿಸಿ.',
   'tableBrowser.noRows': 'ಈ ಕೋಷ್ಟಕದಲ್ಲಿ ಇನ್ನೂ ಯಾವುದೇ ಸಾಲುಗಳಿಲ್ಲ.',
+  'tableBrowser.subtitle': 'ನಿಮ್ಮ ರಿಮೋಟ್ ಡೇಟಾಬೇಸ್ನಿಂದ ಸಾಲುಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಲಾಗುತ್ತಿದೆ.',
   'tableBrowser.title': 'ನಿಮ್ಮ ರಿಮೋಟ್ ಡೇಟಾಬೇಸ್‌ನಿಂದ ಸಾಲುಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಲಾಗುತ್ತಿದೆ.',
 }

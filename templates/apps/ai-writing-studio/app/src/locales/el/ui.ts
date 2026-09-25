@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχεις σχόλια, βρήκες κάποιο σφάλμα ή θέλεις μια νέα λειτουργία; Επικοινώνησε από τις ρυθμίσεις του λογαριασμού σου — κάθε μήνυμα φτάνει σε ένα πραγματικό μέλος της ομάδας.',
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.intro':
+    'Το {{app}} είναι ένα στούντιο συγγραφής με AI για συγγραφείς που νοιάζονται βαθιά για τον λόγο τους. Συνδυάζει παραγωγή κειμένου μεγάλης φόρμας με AI με έναν ήρεμο επεξεργαστή, βαθμολόγηση SEO και δημιουργία εικόνων, ώστε να πας ένα κείμενο από την κενή σελίδα στη δημοσίευση — χωρίς να χάσεις ποτέ τη φωνή σου.',
+  'about.missionBody':
+    'Πιστεύουμε ότι η AI πρέπει να γράφει δίπλα σου, ποτέ αντί για σένα. Το {{app}} κρατά τις προτάσεις ορατά ξεχωριστές από τα δικά σου λόγια, σε αφήνει ιδιοκτήτη κάθε εγγράφου που δημιουργείς και βγάζει τα εργαλεία από τη μέση της συγγραφής.',
+  'about.missionTitle': 'Η αποστολή μας',
   'about.pageTitle': 'Σχετικά με το {{app}}',
   'aiSuggestionCard.applied': 'Η πρόταση εφαρμόστηκε',
   'aiSuggestionCard.apply': 'Εφαρμογή',
@@ -24,7 +31,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Πηγές επισκεψιμότητας',
   'billing.activePlan': 'Η συνδρομή είναι ενεργή.',
   'billing.aiWordsLabel': 'Συμπεριλαμβανόμενες γενιές AI',
+  'billing.cancelFailed': 'Δεν ήταν δυνατή η ακύρωση της συνδρομής.',
   'billing.cancelPlan': 'Ακύρωση πλάνου',
+  'billing.cancelPlanConfirm': 'Επιβεβαίωση ακύρωσης;',
   'billing.cancelSuccess': 'Η συνδρομή ακυρώθηκε. Ανανεώστε για ενημέρωση του πλάνου.',
   'billing.changePlan': 'Αλλαγή πλάνου',
   'billing.col.invoice': 'Τιμολόγιο',
@@ -42,26 +51,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'Προβολή πλάνων',
   'common.goToDashboard': 'Μετάβαση στον Πίνακα',
   'dashboard.continueWriting': 'Συνέχεια γραφής',
+  'dashboard.createFirst': 'Δημιουργία εγγράφου',
   'dashboard.days.sat': 'Σάβ',
   'dashboard.days.sun': 'Κυρ',
   'dashboard.defaultWriterName': 'Συγγραφέας',
   'dashboard.greeting': 'Καλημέρα, {{name}}',
   'dashboard.loadError': 'Δεν ήταν δυνατή η φόρτωση του πίνακα ελέγχου σας.',
+  'dashboard.loading': 'Φόρτωση του στούντιο σου…',
   'dashboard.loadingDocs': 'Φόρτωση πρόσφατων εγγράφων…',
   'dashboard.noDocuments': 'Δεν υπάρχουν ακόμη έγγραφα — ξεκινήστε το πρώτο σας.',
   'dashboard.startWriting': 'Έναρξη νέου εγγράφου',
+  'dashboard.streakBody': 'Έχεις γράψει {{words}} λέξεις αυτή την εβδομάδα.',
   'dashboard.streakTitle': 'Σερί {{count}} ημερών',
+  'dashboard.subgreeting': '{{count}} έγγραφα στη βιβλιοθήκη σου — κράτα τη δυναμική.',
+  'documentCard.seoScoreTitle': 'Βαθμολογία SEO: {{score}}/100',
+  'documents.createNew': 'Δημιουργία νέου εγγράφου',
   'documents.empty': 'Η βιβλιοθήκη σας περιμένει — ξεκινήστε το πρώτο σας έγγραφο.',
+  'documents.emptyFiltered': 'Κανένα έγγραφο δεν ταιριάζει ακόμη με τα φίλτρα σου.',
   'documents.loadError': 'Δεν ήταν δυνατή η φόρτωση εγγράφων.',
   'documents.loading': 'Φόρτωση βιβλιοθήκης…',
   'documents.new': 'Νέο έγγραφο',
+  'documents.searchAriaLabel': 'Αναζήτηση εγγράφων',
   'documents.searchPlaceholder': 'Αναζήτηση εγγράφων…',
   'documents.subtitle': '{{count}} έγγραφα στη βιβλιοθήκη σας.',
   'documents.title': 'Έγγραφα',
   'editor.aiPanelTitle': 'Plume Intelligence',
+  'editor.aiSuggestion.empty':
+    'Καμία ενεργή βελτίωση. Ζήτα από το {{appName}} μια πρόταση όταν θέλεις ένα δεύτερο ζευγάρι μάτια.',
   'editor.aiSuggestion.failed': 'Δεν ήταν δυνατή η φόρτωση προτάσεων αυτή τη στιγμή.',
   'editor.aiSuggestion.loadingBody': 'Δημιουργία βελτίωσης σαφήνειας…',
   'editor.backToDocuments': 'Όλα τα έγγραφα',
+  'editor.bodyAriaLabel': 'Σώμα εγγράφου',
   'editor.closeAiPanel': 'Κλείσιμο πάνελ AI',
   'editor.createFailed': 'Δεν ήταν δυνατή η δημιουργία εγγράφου.',
   'editor.exported': 'Εξήχθη ως «{{format}}».',
@@ -77,18 +97,26 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'Αίτημα βελτίωσης',
   'editor.saveBeforePublish': 'Αποθηκεύστε το έγγραφο πριν τη δημοσίευση.',
   'editor.status.chars': '{{count}} χαρακτήρες',
+  'editor.status.readTime': '{{minutes}} λεπτά ανάγνωσης',
   'editor.status.savedAt': 'Αποθηκεύτηκε {{time}}',
   'editor.status.saveError': 'Η αποθήκευση απέτυχε',
+  'editor.status.unsaved': 'Δεν έχει αποθηκευτεί ακόμη',
   'editor.titleAriaLabel': 'Τίτλος εγγράφου',
   'editor.titlePlaceholder': 'Έγγραφο χωρίς τίτλο',
   'editor.toggleAiPanel': 'Εναλλαγή πάνελ AI',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'συγγραφέας@παράδειγμα.gr',
+  'forgotPassword.sent':
+    "Αν το {{email}} είναι καταχωρισμένο, ένας σύνδεσμος επαναφοράς είναι καθ' οδόν.",
   'imageGenerator.failed': 'Η δημιουργία εικόνας απέτυχε.',
   'imageGenerator.generate': 'Δημιουργία εικόνας',
   'imageGenerator.generating': 'Δημιουργία...',
   'imageGenerator.placeholder': 'Περιγράψτε την εικόνα που θέλετε να δημιουργήσετε...',
+  'imageGenerator.promptAriaLabel': 'Prompt εικόνας',
+  'imageGenerator.subtitle': 'Περιγράψε μια εικόνα εξωφύλλου και άφησε την AI να τη ζωγραφίσει.',
   'imageGenerator.title': 'AI Δημιουργός εικόνων',
+  'landing.aiSuggestionBody':
+    'όρθιος στο μπαλκόνι του 42ου ορόφου, ο Elias ένιωθε την πόλη να πιέζεται πάνω του — ο άνεμος έκοβε τον αέρα, αφήνοντάς τον μετέωρο σε ένα παγερό, σιωπηλό κενό πάνω από το φωτεινό πλέγμα.',
   'landing.eyebrow': 'Στούντιο γραφής AI για σοβαρούς συγγραφείς',
   'landing.featuresHeading': 'Εργαλεία που μένουν στο παρασκήνιο',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -98,14 +126,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Ένα στούντιο φτιαγμένο για συγγραφείς που νοιάζονται για την πρόζα, τον ρυθμό και την ακρίβειά τους. Το Plume γράφει δίπλα σας — ποτέ στη θέση σας.',
   'landing.heroTitle.eloquence': 'ευγλωττία',
+  'landing.heroTitle.intelligence': 'Η νοημοσύνη συναντά ',
   'landing.nav.testimonials': 'Μαρτυρίες',
   'landing.plan.cta': 'Ξεκινήστε με αυτό το πλάνο',
   'landing.plan.popular': 'Πιο αγαπητό',
   'landing.pricingEyebrow': 'Τιμολόγηση',
   'landing.pricingHeading': 'Επιλέξτε αυτό που ταιριάζει στην πρακτική σας',
   'landing.sampleDocTitle': 'Η αρχιτεκτονική της σιωπής',
+  'landing.sampleParagraph1':
+    'Η πόλη δεν ήταν ποτέ πραγματικά ήσυχη. Ακόμη και τις πιο βαθιές ώρες της νύχτας, ένας χαμηλός βόμβος δονούσε τα τσιμεντένια θεμέλια — ένα μηχανικό χτύπημα καρδιάς από συρμούς του μετρό και αεραγωγούς.',
+  'landing.sampleParagraph2.after': ' στο τζάμι.',
+  'landing.sampleParagraph2.before': 'Αλλά ',
   'landing.sampleParagraph2.highlight':
     'στέκοντας στο μπαλκόνι του 42ου ορόφου, ο Ηλίας ένιωσε βαθιά αίσθηση απομόνωσης',
+  'landing.showcaseBody':
+    'Επισήμανε μια πρόταση και το {{appName}} προσφέρει μια βελτίωση. Αποδέξου την, πείραξέ την ή αγνόησέ την. Οι προτάσεις έχουν πάντα μωβ απόχρωση, ώστε να ξέρεις τι έγραψες εσύ και τι σου προτάθηκε.',
+  'landing.showcaseHeading': 'Ένα δεύτερο ζευγάρι μάτια — ποτέ ένας δεύτερος συγγραφέας.',
   'landing.startWriting': 'Ξεκινήστε να γράφετε',
   'login.emailPlaceholder': 'συγγραφέας@παράδειγμα.gr',
   'login.failed': 'Η σύνδεση απέτυχε',
@@ -120,8 +156,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Άνοιγμα πίνακα ελέγχου',
   'notFound.title': 'Αυτό το κεφάλαιο δεν έχει γραφτεί ακόμη.',
   'plumeSidebarLayout.primaryNavLabel': 'Κύρια πλοήγηση',
+  'pricing.maxDocuments': '{{count}} έγγραφα',
+  'pricing.maxGenerate': '{{count}} δημιουργίες AI',
+  'pricing.maxImages': '{{count}} δημιουργίες εικόνων',
   'privacy.data':
     'Το email του λογαριασμού σας και έναν κατακερματισμένο κωδικό πρόσβασης. Έγγραφα και πρότυπα που δημιουργείτε. Αρχεία καταγραφής προτάσεων AI (εισόδου + εξόδου) για χρέωση και αναλυτικά. Αναγνωριστικά πελατών και συνδρομών Stripe· δεν αποθηκεύουμε ποτέ πλήρεις αριθμούς καρτών.',
+  'privacy.intro':
+    'Συλλέγουμε μόνο τα δεδομένα που χρειάζονται για τη λειτουργία του {{app}}: το email σου, τα έγγραφα που δημιουργείς και τα αιτήματα AI που κάνεις. Δεν πουλάμε ποτέ τα κείμενά σου ή τα prompts σου.',
   'profile.loadError': 'Δεν ήταν δυνατή η φόρτωση του προφίλ σας.',
   'profile.loading': 'Φόρτωση προφίλ σας…',
   'profile.loadingPublished': 'Φόρτωση δημοσιευμένων εγγράφων…',
@@ -133,8 +174,14 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Νέος κωδικός πρόσβασης',
   'seoAnalysis.backToEditor': 'Πίσω στον επεξεργαστή',
   'seoAnalysis.eyebrow': 'Ανάλυση SEO',
+  'seoAnalysis.heroBody':
+    '{{count}} πρόταση(εις) για εφαρμογή. Κάθε μία είναι μια δομική ή λεξιλογική αναβάθμιση, όχι ένας τοίχος από κόκκινες σημαίες.',
+  'seoAnalysis.heroBodyEmpty':
+    'Πάτησε «Εκτέλεση ανάλυσης» για βαθμολόγηση αναγνωσιμότητας, πυκνότητας λέξεων-κλειδιών και δομής.',
   'seoAnalysis.heroEmpty':
     'Δεν υπάρχει ακόμη ανάλυση. Εκτελέστε μία για να βαθμολογήσετε αυτό το προσχέδιο.',
+  'seoAnalysis.heroNeedsWork': 'Κάποιες δομικές αναβαθμίσεις θα αυξήσουν την εμβέλεια.',
+  'seoAnalysis.heroStrong': 'Δυνατό κείμενο — λίγες μικρές αναβαθμίσεις μακριά από το εξαιρετικό.',
   'seoAnalysis.historyEmpty': 'Δεν έχουν καταγραφεί προηγούμενες αναλύσεις.',
   'seoAnalysis.historyTitle': 'Ιστορικό αναλύσεων',
   'seoAnalysis.keywordEmpty':
@@ -161,8 +208,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'Ρυθμίστε το Plume στον τρόπο που γράφετε.',
   'settings.toggleIntegrationFailed': 'Η ενημέρωση ενσωμάτωσης απέτυχε.',
   'settings.writing.aiSuggestions': 'Ενσωματωμένες προτάσεις AI κατά την πληκτρολόγηση',
+  'settings.writing.aiSuggestionsBody':
+    'Δείχνει βελτιώσεις καθώς γράφεις. Οι προτάσεις είναι πάντα προαιρετικές ανά πρόταση.',
   'settings.writing.autoSave': 'Αυτόματη αποθήκευση κάθε 30 δευτερόλεπτα',
+  'settings.writing.autoSaveBody':
+    'Το {{appName}} κρατά ένα στιγμιότυπο του προσχεδίου σου, ώστε να ανακάμψεις από οποιαδήποτε καρτέλα.',
   'settings.writing.notifyEmail': 'Αποστολή εβδομαδιαίων συνόψεων γραφής μέσω email',
+  'settings.writing.notifyEmailBody':
+    'Μια σύντομη κυριακάτικη σύνοψη με σερί, προσχέδια και βελτιώσεις SEO.',
   'settings.writing.title': 'Προτιμήσεις γραφής',
   'settings.writing.tone': 'Προεπιλεγμένη ρύθμιση τόνου',
   'signup.emailPlaceholder': 'συγγραφέας@παράδειγμα.gr',
@@ -173,8 +226,13 @@ export const ui: UiTranslations = {
   'templates.loading': 'Φόρτωση προτύπων…',
   'templates.noDescription': 'Δεν παρέχεται περιγραφή.',
   'templates.subtitle': 'Ξεκινήστε από ένα δοκιμασμένο εκδοτικό πλαίσιο και κάντε το δικό σας.',
+  'terms.intro':
+    'Αυτοί οι όροι διέπουν τη χρήση του {{app}}. Δημιουργώντας λογαριασμό, συμφωνείς να χρησιμοποιείς την υπηρεσία για νόμιμη συγγραφή και να κρατάς τα διαπιστευτήρια του λογαριασμού σου εμπιστευτικά.',
   'terms.license':
     'Διατηρείτε την κυριότητα κάθε εγγράφου, προτύπου και AI-δημιουργίας που φτιάχνετε. Χρειαζόμαστε μη αποκλειστική άδεια για να φιλοξενήσουμε και να σας παρέχουμε το έργο σας, και να επεξεργαζόμαστε αιτήματα AI μέσω των παρόχων που επιλέγετε.',
   'writingStreakHeroCard.change': '{{sign}}{{amount}} λέξεις',
   'writingStreakHeroCard.greeting': 'Καλή μέρα, {{name}}',
+  'writingStreakHeroCard.subtitle':
+    'Λέξεις που γράφτηκαν αυτή την εβδομάδα — σερί {{count}} ημερών',
+  'writingStreakHeroCard.tagline': 'Μια σελίδα την ημέρα κρατά τη μούσα σε εγρήγορση.',
 }

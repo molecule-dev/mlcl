@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Het jy 'n vraag, het jy 'n fout raakgesien, of wil jy 'n demo vir jou span hê? Kontak ons vanuit jou rekeninginstellings — elke boodskap gaan na 'n werklike persoon op die span.",
   'about.contactTitle': 'Kontak ons',
+  'about.intro':
+    "{{app}} verander stapels geskandeerde dokumente en PDF's in gestruktureerde, deursoekbare, geliasseerde data. Laai faktuur, kwitansies, kontrakte of vorms in en laat KI dit lees, onttrek, klassifiseer en liasseer — met vertrouekleure sodat jou span net hersien wat werklik 'n mens nodig het.",
+  'about.missionBody':
+    "Dokumente se vervelige werk moet nie jou span se dag opvreet nie. Ons glo elke onttrekte waarde moet verklaarbaar en ouditeerbaar wees — sodat jy outomatisering kan vertrou sonder om die papierspoor te verloor. {{app}} is gebou om ure per stapel te bespaar terwyl 'n mens in die lus bly waar dit saak maak.",
+  'about.missionTitle': 'Ons missie',
+  'about.subtitle':
+    'OKR, KI-onttrekking, klassifikasie en outomatiese liassering vir jou dokumente.',
   'about.title': 'Oor {{app}}',
+  'about.whatYouGetTitle': 'Wat jy kry',
   'authShell.backToLanding': '← Terug na landing',
   'common.goToDashboard': 'Gaan na Dashboard',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Vandag · Oorsig van bedrywighede',
   'dashboard.heading': 'Dokumentintelligensie',
+  'dashboard.metric.accuracy': 'Gem. akkuraatheid',
   'dashboard.metric.filed': 'Vandag ingedien',
   'dashboard.metric.filedCaption': 'Gerouteer deur indieningsreëls',
   'dashboard.metric.processed': 'Vandag verwerk',
@@ -23,11 +34,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'Opgelaai',
   'dashboard.recent.heading': 'Onlangse dokumente',
+  'dashboard.recent.typeUnknown': 'Wag op klassifikasie',
   'dashboard.subheading':
     'Elke bladsy geklassifiseer, onttrek en geliasseer — met vertrouenskleure sodat die resensie gefokus bly.',
   'documentDetail.audit.heading': 'Oudittydlyn',
+  'documentDetail.audit.subheading':
+    'Elke stap wat op hierdie dokument geneem is, met die verantwoordelike akteur.',
   'documentDetail.back': 'Alle dokumente',
   'documentDetail.downloadHint': 'Gebruik die aflaai-opsie om die oorspronklike lêer oop te maak.',
+  'documentDetail.extracted.empty': 'Nog geen velde onttrek nie.',
   'documentDetail.extracted.heading': 'Uitgetrekte velde',
   'documentDetail.extracted.subheading': '{{count}} velde · klik enige veld om op bladsy te merk',
   'documentDetail.loadError': 'Kon nie dokument laai nie.',
@@ -54,13 +69,23 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Soek dokumente…',
   'documents.subheading': '{{count}} dokumente in jou biblioteek, gesorteer as nuutste eerste.',
   'documents.uploadCta': 'Laai dokumente op',
+  'documentTypeBreakdown.barAria': 'Dokumentsamestelling volgens tipe',
   'documentTypeBreakdown.empty': 'Geen dokumente is nog verwerk nie.',
   'documentTypeBreakdown.subtitle': '{{total}} verwerk',
   'documentTypeBreakdown.title': 'Dokumentsamestelling',
+  'forgotPassword.backToSignIn': '← Terug na aanmelding',
   'forgotPassword.checkEmail': 'Gaan jou e-pos na',
   'forgotPassword.tip': "Nie ontvang nie? Gaan strooipos na of probeer 'n ander adres.",
+  'landing.copyright': '© {{year}} {{app}}. Gebou vir bedryfspanne wat elke bladsy ouditeer.',
+  'landing.ctaBody':
+    '14-dae proeftydperk. Geen kaart nodig nie. Kanselleer enige tyd. Gebou vir bedryfspanne wat vinnig beweeg en stadig ouditeer.',
   'landing.ctaHeading': 'Hou op om kwitansies te tik. Begin om hulle te liasseer.',
   'landing.eyebrow': 'OCR · Onttrekking · KI-indiening',
+  'landing.featuresHeading': 'Dokumentintelligensie wat homself verduidelik',
+  'landing.heroSubtitle':
+    "Laai 'n stapel fakture, kwitansies, kontrakte of vorms in. {{app}} klassifiseer, onttrek en liasseer dit — met vertrouekleure sodat jou span net hersien wat werklik 'n mens nodig het.",
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Daaglikse volume · laaste 7 dae',
   'landing.sampleCardLabel': 'Dokumente vandag verwerk',
   'landing.sampleCardSubtitle': '96.2% gemiddelde akkuraatheid oor fakture, kwitansies en vorms.',
   'login.hidePassword': 'Versteek wagwoord',
@@ -73,6 +98,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Maak bestemmingsblad oop',
   'notFound.title': 'Daardie bladsy is nie op lêer nie',
+  'parcelaHeroCard.accuracy': 'Gem. akkuraatheid {{value}}% oor alle onttrekkings',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % teenoor gister',
   'parcelaHeroCard.title': 'Dokumente vandag verwerk',
   'parcelaLayout.primaryNavLabel': 'Primêre navigasie',
@@ -80,6 +106,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'dokumente',
   'pricing.processingLabel': 'verwerkingswerk',
   'resetPassword.confirmPlaceholder': 'Herhaal die nuwe wagwoord',
+  'resetPassword.hidePassword': 'Versteek wagwoord',
   'resetPassword.passwordLabel': 'Nuwe wagwoord',
   'resetPassword.showPassword': 'Wys wagwoord',
   'resetPassword.subtitle': 'Kies iets wat ten minste 8 karakters lank is.',
@@ -96,10 +123,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Kon nie reëls laai nie.',
   'rules.loading': 'Laai reëls…',
   'rules.matched30d': '{{count}} dokumente wat in die afgelope 30 dae ooreengestem is',
+  'rules.neverUsed': 'Nooit gebruik nie',
   'rules.newRule': 'Nuwe reël',
   'rules.saveError': 'Kon nie reël stoor nie.',
   'rules.subheading':
     'Vertel die stelsel waar elke soort dokument moet wees. Voorwaardes word van bo na onder gerangskik — eerste wedstryd wen.',
+  'rules.templatesEmpty': 'Nog geen onttrekkingsjablone nie.',
   'rules.templatesHeading': 'Onttrekkingsjablone',
   'rules.templatesSubheading': 'Veldskemas wat die ekstraktor vir elke dokumenttipe gebruik.',
   'rules.then': 'Toe',
@@ -108,17 +137,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Werkruimtenaam',
   'settings.account.subheading':
     'Vertoonnaam en primêre e-posadres vir kennisgewings en ouditgeskiedenis.',
+  'settings.api.confirmRevoke': 'Bevestig?',
   'settings.api.copyOnce': 'Kopieer hierdie sleutel — dit sal nie weer gewys word nie',
   'settings.api.createdOn': 'Geskep {{date}}',
   'settings.api.empty': 'Geen API-sleutels nog nie. Genereer een hierbo.',
   'settings.api.error': 'Kon nie sleutel skep nie.',
+  'settings.api.generating': 'Genereer…',
+  'settings.api.heading': 'API-sleutels',
   'settings.api.labelPlaceholder': 'Sleuteletiket (bv. CI-oplaaier)',
+  'settings.api.loading': 'Sleutels laai…',
   'settings.api.newKey': 'Genereer sleutel',
   'settings.api.subheading':
     "Gebruik hierdie om dokumente vanaf 'n skrip of jou ERP te stoot. Draai enige sleutel te eniger tyd.",
   'settings.integrations.heading': 'Indieningintegrasies',
   'settings.integrations.subheading':
     'Stuur geliasseerde dokumente na die wolkstasie of kletsinstrument waarin jou span reeds woon.',
+  'settings.subheading':
+    'Bestuur rekening, API-sleutels en liasseringsintegrasies vir jou {{app}}-werkspasie.',
+  'signup.hidePassword': 'Versteek wagwoord',
   'signup.identityPrompt': 'Hoe moet ons jou aanspreek?',
   'signup.showPassword': 'Wys wagwoord',
   'signup.subtitle': '14 dae gratis, geen kaart benodig nie.',
@@ -126,6 +162,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Oplaai het misluk.',
   'upload.eyebrow': 'Inname',
   'upload.heading': 'Laai dokumente op',
+  'upload.queue.clear': 'Vee voltooides uit',
   'upload.queue.col.confidence': 'Vertroue',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Bespeur tans…',
@@ -138,5 +175,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Of laat verskeie lêers gelyktydig val vir bondel-onttrekking, klassifikasie en liassering.',
   'uploadDropZone.cta': 'Kies lêers',
+  'uploadDropZone.maxSize': 'Maks. 25 MB per lêer · End-tot-end geënkripteer',
   'uploadDropZone.title': 'Laat dokumente los om verwerking te begin',
 }

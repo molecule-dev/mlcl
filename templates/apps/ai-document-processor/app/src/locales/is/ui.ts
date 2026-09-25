@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ertu með spurningu, fannst þér villa eða vilt þú kynningu fyrir teymið þitt? Hafðu samband í gegnum reikningsstillingarnar þínar — hver skilaboð fara til raunverulegs einstaklings í teyminu.',
   'about.contactTitle': 'Hafðu samband',
+  'about.intro':
+    '{{app}} breytir stafla af skönnuðum skjölum og PDF-skjölum í skipulögð, leitanleg, skráð gögn. Settu inn reikninga, kvittanir, samninga eða eyðublöð og láttu gervigreindina lesa, draga út, flokka og skrá þau — með öryggislitum svo teymið þitt farið yfir aðeins það sem þarf virkilega manneskju.',
+  'about.missionBody':
+    'Skjalapappírsvinna ætti ekki að éta daginn hjá teyminu þínu. Við trúum því að hvert út dregið gildi eigi að vera útskýranlegt og rekjanlegt — svo þú getir treyst sjálfvirkninni án þess að missa pappírsslóðina. {{app}} er byggt til að spara klukkustundir á hvern stafla á meðan haldið er manneskju í lykkjunni þar sem það skiptir máli.',
+  'about.missionTitle': 'Markmið okkar',
+  'about.subtitle': 'OCR, gervigreindarútdráttur, flokkun og sjálfvirk skráning fyrir skjölin þín.',
   'about.title': 'Um {{app}}',
+  'about.whatYouGetTitle': 'Það sem þú færð',
   'authShell.backToLanding': '← Til baka í lendingu',
   'common.goToDashboard': 'Fara á yfirlit',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Í dag · Yfirlit yfir starfsemi',
   'dashboard.heading': 'Skjalagreind',
+  'dashboard.metric.accuracy': 'Meðalnákvæmni',
   'dashboard.metric.filed': 'Lögð fram í dag',
   'dashboard.metric.filedCaption': 'Leiðbeint með skráningarreglum',
   'dashboard.metric.processed': 'Unnið í dag',
@@ -23,11 +33,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'Hlaðið upp',
   'dashboard.recent.heading': 'Nýleg skjöl',
+  'dashboard.recent.typeUnknown': 'Bíður flokkunar',
   'dashboard.subheading':
     'Hver síða flokkuð, dregin út og skráð — með traustum litum svo umsögnin haldist einbeitt.',
   'documentDetail.audit.heading': 'Tímalína endurskoðunar',
+  'documentDetail.audit.subheading': 'Hvert skref sem tekið er á þessu skjali, með ábyrgum aðila.',
   'documentDetail.back': 'Öll skjöl',
   'documentDetail.downloadHint': 'Notaðu „Download“ til að opna upprunalegu skrána.',
+  'documentDetail.extracted.empty': 'Engir reitir dregnir út ennþá.',
   'documentDetail.extracted.heading': 'Útdregnir reitir',
   'documentDetail.extracted.subheading':
     '{{count}} reitir · smelltu á hvaða reit sem er til að auðkenna hann á síðunni',
@@ -55,13 +68,23 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Leita í skjölum…',
   'documents.subheading': '{{count}} skjöl í bókasafninu þínu, raðað eftir nýjustu fyrst.',
   'documents.uploadCta': 'Hlaða inn skjölum',
+  'documentTypeBreakdown.barAria': 'Samsetning skjala eftir tegund',
   'documentTypeBreakdown.empty': 'Engin skjöl unnin ennþá.',
   'documentTypeBreakdown.subtitle': '{{total}} unnið',
   'documentTypeBreakdown.title': 'Samsetning skjals',
+  'forgotPassword.backToSignIn': '← Til baka í innskráningu',
   'forgotPassword.checkEmail': 'Athugaðu tölvupóstinn þinn',
   'forgotPassword.tip': 'Fékkstu þetta ekki? Athugaðu ruslpóstinn eða prófaðu annað netfang.',
+  'landing.copyright': '© {{year}} {{app}}. Byggt fyrir rekstrarteymi sem endurskoða hverja síðu.',
+  'landing.ctaBody':
+    '14 daga prufa. Engin kort þörf. Hætta hvenær sem er. Byggt fyrir rekstrarteymi sem hreyfast hratt og endurskoða hægt.',
   'landing.ctaHeading': 'Hættu að slá inn kvittanir. Byrjaðu að skrá þær.',
   'landing.eyebrow': 'OCR · Útdráttur · Skráning með gervigreind',
+  'landing.featuresHeading': 'Skjalagreind sem útskýrir sig sjálf',
+  'landing.heroSubtitle':
+    'Settu inn stafla af reikningum, kvittunum, samningum eða eyðublöðum. {{app}} flokkar, dregur út og skráir þau — með öryggislitum svo teymið þitt farið yfir aðeins það sem þarf virkilega manneskju.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Daglegt magn · síðustu 7 dagar',
   'landing.sampleCardLabel': 'Skjöl unnin í dag',
   'landing.sampleCardSubtitle': '96,2% meðalnákvæmni á reikningum, kvittunum og eyðublöðum.',
   'login.hidePassword': 'Fela lykilorð',
@@ -74,6 +97,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Opna lendingarsíðu',
   'notFound.title': 'Sú síða er ekki á skrá',
+  'parcelaHeroCard.accuracy': 'Meðalnákvæmni {{value}}% í öllum útdráttum',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % miðað við gærdag',
   'parcelaHeroCard.title': 'Skjöl unnin í dag',
   'parcelaLayout.primaryNavLabel': 'Aðalflakk',
@@ -81,6 +105,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'skjöl',
   'pricing.processingLabel': 'vinnsluverk',
   'resetPassword.confirmPlaceholder': 'Endurtakið nýja lykilorðið',
+  'resetPassword.hidePassword': 'Fela lykilorð',
   'resetPassword.passwordLabel': 'Nýtt lykilorð',
   'resetPassword.showPassword': 'Sýna lykilorð',
   'resetPassword.subtitle': 'Veldu eitthvað sem er að minnsta kosti 8 stafir að lengd.',
@@ -97,10 +122,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Mistókst að hlaða reglum.',
   'rules.loading': 'Hleður reglur…',
   'rules.matched30d': '{{count}} skjöl sem fundust á síðustu 30 dögum',
+  'rules.neverUsed': 'Aldrei notað',
   'rules.newRule': 'Ný regla',
   'rules.saveError': 'Mistókst að vista reglu.',
   'rules.subheading':
     'Segðu kerfinu hvert hver tegund skjals á að fara. Skilyrðin eru keðjuð frá toppi til botns — fyrsti leikurinn vinnur.',
+  'rules.templatesEmpty': 'Engin útdráttarsniðmát ennþá.',
   'rules.templatesHeading': 'Útdráttarsniðmát',
   'rules.templatesSubheading': 'Reitaskema sem útdráttarforritið notar fyrir hverja skjalategund.',
   'rules.then': 'Þá',
@@ -109,17 +136,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Nafn vinnusvæðis',
   'settings.account.subheading':
     'Birtingarnafn og aðalnetfang fyrir tilkynningar og endurskoðunarferil.',
+  'settings.api.confirmRevoke': 'Staðfesta?',
   'settings.api.copyOnce': 'Afritaðu þennan lykil — hann verður ekki sýndur aftur',
   'settings.api.createdOn': 'Búið til {{date}}',
   'settings.api.empty': 'Engir API lyklar ennþá. Búðu til einn hér að ofan.',
   'settings.api.error': 'Mistókst að búa til lykil.',
+  'settings.api.generating': 'Bý til…',
+  'settings.api.heading': 'API lyklar',
   'settings.api.labelPlaceholder': 'Lykilmerki (t.d. CI upphleðslutæki)',
+  'settings.api.loading': 'Hleður lyklum…',
   'settings.api.newKey': 'Búa til lykil',
   'settings.api.subheading':
     'Notaðu þetta til að ýta skjölum úr handriti eða ERP kerfinu þínu. Snúðu hvaða takka sem er hvenær sem er.',
   'settings.integrations.heading': 'Samþættingar við skráningu',
   'settings.integrations.subheading':
     'Sendu skráð skjöl á skýjadrifið eða spjalltækið sem teymið þitt notar nú þegar.',
+  'settings.subheading':
+    'Stjórnaðu reikningi, API-lyklum og skráningarsamþættingum fyrir {{app}} vinnusvæðið þitt.',
+  'signup.hidePassword': 'Fela lykilorð',
   'signup.identityPrompt': 'Hvernig eigum við að ávarpa þig?',
   'signup.showPassword': 'Sýna lykilorð',
   'signup.subtitle': '14 dagar ókeypis, ekkert kort þarf.',
@@ -127,6 +161,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Upphleðsla mistókst.',
   'upload.eyebrow': 'Inntaka',
   'upload.heading': 'Hlaða inn skjölum',
+  'upload.queue.clear': 'Hreinsa lokið',
   'upload.queue.col.confidence': 'Sjálfstraust',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Greinir…',
@@ -139,5 +174,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Eða slepptu mörgum skrám í einu til að draga út, flokka og vista í hópum.',
   'uploadDropZone.cta': 'Veldu skrár',
+  'uploadDropZone.maxSize': 'Hámark 25 MB á skrá · Enda-til-enda dulkóðað',
   'uploadDropZone.title': 'Slepptu skjölum til að hefja vinnslu',
 }

@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vprašanja, povratne informacije ali predlog za funkcijo? Ekipo {{app}} dosežete v Nastavitve → Obvestila ali nam pišete kadar koli — vsako sporočilo prebere prava oseba.',
+  'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'O nas',
+  'about.featureCapture':
+    'Zajem računov s fotografijo, ki slike priloži pravemu strošku, postavko za postavko.',
+  'about.featureExport':
+    'Izvozi CSV za revizijo vseh poročil, stroškov in stanj odobritev — pripravljeni za vašo računovodsko ekipo.',
+  'about.featurePolicy':
+    'Pravila skladnosti — dnevne omejitve, omejitve po kategorijah in pragovi za obvezen račun, uveljavljeni ob oddaji.',
+  'about.featureWorkflow':
+    'Dvostopenjski potek odobritve z opombami pregledovalcev, oznakami kršitev pravil in označevanjem povračila z enim dotikom.',
+  'about.intro':
+    '{{app}} je platforma za upravljanje stroškov za finančne ekipe in ljudi, ki jim te povrnejo stroške. Zajemite račun, vnesite strošek, pošljite poročilo v odobritev in spremljajte vsako povračilo — brez ceremonije s preglednicami.',
+  'about.missionBody':
+    'Povračilo mora biti hitro, pošteno in preverljivo. Zgradili smo {{app}}, da vlagatelji dobijo povrnjeno brez priganjanja, odobritelji natančno vidijo, kaj potrjujejo, finance pa imajo čisto sled za vsak evro — skupaj s preverjanjem pravil.',
+  'about.missionTitle': 'Naše poslanstvo',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Odobritev …',
   'approvals.confirmReject': 'Potrdi zavrnitev',
+  'approvals.empty': 'Vse je pregledano — ni poročil, ki bi čakala.',
   'approvals.eyebrow': 'Čakalna vrsta upravitelja',
   'approvals.kpi.flaggedLabel': 'Označena politika',
+  'approvals.kpi.queueLabel': 'Čaka na pregled',
   'approvals.kpi.totalLabel': 'Vrednost v teku',
   'approvals.lineCount': '{{count}} stroški',
   'approvals.queueFallback':
     'Čakalna vrsta v živo ni na voljo – prikazani so izbrani demo podatki.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Zavračanje …',
+  'approvals.rejectPlaceholder': 'Razlog (obvezno)',
   'approvals.rejectPrompt': 'Zakaj zavračate to poročilo?',
   'approvals.review': 'Pregled',
   'approvals.title': 'Čakajoče odobritve',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18 %',
   'dashboard.kpi.approvedLabel': 'Odobreno · MTD',
   'dashboard.kpi.pendingDelta': '+2 ta teden',
+  'dashboard.kpi.pendingLabel': 'V pregledu',
   'dashboard.kpi.receiptsDelta': 'Potrebno dejanje',
   'dashboard.kpi.receiptsLabel': 'Čakanje na račune',
   'dashboard.kpi.reimbursedDelta': '+2,4 tisoč dolarjev',
   'dashboard.kpi.reimbursedLabel': 'Povrnjeno · MTD',
   'dashboard.newReport': 'Novo poročilo',
+  'dashboard.recent.empty': 'Ni še nobenega poročila — prvo ustvarite zgoraj.',
   'dashboard.recent.title': 'Nedavna poročila',
   'dashboard.recent.viewAll': 'Ogled vseh poročil',
   'dashboard.summaryFallback': 'Povzetek v živo ni na voljo – prikazani so izbrani demo podatki.',
@@ -39,11 +60,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'Računi in povračilni artikli',
   'expenses.listFallback': 'Seznam v živo ni na voljo – prikazani so izbrani demo podatki.',
   'expenses.searchPlaceholder': 'Išči trgovca ali kategorijo …',
+  'expenses.subtotal': '{{count}} stroškov · vmesni seštevek',
   'expenses.title': 'Stroški',
+  'forgotPassword.continue': 'Imam kodo · Naprej',
+  'forgotPassword.subheading':
+    'Vnesite svoj službeni e-poštni naslov in poslali vam bomo povezavo za nastavitev novega gesla.',
   'forgotPassword.successBody':
     'Če obstaja račun za {{email}} V naslednjih nekaj minutah boste prejeli povezavo za ponastavitev.',
+  'landing.copyright': '© {{year}} {{app}}. Zgrajeno z Molecule.dev.',
+  'landing.ctaBody':
+    'Brezplačno za prvih 25 stroškov vsak mesec. Brez kreditne kartice, brez uvodnega klica.',
   'landing.ctaHeading': 'Ste pripravljeni povrniti dolg svoji ekipi?',
   'landing.eyebrow': 'Poročila o stroških za finančne ekipe',
+  'landing.featuresHeading': 'Povračilo stroškov v enem mirnem delovnem prostoru',
   'landing.heroSubtitle':
     'Oddajte, odobrite in povrnite poslovne stroške brez ceremonije s preglednicami. Prepoznajte prepoznavo znakov na računih, preverite pravilnike in pregleden časovni načrt odobritve – vse v enem mirnem delovnem prostoru.',
   'landing.heroTitle': 'Vsak račun, izterjan.',
@@ -60,10 +89,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Opombe',
   'newExpense.descriptionPlaceholder':
     'Zakaj je bil ta strošek povezan s poslovanjem (vidno vašemu odobritelju).',
+  'newExpense.eyebrow': 'Postavka za povračilo',
   'newExpense.merchant': 'Trgovec',
   'newExpense.merchantPlaceholder': 'Hotel Adlon Kempinski',
   'newExpense.policyHint':
     'Opomnik: za obroke nad 80 USD/dan ali kateri koli izdelek nad 250 USD je potrebna utemeljitev.',
+  'newExpense.receipt': 'Račun',
+  'newExpense.receiptHint': 'JPG, PNG ali PDF · največ 10 MB',
   'newExpense.receiptOcrHint': 'OCR vnaprej izpolni polja',
   'newExpense.receiptPrompt': 'Spustite fotografijo ali PDF sem ali kliknite za brskanje',
   'newExpense.receiptUploadFailed':
@@ -74,17 +106,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Posnemite ali naložite račun in Recoup bo vnaprej izpolnil podatke o trgovcu, datumu in skupnem znesku. Pred shranjevanjem potrdite vse spodaj.',
   'newExpense.title': 'Dodaj strošek',
+  'newReport.approverHint': 'Ko to poročilo oddate v pregled, bodo prejeli e-poštno sporočilo.',
   'newReport.approverLabel': 'E-poštni naslov odobritelja (neobvezno)',
   'newReport.approverPlaceholder': 'manager@vasepodjetje.com',
   'newReport.availableExpenses': 'Razpoložljivi stroški',
   'newReport.createFailed': 'Poročila ni bilo mogoče ustvariti. Poskusite znova.',
   'newReport.draftsFallback':
     'Seznam stroškov v živo ni na voljo – prikazani so izbrani demo podatki.',
+  'newReport.eyebrow': 'Združi stroške · oddaj v odobritev',
   'newReport.includedCount': '{{count}} vključeno',
   'newReport.purposeLabel': 'Poslovni namen',
   'newReport.purposePlaceholder':
     'Opišite potovanje ali projekt, na katerega se nanašajo ti stroški (vidno vašemu odobritelju in finančniku).',
   'newReport.saveDraft': 'Shrani kot osnutek',
+  'newReport.saveDraftFailed': 'Osnutka ni bilo mogoče shraniti. Poskusite znova.',
   'newReport.submit': 'Pošlji v odobritev',
   'newReport.submitFailed': 'Poročila ni bilo mogoče oddati. Poskusite znova.',
   'newReport.summary': 'Povzetek poročila',
@@ -98,16 +133,23 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'V živo ni mogoče prenesti podatkov – prikazani so izbrani demo podatki.',
   'notifications.openReport': 'Odpri poročilo ›',
+  'pricing.approvalsLabel': 'odobritve',
   'pricing.expensesLabel': 'stroški',
   'pricing.heading': 'odobritve',
   'pricing.policiesLabel': 'politike',
   'pricing.receiptsLabel': 'potrdila',
   'recoveredAmountHeroCard.label': 'Povračilo izterjano · YTD',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} poročil trenutno čaka na pregled pri vseh odobriteljih.',
+  'reports.approvalFlow': 'Potek odobritve',
   'reports.backToList': 'Nazaj na poročila',
   'reports.detailFallback': 'Poročilo v živo ni na voljo – prikazuje izbrane demo podatke.',
   'reports.lineItems': 'Elementi vrstic',
   'reports.lineItemsCount': '{{count}} stroški',
+  'reports.lineItemsEmpty': 'Na tem poročilu še ni stroškov.',
+  'reports.openLibrary': 'Odpri knjižnico poročil',
   'reports.policyTitle': 'Zastavica pravilnika',
+  'reports.selectPrompt': 'Izberite poročilo iz knjižnice, da vidite njegove podrobnosti.',
   'reports.summary.lineCount': 'Elementi vrstic',
   'reports.summary.reimbursable': 'Povračljiv',
   'reports.summary.total': 'Prijavljeni skupni znesek',
@@ -116,6 +158,7 @@ export const ui: UiTranslations = {
   'reportsList.lineItems': '{{count}} stroški',
   'reportsList.listFallback': 'Seznam v živo ni na voljo – prikazani so izbrani demo podatki.',
   'reportsList.newReport': 'Novo poročilo',
+  'reportsList.submittedOn': 'Poslano {{date}}',
   'reportsList.title': 'Knjižnica poročil',
   'resetPassword.hidePassword': 'Skrij geslo',
   'resetPassword.newPasswordLabel': 'Novo geslo',
@@ -141,6 +184,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Shranjeno ✓',
   'settings.profileSaveFailed': 'Profila ni bilo mogoče posodobiti. Poskusite znova.',
   'signup.heading': 'Ustvarite svoj račun za povračilo',
+  'signup.hidePassword': 'Skrij geslo',
   'signup.namePlaceholder': 'Maja Okafor',
   'signup.showPassword': 'Pokaži geslo',
   'signup.subheading': 'Brezplačno za 25 stroškov na mesec – brez kreditne kartice.',

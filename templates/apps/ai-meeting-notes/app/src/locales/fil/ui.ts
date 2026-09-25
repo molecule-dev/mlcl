@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May mga tanong, feedback, o hiling na feature? I-email ang team sa hello@murmur.app — bawat mensahe ay nakakarating sa isang tunay na tao na nagtatrabaho sa produkto.',
   'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol sa amin',
+  'about.intro':
+    'Ang {{app}} ay meeting intelligence para sa mga team na mas gustong magdesisyon kaysa mag-take ng notes. Sumasali ito sa iyong mga call, nagta-transcribe ng bawat salita na may speaker labels, at nagpapadala ng AI summary kasama ang mga owned action item sa sandaling matapos ang meeting.',
+  'about.missionBody':
+    'Ang mga meeting ang lugar kung saan nagdedesisyon ang mga team — at kung saan nawawala ang mga desisyong iyon. Umiiral ang {{app}} para matiyak na ang trabahong nangyayari sa isang usapan ay mas tumatagal kaysa sa usapan: isang tapat na rekord, isang malinaw na recap, at mga next step na may pananagutan, awtomatiko.',
+  'about.missionTitle': 'Ang aming misyon',
   'actions.empty': 'Walang aksiyon na nagtugma.',
   'actions.heading': 'Mga Aksiyon',
   'actions.loadError': 'Nabigo ang pag-load ng mga aksiyon.',
@@ -10,11 +17,14 @@ export const ui: UiTranslations = {
     'Pinagsama mula sa bawat pulong. I-filter ayon sa katayuan para mapagtuunan.',
   'actions.toggleDoneLabel': 'Markahan bilang tapos',
   'actions.toggleReopenLabel': 'Markahan bilang bukas',
+  'auth.footer': '© {{year}} {{app}}. Bawat salita, dinistila.',
   'calendar.heading': 'Kalendaryo',
   'calendar.joinCta': 'Sumali',
   'calendar.loadError': 'Nabigo ang pag-load ng kalendaryo.',
   'calendar.nextMonth': 'Susunod na buwan',
   'calendar.noEventsForDay': 'Walang pulong na nakatakda para sa araw na ito.',
+  'calendar.noUpcomingEvents':
+    'Walang paparating na meeting. Mag-connect ng calendar mula sa Integrations para mapuno ang listahang ito.',
   'calendar.previousMonth': 'Nakaraang buwan',
   'calendar.recent': 'Pinakabago',
   'common.daysAgo': '{{count}}a nakalipas',
@@ -26,9 +36,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} aksiyong dapat gawin',
   'dashboard.empty.body':
     'Magsimula ng pagtatala o ikonekta ang Google Calendar para awtomatikong sumali ang Murmur sa Inyong susunod na pulong.',
+  'dashboard.empty.cta': 'Simulan ang pagre-record',
   'dashboard.empty.heading': 'Wala pang pulong',
   'dashboard.eyebrow': 'Ang Inyong feed ng pulong',
   'dashboard.loadError': 'Nabigo ang pag-load ng dashboard.',
+  'dashboard.noActions': 'Walang actions',
   'dashboard.recentHeading': 'Mga kamakailang pulong',
   'dashboard.recordCta': 'Itala ang pulong',
   'dashboard.stat.actions': 'Mga Aksiyon',
@@ -38,6 +50,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} hindi pa nababasang buod mula nang huling tingnan Ninyo. Naitala ng Murmur ang bawat salita — narito ang recap.',
   'dashboard.viewCalendar': 'Tingnan ang kalendaryo →',
+  'footer.linksLabel': 'Footer',
   'forgot.failed': 'Hindi makapagpadala ng email para sa pag-reset.',
   'forgot.sentBody':
     'Kung may account para sa {{email}}, makakatanggap Kayo ng link para sa pag-reset.',
@@ -49,14 +62,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Ikonekta ang mga kalendaryo at video platform para awtomatikong sumali ang Murmur.',
   'integrations.updateError': 'Nabigo ang pag-update.',
+  'landing.ctaBody':
+    'Libre para sa unang 5 meeting bawat buwan. Walang credit card. Mag-connect ng Google Calendar sa loob ng wala pang isang minuto.',
   'landing.ctaButton': 'Magsimula — libre ito',
   'landing.ctaHeading': 'Tigilan ang pagsulat ng notes. Simulan ang paggawa ng desisyon.',
+  'landing.demo.aiBody':
+    'Inilipat ang launch mula Mayo 5 → Mayo 12 para bigyan ng espasyo ang ops staffing. Ang dashboard redesign ay hinati at inilipat sa Mayo 26.',
   'landing.demo.aiLabel': 'AI summary, isinagawa nang live',
   'landing.demo.recording': 'Nagtatala · live',
   'landing.eyebrow': 'AI na katalinuhan sa pulong',
   'landing.featuresHeading': 'Lahat ng kailangan ng Inyong koponan pagkatapos ng pulong',
+  'landing.featuresSubheading':
+    'Wala nang "teka, kanino ba ito?" — ipinapadala ng {{appName}} ang recap bago pa madiskonekta ang call.',
   'landing.getStarted': 'Subukan nang libre',
   'landing.heroSecondary': 'Panoorin ang 90-segundong tour',
+  'landing.heroSubtitle':
+    '{{tagline}}. Sumasali ang {{appName}} sa iyong mga call, nagta-transcribe ng bawat salita na may speaker labels, at nagpapadala ng AI summaries kasama ang mga owned action item sa sandaling matapos ang meeting.',
   'landing.heroTitle': 'I-capture ang bawat pulong. Ilantad ang mahalaga.',
   'login.altPrompt': 'Bago sa Murmur?',
   'login.failed': 'Hindi makapag-sign in. Suriin ang Inyong email at password.',
@@ -64,6 +85,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Mga Aksiyon',
   'meetingDetail.back': 'Lahat ng pulong',
   'meetingDetail.decisionsHeading': 'Mga Desisyon',
+  'meetingDetail.dueDate': 'due {{date}}',
   'meetingDetail.followupsHeading': 'Mga Follow-up',
   'meetingDetail.loadError': 'Nabigo ang pag-load ng pulong.',
   'meetingDetail.noActions': 'Walang natuklasang aksiyong dapat gawin.',
@@ -77,7 +99,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Wala pang pulong',
   'meetings.heading': 'Mga Pulong',
   'meetings.loadError': 'Nabigo ang pag-load ng mga pulong.',
+  'meetings.recordCta': 'Itala ang pulong',
   'meetings.subheading': 'Bawat naitala, na-upload, at na-sync na pulong.',
+  'murmurLayout.closeMenu': 'Isara ang menu ng nabigasyon',
   'murmurLayout.openMenu': 'Buksan ang menu ng nabigasyon',
   'murmurLayout.primaryNavLabel': 'Pangunahing nabigasyon',
   'nav.legal': 'Legal',
@@ -102,7 +126,16 @@ export const ui: UiTranslations = {
   'profile.loading': 'Naglo-load…',
   'profile.navLabel': 'Mga seksyon ng profile',
   'profile.notifications.assignments': 'Mga aksiyong itinalaga sa akin',
+  'profile.notifications.assignmentsHint':
+    'Abisuhan kapag may action item na na-capture para sa iyo.',
+  'profile.notifications.mentions': 'Mga mention sa transcripts',
+  'profile.notifications.mentionsHint': 'Email + push kapag may nag-@-mention sa iyo.',
+  'profile.notifications.subheading':
+    'Piliin kung aling mga event ng {{appName}} ang dapat makarating sa iyo.',
   'profile.notifications.summaries': 'Lingguhang digest',
+  'profile.notifications.summariesHint':
+    'Isang recap tuwing Lunes ng lahat ng meeting mula noong nakaraang linggo.',
+  'profile.preferences.speakerColor': 'Default na kulay ng speaker',
   'profile.preferences.subheading':
     'Mga default na naaangkop sa bawat recording na sinasalihan Ninyo.',
   'profile.preferences.timezone': 'Time zone',
@@ -115,16 +148,21 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Hindi sinusuportahan ng Inyong browser ang pagtatala. Subukan ang Chrome, Edge, o Safari.',
   'record.error.upload': 'Nabigo ang pag-upload. Subukan muli.',
+  'record.errorLabel': 'May nangyaring mali',
   'record.heading': 'Itala',
   'record.idleLabel': 'I-tap para simulan ang pagtatala',
   'record.processingLabel': 'Nagta-transcribe gamit ang Whisper, bumibuod gamit ang Claude…',
+  'record.recordingLabel': 'Nire-record…',
   'record.retryCta': 'Subukan muli',
   'record.subheading':
     'Pindutin ang mikropono para magsimula. Kinokonekta ng Murmur ang audio, nagta-transcribe sa pamamagitan ng Whisper, at sumusulat ng buod na pinapatakbo ng Claude.',
+  'record.titlePlaceholder': 'Pamagat ng meeting (opsyonal)',
+  'reset.altPrompt': 'Nagbago ang isip mo?',
   'reset.hint': 'Gumamit ng hindi bababa sa 8 karakter na may pinagsamang mga titik at numero.',
   'reset.missingToken': 'Nawawala o nag-expire na ang reset link. Humiling ng bago.',
   'reset.newPassword': 'Bagong password',
   'reset.subheading': 'Pumili ng password na hindi Ninyo ginagamit kahit saan.',
+  'reset.tooShort': 'Ang password ay dapat na hindi bababa sa 8 character.',
   'search.empty': 'Mag-type para maghanap ng mga transcript.',
   'search.loadError': 'Nabigo ang paghahanap. Subukan muli.',
   'search.noResults': 'Walang resulta para sa "{{q}}".',
@@ -140,7 +178,10 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Panatilihin ang audio sa loob ng',
   'settings.retention.heading': 'Pagpapanatili',
   'settings.retention.transcript': 'Panatilihin ang mga transcript sa loob ng',
+  'settings.revokeDeviceWarning':
+    'Mababawi ang access ng device na ito sa ilang sandali. I-sign out ito?',
   'settings.saveError': 'Nabigo ang pag-save.',
+  'settings.security.subheading': 'I-update ang password na ginagamit mo sa pag-sign in.',
   'settings.sharing.exportFormat': 'Format ng export',
   'settings.sharing.heading': 'Mga default na pagbabahagi',
   'settings.sharing.scope': 'Default na saklaw ng pagbabahagi',
@@ -158,6 +199,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Mag-imbita ng miyembro ng koponan',
   'team.invitedAs': 'Inimbitahan bilang {{role}}',
   'team.inviteFailed': 'Hindi makapagpadala ng imbitasyon.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'Magpadala ng imbitasyon',
   'team.inviteSubtitle': 'Makakatanggap sila ng email na may link para sumali.',
   'team.inviteTitle': 'Mag-imbita ng miyembro ng koponan',

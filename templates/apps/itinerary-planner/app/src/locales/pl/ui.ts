@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Masz uwagi, znalazłeś błąd albo planujesz coś ambitnego? Napisz do nas w ustawieniach konta — każda wiadomość trafia do prawdziwego człowieka z zespołu.',
+  'about.contactTitle': 'Skontaktuj się z nami',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Rezerwacje w jednej skrzynce — potwierdzenia lotów, hoteli i atrakcji trafiają dokładnie na dzień, do którego należą.',
+  'about.featureCollab':
+    'Współpraca w czasie rzeczywistym — zaproś do pięciu podróżnych na wyjazd, a każda zmiana synchronizuje się na żywo, a komentarze tworzą wątki pod każdym przystankiem.',
+  'about.featureMapsBudget':
+    'Mapy, kierunki i wspólny budżet — zobacz cały wyjazd na mapie, odkrywaj miejsca wybrane przez redakcję i śledź wydatki, żeby nikt nie przekroczył budżetu.',
+  'about.featureTimelines':
+    'Plany dzień po dniu — przeciągaj przystanki, aby zmienić kolejność, dodawaj odcinki transportu i patrz, jak plan podróży przelicza się na bieżąco jak żywy dokument.',
+  'about.intro':
+    '{{app}} zamienia folder pełen niedokończonych planów w jeden wspólny wyjazd, za którym cała grupa naprawdę może podążać. Zbuduj plan dzień po dniu, dodaj loty i hotele, nanieś każdy przystanek na mapę i śledź budżet — wszystko w jednym spokojnym miejscu zamiast tuzina kart i czatu grupowego.',
+  'about.missionBody':
+    'Planowanie podróży powinno sprawiać wrażenie, że wyjazd już się poprawia, a nie przypominać pracę domową. {{app}} istnieje po to, by wspólne wyjazdy były bezwysiłkowe — żeby każdy podróżny przyjechał ze znajomością planu, a każdy przystanek opowiadał historię wartą zapamiętania.',
+  'about.missionTitle': 'Nasza misja',
   'about.pageTitle': 'O {{app}}',
   'auth.legalConsent': 'Kontynuując, zgadzasz się z naszymi',
   'bookings.empty.body': 'Proszę dodać lot, hotel lub aktywność, aby uruchomić skrzynkę.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Hotel',
   'bookings.type.other': 'Inny',
   'budgetSpendCard.budgetTotal': 'z {{total}} zaplanowanych',
+  'budgetSpendCard.overBy': '{{amount}} ponad budżetem',
   'budgetSpendCard.pct': '{{pct}}%',
+  'budgetSpendCard.recentCount': '{{count}} ostatnie',
+  'budgetSpendCard.remaining': '{{amount}} pozostało',
   'calendar.eyebrow': 'Najbliższy rok',
   'calendar.heading': 'Każda podróż w jednym kalendarzu.',
   'calendar.legendHeading': 'Podróże w tym miesiącu',
@@ -41,18 +60,28 @@ export const ui: UiTranslations = {
   'common.and': 'i',
   'common.goToDashboard': 'Przejdź do panelu',
   'dashboard.budgetHeading': 'Puls budżetu',
+  'dashboard.empty.body':
+    'Zaplanuj pierwszy wyjazd, a Twój pulpit wypełni się planami dzień po dniu, tętnem budżetu i rezerwacjami.',
+  'dashboard.empty.cta': 'Zaplanuj pierwszy wyjazd',
   'dashboard.empty.heading': 'Brak podróży — Pana/Pani atlas jest pusty.',
   'dashboard.eyebrow': 'Centrum dowodzenia',
   'dashboard.heading': 'Pana/Pani następna przygoda, w jednym spokojnym kącie.',
   'dashboard.newTripCta': 'Rozpocznij nową podróż',
+  'dashboard.subheading':
+    'Odliczanie do następnego wyjazdu, dzisiejsze tętno wydatków i szybki rzut oka na każdy plan w ruchu.',
   'dashboard.tripsHeading': 'Trwające podróże',
   'dashboard.viewAllExpenses': 'Zobacz wszystkie wydatki',
   'dashboard.viewAllTrips': 'Zobacz wszystkie podróże',
   'dayTimelineRow.category.accommodation': 'Zostawać',
+  'dayTimelineRow.category.food': 'Jedzenie i napoje',
+  'dayTimelineRow.category.sightseeing': 'Zwiedzanie',
   'dayTimelineRow.category.transport': 'Transport',
   'destinationOrbCard.exploreCta': 'Dodaj do podróży',
   'destinationOrbCard.tripCount': '{{count}} podróży',
+  'destinations.empty.body':
+    'Przełącz z powrotem na Wszystkie, a propozycje redakcji znów się pojawią.',
   'destinations.empty.heading': 'Brak zapisanych miejsc.',
+  'destinations.emptyFiltered.heading': 'Jeszcze nic nie ma takiego tagu.',
   'destinations.errors.load': 'Nie udało się wczytać miejsc.',
   'destinations.eyebrow': 'Dokąd dalej',
   'destinations.heading': 'Zapisane zakątki i znaleziska redakcji.',
@@ -70,7 +99,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Dostawca',
   'expenses.formHeading': 'Zapisz wydatek dla {{trip}}',
   'expenses.heading': 'Tu widać, gdzie naprawdę idzie budżet podróży.',
+  'expenses.heroBudget': '{{pct}}% z {{total}} zaplanowano',
   'expenses.heroEyebrow': '{{trip}} • zrzut budżetu',
+  'expenses.heroNoBudget': 'Ten wyjazd nie ma jeszcze ustawionego budżetu.',
   'expenses.noTrips.body':
     'Proszę najpierw zaplanować podróż — wydatki są przypisywane do jej budżetu.',
   'expenses.noTrips.heading': 'Brak podróży.',
@@ -83,12 +114,16 @@ export const ui: UiTranslations = {
     'Każdy paragon i potwierdzenie trafia tu do właściwej kategorii — bez arkusza kalkulacyjnego.',
   'forgotPassword.eyebrow': 'Odzyskaj swój plan podróży',
   'forgotPassword.heading': 'Zapomniał Pan/Pani hasła?',
+  'forgotPassword.subheading':
+    'Podaj adres e-mail, którego użyłeś do {{appName}}, a wyślemy link do zresetowania hasła.',
   'forgotPassword.submit': 'Wyślij e-mail odzyskiwania',
   'forgotPassword.submitPending': 'Wysyłanie e-maila odzyskiwania…',
   'forgotPassword.successHint':
     'Brak wiadomości? Proszę sprawdzić folder spamu lub spróbować z innym adresem.',
   'forgotPassword.successSubheading':
     'Wysłaliśmy link odzyskiwania na {{email}}. Link jest ważny przez 30 minut.',
+  'forgotPassword.tryAgain': 'Wyślij na inny adres e-mail',
+  'landing.cta.eyebrow': 'Zacznij od planu darmowego',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Załóż darmowe konto',
   'landing.cta.subheading':
@@ -100,8 +135,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Rozpocznij darmową podróż',
   'landing.hero.ctaSecondary': 'Zobacz przykładową podróż',
+  'landing.hero.eyebrow': 'Planer podróży · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint zamienia folder pełen niedokończonych pomysłów w dzielony, dzień po dniu plan, za którym Pana/Pani grupa może faktycznie nadążyć — z rezerwacjami, mapami i budżetem w jednym miejscu.',
+  'landing.hero.title': 'Zaplanuj raz. Wędruj razem.',
   'landing.nav.join': 'Rozpocznij darmową podróż',
   'landing.nav.preview': 'Wewnątrz Waypoint',
   'landing.preview.cta': 'Zaplanuj swoją własną',
@@ -109,6 +146,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Kilka podróży, w które właśnie wyruszają inni podróżnicy',
   'login.eyebrow': 'Strefa członków',
   'login.heading': 'Witamy ponownie, podróżniku',
+  'login.noAccount': 'Nowy w Tesserze?',
   'login.signupLink': 'Załóż darmowe konto',
   'login.subheading':
     'Proszę się zalogować, aby zarządzać podróżami, planami dni, rezerwacjami i wpisami dziennika, które Pan/Pani zaczął/zaczęła.',
@@ -119,6 +157,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Nie udało się zaktualizować powiadomienia.',
   'notifications.heading': 'Co dziś zmieniło się w Pana/Pani podróżach.',
   'notifications.markUnread': 'Oznacz jako nieprzeczytane',
+  'notifications.subheading':
+    '{{count}} nowe — potwierdzenia rezerwacji, notatki współpracowników, spadki cen i przypomnienia.',
   'notifications.time.daysAgo': '{{count}} dni temu',
   'notifications.time.hoursAgo': '{{count}} godz. temu',
   'notifications.time.justNow': 'przed chwilą',
@@ -136,6 +176,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'Połączone usługi, waluta, powiadomienia push i dane logowania.',
   'signup.and': 'i',
   'signup.eyebrow': 'Dołącz do Waypoint',
+  'signup.haveAccount': 'Już w drodze?',
   'signup.heading': 'Zaplanuj raz. Wędruj razem.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -147,6 +188,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Otwórz plan',
   'tripCountdownHeroCard.ctaSecondary': 'Zaplanuj inną podróż',
   'tripCountdownHeroCard.daysLabel': 'Zostało {{days}} dni',
+  'tripCountdownHeroCard.eyebrow': 'Następna przygoda · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} nocy — Twój plan podróży jest gotowy do wyjazdu.',
   'tripCoverCard.stops': '{{count}} przystanków',
   'tripCoverCard.travelers': '{{count}} podróżujących',
   'tripDetail.addActivity': 'Dodaj aktywność',
@@ -156,6 +200,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Tytuł aktywności',
   'tripDetail.adding': 'Dodawanie…',
   'tripDetail.backToTrips': 'Powrót do wszystkich podróży',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Podróżujący',
   'tripDetail.dayLabel': 'Dzień {{day}}',
   'tripDetail.empty': 'Brak aktywności — proszę dodać jedną, aby uruchomić oś czasu.',
@@ -166,14 +211,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Plan • {{country}}',
   'tripDetail.invite': 'Zaproś',
   'tripDetail.inviteLabel': 'Zaproś przez e-mail',
+  'tripDetail.invitePlaceholder': 'ktos@example.com',
   'tripDetail.inviteSent': 'Zaproszenie wysłane na {{email}}.',
   'tripDetail.inviting': 'Wysyłanie…',
   'tripDetail.loading': 'Wczytywanie podróży…',
   'tripDetail.noCollaborators': 'Na razie tylko Pan/Pani.',
+  'tripDetail.notesHeading': 'Notatki z podróży',
   'tripDetail.notesPlaceholder': 'Brak notatek.',
   'tripDetail.notFound.heading': 'Podróży nie znaleziono',
   'tripDetail.openBookings': 'Otwórz skrzynkę rezerwacji',
   'tripDetail.shareCopied': 'Link udostępniania skopiowany do schowka:',
+  'tripDetail.shareReady': 'Link do udostępniania gotowy:',
   'tripDetail.stops': '{{count}} przystanków',
   'tripDetail.timelineEyebrow': 'Oś czasu dnia',
   'tripDetail.timelineHeading': 'Plan dzień po dniu',
@@ -191,6 +239,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Podróżujący',
   'tripPlanner.heading': 'Naszkicuj podróż w niecałą minutę.',
   'tripPlanner.preview.eyebrow': 'Podgląd na żywo',
+  'tripPlanner.preview.placeholderCountry': 'Wybierz kraj',
   'tripPlanner.preview.placeholderDestination': 'Pana/Pani następna przygoda',
   'tripPlanner.section1.title': 'Gdzie i kiedy',
   'tripPlanner.section2.title': 'Podróżujący i budżet',
@@ -202,10 +251,14 @@ export const ui: UiTranslations = {
     'Dzień {{day}} — proszę tu dodać przystanki, transport i rezerwacje.',
   'tripPlanner.section3.day3':
     'Dzień {{day}} — proszę tu dodać przystanki, transport i rezerwacje.',
+  'tripPlanner.section3.title': 'Szablon planu dnia',
   'tripPlanner.subheading':
     'Proszę wpisać poniżej podstawy — współpodróżnych można zaprosić, przystanki przeciągnąć, a rezerwacje przesłać w każdej chwili.',
   'tripPlanner.submit': 'Utwórz podróż',
   'tripPlanner.submitting': 'Tworzenie…',
+  'trips.empty.body':
+    'Przełącz z powrotem na Wszystkie wyjazdy albo zacznij planować kolejną wędrówkę.',
+  'trips.empty.cta': 'Zaplanuj podróż',
   'trips.empty.heading': 'Nic nie pasuje do tego filtra.',
   'trips.eyebrow': 'Atlas',
   'trips.filterLabel': 'Filtruj podróże według statusu',
@@ -216,6 +269,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Brak podróży.',
   'trips.pastHeading': 'Minione wyprawy',
   'trips.subheading': '{{count}} planów — przeszłych, obecnych i kiedyś.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Zaplanuj raz. Wędrujcie razem. Zapamiętaj na zawsze.',
+  'waypointAuthShell.testimonial.author': 'Iris i Jonas · członkowie {{appName}} od 2024',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} zamienił szalony 3-tygodniowy wyjazd przez cztery kraje w najbardziej relaksujący plan podróży, jaki kiedykolwiek wspólnie dzieliliśmy.',
   'waypointLayout.mobileNavClose': 'Zamknij menu nawigacyjne',
   'waypointLayout.primaryNavLabel': 'Nawigacja główna',
 }

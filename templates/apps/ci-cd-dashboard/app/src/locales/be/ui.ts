@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пытанні, водгукі або хочаце дэма для вашай каманды? Напішыце нам на hello@conduit.dev — кожнае паведамленне трапляе да рэальнага чалавека з каманды.',
   'about.contactHeading': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
+  'about.featuresHeading': 'Што вы атрымліваеце',
+  'about.introBody':
+    "{{app}} аб'ядноўвае бесперапынную дастаўку ў стылі GitHub Actions у адной хуткай панэлі: канвееры, журналы зборкі, артэфакты, значкі стану і асяроддзі разгортвання для ўсіх вашых рэпазіторыяў у адным месцы. Без пераключэння паміж укладкамі, без здагадак, якая зборка зламалася — кожны запуск, радок журнала і разгортванне ў адзін клік.",
+  'about.introHeading': 'Што такое {{app}}',
+  'about.missionBody':
+    'Выпуск праграмнага забеспячэння павінен быць спакойным і прадказальным, а не крыніцай страху. Мы ствараем канвееры, журналы і інструменты разгортвання, каб шлях ад каміта да прадукцыі быў хуткім, бачным і надзейным — першая зялёная зборка за пяць хвілін, і кожная наступная гэтак жа зразумелая.',
+  'about.missionHeading': 'Наша місія',
+  'about.subtitle':
+    '{{app}} — гэта панэль CI/CD для каманд, якія хочуць маніторыць зборкі, разгортванні і асяроддзі па ўсіх рэпазіторыях — і выпускаць з упэўненасцю.',
   'artifacts.empty': 'Пакуль няма артэфактаў.',
   'artifacts.heading': 'Артэфакты',
   'artifacts.loadError': 'Не атрымалася загрузіць артэфакты.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Асяроддзі',
   'environments.loadError': 'Не атрымалася загрузіць асяроддзі.',
+  'environments.loading': 'Загрузка асяроддзяў…',
   'environments.subheading': 'Статус разгортвання ў рэжыме рэальнага часу для кожнай мэты.',
   'forgotPassword.runnerStatus': 'скінуць · бяспечны тунэль',
+  'forgotPassword.success':
+    'Калі для гэтага адраса электроннай пошты існуе ўліковы запіс, спасылка для скіду ўжо ў дарозе. Праверце сваю паштовую скрыню.',
   'insights.changeFailureRate': 'Змяніць частату няўдач',
   'insights.deployFrequency': 'Разгортванняў / дзень',
   'insights.empty': 'Пакуль недастаткова дадзеных.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Не атрымалася загрузіць аналітыку.',
   'insights.meanP95': 'сярэдняе {{mean}} · p95 {{p95}}',
   'insights.mttr': 'Сярэдняя працягласць (MTTR)',
+  'insights.slowestStepsHeading': 'Самыя павольныя крокі канвеера',
   'insights.successRateHeading': 'Паказчык паспяховасці канвеера (за апошнія 14 дзён)',
   'landing.choosePlan': 'Выберыце план',
+  'landing.copyright': '© {{year}} {{app}}. Выпускайце з упэўненасцю.',
   'landing.ctaBody':
     'Няма крэдытнай карты. Не патрабуецца інжынер платформы. Атрымайце першы зялёны канвеер за пяць хвілін.',
   'landing.ctaHeading': 'Адпраўляйце з упэўненасцю.',
   'landing.featuresEyebrow': '// асаблівасці платформы',
   'landing.featuresHeading': 'Створана для грузаадпраўнікоў, грузаадпраўнікамі',
+  'landing.heroSubtitle':
+    'Канвееры, якія завяршаюцца за секунды. Журналы, якія можна чытаць. Разгортванні, якім можна давяраць.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit разгортванне --бяспечна',
   'landing.pricingEyebrow': '// $ цэнаўтварэнне --plain',
   'landing.pricingHeading': 'Простае, прадказальнае цэнаўтварэнне',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'У палёце зараз',
   'pipelines.metric.successCaption': '{{count}} з {{total}} прабежак',
   'pipelines.metric.successRate': 'Паказчык поспеху',
+  'pipelines.realtimeOn': 'у рэальным часе',
   'pipelines.subheading': 'Абнаўленні ў рэжыме рэальнага часу з кожнага назіранага рэпазітара.',
+  'pricing.advancedFeatures': 'Пашыраныя магчымасці: {{mark}}',
+  'pricing.canExport': 'Экспарт даных: {{mark}}',
+  'pricing.maxArtifacts': 'Артэфакты {{count}}',
+  'pricing.maxBuilds': 'Зборкі {{count}}',
+  'pricing.maxPipelines': 'Канвееры {{count}}',
   'privacy.dataAccount':
     'Уліковы запіс: імя, адрас электроннай пошты, хэшаваны пароль, узровень тарыфнага плана.',
   'privacy.intro':
@@ -93,6 +118,8 @@ export const ui: UiTranslations = {
     "Мы выкарыстоўваем Stripe для выстаўлення рахункаў, Mailgun для транзакцыйнай электроннай пошты і AWS S3 для захоўвання артэфактаў зборкі. Кожны з іх мае кантрактныя абавязацельствы адносна мінімальнага аб'ёму дадзеных, неабходнага для аказання паслуг.",
   'privacy.rightsBody':
     'Вы можаце экспартаваць кожны байт сваіх дадзеных, выдаліць свой уліковы запіс у любы час у наладах і запытаць запіс кожнай дастаўкі вэбхука ў ваш уліковы запіс. Мы адказваем на запыты GDPR / CCPA на працягу 30 дзён.',
+  'privacy.subtitle':
+    'Як {{app}} збірае, захоўвае і абараняе вашыя даныя, пакуль мы запускаем вашыя канвееры.',
   'privacy.title': 'Палітыка прыватнасці',
   'repositories.empty': 'Няма падлучаных рэпазіторыяў.',
   'repositories.heading': 'Рэпазіторыі',
@@ -101,11 +128,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Усе рэпазіторыі',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Не атрымалася загрузіць рэпазітар.',
+  'repositoryDetail.meanDuration': 'Сярэдняя працягласць',
   'repositoryDetail.notFound': 'Рэпазітар не знойдзены.',
+  'repositoryDetail.successRate': 'Паказчык поспеху',
   'repositoryDetail.totalBuilds': 'Агульная колькасць зборак',
   'repositoryDetail.webhookActive': 'актыўны',
   'repositoryDetail.webhookPaused': 'прыпынена',
   'repositoryDetail.webhooksHeading': 'Вэбхукі',
+  'resetPassword.passwordLabel': 'Новы пароль',
   'resetPassword.runnerStatus': 'скінуць · токен правераны',
   'resetPassword.subtitle': 'Выберыце надзейны пароль, якім вы раней не карысталіся.',
   'resetPassword.tokenPlaceholder': 'уставіць з электроннай пошты',
@@ -118,6 +148,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Рэпазіторыі. Кантролеры. Адключыцеся ад пастаўшчыка VCS, каб спыніць прыём падзей.',
   'settings.repositories.empty': 'Пакуль што не падключана ніякіх рэпазіторыяў.',
+  'settings.repositories.heading': 'Падключэнні рэпазіторыяў',
   'settings.repositories.loadError': 'Не атрымалася загрузіць рэпазіторыі.',
   'settings.secrets.addCta': 'Дадаць сакрэт',
   'settings.secrets.addError': 'Не атрымалася дадаць сакрэт.',
@@ -125,6 +156,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Не атрымалася выдаліць сакрэт.',
   'settings.secrets.empty': 'Ніякіх сакрэтаў не захоўваецца.',
   'settings.secrets.heading': 'Сакрэты',
+  'settings.secrets.lastUsed': 'апошняе выкарыстанне {{date}}',
   'settings.secrets.loadError': 'Не атрымалася загрузіць сакрэты.',
   'settings.secrets.neverUsed': 'ніколі не выкарыстоўваўся',
   'settings.secrets.rotateCta': 'Павярнуць',
@@ -148,6 +180,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Не атрымалася абнавіць вэбхук.',
   'signup.namePlaceholder': 'Райлі Парк',
   'signup.runnerStatus': 'бясплатны ўзровень · 1000 зборак мін./месяц',
+  'terms.intro':
+    'Ствараючы ўліковы запіс {{app}}, вы згаджаецеся з гэтымі ўмовамі. Яны ахопліваюць дапушчальнае выкарыстанне раннераў зборкі, межы нашага SLA і ўмовы, пры якіх мы можам прыпыніць або спыніць ваш уліковы запіс за злоўжыванне нагрузкай.',
   'terms.slaBody':
     'Планы Pro і Team разлічаны на 99,95% штомесячнай бесперабойнай працы API і пула раннераў. Бясплатны план прадастаўляецца «як ёсць». Паведамленні пра збоі адлюстроўваюцца на сайце status.conduit.dev і кампенсуюцца па формуле ў вашым рахунку-фактуры.',
   'terms.terminationBody':

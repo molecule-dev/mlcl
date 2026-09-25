@@ -1,11 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Van visszajelzésed, hibát találtál, vagy funkciót javasolnál? Minden üzenet eljut a {{app}} csapatának egy igazi tagjához — szívesen halljuk, min dolgozol éppen.',
   'about.contactTitle': 'Lépjen kapcsolatba velünk',
   'about.eyebrow': 'A {{app}} névjegye',
+  'about.intro':
+    'A {{app}} egy ismétlésen alapuló kártyás tanulóalkalmazás azoknak, akik szeretnék, ha a tudás valóban megmaradna. Akár nyelvet tanulsz, képleteket magolsz, vagy egy vizsgára gyakorolsz fogalmakat, minden kártyát pontosan abban a pillanatban ütemez, amikor épp elfelejtenéd — ez a memória tudománya által talált leghatékonyabb módja annak, hogy a tények a hosszú távú emlékezetbe kerüljenek.',
+  'about.missionBody':
+    'A legtöbb tanulóeszköz az eltöltött időre optimalizál, nem a megszerzett tudásra. A {{app}} ennek az ellenkezőjére törekszik: a lehető legkevesebb ismétléssel tartsa fejben azt, ami számít. Hiszünk abban, hogy a tanulás nyugodt, mérhető és a tiéd legyen — nyílt adatok, sötét minták nélkül, és egy évekig fenntartható szokás.',
+  'about.missionTitle': 'Küldetésünk',
   'about.pageTitle': '{{tagline}}.',
   'authShell.sampleBack': 'Vilnius — 1,2 másodperc alatt visszahívták.',
   'authShell.sampleEyebrow': 'Egy kártya a jövőbeli paklidból',
+  'authShell.sampleFront': '„Litvánia fővárosa.”',
+  'authShell.sampleRetention': '{{pct}}% megmaradás',
   'authShell.sampleStreak': '{{days}} napos sorozat',
   'cardEdit.title': 'Tanulókártya szerkesztése',
   'cardEditor.backLink': 'Vissza a fedélzetre',
@@ -35,6 +44,8 @@ export const ui: UiTranslations = {
   'dashboard.kpi.days': 'nap',
   'deckDetail.backLink': 'Minden pakli',
   'deckDetail.deleteError': 'Nem sikerült törölni a paklit.',
+  'deckDetail.empty.body': 'Add hozzá az első kártyádat, és kezdd el építeni az emlékezetedet.',
+  'deckDetail.empty.cta': 'Add hozzá az első kártyádat',
   'deckDetail.empty.heading': 'Még nincsenek kártyák ebben a pakliban',
   'deckDetail.filterEmpty': 'Egyik kártya sem felel meg ennek az állapotszűrőnek.',
   'deckDetail.filterLabel': 'Kártyák szűrése állam szerint',
@@ -47,7 +58,9 @@ export const ui: UiTranslations = {
   'deckDetail.stat.total': 'Kártyák',
   'deckDetail.studyDueLabel': 'Tanulmány {{count}} esedékes',
   'deckProgressCard.cardCount': '{{count}} kártya',
+  'deckProgressCard.masteredTooltip': '{{count}} elsajátítva',
   'deckProgressCard.studyCta': 'Tanulmány {{count}}',
+  'decks.confirmDelete': 'Törlöd ezt a paklit és az összes kártyáját? Ez nem vonható vissza.',
   'decks.create.heading': 'Hozz létre egy paklit',
   'decks.create.nameLabel': 'Pakli neve',
   'decks.create.submit': 'Pakli létrehozása',
@@ -58,6 +71,7 @@ export const ui: UiTranslations = {
   'decks.heading': 'Paklik',
   'decks.loadError': 'Nem sikerült betölteni a paklikat.',
   'decks.loading': 'Betöltés…',
+  'decks.newDeckLabel': 'Új pakli',
   'decks.retention': 'Megtart',
   'decks.studyArrow': 'Tanulmány →',
   'decks.subheading': '{{count}} paklik · áttekintés és kezelés',
@@ -80,6 +94,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Már van fiókom',
   'landing.heroSubtitle':
     'A térközös ismétlés jelenti a különbséget a magolás és az emlékezés között. Naponta öt perc, évről évre, és a nyelv ragad.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.proof.export': 'Nyílt adatok, nincs kötöttség',
   'landing.proof.free': 'Személyes használatra örökre ingyenes',
   'landing.proof.import': '.apkg / CSV importálása',
@@ -94,12 +109,16 @@ export const ui: UiTranslations = {
   'login.heading': 'Üdvözlünk ismét a fedélzeten',
   'login.orDivider': 'vagy folytassa ezzel:',
   'login.signupLink': 'Kezdj el ingyenesen tanulni',
+  'login.signupPrompt': 'Új felhasználó?',
   'login.subtitle': 'Folytasd ott, ahol abbahagytad – a sorozatod vár rád.',
   'mobileNav.closeMenu': 'A navigációs menü bezárása',
   'mobileNav.openMenu': 'Navigációs menü megnyitása',
   'notifications.markAllReadError': 'Nem sikerült az összeset olvasottként megjelölni.',
   'pricing.heading': 'kártya',
+  'pricing.limits.cards': 'kártya',
   'pricing.limits.decks': 'fedélzetek',
+  'pricing.limits.historyDays': '{{days}} napos ismétlési előzmény',
+  'pricing.limits.historyUnlimited': 'Korlátlan ismétlési előzmény',
   'pricing.limits.stats': 'statisztikák',
   'pricing.limits.study': 'tanulmány',
   'resetPassword.passwordLabel': 'Új jelszó',
@@ -111,17 +130,30 @@ export const ui: UiTranslations = {
   'sessionSummary.heading': 'Gratulálok.',
   'sessionSummary.label': 'Munkamenet befejezve',
   'settings.changePasswordError': 'Nem sikerült megváltoztatni a jelszót.',
+  'settings.confirmPassword': 'Erősítse meg a jelszavát',
   'settings.currentPassword': 'Jelenlegi jelszó',
+  'settings.dangerZone': 'Veszélyzóna',
+  'settings.deleteAccountHint':
+    'Véglegesen törli a fiókodat és az összes tanulási adatodat. Ez nem vonható vissza.',
+  'settings.deleteAccountWarning':
+    'Ez véglegesen törli a fiókodat, valamint az összes paklit, kártyát és tanulási előzményt. Ez nem vonható vissza.',
   'settings.deleteError':
     'Nem sikerült törölni a fiókot. Ellenőrizd a jelszavadat, és próbáld újra.',
   'settings.deleting': 'Törlés…',
+  'settings.devicesHint': 'A fiókodhoz jelenleg regisztrált eszközök.',
   'settings.newPassword': 'Új jelszó',
   'settings.password': 'Jelszó',
   'settings.passwordChanged': 'Jelszó frissítve.',
+  'settings.passwordHint': 'Módosítsd a bejelentkezéshez használt jelszavadat.',
   'settings.reminders.atRisk': 'Veszélyes sorozatra vonatkozó riasztás (este 8 óra után)',
+  'settings.reminders.daily': 'Napi emlékeztető (8:00)',
   'settings.reminders.heading': 'Emlékeztetők',
+  'settings.reminders.milestones': 'Mérföldkövek ünneplése',
   'settings.reminders.note':
     'Ezen az eszközön tárolva. Ki-be kapcsolható, hogy melyik tanulmány jelenjen meg a böngészőben; a beállítások szinkronizálódnak az újratöltés során.',
+  'settings.reminders.weekly': 'Heti megmaradási összefoglaló (vasárnap)',
+  'settings.revokeDeviceWarning':
+    'Az eszköz hozzáférése hamarosan visszavonásra kerül. Kijelentkezteted?',
   'settings.saved': 'Mentve.',
   'settings.saveError': 'Nem sikerült menteni.',
   'settings.saving': 'Mentés…',
@@ -137,6 +169,7 @@ export const ui: UiTranslations = {
   'signup.legal':
     'Fiók létrehozásával Ön elfogadja a Felhasználási Feltételeinket és Adatvédelmi Szabályzatunkat.',
   'signup.nameLabel': 'A neved (opcionális)',
+  'signup.orDivider': 'vagy regisztrálj ezzel',
   'signup.subtitle': 'Naponta öt perc. Egy jövőbeli én, amely emlékezik.',
   'stats.byStateHeading': 'Kártyák állam szerint',
   'stats.dailyHeading': 'Vélemények naponta (elmúlt 30 nap)',
@@ -173,5 +206,6 @@ export const ui: UiTranslations = {
   'todayHeroCard.goalLabel': 'Napi cél',
   'todayHeroCard.goalProgress': '{{reviewed}} / {{goal}}',
   'todayHeroCard.streakBadge': '{{days}} napos sorozat',
+  'todayHeroCard.studyCta': 'Tanulás indítása',
   'userMenu.stats': 'A statisztikáim',
 }

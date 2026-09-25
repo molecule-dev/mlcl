@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'გაქვთ კითხვები, გამოხმაურება ან გსურთ დემო თქვენი გუნდისთვის? მოგვწერეთ hello@conduit.dev-ზე — ყველა შეტყობინება გუნდის რეალურ ადამიანამდე აღწევს.',
   'about.contactHeading': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
+  'about.featuresHeading': 'რას იღებთ',
+  'about.introBody':
+    '{{app}} GitHub Actions-ის სტილის უწყვეტ მიწოდებას ერთ სწრაფ დაფაზე აერთიანებს: პაიპლაინები, build-ის ლოგები, არტეფაქტები, სტატუსის ბეჯები და განლაგების გარემოები ყველა თქვენი რეპოზიტორიისთვის ერთ ადგილას. აღარ არის ჩანართებს შორის ხტომა და გამოცნობა, რომელი build გატყდა — ყოველი გაშვება, ლოგის ხაზი და განლაგება ერთი დაწკაპუნებით არის ხელმისაწვდომი.',
+  'about.introHeading': 'რა არის {{app}}',
+  'about.missionBody':
+    'პროგრამული უზრუნველყოფის გაშვება მშვიდი და პროგნოზირებადი უნდა იყოს, არა შიშის წყარო. ჩვენ ვქმნით პაიპლაინებს, ლოგებსა და განლაგების ხელსაწყოებს, რომ commit-იდან წარმოებამდე გზა სწრაფი, თვალსაჩინო და სანდო იყოს — პირველი მწვანე build ხუთ წუთში, და ყოველი მომდევნო build ისეთივე ნათელი.',
+  'about.missionHeading': 'ჩვენი მისია',
+  'about.subtitle':
+    '{{app}} არის CI/CD დაფა გუნდებისთვის, რომლებსაც სურთ build-ების, განლაგებებისა და გარემოების მონიტორინგი ყველა რეპოზიტორიაში — და დარწმუნებით გაშვება.',
   'artifacts.empty': 'არტეფაქტები ჯერ არ არის.',
   'artifacts.heading': 'არტეფაქტები',
   'artifacts.loadError': 'არტეფაქტების ჩატვირთვა ვერ მოხერხდა.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ კონდუქტის გარემო --სია',
   'environments.heading': 'გარემო',
   'environments.loadError': 'გარემოების ჩატვირთვა ვერ მოხერხდა.',
+  'environments.loading': 'გარემოს ჩატვირთვა…',
   'environments.subheading': 'განლაგების სტატუსი რეალურ დროში ყველა სამიზნეზე.',
   'forgotPassword.runnerStatus': 'გადატვირთვა · უსაფრთხო გვირაბი',
+  'forgotPassword.success':
+    'თუ ამ ელფოსტისთვის ანგარიში არსებობს, გადატვირთვის ბმული უკვე გამოგეგზავნებათ. შეამოწმეთ თქვენი შემოსულები.',
   'insights.changeFailureRate': 'წარუმატებლობის მაჩვენებლის შეცვლა',
   'insights.deployFrequency': 'განლაგება / დღეში',
   'insights.empty': 'ჯერ არ არის საკმარისი მონაცემები.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'ანალიზის ჩატვირთვა ვერ მოხერხდა.',
   'insights.meanP95': 'ნიშნავს {{mean}} · გვ. 95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'ყველაზე ნელი პაიპლაინის ნაბიჯები',
   'insights.successRateHeading': 'მილსადენის წარმატების მაჩვენებელი (ბოლო 14 დღე)',
   'landing.choosePlan': 'გეგმის არჩევა',
+  'landing.copyright': '© {{year}} {{app}}. გაუშვით დარწმუნებით.',
   'landing.ctaBody':
     'საკრედიტო ბარათი არ არის საჭირო. პლატფორმის ინჟინერი არ არის საჭირო. პირველი მილსადენი ხუთ წუთში გაიხსნას.',
   'landing.ctaHeading': 'დარწმუნებით გაგზავნეთ.',
   'landing.featuresEyebrow': '// პლატფორმის მახასიათებლები',
   'landing.featuresHeading': 'შექმნილია გადამზიდავებისთვის, გადამზიდავების მიერ',
+  'landing.heroSubtitle':
+    'პაიპლაინები, რომლებიც წამებში სრულდება. ლოგები, რომლებსაც წაიკითხავთ. განლაგებები, რომლებსაც ენდობით.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit განლაგება --უსაფრთხოდ',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'მარტივი, პროგნოზირებადი ფასები',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'ახლა ფრენაშია',
   'pipelines.metric.successCaption': '{{count}} -ის {{total}} დარბის',
   'pipelines.metric.successRate': 'წარმატების მაჩვენებელი',
+  'pipelines.realtimeOn': 'რეალურ დროში',
   'pipelines.subheading': 'პირდაპირი განახლებები ყველა ნანახი საცავიდან.',
+  'pricing.advancedFeatures': 'დამატებითი ფუნქციები: {{mark}}',
+  'pricing.canExport': 'მონაცემების ექსპორტი: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} არტეფაქტი',
+  'pricing.maxBuilds': '{{count}} build',
+  'pricing.maxPipelines': '{{count}} პაიპლაინი',
   'privacy.dataAccount': 'ანგარიში: სახელი, ელ. ფოსტა, ჰეშირებული პაროლი, გეგმის დონე.',
   'privacy.intro':
     '{{აპლიკაცია}} აგროვებს მხოლოდ მინიმალურ მონაცემებს, რომლებიც გვჭირდება თქვენი უწყვეტი მიწოდების ანგარიშის ფუნქციონირებისთვის: თქვენი ელ. ფოსტა, თქვენს მიერ დაკავშირებული საცავები, თქვენი მორბენლების მიერ წარმოქმნილი კომიტები და აწყობის მეტამონაცემები და საიდუმლოებები, რომელთა შენახვასაც ირჩევთ ჩვენთან. ჩვენ არასდროს ვკითხულობთ თქვენს საწყის კოდს აწყობის მორბენლის გარეთ; აწყობის არტეფაქტები ინახება თქვენს S3 ბაკეტში კონფიგურაციის შემდეგ.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'ჩვენ ვიყენებთ Stripe-ს ბილინგისთვის, Mailgun-ს ტრანზაქციული ელფოსტისთვის და AWS S3-ს არტეფაქტების შენახვისთვის. თითოეული მათგანი კონტრაქტით ვალდებულია დაიცვას მომსახურების მიწოდებისთვის საჭირო მონაცემების მინიმალური რაოდენობა.',
   'privacy.rightsBody':
     'შეგიძლიათ თქვენი მონაცემების ყველა ბაიტი ექსპორტირება, თქვენი ანგარიშის ნებისმიერ დროს წაშლა პარამეტრებიდან და თქვენს ანგარიშზე ყველა webhook-ის მიწოდების ჩანაწერის მოთხოვნა. ჩვენ GDPR/CCPA მოთხოვნებს 30 დღის განმავლობაში ვპასუხობთ.',
+  'privacy.subtitle':
+    'როგორ აგროვებს, ინახავს და იცავს {{app}} თქვენს მონაცემებს, სანამ ჩვენ თქვენს პაიპლაინებს ვამუშავებთ.',
   'privacy.title': 'კონფიდენციალურობის პოლიტიკა',
   'repositories.empty': 'დაკავშირებული საცავი არ არის.',
   'repositories.heading': 'საცავები',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'ყველა საცავი',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'საცავის ჩატვირთვა ვერ მოხერხდა.',
+  'repositoryDetail.meanDuration': 'საშუალო ხანგრძლივობა',
   'repositoryDetail.notFound': 'საცავი ვერ მოიძებნა.',
+  'repositoryDetail.successRate': 'წარმატების მაჩვენებელი',
   'repositoryDetail.totalBuilds': 'აწყობების ჯამი',
   'repositoryDetail.webhookActive': 'აქტიური',
   'repositoryDetail.webhookPaused': 'შეჩერებულია',
   'repositoryDetail.webhooksHeading': 'ვებჰუკები',
+  'resetPassword.passwordLabel': 'ახალი პაროლი',
   'resetPassword.runnerStatus': 'გადატვირთვა · ტოკენი დადასტურებულია',
   'resetPassword.subtitle': 'აირჩიეთ ძლიერი პაროლი, რომელიც აქამდე არ გამოგიყენებიათ.',
   'resetPassword.tokenPlaceholder': 'ჩასმა ელფოსტიდან',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'საცავები. კონდუიტი აკონტროლებს. მოვლენების მიღების შესაჩერებლად გათიშეთ კავშირი თქვენს VCS პროვაიდერთან.',
   'settings.repositories.empty': 'ჯერ არ არის დაკავშირებული საცავი.',
+  'settings.repositories.heading': 'რეპოზიტორიების კავშირები',
   'settings.repositories.loadError': 'საცავების ჩატვირთვა ვერ მოხერხდა.',
   'settings.secrets.addCta': 'საიდუმლოს დამატება',
   'settings.secrets.addError': 'საიდუმლოს დამატება ვერ მოხერხდა.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'საიდუმლოს წაშლა ვერ მოხერხდა.',
   'settings.secrets.empty': 'საიდუმლოებები არ ინახება.',
   'settings.secrets.heading': 'საიდუმლოებები',
+  'settings.secrets.lastUsed': 'ბოლოს გამოყენებული {{date}}',
   'settings.secrets.loadError': 'საიდუმლოებების ჩატვირთვა ვერ მოხერხდა.',
   'settings.secrets.neverUsed': 'არასდროს გამოუყენებია',
   'settings.secrets.rotateCta': 'შეტრიალება',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'ვებჰუკის განახლება ვერ მოხერხდა.',
   'signup.namePlaceholder': 'რაილი პარკი',
   'signup.runnerStatus': 'უფასო დონე · 1000 აწყობის მინიმალური დრო თვეში',
+  'terms.intro':
+    '{{app}} ანგარიშის შექმნით თქვენ ეთანხმებით ამ პირობებს. ისინი მოიცავს build runner-ების მისაღებ გამოყენებას, ჩვენი SLA-ს საზღვრებს და პირობებს, რომლებითაც შეგვიძლია თქვენი ანგარიშის შეჩერება ან გაუქმება აბუზიური დატვირთვისთვის.',
   'terms.slaBody':
     'Pro და Team გეგმები API-სა და Runner Pool-ისთვის ყოველთვიურად 99.95%-იან უწყვეტ მუშაობას ითვალისწინებს. უფასო გეგმა მოწოდებულია უცვლელი სახით. გათიშვები ფიქსირდება status.conduit.dev-ზე და დაკრედიტდება თქვენს ინვოისში მითითებული ფორმულის მიხედვით.',
   'terms.terminationBody':

@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Запитання, відгуки чи пропозиція щодо функції? Зв’яжіться з командою {{app}} у розділі Налаштування → Сповіщення або напишіть нам будь-коли — кожне повідомлення потрапляє до реальної людини.',
+  'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
+  'about.featureCapture':
+    'Сканування чеків із завантаженням фото, яке прикріплює зображення до потрібної витрати, рядок за рядком.',
+  'about.featureExport':
+    'CSV-експорти всіх звітів, витрат і статусів затвердження, готові до аудиту — для вашої бухгалтерії.',
+  'about.featurePolicy':
+    'Обмеження політики — денні ліміти, ліміти за категоріями та пороги обов’язкових чеків, що застосовуються під час подання.',
+  'about.featureWorkflow':
+    'Дворівневий процес затвердження з примітками рецензента, позначками порушень політики та відшкодуванням в один дотик.',
+  'about.intro':
+    '{{app}} — це платформа управління витратами для фінансових команд і людей, яким вони відшкодовують кошти. Відскануйте чек, подайте витрату, надішліть звіт на затвердження та відстежуйте кожне відшкодування — без паперової тяганини з таблицями.',
+  'about.missionBody':
+    'Відшкодування має бути швидким, справедливим і прозорим для аудиту. Ми створили {{app}}, щоб автори отримували кошти без нагадувань, затверджувачі бачили саме те, що підписують, а фінанси мали чистий слід для кожного долара — разом із перевірками політики.',
+  'about.missionTitle': 'Наша місія',
   'approvals.approve': 'Схвалити',
   'approvals.approving': 'Схвалення…',
   'approvals.confirmReject': 'Підтвердити відхилення',
+  'approvals.empty': 'Усе опрацьовано — немає звітів, що очікують.',
   'approvals.eyebrow': 'Черга менеджера',
   'approvals.kpi.flaggedLabel': 'Позначено порушення',
+  'approvals.kpi.queueLabel': 'Очікує перегляду',
   'approvals.kpi.totalLabel': 'Очікується значення',
   'approvals.lineCount': '{{count}} витрати',
   'approvals.queueFallback': 'Черга живого відео недоступна — відображаються куровані демо-дані.',
   'approvals.reject': 'Відхилити',
   'approvals.rejecting': 'Відхилення…',
+  'approvals.rejectPlaceholder': 'Причина (обов’язково)',
   'approvals.rejectPrompt': 'Чому ви відхиляєте цей звіт?',
   'approvals.review': 'Перевірити',
   'approvals.title': 'Очікують схвалення',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Схвалено · MTD',
   'dashboard.kpi.pendingDelta': '+2 цього тижня',
+  'dashboard.kpi.pendingLabel': 'Очікує перегляду',
   'dashboard.kpi.receiptsDelta': 'Потрібна дія',
   'dashboard.kpi.receiptsLabel': 'Очікування квитанцій',
   'dashboard.kpi.reimbursedDelta': '+2,4 тис. дол. США',
   'dashboard.kpi.reimbursedLabel': 'Відшкодовано · MTD',
   'dashboard.newReport': 'Новий звіт',
+  'dashboard.recent.empty': 'Звітів ще немає — створіть перший вище.',
   'dashboard.recent.title': 'Нещодавні звіти',
   'dashboard.recent.viewAll': 'Переглянути всі звіти',
   'dashboard.summaryFallback':
@@ -40,11 +61,19 @@ export const ui: UiTranslations = {
   'expenses.listFallback':
     'Список активних товарів недоступний — відображаються куровані демо-дані.',
   'expenses.searchPlaceholder': 'Пошук продавця або категорії…',
+  'expenses.subtotal': 'Витрати {{count}} · проміжний підсумок',
   'expenses.title': 'Витрати',
+  'forgotPassword.continue': 'У мене є код · Продовжити',
+  'forgotPassword.subheading':
+    'Введіть свою робочу електронну пошту, і ми надішлемо посилання для встановлення нового пароля.',
   'forgotPassword.successBody':
     'Якщо обліковий запис існує для {{email}} Ви отримаєте посилання для скидання налаштувань протягом наступних кількох хвилин.',
+  'landing.copyright': '© {{year}} {{app}}. Створено з Molecule.dev.',
+  'landing.ctaBody':
+    'Безкоштовно для перших 25 витрат щомісяця. Без кредитної картки, без дзвінка щодо впровадження.',
   'landing.ctaHeading': 'Готові повернути борг вашій команді?',
   'landing.eyebrow': 'Звіти про витрати для фінансових команд',
+  'landing.featuresHeading': 'Відшкодування в одному спокійному робочому просторі',
   'landing.heroSubtitle':
     'Надсилайте, затверджуйте та відшкодовуйте бізнес-витрати без церемонії оформлення електронних таблиць. Розпізнавання символів (OCR) для квитанцій, перевірка політик та прозорий графік затвердження — все в одному спокійному робочому просторі.',
   'landing.heroTitle': 'Кожен чек повернуто.',
@@ -62,10 +91,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Нотатки',
   'newExpense.descriptionPlaceholder':
     "Чому ці витрати були пов'язані з бізнесом (видно для вашої особи, яка затверджує).",
+  'newExpense.eyebrow': 'Позиція для відшкодування',
   'newExpense.merchant': 'Постачальник',
   'newExpense.merchantPlaceholder': 'Готель Адлон Кемпінскі',
   'newExpense.policyHint':
     'Нагадування: для страв вартістю понад 80 доларів США на день або будь-яких товарів вартістю понад 250 доларів США потрібне обґрунтування.',
+  'newExpense.receipt': 'Квитанція',
+  'newExpense.receiptHint': 'JPG, PNG або PDF · до 10 МБ',
   'newExpense.receiptOcrHint': 'OCR попередньо заповнює поля',
   'newExpense.receiptPrompt':
     'Перетягніть сюди фотографію чи PDF-файл або натисніть, щоб переглянути',
@@ -77,17 +109,21 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Зробіть знімок або завантажте чек, і Recoup попередньо заповнить дані продавця, дату та загальну суму. Підтвердьте все нижче, перш ніж зберігати.',
   'newExpense.title': 'Додати витрати',
+  'newReport.approverHint':
+    'Вони отримають електронний лист, коли ви надішлете цей звіт на перегляд.',
   'newReport.approverLabel': "Електронна адреса особи, яка затверджує (необов'язково)",
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'Доступні витрати',
   'newReport.createFailed': 'Не вдалося створити звіт. Спробуйте ще раз.',
   'newReport.draftsFallback':
     'Список витрат у реальному часі недоступний — відображаються куровані демо-дані.',
+  'newReport.eyebrow': 'Групувати витрати · надіслати на затвердження',
   'newReport.includedCount': '{{count}} включено',
   'newReport.purposeLabel': 'Ділова мета',
   'newReport.purposePlaceholder':
     'Опишіть поїздку або проект, до якого стосуються ці витрати (має бути видно вашому затверджувальному та фінансовому відділу).',
   'newReport.saveDraft': 'Зберегти як чернетку',
+  'newReport.saveDraftFailed': 'Не вдалося зберегти чернетку. Спробуйте ще раз.',
   'newReport.submit': 'Надіслати на затвердження',
   'newReport.submitFailed': 'Не вдалося надіслати звіт. Спробуйте ще раз.',
   'newReport.summary': 'Зведений звіт',
@@ -100,17 +136,24 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'Діяльність на робочому місці',
   'notifications.feedFallback': 'Прямий ефір недоступний — відображаються куровані демо-дані.',
   'notifications.openReport': 'Відкрити звіт ›',
+  'pricing.approvalsLabel': 'затвердження',
   'pricing.expensesLabel': 'витрати',
   'pricing.heading': 'схвалення',
   'pricing.policiesLabel': 'політики',
   'pricing.receiptsLabel': 'квитанції',
   'recoveredAmountHeroCard.label': 'Відшкодування отримано · З початку року',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} звіт(ів) наразі очікують перегляду в усіх затверджувачів.',
+  'reports.approvalFlow': 'Процес затвердження',
   'reports.backToList': 'Назад до звітів',
   'reports.detailFallback':
     'Звіт у реальному часі недоступний — відображаються куровані демо-дані.',
   'reports.lineItems': 'Позиції',
   'reports.lineItemsCount': '{{count}} витрати',
+  'reports.lineItemsEmpty': 'У цьому звіті ще немає витрат.',
+  'reports.openLibrary': 'Відкрити бібліотеку звітів',
   'reports.policyTitle': 'Прапорець політики',
+  'reports.selectPrompt': 'Виберіть звіт із бібліотеки, щоб переглянути його деталі.',
   'reports.summary.lineCount': 'Позиції',
   'reports.summary.reimbursable': 'Відшкодовується',
   'reports.summary.total': 'Заявлена загальна сума',
@@ -120,6 +163,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Список активних товарів недоступний — відображаються куровані демо-дані.',
   'reportsList.newReport': 'Новий звіт',
+  'reportsList.submittedOn': 'Надіслано {{date}}',
   'reportsList.title': 'Бібліотека звітів',
   'resetPassword.hidePassword': 'Сховати пароль',
   'resetPassword.newPasswordLabel': 'Новий пароль',
@@ -145,6 +189,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Збережено ✓',
   'settings.profileSaveFailed': 'Не вдалося оновити профіль. Спробуйте ще раз.',
   'signup.heading': 'Створіть свій обліковий запис Recoup',
+  'signup.hidePassword': 'Сховати пароль',
   'signup.namePlaceholder': 'Майя Окафор',
   'signup.showPassword': 'Показати пароль',
   'signup.subheading': 'Безкоштовно для 25 витрат щомісяця — без кредитної картки.',

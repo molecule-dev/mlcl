@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Máte otázku, našli ste chybu alebo chcete demo pre svoj tím? Ozvite sa z nastavení účtu — každá správa sa dostane k skutočnému členovi tímu.',
   'about.contactTitle': 'Kontaktujte nás',
+  'about.intro':
+    '{{app}} premieňa stohy naskenovaných dokumentov a PDF na štruktúrované, prehľadávateľné a zatriedené údaje. Vložte faktúry, účtenky, zmluvy alebo formuláre a nechajte AI ich prečítať, extrahovať, klasifikovať a zatriediť — s farebnými indikátormi spoľahlivosti, aby váš tím kontroloval len to, čo naozaj potrebuje človeka.',
+  'about.missionBody':
+    'Dokumentová rutina by nemala pohltiť celý deň vášho tímu. Veríme, že každá extrahovaná hodnota by mala byť vysvetliteľná a auditovateľná — aby ste mohli dôverovať automatizácii bez straty papierovej stopy. {{app}} je navrhnutý tak, aby ušetril hodiny pri každom stohu a zároveň ponechal človeka v procese všade, kde to má zmysel.',
+  'about.missionTitle': 'Naše poslanie',
+  'about.subtitle':
+    'OCR, AI extrakcia, klasifikácia a automatizované zatriedenie vašich dokumentov.',
   'about.title': 'O aplikácii {{app}}',
+  'about.whatYouGetTitle': 'Čo získate',
   'authShell.backToLanding': '← Späť na úvodnú stránku',
   'common.goToDashboard': 'Prejsť na prehľad',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Dnes · Prehľad prevádzky',
   'dashboard.heading': 'Inteligentné spracovanie dokumentov',
+  'dashboard.metric.accuracy': 'Priemerná presnosť',
   'dashboard.metric.filed': 'Podané dnes',
   'dashboard.metric.filedCaption': 'Sortované podľa pravidiel ukladania',
   'dashboard.metric.processed': 'Spracované dnes',
@@ -23,11 +34,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'Nahrané',
   'dashboard.recent.heading': 'Najnovšie dokumenty',
+  'dashboard.recent.typeUnknown': 'Čaká na klasifikáciu',
   'dashboard.subheading':
     'Každá stránka je roztriedená, vyňatá a založená – s farebným označením, aby sa pri prehliadaní zachovala prehľadnosť.',
   'documentDetail.audit.heading': 'Časový harmonogram auditu',
+  'documentDetail.audit.subheading':
+    'Každý krok vykonaný na tomto dokumente vrátane zodpovednej osoby.',
   'documentDetail.back': 'Všetky dokumenty',
   'documentDetail.downloadHint': 'Kliknutím na tlačidlo Stiahnuť otvoríte pôvodný súbor.',
+  'documentDetail.extracted.empty': 'Zatiaľ neboli extrahované žiadne polia.',
   'documentDetail.extracted.heading': 'Extrahované polia',
   'documentDetail.extracted.subheading':
     '{{count}} polia · kliknutím na ľubovoľné pole ho na stránke zvýrazníte',
@@ -56,14 +71,25 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} dokumenty vo vašej knižnici, zoradené podľa dátumu (najnovšie ako prvé).',
   'documents.uploadCta': 'Nahrať dokumenty',
+  'documentTypeBreakdown.barAria': 'Zloženie dokumentov podľa typu',
   'documentTypeBreakdown.empty': 'Zatiaľ neboli spracované žiadne dokumenty.',
   'documentTypeBreakdown.subtitle': '{{total}} spracované',
   'documentTypeBreakdown.title': 'Štruktúra dokumentu',
+  'forgotPassword.backToSignIn': '← Späť na prihlásenie',
   'forgotPassword.checkEmail': 'Skontrolujte si e-mail',
   'forgotPassword.tip':
     'Nedostali ste to? Skontrolujte priečinok so spamom alebo skúste inú e-mailovú adresu.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Vytvorené pre prevádzkové tímy, ktoré auditujú každú stránku.',
+  'landing.ctaBody':
+    '14-dňová skúšobná verzia. Bez karty. Zrušiť môžete kedykoľvek. Vytvorené pre prevádzkové tímy, ktoré konajú rýchlo a auditujú dôkladne.',
   'landing.ctaHeading': 'Prestaňte ručne zapisovať účtenky. Začnite ich archivovať.',
   'landing.eyebrow': 'OCR · Extrakcia · Ukladanie pomocou umelej inteligencie',
+  'landing.featuresHeading': 'Dokumentová inteligencia, ktorá sa vysvetlí sama',
+  'landing.heroSubtitle':
+    'Vložte stoh faktúr, účteniek, zmlúv alebo formulárov. {{app}} ich klasifikuje, extrahuje a zatriedi — s farebnými indikátormi spoľahlivosti, aby váš tím kontroloval len to, čo naozaj potrebuje človeka.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Denný objem · posledných 7 dní',
   'landing.sampleCardLabel': 'Dnes spracované dokumenty',
   'landing.sampleCardSubtitle':
     'Priemerná presnosť 96,2 % pri faktúrach, potvrdenkách a formulároch.',
@@ -77,6 +103,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Otvoriť vstupnú stránku',
   'notFound.title': 'Táto stránka nie je v archíve',
+  'parcelaHeroCard.accuracy': 'Priemerná presnosť {{value}} % pri všetkých extrakciách',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % oproti včerajšku',
   'parcelaHeroCard.title': 'Dnes spracované dokumenty',
   'parcelaLayout.primaryNavLabel': 'Hlavná navigácia',
@@ -84,6 +111,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'dokumenty',
   'pricing.processingLabel': 'spracovateľské úlohy',
   'resetPassword.confirmPlaceholder': 'Zadajte nové heslo ešte raz',
+  'resetPassword.hidePassword': 'Skryť heslo',
   'resetPassword.passwordLabel': 'Nové heslo',
   'resetPassword.showPassword': 'Zobraziť heslo',
   'resetPassword.subtitle': 'Zvoľte niečo, čo má aspoň 8 znakov.',
@@ -101,10 +129,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Načítanie pravidiel sa nepodarilo.',
   'rules.loading': 'Načítavanie pravidiel…',
   'rules.matched30d': '{{count}} dokumenty, ktoré boli nájdené za posledných 30 dní',
+  'rules.neverUsed': 'Nikdy nepoužité',
   'rules.newRule': 'Nové pravidlo',
   'rules.saveError': 'Uloženie pravidla sa nepodarilo.',
   'rules.subheading':
     'Určite systému, kam má byť každý typ dokumentu umiestnený. Podmienky sa posudzujú postupne zhora nadol – platí prvá zhoda.',
+  'rules.templatesEmpty': 'Zatiaľ žiadne šablóny extrakcie.',
   'rules.templatesHeading': 'Šablóny pre extrakciu',
   'rules.templatesSubheading': 'Štruktúry polí, ktoré extraktor používa pre každý typ dokumentu.',
   'rules.then': 'Potom',
@@ -113,17 +143,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Názov pracovného priestoru',
   'settings.account.subheading':
     'Zobrazené meno a primárny e-mail pre oznámenia a históriu auditu.',
+  'settings.api.confirmRevoke': 'Potvrdiť?',
   'settings.api.copyOnce': 'Skopírujte tento kľúč – už sa viac nezobrazí',
   'settings.api.createdOn': 'Vytvoril{{date}}',
   'settings.api.empty': 'Zatiaľ nemáte žiadne kľúče API. Vytvorte si jeden vyššie.',
   'settings.api.error': 'Vytvorenie kľúča sa nepodarilo.',
+  'settings.api.generating': 'Generuje sa…',
+  'settings.api.heading': 'Kľúče API',
   'settings.api.labelPlaceholder': 'Kľúčový popis (napr. CI uploader)',
+  'settings.api.loading': 'Načítavajú sa kľúče…',
   'settings.api.newKey': 'Vygenerovať kľúč',
   'settings.api.subheading':
     'Tieto funkcie môžete využiť na odosielanie dokumentov zo skriptu alebo z vášho ERP systému. Kľúče môžete kedykoľvek striedať.',
   'settings.integrations.heading': 'Integrácie podávania',
   'settings.integrations.subheading':
     'Odosielajte uložené dokumenty na cloudový úložný priestor alebo do chatovacieho nástroja, ktorý váš tím už bežne používa.',
+  'settings.subheading':
+    'Spravujte účet, API kľúče a integrácie zatrieďovania pre svoj pracovný priestor {{app}}.',
+  'signup.hidePassword': 'Skryť heslo',
   'signup.identityPrompt': 'Ako vás máme oslovovať?',
   'signup.showPassword': 'Zobraziť heslo',
   'signup.subtitle': '14 dní zadarmo, bez nutnosti zadávať údaje o kreditnej karte.',
@@ -131,6 +168,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Nahratie sa nepodarilo.',
   'upload.eyebrow': 'Požitie',
   'upload.heading': 'Nahrať dokumenty',
+  'upload.queue.clear': 'Vymazať dokončené',
   'upload.queue.col.confidence': 'Sebavedomie',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Vyhľadávanie…',
@@ -143,5 +181,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Alebo môžete naraz presunúť viacero súborov a spustiť hromadnú extrakciu, klasifikáciu a archiváciu.',
   'uploadDropZone.cta': 'Vyberte súbory',
+  'uploadDropZone.maxSize': 'Max. 25 MB na súbor · Kompletné šifrovanie',
   'uploadDropZone.title': 'Pretiahnite dokumenty na obrazovku, aby sa spustilo spracovanie',
 }

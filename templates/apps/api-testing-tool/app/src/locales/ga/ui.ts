@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Aimsigh fabht, tá iarratas ar ghné agat, nó ar mhaith leat a rá linn cad ba cheart dúinn a thógáil amach anseo? Seol ríomhphost chuig hello@pylon.dev — sroicheann gach teachtaireacht innealtóir fíor ar an bhfoireann.',
   'about.contactTitle': 'Labhair linn',
+  'about.intro':
+    "Is binsí tástála API tapa, dúchasach don mhéarchlár é {{app}} d'innealtóirí a chaitheann a saol sa teirminéal — iarratais ar nós Postman, bailiúcháin, timpeallachtaí agus stair gan an t-ualach breise.",
+  'about.missionBody':
+    "Is iad na APIanna cnámh droma na bogearraí nua-aimseartha, ach tá na huirlisí chun iad a fheidhmiú mall, rómhór agus dírithe ar an luchóg. Tá {{app}} ann chun binsí géar, tapa, teirminéal-ghrád a thabhairt d'fhorbróirí: scaoil iarratais, cruthaigh muinín, agus seol gan an méarchlár a fhágáil.",
+  'about.missionTitle': 'Ár misean',
   'about.pageTitle': 'Faoi {{app}}',
   'authShell.statusLabel': 'reathaithe ar líne',
   'collections.createError': 'Níorbh fhéidir bailiúchán a chruthú.',
   'collections.defaultName': 'Bailiúchán gan teideal {{n}}',
+  'collections.empty':
+    'Níl aon bhailiúchán ann fós — cliceáil “Bailiúchán nua” chun do chéad fhillteán a chruthú.',
   'collections.eyebrow': '$ bailiúcháin piolóin --tree',
   'collections.fetchError': 'Níorbh fhéidir bailiúcháin a luchtú.',
   'collections.heading': 'Bailiúcháin',
   'collections.loading': 'Ag lódáil bailiúcháin…',
+  'collections.metric.allGreen': 'Gach rud glas',
   'collections.metric.collections': 'Bailiúcháin',
   'collections.metric.failing': 'Ag teip',
   'collections.metric.failingCaption': 'Bhí teipeanna ann sa rith dheireanach',
@@ -24,6 +34,8 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Athróga',
   'environments.createError': 'Níorbh fhéidir timpeallacht a chruthú.',
   'environments.defaultName': 'Timpeallacht gan teideal {{n}}',
+  'environments.empty':
+    'Níl aon timpeallacht ann fós — cliceáil “Timpeallacht nua” chun ceann a chur leis.',
   'environments.eyebrow': '$ imcheangail piolóin --switch',
   'environments.fetchError': 'Níorbh fhéidir timpeallachtaí a lódáil.',
   'environments.heading': 'Timpeallachtaí',
@@ -31,8 +43,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Timpeallacht nua',
   'environments.subheading':
     'Athróga a athraíonn ina n-iarratais tráth an tseolta. Timpeallacht ghníomhach amháin in aghaidh an spáis oibre.',
+  'forgotPassword.statusLabel': 'athshocrú · tollán slán',
   'forgotPassword.success':
     'Má tá cuntas ann don ríomhphost sin, tá nasc athshocraithe ar an mbealach. Seiceáil do bhosca isteach.',
+  'history.empty': 'Níl aon rud anseo fós — scaoil do chéad iarratas ón gcluaisín Spás Oibre.',
   'history.eyebrow': 'stair $ piolóin --tail',
   'history.fetchError': 'Níorbh fhéidir an stair a lódáil.',
   'history.heading': 'Stair rith',
@@ -41,9 +55,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': '50 deireanach',
+  'history.realtime': 'fíor-am',
   'history.subheading':
     'Gach iarratas a scaoileadh sa spás oibre seo, le stádas, latency, agus méid ualaigh.',
   'landing.choosePlan': 'Roghnaigh plean',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Cruthaigh muinín.',
   'landing.ctaBody':
     'Gan cárta creidmheasa. Níl aon innealtóir ardáin ag teastáil. Oscail ⌘K agus seol do chéad iarratas i níos lú ná cúig nóiméad.',
   'landing.ctaHeading': 'Muinín a chothú.',
@@ -85,6 +101,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Meánmhoill',
   'mocks.metric.live': 'Poiblí',
   'mocks.metric.servers': 'Magadh',
+  'mocks.ms': 'ms',
   'mocks.newMock': 'Bréige nua',
   'mocks.online': 'Poiblí',
   'mocks.paused': 'Príobháideach',
@@ -109,8 +126,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Sláintiúil',
   'monitors.metric.uptime': 'Meán-am ar bun',
   'monitors.newMonitor': 'Monatóir nua',
+  'monitors.paused': 'curtha ar sos',
   'monitors.run': 'Rith',
+  'monitors.runError': 'Chríochnaigh an rith le hearráid líonra: {{error}}',
+  'monitors.runFailed': 'Theip ar an rith.',
   'monitors.running': 'Ag rith…',
+  'monitors.runSuccess': "Rith {{status}} — d'fhill an t-ardshruth {{code}} i {{ms}}ms.",
   'monitors.sparkLabel': 'Treocht moille',
   'monitors.subheading':
     'Seiceálacha ar éileamh le haghaidh aon tástála sábháilte. Ceangail tástáil, brúigh Rith, agus féach ar an nuashonrú ráta rathúlachta 24 uair an chloig le gach tine.',
@@ -119,27 +140,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Am ar Fáil · 24 uair an chloig',
   'nav.legal': 'Dlíthiúil',
   'notFound.backToWorkspace': 'Ar ais chuig an spás oibre',
+  'notFound.body':
+    'Scaoil {{app}} iarratas don URL seo agus ní bhfuair sé aon rud ar ais. Seiceáil an bealach arís nó fill ar an spás oibre.',
   'notFound.eyebrow': '$ réiteach piolóin --strict',
   'notFound.title': 'Bealach gan aimsiú',
+  'planUpdated.body':
+    "Tá d'athrú billeála gníomhach anois. Is féidir leat do phlean a bhainistiú am ar bith ón leathanach billeála.",
+  'planUpdated.retry': 'Déan iarracht arís',
+  'planUpdated.verifyFailed': 'Ní raibh muid in ann d’íocaíocht a dheimhniú go fóill.',
+  'planUpdated.verifyFailedBody':
+    'B’fhéidir go bhfuil d’íocaíocht fós á próiseáil. Bain triail eile as i gceann nóiméid.',
   'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
+  'pricing.advancedFeatures': 'Gnéithe casta: {{yes}}',
+  'pricing.canExport': 'Easpórtáil sonraí: {{yes}}',
+  'pricing.heading': 'Roghnaigh do phlean {{app}}',
+  'pricing.maxCollections': '{{count}} bailiúchán',
+  'pricing.maxEnvironments': '{{count}} timpeallacht',
+  'pricing.maxHistory': '{{count}} iontráil staire',
+  'pricing.maxRequests': '{{count}} iarratais',
   'privacy.collect.account':
     'Cuntas: do r-phost, do phasfhocal haisithe, d’ainm taispeána, agus stampa ama do shíniú isteach dheireanaigh.',
+  'privacy.intro':
+    'Measann {{app}} do phríobháideachas. Déanann an leathanach seo achoimre ar na sonraí a bhailímid, cén fáth a mbailímid iad, agus conas iad a scriosadh.',
   'privacy.rights.body':
     'Is féidir leat do bhailiúcháin + timpeallachtaí a easpórtáil tráth ar bith, nó do chuntas a scriosadh ó na Socruithe chun na sonraí go léir a bhaint go buan laistigh de 30 lá.',
   'privacy.share.body':
     'Tusa amháin. Ní dhíolaimid, ní roinnimid ná ní ligeann muid ar cíos ábhar d’áit oibre le tríú páirtithe riamh. Coinnítear logaí freastalaí ar feadh 30 lá le haghaidh freagartha teagmhais agus scriostar iad ina dhiaidh sin.',
   'privacy.title': 'Fógra príobháideachta',
+  'profile.bio':
+    'Do spás oibre pearsanta {{app}} — pinnigh bailiúcháin, roinn timpeallachtaí, agus déan monatóireacht ar na APIanna a sheolann táirge.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'chuaigh isteach {{when}}',
+  'profile.metric.collections': 'Bailiúcháin',
   'profile.metric.monitors': 'Monatóirí',
   'profile.metric.requests': 'Iarratais shábháilte',
+  'profile.noActivity':
+    'Níor scaoileadh aon iarratas fós — téigh chuig an gcluaisín Spás Oibre chun ceann a dhéanamh.',
   'profile.signedOut': 'Sínigh isteach chun do phróifíl a fheiceáil',
   'pylonShell.primaryNavLabel': 'Príomh-loingseoireacht',
+  'resetPassword.passwordLabel': 'Pasfhocal nua',
+  'resetPassword.statusLabel': 'athshocrú · comhartha fíoraithe',
   'resetPassword.subtitle': 'Roghnaigh pasfhocal láidir nár úsáid tú cheana.',
   'resetPassword.tokenPlaceholder': 'greamaigh ó ríomhphost',
+  'settings.accountManagement.desc':
+    'Nuashonraigh do ríomhphost agus do phasfhocal, bainistigh fógraí agus gléasanna, logáil amach, nó scrios do chuntas.',
+  'settings.accountManagement.title': 'Cuntas & slándáil',
   'settings.eyebrow': 'socruithe $ piolóin --eagar',
   'settings.fetchError': 'Níorbh fhéidir na socruithe a lódáil.',
   'settings.language.title': 'Teanga',
+  'settings.seeding': 'Ag síoladh…',
   'settings.seedStarter': 'Ábhar tosaithe síolta',
   'settings.starterCollection': 'Bailiúchán tosaithe',
   'settings.starterCollectionDesc': 'Cruthaithe ó Socruithe ar {{ts}}',
@@ -154,6 +203,8 @@ export const ui: UiTranslations = {
     'Tá tú freagrach as do phasfhocal a chosaint. Ní cheadaítear cuntas amháin a roinnt le roinnt daoine ar phleananna Saor in Aisce ná Pro — ceannaigh síntiús Foirne le haghaidh spásanna oibre comhroinnte.',
   'terms.billing.body':
     'Athnuaitear síntiúis íoctha go huathoibríoch gach tréimhse billeála. Cealaigh ó na Socruithe tráth ar bith; leanann do rochtain ar aghaidh go dtí deireadh na tréimhse reatha.',
+  'terms.intro':
+    'Trí chuntas {{app}} a chruthú, aontaíonn tú leis na téarmaí thíos. Léigh iad uair amháin; ní chuirfimid iontas ort le hathruithe cúlghabhálacha.',
   'terms.title': 'Téarmaí seirbhíse',
   'terms.usage.body':
     'Ná húsáid Pylon chun iarratais a sheoladh chuig seirbhísí nach leatsa nó nach bhfuil cead sainráite agat iad a thástáil. Ná húsáid Pylon chun teorainneacha ráta a sheachaint ná chun calaois a dhéanamh.',
@@ -174,16 +225,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Ní ritheann',
   'testRunner.metric.passed': 'Rith',
   'testRunner.never': 'Ná rith riamh',
+  'testRunner.newTest': 'Tástáil nua',
   'testRunner.noAssertions': 'Níl aon dearbhuithe déanta ar an tástáil seo go fóill.',
+  'testRunner.noRunsYet':
+    'Níor taifeadadh aon rith fós — brúigh “Rith gach rud” chun an stair a líonadh.',
   'testRunner.passed': 'ag dul tharainn',
+  'testRunner.recentRuns': 'Rith le déanaí',
   'testRunner.runAll': 'Rith gach rud',
   'testRunner.running': 'Ag rith…',
   'testRunner.runOne': 'Rith',
   'testRunner.subheading': 'Torthaí Suite, difríochtaí dearbhaithe, agus na 50 rith dheireanacha.',
+  'testRunner.suites': 'Sraitheanna',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Sínithe isteach mar',
   'workspace.auth.keyName': 'Ainm an cheanntásca',
   'workspace.auth.keyValue': 'Príomhluach',
+  'workspace.auth.noneHint': 'Ní sheolfar aon cheanntásc údaraithe leis an iarratas seo.',
   'workspace.auth.password': 'Pasfhocal',
   'workspace.auth.username': 'Ainm úsáideora',
   'workspace.authOption.apikey': 'Eochair API',
@@ -193,13 +250,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Cineál',
   'workspace.authTypeLabel': 'Cineál údaraithe',
+  'workspace.body.contentLabel': 'Corp an iarratais',
+  'workspace.body.hint':
+    'Cuirtear {{envVars}} in ionad roimh an iarratas a scaoileadh. Seoltar comhlachtaí ar POST/PUT/PATCH/DELETE.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Dada',
+  'workspace.body.noneHint':
+    'Ní sheolfar aon chomhlacht iarratais. Roghnaigh JSON nó téacs amh chun ceann a chur leis.',
   'workspace.body.text': 'Téacs amh',
   'workspace.body.type': 'Cineál',
   'workspace.environment': 'Gan imchlúdach',
   'workspace.envVar': 'athróg timpeallachta',
   'workspace.eyebrow': 'spás oibre $ pylon --pane scoilt',
+  'workspace.failedCount': '{{count}} theip',
+  'workspace.idle': 'Díomhaoin',
   'workspace.kv.addHeader': 'Cuir ceanntásc leis',
   'workspace.kv.addParam': 'Cuir paraiméadair leis',
   'workspace.kv.headerKey': 'Ainm an cheanntásca',
@@ -212,12 +276,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'Modh HTTP',
   'workspace.metric.latency': 'Moill',
   'workspace.metric.latencyCaption': 'Turas cruinn ón rith seo',
+  'workspace.metric.size': 'Ualach',
   'workspace.metric.sizeCaption': 'Bheiteanna comhlacht freagartha',
   'workspace.metric.statusCaption': 'An freagra deireanach',
   'workspace.metric.tests': 'Tástálacha',
+  'workspace.metric.testsAllPassing': 'Gach dearbhú glas',
   'workspace.metric.testsFailing': '{{count}} ag teip',
+  'workspace.metric.testsIdle': 'Seol iarratas chun measúnú a dhéanamh',
   'workspace.noAssertions': 'Rith iarratas chun dearbhuithe ionsuite a mheas.',
   'workspace.noResponseYet': 'Gan freagra fós',
+  'workspace.passedCount': '{{count}} rith',
   'workspace.responseHint':
     '// Brúigh Seol chun an t-iarratas a sheoladh agus an freagra a ghabháil.',
   'workspace.saveError': 'Níorbh fhéidir an t-iarratas a shábháil.',
@@ -227,9 +295,13 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Scríobh iarratas, cuir ar ceal é, agus ansin dearbhaigh an freagra — ar fad i bpána amháin.',
   'workspace.testResults': 'Torthaí tástála',
+  'workspace.tests.autoHint':
+    'Dearbhaítear teaghlach stádais, moille, méid comhlachta agus sláinte iompair go huathoibríoch — tagann torthaí faoi “Torthaí tástála” i bpainéal an fhreagra.',
+  'workspace.tests.autoTitle': 'Ritheann dearbhuithe ionsuite ar gach freagra',
   'workspace.token': 'Comhartha',
   'workspace.tokenHint': 'Seolta mar Údarú: Iompróir<token> ar gach iarratas sa bhailiúchán seo.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Iarratas gan teideal',
+  'workspace.urlLabel': 'Iarr URL',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

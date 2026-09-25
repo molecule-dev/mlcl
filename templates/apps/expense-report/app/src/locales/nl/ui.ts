@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vragen, feedback of een functieverzoek? Bereik het {{app}}-team via Instellingen → Meldingen, of schrijf ons op elk moment — elk bericht komt bij een echt persoon terecht.',
+  'about.contactTitle': 'Neem contact met ons op',
   'about.eyebrow': 'Over',
+  'about.featureCapture':
+    'Bonnetjes vastleggen met foto-upload die afbeeldingen regel voor regel aan de juiste uitgave koppelt.',
+  'about.featureExport':
+    'Controleerbare CSV-exports van elk rapport, elke uitgave en elke goedkeuringsstatus — klaar voor je boekhoudteam.',
+  'about.featurePolicy':
+    'Beleidskaders — daglimieten, limieten per categorie en drempels waarvoor een bon verplicht is, afgedwongen bij het indienen.',
+  'about.featureWorkflow':
+    'Een goedkeuringsworkflow met twee niveaus, met opmerkingen van beoordelaars, markeringen van beleidsschendingen en terugbetaling markeren met één tik.',
+  'about.intro':
+    '{{app}} is een platform voor uitgavenbeheer voor financiële teams en de mensen die zij vergoeden. Leg een bon vast, dien een uitgave in, stuur een rapport door de goedkeuring en volg elke vergoeding — zonder spreadsheetgedoe.',
+  'about.missionBody':
+    'Vergoeding moet snel, eerlijk en controleerbaar zijn. We hebben {{app}} gebouwd zodat indieners worden terugbetaald zonder zeuren, beoordelaars precies zien waar ze hun goedkeuring aan geven, en finance een schoon spoor heeft voor elke euro — inclusief beleidscontroles.',
+  'about.missionTitle': 'Onze missie',
   'approvals.approve': 'Goedkeuren',
   'approvals.approving': 'Bezig met goedkeuren…',
   'approvals.confirmReject': 'Afwijzen bevestigen',
+  'approvals.empty': 'Je bent helemaal bij — geen rapporten die wachten.',
   'approvals.eyebrow': 'Wachtrij manager',
   'approvals.kpi.flaggedLabel': 'Beleidsmelding',
+  'approvals.kpi.queueLabel': 'Wacht op beoordeling',
   'approvals.kpi.totalLabel': 'Openstaand bedrag',
   'approvals.lineCount': '{{count}} uitgaven',
   'approvals.queueFallback':
     'Live wachtrij niet beschikbaar — er worden samengestelde demogegevens getoond.',
   'approvals.reject': 'Afwijzen',
   'approvals.rejecting': 'Bezig met afwijzen…',
+  'approvals.rejectPlaceholder': 'Reden (verplicht)',
   'approvals.rejectPrompt': 'Waarom wijst u dit rapport af?',
   'approvals.review': 'Beoordelen',
   'approvals.title': 'Openstaande goedkeuringen',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Goedgekeurd · MTD',
   'dashboard.kpi.pendingDelta': '+2 deze week',
+  'dashboard.kpi.pendingLabel': 'In afwachting van beoordeling',
   'dashboard.kpi.receiptsDelta': 'Actie vereist',
   'dashboard.kpi.receiptsLabel': 'Wachten op bonnen',
   'dashboard.kpi.reimbursedDelta': '+$2.4k',
   'dashboard.kpi.reimbursedLabel': 'Vergoed · MTD',
   'dashboard.newReport': 'Nieuw rapport',
+  'dashboard.recent.empty': 'Nog geen rapporten — start je eerste hierboven.',
   'dashboard.recent.title': 'Recente rapporten',
   'dashboard.recent.viewAll': 'Alle rapporten bekijken',
   'dashboard.summaryFallback':
@@ -41,11 +62,19 @@ export const ui: UiTranslations = {
   'expenses.listFallback':
     'Live lijst niet beschikbaar — er worden samengestelde demogegevens getoond.',
   'expenses.searchPlaceholder': 'Zoek op verkoper of categorie…',
+  'expenses.subtotal': '{{count}} uitgaven · subtotaal',
   'expenses.title': 'Uitgaven',
+  'forgotPassword.continue': 'Ik heb een code · Doorgaan',
+  'forgotPassword.subheading':
+    'Voer je werkmail in en we sturen je een link om een nieuw wachtwoord in te stellen.',
   'forgotPassword.successBody':
     'Als er een account bestaat voor {{email}}, ontvangt u binnen enkele minuten een reset-link.',
+  'landing.copyright': '© {{year}} {{app}}. Gebouwd met Molecule.dev.',
+  'landing.ctaBody':
+    'Gratis voor de eerste 25 uitgaven per maand. Geen creditcard, geen implementatiegesprek.',
   'landing.ctaHeading': 'Klaar om terug te vorderen wat uw team toekomt?',
   'landing.eyebrow': 'Onkostenrapporten voor financiële teams',
+  'landing.featuresHeading': 'Vergoeding, in één rustige werkruimte',
   'landing.heroSubtitle':
     'Dien zakelijke onkosten in, keur ze goed en verreken ze zonder gedoe met spreadsheets. Ontvangstbewijscontrole, beleidscontroles en een transparante goedkeuringstermijn – alles in één overzichtelijke werkomgeving.',
   'landing.heroTitle': 'Alle bonnen zijn teruggevonden.',
@@ -63,10 +92,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Notities',
   'newExpense.descriptionPlaceholder':
     'Waarom deze uitgave zakelijk was (zichtbaar voor uw goedkeurder).',
+  'newExpense.eyebrow': 'Vergoedbare post',
   'newExpense.merchant': 'Verkoper',
   'newExpense.merchantPlaceholder': 'Hotel Adlon Kempinski',
   'newExpense.policyHint':
     'Herinnering: maaltijden boven $80/dag of items boven $250 vereisen een toelichting.',
+  'newExpense.receipt': 'Bon',
+  'newExpense.receiptHint': 'JPG, PNG of PDF · max. 10 MB',
   'newExpense.receiptOcrHint': 'OCR vult velden vooraf in.',
   'newExpense.receiptPrompt': 'Sleep hier een foto of PDF, of klik om te bladeren',
   'newExpense.receiptUploadFailed':
@@ -77,17 +109,21 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Maak of upload een foto van de bon en Recoup vult de verkoper, datum en het totaal vast in. Controleer alles vóór het opslaan.',
   'newExpense.title': 'Uitgave toevoegen',
+  'newReport.approverHint':
+    'Zij ontvangen een e-mail wanneer je dit rapport ter beoordeling indient.',
   'newReport.approverLabel': 'E-mail goedkeurder (optioneel)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'Beschikbare uitgaven',
   'newReport.createFailed': 'Rapport kon niet worden aangemaakt. Probeer het opnieuw.',
   'newReport.draftsFallback':
     'Live onkostenoverzicht niet beschikbaar — er worden geselecteerde demo-gegevens weergegeven.',
+  'newReport.eyebrow': 'Uitgaven groeperen · ter goedkeuring indienen',
   'newReport.includedCount': '{{count}} opgenomen',
   'newReport.purposeLabel': 'Zakelijk doel',
   'newReport.purposePlaceholder':
     'Beschrijf de reis of het project waarop deze uitgaven betrekking hebben (zichtbaar voor uw goedkeurder en financiën).',
   'newReport.saveDraft': 'Opslaan als concept',
+  'newReport.saveDraftFailed': 'Concept opslaan is mislukt. Probeer het opnieuw.',
   'newReport.submit': 'Ter goedkeuring indienen',
   'newReport.submitFailed': 'Rapport kon niet worden ingediend. Probeer het opnieuw.',
   'newReport.summary': 'Rapportsamenvatting',
@@ -101,17 +137,24 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Live feed niet beschikbaar — er worden samengestelde demogegevens getoond.',
   'notifications.openReport': 'Rapport openen ›',
+  'pricing.approvalsLabel': 'goedkeuringen',
   'pricing.expensesLabel': 'uitgaven',
   'pricing.heading': 'goedkeuringen',
   'pricing.policiesLabel': 'beleidsregels',
   'pricing.receiptsLabel': 'bonnen',
   'recoveredAmountHeroCard.label': 'Teruggevorderde vergoedingen · YTD',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} rapport(en) wachten momenteel op beoordeling bij alle beoordelaars.',
+  'reports.approvalFlow': 'Goedkeuringsstroom',
   'reports.backToList': 'Terug naar rapporten',
   'reports.detailFallback':
     'Live rapport niet beschikbaar — er worden samengestelde demogegevens getoond.',
   'reports.lineItems': 'Regelitems',
   'reports.lineItemsCount': '{{count}} uitgaven',
+  'reports.lineItemsEmpty': 'Nog geen uitgaven op dit rapport.',
+  'reports.openLibrary': 'Rapportbibliotheek openen',
   'reports.policyTitle': 'Beleidsmelding',
+  'reports.selectPrompt': 'Selecteer een rapport uit de bibliotheek om de details te zien.',
   'reports.summary.lineCount': 'Regelitems',
   'reports.summary.reimbursable': 'Vergoedbaar',
   'reports.summary.total': 'Gerapporteerd totaal',
@@ -121,6 +164,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Live lijst niet beschikbaar — er worden samengestelde demogegevens getoond.',
   'reportsList.newReport': 'Nieuw rapport',
+  'reportsList.submittedOn': 'Ingediend {{date}}',
   'reportsList.title': 'Rapportbibliotheek',
   'resetPassword.hidePassword': 'Wachtwoord verbergen',
   'resetPassword.newPasswordLabel': 'Nieuw wachtwoord',
@@ -147,6 +191,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Opgeslagen ✓',
   'settings.profileSaveFailed': 'Profiel kon niet worden bijgewerkt. Probeer het opnieuw.',
   'signup.heading': 'Maak uw Recoup-account aan',
+  'signup.hidePassword': 'Wachtwoord verbergen',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Wachtwoord tonen',
   'signup.subheading': 'Gratis voor 25 uitgaven per maand — geen creditcard nodig.',

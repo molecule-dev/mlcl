@@ -1,7 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கேள்விகள், கருத்துகள் அல்லது {{app}}-ல் நீங்கள் விரும்பும் ஒரு அம்சமா? ஒவ்வொரு செய்தியையும் நாங்கள் படிக்கிறோம் — உங்கள் கணக்கு அமைப்புகளிலிருந்து எங்களை அணுகுங்கள், குழுவில் உள்ள ஒரு உண்மையான நபர் உங்களுக்கு பதிலளிப்பார்.',
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'எங்களைப் பற்றி',
+  'about.intro':
+    '{{app}} என்பது தங்கள் நேரமே தங்கள் உற்பத்திப் பொருள் எனக் கருதுபவர்களுக்கான நேரம் ஒதுக்கும் மென்பொருள். ஒரு புக்கிங் இணைப்பைப் பகிருங்கள், உங்கள் கிடைக்கும் நேரத்தை ஒருமுறை அமைக்கவும், ஒவ்வொரு நேர மண்டலத்திலும் நாட்காட்டிக் கணக்கை நாங்கள் கவனித்துக்கொள்கிறோம் — எனவே கூட்டங்கள் முன்னும் பின்னும் பேச்சு இல்லாமல் பதிவு செய்யப்படும்.',
+  'about.missionBody':
+    'நேரம் ஒதுக்குதல் பின்னணியில் மறைந்துவிட வேண்டும் என நாங்கள் நம்புகிறோம். நிறுவனர்கள், ஆட்சேர்ப்பாளர்கள், ஆலோசகர்கள், ஆதரவுக் குழுக்கள் மின்னஞ்சல் பதிலுக்குப் பதிலில் மணிநேரங்களை இழக்கக் கூடாது — அவர்கள் ஒரு இணைப்பை அனுப்பிவிட்டு வேலையைத் தொடர வேண்டும். ஒவ்வொரு புக்கிங்கும் எளிதாகவும் உங்கள் பிராண்டுக்கு ஏற்றதாகவும் இருக்க {{app}} வடிவமைக்கப்பட்டுள்ளது.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
+  'about.whatYouGetTitle': 'நீங்கள் பெறுவது',
   'availability.closed': 'Closed',
   'availability.eyebrow': 'மணிநேரம்',
   'availability.loadError': 'கிடைப்புத்தன்மை விதிகளை ஏற்ற முடியவில்லை.',
@@ -18,7 +27,11 @@ export const ui: UiTranslations = {
   'billing.checkoutError':
     'பணம் செலுத்தும் செயல்முறையைத் தொடங்க முடியவில்லை — சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.',
   'billing.compareHeading': 'திட்டங்களை ஒப்பிடுக',
+  'billing.confirmCancel':
+    'உங்கள் சந்தாவை ரத்து செய்யவா? காலக்கெடு முடிவில் நீங்கள் Free-க்கு தரமிறக்கப்படுவீர்கள்.',
   'billing.freeNote': 'நீங்கள் இலவசத் திட்டத்தில் இருக்கிறீர்கள்.',
+  'billing.invoiceBody':
+    'உங்கள் Stripe வாடிக்கையாளர் போர்ட்டலில் விலைப்பட்டியல்களைப் பார்க்கவும், பதிவிறக்கவும், நிர்வகிக்கவும் — உங்கள் சந்தா ரசீது மின்னஞ்சலிலிருந்து அணுகலாம்.',
   'billing.invoiceHeading': 'விலைப்பட்டியல் வரலாறு',
   'billing.loadError': 'கட்டண விவரங்களை ஏற்ற முடியவில்லை.',
   'billing.loading': 'திட்டங்கள் ஏற்றப்படுகின்றன…',
@@ -34,9 +47,12 @@ export const ui: UiTranslations = {
   'bookingConfirmation.cancelledEyebrow': 'முன்பதிவை ரத்துசெய்',
   'bookingConfirmation.cancelledHeading':
     'கவலை வேண்டாம் — நீங்கள் எப்போது வேண்டுமானாலும் மீண்டும் முன்பதிவு செய்யலாம்.',
+  'bookingConfirmation.eyebrow': 'நீங்கள் பதிவு செய்யப்பட்டுள்ளீர்கள்',
+  'bookingConfirmation.heading': 'விரைவில் சந்திப்போம்',
   'bookingConfirmation.loading': 'உங்கள் முன்பதிவு ஏற்றப்படுகிறது…',
   'bookingConfirmation.missingToken': 'முன்பதிவு உறுதிப்படுத்தல் இணைப்பில் டோக்கன் இல்லை.',
   'bookingConfirmation.notFound': 'இந்த முன்பதிவு உறுதிப்படுத்தல் கிடைக்கவில்லை.',
+  'bookingConfirmation.poweredBy': '{{app}} மூலம் இயக்கப்படுகிறது',
   'bookingConfirmation.scheduledFor': 'திட்டமிடப்பட்டது',
   'bookingConfirmation.subheading': '{{meeting}} க்கான முன்பதிவு {{host}} உடன் உறுதிசெய்யப்பட்டது.',
   'bookingConfirmation.timezone': '{{tz}}',
@@ -44,11 +60,13 @@ export const ui: UiTranslations = {
   'bookingPage.availabilityError':
     'கிடைக்கப்பெறும் நேரங்களை ஏற்ற முடியவில்லை — மீண்டும் முயற்சிக்கவும்.',
   'bookingPage.confirm': 'முன்பதிவை உறுதிப்படுத்தவும்',
+  'bookingPage.confirmDisabled': 'தொடர ஒரு நேரத்தைத் தேர்ந்தெடுக்கவும்',
   'bookingPage.eventLine': '{{name}} · {{mins}} நிமிடங்கள்',
   'bookingPage.eyebrow': 'ஒரு சந்திப்பை முன்பதிவு செய்யுங்கள்',
   'bookingPage.field.email': 'உங்கள் மின்னஞ்சல்',
   'bookingPage.field.notes': 'கூடுதலாக வேறு ஏதேனும் சேர்க்க வேண்டுமா? (விருப்பப்பட்டால்)',
   'bookingPage.host': 'தொகுத்து வழங்குபவர்',
+  'bookingPage.loadError': 'இந்த புக்கிங் இணைப்பை ஏற்ற முடியவில்லை.',
   'bookingPage.loading': 'முன்பதிவு இணைப்பு ஏற்றப்படுகிறது…',
   'bookingPage.loadingSlots': 'ஏற்றும் நேரம்…',
   'bookingPage.notFound': 'இந்த முன்பதிவு இணைப்பு இனி செயலில் இல்லை.',
@@ -57,7 +75,10 @@ export const ui: UiTranslations = {
   'bookingPage.slotTaken': 'அந்த இடம் இப்போதுதான் நிரப்பப்பட்டது — வேறொன்றைத் தேர்ந்தெடுங்கள்.',
   'bookingPage.submitError':
     'முன்பதிவு உருவாக்கப்பட்டது, ஆனால் டோக்கன் திரும்ப அளிக்கப்படவில்லை. பக்கத்தைப் புதுப்பித்துப் பார்க்கவும்.',
+  'bookingPage.submitting': 'முன்பதிவு…',
   'bookingPage.timezone': 'காட்டப்பட்டுள்ள நேரங்கள் {{tz}}',
+  'bookings.empty.body':
+    'அழைக்கப்பட்டவர்கள் ஒரு நேரத்தைத் தேர்ந்தெடுக்கும்போது புக்கிங்குகள் இங்கே தோன்றும்.',
   'bookings.empty.title': 'இன்னும் இங்கே எதுவும் இல்லை.',
   'bookings.loadError': 'உங்கள் முன்பதிவுகளை ஏற்ற முடியவில்லை.',
   'bookings.loading': 'முன்பதிவுகள் ஏற்றப்படுகின்றன…',
@@ -73,10 +94,12 @@ export const ui: UiTranslations = {
   'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'common.retry': 'மீண்டும் முயற்சி',
   'dashboard.empty.body': 'உங்கள் நாட்காட்டியை நிரப்பத் தொடங்க, முன்பதிவு இணைப்பைப் பகிரவும்.',
+  'dashboard.empty.cta': 'உங்கள் முதல் புக்கிங் இணைப்பை உருவாக்கவும்',
   'dashboard.empty.title': 'வரவிருக்கும் சந்திப்புகள் இல்லை',
   'dashboard.greeting': 'உங்கள் அட்டவணை, ஒரே பார்வையில்',
   'dashboard.kpis.bookedToday': 'இன்று முன்பதிவு செய்யப்பட்டது',
   'dashboard.kpis.bookedTodaySub': '{{count}} உறுதிப்படுத்தப்பட்டது',
+  'dashboard.kpis.pending': 'பதிலுக்காகக் காத்திருக்கிறது',
   'dashboard.kpis.pendingSub': 'இன்று இரவு நினைவூட்டல்கள் அனுப்பப்படும்',
   'dashboard.kpis.weekTotal': 'இந்த வாரம் முன்பதிவு செய்யப்பட்டது',
   'dashboard.kpis.weekTotalSub': 'கடந்த 7 நாட்கள்',
@@ -88,6 +111,7 @@ export const ui: UiTranslations = {
     'இன்றைய சந்திப்புகள், வரவிருக்கும் கோரிக்கைகள் மற்றும் இந்த வாரம் எப்படி அமையப்போகிறது என்பது பற்றிய தகவல்கள்.',
   'dashboard.upcomingHeading': 'வரவிருக்கும் கூட்டங்கள்',
   'dashboard.viewAll': 'அனைத்து முன்பதிவுகளையும் காண்க →',
+  'eventTypeCard.bookingsThisWeek': '{{count}} இந்த வாரம்',
   'eventTypeCard.editLink': 'திருத்து →',
   'eventTypeCard.noDescription':
     'சந்திப்புக்கு ஒரு தெளிவான நேரம் ஒதுக்கப்பட்டுள்ளது — முன்பதிவைத் தொடங்க இணைப்பைப் பகிரவும்.',
@@ -96,14 +120,20 @@ export const ui: UiTranslations = {
   'eventTypeEditor.advanced.heading': 'இடையகங்கள் + அறிவிப்பு',
   'eventTypeEditor.advanced.minNotice': 'குறைந்தபட்ச அறிவிப்பு (நிமிடம்)',
   'eventTypeEditor.back': 'நிகழ்வு வகைகளுக்குத் திரும்பு',
+  'eventTypeEditor.confirmDelete':
+    'இந்த நிகழ்வு வகையை நீக்கவா? ஏற்கனவே உள்ள புக்கிங்குகள் இருக்கும்.',
   'eventTypeEditor.deleteError': 'நிகழ்வு வகையை நீக்க முடியவில்லை.',
   'eventTypeEditor.fields.location': 'இயல்புநிலை இருப்பிடம்',
   'eventTypeEditor.fields.name': 'பெயர்',
   'eventTypeEditor.fields.slug': 'முன்பதிவு இணைப்பு ஸ்லக்',
   'eventTypeEditor.loadError': 'இந்த நிகழ்வு வகையை ஏற்ற முடியவில்லை.',
+  'eventTypeEditor.loading': 'நிகழ்வு வகை ஏற்றப்படுகிறது…',
   'eventTypeEditor.notFound': 'நிகழ்வு வகை கண்டறியப்படவில்லை.',
   'eventTypeEditor.preview.copy': 'இணைப்பை நகலெடுக்கவும்',
   'eventTypeEditor.preview.heading': 'முன்பதிவு இணைப்பு முன்னோட்டம்',
+  'eventTypeEditor.reminders.body':
+    'மின்னஞ்சல் நினைவூட்டல்கள் தானாக அனுப்பப்படும் — அழைக்கப்பட்டவருக்கு உடனே உறுதிப்படுத்தல் கிடைக்கும், நடத்துபவருக்கு "புதிய புக்கிங்" அறிவிப்பு கிடைக்கும்.',
+  'eventTypeEditor.reminders.heading': 'நினைவூட்டல்கள்',
   'eventTypeEditor.saveErrorMissing':
     'சேமித்ததில் எந்த வரிசையும் வரவில்லை — தயவுசெய்து மீண்டும் முயற்சிக்கவும்.',
   'eventTypeEditor.toggleError': 'செயல்பாட்டு நிலையை மாற்ற முடியவில்லை.',
@@ -111,6 +141,7 @@ export const ui: UiTranslations = {
   'eventTypes.create': 'புதிய நிகழ்வு வகை',
   'eventTypes.empty.body':
     'உங்கள் முதல் முன்பதிவு இணைப்பை உருவாக்குங்கள் — ஒரு பெயர், ஸ்லக் மற்றும் கால அளவைத் தேர்ந்தெடுங்கள், மீதியை நாங்கள் பார்த்துக்கொள்வோம்.',
+  'eventTypes.empty.cta': 'நிகழ்வு வகையை உருவாக்கவும்',
   'eventTypes.empty.title': 'இன்னும் நிகழ்வு வகைகள் இல்லை',
   'eventTypes.eyebrow': 'முன்பதிவு செய்யக்கூடிய இணைப்புகள்',
   'eventTypes.loadError': 'நிகழ்வு வகைகளை ஏற்ற முடியவில்லை.',
@@ -118,6 +149,7 @@ export const ui: UiTranslations = {
   'eventTypes.subtitle':
     'ஒவ்வொரு இணைப்பும் ஒரு குறிப்பிட்ட கால அளவு கொண்ட சந்திப்பு வகையாகும். கிடைக்கும் நேரம், இடைநேர இடைவெளிகள் மற்றும் நினைவூட்டல்களைத் தனித்தனியாக மாற்றியமைத்துக் கொள்ளலாம்.',
   'eventTypes.title': 'நிகழ்வு வகைகள்',
+  'forgotPassword.subheading': 'உங்கள் மின்னஞ்சலை உள்ளிட்டால் மீட்டமைப்பு இணைப்பை அனுப்புவோம்.',
   'forgotPassword.successBody':
     'நாங்கள் இப்போதுதான் மீட்டமைப்பு இணைப்பை மின்னஞ்சல் செய்தோம். {{email}} இந்த இணைப்பு 30 நிமிடங்களில் காலாவதியாகிவிடும்.',
   'integrations.connected': 'இணைக்கப்பட்டது',
@@ -127,11 +159,17 @@ export const ui: UiTranslations = {
   'integrations.saveError': 'ஒருங்கிணைப்பு நிலையைச் சேமிக்க முடியவில்லை.',
   'integrations.subtitle':
     'நீங்கள் பயன்படுத்தும் ஒருங்கிணைப்புகளை மாற்றி அமைக்கவும். உங்கள் வழங்குநர் அமைப்புகள் வழியாக OAuth இணைக்கப்பட்ட பிறகு நாட்காட்டி/காணொளி ஒத்திசைவு செயல்படும்.',
+  'landing.copyright': '© {{year}} {{app}}. அட்டவணைகள் ஒத்திசையும் இடம்.',
+  'landing.ctaBody':
+    'தொடங்க இலவசம், முதல் நாளிலிருந்தே நேர்த்தி. Pro வரம்பற்ற புக்கிங் இணைப்புகளையும் தனிப்பயன் பிராண்டிங்கையும் சேர்க்கிறது; Team ரவுண்ட்-ராபின் மற்றும் பகிரப்பட்ட கிடைக்கும் நேரத்தைச் சேர்க்கிறது.',
   'landing.ctaHeading': 'பதில்களைத் துரத்துவதை நிறுத்துங்கள். இணைப்புகளை அனுப்பத் தொடங்குங்கள்.',
   'landing.eyebrow': 'தொழில் வல்லுநர்களுக்கான திட்டமிடல்',
   'landing.featuresHeading': 'தானாகவே திட்டமிடும் கூட்டங்கள்',
   'landing.getStarted': 'திட்டமிடலைத் தொடங்குங்கள்',
   'landing.heroCta': 'உங்கள் முன்பதிவு இணைப்பை உருவாக்கவும்',
+  'landing.heroSubtitle':
+    'ஒரு புக்கிங் இணைப்பைப் பகிருங்கள், உங்கள் கிடைக்கும் நேரத்தை அமைக்கவும், ஒவ்வொரு நேர மண்டலத்திலும் நாட்காட்டிக் கணக்கை {{app}} கவனிக்கட்டும்.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.pricingCta': 'விலை விவரங்களைப் பார்க்கவும்',
   'landing.sampleCardLabel': 'இன்றைய அட்டவணை',
   'landing.sampleCardNext': 'அடுத்து: 28 நிமிடங்களில் ஏவரி லியு',
@@ -148,14 +186,23 @@ export const ui: UiTranslations = {
   'meetingDetail.defaultEventType': 'கூட்டம்',
   'meetingDetail.endsAt': 'முடிவுகள்',
   'meetingDetail.joinCall': 'வீடியோ அழைப்பில் இணையுங்கள்',
+  'meetingDetail.loading': 'கூட்டம் ஏற்றப்படுகிறது…',
   'meetingDetail.notes': 'அழைப்பாளர் குறிப்பு',
   'meetingDetail.notFound': 'இந்தக் கூட்டம் இனி நடைபெறுவதில்லை.',
   'meetingDetail.startsAt': 'தொடங்குகிறது',
+  'meetingDetail.timezoneNote':
+    'அழைக்கப்பட்டவரின் நேர மண்டலம்: {{tz}} — நேரங்கள் உங்களுடையதில் காட்டப்படுகின்றன',
   'meetingDetail.viewAll': 'அனைத்து முன்பதிவுகளையும் காண்க',
   'meridianLayout.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
   'meridianLayout.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'meridianLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'notifications.channels': 'சேனல்கள்',
+  'notifications.feed.bookedBody': '{{when}} அன்று திட்டமிடப்பட்டது',
+  'notifications.feed.bookedTitle': '{{name}} ஒரு கூட்டத்தைப் பதிவு செய்தார்',
+  'notifications.feed.cancelledBody': 'முதலில் {{when}}-க்கு',
+  'notifications.feed.cancelledTitle': '{{name}} ரத்து செய்தார்',
+  'notifications.feed.updatedBody': 'இப்போது {{when}}',
+  'notifications.feed.updatedTitle': '{{name}} புதுப்பித்தார்',
   'notifications.reminders': 'நினைவூட்டல்கள்',
   'notifications.saveError': 'விருப்பங்களைச் சேமிக்க முடியவில்லை.',
   'notifications.time.daysAgo': '{{count}} டி நோ',
@@ -169,21 +216,27 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'வலிமையான கடவுச்சொல்லைத் தேர்ந்தெடுங்கள் — அதன் பிறகு நாங்கள் உங்களை உடனடியாக உள்நுழையச் செய்வோம்.',
   'settings.loadError': 'உங்கள் சுயவிவரத்தை ஏற்ற முடியவில்லை.',
+  'settings.preferences.heading': 'புக்கிங் இயல்புநிலைகள்',
   'settings.save': 'விருப்பங்களைச் சேமிக்கவும்',
   'settings.saving': 'சேமிப்பு…',
+  'settings.security.confirmSignOut':
+    'இந்தச் சாதனத்திலிருந்து வெளியேறவா? நீங்கள் உள்நுழைவுக்கு திருப்பிவிடப்படுவீர்கள்.',
   'settings.security.currentPwd': 'தற்போதைய கடவுச்சொல்',
   'settings.security.newPwd': 'புதிய கடவுச்சொல்',
   'settings.security.passwordError':
     'கடவுச்சொல்லை மாற்ற முடியவில்லை — உங்கள் தற்போதைய கடவுச்சொல்லைச் சரிபார்த்து மீண்டும் முயற்சிக்கவும்.',
+  'settings.security.savedAt': '{{time}} அன்று புதுப்பிக்கப்பட்டது',
   'settings.security.weakPassword':
     'புதிய கடவுச்சொல் குறைந்தபட்சம் 8 எழுத்துகள் கொண்டதாக இருக்க வேண்டும்.',
   'settings.tab.billing': 'பில்லிங்',
   'signup.namePlaceholder': 'ஏவரி லியு',
   'signup.subheading':
     'அடிப்படை அம்சங்கள் என்றென்றும் இலவசம் — எப்போது வேண்டுமானாலும் மேம்படுத்திக்கொள்ளலாம்.',
+  'signup.submitting': 'உங்கள் புக்கிங் இணைப்பு உருவாக்கப்படுகிறது…',
   'timeSlotPicker.empty.subtitle':
     'வேறு ஒரு நாளில் முயற்சி செய்யுங்கள் — மெரிடியன் ஒவ்வொரு காலையிலும் புதிய நேர ஒதுக்கீடுகளைத் திறக்கிறது.',
   'timeSlotPicker.empty.title': 'நேரங்கள் எதுவும் கிடைக்கவில்லை',
+  'timeSlotPicker.label': 'கிடைக்கும் நேரங்கள்',
   'timeSlotPicker.unavailable': 'முன்பதிவு செய்யப்பட்டது',
   'todayHeroCard.nextMeeting': 'அடுத்து: {{invitee}} {{when}}',
   'todayHeroCard.title': 'இன்றைய அட்டவணை',

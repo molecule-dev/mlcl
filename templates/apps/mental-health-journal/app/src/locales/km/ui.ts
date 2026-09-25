@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'មានមតិកែលម្អ រកឃើញកំហុស ឬចង់ប្រាប់យើងថាការសរសេរកំណត់ហេតុបានជួយអ្នកយ៉ាងណា? យើងអានរាល់សារ — ទាក់ទងមកយើងបានគ្រប់ពេល ហើយមនុស្សពិតប្រាកដនឹងឆ្លើយតបទៅអ្នកវិញ។',
+  'about.contactTitle': 'ទាក់ទងមកយើង',
+  'about.featureInsights':
+    'ការឆ្លុះបញ្ចាំងដោយ AI ដែលបង្ហាញពីអ្វីដែលជាកត្តាជំរុញ ប្រធានបទ និងអំណរគុណដោយទន់ភ្លន់ — ដោយមិនបាត់បង់សម្លេងរបស់អ្នក។',
+  'about.featureMood':
+    'ការតាមដានអារម្មណ៍ និងសកម្មភាព ជាមួយទិដ្ឋភាពប្រតិទិន និងក្រាហ្វនិន្នាការដែលបង្ហាញពីអ្វីដែលជួយឱ្យអ្នករីកចម្រើន។',
+  'about.featurePrivacy':
+    'ការអ៊ិនគ្រីបពីចុងដល់ចុង ការចាក់សោដោយលេខកូដ និងការនាំចេញ CSV ពេញលេញ ដើម្បីឱ្យការឆ្លុះបញ្ចាំងរបស់អ្នកនៅឯកជន និងអាចផ្ទេរបាន។',
+  'about.featurePrompts':
+    'ការរំលឹកប្រចាំថ្ងៃដ៏ទន់ភ្លន់ ដើម្បីឱ្យអ្នកតែងតែមានកន្លែងចាប់ផ្តើម — មិនដែលទំព័រទទេឡើយ។',
+  'about.intro':
+    '{{app}} គឺជាកំណត់ហេតុសុខភាពផ្លូវចិត្តដ៏ទន់ភ្លន់ និងឯកជន សម្រាប់ការឆ្លុះបញ្ចាំងប្រចាំថ្ងៃ ការតាមដានអារម្មណ៍ និងអំណរគុណ។ ការរំលឹកដ៏គិតគូរជំនួសទំព័រទទេ ការស្វែងរកលំនាំដោយស្ងប់ស្ងាត់ជួយអ្នកឱ្យយល់ពីអ្វីដែលប៉ះពាល់ដល់អារម្មណ៍របស់អ្នក ហើយការអ៊ិនគ្រីបពីចុងដល់ចុងរក្សាពាក្យសម្ដីរបស់អ្នកជារបស់អ្នក។',
+  'about.missionBody':
+    'យើងជឿថាការពិនិត្យមើលខ្លួនឯងគួរតែផ្តល់អារម្មណ៍ស្ងប់ស្ងាត់ មិនដែលដូចជាការពិនិត្យពេទ្យ — ហើយមិនដែលដូចជាកម្មវិធីផ្សេងទៀតដែលទាមទារឱ្យអ្នកយកចិត្តទុកដាក់ឡើយ។ {{app}} ត្រូវបានបង្កើតឡើងដើម្បីជួយ មិនមែនរំខាន៖ ពីរបីនាទីស្ងប់ស្ងាត់ក្នុងមួយថ្ងៃ ដើម្បីកត់សម្គាល់អារម្មណ៍របស់អ្នក សរសេរដោយស្មោះត្រង់ និងឃើញខ្លួនឯងកាន់តែច្បាស់បន្តិចម្តងៗ។',
+  'about.missionTitle': 'បេសកកម្មរបស់យើង',
   'about.pageTitle': 'អំពី {{app}}',
   'authShell.encryptionBadge': 'ធាតុរបស់អ្នកត្រូវបានអ៊ិនគ្រីបពីដើមដល់ចប់។',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'ថ្ងៃទី {{day}} — គ្មានកំណត់ត្រា',
   'calendar.cellMood': 'ថ្ងៃ {{day}} — {{mood}}',
   'calendar.distributionHeading': 'សង្ខេបអំពីខែនេះ',
   'calendar.eyebrow': 'អារម្មណ៍មួយភ្លែត',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'បានតាមដាន {{tracked}} នៃ {{total}} ថ្ងៃក្នុងខែនេះ។',
   'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'common.tryAgain': 'ព្យាយាមម្តងទៀត',
+  'entryComposer.bodyPlaceholder':
+    'សរសេរអ្វីក៏បាន ដរាបណាស្មោះត្រង់។ គ្មាននរណាម្នាក់ផ្សេងទៀតនឹងអានវាទេ។',
   'entryComposer.cancel': 'ត្រឡប់ទៅកំណត់ហេតុប្រចាំថ្ងៃវិញ',
   'entryComposer.heading': 'ការឆ្លុះបញ្ចាំងថ្ងៃនេះ',
   'entryComposer.moodLabel': 'តើអ្នកមានអារម្មណ៍យ៉ាងណាដែរ?',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'លុបចេញ {{tag}}',
   'entryComposer.save': 'រក្សាទុកការឆ្លុះបញ្ចាំង',
   'entryComposer.saveError': 'មិនអាចរក្សាទុកធាតុរបស់អ្នកបានទេ។',
+  'entryComposer.tagPlaceholder': 'បន្ថែមស្លាក ហើយចុច Enter',
   'entryComposer.titlePlaceholder': 'ដាក់ឈ្មោះឱ្យការឆ្លុះបញ្ចាំងនេះ...',
   'entryDetail.back': 'ត្រឡប់ទៅកំណត់ហេតុប្រចាំថ្ងៃវិញ',
   'entryDetail.delete': 'លុបធាតុនេះ',
@@ -36,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'កំពុងផ្ទុកការឆ្លុះបញ្ចាំង…',
   'entryDetail.notFound': 'រកមិនឃើញធាតុចូលទេ។',
   'entryDetail.reflectionsHeading': 'ការឆ្លុះបញ្ចាំង AI',
+  'forgotPassword.continueButton': 'បញ្ចូលកូដកំណត់ឡើងវិញ',
   'forgotPassword.eyebrow': 'គ្មានកង្វល់ទេ',
   'forgotPassword.subheading': 'យើងនឹងផ្ញើតំណភ្ជាប់កំណត់ឡើងវិញដោយថ្នមៗទៅកាន់អ៊ីមែលរបស់អ្នក។',
   'forgotPassword.successBody': 'ប្រសិនបើមានគណនីសម្រាប់ {{email}} តំណ​កំណត់​ឡើង​វិញ​កំពុង​មក​ដល់។',
@@ -57,14 +78,21 @@ export const ui: UiTranslations = {
     'មិនទាន់មានស្បែកនៅឡើយទេ — បន្ថែមស្លាកមួយឬពីរទៅក្នុងធាតុរបស់អ្នក ហើយពួកវានឹងប្រមូលផ្តុំគ្នានៅទីនេះ។',
   'insights.themesHeading': 'ស្បែក​ពេញនិយម',
   'insights.triggerFrequency': 'បានកត់សម្គាល់ឃើញ {{count}} × ខែនេះ',
+  'insights.triggersEmpty':
+    'មិនទាន់មានអ្វីឱ្យកត់សម្គាល់នៅឡើយទេ។ កំណត់ត្រាមួយចំនួនក្នុងរយៈពេលពីរបីថ្ងៃនឹងបង្ហាញលំនាំរបស់អ្នក។',
   'insights.triggersHeading': 'លំនាំដែលជំរុញអារម្មណ៍របស់អ្នក',
+  'journal.empty': 'គ្មានការឆ្លុះបញ្ចាំងដែលត្រូវគ្នាទេ — សាកល្បងតម្រងផ្សេង ឬសរសេរកំណត់ត្រាថ្មី។',
   'journal.eyebrow': 'ការឆ្លុះបញ្ចាំងរបស់អ្នក',
   'journal.heading': 'ទិនានុប្បវត្តិ',
   'journal.loadError': 'បរាជ័យក្នុងការផ្ទុកធាតុ។',
   'journal.loading': 'កំពុងផ្ទុកធាតុ...',
+  'journal.newEntry': 'ធាតុថ្មី',
   'journal.searchPlaceholder': 'ស្វែងរកអារម្មណ៍ ឈ្មោះ ពេលវេលា...',
   'journal.subheading': '{{count}} ធាតុ — រាល់ធាតុដែលសក្តិសមនឹងរក្សាទុក។',
   'journalEntryCard.encryptedLabel': 'បានអ៊ិនគ្រីប',
+  'landing.ctaBody':
+    'ចាប់ផ្តើមបានដោយឥតគិតថ្លៃ។ Pro បើកឱ្យប្រើការនាំចេញទិន្នន័យ កំណត់ហេតុធំជាង និងប្រវត្តិពេញមួយឆ្នាំ។',
+  'landing.ctaButton': 'ចាប់ផ្តើមការចូលដំបូងរបស់អ្នក',
   'landing.ctaTitle': 'ស្ងប់ស្ងាត់ពីរបីនាទីក្នុងមួយថ្ងៃ។ ប៉ុណ្ណឹងហើយ។',
   'landing.eyebrow': 'ការអនុវត្តប្រចាំថ្ងៃដ៏ទន់ភ្លន់',
   'landing.featuresBody':
@@ -83,6 +111,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'កន្លែងទន់ភ្លន់សម្រាប់ការឆ្លុះបញ្ចាំងប្រចាំថ្ងៃ។',
   'mentalHealthJournalLayout.closeMenu': 'បិទម៉ឺនុយ',
   'mentalHealthJournalLayout.openMenu': 'បើកម៉ឺនុយ',
+  'mentalHealthJournalLayout.primaryNavLabel': 'ការរុករកចម្បង',
+  'moodHeroCard.entriesThisWeek': '{{count}} សប្តាហ៍នេះ',
   'moodHeroCard.streakSuffix': 'ស្ទ្រីមប្រចាំថ្ងៃ',
   'moodHeroCard.title': 'ការឆ្លុះបញ្ចាំងថ្ងៃនេះ',
   'moodTrendChart.aiBadge': 'ការយល់ដឹងអំពី AI រួចរាល់ហើយ',
@@ -93,11 +123,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'ដំណើររបស់អ្នក',
   'profile.fallbackName': 'កញ្ចក់ឆ្លុះ',
   'profile.loadError': 'បរាជ័យក្នុងការផ្ទុកស្ថិតិ។',
+  'profile.loading': 'កំពុងធ្វើឱ្យស្ថិតិរបស់អ្នកស្រស់ថ្មី…',
   'profile.longestStreak': 'ស្ទ្រីមវែងបំផុត',
   'profile.memberSince': 'ឆ្លុះបញ្ចាំងតាំងពី {{date}}',
   'profile.milestones': 'ព្រឹត្តិការណ៍សំខាន់ៗ',
   'profile.milestonesEmpty':
     'ព្រឹត្តិការណ៍​សំខាន់​ដំបូង​របស់​អ្នក​គឺ​នៅ​សល់​តែ​មួយ​ជំហាន​ទៀត​ប៉ុណ្ណោះ — សូម​សរសេរ​នៅ​ពេល​ណា​ដែល​អ្នក​មាន​អារម្មណ៍​ថា​រួចរាល់។',
+  'profile.moodMix': 'ការលាយអារម្មណ៍របស់អ្នករដូវនេះ',
   'profile.streakValue': '{{days}} ឃ',
   'profile.totalEntries': 'ការឆ្លុះបញ្ចាំង',
   'profile.totalWords': 'ពាក្យដែលសរសេរ',
@@ -110,6 +142,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'សរសេរអំពីរឿងនេះ',
   'resetPassword.eyebrow': 'ការចាប់ផ្តើមថ្មី',
   'resetPassword.mismatchError': 'ពាក្យសម្ងាត់មិនត្រូវគ្នា។',
+  'resetPassword.passwordLabel': 'ពាក្យសម្ងាត់ថ្មី',
   'resetPassword.subheading':
     'ជ្រើសរើសអ្វីដែលមានសុវត្ថិភាព - ការឆ្លុះបញ្ចាំងរបស់អ្នកសមនឹងទទួលបានវា។',
   'resetPassword.tokenPlaceholder': 'កំណត់លេខកូដឡើងវិញពីអ៊ីមែល',
@@ -122,11 +155,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'មិនអាចលុបគណនីបានទេ។',
   'settings.exportDescription': 'ពាក្យសម្ដីរបស់អ្នកតែងតែជារបស់អ្នក។ ទាញយកច្បាប់ចម្លងនៅពេលណាក៏បាន។',
   'settings.exportDone': 'បាននាំចេញ {{format}} ។',
+  'settings.exportError': 'ការនាំចេញបរាជ័យ។',
+  'settings.exportHeading': 'នាំចេញការឆ្លុះបញ្ចាំងរបស់អ្នក',
   'settings.exportLoading': 'កំពុងរៀបចំ…',
   'settings.eyebrow': 'ទីកន្លែងរបស់អ្នក ច្បាប់របស់អ្នក',
   'settings.languageHeading': 'ភាសា',
   'settings.privacyHeading': 'ភាពឯកជន និងការអ៊ិនគ្រីប',
   'settings.remindersHeading': 'ការរំលឹកប្រចាំថ្ងៃ',
+  'settings.reminderToggleAria': 'បើក/បិទការរំលឹកប្រចាំថ្ងៃ',
   'settings.reminderToggleDescription':
     'ការរំលឹកដ៏ស្ងប់ស្ងាត់តែមួយនៅពេលដែលអ្នកជ្រើសរើស។ គ្មានផ្លាកសញ្ញា ឬកំហុសឆ្គងណាមួយឡើយ។',
   'settings.reminderToggleLabel': 'ផ្ញើការញុះញង់ដ៏ទន់ភ្លន់',
@@ -139,6 +175,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'កំពុងបង្កើតទិនានុប្បវត្តិ…',
   'signup.subheading': 'កន្លែងសុវត្ថិភាពសម្រាប់គំនិតរបស់អ្នក។',
   'wellnessRingsTriad.mindfulnessCaption': 'គោលដៅ {{goal}} នាទីថ្ងៃនេះ',
+  'wellnessRingsTriad.mindfulnessLabel': 'ស្មារតីភ្ញាក់រលឹក',
   'wellnessRingsTriad.sleepCaption': 'គោលដៅ {{goal}} ម៉ោង / យប់',
   'wellnessRingsTriad.sleepLabel': 'គេង',
+  'wellnessRingsTriad.sleepValue': '{{hours}}ម',
+  'wellnessRingsTriad.streakCaption': 'គោលដៅ {{goal}} ថ្ងៃ',
+  'wellnessRingsTriad.streakLabel': 'ជាប់ជាប្រចាំក្នុងការសរសេរកំណត់ហេតុ',
+  'wellnessRingsTriad.streakValue': '{{days}} ឃ',
 }

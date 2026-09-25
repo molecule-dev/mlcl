@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '有問題、想給回饋，或想為你的團隊安排一場示範嗎？寄信到 hello@conduit.dev — 每一封信都會有團隊成員親自閱讀。',
   'about.contactHeading': '聯絡我們',
   'about.eyebrow': '關於',
+  'about.featuresHeading': '你將獲得什麼',
+  'about.introBody':
+    '{{app}} 將 GitHub Actions 風格的持續交付整合進一個快速儀表板：管線、建置記錄、成品、狀態徽章，以及你所有儲存庫的部署環境，全部集中在同一處。不必再切換分頁，也不用猜是哪個建置壞了 — 每一次執行、每一行記錄、每一次部署，都只需點一下。',
+  'about.introHeading': '{{app}} 是什麼',
+  'about.missionBody':
+    '交付軟體應該是平靜且可預期的，而不是令人恐懼的來源。我們打造管線、記錄與部署工具，讓從提交到正式環境的路徑快速、透明且值得信賴 — 五分鐘內看到第一次綠燈建置，之後的每一次建置也同樣清楚。',
+  'about.missionHeading': '我們的使命',
+  'about.subtitle':
+    '{{app}} 是為想要監控所有儲存庫的建置、部署與環境，並有把握地交付的團隊所打造的 CI/CD 儀表板。',
   'artifacts.empty': '目前尚未發現任何文物。',
   'artifacts.heading': '文物',
   'artifacts.loadError': '無法載入組件。',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': '環境',
   'environments.loadError': '無法載入環境。',
+  'environments.loading': '正在載入環境…',
   'environments.subheading': '所有目標的即時部署狀態。',
   'forgotPassword.runnerStatus': '重置 · 安全隧道',
+  'forgotPassword.success':
+    '如果該郵箱地址已關聯帳戶，重置連結即將發送至您的郵箱。請查收您的收件匣。',
   'insights.changeFailureRate': '變更失敗率',
   'insights.deployFrequency': '每日部署次數',
   'insights.empty': '目前資料尚不足。',
@@ -39,12 +53,16 @@ export const ui: UiTranslations = {
   'insights.loadError': '無法載入分析資料。',
   'insights.meanP95': '意指 {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': '最慢的管線步驟',
   'insights.successRateHeading': '管道成功率（過去 14 天）',
   'landing.choosePlan': '選擇方案',
+  'landing.copyright': '© {{year}} {{app}}。有把握地交付。',
   'landing.ctaBody': '無需信用卡。無需平台工程師。五分鐘內即可讓第一個管道顯示為綠色。',
   'landing.ctaHeading': '安心寄送。',
   'landing.featuresEyebrow': '// 平台功能',
   'landing.featuresHeading': '由貨主打造，專為貨主而設',
+  'landing.heroSubtitle': '幾秒內完成的管線。看得懂的記錄。值得信賴的部署。',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': '簡單、透明的定價',
@@ -83,7 +101,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': '目前正在飛行中',
   'pipelines.metric.successCaption': '{{count}} {{total}} 的運行次數',
   'pipelines.metric.successRate': '成功率',
+  'pipelines.realtimeOn': '即時',
   'pipelines.subheading': '來自每個已關注儲存庫的即時更新。',
+  'pricing.advancedFeatures': '進階功能：{{mark}}',
+  'pricing.canExport': '資料匯出：{{mark}}',
+  'pricing.maxArtifacts': '{{count}} 個成品',
+  'pricing.maxBuilds': '{{count}} 次建置',
+  'pricing.maxPipelines': '{{count}} 條管線',
   'privacy.dataAccount': '帳戶：名稱、電子郵件、雜湊密碼、方案等級。',
   'privacy.intro':
     '{{app}} 我們僅收集營運您的持續交付帳戶所需的最低限度資料：您的電子郵件、您所連結的儲存庫、您的建置執行器所產生的提交記錄與建置元資料，以及您選擇存放在我們服務中的機密資訊。我們絕不會在建置執行器之外讀取您的原始碼；若已進行相關設定，建置產出將儲存於您的 S3 儲存桶中。',
@@ -91,6 +115,7 @@ export const ui: UiTranslations = {
     '我們使用 Stripe 進行帳務處理、Mailgun 處理交易電子郵件，以及 AWS S3 儲存建置產物。這三者皆透過合約約定，僅會存取提供服務所需的最低限度資料範圍。',
   'privacy.rightsBody':
     '您可以匯出所有資料，隨時透過「設定」刪除您的帳戶，並要求取得您帳戶中所有 webhook 傳送的紀錄。我們將在 30 天內回應 GDPR / CCPA 相關請求。',
+  'privacy.subtitle': '{{app}} 如何在執行你的管線時收集、儲存與保護你的資料。',
   'privacy.title': '隱私權政策',
   'repositories.empty': '尚未連線至任何儲存庫。',
   'repositories.heading': '儲存庫',
@@ -99,11 +124,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': '所有儲存庫',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': '無法載入儲存庫。',
+  'repositoryDetail.meanDuration': '平均時長',
   'repositoryDetail.notFound': '找不到儲存庫。',
+  'repositoryDetail.successRate': '成功率',
   'repositoryDetail.totalBuilds': '總建置次數',
   'repositoryDetail.webhookActive': '積極的',
   'repositoryDetail.webhookPaused': '暫停',
   'repositoryDetail.webhooksHeading': 'Webhooks',
+  'resetPassword.passwordLabel': '新密碼',
   'resetPassword.runnerStatus': '重設 · 代幣已驗證',
   'resetPassword.subtitle': '請選擇一個您從未使用過的強密碼。',
   'resetPassword.tokenPlaceholder': '從電子郵件複製貼上',
@@ -116,6 +144,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Conduit 監控的儲存庫。請與您的版本控制系統 (VCS) 供應商斷開連線，以停止接收事件。',
   'settings.repositories.empty': '尚未連接任何儲存庫。',
+  'settings.repositories.heading': '儲存庫連結',
   'settings.repositories.loadError': '無法載入儲存庫。',
   'settings.secrets.addCta': '新增密碼',
   'settings.secrets.addError': '無法新增密鑰。',
@@ -123,6 +152,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': '無法刪除機密資訊。',
   'settings.secrets.empty': '沒有儲存任何秘密。',
   'settings.secrets.heading': '秘密',
+  'settings.secrets.lastUsed': '上次使用：{{date}}',
   'settings.secrets.loadError': '無法載入機密資料。',
   'settings.secrets.neverUsed': '從未使用過',
   'settings.secrets.rotateCta': '旋轉',
@@ -145,6 +175,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': '無法更新 Webhook。',
   'signup.namePlaceholder': '萊利公園',
   'signup.runnerStatus': '免費方案 · 每月 1,000 次建置',
+  'terms.intro':
+    '建立 {{app}} 帳號即表示你同意這些條款。條款涵蓋建置執行器的可接受使用範圍、我們 SLA 的界線，以及我們可因濫用工作負載而暫停或終止你帳號的情況。',
   'terms.slaBody':
     'Pro 和 Team 方案的目標是讓 API 和執行器池每月維持 99.95% 的正常運作時間。免費方案則以「現狀」提供。服務中斷情況會於 status.conduit.dev 上發布，並將根據您帳單上的公式進行退款。',
   'terms.terminationBody':

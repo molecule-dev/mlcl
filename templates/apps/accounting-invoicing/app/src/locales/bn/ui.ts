@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'কোনো প্রশ্ন আছে, বাগ পেয়েছেন, বা আপনার বইগুলো এখানে আনতে চান? hello@{{app}}.example ঠিকানায় {{app}} টিমের সাথে যোগাযোগ করুন — প্রতিটি বার্তা একজন প্রকৃত মানুষ পড়েন।',
   'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.eyebrow': 'সম্পর্কে',
+  'about.intro':
+    '{{app}} হলো ছোট ব্যবসার হিসাবরক্ষণ সফটওয়্যার, যা প্রতিটি পয়সার হিসাব রাখে — ইনভয়েস, খরচ, পেমেন্ট এবং রিপোর্ট এক শান্ত জায়গায়, মালিক, বুককিপার ও অ্যাকাউন্ট্যান্টদের জন্য।',
+  'about.missionBody':
+    'ব্যবসা চালানোর মানে আপনার হিসাবের কথা ভেবে আতঙ্কিত হওয়া নয়। {{app}} স্প্রেডশিটের জঞ্জালের বদলে স্পষ্ট সংখ্যা দেয়, যা নিয়ে আপনি কাজ করতে পারেন — ফলে মেলানোর পেছনে কম সময় যায়, আর আপনি যে কাজের জন্য ব্যবসা শুরু করেছিলেন সেটাই বেশি করতে পারেন।',
+  'about.missionTitle': 'আমাদের লক্ষ্য',
   'about.title': '{{app}} সম্পর্কে',
   'accounts.count': '{{count}} টি অ্যাকাউন্ট',
+  'accounts.emptyBody':
+    'লেজার অ্যাকাউন্ট হিসাব রাখে টাকা কোথায় আছে এবং কোথায় যায়। আপনার বুককিপার বা ইন্টিগ্রেশন এগুলো সেট আপ করলে এখানে দেখা যাবে।',
   'accounts.emptyTitle': 'এখনো কোনো অ্যাকাউন্ট তৈরি হয়নি',
   'accounts.heading': 'হিসাবের তালিকা',
   'accounts.kpi.accounts': 'অ্যাকাউন্ট',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'আপনার চালান, খরচ এবং পরিশোধের সাথে সম্পর্কিত প্রতিটি খতিয়ান হিসাব, ধরন অনুযায়ী শ্রেণিবদ্ধ করা হয়েছে।',
   'accounts.tag.inactive': 'নিষ্ক্রিয়',
   'authBrandPanel.attributionName': 'সারা জেনকিন্স',
+  'authBrandPanel.attributionRole': 'প্রধান আর্থিক কর্মকর্তা, Horizon Tech',
   'authBrandPanel.eyebrow': 'অর্থায়ন দলগুলোর আস্থাভাজন',
   'authBrandPanel.label': 'ব্র্যান্ড শোকেস',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'সকল গ্রাহক',
   'customerDetail.invoiceMeta': 'ইস্যু করা হয়েছে {{issued}} · প্রদেয় {{due}}',
   'customerDetail.loadError': 'গ্রাহককে লোড করা সম্ভব হয়নি।',
+  'customerDetail.missingBody':
+    'অনুরোধ করা গ্রাহক রেকর্ডটি লোড করা যায়নি। এটি সরিয়ে ফেলা হতে পারে, অথবা আপনার এতে অ্যাক্সেস নাও থাকতে পারে।',
   'customerDetail.missingHeading': 'গ্রাহকের রেকর্ড অনুপলব্ধ',
+  'customerDetail.missingHelp':
+    'গ্রাহক তালিকায় ফিরে যেতে উপরের ব্যাক লিংকটি ব্যবহার করুন, অথবা সেখান থেকে অন্য একটি রেকর্ড বেছে নিন।',
+  'customerDetail.noInvoices': 'এখনো কোনো চালান আসেনি।',
   'customerDetail.notesEmpty': 'এখনো কোনো নোট নেই।',
   'customerDetail.paymentsEmpty': 'কোনো অর্থপ্রদান নথিভুক্ত করা হয়নি।',
   'customerDetail.paymentTerms': 'অর্থপ্রদানের শর্তাবলী',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'কর্তনযোগ্য',
   'expenseDetail.detailsHeading': 'লেনদেনের বিবরণ',
   'expenseDetail.loadError': 'ব্যয় লোড করতে ব্যর্থ হয়েছে।',
+  'expenseDetail.matched': 'মিলেছে · {{description}}',
   'expenseDetail.missingBody':
     'অনুরোধকৃত ব্যয়টি লোড করা যায়নি। এটি হয়তো সরিয়ে ফেলা হয়েছে, অথবা আপনার এটিতে প্রবেশাধিকার নেই।',
   'expenseDetail.missingHeading': 'ব্যয়ের রেকর্ড অনুপলব্ধ',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'রসিদ',
   'expenseDetail.receiptHeading': 'রসিদ',
   'expenseDetail.reconciled': 'মীমাংসিত',
+  'expenseDetail.unreconciled': 'অমীমাংসিত',
   'expenses.empty': 'এখনো কোনো খরচ হয়নি।',
   'expenses.heading': 'খরচ',
   'expenses.kpi.deductible': 'কর্তনযোগ্য',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'ইনভয়েস লোড করা সম্ভব হয়নি।',
   'invoices.searchPlaceholder': 'ইনভয়েস নম্বর বা গ্রাহক অনুসন্ধান করুন…',
   'invoices.summary.paid': 'এই সময়কালে পরিশোধ করা হয়েছে',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     '৩০ দিনের জন্য বিনামূল্যে। কোনো কার্ডের প্রয়োজন নেই। আপনার হিসাবরক্ষককে সাথে নিয়ে আসুন — তিনি আপনাকে ধন্যবাদ জানাবেন।',
   'landing.ctaTitle': 'আপনার বইগুলো আরও শান্ত কোনো জায়গায় সরিয়ে নিন।',
@@ -113,6 +131,8 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.expensesLabel': 'খরচ',
   'ledgerStatTriad.eyebrow.ar': 'প্রাপ্য হিসাব',
   'ledgerStatTriad.eyebrow.mtd': 'মাস অনুযায়ী',
+  'ledgerStatTriad.netSub': 'নিট {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} বকেয়া',
   'ledgerStatTriad.revenueLabel': 'রাজস্ব',
   'login.failed': 'সাইন ইন করা যায়নি।',
   'login.hidePassword': 'পাসওয়ার্ড লুকান',
@@ -123,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'সাইন ইন করুন',
   'nav.legal': 'আইনি',
   'newExpense.back': 'খরচ',
+  'newExpense.clearReceiptCta': 'সংযুক্ত রসিদ মুছুন',
   'newExpense.deductible': 'কর ছাড়যোগ্য',
   'newExpense.dropPrompt': 'সংযুক্ত করতে এখানে রসিদের ছবি বা পিডিএফ দিন।',
   'newExpense.failed': 'খরচ বাঁচানো সম্ভব হয়নি।',
@@ -151,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'পেমেন্ট লোড করা সম্ভব হয়নি।',
   'payments.unmatchedTag': 'অতুলনীয়',
   'planUpdated.pageLabel': 'পরিকল্পনার হালনাগাদ নিশ্চিতকরণ',
+  'pricing.advancedFeatures': 'উন্নত ফিচার: {{yes}}',
+  'pricing.canExport': 'ডেটা এক্সপোর্ট: {{yes}}',
+  'pricing.heading': 'আপনার {{app}} প্ল্যান নির্বাচন করুন',
+  'pricing.maxAccounts': '{{count}} টি অ্যাকাউন্ট',
+  'pricing.maxExpenses': '{{count}} খরচ',
+  'pricing.maxInvoices': '{{count}} ইনভয়েস',
+  'privacy.intro':
+    'এই গোপনীয়তা নীতিতে বর্ণনা করা হয়েছে কীভাবে {{app}} সেবাটি ব্যবহারকারী ব্যবসাগুলোর সম্পর্কে তথ্য সংগ্রহ, ব্যবহার ও প্রকাশ করে।',
   'privacy.lastUpdated': 'সর্বশেষ আপডেট: {{তারিখ}}',
   'privacy.section.collected.body':
     'আমরা অ্যাকাউন্টের বিবরণ (নাম, ইমেল, কোম্পানি), আপনার আপলোড করা আর্থিক রেকর্ড (ইনভয়েস, খরচ, গ্রাহক, পেমেন্ট) এবং সাধারণ পরিষেবা-পরিচালনার লগ (আইপি, ইউজার-এজেন্ট, টাইমস্ট্যাম্প) সংগ্রহ করি।',
@@ -163,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'পরিষেবাটি পরিচালনা করতে, আপনার অনুরোধ করা রিপোর্ট ও পিডিএফ তৈরি করতে, মেইলগানের মাধ্যমে লেনদেন সংক্রান্ত ইমেল পাঠাতে এবং স্ট্রাইপের মাধ্যমে পেমেন্ট প্রক্রিয়া করতে তথ্য ব্যবহার করা হয়। আমরা ব্যক্তিগত তথ্য বিক্রি বা ভাড়া দিই না।',
   'recentInvoicesCard.dueMeta': 'কারণে {{date}}',
+  'recentInvoicesCard.empty': 'কোনো চালানই মেলে না।',
   'recentInvoicesCard.eyebrow': 'প্রাপ্য হিসাব',
   'recentInvoicesCard.searchAriaLabel': 'চালান অনুসন্ধান করুন',
+  'recentInvoicesCard.searchPlaceholder': 'ইনভয়েস খুঁজুন…',
   'recentInvoicesCard.title': 'সাম্প্রতিক চালান',
   'recentInvoicesCard.viewAll': 'সকল চালান দেখুন →',
   'reports.assets': 'সম্পদ',
@@ -180,16 +211,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'লাভ ও ক্ষতি (১২ মাস)',
   'resetPassword.backToLogin': '← সাইন ইন-এ ফিরে যান',
   'resetPassword.hidePassword': 'পাসওয়ার্ড লুকান',
+  'resetPassword.passwordLabel': 'নতুন পাসওয়ার্ড',
   'resetPassword.showPassword': 'পাসওয়ার্ড দেখান',
+  'resetPassword.subheading': 'একটি শক্তিশালী পাসওয়ার্ড বেছে নিন — কমপক্ষে আটটি অক্ষর।',
   'resetPassword.submit': 'পাসওয়ার্ড রিসেট করুন',
   'resetPassword.tooShort': 'পাসওয়ার্ডটি কমপক্ষে ৮ অক্ষরের হতে হবে।',
   'settings.account.changePassword': 'পাসওয়ার্ড পরিবর্তন করুন',
   'settings.account.changingPassword': 'পরিবর্তন হচ্ছে…',
   'settings.account.currentPassword': 'বর্তমান পাসওয়ার্ড',
+  'settings.account.dangerZone': 'বিপদজনক এলাকা',
   'settings.account.deleteAccount': 'অ্যাকাউন্ট মুছে ফেলুন',
   'settings.account.deleteDescription':
     'আপনার অ্যাকাউন্ট এবং এর সাথে যুক্ত সমস্ত ডেটা স্থায়ীভাবে মুছে ফেলুন।',
   'settings.account.deleteError': 'অ্যাকাউন্ট মুছে ফেলা সম্ভব হয়নি।',
+  'settings.account.deleteWarning':
+    'এটি আপনার অ্যাকাউন্ট স্থায়ীভাবে মুছে ফেলবে এবং ফেরানো যাবে না। নিশ্চিত করতে আপনার পাসওয়ার্ড লিখুন।',
   'settings.account.deleting': 'মুছে ফেলা হচ্ছে…',
   'settings.account.devices': 'ডিভাইস',
   'settings.account.email': 'ইমেল',
@@ -200,6 +236,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'পাসওয়ার্ড',
   'settings.account.passwordError': 'পাসওয়ার্ড পরিবর্তন করা সম্ভব হয়নি।',
   'settings.account.pushNotifications': 'এই ডিভাইসে পুশ নোটিফিকেশন',
+  'settings.account.revokeDeviceWarning':
+    'এই ডিভাইসের অ্যাক্সেস শীঘ্রই প্রত্যাহার করা হবে। এটি সাইন আউট করবেন?',
   'settings.account.saveError': 'প্রোফাইল আপডেট করা সম্ভব হয়নি।',
   'settings.account.security': 'নিরাপত্তা',
   'settings.account.signOutDevice': 'সাইন আউট',
@@ -207,12 +245,19 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'দ্বি-স্তর প্রমাণীকরণ',
   'settings.account.twoFactorCode': 'প্রমাণীকরণ কোড',
   'settings.account.twoFactorDisable': 'অক্ষম করুন',
+  'settings.account.twoFactorDisableTitle': 'দুই-ধাপ প্রমাণীকরণ বন্ধ করুন',
   'settings.account.twoFactorEnable': 'সক্ষম করুন',
+  'settings.account.twoFactorEnableTitle': 'দুই-ধাপ প্রমাণীকরণ চালু করুন',
   'settings.account.twoFactorInvalidCode': 'অবৈধ কোড',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'টু-ফ্যাক্টর QR কোড',
+  'settings.account.twoFactorScan':
+    'আপনার অথেনটিকেটর অ্যাপ দিয়ে এই QR কোডটি স্ক্যান করুন, তারপর ৬ সংখ্যার কোডটি লিখুন।',
+  'settings.account.twoFactorUnavailable': 'এই অ্যাপটির জন্য দ্বি-স্তরীয় প্রমাণীকরণ উপলব্ধ নেই।',
   'settings.account.twoFactorVerify': 'যাচাই ও সক্রিয় করুন',
   'settings.account.unknownDevice': 'অজানা ডিভাইস',
   'settings.company.email': 'বিলিং ইমেল',
+  'settings.company.heading': 'কোম্পানি ও কর',
   'settings.company.name': 'আইনি নাম',
   'settings.company.saveButton': 'কোম্পানির প্রোফাইল সংরক্ষণ করুন',
   'settings.company.taxId': 'ট্যাক্স আইডি / ইআইএন',
@@ -256,6 +301,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'ত্রৈমাসিকভাবে প্রতিষ্ঠিত',
   'taxes.kpi.owed': 'পাওনা',
   'taxes.loadError': 'ট্যাক্স সারাংশ লোড করা সম্ভব হয়নি।',
+  'taxes.remittedPct': '({{pct}}% পরিশোধিত)',
+  'terms.intro':
+    'এই সেবার শর্তাবলি ("শর্তাবলি") আপনার {{app}}-এ প্রবেশ ও ব্যবহার নিয়ন্ত্রণ করে। একটি অ্যাকাউন্ট তৈরি করে বা সেবাটি ব্যবহার করে আপনি এগুলো মেনে চলতে সম্মত হন।',
   'terms.lastUpdated': 'সর্বশেষ আপডেট: {{তারিখ}}',
   'terms.section.acceptable.body':
     'আপনি সম্মত হচ্ছেন যে, কোনো আইন লঙ্ঘন করতে, মেধাস্বত্ব অধিকার হরণ করতে, ম্যালওয়্যার ছড়াতে, অথবা অন্য কোনো অ্যাকাউন্ট বা আমাদের পরিকাঠামোতে অননুমোদিত প্রবেশাধিকার লাভের চেষ্টা করতে এই পরিষেবাটি ব্যবহার করবেন না।',

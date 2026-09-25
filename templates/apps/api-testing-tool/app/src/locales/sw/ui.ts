@@ -1,15 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Umepata hitilafu, una ombi la kipengele, au unataka kutuambia tujenge nini kinachofuata? Tuma barua pepe hello@pylon.dev — kila ujumbe humfikia mhandisi halisi wa timu.',
   'about.contactTitle': 'Wasiliana nasi',
+  'about.intro':
+    '{{app}} ni eneo la kazi la kujaribu API la haraka, linalotumia kibodi kwa asili kwa wahandisi wanaoishi kwenye terminal — maombi ya mtindo wa Postman, makusanyo, mazingira, na historia bila uzito wa ziada.',
+  'about.missionBody':
+    'API ni uti wa mgongo wa programu za kisasa, lakini zana za kuzitumia ni polepole, zina uzito wa ziada, na zinatumia kipanya. {{app}} ipo kuwapa watengenezaji eneo la kazi la haraka na makini la kiwango cha terminal: tuma maombi, jenga ujasiri, na toa bidhaa bila kuacha kibodi.',
+  'about.missionTitle': 'Dhamira yetu',
   'about.pageTitle': 'Kuhusu {{app}}',
   'authShell.statusLabel': 'wakimbiaji mtandaoni',
   'collections.createError': 'Haikuweza kuunda mkusanyiko.',
   'collections.defaultName': 'Mkusanyiko usio na kichwa {{n}}',
+  'collections.empty': 'Hakuna makusanyo bado — bofya “Mkusanyo mpya” kuunda folda yako ya kwanza.',
   'collections.eyebrow': 'makusanyo ya $pyloni --tree',
   'collections.fetchError': 'Haikuweza kupakia mikusanyiko.',
   'collections.heading': 'Mikusanyiko',
   'collections.loading': 'Inapakia mikusanyiko…',
+  'collections.metric.allGreen': 'Zote ziko sawa',
   'collections.metric.collections': 'Mikusanyiko',
   'collections.metric.failing': 'Inashindwa',
   'collections.metric.failingCaption': 'Mbio ya mwisho ilikuwa na hitilafu',
@@ -23,6 +32,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Vigezo',
   'environments.createError': 'Haikuweza kuunda mazingira.',
   'environments.defaultName': 'Mazingira yasiyo na kichwa {{n}}',
+  'environments.empty': 'Hakuna mazingira bado — bofya “Mazingira mapya” kuongeza moja.',
   'environments.eyebrow': '$ pyloni env --swichi',
   'environments.fetchError': 'Haikuweza kupakia mazingira.',
   'environments.heading': 'Mazingira',
@@ -30,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Mazingira mapya',
   'environments.subheading':
     'Vigezo vinavyobadilika kuwa maombi wakati wa kutuma. Mazingira moja yanayotumika kwa kila nafasi ya kazi.',
+  'forgotPassword.statusLabel': 'weka upya · handaki salama',
   'forgotPassword.success':
     'Ikiwa kuna akaunti ya barua pepe hiyo, kiungo cha kuweka upya kiko njiani. Angalia kikasha chako cha barua pepe.',
+  'history.empty':
+    'Hakuna kitu hapa bado — tuma ombi lako la kwanza kutoka kwenye kichupo cha Eneo la Kazi.',
   'history.eyebrow': 'historia ya nguzo $ --mkia',
   'history.fetchError': 'Haikuweza kupakia historia.',
   'history.heading': 'Historia ya kukimbia',
@@ -40,9 +53,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': '50 za mwisho',
+  'history.realtime': 'wakati halisi',
   'history.subheading':
     'Kila ombi lililotumwa katika nafasi hii ya kazi, likiwa na hali, muda wa kuchelewa, na ukubwa wa mzigo.',
   'landing.choosePlan': 'Chagua mpango',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Jenga ujasiri.',
   'landing.ctaBody':
     'Hakuna kadi ya mkopo. Hakuna mhandisi wa jukwaa anayehitajika. Fungua ⌘K na utume ombi lako la kwanza ndani ya dakika tano.',
   'landing.ctaHeading': 'Kujenga kujiamini.',
@@ -84,6 +99,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Ucheleweshaji wa wastani',
   'mocks.metric.live': 'Umma',
   'mocks.metric.servers': 'Mizaha',
+  'mocks.ms': 'ms',
   'mocks.newMock': 'Mtindo mpya',
   'mocks.online': 'Umma',
   'mocks.paused': 'Privat',
@@ -108,9 +124,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Afya',
   'monitors.metric.uptime': 'Muda wa wastani wa kufanya kazi',
   'monitors.newMonitor': 'Kifuatiliaji kipya',
+  'monitors.paused': 'imesitishwa',
   'monitors.run': 'Kimbia',
   'monitors.runError': 'Kuendesha kumekamilika na hitilafu ya mtandao: {{error}}',
+  'monitors.runFailed': 'Utekelezaji umeshindwa.',
   'monitors.running': 'Kukimbia…',
+  'monitors.runSuccess': 'Endesha {{status}} — seva ya juu ilirudisha {{code}} katika {{ms}}ms.',
   'monitors.sparkLabel': 'Mwelekeo wa kuchelewa',
   'monitors.subheading':
     'Ukaguzi wa wakati unaohitajika kwa jaribio lolote lililohifadhiwa. Funga jaribio, bofya Run, na uangalie sasisho la kiwango cha mafanikio la saa 24 kila wakati.',
@@ -119,27 +138,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Muda wa Kukaa · Saa 24',
   'nav.legal': 'Kisheria',
   'notFound.backToWorkspace': 'Rudi kwenye nafasi ya kazi',
+  'notFound.body':
+    '{{app}} ilituma ombi kwa URL hii na haikupata jibu. Angalia tena njia au rudi kwenye eneo la kazi.',
   'notFound.eyebrow': '$ pyloni resolution --strict',
   'notFound.title': 'Njia haipatikani',
+  'planUpdated.body':
+    'Mabadiliko yako ya malipo sasa yanafanya kazi. Unaweza kusimamia mpango wako wakati wowote kutoka ukurasa wa malipo.',
+  'planUpdated.retry': 'Jaribu tena',
+  'planUpdated.verifyFailed': 'Hatukuweza kuthibitisha malipo yako bado.',
+  'planUpdated.verifyFailedBody':
+    'Huenda malipo yako bado yanashughulikiwa. Jaribu tena baada ya muda mfupi.',
   'planUpdated.verifying': 'Inathibitisha malipo yako…',
+  'pricing.advancedFeatures': 'Vipengele vya hali ya juu: {{yes}}',
+  'pricing.canExport': 'Usafirishaji wa data: {{yes}}',
+  'pricing.heading': 'Chagua mpango wako wa {{app}}',
+  'pricing.maxCollections': 'Makusanyo {{count}}',
+  'pricing.maxEnvironments': 'Mazingira {{count}}',
+  'pricing.maxHistory': 'Maingizo {{count}} ya historia',
+  'pricing.maxRequests': '{{count}} maombi',
   'privacy.collect.account':
     'Akaunti: barua pepe yako, nenosiri lililoharakishwa, jina la kuonyesha, na muhuri wa muda wa kuingia kwako kwa mara ya mwisho.',
+  'privacy.intro':
+    '{{app}} inaheshimu faragha yako. Ukurasa huu unafupisha data tunayokusanya, kwa nini tunaikusanya, na jinsi ya kuiondoa.',
   'privacy.rights.body':
     'Unaweza kuhamisha mikusanyiko yako + mazingira wakati wowote, au kufuta akaunti yako kutoka kwa Mipangilio ili kuondoa kabisa data yote ndani ya siku 30.',
   'privacy.share.body':
     'Wewe pekee. Hatuuzi, hatushiriki, au kukodisha maudhui ya nafasi yako ya kazi kwa watu wengine. Kumbukumbu za seva huhifadhiwa kwa siku 30 kwa ajili ya majibu ya tukio na kisha kufutwa.',
   'privacy.title': 'Ilani ya faragha',
+  'profile.bio':
+    'Eneo lako la kazi la kibinafsi la {{app}} — bandika makusanyo, shiriki mazingira, na fuatilia API zinazotoa bidhaa.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'alijiunga {{when}}',
+  'profile.metric.collections': 'Mikusanyiko',
   'profile.metric.monitors': 'Vichunguzi',
   'profile.metric.requests': 'Maombi yaliyohifadhiwa',
+  'profile.noActivity':
+    'Hakuna maombi yaliyotumwa bado — nenda kwenye kichupo cha Eneo la Kazi kutuma moja.',
   'profile.signedOut': 'Ingia ili kutazama wasifu wako',
   'pylonShell.primaryNavLabel': 'Usogezaji mkuu',
+  'resetPassword.passwordLabel': 'Nenosiri jipya',
+  'resetPassword.statusLabel': 'kuweka upya · tokeni imethibitishwa',
   'resetPassword.subtitle': 'Chagua nenosiri thabiti ambalo hujawahi kutumia hapo awali.',
   'resetPassword.tokenPlaceholder': 'bandika kutoka kwa barua pepe',
+  'settings.accountManagement.desc':
+    'Sasisha barua pepe na nenosiri lako, dhibiti arifa na vifaa, toka, au futa akaunti yako.',
+  'settings.accountManagement.title': 'Akaunti na usalama',
   'settings.eyebrow': 'Mipangilio ya $ pyloni --hariri',
   'settings.fetchError': 'Haikuweza kupakia mipangilio.',
   'settings.language.title': 'Lugha',
+  'settings.seeding': 'Inapanda…',
   'settings.seedStarter': 'Maudhui ya kuanzia mbegu',
   'settings.starterCollection': 'Mkusanyiko wa kuanzia',
   'settings.starterCollectionDesc': 'Imeundwa kutoka kwa Mipangilio kwenye {{ts}}',
@@ -153,6 +200,8 @@ export const ui: UiTranslations = {
     'Una jukumu la kulinda nenosiri lako. Kushiriki akaunti moja na watu wengi hairuhusiwi kwenye mipango ya Bure au Pro — nunua usajili wa Timu kwa nafasi za kazi zilizoshirikiwa.',
   'terms.billing.body':
     'Usajili unaolipishwa husasishwa kiotomatiki kila kipindi cha bili. Ghairi kutoka kwa Mipangilio wakati wowote; ufikiaji wako unaendelea hadi mwisho wa kipindi cha sasa.',
+  'terms.intro':
+    'Kwa kuunda akaunti ya {{app}} unakubali masharti yaliyo hapa chini. Yasome mara moja; hatutakushangaza kwa mabadiliko ya nyuma.',
   'terms.title': 'Sheria na Masharti',
   'terms.usage.body':
     'Usitumie Pylon kupeleka maombi kwenye huduma ambazo hunazo au una ruhusa ya wazi ya kujaribu. Usitumie Pylon kukwepa mipaka ya viwango au kufanya ulaghai.',
@@ -173,16 +222,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Haifanyiki',
   'testRunner.metric.passed': 'Imepitishwa',
   'testRunner.never': 'Kamwe kukimbia',
+  'testRunner.newTest': 'Jaribio jipya',
   'testRunner.noAssertions': 'Hakuna madai yoyote kuhusu jaribio hili bado.',
+  'testRunner.noRunsYet':
+    'Hakuna utekelezaji uliorekodiwa bado — bofya “Endesha zote” kujaza historia.',
   'testRunner.passed': 'kupita',
+  'testRunner.recentRuns': 'Michuano ya hivi karibuni',
   'testRunner.runAll': 'Endesha zote',
   'testRunner.running': 'Kukimbia…',
   'testRunner.runOne': 'Kimbia',
   'testRunner.subheading': 'Matokeo ya Suite, madai yanatofautiana, na mizunguko 50 iliyopita.',
+  'testRunner.suites': 'Seti',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Umeingia kama',
   'workspace.auth.keyName': 'Jina la kichwa',
   'workspace.auth.keyValue': 'Thamani muhimu',
+  'workspace.auth.noneHint': 'Hakuna kichwa cha idhini kitakachotumwa na ombi hili.',
   'workspace.auth.password': 'Nenosiri',
   'workspace.auth.username': 'Jina la mtumiaji',
   'workspace.authOption.apikey': 'Ufunguo wa API',
@@ -192,13 +247,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Aina',
   'workspace.authTypeLabel': 'Aina ya uidhinishaji',
+  'workspace.body.contentLabel': 'Mwili wa ombi',
+  'workspace.body.hint':
+    '{{envVars}} hubadilishwa kabla ombi kutumwa. Miili hutumwa kwa POST/PUT/PATCH/DELETE.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Hakuna',
+  'workspace.body.noneHint':
+    'Hakuna mwili wa ombi utakaotumwa. Chagua JSON au maandishi ghafi kuongeza mmoja.',
   'workspace.body.text': 'Maandishi ghafi',
   'workspace.body.type': 'Aina',
   'workspace.environment': 'Hakuna mazingira',
   'workspace.envVar': 'kigezo cha env',
   'workspace.eyebrow': 'nafasi ya kazi ya $pylon --pane mgawanyiko',
+  'workspace.failedCount': '{{count}} imeshindwa',
+  'workspace.idle': 'Uvivu',
   'workspace.kv.addHeader': 'Ongeza kichwa cha habari',
   'workspace.kv.addParam': 'Ongeza param',
   'workspace.kv.headerKey': 'Jina la kichwa',
@@ -211,12 +273,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'Mbinu ya HTTP',
   'workspace.metric.latency': 'Ucheleweshaji',
   'workspace.metric.latencyCaption': 'Safari ya kwenda na kurudi kutoka mbio hizi',
+  'workspace.metric.size': 'Mzigo',
   'workspace.metric.sizeCaption': 'Baiti za mwili wa majibu',
   'workspace.metric.statusCaption': 'Jibu la mwisho',
   'workspace.metric.tests': 'Majaribio',
+  'workspace.metric.testsAllPassing': 'Madai yote yako sawa',
   'workspace.metric.testsFailing': '{{count}} kushindwa',
+  'workspace.metric.testsIdle': 'Tuma ombi kutathmini',
   'workspace.noAssertions': 'Endesha ombi la kutathmini madai yaliyojengewa ndani.',
   'workspace.noResponseYet': 'Hakuna jibu bado',
+  'workspace.passedCount': '{{count}} kupita',
   'workspace.responseHint': '// Bonyeza Tuma ili kuzima ombi na kunasa jibu.',
   'workspace.saveError': 'Haikuweza kuhifadhi ombi.',
   'workspace.statusError': 'Haikuweza kutuma ombi.',
@@ -225,9 +291,13 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Tunga ombi, lifukuze, kisha thibitisha jibu — yote katika kidirisha kimoja.',
   'workspace.testResults': 'Matokeo ya mtihani',
+  'workspace.tests.autoHint':
+    'Familia ya hali, ucheleweshaji, ukubwa wa mwili, na afya ya usafirishaji hudaiwa kiotomatiki — matokeo yanaonekana chini ya “Matokeo ya jaribio” kwenye paneli ya jibu.',
+  'workspace.tests.autoTitle': 'Madai yaliyojengwa ndani hukimbia kwa kila jibu',
   'workspace.token': 'Tokeni',
   'workspace.tokenHint': 'Imetumwa kama Idhini: Mtoaji<token> kwa kila ombi katika mkusanyiko huu.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Ombi lisilo na kichwa',
+  'workspace.urlLabel': 'Omba URL',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

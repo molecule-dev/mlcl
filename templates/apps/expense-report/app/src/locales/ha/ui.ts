@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tambayoyi, ra'ayi, ko buƙatar sabon fasali? Tuntuɓi ƙungiyar {{app}} daga Saituna → Sanarwa, ko rubuta mana a kowane lokaci — kowane saƙo yana kaiwa ga mutum na gaske.",
+  'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da',
+  'about.featureCapture':
+    'Ɗaukar rasit tare da ɗora hoto wanda ke haɗa hotuna zuwa kashe kuɗi daidai, layi-layi.',
+  'about.featureExport':
+    'Fitar da CSV da za a iya bincikawa na kowane rahoto, kashe kuɗi, da matsayin amincewa — a shirye ga ƙungiyar lissafin ku.',
+  'about.featurePolicy':
+    'Shingayen manufofi — iyaka na yau da kullum, iyaka ta kowane rukuni, da ƙofofin buƙatar rasit da ake aiwatarwa a lokacin ƙaddamarwa.',
+  'about.featureWorkflow':
+    'Tsarin amincewa mai matakai biyu tare da bayanan mai bita, alamun keta manufofi, da yiwa biyan kuɗi alama da taɓawa ɗaya.',
+  'about.intro':
+    '{{app}} dandali ne na sarrafa kashe kuɗi ga ƙungiyoyin kuɗi da mutanen da suke biya. Ɗauki rasit, shigar da kashe kuɗi, aika rahoto ta hanyar amincewa, kuma bibiyi kowane biyan kuɗi — ba tare da wahalar maƙwatanci ba.',
+  'about.missionBody':
+    'Biyan kuɗi ya kamata ya kasance cikin sauri, adalci, kuma mai iya bincikawa. Mun gina {{app}} domin masu ƙaddamarwa su sami biya ba tare da neman ba, masu amincewa su ga ainihin abin da suke amincewa da shi, kuma sashen kuɗi ya sami cikakken tarihin kowane dala — gami da duba manufofi.',
+  'about.missionTitle': 'Manufarmu',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Ana amincewa da…',
   'approvals.confirmReject': 'Tabbatar da ƙin amincewa',
+  'approvals.empty': 'Kun kammala duka — babu rahoton da ke jira.',
   'approvals.eyebrow': 'Layin mai sarrafawa',
   'approvals.kpi.flaggedLabel': 'An yiwa manufar alama',
+  'approvals.kpi.queueLabel': 'Ana jiran bita',
   'approvals.kpi.totalLabel': 'Ƙimar da ake jira',
   'approvals.lineCount': '{{count}} kashe kuɗi',
   'approvals.queueFallback': 'Layin kai tsaye ba ya samuwa — yana nuna bayanan gwaji da aka tsara.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Ana ƙin amincewa…',
+  'approvals.rejectPlaceholder': 'Dalili (wajibi)',
   'approvals.rejectPrompt': 'Me yasa kake ƙin amincewa da wannan rahoton?',
   'approvals.review': 'Sharhi',
   'approvals.title': 'Ana jiran amincewa',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'An amince · MTD',
   'dashboard.kpi.pendingDelta': '+2 a wannan makon',
+  'dashboard.kpi.pendingLabel': 'Ana jiran bita',
   'dashboard.kpi.receiptsDelta': 'Ana buƙatar aiki',
   'dashboard.kpi.receiptsLabel': 'Ana jiran rasit',
   'dashboard.kpi.reimbursedDelta': '+$2.4k',
   'dashboard.kpi.reimbursedLabel': 'An mayar da kuɗi · MTD',
   'dashboard.newReport': 'Sabon rahoto',
+  'dashboard.recent.empty': 'Babu rahoto tukuna — fara naku na farko a sama.',
   'dashboard.recent.title': 'Rahotanni na baya-bayan nan',
   'dashboard.recent.viewAll': 'Duba duk rahotanni',
   'dashboard.summaryFallback':
@@ -39,11 +60,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'Rasidin kuɗi da abubuwan da za a iya biya',
   'expenses.listFallback': 'Jerin kai tsaye ba ya samuwa — yana nuna bayanan gwaji da aka tsara.',
   'expenses.searchPlaceholder': 'Bincika ɗan kasuwa ko rukuni…',
+  'expenses.subtotal': 'Kashe kuɗi {{count}} · jimillar ƙasa',
   'expenses.title': 'Kuɗi',
+  'forgotPassword.continue': 'Ina da lambar sirri · Ci gaba',
+  'forgotPassword.subheading':
+    'Shigar da imel ɗin aikinka kuma za mu aika maka hanyar saita sabon kalmar sirri.',
   'forgotPassword.successBody':
     'Idan akwai asusu don {{email}} za ku sami hanyar sake saitawa cikin mintuna kaɗan masu zuwa.',
+  'landing.copyright': '© {{year}} {{app}}. An gina shi da Molecule.dev.',
+  'landing.ctaBody':
+    'Kyauta ga kashe kuɗi 25 na farko kowane wata. Babu katin kuɗi, babu kiran tattaunawa.',
   'landing.ctaHeading': 'A shirye kuke ku dawo da abin da ƙungiyar ku ke bin ku?',
   'landing.eyebrow': 'Rahoton kuɗaɗen da ƙungiyoyin kuɗi suka bayar',
+  'landing.featuresHeading': 'Biyan kuɗi, cikin wuri ɗaya mai kwanciyar hankali',
   'landing.heroSubtitle':
     'Aika, amincewa, da kuma biyan kuɗin da aka kashe wajen gudanar da kasuwanci ba tare da bikin rubutaccen bayani ba. Rasidin OCR, duba manufofi, da kuma jadawalin amincewa mai haske — duk a cikin wurin aiki ɗaya mai natsuwa.',
   'landing.heroTitle': 'Duk rasidin da aka samu, an dawo da shi.',
@@ -61,10 +90,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Bayanan kula',
   'newExpense.descriptionPlaceholder':
     'Dalilin da yasa wannan kuɗin ya shafi kasuwanci (wanda mai amincewa da ku zai iya gani).',
+  'newExpense.eyebrow': 'Abu mai iya biya',
   'newExpense.merchant': 'Ɗan kasuwa',
   'newExpense.merchantPlaceholder': 'Otal ɗin Adlon Kempinski',
   'newExpense.policyHint':
     'Tunatarwa: Abincin da ya wuce $80/rana ko duk wani abu da ya wuce $250 yana buƙatar bayanin hujja.',
+  'newExpense.receipt': 'Rasidi',
+  'newExpense.receiptHint': 'JPG, PNG, ko PDF · 10 MB mafi yawa',
   'newExpense.receiptOcrHint': 'filayen OCR da ke cikewa kafin lokaci',
   'newExpense.receiptPrompt': 'Sauke hoto ko PDF a nan, ko danna don bincika',
   'newExpense.receiptUploadFailed':
@@ -75,17 +107,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Ɗauki ko loda rasidi kuma Recoup zai cika ɗan kasuwa, kwanan wata, da jimillarsa kafin ya ajiye. Tabbatar da duk abin da ke ƙasa kafin a adana.',
   'newExpense.title': 'Ƙara kuɗi',
+  'newReport.approverHint': 'Za su sami imel lokacin da ka ƙaddamar da wannan rahoto don bita.',
   'newReport.approverLabel': 'Imel ɗin amincewa (zaɓi ne)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'Kuɗaɗen da ake da su',
   'newReport.createFailed': 'Ba za a iya ƙirƙirar rahoto ba. Da fatan za a sake gwadawa.',
   'newReport.draftsFallback':
     'Jerin kuɗin kai tsaye ba ya samuwa — yana nuna bayanan gwaji da aka tsara.',
+  'newReport.eyebrow': 'Haɗa kashe kuɗi · ƙaddamar don amincewa',
   'newReport.includedCount': '{{count}} an haɗa',
   'newReport.purposeLabel': 'Manufar kasuwanci',
   'newReport.purposePlaceholder':
     'Bayyana tafiyar ko aikin da waɗannan kuɗaɗen suka shafi (wanda mai amincewa da ku da kuɗin ku za su iya gani).',
   'newReport.saveDraft': 'Ajiye azaman daftarin aiki',
+  'newReport.saveDraftFailed': 'Ba a iya ajiye daftari ba. Don Allah sake gwadawa.',
   'newReport.submit': 'Aika don amincewa',
   'newReport.submitFailed': 'Ba za a iya gabatar da rahoto ba. Da fatan za a sake gwadawa.',
   'newReport.summary': 'Takaitaccen rahoto',
@@ -99,17 +134,24 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Ba a samun ciyarwar kai tsaye — yana nuna bayanan gwaji da aka tsara.',
   'notifications.openReport': 'Buɗe rahoto ›',
+  'pricing.approvalsLabel': 'amincewa',
   'pricing.expensesLabel': 'kashe kuɗi',
   'pricing.heading': 'amincewa',
   'pricing.policiesLabel': 'manufofi',
   'pricing.receiptsLabel': 'rasit',
   'recoveredAmountHeroCard.label': 'An dawo da kuɗin fansho · YTD',
+  'recoveredAmountHeroCard.pending':
+    'Rahoto {{count}} da ke jiran bita a halin yanzu a tsakanin duk masu amincewa.',
+  'reports.approvalFlow': 'Tsarin amincewa',
   'reports.backToList': 'Komawa ga rahotanni',
   'reports.detailFallback':
     'Rahoton kai tsaye ba ya samuwa — yana nuna bayanan gwaji da aka tsara.',
   'reports.lineItems': 'Abubuwan layi',
   'reports.lineItemsCount': '{{count}} kashe kuɗi',
+  'reports.lineItemsEmpty': 'Babu kashe kuɗi a wannan rahoto tukuna.',
+  'reports.openLibrary': 'Buɗe ɗakin karatu na rahoto',
   'reports.policyTitle': 'Alamar manufofi',
+  'reports.selectPrompt': 'Zaɓi rahoto daga ɗakin karatu don ganin cikakken bayaninsa.',
   'reports.summary.lineCount': 'Abubuwan layi',
   'reports.summary.reimbursable': 'Za a iya mayar da kuɗi',
   'reports.summary.total': 'Jimillar da aka ruwaito',
@@ -119,6 +161,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Jerin kai tsaye ba ya samuwa — yana nuna bayanan gwaji da aka tsara.',
   'reportsList.newReport': 'Sabon rahoto',
+  'reportsList.submittedOn': 'An tura {{date}}',
   'reportsList.title': 'Laburaren rahoto',
   'resetPassword.hidePassword': 'Ɓoye kalmar sirri',
   'resetPassword.newPasswordLabel': 'Sabuwar kalmar sirri',
@@ -146,6 +189,7 @@ export const ui: UiTranslations = {
   'settings.profileSaveFailed':
     'Ba za a iya sabunta bayanin martaba ba. Da fatan za a sake gwadawa.',
   'signup.heading': 'Ƙirƙiri asusunka na dawowa',
+  'signup.hidePassword': 'Ɓoye kalmar sirri',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Nuna kalmar sirri',
   'signup.subheading': 'Kyauta don kashe kuɗi 25 a kowane wata - babu katin kiredit.',

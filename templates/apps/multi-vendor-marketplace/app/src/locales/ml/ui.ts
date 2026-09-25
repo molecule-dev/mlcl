@@ -1,16 +1,40 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഒരു കട തുടങ്ങണോ, ഒരു പ്രശ്നം റിപ്പോർട്ട് ചെയ്യണോ, അതോ വെറുതെ ഹായ് പറയണോ? Help center-ൽ നിന്ന് ഞങ്ങളെ ബന്ധപ്പെടുക — ഓരോ സന്ദേശവും ടീമിലെ ഒരു യഥാർത്ഥ വ്യക്തിയിലേക്ക് എത്തുന്നു.',
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
+  'about.featureNotifications':
+    'പുതിയ ഓർഡറുകൾ, ഷിപ്പിംഗ് അപ്ഡേറ്റുകൾ, റിവ്യൂകൾ എന്നിവയ്ക്കുള്ള തത്സമയ അറിയിപ്പുകൾ, കൂടാതെ ഷോപ്പർ, വെണ്ടർ ടൂളുകൾ വേർതിരിച്ചു നിർത്തുന്ന റോൾ അധിഷ്ഠിത അനുമതികളും.',
+  'about.featurePayments':
+    'സുരക്ഷിതമായ Stripe-പവേർഡ് ചെക്ക്ഔട്ട്, സ്വയമേവയുള്ള കമ്മീഷൻ വിഭജനം, ഷെഡ്യൂൾ ചെയ്ത പേഔട്ടുകൾ — വെണ്ടർമാർക്ക് അവർ എത്ര സമ്പാദിച്ചു എന്ന് എപ്പോഴും കൃത്യമായി അറിയാം.',
+  'about.featureShop':
+    'ആയിരക്കണക്കിന് സ്വതന്ത്ര വെണ്ടർമാരെ ഉൾക്കൊള്ളുന്ന തിരയാവുന്ന കാറ്റലോഗ്, പരിശോധിച്ച കടകൾ, റേറ്റിംഗുകൾ, റിവ്യൂകൾ എന്നിവയോടെ — ആത്മവിശ്വാസത്തോടെ വാങ്ങാം.',
+  'about.featureVendor':
+    'ഒരു സമ്പൂർണ്ണ വെണ്ടർ ടൂൾകിറ്റ്: ബ്രാൻഡഡ് സ്റ്റോർഫ്രണ്ട്, ഉൽപ്പന്ന, ഇൻവെന്ററി മാനേജ്മെന്റ്, ഇമേജ് അപ്ലോഡുകൾ, ഓർഡർ ഫുൾഫിൽമെന്റ് — എല്ലാം ഒരു ഡാഷ്ബോർഡിൽ.',
+  'about.intro':
+    '{{name}} ഒരു ക്യൂറേറ്റഡ് മാർക്കറ്റ്പ്ലേസാണ്, ഇവിടെ സ്വതന്ത്ര നിർമ്മാതാക്കൾ സ്വന്തം കടകൾ തുറക്കുന്നു, ഷോപ്പർമാർ മറ്റെവിടെയും കിട്ടാത്ത സാധനങ്ങൾ കണ്ടെത്തുന്നു. കൈകൊണ്ട് ചക്രത്തിൽ രൂപപ്പെടുത്തിയ സെറാമിക്സ് മുതൽ ബ്ലോക്ക്-പ്രിന്റ് ചെയ്ത തുണിത്തരങ്ങൾ വരെ, ഓരോ ലിസ്റ്റിംഗും പിന്നിൽ ഒരു കഥയുള്ള യഥാർത്ഥ വെണ്ടറിൽ നിന്നാണ്.',
+  'about.missionBody':
+    'നിർമ്മാതാക്കൾ അവരുടെ കരകൗശലത്തെ അവരുടേതാക്കുന്നത് നിലനിർത്തണമെന്ന് ഞങ്ങൾ വിശ്വസിക്കുന്നു. {{name}} ഒരു സ്ഥിരമായ, സുതാര്യമായ കമ്മീഷൻ ഈടാക്കുന്നു, എല്ലാ ആഴ്ചയും വിശ്വസനീയമായി പേഔട്ട് നൽകുന്നു, ഓരോ വെണ്ടർക്കും അവർ പൂർണ്ണമായി നിയന്ത്രിക്കുന്ന ഒരു സ്റ്റോർഫ്രണ്ട് നൽകുന്നു — അതിനാൽ ഞങ്ങൾ മാർക്കറ്റ്പ്ലേസ് നടത്തുമ്പോൾ അവർക്ക് അവരുടെ ജോലിയിൽ ശ്രദ്ധ കേന്ദ്രീകരിക്കാം.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'about.pageTitle': 'കുറിച്ച് {{name}}',
   'cart.checkoutCta': 'ചെക്ക്ഔട്ടിലേക്ക് തുടരുക',
   'cart.decreaseAria': 'അളവ് കുറയ്ക്കുക',
+  'cart.deliveryEstimate': 'കണക്കാക്കിയ ഡെലിവറി {{range}}',
   'cart.empty.body': 'കാറ്റലോഗ് ബ്രൗസ് ചെയ്ത് നിങ്ങളുടെ ബാഗിൽ കുറച്ച് മേക്കറുകൾ ചേർക്കുക.',
+  'cart.empty.cta': 'കാറ്റലോഗ് ബ്രൗസ് ചെയ്യുക',
   'cart.empty.title': 'നിങ്ങളുടെ കാർട്ട് ശൂന്യമാണ്',
   'cart.eyebrow': 'നിങ്ങളുടെ കാർട്ട്',
+  'cart.increaseAria': 'അളവ് വർദ്ധിപ്പിക്കുക',
   'cart.loadError': 'നിങ്ങളുടെ കാർട്ട് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക.',
   'cart.loading': 'നിങ്ങളുടെ കാർട്ട് ലോഡ് ചെയ്യുന്നു...',
+  'cart.protectionNote':
+    '{{appName}} ഓരോ ഓർഡറും സംരക്ഷിക്കുന്നു. 30 ദിവസത്തിനുള്ളിൽ സൗജന്യ റിട്ടേണുകൾ.',
   'cart.removeError': 'ഇനം നീക്കം ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'cart.shippingFromVendor': 'ഈ വെണ്ടറിൽ നിന്നുള്ള ഷിപ്പിംഗ്: {{amount}}',
+  'cart.subtitle':
+    'ഓരോ വെണ്ടറും സ്വന്തമായി ഷിപ്പ് ചെയ്യുന്നു — നിങ്ങൾ ഒരിക്കൽ മാത്രം ചെക്ക്ഔട്ട് ചെയ്യൂ. ബാക്കിയെല്ലാം {{appName}} കൈകാര്യം ചെയ്യുന്നു.',
+  'cart.subtotalGroup': 'സബ്ടോട്ടൽ {{amount}}',
   'cart.summaryItems': 'ഇനങ്ങൾ',
   'cart.summaryShipping': 'ഷിപ്പിംഗ് (സംയോജിപ്പിച്ചത്)',
   'cart.title': 'കാർട്ട് · {{count}} ഇനങ്ങൾ {{vendorCount}} വെണ്ടർമാർ',
@@ -23,6 +47,7 @@ export const ui: UiTranslations = {
   'catalog.featuredVendors': 'തിരഞ്ഞെടുത്ത കടകൾ',
   'catalog.loading': 'ഉൽപ്പന്നങ്ങൾ ലോഡ് ചെയ്യുന്നു…',
   'catalog.resultCount': '{{count}} ഉൽപ്പന്നങ്ങൾ',
+  'catalog.searchAria': 'കാറ്റലോഗ് തിരയുക',
   'catalog.searchPlaceholder': 'ഉൽപ്പന്നങ്ങൾ, വെണ്ടർമാർ അല്ലെങ്കിൽ ടാഗുകൾ എന്നിവ തിരയുക...',
   'catalog.sortBy': 'ഇങ്ങനെ അടുക്കുക',
   'catalog.subtitle':
@@ -30,6 +55,7 @@ export const ui: UiTranslations = {
   'catalog.title': 'വെൻഡ്രിയിലെ എല്ലാ കടകളും ബ്രൗസ് ചെയ്യുക',
   'checkout.emptyCta': 'കാറ്റലോഗ് ബ്രൗസ് ചെയ്യുക',
   'checkout.emptyTitle': 'നിങ്ങളുടെ കാർട്ട് ശൂന്യമാണ്.',
+  'checkout.eyebrow': 'സുരക്ഷിതമായ ചെക്ക്ഔട്ട്',
   'checkout.loadError': 'നിങ്ങളുടെ കാർട്ട് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക.',
   'checkout.loading': 'നിങ്ങളുടെ കാർട്ട് ലോഡ് ചെയ്യുന്നു...',
   'checkout.payment.testNote':
@@ -39,12 +65,14 @@ export const ui: UiTranslations = {
   'checkout.placingOrder': 'ഓർഡർ നൽകുന്നു…',
   'checkout.review.shipTo': 'ഷിപ്പ് ചെയ്യുന്നത്',
   'checkout.review.subtotal': 'വെണ്ടർ ഉപവിഭാഗത്തിന്റെ ആകെത്തുക',
+  'checkout.review.title': 'വെണ്ടർ തിരിച്ച് നിങ്ങളുടെ ഓർഡർ അവലോകനം ചെയ്യുക',
   'checkout.shipping.title': 'നമ്മൾ എവിടേക്കാണ് ഷിപ്പ് ചെയ്യേണ്ടത്?',
   'checkout.shippingValidation': 'ആവശ്യമായ എല്ലാ ഷിപ്പിംഗ് ഫീൽഡുകളും പൂരിപ്പിക്കുക.',
   'checkout.summary.shipping': 'ഷിപ്പിംഗ്',
   'checkout.summary.tax': 'കണക്കാക്കിയ നികുതി',
   'checkout.title': 'ഒരു ചെക്കൗട്ട്, നിരവധി നിർമ്മാതാക്കൾ',
   'common.and': 'ഒപ്പം',
+  'forgotPassword.continue': 'എന്റെ റീസെറ്റ് കോഡ് ഉണ്ട്.',
   'forgotPassword.emailLabel': 'അക്കൗണ്ട് ഇമെയിൽ',
   'forgotPassword.heading': 'നിങ്ങളുടെ പാസ്വേഡ് മറന്നോ?',
   'forgotPassword.subheading':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'forgotPassword.submit': 'ഇമെയിൽ റീസെറ്റ് ലിങ്ക്',
   'forgotPassword.success':
     'പരിശോധിക്കുക {{email}} ഒരു റീസെറ്റ് ലിങ്കിന് — അടുത്ത 30 മിനിറ്റിലേക്ക് ഇത് നല്ലതാണ്.',
+  'landing.featured.cta': 'എല്ലാ വെണ്ടർമാരെയും ബ്രൗസ് ചെയ്യുക',
   'landing.featured.eyebrow': 'സ്പോട്ട്‌ലൈറ്റ് ഷോപ്പുകൾ',
   'landing.featured.title': 'ഈ മാസം തരംഗമാകുന്ന വിൽപ്പനക്കാർ',
   'landing.footer.becomeVendor': 'ഒരു വെണ്ടർ ആകുക',
@@ -61,6 +90,9 @@ export const ui: UiTranslations = {
   'landing.nav.sell': 'വെൻഡ്രിയിൽ വിൽക്കുക',
   'landing.nav.shop': 'ഷോപ്പ്',
   'landing.nav.signUp': 'ചേരുക',
+  'landing.sellPitch.cta': 'വിൽക്കാൻ അപേക്ഷിക്കുക',
+  'landing.sellPitch.description':
+    'സ്ഥിരമായ 8% കമ്മീഷൻ, എല്ലാ വെള്ളിയാഴ്ചയും പേഔട്ടുകൾ, നിങ്ങളുടെ സ്റ്റോർഫ്രണ്ട്, നിങ്ങളുടെ കഥ. മാർക്കറ്റ്പ്ലേസ് ഞങ്ങൾ കൈകാര്യം ചെയ്യുന്നു; നിങ്ങൾ നിങ്ങളുടെ കരകൗശലത്തിൽ തുടരൂ.',
   'landing.sellPitch.eyebrow': 'നിർമ്മാതാക്കൾക്ക്',
   'landing.sellPitch.title': 'ഒരു കട തുറക്കൂ. നിങ്ങളുടേത് എന്താണോ അത് സൂക്ഷിക്കൂ.',
   'landing.trending.cta': 'കാറ്റലോഗ് വാങ്ങുക',
@@ -69,6 +101,7 @@ export const ui: UiTranslations = {
   'login.accountTypeAria': 'അക്കൗണ്ട് തരം',
   'login.heading': 'വെൻഡ്രിയിലേക്ക് വീണ്ടും സ്വാഗതം.',
   'login.legalPrefix': 'സൈൻ ഇൻ ചെയ്യുന്നതിലൂടെ, നിങ്ങൾ ഞങ്ങളുടെ',
+  'login.signupPrompt': 'ടെസേറയിൽ പുതിയ ആളാണോ?',
   'login.subheading':
     'ഷോപ്പിംഗ് തുടരാൻ സൈൻ ഇൻ ചെയ്യുക അല്ലെങ്കിൽ നിങ്ങളുടെ കടയിലേക്ക് തിരികെ പോകുക.',
   'login.submitShopper': 'ഷോപ്പുചെയ്യാൻ സൈൻ ഇൻ ചെയ്യുക',
@@ -85,37 +118,51 @@ export const ui: UiTranslations = {
   'notifications.markAllError': 'എല്ലാം വായിച്ചതായി അടയാളപ്പെടുത്താൻ കഴിഞ്ഞില്ല.',
   'notifications.read': 'വായിക്കുക',
   'notifications.time.daysAgo': '{{count}} ദിവസങ്ങൾക്ക് മുമ്പ്',
+  'notifications.time.hourAgo': '1 മണിക്കൂർ മുമ്പ്',
+  'notifications.time.hoursAgo': '{{count}} മണിക്കൂറുകൾക്ക് മുമ്പ്',
   'notifications.time.justNow': 'ഇപ്പോൾ തന്നെ',
+  'notifications.time.minutesAgo': '{{count}} മിനിറ്റ് മുമ്പ്',
+  'notifications.time.yesterday': 'ഇന്നലെ',
   'orderDetail.backToOrders': 'എല്ലാ ഓർഡറുകളിലേക്കും മടങ്ങുക',
   'orderDetail.eyebrow': 'ഓർഡർ വിശദാംശങ്ങൾ',
   'orderDetail.helpBody':
     'വെൻഡ്രി സപ്പോർട്ട് 4 മണിക്കൂറിനുള്ളിൽ മറുപടി നൽകുന്നു, വാരാന്ത്യങ്ങളിൽ പോലും.',
+  'orderDetail.helpCta': 'പിന്തുണയെ ബന്ധപ്പെടുക',
   'orderDetail.helpTitle': 'ഈ ഓർഡറിൽ എന്തെങ്കിലും പോരായ്മയുണ്ടോ?',
   'orderDetail.summary':
     'സ്ഥാപിച്ചു {{date}} · {{vendorCount}} വെണ്ടർ(മാർ) · മൾട്ടി-വെണ്ടർ പൂർത്തീകരണം',
+  'orderDetail.timelineTitle': 'ഓർഡർ യാത്ര',
   'orders.empty': 'ഈ ഫിൽട്ടറുമായി പൊരുത്തപ്പെടുന്ന ഓർഡറുകളൊന്നും ഇതുവരെയില്ല.',
   'orders.emptyTitle': 'ഇവിടെ ഇതുവരെ ഓർഡറുകളൊന്നുമില്ല.',
   'orders.eyebrow': 'നിങ്ങളുടെ വാങ്ങലുകൾ',
   'orders.subtitle':
     'ആരാണ് എന്താണ് ഷിപ്പ് ചെയ്തതെന്ന് കാണുക, ഓരോ വെണ്ടറുടെയും ട്രാക്കിംഗ് പിന്തുടരുക, ഇനി ഒരിക്കലും ഒരു പാഴ്സൽ പോലും നഷ്ടപ്പെടുത്തരുത്.',
   'orders.title': 'ഓർഡറുകൾ, വെണ്ടർ അനുസരിച്ച് തരംതിരിച്ചിരിക്കുന്നു',
+  'planUpdated.retry': 'വീണ്ടും ശ്രമിക്കുക',
+  'planUpdated.verifyFailed': 'നിങ്ങളുടെ പേയ്‌മെന്റ് ഞങ്ങൾക്ക് ഇതുവരെ സ്ഥിരീകരിക്കാൻ കഴിഞ്ഞില്ല.',
+  'planUpdated.verifyFailedBody':
+    'നിങ്ങളുടെ പേയ്‌മെന്റ് ഇപ്പോഴും പ്രോസസ്സ് ചെയ്തുകൊണ്ടിരിക്കുകയായിരിക്കാം. അൽപ്പസമയത്തിനുള്ളിൽ വീണ്ടും ശ്രമിക്കുക.',
   'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'productDetail.addToCart': 'കാർട്ടിലേക്ക് ചേർക്കുക',
   'productDetail.addToCartError': 'കാർട്ടിലേക്ക് ചേർക്കാൻ കഴിഞ്ഞില്ല.',
   'productDetail.addToCartSuccess': '" {{name}} ” നിങ്ങളുടെ കാർട്ടിലേക്ക് ചേർത്തു.',
   'productDetail.backToCatalog': 'കാറ്റലോഗിലേക്ക് മടങ്ങുക',
   'productDetail.breadcrumbCatalog': 'കാറ്റലോഗ്',
+  'productDetail.colorLabel': 'നിറം · {{name}}',
   'productDetail.decreaseAria': 'അളവ് കുറയ്ക്കുക',
   'productDetail.description': 'വെൻഡ്രിയിലെ ഒരു സ്വതന്ത്ര നിർമ്മാതാവ് നിർമ്മിച്ചത്.',
   'productDetail.featuredBadge': 'ഫീച്ചർ ചെയ്ത നിർമ്മാതാവ്',
   'productDetail.galleryThumbAria': 'ചിത്രം കാണിക്കുക {{index}}',
+  'productDetail.increaseAria': 'അളവ് വർദ്ധിപ്പിക്കുക',
   'productDetail.loading': 'ഉൽപ്പന്നം ലോഡ് ചെയ്യുന്നു…',
   'productDetail.notFound': 'ഉൽപ്പന്നം കണ്ടെത്തിയില്ല.',
   'productDetail.relatedTitle': 'ഈ നിർമ്മാതാവിൽ നിന്ന് കൂടുതൽ',
   'productDetail.reviewsTitle': 'ഷോപ്പർമാർ പറഞ്ഞത്',
   'productDetail.trust.protection': 'വെൻഡ്രി സംരക്ഷണം',
+  'productDetail.trust.returns': '30 ദിവസത്തെ റിട്ടേണുകൾ',
   'productDetail.trust.shipping': '2 ദിവസത്തിനുള്ളിൽ ഷിപ്പ് ചെയ്യും',
   'productDetail.verifiedAria': 'പരിശോധിച്ചുറപ്പിച്ച വെണ്ടർ',
+  'resetPassword.didntGetCode': 'ഒരു കോഡ് കിട്ടിയില്ലേ?',
   'resetPassword.emailLabel': 'അക്കൗണ്ട് ഇമെയിൽ',
   'resetPassword.mismatch': 'പാസ്‌വേഡുകൾ ഇതുവരെ പൊരുത്തപ്പെടുന്നില്ല.',
   'resetPassword.newPasswordLabel': 'പുതിയ പാസ്വേഡ്',
@@ -124,8 +171,10 @@ export const ui: UiTranslations = {
     'ഞങ്ങൾ നിങ്ങൾക്ക് ഇമെയിൽ അയച്ച കോഡ് നൽകുക, തുടർന്ന് സൈൻ ഇൻ ചെയ്യുന്നത് പൂർത്തിയാക്കാൻ ഒരു പുതിയ പാസ്‌വേഡ് തിരഞ്ഞെടുക്കുക.',
   'resetPassword.submit': 'പുനഃസജ്ജീകരിച്ച് സൈൻ ഇൻ ചെയ്യുക',
   'resetPassword.submitting': 'പാസ്‌വേഡ് അപ്‌ഡേറ്റ് ചെയ്യുന്നു…',
+  'settings.appearance.description': 'ലൈറ്റ്, ഡാർക്ക് മോഡുകൾക്കിടയിൽ ടോഗിൾ ചെയ്യുക.',
   'settings.appearance.title': 'രൂപഭാവം',
   'settings.language.description': 'മാർക്കറ്റിൽ ഉടനീളം ഉപയോഗിക്കുന്ന ഭാഷ തിരഞ്ഞെടുക്കുക.',
+  'settings.payouts.accountLabel': 'അക്കൗണ്ട് നമ്പർ / IBAN',
   'settings.payouts.body':
     'വെൻഡ്രി എല്ലാ വെള്ളിയാഴ്ചയും നിങ്ങളുടെ പ്രാദേശിക കറൻസിയിൽ പണം നൽകുന്നു, 8% കമ്മീഷൻ കുറച്ചുകൊണ്ട്.',
   'settings.payouts.save': 'പേഔട്ട് വിശദാംശങ്ങൾ സംരക്ഷിക്കുക',
@@ -144,6 +193,7 @@ export const ui: UiTranslations = {
   'signup.mismatch': 'പാസ്‌വേഡുകൾ ഇതുവരെ പൊരുത്തപ്പെടുന്നില്ല.',
   'signup.subheading':
     '4,000+ സ്വതന്ത്ര നിർമ്മാതാക്കളെ ബ്രൗസ് ചെയ്യുക, അല്ലെങ്കിൽ സ്വന്തമായി ഒരു ഷോപ്പ് തുറക്കുക.',
+  'signup.submit': 'മാർക്കറ്റിൽ ചേരുക',
   'status.delivered': 'എത്തിച്ചു',
   'status.refunded': 'റീഫണ്ട് ചെയ്തു',
   'userMenu.marketplaceSettings': 'മാർക്കറ്റ്പ്ലേസ് ക്രമീകരണങ്ങൾ',
@@ -153,19 +203,29 @@ export const ui: UiTranslations = {
   'vendorDashboard.heroCaption':
     '{{payout}} വെൻഡ്രി കമ്മീഷനു ശേഷം അനുമതി ലഭിച്ചു. അടുത്ത പേഔട്ട് വെള്ളിയാഴ്ച.',
   'vendorDashboard.heroLabel': 'കഴിഞ്ഞ 30 ദിവസത്തെ മൊത്തം വിൽപ്പന ·',
+  'vendorDashboard.kpi.conversion': 'പരിവർത്തനം',
   'vendorDashboard.kpi.conversionCaption': 'ഈ ആഴ്ചയിലെ വിസിറ്റ്-ടു-ഓർഡർ',
   'vendorDashboard.kpi.netPayout': 'മൊത്തം പേഔട്ട്',
   'vendorDashboard.kpi.netPayoutCaption': '8% വെൻഡ്രി കമ്മീഷന് ശേഷം',
   'vendorDashboard.kpi.orders': 'ഓർഡറുകൾ',
   'vendorDashboard.kpi.ordersCaption': 'കഴിഞ്ഞ 30 ദിവസങ്ങളുമായി താരതമ്യം ചെയ്യുമ്പോൾ',
+  'vendorDashboard.kpi.pendingPayout': 'പെൻഡിംഗ് പേഔട്ട്',
   'vendorDashboard.kpi.pendingPayoutCaption': 'ഈ വെള്ളിയാഴ്ച റിലീസ് ചെയ്യുന്നു',
   'vendorDashboard.newProductCta': 'പുതിയ ഉൽപ്പന്നം',
   'vendorDashboard.payoutsCta': 'പേഔട്ടുകൾ കാണുക',
   'vendorDashboard.recentOrders.cta': 'എല്ലാ ഓർഡറുകളും കാണുക →',
+  'vendorDashboard.recentOrders.emptyBody':
+    'ഉപഭോക്താക്കൾ ചെക്ക്ഔട്ട് ചെയ്താലുടൻ നിങ്ങളുടെ കടയിലേക്കുള്ള ഓർഡറുകൾ ഇവിടെ കാണാം.',
+  'vendorDashboard.recentOrders.emptyCta': 'നിങ്ങളുടെ ആദ്യ ഉൽപ്പന്നം ചേർക്കുക',
+  'vendorDashboard.recentOrders.emptyTitle': 'ഇതുവരെ ഓർഡറുകളൊന്നുമില്ല',
   'vendorDashboard.recentOrders.title': 'സമീപകാല ഓർഡറുകൾ',
+  'vendorDashboard.subtitle': 'ഈ ആഴ്ച നിങ്ങളുടെ കട എങ്ങനെ പ്രവർത്തിക്കുന്നു എന്നത് ഇതാ.',
+  'vendorDashboard.title': 'തിരികെ സ്വാഗതം, {{name}}',
   'vendorOnboarding.about': 'നിങ്ങളുടെ കടയെക്കുറിച്ച് ഞങ്ങളോട് പറയൂ.',
   'vendorOnboarding.aboutPlaceholder':
     'നിങ്ങൾ എവിടെയാണ് ഉണ്ടാക്കുന്നത്, എന്ത് ഉണ്ടാക്കുന്നു, എന്തുകൊണ്ട് അത് പ്രധാനമാണ്.',
+  'vendorOnboarding.bankLabel': 'ബാങ്ക് അക്കൗണ്ട് / IBAN',
+  'vendorOnboarding.categoriesHint': 'ചേരുന്നതെല്ലാം തിരഞ്ഞെടുക്കുക — പിന്നീട് മാറ്റാം.',
   'vendorOnboarding.currencyLabel': 'കറൻസിയിൽ പണമടയ്ക്കുക',
   'vendorOnboarding.errors.shopName': 'കടയുടെ പേര് ആവശ്യമാണ്.',
   'vendorOnboarding.errors.submit': 'നിങ്ങളുടെ അപേക്ഷ സമർപ്പിക്കാൻ കഴിഞ്ഞില്ല.',
@@ -174,8 +234,15 @@ export const ui: UiTranslations = {
   'vendorOnboarding.field.shopName': 'കടയുടെ പേര്',
   'vendorOnboarding.heroBody':
     '8% കമ്മീഷൻ, എല്ലാ വെള്ളിയാഴ്ചയും പേഔട്ടുകൾ, നിങ്ങളുടെ കടയുടെ മുൻഭാഗം, നിങ്ങളുടെ കഥ. നിങ്ങളുടെ കടയെക്കുറിച്ച് ഞങ്ങളോട് കുറച്ച് പറയൂ, 48 മണിക്കൂറിനുള്ളിൽ ഞങ്ങൾ നിങ്ങളെ ബന്ധപ്പെടും.',
+  'vendorOnboarding.review.categories': 'വിഭാഗങ്ങൾ',
   'vendorOnboarding.review.contact': 'ബന്ധപ്പെടുക',
   'vendorOnboarding.review.currency': 'കറൻസി',
+  'vendorOnboarding.review.point1':
+    '{{appName}} സ്ഥിരമായ 8% കമ്മീഷൻ ഈടാക്കുന്നു — ലിസ്റ്റിംഗ് ഫീസില്ല, മറഞ്ഞ ചാർജുകളുമില്ല.',
+  'vendorOnboarding.review.point2':
+    'എല്ലാ വെള്ളിയാഴ്ചയും നിങ്ങളുടെ പ്രാദേശിക കറൻസിയിൽ പേഔട്ടുകൾ സെറ്റിൽ ചെയ്യുന്നു.',
+  'vendorOnboarding.review.point3':
+    'നിങ്ങളുടെ കട എപ്പോൾ വേണമെങ്കിലും താൽക്കാലികമായി നിർത്താം അല്ലെങ്കിൽ നീക്കം ചെയ്യാം.',
   'vendorOnboarding.review.tagline': 'ടാഗ്‌ലൈൻ',
   'vendorOnboarding.review.website': 'വെബ്സൈറ്റ്',
   'vendorOnboarding.reviewBody':
@@ -186,6 +253,8 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'അപേക്ഷ സമർപ്പിച്ചു! ഞങ്ങൾ നിങ്ങളുടെ കട അവലോകനം ചെയ്ത് 48 മണിക്കൂറിനുള്ളിൽ നിങ്ങൾക്ക് ഇമെയിൽ അയയ്ക്കും.',
   'vendorOnboarding.taxIdLabel': 'ടാക്സ് ഐഡി',
+  'vendorOrders.emptyBody':
+    'ഉപഭോക്താക്കൾ നിങ്ങളുടെ ഉൽപ്പന്നങ്ങൾ വാങ്ങുമ്പോൾ, അവരുടെ ഓർഡറുകൾ ഇവിടെ കാണിക്കും.',
   'vendorOrders.emptyTitle': 'ഇതുവരെ പൂർത്തിയാക്കാൻ ഓർഡറുകളൊന്നുമില്ല.',
   'vendorOrders.eyebrow': 'വെണ്ടർ അഡ്മിൻ',
   'vendorOrders.kpi.awaiting': 'പൂർത്തീകരണത്തിനായി കാത്തിരിക്കുന്നു',
@@ -193,6 +262,8 @@ export const ui: UiTranslations = {
   'vendorOrders.subtitle':
     'ലേബലുകൾ പ്രിന്റ് ചെയ്യുക, പൂർത്തിയായതായി അടയാളപ്പെടുത്തുക, ചോദ്യങ്ങൾക്ക് ഉത്തരം നൽകുക - എല്ലാം വെൻഡ്രിയെ വിട്ടുപോകാതെ തന്നെ.',
   'vendorOrders.title': 'ഇൻകമിംഗ് ഓർഡറുകൾ',
+  'vendorPayouts.emptyBody':
+    'നിങ്ങളുടെ വിൽപ്പന 8% കമ്മീഷൻ കഴിഞ്ഞ് ക്ലിയർ ആയാൽ എല്ലാ വെള്ളിയാഴ്ചയും പേഔട്ടുകൾ പുറത്തിറക്കുന്നു.',
   'vendorPayouts.emptyTitle': 'ഇതുവരെ പേഔട്ടുകളൊന്നുമില്ല',
   'vendorPayouts.eyebrow': 'വെണ്ടർ ഫിനാൻസ്',
   'vendorPayouts.heroCaption': 'ബാൻകോ ബിപിഐയിൽ ഒത്തുതീർപ്പ്. {{account}} · 1–2 പ്രവൃത്തി ദിവസങ്ങൾ',
@@ -218,6 +289,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.images.body':
     '8 ചിത്രങ്ങൾ വരെ വലിച്ചിടുക. ആദ്യ ഫോട്ടോ സ്റ്റോർഫ്രണ്ട് കവറായി മാറുന്നു.',
   'vendorProductForm.images.cta': 'ഫോട്ടോകൾ ഇവിടേക്ക് വലിച്ചിടുക അല്ലെങ്കിൽ ബ്രൗസ് ചെയ്യുക',
+  'vendorProductForm.images.hint': 'PNG / JPG · ഓരോന്നിനും പരമാവധി 8MB',
   'vendorProductForm.images.title': 'ചിത്രങ്ങൾ',
   'vendorProductForm.nameLabel': 'ഉൽപ്പന്ന നാമം',
   'vendorProductForm.preview.namePlaceholder': 'ഉൽപ്പന്ന നാമം',
@@ -227,6 +299,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.title': 'നിങ്ങളുടെ ഉൽപ്പന്നത്തെക്കുറിച്ച് ഷോപ്പർമാരോട് പറയുക.',
   'vendorProductForm.variants.colInventory': 'ഇൻവെന്ററി',
   'vendorProductForm.variants.colVariant': 'വേരിയന്റ്',
+  'vendorProductForm.variants.title': 'വേരിയന്റുകളും ഇൻവെന്ററിയും',
   'vendorProducts.eyebrow': 'വെണ്ടർ അഡ്മിൻ',
   'vendorProducts.kpi.draft': 'ഡ്രാഫ്റ്റുകൾ',
   'vendorProducts.kpi.lowStock': 'കുറഞ്ഞ സ്റ്റോക്ക്',
@@ -253,6 +326,7 @@ export const ui: UiTranslations = {
     'നിങ്ങളുടെ ഷോപ്പ് മാനേജ് ചെയ്യാൻ സൈൻ ഇൻ ചെയ്യുക, എല്ലാ വെണ്ടർമാരിൽ നിന്നുമുള്ള ഓർഡറുകൾ ട്രാക്ക് ചെയ്യുക, സ്വതന്ത്ര നിർമ്മാതാക്കളിൽ നിന്നുള്ള ധീരമായ ശേഖരങ്ങൾ കണ്ടെത്തുക.',
   'vendryAuthShell.sampleVendorMeta': 'പരിശോധിച്ചു · 4.9 ★ · 1,240 വിൽപ്പന',
   'vendryAuthShell.sampleVendorName': 'മീര & കമ്പനി സെറാമിക്സ്',
+  'vendryAuthShell.sampleVendorTag': 'ഫീച്ചർ ചെയ്ത',
   'vendryMarketHero.description':
     'ആയിരക്കണക്കിന് സ്വതന്ത്ര വിൽപ്പനക്കാരെയും, കൈകൊണ്ട് ക്യൂറേറ്റ് ചെയ്ത ശേഖരങ്ങളെയും, ആത്മാർത്ഥതയുള്ള ആളുകൾ നടത്തുന്ന സ്റ്റോർഫ്രണ്ടുകളെയും കണ്ടെത്തൂ. ധൈര്യത്തോടെ ഷോപ്പുചെയ്യുക, യഥാർത്ഥ നിർമ്മാതാക്കളെ പിന്തുണയ്ക്കുക.',
   'vendryMarketHero.eyebrow': 'ക്യുറേറ്റഡ് മാർക്കറ്റ്പ്ലേസ് · 2026 കളക്ഷൻ',
@@ -261,11 +335,13 @@ export const ui: UiTranslations = {
   'vendryMarketHero.stat1Label': 'സ്വതന്ത്ര നിർമ്മാതാക്കൾ',
   'vendryMarketHero.stat2Label': 'ക്യുറേറ്റ് ചെയ്‌ത ഉൽപ്പന്നങ്ങൾ',
   'vendryMarketHero.stat3Label': 'ശരാശരി റേറ്റിംഗ്',
+  'vendryMarketHero.title': 'ഓരോ നിർമ്മാതാവും, ഒരു മാർക്കറ്റ്പ്ലേസ്.',
   'vendryOrderCard.idLabel': 'ഓർഡർ ചെയ്യുക',
   'vendryOrderCard.placedOn': 'സ്ഥാപിച്ചു {{date}}',
   'vendryOrderCard.qty': 'അളവ് {{count}}',
   'vendryOrderCard.vendorCount': '{{count}} ഈ ക്രമത്തിൽ വെണ്ടർ(മാർ)',
   'vendryOrderCard.verifiedAria': 'പരിശോധിച്ചുറപ്പിച്ച വെണ്ടർ',
+  'vendryOrderCard.viewDetails': 'വിശദാംശങ്ങൾ കാണുക',
   'vendryProductCard.favoriteAria': 'പ്രിയപ്പെട്ടവയിലേക്ക് സംരക്ഷിക്കുക',
   'vendryProductCard.saleBadge': 'വില്പനയ്ക്ക്',
   'vendryProductCard.verified': 'പരിശോധിച്ചുറപ്പിച്ച വെണ്ടർ',

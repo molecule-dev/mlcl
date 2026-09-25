@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'មានសំណួរ រកឃើញកំហុស ឬចង់បានការបង្ហាញសាកល្បងសម្រាប់ក្រុមរបស់អ្នក? ទាក់ទងមកពីការកំណត់គណនីរបស់អ្នក — រាល់សារទាំងអស់ត្រូវបានផ្ញើទៅមនុស្សពិតប្រាកដក្នុងក្រុម។',
   'about.contactTitle': 'ទាក់ទងមកយើងខ្ញុំ',
+  'about.intro':
+    '{{app}} បំប្លែងគំនរឯកសារស្កេន និង PDF ទៅជាទិន្នន័យដែលមានរចនាសម្ព័ន្ធ អាចស្វែងរក និងចាត់ថ្នាក់រួច។ បញ្ចូលវិក្កយបត្រ បង្កាន់ដៃ កិច្ចសន្យា ឬទម្រង់ ហើយឱ្យ AI អាន ទាញយក ចាត់ថ្នាក់ និងចាត់ចូលឯកសារ — ជាមួយពណ៌កម្រិតជឿជាក់ ដើម្បីឱ្យក្រុមរបស់អ្នកពិនិត្យតែអ្វីដែលត្រូវការមនុស្សពិតប្រាកដប៉ុណ្ណោះ។',
+  'about.missionBody':
+    'ការងារឯកសារដ៏ធុញទ្រាន់មិនគួរស៊ីពេលវេលាក្រុមរបស់អ្នកទេ។ យើងជឿថារាល់តម្លៃដែលទាញយកបានគួរតែអាចពន្យល់ និងអាចត្រួតពិនិត្យបាន — ដើម្បីឱ្យអ្នកអាចទុកចិត្តលើស្វ័យប្រវត្តិកម្មដោយមិនបាត់បង់ដានឯកសារ។ {{app}} ត្រូវបានសាងសង់ឡើងដើម្បីសន្សំម៉ោងក្នុងមួយគំនរ ខណៈរក្សាមនុស្សនៅក្នុងដំណើរការគ្រប់កន្លែងដែលសំខាន់។',
+  'about.missionTitle': 'បេសកកម្មរបស់យើង',
+  'about.subtitle':
+    'OCR ការទាញយកដោយ AI ការចាត់ថ្នាក់ និងការចាត់ចូលឯកសារដោយស្វ័យប្រវត្តិសម្រាប់ឯកសាររបស់អ្នក។',
   'about.title': 'អំពី {{app}}',
+  'about.whatYouGetTitle': 'អ្វីដែលអ្នកទទួលបាន',
   'authShell.backToLanding': '← ត្រឡប់ទៅចុះចតវិញ',
   'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'ថ្ងៃនេះ · ទិដ្ឋភាពទូទៅនៃប្រតិបត្តិការ',
   'dashboard.heading': 'ភាពវៃឆ្លាតឯកសារ',
+  'dashboard.metric.accuracy': 'ភាពត្រឹមត្រូវជាមធ្យម',
   'dashboard.metric.filed': 'បានដាក់ឯកសារថ្ងៃនេះ',
   'dashboard.metric.filedCaption': 'បានបញ្ជូនតាមច្បាប់ដាក់ឯកសារ',
   'dashboard.metric.processed': 'បានដំណើរការនៅថ្ងៃនេះ',
@@ -23,11 +34,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'ឯកសារ',
   'dashboard.recent.col.uploaded': 'បានផ្ទុកឡើង',
   'dashboard.recent.heading': 'ឯកសារថ្មីៗ',
+  'dashboard.recent.typeUnknown': 'កំពុងរង់ចាំការចាត់ថ្នាក់',
   'dashboard.subheading':
     'ទំព័រនីមួយៗត្រូវបានចាត់ថ្នាក់ ស្រង់ចេញ និងដាក់ក្នុងឯកសារ — ជាមួយនឹងពណ៌ទំនុកចិត្ត ដូច្នេះការពិនិត្យឡើងវិញនៅតែផ្តោតអារម្មណ៍។',
   'documentDetail.audit.heading': 'កាលវិភាគសវនកម្ម',
+  'documentDetail.audit.subheading': 'រាល់ជំហានដែលបានធ្វើលើឯកសារនេះ ជាមួយអ្នកទទួលបន្ទុក។',
   'documentDetail.back': 'ឯកសារទាំងអស់',
   'documentDetail.downloadHint': 'ប្រើ​ការ​ទាញ​យក​ដើម្បី​បើក​ឯកសារ​ដើម។',
+  'documentDetail.extracted.empty': 'មិនទាន់មានវាលដែលទាញយកបានទេ។',
   'documentDetail.extracted.heading': 'វាលដែលបានស្រង់ចេញ',
   'documentDetail.extracted.subheading': '{{count}} វាល · ចុចលើវាលណាមួយដើម្បីបន្លិចនៅលើទំព័រ',
   'documentDetail.loadError': 'បរាជ័យក្នុងការផ្ទុកឯកសារ។',
@@ -54,14 +68,25 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'ស្វែងរកឯកសារ…',
   'documents.subheading': '{{count}} ឯកសារនៅក្នុងបណ្ណាល័យរបស់អ្នក តម្រៀបថ្មីបំផុតមុន។',
   'documents.uploadCta': 'ផ្ទុកឡើងឯកសារ',
+  'documentTypeBreakdown.barAria': 'សមាសភាពឯកសារតាមប្រភេទ',
   'documentTypeBreakdown.empty': 'មិនទាន់មានឯកសារណាមួយត្រូវបានដំណើរការនៅឡើយទេ។',
   'documentTypeBreakdown.subtitle': '{{total}} បានដំណើរការ',
   'documentTypeBreakdown.title': 'សមាសភាពឯកសារ',
+  'forgotPassword.backToSignIn': '← ត្រឡប់ទៅចូលគណនីវិញ',
   'forgotPassword.checkEmail': 'សូមពិនិត្យមើលអ៊ីមែលរបស់អ្នក',
   'forgotPassword.tip':
     'មិន​បាន​ទទួល​វា​ទេ? សូម​ពិនិត្យ​មើល​សារ​ឥត​បាន​ការ ឬ​សាកល្បង​អាសយដ្ឋាន​ផ្សេង។',
+  'landing.copyright':
+    '© {{year}} {{app}}។ សាងសង់សម្រាប់ក្រុមប្រតិបត្តិការដែលត្រួតពិនិត្យរាល់ទំព័រ។',
+  'landing.ctaBody':
+    'សាកល្បង 14 ថ្ងៃ។ មិនត្រូវការកាត។ បោះបង់បានពេលណាក៏បាន។ សាងសង់សម្រាប់ក្រុមប្រតិបត្តិការដែលធ្វើការរហ័ស និងត្រួតពិនិត្យយឺត។',
   'landing.ctaHeading': 'ឈប់វាយបញ្ចូលបង្កាន់ដៃ។ ចាប់ផ្តើមដាក់ឯកសារទាំងនោះ។',
   'landing.eyebrow': 'OCR · ការស្រង់ចេញ · ការដាក់ឯកសារ AI',
+  'landing.featuresHeading': 'បញ្ញាឯកសារដែលពន្យល់ខ្លួនឯងបាន',
+  'landing.heroSubtitle':
+    'បញ្ចូលគំនរវិក្កយបត្រ បង្កាន់ដៃ កិច្ចសន្យា ឬទម្រង់។ {{app}} ចាត់ថ្នាក់ ទាញយក និងចាត់ចូលឯកសារ — ជាមួយពណ៌កម្រិតជឿជាក់ ដើម្បីឱ្យក្រុមរបស់អ្នកពិនិត្យតែអ្វីដែលត្រូវការមនុស្សពិតប្រាកដប៉ុណ្ណោះ។',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'បរិមាណប្រចាំថ្ងៃ · 7 ថ្ងៃចុងក្រោយ',
   'landing.sampleCardLabel': 'ឯកសារដែលបានដំណើរការនៅថ្ងៃនេះ',
   'landing.sampleCardSubtitle':
     'ភាពត្រឹមត្រូវជាមធ្យម 96.2% នៅទូទាំងវិក្កយបត្រ បង្កាន់ដៃ និងទម្រង់បែបបទ។',
@@ -75,12 +100,15 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · ៤០៤',
   'notFound.home': 'បើកទំព័រចុះចត',
   'notFound.title': 'ទំព័រនោះមិនមាននៅក្នុងឯកសារទេ',
+  'parcelaHeroCard.accuracy': 'ភាពត្រឹមត្រូវជាមធ្យម {{value}}% លើរាល់ការទាញយកទាំងអស់',
+  'parcelaHeroCard.change': '{{sign}}{{amount}} % ធៀបនឹងម្សិលមិញ',
   'parcelaHeroCard.title': 'ឯកសារដែលបានដំណើរការនៅថ្ងៃនេះ',
   'parcelaLayout.primaryNavLabel': 'ការរុករកចម្បង',
   'planUpdated.pageLabel': 'ការបញ្ជាក់​អំពី​ការ​ធ្វើ​បច្ចុប្បន្នភាព​ផែនការ',
   'pricing.documentsLabel': 'ឯកសារ',
   'pricing.processingLabel': 'ដំណើរការការងារ',
   'resetPassword.confirmPlaceholder': 'ធ្វើពាក្យសម្ងាត់ថ្មីម្តងទៀត',
+  'resetPassword.hidePassword': 'លាក់ពាក្យសម្ងាត់',
   'resetPassword.passwordLabel': 'ពាក្យសម្ងាត់ថ្មី',
   'resetPassword.showPassword': 'បង្ហាញពាក្យសម្ងាត់',
   'resetPassword.subtitle': 'ជ្រើសរើសអ្វីមួយដែលមានប្រវែងយ៉ាងហោចណាស់ ៨ តួអក្សរ។',
@@ -97,10 +125,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'បរាជ័យក្នុងការផ្ទុកច្បាប់។',
   'rules.loading': 'កំពុងផ្ទុកច្បាប់…',
   'rules.matched30d': '{{count}} ឯកសារដែលត្រូវគ្នាក្នុងរយៈពេល 30 ថ្ងៃចុងក្រោយ',
+  'rules.neverUsed': 'មិនដែលប្រើទេ',
   'rules.newRule': 'ច្បាប់ថ្មី',
   'rules.saveError': 'មិនអាចរក្សាទុកច្បាប់បានទេ។',
   'rules.subheading':
     'ប្រាប់ប្រព័ន្ធថាឯកសារប្រភេទនីមួយៗគួរទៅណា។ ខ្សែសង្វាក់លក្ខខណ្ឌពីលើចុះក្រោម — ការប្រកួតដំបូងឈ្នះ។',
+  'rules.templatesEmpty': 'មិនទាន់មានគំរូទាញយកទេ។',
   'rules.templatesHeading': 'គំរូស្រង់ចេញ',
   'rules.templatesSubheading':
     'គ្រោងការណ៍​វាល​ដែល​កម្មវិធី​ស្រង់​ប្រើ​សម្រាប់​ប្រភេទ​ឯកសារ​នីមួយៗ។',
@@ -109,17 +139,24 @@ export const ui: UiTranslations = {
   'settings.account.error': 'បរាជ័យក្នុងការរក្សាទុក។',
   'settings.account.nameLabel': 'ឈ្មោះ​កន្លែងធ្វើការ',
   'settings.account.subheading': 'បង្ហាញឈ្មោះ និងអ៊ីមែលចម្បងសម្រាប់ការជូនដំណឹង និងប្រវត្តិសវនកម្ម។',
+  'settings.api.confirmRevoke': 'បញ្ជាក់?',
   'settings.api.copyOnce': 'ចម្លងសោនេះ — វានឹងមិនត្រូវបានបង្ហាញម្តងទៀតទេ',
   'settings.api.createdOn': 'បានបង្កើត {{date}}',
   'settings.api.empty': 'មិនទាន់មានសោ API នៅឡើយទេ។ បង្កើតមួយខាងលើ។',
   'settings.api.error': 'បរាជ័យក្នុងការបង្កើតសោ។',
+  'settings.api.generating': 'កំពុងបង្កើត…',
+  'settings.api.heading': 'សោ API',
   'settings.api.labelPlaceholder': 'ស្លាក​សោ (ឧ. កម្មវិធី​ផ្ទុកឡើង CI)',
+  'settings.api.loading': 'កំពុងផ្ទុកសោ…',
   'settings.api.newKey': 'បង្កើត​សោ',
   'settings.api.subheading':
     'ប្រើប្រាស់​ទាំងនេះ​ដើម្បី​រុញ​ឯកសារ​ពី​ស្គ្រីប ឬ ERP របស់អ្នក។ បង្វិល​គ្រាប់ចុច​ណាមួយ​នៅពេល​ណាក៏បាន។',
   'settings.integrations.heading': 'ការរួមបញ្ចូលឯកសារ',
   'settings.integrations.subheading':
     'ផ្ញើឯកសារដែលបានដាក់ជូនទៅកាន់ដ្រាយពពក ឬឧបករណ៍ជជែកដែលក្រុមរបស់អ្នករស់នៅរួចហើយ។',
+  'settings.subheading':
+    'គ្រប់គ្រងគណនី សោ API និងការរួមបញ្ចូលការចាត់ចូលឯកសារសម្រាប់កន្លែងធ្វើការ {{app}} របស់អ្នក។',
+  'signup.hidePassword': 'លាក់ពាក្យសម្ងាត់',
   'signup.identityPrompt': 'តើយើងគួរទាក់ទងអ្នកដោយរបៀបណា?',
   'signup.showPassword': 'បង្ហាញពាក្យសម្ងាត់',
   'signup.subtitle': 'ឥតគិតថ្លៃ ១៤ ថ្ងៃ មិនត្រូវការកាតទេ។',
@@ -127,6 +164,7 @@ export const ui: UiTranslations = {
   'upload.error': 'ការផ្ទុកឡើងបរាជ័យ។',
   'upload.eyebrow': 'ការលេបចូល',
   'upload.heading': 'ផ្ទុកឡើងឯកសារ',
+  'upload.queue.clear': 'សម្អាតអ្វីដែលបានបញ្ចប់',
   'upload.queue.col.confidence': 'ទំនុកចិត្ត',
   'upload.queue.col.file': 'ឯកសារ',
   'upload.queue.detecting': 'កំពុងរកឃើញ…',
@@ -139,5 +177,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'ឬទម្លាក់ឯកសារច្រើនក្នុងពេលតែមួយសម្រាប់ការស្រង់ចេញជាបាច់ ការចាត់ថ្នាក់ និងការដាក់ឯកសារ។',
   'uploadDropZone.cta': 'ជ្រើសរើសឯកសារ',
+  'uploadDropZone.maxSize': 'អតិបរមា 25 MB ក្នុងមួយឯកសារ · អ៊ិនគ្រីបពីចុងដល់ចុង',
   'uploadDropZone.title': 'ទម្លាក់ឯកសារដើម្បីចាប់ផ្តើមដំណើរការ',
 }

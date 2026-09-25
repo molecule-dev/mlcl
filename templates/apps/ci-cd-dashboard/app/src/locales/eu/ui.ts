@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Galderak, iritzia, edo zure taldearentzat demo bat nahi duzu? Idatzi hello@conduit.dev helbidera — mezu bakoitza taldeko benetako pertsona batengana iristen da.',
   'about.contactHeading': 'Jarri gurekin harremanetan',
   'about.eyebrow': 'Buruz',
+  'about.featuresHeading': 'Zer lortzen duzun',
+  'about.introBody':
+    '{{app}}-k GitHub Actions estiloko entrega jarraitua abiadura handiko panel bakarrera ekartzen du: pipelineak, build logak, artifactak, egoera-txartelak eta hedapen-inguruneak zure biltegi guztietarako leku bakarrean. Ez tabuladore artean ibiltzerik, ez zein build hautsi den asmatzerik — exekuzio, log lerro eta hedapen bakoitza klik batera.',
+  'about.introHeading': 'Zer den {{app}}',
+  'about.missionBody':
+    'Softwarea bidaltzea lasaia eta aurreikustekoa izan behar da, ez beldur-iturri. Pipelineak, logak eta hedapen-tresnak guztiontzat eraikitzen ditugu, commit-etik produkziorako bidea azkarra, ikusgai eta fidagarria izan dadin — lehen build berdea bost minutuan, eta ondorengo bakoitza bezain argia.',
+  'about.missionHeading': 'Gure misioa',
+  'about.subtitle':
+    '{{app}} CI/CD panela da, biltegi guztietako buildak, hedapenak eta inguruneak monitorizatu eta ziurtasunez bidali nahi duten taldeentzat.',
   'artifacts.empty': 'Oraindik ez dago artefakturik.',
   'artifacts.heading': 'Artefaktuak',
   'artifacts.loadError': 'Ezin izan dira artefaktuak kargatu.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ hodi ingurunea --zerrenda',
   'environments.heading': 'Inguruneak',
   'environments.loadError': 'Inguruneak kargatzea huts egin du.',
+  'environments.loading': 'Inguruneak kargatzen…',
   'environments.subheading': 'Helburu guztietan zuzeneko hedapen egoera.',
   'forgotPassword.runnerStatus': 'berrezarri · tunel segurua',
+  'forgotPassword.success':
+    'Mezu elektroniko horretarako kontu bat badago, berrezartzeko esteka bat bidean da. Begiratu zure sarrera-ontzia.',
   'insights.changeFailureRate': 'Aldaketa-hutsegite tasa',
   'insights.deployFrequency': 'Hedapenak / egun',
   'insights.empty': 'Ez dago datu nahikorik oraindik.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Ezin izan dira xehetasunak kargatu.',
   'insights.meanP95': 'esan nahi du {{mean}} · 95. or. {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Pipelinearen urrats motelenak',
   'insights.successRateHeading': 'Hodiaren arrakasta-tasa (azken 14 egunak)',
   'landing.choosePlan': 'Aukeratu plana',
+  'landing.copyright': '© {{year}} {{app}}. Ziurtasunez bidali.',
   'landing.ctaBody':
     'Ez da kreditu txartelik behar. Ez da plataforma ingeniaririk behar. Bost minututan lehenengo hoditeria berde jarri.',
   'landing.ctaHeading': 'Ziurtasunez bidali.',
   'landing.featuresEyebrow': '// plataformaren ezaugarriak',
   'landing.featuresHeading': 'Bidaltzaileentzat, bidaltzaileekin eraikia',
+  'landing.heroSubtitle':
+    'Segundoetan amaitzen diren pipelineak. Irakur daitezkeen logak. Fida zaitezkeen hedapenak.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit zabaldu --segurtasunez',
   'landing.pricingEyebrow': '// $ prezioa --plain',
   'landing.pricingHeading': 'Prezio sinple eta aurreikusgarriak',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Hegaldian orain.',
   'pipelines.metric.successCaption': '{{count}} -ren {{total}} korrika egiten du',
   'pipelines.metric.successRate': 'Arrakasta-tasa',
+  'pipelines.realtimeOn': 'denbora errealean',
   'pipelines.subheading': 'Jarraipen-biltegi guztietatik zuzeneko eguneraketak.',
+  'pricing.advancedFeatures': 'Eginbide aurreratuak: {{mark}}',
+  'pricing.canExport': 'Datuen esportazioa: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artifact',
+  'pricing.maxBuilds': '{{count}} build',
+  'pricing.maxPipelines': '{{count}} pipeline',
   'privacy.dataAccount': 'Kontua: izena, helbide elektronikoa, pasahitza hash bidez, plan maila.',
   'privacy.intro':
     '{{aplikazioa}} zure etengabeko entrega kontua funtzionarazteko behar ditugun gutxieneko datuak baino ez ditu biltzen: zure posta elektronikoa, konektatzen dituzun biltegiak, zure exekutatzaileek sortzen dituzten konpromisoak eta eraikuntza metadatuak, eta gurekin gordetzea aukeratzen dituzun sekretuak. Ez dugu inoiz zure iturburu-kodea eraikuntza-exekutatzailetik kanpo irakurtzen; eraikuntza-artefaktuak zure S3 ontzian gordetzen dira konfiguratuta daudenean.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Stripe erabiltzen dugu fakturaziorako, Mailgun transakzio-posta elektronikorako eta AWS S3 eraikitzeko objektuak gordetzeko. Bakoitza kontratuz lotatuta dago bere zerbitzua emateko behar diren gutxieneko datu-eremuarekin.',
   'privacy.rightsBody':
     'Zure datuen byte bakoitza esportatu dezakezu, zure kontua edozein unetan ezabatu dezakezu Ezarpenetatik eta zure kontuan egindako webhook bidalketa guztien erregistroa eska dezakezu. GDPR / CCPA eskaerei 30 eguneko epean erantzuten diegu.',
+  'privacy.subtitle':
+    'Nola biltzen, gordetzen eta babesten dituen {{app}}-k zure datuak pipelineak exekutatzen ditugun bitartean.',
   'privacy.title': 'Pribatutasun politika',
   'repositories.empty': 'Ez dago biltegirik konektatuta.',
   'repositories.heading': 'Biltegiak',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Biltegi guztiak',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Biltegia kargatzea huts egin du.',
+  'repositoryDetail.meanDuration': 'Batez besteko iraupena',
   'repositoryDetail.notFound': 'Ez da biltegia aurkitu.',
+  'repositoryDetail.successRate': 'Arrakasta-tasa',
   'repositoryDetail.totalBuilds': 'Eraikuntza guztiak',
   'repositoryDetail.webhookActive': 'aktibo',
   'repositoryDetail.webhookPaused': 'pausatuta',
   'repositoryDetail.webhooksHeading': 'Webhook-ak',
+  'resetPassword.passwordLabel': 'Pasahitz berria',
   'resetPassword.runnerStatus': 'berrezarri · tokena egiaztatuta',
   'resetPassword.subtitle': 'Aukeratu lehenago erabili ez duzun pasahitz sendo bat.',
   'resetPassword.tokenPlaceholder': 'itsatsi mezu elektroniko batetik',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Biltegiak Conduit-en jarraipenak. Deskonektatu zure VCS hornitzailetik gertaerak hartzeari uzteko.',
   'settings.repositories.empty': 'Ez dago biltegirik konektatuta oraindik.',
+  'settings.repositories.heading': 'Biltegi-konexioak',
   'settings.repositories.loadError': 'Ezin izan dira biltegiak kargatu.',
   'settings.secrets.addCta': 'Gehitu sekretua',
   'settings.secrets.addError': 'Sekretua gehitzea huts egin da.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Sekretua ezabatzea huts egin da.',
   'settings.secrets.empty': 'Ez dago sekreturik gordeta.',
   'settings.secrets.heading': 'Sekretuak',
+  'settings.secrets.lastUsed': 'azken erabilera {{date}}',
   'settings.secrets.loadError': 'Sekretuak kargatzea huts egin da.',
   'settings.secrets.neverUsed': 'inoiz erabili gabe',
   'settings.secrets.rotateCta': 'Biratu',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Webhook-a eguneratzea huts egin da.',
   'signup.namePlaceholder': 'Riley parkea',
   'signup.runnerStatus': 'doako maila · 1.000 eraikuntza gutxienez/hilean',
+  'terms.intro':
+    '{{app}} kontu bat sortzean, baldintza hauek onartzen dituzu. Build runnerren erabilera onargarria, gure SLAren mugak eta karga abusiboengatik zure kontua etetea edo amaitzea ahalbidetzen duten baldintzak jasotzen dituzte.',
   'terms.slaBody':
     'Pro eta Team planei dagokienez, API eta exekuzio-multzoaren hileko % 99,95eko funtzionamendu-denbora dute helburu. Doako plana bere horretan eskaintzen da. Etenaldiak status.conduit.dev helbidean jakinarazten dira eta zure fakturan agertzen den formularen arabera kobratzen dira.',
   'terms.terminationBody':

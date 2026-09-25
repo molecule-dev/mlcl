@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
+  'about.featureConnections':
+    'Një menaxher lidhjesh që i ruan në mënyrë të sigurt dhe i kodon me ngjyra bazat e tua të dhënash — kredencialet kriptohen në ruajtje, kurrë në tekst të thjeshtë.',
+  'about.featureMonitoring':
+    "Monitorim i drejtpërdrejtë i performancës së pyetjeve dhe aktivitetit të bazës së të dhënave, me shkurtoret e tastierës dhe paletën e komandave për t'i drejtuar të gjitha pa duar.",
+  'about.featurePlans':
+    'Plane që rriten me ty — Falas për punë individuale, Pro dhe Team për më shumë lidhje, mbajtje më të gjatë të pyetjeve, eksporte dhe veçori të avancuara.',
+  'about.featureQueryEditor':
+    'Një redaktues SQL i mundësuar nga Monaco me historik pyetjesh, pyetje të ruajtura dhe eksport CSV me një klik të rezultateve të tua.',
+  'about.featureSchema':
+    'Një eksplorues skemash dhe shfletues tabelash për të naviguar bazat e të dhënave, tabelat dhe kolonat, pastaj për të shfletuar, filtruar dhe redaktuar rreshtat në vend.',
+  'about.missionTitle': 'Misioni ynë',
   'authShell.commands': 'Komandat',
   'authShell.ssoSupported': 'Mbështetet SSO',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Pyetje',
   'connections.schema': 'Skema',
   'connections.subtitle': 'Menaxhoni lidhjet tuaja të bazës së të dhënave.',
+  'connections.test': 'Test',
   'databaseAdminLayout.adminRole': 'Roli i administratorit',
   'databaseAdminLayout.commandPalette': 'Paleta e komandave',
   'databaseAdminLayout.commands': 'komandat',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Lidhje e re',
   'databaseAdminLayout.queries': 'Pyetje',
   'databaseAdminLayout.ready': 'Gati',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Kërko komanda, pyetje, tabela…',
   'databaseAdminLayout.user': 'Përdoruesi',
   'editConnection.confirmDelete': 'Të fshihet kjo lidhje?',
   'editConnection.deleteButton': 'Fshi lidhjen',
+  'editConnection.newPassword': 'Fjalëkalim i ri (lëre bosh për ta mbajtur)',
   'editConnection.saved': 'Lidhja u ruajt.',
   'editConnection.title': 'Modifiko lidhjen',
   'forgotPassword.success':
@@ -47,6 +62,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Sukseset',
   'monitoring.title': 'Monitorimi',
   'monitoring.totalQueries': 'Totali i pyetjeve',
+  'nav.schema': 'Skema',
   'newConnection.database': 'Baza e të dhënave',
   'newConnection.engine': 'Motori',
   'newConnection.host': 'Pritës',
@@ -82,6 +98,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Nuk ka lidhje të lidhur me këtë fragment.',
   'savedQuery.notBound': 'I palidhur',
   'savedQuery.title': 'Pyetje e ruajtur',
+  'schema.columns': 'Kolona',
   'schema.foreignKeys': 'Çelësat e huaj',
   'schema.indexes': 'Indekset',
   'schemaExplorer.browseRows': 'Shfleto rreshtat',
@@ -90,14 +107,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'i anulueshëm',
   'schemaExplorer.colType': 'lloj',
   'schemaExplorer.noColumns': 'Pa kolona.',
+  'schemaExplorer.noForeignKeys': 'Nuk ka çelësa të huaj.',
   'schemaExplorer.noIndexes': 'Pa indekse.',
   'schemaExplorer.noTables': 'Pa tavolina',
   'schemaExplorer.pickATable': 'Zgjidh një tabelë nga shiriti anësor.',
   'schemaExplorer.tables': 'Tavolina',
   'schemaExplorer.title': 'Eksploruesi i skemës',
+  'settings.session': 'Sesioni',
   'settings.subtitle': 'Menaxhoni llogarinë dhe planifikoni.',
   'signup.heading': 'Krijo llogarinë tënde në Quarry',
   'signup.tagline': 'Aksesoni në më pak se një minutë.',
   'tableBrowser.noRows': 'Kjo tabelë nuk ka ende rreshta.',
+  'tableBrowser.subtitle': 'Shfletimi i rreshtave nga baza e të dhënave në distancë.',
   'tableBrowser.title': 'Duke shfletuar rreshtat nga baza juaj e të dhënave në distancë.',
 }

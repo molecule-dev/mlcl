@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Soalan, maklum balas, atau permintaan ciri? Hubungi pasukan {{app}} dari Tetapan → Pemberitahuan, atau tulis kepada kami pada bila-bila masa — setiap mesej sampai kepada manusia sebenar.',
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.featureCapture':
+    'Tangkapan resit dengan muat naik foto yang melampirkan imej pada perbelanjaan yang betul, baris demi baris.',
+  'about.featureExport':
+    'Eksport CSV yang boleh diaudit bagi setiap laporan, perbelanjaan dan status kelulusan — sedia untuk pasukan perakaunan anda.',
+  'about.featurePolicy':
+    'Pagar keselamatan polisi — had harian, had setiap kategori dan ambang resit wajib dikuatkuasakan semasa penyerahan.',
+  'about.featureWorkflow':
+    'Aliran kerja kelulusan dua peringkat dengan nota penyemak, tanda pelanggaran polisi dan penandaan pembayaran balik dengan satu ketikan.',
+  'about.intro':
+    '{{app}} ialah platform pengurusan perbelanjaan untuk pasukan kewangan dan orang yang mereka bayar balik. Tangkap resit, failkan perbelanjaan, hantar laporan melalui kelulusan dan jejak setiap pembayaran balik — tanpa kerumitan hamparan.',
+  'about.missionBody':
+    'Pembayaran balik sepatutnya pantas, adil dan boleh diaudit. Kami membina {{app}} supaya penyerah dibayar balik tanpa perlu mendesak, pelulus melihat dengan jelas apa yang mereka luluskan, dan kewangan mempunyai jejak yang bersih untuk setiap dolar — termasuk semua semakan polisi.',
+  'about.missionTitle': 'Misi kami',
   'approvals.approve': 'Lulus',
   'approvals.approving': 'Meluluskan…',
   'approvals.confirmReject': 'Sahkan penolakan',
+  'approvals.empty': 'Anda sudah selesai — tiada laporan menunggu.',
   'approvals.eyebrow': 'Barisan pengurus',
   'approvals.kpi.flaggedLabel': 'Dasar ditandai',
+  'approvals.kpi.queueLabel': 'Menunggu semakan',
   'approvals.kpi.totalLabel': 'Nilai tertangguh',
   'approvals.lineCount': '{{count}} perbelanjaan',
   'approvals.queueFallback':
     'Baris gilir langsung tidak tersedia — memaparkan data demo yang dikurasi.',
   'approvals.reject': 'Tolak',
   'approvals.rejecting': 'Menolak…',
+  'approvals.rejectPlaceholder': 'Sebab (wajib)',
   'approvals.rejectPrompt': 'Mengapa anda menolak laporan ini?',
   'approvals.review': 'Semak',
   'approvals.title': 'Menunggu kelulusan',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Diluluskan · MTD',
   'dashboard.kpi.pendingDelta': '+2 minggu ini',
+  'dashboard.kpi.pendingLabel': 'Menunggu semakan',
   'dashboard.kpi.receiptsDelta': 'Tindakan diperlukan',
   'dashboard.kpi.receiptsLabel': 'Menunggu resit',
   'dashboard.kpi.reimbursedDelta': '+$2.4k',
   'dashboard.kpi.reimbursedLabel': 'Dibayar balik · MTD',
   'dashboard.newReport': 'Laporan baru',
+  'dashboard.recent.empty': 'Belum ada laporan — mulakan laporan pertama anda di atas.',
   'dashboard.recent.title': 'Laporan terkini',
   'dashboard.recent.viewAll': 'Lihat semua laporan',
   'dashboard.summaryFallback':
@@ -40,11 +61,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'Resit dan barang yang boleh dibayar balik',
   'expenses.listFallback': 'Senarai langsung tidak tersedia — memaparkan data demo yang dikurasi.',
   'expenses.searchPlaceholder': 'Cari pedagang atau kategori…',
+  'expenses.subtotal': '{{count}} perbelanjaan · subtotal',
   'expenses.title': 'Perbelanjaan',
+  'forgotPassword.continue': 'Saya ada kod · Teruskan',
+  'forgotPassword.subheading':
+    'Masukkan e-mel kerja anda dan kami akan hantar pautan untuk tetapkan kata laluan baharu.',
   'forgotPassword.successBody':
     'Jika akaun wujud untuk {{email}} anda akan menerima pautan tetapan semula dalam beberapa minit akan datang.',
+  'landing.copyright': '© {{year}} {{app}}. Dibina dengan Molecule.dev.',
+  'landing.ctaBody':
+    'Percuma untuk 25 perbelanjaan pertama setiap bulan. Tiada kad kredit, tiada panggilan pelaksanaan.',
   'landing.ctaHeading': 'Bersedia untuk menuntut semula apa yang terhutang kepada pasukan anda?',
   'landing.eyebrow': 'Laporan perbelanjaan untuk pasukan kewangan',
+  'landing.featuresHeading': 'Pembayaran balik, dalam satu ruang kerja yang tenang',
   'landing.heroSubtitle':
     'Hantar, luluskan dan bayar balik perbelanjaan perniagaan tanpa upacara hamparan. OCR resit, semakan polisi dan garis masa kelulusan yang telus — semuanya dalam satu ruang kerja yang tenang.',
   'landing.heroTitle': 'Setiap resit, telah diperolehi semula.',
@@ -62,10 +91,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Nota',
   'newExpense.descriptionPlaceholder':
     'Mengapa perbelanjaan ini berkaitan dengan perniagaan (boleh dilihat oleh pelulus anda).',
+  'newExpense.eyebrow': 'Item boleh dibayar balik',
   'newExpense.merchant': 'Peniaga',
   'newExpense.merchantPlaceholder': 'Hotel Adlon Kempinski',
   'newExpense.policyHint':
     'Peringatan: hidangan melebihi $80/hari atau mana-mana item melebihi $250 memerlukan nota justifikasi.',
+  'newExpense.receipt': 'Resit',
+  'newExpense.receiptHint': 'JPG, PNG atau PDF · maksimum 10 MB',
   'newExpense.receiptOcrHint': 'Medan pra-isi OCR',
   'newExpense.receiptPrompt': 'Letakkan foto atau PDF di sini, atau klik untuk menyemak imbas',
   'newExpense.receiptUploadFailed':
@@ -76,17 +108,21 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Tangkap atau muat naik resit dan Recoup akan mengisi pra-penjual, tarikh dan jumlah. Sahkan semua di bawah sebelum menyimpan.',
   'newExpense.title': 'Tambah perbelanjaan',
+  'newReport.approverHint':
+    'Mereka akan menerima e-mel apabila anda menyerahkan laporan ini untuk semakan.',
   'newReport.approverLabel': 'E-mel pelulus (pilihan)',
   'newReport.approverPlaceholder': 'pengurus@syarikatanda.com',
   'newReport.availableExpenses': 'Perbelanjaan yang tersedia',
   'newReport.createFailed': 'Tidak dapat membuat laporan. Sila cuba lagi.',
   'newReport.draftsFallback':
     'Senarai perbelanjaan langsung tidak tersedia — memaparkan data demo yang dikurasi.',
+  'newReport.eyebrow': 'Kumpulkan perbelanjaan · hantar untuk kelulusan',
   'newReport.includedCount': '{{count}} disertakan',
   'newReport.purposeLabel': 'Tujuan perniagaan',
   'newReport.purposePlaceholder':
     'Huraikan perjalanan atau projek yang berkaitan dengan perbelanjaan ini (boleh dilihat oleh pelulus dan pihak kewangan anda).',
   'newReport.saveDraft': 'Simpan sebagai draf',
+  'newReport.saveDraftFailed': 'Tidak dapat menyimpan draf. Sila cuba lagi.',
   'newReport.submit': 'Hantar untuk kelulusan',
   'newReport.submitFailed': 'Tidak dapat menghantar laporan. Sila cuba lagi.',
   'newReport.summary': 'Ringkasan laporan',
@@ -100,16 +136,23 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Suapan langsung tidak tersedia — memaparkan data demo yang dikurasi.',
   'notifications.openReport': 'Laporan terbuka ›',
+  'pricing.approvalsLabel': 'kelulusan',
   'pricing.expensesLabel': 'perbelanjaan',
   'pricing.heading': 'kelulusan',
   'pricing.policiesLabel': 'dasar-dasar',
   'pricing.receiptsLabel': 'resit',
   'recoveredAmountHeroCard.label': 'Bayaran balik telah dipulihkan · YTD',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} laporan sedang menunggu semakan merentas semua pelulus.',
+  'reports.approvalFlow': 'Aliran kelulusan',
   'reports.backToList': 'Kembali ke laporan',
   'reports.detailFallback': 'Laporan langsung tidak tersedia — memaparkan data demo yang dikurasi.',
   'reports.lineItems': 'Item baris',
   'reports.lineItemsCount': '{{count}} perbelanjaan',
+  'reports.lineItemsEmpty': 'Belum ada perbelanjaan pada laporan ini.',
+  'reports.openLibrary': 'Buka pustaka laporan',
   'reports.policyTitle': 'Bendera dasar',
+  'reports.selectPrompt': 'Pilih laporan dari pustaka untuk melihat butirannya.',
   'reports.summary.lineCount': 'Item baris',
   'reports.summary.reimbursable': 'Boleh dibayar balik',
   'reports.summary.total': 'Jumlah yang dilaporkan',
@@ -119,6 +162,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Senarai langsung tidak tersedia — memaparkan data demo yang dikurasi.',
   'reportsList.newReport': 'Laporan baru',
+  'reportsList.submittedOn': 'Dihantar {{date}}',
   'reportsList.title': 'Pustaka laporan',
   'resetPassword.hidePassword': 'Sembunyikan kata laluan',
   'resetPassword.newPasswordLabel': 'Kata laluan baharu',
@@ -144,6 +188,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Disimpan ✓',
   'settings.profileSaveFailed': 'Tidak dapat mengemas kini profil. Sila cuba lagi.',
   'signup.heading': 'Cipta akaun Recoup anda',
+  'signup.hidePassword': 'Sembunyikan kata laluan',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Tunjukkan kata laluan',
   'signup.subheading': 'Percuma untuk 25 perbelanjaan setiap bulan — tiada kad kredit.',

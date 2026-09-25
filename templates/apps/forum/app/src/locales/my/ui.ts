@@ -1,20 +1,44 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'တုံ့ပြန်ချက် ရှိပါသလား၊ ချို့ယွင်းချက် တွေ့ပါသလား၊ သို့မဟုတ် {{appName}} တွင် ကွန်မြူနတီတစ်ခု စတင်လိုပါသလား။ အဖွဲ့ထံ ဆက်သွယ်ရန် သင့် Settings ကို ဖွင့်ပါ — မက်ဆေ့ခ်ျတိုင်း ဖတ်ရှုသည့် လူအစစ်တစ်ဦးထံ ရောက်ပါသည်။',
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
+  'about.featureModeration':
+    'ကွန်မြူနတီတစ်ခုချင်း ကျန်းမာပြီး ကိုယ်တိုင်အုပ်ချုပ်နိုင်စေရန် စောင့်ကြည့်စစ်ဆေးရေး တန်းစီစနစ်နှင့် အစီရင်ခံရေး ကိရိယာများ ပါဝင်သည်။',
+  'about.featurePricing':
+    'ပါဝင်ရန် အခမဲ့၊ Pro နှင့် Team အစီအစဉ်များဖြင့် ပိုမိုမြင့်မားသော ကန့်သတ်ချက်များ၊ အဆင့်မြင့် စောင့်ကြည့်စစ်ဆေးရေးနှင့် ဒေတာ ထုတ်ယူခြင်းတို့ကို ရရှိမည်။',
+  'about.featureThreads':
+    'စီစဉ်ထားသော ကွန်မြူနတီများနှင့် အမျိုးအစားများ၊ လိုက်လျောညီထွေ ဖတ်ရှုရှာဖွေလွယ်သော ခေါင်းစဉ်ခွဲ ဆွေးနွေးချက်များနှင့် markdown အထောက်အပံ့။',
+  'about.featureVoting':
+    'အပေါ်/အောက် မဲပေးခြင်းနှင့် ရရှိထားသော ဂုဏ်သတင်း စနစ်က အထောက်အကူအများဆုံး ပံ့ပိုးသူများနှင့် အကောင်းဆုံး အဖြေများကို ပေါ်လွင်စေသည်။',
+  'about.intro':
+    '{{appName}} သည် ကွန်မြူနတီကို ဦးစားပေးသော ဆွေးနွေးရေး ပလက်ဖောင်းတစ်ခုဖြစ်သည် — Reddit ပုံစံ ခေါင်းစဉ်များ၊ မဲပေးခြင်းနှင့် ဂုဏ်သတင်း၊ feed ကို လိုက်လံရှာဖွေခြင်းထက် ကောင်းမွန်သော ဆွေးနွေးမှုတစ်ခုကို ပိုလိုလားသူများအတွက် တည်ဆောက်ထားသည်။ အသံတိုင်း အရေးပါပြီး အကောင်းဆုံး စိတ်ကူးများသည် ပမာဏမဟုတ်ဘဲ အရည်အချင်းဖြင့် ပေါ်ထွက်လာသည်။',
+  'about.missionBody':
+    'အွန်လိုင်း ဆွေးနွေးမှုသည် ဒေါသမဟုတ်ဘဲ စေ့စပ်သေချာမှုကို အကျိုးပေးသင့်သည်ဟု ကျွန်ုပ်တို့ ယုံကြည်သည်။ {{appName}} သည် ကွန်မြူနတီတိုင်းအား ယဉ်ကျေးပြီး ကိုယ်တိုင်အုပ်ချုပ်နိုင်စေရန် ကိရိယာများ ပေးသည် — ပွင့်လင်းသော မဲပေးခြင်း၊ ရရှိထားသော ဂုဏ်သတင်း၊ ယုံကြည်ရသော အဖွဲ့ဝင်များကို ထိန်းချုပ်ခွင့်ပေးသော စောင့်ကြည့်စစ်ဆေးရေး — ထို့ကြောင့် ခေါင်းစဉ်များသည် ပြန်လာလိုစရာ တစ်ခုအဖြစ် စုပေါင်းလာသည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'authShell.communities': 'အသိုင်းအဝိုင်းများ',
+  'authShell.copyright': '{{appName}} — အသံတိုင်း အရေးပါသည်။',
   'authShell.trending': 'ခေတ်စားနေသည်',
+  'categories.emptyFilter': 'ပြသရန် ကွန်မြူနတီများ မရှိပါ။',
+  'categories.emptySubscribed': 'သင်သည် မည်သည့် ကွန်မြူနတီကိုမျှ စာရင်းသွင်းထားခြင်း မရှိသေးပါ။',
+  'categories.emptySubscribedHint':
+    'ကွန်မြူနတီတစ်ခုကို ဖွင့်ပြီး Subscribe ကို နှိပ်ကာ ဤနေရာတွင် ထည့်ပါ။',
   'categories.eyebrow': 'အသိုင်းအဝိုင်းများ',
   'categories.loadError': 'ကွန်မြူနတီများကို တင်၍မရပါ။',
   'categories.loading': 'အသိုင်းအဝိုင်းများကို တင်နေသည်…',
   'categories.subtitle':
     'Agora အသိုင်းအဝိုင်းများကို လှုပ်ရှားမှု၊ ဘာသာရပ်နှင့် ၎င်းတို့၏ ဆူညံသံအလိုက် ကြည့်ရှုပါ။ သင့်အိမ်တွင် feed တစ်ခုထည့်ရန် subscribe လုပ်ပါ။',
   'categories.title': 'သင့်အခန်းကို ရှာပါ',
+  'categoryCard.activeNow': '{{count}} တက်ကြွသော',
   'categoryCard.namePrefix': 'ဂ/',
   'categoryCard.subscribers': '{{count}} အဖွဲ့ဝင်များ',
   'categoryDetail.empty': 'ဤနေရာတွင် ချည်နှောင်မှုများ မရှိသေးပါ။',
   'categoryDetail.namePrefix': 'ဂ/',
   'categoryDetail.newPost': 'ပို့စ်အသစ်',
   'categoryDetail.ruleBeKind': 'ကြင်နာပါ။ လူကိုမဟုတ်ဘဲ အလုပ်ကို ဆွေးနွေးပါ။',
+  'categoryDetail.ruleNoSpam': 'စပမ်မရှိ၊ စျေးကွက် လင့်ခ်များ မရှိ။',
+  'categoryDetail.ruleStayOnTopic': 'ဤကွန်မြူနတီအတွက် ခေါင်းစဉ်နှင့် ဆက်စပ်နေပါ။',
   'categoryDetail.startFirst': 'ပထမဆုံး thread ကို စတင်ပါ →',
   'categoryDetail.subscribe': 'စာရင်းသွင်းပါ',
   'categoryDetail.subscribed': 'စာရင်းသွင်းပြီး',
@@ -35,6 +59,7 @@ export const ui: UiTranslations = {
   'compose.eyebrow': 'ချည်နှောင်မှုတစ်ခု စတင်ပါ',
   'compose.flairLabel': 'အသွင်အပြင် (ရွေးချယ်နိုင်သည်)',
   'compose.imageUrlPrompt': 'ပုံ URL',
+  'compose.insertUrl': 'ထည့်သွင်းပါ',
   'compose.linkUrlPrompt': 'လင့်ခ် URL',
   'compose.markdownHint': 'Markdown ကို ထောက်ခံခဲ့သည်။',
   'compose.publishFailed': 'ချည်နှောင်မှုကို ထုတ်ဝေ၍မရပါ။',
@@ -52,11 +77,18 @@ export const ui: UiTranslations = {
   'feed.empty': 'စာတွဲများ မရှိသေးပါ။',
   'feed.emptyHint': 'ဆွေးနွေးမှုတစ်ခု စတင်ရန် ဦးစွာလုပ်ဆောင်ပါ — Compose သို့ သွားပါ။',
   'feed.loadError': 'ဖိဒ်ကို တင်၍မရပါ။',
+  'feed.metaCommunityDescription':
+    '{{appName}} ကို ပုံဖော်သူတိုင်းအတွက် meta ကွန်မြူနတီ — မဲပေးခြင်း၊ အုပ်ချုပ်ရေးနှင့် အင်္ဂါရပ် ဆွေးနွေးမှုများ။',
+  'feed.ruleBeCivil': 'ယဉ်ကျေးပါ။ အမြဲ။',
   'feed.ruleBeCivilDesc':
     'လူသားဆန်မှုကို နှိမ့်ချခြင်းမရှိဘဲ သဘောမတူပါ။ မော်ဂျူးများသည် ပုဂ္ဂိုလ်ရေးတိုက်ခိုက်မှုများကို အလျင်အမြန် တိုးမြှင့်လုပ်ဆောင်ကြသည်။',
+  'feed.ruleCiteSources': 'သင်တုံ့ပြန်နေသည့် အရာကို လင့်ခ်ချိတ်ပါ။',
+  'feed.ruleOnePerWeek': 'အကောင့်တစ်ခုလျှင် တစ်ပတ်လျှင် meta ပို့စ် တစ်ခု။',
   'feed.subtitle':
     'သင်လိုက်ကြည့်နိုင်သော အသိုင်းအဝိုင်းများမှ ခေါင်းစဉ်များအပြင် သင်လိုက်ကြည့်နိုင်သော အချို့သော ခေါင်းစဉ်များ။ အယ်လဂိုရီသမ်ကို သင်ကြားပေးရန် မဲပေးပါ။',
   'feed.title': 'သင့်ရဲ့ feed',
+  'forgotPassword.description':
+    'သင့်အီးမေးလ်ကို ရိုက်ထည့်ပါ၊ ကျွန်ုပ်တို့က ပြန်လည်သတ်မှတ်ရန်လင့်ခ်တစ်ခု ပေးပို့ပါမည်။',
   'forgotPassword.successBody':
     'ကျွန်ုပ်တို့သည် ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ကို ပေးပို့လိုက်ပါပြီ {{email}} မိနစ် ၃၀ အတွင်း သက်တမ်းကုန်ဆုံးမည်။',
   'forgotPassword.tryAnother': 'တခြားအီးမေးလ်တစ်ခု စမ်းကြည့်ပါ',
@@ -66,9 +98,15 @@ export const ui: UiTranslations = {
   'forumLayout.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'landing.communitiesSubtitle': 'መልእክትရယူပါ၊ အလုပ်ကိုမျှဝေပါ၊ ပိုကောင်းတဲ့မေးခွန်းတွေမေးပါ။',
   'landing.communitiesTitle': 'အစပြုရန် အသိုင်းအဝိုင်းများ',
+  'landing.ctaBody':
+    'အခမဲ့ စာရင်းသွင်းပါ။ သင့်အတွက် အရေးပါသော ခေါင်းစဉ်များတွင် ဂုဏ်သတင်း တည်ဆောက်ပြီး ကျွန်ုပ်တို့အားလုံးကို ပိုမိုရှင်းလင်းစွာ စဉ်းစားနိုင်ရန် ကူညီပါ။',
   'landing.ctaEyebrow': 'မင်းရှိနေချိန်မှာ အဆင်သင့်ဖြစ်နေပါပြီ',
   'landing.ctaHeadline': 'သင့်အသိုင်းအဝိုင်းကို ရှာဖွေပါ။ သင့်အသံကို ယူဆောင်လာပါ။',
   'landing.heroCtaSecondary': 'အသိုင်းအဝိုင်းများကို ကြည့်ရှုပါ',
+  'landing.heroEyebrow': '{{appName}} မှ ကြိုဆိုပါသည် — {{tagline}}',
+  'landing.heroHeadline': 'ပျောက်ကွယ်သွားမည့်အစား စုပေါင်းလာသော ဆွေးနွေးမှုများ။',
+  'landing.heroLede':
+    '{{appName}} သည် ဝါသနာရှင်များ၊ တည်ဆောက်သူများနှင့် တိတ်တဆိတ် ထင်မြင်ချက်ရှိသော ကျွမ်းကျင်သူများအတွက် ဖြည်းညှင်းစွာ ချက်ပြုတ်ထားသော ဖိုရမ်တစ်ခုဖြစ်သည်။ ကောင်းမွန်သော ခေါင်းစဉ်တစ်ခုချင်းဖြင့် ဂုဏ်သတင်း ရယူပါ။',
   'landing.heroStat1': '၈၄၇၀၀၀',
   'landing.heroStat2': '၂,၁၈၀',
   'landing.heroStat2Label': 'အသိုင်းအဝိုင်းများ',
@@ -83,13 +121,17 @@ export const ui: UiTranslations = {
   'landing.trendingViewAll': 'အားလုံးကြည့်ရန်',
   'login.description': 'စကားဝိုင်း ပြီးဆုံးသွားသည့်နေရာမှ ဆက်ပြောပါ။',
   'login.heading': 'Agora သို့ ဝင်ရောက်ပါ',
+  'login.noAccount': 'ဒီမှာ အသစ်လား။',
   'login.passwordPlaceholder': 'သင့်စကားဝှက်',
   'login.twoFactorLabel': '2FA ကုဒ် (ရွေးချယ်နိုင်သည်)',
   'login.twoFactorPlaceholder': 'ဂဏန်း ၆ လုံးပါ ကုဒ်',
+  'login.twoFactorRequiredHint':
+    'ဤအကောင့်တွင် နှစ်ဆင့် အတည်ပြုခြင်း ဖွင့်ထားသည်။ ဆက်လက်ရန် သင့် authenticator အက်ပ်မှ ဂဏန်း ၆ လုံးပါ ကုဒ်ကို ထည့်ပါ။',
   'login.twoFactorRequiredLabel': 'သင့် 2FA ကုဒ်ကို ထည့်ပါ',
   'modQueue.automodEmpty':
     'ဤအသိုင်းအဝိုင်းအတွက် အလိုအလျောက်ပြုပြင်မွမ်းမံခြင်းစည်းမျဉ်းများ မရှိသေးပါ။',
   'modQueue.automodTitle': 'အလိုအလျောက်ပြုပြင်မွမ်းမံခြင်း လုပ်ဆောင်ချက် (ပြီးခဲ့သည့် ၂၄ နာရီ)',
+  'modQueue.empty': 'Inbox သုည။ ဆောင်ရွက်ရန် မရှိပါ။',
   'modQueue.eyebrow': 'ချိန်ညှိခြင်း',
   'modQueue.kindThread': 'ချည်',
   'modQueue.loadError': 'အစီရင်ခံစာများကို တင်၍မရပါ။',
@@ -116,8 +158,12 @@ export const ui: UiTranslations = {
   'notifications.mentionedYouIn': 'သင့်ကို ဖော်ပြထားသည်',
   'notifications.repliedTo': 'ပြန်ကြားခဲ့သည်',
   'notifications.subtitle': 'သင်မှာ .... ရှိသည် {{count}} မဖတ်ရသေးသော အသိပေးချက်များ။',
+  'pricing.limits.advancedFeatures': 'အဆင့်မြင့်အင်္ဂါရပ်များ-',
   'pricing.limits.categories': '{{count}} အမျိုးအစားများ',
   'pricing.limits.export': 'ဒေတာ ထုတ်ယူမှု-',
+  'pricing.limits.moderation': '{{count}} စောင့်ကြည့်စစ်ဆေးရေး လုပ်ဆောင်ချက်များ',
+  'pricing.limits.threads': '{{count}} ချည်မျှင်များ',
+  'pricing.limits.votes': '{{count}} မဲ',
   'profile.noComments': 'မှတ်ချက်များ မရှိသေးပါ။',
   'profile.noPosts': 'ပို့စ်များ မရှိသေးပါ။',
   'profile.noSaved': 'သိမ်းဆည်းထားသော ပို့စ်များ မရှိသေးပါ။',
@@ -128,6 +174,7 @@ export const ui: UiTranslations = {
     'ခိုင်မာတဲ့ တစ်ခုကို ရွေးပါ။ ပြန်လည်သတ်မှတ်ခြင်း အောင်မြင်သည်နှင့် ကျွန်ုပ်တို့ သင့်အား လက်မှတ်ထိုးဝင်ပေးပါမည်။',
   'resetPassword.newPasswordLabel': 'စကားဝှက်အသစ်',
   'resetPassword.tokenPlaceholder': 'လင့်ခ်တိုကင်ကို ကူးထည့်ပါ',
+  'search.clear': 'ရှင်းလင်းပါ',
   'search.communitiesEmpty': 'ကိုက်ညီသော အသိုင်းအဝိုင်းများ မရှိပါ။',
   'search.communitiesHeading': 'အသိုင်းအဝိုင်းများ',
   'search.empty': 'ကိုက်ညီသော thread မရှိပါ။',
@@ -140,19 +187,28 @@ export const ui: UiTranslations = {
   'settings.displayTitle': 'ပြသမှု',
   'settings.emailDigestDesc':
     'သင်စာရင်းသွင်းထားသော အသိုင်းအဝိုင်းများမှ ထိပ်တန်းစာတွဲများကို တနင်္လာနေ့တိုင်းတွင် ပြသသည်။',
+  'settings.emailDigestLabel': 'အပတ်စဉ် အကျဉ်းချုပ်',
+  'settings.emailMentionsDesc':
+    'တစ်စုံတစ်ဦးက သင့်ကို ခေါင်းစဉ် သို့မဟုတ် မှတ်ချက်တွင် @-mention လုပ်သည့်အခါ။',
+  'settings.emailMentionsLabel': 'ဖော်ပြချက်များတွင် ကျွန်ုပ်ကို အီးမေးလ်ပို့ပါ',
+  'settings.emailRepliesDesc': 'သင်စတင်ခဲ့သော သို့မဟုတ် ပြန်ဖြေခဲ့သော စာတွဲများ။',
   'settings.emailRepliesLabel': 'ပြန်စာများတွင် ကျွန်ုပ်ထံ အီးမေးလ်ပို့ပါ',
   'settings.loadError': 'သင့်အကောင့်ကို ဖွင့်၍မရပါ။',
   'settings.loading': 'သင့်ဆက်တင်များကို တင်နေသည်…',
   'settings.notificationsSubtitle':
     'သင့်ရဲ့ push device နဲ့ နှိုင်းယှဉ်ပြီး inbox ထဲ ဘာတွေရောက်လဲဆိုတာ ဆုံးဖြတ်ပါ။',
+  'settings.pushRepliesLabel': 'ပြန်ကြားချက်များအတွက် Push',
+  'settings.pushVotesDesc': '100၊ 500၊ 1000 တွင် သတိပေးချက် အချက်ပြ။',
   'settings.pushVotesLabel': 'upvote မှတ်တိုင်များအတွက် တွန်းအားပေးပါ',
   'settings.saveAccount': 'အကောင့်ကို သိမ်းဆည်းပါ',
   'settings.showFlair': 'ချည်နှောင်မှုများတွင် အမျိုးအစားအလိုက် အသွင်အပြင်ကို ပြသပါ',
+  'settings.showThumbnails': 'လင့်ခ်/ပုံ သင်္ကေတငယ်များ ပြပါ',
   'settings.usernamePlaceholder': 'လက်ကိုင်တစ်ခု ရွေးချယ်ပါ',
   'signup.confirmPlaceholder': 'ပြန်လည်ရိုက်ပါ',
   'signup.description': 'တစ်ကြိမ်လျှင် ကောင်းမွန်သော ချည်မျှင်တစ်ခုသာ ရပ်နေခြင်းကို ရယူပါ။',
   'signup.eyebrow': 'အခန်းထဲဝင်ပါ',
   'threadRow.authorPrefix': 'ယူ/',
+  'threadRow.commentCount': 'မှတ်ချက် {{count}} ခု',
   'threadRow.statusFlagged': 'ပြန်လည်သုံးသပ်နေဆဲ',
   'threadRow.statusHot': 'ပူပြင်းသော',
   'threadRow.statusLocked': 'သော့ခတ်ထားသည်',
@@ -174,6 +230,7 @@ export const ui: UiTranslations = {
   'threadView.lockedNotice': 'ဤ thread ကို lock ချထားပါသည်။ ပြန်ကြားချက်အသစ်များကို ပိတ်ထားသည်။',
   'threadView.modActionFailed': 'စီမံခန့်ခွဲသူ လုပ်ဆောင်ချက် မအောင်မြင်ပါ။',
   'threadView.modTools': 'မော်ဒီကိရိယာများ',
+  'threadView.noComments': 'မှတ်ချက် မရှိသေးပါ။ ပထမဆုံး ဖြစ်လိုက်ပါ။',
   'threadView.notFound': 'ချည်နှောင်ချက်ကို ရှာမတွေ့ပါ။',
   'threadView.pin': 'ပင်နံပါတ်',
   'threadView.pinned': 'ပင်ထိုးထားသည်',

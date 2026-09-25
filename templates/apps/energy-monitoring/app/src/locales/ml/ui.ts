@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ചോദ്യങ്ങൾ, ഫീച്ചർ അഭ്യർത്ഥനകൾ, അല്ലെങ്കിൽ ഞങ്ങൾ പിന്തുണയ്ക്കേണ്ട ഒരു മീറ്റർ? നിങ്ങളുടെ അക്കൗണ്ട് ക്രമീകരണങ്ങളിൽ നിന്ന് {{appName}} ടീമിനെ സമീപിക്കുക — ഓരോ സന്ദേശവും ഒരു യഥാർത്ഥ വ്യക്തിയിലേക്കാണ് എത്തുന്നത്.',
   'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
+  'about.featuresTitle': 'നിങ്ങൾക്ക് ലഭിക്കുന്നത്',
+  'about.intro':
+    'സോളാർ വീടുകൾക്കും സൗകര്യ ടീമുകൾക്കുമുള്ള റിയൽടൈം പവർ നിരീക്ഷണമാണ് {{appName}}. മീറ്റർ, ഇൻവെർട്ടർ, ബാറ്ററി ഡാറ്റയുടെ പ്രവാഹത്തെ ഞങ്ങൾ ശാന്തമായ ഒരു കൺട്രോൾ-റൂം കാഴ്ചയാക്കി മാറ്റുന്നു — ലൈവ് വാട്ടേജ്, സോളാർ ഉൽപ്പാദനം, ടൈം-ഓഫ്-യൂസ് ചെലവ്, അലേർട്ടുകൾ, എല്ലാം ഒരൊറ്റ ഷെല്ലിൽ.',
+  'about.missionBody':
+    'കാണാൻ കഴിയുന്ന ഊർജ്ജം നിയന്ത്രിക്കാൻ കഴിയുന്ന ഊർജ്ജമാണ്. ഒരു മീറ്റർ പ്രവർത്തിപ്പിക്കുന്ന എല്ലാവർക്കും — റൂഫ്ടോപ്പ് സോളാറുള്ള ഒരു വീടോ ഒരു കെട്ടിടം നിരീക്ഷിക്കുന്ന ഒരു ടീമോ — ഒരു യൂട്ടിലിറ്റി-ഗ്രേഡ് കരാർ ഇല്ലാതെ യൂട്ടിലിറ്റി-ഗ്രേഡ് ഉൾക്കാഴ്ച അർഹതയുണ്ടെന്ന് ഞങ്ങൾ വിശ്വസിക്കുന്നു. അടുത്ത കിലോവാട്ട്-മണിക്കൂർ ബില്ലിലെ ഒരു ആശ്ചര്യമല്ല, അറിവുള്ള ഒരു തിരഞ്ഞെടുപ്പാക്കാൻ ഓരോ ഫീച്ചറും നിർമ്മിച്ചിരിക്കുന്നു.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'about.pageTitle': 'കുറിച്ച് {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'ആക്ക്',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'അലേർട്ട്സ്@യുവർഡൊമെയ്ൻ.കോം',
   'alertRule.eyebrow': 'പുതിയ നിയമം',
   'alertRule.heading': 'നഷ്ടം വരുന്നതിനു മുൻപ് സ്പൈക്ക് പിടിക്കൂ',
+  'alertRule.nameLabel': 'നിയമത്തിന്റെ പേര്',
   'alertRule.namePlaceholder': 'ഉദാ: ആഫ്റ്റർ-ഹവർ HVAC വാച്ച്',
   'alertRule.subheading':
     'ഒരു മെട്രിക്, ഒരു പരിധി, അലേർട്ട് എവിടെ അയയ്ക്കണമെന്ന് എന്നിവ തിരഞ്ഞെടുക്കുക. നിങ്ങൾക്ക് എപ്പോൾ വേണമെങ്കിലും ഇത് എഡിറ്റ് ചെയ്യാനോ താൽക്കാലികമായി നിർത്താനോ കഴിയും.',
   'alertRule.submit': 'നിയമം സംരക്ഷിക്കുക',
   'alertRule.submitError': 'നിയമം സംരക്ഷിക്കാൻ കഴിഞ്ഞില്ല.',
   'alertRule.thresholdLabel': 'പരിധി',
+  'alertRule.typeLabel': 'ട്രിഗർ തരം',
   'alerts.checking': 'പരിശോധിക്കുന്നു…',
   'alerts.confirmDelete': 'ഇല്ലാതാക്കൽ സ്ഥിരീകരിക്കുക',
+  'alerts.empty': 'കാണിക്കാൻ ഒന്നുമില്ല — ഈ അവസ്ഥയിൽ അലേർട്ടുകളൊന്നുമില്ല.',
   'alerts.emptyNoRules':
     'ഇതുവരെ അലേർട്ടുകളൊന്നുമില്ല — ഒരു നിയമം ചേർക്കുക, തുടർന്ന് അത് പരീക്ഷിക്കാൻ “ഇപ്പോൾ വിലയിരുത്തുക” ക്ലിക്കുചെയ്യുക.',
   'alerts.errorAck': 'അംഗീകരിക്കാൻ കഴിഞ്ഞില്ല.',
@@ -41,12 +52,15 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'ഇപ്പോൾ വിലയിരുത്തുക',
   'alerts.subheading':
     'നിങ്ങളുടെ മീറ്ററുകളിൽ വെടിയുതിർക്കുന്ന ത്രെഷോൾഡ്, പാറ്റേൺ അലേർട്ടുകൾ, കൂടാതെ അവയെ നയിക്കുന്ന നിയമങ്ങളും.',
+  'billing.activeBlurb': 'നിങ്ങളുടെ സബ്സ്ക്രിപ്ഷൻ സജീവമാണ്. എപ്പോൾ വേണമെങ്കിലും നിയന്ത്രിക്കാം.',
   'billing.cancelError': 'സബ്‌സ്‌ക്രിപ്‌ഷൻ റദ്ദാക്കാൻ കഴിഞ്ഞില്ല.',
   'billing.cancelling': 'റദ്ദാക്കുന്നു…',
   'billing.currentBadge': 'നിലവിലുള്ളത്',
   'billing.freeBlurb':
     'നിങ്ങൾ സൗജന്യ പ്ലാനിലാണ്. കൂടുതൽ മീറ്ററുകൾ, ദൈർഘ്യമേറിയ ചരിത്രം, കൂടുതൽ അലേർട്ട് നിയമങ്ങൾ എന്നിവയ്ക്കായി അപ്‌ഗ്രേഡ് ചെയ്യുക.',
   'billing.heading': 'പ്ലാനുകളും ബില്ലിംഗും',
+  'billing.historyEmpty':
+    'നിങ്ങളുടെ സബ്സ്ക്രിപ്ഷൻ ബിൽ ചെയ്തുതുടങ്ങുമ്പോൾ പണമടച്ച ഇൻവോയ്സുകൾ ഇവിടെ കാണാം.',
   'billing.historyHeading': 'ഇൻവോയ്സ് ചരിത്രം',
   'billing.loadError': 'ബില്ലിംഗ് ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'billing.loading': 'പ്ലാനുകൾ ലോഡ് ചെയ്യുന്നു...',
@@ -59,17 +73,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'വിൽപ്പന വിഭാഗവുമായി ബന്ധപ്പെടുക',
   'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} പീക്ക് · {{offPeak}} ഓഫ്-പീക്ക് kWh',
   'dailyCostMeter.runningLabel': 'ആകെ റണ്ണിംഗ്',
   'dailyCostMeter.title': 'ഇന്ന് ഇതുവരെയുള്ള ചെലവ്',
   'dailyCostMeter.utilizationLabel': 'ദൈനംദിന ബജറ്റിന്റെ',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'ഒരു മീറ്റർ ചേർക്കുക',
   'dashboard.alertsHeading': 'സജീവ അലേർട്ടുകൾ',
   'dashboard.devicesHeading': 'ഇപ്പോഴുള്ള മികച്ച സർക്യൂട്ടുകൾ',
   'dashboard.empty.body':
     'തത്സമയ നറുക്കെടുപ്പും ഉൽപ്പാദനവും ട്രാക്ക് ചെയ്യാൻ ആരംഭിക്കുന്നതിന് ഒരു സ്മാർട്ട് മീറ്ററോ സോളാർ ഇൻവെർട്ടറോ ചേർക്കുക.',
+  'dashboard.empty.title': 'ഇതുവരെ മീറ്ററുകളില്ല',
   'dashboard.eyebrow': 'വോൾട്രേസ് കൺട്രോൾ റൂം',
   'dashboard.heading': 'ലൈവ് എനർജി സ്നാപ്പ്ഷോട്ട്',
   'dashboard.loadError': 'തത്സമയ വായനകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'dashboard.loading': 'നിങ്ങളുടെ മീറ്ററുകളിലേക്ക് ട്യൂൺ ചെയ്യുന്നു...',
+  'dashboard.noAlerts': 'എല്ലാം ശാന്തം — നിങ്ങളുടെ പരിധികൾ കവിയുന്നതായി ഒന്നുമില്ല.',
   'dashboard.noAlertsAndNoMeters':
     'നിങ്ങൾ ഒരു മീറ്റർ വയർ അപ്പ് ചെയ്‌തുകഴിഞ്ഞാൽ, നിങ്ങളുടെ പരിധികളെ അടിസ്ഥാനമാക്കിയുള്ള അലേർട്ടുകൾ ഇവിടെ ദൃശ്യമാകും.',
   'dashboard.noCircuits':
@@ -78,6 +97,7 @@ export const ui: UiTranslations = {
     'മുഴുവൻ വീടുകളിലേക്കും വെള്ളം നറുക്കെടുക്കൽ, സോളാർ ഉത്പാദനം, ഇന്നത്തെ ഇതുവരെയുള്ള ചെലവ്.',
   'dashboard.viewAllAlerts': 'അലേർട്ടുകൾ കൈകാര്യം ചെയ്യുക →',
   'dashboard.viewAllDevices': 'എല്ലാ ഉപകരണങ്ങളും →',
+  'deviceDetail.activeTokens': 'സജീവ ഇൻജെസ്റ്റ് ടോക്കണുകൾ',
   'deviceDetail.alreadyOff': 'ഇതിനകം താൽക്കാലികമായി നിർത്തി',
   'deviceDetail.back': 'എല്ലാ സർക്യൂട്ടുകളും',
   'deviceDetail.confirmDelete': 'ഇല്ലാതാക്കൽ സ്ഥിരീകരിക്കുക',
@@ -118,22 +138,34 @@ export const ui: UiTranslations = {
   'devices.loadError': 'മീറ്ററുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'devices.loading': 'ഓരോ മീറ്ററിലും പോളിംഗ് നടത്തുന്നു…',
   'devices.newRule': 'പുതിയ അലേർട്ട് നിയമം',
+  'devices.noResults': 'ഈ ഫിൽട്ടറുമായി പൊരുത്തപ്പെടുന്ന സർക്യൂട്ടുകളൊന്നുമില്ല.',
   'devices.placeholder.location': 'ഉദാ: മെക്കാനിക്കൽ റൂം',
   'devices.placeholder.name': 'ഉദാ: ഗാരേജ് സബ്പാനൽ',
   'devices.subheading':
     'വോൾട്രേസിന് ഓരോ സർക്യൂട്ടിലൂടെയും ലൈവ് വാട്ടേജും ഇന്നത്തെ kWh ഉം കാണാൻ കഴിയും.',
+  'deviceWattageRow.todayKwh': 'ഇന്ന് {{kwh}} kWh',
+  'deviceWattageRow.watts': '{{watts}} വ',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'മെനു',
+  'energyMonitoringLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    'മിക്ക യൂട്ടിലിറ്റി-ഗ്രേഡ് മീറ്ററുകൾ, സോളാർ ഇൻവെർട്ടറുകൾ, ബാറ്ററി സ്റ്റാക്കുകൾ എന്നിവയുമായി {{appName}} സംവദിക്കുന്നു — വയർഡ് ആയോ WiFi വഴിയോ.',
   'landing.ctaHeading': 'നിങ്ങളുടെ മീറ്റർ ജോടിയാക്കൂ, മിനിറ്റുകൾക്കുള്ളിൽ വാട്ട്സ് കാണൂ',
   'landing.eyebrow': 'റിയൽടൈം എനർജി ഇന്റലിജൻസ്',
+  'landing.featuresHeading': 'ഓരോ വാട്ടും, ഓരോ മിനിറ്റും, ഒരൊറ്റ ഷെല്ലിൽ',
   'landing.getStarted': 'വോൾട്രേസ് പ്ലഗ് ഇൻ ചെയ്യുക',
   'landing.heroCta': 'വോൾട്രേസ് പ്ലഗ് ഇൻ ചെയ്യുക',
+  'landing.heroSubtitle':
+    'സോളാർ വീടുകൾക്കും സൗകര്യ ടീമുകൾക്കുമായി നിർമ്മിച്ച കൺട്രോൾ-റൂം ഷെല്ലിൽ ലൈവ് വാട്ടേജ്, സോളാർ ഉൽപ്പാദനം, ടൈം-ഓഫ്-യൂസ് ചെലവ്, ഉയർന്ന ഉപയോഗ അലേർട്ടുകൾ.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'മുഴുവൻ വീടുകളിലേക്കുമുള്ള നറുക്കെടുപ്പ്',
   'landing.sampleSolar': '+3,820 W സോളാർ',
   'landing.sampleSummary': 'ഗ്രിഡിലേക്ക് 1,680 W കയറ്റുമതി ചെയ്യുന്നു · ഇന്ന് 18.4 kWh',
   'landing.sampleWatts': '2,140 വാട്ട്',
   'powerHeroCard.solar': '+ {{watts}} പ സോളാർ',
   'powerHeroCard.title': 'മുഴുവൻ വീടുകളിലേക്കുമുള്ള നറുക്കെടുപ്പ്',
+  'powerHeroCard.todayKwh': 'ഇന്ന് {{kwh}} kWh',
   'powerHeroCard.watts': '{{watts}} വ',
   'pricing.choose': 'തിരഞ്ഞെടുക്കുക {{name}}',
   'pricing.contact': 'എന്തെങ്കിലും കസ്റ്റം വേണോ?',
@@ -146,6 +178,7 @@ export const ui: UiTranslations = {
     'സൗജന്യമായി ആരംഭിക്കൂ. കൂടുതൽ മീറ്ററുകൾ, ദൈർഘ്യമേറിയ ചരിത്രം, അല്ലെങ്കിൽ കൂടുതൽ അലേർട്ട് നിയമങ്ങൾ ആവശ്യമുള്ളപ്പോൾ അപ്‌ഗ്രേഡ് ചെയ്യൂ.',
   'pricing.unavailable': 'ഈ പ്ലാൻ ഇപ്പോൾ ലഭ്യമല്ല — സ്ട്രൈപ്പ് കോൺഫിഗർ ചെയ്തിട്ടില്ല.',
   'profile.errorGeneric': 'പ്രൊഫൈൽ മാറ്റങ്ങൾ സംരക്ഷിക്കാൻ കഴിഞ്ഞില്ല.',
+  'profile.errorGoal': 'പ്രതിമാസ kWh ലക്ഷ്യം ഒരു പോസിറ്റീവ് സംഖ്യയായിരിക്കണം.',
   'profile.errorHousehold': 'കുടുംബ വലുപ്പം ഒരു പോസിറ്റീവ് സംഖ്യ ആയിരിക്കണം.',
   'profile.householdHeading': 'കുടുംബവും ലക്ഷ്യങ്ങളും',
   'profile.householdSize': 'വീടിന്റെ വലുപ്പം',
@@ -163,9 +196,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'വായനകൾ സമാഹരിക്കുന്നു…',
   'reports.subheading':
     'ഉപഭോഗം, ഉൽപ്പാദനം, ചെലവ് എന്നിവയുടെ ദൈനംദിന ആകെത്തുക - തീയതി പ്രകാരം വിഭജിച്ചിരിക്കുന്നു.',
+  'reports.tableHeading': 'ദൈനംദിന വിശദാംശം',
   'settings.currency': 'കറൻസി',
   'settings.errorFlat': 'ഫ്ലാറ്റ് നിരക്ക് ≥ 0 ആയിരിക്കണം.',
   'settings.errorNotify': 'അറിയിപ്പ് പ്രിഫുകൾ സംരക്ഷിക്കാൻ കഴിഞ്ഞില്ല.',
+  'settings.errorSave': 'റേറ്റ് പ്ലാൻ സേവ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'settings.errorTou': 'പീക്ക്/ഓഫ്-പീക്ക് നിരക്കുകളും സാധുവായ ഒരു പീക്ക് വിൻഡോയും ആവശ്യമാണ്.',
   'settings.exportBody':
     'കഴിഞ്ഞ 30 ദിവസത്തെ ദൈനംദിന ആകെത്തുകകളുടെ ഒരു CSV ഡൗൺലോഡ് ചെയ്യുക അല്ലെങ്കിൽ റീഡിംഗുകൾ പ്രോഗ്രമാറ്റിക്കായി പുഷ് ചെയ്യുന്നതിന് ഏതെങ്കിലും മീറ്റർ വിശദാംശ പേജിൽ നിന്ന് ഒരു ഇൻജസ്റ്റ് ടോക്കൺ എടുക്കുക.',
@@ -185,10 +220,20 @@ export const ui: UiTranslations = {
   'settings.saving': 'സംരക്ഷിക്കുന്നു…',
   'settings.securityHeading': 'രണ്ട്-ഘടക പ്രാമാണീകരണം',
   'settings.subheading': 'നിരക്കുകൾ, അറിയിപ്പുകൾ, ഡാറ്റ കയറ്റുമതി.',
+  'settings.twoFactorBody':
+    'ഓരോ തവണ സൈൻ ഇൻ ചെയ്യുമ്പോഴും നിങ്ങളുടെ ഓതന്റിക്കേറ്റർ ആപ്പിൽ നിന്ന് ഒരു വൺ-ടൈം കോഡ് ആവശ്യമാണ്.',
   'settings.twoFactorCode': 'പ്രാമാണീകരണ കോഡ്',
   'settings.twoFactorDisable': 'പ്രവർത്തനരഹിതമാക്കുക',
+  'settings.twoFactorDisableTitle': 'ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ പ്രവർത്തനരഹിതമാക്കുക',
   'settings.twoFactorEnable': 'പ്രാപ്തമാക്കുക',
+  'settings.twoFactorEnableTitle': 'ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ പ്രവർത്തനക്ഷമമാക്കുക',
   'settings.twoFactorInvalidCode': 'കോഡ് അസാധുവാണ്',
+  'settings.twoFactorOAuth':
+    'നിങ്ങളുടെ അക്കൗണ്ട് ഒരു കണക്റ്റഡ് പ്രൊവൈഡർ വഴിയാണ് സൈൻ ഇൻ ചെയ്യുന്നത്, അതിനാൽ ടു-ഫാക്ടർ അവിടെയാണ് കൈകാര്യം ചെയ്യുന്നത്.',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'രണ്ട്-ഘടക QR കോഡ്',
+  'settings.twoFactorScan':
+    'നിങ്ങളുടെ ഓതന്റിക്കേറ്റർ ആപ്പ് ഉപയോഗിച്ച് ഈ QR കോഡ് സ്കാൻ ചെയ്യുക, തുടർന്ന് 6 അക്ക കോഡ് നൽകുക.',
+  'settings.twoFactorUnavailable': 'ഈ ആപ്പിന് ടു-ഫാക്ടർ പ്രാമാണീകരണം ലഭ്യമല്ല.',
   'settings.twoFactorVerify': 'പരിശോധിച്ചുറപ്പിക്കുക, പ്രാപ്തമാക്കുക',
 }

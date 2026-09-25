@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Nwere ajụjụ, hụrụ nsogbu, ma ọ bụ chọrọ ngosi maka ndị otu gị? Kpọtụrụ anyị site na ntọala akaụntụ gị — ozi ọ bụla na-erute mmadụ n'ezie nọ n'òtù ahụ.",
   'about.contactTitle': 'Kpọtụrụ anyị',
+  'about.intro':
+    "{{app}} na-atụgharị ikpo akwụkwọ ekesara na PDF ka ọ bụrụ data ahaziri ahazi, nke a na-achọgharị, nke edobere. Tinye akwụkwọ ọnụahịa, akwụkwọ nnata, nkwekọrịta, ma ọ bụ fọm ka AI gụọ, wepụta, kewaa, ma debe ha — na agba ntụkwasị obi ka ndị otu gị na-enyocha naanị ihe chọrọ mmadụ n'ezie.",
+  'about.missionBody':
+    "Ọrụ akwụkwọ ekwesịghị iri ụbọchị ndị otu gị. Anyị kwenyere na uru ọ bụla ewepụtara kwesịrị ịkọwapụta na inyocha — ka i nwee ike ịtụkwasị akpaaka obi n'ejighị ụzọ akwụkwọ furu efu. E wuru {{app}} iji chekwaa awa n'ikpo ọ bụla ma debe mmadụ n'ime usoro ebe ọ dị mkpa.",
+  'about.missionTitle': 'Ọrụ anyị',
+  'about.subtitle': 'OCR, mwepụta AI, nhazi ọkwa, na ndobe akpaaka maka akwụkwọ gị.',
   'about.title': 'Gbasara {{app}}',
+  'about.whatYouGetTitle': 'Ihe ị nwetara',
   'authShell.backToLanding': '← Laghachi azụ na ọdịda',
   'common.goToDashboard': 'Gaa na Dashboard',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Taa · Nchịkọta ọrụ',
   'dashboard.heading': 'Nghọta akwụkwọ',
+  'dashboard.metric.accuracy': 'Nkezi izi ezi',
   'dashboard.metric.filed': 'E tinyere akwụkwọ taa',
   'dashboard.metric.filedCaption': 'E ji iwu ntinye akwụkwọ mee ihe',
   'dashboard.metric.processed': 'A na-ahazi ya taa',
@@ -23,11 +33,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'Ebugoro',
   'dashboard.recent.heading': 'Akwụkwọ ndị ọhụrụ',
+  'dashboard.recent.typeUnknown': 'Na-eche nhazi ọkwa',
   'dashboard.subheading':
     'Ibe ọ bụla e kewapụrụ, wepụta, ma tinye ya — nwere agba obi ike ka nyocha ahụ wee nọgide na-elekwasị anya.',
   'documentDetail.audit.heading': 'Usoro iheomume nyocha',
+  'documentDetail.audit.subheading': 'Nzọụkwụ ọ bụla e mere na akwụkwọ a, yana onye mere ya.',
   'documentDetail.back': 'Akwụkwọ niile',
   'documentDetail.downloadHint': 'Jiri Budata mepee faịlụ mbụ ahụ.',
+  'documentDetail.extracted.empty': 'Enwebeghị ubi ewepụtara.',
   'documentDetail.extracted.heading': 'Ubi ewepụtara',
   'documentDetail.extracted.subheading':
     '{{count}} ubi · pịa ubi ọ bụla iji mee ka ọ pụta ìhè na ibe',
@@ -55,13 +68,23 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Chọọ akwụkwọ...',
   'documents.subheading': '{{count}} akwụkwọ dị na ọbá akwụkwọ gị, hazie nke kachasị ọhụrụ na mbụ.',
   'documents.uploadCta': 'Bulite akwụkwọ',
+  'documentTypeBreakdown.barAria': "Nhazi akwụkwọ site n'ụdị",
   'documentTypeBreakdown.empty': 'A kabeghị hazie akwụkwọ ọ bụla.',
   'documentTypeBreakdown.subtitle': '{{total}} emechara',
   'documentTypeBreakdown.title': 'Nhazi akwụkwọ',
+  'forgotPassword.backToSignIn': '← Laghachi na nbanye',
   'forgotPassword.checkEmail': 'Lelee email gị',
   'forgotPassword.tip': 'Ị ghọtaghị ya? Lelee spam ma ọ bụ nwaa adreesị ọzọ.',
+  'landing.copyright': '© {{year}} {{app}}. E wuru maka ndị otu ọrụ na-enyocha ibe ọ bụla.',
+  'landing.ctaBody':
+    'Nnwale ụbọchị 14. Ọ dịghị kaadị achọrọ. Kagbuo oge ọ bụla. E wuru maka ndị otu ọrụ na-eme ngwa ngwa ma na-enyocha nwayọ.',
   'landing.ctaHeading': 'Kwụsị ide akwụkwọ nnata. Malite itinye ha.',
   'landing.eyebrow': 'OCR · Mwepụta · Ntinye AI',
+  'landing.featuresHeading': 'Ọgụgụ isi akwụkwọ na-akọwa onwe ya',
+  'landing.heroSubtitle':
+    "Tinye ikpo akwụkwọ ọnụahịa, akwụkwọ nnata, nkwekọrịta, ma ọ bụ fọm. {{app}} na-ekewa, na-ewepụta, ma na-edobe ha — na agba ntụkwasị obi ka ndị otu gị na-enyocha naanị ihe chọrọ mmadụ n'ezie.",
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Olu kwa ụbọchị · ụbọchị 7 gara aga',
   'landing.sampleCardLabel': 'A na-ahazi akwụkwọ taa',
   'landing.sampleCardSubtitle': "96.2% nkezi izi ezi n'ofe akwụkwọ ọnụahịa, nnata, na fọm.",
   'login.hidePassword': 'Zoo paswọọdụ',
@@ -74,6 +97,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Mepee ibe ọdịda',
   'notFound.title': 'Ibe ahụ adịghị na faịlụ',
+  'parcelaHeroCard.accuracy': 'Nkezi izi ezi {{value}}% na mwepụta niile',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % megide ụnyaahụ',
   'parcelaHeroCard.title': 'A na-ahazi akwụkwọ taa',
   'parcelaLayout.primaryNavLabel': 'Ntugharị isi',
@@ -81,6 +105,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'akwụkwọ',
   'pricing.processingLabel': 'ọrụ nhazi',
   'resetPassword.confirmPlaceholder': 'Megharịa paswọọdụ ọhụrụ ahụ',
+  'resetPassword.hidePassword': 'Zoo paswọọdụ',
   'resetPassword.passwordLabel': 'Okwuntughe Ọhụrụ',
   'resetPassword.showPassword': 'Gosi paswọọdụ',
   'resetPassword.subtitle': 'Họrọ ihe dị ka mkpụrụedemede asatọ ma ọ dịkarịa ala.',
@@ -97,10 +122,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Adịghị m ebu iwu ndị ahụ.',
   'rules.loading': 'Iwu na-ebugo…',
   'rules.matched30d': '{{count}} akwụkwọ ndị kwekọrọ na ụbọchị iri atọ gara aga',
+  'rules.neverUsed': 'Ejibeghị ya eme ihe',
   'rules.newRule': 'Iwu ọhụrụ',
   'rules.saveError': 'Adịghị echekwa iwu ahụ.',
   'rules.subheading':
     "Gwa sistemụ ebe ụdị akwụkwọ ọ bụla kwesịrị ịga. Usoro usoro site n'elu ruo ala — mmeri egwuregwu mbụ.",
+  'rules.templatesEmpty': 'Enwebeghị ndebiri mwepụta.',
   'rules.templatesHeading': 'Ndebiri mwepụta',
   'rules.templatesSubheading':
     'Atụmatụ ubi nke onye na-ewepụta ihe na-eji maka ụdị akwụkwọ ọ bụla.',
@@ -109,17 +136,23 @@ export const ui: UiTranslations = {
   'settings.account.error': 'Echekwaghị ihe ọ bụla.',
   'settings.account.nameLabel': 'Aha ebe ọrụ',
   'settings.account.subheading': 'Gosi aha na ozi-e bụ isi maka ọkwa na akụkọ nyocha.',
+  'settings.api.confirmRevoke': 'Kwenye?',
   'settings.api.copyOnce': 'Detuo igodo a — agaghị egosi ya ọzọ',
   'settings.api.createdOn': 'E kere ya {{date}}',
   'settings.api.empty': "Enwebeghị igodo API. Mepụta otu n'elu.",
   'settings.api.error': 'Emeghị m ike imepụta igodo ahụ.',
+  'settings.api.generating': 'Na-emepụta…',
+  'settings.api.heading': 'Igodo API',
   'settings.api.labelPlaceholder': 'Akara isi (dịka ọmụmaatụ onye na-ebugo CI)',
+  'settings.api.loading': 'Na-ebu igodo…',
   'settings.api.newKey': 'Mepụta igodo',
   'settings.api.subheading':
     "Jiri ihe ndị a kwaga akwụkwọ site na edemede ma ọ bụ ERP gị. Gbanwee igodo ọ bụla n'oge ọ bụla.",
   'settings.integrations.heading': 'Njikọta faịlụ',
   'settings.integrations.subheading':
     'Ziga akwụkwọ ndị e tinyere na draịvụ ígwé ojii ma ọ bụ ngwa nkata ndị otu gị bi na ya.',
+  'settings.subheading': 'Jikwaa akaụntụ, igodo API, na njikọ ndobe maka oghere ọrụ {{app}} gị.',
+  'signup.hidePassword': 'Zoo paswọọdụ',
   'signup.identityPrompt': 'Kedu ka anyị kwesịrị isi gwa gị okwu?',
   'signup.showPassword': 'Gosi paswọọdụ',
   'signup.subtitle': "Ụbọchị iri na anọ n'efu, ọ dịghị mkpa kaadị.",
@@ -127,6 +160,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Mbugo ahụ agaghị nke ọma.',
   'upload.eyebrow': 'Ntinye',
   'upload.heading': 'Bulite akwụkwọ',
+  'upload.queue.clear': 'Kpochapụ ndị emechara',
   'upload.queue.col.confidence': 'Obi ike',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Na-achọpụta…',
@@ -139,5 +173,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     "Ma ọ bụ tinye ọtụtụ faịlụ n'otu oge maka mwepụta, nhazi, na itinye faịlụ.",
   'uploadDropZone.cta': 'Họrọ faịlụ',
+  'uploadDropZone.maxSize': 'Kacha 25 MB kwa faịlụ · Ezigbo nzuzo site na njedebe ruo na njedebe',
   'uploadDropZone.title': 'Debe akwụkwọ iji malite nhazi',
 }

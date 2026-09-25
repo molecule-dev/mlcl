@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du feedback, fundet en fejl eller ønsker du en funktion? Skriv til os fra dine kontoindstillinger — hver besked går til en rigtig person på teamet. Bemærk: intet her er investeringsrådgivning; du har kontrol over hver handel.',
+  'about.contactTitle': 'Kontakt os',
+  'about.featureAttribution':
+    'Performanceattribution — opdel afkast efter sektor, region og aktivklasse, og benchmark over enhver periode.',
+  'about.featureRebalance':
+    'Disciplineret rebalancering — sæt målallokeringer og tolerancebånd, se drift markeret tidligt, og få de handler, der bringer dig tilbage.',
+  'about.featureTax':
+    'Skattemæssig orden — realiserede og urealiserede gevinster, udbytter og 1099-dokumenter på ét sted, med wash-sale-flag inkluderet.',
+  'about.featureUnified':
+    "Én samlet portefølje — aktier, ETF'er, investeringsforeninger, obligationer og mere, samlet på tværs af alle mæglerkonti.",
+  'about.featureWatchlist':
+    'Watchlister, nyheder og prisalarmer, så du kan handle på det, der betyder noget, uden støjen.',
+  'about.intro':
+    "{{app}} er et multi-asset-porteføljedashboard til private investorer og uafhængige rådgivere. Aktier, ETF'er, investeringsforeninger, obligationer, ejendom og kontanter — enhver beholdning på enhver konto, på ét sted, med disciplinen fra et professionelt desk.",
+  'about.missionBody':
+    'God investering er mest disciplin: en klar målallokering, ærlig performanceattribution og orden i skatteregnskabet. {{app}} bringer disse institutionelle vaner til alle, så du kan rebalancere med vilje i stedet for på impuls — og aldrig miste blikket for, hvad din portefølje faktisk gør.',
+  'about.missionTitle': 'Vores mission',
   'about.pageTitle': 'Om {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Formueværktøjer',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Ikke investeringsrådgivning.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Et porteføljedashboard til individuelle investorer og rådgivere, der ønsker disciplineret rebalancering, skarp performanceattribution og god skattedokumentation – uden støj.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · Tidligere afkast garanterer ikke fremtidige resultater.',
   'argentAuthShell.sampleChange': '+2.841 USD (+0,28%) i dag',
+  'argentAuthShell.sampleLabel': 'Porteføljeværdi',
   'argentAuthShell.sampleValue': '1.032.251 dollars',
   'argentLayout.primaryNavLabel': 'Primær navigation',
   'assetAllocationDonut.heading': 'Hvordan dine penge er investeret',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'i dag',
   'assetDetail.txEmpty': 'Ingen transaktioner for denne ticker.',
   'assetDetail.txHeading': 'Dine transaktioner',
+  'auth.legalConsent.prefix': 'Ved at fortsætte accepterer du {{appName}}’s',
   'common.and': 'og',
   'common.goToDashboard': 'Gå til Dashboard',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'i dag',
   'dashboard.topHoldings.heading': 'Hvor dine penge arbejder',
   'dashboard.topHoldings.label': 'Topbeholdninger',
+  'forgotPassword.gotLinkCta': 'Jeg har et nulstillingslink →',
+  'forgotPassword.subheading':
+    'Indtast e-mailen på din Gavl-konto, og vi sender dig et sikkert nulstillingslink.',
   'forgotPassword.successBody':
     'Hvis du ikke ser den inden for et par minutter, så tjek din spam-mappe eller prøv en anden e-mail.',
   'forgotPassword.successSubheading':
     'Check {{email}} for et nulstillingslink. Det udløber om 60 minutter.',
+  'forgotPassword.successTitle': 'Nulstillings-e-mail er på vej',
   'holdingHighlightRow.todayLabel': 'i dag',
   'holdings.addCta': 'Købe',
   'holdings.col.allocation': 'Allokering',
@@ -58,6 +87,8 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Ikke investeringsrådgivning. Tidligere resultater er ikke en garanti for fremtidige resultater.',
   'landing.eyebrow': 'Argent · En platform til formueopbygning',
   'landing.features.heading': 'Alt hvad en rådgiver ville bygge for sig selv.',
+  'landing.finalCta.body': 'Forbind din mægler med to klik. {{appName}} klarer resten.',
+  'landing.finalCta.cta': 'Åbn din Argent-konto',
   'landing.finalCta.heading': 'Få disciplinen tilbage i din portefølje.',
   'landing.footerSignup': 'Åbn en konto',
   'landing.getStarted': 'Åbn en konto',
@@ -65,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Se priser',
   'landing.heroSubtitle':
     'Et porteføljedashboard til individuelle investorer og rådgivere, der ønsker disciplineret rebalancering, skarp performanceattribution og god skattedokumentation – uden støj.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'En live forhåndsvisning af en repræsentativ portefølje',
   'login.heading': 'Log ind på Argent',
   'login.subheading':
@@ -76,6 +108,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}}t siden',
   'news.justNow': 'lige nu',
   'news.loadError': 'Kunne ikke indlæse nyheder.',
+  'planUpdated.body':
+    'Din ændring af betaling er nu aktiv. Du kan administrere din plan når som helst fra betalingssiden.',
+  'planUpdated.retry': 'Prøv igen',
+  'planUpdated.verifyFailed': 'Vi kunne ikke bekræfte din betaling endnu.',
+  'planUpdated.verifyFailedBody':
+    'Din betaling er muligvis stadig under behandling. Prøv igen om et øjeblik.',
   'planUpdated.verifying': 'Bekræfter din betaling…',
   'portfolioHeroCard.label': 'Porteføljeværdi',
   'pricing.holdingsLabel': 'beholdninger',
@@ -86,12 +124,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Allokeringsdrift',
   'rebalance.empty': 'Ingen mål sat endnu.',
   'rebalance.executeCta': 'Placere {{count}} handler',
+  'rebalance.executeError': 'Kunne ikke placere handler.',
   'rebalance.executeOk': 'Placeret {{count}} handler. Se dem på siden Transaktioner.',
+  'rebalance.executing': 'Placerer…',
   'rebalance.eyebrow': 'Rebalancering · Argent-rådgiver',
   'rebalance.heading': 'Få din portefølje tilbage i disciplin',
   'rebalance.loadError': 'Kunne ikke indlæse genbalanceringsplanen.',
+  'rebalance.plan.driftLine': 'aktuelt {{current}}% · mål {{target}}%',
   'rebalance.planHeading': 'Argent-billet — gennemgå før placering',
   'rebalance.planLabel': 'Foreslået handelsplan',
+  'rebalance.subheading':
+    'Rækker uden for deres tolerancebånd udløser handelsforslag. {{appName}} handler kun på din bekræftelse.',
   'rebalance.summary.buyLabel': 'Køber',
   'rebalance.summary.buySub': 'positioner at fylde op',
   'rebalance.summary.driftLabel': 'Uden for båndet',
@@ -100,6 +143,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'på tværs af foreslåede handler',
   'rebalance.summary.sellLabel': 'Sælger',
   'rebalance.summary.sellSub': 'positioner til at trimme',
+  'rebalanceDriftCard.drift': 'drift {{sign}}{{pct}}% · bånd ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'mål {{pct}} %',
   'reports.attributionHeading': 'Præstationstilskrivning (1 år)',
   'reports.col.alpha': 'Alfa',
@@ -113,36 +157,68 @@ export const ui: UiTranslations = {
   'reports.col.year': 'År',
   'reports.gainsHeading': 'Realiserede og urealiserede gevinster',
   'reports.noAttribution': 'Ingen attributionsdata endnu.',
+  'reports.noGains': 'Ingen data om realiserede/urealiserede gevinster endnu.',
   'reports.noPerformance': 'Ingen præstationsdata endnu.',
   'reports.noTaxDocs': 'Ingen skattedokumenter endnu.',
   'reports.performanceHeading': 'Ydeevne vs. benchmark',
   'reports.taxHeading': 'Skattedokumenter',
   'resetPassword.heading': 'Vælg en stærk ny adgangskode',
+  'resetPassword.passwordPlaceholder': 'Ny adgangskode',
   'resetPassword.subheading': 'Argent logger dig automatisk ind, når din adgangskode er angivet.',
   'resetPassword.tokenPlaceholder': 'Nulstil token fra e-mail',
+  'settings.appearance.description': 'Skift mellem lys og mørk tilstand.',
   'settings.appearance.title': 'Udseende',
+  'settings.devices.body': 'Enheder, der i øjeblikket er logget ind på din konto.',
+  'settings.devices.empty': 'Ingen enheder fundet.',
   'settings.devices.heading': 'Enheder',
+  'settings.devices.revokeWarning':
+    'Denne enheds adgang vil blive tilbagekaldt om kort tid. Log den ud?',
   'settings.devices.signOut': 'Log ud',
   'settings.devices.thisDevice': 'Denne enhed',
   'settings.devices.unknown': 'Ukendt enhed',
   'settings.linked.body':
     'Mæglersynkronisering kræver en tredjepartsforbindelse (Plaid, Yodlee osv.). Konfigurer din udbyder i dit miljø for at aktivere automatisk import.',
   'settings.linked.heading': 'Tilknyttede mæglerkonti',
+  'settings.linked.placeholder': 'Ingen konti tilknyttet endnu.',
+  'settings.notifications.dividendsPaid': 'Udbetalt udbytte',
   'settings.notifications.error': 'Kunne ikke opdatere præferencen.',
   'settings.notifications.priceAlerts': 'Prisalarmer',
+  'settings.notifications.rebalanceDrift': 'Rebalanceringsdrift',
+  'settings.notifications.taxDocsReady': 'Skattedokumenter klar',
   'settings.profile.advisor': 'Rådgiverens e-mail (valgfrit)',
   'settings.profile.heading': 'Profil',
   'settings.security.changePassword': 'Skift adgangskode',
+  'settings.security.changePasswordTitle': 'Skift adgangskode',
   'settings.security.changing': 'Ændring…',
+  'settings.security.confirmPassword': 'Adgangskode',
+  'settings.security.currentPassword': 'Nuværende adgangskode',
   'settings.security.deleteAccount': 'Slet konto',
   'settings.security.deleteError': 'Kunne ikke slette konto.',
   'settings.security.deleteHeading': 'Slet konto',
+  'settings.security.deleteModalWarning':
+    'Dette sletter permanent din konto og dine data. Indtast din adgangskode for at bekræfte.',
+  'settings.security.deleteWarning':
+    'Slet din konto og alle tilknyttede data permanent. Dette kan ikke fortrydes.',
   'settings.security.deleting': 'Sletter…',
   'settings.security.heading': 'Sikkerhed',
   'settings.security.newPassword': 'Ny adgangskode',
   'settings.security.password': 'Adgangskode',
+  'settings.security.passwordError': 'Kunne ikke ændre adgangskode.',
+  'settings.security.passwordHint': 'Skift den adgangskode, du bruger til at logge ind.',
+  'settings.security.twoFactor': 'Tofaktorgodkendelse',
+  'settings.security.twoFactorCode': 'Godkendelseskode',
+  'settings.security.twoFactorDisable': 'Deaktivér',
+  'settings.security.twoFactorDisableTitle': 'Deaktiver to-faktor-godkendelse',
   'settings.security.twoFactorEnable': 'Aktivér',
+  'settings.security.twoFactorEnableTitle': 'Aktivér to-faktor-godkendelse',
+  'settings.security.twoFactorHint': 'Tilføj et ekstra lag beskyttelse til din konto.',
   'settings.security.twoFactorInvalidCode': 'Ugyldig kode',
+  'settings.security.twoFactorOn': 'Den',
+  'settings.security.twoFactorQrAlt': 'To-faktor QR-kode',
+  'settings.security.twoFactorScan':
+    'Scan denne QR-kode med din godkendelsesapp, og indtast derefter den 6-cifrede kode.',
+  'settings.security.twoFactorUnavailable':
+    'Tofaktorgodkendelse er ikke tilgængelig for denne app.',
   'settings.security.twoFactorVerify': 'Bekræft og aktiver',
   'settings.tax.error': 'Skattemetoden kunne ikke opdateres.',
   'settings.tax.heading': 'Skattepartiregnskab',
@@ -153,6 +229,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Skattemetode gemt.',
   'signup.eyebrow': 'Åbn en konto',
   'signup.heading': 'Åbn din Argent-konto',
+  'signup.legalPrefix': 'Ved at oprette en konto accepterer du {{appName}}',
   'signup.subheading':
     'Gratis i 30 dage. Intet kort kræves. Du kan til enhver tid opsige abonnementet.',
   'signup.terms':

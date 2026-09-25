@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Fragen, Feedback oder möchten Sie eine Demo für Ihr Team? Schreiben Sie uns an hello@conduit.dev — jede Nachricht erreicht eine echte Person im Team.',
   'about.contactHeading': 'Kontakt aufnehmen',
   'about.eyebrow': 'Über',
+  'about.featuresHeading': 'Was Sie erhalten',
+  'about.introBody':
+    '{{app}} bringt Continuous Delivery im Stil von GitHub Actions in ein einziges schnelles Dashboard: Pipelines, Build-Logs, Artefakte, Status-Badges und Deployment-Umgebungen für alle Ihre Repositories an einem Ort. Kein Tab-Wechseln, kein Rätselraten, welcher Build kaputtgegangen ist — jeder Lauf, jede Log-Zeile und jedes Deployment sind nur einen Klick entfernt.',
+  'about.introHeading': 'Was {{app}} ist',
+  'about.missionBody':
+    'Software auszuliefern sollte ruhig und vorhersehbar sein, kein Grund zur Sorge. Wir bauen die Pipelines, Logs und Deployment-Tools, damit der Weg vom Commit in die Produktion schnell, sichtbar und vertrauenswürdig ist — der erste grüne Build in fünf Minuten, und jeder weitere genauso klar.',
+  'about.missionHeading': 'Unsere Mission',
+  'about.subtitle':
+    '{{app}} ist ein CI/CD-Dashboard für Teams, die Builds, Deployments und Umgebungen über alle Repositories hinweg überwachen — und mit Sicherheit ausliefern möchten.',
   'artifacts.empty': 'Noch keine Artefakte.',
   'artifacts.heading': 'Artefakte',
   'artifacts.loadError': 'Artefakte konnten nicht geladen werden.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Umgebungen',
   'environments.loadError': 'Umgebungen konnten nicht geladen werden.',
+  'environments.loading': 'Umgebungen werden geladen…',
   'environments.subheading': 'Live-Deployment-Status für jedes Ziel.',
   'forgotPassword.runnerStatus': 'zurücksetzen · sicherer Tunnel',
+  'forgotPassword.success':
+    'Falls für diese E-Mail ein Konto existiert, ist ein Reset-Link unterwegs. Prüfen Sie Ihren Posteingang.',
   'insights.changeFailureRate': 'Fehlerquote bei Änderungen',
   'insights.deployFrequency': 'Deployments / Tag',
   'insights.empty': 'Noch nicht genügend Daten.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Erkenntnisse konnten nicht geladen werden.',
   'insights.meanP95': 'Mittelwert {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Langsamste Pipeline-Schritte',
   'insights.successRateHeading': 'Pipeline-Erfolgsrate (letzte 14 Tage)',
   'landing.choosePlan': 'Plan auswählen',
+  'landing.copyright': '© {{year}} {{app}}. Mit Sicherheit ausliefern.',
   'landing.ctaBody':
     'Keine Kreditkarte. Kein Platform Engineer erforderlich. Bringen Sie Ihre erste Pipeline in fünf Minuten auf Grün.',
   'landing.ctaHeading': 'Liefern Sie mit Gewissheit.',
   'landing.featuresEyebrow': '// Plattformfunktionen',
   'landing.featuresHeading': 'Von Shippern für Shipper gebaut',
+  'landing.heroSubtitle':
+    'Pipelines, die in Sekunden fertig sind. Logs, die man lesen kann. Deployments, denen man vertrauen kann.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Einfache, vorhersehbare Preise',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Aktuell in Bearbeitung',
   'pipelines.metric.successCaption': '{{count}} von {{total}} Läufen',
   'pipelines.metric.successRate': 'Erfolgsrate',
+  'pipelines.realtimeOn': 'Echtzeit',
   'pipelines.subheading': 'Live-Updates aus jedem beobachteten Repository.',
+  'pricing.advancedFeatures': 'Erweiterte Funktionen: {{mark}}',
+  'pricing.canExport': 'Datenexport: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} Artefakte',
+  'pricing.maxBuilds': '{{count}} Builds',
+  'pricing.maxPipelines': '{{count}} Pipelines',
   'privacy.dataAccount': 'Konto: Name, E-Mail, gehashtes Passwort, Plan-Stufe.',
   'privacy.intro':
     '{{app}} erfasst nur die Mindestdaten, die wir zum Betrieb Ihres Continuous-Delivery-Kontos benötigen: Ihre E-Mail, die von Ihnen verbundenen Repositories, die von Ihren Runnern erzeugten Commits und Build-Metadaten sowie die Secrets, die Sie bei uns speichern möchten. Wir lesen Ihren Quellcode niemals außerhalb des Build-Runners; Build-Artefakte werden, sofern konfiguriert, in Ihrem S3-Bucket gespeichert.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Wir verwenden Stripe für die Abrechnung, Mailgun für transaktionale E-Mails und AWS S3 für die Speicherung von Build-Artefakten. Jeder Dienst ist vertraglich auf den Mindestumfang an Daten beschränkt, der zur Erbringung seines Dienstes erforderlich ist.',
   'privacy.rightsBody':
     'Sie können jedes einzelne Byte Ihrer Daten exportieren, Ihr Konto jederzeit in den Einstellungen löschen und eine Aufzeichnung aller Webhook-Zustellungen Ihres Kontos anfordern. Wir beantworten Anfragen gemäß DSGVO/CCPA innerhalb von 30 Tagen.',
+  'privacy.subtitle':
+    'Wie {{app}} Ihre Daten erfasst, speichert und schützt, während wir Ihre Pipelines ausführen.',
   'privacy.title': 'Datenschutzerklärung',
   'repositories.empty': 'Keine Repositories verbunden.',
   'repositories.heading': 'Repositories',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Alle Repositories',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Repository konnte nicht geladen werden.',
+  'repositoryDetail.meanDuration': 'Durchschnittliche Dauer',
   'repositoryDetail.notFound': 'Repository nicht gefunden.',
+  'repositoryDetail.successRate': 'Erfolgsrate',
   'repositoryDetail.totalBuilds': 'Builds insgesamt',
   'repositoryDetail.webhookActive': 'aktiv',
   'repositoryDetail.webhookPaused': 'pausiert',
   'repositoryDetail.webhooksHeading': 'Webhooks',
+  'resetPassword.passwordLabel': 'Neues Passwort',
   'resetPassword.runnerStatus': 'zurücksetzen · Token verifiziert',
   'resetPassword.subtitle': 'Wählen Sie ein starkes Passwort, das Sie zuvor nicht verwendet haben.',
   'resetPassword.tokenPlaceholder': 'aus E-Mail einfügen',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Repositories, die Conduit überwacht. Trennen Sie die Verbindung zu Ihrem VCS-Anbieter, um Ereignisse nicht mehr aufzunehmen.',
   'settings.repositories.empty': 'Noch keine Repositories verbunden.',
+  'settings.repositories.heading': 'Repository-Verbindungen',
   'settings.repositories.loadError': 'Repositories konnten nicht geladen werden.',
   'settings.secrets.addCta': 'Secret hinzufügen',
   'settings.secrets.addError': 'Das Hinzufügen des Geheimnisses ist fehlgeschlagen.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Das Löschen des Geheimnisses ist fehlgeschlagen.',
   'settings.secrets.empty': 'Keine Secrets gespeichert.',
   'settings.secrets.heading': 'Secrets',
+  'settings.secrets.lastUsed': 'zuletzt verwendet {{date}}',
   'settings.secrets.loadError': 'Secrets konnten nicht geladen werden.',
   'settings.secrets.neverUsed': 'nie verwendet',
   'settings.secrets.rotateCta': 'Rotieren',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Die Aktualisierung des Webhooks ist fehlgeschlagen.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'kostenloses Kontingent · 1.000 Build-Min./Monat',
+  'terms.intro':
+    'Mit der Erstellung eines {{app}}-Kontos stimmen Sie diesen Bedingungen zu. Sie decken die zulässige Nutzung der Build-Runner, die Grenzen unseres SLA und die Bedingungen ab, unter denen wir Ihr Konto bei missbräuchlichen Workloads sperren oder kündigen können.',
   'terms.slaBody':
     'Die Pläne Pro und Team zielen auf eine monatliche Verfügbarkeit von 99,95 % für die API und den Runner-Pool ab. Der Free-Plan wird ohne Gewähr bereitgestellt. Ausfälle werden auf status.conduit.dev gemeldet und gemäß der in Ihrer Rechnung festgelegten Formel gutgeschrieben.',
   'terms.terminationBody':

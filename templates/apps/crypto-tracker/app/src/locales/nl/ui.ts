@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Neem contact met ons op',
   'about.eyebrow': 'Over',
+  'about.featureAlerts':
+    'Prijsalerts op de voorwaarden die ertoe doen, geleverd via e-mail en push, zodat je nooit een beweging mist.',
+  'about.featureMarkets':
+    'Live marktdata en prijsgrafieken van duizenden munten, gerangschikt op marktkapitalisatie, volume en momentum.',
+  'about.featurePortfolio':
+    'Portefeuilletracking met echte winst-en-verlies, kostprijs en allocatie — verbonden met je transactiegeschiedenis.',
+  'about.featureWatchlist':
+    'Een persoonlijke watchlist en samengesteld crypto-nieuws met signalen over de activa die je volgt.',
+  'about.missionTitle': 'Onze missie',
+  'alertConditionCard.armedSince': 'Actief sinds {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'Geactiveerd {{when}}',
   'alertConditionCard.confirmDelete': 'Bevestig verwijdering',
+  'alertConditionCard.deleteAriaLabel': 'Waarschuwing verwijderen',
   'alertConditionCard.pauseAriaLabel': 'Melding pauzeren',
   'alertConditionCard.resumeAriaLabel': 'Melding hervatten',
+  'alertConditionCard.triggeredAt': 'Geactiveerd {{when}}',
   'alertNew.condition': 'Voorwaarde',
   'alertNew.createCta': 'Melding aanmaken',
   'alertNew.error': 'Melding kon niet worden aangemaakt.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Nog geen meldingen.',
   'alerts.eyebrow': 'Bourse-tripwires',
   'alerts.loadError': 'Meldingen konden niet worden geladen.',
+  'alerts.newCta': '+ Nieuwe tripwire',
   'alerts.subheading':
     'Ontvang een seintje wanneer prijs, verandering of volume uw grens overschrijdt.',
   'alerts.summary.armed': 'Actief',
@@ -24,6 +38,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Hoogste ooit',
   'coinDetail.allTimeLow': 'Laagste ooit',
   'coinDetail.back': 'Alle markten',
+  'coinDetail.chartAriaLabel': '{{name}} prijsgrafiek, laatste 30 dagen',
   'coinDetail.chartHeading': 'Prijs · laatste 30 dagen',
   'coinDetail.circulating': 'Circulerend aanbod',
   'coinDetail.fdv': 'Volledig verwaterde waardering',
@@ -60,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Resetlink verzonden.',
   'login.eyebrow': 'Stap de terminal in',
   'login.heading': 'Welkom terug, signaalgever.',
+  'login.noAccountQuestion': 'Nieuw bij Tessera?',
   'login.secureNote': '🔒 Versleuteld tijdens transport',
   'login.signingInCta': 'Tape uitlezen…',
   'login.signupLink': 'Account openen →',
@@ -94,6 +110,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'De gescande route verwijst niet naar een bekende coin of pagina. Controleer het symbool en probeer opnieuw.',
   'notFound.browseMarkets': 'Markten bekijken',
+  'notFound.eyebrow': '{{appName}} signaal verloren',
+  'notFound.heading': 'Dit signaal valt buiten bereik',
+  'planUpdated.body':
+    'Je factuurwijziging is nu actief. Je kunt je abonnement op elk moment beheren vanaf de factuurpagina.',
+  'planUpdated.retry': 'Opnieuw proberen',
+  'planUpdated.verifyFailed': 'We hebben uw betaling nog niet kunnen bevestigen.',
+  'planUpdated.verifyFailedBody':
+    'Uw betaling wordt mogelijk nog verwerkt. Probeer het over een moment opnieuw.',
   'planUpdated.verifying': 'Je betaling bevestigen…',
   'portfolio.addError': 'Voer symbool, positief aantal en kosten in.',
   'portfolio.addHoldingCta': '+ Positie toevoegen',
@@ -117,11 +141,13 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Totale portefeuillewaarde',
   'portfolioHeroCard.totalPnl': 'Totaal W/V',
   'pricing.heading': 'waarschuwingen',
+  'pricing.limit.alerts': 'alerts',
   'pricing.limit.coins': 'coins',
   'pricing.limit.market': 'markt',
   'pricing.limit.portfolio': 'portefeuille',
   'resetPassword.eyebrow': 'Nieuwe cijfer',
   'resetPassword.missingToken': 'Deze resetlink ontbreekt of is ongeldig. Vraag een nieuwe aan.',
+  'resetPassword.passwordPlaceholder': 'Nieuw wachtwoord',
   'resetPassword.subheading': 'Kies iets dat alleen u kunt ontcijferen.',
   'settings.apiKeys.body':
     'Alleen-lezen sleutels om transactiegeschiedenis te importeren. Koppel via OAuth vanuit /pricing zodra u geabonneerd bent.',
@@ -133,17 +159,33 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Koersvaluta',
   'settings.preferences.locale': 'Taal',
   'settings.preferences.push': 'Push',
+  'settings.preferences.refresh': 'Prijsvernieuwing (seconden)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning':
+    'De toegang van dit apparaat wordt binnenkort ingetrokken. Uitloggen?',
   'settings.security.body': 'Wachtwoord- en tweefactorinstellingen worden beheerd via uw account.',
   'settings.signOutDevice': 'Uitloggen',
   'settings.twoFactorCode': 'Verificatiecode',
   'settings.twoFactorDisable': 'Uitschakelen',
+  'settings.twoFactorDisableTitle': 'Tweestapsverificatie uitschakelen',
   'settings.twoFactorEnable': 'Inschakelen',
+  'settings.twoFactorEnableTitle': 'Tweestapsverificatie inschakelen',
   'settings.twoFactorInvalidCode': 'Ongeldige code',
   'settings.twoFactorOn': 'Op',
+  'settings.twoFactorQrAlt': 'Tweefactor QR-code',
+  'settings.twoFactorScan':
+    'Scan deze QR-code met je authenticator-app en voer vervolgens de 6-cijferige code in.',
+  'settings.twoFactorUnavailable': 'Tweefactorauthenticatie is niet beschikbaar voor deze app.',
   'settings.twoFactorVerify': 'Controleren en inschakelen',
   'sigilAuthShell.backHomeCta': '← Terug naar Bourse',
+  'sigilAuthShell.brandBody':
+    'Realtime prijzen, portefeuille-W/V en actieve wards op de voorwaarden die ertoe doen — allemaal op één terminal.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — gebouwd op Molecule',
+  'sigilAuthShell.brandHeadline': 'Ontcijfer elk signaal in het volledige grootboek.',
+  'sigilAuthShell.samplePortfolio': 'Voorbeeldportefeuille',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Hoofdnavigatie',
+  'signup.creating': 'Je terminal wordt geopend…',
   'signup.eyebrow': 'Open een terminal',
   'signup.heading': 'Maak uw Bourse aan',
   'signup.subheading': 'Volg elke coin, mis niets. Gratis te starten.',
@@ -160,6 +202,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Transacties konden niet worden geladen.',
   'watchlist.addCta': 'Markten bekijken',
   'watchlist.col.change24h': '24 u',
+  'watchlist.col.coin': 'Coin',
   'watchlist.col.marketCap': 'Mkt cap',
   'watchlist.empty':
     'Geen coins op uw volglijst — markeer coins met een ster in /markets om ze toe te voegen.',

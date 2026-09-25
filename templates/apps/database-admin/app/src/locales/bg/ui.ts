@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'Относно',
+  'about.featureConnections':
+    'Мениджър на връзки, който сигурно съхранява и оцветява вашите бази данни — идентификационните данни са криптирани при съхранение, никога в обикновен текст.',
+  'about.featureMonitoring':
+    'Мониторинг на живо на производителността на заявките и активността на базата данни, с клавишни комбинации и командна палитра за управление без ръце.',
+  'about.featurePlans':
+    'Планове, които растат с вас — Безплатен за самостоятелна работа, Pro и Team за повече връзки, по-дълго запазване на заявки, експорти и разширени функции.',
+  'about.featureQueryEditor':
+    'SQL редактор, базиран на Monaco, с история на заявките, запазени заявки и експорт на резултатите в CSV с едно кликване.',
+  'about.featureSchema':
+    'Изследовател на схеми и браузър на таблици за навигация в бази данни, таблици и колони, след което разглеждайте, филтрирайте и редактирайте редове на място.',
+  'about.missionTitle': 'Нашата мисия',
   'authShell.commands': 'Команди',
   'authShell.ssoSupported': 'Поддържа SSO',
   'common.run': 'Стартирай',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Заявки',
   'connections.schema': 'Схема',
   'connections.subtitle': 'Управление на връзките с базата данни.',
+  'connections.test': 'Тест',
   'databaseAdminLayout.adminRole': 'Роля на администратора',
   'databaseAdminLayout.commandPalette': 'Палитра с команди',
   'databaseAdminLayout.commands': 'команди',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Нова връзка',
   'databaseAdminLayout.queries': 'Заявки',
   'databaseAdminLayout.ready': 'Готов',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Търсене на команди, заявки, таблици…',
   'databaseAdminLayout.user': 'Потребител',
   'editConnection.confirmDelete': 'Да изтриете тази връзка?',
   'editConnection.deleteButton': 'Изтрий връзката',
+  'editConnection.newPassword': 'Нова парола (оставете празно, за да запазите)',
   'editConnection.saved': 'Връзката е запазена.',
   'editConnection.title': 'Редактиране на връзката',
   'forgotPassword.success':
@@ -47,6 +62,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Успехи',
   'monitoring.title': 'Мониторинг',
   'monitoring.totalQueries': 'Общо заявки',
+  'nav.schema': 'Схема',
   'newConnection.database': 'База данни',
   'newConnection.engine': 'Двигател',
   'newConnection.host': 'Домакин',
@@ -82,6 +98,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Към този фрагмент няма свързана връзка.',
   'savedQuery.notBound': 'Без обвързване',
   'savedQuery.title': 'Запазено запитване',
+  'schema.columns': 'Колони',
   'schema.foreignKeys': 'Външни ключове',
   'schema.indexes': 'Индекси',
   'schemaExplorer.browseRows': 'Преглед на редовете',
@@ -90,14 +107,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'с възможност за нулева стойност',
   'schemaExplorer.colType': 'тип',
   'schemaExplorer.noColumns': 'Няма колони.',
+  'schemaExplorer.noForeignKeys': 'Няма външни ключове.',
   'schemaExplorer.noIndexes': 'Няма индекси.',
   'schemaExplorer.noTables': 'Без таблици',
   'schemaExplorer.pickATable': 'Изберете таблица от страничната лента.',
   'schemaExplorer.tables': 'Таблици',
   'schemaExplorer.title': 'Разглеждане на схеми',
+  'settings.session': 'Сесия',
   'settings.subtitle': 'Управление на профила и плана ви.',
   'signup.heading': 'Създайте си профил в Quarry',
   'signup.tagline': 'Активирайте достъпа за по-малко от минута.',
   'tableBrowser.noRows': 'Тази таблица все още няма редове.',
+  'tableBrowser.subtitle': 'Разглеждане на редове от вашата отдалечена база данни.',
   'tableBrowser.title': 'Преглед на редове от отдалечената ви база данни.',
 }

@@ -1,19 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Domande, feedback o una richiesta di funzionalità? Scrivi al team all'indirizzo hello@murmur.app — ogni messaggio arriva a una persona reale che lavora sul prodotto.",
   'about.contactTitle': 'Contattaci',
   'about.eyebrow': 'Chi siamo',
+  'about.intro':
+    "{{app}} è l'intelligenza per le riunioni pensata per i team che preferiscono prendere decisioni piuttosto che prendere appunti. Si unisce alle tue chiamate, trascrive ogni parola con le etichette degli interlocutori e consegna un riepilogo AI più le attività assegnate nel momento stesso in cui la riunione termina.",
+  'about.missionBody':
+    'Le riunioni sono il luogo in cui i team decidono — e in cui quelle decisioni si perdono. {{app}} esiste per assicurarsi che il lavoro che nasce da una conversazione sopravviva alla conversazione stessa: un resoconto fedele, un riepilogo chiaro e prossimi passi con responsabilità definite, automaticamente.',
+  'about.missionTitle': 'La nostra missione',
   'actions.empty': "Nessun elemento d'azione corrisponde.",
   'actions.heading': "Elementi d'azione",
   'actions.loadError': "Impossibile caricare gli elementi d'azione.",
   'actions.subheading': 'Aggregati da tutte le riunioni. Filtri per stato per concentrarsi.',
   'actions.toggleDoneLabel': 'Segna come fatto',
   'actions.toggleReopenLabel': 'Segna come aperto',
+  'auth.footer': '© {{year}} {{app}}. Ogni parola, distillata.',
   'calendar.heading': 'Calendario',
   'calendar.joinCta': 'Partecipa',
   'calendar.loadError': 'Impossibile caricare il calendario.',
   'calendar.nextMonth': 'Mese successivo',
   'calendar.noEventsForDay': 'Nessuna riunione prevista per questo giorno.',
+  'calendar.noUpcomingEvents':
+    'Nessuna riunione in programma. Collega un calendario dalle Integrazioni per popolare questo elenco.',
   'calendar.previousMonth': 'Mese precedente',
   'calendar.recent': 'Recenti',
   'common.daysAgo': '{{count}}g fa',
@@ -25,9 +35,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': "{{count}} elementi d'azione",
   'dashboard.empty.body':
     'Avvii una registrazione o colleghi Google Calendar affinché Murmur partecipi automaticamente alla Sua prossima riunione.',
+  'dashboard.empty.cta': 'Inizia registrazione',
   'dashboard.empty.heading': 'Ancora nessuna riunione',
   'dashboard.eyebrow': 'Il Suo feed di riunioni',
   'dashboard.loadError': 'Impossibile caricare la dashboard.',
+  'dashboard.noActions': 'Nessuna attività',
   'dashboard.recentHeading': 'Riunioni recenti',
   'dashboard.recordCta': 'Registra riunione',
   'dashboard.stat.actions': "Elementi d'azione",
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     "{{count}} riepiloghi non letti dall'ultimo controllo. Murmur ha catturato ogni parola — ecco il resoconto.",
   'dashboard.viewCalendar': 'Visualizza calendario →',
+  'footer.linksLabel': 'Footer',
   'forgot.failed': "Impossibile inviare l'email di reimpostazione.",
   'forgot.sentBody':
     'Se esiste un account per {{email}}, riceverà a breve un link di reimpostazione.',
@@ -48,14 +61,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Colleghi calendari e piattaforme video affinché Murmur partecipi automaticamente.',
   'integrations.updateError': 'Aggiornamento fallito.',
+  'landing.ctaBody':
+    'Gratis per le prime 5 riunioni ogni mese. Nessuna carta di credito. Collega Google Calendar in meno di un minuto.',
   'landing.ctaButton': 'Inizi — è gratuito',
   'landing.ctaHeading': 'Smetta di prendere appunti. Inizi a prendere decisioni.',
+  'landing.demo.aiBody':
+    'Lancio spostato dal 5 maggio → 12 maggio per dare margine di personale alle operations. La riprogettazione della dashboard è stata separata al 26 maggio.',
   'landing.demo.aiLabel': 'Riepilogo AI, redatto in tempo reale',
   'landing.demo.recording': 'Registrazione · live',
   'landing.eyebrow': 'Intelligenza per riunioni con AI',
   'landing.featuresHeading': 'Tutto ciò di cui il Suo team ha bisogno dopo la riunione',
+  'landing.featuresSubheading':
+    'Basta con "aspetta, di chi è questa cosa?". {{appName}} consegna il riepilogo prima che la chiamata si disconnetta.',
   'landing.getStarted': 'Prova gratis',
   'landing.heroSecondary': 'Guarda il tour di 90 secondi',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} si unisce alle tue chiamate, trascrive ogni parola con le etichette degli interlocutori e consegna riepiloghi AI più attività assegnate nel momento stesso in cui la riunione termina.',
   'landing.heroTitle': 'Acquisisca ogni riunione. Faccia emergere ciò che conta.',
   'login.altPrompt': 'Nuovo su Murmur?',
   'login.failed': 'Impossibile accedere. Controlli email e password.',
@@ -63,6 +84,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': "Elementi d'azione",
   'meetingDetail.back': 'Tutte le riunioni',
   'meetingDetail.decisionsHeading': 'Decisioni',
+  'meetingDetail.dueDate': 'scadenza {{date}}',
   'meetingDetail.followupsHeading': 'Follow-up',
   'meetingDetail.loadError': 'Impossibile caricare la riunione.',
   'meetingDetail.noActions': "Nessun elemento d'azione rilevato.",
@@ -76,7 +98,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Ancora nessuna riunione',
   'meetings.heading': 'Riunioni',
   'meetings.loadError': 'Impossibile caricare le riunioni.',
+  'meetings.recordCta': 'Registra riunione',
   'meetings.subheading': 'Ogni riunione registrata, caricata e sincronizzata.',
+  'murmurLayout.closeMenu': 'Chiudi il menu di navigazione',
   'murmurLayout.openMenu': 'Apri il menu di navigazione',
   'murmurLayout.primaryNavLabel': 'Navigazione principale',
   'nav.legal': 'Legale',
@@ -101,7 +125,15 @@ export const ui: UiTranslations = {
   'profile.loading': 'Caricamento…',
   'profile.navLabel': 'Sezioni del profilo',
   'profile.notifications.assignments': "Elementi d'azione assegnati a me",
+  'profile.notifications.assignmentsHint':
+    "Avvisa quando viene acquisita un'attività che ti riguarda.",
+  'profile.notifications.mentions': 'Menzioni nelle trascrizioni',
+  'profile.notifications.mentionsHint': 'Email + notifica push quando qualcuno ti @-menziona.',
+  'profile.notifications.subheading': 'Scegli quali eventi di {{appName}} devono raggiungerti.',
   'profile.notifications.summaries': 'Riepilogo settimanale',
+  'profile.notifications.summariesHint':
+    'Un riepilogo del lunedì di tutte le riunioni della settimana scorsa.',
+  'profile.preferences.speakerColor': "Colore predefinito dell'interlocutore",
   'profile.preferences.subheading':
     'Impostazioni predefinite che si applicano a ogni registrazione a cui partecipa.',
   'profile.preferences.timezone': 'Fuso orario',
@@ -114,16 +146,21 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Il Suo browser non supporta la registrazione. Provi Chrome, Edge o Safari.',
   'record.error.upload': 'Caricamento non riuscito. Riprovi.',
+  'record.errorLabel': 'Qualcosa è andato storto',
   'record.heading': 'Registra',
   'record.idleLabel': 'Tocchi per iniziare a registrare',
   'record.processingLabel': 'Trascrizione con Whisper, riepilogo con Claude…',
+  'record.recordingLabel': 'Registrazione in corso…',
   'record.retryCta': 'Riprovi',
   'record.subheading':
     "Prema il microfono per iniziare. Murmur cattura l'audio, lo trascrive tramite Whisper e scrive un riepilogo basato su Claude.",
+  'record.titlePlaceholder': 'Titolo della riunione (facoltativo)',
+  'reset.altPrompt': 'Hai cambiato idea?',
   'reset.hint': 'Usi almeno 8 caratteri con una combinazione di lettere e numeri.',
   'reset.missingToken': 'Il link di reimpostazione manca o è scaduto. Ne richieda uno nuovo.',
   'reset.newPassword': 'Nuova password',
   'reset.subheading': "Scelga una password che non usa da nessun'altra parte.",
+  'reset.tooShort': 'La password deve contenere almeno 8 caratteri.',
   'search.empty': 'Digiti per cercare nelle trascrizioni.',
   'search.loadError': 'La ricerca non è andata a buon fine. Riprova.',
   'search.noResults': 'Nessun risultato per “{{q}}”.',
@@ -139,7 +176,10 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Conserva audio per',
   'settings.retention.heading': 'Conservazione',
   'settings.retention.transcript': 'Conserva trascrizioni per',
+  'settings.revokeDeviceWarning':
+    "L'accesso di questo dispositivo verrà revocato a breve. Disconnetterlo?",
   'settings.saveError': 'Salvataggio non riuscito.',
+  'settings.security.subheading': 'Aggiorna la password che usi per accedere.',
   'settings.sharing.exportFormat': 'Formato di esportazione',
   'settings.sharing.heading': 'Impostazioni di condivisione predefinite',
   'settings.sharing.scope': 'Ambito di condivisione predefinito',
@@ -157,6 +197,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Invita un membro del team',
   'team.invitedAs': 'Invitato come {{role}}',
   'team.inviteFailed': "Impossibile inviare l'invito.",
+  'team.invitePlaceholder': 'collega@azienda.com',
   'team.inviteSubmit': 'Invia invito',
   'team.inviteSubtitle': "Riceverà un'email con un link per partecipare.",
   'team.inviteTitle': 'Invita un membro del team',

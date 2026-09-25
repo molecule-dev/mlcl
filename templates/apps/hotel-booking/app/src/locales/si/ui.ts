@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'වෙන්කරවා ගැනීමක්, ප්‍රතිචාරයක් හෝ {{app}} හි තිබිය යුතු යැයි ඔබ සිතන දේපලක් පිළිබඳ ප්‍රශ්නද? ඔබේ ගිණුමෙන් අපගේ කණ්ඩායම හමුවන්න — සෑම පණිවිඩයක්ම උදව් කළ හැකි සැබෑ මිනිසෙකු වෙත යයි.',
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'අපි ගැන',
+  'about.featureLoyalty':
+    'සාමාජිකයන්ට පමණක් ලැබෙන මිල ගණන් සහ සෑම වෙන්කරවා ගැනීමකදීම ලකුණු, ප්‍රමාද චෙක්අවුට් සහ කාමර උත්ශ්‍රේණි කිරීම් ලබා දෙන පක්ෂපාතී වැඩසටහනක්.',
+  'about.featureReviews':
+    'සත්‍යාපිත අමුත්තන්ගේ සමාලෝචන සහ කතෘ තේරීම් — ඔබ පැමිණීමට පෙර නවාතැන විශ්වාස කළ හැකි වන පරිදි.',
+  'about.featureRooms':
+    'පැහැදිලි, සියල්ල ඇතුළත් මිලකරණය සමඟ කාමර, මිල ගණන් සහ පහසුකම් පැත්තෙන් පැත්තට — ඔබ ගෙවීමට පෙර බදු සහ රිසෝට් ගාස්තු ඇතුළත්.',
+  'about.featureSearch':
+    'සත්‍යාපිත හෝටල් හරහා තත්‍ය කාලීන සෙවීම, සජීවී ලබා ගත හැකි බව, සිතියම් දසුන සහ පොහොසත් ඡායාරූප ගැලරි සමඟ.',
+  'about.featureTrips':
+    'සුරකින ලද ප්‍රියතමයන් සහ සෑම වෙන්කරවා ගැනීමක්, ගමන් සැලසුමක් සහ තහවුරු කිරීමක් එකම තැනක තබා ගන්නා Trips උපකරණ පුවරුවක්.',
+  'about.intro':
+    '{{app}} යනු ගුණාත්මකභාවය ගැන සැලකිලිමත් වන සංචාරකයන් සඳහා හෝටල් වෙන්කරවා ගැනීමේ වේදිකාවකි. සෑම දේපලක්ම අපගේ කතෘ කණ්ඩායම විසින් පුද්ගලිකව සත්‍යාපනය කර ඇත — එකතු කරන්නන්ගේ තොග නැත, රවටන ලැයිස්තුගත කිරීම් නැත. සැබෑ ලබා ගත හැකි බව සොයන්න, කාමර, මිල ගණන් සහ පහසුකම් පැත්තෙන් පැත්තට සසඳන්න, පසුව පැහැදිලි, සියල්ල ඇතුළත් මිලකින් තට්ටු කිහිපයකින් වෙන්කරවා ගන්න.',
+  'about.missionBody':
+    'නවාතැන් ස්ථානයක් වෙන්කරවා ගැනීම සන්සුන් හා අවංක ලෙස දැනිය යුතුය. අපි බදු සහ රිසෝට් ගාස්තු ඉදිරියෙන්ම ඇතුළත් පැහැදිලි මිල ගණන් පෙන්වමු, පක්ෂපාතී අමුත්තන්ට සල්ලි උදුරා නොගෙන ඔවුන්ට ත්‍යාග දෙමු, සහ ඔබේ මුදලට වටිනා නවාතැන් මුල් තැනට තබමු — එවිට ටැබ් සසඳමින් අඩු කාලයක් ගත කර ගමන වෙනුවෙන්ම වැඩි කාලයක් ගත කළ හැකියි.',
+  'about.missionTitle': 'අපගේ මෙහෙවර',
+  'about.subtitle': 'නිවැරදි හෝටලය සොයා ගැනීමට සහ වෙන්කරවා ගැනීමට කියතක් සහිත, පැහැදිලි ක්‍රමයක්.',
   'account.loyalty.activitySummary': '{{nights}} රාත්‍රී · {{spend}} මේ අවුරුද්දේ ගත කළා',
+  'account.loyalty.benefitsHeading': 'ඔබේ ප්‍රතිලාභ',
   'account.loyalty.heading': 'පක්ෂපාතිත්වය',
   'account.loyalty.loading': 'පක්ෂපාතිත්වය පූරණය කරමින්...',
-  'account.loyalty.pointsTowardNext': '{{ලකුණු}} / {{ඊළඟ}} යොමු කරයි {{ඊළඟ ස්ථරය}}',
+  'account.loyalty.maxTier': 'ඉහළම මට්ටම — ඔබේ ප්‍රතිලාභ භුක්ති විඳින්න.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} ලකුණු {{nextTier}} දක්වා',
   'account.loyalty.tier': 'වත්මන් ස්ථරය',
   'account.loyalty.unavailable': 'පක්ෂපාතිත්ව තොරතුරු නොමැත.',
   'account.navLabel': 'ගිණුම් අංශ',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'වෙන් කිරීම තහවුරු කරන්න · {{total}}',
   'bookingCheckout.datesRequired': 'කරුණාකර ඔබගේ ඇතුල්වීමේ සහ පිටවීමේ දිනයන් තෝරන්න.',
   'bookingCheckout.guestHeading': 'ප්‍රධාන ආරාධිත අමුත්තා',
+  'bookingCheckout.heading': 'තහවුරු කර වෙන්කරවා ගන්න',
   'bookingCheckout.loadError': 'ගුණාංගය පූරණය කිරීමට අසමත් විය.',
   'bookingCheckout.nights': '{{rate}} × {{count}} රාත්‍රීන්',
   'bookingCheckout.notFound': 'දේපළ හමු නොවීය.',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'බදු සහ ගාස්තු',
   'bookingCheckout.tripHeading': 'ඔබේ සංචාරය',
   'bookingConfirmation.allTripsCta': 'සියලු සංචාර',
+  'bookingConfirmation.confNumber': 'තහවුරු කිරීමේ අංකය: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'ඔබේ වෙන්කරවා ගැනීම සකසමින් පවතී.',
   'bookingConfirmation.heading': 'වෙන් කිරීම තහවුරු කරන ලදී',
   'bookingConfirmation.loading': 'ඔබගේ වෙන්කිරීම පූරණය වෙමින්…',
   'bookingConfirmation.searchMoreCta': 'තවත් නවාතැන් බ්‍රවුස් කරන්න',
   'bookingConfirmation.subheadingForTrip':
-    '{{දේපල}} තුළ {{නගරය}} , {{රට}} . අපි ඔබව හමුවෙමු {{පැමිණීම වාර්තා කරන්න}} .',
+    '{{city}} හි {{property}}, {{country}}. අපි ඔබව {{checkIn}} දින දකිමු.',
   'bookingConfirmation.total': 'සමස්ත {{total}}',
   'bookingConfirmation.viewTripCta': 'සංචාරය බලන්න',
   'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'ප්‍රියතමයන් පූරණය කිරීමට අසමත් විය.',
   'favorites.pricePerNight': '{{price}} / රාත්‍රිය',
   'favorites.removeCta': 'නොසුරකින්න',
+  'favorites.removing': 'ඉවත් කරමින්...',
   'forgotPassword.subheading':
     'ඔබගේ ගිණුමේ විද්‍යුත් තැපෑල ඇතුළත් කරන්න, එවිට අපි ඔබට ආරක්ෂිත යළි පිහිටුවීමේ සබැඳියක් එවන්නෙමු.',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'තාවකාලික සාමාජිකයන්',
   'landing.cta.heading': 'සාමාජිකයින්ට-පමණි අනුපාත. සෑම වෙන් කිරීමකටම, සෑම අවස්ථාවකම.',
   'landing.cta.signup': 'නොමිලේ ගිණුමක් සාදන්න',
+  'landing.cta.subheading':
+    'සෑම නවාතැනකදීම පක්ෂපාතී ලකුණු උපයන්න, ප්‍රමාද චෙක්අවුට් සහ කාමර උත්ශ්‍රේණි කිරීම් අගුළු හරින්න, සහ නව දේපල ප්‍රසිද්ධියේ ලැයිස්තුගත කිරීමට පෙර පළමු ප්‍රවේශය ලබා ගන්න.',
   'landing.destinations.eyebrow': 'ඊළඟට කොහෙද?',
   'landing.destinations.heading': 'විශේෂාංගගත ගමනාන්ත',
   'landing.destinations.seeAll': 'සියලුම ගමනාන්ත බලන්න',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'ඇසුරුම් කිරීමට වටින කතා',
   'landing.nav.join': 'සොජෝර්න් හා එක්වන්න',
   'landing.nav.search': 'සෙවීම් නවාතැන්',
+  'landing.preview.browseAll': 'සම්පූර්ණ එකතුව බලන්න',
   'landing.preview.eyebrow': 'ඇතුළත එබී බැලීමක්',
   'landing.preview.heading': 'මෙම මාසයේ අතින් තෝරාගත් නවාතැන්',
+  'landing.preview.subheading':
+    '{{appName}} හි සෑම දේපලක්ම අපගේ කතෘ කණ්ඩායම විසින් පුද්ගලිකව සත්‍යාපනය කර ඇත — එකතු කරන්නන්ගේ තොග නැත, රවටන ලැයිස්තුගත කිරීම් නැත.',
   'login.eyebrow': 'සාමාජික ප්‍රදේශය',
+  'login.noAccount': 'ටෙසේරා වලට අලුත්ද?',
   'login.signupLink': 'නොමිලේ ගිණුමක් සාදන්න',
   'login.subheading':
     'ඔබගේ සංචාර කළමනාකරණය කිරීමට, තහවුරු කිරීම් බැලීමට සහ ඔබ නතර කළ තැනින් නැවත ආරම්භ කිරීමට පුරන්න.',
+  'loyaltyTierBadge.points': '{{points}} ලකුණු',
   'planUpdated.heading': 'සැලැස්ම යාවත්කාලීන කරන ලදී',
+  'planUpdated.retry': 'නැවත උත්සාහ කරන්න',
+  'planUpdated.verifyFailed': 'අපට තවමත් ඔබගේ ගෙවීම තහවුරු කිරීමට නොහැකි විය.',
+  'planUpdated.verifyFailedBody':
+    'ඔබේ ගෙවීම තවමත් සැකසෙමින් තිබිය හැක. මොහොතකින් නැවත උත්සාහ කරන්න.',
   'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'pricing.limit.advancedFeatures': 'උසස් විශේෂාංග:',
   'pricing.limit.canExport': 'දත්ත අපනයනය:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'මෙම ස්ථානය පිරිනමන දේ',
   'propertyDetail.backLink': 'සෙවීමට ආපසු',
   'propertyDetail.bookCta': 'රක්ෂිතය',
+  'propertyDetail.bookmarkAria': 'දේපළ සුරකින්න',
   'propertyDetail.bookmarkAriaSaved': 'සුරැකි ගුණාංගවලින් ඉවත් කරන්න',
+  'propertyDetail.galleryImageAlt': '{{name}} ඡායාරූපය {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} වීර ඡායාරූපය',
   'propertyDetail.hidePhotos': 'ඡායාරූප සඟවන්න',
   'propertyDetail.lineCleaning': 'පිරිසිදු කිරීමේ ගාස්තුව',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'රාත්‍රිය',
   'propertyDetail.noChargeYet': 'ඔබෙන් තවමත් අය නොකෙරේ.',
   'propertyDetail.notFound': 'දේපළ හමු නොවීය.',
+  'propertyDetail.perNight': '/ රාත්‍රිය',
+  'propertyDetail.pickDatesHint': 'සම්පූර්ණ මිල බෙදීම බැලීමට ඔබේ දින තෝරන්න.',
   'propertyDetail.reviewCount': '( {{count}} සමාලෝචන)',
   'propertyDetail.reviewsHeading': 'මෑත සමාලෝචන',
   'propertyDetail.roomCapacity': 'නිදි {{count}}',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'නව මුරපදය',
   'resetPassword.subheading':
     'ඔබගේ Auberge ගිණුම සඳහා නව මුරපදයක් තෝරන්න. අවම වශයෙන් අක්ෂර 8ක් භාවිතා කරන්න; අපි මුරපදයක් නිර්දේශ කරමු.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'ඔබගේ සෙවුමට ගැලපෙන ගුණාංග කිසිවක් නොමැත.',
   'searchResults.emptyHint':
     'ඔබේ පෙරහන් පුළුල් කිරීමට හෝ මිල සීමාව ඉවත් කිරීමට උත්සාහ කරන්න - Auberge රටවල් 14 ක රැඳී සිටී.',
@@ -108,19 +150,27 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'තෝරාගත් නවාතැන්',
   'searchResults.headingForQuery': '"" සඳහා රැඳී සිටියි. {{q}} "',
   'searchResults.loadError': 'ගුණාංග පූරණය කිරීමට අසමත් විය.',
+  'searchResults.mapHint':
+    'සිතියමේ උද්දීපනය කිරීමට කාඩ්පතක් මතට යොමු කරන්න. නිෂ්පාදනයේ සජීවී Mapbox ටයිල්.',
   'searchResults.mapPinAria': '{{name}} — රාත්‍රියකට {{price}}',
   'searchResults.sortLabel': 'අනුව තෝරන්න',
   'searchResults.subheading': '{{count}} දේපළ · {{guests}} අමුත්තන්',
   'signup.eyebrow': 'සාමාජිකයෙකු වන්න',
   'signup.subheading':
     'සාමාජිකයින්ට-පමණි ගාස්තු, ප්‍රමාද වූ පිටවීම් සහ නව දේපල වෙත පළමු ප්‍රවේශය අගුළු ඇරීමට Auberge හා සම්බන්ධ වන්න.',
+  'sojournAuthShell.brand.eyebrow': 'අසාමාන්‍ය තැනක නවාතැන් ගන්න',
+  'sojournAuthShell.brand.heading': 'දේපල එකතුවක් — ලස්සනට ඉදිරිපත් කර, පැහැදිලිව මිල කළ.',
   'sojournHeroSearchCard.checkInAria': 'ඇතුළත් වීමේ දිනය',
   'sojournHeroSearchCard.checkOutAria': 'පිටවීමේ දිනය',
+  'sojournHeroSearchCard.destAria': 'ගමනාන්තය',
+  'sojournHeroSearchCard.destLabel': 'කොහේද',
   'sojournHeroSearchCard.destPlaceholder': 'නගරය, කලාපය හෝ දේපළ',
   'sojournHeroSearchCard.eyebrow': 'තෝරාගත් නවාතැන් · සාමාජිකයින්ට-පමණි අනුපාත',
   'sojournHeroSearchCard.guestsOption': '{{n}} අමුත්තන්',
   'sojournHeroSearchCard.subtitle':
     'බුටික් හෝටල්, සැලසුම්-ඉදිරිපත් කරන ලද දේපල සහ දුර්ලභ සොයාගැනීම් නිවාඩු නිකේතන එකතුවක් - විනිවිද පෙනෙන මිලකට, අලංකාර ලෙස ඉදිරිපත් කර ඇත.',
+  'sojournHeroSearchCard.title': 'අසාමාන්‍ය තැනක නවාතැන් ගන්න',
+  'sojournHeroSearchCard.trustLoyalty': 'සෑම නවාතැනකදීම ලකුණු උපයන්න',
   'sojournHeroSearchCard.trustNoFees': 'සැඟවුණු ගාස්තු නැත, කිසිදා',
   'sojournHeroSearchCard.trustVetted': 'අතින් පරීක්ෂා කරන ලද දේපල පමණි',
   'sojournLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',

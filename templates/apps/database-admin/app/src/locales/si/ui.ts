@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
+  'about.featureConnections':
+    'ඔබේ දත්ත සමුදායන් ආරක්ෂිතව ගබඩා කර වර්ණ-කේතනය කරන සම්බන්ධතා කළමනාකරුවෙක් — අක්තපත්‍ර විවේක අවස්ථාවේදී සංකේතනය වේ, කිසිවිටෙක සරල පෙළෙන් නොවේ.',
+  'about.featureMonitoring':
+    'විමසුම් කාර්යසාධනය සහ දත්ත සමුදාය ක්‍රියාකාරකම් සජීවීව නිරීක්ෂණය කිරීම, යතුරුපුවරු කෙටිමං සහ විධාන පැලට් සමඟින් ඒ සියල්ල අත්-නිදහස්ව මෙහෙයවීමට.',
+  'about.featurePlans':
+    'ඔබ සමඟ පරිමාණය වන සැලසුම් — තනි පුද්ගල වැඩ සඳහා Free, වැඩි සම්බන්ධතා, දිගු විමසුම් රඳවා තබා ගැනීම, නිර්යාත සහ උසස් විශේෂාංග සඳහා Pro සහ Team.',
+  'about.featureQueryEditor':
+    'විමසුම් ඉතිහාසය, සුරකින ලද විමසුම් සහ ඔබේ ප්‍රතිඵල එක්-ක්ලික් CSV නිර්යාතය සමඟ Monaco බලගැන්වූ SQL සංස්කාරකයක්.',
+  'about.featureSchema':
+    'දත්ත සමුදායන්, වගු සහ තීරු හරහා සැරිසැරීමට සහ පේළි අන්තර්ගතව බ්‍රවුස් කිරීමට, පෙරහන් කිරීමට සහ සංස්කරණය කිරීමට ස්කීමා ගවේෂකයක් සහ වගු බ්‍රවුසරයක්.',
+  'about.missionTitle': 'අපගේ මෙහෙවර',
   'authShell.commands': 'විධාන',
   'authShell.ssoSupported': 'SSO සහාය දක්වයි',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'විමසුම්',
   'connections.schema': 'යෝජනා ක්‍රමය',
   'connections.subtitle': 'ඔබගේ දත්ත සමුදා සම්බන්ධතා කළමනාකරණය කරන්න.',
+  'connections.test': 'පරීක්ෂණය',
   'databaseAdminLayout.adminRole': 'පරිපාලක භූමිකාව',
   'databaseAdminLayout.commandPalette': 'විධාන පුවරුව',
   'databaseAdminLayout.commands': 'විධාන',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'නව සම්බන්ධතාවය',
   'databaseAdminLayout.queries': 'විමසුම්',
   'databaseAdminLayout.ready': 'සූදානම්',
+  'databaseAdminLayout.searchPlaceholder': '⌘K විධාන, විමසුම්, වගු සොයන්න…',
   'databaseAdminLayout.user': 'පරිශීලක',
   'editConnection.confirmDelete': 'මෙම සම්බන්ධතාවය මකන්නද?',
   'editConnection.deleteButton': 'සම්බන්ධතාවය මකන්න',
+  'editConnection.newPassword': 'නව මුරපදය (තබා ගැනීමට හිස්ව තබන්න)',
   'editConnection.saved': 'සම්බන්ධතාවය සුරකින ලදී.',
   'editConnection.title': 'සම්බන්ධතාවය සංස්කරණය කරන්න',
   'forgotPassword.success': 'එම ගිණුම පවතී නම්, යළි පිහිටුවීමේ සබැඳියක් පැමිණෙමින් තිබේ.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'සාර්ථකත්වයන්',
   'monitoring.title': 'අධීක්ෂණය',
   'monitoring.totalQueries': 'මුළු විමසුම්',
+  'nav.schema': 'යෝජනා ක්‍රමය',
   'newConnection.database': 'දත්ත සමුදාය',
   'newConnection.engine': 'එන්ජිම',
   'newConnection.host': 'සත්කාරක',
@@ -82,6 +98,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'මෙම කොටසට කිසිදු සම්බන්ධතාවයක් බැඳී නොමැත.',
   'savedQuery.notBound': 'බැඳී නැත',
   'savedQuery.title': 'සුරකින ලද විමසුම',
+  'schema.columns': 'තීරු',
   'schema.foreignKeys': 'විදේශීය යතුරු',
   'schema.indexes': 'දර්ශක',
   'schemaExplorer.browseRows': 'පේළි පිරික්සන්න',
@@ -90,14 +107,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'අහෝසි කළ හැකි',
   'schemaExplorer.colType': 'වර්ගය',
   'schemaExplorer.noColumns': 'තීරු නැත.',
+  'schemaExplorer.noForeignKeys': 'විදේශ යතුරු නැත.',
   'schemaExplorer.noIndexes': 'දර්ශක නැත.',
   'schemaExplorer.noTables': 'මේස නැත',
   'schemaExplorer.pickATable': 'පැති තීරුවෙන් වගුවක් තෝරන්න.',
   'schemaExplorer.tables': 'මේස',
   'schemaExplorer.title': 'යෝජනා ක්‍රම ගවේෂකය',
+  'settings.session': 'සැසිය',
   'settings.subtitle': 'ඔබේ ගිණුම කළමනාකරණය කර සැලසුම් කරන්න.',
   'signup.heading': 'ඔබේ Quarry ගිණුම සාදන්න',
   'signup.tagline': 'මිනිත්තුවකට අඩු කාලයකින් ප්‍රවේශය වැඩි කරන්න.',
   'tableBrowser.noRows': 'මෙම වගුවේ තවමත් පේළි නොමැත.',
+  'tableBrowser.subtitle': 'ඔබේ දුරස්ථ දත්ත සමුදායෙන් පේළි බ්‍රවුස් කරමින්.',
   'tableBrowser.title': 'ඔබගේ දුරස්ථ දත්ත සමුදායෙන් පේළි පිරික්සීම.',
 }

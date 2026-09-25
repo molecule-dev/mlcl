@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Пытанні пра браніраванне, водгук або аб'ект, які, на вашу думку, павінен быць на {{app}}? Звяжыцеся з нашай камандай са свайго акаўнта — кожнае паведамленне трапляе да рэальнага чалавека, які можа дапамагчы.",
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
+  'about.featureLoyalty':
+    'Цэны толькі для ўдзельнікаў і праграма лаяльнасці, якая прыносіць балы, позні выезд і паляпшэнне нумароў пры кожным браніраванні.',
+  'about.featureReviews':
+    'Правераныя водгукі гасцей і рэдакцыйныя падборкі, каб вы маглі давяраць пражыванню яшчэ да прыезду.',
+  'about.featureRooms':
+    'Параўнанне нумароў, цэн і зручнасцей побач з празрыстымі цэнамі ўсё ўключана — падаткі і курортныя зборы ўключаны да аплаты.',
+  'about.featureSearch':
+    'Пошук у рэальным часе па правераных гатэлях з актуальнай даступнасцю, выглядам на карце і багатымі фотагалерэямі.',
+  'about.featureTrips':
+    'Захаваныя абраныя і панэль паездак, якая захоўвае кожнае браніраванне, маршрут і пацверджанне ў адным месцы.',
+  'about.intro':
+    "{{app}} — гэта платформа для браніравання гатэляў для падарожнікаў, якія клапоцяцца пра якасць. Кожны аб'ект асабіста правяраецца нашай рэдакцыйнай камандай — ніякіх агрэгатарных прапаноў, ніякіх падманных спісаў. Шукайце рэальную даступнасць, параўноўвайце нумары, цэны і зручнасці побач, затым браніруйце ў некалькі націскаў з яснай, поўнай цаной.",
+  'about.missionBody':
+    'Браніраванне месца для пражывання павінна быць спакойным і сумленным. Мы паказваем празрыстыя цэны з падаткамі і курортнымі зборамі адразу, узнагароджваем лаяльных гасцей замест таго, каб абдзіраць іх, і ставім на першае месца пражыванні, якія вартыя вашых грошай — каб вы маглі менш часу параўноўваць укладкі і больш часу праводзіць у паездцы.',
+  'about.missionTitle': 'Наша місія',
+  'about.subtitle': 'Кураваны, празрысты спосаб знайсці і забраніраваць патрэбны гатэль.',
   'account.loyalty.activitySummary': '{{nights}} ночы · {{spend}} праведзены ў гэтым годзе',
+  'account.loyalty.benefitsHeading': 'Вашы перавагі',
   'account.loyalty.heading': 'Лаяльнасць',
   'account.loyalty.loading': 'Загрузка праграмы лаяльнасці…',
-  'account.loyalty.pointsTowardNext': '{{балы}} / {{наступны}} паказвае на {{nextTier}}',
+  'account.loyalty.maxTier': 'Вышэйшы ўзровень — карыстайцеся сваімі перавагамі.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} балаў да {{nextTier}}',
   'account.loyalty.tier': 'Бягучы ўзровень',
   'account.loyalty.unavailable': 'Інфармацыя аб лаяльнасці недаступная.',
   'account.navLabel': 'Раздзелы ўліковага запісу',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Пацвердзіць браніраванне · {{total}}',
   'bookingCheckout.datesRequired': 'Калі ласка, выберыце даты заезду і выезду.',
   'bookingCheckout.guestHeading': 'Вядучы госць',
+  'bookingCheckout.heading': 'Пацвердзіць і забраніраваць',
   'bookingCheckout.loadError': 'Не атрымалася загрузіць уласцівасць.',
   'bookingCheckout.nights': '{{rate}} × {{count}} ночы',
   'bookingCheckout.notFound': 'Уласцівасць не знойдзена.',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Падаткі і зборы',
   'bookingCheckout.tripHeading': 'Ваша паездка',
   'bookingConfirmation.allTripsCta': 'Усе паездкі',
+  'bookingConfirmation.confNumber': 'Нумар пацверджання: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Ваша браніраванне апрацоўваецца.',
   'bookingConfirmation.heading': 'Браніраванне пацверджана',
   'bookingConfirmation.loading': 'Загрузка вашага браніравання…',
   'bookingConfirmation.searchMoreCta': 'Праглядзець больш варыянтаў пражывання',
   'bookingConfirmation.subheadingForTrip':
-    '{{уласнасць}} у {{горад}} , {{краіна}} Да сустрэчы {{рэгістрацыя}} .',
+    '{{property}} у {{city}}, {{country}}. Да сустрэчы {{checkIn}}.',
   'bookingConfirmation.total': 'Усяго {{total}}',
   'bookingConfirmation.viewTripCta': 'Праглядзець паездку',
   'common.goToDashboard': 'Перайсці да панэлі',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Не атрымалася загрузіць абранае.',
   'favorites.pricePerNight': '{{price}} / ноч',
   'favorites.removeCta': 'Адмяніць захаванне',
+  'favorites.removing': 'Выдаленне…',
   'forgotPassword.subheading':
     'Увядзіце адрас электроннай пошты, указаны ў вашым акаўнце, і мы дашлем вам бяспечную спасылку для скіду налад.',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Удзельнікі Sojo',
   'landing.cta.heading': 'Тарыфы толькі для ўдзельнікаў. Кожнае браніраванне, кожны раз.',
   'landing.cta.signup': 'Стварыць бясплатны ўліковы запіс',
+  'landing.cta.subheading':
+    "Зарабляйце балы лаяльнасці за кожнае пражыванне, адкрывайце позні выезд і паляпшэнне нумароў, і атрымлівайце першы доступ да новых аб'ектаў да іх публічнага размяшчэння.",
   'landing.destinations.eyebrow': 'Куды далей',
   'landing.destinations.heading': 'Рэкамендаваныя напрамкі',
   'landing.destinations.seeAll': 'Паглядзець усе напрамкі',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Гісторыі, дзеля якіх варта сабраць рэчы',
   'landing.nav.join': 'Далучыцца да Sojour',
   'landing.nav.search': 'Пошук месцаў пражывання',
+  'landing.preview.browseAll': 'Праглядзець усю калекцыю',
   'landing.preview.eyebrow': 'Зазірнуць унутр',
   'landing.preview.heading': 'Выбраныя варыянты пражывання ў гэтым месяцы',
+  'landing.preview.subheading':
+    "Кожны аб'ект на {{appName}} асабіста правяраецца нашай рэдакцыйнай камандай — ніякіх агрэгатарных прапаноў, ніякіх падманных спісаў.",
   'login.eyebrow': 'Зона для ўдзельнікаў',
+  'login.noAccount': 'Вы ўпершыню карыстаецеся Тэсерай?',
   'login.signupLink': 'Стварыце бясплатны ўліковы запіс',
   'login.subheading':
     'Увайдзіце, каб кіраваць сваімі паездкамі, праглядаць пацверджанні і працягваць з таго месца, дзе вы спыніліся.',
+  'loyaltyTierBadge.points': '{{points}} балы',
   'planUpdated.heading': 'План абноўлены',
+  'planUpdated.retry': 'Паспрабуйце яшчэ раз',
+  'planUpdated.verifyFailed': 'Нам пакуль не ўдалося пацвердзіць ваш плацёж.',
+  'planUpdated.verifyFailedBody':
+    'Магчыма, ваш плацёж усё яшчэ апрацоўваецца. Паўтарыце спробу праз хвіліну.',
   'planUpdated.verifying': 'Пацвярджэнне аплаты…',
   'pricing.limit.advancedFeatures': 'Пашыраныя функцыі:',
   'pricing.limit.canExport': 'Экспарт дадзеных:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Што прапануе гэтае месца',
   'propertyDetail.backLink': 'Назад да пошуку',
   'propertyDetail.bookCta': 'Рэзерв',
+  'propertyDetail.bookmarkAria': 'Захаваць уласцівасць',
   'propertyDetail.bookmarkAriaSaved': 'Выдаліць з захаваных уласцівасцей',
+  'propertyDetail.galleryImageAlt': '{{name}} фота {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} фатаграфія героя',
   'propertyDetail.hidePhotos': 'Схаваць фатаграфіі',
   'propertyDetail.lineCleaning': 'Плата за ўборку',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'ноч',
   'propertyDetail.noChargeYet': 'З вас пакуль не будзе спаганяцца плата',
   'propertyDetail.notFound': 'Уласцівасць не знойдзена.',
+  'propertyDetail.perNight': '/ ноч',
+  'propertyDetail.pickDatesHint': 'Выберыце даты, каб убачыць поўную разбіўку цэн.',
   'propertyDetail.reviewCount': '( {{count}} водгукі)',
   'propertyDetail.reviewsHeading': 'Нядаўнія водгукі',
   'propertyDetail.roomCapacity': 'Спіць {{count}}',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Новы пароль',
   'resetPassword.subheading':
     'Выберыце новы пароль для вашага ўліковага запісу Auberge. Выкарыстоўвайце не менш за 8 сімвалаў; мы рэкамендуем парольную фразу.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': "Няма аб'ектаў нерухомасці, якія адпавядаюць вашаму пошуку.",
   'searchResults.emptyHint':
     'Паспрабуйце пашырыць фільтры або прыбраць абмежаванне цэн — Auberge прапануе пражыванне ў 14 краінах.',
@@ -108,18 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Курыраваныя пражыванні',
   'searchResults.headingForQuery': 'Застаецца на " {{q}} "',
   'searchResults.loadError': 'Не атрымалася загрузіць уласцівасці.',
+  'searchResults.mapHint':
+    'Навядзіце курсор на картку, каб вылучыць яе на карце. Жывыя пліткі Mapbox у вытворчасці.',
   'searchResults.mapPinAria': '{{name}} — {{price}} за ноч',
   'searchResults.sortLabel': 'Сартаваць па',
+  'searchResults.subheading': "{{count}} аб'ектаў · {{guests}} гасцей",
   'signup.eyebrow': 'Станьце ўдзельнікам',
   'signup.subheading':
     "Далучайцеся да Auberge, каб атрымаць тарыфы толькі для ўдзельнікаў, магчымасць позняга выезду і першы доступ да новых аб'ектаў нерухомасці.",
+  'sojournAuthShell.brand.eyebrow': 'Спыніцеся ў нечым незвычайным',
+  'sojournAuthShell.brand.heading':
+    "Кураваная калекцыя аб'ектаў — прыгожа прадстаўленая, празрыста ацэненая.",
   'sojournHeroSearchCard.checkInAria': 'Дата засялення',
   'sojournHeroSearchCard.checkOutAria': 'Дата выезду',
+  'sojournHeroSearchCard.destAria': 'Пункт прызначэння',
+  'sojournHeroSearchCard.destLabel': 'Дзе',
   'sojournHeroSearchCard.destPlaceholder': 'Горад, рэгіён або нерухомасць',
   'sojournHeroSearchCard.eyebrow': 'Падабраныя варыянты пражывання · Тарыфы толькі для ўдзельнікаў',
   'sojournHeroSearchCard.guestsOption': '{{n}} госці',
   'sojournHeroSearchCard.subtitle':
     "Падборка буцік-гатэляў, дызайнерскіх аб'ектаў і рэдкіх месцаў адпачынку — празрыстыя цэны, прыгожа аформленыя.",
+  'sojournHeroSearchCard.title': 'Спыніцеся ў нечым незвычайным',
+  'sojournHeroSearchCard.trustLoyalty': 'Зарабляйце балы за кожнае пражыванне',
   'sojournHeroSearchCard.trustNoFees': 'Ніякіх схаваных плацяжоў, ніколі',
   'sojournHeroSearchCard.trustVetted': "Толькі правераныя ўручную аб'екты нерухомасці",
   'sojournLayout.primaryNavLabel': 'Асноўная навігацыя',

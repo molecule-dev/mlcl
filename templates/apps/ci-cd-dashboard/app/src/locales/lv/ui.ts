@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vai jums ir jautājumi, atsauksmes vai vēlaties demonstrāciju savai komandai? Rakstiet mums uz hello@conduit.dev — katra ziņa nonāk pie īsta komandas cilvēka.',
   'about.contactHeading': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
+  'about.featuresHeading': 'Ko jūs iegūstat',
+  'about.introBody':
+    '{{app}} apvieno GitHub Actions stila nepārtrauktu piegādi vienā ātrā informācijas panelī: cauruļvadi, būvējumu žurnāli, artefakti, statusa emblēmas un izvietošanas vides visiem jūsu repozitorijiem vienuviet. Nekādas cilņu pārslēgšanas, nekādu minējumu, kurš būvējums sabojājās — katrs palaidums, žurnāla rinda un izvietojums ir viena klikšķa attālumā.',
+  'about.introHeading': 'Kas ir {{app}}',
+  'about.missionBody':
+    'Programmatūras piegādei jābūt mierīgai un paredzamai, nevis satraukuma avotam. Mēs veidojam cauruļvadus, žurnālus un izvietošanas rīkus, lai ceļš no komita līdz produkcijai būtu ātrs, pārskatāms un uzticams — pirmais zaļais būvējums piecās minūtēs un katrs nākamais tikpat skaidrs.',
+  'about.missionHeading': 'Mūsu misija',
+  'about.subtitle':
+    '{{app}} ir CI/CD informācijas panelis komandām, kas vēlas pārraudzīt būvējumus, izvietojumus un vides visos repozitorijos — un piegādāt ar pārliecību.',
   'artifacts.empty': 'Vēl nav atrasti nekādi artefakti.',
   'artifacts.heading': 'Artefakti',
   'artifacts.loadError': 'Neizdevās ielādēt artefaktus.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Vide',
   'environments.loadError': 'Neizdevās ielādēt vidi.',
+  'environments.loading': 'Notiek vides ielāde…',
   'environments.subheading': 'Reāllaika ieviešanas statuss visos mērķos.',
   'forgotPassword.runnerStatus': 'atjaunot · drošs tunelis',
+  'forgotPassword.success':
+    'Ja šim e-pastam jau ir konts, atiestatīšanas saite ir ceļā. Pārbaudiet savu iesūtni.',
   'insights.changeFailureRate': 'Mainīt kļūdu rādītāju',
   'insights.deployFrequency': 'Ieviešanas skaits dienā',
   'insights.empty': 'Datu vēl nav pietiekami.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Neizdevās ielādēt analītisko informāciju.',
   'insights.meanP95': '{{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Lēnākie cauruļvada soļi',
   'insights.successRateHeading': 'Projekta virzības rādītājs (pēdējās 14 dienas)',
   'landing.choosePlan': 'Izvēlieties plānu',
+  'landing.copyright': '© {{year}} {{app}}. Piegādājiet ar pārliecību.',
   'landing.ctaBody':
     'Nav nepieciešama kredītkarte. Nav nepieciešams platformas inženieris. Pirmā cauruļvada apstiprinājumu var saņemt piecās minūtēs.',
   'landing.ctaHeading': 'Piegādājiet ar pārliecību.',
   'landing.featuresEyebrow': '// platformas funkcijas',
   'landing.featuresHeading': 'Izveidots kravu nosūtītājiem, ko izstrādājuši kravu nosūtītāji',
+  'landing.heroSubtitle':
+    'Cauruļvadi, kas pabeidzas sekundēs. Žurnāli, ko var lasīt. Izvietojumi, kam var uzticēties.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ cenas --vienkāršs',
   'landing.pricingHeading': 'Vienkārša, prognozējama cenu politika',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Pašlaik lido',
   'pipelines.metric.successCaption': '{{count}} no „{{total}}“ skrējieniem',
   'pipelines.metric.successRate': 'Veiksmīguma rādītājs',
+  'pipelines.realtimeOn': 'realtime',
   'pipelines.subheading': 'Reāllaika atjauninājumi no visiem novērotajiem repozitorijiem.',
+  'pricing.advancedFeatures': 'Papildu funkcijas: {{mark}}',
+  'pricing.canExport': 'Datu eksports: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artefakti',
+  'pricing.maxBuilds': '{{count}} būvējumi',
+  'pricing.maxPipelines': '{{count}} cauruļvadi',
   'privacy.dataAccount': 'Konta dati: vārds, e-pasts, hashēta parole, pakalpojuma līmenis.',
   'privacy.intro':
     '{{app}} Mēs vācam tikai tos datus, kas mums nepieciešami, lai nodrošinātu jūsu nepārtrauktas piegādes konta darbību: jūsu e-pasta adresi, repozitorijus, ar kuriem jūs izveidojat savienojumu, izmaiņu reģistrācijas un kompilācijas metadatus, ko ģenerē jūsu izpildes programmas, kā arī slepenos datus, kurus izvēlaties glabāt pie mums. Mēs nekad neizlasām jūsu avota kodu ārpus kompilācijas izpildes programmas; kompilācijas rezultāti tiek glabāti jūsu S3 krātuvē, ja tā ir konfigurēta.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Rēķinu izrakstīšanai mēs izmantojam Stripe, darījumu e-pastu sūtīšanai — Mailgun, bet izstrādes rezultātu uzglabāšanai — AWS S3. Katram no šiem pakalpojumiem līgumā ir noteikts minimālais datu apjoms, kas nepieciešams pakalpojuma sniegšanai.',
   'privacy.rightsBody':
     'Jūs varat eksportēt visus savus datus, jebkurā brīdī dzēst savu kontu sadaļā „Iestatījumi“ un pieprasīt pārskatu par katru webhook paziņojuma saņemšanu savā kontā. Uz GDPR / CCPA pieprasījumiem mēs atbildam 30 dienu laikā.',
+  'privacy.subtitle':
+    'Kā {{app}} apkopo, glabā un aizsargā jūsu datus, kamēr mēs izpildām jūsu cauruļvadus.',
   'privacy.title': 'Privātuma politika',
   'repositories.empty': 'Nav pieslēgti repozitoriji.',
   'repositories.heading': 'Repozitoriji',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Visi repozitoriji',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Neizdevās ielādēt repozitoriju.',
+  'repositoryDetail.meanDuration': 'Vidējais ilgums',
   'repositoryDetail.notFound': 'Repozitorijs nav atrasts.',
+  'repositoryDetail.successRate': 'Veiksmīguma rādītājs',
   'repositoryDetail.totalBuilds': 'Kopējais būvju skaits',
   'repositoryDetail.webhookActive': 'aktīvs',
   'repositoryDetail.webhookPaused': 'apturēts',
   'repositoryDetail.webhooksHeading': 'Webhooki',
+  'resetPassword.passwordLabel': 'Jauna parole',
   'resetPassword.runnerStatus': 'atjaunot · autentifikācijas kods apstiprināts',
   'resetPassword.subtitle': 'Izvēlieties drošu paroli, kuru iepriekš neesat izmantojis.',
   'resetPassword.tokenPlaceholder': 'teksts no e-pasta',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Repozitoriju Conduit uzraudzība. Atvienojieties no VCS pakalpojuma sniedzēja, lai pārtrauktu notikumu ieguvi.',
   'settings.repositories.empty': 'Vēl nav pievienots neviens repozitorijs.',
+  'settings.repositories.heading': 'Repozitoriju savienojumi',
   'settings.repositories.loadError': 'Neizdevās ielādēt repozitorijus.',
   'settings.secrets.addCta': 'Pievienot paroli',
   'settings.secrets.addError': 'Neizdevās pievienot slepeno kodu.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Neizdevās dzēst slepeno informāciju.',
   'settings.secrets.empty': 'Nav saglabātu slepenu datu.',
   'settings.secrets.heading': 'Noslēpumi',
+  'settings.secrets.lastUsed': 'pēdējo reizi izmantots {{date}}',
   'settings.secrets.loadError': 'Neizdevās ielādēt slepenos datus.',
   'settings.secrets.neverUsed': 'nekad nav lietots',
   'settings.secrets.rotateCta': 'Pagriezt',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Webhook atjaunināšana neizdevās.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'bezmaksas pakalpojums · 1000 izveides mēnesī',
+  'terms.intro':
+    'Izveidojot {{app}} kontu, jūs piekrītat šiem noteikumiem. Tie aptver pieņemamu būvējumu izpildītāju lietošanu, mūsu SLA robežas un nosacījumus, saskaņā ar kuriem mēs varam apturēt vai izbeigt jūsu kontu ļaunprātīgu darba slodžu dēļ.',
   'terms.slaBody':
     '„Pro“ un „Team“ plānos paredzēts, ka API un izpildītāju pūla ikmēneša darbības laiks ir 99,95 %. Bezmaksas plāns tiek piedāvāts „kā ir“. Par darbības pārtraukumiem tiek ziņots vietnē status.conduit.dev, un atlīdzība tiek aprēķināta saskaņā ar rēķinā norādīto formulu.',
   'terms.terminationBody':

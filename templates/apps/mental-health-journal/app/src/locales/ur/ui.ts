@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'کوئی رائے ہے، کوئی بگ ملا ہے، یا بتانا چاہتے ہیں کہ ڈائری لکھنے سے آپ کو کیسے فائدہ ہوا؟ ہم ہر پیغام پڑھتے ہیں — کسی بھی وقت رابطہ کریں اور ایک حقیقی شخص آپ کو جواب دے گا۔',
+  'about.contactTitle': 'ہم سے بات کریں',
+  'about.featureInsights':
+    'AI سے چلنے والے تاثرات جو نرمی سے محرکات، موضوعات اور شکرگزاریوں کو نمایاں کرتے ہیں — بغیر آپ کی آواز کھوئے۔',
+  'about.featureMood':
+    'موڈ اور سرگرمی کی ٹریکنگ، کیلنڈر ویو اور ٹرینڈ چارٹس کے ساتھ جو ظاہر کرتے ہیں کہ آپ کو کیا پھلنے پھولنے میں مدد دیتا ہے۔',
+  'about.featurePrivacy':
+    'اینڈ ٹو اینڈ انکرپشن، پاس کوڈ لاک، اور مکمل CSV ایکسپورٹ تاکہ آپ کے تاثرات نجی اور قابلِ منتقلی رہیں۔',
+  'about.featurePrompts':
+    'ہر روز نرم اشارے تاکہ آپ کے پاس شروع کرنے کی جگہ ہمیشہ ہو — کبھی خالی صفحہ نہیں۔',
+  'about.intro':
+    '{{app}} ایک نرم، نجی ذہنی صحت کی ڈائری ہے جو روزانہ غور و فکر، موڈ ٹریکنگ اور شکرگزاری کے لیے ہے۔ سوچے سمجھے اشارے خالی صفحے کی جگہ لیتے ہیں، خاموشی سے پیٹرن ڈھونڈنا سمجھنے میں مدد کرتا ہے کہ آپ کے جذبات پر کیا اثر ڈالتا ہے، اور اینڈ ٹو اینڈ انکرپشن آپ کے الفاظ کو آپ کا ہی رکھتی ہے۔',
+  'about.missionBody':
+    'ہمارا ماننا ہے کہ اپنے آپ سے جائزہ لینا پُرسکون محسوس ہونا چاہیے، کبھی طبی نہیں — اور کبھی کسی اور ایپ کی طرح نہیں جو آپ کی توجہ کا مطالبہ کرے۔ {{app}} مدد کے لیے بنایا گیا ہے، ٹوکنے کے لیے نہیں: دن کے چند خاموش لمحات اپنے موڈ کو محسوس کرنے، ایمانداری سے لکھنے، اور آہستہ آہستہ خود کو زیادہ واضح طور پر دیکھنے کے لیے۔',
+  'about.missionTitle': 'ہمارا مشن',
   'about.pageTitle': '{{app}} کے بارے میں',
   'authShell.encryptionBadge': 'آپ کے اندراجات اینڈ ٹو اینڈ انکرپٹڈ ہیں۔',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'دن {{day}} — کوئی اندراج نہیں',
   'calendar.cellMood': 'دن {{day}} - {{mood}}',
   'calendar.distributionHeading': 'اس مہینے کو ایک نظر میں',
   'calendar.eyebrow': 'ایک نظر میں موڈ',
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'ٹریک کیا گیا۔ {{tracked}} کی {{total}} اس مہینے کے دن.',
   'common.goToDashboard': 'ڈیش بورڈ پر جائیں',
   'common.tryAgain': 'دوبارہ کوشش کریں۔',
+  'entryComposer.bodyPlaceholder': 'جو بھی ایماندار لگے لکھیں۔ اسے کوئی اور نہیں پڑھے گا۔',
   'entryComposer.cancel': 'جرنل پر واپس جائیں۔',
   'entryComposer.heading': 'آج کا عکس',
   'entryComposer.moodLabel': 'آپ کیسے محسوس کر رہے ہیں؟',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'ہٹا دیں۔ {{tag}}',
   'entryComposer.save': 'عکاسی کو محفوظ کریں۔',
   'entryComposer.saveError': 'آپ کے اندراج کو محفوظ نہیں کیا جا سکا۔',
+  'entryComposer.tagPlaceholder': 'ٹیگ شامل کریں اور انٹر دبائیں',
   'entryComposer.titlePlaceholder': 'اس عکاسی کو ایک نام دیں…',
   'entryDetail.back': 'جرنل پر واپس جائیں۔',
   'entryDetail.delete': 'اس اندراج کو حذف کریں۔',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'عکاسی لوڈ ہو رہی ہے…',
   'entryDetail.notFound': 'اندراج نہیں ملا۔',
   'entryDetail.reflectionsHeading': 'AI عکاسی۔',
+  'forgotPassword.continueButton': 'ری سیٹ کوڈ درج کریں',
   'forgotPassword.eyebrow': 'کوئی فکر نہیں۔',
   'forgotPassword.subheading': 'ہم آپ کے ای میل پر ایک نرم ری سیٹ لنک بھیجیں گے۔',
   'forgotPassword.successBody':
@@ -57,14 +77,21 @@ export const ui: UiTranslations = {
     'ابھی تک کوئی تھیم نہیں — اپنی اندراجات میں ایک یا دو ٹیگ شامل کریں اور وہ یہاں جمع ہو جائیں گے۔',
   'insights.themesHeading': 'ٹاپ تھیمز',
   'insights.triggerFrequency': 'محسوس کیا {{count}} × اس مہینے',
+  'insights.triggersEmpty':
+    'ابھی نوٹ کرنے کے لیے کچھ نہیں۔ کچھ دنوں میں چند اندراجات آپ کے پیٹرن دکھائیں گے۔',
   'insights.triggersHeading': 'وہ نمونے جو آپ کے مزاج کو متحرک کرتے ہیں۔',
+  'journal.empty': 'کوئی تاثر مماثل نہیں — کوئی مختلف فلٹر آزمائیں یا نیا اندراج لکھیں۔',
   'journal.eyebrow': 'آپ کے مظاہر',
   'journal.heading': 'جرنل',
   'journal.loadError': 'اندراجات لوڈ کرنے میں ناکام۔',
   'journal.loading': 'اندراجات لوڈ ہو رہے ہیں…',
+  'journal.newEntry': 'نیا اندراج',
   'journal.searchPlaceholder': 'ایک احساس، ایک نام، ایک لمحہ تلاش کریں…',
   'journal.subheading': '{{count}} اندراجات - ہر ایک کو رکھنے کے قابل۔',
   'journalEntryCard.encryptedLabel': 'خفیہ کردہ',
+  'landing.ctaBody':
+    'شروع کرنا مفت ہے۔ Pro ڈیٹا ایکسپورٹ، بڑی ڈائری، اور پورے سال کی تاریخ کھولتا ہے۔',
+  'landing.ctaButton': 'اپنا پہلا داخلہ شروع کریں۔',
   'landing.ctaTitle': 'دن میں چند خاموش منٹ۔ بس۔',
   'landing.eyebrow': 'روزانہ کی نرم مشق',
   'landing.featuresBody':
@@ -83,6 +110,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'روزانہ کی عکاسی کے لیے ایک نرم جگہ۔',
   'mentalHealthJournalLayout.closeMenu': 'مینو بند کریں۔',
   'mentalHealthJournalLayout.openMenu': 'مینو کھولیں۔',
+  'mentalHealthJournalLayout.primaryNavLabel': 'بنیادی نیویگیشن',
+  'moodHeroCard.entriesThisWeek': '{{count}} اس ہفتے',
   'moodHeroCard.streakSuffix': 'دن کا سلسلہ',
   'moodHeroCard.title': 'آج کا عکس',
   'moodTrendChart.aiBadge': 'AI بصیرت تیار ہے۔',
@@ -93,11 +122,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'آپ کا سفر',
   'profile.fallbackName': 'ریفلیکٹر',
   'profile.loadError': 'اعدادوشمار لوڈ کرنے میں ناکام۔',
+  'profile.loading': 'آپ کے اعداد و شمار تازہ کیے جا رہے ہیں…',
   'profile.longestStreak': 'سب سے طویل سلسلہ',
   'profile.memberSince': 'جب سے عکاسی کر رہا ہے۔ {{date}}',
   'profile.milestones': 'سنگ میل',
   'profile.milestonesEmpty':
     'آپ کا پہلا سنگ میل ایک اندراج دور ہے — جب بھی آپ تیار محسوس کریں لکھیں۔',
+  'profile.moodMix': 'اس موسم میں آپ کے موڈ کا امتزاج',
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'مظاہر',
   'profile.totalWords': 'لکھے ہوئے الفاظ',
@@ -110,6 +141,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'اس بارے میں لکھیں۔',
   'resetPassword.eyebrow': 'ایک نئی شروعات',
   'resetPassword.mismatchError': 'پاس ورڈز مماثل نہیں ہیں۔',
+  'resetPassword.passwordLabel': 'نیا پاس ورڈ',
   'resetPassword.subheading': 'کوئی محفوظ چیز چنیں - آپ کے عکس اس کے مستحق ہیں۔',
   'resetPassword.tokenPlaceholder': 'ای میل سے کوڈ ری سیٹ کریں۔',
   'settings.dangerDescription':
@@ -121,11 +153,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'اکاؤنٹ حذف نہیں کیا جا سکا۔',
   'settings.exportDescription': 'آپ کے الفاظ ہمیشہ آپ کے ہیں۔ کسی بھی وقت ایک کاپی ڈاؤن لوڈ کریں۔',
   'settings.exportDone': 'برآمد کیا گیا۔ {{format}}.',
+  'settings.exportError': 'ایکسپورٹ ناکام ہو گیا۔',
+  'settings.exportHeading': 'اپنے تاثرات ایکسپورٹ کریں',
   'settings.exportLoading': 'تیار ہو رہا ہے…',
   'settings.eyebrow': 'آپ کی جگہ، آپ کے اصول',
   'settings.languageHeading': 'زبان',
   'settings.privacyHeading': 'رازداری اور خفیہ کاری',
   'settings.remindersHeading': 'روزانہ یاد دہانی',
+  'settings.reminderToggleAria': 'روزانہ یاد دہانی ٹوگل کریں',
   'settings.reminderToggleDescription':
     'آپ کے منتخب کردہ وقت پر ایک ہی پرسکون یاد دہانی۔ کوئی بیجز یا سٹریک جرم نہیں۔',
   'settings.reminderToggleLabel': 'نرمی سے جھٹکے بھیجیں۔',
@@ -138,6 +173,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'جریدہ بنایا جا رہا ہے…',
   'signup.subheading': 'آپ کے خیالات کے لیے ایک محفوظ جگہ۔',
   'wellnessRingsTriad.mindfulnessCaption': 'گول {{goal}} آج منٹ',
+  'wellnessRingsTriad.mindfulnessLabel': 'ذہن سازی',
   'wellnessRingsTriad.sleepCaption': 'گول {{goal}} گھنٹہ / رات',
   'wellnessRingsTriad.sleepLabel': 'سونا',
+  'wellnessRingsTriad.sleepValue': '{{hours}} گھنٹے',
+  'wellnessRingsTriad.streakCaption': 'ہدف {{goal}} دن',
+  'wellnessRingsTriad.streakLabel': 'ڈائری کا تسلسل',
+  'wellnessRingsTriad.streakValue': '{{days}} d',
 }

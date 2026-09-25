@@ -1,15 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Savollar, fikr-mulohaza yoki ishga qabul qilish jamoangiz uchun qo'llanma kerakmi? hello@example.com manziliga xat yozing va jamoadagi haqiqiy inson ikki ish kuni ichida sizga javob beradi.",
   'about.contactHeading': "Bog'laning",
+  'about.intro':
+    "{{app}} — shovqin emas, mazmunli signal istagan rekruterlar va ishga qabul menejerlari uchun nomzodlarni kuzatish tizimi: toza voronka, o'zini tushuntiruvchi AI skriningi va ishga qabul tahlillari — barchasi bir joyda.",
+  'about.missionBody':
+    "Ishga qabul qilish — jamoa qabul qiladigan eng mas'uliyatli qarorlardan biri, ammo uning aksariyati hanuz tarqoq jadvallar va elektron pochta yozishmalarida qolib ketgan. {{app}} butun jarayonni bitta doskaga jamlaydi: har bir nomzod kuzatiladi, har bir suhbat tizimli o'tkaziladi va har bir qaror adolatli, tez va tushunarli bo'ladi.",
+  'about.missionHeading': 'Bizning vazifamiz',
   'auth.legalConsent': 'Davom etish orqali siz bizning',
   'billing.cardExp': 'Muddati tugaydi {{exp}}',
+  'billing.cardLinkError': "Karta yangilash jarayonini boshlab bo'lmadi.",
   'billing.cardLinkSent':
     'Kartani yangilash jarayoni boshlandi — elektron pochtangizni tekshiring.',
+  'billing.cardLinkUnavailable':
+    "Kartani yangilash mavjud emas — bu joylashuvda to'lov provayderi sozlanmagan.",
   'billing.cardMissing': "Faylda karta yo'q",
   'billing.col.invoice': 'Faktura',
   'billing.downloadUnavailable': '—',
   'billing.editCard': 'Kartani yangilash',
+  'billing.eyebrow': 'Reja va foydalanish',
   'billing.invoiceHeading': "So'nggi fakturalar",
   'billing.invoicesEmpty': "Hali schyot-fakturalar yo'q.",
   'billing.invoicesLoading': 'Faktura-fakturalar yuklanmoqda…',
@@ -18,11 +29,12 @@ export const ui: UiTranslations = {
   'billing.nextChargeHint': 'Yoqilgan {{date}}',
   'billing.nextChargeLabel': "Keyingi to'lov",
   'billing.planLoading': 'Reja yuklanmoqda…',
-  'billing.planSummary': "{{perSeat}} / o'rindiq · {{joylar}} o'rindiqlar · {{jami}} / oy",
+  'billing.planSummary': "{{perSeat}} / o'rin · {{seats}} o'rin · {{total}} / oy",
   'billing.seatsAdded': "O'rindiqlar soni yangilandi.",
   'billing.seatsError':
     "Bu reja bitta o'rindiqli. Ko'p o'rindiqli foydalanish uchun Team ga yangilang.",
   'billing.seatsHint': '{{used}} ning {{max}} kiritilgan',
+  'billing.seatsLabel': "Faol o'rinlar",
   'billing.spentLabel': 'Yil boshidan beri sarflangan',
   'billing.subheading':
     "Obuna, o'rindiqlar, sun'iy intellekt skriningidan foydalanish va hisob-fakturalar.",
@@ -39,6 +51,7 @@ export const ui: UiTranslations = {
   'candidateDetail.advanceError': "Bosqichni yangilab bo'lmadi.",
   'candidateDetail.advanceFinal': 'Allaqachon yakuniy bosqichda.',
   'candidateDetail.advanceHeading': "Sahnaga o'tish",
+  'candidateDetail.appliedOn': '{{date}} {{source}} orqali ariza topshirdi.',
   'candidateDetail.back': 'Barcha nomzodlar',
   'candidateDetail.loadError': "Nomzodni yuklab bo'lmadi.",
   'candidateDetail.noInterviews': "Hali intervyular yo'q.",
@@ -48,8 +61,13 @@ export const ui: UiTranslations = {
   'candidateDetail.notePlaceholder':
     "Fikr-mulohazalaringiz, intervyu taassurotlaringiz, keyingi qadamlaringiz bilan o'rtoqlashing...",
   'candidateDetail.noteSave': 'Qaydni saqlash',
+  'candidateDetail.panel': 'Panel: {{panel}}',
+  'candidateDetail.panelScore': 'Panel bahosi: {{score}}/100',
+  'candidateDetail.resumeMissing': "Bu nomzod uchun hozircha rezyume ko'rinishi mavjud emas.",
   'candidateDetail.scheduleError': "Suhbatni rejalashtirib bo'lmadi.",
+  'candidateDetail.scheduleHeading': 'Suhbatni rejalashtirish',
   'candidateDetail.scheduleInterviewer': 'Suhbatdosh',
+  'candidateDetail.scheduleInterviewerPlaceholder': 'Suhbatdoshning ismi',
   'candidateDetail.scheduleMinutes': 'Davomiyligi (daqiqa)',
   'candidateDetail.scheduleMissing': 'Avval sana va vaqtni tanlang.',
   'candidateDetail.scoreEmpty': "Sun'iy intellekt baholanishi kutilmoqda.",
@@ -72,6 +90,7 @@ export const ui: UiTranslations = {
   'candidates.heading': 'Nomzodlar',
   'candidates.loadError': "Nomzodlarni yuklab bo'lmadi.",
   'candidates.searchPlaceholder': 'Nomzod, lavozim yoki ishni qidiring\\u2026',
+  'candidates.sourceLabel': 'Manba',
   'candidates.sourcePlaceholder': 'Manba (LinkedIn, Referral…)',
   'candidates.subheading':
     "Sun'iy intellektni baholash va manba atributiga ega turli lavozimlardagi nomzodlar ma'lumotlar bazasi.",
@@ -86,6 +105,7 @@ export const ui: UiTranslations = {
   'dashboard.kpi.interviews': 'Bu haftagi intervyular',
   'dashboard.kpi.openJobs': "Bo'sh ish o'rinlari",
   'dashboard.loading': 'Yuklanmoqda…',
+  'dashboard.newJobCta': "Ish e'lon qilish",
   'dashboard.subheading': 'Quvur liniyasining holati, suhbat yuki va harakatdagi takliflar.',
   'dashboard.topEmpty': "Hali nomzodlar yo'q.",
   'dashboard.topEyebrow': 'Eng yaxshi AI mosliklari',
@@ -106,6 +126,7 @@ export const ui: UiTranslations = {
   'jobDetail.back': "Barcha ish o'rinlari",
   'jobDetail.descriptionEyebrow': 'Rol tavsifi',
   'jobDetail.descriptionMissing': 'Hali hech qanday tavsif berilmagan.',
+  'jobDetail.employmentType': 'Bandlik turi: {{type}}',
   'jobDetail.empty': "Hozircha ariza beruvchilar yo'q.",
   'jobDetail.funnelEyebrow': 'Sahna voronkasi',
   'jobDetail.funnelHeading': 'Abituriyentlar qayerda turishadi',
@@ -114,6 +135,7 @@ export const ui: UiTranslations = {
   'jobDetail.kpi.hires': 'Yollash',
   'jobDetail.kpi.inInterview': 'Suhbatda',
   'jobDetail.loadError': "Vazifani yuklab bo'lmadi.",
+  'jobDetail.requirementsHeading': 'Talablar',
   'jobDetail.topEyebrow': 'Eng yaxshi nomzodlar',
   'jobDetail.topHeading': "Avval sun'iy intellektga mos keladigan",
   'jobDetail.unavailable': "Bu ish endi ro'yxatda yo'q.",
@@ -129,6 +151,7 @@ export const ui: UiTranslations = {
   'jobs.heading': "Ish o'rinlari",
   'jobs.loadError': 'Vazifalarni yuklashda xatolik yuz berdi.',
   'jobs.newCta': "Ishdan bo'shatish",
+  'landing.copyright': '© {{year}} {{app}} Molecule bilan qurilgan.',
   'landing.eyebrow': "Sun'iy intellekt yordamida yollash · v2",
   'landing.featuresEyebrow': 'Qanday ishlaydi',
   'landing.featuresHeading': 'Signal — elektron jadvallar emas.',
@@ -137,8 +160,11 @@ export const ui: UiTranslations = {
   'landing.heroCta': '30 kun davomida bepul boshlang',
   'landing.heroProof': "Kredit karta yo'q. Istalgan vaqtda bekor qiling. SSO Pro’da mavjud.",
   'landing.heroSecondary': "Narxlarni ko'rish →",
+  'landing.heroSubtitle':
+    "Toza kanban voronkasi, o'zini tushuntiruvchi AI skriningi va bosqichlar bo'yicha adolat tahlillari. Shovqin emas — signal istagan rekruterlar va ishga qabul menejerlari uchun.",
   'landing.heroTitle': 'Aniqlik bilan yollang.',
   'landing.previewHeading': 'Katta orqa muhandis',
+  'landing.previewLabel': 'Voronka · Engineering',
   'landing.pricingEyebrow': 'Narxlar',
   'landing.pricingHeading': 'Har bir jamoa hajmi uchun rejalar.',
   'landing.socialEyebrow': 'Yollash guruhlari tomonidan foydalaniladi',
@@ -154,6 +180,9 @@ export const ui: UiTranslations = {
   'loginBrandPanel.headlineLine2': 'aniqlik.',
   'loginBrandPanel.stage.interview': 'Suhbat',
   'loginBrandPanel.stage.screening': 'Skrining',
+  'loginBrandPanel.stage.sourced': 'Manba topilgan',
+  'loginBrandPanel.subtext':
+    "Nomzodlarni Manba topilgan → Skrining → Suhbat → Taklif → Ishga qabul qilindi bosqichlari bo'ylab torting. AI skrining qiladi. Adolat pulsi har bir bosqichni halol saqlaydi.",
   'nav.closeMenu': 'Menyuni yopish',
   'nav.legal': 'Huquqiy',
   'nav.openMenu': 'Menyuni ochish',
@@ -162,6 +191,7 @@ export const ui: UiTranslations = {
     "Rezyumelar talablarga muvofiq saralanadi; yollovchi eng yaxshi mos keladiganlarni birinchi bo'lib ko'rib chiqadi.",
   'newJob.aiToggle': 'Yangi abituriyentlarni avtomatik ravishda balllash',
   'newJob.back': 'Ishlarga qaytish',
+  'newJob.basicsHeading': 'Rol asoslari',
   'newJob.compHeading': 'Kompensatsiya',
   'newJob.departmentLabel': 'Departament',
   'newJob.descHeading': 'Tavsif va talablar',
@@ -171,6 +201,7 @@ export const ui: UiTranslations = {
   'newJob.failed': "Ishni saqlab bo'lmadi.",
   'newJob.heading': "Ish e'lon qilish",
   'newJob.publish': 'Ishni nashr qilish',
+  'newJob.reqLabel': 'Talablar (har bir qatorda bittadan)',
   'newJob.salaryMax': 'Maksimal ish haqi (AQSh dollari)',
   'newJob.salaryMin': 'Minimal ish haqi (AQSh dollari)',
   'newJob.stagesHeading': 'Quvur liniyasi bosqichlari',
@@ -186,6 +217,7 @@ export const ui: UiTranslations = {
   'newJob.type.fullTime': "To'liq stavka",
   'newJob.type.partTime': 'Vaqtincha; Yarim kun',
   'newJob.typeLabel': 'Bandlik turi',
+  'pipeline.advanceTo': 'Keyingi bosqich',
   'pipeline.allRoles': 'Barcha rollar',
   'pipeline.daysInStage': '{{days}} d',
   'pipeline.empty': "Nomzodlar yo'q",
@@ -199,13 +231,22 @@ export const ui: UiTranslations = {
     "Nomzodlarni bosqichlar orasida sudrab boring. Har bir kartada sun'iy intellekt ballari va bosqichdagi kunlar ko'rsatilgan.",
   'pipeline.viewTable': "Jadval ko'rinishi →",
   'pipelineFunnelHero.totalLabel': 'Harakatda',
+  'planUpdated.body':
+    "Hisob-kitob o'zgarishingiz endi faol. Tarifingizni istalgan vaqtda hisob-kitob sahifasidan boshqarishingiz mumkin.",
+  'planUpdated.retry': 'Qayta urinib ko’ring',
+  'planUpdated.verifyFailed': "To'lovingizni hali tasdiqlay olmadik.",
+  'planUpdated.verifyFailedBody':
+    "To'lovingiz hali ham amalga oshirilayotgan bo'lishi mumkin. Birozdan keyin qayta urinib ko'ring.",
   'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'pricing.heading': 'ilovalar',
+  'pricing.limits.applications': 'arizalar',
   'pricing.limits.candidates': 'nomzodlar',
   'pricing.limits.jobs': "ish o'rinlari",
   'pricing.limits.scorecards': 'ballar jadvallari',
   'privacy.dataBody':
     "Hisob elektron pochtasi, xeshlangan parol, profil metama'lumotlari va siz yaratgan nomzod/ish yozuvlari. Biz bu ma'lumotlarni hech qachon sotmaymiz yoki ulashmaymiz.",
+  'privacy.intro':
+    "{{app}} mijozlar nomidan ishga qabul ma'lumotlarini qayta ishlaydi. Nomzod yozuvlari, rezyumelar va ishga qabul jamoasi yozishmalarini maxfiy deb hisoblaymiz va ularni shifrlangan holda saqlaymiz.",
   'privacy.retentionBody':
     "Siz hisobingizni istalgan vaqtda Sozlamalar orqali o'chirib tashlashingiz mumkin. Biz tegishli yozuvlarni 30 kun ichida o'chirib tashlaymiz, qonun bilan saqlash talab qilingan hollar bundan mustasno.",
   'privacy.title': 'Maxfiylik siyosati',
@@ -215,6 +256,7 @@ export const ui: UiTranslations = {
     "Nomzodlar va arizachilarga ish e'lonlarida sizning ismingiz va lavozimingizni ko'rishga ruxsat bering.",
   'profile.publicLabel': 'Ommaviy profil',
   'profile.publicOff': 'Yashirin',
+  'profile.publicOn': "Ko'rinadi",
   'profile.recentEmpty': "Hali joylashuvlar yo'q.",
   'profile.recentError': "So'nggi joylashuvlarni yuklab bo'lmadi.",
   'profile.recentEyebrow': "So'nggi joylashtirishlar",
@@ -241,9 +283,14 @@ export const ui: UiTranslations = {
   'resetPassword.missingToken':
     "Qayta tiklash havolasi mavjud emas yoki muddati tugagan — yangisini so'rang.",
   'resetPassword.passwordLabel': 'Yangi parol',
+  'resetPassword.signInCta': 'Kirish →',
+  'resetPassword.signInPrompt': 'Tizimga kirish uchun yangi parolingizdan foydalaning.',
   'resetPassword.subheading':
     "Kuchli parol tanlang — kamida 12 ta belgidan iborat bo'lib, katta-kichik harflar bilan.",
+  'settings.appearance.description': "Yorug'lik va qorong'u rejimlar o'rtasida almashinish.",
   'settings.appearance.title': "Tashqi ko'rinish",
+  'settings.deleteAccountModal.confirm':
+    'Tasdiqlash uchun parolingizni kiriting. Bu amal qaytarilmas.',
   'settings.emailTemplates.empty': 'Hali hech qanday shablon sozlanmagan.',
   'settings.emailTemplates.heading': 'Elektron pochta shablonlari',
   'settings.emailTemplates.loadError': "Shablonlarni yuklab bo'lmadi.",
@@ -254,10 +301,16 @@ export const ui: UiTranslations = {
   'settings.integrations.statusDisconnected': 'Ulanmagan',
   'settings.integrations.updateError': "Integratsiyani yangilab bo'lmadi.",
   'settings.name': 'Ism',
+  'settings.passwordHelp': 'Tizimga kirish uchun ishlatadigan parolingizni yangilang.',
+  'settings.revokeDeviceWarning':
+    'Bu qurilmaning kirish huquqi tez orada bekor qilinadi. Uni chiqarasizmi?',
   'settings.saveEmail': 'Elektron pochtani saqlash',
   'settings.signOutDevice': 'tizimdan chiqish',
   'settings.stages.empty': 'Hali hech qanday bosqich sozlanmagan.',
+  'settings.stages.heading': 'Quvur liniyasi bosqichlari',
+  'settings.stages.help': "Nomzodlar o'tadigan bosqichlar. Ishlatmaydiganlarini olib tashlang.",
   'settings.stages.loadError': "Bosqichlarni yuklab bo'lmadi.",
+  'settings.stages.loading': 'Bosqichlar yuklanmoqda…',
   'settings.stages.removeAria': 'Olib tashlash {{name}} sahna',
   'settings.stages.removeError': "Bosqichni olib tashlab bo'lmadi.",
   'settings.team.empty': "Hali jamoadoshlar yo'q — birinchisini quyida taklif qiling.",
@@ -273,9 +326,15 @@ export const ui: UiTranslations = {
   'settings.team.removeError': "A'zoni olib tashlab bo'lmadi.",
   'settings.twoFactorCode': 'Autentifikatsiya kodi',
   'settings.twoFactorDisable': "O'chirish",
+  'settings.twoFactorDisableTitle': "Ikki faktorli autentifikatsiyani o'chirish",
   'settings.twoFactorEnable': 'Yoqish',
+  'settings.twoFactorEnableTitle': 'Ikki faktorli autentifikatsiyani yoqish',
   'settings.twoFactorInvalidCode': "Noto'g'ri kod",
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Ikki faktorli QR kod',
+  'settings.twoFactorScan':
+    "Ushbu QR kodni autentifikator ilovangiz bilan skanerlang, so'ng 6 xonali kodni kiriting.",
+  'settings.twoFactorUnavailable': 'Ushbu ilova uchun ikki faktorli autentifikatsiya mavjud emas.',
   'settings.twoFactorVerify': 'Tasdiqlash va yoqish',
   'settings.unknownDevice': "Noma'lum qurilma",
   'signup.confirmPlaceholder': 'Parolingizni qayta kiriting',
@@ -285,6 +344,8 @@ export const ui: UiTranslations = {
   'signup.subheading': '60 soniyada yollash taxtasini yarating. Keyinroq jamoani taklif qiling.',
   'terms.acceptableUseBody':
     "Siz xizmatdan suiiste'mol qilmaysiz, avtomatlashtirilgan skriningni ishga tushirmaysiz, xavfsizlikni buzishga urinmaysiz yoki himoyalangan sinflarga nisbatan kamsitish uchun foydalanmaysiz.",
+  'terms.intro':
+    '{{app}} dan foydalanish orqali siz ushbu shartlarga rozilik bildirasiz. Xizmat quyida tavsiflangan majburiyatlar va cheklovlar bilan boricha taqdim etiladi.',
   'terms.subscriptionBody':
     "Pullik rejalar bekor qilinmaguncha har oy yangilanadi. Siz istalgan vaqtda Billing orqali bekor qilishingiz mumkin; rejangiz joriy davr oxirigacha faol bo'lib qoladi.",
   'terms.title': "Xizmat ko'rsatish shartlari",

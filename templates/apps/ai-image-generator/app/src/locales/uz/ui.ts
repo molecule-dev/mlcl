@@ -1,14 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Fikr-mulohazangiz bormi, muammoga duch keldingizmi yoki keyin nima yaratishimizni aytmoqchimisiz? Jamoa bilan hello@reverie.app orqali bog'laning — har bir xabar mahsulotni yaratayotgan haqiqiy insonga yetib boradi.",
   'about.contactTitle': "Biz bilan bog'laning",
+  'about.missionTitle': 'Bizning vazifamiz',
   'auth.fields.newPassword': 'Yangi parol',
   'collectionDetail.addImage': "To'plash uchun sehrlash",
   'collectionDetail.backCta': 'Kolleksiyalarga qaytish',
   'collectionDetail.coverNote': 'Tanlangan kayfiyat taxtasi bilan {{count}} tasvirlar.',
   'collectionDetail.editName': "To'plam nomi",
+  'collectionDetail.empty': "Bu to'plamda hali rasmlar yo'q — qo'shish uchun biror narsa yarating.",
   'collectionDetail.loading': "To'plam yuklanmoqda…",
   'collectionDetail.loadingImages': 'Rasmlar yuklanmoqda…',
+  'collectionDetail.notFoundBody': "Bu to'plam o'chirilgan yoki maxfiy.",
   'collectionDetail.notFoundTitle': "To'plam mavjud emas",
   'collectionDetail.shared': "Ko'rinish o'chirildi",
   'collections.create': "Yangi to'plam",
@@ -16,6 +21,7 @@ export const ui: UiTranslations = {
     "Hali to'plamlar yo'q. Ishingizni boshqarishni boshlash uchun bittasini yarating.",
   'collections.imageCount': '{{count}} tasvirlar',
   'collections.loading': "To'plamlar yuklanmoqda…",
+  'collections.noDescription': "Hali tavsif yo'q — qo'shish uchun oching.",
   'collections.subtitle': "Kayfiyat taxtalari, qisqacha ma'lumotlar va davom etayotgan seriyalar",
   'collections.title': "To'plamlar",
   'collections.untitled': 'Nomsiz · {{stamp}}',
@@ -55,6 +61,7 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     "Reverie hisobingizga bog'langan elektron pochta manzilini kiriting, shunda biz qayta tiklash havolasini yuboramiz.",
   'forgot.successBody': "Qayta tiklash havolasi yo'lda {{email}} .",
+  'gallery.empty.body': "Boshqa holatni sinab ko'ring yoki studiyadan yangi to'plam yarating.",
   'gallery.empty.title': 'Bu filtrga hech narsa mos kelmaydi',
   'gallery.exportAll': 'Barchasini eksport qilish',
   'gallery.exported': "Eksport navbatga qo'yildi",
@@ -77,6 +84,8 @@ export const ui: UiTranslations = {
   'generate.controls.title': 'Tushni sozlang',
   'generate.defaultPrompt': 'Yangi orzu',
   'generate.progress': 'Qadam {{step}} / {{total}}',
+  'generate.submitFailed':
+    "Generatsiyani navbatga qo'yib bo'lmadi — ulanishni tekshirib, qayta urinib ko'ring.",
   'generate.subtitle':
     "So'rov yozing, boshqaruv elementlarini kiriting, variantlarni tasavvur qiling",
   'generate.title': 'Studiya',
@@ -84,6 +93,7 @@ export const ui: UiTranslations = {
   'imageDetail.acting': 'Ishlamoqda…',
   'imageDetail.actionFailed': 'Harakat amalga oshmadi.',
   'imageDetail.actions': 'Rasm harakatlari',
+  'imageDetail.downloadStarted': 'Yuklab olish boshlandi.',
   'imageDetail.downloadUnavailable': "Hozircha yuklab olish uchun rasm yo'q.",
   'imageDetail.fields.aspect': 'Aspekt',
   'imageDetail.fields.created': 'Yaratilgan',
@@ -95,11 +105,17 @@ export const ui: UiTranslations = {
   'imageDetail.noVariations':
     "Hali hech qanday o'zgartirishlar yo'q — yuqoridagilardan birini so'rang.",
   'imageDetail.openEditor': 'Muharrirda ochish',
+  'imageDetail.tips.lockSeed':
+    "Kompozitsiyani yo'qotmasdan yoritish ustida ishlash uchun seedni qulflang.",
+  'imageDetail.tips.upscale':
+    'Chop etishga tayyor sifat uchun eksportdan oldin 4× kattalashtirishni ishga tushiring.',
   'imageDetail.tipsTitle': 'Tushni aniqlang',
+  'imageDetail.title': 'Image',
   'imageDetail.upscaleQueued': "Yuqori darajadagi navbatga qo'yilgan",
   'imageDetail.variations': 'Variatsiyalar',
   'imageDetail.variationsQueued': "Variatsiyalar navbatga qo'yildi",
   'imageDetail.visibilityToggled': "Ko'rinish yangilandi",
+  'landing.copyright': '© {{year}} {{appName}} Labs. Molecule.dev bilan yaratilgan.',
   'landing.cta': 'Yaratishni boshlang',
   'landing.eyebrow': 'Hozirda Reverie XL v3 xizmatini taqdim etamiz',
   'landing.featuresEyebrow': 'Nima uchun Reverie',
@@ -141,8 +157,17 @@ export const ui: UiTranslations = {
     "Avlod faoliyati, ulashish va kredit ogohlantirishlari bu yerda ko'rsatiladi.",
   'notifications.empty.title': "Xabar berish uchun hech narsa yo'q",
   'notifications.subtitle': "Kun bo'yicha guruhlangan avlod tadbirlari",
+  'planUpdated.confirmed': "Sizning {{planKey}} tarifingiz faol va kreditlar qo'shildi.",
+  'planUpdated.error':
+    "Yangilashingizni avtomatik tasdiqlay olmadik. Iltimos, qo'llab-quvvatlash xizmatiga murojaat qiling.",
+  'planUpdated.retry': 'Qayta urinib ko’ring',
+  'planUpdated.unpaid': "To'lov seansingiz to'lanmagan. Sozlamalardan qayta urinib ko'ring.",
+  'planUpdated.verifyFailed': "To'lovingizni hali tasdiqlay olmadik.",
+  'planUpdated.verifyFailedBody':
+    "To'lovingiz hali ham amalga oshirilayotgan bo'lishi mumkin. Birozdan keyin qayta urinib ko'ring.",
   'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'pricing.limits.gallery': '{{count}} galereya',
+  'pricing.limits.generations': '{{count}} ta generatsiya',
   'privacy.collect.body':
     "Ro'yxatdan o'tganingizda biz sizning ismingiz, elektron pochta manzilingiz va xeshlangan parolingizni to'playmiz. Reverie'dan foydalanganingizda biz siz yuborgan so'rovlarni, siz uchun yaratgan rasmlarni, saqlagan uslublar va to'plamlarni, shuningdek, ishlatilgan model, generatsiya vaqt belgilari va kredit balansi kabi metama'lumotlarni saqlaymiz.",
   'privacy.cookies.body':
@@ -156,6 +181,8 @@ export const ui: UiTranslations = {
   'profile.followedBio': 'Hozirgina ijodkorni kuzatib bordim',
   'profile.following': 'Kuzatib borilmoqda…',
   'profile.loadingWorks': 'Jamoat ishlari yuklanmoqda…',
+  'profile.noPublicWorks':
+    "Hali ommaviy ishlar yo'q — bu galereyani to'ldirish uchun rasm ulashing.",
   'profile.notFoundTitle': 'Profil mavjud emas',
   'profile.publicWorks': 'Jamoat ishlari',
   'profile.subtitle': '@ {{handle}} · ommaviy ijodkor profili',
@@ -167,6 +194,7 @@ export const ui: UiTranslations = {
   'prompts.empty.cta': 'Ochiq studiya',
   'prompts.empty.title': "Saqlangan so'rovlar mos kelmadi",
   'prompts.lastUsed': 'Ishlatilgan {{when}}',
+  'prompts.loading': "So'rovlar yuklanmoqda…",
   'prompts.negativeLabel': 'NEG',
   'prompts.runAgain': 'Yugurish',
   'prompts.running': 'Yugurmoqda…',
@@ -182,6 +210,7 @@ export const ui: UiTranslations = {
   'settings.account.saveFailed': "Profilni saqlab bo'lmadi",
   'settings.account.title': 'Ijodkor profili',
   'settings.accountSecurity': 'Hisob va xavfsizlik',
+  'settings.accountSecurity.title': 'Kirish, qurilmalar va hisob',
   'settings.api.empty':
     "Hali API kalitlari yo'q — integratsiyani boshlash uchun bittasini yarating.",
   'settings.api.loading': 'API kalitlari yuklanmoqda…',
@@ -201,13 +230,17 @@ export const ui: UiTranslations = {
   'sidebar.secondary': 'Ikkilamchi navigatsiya',
   'signup.failed': 'Ro‘yxatdan o‘tish amalga oshmadi. Qaytadan urinib ko‘ring.',
   'signup.firstNamePlaceholder': 'Ariya',
+  'signup.haveAccount': 'Allaqachon xayolparastmisiz?',
   'signup.heading': 'Xayolingizni boshlang',
   'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Hisob yarating va 120 ta bepul kredit oling.',
+  'styles.body':
+    "Har bir preset o'z modeli, sempleri, prompt karkasi va uslub chiplarini o'zida jamlaydi. Butun studiyani shu kayfiyatga qulflash uchun birini faollashtiring — seriyali ishlar uchun juda mos.",
   'styles.empty':
     "Hali uslub sozlamalari yo'q — ular birinchi marta tizimga kirgandan so'ng paydo bo'ladi.",
   'styles.eyebrow': 'Tanlangan',
   'styles.headline': 'Qayta ishlatiladigan vizual sozlamalar bilan tezroq tasavvur qiling',
+  'styles.loading': 'Uslublar kutubxonasi yuklanmoqda…',
   'styles.subtitle': 'Reverie studiya jamoasi tomonidan yaratilgan vizual sozlamalar',
   'styles.title': 'Uslublar kutubxonasi',
   'terms.acceptableUse.body':

@@ -1,19 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Spørsmål, tilbakemeldinger eller et ønske om en ny funksjon? Send e-post til teamet på hello@murmur.app — hver melding når et ekte menneske som jobber med produktet.',
   'about.contactTitle': 'Snakk med oss',
   'about.eyebrow': 'Om oss',
+  'about.intro':
+    '{{app}} er møteintelligens for team som heller vil ta beslutninger enn å skrive referat. Den blir med i samtalene dine, transkriberer hvert ord med talermerker og leverer et AI-sammendrag pluss eide handlingsoppgaver i det møtet er over.',
+  'about.missionBody':
+    'Møter er der team tar beslutninger — og der beslutningene forsvinner. {{app}} finnes for å sikre at arbeidet som skjer i en samtale, lever lenger enn samtalen: en trofast oversikt, et tydelig sammendrag og ansvarlige neste steg, automatisk.',
+  'about.missionTitle': 'Vårt oppdrag',
   'actions.empty': 'Ingen handlingspunkter samsvarer.',
   'actions.heading': 'Handlingspunkter',
   'actions.loadError': 'Kunne ikke laste handlingspunkter.',
   'actions.subheading': 'Samlet på tvers av alle møter. Filtrer etter status for å fokusere.',
   'actions.toggleDoneLabel': 'Merk som fullført',
   'actions.toggleReopenLabel': 'Merk som åpen',
+  'auth.footer': '© {{year}} {{app}}. Hvert ord, destillert.',
   'calendar.heading': 'Kalender',
   'calendar.joinCta': 'Bli med',
   'calendar.loadError': 'Kunne ikke laste kalender.',
   'calendar.nextMonth': 'Neste måned',
   'calendar.noEventsForDay': 'Ingen møter planlagt for denne dagen.',
+  'calendar.noUpcomingEvents':
+    'Ingen kommende møter. Koble til en kalender fra Integrasjoner for å fylle denne listen.',
   'calendar.previousMonth': 'Forrige måned',
   'calendar.recent': 'Nylig',
   'common.daysAgo': '{{count}}d siden',
@@ -25,9 +35,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} handlingspunkter',
   'dashboard.empty.body':
     'Start et opptak eller koble til Google Kalender slik at Murmur automatisk deltar på neste møte.',
+  'dashboard.empty.cta': 'Start opptaket',
   'dashboard.empty.heading': 'Ingen møter ennå',
   'dashboard.eyebrow': 'Din møtestrøm',
   'dashboard.loadError': 'Kunne ikke laste dashbord.',
+  'dashboard.noActions': 'Ingen handlinger',
   'dashboard.recentHeading': 'Siste møter',
   'dashboard.recordCta': 'Ta opp møte',
   'dashboard.stat.actions': 'Handlingspunkter',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} uleste sammendrag siden sist du sjekket. Murmur fanget hvert ord – her er oppsummeringen.',
   'dashboard.viewCalendar': 'Vis kalender →',
+  'footer.linksLabel': 'Bunntekst',
   'forgot.failed': 'Kunne ikke sende tilbakestillings-e-post.',
   'forgot.sentBody':
     'Hvis det finnes en konto for {{email}}, vil du snart motta en tilbakestillingslenke.',
@@ -48,14 +61,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Koble til kalendere og videoplattformer slik at Murmur automatisk deltar.',
   'integrations.updateError': 'Oppdatering mislyktes.',
+  'landing.ctaBody':
+    'Gratis for de første 5 møtene hver måned. Ingen kredittkort. Koble til Google Calendar på under et minutt.',
   'landing.ctaButton': 'Kom i gang – det er gratis',
   'landing.ctaHeading': 'Slutt å ta notater. Begynn å ta beslutninger.',
+  'landing.demo.aiBody':
+    'Lansering utsatt fra 5. mai → 12. mai for å gi drift bemanningsrom. Redesign av dashbord skilt ut til 26. mai.',
   'landing.demo.aiLabel': 'AI-sammendrag, utarbeidet live',
   'landing.demo.recording': 'Tar opp · live',
   'landing.eyebrow': 'AI møteintelligens',
   'landing.featuresHeading': 'Alt teamet ditt trenger etter at møtet er ferdig',
+  'landing.featuresSubheading':
+    'Slutt på «vent, hvem eier dette?» {{appName}} leverer sammendraget før samtalen kobles fra.',
   'landing.getStarted': 'Prøv gratis',
   'landing.heroSecondary': 'Se 90-sekunders omvisning',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} blir med i samtalene dine, transkriberer hvert ord med talermerker og leverer AI-sammendrag pluss eide handlingsoppgaver i det møtet er over.',
   'landing.heroTitle': 'Fang hvert møte. Finn frem til det som betyr noe.',
   'login.altPrompt': 'Ny i Murmur?',
   'login.failed': 'Kunne ikke logge inn. Sjekk e-post og passord.',
@@ -63,6 +84,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Handlingspunkter',
   'meetingDetail.back': 'Alle møter',
   'meetingDetail.decisionsHeading': 'Beslutninger',
+  'meetingDetail.dueDate': 'forfaller {{date}}',
   'meetingDetail.followupsHeading': 'Oppfølginger',
   'meetingDetail.loadError': 'Kunne ikke laste møte.',
   'meetingDetail.noActions': 'Ingen handlingspunkter oppdaget.',
@@ -76,7 +98,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Ingen møter ennå',
   'meetings.heading': 'Møter',
   'meetings.loadError': 'Kunne ikke laste møter.',
+  'meetings.recordCta': 'Ta opp møte',
   'meetings.subheading': 'Hvert tatt opp, opplastet og synkronisert møte.',
+  'murmurLayout.closeMenu': 'Lukk navigasjonsmenyen',
   'murmurLayout.openMenu': 'Åpne navigasjonsmenyen',
   'murmurLayout.primaryNavLabel': 'Primær navigasjon',
   'nav.legal': 'Juridisk',
@@ -100,7 +124,13 @@ export const ui: UiTranslations = {
   'profile.loading': 'Laster…',
   'profile.navLabel': 'Profilseksjoner',
   'profile.notifications.assignments': 'Handlingspunkter tildelt meg',
+  'profile.notifications.assignmentsHint': 'Varsle når en handlingsoppgave registreres for deg.',
+  'profile.notifications.mentions': 'Omtaler i transkripsjoner',
+  'profile.notifications.mentionsHint': 'E-post + push når noen @-omtaler deg.',
+  'profile.notifications.subheading': 'Velg hvilke {{appName}}-hendelser som skal nå deg.',
   'profile.notifications.summaries': 'Ukentlig oversikt',
+  'profile.notifications.summariesHint': 'Et mandagssammendrag av alle møter fra forrige uke.',
+  'profile.preferences.speakerColor': 'Standard talerfarge',
   'profile.preferences.subheading':
     'Standardinnstillinger som gjelder for alle opptak du deltar på.',
   'profile.preferences.timezone': 'Tidssone',
@@ -113,16 +143,21 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Nettleseren din støtter ikke opptak. Prøv Chrome, Edge eller Safari.',
   'record.error.upload': 'Opplasting mislyktes. Prøv igjen.',
+  'record.errorLabel': 'Noe gikk galt',
   'record.heading': 'Ta opp',
   'record.idleLabel': 'Trykk for å starte opptak',
   'record.processingLabel': 'Transkriberer med Whisper, sammendrag med Claude…',
+  'record.recordingLabel': 'Registrerer…',
   'record.retryCta': 'Prøv igjen',
   'record.subheading':
     'Trykk på mikrofonen for å starte. Murmur fanger lyden, transkriberer via Whisper og skriver et Claude-drevet sammendrag.',
+  'record.titlePlaceholder': 'Møtetittel (valgfritt)',
+  'reset.altPrompt': 'Ombestemt deg?',
   'reset.hint': 'Bruk minst 8 tegn med en blanding av bokstaver og tall.',
   'reset.missingToken': 'Tilbakestillingslenken mangler eller er utløpt. Be om en ny.',
   'reset.newPassword': 'Nytt passord',
   'reset.subheading': 'Velg et passord du ikke bruker andre steder.',
+  'reset.tooShort': 'Passordet må ha minst 8 tegn.',
   'search.empty': 'Skriv for å søke i transkripsjoner.',
   'search.loadError': 'Søket mislyktes. Prøv på nytt.',
   'search.noResults': 'Ingen resultater for «{{q}}».',
@@ -137,7 +172,10 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Behold lyd i',
   'settings.retention.heading': 'Oppbevaring',
   'settings.retention.transcript': 'Behold transkripsjoner i',
+  'settings.revokeDeviceWarning':
+    'Denne enhetens tilgang vil bli trukket tilbake snart. Logge den ut?',
   'settings.saveError': 'Lagring mislyktes.',
+  'settings.security.subheading': 'Oppdater passordet du bruker for å logge inn.',
   'settings.sharing.exportFormat': 'Eksportformat',
   'settings.sharing.heading': 'Delingsstandarder',
   'settings.sharing.scope': 'Standard delingsomfang',
@@ -154,6 +192,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Inviter teammedlem',
   'team.invitedAs': 'Invitert som {{role}}',
   'team.inviteFailed': 'Kunne ikke sende invitasjon.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'Send invitasjon',
   'team.inviteSubtitle': 'De vil motta en e-post med en bli-med-lenke.',
   'team.inviteTitle': 'Inviter et teammedlem',

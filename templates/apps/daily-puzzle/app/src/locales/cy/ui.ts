@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Oes gennych adborth, wedi dod o hyd i fyg, neu eisiau dod â {{app}} i'ch ysgol neu dîm? Rydym yn darllen pob neges — cysylltwch o'ch gosodiadau cyfrif a bydd gwir berson yn ateb.",
   'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Ynglŷn â',
+  'about.intro':
+    'Pos geiriau dyddiol yw {{app}}. Dyfalwch y gair pum llythyren mewn chwe chynnig, cadwch eich rhediad yn fyw, rhannwch eich grid emoji, a gwelwch sut y gwnaeth pawb ar air heddiw.',
+  'about.missionBody':
+    "Mae pos da yn fuddugoliaeth fach ddyddiol. Mae {{app}} wedi'i adeiladu o amgylch un gair a rennir bob dydd — yn ddigon cyflym ar gyfer egwyl goffi, yn ddigon craff i ddod yn ôl yfory.",
+  'about.missionTitle': 'Ein cenhadaeth',
   'about.title': 'Ynghylch {{app}}',
   'archive.loadError': "Methwyd llwytho'r archif.",
   'archive.missed': 'Wedi methu',
   'archive.notPlayed': 'Heb ei chwarae',
+  'archive.subhead':
+    "Ailchwaraewch unrhyw ddiwrnod o'r gorffennol fel ymarfer — dim rhediadau, dim ystadegau, yr holl hwyl.",
   'archive.title': 'Archif',
   'auth.backToHome': "Yn ôl i'r hafan",
   'auth.backToHomeArrow': "← Yn ôl i'r hafan",
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Wedi anghofio cyfrinair?',
   'auth.login.loggingIn': 'Yn eich mewngofnodi…',
   'auth.login.logIn': 'Chwarae gair heddiw',
+  'auth.login.noAccount': 'Newydd i Tessera?',
   'auth.login.or': 'neu barhau gyda',
   'auth.login.password': 'Cyfrinair',
   'auth.login.signInButton': 'Mewngofnodi',
@@ -32,6 +42,10 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Yn cadw…',
   'common.sendingEllipsis': 'Yn anfon…',
   'common.startingEllipsis': 'Yn cychwyn…',
+  'forgotPassword.subhead': 'Rhowch eich cyfeiriad e-bost a byddwn yn anfon dolen atoch i ailosod.',
+  'forgotPassword.success.body':
+    'Os oes cyfrif yn bodoli ar gyfer {{email}} , fe gewch chi ddolen ailosod mewn ychydig funudau.',
+  'forgotPassword.success.title': 'Gwiriwch eich mewnflwch.',
   'form.name': 'Enw',
   'howToPlay.cta.home': 'Yn ôl adref',
   'howToPlay.cta.play': 'Chwarae pos heddiw',
@@ -68,10 +82,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': "Streiciau rydych chi'n casáu eu torri",
   'leaderboard.daily.title': 'Datrysiadau heddiw',
   'leaderboard.loadError': "Methwyd llwytho'r bwrdd arweinwyr.",
+  'leaderboard.streaks.empty': 'Dim rhediadau eto — byddwch y cyntaf.',
+  'leaderboard.streaks.subhead': 'Y rhediadau buddugol hiraf erioed.',
   'leaderboard.streaks.title': 'Arweinwyr stribedi',
+  'leaderboard.subhead': "Sut y gwnaeth pawb heddiw, a phwy sydd â'r rhediadau hiraf.",
   'leaderboard.title': 'Tabl arweinwyr',
   'login.headline': 'Croeso nôl.',
   'login.streakPill': 'Stribed {{days}}-diwrnod yn aros',
+  'login.subhead':
+    'Mewngofnodwch i gadw eich rhediad yn fyw a gweld sut y gwnaethoch ar air heddiw.',
   'nav.archive': 'Archif',
   'nav.editProfile': 'Golygu proffil',
   'nav.getStarted': 'Dechrau arni',
@@ -89,6 +108,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': "404 · Dim gair o'r fath",
   'notFound.title': "Mae'r llwybr hwnnw'n wag.",
   'planUpdated.message': 'Mae eich cynllun yn fyw.',
+  'planUpdated.retry': 'Rhowch gynnig arall arni',
+  'planUpdated.verifyFailed': 'Ni allem gadarnhau eich taliad eto.',
+  'planUpdated.verifyFailedBody':
+    "Mae'n bosibl bod eich taliad yn dal i gael ei brosesu. Rhowch gynnig arall arni ymhen eiliad.",
   'planUpdated.verifying': 'Yn cadarnhau eich taliad…',
   'play.alreadyFinished': 'Rydych chi eisoes wedi gorffen y pos hwn',
   'play.answerWas': 'Y gair oedd',
@@ -104,6 +127,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Pos ymarfer',
   'play.tooShort': 'Ddim digon o lythrennau',
   'play.won': "Wedi'i ddatrys!",
+  'pricing.advancedStats': 'Ystadegau uwch: {{yes}}',
+  'pricing.archiveHistory': '{{count}} diwrnod o hanes yr archif',
+  'pricing.archivePlays': '{{count}} ailchwarae archif / diwrnod',
+  'pricing.archiveUnlimited': 'Hanes archif diderfyn',
+  'pricing.canExport': 'Allgludo data: {{yes}}',
+  'pricing.checkoutError': 'Methwyd dechrau talu. Rhowch gynnig arall arni.',
   'pricing.dailyWord': 'Y gair dyddiol',
   'pricing.heading': 'Dewiswch eich cynllun {{app}}',
   'pricing.included': "Wedi'i gynnwys",
@@ -111,7 +140,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     "Mae'r gair dyddiol bob amser yn rhad ac am ddim. Uwchraddiwch ar gyfer ailchwarae archif diderfyn ac ystadegau dyfnach.",
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    "Mae {{app}} yn parchu eich preifatrwydd. Mae'r dudalen hon yn crynhoi'r data rydym yn ei storio, pam rydym yn ei storio, a sut i'w ddileu.",
   'privacy.title': 'Hysbysiad preifatrwydd',
+  'resetPassword.subhead': 'Dewiswch gyfrinair newydd i ddychwelyd at eich rhediad.',
   'settings.account': 'Cyfrif',
   'settings.danger.body': "Dileu eich cyfrif {{appName}} a'r holl hanes posau yn barhaol.",
   'settings.danger.confirm': 'Iawn, dileu am byth',
@@ -121,17 +153,23 @@ export const ui: UiTranslations = {
   'settings.language.title': 'Iaith',
   'settings.subhead':
     "Addasu eich proffil, sain, a sut rydych chi'n ymddangos ar y bwrdd arweinwyr.",
+  'settings.unnamed': 'Chwaraewr Sparq',
   'settings.upgrade': 'Uwchraddio',
   'signup.eyebrow': 'Am ddim am byth — un gair y dydd',
   'signup.headline': 'Dechreuwch eich stribed.',
+  'signup.subhead':
+    "Crëwch gyfrif {{appName}} i chwarae'r gair dyddiol, adeiladu rhediad, a dringo'r tabl arweinwyr.",
   'stats.currentStreak': 'Stribed',
   'stats.distribution.title': 'Dosbarthiad dyfalu',
   'stats.loadError': 'Methwyd llwytho eich ystadegau.',
   'stats.maxStreak': 'Stribed uchaf',
   'stats.played': 'Wedi chwarae',
   'stats.playToday': 'Chwarae pos heddiw',
+  'stats.subhead': "Posau dyddiol wedi'u graddio yn unig — nid yw ymarfer archif byth yn cyfrif.",
   'stats.title': 'Eich ystadegau',
   'stats.winRate': 'Cyfradd ennill',
   'status.monthly': 'Misol',
+  'terms.intro':
+    "Trwy ddefnyddio {{app}} rydych yn cytuno i'r rheolau isod. Os na allwch eu derbyn, peidiwch â defnyddio'r gwasanaeth.",
   'terms.title': 'Telerau gwasanaeth',
 }

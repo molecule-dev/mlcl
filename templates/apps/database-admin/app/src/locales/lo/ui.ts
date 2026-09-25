@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ກ່ຽວກັບ',
+  'about.featureConnections':
+    'ຕົວຈັດການການເຊື່ອມຕໍ່ທີ່ເກັບຮັກສາຖານຂໍ້ມູນຂອງທ່ານຢ່າງປອດໄພ ແລະ ໃສ່ລະຫັດສີ — ຂໍ້ມູນຢືນຢັນຕົວຕົນຖືກເຂົ້າລະຫັດໃນຂະນະເກັບຮັກສາ, ບໍ່ເຄີຍເປັນຂໍ້ຄວາມທຳມະດາ.',
+  'about.featureMonitoring':
+    'ການຕິດຕາມປະສິດທິພາບການສອບຖາມ ແລະ ການເຄື່ອນໄຫວຂອງຖານຂໍ້ມູນແບບສົດໆ, ພ້ອມທັງທາງລັດຄີບອດ ແລະ ຄຳສັ່ງ palette ເພື່ອຂັບເຄື່ອນທັງໝົດໄດ້ໂດຍບໍ່ຕ້ອງໃຊ້ມື.',
+  'about.featurePlans':
+    'ແພັກເກດທີ່ຂະຫຍາຍຕາມທ່ານ — ຟຣີສຳລັບການເຮັດວຽກຄົນດຽວ, Pro ແລະ Team ສຳລັບການເຊື່ອມຕໍ່ຫຼາຍຂຶ້ນ, ການເກັບຮັກສາການສອບຖາມດົນຂຶ້ນ, ການສົ່ງອອກ, ແລະ ຄຸນສົມບັດຂັ້ນສູງ.',
+  'about.featureQueryEditor':
+    'ໂຕແກ້ໄຂ SQL ທີ່ຂັບເຄື່ອນດ້ວຍ Monaco ພ້ອມປະຫວັດການສອບຖາມ, ການສອບຖາມທີ່ບັນທຶກໄວ້, ແລະ ການສົ່ງອອກຜົນລັບຂອງທ່ານເປັນ CSV ດ້ວຍການຄລິກດຽວ.',
+  'about.featureSchema':
+    'ຕົວສຳຫຼວດໂຄງສ້າງ ແລະ ຕົວທ່ອງເວັບຕາຕະລາງ ເພື່ອນຳທາງຖານຂໍ້ມູນ, ຕາຕະລາງ, ແລະ ຖັນ, ຈາກນັ້ນທ່ອງເວັບ, ກັ່ນຕອງ, ແລະ ແກ້ໄຂແຖວແບບອິນລາຍ.',
+  'about.missionTitle': 'ພາລະກິດຂອງພວກເຮົາ',
   'authShell.commands': 'ຄຳສັ່ງ',
   'authShell.ssoSupported': 'ຮອງຮັບ SSO',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'ຄຳຖາມ',
   'connections.schema': 'ໂຄງຮ່າງ',
   'connections.subtitle': 'ຈັດການການເຊື່ອມຕໍ່ຖານຂໍ້ມູນຂອງທ່ານ.',
+  'connections.test': 'ທົດສອບ',
   'databaseAdminLayout.adminRole': 'ບົດບາດຂອງຜູ້ເບິ່ງແຍງລະບົບ',
   'databaseAdminLayout.commandPalette': 'ແຜງຄຳສັ່ງ',
   'databaseAdminLayout.commands': 'ຄຳສັ່ງ',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'ການເຊື່ອມຕໍ່ໃໝ່',
   'databaseAdminLayout.queries': 'ຄຳຖາມ',
   'databaseAdminLayout.ready': 'ພ້ອມແລ້ວ',
+  'databaseAdminLayout.searchPlaceholder': '⌘K ຄົ້ນຫາຄຳສັ່ງ, ການສອບຖາມ, ຕາຕະລາງ…',
   'databaseAdminLayout.user': 'ຜູ້ໃຊ້',
   'editConnection.confirmDelete': 'ລຶບການເຊື່ອມຕໍ່ນີ້ບໍ?',
   'editConnection.deleteButton': 'ລຶບການເຊື່ອມຕໍ່',
+  'editConnection.newPassword': 'ລະຫັດຜ່ານໃໝ່ (ປະວ່າງໄວ້ເພື່ອຮັກສາໄວ້)',
   'editConnection.saved': 'ບັນທຶກການເຊື່ອມຕໍ່ແລ້ວ.',
   'editConnection.title': 'ແກ້ໄຂການເຊື່ອມຕໍ່',
   'forgotPassword.success': 'ຖ້າບັນຊີນັ້ນມີຢູ່ແລ້ວ, ລິ້ງຣີເຊັດກຳລັງຈະມາຮອດ.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'ຄວາມສຳເລັດ',
   'monitoring.title': 'ການຕິດຕາມກວດກາ',
   'monitoring.totalQueries': 'ຄຳຖາມທັງໝົດ',
+  'nav.schema': 'ໂຄງຮ່າງ',
   'newConnection.database': 'ຖານຂໍ້ມູນ',
   'newConnection.engine': 'ເຄື່ອງຈັກ',
   'newConnection.host': 'ໂຮສ',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'ບໍ່ມີການເຊື່ອມຕໍ່ທີ່ຜູກມັດກັບ snippet ນີ້.',
   'savedQuery.notBound': 'ບໍ່ຜູກມັດ',
   'savedQuery.title': 'ຄຳຖາມທີ່ບັນທຶກໄວ້',
+  'schema.columns': 'ຖັນ',
   'schema.foreignKeys': 'ກະແຈຕ່າງປະເທດ',
   'schema.indexes': 'ດັດຊະນີ',
   'schemaExplorer.browseRows': 'ເບິ່ງແຖວ',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'ຍົກເລີກໄດ້',
   'schemaExplorer.colType': 'ປະເພດ',
   'schemaExplorer.noColumns': 'ບໍ່ມີຖັນ.',
+  'schemaExplorer.noForeignKeys': 'ບໍ່ມີຄີຕ່າງປະເທດ.',
   'schemaExplorer.noIndexes': 'ບໍ່ມີດັດຊະນີ.',
   'schemaExplorer.noTables': 'ບໍ່ມີໂຕະ',
   'schemaExplorer.pickATable': 'ເລືອກຕາຕະລາງຈາກແຖບດ້ານຂ້າງ.',
   'schemaExplorer.tables': 'ໂຕະ',
   'schemaExplorer.title': 'ເຄື່ອງມືສຳຫຼວດໂຄງຮ່າງ',
+  'settings.session': 'ກອງປະຊຸມ',
   'settings.subtitle': 'ຈັດການບັນຊີ ແລະ ແຜນການຂອງທ່ານ.',
   'signup.heading': 'ສ້າງບັນຊີບໍ່ຫີນຂອງທ່ານ',
   'signup.tagline': 'ເລັ່ງການເຂົ້າເຖິງພາຍໃນໜຶ່ງນາທີ.',
   'tableBrowser.noRows': 'ຕາຕະລາງນີ້ຍັງບໍ່ມີແຖວເທື່ອ.',
+  'tableBrowser.subtitle': 'ກຳລັງທ່ອງເວັບແຖວຈາກຖານຂໍ້ມູນທາງໄກຂອງທ່ານ.',
   'tableBrowser.title': 'ກຳລັງຊອກຫາແຖວຕ່າງໆຈາກຖານຂໍ້ມູນໄລຍະໄກຂອງທ່ານ.',
 }

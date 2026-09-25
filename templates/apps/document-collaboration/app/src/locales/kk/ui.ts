@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пікіріңіз бар ма, қате таптыңыз ба, әлде студияңызға немесе командаңызға {{app}} алғыңыз келе ме? Тіркелгі параметрлерінен хабарласыңыз — әрбір хабарлама командадағы нақты адамға жетеді.',
   'about.contactTitle': 'Бізбен байланысыңыз',
+  'about.intro':
+    '{{app}} — редакторлар, жазушылар және командалар нақты уақытта бірге жазба жасайтын бірлескен жазу студиясы. Құжатты ашыңыз — бет ортақ болады: курсорлар қозғалады, түсініктемелер шетте талқыланады, ал әрбір өзгерту тарихта сенімді сақталады.',
+  'about.missionBody':
+    'Ұзақ мәтіндер жазу тыныш әрі шоғырланған ортаға лайық деп сенеміз — ол жиналысқа немесе кіріс жәшігіне емес, қолжазбаға негізделуі керек. Біздің редактор, нақты уақыттағы қатысу және нұсқалар тарихы бірлескен авторлардың бір-бірімен жылдам жұмыс істеуіне арналған, әрі ешкім бір абзацты да, бір ойды да жоғалтпайды.',
+  'about.missionTitle': 'Біздің миссиямыз',
+  'about.subtitle': 'Бірге ойла, мәңгі жаз.',
   'about.title': '{{app}} туралы',
   'comments.addFailed': 'Пікір қалдыру мүмкін болмады.',
   'comments.backToDoc': 'Қолжазбаға оралу',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Пікірлер тізбегі',
   'comments.loading': 'Тақырыптар жүктелуде…',
   'comments.newPlaceholder': 'Қолжазбаға түсініктеме қосыңыз...',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Қайта ашу',
   'comments.reopenFailed': 'Қайта ашылмады.',
   'comments.replyFailed': 'Жауап жариялау мүмкін болмады.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Соңғы жобалар, ортақ жұмыстар және күннің өзгертулері.',
   'dashboard.viewFeed': 'Фид →',
   'editor.back': 'Қолжазбаларға оралу',
+  'editor.bodyLabel': 'Құжат мәтіні',
   'editor.bodyPlaceholder': 'Курсор жыпылықтаған жерден бастаңыз.',
   'editor.comments': 'Түсініктемелер',
   'editor.createFailed': 'Құжатты жасау мүмкін болмады.',
@@ -62,13 +72,19 @@ export const ui: UiTranslations = {
   'editor.version': 'v {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody': 'Егер тіркелгі бар болса {{email}} , қалпына келтіру сілтемесі жолда.',
+  'forgotPassword.sentHeading': 'Электрондық поштаңызды тексеріңіз',
+  'forgotPassword.submitting': 'Жіберілуде\\u2026',
   'forgotPassword.subtitle': 'Сізге қалпына келтіру сілтемесін электрондық пошта арқылы жібереміз.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Molecule көмегімен жасалған.',
+  'landing.ctaBody':
+    'Жалғыз жазушыларға тегін. Редакторлар, гострайтерлер және тексерушілер командаларына арналған Studio жоспарлары.',
   'landing.ctaHeading': 'Бетті ашыңыз. Курсорды іске қосыңыз.',
   'landing.ctaPrimary': 'Студия ашу',
   'landing.eyebrow': 'Жазушылар, редакторлар және топтар үшін',
   'landing.featuresEyebrow': 'Сіз не аласыз',
   'landing.featuresHeading': 'Ұзақ форматтағы жобаға арналған студия.',
+  'landing.featuresSubtitle':
+    '{{appName}} қолжазбаға негізделген — жиналысқа емес, кіріс жәшігіне емес.',
   'landing.getStarted': 'Студияны ашыңыз',
   'landing.heroCta': 'Жазуды бастау',
   'landing.heroSubtitle':
@@ -94,6 +110,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} оқылмаған · пікірлер, атап өтулер, шақыруларды бөлісу және ұсыныс сұраулары.',
   'presenceAvatars.label': '{{count}} әріптестер',
+  'privacy.intro': 'Ақпаратыңызды қалай жинаймыз, пайдаланамыз және қорғаймыз.',
   'privacy.title': 'Құпиялылық саясаты',
   'profile.about.description':
     'Жалпыға қолжетімді профиліңіз бен үлес қосушы беттеріңіз туралы қысқаша өмірбаян.',
@@ -106,7 +123,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Қатысу',
   'profile.pronouns': 'Есімдіктер',
   'profile.publicToggle': 'Профильді командаластарға көрсету',
+  'profile.role': 'Рөл / лауазым',
   'profile.subtitle': 'Әріптестеріңізге қалай көрінетініңіз.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} студияда белсенді жазушылар',
   'quillonAuthBrandPanel.quote':
     '«Жазу – мен онымен айналысқан кезде басқа нәрсемен айналысуым керек емес деп ойлайтын жалғыз нәрсе».',
@@ -114,6 +133,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Ашу →',
   'quillonKpiCard.trend': 'Соңғы тренд',
   'quillonLayout.menu': 'Мәзір',
+  'quillonLayout.mobileNavLabel': 'Мобильді навигация',
   'quillonLayout.primaryNavLabel': 'Негізгі навигация',
   'quillonStudioHero.collab': 'Әріптестер',
   'quillonStudioHero.docs': 'Құжаттар қозғалды',
@@ -123,7 +143,9 @@ export const ui: UiTranslations = {
     'Қолжазбаны алыңыз, түсініктеме қалдырыңыз, абзацты алға жылжытыңыз.',
   'quillonStudioHero.words': 'Бүгінгі сөздер',
   'resetPassword.confirmPlaceholder': 'Жаңа құпия сөзді қайталаңыз',
+  'resetPassword.passwordLabel': 'Жаңа құпия сөз',
   'resetPassword.passwordPlaceholder': 'Жаңа құпия сөзді енгізіңіз',
+  'resetPassword.submitting': 'Бастапқы қалпына келтіру',
   'resetPassword.subtitle': 'Күшті құпия сөзді таңдаңыз — кемінде 12 таңбадан тұруы керек.',
   'settings.account.description': 'Жүйеге қалай кіресіз.',
   'settings.billing.canceled': 'Жазылым тоқтатылды.',
@@ -132,7 +154,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Конфигурацияланбаған',
   'settings.billing.updated': 'Жоспар жаңартылды.',
   'settings.editor.description': 'Жазу кезінде кенептің қалай жұмыс істейтіні.',
+  'settings.editor.title': 'Редактордың параметрлері',
   'settings.eyebrow': 'Студия параметрлері',
+  'settings.language.title': 'Тіл',
   'settings.notifications.${n.key}.description': 'Тіл',
   'settings.notifications.description': 'Кіріс жәшігіңізге не келетінін таңдаңыз.',
   'settings.subtitle':
@@ -143,6 +167,7 @@ export const ui: UiTranslations = {
   'shared.loadFailed': 'Ортақ құжаттарды жүктеу мүмкін болмады.',
   'shared.subtitle':
     'Студияның қалған мүшелерінен алынған қолжазбалар, қысқаша мазмұндамалар және жазбалар.',
+  'signup.brandAttribution': 'Anaïs Park — редактор, The Quarterly',
   'signup.brandQuote':
     '\\u201cСіздің алғашқы қолжазбаңыз ең қиыны. Quillon оны жалғыздықтан құтқарады.\\u201d',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -150,6 +175,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Анаис',
   'signup.heading': 'Quillon тіркелгісін жасаңыз',
   'signup.lastNamePlaceholder': 'Саябақ',
+  'signup.submitting': 'Студияңыз ашылуда\\u2026',
   'signup.subtitle':
     'Тыныш үстел, қоршаған ортадағы әріптестер және сіздің жолыңыздан таймайтын ұзақ форматты редактор.',
   'templates.blank.subtitle': 'Таза бет. Курсор басталады.',
@@ -162,11 +188,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Ойланған құрылымнан бастаңыз. Шексіз реттеңіз.',
   'templates.useFailed': 'Бұл үлгіден құжатты бастау мүмкін болмады.',
   'templates.useTemplate': 'Бұл үлгіні пайдаланыңыз',
+  'terms.intro': 'Осы қызметті пайдалану шарттары.',
   'terms.title': 'Қызмет көрсету шарттары',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'жаңа ғана',
   'trash.confirmDelete': 'Жоюды растау',
+  'trash.confirmEmpty': 'Растау — бәрін жою',
   'trash.deleteFailed': 'Жою мүмкін болмады.',
   'trash.deleteForever': 'Мәңгілікке жою',
   'trash.empty': 'Қалпына келтіретін ештеңе жоқ.',
@@ -181,7 +209,9 @@ export const ui: UiTranslations = {
   'versionHistory.backToDoc': 'Қолжазбаға оралу',
   'versionHistory.empty': 'Әлі ешқандай түзетулер жоқ — құжаттың тарихын бастау үшін оны сақтаңыз.',
   'versionHistory.heading': 'Нұсқа тарихы',
+  'versionHistory.latest': 'Соңғы',
   'versionHistory.loadFailed': 'Тарих жүктелмеді.',
+  'versionHistory.noContent': 'Бұл нұсқа үшін ешбір мазмұн түсірілмеді.',
   'versionHistory.previewing': 'Алдын ала қарау',
   'versionHistory.restore': 'Осы нұсқаны қалпына келтіру',
   'versionHistory.restoreFailed': 'Қалпына келтіру сәтсіз аяқталды.',

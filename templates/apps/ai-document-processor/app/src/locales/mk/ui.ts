@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Имате прашање, најдовте грешка или сакате демо за вашиот тим? Обратете се од поставките на вашата сметка — секоја порака стигнува до вистинска личност од тимот.',
   'about.contactTitle': 'Стапете во контакт',
+  'about.intro':
+    '{{app}} претвора купишта скенирани документи и PDF-ови во структурирани, пребарувани и архивирани податоци. Внесете фактури, сметки, договори или формулари и оставете вештачката интелигенција да ги чита, извлекува, класифицира и архивира — со бои за доверба, така што вашиот тим ќе прегледува само она што навистина бара човечка проверка.',
+  'about.missionBody':
+    'Досадната работа со документи не треба да го голта денот на вашиот тим. Веруваме дека секоја извлечена вредност треба да биде објаснета и проверлива — за да можете да ѝ верувате на автоматизацијата без да ја изгубите хартиената трага. {{app}} е изграден да заштеди часови по куп документи, а човекот да остане вклучен онаму каде што е важно.',
+  'about.missionTitle': 'Нашата мисија',
+  'about.subtitle':
+    'OCR, извлекување со вештачка интелигенција, класификација и автоматско архивирање за вашите документи.',
   'about.title': 'За {{app}}',
+  'about.whatYouGetTitle': 'Што добивате',
   'authShell.backToLanding': '← Назад кон слетувањето',
   'common.goToDashboard': 'Оди до контролна табла',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Денес · Преглед на операциите',
   'dashboard.heading': 'Документарна интелигенција',
+  'dashboard.metric.accuracy': 'Просечна точност',
   'dashboard.metric.filed': 'Поднесено денес',
   'dashboard.metric.filedCaption': 'Упатено според правилата за поднесување',
   'dashboard.metric.processed': 'Обработено денес',
@@ -23,12 +34,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Документ',
   'dashboard.recent.col.uploaded': 'Качено',
   'dashboard.recent.heading': 'Неодамнешни документи',
+  'dashboard.recent.typeUnknown': 'Се чека класификација',
   'dashboard.subheading':
     'Секоја страница е класифицирана, извлечена и поднесена — со бои за доверба, така што прегледот останува фокусиран.',
   'documentDetail.audit.heading': 'Временска рамка за ревизија',
+  'documentDetail.audit.subheading': 'Секој чекор преземен на овој документ, со одговорното лице.',
   'documentDetail.back': 'Сите документи',
   'documentDetail.downloadHint':
     'Користете ја функцијата „Преземи“ за да ја отворите оригиналната датотека.',
+  'documentDetail.extracted.empty': 'Сè уште нема извлечени полиња.',
   'documentDetail.extracted.heading': 'Извлечени полиња',
   'documentDetail.extracted.subheading':
     '{{count}} полиња · кликнете на кое било поле за да го означите на страницата',
@@ -56,13 +70,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Пребарувај документи…',
   'documents.subheading': '{{count}} документи во вашата библиотека, сортирани прво најновите.',
   'documents.uploadCta': 'Поставете документи',
+  'documentTypeBreakdown.barAria': 'Состав на документи по тип',
   'documentTypeBreakdown.empty': 'Сè уште нема обработени документи.',
   'documentTypeBreakdown.subtitle': '{{total}} обработено',
   'documentTypeBreakdown.title': 'Состав на документ',
+  'forgotPassword.backToSignIn': '← Назад кон најавување',
   'forgotPassword.checkEmail': 'Проверете ја вашата е-пошта',
   'forgotPassword.tip': 'Не го разбравте? Проверете спам или обидете се со друга адреса.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Создадено за оперативни тимови што ја проверуваат секоја страница.',
+  'landing.ctaBody':
+    '14-дневен пробен период. Без картичка. Откажете во секое време. Создадено за оперативни тимови што дејствуваат брзо и проверуваат темелно.',
   'landing.ctaHeading': 'Престани да пишуваш сметки. Започни да ги поднесуваш.',
   'landing.eyebrow': 'OCR · Екстракција · Поднесување со вештачка интелигенција',
+  'landing.featuresHeading': 'Документна интелигенција што се објаснува сама',
+  'landing.heroSubtitle':
+    'Внесете куп фактури, сметки, договори или формулари. {{app}} ги класифицира, извлекува и архивира — со бои за доверба, така што вашиот тим ќе прегледува само она што навистина бара човечка проверка.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Дневен обем · последните 7 дена',
   'landing.sampleCardLabel': 'Документите се обработени денес',
   'landing.sampleCardSubtitle': '96,2% просечна точност кај фактурите, сметките и формуларите.',
   'login.hidePassword': 'Сокриј ја лозинката',
@@ -75,6 +100,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Отвори целна страница',
   'notFound.title': 'Таа страница не е во архивата',
+  'parcelaHeroCard.accuracy': 'Просечна точност {{value}}% за сите извлекувања',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % во споредба со вчера',
   'parcelaHeroCard.title': 'Документите се обработени денес',
   'parcelaLayout.primaryNavLabel': 'Примарна навигација',
@@ -82,6 +108,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'документи',
   'pricing.processingLabel': 'обработка на работни места',
   'resetPassword.confirmPlaceholder': 'Повторете ја новата лозинка',
+  'resetPassword.hidePassword': 'Сокриј ја лозинката',
   'resetPassword.passwordLabel': 'Нова лозинка',
   'resetPassword.showPassword': 'Прикажи лозинка',
   'resetPassword.subtitle': 'Изберете нешто долго најмалку 8 знаци.',
@@ -99,10 +126,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Неуспешно вчитување на правилата.',
   'rules.loading': 'Се вчитуваат правилата…',
   'rules.matched30d': '{{count}} документи совпаднати во последните 30 дена',
+  'rules.neverUsed': 'Никогаш не е користено',
   'rules.newRule': 'Ново правило',
   'rules.saveError': 'Неуспешно зачувување на правилото.',
   'rules.subheading':
     'Кажете му на системот каде треба да оди секој вид документ. Синџир на услови од горе до долу — првиот натпревар победува.',
+  'rules.templatesEmpty': 'Сè уште нема шаблони за извлекување.',
   'rules.templatesHeading': 'Шаблони за екстракција',
   'rules.templatesSubheading': 'Шеми на поле што екстракторот ги користи за секој тип на документ.',
   'rules.then': 'Потоа',
@@ -111,17 +140,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Име на работен простор',
   'settings.account.subheading':
     'Име за прикажување и примарна е-пошта за известувања и историја на ревизии.',
+  'settings.api.confirmRevoke': 'Потврди?',
   'settings.api.copyOnce': 'Копирај го овој клуч — нема да биде прикажан повторно',
   'settings.api.createdOn': 'Создадено {{date}}',
   'settings.api.empty': 'Сè уште нема API клучеви. Генерирај еден погоре.',
   'settings.api.error': 'Не успеа да се креира клуч.',
+  'settings.api.generating': 'Се генерира…',
+  'settings.api.heading': 'API клучеви',
   'settings.api.labelPlaceholder': 'Клучна етикета (на пр. CI прикачувач)',
+  'settings.api.loading': 'Се вчитуваат клучеви…',
   'settings.api.newKey': 'Генерирај клуч',
   'settings.api.subheading':
     'Користете ги овие за да испраќате документи од скрипта или од вашиот ERP. Ротирајте го кое било копче во кое било време.',
   'settings.integrations.heading': 'Интеграции на поднесување',
   'settings.integrations.subheading':
     'Испратете ги поднесените документи до дискот во облакот или алатката за разговор во која веќе живее вашиот тим.',
+  'settings.subheading':
+    'Управувајте со сметката, API-клучевите и интеграциите за архивирање за вашиот {{app}} работен простор.',
+  'signup.hidePassword': 'Сокриј ја лозинката',
   'signup.identityPrompt': 'Како да ви се обратиме?',
   'signup.showPassword': 'Прикажи лозинка',
   'signup.subtitle': '14 дена бесплатно, не е потребна картичка.',
@@ -129,6 +165,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Поставувањето не успеа.',
   'upload.eyebrow': 'Голтање',
   'upload.heading': 'Поставете документи',
+  'upload.queue.clear': 'Исчисти завршени',
   'upload.queue.col.confidence': 'Самодоверба',
   'upload.queue.col.file': 'Датотека',
   'upload.queue.detecting': 'Се открива…',
@@ -141,5 +178,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Или исфрлете повеќе датотеки одеднаш за групно извлекување, класификација и архивирање.',
   'uploadDropZone.cta': 'Изберете датотеки',
+  'uploadDropZone.maxSize': 'Макс. 25 MB по датотека · шифрирано од крај до крај',
   'uploadDropZone.title': 'Пуштете документи за да започнете со обработка',
 }

@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ಪ್ರಶ್ನೆ ಇದೆಯೇ, ದೋಷ ಕಂಡುಬಂದಿದೆಯೇ, ಅಥವಾ ನಿಮ್ಮ ಪುಸ್ತಕಗಳನ್ನು ಇಲ್ಲಿಗೆ ಸ್ಥಳಾಂತರಿಸಲು ಬಯಸುವಿರಾ? hello@{{app}}.example ನಲ್ಲಿ {{app}} ತಂಡವನ್ನು ಸಂಪರ್ಕಿಸಿ — ಪ್ರತಿ ಸಂದೇಶವನ್ನೂ ನಿಜವಾದ ವ್ಯಕ್ತಿಯೊಬ್ಬರು ಓದುತ್ತಾರೆ.',
   'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.intro':
+    '{{app}} ಎಂಬುದು ಪ್ರತಿ ಹಣವನ್ನೂ ಲೆಕ್ಕದಲ್ಲಿಡುವ ಸಣ್ಣ-ವ್ಯಾಪಾರ ಲೆಕ್ಕಪತ್ರ ವ್ಯವಸ್ಥೆ — ಇನ್ವಾಯ್ಸ್ಗಳು, ಖರ್ಚುಗಳು, ಪಾವತಿಗಳು ಮತ್ತು ವರದಿಗಳು ಮಾಲೀಕರು, ಬುಕ್ಕೀಪರ್ಗಳು ಮತ್ತು ಅಕೌಂಟೆಂಟ್ಗಳಿಗಾಗಿ ಒಂದೇ ಶಾಂತ ಸ್ಥಳದಲ್ಲಿ.',
+  'about.missionBody':
+    'ವ್ಯಾಪಾರ ನಡೆಸುವುದು ಎಂದರೆ ನಿಮ್ಮ ಲೆಕ್ಕಪತ್ರಗಳ ಬಗ್ಗೆ ಭಯಪಡುವುದಲ್ಲ. {{app}} ಸ್ಪ್ರೆಡ್ಶೀಟ್ಗಳ ಹರಡುವಿಕೆಯನ್ನು ನೀವು ಕ್ರಮ ಕೈಗೊಳ್ಳಬಹುದಾದ ಸ್ಪಷ್ಟ ಸಂಖ್ಯೆಗಳಿಂದ ಬದಲಾಯಿಸುತ್ತದೆ, ಹೀಗಾಗಿ ಹೊಂದಾಣಿಕೆಗೆ ಕಡಿಮೆ ಸಮಯ ಮತ್ತು ನೀವು ವ್ಯಾಪಾರ ಪ್ರಾರಂಭಿಸಲು ಕಾರಣವಾದ ಕೆಲಸವನ್ನು ಮಾಡಲು ಹೆಚ್ಚು ಸಮಯ ಸಿಗುತ್ತದೆ.',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
   'about.title': '{{app}} ಬಗ್ಗೆ',
   'accounts.count': '{{count}} ಖಾತೆಗಳು',
+  'accounts.emptyBody':
+    'ಲೆಡ್ಜರ್ ಖಾತೆಗಳು ಹಣ ಎಲ್ಲಿ ಇರುತ್ತದೆ ಮತ್ತು ಹೇಗೆ ಚಲಿಸುತ್ತದೆ ಎಂಬುದನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡುತ್ತವೆ. ನಿಮ್ಮ ಬುಕ್ಕೀಪರ್ ಅಥವಾ ಇಂಟಿಗ್ರೇಷನ್ ಅವುಗಳನ್ನು ಸೆಟ್ ಅಪ್ ಮಾಡಿದ ನಂತರ ಅವು ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತವೆ.',
   'accounts.emptyTitle': 'ಇನ್ನೂ ಯಾವುದೇ ಖಾತೆಗಳಿಲ್ಲ',
   'accounts.heading': 'ಲೆಕ್ಕಪತ್ರಗಳ ಪಟ್ಟಿ',
   'accounts.kpi.accounts': 'ಖಾತೆಗಳು',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'ನಿಮ್ಮ ಇನ್‌ವಾಯ್ಸ್‌ಗಳು, ವೆಚ್ಚಗಳು ಮತ್ತು ಪಾವತಿಗಳ ಹಿಂದಿನ ಪ್ರತಿಯೊಂದು ಲೆಡ್ಜರ್ ಖಾತೆಯನ್ನು ಪ್ರಕಾರದ ಪ್ರಕಾರ ಗುಂಪು ಮಾಡಲಾಗಿದೆ.',
   'accounts.tag.inactive': 'ನಿಷ್ಕ್ರಿಯ',
   'authBrandPanel.attributionName': 'ಸಾರಾ ಜೆಂಕಿನ್ಸ್',
+  'authBrandPanel.attributionRole': 'ಮುಖ್ಯ ಹಣಕಾಸು ಅಧಿಕಾರಿ, ಹೊರೈಜನ್ ಟೆಕ್',
   'authBrandPanel.eyebrow': 'ಹಣಕಾಸು ತಂಡಗಳಿಂದ ವಿಶ್ವಾಸಾರ್ಹ',
   'authBrandPanel.label': 'ಬ್ರ್ಯಾಂಡ್ ಪ್ರದರ್ಶನ',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'ಎಲ್ಲಾ ಗ್ರಾಹಕರು',
   'customerDetail.invoiceMeta': 'ನೀಡಲಾದ {{issued}} · ಬಾಕಿ {{due}}',
   'customerDetail.loadError': 'ಗ್ರಾಹಕರನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
+  'customerDetail.missingBody':
+    'ವಿನಂತಿಸಿದ ಗ್ರಾಹಕ ದಾಖಲೆಯನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಅದನ್ನು ತೆಗೆದುಹಾಕಿರಬಹುದು, ಅಥವಾ ನಿಮಗೆ ಅದಕ್ಕೆ ಪ್ರವೇಶ ಇಲ್ಲದಿರಬಹುದು.',
   'customerDetail.missingHeading': 'ಗ್ರಾಹಕರ ದಾಖಲೆ ಲಭ್ಯವಿಲ್ಲ.',
+  'customerDetail.missingHelp':
+    'ಗ್ರಾಹಕರ ಪಟ್ಟಿಗೆ ಹಿಂತಿರುಗಲು ಮೇಲಿನ ಹಿಂದಿನ ಲಿಂಕ್ ಬಳಸಿ, ಅಥವಾ ಅಲ್ಲಿಂದ ಬೇರೆ ದಾಖಲೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ.',
+  'customerDetail.noInvoices': 'ಇನ್ನೂ ಯಾವುದೇ ಇನ್‌ವಾಯ್ಸ್‌ಗಳಿಲ್ಲ.',
   'customerDetail.notesEmpty': 'ಇನ್ನೂ ಯಾವುದೇ ಟಿಪ್ಪಣಿಗಳಿಲ್ಲ.',
   'customerDetail.paymentsEmpty': 'ಯಾವುದೇ ಪಾವತಿಗಳು ದಾಖಲಾಗಿಲ್ಲ.',
   'customerDetail.paymentTerms': 'ಪಾವತಿ ನಿಯಮಗಳು',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'ಕಡಿತಗೊಳಿಸಬಹುದಾದ',
   'expenseDetail.detailsHeading': 'ವಹಿವಾಟಿನ ವಿವರಗಳು',
   'expenseDetail.loadError': 'ವೆಚ್ಚವನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
+  'expenseDetail.matched': 'ಹೊಂದಿಕೆಯಾಗಿದೆ · {{description}}',
   'expenseDetail.missingBody':
     'ವಿನಂತಿಸಿದ ವೆಚ್ಚವನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಅದನ್ನು ತೆಗೆದುಹಾಕಿರಬಹುದು ಅಥವಾ ನಿಮಗೆ ಅದಕ್ಕೆ ಪ್ರವೇಶವಿಲ್ಲದಿರಬಹುದು.',
   'expenseDetail.missingHeading': 'ವೆಚ್ಚದ ದಾಖಲೆ ಲಭ್ಯವಿಲ್ಲ.',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'ರಶೀದಿ',
   'expenseDetail.receiptHeading': 'ರಶೀದಿ',
   'expenseDetail.reconciled': 'ಸಮನ್ವಯಗೊಳಿಸಲಾಗಿದೆ',
+  'expenseDetail.unreconciled': 'ಹೊಂದಾಣಿಕೆಯಾಗದ',
   'expenses.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಖರ್ಚುಗಳಿಲ್ಲ.',
   'expenses.heading': 'ವೆಚ್ಚಗಳು',
   'expenses.kpi.deductible': 'ಕಡಿತಗೊಳಿಸಬಹುದಾದ',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'ಇನ್‌ವಾಯ್ಸ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'invoices.searchPlaceholder': 'ಇನ್‌ವಾಯ್ಸ್ # ಅಥವಾ ಗ್ರಾಹಕರನ್ನು ಹುಡುಕಿ...',
   'invoices.summary.paid': 'ಈ ಅವಧಿಯಲ್ಲಿ ಪಾವತಿಸಲಾಗಿದೆ',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     '30 ದಿನಗಳವರೆಗೆ ಉಚಿತ. ಕಾರ್ಡ್ ಇಲ್ಲ. ನಿಮ್ಮ ಅಕೌಂಟೆಂಟ್ ಅನ್ನು ತನ್ನಿ - ಅವರು ನಿಮಗೆ ಧನ್ಯವಾದ ಹೇಳುತ್ತಾರೆ.',
   'landing.ctaTitle': 'ನಿಮ್ಮ ಪುಸ್ತಕಗಳನ್ನು ಶಾಂತವಾದ ಸ್ಥಳಕ್ಕೆ ಸರಿಸಿ.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'ಸ್ವೀಕಾರಾರ್ಹ ಖಾತೆಗಳು',
   'ledgerStatTriad.eyebrow.mtd': 'ತಿಂಗಳಿನಿಂದ ಇಲ್ಲಿಯವರೆಗಿನ ಮಾಹಿತಿ',
   'ledgerStatTriad.netSub': 'ನಿವ್ವಳ {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} ಬಾಕಿ',
   'ledgerStatTriad.revenueLabel': 'ಆದಾಯ',
   'login.failed': 'ಸೈನ್ ಇನ್ ವಿಫಲವಾಗಿದೆ.',
   'login.hidePassword': 'ಪಾಸ್‌ವರ್ಡ್ ಮರೆಮಾಡಿ',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'ಸೈನ್ ಇನ್ ಮಾಡಿ',
   'nav.legal': 'ಕಾನೂನುಬದ್ಧ',
   'newExpense.back': 'ವೆಚ್ಚಗಳು',
+  'newExpense.clearReceiptCta': 'ಲಗತ್ತಿಸಿದ ರಸೀದಿ ತೆರವುಗೊಳಿಸಿ',
   'newExpense.deductible': 'ತೆರಿಗೆ ವಿನಾಯಿತಿ',
   'newExpense.dropPrompt': 'ಲಗತ್ತಿಸಲು ರಶೀದಿ ಫೋಟೋ ಅಥವಾ ಪಿಡಿಎಫ್ ಅನ್ನು ಇಲ್ಲಿ ಬಿಡಿ.',
   'newExpense.failed': 'ಖರ್ಚು ಉಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'ಪಾವತಿಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'payments.unmatchedTag': 'ಸರಿಸಾಟಿಯಿಲ್ಲದ',
   'planUpdated.pageLabel': 'ನವೀಕರಿಸಿದ ಯೋಜನೆಯ ದೃಢೀಕರಣ',
+  'pricing.advancedFeatures': 'ಸುಧಾರಿತ ವೈಶಿಷ್ಟ್ಯಗಳು: {{yes}}',
+  'pricing.canExport': 'ಡೇಟಾ ರಫ್ತು: {{yes}}',
+  'pricing.heading': 'ನಿಮ್ಮ {{app}} ಯೋಜನೆ ಆಯ್ಕೆಮಾಡಿ',
+  'pricing.maxAccounts': '{{count}} ಖಾತೆಗಳು',
+  'pricing.maxExpenses': '{{count}} ವೆಚ್ಚಗಳು',
+  'pricing.maxInvoices': '{{count}} ಇನ್ವಾಯ್ಸ್ಗಳು',
+  'privacy.intro':
+    'ಈ ಗೌಪ್ಯತಾ ನೀತಿಯು ಸೇವೆಯನ್ನು ಬಳಸುವ ವ್ಯಾಪಾರಗಳ ಬಗ್ಗೆ {{app}} ಮಾಹಿತಿಯನ್ನು ಹೇಗೆ ಸಂಗ್ರಹಿಸುತ್ತದೆ, ಬಳಸುತ್ತದೆ ಮತ್ತು ಬಹಿರಂಗಪಡಿಸುತ್ತದೆ ಎಂಬುದನ್ನು ವಿವರಿಸುತ್ತದೆ.',
   'privacy.lastUpdated': 'ಕೊನೆಯದಾಗಿ ನವೀಕರಿಸಿದ್ದು: {{ದಿನಾಂಕ}}',
   'privacy.section.collected.body':
     'ನಾವು ಖಾತೆ ವಿವರಗಳು (ಹೆಸರು, ಇಮೇಲ್, ಕಂಪನಿ), ನೀವು ಅಪ್‌ಲೋಡ್ ಮಾಡುವ ಹಣಕಾಸು ದಾಖಲೆಗಳು (ಇನ್‌ವಾಯ್ಸ್‌ಗಳು, ವೆಚ್ಚಗಳು, ಗ್ರಾಹಕರು, ಪಾವತಿಗಳು) ಮತ್ತು ಪ್ರಮಾಣಿತ ಸೇವಾ-ಕಾರ್ಯಾಚರಣೆ ದಾಖಲೆಗಳನ್ನು (ಐಪಿ, ಬಳಕೆದಾರ-ಏಜೆಂಟ್, ಟೈಮ್‌ಸ್ಟ್ಯಾಂಪ್‌ಗಳು) ಸಂಗ್ರಹಿಸುತ್ತೇವೆ.',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'ಸೇವೆಯನ್ನು ನಿರ್ವಹಿಸಲು, ನೀವು ವಿನಂತಿಸುವ ವರದಿಗಳು ಮತ್ತು PDF ಗಳನ್ನು ರಚಿಸಲು, ಮೇಲ್‌ಗನ್ ಮೂಲಕ ವಹಿವಾಟಿನ ಇಮೇಲ್ ಕಳುಹಿಸಲು ಮತ್ತು ಸ್ಟ್ರೈಪ್ ಮೂಲಕ ಪಾವತಿಗಳನ್ನು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲು ಮಾಹಿತಿಯನ್ನು ಬಳಸಲಾಗುತ್ತದೆ. ನಾವು ವೈಯಕ್ತಿಕ ಮಾಹಿತಿಯನ್ನು ಮಾರಾಟ ಮಾಡುವುದಿಲ್ಲ ಅಥವಾ ಬಾಡಿಗೆಗೆ ನೀಡುವುದಿಲ್ಲ.',
   'recentInvoicesCard.dueMeta': 'ಬಾಕಿ {{date}}',
+  'recentInvoicesCard.empty': 'ಯಾವುದೇ ಇನ್‌ವಾಯ್ಸ್‌ಗಳು ಹೊಂದಿಕೆಯಾಗುತ್ತಿಲ್ಲ.',
   'recentInvoicesCard.eyebrow': 'ಸ್ವೀಕಾರಾರ್ಹ ಖಾತೆಗಳು',
   'recentInvoicesCard.searchAriaLabel': 'ಇನ್‌ವಾಯ್ಸ್‌ಗಳನ್ನು ಹುಡುಕಿ',
+  'recentInvoicesCard.searchPlaceholder': 'ಇನ್ವಾಯ್ಸ್ಗಳನ್ನು ಹುಡುಕಿ…',
   'recentInvoicesCard.title': 'ಇತ್ತೀಚಿನ ಇನ್‌ವಾಯ್ಸ್‌ಗಳು',
   'recentInvoicesCard.viewAll': 'ಎಲ್ಲಾ ಇನ್‌ವಾಯ್ಸ್‌ಗಳನ್ನು ವೀಕ್ಷಿಸಿ →',
   'reports.assets': 'ಸ್ವತ್ತುಗಳು',
@@ -181,16 +211,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'ಲಾಭ ಮತ್ತು ನಷ್ಟ (12 ತಿಂಗಳುಗಳು)',
   'resetPassword.backToLogin': '← ಸೈನ್ ಇನ್‌ಗೆ ಹಿಂತಿರುಗಿ',
   'resetPassword.hidePassword': 'ಪಾಸ್‌ವರ್ಡ್ ಮರೆಮಾಡಿ',
+  'resetPassword.passwordLabel': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'resetPassword.showPassword': 'ಪಾಸ್‌ವರ್ಡ್ ತೋರಿಸಿ',
+  'resetPassword.subheading': 'ಬಲವಾದ ಪಾಸ್ವರ್ಡ್ ಆಯ್ಕೆಮಾಡಿ — ಕನಿಷ್ಠ ಎಂಟು ಅಕ್ಷರಗಳು.',
   'resetPassword.submit': 'ಪಾಸ್ವರ್ಡ್ ಮರುಹೊಂದಿಸಿ',
   'resetPassword.tooShort': 'ಪಾಸ್‌ವರ್ಡ್ ಕನಿಷ್ಠ 8 ಅಕ್ಷರಗಳನ್ನು ಹೊಂದಿರಬೇಕು.',
   'settings.account.changePassword': 'ಪಾಸ್‌ವರ್ಡ್ ಬದಲಾಯಿಸಿ',
   'settings.account.changingPassword': 'ಬದಲಾಯಿಸಲಾಗುತ್ತಿದೆ...',
   'settings.account.currentPassword': 'ಪ್ರಸ್ತುತ ಪಾಸ್‌ವರ್ಡ್',
+  'settings.account.dangerZone': 'ಅಪಾಯ ವಲಯ',
   'settings.account.deleteAccount': 'ಖಾತೆಯನ್ನು ಅಳಿಸಿ',
   'settings.account.deleteDescription':
     'ನಿಮ್ಮ ಖಾತೆ ಮತ್ತು ಅದಕ್ಕೆ ಸಂಬಂಧಿಸಿದ ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಿ.',
   'settings.account.deleteError': 'ಖಾತೆಯನ್ನು ಅಳಿಸಲು ವಿಫಲವಾಗಿದೆ.',
+  'settings.account.deleteWarning':
+    'ಇದು ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸುತ್ತದೆ ಮತ್ತು ರದ್ದುಗೊಳಿಸಲಾಗುವುದಿಲ್ಲ. ದೃಢೀಕರಿಸಲು ನಿಮ್ಮ ಪಾಸ್ವರ್ಡ್ ನಮೂದಿಸಿ.',
   'settings.account.deleting': 'ಅಳಿಸಲಾಗುತ್ತಿದೆ...',
   'settings.account.devices': 'ಸಾಧನಗಳು',
   'settings.account.email': 'ಇಮೇಲ್',
@@ -201,6 +236,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'ಪಾಸ್ವರ್ಡ್',
   'settings.account.passwordError': 'ಪಾಸ್‌ವರ್ಡ್ ಬದಲಾಯಿಸಲು ವಿಫಲವಾಗಿದೆ.',
   'settings.account.pushNotifications': 'ಈ ಸಾಧನದಲ್ಲಿ ಪುಶ್ ಅಧಿಸೂಚನೆಗಳು',
+  'settings.account.revokeDeviceWarning':
+    'ಈ ಸಾಧನದ ಪ್ರವೇಶವನ್ನು ಶೀಘ್ರದಲ್ಲೇ ರದ್ದುಗೊಳಿಸಲಾಗುತ್ತದೆ. ಅದನ್ನು ಸೈನ್ ಔಟ್ ಮಾಡುವುದೇ?',
   'settings.account.saveError': 'ಪ್ರೊಫೈಲ್ ನವೀಕರಿಸಲು ವಿಫಲವಾಗಿದೆ.',
   'settings.account.security': 'ಭದ್ರತೆ',
   'settings.account.signOutDevice': 'ಸೈನ್ ಔಟ್ ಮಾಡಿ',
@@ -208,12 +245,19 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'ಎರಡು ಅಂಶಗಳ ದೃಢೀಕರಣ',
   'settings.account.twoFactorCode': 'ದೃಢೀಕರಣ ಕೋಡ್',
   'settings.account.twoFactorDisable': 'ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ',
+  'settings.account.twoFactorDisableTitle': 'ಎರಡು-ಅಂಶ ದೃಢೀಕರಣವನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ',
   'settings.account.twoFactorEnable': 'ಸಕ್ರಿಯಗೊಳಿಸಿ',
+  'settings.account.twoFactorEnableTitle': 'ಎರಡು-ಅಂಶ ದೃಢೀಕರಣವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ',
   'settings.account.twoFactorInvalidCode': 'ಅಮಾನ್ಯ ಕೋಡ್',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'ಎರಡು-ಅಂಶ QR ಕೋಡ್',
+  'settings.account.twoFactorScan':
+    'ನಿಮ್ಮ ದೃಢೀಕರಣ ಅಪ್ಲಿಕೇಶನ್ನಿಂದ ಈ QR ಕೋಡ್ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ, ನಂತರ 6-ಅಂಕಿಯ ಕೋಡ್ ನಮೂದಿಸಿ.',
+  'settings.account.twoFactorUnavailable': 'ಈ ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಎರಡು ಅಂಶದ ದೃಢೀಕರಣ ಲಭ್ಯವಿಲ್ಲ.',
   'settings.account.twoFactorVerify': 'ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಸಕ್ರಿಯಗೊಳಿಸಿ',
   'settings.account.unknownDevice': 'ಅಪರಿಚಿತ ಸಾಧನ',
   'settings.company.email': 'ಬಿಲ್ಲಿಂಗ್ ಇಮೇಲ್',
+  'settings.company.heading': 'ಕಂಪನಿ ಮತ್ತು ತೆರಿಗೆ',
   'settings.company.name': 'ಕಾನೂನು ಹೆಸರು',
   'settings.company.saveButton': 'ಕಂಪನಿ ಪ್ರೊಫೈಲ್ ಉಳಿಸಿ',
   'settings.company.taxId': 'ತೆರಿಗೆ ಐಡಿ / EIN',
@@ -257,6 +301,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'ಅಂದಾಜು ತ್ರೈಮಾಸಿಕ',
   'taxes.kpi.owed': 'ಬಾಕಿ ಇದೆ',
   'taxes.loadError': 'ತೆರಿಗೆ ಸಾರಾಂಶವನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
+  'taxes.remittedPct': '({{pct}}% ರವಾನೆಯಾಗಿದೆ)',
+  'terms.intro':
+    'ಈ ಸೇವಾ ನಿಯಮಗಳು ("ನಿಯಮಗಳು") {{app}} ಗೆ ನಿಮ್ಮ ಪ್ರವೇಶ ಮತ್ತು ಬಳಕೆಯನ್ನು ನಿಯಂತ್ರಿಸುತ್ತವೆ. ಖಾತೆ ರಚಿಸುವ ಮೂಲಕ ಅಥವಾ ಸೇವೆಯನ್ನು ಬಳಸುವ ಮೂಲಕ ನೀವು ಅವುಗಳಿಗೆ ಬದ್ಧವಾಗಿರಲು ಒಪ್ಪುತ್ತೀರಿ.',
   'terms.lastUpdated': 'ಕೊನೆಯದಾಗಿ ನವೀಕರಿಸಿದ್ದು: {{ದಿನಾಂಕ}}',
   'terms.section.acceptable.body':
     'ಯಾವುದೇ ಕಾನೂನನ್ನು ಉಲ್ಲಂಘಿಸಲು, ಬೌದ್ಧಿಕ-ಆಸ್ತಿ ಹಕ್ಕುಗಳನ್ನು ಉಲ್ಲಂಘಿಸಲು, ಮಾಲ್‌ವೇರ್ ಅನ್ನು ರವಾನಿಸಲು ಅಥವಾ ಇತರ ಖಾತೆಗಳಿಗೆ ಅಥವಾ ನಮ್ಮ ಮೂಲಸೌಕರ್ಯಕ್ಕೆ ಅನಧಿಕೃತ ಪ್ರವೇಶವನ್ನು ಪಡೆಯಲು ಪ್ರಯತ್ನಿಸಲು ನೀವು ಸೇವೆಯನ್ನು ಬಳಸುವುದಿಲ್ಲ ಎಂದು ಒಪ್ಪುತ್ತೀರಿ.',

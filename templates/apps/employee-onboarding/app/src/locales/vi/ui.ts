@@ -1,26 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Muốn triển khai quy trình onboarding ấm áp hơn cho nhóm của bạn, phát hiện lỗi hay có góp ý? Hãy liên hệ từ cài đặt tài khoản — mọi tin nhắn đều đến tay người thật sẵn sàng hỗ trợ.',
   'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Giới thiệu',
+  'about.missionTitle': 'Sứ mệnh của chúng tôi',
   'auth.forgotPassword.emailPlaceholder': 'ten@congtycuaquyvi.com',
   'auth.forgotPassword.heading': 'Đặt lại mật khẩu của quý vị.',
+  'auth.forgotPassword.panel.body':
+    'Đặt lại chỉ mất 30 giây — tiến độ danh sách kiểm tra của bạn đang chờ.',
+  'auth.forgotPassword.panel.headline': 'Quay lại đúng nơi bạn đã dừng.',
+  'auth.forgotPassword.subheading':
+    'Nhập email công việc của bạn và chúng tôi sẽ gửi liên kết đặt lại.',
   'auth.forgotPassword.successSubheading':
     'Kiểm tra hộp thư đến — chúng tôi đã gửi hướng dẫn đặt lại.',
   'auth.login.emailPlaceholder': 'ten@congtycuaquyvi.com',
   'auth.login.heading': 'Chào mừng quý vị trở lại.',
   'auth.login.passwordPlaceholder': 'Mật khẩu của quý vị',
+  'auth.login.signupPrompt': 'Mới vào nhóm?',
   'auth.login.subheading': 'Đăng nhập để tiếp tục hành trình hội nhập từ nơi quý vị đã dừng.',
   'auth.login.submit': 'Tiếp tục hành trình của quý vị',
+  'auth.panel.body':
+    'Danh sách kiểm tra cá nhân, các cột mốc đào tạo và phần giới thiệu nhóm — tất cả ở một nơi nhẹ nhàng.',
   'auth.panel.footnote': '© Embark — hội nhập đặt con người lên hàng đầu từ hôm nay.',
   'auth.panel.headline': '90 ngày đầu tự tin bắt đầu từ đây.',
   'auth.resetPassword.heading': 'Đặt mật khẩu mới.',
   'auth.resetPassword.newPasswordLabel': 'Mật khẩu mới',
+  'auth.resetPassword.panel.body':
+    'Lưu mật khẩu mới và chúng tôi sẽ đưa bạn trở lại hành trình onboarding ngay.',
+  'auth.resetPassword.panel.headline': 'Sắp quay lại rồi.',
   'auth.resetPassword.subheading': 'Chọn điều gì đó quý vị sẽ nhớ — ít nhất 8 ký tự.',
   'auth.signup.emailPlaceholder': 'ten@congtycuaquyvi.com',
   'auth.signup.heading': 'Chào mừng đến với 90 ngày đầu tiên của quý vị.',
   'auth.signup.panel.body':
     'Một danh sách kiểm tra có hướng dẫn, đào tạo phù hợp vai trò và giới thiệu mang tính con người — sẵn sàng trước khi quý vị bước vào.',
+  'auth.signup.panel.headline': 'Ngày đầu tiên, ngay ngày đầu tiên.',
   'auth.signup.subheading':
     'Tạo tài khoản Embark của quý vị để bắt đầu hành trình hội nhập có hướng dẫn.',
   'checklist.empty.body': 'Đổi bộ lọc để xem các nhiệm vụ khác.',
@@ -28,6 +43,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'Hội nhập · Danh sách kiểm tra',
   'checklist.loading': 'Đang tải danh sách kiểm tra của quý vị…',
   'checklist.stat.actionNeeded': 'Cần hành động',
+  'checklist.stat.completion': 'Hoàn thành',
+  'checklist.stat.inProgress': 'Đang tiến hành',
   'checklist.stat.inProgressHelper': 'Tiếp tục từ nơi quý vị đã dừng',
   'checklist.stat.overdueHelper': 'Bắt kịp những việc này trước',
   'checklist.subtitle':
@@ -59,6 +76,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Chưa có tài liệu',
   'documents.eyebrow': 'Hội nhập · Tài liệu',
   'documents.loading': 'Đang tải tài liệu…',
+  'documents.stat.actionNeeded': 'Ký ngay',
+  'documents.stat.all': 'Tất cả tài liệu',
   'documents.stat.allHelper': 'Trên các danh mục',
   'documents.stat.pending': 'Chữ ký đang chờ',
   'documents.stat.pendingHelper': 'Bắt buộc để hoàn thành',
@@ -66,22 +85,28 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Được lưu trữ an toàn',
   'documents.status.optional': 'Tùy chọn',
   'documents.status.required': 'Bắt buộc',
+  'documents.status.signed': 'Đã ký',
   'documents.subtitle': 'Sổ tay, biểu mẫu và các thỏa thuận đã ký — tất cả ở một nơi.',
   'documents.title': 'Mọi thứ quý vị cần đọc và ký.',
   'documents.uploadedRecently': 'Mới tải lên',
   'documentViewer.breadcrumbCurrent': 'Trình xem',
   'documentViewer.breadcrumbDocs': 'Tài liệu',
   'documentViewer.downloadMeta': 'Tải siêu dữ liệu',
+  'documentViewer.helpBody':
+    'People & Culture trả lời các câu hỏi về sổ tay trong #ask-people trên Slack.',
   'documentViewer.helpEyebrow': 'Cần hỗ trợ?',
   'documentViewer.loadError': 'Chúng tôi không thể tải tài liệu này.',
   'documentViewer.loading': 'Đang tải tài liệu…',
   'documentViewer.notFound': 'Không tìm thấy tài liệu',
+  'documentViewer.previewBody':
+    'Khi tính năng tải lên được cấu hình, chúng tôi hiển thị tệp trực tiếp. Hiện tại, bản tải xuống siêu dữ liệu giúp bạn xác nhận hồ sơ là thật.',
   'documentViewer.previewBodyExternal': 'Sử dụng nút tải xuống để mở tệp trong tab mới.',
   'documentViewer.previewTitle': 'Xem trước tài liệu',
   'documentViewer.sign': 'Ký và xác nhận',
   'documentViewer.signatureBody':
     'Hãy đọc kỹ tài liệu, sau đó nhấp vào nút bên dưới để ký và xác nhận.',
   'documentViewer.signatureHeading': 'Yêu cầu chữ ký',
+  'documentViewer.signed': '✓ Đã ký & lưu hồ sơ',
   'documentViewer.signing': 'Đang ký…',
   'documentViewer.uploadedRecently': 'Mới tải lên',
   'landing.closing.body':
@@ -91,10 +116,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Tôi đã có tài khoản',
   'landing.feature1.body':
     'Mọi nhiệm vụ — giấy tờ, tài khoản, giới thiệu — được chuẩn bị sẵn với hạn chót và người phụ trách phù hợp.',
+  'landing.feature1.title': 'Danh sách kiểm tra có hướng dẫn',
   'landing.feature2.body':
     'Các mô-đun mở khóa tại các mốc 30/60/90, được điều chỉnh theo vai trò và nhóm mà nhân viên mới đang gia nhập.',
+  'landing.feature2.title': 'Đào tạo theo vai trò',
   'landing.feature3.body':
     'Bạn đồng hành, người quản lý và các giới thiệu liên phòng ban được lên lịch — để không ai bắt đầu một mình.',
+  'landing.feature3.title': 'Giới thiệu thực sự',
   'landing.featureEyebrow': 'Vì sao chọn Embark',
   'landing.featureHeadline': 'Ba cách Embark tạo dựng niềm tin từ ngày đầu.',
   'landing.footer.rights': 'Bảo lưu mọi quyền.',
@@ -104,6 +132,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Tiếp theo: Gặp bạn đồng hành cho cuộc trò chuyện cà phê 30 phút — Thứ Ba 10:00.',
   'landing.preview.eyebrow': 'Ngày 14 trên 90 — bảng điều khiển mẫu',
+  'landing.preview.headline': 'Chào mừng trở lại, Maya.',
   'landing.proof.spec': 'Sẵn sàng SOC 2 + GDPR',
   'landing.proof.teams': 'Dành cho đội ngũ từ 50–5.000 người',
   'landing.proof.time': 'Dùng thử miễn phí 14 ngày',
@@ -120,16 +149,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'Hôm qua',
   'planUpdated.message': 'Bạn đã sẵn sàng rồi.',
   'planUpdated.preparing': 'Đang cập nhật gói của quý vị…',
+  'planUpdated.retry': 'Thử lại',
+  'planUpdated.verifyFailed': 'Chúng tôi chưa thể xác nhận thanh toán của bạn.',
+  'planUpdated.verifyFailedBody':
+    'Giao dịch thanh toán của bạn có thể vẫn đang được xử lý. Vui lòng thử lại sau một lát.',
   'planUpdated.verifying': 'Đang xác nhận thanh toán…',
   'pricing.documentsLabel': 'tài liệu',
   'pricing.onboardingsLabel': 'lượt hội nhập',
   'pricing.tasksLabel': 'nhiệm vụ',
   'profile.dayNumber': 'Ngày',
   'profile.detailsHeading': 'Chi tiết hội nhập',
+  'profile.encouragementBody':
+    'Giữ cho người đồng hành và quản lý của bạn nắm được tình hình — từng bước nhỏ sẽ tích lũy.',
   'profile.milestones': 'Cột mốc',
   'profile.progressEyebrow': 'Tiến độ hội nhập',
   'profile.tasks': 'Nhiệm vụ',
   'profile.unknownName': 'Chào mừng',
+  'settings.appearance.description': 'Chuyển đổi giữa chế độ sáng và tối.',
+  'settings.appearance.title': 'Giao diện',
+  'settings.subtitle':
+    'Điều chỉnh thông báo, bảo mật, thiết bị và xuất dữ liệu — mọi thứ vẫn ở đây, theo cách của bạn.',
   'settings.title': 'Cài đặt và tùy chọn.',
   'taskDetail.backToChecklist': 'Quay lại danh sách kiểm tra',
   'taskDetail.breadcrumbChecklist': 'Danh sách kiểm tra',
@@ -141,7 +180,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'Không có hạn',
   'taskDetail.notFound': 'Không tìm thấy nhiệm vụ',
   'taskDetail.notFoundBody': 'Nhiệm vụ này có thể đã bị xóa hoặc thuộc về người dùng khác.',
+  'taskDetail.tipBody':
+    'Nếu bạn bị tắc, hãy nhắn cho người đồng hành onboarding trên Slack — họ là tuyến hỗ trợ đầu tiên của bạn.',
   'taskDetail.tipEyebrow': 'Mẹo nhanh',
+  'team.empty.body': 'Thử tìm kiếm rộng hơn hoặc chọn phòng ban khác.',
   'team.empty.title': 'Không có đồng nghiệp nào phù hợp',
   'team.eyebrow': 'Hội nhập · Con người',
   'team.loading': 'Đang tải đồng nghiệp…',
@@ -163,14 +205,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Cột mốc',
   'timeline.stat.current': 'Cột mốc hiện tại',
   'timeline.stat.next': 'Mở khóa kế tiếp',
+  'timeline.stat.progress': 'Tổng thể',
   'timeline.subtitle':
     'Mỗi cột mốc mở ra các mô-đun, giới thiệu và những cuộc trò chuyện phát triển mới. Không áp lực — chỉ là tiến bộ.',
+  'timeline.tipBody':
+    'Lên lịch 30 phút nhìn lại vào ngày 30, 60 và 90 với quản lý của bạn — điều này giúp phản hồi cụ thể và tiến độ rõ ràng.',
   'timeline.tipEyebrow': 'Mẹo cho quản lý',
+  'timeline.tipTitle': 'Chặn thời gian trên lịch cho các cột mốc.',
   'timeline.title': 'Hành trình 30 / 60 / 90 của quý vị.',
   'training.badge.notStarted': 'Chưa bắt đầu',
   'training.empty': 'Chưa có mô-đun đào tạo nào.',
   'training.eyebrow': 'Hội nhập · Đào tạo',
   'training.loading': 'Đang tải các mô-đun…',
+  'training.stat.all': 'Mô-đun đã giao',
   'training.subtitle':
     'Các mô-đun mở khóa tại 30/60/90 phù hợp với vai trò của quý vị. Những mô-đun bắt buộc sẽ đến trước.',
   'training.title': 'Kỹ năng, công cụ và câu chuyện — theo tốc độ của quý vị.',
@@ -182,9 +229,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'Không tìm thấy mô-đun',
   'trainingModule.quizBody': 'Đạt điểm 80% trở lên để hoàn thành học phần này.',
   'trainingModule.quizHeading': 'Bài kiểm tra cuối mô-đun',
+  'trainingModule.quizLocked': 'Bắt đầu mô-đun trước',
   'trainingModule.quizNone': 'Không có bài kiểm tra cho mô-đun này.',
   'trainingModule.quizRetry': 'Thử lại',
+  'trainingModule.quizStart': 'Bắt đầu bài kiểm tra',
   'trainingModule.quizSubmit': 'Gửi câu trả lời',
+  'trainingModule.start': 'Bắt đầu mô-đun',
   'trainingModule.statusNotStarted': 'Chưa bắt đầu',
   'welcomeHeroCard.completeLabel': 'Hoàn thành',
   'welcomeHeroCard.milestonesLabel': 'Cột mốc',

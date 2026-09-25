@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கேள்விகள், அம்சக் கோரிக்கைகள் அல்லது நாங்கள் ஆதரிக்க வேண்டிய மீட்டர் ஏதேனும் உள்ளதா? உங்கள் கணக்கு அமைப்புகளிலிருந்து {{appName}} குழுவை அணுகவும் — ஒவ்வொரு செய்தியும் ஒரு உண்மையான நபரைச் சென்றடைகிறது.',
   'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.featuresTitle': 'நீங்கள் பெறுவது',
+  'about.intro':
+    '{{appName}} என்பது சூரிய வீடுகள் மற்றும் வசதி குழுக்களுக்கான நிகழ்நேர மின் கண்காணிப்பு. மீட்டர், இன்வெர்ட்டர் மற்றும் பேட்டரி தரவின் பெருவெள்ளத்தை நாங்கள் ஒரு அமைதியான கட்டுப்பாட்டு அறைக் காட்சியாக மாற்றுகிறோம் — நேரடி வாட்டேஜ், சூரிய உற்பத்தி, நேர அடிப்படையிலான செலவு மற்றும் எச்சரிக்கைகள், அனைத்தும் ஒரே ஷெல்லில்.',
+  'about.missionBody':
+    'பார்க்கக்கூடிய ஆற்றலே நிர்வகிக்கக்கூடிய ஆற்றல். ஒரு மீட்டரை இயக்கும் அனைவரும் — கூரை சூரிய சக்தி கொண்ட ஒரு வீடு அல்லது ஒரு கட்டிடத்தைக் கவனிக்கும் ஒரு குழு — மின்சார நிறுவன அளவிலான நுண்ணறிவை, மின்சார நிறுவன அளவிலான ஒப்பந்தம் இல்லாமல் பெறத் தகுதியானவர்கள் என்று நாங்கள் நம்புகிறோம். அடுத்த கிலோவாட்-மணிநேரத்தை பில்லில் ஒரு ஆச்சரியமாக அல்லாமல், ஒரு தெரிந்த தேர்வாக மாற்றும் வகையில் ஒவ்வொரு அம்சமும் வடிவமைக்கப்பட்டுள்ளது.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'about.pageTitle': 'பற்றி {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'அக்',
@@ -15,14 +23,17 @@ export const ui: UiTranslations = {
   'alertRule.eyebrow': 'புதிய விதி',
   'alertRule.heading':
     'உங்களுக்கு இழப்பை ஏற்படுத்துவதற்கு முன் அந்த திடீர் உயர்வைத் தடுத்து நிறுத்துங்கள்.',
+  'alertRule.nameLabel': 'விதியின் பெயர்',
   'alertRule.namePlaceholder': 'எ.கா. வேலை நேரத்திற்குப் பிறகான HVAC கண்காணிப்பு',
   'alertRule.subheading':
     'ஒரு அளவீடு, ஒரு வரம்பு மற்றும் எச்சரிக்கையை எங்கு அனுப்ப வேண்டும் என்பதைத் தேர்ந்தெடுக்கவும். நீங்கள் அதை எப்போது வேண்டுமானாலும் திருத்தலாம் அல்லது இடைநிறுத்தலாம்.',
   'alertRule.submit': 'விதியைச் சேமிக்கவும்',
   'alertRule.submitError': 'விதியைச் சேமிக்க முடியவில்லை.',
   'alertRule.thresholdLabel': 'வரம்பு',
+  'alertRule.typeLabel': 'தூண்டுதல் வகை',
   'alerts.checking': 'சரிபார்த்தல்',
   'alerts.confirmDelete': 'நீக்குவதை உறுதிப்படுத்துக',
+  'alerts.empty': 'காட்ட எதுவும் இல்லை — இந்த நிலையில் எச்சரிக்கைகள் இல்லை.',
   'alerts.emptyNoRules':
     'இன்னும் எச்சரிக்கைகள் எதுவும் வரவில்லை — ஒரு விதியைச் சேர்த்து, பின்னர் அதைச் சோதிக்க “இப்போது மதிப்பிடு” என்பதைக் கிளிக் செய்யவும்.',
   'alerts.errorAck': 'ஒப்புக்கொள்ள முடியவில்லை.',
@@ -42,12 +53,15 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'இப்போது மதிப்பீடு செய்யுங்கள்',
   'alerts.subheading':
     'உங்கள் மீட்டர்களில் செயல்படும் வரம்பு மற்றும் வடிவ எச்சரிக்கைகள், மேலும் அவற்றை இயக்கும் விதிகள்.',
+  'billing.activeBlurb': 'உங்கள் சந்தா செயலில் உள்ளது. எப்போது வேண்டுமானாலும் நிர்வகிக்கலாம்.',
   'billing.cancelError': 'சந்தாவை ரத்து செய்ய முடியவில்லை.',
   'billing.cancelling': 'ரத்துசெய்தல்',
   'billing.currentBadge': 'தற்போதைய',
   'billing.freeBlurb':
     'நீங்கள் இலவசத் திட்டத்தில் உள்ளீர்கள். கூடுதல் மீட்டர்கள், நீண்ட கால வரலாறு மற்றும் கூடுதல் எச்சரிக்கை விதிகளைப் பெற மேம்படுத்திக்கொள்ளுங்கள்.',
   'billing.heading': 'திட்டங்கள் மற்றும் கட்டணம்',
+  'billing.historyEmpty':
+    'உங்கள் சந்தா கட்டணம் வசூலிக்கப்பட்டதும், செலுத்தப்பட்ட விலைப்பட்டியல்கள் இங்கே தோன்றும்.',
   'billing.historyHeading': 'விலைப்பட்டியல் வரலாறு',
   'billing.loadError': 'கட்டண விவரங்களை ஏற்ற முடியவில்லை.',
   'billing.loading': 'ஏற்றுதல் திட்டங்கள்...',
@@ -59,17 +73,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'விற்பனையைத் தொடர்பு கொள்ளவும்',
   'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} உச்சநேரம் · {{offPeak}} உச்சமல்லாத நேரம் kWh',
   'dailyCostMeter.runningLabel': 'மொத்த ஓட்டம்',
   'dailyCostMeter.title': 'இன்றுவரை ஆன செலவு',
   'dailyCostMeter.utilizationLabel': 'தினசரி பட்ஜெட்',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'ஒரு மீட்டரைச் சேர்',
   'dashboard.alertsHeading': 'செயலில் உள்ள எச்சரிக்கைகள்',
   'dashboard.devicesHeading': 'தற்போதைய சிறந்த சுற்றுகள்',
   'dashboard.empty.body':
     'நிகழ்நேர மின் நுகர்வு மற்றும் உற்பத்தியைக் கண்காணிக்கத் தொடங்க, ஒரு ஸ்மார்ட் மீட்டர் அல்லது சோலார் இன்வெர்ட்டரை இணைக்கவும்.',
+  'dashboard.empty.title': 'இன்னும் மீட்டர்கள் இல்லை',
   'dashboard.eyebrow': 'வோல்ட்ரேஸ் கட்டுப்பாட்டு அறை',
   'dashboard.heading': 'நேரடி ஆற்றல் கண்ணோட்டம்',
   'dashboard.loadError': 'நேரலை அளவீடுகளை ஏற்ற முடியவில்லை.',
   'dashboard.loading': 'உங்கள் மீட்டர்களைக் கவனித்தல்…',
+  'dashboard.noAlerts': 'அமைதி — உங்கள் வரம்புகளை எதுவும் தூண்டவில்லை.',
   'dashboard.noAlertsAndNoMeters':
     'நீங்கள் மீட்டரை இணைத்தவுடன், உங்கள் வரம்புகளின் அடிப்படையிலான எச்சரிக்கைகள் இங்கே தோன்றும்.',
   'dashboard.noCircuits':
@@ -78,6 +97,7 @@ export const ui: UiTranslations = {
     'வீடு முழுவதின் மின் நுகர்வு, சூரிய மின் உற்பத்தி மற்றும் இன்றுவரையிலான செலவு.',
   'dashboard.viewAllAlerts': 'எச்சரிக்கைகளை நிர்வகிக்கவும் →',
   'dashboard.viewAllDevices': 'ஒவ்வொரு சாதனமும் →',
+  'deviceDetail.activeTokens': 'செயலில் உள்ள இன்ஜெஸ்ட் டோக்கன்கள்',
   'deviceDetail.alreadyOff': 'ஏற்கனவே இடைநிறுத்தப்பட்டது',
   'deviceDetail.back': 'அனைத்து சுற்றுகளும்',
   'deviceDetail.confirmDelete': 'நீக்குவதை உறுதிப்படுத்துக',
@@ -118,21 +138,34 @@ export const ui: UiTranslations = {
   'devices.loadError': 'மீட்டர்களை ஏற்ற முடியவில்லை.',
   'devices.loading': 'ஒவ்வொரு மீட்டரையும் ஆய்வு செய்தல்',
   'devices.newRule': 'புதிய எச்சரிக்கை விதி',
+  'devices.noResults': 'இந்த வடிகட்டலுக்கு எந்த சர்க்யூட்டும் பொருந்தவில்லை.',
   'devices.placeholder.location': 'எ.கா. இயந்திர அறை',
   'devices.placeholder.name': 'எ.கா. கேரேஜ் துணைப் பலகை',
   'devices.subheading':
     'வோல்ட்ரேஸ் பார்க்கக்கூடிய ஒவ்வொரு மின்சுற்றின் வழியான நிகழ்நேர வாட்டேஜ் மற்றும் இன்றைய kWh.',
+  'deviceWattageRow.todayKwh': 'இன்று {{kwh}} kWh',
+  'deviceWattageRow.watts': '{{watts}} W',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'மெனு',
+  'energyMonitoringLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    '{{appName}} பெரும்பாலான மின்சார நிறுவன அளவிலான மீட்டர்கள், சூரிய இன்வெர்ட்டர்கள் மற்றும் பேட்டரி அடுக்குகளுடன் பேசுகிறது — வயர்டு அல்லது WiFi வழியாக.',
   'landing.ctaHeading': 'உங்கள் மீட்டரை இணைத்து, நிமிடங்களில் வாட் அளவைக் காணுங்கள்.',
   'landing.eyebrow': 'நிகழ்நேர ஆற்றல் நுண்ணறிவு',
+  'landing.featuresHeading': 'ஒவ்வொரு வாட், ஒவ்வொரு நிமிடம், ஒரே ஷெல்லில்',
   'landing.getStarted': 'வோல்ட்ரேஸை செருகவும்',
   'landing.heroCta': 'வோல்ட்ரேஸை செருகவும்',
+  'landing.heroSubtitle':
+    'சூரிய வீடுகள் மற்றும் வசதி குழுக்களுக்காக உருவாக்கப்பட்ட கட்டுப்பாட்டு அறை ஷெல்லில் நேரடி வாட்டேஜ், சூரிய உற்பத்தி, நேர அடிப்படையிலான செலவு மற்றும் அதிக பயன்பாட்டு எச்சரிக்கைகள்.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'முழு வீட்டு இழுவை',
   'landing.sampleSolar': '+3,820 வாட் சூரியசக்தி',
   'landing.sampleSummary': 'மின் கட்டத்திற்கு 1,680 வாட் ஏற்றுமதி · இன்று 18.4 kWh',
   'landing.sampleWatts': '2,140 வாட்ஸ்',
+  'powerHeroCard.solar': '+{{watts}} W சூரிய',
   'powerHeroCard.title': 'முழு வீட்டு இழுவை',
+  'powerHeroCard.todayKwh': 'இன்று {{kwh}} kWh',
   'powerHeroCard.watts': '{{watts}} W',
   'pricing.choose': 'தேர்வு செய் {{name}}',
   'pricing.contact': 'உங்களுக்கென பிரத்யேகமாக ஏதாவது வேண்டுமா?',
@@ -145,6 +178,7 @@ export const ui: UiTranslations = {
     'இலவசமாகத் தொடங்குங்கள். உங்களுக்கு அதிக மீட்டர்கள், நீண்ட கால வரலாறு அல்லது கூடுதல் எச்சரிக்கை விதிகள் தேவைப்படும்போது மேம்படுத்திக்கொள்ளுங்கள்.',
   'pricing.unavailable': 'இந்தத் திட்டம் தற்போது கிடைக்கவில்லை — ஸ்ட்ரைப் உள்ளமைக்கப்படவில்லை.',
   'profile.errorGeneric': 'சுயவிவர மாற்றங்களைச் சேமிக்க முடியவில்லை.',
+  'profile.errorGoal': 'மாதாந்திர kWh இலக்கு ஒரு நேர்மறை எண்ணாக இருக்க வேண்டும்.',
   'profile.errorHousehold': 'குடும்பத்தின் அளவு ஒரு நேர்மறை எண்ணாக இருக்க வேண்டும்.',
   'profile.householdHeading': 'குடும்பம் மற்றும் இலக்குகள்',
   'profile.householdSize': 'குடும்ப அளவு',
@@ -162,9 +196,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'அளவீடுகளைத் திரட்டுதல்',
   'reports.subheading':
     'நுகர்வு, உற்பத்தி மற்றும் செலவு ஆகியவற்றின் தினசரி மொத்தங்கள் — தேதி வாரியாகப் பிரிக்கப்பட்டது.',
+  'reports.tableHeading': 'தினசரி பிரிவு',
   'settings.currency': 'நாணயம்',
   'settings.errorFlat': 'நிலையான விகிதம் 0 அல்லது அதற்கு மேல் இருக்க வேண்டும்.',
   'settings.errorNotify': 'அறிவிப்பு விருப்பங்களைச் சேமிக்க முடியவில்லை.',
+  'settings.errorSave': 'கட்டண திட்டத்தைச் சேமிக்க முடியவில்லை.',
   'settings.errorTou':
     'அதிகபட்ச மற்றும் குறைந்தபட்ச நேரக் கட்டணங்களும், செல்லுபடியாகும் அதிகபட்ச நேரக் காலமும் தேவைப்படுகின்றன.',
   'settings.exportBody':
@@ -185,10 +221,20 @@ export const ui: UiTranslations = {
   'settings.saving': 'சேமிப்பு',
   'settings.securityHeading': 'இரு காரணி அங்கீகாரம்',
   'settings.subheading': 'கட்டணங்கள், அறிவிப்புகள் மற்றும் தரவு ஏற்றுமதி.',
+  'settings.twoFactorBody':
+    'ஒவ்வொரு முறை உள்நுழையும்போதும் உங்கள் அங்கீகரிப்பு செயலியிலிருந்து ஒரு முறை குறியீட்டைக் கோரவும்.',
   'settings.twoFactorCode': 'அங்கீகாரக் குறியீடு',
   'settings.twoFactorDisable': 'முடக்கு',
+  'settings.twoFactorDisableTitle': 'இரு-காரணி அங்கீகாரத்தை முடக்கு',
   'settings.twoFactorEnable': 'இயக்கு',
+  'settings.twoFactorEnableTitle': 'இரு-காரணி அங்கீகாரத்தை இயக்கு',
   'settings.twoFactorInvalidCode': 'தவறான குறியீடு',
+  'settings.twoFactorOAuth':
+    'உங்கள் கணக்கு இணைக்கப்பட்ட வழங்குநர் மூலம் உள்நுழைகிறது, எனவே இரண்டு-காரணி அங்கே நிர்வகிக்கப்படுகிறது.',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'இரு-காரணி QR குறியீடு',
+  'settings.twoFactorScan':
+    'உங்கள் அங்கீகரிப்பு செயலியில் இந்த QR குறியீட்டை ஸ்கேன் செய்து, 6 இலக்கக் குறியீட்டை உள்ளிடவும்.',
+  'settings.twoFactorUnavailable': 'இந்த செயலியில் இரு காரணி அங்கீகாரம் கிடைக்காது.',
   'settings.twoFactorVerify': 'சரிபார்த்து இயக்கு',
 }

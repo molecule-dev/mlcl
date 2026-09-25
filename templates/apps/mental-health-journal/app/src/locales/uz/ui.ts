@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Fikr-mulohaza bildirmoqchimisiz, xatolik topdingizmi yoki jurnal yuritish sizga qanday yordam berganini aytmoqchimisiz? Biz har bir xabarni o'qiymiz — istalgan vaqtda murojaat qiling, haqiqiy inson sizga javob beradi.",
+  'about.contactTitle': "Biz bilan bog'laning",
+  'about.featureInsights':
+    "Sun'iy intellektga asoslangan mulohazalar triggerlar, mavzular va minnatdorchiliklarni ohista ko'rsatadi — ovozingizni yo'qotmasdan.",
+  'about.featureMood':
+    "Kayfiyat va faoliyatni kuzatish, taqvim ko'rinishi va sizga nima yordam berishini ko'rsatuvchi trend grafiklari bilan.",
+  'about.featurePrivacy':
+    "Uchdan-uchga shifrlash, parol qulfi va to'liq CSV eksporti — mulohazalaringiz maxfiy va ko'chiriladigan bo'lib qoladi.",
+  'about.featurePrompts':
+    "Har kuni yumshoq eslatmalar — boshlash uchun joyingiz doim bor, hech qachon bo'sh sahifa emas.",
+  'about.intro':
+    "{{app}} — kundalik mulohaza, kayfiyatni kuzatish va minnatdorchilik uchun yumshoq, maxfiy ruhiy salomatlik jurnali. O'ylangan eslatmalar bo'sh sahifani almashtiradi, sokin qonuniyatlarni topish kayfiyatingizga nima ta'sir qilishini tushunishga yordam beradi va uchdan-uchga shifrlash so'zlaringizni sizniki qilib saqlaydi.",
+  'about.missionBody':
+    "O'zingiz bilan suhbatlashish xotirjam bo'lishi kerak, hech qachon klinik yoki e'tiboringizni talab qiladigan yana bir ilova kabi emas, deb hisoblaymiz. {{app}} yordam berish uchun yaratilgan, bezorilik qilish uchun emas: kuniga bir necha sokin daqiqa kayfiyatingizni sezish, halol yozish va o'zingizni asta-sekin aniqroq ko'rish uchun.",
+  'about.missionTitle': 'Bizning vazifamiz',
   'about.pageTitle': '{{app}} haqida',
   'authShell.encryptionBadge': 'Yozuvlaringiz boshidan oxirigacha shifrlangan.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': "{{day}}-kun — yozuv yo'q",
   'calendar.cellMood': 'Kun {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Bu oyga qisqacha nazar',
   'calendar.eyebrow': 'Bir qarashda kayfiyat',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Kuzatildi {{tracked}} ning {{total}} bu oydagi kunlar.',
   'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'common.tryAgain': 'Qayta urinib ko’ring',
+  'entryComposer.bodyPlaceholder':
+    "Qalbingizdan qanday chiqsa, shuni yozing. Buni boshqa hech kim o'qimaydi.",
   'entryComposer.cancel': 'Jurnalga qaytish',
   'entryComposer.heading': 'Bugungi mulohaza',
   'entryComposer.moodLabel': 'Ahvolingiz yaxshimi?',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Olib tashlash {{tag}}',
   'entryComposer.save': 'Aks ettirishni saqlang',
   'entryComposer.saveError': "Yozuvingizni saqlab bo'lmadi.",
+  'entryComposer.tagPlaceholder': "Teg qo'shing va enter tugmasini bosing",
   'entryComposer.titlePlaceholder': 'Bu aks ettirishga nom bering…',
   'entryDetail.back': 'Jurnalga qaytish',
   'entryDetail.delete': "Ushbu yozuvni o'chirish",
@@ -36,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Aks ettirish yuklanmoqda…',
   'entryDetail.notFound': 'Yozuv topilmadi.',
   'entryDetail.reflectionsHeading': "Sun'iy intellekt aks ettirishlari",
+  'forgotPassword.continueButton': 'Tiklash kodini kiriting',
   'forgotPassword.eyebrow': "Hech qisi yo'q; tashvishga o'rin yo'q",
   'forgotPassword.subheading':
     'Biz sizning elektron pochtangizga "Excel Reset" havolasini yuboramiz.',
@@ -59,14 +80,22 @@ export const ui: UiTranslations = {
     "Hali mavzular yo'q — yozuvlaringizga bir yoki ikkita teg qo'shing, ular shu yerda to'planadi.",
   'insights.themesHeading': 'Eng yaxshi mavzular',
   'insights.triggerFrequency': 'payqadi {{count}} × bu oy',
+  'insights.triggersEmpty':
+    "Hozircha sezilarli narsa yo'q. Bir necha kunlik bir nechta yozuvlar qonuniyatlaringizni ko'rsatadi.",
   'insights.triggersHeading': "Kayfiyatingizni o'zgartiradigan naqshlar",
+  'journal.empty':
+    "Mos keladigan mulohazalar yo'q — boshqa filtrni sinab ko'ring yoki yangi yozuv yozing.",
   'journal.eyebrow': 'Sizning mulohazalaringiz',
   'journal.heading': 'Jurnal',
   'journal.loadError': "Yozuvlarni yuklab bo'lmadi.",
   'journal.loading': 'Yozuvlar yuklanmoqda…',
+  'journal.newEntry': 'Yangi yozuv',
   'journal.searchPlaceholder': "Bir tuyg'u, ism, bir lahzani qidiring...",
   'journal.subheading': '{{count}} yozuvlar — har birini saqlashga arziydi.',
   'journalEntryCard.encryptedLabel': 'Shifrlangan',
+  'landing.ctaBody':
+    "Boshlash bepul. Pro ma'lumotlar eksportini, kattaroq jurnalni va to'liq bir yillik tarixni ochadi.",
+  'landing.ctaButton': 'Birinchi yozuvingizni boshlang',
   'landing.ctaTitle': "Kuniga bir necha daqiqa tinchlik. Bo'ldi.",
   'landing.eyebrow': 'Kundalik yumshoq amaliyot',
   'landing.featuresBody':
@@ -85,6 +114,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Kundalik mulohaza yuritish uchun shinam joy.',
   'mentalHealthJournalLayout.closeMenu': 'Menyuni yopish',
   'mentalHealthJournalLayout.openMenu': 'Menyuni ochish',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Asosiy navigatsiya',
+  'moodHeroCard.entriesThisWeek': '{{count}} Ushbu hafta',
   'moodHeroCard.streakSuffix': 'kunlik seriya',
   'moodHeroCard.title': 'Bugungi mulohaza',
   'moodTrendChart.aiBadge': "Sun'iy intellekt tushunchasi tayyor",
@@ -95,11 +126,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Sizning sayohatingiz',
   'profile.fallbackName': 'Reflektor',
   'profile.loadError': 'Statistika yuklanmadi.',
+  'profile.loading': 'Statistikangiz yangilanmoqda…',
   'profile.longestStreak': 'Eng uzun seriya',
   'profile.memberSince': "O'shandan beri aks ettirish {{date}}",
   'profile.milestones': 'Bosqichlar',
   'profile.milestonesEmpty':
     "Birinchi bosqichingiz bir qadam qoldi — tayyor bo'lganingizda yozing.",
+  'profile.moodMix': 'Bu mavsumdagi kayfiyat aralashmangiz',
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'Mulohazalar',
   'profile.totalWords': "Yozilgan so'zlar",
@@ -112,6 +145,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Bu haqda yozing',
   'resetPassword.eyebrow': 'Yangi boshlanish',
   'resetPassword.mismatchError': 'Parollar mos kelmayapti.',
+  'resetPassword.passwordLabel': 'Yangi parol',
   'resetPassword.subheading': 'Xavfsiz narsani tanlang — sizning mulohazalaringiz bunga loyiq.',
   'resetPassword.tokenPlaceholder': 'Elektron pochtadan kodni tiklash',
   'settings.dangerDescription':
@@ -124,11 +158,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     "So'zlaringiz doim sizga tegishli. Istalgan vaqtda nusxasini yuklab oling.",
   'settings.exportDone': 'Eksport qilindi {{format}}.',
+  'settings.exportError': 'Eksport amalga oshmadi.',
+  'settings.exportHeading': 'Mulohazalaringizni eksport qiling',
   'settings.exportLoading': 'Tayyorlanmoqda…',
   'settings.eyebrow': 'Sizning makoningiz, sizning qoidalaringiz',
   'settings.languageHeading': 'Til',
   'settings.privacyHeading': 'Maxfiylik va shifrlash',
   'settings.remindersHeading': 'Kundalik eslatma',
+  'settings.reminderToggleAria': 'Kundalik eslatmani yoqish',
   'settings.reminderToggleDescription':
     "Siz tanlagan vaqtda bitta xotirjam eslatma. Nishonlar yoki ketma-ket aybdorlik hissi yo'q.",
   'settings.reminderToggleLabel': 'Yumshoq turtki yuboring',
@@ -141,6 +178,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Jurnal yaratilmoqda…',
   'signup.subheading': 'Fikrlaringiz uchun xavfsiz joy.',
   'wellnessRingsTriad.mindfulnessCaption': 'Maqsad {{goal}} bugun daqiqa',
+  'wellnessRingsTriad.mindfulnessLabel': 'Diqqat bilan kuzatish',
   'wellnessRingsTriad.sleepCaption': 'Maqsad {{goal}} soat / kecha',
   'wellnessRingsTriad.sleepLabel': 'Uyqu',
+  'wellnessRingsTriad.sleepValue': '{{hours}} soat',
+  'wellnessRingsTriad.streakCaption': 'Maqsad {{goal}} kun',
+  'wellnessRingsTriad.streakLabel': 'Jurnal seriyasi',
+  'wellnessRingsTriad.streakValue': '{{days}} d',
 }

@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கருத்து உள்ளதா, பிழை கண்டீர்களா, அல்லது டைரி எழுதுவது எப்படி உதவியது என்பதை எங்களிடம் சொல்ல விரும்புகிறீர்களா? ஒவ்வொரு செய்தியையும் நாங்கள் படிக்கிறோம் — எப்போது வேண்டுமானாலும் தொடர்பு கொள்ளுங்கள், ஒரு உண்மையான நபர் உங்களுக்கு பதிலளிப்பார்.',
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
+  'about.featureInsights':
+    'உங்கள் குரலை இழக்காமல், தூண்டுதல்கள், கருப்பொருள்கள் மற்றும் நன்றியுணர்வுகளை மெதுவாக எடுத்துக்காட்டும் AI-இயங்கும் பிரதிபலிப்புகள்.',
+  'about.featureMood':
+    'நீங்கள் செழிக்க உதவுவதை வெளிக்கொணரும் காலெண்டர் காட்சி மற்றும் போக்கு வரைபடங்களுடன் மனநிலை மற்றும் செயல்பாட்டு கண்காணிப்பு.',
+  'about.featurePrivacy':
+    'எண்ட்-டு-எண்ட் என்க்ரிப்ஷன், பாஸ்கோட் பூட்டு மற்றும் முழு CSV ஏற்றுமதி — உங்கள் பிரதிபலிப்புகள் தனிப்பட்டதாகவும் எடுத்துச் செல்லக்கூடியதாகவும் இருக்கும்.',
+  'about.featurePrompts':
+    'எப்போதும் தொடங்க ஏதாவது ஒன்று இருக்கும் வகையில் மென்மையான தினசரி தூண்டல்கள் — ஒருபோதும் வெற்றுப் பக்கம் இல்லை.',
+  'about.intro':
+    '{{app}} என்பது தினசரி சிந்தனை, மனநிலை கண்காணிப்பு மற்றும் நன்றியுணர்வுக்கான மென்மையான, தனிப்பட்ட மனநல டைரி. சிந்தனைமிக்க தூண்டல்கள் வெற்றுப் பக்கத்தை மாற்றுகின்றன, அமைதியான வடிவங்களைக் கண்டறிதல் உங்கள் உணர்வுகளை எது பாதிக்கிறது என்பதைப் புரிந்துகொள்ள உதவுகிறது, மேலும் எண்ட்-டு-எண்ட் என்க்ரிப்ஷன் உங்கள் வார்த்தைகளை உங்களுக்கே வைத்திருக்கிறது.',
+  'about.missionBody':
+    'உங்களை நீங்களே சரிபார்த்துக்கொள்வது அமைதியாக இருக்க வேண்டும், ஒருபோதும் மருத்துவமனை போலவோ, உங்கள் கவனத்தைக் கோரும் மற்றொரு ஆப் போலவோ இருக்கக்கூடாது என்று நாங்கள் நம்புகிறோம். {{app}} உதவுவதற்காக உருவாக்கப்பட்டது, தொந்தரவு செய்ய அல்ல: ஒரு நாளைக்கு சில அமைதியான நிமிடங்கள் உங்கள் மனநிலையைக் கவனிக்க, நேர்மையாக எழுத, மெதுவாக உங்களை இன்னும் தெளிவாகப் பார்க்க.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'about.pageTitle': '{{app}} பற்றி',
   'authShell.encryptionBadge': 'உங்கள் பதிவுகள் முழுமையாக மறைகுறியாக்கம் செய்யப்பட்டுள்ளன.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'நாள் {{day}} — பதிவு இல்லை',
   'calendar.cellMood': 'நாள் {{day}} — {{mood}}',
   'calendar.distributionHeading': 'இந்த மாதத்தின் ஒரு பார்வை',
   'calendar.eyebrow': 'மனநிலை ஒரு பார்வையில்',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'கண்காணிக்கப்பட்டது {{tracked}} இன் {{total}} இந்த மாதத்தின் நாட்கள்.',
   'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'common.tryAgain': 'மீண்டும் முயற்சிக்கவும்',
+  'entryComposer.bodyPlaceholder':
+    'நேர்மையாகத் தோன்றுவதை எழுதுங்கள். இதை வேறு யாரும் படிக்க மாட்டார்கள்.',
   'entryComposer.cancel': 'பத்திரிகைக்குத் திரும்பு',
   'entryComposer.heading': 'இன்றைய சிந்தனை',
   'entryComposer.moodLabel': 'நீங்கள் எப்படி உணர்கிறீர்கள்?',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'அகற்று {{tag}}',
   'entryComposer.save': 'பிரதிபலிப்பைச் சேமிக்கவும்',
   'entryComposer.saveError': 'உங்கள் பதிவைச் சேமிக்க முடியவில்லை.',
+  'entryComposer.tagPlaceholder': 'ஒரு குறிச்சொல்லைச் சேர்த்து என்டர் அழுத்தவும்',
   'entryComposer.titlePlaceholder': 'இந்தச் சிந்தனைக்கு ஒரு பெயர் சூட்டுங்கள்...',
   'entryDetail.back': 'பத்திரிகைக்குத் திரும்பு',
   'entryDetail.delete': 'இந்த உள்ளீட்டை நீக்கவும்',
@@ -37,6 +57,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'பிரதிபலிப்பு ஏற்றப்படுகிறது…',
   'entryDetail.notFound': 'பதிவு காணப்படவில்லை.',
   'entryDetail.reflectionsHeading': 'செயற்கை நுண்ணறிவு பிரதிபலிப்புகள்',
+  'forgotPassword.continueButton': 'மீட்டமைப்புக் குறியீட்டை உள்ளிடு',
   'forgotPassword.eyebrow': 'கவலை இல்லை',
   'forgotPassword.subheading':
     'உங்கள் மின்னஞ்சலுக்கு ஒரு மென்மையான மீட்டமைப்பு இணைப்பை அனுப்புவோம்.',
@@ -60,14 +81,22 @@ export const ui: UiTranslations = {
     'இன்னும் கருப்பொருள்கள் எதுவும் இல்லை — உங்கள் பதிவுகளில் ஒன்று அல்லது இரண்டு குறிச்சொற்களைச் சேர்க்கவும், அவை இங்கே ஒன்றுகூடும்.',
   'insights.themesHeading': 'சிறந்த கருப்பொருள்கள்',
   'insights.triggerFrequency': 'கவனித்தார் {{count}} × இந்த மாதம்',
+  'insights.triggersEmpty':
+    'இன்னும் கவனிக்க எதுவும் இல்லை. சில நாட்களில் சில பதிவுகள் உங்கள் வடிவங்களைக் காட்டும்.',
   'insights.triggersHeading': 'உங்கள் மனநிலையை மாற்றும் வடிவங்கள்',
+  'journal.empty':
+    'பொருந்தும் பிரதிபலிப்புகள் இல்லை — வேறு வடிகட்டியை முயற்சிக்கவும் அல்லது புதிய பதிவை எழுதவும்.',
   'journal.eyebrow': 'உங்கள் பிரதிபலிப்புகள்',
   'journal.heading': 'இதழ்',
   'journal.loadError': 'பதிவுகளை ஏற்ற முடியவில்லை.',
   'journal.loading': 'பதிவுகள் ஏற்றப்படுகின்றன…',
+  'journal.newEntry': 'புதிய பதிவு',
   'journal.searchPlaceholder': 'ஓர் உணர்வை, ஓர் பெயரை, ஓர் கணத்தைத் தேடுங்கள்…',
   'journal.subheading': '{{count}} பதிவுகள் — ஒவ்வொன்றும் பாதுகாத்து வைக்கத் தகுந்தவை.',
   'journalEntryCard.encryptedLabel': 'குறியாக்கம் செய்யப்பட்டது',
+  'landing.ctaBody':
+    'தொடங்க இலவசம். Pro தரவு ஏற்றுமதி, பெரிய டைரி மற்றும் முழு வருட வரலாற்றைத் திறக்கிறது.',
+  'landing.ctaButton': 'உங்கள் முதல் பதிவைத் தொடங்குங்கள்',
   'landing.ctaTitle': 'ஒரு நாளைக்கு சில அமைதியான நிமிடங்கள். அவ்வளவுதான்.',
   'landing.eyebrow': 'ஒரு மென்மையான தினசரிப் பயிற்சி',
   'landing.featuresBody':
@@ -86,6 +115,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'தினசரி சிந்தனைக்கான ஓர் இதமான இடம்.',
   'mentalHealthJournalLayout.closeMenu': 'மெனுவை மூடுக',
   'mentalHealthJournalLayout.openMenu': 'மெனுவைத் திறக்கவும்',
+  'mentalHealthJournalLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
+  'moodHeroCard.entriesThisWeek': '{{count}} இந்த வாரம்',
   'moodHeroCard.streakSuffix': 'நாள் தொடர்',
   'moodHeroCard.title': 'இன்றைய சிந்தனை',
   'moodTrendChart.aiBadge': 'செயற்கை நுண்ணறிவு தயார்',
@@ -96,11 +127,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'உங்கள் பயணம்',
   'profile.fallbackName': 'பிரதிபலிப்பான்',
   'profile.loadError': 'புள்ளிவிவரங்களை ஏற்ற முடியவில்லை.',
+  'profile.loading': 'உங்கள் புள்ளிவிவரங்களைப் புதுப்பிக்கிறது…',
   'profile.longestStreak': 'மிக நீண்ட தொடர்',
   'profile.memberSince': 'சிந்தித்துப் பார்க்கையில் {{date}}',
   'profile.milestones': 'மைல்கற்கள்',
   'profile.milestonesEmpty':
     'உங்கள் முதல் மைல்கல்லை அடைய இன்னும் ஒரே ஒரு பதிவுதான் உள்ளது — நீங்கள் தயாராக உணரும்போதெல்லாம் எழுதுங்கள்.',
+  'profile.moodMix': 'இந்த பருவத்தில் உங்கள் மனநிலைக் கலவை',
   'profile.streakValue': '{{days}} டி',
   'profile.totalEntries': 'பிரதிபலிப்புகள்',
   'profile.totalWords': 'எழுதப்பட்ட வார்த்தைகள்',
@@ -113,6 +146,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'இதைப் பற்றி எழுதுங்கள்',
   'resetPassword.eyebrow': 'ஒரு புதிய தொடக்கம்',
   'resetPassword.mismatchError': 'கடவுச்சொற்கள் பொருந்தவில்லை.',
+  'resetPassword.passwordLabel': 'புதிய கடவுச்சொல்',
   'resetPassword.subheading':
     'பாதுகாப்பான ஒன்றைத் தேர்ந்தெடுங்கள் — உங்கள் சிந்தனைகளுக்கு அது தகுதியானது.',
   'resetPassword.tokenPlaceholder': 'மின்னஞ்சலில் இருந்து மீட்டமைப்பு குறியீடு',
@@ -126,11 +160,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     'உங்கள் வார்த்தைகள் எப்போதும் உங்களுக்கே சொந்தம். ஒரு பிரதியை எப்போது வேண்டுமானாலும் பதிவிறக்கம் செய்துகொள்ளுங்கள்.',
   'settings.exportDone': 'ஏற்றுமதி செய்யப்பட்டது {{format}}.',
+  'settings.exportError': 'ஏற்றுமதி தோல்வியடைந்தது.',
+  'settings.exportHeading': 'உங்கள் பிரதிபலிப்புகளை ஏற்றுமதி செய்யவும்',
   'settings.exportLoading': 'தயாராகிறது…',
   'settings.eyebrow': 'உங்கள் இடம், உங்கள் விதிகள்',
   'settings.languageHeading': 'மொழி',
   'settings.privacyHeading': 'தனியுரிமை மற்றும் குறியாக்கம்',
   'settings.remindersHeading': 'தினசரி நினைவூட்டல்',
+  'settings.reminderToggleAria': 'தினசரி நினைவூட்டலை மாற்றவும்',
   'settings.reminderToggleDescription':
     'நீங்கள் தேர்ந்தெடுக்கும் நேரத்தில் ஒரு அமைதியான நினைவூட்டல். எந்தப் பதக்கங்களோ அல்லது தொடர் வெற்றி குற்றவுணர்வோ இல்லை.',
   'settings.reminderToggleLabel': 'மென்மையான தூண்டுதலை அனுப்புங்கள்',
@@ -143,6 +180,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'நாட்குறிப்பை உருவாக்குகிறேன்…',
   'signup.subheading': 'உங்கள் எண்ணங்களுக்கான பாதுகாப்பான இடம்.',
   'wellnessRingsTriad.mindfulnessCaption': 'இலக்கு {{goal}} இன்று குறைந்தபட்சம்',
+  'wellnessRingsTriad.mindfulnessLabel': 'நினைவாற்றல்',
   'wellnessRingsTriad.sleepCaption': 'இலக்கு {{goal}} இரவு',
   'wellnessRingsTriad.sleepLabel': 'தூக்கம்',
+  'wellnessRingsTriad.sleepValue': '{{hours}} ம',
+  'wellnessRingsTriad.streakCaption': 'இலக்கு {{goal}} நாட்கள்',
+  'wellnessRingsTriad.streakLabel': 'டைரி தொடர்',
+  'wellnessRingsTriad.streakValue': '{{days}} டி',
 }

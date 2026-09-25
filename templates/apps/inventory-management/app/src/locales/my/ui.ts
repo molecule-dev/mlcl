@@ -1,11 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'သင့်ကတ်တလောက်ကို ရွှေ့ပြောင်းခြင်းအကြောင်း မေးခွန်းရှိပါသလား၊ ချို့ယွင်းချက်တစ်ခု တွေ့ပါသလား၊ ဒါမှမဟုတ် {{appName}} အကြောင်း လမ်းညွှန်ပြသမှုတစ်ခု လိုချင်ပါသလား။ သင့်အကောင့်ဆက်တင်များမှ ဆက်သွယ်ပါ — မက်ဆေ့ခ်ျတိုင်း အဖွဲ့ထဲရှိ လူတစ်ဦးထံ တိုက်ရိုက်ရောက်ပါသည်။',
   'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.intro':
+    '{{appName}} သည် SKU တိုင်း၊ ဂိုဒေါင်တိုင်းနှင့် လှုပ်ရှားမှုတိုင်းကို ကွန်ဆိုးလ်တစ်ခုတည်းသို့ စုစည်းပေးသည်။ လုပ်ငန်းလည်ပတ်မှု ခေါင်းဆောင်များနှင့် ဂိုဒေါင်အဖွဲ့များအတွက် ဖန်တီးထားပြီး လက်ခံရရှိခြင်းနှင့် ပို့ဆောင်ခြင်းကြားတွင် ပစ္စည်းများ ပျောက်ဆုံးစေသော စာရင်းဇယားများ ပြန့်ကျဲနေမှုနှင့် မချိတ်ဆက်သော စနစ်များကို စစ်ဆေးမှုပြုလုပ်နိုင်သော တစ်ခုတည်းသော အမှန်တရားအရင်းအမြစ်ဖြင့် အစားထိုးပေးသည်။',
+  'about.missionBody':
+    'လုပ်ငန်းလည်ပတ်မှုများသည် ရိုးရှင်းသောအရာများဖြစ်သည့် ရေတွက်မှုများ၊ လှုပ်ရှားမှုများနှင့် သတိပေးချက်များအပေါ် အခြေခံသည်။ ရိုးရှင်းသောအရာများကို လျင်မြန်စွာ၊ ကြည့်ရှုနိုင်စွာနှင့် အတုပြုလုပ်၍မရနိုင်စွာ ကျွန်ုပ်တို့ ပြုလုပ်ပေးသည် — ထို့ကြောင့် မျက်နှာပြင်ပေါ်ရှိ နံပါတ်သည် စင်ပေါ်ရှိ နံပါတ်ဖြစ်ပြီး သင့်အဖွဲ့သည် ပြန်လည်ရေတွက်ရန်မလိုဘဲ ယုံကြည်စွာ ဆောင်ရွက်နိုင်သည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
+  'about.subtitle': 'ယူနစ်တိုင်းကို ရေတွက်သော လုပ်ငန်းလည်ပတ်သူများအတွက် စာရင်းစီမံခန့်ခွဲမှု။',
+  'about.whatYouGetTitle': 'သင်ရရှိသောအရာ',
   'auth.legalConsent': 'ဆက်လက်လုပ်ဆောင်ခြင်းဖြင့် ကျွန်ုပ်တို့၏ စည်းမျဉ်းများကို သဘောတူပါသည်',
   'authShell.brandSubtitle': 'ကုန်ပစ္စည်းစာရင်းထိန်းချုပ်မှု',
   'authShell.eyebrow': 'Locus မှ ကြိုဆိုပါတယ်',
+  'authShell.footer': '{{appName}} · လုပ်ငန်းလည်ပတ်မှု ကွန်ဆိုးလ်',
   'authShell.pitch':
     'SKU တိုင်း၊ ဂိုဒေါင်တိုင်းနှင့် လှုပ်ရှားမှုတိုင်း၏ တိကျသော၊ အော်ပရေတာအဆင့် မြင်ကွင်းတစ်ခု — အရေးကြီးသောအရာများကို ထည့်သွင်းစဉ်းစားသော အဖွဲ့များအတွက် တည်ဆောက်ထားသည်။',
   'authShell.sampleCaption': 'ယူနစ်များ · SKU ၁,၂၈၄ ခု · ဂိုဒေါင် ၆ ခု',
@@ -20,6 +30,8 @@ export const ui: UiTranslations = {
   'dashboard.alerts.empty': 'SKU တိုင်းဟာ ပြန်လည်မှာယူရမယ့်နေရာထက် ကျော်လွန်နေပါတယ်။ ကောင်းပါတယ်။',
   'dashboard.alerts.eyebrow': 'တန်းစီခြင်းကို ပြန်လည်စီပါ',
   'dashboard.alerts.title': 'စတော့ရှယ်ယာနည်းကြောင်း သတိပေးချက်များ',
+  'dashboard.errorFallback':
+    'တိုက်ရိုက်ဒေတာ ယာယီမရနိုင်ပါ — မကြာသေးမီ လျှပ်တစ်ပြက်ပုံကို ပြသနေသည်။',
   'dashboard.eyebrow': 'လုပ်ငန်းလည်ပတ်မှုထိန်းချုပ်ခန်း',
   'dashboard.heroPeriod': 'ပြီးခဲ့တဲ့ ၁၂ ပတ်က',
   'dashboard.kpis.lowStock': 'ကုန်ပစ္စည်းအနည်းငယ်သာရှိသော SKU များ',
@@ -36,14 +48,19 @@ export const ui: UiTranslations = {
   'dashboard.movements.viewAll': 'ပွင့်လင်းသော စာရင်းဇယား',
   'dashboard.subtitle': 'တစ်ဖက်တစ်ချက် {{warehouses}} ဂိုဒေါင်များ · တိုက်ရိုက်စာရင်းဇယား',
   'dashboard.title': 'ယနေ့တွင် ရေတပ်တစ်ခုလုံးတွင်',
+  'forgotPassword.subheading':
+    'သင့် {{appName}} အကောင့်နှင့် ချိတ်ဆက်ထားသော အီးမေးလ်ကို ထည့်ပါ၊ ကျွန်ုပ်တို့ ပြန်လည်သတ်မှတ်ရန် လင့်ခ်တစ်ခု ပေးပို့ပါမည်။',
   'forgotPassword.subheadingSent':
     'တစ်ကြိမ်တည်း ပြန်လည်သတ်မှတ်နိုင်သော လင့်ခ်အတွက် သင့်ဝင်စာပုံးကို စစ်ဆေးပါ။',
+  'forgotPassword.successBody':
+    'စကားဝှက်အသစ် သတ်မှတ်ရန် အီးမေးလ်ထဲရှိ လင့်ခ်ကို နှိပ်ပါ။ လင့်ခ်သည် မိနစ် 30 အတွင်း သက်တမ်းကုန်ဆုံးပါမည်။',
   'forgotPassword.successHeadline':
     'လင့်ခ်ကို ပြန်လည်သတ်မှတ်ရန် လမ်းကြောင်းပေါ်တွင် ရှိနေသည် {{email}}',
   'inventory.actions.add': 'SKU ထည့်ပါ',
   'inventory.add.cost': 'ကုန်ကျစရိတ် ($)',
   'inventory.add.description':
     'ထုတ်ကုန်တစ်ခု ဖန်တီးပါ။ ကုန်ပစ္စည်းများကို ချိန်ညှိပြီး နောက်ပိုင်းတွင် ဂိုဒေါင်များကို သတ်မှတ်ပါ။',
+  'inventory.add.name': 'ထုတ်ကုန်အမည်',
   'inventory.add.sell': 'ရောင်းဈေး ($)',
   'inventory.add.sku': 'SKU ကုဒ်',
   'inventory.add.submit': 'SKU ဖန်တီးပါ',
@@ -52,6 +69,7 @@ export const ui: UiTranslations = {
   'inventory.col.cost': 'ယူနစ်ကုန်ကျစရိတ်',
   'inventory.col.qty': 'လက်ထဲတွင်ရှိသည်',
   'inventory.col.sku': 'SKU',
+  'inventory.empty': 'ထိုစစ်ထုတ်မှုများနှင့် ကိုက်ညီသော SKU မရှိသေးပါ။',
   'inventory.emptyState':
     'SKU များ မရှိသေးပါ။ သင့်ပထမဆုံးထုတ်ကုန်ကို ဖန်တီးရန် "SKU ထည့်ရန်" ကို နှိပ်ပါ။',
   'inventory.eyebrow': 'တိုက်ရိုက်စာရင်းဇယား',
@@ -61,6 +79,7 @@ export const ui: UiTranslations = {
   'inventory.filters.lowStatus': 'အနိမ့်/အထွက်သာ',
   'inventory.loading': 'စာရင်းတင်နေသည်…',
   'inventory.pageStatus': '{{from}} – {{to}} {{total}}',
+  'inventory.searchAria': 'စာရင်းရှာဖွေပါ',
   'inventory.searchPlaceholder': 'အမည်၊ SKU သို့မဟုတ် အမျိုးအစားအလိုက် ရှာဖွေပါ',
   'inventory.subtitle': '{{count}} SKU များသည် သင့် filter များနှင့် ကိုက်ညီပါသည်',
   'inventory.threshold': 'ပြန်လည်မှာယူပါ @ {{qty}}',
@@ -68,12 +87,15 @@ export const ui: UiTranslations = {
   'inventoryHeroCard.changeWithPeriod': '{{change}} · {{period}}',
   'inventoryHeroCard.eyebrow': 'လက်ကျန်စုစုပေါင်း',
   'inventoryHeroCard.subtitle': 'တစ်ဖက်တစ်ချက် {{count}} လက်ရှိ SKU များ',
+  'inventoryHeroCard.units': 'ဂိုဒေါင်အားလုံးရှိ ယူနစ်များ',
   'inventoryManagementLayout.brandSubtitle': 'ကုန်ပစ္စည်းစာရင်းထိန်းချုပ်မှု',
   'inventoryManagementLayout.defaultUser': 'လည်ပတ်မှုများ',
   'inventoryManagementLayout.menu': 'မီနူး',
+  'inventoryManagementLayout.mobileNavLabel': 'မိုဘိုင်း လမ်းညွှန်',
   'inventoryManagementLayout.notificationsAria': 'အသိပေးချက်များကို ဖွင့်ပါ',
   'inventoryManagementLayout.role': 'လုပ်ငန်းလည်ပတ်မှုခေါင်းဆောင်',
   'inventoryManagementLayout.searchAria': 'SKU များ၊ ထုတ်ကုန်များ၊ ဂိုဒေါင်များကို ရှာဖွေပါ',
+  'inventoryManagementLayout.searchPlaceholder': 'SKU များ၊ ထုတ်ကုန်များ၊ ဂိုဒေါင်များ ရှာဖွေပါ…',
   'landing.cta.body':
     'သင့်ဂိုဒေါင်များကို ချိတ်ဆက်ပါ၊ SKU များကို တင်သွင်းပါ၊ ထို့နောက် သင့်အဖွဲ့အား တစ်ရက်အတွင်း scan-driven cycle count များကို လုပ်ဆောင်စေပါ။',
   'landing.cta.primary': 'အခမဲ့ အစမ်းသုံးမှု စတင်ပါ',
@@ -82,6 +104,7 @@ export const ui: UiTranslations = {
   'landing.eyebrow': 'စာရင်း · လုပ်ငန်းလည်ပတ်မှု · အမှန်တရား',
   'landing.features.body':
     'လုပ်ဆောင်ချက်များသည် ပျင်းစရာကောင်းသောအရာများတွင် လုပ်ဆောင်သည်- ရေတွက်ခြင်း၊ ရွေ့လျားခြင်း၊ သတိပေးချက်များ။ Locus သည် ပျင်းစရာကောင်းသောအရာများကို မြန်ဆန်စေပြီး၊ မြင်သာစေပြီး အတုအယောင်လုပ်၍မရစေပါ။',
+  'landing.features.eyebrow': 'လုပ်ငန်းလည်ပတ်သူများအတွက် ဖန်တီးထားသည်',
   'landing.features.title': 'ကုန်ပစ္စည်းစာရင်းအမှန်တရား၏ ရထားလမ်းသုံးခု။',
   'landing.footer.copy': '© {{year}} Locus · ကုန်ပစ္စည်းစာရင်းကို ထိန်းချုပ်ထားသည်။',
   'landing.heroCard.period': 'ပြီးခဲ့တဲ့ ၁၂ ပတ်က',
@@ -99,7 +122,9 @@ export const ui: UiTranslations = {
   'landing.proof.line3': 'တစ်ရက်အောက်မှာ နေထိုင်ပါ',
   'landing.proof.title': 'နံပါတ်အော်ပရေတာများက နေ့တိုင်းပို့ဆောင်ပေးသောကြောင့် ယုံကြည်ကြသည်။',
   'login.heading': 'Locus သို့ လက်မှတ်ထိုးဝင်ပါ',
+  'login.noAccount': '{{appName}} အကောင့်မရှိဘူးလား။',
   'login.subheading': 'SKU နှင့် ဂိုဒေါင်တိုင်းကို console တစ်ခုတည်းတွင် စီမံခန့်ခွဲပါ။',
+  'lowStockAlertCard.action': 'ပြန်လည်မှာယူပါ',
   'lowStockAlertCard.actionAria': 'ပြန်လည်မှာယူပါ {{name}}',
   'lowStockAlertCard.lowStock': 'သာ {{quantity}} ၏ {{threshold}} ကျန်ရှိသော ယူနစ်များ',
   'lowStockAlertCard.outOfStock': 'ပစ္စည်းပြတ်တောက်နေသည်',
@@ -108,7 +133,9 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '၄၀၄ · မြေပြင်မြေပုံပြင်ပ',
   'notFound.search': 'စာရင်းရှာဖွေပါ',
   'notFound.title': 'အဲဒီပုံး မရှိပါဘူး။',
+  'notifications.acknowledge': 'အသိအမှတ်ပြုပါ',
   'notifications.alerts.empty': 'လက်ကျန်နည်းနေကြောင်း သတိပေးချက်များ မရှိပါ။',
+  'notifications.alerts.eyebrow': 'တန်းစီခြင်းကို ပြန်လည်စီပါ',
   'notifications.alerts.title': 'စတော့ရှယ်ယာနည်းကြောင်း သတိပေးချက်များ',
   'notifications.movement.empty': 'ရှယ်ယာလှုပ်ရှားမှု မရှိသေးပါဘူး။',
   'notifications.movement.eyebrow': 'စာရင်းဇယား အပ်ဒိတ်များ',
@@ -116,6 +143,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     'စတော့ရှယ်ယာနည်းသတိပေးချက်များ၊ စာရင်းဇယားလှုပ်ရှားမှုများနှင့် စနစ်ဖြစ်ရပ်များအားလုံးကို တစ်နေရာတည်းတွင် တွေ့ရှိနိုင်ပါသည်။',
   'notifications.system.empty': 'စနစ်ဖြစ်ရပ်များ မရှိပါ။',
+  'notifications.system.eyebrow': 'စနစ်',
   'notifications.system.title': 'ကွန်ဆိုးလ် ဖြစ်ရပ်များ',
   'notifications.tabs.${option}': 'တန်းစီခြင်းကို ပြန်လည်စီပါ',
   'orderDetail.back': 'မှာယူမှုအားလုံး',
@@ -139,11 +167,13 @@ export const ui: UiTranslations = {
   'orderDetail.shipping.title': 'မှာယူမှု အသေးစိတ်',
   'orderDetail.timeline.created': 'မှာယူမှု ဖန်တီးပြီးပါပြီ',
   'orderDetail.timeline.eyebrow': 'စာရင်းစစ်လမ်းကြောင်း',
+  'orderDetail.timeline.pending': 'နောက်ထပ် ဖြစ်ရပ်များ မရှိသေးပါ။',
   'orderDetail.timeline.received': 'ရရှိပြီးဟု မှတ်သားထားသည်',
   'orderDetail.timeline.shipped': 'ပို့ပြီးဟု အမှတ်အသားပြုထားသည်',
   'orderDetail.timeline.title': 'မှာယူမှုဖြစ်ရပ်များ',
   'orders.col.eta': 'ခန့်မှန်းခြေရောက်ရှိမည့်အချိန်',
   'orders.col.partner': 'မိတ်ဖက်',
+  'orders.col.reference': 'ကိုးကားချက်',
   'orders.col.units': 'ယူနစ်များ',
   'orders.col.value': 'တန်ဖိုး',
   'orders.col.warehouse': 'ဂိုဒေါင်',
@@ -169,15 +199,30 @@ export const ui: UiTranslations = {
   'orders.kpis.openOutbound': 'ထွက်ပေါက်ဖွင့်ထားသည်',
   'orders.kpis.shippedToday': 'ပိတ်ထားသည် (လက်ခံရရှိ/ပို့ဆောင်ပြီး)',
   'orders.loading': 'မှာယူမှုများကို တင်နေသည်…',
+  'orders.row.po': 'အဝယ်အမှာစာ',
   'orders.row.so': 'အရောင်းအမိန့်',
   'orders.subtitle': 'ကွန်ရက်တစ်လျှောက်တွင် inbound PO များနှင့် outbound SO များ။',
   'orders.title': 'မှာယူမှုများ',
+  'planUpdated.body':
+    'သင့်ငွေတောင်းခံမှု ပြောင်းလဲမှုသည် ယခု အသက်ဝင်နေပါပြီ။ သင့်အစီအစဉ်ကို ငွေတောင်းခံမှုစာမျက်နှာမှ မည်သည့်အချိန်တွင်မဆို စီမံနိုင်ပါသည်။',
   'planUpdated.pageTitle': 'အစီအစဉ်ကို အပ်ဒိတ်လုပ်ထားသည်',
+  'planUpdated.retry': 'ထပ်ကြိုးစားပါ',
+  'planUpdated.verifyFailed': 'သင့်ငွေပေးချေမှုကို ကျွန်ုပ်တို့ အတည်မပြုနိုင်သေးပါ။',
+  'planUpdated.verifyFailedBody':
+    'သင့်ငွေပေးချေမှုကို လုပ်ဆောင်နေဆဲဖြစ်နိုင်ပါသည်။ ခဏအကြာတွင် ထပ်မံကြိုးစားပါ။',
   'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
+  'pricing.advancedFeatures': 'အဆင့်မြင့်လုပ်ဆောင်ချက်များ- {{value}}',
+  'pricing.alerts': '{{count}} သတိပေးချက်များ',
+  'pricing.dataExport': 'ဒေတာထုတ်ယူခြင်း- {{value}}',
+  'pricing.products': '{{count}} ထုတ်ကုန်များ',
+  'pricing.stock': '{{count}} စတော့မှတ်တမ်းများ',
+  'pricing.transfers': '{{count}} ငွေလွှဲမှုများ',
+  'pricing.warehouses': '{{count}} ဂိုဒေါင်များ',
   'productDetail.back': 'စာရင်းသို့ ပြန်သွားရန်',
   'productDetail.barcode': 'ဘားကုဒ်',
   'productDetail.cost': 'ကုန်ကျစရိတ်',
   'productDetail.eyebrow': 'ထုတ်ကုန်ပရိုဖိုင်',
+  'productDetail.history.empty': 'မှတ်တမ်းတင်ထားသော လှုပ်ရှားမှုများ မရှိသေးပါ။',
   'productDetail.history.eyebrow': 'လှုပ်ရှားမှုမှတ်တမ်း',
   'productDetail.kpis.locations': 'နေရာများ',
   'productDetail.kpis.onHand': 'လက်ထဲတွင်ရှိသည်',
@@ -202,6 +247,8 @@ export const ui: UiTranslations = {
   'profile.kpis.actionsHint': 'ပြီးခဲ့သော ရက် ၃၀',
   'profile.kpis.cycle': 'ပိုင်ဆိုင်သော စက်ဘီးအရေအတွက်',
   'profile.kpis.transfers': 'လွှဲပြောင်းမှုများကို စီမံခန့်ခွဲခဲ့သည်',
+  'profile.security.active': 'တက်ကြွသော',
+  'profile.security.thisSessionHint': 'ဤစက်ပစ္စည်းတွင် အကောင့်ဝင်ထားသည်',
   'profile.security.thisSessionLabel': 'ဤဘရောက်ဆာ · {{email}}',
   'profile.security.title': 'အကောင့်ဝင်ခြင်းနှင့် စက်ပစ္စည်းများ',
   'reports.aging.eyebrow': 'အိုမင်းခြင်း',
@@ -222,8 +269,13 @@ export const ui: UiTranslations = {
   'reports.topValue.title': 'ကုန်ပစ္စည်းတန်ဖိုးအလိုက် ထိပ်တန်း SKU များ',
   'reports.turnover.eyebrow': 'အရောင်းအဝယ် လမ်းကြောင်း',
   'reports.turnover.title': 'ကုန်ပစ္စည်းလည်ပတ်မှု',
+  'resetPassword.changedMind': 'စိတ်ပြောင်းသွားပါသလား။',
+  'resetPassword.missingToken':
+    'ဆက်လက်ဆောင်ရွက်ရန် သင့်အီးမေးလ်မှ ပြန်လည်သတ်မှတ်ရန် လင့်ခ်ကို ဖွင့်ပါ။',
   'resetPassword.newPassword': 'စကားဝှက်အသစ်',
   'resetPassword.signInNow': 'ယခုပဲ အကောင့်ဝင်လိုက်ပါ',
+  'resetPassword.subheading':
+    'မှတ်မိလွယ်သော်လည်း ထူးခြားသည့်အရာတစ်ခုကို ရွေးပါ။ သတ်မှတ်ပြီးပါက သင့်ကို အကောင့်ဝင်ပေးပါမည်။',
   'resetPassword.subheadingDone':
     'စကားဝှက်ကို အပ်ဒိတ်လုပ်လိုက်ပါပြီ။ အကောင့်ဝင်ရန် သင့်အား ပြန်ပို့နေပါသည်…',
   'resetPassword.submitting': 'စကားဝှက်ကို အပ်ဒိတ်လုပ်နေသည်…',
@@ -236,8 +288,11 @@ export const ui: UiTranslations = {
   'settings.billing.warehouseLimit': 'ဂိုဒေါင်ကန့်သတ်ချက်',
   'settings.integrations.description':
     'ချန်နယ်များ၊ ERP များ၊ စာရင်းကိုင်နှင့် ပို့ဆောင်ရေးဝန်ဆောင်မှုပေးသူများ။',
+  'settings.integrations.saving': 'သိမ်းဆည်းနေသည်…',
   'settings.integrations.status.${status}': 'သိမ်းဆည်းနေသည်…',
   'settings.locations.add': 'ဂိုဒေါင်များကို စီမံခန့်ခွဲပါ',
+  'settings.locations.body':
+    'နေရာတစ်ခု ထည့်ရန်၊ ၎င်း၏ စွမ်းရည်ကို တည်းဖြတ်ရန် သို့မဟုတ် ဟောင်းနွမ်းသော တည်နေရာကို ဖယ်ရှားရန် Warehouses ကွန်ဆိုးလ်ကို ဖွင့်ပါ။ ထိုတွင် ပြောင်းလဲမှုများသည် စာရင်းဇယားတစ်ခုလုံးသို့ ပျံ့နှံ့သွားပါသည်။',
   'settings.locations.description':
     'ဆိုက်တစ်ခုချင်းစီအတွက် ပို့ဆောင်ရေးလိပ်စာများ၊ အချိန်ဇုန်များနှင့် ပုံသေဇုန်သတ်မှတ်ချက်များကို Pin လုပ်ပါ။',
   'settings.locations.title': 'ဂိုဒေါင်တည်နေရာများ',
@@ -260,6 +315,7 @@ export const ui: UiTranslations = {
   'stockTransfer.commit': 'ကတိကဝတ်လွှဲပြောင်းခြင်း',
   'stockTransfer.committed':
     'လွှဲပြောင်းမှု ပြုလုပ်ပြီးပါပြီ — စတော့ရှယ်ယာ ရွှေ့ပြောင်းရန် ပြီးစီးကြောင်း အမှတ်အသားပြုပါ။',
+  'stockTransfer.complete': 'ပြီးမြောက်ပါပြီ',
   'stockTransfer.confirmation':
     'လွှဲပြောင်းမှု ပြီးစီးသည်ဟု အမှတ်အသားပြုသောအခါ လှုပ်ရှားမှုများသည် အက်တမ်နည်းဖြင့် ဖြစ်ပေါ်လာသည်။',
   'stockTransfer.destination': 'ဦးတည်ရာဂိုဒေါင်',
@@ -275,7 +331,12 @@ export const ui: UiTranslations = {
   'stockTransfer.list.noNotes': 'မှတ်စုမရှိပါ',
   'stockTransfer.list.title': 'မကြာသေးမီက လွှဲပြောင်းမှုများ',
   'stockTransfer.list.viewMovements': 'လှုပ်ရှားမှုများကို ကြည့်ရှုပါ',
+  'stockTransfer.needWarehouses.body':
+    'အရင်းအမြစ်နှင့် ဦးတည်ရာ ဂိုဒေါင်များကို ဦးစွာ ဖန်တီးပါ၊ ထို့နောက် မန်နီဖက်စ်တစ်ခုကို စကင်ဖတ်ရန် ဤနေရာသို့ ပြန်လာပါ။',
   'stockTransfer.needWarehouses.title': 'အနည်းဆုံး ဂိုဒေါင်နှစ်ခု လိုအပ်ပါတယ်',
+  'stockTransfer.notesPlaceholder':
+    'ရွေးချယ်နိုင်သော မှတ်စုများ — ဥပမာ "Cross-dock weekly rebalance"',
+  'stockTransfer.openWarehouses': 'ဂိုဒေါင်များကို ဖွင့်ပါ',
   'stockTransfer.sameWarehouse': 'မူရင်းဂိုဒေါင်နှင့် ဦးတည်ရာဂိုဒေါင်များ ကွဲပြားရမည်။',
   'stockTransfer.scanPlaceholder': 'SKU သို့မဟုတ် ဘားကုဒ်ကို စကင်ဖတ်ပြီး Enter နှိပ်ပါ',
   'stockTransfer.source': 'ရင်းမြစ်ဂိုဒေါင်',
@@ -287,10 +348,11 @@ export const ui: UiTranslations = {
   'warehouseDetail.back': 'ဂိုဒေါင်အားလုံး',
   'warehouseDetail.inventory': 'SKU များကို တည်းဖြတ်ပါ',
   'warehouseDetail.kpis.noCapacity': '—',
+  'warehouseDetail.kpis.noCapHint': 'စွမ်းရည် သတ်မှတ်မထားပါ',
   'warehouseDetail.kpis.skus': 'အသက်ဝင်သော SKU များ',
   'warehouseDetail.kpis.units': 'စုစုပေါင်းယူနစ်များ',
   'warehouseDetail.kpis.utilization': 'အသုံးပြုမှု',
-  'warehouseDetail.kpis.utilizationHint': '{{အသုံးပြုပြီး}} / {{cap}} ယူနစ်များ',
+  'warehouseDetail.kpis.utilizationHint': '{{used}} / {{cap}} ယူနစ်',
   'warehouseDetail.loading': 'ဂိုဒေါင်တင်နေသည်…',
   'warehouseDetail.notFound': 'ဂိုဒေါင်ကို ရှာမတွေ့ပါ။',
   'warehouseDetail.skus.empty': 'ဤဂိုဒေါင်အတွက် ကုန်ပစ္စည်းပမာဏကို မှတ်တမ်းတင်ထားခြင်း မရှိသေးပါ။',
@@ -302,9 +364,11 @@ export const ui: UiTranslations = {
   'warehouses.add': 'ဂိုဒေါင်ထည့်ရန်',
   'warehouses.add.capacity': 'စွမ်းရည် (ယူနစ်)',
   'warehouses.add.capacityHint': 'ရွေးချယ်နိုင်သည် — အသုံးပြုမှုဇယားများအတွက် အသုံးပြုသည်။',
+  'warehouses.add.city': 'မြို့',
   'warehouses.add.code': 'ကုဒ် (ထူးခြားသည်)',
   'warehouses.add.codeHint': 'အတိုကောက် အမှတ်အသား — ဥပမာ RENO-1၊ MEM-DC',
   'warehouses.add.contactEmail': 'ဆက်သွယ်ရန် အီးမေးလ်',
+  'warehouses.add.contactName': 'ဆက်သွယ်ရန်အမည်',
   'warehouses.add.country': 'နိုင်ငံ',
   'warehouses.add.description':
     'လက်ခံရရှိမှုများ၊ လွှဲပြောင်းမှုများနှင့် စတော့များကို လမ်းကြောင်းပြောင်းနိုင်ရန် ဝက်ဘ်ဆိုက်တစ်ခု မှတ်ပုံတင်ပါ။',
@@ -314,6 +378,8 @@ export const ui: UiTranslations = {
   'warehouses.emptyBody': 'စတော့ရှယ်ယာခြေရာခံခြင်းစတင်ရန် သင်၏ပထမဆုံးဆိုက်ကို ထည့်ပါ။',
   'warehouses.emptyTitle': 'ဂိုဒေါင်တွေ မရှိသေး',
   'warehouses.loading': 'ဂိုဒေါင်ကွန်ရက်ကို တင်နေသည်…',
+  'warehouses.noCapacity': '{{used}} ယူနစ် လက်ကျန် · စွမ်းရည် သတ်မှတ်မထားပါ',
+  'warehouses.skus': 'SKU များ',
   'warehouses.subtitle': '{{count}} ဆိုက်များ · စွမ်းရည်၊ ဝန်ထမ်းနှင့် SKU လွှမ်းခြုံမှု',
   'warehouses.title': 'ဂိုဒေါင်များ',
   'warehouses.utilization': 'အသုံးပြုမှု',

@@ -1,11 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Имате повратна информација, најдовте грешка или сакате да предложите функција? Секоја порака стигнува до вистинска личност во тимот на {{app}} — би сакале да слушнеме што учите.',
   'about.contactTitle': 'Стапете во контакт',
   'about.eyebrow': 'За {{app}}',
+  'about.intro':
+    '{{app}} е апликација за флеш-картички со распоредено повторување за луѓе кои сакаат знаењето навистина да им остане. Без разлика дали учите јазик, меморирате формули или вежбате концепти за испит, таа ја закажува секоја картичка во точниот момент кога сте пред да ја заборавите — најефикасниот начин што науката за меморијата го нашла за да ги пренесе фактите во долгорочно помнење.',
+  'about.missionBody':
+    'Повеќето алатки за учење се оптимизираат за потрошено време, а не за задржано знаење. {{app}} се оптимизира за спротивното: најмалку повторувања што го задржуваат важното во вашата глава. Веруваме дека учењето треба да биде смирено, мерливо и ваше — отворени податоци, без темни шаблони и навика што можете да ја одржувате со години.',
+  'about.missionTitle': 'Нашата мисија',
   'about.pageTitle': '{{tagline}}.',
   'authShell.sampleBack': 'Вилнус — отповикан за 1,2 секунди.',
   'authShell.sampleEyebrow': 'Карта од вашиот иден шпил',
+  'authShell.sampleFront': '„Главниот град на Литванија.“',
+  'authShell.sampleRetention': '{{pct}}% задржано',
   'authShell.sampleStreak': '{{days}} -дневна низа',
   'cardEdit.title': 'Уреди флеш-картичка',
   'cardEditor.backLink': 'Назад кон палубата',
@@ -35,6 +44,8 @@ export const ui: UiTranslations = {
   'dashboard.kpi.days': 'денови',
   'deckDetail.backLink': 'Сите шпилови',
   'deckDetail.deleteError': 'Неуспешно бришење на колоната.',
+  'deckDetail.empty.body': 'Додајте ја вашата прва картичка за да почнете да градите меморија.',
+  'deckDetail.empty.cta': 'Додајте ја вашата прва картичка',
   'deckDetail.empty.heading': 'Сè уште нема карти во овој шпил',
   'deckDetail.filterEmpty': 'Нема картички што се совпаѓаат со овој филтер за состојби.',
   'deckDetail.filterLabel': 'Филтрирај картички по држава',
@@ -47,7 +58,10 @@ export const ui: UiTranslations = {
   'deckDetail.stat.total': 'Картички',
   'deckDetail.studyDueLabel': 'Студија {{count}} доспева',
   'deckProgressCard.cardCount': '{{count}} картички',
+  'deckProgressCard.masteredTooltip': '{{count}} совладани',
   'deckProgressCard.studyCta': 'Студија {{count}}',
+  'decks.confirmDelete':
+    'Да се избрише ова пакување и сите негови картички? Ова не може да се врати.',
   'decks.create.heading': 'Креирај шпил',
   'decks.create.nameLabel': 'Име на шпил',
   'decks.create.submit': 'Креирај шпил',
@@ -58,6 +72,7 @@ export const ui: UiTranslations = {
   'decks.heading': 'Палуби',
   'decks.loadError': 'Не успеаја да се вчитаат шпилови.',
   'decks.loading': 'Се вчитува…',
+  'decks.newDeckLabel': 'Нов шпил',
   'decks.retention': 'Задржи',
   'decks.studyArrow': 'Студија →',
   'decks.subheading': '{{count}} палуби · преглед и управување',
@@ -80,6 +95,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Веќе имам сметка',
   'landing.heroSubtitle':
     'Повторувањето со растојание прави разлика помеѓу запишување и запомнување. Пет минути на ден, година по година, и јазикот се лепи.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.proof.export': 'Отворени податоци, без заклучување',
   'landing.proof.free': 'Бесплатно засекогаш за лична употреба',
   'landing.proof.import': 'Увези .apkg / CSV',
@@ -94,12 +110,16 @@ export const ui: UiTranslations = {
   'login.heading': 'Добредојдовте назад на вашите палуби',
   'login.orDivider': 'или продолжете со',
   'login.signupLink': 'Започнете со учење бесплатно',
+  'login.signupPrompt': 'Нов овде?',
   'login.subtitle': 'Продолжете од каде што застанавте - вашата низа ве чека.',
   'mobileNav.closeMenu': 'Затвори го менито за навигација',
   'mobileNav.openMenu': 'Отвори мени за навигација',
   'notifications.markAllReadError': 'Не успеа да се означат сите како прочитани.',
   'pricing.heading': 'картички',
+  'pricing.limits.cards': 'картички',
   'pricing.limits.decks': 'палуби',
+  'pricing.limits.historyDays': 'Историја на повторувања од {{days}} дена',
+  'pricing.limits.historyUnlimited': 'Неограничена историја на повторувања',
   'pricing.limits.stats': 'статистика',
   'pricing.limits.study': 'студија',
   'resetPassword.passwordLabel': 'Нова лозинка',
@@ -111,17 +131,29 @@ export const ui: UiTranslations = {
   'sessionSummary.heading': 'Браво.',
   'sessionSummary.label': 'Сесијата е завршена',
   'settings.changePasswordError': 'Не можеше да се промени лозинката.',
+  'settings.confirmPassword': 'Потврдете ја вашата лозинка',
   'settings.currentPassword': 'Тековна лозинка',
+  'settings.dangerZone': 'Опасна зона',
+  'settings.deleteAccountHint':
+    'Трајно избришете ја вашата сметка и сите податоци за учење. Ова не може да се врати.',
+  'settings.deleteAccountWarning':
+    'Ова трајно ја брише вашата сметка и сите пакувања, картички и историја на учење. Ова не може да се врати.',
   'settings.deleteError':
     'Неуспешно бришење на сметката. Проверете ја лозинката и обидете се повторно.',
   'settings.deleting': 'Бришење…',
+  'settings.devicesHint': 'Уредите моментално регистрирани на вашата сметка.',
   'settings.newPassword': 'Нова лозинка',
   'settings.password': 'Лозинка',
   'settings.passwordChanged': 'Лозинката е ажурирана.',
+  'settings.passwordHint': 'Променете ја лозинката што ја користите за најавување.',
   'settings.reminders.atRisk': 'Предупредување за низа на ризик (после 20:00 часот)',
+  'settings.reminders.daily': 'Дневно потсетување (8:00 часот)',
   'settings.reminders.heading': 'Потсетници',
+  'settings.reminders.milestones': 'Прослави на пресвртници',
   'settings.reminders.note':
     'Зачувано на овој уред. Вклучи/исклучи која студија го поместува овој прелистувач на површина; поставките се синхронизираат при повторно вчитување.',
+  'settings.reminders.weekly': 'Неделен преглед на задржаното знаење (недели)',
+  'settings.revokeDeviceWarning': 'Пристапот на овој уред ќе биде повлечен наскоро. Одјавете го?',
   'settings.saved': 'Зачувано.',
   'settings.saveError': 'Неуспешно зачувување.',
   'settings.saving': 'Се зачувува…',
@@ -137,6 +169,7 @@ export const ui: UiTranslations = {
   'signup.legal':
     'Со креирање на сметка, се согласувате со нашите Услови и Политика за приватност.',
   'signup.nameLabel': 'Вашето име (опционално)',
+  'signup.orDivider': 'или регистрирајте се со',
   'signup.subtitle': 'Пет минути на ден. Идно јас кое се сеќава.',
   'stats.byStateHeading': 'Картички по држава',
   'stats.dailyHeading': 'Прегледи на ден (последните 30 дена)',
@@ -173,5 +206,6 @@ export const ui: UiTranslations = {
   'todayHeroCard.goalLabel': 'Дневна цел',
   'todayHeroCard.goalProgress': '{{reviewed}} / {{goal}}',
   'todayHeroCard.streakBadge': '{{days}} -дневна низа',
+  'todayHeroCard.studyCta': 'Започнете со учење',
   'userMenu.stats': 'Моја статистика',
 }

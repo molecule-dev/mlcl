@@ -1,11 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Маєте відгук, знайшли помилку або хочете запропонувати функцію? Кожне повідомлення потрапляє до реальної людини з команди {{app}} — нам буде цікаво дізнатися, що ви вивчаєте.',
   'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про {{app}}',
+  'about.intro':
+    "{{app}} — це застосунок для флешкарток із інтервальним повторенням для тих, хто хоче, щоб знання справді закріплювалися. Чи ви вивчаєте мову, завчаєте формули або відпрацьовуєте поняття до іспиту, він планує кожну картку саме в той момент, коли ви ось-ось забудете її — найефективніший спосіб, який наука про пам'ять знайшла, щоб перенести факти в довготривалу пам'ять.",
+  'about.missionBody':
+    'Більшість навчальних інструментів оптимізують витрачений час, а не збережені знання. {{app}} оптимізує протилежне: якнайменше повторень, які утримують важливе у вашій голові. Ми віримо, що навчання має бути спокійним, вимірюваним і вашим — відкриті дані, жодних темних патернів і звичка, яку можна підтримувати роками.',
+  'about.missionTitle': 'Наша місія',
   'about.pageTitle': '{{tagline}}.',
   'authShell.sampleBack': 'Вільнюс — згадано за 1,2 секунди.',
   'authShell.sampleEyebrow': 'Карта з вашої майбутньої колоди',
+  'authShell.sampleFront': '«Столиця Литви.»',
+  'authShell.sampleRetention': '{{pct}}% утримання',
   'authShell.sampleStreak': '{{days}} -денна серія',
   'cardEdit.title': 'Редагувати картку',
   'cardEditor.backLink': 'Назад до палуби',
@@ -35,6 +44,8 @@ export const ui: UiTranslations = {
   'dashboard.kpi.days': 'днів',
   'deckDetail.backLink': 'Усі колоди',
   'deckDetail.deleteError': 'Не вдалося видалити колоду.',
+  'deckDetail.empty.body': "Додайте свою першу картку, щоб почати тренувати пам'ять.",
+  'deckDetail.empty.cta': 'Додати першу картку',
   'deckDetail.empty.heading': 'У цій колоді ще немає карт',
   'deckDetail.filterEmpty': 'Жодна картка не відповідає цьому фільтру штатів.',
   'deckDetail.filterLabel': 'Фільтрувати картки за штатом',
@@ -47,7 +58,9 @@ export const ui: UiTranslations = {
   'deckDetail.stat.total': 'Картки',
   'deckDetail.studyDueLabel': 'Вивчення {{count}} належний',
   'deckProgressCard.cardCount': '{{count}} карток',
+  'deckProgressCard.masteredTooltip': '{{count}} засвоєно',
   'deckProgressCard.studyCta': 'Вивчення {{count}}',
+  'decks.confirmDelete': 'Видалити цю колоду та всі її картки? Цю дію не можна скасувати.',
   'decks.create.heading': 'Створіть колоду',
   'decks.create.nameLabel': 'Назва колоди',
   'decks.create.submit': 'Створити колоду',
@@ -58,6 +71,7 @@ export const ui: UiTranslations = {
   'decks.heading': 'Колоди',
   'decks.loadError': 'Не вдалося завантажити колоди.',
   'decks.loading': 'Завантаження…',
+  'decks.newDeckLabel': 'Нова колода',
   'decks.retention': 'Зберегти',
   'decks.studyArrow': 'Навчання →',
   'decks.subheading': '{{count}} колоди · огляд та управління',
@@ -81,6 +95,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'У мене вже є обліковий запис',
   'landing.heroSubtitle':
     'Інтервалне повторення – це різниця між зубрінням та запам’ятовуванням. П’ять хвилин на день, рік за роком, і мова запам’ятається.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.proof.export': "Відкриті дані, без прив'язки",
   'landing.proof.free': 'Безкоштовно назавжди для особистого користування',
   'landing.proof.import': 'Імпорт .apkg / CSV',
@@ -95,12 +110,16 @@ export const ui: UiTranslations = {
   'login.heading': 'Ласкаво просимо назад на ваші колоди',
   'login.orDivider': 'або продовжити через',
   'login.signupLink': 'Почніть навчання безкоштовно',
+  'login.signupPrompt': 'Вперше тут?',
   'login.subtitle': 'Продовжуйте з того місця, де зупинилися — ваша серія чекає на вас.',
   'mobileNav.closeMenu': 'Закрити меню навігації',
   'mobileNav.openMenu': 'Відкрити меню навігації',
   'notifications.markAllReadError': 'Не вдалося позначити все як прочитане.',
   'pricing.heading': 'карток',
+  'pricing.limits.cards': 'карток',
   'pricing.limits.decks': 'колоди',
+  'pricing.limits.historyDays': 'Історія повторень за {{days}} днів',
+  'pricing.limits.historyUnlimited': 'Необмежена історія повторень',
   'pricing.limits.stats': 'статистика',
   'pricing.limits.study': 'вивчення',
   'resetPassword.passwordLabel': 'Новий пароль',
@@ -112,17 +131,30 @@ export const ui: UiTranslations = {
   'sessionSummary.heading': 'Молодець.',
   'sessionSummary.label': 'Сеанс завершено',
   'settings.changePasswordError': 'Не вдалося змінити пароль.',
+  'settings.confirmPassword': 'Підтвердьте свій пароль',
   'settings.currentPassword': 'Поточний пароль',
+  'settings.dangerZone': 'Небезпечна зона',
+  'settings.deleteAccountHint':
+    'Назавжди видалити ваш акаунт і всі дані навчання. Цю дію не можна скасувати.',
+  'settings.deleteAccountWarning':
+    'Це назавжди видалить ваш акаунт, усі колоди, картки та історію навчання. Цю дію не можна скасувати.',
   'settings.deleteError':
     'Не вдалося видалити обліковий запис. Перевірте пароль і спробуйте ще раз.',
   'settings.deleting': 'Видалення…',
+  'settings.devicesHint': 'Пристрої, наразі зареєстровані у вашому обліковому записі.',
   'settings.newPassword': 'Новий пароль',
   'settings.password': 'Пароль',
   'settings.passwordChanged': 'Пароль оновлено.',
+  'settings.passwordHint': 'Змініть пароль, який ви використовуєте для входу.',
   'settings.reminders.atRisk': 'Попередження про ризик смуги (після 20:00)',
+  'settings.reminders.daily': 'Щоденне нагадування (8:00)',
   'settings.reminders.heading': 'Нагадування',
+  'settings.reminders.milestones': 'Святкування досягнень',
   'settings.reminders.note':
     'Зберігається на цьому пристрої. Перемикання, яке дослідження підштовхує до появи цього браузера; налаштування синхронізуються під час перезавантаження.',
+  'settings.reminders.weekly': 'Щотижневий підсумок утримання (неділі)',
+  'settings.revokeDeviceWarning':
+    'Доступ цього пристрою буде скасовано найближчим часом. Вийти з нього?',
   'settings.saved': 'Збережено.',
   'settings.saveError': 'Не вдалося зберегти.',
   'settings.saving': 'Збереження…',
@@ -138,6 +170,7 @@ export const ui: UiTranslations = {
   'signup.legal':
     'Створюючи обліковий запис, ви погоджуєтеся з нашими Умовами та Політикою конфіденційності.',
   'signup.nameLabel': "Ваше ім'я (необов'язково)",
+  'signup.orDivider': 'або зареєструватися через',
   'signup.subtitle': "П'ять хвилин на день. Майбутнє «я», яке пам'ятає.",
   'stats.byStateHeading': 'Картки за штатами',
   'stats.dailyHeading': 'Відгуків на день (за останні 30 днів)',
@@ -174,5 +207,6 @@ export const ui: UiTranslations = {
   'todayHeroCard.goalLabel': 'Щоденна мета',
   'todayHeroCard.goalProgress': '{{reviewed}} / {{goal}}',
   'todayHeroCard.streakBadge': '{{days}} -денна серія',
+  'todayHeroCard.studyCta': 'Почати навчання',
   'userMenu.stats': 'Моя статистика',
 }

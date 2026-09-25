@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Сұрағыңыз бар ма, қате таптыңыз ба, әлде командаңызға демо көргіңіз келе ме? Тіркелгі параметрлерінен хабарласыңыз — әрбір хабарлама командадағы нақты адамға жетеді.',
   'about.contactTitle': 'Байланыс',
+  'about.intro':
+    '{{app}} сканерленген құжаттар мен PDF стектерін құрылымдалған, іздеуге болатын, тіркелген деректерге айналдырады. Шот-фактураларды, түбіртектерді, келісімшарттарды немесе нысандарды жүктеп салыңыз да, AI оларды оқып, шығарып, жіктеп, тіркесін — сенімділік түстерімен, сондықтан командаңыз тек шынымен адам қатысуын қажет ететіндерді тексереді.',
+  'about.missionBody':
+    'Құжаттармен әуре-сарсаң командаңыздың күнін жеуге тиіс емес. Біз әрбір шығарылған мән түсіндірілетін және тексерілетін болуы керек деп есептейміз — осылайша құжат ізін жоғалтпай автоматтандыруға сене аласыз. {{app}} әр стекке сағаттарды үнемдеуге арналған, әрі маңызды жерлерде адамды процесс ішінде ұстайды.',
+  'about.missionTitle': 'Біздің миссиямыз',
+  'about.subtitle': 'Құжаттарыңыз үшін OCR, AI шығару, жіктеу және автоматты тіркеу.',
   'about.title': '{{app}} туралы',
+  'about.whatYouGetTitle': 'Сіз не аласыз',
   'authShell.backToLanding': '← Қонуға оралу',
   'common.goToDashboard': 'Бақылау тақтасына өту',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Бүгін · Операцияларға шолу',
   'dashboard.heading': 'Құжаттарды талдау',
+  'dashboard.metric.accuracy': 'Орташа дәлдік',
   'dashboard.metric.filed': 'Бүгін тапсырылды',
   'dashboard.metric.filedCaption': 'Файлдарды толтыру ережелері бойынша бағытталады',
   'dashboard.metric.processed': 'Бүгін өңделді',
@@ -23,11 +33,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'Жүктелді',
   'dashboard.recent.heading': 'Соңғы құжаттар',
+  'dashboard.recent.typeUnknown': 'Жіктеуді күтуде',
   'dashboard.subheading':
     'Әрбір бет жіктелген, алынған және сақталған — сенімді түстермен, сондықтан шолу назар аударатын болады.',
   'documentDetail.audit.heading': 'Аудит мерзімі',
+  'documentDetail.audit.subheading':
+    'Осы құжат бойынша жасалған әрбір қадам, жауапты тұлғамен бірге.',
   'documentDetail.back': 'Барлық құжаттар',
   'documentDetail.downloadHint': 'Бастапқы файлды ашу үшін «Жүктеу» функциясын пайдаланыңыз.',
+  'documentDetail.extracted.empty': 'Әзірге ешбір өріс шығарылмады.',
   'documentDetail.extracted.heading': 'Алынған өрістер',
   'documentDetail.extracted.subheading':
     '{{count}} өрістер · бетте белгілеу үшін кез келген өрісті басыңыз',
@@ -55,14 +69,25 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Құжаттарды іздеу…',
   'documents.subheading': '{{count}} кітапханаңыздағы құжаттар, ең жаңасынан бастап сұрыпталған.',
   'documents.uploadCta': 'Құжаттарды жүктеп салу',
+  'documentTypeBreakdown.barAria': 'Құжат құрамы түрі бойынша',
   'documentTypeBreakdown.empty': 'Әлі ешқандай құжат өңделмеген.',
   'documentTypeBreakdown.subtitle': '{{total}} өңделген',
   'documentTypeBreakdown.title': 'Құжат құрамы',
+  'forgotPassword.backToSignIn': '← Кіруге оралу',
   'forgotPassword.checkEmail': 'Электрондық поштаңызды тексеріңіз',
   'forgotPassword.tip':
     'Түсінбедіңіз бе? Спамды тексеріңіз немесе басқа мекенжайды қолданып көріңіз.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Әрбір бетті тексеретін операциялық командалар үшін жасалған.',
+  'landing.ctaBody':
+    '14 күндік сынақ. Карта қажет емес. Кез келген уақытта тоқтатуға болады. Жылдам қозғалатын және баяу тексеретін операциялық командалар үшін жасалған.',
   'landing.ctaHeading': 'Түбіртектерді теруді тоқтатыңыз. Оларды тіркей бастаңыз.',
   'landing.eyebrow': 'OCR · Шығарып алу · Жасанды интеллект файлын жасау',
+  'landing.featuresHeading': 'Өзін-өзі түсіндіретін құжат интеллектісі',
+  'landing.heroSubtitle':
+    'Шот-фактуралар, түбіртектер, келісімшарттар немесе нысандар стекін жүктеп салыңыз. {{app}} оларды жіктейді, шығарады және тіркейді — сенімділік түстерімен, сондықтан командаңыз тек шынымен адам қатысуын қажет ететіндерді тексереді.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Күнделікті көлем · соңғы 7 күн',
   'landing.sampleCardLabel': 'Бүгін өңделген құжаттар',
   'landing.sampleCardSubtitle':
     'Шот-фактуралар, түбіртектер және нысандар бойынша орташа дәлдік 96,2%.',
@@ -76,6 +101,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Қону бетін ашу',
   'notFound.title': 'Бұл бет файлда жоқ',
+  'parcelaHeroCard.accuracy': 'Барлық шығарулар бойынша орташа дәлдік {{value}}%',
   'parcelaHeroCard.change': '{{sign}} {{amount}} кешегіге қарағанда %',
   'parcelaHeroCard.title': 'Бүгін өңделген құжаттар',
   'parcelaLayout.primaryNavLabel': 'Негізгі навигация',
@@ -83,6 +109,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'құжаттар',
   'pricing.processingLabel': 'өңдеу жұмыстары',
   'resetPassword.confirmPlaceholder': 'Жаңа құпия сөзді қайталаңыз',
+  'resetPassword.hidePassword': 'Құпия сөзді жасыру',
   'resetPassword.passwordLabel': 'Жаңа құпия сөз',
   'resetPassword.showPassword': 'Құпия сөзді көрсету',
   'resetPassword.subtitle': 'Кемінде 8 таңбадан тұратын нәрсені таңдаңыз.',
@@ -99,10 +126,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Ережелер жүктелмеді.',
   'rules.loading': 'Ережелер жүктелуде…',
   'rules.matched30d': '{{count}} соңғы 30 күнде сәйкес келген құжаттар',
+  'rules.neverUsed': 'Ешқашан пайдаланылмаған',
   'rules.newRule': 'Жаңа ереже',
   'rules.saveError': 'Ереже сақталмады.',
   'rules.subheading':
     'Жүйеге әрбір құжат түрі қайда бағытталуы керектігін айтыңыз. Шарттар жоғарыдан төменге қарай тізбектеледі — бірінші матч жеңеді.',
+  'rules.templatesEmpty': 'Әзірге шығару үлгілері жоқ.',
   'rules.templatesHeading': 'Шығару үлгілері',
   'rules.templatesSubheading': 'Экстракциялаушы әрбір құжат түрі үшін пайдаланатын өріс схемалары.',
   'rules.then': 'Содан кейін',
@@ -111,17 +140,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Жұмыс кеңістігінің атауы',
   'settings.account.subheading':
     'Хабарландырулар мен аудит тарихы үшін көрсетілетін атау және негізгі электрондық пошта.',
+  'settings.api.confirmRevoke': 'Растау керек пе?',
   'settings.api.copyOnce': 'Бұл кілтті көшіріңіз — ол қайта көрсетілмейді',
   'settings.api.createdOn': 'Құрылған {{date}}',
   'settings.api.empty': 'API кілттері әлі жоқ. Жоғарыда біреуін жасаңыз.',
   'settings.api.error': 'Кілт жасалмады.',
+  'settings.api.generating': 'Жасалуда…',
+  'settings.api.heading': 'API кілттері',
   'settings.api.labelPlaceholder': 'Кілт белгісі (мысалы, CI жүктеушісі)',
+  'settings.api.loading': 'Кілттер жүктелуде…',
   'settings.api.newKey': 'Кілт жасау',
   'settings.api.subheading':
     'Оларды скрипттен немесе ERP жүйесінен құжаттарды жіберу үшін пайдаланыңыз. Кез келген пернені кез келген уақытта бұраңыз.',
   'settings.integrations.heading': 'Файлдарды біріктіру',
   'settings.integrations.subheading':
     'Тіркелген құжаттарды бұлттық дискіге немесе командаңыз қазірдің өзінде орналасқан чат құралына жіберіңіз.',
+  'settings.subheading':
+    '{{app}} жұмыс кеңістігі үшін тіркелгіні, API кілттерін және тіркеу интеграцияларын басқарыңыз.',
+  'signup.hidePassword': 'Құпия сөзді жасыру',
   'signup.identityPrompt': 'Сізге қалай жүгінуіміз керек?',
   'signup.showPassword': 'Құпия сөзді көрсету',
   'signup.subtitle': '14 күн тегін, карта қажет емес.',
@@ -129,6 +165,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Жүктеу сәтсіз аяқталды.',
   'upload.eyebrow': 'Қабылдау',
   'upload.heading': 'Құжаттарды жүктеп салу',
+  'upload.queue.clear': 'Аяқталғандарды тазалау',
   'upload.queue.col.confidence': 'Сенiмдiлiк',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Анықталуда…',
@@ -141,5 +178,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Немесе топтық алу, жіктеу және сақтау үшін бірден бірнеше файлды тастаңыз.',
   'uploadDropZone.cta': 'Файлдарды таңдаңыз',
+  'uploadDropZone.maxSize': 'Файл үшін максимум 25 МБ · Ұштан ұшқа шифрланған',
   'uploadDropZone.title': 'Өңдеуді бастау үшін құжаттарды тастаңыз',
 }

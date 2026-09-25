@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'มีคำถาม ข้อเสนอแนะ หรือต้องการสาธิตให้ทีมของคุณดูไหม? อีเมลถึงเราที่ hello@conduit.dev — ทุกข้อความถึงมือคนจริงในทีม',
   'about.contactHeading': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับ',
+  'about.featuresHeading': 'สิ่งที่คุณจะได้รับ',
+  'about.introBody':
+    '{{app}} นำ continuous delivery สไตล์ GitHub Actions มารวมไว้ในแดชบอร์ดที่รวดเร็วเพียงหนึ่งเดียว: pipelines, บันทึกการ build, artifacts, ป้ายสถานะ และสภาพแวดล้อมการ deploy สำหรับทุก repository ของคุณในที่เดียว ไม่ต้องสลับแท็บ ไม่ต้องเดาว่า build ไหนพัง — ทุกการรัน ทุกบรรทัดของบันทึก และทุกการ deploy อยู่ห่างแค่คลิกเดียว',
+  'about.introHeading': '{{app}} คืออะไร',
+  'about.missionBody':
+    'การส่งมอบซอฟต์แวร์ควรเป็นเรื่องสงบและคาดเดาได้ ไม่ใช่ต้นตอของความกังวล เราสร้าง pipelines, บันทึก และเครื่องมือ deploy เพื่อให้เส้นทางจาก commit สู่ production รวดเร็ว มองเห็นได้ และเชื่อถือได้ — build เขียวครั้งแรกภายในห้านาที และทุก build หลังจากนั้นก็ชัดเจนไม่แพ้กัน',
+  'about.missionHeading': 'พันธกิจของเรา',
+  'about.subtitle':
+    '{{app}} คือแดชบอร์ด CI/CD สำหรับทีมที่ต้องการติดตาม build, การ deploy และสภาพแวดล้อมในทุก repository — และส่งมอบอย่างมั่นใจ',
   'artifacts.empty': 'ยังไม่พบสิ่งประดิษฐ์ใดๆ',
   'artifacts.heading': 'สิ่งประดิษฐ์',
   'artifacts.loadError': 'ไม่สามารถโหลดไฟล์ได้',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'สภาพแวดล้อม',
   'environments.loadError': 'ไม่สามารถโหลดสภาพแวดล้อมได้',
+  'environments.loading': 'กำลังโหลดสภาพแวดล้อม…',
   'environments.subheading': 'สถานะการใช้งานแบบเรียลไทม์ในทุกเป้าหมาย',
   'forgotPassword.runnerStatus': 'รีเซ็ต · อุโมงค์ที่ปลอดภัย',
+  'forgotPassword.success':
+    'หากมีการสร้างบัญชีสำหรับอีเมลนั้น ระบบจะส่งลิงก์สำหรับรีเซ็ตไปให้ โปรดตรวจสอบกล่องจดหมายเข้าของคุณ',
   'insights.changeFailureRate': 'อัตราความล้มเหลวในการเปลี่ยนแปลง',
   'insights.deployFrequency': 'จำนวนการติดตั้งต่อวัน',
   'insights.empty': 'ข้อมูลยังไม่เพียงพอ',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'ไม่สามารถโหลดข้อมูลเชิงลึกได้',
   'insights.meanP95': 'หมายถึง {{mean}} · หน้า 95 {{p95}}',
   'insights.mttr': 'เอ็มทีอาร์อาร์',
+  'insights.slowestStepsHeading': 'ขั้นตอน pipeline ที่ช้าที่สุด',
   'insights.successRateHeading': 'อัตราความสำเร็จของกระบวนการ (14 วันที่ผ่านมา)',
   'landing.choosePlan': 'เลือกแผน',
+  'landing.copyright': '© {{year}} {{app}} ส่งมอบอย่างมั่นใจ',
   'landing.ctaBody':
     'ไม่ต้องใช้บัตรเครดิต ไม่จำเป็นต้องมีวิศวกรแพลตฟอร์ม เริ่มต้นสร้างไปป์ไลน์แรกให้สำเร็จภายในห้านาที',
   'landing.ctaHeading': 'จัดส่งได้อย่างมั่นใจ',
   'landing.featuresEyebrow': '// คุณสมบัติของแพลตฟอร์ม',
   'landing.featuresHeading': 'สร้างขึ้นเพื่อผู้ขนส่งสินค้า โดยผู้ขนส่งสินค้า',
+  'landing.heroSubtitle':
+    'Pipelines ที่เสร็จในไม่กี่วินาที บันทึกที่อ่านได้ การ deploy ที่เชื่อถือได้',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// ราคาแบบธรรมดา',
   'landing.pricingHeading': 'ราคาที่ง่ายและคาดการณ์ได้',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'กำลังบินอยู่ขณะนี้',
   'pipelines.metric.successCaption': '{{count}} ของ {{total}} วิ่ง',
   'pipelines.metric.successRate': 'อัตราความสำเร็จ',
+  'pipelines.realtimeOn': 'เรียลไทม์',
   'pipelines.subheading': 'อัปเดตแบบเรียลไทม์จากทุกแหล่งเก็บข้อมูลที่กำลังติดตามอยู่',
+  'pricing.advancedFeatures': 'คุณสมบัติขั้นสูง: {{mark}}',
+  'pricing.canExport': 'การส่งออกข้อมูล: {{mark}}',
+  'pricing.maxArtifacts': 'artifacts {{count}}',
+  'pricing.maxBuilds': 'build {{count}}',
+  'pricing.maxPipelines': 'pipelines {{count}}',
   'privacy.dataAccount': 'ข้อมูลบัญชี: ชื่อ, อีเมล, รหัสผ่านที่เข้ารหัส, ระดับแพ็กเกจ',
   'privacy.intro':
     '{{แอป}} ระบบจะเก็บรวบรวมเฉพาะข้อมูลขั้นต่ำที่จำเป็นสำหรับการใช้งานบัญชี Continuous Delivery ของคุณ ได้แก่ อีเมลของคุณ คลังเก็บข้อมูลที่คุณเชื่อมต่อ การคอมมิตและข้อมูลเมตาของบิลด์ที่รันเนอร์ของคุณสร้างขึ้น และความลับที่คุณเลือกที่จะจัดเก็บไว้กับเรา เราจะไม่อ่านซอร์สโค้ดของคุณนอกเหนือจากบิลด์รันเนอร์ และไฟล์บิลด์จะถูกจัดเก็บไว้ใน S3 bucket ของคุณเมื่อกำหนดค่าไว้',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'เราใช้ Stripe สำหรับการเรียกเก็บเงิน Mailgun สำหรับอีเมลธุรกรรม และ AWS S3 สำหรับจัดเก็บไฟล์ที่สร้างเสร็จแล้ว โดยแต่ละบริการมีข้อผูกมัดตามสัญญาในเรื่องขอบเขตข้อมูลขั้นต่ำที่จำเป็นสำหรับการให้บริการนั้นๆ',
   'privacy.rightsBody':
     'คุณสามารถส่งออกข้อมูลทุกไบต์ ลบบัญชีของคุณได้ทุกเมื่อจากเมนูการตั้งค่า และขอรับบันทึกการส่ง webhook ทุกครั้งในบัญชีของคุณได้ เราจะตอบกลับคำขอตาม GDPR / CCPA ภายใน 30 วัน',
+  'privacy.subtitle':
+    '{{app}} เก็บรวบรวม จัดเก็บ และปกป้องข้อมูลของคุณอย่างไรในขณะที่เรารัน pipelines ของคุณ',
   'privacy.title': 'นโยบายความเป็นส่วนตัว',
   'repositories.empty': 'ไม่มีแหล่งเก็บข้อมูลใดเชื่อมต่ออยู่',
   'repositories.heading': 'ที่เก็บข้อมูล',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'ที่เก็บข้อมูลทั้งหมด',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'ไม่สามารถโหลดที่เก็บข้อมูลได้',
+  'repositoryDetail.meanDuration': 'ระยะเวลาเฉลี่ย',
   'repositoryDetail.notFound': 'ไม่พบที่เก็บข้อมูล',
+  'repositoryDetail.successRate': 'อัตราความสำเร็จ',
   'repositoryDetail.totalBuilds': 'จำนวนการสร้างทั้งหมด',
   'repositoryDetail.webhookActive': 'คล่องแคล่ว',
   'repositoryDetail.webhookPaused': 'หยุดชั่วคราว',
   'repositoryDetail.webhooksHeading': 'เว็บฮุค',
+  'resetPassword.passwordLabel': 'รหัสผ่านใหม่',
   'resetPassword.runnerStatus': 'รีเซ็ต · โทเค็นได้รับการยืนยันแล้ว',
   'resetPassword.subtitle': 'เลือกใช้รหัสผ่านที่ปลอดภัยและไม่เคยใช้มาก่อน',
   'resetPassword.tokenPlaceholder': 'คัดลอกจากอีเมล',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'ระบบตรวจสอบ Conduit ของที่เก็บข้อมูล ตัดการเชื่อมต่อจากผู้ให้บริการ VCS ของคุณเพื่อหยุดการนำเข้าเหตุการณ์',
   'settings.repositories.empty': 'ยังไม่มีการเชื่อมต่อแหล่งเก็บข้อมูลใดๆ',
+  'settings.repositories.heading': 'การเชื่อมต่อ repository',
   'settings.repositories.loadError': 'ไม่สามารถโหลดแหล่งเก็บข้อมูลได้',
   'settings.secrets.addCta': 'เพิ่มความลับ',
   'settings.secrets.addError': 'ไม่สามารถเพิ่มข้อมูลลับได้',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'ไม่สามารถลบข้อมูลลับได้',
   'settings.secrets.empty': 'ไม่มีการเก็บความลับใดๆ ไว้',
   'settings.secrets.heading': 'ความลับ',
+  'settings.secrets.lastUsed': 'ใช้ล่าสุด {{date}}',
   'settings.secrets.loadError': 'ไม่สามารถโหลดข้อมูลลับได้',
   'settings.secrets.neverUsed': 'ไม่เคยใช้',
   'settings.secrets.rotateCta': 'หมุน',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'ไม่สามารถอัปเดต webhook ได้',
   'signup.namePlaceholder': 'ไรลีย์พาร์ค',
   'signup.runnerStatus': 'แพ็กเกจฟรี · สร้างขั้นต่ำ 1,000 ครั้งต่อเดือน',
+  'terms.intro':
+    'การสร้างบัญชี {{app}} ถือว่าคุณยอมรับข้อกำหนดเหล่านี้ ซึ่งครอบคลุมการใช้งาน build runner อย่างเหมาะสม ขอบเขตของ SLA ของเรา และเงื่อนไขที่เราสามารถระงับหรือยกเลิกบัญชีของคุณสำหรับภาระงานที่ละเมิดข้อกำหนด',
   'terms.slaBody':
     'แพ็คเกจ Pro และ Team ตั้งเป้าหมายความพร้อมใช้งานรายเดือนของ API และ Runner ไว้ที่ 99.95% ส่วนแพ็คเกจ Free นั้นให้บริการตามสภาพที่เป็นอยู่ การหยุดชะงักจะถูกรายงานบน status.conduit.dev และจะถูกหักลบตามสูตรในใบแจ้งหนี้ของคุณ',
   'terms.terminationBody':

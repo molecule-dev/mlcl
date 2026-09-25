@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Galderak, iritzia edo eginbide-eskaera bat? Jarri harremanetan {{app}} taldearekin Ezarpenak → Jakinarazpenak ataletik, edo idatzi iezaguzu edozein unetan — mezu guztiak benetako pertsona batengana iristen dira.',
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
+  'about.featureCapture':
+    'Ordainagirien kaptura argazkia igoz, irudiak gastu egokiari lerroz lerro eransten dizkiona.',
+  'about.featureExport':
+    'Txosten, gastu eta onarpen-egoera guztien CSV esportazio auditagarriak — zure kontabilitate-taldearentzat prest.',
+  'about.featurePolicy':
+    'Politika-mugak — eguneko muga, kategoriako muga eta ordainagiria derrigorrezko atalaseak bidaltzean bertan aplikatzen direnak.',
+  'about.featureWorkflow':
+    'Bi mailako onarpen-fluxua, berrikusleen oharrekin, politika-urraketa adierazleekin eta ukitu bateko itzulketa-markarekin.',
+  'about.intro':
+    '{{app}} gastuen kudeaketarako plataforma da finantza-taldeentzat eta haiek itzultzen dieten pertsonentzat. Hartu ordainagiria, erregistratu gastua, bidali txostena onarpenera eta jarraitu itzulketa bakoitza — kalkulu-orrien zeremoniarik gabe.',
+  'about.missionBody':
+    'Itzulketak azkarra, bidezkoa eta auditagarria izan behar du. {{app}} eraiki genuen bidaltzaileek gogorarazi beharrik gabe kobratzeko, onartzaileek zehazki zer onartzen duten ikusteko eta finantzek dolar bakoitzaren arrasto garbia izateko — politika-egiaztapenak eta guzti.',
+  'about.missionTitle': 'Gure misioa',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Onartzen…',
   'approvals.confirmReject': 'Berretsi bazterketa',
+  'approvals.empty': 'Dena eguneratuta duzu — ez dago txostenik zain.',
   'approvals.eyebrow': 'Kudeatzailearen ilara',
   'approvals.kpi.flaggedLabel': 'Politika markatu da',
+  'approvals.kpi.queueLabel': 'Berrikuspenaren zain',
   'approvals.kpi.totalLabel': 'Zain dagoen balioa',
   'approvals.lineCount': '{{count}} gastuak',
   'approvals.queueFallback': 'Zuzeneko ilara ez dago erabilgarri — demo datuak erakusten dira.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Baztertzen…',
+  'approvals.rejectPlaceholder': 'Arrazoia (derrigorrezkoa)',
   'approvals.rejectPrompt': 'Zergatik baztertzen duzu txosten hau?',
   'approvals.review': 'Berrikuspena',
   'approvals.title': 'Onarpenen zain',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '%18 gehiago',
   'dashboard.kpi.approvedLabel': 'Onartua · MTD',
   'dashboard.kpi.pendingDelta': '+2 aste honetan',
+  'dashboard.kpi.pendingLabel': 'Berrikuspenaren zain',
   'dashboard.kpi.receiptsDelta': 'Ekintza beharrezkoa',
   'dashboard.kpi.receiptsLabel': 'Ordainagirien zain',
   'dashboard.kpi.reimbursedDelta': '+2,4 mila dolar',
   'dashboard.kpi.reimbursedLabel': 'Ordainduta · MTD',
   'dashboard.newReport': 'Txosten berria',
+  'dashboard.recent.empty': 'Oraindik ez dago txostenik — hasi lehenengoa goian.',
   'dashboard.recent.title': 'Azken txostenak',
   'dashboard.recent.viewAll': 'Ikusi txosten guztiak',
   'dashboard.summaryFallback':
@@ -39,11 +60,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'Ordainagiriak eta itzul daitezkeen elementuak',
   'expenses.listFallback': 'Zuzeneko zerrenda ez dago erabilgarri — demo datuak erakusten dira.',
   'expenses.searchPlaceholder': 'Bilatu saltzailea edo kategoria…',
+  'expenses.subtotal': '{{count}} gastu · azpibatura',
   'expenses.title': 'Gastuak',
+  'forgotPassword.continue': 'Kode bat daukat · Jarraitu',
+  'forgotPassword.subheading':
+    'Sartu zure laneko helbide elektronikoa eta esteka bat bidaliko dizugu pasahitz berri bat ezartzeko.',
   'forgotPassword.successBody':
     'Kontu bat badago {{email}} Hurrengo minutuetan berrezartzeko esteka bat jasoko duzu.',
+  'landing.copyright': '© {{year}} {{app}}. Molecule.dev-rekin egina.',
+  'landing.ctaBody':
+    'Doan lehen 25 gastuetarako hilero. Kreditu-txartelik gabe, inplementazio-deirik gabe.',
   'landing.ctaHeading': 'Zure taldeari zor zaiona berreskuratzeko prest?',
   'landing.eyebrow': 'Finantza taldeentzako gastu txostenak',
+  'landing.featuresHeading': 'Itzulketa, lan-eremu lasai bakarrean',
   'landing.heroSubtitle':
     'Bidali, onartu eta itzuli negozio-gastuak kalkulu-orrien zeremoniarik gabe. Ordainagirien OCR, gidalerroen egiaztapenak eta onarpen-egutegi gardena — guztia lan-eremu lasai batean.',
   'landing.heroTitle': 'Ordainagiri guztiak, berreskuratuta.',
@@ -60,10 +89,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Oharrak',
   'newExpense.descriptionPlaceholder':
     'Zergatik izan den gastu hau negozioarekin lotuta (zure onartzailearentzat ikusgai).',
+  'newExpense.eyebrow': 'Elementu itzulgarria',
   'newExpense.merchant': 'Merkataria',
   'newExpense.merchantPlaceholder': 'Adlon Kempinski hotela',
   'newExpense.policyHint':
     'Gogorarazpena: eguneko 80 $-tik gorako otorduek edo 250 $-tik gorako edozein elementuk justifikazio-oharra behar dute.',
+  'newExpense.receipt': 'Ordainagiria',
+  'newExpense.receiptHint': 'JPG, PNG edo PDF · 10 MB gehienez',
   'newExpense.receiptOcrHint': 'OCRk aurrez betetako eremuak',
   'newExpense.receiptPrompt': 'Jarri argazki edo PDF bat hemen, edo egin klik arakatzeko',
   'newExpense.receiptUploadFailed':
@@ -74,17 +106,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Atera edo igo ordainagiria eta Recoupek saltzailea, data eta guztizkoa aurrez beteko ditu. Gorde aurretik, berretsi beheko guztia.',
   'newExpense.title': 'Gehitu gastua',
+  'newReport.approverHint': 'Mezu bat jasoko dute txosten hau berrikuspenera bidaltzen duzunean.',
   'newReport.approverLabel': 'Onartzailearen helbide elektronikoa (aukerakoa)',
   'newReport.approverPlaceholder': 'manager@zureenpresa.com',
   'newReport.availableExpenses': 'Eskuragarri dauden gastuak',
   'newReport.createFailed': 'Ezin izan da txostena sortu. Saiatu berriro.',
   'newReport.draftsFallback':
     'Gastuen zerrenda zuzena ez dago erabilgarri — demo datuak erakusten dira.',
+  'newReport.eyebrow': 'Taldekatu gastuak · bidali onarpenera',
   'newReport.includedCount': '{{count}} barne',
   'newReport.purposeLabel': 'Negozio-helburua',
   'newReport.purposePlaceholder':
     'Deskribatu gastu hauek zer bidaia edo proiekturi dagozkion (zure onespen-emailearentzat eta finantza-erakundearentzat ikusgai).',
   'newReport.saveDraft': 'Gorde zirriborro gisa',
+  'newReport.saveDraftFailed': 'Ezin izan da zirriborroa gorde. Saiatu berriro.',
   'newReport.submit': 'Onarpenerako bidali',
   'newReport.submitFailed': 'Ezin izan da txostena bidali. Saiatu berriro.',
   'newReport.summary': 'Txostenaren laburpena',
@@ -97,16 +132,23 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'Lan-eremuaren jarduera',
   'notifications.feedFallback': 'Zuzeneko jarioa ez dago erabilgarri — demo datuak erakusten dira.',
   'notifications.openReport': 'Txostena ireki ›',
+  'pricing.approvalsLabel': 'onarpenak',
   'pricing.expensesLabel': 'gastuak',
   'pricing.heading': 'onarpenak',
   'pricing.policiesLabel': 'politikak',
   'pricing.receiptsLabel': 'ordainagiriak',
   'recoveredAmountHeroCard.label': 'Berreskuratutako itzulketa · YTD',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} txosten berrikuspenaren zain daude une honetan onartzaile guztien artean.',
+  'reports.approvalFlow': 'Onarpen-fluxua',
   'reports.backToList': 'Txostenetara itzuli',
   'reports.detailFallback': 'Zuzeneko txostena ez dago erabilgarri — demo datuak erakusten dira.',
   'reports.lineItems': 'Lerro-elementuak',
   'reports.lineItemsCount': '{{count}} gastuak',
+  'reports.lineItemsEmpty': 'Oraindik ez dago gasturik txosten honetan.',
+  'reports.openLibrary': 'Ireki txostenen liburutegia',
   'reports.policyTitle': 'Politika-marka',
+  'reports.selectPrompt': 'Hautatu txosten bat liburutegitik haren xehetasunak ikusteko.',
   'reports.summary.lineCount': 'Lerro-elementuak',
   'reports.summary.reimbursable': 'Itzuli daitekeena',
   'reports.summary.total': 'Jakinarazitako guztira',
@@ -115,6 +157,7 @@ export const ui: UiTranslations = {
   'reportsList.lineItems': '{{count}} gastuak',
   'reportsList.listFallback': 'Zuzeneko zerrenda ez dago erabilgarri — demo datuak erakusten dira.',
   'reportsList.newReport': 'Txosten berria',
+  'reportsList.submittedOn': 'Bidalita {{date}}',
   'reportsList.title': 'Txosten liburutegia',
   'resetPassword.hidePassword': 'Ezkutatu pasahitza',
   'resetPassword.newPasswordLabel': 'Pasahitz berria',
@@ -140,6 +183,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Gordeta ✓',
   'settings.profileSaveFailed': 'Ezin izan da profila eguneratu. Saiatu berriro.',
   'signup.heading': 'Sortu zure Berreskuratze kontua',
+  'signup.hidePassword': 'Ezkutatu pasahitza',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Erakutsi pasahitza',
   'signup.subheading': 'Doan 25 gasturengatik hilean — kreditu txartelik gabe.',

@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'တုံ့ပြန်ချက်ရှိပါသလား၊ ချို့ယွင်းချက်တစ်ခု တွေ့ပါသလား၊ သို့မဟုတ် {{appName}} တွင် သင့်ကိုယ်ပိုင် ဘုတ်တစ်ခု လိုချင်ပါသလား။ အဖွဲ့ထံ ဆက်သွယ်ရန် သင့် Settings ကို ဖွင့်ပါ — မက်ဆေ့ခ်ျတိုင်း ဖတ်ရှုသည့် လူအစစ်တစ်ဦးထံ ရောက်ပါသည်။',
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
+  'about.featureModeration':
+    'လေးပုံတစ်ပုံ အမှတ်အသားများပါသော အများသူငှာ လမ်းပြမြေပုံ၊ ပို့ဆောင်ပြီးသော အလုပ်များကို ထုတ်ဝေမှတ်စုများအဖြစ် ပြောင်းလဲပေးသော ပြောင်းလဲမှုမှတ်တမ်း၊ နှင့် လူအများစုက ဘာကို အလိုရှိဆုံးဖြစ်သည်ကို ပြသသော ဒက်ရှ်ဘုတ်တစ်ခု။',
+  'about.featurePricing':
+    'ဘုတ်အနည်းငယ် အခမဲ့ လည်ပတ်နိုင်သည်။ Pro နှင့် Team အစီအစဉ်များက ဘုတ်ပိုများစွာ၊ ကန့်သတ်ချက်ပိုမြင့်များနှင့် ဒေတာ ထုတ်ယူနိုင်မှုကို ဖွင့်ပေးသည်။',
+  'about.featureThreads':
+    'ခေါင်းစဉ်အလိုက် စုစည်းထားသော အများသူငှာ တုံ့ပြန်ချက် ဘုတ်များ၊ ထပ်တူများကို ပေါင်းစည်းပြီး မဲများကို တစ်ခုတည်းသော ရိုးသားသည့် လိုအပ်ချက် အချက်ပြမှုအဖြစ် စုစည်းပေးသည်။',
+  'about.featureVoting':
+    'အသုံးပြုသူတစ်ဦးလျှင် တစ်မဲ မဲပေးနိုင်မှုနှင့် အခြေအနေ အလုပ်စဉ်အပြည့်အစုံ — open၊ planned၊ in progress၊ shipped၊ သို့မဟုတ် declined — နှင့် ဆုံးဖြတ်ချက်တိုင်းအပေါ် တရားဝင် တုံ့ပြန်ချက်။',
+  'about.intro':
+    '{{appName}} သည် ထုတ်ကုန်-တုံ့ပြန်ချက် ပလက်ဖောင်းတစ်ခုဖြစ်သည် — ဖောက်သည်များ တောင်းဆိုချက်များ တင်ပြပြီး၊ လိုအပ်သည့်အရာအတွက် မဲပေးကာ၊ စိတ်ကူးတစ်ခုစီကို planned မှ shipped အထိ လိုက်ကြည့်နိုင်သော အများသူငှာ ဘုတ်များ။ လိုအပ်ချက်က သူ့အလိုလို အဆင့်သတ်မှတ်ပေးသောကြောင့် အဖွဲ့များသည် နောက်ထပ် ဘာတည်ဆောက်ရမည်ကို ခန့်မှန်းရန် ရပ်တန့်နိုင်သည်။',
+  'about.missionBody':
+    'အကောင်းဆုံး ထုတ်ကုန် ဆုံးဖြတ်ချက်များကို ပွင့်လင်းစွာ ချမှတ်သည်ဟု ကျွန်ုပ်တို့ ယုံကြည်သည်။ {{appName}} သည် အဖွဲ့တိုင်းအား မဲပေးထားသော တောင်းဆိုချက်များ၏ အများသူငှာ ဘုတ်တစ်ခု၊ ပစ်မှတ် လေးပုံတစ်ပုံများပါသော တရားဝင် လမ်းပြမြေပုံတစ်ခု၊ နှင့် ကွင်းဆက်ကို ပိတ်ပေးသော ပြောင်းလဲမှုမှတ်တမ်းတစ်ခု ပေးသည် — ထို့ကြောင့် ဖောက်သည်များက ၎င်းတို့၏ သက်ရောက်မှုကို မြင်ရပြီး အဖွဲ့များက ၎င်းတို့၏ လုပ်ပိုင်ခွင့်ကို မြင်ရသည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'admin.backToBoards': 'ဘုတ်များသို့ပြန်သွားရန်',
   'admin.denied': 'စီမံခန့်ခွဲသူများသာ။',
   'admin.eyebrow': 'ထုတ်ကုန်အဖွဲ့',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'admin.title': 'တုံ့ပြန်ချက်များ ဒက်ရှ်ဘုတ်',
   'admin.topOpen': 'ထိပ်တန်း ပွင့်နေသော တောင်းဆိုချက်များ',
   'admin.totalVotes': 'စုစုပေါင်း {{count}} မဲ',
+  'admin.votesChartLabel': 'လွန်ခဲ့သော ရှစ်ပတ်အတွင်း တစ်ပတ်လျှင် ပေးခဲ့သော မဲများ၏ ဘားဂရပ်',
   'admin.votesOverTime': 'အချိန်အလိုက် မဲများ',
   'auth.forgotPassword.email': 'အီးမေးလ်',
   'auth.forgotPassword.sendResetLink': 'ပြန်လည်သတ်မှတ်ရန် လင့်ခ် ပေးပို့ရန်',
@@ -30,7 +47,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'သင့်အကောင့် ဖန်တီးရန်',
   'auth.username': 'အသုံးပြုသူအမည်',
   'authShell.communities': 'အသိုင်းအဝိုင်းများ',
+  'authShell.copyright': '{{appName}} — အသံတိုင်း အရေးပါသည်။',
   'authShell.trending': 'ရေပန်းစားနေသော',
+  'boardCard.postCount': '{{count}} ပို့စ်များ',
   'boardDetail.allBoards': 'ဘုတ်အားလုံး',
   'boardDetail.backToBoards': 'ဘုတ်များသို့ပြန်သွားရန်',
   'boardDetail.empty': 'ဤစစ်ထုတ်မှုများနှင့် ကိုက်ညီသော ပို့စ်များ မရှိသေးပါ။',
@@ -54,6 +73,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'ထည့်သွင်းမှုတိုင်းဟာ မဲပေးထားသော တောင်းဆိုချက်တစ်ခုအဖြစ် စတင်ခဲ့ပါတယ်။ မဲပေးသူများက ရွေ့လျားမှုကို မြင်ခဲ့ကြတယ်၊ ဒီမှာပဲ ရောက်နေပါတယ်။',
   'changelog.title': 'ပေးပို့ပြီး၊ အထောက်အထားများနှင့်အတူ',
+  'changelog.voteCount': '{{count}} မဲဖြင့် ဤအရာ တည်ဆောက်နိုင်ခဲ့သည်',
   'common.atLeast8Characters': 'အနည်းဆုံး စာလုံး ၈ လုံး',
   'common.checkYourInbox': 'သင့် inbox ကို စစ်ဆေးပါ',
   'common.loadingEllipsis': 'ဖွင့်နေသည်…',
@@ -64,6 +84,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'တင်သွင်းနေသည်…',
   'footer.about': '{{appName}} အကြောင်း',
   'footer.language': 'ဘာသာစကား',
+  'forgotPassword.description':
+    'သင့်အီးမေးလ်ကို ရိုက်ထည့်ပါ၊ ကျွန်ုပ်တို့က ပြန်လည်သတ်မှတ်ရန်လင့်ခ်တစ်ခု ပေးပို့ပါမည်။',
+  'forgotPassword.successBody':
+    'ကျွန်ုပ်တို့သည် ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ကို ပေးပို့လိုက်ပါပြီ {{email}} မိနစ် ၃၀ အတွင်း သက်တမ်းကုန်ဆုံးမည်။',
   'forgotPassword.tryAnother': 'အခြား အီးမေးလ် ကြိုးစားကြည့်ပါ',
   'form.displayName': 'ပြသမည့်အမည်',
   'form.firstName': 'ပထမအမည်',
@@ -74,6 +98,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'သင့် roadmap၊ မဲများဖြင့် ပံ့ပိုးထားသော။',
   'landing.heroCtaPrimary': 'မဲများ စုစည်းစတင်ပါ',
   'landing.heroCtaSecondary': 'တိုက်ရိုက် ဘုတ်တစ်ခု ကြည့်ရန်',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'ခန့်မှန်းတာ ရပ်လိုက်ပါ။ သူတို့ မဲပေးသည့်အရာကို ပို့ဆောင်ပါ။',
+  'landing.heroLede':
+    '{{appName}} သည် ကွဲလွင့်နေသော အင်္ဂါရပ် တောင်းဆိုချက်များကို မဲပေးထားသော စိတ်ကူးများ၏ အများသူငှာ ဘုတ်တစ်ခု၊ တရားဝင် လမ်းပြမြေပုံတစ်ခု၊ နှင့် သင့်ဖောက်သည်များ အမှန်တကယ် ဖတ်သော ပြောင်းလဲမှုမှတ်တမ်းတစ်ခုအဖြစ် ပြောင်းလဲပေးသည်။',
   'landing.heroStat1': '၃,၂၀၀+',
   'landing.heroStat1Label': 'နားထောင်နေသော အဖွဲ့များ',
   'landing.heroStat2': '၁.၄ သန်း',
@@ -85,9 +113,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'ပြောင်းလဲမှုမှတ်တမ်း',
   'landing.navJoin': '{{appName}} သို့ ပူးပေါင်းပါ',
   'landing.navRoadmap': 'Roadmap',
+  'landing.step1Body':
+    'ဖောက်သည်များသည် စိတ်ကူးများကို အများသူငှာ ဘုတ်များတွင် တင်ပြသည်။ ထပ်တူများ ပေါင်းစည်းပြီး၊ မဲများ စုစည်းကာ၊ လိုအပ်ချက်က သူ့အလိုလို အဆင့်သတ်မှတ်ပေးသည်။',
   'landing.step1Title': 'စုစည်းခြင်း',
+  'landing.step2Body':
+    'ပစ်မှတ် လေးပုံတစ်ပုံတစ်ခုဖြင့် တောင်းဆိုချက်များကို planned သို့မဟုတ် in progress အဖြစ် အမှတ်အသားပြုပါ — သင်လုပ်သည်နှင့် လမ်းပြမြေပုံ ချက်ချင်း အပ်ဒိတ်ဖြစ်သည်။',
+  'landing.step2Title': 'ကတိပြုပါ',
   'landing.step3Body':
     'ပေးပို့ပြီး ပို့စ်များသည် ပြောင်းလဲမှုမှတ်တမ်း ထည့်သွင်းမှုများ ဖြစ်လာပြီး၊ မဲပေးသူတိုင်းသည် ၎င်းတို့၏ကိုယ်ပိုင်စာရင်းတွင် ရလဒ်ကို မြင်ရပါသည်။',
+  'landing.step3Title': 'ပို့ဆောင်ပါ',
   'landing.topSubtitle': 'ဤဘုတ်မှ တိုက်ရိုက် — သင့်မဲထည့်ရန် ဝင်ရောက်ပါ။',
   'landing.topTitle': 'အသုံးပြုသူများ ယခု တောင်းဆိုနေသော အရာများ',
   'landing.topViewAll': 'ဘုတ်အားလုံး',
@@ -95,14 +129,25 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'မူလတန်း',
   'layout.signUp': 'ဆိုင်းအပ်',
   'layout.submit': 'တုံ့ပြန်ချက် တင်သွင်းရန်',
+  'login.description': 'စကားဝိုင်း ပြီးဆုံးသွားသည့်နေရာမှ ဆက်ပြောပါ။',
+  'login.heading': 'Nimbus မှာ အကောင့်ဝင်ပါ',
+  'login.noAccount': 'ဒီမှာ အသစ်လား။',
   'login.passwordPlaceholder': 'သင့်စကားဝှက်',
   'login.twoFactorLabel': '2FA ကုဒ် (ရွေးချယ်ပိုင်ခွင့်)',
   'login.twoFactorPlaceholder': 'ဂဏန်း ၆ လုံး ကုဒ်',
+  'login.twoFactorRequiredHint':
+    'ဤအကောင့်တွင် နှစ်ဆင့် အတည်ပြုခြင်း ဖွင့်ထားသည်။ ဆက်လက်ရန် သင့် authenticator အက်ပ်မှ ဂဏန်း ၆ လုံးပါ ကုဒ်ကို ထည့်ပါ။',
   'login.twoFactorRequiredLabel': 'သင့် 2FA ကုဒ်ကို ထည့်ပါ',
+  'myActivity.browseCta': 'ဘုတ်များကို ကြည့်ရှုပါ',
+  'myActivity.emptyPosts': 'သင်သည် တောင်းဆိုချက်တစ်ခုကို မတင်ရသေးပါ။',
+  'myActivity.emptyVotes': 'ဘာမှမရှိသေးပါ — ဘုတ်များကို လှည့်ကြည့်ပြီး စိတ်ကူးတစ်ခုကို ထောက်ခံပါ။',
   'myActivity.eyebrow': 'သင့်လှုပ်ရှားမှု',
   'myActivity.loadError': 'သင့်လုပ်ဆောင်ချက်ကို တင်၍မရပါ။',
   'myActivity.postsTitle': 'သင်တင်သွင်းခဲ့သော တောင်းဆိုချက်များ',
+  'myActivity.shippedNote':
+    '၎င်းတို့ထဲမှ {{count}} ခု ပို့ဆောင်ပြီးပါပြီ — သတိပေးမှုအတွက် ကျေးဇူးတင်ပါသည်။',
   'myActivity.submitCta': 'တောင်းဆိုချက် တင်ပါ',
+  'myActivity.tabLabel': 'ကြည့်ရန်',
   'myActivity.tabPosts': 'ကျွန်ုပ်၏ ပို့စ်များ',
   'myActivity.tabVotes': 'ကျွန်ုပ်၏ မဲများ',
   'myActivity.votesTitle': 'သင်မဲပေးခဲ့သော တောင်းဆိုချက်များ',
@@ -139,8 +184,13 @@ export const ui: UiTranslations = {
   'posts.notFound': 'ပို့စ်ကို ရှာမတွေ့ပါ',
   'postsAdmin.backToDashboard': 'ဒက်ရှ်ဘုတ်',
   'postsAdmin.eyebrow': 'ထုတ်ကုန်အဖွဲ့',
+  'postsAdmin.mergeApplied':
+    'ပေါင်းစည်းပြီးပါပြီ — {{votes}} မဲနှင့် {{comments}} မှတ်ချက် ရွှေ့ပြီးပါပြီ။',
   'postsAdmin.mergeApply': 'ပေါင်းစည်းပြီး မဲများ ရွှေ့ရန်',
   'postsAdmin.mergeChoose': 'ပစ်မှတ် ပို့စ် ရွေးချယ်ပါ…',
+  'postsAdmin.mergeFailed': 'ပေါင်းစည်းခြင်း မအောင်မြင်ပါ။',
+  'postsAdmin.mergeHint':
+    'မဲများ စုစည်းသည် (အသုံးပြုသူတစ်ဦးလျှင် တစ်မဲ)၊ မှတ်ချက်များ ရွှေ့ပြီး၊ ဤပို့စ်တွင် "moved" မှတ်စု ရရှိသည်။',
   'postsAdmin.mergeLabel': 'ထပ်နေသောအရာကို ပေါင်းစည်းရန်',
   'postsAdmin.responseLabel': 'တရားဝင် တုံ့ပြန်ချက်',
   'postsAdmin.responsePlaceholder':
@@ -155,7 +205,13 @@ export const ui: UiTranslations = {
     'တရားဝင် အခြေအနေကို သတ်မှတ်ပါ၊ အများသူငှာ ဖြေကြားပါ၊ roadmap ရာသီကို အညွှန်းတပ်ပါ၊ ပြီးတော့ ထပ်နေသောအရာများကို ပေါင်းစည်းပါ။',
   'postsAdmin.title': 'တုံ့ပြန်ချက် ပို့စ်များ စီမံခန့်ခွဲရန်',
   'postsAdmin.votes': '{{count}} မဲ',
+  'pricing.limits.advancedFeatures': 'အဆင့်မြင့်အင်္ဂါရပ်များ-',
+  'pricing.limits.boards': '{{count}} ဘုတ်များ',
   'pricing.limits.export': 'ဒေတာ တင်ပို့ခြင်း:',
+  'pricing.limits.posts': '{{count}} တုံ့ပြန်ချက် ပို့စ်များ',
+  'pricing.limits.votes': '{{count}} မဲ',
+  'resetPassword.description':
+    'ခိုင်မာတဲ့ တစ်ခုကို ရွေးပါ။ ပြန်လည်သတ်မှတ်ခြင်း အောင်မြင်သည်နှင့် ကျွန်ုပ်တို့ သင့်အား လက်မှတ်ထိုးဝင်ပေးပါမည်။',
   'resetPassword.newPasswordLabel': 'စကားဝှက်အသစ်',
   'resetPassword.tokenPlaceholder': 'လင့်ခ် တိုကင်ကို ကူးထည့်ပါ',
   'roadmap.cardMeta': '{{author}} မှ · {{board}}',
@@ -172,6 +228,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'ထပ်နေသော ပို့စ် မတင်မီ ရှိပြီးသား တောင်းဆိုချက်များကို ရှာရန် မေးခွန်းတစ်ခု ရိုက်ထည့်ပါ။',
   'search.loadError': 'ရှာဖွေမှု မအောင်မြင်ပါ — ထပ်ကြိုးစားပါ။',
+  'search.searching': 'ရှာဖွေနေသည်…',
   'search.submit': 'ရှာဖွေရန်',
   'search.submitNew': 'တောင်းဆိုချက်အသစ်အဖြစ် တင်ပါ',
   'search.title': 'တုံ့ပြန်ချက် ရှာဖွေရန်',
@@ -180,12 +237,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'ငွေတောင်းခံခြင်း',
   'settings.displaySubtitle': 'feed များ မည်မျှ သိပ်သည်းသည်ကို ရွေးချယ်ပါ။',
   'settings.displayTitle': 'ပြသမှု',
+  'settings.emailDigestDesc': 'တနင်္လာနေ့တိုင်း ထိပ်တန်း မဲအများဆုံး open တောင်းဆိုချက်များ။',
+  'settings.emailDigestLabel': 'အပတ်စဉ် အကျဉ်းချုပ်',
+  'settings.emailMentionsDesc': 'သင်လိုက်ကြည့်သော ပို့စ်တစ်ခုကို တစ်စုံတစ်ဦး ပြန်ဖြေသည့်အခါ။',
+  'settings.emailMentionsLabel': 'ဖော်ပြချက်များတွင် ကျွန်ုပ်ကို အီးမေးလ်ပို့ပါ',
+  'settings.emailRepliesDesc': 'သင်စတင်ခဲ့သော သို့မဟုတ် ပြန်ဖြေခဲ့သော စာတွဲများ။',
+  'settings.emailRepliesLabel': 'ပြန်စာများတွင် ကျွန်ုပ်ထံ အီးမေးလ်ပို့ပါ',
   'settings.loadError': 'သင့်အကောင့်ကို ဖွင့်၍မရပါ။',
   'settings.loading': 'သင့်ဆက်တင်များကို ဖွင့်နေသည်…',
   'settings.notifications': 'အသိပေးချက်များ',
   'settings.notificationsSubtitle':
     'သင့် inbox နှင့် သင့် push ကိရိယာသို့ မည်သည်တို့ ရောက်မည်ကို ဆုံးဖြတ်ပါ။',
+  'settings.pushRepliesLabel': 'ပြန်ကြားချက်များအတွက် Push',
+  'settings.pushVotesDesc': '100၊ 500၊ 1000 တွင် သတိပေးချက် အချက်ပြ။',
+  'settings.pushVotesLabel': 'upvote မှတ်တိုင်များအတွက် တွန်းအားပေးပါ',
   'settings.saveAccount': 'အကောင့် သိမ်းဆည်းရန်',
+  'settings.showFlair': 'ပို့စ်များတွင် ဘုတ် ချစ်ပ်များ ပြပါ',
+  'settings.showThumbnails': 'လင့်ခ်/ပုံ သင်္ကေတငယ်များ ပြပါ',
   'settings.usernamePlaceholder': 'အမည်တစ်ခု ရွေးပါ',
   'signup.confirmPlaceholder': 'ထပ်မံ ရိုက်ထည့်ပါ',
   'signup.description': 'ကျွန်ုပ်တို့ နောက်ထပ် တည်ဆောက်မည့်အရာကို ပုံသွင်းပါ။',

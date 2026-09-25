@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Iritzia duzu, akats bat aurkitu duzu, edo zeure taula bat nahi duzu {{appName}}-(e)n? Ireki Ezarpenak taldearekin harremanetan jartzeko — mezu bakoitza irakurtzen duen benetako pertsona batengana iristen da.',
+  'about.contactTitle': 'Hitz egin gurekin',
+  'about.featureModeration':
+    'Bide-orri publikoa hiruhileko etiketekin, bidalitako lana oharpen bihurtzen duen aldaketen erregistroa, eta jendeak gehien nahi duena erakusten duen panela.',
+  'about.featurePricing':
+    'Doan erabil ditzakezu pare bat taula; Pro eta Team planek taula gehiago, muga handiagoak eta datuen esportazioa gaitzen dituzte.',
+  'about.featureThreads':
+    'Gaiaren arabera antolatutako iritzi-taulak, bikoiztutakoak batuz botoak eskari-seinale zintzo bakarrean biltzen dituena.',
+  'about.featureVoting':
+    'Erabiltzaileko boto bakarra, egoera-fluxu osoarekin — irekia, planifikatua, abian, bidalia edo baztertua — eta erabaki bakoitzaren erantzun ofiziala.',
+  'about.intro':
+    '{{appName}} produktuen iritzi-plataforma bat da — taula publikoak, non bezeroek eskaerak argitaratzen dituzten, behar dutenaren alde bozkatzen duten eta ideia bakoitza planifikatutik bidalira arte jarraitzen duten. Taldeek ez dute asmatu beharrik zer egin hurrengoan, eskaria bera sailkatzen baita.',
+  'about.missionBody':
+    'Uste dugu produktu-erabakirik onenak argitan hartzen direla. {{appName}}-ek taula publiko bat ematen dio talde bakoitzari bozkatutako eskaerekin, bide-orri ofizial bat hiruhileko helburuekin, eta zikloa ixten duen aldaketen erregistro bat — bezeroek beren eragina ikus dezaten eta taldeek beren agindua.',
+  'about.missionTitle': 'Gure misioa',
   'admin.backToBoards': 'Itzuli tauletara',
   'admin.denied': 'Administratzaileentzat soilik.',
   'admin.eyebrow': 'Produktu taldea',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'admin.title': 'Feedback panela',
   'admin.topOpen': 'Irekitako eskaera nagusiak',
   'admin.totalVotes': '{{count}} guztira',
+  'admin.votesChartLabel': 'Azken zortzi asteetan asteko emandako botoen barra-diagrama',
   'admin.votesOverTime': 'Botoak denboraren poderioz',
   'auth.forgotPassword.email': 'Helbide elektronikoa',
   'auth.forgotPassword.sendResetLink': 'Bidali berrezartzeko esteka',
@@ -30,7 +47,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Sortu zure kontua',
   'auth.username': 'Erabiltzaile-izena',
   'authShell.communities': 'Komunitateak',
+  'authShell.copyright': '{{appName}} — ahots bakoitzak balio du.',
   'authShell.trending': 'Joera',
+  'boardCard.postCount': '{{count}} mezu',
   'boardDetail.allBoards': 'Taula guztiak',
   'boardDetail.backToBoards': 'Itzuli tauletara',
   'boardDetail.empty': 'Ez dago oraindik iragazki hauei dagokien bidalketa.',
@@ -54,6 +73,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Sarrera bakoitza botoetutako eskaera bat zen. Botatzaileek mugimendua ikusi zuten; hemen dago non amaitu.',
   'changelog.title': 'Bidalita, frogagiriekin',
+  'changelog.voteCount': '{{count}} botok eraiki zuten hau',
   'common.atLeast8Characters': 'Gutxienez 8 karaktere',
   'common.checkYourInbox': 'Begiratu zure sarrera-ontzia',
   'common.loadingEllipsis': 'Kargatzen…',
@@ -64,6 +84,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Bidaltzen…',
   'footer.about': '{{appName}}(r)i buruz',
   'footer.language': 'Hizkuntza',
+  'forgotPassword.description':
+    'Sartu zure helbide elektronikoa eta berrezartzeko esteka bat bidaliko dizugu.',
+  'forgotPassword.successBody':
+    'Berrezartzeko esteka bat bidali diogu honera: {{email}} 30 minutu barru iraungitzen da.',
   'forgotPassword.tryAnother': 'Probatu beste helbide elektroniko bat',
   'form.displayName': 'Bistaratzeko izena',
   'form.firstName': 'Izena',
@@ -74,6 +98,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'Zure bide-orria, botuen babespean.',
   'landing.heroCtaPrimary': 'Hasi botuak biltzen',
   'landing.heroCtaSecondary': 'Ikusi taula zuzenean',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Utzi asmatzeari. Bidal ezazu haien alde bozkatzen dutena.',
+  'landing.heroLede':
+    '{{appName}}-ek sakabanatutako funtzio-eskaerak ideia bozkatuen taula publiko batean, bide-orri ofizial batean eta zure bezeroek benetan irakurtzen duten aldaketen erregistro batean bihurtzen ditu.',
   'landing.heroStat1': '3.200+',
   'landing.heroStat1Label': 'Talde entzuten',
   'landing.heroStat2': '1,4m',
@@ -85,9 +113,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Aldaketen erregistroa',
   'landing.navJoin': 'Sartu {{appName}}(e)n',
   'landing.navRoadmap': 'Bide-orria',
+  'landing.step1Body':
+    'Bezeroek ideiak argitaratzen dituzte taula publikoetan. Bikoiztutakoak batu, botoak bildu eta eskaria bera sailkatzen da.',
   'landing.step1Title': 'Bildu',
+  'landing.step2Body':
+    'Markatu eskaerak planifikatu edo abian hiruhileko helburu batekin — bide-orria zuk egiten duzun unean eguneratzen da.',
+  'landing.step2Title': 'Konprometitu',
   'landing.step3Body':
     'Bidalitako argitalpenak aldaketen erregistroko sarrera bihurtzen dira, eta botatzaile guztiek emaitza ikusten dute beren zerrendan.',
+  'landing.step3Title': 'Bidalia',
   'landing.topSubtitle': 'Taula honetatik zuzenean — hasi saioa zure botua gehitzeko.',
   'landing.topTitle': 'Erabiltzaileek orain eskatzen ari direna',
   'landing.topViewAll': 'Taula guztiak',
@@ -95,14 +129,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Lehen mailakoa',
   'layout.signUp': 'Izena eman',
   'layout.submit': 'Bidali feedback-a',
+  'login.description': 'Elkarrizketa amaitu zen tokitik jarraitu.',
+  'login.heading': 'Hasi saioa Nimbus-en',
+  'login.noAccount': 'Berria hemen?',
   'login.passwordPlaceholder': 'Zure pasahitza',
   'login.twoFactorLabel': '2FA kodea (aukerakoa)',
   'login.twoFactorPlaceholder': '6 digituko kodea',
+  'login.twoFactorRequiredHint':
+    'Kontu honek bi faktoreko autentifikazioa du gaituta. Sartu autentifikazio-aplikazioko 6 digituko kodea jarraitzeko.',
   'login.twoFactorRequiredLabel': 'Sartu zure 2FA kodea',
+  'myActivity.browseCta': 'Arakatu taulak',
+  'myActivity.emptyPosts': 'Oraindik ez duzu eskaerarik argitaratu.',
+  'myActivity.emptyVotes': 'Oraindik ezer ez — arakatu taulak eta babestu ideia bat.',
   'myActivity.eyebrow': 'Zure jarduera',
   'myActivity.loadError': 'Ezin izan da zure jarduera kargatu.',
   'myActivity.postsTitle': 'Bidalitako eskaerak',
+  'myActivity.shippedNote': 'Horietako {{count}} bidali dira — eskerrik asko bultzadagatik.',
   'myActivity.submitCta': 'Argitaratu eskaera',
+  'myActivity.tabLabel': 'Ikusi',
   'myActivity.tabPosts': 'Nire bidalketak',
   'myActivity.tabVotes': 'Nire botuak',
   'myActivity.votesTitle': 'Botoetutako eskaerak',
@@ -137,8 +181,12 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Ez da bidalketa aurkitu',
   'postsAdmin.backToDashboard': 'Aginte-panela',
   'postsAdmin.eyebrow': 'Produktu taldea',
+  'postsAdmin.mergeApplied': 'Batu da — {{votes}} boto eta {{comments}} iruzkin mugitu dira.',
   'postsAdmin.mergeApply': 'Batu eta mugitu botuak',
   'postsAdmin.mergeChoose': 'Aukeratu helburu-bidalketa…',
+  'postsAdmin.mergeFailed': 'Bateratzeak huts egin du.',
+  'postsAdmin.mergeHint':
+    'Botoak bildu (erabiltzaileko bat), iruzkinak mugitu, eta mezu honek "mugitua" oharra jasoko du.',
   'postsAdmin.mergeLabel': 'Batu bikoiztua hemen',
   'postsAdmin.responseLabel': 'Erantzun ofiziala',
   'postsAdmin.responsePlaceholder':
@@ -153,7 +201,13 @@ export const ui: UiTranslations = {
     'Ezarri egoera ofiziala, erantzun publikoki, jarri etiketa bide-orriaren hiruhilekoan, eta batu bikoiztuak.',
   'postsAdmin.title': 'Kudeatu feedback bidalketak',
   'postsAdmin.votes': '{{count}} botu',
+  'pricing.limits.advancedFeatures': 'Ezaugarri aurreratuak:',
+  'pricing.limits.boards': '{{count}} oholak',
   'pricing.limits.export': 'Datuen esportazioa:',
+  'pricing.limits.posts': '{{count}} iritzi-mezu',
+  'pricing.limits.votes': '{{count}} botu',
+  'resetPassword.description':
+    'Aukeratu sendo bat. Berrezarpena behar bezala amaitutakoan saioa hasiko dugu.',
   'resetPassword.newPasswordLabel': 'Pasahitz berria',
   'resetPassword.tokenPlaceholder': 'Itsatsi estekaren tokena',
   'roadmap.cardMeta': '{{author}}(e)k · {{board}}',
@@ -170,6 +224,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'Idatzi kontsulta bat lehendik dauden eskaerak aurkitzeko bidalketa bikoiztu bat argitaratu aurretik.',
   'search.loadError': 'Bilaketak huts egin du — saiatu berriro.',
+  'search.searching': 'Bilatzen…',
   'search.submit': 'Bilatu',
   'search.submitNew': 'Argitaratu eskaera berri gisa',
   'search.title': 'Bilatu feedback-a',
@@ -179,12 +234,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'Fakturak',
   'settings.displaySubtitle': 'Aukeratu jario-en dentsitatea.',
   'settings.displayTitle': 'Bistaratzea',
+  'settings.emailDigestDesc': 'Astelehenero boto gehien dituzten eskaera irekiak.',
+  'settings.emailDigestLabel': 'Asteko laburpena',
+  'settings.emailMentionsDesc': 'Jarraitzen duzun mezu bati norbaitek erantzuten dionean.',
+  'settings.emailMentionsLabel': 'Bidali mezu elektronikoa aipamenetan',
+  'settings.emailRepliesDesc': 'Hasi edo erantzun dituzun hariak.',
+  'settings.emailRepliesLabel': 'Bidali mezu elektroniko bat erantzunak direnean.',
   'settings.loadError': 'Ezin izan da zure kontua kargatu.',
   'settings.loading': 'Zure ezarpenak kargatzen…',
   'settings.notifications': 'Jakinarazpenak',
   'settings.notificationsSubtitle':
     'Erabaki zer iristen den zure sarrera-ontzira eta zer push gailura.',
+  'settings.pushRepliesLabel': 'Bidali jakinarazpena erantzunetarako',
+  'settings.pushVotesDesc': 'Mugako abisua 100, 500, 1000ean.',
+  'settings.pushVotesLabel': 'Bultzatu aldeko botoen mugarriak lortzeko',
   'settings.saveAccount': 'Gorde kontua',
+  'settings.showFlair': 'Erakutsi taulen txipak mezutan',
+  'settings.showThumbnails': 'Erakutsi esteka/irudiaren miniaturak',
   'settings.usernamePlaceholder': 'Aukeratu erabiltzaile-izen bat',
   'signup.confirmPlaceholder': 'Idatzi berriro',
   'signup.description': 'Moldatu hurrengo eraikitzen duguna.',

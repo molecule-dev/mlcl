@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Ynglŷn â',
+  'about.featureAlerts':
+    "Rhybuddion pris ar yr amodau sy'n bwysig, wedi'u danfon drwy e-bost a hysbysiadau fel na fyddwch byth yn colli symudiad.",
+  'about.featureMarkets':
+    "Data marchnad byw a siartiau pris ar draws miloedd o ddarnau arian, wedi'u rhestru yn ôl cyfalaf marchnad, cyfaint, a momentwm.",
+  'about.featurePortfolio':
+    "Olrhain portffolio gydag elw a cholled go iawn, sail gost, a dyrannu — wedi'i gysylltu â'ch hanes trafodion.",
+  'about.featureWatchlist':
+    "Rhestr wylio bersonol a newyddion crypto wedi'u curadu gyda signalau ar yr asedau rydych yn eu dilyn.",
+  'about.missionTitle': 'Ein cenhadaeth',
+  'alertConditionCard.armedSince': 'Arfog ers {{when}}',
   'alertConditionCard.condition.${alert.condition}': "Wedi'i sbarduno {{pryd}}",
   'alertConditionCard.confirmDelete': 'Cadarnhau dileu',
+  'alertConditionCard.deleteAriaLabel': 'Dileu rhybudd',
   'alertConditionCard.pauseAriaLabel': 'Rhybudd oedi',
   'alertConditionCard.resumeAriaLabel': 'Rhybudd ailddechrau',
+  'alertConditionCard.triggeredAt': "Wedi'i sbarduno {{when}}",
   'alertNew.condition': 'Cyflwr',
   'alertNew.createCta': 'Creu rhybudd',
   'alertNew.error': 'Methwyd creu rhybudd.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Dim rhybuddion eto.',
   'alerts.eyebrow': 'Gwifrau baglu Bourse',
   'alerts.loadError': 'Methwyd llwytho rhybuddion.',
+  'alerts.newCta': '+ Tripwire newydd',
   'alerts.subheading': "Cael eich pingio pan fydd pris, newid, neu gyfaint yn croesi'ch llinell.",
   'alerts.summary.armed': 'Arfog',
   'alerts.summary.triggered': "Wedi'i sbarduno",
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Uchaf erioed',
   'coinDetail.allTimeLow': 'Isafbwynt erioed',
   'coinDetail.back': 'Pob marchnad',
+  'coinDetail.chartAriaLabel': 'Siart pris {{name}}, y 30 diwrnod diwethaf',
   'coinDetail.chartHeading': 'Pris · 30 diwrnod diwethaf',
   'coinDetail.circulating': 'Cyflenwad cylchredeg',
   'coinDetail.fdv': "Gwerthusiad wedi'i wanhau'n llawn",
@@ -59,6 +74,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': "Ailosod y ddolen wedi'i gwifrau.",
   'login.eyebrow': "Camwch i mewn i'r derfynfa",
   'login.heading': 'Croeso nôl, signalwr.',
+  'login.noAccountQuestion': 'Newydd i Tessera?',
   'login.secureNote': "🔒 Wedi'i amgryptio wrth ei gludo",
   'login.signingInCta': 'Yn darllen y tâp…',
   'login.signupLink': 'Agor cyfrif →',
@@ -94,6 +110,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     "Nid yw'r llwybr a sganiwyd gennych yn datrys i ddarn arian neu dudalen hysbys. Ailwiriwch y symbol a cheisiwch eto.",
   'notFound.browseMarkets': 'Pori marchnadoedd',
+  'notFound.eyebrow': "Signal {{appName}} wedi'i golli",
+  'notFound.heading': "Mae'r signal hwn y tu allan i'r ystod",
+  'planUpdated.body':
+    "Mae eich newid bilio bellach yn weithredol. Gallwch reoli eich cynllun ar unrhyw adeg o'r dudalen filio.",
+  'planUpdated.retry': 'Rhowch gynnig arall arni',
+  'planUpdated.verifyFailed': 'Ni allem gadarnhau eich taliad eto.',
+  'planUpdated.verifyFailedBody':
+    "Mae'n bosibl bod eich taliad yn dal i gael ei brosesu. Rhowch gynnig arall arni ymhen eiliad.",
   'planUpdated.verifying': 'Cadarnhau eich taliad…',
   'portfolio.addError': "Nodwch y symbol, y swm positif, a'r gost.",
   'portfolio.addHoldingCta': '+ Ychwanegu daliad',
@@ -117,12 +141,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Cyfanswm gwerth y portffolio',
   'portfolioHeroCard.totalPnl': 'Cyfanswm yr Elw/Cyllid',
   'pricing.heading': 'rhybuddion',
+  'pricing.limit.alerts': 'rhybuddion',
   'pricing.limit.coins': 'darnau arian',
   'pricing.limit.market': 'marchnad',
   'pricing.limit.portfolio': 'portffolio',
   'resetPassword.eyebrow': 'Seiffr newydd',
   'resetPassword.missingToken':
     "Mae'r ddolen ailosod hon ar goll neu'n annilys. Gofynnwch am un newydd.",
+  'resetPassword.passwordPlaceholder': 'Cyfrinair newydd',
   'resetPassword.subheading': 'Dewiswch rywbeth dim ond chi all ei ddadgodio.',
   'settings.apiKeys.body':
     'Allweddi darllen yn unig i fewnforio hanes trafodion. Cysylltwch drwy OAuth o /pricing ar ôl tanysgrifio.',
@@ -134,18 +160,33 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Arian cyfred dyfynnu',
   'settings.preferences.locale': 'Lleoliad',
   'settings.preferences.push': 'Gwthio',
+  'settings.preferences.refresh': 'Adnewyddu pris (eiliadau)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning':
+    'Bydd mynediad y ddyfais hon yn cael ei ddirwyn yn fuan. Ei allgofnodi?',
   'settings.security.body':
     'Mae cyfrinair a gosodiadau dau ffactor yn cael eu rheoli gan eich cyfrif.',
   'settings.signOutDevice': 'Allgofnodi',
   'settings.twoFactorCode': 'Cod dilysu',
   'settings.twoFactorDisable': 'Analluogi',
+  'settings.twoFactorDisableTitle': 'Analluogi dilysu dau ffactor',
   'settings.twoFactorEnable': 'Galluogi',
+  'settings.twoFactorEnableTitle': 'Galluogi dilysu dau ffactor',
   'settings.twoFactorInvalidCode': 'Cod annilys',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Cod QR dau ffactor',
+  'settings.twoFactorScan': "Sganiwch y cod QR hwn gyda'ch ap dilysu, yna rhowch y cod 6 digid.",
+  'settings.twoFactorUnavailable': 'Nid yw dilysu dau ffactor ar gael ar gyfer yr ap hwn.',
   'settings.twoFactorVerify': 'Dilysu a galluogi',
   'sigilAuthShell.backHomeCta': '← Yn ôl i Bourse',
+  'sigilAuthShell.brandBody':
+    "Prisiau amser real, elw/colled portffolio, a gwarchodfeydd sefydlog ar yr amodau sy'n bwysig — i gyd ar un derfynell.",
+  'sigilAuthShell.brandFooter': "© {{year}} {{appName}} — wedi'i adeiladu ar Molecule",
+  'sigilAuthShell.brandHeadline': 'Datgodiwch bob signal ar draws y llyfr cyfan.',
+  'sigilAuthShell.samplePortfolio': 'Portffolio enghreifftiol',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Prif lywio',
+  'signup.creating': 'Yn agor eich terfynell…',
   'signup.eyebrow': 'Agor terfynell',
   'signup.heading': 'Creu eich Bourse',
   'signup.subheading': 'Traciwch bob darn arian, osgoi pob methiant. Am ddim i ddechrau.',
@@ -162,6 +203,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Methwyd llwytho trafodion.',
   'watchlist.addCta': 'Pori marchnadoedd',
   'watchlist.col.change24h': '24 awr',
+  'watchlist.col.coin': 'Darn arian',
   'watchlist.col.marketCap': 'Cap marchnad',
   'watchlist.empty':
     "Dim darnau arian ar eich rhestr wylio — serenwch ddarnau arian o /marchnadoedd i'w hychwanegu.",

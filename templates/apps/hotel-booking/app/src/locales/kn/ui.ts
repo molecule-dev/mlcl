@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ಬುಕಿಂಗ್, ಪ್ರತಿಕ್ರಿಯೆ ಅಥವಾ {{app}} ನಲ್ಲಿ ಇರಬೇಕೆಂದು ನೀವು ಭಾವಿಸುವ ಆಸ್ತಿಯ ಬಗ್ಗೆ ಪ್ರಶ್ನೆಗಳಿವೆಯೇ? ನಿಮ್ಮ ಖಾತೆಯಿಂದ ನಮ್ಮ ತಂಡವನ್ನು ಸಂಪರ್ಕಿಸಿ — ಪ್ರತಿ ಸಂದೇಶವೂ ಸಹಾಯ ಮಾಡಬಲ್ಲ ನಿಜವಾದ ವ್ಯಕ್ತಿಯನ್ನು ತಲುಪುತ್ತದೆ.',
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.featureLoyalty':
+    'ಸದಸ್ಯರಿಗೆ ಮಾತ್ರ ದರಗಳು ಮತ್ತು ಪ್ರತಿ ಬುಕಿಂಗ್ನಲ್ಲೂ ಅಂಕಗಳು, ತಡವಾದ ಚೆಕ್-ಔಟ್ಗಳು ಮತ್ತು ಕೊಠಡಿ ಅಪ್ಗ್ರೇಡ್ಗಳನ್ನು ಗಳಿಸುವ ಲಾಯಲ್ಟಿ ಕಾರ್ಯಕ್ರಮ.',
+  'about.featureReviews':
+    'ಪರಿಶೀಲಿಸಿದ ಅತಿಥಿ ವಿಮರ್ಶೆಗಳು ಮತ್ತು ಸಂಪಾದಕೀಯ ಆಯ್ಕೆಗಳು — ನೀವು ಬರುವ ಮೊದಲೇ ವಾಸ್ತವ್ಯವನ್ನು ನಂಬಲು.',
+  'about.featureRooms':
+    'ಅಕ್ಕಪಕ್ಕದ ಕೊಠಡಿಗಳು, ದರಗಳು ಮತ್ತು ಸೌಲಭ್ಯಗಳು ಪಾರದರ್ಶಕ, ಸರ್ವಸಮೇತ ಬೆಲೆಯೊಂದಿಗೆ — ನೀವು ಪಾವತಿಸುವ ಮೊದಲೇ ತೆರಿಗೆಗಳು ಮತ್ತು ರಿಸಾರ್ಟ್ ಶುಲ್ಕಗಳು ಸೇರಿವೆ.',
+  'about.featureSearch':
+    'ಪರಿಶೀಲಿಸಿದ ಹೋಟೆಲ್ಗಳಾದ್ಯಂತ ನೈಜ-ಸಮಯದ ಹುಡುಕಾಟ, ಲೈವ್ ಲಭ್ಯತೆ, ನಕ್ಷೆ ನೋಟ ಮತ್ತು ಶ್ರೀಮಂತ ಫೋಟೋ ಗ್ಯಾಲರಿಗಳೊಂದಿಗೆ.',
+  'about.featureTrips':
+    'ಉಳಿಸಿದ ಮೆಚ್ಚಿನವುಗಳು ಮತ್ತು ಪ್ರತಿ ಕಾಯ್ದಿರಿಸುವಿಕೆ, ಪ್ರಯಾಣ ಯೋಜನೆ ಮತ್ತು ದೃಢೀಕರಣವನ್ನು ಒಂದೇ ಕಡೆ ಇಡುವ Trips ಡ್ಯಾಶ್ಬೋರ್ಡ್.',
+  'about.intro':
+    '{{app}} ಗುಣಮಟ್ಟವನ್ನು ಗಂಭೀರವಾಗಿ ಪರಿಗಣಿಸುವ ಪ್ರಯಾಣಿಕರಿಗಾಗಿ ಹೋಟೆಲ್-ಬುಕಿಂಗ್ ವೇದಿಕೆ. ಪ್ರತಿ ಆಸ್ತಿಯನ್ನೂ ನಮ್ಮ ಸಂಪಾದಕೀಯ ತಂಡ ವೈಯಕ್ತಿಕವಾಗಿ ಪರಿಶೀಲಿಸುತ್ತದೆ — ಯಾವುದೇ ಅಗ್ರಿಗೇಟರ್ ದಾಸ್ತಾನು ಇಲ್ಲ, ಯಾವುದೇ ಮೋಸದ ಪಟ್ಟಿಗಳಿಲ್ಲ. ನೈಜ ಲಭ್ಯತೆಯನ್ನು ಹುಡುಕಿ, ಕೊಠಡಿಗಳು, ದರಗಳು ಮತ್ತು ಸೌಲಭ್ಯಗಳನ್ನು ಅಕ್ಕಪಕ್ಕದಲ್ಲಿ ಹೋಲಿಸಿ, ನಂತರ ಸ್ಪಷ್ಟ, ಸರ್ವಸಮೇತ ಬೆಲೆಯೊಂದಿಗೆ ಕೆಲವೇ ಟ್ಯಾಪ್ಗಳಲ್ಲಿ ಬುಕ್ ಮಾಡಿ.',
+  'about.missionBody':
+    'ವಾಸ್ತವ್ಯಕ್ಕೆ ಸ್ಥಳವನ್ನು ಬುಕ್ ಮಾಡುವುದು ಶಾಂತ ಮತ್ತು ಪ್ರಾಮಾಣಿಕವಾಗಿರಬೇಕು. ನಾವು ತೆರಿಗೆಗಳು ಮತ್ತು ರಿಸಾರ್ಟ್ ಶುಲ್ಕಗಳನ್ನು ಮುಂಚಿತವಾಗಿ ತೋರಿಸುವ ಪಾರದರ್ಶಕ ದರಗಳನ್ನು ನೀಡುತ್ತೇವೆ, ನಿಷ್ಠಾವಂತ ಅತಿಥಿಗಳನ್ನು ಸಣ್ಣಪುಟ್ಟ ಶುಲ್ಕಗಳಿಂದ ಕಿರಿಕಿರಿಗೊಳಿಸುವ ಬದಲು ಬಹುಮಾನ ನೀಡುತ್ತೇವೆ ಮತ್ತು ನಿಮ್ಮ ಹಣಕ್ಕೆ ಯೋಗ್ಯವಾದ ವಾಸ್ತವ್ಯಗಳನ್ನು ಮೊದಲಿಗೆ ಇಡುತ್ತೇವೆ — ಹೀಗಾಗಿ ನೀವು ಟ್ಯಾಬ್ಗಳನ್ನು ಹೋಲಿಸುವುದಕ್ಕಿಂತ ಕಡಿಮೆ ಸಮಯ ಮತ್ತು ಪ್ರಯಾಣಕ್ಕೇ ಹೆಚ್ಚು ಸಮಯ ಕಳೆಯಬಹುದು.',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
+  'about.subtitle': 'ಸರಿಯಾದ ಹೋಟೆಲ್ ಅನ್ನು ಹುಡುಕಲು ಮತ್ತು ಬುಕ್ ಮಾಡಲು ಒಂದು ಸಂಗ್ರಹಿತ, ಪಾರದರ್ಶಕ ಮಾರ್ಗ.',
   'account.loyalty.activitySummary': '{{nights}} ರಾತ್ರಿಗಳು · {{spend}} ಈ ವರ್ಷ ಕಳೆದದ್ದು',
+  'account.loyalty.benefitsHeading': 'ನಿಮ್ಮ ಪ್ರಯೋಜನಗಳು',
   'account.loyalty.heading': 'ನಿಷ್ಠೆ',
   'account.loyalty.loading': 'ಲಾಯಲ್ಟಿ ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
-  'account.loyalty.pointsTowardNext': '{{ಅಂಕಗಳು}} / {{ಮುಂದಿನದು}} ಸೂಚಿಸುತ್ತದೆ {{ಮುಂದಿನ ಹಂತ}}',
+  'account.loyalty.maxTier': 'ಅತ್ಯುನ್ನತ ಶ್ರೇಣಿ — ನಿಮ್ಮ ಪ್ರಯೋಜನಗಳನ್ನು ಆನಂದಿಸಿ.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} ಅಂಕಗಳು {{nextTier}} ಗೆ',
   'account.loyalty.tier': 'ಪ್ರಸ್ತುತ ಶ್ರೇಣಿ',
   'account.loyalty.unavailable': 'ಲಾಯಲ್ಟಿ ಮಾಹಿತಿ ಲಭ್ಯವಿಲ್ಲ.',
   'account.navLabel': 'ಖಾತೆ ವಿಭಾಗಗಳು',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'ಬುಕಿಂಗ್ ದೃಢೀಕರಿಸಿ · {{total}}',
   'bookingCheckout.datesRequired': 'ದಯವಿಟ್ಟು ನಿಮ್ಮ ಚೆಕ್-ಇನ್ ಮತ್ತು ಚೆಕ್-ಔಟ್ ದಿನಾಂಕಗಳನ್ನು ಆರಿಸಿ.',
   'bookingCheckout.guestHeading': 'ಮುಖ್ಯ ಅತಿಥಿ',
+  'bookingCheckout.heading': 'ದೃಢೀಕರಿಸಿ ಮತ್ತು ಬುಕ್ ಮಾಡಿ',
   'bookingCheckout.loadError': 'ಆಸ್ತಿಯನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'bookingCheckout.nights': '{{rate}} × {{count}} ರಾತ್ರಿಗಳು',
   'bookingCheckout.notFound': 'ಆಸ್ತಿ ಕಂಡುಬಂದಿಲ್ಲ.',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'ತೆರಿಗೆಗಳು ಮತ್ತು ಶುಲ್ಕಗಳು',
   'bookingCheckout.tripHeading': 'ನಿಮ್ಮ ಪ್ರವಾಸ',
   'bookingConfirmation.allTripsCta': 'ಎಲ್ಲಾ ಪ್ರವಾಸಗಳು',
+  'bookingConfirmation.confNumber': 'ದೃಢೀಕರಣ ಸಂಖ್ಯೆ: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'ನಿಮ್ಮ ಕಾಯ್ದಿರಿಸುವಿಕೆಯನ್ನು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲಾಗುತ್ತಿದೆ.',
   'bookingConfirmation.heading': 'ಬುಕಿಂಗ್ ದೃಢೀಕರಿಸಲಾಗಿದೆ',
   'bookingConfirmation.loading': 'ನಿಮ್ಮ ಕಾಯ್ದಿರಿಸುವಿಕೆಯನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'bookingConfirmation.searchMoreCta': 'ಇನ್ನಷ್ಟು ವಾಸ್ತವ್ಯಗಳನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ',
   'bookingConfirmation.subheadingForTrip':
-    '{{ಆಸ್ತಿ}} ಒಳಗೆ {{ನಗರ}} , {{ದೇಶ}} . ನಿಮ್ಮನ್ನು ಇಲ್ಲಿ ಭೇಟಿಯಾಗೋಣ {{ಚೆಕ್ಇನ್}} .',
+    '{{city}} ನಲ್ಲಿ {{property}}, {{country}}. {{checkIn}} ರಂದು ನಿಮ್ಮನ್ನು ನೋಡುತ್ತೇವೆ.',
   'bookingConfirmation.total': 'ಒಟ್ಟು {{total}}',
   'bookingConfirmation.viewTripCta': 'ಪ್ರವಾಸ ವೀಕ್ಷಿಸಿ',
   'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'ಮೆಚ್ಚಿನವುಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
   'favorites.pricePerNight': '{{price}} / ರಾತ್ರಿ',
   'favorites.removeCta': 'ಉಳಿಸಬೇಡಿ',
+  'favorites.removing': 'ತೆಗೆದುಹಾಕಲಾಗುತ್ತಿದೆ...',
   'forgotPassword.subheading':
     'ನಿಮ್ಮ ಖಾತೆಯಲ್ಲಿ ಇಮೇಲ್ ಅನ್ನು ನಮೂದಿಸಿ, ನಾವು ನಿಮಗೆ ಸುರಕ್ಷಿತ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಕಳುಹಿಸುತ್ತೇವೆ.',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'ತಾತ್ಕಾಲಿಕ ಸದಸ್ಯರು',
   'landing.cta.heading': 'ಸದಸ್ಯರಿಗೆ-ಮಾತ್ರ ದರಗಳು. ಪ್ರತಿ ಬುಕಿಂಗ್, ಪ್ರತಿ ಬಾರಿ.',
   'landing.cta.signup': 'ಉಚಿತ ಖಾತೆಯನ್ನು ರಚಿಸಿ',
+  'landing.cta.subheading':
+    'ಪ್ರತಿ ವಾಸ್ತವ್ಯದಲ್ಲೂ ಲಾಯಲ್ಟಿ ಅಂಕಗಳನ್ನು ಗಳಿಸಿ, ತಡವಾದ ಚೆಕ್-ಔಟ್ಗಳು ಮತ್ತು ಕೊಠಡಿ ಅಪ್ಗ್ರೇಡ್ಗಳನ್ನು ಅನ್ಲಾಕ್ ಮಾಡಿ, ಮತ್ತು ಹೊಸ ಆಸ್ತಿಗಳು ಸಾರ್ವಜನಿಕವಾಗಿ ಪಟ್ಟಿಯಾಗುವ ಮೊದಲೇ ಅವುಗಳಿಗೆ ಮೊದಲ ಪ್ರವೇಶ ಪಡೆಯಿರಿ.',
   'landing.destinations.eyebrow': 'ಮುಂದೆ ಎಲ್ಲಿಗೆ ಹೋಗಬೇಕು',
   'landing.destinations.heading': 'ವೈಶಿಷ್ಟ್ಯಗೊಳಿಸಿದ ಗಮ್ಯಸ್ಥಾನಗಳು',
   'landing.destinations.seeAll': 'ಎಲ್ಲಾ ಗಮ್ಯಸ್ಥಾನಗಳನ್ನು ನೋಡಿ',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'ಪ್ಯಾಕ್ ಮಾಡಲು ಯೋಗ್ಯವಾದ ಕಥೆಗಳು',
   'landing.nav.join': 'ಸೋಜರ್ನ್‌ಗೆ ಸೇರಿ',
   'landing.nav.search': 'ಹುಡುಕಾಟದ ವಾಸ್ತವ್ಯಗಳು',
+  'landing.preview.browseAll': 'ಪೂರ್ಣ ಸಂಗ್ರಹವನ್ನು ಬ್ರೌಸ್ ಮಾಡಿ',
   'landing.preview.eyebrow': 'ಒಳಗೆ ಒಂದು ಇಣುಕು ನೋಟ',
   'landing.preview.heading': 'ಈ ತಿಂಗಳು ಆಯ್ಕೆ ಮಾಡಿದ ವಾಸ್ತವ್ಯಗಳು',
+  'landing.preview.subheading':
+    '{{appName}} ನಲ್ಲಿನ ಪ್ರತಿ ಆಸ್ತಿಯನ್ನೂ ನಮ್ಮ ಸಂಪಾದಕೀಯ ತಂಡ ವೈಯಕ್ತಿಕವಾಗಿ ಪರಿಶೀಲಿಸುತ್ತದೆ — ಯಾವುದೇ ಅಗ್ರಿಗೇಟರ್ ದಾಸ್ತಾನು ಇಲ್ಲ, ಯಾವುದೇ ಮೋಸದ ಪಟ್ಟಿಗಳಿಲ್ಲ.',
   'login.eyebrow': 'ಸದಸ್ಯರ ಪ್ರದೇಶ',
+  'login.noAccount': 'ಟೆಸ್ಸೆರಾಗೆ ಹೊಸಬರೇ?',
   'login.signupLink': 'ಉಚಿತ ಖಾತೆಯನ್ನು ರಚಿಸಿ',
   'login.subheading':
     'ನಿಮ್ಮ ಪ್ರವಾಸಗಳನ್ನು ನಿರ್ವಹಿಸಲು, ದೃಢೀಕರಣಗಳನ್ನು ವೀಕ್ಷಿಸಲು ಮತ್ತು ನೀವು ನಿಲ್ಲಿಸಿದ ಸ್ಥಳದಿಂದ ಮುಂದುವರಿಸಲು ಸೈನ್ ಇನ್ ಮಾಡಿ.',
+  'loyaltyTierBadge.points': '{{points}} ಅಂಕಗಳು',
   'planUpdated.heading': 'ಯೋಜನೆಯನ್ನು ನವೀಕರಿಸಲಾಗಿದೆ',
+  'planUpdated.retry': 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ',
+  'planUpdated.verifyFailed': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ನಮಗೆ ಇನ್ನೂ ಖಚಿತಪಡಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'planUpdated.verifyFailedBody':
+    'ನಿಮ್ಮ ಪಾವತಿ ಇನ್ನೂ ಪ್ರಕ್ರಿಯೆಗೊಳ್ಳುತ್ತಿರಬಹುದು. ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
   'pricing.limit.advancedFeatures': 'ಸುಧಾರಿತ ವೈಶಿಷ್ಟ್ಯಗಳು:',
   'pricing.limit.canExport': 'ಡೇಟಾ ರಫ್ತು:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'ಈ ಸ್ಥಳವು ಏನು ನೀಡುತ್ತದೆ',
   'propertyDetail.backLink': 'ಹುಡುಕಾಟಕ್ಕೆ ಹಿಂತಿರುಗಿ',
   'propertyDetail.bookCta': 'ಮೀಸಲು',
+  'propertyDetail.bookmarkAria': 'ಆಸ್ತಿಯನ್ನು ಉಳಿಸಿ',
   'propertyDetail.bookmarkAriaSaved': 'ಉಳಿಸಿದ ಗುಣಲಕ್ಷಣಗಳಿಂದ ತೆಗೆದುಹಾಕಿ',
+  'propertyDetail.galleryImageAlt': '{{name}} ಫೋಟೋ {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} ನಾಯಕ ಛಾಯಾಚಿತ್ರ',
   'propertyDetail.hidePhotos': 'ಫೋಟೋಗಳನ್ನು ಮರೆಮಾಡಿ',
   'propertyDetail.lineCleaning': 'ಶುಚಿಗೊಳಿಸುವ ಶುಲ್ಕ',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'ರಾತ್ರಿ',
   'propertyDetail.noChargeYet': 'ನಿಮಗೆ ಇನ್ನೂ ಶುಲ್ಕ ವಿಧಿಸಲಾಗುವುದಿಲ್ಲ.',
   'propertyDetail.notFound': 'ಆಸ್ತಿ ಕಂಡುಬಂದಿಲ್ಲ.',
+  'propertyDetail.perNight': '/ ರಾತ್ರಿ',
+  'propertyDetail.pickDatesHint': 'ಪೂರ್ಣ ಬೆಲೆ ವಿವರಣೆಯನ್ನು ನೋಡಲು ನಿಮ್ಮ ದಿನಾಂಕಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ.',
   'propertyDetail.reviewCount': '( {{count}} ವಿಮರ್ಶೆಗಳು)',
   'propertyDetail.reviewsHeading': 'ಇತ್ತೀಚಿನ ವಿಮರ್ಶೆಗಳು',
   'propertyDetail.roomCapacity': 'ನಿದ್ರೆಗಳು {{count}}',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'resetPassword.subheading':
     'ನಿಮ್ಮ Auberge ಖಾತೆಗೆ ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಆಯ್ಕೆಮಾಡಿ. ಕನಿಷ್ಠ 8 ಅಕ್ಷರಗಳನ್ನು ಬಳಸಿ; ನಾವು ಪಾಸ್‌ಫ್ರೇಸ್ ಅನ್ನು ಶಿಫಾರಸು ಮಾಡುತ್ತೇವೆ.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'ನಿಮ್ಮ ಹುಡುಕಾಟಕ್ಕೆ ಯಾವುದೇ ಗುಣಲಕ್ಷಣಗಳು ಹೊಂದಿಕೆಯಾಗುವುದಿಲ್ಲ.',
   'searchResults.emptyHint':
     'ನಿಮ್ಮ ಫಿಲ್ಟರ್‌ಗಳನ್ನು ವಿಸ್ತರಿಸಲು ಅಥವಾ ಬೆಲೆ ಮಿತಿಯನ್ನು ತೆಗೆದುಹಾಕಲು ಪ್ರಯತ್ನಿಸಿ - ಸೊಜೋರ್ನ್ 14 ದೇಶಗಳಲ್ಲಿ ತಂಗುತ್ತದೆ.',
@@ -108,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'ಕ್ಯುರೇಟೆಡ್ ಸ್ಟೇಗಳು',
   'searchResults.headingForQuery': '"ಇರುತ್ತದೆ" {{q}} "',
   'searchResults.loadError': 'ಗುಣಲಕ್ಷಣಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ.',
+  'searchResults.mapHint':
+    'ನಕ್ಷೆಯಲ್ಲಿ ಹೈಲೈಟ್ ಮಾಡಲು ಕಾರ್ಡ್ ಮೇಲೆ ಹೋವರ್ ಮಾಡಿ. ಉತ್ಪಾದನೆಯಲ್ಲಿ ಲೈವ್ Mapbox ಟೈಲ್ಗಳು.',
   'searchResults.mapPinAria': '{{name}} — ಪ್ರತಿ ರಾತ್ರಿಗೆ {{price}}',
   'searchResults.sortLabel': 'ವಿಂಗಡಿಸಿ',
   'searchResults.subheading': '{{count}} ಗುಣಲಕ್ಷಣಗಳು · {{guests}} ಅತಿಥಿಗಳು',
   'signup.eyebrow': 'ಸದಸ್ಯರಾಗಿ',
   'signup.subheading':
     'ಸದಸ್ಯರಿಗೆ-ಮಾತ್ರ ದರಗಳು, ತಡವಾದ ಚೆಕ್‌ಔಟ್‌ಗಳು ಮತ್ತು ಹೊಸ ಆಸ್ತಿಗಳಿಗೆ ಮೊದಲ ಪ್ರವೇಶವನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಲು ಸೋಜರ್ನ್‌ಗೆ ಸೇರಿ.',
+  'sojournAuthShell.brand.eyebrow': 'ಅಸಾಧಾರಣ ಸ್ಥಳದಲ್ಲಿ ತಂಗಿ',
+  'sojournAuthShell.brand.heading':
+    'ಆಸ್ತಿಗಳ ಸಂಗ್ರಹಿತ ಸಂಗ್ರಹ — ಸುಂದರವಾಗಿ ಪ್ರಸ್ತುತಪಡಿಸಲಾಗಿದೆ, ಪಾರದರ್ಶಕವಾಗಿ ಬೆಲೆ ನಿಗದಿಪಡಿಸಲಾಗಿದೆ.',
   'sojournHeroSearchCard.checkInAria': 'ಚೆಕ್-ಇನ್ ದಿನಾಂಕ',
   'sojournHeroSearchCard.checkOutAria': 'ಚೆಕ್-ಔಟ್ ದಿನಾಂಕ',
+  'sojournHeroSearchCard.destAria': 'ತಲುಪಬೇಕಾದ ಸ್ಥಳ',
+  'sojournHeroSearchCard.destLabel': 'ಎಲ್ಲಿ',
   'sojournHeroSearchCard.destPlaceholder': 'ನಗರ, ಪ್ರದೇಶ ಅಥವಾ ಆಸ್ತಿ',
   'sojournHeroSearchCard.eyebrow': 'ಕ್ಯುರೇಟೆಡ್ ವಾಸ್ತವ್ಯಗಳು · ಸದಸ್ಯರಿಗೆ-ಮಾತ್ರ ದರಗಳು',
   'sojournHeroSearchCard.guestsOption': '{{n}} ಅತಿಥಿಗಳು',
   'sojournHeroSearchCard.subtitle':
     'ಬೂಟೀಕ್ ಹೋಟೆಲ್‌ಗಳು, ವಿನ್ಯಾಸ-ಪೂರ್ವಕ ಆಸ್ತಿಗಳು ಮತ್ತು ಅಪರೂಪದ ಹುಡುಕಾಟದ ಆಶ್ರಯಗಳ ಸಂಗ್ರಹಿಸಿದ ಸಂಗ್ರಹ - ಪಾರದರ್ಶಕ ಬೆಲೆ, ಸುಂದರವಾಗಿ ಪ್ರಸ್ತುತಪಡಿಸಲಾಗಿದೆ.',
+  'sojournHeroSearchCard.title': 'ಅಸಾಧಾರಣ ಸ್ಥಳದಲ್ಲಿ ತಂಗಿ',
+  'sojournHeroSearchCard.trustLoyalty': 'ಪ್ರತಿ ವಾಸ್ತವ್ಯದಲ್ಲೂ ಅಂಕಗಳನ್ನು ಗಳಿಸಿ',
   'sojournHeroSearchCard.trustNoFees': 'ಯಾವುದೇ ಗುಪ್ತ ಶುಲ್ಕಗಳಿಲ್ಲ, ಎಂದಿಗೂ',
   'sojournHeroSearchCard.trustVetted': 'ಕೈಯಿಂದ ಪರಿಶೀಲಿಸಲಾದ ಗುಣಲಕ್ಷಣಗಳು ಮಾತ್ರ',
   'sojournLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',

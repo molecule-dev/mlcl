@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tem feedback, encontrou um bug ou quer um board só seu no {{appName}}? Abra as Configurações para falar com a equipe — toda mensagem vai para uma pessoa real que a lê.',
+  'about.contactTitle': 'Fale connosco',
+  'about.featureModeration':
+    'Um roadmap público com rótulos de trimestre, um changelog que transforma o trabalho entregue em notas de versão e um painel que mostra o que o público mais quer.',
+  'about.featurePricing':
+    'Grátis para administrar alguns boards; os planos Pro e Team liberam mais boards, limites maiores e exportação de dados.',
+  'about.featureThreads':
+    'Boards públicos de feedback organizados por tópico, com mesclagem de duplicados que reúne votos em um único sinal honesto de demanda.',
+  'about.featureVoting':
+    'Votação de um voto por usuário com um fluxo de status completo — aberto, planejado, em andamento, entregue ou recusado — e uma resposta oficial em cada decisão.',
+  'about.intro':
+    'O {{appName}} é uma plataforma de feedback de produto — boards públicos onde os clientes publicam pedidos, votam no que precisam e acompanham cada ideia de planejada a entregue. As equipes param de adivinhar o que construir em seguida porque a demanda se classifica sozinha.',
+  'about.missionBody':
+    'Acreditamos que as melhores decisões de produto são tomadas abertamente. O {{appName}} dá a cada equipe um board público de pedidos votados, um roadmap oficial com trimestres-alvo e um changelog que fecha o ciclo — para que os clientes vejam seu impacto e as equipes vejam seu mandato.',
+  'about.missionTitle': 'Nossa missão',
   'admin.backToBoards': 'Voltar aos quadros',
   'admin.denied': 'Apenas administradores.',
   'admin.eyebrow': 'Equipa de produto',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'admin.title': 'Painel de feedback',
   'admin.topOpen': 'Principais pedidos abertos',
   'admin.totalVotes': '{{count}} total',
+  'admin.votesChartLabel': 'Gráfico de barras de votos por semana nas últimas oito semanas',
   'admin.votesOverTime': 'Votos ao longo do tempo',
   'auth.forgotPassword.email': 'Email',
   'auth.forgotPassword.sendResetLink': 'Enviar link de redefinição',
@@ -30,7 +47,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Criar a sua conta',
   'auth.username': 'Nome de utilizador',
   'authShell.communities': 'Comunidades',
+  'authShell.copyright': '{{appName}} — toda voz conta.',
   'authShell.trending': 'Populares',
+  'boardCard.postCount': 'Publicações de {{count}}',
   'boardDetail.allBoards': 'Todos os quadros',
   'boardDetail.backToBoards': 'Voltar aos quadros',
   'boardDetail.empty': 'Nenhuma publicação corresponde a estes filtros ainda.',
@@ -54,6 +73,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Cada entrada começou como um pedido votado. Os votantes viram-no avançar; aqui é onde chegou.',
   'changelog.title': 'Lançado, com comprovativo',
+  'changelog.voteCount': '{{count}} votos fizeram isto ser construído',
   'common.atLeast8Characters': 'Pelo menos 8 caracteres',
   'common.checkYourInbox': 'Verifique a sua caixa de entrada',
   'common.loadingEllipsis': 'A carregar…',
@@ -64,6 +84,9 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'A enviar…',
   'footer.about': 'Sobre {{appName}}',
   'footer.language': 'Idioma',
+  'forgotPassword.description': 'Digite seu e-mail e enviaremos um link para redefinir.',
+  'forgotPassword.successBody':
+    'Enviamos um link de redefinição para {{email}}. Ele expira em 30 minutos.',
   'forgotPassword.tryAnother': 'Tente outro email',
   'form.displayName': 'Nome de exibição',
   'form.firstName': 'Primeiro nome',
@@ -74,6 +97,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'O seu roteiro, apoiado por votos.',
   'landing.heroCtaPrimary': 'Começar a receber votos',
   'landing.heroCtaSecondary': 'Ver um quadro ao vivo',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Pare de adivinhar. Entregue o que eles votam.',
+  'landing.heroLede':
+    'O {{appName}} transforma pedidos de recursos dispersos em um board público de ideias votadas, um roadmap oficial e um changelog que seus clientes realmente leem.',
   'landing.heroStat1': '3.200+',
   'landing.heroStat1Label': 'Equipas a ouvir',
   'landing.heroStat2': '1,4M',
@@ -85,9 +112,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Registo de alterações',
   'landing.navJoin': 'Junte-se ao {{appName}}',
   'landing.navRoadmap': 'Roteiro',
+  'landing.step1Body':
+    'Os clientes publicam ideias em boards públicos. Duplicados se mesclam, votos se reúnem e a demanda se classifica sozinha.',
   'landing.step1Title': 'Recolher',
+  'landing.step2Body':
+    'Marque pedidos como planejados ou em andamento com um trimestre-alvo — o roadmap é atualizado no momento em que você faz isso.',
+  'landing.step2Title': 'Comprometer-se',
   'landing.step3Body':
     'As publicações lançadas tornam-se entradas no registo de alterações, e cada votante vê o resultado na sua própria lista.',
+  'landing.step3Title': 'Entregar',
   'landing.topSubtitle': 'Ao vivo deste quadro — inicie sessão para adicionar o seu voto.',
   'landing.topTitle': 'O que os utilizadores estão a pedir agora',
   'landing.topViewAll': 'Todos os quadros',
@@ -95,14 +128,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Primário',
   'layout.signUp': 'Cadastrar',
   'layout.submit': 'Enviar feedback',
+  'login.description': 'Retome a conversa de onde parou.',
+  'login.heading': 'Entrar no Nimbus',
+  'login.noAccount': 'Novo por aqui?',
   'login.passwordPlaceholder': 'A sua palavra-passe',
   'login.twoFactorLabel': 'Código 2FA (opcional)',
   'login.twoFactorPlaceholder': 'Código de 6 dígitos',
+  'login.twoFactorRequiredHint':
+    'Esta conta tem a autenticação de dois fatores ativada. Insira o código de 6 dígitos do seu aplicativo autenticador para continuar.',
   'login.twoFactorRequiredLabel': 'Introduza o seu código 2FA',
+  'myActivity.browseCta': 'Explorar quadros',
+  'myActivity.emptyPosts': 'Você ainda não publicou um pedido.',
+  'myActivity.emptyVotes': 'Nada ainda — explore os boards e apoie uma ideia.',
   'myActivity.eyebrow': 'A sua atividade',
   'myActivity.loadError': 'Não foi possível carregar sua atividade.',
   'myActivity.postsTitle': 'Pedidos que submeteu',
+  'myActivity.shippedNote': '{{count}} deles foram entregues — obrigado pelo empurrão.',
   'myActivity.submitCta': 'Publicar um pedido',
+  'myActivity.tabLabel': 'Ver',
   'myActivity.tabPosts': 'As minhas publicações',
   'myActivity.tabVotes': 'Os meus votos',
   'myActivity.votesTitle': 'Pedidos em que votou',
@@ -137,8 +180,12 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Publicação não encontrada',
   'postsAdmin.backToDashboard': 'Painel',
   'postsAdmin.eyebrow': 'Equipa de produto',
+  'postsAdmin.mergeApplied': 'Mesclado — {{votes}} votos e {{comments}} comentários movidos.',
   'postsAdmin.mergeApply': 'Fundir e mover votos',
   'postsAdmin.mergeChoose': 'Escolha uma publicação de destino…',
+  'postsAdmin.mergeFailed': 'Falha na mesclagem.',
+  'postsAdmin.mergeHint':
+    'Os votos se reúnem (um por usuário), os comentários se movem e esta publicação recebe uma nota de "movido".',
   'postsAdmin.mergeLabel': 'Fundir duplicado com',
   'postsAdmin.responseLabel': 'Resposta oficial',
   'postsAdmin.responsePlaceholder':
@@ -154,7 +201,13 @@ export const ui: UiTranslations = {
     'Defina o estado oficial, responda publicamente, etiquete o trimestre do roteiro e funda duplicados.',
   'postsAdmin.title': 'Gerir publicações de feedback',
   'postsAdmin.votes': '{{count}} votos',
+  'pricing.limits.advancedFeatures': 'Recursos avançados:',
+  'pricing.limits.boards': '{{count}} quadros',
   'pricing.limits.export': 'Exportação de dados:',
+  'pricing.limits.posts': '{{count}} publicações de feedback',
+  'pricing.limits.votes': '{{count}} votos',
+  'resetPassword.description':
+    'Escolha uma forte. Vamos te conectar assim que a redefinição der certo.',
   'resetPassword.newPasswordLabel': 'Nova palavra-passe',
   'resetPassword.tokenPlaceholder': 'Cole o token do link',
   'roadmap.cardMeta': 'por {{author}} · {{board}}',
@@ -171,6 +224,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'Digite uma consulta para encontrar pedidos existentes antes de publicar um duplicado.',
   'search.loadError': 'A pesquisa falhou — tente novamente.',
+  'search.searching': 'Buscando…',
   'search.submit': 'Buscar',
   'search.submitNew': 'Publicar como novo pedido',
   'search.title': 'Pesquisar feedback',
@@ -179,12 +233,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'Faturação',
   'settings.displaySubtitle': 'Escolha a densidade dos feeds.',
   'settings.displayTitle': 'Exibição',
+  'settings.emailDigestDesc': 'Os pedidos abertos mais votados toda segunda-feira.',
+  'settings.emailDigestLabel': 'Resumo semanal',
+  'settings.emailMentionsDesc': 'Quando alguém responde a uma publicação que você segue.',
+  'settings.emailMentionsLabel': 'Enviar e-mail sobre menções',
+  'settings.emailRepliesDesc': 'Tópicos que você iniciou ou respondeu.',
+  'settings.emailRepliesLabel': 'Avise-me por e-mail nas respostas',
   'settings.loadError': 'Não foi possível carregar a sua conta.',
   'settings.loading': 'A carregar as suas definições…',
   'settings.notifications': 'Notificações',
   'settings.notificationsSubtitle':
     'Decida o que chega à sua caixa de entrada vs ao seu dispositivo push.',
+  'settings.pushRepliesLabel': 'Notificação push para respostas',
+  'settings.pushVotesDesc': 'Aviso de limite em 100, 500, 1000.',
+  'settings.pushVotesLabel': 'Push para marcos de upvote',
   'settings.saveAccount': 'Guardar conta',
+  'settings.showFlair': 'Mostrar chips de board nas publicações',
+  'settings.showThumbnails': 'Mostrar miniaturas de links/imagens',
   'settings.usernamePlaceholder': 'Escolha um identificador',
   'signup.confirmPlaceholder': 'Digite novamente',
   'signup.description': 'Molde o que construímos a seguir.',

@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
+  'about.featureConnections':
+    'კავშირების მენეჯერი, რომელიც უსაფრთხოდ ინახავს და ფერებით აღნიშნავს თქვენს მონაცემთა ბაზებს — მონაცემები დაშიფრულია მოსვენებულ მდგომარეობაში, არასოდეს ღია ტექსტად.',
+  'about.featureMonitoring':
+    'მოთხოვნების წარმადობისა და მონაცემთა ბაზის აქტივობის ცოცხალი მონიტორინგი, კლავიატურის მალსახმობებითა და ბრძანებების პალიტრით, რომ ყველაფერი ხელების გარეშე მართოთ.',
+  'about.featurePlans':
+    'გეგმები, რომლებიც თქვენთან ერთად იზრდება — უფასო ინდივიდუალური მუშაობისთვის, Pro და Team მეტი კავშირისთვის, მოთხოვნების ხანგრძლივი შენახვისთვის, ექსპორტისა და გაფართოებული ფუნქციებისთვის.',
+  'about.featureQueryEditor':
+    'Monaco-ზე დაფუძნებული SQL რედაქტორი მოთხოვნების ისტორიით, შენახული მოთხოვნებითა და შედეგების ერთი დაწკაპუნებით CSV ექსპორტით.',
+  'about.featureSchema':
+    'სქემის დამთვალიერებელი და ცხრილების ბრაუზერი მონაცემთა ბაზების, ცხრილებისა და სვეტების ნავიგაციისთვის, შემდეგ კი მწკრივების დათვალიერება, ფილტრაცია და ადგილზე რედაქტირება.',
+  'about.missionTitle': 'ჩვენი მისია',
   'authShell.commands': 'ბრძანებები',
   'authShell.ssoSupported': 'SSO მხარდაჭერილია',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'მოთხოვნები',
   'connections.schema': 'სქემა',
   'connections.subtitle': 'მართეთ თქვენი მონაცემთა ბაზის კავშირები.',
+  'connections.test': 'ტესტი',
   'databaseAdminLayout.adminRole': 'ადმინისტრატორის როლი',
   'databaseAdminLayout.commandPalette': 'ბრძანებების პალიტრა',
   'databaseAdminLayout.commands': 'ბრძანებები',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'ახალი კავშირი',
   'databaseAdminLayout.queries': 'მოთხოვნები',
   'databaseAdminLayout.ready': 'მზადაა',
+  'databaseAdminLayout.searchPlaceholder': '⌘K ბრძანებების, მოთხოვნების, ცხრილების ძებნა…',
   'databaseAdminLayout.user': 'მომხმარებელი',
   'editConnection.confirmDelete': 'წაიშალოს ეს კავშირი?',
   'editConnection.deleteButton': 'კავშირის წაშლა',
+  'editConnection.newPassword': 'ახალი პაროლი (დატოვეთ ცარიელი შესანარჩუნებლად)',
   'editConnection.saved': 'კავშირი შენახულია.',
   'editConnection.title': 'კავშირის რედაქტირება',
   'forgotPassword.success': 'თუ ეს ანგარიში არსებობს, გადატვირთვის ბმული გზაშია.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'წარმატებები',
   'monitoring.title': 'მონიტორინგი',
   'monitoring.totalQueries': 'მოთხოვნების ჯამი',
+  'nav.schema': 'სქემა',
   'newConnection.database': 'მონაცემთა ბაზა',
   'newConnection.engine': 'ძრავა',
   'newConnection.host': 'მასპინძელი',
@@ -82,6 +98,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'ამ ფრაგმენტთან კავშირი არ არის.',
   'savedQuery.notBound': 'შეუზღუდავი',
   'savedQuery.title': 'შენახული მოთხოვნა',
+  'schema.columns': 'სვეტები',
   'schema.foreignKeys': 'უცხოური გასაღებები',
   'schema.indexes': 'ინდექსები',
   'schemaExplorer.browseRows': 'რიგების დათვალიერება',
@@ -90,14 +107,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'გაუქმებადი',
   'schemaExplorer.colType': 'ტიპი',
   'schemaExplorer.noColumns': 'სვეტები არ არის.',
+  'schemaExplorer.noForeignKeys': 'უცხო კლიტეები არ არის.',
   'schemaExplorer.noIndexes': 'ინდექსები არ არის.',
   'schemaExplorer.noTables': 'მაგიდები არ არის',
   'schemaExplorer.pickATable': 'გვერდითი პანელიდან აირჩიეთ ცხრილი.',
   'schemaExplorer.tables': 'მაგიდები',
   'schemaExplorer.title': 'სქემის მკვლევარი',
+  'settings.session': 'სესია',
   'settings.subtitle': 'მართეთ თქვენი ანგარიში და დაგეგმეთ.',
   'signup.heading': 'შექმენით თქვენი Quarry ანგარიში',
   'signup.tagline': 'გაააქტიურეთ წვდომა ერთ წუთზე ნაკლებ დროში.',
   'tableBrowser.noRows': 'ამ ცხრილს ჯერ არ აქვს რიგები.',
+  'tableBrowser.subtitle': 'თქვენი დისტანციური მონაცემთა ბაზიდან მწკრივების დათვალიერება.',
   'tableBrowser.title': 'თქვენი დისტანციური მონაცემთა ბაზიდან რიგების დათვალიერება.',
 }

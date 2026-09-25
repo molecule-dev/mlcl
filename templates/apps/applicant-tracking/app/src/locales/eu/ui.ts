@@ -1,15 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Galderarik, iritzirik edo zure kontratazio-taldearentzat azalpen-bisita bat nahi duzu? Idatzi hello@example.com helbidera eta taldeko benetako pertsona batek bi egun balioduneko epean erantzungo dizu.',
   'about.contactHeading': 'Jarri gurekin harremanetan',
+  'about.intro':
+    '{{app}} hautagaiak kudeatzeko sistema bat da, zarata baino seinalea nahi duten kontratatzaile eta kontratazio-arduradunentzat — pipeline garbia, bere burua azaltzen duen AI baheketa eta kontratazio-analitika, dena leku bakarrean.',
+  'about.missionBody':
+    'Kontratazioa talde batek hartzen duen erabakirik garrantzitsuenetako bat da, baina oraindik ere gehiena sakabanatutako kalkulu-orrietan eta mezu-kateetan bizi da. {{app}}-k ziklo osoa taula bakarrera ekartzen du, hautagai bakoitza jarraituta egon dadin, elkarrizketa bakoitza egituratuta egon dadin eta erabaki bakoitza bidezkoa, azkarra eta azalgarria izan dadin.',
+  'about.missionHeading': 'Gure misioa',
   'auth.legalConsent': 'Jarraituz gero, onartzen dituzu gure',
   'billing.cardExp': 'Iraungitze data {{exp}}',
+  'billing.cardLinkError': 'Ezin izan da txartela eguneratzeko fluxua hasi.',
   'billing.cardLinkSent':
     'Txartelaren eguneratze-fluxua hasi da — egiaztatu zure posta elektronikoa.',
+  'billing.cardLinkUnavailable':
+    'Txartelen eguneratzeak ez daude erabilgarri — inplementazio honek ez du ordainketa-hornitzailerik konfiguratuta.',
   'billing.cardMissing': 'Ez dago txartelik artxibatuta',
   'billing.col.invoice': 'Faktura',
   'billing.downloadUnavailable': '—',
   'billing.editCard': 'Txartela eguneratu',
+  'billing.eyebrow': 'Plana eta erabilera',
   'billing.invoiceHeading': 'Azken fakturak',
   'billing.invoicesEmpty': 'Oraindik ez dago fakturarik.',
   'billing.invoicesLoading': 'Fakturak kargatzen…',
@@ -18,12 +29,12 @@ export const ui: UiTranslations = {
   'billing.nextChargeHint': 'Piztuta {{date}}',
   'billing.nextChargeLabel': 'Hurrengo karga',
   'billing.planLoading': 'Plana kargatzen…',
-  'billing.planSummary':
-    '{{eserleku bakoitzeko}} / eserlekua · {{eserlekuak}} eserlekuak · {{guztira}} / hilabete',
+  'billing.planSummary': '{{perSeat}} / eserlekua · {{seats}} eserleku · {{total}} / hilabetea',
   'billing.seatsAdded': 'Eserleku kopurua eguneratu da.',
   'billing.seatsError':
     'Plan hau eserleku bakarrekoa da. Eguneratu Team-era eserleku anitzeko erabilerarako.',
   'billing.seatsHint': '{{used}} -ren {{max}} barne',
+  'billing.seatsLabel': 'Eserleku aktiboak',
   'billing.spentLabel': 'Urtetik gaur arte gastatutakoa',
   'billing.subheading':
     'Harpidetza, eserlekuak, adimen artifizialaren bidezko baheketaren erabilera eta fakturak.',
@@ -40,6 +51,7 @@ export const ui: UiTranslations = {
   'candidateDetail.advanceError': 'Ezin izan da etapa eguneratu.',
   'candidateDetail.advanceFinal': 'Azken fasean dagoeneko.',
   'candidateDetail.advanceHeading': 'Mugitu eszenatokira.',
+  'candidateDetail.appliedOn': '{{date}}(e)an eskatuta {{source}} bidez.',
   'candidateDetail.back': 'Hautagai guztiak',
   'candidateDetail.loadError': 'Hautagaia kargatzea huts egin da.',
   'candidateDetail.noInterviews': 'Oraindik ez dago elkarrizketarik.',
@@ -49,8 +61,14 @@ export const ui: UiTranslations = {
   'candidateDetail.notePlaceholder':
     'Partekatu iritzia, elkarrizketaren inpresioak, hurrengo urratsak…',
   'candidateDetail.noteSave': 'Gorde oharra',
+  'candidateDetail.panel': 'Panela: {{panel}}',
+  'candidateDetail.panelScore': 'Panelaren puntuazioa: {{score}}/100',
+  'candidateDetail.resumeMissing':
+    'Oraindik ez dago curriculumaren aurrebistarik hautagai honentzat.',
   'candidateDetail.scheduleError': 'Ezin izan da elkarrizketa antolatu.',
+  'candidateDetail.scheduleHeading': 'Antolatu elkarrizketa',
   'candidateDetail.scheduleInterviewer': 'Elkarrizketatzailea',
+  'candidateDetail.scheduleInterviewerPlaceholder': 'Elkarrizketatzailearen izena',
   'candidateDetail.scheduleMinutes': 'Iraupena (min)',
   'candidateDetail.scheduleMissing': 'Aukeratu data eta ordua lehenik.',
   'candidateDetail.scoreEmpty': 'IA ebaluazioaren zain.',
@@ -73,6 +91,7 @@ export const ui: UiTranslations = {
   'candidates.heading': 'Hautagaiak',
   'candidates.loadError': 'Hautagaiak kargatzea huts egin da.',
   'candidates.searchPlaceholder': 'Bilatu hautagaia, rola edo lana\\u2026',
+  'candidates.sourceLabel': 'Iturria',
   'candidates.sourcePlaceholder': 'Iturria (LinkedIn, Gomendioa…)',
   'candidates.subheading':
     'Lanpostu anitzeko hautagaien datu-basea, IA puntuazioarekin eta iturrien atribuzioarekin.',
@@ -87,6 +106,7 @@ export const ui: UiTranslations = {
   'dashboard.kpi.interviews': 'Aste honetako elkarrizketak',
   'dashboard.kpi.openJobs': 'Lanpostu irekiak',
   'dashboard.loading': 'Kargatzen\\u2026',
+  'dashboard.newJobCta': 'Lanpostu bat argitaratu',
   'dashboard.subheading':
     'Prozedura-hodien osasuna, elkarrizketa-karga eta martxan dauden eskaintzak.',
   'dashboard.topEmpty': 'Oraindik ez dago hautagairik.',
@@ -108,6 +128,7 @@ export const ui: UiTranslations = {
   'jobDetail.back': 'Lanpostu guztiak',
   'jobDetail.descriptionEyebrow': 'Rolaren deskribapena',
   'jobDetail.descriptionMissing': 'Ez da deskribapenik eman oraindik.',
+  'jobDetail.employmentType': 'Enplegu mota: {{type}}',
   'jobDetail.empty': 'Ez dago eskatzailerik oraindik.',
   'jobDetail.funnelEyebrow': 'Eszenatokiko inbutua',
   'jobDetail.funnelHeading': 'Eskatzaileen egoera',
@@ -116,6 +137,7 @@ export const ui: UiTranslations = {
   'jobDetail.kpi.hires': 'Kontratazioak',
   'jobDetail.kpi.inInterview': 'Elkarrizketan.',
   'jobDetail.loadError': 'Ezin izan da lana kargatu.',
+  'jobDetail.requirementsHeading': 'Baldintzak',
   'jobDetail.topEyebrow': 'Eskatzaile nagusiak',
   'jobDetail.topHeading': 'IA-rekin bat datorren lehenengoa',
   'jobDetail.unavailable': 'Lanpostu hau ez dago jada zerrendatuta.',
@@ -131,6 +153,7 @@ export const ui: UiTranslations = {
   'jobs.heading': 'Lanpostuak',
   'jobs.loadError': 'Lanak kargatzea huts egin da.',
   'jobs.newCta': 'Lanpostua argitaratu',
+  'landing.copyright': '© {{year}} {{app}} Molekularekin eraikia.',
   'landing.eyebrow': 'Adimen artifizialaren bidezko kontratazioa · 2. bertsioa',
   'landing.featuresEyebrow': 'Nola funtzionatzen duen',
   'landing.featuresHeading': 'Seinalea — ez kalkulu-orriak.',
@@ -140,8 +163,11 @@ export const ui: UiTranslations = {
   'landing.heroProof':
     'Kreditu txartelik gabe. Edozein unetan bertan behera utzi. SSO Pro-n eskuragarri.',
   'landing.heroSecondary': 'Ikusi prezioak →',
+  'landing.heroSubtitle':
+    'Kanban pipeline garbia, bere burua azaltzen duen AI baheketa eta faseka fairness analitika. Zarata baino seinalea nahi duten kontratatzaile eta kontratazio-arduradunentzat egina.',
   'landing.heroTitle': 'Argi eta garbi kontratatu.',
   'landing.previewHeading': 'Atzeko planoko ingeniari seniorra',
+  'landing.previewLabel': 'Pipeline · Ingeniaritza',
   'landing.pricingEyebrow': 'Prezioak',
   'landing.pricingHeading': 'Talde tamaina guztietarako planak.',
   'landing.socialEyebrow': 'Taldeak kontratatzeko erabiltzen da',
@@ -157,6 +183,9 @@ export const ui: UiTranslations = {
   'loginBrandPanel.headlineLine2': 'argitasun.',
   'loginBrandPanel.stage.interview': 'Elkarrizketa',
   'loginBrandPanel.stage.screening': 'Baheketa',
+  'loginBrandPanel.stage.sourced': 'Iturrituta',
+  'loginBrandPanel.subtext':
+    'Eraman hautagaiak Iturrituta → Baheketa → Elkarrizketa → Eskaintza → Kontratatuta bidez. AI-k bahetzen du. Fairness-pultsuak fase bakoitza zintzo mantentzen du.',
   'nav.closeMenu': 'Itxi menua',
   'nav.legal': 'Legezko',
   'nav.openMenu': 'Ireki menua',
@@ -165,6 +194,7 @@ export const ui: UiTranslations = {
     'Curriculumak eskakizunen arabera sailkatuta; kontratatzaileak lehenengo bat datozen emaitzak aztertzen ditu.',
   'newJob.aiToggle': 'Eskatzaile berriak automatikoki puntuatu',
   'newJob.back': 'Lanpostuetara itzuli',
+  'newJob.basicsHeading': 'Rolaren oinarrizko datuak',
   'newJob.compHeading': 'Kalte-ordaina',
   'newJob.departmentLabel': 'Saila',
   'newJob.descHeading': 'Deskribapena eta eskakizunak',
@@ -174,6 +204,7 @@ export const ui: UiTranslations = {
   'newJob.failed': 'Ezin izan da lana gorde.',
   'newJob.heading': 'Lanpostu bat argitaratu',
   'newJob.publish': 'Lanpostua argitaratu',
+  'newJob.reqLabel': 'Baldintzak (bat lerro bakoitzeko)',
   'newJob.salaryMax': 'Soldata maximoa (USD)',
   'newJob.salaryMin': 'Gutxieneko soldata (USD)',
   'newJob.stagesHeading': 'Hodiaren etapak',
@@ -188,6 +219,7 @@ export const ui: UiTranslations = {
   'newJob.type.fullTime': 'Denbora osokoa',
   'newJob.type.partTime': 'Lanaldi partziala',
   'newJob.typeLabel': 'Enplegu mota',
+  'pipeline.advanceTo': 'Aurreratu',
   'pipeline.allRoles': 'Rol guztiak',
   'pipeline.daysInStage': '{{days}} d',
   'pipeline.empty': 'Hautagairik ez',
@@ -200,13 +232,22 @@ export const ui: UiTranslations = {
     'Arrastatu hautagaiak etaparen artean. IA puntuazioa eta etapan igarotako egunak txartel bakoitzean agertzen dira.',
   'pipeline.viewTable': 'Taula-ikuspegia →',
   'pipelineFunnelHero.totalLabel': 'Mugimenduan',
+  'planUpdated.body':
+    'Zure fakturazio-aldaketa aktibo dago orain. Zure plana noiznahi kudea dezakezu fakturazio-orritik.',
+  'planUpdated.retry': 'Saiatu berriro',
+  'planUpdated.verifyFailed': 'Ezin izan dugu oraindik zure ordainketa baieztatu.',
+  'planUpdated.verifyFailedBody':
+    'Baliteke zure ordainketa prozesatzen ari izatea oraindik. Saiatu berriro une batean.',
   'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'pricing.heading': 'aplikazioak',
+  'pricing.limits.applications': 'eskaerak',
   'pricing.limits.candidates': 'hautagaiak',
   'pricing.limits.jobs': 'lanpostuak',
   'pricing.limits.scorecards': 'puntuazio-txartelak',
   'privacy.dataBody':
     'Kontuaren helbide elektronikoa, pasahitza hash bidez kontrolatua, profilaren metadatuak eta sortzen dituzun hautagaien/lanen erregistroak. Datu hauek ez ditugu inoiz saltzen edo partekatzen.',
+  'privacy.intro':
+    '{{app}}-k bezeroen izenean prozesatzen ditu kontratazio-datuak. Hautagaien erregistroak, curriculumak eta kontratazio-taldearen komunikazioak isilpeko gisa tratatzen ditugu eta gordailuan zifratuta gordetzen ditugu.',
   'privacy.retentionBody':
     'Zure kontua edozein unetan ezaba dezakezu Ezarpenetatik. Erlazionatutako erregistroak 30 eguneko epean ezabatzen ditugu, legeak gordetzea eskatzen duenean izan ezik.',
   'privacy.title': 'Pribatutasun politika',
@@ -216,6 +257,7 @@ export const ui: UiTranslations = {
     'Utzi hautagai eta eskatzaileei zure izena eta kargua lan-eskaintzetan ikusten.',
   'profile.publicLabel': 'Profil publikoa',
   'profile.publicOff': 'Ezkutatuta',
+  'profile.publicOn': 'Ikusgai',
   'profile.recentEmpty': 'Oraindik ez dago kokapenik.',
   'profile.recentError': 'Ezin izan dira azken kokapenak kargatu.',
   'profile.recentEyebrow': 'Azken kokapenak',
@@ -241,9 +283,14 @@ export const ui: UiTranslations = {
   'resetPassword.missingFields': 'Aukeratu eta berretsi pasahitz berria.',
   'resetPassword.missingToken': 'Berrezartzeko esteka falta da edo iraungi da — eskatu berri bat.',
   'resetPassword.passwordLabel': 'Pasahitz berria',
+  'resetPassword.signInCta': 'Hasi saioa →',
+  'resetPassword.signInPrompt': 'Erabili zure pasahitz berria saioa hasteko.',
   'resetPassword.subheading':
     'Aukeratu pasahitz sendo bat — gutxienez 12 karaktere, maiuskula/minuskulak nahastuta.',
+  'settings.appearance.description': 'Aldatu modu argiaren eta ilunaren artean.',
   'settings.appearance.title': 'Itxura',
+  'settings.deleteAccountModal.confirm':
+    'Sartu zure pasahitza berresteko. Ekintza hau behin betikoa da.',
   'settings.emailTemplates.empty': 'Ez da txantiloirik konfiguratu oraindik.',
   'settings.emailTemplates.heading': 'Mezu elektronikoen txantiloiak',
   'settings.emailTemplates.loadError': 'Ezin izan dira txantiloiak kargatu.',
@@ -254,10 +301,16 @@ export const ui: UiTranslations = {
   'settings.integrations.statusDisconnected': 'Ez dago konektatuta',
   'settings.integrations.updateError': 'Ezin izan da integrazioa eguneratu.',
   'settings.name': 'Izena',
+  'settings.passwordHelp': 'Eguneratu saioa hasteko erabiltzen duzun pasahitza.',
+  'settings.revokeDeviceWarning': 'Gailu honen sarbidea laster kendu egingo da. Itxi saioa?',
   'settings.saveEmail': 'Gorde mezu elektronikoa',
   'settings.signOutDevice': 'Saioa itxi',
   'settings.stages.empty': 'Ez dago etaparik konfiguratuta oraindik.',
+  'settings.stages.heading': 'Hodiaren etapak',
+  'settings.stages.help':
+    'Hautagaiek igarotzen dituzten faseak. Kendu erabiltzen ez duzun edozein.',
   'settings.stages.loadError': 'Ezin izan dira etapak kargatu.',
+  'settings.stages.loading': 'Faseak kargatzen…',
   'settings.stages.removeAria': 'Kendu {{name}} eszenatoki',
   'settings.stages.removeError': 'Ezin izan da eszenatokia kendu.',
   'settings.team.empty': 'Oraindik ez dago taldekiderik — gonbidatu beheko lehenengoa.',
@@ -273,9 +326,16 @@ export const ui: UiTranslations = {
   'settings.team.removeError': 'Ezin izan da kidea kendu.',
   'settings.twoFactorCode': 'Autentifikazio kodea',
   'settings.twoFactorDisable': 'Desgaitu',
+  'settings.twoFactorDisableTitle': 'Desgaitu bi faktoreko autentifikazioa',
   'settings.twoFactorEnable': 'Gaitu',
+  'settings.twoFactorEnableTitle': 'Gaitu bi faktoreko autentifikazioa',
   'settings.twoFactorInvalidCode': 'Kode baliogabea',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Bi faktoreko QR kodea',
+  'settings.twoFactorScan':
+    'Eskaneatu QR kode hau zure autentifikazio-aplikazioarekin, eta gero sartu 6 digituko kodea.',
+  'settings.twoFactorUnavailable':
+    'Bi faktoreko autentifikazioa ez dago erabilgarri aplikazio honetarako.',
   'settings.twoFactorVerify': 'Egiaztatu eta gaitu',
   'settings.unknownDevice': 'Gailu ezezaguna',
   'signup.confirmPlaceholder': 'Sartu berriro zure pasahitza',
@@ -285,6 +345,8 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Kontratazio-taula bat 60 segundotan piztu. Gonbidatu taldea geroago.',
   'terms.acceptableUseBody':
     'Ez duzu zerbitzua gaizki erabiliko, ez duzu scraping automatizatua exekutatuko, ez duzu segurtasuna hausten saiatuko edo ez duzu erabiliko babestutako klaseak diskriminatzeko.',
+  'terms.intro':
+    '{{app}} erabiliz gero, baldintza hauek onartzen dituzu. Zerbitzua dagoen bezala eskaintzen da, behean deskribatutako betebehar eta mugekin.',
   'terms.subscriptionBody':
     'Ordainpeko planak hilero berritzen dira bertan behera utzi arte. Edozein unetan bertan behera utzi dezakezu Fakturaziotik; zure plana aktibo egongo da uneko epea amaitu arte.',
   'terms.title': 'Zerbitzu-baldintzak',

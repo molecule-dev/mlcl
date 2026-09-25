@@ -1,7 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Суроолор, пикирлер же графикти сактоого жардам бере турган идеяңыз барбы? Аккаунт жөндөөлөрүңүздөн кайрылыңыз — ар бир билдирүү командадагы чыныгы адамга жетет.',
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Жөнүндө',
+  'about.featureAdherence':
+    'Дарылоо режимин сактоо отчеттору — жумалык жана айлык графиктер, ошондой эле ар бир дозанын тарыхы, аны экспорттоп, дарылоо тобуңуз менен бөлүшө аласыз.',
+  'about.featureCaregivers':
+    'Камкордук көрсөтүүчү менен бөлүшүү — үй-бүлөңүздү же дарыгерлериңизди окуу гана мүмкүн болгон көрүнүшкө чакырыңыз жана алар эмнени көрө аларын так өзүңүз чечиңиз.',
+  'about.featureRefills':
+    'Толуктоо эскертүүлөрү — реалдуу убакытта таблеткалардын эсеби, ошентип сиз бүтүп калгандан кийин эмес, бир нече күн мурун эскертүү аласыз.',
+  'about.featureReminders':
+    'Сизди сыйлаган эскертүүлөр — кийинкиге калтырууга боло турган push-билдирүүлөр, эгер доза өткөрүлүп кетсе, камкордук көрсөтүүчүгө жеткирилиши мүмкүн.',
+  'about.featureSchedules':
+    'Ийкемдүү графиктер — күн сайын, аралык менен же белгиленген күндөрү, күнүнө бир нече жолу жана тамак менен кабыл алуу эскертүүлөрү менен.',
+  'about.featuresTitle': 'Эмне аласыз',
+  'about.missionBody':
+    'Дозаны өткөрүп жиберүү унутулган ойготкучка же бош бөтөлкөгө байланыштуу болбошу керек. Биз дарылоо планын сактоону жеңил кыла турган тынч, ишенимдүү куралдарды жасайбыз — жана үй-бүлө менен дарыгерлерди унчукпай эле тартабыз, сиз уруксат берген өлчөмдө гана.',
+  'about.missionTitle': 'Биздин миссиябыз',
+  'about.subtitle': 'Ар бир доза өз убагында — жана сизди кайгыргандардын баары кабардар.',
   'addMedication.avoidAlcohol': 'Алкогольдон алыс болуңуз',
   'addMedication.backLink': 'Бардык дары-дармектер',
   'addMedication.doseAmount': 'Дозасы (мисалы, 10 мг)',
@@ -12,6 +30,7 @@ export const ui: UiTranslations = {
   'addMedication.pillColor': 'Таблетканын түсү (визуалдык идентификация үчүн)',
   'addMedication.saveError': 'Сакталган жок.',
   'addMedication.saveLabel': 'Дары-дармектерди сактоо',
+  'addMedication.takeWithFood': 'Тамак менен кабыл алыңыз',
   'addMedication.warningsLabel': 'Эскертүүлөр (тиешелүүсүн тандаңыз)',
   'adherence.byMedEmpty':
     'Азырынча дары жок — ар бир дары-дармектин сакталышын көрүү үчүн бирөөнү кошуңуз.',
@@ -33,16 +52,26 @@ export const ui: UiTranslations = {
   'adherence.subheading': 'Акыркы 30 күн · пайдалуу болсо, кам көрүү тобуңуз менен бөлүшүңүз',
   'adherence.taken': 'Алынган',
   'adherence.title': 'Камкордук жөнүндө отчет',
+  'adherenceTriad.refills.eyebrow': 'Кайра толтуруу',
   'adherenceTriad.refills.meta': 'Кайра толтурууларды башкаруу →',
+  'adherenceTriad.refills.unit': 'жакында',
   'adherenceTriad.refills.value': '{{count}}',
   'adherenceTriad.streak.eyebrow': 'Сызык',
   'adherenceTriad.streak.meta': 'Эң узуну: {{days}} күндөр',
+  'adherenceTriad.streak.unit': 'күндөр',
   'adherenceTriad.streak.value': '{{days}}',
   'adherenceTriad.today.meta': '{{count}} дагы эле алдыда',
+  'adherenceTriad.today.unit': 'кабыл алынган дозалар',
   'adherenceTriad.today.value': '{{taken}} / {{total}}',
+  'auth.forgotPassword.subtitle':
+    'Электрондук почтаңызды киргизиңиз, биз сизге баштапкы абалга келтирүү шилтемесин жөнөтөбүз.',
+  'auth.resetPassword.subtitle':
+    'Аккаунтуңузду калыбына келтирүүнү аяктоо үчүн жаңы сырсөз коюңуз.',
   'capsivaLayout.primaryNavLabel': 'Негизги навигация',
+  'caregivers.email': 'Камкордук көрсөтүүчүнүн email дареги',
   'caregivers.empty': 'Камкорчулар кошулган жок. Жардам берүү үчүн бирөөнү чакырыңыз.',
   'caregivers.heading': 'Камкорчулар',
+  'caregivers.invitedOn': 'Чакырылган {{when}}',
   'caregivers.inviteError': 'Чакыруу жөнөтүлгөн жок.',
   'caregivers.inviteFormLabel': 'Камкорчуну чакыруу формасы',
   'caregivers.inviteIncomplete':
@@ -64,6 +93,11 @@ export const ui: UiTranslations = {
   'dashboard.timelineHeading': 'Бүгүнкү дозалар',
   'doseRow.markTaken': 'Алуу',
   'doseRow.subline': '{{dose}} · {{time}}',
+  'landing.about': '{{app}} жөнүндө',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Күнүмдүк тартибиңизге камкордук.',
+  'landing.ctaButton': 'Баштаңыз — бул бекер',
+  'landing.ctaSubtitle':
+    'Акысыз баштоо. Камкордук көрсөтүүчүлөрдү каалаган убакта кошуңуз. Жөндөөлөрдөн жокко чыгарыңыз.',
   'landing.ctaTitle': 'Биринчи эскертүүңүздү эки мүнөттүн ичинде орнотуңуз',
   'landing.eyebrow': 'Дары-дармектерди сактоо, камкордукка бөлөнүү',
   'landing.featureEyebrow': 'Эмне аласыз',
@@ -76,7 +110,10 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Сизге кам көргөн адамдар менен бөлүшө турган графиктер, эскертүүлөр, толтуруулар жана реалдуу убакыт режиминдеги сактоо жазуулары.',
   'landing.heroTitle': '{{tagline}}',
+  'landing.sampleDate': 'Жекшемби, 26-апрель',
   'medicationDetail.backLink': 'Бардык дары-дармектер',
+  'medicationDetail.confirmDeleteBody':
+    'Бул дарыны, анын графигин, доза тарыхын жана күтүүдөгү толуктоо сурамдарын өчүрөт. Муну артка кайтаруу мүмкүн эмес.',
   'medicationDetail.confirmDeleteHeading': 'Өчүрүү {{name}} ?',
   'medicationDetail.confirmDeleteLabel': 'Дарыны жок кылуу',
   'medicationDetail.deleteError': 'Өчүрүлбөй калды.',
@@ -98,14 +135,29 @@ export const ui: UiTranslations = {
   'medicationDetail.stat.remaining': 'Таблеткалар калды',
   'medicationDetail.stat.taken': 'Кабыл алынган дозалар',
   'medicationDetail.warningsHeading': 'Эскертүүлөр',
+  'medications.addLabel': 'Дары-дармек кошуу',
   'medications.empty': 'Азырынча дары-дармектер жок. Көзөмөлдөөнү баштоо үчүн бирөөнү кошуңуз.',
   'medications.heading': 'Дары-дармектер',
   'medications.loadError': 'Дары-дармектер жүктөлбөй калды.',
   'medications.prescriber': 'Рецепт боюнча {{name}}',
+  'medications.refillBy': '{{date}} чейин толуктоо',
+  'medications.remaining': 'калды',
   'medications.subheading': '{{count}} активдүү дары-дармектер',
   'notifications.heading': 'Билдирмелер',
+  'planUpdated.body':
+    'Төлөм өзгөртүүңүз эми активдүү. Планыңызды каалаган убакта төлөм барагынан башкара аласыз.',
+  'planUpdated.retry': 'Кайра аракет кыл',
+  'planUpdated.verifyFailed': 'Төлөмүңүздү азырынча ырастай алган жокпуз.',
+  'planUpdated.verifyFailedBody':
+    'Төлөмүңүз дагы эле иштетилип жатышы мүмкүн. Бир аздан кийин кайра аракет кылыңыз.',
   'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
+  'pricing.limits.advancedFeatures': 'Өркүндөтүлгөн функциялар:',
   'pricing.limits.canExport': 'Маалыматтарды экспорттоо:',
+  'pricing.limits.maxAdherence': '{{count}} сактоо',
+  'pricing.limits.maxDoses': '{{count}} доза',
+  'pricing.limits.maxMedications': '{{count}} дары',
+  'pricing.limits.maxRefills': '{{count}} толуктоо',
+  'pricing.limits.maxSchedules': '{{count}} график',
   'pricing.no': '—',
   'pricing.yes': '✓',
   'profile.emergency.heading': 'Шашылыш байланыш',
@@ -125,7 +177,9 @@ export const ui: UiTranslations = {
   'profile.security.error': 'Сырсөздү өзгөртө алган жок.',
   'profile.security.next': 'Жаңы сыр сөз',
   'profile.security.tooShort': 'Сырсөз кеминде 8 белгиден турушу керек.',
+  'refillAlertCard.daysAt': 'күн · {{count}} таблетка',
   'refillAlertCard.pharmacyWithPhone': '{{pharmacy}} · {{phone}}',
+  'refillAlertCard.refillsRemaining': 'Rx боюнча {{count}} толуктоо калды',
   'refillAlertCard.request': 'Сурам',
   'refills.empty': 'Азырынча кошумча дарылар жок. Көзөмөлдөөнү баштоо үчүн дары кошуңуз.',
   'refills.eyebrow': 'Камсыздандырылган бойдон калыңыз',
@@ -138,11 +192,15 @@ export const ui: UiTranslations = {
   'refills.tile.dueSoonNote': 'Кийинки 30 күндүн ичинде кайра толтуруңуз',
   'refills.tile.fine': 'Ден соолукка пайдалуу азык-түлүк',
   'refills.tile.fineNote': 'Эч кандай аракеттин кереги жок',
+  'refills.tile.urgent': 'Шашылыш',
   'refills.tile.urgentNote': 'Бир жуманын ичинде чыгат',
   'schedule.heading': 'Апталык график',
+  'schedule.legend':
+    'Толук тегерекчелер = кабыл алынган же келе жаткан · бозарган контур = өткөрүп жиберилген доза',
   'schedule.loadError': 'График жүктөлбөй калды.',
   'schedule.subheading': 'Ар бир доза, күн сайын, бир караганда.',
   'schedule.timeColumn': 'Убакыт',
+  'settings.appearance.description': 'Жарык жана караңгы режимдердин ортосунда которулуңуз.',
   'settings.appearance.highContrast': 'Жогорку контрасттуу түстөр',
   'settings.appearance.largeText': 'Бардык жерде чоңураак текстти колдонуңуз',
   'settings.appearance.timeFormat': 'Убакыт форматы',
@@ -168,15 +226,27 @@ export const ui: UiTranslations = {
   'settings.saving': 'Сакталууда…',
   'settings.signingOutDevice': 'Чыгарылууда…',
   'settings.signOutDevice': 'Чыгуу',
+  'settings.twoFactorBody':
+    'Кирүүдө аутентификатор колдонмосунан бир жолку код талап кылыңыз — ден соолук маалыматтарыңыз үчүн кошумча коргоо катмары.',
   'settings.twoFactorCode': 'Аутентификация коду',
   'settings.twoFactorDisable': 'Өчүрүү',
+  'settings.twoFactorDisableBody':
+    'Эки факторлуу аутентификацияны өчүрүү үчүн аутентификатор колдонмосунан учурдагы кодду киргизиңиз.',
   'settings.twoFactorEnable': 'Иштетүү',
   'settings.twoFactorInvalidCode': 'Жараксыз код.',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Эки факторлуу QR код',
+  'settings.twoFactorScan':
+    'Бул QR кодду аутентификатор колдонмоңуз менен скандаңыз, анан 6 орундуу кодду киргизиңиз.',
+  'settings.twoFactorUnavailable':
+    'Бул колдонмо үчүн эки факторлуу аутентификация жеткиликтүү эмес.',
   'settings.twoFactorVerify': 'Текшерүү жана иштетүү',
   'settings.unnamedDevice': 'Аты жок түзмөк',
   'todayHeroCard.adherence': '{{pct}} %',
   'todayHeroCard.eyebrow': 'Бүгүн · {{date}}',
+  'todayHeroCard.streak': '{{days}} - күндүк серия',
+  'todayHeroCard.summary':
+    '{{total}} дозанын {{taken}} бөлүгү кабыл алынды · бүгүн дагы {{upcoming}} калды',
   'userMenu.caregivers': 'Камкорчулар',
   'userMenu.memberStatus': 'Күнүмдүк иштериңизге кам көрүү',
   'userMenu.profile': 'Профиль жана медициналык маалымат',

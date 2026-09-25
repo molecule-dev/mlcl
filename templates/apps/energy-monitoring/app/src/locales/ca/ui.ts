@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Preguntes, sol·licituds de funcions o un comptador que hauríem de suportar? Contacta amb l'equip d'{{appName}} des de la configuració del teu compte — cada missatge arriba a una persona real.",
   'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre',
+  'about.featuresTitle': 'El que obtens',
+  'about.intro':
+    "{{appName}} és monitoratge de potència en temps real per a llars amb energia solar i equips d'instal·lacions. Convertim el doll de dades de comptadors, inversors i bateries en una visió tranquil·la de sala de control — potència instantània, producció solar, cost per franges horàries i alertes, tot en un sol entorn.",
+  'about.missionBody':
+    "L'energia que es veu és l'energia que es pot gestionar. Creiem que tothom que gestiona un comptador — una llar amb energia solar a la teulada o un equip que vigila un edifici — mereix informació de nivell elèctric sense un contracte de nivell elèctric. Cada funció està pensada perquè el proper quilowatt-hora sigui una decisió informada, no una sorpresa a la factura.",
+  'about.missionTitle': 'La nostra missió',
   'about.pageTitle': 'Sobre {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Ack',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alertes@elvostredomini.com',
   'alertRule.eyebrow': 'Nova regla',
   'alertRule.heading': 'Atrapa la punta abans que et costi',
+  'alertRule.nameLabel': 'Nom de la regla',
   'alertRule.namePlaceholder': "p. ex. Vigilància de climatització fora d'hores",
   'alertRule.subheading':
     "Trieu una mètrica, un llindar i on voleu enviar l'alerta. Podeu editar-la o pausar-la en qualsevol moment.",
   'alertRule.submit': 'Desa la regla',
   'alertRule.submitError': "No s'ha pogut desar la regla.",
   'alertRule.thresholdLabel': 'Llindar',
+  'alertRule.typeLabel': 'Tipus de disparador',
   'alerts.checking': "S'està comprovant…",
   'alerts.confirmDelete': "Confirma l'eliminació",
+  'alerts.empty': 'No hi ha res a mostrar — cap alerta en aquest estat.',
   'alerts.emptyNoRules':
     'Encara no hi ha cap alerta: afegiu una regla i feu clic a "Avalua ara" per provar-la.',
   'alerts.errorAck': "No s'ha pogut reconèixer.",
@@ -41,12 +52,15 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Avalua ara',
   'alerts.subheading':
     "Alertes de llindar i patró que s'activen als vostres comptadors, a més de les regles que les regeixen.",
+  'billing.activeBlurb': 'La teva subscripció està activa. Gestiona-la quan vulguis.',
   'billing.cancelError': "No s'ha pogut cancel·lar la subscripció.",
   'billing.cancelling': 'Cancel·lant…',
   'billing.currentBadge': 'Actual',
   'billing.freeBlurb':
     "Ets al pla gratuït. Actualitza per obtenir més comptadors, un historial més llarg i més regles d'alerta.",
   'billing.heading': 'Plans i facturació',
+  'billing.historyEmpty':
+    'Les factures pagades apareixeran aquí quan es facturi la teva subscripció.',
   'billing.historyHeading': 'Historial de factures',
   'billing.loadError': "No s'ha pogut carregar la facturació.",
   'billing.loading': 'Plans de càrrega…',
@@ -58,17 +72,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Contacta amb vendes',
   'common.goToDashboard': 'Anar al panell',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} kWh punta · {{offPeak}} kWh fora de punta',
   'dailyCostMeter.runningLabel': 'Total acumulat',
   'dailyCostMeter.title': 'Cost fins ara avui',
   'dailyCostMeter.utilizationLabel': 'Del pressupost diari',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Afegeix un comptador',
   'dashboard.alertsHeading': 'Alertes actives',
   'dashboard.devicesHeading': 'Els millors circuits ara mateix',
   'dashboard.empty.body':
     'Afegeix un comptador intel·ligent o un inversor solar per començar a fer un seguiment del consum i la producció en directe.',
+  'dashboard.empty.title': 'Encara no hi ha comptadors',
   'dashboard.eyebrow': 'Sala de control de Voltrace',
   'dashboard.heading': "Instantànies d'energia en directe",
   'dashboard.loadError': "No s'han pogut carregar les lectures en directe.",
   'dashboard.loading': 'Afinant els teus metres…',
+  'dashboard.noAlerts': 'Tot tranquil — res supera els teus llindars.',
   'dashboard.noAlertsAndNoMeters':
     'Un cop hàgiu connectat un comptador, aquí apareixeran alertes basades en els vostres llindars.',
   'dashboard.noCircuits':
@@ -76,6 +95,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading': 'Consum de tota la llar, producció solar i cost fins ara.',
   'dashboard.viewAllAlerts': 'Gestiona les alertes →',
   'dashboard.viewAllDevices': 'Cada dispositiu →',
+  'deviceDetail.activeTokens': "Tokens d'ingestió actius",
   'deviceDetail.alreadyOff': 'Ja en pausa',
   'deviceDetail.back': 'Tots els circuits',
   'deviceDetail.confirmDelete': "Confirma l'eliminació",
@@ -116,22 +136,34 @@ export const ui: UiTranslations = {
   'devices.loadError': "No s'han pogut carregar els comptadors.",
   'devices.loading': 'Sondejant cada comptador…',
   'devices.newRule': "Nova regla d'alerta",
+  'devices.noResults': 'Cap circuit coincideix amb aquest filtre.',
   'devices.placeholder.location': 'p. ex. sala de màquines',
   'devices.placeholder.name': 'p. ex. Subpanell de garatge',
   'devices.subheading':
     "Potència en temps real i kWh d'avui a través de tots els circuits que Voltrace pot veure.",
+  'deviceWattageRow.todayKwh': '{{kwh}} kWh avui',
+  'deviceWattageRow.watts': '{{watts}} Oest',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Menú',
+  'energyMonitoringLayout.primaryNavLabel': 'Navegació principal',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    '{{appName}} es comunica amb la majoria de comptadors de nivell elèctric, inversors solars i bateries — per cable o per WiFi.',
   'landing.ctaHeading': 'Emparella el teu mesurador i consulta els watts en minuts',
   'landing.eyebrow': 'Intel·ligència energètica en temps real',
+  'landing.featuresHeading': 'Cada watt, cada minut, en un sol entorn',
   'landing.getStarted': 'Connecteu Voltrace',
   'landing.heroCta': 'Connecteu Voltrace',
+  'landing.heroSubtitle':
+    "Potència instantània, producció solar, cost per franges horàries i alertes de consum elevat en un entorn de sala de control pensat per a llars amb energia solar i equips d'instal·lacions.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Sorteig de tota la casa',
   'landing.sampleSolar': "+3.820 W d'energia solar",
   'landing.sampleSummary': 'Exportant 1.680 W a la xarxa · 18,4 kWh avui',
   'landing.sampleWatts': '2.140 Oest',
   'powerHeroCard.solar': '+ {{watts}} Solar W',
   'powerHeroCard.title': 'Sorteig de tota la casa',
+  'powerHeroCard.todayKwh': '{{kwh}} kWh avui',
   'powerHeroCard.watts': '{{watts}} Oest',
   'pricing.choose': 'Tria {{name}}',
   'pricing.contact': 'Necessites alguna cosa personalitzada?',
@@ -144,6 +176,7 @@ export const ui: UiTranslations = {
     "Comença gratuïtament. Actualitza quan necessitis més comptadors, un historial més llarg o més regles d'alerta.",
   'pricing.unavailable': 'Aquest pla no està disponible ara mateix: Stripe no està configurat.',
   'profile.errorGeneric': "No s'han pogut desar els canvis de perfil.",
+  'profile.errorGoal': "L'objectiu mensual de kWh ha de ser un nombre positiu.",
   'profile.errorHousehold': 'La mida de la llar ha de ser un nombre positiu.',
   'profile.householdHeading': 'Llar i objectius',
   'profile.householdSize': 'Mida de la llar',
@@ -160,9 +193,11 @@ export const ui: UiTranslations = {
   'reports.loadError': "No s'han pogut carregar els informes.",
   'reports.loading': 'Agregant lectures…',
   'reports.subheading': 'Totals diaris de consum, producció i cost, desglossats per data.',
+  'reports.tableHeading': 'Desglossament diari',
   'settings.currency': 'moneda',
   'settings.errorFlat': 'La tarifa plana ha de ser ≥ 0.',
   'settings.errorNotify': "No s'han pogut desar les preferències de notificació.",
+  'settings.errorSave': "No s'ha pogut desar el pla tarifari.",
   'settings.errorTou':
     'Es requereixen tarifes punta/fora de les hores punta i una finestra de màxima demanda vàlida.',
   'settings.exportBody':
@@ -183,10 +218,21 @@ export const ui: UiTranslations = {
   'settings.saving': 'Desant…',
   'settings.securityHeading': 'Autenticació de dos factors',
   'settings.subheading': 'Tarifes, notificacions i exportació de dades.',
+  'settings.twoFactorBody':
+    "Requereix un codi d'un sol ús de la teva aplicació d'autenticació cada vegada que iniciïs sessió.",
   'settings.twoFactorCode': "Codi d'autenticació",
   'settings.twoFactorDisable': 'Desactiva',
+  'settings.twoFactorDisableTitle': "Desactiva l'autenticació de dos factors",
   'settings.twoFactorEnable': 'Activa',
+  'settings.twoFactorEnableTitle': "Activa l'autenticació de dos factors",
   'settings.twoFactorInvalidCode': 'Codi no vàlid',
+  'settings.twoFactorOAuth':
+    "El teu compte s'inicia a través d'un proveïdor connectat, així que la verificació en dos passos es gestiona allà.",
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Codi QR de dos factors',
+  'settings.twoFactorScan':
+    "Escaneja aquest codi QR amb la teva aplicació d'autenticació i després introdueix el codi de 6 dígits.",
+  'settings.twoFactorUnavailable':
+    "L'autenticació de dos factors no està disponible per a aquesta aplicació.",
   'settings.twoFactorVerify': 'Verifica i activa',
 }

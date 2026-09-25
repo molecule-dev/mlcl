@@ -1,18 +1,38 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கேள்விகள், கருத்துகள் அல்லது அம்சக் கோரிக்கை உள்ளதா? Settings → Notifications இல் இருந்து {{app}} குழுவை அணுகவும், அல்லது எப்போது வேண்டுமானாலும் எங்களுக்கு எழுதலாம் — ஒவ்வொரு செய்தியும் ஒரு உண்மையான மனிதரையே சென்றடையும்.',
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.featureCapture':
+    'சரியான செலவுடன் படங்களை வரி வரியாக இணைக்கும் புகைப்பட பதிவேற்றத்துடன் ரசீது பிடிப்பு.',
+  'about.featureExport':
+    'ஒவ்வொரு அறிக்கை, செலவு மற்றும் ஒப்புதல் நிலையின் தணிக்கைக்குரிய CSV ஏற்றுமதிகள் — உங்கள் கணக்கியல் குழுவுக்குத் தயார்.',
+  'about.featurePolicy':
+    'கொள்கை பாதுகாப்புகள் — தினசரி வரம்புகள், வகைக்கான வரம்புகள் மற்றும் ரசீது கட்டாயமான வரம்புகள் சமர்ப்பிக்கும் நேரத்தில் அமல்படுத்தப்படும்.',
+  'about.featureWorkflow':
+    'மதிப்பாய்வாளர் குறிப்புகள், கொள்கை மீறல் கொடிகள் மற்றும் ஒரே தட்டலில் திருப்பிச் செலுத்தல் குறியிடல் கொண்ட இரு-நிலை ஒப்புதல் பணிப்பாய்வு.',
+  'about.intro':
+    '{{app}} என்பது நிதிக் குழுக்களுக்கும் அவர்கள் திருப்பிச் செலுத்தும் நபர்களுக்குமான செலவு நிர்வாக தளம். ஒரு ரசீதைப் பிடியுங்கள், ஒரு செலவைப் பதிவு செய்யுங்கள், ஒரு அறிக்கையை ஒப்புதலுக்கு அனுப்புங்கள், ஒவ்வொரு திருப்பிச் செலுத்தலையும் கண்காணியுங்கள் — விரிதாள் சடங்குகள் இல்லாமல்.',
+  'about.missionBody':
+    'திருப்பிச் செலுத்துதல் விரைவாகவும், நியாயமாகவும், தணிக்கைக்குரியதாகவும் இருக்க வேண்டும். சமர்ப்பிப்பவர்கள் தொந்தரவு இல்லாமல் பணம் பெறவும், ஒப்புதல் அளிப்பவர்கள் தாங்கள் எதற்கு ஒப்புதல் அளிக்கிறார்கள் என்பதைத் துல்லியமாகப் பார்க்கவும், நிதிப் பிரிவுக்கு ஒவ்வொரு டாலருக்கும் தெளிவான தடம் — கொள்கை சரிபார்ப்புகள் உட்பட — இருக்கவும் நாங்கள் {{app}}-ஐ உருவாக்கினோம்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'approvals.approve': 'Approve',
   'approvals.approving': 'ஒப்புதல் அளித்தல்…',
   'approvals.confirmReject': 'உறுதிப்படுத்து நிராகரி',
+  'approvals.empty':
+    'நீங்கள் அனைத்தையும் முடித்துவிட்டீர்கள் — காத்திருக்கும் அறிக்கைகள் எதுவும் இல்லை.',
   'approvals.eyebrow': 'மேலாளர் வரிசை',
   'approvals.kpi.flaggedLabel': 'கொள்கை கொடியிடப்பட்டது',
+  'approvals.kpi.queueLabel': 'மதிப்பாய்வுக்காகக் காத்திருக்கிறது',
   'approvals.kpi.totalLabel': 'நிலுவையில் உள்ள மதிப்பு',
   'approvals.lineCount': '{{count}} செலவுகள்',
   'approvals.queueFallback':
     'நேரலை வரிசை கிடைக்கவில்லை — தொகுக்கப்பட்ட மாதிரித் தரவுகள் காட்டப்படுகின்றன.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'நிராகரிக்கப்படுகிறது…',
+  'approvals.rejectPlaceholder': 'காரணம் (கட்டாயம்)',
   'approvals.rejectPrompt': 'நீங்கள் ஏன் இந்த அறிக்கையை நிராகரிக்கிறீர்கள்?',
   'approvals.review': 'மதிப்பாய்வு',
   'approvals.title': 'ஒப்புதல்கள் நிலுவையில் உள்ளன',
@@ -25,11 +45,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'அங்கீகரிக்கப்பட்டது · எம்டிடி',
   'dashboard.kpi.pendingDelta': 'இந்த வாரம் +2',
+  'dashboard.kpi.pendingLabel': 'மதிப்பாய்வு நிலுவையில் உள்ளது',
   'dashboard.kpi.receiptsDelta': 'நடவடிக்கை தேவை',
   'dashboard.kpi.receiptsLabel': 'ரசீதுகளுக்காகக் காத்திருக்கிறது',
   'dashboard.kpi.reimbursedDelta': '+$2.4k',
   'dashboard.kpi.reimbursedLabel': 'திருப்பிச் செலுத்தப்பட்டது · எம்டிடி',
   'dashboard.newReport': 'புதிய அறிக்கை',
+  'dashboard.recent.empty':
+    'இன்னும் அறிக்கைகள் இல்லை — மேலே உங்கள் முதல் அறிக்கையைத் தொடங்குங்கள்.',
   'dashboard.recent.title': 'சமீபத்திய அறிக்கைகள்',
   'dashboard.recent.viewAll': 'அனைத்து அறிக்கைகளையும் காண்க',
   'dashboard.summaryFallback':
@@ -41,11 +64,19 @@ export const ui: UiTranslations = {
   'expenses.listFallback':
     'நேரலைப் பட்டியல் கிடைக்கவில்லை — தொகுக்கப்பட்ட மாதிரித் தரவுகள் காட்டப்படுகின்றன.',
   'expenses.searchPlaceholder': 'வணிகர் அல்லது பிரிவில் தேடவும்…',
+  'expenses.subtotal': '{{count}} செலவுகள் · துணைத் தொகை',
   'expenses.title': 'செலவுகள்',
+  'forgotPassword.continue': 'என்னிடம் ஒரு குறியீடு உள்ளது · தொடரவும்',
+  'forgotPassword.subheading':
+    'உங்கள் வேலை மின்னஞ்சலை உள்ளிடவும், புதிய கடவுச்சொல்லை அமைக்க ஒரு இணைப்பை அனுப்புவோம்.',
   'forgotPassword.successBody':
     'ஒரு கணக்கு இருந்தால் {{email}} அடுத்த சில நிமிடங்களில் உங்களுக்கு மீட்டமைப்பு இணைப்பு அனுப்பப்படும்.',
+  'landing.copyright': '© {{year}} {{app}}. Molecule.dev மூலம் உருவாக்கப்பட்டது.',
+  'landing.ctaBody':
+    'ஒவ்வொரு மாதமும் முதல் 25 செலவுகளுக்கு இலவசம். கிரெடிட் கார்டு இல்லை, செயலாக்க அழைப்பு இல்லை.',
   'landing.ctaHeading': 'உங்கள் அணிக்குச் சேர வேண்டியதை மீட்கத் தயாரா?',
   'landing.eyebrow': 'நிதிக் குழுக்களுக்கான செலவு அறிக்கைகள்',
+  'landing.featuresHeading': 'திருப்பிச் செலுத்துதல், ஒரே அமைதியான பணியிடத்தில்',
   'landing.heroSubtitle':
     'விரிதாள் சம்பிரதாயங்கள் இன்றி வணிகச் செலவுகளைச் சமர்ப்பிக்கவும், அங்கீகரிக்கவும் மற்றும் திருப்பிச் செலுத்தவும். ரசீது OCR, கொள்கைச் சரிபார்ப்புகள் மற்றும் வெளிப்படையான ஒப்புதல் காலவரிசை ஆகிய அனைத்தும் ஒரே அமைதியான பணிச்சூழலில்.',
   'landing.heroTitle': 'ஒவ்வொரு ரசீதும் மீட்கப்பட்டது.',
@@ -63,10 +94,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'குறிப்புகள்',
   'newExpense.descriptionPlaceholder':
     'இந்தச் செலவு ஏன் வணிகம் சம்பந்தப்பட்டது (உங்கள் ஒப்புதல் அளிப்பவருக்குத் தெரியும்படி).',
+  'newExpense.eyebrow': 'திருப்பிச் செலுத்தக்கூடிய உருப்படி',
   'newExpense.merchant': 'வணிகர்',
   'newExpense.merchantPlaceholder': 'ஹோட்டல் அட்லான் கெம்பின்ஸ்கி',
   'newExpense.policyHint':
     'நினைவூட்டல்: ஒரு நாளைக்கு $80-க்கு மேற்பட்ட உணவுகளுக்கோ அல்லது $250-க்கு மேற்பட்ட எந்தவொரு பொருளுக்கோ நியாயப்படுத்தல் குறிப்பு தேவைப்படும்.',
+  'newExpense.receipt': 'ரசீது',
+  'newExpense.receiptHint': 'JPG, PNG அல்லது PDF · அதிகபட்சம் 10 MB',
   'newExpense.receiptOcrHint': 'OCR புலங்களை முன் நிரப்புகிறது',
   'newExpense.receiptPrompt':
     'ஒரு புகைப்படம் அல்லது PDF-ஐ இங்கே பதிவிடவும், அல்லது பார்வையிட கிளிக் செய்யவும்.',
@@ -78,17 +112,21 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'ஒரு ரசீதைப் புகைப்படம் எடுக்கவும் அல்லது பதிவேற்றவும், ரெக்கப் தானாகவே வணிகர், தேதி மற்றும் மொத்தத் தொகையை நிரப்பிவிடும். சேமிப்பதற்கு முன் கீழே உள்ள அனைத்தையும் உறுதிப்படுத்தவும்.',
   'newExpense.title': 'செலவைச் சேர்க்கவும்',
+  'newReport.approverHint':
+    'இந்த அறிக்கையை மதிப்பாய்வுக்குச் சமர்ப்பிக்கும்போது அவர்களுக்கு மின்னஞ்சல் வரும்.',
   'newReport.approverLabel': 'ஒப்புதல் மின்னஞ்சல் (விருப்பத்திற்குரியது)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'கிடைக்கக்கூடிய செலவுகள்',
   'newReport.createFailed': 'அறிக்கையை உருவாக்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.',
   'newReport.draftsFallback':
     'நிகழ்நேர செலவுப் பட்டியல் கிடைக்கவில்லை — தொகுக்கப்பட்ட மாதிரித் தரவுகள் காட்டப்படுகின்றன.',
+  'newReport.eyebrow': 'செலவுகளைத் தொகுக்கவும் · ஒப்புதலுக்குச் சமர்ப்பிக்கவும்',
   'newReport.includedCount': '{{count}} சேர்க்கப்பட்டது',
   'newReport.purposeLabel': 'வணிக நோக்கம்',
   'newReport.purposePlaceholder':
     'இந்தச் செலவுகள் தொடர்புடைய பயணம் அல்லது திட்டம் குறித்து விவரிக்கவும் (உங்கள் ஒப்புதல் அளிப்பவர் மற்றும் நிதித் துறைக்குத் தெரியும்படி).',
   'newReport.saveDraft': 'வரைவாகச் சேமிக்கவும்',
+  'newReport.saveDraftFailed': 'வரைவைச் சேமிக்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.',
   'newReport.submit': 'ஒப்புதலுக்காகச் சமர்ப்பிக்கவும்',
   'newReport.submitFailed': 'அறிக்கையைச் சமர்ப்பிக்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.',
   'newReport.summary': 'அறிக்கை சுருக்கம்',
@@ -102,17 +140,25 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'நேரலை ஒளிபரப்பு கிடைக்கவில்லை — தொகுக்கப்பட்ட மாதிரித் தரவுகள் காட்டப்படுகின்றன.',
   'notifications.openReport': 'அறிக்கையைத் திறக்கவும் ›',
+  'pricing.approvalsLabel': 'ஒப்புதல்கள்',
   'pricing.expensesLabel': 'செலவுகள்',
   'pricing.heading': 'ஒப்புதல்கள்',
   'pricing.policiesLabel': 'கொள்கைகள்',
   'pricing.receiptsLabel': 'ரசீதுகள்',
   'recoveredAmountHeroCard.label': 'திருப்பிச் செலுத்தப்பட்ட தொகை மீட்கப்பட்டது · YTD',
+  'recoveredAmountHeroCard.pending':
+    'அனைத்து ஒப்புதல் அளிப்பவர்களிடையே தற்போது மதிப்பாய்வில் உள்ள {{count}} அறிக்கை(கள்).',
+  'reports.approvalFlow': 'ஒப்புதல் ஓட்டம்',
   'reports.backToList': 'அறிக்கைகளுக்குத் திரும்பு',
   'reports.detailFallback':
     'நேரலை அறிக்கை கிடைக்கவில்லை — தொகுக்கப்பட்ட மாதிரித் தரவுகள் காட்டப்படுகின்றன.',
   'reports.lineItems': 'வரி உருப்படிகள்',
   'reports.lineItemsCount': '{{count}} செலவுகள்',
+  'reports.lineItemsEmpty': 'இந்த அறிக்கையில் இன்னும் செலவுகள் இல்லை.',
+  'reports.openLibrary': 'அறிக்கை நூலகத்தைத் திறக்கவும்',
   'reports.policyTitle': 'கொள்கைக் கொடி',
+  'reports.selectPrompt':
+    'அதன் விவரங்களைப் பார்க்க நூலகத்திலிருந்து ஒரு அறிக்கையைத் தேர்ந்தெடுக்கவும்.',
   'reports.summary.lineCount': 'வரி உருப்படிகள்',
   'reports.summary.reimbursable': 'திருப்பிச் செலுத்தக்கூடிய',
   'reports.summary.total': 'அறிவிக்கப்பட்ட மொத்தம்',
@@ -122,6 +168,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'நேரலைப் பட்டியல் கிடைக்கவில்லை — தொகுக்கப்பட்ட மாதிரித் தரவுகள் காட்டப்படுகின்றன.',
   'reportsList.newReport': 'புதிய அறிக்கை',
+  'reportsList.submittedOn': '{{date}} அன்று சமர்ப்பிக்கப்பட்டது',
   'reportsList.title': 'அறிக்கை நூலகம்',
   'resetPassword.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
   'resetPassword.newPasswordLabel': 'புதிய கடவுச்சொல்',
@@ -147,6 +194,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'சேமிக்கப்பட்டது ✓',
   'settings.profileSaveFailed': 'சுயவிவரத்தைப் புதுப்பிக்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.',
   'signup.heading': 'உங்கள் மீட்புக் கணக்கை உருவாக்கவும்',
+  'signup.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
   'signup.namePlaceholder': 'மாயா ஒகாஃபோர்',
   'signup.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'signup.subheading': 'ஒவ்வொரு மாதமும் 25 செலவுகளுக்கு இலவசம் — கடன் அட்டை தேவையில்லை.',

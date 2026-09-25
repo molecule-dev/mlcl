@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Ajụjụ gbasara ndokwa, nzaghachi, ma ọ bụ ụlọ ị chere kwesịrị ịdị na {{app}}? Kpọtụrụ ndị otu anyị site na akaụntụ gị — ozi ọ bụla na-erute mmadụ n'ezie nke nwere ike inyere gị aka.",
+  'about.contactTitle': 'Gwa anyị okwu',
   'about.eyebrow': 'Gbasara anyị',
+  'about.featureLoyalty':
+    "Ọnụ ego naanị maka ndị otu na mmemme iguzosi ike nke na-enweta isi, nlele ọpụpụ n'oge, na nkwalite ụlọ na ndokwa ọ bụla.",
+  'about.featureReviews':
+    'Nlebanya ndị ọbịa enyochara na nhọrọ ndị nchịkọta akụkọ ka ị nwee ike ịtụkwasị obi na ọnụnọ tupu ị bịarute.',
+  'about.featureRooms':
+    "Ụlọ, ọnụ ego, na ihe eji eme ihe n'akụkụ ibe ha na ọnụ ahịa doro anya, gụnyere ụtụ isi na ụgwọ ebe ezumike tupu ị kwụọ ụgwọ.",
+  'about.featureSearch':
+    "Nchọcha ozugbo n'ofe ụlọ nkwari akụ enyochara na nnweta dị ndụ, nlele map, na ọba foto bara ụba.",
+  'about.featureTrips':
+    "Ihe ndị echekwara na dashboard Trips nke na-edebe ndokwa, atụmatụ njem, na nkwenye ọ bụla n'otu ebe.",
+  'about.intro':
+    "{{app}} bụ ikpo okwu ndokwa ụlọ nkwari akụ maka ndị njem na-eche banyere ịdị mma. Ndị otu nchịkọta akụkọ anyị na-enyocha ụlọ ọ bụla n'onwe ha — enweghị ngwa ahịa aggregator, enweghị ndepụta aghụghọ. Chọọ nnweta n'ezie, tụnyere ụlọ, ọnụ ego, na ihe eji eme ihe n'akụkụ ibe ha, wee debe na ntapị ole na ole na ọnụ ahịa doro anya, gụnyere ihe niile.",
+  'about.missionBody':
+    "Ịdebanye ebe obibi kwesịrị ịdị ka ihe dị jụụ na nke eziokwu. Anyị na-egosi ọnụ ego doro anya na ụtụ isi na ụgwọ ebe ezumike n'ihu, na-akwụ ndị ọbịa na-eguzosi ike n'ihe ụgwọ kama ịta ha ahụhụ, ma na-ebute ụlọ ndị kwesịrị ego gị ụzọ — ka i wee nwee ike iji obere oge na-atụnyere taabụ na oge karịa na njem ahụ n'onwe ya.",
+  'about.missionTitle': 'Ọrụ anyị',
+  'about.subtitle': 'Ụzọ ahaziri ahazi, doro anya iji chọta na debe ụlọ nkwari akụ kwesịrị ekwesị.',
   'account.loyalty.activitySummary': '{{nights}} abalị · {{spend}} mefuo afọ a',
+  'account.loyalty.benefitsHeading': 'Uru gị',
   'account.loyalty.heading': "Iguzosi Ike n'Ihe",
   'account.loyalty.loading': "Na-ebugo iguzosi ike n'ihe…",
-  'account.loyalty.pointsTowardNext': '{{isi}} / {{Osote}} na-arụtụ aka na {{Ọkwa nke na-esote}}',
+  'account.loyalty.maxTier': 'Ọkwa kachasị elu — nwee ụtọ uru gị.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} isi ruo {{nextTier}}',
   'account.loyalty.tier': 'Ọkwa dị ugbu a',
   'account.loyalty.unavailable': "Enweghị ozi iguzosi ike n'ihe.",
   'account.navLabel': 'Ngalaba akaụntụ',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Kwenye ndoputa · {{total}}',
   'bookingCheckout.datesRequired': 'Biko họrọ ụbọchị ị ga-abanye na ụbọchị ị ga-apụ.',
   'bookingCheckout.guestHeading': 'Onye ọbịa mbụ',
+  'bookingCheckout.heading': 'Kwenye ma debe',
   'bookingCheckout.loadError': 'Ịbupu ihe onwunwe agaghị arụ ọrụ.',
   'bookingCheckout.nights': '{{rate}} × {{count}} abalị',
   'bookingCheckout.notFound': 'Achọtaghị ihe onwunwe ahụ.',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Ụtụ isi na ụgwọ',
   'bookingCheckout.tripHeading': 'Njem gị',
   'bookingConfirmation.allTripsCta': 'Njem niile',
+  'bookingConfirmation.confNumber': 'Nọmba nkwenye: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'A na-ahazi ndokwa gị.',
   'bookingConfirmation.heading': 'A kwadoro ndoputa',
   'bookingConfirmation.loading': 'Na-ebugo ndoputa gị…',
   'bookingConfirmation.searchMoreCta': 'Chọgharịa ọnụnọ ndị ọzọ',
   'bookingConfirmation.subheadingForTrip':
-    '{{ihe onwunwe}} na {{obodo}} , {{mba}} Anyị ga-ahụ gị na {{ndebanye mbata}} .',
+    '{{property}} na {{city}}, {{country}}. Anyị ga-ahụ gị na {{checkIn}}.',
   'bookingConfirmation.total': 'Ngụkọta {{total}}',
   'bookingConfirmation.viewTripCta': 'Lee njem ahụ',
   'common.goToDashboard': 'Gaa na Dashboard',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Akwụsịghị ibu ihe ndị kacha amasị gị.',
   'favorites.pricePerNight': '{{price}} / abalị',
   'favorites.removeCta': 'Wepu Nchekwa',
+  'favorites.removing': 'Na-ewepụ…',
   'forgotPassword.subheading':
     'Tinye ozi-e ahụ na akaụntụ gị, anyị ga-ezitere gị njikọ nrụpụta echekwara.',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Ndị otu njem nleta',
   'landing.cta.heading': 'Ọnụego naanị maka ndị otu. Ndoputa ọ bụla, oge ọ bụla.',
   'landing.cta.signup': 'Mepụta akaụntụ efu',
+  'landing.cta.subheading':
+    "Nweta isi iguzosi ike n'ihe na ọnụnọ ọ bụla, meghee nlele ọpụpụ n'oge na nkwalite ụlọ, ma nweta ohere mbụ na ụlọ ọhụrụ tupu e depụta ha n'ihu ọha.",
   'landing.destinations.eyebrow': 'Ebee ka ị ga-esote',
   'landing.destinations.heading': 'Ebe ndị a ma ama',
   'landing.destinations.seeAll': 'Lee ebe niile a na-aga',
@@ -61,12 +89,21 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Akụkọ kwesịrị ịkwakọba maka',
   'landing.nav.join': 'Jikọọ na Auberge',
   'landing.nav.search': 'Nọrọ ebe ọchụchọ',
+  'landing.preview.browseAll': 'Chọgharịa nchịkọta zuru ezu',
   'landing.preview.eyebrow': "Nleba anya n'ime",
   'landing.preview.heading': "Ọnụnọ ndị a họpụtara n'aka n'ọnwa a",
+  'landing.preview.subheading':
+    "Ụlọ ọ bụla na {{appName}} bụ ndị otu nchịkọta akụkọ anyị na-enyocha n'onwe ha — enweghị ngwa ahịa aggregator, enweghị ndepụta aghụghọ.",
   'login.eyebrow': 'Mpaghara ndị otu',
+  'login.noAccount': 'Ị bụ onye ọhụrụ na Tessera?',
   'login.signupLink': 'Mepụta akaụntụ efu',
   'login.subheading': 'Banye iji jikwaa njem gị, hụ nkwenye, wee malite ebe ị kwụsịrị.',
+  'loyaltyTierBadge.points': '{{points}} pts',
   'planUpdated.heading': 'Emelitere atụmatụ',
+  'planUpdated.retry': 'Nwaa ọzọ',
+  'planUpdated.verifyFailed': 'Anyị enwebeghị ike ịkwado ịkwụ ụgwọ gị.',
+  'planUpdated.verifyFailedBody':
+    "Ịkwụ ụgwọ gị ka nwere ike ịdị na-aga n'ihu. Nwaa ọzọ n'ime obere oge.",
   'planUpdated.verifying': 'Na-akwado ịkwụ ụgwọ gị…',
   'pricing.limit.advancedFeatures': 'Atụmatụ dị elu:',
   'pricing.limit.canExport': 'Mbupụ data:',
@@ -78,7 +115,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Ihe ebe a na-enye',
   'propertyDetail.backLink': 'Laghachi na nchọta',
   'propertyDetail.bookCta': 'Nchekwa ego',
+  'propertyDetail.bookmarkAria': 'Chekwaa ihe onwunwe',
   'propertyDetail.bookmarkAriaSaved': 'Wepụ na ihe onwunwe echekwara',
+  'propertyDetail.galleryImageAlt': '{{name}} foto {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} foto dike',
   'propertyDetail.hidePhotos': 'Zoo foto',
   'propertyDetail.lineCleaning': 'Ụgwọ nhicha',
@@ -88,6 +127,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'abalị',
   'propertyDetail.noChargeYet': 'A gaghị akwụ gị ụgwọ ugbu a',
   'propertyDetail.notFound': 'Achọtaghị ihe onwunwe ahụ.',
+  'propertyDetail.perNight': '/ abalị',
+  'propertyDetail.pickDatesHint': 'Họrọ ụbọchị gị iji hụ nkọwa ọnụ ahịa zuru ezu.',
   'propertyDetail.reviewCount': '( {{count}} nyocha)',
   'propertyDetail.reviewsHeading': 'Nyocha ndị na-adịbeghị anya',
   'propertyDetail.roomCapacity': 'Ụra {{count}}',
@@ -100,6 +141,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Okwuntughe Ọhụrụ',
   'resetPassword.subheading':
     'Họrọ paswọọdụ ọhụrụ maka akaụntụ Auberge gị. Jiri opekata mpe mkpụrụedemede asatọ; anyị na-akwado okwuntughe.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Ọ dịghị ihe onwunwe ọ bụla dabara na ọchụchọ gị.',
   'searchResults.emptyHint':
     'Gbalịa ịgbasa ihe nzacha gị ma ọ bụ wepụ oke ọnụahịa — Auberge nwere ọnụnọ na mba 14.',
@@ -107,19 +149,27 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Ọnụnọ ndị a haziri ahazi',
   'searchResults.headingForQuery': 'Na-anọgide maka " {{q}} "',
   'searchResults.loadError': 'Adịghị ike ibu ihe onwunwe.',
+  'searchResults.mapHint': 'Tinye cursor na kaadị iji gosi na map. Mapbox tiles dị ndụ na mmepụta.',
   'searchResults.mapPinAria': '{{name}} — {{price}} kwa abalị',
   'searchResults.sortLabel': 'Hazie site na',
   'searchResults.subheading': '{{count}} ihe onwunwe · {{guests}} ndị ọbịa',
   'signup.eyebrow': 'Bụrụ onye otu',
   'signup.subheading':
     "Soro Auberge iji mepee ọnụego ndị otu naanị, ịkwụ ụgwọ n'oge, na ịnweta ụlọ ọhụrụ mbụ.",
+  'sojournAuthShell.brand.eyebrow': "Nọrọ n'ebe pụrụ iche",
+  'sojournAuthShell.brand.heading':
+    'Nchịkọta ụlọ ahaziri ahazi — ewepụtara nke ọma, ọnụ ahịa doro anya.',
   'sojournHeroSearchCard.checkInAria': 'Ụbọchị ị ga-abanye',
   'sojournHeroSearchCard.checkOutAria': 'Ụbọchị ị ga-apụ',
+  'sojournHeroSearchCard.destAria': 'Ebe a na-aga',
+  'sojournHeroSearchCard.destLabel': 'Ebee',
   'sojournHeroSearchCard.destPlaceholder': 'Obodo, mpaghara, ma ọ bụ ihe onwunwe',
   'sojournHeroSearchCard.eyebrow': 'Ọnụego ndị otu naanị · Ọnụego ndị otu',
   'sojournHeroSearchCard.guestsOption': '{{n}} ndị ọbịa',
   'sojournHeroSearchCard.subtitle':
     'Nchịkọta họteel ndị a haziri ahazi, ihe ndị e ji aka hazie, na ebe ezumike ndị a na-ahụtụbeghị — nke dị ọnụ ala nke ọma, nke e gosipụtara nke ọma.',
+  'sojournHeroSearchCard.title': "Nọrọ n'ebe pụrụ iche",
+  'sojournHeroSearchCard.trustLoyalty': 'Nweta isi na ọnụnọ ọ bụla',
   'sojournHeroSearchCard.trustNoFees': 'Enweghị ụgwọ zoro ezo, mgbe ọ bụla',
   'sojournHeroSearchCard.trustVetted': 'Naanị ihe onwunwe ejiri aka nyochaa',
   'sojournLayout.primaryNavLabel': 'Ntugharị isi',

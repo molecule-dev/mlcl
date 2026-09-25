@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Маєте запитання, відгук або хочете демо для своєї команди? Напишіть нам на hello@conduit.dev — кожне повідомлення потрапляє до реальної людини з команди.',
   'about.contactHeading': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
+  'about.featuresHeading': 'Що Ви отримаєте',
+  'about.introBody':
+    '{{app}} переносить безперервну доставку в стилі GitHub Actions в одну швидку панель: конвеєри, журнали збірок, артефакти, значки статусу та середовища розгортання для всіх ваших репозиторіїв в одному місці. Жодних перемикань між вкладками, жодних здогадок, яка збірка зламалася — кожен запуск, рядок журналу та розгортання за один клік.',
+  'about.introHeading': 'Що таке {{app}}',
+  'about.missionBody':
+    "Випуск програмного забезпечення має бути спокійним і передбачуваним, а не джерелом страху. Ми створюємо конвеєри, журнали та інструменти розгортання, щоб шлях від коміту до продакшену був швидким, прозорим і надійним — перша успішна збірка за п'ять хвилин, і кожна наступна така ж зрозуміла.",
+  'about.missionHeading': 'Наша місія',
+  'about.subtitle':
+    '{{app}} — це панель CI/CD для команд, які хочуть відстежувати збірки, розгортання та середовища в кожному репозиторії — і випускати з упевненістю.',
   'artifacts.empty': 'Артефактів ще немає.',
   'artifacts.heading': 'Артефакти',
   'artifacts.loadError': 'Не вдалося завантажити артефакти.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Середовища',
   'environments.loadError': 'Не вдалося завантажити середовища.',
+  'environments.loading': 'Завантаження середовищ…',
   'environments.subheading': 'Статус deployment у реальному часі по всіх цілях.',
   'forgotPassword.runnerStatus': 'скидання · захищений тунель',
+  'forgotPassword.success':
+    'Якщо для цієї пошти існує обліковий запис, посилання для скидання вже в дорозі. Перевірте вашу поштову скриньку.',
   'insights.changeFailureRate': 'Рівень збоїв змін',
   'insights.deployFrequency': 'Deployи / день',
   'insights.empty': 'Даних поки недостатньо.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Не вдалося завантажити аналітику.',
   'insights.meanP95': 'середнє {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Найповільніші кроки конвеєра',
   'insights.successRateHeading': 'Рівень успіху pipeline (останні 14 днів)',
   'landing.choosePlan': 'Обрати план',
+  'landing.copyright': '© {{year}} {{app}}. Випускайте з упевненістю.',
   'landing.ctaBody':
     "Без кредитної картки. Без platform-інженера. Запустіть перший pipeline за п'ять хвилин.",
   'landing.ctaHeading': 'Постачайте з упевненістю.',
   'landing.featuresEyebrow': '// platform features',
   'landing.featuresHeading': 'Створено розробниками для розробників',
+  'landing.heroSubtitle':
+    'Конвеєри, що завершуються за секунди. Журнали, які можна читати. Розгортання, яким можна довіряти.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Проста, передбачувана ціна',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Зараз виконується',
   'pipelines.metric.successCaption': '{{count}} з {{total}} запусків',
   'pipelines.metric.successRate': 'Рівень успіху',
+  'pipelines.realtimeOn': 'у реальному часі',
   'pipelines.subheading': 'Оновлення в реальному часі з усіх відстежуваних репозиторіїв.',
+  'pricing.advancedFeatures': 'Розширені функції: {{mark}}',
+  'pricing.canExport': 'Експорт даних: {{mark}}',
+  'pricing.maxArtifacts': 'Артефакти {{count}}',
+  'pricing.maxBuilds': 'Збірки {{count}}',
+  'pricing.maxPipelines': 'Конвеєри {{count}}',
   'privacy.dataAccount': "Обліковий запис: ім'я, електронна пошта, хешований пароль, рівень плану.",
   'privacy.intro':
     '{{app}} збирає лише мінімальні дані, необхідні для роботи вашого облікового запису безперервного постачання: вашу електронну пошту, підключені репозиторії, commit-и та метадані build, що створюють ваші runners, а також секрети, які ви вирішили зберігати у нас. Ми ніколи не читаємо ваш вихідний код поза build runner; артефакти build зберігаються у вашому S3-бакеті, якщо це налаштовано.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     "Ми використовуємо Stripe для виставлення рахунків, Mailgun для транзакційних листів та AWS S3 для зберігання артефактів build. Кожен з них зобов'язаний договором до мінімального обсягу даних, необхідного для надання послуги.",
   'privacy.rightsBody':
     'Ви можете експортувати кожен байт своїх даних, видалити свій обліковий запис у будь-який час у налаштуваннях та запросити запис кожної доставки вебхука у вашому обліковому записі. Ми відповідаємо на запити GDPR / CCPA протягом 30 днів.',
+  'privacy.subtitle':
+    'Як {{app}} збирає, зберігає та захищає ваші дані, поки ми виконуємо ваші конвеєри.',
   'privacy.title': 'Політика конфіденційності',
   'repositories.empty': 'Репозиторії не підключено.',
   'repositories.heading': 'Репозиторії',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Усі репозиторії',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Не вдалося завантажити репозиторій.',
+  'repositoryDetail.meanDuration': 'Середня тривалість',
   'repositoryDetail.notFound': 'Репозиторій не знайдено.',
+  'repositoryDetail.successRate': 'Рівень успішності',
   'repositoryDetail.totalBuilds': 'Усього build',
   'repositoryDetail.webhookActive': 'активний',
   'repositoryDetail.webhookPaused': 'призупинено',
   'repositoryDetail.webhooksHeading': 'Webhooks',
+  'resetPassword.passwordLabel': 'Новий пароль',
   'resetPassword.runnerStatus': 'скидання · токен підтверджено',
   'resetPassword.subtitle': 'Оберіть надійний пароль, який ви ще не використовували.',
   'resetPassword.tokenPlaceholder': 'вставте з листа',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Репозиторії, які відстежує Conduit. Відключіться від постачальника VCS, щоб зупинити отримання подій.',
   'settings.repositories.empty': 'Підключених репозиторіїв ще немає.',
+  'settings.repositories.heading': 'Підключення репозиторіїв',
   'settings.repositories.loadError': 'Не вдалося завантажити репозиторії.',
   'settings.secrets.addCta': 'Додати секрет',
   'settings.secrets.addError': 'Не вдалося додати секрет.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Не вдалося видалити секрет.',
   'settings.secrets.empty': 'Збережених секретів немає.',
   'settings.secrets.heading': 'Секрети',
+  'settings.secrets.lastUsed': 'востаннє використано {{date}}',
   'settings.secrets.loadError': 'Не вдалося завантажити секрети.',
   'settings.secrets.neverUsed': 'ніколи не використовувався',
   'settings.secrets.rotateCta': 'Ротувати',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Не вдалося оновити веб-хук.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'безкоштовний рівень · 1 000 хв build/міс',
+  'terms.intro':
+    'Створюючи обліковий запис {{app}}, ви погоджуєтеся з цими умовами. Вони охоплюють прийнятне використання збіркових раннерів, межі нашої SLA та умови, за яких ми можемо призупинити або закрити ваш обліковий запис за зловживання навантаженням.',
   'terms.slaBody':
     'Плани Pro та Team цілять у 99,95% місячного uptime для API та пулу runners. Безкоштовний план надається як є. Збої повідомляються на status.conduit.dev та зараховуються відповідно до формули у вашому рахунку.',
   'terms.terminationBody':

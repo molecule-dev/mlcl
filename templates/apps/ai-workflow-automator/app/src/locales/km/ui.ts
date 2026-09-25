@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite គឺជាវេទិកាស្វ័យប្រវត្តិកម្មលំហូរការងារដែលភ្ជាប់ឧបករណ៍បង្កហេតុ លក្ខខណ្ឌ AI និងសកម្មភាពពហុជំហានជាមួយគ្នា ដើម្បីឱ្យក្រុមអាចផ្លាស់ទីការងាររវាងប្រព័ន្ធដោយមិនចាំបាច់សរសេរកូដស្អិត។',
+  'about.philosophy':
+    'គ្រប់លំហូរការងារគឺជាក្រាហ្វនៃជំហានតូចៗដែលអាចសង្កេតបាន។ ជំហាននីមួយៗកត់ត្រាធាតុបញ្ចូល លទ្ធផល និងពេលវេលារបស់វា ដើម្បីឱ្យវាអាចត្រួតពិនិត្យ ដំណើរការឡើងវិញ ឬត្រឡប់ក្រោយបាន។ ផ្គុំវាដោយមើលឃើញ ធ្វើកំណែដូចកូដ។',
   'about.title': 'អំពីដេនឌ្រីត',
   'authShell.brand': 'ដេនឌ្រីត',
   'authShell.support': 'ការគាំទ្រ',
@@ -15,9 +17,15 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'ផ្លាស់ប្តូរផែនការ',
   'billing.description':
     'តាមដានការប្រើប្រាស់ គ្រប់គ្រងផែនការរបស់អ្នក និងទាញយកវិក្កយបត្រសម្រាប់គណនេយ្យ។',
+  'billing.eyebrow': 'គណនី · គម្រោង និងការប្រើប្រាស់',
+  'billing.failedLabel': 'ការដំណើរការបរាជ័យ · 24ម៉ោង',
+  'billing.invoicesEmpty':
+    'មិនទាន់មានវិក្កយបត្រនៅឡើយទេ។ ពួកវានឹងបង្ហាញនៅទីនេះបន្ទាប់ពីការបន្តបង់ប្រាក់លើកដំបូងរបស់អ្នក។',
   'billing.invoicesTitle': 'ប្រវត្តិវិក្កយបត្រ',
   'billing.planNoteFree':
     'កម្រិតឥតគិតថ្លៃ - {{runs}} រត់ និង {{workflows}} លំហូរការងារសកម្ម។ ធ្វើឱ្យប្រសើរឡើងសម្រាប់ដែនកំណត់ខ្ពស់ជាងនេះ។',
+  'billing.planNotePaid':
+    'គម្រោងបង់ប្រាក់ — ការដំណើរការ {{runs}} និងលំហូរការងារសកម្ម {{workflows}}។',
   'billing.runsLabel': 'ដំណើរការក្នុងរយៈពេល 24 ម៉ោងចុងក្រោយ',
   'billing.tiersBlurb':
     'ប្រៀបធៀបកម្រិតនីមួយៗ — ការដំណើរការ លំហូរការងារសកម្ម លក្ខណៈពិសេសកម្រិតខ្ពស់ និងការគាំទ្រ — នៅលើទំព័រកំណត់តម្លៃដែលឧទ្ទិស។',
@@ -35,10 +43,14 @@ export const ui: UiTranslations = {
     'គ្មានការរួមបញ្ចូលដែលបានចុះឈ្មោះទេ។ កំណត់រចនាសម្ព័ន្ធសោអ្នកផ្តល់សេវាដើម្បីបើកដំណើរការចំណង។',
   'connections.error': 'មិនអាចផ្ទុកការតភ្ជាប់បានទេ។',
   'connections.eyebrow': 'ការរួមបញ្ចូល · {{connected}} បានភ្ជាប់',
+  'connections.loading': 'កំពុងផ្ទុកការរួមបញ្ចូល…',
+  'connections.openEnv':
+    'ដើម្បីភ្ជាប់អ្នកផ្តល់សេវានេះ សូមកំណត់ API key របស់វានៅក្នុង api/.env ហើយចាប់ផ្ដើមម៉ាស៊ីនមេឡើងវិញ។',
   'dashboard.description':
     '{{active}} លំហូរការងារសកម្ម។ {{failed}} បានបរាជ័យក្នុងរយៈពេល 24 ម៉ោងចុងក្រោយ។',
   'dashboard.error': 'មិនអាចផ្ទុកផ្ទាំងគ្រប់គ្រងបានទេ។',
   'dashboard.eyebrow': 'ប្រតិបត្តិការ · ផ្សាយផ្ទាល់',
+  'dashboard.hero.label': 'ការដំណើរការថ្ងៃនេះ',
   'dashboard.hero.medianLatency': 'ភាពយឺតយ៉ាវ p50',
   'dashboard.hero.queue': 'ជម្រៅជួរ',
   'dashboard.hero.success': 'ជោគជ័យ',
@@ -46,13 +58,16 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'រយៈពេលមធ្យម',
   'dashboard.kpi.failedRuns': 'បរាជ័យ · 24 ម៉ោង',
   'dashboard.kpi.outOf': 'នៃ {{total}} សរុប',
+  'dashboard.kpi.successRate': 'អត្រាជោគជ័យ · 24ម៉ោង',
   'dashboard.loading': 'កំពុងផ្ទុកផ្ទាំងគ្រប់គ្រង…',
   'dashboard.recentRuns.empty':
     'មិនទាន់មានដំណើរការនៅឡើយទេ។ ការបង្កើតលំហូរការងារនឹងបំពេញព័ត៌មាននេះ។',
   'dashboard.recentRuns.title': 'ការរត់ថ្មីៗ',
   'dashboard.recentRuns.viewAll': 'ការប្រតិបត្តិបើកចំហ →',
+  'dashboard.recentWorkflows.browse': 'រកមើលគំរូ →',
   'dashboard.recentWorkflows.empty': 'មិនទាន់មានដំណើរការការងារនៅឡើយទេ។ ដំឡើងគំរូ ឬបង្កើតវាពីដំបូង។',
   'dashboard.recentWorkflows.title': 'ដំណើរការថ្មីៗនេះ',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'បានចាប់ផ្តើម',
   'dashboard.run.col.trigger': 'គន្លឹះ',
   'dashboard.run.col.workflow': 'លំហូរការងារ',
@@ -88,6 +103,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'លំហូរការងារ',
   'executions.description':
     'រាល់ការដំណើរការលំហូរការងារ រាល់ការព្យាយាមឡើងវិញ រាល់លទ្ធផលជំហាននីមួយៗ — ទាំងអស់អាចសង្កេតឃើញ។',
+  'executions.empty.filter': 'គ្មានការដំណើរការត្រូវនឹងតម្រងនេះទេ។',
   'executions.empty.first':
     'មិនទាន់មានដំណើរការនៅឡើយទេ — សូមបង្កឲ្យមានលំហូរការងារដើម្បីបំពេញបញ្ជីនេះ។',
   'executions.error': 'មិនអាចផ្ទុកការប្រតិបត្តិបានទេ។',
@@ -98,31 +114,43 @@ export const ui: UiTranslations = {
   'executions.loading': 'កំពុងផ្ទុកប្រវត្តិដំណើរការ…',
   'executions.title': 'ការប្រហារជីវិត',
   'forgotPassword.confirmation': 'បានផ្ញើតំណកំណត់ឡើងវិញទៅ {{email}} ។',
+  'forgotPassword.subhead': 'បញ្ចូលអ៊ីមែលរបស់អ្នក ដើម្បីទទួលបានតំណភ្ជាប់កំណត់ឡើងវិញ។',
   'forgotPassword.successSubhead':
     'យើងបានផ្ញើតំណភ្ជាប់កំណត់ឡើងវិញទៅ {{email}} វាផុតកំណត់ក្នុងរយៈពេល 30 នាទី។',
   'help.connections.body':
     'ជំហាន AI, អ៊ីមែល និង​ការផ្ទុក​តម្រូវឱ្យ​កូនសោ​អ្នកផ្តល់សេវា​ត្រូវបានកំណត់​នៅក្នុងឯកសារ api/.env។ នៅពេលដែលកូនសោ​ត្រូវបានកំណត់រចនាសម្ព័ន្ធ ការរួមបញ្ចូល​ដែលត្រូវគ្នា​នឹងលេចឡើង​ថាបានភ្ជាប់​នៅលើទំព័រ Connections។',
+  'help.connections.cta': 'បើកការតភ្ជាប់ →',
   'help.connections.title': 'ការតភ្ជាប់អ្នកផ្តល់សេវា',
   'help.gettingStarted.body':
     'លំហូរការងារថ្មីអាចត្រូវបានដំឡើងពីបណ្ណាល័យគំរូ ឬបង្កើតឡើងវិញពីដំបូងនៅក្នុងកម្មវិធីបង្កើតលំហូរការងារ។ លំហូរការងារនីមួយៗមានគន្លឹះ (ដោយដៃ បណ្ដាញអ៊ីនធឺណិត ឬ cron) និងលំដាប់នៃជំហានដែលដំណើរការតាមលំដាប់លំដោយ។',
+  'help.gettingStarted.cta': 'រកមើលបណ្ណាល័យគំរូ →',
+  'help.gettingStarted.title': 'ការចាប់ផ្តើម',
   'help.intro':
     'ស្វែងរកចម្លើយចំពោះសំណួរទូទៅអំពីការបង្កើតលំហូរការងារ ការកំណត់រចនាសម្ព័ន្ធការតភ្ជាប់ និងការបកស្រាយលទ្ធផលដំណើរការ។ ប្រធានបទទូទៅបំផុតត្រូវបានរាយខាងក្រោម។ សម្រាប់អ្វីដែលមិនត្រូវបានគ្របដណ្តប់ សូមទាក់ទងអ្នកគ្រប់គ្រងកន្លែងធ្វើការរបស់អ្នក។',
   'help.runs.body':
     'រាល់ការរត់កត់ត្រាជំហាននីមួយៗដោយឯករាជ្យជាមួយនឹងស្ថានភាព (ជោគជ័យ បរាជ័យ រំលង) និងបំណែកនៃលទ្ធផល។ ទំព័រព័ត៌មានលម្អិតនៃការអនុវត្តបង្ហាញការតាមដានជាជំហានៗពេញលេញ បូករួមទាំងរង្វាស់ដែលបានសន្និដ្ឋាន។',
+  'help.runs.cta': 'ការប្រតិបត្តិបើកចំហ →',
   'help.runs.title': 'ការអានលទ្ធផលដំណើរការ',
   'help.title': 'មជ្ឈមណ្ឌលជំនួយ',
   'integrationCard.manage': 'គ្រប់គ្រង',
   'landing.brand': 'ដេនឌ្រីត',
   'landing.demo.action.subtitle': 'ការប្រកួតវិលជុំ · ទឹកដី',
+  'landing.demo.action.title': 'ជូនដំណឹងដល់អ្នកតំណាង',
   'landing.demo.condition.subtitle': 'ឧបករណ៍ចាត់ថ្នាក់ចេតនា AI',
+  'landing.demo.condition.title': 'ពិន្ទុ ≥ មធ្យម?',
   'landing.demo.trigger.subtitle': 'ប្រកាស /ទម្រង់បែបបទ/ទំនាក់ទំនង',
   'landing.demo.trigger.title': 'គេហទំព័រ​ចូល',
+  'landing.features.body':
+    'កេះដំណើរការ។ លក្ខខណ្ឌបំបែក។ សកម្មភាពបញ្ជូនការងារ។ ផ្គុំវាដោយមើលឃើញ ធ្វើកំណែដូចកូដ។',
   'landing.features.heading': 'ប្រភេទណូតបី។ រាងគ្មានកំណត់។',
   'landing.footer.help': 'ជំនួយ',
   'landing.footer.tagline': 'ភាពវៃឆ្លាតក្នុងចលនា',
+  'landing.hero.body':
+    '{{appName}} គឺជាម៉ាស៊ីនលំហូរការងារសម្រាប់ក្រុមប្រតិបត្តិការដែលលើសពី Zapier។ កេះ លក្ខខណ្ឌ សកម្មភាព — ភ្ជាប់ទៅគ្រប់ប្រព័ន្ធដែលអ្នកពិតជាប្រើ។',
   'landing.hero.eyebrow': 'ភាពវៃឆ្លាតក្នុងចលនា',
   'landing.hero.headline':
     'ភ្ជាប់​ខ្សែភ្លើង​ជង់​របស់​អ្នក​ចូល​គ្នា។ ទុក​ឲ្យ​ការងារ​នេះ​ដំណើរការ​ទៅ។',
+  'landing.hero.primaryCta': 'បង្កើតលំហូរការងារដំបូងរបស់អ្នក',
   'landing.hero.proof.ai': 'ណូត AI ដែលភ្ជាប់មកជាមួយ',
   'landing.hero.proof.free': 'ឥតគិតថ្លៃសម្រាប់ការរត់ 1k/ខែ',
   'landing.hero.proof.soc2': 'SOC 2 ប្រភេទទី II',
@@ -130,10 +158,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'បង់ប្រាក់សម្រាប់ការរត់ មិនមែនសម្រាប់កៅអីទេ។',
   'landing.templates.body':
     'លំហូរការងារដែលបានតភ្ជាប់ជាមុនសម្រាប់ក្រុមនីមួយៗ — ការលក់ ការគាំទ្រ ការអភិវឌ្ឍន៍ប្រតិបត្តិការ ហិរញ្ញវត្ថុ។ ដំឡើងដោយចុចតែម្តង; កែសម្រួលអ្វីៗគ្រប់យ៉ាង។',
+  'landing.templates.cta': 'ចុះឈ្មោះដើម្បីរកមើលគំរូ →',
   'landing.templates.eyebrow': 'ចាប់ផ្តើមក្នុងរយៈពេលប៉ុន្មានវិនាទី',
   'landing.templates.heading': 'បណ្ណាល័យរូបមន្តដែលបានត្រួតពិនិត្យ។',
   'landing.templates.signupHint': 'ចុះឈ្មោះដើម្បីដំឡើង',
   'login.hidePassword': 'លាក់ពាក្យសម្ងាត់',
+  'login.noAccount': 'ទើបតែស្គាល់ Tessera?',
   'login.showPassword': 'បង្ហាញពាក្យសម្ងាត់',
   'login.subhead': 'ចូលគណនីដើម្បីរក្សាដំណើរការស្វ័យប្រវត្តិកម្មរបស់អ្នក។',
   'mobileNav.drawerLabel': 'ការរុករកសំខាន់',
@@ -149,8 +179,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'ដំណើរការ​លំហូរ​ការងារ​ដើម្បី​ចាប់ផ្តើម​បំពេញ​ព័ត៌មាន​នេះ។',
   'notifications.empty.title': 'អ្នក​ទាំងអស់​គ្នា​បាន​ជាប់​ហើយ',
   'notifications.eyebrow': '{{n}} មិនទាន់អាន',
+  'planUpdated.body':
+    'ការផ្លាស់ប្តូរវិក្កយបត្ររបស់អ្នកឥឡូវសកម្មហើយ។ អ្នកអាចគ្រប់គ្រងគម្រោងរបស់អ្នកបានគ្រប់ពេលពីទំព័រវិក្កយបត្រ។',
+  'planUpdated.retry': 'ព្យាយាមម្តងទៀត',
+  'planUpdated.verifyFailed': 'យើងមិនទាន់អាចបញ្ជាក់ការទូទាត់របស់អ្នកបាននៅឡើយទេ។',
+  'planUpdated.verifyFailedBody':
+    'ការទូទាត់របស់អ្នកប្រហែលជានៅតែកំពុងដំណើរការ។ សូមព្យាយាមម្តងទៀតនៅពេលបន្តិចទៀត។',
   'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
   'pricing.heading': 'រត់',
+  'pricing.runsSuffix': 'ការដំណើរការ',
   'pricing.workflowsSuffix': 'លំហូរការងារ',
   'privacy.collect.body':
     'យើងប្រមូលអាសយដ្ឋានអ៊ីមែលដែលអ្នកចុះឈ្មោះ លំហូរការងារដែលអ្នកកំណត់រចនាសម្ព័ន្ធ និងទិន្នន័យមេតាអំពីការដំណើរការនីមួយៗ (ពេលវេលាចាប់ផ្តើម ពេលវេលាបញ្ចប់ ស្ថានភាព)។ យើងមិនដែលប្រមូល ឬរក្សាទុកខ្លឹមសារនៃ payload ពី triggers ឬ step outputs លើសពីអ្វីដែលចាំបាច់ដើម្បីបង្ហាញនៅក្នុងកម្មវិធីមើលការដំណើរការសម្រាប់ម្ចាស់កន្លែងធ្វើការនោះទេ។',
@@ -166,11 +203,14 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'មិនអាចធ្វើបច្ចុប្បន្នភាពពាក្យសម្ងាត់បានទេ។',
   'resetPassword.newPassword': 'ពាក្យសម្ងាត់ថ្មី',
   'resetPassword.subhead': 'ជ្រើសរើសអ្វីមួយដែលអ្នកទាយបានតែប៉ុណ្ណោះ។',
+  'settings.appearance.description': 'ប្តូររវាងរបៀបភ្លឺ និងងងឹត។',
+  'settings.appearance.title': 'រូបរាង',
   'settings.billingShortcut.cta': 'បើកវិក្កយបត្រ',
   'settings.billingShortcut.description':
     'ផែនការ ការប្រើប្រាស់ និងវិក្កយបត្រ​មាន​នៅលើ​ទំព័រ​វិក្កយបត្រ​ដែល​បាន​ឧទ្ទិស​ជូន។',
   'settings.danger.confirm': 'តើអ្នកប្រាកដទេ? វានឹងតម្រៀបជួរកន្លែងធ្វើការរបស់អ្នកសម្រាប់ការលុប។',
   'settings.danger.confirmYes': 'បាទ/ចាស៎ ការលុបជួរ',
+  'settings.danger.deleteWorkspace.cta': 'លុប​កន្លែងធ្វើការ',
   'settings.danger.deleteWorkspace.hint':
     'លុប​លំហូរ​ការងារ ការ​ដំណើរការ និង​ការ​តភ្ជាប់​ទាំងអស់​ចេញ​បន្ទាប់​ពី​រយៈពេល​អនុគ្រោះ 14 ថ្ងៃ។',
   'settings.danger.deleteWorkspace.title': 'លុប​កន្លែងធ្វើការ',
@@ -182,9 +222,14 @@ export const ui: UiTranslations = {
     'គ្រប់គ្រងគណនី កន្លែងធ្វើការ ការរួមបញ្ចូល និងការគិតថ្លៃរបស់អ្នកនៅកន្លែងតែមួយ។',
   'settings.notifications.description':
     'ជ្រើសរើសព្រឹត្តិការណ៍ណាដែលអ្នកចង់ផ្ញើទៅទំព័រ ផ្ញើអ៊ីមែលទៅអ្នក ឬនៅស្ងៀម។',
+  'settings.notifications.failures.hint':
+    'ការជូនដំណឹងតាមអ៊ីមែល និងក្នុងកម្មវិធីនៅរាល់ការដំណើរការបរាជ័យ។',
+  'settings.notifications.failures.title': 'ការបរាជ័យលំហូរការងារ',
   'settings.notifications.product.hint': 'អ៊ីមែលម្តងម្កាលអំពីគំរូ និងមុខងារថ្មីៗ។',
+  'settings.notifications.product.title': 'បច្ចុប្បន្នភាពផលិតផល',
   'settings.notifications.weekly.hint':
     'សេចក្តីសង្ខេបនៅព្រឹកថ្ងៃច័ន្ទនៃការរត់ និងការសន្សំកាលពីសប្តាហ៍មុន។',
+  'settings.notifications.weekly.title': 'សេចក្តីសង្ខេបប្រចាំសប្តាហ៍',
   'settings.profile.description':
     'របៀបដែលអ្នកបង្ហាញខ្លួននៅខាងក្នុងកម្មវិធីដំណើរការការងារ។ ប្រើក្នុងសកម្មភាពកន្លែងធ្វើការ។',
   'settings.profile.noEmail': 'គ្មានអ៊ីមែលដែលបានកត់ត្រាទុកទេ',
@@ -192,12 +237,23 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'មិនអាចរក្សាទុកការផ្លាស់ប្ដូរប្រវត្តិរូបបានទេ។',
   'settings.profile.unnamedUser': 'អ្នកប្រើប្រាស់​ដែល​មិន​បញ្ចេញ​ឈ្មោះ',
   'settings.security.audit.hint': 'ផ្សាយរាល់សកម្មភាពទៅកាន់ SIEM របស់អ្នកតាមរយៈ webhook។',
+  'settings.security.audit.title': 'ការបញ្ជូនកំណត់ហេតុសវនកម្ម',
   'settings.security.description': 'ការអនុញ្ញាតពីរកត្តា, SSO និងវគ្គសកម្ម។',
   'settings.security.sso.hint': 'មាននៅលើផែនការមាត្រដ្ឋាន និងសហគ្រាស។',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'តម្រូវសម្រាប់សកម្មភាពណាមួយរបស់ម្ចាស់កន្លែងធ្វើការ។',
+  'settings.security.totp.title': 'ការផ្ទៀងផ្ទាត់ពីរជាន់ (TOTP)',
   'settings.twoFactorCode': 'លេខកូដផ្ទៀងផ្ទាត់',
   'settings.twoFactorDisable': 'បិទ',
+  'settings.twoFactorDisableTitle': 'បិទការផ្ទៀងផ្ទាត់ពីរជាន់',
   'settings.twoFactorEnable': 'បើកដំណើរការ',
+  'settings.twoFactorEnableTitle': 'បើកការផ្ទៀងផ្ទាត់ពីរជាន់',
   'settings.twoFactorInvalidCode': 'លេខកូដមិនត្រឹមត្រូវ',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'កូដ QR ការផ្ទៀងផ្ទាត់ពីរកត្តា',
+  'settings.twoFactorScan':
+    'ស្កេនកូដ QR នេះដោយកម្មវិធីផ្ទៀងផ្ទាត់របស់អ្នក បន្ទាប់មកបញ្ចូលកូដ 6 ខ្ទង់។',
+  'settings.twoFactorUnavailable': 'ការផ្ទៀងផ្ទាត់ពីរកត្តាមិនអាចប្រើសម្រាប់កម្មវិធីនេះបានទេ។',
   'settings.twoFactorVerify': 'ផ្ទៀងផ្ទាត់ និងបើក',
   'settings.workspace.description':
     'អត្តសញ្ញាណ​ដែលបានចែករំលែក តំបន់ និងលំនាំដើម​សម្រាប់​ក្រុម​របស់អ្នក។',
@@ -226,6 +282,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'គំរូ',
   'templates.description':
     'គំនូរព្រាងដែលបានសាងសង់ជាមុនសម្រាប់ស្វ័យប្រវត្តិកម្មទូទៅបំផុត។ បំបែក ប្ដូរតាមបំណង ដឹកជញ្ជូន។',
+  'templates.empty.filter': 'គ្មានគំរូត្រូវនឹងការស្វែងរករបស់អ្នកទេ។',
   'templates.empty.first': 'គ្មាន​គំរូ​ដែល​អាច​ប្រើ​បាន​នៅ​ពេល​នេះ​ទេ។',
   'templates.error': 'មិនអាចផ្ទុកគំរូបានទេ។',
   'templates.installs': 'ការដំឡើង',
@@ -251,6 +308,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'បិទ',
   'workflowBuilder.enable': 'បើកដំណើរការ',
   'workflowBuilder.error': 'មិនអាចផ្ទុកលំហូរការងារបានទេ។',
+  'workflowBuilder.inspector.config': 'ការកំណត់រចនាសម្ព័ន្ធ',
+  'workflowBuilder.inspector.cron': 'កន្សោម Cron',
+  'workflowBuilder.inspector.disabled': 'បានបិទ — នឹងមិនដំណើរការដោយស្វ័យប្រវត្តិទេ។',
   'workflowBuilder.inspector.enabled': 'បានបើកដំណើរការ — ដំណើរការលើគន្លឹះ។',
   'workflowBuilder.inspector.eyebrow': 'អធិការ',
   'workflowBuilder.inspector.id': 'លេខសម្គាល់',
@@ -268,18 +328,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'ការបិទ/បើក​បរាជ័យ។',
   'workflowBuilder.workflow': 'លំហូរការងារ · v {{v}}',
   'workflowBuilder.zoom.in': 'ពង្រីក',
+  'workflowBuilder.zoom.label': 'ឧបករណ៍បញ្ជា zoom ផ្ទាំងក្រណាត់',
+  'workflowBuilder.zoom.out': 'ពង្រីក​ចេញ',
   'workflowCard.lastRun': 'ការរត់ចុងក្រោយ {{when}}',
   'workflowCard.runs': '{{count}} រត់',
+  'workflowCard.success': 'ជោគជ័យ {{rate}}%',
   'workflowHeroCard.last24h': '២៤ ម៉ោងចុងក្រោយ',
+  'workflows.browseTemplates': 'រកមើលគំរូ →',
   'workflows.description':
     'ស្វ័យប្រវត្តិកម្មនីមួយៗនៅក្នុងកន្លែងធ្វើការរបស់អ្នក ជាមួយនឹងសុខភាព និងសកម្មភាពថ្មីៗដោយសង្ខេប។',
+  'workflows.empty.body': 'សាកល្បងសម្អាតតម្រង ឬចាប់ផ្ដើមពីគំរូ។',
   'workflows.empty.firstBody': 'ដំឡើង​គំរូ​ដើម្បី​ចាប់ផ្តើម​ក្នុង​រយៈពេល​ប៉ុន្មាន​វិនាទី។',
   'workflows.empty.firstTitle': 'មិនទាន់មានដំណើរការការងារនៅឡើយទេ',
   'workflows.empty.title': 'គ្មានដំណើរការការងារដែលត្រូវគ្នាទេ',
   'workflows.error': 'មិនអាចផ្ទុកលំហូរការងារបានទេ។',
   'workflows.eyebrow': 'បណ្ណាល័យ · {{count}} សរុប',
+  'workflows.loading': 'កំពុងផ្ទុកលំហូរការងារ…',
   'workflows.newFromTemplate': 'ថ្មីពីគំរូ',
   'workflows.searchPlaceholder': 'ស្វែងរកដំណើរការការងារ…',
+  'workflows.title': 'លំហូរការងារ',
   'workflowSidebar.brand': 'ដេនឌ្រីត',
   'workflowSidebar.status': 'ប្រព័ន្ធទាំងអស់កំពុងដំណើរការ',
   'workflowSidebar.tagline': 'ភាពវៃឆ្លាតក្នុងចលនា',

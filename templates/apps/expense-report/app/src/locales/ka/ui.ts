@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'კითხვები, გამოხმაურება თუ ფუნქციის მოთხოვნა? დაუკავშირდით {{app}}-ის გუნდს პარამეტრები → შეტყობინებებიდან, ან მოგვწერეთ ნებისმიერ დროს — ყველა შეტყობინება ნამდვილ ადამიანამდე აღწევს.',
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
+  'about.featureCapture':
+    'ქვითრის აღება ფოტოს ატვირთვით, რომელიც სურათებს სწორ ხარჯს მიურთავს, სტრიქონ-სტრიქონ.',
+  'about.featureExport':
+    'ყველა ანგარიშის, ხარჯისა და დამტკიცების სტატუსის აუდიტირებადი CSV ექსპორტი — მზად თქვენი ბუღალტრული გუნდისთვის.',
+  'about.featurePolicy':
+    'პოლიტიკის შემზღუდველები — დღიური ლიმიტები, კატეგორიის მიხედვით შეზღუდვები და ქვითრის სავალდებულო ზღვრები, რომლებიც გაგზავნის მომენტში სრულდება.',
+  'about.featureWorkflow':
+    'ორდონიანი დამტკიცების პროცესი განმხილველის შენიშვნებით, პოლიტიკის დარღვევის ნიშნებით და ერთი შეხებით ანაზღაურების მონიშვნით.',
+  'about.intro':
+    '{{app}} არის ხარჯების მართვის პლატფორმა ფინანსური გუნდებისთვის და მათთვის, ვისაც ანაზღაურებენ. აიღეთ ქვითარი, დაარეგისტრირეთ ხარჯი, გაატარეთ ანგარიში დამტკიცებაზე და თვალყური ადევნეთ ყველა ანაზღაურებას — ცხრილების ცერემონიის გარეშე.',
+  'about.missionBody':
+    'ანაზღაურება სწრაფი, სამართლიანი და აუდიტირებადი უნდა იყოს. ჩვენ შევქმენით {{app}}, რომ გამგზავნებმა ფული უყოყმანოდ დაიბრუნონ, დამმტკიცებლებმა ზუსტად დაინახონ, რას ამტკიცებენ, და ფინანსურ გუნდს ყოველი დოლარის სუფთა კვალი ჰქონდეს — პოლიტიკის შემოწმებებითურთ.',
+  'about.missionTitle': 'ჩვენი მისია',
   'approvals.approve': 'Approve',
   'approvals.approving': 'დამტკიცება…',
   'approvals.confirmReject': 'დაადასტურეთ უარყოფა',
+  'approvals.empty': 'ყველაფერი დამუშავებულია — არცერთი ანგარიში არ ელოდება.',
   'approvals.eyebrow': 'მენეჯერის რიგი',
   'approvals.kpi.flaggedLabel': 'პოლიტიკა დროშით მონიშნულია',
+  'approvals.kpi.queueLabel': 'მიმოხილვის მოლოდინში',
   'approvals.kpi.totalLabel': 'მოლოდინის რეჟიმში მყოფი მნიშვნელობა',
   'approvals.lineCount': '{{count}} ხარჯები',
   'approvals.queueFallback': 'პირდაპირი რიგი მიუწვდომელია — ნაჩვენებია კურირებული დემო მონაცემები.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'უარყოფა…',
+  'approvals.rejectPlaceholder': 'მიზეზი (სავალდებულო)',
   'approvals.rejectPrompt': 'რატომ უარყოფთ ამ ანგარიშს?',
   'approvals.review': 'მიმოხილვა',
   'approvals.title': 'მოლოდინში მყოფი დამტკიცებები',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'დამტკიცებულია · MTD',
   'dashboard.kpi.pendingDelta': '+2 ამ კვირაში',
+  'dashboard.kpi.pendingLabel': 'განხილვის მოლოდინში',
   'dashboard.kpi.receiptsDelta': 'საჭირო ქმედება',
   'dashboard.kpi.receiptsLabel': 'ქვითრების მოლოდინში',
   'dashboard.kpi.reimbursedDelta': '+2.4 ათასი დოლარი',
   'dashboard.kpi.reimbursedLabel': 'ანაზღაურებული · MTD',
   'dashboard.newReport': 'ახალი ანგარიში',
+  'dashboard.recent.empty': 'ჯერ ანგარიშები არ არის — დაიწყეთ პირველი ზემოთ.',
   'dashboard.recent.title': 'ბოლო ანგარიშები',
   'dashboard.recent.viewAll': 'ყველა ანგარიშის ნახვა',
   'dashboard.summaryFallback':
@@ -39,11 +60,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'ქვითრები და ანაზღაურებადი ნივთები',
   'expenses.listFallback': 'მიმდინარე სია მიუწვდომელია — ნაჩვენებია კურირებული დემო მონაცემები.',
   'expenses.searchPlaceholder': 'მოძებნეთ გამყიდველი ან კატეგორია…',
+  'expenses.subtotal': '{{count}} ხარჯი · ქვეჯამი',
   'expenses.title': 'ხარჯები',
+  'forgotPassword.continue': 'მაქვს კოდი · გაგრძელება',
+  'forgotPassword.subheading':
+    'შეიყვანეთ სამსახურის ელფოსტა და გამოგიგზავნით ბმულს ახალი პაროლის დასაყენებლად.',
   'forgotPassword.successBody':
     'თუ ანგარიში არსებობს {{email}} გადატვირთვის ბმულს მომდევნო რამდენიმე წუთში მიიღებთ.',
+  'landing.copyright': '© {{year}} {{app}}. შექმნილია Molecule.dev-ით.',
+  'landing.ctaBody':
+    'უფასოა ყოველთვიურად პირველი 25 ხარჯისთვის. არა საკრედიტო ბარათი, არა დანერგვის ზარი.',
   'landing.ctaHeading': 'მზად ხართ, დაიბრუნოთ ის, რაც თქვენს გუნდს ეკუთვნით?',
   'landing.eyebrow': 'ფინანსური გუნდებისთვის ხარჯების ანგარიშები',
+  'landing.featuresHeading': 'ანაზღაურება, ერთ მშვიდ სამუშაო სივრცეში',
   'landing.heroSubtitle':
     'ბიზნეს ხარჯების წარდგენა, დამტკიცება და ანაზღაურება ცხრილების ცერემონიის გარეშე. ქვითრის OCR, პოლიტიკის შემოწმება და გამჭვირვალე დამტკიცების ვადები - ყველაფერი ერთ მშვიდ სამუშაო სივრცეში.',
   'landing.heroTitle': 'ყველა ქვითარი, ამოღებული.',
@@ -61,10 +90,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'შენიშვნები',
   'newExpense.descriptionPlaceholder':
     'რატომ იყო ეს ხარჯი ბიზნესთან დაკავშირებული (თქვენი დამმტკიცებლისთვის ხილული).',
+  'newExpense.eyebrow': 'ანაზღაურებადი ერთეული',
   'newExpense.merchant': 'ვაჭარი',
   'newExpense.merchantPlaceholder': 'სასტუმრო ადლონ კემპინსკი',
   'newExpense.policyHint':
     'შეხსენება: დღეში 80 დოლარზე მეტი ღირებულების საკვებს ან 250 დოლარზე მეტი ღირებულების ნებისმიერ პროდუქტს დასაბუთების დამადასტურებელი დოკუმენტი სჭირდება.',
+  'newExpense.receipt': 'ქვითარი',
+  'newExpense.receiptHint': 'JPG, PNG ან PDF · მაქს. 10 MB',
   'newExpense.receiptOcrHint': 'OCR-ის წინასწარი შევსების ველები',
   'newExpense.receiptPrompt': 'ჩააგდეთ ფოტო ან PDF აქ, ან დაათვალიერეთ დააწკაპუნეთ',
   'newExpense.receiptUploadFailed':
@@ -75,17 +107,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'გადაიღეთ ან ატვირთეთ ქვითარი და Recoup წინასწარ შეავსებს გამყიდველის, თარიღის და ჯამური რაოდენობის მონაცემებს. შენახვამდე დაადასტურეთ ქვემოთ მოცემული ყველაფერი.',
   'newExpense.title': 'ხარჯის დამატება',
+  'newReport.approverHint': 'ის მიიღებს ელფოსტას, როცა ამ ანგარიშს განსახილველად გააგზავნით.',
   'newReport.approverLabel': 'დამმტკიცებლის ელფოსტა (არასავალდებულო)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'ხელმისაწვდომი ხარჯები',
   'newReport.createFailed': 'ანგარიშის შექმნა ვერ მოხერხდა. გთხოვთ, სცადოთ ხელახლა.',
   'newReport.draftsFallback':
     'მიმდინარე ხარჯების სია მიუწვდომელია — ნაჩვენებია კურირებული დემო მონაცემები.',
+  'newReport.eyebrow': 'ხარჯების დაჯგუფება · დამტკიცებაზე გაგზავნა',
   'newReport.includedCount': '{{count}} შედის',
   'newReport.purposeLabel': 'ბიზნეს მიზანი',
   'newReport.purposePlaceholder':
     'აღწერეთ მოგზაურობა ან პროექტი, რომელსაც ეს ხარჯები უკავშირდება (ხილული თქვენი დამმტკიცებლისა და ფინანსისტისთვის).',
   'newReport.saveDraft': 'მონახაზად შენახვა',
+  'newReport.saveDraftFailed': 'მონახაზის შენახვა ვერ მოხერხდა. გთხოვთ, სცადოთ ხელახლა.',
   'newReport.submit': 'დასამტკიცებლად გაგზავნა',
   'newReport.submitFailed': 'ანგარიშის გაგზავნა ვერ მოხერხდა. გთხოვთ, სცადოთ ხელახლა.',
   'newReport.summary': 'ანგარიშის შეჯამება',
@@ -99,17 +134,24 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'პირდაპირი ეთერი მიუწვდომელია — ნაჩვენებია კურირებული დემო მონაცემები.',
   'notifications.openReport': 'ანგარიშის გახსნა ›',
+  'pricing.approvalsLabel': 'დამტკიცებები',
   'pricing.expensesLabel': 'ხარჯები',
   'pricing.heading': 'დამტკიცებები',
   'pricing.policiesLabel': 'პოლიტიკა',
   'pricing.receiptsLabel': 'ქვითრები',
   'recoveredAmountHeroCard.label': 'ანაზღაურება აღდგენილია · დღემდე',
+  'recoveredAmountHeroCard.pending':
+    'ამჟამად {{count}} ანგარიში ელოდება მიმოხილვას ყველა დამმტკიცებელთან.',
+  'reports.approvalFlow': 'დამტკიცების პროცესი',
   'reports.backToList': 'ანგარიშებზე დაბრუნება',
   'reports.detailFallback':
     'პირდაპირი რეპორტაჟი მიუწვდომელია — ნაჩვენებია კურირებული დემო მონაცემები.',
   'reports.lineItems': 'ხაზის ელემენტები',
   'reports.lineItemsCount': '{{count}} ხარჯები',
+  'reports.lineItemsEmpty': 'ამ ანგარიშზე ჯერ ხარჯები არ არის.',
+  'reports.openLibrary': 'ანგარიშების ბიბლიოთეკის გახსნა',
   'reports.policyTitle': 'პოლიტიკის დროშა',
+  'reports.selectPrompt': 'აირჩიეთ ანგარიში ბიბლიოთეკიდან მისი დეტალების სანახავად.',
   'reports.summary.lineCount': 'ხაზის ელემენტები',
   'reports.summary.reimbursable': 'ანაზღაურებადი',
   'reports.summary.total': 'მოხსენებული ჯამი',
@@ -118,6 +160,7 @@ export const ui: UiTranslations = {
   'reportsList.lineItems': '{{count}} ხარჯები',
   'reportsList.listFallback': 'მიმდინარე სია მიუწვდომელია — ნაჩვენებია კურირებული დემო მონაცემები.',
   'reportsList.newReport': 'ახალი ანგარიში',
+  'reportsList.submittedOn': 'გაგზავნილია {{date}}',
   'reportsList.title': 'ანგარიშების ბიბლიოთეკა',
   'resetPassword.hidePassword': 'პაროლის დამალვა',
   'resetPassword.newPasswordLabel': 'ახალი პაროლი',
@@ -143,6 +186,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'შენახულია ✓',
   'settings.profileSaveFailed': 'პროფილის განახლება ვერ მოხერხდა. გთხოვთ, სცადოთ ხელახლა.',
   'signup.heading': 'შექმენით თქვენი Recoup ანგარიში',
+  'signup.hidePassword': 'პაროლის დამალვა',
   'signup.namePlaceholder': 'მაია ოკაფორი',
   'signup.showPassword': 'პაროლის ჩვენება',
   'signup.subheading': 'უფასოა ყოველთვიურად 25 ხარჯისთვის — საკრედიტო ბარათის გარეშე.',

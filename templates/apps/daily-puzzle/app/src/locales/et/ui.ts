@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kas sul on tagasisidet, leidsid vea või soovid tuua {{app}} oma kooli või meeskonda? Loeme iga sõnumit — võta ühendust oma konto seadete kaudu ja vastab päris inimene.',
   'about.contactTitle': 'Võta meiega ühendust',
   'about.eyebrow': 'Teave',
+  'about.intro':
+    '{{app}} on igapäevane sõnamõistatus. Arva ära viietäheline sõna kuue katsega, hoia oma seeriat elus, jaga oma emoji-ruudustikku ja vaata, kuidas kogu väli tänase sõnaga hakkama sai.',
+  'about.missionBody':
+    'Hea mõistatus on väike igapäevane võit. {{app}} põhineb ühel ühisel sõnal päevas — piisavalt kiire kohvipausiks, piisavalt terav, et homme tagasi tulla.',
+  'about.missionTitle': 'Meie missioon',
   'about.title': 'Rakendusest {{app}}',
   'archive.loadError': 'Arhiivi laadimine ebaõnnestus.',
   'archive.missed': 'Vahele jäetud',
   'archive.notPlayed': 'Mängimata',
+  'archive.subhead':
+    'Mängi mis tahes möödunud päeva uuesti harjutamiseks — ei seeriaid, ei statistikat, ainult lõbu.',
   'archive.title': 'Arhiiv',
   'auth.backToHome': 'Tagasi avalehele',
   'auth.backToHomeArrow': '← Tagasi avalehele',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Unustasid parooli?',
   'auth.login.loggingIn': 'Sisselogimine…',
   'auth.login.logIn': 'Mängi tänast sõna',
+  'auth.login.noAccount': 'Kas oled Tesseras uus?',
   'auth.login.or': 'või jätka',
   'auth.login.password': 'Parool',
   'auth.login.signInButton': 'Logi sisse',
@@ -32,6 +42,10 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Salvestamine…',
   'common.sendingEllipsis': 'Saatmine…',
   'common.startingEllipsis': 'Alustamine…',
+  'forgotPassword.subhead': 'Sisesta oma e-posti aadress ja me saadame sulle lähtestamise lingi.',
+  'forgotPassword.success.body':
+    'Kui konto on olemas {{email}} , saate mõne minuti pärast lähtestamislingi.',
+  'forgotPassword.success.title': 'Vaata oma postkasti.',
   'form.name': 'Nimi',
   'howToPlay.cta.home': 'Tagasi koju',
   'howToPlay.cta.play': 'Mängi tänast mõistatust',
@@ -68,10 +82,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Seeriad, mida vihkad katkestada',
   'leaderboard.daily.title': 'Tänased lahendused',
   'leaderboard.loadError': 'Edetabeli laadimine ebaõnnestus.',
+  'leaderboard.streaks.empty': 'Seeriaid veel pole — ole esimene.',
+  'leaderboard.streaks.subhead': 'Kõigi aegade pikimad võiduseeriad.',
   'leaderboard.streaks.title': 'Seeria liidrid',
+  'leaderboard.subhead': 'Kuidas väli täna hakkama sai ja kellel on pikimad seeriad.',
   'leaderboard.title': 'Edetabel',
   'login.headline': 'Tere tulemast tagasi.',
   'login.streakPill': '{{days}}-päevane seeria ootab',
+  'login.subhead':
+    'Logi sisse, et hoida oma seeriat elus ja näha, kuidas sa tänase sõnaga hakkama said.',
   'nav.archive': 'Arhiiv',
   'nav.editProfile': 'Muuda profiili',
   'nav.getStarted': 'Alustamine',
@@ -89,6 +108,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Sellist sõna pole',
   'notFound.title': 'See tee on tühi.',
   'planUpdated.message': 'Sinu plaan on aktiivne.',
+  'planUpdated.retry': 'Proovi uuesti',
+  'planUpdated.verifyFailed': 'Me ei saanud teie makset veel kinnitada.',
+  'planUpdated.verifyFailedBody':
+    'Teie makse võib olla veel töötlemisel. Proovige uuesti hetke pärast.',
   'planUpdated.verifying': 'Makse kinnitamine…',
   'play.alreadyFinished': 'Sa oled selle mõistatuse juba lahendanud',
   'play.answerWas': 'Sõna oli',
@@ -104,6 +127,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Harjutusmõistatus',
   'play.tooShort': 'Pole piisavalt tähti',
   'play.won': 'Lahendatud!',
+  'pricing.advancedStats': 'Täpsem statistika: {{yes}}',
+  'pricing.archiveHistory': '{{count}} päeva arhiivi ajalugu',
+  'pricing.archivePlays': '{{count}} arhiivikordust / päev',
+  'pricing.archiveUnlimited': 'Piiramatu arhiivi ajalugu',
+  'pricing.canExport': 'Andmete eksport: {{yes}}',
+  'pricing.checkoutError': 'Makseprotsessi ei õnnestunud alustada. Palun proovige uuesti.',
   'pricing.dailyWord': 'Igapäevane sõna',
   'pricing.heading': 'Vali oma {{app}} plaan',
   'pricing.included': 'Kaasas',
@@ -111,7 +140,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Igapäevane sõna on alati tasuta. Tee täiendus, et saada piiramatu juurdepääs arhiivi kordustele ja põhjalikumale statistikale.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} austab sinu privaatsust. Sellel lehel on kokkuvõte andmetest, mida salvestame, miks me neid salvestame ja kuidas neid eemaldada.',
   'privacy.title': 'Privaatsustingimused',
+  'resetPassword.subhead': 'Vali uus parool, et oma seeria juurde tagasi pöörduda.',
   'settings.account': 'Konto',
   'settings.danger.body': 'Eemalda püsivalt oma {{appName}} konto ja kogu mänguajalugu.',
   'settings.danger.confirm': 'Jah, kustuta jäädavalt',
@@ -120,17 +152,24 @@ export const ui: UiTranslations = {
   'settings.guest': 'Külaline',
   'settings.language.title': 'Keel',
   'settings.subhead': 'Kohanda oma profiili, heli ja seda, kuidas edetabelis ilmud.',
+  'settings.unnamed': 'Sparqi mängija',
   'settings.upgrade': 'Täiendus',
   'signup.eyebrow': 'Igaveseks tasuta — üks sõna päevas',
   'signup.headline': 'Alusta oma seeriat.',
+  'signup.subhead':
+    'Loo {{appName}} konto, et mängida igapäevast sõna, ehitada seeriat ja tõusta edetabelis.',
   'stats.currentStreak': 'Seeria',
   'stats.distribution.title': 'Arvamuste jaotus',
   'stats.loadError': 'Statistika laadimine ebaõnnestus.',
   'stats.maxStreak': 'Maksimaalne seeria',
   'stats.played': 'Mängitud',
   'stats.playToday': 'Mängi tänast mõistatust',
+  'stats.subhead':
+    'Ainult pingereaga igapäevamõistatused — arhiiviharjutus ei lähe kunagi arvesse.',
   'stats.title': 'Sinu statistika',
   'stats.winRate': 'Võiduprotsent',
   'status.monthly': 'Igakuine',
+  'terms.intro':
+    '{{app}} kasutades nõustud allolevate reeglitega. Kui sa ei saa nendega nõustuda, palun ära kasuta teenust.',
   'terms.title': 'Kasutustingimused',
 }

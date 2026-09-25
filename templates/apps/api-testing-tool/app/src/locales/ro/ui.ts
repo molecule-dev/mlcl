@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ai găsit un bug, ai o sugestie de funcționalitate sau vrei să ne spui ce să construim în continuare? Scrie la hello@pylon.dev — fiecare mesaj ajunge la un inginer real din echipă.',
   'about.contactTitle': 'Contactează-ne',
+  'about.intro':
+    '{{app}} este un banc de testare API rapid, nativ pentru tastatură, pentru inginerii care trăiesc în terminal — cereri în stil Postman, colecții, medii și istoric fără balast.',
+  'about.missionBody':
+    'API-urile sunt coloana vertebrală a software-ului modern, dar instrumentele pentru testarea lor sunt lente, greoaie și dependente de mouse. {{app}} există pentru a le oferi dezvoltatorilor un banc de lucru precis, rapid, de nivel terminal: lansează cereri, forgează încredere și livrează fără să părăsești tastatura.',
+  'about.missionTitle': 'Misiunea noastră',
   'about.pageTitle': 'Despre {{app}}',
   'authShell.statusLabel': 'runners online',
   'collections.createError': 'Colecția nu a putut fi creată.',
   'collections.defaultName': 'Colecție fără nume {{n}}',
+  'collections.empty':
+    'Încă nicio colecție — dă clic pe „Colecție nouă” pentru a-ți crea primul folder.',
   'collections.eyebrow': '$ pylon collections --tree',
   'collections.fetchError': 'Colecțiile nu au putut fi încărcate.',
   'collections.heading': 'Colecții',
   'collections.loading': 'Se încarcă colecțiile…',
+  'collections.metric.allGreen': 'Totul în regulă',
   'collections.metric.collections': 'Colecții',
   'collections.metric.failing': 'Eșuate',
   'collections.metric.failingCaption': 'Ultima rulare a avut erori',
@@ -23,6 +33,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Variabile',
   'environments.createError': 'Mediul nu a putut fi creat.',
   'environments.defaultName': 'Mediu fără nume {{n}}',
+  'environments.empty': 'Încă niciun mediu — dă clic pe „Mediu nou” pentru a adăuga unul.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'Mediile nu au putut fi încărcate.',
   'environments.heading': 'Medii',
@@ -30,8 +41,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Mediu nou',
   'environments.subheading':
     'Variabile care se înlocuiesc în cereri la momentul trimiterii. Un mediu activ per spațiu de lucru.',
+  'forgotPassword.statusLabel': 'resetare · tunel securizat',
   'forgotPassword.success':
     'Dacă există un cont pentru acel e-mail, un link de resetare este în drum. Verificați-vă căsuța de e-mail.',
+  'history.empty': 'Încă nimic aici — lansează prima cerere din fila Spațiu de lucru.',
   'history.eyebrow': '$ pylon history --tail',
   'history.fetchError': 'Istoricul nu a putut fi încărcat.',
   'history.heading': 'Istoricul rulărilor',
@@ -40,9 +53,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Ultimele 50',
+  'history.realtime': 'în timp real',
   'history.subheading':
     'Toate cererile trimise în acest spațiu de lucru, cu status, latență și dimensiunea payload-ului.',
   'landing.choosePlan': 'Alege plan',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Forge confidence.',
   'landing.ctaBody':
     'Fără card de credit. Nu este necesar niciun inginer de platformă. Deschideți ⌘K și trimiteți prima cerere în mai puțin de cinci minute.',
   'landing.ctaHeading': 'Construiți încredere.',
@@ -84,6 +99,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Latență medie',
   'mocks.metric.live': 'Public',
   'mocks.metric.servers': 'Mocks',
+  'mocks.ms': 'ms',
   'mocks.newMock': 'Mock nou',
   'mocks.online': 'Public',
   'mocks.paused': 'Privat',
@@ -107,9 +123,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Sănătos',
   'monitors.metric.uptime': 'Disponibilitate medie',
   'monitors.newMonitor': 'Monitor nou',
+  'monitors.paused': 'întrerupt',
   'monitors.run': 'Rulați',
   'monitors.runError': 'Rularea s-a încheiat cu o eroare de rețea: {{error}}',
+  'monitors.runFailed': 'Rularea a eșuat.',
   'monitors.running': 'Se rulează…',
+  'monitors.runSuccess': 'Rulează {{status}} — upstream a returnat {{code}} în {{ms}}ms.',
   'monitors.sparkLabel': 'Tendință latență',
   'monitors.subheading':
     'Verificări la cerere pentru orice test salvat. Asociați un test, apăsați Rulați și urmăriți rata de succes pe 24 de ore actualizându-se la fiecare execuție.',
@@ -118,27 +137,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Disponibilitate · 24h',
   'nav.legal': 'Legal',
   'notFound.backToWorkspace': 'Înapoi la spațiul de lucru',
+  'notFound.body':
+    '{{app}} a lansat o cerere pentru acest URL și nu a primit nimic înapoi. Verifică din nou ruta sau întoarce-te în spațiul de lucru.',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Ruta nu a fost găsită',
+  'planUpdated.body':
+    'Modificarea facturării este acum activă. Îți poți gestiona planul oricând din pagina de facturare.',
+  'planUpdated.retry': 'Încercați din nou',
+  'planUpdated.verifyFailed': 'Nu am putut încă să vă confirmăm plata.',
+  'planUpdated.verifyFailedBody':
+    'Este posibil ca plata dvs. să fie încă în curs de procesare. Încercați din nou imediat.',
   'planUpdated.verifying': 'Se confirmă plata…',
+  'pricing.advancedFeatures': 'Funcții avansate: {{yes}}',
+  'pricing.canExport': 'Export de date: {{yes}}',
+  'pricing.heading': 'Alege planul {{app}}',
+  'pricing.maxCollections': '{{count}} colecții',
+  'pricing.maxEnvironments': '{{count}} medii',
+  'pricing.maxHistory': '{{count}} intrări în istoric',
+  'pricing.maxRequests': '{{count}} cereri',
   'privacy.collect.account':
     'Cont: e-mailul, parola hash, numele afișat și marca temporală a ultimei autentificări.',
+  'privacy.intro':
+    '{{app}} îți respectă confidențialitatea. Această pagină rezumă datele pe care le colectăm, de ce le colectăm și cum le poți șterge.',
   'privacy.rights.body':
     'Puteți exporta colecțiile și mediile oricând sau vă puteți șterge contul din Setări pentru a elimina definitiv toate datele în termen de 30 de zile.',
   'privacy.share.body':
     'Doar dvs. Nu vindem, distribuim sau închiriem niciodată conținutul spațiului de lucru terților. Jurnalele serverului sunt păstrate 30 de zile pentru răspuns la incidente și apoi șterse.',
   'privacy.title': 'Notă de confidențialitate',
+  'profile.bio':
+    'Spațiul tău personal de lucru {{app}} — fixează colecții, partajează medii și monitorizează API-urile care livrează produsul.',
   'profile.eyebrow': '@{{handle}}',
   'profile.joined': 's-a alăturat {{when}}',
+  'profile.metric.collections': 'Colecții',
   'profile.metric.monitors': 'Monitoare',
   'profile.metric.requests': 'Cereri salvate',
+  'profile.noActivity':
+    'Încă nu a fost lansată nicio cerere — mergi la fila Spațiu de lucru pentru a face una.',
   'profile.signedOut': 'Conectați-vă pentru a vă vizualiza profilul',
   'pylonShell.primaryNavLabel': 'Navigare principală',
+  'resetPassword.passwordLabel': 'Parolă nouă',
+  'resetPassword.statusLabel': 'resetare · token verificat',
   'resetPassword.subtitle': 'Alegeți o parolă puternică pe care nu ați mai folosit-o.',
   'resetPassword.tokenPlaceholder': 'lipiți din e-mail',
+  'settings.accountManagement.desc':
+    'Actualizează-ți emailul și parola, gestionează notificările și dispozitivele, deconectează-te sau șterge-ți contul.',
+  'settings.accountManagement.title': 'Cont și securitate',
   'settings.eyebrow': '$ pylon settings --edit',
   'settings.fetchError': 'Setările nu au putut fi încărcate.',
   'settings.language.title': 'Limbă',
+  'settings.seeding': 'Se inițializează…',
   'settings.seedStarter': 'Populați conținut de start',
   'settings.starterCollection': 'Colecție de start',
   'settings.starterCollectionDesc': 'Creat din Setări la {{ts}}',
@@ -152,6 +199,8 @@ export const ui: UiTranslations = {
     'Sunteți responsabil pentru protejarea parolei. Partajarea unui singur cont cu mai multe persoane nu este permisă în planurile Free sau Pro — cumpărați un abonament Team pentru spații de lucru partajate.',
   'terms.billing.body':
     'Abonamentele plătite se reînnoiesc automat la fiecare perioadă de facturare. Anulați din Setări oricând; accesul continuă până la sfârșitul perioadei curente.',
+  'terms.intro':
+    'Prin crearea unui cont {{app}} accepți termenii de mai jos. Citește-i o dată; nu te vom surprinde cu modificări retroactive.',
   'terms.title': 'Termeni și condiții',
   'terms.usage.body':
     'Nu utilizați Pylon pentru a trimite cereri către servicii pe care nu le dețineți sau pentru care nu aveți permisiunea explicită de a le testa. Nu utilizați Pylon pentru a eluda limitele de viteză sau a comite fraude.',
@@ -172,16 +221,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Nerulate',
   'testRunner.metric.passed': 'Trecute',
   'testRunner.never': 'Niciodată rulat',
+  'testRunner.newTest': 'Test nou',
   'testRunner.noAssertions': 'Nicio afirmație pentru acest test încă.',
+  'testRunner.noRunsYet':
+    'Încă nicio rulare înregistrată — apasă „Rulează tot” pentru a popula istoricul.',
   'testRunner.passed': 'trecute',
+  'testRunner.recentRuns': 'Rulări recente',
   'testRunner.runAll': 'Rulați toate',
   'testRunner.running': 'Se rulează…',
   'testRunner.runOne': 'Rulați',
   'testRunner.subheading': 'Rezultatele suitei, diferențele afirmațiilor și ultimele 50 de rulări.',
+  'testRunner.suites': 'Suite',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Conectat ca',
   'workspace.auth.keyName': 'Numele antetului',
   'workspace.auth.keyValue': 'Valoarea cheie',
+  'workspace.auth.noneHint': 'Nu va fi trimis niciun antet de autorizare cu această cerere.',
   'workspace.auth.password': 'Parolă',
   'workspace.auth.username': 'Nume de utilizator',
   'workspace.authOption.apikey': 'Cheie API',
@@ -191,13 +246,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Tip',
   'workspace.authTypeLabel': 'Tip autentificare',
+  'workspace.body.contentLabel': 'Request body',
+  'workspace.body.hint':
+    '{{envVars}} sunt înlocuite înainte de lansarea cererii. Corpurile sunt trimise la POST/PUT/PATCH/DELETE.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Niciuna',
+  'workspace.body.noneHint':
+    'Nu va fi trimis niciun corp de cerere. Alege JSON sau text brut pentru a adăuga unul.',
   'workspace.body.text': 'Text brut',
   'workspace.body.type': 'Tip',
   'workspace.environment': 'Fără mediu',
   'workspace.envVar': 'variabilă de mediu',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.failedCount': '{{count}} eșuat',
+  'workspace.idle': 'Inactiv',
   'workspace.kv.addHeader': 'Adăugați antet',
   'workspace.kv.addParam': 'Adăugare parametru',
   'workspace.kv.headerKey': 'Numele antetului',
@@ -210,12 +272,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP method',
   'workspace.metric.latency': 'Latență',
   'workspace.metric.latencyCaption': 'Dus-întors din această rulare',
+  'workspace.metric.size': 'Payload',
   'workspace.metric.sizeCaption': 'Octeți response body',
   'workspace.metric.statusCaption': 'Ultimul response',
   'workspace.metric.tests': 'Teste',
+  'workspace.metric.testsAllPassing': 'Toate verificările sunt în regulă',
   'workspace.metric.testsFailing': '{{count}} eșuate',
+  'workspace.metric.testsIdle': 'Trimite o cerere pentru a evalua',
   'workspace.noAssertions': 'Rulați o cerere pentru a evalua afirmațiile încorporate.',
   'workspace.noResponseYet': 'Niciun response încă',
+  'workspace.passedCount': '{{count}} aprobat',
   'workspace.responseHint':
     '// Apăsați Trimiteți pentru a executa cererea și a captura response-ul.',
   'workspace.saveError': 'Cererea nu a putut fi salvată.',
@@ -225,10 +291,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Compuneți o cerere, trimiteți-o și verificați response-ul — totul într-un singur panou.',
   'workspace.testResults': 'Rezultatele testelor',
+  'workspace.tests.autoHint':
+    'Familia de status, latența, dimensiunea corpului și starea transportului sunt verificate automat — rezultatele apar la „Rezultatele testelor” în panoul de răspuns.',
+  'workspace.tests.autoTitle': 'Verificările încorporate rulează la fiecare răspuns',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Trimis ca Authorization: Bearer <token> pentru fiecare cerere din această colecție.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Cerere fără nume',
+  'workspace.urlLabel': 'URL cerere',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

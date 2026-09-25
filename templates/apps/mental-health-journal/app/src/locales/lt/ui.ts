@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Turite atsiliepimų, radote klaidą ar norite papasakoti, kaip dienoraščio rašymas jums padėjo? Skaitome kiekvieną žinutę — susisiekite bet kada, ir atsakys tikras žmogus.',
+  'about.contactTitle': 'Susisiekite su mumis',
+  'about.featureInsights':
+    'DI paremtos įžvalgos, kurios švelniai atskleidžia triggerius, temas ir dėkingumus — neprarandant jūsų balso.',
+  'about.featureMood':
+    'Nuotaikos ir veiklos stebėjimas su kalendoriaus vaizdu bei tendencijų grafikais, parodančiais, kas padeda jums klestėti.',
+  'about.featurePrivacy':
+    'Ištisinis šifravimas, slaptažodžio užraktas ir visas CSV eksportas, kad jūsų apmąstymai išliktų privatūs ir perkeliami.',
+  'about.featurePrompts':
+    'Švelnūs kasdieniai raginimai, kad visada turėtumėte nuo ko pradėti — niekada tuščio puslapio.',
+  'about.intro':
+    '{{app}} yra švelnus, privatus psichinės sveikatos dienoraštis kasdieniam apmąstymui, nuotaikos stebėjimui ir dėkingumui. Apgalvoti raginimai pakeičia tuščią puslapį, tyli dėsnių paieška padeda suprasti, kas veikia jūsų jausmus, o ištisinis šifravimas išsaugo jūsų žodžius tik jums.',
+  'about.missionBody':
+    'Tikime, kad savęs patikrinimas turi būti ramus, niekada klinikinis — ir niekada ne kaip dar viena programa, reikalaujanti jūsų dėmesio. {{app}} sukurta padėti, o ne primygtinai raginti: kelios tylios minutės per dieną pastebėti savo nuotaiką, rašyti nuoširdžiai ir pamažu matyti save aiškiau.',
+  'about.missionTitle': 'Mūsų misija',
   'about.pageTitle': 'Apie {{app}}',
   'authShell.encryptionBadge': 'Jūsų įrašai yra užšifruoti nuo galo iki galo.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Diena {{day}} — nėra įrašo',
   'calendar.cellMood': 'Diena {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Šį mėnesį trumpai',
   'calendar.eyebrow': 'Nuotaika iš pirmo žvilgsnio',
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Stebimas {{tracked}} iš {{total}} dienų šį mėnesį.',
   'common.goToDashboard': 'Eiti į suvestinę',
   'common.tryAgain': 'Pabandyk dar kartą',
+  'entryComposer.bodyPlaceholder': 'Rašykite, kas atrodo nuoširdžiai. Niekas kitas to neskaitys.',
   'entryComposer.cancel': 'Atgal į dienoraštį',
   'entryComposer.heading': 'Šiandienos apmąstymas',
   'entryComposer.moodLabel': 'Kaip jautiesi?',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Pašalinti {{tag}}',
   'entryComposer.save': 'Išsaugoti atspindį',
   'entryComposer.saveError': 'Nepavyko išsaugoti jūsų įrašo.',
+  'entryComposer.tagPlaceholder': 'Pridėkite žymą ir paspauskite Enter',
   'entryComposer.titlePlaceholder': 'Suteikite šiam atspindžiui pavadinimą...',
   'entryDetail.back': 'Atgal į dienoraštį',
   'entryDetail.delete': 'Ištrinti šį įrašą',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Įkeliamas atspindys…',
   'entryDetail.notFound': 'Įrašas nerastas.',
   'entryDetail.reflectionsHeading': 'DI atspindžiai',
+  'forgotPassword.continueButton': 'Įveskite atkūrimo kodą',
   'forgotPassword.eyebrow': 'Jokių rūpesčių',
   'forgotPassword.subheading':
     'Į jūsų el. pašto adresą išsiųsime švelnaus nustatymo iš naujo nuorodą.',
@@ -58,14 +78,22 @@ export const ui: UiTranslations = {
     'Temų dar nėra – pridėkite prie įrašų vieną ar dvi žymas ir jie bus surinkti čia.',
   'insights.themesHeading': 'Populiariausios temos',
   'insights.triggerFrequency': 'pastebėjau {{count}} × šį mėnesį',
+  'insights.triggersEmpty':
+    'Kol kas nėra ko pastebėti. Keli įrašai per kelias dienas parodys jūsų dėsningumus.',
   'insights.triggersHeading': 'Raštai, kurie keičia jūsų nuotaiką',
+  'journal.empty':
+    'Nėra atitinkančių apmąstymų — pabandykite kitą filtrą arba parašykite naują įrašą.',
   'journal.eyebrow': 'Jūsų apmąstymai',
   'journal.heading': 'Žurnalas',
   'journal.loadError': 'Nepavyko įkelti įrašų.',
   'journal.loading': 'Įrašai įkeliami…',
+  'journal.newEntry': 'Naujas įrašas',
   'journal.searchPlaceholder': 'Ieškokite jausmo, vardo, akimirkos…',
   'journal.subheading': '{{count}} įrašai – kiekvienas vertas išsaugojimo.',
   'journalEntryCard.encryptedLabel': 'Užšifruota',
+  'landing.ctaBody':
+    'Nemokama pradėti. Pro atrakina duomenų eksportą, didesnį dienoraštį ir visus metus istorijos.',
+  'landing.ctaButton': 'Pradėkite savo pirmąjį įrašą',
   'landing.ctaTitle': 'Kelios minutės ramybės per dieną. Ir viskas.',
   'landing.eyebrow': 'Švelni kasdienė praktika',
   'landing.featuresBody':
@@ -84,6 +112,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Švelni erdvė kasdieniams apmąstymams.',
   'mentalHealthJournalLayout.closeMenu': 'Uždaryti meniu',
   'mentalHealthJournalLayout.openMenu': 'Atidaryti meniu',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Pagrindinė navigacija',
+  'moodHeroCard.entriesThisWeek': '{{count}} šią savaitę',
   'moodHeroCard.streakSuffix': 'dienos serija',
   'moodHeroCard.title': 'Šiandienos apmąstymas',
   'moodTrendChart.aiBadge': 'Dirbtinio intelekto įžvalgos paruoštos',
@@ -94,11 +124,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Jūsų kelionė',
   'profile.fallbackName': 'Reflektorius',
   'profile.loadError': 'Nepavyko įkelti statistikos.',
+  'profile.loading': 'Atnaujinama jūsų statistika…',
   'profile.longestStreak': 'Ilgiausia serija',
   'profile.memberSince': 'Apmąstant nuo tada {{date}}',
   'profile.milestones': 'Pagrindiniai etapai',
   'profile.milestonesEmpty':
     'Pirmasis etapas pasiekiamas vienu įrašu – rašykite, kai tik jausitės pasiruošę.',
+  'profile.moodMix': 'Jūsų nuotaikų mišinys šį sezoną',
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'Atspindžiai',
   'profile.totalWords': 'Parašyti žodžiai',
@@ -111,6 +143,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Rašykite apie tai',
   'resetPassword.eyebrow': 'Nauja pradžia',
   'resetPassword.mismatchError': 'Slaptažodžiai nesutampa.',
+  'resetPassword.passwordLabel': 'Naujas slaptažodis',
   'resetPassword.subheading': 'Pasirinkite ką nors saugaus – jūsų apmąstymai to nusipelno.',
   'resetPassword.tokenPlaceholder': 'Atkurti kodą iš el. pašto',
   'settings.dangerDescription':
@@ -122,11 +155,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'Nepavyko ištrinti paskyros.',
   'settings.exportDescription': 'Tavo žodžiai visada priklauso tau. Atsisiųsti kopiją bet kada.',
   'settings.exportDone': 'Eksportuota {{format}}.',
+  'settings.exportError': 'Eksportuoti nepavyko.',
+  'settings.exportHeading': 'Eksportuokite savo apmąstymus',
   'settings.exportLoading': 'Ruošiama…',
   'settings.eyebrow': 'Jūsų erdvė, jūsų taisyklės',
   'settings.languageHeading': 'Kalba',
   'settings.privacyHeading': 'Privatumas ir šifravimas',
   'settings.remindersHeading': 'Dienos priminimas',
+  'settings.reminderToggleAria': 'Perjungti kasdienį priminimą',
   'settings.reminderToggleDescription':
     'Vienas ramus priminimas pasirinktu laiku. Jokių ženklelių ar kaltės jausmo dėl perdozavimo.',
   'settings.reminderToggleLabel': 'Švelniai stumtelėkite',
@@ -139,6 +175,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Kuriamas žurnalas…',
   'signup.subheading': 'Saugi erdvė jūsų mintims.',
   'wellnessRingsTriad.mindfulnessCaption': 'Įvartis {{goal}} min. šiandien',
+  'wellnessRingsTriad.mindfulnessLabel': 'Sąmoningumas',
   'wellnessRingsTriad.sleepCaption': 'Įvartis {{goal}} val. / naktis',
   'wellnessRingsTriad.sleepLabel': 'Miegas',
+  'wellnessRingsTriad.sleepValue': '{{hours}} val.',
+  'wellnessRingsTriad.streakCaption': 'Tikslas {{goal}} dienų',
+  'wellnessRingsTriad.streakLabel': 'Dienoraščio serija',
+  'wellnessRingsTriad.streakValue': '{{days}} d',
 }

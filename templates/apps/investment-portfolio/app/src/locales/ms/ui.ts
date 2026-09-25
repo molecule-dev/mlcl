@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ada maklum balas, jumpa pepijat, atau mahu ciri baharu? Hubungi kami dari tetapan akaun anda — setiap mesej sampai kepada orang sebenar dalam pasukan. Nota: tiada apa-apa di sini merupakan nasihat pelaburan; anda kekal mengawal setiap dagangan.',
+  'about.contactTitle': 'Hubungi kami',
+  'about.featureAttribution':
+    'Atribusi prestasi — pecahkan pulangan mengikut sektor, wilayah dan kelas aset, serta penanda aras merentas mana-mana tempoh.',
+  'about.featureRebalance':
+    'Pengimbangan semula berdisiplin — tetapkan peruntukan sasaran dan jalur toleransi, lihat sisihan dikesan lebih awal, dan dapatkan dagangan yang membawa anda kembali.',
+  'about.featureTax':
+    'Kebersihan dokumen cukai — keuntungan direalisasi dan belum direalisasi, dividen dan dokumen 1099 di satu tempat, dengan penanda jualan cuci disertakan.',
+  'about.featureUnified':
+    'Satu portfolio bersatu — saham, ETF, dana bersama, bon dan banyak lagi, dihimpunkan merentas setiap akaun broker.',
+  'about.featureWatchlist':
+    'Senarai pantau, berita dan makluman harga supaya anda boleh bertindak atas apa yang penting tanpa gangguan.',
+  'about.intro':
+    '{{app}} ialah papan pemuka portfolio berbilang aset untuk pelabur individu dan penasihat bebas. Saham, ETF, dana bersama, bon, hartanah dan tunai — setiap pegangan merentas setiap akaun, di satu tempat, dengan disiplin meja profesional.',
+  'about.missionBody':
+    'Pelaburan yang baik kebanyakannya disiplin: peruntukan sasaran yang jelas, atribusi prestasi yang jujur, dan rekod cukai yang teratur. {{app}} membawa tabiat institusi itu kepada semua orang, supaya anda boleh mengimbang semula dengan sengaja dan bukan mengikut gerak hati — dan tidak pernah terlepas pandang apa yang sebenarnya dilakukan oleh portfolio anda.',
+  'about.missionTitle': 'Misi kami',
   'about.pageTitle': 'Perihal {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Peralatan kekayaan',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Bukan nasihat pelaburan.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Papan pemuka portfolio untuk pelabur individu dan penasihat yang mahukan pengimbangan semula yang berdisiplin, atribusi prestasi yang tajam dan kebersihan dokumen cukai — tanpa sebarang gangguan.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · Prestasi lampau tidak menjamin hasil masa depan.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) hari ini',
+  'argentAuthShell.sampleLabel': 'Nilai Portfolio',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Navigasi utama',
   'assetAllocationDonut.heading': 'Bagaimana wang anda dilaburkan',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'hari ini',
   'assetDetail.txEmpty': 'Tiada transaksi untuk ticker ini.',
   'assetDetail.txHeading': 'Transaksi anda',
+  'auth.legalConsent.prefix': 'Dengan meneruskan, anda bersetuju dengan {{appName}}',
   'common.and': 'dan',
   'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'hari ini',
   'dashboard.topHoldings.heading': 'Tempat wang anda berfungsi',
   'dashboard.topHoldings.label': 'Pegangan Teratas',
+  'forgotPassword.gotLinkCta': 'Saya ada pautan set semula →',
+  'forgotPassword.subheading':
+    'Masukkan e-mel akaun Gavl anda dan kami akan menghantar pautan tetapan semula yang selamat.',
   'forgotPassword.successBody':
     'Jika anda tidak melihatnya dalam beberapa minit, semak folder spam anda atau cuba e-mel lain.',
   'forgotPassword.successSubheading':
     'Semak {{email}} untuk pautan tetapan semula. Ia tamat tempoh dalam masa 60 minit.',
+  'forgotPassword.successTitle': 'E-mel set semula sedang dihantar',
   'holdingHighlightRow.todayLabel': 'hari ini',
   'holdings.addCta': 'Beli',
   'holdings.col.allocation': 'Peruntukan',
@@ -58,6 +87,8 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Bukan nasihat pelaburan. Prestasi lepas tidak menjamin keputusan masa hadapan.',
   'landing.eyebrow': 'Argent · Platform alat pengumpulan kekayaan',
   'landing.features.heading': 'Semua yang akan dibina oleh penasihat untuk diri mereka sendiri.',
+  'landing.finalCta.body': 'Sambungkan broker anda dalam dua klik. {{appName}} uruskan selebihnya.',
+  'landing.finalCta.cta': 'Buka akaun Argent anda',
   'landing.finalCta.heading': 'Kembalikan disiplin ke dalam portfolio anda.',
   'landing.footerSignup': 'Buka akaun',
   'landing.getStarted': 'Buka akaun',
@@ -65,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Lihat harga',
   'landing.heroSubtitle':
     'Papan pemuka portfolio untuk pelabur individu dan penasihat yang mahukan pengimbangan semula yang berdisiplin, atribusi prestasi yang tajam dan kebersihan dokumen cukai — tanpa sebarang gangguan.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Pratonton langsung daripada portfolio perwakilan',
   'login.heading': 'Daftar masuk ke Argent',
   'login.subheading':
@@ -76,6 +108,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}}j lalu',
   'news.justNow': 'baru sahaja',
   'news.loadError': 'Gagal memuatkan berita.',
+  'planUpdated.body':
+    'Perubahan bil anda kini aktif. Anda boleh urus pelan anda bila-bila masa dari halaman bil.',
+  'planUpdated.retry': 'Cuba lagi',
+  'planUpdated.verifyFailed': 'Kami belum dapat mengesahkan pembayaran anda.',
+  'planUpdated.verifyFailedBody':
+    'Pembayaran anda mungkin masih diproses. Cuba lagi sebentar lagi.',
   'planUpdated.verifying': 'Mengesahkan pembayaran anda…',
   'portfolioHeroCard.label': 'Nilai Portfolio',
   'pricing.holdingsLabel': 'pegangan',
@@ -86,12 +124,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Hanyutan peruntukan',
   'rebalance.empty': 'Tiada sasaran yang ditetapkan lagi.',
   'rebalance.executeCta': 'Tempat {{count}} perdagangan',
+  'rebalance.executeError': 'Gagal membuat dagangan.',
   'rebalance.executeOk': 'Diletakkan {{count}} dagangan. Lihatnya di halaman Transaksi.',
+  'rebalance.executing': 'Sedang membuat…',
   'rebalance.eyebrow': 'Pengimbangan Semula · Penasihat Argent',
   'rebalance.heading': 'Kembalikan portfolio anda kepada disiplin',
   'rebalance.loadError': 'Gagal memuatkan pelan pengimbangan semula.',
+  'rebalance.plan.driftLine': 'kini {{current}}% · sasaran {{target}}%',
   'rebalance.planHeading': 'Tiket Argent — semak sebelum meletakkan',
   'rebalance.planLabel': 'Pelan perdagangan yang dicadangkan',
+  'rebalance.subheading':
+    'Baris di luar jalur toleransinya mencetuskan cadangan dagangan. {{appName}} hanya bertindak atas pengesahan anda.',
   'rebalance.summary.buyLabel': 'Beli',
   'rebalance.summary.buySub': 'jawatan untuk menambah nilai',
   'rebalance.summary.driftLabel': 'Luar jalur',
@@ -100,6 +143,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'merentasi dagangan yang dicadangkan',
   'rebalance.summary.sellLabel': 'Menjual',
   'rebalance.summary.sellSub': 'kedudukan untuk memangkas',
+  'rebalanceDriftCard.drift': 'sisihan {{sign}}{{pct}}% · jalur ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'sasaran {{pct}} %',
   'reports.attributionHeading': 'Atribusi prestasi (1T)',
   'reports.col.alpha': 'Alfa',
@@ -113,37 +157,69 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Tahun',
   'reports.gainsHeading': 'Keuntungan yang direalisasikan & tidak direalisasikan',
   'reports.noAttribution': 'Tiada data atribusi lagi.',
+  'reports.noGains': 'Belum ada data keuntungan direalisasi/belum direalisasi.',
   'reports.noPerformance': 'Tiada data prestasi lagi.',
   'reports.noTaxDocs': 'Tiada dokumen cukai lagi.',
   'reports.performanceHeading': 'Prestasi vs penanda aras',
   'reports.taxHeading': 'Dokumen cukai',
   'resetPassword.heading': 'Pilih kata laluan baharu yang kukuh',
+  'resetPassword.passwordPlaceholder': 'Kata laluan baharu',
   'resetPassword.subheading':
     'Argent akan melog masuk anda secara automatik sebaik sahaja kata laluan anda ditetapkan.',
   'resetPassword.tokenPlaceholder': 'Tetapkan semula token daripada e-mel',
+  'settings.appearance.description': 'Togol antara mod cerah dan gelap.',
   'settings.appearance.title': 'Penampilan',
+  'settings.devices.body': 'Peranti yang sedang log masuk ke akaun anda.',
+  'settings.devices.empty': 'Tiada peranti ditemui.',
   'settings.devices.heading': 'Peranti',
+  'settings.devices.revokeWarning':
+    'Akses peranti ini akan dibatalkan tidak lama lagi. Log keluar?',
   'settings.devices.signOut': 'Log keluar',
   'settings.devices.thisDevice': 'Peranti ini',
   'settings.devices.unknown': 'Peranti tidak diketahui',
   'settings.linked.body':
     'Penyegerakan broker memerlukan penyambung pihak ketiga (Plaid, Yodlee, dll.). Konfigurasikan pembekal anda dalam persekitaran anda untuk mendayakan import automatik.',
   'settings.linked.heading': 'Akaun broker yang dipautkan',
+  'settings.linked.placeholder': 'Tiada akaun dihubungkan lagi.',
+  'settings.notifications.dividendsPaid': 'Dividen dibayar',
   'settings.notifications.error': 'Tidak dapat mengemas kini pilihan.',
   'settings.notifications.priceAlerts': 'Amaran harga',
+  'settings.notifications.rebalanceDrift': 'Sisihan pengimbangan semula',
+  'settings.notifications.taxDocsReady': 'Dokumen cukai sedia',
   'settings.profile.advisor': 'Emel penasihat (pilihan)',
   'settings.profile.heading': 'Profil',
   'settings.security.changePassword': 'Tukar kata laluan',
+  'settings.security.changePasswordTitle': 'Tukar kata laluan',
   'settings.security.changing': 'Menukar…',
+  'settings.security.confirmPassword': 'Kata laluan',
+  'settings.security.currentPassword': 'Kata laluan semasa',
   'settings.security.deleteAccount': 'Padam akaun',
   'settings.security.deleteError': 'Tidak dapat memadam akaun.',
   'settings.security.deleteHeading': 'Padam akaun',
+  'settings.security.deleteModalWarning':
+    'Ini memadamkan akaun dan data anda secara kekal. Masukkan kata laluan anda untuk mengesahkan.',
+  'settings.security.deleteWarning':
+    'Padam akaun anda dan semua data berkaitan secara kekal. Tindakan ini tidak boleh dibatalkan.',
   'settings.security.deleting': 'Memadam…',
   'settings.security.heading': 'Keselamatan',
   'settings.security.newPassword': 'Kata laluan baharu',
   'settings.security.password': 'Kata laluan',
+  'settings.security.passwordError': 'Tidak dapat menukar kata laluan.',
+  'settings.security.passwordHint': 'Tukar kata laluan yang anda gunakan untuk log masuk.',
+  'settings.security.twoFactor': 'Pengesahan dua faktor',
+  'settings.security.twoFactorCode': 'Kod pengesahan',
+  'settings.security.twoFactorDisable': 'Lumpuhkan',
+  'settings.security.twoFactorDisableTitle': 'Nyahdayakan pengesahan dua faktor',
   'settings.security.twoFactorEnable': 'Aktifkan',
+  'settings.security.twoFactorEnableTitle': 'Dayakan pengesahan dua faktor',
+  'settings.security.twoFactorHint': 'Tambah lapisan perlindungan tambahan pada akaun anda.',
   'settings.security.twoFactorInvalidCode': 'Kod tidak sah',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'Kod QR dua faktor',
+  'settings.security.twoFactorScan':
+    'Imbas kod QR ini dengan aplikasi pengesah anda, kemudian masukkan kod 6 digit.',
+  'settings.security.twoFactorUnavailable':
+    'Pengesahan dua faktor tidak tersedia untuk aplikasi ini.',
   'settings.security.twoFactorVerify': 'Sahkan & dayakan',
   'settings.tax.error': 'Tidak dapat mengemas kini kaedah cukai.',
   'settings.tax.heading': 'Perakaunan lot cukai',
@@ -154,6 +230,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Kaedah cukai disimpan.',
   'signup.eyebrow': 'Buka akaun',
   'signup.heading': 'Buka akaun Argent anda',
+  'signup.legalPrefix': 'Dengan mencipta akaun anda bersetuju dengan {{appName}}',
   'signup.subheading':
     'Percuma selama 30 hari. Kad tidak diperlukan. Batalkan pada bila-bila masa.',
   'signup.terms':

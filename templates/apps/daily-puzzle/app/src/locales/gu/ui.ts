@@ -1,12 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'પ્રતિસાદ છે, બગ મળ્યો છે, અથવા {{app}} તમારી શાળા કે ટીમમાં લાવવા માંગો છો? અમે દરેક સંદેશ વાંચીએ છીએ — તમારા એકાઉન્ટ સેટિંગ્સમાંથી સંપર્ક કરો અને એક સાચો માણસ જવાબ આપશે.',
   'about.contactTitle': 'અમારી સાથે વાત કરો',
   'about.eyebrow': 'વિશે',
+  'about.intro':
+    '{{app}} એ રોજનું શબ્દ કોયડો છે. છ પ્રયાસમાં પાંચ અક્ષરનો શબ્દ અનુમાન કરો, તમારી સ્ટ્રીક ચાલુ રાખો, તમારું ઇમોજી ગ્રિડ શેર કરો, અને આજના શબ્દ પર બધાએ કેવું પ્રદર્શન કર્યું તે જુઓ.',
+  'about.missionBody':
+    'સારું કોયડો એ રોજની નાની જીત છે. {{app}} એક સહિયારા રોજના શબ્દ આસપાસ બનેલું છે — કોફી બ્રેક માટે પૂરતું ઝડપી, આવતીકાલે ફરી આવવા જેટલું તીક્ષ્ણ.',
+  'about.missionTitle': 'અમારું ધ્યેય',
   'about.title': '{{app}} વિશે',
   'archive.loadError': 'આર્કાઇવ લોડ કરી શકાયું નહીં.',
   'archive.missed': 'ચૂકીગયા',
   'archive.notPlayed': 'રમ્યા નથી',
+  'archive.subhead': 'કોઈપણ ભૂતકાળનો દિવસ અભ્યાસ તરીકે ફરી રમો — ન સ્ટ્રીક, ન આંકડા, બધો આનંદ.',
   'archive.title': 'આર્કાઇવ',
   'auth.backToHome': 'હોમ પર પાછા',
   'auth.backToHomeArrow': '← હોમ પર પાછા',
@@ -16,6 +24,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'પાસવર્ડ ભૂલી ગયા?',
   'auth.login.loggingIn': 'તમને સાઇન ઇન કરી રહ્યા છીએ…',
   'auth.login.logIn': 'આજનો શબ્દ રમો',
+  'auth.login.noAccount': 'ટેસેરામાં નવા છો?',
   'auth.login.or': 'અથવા આની સાથે ચાલુ રાખો',
   'auth.login.password': 'પાસવર્ડ',
   'auth.login.signInButton': 'સાઇન ઇન',
@@ -32,6 +41,10 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'સાચવી રહ્યા છીએ…',
   'common.sendingEllipsis': 'મોકલી રહ્યા છીએ…',
   'common.startingEllipsis': 'શરૂ કરી રહ્યા છીએ…',
+  'forgotPassword.subhead': 'તમારું ઇમેઇલ દાખલ કરો અને અમે તમને રીસેટ કરવા માટે એક લિંક મોકલીશું.',
+  'forgotPassword.success.body':
+    'જો કોઈ એકાઉન્ટ અસ્તિત્વમાં હોય તો {{email}} , તમને થોડીવારમાં રીસેટ લિંક મળશે.',
+  'forgotPassword.success.title': 'તમારું ઇનબોક્સ તપાસો.',
   'form.name': 'નામ',
   'howToPlay.cta.home': 'ઘરે પાછા',
   'howToPlay.cta.play': 'આજનું પઝલ રમો',
@@ -68,10 +81,14 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'સ્ટ્રીક્સ જે તમે તોડવા ધિક્કારો છો',
   'leaderboard.daily.title': 'આજે ઉકેલાયેલા',
   'leaderboard.loadError': 'લીડરબોર્ડ લોડ કરી શકાયું નહીં.',
+  'leaderboard.streaks.empty': 'હજી કોઈ સ્ટ્રીક નથી — પ્રથમ બનો.',
+  'leaderboard.streaks.subhead': 'અત્યાર સુધીની સૌથી લાંબી જીતની સ્ટ્રીક.',
   'leaderboard.streaks.title': 'સ્ટ્રીક લીડર્સ',
+  'leaderboard.subhead': 'આજે બધાએ કેવું પ્રદર્શન કર્યું, અને કોની સૌથી લાંબી સ્ટ્રીક ચાલુ છે.',
   'leaderboard.title': 'લીડરબોર્ડ',
   'login.headline': 'પાછા સ્વાગત છે.',
   'login.streakPill': '{{days}}-દિવસની સ્ટ્રીક રાહ જોઈ રહી છે',
+  'login.subhead': 'તમારી સ્ટ્રીક ચાલુ રાખવા અને આજના શબ્દ પર તમારું પ્રદર્શન જોવા સાઇન ઇન કરો.',
   'nav.archive': 'આર્કાઇવ',
   'nav.editProfile': 'પ્રોફાઇલ સંપાદિત કરો',
   'nav.getStarted': 'શરૂ કરો',
@@ -89,6 +106,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · આવો કોઈ શબ્દ નથી',
   'notFound.title': 'તે રૂટ ખાલી છે.',
   'planUpdated.message': 'તમારો પ્લાન લાઇવ છે.',
+  'planUpdated.retry': 'ફરી પ્રયાસ કરો',
+  'planUpdated.verifyFailed': 'અમે હજુ સુધી તમારી ચુકવણીની પુષ્ટિ કરી શક્યા નથી.',
+  'planUpdated.verifyFailedBody':
+    'તમારી ચુકવણી હજુ પણ પ્રક્રિયામાં હોઈ શકે છે. થોડીવારમાં ફરી પ્રયાસ કરો.',
   'planUpdated.verifying': 'તમારી પેમેન્ટની પુષ્ટિ કરી રહ્યા છીએ…',
   'play.alreadyFinished': 'તમે આ પઝલ પહેલેથી પૂર્ણ કર્યું છે',
   'play.answerWas': 'શબ્દ હતો',
@@ -104,6 +125,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'પ્રેક્ટિસ પઝલ',
   'play.tooShort': 'પૂરતા અક્ષરો નથી',
   'play.won': 'તેને ઉકેલ્યું!',
+  'pricing.advancedStats': 'અદ્યતન આંકડા: {{yes}}',
+  'pricing.archiveHistory': '{{count}} દિવસનો આર્કાઇવ ઇતિહાસ',
+  'pricing.archivePlays': '{{count}} આર્કાઇવ રીપ્લે / દિવસ',
+  'pricing.archiveUnlimited': 'અમર્યાદિત આર્કાઇવ ઇતિહાસ',
+  'pricing.canExport': 'ડેટા નિકાસ: {{yes}}',
+  'pricing.checkoutError': 'ચેકઆઉટ શરૂ કરી શકાયું નથી. કૃપા કરીને ફરી પ્રયાસ કરો.',
   'pricing.dailyWord': 'દૈનિક શબ્દ',
   'pricing.heading': 'તમારો {{app}} પ્લાન પસંદ કરો',
   'pricing.included': 'સામેલ',
@@ -111,7 +138,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'દૈનિક શબ્દ હંમેશા મફત છે. અનલિમિટેડ આર્કાઇવ રિપ્લે અને ઊંડા આંકડા માટે અપગ્રેડ કરો.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} તમારી ગોપનીયતાનું સન્માન કરે છે. આ પૃષ્ઠ અમે કયો ડેટા સંગ્રહીએ છીએ, કેમ સંગ્રહીએ છીએ, અને તેને કેવી રીતે દૂર કરવો તેનો સારાંશ આપે છે.',
   'privacy.title': 'ગોપનીયતા સૂચના',
+  'resetPassword.subhead': 'તમારી સ્ટ્રીક પર પાછા ફરવા નવો પાસવર્ડ પસંદ કરો.',
   'settings.account': 'એકાઉન્ટ',
   'settings.danger.body': 'તમારું {{appName}} એકાઉન્ટ અને તમામ પઝલ ઇતિહાસ કાયમ માટે દૂર કરો.',
   'settings.danger.confirm': 'હા, કાયમ માટે ડિલીટ કરો',
@@ -121,17 +151,23 @@ export const ui: UiTranslations = {
   'settings.language.title': 'ભાષા',
   'settings.subhead':
     'તમારી પ્રોફાઇલ, સાઉન્ડ અને લીડરબોર્ડ પર તમે કેવી રીતે દેખાઓ છો તે ટ્યુન કરો.',
+  'settings.unnamed': 'સ્પાર્ક પ્લેયર',
   'settings.upgrade': 'અપગ્રેડ',
   'signup.eyebrow': 'કાયમ માટે મફત — દરરોજ એક શબ્દ',
   'signup.headline': 'તમારી સ્ટ્રીક શરૂ કરો.',
+  'signup.subhead':
+    'રોજનો શબ્દ રમવા, સ્ટ્રીક બનાવવા અને લીડરબોર્ડ પર ચઢવા {{appName}} એકાઉન્ટ બનાવો.',
   'stats.currentStreak': 'સ્ટ્રીક',
   'stats.distribution.title': 'અનુમાન વિતરણ',
   'stats.loadError': 'તમારા આંકડા લોડ કરી શકાયા નહીં.',
   'stats.maxStreak': 'મહત્તમ સ્ટ્રીક',
   'stats.played': 'રમ્યા',
   'stats.playToday': 'આજનું પઝલ રમો',
+  'stats.subhead': 'ફક્ત ક્રમાંકિત રોજના કોયડા — આર્કાઇવ અભ્યાસ ક્યારેય ગણાતો નથી.',
   'stats.title': 'તમારા આંકડા',
   'stats.winRate': 'વિન રેટ',
   'status.monthly': 'માસિક',
+  'terms.intro':
+    '{{app}} વાપરવાથી તમે નીચેના નિયમો સ્વીકારો છો. જો તમે તે સ્વીકારી શકતા નથી, તો કૃપા કરીને સેવાનો ઉપયોગ કરશો નહીં.',
   'terms.title': 'સેવાની શરતો',
 }

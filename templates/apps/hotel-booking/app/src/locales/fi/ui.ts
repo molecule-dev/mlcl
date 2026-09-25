@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kysymyksiä varauksesta, palautetta tai kohde, jonka mielestäsi kuuluisi {{app}}-palveluun? Ota yhteyttä tiimiimme tilisi kautta — jokainen viesti päätyy oikealle ihmiselle, joka voi auttaa.',
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Meistä',
+  'about.featureLoyalty':
+    'Jäsenille tarkoitetut hinnat ja kanta-asiakasohjelma, joka kerryttää pisteitä, myöhäisiä uloskirjautumisia ja huoneluokan korotuksia joka varauksella.',
+  'about.featureReviews':
+    'Vahvistetut vierasarvostelut ja toimitukselliset valinnat, jotta voit luottaa majoittumiseen ennen saapumistasi.',
+  'about.featureRooms':
+    'Huoneet, hinnat ja mukavuudet rinnakkain läpinäkyvällä kokonaishinnalla — verot ja lomakeskusmaksut sisältyvät ennen maksua.',
+  'about.featureSearch':
+    'Reaaliaikainen haku tarkistetuista hotelleista reaaliaikaisella saatavuudella, karttanäkymällä ja monipuolisilla kuvagallerioilla.',
+  'about.featureTrips':
+    'Tallennetut suosikit ja Matkat-hallintapaneeli, joka pitää kaikki varaukset, matkasuunnitelmat ja vahvistukset yhdessä paikassa.',
+  'about.intro':
+    '{{app}} on hotellivarausalusta matkailijoille, joille laatu on tärkeää. Jokainen kohde on toimituskuntamme henkilökohtaisesti tarkistama — ei koontipalvelun valikoimaa, ei harhaanjohtavia ilmoituksia. Hae todellista saatavuutta, vertaa huoneita, hintoja ja mukavuuksia rinnakkain ja varaa muutamalla napautuksella selkeällä kokonaishinnalla.',
+  'about.missionBody':
+    'Majoituspaikan varaamisen pitäisi tuntua rauhalliselta ja rehelliseltä. Näytämme läpinäkyvät hinnat veroineen ja lomakeskusmaksuineen etukäteen, palkitsemme kanta-asiakkaat sen sijaan että nyhtäisimme heiltä joka asiasta, ja asetamme rahan arvoiset majoittumiset etusijalle — niin voit käyttää vähemmän aikaa välilehtien vertailuun ja enemmän aikaa itse matkaan.',
+  'about.missionTitle': 'Missiomme',
+  'about.subtitle': 'Valikoitu, läpinäkyvä tapa löytää ja varata oikea hotelli.',
   'account.loyalty.activitySummary': '{{nights}} yöt · {{spend}} vietti tänä vuonna',
+  'account.loyalty.benefitsHeading': 'Edusi',
   'account.loyalty.heading': 'Uskollisuus',
   'account.loyalty.loading': 'Ladataan kanta-asiakasohjelmaa…',
-  'account.loyalty.pointsTowardNext': '{{pistettä}} / {{seuraava}} osoittaa {{seuraavataso}}',
+  'account.loyalty.maxTier': 'Ylin taso — nauti eduistasi.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} pistettä tasolle {{nextTier}}',
   'account.loyalty.tier': 'Nykyinen taso',
   'account.loyalty.unavailable': 'Kanta-asiakastietoja ei ole saatavilla.',
   'account.navLabel': 'Tilin osiot',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Vahvista varaus · {{total}}',
   'bookingCheckout.datesRequired': 'Ole hyvä ja valitse sisään- ja uloskirjautumispäiväsi.',
   'bookingCheckout.guestHeading': 'Päävieras',
+  'bookingCheckout.heading': 'Vahvista ja varaa',
   'bookingCheckout.loadError': 'Ominaisuuden lataaminen epäonnistui.',
   'bookingCheckout.nights': '{{rate}} × {{count}} yöt',
   'bookingCheckout.notFound': 'Kiinteistöä ei löytynyt.',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Verot ja maksut',
   'bookingCheckout.tripHeading': 'Matkasi',
   'bookingConfirmation.allTripsCta': 'Kaikki matkat',
+  'bookingConfirmation.confNumber': 'Vahvistusnumero: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Varaustasi käsitellään.',
   'bookingConfirmation.heading': 'Varaus vahvistettu',
   'bookingConfirmation.loading': 'Varaustasi ladataan…',
   'bookingConfirmation.searchMoreCta': 'Selaa lisää majoituspaikkoja',
   'bookingConfirmation.subheadingForTrip':
-    '{{kiinteistö}} sisään {{kaupunki}} , {{maa}} Nähdään {{checkIn}} .',
+    '{{property}} kohteessa {{city}}, {{country}}. Nähdään {{checkIn}}.',
   'bookingConfirmation.total': 'Kokonais {{total}}',
   'bookingConfirmation.viewTripCta': 'Näytä matka',
   'common.goToDashboard': 'Siirry etusivulle',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Suosikkien lataaminen epäonnistui.',
   'favorites.pricePerNight': '{{price}} / yö',
   'favorites.removeCta': 'Peruuta tallennus',
+  'favorites.removing': 'Poistetaan…',
   'forgotPassword.subheading':
     'Syötä tilisi sähköpostiosoite, niin lähetämme sinulle suojatun nollauslinkin.',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Oleskelujäsenet',
   'landing.cta.heading': 'Jäsenhinnat. Jokainen varaus, joka kerta.',
   'landing.cta.signup': 'Luo ilmainen tili',
+  'landing.cta.subheading':
+    'Kerrytä kanta-asiakaspisteitä joka majoittumiselta, avaa myöhäiset uloskirjautumiset ja huoneluokan korotukset sekä saa ensimmäisenä pääsy uusiin kohteisiin ennen niiden julkista listausta.',
   'landing.destinations.eyebrow': 'Minne seuraavaksi',
   'landing.destinations.heading': 'Suositellut kohteet',
   'landing.destinations.seeAll': 'Katso kaikki kohteet',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Tarinoita, joiden takia kannattaa pakata',
   'landing.nav.join': 'Liity Aubergeiin',
   'landing.nav.search': 'Hae majoitusta',
+  'landing.preview.browseAll': 'Selaa koko kokoelmaa',
   'landing.preview.eyebrow': 'Kurkistus sisälle',
   'landing.preview.heading': 'Tässä kuussa valikoituja majoitusvaihtoehtoja',
+  'landing.preview.subheading':
+    'Jokainen {{appName}}-palvelun kohde on toimituskuntamme henkilökohtaisesti tarkistama — ei koontipalvelun valikoimaa, ei harhaanjohtavia ilmoituksia.',
   'login.eyebrow': 'Jäsenalue',
+  'login.noAccount': 'Uusi Tesseraan?',
   'login.signupLink': 'Luo ilmainen tili',
   'login.subheading':
     'Kirjaudu sisään hallitaksesi matkojasi, tarkastellaksesi vahvistuksia ja jatkaaksesi siitä, mihin jäit.',
+  'loyaltyTierBadge.points': '{{points}} pistettä',
   'planUpdated.heading': 'Tilaus päivitetty',
+  'planUpdated.retry': 'Yritä uudelleen',
+  'planUpdated.verifyFailed': 'Emme voineet vielä vahvistaa maksuasi.',
+  'planUpdated.verifyFailedBody':
+    'Maksusi käsittely saattaa olla vielä kesken. Yritä uudelleen hetken kuluttua.',
   'planUpdated.verifying': 'Vahvistetaan maksuasi…',
   'pricing.limit.advancedFeatures': 'Edistyneet ominaisuudet:',
   'pricing.limit.canExport': 'Tietojen vienti:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Mitä tämä paikka tarjoaa',
   'propertyDetail.backLink': 'Takaisin hakuun',
   'propertyDetail.bookCta': 'Varata',
+  'propertyDetail.bookmarkAria': 'Tallenna ominaisuus',
   'propertyDetail.bookmarkAriaSaved': 'Poista tallennetuista ominaisuuksista',
+  'propertyDetail.galleryImageAlt': '{{name}} kuva {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} sankarivalokuva',
   'propertyDetail.hidePhotos': 'Piilota kuvat',
   'propertyDetail.lineCleaning': 'Siivousmaksu',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'yö',
   'propertyDetail.noChargeYet': 'Sinulta ei vielä veloiteta',
   'propertyDetail.notFound': 'Kiinteistöä ei löytynyt.',
+  'propertyDetail.perNight': '/ yö',
+  'propertyDetail.pickDatesHint': 'Valitse päivämäärät nähdäksesi täydellisen hintaerittelyn.',
   'propertyDetail.reviewCount': '( {{count}} arvostelut)',
   'propertyDetail.reviewsHeading': 'Tuoreimmat arvostelut',
   'propertyDetail.roomCapacity': 'Nukkuu {{count}}',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Uusi salasana',
   'resetPassword.subheading':
     'Valitse uusi salasana Auberge-tilillesi. Käytä vähintään 8 merkkiä; suosittelemme salasanaa.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Ei hakuasi vastaavia kohteita.',
   'searchResults.emptyHint':
     'Kokeile laajentaa suodattimiasi tai poistaa hintakatto — Aubergeilla on yöpymisiä 14 maassa.',
@@ -108,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Kuratoituja yöpymisiä',
   'searchResults.headingForQuery': 'Pysyy " {{q}} "',
   'searchResults.loadError': 'Ominaisuuksien lataaminen epäonnistui.',
+  'searchResults.mapHint':
+    'Vie hiiri kortin päälle korostaaksesi sen kartalla. Live Mapbox -laatat tuotannossa.',
   'searchResults.mapPinAria': '{{name}} — {{price}} per yö',
   'searchResults.sortLabel': 'Järjestä',
   'searchResults.subheading': '{{count}} kiinteistöt · {{guests}} vieraat',
   'signup.eyebrow': 'Liity jäseneksi',
   'signup.subheading':
     'Liity Aubergeiin saadaksesi käyttöösi jäsenille tarkoitetut hinnat, myöhäisen uloskirjautumisen ja ensimmäisenä pääsyn uusiin kohteisiin.',
+  'sojournAuthShell.brand.eyebrow': 'Majoitu jossain poikkeuksellisessa',
+  'sojournAuthShell.brand.heading':
+    'Valikoitu kokoelma kohteita — kauniisti esiteltyinä, läpinäkyvin hinnoin.',
   'sojournHeroSearchCard.checkInAria': 'Sisäänkirjautumispäivä',
   'sojournHeroSearchCard.checkOutAria': 'Uloskirjautumispäivä',
+  'sojournHeroSearchCard.destAria': 'Määränpää',
+  'sojournHeroSearchCard.destLabel': 'Missä',
   'sojournHeroSearchCard.destPlaceholder': 'Kaupunki, alue tai kiinteistö',
   'sojournHeroSearchCard.eyebrow': 'Kuratoituja majoitusvaihtoehtoja · Jäsenhinnat',
   'sojournHeroSearchCard.guestsOption': '{{n}} vieraat',
   'sojournHeroSearchCard.subtitle':
     'Kuratoitu kokoelma boutique-hotelleja, design-edistyksellisiä majoituspaikkoja ja harvinaisia lomakohteita – läpinäkyvästi hinnoiteltuja, kauniisti esiteltyjä.',
+  'sojournHeroSearchCard.title': 'Majoitu jossain poikkeuksellisessa',
+  'sojournHeroSearchCard.trustLoyalty': 'Kerrytä pisteitä joka majoittumiselta',
   'sojournHeroSearchCard.trustNoFees': 'Ei piilokuluja, koskaan',
   'sojournHeroSearchCard.trustVetted': 'Vain käsin tarkastetut kiinteistöt',
   'sojournLayout.primaryNavLabel': 'Päänavigaatio',

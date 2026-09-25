@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     "Dendrite és una plataforma d'automatització de fluxos de treball que connecta activadors, condicions d'IA i accions de diversos passos perquè els equips puguin moure el treball entre sistemes sense escriure codi enganxós.",
+  'about.philosophy':
+    'Cada flux de treball és un graf de passos petits i observables. Cada pas enregistra les seves entrades, sortides i temps perquè es pugui inspeccionar, reproduir o revertir. Composeu-los visualment, versioneu-los com el codi.',
   'about.title': 'Sobre la dendrita',
   'authShell.brand': 'dendrita',
   'authShell.support': 'Suport',
@@ -15,9 +17,15 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Canviar de pla',
   'billing.description':
     "Fes un seguiment de l'ús, gestiona el teu pla i extreu factures per a la comptabilitat.",
+  'billing.eyebrow': 'Compte · Pla i ús',
+  'billing.failedLabel': 'Execucions fallides · 24 h',
+  'billing.invoicesEmpty':
+    'Encara no hi ha factures. Apareixeran aquí després de la primera renovació de pagament.',
   'billing.invoicesTitle': 'Historial de factures',
   'billing.planNoteFree':
     'Nivell gratuït — {{runs}} corre i {{workflows}} fluxos de treball actius. Actualitza per a límits més alts.',
+  'billing.planNotePaid':
+    'Pla de pagament — {{runs}} execucions i {{workflows}} fluxos de treball actius.',
   'billing.runsLabel': "S'executa en les últimes 24 hores",
   'billing.tiersBlurb':
     'Compara tots els nivells (execucions, fluxos de treball actius, funcions avançades i assistència) a la pàgina de preus dedicada.',
@@ -35,10 +43,14 @@ export const ui: UiTranslations = {
     'No hi ha cap integració registrada. Configureu les claus del proveïdor per habilitar els enllaços.',
   'connections.error': "No s'han pogut carregar les connexions.",
   'connections.eyebrow': 'Integracions · {{connected}} connectat',
+  'connections.loading': "S'estan carregant les integracions…",
+  'connections.openEnv':
+    'Per connectar aquest proveïdor, defineix la seva clau API a api/.env i reinicia el servidor.',
   'dashboard.description':
     '{{active}} fluxos de treball actius. {{failed}} ha fallat en les últimes 24 hores.',
   'dashboard.error': "No s'ha pogut carregar el tauler de control.",
   'dashboard.eyebrow': 'Operacions · en directe',
+  'dashboard.hero.label': "Execucions d'avui",
   'dashboard.hero.medianLatency': 'latència de p50',
   'dashboard.hero.queue': 'Profunditat de la cua',
   'dashboard.hero.success': 'Èxit',
@@ -46,14 +58,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Durada mitjana',
   'dashboard.kpi.failedRuns': 'Fallat · 24 h',
   'dashboard.kpi.outOf': 'de {{total}} total',
+  'dashboard.kpi.successRate': "Taxa d'èxit · 24 h",
   'dashboard.loading': "S'està carregant el tauler de control…",
   'dashboard.recentRuns.empty':
     "Encara no hi ha cap execució. Si activeu un flux de treball, aquest feed s'omplirà.",
   'dashboard.recentRuns.title': 'Curses recents',
   'dashboard.recentRuns.viewAll': 'Execucions obertes →',
+  'dashboard.recentWorkflows.browse': 'Navega per les plantilles →',
   'dashboard.recentWorkflows.empty':
     'Encara no hi ha fluxos de treball. Instal·leu una plantilla o creeu-ne una des de zero.',
   'dashboard.recentWorkflows.title': 'Executat recentment',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'Iniciat',
   'dashboard.run.col.trigger': 'Disparador',
   'dashboard.run.col.workflow': 'Flux de treball',
@@ -89,6 +104,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Flux de treball',
   'executions.description':
     'Cada execució del flux de treball, cada reintent, cada pas de sortida, tot observable.',
+  'executions.empty.filter': 'Cap execució coincideix amb aquest filtre.',
   'executions.empty.first':
     "Encara no s'ha executat res: activa un flux de treball per omplir aquesta llista.",
   'executions.error': "No s'han pogut carregar les execucions.",
@@ -99,30 +115,43 @@ export const ui: UiTranslations = {
   'executions.loading': "S'està carregant l'historial d'execucions…",
   'executions.title': 'Execucions',
   'forgotPassword.confirmation': 'Enllaç de restabliment enviat a {{email}} .',
+  'forgotPassword.subhead':
+    'Introdueix el teu correu electrònic per rebre un enllaç de restabliment.',
   'forgotPassword.successSubhead':
     'Hem enviat un enllaç de restabliment a {{email}} Caduca en 30 minuts.',
   'help.connections.body':
     "Els passos d'IA, correu electrònic i emmagatzematge requereixen que les claus del proveïdor estiguin definides al fitxer api/.env. Un cop configurada una clau, la integració corresponent apareix com a connectada a la pàgina Connexions.",
+  'help.connections.cta': 'Obre les connexions →',
   'help.connections.title': 'Connectant proveïdors',
   'help.gettingStarted.body':
     "Els nous fluxos de treball es poden instal·lar des de la biblioteca de plantilles o crear-los des de zero al creador de fluxos de treball. Cada flux de treball té un activador (manual, webhook o cron) i una seqüència de passos que s'executen en ordre.",
+  'help.gettingStarted.cta': 'Explora la biblioteca de plantilles →',
+  'help.gettingStarted.title': 'Primers passos',
   'help.intro':
     "Trobeu respostes a preguntes freqüents sobre la creació de fluxos de treball, la configuració de connexions i la interpretació de la sortida de l'execució. Els temes més comuns s'enumeren a continuació; per a qualsevol cosa que no s'hagi tractat, poseu-vos en contacte amb l'administrador del vostre espai de treball.",
   'help.runs.body':
     "Cada execució registra cada pas de manera independent amb l'estat (èxit, error, omès) i un fragment de sortida. La pàgina de detalls de l'execució mostra el seguiment complet pas a pas, a més de les mètriques inferides.",
+  'help.runs.cta': 'Execucions obertes →',
   'help.runs.title': "Lectura de la sortida de l'execució",
   'help.title': "Centre d'ajuda",
   'integrationCard.manage': 'Gestiona',
   'landing.brand': 'dendrita',
   'landing.demo.action.subtitle': 'Round-robin · territori',
+  'landing.demo.action.title': 'Notifica el representant',
   'landing.demo.condition.subtitle': "Classificador d'intencions d'IA",
+  'landing.demo.condition.title': 'Puntuació ≥ mitjana?',
   'landing.demo.trigger.subtitle': 'POST /formularis/contacte',
   'landing.demo.trigger.title': 'Webhook entrant',
+  'landing.features.body':
+    "Els desencadenants s'activen. Les condicions ramifiquen. Les accions envien la feina. Composeu-los visualment, versioneu-los com el codi.",
   'landing.features.heading': 'Tres tipus de nodes. Formes infinites.',
   'landing.footer.help': 'Ajuda',
   'landing.footer.tagline': 'Intel·ligència en moviment',
+  'landing.hero.body':
+    "{{appName}} és el motor de fluxos de treball per a equips d'operacions que han superat Zapier. Desencadenant, condició, acció — connectats a tots els sistemes que realment utilitzeu.",
   'landing.hero.eyebrow': 'Intel·ligència en moviment',
   'landing.hero.headline': 'Connecta la pila de cables. Deixa que la feina es faci realitat.',
+  'landing.hero.primaryCta': 'Crea el teu primer flux de treball',
   'landing.hero.proof.ai': "Nodes d'IA integrats",
   'landing.hero.proof.free': 'Gratuït per a 1.000 carreres/mes',
   'landing.hero.proof.soc2': 'SOC 2 Tipus II',
@@ -130,10 +159,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Paga per les curses, no per les entrades.',
   'landing.templates.body':
     'Fluxs de treball preconfigurats per a cada equip: vendes, assistència, desenvolupament i finances. Instal·leu-los amb un sol clic; modifiqueu qualsevol cosa.',
+  'landing.templates.cta': "Registra't per explorar plantilles →",
   'landing.templates.eyebrow': 'Comença en segons',
   'landing.templates.heading': 'Una biblioteca de receptes verificades.',
   'landing.templates.signupHint': "Registra't per instal·lar",
   'login.hidePassword': 'Amaga la contrasenya',
+  'login.noAccount': 'Ets nou a Tessera?',
   'login.showPassword': 'Mostra la contrasenya',
   'login.subhead': 'Inicia la sessió per mantenir les automatitzacions en funcionament.',
   'mobileNav.drawerLabel': 'Navegació principal',
@@ -149,8 +180,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Executeu un flux de treball per començar a omplir aquest feed.',
   'notifications.empty.title': 'Esteu tots atrapats',
   'notifications.eyebrow': '{{n}} sense llegir',
+  'planUpdated.body':
+    'El canvi de facturació ja és actiu. Pots gestionar el teu pla en qualsevol moment des de la pàgina de facturació.',
+  'planUpdated.retry': 'Torna-ho a intentar',
+  'planUpdated.verifyFailed': 'Encara no hem pogut confirmar el vostre pagament.',
+  'planUpdated.verifyFailedBody':
+    "És possible que el vostre pagament encara s'estigui processant. Torneu-ho a provar en un moment.",
   'planUpdated.verifying': 'Confirmant el teu pagament…',
   'pricing.heading': 'curses',
+  'pricing.runsSuffix': 'execucions',
   'pricing.workflowsSuffix': 'fluxos de treball',
   'privacy.collect.body':
     "Recopilem l'adreça electrònica amb què us registreu, els fluxos de treball que configureu i les metadades de cada execució (hora d'inici, hora de finalització, estat). Mai recopilem ni emmagatzemem contingut de la càrrega útil dels activadors o els resultats dels passos més enllà del que és necessari per mostrar-lo al visor d'execucions per al propietari de l'espai de treball.",
@@ -166,12 +204,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': "No s'ha pogut actualitzar la contrasenya.",
   'resetPassword.newPassword': 'Nova contrasenya',
   'resetPassword.subhead': 'Tria alguna cosa que només tu puguis endevinar.',
+  'settings.appearance.description': 'Alterna entre el mode clar i el mode fosc.',
+  'settings.appearance.title': 'Aspecte',
   'settings.billingShortcut.cta': 'Facturació oberta',
   'settings.billingShortcut.description':
     "El pla, l'ús i les factures es mostren a la pàgina de facturació dedicada.",
   'settings.danger.confirm':
     'Segur? Això posarà en cua el teu espai de treball per a la seva supressió.',
   'settings.danger.confirmYes': 'Sí, eliminació de la cua',
+  'settings.danger.deleteWorkspace.cta': "Suprimeix l'espai de treball",
   'settings.danger.deleteWorkspace.hint':
     "Elimina tots els fluxos de treball, les execucions i les connexions després d'un període de gràcia de 14 dies.",
   'settings.danger.deleteWorkspace.title': "Suprimeix l'espai de treball",
@@ -183,10 +224,15 @@ export const ui: UiTranslations = {
     "Gestiona el teu compte, l'espai de treball, les integracions i la facturació en un sol lloc.",
   'settings.notifications.description':
     "Trieu la pàgina d'esdeveniments, us enviarem un correu electrònic o no ens enviarem res.",
+  'settings.notifications.failures.hint':
+    "Notificació per correu electrònic i a l'aplicació a cada execució fallida.",
+  'settings.notifications.failures.title': 'Fallades del flux de treball',
   'settings.notifications.product.hint':
     'Correus electrònics ocasionals sobre noves plantilles i funcions.',
+  'settings.notifications.product.title': 'Actualitzacions del producte',
   'settings.notifications.weekly.hint':
     'Resum de dilluns al matí de les curses i els estalvis de la setmana passada.',
+  'settings.notifications.weekly.title': 'Resum setmanal',
   'settings.profile.description':
     "Com apareixeu dins de l'executor de flux de treball. S'utilitza en l'activitat de l'espai de treball.",
   'settings.profile.noEmail': 'No hi ha cap correu electrònic registrat',
@@ -194,12 +240,25 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': "No s'han pogut desar els canvis de perfil.",
   'settings.profile.unnamedUser': 'Usuari sense nom',
   'settings.security.audit.hint': 'Transmet cada acció al teu SIEM mitjançant un webhook.',
+  'settings.security.audit.title': "Reenviament del registre d'auditoria",
   'settings.security.description': 'Autenticació de dos factors, SSO i sessions actives.',
   'settings.security.sso.hint': 'Disponible en els plans Scale i Enterprise.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint':
+    "Obligatori per a qualsevol acció del propietari de l'espai de treball.",
+  'settings.security.totp.title': 'Autenticació de dos factors (TOTP)',
   'settings.twoFactorCode': "Codi d'autenticació",
   'settings.twoFactorDisable': 'Desactiva',
+  'settings.twoFactorDisableTitle': "Desactiva l'autenticació de dos factors",
   'settings.twoFactorEnable': 'Activa',
+  'settings.twoFactorEnableTitle': "Activa l'autenticació de dos factors",
   'settings.twoFactorInvalidCode': 'Codi no vàlid',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Codi QR de dos factors',
+  'settings.twoFactorScan':
+    "Escaneja aquest codi QR amb la teva aplicació d'autenticació i després introdueix el codi de 6 dígits.",
+  'settings.twoFactorUnavailable':
+    "L'autenticació de dos factors no està disponible per a aquesta aplicació.",
   'settings.twoFactorVerify': 'Verifica i activa',
   'settings.workspace.description':
     "Identitat compartida, regió i valors predeterminats d'execució per al vostre equip.",
@@ -228,6 +287,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Plantilla',
   'templates.description':
     'Plànols prefabricats per a les automatitzacions més comunes. Crear una bifurcació, personalitzar, enviar.',
+  'templates.empty.filter': 'Cap plantilla coincideix amb la teva cerca.',
   'templates.empty.first': 'No hi ha plantilles disponibles ara mateix.',
   'templates.error': "No s'han pogut carregar les plantilles.",
   'templates.installs': 'instal·lacions',
@@ -253,6 +313,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Desactiva',
   'workflowBuilder.enable': 'Activa',
   'workflowBuilder.error': "No s'ha pogut carregar el flux de treball.",
+  'workflowBuilder.inspector.config': 'Configuració',
+  'workflowBuilder.inspector.cron': 'Expressió cron',
+  'workflowBuilder.inspector.disabled': "Desactivat — no s'executarà automàticament.",
   'workflowBuilder.inspector.enabled': "Activat: s'executa en activar-se.",
   'workflowBuilder.inspector.eyebrow': 'Inspector',
   'workflowBuilder.inspector.id': 'Identificador',
@@ -271,18 +334,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': "L'activació ha fallat.",
   'workflowBuilder.workflow': 'Flux de treball · v {{v}}',
   'workflowBuilder.zoom.in': 'Amplia la imatge',
+  'workflowBuilder.zoom.label': 'Controls de zoom del llenç',
+  'workflowBuilder.zoom.out': 'Allunya',
   'workflowCard.lastRun': 'Última cursa {{when}}',
   'workflowCard.runs': '{{count}} curses',
+  'workflowCard.success': "{{rate}}% d'èxit",
   'workflowHeroCard.last24h': 'Últimes 24 hores',
+  'workflows.browseTemplates': 'Navega per les plantilles →',
   'workflows.description':
     "Tota l'automatització del vostre espai de treball, amb l'estat i l'activitat recent d'un cop d'ull.",
+  'workflows.empty.body': "Prova d'esborrar el filtre o comença amb una plantilla.",
   'workflows.empty.firstBody': 'Instal·la una plantilla per començar en segons.',
   'workflows.empty.firstTitle': 'Encara no hi ha fluxos de treball',
   'workflows.empty.title': 'No hi ha cap flux de treball que coincideixi',
   'workflows.error': "No s'han pogut carregar els fluxos de treball.",
   'workflows.eyebrow': 'Biblioteca · {{count}} total',
+  'workflows.loading': "S'estan carregant els fluxos de treball…",
   'workflows.newFromTemplate': 'Nou des de la plantilla',
   'workflows.searchPlaceholder': 'Fluxs de treball de cerca…',
+  'workflows.title': 'Fluxos de treball',
   'workflowSidebar.brand': 'dendrita',
   'workflowSidebar.status': 'Tots els sistemes en funcionament',
   'workflowSidebar.tagline': 'Intel·ligència en moviment',

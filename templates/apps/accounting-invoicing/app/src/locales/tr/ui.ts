@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Bir sorunuz mu var, bir hata mı buldunuz veya defterlerinizi taşımak mı istiyorsunuz? {{app}} ekibine hello@{{app}}.example adresinden ulaşın — her mesajı gerçek bir kişi okur.',
   'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkında',
+  'about.intro':
+    '{{app}}, her kuruşun hesabını tutan küçük işletme muhasebesidir — faturalar, giderler, ödemeler ve raporlar; işletme sahipleri, muhasebeciler ve mali müşavirler için tek ve huzurlu bir yerde.',
+  'about.missionBody':
+    'İşletme yönetmek, defterlerinizden korkmak anlamına gelmemeli. {{app}}, dağınık elektronik tabloların yerine harekete geçebileceğiniz net rakamlar koyar; böylece mutabakata daha az, işletmeyi kurma amacınıza daha çok zaman ayırırsınız.',
+  'about.missionTitle': 'Misyonumuz',
   'about.title': '{{app}} hakkında',
   'accounts.count': '{{count}} hesaplar',
+  'accounts.emptyBody':
+    'Defter hesapları paranın nerede durduğunu ve nasıl hareket ettiğini izler. Muhasebeciniz veya entegrasyon bunları ayarladığında burada görünürler.',
   'accounts.emptyTitle': 'Henüz hesap yok.',
   'accounts.heading': 'Hesap planı',
   'accounts.kpi.accounts': 'Hesaplar',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Faturalarınızın, giderlerinizin ve ödemelerinizin temelini oluşturan tüm muhasebe hesapları, türlerine göre gruplandırılmıştır.',
   'accounts.tag.inactive': 'etkin değil',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Finans Direktörü, Horizon Tech',
   'authBrandPanel.eyebrow': 'Finans ekipleri tarafından güvenilir',
   'authBrandPanel.label': 'Marka vitrini',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Tüm müşteriler',
   'customerDetail.invoiceMeta': 'Yayın tarihi{{issued}} · Son tarih{{due}}',
   'customerDetail.loadError': 'Müşteri yüklenemedi.',
+  'customerDetail.missingBody':
+    'İstenen müşteri kaydı yüklenemedi. Kaldırılmış olabilir veya erişiminiz olmayabilir.',
   'customerDetail.missingHeading': 'Müşteri kaydı kullanılamıyor',
+  'customerDetail.missingHelp':
+    'Müşteri listesine dönmek için yukarıdaki geri bağlantısını kullanın veya oradan farklı bir kayıt seçin.',
+  'customerDetail.noInvoices': 'Henüz fatura yok.',
   'customerDetail.notesEmpty': 'Henüz not yok.',
   'customerDetail.paymentsEmpty': 'Ödeme kaydedilmemiş.',
   'customerDetail.paymentTerms': 'Ödeme koşulları',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'İndirilebilir',
   'expenseDetail.detailsHeading': 'İşlem ayrıntıları',
   'expenseDetail.loadError': 'Gider yüklenemedi.',
+  'expenseDetail.matched': 'Eşleşti · {{description}}',
   'expenseDetail.missingBody':
     'İstenen gider yüklenemedi. Kaldırılmış olabilir veya erişiminiz olmayabilir.',
   'expenseDetail.missingHeading': 'Gider kaydı kullanılamıyor',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Makbuz',
   'expenseDetail.receiptHeading': 'Makbuz',
   'expenseDetail.reconciled': 'Mutabık',
+  'expenseDetail.unreconciled': 'Mutabık değil',
   'expenses.empty': 'Henüz gider yok.',
   'expenses.heading': 'Giderler',
   'expenses.kpi.deductible': 'İndirilebilir',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Faturalar yüklenemedi.',
   'invoices.searchPlaceholder': 'Fatura no veya müşteri ara…',
   'invoices.summary.paid': 'Bu dönem ödenen',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     '30 gün ücretsiz. Kart yok. Muhasebecinizi de getirin — size teşekkür edecek.',
   'landing.ctaTitle': 'Defterlerinizi daha sakin bir yere taşıyın.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Alacaklar',
   'ledgerStatTriad.eyebrow.mtd': 'Ay başından bugüne',
   'ledgerStatTriad.netSub': 'Net {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} gecikmiş',
   'ledgerStatTriad.revenueLabel': 'Gelir',
   'login.failed': 'Giriş başarısız.',
   'login.hidePassword': 'Parolayı gizle',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Giriş yap',
   'nav.legal': 'Hukuki',
   'newExpense.back': 'Giderler',
+  'newExpense.clearReceiptCta': 'Ekli fişi temizle',
   'newExpense.deductible': 'Vergiden düşülebilir',
   'newExpense.dropPrompt': 'Eklemek için bir makbuz fotoğrafı veya PDF buraya bırakın.',
   'newExpense.failed': 'Gider kaydedilemedi.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Ödemeler yüklenemedi.',
   'payments.unmatchedTag': 'eşsiz',
   'planUpdated.pageLabel': 'Planın güncellendiğine dair onay.',
+  'pricing.advancedFeatures': 'Gelişmiş özellikler: {{yes}}',
+  'pricing.canExport': 'Veri dışa aktarma: {{yes}}',
+  'pricing.heading': '{{app}} planınızı seçin',
+  'pricing.maxAccounts': '{{count}} hesaplar',
+  'pricing.maxExpenses': '{{count}} gider',
+  'pricing.maxInvoices': '{{count}} fatura',
+  'privacy.intro':
+    'Bu Gizlilik Politikası, {{app}} hizmetini kullanan işletmeler hakkındaki bilgileri nasıl topladığını, kullandığını ve açıkladığını açıklar.',
   'privacy.lastUpdated': 'Son güncelleme: {{date}}',
   'privacy.section.collected.body':
     'Hesap ayrıntılarını (ad, e-posta, şirket), yüklediğiniz finansal kayıtları (faturalar, giderler, müşteriler, ödemeler) ve standart hizmet işletim günlüklerini (IP, kullanıcı aracısı, zaman damgaları) topluyoruz.',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     "Bilgiler hizmeti işletmek, istediğiniz raporları ve PDF'leri oluşturmak, Mailgun aracılığıyla işlem e-postaları göndermek ve Stripe aracılığıyla ödemeleri işlemek için kullanılır. Kişisel bilgileri satmaz veya kiralamayız.",
   'recentInvoicesCard.dueMeta': 'Vade {{date}}',
+  'recentInvoicesCard.empty': 'Eşleşen fatura yok.',
   'recentInvoicesCard.eyebrow': 'Alacaklar',
   'recentInvoicesCard.searchAriaLabel': 'Faturalarda ara',
+  'recentInvoicesCard.searchPlaceholder': 'Fatura ara…',
   'recentInvoicesCard.title': 'Son faturalar',
   'recentInvoicesCard.viewAll': 'Tüm faturaları görüntüle →',
   'reports.assets': 'Varlıklar',
@@ -181,15 +211,20 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Kâr ve zarar (12 ay)',
   'resetPassword.backToLogin': '← Girişe dön',
   'resetPassword.hidePassword': 'Parolayı gizle',
+  'resetPassword.passwordLabel': 'Yeni şifre',
   'resetPassword.showPassword': 'Parolayı göster',
+  'resetPassword.subheading': 'Güçlü bir parola seçin — en az sekiz karakter.',
   'resetPassword.submit': 'Parolayı sıfırla',
   'resetPassword.tooShort': 'Parola en az 8 karakter olmalıdır.',
   'settings.account.changePassword': 'Parolayı değiştir',
   'settings.account.changingPassword': 'Değiştiriliyor…',
   'settings.account.currentPassword': 'Mevcut parola',
+  'settings.account.dangerZone': 'Tehlikeli bölge',
   'settings.account.deleteAccount': 'Hesabı sil',
   'settings.account.deleteDescription': 'Hesabınızı ve ilgili tüm verileri kalıcı olarak silin.',
   'settings.account.deleteError': 'Hesap silinemedi.',
+  'settings.account.deleteWarning':
+    'Bu, hesabınızı kalıcı olarak siler ve geri alınamaz. Onaylamak için parolanızı girin.',
   'settings.account.deleting': 'Siliniyor…',
   'settings.account.devices': 'Cihazlar',
   'settings.account.email': 'E-posta',
@@ -200,6 +235,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Parola',
   'settings.account.passwordError': 'Şifre değiştirilemedi.',
   'settings.account.pushNotifications': 'Bu cihazda anlık bildirimler',
+  'settings.account.revokeDeviceWarning':
+    'Bu cihazın erişimi kısa süre içinde iptal edilecek. Oturumu kapat?',
   'settings.account.saveError': 'Profil güncellenemedi.',
   'settings.account.security': 'Güvenlik',
   'settings.account.signOutDevice': 'Oturumu kapat',
@@ -207,12 +244,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'İki faktörlü kimlik doğrulama',
   'settings.account.twoFactorCode': 'Doğrulama kodu',
   'settings.account.twoFactorDisable': 'Devre dışı bırak',
+  'settings.account.twoFactorDisableTitle': 'İki faktörlü kimlik doğrulamayı devre dışı bırak',
   'settings.account.twoFactorEnable': 'Etkinleştir',
+  'settings.account.twoFactorEnableTitle': 'İki faktörlü kimlik doğrulamayı etkinleştir',
   'settings.account.twoFactorInvalidCode': 'Geçersiz kod',
   'settings.account.twoFactorOn': 'Tarih',
+  'settings.account.twoFactorQrAlt': 'İki faktörlü QR kodu',
+  'settings.account.twoFactorScan':
+    'Bu QR kodunu kimlik doğrulayıcı uygulamanızla tarayın, ardından 6 haneli kodu girin.',
+  'settings.account.twoFactorUnavailable':
+    'Bu uygulama için iki faktörlü kimlik doğrulama özelliği mevcut değil.',
   'settings.account.twoFactorVerify': 'Doğrula ve etkinleştir',
   'settings.account.unknownDevice': 'Bilinmeyen cihaz',
   'settings.company.email': 'Faturalama e-postası',
+  'settings.company.heading': 'Şirket ve vergi',
   'settings.company.name': 'Yasal ad',
   'settings.company.saveButton': 'Şirket profilini kaydet',
   'settings.company.taxId': 'Vergi No / EIN',
@@ -256,6 +301,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Tah. çeyrek',
   'taxes.kpi.owed': 'Borçlu',
   'taxes.loadError': 'Vergi özeti yüklenemedi.',
+  'taxes.remittedPct': '({{pct}}% ödendi)',
+  'terms.intro':
+    'Bu Hizmet Şartları ("Şartlar"), {{app}} hizmetine erişiminizi ve hizmeti kullanımınızı düzenler. Bir hesap oluşturarak veya hizmeti kullanarak bu şartlarla bağlı olmayı kabul edersiniz.',
   'terms.lastUpdated': 'Son güncelleme: {{date}}',
   'terms.section.acceptable.body':
     'Hizmeti herhangi bir yasayı ihlal etmek, fikri mülkiyet haklarını ihlal etmek, kötü amaçlı yazılım iletmek veya diğer hesaplara veya altyapımıza yetkisiz erişim sağlamaya çalışmak için kullanmamayı kabul edersiniz.',

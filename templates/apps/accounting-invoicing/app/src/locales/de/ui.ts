@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Haben Sie eine Frage, einen Fehler gefunden oder möchten Sie Ihre Bücher übertragen? Erreichen Sie das {{app}}-Team unter hello@{{app}}.example — eine echte Person liest jede Nachricht.',
   'about.contactTitle': 'Sprechen Sie uns an',
   'about.eyebrow': 'Über',
+  'about.intro':
+    '{{app}} ist Buchhaltung für kleine Unternehmen, die jeden Cent nachvollziehbar macht — Rechnungen, Ausgaben, Zahlungen und Berichte an einem ruhigen Ort für Inhaber, Buchhalter und Steuerberater.',
+  'about.missionBody':
+    'Ein Unternehmen zu führen sollte nicht bedeuten, sich vor seinen Büchern zu fürchten. {{app}} ersetzt die ausufernden Tabellen durch klare Zahlen, auf die Sie reagieren können, sodass Sie weniger Zeit mit dem Abstimmen und mehr Zeit mit der Arbeit verbringen, für die Sie das Unternehmen eigentlich gegründet haben.',
+  'about.missionTitle': 'Unsere Mission',
   'about.title': 'Über „{{app}}“',
   'accounts.count': '{{count}} Konten',
+  'accounts.emptyBody':
+    'Sachkonten erfassen, wo Geld liegt und wohin es fließt. Sie erscheinen hier, sobald Ihr Buchhalter oder eine Integration sie eingerichtet hat.',
   'accounts.emptyTitle': 'Noch keine Konten',
   'accounts.heading': 'Kontenplan',
   'accounts.kpi.accounts': 'Konten',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Alle Hauptbuchkonten, die Ihren Rechnungen, Ausgaben und Zahlungen zugrunde liegen, nach Art gruppiert.',
   'accounts.tag.inactive': 'inaktiv',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Finanzvorstand, Horizon Tech',
   'authBrandPanel.eyebrow': 'Vertraut von Finanzteams',
   'authBrandPanel.label': 'Markenschaufenster',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Alle Kunden',
   'customerDetail.invoiceMeta': 'Ausgestellt am {{issued}} · Fällig am {{due}}',
   'customerDetail.loadError': 'Kunde konnte nicht geladen werden.',
+  'customerDetail.missingBody':
+    'Der angeforderte Kundendatensatz konnte nicht geladen werden. Möglicherweise wurde er entfernt, oder Sie haben keinen Zugriff darauf.',
   'customerDetail.missingHeading': 'Kundendatensatz nicht verfügbar',
+  'customerDetail.missingHelp':
+    'Verwenden Sie den Zurück-Link oben, um zur Kundenliste zurückzukehren, oder wählen Sie dort einen anderen Datensatz aus.',
+  'customerDetail.noInvoices': 'Noch keine Rechnungen.',
   'customerDetail.notesEmpty': 'Noch keine Notizen.',
   'customerDetail.paymentsEmpty': 'Keine Zahlungen erfasst.',
   'customerDetail.paymentTerms': 'Zahlungsbedingungen',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Abzugsfähig',
   'expenseDetail.detailsHeading': 'Transaktionsdetails',
   'expenseDetail.loadError': 'Ausgabe konnte nicht geladen werden.',
+  'expenseDetail.matched': 'Zugeordnet · {{description}}',
   'expenseDetail.missingBody':
     'Die angeforderte Ausgabe konnte nicht geladen werden. Möglicherweise wurde sie entfernt oder Sie haben keinen Zugriff darauf.',
   'expenseDetail.missingHeading': 'Ausgabendatensatz nicht verfügbar',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Beleg',
   'expenseDetail.receiptHeading': 'Beleg',
   'expenseDetail.reconciled': 'Abgestimmt',
+  'expenseDetail.unreconciled': 'Nicht abgestimmt',
   'expenses.empty': 'Noch keine Ausgaben.',
   'expenses.heading': 'Ausgaben',
   'expenses.kpi.deductible': 'Abzugsfähig',
@@ -101,6 +118,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Rechnungen konnten nicht geladen werden.',
   'invoices.searchPlaceholder': 'Rechnungs-Nr. oder Kunde suchen…',
   'invoices.summary.paid': 'Bezahlt in diesem Zeitraum',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     '30 Tage kostenlos. Keine Karte. Bringen Sie Ihre/n Buchhalter/in mit — er/sie wird es Ihnen danken.',
   'landing.ctaTitle': 'Bringen Sie Ihre Buchhaltung an einen ruhigeren Ort.',
@@ -115,6 +133,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Forderungen',
   'ledgerStatTriad.eyebrow.mtd': 'Monat bis heute',
   'ledgerStatTriad.netSub': 'Netto {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} überfällig',
   'ledgerStatTriad.revenueLabel': 'Umsatz',
   'login.failed': 'Anmeldung fehlgeschlagen.',
   'login.hidePassword': 'Passwort ausblenden',
@@ -125,6 +144,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Anmelden',
   'nav.legal': 'Rechtliches',
   'newExpense.back': 'Ausgaben',
+  'newExpense.clearReceiptCta': 'Angehängten Beleg entfernen',
   'newExpense.deductible': 'Steuerlich absetzbar',
   'newExpense.dropPrompt': 'Ziehen Sie hier ein Belegfoto oder PDF zum Anhängen.',
   'newExpense.failed': 'Ausgabe konnte nicht gespeichert werden.',
@@ -153,6 +173,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Zahlungen konnten nicht geladen werden.',
   'payments.unmatchedTag': 'unübertroffen',
   'planUpdated.pageLabel': 'Plan aktualisiert Bestätigung',
+  'pricing.advancedFeatures': 'Erweiterte Funktionen: {{yes}}',
+  'pricing.canExport': 'Datenexport: {{yes}}',
+  'pricing.heading': 'Wählen Sie Ihren {{app}}-Tarif',
+  'pricing.maxAccounts': '{{count}} Konten',
+  'pricing.maxExpenses': '{{count}} Ausgaben',
+  'pricing.maxInvoices': '{{count}} Rechnungen',
+  'privacy.intro':
+    'Diese Datenschutzrichtlinie beschreibt, wie {{app}} Informationen über Unternehmen, die den Dienst nutzen, erhebt, verwendet und offenlegt.',
   'privacy.lastUpdated': 'Zuletzt aktualisiert: {{date}}',
   'privacy.section.collected.body':
     'Wir erheben Kontodaten (Name, E-Mail, Unternehmen), die finanziellen Aufzeichnungen, die Sie hochladen (Rechnungen, Ausgaben, Kunden, Zahlungen) und Standard-Betriebsprotokolle des Dienstes (IP, User-Agent, Zeitstempel).',
@@ -165,8 +193,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Informationen werden verwendet, um den Dienst zu betreiben, die von Ihnen angeforderten Berichte und PDFs zu erstellen, transaktionale E-Mails über Mailgun zu senden und Zahlungen über Stripe abzuwickeln. Wir verkaufen oder vermieten keine personenbezogenen Daten.',
   'recentInvoicesCard.dueMeta': 'Fällig am {{date}}',
+  'recentInvoicesCard.empty': 'Keine Rechnungen gefunden.',
   'recentInvoicesCard.eyebrow': 'Forderungen',
   'recentInvoicesCard.searchAriaLabel': 'Rechnungen suchen',
+  'recentInvoicesCard.searchPlaceholder': 'Rechnungen suchen…',
   'recentInvoicesCard.title': 'Aktuelle Rechnungen',
   'recentInvoicesCard.viewAll': 'Alle Rechnungen anzeigen →',
   'reports.assets': 'Aktiva',
@@ -182,16 +212,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Gewinn- und Verlustrechnung (12 Monate)',
   'resetPassword.backToLogin': '← Zurück zur Anmeldung',
   'resetPassword.hidePassword': 'Passwort ausblenden',
+  'resetPassword.passwordLabel': 'Neues Passwort',
   'resetPassword.showPassword': 'Passwort anzeigen',
+  'resetPassword.subheading': 'Wählen Sie ein starkes Passwort — mindestens acht Zeichen.',
   'resetPassword.submit': 'Passwort zurücksetzen',
   'resetPassword.tooShort': 'Das Passwort muss mindestens 8 Zeichen lang sein.',
   'settings.account.changePassword': 'Passwort ändern',
   'settings.account.changingPassword': 'Wird geändert…',
   'settings.account.currentPassword': 'Aktuelles Passwort',
+  'settings.account.dangerZone': 'Gefahrenzone',
   'settings.account.deleteAccount': 'Konto löschen',
   'settings.account.deleteDescription':
     'Löschen Sie Ihr Konto und alle damit verbundenen Daten endgültig.',
   'settings.account.deleteError': 'Konto konnte nicht gelöscht werden.',
+  'settings.account.deleteWarning':
+    'Dies löscht Ihr Konto dauerhaft und kann nicht rückgängig gemacht werden. Geben Sie Ihr Passwort zur Bestätigung ein.',
   'settings.account.deleting': 'Wird gelöscht…',
   'settings.account.devices': 'Geräte',
   'settings.account.email': 'E-Mail',
@@ -202,6 +237,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Passwort',
   'settings.account.passwordError': 'Passwort konnte nicht geändert werden.',
   'settings.account.pushNotifications': 'Push-Benachrichtigungen auf diesem Gerät',
+  'settings.account.revokeDeviceWarning':
+    'Der Zugriff dieses Geräts wird in Kürze widerrufen. Abmelden?',
   'settings.account.saveError': 'Profil konnte nicht aktualisiert werden.',
   'settings.account.security': 'Sicherheit',
   'settings.account.signOutDevice': 'Abmelden',
@@ -209,12 +246,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Zwei-Faktor-Authentifizierung',
   'settings.account.twoFactorCode': 'Authentifizierungscode',
   'settings.account.twoFactorDisable': 'Deaktivieren',
+  'settings.account.twoFactorDisableTitle': 'Zwei-Faktor-Authentifizierung deaktivieren',
   'settings.account.twoFactorEnable': 'Aktivieren',
+  'settings.account.twoFactorEnableTitle': 'Zwei-Faktor-Authentifizierung aktivieren',
   'settings.account.twoFactorInvalidCode': 'Ungültiger Code',
   'settings.account.twoFactorOn': 'Am',
+  'settings.account.twoFactorQrAlt': 'Zwei-Faktor-QR-Code',
+  'settings.account.twoFactorScan':
+    'Scannen Sie diesen QR-Code mit Ihrer Authentifizierungs-App und geben Sie dann den 6-stelligen Code ein.',
+  'settings.account.twoFactorUnavailable':
+    'Die Zwei-Faktor-Authentifizierung ist für diese App nicht verfügbar.',
   'settings.account.twoFactorVerify': 'Überprüfen & aktivieren',
   'settings.account.unknownDevice': 'Unbekanntes Gerät',
   'settings.company.email': 'Rechnungs-E-Mail',
+  'settings.company.heading': 'Unternehmen & Steuern',
   'settings.company.name': 'Firmierung',
   'settings.company.saveButton': 'Unternehmensprofil speichern',
   'settings.company.taxId': 'Steuer-ID / USt-IdNr.',
@@ -258,6 +303,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Geschätzt pro Quartal',
   'taxes.kpi.owed': 'Geschuldet',
   'taxes.loadError': 'Steuerübersicht konnte nicht geladen werden.',
+  'taxes.remittedPct': '({{pct}} % abgeführt)',
+  'terms.intro':
+    'Diese Nutzungsbedingungen („Bedingungen“) regeln Ihren Zugang zu und Ihre Nutzung von {{app}}. Durch das Erstellen eines Kontos oder die Nutzung des Dienstes erklären Sie sich an diese gebunden.',
   'terms.lastUpdated': 'Zuletzt aktualisiert: {{date}}',
   'terms.section.acceptable.body':
     'Sie erklären sich damit einverstanden, den Dienst nicht zu verwenden, um gegen Gesetze zu verstoßen, Rechte am geistigen Eigentum zu verletzen, Schadsoftware zu übertragen oder unbefugten Zugriff auf andere Konten oder unsere Infrastruktur zu erlangen.',

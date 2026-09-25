@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.featureConnections':
+    'သင့်ဒေတာဘေ့စ်များကို လုံခြုံစွာ သိမ်းဆည်းပြီး အရောင်ခွဲခြားပေးသော ချိတ်ဆက်မှု မန်နေဂျာ — အထောက်အထားများကို သိမ်းဆည်းထားစဉ် ကုဒ်ဝှက်ထားပြီး ရိုးရိုးစာသားအဖြစ် ဘယ်တော့မှ မထားရှိပါ။',
+  'about.featureMonitoring':
+    'Query စွမ်းဆောင်ရည်နှင့် ဒေတာဘေ့စ် လုပ်ဆောင်ချက်များကို တိုက်ရိုက် စောင့်ကြည့်နိုင်ပြီး ကီးဘုတ် ဖြတ်လမ်းများနှင့် command palette ဖြင့် အားလုံးကို လက်မလိုဘဲ ထိန်းချုပ်နိုင်ပါသည်။',
+  'about.featurePlans':
+    'သင့်နှင့်အတူ တိုးချဲ့နိုင်သော အစီအစဉ်များ — တစ်ဦးတည်း အလုပ်အတွက် Free၊ ချိတ်ဆက်မှု ပိုများ၊ query သိမ်းဆည်းချိန် ပိုရှည်၊ export များနှင့် အဆင့်မြင့် လုပ်ဆောင်ချက်များအတွက် Pro နှင့် Team။',
+  'about.featureQueryEditor':
+    'Query မှတ်တမ်း၊ သိမ်းဆည်းထားသော query များနှင့် ရလဒ်များကို တစ်ချက်နှိပ်ပြီး CSV export လုပ်နိုင်သော Monaco အခြေခံ SQL editor။',
+  'about.featureSchema':
+    'ဒေတာဘေ့စ်များ၊ ဇယားများနှင့် ကော်လံများကို လမ်းညွှန်ရန် schema explorer နှင့် table browser၊ ထို့နောက် အတန်းများကို တိုက်ရိုက် ကြည့်ရှု၊ စစ်ထုတ်၊ တည်းဖြတ်နိုင်ပါသည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'authShell.commands': 'အမိန့်များ',
   'authShell.ssoSupported': 'SSO ထောက်ပံ့ထားသည်',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'မေးမြန်းချက်များ',
   'connections.schema': 'စီမာ',
   'connections.subtitle': 'သင့်ရဲ့ဒေတာဘေ့စ်ချိတ်ဆက်မှုတွေကို စီမံခန့်ခွဲပါ။',
+  'connections.test': 'စမ်းသပ်ခြင်း',
   'databaseAdminLayout.adminRole': 'အက်ဒမင် အခန်းကဏ္ဍ',
   'databaseAdminLayout.commandPalette': 'ညွှန်ကြားချက် ပြား',
   'databaseAdminLayout.commands': 'အမိန့်များ',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'ချိတ်ဆက်မှုအသစ်',
   'databaseAdminLayout.queries': 'မေးမြန်းချက်များ',
   'databaseAdminLayout.ready': 'အသင့်ဖြစ်ပါပြီ',
+  'databaseAdminLayout.searchPlaceholder': '⌘K command များ၊ query များ၊ ဇယားများ ရှာဖွေပါ…',
   'databaseAdminLayout.user': 'အသုံးပြုသူ',
   'editConnection.confirmDelete': 'ဒီချိတ်ဆက်မှုကို ဖျက်ပစ်မလား။',
   'editConnection.deleteButton': 'ချိတ်ဆက်မှုကို ဖျက်ပါ',
+  'editConnection.newPassword': 'စကားဝှက် အသစ် (မပြောင်းလိုပါက အလွတ်ထားပါ)',
   'editConnection.saved': 'ချိတ်ဆက်မှုကို သိမ်းဆည်းပြီးပါပြီ။',
   'editConnection.title': 'ချိတ်ဆက်မှုကို တည်းဖြတ်ပါ',
   'forgotPassword.success': 'အဲဒီအကောင့်ရှိနေရင် reset link တစ်ခု လာနေပါပြီ။',
@@ -47,6 +62,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'အောင်မြင်မှုများ',
   'monitoring.title': 'စောင့်ကြည့်ခြင်း',
   'monitoring.totalQueries': 'စုစုပေါင်းမေးမြန်းချက်များ',
+  'nav.schema': 'စီမာ',
   'newConnection.database': 'ဒေတာဘေ့စ်',
   'newConnection.engine': 'အင်ဂျင်',
   'newConnection.host': 'အိမ်ရှင်',
@@ -84,6 +100,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'ဒီ snippet နဲ့ ချိတ်ဆက်မှု မရှိပါဘူး။',
   'savedQuery.notBound': 'ချည်နှောင်မထားပါ',
   'savedQuery.title': 'သိမ်းဆည်းထားသော မေးခွန်း',
+  'schema.columns': 'ကော်လံများ',
   'schema.foreignKeys': 'နိုင်ငံခြားသော့များ',
   'schema.indexes': 'အညွှန်းကိန်းများ',
   'schemaExplorer.browseRows': 'အတန်းများကို ကြည့်ရှုပါ',
@@ -92,14 +109,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'ပျက်ပြယ်နိုင်သော',
   'schemaExplorer.colType': 'အမျိုးအစား',
   'schemaExplorer.noColumns': 'ကော်လံများ မရှိပါ။',
+  'schemaExplorer.noForeignKeys': 'Foreign key မရှိပါ။',
   'schemaExplorer.noIndexes': 'အညွှန်းကိန်းများ မရှိပါ။',
   'schemaExplorer.noTables': 'စားပွဲများ မရှိပါ',
   'schemaExplorer.pickATable': 'ဘေးဘက်ဘားမှ စားပွဲတစ်ခုကို ရွေးချယ်ပါ။',
   'schemaExplorer.tables': 'ဇယားများ',
   'schemaExplorer.title': 'Schema စူးစမ်းရှာဖွေသူ',
+  'settings.session': 'အစည်းအဝေး',
   'settings.subtitle': 'သင့်အကောင့်နှင့် အစီအစဉ်ကို စီမံခန့်ခွဲပါ။',
   'signup.heading': 'သင့်ရဲ့ Quarry အကောင့်ကို ဖန်တီးပါ',
   'signup.tagline': 'တစ်မိနစ်အတွင်း ဝင်ရောက်ခွင့်ကို အရှိန်မြှင့်လိုက်ပါ။',
   'tableBrowser.noRows': 'ဒီဇယားမှာ row တွေ မရှိသေးပါဘူး။',
+  'tableBrowser.subtitle': 'သင့် အဝေးမှ ဒေတာဘေ့စ်မှ အတန်းများကို ကြည့်ရှုနေသည်။',
   'tableBrowser.title': 'သင့်ရဲ့ ဝေးလံခေါင်သီတဲ့ ဒေတာဘေ့စ်ကနေ အတန်းတွေကို ကြည့်ရှုနေပါတယ်။',
 }

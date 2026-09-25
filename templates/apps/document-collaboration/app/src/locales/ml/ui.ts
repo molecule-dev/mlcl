@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഫീഡ്ബാക്ക് ഉണ്ടോ, ഒരു ബഗ് കണ്ടെത്തിയോ, അല്ലെങ്കിൽ നിങ്ങളുടെ സ്റ്റുഡിയോയ്ക്കോ ടീമിനോ വേണ്ടി {{app}} വേണോ? നിങ്ങളുടെ അക്കൗണ്ട് സെറ്റിംഗ്സിൽ നിന്ന് ഞങ്ങളെ സമീപിക്കുക — ഓരോ സന്ദേശവും ടീമിലെ ഒരു യഥാർത്ഥ വ്യക്തിയിലേക്കാണ് എത്തുന്നത്.',
   'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
+  'about.intro':
+    '{{app}} എഡിറ്റർമാരും എഴുത്തുകാരും ടീമുകളും ഒരുമിച്ച് തത്സമയം കരട് രചിക്കുന്ന ഒരു സഹകരണ എഴുത്ത് സ്റ്റുഡിയോയാണ്. ഒരു ഡോക്യുമെന്റ് തുറക്കുമ്പോൾ പേജ് പങ്കിട്ടതാകും — കഴ്സറുകൾ നീങ്ങും, മാർജിനിൽ കമന്റുകൾ ത്രെഡ് ചെയ്യും, ഓരോ പുനരവലോകനവും ചരിത്രത്തിൽ സുരക്ഷിതമായി സൂക്ഷിക്കും.',
+  'about.missionBody':
+    'ദീർഘരൂപത്തിലുള്ള എഴുത്തിന് ശാന്തവും കേന്ദ്രീകൃതവുമായ ഒരു വീട് അർഹതയുണ്ടെന്ന് ഞങ്ങൾ വിശ്വസിക്കുന്നു — മീറ്റിംഗിനെയോ ഇൻബോക്സിനെയോ അല്ല, കൈയെഴുത്തുപ്രതിയെ ചുറ്റിപ്പറ്റിയുള്ളത്. ഞങ്ങളുടെ എഡിറ്റർ, തത്സമയ സാന്നിധ്യം, പതിപ്പ് ചരിത്രം എന്നിവയെല്ലാം രൂപകൽപ്പന ചെയ്തിരിക്കുന്നത് സഹപ്രവർത്തകർക്ക് ഒരു ഖണ്ഡികയോ ഒരു ചിന്തയോ നഷ്ടപ്പെടാതെ വേഗത്തിൽ ഒരുമിച്ച് മുന്നോട്ട് പോകാൻ കഴിയണം എന്നതിനാണ്.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
+  'about.subtitle': 'ഒരുമിച്ച് ചിന്തിക്കുക, എന്നെന്നും എഴുതുക.',
   'about.title': '{{app}} നെക്കുറിച്ച്',
   'comments.addFailed': 'കമന്റ് പോസ്റ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'comments.backToDoc': 'കൈയെഴുത്തുപ്രതിയിലേക്ക് മടങ്ങുക',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'കമന്റ് ത്രെഡുകൾ',
   'comments.loading': 'ത്രെഡുകൾ ലോഡ് ചെയ്യുന്നു...',
   'comments.newPlaceholder': 'കൈയെഴുത്തുപ്രതിയിൽ ഒരു അഭിപ്രായം ചേർക്കുക...',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'വീണ്ടും തുറക്കുക',
   'comments.reopenFailed': 'വീണ്ടും തുറക്കാൻ കഴിഞ്ഞില്ല.',
   'comments.replyFailed': 'മറുപടി പോസ്റ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
@@ -39,6 +48,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'സമീപകാല ഡ്രാഫ്റ്റുകൾ, പങ്കിട്ട കൃതികൾ, ആ ദിവസത്തെ എഡിറ്റുകൾ.',
   'dashboard.viewFeed': 'ഫീഡ് →',
   'editor.back': 'കൈയെഴുത്തുപ്രതികളിലേക്ക് മടങ്ങുക',
+  'editor.bodyLabel': 'ഡോക്യുമെന്റ് ബോഡി',
   'editor.bodyPlaceholder': 'കഴ്‌സർ മിന്നിമറയുന്നിടത്ത് നിന്ന് ആരംഭിക്കുക.',
   'editor.comments': 'അഭിപ്രായങ്ങൾ',
   'editor.createFailed': 'പ്രമാണം സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല.',
@@ -64,13 +74,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'ഒരു അക്കൗണ്ട് നിലവിലുണ്ടെങ്കിൽ {{email}} , ഒരു പുനഃസജ്ജീകരണ ലിങ്ക് വന്നുകൊണ്ടിരിക്കുകയാണ്.',
+  'forgotPassword.sentHeading': 'നിങ്ങളുടെ ഇമെയിൽ പരിശോധിക്കുക',
+  'forgotPassword.submitting': 'അയയ്ക്കുന്നു\\u2026',
   'forgotPassword.subtitle': 'ഞങ്ങൾ നിങ്ങൾക്ക് ഒരു റീസെറ്റ് ലിങ്ക് ഇമെയിൽ ചെയ്യും.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . തന്മാത്ര ഉപയോഗിച്ച് നിർമ്മിച്ചത്.',
+  'landing.ctaBody':
+    'ഒറ്റയ്ക്ക് എഴുതുന്നവർക്ക് സൗജന്യം. എഡിറ്റർമാർ, ഗോസ്റ്റ് റൈറ്റർമാർ, റിവ്യൂവർമാർ എന്നിവരുടെ ടീമുകൾക്കുള്ള സ്റ്റുഡിയോ പ്ലാനുകൾ.',
   'landing.ctaHeading': 'പേജ് തുറക്കുക. കഴ്‌സർ ആരംഭിക്കട്ടെ.',
   'landing.ctaPrimary': 'ഒരു സ്റ്റുഡിയോ തുറക്കുക',
   'landing.eyebrow': 'എഴുത്തുകാർക്കും എഡിറ്റർമാർക്കും ടീമുകൾക്കും',
   'landing.featuresEyebrow': 'നിങ്ങൾക്ക് ലഭിക്കുന്നത്',
   'landing.featuresHeading': 'ദീർഘകാല ഡ്രാഫ്റ്റിനുള്ള ഒരു സ്റ്റുഡിയോ.',
+  'landing.featuresSubtitle':
+    '{{appName}} കൈയെഴുത്തുപ്രതിയെ ചുറ്റിപ്പറ്റിയാണ് നിർമ്മിച്ചിരിക്കുന്നത് — മീറ്റിംഗിനെയോ ഇൻബോക്സിനെയോ അല്ല.',
   'landing.getStarted': 'സ്റ്റുഡിയോ തുറക്കുക.',
   'landing.heroCta': 'എഴുതാൻ തുടങ്ങുക',
   'landing.heroSubtitle':
@@ -97,6 +113,8 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} വായിക്കാത്ത · അഭിപ്രായങ്ങൾ, പരാമർശങ്ങൾ, പങ്കിടൽ ക്ഷണങ്ങൾ, നിർദ്ദേശ അഭ്യർത്ഥനകൾ.',
   'presenceAvatars.label': '{{count}} സഹകാരികൾ',
+  'privacy.intro':
+    'നിങ്ങളുടെ വിവരങ്ങൾ ഞങ്ങൾ എങ്ങനെ ശേഖരിക്കുന്നു, ഉപയോഗിക്കുന്നു, സംരക്ഷിക്കുന്നു.',
   'privacy.title': 'സ്വകാര്യതാ നയം',
   'profile.about.description': 'നിങ്ങളുടെ പൊതു പ്രൊഫൈലിനും സംഭാവക പേജുകൾക്കുമുള്ള ഒരു ചെറിയ ബയോ.',
   'profile.eyebrow': 'സ്റ്റുഡിയോ ഐഡന്റിറ്റി',
@@ -109,7 +127,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'സാന്നിധ്യം',
   'profile.pronouns': 'സർവ്വനാമങ്ങൾ',
   'profile.publicToggle': 'സഹപ്രവർത്തകർക്ക് പ്രൊഫൈൽ കാണിക്കുക',
+  'profile.role': 'റോൾ / പദവി',
   'profile.subtitle': 'സഹകാരികൾക്ക് മുന്നിൽ നിങ്ങൾ എങ്ങനെ ദൃശ്യമാകും.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} സ്റ്റുഡിയോയിൽ സജീവമായ എഴുത്തുകാർ',
   'quillonAuthBrandPanel.quote':
     '"എഴുത്ത് ചെയ്യുമ്പോൾ മറ്റെന്തെങ്കിലും ചെയ്യണമെന്ന് എനിക്ക് തോന്നാത്ത ഒരേയൊരു കാര്യം എഴുത്താണ്."',
@@ -117,6 +137,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'തുറക്കുക →',
   'quillonKpiCard.trend': 'സമീപകാല പ്രവണത',
   'quillonLayout.menu': 'മെനു',
+  'quillonLayout.mobileNavLabel': 'മൊബൈൽ നാവിഗേഷൻ',
   'quillonLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'quillonStudioHero.collab': 'സഹകാരികൾ',
   'quillonStudioHero.docs': 'സ്പർശിച്ച പ്രമാണങ്ങൾ',
@@ -126,7 +147,9 @@ export const ui: UiTranslations = {
     'കൈയെഴുത്തുപ്രതി എടുക്കുക, ഒരു അഭിപ്രായം ഇടുക, ഒരു ഖണ്ഡിക മുന്നോട്ട് നീക്കുക.',
   'quillonStudioHero.words': 'ഇന്നത്തെ വാക്കുകൾ',
   'resetPassword.confirmPlaceholder': 'പുതിയ പാസ്‌വേഡ് ആവർത്തിക്കുക',
+  'resetPassword.passwordLabel': 'പുതിയ പാസ്വേഡ്',
   'resetPassword.passwordPlaceholder': 'ഒരു പുതിയ പാസ്‌വേഡ് നൽകുക',
+  'resetPassword.submitting': 'പുനഃസജ്ജമാക്കുന്നു…',
   'resetPassword.subtitle': 'ശക്തമായ ഒരു പാസ്‌വേഡ് തിരഞ്ഞെടുക്കുക - കുറഞ്ഞത് 12 പ്രതീകങ്ങൾ.',
   'settings.account.description': 'നിങ്ങൾ എങ്ങനെ സൈൻ ഇൻ ചെയ്യുന്നു.',
   'settings.billing.canceled': 'സബ്‌സ്‌ക്രിപ്‌ഷൻ റദ്ദാക്കി.',
@@ -136,7 +159,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'കോൺഫിഗർ ചെയ്തിട്ടില്ല',
   'settings.billing.updated': 'പ്ലാൻ അപ്ഡേറ്റ് ചെയ്തു.',
   'settings.editor.description': 'എഴുതുമ്പോൾ ക്യാൻവാസ് എങ്ങനെ പ്രവർത്തിക്കുന്നു.',
+  'settings.editor.title': 'എഡിറ്റർ മുൻഗണനകൾ',
   'settings.eyebrow': 'സ്റ്റുഡിയോ മുൻഗണനകൾ',
+  'settings.language.title': 'ഭാഷ',
   'settings.notifications.${n.key}.description': 'ഭാഷ',
   'settings.notifications.description':
     'നിങ്ങളുടെ ഇൻബോക്സിൽ എന്താണ് എത്തേണ്ടതെന്ന് തിരഞ്ഞെടുക്കുക.',
@@ -148,6 +173,7 @@ export const ui: UiTranslations = {
   'shared.loadFailed': 'പങ്കിട്ട പ്രമാണങ്ങൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'shared.subtitle':
     'സ്റ്റുഡിയോയുടെ ബാക്കി ഭാഗങ്ങളിൽ നിന്നുള്ള കൈയെഴുത്തുപ്രതികൾ, സംക്ഷിപ്ത കുറിപ്പുകൾ, കുറിപ്പുകൾ.',
+  'signup.brandAttribution': 'Anaïs Park — എഡിറ്റർ, The Quarterly',
   'signup.brandQuote':
     '\\u201cനിങ്ങളുടെ ആദ്യത്തെ കൈയെഴുത്തുപ്രതിയാണ് ഏറ്റവും ബുദ്ധിമുട്ടുള്ളത്. ക്വില്ലോൺ അതിനെ ഏകാന്തത കുറയ്ക്കുന്നു.\\u201d',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -155,6 +181,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'അനൈസ്',
   'signup.heading': 'നിങ്ങളുടെ ക്വില്ലൺ അക്കൗണ്ട് സൃഷ്ടിക്കുക',
   'signup.lastNamePlaceholder': 'പാർക്ക്',
+  'signup.submitting': 'നിങ്ങളുടെ സ്റ്റുഡിയോ തുറക്കുന്നു\\u2026',
   'signup.subtitle':
     'ശാന്തമായ ഒരു മേശ, പരിസ്ഥിതി സഹകാരികൾ, നിങ്ങളുടെ വഴിയിൽ നിന്ന് മാറിനിൽക്കുന്ന ഒരു ദീർഘകാല എഡിറ്റർ.',
   'templates.blank.subtitle': 'ഒരു ശൂന്യമായ പേജ്. കഴ്‌സർ ആരംഭിക്കുന്നു.',
@@ -167,11 +194,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'ചിന്തനീയമായ ഒരു ഘടനയിൽ നിന്ന് ആരംഭിക്കൂ. അനന്തമായി ഇഷ്ടാനുസൃതമാക്കൂ.',
   'templates.useFailed': 'ഈ ടെംപ്ലേറ്റിൽ നിന്ന് ഒരു പ്രമാണം ആരംഭിക്കാൻ കഴിഞ്ഞില്ല.',
   'templates.useTemplate': 'ഈ ടെംപ്ലേറ്റ് ഉപയോഗിക്കുക',
+  'terms.intro': 'ഈ സേവനം നിങ്ങൾക്ക് ഉപയോഗിക്കാവുന്ന വ്യവസ്ഥകൾ.',
   'terms.title': 'സേവന നിബന്ധനകൾ',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'ഇപ്പോൾ തന്നെ',
   'trash.confirmDelete': 'ഇല്ലാതാക്കൽ സ്ഥിരീകരിക്കുക',
+  'trash.confirmEmpty': 'സ്ഥിരീകരിക്കുക — എല്ലാം ഇല്ലാതാക്കുക',
   'trash.deleteFailed': 'ഇല്ലാതാക്കാൻ കഴിഞ്ഞില്ല.',
   'trash.deleteForever': 'ശാശ്വതമായി ഇല്ലാതാക്കുക',
   'trash.empty': 'വീണ്ടെടുക്കാൻ ഒന്നുമില്ല.',
@@ -187,7 +216,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'ഇതുവരെ തിരുത്തലുകളൊന്നുമില്ല — പ്രമാണത്തിന്റെ ചരിത്രം ആരംഭിക്കാൻ അത് സംരക്ഷിക്കുക.',
   'versionHistory.heading': 'പതിപ്പ് ചരിത്രം',
+  'versionHistory.latest': 'ഏറ്റവും പുതിയ',
   'versionHistory.loadFailed': 'ചരിത്രം ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
+  'versionHistory.noContent': 'ഈ പുനരവലോകനത്തിന് ഉള്ളടക്കം ഒന്നും ക്യാപ്ചർ ചെയ്തിട്ടില്ല.',
   'versionHistory.previewing': 'പ്രിവ്യൂ ചെയ്യുന്നു',
   'versionHistory.restore': 'ഈ പതിപ്പ് പുനഃസ്ഥാപിക്കുക',
   'versionHistory.restoreFailed': 'പുനഃസ്ഥാപിക്കൽ പരാജയപ്പെട്ടു.',

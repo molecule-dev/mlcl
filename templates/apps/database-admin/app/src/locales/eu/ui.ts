@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
+  'about.featureConnections':
+    'Zure datu-baseak modu seguruan gordetzen eta kolorez kodetzen dituen konexio-kudeatzailea — kredentzialak gordeta enkriptatuta daude, inoiz ez testu hutsean.',
+  'about.featureMonitoring':
+    'Kontsulten errendimenduaren eta datu-basearen jardueraren monitorizazioa denbora errealean, laster-teklak eta komando-paleta eskura dituzula dena eskuz ukitu gabe egiteko.',
+  'about.featurePlans':
+    'Zurekin batera hazten diren planak — Doakoa bakarkako lanerako, Pro eta Team konexio gehiagorako, kontsultak denbora luzeagoan gordetzeko, esportazioetarako eta funtzio aurreratuetarako.',
+  'about.featureQueryEditor':
+    'Monaco-n oinarritutako SQL editorea, kontsulten historia, gordetako kontsultak eta emaitzak klik batean CSV formatuan esportatzeko aukera dituena.',
+  'about.featureSchema':
+    'Eskema-esploratzaile bat eta taula-arakatzaile bat datu-baseak, taulak eta zutabeak arakatzeko; gero errenkadak bertan ikusi, iragazi eta editatzeko.',
+  'about.missionTitle': 'Gure misioa',
   'authShell.commands': 'Komandoak',
   'authShell.ssoSupported': 'SSO onartzen da',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Kontsultak',
   'connections.schema': 'Eskema',
   'connections.subtitle': 'Kudeatu zure datu-basearen konexioak.',
+  'connections.test': 'Proba',
   'databaseAdminLayout.adminRole': 'Administratzaile rola',
   'databaseAdminLayout.commandPalette': 'Komando-paleta',
   'databaseAdminLayout.commands': 'komandoak',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Konexio berria',
   'databaseAdminLayout.queries': 'Kontsultak',
   'databaseAdminLayout.ready': 'Prest',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Bilatu komandoak, kontsultak, taulak…',
   'databaseAdminLayout.user': 'Erabiltzailea',
   'editConnection.confirmDelete': 'Konexio hau ezabatu?',
   'editConnection.deleteButton': 'Ezabatu konexioa',
+  'editConnection.newPassword': 'Pasahitz berria (utzi hutsik mantentzeko)',
   'editConnection.saved': 'Konexioa gordeta.',
   'editConnection.title': 'Editatu konexioa',
   'forgotPassword.success': 'Kontu hori existitzen bada, berrezartzeko esteka bidean da.',
@@ -47,6 +62,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Arrakastak',
   'monitoring.title': 'Jarraipena',
   'monitoring.totalQueries': 'Kontsulta guztiak',
+  'nav.schema': 'Eskema',
   'newConnection.database': 'Datu-basea',
   'newConnection.engine': 'Motorra',
   'newConnection.host': 'Ostatua',
@@ -83,6 +99,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Ez dago loturarik zati honekin.',
   'savedQuery.notBound': 'Lotu gabe',
   'savedQuery.title': 'Gordetako kontsulta',
+  'schema.columns': 'Zutabeak',
   'schema.foreignKeys': 'Kanpoko giltzak',
   'schema.indexes': 'Indizeak',
   'schemaExplorer.browseRows': 'Arakatu errenkadak',
@@ -91,14 +108,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'baliogabea',
   'schemaExplorer.colType': 'idatzi',
   'schemaExplorer.noColumns': 'Zutaberik ez.',
+  'schemaExplorer.noForeignKeys': 'Kanpo-gako gabe.',
   'schemaExplorer.noIndexes': 'Indizerik ez.',
   'schemaExplorer.noTables': 'Mahairik ez',
   'schemaExplorer.pickATable': 'Aukeratu taula bat alboko barratik.',
   'schemaExplorer.tables': 'Mahaiak',
   'schemaExplorer.title': 'Eskema-esploratzailea',
+  'settings.session': 'Saioa',
   'settings.subtitle': 'Kudeatu zure kontua eta plana.',
   'signup.heading': 'Sortu zure Quarry kontua',
   'signup.tagline': 'Minutu bat baino gutxiagoan biratu sarbidea.',
   'tableBrowser.noRows': 'Taula honek ez du errenkadarik oraindik.',
+  'tableBrowser.subtitle': 'Zure urruneko datu-baseko errenkadak arakatzen.',
   'tableBrowser.title': 'Zure urruneko datu-baseko errenkadak arakatzen.',
 }

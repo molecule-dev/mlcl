@@ -1,27 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Komandanız üçün daha isti bir onboarding tətbiq etmək istəyirsiniz, xəta tapdınız və ya rəy bildirmək istəyirsiniz? Hesab parametrlərindən bizə yazın — hər mesaj kömək edə bilən real bir insana çatır.',
   'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
+  'about.missionTitle': 'Missiyamız',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Şifrənizi sıfırlayın.',
+  'auth.forgotPassword.panel.body':
+    'Sıfırlama 30 saniyə çəkir — yoxlama siyahınızdakı irəliləyiş sizi gözləyir.',
+  'auth.forgotPassword.panel.headline': 'Qaldığınız yerdən davam edin.',
+  'auth.forgotPassword.subheading': 'İş e-poçtunuzu daxil edin, sizə sıfırlama linki göndərəcəyik.',
   'auth.forgotPassword.successSubheading':
     'Gələnlər qutunuzu yoxlayın — sıfırlama təlimatları göndərmişik.',
   'auth.login.emailPlaceholder': 'name@yourcompany.com',
   'auth.login.heading': 'Xoş gəlmisiniz.',
   'auth.login.passwordPlaceholder': 'Şifrəniz',
+  'auth.login.signupPrompt': 'Komandanızda yenisiniz?',
   'auth.login.subheading':
     'Təyyarəyə minmə səyahətinizi qaldığınız yerdən davam etdirmək üçün daxil olun.',
   'auth.login.submit': 'Səyahətinizə davam edin',
+  'auth.panel.body':
+    'Şəxsi yoxlama siyahınız, təlim mərhələləriniz və komanda tanışlıqları — hamısı bir sakit yerdə.',
   'auth.panel.footnote': '© Embark — bu gündən etibarən ilk növbədə insanları işə qəbul edirik.',
   'auth.panel.headline': 'İlk 90 günə inamla başlamaq lazımdır.',
   'auth.resetPassword.heading': 'Yeni bir parol təyin edin.',
   'auth.resetPassword.newPasswordLabel': 'Yeni parol',
+  'auth.resetPassword.panel.body':
+    'Yeni şifrə yadda saxlayın, sizi dərhal onboarding səyahətinizə qaytaracağıq.',
+  'auth.resetPassword.panel.headline': 'Az qaldı geri qayıdasınız.',
   'auth.resetPassword.subheading': 'Yadda saxlayacağınız bir şey seçin — ən azı 8 simvol.',
   'auth.signup.emailPlaceholder': 'name@yourcompany.com',
   'auth.signup.heading': 'İlk 90 gününüzə xoş gəlmisiniz.',
   'auth.signup.panel.body':
     'Rəhbərlik edilən yoxlama siyahısı, rolları anlayan təlim və insan təqdimatları — içəri girməzdən əvvəl hazırdır.',
+  'auth.signup.panel.headline': 'Birinci gün, elə birinci gündə.',
   'auth.signup.subheading':
     'Rəhbərli onboarding səyahətinizə başlamaq üçün Embark hesabınızı yaradın.',
   'checklist.empty.body': 'Digər tapşırıqları görmək üçün filtri dəyişdirin.',
@@ -29,6 +43,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'İşə qəbul · Yoxlama siyahısı',
   'checklist.loading': 'Yoxlama siyahınız yüklənir…',
   'checklist.stat.actionNeeded': 'Tədbir görülməlidir',
+  'checklist.stat.completion': 'Tamamlanma',
+  'checklist.stat.inProgress': 'Davam edir',
   'checklist.stat.inProgressHelper': 'Qaldığınız yerdən davam edin',
   'checklist.stat.overdueHelper': 'Əvvəlcə bunları tutun',
   'checklist.subtitle':
@@ -60,6 +76,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Hələ sənəd yoxdur',
   'documents.eyebrow': 'İşə qəbul · Sənədlər',
   'documents.loading': 'Sənədlər yüklənir…',
+  'documents.stat.actionNeeded': 'İndi imzalayın',
+  'documents.stat.all': 'Bütün sənədlər',
   'documents.stat.allHelper': 'Kateqoriyalar üzrə',
   'documents.stat.pending': 'Gözlənilən imzalar',
   'documents.stat.pendingHelper': 'Tamamlanması üçün tələb olunur',
@@ -67,6 +85,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Təhlükəsiz saxlanılır',
   'documents.status.optional': 'Könüllü',
   'documents.status.required': 'Tələb olunur',
+  'documents.status.signed': 'İmzalandı',
   'documents.subtitle':
     'Əl kitabçanız, formalarınız və imzalanmış müqavilələriniz — hamısı bir yerdə.',
   'documents.title': 'Oxumaq və imzalamaq üçün lazım olan hər şey.',
@@ -74,10 +93,14 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'İzləyici',
   'documentViewer.breadcrumbDocs': 'Sənədlər',
   'documentViewer.downloadMeta': 'Metadata yükləyin',
+  'documentViewer.helpBody':
+    'People & Culture Slack-də #ask-people kanalında təlimatla bağlı sualları cavablandırır.',
   'documentViewer.helpEyebrow': 'Köməyə ehtiyacınız varmı?',
   'documentViewer.loadError': 'Bu sənədi yükləyə bilmədik.',
   'documentViewer.loading': 'Sənəd yüklənir…',
   'documentViewer.notFound': 'Sənəd tapılmadı',
+  'documentViewer.previewBody':
+    'Yükləmələr konfiqurasiya edildikdə faylı daxildə göstəririk. Hələlik metadata yükləməsi qeydin real olduğunu təsdiqləməyə imkan verir.',
   'documentViewer.previewBodyExternal':
     'Faylı yeni bir sekmede açmaq üçün yükləmə düyməsini istifadə edin.',
   'documentViewer.previewTitle': 'Sənəd önizləməsi',
@@ -85,6 +108,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Sənədi oxuyun, sonra imzalamaq və təsdiqləmək üçün aşağıdakı düyməni basın.',
   'documentViewer.signatureHeading': 'İmza tələb olunur',
+  'documentViewer.signed': '✓ İmzalandı və qeydə alındı',
   'documentViewer.signing': 'İmzalanır…',
   'documentViewer.uploadedRecently': 'Bu yaxınlarda yükləndi',
   'landing.closing.body':
@@ -94,10 +118,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Artıq hesabım var',
   'landing.feature1.body':
     'Hər bir tapşırıq — sənədləşmə işləri, hesablar, girişlər — son tarixlər və düzgün sahibi ilə əvvəlcədən mərhələləndirilir.',
+  'landing.feature1.title': 'Bələdçili yoxlama siyahısı',
   'landing.feature2.body':
     'Modullar, işə götürülmüş şəxsin qoşulduğu rola və komandaya uyğunlaşdırılaraq 30/60/90 mərhələlərində kilidini açır.',
+  'landing.feature2.title': 'Rola uyğun təlim',
   'landing.feature3.body':
     'Dostlar, menecerlər və müxtəlif funksiyalı təqdimatlar planlaşdırılır — buna görə də heç kim tək başlamır.',
+  'landing.feature3.title': 'Real tanışlıqlar',
   'landing.featureEyebrow': 'Niyə gəmiyə minin',
   'landing.featureHeadline': 'Embark ilk gün etibar qazanmağın üç yolu.',
   'landing.footer.rights': 'Bütün hüquqlar qorunur.',
@@ -107,6 +134,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Növbəti: Çərşənbə axşamı saat 10:00-da 30 dəqiqəlik qəhvə söhbəti üçün dostunuzla görüşün.',
   'landing.preview.eyebrow': '90-cı gündən 14-cü gün — nümunə idarəetmə paneli',
+  'landing.preview.headline': 'Xoş gəldiniz, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR hazırdır',
   'landing.proof.teams': '50-5000 nəfərlik komandalar üçün hazırlanmışdır',
   'landing.proof.time': '14 günlük pulsuz sınaq müddəti',
@@ -123,16 +151,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Hazırsınız.',
   'planUpdated.preparing': 'Planınız yenilənir…',
+  'planUpdated.retry': 'Yenidən cəhd edin',
+  'planUpdated.verifyFailed': 'Ödənişinizi hələ təsdiqləyə bilmədik.',
+  'planUpdated.verifyFailedBody':
+    'Ödənişiniz hələ də emal oluna bilər. Bir an sonra yenidən cəhd edin.',
   'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
   'pricing.documentsLabel': 'sənədlər',
   'pricing.onboardingsLabel': 'işə qəbul',
   'pricing.tasksLabel': 'tapşırıqlar',
   'profile.dayNumber': 'Gün',
   'profile.detailsHeading': 'İşə qəbul detalları',
+  'profile.encouragementBody':
+    'Buddynizi və menecerinizi məlumatlandırın — kiçik addımlar toplanır.',
   'profile.milestones': 'Mərhələlər',
   'profile.progressEyebrow': 'İşə qəbul prosesi',
   'profile.tasks': 'Tapşırıqlar',
   'profile.unknownName': 'Xoş gəlmisiniz',
+  'settings.appearance.description': 'İşıq və qaranlıq rejim arasında keçid edin.',
+  'settings.appearance.title': 'Görünüş',
+  'settings.subtitle':
+    'Bildirişləri, təhlükəsizliyi, cihazları və məlumat ixracını tənzimləyin — hər şey burada, sizin şərtlərinizlə qalır.',
   'settings.title': 'Parametrlər və üstünlüklər.',
   'taskDetail.backToChecklist': 'Yoxlama siyahısına qayıt',
   'taskDetail.breadcrumbChecklist': 'Yoxlama siyahısı',
@@ -144,7 +182,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'Son tarix yoxdur',
   'taskDetail.notFound': 'Tapşırıq tapılmadı',
   'taskDetail.notFoundBody': 'Bu tapşırıq silinmiş və ya başqa istifadəçiyə məxsus ola bilər.',
+  'taskDetail.tipBody':
+    'Əgər ilişib qalmısınızsa, Slack-də onboarding buddynizə yazın — onlar ilk kömək xəttinizdir.',
   'taskDetail.tipEyebrow': 'Tez məsləhət',
+  'team.empty.body': 'Daha geniş axtarış edin və ya başqa şöbə seçin.',
   'team.empty.title': 'Komanda yoldaşları arasında uyğunluq yoxdur',
   'team.eyebrow': 'İşə qəbul · İnsanlar',
   'team.loading': 'Komanda yoldaşları yüklənir…',
@@ -167,14 +208,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Mərhələlər',
   'timeline.stat.current': 'Hazırkı mərhələ',
   'timeline.stat.next': 'Növbəti kilid açma',
+  'timeline.stat.progress': 'Ümumi',
   'timeline.subtitle':
     'Hər mərhələ yeni modullar, girişlər və inkişaf söhbətləri açır. Təzyiq yoxdur - sadəcə irəliləyiş.',
+  'timeline.tipBody':
+    'Menecerinizlə 30, 60 və 90-cı günlərdə 30 dəqiqəlik dəyərləndirmə təyin edin — bu, rəyi konkret və irəliləyişi görünən edir.',
   'timeline.tipEyebrow': 'Menecer məsləhəti',
+  'timeline.tipTitle': 'Mərhələlər üçün təqvimdə vaxt bloklayın.',
   'timeline.title': '30/60/90 səyahətiniz.',
   'training.badge.notStarted': 'Başlanmayıb',
   'training.empty': 'Hələlik təlim modulları yoxdur.',
   'training.eyebrow': 'İşə qəbul · Təlim',
   'training.loading': 'Modullar yüklənir…',
+  'training.stat.all': 'Modullar təyin edildi',
   'training.subtitle':
     'Modullar rolunuza uyğunlaşmaq üçün 30/60/90 nisbətində açılır. Lazımi olanlar birinci gəlir.',
   'training.title': 'Bacarıqlar, alətlər və hekayələr — öz sürətinizdə.',
@@ -187,9 +233,12 @@ export const ui: UiTranslations = {
   'trainingModule.quizBody':
     'Bu modulu tamamlanmış kimi qeyd etmək üçün 80% və ya daha yüksək bal toplayın.',
   'trainingModule.quizHeading': 'Modulun sonu viktorinası',
+  'trainingModule.quizLocked': 'Əvvəlcə modulu başladın',
   'trainingModule.quizNone': 'Bu modulda viktorina yoxdur.',
   'trainingModule.quizRetry': 'Yenidən cəhd edin',
+  'trainingModule.quizStart': 'Testə başla',
   'trainingModule.quizSubmit': 'Cavabları təqdim edin',
+  'trainingModule.start': 'Modulu başlat',
   'trainingModule.statusNotStarted': 'Başlanmayıb',
   'welcomeHeroCard.completeLabel': 'Tamamlandı',
   'welcomeHeroCard.milestonesLabel': 'Mərhələlər',

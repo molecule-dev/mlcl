@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '質問がある、バグを見つけた、または帳簿を移行したい場合は、{{app}} チームの hello@{{app}}.example までご連絡ください — すべてのメッセージを担当者が読んでいます。',
   'about.contactTitle': 'お気軽にお問い合わせください',
   'about.eyebrow': '概要',
+  'about.intro':
+    '{{app}} は、すべての金額を正確に管理する小規模事業者向け会計ソフトです — 請求書、経費、支払い、レポートをひとつの落ち着いた場所にまとめ、オーナー、経理担当者、会計士を支えます。',
+  'about.missionBody':
+    '事業を営むことが帳簿の憂うつを意味するべきではありません。{{app}} は散らかったスプレッドシートを、行動につながる明確な数字に置き換えます。照合作業に費やす時間を減らし、本来始めたかった仕事にもっと時間を使えるようにします。',
+  'about.missionTitle': '私たちの使命',
   'about.title': '{{app}}について',
   'accounts.count': '{{count}} アカウント',
+  'accounts.emptyBody':
+    '勘定科目はお金がどこにあり、どう動くかを追跡します。経理担当者または連携サービスが設定すると、ここに表示されます。',
   'accounts.emptyTitle': 'まだアカウントがありません',
   'accounts.heading': '勘定科目表',
   'accounts.kpi.accounts': '勘定科目',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     '請求書、経費、支払いの各取引の元となるすべての元帳勘定を、種類ごとに分類して表示します。',
   'accounts.tag.inactive': '非アクティブ',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': '最高財務責任者、Horizon Tech',
   'authBrandPanel.eyebrow': '財務チームに信頼されています',
   'authBrandPanel.label': 'ブランドショーケース',
   'authBrandPanel.quote': '「Ledgerは収益追跡の方法を一変させました。精度の極みです。」',
@@ -30,7 +40,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'すべての顧客',
   'customerDetail.invoiceMeta': '発行日：{{issued}} · 期限：{{due}}',
   'customerDetail.loadError': '顧客の読み込みに失敗しました。',
+  'customerDetail.missingBody':
+    '要求された顧客レコードを読み込めませんでした。削除されたか、アクセス権限がない可能性があります。',
   'customerDetail.missingHeading': '顧客レコードが利用できません',
+  'customerDetail.missingHelp':
+    '上の戻るリンクで顧客一覧に戻るか、そこから別のレコードを選択してください。',
+  'customerDetail.noInvoices': '請求書はまだありません。',
   'customerDetail.notesEmpty': 'まだメモはありません。',
   'customerDetail.paymentsEmpty': '支払いは記録されていません。',
   'customerDetail.paymentTerms': '支払条件',
@@ -57,6 +72,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': '控除対象',
   'expenseDetail.detailsHeading': '取引詳細',
   'expenseDetail.loadError': '経費の読み込みに失敗しました。',
+  'expenseDetail.matched': '一致 · {{description}}',
   'expenseDetail.missingBody':
     '要求された経費を読み込めませんでした。削除されたか、アクセス権がない可能性があります。',
   'expenseDetail.missingHeading': '経費レコードが利用できません',
@@ -64,6 +80,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': '領収書',
   'expenseDetail.receiptHeading': '領収書',
   'expenseDetail.reconciled': '照合済み',
+  'expenseDetail.unreconciled': '未照合',
   'expenses.empty': 'まだ経費はありません。',
   'expenses.heading': '経費',
   'expenses.kpi.deductible': '控除対象',
@@ -99,6 +116,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': '請求書の読み込みに失敗しました。',
   'invoices.searchPlaceholder': '請求書番号または顧客を検索…',
   'invoices.summary.paid': '期間内の入金',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle': '30日間無料。カード不要。会計士の方を一緒にどうぞ — きっと感謝されます。',
   'landing.ctaTitle': '帳簿をもっと落ち着いた場所へ。',
   'landing.eyebrow': '小規模ビジネス会計、再構築',
@@ -112,6 +130,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': '売掛金',
   'ledgerStatTriad.eyebrow.mtd': '月初来',
   'ledgerStatTriad.netSub': '純額 {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} 期限超過',
   'ledgerStatTriad.revenueLabel': '収益',
   'login.failed': 'サインインに失敗しました。',
   'login.hidePassword': 'パスワードを非表示',
@@ -122,6 +141,7 @@ export const ui: UiTranslations = {
   'login.submit': 'サインイン',
   'nav.legal': '法的事項',
   'newExpense.back': '経費',
+  'newExpense.clearReceiptCta': '添付レシートを消去',
   'newExpense.deductible': '税控除対象',
   'newExpense.dropPrompt': '領収書の写真やPDFをここにドロップして添付してください。',
   'newExpense.failed': '経費を保存できませんでした。',
@@ -150,6 +170,14 @@ export const ui: UiTranslations = {
   'payments.loadError': '支払いの読み込みに失敗しました。',
   'payments.unmatchedTag': '比類のない',
   'planUpdated.pageLabel': 'プラン更新確認',
+  'pricing.advancedFeatures': '高度な機能: {{yes}}',
+  'pricing.canExport': 'データエクスポート: {{yes}}',
+  'pricing.heading': '{{app}}プランを選択',
+  'pricing.maxAccounts': '{{count}} アカウント',
+  'pricing.maxExpenses': '{{count}}件の経費',
+  'pricing.maxInvoices': '{{count}} 件の請求書',
+  'privacy.intro':
+    'このプライバシーポリシーは、{{app}} が本サービスを利用する事業者に関する情報をどのように収集、使用、開示するかを説明します。',
   'privacy.lastUpdated': '最終更新: {{date}}',
   'privacy.section.collected.body':
     'アカウントの詳細(名前、メール、会社)、アップロードされた財務記録(請求書、経費、顧客、支払い)、および標準的なサービス運用ログ(IP、ユーザーエージェント、タイムスタンプ)を収集します。',
@@ -162,8 +190,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     '情報はサービスの運用、要求されたレポートやPDFの生成、Mailgun経由のトランザクションメール送信、Stripe経由の支払い処理に使用されます。個人情報の販売や貸与は行いません。',
   'recentInvoicesCard.dueMeta': '支払期日 {{date}}',
+  'recentInvoicesCard.empty': '該当する請求書はありません。',
   'recentInvoicesCard.eyebrow': '売掛金',
   'recentInvoicesCard.searchAriaLabel': '請求書を検索',
+  'recentInvoicesCard.searchPlaceholder': '請求書を検索…',
   'recentInvoicesCard.title': '最近の請求書',
   'recentInvoicesCard.viewAll': 'すべての請求書を表示 →',
   'reports.assets': '資産',
@@ -179,16 +209,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': '損益計算書 (12か月)',
   'resetPassword.backToLogin': '← サインインに戻る',
   'resetPassword.hidePassword': 'パスワードを非表示',
+  'resetPassword.passwordLabel': '新しいパスワード',
   'resetPassword.showPassword': 'パスワードを表示',
+  'resetPassword.subheading': '強力なパスワードを設定してください — 8文字以上。',
   'resetPassword.submit': 'パスワードをリセット',
   'resetPassword.tooShort': 'パスワードは少なくとも8文字必要です。',
   'settings.account.changePassword': 'パスワードを変更',
   'settings.account.changingPassword': '変更中…',
   'settings.account.currentPassword': '現在のパスワード',
+  'settings.account.dangerZone': '危険ゾーン',
   'settings.account.deleteAccount': 'アカウントを削除',
   'settings.account.deleteDescription':
     'アカウントおよび関連するすべてのデータを完全に削除します。',
   'settings.account.deleteError': 'アカウントの削除に失敗しました。',
+  'settings.account.deleteWarning':
+    'アカウントが完全に削除され、元に戻すことはできません。確認のためパスワードを入力してください。',
   'settings.account.deleting': '削除中…',
   'settings.account.devices': 'デバイス',
   'settings.account.email': 'メールアドレス',
@@ -199,6 +234,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'パスワード',
   'settings.account.passwordError': 'パスワードの変更に失敗しました。',
   'settings.account.pushNotifications': 'このデバイスでのプッシュ通知',
+  'settings.account.revokeDeviceWarning':
+    'このデバイスのアクセスはまもなく取り消されます。サインアウトしますか?',
   'settings.account.saveError': 'プロフィールの更新に失敗しました。',
   'settings.account.security': 'セキュリティ',
   'settings.account.signOutDevice': 'サインアウト',
@@ -206,12 +243,19 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': '二要素認証',
   'settings.account.twoFactorCode': '認証コード',
   'settings.account.twoFactorDisable': '無効化',
+  'settings.account.twoFactorDisableTitle': '二要素認証を無効にする',
   'settings.account.twoFactorEnable': '有効化',
+  'settings.account.twoFactorEnableTitle': '二要素認証を有効にする',
   'settings.account.twoFactorInvalidCode': '無効なコード',
   'settings.account.twoFactorOn': 'について',
+  'settings.account.twoFactorQrAlt': '二要素認証QRコード',
+  'settings.account.twoFactorScan':
+    '認証アプリでこのQRコードをスキャンし、6桁のコードを入力してください。',
+  'settings.account.twoFactorUnavailable': 'このアプリでは二段階認証は利用できません。',
   'settings.account.twoFactorVerify': '確認して有効にする',
   'settings.account.unknownDevice': '不明な端末',
   'settings.company.email': '請求用メール',
+  'settings.company.heading': '会社と税務',
   'settings.company.name': '法人名',
   'settings.company.saveButton': '会社概要を保存する',
   'settings.company.taxId': '税務ID',
@@ -254,6 +298,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': '四半期見積',
   'taxes.kpi.owed': '未払い',
   'taxes.loadError': '税務概要の読み込みに失敗しました。',
+  'taxes.remittedPct': '({{pct}}% 送金済み)',
+  'terms.intro':
+    'この利用規約（「本規約」）は、{{app}} へのアクセスおよび利用を規定します。アカウントを作成するか本サービスを利用することで、本規約に拘束されることに同意したものとみなされます。',
   'terms.lastUpdated': '最終更新: {{date}}',
   'terms.section.acceptable.body':
     'サービスを使用して法律違反、知的財産権の侵害、マルウェアの送信、他のアカウントや当社インフラへの不正アクセスの試みを行わないことに同意するものとします。',

@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ir atsauksmes, atradi kļūdu vai vēlies kādu funkciju? Sazinies ar mums no sava konta iestatījumiem — katra ziņa nonāk pie īsta komandas cilvēka. Piezīme: nekas šeit nav ieguldījumu konsultācija; tu kontrolē katru darījumu.',
+  'about.contactTitle': 'Sazinieties ar mums',
+  'about.featureAttribution':
+    'Darbības sadalījums — sadali ienesīgumu pa nozarēm, reģioniem un aktīvu klasēm un salīdzini ar etalonu jebkurā laika posmā.',
+  'about.featureRebalance':
+    'Disciplinēta pārbalansēšana — iestati mērķa sadalījumu un pielaides joslas, savlaicīgi pamanīsi novirzes un saņemsi darījumus, kas atgriež tevi mērķa līmenī.',
+  'about.featureTax':
+    'Nodokļu dokumentu kārtība — realizētie un nerealizētie ieguvumi, dividendes un 1099 dokumenti vienuviet, iekļauti arī wash-sale brīdinājumi.',
+  'about.featureUnified':
+    'Viens vienots portfelis — akcijas, ETF, ieguldījumu fondi, obligācijas un citi aktīvi, apkopoti no visiem brokeru kontiem.',
+  'about.featureWatchlist':
+    'Novērošanas saraksti, ziņas un cenu brīdinājumi, lai varētu rīkoties svarīgākajā bez trokšņa.',
+  'about.intro':
+    '{{app}} ir daudzveidīgu aktīvu portfeļa panelis privātajiem ieguldītājiem un neatkarīgiem konsultantiem. Akcijas, ETF, ieguldījumu fondi, obligācijas, nekustamais īpašums un nauda — katrs turējums katrā kontā, vienuviet, ar profesionāla galda disciplīnu.',
+  'about.missionBody':
+    'Labs ieguldīšanas process lielākoties ir disciplīna: skaidrs mērķa sadalījums, godīgs darbības sadalījums un kārtīgi nodokļu ieraksti. {{app}} sniedz šīs institucionālās iemaņas ikvienam, lai tu varētu pārbalansēt apzināti, nevis impulsīvi — un nekad nepazaudētu no redzesloka to, ko tavs portfelis patiešām dara.',
+  'about.missionTitle': 'Mūsu misija',
   'about.pageTitle': 'Par {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Bagātības instrumenti',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Nav ieguldījumu padoms.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Portfeļa informācijas panelis individuāliem investoriem un konsultantiem, kuri vēlas disciplinētu pārbalansēšanu, precīzu snieguma atribūciju un nodokļu dokumentu higiēnu — bez liekas piepūles.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · Iepriekšējie rezultāti negarantē nākotnes rezultātus.',
   'argentAuthShell.sampleChange': '+2841 ASV dolāri (+0,28 %) šodien',
+  'argentAuthShell.sampleLabel': 'Portfeļa vērtība',
   'argentAuthShell.sampleValue': '1 032 251 ASV dolāru',
   'argentLayout.primaryNavLabel': 'Galvenā navigācija',
   'assetAllocationDonut.heading': 'Kā tiek ieguldīta jūsu nauda',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'šodien',
   'assetDetail.txEmpty': 'Šim biržas rādītājam nav darījumu.',
   'assetDetail.txHeading': 'Jūsu darījumi',
+  'auth.legalConsent.prefix': 'Turpinot, tu piekrīti {{appName}}',
   'common.and': 'un',
   'common.goToDashboard': 'Uz informācijas paneli',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'šodien',
   'dashboard.topHoldings.heading': 'Kur darbojas jūsu nauda',
   'dashboard.topHoldings.label': 'Lielākie aktīvi',
+  'forgotPassword.gotLinkCta': 'Man ir atiestatīšanas saite →',
+  'forgotPassword.subheading':
+    'Ievadiet sava Gavl konta e-pasta adresi, un mēs nosūtīsim jums drošu atiestatīšanas saiti.',
   'forgotPassword.successBody':
     'Ja pēc dažām minūtēm to neredzat, pārbaudiet surogātpasta mapi vai mēģiniet nosūtīt citu e-pastu.',
   'forgotPassword.successSubheading':
     'Pārbaudiet {{email}} atiestatīšanas saitei. Tā ir derīga 60 minūtes.',
+  'forgotPassword.successTitle': 'Atiestatīšanas e-pasts jau ceļā',
   'holdingHighlightRow.todayLabel': 'šodien',
   'holdings.addCta': 'Pirkt',
   'holdings.col.allocation': 'Piešķīrums',
@@ -58,6 +87,8 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Nav ieguldījumu ieteikums. Iepriekšējie rezultāti negarantē turpmākos rezultātus.',
   'landing.eyebrow': 'Argent · Bagātības veidošanas platforma',
   'landing.features.heading': 'Viss, ko konsultants pats sev uzbūvētu.',
+  'landing.finalCta.body': 'Pievieno savu brokeri divos klikšķos. {{appName}} paveiks pārējo.',
+  'landing.finalCta.cta': 'Atveriet savu Argent kontu',
   'landing.finalCta.heading': 'Atjaunojiet disciplīnu savā portfelī.',
   'landing.footerSignup': 'Atvērt kontu',
   'landing.getStarted': 'Atvērt kontu',
@@ -65,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Skatīt cenas',
   'landing.heroSubtitle':
     'Portfeļa informācijas panelis individuāliem investoriem un konsultantiem, kuri vēlas disciplinētu pārbalansēšanu, precīzu snieguma atribūciju un nodokļu dokumentu higiēnu — bez liekas piepūles.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Tiešraides priekšskatījums no reprezentatīva portfeļa',
   'login.heading': 'Pierakstīties Argentā',
   'login.subheading':
@@ -76,6 +108,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} pirms stundām',
   'news.justNow': 'tikko',
   'news.loadError': 'Neizdevās ielādēt ziņas.',
+  'planUpdated.body':
+    'Tavas norēķinu izmaiņas tagad ir aktīvas. Plānu vari pārvaldīt jebkurā laikā norēķinu lapā.',
+  'planUpdated.retry': 'Mēģini vēlreiz',
+  'planUpdated.verifyFailed': 'Mēs vēl nevarējām apstiprināt jūsu maksājumu.',
+  'planUpdated.verifyFailedBody':
+    'Jūsu maksājums, iespējams, joprojām tiek apstrādāts. Pēc brīža mēģiniet vēlreiz.',
   'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'portfolioHeroCard.label': 'Portfeļa vērtība',
   'pricing.holdingsLabel': 'saimniecības',
@@ -86,12 +124,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Sadalījuma nobīde',
   'rebalance.empty': 'Vēl nav noteikti mērķi.',
   'rebalance.executeCta': 'Vieta {{count}} tirdzniecība',
+  'rebalance.executeError': 'Neizdevās veikt darījumus.',
   'rebalance.executeOk': 'Ievietots {{count}} darījumi. Skatiet tos lapā “Darījumi”.',
+  'rebalance.executing': 'Veic…',
   'rebalance.eyebrow': 'Līdzsvarošana · Argent konsultants',
   'rebalance.heading': 'Atjaunojiet savu portfolio disciplīnu',
   'rebalance.loadError': 'Neizdevās ielādēt atkārtotas līdzsvarošanas plānu.',
+  'rebalance.plan.driftLine': 'pašlaik {{current}}% · mērķis {{target}}%',
   'rebalance.planHeading': 'Argent biļete — pārskatiet pirms izvietošanas',
   'rebalance.planLabel': 'Ieteicamais tirdzniecības plāns',
+  'rebalance.subheading':
+    'Rindas, kas pārsniedz pielaides joslu, rosina darījumu ieteikumus. {{appName}} rīkojas tikai pēc tava apstiprinājuma.',
   'rebalance.summary.buyLabel': 'Pirkumi',
   'rebalance.summary.buySub': 'papildināmās pozīcijas',
   'rebalance.summary.driftLabel': 'Ārpus joslas',
@@ -100,6 +143,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'starp ieteiktajiem darījumiem',
   'rebalance.summary.sellLabel': 'Pārdod',
   'rebalance.summary.sellSub': 'apgriežamās pozīcijas',
+  'rebalanceDriftCard.drift': 'novirze {{sign}}{{pct}}% · josla ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'mērķis {{pct}} %',
   'reports.attributionHeading': 'Veiktspējas attiecinājums (1 gads)',
   'reports.col.alpha': 'Alfa',
@@ -113,37 +157,68 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Gads',
   'reports.gainsHeading': 'Realizētā un nerealizētā peļņa',
   'reports.noAttribution': 'Vēl nav attiecinājuma datu.',
+  'reports.noGains': 'Vēl nav datu par realizētajiem/nerealizētajiem ieguvumiem.',
   'reports.noPerformance': 'Vēl nav veiktspējas datu.',
   'reports.noTaxDocs': 'Vēl nav nodokļu dokumentu.',
   'reports.performanceHeading': 'Veiktspēja salīdzinājumā ar etalonu',
   'reports.taxHeading': 'Nodokļu dokumenti',
   'resetPassword.heading': 'Izvēlieties jaunu, spēcīgu paroli',
+  'resetPassword.passwordPlaceholder': 'Jauna parole',
   'resetPassword.subheading':
     'Argent jūs automātiski pierakstīs, tiklīdz jūsu parole būs iestatīta.',
   'resetPassword.tokenPlaceholder': 'Atiestatīt žetonu no e-pasta',
+  'settings.appearance.description': 'Pārslēgties starp gaišo un tumšo režīmu.',
   'settings.appearance.title': 'Izskats',
+  'settings.devices.body': 'Ierīces, kurās pašlaik ir veikta pierakstīšanās jūsu kontā.',
+  'settings.devices.empty': 'Nav atrasta neviena ierīce.',
   'settings.devices.heading': 'Ierīces',
+  'settings.devices.revokeWarning': 'Šīs ierīces piekļuve drīz tiks atsaukta. Izrakstīt to?',
   'settings.devices.signOut': 'Izrakstīties',
   'settings.devices.thisDevice': 'Šī ierīce',
   'settings.devices.unknown': 'Nezināma ierīce',
   'settings.linked.body':
     'Brokeru pakalpojumu sinhronizācijai ir nepieciešams trešās puses savienotājs (Plaid, Yodlee utt.). Konfigurējiet pakalpojumu sniedzēju savā vidē, lai iespējotu automātisko importēšanu.',
   'settings.linked.heading': 'Saistītie brokeru konti',
+  'settings.linked.placeholder': 'Vēl nav piesaistītu kontu.',
+  'settings.notifications.dividendsPaid': 'Izmaksātās dividendes',
   'settings.notifications.error': 'Nevarēja atjaunināt preferenci.',
   'settings.notifications.priceAlerts': 'Cenu brīdinājumi',
+  'settings.notifications.rebalanceDrift': 'Pārbalansēšanas novirze',
+  'settings.notifications.taxDocsReady': 'Nodokļu dokumenti gatavi',
   'settings.profile.advisor': 'Konsultanta e-pasts (pēc izvēles)',
   'settings.profile.heading': 'Profils',
   'settings.security.changePassword': 'Mainīt paroli',
+  'settings.security.changePasswordTitle': 'Mainīt paroli',
   'settings.security.changing': 'Mainās…',
+  'settings.security.confirmPassword': 'Parole',
+  'settings.security.currentPassword': 'Pašreizējais paroles',
   'settings.security.deleteAccount': 'Dzēst kontu',
   'settings.security.deleteError': 'Nevarēja izdzēst kontu.',
   'settings.security.deleteHeading': 'Dzēst kontu',
+  'settings.security.deleteModalWarning':
+    'Tas neatgriezeniski dzēsīs tavu kontu un datus. Lai apstiprinātu, ievadi savu paroli.',
+  'settings.security.deleteWarning':
+    'Neatgriezeniski dzēst savu kontu un visus saistītos datus. Šo darbību nevar atsaukt.',
   'settings.security.deleting': 'Dzēš…',
   'settings.security.heading': 'Drošība',
   'settings.security.newPassword': 'Jauna parole',
   'settings.security.password': 'Parole',
+  'settings.security.passwordError': 'Nevarēja mainīt paroli.',
+  'settings.security.passwordHint': 'Maini paroli, ko izmanto, lai pierakstītos.',
+  'settings.security.twoFactor': 'Divfaktoru autentifikācija',
+  'settings.security.twoFactorCode': 'Autentifikācijas kods',
+  'settings.security.twoFactorDisable': 'Atspējot',
+  'settings.security.twoFactorDisableTitle': 'Atspējot divpakāpju autentifikāciju',
   'settings.security.twoFactorEnable': 'Ieslēgt',
+  'settings.security.twoFactorEnableTitle': 'Iespējot divpakāpju autentifikāciju',
+  'settings.security.twoFactorHint': 'Pievieno savam kontam papildu aizsardzības slāni.',
   'settings.security.twoFactorInvalidCode': 'Nepareizs kods',
+  'settings.security.twoFactorOn': 'Par',
+  'settings.security.twoFactorQrAlt': 'Divfaktoru QR kods',
+  'settings.security.twoFactorScan':
+    'Noskenējiet šo QR kodu ar savu autentifikācijas lietotni, pēc tam ievadiet 6 ciparu kodu.',
+  'settings.security.twoFactorUnavailable':
+    'Divfaktoru autentifikācija šai lietotnei nav pieejama.',
   'settings.security.twoFactorVerify': 'Pārbaudīt un aktivizēt',
   'settings.tax.error': 'Nevarēja atjaunināt nodokļu metodi.',
   'settings.tax.heading': 'Nodokļu partijas uzskaite',
@@ -154,6 +229,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Nodokļu metode saglabāta.',
   'signup.eyebrow': 'Atvērt kontu',
   'signup.heading': 'Atveriet savu Argent kontu',
+  'signup.legalPrefix': 'Izveidojot kontu, jūs piekrītat {{appName}}',
   'signup.subheading': '30 dienas bez maksas. Karte nav nepieciešama. Varat atcelt jebkurā laikā.',
   'signup.terms':
     'Izveidojot kontu, jūs piekrītat Argent pakalpojumu sniegšanas noteikumiem un privātuma politikai.',

@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'មានមតិកែលម្អ រកឃើញកំហុស ឬចង់បាន {{app}} សម្រាប់ស្ទូឌីយោ ឬក្រុមរបស់អ្នក? ទាក់ទងមកពីការកំណត់គណនីរបស់អ្នក — រាល់សារទាំងអស់ត្រូវបានផ្ញើទៅមនុស្សពិតប្រាកដក្នុងក្រុម។',
   'about.contactTitle': 'ទាក់ទងមកយើង',
+  'about.intro':
+    '{{app}} គឺជាស្ទូឌីយោសរសេរសហការ ដែលអ្នកកែសម្រួល អ្នកនិពន្ធ និងក្រុមនានាព្រាងជាមួយគ្នាក្នុងពេលជាក់ស្តែង។ បើកឯកសារមួយ ហើយទំព័រនោះក្លាយជាការចែករំលែក — ទស្សន៍ទ្រនិចផ្លាស់ទី មតិភ្ជាប់គ្នានៅគែមទំព័រ ហើយរាល់ការកែសម្រួលត្រូវបានរក្សាទុកដោយសុវត្ថិភាពក្នុងប្រវត្តិ។',
+  'about.missionBody':
+    'យើងជឿថាការសរសេរបែបវែងឆ្ងាយសមនឹងទទួលបានកន្លែងស្ងប់ស្ងាត់ និងផ្តោតអារម្មណ៍ — កន្លែងដែលសាងសង់ឡើងជុំវិញសាត្រាស្លឹករឹត មិនមែនកិច្ចប្រជុំ ឬប្រអប់សារចូលនោះទេ។ កម្មវិធីកែសម្រួល វត្តមានជាក់ស្តែង និងប្រវត្តិកំណែរបស់យើង សុទ្ធតែត្រូវបានរចនាឡើង ដើម្បីឱ្យអ្នកសហការអាចធ្វើការលឿនជាមួយគ្នា ដោយគ្មាននរណាម្នាក់បាត់បង់កថាខណ្ឌ ឬគំនិតណាមួយឡើយ។',
+  'about.missionTitle': 'បេសកកម្មរបស់យើង',
+  'about.subtitle': 'គិតជាមួយគ្នា សរសេរជារៀងរហូត។',
   'about.title': 'អំពី {{app}}',
   'comments.addFailed': 'មិនអាចបង្ហោះមតិយោបល់បានទេ។',
   'comments.backToDoc': 'ត្រឡប់ទៅសាត្រាស្លឹករឹតវិញ',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'ខ្សែស្រឡាយមតិយោបល់',
   'comments.loading': 'កំពុងផ្ទុកខ្សែស្រឡាយ…',
   'comments.newPlaceholder': 'បន្ថែមមតិយោបល់ទៅសាត្រាស្លឹករឹត...',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'បើកឡើងវិញ',
   'comments.reopenFailed': 'មិនអាចបើកឡើងវិញបានទេ។',
   'comments.replyFailed': 'មិនអាចបង្ហោះការឆ្លើយតបបានទេ។',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'សេចក្តីព្រាងថ្មីៗ ស្នាដៃដែលបានចែករំលែក និងការកែសម្រួលប្រចាំថ្ងៃ។',
   'dashboard.viewFeed': 'ចំណី →',
   'editor.back': 'ត្រឡប់ទៅសាត្រាស្លឹករឹតវិញ',
+  'editor.bodyLabel': 'តួឯកសារ',
   'editor.bodyPlaceholder': 'ចាប់ផ្តើមកន្លែងដែលទស្សន៍ទ្រនិចភ្លឹបភ្លែតៗ។',
   'editor.comments': 'មតិយោបល់',
   'editor.createFailed': 'មិនអាចបង្កើតឯកសារបានទេ។',
@@ -62,13 +72,19 @@ export const ui: UiTranslations = {
   'editor.version': 'វី {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody': 'ប្រសិនបើមានគណនីសម្រាប់ {{email}} តំណ​កំណត់​ឡើង​វិញ​កំពុង​ដំណើរការ។',
+  'forgotPassword.sentHeading': 'សូមពិនិត្យមើលអ៊ីមែលរបស់អ្នក',
+  'forgotPassword.submitting': 'កំពុងផ្ញើ\\u2026',
   'forgotPassword.subtitle': 'យើងនឹងផ្ញើអ៊ីមែលទៅកាន់អ្នកនូវតំណភ្ជាប់កំណត់ឡើងវិញមួយ។',
   'landing.copyright': '\\u00a9 {{year}} {{app}} ។ បង្កើតឡើងដោយម៉ូលេគុល។',
+  'landing.ctaBody':
+    'ឥតគិតថ្លៃសម្រាប់អ្នកនិពន្ធឯករាជ្យ។ គម្រោងស្ទូឌីយោសម្រាប់ក្រុមអ្នកកែសម្រួល អ្នកនិពន្ធជំនួយ និងអ្នកពិនិត្យ។',
   'landing.ctaHeading': 'បើកទំព័រ។ អនុញ្ញាតឱ្យទស្សន៍ទ្រនិចចាប់ផ្តើម។',
   'landing.ctaPrimary': 'បើកស្ទូឌីយោមួយ',
   'landing.eyebrow': 'សម្រាប់អ្នកនិពន្ធ អ្នកកែសម្រួល និងក្រុមការងារ',
   'landing.featuresEyebrow': 'អ្វីដែលអ្នកទទួលបាន',
   'landing.featuresHeading': 'ស្ទូឌីយោសម្រាប់សេចក្តីព្រាងរយៈពេលវែង។',
+  'landing.featuresSubtitle':
+    '{{appName}} ត្រូវបានសាងសង់ឡើងជុំវិញសាត្រាស្លឹករឹត — មិនមែនកិច្ចប្រជុំ មិនមែនប្រអប់សារចូលនោះទេ។',
   'landing.getStarted': 'បើកស្ទូឌីយោ',
   'landing.heroCta': 'ចាប់ផ្តើមសរសេរ',
   'landing.heroSubtitle':
@@ -94,6 +110,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} មិនទាន់អាន · មតិយោបល់ ការលើកឡើង ការអញ្ជើញចែករំលែក និងសំណើសុំយោបល់។',
   'presenceAvatars.label': '{{count}} អ្នកសហការ',
+  'privacy.intro': 'របៀបដែលយើងប្រមូល ប្រើប្រាស់ និងការពារព័ត៌មានរបស់អ្នក។',
   'privacy.title': 'គោលការណ៍ឯកជនភាព',
   'profile.about.description':
     'ជីវប្រវត្តិខ្លីមួយសម្រាប់ប្រវត្តិរូបសាធារណៈរបស់អ្នក និងទំព័រអ្នកចូលរួមចំណែក។',
@@ -107,7 +124,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'វត្តមាន',
   'profile.pronouns': 'សព្វនាម',
   'profile.publicToggle': 'បង្ហាញប្រវត្តិរូបដល់មិត្តរួមក្រុម',
+  'profile.role': 'តួនាទី / ងារ',
   'profile.subtitle': 'របៀបដែលអ្នកបង្ហាញខ្លួនចំពោះអ្នកសហការរបស់អ្នក។',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} អ្នកនិពន្ធសកម្មនៅក្នុងស្ទូឌីយោ',
   'quillonAuthBrandPanel.quote':
     '«ការសរសេរគឺជារឿងតែមួយគត់ដែលពេលខ្ញុំធ្វើវា ខ្ញុំមិនមានអារម្មណ៍ថាខ្ញុំគួរធ្វើអ្វីផ្សេងទៀតទេ»។',
@@ -115,6 +134,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'បើក →',
   'quillonKpiCard.trend': 'និន្នាការថ្មីៗ',
   'quillonLayout.menu': 'ម៉ឺនុយ',
+  'quillonLayout.mobileNavLabel': 'ការរុករកលើទូរសព្ទ',
   'quillonLayout.primaryNavLabel': 'ការរុករកចម្បង',
   'quillonStudioHero.collab': 'អ្នកសហការ',
   'quillonStudioHero.docs': 'ឯកសារដែលបានប៉ះពាល់',
@@ -123,7 +143,9 @@ export const ui: UiTranslations = {
   'quillonStudioHero.subtitle': 'លើក​សាត្រាស្លឹករឹត បញ្ចេញមតិ ហើយ​រុញ​កថាខណ្ឌ​មួយ​ទៅមុខ។',
   'quillonStudioHero.words': 'ពាក្យ​ថ្ងៃនេះ',
   'resetPassword.confirmPlaceholder': 'ធ្វើពាក្យសម្ងាត់ថ្មីម្តងទៀត',
+  'resetPassword.passwordLabel': 'ពាក្យសម្ងាត់ថ្មី',
   'resetPassword.passwordPlaceholder': 'បញ្ចូលពាក្យសម្ងាត់ថ្មី',
+  'resetPassword.submitting': 'កំពុងកំណត់ឡើងវិញ…',
   'resetPassword.subtitle': 'ជ្រើសរើសពាក្យសម្ងាត់ដ៏រឹងមាំមួយ — យ៉ាងហោចណាស់ ១២ តួអក្សរ។',
   'settings.account.description': 'របៀបដែលអ្នកចូល។',
   'settings.billing.canceled': 'ការជាវត្រូវបានលុបចោល។',
@@ -132,7 +154,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'មិនត្រូវបានកំណត់រចនាសម្ព័ន្ធទេ',
   'settings.billing.updated': 'ផែនការត្រូវបានធ្វើបច្ចុប្បន្នភាព។',
   'settings.editor.description': 'របៀបដែលផ្ទាំងក្រណាត់មានឥរិយាបទនៅពេលអ្នកសរសេរ។',
+  'settings.editor.title': 'ចំណូលចិត្តរបស់អ្នកកែសម្រួល',
   'settings.eyebrow': 'ចំណូលចិត្តស្ទូឌីយោ',
+  'settings.language.title': 'ភាសា',
   'settings.notifications.${n.key}.description': 'ភាសា',
   'settings.notifications.description': 'ជ្រើសរើស​អ្វីដែល​ទៅដល់​ប្រអប់សំបុត្រ​របស់អ្នក។',
   'settings.subtitle': 'លៃតម្រូវការជូនដំណឹង ផ្ទាំងកម្មវិធីនិពន្ធ និងចំណូលចិត្តគណនីរបស់អ្នក។',
@@ -141,6 +165,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'បានចែករំលែកជាមួយខ្ញុំ',
   'shared.loadFailed': 'មិនអាចផ្ទុកឯកសារដែលបានចែករំលែកបានទេ។',
   'shared.subtitle': 'សាត្រាស្លឹករឹត សេចក្តីសង្ខេប និងកំណត់ចំណាំពីស្ទូឌីយោដែលនៅសល់។',
+  'signup.brandAttribution': 'Anaïs Park — អ្នកកែសម្រួល, The Quarterly',
   'signup.brandQuote':
     '\\u201cសាត្រាស្លឹករឹតដំបូងរបស់អ្នកគឺពិបាកបំផុត។ Quillon ធ្វើឱ្យវាមិនសូវឯកោ។\\u201d',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -148,6 +173,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'អាណាអ៊ីស',
   'signup.heading': 'បង្កើតគណនី Quillon របស់អ្នក',
   'signup.lastNamePlaceholder': 'ឧទ្យាន',
+  'signup.submitting': 'កំពុងបើកស្ទូឌីយោរបស់អ្នក\\u2026',
   'signup.subtitle':
     'តុស្ងាត់មួយ អ្នកសហការដែលមានបរិយាកាសជុំវិញខ្លួន និងអ្នកកែសម្រួលទម្រង់វែងដែលជួយសម្រួលដល់អ្នក។',
   'templates.blank.subtitle': 'ទំព័រស្អាតមួយ។ ទស្សន៍ទ្រនិចចាប់ផ្តើម។',
@@ -160,11 +186,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'ចាប់ផ្តើមជាមួយនឹងរចនាសម្ព័ន្ធដ៏ស៊ីជម្រៅ។ ប្ដូរតាមបំណងដោយគ្មានទីបញ្ចប់។',
   'templates.useFailed': 'មិនអាចចាប់ផ្តើមឯកសារពីគំរូនេះបានទេ។',
   'templates.useTemplate': 'ប្រើប្រាស់គំរូនេះ',
+  'terms.intro': 'លក្ខខណ្ឌដែលអ្នកអាចប្រើសេវាកម្មនេះ។',
   'terms.title': 'លក្ខខណ្ឌនៃសេវាកម្ម',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'អម្បាញ់មិញ',
   'trash.confirmDelete': 'បញ្ជាក់ការលុប',
+  'trash.confirmEmpty': 'បញ្ជាក់ — លុបអ្វីៗទាំងអស់',
   'trash.deleteFailed': 'មិនអាចលុបបានទេ។',
   'trash.deleteForever': 'លុបជារៀងរហូត',
   'trash.empty': 'គ្មានអ្វីត្រូវស្តារឡើងវិញទេ។',
@@ -179,7 +207,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'មិនទាន់មានការកែប្រែនៅឡើយទេ — សូមរក្សាទុកឯកសារដើម្បីចាប់ផ្តើមប្រវត្តិរបស់វា។',
   'versionHistory.heading': 'ប្រវត្តិកំណែ',
+  'versionHistory.latest': 'ថ្មីបំផុត',
   'versionHistory.loadFailed': 'មិនអាចផ្ទុកប្រវត្តិបានទេ។',
+  'versionHistory.noContent': 'គ្មានខ្លឹមសារត្រូវបានចាប់យកសម្រាប់កំណែនេះទេ។',
   'versionHistory.previewing': 'កំពុងមើលជាមុន',
   'versionHistory.restore': 'ស្ដារកំណែនេះឡើងវិញ',
   'versionHistory.restoreFailed': 'ការស្ដារឡើងវិញបរាជ័យ។',

@@ -1,11 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Fikr-mulohaza bildirmoqchimisiz, xatolik topdingizmi yoki yangi funksiya taklif qilmoqchimisiz? Har bir xabar {{app}} jamoasidagi haqiqiy insonga yetib boradi — nimalarni o‘rganayotganingizni eshitishdan mamnun bo‘lamiz.',
   'about.contactTitle': "Bog'laning",
   'about.eyebrow': '{{app}} haqida',
+  'about.intro':
+    '{{app}} — bilim haqiqatan ham esda qolishini istaganlar uchun oraliqli takrorlashga asoslangan fleshkartalar ilovasi. Til o‘rganayotgan bo‘lsangiz ham, formulalarni yodlayotgan bo‘lsangiz ham yoki imtihon uchun tushunchalarni mashq qilayotgan bo‘lsangiz ham, u har bir kartani siz unutish arafasida bo‘lgan paytda rejalashtiradi — xotira ilmi faktlarni uzoq muddatli eslashga o‘tkazishning eng samarali usuli sifatida shuni topgan.',
+  'about.missionBody':
+    'Aksariyat o‘quv vositalari sarflangan vaqtga, eslab qolingan bilimga emas, e’tibor beradi. {{app}} esa buning aksini maqsad qiladi: muhim narsani xotirangizda saqlaydigan eng kam takrorlash. Bizning fikrimizcha, o‘rganish xotirjam, o‘lchanadigan va sizga tegishli bo‘lishi kerak — ochiq ma’lumotlar, qorong‘u usullarsiz va yillar davomida davom ettira oladigan odat.',
+  'about.missionTitle': 'Bizning vazifamiz',
   'about.pageTitle': '{{tagline}}.',
   'authShell.sampleBack': 'Vilnyus — 1,2 soniyada chaqirib olindi.',
   'authShell.sampleEyebrow': "Kelajakdagi to'plamingizdan karta",
+  'authShell.sampleFront': '“Litvaning poytaxti.”',
+  'authShell.sampleRetention': '{{pct}}% eslab qolish',
   'authShell.sampleStreak': '{{days}} -kunlik seriya',
   'cardEdit.title': 'Flashkartani tahrirlash',
   'cardEditor.backLink': 'Patga qaytish',
@@ -35,6 +44,8 @@ export const ui: UiTranslations = {
   'dashboard.kpi.days': 'kunlar',
   'deckDetail.backLink': 'Barcha paluba',
   'deckDetail.deleteError': "Deskni o'chirib bo'lmadi.",
+  'deckDetail.empty.body': 'Xotira qurishni boshlash uchun birinchi kartangizni qo‘shing.',
+  'deckDetail.empty.cta': 'Birinchi kartangizni qo‘shing',
   'deckDetail.empty.heading': "Bu to'plamda hali kartalar yo'q",
   'deckDetail.filterEmpty': 'Ushbu holat filtriga mos keladigan kartalar topilmadi.',
   'deckDetail.filterLabel': "Kartalarni shtat bo'yicha filtrlash",
@@ -47,7 +58,10 @@ export const ui: UiTranslations = {
   'deckDetail.stat.total': 'Kartalar',
   'deckDetail.studyDueLabel': "O'qish {{count}} tufayli",
   'deckProgressCard.cardCount': '{{count}} kartalar',
+  'deckProgressCard.masteredTooltip': '{{count}} o‘zlashtirildi',
   'deckProgressCard.studyCta': "O'qish {{count}}",
+  'decks.confirmDelete':
+    'Bu to‘plam va undagi barcha kartalar o‘chirilsinmi? Buni ortga qaytarib bo‘lmaydi.',
   'decks.create.heading': 'Desk yaratish',
   'decks.create.nameLabel': 'Palata nomi',
   'decks.create.submit': 'Desk yaratish',
@@ -58,6 +72,7 @@ export const ui: UiTranslations = {
   'decks.heading': 'Palatalar',
   'decks.loadError': 'Desklarni yuklashda xatolik yuz berdi.',
   'decks.loading': 'Yuklanmoqda…',
+  'decks.newDeckLabel': 'Yangi paluba',
   'decks.retention': 'Saqlab qoling',
   'decks.studyArrow': "O'qish →",
   'decks.subheading': "{{count}} paluba · ko'rib chiqish va boshqarish",
@@ -81,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'Menda allaqachon hisob bor',
   'landing.heroSubtitle':
     "Masofaviy takrorlash siqilish va eslab qolish o'rtasidagi farqni keltirib chiqaradi. Yildan-yilga kuniga besh daqiqa vaqt sarflang va til o'z o'rnida qoladi.",
+  'landing.heroTitle': '{{tagline}}.',
   'landing.proof.export': "Ochiq ma'lumotlar, blokirovka yo'q",
   'landing.proof.free': 'Shaxsiy foydalanish uchun abadiy bepul',
   'landing.proof.import': '.apkg / CSV faylini import qilish',
@@ -95,12 +111,16 @@ export const ui: UiTranslations = {
   'login.heading': 'Sahifangizga yana xush kelibsiz',
   'login.orDivider': 'yoki davom eting',
   'login.signupLink': "Bepul o'qishni boshlang",
+  'login.signupPrompt': 'Bu yerda yangimisiz?',
   'login.subtitle': "To'xtagan joyingizdan davom eting — seriyangiz sizni kutmoqda.",
   'mobileNav.closeMenu': 'Navigatsiya menyusini yopish',
   'mobileNav.openMenu': 'Navigatsiya menyusini ochish',
   'notifications.markAllReadError': "Hammasini o'qilgan deb belgilashda xatolik yuz berdi.",
   'pricing.heading': 'kartalar',
+  'pricing.limits.cards': 'kartalar',
   'pricing.limits.decks': 'palubalar',
+  'pricing.limits.historyDays': '{{days}} kunlik takrorlash tarixi',
+  'pricing.limits.historyUnlimited': 'Cheksiz takrorlash tarixi',
   'pricing.limits.stats': 'statistika',
   'pricing.limits.study': "o'rganish",
   'resetPassword.passwordLabel': 'Yangi parol',
@@ -112,18 +132,31 @@ export const ui: UiTranslations = {
   'sessionSummary.heading': 'Juda qoyil.',
   'sessionSummary.label': 'Sessiya yakunlandi',
   'settings.changePasswordError': "Parolni o'zgartirib bo'lmadi.",
+  'settings.confirmPassword': 'Parolingizni tasdiqlang',
   'settings.currentPassword': 'Joriy parol',
+  'settings.dangerZone': 'Xavfli zona',
+  'settings.deleteAccountHint':
+    'Hisobingizni va barcha o‘quv ma’lumotlaringizni butunlay o‘chiring. Buni ortga qaytarib bo‘lmaydi.',
+  'settings.deleteAccountWarning':
+    'Bu hisobingizni hamda barcha to‘plamlar, kartalar va o‘quv tarixini butunlay o‘chiradi. Buni ortga qaytarib bo‘lmaydi.',
   'settings.deleteError':
     "Hisobni o'chirib bo'lmadi. Parolingizni tekshiring va qaytadan urinib ko'ring.",
   'settings.deleting': "O'chirilmoqda…",
+  'settings.devicesHint': "Hisobingizga hozirda ro'yxatdan o'tgan qurilmalar.",
   'settings.newPassword': 'Yangi parol',
   'settings.password': 'Parol',
   'settings.passwordChanged': 'Parol yangilandi.',
+  'settings.passwordHint': 'Tizimga kirish uchun ishlatadigan parolingizni o‘zgartiring.',
   'settings.reminders.atRisk':
     "Yo'l harakati to'xtashi xavfi haqida ogohlantirish (soat 20:00 dan keyin)",
+  'settings.reminders.daily': 'Kundalik eslatma (8:00)',
   'settings.reminders.heading': 'Eslatmalar',
+  'settings.reminders.milestones': 'Muhim bosqich bayramlari',
   'settings.reminders.note':
     "Ushbu qurilmada saqlangan. Qaysi tadqiqot ushbu brauzer sahifalarini itarishini yoqing/o'chiring; sozlamalar qayta yuklashda sinxronlashtiriladi.",
+  'settings.reminders.weekly': 'Haftalik eslab qolish hisoboti (yakshanba kunlari)',
+  'settings.revokeDeviceWarning':
+    'Bu qurilmaning kirish huquqi tez orada bekor qilinadi. Uni chiqarasizmi?',
   'settings.saved': 'Saqlandi.',
   'settings.saveError': "Saqlab bo'lmadi.",
   'settings.saving': 'Saqlanmoqda…',
@@ -139,6 +172,7 @@ export const ui: UiTranslations = {
   'signup.legal':
     'Hisob yaratish orqali siz bizning Shartlar va Maxfiylik siyosatimizga rozilik bildirasiz.',
   'signup.nameLabel': 'Ismingiz (ixtiyoriy)',
+  'signup.orDivider': "yoki ro'yxatdan o'ting",
   'signup.subtitle': "Kuniga besh daqiqa. Kelajakni eslab qoladigan o'zim.",
   'stats.byStateHeading': "Shtat bo'yicha kartalar",
   'stats.dailyHeading': 'Kunlik sharhlar (oxirgi 30 kun)',
@@ -175,5 +209,6 @@ export const ui: UiTranslations = {
   'todayHeroCard.goalLabel': 'Kunlik maqsad',
   'todayHeroCard.goalProgress': '{{reviewed}} / {{goal}}',
   'todayHeroCard.streakBadge': '{{days}} -kunlik seriya',
+  'todayHeroCard.studyCta': 'O‘qishni boshlash',
   'userMenu.stats': 'Mening statistikam',
 }

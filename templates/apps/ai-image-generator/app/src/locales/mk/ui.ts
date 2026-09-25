@@ -1,14 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Имате повратна информација, наидовте на проблем или сакате да ни кажете што да изградиме следно? Контактирајте го тимот на hello@reverie.app — секоја порака стигнува до вистинска личност која го создава производот.',
   'about.contactTitle': 'Контактирајте не',
+  'about.missionTitle': 'Нашата мисија',
   'auth.fields.newPassword': 'Нова лозинка',
   'collectionDetail.addImage': 'Возбудете се за собирање',
   'collectionDetail.backCta': 'Назад кон колекциите',
   'collectionDetail.coverNote': 'Курирана табла за расположение со {{count}} слики.',
   'collectionDetail.editName': 'Име на колекцијата',
+  'collectionDetail.empty':
+    'Сè уште нема слики во оваа колекција — генерирајте нешто за да додадете.',
   'collectionDetail.loading': 'Се вчитува колекцијата…',
   'collectionDetail.loadingImages': 'Се вчитуваат слики…',
+  'collectionDetail.notFoundBody': 'Оваа колекција е отстранета или е приватна.',
   'collectionDetail.notFoundTitle': 'Колекцијата е недостапна',
   'collectionDetail.shared': 'Видливоста е вклучена',
   'collections.create': 'Нова колекција',
@@ -16,6 +22,7 @@ export const ui: UiTranslations = {
     'Сè уште нема колекции. Создадете една за да започнете со курирање на вашата работа.',
   'collections.imageCount': '{{count}} слики',
   'collections.loading': 'Се вчитуваат колекциите…',
+  'collections.noDescription': 'Сè уште нема опис — отворете за да додадете.',
   'collections.subtitle': 'Табли за расположение, брифови и тековни серии',
   'collections.title': 'Колекции',
   'collections.untitled': 'Без наслов · {{stamp}}',
@@ -54,6 +61,7 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'Внесете ја е-поштата поврзана со вашата сметка на Reverie и ние ќе ви испратиме линк за ресетирање.',
   'forgot.successBody': 'Линкот за ресетирање е на пат кон {{email}} .',
+  'gallery.empty.body': 'Пробајте друго состојба или генерирајте нова серија од студиото.',
   'gallery.empty.title': 'Ништо не се совпаѓа со тој филтер',
   'gallery.exportAll': 'Извези ги сите',
   'gallery.exported': 'Извозот е во ред на чекање',
@@ -77,12 +85,15 @@ export const ui: UiTranslations = {
   'generate.controls.title': 'Намести го сонот',
   'generate.defaultPrompt': 'Нов сон',
   'generate.progress': 'Чекор {{step}} / {{total}}',
+  'generate.submitFailed':
+    'Генерирањето не можеше да се стави во ред — проверете ја врската и обидете се повторно.',
   'generate.subtitle': 'Составете потсетник, вклучете ги контролите, измислувајте варијанти',
   'generate.title': 'Студио',
   'generation.created': '{{when}}',
   'imageDetail.acting': 'Работам…',
   'imageDetail.actionFailed': 'Дејството не успеа.',
   'imageDetail.actions': 'Дејства за слики',
+  'imageDetail.downloadStarted': 'Преземањето започна.',
   'imageDetail.downloadUnavailable': 'Сè уште нема достапна слика за преземање.',
   'imageDetail.fields.aspect': 'Аспект',
   'imageDetail.fields.created': 'Создадено',
@@ -93,11 +104,17 @@ export const ui: UiTranslations = {
   'imageDetail.notFoundTitle': 'Сликата е недостапна',
   'imageDetail.noVariations': 'Сè уште нема варијации — побарајте една погоре.',
   'imageDetail.openEditor': 'Отвори во уредувачот',
+  'imageDetail.tips.lockSeed':
+    'Заклучете го семето за да итерирате на осветлувањето без да ја изгубите композицијата.',
+  'imageDetail.tips.upscale':
+    'Извршете зголемување 4× пред извоз за квалитет подготвен за печатење.',
   'imageDetail.tipsTitle': 'Усоврши го сонот',
+  'imageDetail.title': 'Image',
   'imageDetail.upscaleQueued': 'Во ред на чекање за луксуз',
   'imageDetail.variations': 'Варијации',
   'imageDetail.variationsQueued': 'Варијациите се во ред на чекање',
   'imageDetail.visibilityToggled': 'Видливоста е ажурирана',
+  'landing.copyright': '© {{year}} {{appName}} Labs. Изградено со Molecule.dev.',
   'landing.cta': 'Започнете со креирање',
   'landing.eyebrow': 'Сега се служи Reverie XL v3',
   'landing.featuresEyebrow': 'Зошто Ревери',
@@ -138,8 +155,17 @@ export const ui: UiTranslations = {
     'Активноста на генерирање, споделувањето и известувањата за кредит ќе се појават тука.',
   'notifications.empty.title': 'Нема ништо за пријавување',
   'notifications.subtitle': 'Генерациски настани групирани по ден',
+  'planUpdated.confirmed': 'Вашиот {{planKey}} план е активен и кредитите се додадени.',
+  'planUpdated.error':
+    'Не можевме автоматски да го потврдиме вашето надградување. Ве молиме контактирајте ја поддршката.',
+  'planUpdated.retry': 'Обидете се повторно',
+  'planUpdated.unpaid': 'Вашата сесија за плаќање не е платена. Обидете се повторно од Поставки.',
+  'planUpdated.verifyFailed': 'Сè уште не можевме да ја потврдиме вашата уплата.',
+  'planUpdated.verifyFailedBody':
+    'Вашето плаќање можеби сè уште се обработува. Обидете се повторно за момент.',
   'planUpdated.verifying': 'Се потврдува вашата уплата…',
   'pricing.limits.gallery': '{{count}} галерија',
+  'pricing.limits.generations': '{{count}} генерации',
   'privacy.collect.body':
     'Кога се регистрирате, ние ги собираме вашето име, е-пошта адреса и хаширана лозинка. Додека го користите Reverie, ги складираме барањата што ги поднесувате, сликите што ги генерираме за вас, стиловите и колекциите што ги зачувувате и метаподатоците како што се користениот модел, временските ознаки за генерирање и салдото на кредитот.',
   'privacy.cookies.body':
@@ -153,6 +179,8 @@ export const ui: UiTranslations = {
   'profile.followedBio': 'Следев создавач токму сега',
   'profile.following': 'Следејќи…',
   'profile.loadingWorks': 'Се вчитуваат јавни работи…',
+  'profile.noPublicWorks':
+    'Сè уште нема јавни дела — споделете слика за да ја наполните оваа галерија.',
   'profile.notFoundTitle': 'Профилот е недостапен',
   'profile.publicWorks': 'Јавни работи',
   'profile.subtitle': '@ {{handle}} · јавен профил на креатор',
@@ -164,6 +192,7 @@ export const ui: UiTranslations = {
   'prompts.empty.cta': 'Отворено студио',
   'prompts.empty.title': 'Нема зачувани потсетници што се совпаѓаат',
   'prompts.lastUsed': 'Користено {{when}}',
+  'prompts.loading': 'Се вчитуваат потсетници…',
   'prompts.negativeLabel': 'НЕГ',
   'prompts.runAgain': 'Стартувај',
   'prompts.running': 'Трчање…',
@@ -179,6 +208,7 @@ export const ui: UiTranslations = {
   'settings.account.saveFailed': 'Не може да се зачува профилот',
   'settings.account.title': 'Профил на создавач',
   'settings.accountSecurity': 'Сметка и безбедност',
+  'settings.accountSecurity.title': 'Најава, уреди и сметка',
   'settings.api.empty': 'Сè уште нема API клучеви — креирајте еден за да започнете со интегрирање.',
   'settings.api.loading': 'Се вчитуваат API клучевите…',
   'settings.api.revoked': 'API клучот е отповикан',
@@ -197,14 +227,18 @@ export const ui: UiTranslations = {
   'sidebar.secondary': 'Секундарна навигација',
   'signup.failed': 'Регистрацијата не успеа. Обидете се повторно.',
   'signup.firstNamePlaceholder': 'Арија',
+  'signup.haveAccount': 'Веќе сте сонувач?',
   'signup.heading': 'Започнете го вашето мечтаење',
   'signup.lastNamePlaceholder': 'Лин',
   'signup.subheading': 'Креирајте сметка и добијте 120 бесплатни кредити.',
+  'styles.body':
+    'Секој пресет вклучува свој модел, семплер, скеле за промптови и стилски чипови. Активирајте еден за да го заклучите целото студио во тоа расположение — совршено за работа на серии.',
   'styles.empty':
     'Сè уште нема претходно поставени стилови — тие ќе се појават по првото најавување.',
   'styles.eyebrow': 'Курирано',
   'styles.headline':
     'Возбудувајте се побрзо со визуелни претходно поставени поставки за повеќекратна употреба',
+  'styles.loading': 'Се вчитува библиотеката со стилови…',
   'styles.subtitle':
     'Курирани визуелни претходно поставени поставки изработени од тимот на студиото Reverie',
   'styles.title': 'Библиотека со стилови',

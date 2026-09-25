@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'გაქვთ გამოხმაურება, იპოვეთ ხარვეზი, ან გსურთ {{app}} თქვენი სტუდიისთვის ან გუნდისთვის? მოგვმართეთ ანგარიშის პარამეტრებიდან — ყველა შეტყობინება ხვდება გუნდის რეალურ ადამიანს.',
   'about.contactTitle': 'დაგვიკავშირდით',
+  'about.intro':
+    '{{app}} არის თანამშრომლობითი წერის სტუდია, სადაც რედაქტორები, მწერლები და გუნდები ერთად წერენ რეალურ დროში. გახსენით დოკუმენტი და გვერდი გახდება საერთო — კურსორები მოძრაობენ, კომენტარები ჩნდება ველზე და ყველა ცვლილება უსაფრთხოდ ინახება ისტორიაში.',
+  'about.missionBody':
+    'ჩვენ გვჯერა, რომ გრძელ ტექსტს იმსახურებს მშვიდი, ფოკუსირებული სივრცე — ისეთი, რომელიც ხელნაწერის გარშემოა აგებული და არა შეხვედრის ან შემოსულების. ჩვენი რედაქტორი, რეალურ დროში თანდასწრება და ვერსიების ისტორია ისეა შექმნილი, რომ თანამშრომლებმა ერთად სწრაფად იმუშაონ და არავინ დაკარგოს არც ერთი აბზაცი ან აზრი.',
+  'about.missionTitle': 'ჩვენი მისია',
+  'about.subtitle': 'იფიქრეთ ერთად, წერეთ სამუდამოდ.',
   'about.title': '{{app}}-ის შესახებ',
   'comments.addFailed': 'კომენტარის გამოქვეყნება ვერ მოხერხდა.',
   'comments.backToDoc': 'ხელნაწერზე დაბრუნება',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'კომენტარების თემები',
   'comments.loading': 'თემების ჩატვირთვა…',
   'comments.newPlaceholder': 'დაამატეთ კომენტარი ხელნაწერზე…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'ხელახლა გახსნა',
   'comments.reopenFailed': 'ხელახლა გახსნა ვერ მოხერხდა.',
   'comments.replyFailed': 'პასუხის გამოქვეყნება ვერ მოხერხდა.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'ბოლოდროინდელი ესკიზები, გაზიარებული ნამუშევრები და დღის რედაქტირება.',
   'dashboard.viewFeed': 'არხი →',
   'editor.back': 'ხელნაწერებზე დაბრუნება',
+  'editor.bodyLabel': 'დოკუმენტის ტექსტი',
   'editor.bodyPlaceholder': 'დაიწყეთ იქიდან, სადაც კურსორი ციმციმებს.',
   'editor.comments': 'კომენტარები',
   'editor.createFailed': 'დოკუმენტის შექმნა ვერ მოხერხდა.',
@@ -61,13 +71,19 @@ export const ui: UiTranslations = {
   'editor.version': 'ვ {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody': 'თუ ანგარიში არსებობს {{email}} , გადატვირთვის ბმული გზაშია.',
+  'forgotPassword.sentHeading': 'შეამოწმეთ თქვენი ელ.ფოსტა',
+  'forgotPassword.submitting': 'იგზავნება\\u2026',
   'forgotPassword.subtitle': 'გადატვირთვის ბმულს ელფოსტით გამოგიგზავნით.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . შექმნილია Molecule-ით.',
+  'landing.ctaBody':
+    'უფასოა დამოუკიდებელი მწერლებისთვის. Studio გეგმები რედაქტორების, მწერლებისა და რეცენზენტების გუნდებისთვის.',
   'landing.ctaHeading': 'გახსენით გვერდი. კურსორი დაიწყეთ.',
   'landing.ctaPrimary': 'სტუდიის გახსნა',
   'landing.eyebrow': 'მწერლებისთვის, რედაქტორებისა და გუნდებისთვის',
   'landing.featuresEyebrow': 'რას იღებთ',
   'landing.featuresHeading': 'სტუდია გრძელი ფორმის დრაფტისთვის.',
+  'landing.featuresSubtitle':
+    '{{appName}} აგებულია ხელნაწერის გარშემო — არა შეხვედრის, არა შემოსულების.',
   'landing.getStarted': 'გახსენით სტუდია',
   'landing.heroCta': 'დაიწყეთ წერა',
   'landing.heroSubtitle':
@@ -93,6 +109,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} წაუკითხავი · კომენტარები, ხსენებები, გაზიარების მოწვევები და შემოთავაზებების მოთხოვნები.',
   'presenceAvatars.label': '{{count}} თანამშრომლები',
+  'privacy.intro': 'როგორ ვაგროვებთ, ვიყენებთ და ვიცავთ თქვენს ინფორმაციას.',
   'privacy.title': 'კონფიდენციალურობის პოლიტიკა',
   'profile.about.description':
     'მოკლე ბიოგრაფია თქვენი საჯარო პროფილისა და კონტრიბუტორის გვერდებისთვის.',
@@ -106,7 +123,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'ყოფნა',
   'profile.pronouns': 'ნაცვალსახელები',
   'profile.publicToggle': 'პროფილის ჩვენება თანაგუნდელებისთვის',
+  'profile.role': 'როლი / თანამდებობა',
   'profile.subtitle': 'როგორ გამოიყურებით თქვენი თანამშრომლების თვალში.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} სტუდიაში აქტიური მწერლები',
   'quillonAuthBrandPanel.quote':
     '„წერა ერთადერთი რამაა, რისი კეთების დროსაც არ მგონია, რომ სხვა რამით უნდა ვიყო დაკავებული.“',
@@ -114,6 +133,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'გახსნა →',
   'quillonKpiCard.trend': 'ბოლოდროინდელი ტენდენცია',
   'quillonLayout.menu': 'მენიუ',
+  'quillonLayout.mobileNavLabel': 'მობილური ნავიგაცია',
   'quillonLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
   'quillonStudioHero.collab': 'თანამშრომლები',
   'quillonStudioHero.docs': 'დოკუმენტებს შეეხო',
@@ -122,7 +142,9 @@ export const ui: UiTranslations = {
   'quillonStudioHero.subtitle': 'აიღეთ ხელნაწერი, დატოვეთ კომენტარი, გადაწიეთ ერთი აბზაცი წინ.',
   'quillonStudioHero.words': 'სიტყვები დღეს',
   'resetPassword.confirmPlaceholder': 'გაიმეორეთ ახალი პაროლი',
+  'resetPassword.passwordLabel': 'ახალი პაროლი',
   'resetPassword.passwordPlaceholder': 'შეიყვანეთ ახალი პაროლი',
+  'resetPassword.submitting': 'გადატვირთვა…',
   'resetPassword.subtitle': 'აირჩიეთ ძლიერი პაროლი - მინიმუმ 12 სიმბოლო.',
   'settings.account.description': 'როგორ შეხვალთ სისტემაში.',
   'settings.billing.canceled': 'გამოწერა გაუქმდა.',
@@ -131,7 +153,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'კონფიგურირებული არ არის',
   'settings.billing.updated': 'გეგმა განახლებულია.',
   'settings.editor.description': 'როგორ იქცევა ტილო წერის დროს.',
+  'settings.editor.title': 'რედაქტორის პარამეტრები',
   'settings.eyebrow': 'სტუდიის პარამეტრები',
+  'settings.language.title': 'ენა',
   'settings.notifications.${n.key}.description': 'ენა',
   'settings.notifications.description': 'აირჩიეთ, რა მოგივათ შემოსულებში.',
   'settings.subtitle': 'შეტყობინებების, რედაქტორის ტილოს და თქვენი ანგარიშის პარამეტრების მორგება.',
@@ -140,6 +164,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'გაზიარებულია ჩემთან',
   'shared.loadFailed': 'გაზიარებული დოკუმენტების ჩატვირთვა ვერ მოხერხდა.',
   'shared.subtitle': 'ხელნაწერები, მოკლე მოხსენებები და შენიშვნები სტუდიის დანარჩენი ნაწილიდან.',
+  'signup.brandAttribution': 'Anaïs Park — რედაქტორი, The Quarterly',
   'signup.brandQuote':
     '\\u201cთქვენი პირველი ხელნაწერი ყველაზე რთულია. კვილონი მას ნაკლებად მარტოსულს ხდის.\\u201d',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -147,6 +172,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'ანაისი',
   'signup.heading': 'შექმენით თქვენი Quillon-ის ანგარიში',
   'signup.lastNamePlaceholder': 'პარკი',
+  'signup.submitting': 'იხსნება თქვენი სტუდია\\u2026',
   'signup.subtitle':
     'მშვიდი მაგიდა, გარემოსდაცვითი თანამშრომლები და გრძელი ფორმის რედაქტორი, რომელიც ხელს გიშლით.',
   'templates.blank.subtitle': 'სუფთა გვერდი. კურსორი იწყებს მუშაობას.',
@@ -159,11 +185,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'დაიწყეთ გააზრებული სტრუქტურით. დაუსრულებლად შეცვალეთ.',
   'templates.useFailed': 'ამ შაბლონიდან დოკუმენტის დაწყება ვერ მოხერხდა.',
   'templates.useTemplate': 'გამოიყენეთ ეს შაბლონი',
+  'terms.intro': 'პირობები, რომლებითაც შეგიძლიათ ამ სერვისის გამოყენება.',
   'terms.title': 'მომსახურების პირობები',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'ახლახან',
   'trash.confirmDelete': 'დაადასტურეთ წაშლა',
+  'trash.confirmEmpty': 'დადასტურება — ყველაფრის წაშლა',
   'trash.deleteFailed': 'წაშლა ვერ მოხერხდა.',
   'trash.deleteForever': 'სამუდამოდ წაშლა',
   'trash.empty': 'აღსადგენად არაფერია.',
@@ -178,7 +206,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'ჯერ არ არის რედაქტირებული ვერსია — შეინახეთ დოკუმენტი მისი ისტორიის დასაწყებად.',
   'versionHistory.heading': 'ვერსიის ისტორია',
+  'versionHistory.latest': 'უახლესი',
   'versionHistory.loadFailed': 'ისტორიის ჩატვირთვა ვერ მოხერხდა.',
+  'versionHistory.noContent': 'ამ ვერსიისთვის კონტენტი არ არის შენახული.',
   'versionHistory.previewing': 'გადახედვა',
   'versionHistory.restore': 'ამ ვერსიის აღდგენა',
   'versionHistory.restoreFailed': 'აღდგენა ვერ მოხერხდა.',

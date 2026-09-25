@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Frågor, feedback eller en funktionsförfrågan? Nå teamet på {{app}} via Inställningar → Aviseringar, eller skriv till oss när som helst — varje meddelande går till en riktig människa.',
+  'about.contactTitle': 'Kontakta oss',
   'about.eyebrow': 'Om',
+  'about.featureCapture':
+    'Kvittofångst med bilduppladdning som kopplar bilder till rätt utgift, rad för rad.',
+  'about.featureExport':
+    'Granskningsbara CSV-exporter av varje rapport, utgift och godkännandestatus — redo för din redovisningsavdelning.',
+  'about.featurePolicy':
+    'Policyregler — dagliga tak, gränser per kategori och kvittokrav som tillämpas vid inlämning.',
+  'about.featureWorkflow':
+    'Ett godkännandeflöde i två steg med granskarens kommentarer, flaggor för policyöverträdelser och markering av återbetalning med ett tryck.',
+  'about.intro':
+    '{{app}} är en plattform för utgiftshantering för ekonomiteam och personerna de återbetalar. Fånga ett kvitto, registrera en utgift, skicka en rapport genom godkännande och följ varje återbetalning — utan kalkylarksceremonier.',
+  'about.missionBody':
+    'Återbetalning ska vara snabb, rättvis och granskningsbar. Vi byggde {{app}} så att den som skickar in får betalt utan tjat, godkännare ser exakt vad de godkänner och ekonomin har ett tydligt spår för varje krona — med policykontroller och allt.',
+  'about.missionTitle': 'Vårt uppdrag',
   'approvals.approve': 'Godkänn',
   'approvals.approving': 'Godkänner…',
   'approvals.confirmReject': 'Bekräfta avvisning',
+  'approvals.empty': 'Du är helt uppdaterad — inga rapporter väntar.',
   'approvals.eyebrow': 'Chefskö',
   'approvals.kpi.flaggedLabel': 'Policyflaggad',
+  'approvals.kpi.queueLabel': 'Väntar på granskning',
   'approvals.kpi.totalLabel': 'Väntande värde',
   'approvals.lineCount': '{{count}} utgifter',
   'approvals.queueFallback': 'Direktkön är inte tillgänglig — visar kurerade demodata.',
   'approvals.reject': 'Avvisa',
   'approvals.rejecting': 'Avvisar…',
+  'approvals.rejectPlaceholder': 'Orsak (obligatoriskt)',
   'approvals.rejectPrompt': 'Varför avvisar du den här rapporten?',
   'approvals.review': 'Granska',
   'approvals.title': 'Väntande godkännanden',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18 %',
   'dashboard.kpi.approvedLabel': 'Godkänt · hittills i månaden',
   'dashboard.kpi.pendingDelta': '+2 denna vecka',
+  'dashboard.kpi.pendingLabel': 'Väntar på granskning',
   'dashboard.kpi.receiptsDelta': 'Åtgärd krävs',
   'dashboard.kpi.receiptsLabel': 'Väntar på kvitton',
   'dashboard.kpi.reimbursedDelta': '+2,4 k USD',
   'dashboard.kpi.reimbursedLabel': 'Återbetalt · hittills i månaden',
   'dashboard.newReport': 'Ny rapport',
+  'dashboard.recent.empty': 'Inga rapporter ännu — starta din första ovan.',
   'dashboard.recent.title': 'Senaste rapporter',
   'dashboard.recent.viewAll': 'Visa alla rapporter',
   'dashboard.summaryFallback':
@@ -39,11 +60,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'Kvitton och återbetalningsbara poster',
   'expenses.listFallback': 'Direktlistan är inte tillgänglig — visar kurerade demodata.',
   'expenses.searchPlaceholder': 'Sök handlare eller kategori…',
+  'expenses.subtotal': '{{count}} utgifter · delsumma',
   'expenses.title': 'Utgifter',
+  'forgotPassword.continue': 'Jag har en kod · Fortsätt',
+  'forgotPassword.subheading':
+    'Ange din jobbmejl så skickar vi en länk för att ange ett nytt lösenord.',
   'forgotPassword.successBody':
     'Om ett konto finns för {{email}} får du en återställningslänk inom några minuter.',
+  'landing.copyright': '© {{year}} {{app}}. Byggt med Molecule.dev.',
+  'landing.ctaBody':
+    'Gratis för de första 25 utgifterna varje månad. Inget kreditkort, inget implementeringssamtal.',
   'landing.ctaHeading': 'Redo att återvinna det ditt team har rätt till?',
   'landing.eyebrow': 'Utgiftsrapporter för finansteam',
+  'landing.featuresHeading': 'Återbetalning, på en lugn arbetsyta',
   'landing.heroSubtitle':
     'Skicka in, godkänn och ersätt affärskostnader utan kalkylbladsceremonin. Kvitto-OCR, policykontroller och en transparent tidslinje för godkännande – allt i en lugn arbetsyta.',
   'landing.heroTitle': 'Varje kvitto, återställt.',
@@ -61,10 +90,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Anteckningar',
   'newExpense.descriptionPlaceholder':
     'Varför denna utgift var arbetsrelaterad (syns för din godkännare).',
+  'newExpense.eyebrow': 'Återbetalningsbar post',
   'newExpense.merchant': 'Handlare',
   'newExpense.merchantPlaceholder': 'Hotel Adlon Kempinski',
   'newExpense.policyHint':
     'Påminnelse: måltider över 80 USD/dag eller någon post över 250 USD kräver en motivering.',
+  'newExpense.receipt': 'Kvitto',
+  'newExpense.receiptHint': 'JPG, PNG eller PDF · max 10 MB',
   'newExpense.receiptOcrHint': 'OCR förfyller fält',
   'newExpense.receiptPrompt': 'Släpp ett foto eller en PDF här, eller klicka för att bläddra',
   'newExpense.receiptUploadFailed':
@@ -74,16 +106,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Fota eller ladda upp ett kvitto så fyller Recoup i handlare, datum och totalsumma åt dig. Bekräfta allt nedan innan du sparar.',
   'newExpense.title': 'Lägg till utgift',
+  'newReport.approverHint':
+    'De får ett e-postmeddelande när du skickar in rapporten för granskning.',
   'newReport.approverLabel': 'Godkännares e-post (valfritt)',
   'newReport.approverPlaceholder': 'chef@dittföretag.com',
   'newReport.availableExpenses': 'Tillgängliga utgifter',
   'newReport.createFailed': 'Kunde inte skapa rapport. Försök igen.',
   'newReport.draftsFallback': 'Live-utgiftslista är inte tillgänglig – visar kurerad demodata.',
+  'newReport.eyebrow': 'Gruppera utgifter · skicka för godkännande',
   'newReport.includedCount': '{{count}} inkluderade',
   'newReport.purposeLabel': 'Affärssyfte',
   'newReport.purposePlaceholder':
     'Beskriv resan eller projektet som dessa utgifter avser (syns för din godkännare och finansavdelningen).',
   'newReport.saveDraft': 'Spara som utkast',
+  'newReport.saveDraftFailed': 'Kunde inte spara utkastet. Försök igen.',
   'newReport.submit': 'Skicka för godkännande',
   'newReport.submitFailed': 'Kunde inte skicka rapport. Försök igen.',
   'newReport.summary': 'Rapportsammanfattning',
@@ -96,16 +132,23 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'Aktivitet i arbetsytan',
   'notifications.feedFallback': 'Direktflödet är inte tillgängligt — visar kurerade demodata.',
   'notifications.openReport': 'Öppna rapport ›',
+  'pricing.approvalsLabel': 'godkännanden',
   'pricing.expensesLabel': 'utgifter',
   'pricing.heading': 'godkännanden',
   'pricing.policiesLabel': 'policyer',
   'pricing.receiptsLabel': 'kvitton',
   'recoveredAmountHeroCard.label': 'Återvunnen återbetalning · hittills i år',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} rapport(er) väntar för närvarande på granskning hos alla godkännare.',
+  'reports.approvalFlow': 'Godkännandeflöde',
   'reports.backToList': 'Tillbaka till rapporter',
   'reports.detailFallback': 'Direktrapport är inte tillgänglig — visar kurerade demodata.',
   'reports.lineItems': 'Poster',
   'reports.lineItemsCount': '{{count}} utgifter',
+  'reports.lineItemsEmpty': 'Inga utgifter på den här rapporten ännu.',
+  'reports.openLibrary': 'Öppna rapportbiblioteket',
   'reports.policyTitle': 'Policyflagga',
+  'reports.selectPrompt': 'Välj en rapport i biblioteket för att se dess detaljer.',
   'reports.summary.lineCount': 'Poster',
   'reports.summary.reimbursable': 'Återbetalningsbart',
   'reports.summary.total': 'Rapporterad totalsumma',
@@ -114,6 +157,7 @@ export const ui: UiTranslations = {
   'reportsList.lineItems': '{{count}} utgifter',
   'reportsList.listFallback': 'Direktlistan är inte tillgänglig — visar kurerade demodata.',
   'reportsList.newReport': 'Ny rapport',
+  'reportsList.submittedOn': 'Skickad {{date}}',
   'reportsList.title': 'Rapportbibliotek',
   'resetPassword.hidePassword': 'Dölj lösenord',
   'resetPassword.newPasswordLabel': 'Nytt lösenord',
@@ -139,6 +183,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Sparat ✓',
   'settings.profileSaveFailed': 'Kunde inte uppdatera profilen. Försök igen.',
   'signup.heading': 'Skapa ditt Recoup-konto',
+  'signup.hidePassword': 'Dölj lösenord',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Visa lösenord',
   'signup.subheading': 'Gratis för 25 utgifter per månad — inget kreditkort krävs.',

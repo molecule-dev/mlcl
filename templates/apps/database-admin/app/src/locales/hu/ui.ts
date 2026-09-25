@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Névjegy',
+  'about.featureConnections':
+    'Kapcsolatkezelő, amely biztonságosan tárolja és színkóddal látja el az adatbázisaidat — a hitelesítő adatok titkosítva vannak, soha nem nyílt szövegként.',
+  'about.featureMonitoring':
+    'Élő monitorozás a lekérdezések teljesítményéről és az adatbázis-tevékenységről, billentyűparancsokkal és parancspalettával, hogy mindent kéz nélkül irányíthass.',
+  'about.featurePlans':
+    'Csomagok, amelyek veled együtt nőnek — Free az egyéni munkához, Pro és Team több kapcsolathoz, hosszabb lekérdezés-megőrzéshez, exportokhoz és fejlett funkciókhoz.',
+  'about.featureQueryEditor':
+    'Monaco-alapú SQL-szerkesztő lekérdezés-előzményekkel, mentett lekérdezésekkel és egy kattintásos CSV-exporttal az eredményeidhez.',
+  'about.featureSchema':
+    'Sémafelfedező és táblaböngésző az adatbázisok, táblák és oszlopok közötti navigáláshoz, majd a sorok helyben történő böngészéséhez, szűréséhez és szerkesztéséhez.',
+  'about.missionTitle': 'Küldetésünk',
   'authShell.commands': 'Parancsok',
   'authShell.ssoSupported': 'SSO támogatott',
   'common.run': 'Futtatás',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Lekérdezések',
   'connections.schema': 'Séma',
   'connections.subtitle': 'Az adatbázis-kapcsolatok kezelése.',
+  'connections.test': 'Teszt',
   'databaseAdminLayout.adminRole': 'Adminisztrátori szerepkör',
   'databaseAdminLayout.commandPalette': 'Parancspaletta',
   'databaseAdminLayout.commands': 'parancsok',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Új kapcsolat',
   'databaseAdminLayout.queries': 'Lekérdezések',
   'databaseAdminLayout.ready': 'Kész',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Parancsok, lekérdezések, táblák keresése…',
   'databaseAdminLayout.user': 'Felhasználó',
   'editConnection.confirmDelete': 'Törölni szeretné ezt a kapcsolatot?',
   'editConnection.deleteButton': 'Kapcsolat törlése',
+  'editConnection.newPassword': 'Új jelszó (hagyd üresen a megtartáshoz)',
   'editConnection.saved': 'A kapcsolat elmentve.',
   'editConnection.title': 'Kapcsolat szerkesztése',
   'forgotPassword.success': 'Ha ez a fiók létezik, hamarosan megkapod a visszaállítási linket.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Sikerek',
   'monitoring.title': 'Ellenőrzés',
   'monitoring.totalQueries': 'Összes lekérdezés',
+  'nav.schema': 'Séma',
   'newConnection.database': 'Adatbázis',
   'newConnection.engine': 'Motor',
   'newConnection.host': 'Műsorvezető',
@@ -82,6 +98,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Ehhez a kódrészlethez nincs kapcsolódó kapcsolat.',
   'savedQuery.notBound': 'Nem kötött',
   'savedQuery.title': 'Mentett lekérdezés',
+  'schema.columns': 'Oszlopok',
   'schema.foreignKeys': 'Külső kulcsok',
   'schema.indexes': 'Indexek',
   'schemaExplorer.browseRows': 'Sorok böngészése',
@@ -90,14 +107,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'null-értékkel rendelkező',
   'schemaExplorer.colType': 'típus',
   'schemaExplorer.noColumns': 'Nincsenek oszlopok.',
+  'schemaExplorer.noForeignKeys': 'Nincsenek idegen kulcsok.',
   'schemaExplorer.noIndexes': 'Nincsenek indexek.',
   'schemaExplorer.noTables': 'Nincs táblázat',
   'schemaExplorer.pickATable': 'Válasszon ki egy táblázatot az oldalsávból.',
   'schemaExplorer.tables': 'Táblázatok',
   'schemaExplorer.title': 'Séma-böngésző',
+  'settings.session': 'Ülés',
   'settings.subtitle': 'Fiókjának és csomagjának kezelése.',
   'signup.heading': 'Hozzon létre Quarry-fiókot',
   'signup.tagline': 'Készítse elő a hozzáférést kevesebb mint egy perc alatt.',
   'tableBrowser.noRows': 'Ennek a táblázatnak még nincsenek sorai.',
+  'tableBrowser.subtitle': 'Sorok böngészése a távoli adatbázisodból.',
   'tableBrowser.title': 'Sorok böngészése a távoli adatbázisból.',
 }

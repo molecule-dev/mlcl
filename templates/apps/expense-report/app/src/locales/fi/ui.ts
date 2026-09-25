@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kysymyksiä, palautetta tai toiveita ominaisuudesta? Ota yhteyttä {{app}}-tiimiin kohdasta Asetukset → Ilmoitukset tai kirjoita meille milloin tahansa — jokainen viesti päätyy oikealle ihmiselle.',
+  'about.contactTitle': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
+  'about.featureCapture':
+    'Kuitin tallennus kuvana, joka liittää kuvat oikeaan kuluun rivi riviltä.',
+  'about.featureExport':
+    'Tarkastettavat CSV-viennit jokaisesta raportista, kulusta ja hyväksynnän tilasta — valmiina talousosastollesi.',
+  'about.featurePolicy':
+    'Käytäntöjen suojakaiteet — päiväkohtaiset ylärajat, kategorioittaiset rajat ja kuittivaatimusten raja-arvot tarkistetaan lähetyksen yhteydessä.',
+  'about.featureWorkflow':
+    'Kaksitasoinen hyväksyntätyönkulku, jossa on tarkastajan huomautukset, käytäntörikkomusten merkinnät ja yhden napautuksen korvausmerkintä.',
+  'about.intro':
+    '{{app}} on kulujenhallinta-alusta talousryhmille ja heidän korvattavilleen. Tallenna kuitti, kirjaa kulu, lähetä raportti hyväksyttäväksi ja seuraa jokaista korvausta — ilman taulukkoseremonioita.',
+  'about.missionBody':
+    'Korvausten tulisi olla nopeita, oikeudenmukaisia ja tarkastettavia. Rakensimme {{app}}:n, jotta lähettäjät saavat rahansa takaisin ilman nalkuttamista, hyväksyjät näkevät tarkalleen, mihin ovat hyväksyntänsä antamassa, ja talousosastolla on puhdas jälki jokaisesta eurosta — käytäntötarkistuksineen kaikkineen.',
+  'about.missionTitle': 'Missiomme',
   'approvals.approve': 'Hyväksy',
   'approvals.approving': 'Hyväksytään…',
   'approvals.confirmReject': 'Vahvista hylkäys',
+  'approvals.empty': 'Olet ajan tasalla — ei odottavia raportteja.',
   'approvals.eyebrow': 'Päällikön jono',
   'approvals.kpi.flaggedLabel': 'Käytäntö merkitty',
+  'approvals.kpi.queueLabel': 'Odottaa tarkastusta',
   'approvals.kpi.totalLabel': 'Odottava arvo',
   'approvals.lineCount': '{{count}} kulut',
   'approvals.queueFallback': 'Live-jono ei ole käytettävissä — näytetään kuratoitua demodataa.',
   'approvals.reject': 'Hylkää',
   'approvals.rejecting': 'Hylätään…',
+  'approvals.rejectPlaceholder': 'Syy (pakollinen)',
   'approvals.rejectPrompt': 'Miksi hylkäät tämän raportin?',
   'approvals.review': 'Tarkista',
   'approvals.title': 'Odottavat hyväksynnät',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18 %',
   'dashboard.kpi.approvedLabel': 'Hyväksytty · MTD',
   'dashboard.kpi.pendingDelta': '+2 tällä viikolla',
+  'dashboard.kpi.pendingLabel': 'Odottaa tarkistusta',
   'dashboard.kpi.receiptsDelta': 'Toimenpide vaaditaan',
   'dashboard.kpi.receiptsLabel': 'Odotetaan kuitteja',
   'dashboard.kpi.reimbursedDelta': '+2,4 tuhatta dollaria',
   'dashboard.kpi.reimbursedLabel': 'Korvattava · Keskimääräinen hoitojakso',
   'dashboard.newReport': 'Uusi raportti',
+  'dashboard.recent.empty': 'Ei vielä raportteja — aloita ensimmäinen yllä.',
   'dashboard.recent.title': 'Viimeaikaiset raportit',
   'dashboard.recent.viewAll': 'Näytä kaikki raportit',
   'dashboard.summaryFallback':
@@ -39,9 +60,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'Kuitit ja korvattavat tuotteet',
   'expenses.listFallback': 'Live-lista ei ole käytettävissä — näytetään kuratoitua demodataa.',
   'expenses.searchPlaceholder': 'Hae kauppiasta tai kategoriaa…',
+  'expenses.subtotal': '{{count}} kulua · välisumma',
   'expenses.title': 'Kulut',
+  'forgotPassword.continue': 'Minulla on koodi · Jatka',
+  'forgotPassword.subheading':
+    'Anna työsähköpostisi, niin lähetämme linkin uuden salasanan asettamista varten.',
+  'forgotPassword.successBody':
+    'Jos tilille {{email}} on olemassa tili, saat palautuslinkin muutaman minuutin kuluessa.',
+  'landing.copyright': '© {{year}} {{app}}. Rakennettu Molecule.devillä.',
+  'landing.ctaBody':
+    'Ilmainen ensimmäisten 25 kulun osalta joka kuukausi. Ei luottokorttia, ei käyttöönottopuhelua.',
   'landing.ctaHeading': 'Oletko valmis perimään takaisin joukkueellesi kuuluvat rahat?',
   'landing.eyebrow': 'Kuluraportit taloustiimeille',
+  'landing.featuresHeading': 'Kulukorvaukset yhdessä rauhallisessa työtilassa',
   'landing.heroSubtitle':
     'Lähetä, hyväksy ja korvaa liiketoiminnan kuluja ilman taulukkolaskentaseremoniaa. Kuittien OCR, käytäntöjen tarkistukset ja läpinäkyvä hyväksymisaikataulu – kaikki yhdessä rauhallisessa työtilassa.',
   'landing.heroTitle': 'Jokainen kuitti, takaisin.',
@@ -59,10 +90,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Muistiinpanot',
   'newExpense.descriptionPlaceholder':
     'Miksi tämä kulu liittyi liiketoimintaan (näkyy hyväksyjällesi).',
+  'newExpense.eyebrow': 'Korvattava erä',
   'newExpense.merchant': 'Kauppias',
   'newExpense.merchantPlaceholder': 'Hotelli Adlon Kempinski',
   'newExpense.policyHint':
     'Muistutus: yli 80 dollarin päivittäisistä aterioista tai yli 250 dollarin tuotteista vaaditaan erillinen todistus.',
+  'newExpense.receipt': 'Kuitti',
+  'newExpense.receiptHint': 'JPG, PNG tai PDF · enintään 10 Mt',
   'newExpense.receiptOcrHint': 'OCR täyttää kentät valmiiksi',
   'newExpense.receiptPrompt': 'Pudota kuva tai PDF tähän tai napsauta selataksesi',
   'newExpense.receiptUploadFailed':
@@ -73,17 +107,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Napsauta tai lataa kuitti, niin Recoup täyttää etukäteen kauppiaan, päivämäärän ja kokonaissumman. Vahvista kaikki alla olevat tiedot ennen tallentamista.',
   'newExpense.title': 'Lisää kulu',
+  'newReport.approverHint': 'He saavat sähköpostin, kun lähetät tämän raportin tarkistettavaksi.',
   'newReport.approverLabel': 'Hyväksyjän sähköpostiosoite (valinnainen)',
   'newReport.approverPlaceholder': 'manager@omayrityksesi.com',
   'newReport.availableExpenses': 'Käytettävissä olevat kulut',
   'newReport.createFailed': 'Raporttia ei voitu luoda. Yritä uudelleen.',
   'newReport.draftsFallback':
     'Reaaliaikainen kululista ei ole käytettävissä — näytetään kuratoitua demodataa.',
+  'newReport.eyebrow': 'Ryhmäkulut · lähetä hyväksyttäväksi',
   'newReport.includedCount': '{{count}} mukana',
   'newReport.purposeLabel': 'Liiketoiminnan tarkoitus',
   'newReport.purposePlaceholder':
     'Kuvaile matkaa tai projektia, johon nämä kulut liittyvät (näkyvissä hyväksyjällesi ja talousosastollesi).',
   'newReport.saveDraft': 'Tallenna luonnoksena',
+  'newReport.saveDraftFailed': 'Luonnosta ei voitu tallentaa. Yritä uudelleen.',
   'newReport.submit': 'Lähetä hyväksyttäväksi',
   'newReport.submitFailed': 'Raporttia ei voitu lähettää. Yritä uudelleen.',
   'newReport.summary': 'Raportin yhteenveto',
@@ -96,16 +133,23 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'Työtilan aktiviteetti',
   'notifications.feedFallback': 'Live-syöte ei ole käytettävissä — näytetään kuratoitua demodataa.',
   'notifications.openReport': 'Avaa raportti ›',
+  'pricing.approvalsLabel': 'hyväksynnät',
   'pricing.expensesLabel': 'kulut',
   'pricing.heading': 'hyväksynnät',
   'pricing.policiesLabel': 'käytännöt',
   'pricing.receiptsLabel': 'kuitit',
   'recoveredAmountHeroCard.label': 'Korvaus takaisin peritty · Tämän vuoden alusta',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} raporttia odottaa tällä hetkellä tarkistusta kaikilta hyväksyjiltä.',
+  'reports.approvalFlow': 'Hyväksyntäprosessi',
   'reports.backToList': 'Takaisin raportteihin',
   'reports.detailFallback': 'Live-raportti ei ole saatavilla — näytetään kuratoitua demodataa.',
   'reports.lineItems': 'Rivikohteet',
   'reports.lineItemsCount': '{{count}} kulut',
+  'reports.lineItemsEmpty': 'Tässä raportissa ei ole vielä kuluja.',
+  'reports.openLibrary': 'Avaa raporttikirjasto',
   'reports.policyTitle': 'Käytäntömerkintä',
+  'reports.selectPrompt': 'Valitse raportti kirjastosta nähdäksesi sen tiedot.',
   'reports.summary.lineCount': 'Rivikohteet',
   'reports.summary.reimbursable': 'Korvattava',
   'reports.summary.total': 'Raportoitu kokonaissumma',
@@ -114,6 +158,7 @@ export const ui: UiTranslations = {
   'reportsList.lineItems': '{{count}} kulut',
   'reportsList.listFallback': 'Live-lista ei ole käytettävissä — näytetään kuratoitua demodataa.',
   'reportsList.newReport': 'Uusi raportti',
+  'reportsList.submittedOn': 'Lähetetty {{date}}',
   'reportsList.title': 'Raporttikirjasto',
   'resetPassword.hidePassword': 'Piilota salasana',
   'resetPassword.newPasswordLabel': 'Uusi salasana',
@@ -139,6 +184,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Tallennettu ✓',
   'settings.profileSaveFailed': 'Profiilin päivittäminen epäonnistui. Yritä uudelleen.',
   'signup.heading': 'Luo hyvitystili',
+  'signup.hidePassword': 'Piilota salasana',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Näytä salasana',
   'signup.subheading': 'Maksuton 25 menoerään kuukaudessa – ei luottokorttia.',

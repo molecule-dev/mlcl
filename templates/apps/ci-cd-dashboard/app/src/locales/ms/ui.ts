@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ada soalan, maklum balas, atau mahu demo untuk pasukan anda? E-mel kami di hello@conduit.dev — setiap mesej sampai kepada orang sebenar dalam pasukan.',
   'about.contactHeading': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.featuresHeading': 'Yang Anda dapatkan',
+  'about.introBody':
+    '{{app}} membawa penghantaran berterusan gaya GitHub Actions ke dalam satu papan pemuka pantas: saluran paip, log binaan, artifak, lencana status dan persekitaran penggunaan untuk semua repositori anda di satu tempat. Tiada lagi melompat tab, tiada lagi meneka binaan mana yang rosak — setiap jalan, baris log dan penggunaan hanya satu klik sahaja.',
+  'about.introHeading': 'Apa itu {{app}}',
+  'about.missionBody':
+    'Menghantar perisian sepatutnya tenang dan boleh dijangka, bukan punca kebimbangan. Kami membina saluran paip, log dan alat penggunaan supaya perjalanan dari komit ke produksi pantas, jelas dan boleh dipercayai — binaan hijau pertama dalam lima minit, dan setiap binaan selepasnya sama jelas.',
+  'about.missionHeading': 'Misi kami',
+  'about.subtitle':
+    '{{app}} ialah papan pemuka CI/CD untuk pasukan yang mahu memantau binaan, penggunaan dan persekitaran merentas setiap repositori — dan menghantar dengan pasti.',
   'artifacts.empty': 'Tiada artifak lagi.',
   'artifacts.heading': 'Artifak',
   'artifacts.loadError': 'Gagal memuatkan artifak.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Persekitaran',
   'environments.loadError': 'Gagal memuatkan persekitaran.',
+  'environments.loading': 'Memuatkan persekitaran…',
   'environments.subheading': 'Status deployment masa nyata merentasi semua sasaran.',
   'forgotPassword.runnerStatus': 'tetapkan semula · terowong selamat',
+  'forgotPassword.success':
+    'Jika akaun wujud untuk e-mel tersebut, pautan tetapan semula sedang dalam perjalanan. Semak peti masuk anda.',
   'insights.changeFailureRate': 'Kadar kegagalan perubahan',
   'insights.deployFrequency': 'Deploy / hari',
   'insights.empty': 'Data belum mencukupi.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Gagal memuatkan wawasan.',
   'insights.meanP95': 'purata {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Langkah saluran paip paling perlahan',
   'insights.successRateHeading': 'Kadar kejayaan pipeline (14 hari lepas)',
   'landing.choosePlan': 'Pilih pelan',
+  'landing.copyright': '© {{year}} {{app}}. Hantar dengan pasti.',
   'landing.ctaBody':
     'Tiada kad kredit. Tiada platform engineer diperlukan. Jadikan pipeline pertama hijau dalam lima minit.',
   'landing.ctaHeading': 'Hantar dengan keyakinan.',
   'landing.featuresEyebrow': '// platform features',
   'landing.featuresHeading': 'Dibina oleh pengirim, untuk pengirim',
+  'landing.heroSubtitle':
+    'Saluran paip yang siap dalam beberapa saat. Log yang boleh dibaca. Penggunaan yang boleh dipercayai.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Harga yang mudah dan boleh dijangka',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Sedang berjalan sekarang',
   'pipelines.metric.successCaption': '{{count}} daripada {{total}} larian',
   'pipelines.metric.successRate': 'Kadar kejayaan',
+  'pipelines.realtimeOn': 'masa nyata',
   'pipelines.subheading': 'Kemas kini masa nyata dari setiap repositori yang dipantau.',
+  'pricing.advancedFeatures': 'Ciri lanjutan: {{mark}}',
+  'pricing.canExport': 'Eksport data: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artifak',
+  'pricing.maxBuilds': '{{count}} binaan',
+  'pricing.maxPipelines': '{{count}} saluran paip',
   'privacy.dataAccount': 'Akaun: nama, e-mel, kata laluan hash, tahap pelan.',
   'privacy.intro':
     '{{app}} hanya mengumpul data minimum yang kami perlukan untuk mengendalikan akaun penghantaran berterusan anda: e-mel anda, repositori yang anda sambungkan, commit dan metadata build yang dihasilkan runner anda, dan rahsia yang anda pilih untuk disimpan bersama kami. Kami tidak pernah membaca kod sumber anda di luar build runner; artifak build disimpan dalam S3 bucket anda apabila dikonfigurasi.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Kami menggunakan Stripe untuk pengebilan, Mailgun untuk e-mel transaksi, dan AWS S3 untuk penyimpanan artifak build. Setiap satu terikat secara kontrak kepada skop minimum data yang diperlukan untuk menyampaikan perkhidmatannya.',
   'privacy.rightsBody':
     'Anda boleh mengeksport setiap bait data anda, memadam akaun anda pada bila-bila masa daripada Tetapan dan meminta rekod setiap penghantaran webhook pada akaun anda. Kami akan menjawab permintaan GDPR/CCPA dalam tempoh 30 hari.',
+  'privacy.subtitle':
+    'Cara {{app}} mengumpul, menyimpan dan melindungi data anda semasa kami menjalankan saluran paip anda.',
   'privacy.title': 'Dasar privasi',
   'repositories.empty': 'Tiada repositori yang disambungkan.',
   'repositories.heading': 'Repositori',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Semua repositori',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Gagal memuatkan repositori.',
+  'repositoryDetail.meanDuration': 'Tempoh purata',
   'repositoryDetail.notFound': 'Repositori tidak ditemui.',
+  'repositoryDetail.successRate': 'Kadar kejayaan',
   'repositoryDetail.totalBuilds': 'Jumlah build',
   'repositoryDetail.webhookActive': 'aktif',
   'repositoryDetail.webhookPaused': 'dijeda',
   'repositoryDetail.webhooksHeading': 'Webhooks',
+  'resetPassword.passwordLabel': 'Kata laluan baharu',
   'resetPassword.runnerStatus': 'tetapkan semula · token disahkan',
   'resetPassword.subtitle':
     'Pilih kata laluan yang kuat yang belum pernah anda gunakan sebelum ini.',
@@ -118,6 +148,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Repositori yang dipantau oleh Conduit. Putuskan sambungan dari pembekal VCS anda untuk berhenti menerima acara.',
   'settings.repositories.empty': 'Belum ada repositori yang disambungkan.',
+  'settings.repositories.heading': 'Sambungan repositori',
   'settings.repositories.loadError': 'Gagal memuatkan repositori.',
   'settings.secrets.addCta': 'Tambah rahsia',
   'settings.secrets.addError': 'Gagal menambah rahsia.',
@@ -125,6 +156,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Gagal memadam rahsia.',
   'settings.secrets.empty': 'Tiada rahsia yang disimpan.',
   'settings.secrets.heading': 'Rahsia',
+  'settings.secrets.lastUsed': 'kali terakhir digunakan {{date}}',
   'settings.secrets.loadError': 'Gagal memuatkan rahsia.',
   'settings.secrets.neverUsed': 'tidak pernah digunakan',
   'settings.secrets.rotateCta': 'Putar',
@@ -148,6 +180,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Gagal mengemas kini webhook.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'tahap percuma · 1,000 min build/bln',
+  'terms.intro':
+    'Dengan mencipta akaun {{app}} anda bersetuju dengan terma ini. Ia merangkumi penggunaan pelari binaan yang boleh diterima, sempadan SLA kami, dan syarat di mana kami boleh menggantung atau menamatkan akaun anda kerana beban kerja yang menyalahguna.',
   'terms.slaBody':
     'Pelan Pro dan Team mensasarkan uptime bulanan 99.95% untuk API dan kumpulan runner. Pelan Percuma disediakan seadanya. Gangguan dilaporkan di status.conduit.dev dan dikreditkan mengikut formula dalam invois anda.',
   'terms.terminationBody':

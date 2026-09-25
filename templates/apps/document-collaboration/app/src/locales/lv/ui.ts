@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ir atsauksmes, atradi kļūdu vai vēlies {{app}} savam studijam vai komandai? Sazinies no sava konta iestatījumiem — katra ziņa nonāk pie īsta komandas cilvēka.',
   'about.contactTitle': 'Sazinieties ar mums',
+  'about.intro':
+    '{{app}} ir kopīgas rakstīšanas studija, kur redaktori, rakstnieki un komandas kopā raksta reāllaikā. Atver dokumentu, un lapa kļūst koplietota — kursori kustas, komentāri veido pavedienus malā, un katra versija tiek droši saglabāta vēsturē.',
+  'about.missionBody':
+    'Mēs ticam, ka garāki teksti ir pelnījuši mierīgu, koncentrētu mājvietu — tādu, kas veidota ap manuskriptu, nevis sapulci vai iesūtni. Mūsu redaktors, reāllaika klātbūtne un versiju vēsture ir veidoti tā, lai līdzautori varētu ātri strādāt kopā, nevienam nezaudējot ne rindkopu, ne domu.',
+  'about.missionTitle': 'Mūsu misija',
+  'about.subtitle': 'Domā kopā, raksti mūžīgi.',
   'about.title': 'Par {{app}}',
   'comments.addFailed': 'Neizdevās publicēt komentāru.',
   'comments.backToDoc': 'Atgriezties pie manuskripta',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Komentāru sadaļas',
   'comments.loading': 'Tēmu ielāde…',
   'comments.newPlaceholder': 'Pievienot komentāru manuskriptam…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Atvērt no jauna',
   'comments.reopenFailed': 'Neizdevās atvērt no jauna.',
   'comments.replyFailed': 'Neizdevās publicēt atbildi.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Jaunākie uzmetumi, kopīgi darbi un šodienas labojumi.',
   'dashboard.viewFeed': 'Plūsma →',
   'editor.back': 'Atpakaļ uz manuskriptiem',
+  'editor.bodyLabel': 'Dokumenta pamatteksts',
   'editor.bodyPlaceholder': 'Sāciet no vietas, kur mirgo kursors.',
   'editor.comments': 'Komentāri',
   'editor.createFailed': 'Neizdevās izveidot dokumentu.',
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Ja ir reģistrēts konts ar adresi {{email}}, drīz tiks nosūtīta saite konta atjaunošanai.',
+  'forgotPassword.sentHeading': 'Pārbaudi savu e-pastu',
+  'forgotPassword.submitting': 'Sūtīšana\\u2026',
   'forgotPassword.subtitle': 'Mēs nosūtīsim jums e-pastu ar saiti paroles atjaunošanai.',
   'landing.copyright': '\\u00a9 {{year}} {{app}}. Izveidots ar Molecule.',
+  'landing.ctaBody':
+    'Bezmaksas individuāliem rakstniekiem. Studijas plāni redaktoru, spoku rakstnieku un recenzentu komandām.',
   'landing.ctaHeading': 'Atveriet lapu. Ļaujiet kursoram sākt darbu.',
   'landing.ctaPrimary': 'Atvērt studiju',
   'landing.eyebrow': 'Rakstniekiem, redaktoriem un komandām',
   'landing.featuresEyebrow': 'Ko jūs iegūstat',
   'landing.featuresHeading': 'Studija garā formāta darba uzmetumiem.',
+  'landing.featuresSubtitle':
+    '{{appName}} ir veidots ap manuskriptu — nevis sapulci, nevis iesūtni.',
   'landing.getStarted': 'Atveriet studiju',
   'landing.heroCta': 'Sāc rakstīt',
   'landing.heroSubtitle':
@@ -95,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} nelasīti · komentāri, pieminējumi, uzaicinājumi dalīties un ieteikumu pieprasījumi.',
   'presenceAvatars.label': '{{count}} sadarbības partneri',
+  'privacy.intro': 'Kā mēs vācam, izmantojam un aizsargājam tavu informāciju.',
   'privacy.title': 'Privātuma politika',
   'profile.about.description': 'Īsa biogrāfija jūsu publiskajam profilam un autoru lapām.',
   'profile.eyebrow': 'Studijas identitāte',
@@ -107,7 +124,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Klātbūtne',
   'profile.pronouns': 'Vietniekvārdi',
   'profile.publicToggle': 'Rādīt profilu komandas biedriem',
+  'profile.role': 'Loma / amats',
   'profile.subtitle': 'Kā jūs izskatāties savu kolēģu acīs.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} studijā strādājošie autori',
   'quillonAuthBrandPanel.quote':
     '„Rakstīšana ir vienīgā lieta, kuru darot, man nerodas sajūta, ka man vajadzētu darīt kaut ko citu.”',
@@ -115,6 +134,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Atvērt →',
   'quillonKpiCard.trend': 'Pēdējā laika tendence',
   'quillonLayout.menu': 'Izvēlne',
+  'quillonLayout.mobileNavLabel': 'Mobilā navigācija',
   'quillonLayout.primaryNavLabel': 'Galvenā navigācija',
   'quillonStudioHero.collab': 'Sadarbības partneri',
   'quillonStudioHero.docs': 'Pārskatītie dokumenti',
@@ -124,7 +144,9 @@ export const ui: UiTranslations = {
     'Paņem manuskriptu, atstāj komentāru, pārvieto kādu rindkopu uz priekšu.',
   'quillonStudioHero.words': 'Šodienas vārdi',
   'resetPassword.confirmPlaceholder': 'Atkārtojiet jauno paroli',
+  'resetPassword.passwordLabel': 'Jauna parole',
   'resetPassword.passwordPlaceholder': 'Ievadiet jaunu paroli',
+  'resetPassword.submitting': 'Atiestatīšana…',
   'resetPassword.subtitle': 'Izvēlieties drošu paroli — vismaz 12 rakstzīmes.',
   'settings.account.description': 'Kā pieteikties.',
   'settings.billing.canceled': 'Abonements ir atcelts.',
@@ -133,7 +155,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Nav konfigurēts',
   'settings.billing.updated': 'Plāns ir atjaunināts.',
   'settings.editor.description': 'Kā uzvedas darba laukums, kamēr rakstāt.',
+  'settings.editor.title': 'Redaktora preferences',
   'settings.eyebrow': 'Studijas iestatījumi',
+  'settings.language.title': 'Valoda',
   'settings.notifications.${n.key}.description': 'Valoda',
   'settings.notifications.description': 'Izvēlieties, kas nonāk jūsu pastkastē.',
   'settings.subtitle':
@@ -143,6 +167,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Dalījās ar mani',
   'shared.loadFailed': 'Neizdevās ielādēt kopīgos dokumentus.',
   'shared.subtitle': 'Rokraksti, kopsavilkumi un piezīmes no pārējās studijas.',
+  'signup.brandAttribution': 'Anaïs Park — redaktore, The Quarterly',
   'signup.brandQuote':
     '„Pirmais manuskripts ir visgrūtākais. Quillon palīdz justies mazāk vientuļam.“',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -150,6 +175,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Anaïs',
   'signup.heading': 'Izveidojiet savu Quillon kontu',
   'signup.lastNamePlaceholder': 'Parks',
+  'signup.submitting': 'Atver tavu studiju\\u2026',
   'signup.subtitle':
     'Klusa darba vieta, atsaucīgi kolēģi un garo tekstu redaktors, kas netraucē jūsu darbam.',
   'templates.blank.subtitle': 'Tukša lapa. Kursors ir gatavs.',
@@ -162,11 +188,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Sāciet ar pārdomātu struktūru. Pielāgojiet to pēc sirds patikas.',
   'templates.useFailed': 'Neizdevās izveidot dokumentu, izmantojot šo veidni.',
   'templates.useTemplate': 'Izmantojiet šo veidni',
+  'terms.intro': 'Noteikumi, saskaņā ar kuriem drīksti izmantot šo pakalpojumu.',
   'terms.title': 'Lietošanas noteikumi',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'tikko',
   'trash.confirmDelete': 'Apstiprināt dzēšanu',
+  'trash.confirmEmpty': 'Apstiprināt — dzēst visu',
   'trash.deleteFailed': 'Neizdevās dzēst.',
   'trash.deleteForever': 'Dzēst uz visiem laikiem',
   'trash.empty': 'Nav ko atgūt.',
@@ -181,7 +209,9 @@ export const ui: UiTranslations = {
   'versionHistory.backToDoc': 'Atgriezties pie manuskripta',
   'versionHistory.empty': 'Vēl nav veikti labojumi — saglabājiet dokumentu, lai sāktu tā vēsturi.',
   'versionHistory.heading': 'Versiju vēsture',
+  'versionHistory.latest': 'Jaunākais',
   'versionHistory.loadFailed': 'Neizdevās ielādēt vēsturi.',
+  'versionHistory.noContent': 'Šai versijai nav saglabāts saturs.',
   'versionHistory.previewing': 'Priekšskatīšana',
   'versionHistory.restore': 'Atjaunot šo versiju',
   'versionHistory.restoreFailed': 'Atjaunošana neizdevās.',

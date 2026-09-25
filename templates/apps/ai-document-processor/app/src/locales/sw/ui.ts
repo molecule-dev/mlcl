@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Una swali, umepata hitilafu, au unataka onyesho kwa timu yako? Wasiliana nasi kupitia mipangilio ya akaunti yako — kila ujumbe unafika kwa mtu halisi wa timu.',
   'about.contactTitle': 'Wasiliana nasi',
+  'about.intro':
+    '{{app}} hubadilisha marundo ya hati zilizoskaniwa na PDF kuwa data iliyopangwa, inayotafutwa na kupangwa. Weka ankara, risiti, mikataba, au fomu na acha AI isome, itoe, iainishe, na kuzipanga — na rangi za uhakika ili timu yako ikague tu kile kinachohitaji mtu.',
+  'about.missionBody':
+    'Kazi za hati zisizohitaji ubongo zisikule siku ya timu yako. Tunaamini kila thamani iliyotolewa inapaswa kuelezeka na kukaguliwa — ili uweze kuamini uendeshaji bila kupoteza rekodi. {{app}} imeundwa kuokoa masaa kwa kila rundo huku ikibakiza mtu katika mchakato pale inapohitajika.',
+  'about.missionTitle': 'Dhamira yetu',
+  'about.subtitle': 'OCR, uchimbaji wa AI, uainishaji, na upangaji wa kiotomatiki wa hati zako.',
   'about.title': 'Kuhusu {{app}}',
+  'about.whatYouGetTitle': 'Unachopata',
   'authShell.backToLanding': '← Rudi kwenye kutua',
   'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Leo · Muhtasari wa shughuli',
   'dashboard.heading': 'Ujuzi wa hati',
+  'dashboard.metric.accuracy': 'Usahihi wa wastani',
   'dashboard.metric.filed': 'Imewasilishwa leo',
   'dashboard.metric.filedCaption': 'Imeelekezwa kwa sheria za kuwasilisha',
   'dashboard.metric.processed': 'Imechakatwa leo',
@@ -23,11 +33,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'Imepakiwa',
   'dashboard.recent.heading': 'Nyaraka za hivi karibuni',
+  'dashboard.recent.typeUnknown': 'Inasubiri uainishaji',
   'dashboard.subheading':
     'Kila ukurasa umeainishwa, umetolewa, na kuhifadhiwa — kwa rangi za kujiamini ili mapitio yabaki yakizingatia.',
   'documentDetail.audit.heading': 'Ratiba ya ukaguzi',
+  'documentDetail.audit.subheading':
+    'Kila hatua iliyochukuliwa kwenye hati hii, pamoja na mhusika anayehusika.',
   'documentDetail.back': 'Nyaraka zote',
   'documentDetail.downloadHint': 'Tumia Pakua ili kufungua faili asili.',
+  'documentDetail.extracted.empty': 'Hakuna sehemu zilizotolewa bado.',
   'documentDetail.extracted.heading': 'Sehemu zilizotolewa',
   'documentDetail.extracted.subheading':
     '{{count}} sehemu · bofya sehemu yoyote ili kuangazia kwenye ukurasa',
@@ -55,13 +69,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Tafuta hati…',
   'documents.subheading': '{{count}} hati katika maktaba yako, zimepangwa mpya zaidi kwanza.',
   'documents.uploadCta': 'Pakia hati',
+  'documentTypeBreakdown.barAria': 'Muundo wa hati kwa aina',
   'documentTypeBreakdown.empty': 'Hakuna hati zilizoshughulikiwa bado.',
   'documentTypeBreakdown.subtitle': '{{total}} kusindika',
   'documentTypeBreakdown.title': 'Muundo wa hati',
+  'forgotPassword.backToSignIn': '← Rudi kwenye kuingia',
   'forgotPassword.checkEmail': 'Angalia barua pepe yako',
   'forgotPassword.tip': 'Hukuelewa? Angalia barua taka au jaribu anwani tofauti.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Imeundwa kwa timu za uendeshaji zinazokagua kila ukurasa.',
+  'landing.ctaBody':
+    'Jaribio la siku 14. Hakuna kadi inayohitajika. Ghairi wakati wowote. Imeundwa kwa timu za uendeshaji zinazokwenda haraka na kukagua kwa polepole.',
   'landing.ctaHeading': 'Acha kuandika risiti. Anza kuzijaza.',
   'landing.eyebrow': 'OCR · Uchimbaji · Uwasilishaji wa AI',
+  'landing.featuresHeading': 'Akili ya hati inayojieleza yenyewe',
+  'landing.heroSubtitle':
+    'Weka rundo la ankara, risiti, mikataba, au fomu. {{app}} huainisha, hutoa, na kupanga — na rangi za uhakika ili timu yako ikague tu kile kinachohitaji mtu.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Kiasi cha kila siku · siku 7 zilizopita',
   'landing.sampleCardLabel': 'Hati zimeshughulikiwa leo',
   'landing.sampleCardSubtitle': 'Usahihi wa wastani wa 96.2% katika ankara, risiti, na fomu.',
   'login.hidePassword': 'Ficha nenosiri',
@@ -74,6 +99,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Fungua ukurasa wa kutua',
   'notFound.title': 'Ukurasa huo haupo kwenye faili',
+  'parcelaHeroCard.accuracy': 'Usahihi wa wastani {{value}}% katika uchimbaji wote',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % dhidi ya jana',
   'parcelaHeroCard.title': 'Hati zimeshughulikiwa leo',
   'parcelaLayout.primaryNavLabel': 'Usogezaji mkuu',
@@ -81,6 +107,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'hati',
   'pricing.processingLabel': 'kazi za usindikaji',
   'resetPassword.confirmPlaceholder': 'Rudia nenosiri jipya',
+  'resetPassword.hidePassword': 'Ficha nenosiri',
   'resetPassword.passwordLabel': 'Nenosiri jipya',
   'resetPassword.showPassword': 'Onyesha nenosiri',
   'resetPassword.subtitle': 'Chagua kitu chenye urefu wa angalau herufi 8.',
@@ -97,10 +124,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Imeshindwa kupakia sheria.',
   'rules.loading': 'Inapakia sheria...',
   'rules.matched30d': '{{count}} hati zilizolingana katika siku 30 zilizopita',
+  'rules.neverUsed': 'Haijawahi kutumika',
   'rules.newRule': 'Sheria mpya',
   'rules.saveError': 'Imeshindwa kuhifadhi sheria.',
   'rules.subheading':
     'Mwambie mfumo mahali ambapo kila aina ya hati inapaswa kwenda. Masharti yanafuatana kutoka juu hadi chini — ushindi wa mechi ya kwanza.',
+  'rules.templatesEmpty': 'Hakuna violezo vya uchimbaji bado.',
   'rules.templatesHeading': 'Violezo vya uchimbaji',
   'rules.templatesSubheading': 'Michoro ya sehemu ambayo dondoo hutumia kwa kila aina ya hati.',
   'rules.then': 'Kisha',
@@ -108,17 +137,24 @@ export const ui: UiTranslations = {
   'settings.account.error': 'Imeshindwa kuhifadhi.',
   'settings.account.nameLabel': 'Jina la nafasi ya kazi',
   'settings.account.subheading': 'Onyesha jina na barua pepe kuu kwa arifa na historia ya ukaguzi.',
+  'settings.api.confirmRevoke': 'Thibitisha?',
   'settings.api.copyOnce': 'Nakili ufunguo huu — hautaonyeshwa tena',
   'settings.api.createdOn': 'Imeundwa {{date}}',
   'settings.api.empty': 'Hakuna funguo za API bado. Tengeneza moja hapo juu.',
   'settings.api.error': 'Imeshindwa kuunda ufunguo.',
+  'settings.api.generating': 'Inatengeneza…',
+  'settings.api.heading': 'Funguo za API',
   'settings.api.labelPlaceholder': 'Lebo ya ufunguo (km kipakiaji cha CI)',
+  'settings.api.loading': 'Inapakia funguo…',
   'settings.api.newKey': 'Tengeneza ufunguo',
   'settings.api.subheading':
     'Tumia hizi kusukuma hati kutoka kwa hati au ERP yako. Zungusha kitufe chochote wakati wowote.',
   'settings.integrations.heading': 'Ujumuishaji wa faili',
   'settings.integrations.subheading':
     'Tuma hati zilizohifadhiwa kwenye hifadhi ya wingu au zana ya gumzo ambayo timu yako tayari inaishi.',
+  'settings.subheading':
+    'Simamia akaunti, funguo za API, na miunganisho ya upangaji kwa nafasi yako ya kazi ya {{app}}.',
+  'signup.hidePassword': 'Ficha nenosiri',
   'signup.identityPrompt': 'Tunapaswa kukushughulikia vipi?',
   'signup.showPassword': 'Onyesha nenosiri',
   'signup.subtitle': 'Siku 14 bure, hakuna kadi inayohitajika.',
@@ -126,6 +162,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Imeshindwa kupakia.',
   'upload.eyebrow': 'Ulaji',
   'upload.heading': 'Pakia hati',
+  'upload.queue.clear': 'Futa zilizokamilika',
   'upload.queue.col.confidence': 'Kujiamini',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Inagundua…',
@@ -138,5 +175,7 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Au dondosha faili nyingi kwa wakati mmoja kwa ajili ya kutoa, kuainisha, na kuhifadhi faili kwenye kundi.',
   'uploadDropZone.cta': 'Chagua faili',
+  'uploadDropZone.maxSize':
+    'Upeo wa 25 MB kwa faili · Imesimbwa kwa njia fiche kutoka mwanzo hadi mwisho',
   'uploadDropZone.title': 'Acha hati ili kuanza kusindika',
 }

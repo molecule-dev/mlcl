@@ -1,7 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Mga tanong, feedback, o ideya na makakatulong sa iyo na manatili sa track? Makipag-ugnayan mula sa iyong account settings — bawat mensahe ay nakakarating sa isang tunay na tao sa team.',
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'about.featureAdherence':
+    'Mga adherence report — lingguhan at buwanang chart kasama ang dose-by-dose na history na maaari mong i-export at ibahagi sa iyong care team.',
+  'about.featureCaregivers':
+    'Caregiver sharing — anyayahan ang pamilya o clinician sa read-only na view, at ikaw ang magpasya kung ano mismo ang makikita nila.',
+  'about.featureRefills':
+    'Mga refill alert — real-time na pill count para makakuha ka ng babala ilang araw bago maubos, hindi pagkatapos.',
+  'about.featureReminders':
+    'Mga paalala na gumagalang sa iyo — snoozable na push notification na maaaring i-escalate sa caregiver kung may nakaligtaang dose.',
+  'about.featureSchedules':
+    'Flexible na schedule — araw-araw, may interval, o partikular na mga araw, na may maraming oras sa isang araw at with-food na paalala.',
+  'about.featuresTitle': 'Ano ang matatanggap ninyo',
+  'about.missionBody':
+    'Ang makaligtaan ang isang dose ay hindi dapat mauwi sa nakalimutang alarm o walang laman na bote. Gumagawa kami ng kalmado at maaasahang mga tool na ginagawang walang kahirap-hirap ang pagsunod sa treatment plan — at tahimik na isinasama ang pamilya at clinician, hanggang sa kung ano lang ang pinapayagan mo.',
+  'about.missionTitle': 'Ang aming misyon',
+  'about.subtitle': 'Bawat dose, on time — at lahat ng nagmamalasakit sa iyo ay kasama sa loop.',
   'addMedication.avoidAlcohol': 'Iwasan ang alak',
   'addMedication.backLink': 'Lahat ng gamot',
   'addMedication.doseAmount': 'Dosis (hal. 10 mg)',
@@ -12,6 +30,7 @@ export const ui: UiTranslations = {
   'addMedication.pillColor': 'Kulay ng tableta (para sa visual ID)',
   'addMedication.saveError': 'Hindi na-save po.',
   'addMedication.saveLabel': 'I-save ang gamot',
+  'addMedication.takeWithFood': 'Inumin kasama ng pagkain',
   'addMedication.warningsLabel': 'Mga Babala (piliin ang alinman sa naaangkop)',
   'adherence.byMedEmpty':
     'Wala pang gamot — magdagdag ng isa para makita ang pagsunod sa bawat gamot.',
@@ -34,16 +53,26 @@ export const ui: UiTranslations = {
     'Huling 30 araw · ibahagi sa iyong pangkat ng pangangalaga kung kapaki-pakinabang',
   'adherence.taken': 'Kinuha',
   'adherence.title': 'Ulat ng Pagsunod',
+  'adherenceTriad.refills.eyebrow': 'Mga Pagpupuno',
   'adherenceTriad.refills.meta': 'Pamahalaan ang mga refill →',
+  'adherenceTriad.refills.unit': 'malapit nang due',
   'adherenceTriad.refills.value': '{{count}}',
   'adherenceTriad.streak.eyebrow': 'Streak',
   'adherenceTriad.streak.meta': 'Pinakamahaba: {{days}} mga araw',
+  'adherenceTriad.streak.unit': 'araw',
   'adherenceTriad.streak.value': '{{days}}',
   'adherenceTriad.today.meta': '{{count}} nauuna pa rin',
+  'adherenceTriad.today.unit': 'mga dose na nainom',
   'adherenceTriad.today.value': '{{taken}} / {{total}}',
+  'auth.forgotPassword.subtitle':
+    'Ilagay ang iyong email at padadalhan ka namin ng link para sa pag-reset.',
+  'auth.resetPassword.subtitle':
+    'Mag-set ng bagong password para tapusin ang pag-recover ng iyong account.',
   'capsivaLayout.primaryNavLabel': 'Pangunahing navigation',
+  'caregivers.email': 'Email ng caregiver',
   'caregivers.empty': 'Walang idinagdag na tagapag-alaga. Mag-imbita ng isang taong tutulong.',
   'caregivers.heading': 'Mga tagapag-alaga',
+  'caregivers.invitedOn': 'Inanyayahan {{when}}',
   'caregivers.inviteError': 'Hindi maipadala ang imbitasyon.',
   'caregivers.inviteFormLabel': 'Pormularyo ng pag-imbita ng tagapag-alaga',
   'caregivers.inviteIncomplete':
@@ -65,6 +94,11 @@ export const ui: UiTranslations = {
   'dashboard.timelineHeading': 'Mga dosis ngayon',
   'doseRow.markTaken': 'Kunin',
   'doseRow.subline': '{{dose}} · {{time}}',
+  'landing.about': 'Tungkol sa {{app}}',
+  'landing.copyright': '\\u00a9 {{year}} {{app}}. Nag-aalaga sa iyong routine.',
+  'landing.ctaButton': 'Magsimula — libre ito',
+  'landing.ctaSubtitle':
+    'Libreng magsimula. Magdagdag ng caregiver anumang oras. Kanselahin mula sa settings.',
   'landing.ctaTitle': 'I-set up ang iyong unang paalala sa loob ng dalawang minuto',
   'landing.eyebrow': 'Pagsunod sa gamot, ginawang pangangalaga',
   'landing.featureEyebrow': 'Ano ang matatanggap ninyo',
@@ -76,7 +110,10 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Mga iskedyul, paalala, pagpuno, at isang real-time na talaan ng pagsunod na maaari mong ibahagi sa mga taong nagmamalasakit sa iyo.',
   'landing.heroTitle': '{{tagline}}',
+  'landing.sampleDate': 'Linggo, Abril 26',
   'medicationDetail.backLink': 'Lahat ng gamot',
+  'medicationDetail.confirmDeleteBody':
+    'Tinatanggal nito ang gamot, ang schedule nito, dose history, at anumang pending na refill request. Hindi na ito maibabalik.',
   'medicationDetail.confirmDeleteHeading': 'Burahin {{name}} ?',
   'medicationDetail.confirmDeleteLabel': 'Burahin ang gamot',
   'medicationDetail.deleteError': 'Hindi nabura.',
@@ -98,14 +135,29 @@ export const ui: UiTranslations = {
   'medicationDetail.stat.remaining': 'Mga tabletang natitira',
   'medicationDetail.stat.taken': 'Mga dosis na kinuha',
   'medicationDetail.warningsHeading': 'Mga Babala',
+  'medications.addLabel': 'Magdagdag ng gamot',
   'medications.empty': 'Wala pang gamot. Magdagdag ng isa para simulan ang pagsubaybay.',
   'medications.heading': 'Mga gamot',
   'medications.loadError': 'Hindi na-load ang mga gamot.',
   'medications.prescriber': 'Rx ni {{name}}',
+  'medications.refillBy': 'Refill bago ang {{date}}',
+  'medications.remaining': 'natitira',
   'medications.subheading': '{{count}} mga aktibong gamot',
   'notifications.heading': 'Mga Notification',
+  'planUpdated.body':
+    'Aktibo na ang pagbabago sa iyong billing. Maaari mong pamahalaan ang iyong plano anumang oras mula sa billing page.',
+  'planUpdated.retry': 'Subukan muli',
+  'planUpdated.verifyFailed': 'Hindi pa namin makumpirma ang iyong bayad.',
+  'planUpdated.verifyFailedBody':
+    'Maaaring pinoproseso pa rin ang iyong bayad. Subukan muli maya-maya.',
   'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
+  'pricing.limits.advancedFeatures': 'Mga advanced na tampok:',
   'pricing.limits.canExport': 'Pag-export ng data:',
+  'pricing.limits.maxAdherence': '{{count}} adherence',
+  'pricing.limits.maxDoses': '{{count}} dose',
+  'pricing.limits.maxMedications': '{{count}} gamot',
+  'pricing.limits.maxRefills': '{{count}} refill',
+  'pricing.limits.maxSchedules': '{{count}} schedule',
   'pricing.no': '—',
   'pricing.yes': '✓',
   'profile.emergency.heading': 'Kontak sa emerhensiya',
@@ -125,7 +177,9 @@ export const ui: UiTranslations = {
   'profile.security.error': 'Hindi mabago ang password.',
   'profile.security.next': 'Bagong password',
   'profile.security.tooShort': 'Ang password ay dapat na hindi bababa sa 8 character.',
+  'refillAlertCard.daysAt': 'araw · {{count}} pill',
   'refillAlertCard.pharmacyWithPhone': '{{pharmacy}} · {{phone}}',
+  'refillAlertCard.refillsRemaining': '{{count}} refill na natitira sa Rx',
   'refillAlertCard.request': 'Request',
   'refills.empty': 'Wala pang refill. Magdagdag ng gamot para simulan ang pagsubaybay.',
   'refills.eyebrow': 'Manatiling may suplay',
@@ -138,11 +192,14 @@ export const ui: UiTranslations = {
   'refills.tile.dueSoonNote': 'Refill sa susunod na 30 araw',
   'refills.tile.fine': 'Malusog na suplay',
   'refills.tile.fineNote': 'Walang kinakailangang aksyon',
+  'refills.tile.urgent': 'Kagyat',
   'refills.tile.urgentNote': 'Labas sa loob ng isang linggo',
   'schedule.heading': 'Lingguhang iskedyul',
+  'schedule.legend': 'Ang punong bilog = nainom o upcoming · faded outline = nakaligtaang dose',
   'schedule.loadError': 'Nabigong i-load ang iskedyul.',
   'schedule.subheading': 'Bawat dosis, araw-araw, sa isang sulyap.',
   'schedule.timeColumn': 'Oras',
+  'settings.appearance.description': 'Mag-toggle sa pagitan ng light at dark mode.',
   'settings.appearance.highContrast': 'Mga kulay na may mataas na contrast',
   'settings.appearance.largeText': 'Gumamit ng mas malaking teksto kahit saan',
   'settings.appearance.timeFormat': 'Pormat ng oras',
@@ -168,15 +225,27 @@ export const ui: UiTranslations = {
   'settings.saving': 'Sine-save…',
   'settings.signingOutDevice': 'Nagsa-sign out…',
   'settings.signOutDevice': 'Mag-sign out',
+  'settings.twoFactorBody':
+    'Mangailangan ng one-time code mula sa authenticator app sa sign-in para sa dagdag na proteksyon sa iyong health data.',
   'settings.twoFactorCode': 'Kodigo ng pagpapatunay',
   'settings.twoFactorDisable': 'I-disable',
+  'settings.twoFactorDisableBody':
+    'Maglagay ng kasalukuyang code mula sa iyong authenticator app para i-off ang two-factor authentication.',
   'settings.twoFactorEnable': 'I-enable',
   'settings.twoFactorInvalidCode': 'Hindi wastong kodigo.',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Two-factor QR code',
+  'settings.twoFactorScan':
+    'I-scan ang QR code na ito gamit ang iyong authenticator app, pagkatapos ay ilagay ang 6-digit na code.',
+  'settings.twoFactorUnavailable':
+    'Hindi available ang two-factor authentication para sa app na ito.',
   'settings.twoFactorVerify': 'I-verify at paganahin',
   'settings.unnamedDevice': 'Walang pangalang aparato',
   'todayHeroCard.adherence': '{{pct}} %',
   'todayHeroCard.eyebrow': 'Ngayon · {{date}}',
+  'todayHeroCard.streak': '{{days}} -araw na sunod-sunod',
+  'todayHeroCard.summary':
+    '{{taken}} sa {{total}} dose na nainom · {{upcoming}} pa ang nasa unahan ngayong araw',
   'userMenu.caregivers': 'Mga tagapag-alaga',
   'userMenu.memberStatus': 'Pag-aalaga sa iyong nakagawiang gawain',
   'userMenu.profile': 'Profile at impormasyong medikal',

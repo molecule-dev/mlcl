@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tes suxestións, atopaches un erro ou queres contarnos como mapeas as túas ideas? Lemos cada nota — escríbenos cando queiras e unha persoa real do equipo responderache.',
+  'about.contactTitle': 'Fala connosco',
   'about.eyebrow': 'Acerca de',
+  'about.featureCanvas':
+    'Un lenzo infinito con nodos arrastrables, conexións de curvas suaves e zoom e desprazamento fluídos.',
+  'about.featureCollab':
+    'Colaboración en tempo real con cursores en directo, para que o teu equipo poida ramificar ao teu carón en vez de agardar a quenda.',
+  'about.featurePricing':
+    'Gratis para sempre para pensadores individuais; os plans Pro e Team engaden máis mapas, máis nodos, funcións avanzadas e exportación de datos.',
+  'about.featureTemplates':
+    'Unha biblioteca de modelos iniciais e o historial de versións completo, para que poidas comezar un mapa rapidamente e reverter calquera cambio.',
+  'about.intro':
+    '{{app}} é un lenzo amplo e infinito para mapas mentais — chuvias de ideas, diagramas de conceptos, DAFOs e plans de proxecto. Arrastra os nodos a calquera sitio, conecta ideas con ligazóns fluídas, fai zoom e despraza sen chocar cos bordos, e deixa que o mapa medre co teu pensamento.',
+  'about.missionBody':
+    'Pensar en voz alta debería ser doado e compartido. Construímos ferramentas que non estorban — sen grellas ríxidas, sen modelos encaixotados, sen interface que roube a atención — para que as persoas e os equipos capturen ideas no momento en que xorden e as moldeen xuntos.',
+  'about.missionTitle': 'A nosa misión',
   'about.pageTitle': 'Acerca de {{app}}',
   'auth.brandEyebrow': 'Onde as ideas se ramifican',
   'auth.brandStatement':
@@ -13,19 +29,25 @@ export const ui: UiTranslations = {
   'billing.feature.export': 'Exportar a SVG/PNG',
   'billing.feature.maps': '{{count}} mapas',
   'billing.feature.nodes': '{{count}} nodos por mapa',
+  'billing.freeNoticeBody': 'Escolle un plan de pago arriba para desbloquear máis mapas.',
   'billing.loadError': 'Non se puido cargar o estado da facturación.',
+  'billing.loading': 'Cargando facturación…',
   'billing.perMonth': ' / mes',
   'billing.plansTitle': 'Planos',
+  'billing.priceMissing': 'ID de prezo de Stripe non configurado.',
   'billing.starting': 'Iniciando o proceso de compra…',
   'billing.title': 'Facturación e plan',
   'billing.unavailableTier':
     'Este nivel aínda non está configurado para o proceso de compra: define o ID de prezo de Stripe no teu entorno.',
   'billing.unlimited': 'Ilimitado',
   'billing.upgradeMonthly': 'Actualizar a {{name}} (mensual)',
+  'billing.upgradeYearly': 'Pagar anualmente · {{price}}',
   'brand.tagline': 'Onde as ideas se ramifican',
   'common.and': 'e',
   'common.goToDashboard': 'Ir ao panel',
   'dashboard.activityAction': 'actualizado',
+  'dashboard.activityEmpty':
+    'Aínda non hai actividade — edita un mapa para comezar a túa cronoloxía.',
   'dashboard.daysAgo': '{{count}} hai días',
   'dashboard.empty.body':
     'Crea un mapa para comezar a ramificar ideas. Os modelos facilitan o comezo.',
@@ -44,26 +66,35 @@ export const ui: UiTranslations = {
   'dendriteHero.activeMaps': 'Mapas activos',
   'dendriteHero.eyebrow': 'Hoxe na lona',
   'dendriteHero.greeting': 'Novas ideas ramificadas, {{name}}',
+  'dendriteHero.greetingAnon': 'Ramiñar novas ideas',
   'dendriteHero.openMaps': 'Abrir os meus mapas',
   'dendriteHero.subtitle':
     'Arrastra, conecta e deixa que o teu pensamento medre. Cada faísca está a un nodo de distancia da seguinte.',
   'dendriteHero.weeklyChange': '{{sign}} {{count}} esta semana',
+  'forgotPassword.brandStatement':
+    'Os teus mapas están a salvo. Devolverémosche ás túas ramas nun intre.',
   'forgotPassword.subheading':
     'Introduce o teu correo electrónico e enviarémosche unha ligazón de restablecemento nova.',
   'forgotPassword.success':
     'Se xa existe unha conta con ese correo electrónico, unha ligazón de restablecemento está en camiño.',
   'landing.cta.body':
     'Gratis para sempre para persoas que pensan en solitario. Actualiza só cando o teu equipo comece a diversificarse xunto a ti.',
+  'landing.cta.button': 'Crea o teu primeiro mapa',
   'landing.cta.title': 'Planta a túa primeira idea hoxe.',
   'landing.feature.branch.body':
     'Arrastra un nodo desde calquera outro nodo: as conexións flúen como curvas suaves, non se require unha cuadrícula ríxida.',
+  'landing.feature.branch.title': 'Ramiñado orgánico',
   'landing.feature.canvas.body':
     'Despraza, amplía e deixa que o mapa medre sen toparse cos bordos. O teu pensamento merece espazo para respirar.',
   'landing.feature.canvas.title': 'Lenzo infinito',
   'landing.feature.collab.body':
     'Mira aos teus compañeiros de equipo crecendo xunto a ti en tempo real. Fai unha chuvia de ideas xuntos, non en series.',
+  'landing.feature.collab.title': 'Cursores colaborativos',
   'landing.feature.shortcuts.body':
     'Tabulador para engadir un fillo, Intro para un irmán ou ⌘K para saltar a calquera lugar. Os usuarios avanzados manteñen o ritmo.',
+  'landing.feature.shortcuts.title': 'Teclado primeiro',
+  'landing.featuresBody':
+    'As barras de ferramentas, os paneis e os atallos son ambientais — presentes cando os necesitas, invisibles cando non.',
   'landing.featuresEyebrow': 'Feito para pensadores',
   'landing.featuresTitle': 'Cada interacción gaña o seu lugar na lona',
   'landing.footer.copyright': '© {{year}} {{appName}} . Construído con Molecule.dev.',
@@ -71,6 +102,7 @@ export const ui: UiTranslations = {
     '{{appName}} é un espazoso lenzo infinito para facer chuvia de ideas, diagramas de conceptos e análises DAFO. Arrastra, conecta e deixa que o mapa medre contigo: sen cuadrículas ríxidas nin modelos encaixados.',
   'landing.hero.ctaPrimary': 'Comeza a ramificar de balde',
   'landing.hero.eyebrow': 'Mapas mentais para deseñadores e pensadores',
+  'landing.hero.title': 'Onde as ideas ramifican.',
   'landing.nav.start': 'Comezar a ramificación',
   'landing.proof.export': 'Exportar a PNG, SVG ou Markdown',
   'landing.proof.free': 'Gratis para 3 mapas',
@@ -78,6 +110,7 @@ export const ui: UiTranslations = {
   'layout.closeMenu': 'Pechar o menú de navegación',
   'layout.openMenu': 'Abrir menú de navegación',
   'layout.searchPlaceholder': 'Buscar mapas, modelos ou nodos…',
+  'login.noAccount': 'Novo aquí?',
   'login.signIn': 'Iniciar sesión en Nimbus',
   'login.subheading': 'Inicia sesión para seguir ramificando onde o deixaches.',
   'login.twoFactor': 'Token de dous factores (se está activado)',
@@ -96,9 +129,11 @@ export const ui: UiTranslations = {
     'Escolle a ferramenta + e fai clic en calquera lugar para engadir o primeiro nodo',
   'mapEditor.export': 'Exportar',
   'mapEditor.exportError': 'Non se puido exportar o mapa.',
+  'mapEditor.exportLocked': 'A exportación é unha función Pro.',
   'mapEditor.exportMarkdown': 'Rebaixas (.md)',
   'mapEditor.exportPng': 'Imaxe (.png)',
   'mapEditor.exportSvg': 'Vectorial (.svg)',
+  'mapEditor.exportUpgrade': 'Pasa a Pro para exportar →',
   'mapEditor.hint.add': 'Fai clic no lenzo para soltar un nodo',
   'mapEditor.hint.connectSource': 'Fai clic no nodo de orixe…',
   'mapEditor.hint.connectTarget': 'Fai clic no nodo de destino…',
@@ -107,6 +142,7 @@ export const ui: UiTranslations = {
   'mapEditor.loading': 'Cargando o lenzo…',
   'mapEditor.newNodeText': 'New idea',
   'mapEditor.panel.color': 'Cor',
+  'mapEditor.panel.eyebrow': 'Nodo seleccionado',
   'mapEditor.panel.nodes': 'Nodos',
   'mapEditor.panel.noSelection': 'Fai clic nun nodo para editalo.',
   'mapEditor.panel.stats': 'Estatísticas do mapa',
@@ -146,11 +182,18 @@ export const ui: UiTranslations = {
   'notifications.accept': 'Aceptar',
   'notifications.acceptAndOpen': 'Aceptar e abrir',
   'notifications.acceptedInvite': 'Uniuse {{title}}.',
+  'notifications.acceptError': 'Non se puido aceptar o convite.',
   'notifications.empty.body': 'Cando os compañeiros de equipo te inviten a mapas, aparecerán aquí.',
   'notifications.empty.title': 'Sen invitacións pendentes',
+  'notifications.inviteBody': 'Enviado a {{email}}',
   'notifications.inviteTitle': 'Convidado como {{role}} a "{{title}}"',
   'notifications.subtitle': '{{count}} invitacións pendentes.',
   'notifications.view': 'Vista',
+  'pricing.limit.advanced': 'Funcións avanzadas: {{state}}',
+  'pricing.limit.connections': '{{count}} conexións',
+  'pricing.limit.export': 'Exportación de datos: {{state}}',
+  'pricing.limit.maps': '{{count}} mapas',
+  'pricing.limit.nodes': '{{count}} nodos por mapa',
   'profile.loading': 'Cargando as estatísticas…',
   'profile.stat.collabs': 'Colaboracións',
   'profile.stat.maps': 'Mapas creados',
@@ -162,25 +205,37 @@ export const ui: UiTranslations = {
   'publicMap.loadError': 'Este mapa xa non se comparte ou a ligazón non é válida.',
   'publicMap.loading': 'Cargando o mapa…',
   'publicMap.notFound': 'Non se atopou o mapa.',
+  'resetPassword.newPassword': 'Novo contrasinal',
   'resetPassword.subheading': 'Escolle algo memorable. Iniciaremos sesión de novo automaticamente.',
   'resetPassword.submit': 'Restablecer contrasinal e iniciar sesión',
   'resetPassword.tokenPlaceholder': 'Pegado desde o teu correo electrónico',
   'settings.account.subtitle':
     'Actualiza o teu nome para mostrar e o teu enderezo de correo electrónico.',
+  'settings.field.currentPassword': 'Contrasinal actual',
   'settings.field.newPassword': 'Novo contrasinal',
   'settings.password.subtitle': 'Escolle un contrasinal forte (de polo menos 8 caracteres).',
   'settings.passwordError':
     'Non se puido cambiar o contrasinal. Comproba o teu contrasinal actual.',
+  'settings.passwordMismatch': 'Os novos contrasinais non coinciden.',
   'settings.passwordSaved': 'Contrasinal modificado correctamente.',
   'settings.passwordTooShort': 'O contrasinal debe ter polo menos 8 caracteres.',
   'settings.profileError': 'Non se puideron gardar os cambios do perfil.',
   'settings.subtitle': 'Axusta a túa conta e a túa seguridade.',
   'settings.twoFactorCode': 'Código de autenticación',
   'settings.twoFactorDisable': 'Desactivar',
+  'settings.twoFactorDisableTitle': 'Desactivar a autenticación de dous factores',
   'settings.twoFactorEnable': 'Activar',
+  'settings.twoFactorEnableTitle': 'Activar a autenticación de dous factores',
   'settings.twoFactorInvalidCode': 'Código non válido. Téntao de novo.',
+  'settings.twoFactorOffLine': 'A autenticación de dous factores está desactivada.',
+  'settings.twoFactorOnLine': 'A autenticación de dous factores está activada.',
+  'settings.twoFactorQrAlt': 'Código QR de dous factores',
+  'settings.twoFactorScan':
+    'Escanea este código QR coa túa aplicación de autenticación e introduce o código de 6 díxitos.',
   'settings.twoFactorSubtitle':
     'Engade un código de uso único da túa aplicación de autenticación enriba do teu contrasinal.',
+  'settings.twoFactorUnavailable':
+    'A autenticación de dous factores non está dispoñible para esta aplicación.',
   'settings.twoFactorVerify': 'Verificar e activar',
   'share.accepted': 'Aceptado',
   'share.backToMap': 'Volver ao mapa',
@@ -191,7 +246,9 @@ export const ui: UiTranslations = {
   'share.copySuccess': 'Ligazón copiada.',
   'share.invite.button': 'Convidar',
   'share.invite.title': 'Convidar por correo electrónico',
+  'share.inviteError': 'Non se puido enviar a invitación.',
   'share.inviteSuccess': 'Convidado/a {{email}}.',
+  'share.link.disabledHint': 'Activa para xerar unha ligazón pública de só lectura a este mapa.',
   'share.link.title': 'Ligazón pública',
   'share.loadError': 'Non se puido cargar a configuración de uso compartido.',
   'share.pending': 'Invitación pendente',
@@ -203,13 +260,19 @@ export const ui: UiTranslations = {
   'share.roleError': 'Non se puido actualizar o rol.',
   'share.title': 'Compartir este mapa',
   'share.unnamedCollaborator': 'Invitación pendente',
+  'signup.brandStatement':
+    'Un lenzo abondo amplo para a chuvia de ideas máis atrevida — e abondo silencioso para pensar.',
+  'signup.haveAccount': 'Xa es membro?',
   'signup.heading': 'Planta a túa primeira idea',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.subheading': 'Gratis para sempre durante 3 mapas. Non se require tarxeta de crédito.',
   'templateDetail.backToTemplates': 'Todos os modelos',
   'templateDetail.browseMore': 'Explorar máis',
+  'templateDetail.editableHint':
+    'Cada nodo e aresta é totalmente editable unha vez que instancies o modelo.',
   'templateDetail.instantiateError': 'Non se puido crear un mapa a partir deste modelo.',
   'templateDetail.loadError': 'Non se puido cargar este modelo.',
+  'templateDetail.loading': 'Cargando modelo…',
   'templateDetail.nodes': 'Nodos presementados',
   'templateDetail.notFound': 'Non se atopou o modelo.',
   'templateDetail.systemEyebrow': 'Modelo integrado',
@@ -232,6 +295,7 @@ export const ui: UiTranslations = {
   'trash.empty.body': 'Nada á espera de ser retirado. As túas sucursais están seguras.',
   'trash.empty.title': 'A papeleira está baleira',
   'trash.loadError': 'Non se puideron cargar os mapas enviados á papeleira.',
+  'trash.loading': 'Cargando a papeleira…',
   'trash.restore': 'Restaurar',
   'trash.restoreError': 'Non se puido restaurar o mapa.',
   'trash.subtitle':
@@ -240,11 +304,13 @@ export const ui: UiTranslations = {
   'versionHistory.backToMap': 'Volver ao mapa',
   'versionHistory.empty':
     'Aínda non hai instantáneas. Garda a primeira para manter un punto de control.',
+  'versionHistory.emptyDetail': 'Garda unha instantánea para comezar a túa cronoloxía.',
   'versionHistory.loadError': 'Non se puido cargar o historial de versións.',
   'versionHistory.nodeCount': 'Nodos',
   'versionHistory.restoreButton': 'Restaurar esta versión',
   'versionHistory.restoreError': 'Non se puido restaurar a instantánea.',
   'versionHistory.restoreSuccess': 'Instantánea restaurada.',
+  'versionHistory.selectHint': 'Selecciona unha instantánea para vela.',
   'versionHistory.snapshotDefault': 'Instantánea manual',
   'versionHistory.snapshotError': 'Non se puido gardar a instantánea.',
   'versionHistory.snapshotEyebrow': 'Instantánea',

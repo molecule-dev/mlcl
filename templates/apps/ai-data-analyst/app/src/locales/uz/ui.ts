@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Savollar, fikr-mulohazalar yoki modelni qiyin ahvolga solgan datasetmi? Ilova ichidagi yordam menyusidan {{app}} jamoasiga murojaat qiling — har bir xabar mahsulot ustida ishlaydigan haqiqiy odamga boradi.',
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
+  'about.intro':
+    "{{app}} — xom ma'lumotlarni javoblarga aylantiruvchi AI ma'lumot tahlilchisi. CSV yuklang yoki omborni ulang, oddiy tilda savol bering va to'g'ri diagramma, unga asos bo'lgan jadval hamda uni hosil qilgan SQLni oling — {{tagline}}.",
+  'about.missionBody':
+    "Analitika navbatdagi chipta va bir hafta kutishni talab qilmasligi kerak. {{app}} matn maydoni ortiga qobiliyatli tahlilchini qo'yadi, shunda mahsulot, operatsiyalar va moliya jamoalari o'z savollariga bir necha daqiqada javob topa oladi — bunda har bir natija takrorlanadigan va tekshiriladigan bo'lib qoladi.",
+  'about.missionTitle': 'Bizning vazifamiz',
   'about.pageTitle': '{{app}} haqida',
+  'about.whatYouGet': 'Sizga nima beriladi',
+  'askClarionBar.ariaLabel': '{{appName}}ga savol bering',
   'askClarionBar.askCta': "So'rang",
   'askClarionBar.placeholder':
     "Ma'lumotlaringiz haqida savol bering — masalan, “3-chorak daromadi bo'yicha eng yaxshi 10 ta mijoz”",
@@ -20,16 +30,20 @@ export const ui: UiTranslations = {
   'dashboard.insightsHeading': "So'nggi ma'lumotlar",
   'dashboard.noInsights':
     "Hali hech qanday statistika yo'q — boshlash uchun ma'lumotlar to'plamini yuklang.",
+  'dashboard.subhead':
+    "Kechadan beri uchta yangi tushuncha. Bir anomaliya diqqat bilan ko'rib chiqishga arziydi.",
   'dashboard.uploadCta': "Ma'lumotlarni yuklash",
   'datasetCard.analyzedPrefix': 'tahlil qilingan {{when}}',
   'datasetCard.cols': 'Ustunlar',
   'datasetCard.rows': 'Qatorlar',
+  'datasetDetail.aiHeading': "Sun'iy intellekt haqida ma'lumot",
   'datasetDetail.back': "Ma'lumotlar to'plamlari",
   'datasetDetail.col.example': 'Misol',
   'datasetDetail.col.name': 'Field',
   'datasetDetail.col.nullable': 'Null mumkin',
   'datasetDetail.col.unique': 'Noyob',
   'datasetDetail.cols': 'Ustunlar',
+  'datasetDetail.lineageEmpty': "Yuklashdan import qilindi — yuqori oqimda o'zgartirishlar yo'q.",
   'datasetDetail.loadError': "Ma'lumotlar to'plamini yuklab bo'lmadi.",
   'datasetDetail.notFound': "Ma'lumotlar to'plami topilmadi.",
   'datasetDetail.queriesEmpty':
@@ -44,17 +58,22 @@ export const ui: UiTranslations = {
   'datasetDetail.tab.${tk}': 'Field',
   'datasets.empty': "Hali ma'lumotlar to'plami yo'q — boshlash uchun bittasini yuklang.",
   'datasets.eyebrow': "{{count}} ma'lumotlar to'plamlari · {{rows}} qatorlar",
+  'datasets.heading': "Ma'lumotlar to'plamlari",
   'datasets.loadError': 'Maʼlumotlar toʻplamlarini yuklashda xatolik yuz berdi.',
   'datasets.subhead':
     "Clarion tomonidan indekslangan va so'rov qilinadigan qilib qo'yilgan fayllar. Sxema, statistika va nasl-nasabni tekshirish uchun kartani bosing.",
   'datasets.uploadCta': "Ma'lumotlar to'plamini yuklash",
+  'forgotPassword.backPrompt': 'Hammasidan keyin ham eslab qoldingizmi? ',
   'forgotPassword.checkSpam':
     "Agar uni bir daqiqa ichida ko'rmasangiz, spam papkangizni tekshiring yoki qayta yuborishga harakat qiling.",
   'forgotPassword.emailRequired': 'Elektron pochta manzili talab qilinadi',
+  'forgotPassword.resend': 'Yana yuborish',
   'forgotPassword.sendError': "Qayta tiklash uchun elektron pochta xabarini yuborib bo'lmadi",
   'forgotPassword.sentHeading': 'Elektron pochtangizni tekshiring',
   'forgotPassword.sentSubheading':
     "Biz qayta tiklash havolasini yubordik {{email}} Havola 30 daqiqadan so'ng amal qilish muddati tugaydi.",
+  'forgotPassword.subheading':
+    "Ish emailingizni kiriting va biz sizga yangi parol o'rnatish uchun havola yuboramiz.",
   'googleSignInButton.label': 'Google bilan davom eting',
   'insightFeedCard.viewCta': "Ko'rish",
   'insightHeroCard.subtitle':
@@ -64,36 +83,54 @@ export const ui: UiTranslations = {
   'landing.closing.cta': "Clarionni bepul sinab ko'ring",
   'landing.closing.heading':
     "Boshqaruv panellarini yaratishni to'xtating. Savollar berishni boshlang.",
+  'landing.closing.subhead':
+    '14 kun bepul. Bitta CSV olib keling, birinchi uchta tushunchani besh daqiqadan kamroq vaqtda oling.',
   'landing.features.eyebrow': 'Clarion qanday ishlaydi',
   'landing.features.heading': 'CSV faylini tashlang. Savol bering. Javobni oling.',
+  'landing.features.subhead':
+    "SQL talab qilinmaydi. Dashboardlar ko'payib ketmaydi. Har bir javob — diagramma, jadval va ishga tushgan SQL; bir marta bosishda eksport qilinadi.",
   'landing.hero.eyebrow': "AI ma'lumotlar tahlilchisi · mahsulot va operatsiyalar guruhlari uchun",
   'landing.hero.primaryCta': "Clarionni 14 kun davomida bepul sinab ko'ring",
   'landing.hero.secondaryCta': "Namunaviy so'rovni ko'ring",
   'landing.hero.subtitle':
     "Ma'lumotlar to'plamini yuklang, oddiy ingliz tilida savollar bering, to'g'ri jadvalni qaytarib oling. Clarion SQL, sxemani kashf etish va nasl-nasabni boshqaradi - shuning uchun tahlilchilar 10 baravar tezroq yetkazib berishlari mumkin.",
+  'landing.hero.title': '{{tagline}}.',
   'landing.hero.trust1': "Kredit karta yo'q",
   'landing.hero.trust2': 'SOC 2 II turdagi',
   'landing.hero.trust3': 'Har bir jadvaldagi nasl-nasab',
   'landing.nav.tryFree': "Bepul sinab ko'ring",
+  'landing.preview.cta': "So'rovni sinab ko'ring",
   'landing.preview.label': "Ushbu oyda ma'lumotlar paydo bo'ldi",
   'landing.proof.heading': 'Jiddiy tahlil guruhlari uchun yaratilgan',
   'login.hidePassword': 'Parolni yashirish',
+  'login.newUserPrompt': '{{appName}}da yangimisiz? ',
   'login.showPassword': "Parolni ko'rsatish",
   'login.subheading':
     "Ma'lumotlaringiz haqida yaxshiroq savollar berishda davom etish uchun tizimga kiring.",
+  'login.trialCta': '{{days}} kunlik sinovingizni boshlang',
   'mobileNav.closeMenu': 'Navigatsiya menyusini yopish',
   'mobileNav.openMenu': 'Navigatsiya menyusini ochish',
+  'planUpdated.body':
+    "Hisob-kitob o'zgarishingiz endi faol. Tarifingizni istalgan vaqtda hisob-kitob sahifasidan boshqarishingiz mumkin.",
+  'planUpdated.retry': 'Qayta urinib ko’ring',
+  'planUpdated.verifyFailed': "To'lovingizni hali tasdiqlay olmadik.",
+  'planUpdated.verifyFailedBody':
+    "To'lovingiz hali ham amalga oshirilayotgan bo'lishi mumkin. Birozdan keyin qayta urinib ko'ring.",
   'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
+  'pricing.limits.advanced': 'Kengaytirilgan xususiyatlar',
   'queryEditor.aiBadge': "Sun'iy intellekt yaratilgan",
   'queryEditor.aiSummary': "Sun'iy intellekt xulosasi",
   'queryEditor.copyFailed': "Buferga nusxalab bo'lmadi.",
   'queryEditor.dataHeading': "Ma'lumotlar",
+  'queryEditor.emptyBody':
+    "{{appName}} uch qismda javob beradi: diagramma, asosidagi ma'lumotlar jadvali va ishga tushgan SQL.",
   'queryEditor.emptyHeading': "Taklifni tanlang yoki o'zingiznikini yozing",
   'queryEditor.emptyResult': "Javob qaytarilmadi. Boshqa savolni sinab ko'ring.",
   'queryEditor.exportCsv': 'CSV',
   'queryEditor.eyebrow': "Clariondan so'rang · Tabiiy tilda so'rov",
   'queryEditor.heading': 'Nimalarni bilmoqchisiz?',
   'queryEditor.questionEyebrow': "Siz so'radingiz",
+  'queryEditor.runFailed': "Bu so'rovni bajarib bo'lmadi. Iltimos, qayta urinib ko'ring.",
   'queryEditor.sqlHeading': 'Yaratilgan SQL',
   'queryEditor.subhead':
     "Savolni oddiy ingliz tilida yozing. Clarion jadvalni tanlaydi, SQLni ishga tushiradi va sizga nasl-nasabni ko'rsatadi.",
@@ -110,8 +147,11 @@ export const ui: UiTranslations = {
   'reports.subhead':
     "Saqlangan tahlillarni ulashishingiz, rejalashtirishingiz va eksport qilishingiz mumkin. To'liq hisobotni ochish uchun istalgan eskizni bosing.",
   'reportThumbnailCard.onDemand': "so'rov bo'yicha; talabda",
+  'reportThumbnailCard.runPrefix': '{{when}}ni ishga tushirish',
+  'resetPassword.hidePassword': 'Parolni yashirish',
   'resetPassword.newPasswordLabel': 'Yangi parol',
   'resetPassword.newPasswordPlaceholder': 'Yangi parol',
+  'resetPassword.passwordTooShort': "Parol kamida {{min}} ta belgidan iborat bo'lishi kerak",
   'resetPassword.resetFailed': 'Qayta tiklash amalga oshmadi',
   'resetPassword.showPassword': "Parolni ko'rsatish",
   'resetPassword.subheading':
@@ -127,19 +167,26 @@ export const ui: UiTranslations = {
   'settings.apiKeys.createCta': 'Yaratish',
   'settings.apiKeys.created': 'Yangi API kaliti yaratildi.',
   'settings.apiKeys.createError': "API kalitini yaratib bo'lmadi.",
+  'settings.apiKeys.creating': 'Yaratilmoqda…',
   'settings.apiKeys.deleted': 'API kaliti bekor qilindi.',
   'settings.apiKeys.deleteError': "API kalitini bekor qilib bo'lmadi.",
+  'settings.apiKeys.empty': "Hali API kalitlari yo'q — yuqorida bittasini yarating.",
   'settings.apiKeys.heading': 'API kalitlari',
   'settings.apiKeys.namePlaceholder': 'Kalit nomi (masalan, CI bot)',
   'settings.apiKeys.rotateCta': 'Aylantirish',
   'settings.apiKeys.rotated': 'API kaliti aylantirildi. Integratsiyalaringizni yangilang.',
+  'settings.apiKeys.rotateError': "API kalitini almashtirib bo'lmadi.",
+  'settings.appearance.description': "Yorug'lik va qorong'u rejimlar o'rtasida almashinish.",
   'settings.appearance.title': "Tashqi ko'rinish",
   'settings.dangerZone': 'Xavfli zona',
   'settings.integrations.body':
     "Fayllarni yuklash o'rniga jonli ma'lumotlarni so'rash uchun omborni ulang.",
   'settings.integrations.connected': 'Yangilangan ulanish {{source}} .',
   'settings.integrations.connectedTag': 'ulangan',
+  'settings.integrations.error': "Integratsiyani yangilab bo'lmadi.",
   'settings.integrations.heading': "Ma'lumot manbalari",
+  'settings.revokeDeviceWarning':
+    'Bu qurilmaning kirish huquqi tez orada bekor qilinadi. Uni chiqarasizmi?',
   'settings.security.heading': 'Xavfsizlik',
   'settings.signOutDevice': 'tizimdan chiqish',
   'settings.team.empty':
@@ -147,21 +194,30 @@ export const ui: UiTranslations = {
   'settings.team.removed': "Jamoa a'zosi olib tashlandi.",
   'settings.twoFactorCode': 'Autentifikatsiya kodi',
   'settings.twoFactorDisable': "O'chirish",
+  'settings.twoFactorDisableTitle': "Ikki faktorli autentifikatsiyani o'chirish",
   'settings.twoFactorEnable': 'Yoqish',
+  'settings.twoFactorEnableTitle': 'Ikki faktorli autentifikatsiyani yoqish',
   'settings.twoFactorInvalidCode': "Noto'g'ri kod",
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Ikki faktorli QR kod',
+  'settings.twoFactorScan':
+    "Ushbu QR kodni autentifikator ilovangiz bilan skanerlang, so'ng 6 xonali kodni kiriting.",
+  'settings.twoFactorUnavailable': 'Ushbu ilova uchun ikki faktorli autentifikatsiya mavjud emas.',
   'settings.twoFactorVerify': 'Tasdiqlash va yoqish',
   'sideNavBar.appSubtitle': "AI ma'lumotlar tahlilchisi",
   'sideNavBar.datasets': "Ma'lumotlar to'plamlari",
   'sideNavBar.newAnalysis': 'Yangi tahlil',
   'sideNavBar.queries': "So'rovlar",
   'signup.failed': "Ro'yxatdan o'tish amalga oshmadi",
+  'signup.haveAccount': 'Allaqachon hisobingiz bormi? ',
+  'signup.hidePassword': 'Parolni yashirish',
   'signup.showPassword': "Parolni ko'rsatish",
   'signup.subheading':
     "14 kun bepul. Kredit karta yo'q. Bitta CSV faylini olib keling — qolganini Clarion qiladi.",
   'topNavBar.help': 'Yordam',
   'topNavBar.lastDays': 'Oxirgi {{kun}} Kunlar',
   'topNavBar.userProfileAlt': 'Foydalanuvchi profili',
+  'upload.dropPrompt': "Faylni bu yerga tashlang yoki ko'rib chiqish uchun bosing",
   'upload.maxSize': 'Maks {{size}}',
   'upload.noRecent': "Hali yuklamalar yo'q.",
   'upload.recentHeading': "So'nggi yuklamalar",
@@ -172,9 +228,12 @@ export const ui: UiTranslations = {
   'upload.uploading': 'Yuklanmoqda…',
   'upload.viewCta': "Ma'lumotlar to'plamlari →",
   'uploadDropZone.eyebrow': "Faylni tashlang · yoki ko'rib chiqish uchun bosing",
+  'uploadDropZone.fileInputLabel': 'Yuklash uchun fayl tanlang',
+  'uploadDropZone.maxSize': 'Maksimal fayl hajmi {{size}} · eng katta datasetlar uchun CSV afzal',
   'uploadDropZone.readyEyebrow': 'Tahlil qilishga tayyor',
   'uploadDropZone.subtitle':
     'Clarion sxemani avtomatik ravishda aniqlaydi, statistikani ishga tushiradi va faylingiz tushishi bilan anomaliyalarni aniqlaydi.',
+  'uploadDropZone.title': 'Datasetingizni yuklang',
   'uploadDropZone.unknownType': "noma'lum turi",
   'userMenu.datasets': "Mening ma'lumotlar to'plamlarim",
 }

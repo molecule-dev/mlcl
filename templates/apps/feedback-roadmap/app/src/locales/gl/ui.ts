@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tes suxestións, atopaches un erro ou queres un taboleiro propio en {{appName}}? Abre os axustes para contactar co equipo — cada mensaxe chega a unha persoa real que a le.',
+  'about.contactTitle': 'Fala connosco',
+  'about.featureModeration':
+    'Un roteiro público con etiquetas de trimestre, un rexistro de cambios que converte o traballo entregado en notas de versión e un panel que mostra o que máis quere a xente.',
+  'about.featurePricing':
+    'Gratis para xestionar un par de taboleiros; os plans Pro e Team desbloquean máis taboleiros, límites máis altos e exportación de datos.',
+  'about.featureThreads':
+    'Taboleiros públicos de suxestións organizados por tema, con fusión de duplicados que agrupa os votos nun único sinal de demanda honesto.',
+  'about.featureVoting':
+    'Voto único por usuario cun fluxo de estados completo — aberto, planificado, en curso, entregado ou rexeitado — e unha resposta oficial en cada decisión.',
+  'about.intro':
+    '{{appName}} é unha plataforma de suxestións de produto — taboleiros públicos onde os clientes publican peticións, votan o que necesitan e seguen cada idea desde planificada ata entregada. Os equipos deixan de adiviñar que construír porque a demanda ordénase soa.',
+  'about.missionBody':
+    'Cremos que as mellores decisións de produto tómanse en público. {{appName}} dálle a cada equipo un taboleiro público de peticións votadas, un roteiro oficial con trimestres obxectivo e un rexistro de cambios que pecha o círculo — para que os clientes vexan o seu impacto e os equipos vexan o seu mandato.',
+  'about.missionTitle': 'A nosa misión',
   'admin.backToBoards': 'Volver aos taboleiros',
   'admin.denied': 'Só administradores.',
   'admin.eyebrow': 'Equipo de produto',
@@ -11,6 +27,8 @@ export const ui: UiTranslations = {
   'admin.title': 'Panel de comentarios',
   'admin.topOpen': 'Principais solicitudes abertas',
   'admin.totalVotes': '{{count}} en total',
+  'admin.votesChartLabel':
+    'Gráfico de barras dos votos emitidos por semana nas últimas oito semanas',
   'admin.votesOverTime': 'Votos ao longo do tempo',
   'auth.forgotPassword.email': 'Correo electrónico',
   'auth.forgotPassword.sendResetLink': 'Enviar ligazón de restablecemento',
@@ -30,7 +48,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Crea a túa conta',
   'auth.username': 'Nome de usuario',
   'authShell.communities': 'Comunidades',
+  'authShell.copyright': '{{appName}} — cada voz conta.',
   'authShell.trending': 'Tendencias',
+  'boardCard.postCount': '{{count}} publicacións',
   'boardDetail.allBoards': 'Todos os taboleiros',
   'boardDetail.backToBoards': 'Volver aos taboleiros',
   'boardDetail.empty': 'Ningunha publicación coincide con estes filtros aínda.',
@@ -54,6 +74,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Cada entrada comezou como unha solicitude votada. Os votantes viron como se movía; aquí é onde aterrou.',
   'changelog.title': 'Entregado, con recibos',
+  'changelog.voteCount': '{{count}} votos fixeron posible isto',
   'common.atLeast8Characters': 'Polo menos 8 caracteres',
   'common.checkYourInbox': 'Revisa a túa bandexa de entrada',
   'common.loadingEllipsis': 'Cargando…',
@@ -64,6 +85,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Enviando…',
   'footer.about': 'Acerca de {{appName}}',
   'footer.language': 'Idioma',
+  'forgotPassword.description':
+    'Introduce o teu correo electrónico e enviarémosche unha ligazón para restablecer.',
+  'forgotPassword.successBody':
+    'Enviamos unha ligazón de restablecemento a {{email}} Caduca en 30 minutos.',
   'forgotPassword.tryAnother': 'Proba con outro correo electrónico',
   'form.displayName': 'Nome para mostrar',
   'form.firstName': 'Nome',
@@ -74,6 +99,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'A túa folla de ruta, respaldada por votos.',
   'landing.heroCtaPrimary': 'Comezar a recoller votos',
   'landing.heroCtaSecondary': 'Ver un taboleiro en directo',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Deixa de adiviñar. Entrega o que votan.',
+  'landing.heroLede':
+    '{{appName}} converte peticións de funcións dispersas nun taboleiro público de ideas votadas, un roteiro oficial e un rexistro de cambios que os teus clientes len de verdade.',
   'landing.heroStat1': '3.200+',
   'landing.heroStat1Label': 'Equipos escoitando',
   'landing.heroStat2': '1,4m',
@@ -85,9 +114,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Rexistro de cambios',
   'landing.navJoin': 'Únete a {{appName}}',
   'landing.navRoadmap': 'Folla de ruta',
+  'landing.step1Body':
+    'Os clientes publican ideas en taboleiros públicos. Os duplicados fusiónanse, os votos agrúpanse e a demanda ordénase soa.',
   'landing.step1Title': 'Recoller',
+  'landing.step2Body':
+    'Marca as peticións como planificadas ou en curso cun trimestre obxectivo — o roteiro actualízase no momento en que o fas.',
+  'landing.step2Title': 'Confirmar',
   'landing.step3Body':
     'As publicacións entregadas convértense en entradas do rexistro de cambios, e cada votante ve o resultado na súa propia lista.',
+  'landing.step3Title': 'Entregar',
   'landing.topSubtitle': 'En directo desde este taboleiro — inicia sesión para engadir o teu voto.',
   'landing.topTitle': 'O que os usuarios están pedindo agora mesmo',
   'landing.topViewAll': 'Todos os taboleiros',
@@ -95,14 +130,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Primaria',
   'layout.signUp': 'Rexístrate',
   'layout.submit': 'Enviar comentario',
+  'login.description': 'Retoma a conversa onde quedou.',
+  'login.heading': 'Iniciar sesión en Nimbus',
+  'login.noAccount': 'Novo aquí?',
   'login.passwordPlaceholder': 'O teu contrasinal',
   'login.twoFactorLabel': 'Código 2FA (opcional)',
   'login.twoFactorPlaceholder': 'Código de 6 díxitos',
+  'login.twoFactorRequiredHint':
+    'Esta conta ten activada a autenticación en dous pasos. Introduce o código de 6 díxitos da túa aplicación de autenticación para continuar.',
   'login.twoFactorRequiredLabel': 'Introduce o teu código 2FA',
+  'myActivity.browseCta': 'Explorar os taboleiros',
+  'myActivity.emptyPosts': 'Aínda non publicaches ningunha petición.',
+  'myActivity.emptyVotes': 'Aínda nada — explora os taboleiros e apoia unha idea.',
   'myActivity.eyebrow': 'A túa actividade',
   'myActivity.loadError': 'Non se puido cargar a túa actividade.',
   'myActivity.postsTitle': 'Solicitudes que enviaches',
+  'myActivity.shippedNote': '{{count}} delas entregadas — grazas polo empurrón.',
   'myActivity.submitCta': 'Publicar unha solicitude',
+  'myActivity.tabLabel': 'Vista',
   'myActivity.tabPosts': 'As miñas publicacións',
   'myActivity.tabVotes': 'Os meus votos',
   'myActivity.votesTitle': 'Solicitudes que votaches',
@@ -137,8 +182,12 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Publicación non atopada',
   'postsAdmin.backToDashboard': 'Panel de control',
   'postsAdmin.eyebrow': 'Equipo de produto',
+  'postsAdmin.mergeApplied': 'Fusionada — movéronse {{votes}} votos e {{comments}} comentarios.',
   'postsAdmin.mergeApply': 'Fusionar e mover votos',
   'postsAdmin.mergeChoose': 'Escolle unha publicación de destino…',
+  'postsAdmin.mergeFailed': 'Produciuse un erro na fusión.',
+  'postsAdmin.mergeHint':
+    'Os votos agrúpanse (un por usuario), os comentarios móvense e esta publicación recibe unha nota de "movida".',
   'postsAdmin.mergeLabel': 'Fusionar duplicado en',
   'postsAdmin.responseLabel': 'Resposta oficial',
   'postsAdmin.responsePlaceholder':
@@ -154,7 +203,13 @@ export const ui: UiTranslations = {
     'Establece o estado oficial, responde publicamente, etiqueta o trimestre da folla de ruta e fusiona duplicados.',
   'postsAdmin.title': 'Xestionar publicacións de comentarios',
   'postsAdmin.votes': '{{count}} votos',
+  'pricing.limits.advancedFeatures': 'Funcións avanzadas:',
+  'pricing.limits.boards': '{{count}} táboas',
   'pricing.limits.export': 'Exportación de datos:',
+  'pricing.limits.posts': '{{count}} publicacións de suxestións',
+  'pricing.limits.votes': '{{count}} votos',
+  'resetPassword.description':
+    'Escolle un forte. Iniciaremos sesión unha vez que o restablecemento sexa correcto.',
   'resetPassword.newPasswordLabel': 'Novo contrasinal',
   'resetPassword.tokenPlaceholder': 'Pega o token da ligazón',
   'roadmap.cardMeta': 'por {{author}} · {{board}}',
@@ -171,6 +226,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'Escribe unha consulta para atopar solicitudes existentes antes de publicar un duplicado.',
   'search.loadError': 'Fallou a busca. Téntao de novo.',
+  'search.searching': 'Buscando…',
   'search.submit': 'Buscar',
   'search.submitNew': 'Publicala como unha nova solicitude',
   'search.title': 'Buscar comentarios',
@@ -180,12 +236,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'Facturación',
   'settings.displaySubtitle': 'Escolle o denso que se senten os feeds.',
   'settings.displayTitle': 'Visualización',
+  'settings.emailDigestDesc': 'As peticións abertas máis votadas cada luns.',
+  'settings.emailDigestLabel': 'Resumo semanal',
+  'settings.emailMentionsDesc': 'Cando alguén responde a unha publicación que segues.',
+  'settings.emailMentionsLabel': 'Avisarme por correo cando me mencionen',
+  'settings.emailRepliesDesc': 'Fíos que iniciaste ou nos que respondiches.',
+  'settings.emailRepliesLabel': 'Enviar correo electrónico ás respostas',
   'settings.loadError': 'Non se puido cargar a túa conta.',
   'settings.loading': 'Cargando a túa configuración…',
   'settings.notifications': 'Notificacións',
   'settings.notificationsSubtitle':
     'Decide que chega á túa bandexa de entrada fronte ao teu dispositivo de notificacións.',
+  'settings.pushRepliesLabel': 'Notificacións push para respostas',
+  'settings.pushVotesDesc': 'Aviso ao acadar 100, 500, 1000.',
+  'settings.pushVotesLabel': 'Impulsar os fitos dos votos positivos',
   'settings.saveAccount': 'Gardar conta',
+  'settings.showFlair': 'Mostrar etiquetas do taboleiro nas publicacións',
+  'settings.showThumbnails': 'Mostrar miniaturas de ligazóns/imaxes',
   'settings.usernamePlaceholder': 'Escolle un identificador',
   'signup.confirmPlaceholder': 'Escríbeo de novo',
   'signup.description': 'Deseña o que construímos a continuación.',

@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Máte dotaz, našli jste chybu nebo chcete přenést své knihy? Napište týmu {{app}} na hello@{{app}}.example — každou zprávu čte skutečný člověk.',
   'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O aplikaci',
+  'about.intro':
+    '{{app}} je účetnictví pro malé firmy, které udrží přehled o každém haléři — faktury, výdaje, platby a reporty na jednom klidném místě pro majitele, účetní a daňové poradce.',
+  'about.missionBody':
+    'Podnikat by nemělo znamenat děsit se svého účetnictví. {{app}} nahrazuje změť tabulek jasnými čísly, podle kterých se dá jednat, takže trávíte méně času párováním a více času prací, kvůli které jste podnikání vůbec začali.',
+  'about.missionTitle': 'Naše poslání',
   'about.title': 'O aplikaci {{app}}',
   'accounts.count': '{{count}} účty',
+  'accounts.emptyBody':
+    'Účty v hlavní knize sledují, kde peníze jsou a kam se pohybují. Zobrazí se zde, jakmile je váš účetní nebo integrace nastaví.',
   'accounts.emptyTitle': 'Zatím žádné účty',
   'accounts.heading': 'Účetní plán',
   'accounts.kpi.accounts': 'Účty',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Všechny účty v účetní knize, které souvisejí s vašimi fakturami, výdaji a platbami, seskupené podle typu.',
   'accounts.tag.inactive': 'neaktivní',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Finanční ředitel, Horizon Tech',
   'authBrandPanel.eyebrow': 'Důvěřují nám finanční týmy',
   'authBrandPanel.label': 'Ukázka značky',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Všichni zákazníci',
   'customerDetail.invoiceMeta': 'Datum vydání{{issued}} · Termín splatnosti{{due}}',
   'customerDetail.loadError': 'Zákazníka se nepodařilo načíst.',
+  'customerDetail.missingBody':
+    'Požadovaný záznam zákazníka se nepodařilo načíst. Možná byl odstraněn nebo k němu nemáte přístup.',
   'customerDetail.missingHeading': 'Záznam zákazníka není k dispozici',
+  'customerDetail.missingHelp':
+    'Pomocí odkazu zpět výše se vraťte na seznam zákazníků nebo si tam vyberte jiný záznam.',
+  'customerDetail.noInvoices': 'Zatím žádné faktury.',
   'customerDetail.notesEmpty': 'Zatím žádné poznámky.',
   'customerDetail.paymentsEmpty': 'Žádné zaznamenané platby.',
   'customerDetail.paymentTerms': 'Platební podmínky',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Odpočitatelný',
   'expenseDetail.detailsHeading': 'Podrobnosti transakce',
   'expenseDetail.loadError': 'Výdaj se nepodařilo načíst.',
+  'expenseDetail.matched': 'Spárováno · {{description}}',
   'expenseDetail.missingBody':
     'Požadovaný výdaj nebylo možné načíst. Mohl být odstraněn nebo k němu nemáte přístup.',
   'expenseDetail.missingHeading': 'Záznam výdaje není k dispozici',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Účtenka',
   'expenseDetail.receiptHeading': 'Účtenka',
   'expenseDetail.reconciled': 'Odsouhlaseno',
+  'expenseDetail.unreconciled': 'Neodsouhlaseno',
   'expenses.empty': 'Zatím žádné výdaje.',
   'expenses.heading': 'Výdaje',
   'expenses.kpi.deductible': 'Odpočitatelné',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Faktury se nepodařilo načíst.',
   'invoices.searchPlaceholder': 'Hledat č. faktury nebo zákazníka…',
   'invoices.summary.paid': 'Zaplaceno v tomto období',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'Zdarma po dobu 30 dní. Bez karty. Přiveďte svého účetního — poděkuje Vám.',
   'landing.ctaTitle': 'Přesuňte své účetnictví na klidnější místo.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Pohledávky',
   'ledgerStatTriad.eyebrow.mtd': 'Měsíc do dnešního dne',
   'ledgerStatTriad.netSub': 'Čistý {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} po splatnosti',
   'ledgerStatTriad.revenueLabel': 'Tržby',
   'login.failed': 'Přihlášení se nezdařilo.',
   'login.hidePassword': 'Skrýt heslo',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Přihlásit se',
   'nav.legal': 'Právní',
   'newExpense.back': 'Výdaje',
+  'newExpense.clearReceiptCta': 'Vymazat přiložený doklad',
   'newExpense.deductible': 'Daňově odpočitatelné',
   'newExpense.dropPrompt': 'Přetáhněte sem fotografii účtenky nebo PDF pro přiložení.',
   'newExpense.failed': 'Výdaj se nepodařilo uložit.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Platby se nepodařilo načíst.',
   'payments.unmatchedTag': 'bezkonkurenční',
   'planUpdated.pageLabel': 'Potvrzení aktualizace plánu',
+  'pricing.advancedFeatures': 'Pokročilé funkce: {{yes}}',
+  'pricing.canExport': 'Export dat: {{yes}}',
+  'pricing.heading': 'Vyberte svůj plán {{app}}',
+  'pricing.maxAccounts': '{{count}} účty',
+  'pricing.maxExpenses': '{{count}} výdaje',
+  'pricing.maxInvoices': '{{count}} faktur',
+  'privacy.intro':
+    'Tyto zásady ochrany osobních údajů popisují, jak {{app}} shromažďuje, používá a zveřejňuje informace o firmách, které službu využívají.',
   'privacy.lastUpdated': 'Poslední aktualizace: {{date}}',
   'privacy.section.collected.body':
     'Shromažďujeme podrobnosti o účtu (jméno, e-mail, společnost), finanční záznamy, které nahráváte (faktury, výdaje, zákazníky, platby), a standardní provozní protokoly (IP adresa, user-agent, časová razítka).',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Informace se používají k provozování služby, generování požadovaných reportů a PDF souborů, odesílání transakčních e-mailů prostřednictvím Mailgunu a zpracování plateb prostřednictvím Stripe. Osobní údaje neprodáváme ani nepronajímáme.',
   'recentInvoicesCard.dueMeta': 'Splatnost {{date}}',
+  'recentInvoicesCard.empty': 'Žádné faktury neodpovídají.',
   'recentInvoicesCard.eyebrow': 'Pohledávky',
   'recentInvoicesCard.searchAriaLabel': 'Hledat faktury',
+  'recentInvoicesCard.searchPlaceholder': 'Hledat faktury…',
   'recentInvoicesCard.title': 'Nedávné faktury',
   'recentInvoicesCard.viewAll': 'Zobrazit všechny faktury →',
   'reports.assets': 'Aktiva',
@@ -181,15 +211,20 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Zisk a ztráta (12 měsíců)',
   'resetPassword.backToLogin': '← Zpět na přihlášení',
   'resetPassword.hidePassword': 'Skrýt heslo',
+  'resetPassword.passwordLabel': 'Nové heslo',
   'resetPassword.showPassword': 'Zobrazit heslo',
+  'resetPassword.subheading': 'Zvolte silné heslo — minimálně osm znaků.',
   'resetPassword.submit': 'Obnovit heslo',
   'resetPassword.tooShort': 'Heslo musí mít alespoň 8 znaků.',
   'settings.account.changePassword': 'Změnit heslo',
   'settings.account.changingPassword': 'Měnící se…',
   'settings.account.currentPassword': 'Aktuální heslo',
+  'settings.account.dangerZone': 'Nebezpečná zóna',
   'settings.account.deleteAccount': 'Smazat účet',
   'settings.account.deleteDescription': 'Trvale smažte svůj účet a všechna související data.',
   'settings.account.deleteError': 'Smazání účtu se nezdařilo.',
+  'settings.account.deleteWarning':
+    'Tímto trvale smažete svůj účet a akci nelze vrátit zpět. Potvrďte zadáním hesla.',
   'settings.account.deleting': 'Mazání…',
   'settings.account.devices': 'Zařízení',
   'settings.account.email': 'E-mail',
@@ -200,6 +235,7 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Heslo',
   'settings.account.passwordError': 'Změna hesla se nezdařilo.',
   'settings.account.pushNotifications': 'Push oznámení na tomto zařízení',
+  'settings.account.revokeDeviceWarning': 'Přístup tohoto zařízení bude brzy odvolán. Odhlásit ho?',
   'settings.account.saveError': 'Profil se nepodařilo aktualizovat.',
   'settings.account.security': 'Zabezpečení',
   'settings.account.signOutDevice': 'Odhlásit se',
@@ -207,12 +243,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Dvoufaktorové ověřování',
   'settings.account.twoFactorCode': 'Ověřovací kód',
   'settings.account.twoFactorDisable': 'Zakázat',
+  'settings.account.twoFactorDisableTitle': 'Vypnout dvoufaktorové ověřování',
   'settings.account.twoFactorEnable': 'Povolit',
+  'settings.account.twoFactorEnableTitle': 'Zapnout dvoufaktorové ověřování',
   'settings.account.twoFactorInvalidCode': 'Neplatný kód',
   'settings.account.twoFactorOn': 'Dne',
+  'settings.account.twoFactorQrAlt': 'QR kód pro dvoufázové ověření',
+  'settings.account.twoFactorScan':
+    'Naskenujte tento QR kód aplikací pro ověřování a poté zadejte šestimístný kód.',
+  'settings.account.twoFactorUnavailable':
+    'Dvoufázové ověřování není pro tuto aplikaci k dispozici.',
   'settings.account.twoFactorVerify': 'Ověřit a povolit',
   'settings.account.unknownDevice': 'Neznámé zařízení',
   'settings.company.email': 'Fakturační e-mail',
+  'settings.company.heading': 'Firma a daně',
   'settings.company.name': 'Právní název',
   'settings.company.saveButton': 'Uložit profil společnosti',
   'settings.company.taxId': 'DIČ / IČ',
@@ -255,6 +299,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Odh. čtvrtletně',
   'taxes.kpi.owed': 'K úhradě',
   'taxes.loadError': 'Daňový přehled se nepodařilo načíst.',
+  'taxes.remittedPct': '({{pct}} % odvedeno)',
+  'terms.intro':
+    'Tyto podmínky služby („podmínky“) upravují váš přístup k {{app}} a jeho používání. Vytvořením účtu nebo používáním služby souhlasíte s tím, že jimi budete vázáni.',
   'terms.lastUpdated': 'Poslední aktualizace: {{date}}',
   'terms.section.acceptable.body':
     'Zavazujete se nevyužívat službu k porušování zákonů, porušování práv duševního vlastnictví, šíření malwaru ani k pokusu o neoprávněný přístup k jiným účtům nebo naší infrastruktuře.',

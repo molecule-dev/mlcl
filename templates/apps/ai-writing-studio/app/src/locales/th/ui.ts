@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'มีข้อเสนอแนะ เจอบั๊ก หรืออยากได้ฟีเจอร์ใหม่? ติดต่อเราจากการตั้งค่าบัญชีของคุณ — ทุกข้อความส่งตรงถึงทีมงานตัวจริง',
   'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับ',
+  'about.intro':
+    '{{app}} คือสตูดิโอเขียนด้วย AI สำหรับนักเขียนที่ใส่ใจงานเขียนของตัวเองอย่างลึกซึ้ง ผสานการสร้างเนื้อหายาวด้วย AI เข้ากับ编辑器ที่เรียบง่าย การให้คะแนน SEO และการสร้างภาพ เพื่อให้คุณพางานจากหน้าว่างไปสู่การเผยแพร่ — โดยไม่สูญเสียเสียงเฉพาะตัวของคุณ',
+  'about.missionBody':
+    'เราเชื่อว่า AI ควรช่วยคุณร่างงาน ไปพร้อมกับคุณ ไม่ใช่แทนคุณ {{app}} แยกข้อเสนอแนะให้เห็นชัดเจนจากคำของคุณเอง คุณยังเป็นเจ้าของทุกเอกสารที่สร้าง และเครื่องมือจะไม่ขวางทางการเขียน',
+  'about.missionTitle': 'พันธกิจของเรา',
   'about.pageTitle': 'เกี่ยวกับ {{app}}',
   'aiSuggestionCard.applied': 'ข้อเสนอแนะได้รับการนำไปใช้แล้ว',
   'aiSuggestionCard.apply': 'นำมาใช้',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'แหล่งที่มาของการจราจร',
   'billing.activePlan': 'การสมัครใช้งานเปิดใช้งานอยู่',
   'billing.aiWordsLabel': 'รวมถึงปัญญาประดิษฐ์รุ่นต่างๆ',
+  'billing.cancelFailed': 'ไม่สามารถยกเลิกการสมัครสมาชิกได้',
   'billing.cancelPlan': 'ยกเลิกแผน',
+  'billing.cancelPlanConfirm': 'ยืนยันการยกเลิก?',
   'billing.cancelSuccess': 'การสมัครสมาชิกถูกยกเลิกแล้ว โปรดรีเฟรชหน้าเว็บเพื่ออัปเดตแผนการใช้งาน',
   'billing.changePlan': 'แผนการเปลี่ยนแปลง',
   'billing.col.invoice': 'ใบแจ้งหนี้',
@@ -42,26 +51,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'ดูแผนผัง',
   'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'dashboard.continueWriting': 'เขียนต่อไป',
+  'dashboard.createFirst': 'สร้างเอกสาร',
   'dashboard.days.sat': 'ส',
   'dashboard.days.sun': 'อา',
   'dashboard.defaultWriterName': 'นักเขียน',
   'dashboard.greeting': 'สวัสดีตอนเช้า, {{name}}',
   'dashboard.loadError': 'ไม่สามารถโหลดแดชบอร์ดของคุณได้',
+  'dashboard.loading': 'กำลังโหลดสตูดิโอของคุณ…',
   'dashboard.loadingDocs': 'กำลังโหลดเอกสารล่าสุด…',
   'dashboard.noDocuments': 'ยังไม่มีเอกสารใดๆ เริ่มทำเอกสารฉบับแรกของคุณได้เลย',
   'dashboard.startWriting': 'เริ่มเอกสารใหม่',
+  'dashboard.streakBody': 'คุณเขียนไปแล้ว {{words}} คำในสัปดาห์นี้',
   'dashboard.streakTitle': '{{count}} สถิติรายวัน',
+  'dashboard.subgreeting': 'มี {{count}} เอกสารในคลังของคุณ — รักษาโมเมนตัมต่อไป',
+  'documentCard.seoScoreTitle': 'คะแนน SEO: {{score}}/100',
+  'documents.createNew': 'สร้างเอกสารใหม่',
   'documents.empty': 'คลังเอกสารของคุณพร้อมแล้ว เริ่มสร้างเอกสารฉบับแรกของคุณได้เลย',
+  'documents.emptyFiltered': 'ยังไม่มีเอกสารที่ตรงกับตัวกรองของคุณ',
   'documents.loadError': 'ไม่สามารถโหลดเอกสารได้',
   'documents.loading': 'กำลังโหลดคลังภาพของคุณ…',
   'documents.new': 'เอกสารใหม่',
+  'documents.searchAriaLabel': 'ค้นหาเอกสาร',
   'documents.searchPlaceholder': 'ค้นหาเอกสาร…',
   'documents.subtitle': '{{count}} เอกสารในคลังเอกสารของคุณ',
   'documents.title': 'เอกสาร',
   'editor.aiPanelTitle': 'พลูม อินเทลลิเจนท์',
+  'editor.aiSuggestion.empty':
+    'ไม่มีการปรับปรุงที่ใช้งานอยู่ ขอให้ {{appName}} เสนอแนะเมื่อคุณอยากได้สายตาคู่ที่สอง',
   'editor.aiSuggestion.failed': 'ไม่สามารถโหลดคำแนะนำได้ในขณะนี้',
   'editor.aiSuggestion.loadingBody': 'สร้างความคมชัดที่ดียิ่งขึ้น…',
   'editor.backToDocuments': 'เอกสารทั้งหมด',
+  'editor.bodyAriaLabel': 'เนื้อหาเอกสาร',
   'editor.closeAiPanel': 'ปิดแผงควบคุม AI',
   'editor.createFailed': 'ไม่สามารถสร้างเอกสารได้',
   'editor.exported': 'ส่งออกเป็น {{format}}',
@@ -77,18 +97,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'ขอการปรับปรุงเพิ่มเติม',
   'editor.saveBeforePublish': 'บันทึกเอกสารก่อนเผยแพร่',
   'editor.status.chars': '{{count}} ตัวละคร',
+  'editor.status.readTime': '{{minutes}} นาทีในการอ่าน',
   'editor.status.savedAt': 'บันทึกแล้ว {{time}}',
   'editor.status.saveError': 'การบันทึกล้มเหลว',
+  'editor.status.unsaved': 'ยังไม่ได้บันทึก',
   'editor.titleAriaLabel': 'ชื่อเอกสาร',
   'editor.titlePlaceholder': 'เอกสารที่ไม่มีชื่อ',
   'editor.toggleAiPanel': 'สลับแผง AI',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'author@example.com',
+  'forgotPassword.sent': 'หากมี {{email}} ในระบบ ลิงก์รีเซ็ตกำลังส่งไปให้คุณ',
   'imageGenerator.failed': 'การสร้างภาพล้มเหลว',
   'imageGenerator.generate': 'สร้างภาพ',
   'imageGenerator.generating': 'กำลังสร้าง...',
   'imageGenerator.placeholder': 'อธิบายภาพที่คุณต้องการสร้าง...',
+  'imageGenerator.promptAriaLabel': 'ภาพแจ้งเตือน',
+  'imageGenerator.subtitle': 'อธิบายภาพปกแล้วให้ AI วาดให้',
   'imageGenerator.title': 'โปรแกรมสร้างภาพ AI',
+  'landing.aiSuggestionBody':
+    'ยืนอยู่บนระเบียงชั้น 42 เอเลียสรู้สึกถึงเมืองที่กดดันเขา — ลมกวาดเสียงฮัมรอบตัวออกไป เหลือเขาแขวนอยู่ในความว่างเปล่าอันหนาวเย็นและเงียบงันเหนือตารางแสงเรือง',
   'landing.eyebrow': 'สตูดิโอเขียนบทความด้วย AI สำหรับนักเขียนมืออาชีพ',
   'landing.featuresHeading': 'เครื่องมือที่ไม่เกะกะ',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -98,14 +125,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'สตูดิโอที่สร้างขึ้นเพื่อนักเขียนที่ใส่ใจในสำนวน การเรียบเรียง และความแม่นยำ Plume จะอยู่เคียงข้างคุณในระหว่างการร่างงานเขียน ไม่ใช่แทนที่คุณ',
   'landing.heroTitle.eloquence': 'ความสามารถในการพูด',
+  'landing.heroTitle.intelligence': 'ปัญญามาบรรจบกับ ',
   'landing.nav.testimonials': 'คำรับรอง',
   'landing.plan.cta': 'เริ่มต้นด้วยแผนนี้',
   'landing.plan.popular': 'เป็นที่รักมากที่สุด',
   'landing.pricingEyebrow': 'ราคา',
   'landing.pricingHeading': 'เลือกสิ่งที่เหมาะสมกับการปฏิบัติงานของคุณ',
   'landing.sampleDocTitle': 'สถาปัตยกรรมแห่งความเงียบ',
+  'landing.sampleParagraph1':
+    'เมืองไม่เคยเงียบจริง ๆ แม้ในยามดึกที่สุด เสียงฮัมต่ำ ๆ ยังสั่นสะเทือนผ่านฐานรากคอนกรีต — เสียงเต้นของหัวใจเชิงกลจากรถไฟใต้ดินและปล่องระบายอากาศ',
+  'landing.sampleParagraph2.after': ' กับกระจก',
+  'landing.sampleParagraph2.before': 'แต่ ',
   'landing.sampleParagraph2.highlight':
     'ขณะยืนอยู่บนระเบียงชั้น 42 เอเลียสรู้สึกถึงความโดดเดี่ยวอย่างสุดซึ้ง',
+  'landing.showcaseBody':
+    'ไฮไลต์ประโยคหนึ่ง แล้ว {{appName}} จะเสนอการปรับปรุง ยอมรับ ปรับแก้ หรือปัดทิ้ง ข้อเสนอแนะจะถูก tinted สีม่วงเสมอ เพื่อให้คุณรู้ว่าอะไรคือสิ่งที่คุณเขียนกับสิ่งที่ถูกเสนอ',
+  'landing.showcaseHeading': 'สายตาคู่ที่สอง — ไม่ใช่นักเขียนคนที่สอง',
   'landing.startWriting': 'เริ่มเขียน',
   'login.emailPlaceholder': 'author@example.com',
   'login.failed': 'การเข้าสู่ระบบล้มเหลว',
@@ -120,8 +155,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'เปิดแดชบอร์ด',
   'notFound.title': 'บทนี้ยังไม่ได้เขียนขึ้น',
   'plumeSidebarLayout.primaryNavLabel': 'การนำทางหลัก',
+  'pricing.maxDocuments': '{{count}} เอกสาร',
+  'pricing.maxGenerate': 'การสร้างด้วย AI {{count}} ครั้ง',
+  'pricing.maxImages': 'การสร้างภาพ {{count}} ครั้ง',
   'privacy.data':
     'อีเมลบัญชีของคุณและรหัสผ่านที่เข้ารหัส เอกสารและเทมเพลตที่คุณสร้าง บันทึกคำแนะนำจาก AI (ข้อมูลนำเข้า + ข้อมูลส่งออก) สำหรับการเรียกเก็บเงินและการวิเคราะห์ รหัสลูกค้าและรหัสการสมัครสมาชิกของ Stripe; เราไม่เก็บหมายเลขบัตรเต็มรูปแบบ',
+  'privacy.intro':
+    'เราเก็บเฉพาะข้อมูลที่จำเป็นในการดำเนินงาน {{app}}: อีเมลของคุณ เอกสารที่คุณสร้าง และคำขอ AI ที่คุณส่ง เราไม่เคยขายงานเขียนหรือพรอมป์ของคุณ',
   'profile.loadError': 'ไม่สามารถโหลดโปรไฟล์ของคุณได้',
   'profile.loading': 'กำลังโหลดโปรไฟล์ของคุณ…',
   'profile.loadingPublished': 'กำลังโหลดเอกสารที่เผยแพร่แล้ว…',
@@ -132,7 +172,13 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'รหัสผ่านใหม่',
   'seoAnalysis.backToEditor': 'กลับไปที่ตัวแก้ไข',
   'seoAnalysis.eyebrow': 'การวิเคราะห์ SEO',
+  'seoAnalysis.heroBody':
+    'มีข้อเสนอแนะ {{count}} รายการให้ปรับใช้ แต่ละรายการเป็นการยกระดับโครงสร้างหรือคีย์เวิร์ด ไม่ใช่กำแพงสัญญาณเตือน',
+  'seoAnalysis.heroBodyEmpty':
+    'คลิก "Run analysis" เพื่อให้คะแนนความอ่านง่าย ความหนาแน่นของคีย์เวิร์ด และโครงสร้าง',
   'seoAnalysis.heroEmpty': 'ยังไม่มีการวิเคราะห์ใดๆ ลองทำการวิเคราะห์ดูเพื่อประเมินผลร่างนี้',
+  'seoAnalysis.heroNeedsWork': 'การยกระดับโครงสร้างบางอย่างจะช่วยเพิ่มการเข้าถึง',
+  'seoAnalysis.heroStrong': 'ชิ้นงานแข็งแรง — อีกนิดก็ยอดเยี่ยม',
   'seoAnalysis.historyEmpty': 'ไม่มีการบันทึกการวิเคราะห์ก่อนหน้านี้',
   'seoAnalysis.historyTitle': 'ประวัติการวิเคราะห์',
   'seoAnalysis.keywordEmpty':
@@ -159,8 +205,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'ปรับแต่ง Plume ให้เข้ากับสไตล์การเขียนของคุณ',
   'settings.toggleIntegrationFailed': 'การอัปเดตการผสานรวมล้มเหลว',
   'settings.writing.aiSuggestions': 'คำแนะนำจาก AI แบบเรียลไทม์ขณะพิมพ์',
+  'settings.writing.aiSuggestionsBody':
+    'แสดงการปรับปรุงขณะคุณเขียน ข้อเสนอแนะเป็นแบบเลือกใช้ต่อประโยคเสมอ',
   'settings.writing.autoSave': 'บันทึกอัตโนมัติทุก 30 วินาที',
+  'settings.writing.autoSaveBody':
+    '{{appName}} เก็บสแนปช็อตของร่างของคุณไว้ เพื่อให้กู้คืนได้จากทุกแท็บ',
   'settings.writing.notifyEmail': 'ส่งสรุปงานเขียนรายสัปดาห์ให้ฉันทางอีเมล',
+  'settings.writing.notifyEmailBody':
+    'สรุปสั้น ๆ ทุกวันอาทิตย์เกี่ยวกับสตรีค ร่างงาน และการปรับปรุง SEO',
   'settings.writing.title': 'การตั้งค่าการเขียน',
   'settings.writing.tone': 'การตั้งค่าโทนเสียงเริ่มต้น',
   'signup.emailPlaceholder': 'author@example.com',
@@ -172,8 +224,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'ไม่มีคำอธิบายเพิ่มเติม',
   'templates.subtitle':
     'เริ่มต้นจากกรอบเนื้อหาที่ผ่านการทดสอบมาแล้ว จากนั้นปรับแต่งให้เป็นสไตล์ของคุณเอง',
+  'terms.intro':
+    'ข้อกำหนดเหล่านี้ควบคุมการใช้งาน {{app}} ของคุณ การสร้างบัญชีถือว่าคุณตกลงใช้บริการเพื่อการเขียนที่ถูกกฎหมาย และเก็บข้อมูลเข้าสู่ระบบของบัญชีเป็นความลับ',
   'terms.license':
     'คุณยังคงเป็นเจ้าของเอกสาร เทมเพลต และผลลัพธ์จาก AI ทุกชิ้นที่คุณสร้างขึ้น เราต้องการเพียงใบอนุญาตแบบไม่ผูกขาดในการจัดเก็บและส่งมอบผลงานของคุณกลับคืนให้คุณ และเพื่อประมวลผลคำขอ AI ผ่านผู้ให้บริการที่ได้รับการรับรองที่คุณเลือก',
   'writingStreakHeroCard.change': '{{sign}} {{amount}} คำ',
   'writingStreakHeroCard.greeting': 'สวัสดีครับ/ค่ะ {{name}}',
+  'writingStreakHeroCard.subtitle': 'คำที่เขียนในสัปดาห์นี้ — สตรีค {{count}} วัน',
+  'writingStreakHeroCard.tagline': 'วันละหน้าช่วยให้มิวส์ไม่ห่างหาย',
 }

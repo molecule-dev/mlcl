@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Het jy terugvoer, het jy 'n fout raakgesien, of wil jy 'n funksie hê? Kontak ons vanuit jou rekeninginstellings — elke boodskap gaan na 'n werklike persoon op die span. Let op: niks hier is beleggingsadvies nie; jy bly in beheer van elke transaksie.",
+  'about.contactTitle': 'Praat met ons',
+  'about.featureAttribution':
+    'Prestasie-toeskrywing — ontleed opbrengste per sektor, streek en bateklas, en vergelyk oor enige tydperk.',
+  'about.featureRebalance':
+    'Dissiplineerde herbalansering — stel teikenallokasies en toleransiebande, sien afwyking vroeg uitgewys, en kry die transaksies wat jou terugbring.',
+  'about.featureTax':
+    'Belastingdokument-higiëne — gerealiseerde en ongerealiseerde winste, dividende en 1099-dokumente op een plek, met was-verkope-vlae ingesluit.',
+  'about.featureUnified':
+    "Een verenigde portefeulje — aandele, ETF's, onderlinge fondse, effekte en meer, saamgebring oor elke makelaarsrekening.",
+  'about.featureWatchlist':
+    'Dophoulyste, nuus en prysalarms sodat jy op wat saak maak kan reageer sonder die geraas.',
+  'about.intro':
+    "{{app}} is 'n multi-bate-portefeuljedashboard vir individuele beleggers en onafhanklike adviseurs. Aandele, ETF's, onderlinge fondse, effekte, eiendom en kontant — elke bate oor elke rekening, op een plek, met die dissipline van 'n professionele lessenaar.",
+  'about.missionBody':
+    "Goeie belegging is meestal dissipline: 'n duidelike teikenallokasie, eerlike prestasie-toeskrywing en netjiese belastingrekords. {{app}} bring daardie institusionele gewoontes na enigiemand, sodat jy doelbewus kan herbalanseer eerder as op impuls — en nooit uit die oog verloor wat jou portefeulje werklik doen nie.",
+  'about.missionTitle': 'Ons missie',
   'about.pageTitle': 'Oor {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Welvaartgereedskap',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Nie beleggingsadvies nie.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    '’n Portefeulje-dashboard vir individuele beleggers en adviseurs wat gedissiplineerde herbalansering, skerp prestasietoekenning en belastingdokumenthigiëne wil hê – sonder die geraas.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · Vorige prestasie waarborg nie toekomstige resultate nie.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) vandag',
+  'argentAuthShell.sampleLabel': 'Portefeuljewaarde',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Primêre navigasie',
   'assetAllocationDonut.heading': 'Hoe jou geld belê word',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'vandag',
   'assetDetail.txEmpty': 'Geen transaksies vir hierdie kode nie.',
   'assetDetail.txHeading': 'Jou transaksies',
+  'auth.legalConsent.prefix': 'Deur voort te gaan, stem jy in tot {{appName}} se',
   'common.and': 'en',
   'common.goToDashboard': 'Gaan na Dashboard',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'vandag',
   'dashboard.topHoldings.heading': 'Waar jou geld werk',
   'dashboard.topHoldings.label': 'Top Holdings',
+  'forgotPassword.gotLinkCta': "Ek het 'n herstel-skakel →",
+  'forgotPassword.subheading':
+    "Voer die e-posadres van jou Gavl-rekening in en ons sal vir jou 'n veilige herstelskakel stuur.",
   'forgotPassword.successBody':
     'As jy dit nie binne ’n paar minute sien nie, kyk na jou strooiposvouer of probeer ’n ander e-pos.',
   'forgotPassword.successSubheading':
     'Kontroleer {{email}} vir ’n terugstelskakel. Dit verval oor 60 minute.',
+  'forgotPassword.successTitle': 'Herstel-e-pos is op pad',
   'holdingHighlightRow.todayLabel': 'vandag',
   'holdings.addCta': 'Koop',
   'holdings.col.allocation': 'Toekenning',
@@ -58,6 +87,8 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Nie beleggingsadvies nie. Verlede prestasie waarborg nie toekomstige resultate nie.',
   'landing.eyebrow': 'Argent · ’n Welvaart-instrumentplatform',
   'landing.features.heading': 'Alles wat ’n adviseur vir hulself sou bou.',
+  'landing.finalCta.body': 'Koppel jou makelaar in twee klikke. {{appName}} doen die res.',
+  'landing.finalCta.cta': 'Maak jou Argent-rekening oop',
   'landing.finalCta.heading': 'Bring dissipline terug na jou portefeulje.',
   'landing.footerSignup': 'Maak ’n rekening oop',
   'landing.getStarted': 'Maak ’n rekening oop',
@@ -65,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Sien pryse',
   'landing.heroSubtitle':
     '’n Portefeulje-dashboard vir individuele beleggers en adviseurs wat gedissiplineerde herbalansering, skerp prestasietoekenning en belastingdokumenthigiëne wil hê – sonder die geraas.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': '’n Regstreekse voorskou van ’n verteenwoordigende portefeulje',
   'login.heading': 'Meld aan by Argent',
   'login.subheading':
@@ -76,6 +108,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} uur gelede',
   'news.justNow': 'nou net',
   'news.loadError': 'Kon nie nuus laai nie.',
+  'planUpdated.body':
+    'Jou faktureringsverandering is nou aktief. Jy kan jou plan enige tyd vanaf die faktureringsbladsy bestuur.',
+  'planUpdated.retry': 'Probeer weer',
+  'planUpdated.verifyFailed': 'Ons kon nog nie jou betaling bevestig nie.',
+  'planUpdated.verifyFailedBody':
+    "Jou betaling word dalk steeds verwerk. Probeer weer oor 'n oomblik.",
   'planUpdated.verifying': 'Bevestig jou betaling…',
   'portfolioHeroCard.label': 'Portefeuljewaarde',
   'pricing.holdingsLabel': 'besittings',
@@ -86,12 +124,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Toewysingsdrywing',
   'rebalance.empty': 'Geen teikens nog gestel nie.',
   'rebalance.executeCta': 'Plek {{count}} ambagte',
+  'rebalance.executeError': 'Kon nie transaksies plaas nie.',
   'rebalance.executeOk': 'Geplaas {{count}} transaksies. Bekyk hulle op die Transaksies-bladsy.',
+  'rebalance.executing': 'Plaas tans…',
   'rebalance.eyebrow': 'Herbalanseer · Argent-adviseur',
   'rebalance.heading': 'Bring jou portefeulje weer in dissipline',
   'rebalance.loadError': 'Kon nie herbalanseringsplan laai nie.',
+  'rebalance.plan.driftLine': 'tans {{current}}% · teiken {{target}}%',
   'rebalance.planHeading': 'Argent-kaartjie — hersien voor plasing',
   'rebalance.planLabel': 'Voorgestelde handelsplan',
+  'rebalance.subheading':
+    'Rye buite hul toleransieband veroorsaak transaksievoorstelle. {{appName}} tree slegs op jou bevestiging op.',
   'rebalance.summary.buyLabel': 'Koop',
   'rebalance.summary.buySub': 'posisies om aan te vul',
   'rebalance.summary.driftLabel': 'Buite die band',
@@ -100,6 +143,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'oor voorgestelde ambagte',
   'rebalance.summary.sellLabel': 'Verkoop',
   'rebalance.summary.sellSub': 'posisies om te snoei',
+  'rebalanceDriftCard.drift': 'afwyking {{sign}}{{pct}}% · band ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'teiken {{pct}} %',
   'reports.attributionHeading': 'Prestasie-toeskrywing (1Y)',
   'reports.col.alpha': 'Alfa',
@@ -113,36 +157,68 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Jaar',
   'reports.gainsHeading': 'Gerealiseerde en ongerealiseerde winste',
   'reports.noAttribution': 'Geen toeskrywingsdata nog nie.',
+  'reports.noGains': 'Nog geen gerealiseerde/ongerealiseerde winste-data nie.',
   'reports.noPerformance': 'Geen prestasiedata nog nie.',
   'reports.noTaxDocs': 'Geen belastingdokumente nog nie.',
   'reports.performanceHeading': 'Prestasie teenoor maatstaf',
   'reports.taxHeading': 'Belastingdokumente',
   'resetPassword.heading': 'Kies ’n sterk nuwe wagwoord',
+  'resetPassword.passwordPlaceholder': 'Nuwe wagwoord',
   'resetPassword.subheading': 'Argent sal jou outomaties aanmeld sodra jou wagwoord gestel is.',
   'resetPassword.tokenPlaceholder': 'Herstel teken van e-pos',
+  'settings.appearance.description': 'Wissel tussen lig- en donkermodus.',
   'settings.appearance.title': 'Voorkoms',
+  'settings.devices.body': 'Toestelle wat tans by jou rekening aangemeld is.',
+  'settings.devices.empty': 'Geen toestelle gevind nie.',
   'settings.devices.heading': 'Toestelle',
+  'settings.devices.revokeWarning':
+    'Hierdie toestel se toegang sal binnekort herroep word. Teken dit uit?',
   'settings.devices.signOut': 'Teken uit',
   'settings.devices.thisDevice': 'Hierdie toestel',
   'settings.devices.unknown': 'Onbekende toestel',
   'settings.linked.body':
     'Makelaarssinchronisasie vereis ’n derdeparty-konnektor (Plaid, Yodlee, ens.). Konfigureer jou verskaffer in jou omgewing om outomatiese invoer te aktiveer.',
   'settings.linked.heading': 'Gekoppelde makelaarsrekeninge',
+  'settings.linked.placeholder': 'Geen rekeninge nog gekoppel nie.',
+  'settings.notifications.dividendsPaid': 'Dividende betaal',
   'settings.notifications.error': 'Kon nie voorkeur opdateer nie.',
   'settings.notifications.priceAlerts': 'Pryswaarskuwings',
+  'settings.notifications.rebalanceDrift': 'Herbalanseer-afwyking',
+  'settings.notifications.taxDocsReady': 'Belastingdokumente gereed',
   'settings.profile.advisor': 'Adviseur e-pos (opsioneel)',
   'settings.profile.heading': 'Profiel',
   'settings.security.changePassword': 'Verander wagwoord',
+  'settings.security.changePasswordTitle': 'Verander wagwoord',
   'settings.security.changing': 'Veranderende…',
+  'settings.security.confirmPassword': 'Wagwoord',
+  'settings.security.currentPassword': 'Huidige wagwoord',
   'settings.security.deleteAccount': 'Vee rekening uit',
   'settings.security.deleteError': 'Kon nie rekening verwyder nie.',
   'settings.security.deleteHeading': 'Vee rekening uit',
+  'settings.security.deleteModalWarning':
+    'Dit verwyder jou rekening en data permanent. Voer jou wagwoord in om te bevestig.',
+  'settings.security.deleteWarning':
+    'Vee jou rekening en alle gepaardgaande data permanent uit. Dit kan nie ongedaan gemaak word nie.',
   'settings.security.deleting': 'Vee tans uit…',
   'settings.security.heading': 'Sekuriteit',
   'settings.security.newPassword': 'Nuwe wagwoord',
   'settings.security.password': 'Wagwoord',
+  'settings.security.passwordError': 'Kon nie wagwoord verander nie.',
+  'settings.security.passwordHint': 'Verander die wagwoord wat jy gebruik om aan te meld.',
+  'settings.security.twoFactor': 'Twee-faktor-verifikasie',
+  'settings.security.twoFactorCode': 'Verifikasiekode',
+  'settings.security.twoFactorDisable': 'Deaktiveer',
+  'settings.security.twoFactorDisableTitle': 'Deaktiveer tweefaktor-verifikasie',
   'settings.security.twoFactorEnable': 'Aktiveer',
+  'settings.security.twoFactorEnableTitle': 'Aktiveer tweefaktor-verifikasie',
+  'settings.security.twoFactorHint': "Voeg 'n ekstra laag beskerming by jou rekening.",
   'settings.security.twoFactorInvalidCode': 'Ongeldige kode',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'Tweefaktor QR-kode',
+  'settings.security.twoFactorScan':
+    'Skandeer hierdie QR-kode met jou verifikasie-app en voer dan die 6-syferkode in.',
+  'settings.security.twoFactorUnavailable':
+    'Tweefaktor-verifikasie is nie vir hierdie toepassing beskikbaar nie.',
   'settings.security.twoFactorVerify': 'Verifieer en aktiveer',
   'settings.tax.error': 'Kon nie belastingmetode opdateer nie.',
   'settings.tax.heading': 'Belastinglotrekeningkunde',
@@ -153,6 +229,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Belastingmetode gestoor.',
   'signup.eyebrow': 'Maak ’n rekening oop',
   'signup.heading': 'Maak jou Argent-rekening oop',
+  'signup.legalPrefix': "Deur 'n rekening te skep stem jy in tot die {{appName}}",
   'signup.subheading': 'Gratis vir 30 dae. Geen kaart benodig nie. Kanselleer enige tyd.',
   'signup.terms':
     'Deur ’n rekening te skep, stem jy in tot Argent se diensbepalings en privaatheidsbeleid.',

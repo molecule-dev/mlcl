@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Есть отзыв, нашли баг или хотите принести {{app}} в свою школу или команду? Мы читаем каждое сообщение — напишите нам из настроек аккаунта, и ответит живой человек.',
   'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
+  'about.intro':
+    '{{app}} — это ежедневная головоломка со словами. Угадайте слово из пяти букв за шесть попыток, сохраните серию, поделитесь своей сеткой эмодзи и посмотрите, как справились все остальные с сегодняшним словом.',
+  'about.missionBody':
+    'Хорошая головоломка — это маленькая ежедневная победа. {{app}} построена вокруг одного общего слова в день — достаточно быстро для перерыва на кофе и достаточно увлекательно, чтобы вернуться завтра.',
+  'about.missionTitle': 'Наша миссия',
   'about.title': 'О {{app}}',
   'archive.loadError': 'Не удалось загрузить архив.',
   'archive.missed': 'Пропущено',
   'archive.notPlayed': 'Не сыграно',
+  'archive.subhead':
+    'Переигрывайте любой прошедший день для тренировки — без серий, без статистики, только удовольствие.',
   'archive.title': 'Архив',
   'auth.backToHome': 'Вернуться на главную',
   'auth.backToHomeArrow': '← Вернуться на главную',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Забыли пароль?',
   'auth.login.loggingIn': 'Выполняется вход…',
   'auth.login.logIn': 'Играть в сегодняшнее слово',
+  'auth.login.noAccount': 'Впервые пользуетесь Tessera?',
   'auth.login.or': 'или продолжить с',
   'auth.login.password': 'Пароль',
   'auth.login.signInButton': 'Войти',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Сохранение…',
   'common.sendingEllipsis': 'Отправка…',
   'common.startingEllipsis': 'Запуск…',
+  'forgotPassword.subhead':
+    'Введите свой адрес электронной почты, и мы вышлем вам ссылку для сброса настроек.',
+  'forgotPassword.success.body':
+    'Если существует учетная запись для {{email}} Через несколько минут вы получите ссылку для сброса пароля.',
+  'forgotPassword.success.title': 'Проверьте свой почтовый ящик.',
   'form.name': 'Имя',
   'howToPlay.cta.home': 'Вернуться на главную',
   'howToPlay.cta.play': 'Играть в сегодняшний пазл',
@@ -68,10 +83,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Серии, которые не хочется прерывать',
   'leaderboard.daily.title': 'Решения за сегодня',
   'leaderboard.loadError': 'Не удалось загрузить таблицу лидеров.',
+  'leaderboard.streaks.empty': 'Серий пока нет — станьте первым.',
+  'leaderboard.streaks.subhead': 'Самые длинные серии побед за всё время.',
   'leaderboard.streaks.title': 'Лидеры по сериям',
+  'leaderboard.subhead': 'Как справились сегодня все остальные и у кого самые длинные серии.',
   'leaderboard.title': 'Таблица лидеров',
   'login.headline': 'С возвращением.',
   'login.streakPill': 'Серия из {{days}} дней ждёт',
+  'login.subhead':
+    'Войдите, чтобы сохранить серию и увидеть, как вы справились с сегодняшним словом.',
   'nav.archive': 'Архив',
   'nav.editProfile': 'Редактировать профиль',
   'nav.getStarted': 'Начать',
@@ -89,6 +109,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Слово не найдено',
   'notFound.title': 'Этот маршрут пуст.',
   'planUpdated.message': 'Ваш тариф активен.',
+  'planUpdated.retry': 'Попробуйте ещё раз',
+  'planUpdated.verifyFailed': 'Мы пока не можем подтвердить ваш платеж.',
+  'planUpdated.verifyFailedBody':
+    'Ваш платеж, возможно, еще обрабатывается. Попробуйте еще раз через минуту.',
   'planUpdated.verifying': 'Подтверждение платежа…',
   'play.alreadyFinished': 'Вы уже завершили этот пазл',
   'play.answerWas': 'Слово было',
@@ -104,6 +128,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Тренировочный пазл',
   'play.tooShort': 'Недостаточно букв',
   'play.won': 'Решено!',
+  'pricing.advancedStats': 'Расширенная статистика: {{yes}}',
+  'pricing.archiveHistory': '{{count}} дней истории архива',
+  'pricing.archivePlays': '{{count}} повторов архива / день',
+  'pricing.archiveUnlimited': 'Неограниченная история архива',
+  'pricing.canExport': 'Экспорт данных: {{yes}}',
+  'pricing.checkoutError': 'Не удалось начать оформление заказа. Пожалуйста, попробуйте еще раз.',
   'pricing.dailyWord': 'Ежедневное слово',
   'pricing.heading': 'Выберите ваш тариф {{app}}',
   'pricing.included': 'Включено',
@@ -111,7 +141,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Ежедневное слово всегда бесплатно. Обновитесь для неограниченных повторов из архива и более подробной статистики.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} уважает вашу конфиденциальность. На этой странице описано, какие данные мы храним, зачем мы их храним и как их удалить.',
   'privacy.title': 'Уведомление о конфиденциальности',
+  'resetPassword.subhead': 'Выберите новый пароль, чтобы вернуться к своей серии.',
   'settings.account': 'Аккаунт',
   'settings.danger.body': 'Навсегда удалить ваш аккаунт {{appName}} и всю историю головоломок.',
   'settings.danger.confirm': 'Да, удалить навсегда',
@@ -120,17 +153,24 @@ export const ui: UiTranslations = {
   'settings.guest': 'Гость',
   'settings.language.title': 'Язык',
   'settings.subhead': 'Настройте свой профиль, звук и отображение в таблице лидеров.',
+  'settings.unnamed': 'Игрок Sparq',
   'settings.upgrade': 'Обновить',
   'signup.eyebrow': 'Бесплатно навсегда — одно слово в день',
   'signup.headline': 'Начните свою серию.',
+  'signup.subhead':
+    'Создайте аккаунт {{appName}}, чтобы играть в ежедневное слово, наращивать серию и подниматься в таблице лидеров.',
   'stats.currentStreak': 'Серия',
   'stats.distribution.title': 'Распределение попыток',
   'stats.loadError': 'Не удалось загрузить вашу статистику.',
   'stats.maxStreak': 'Макс. серия',
   'stats.played': 'Сыграно',
   'stats.playToday': 'Играть в сегодняшний пазл',
+  'stats.subhead':
+    'Только рейтинговые ежедневные головоломки — тренировка в архиве никогда не учитывается.',
   'stats.title': 'Ваша статистика',
   'stats.winRate': 'Процент побед',
   'status.monthly': 'Месячный',
+  'terms.intro':
+    'Используя {{app}}, вы соглашаетесь с правилами ниже. Если вы не можете их принять, пожалуйста, не пользуйтесь сервисом.',
   'terms.title': 'Условия использования',
 }

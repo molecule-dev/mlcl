@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'တုံ့ပြန်ချက် ရှိပါသလား၊ ချို့ယွင်းချက် တွေ့ပါသလား၊ ဒါမှမဟုတ် {{app}} ကို သင့်ကျောင်း သို့မဟုတ် အဖွဲ့ထံ ယူဆောင်လိုပါသလား။ မက်ဆေ့ခ်ျတိုင်းကို ကျွန်ုပ်တို့ ဖတ်ပါသည် — သင့်အကောင့် ဆက်တင်များမှ ဆက်သွယ်ပါ၊ လူအစစ်တစ်ဦး ပြန်လည်ဖြေကြားပါမည်။',
   'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.intro':
+    '{{app}} သည် နေ့စဉ် စကားလုံးပဟေဋ္ဌိတစ်ခု ဖြစ်သည်။ ခြောက်ကြိမ်အတွင်း ငါးလုံးစကားလုံးကို ခန့်မှန်းပါ၊ သင့်ဆက်တိုက်အောင်ပွဲကို ဆက်ထိန်းထားပါ၊ သင့် အီမိုဂျီဇယားကို မျှဝေပါ၊ ယနေ့စကားလုံးတွင် အားလုံး မည်သို့ရလဒ်ရခဲ့သည်ကို ကြည့်ပါ။',
+  'about.missionBody':
+    'ပဟေဋ္ဌိကောင်းတစ်ခုသည် နေ့စဉ် အောင်ပွဲငယ်တစ်ခု ဖြစ်သည်။ {{app}} သည် တစ်နေ့လျှင် မျှဝေထားသော စကားလုံးတစ်လုံးကို အခြေခံထားသည် — ကော်ဖီအနားယူချိန်အတွက် လုံလောက်လောက်မြန်ပြီး မနက်ဖြန်အတွက် ပြန်လာလောက်အောင် ထက်မြက်သည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'about.title': '{{app}} အကြောင်း',
   'archive.loadError': 'မော်ကွန်းကို ဖွင့်၍မရပါ။',
   'archive.missed': 'လွတ်သွားသော',
   'archive.notPlayed': 'မကစားရသေး',
+  'archive.subhead':
+    'အတိတ်နေ့တိုင်းကို လေ့ကျင့်ခန်းအဖြစ် ပြန်ကစားပါ — ဆက်တိုက်အောင်ပွဲမရှိ၊ စာရင်းအင်းမရှိ၊ ပျော်စရာတော့ အပြည့်။',
   'archive.title': 'မော်ကွန်းတိုက်',
   'auth.backToHome': 'ပင်မသို့ ပြန်သွားရန်',
   'auth.backToHomeArrow': '← ပင်မသို့ ပြန်သွားရန်',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'စကားဝှက်မေ့သွားသလား?',
   'auth.login.loggingIn': 'ဝင်ရောက်နေသည်…',
   'auth.login.logIn': 'ယနေ့စကားလုံးကို ကစားပါ',
+  'auth.login.noAccount': 'Tessera ကို အသစ်လား။',
   'auth.login.or': 'သို့မဟုတ် အောက်ပါဖြင့် ဆက်လက်လုပ်ဆောင်ပါ',
   'auth.login.password': 'စကားဝှက်',
   'auth.login.signInButton': 'ဝင်ရောက်ရန်',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'သိမ်းနေသည်…',
   'common.sendingEllipsis': 'ပို့နေသည်…',
   'common.startingEllipsis': 'စတင်နေသည်…',
+  'forgotPassword.subhead':
+    'သင့်အီးမေးလ်ကို ရိုက်ထည့်ပါ၊ ကျွန်ုပ်တို့က ပြန်လည်သတ်မှတ်ရန်လင့်ခ်တစ်ခု ပေးပို့ပါမည်။',
+  'forgotPassword.success.body':
+    'အကောင့်တစ်ခုရှိနေပါက {{email}} မိနစ်အနည်းငယ်အတွင်း ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ကို ရရှိပါမည်။',
+  'forgotPassword.success.title': 'သင့်ဝင်စာပုံးကို စစ်ဆေးပါ။',
   'form.name': 'အမည်',
   'howToPlay.cta.home': 'အိမ်ပြန်ရန်',
   'howToPlay.cta.play': 'ယနေ့ပဟေဠိကို ကစားပါ',
@@ -68,10 +83,16 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'ချိုးချင်မရဲသော streak များ',
   'leaderboard.daily.title': 'ယနေ့ဖြေရှင်းမှုများ',
   'leaderboard.loadError': 'Leaderboard ကို ဖွင့်၍မရပါ။',
+  'leaderboard.streaks.empty': 'ဆက်တိုက်အောင်ပွဲ မရှိသေးပါ — ပထမဆုံးဖြစ်လိုက်ပါ။',
+  'leaderboard.streaks.subhead': 'တစ်သက်တာ အရှည်ဆုံး ဆက်တိုက်အောင်ပွဲများ။',
   'leaderboard.streaks.title': 'Streak ခေါင်းဆောင်များ',
+  'leaderboard.subhead':
+    'ယနေ့ အားလုံး မည်သို့ရလဒ်ရခဲ့သည်၊ မည်သူက အရှည်ဆုံး ဆက်တိုက်အောင်ပွဲများကို ထိန်းထားသည်ကို ကြည့်ပါ။',
   'leaderboard.title': 'Leaderboard',
   'login.headline': 'ပြန်လည်ကြိုဆိုပါတယ်။',
   'login.streakPill': '{{days}}-ရက် streak စောင့်နေသည်',
+  'login.subhead':
+    'သင့်ဆက်တိုက်အောင်ပွဲကို ဆက်ထိန်းထားရန်နှင့် ယနေ့စကားလုံးတွင် သင်မည်သို့ရလဒ်ရခဲ့သည်ကို ကြည့်ရန် အကောင့်ဝင်ပါ။',
   'nav.archive': 'မော်ကွန်းတိုက်',
   'nav.editProfile': 'ကိုယ်ရေးအချက်အလက်တည်းဖြတ်ရန်',
   'nav.getStarted': 'စတင်ပါ',
@@ -89,6 +110,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · ထိုစကားလုံးမရှိပါ',
   'notFound.title': 'ထိုလမ်းကြောင်းက ဗလာဖြစ်နေသည်။',
   'planUpdated.message': 'သင့်အစီအစဉ်က စတင်ပြီးပါပြီ။',
+  'planUpdated.retry': 'ထပ်ကြိုးစားပါ',
+  'planUpdated.verifyFailed': 'သင့်ငွေပေးချေမှုကို ကျွန်ုပ်တို့ အတည်မပြုနိုင်သေးပါ။',
+  'planUpdated.verifyFailedBody':
+    'သင့်ငွေပေးချေမှုကို လုပ်ဆောင်နေဆဲဖြစ်နိုင်ပါသည်။ ခဏအကြာတွင် ထပ်မံကြိုးစားပါ။',
   'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'play.alreadyFinished': 'သင်ဤပဟေဠိကို ပြီးဆုံးပြီးပါပြီ',
   'play.answerWas': 'စကားလုံးက',
@@ -104,6 +129,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'လေ့ကျင့်ရေးပဟေဠိ',
   'play.tooShort': 'အက္ခရာများမလုံလောက်ပါ',
   'play.won': 'ဖြေရှင်းနိုင်ပြီ!',
+  'pricing.advancedStats': 'အဆင့်မြင့် စာရင်းအင်းများ — {{yes}}',
+  'pricing.archiveHistory': '{{count}} ရက် မှတ်တမ်းသမိုင်း',
+  'pricing.archivePlays': 'တစ်နေ့လျှင် {{count}} မှတ်တမ်း ပြန်ကစားမှု',
+  'pricing.archiveUnlimited': 'အကန့်အသတ်မရှိ မှတ်တမ်းသမိုင်း',
+  'pricing.canExport': 'ဒေတာထုတ်ယူခြင်း — {{yes}}',
+  'pricing.checkoutError': 'ငွေရှင်းခြင်းကို စတင်၍မရပါ။ ထပ်မံကြိုးစားပါ။',
   'pricing.dailyWord': 'နေ့စဉ်စကားလုံး',
   'pricing.heading': 'သင့် {{app}} အစီအစဉ်ကို ရွေးချယ်ပါ',
   'pricing.included': 'ပါဝင်သည်',
@@ -111,7 +142,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'နေ့စဉ်စကားလုံးက အမြဲအခမဲ့ဖြစ်သည်။ မော်ကွန်းပြန်ကစားမှု အကန့်အသတ်မရှိနှင့် စာရင်းအင်းများပိုနက်ရှိုင်းစွာအတွက် အဆင့်မြှင့်ပါ။',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} သည် သင့်ကိုယ်ရေးလုံခြုံမှုကို လေးစားပါသည်။ ဤစာမျက်နှာတွင် ကျွန်ုပ်တို့ သိမ်းဆည်းသည့် ဒေတာ၊ အဘယ်ကြောင့် သိမ်းဆည်းသည်နှင့် ၎င်းကို မည်သို့ ဖယ်ရှားရမည်ကို အကျဉ်းချုပ် ဖော်ပြထားသည်။',
   'privacy.title': 'ကိုယ်ရေးကိုယ်တာအသိပေးချက်',
+  'resetPassword.subhead': 'သင့်ဆက်တိုက်အောင်ပွဲထံ ပြန်ရောက်ရန် စကားဝှက်အသစ် ရွေးပါ။',
   'settings.account': 'အကောင့်',
   'settings.danger.body':
     'သင့် {{appName}} အကောင့်နှင့် ပဟေဠိသမိုင်းအားလုံးကို အပြီးအပိုင်ဖယ်ရှားပါ။',
@@ -122,17 +156,24 @@ export const ui: UiTranslations = {
   'settings.language.title': 'ဘာသာစကား',
   'settings.subhead':
     'သင့်ကိုယ်ရေးအချက်အလက်၊ အသံ၊ နှင့် leaderboard ပေါ်တွင် သင်မည်သို့ပေါ်သည်ကို ချိန်ညှိပါ။',
+  'settings.unnamed': 'Sparq ကစားသမား',
   'settings.upgrade': 'အဆင့်မြှင့်ရန်',
   'signup.eyebrow': 'အမြဲတမ်းအခမဲ့ — တစ်နေ့စကားလုံးတစ်လုံး',
   'signup.headline': 'သင့် streak ကို စတင်ပါ။',
+  'signup.subhead':
+    'နေ့စဉ်စကားလုံးကို ကစားရန်၊ ဆက်တိုက်အောင်ပွဲ တည်ဆောက်ရန်နှင့် ထိပ်တန်းစာရင်းတွင် တက်ရန် {{appName}} အကောင့်တစ်ခု ဖန်တီးပါ။',
   'stats.currentStreak': 'Streak',
   'stats.distribution.title': 'ခန့်မှန်းမှုဖြန့်ဝေမှု',
   'stats.loadError': 'သင့်စာရင်းအင်းများကို ဖွင့်၍မရပါ။',
   'stats.maxStreak': 'Max streak',
   'stats.played': 'ကစားခဲ့သော',
   'stats.playToday': 'ယနေ့ပဟေဠိကို ကစားပါ',
+  'stats.subhead':
+    'အဆင့်သတ်မှတ်ထားသော နေ့စဉ်ပဟေဋ္ဌိများသာ — မှတ်တမ်း လေ့ကျင့်ခန်းကို ဘယ်တော့မှ မရေတွက်ပါ။',
   'stats.title': 'သင့်စာရင်းအင်း',
   'stats.winRate': 'Win rate',
   'status.monthly': 'လစဉ်',
+  'terms.intro':
+    '{{app}} ကို အသုံးပြုခြင်းဖြင့် အောက်ပါ စည်းမျဉ်းများကို သင်သဘောတူပါသည်။ ၎င်းတို့ကို လက်မခံနိုင်ပါက ဝန်ဆောင်မှုကို ကျေးဇူးပြု၍ မသုံးပါနှင့်။',
   'terms.title': 'ဝန်ဆောင်မှုစည်းကမ်းချက်များ',
 }

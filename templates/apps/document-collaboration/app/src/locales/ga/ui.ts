@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'An bhfuil aiseolas agat, aimsíodh fabht, nó an bhfuil {{app}} uait do do stiúideo nó do do fhoireann? Déan teagmháil linn ó shocruithe do chuntais — téann gach teachtaireacht chuig duine fíor ar an bhfoireann.',
   'about.contactTitle': 'Labhair linn',
+  'about.intro':
+    'Is stiúideo scríbhneoireachta comhoibríoch é {{app}} ina ndréachtaíonn eagarthóirí, scríbhneoirí agus foirne le chéile i bhfíor-am. Oscail doiciméad agus éiríonn an leathanach roinnte — gluaiseann cúrsóirí, snáitheann tráchtanna sa chorrlach, agus coimeádtar gach athbhreithniú go sábháilte sa stair.',
+  'about.missionBody':
+    'Creidimid gur fiú scríbhneoireacht fhadafhoirmeach baile ciúin, dírithe — ceann a thógtar timpeall an lámhscríbhinne, ní timpeall an chruinnithe ná an bhosca isteach. Dearadh ár n-eagarthóir, ár láithreacht fhíor-ama agus ár stair leaganacha ionas gur féidir le comhoibritheoirí bogadh go tapa le chéile gan aon duine a chailleann paragraf nó smaoineamh.',
+  'about.missionTitle': 'Ár misean',
+  'about.subtitle': 'Smaoinigh le chéile, scríobh go deo.',
   'about.title': 'Faoi {{app}}',
   'comments.addFailed': 'Níorbh fhéidir trácht a phostáil.',
   'comments.backToDoc': 'Ar ais chuig an lámhscríbhinn',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Snáitheanna tráchtanna',
   'comments.loading': 'Ag lódáil snáitheanna…',
   'comments.newPlaceholder': 'Cuir trácht leis an lámhscríbhinn…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Athoscail',
   'comments.reopenFailed': 'Níorbh fhéidir athoscailt.',
   'comments.replyFailed': 'Níorbh fhéidir freagra a phostáil.',
@@ -39,6 +48,7 @@ export const ui: UiTranslations = {
     'Dréachtaí le déanaí, saothair chomhroinnte, agus eagarthóireachtaí an lae.',
   'dashboard.viewFeed': 'Beatha →',
   'editor.back': 'Ar ais chuig lámhscríbhinní',
+  'editor.bodyLabel': 'Corp an doiciméid',
   'editor.bodyPlaceholder': 'Tosaigh san áit a bhfuil an cúrsóir ag splancadh.',
   'editor.comments': 'Tráchtanna',
   'editor.createFailed': 'Níorbh fhéidir an doiciméad a chruthú.',
@@ -64,13 +74,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'scríbhneoir@stiúideo.com',
   'forgotPassword.sentBody':
     'Má tá cuntas ann do {{email}} , tá nasc athshocraithe ar an mbealach.',
+  'forgotPassword.sentHeading': 'Seiceáil do ríomhphost',
+  'forgotPassword.submitting': 'Ag seoladh\\u2026',
   'forgotPassword.subtitle': 'Seolfaimid nasc athshocraithe chugat i ríomhphost.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Tógtha le Molecule.',
+  'landing.ctaBody':
+    "Saor in aisce do scríbhneoirí aonair. Pleananna Stiúideo d'fhoirne eagarthóirí, scríbhneoirí taibhse agus léirmheastóirí.",
   'landing.ctaHeading': 'Oscail an leathanach. Lig don chúrsóir tosú.',
   'landing.ctaPrimary': 'Oscail stiúideo',
   'landing.eyebrow': 'Do scríbhneoirí, eagarthóirí agus foirne',
   'landing.featuresEyebrow': 'Cad a gheobhaidh tú',
   'landing.featuresHeading': 'Stiúideo don dréacht fada.',
+  'landing.featuresSubtitle':
+    'Tógtar {{appName}} timpeall na lámhscríbhinne — ní timpeall an chruinnithe, ní timpeall an bhosca isteach.',
   'landing.getStarted': 'Oscail an stiúideo',
   'landing.heroCta': 'Tosaigh ag scríobh',
   'landing.heroSubtitle':
@@ -96,6 +112,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} gan léamh · tuairimí, luanna, cuirí comhroinnte, agus iarratais ar mholtaí.',
   'presenceAvatars.label': '{{count}} comhoibritheoirí',
+  'privacy.intro': 'Conas a bhailímid, a úsáidimid agus a chosnaímid do chuid faisnéise.',
   'privacy.title': 'Polasaí príobháideachta',
   'profile.about.description':
     'Beathaisnéis ghearr do do phróifíl phoiblí agus do leathanaigh na rannpháirtithe.',
@@ -109,7 +126,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Láithreacht',
   'profile.pronouns': 'Forainmneacha',
   'profile.publicToggle': 'Taispeáin próifíl do chomhghleacaithe',
+  'profile.role': 'Ról / teideal',
   'profile.subtitle': 'An chuma atá ort i súile do chomhoibritheoirí.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} scríbhneoirí gníomhacha sa stiúideo',
   'quillonAuthBrandPanel.quote':
     '"Is í an scríbhneoireacht an t-aon rud nach mbraitheann mé gur cheart dom a bheith ag déanamh rud éigin eile nuair a dhéanaim é."',
@@ -117,6 +136,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Oscail →',
   'quillonKpiCard.trend': 'Treocht le déanaí',
   'quillonLayout.menu': 'Roghchlár',
+  'quillonLayout.mobileNavLabel': 'Nascleanúint shoghluaiste',
   'quillonLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'quillonStudioHero.collab': 'Comhoibritheoirí',
   'quillonStudioHero.docs': 'Doiciméid a ndearnadh teagmháil leo',
@@ -125,7 +145,9 @@ export const ui: UiTranslations = {
   'quillonStudioHero.subtitle': 'Tóg an lámhscríbhinn, fág trácht, brúigh mír ar aghaidh.',
   'quillonStudioHero.words': 'Focail inniu',
   'resetPassword.confirmPlaceholder': 'Athdhéan an focal faire nua',
+  'resetPassword.passwordLabel': 'Pasfhocal nua',
   'resetPassword.passwordPlaceholder': 'Cuir isteach focal faire nua',
+  'resetPassword.submitting': 'Ag athshocrú…',
   'resetPassword.subtitle': 'Roghnaigh pasfhocal láidir — 12 charachtar ar a laghad.',
   'settings.account.description': 'Conas a shíníonn tú isteach.',
   'settings.billing.canceled': 'Síntiús curtha ar ceal.',
@@ -134,7 +156,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Gan chumrú',
   'settings.billing.updated': 'Plean nuashonraithe.',
   'settings.editor.description': 'Conas a iompraíonn an chanbhás agus tú ag scríobh.',
+  'settings.editor.title': 'Roghanna eagarthóra',
   'settings.eyebrow': 'Roghanna stiúideo',
+  'settings.language.title': 'Teanga',
   'settings.notifications.${n.key}.description': 'Teanga',
   'settings.notifications.description': 'Roghnaigh cad a shroicheann do bhosca isteach.',
   'settings.subtitle':
@@ -144,6 +168,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Roinnte liom',
   'shared.loadFailed': 'Níorbh fhéidir doiciméid chomhroinnte a lódáil.',
   'shared.subtitle': 'Lámhscríbhinní, achoimrí, agus nótaí ón gcuid eile den stiúideo.',
+  'signup.brandAttribution': 'Anaïs Park — Eagarthóir, The Quarterly',
   'signup.brandQuote':
     'Is é do chéad lámhscríbhinn an ceann is deacra. Déanann Quillon níos lú uaigneas di.',
   'signup.emailPlaceholder': 'scríbhneoir@stiúideo.com',
@@ -151,6 +176,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Anaïs',
   'signup.heading': 'Cruthaigh do chuntas Quillon',
   'signup.lastNamePlaceholder': 'Páirc',
+  'signup.submitting': 'Do stiúideo á oscailt\\u2026',
   'signup.subtitle':
     'Deasc ciúin, comhoibritheoirí atmaisféaracha, agus eagarthóir fada a sheachnaíonn do bhealach.',
   'templates.blank.subtitle': 'Leathanach glan. Tosaíonn an cúrsóir.',
@@ -163,11 +189,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Tosaigh le struchtúr machnamhach. Saincheap go deo.',
   'templates.useFailed': 'Níorbh fhéidir doiciméad a thosú ón teimpléad seo.',
   'templates.useTemplate': 'Úsáid an teimpléad seo',
+  'terms.intro': 'Na coinníollacha faoina bhféadfaidh tú an tseirbhís seo a úsáid.',
   'terms.title': 'Téarmaí seirbhíse',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'díreach anois',
   'trash.confirmDelete': 'Deimhnigh scriosadh',
+  'trash.confirmEmpty': 'Deimhnigh — scrios gach rud',
   'trash.deleteFailed': 'Níorbh fhéidir a scriosadh.',
   'trash.deleteForever': 'Scrios go deo',
   'trash.empty': 'Ní raibh aon rud le téarnamh.',
@@ -182,7 +210,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'Gan aon athbhreithnithe fós — sábháil an doiciméad chun a stair a thosú.',
   'versionHistory.heading': 'Stair leaganacha',
+  'versionHistory.latest': 'Is déanaí',
   'versionHistory.loadFailed': 'Níorbh fhéidir an stair a lódáil.',
+  'versionHistory.noContent': 'Níor gabhadh aon ábhar don athbhreithniú seo.',
   'versionHistory.previewing': 'Réamhamharc',
   'versionHistory.restore': 'Athchóirigh an leagan seo',
   'versionHistory.restoreFailed': 'Theip ar an athchóiriú.',

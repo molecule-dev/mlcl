@@ -1,32 +1,49 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Chcete pre svoj tím zaviesť prívetivejšie onboardingové prostredie, našli ste chybu alebo máte spätnú väzbu? Ozvite sa z nastavení svojho účtu — každá správa sa dostane k skutočnému človeku, ktorý vám pomôže.',
   'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
+  'about.missionTitle': 'Naše poslanie',
   'auth.forgotPassword.emailPlaceholder': 'meno@vasafirma.com',
   'auth.forgotPassword.heading': 'Obnovte si heslo.',
+  'auth.forgotPassword.panel.body':
+    'Resetovanie zaberie 30 sekúnd — váš postup v kontrolnom zozname na vás čaká.',
+  'auth.forgotPassword.panel.headline': 'Presne tam, kde ste skončili.',
+  'auth.forgotPassword.subheading':
+    'Zadajte svoj pracovný e-mail a pošleme vám odkaz na resetovanie hesla.',
   'auth.forgotPassword.successSubheading':
     'Skontrolujte si doručenú poštu – poslali sme vám pokyny na reset.',
   'auth.login.emailPlaceholder': 'meno@vasafirma.com',
   'auth.login.heading': 'Vitaj späť.',
   'auth.login.passwordPlaceholder': 'Vaše heslo',
+  'auth.login.signupPrompt': 'Ste vo svojom tíme nový?',
   'auth.login.subheading': 'Prihláste sa a pokračujte v procese adaptácie tam, kde ste skončili.',
   'auth.login.submit': 'Pokračujte vo svojej ceste',
+  'auth.panel.body':
+    'Váš osobný kontrolný zoznam, školiacie míľniky a predstavenia v tíme — všetko na jednom pokojnom mieste.',
   'auth.panel.footnote': '© Embark — od dnešného dňa začíname s nástupom ľudí.',
   'auth.panel.headline': 'Sebavedomých prvých 90 dní začína tu.',
   'auth.resetPassword.heading': 'Nastavte si nové heslo.',
   'auth.resetPassword.newPasswordLabel': 'Nové heslo',
+  'auth.resetPassword.panel.body':
+    'Uložte si nové heslo a vrátime vás priamo späť do vášho onboardingového procesu.',
+  'auth.resetPassword.panel.headline': 'Už ste takmer späť.',
   'auth.resetPassword.subheading': 'Vyberte si niečo, čo si zapamätáte – aspoň 8 znakov.',
   'auth.signup.emailPlaceholder': 'meno@vasafirma.com',
   'auth.signup.heading': 'Vitajte vo svojich prvých 90 dňoch.',
   'auth.signup.panel.body':
     'Kontrolný zoznam s návodom, školenie zamerané na jednotlivé úlohy a predstavenie sa človekom – všetko pripravené ešte predtým, ako vstúpite.',
+  'auth.signup.panel.headline': 'Prvý deň, hneď na prvý deň.',
   'auth.signup.subheading': 'Vytvorte si účet Embark a začnite s úvodným procesom.',
   'checklist.empty.body': 'Prepnite filter a zobrazte si ďalšie úlohy.',
   'checklist.empty.title': 'Momentálne tu nič nie je',
   'checklist.eyebrow': 'Nástupný proces · Kontrolný zoznam',
   'checklist.loading': 'Načítava sa váš kontrolný zoznam…',
   'checklist.stat.actionNeeded': 'Vyžaduje sa akcia',
+  'checklist.stat.completion': 'Dokončenie',
+  'checklist.stat.inProgress': 'Prebieha',
   'checklist.stat.inProgressHelper': 'Pokračujte tam, kde ste prestali',
   'checklist.stat.overdueHelper': 'Najprv si to prečítajte',
   'checklist.subtitle':
@@ -58,6 +75,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Zatiaľ žiadne dokumenty',
   'documents.eyebrow': 'Nástupný proces · Dokumenty',
   'documents.loading': 'Načítavajú sa dokumenty…',
+  'documents.stat.actionNeeded': 'Podpísať teraz',
+  'documents.stat.all': 'Všetky dokumenty',
   'documents.stat.allHelper': 'V rôznych kategóriách',
   'documents.stat.pending': 'Čaká sa na podpisy',
   'documents.stat.pendingHelper': 'Požadované na dokončenie',
@@ -65,22 +84,28 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Bezpečne uložené',
   'documents.status.optional': 'Voliteľné',
   'documents.status.required': 'Povinné',
+  'documents.status.signed': 'Podpísané',
   'documents.subtitle': 'Vaša príručka, formuláre a podpísané zmluvy – všetko na jednom mieste.',
   'documents.title': 'Všetko, čo potrebujete na prečítanie a podpísanie.',
   'documents.uploadedRecently': 'Nedávno nahrané',
   'documentViewer.breadcrumbCurrent': 'Prehliadač',
   'documentViewer.breadcrumbDocs': 'Dokumenty',
   'documentViewer.downloadMeta': 'Stiahnuť metadáta',
+  'documentViewer.helpBody':
+    'Na otázky k príručke odpovedá People & Culture v #ask-people na Slacku.',
   'documentViewer.helpEyebrow': 'Potrebujete pomoc?',
   'documentViewer.loadError': 'Tento dokument sa nám nepodarilo načítať.',
   'documentViewer.loading': 'Načítavanie dokumentu…',
   'documentViewer.notFound': 'Dokument sa nenašiel',
+  'documentViewer.previewBody':
+    'Keď sú nahrávania nakonfigurované, súbor zobrazíme priamo na stránke. Zatiaľ si vďaka stiahnutiu metadát môžete overiť, že záznam je skutočný.',
   'documentViewer.previewBodyExternal': 'Pomocou tlačidla sťahovania otvorte súbor na novej karte.',
   'documentViewer.previewTitle': 'Náhľad dokumentu',
   'documentViewer.sign': 'Podpísať a potvrdiť',
   'documentViewer.signatureBody':
     'Prečítajte si dokument a potom kliknite nižšie na podpísanie a potvrdenie.',
   'documentViewer.signatureHeading': 'Vyžaduje sa podpis',
+  'documentViewer.signed': '✓ Podpísané a uložené',
   'documentViewer.signing': 'Podpisovanie…',
   'documentViewer.uploadedRecently': 'Nedávno nahrané',
   'landing.closing.body':
@@ -90,10 +115,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Už mám účet',
   'landing.feature1.body':
     'Každá úloha – papierovačky, účtovníctvo, úvodné informácie – je vopred pripravená s termínmi a správnym vlastníkom.',
+  'landing.feature1.title': 'Riadený kontrolný zoznam',
   'landing.feature2.body':
     'Moduly sa odomykajú pri dosiahnutí 30/60/90 míľnikov, prispôsobených pozícii a tímu, do ktorého sa zamestnanec pripája.',
+  'landing.feature2.title': 'Školenie podľa vašej roly',
   'landing.feature3.body':
     'Naplánované sú stretnutia s kamarátmi, manažérmi a medzifunkčnými pracovníkmi – takže nikto nezačína sám.',
+  'landing.feature3.title': 'Skutočné predstavenia',
   'landing.featureEyebrow': 'Prečo sa vydať na cestu',
   'landing.featureHeadline': 'Tri spôsoby, ako si Embark získa dôveru hneď od prvého dňa.',
   'landing.footer.rights': 'Všetky práva vyhradené.',
@@ -103,6 +131,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Nasleduje: Stretnite sa s kamarátom na 30-minútový rozhovor pri káve — utorok 10:00.',
   'landing.preview.eyebrow': '14. deň z 90 – vzorový dashboard',
+  'landing.preview.headline': 'Vitajte späť, Maya.',
   'landing.proof.spec': 'Pripravené na SOC 2 + GDPR',
   'landing.proof.teams': 'Určené pre tímy 50 – 5 000',
   'landing.proof.time': '14-dňová bezplatná skúšobná verzia',
@@ -119,16 +148,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Všetko je pripravené.',
   'planUpdated.preparing': 'Aktualizácia vášho plánu…',
+  'planUpdated.retry': 'Skúste to znova',
+  'planUpdated.verifyFailed': 'Vašu platbu sme zatiaľ nemohli potvrdiť.',
+  'planUpdated.verifyFailedBody':
+    'Vaša platba sa možno stále spracováva. Skúste to znova o chvíľu.',
   'planUpdated.verifying': 'Potvrdzujem vašu platbu…',
   'pricing.documentsLabel': 'dokumenty',
   'pricing.onboardingsLabel': 'nástupné procesy',
   'pricing.tasksLabel': 'úlohy',
   'profile.dayNumber': 'Deň',
   'profile.detailsHeading': 'Podrobnosti o nástupe',
+  'profile.encouragementBody':
+    'Držte svojho buddyho a manažéra v obraze — malé kroky sa sčítavajú.',
   'profile.milestones': 'Míľniky',
   'profile.progressEyebrow': 'Priebeh nástupu',
   'profile.tasks': 'Úlohy',
   'profile.unknownName': 'Vitajte',
+  'settings.appearance.description': 'Prepínanie medzi svetlým a tmavým režimom.',
+  'settings.appearance.title': 'Vzhľad',
+  'settings.subtitle':
+    'Nastavte si oznámenia, zabezpečenie, zariadenia a export údajov — všetko zostáva tu, podľa vašich pravidiel.',
   'settings.title': 'Nastavenia a preferencie.',
   'taskDetail.backToChecklist': 'Späť na kontrolný zoznam',
   'taskDetail.breadcrumbChecklist': 'Kontrolný zoznam',
@@ -140,7 +179,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'Žiadny dátum splatnosti',
   'taskDetail.notFound': 'Úloha sa nenašla',
   'taskDetail.notFoundBody': 'Táto úloha mohla byť odstránená alebo patrí inému používateľovi.',
+  'taskDetail.tipBody':
+    'Ak ste zaseknutí, napíšte svojmu onboardingovému buddymu na Slacku — je vaša prvá pomoc.',
   'taskDetail.tipEyebrow': 'Rýchly tip',
+  'team.empty.body': 'Skúste širšie vyhľadávanie alebo vyberte iné oddelenie.',
   'team.empty.title': 'Žiadni spoluhráči sa nezhodujú',
   'team.eyebrow': 'Nástup · Ľudia',
   'team.loading': 'Načítavajú sa spoluhráči…',
@@ -163,14 +205,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Míľniky',
   'timeline.stat.current': 'Aktuálny míľnik',
   'timeline.stat.next': 'Ďalšie odomknutie',
+  'timeline.stat.progress': 'Celkovo',
   'timeline.subtitle':
     'Každý míľnik odomyká nové moduly, úvody a rozhovory o raste. Žiadny tlak – len pokrok.',
+  'timeline.tipBody':
+    'Naplánujte si 30-minútovú reflexiu v dňoch 30, 60 a 90 so svojím manažérom — spätná väzba bude konkrétnejšia a pokrok viditeľnejší.',
   'timeline.tipEyebrow': 'Tip pre manažéra',
+  'timeline.tipTitle': 'Zablokujte si v kalendári čas na míľniky.',
   'timeline.title': 'Vaša cesta 30 / 60 / 90.',
   'training.badge.notStarted': 'Ešte sa nezačalo',
   'training.empty': 'Zatiaľ žiadne tréningové moduly.',
   'training.eyebrow': 'Nástup · Školenie',
   'training.loading': 'Načítavajú sa moduly…',
+  'training.stat.all': 'Moduly priradené',
   'training.subtitle':
     'Moduly sa odomykajú o 30/60/90, aby zodpovedali vašej úlohe. Požadované sú prvé.',
   'training.title': 'Zručnosti, nástroje a príbehy – vaším tempom.',
@@ -183,9 +230,12 @@ export const ui: UiTranslations = {
   'trainingModule.quizBody':
     'Na úspešné absolvovanie tohto modulu je potrebné získať 80 % alebo viac bodov.',
   'trainingModule.quizHeading': 'Kvíz na konci modulu',
+  'trainingModule.quizLocked': 'Najprv spustite modul',
   'trainingModule.quizNone': 'V tomto module nie je žiadny kvíz.',
   'trainingModule.quizRetry': 'Skúste to znova',
+  'trainingModule.quizStart': 'Spustiť kvíz',
   'trainingModule.quizSubmit': 'Odoslať odpovede',
+  'trainingModule.start': 'Spustiť modul',
   'trainingModule.statusNotStarted': 'Ešte sa nezačalo',
   'welcomeHeroCard.completeLabel': 'Dokončené',
   'welcomeHeroCard.milestonesLabel': 'Míľniky',

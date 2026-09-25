@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пікіріңіз бар ма, қате таптыңыз ба, әлде ауқымды жоспар құрып жүрсіз бе? Бізге аккаунт параметрлеріңізден хабарласыңыз — әрбір хабарлама командадағы нақты адамға жетеді.',
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Брондаулар бір кіріс жәшігінде — рейстер, қонақүйлер және іс-шаралар растаулары тиесілі күніне дәл түседі.',
+  'about.featureCollab':
+    'Нақты уақыттағы бірлескен жұмыс — бір сапарға бес саяхатшыға дейін шақырыңыз, әрбір өзгеріс тікелей синхрондалады және әрбір аялдама астында пікірлер талқыланады.',
+  'about.featureMapsBudget':
+    'Карталар, бағыттар және ортақ бюджет — бүкіл сапарды картада көріңіз, редактор таңдаған бағыттарды ашыңыз және шығындарды қадағалаңыз, сонда ешкім артық жұмсамайды.',
+  'about.featureTimelines':
+    'Күн-күнге арналған уақыт шкалалары — аялдамаларды ретін өзгерту үшін сүйреңіз, көлік сегменттерін қосыңыз және маршруттың тірі құжат ретінде қайта есептелуін бақылаңыз.',
+  'about.intro':
+    '{{app}} жартылай жасалған жоспарларға толы қалтаны бүкіл топ шынымен ұстана алатын біртұтас, ортақ сапарға айналдырады. Күн-күнге арналған маршрут құрыңыз, рейстер мен қонақүйлерді қосыңыз, әрбір аялдаманы картаға түсіріңіз және бюджетті қадағалаңыз — ондаған қойынды мен топтық чаттың орнына бір тыныш орында.',
+  'about.missionBody':
+    'Саяхатты жоспарлау үй тапсырмасындай емес, сапардың қазірдің өзінде жақсарып келе жатқанындай сезілуі керек. {{app}} бірлескен сапарларды жеңіл ету үшін бар — әрбір саяхатшы жоспарды біліп келеді, ал әрбір аялдама есте қаларлық әңгіме айтады.',
+  'about.missionTitle': 'Біздің миссиямыз',
   'about.pageTitle': '{{app}} туралы',
   'auth.legalConsent': 'Жалғастыра отырып, сіз біздің келісесіз',
   'bookings.empty.body': 'Кіріс жәшігін бастау үшін рейс, қонақ үй немесе әрекет қосыңыз.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Қонақ үй',
   'bookings.type.other': 'Басқа',
   'budgetSpendCard.budgetTotal': '-ның {{total}} жоспарланған',
+  'budgetSpendCard.overBy': '{{amount}} бюджеттен тыс',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} соңғы',
+  'budgetSpendCard.remaining': '{{amount}} қалды',
   'calendar.eyebrow': 'Алдағы жыл',
   'calendar.heading': 'Әрбір сапар бір күнтізбеде.',
   'calendar.legendHeading': 'Осы айдағы сапарлар',
@@ -41,18 +60,28 @@ export const ui: UiTranslations = {
   'common.and': 'және',
   'common.goToDashboard': 'Бақылау тақтасына өту',
   'dashboard.budgetHeading': 'Бюджеттік импульс',
+  'dashboard.empty.body':
+    'Алғашқы сапарыңызды жоспарлаңыз, сонда бақылау тақтаңыз күн-күнге арналған уақыт шкалаларымен, бюджет пульсімен және брондаулармен толады.',
+  'dashboard.empty.cta': 'Алғашқы сапарыңызды жоспарлаңыз',
   'dashboard.empty.heading': 'Әлі сапарлар жоқ — сіздің атласыңыз бос.',
   'dashboard.eyebrow': 'Миссияны басқару',
   'dashboard.heading': 'Келесі шытырман оқиғаңыз тыныш бұрышта өтеді.',
   'dashboard.newTripCta': 'Жаңа сапар бастаңыз',
+  'dashboard.subheading':
+    'Келесі сапарға кері санақ, бүгінгі шығыс пульсі және қозғалыстағы әрбір маршрутқа жылдам шолу.',
   'dashboard.tripsHeading': 'Қозғалыстағы сапарлар',
   'dashboard.viewAllExpenses': 'Әрбір шығынды қарау',
   'dashboard.viewAllTrips': 'Әр сапарды көру',
   'dayTimelineRow.category.accommodation': 'Қалу',
+  'dayTimelineRow.category.food': 'Тағам және сусындар',
+  'dayTimelineRow.category.sightseeing': 'Көрікті жерлерді аралау',
   'dayTimelineRow.category.transport': 'Көлік',
   'destinationOrbCard.exploreCta': 'Сапарға қосу',
   'destinationOrbCard.tripCount': '{{count}} сапарлар',
+  'destinations.empty.body':
+    'All параметріне қайта ауысыңыз, сонда редактор таңдаулары қайта пайда болады.',
   'destinations.empty.heading': 'Әзірге баратын жерлер жоқ.',
+  'destinations.emptyFiltered.heading': 'Әзірге осылай белгіленген ештеңе жоқ.',
   'destinations.errors.load': 'Баратын жерлерді жүктеу мүмкін болмады.',
   'destinations.eyebrow': 'Келесі қайда',
   'destinations.heading': 'Сақталған бұрыштар және редактор тапқан мәліметтер.',
@@ -70,7 +99,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Сатушы',
   'expenses.formHeading': 'Журнал шығыны {{trip}}',
   'expenses.heading': 'Сапар бюджеті шынымен қайда кетеді.',
+  'expenses.heroBudget': '{{total}} ішінен {{pct}}% жоспарланды',
   'expenses.heroEyebrow': '{{trip}} • бюджеттің қысқаша сипаттамасы',
+  'expenses.heroNoBudget': 'Бұл сапарда әзірге бюджет орнатылмаған.',
   'expenses.noTrips.body': 'Алдымен сапарды жоспарлаңыз - шығындар сапар бюджетіне байланысты.',
   'expenses.noTrips.heading': 'Әзірге сапарлар жоқ.',
   'expenses.receiptCount': '{{count}} түбіртектер',
@@ -82,12 +113,16 @@ export const ui: UiTranslations = {
     'Әрбір түбіртек пен растау осы жерде тиісті санатқа жинақталады - электрондық кесте қажет емес.',
   'forgotPassword.eyebrow': 'Маршрутыңызды қалпына келтіріңіз',
   'forgotPassword.heading': 'Құпия сөзіңізді ұмыттыңыз ба?',
+  'forgotPassword.subheading':
+    '{{appName}} үшін пайдаланған электрондық поштаңызды енгізіңіз, біз құпия сөзді қалпына келтіру сілтемесін жібереміз.',
   'forgotPassword.submit': 'Қалпына келтіру электрондық поштасын жіберу',
   'forgotPassword.submitPending': 'Қалпына келтіру электрондық поштасы жіберілуде…',
   'forgotPassword.successHint':
     'Әлі электрондық пошта жоқ па? Спам қалтаңызды тексеріңіз немесе басқа мекенжаймен қайталап көріңіз.',
   'forgotPassword.successSubheading':
     'Біз қалпына келтіру сілтемесін жібердік {{email}} Сілтеме 30 минут бойы жарамды.',
+  'forgotPassword.tryAgain': 'Басқа электрондық поштаға жіберу',
+  'landing.cta.eyebrow': 'Тегін жоспардан бастаңыз',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Тегін аккаунт жасау',
   'landing.cta.subheading':
@@ -99,8 +134,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Тегін саяхатты бастаңыз',
   'landing.hero.ctaSecondary': 'Сапар үлгісін қараңыз',
+  'landing.hero.eyebrow': 'Сапар жоспарлаушы · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint жартылай құрылған жоспарларға толы қалтаны тобыңыз іс жүзінде орындай алатын ортақ, күнделікті маршрутқа айналдырады — брондау, карталар және бюджет бір жерде бақыланады.',
+  'landing.hero.title': 'Бір рет жоспарлаңыз. Бірге серуендеңіз.',
   'landing.nav.join': 'Тегін саяхатты бастаңыз',
   'landing.nav.preview': 'Ішкі жол нүктесі',
   'landing.preview.cta': 'Өзіңіздің біреуін жоспарлаңыз',
@@ -108,6 +145,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Саяхатшылар қазір саяхаттап жүрген бірнеше сапар',
   'login.eyebrow': 'Мүшелер аймағы',
   'login.heading': 'Қош келдіңіз, саяхатшы',
+  'login.noAccount': 'Тессерамен жаңа таныстыңыз ба?',
   'login.signupLink': 'Тегін тіркелгі жасау',
   'login.subheading':
     'Сапарларыңызды, күндік жоспарларыңызды, брондауларды және бұрыннан бастаған күнделік жазбаларыңызды басқару үшін кіріңіз.',
@@ -118,6 +156,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Хабарландыруды жаңарту мүмкін болмады.',
   'notifications.heading': 'Бүгінгі сапарларыңызда не өзгерді.',
   'notifications.markUnread': 'Оқылмаған деп белгілеу',
+  'notifications.subheading':
+    '{{count}} жаңа \\u2014 брондау растаулары, серіктес жазбалары, тарифтің төмендеуі және еске салғыштар.',
   'notifications.time.daysAgo': '{{count}} күн бұрын',
   'notifications.time.hoursAgo': '{{count}} сағат бұрын',
   'notifications.time.justNow': 'жаңа ғана',
@@ -136,6 +176,7 @@ export const ui: UiTranslations = {
     'Қосылған қызметтер, валюта, push хабарландырулары және сіз кіретін тіркелгі деректері.',
   'signup.and': 'және',
   'signup.eyebrow': 'Waypoint-ке қосылыңыз',
+  'signup.haveAccount': 'Әлдеқашан кезіп жүрсіз бе?',
   'signup.heading': 'Бір рет жоспарлаңыз. Бірге серуендеңіз.',
   'signup.namePlaceholder': 'Ирис Ларсен',
   'signup.subheading':
@@ -147,6 +188,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Ашық маршрут',
   'tripCountdownHeroCard.ctaSecondary': 'Тағы бір сапар жоспарлаңыз',
   'tripCountdownHeroCard.daysLabel': '{{days}} қалған күндер',
+  'tripCountdownHeroCard.eyebrow': 'Келесі оқиға · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} түн — маршрутыңыз сапарға дайын.',
   'tripCoverCard.stops': '{{count}} аялдамалар',
   'tripCoverCard.travelers': '{{count}} саяхатшылар',
   'tripDetail.addActivity': 'Әрекет қосу',
@@ -156,6 +200,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Іс-шара атауы',
   'tripDetail.adding': 'Қосылуда…',
   'tripDetail.backToTrips': 'Барлық сапарларға оралу',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Саяхатшылар',
   'tripDetail.dayLabel': 'Күн {{day}}',
   'tripDetail.empty': 'Әзірге ешқандай әрекет жоқ — уақыт шкаласын бастау үшін біреуін қосыңыз.',
@@ -166,14 +211,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Бағыт • {{country}}',
   'tripDetail.invite': 'Шақыру',
   'tripDetail.inviteLabel': 'Электрондық пошта арқылы шақыру',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'Шақыру жіберілді {{email}} .',
   'tripDetail.inviting': 'Жіберілуде…',
   'tripDetail.loading': 'Сапар жүктелуде…',
   'tripDetail.noCollaborators': 'Әзірге тек сен.',
+  'tripDetail.notesHeading': 'Сапар жазбалары',
   'tripDetail.notesPlaceholder': 'Әзірге ешқандай жазба жоқ.',
   'tripDetail.notFound.heading': 'Сапар табылмады',
   'tripDetail.openBookings': 'Брондаулардың кіріс жәшігін ашу',
   'tripDetail.shareCopied': 'Буферге көшірілген сілтемені бөлісу:',
+  'tripDetail.shareReady': 'Бөлісу сілтемесі дайын:',
   'tripDetail.stops': '{{count}} аялдамалар',
   'tripDetail.timelineEyebrow': 'Күндізгі уақыт шкаласы',
   'tripDetail.timelineHeading': 'Күнделікті жоспар',
@@ -191,6 +239,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Саяхатшылар',
   'tripPlanner.heading': 'Бір минуттан аз уақыт ішінде сапардың сызбасын салыңыз.',
   'tripPlanner.preview.eyebrow': 'Тікелей эфирдегі алдын ала қарау',
+  'tripPlanner.preview.placeholderCountry': 'Ел таңдаңыз',
   'tripPlanner.preview.placeholderDestination': 'Сіздің келесі шытырман оқиғаңыз',
   'tripPlanner.section1.title': 'Қайда және қашан',
   'tripPlanner.section2.title': 'Саяхатшылар және бюджет',
@@ -202,10 +251,14 @@ export const ui: UiTranslations = {
     'Күн {{day}} — аялдамаларды, көлікті және брондауларды осы жерге қосыңыз.',
   'tripPlanner.section3.day3':
     'Күн {{day}} — аялдамаларды, көлікті және брондауларды осы жерге қосыңыз.',
+  'tripPlanner.section3.title': 'Күн жоспарының бастаушысы',
   'tripPlanner.subheading':
     'Негізгі ақпаратты төменде қалдырыңыз — сіз әрқашан серіктестерді шақыра аласыз, аялдамаларды сүйреп апара аласыз және кейінірек брондауды басқа бағытқа жібере аласыз.',
   'tripPlanner.submit': 'Сапар жасау',
   'tripPlanner.submitting': 'Жасалуда…',
+  'trips.empty.body':
+    'All trips параметріне қайта ауысыңыз немесе келесі сапарыңызды жоспарлауды бастаңыз.',
+  'trips.empty.cta': 'Сапарды жоспарлау',
   'trips.empty.heading': 'Бұл сүзгіге әлі ештеңе сәйкес келмейді.',
   'trips.eyebrow': 'Атлас',
   'trips.filterLabel': 'Сапарларды мәртебесі бойынша сүзгіден өткізу',
@@ -217,6 +270,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Әзірге сапарлар жоқ.',
   'trips.pastHeading': 'Өткен оқиғалар',
   'trips.subheading': '{{count}} маршруттар — өткен, қазіргі және бір кездері.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Бір рет жоспарлаңыз. Бірге кезіңіз. Мәңгі есте сақтаңыз.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · 2024 жылдан бері {{appName}} мүше',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} төрт елді қамтитын қарбалас 3 апталық сапарды біз бөліскен ең тыныш маршрутқа айналдырды.',
   'waypointLayout.mobileNavClose': 'Навигация мәзірін жабу',
   'waypointLayout.primaryNavLabel': 'Негізгі навигация',
 }

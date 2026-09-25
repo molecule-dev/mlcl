@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Kuna da ra'ayi, kun sami matsala, ko kuna son kawo {{app}} makarantarku ko ƙungiyarku? Muna karanta kowane saƙo — tuntuɓe mu daga saitunan asusunku kuma ɗan adam na gaske zai amsa.",
   'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da',
+  'about.intro':
+    '{{app}} wasa ne na kalmomi na yau da kullum. Yi hasashen kalmar haruffa biyar a cikin gwaje-gwaje shida, ci gaba da jerin nasarorinka, raba grid ɗin emoji ɗinka, kuma ga yadda kowa ya yi a kalmar yau.',
+  'about.missionBody':
+    'Wasa mai kyau shine ƙaramin nasara ta yau da kullum. An gina {{app}} a kan kalma ɗaya da ake rabawa kowace rana — mai sauri isa hutu na shan kofi, mai kaifin isa ka dawo gobe.',
+  'about.missionTitle': 'Manufarmu',
   'about.title': 'Game da {{app}}',
   'archive.loadError': 'Ba a iya loda rukunin ajiyar ba.',
   'archive.missed': 'An rasa',
   'archive.notPlayed': 'Ba a wasa ba',
+  'archive.subhead':
+    'Sake kunna kowace rana da ta wuce a matsayin atisaye — babu jerin nasarori, babu ƙididdiga, duk nishaɗin.',
   'archive.title': 'Taskar Tarihi',
   'auth.backToHome': 'Koma gida',
   'auth.backToHomeArrow': '← Koma gida',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Ka manta da kalmar sirri?',
   'auth.login.loggingIn': 'Ana shigar da kai…',
   'auth.login.logIn': 'Wasa da kalmar yau',
+  'auth.login.noAccount': 'Sabo ne ga Tessera?',
   'auth.login.or': 'ko ci gaba da',
   'auth.login.password': 'Kalmar sirri',
   'auth.login.signInButton': 'Shiga',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Ana adanawa…',
   'common.sendingEllipsis': 'Ana aikawa…',
   'common.startingEllipsis': 'Ana farawa…',
+  'forgotPassword.subhead':
+    'Shigar da imel ɗinka kuma za mu aiko maka da hanyar haɗi don sake saitawa.',
+  'forgotPassword.success.body':
+    'Idan akwai asusu don {{email}} , za ku sami hanyar sake saitawa cikin mintuna kaɗan.',
+  'forgotPassword.success.title': 'Duba akwatin saƙonka.',
   'form.name': 'Suna',
   'howToPlay.cta.home': 'Komawa gida',
   'howToPlay.cta.play': 'Wasa da wasannin yau',
@@ -68,10 +83,14 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Streaks da ba ka son ya karye',
   'leaderboard.daily.title': 'Warware na yau',
   'leaderboard.loadError': 'Ba a iya loda jerin matsayi ba.',
+  'leaderboard.streaks.empty': 'Babu jerin nasarori tukuna — kasance na farko.',
+  'leaderboard.streaks.subhead': 'Mafi tsayin jerin nasarori na kowane lokaci.',
   'leaderboard.streaks.title': 'Jagororin streak',
+  'leaderboard.subhead': 'Yadda kowa ya yi a yau, da wanda ke riƙe da mafi tsayin jerin nasarori.',
   'leaderboard.title': 'Jerin matsayi',
   'login.headline': 'Barka da dawowa.',
   'login.streakPill': 'Streak na kwanaki {{days}} yana jira',
+  'login.subhead': 'Shiga don ci gaba da jerin nasarorinka kuma ga yadda ka yi a kalmar yau.',
   'nav.archive': 'Taskar Tarihi',
   'nav.editProfile': 'Gyara bayanan martaba',
   'nav.getStarted': 'Fara',
@@ -89,6 +108,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Babu irin wannan kalma',
   'notFound.title': 'Wannan hanya ba ta da kome.',
   'planUpdated.message': 'Tsarin ku yana aiki yanzu.',
+  'planUpdated.retry': 'Gwada kuma',
+  'planUpdated.verifyFailed': 'Ba mu iya tabbatar da biyan kuɗin ku ba tukuna.',
+  'planUpdated.verifyFailedBody':
+    'Ana iya ci gaba da aiwatar da biyan kuɗin ku. Gwada kuma nan ba da jimawa ba.',
   'planUpdated.verifying': 'Ana tabbatar da biyan kuɗin ku…',
   'play.alreadyFinished': 'Ka riga ka gama da wannan wasan',
   'play.answerWas': 'Kalmar ita ce',
@@ -104,6 +127,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Wasannin gwaji',
   'play.tooShort': 'Haruffa ba su isa ba',
   'play.won': 'An warware shi!',
+  'pricing.advancedStats': 'Ƙarin ƙididdiga: {{yes}}',
+  'pricing.archiveHistory': '{{count}} kwanaki na tarihin ajiya',
+  'pricing.archivePlays': '{{count}} sake kunna ajiya / rana',
+  'pricing.archiveUnlimited': 'Tarihin ajiya mara iyaka',
+  'pricing.canExport': 'Fitar da bayanai: {{yes}}',
+  'pricing.checkoutError': 'Ban iya fara biyan kuɗi ba. Da fatan za a sake gwadawa.',
   'pricing.dailyWord': 'Kalmar yau da kullun',
   'pricing.heading': 'Zaɓi tsarin {{app}} naku',
   'pricing.included': 'An haɗa',
@@ -111,7 +140,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Kalmar yau da kullun kyauta ce koyaushe. Haɓaka don yin amfani da sake wasa da rukunin ajiya ba tare da iyaka ba da ƙarin kididdiga.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} na mutunta sirrinka. Wannan shafin yana taƙaita bayanan da muke adanawa, dalilin da ya sa muke adanawa, da yadda za a cire su.',
   'privacy.title': 'Sanarwar sirri',
+  'resetPassword.subhead': 'Zaɓi sabon kalmar sirri don komawa ga jerin nasarorinka.',
   'settings.account': 'Asusu',
   'settings.danger.body': 'Cire asusun {{appName}} ɗin ku da dukan tarihin wasan har abada.',
   'settings.danger.confirm': 'Eh, goge har abada',
@@ -120,17 +152,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'Baƙo',
   'settings.language.title': 'Harshe',
   'settings.subhead': 'Daidaita bayanan martaba, sauti, da yadda kake bayyana akan jerin matsayi.',
+  'settings.unnamed': 'Ɗan wasan Sparq',
   'settings.upgrade': 'Haɓaka',
   'signup.eyebrow': 'Kyauta har abada — kalma ɗaya kowace rana',
   'signup.headline': 'Fara streak ɗin ku.',
+  'signup.subhead':
+    'Ƙirƙiri asusun {{appName}} don yin wasan kalmar yau da kullum, gina jerin nasarori, da hawa teburin jagora.',
   'stats.currentStreak': 'Streak',
   'stats.distribution.title': 'Rabon gwaje-gwaje',
   'stats.loadError': 'Ba a iya loda kididdiga ɗin ku ba.',
   'stats.maxStreak': 'Mafi girman streak',
   'stats.played': 'An wasa',
   'stats.playToday': 'Wasa da wasannin yau',
+  'stats.subhead': 'Wasanan yau da kullum masu matsayi ne kawai — atisayen ajiya ba ya ƙidaya.',
   'stats.title': 'Kididdiga ɗin ku',
   'stats.winRate': 'Yawan nasara',
   'status.monthly': 'Na wata-wata',
+  'terms.intro':
+    'Ta amfani da {{app}} kun yarda da dokokin da ke ƙasa. Idan ba za ku iya yarda da su ba, don Allah kada ku yi amfani da sabis ɗin.',
   'terms.title': 'Sharuɗɗan sabis',
 }

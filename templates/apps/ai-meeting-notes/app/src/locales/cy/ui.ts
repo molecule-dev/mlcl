@@ -1,19 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Cwestiynau, adborth, neu gais am nodwedd? Anfonwch e-bost at y tîm yn hello@murmur.app — mae pob neges yn cyrraedd dyn go iawn sy'n gweithio ar y cynnyrch.",
   'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Amdanom ni',
+  'about.intro':
+    "{{app}} yw deallusrwydd cyfarfodydd i dimau sy'n well ganddynt wneud penderfyniadau na chymryd nodiadau. Mae'n ymuno â'ch galwadau, yn trawsgrifio pob gair gyda labeli siaradwyr, ac yn danfon crynodeb AI ynghyd ag eitemau gweithredu perchnogol yr eiliad y daw'r cyfarfod i ben.",
+  'about.missionBody':
+    "Mewn cyfarfodydd y mae timau'n penderfynu pethau — ac yno y mae'r penderfyniadau hynny'n cael eu colli. Mae {{app}} yn bodoli i sicrhau bod y gwaith sy'n digwydd mewn sgwrs yn goroesi'r sgwrs: cofnod ffyddlon, crynodeb clir, a chamau nesaf atebol, yn awtomatig.",
+  'about.missionTitle': 'Ein cenhadaeth',
   'actions.empty': 'Dim eitemau gweithredu yn cyfateb.',
   'actions.heading': 'Eitemau gweithredu',
   'actions.loadError': 'Methwyd llwytho eitemau gweithredu.',
   'actions.subheading': 'Wedi’i agregu ar draws pob cyfarfod. Hidlo yn ôl statws i ganolbwyntio.',
   'actions.toggleDoneLabel': 'Marcio fel wedi’i wneud',
   'actions.toggleReopenLabel': 'Marcio fel agored',
+  'auth.footer': "© {{year}} {{app}}. Pob gair, wedi'i ddistyllu.",
   'calendar.heading': 'Calendr',
   'calendar.joinCta': 'Ymunwch',
   'calendar.loadError': 'Methwyd llwytho’r calendr.',
   'calendar.nextMonth': 'Y mis nesaf',
   'calendar.noEventsForDay': 'Dim cyfarfodydd wedi’u trefnu ar gyfer y diwrnod hwn.',
+  'calendar.noUpcomingEvents':
+    "Dim cyfarfodydd i ddod. Cysylltwch galendr o Integreiddiadau i lenwi'r rhestr hon.",
   'calendar.previousMonth': 'Mis blaenorol',
   'calendar.recent': 'Diweddar',
   'common.daysAgo': '{{count}} d yn ôl',
@@ -25,9 +35,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} eitemau gweithredu',
   'dashboard.empty.body':
     'Dechreuwch recordiad neu cysylltwch Google Calendar fel bod Murmur yn ymuno â’ch cyfarfod nesaf yn awtomatig.',
+  'dashboard.empty.cta': 'Dechrau recordio',
   'dashboard.empty.heading': 'Dim cyfarfodydd eto',
   'dashboard.eyebrow': 'Eich porthiant cyfarfod',
   'dashboard.loadError': "Methwyd llwytho'r dangosfwrdd.",
+  'dashboard.noActions': 'Dim gweithredoedd',
   'dashboard.recentHeading': 'Cyfarfodydd diweddar',
   'dashboard.recordCta': 'Cofnodi cyfarfod',
   'dashboard.stat.actions': 'Eitemau gweithredu',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} Crynodebau heb eu darllen ers i chi wirio ddiwethaf. Cipiodd Murmur bob gair — dyma’r crynodeb.',
   'dashboard.viewCalendar': 'Gweld calendr →',
+  'footer.linksLabel': 'Troedyn',
   'forgot.failed': 'Methwyd anfon e-bost ailosod.',
   'forgot.sentBody': 'Os oes cyfrif yn bodoli ar gyfer {{email}}, fe gewch ddolen ailosod yn fuan.',
   'forgot.sentSubheading': 'Gwiriwch eich mewnflwch am y ddolen ailosod.',
@@ -47,14 +60,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Cysylltwch galendrau a llwyfannau fideo fel bod Murmur yn ymuno’n awtomatig.',
   'integrations.updateError': 'Methodd y diweddariad.',
+  'landing.ctaBody':
+    'Am ddim ar gyfer y 5 cyfarfod cyntaf bob mis. Dim cerdyn credyd. Cysylltwch Google Calendar mewn llai na munud.',
   'landing.ctaButton': 'Dechreuwch — mae am ddim',
   'landing.ctaHeading': 'Stopiwch gymryd nodiadau. Dechreuwch wneud penderfyniadau.',
+  'landing.demo.aiBody':
+    "Symudwyd y lansiad o 5 Mai → 12 Mai i roi mwy o amser staffio i'r gweithrediadau. Rhannwyd ailgynllunio'r dangosfwrdd i 26 Mai.",
   'landing.demo.aiLabel': 'Crynodeb AI, wedi’i ddrafftio’n fyw',
   'landing.demo.recording': 'Recordio · byw',
   'landing.eyebrow': 'Deallusrwydd cyfarfodydd AI',
   'landing.featuresHeading': 'Popeth sydd ei angen ar eich tîm ar ôl i’r cyfarfod ddod i ben',
+  'landing.featuresSubheading':
+    'Dim mwy o "aros, pwy sy\'n berchen ar hyn?" Mae {{appName}} yn danfon y crynodeb cyn i\'r alwad ddod i ben.',
   'landing.getStarted': 'Rhowch gynnig arni am ddim',
   'landing.heroSecondary': 'Gwyliwch daith 90 eiliad',
+  'landing.heroSubtitle':
+    "{{tagline}}. Mae {{appName}} yn ymuno â'ch galwadau, yn trawsgrifio pob gair gyda labeli siaradwyr, ac yn danfon crynodebau AI ynghyd ag eitemau gweithredu perchnogol yr eiliad y daw'r cyfarfod i ben.",
   'landing.heroTitle': 'Cofnodwch bob cyfarfod. Tynnwch sylw at yr hyn sy’n bwysig.',
   'login.altPrompt': 'Newydd i Murmur?',
   'login.failed': 'Methwyd mewngofnodi. Gwiriwch eich e-bost a’ch cyfrinair.',
@@ -62,6 +83,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Eitemau gweithredu',
   'meetingDetail.back': 'Pob cyfarfod',
   'meetingDetail.decisionsHeading': 'Penderfyniadau',
+  'meetingDetail.dueDate': 'yn ddyledus {{date}}',
   'meetingDetail.followupsHeading': 'Dilyniannau',
   'meetingDetail.loadError': 'Methwyd llwytho’r cyfarfod.',
   'meetingDetail.noActions': 'Ni chanfuwyd unrhyw eitemau gweithredu.',
@@ -75,7 +97,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Dim cyfarfodydd eto',
   'meetings.heading': 'Cyfarfodydd',
   'meetings.loadError': 'Methwyd llwytho cyfarfodydd.',
+  'meetings.recordCta': 'Cofnodi cyfarfod',
   'meetings.subheading': 'Pob cyfarfod sydd wedi’i recordio, ei uwchlwytho a’i gysoni.',
+  'murmurLayout.closeMenu': "Cau'r ddewislen lywio",
   'murmurLayout.openMenu': 'Agor y ddewislen lywio',
   'murmurLayout.primaryNavLabel': 'Prif lywio',
   'nav.legal': 'Cyfreithiol',
@@ -100,7 +124,16 @@ export const ui: UiTranslations = {
   'profile.loading': 'Yn llwytho…',
   'profile.navLabel': 'Adrannau proffil',
   'profile.notifications.assignments': 'Eitemau gweithredu a neilltuwyd i mi',
+  'profile.notifications.assignmentsHint':
+    'Hysbysu pan gaiff eitem weithredu ei chofnodi ar eich cyfer.',
+  'profile.notifications.mentions': 'Crybwylliadau mewn trawsgrifiadau',
+  'profile.notifications.mentionsHint':
+    'E-bost + hysbysiad pan fydd rhywun yn eich crybwyll gyda @.',
+  'profile.notifications.subheading':
+    'Dewiswch pa ddigwyddiadau {{appName}} ddylai gyrraedd atoch.',
   'profile.notifications.summaries': 'Crynodeb wythnosol',
+  'profile.notifications.summariesHint': 'Crynodeb ddydd Llun o bob cyfarfod yr wythnos diwethaf.',
+  'profile.preferences.speakerColor': 'Lliw siaradwr diofyn',
   'profile.preferences.subheading':
     'Rhagosodiadau sy’n berthnasol i bob recordiad rydych chi’n ymuno ag ef.',
   'profile.preferences.timezone': 'Parth amser',
@@ -113,16 +146,21 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Nid yw eich porwr yn cefnogi recordio. Rhowch gynnig ar Chrome, Edge, neu Safari.',
   'record.error.upload': 'Methodd yr uwchlwytho. Rhowch gynnig arall arni.',
+  'record.errorLabel': "Aeth rhywbeth o'i le",
   'record.heading': 'Record',
   'record.idleLabel': 'Tapiwch i ddechrau recordio',
   'record.processingLabel': 'Trawsgrifio gyda Whisper, crynhoi gyda Claude…',
+  'record.recordingLabel': 'Yn cofnodi…',
   'record.retryCta': 'Rhowch gynnig arall arni',
   'record.subheading':
     'Pwyswch y meicroffon i ddechrau. Mae Murmur yn cipio’r sain, yn trawsgrifio trwy Whisper, ac yn ysgrifennu crynodeb wedi’i bweru gan Claude.',
+  'record.titlePlaceholder': 'Teitl y cyfarfod (dewisol)',
+  'reset.altPrompt': 'Wedi newid eich meddwl?',
   'reset.hint': 'Defnyddiwch o leiaf 8 nod gyda chymysgedd o lythrennau a rhifau.',
   'reset.missingToken': 'Mae’r ddolen ailosod ar goll neu wedi dod i ben. Gofynnwch am un newydd.',
   'reset.newPassword': 'Cyfrinair newydd',
   'reset.subheading': 'Dewiswch gyfrinair nad ydych chi’n ei ddefnyddio yn unman arall.',
+  'reset.tooShort': "Rhaid i'r cyfrinair fod o leiaf 8 nod.",
   'search.empty': 'Teipiwch i chwilio am drawsgrifiadau.',
   'search.loadError': 'Methodd y chwiliad. Rhowch gynnig arall arni.',
   'search.noResults': 'Dim canlyniadau ar gyfer “ {{q}} ".',
@@ -138,7 +176,10 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Cadwch sain am',
   'settings.retention.heading': 'Cadw',
   'settings.retention.transcript': 'Cadwch drawsgrifiadau ar gyfer',
+  'settings.revokeDeviceWarning':
+    'Bydd mynediad y ddyfais hon yn cael ei ddirwyn yn fuan. Ei allgofnodi?',
   'settings.saveError': 'Methodd y cadw.',
+  'settings.security.subheading': 'Diweddarwch y cyfrinair rydych yn ei ddefnyddio i fewngofnodi.',
   'settings.sharing.exportFormat': 'Fformat allforio',
   'settings.sharing.heading': 'Rhannu rhagosodiadau',
   'settings.sharing.scope': 'Cwmpas rhannu diofyn',
@@ -156,6 +197,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Gwahodd cyd-chwaraewr',
   'team.invitedAs': 'Wedi’i wahodd fel {{role}}',
   'team.inviteFailed': 'Methwyd anfon gwahoddiad.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'Anfon gwahoddiad',
   'team.inviteSubtitle': 'Byddant yn derbyn e-bost gyda dolen ymuno.',
   'team.inviteTitle': 'Gwahodd cyd-aelod o’r tîm',

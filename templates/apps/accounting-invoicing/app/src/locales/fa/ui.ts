@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'سؤالی دارید، باگی پیدا کرده‌اید، یا می‌خواهید کتاب‌هایتان را منتقل کنید؟ با تیم {{app}} از طریق hello@{{app}}.example در تماس باشید — یک انسان واقعی همه پیام‌ها را می‌خواند.',
   'about.contactTitle': 'با ما صحبت کنید',
   'about.eyebrow': 'درباره',
+  'about.intro':
+    '{{app}} حسابداری کسب‌وکارهای کوچک است که هر سنت را حساب‌شده نگه می‌دارد — فاکتورها، هزینه‌ها، پرداخت‌ها و گزارش‌ها در یک جای آرام برای صاحبان کسب‌وکار، حسابداران و دفترداران.',
+  'about.missionBody':
+    'اداره‌کردن یک کسب‌وکار نباید یعنی ترسیدن از دفاتر حسابداری‌تان. {{app}} پراکندگی صفحه‌گسترده را با اعداد شفاف و قابل‌اقدام جایگزین می‌کند، تا وقت کمتری صرف تطبیق حساب‌ها کنید و وقت بیشتری برای کاری بگذارید که کسب‌وکار را برایش راه انداخته‌اید.',
+  'about.missionTitle': 'ماموریت ما',
   'about.title': 'درباره {{app}}',
   'accounts.count': '{{count}} حساب‌ها',
+  'accounts.emptyBody':
+    'حساب‌های دفتر کل نشان می‌دهند پول کجا قرار دارد و چگونه جابه‌جا می‌شود. پس از اینکه دفتردار یا سرویس متصل شما آن‌ها را راه‌اندازی کرد، اینجا نمایش داده می‌شوند.',
   'accounts.emptyTitle': 'هنوز هیچ حسابی وجود ندارد',
   'accounts.heading': 'نمودار حساب‌ها',
   'accounts.kpi.accounts': 'حساب‌ها',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'هر حساب دفتر کل مربوط به فاکتورها، هزینه‌ها و پرداخت‌های شما، بر اساس نوع گروه‌بندی شده است.',
   'accounts.tag.inactive': 'غیرفعال',
   'authBrandPanel.attributionName': 'سارا جنکینز',
+  'authBrandPanel.attributionRole': 'مدیر ارشد مالی، Horizon Tech',
   'authBrandPanel.eyebrow': 'مورد اعتماد تیم‌های مالی',
   'authBrandPanel.label': 'ویترین برند',
   'authBrandPanel.quote': '«لجر نحوه‌ی ردیابی درآمد ما را متحول کرده است. دقت در بهترین حالت خود.»',
@@ -30,7 +40,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'همه مشتریان',
   'customerDetail.invoiceMeta': 'صادر شده {{issued}} · سررسید {{due}}',
   'customerDetail.loadError': 'بارگیری مشتری ناموفق بود.',
+  'customerDetail.missingBody':
+    'رکورد مشتری درخواستی بارگذاری نشد. ممکن است حذف شده باشد یا شما به آن دسترسی نداشته باشید.',
   'customerDetail.missingHeading': 'سابقه مشتری در دسترس نیست',
+  'customerDetail.missingHelp':
+    'از پیوند بازگشت در بالا برای برگشت به فهرست مشتریان استفاده کنید، یا از همان‌جا رکورد دیگری انتخاب کنید.',
+  'customerDetail.noInvoices': 'هنوز فاکتوری صادر نشده.',
   'customerDetail.notesEmpty': 'هنوز یادداشتی وجود ندارد.',
   'customerDetail.paymentsEmpty': 'هیچ پرداختی ثبت نشده است.',
   'customerDetail.paymentTerms': 'شرایط پرداخت',
@@ -57,6 +72,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'فرانشیز',
   'expenseDetail.detailsHeading': 'جزئیات تراکنش',
   'expenseDetail.loadError': 'هزینه بارگیری نشد.',
+  'expenseDetail.matched': 'تطبیق‌یافته · {{description}}',
   'expenseDetail.missingBody':
     'هزینه درخواستی قابل بارگذاری نیست. ممکن است حذف شده باشد، یا ممکن است شما به آن دسترسی نداشته باشید.',
   'expenseDetail.missingHeading': 'سابقه هزینه در دسترس نیست',
@@ -64,6 +80,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'رسید',
   'expenseDetail.receiptHeading': 'رسید',
   'expenseDetail.reconciled': 'آشتی داده شده',
+  'expenseDetail.unreconciled': 'آشتی‌ناپذیر',
   'expenses.empty': 'هنوز هیچ خرجی نشده.',
   'expenses.heading': 'هزینه‌ها',
   'expenses.kpi.deductible': 'فرانشیز',
@@ -99,6 +116,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'بارگیری فاکتورها ناموفق بود.',
   'invoices.searchPlaceholder': 'جستجوی شماره فاکتور یا مشتری…',
   'invoices.summary.paid': 'این دوره پرداخت شده',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     '۳۰ روز رایگان. بدون نیاز به کارت. حسابدارتان را بیاورید - از شما تشکر خواهند کرد.',
   'landing.ctaTitle': 'کتاب‌هایتان را به مکانی آرام‌تر منتقل کنید.',
@@ -113,6 +131,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'حساب‌های دریافتنی',
   'ledgerStatTriad.eyebrow.mtd': 'ماه تا به امروز',
   'ledgerStatTriad.netSub': 'خالص {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} معوق',
   'ledgerStatTriad.revenueLabel': 'درآمد',
   'login.failed': 'ورود ناموفق بود.',
   'login.hidePassword': 'مخفی کردن رمز عبور',
@@ -123,6 +142,7 @@ export const ui: UiTranslations = {
   'login.submit': 'ورود',
   'nav.legal': 'قانونی',
   'newExpense.back': 'هزینه‌ها',
+  'newExpense.clearReceiptCta': 'پاک‌کردن رسید پیوست‌شده',
   'newExpense.deductible': 'قابل کسر مالیات',
   'newExpense.dropPrompt': 'عکس یا فایل PDF رسید را برای پیوست اینجا قرار دهید.',
   'newExpense.failed': 'نتوانست در هزینه‌ها صرفه‌جویی کند.',
@@ -151,6 +171,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'بارگیری پرداخت‌ها ناموفق بود.',
   'payments.unmatchedTag': 'بی همتا',
   'planUpdated.pageLabel': 'تأیید به‌روزرسانی طرح',
+  'pricing.advancedFeatures': 'ویژگی‌های پیشرفته: {{yes}}',
+  'pricing.canExport': 'خروجی داده: {{yes}}',
+  'pricing.heading': 'طرح {{app}} خود را انتخاب کنید',
+  'pricing.maxAccounts': '{{count}} حساب‌ها',
+  'pricing.maxExpenses': '{{count}} هزینه‌ها',
+  'pricing.maxInvoices': '{{count}} فاکتور',
+  'privacy.intro':
+    'این سیاست حفظ حریم خصوصی توضیح می‌دهد که {{app}} چگونه اطلاعات مربوط به کسب‌وکارهایی را که از این سرویس استفاده می‌کنند جمع‌آوری، استفاده و افشا می‌کند.',
   'privacy.lastUpdated': 'آخرین به‌روزرسانی: {{تاریخ}}',
   'privacy.section.collected.body':
     'ما اطلاعات حساب (نام، ایمیل، شرکت)، سوابق مالی که شما آپلود می‌کنید (فاکتورها، هزینه‌ها، مشتریان، پرداخت‌ها) و گزارش‌های استاندارد عملکرد سرویس (IP، عامل کاربر، مهرهای زمانی) را جمع‌آوری می‌کنیم.',
@@ -163,8 +191,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'اطلاعات برای اجرای سرویس، تولید گزارش‌ها و فایل‌های PDF درخواستی شما، ارسال ایمیل‌های تراکنشی از طریق Mailgun و پردازش پرداخت‌ها از طریق Stripe استفاده می‌شود. ما اطلاعات شخصی را نمی‌فروشیم یا اجاره نمی‌دهیم.',
   'recentInvoicesCard.dueMeta': 'موعد {{date}}',
+  'recentInvoicesCard.empty': 'هیچ فاکتوری مطابقت ندارد.',
   'recentInvoicesCard.eyebrow': 'حساب‌های دریافتنی',
   'recentInvoicesCard.searchAriaLabel': 'جستجوی فاکتورها',
+  'recentInvoicesCard.searchPlaceholder': 'جستجوی فاکتورها…',
   'recentInvoicesCard.title': 'فاکتورهای اخیر',
   'recentInvoicesCard.viewAll': 'مشاهده همه فاکتورها →',
   'reports.assets': 'دارایی‌ها',
@@ -180,16 +210,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'سود و زیان (۱۲ ماه)',
   'resetPassword.backToLogin': '← بازگشت به ورود',
   'resetPassword.hidePassword': 'مخفی کردن رمز عبور',
+  'resetPassword.passwordLabel': 'رمز عبور جدید',
   'resetPassword.showPassword': 'نمایش رمز عبور',
+  'resetPassword.subheading': 'یک گذرواژه قوی انتخاب کنید — حداقل هشت نویسه.',
   'resetPassword.submit': 'بازنشانی رمز عبور',
   'resetPassword.tooShort': 'رمز عبور باید حداقل ۸ کاراکتر باشد.',
   'settings.account.changePassword': 'تغییر رمز عبور',
   'settings.account.changingPassword': 'در حال تغییر…',
   'settings.account.currentPassword': 'رمز عبور فعلی',
+  'settings.account.dangerZone': 'منطقه خطر',
   'settings.account.deleteAccount': 'حذف حساب کاربری',
   'settings.account.deleteDescription':
     'حساب کاربری و تمام داده‌های مرتبط با آن را برای همیشه حذف کنید.',
   'settings.account.deleteError': 'حذف حساب کاربری ناموفق بود.',
+  'settings.account.deleteWarning':
+    'این کار حساب شما را برای همیشه حذف می‌کند و قابل بازگشت نیست. برای تأیید، گذرواژه خود را وارد کنید.',
   'settings.account.deleting': 'در حال حذف…',
   'settings.account.devices': 'دستگاه‌ها',
   'settings.account.email': 'ایمیل',
@@ -200,6 +235,7 @@ export const ui: UiTranslations = {
   'settings.account.password': 'رمز عبور',
   'settings.account.passwordError': 'تغییر رمز عبور ناموفق بود.',
   'settings.account.pushNotifications': 'اعلان‌های فوری روی این دستگاه',
+  'settings.account.revokeDeviceWarning': 'دسترسی این دستگاه به زودی لغو خواهد شد. خروج از آن؟',
   'settings.account.saveError': 'به‌روزرسانی نمایه انجام نشد.',
   'settings.account.security': 'امنیت',
   'settings.account.signOutDevice': 'خروج از سیستم',
@@ -207,12 +243,19 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'احراز هویت دو عاملی',
   'settings.account.twoFactorCode': 'کد احراز هویت',
   'settings.account.twoFactorDisable': 'غیرفعال کردن',
+  'settings.account.twoFactorDisableTitle': 'غیرفعال‌کردن احراز هویت دو مرحله‌ای',
   'settings.account.twoFactorEnable': 'فعال کردن',
+  'settings.account.twoFactorEnableTitle': 'فعال‌کردن احراز هویت دو مرحله‌ای',
   'settings.account.twoFactorInvalidCode': 'کد نامعتبر',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'کد QR احراز هویت دو مرحله‌ای',
+  'settings.account.twoFactorScan':
+    'این کد QR را با برنامه احراز هویت خود اسکن کنید، سپس کد ۶ رقمی را وارد کنید.',
+  'settings.account.twoFactorUnavailable': 'احراز هویت دو مرحله‌ای برای این برنامه در دسترس نیست.',
   'settings.account.twoFactorVerify': 'تأیید و فعال کردن',
   'settings.account.unknownDevice': 'دستگاه ناشناخته',
   'settings.company.email': 'ایمیل صورتحساب',
+  'settings.company.heading': 'شرکت و مالیات',
   'settings.company.name': 'نام قانونی',
   'settings.company.saveButton': 'ذخیره مشخصات شرکت',
   'settings.company.taxId': 'شناسه مالیاتی / EIN',
@@ -255,6 +298,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'تأسیس سه ماهه',
   'taxes.kpi.owed': 'بدهکار',
   'taxes.loadError': 'خلاصه مالیات بارگیری نشد.',
+  'taxes.remittedPct': '({{pct}}٪ واریزشده)',
+  'terms.intro':
+    'این شرایط استفاده («شرایط») دسترسی شما به {{app}} و استفاده از آن را تعیین می‌کند. با ایجاد حساب یا استفاده از سرویس، موافقت می‌کنید که به آن‌ها پایبند باشید.',
   'terms.lastUpdated': 'آخرین به‌روزرسانی: {{تاریخ}}',
   'terms.section.acceptable.body':
     'شما موافقت می‌کنید که از این سرویس برای نقض هیچ قانونی، نقض حقوق مالکیت معنوی، انتقال بدافزار یا تلاش برای دسترسی غیرمجاز به حساب‌های دیگر یا زیرساخت‌های ما استفاده نکنید.',

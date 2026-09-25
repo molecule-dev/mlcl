@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'سؤالی دارید، باگی پیدا کرده‌اید، یا می‌خواهید برای تیم‌تان دمویی بگیرید؟ از تنظیمات حساب خود پیام بدهید — هر پیام به دست یک فرد واقعی در تیم می‌رسد.',
   'about.contactTitle': 'تماس بگیرید',
+  'about.intro':
+    '{{app}} انبوهی از اسناد اسکن‌شده و PDFها را به داده‌های ساختاریافته، قابل جست‌وجو و بایگانی‌شده تبدیل می‌کند. فاکتورها، رسیدها، قراردادها یا فرم‌ها را رها کنید تا هوش مصنوعی آن‌ها را بخواند، استخراج، دسته‌بندی و بایگانی کند — با رنگ‌های اطمینان تا تیم‌تان فقط مواردی را بررسی کند که واقعاً به انسان نیاز دارند.',
+  'about.missionBody':
+    'کارهای تکراری اسناد نباید روز تیم‌تان را بخورند. ما معتقدیم هر مقدار استخراج‌شده باید قابل توضیح و قابل حسابرسی باشد — تا بتوانید بدون از دست دادن رد کاغذی به اتوماسیون اعتماد کنید. {{app}} طوری ساخته شده که در هر انبوه ساعت‌ها صرفه‌جویی کند و در هر جا که مهم است انسان را در جریان نگه دارد.',
+  'about.missionTitle': 'ماموریت ما',
+  'about.subtitle': 'OCR، استخراج با هوش مصنوعی، دسته‌بندی و بایگانی خودکار برای اسناد شما.',
   'about.title': 'درباره {{app}}',
+  'about.whatYouGetTitle': 'آنچه به دست می‌آورید',
   'authShell.backToLanding': '← بازگشت به فرود',
   'common.goToDashboard': 'رفتن به داشبورد',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'امروز · مرور کلی عملیات',
   'dashboard.heading': 'هوش اسنادی',
+  'dashboard.metric.accuracy': 'میانگین دقت',
   'dashboard.metric.filed': 'امروز ثبت شد',
   'dashboard.metric.filedCaption': 'با قوانین ثبت نام مسیریابی شده است',
   'dashboard.metric.processed': 'امروز پردازش شد',
@@ -23,11 +33,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'سند',
   'dashboard.recent.col.uploaded': 'آپلود شده',
   'dashboard.recent.heading': 'اسناد اخیر',
+  'dashboard.recent.typeUnknown': 'در انتظار دسته‌بندی',
   'dashboard.subheading':
     'هر صفحه طبقه‌بندی، استخراج و بایگانی می‌شود - با رنگ‌های اطمینان‌بخش تا بررسی متمرکز باقی بماند.',
   'documentDetail.audit.heading': 'جدول زمانی حسابرسی',
+  'documentDetail.audit.subheading': 'هر اقدامی که روی این سند انجام شده، همراه با مسئول آن.',
   'documentDetail.back': 'همه اسناد',
   'documentDetail.downloadHint': 'برای باز کردن فایل اصلی از گزینه دانلود استفاده کنید.',
+  'documentDetail.extracted.empty': 'هنوز فیلدی استخراج نشده است.',
   'documentDetail.extracted.heading': 'فیلدهای استخراج شده',
   'documentDetail.extracted.subheading':
     '{{count}} فیلدها · برای برجسته کردن هر فیلد در صفحه، روی آن کلیک کنید',
@@ -55,13 +68,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'جستجوی اسناد…',
   'documents.subheading': '{{count}} اسناد موجود در کتابخانه شما، به ترتیب جدیدترین‌ها.',
   'documents.uploadCta': 'بارگذاری اسناد',
+  'documentTypeBreakdown.barAria': 'ترکیب اسناد بر اساس نوع',
   'documentTypeBreakdown.empty': 'هنوز هیچ سندی پردازش نشده است.',
   'documentTypeBreakdown.subtitle': '{{total}} پردازش شده',
   'documentTypeBreakdown.title': 'ترکیب سند',
+  'forgotPassword.backToSignIn': '← بازگشت به ورود',
   'forgotPassword.checkEmail': 'ایمیل خود را بررسی کنید',
   'forgotPassword.tip': 'متوجه نشدید؟ اسپم را بررسی کنید یا آدرس دیگری را امتحان کنید.',
+  'landing.copyright':
+    '© {{year}} {{app}}. ساخته‌شده برای تیم‌های عملیاتی که هر صفحه را حسابرسی می‌کنند.',
+  'landing.ctaBody':
+    '۱۴ روز آزمایشی. بدون نیاز به کارت. هر زمان لغو کنید. ساخته‌شده برای تیم‌های عملیاتی که سریع حرکت می‌کنند و کند حسابرسی می‌کنند.',
   'landing.ctaHeading': 'تایپ کردن رسیدها را متوقف کنید. شروع به بایگانی کردن آنها کنید.',
   'landing.eyebrow': 'OCR · استخراج · بایگانی هوش مصنوعی',
+  'landing.featuresHeading': 'هوشمندی اسناد که خودش را توضیح می‌دهد',
+  'landing.heroSubtitle':
+    'انبوهی از فاکتورها، رسیدها، قراردادها یا فرم‌ها را رها کنید. {{app}} آن‌ها را دسته‌بندی، استخراج و بایگانی می‌کند — با رنگ‌های اطمینان تا تیم‌تان فقط مواردی را بررسی کند که واقعاً به انسان نیاز دارند.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'حجم روزانه · ۷ روز گذشته',
   'landing.sampleCardLabel': 'اسناد امروز پردازش شدند',
   'landing.sampleCardSubtitle': 'میانگین دقت در فاکتورها، رسیدها و فرم‌ها ۹۶.۲٪ است.',
   'login.hidePassword': 'مخفی کردن رمز عبور',
@@ -74,6 +98,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · ۴۰۴',
   'notFound.home': 'صفحه فرود را باز کنید',
   'notFound.title': 'آن صفحه در پرونده نیست',
+  'parcelaHeroCard.accuracy': 'میانگین دقت {{value}}٪ در همه استخراج‌ها',
   'parcelaHeroCard.change': '{{sign}} {{amount}} درصد در مقابل دیروز',
   'parcelaHeroCard.title': 'اسناد امروز پردازش شدند',
   'parcelaLayout.primaryNavLabel': 'ناوبری اولیه',
@@ -81,6 +106,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'اسناد',
   'pricing.processingLabel': 'پردازش مشاغل',
   'resetPassword.confirmPlaceholder': 'رمز عبور جدید را تکرار کنید',
+  'resetPassword.hidePassword': 'مخفی کردن رمز عبور',
   'resetPassword.passwordLabel': 'رمز عبور جدید',
   'resetPassword.showPassword': 'نمایش رمز عبور',
   'resetPassword.subtitle': 'چیزی انتخاب کنید که حداقل ۸ کاراکتر داشته باشد.',
@@ -98,10 +124,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'بارگذاری قوانین ناموفق بود.',
   'rules.loading': 'قوانین بارگیری…',
   'rules.matched30d': '{{count}} اسنادی که در 30 روز گذشته مطابقت داشته‌اند',
+  'rules.neverUsed': 'هرگز استفاده نشده',
   'rules.newRule': 'قانون جدید',
   'rules.saveError': 'نتوانست حکومت را نجات دهد.',
   'rules.subheading':
     'به سیستم بگویید هر نوع سند کجا باید برود. زنجیره شرط‌ها از بالا به پایین - اولین تطابق برنده می‌شود.',
+  'rules.templatesEmpty': 'هنوز قالب استخراجی وجود ندارد.',
   'rules.templatesHeading': 'الگوهای استخراج',
   'rules.templatesSubheading': 'طرحواره‌های فیلدی که استخراج‌کننده برای هر نوع سند استفاده می‌کند.',
   'rules.then': 'سپس',
@@ -109,17 +137,24 @@ export const ui: UiTranslations = {
   'settings.account.error': 'ذخیره نشد.',
   'settings.account.nameLabel': 'نام فضای کاری',
   'settings.account.subheading': 'نمایش نام و ایمیل اصلی برای اعلان‌ها و سابقه حسابرسی.',
+  'settings.api.confirmRevoke': 'تایید؟',
   'settings.api.copyOnce': 'این کلید را کپی کنید - دیگر نمایش داده نخواهد شد',
   'settings.api.createdOn': 'ایجاد شده {{date}}',
   'settings.api.empty': 'هنوز کلید API وجود ندارد. یکی از موارد بالا ایجاد کنید.',
   'settings.api.error': 'ایجاد کلید ناموفق بود.',
+  'settings.api.generating': 'در حال صدور…',
+  'settings.api.heading': 'کلیدهای API',
   'settings.api.labelPlaceholder': 'برچسب کلید (مثلاً آپلودکننده CI)',
+  'settings.api.loading': 'در حال بارگذاری کلیدها…',
   'settings.api.newKey': 'کلید تولید کنید',
   'settings.api.subheading':
     'از اینها برای ارسال اسناد از یک اسکریپت یا ERP خود استفاده کنید. هر کلیدی را در هر زمانی بچرخانید.',
   'settings.integrations.heading': 'ادغام‌های بایگانی',
   'settings.integrations.subheading':
     'اسناد بایگانی‌شده را به درایو ابری یا ابزار چتی که تیم شما از قبل در آن کار می‌کند، ارسال کنید.',
+  'settings.subheading':
+    'مدیریت حساب، کلیدهای API و یکپارچه‌سازی‌های بایگانی برای فضای کاری {{app}} شما.',
+  'signup.hidePassword': 'مخفی کردن رمز عبور',
   'signup.identityPrompt': 'چطور باید شما را خطاب کنیم؟',
   'signup.showPassword': 'نمایش رمز عبور',
   'signup.subtitle': '۱۴ روز رایگان، بدون نیاز به کارت',
@@ -127,6 +162,7 @@ export const ui: UiTranslations = {
   'upload.error': 'آپلود ناموفق بود.',
   'upload.eyebrow': 'بلع',
   'upload.heading': 'بارگذاری اسناد',
+  'upload.queue.clear': 'پاک کردن موارد تکمیل‌شده',
   'upload.queue.col.confidence': 'اعتماد به نفس',
   'upload.queue.col.file': 'فایل',
   'upload.queue.detecting': 'تشخیص…',
@@ -139,5 +175,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'یا چندین فایل را به طور همزمان برای استخراج دسته‌ای، طبقه‌بندی و بایگانی رها کنید.',
   'uploadDropZone.cta': 'فایل‌ها را انتخاب کنید',
+  'uploadDropZone.maxSize': 'حداکثر ۲۵ مگابایت برای هر فایل · رمزنگاری سرتاسری',
   'uploadDropZone.title': 'اسناد را برای شروع پردازش رها کنید',
 }

@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
+  'about.featureConnections':
+    'Bainisteoir naisc a stórálann do bhunachair shonraí go slán agus a chuireann dathchód orthu — déantar dintiúir a chriptiú agus iad ar fos, riamh i ngnáth-théacs.',
+  'about.featureMonitoring':
+    'Faireachán beo ar fheidhmíocht na gceisteanna agus ar ghníomhaíocht an bhunachair shonraí, le haicearraí méarchláir agus an pailéad orduithe chun é a stiúradh go léir gan lámha.',
+  'about.featurePlans':
+    'Pleananna a fhásann leat — Saor in aisce do dhuine aonair, Pro agus Foireann le haghaidh níos mó naisc, coinneáil ceisteanna níos faide, easpórtálacha, agus gnéithe ardleibhéil.',
+  'about.featureQueryEditor':
+    'Eagarthóir SQL le Monaco le stair ceisteanna, ceisteanna sábháilte, agus easpórtáil CSV do thorthaí le haon chliceáil.',
+  'about.featureSchema':
+    'Taiscéalaí scéime agus brabhsálaí táblaí chun bunachair shonraí, táblaí agus colúin a nascleanúint, ansin sraitheanna a bhrabhsáil, a scagadh agus a chur in eagar go hinlíne.',
+  'about.missionTitle': 'Ár misean',
   'authShell.commands': 'Orduithe',
   'authShell.ssoSupported': 'Tacaítear le SSO',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Fiosrúcháin',
   'connections.schema': 'Scéim',
   'connections.subtitle': 'Bainistigh do naisc bhunachar sonraí.',
+  'connections.test': 'Tástáil',
   'databaseAdminLayout.adminRole': 'Ról riarthóra',
   'databaseAdminLayout.commandPalette': 'Pailéad orduithe',
   'databaseAdminLayout.commands': 'orduithe',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Nasc nua',
   'databaseAdminLayout.queries': 'Fiosrúcháin',
   'databaseAdminLayout.ready': 'Réidh',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Cuardaigh orduithe, ceisteanna, táblaí…',
   'databaseAdminLayout.user': 'Úsáideoir',
   'editConnection.confirmDelete': 'Scrios an nasc seo?',
   'editConnection.deleteButton': 'Scrios an nasc',
+  'editConnection.newPassword': 'Focal faire nua (fág folamh le coinneáil)',
   'editConnection.saved': 'Nasc sábháilte.',
   'editConnection.title': 'Cuir nasc in eagar',
   'forgotPassword.success': 'Más ann don chuntas sin, tá nasc athshocraithe ar an mbealach.',
@@ -47,6 +62,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Rathanna',
   'monitoring.title': 'Monatóireacht',
   'monitoring.totalQueries': 'Líon iomlán na gceisteanna',
+  'nav.schema': 'Scéim',
   'newConnection.database': 'Bunachar Sonraí',
   'newConnection.engine': 'Inneall',
   'newConnection.host': 'Óstach',
@@ -83,6 +99,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Gan aon nasc ceangailte leis an sleachta seo.',
   'savedQuery.notBound': 'Gan cheangal',
   'savedQuery.title': 'Fiosrúchán sábháilte',
+  'schema.columns': 'Colúin',
   'schema.foreignKeys': 'Eochracha eachtracha',
   'schema.indexes': 'Innéacsanna',
   'schemaExplorer.browseRows': 'Brabhsáil sraitheanna',
@@ -91,14 +108,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'neamhní',
   'schemaExplorer.colType': 'cineál',
   'schemaExplorer.noColumns': 'Gan colúin.',
+  'schemaExplorer.noForeignKeys': 'Níl aon eochracha eachtracha.',
   'schemaExplorer.noIndexes': 'Gan innéacsanna.',
   'schemaExplorer.noTables': 'Gan táblaí',
   'schemaExplorer.pickATable': 'Roghnaigh tábla ón mbarra taoibh.',
   'schemaExplorer.tables': 'Táblaí',
   'schemaExplorer.title': 'Taiscéalaí scéime',
+  'settings.session': 'Seisiún',
   'settings.subtitle': 'Bainistigh do chuntas agus do phlean.',
   'signup.heading': 'Cruthaigh do chuntas Cairéil',
   'signup.tagline': 'Cuir rochtain ar bun i níos lú ná nóiméad.',
   'tableBrowser.noRows': 'Níl aon rónna sa tábla seo go fóill.',
+  'tableBrowser.subtitle': 'Ag brabhsáil sraitheanna ó do bhunachar sonraí cianda.',
   'tableBrowser.title': 'Ag brabhsáil sraitheanna ó do bhunachar sonraí iargúlta.',
 }

@@ -1,11 +1,33 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Máte otázky k rezervácii, spätnú väzbu alebo podnet na nehnuteľnosť, ktorá by podľa vás mala byť na {{app}}? Obráťte sa na náš tím zo svojho účtu — každá správa sa dostane k skutočnému človeku, ktorý vám pomôže.',
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
+  'about.featureLoyalty':
+    'Ceny len pre členov a vernostný program, ktorý za každú rezerváciu prináša body, neskorší odchod z izby a upgrady izieb.',
+  'about.featureReviews':
+    'Overené recenzie hostí a redakčné tipy, aby ste mohli pobytu dôverovať ešte pred príchodom.',
+  'about.featureRooms':
+    'Izby, ceny a vybavenie vedľa seba s transparentnými cenami vrátane všetkého — dane a rezortné poplatky sú zahrnuté ešte pred platbou.',
+  'about.featureSearch':
+    'Vyhľadávanie overených hotelov v reálnom čase so živou dostupnosťou, zobrazením na mape a bohatými fotogalériami.',
+  'about.featureTrips':
+    'Uložené obľúbené položky a prehľad Cesty, ktorý drží každú rezerváciu, itinerár a potvrdenie na jednom mieste.',
+  'about.intro':
+    '{{app}} je platforma na rezerváciu hotelov pre cestujúcich, ktorým záleží na kvalite. Každú nehnuteľnosť osobne overuje náš redakčný tím — žiadne skladové zásoby agregátorov, žiadne zavádzajúce ponuky. Vyhľadajte skutočnú dostupnosť, porovnajte izby, ceny a vybavenie vedľa seba a potom rezervujte niekoľkými kliknutiami s jasnou cenou vrátane všetkého.',
+  'about.missionBody':
+    'Rezervácia ubytovania by mala byť pokojná a čestná. Zobrazujeme transparentné ceny s daňami a rezortnými poplatkami vopred, odmeňujeme verných hostí namiesto zdierania a uprednostňujeme pobyty, ktoré stoja za vaše peniaze — aby ste mohli tráviť menej času porovnávaním kariet a viac času samotnou cestou.',
+  'about.missionTitle': 'Naše poslanie',
+  'about.subtitle':
+    'Kurátorovaný a transparentný spôsob, ako nájsť a rezervovať ten správny hotel.',
   'account.loyalty.activitySummary': '{{nights}} noci · {{spend}} strávil tento rok',
+  'account.loyalty.benefitsHeading': 'Vaše výhody',
   'account.loyalty.heading': 'Vernosť',
   'account.loyalty.loading': 'Načítava sa vernostný program…',
-  'account.loyalty.pointsTowardNext': '{{body}} / {{ďalší}} poukazuje na {{nextTier}}',
+  'account.loyalty.maxTier': 'Najvyššia úroveň — užívajte si svoje výhody.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} bodov do {{nextTier}}',
   'account.loyalty.tier': 'Aktuálna úroveň',
   'account.loyalty.unavailable': 'Informácie o vernostnom programe nie sú k dispozícii.',
   'account.navLabel': 'Sekcie účtu',
@@ -22,6 +44,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Potvrdiť rezerváciu · {{total}}',
   'bookingCheckout.datesRequired': 'Prosím, vyberte si dátum príchodu a odchodu.',
   'bookingCheckout.guestHeading': 'Hlavný hosť',
+  'bookingCheckout.heading': 'Potvrdiť a rezervovať',
   'bookingCheckout.loadError': 'Načítanie vlastnosti zlyhalo.',
   'bookingCheckout.nights': '{{rate}} × {{count}} noci',
   'bookingCheckout.notFound': 'Nehnuteľnosť sa nenašla.',
@@ -32,11 +55,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Dane a poplatky',
   'bookingCheckout.tripHeading': 'Vaša cesta',
   'bookingConfirmation.allTripsCta': 'Všetky cesty',
+  'bookingConfirmation.confNumber': 'Číslo potvrdenia: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Vaša rezervácia sa spracúva.',
   'bookingConfirmation.heading': 'Rezervácia potvrdená',
   'bookingConfirmation.loading': 'Načítava sa vaša rezervácia…',
   'bookingConfirmation.searchMoreCta': 'Prezrieť ďalšie pobyty',
   'bookingConfirmation.subheadingForTrip':
-    '{{nehnuteľnosť}} v {{mesto}} , {{krajina}} Uvidíme sa na {{checkIn}} .',
+    '{{property}} v {{city}}, {{country}}. Uvidíme sa {{checkIn}}.',
   'bookingConfirmation.total': 'Celkom {{total}}',
   'bookingConfirmation.viewTripCta': 'Zobraziť cestu',
   'common.goToDashboard': 'Prejsť na prehľad',
@@ -46,6 +72,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Načítanie obľúbených položiek zlyhalo.',
   'favorites.pricePerNight': '{{price}} / noc',
   'favorites.removeCta': 'Zrušiť uloženie',
+  'favorites.removing': 'Odstraňovanie…',
   'forgotPassword.subheading':
     'Zadajte e-mailovú adresu uvedenú vo vašom účte a my vám pošleme bezpečný odkaz na obnovenie.',
   'forgotPassword.successBody':
@@ -53,6 +80,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Pobytoví členovia',
   'landing.cta.heading': 'Ceny len pre členov. Pri každej rezervácii, zakaždým.',
   'landing.cta.signup': 'Vytvoriť bezplatný účet',
+  'landing.cta.subheading':
+    'Získavajte vernostné body za každý pobyt, odomykajte neskorší odchod z izby a upgrady izieb a získajte prednostný prístup k novým nehnuteľnostiam pred ich verejným zverejnením.',
   'landing.destinations.eyebrow': 'Kam ďalej',
   'landing.destinations.heading': 'Odporúčané destinácie',
   'landing.destinations.seeAll': 'Zobraziť všetky destinácie',
@@ -61,13 +90,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Príbehy, kvôli ktorým sa oplatí zbaliť si',
   'landing.nav.join': 'Pridajte sa k Aubergee',
   'landing.nav.search': 'Vyhľadávanie pobytov',
+  'landing.preview.browseAll': 'Prezrieť celú kolekciu',
   'landing.preview.eyebrow': 'Pohľad dovnútra',
   'landing.preview.heading': 'Starostlivo vybrané pobyty tento mesiac',
+  'landing.preview.subheading':
+    'Každú nehnuteľnosť na {{appName}} osobne overuje náš redakčný tím — žiadne skladové zásoby agregátorov, žiadne zavádzajúce ponuky.',
   'login.eyebrow': 'Členská zóna',
+  'login.noAccount': 'Ste v Tessere noví?',
   'login.signupLink': 'Vytvorte si bezplatný účet',
   'login.subheading':
     'Prihláste sa a spravujte svoje cesty, zobrazujte si potvrdenia a pokračujte tam, kde ste prestali.',
+  'loyaltyTierBadge.points': '{{points}} body',
   'planUpdated.heading': 'Plán aktualizovaný',
+  'planUpdated.retry': 'Skúste to znova',
+  'planUpdated.verifyFailed': 'Vašu platbu sme zatiaľ nemohli potvrdiť.',
+  'planUpdated.verifyFailedBody':
+    'Vaša platba sa možno stále spracováva. Skúste to znova o chvíľu.',
   'planUpdated.verifying': 'Potvrdzujem vašu platbu…',
   'pricing.limit.advancedFeatures': 'Pokročilé funkcie:',
   'pricing.limit.canExport': 'Export údajov:',
@@ -79,7 +117,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Čo toto miesto ponúka',
   'propertyDetail.backLink': 'Späť na vyhľadávanie',
   'propertyDetail.bookCta': 'Rezerva',
+  'propertyDetail.bookmarkAria': 'Uložiť nehnuteľnosť',
   'propertyDetail.bookmarkAriaSaved': 'Odstrániť z uložených vlastností',
+  'propertyDetail.galleryImageAlt': '{{name}} fotografia {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} hrdinská fotografia',
   'propertyDetail.hidePhotos': 'Skryť fotografie',
   'propertyDetail.lineCleaning': 'Poplatok za upratovanie',
@@ -89,6 +129,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'noc',
   'propertyDetail.noChargeYet': 'Zatiaľ vám nebude účtovaná platba',
   'propertyDetail.notFound': 'Nehnuteľnosť sa nenašla.',
+  'propertyDetail.perNight': '/ noc',
+  'propertyDetail.pickDatesHint': 'Vyberte si termíny a zobrazí sa vám úplný rozpis ceny.',
   'propertyDetail.reviewCount': '( {{count}} recenzie)',
   'propertyDetail.reviewsHeading': 'Najnovšie recenzie',
   'propertyDetail.roomCapacity': 'Spí {{count}}',
@@ -101,6 +143,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Nové heslo',
   'resetPassword.subheading':
     'Vyberte si nové heslo pre svoj účet Auberge. Použite aspoň 8 znakov; odporúčame heslo.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Žiadne nehnuteľnosti nezodpovedajú vášmu vyhľadávaniu.',
   'searchResults.emptyHint':
     'Skúste rozšíriť filtre alebo odstrániť cenový strop – Auberge ponúka pobyty v 14 krajinách.',
@@ -108,19 +151,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Vybrané pobyty',
   'searchResults.headingForQuery': 'Pobyty na " {{q}} "',
   'searchResults.loadError': 'Nepodarilo sa načítať vlastnosti.',
+  'searchResults.mapHint':
+    'Prejdite kurzorom na kartu a zvýrazní sa na mape. Živé Mapbox dlaždice v produkcii.',
   'searchResults.mapPinAria': '{{name}} — {{price}} za noc',
   'searchResults.sortLabel': 'Zoradiť podľa',
   'searchResults.subheading': '{{count}} nehnuteľnosti · {{guests}} hostia',
   'signup.eyebrow': 'Staňte sa členom',
   'signup.subheading':
     'Pridajte sa k Auberge a odomknite si ceny len pre členov, neskoré odhlásenia a prednostný prístup k novým nehnuteľnostiam.',
+  'sojournAuthShell.brand.eyebrow': 'Pobudnite na výnimočnom mieste',
+  'sojournAuthShell.brand.heading':
+    'Kurátorovaná kolekcia nehnuteľností — krásne prezentovaná, transparentne ocenená.',
   'sojournHeroSearchCard.checkInAria': 'Dátum príchodu',
   'sojournHeroSearchCard.checkOutAria': 'Dátum odhlásenia',
+  'sojournHeroSearchCard.destAria': 'Destinácia',
+  'sojournHeroSearchCard.destLabel': 'Kde',
   'sojournHeroSearchCard.destPlaceholder': 'Mesto, región alebo nehnuteľnosť',
   'sojournHeroSearchCard.eyebrow': 'Vybrané pobyty · Ceny len pre členov',
   'sojournHeroSearchCard.guestsOption': '{{n}} hostia',
   'sojournHeroSearchCard.subtitle':
     'Vybraná kolekcia butikových hotelov, dizajnovo prepracovaných nehnuteľností a vzácnych pobytov – transparentné ceny, krásne prezentované.',
+  'sojournHeroSearchCard.title': 'Pobudnite na výnimočnom mieste',
+  'sojournHeroSearchCard.trustLoyalty': 'Získavajte body za každý pobyt',
   'sojournHeroSearchCard.trustNoFees': 'Žiadne skryté poplatky, nikdy',
   'sojournHeroSearchCard.trustVetted': 'Iba ručne overené nehnuteľnosti',
   'sojournLayout.primaryNavLabel': 'Hlavná navigácia',

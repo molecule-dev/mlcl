@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Otázky, požiadavky na funkcie alebo merací prístroj, ktorý by sme mali podporovať? Obráťte sa na tím {{appName}} v nastaveniach účtu — každá správa sa dostane k skutočnému človeku.',
   'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
+  'about.featuresTitle': 'Čo získate',
+  'about.intro':
+    '{{appName}} je monitorovanie spotreby v reálnom čase pre solárne domácnosti a tímy spravujúce budovy. Premieňame záplavu údajov z meračov, invertorov a batérií na pokojný pohľad riadiacej miestnosti — okamžitý výkon, výroba zo soláru, náklady podľa času používania a upozornenia, to všetko v jednom prostredí.',
+  'about.missionBody':
+    'Energiu, ktorú vidíte, dokážete aj riadiť. Veríme, že každý, kto prevádzkuje merač — domácnosť so solárnymi panelmi na streche alebo tím sledujúci budovu — si zaslúži prehľad na úrovni energetiky bez zmluvy na úrovni energetiky. Každá funkcia je navrhnutá tak, aby ďalšia kilowatthodina bola informovanou voľbou, nie prekvapením na účte.',
+  'about.missionTitle': 'Naše poslanie',
   'about.pageTitle': 'O nás {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Potvrdenie',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'upozornenia@vasadomena.com',
   'alertRule.eyebrow': 'Nové pravidlo',
   'alertRule.heading': 'Chyť hrot skôr, ako ťa to bude stáť peniaze',
+  'alertRule.nameLabel': 'Názov pravidla',
   'alertRule.namePlaceholder': 'napr. dohľad nad HVAC po pracovnej dobe',
   'alertRule.subheading':
     'Vyberte metriku, prahovú hodnotu a kam sa má upozornenie odoslať. Môžete ho kedykoľvek upraviť alebo pozastaviť.',
   'alertRule.submit': 'Uložiť pravidlo',
   'alertRule.submitError': 'Pravidlo sa nepodarilo uložiť.',
   'alertRule.thresholdLabel': 'Prahová hodnota',
+  'alertRule.typeLabel': 'Typ spúšťača',
   'alerts.checking': 'Kontrola…',
   'alerts.confirmDelete': 'Potvrdiť vymazanie',
+  'alerts.empty': 'Nie je čo zobraziť — v tomto stave nie sú žiadne upozornenia.',
   'alerts.emptyNoRules':
     'Zatiaľ žiadne upozornenia – pridajte pravidlo a potom kliknite na tlačidlo „Vyhodnotiť teraz“ a otestujte ho.',
   'alerts.errorAck': 'Nepodarilo sa potvrdiť.',
@@ -41,12 +52,14 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Vyhodnotiť teraz',
   'alerts.subheading':
     'Upozornenia na prahové hodnoty a vzory, ktoré sa spúšťajú na vašich glukomeroch, plus pravidlá, ktoré ich riadia.',
+  'billing.activeBlurb': 'Vaše predplatné je aktívne. Spravovať ho môžete kedykoľvek.',
   'billing.cancelError': 'Predplatné sa nepodarilo zrušiť.',
   'billing.cancelling': 'Zrušenie…',
   'billing.currentBadge': 'Súčasný',
   'billing.freeBlurb':
     'Používate bezplatný plán. Prejdite na nový, aby ste mali viac meračov, dlhšiu históriu a viac pravidiel upozornení.',
   'billing.heading': 'Plány a fakturácia',
+  'billing.historyEmpty': 'Zaplatené faktúry sa tu zobrazia, keď vám predplatné vyúčtujeme.',
   'billing.historyHeading': 'História faktúr',
   'billing.loadError': 'Nepodarilo sa načítať fakturáciu.',
   'billing.loading': 'Načítavajú sa plány…',
@@ -58,17 +71,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Kontaktujte predaj',
   'common.goToDashboard': 'Prejsť na prehľad',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} špička · {{offPeak}} mimo špičky kWh',
   'dailyCostMeter.runningLabel': 'Priebežný súčet',
   'dailyCostMeter.title': 'Doterajšie náklady dnes',
   'dailyCostMeter.utilizationLabel': 'Z denného rozpočtu',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Pridať merač',
   'dashboard.alertsHeading': 'Aktívne upozornenia',
   'dashboard.devicesHeading': 'Najlepšie okruhy práve teraz',
   'dashboard.empty.body':
     'Pridajte inteligentný merač alebo solárny invertor a začnite sledovať aktuálny odber a produkciu.',
+  'dashboard.empty.title': 'Zatiaľ žiadne merače',
   'dashboard.eyebrow': 'Riadiaca miestnosť Voltrace',
   'dashboard.heading': 'Živý energetický snímok',
   'dashboard.loadError': 'Nepodarilo sa načítať živé údaje.',
   'dashboard.loading': 'Ladím si merače…',
+  'dashboard.noAlerts': 'Všetko v pokoji — nič neprekračuje vaše prahové hodnoty.',
   'dashboard.noAlertsAndNoMeters':
     'Po zapojení merača sa tu zobrazia upozornenia na základe vašich prahových hodnôt.',
   'dashboard.noCircuits':
@@ -76,6 +94,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading': 'Celodomáca spotreba, výroba solárnej energie a doterajšie náklady dnes.',
   'dashboard.viewAllAlerts': 'Spravovať upozornenia →',
   'dashboard.viewAllDevices': 'Každé zariadenie →',
+  'deviceDetail.activeTokens': 'Aktívne tokeny na príjem údajov',
   'deviceDetail.alreadyOff': 'Už pozastavené',
   'deviceDetail.back': 'Všetky obvody',
   'deviceDetail.confirmDelete': 'Potvrdiť vymazanie',
@@ -115,22 +134,34 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Nepodarilo sa načítať merače.',
   'devices.loading': 'Dotazovanie každého merača…',
   'devices.newRule': 'Nové pravidlo upozornení',
+  'devices.noResults': 'Tomuto filtru nezodpovedajú žiadne obvody.',
   'devices.placeholder.location': 'napr. strojáreň',
   'devices.placeholder.name': 'napr. podpanel garáže',
   'devices.subheading':
     'Aktuálny výkon vo wattoch a dnešná spotreba energie v každom obvode, ktorý Voltrace dokáže vidieť.',
+  'deviceWattageRow.todayKwh': '{{kwh}} kWh dnes',
+  'deviceWattageRow.watts': '{{watts}} Z',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Ponuka',
+  'energyMonitoringLayout.primaryNavLabel': 'Hlavná navigácia',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    '{{appName}} komunikuje s väčšinou meračov na úrovni energetiky, solárnych invertorov a batériových systémov — káblom alebo cez WiFi.',
   'landing.ctaHeading': 'Spárujte si merač a pozrite si výkon vo wattoch za minúty',
   'landing.eyebrow': 'Energetická inteligencia v reálnom čase',
+  'landing.featuresHeading': 'Každý watt, každú minútu, v jednom prostredí',
   'landing.getStarted': 'Zapojte Voltrace',
   'landing.heroCta': 'Zapojte Voltrace',
+  'landing.heroSubtitle':
+    'Okamžitý výkon, výroba zo soláru, náklady podľa času používania a upozornenia na vysokú spotrebu v prostredí riadiacej miestnosti vytvorenom pre solárne domácnosti a tímy spravujúce budovy.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Celodomáce žrebovanie',
   'landing.sampleSolar': '+3 820 W solárnej energie',
   'landing.sampleSummary': 'Export 1 680 W do siete · 18,4 kWh dnes',
   'landing.sampleWatts': '2 140 W',
   'powerHeroCard.solar': '+ {{watts}} Solárna žiarovka W',
   'powerHeroCard.title': 'Celodomáce žrebovanie',
+  'powerHeroCard.todayKwh': '{{kwh}} kWh dnes',
   'powerHeroCard.watts': '{{watts}} Z',
   'pricing.choose': 'Vyberte {{name}}',
   'pricing.contact': 'Potrebujete niečo na mieru?',
@@ -144,6 +175,7 @@ export const ui: UiTranslations = {
   'pricing.unavailable':
     'Tento plán momentálne nie je k dispozícii – Stripe nie je nakonfigurovaný.',
   'profile.errorGeneric': 'Zmeny profilu sa nepodarilo uložiť.',
+  'profile.errorGoal': 'Mesačný cieľ v kWh musí byť kladné číslo.',
   'profile.errorHousehold': 'Veľkosť domácnosti musí byť kladné číslo.',
   'profile.householdHeading': 'Domácnosť a ciele',
   'profile.householdSize': 'Veľkosť domácnosti',
@@ -160,9 +192,11 @@ export const ui: UiTranslations = {
   'reports.loadError': 'Nepodarilo sa načítať prehľady.',
   'reports.loading': 'Agregácia údajov…',
   'reports.subheading': 'Denné súčty za spotrebu, produkciu a náklady – rozdelené podľa dátumu.',
+  'reports.tableHeading': 'Denný prehľad',
   'settings.currency': 'Mena',
   'settings.errorFlat': 'Paušálna sadzba musí byť ≥ 0.',
   'settings.errorNotify': 'Predvoľby upozornení sa nepodarilo uložiť.',
+  'settings.errorSave': 'Plán sadzieb sa nepodarilo uložiť.',
   'settings.errorTou': 'Vyžadujú sa sadzby v špičke/mimo špičky a platné okno špičky.',
   'settings.exportBody':
     'Stiahnite si súbor CSV s dennými súčtami za posledných 30 dní alebo si z ľubovoľnej stránky s podrobnosťami o merači získajte token na príjem údajov, aby ste mohli programovo odosielať údaje.',
@@ -182,10 +216,20 @@ export const ui: UiTranslations = {
   'settings.saving': 'Ukladá sa…',
   'settings.securityHeading': 'Dvojfaktorové overenie',
   'settings.subheading': 'Sadzby, oznámenia a export údajov.',
+  'settings.twoFactorBody':
+    'Vyžadovať jednorazový kód z vašej aplikácie autentifikátora pri každom prihlásení.',
   'settings.twoFactorCode': 'Autentifikačný kód',
   'settings.twoFactorDisable': 'Vypnúť',
+  'settings.twoFactorDisableTitle': 'Vypnúť dvojfaktorové overenie',
   'settings.twoFactorEnable': 'Zapnúť',
+  'settings.twoFactorEnableTitle': 'Zapnúť dvojfaktorové overenie',
   'settings.twoFactorInvalidCode': 'Neplatný kód',
+  'settings.twoFactorOAuth':
+    'Váš účet sa prihlasuje cez pripojeného poskytovateľa, takže dvojfaktorové overenie sa spravuje tam.',
   'settings.twoFactorOn': 'Dňa',
+  'settings.twoFactorQrAlt': 'QR kód dvojfaktorového overenia',
+  'settings.twoFactorScan':
+    'Naskenujte tento QR kód pomocou aplikácie autentifikátora a potom zadajte 6-ciferný kód.',
+  'settings.twoFactorUnavailable': 'Dvojfaktorové overenie nie je pre túto aplikáciu k dispozícii.',
   'settings.twoFactorVerify': 'Overiť a povoliť',
 }

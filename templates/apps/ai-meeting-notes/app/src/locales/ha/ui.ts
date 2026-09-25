@@ -1,19 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tambayoyi, ra'ayi, ko buƙatar sabon fasali? Aika wa ƙungiyar imel a hello@murmur.app — kowane saƙo yana isa ga ainihin mutum da ke aiki kan samfurin.",
   'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da mu',
+  'about.intro':
+    '{{app}} basirar taro ce ga ƙungiyoyin da suka fi son yanke shawara maimakon rubuta bayanan kai. Yana shiga cikin kiran ku, yana rubuta kowace kalma da alamun mai magana, sannan yana aika taƙaitaccen bayani na AI da abubuwan aiki da aka tattara da zarar taron ya ƙare.',
+  'about.missionBody':
+    'Tarurruka su ne inda ƙungiyoyi suke yanke shawara — kuma inda waɗannan shawarwarin suke ɓacewa. {{app}} ya wanzu don tabbatar da cewa aikin da ke faruwa a cikin tattaunawa ya wuce tattaunawar: rikodin amintacce, taƙaitaccen bayani mai haske, da matakan da za a ɗauka, kai tsaye.',
+  'about.missionTitle': 'Manufarmu',
   'actions.empty': 'Babu wani abu da ya dace da aikin.',
   'actions.heading': 'Abubuwan aiki',
   'actions.loadError': 'An kasa loda abubuwan aiki.',
   'actions.subheading': 'An tattara a kowane taro. Tace ta hanyar matsayi zuwa mai da hankali.',
   'actions.toggleDoneLabel': 'Yi alama kamar an gama',
   'actions.toggleReopenLabel': 'Yi alama a matsayin a buɗe',
+  'auth.footer': '© {{year}} {{app}}. Kowace kalma, an tace ta.',
   'calendar.heading': 'Kalanda',
   'calendar.joinCta': 'Shiga',
   'calendar.loadError': 'An kasa loda kalanda.',
   'calendar.nextMonth': 'Wata mai zuwa',
   'calendar.noEventsForDay': 'Babu wani taro da aka shirya yi a wannan rana.',
+  'calendar.noUpcomingEvents':
+    'Babu tarurruka masu zuwa. Haɗa kalanda daga Haɗawa don cika wannan jerin.',
   'calendar.previousMonth': 'Watan da ya gabata',
   'calendar.recent': 'Kwanan nan',
   'common.daysAgo': '{{count}} d da suka wuce',
@@ -25,9 +35,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} abubuwan aiki',
   'dashboard.empty.body':
     'Fara rikodi ko haɗa Google Calendar don Murmur ya shiga taronku na gaba ta atomatik.',
+  'dashboard.empty.cta': 'Fara rikodi',
   'dashboard.empty.heading': 'Babu tarurruka tukuna',
   'dashboard.eyebrow': 'Ciyarwar taronku',
   'dashboard.loadError': 'An kasa loda dashboard.',
+  'dashboard.noActions': 'Babu ayyuka',
   'dashboard.recentHeading': 'Taro na baya-bayan nan',
   'dashboard.recordCta': 'Taron rikodi',
   'dashboard.stat.actions': 'Abubuwan aiki',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} Takaitattun bayanai da ba a karanta ba tun lokacin da ka duba na ƙarshe. Murmur ya ɗauki kowace kalma — ga taƙaitaccen bayani.',
   'dashboard.viewCalendar': 'Duba kalanda →',
+  'footer.linksLabel': 'Ƙafar shafi',
   'forgot.failed': 'Ba za a iya aika sake saita imel ba.',
   'forgot.sentBody':
     'Idan akwai asusu don {{email}}, za ku sami hanyar haɗin sake saitawa nan ba da jimawa ba.',
@@ -47,14 +60,22 @@ export const ui: UiTranslations = {
   'integrations.notConnectedTag': 'Ba a haɗa ba',
   'integrations.subheading': 'Haɗa kalanda da dandamalin bidiyo don Murmur ya shiga ta atomatik.',
   'integrations.updateError': 'Sabuntawa ya gaza.',
+  'landing.ctaBody':
+    'Kyauta ga tarurruka 5 na farko kowane wata. Babu katin kuɗi. Haɗa Google Calendar cikin ƙasa da minti ɗaya.',
   'landing.ctaButton': 'Fara — kyauta ne',
   'landing.ctaHeading': 'Ka daina rubuta bayanai. Ka fara yanke shawara.',
+  'landing.demo.aiBody':
+    "An tura ƙaddamarwa daga Mayu 5 → Mayu 12 don ba da damar ma'aikata. An raba sake fasalin Dashboard zuwa Mayu 26.",
   'landing.demo.aiLabel': 'Takaitaccen Bayani game da AI, an tsara shi kai tsaye',
   'landing.demo.recording': 'Rikodi · kai tsaye',
   'landing.eyebrow': 'Bayanan Sirri na Taron AI',
   'landing.featuresHeading': 'Duk abin da ƙungiyar ku ke buƙata bayan kammala taron',
+  'landing.featuresSubheading':
+    'Babu sauran "wait, wa ya mallaki wannan?" {{appName}} yana aika taƙaitaccen bayanin kafin kiran ya katse.',
   'landing.getStarted': 'Gwada kyauta',
   'landing.heroSecondary': 'Kalli yawon shakatawa na daƙiƙa 90',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} yana shiga cikin kiran ku, yana rubuta kowace kalma da alamun mai magana, sannan yana aika taƙaitaccen bayani na AI da abubuwan aiki da aka tattara da zarar taron ya ƙare.',
   'landing.heroTitle': 'Karanta kowace taro. Ka bayyana abin da ke da muhimmanci.',
   'login.altPrompt': 'Sabo a Murmur?',
   'login.failed': 'Ban iya shiga ba. Duba imel ɗinka da kalmar sirrinka.',
@@ -62,6 +83,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Abubuwan aiki',
   'meetingDetail.back': 'Duk tarurruka',
   'meetingDetail.decisionsHeading': 'Shawarwari',
+  'meetingDetail.dueDate': 'ya yi {{date}}',
   'meetingDetail.followupsHeading': 'Masu bibiya',
   'meetingDetail.loadError': 'An kasa loda taron.',
   'meetingDetail.noActions': 'Ba a gano wani abu da aka yi ba.',
@@ -75,7 +97,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Babu tarurruka tukuna',
   'meetings.heading': 'Taro',
   'meetings.loadError': 'An kasa loda tarurruka.',
+  'meetings.recordCta': 'Taron rikodi',
   'meetings.subheading': 'Kowace taro da aka yi rikodi, aka loda, kuma aka daidaita.',
+  'murmurLayout.closeMenu': 'Rufe menu na kewayawa',
   'murmurLayout.openMenu': 'Buɗe menu na kewayawa',
   'murmurLayout.primaryNavLabel': 'Babban kewayawa',
   'nav.legal': "Shari'a",
@@ -101,7 +125,16 @@ export const ui: UiTranslations = {
   'profile.loading': 'Ana lodawa…',
   'profile.navLabel': 'Sassan bayanin martaba',
   'profile.notifications.assignments': 'An ba ni abubuwan aiki',
+  'profile.notifications.assignmentsHint':
+    'Sanar da kai lokacin da aka kama wani abu na aiki a madadin ka.',
+  'profile.notifications.mentions': 'Ambato a cikin rubuce-rubuce',
+  'profile.notifications.mentionsHint': 'Imel + turawa lokacin da wani ya ambace ka da @.',
+  'profile.notifications.subheading':
+    'Zaɓi waɗanne abubuwan da suka faru na {{appName}} ya kamata su isa gare ka.',
   'profile.notifications.summaries': 'Bayani na mako-mako',
+  'profile.notifications.summariesHint':
+    'Taƙaitaccen bayanin ranar Litinin na kowane taro daga makon da ya gabata.',
+  'profile.preferences.speakerColor': 'Launin mai magana na asali',
   'profile.preferences.subheading': 'Tsoffin hanyoyin da suka shafi kowane rikodi da kuka shiga.',
   'profile.preferences.timezone': 'Yankin lokaci',
   'profile.preferences.title': 'Matsayin aiki',
@@ -113,16 +146,21 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Mai bincikenka ba ya goyon bayan yin rikodi. Gwada Chrome, Edge, ko Safari.',
   'record.error.upload': 'Lodawa ya gaza. Gwada kuma.',
+  'record.errorLabel': 'Wani abu ya ɓace',
   'record.heading': 'Rikodi',
   'record.idleLabel': 'Danna don fara rikodi',
   'record.processingLabel': 'Rubutawa da Whisper, taƙaitawa tare da Claude…',
+  'record.recordingLabel': 'Ana rikodi…',
   'record.retryCta': 'Gwada kuma',
   'record.subheading':
     'Danna makirufo don farawa. Murmur ya ɗauki sautin, ya rubuta ta hanyar Whisper, sannan ya rubuta taƙaitaccen bayani wanda Claude ke amfani da shi.',
+  'record.titlePlaceholder': 'Taken taro (na zaɓi)',
+  'reset.altPrompt': "Ka canza ra'ayinka?",
   'reset.hint': 'Yi amfani da aƙalla haruffa 8 tare da gaurayen haruffa da lambobi.',
   'reset.missingToken': 'Sake saita hanyar haɗin yanar gizo ya ɓace ko kuma ya ƙare. Nemi sabo.',
   'reset.newPassword': 'Sabuwar kalmar sirri',
   'reset.subheading': 'Zaɓi kalmar sirri da ba za ka yi amfani da ita a wani wuri ba.',
+  'reset.tooShort': 'Dole ne kalmar sirri ta kasance aƙalla haruffa 8.',
   'search.empty': 'Rubuta don bincika rubutun.',
   'search.loadError': 'Bincike ya gaza. Gwada kuma.',
   'search.noResults': 'Babu sakamako ga " {{q}} ".',
@@ -138,7 +176,10 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Ajiye sauti don',
   'settings.retention.heading': 'Riƙewa',
   'settings.retention.transcript': 'Ajiye rubuce-rubuce don',
+  'settings.revokeDeviceWarning':
+    "Za a soke izinin wannan na'ura nan ba da jimawa ba. Ka fitar da ita?",
   'settings.saveError': 'Ajiye ya gaza.',
+  'settings.security.subheading': 'Sabunta kalmar sirrin da kake amfani da ita don shiga.',
   'settings.sharing.exportFormat': 'Tsarin fitarwa',
   'settings.sharing.heading': 'Raba tsoffin bayanai',
   'settings.sharing.scope': 'Tsarin rabawa na asali',
@@ -155,6 +196,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Gayyaci abokin aiki',
   'team.invitedAs': 'An gayyace shi azaman {{role}}',
   'team.inviteFailed': 'An kasa aika gayyata.',
+  'team.invitePlaceholder': 'abokin aiki@kamfani.com',
   'team.inviteSubmit': 'Aika gayyata',
   'team.inviteSubtitle': 'Za su karɓi imel tare da hanyar haɗin shiga.',
   'team.inviteTitle': 'Gayyaci abokin aiki',

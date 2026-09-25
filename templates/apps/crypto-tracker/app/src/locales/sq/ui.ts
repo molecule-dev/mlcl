@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
+  'about.featureAlerts':
+    'Njoftime për çmimet në kushtet që kanë rëndësi, të dërguara me email dhe push, që të mos humbisni asnjë lëvizje.',
+  'about.featureMarkets':
+    'Të dhëna të tregut në kohë reale dhe grafikë çmimesh për mijëra monedha, të renditura sipas kapitalizimit të tregut, volumit dhe momentit.',
+  'about.featurePortfolio':
+    'Ndjekje e portofolit me fitim e humbje reale, kosto bazë dhe shpërndarje — e lidhur me historikun tuaj të transaksioneve.',
+  'about.featureWatchlist':
+    'Një listë personale ndjekjeje dhe lajme kripto të përzgjedhura me sinjale për asetet që ndiqni.',
+  'about.missionTitle': 'Misioni ynë',
+  'alertConditionCard.armedSince': 'Aktiv që nga {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'I aktivizuar {{kur}}',
   'alertConditionCard.confirmDelete': 'Konfirmo fshirjen',
+  'alertConditionCard.deleteAriaLabel': 'Fshij alarmin',
   'alertConditionCard.pauseAriaLabel': 'Ndërprit alarmin',
   'alertConditionCard.resumeAriaLabel': 'Rifillimi i alarmit',
+  'alertConditionCard.triggeredAt': 'Aktivizuar {{when}}',
   'alertNew.condition': 'Gjendja',
   'alertNew.createCta': 'Krijo alarm',
   'alertNew.error': 'Nuk mundi të krijonte alarm.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Nuk ka ende njoftime.',
   'alerts.eyebrow': 'Bourse tripwires',
   'alerts.loadError': 'Ngarkimi i alarmeve dështoi.',
+  'alerts.newCta': '+ Kurth i ri',
   'alerts.subheading': 'Merrni ping kur çmimi, ndryshimi ose vëllimi kalojnë kufirin tuaj.',
   'alerts.summary.armed': 'I armatosur',
   'alerts.summary.triggered': 'I aktivizuar',
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Niveli më i lartë i të gjitha kohërave',
   'coinDetail.allTimeLow': 'Niveli më i ulët i të gjitha kohërave',
   'coinDetail.back': 'Të gjitha tregjet',
+  'coinDetail.chartAriaLabel': 'Grafiku i çmimit të {{name}}, 30 ditët e fundit',
   'coinDetail.chartHeading': 'Çmimi · 30 ditët e fundit',
   'coinDetail.circulating': 'Furnizim qarkullues',
   'coinDetail.fdv': 'Vlerësim plotësisht i holluar',
@@ -59,6 +74,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Rivendos lidhjen e lidhur me kabllo.',
   'login.eyebrow': 'Hyr në terminal',
   'login.heading': 'Mirë se erdhe përsëri, sinjalizues.',
+  'login.noAccountQuestion': 'I ri në Tessera?',
   'login.secureNote': '🔒 I enkriptuar gjatë transportit',
   'login.signingInCta': 'Duke lexuar kasetën…',
   'login.signupLink': 'Hap një llogari →',
@@ -93,6 +109,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Itinerari që skanuat nuk çon në një monedhë ose faqe të njohur. Kontrolloni përsëri simbolin dhe provoni përsëri.',
   'notFound.browseMarkets': 'Shfleto tregjet',
+  'notFound.eyebrow': 'Sinjali i {{appName}} u humb',
+  'notFound.heading': 'Ky sinjal është jashtë rrezes',
+  'planUpdated.body':
+    'Ndryshimi i faturimit tani është aktiv. Mund ta menaxhoni planin tuaj në çdo kohë nga faqja e faturimit.',
+  'planUpdated.retry': 'Provo përsëri',
+  'planUpdated.verifyFailed': 'Nuk mundëm ta konfirmonim ende pagesën tuaj.',
+  'planUpdated.verifyFailedBody':
+    'Pagesa juaj mund të jetë ende duke u përpunuar. Provoni përsëri pas pak.',
   'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'portfolio.addError': 'Vendosni simbolin, shumën pozitive dhe koston.',
   'portfolio.addHoldingCta': '+ Shto mbajtje',
@@ -116,12 +140,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Vlera totale e portofolit',
   'portfolioHeroCard.totalPnl': 'Totali i fitimit/fitimit',
   'pricing.heading': 'alarme',
+  'pricing.limit.alerts': 'njoftime',
   'pricing.limit.coins': 'monedha',
   'pricing.limit.market': 'treg',
   'pricing.limit.portfolio': 'portofol',
   'resetPassword.eyebrow': 'Shifër e re',
   'resetPassword.missingToken':
     'Kjo lidhje rivendosjeje mungon ose është e pavlefshme. Kërko një të re.',
+  'resetPassword.passwordPlaceholder': 'Fjalëkalim i ri',
   'resetPassword.subheading': 'Zgjidh diçka që vetëm ti mund ta deshifrosh.',
   'settings.apiKeys.body':
     'Çelësa vetëm për lexim për të importuar historikun e transaksioneve. Lidhu nëpërmjet OAuth nga /pricing pasi të abonohesh.',
@@ -133,17 +159,33 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Kuoto monedhën',
   'settings.preferences.locale': 'Vendndodhja',
   'settings.preferences.push': 'Shtyj',
+  'settings.preferences.refresh': 'Përditësimi i çmimit (sekonda)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning': 'Qasja e kësaj pajisjeje do të hiqet së shpejti. Të dilet?',
   'settings.security.body': 'Fjalëkalimi dhe cilësimet me dy faktorë menaxhohen nga llogaria juaj.',
   'settings.signOutDevice': 'Dil nga llogaria',
   'settings.twoFactorCode': 'Kodi i vërtetimit',
   'settings.twoFactorDisable': 'Çaktivizo',
+  'settings.twoFactorDisableTitle': 'Çaktivizo vërtetimin me dy faktorë',
   'settings.twoFactorEnable': 'Aktivizo',
+  'settings.twoFactorEnableTitle': 'Aktivizo vërtetimin me dy faktorë',
   'settings.twoFactorInvalidCode': 'Kod i pavlefshëm',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Kodi QR dy faktorë',
+  'settings.twoFactorScan':
+    'Skano këtë kod QR me aplikacionin e vërtetimit, pastaj shkruaj kodin 6-shifror.',
+  'settings.twoFactorUnavailable':
+    'Autentifikimi me dy faktorë nuk është i disponueshëm për këtë aplikacion.',
   'settings.twoFactorVerify': 'Verifiko dhe aktivizo',
   'sigilAuthShell.backHomeCta': '← Kthehu te Bourse',
+  'sigilAuthShell.brandBody':
+    'Çmime në kohë reale, F/H e portofolit dhe kurthe aktive për kushtet që kanë rëndësi — të gjitha në një terminal.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — ndërtuar mbi Molecule',
+  'sigilAuthShell.brandHeadline': 'Dekodoni çdo sinjal në të gjithë regjistrin.',
+  'sigilAuthShell.samplePortfolio': 'Portofol shembull',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Navigimi kryesor',
+  'signup.creating': 'Po hapim terminalin tuaj…',
   'signup.eyebrow': 'Hap një terminal',
   'signup.heading': 'Krijo Bourse tënd',
   'signup.subheading': 'Gjurmoni çdo monedhë, shmangni çdo humbje. Filloni falas.',
@@ -160,6 +202,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Ngarkimi i transaksioneve dështoi.',
   'watchlist.addCta': 'Shfleto tregjet',
   'watchlist.col.change24h': '24 orë',
+  'watchlist.col.coin': 'Monedhë',
   'watchlist.col.marketCap': 'Kapitalizimi i tregut',
   'watchlist.empty':
     "Nuk ka monedha në listën tuaj të mbikëqyrjes — monedha yjore nga /markets për t'i shtuar ato.",

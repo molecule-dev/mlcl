@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Máte zpětnou vazbu, našli jste chybu nebo plánujete něco velkého? Napište nám v nastavení účtu — každá zpráva se dostane k opravdovému člověku z týmu.',
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Rezervace v jedné schránce — potvrzení letů, hotelů a aktivit přistanou přesně v den, kam patří.',
+  'about.featureCollab':
+    'Spolupráce v reálném čase — pozvěte až pět cestujících na výlet, každá změna se synchronizuje živě a komentáře se řadí pod jednotlivé zastávky.',
+  'about.featureMapsBudget':
+    'Mapy, destinace a sdílený rozpočet — uvidíte celý výlet na mapě, objevíte redakcí vybrané destinace a sledujete výdaje, aby nikdo neutrácel příliš.',
+  'about.featureTimelines':
+    'Časové osy den po dni — přetahováním měňte pořadí zastávek, vkládejte dopravní úseky a sledujte, jak se itinerář přepočítává jako jeden živý dokument.',
+  'about.intro':
+    '{{app}} promění složku plnou nedokončených plánů v jediný sdílený výlet, který celá vaše skupina skutečně dokáže sledovat. Sestavte itinerář den po dni, vložte lety a hotely, zmapujte každou zastávku a sledujte rozpočet — to vše na jednom klidném místě místo tuctu panelů a skupinového chatu.',
+  'about.missionBody':
+    'Plánování cest by mělo působit tak, že už se výlet zlepšuje, ne jako domácí úkol. {{app}} existuje proto, aby byly společné výlety snadné — aby každý cestovatel dorazil s vědomím plánu a každá zastávka vyprávěla příběh, který stojí za zapamatování.',
+  'about.missionTitle': 'Naše poslání',
   'about.pageTitle': 'O aplikaci {{app}}',
   'auth.legalConsent': 'Pokračováním souhlasíte s našimi',
   'bookings.empty.body': 'Přidejte let, hotel nebo aktivitu pro spuštění doručené pošty.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Hotel',
   'bookings.type.other': 'Ostatní',
   'budgetSpendCard.budgetTotal': 'z {{total}} plánované',
+  'budgetSpendCard.overBy': '{{amount}} nad rozpočtem',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} nedávné',
+  'budgetSpendCard.remaining': '{{amount}} zbývá',
   'calendar.eyebrow': 'Rok nadcházející',
   'calendar.heading': 'Každá cesta v jednom kalendáři.',
   'calendar.legendHeading': 'Výlety v tomto měsíci',
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'a',
   'common.goToDashboard': 'Přejít na Dashboard',
   'dashboard.budgetHeading': 'Rozpočtový puls',
+  'dashboard.empty.body':
+    'Naplánujte první výlet a váš přehled se zaplní časovými osami den po dni, přehledem rozpočtu a rezervacemi.',
+  'dashboard.empty.cta': 'Naplánovat první výlet',
   'dashboard.empty.heading': 'Zatím žádné cesty – váš atlas je prázdný.',
   'dashboard.eyebrow': 'Řízení mise',
   'dashboard.heading': 'Vaše další dobrodružství, v jednom tichém koutě.',
   'dashboard.newTripCta': 'Začít novou cestu',
+  'dashboard.subheading':
+    'Odpočet do dalšího výletu, dnešní přehled výdajů a rychlý pohled na každý rozpracovaný itinerář.',
   'dashboard.tripsHeading': 'Výlety v pohybu',
   'dashboard.viewAllExpenses': 'Zobrazit každý výdaj',
   'dashboard.viewAllTrips': 'Zobrazit každou cestu',
   'dayTimelineRow.category.accommodation': 'Pobyt',
+  'dayTimelineRow.category.food': 'Jídlo a pití',
+  'dayTimelineRow.category.sightseeing': 'Prohlídky',
   'dayTimelineRow.category.transport': 'Doprava',
   'destinationOrbCard.exploreCta': 'Přidat k cestě',
   'destinationOrbCard.tripCount': '{{count}} výlety',
+  'destinations.empty.body': 'Přepněte zpět na Vše a redakční tipy se znovu objeví.',
   'destinations.empty.heading': 'Zatím žádné destinace.',
+  'destinations.emptyFiltered.heading': 'Ještě nic takto označeného.',
   'destinations.errors.load': 'Nepodařilo se načíst cíle.',
   'destinations.eyebrow': 'Kam dál',
   'destinations.heading': 'Uložené rohy a nálezy editora.',
@@ -71,7 +99,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Prodejce',
   'expenses.formHeading': 'Výdaje za protokol pro {{trip}}',
   'expenses.heading': 'Kam vlastně jde rozpočet na cestu.',
+  'expenses.heroBudget': '{{pct}} % z {{total}} naplánováno',
   'expenses.heroEyebrow': '{{trip}} • přehled rozpočtu',
+  'expenses.heroNoBudget': 'Na tomto výletě zatím není nastavený žádný rozpočet.',
   'expenses.noTrips.body': 'Naplánujte si cestu nejdříve — výdaje se připojují k rozpočtu cesty.',
   'expenses.noTrips.heading': 'Zatím žádné výlety.',
   'expenses.receiptCount': '{{count}} účtenky',
@@ -83,12 +113,16 @@ export const ui: UiTranslations = {
     'Každá účtenka a potvrzení se zde shrne do správné kategorie — není potřeba žádná tabulka.',
   'forgotPassword.eyebrow': 'Obnovte si svůj itinerář',
   'forgotPassword.heading': 'Zapomněli jste heslo?',
+  'forgotPassword.subheading':
+    'Zadejte e-mail, který jste použili pro {{appName}}, a pošleme vám odkaz pro obnovení hesla.',
   'forgotPassword.submit': 'Odeslat e-mail pro obnovení',
   'forgotPassword.submitPending': 'Odesílání e-mailu pro obnovení…',
   'forgotPassword.successHint':
     'Ještě nemáte e-mail? Zkontrolujte složku s nevyžádanou poštou nebo zkuste to znovu s jinou adresou.',
   'forgotPassword.successSubheading':
     'Odeslali jsme odkaz pro obnovení účtu {{email}} Odkaz je platný 30 minut.',
+  'forgotPassword.tryAgain': 'Poslat na jiný e-mail',
+  'landing.cta.eyebrow': 'Začít s bezplatným tarifem',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Vytvořte si bezplatný účet',
   'landing.cta.subheading':
@@ -100,8 +134,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Začněte bezplatnou cestu',
   'landing.hero.ctaSecondary': 'Podívejte se na ukázkový výlet',
+  'landing.hero.eyebrow': 'Plánovač výletů · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint promění složku plnou napůl vytvořených plánů ve sdílený, denní itinerář, který může vaše skupina skutečně dodržovat – s rezervacemi, mapami a rozpočtem sledovaným na jednom místě.',
+  'landing.hero.title': 'Naplánujte si to jednou. Projděte se společně.',
   'landing.nav.join': 'Začněte bezplatnou cestu',
   'landing.nav.preview': 'Vnitřní bod trasy',
   'landing.preview.cta': 'Naplánujte si jeden vlastní',
@@ -109,6 +145,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Pár výletů, po kterých cestovatelé právě teď touží',
   'login.eyebrow': 'Členská zóna',
   'login.heading': 'Vítej zpět, cestovateli',
+  'login.noAccount': 'Jste na Tesseře nováčkem?',
   'login.signupLink': 'Vytvořte si bezplatný účet',
   'login.subheading':
     'Přihlaste se pro správu vašich cest, denních plánů, rezervací a již zahájených zápisů do deníku.',
@@ -119,6 +156,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Oznámení se nepodařilo aktualizovat.',
   'notifications.heading': 'Co se dnes během vašich cest změnilo?',
   'notifications.markUnread': 'Označit jako nepřečtené',
+  'notifications.subheading':
+    '{{count}} nové — potvrzení rezervací, poznámky spolupracovníků, zlevnění letenek a připomínky.',
   'notifications.time.daysAgo': 'před {{count}} d',
   'notifications.time.hoursAgo': 'před {{count}} h',
   'notifications.time.justNow': 'právě teď',
@@ -137,6 +176,7 @@ export const ui: UiTranslations = {
     'Propojené služby, měna, push notifikace a přihlašovací údaje, pomocí kterých se přihlašujete.',
   'signup.and': 'a',
   'signup.eyebrow': 'Připojit se k bodu trasy',
+  'signup.haveAccount': 'Už se touláte?',
   'signup.heading': 'Naplánujte si to jednou. Projděte se společně.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -148,6 +188,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Otevřít itinerář',
   'tripCountdownHeroCard.ctaSecondary': 'Naplánujte si další výlet',
   'tripCountdownHeroCard.daysLabel': '{{days}} dní zbývajících',
+  'tripCountdownHeroCard.eyebrow': 'Další dobrodružství · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} nocí — váš itinerář je připraven k cestě.',
   'tripCoverCard.stops': '{{count}} zastávky',
   'tripCoverCard.travelers': '{{count}} cestovatelé',
   'tripDetail.addActivity': 'Přidat aktivitu',
@@ -157,6 +200,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Název aktivity',
   'tripDetail.adding': 'Přidávání…',
   'tripDetail.backToTrips': 'Zpět na všechny výlety',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Cestovatelé',
   'tripDetail.dayLabel': 'Den {{day}}',
   'tripDetail.empty': 'Zatím žádné aktivity — přidejte novou pro spuštění časové osy.',
@@ -167,14 +211,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Itinerář • {{country}}',
   'tripDetail.invite': 'Pozvat',
   'tripDetail.inviteLabel': 'Pozvat e-mailem',
+  'tripDetail.invitePlaceholder': 'nekdo@example.com',
   'tripDetail.inviteSent': 'Pozvánka odeslána na {{email}}.',
   'tripDetail.inviting': 'Odesílání…',
   'tripDetail.loading': 'Načítání cesty…',
   'tripDetail.noCollaborators': 'Jen ty, prozatím.',
+  'tripDetail.notesHeading': 'Poznámky k výletu',
   'tripDetail.notesPlaceholder': 'Zatím žádné poznámky.',
   'tripDetail.notFound.heading': 'Cesta nenalezena',
   'tripDetail.openBookings': 'Otevřít schránku s rezervacemi',
   'tripDetail.shareCopied': 'Odkaz pro sdílení byl zkopírován do schránky:',
+  'tripDetail.shareReady': 'Odkaz ke sdílení je připraven:',
   'tripDetail.stops': '{{count}} zastávky',
   'tripDetail.timelineEyebrow': 'Denní časová osa',
   'tripDetail.timelineHeading': 'Denní plán',
@@ -192,6 +239,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Cestovatelé',
   'tripPlanner.heading': 'Načrtněte cestu za méně než minutu.',
   'tripPlanner.preview.eyebrow': 'Živý náhled',
+  'tripPlanner.preview.placeholderCountry': 'Vyberte zemi',
   'tripPlanner.preview.placeholderDestination': 'Vaše další dobrodružství',
   'tripPlanner.section1.title': 'Kde a kdy',
   'tripPlanner.section2.title': 'Cestovatelé a rozpočet',
@@ -200,10 +248,13 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Den {{day}} — přidejte sem zastávky, dopravu a rezervace.',
   'tripPlanner.section3.day2': 'Den {{day}} — přidejte sem zastávky, dopravu a rezervace.',
   'tripPlanner.section3.day3': 'Den {{day}} — přidejte sem zastávky, dopravu a rezervace.',
+  'tripPlanner.section3.title': 'Základ plánu dne',
   'tripPlanner.subheading':
     'Základní informace uveďte níže a vždy můžete pozvat spolupracovníky, přetahovat zastávky a rezervace přeposílat později.',
   'tripPlanner.submit': 'Vytvořit cestu',
   'tripPlanner.submitting': 'Vytváření…',
+  'trips.empty.body': 'Přepněte zpět na Všechny výlety nebo začněte plánovat další toulání.',
+  'trips.empty.cta': 'Naplánovat cestu',
   'trips.empty.heading': 'Tomuto filtru zatím nic neodpovídá.',
   'trips.eyebrow': 'Atlas',
   'trips.filterLabel': 'Filtrovat cesty podle stavu',
@@ -214,6 +265,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Zatím žádné výlety.',
   'trips.pastHeading': 'Minulá dobrodružství',
   'trips.subheading': '{{count}} itineráře – minulé, současné a jednoho dne.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Naplánujte jednou. Touláte se spolu. Pamatujte navždy.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · {{appName}} členů od roku 2024',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} proměnil hektický třítýdenní výlet přes čtyři země v ten nejklidnější itinerář, jaký jsme kdy sdíleli.',
   'waypointLayout.mobileNavClose': 'Zavřít navigační menu',
   'waypointLayout.primaryNavLabel': 'Primární navigace',
 }

@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Leidsid vea, soovid uut funktsiooni või tahad meile öelda, mida järgmisena ehitada? Kirjuta hello@pylon.dev — iga sõnum jõuab päris insenerini meie tiimis.',
   'about.contactTitle': 'Võta meiega ühendust',
+  'about.intro':
+    '{{app}} on kiire, klaviatuurikeskne API-testimise töölaud inseneridele, kes elavad terminalis — Postmani-stiilis päringud, kollektsioonid, keskkonnad ja ajalugu ilma liigse ballastita.',
+  'about.missionBody':
+    'API-d on tänapäevase tarkvara selgroog, kuid nende testimise tööriistad on aeglased, paisunud ja hiirekesksed. {{app}} on loodud andma arendajatele terava, kiire, terminalitasemel töölaua: saada päringuid, kogu kindlustunnet ja tarni ilma klaviatuurilt lahkumata.',
+  'about.missionTitle': 'Meie missioon',
   'about.pageTitle': 'Teave rakenduse {{app}} kohta',
   'authShell.statusLabel': 'jooksjad veebis',
   'collections.createError': 'Kollektsiooni loomine ebaõnnestus.',
   'collections.defaultName': 'Pealkirjata kollektsioon {{n}}',
+  'collections.empty':
+    'Kollektsioone veel pole — klõpsa „New collection“, et luua oma esimene kaust.',
   'collections.eyebrow': '$ pylon kollektsioonid --tree',
   'collections.fetchError': 'Kollektsioonide laadimine ebaõnnestus.',
   'collections.heading': 'Kollektsioonid',
   'collections.loading': 'Kollektsioonide laadimine…',
+  'collections.metric.allGreen': 'Kõik roheline',
   'collections.metric.collections': 'Kollektsioonid',
   'collections.metric.failing': 'Ebaõnnestumine',
   'collections.metric.failingCaption': 'Viimasel katsel oli ebaõnnestumisi',
@@ -24,6 +34,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Muutujad',
   'environments.createError': 'Keskkonda ei saanud luua.',
   'environments.defaultName': 'Pealkirjata keskkond {{n}}',
+  'environments.empty': 'Keskkondi veel pole — klõpsa „New environment“, et üks lisada.',
   'environments.eyebrow': '$ pylon env --lüliti',
   'environments.fetchError': 'Keskkondi ei õnnestunud laadida.',
   'environments.heading': 'Keskkonnad',
@@ -31,8 +42,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Uus keskkond',
   'environments.subheading':
     'Muutujad, mis saatmise ajal päringuteks muutuvad. Üks aktiivne keskkond tööruumi kohta.',
+  'forgotPassword.statusLabel': 'taasta · turvaline tunnel',
   'forgotPassword.success':
     'Kui selle e-posti aadressiga on konto juba olemas, on lähtestamise link teel. Kontrollige oma postkasti.',
+  'history.empty': 'Siin pole veel midagi — saada oma esimene päring vahekaardilt Workspace.',
   'history.eyebrow': '$ piloni ajalugu --saba',
   'history.fetchError': 'Ajalugu ei õnnestunud laadida.',
   'history.heading': 'Käivita ajalugu',
@@ -41,9 +54,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Viimased 50',
+  'history.realtime': 'reaalajas',
   'history.subheading':
     'Kõik selles tööruumis käivitatud päringud koos oleku, latentsuse ja kasuliku koormuse suurusega.',
   'landing.choosePlan': 'Vali pakett',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Kindlustunnet loomas.',
   'landing.ctaBody':
     'Krediitkaarti pole vaja. Platvormiinsener pole vajalik. Ava ⌘K ja saada oma esimene päring vähem kui viie minutiga.',
   'landing.ctaHeading': 'Loo enesekindlust.',
@@ -85,6 +100,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Keskmine latentsusaeg',
   'mocks.metric.live': 'Avalik',
   'mocks.metric.servers': 'Pilkamised',
+  'mocks.ms': 'ms',
   'mocks.newMock': 'Uus näidis',
   'mocks.online': 'Avalik',
   'mocks.paused': 'Privaatne',
@@ -109,9 +125,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Tervislik',
   'monitors.metric.uptime': 'Keskmine tööaeg',
   'monitors.newMonitor': 'Uus monitor',
+  'monitors.paused': 'peatatud',
   'monitors.run': 'Jookse',
   'monitors.runError': 'Käivitus lõppes võrguveaga: {{error}}',
+  'monitors.runFailed': 'Käivitus ebaõnnestus.',
   'monitors.running': 'Jooksmine…',
+  'monitors.runSuccess': 'Käivita {{status}} — ülemvool tagastas {{code}} ajaga {{ms}}ms.',
   'monitors.sparkLabel': 'Latentsuse trend',
   'monitors.subheading':
     'Nõudmisel kontrollitakse kõiki salvestatud teste. Seo test, vajuta „Käivita“ ja vaata iga tulekahju korral 24-tunnise edukuse määra värskendust.',
@@ -120,27 +139,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Tööaeg · 24 tundi',
   'nav.legal': 'Õiguslik',
   'notFound.backToWorkspace': 'Tagasi tööruumi',
+  'notFound.body':
+    '{{app}} saatis sellele URL-ile päringu ja ei saanud midagi tagasi. Kontrolli marsruuti või mine tagasi töölauale.',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Marsruuti ei leitud',
+  'planUpdated.body':
+    'Sinu arveldusmuudatus on nüüd aktiivne. Saad oma plaani igal ajal arvelduslehelt hallata.',
+  'planUpdated.retry': 'Proovi uuesti',
+  'planUpdated.verifyFailed': 'Me ei saanud teie makset veel kinnitada.',
+  'planUpdated.verifyFailedBody':
+    'Teie makse võib olla veel töötlemisel. Proovige uuesti hetke pärast.',
   'planUpdated.verifying': 'Kinnitan makse…',
+  'pricing.advancedFeatures': 'Täpsemad funktsioonid: {{yes}}',
+  'pricing.canExport': 'Andmete eksport: {{yes}}',
+  'pricing.heading': 'Vali oma {{app}} plaan',
+  'pricing.maxCollections': '{{count}} kollektsiooni',
+  'pricing.maxEnvironments': '{{count}} keskkonda',
+  'pricing.maxHistory': '{{count}} ajalookirjet',
+  'pricing.maxRequests': '{{count}} taotlused',
   'privacy.collect.account':
     'Konto: teie e-posti aadress, räsitud parool, kuvatav nimi ja viimase sisselogimise ajatempel.',
+  'privacy.intro':
+    '{{app}} austab sinu privaatsust. Sellel lehel on kokkuvõte andmetest, mida kogume, miks me neid kogume ja kuidas neid eemaldada.',
   'privacy.rights.body':
     'Saate oma kollektsioone ja keskkondi igal ajal eksportida või oma konto seadetest kustutada, et kõik andmed 30 päeva jooksul jäädavalt eemaldada.',
   'privacy.share.body':
     'Ainult sina. Me ei müü, jaga ega rendi kunagi sinu tööruumi sisu kolmandatele osapooltele. Serverilogisid säilitatakse intsidentidele reageerimiseks 30 päeva ja seejärel kustutatakse.',
   'privacy.title': 'Privaatsusteatis',
+  'profile.bio':
+    'Sinu isiklik {{app}} töölaud — kinnita kollektsioone, jaga keskkondi ja jälgi API-sid, mis toodet tarnivad.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'liitus {{when}}',
+  'profile.metric.collections': 'Kollektsioonid',
   'profile.metric.monitors': 'Monitorid',
   'profile.metric.requests': 'Salvestatud päringud',
+  'profile.noActivity':
+    'Ühtegi päringut pole veel saadetud — mine vahekaardile Workspace, et üks teha.',
   'profile.signedOut': 'Profiili vaatamiseks logige sisse',
   'pylonShell.primaryNavLabel': 'Peamine navigeerimine',
+  'resetPassword.passwordLabel': 'Uus parool',
+  'resetPassword.statusLabel': 'taasta · token kinnitatud',
   'resetPassword.subtitle': 'Vali tugev parool, mida sa varem kasutanud pole.',
   'resetPassword.tokenPlaceholder': 'kopeeritud e-kirjast',
+  'settings.accountManagement.desc':
+    'Uuenda oma e-posti ja parooli, halda teavitusi ja seadmeid, logi välja või kustuta oma konto.',
+  'settings.accountManagement.title': 'Konto ja turvalisus',
   'settings.eyebrow': '$ pyloni seaded --redigeeri',
   'settings.fetchError': 'Seadeid ei õnnestunud laadida.',
   'settings.language.title': 'Keel',
+  'settings.seeding': 'Seemendamine…',
   'settings.seedStarter': 'Seemnete algmaterjali sisu',
   'settings.starterCollection': 'Algkollektsioon',
   'settings.starterCollectionDesc': 'Loodud seadete alt kuupäeval {{ts}}',
@@ -154,6 +201,8 @@ export const ui: UiTranslations = {
     'Teie vastutate oma parooli kaitsmise eest. Ühe konto jagamine mitme inimesega ei ole Free ega Pro pakettides lubatud – jagatud tööruumide jaoks ostke Team tellimus.',
   'terms.billing.body':
     'Tasulised tellimused uuenevad automaatselt igal arveldusperioodil. Saate tellimuse igal ajal seadetes tühistada; teie juurdepääs jätkub kuni praeguse perioodi lõpuni.',
+  'terms.intro':
+    'Luues {{app}} konto, nõustud allolevate tingimustega. Loe need korra läbi; me ei üllata sind tagasiulatuvalt muudatustega.',
   'terms.title': 'Kasutustingimused',
   'terms.usage.body':
     'Ärge kasutage Pylonit päringute saatmiseks teenustele, mis ei kuulu teile või mille testimiseks teil pole selgesõnalist luba. Ärge kasutage Pylonit kiirusepiirangute vältimiseks ega pettuse toimepanemiseks.',
@@ -173,16 +222,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Ei jookse',
   'testRunner.metric.passed': 'Vastuvõetud',
   'testRunner.never': 'Ära kunagi jookse',
+  'testRunner.newTest': 'Uus test',
   'testRunner.noAssertions': 'Selle testi kohta pole veel väiteid.',
+  'testRunner.noRunsYet':
+    'Ühtegi käivitust pole veel salvestatud — vajuta „Run all“, et ajalugu täita.',
   'testRunner.passed': 'möödumine',
+  'testRunner.recentRuns': 'Hiljutised jooksud',
   'testRunner.runAll': 'Käivita kõik',
   'testRunner.running': 'Jooksmine…',
   'testRunner.runOne': 'Jookse',
   'testRunner.subheading': "Suite'i tulemused, väidete erinevused ja viimased 50 käivitust.",
+  'testRunner.suites': 'Komplektid',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Sisse logitud kui',
   'workspace.auth.keyName': 'Pealkirja nimi',
   'workspace.auth.keyValue': 'Võtmeväärtus',
+  'workspace.auth.noneHint': 'Selle päringuga ei saadeta autoriseerimis-päist.',
   'workspace.auth.password': 'Parool',
   'workspace.auth.username': 'Kasutajanimi',
   'workspace.authOption.apikey': 'API-võti',
@@ -192,13 +247,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Tüüp',
   'workspace.authTypeLabel': 'Autentimise tüüp',
+  'workspace.body.contentLabel': 'Päringu sisu',
+  'workspace.body.hint':
+    '{{envVars}} asendatakse enne päringu saatmist. Kehad saadetakse POST/PUT/PATCH/DELETE puhul.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Puudub',
+  'workspace.body.noneHint':
+    'Ühtegi päringu keha ei saadeta. Vali JSON või toores tekst, et üks lisada.',
   'workspace.body.text': 'Töötlemata tekst',
   'workspace.body.type': 'Tüüp',
   'workspace.environment': 'Keskkonda pole',
   'workspace.envVar': 'keskkonnamuutuja',
   'workspace.eyebrow': '$ pylon tööruum --pane split',
+  'workspace.failedCount': '{{count}} ei õnnestunud',
+  'workspace.idle': 'Jõudeolek',
   'workspace.kv.addHeader': 'Lisa päis',
   'workspace.kv.addParam': 'Lisa parameeter',
   'workspace.kv.headerKey': 'Pealkirja nimi',
@@ -211,12 +273,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP-meetod',
   'workspace.metric.latency': 'Viivitus',
   'workspace.metric.latencyCaption': 'Edasi-tagasi sellelt sõidult',
+  'workspace.metric.size': 'Kasulik koormus',
   'workspace.metric.sizeCaption': 'Vastuse sisubaidid',
   'workspace.metric.statusCaption': 'Viimane vastus',
   'workspace.metric.tests': 'Testid',
+  'workspace.metric.testsAllPassing': 'Kõik väited rohelised',
   'workspace.metric.testsFailing': '{{count}} ebaõnnestumine',
+  'workspace.metric.testsIdle': 'Saada päring hindamiseks',
   'workspace.noAssertions': 'Käivita päring sisseehitatud väidete hindamiseks.',
   'workspace.noResponseYet': 'Vastust pole veel',
+  'workspace.passedCount': '{{count}} vastu võetud',
   'workspace.responseHint': '// Vajuta Saada, et päring käivitada ja vastus jäädvustada.',
   'workspace.saveError': 'Taotlust ei õnnestunud salvestada.',
   'workspace.statusError': 'Päringut ei õnnestunud saata.',
@@ -225,10 +291,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Koostage päring, käivitage see ja seejärel esitage vastus – kõik ühel paanil.',
   'workspace.testResults': 'Testi tulemused',
+  'workspace.tests.autoHint':
+    'Olekurühm, latentsus, keha suurus ja transpordi tervis kontrollitakse automaatselt — tulemused ilmuvad vastuse paneelil jaotises „Test results“.',
+  'workspace.tests.autoTitle': 'Sisseehitatud väited käivitatakse iga vastuse puhul',
   'workspace.token': 'Märk',
   'workspace.tokenHint':
     'Saadetud volitusena: Esitaja<token> iga selle kollektsiooni taotluse kohta.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Pealkirjata taotlus',
+  'workspace.urlLabel': 'Päringu URL',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/ressurss',
 }

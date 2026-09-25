@@ -3,16 +3,24 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.contactTitle': 'ബന്ധപ്പെടുക',
   'about.eyebrow': 'കുറിച്ച്',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
+  'authShell.brandPanel.body':
+    'ചിന്തനീയമായ സംഭാഷണത്തിനുള്ള ത്രെഡഡ് ചർച്ചാ ഇടം — വളരുന്ന പ്രശസ്തി, വിയോജിപ്പിനെ മാനിക്കുന്ന മോഡറേഷൻ, കാലം ചെല്ലുന്തോറും മൂല്യമുള്ള മാർക്ക്ഡൗൺ.',
+  'authShell.brandPanel.title': 'നിങ്ങളുടെ കമ്മ്യൂണിറ്റിയെ {{appName}}-ലേക്ക് കൊണ്ടുവരിക.',
+  'authShell.sampleThread.meta': '@helena.k · 218 മറുപടികൾ · 22.4k കാഴ്ചകൾ · 12m മുൻപ്',
+  'authShell.sampleThread.title': '"തടസ്സമാണ് വഴി" യഥാർത്ഥത്തിൽ സ്റ്റോയിക് ആണോ? — ഒരു സൂക്ഷ്മ വായന',
   'bookmarks.defaultFolder': 'സംരക്ഷിച്ചു',
   'bookmarks.empty':
     'നിങ്ങൾ ഇതുവരെ ഒരു ത്രെഡുകളും സംരക്ഷിച്ചിട്ടില്ല. തിരികെ വരാൻ അനുയോജ്യമായ എന്തെങ്കിലും ബുക്ക്മാർക്ക് ചെയ്യുക.',
   'bookmarks.eyebrow': 'സംരക്ഷിച്ച ത്രെഡുകൾ',
   'bookmarks.folderCount': '{{count}} സംരക്ഷിച്ചു',
   'bookmarks.heading': 'നീ വീണ്ടും വീണ്ടും പോകുന്ന ത്രെഡുകൾ.',
+  'bookmarks.loading': 'ബുക്ക്മാർക്കുകൾ ലോഡ് ചെയ്യുന്നു…',
   'bookmarks.subtitle':
     'ബുക്ക്‌മാർക്കുകൾ സ്വകാര്യമാണ്, ത്രെഡ് ലോക്കുകളെ അതിജീവിക്കുന്നു. ഒരു വ്യക്തിഗത കാനൺ സംഘടിപ്പിക്കുന്നതിന് അവയെ ഫോൾഡറുകളായി ഗ്രൂപ്പുചെയ്യുക.',
   'bookmarks.unsave': 'സേവ് ചെയ്തത് മാറ്റുക',
   'categoriesList.empty': 'ഇതുവരെ വിഭാഗങ്ങളൊന്നുമില്ല. ഒന്ന് ആരംഭിക്കുന്ന ആദ്യത്തെയാളാകൂ.',
+  'categoriesList.hero.composeCta': 'ഒരു ത്രെഡ് ആരംഭിക്കുക',
   'categoriesList.hero.eyebrow': 'അഗോറ',
   'categoriesList.hero.searchCta': 'ആർക്കൈവിൽ തിരയുക',
   'categoriesList.hero.subtitle':
@@ -20,10 +28,14 @@ export const ui: UiTranslations = {
   'categoriesList.hero.title': 'ഒരു മുറി തിരഞ്ഞെടുക്കൂ. ഒരു ആശയം കൊണ്ടുവരൂ.',
   'categoriesList.list.eyebrow': 'എല്ലാ വിഭാഗങ്ങളും',
   'categoriesList.list.title': 'സംഭാഷണം എവിടെയാണ് നടക്കുന്നത്.',
+  'categoriesList.loading': 'വിഭാഗങ്ങൾ ലോഡ് ചെയ്യുന്നു...',
   'categoryCard.latestLabel': 'ഏറ്റവും പുതിയ',
   'categoryCard.postsLabel': 'പോസ്റ്റുകൾ',
   'categoryCard.threadsLabel': 'ത്രെഡുകൾ',
   'categoryDetail.breadcrumb.categories': 'വിഭാഗങ്ങൾ',
+  'categoryDetail.empty':
+    'ഇതുവരെ ത്രെഡുകളില്ല. ഒന്ന് തുടങ്ങുക — എല്ലാ സംഭാഷണവും എവിടെയോ ആരംഭിക്കുന്നു.',
+  'categoryDetail.loading': 'ത്രെഡുകൾ ലോഡ് ചെയ്യുന്നു...',
   'categoryDetail.startThread': 'ഒരു ത്രെഡ് ആരംഭിക്കുക',
   'categoryDetail.stat.posts': 'പോസ്റ്റുകൾ',
   'categoryDetail.stat.threads': 'ത്രെഡുകൾ',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'compose.eyebrow': 'പുതിയ ത്രെഡ്',
   'compose.failed': 'ത്രെഡ് ആരംഭിക്കാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക.',
   'compose.field.body': 'ശരീരം',
+  'compose.field.title': 'ത്രെഡ് ശീർഷകം',
   'compose.postingTo': 'പോസ്റ്റ് ചെയ്യുന്നു {{name}}',
   'compose.publish': 'ത്രെഡ് പ്രസിദ്ധീകരിക്കുക',
   'compose.subtitle':
@@ -57,11 +70,19 @@ export const ui: UiTranslations = {
   'forgotPassword.subheading':
     'നിങ്ങളുടെ അക്കൗണ്ടിൽ ഇമെയിൽ നൽകുക, ഞങ്ങൾ ഒരു റീസെറ്റ് ലിങ്ക് അയയ്ക്കും.',
   'landing.categories.eyebrow': 'അഗോറ ബ്രൗസ് ചെയ്യുക',
+  'landing.categories.subtitle':
+    'ഓരോ വിഭാഗത്തിനും അതിന്റേതായ മോഡറേറ്റർമാരും മര്യാദയും വേഗതയും ഉണ്ട്. പോസ്റ്റുകൾ ആ അനുഭവത്തിലുടനീളം വിഭാഗത്തിന്റെ നിറം സ്വീകരിക്കുന്നു.',
   'landing.categories.title': 'നീണ്ട സംഭാഷണങ്ങൾ എവിടെയാണ് ജീവിക്കുന്നത്.',
+  'landing.cta.body':
+    'ആദ്യ 50 അംഗങ്ങൾക്ക് സൗജന്യം. നിങ്ങളുടെ സംസ്കാരം, നിങ്ങളുടെ മോഡറേറ്റർമാർ, നിങ്ങളുടെ ശൈലി — {{appName}} വെറും ഘടന നൽകുന്നു.',
+  'landing.cta.button': 'നിങ്ങളുടെ കമ്മ്യൂണിറ്റി അവകാശപ്പെടുക',
   'landing.cta.title': 'നിങ്ങളുടെ സമൂഹത്തെ ചിന്തിക്കാൻ കഴിയുന്ന ഒരു സ്ഥലത്തേക്ക് കൊണ്ടുപോകുക.',
   'landing.hero.eyebrow': 'ക്ലാസിക്കൽ രീതിയിൽ പ്രചോദനം ഉൾക്കൊണ്ട ഒരു ആധുനിക ഫോറം',
   'landing.hero.primaryCta': 'ഒരു കമ്മ്യൂണിറ്റി ആരംഭിക്കുക',
   'landing.hero.secondaryCta': 'അത് പ്രവൃത്തിയിൽ കാണുക',
+  'landing.hero.subtitle':
+    '{{tagline}} — പ്രശസ്തി, ചിന്തനീയമായ മോഡറേഷൻ, കാലം ചെല്ലുന്തോറും മൂല്യമുള്ള ആശയങ്ങൾ എന്നിവയിൽ ശ്രദ്ധിക്കുന്ന കമ്മ്യൂണിറ്റികൾക്കുള്ള ത്രെഡഡ് ചർച്ചാ വേദിയാണ് {{appName}}.',
+  'landing.hero.title': 'ദീർഘ സംഭാഷണത്തിനുള്ള കേന്ദ്രീകൃത ഇടം.',
   'landing.heroCard.eyebrow': 'ഉള്ളിലേക്ക് ഒരു എത്തിനോട്ടം',
   'landing.heroCard.subtitle':
     'ഇന്ന് അഗോറയിലെ മാർക്യൂ ത്രെഡിന്റെ തത്സമയ പ്രിവ്യൂ - പിൻ ചെയ്‌തു, ഹോട്ട് ചെയ്‌തു, അഞ്ച് ലെവലുകൾ ആഴത്തിൽ ത്രെഡ് ചെയ്‌തു.',
@@ -71,22 +92,31 @@ export const ui: UiTranslations = {
   'landing.nav.values': 'എന്തുകൊണ്ട് സ്റ്റോവ',
   'landing.threads.eyebrow': 'ഇന്നത്തെ ട്രെൻഡിംഗ്',
   'landing.threads.title': 'ത്രെഡുകൾ ഇപ്പോൾ വേഗത്തിൽ നീങ്ങുന്നു.',
+  'landing.threads.viewAll': 'മുഴുവൻ അഗോറയും കാണുക',
   'login.emailPlaceholder':
     'you@stoa.community (@stoa.community) എന്ന വിലാസത്തിൽ ഇമെയിൽ അയയ്ക്കുക.',
   'login.heading': 'സ്റ്റോവയിലേക്ക് തിരികെ പ്രവേശിക്കുക.',
+  'login.noAccount': 'ടെസേറയിൽ പുതിയ ആളാണോ?',
   'login.orContinueWith': 'അല്ലെങ്കിൽ തുടരുക',
   'login.subheading':
     'നിർത്തിയിടത്ത് നിന്ന് തുടങ്ങൂ — വായിക്കാത്ത ത്രെഡുകൾ നിങ്ങൾക്കായി കാത്തിരിക്കുന്നു.',
   'login.twoFactor': 'ടു-ഫാക്ടർ ടോക്കൺ (ഓപ്ഷണൽ)',
   'moderationQueue.actionFailed': 'പ്രവർത്തനം പരാജയപ്പെട്ടു. വീണ്ടും ശ്രമിക്കുക.',
   'moderationQueue.eyebrow': 'മോഡറേറ്റർ വർക്ക്‌സ്‌പെയ്‌സ്',
+  'moderationQueue.flagCount': '{{count}} ഫ്ലാഗുകൾ',
   'moderationQueue.heading': 'മോഡറേഷൻ ക്യൂ · {{count}} തുറന്ന ഇനങ്ങൾ',
   'moderationQueue.kind.${item.kind}': '{{എണ്ണം}} പതാകകൾ',
+  'moderationQueue.reporter': '@{{user}} റിപ്പോർട്ട് ചെയ്തത്',
   'moderationQueue.resolved': 'പരിഹരിച്ചു · {{action}}',
+  'moderationQueue.sla': 'ലൈവ് SLA',
   'moderationQueue.slaBody':
     'രണ്ട് മണിക്കൂറിനുള്ളിൽ ഫസ്റ്റ്-ടച്ച് ലക്ഷ്യമിടുക. അവ്യക്തമായ കോളുകൾക്ക് admin@stoa എന്ന വിലാസത്തിൽ അറിയിക്കുക.',
+  'moderationQueue.subtitle':
+    'ഓരോ പ്രവർത്തനവും പിന്നീട് പരിശോധിക്കാവുന്ന ഓഡിറ്റ് ട്രെയിൽ രേഖപ്പെടുത്തുന്നു. ഇല്ലാതാക്കുന്നതിനേക്കാൾ സംയമനം.',
   'nav.browseHeader': 'ബ്രൗസ് ചെയ്യുക',
   'nav.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
+  'nav.communityGuidelinesBody':
+    'ചിന്തനീയമായിരിക്കുക. ഉറവിടങ്ങൾ ഉദ്ധരിക്കുക. പരിഹാരങ്ങൾ അടയാളപ്പെടുത്തുക. സംഭാഷണം ഉയർത്തുക.',
   'nav.communityGuidelinesTitle': 'കമ്മ്യൂണിറ്റി മാർഗ്ഗനിർദ്ദേശങ്ങൾ',
   'nav.drawerTitle': 'മെനു',
   'nav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
@@ -99,14 +129,18 @@ export const ui: UiTranslations = {
   'notFound.searchCta': 'ആർക്കൈവിൽ തിരയുക',
   'notifications.filter.${key}': 'അറിയിപ്പുകൾ ലോഡ് ചെയ്യുന്നു...',
   'notifications.heading': 'അറിയിപ്പുകൾ · {{count}} വായിക്കാത്തത്',
+  'notifications.loading': 'അറിയിപ്പുകൾ ലോഡ് ചെയ്യുന്നു...',
   'postCard.edited': '(എഡിറ്റ് ചെയ്തത്)',
   'postCard.flag': 'പതാക',
   'postCard.flagged': 'ഫ്ലാഗ് ചെയ്‌തു',
+  'postCard.joinedAt': 'ചേർന്നു {{date}}',
   'postCard.markSolution': 'ലായനി അടയാളപ്പെടുത്തുക',
   'postCard.originalPost': 'ഒറിജിനൽ പോസ്റ്റ്',
+  'postCard.postCount': '{{count}} പോസ്റ്റുകൾ',
   'postCard.quote': 'ഉദ്ധരണി',
   'postCard.role.${author.role}': 'ചേർന്നു {{തീയതി}}',
   'postCard.solution': 'പരിഹാരം',
+  'pricing.categories': 'വിഭാഗങ്ങൾ',
   'pricing.heading': 'വിഭാഗങ്ങൾ',
   'pricing.posts': 'പോസ്റ്റുകൾ',
   'pricing.topics': 'വിഷയങ്ങൾ',
@@ -114,15 +148,21 @@ export const ui: UiTranslations = {
     'you@stoa.community (@stoa.community) എന്ന വിലാസത്തിൽ ഇമെയിൽ അയയ്ക്കുക.',
   'resetPassword.eyebrow': 'ആക്‌സസ് പുനഃസജ്ജമാക്കുക',
   'resetPassword.heading': 'ഒരു പുതിയ പാസ്‌വേഡ് സജ്ജമാക്കുക.',
+  'resetPassword.newPassword': 'പുതിയ പാസ്വേഡ്',
   'resetPassword.subheading':
     'നിങ്ങൾക്ക് ഓർമ്മിക്കാൻ കഴിയുന്ന എന്തെങ്കിലും തിരഞ്ഞെടുക്കുക; ഞങ്ങൾ അത് ഒരിക്കലും പ്ലെയിൻടെക്സ്റ്റിൽ സൂക്ഷിക്കില്ല.',
   'resetPassword.tokenPlaceholder': 'നിങ്ങളുടെ ഇമെയിലിൽ നിന്ന് ഒട്ടിച്ചു',
+  'search.clear': 'തിരയൽ മായ്ക്കുക',
   'search.empty': 'പൊരുത്തങ്ങളൊന്നുമില്ല. മറ്റൊരു വാക്യം പരീക്ഷിച്ചുനോക്കൂ.',
   'search.eyebrow': 'അഗോറയിൽ തിരയുക',
   'search.filter.users': 'ആളുകൾ',
   'search.heading': 'ഒരു ത്രെഡ്, ഒരു പോസ്റ്റ്, ഒരു വ്യക്തിയെ കണ്ടെത്തുക.',
+  'search.prompt': 'ത്രെഡുകൾ തിരയാൻ ഒരു ക്വറി ടൈപ്പ് ചെയ്യുക.',
+  'search.replies': '{{count}} മറുപടികൾ',
   'search.resultsCount': '{{count}} ഫലങ്ങൾ',
   'search.searching': 'തിരയുന്നു...',
+  'settings.appearance.description': 'ലൈറ്റ്, ഡാർക്ക് മോഡുകൾക്കിടയിൽ ടോഗിൾ ചെയ്യുക.',
+  'settings.appearance.title': 'രൂപഭാവം',
   'settings.currentPasswordHint':
     'നിങ്ങളുടെ ഇമെയിൽ വിലാസം മാറ്റുന്നതിന് നിങ്ങളുടെ പാസ്‌വേഡ് ആവശ്യമാണ്. സ്ഥിരീകരിക്കാൻ എന്റർ അമർത്തുക അല്ലെങ്കിൽ ഫീൽഡ് വിടുക.',
   'settings.currentPasswordLabel': 'നിലവിലെ പാസ്വേഡ്',
@@ -131,13 +171,18 @@ export const ui: UiTranslations = {
   'settings.failedToUpdateProfile': 'പ്രൊഫൈൽ അപ്ഡേറ്റ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു',
   'settings.name': 'പേര്',
   'settings.saved': 'സംരക്ഷിച്ചു.',
+  'settings.subtitle':
+    'പ്രൊഫൈൽ, സുരക്ഷ, അറിയിപ്പുകൾ, ഉപകരണങ്ങൾ, ഡേഞ്ചർ-സോൺ നിയന്ത്രണങ്ങൾ — എല്ലാം ഒരിടത്ത്.',
   'signup.confirm': 'സ്ഥിരീകരിക്കുക',
   'signup.emailPlaceholder':
     'you@stoa.community (@stoa.community) എന്ന വിലാസത്തിൽ ഇമെയിൽ അയയ്ക്കുക.',
   'signup.eyebrow': 'സ്റ്റോവയിൽ ചേരുക',
+  'signup.haveAccount': 'ഇതിനകം ട്രോവിലുണ്ടോ?',
   'signup.heading': 'ഒരു ആശയം കൊണ്ടുവരൂ. സംഭാഷണത്തിനായി കാത്തിരിക്കൂ.',
   'signup.namePlaceholder': 'മറ്റുള്ളവർ നിങ്ങളെ എങ്ങനെ കാണും',
   'signup.orContinueWith': 'അല്ലെങ്കിൽ തുടരുക',
+  'signup.subheading':
+    'ഏതൊരു കമ്മ്യൂണിറ്റിയുടെയും ആദ്യ 50 അംഗങ്ങൾക്ക് സൗജന്യം. ക്രെഡിറ്റ് കാർഡ് ആവശ്യമില്ല.',
   'signup.terms':
     'സൈൻ അപ്പ് ചെയ്യുന്നതിലൂടെ നിങ്ങൾ കമ്മ്യൂണിറ്റി മാർഗ്ഗനിർദ്ദേശങ്ങളും സ്വകാര്യതാ നയവും അംഗീകരിക്കുന്നു.',
   'threadRow.moderatorBadge': 'മോഡറേറ്റർ',
@@ -149,8 +194,10 @@ export const ui: UiTranslations = {
   'threadView.loading': 'ത്രെഡ് ലോഡ് ചെയ്യുന്നു…',
   'threadView.locked':
     'ഈ ത്രെഡ് ലോക്ക് ചെയ്‌തിരിക്കുന്നു. പുതിയ മറുപടികൾ പ്രവർത്തനരഹിതമാക്കിയിരിക്കുന്നു.',
+  'threadView.participants': '{{count}} ശബ്ദങ്ങൾ',
   'threadView.replies': '{{count}} മറുപടികൾ',
   'threadView.reply.hint': 'പരിഗണിക്കുക. ഉറവിടങ്ങളെ ഉദ്ധരിക്കുക. സംഭാഷണം ആരംഭിക്കുക.',
+  'threadView.reply.label': 'സംഭാഷണത്തിലേക്ക് ചേർക്കുക',
   'threadView.reply.placeholder':
     'മാർക്ക്ഡൗൺ പിന്തുണയ്ക്കുന്നു. > ഉപയോഗിച്ച് ഉദ്ധരിക്കുക, [ടെക്സ്റ്റ്](url) ഉപയോഗിച്ച് ലിങ്ക് ചെയ്യുക.',
   'threadView.reply.submit': 'മറുപടി പോസ്റ്റ് ചെയ്യുക',

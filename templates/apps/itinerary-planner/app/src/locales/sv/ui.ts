@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du feedback, hittat en bugg eller planerar något stort? Nå oss via dina kontoinställningar — varje meddelande går till en riktig person i teamet.',
+  'about.contactTitle': 'Kontakta oss',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Bokningar i en inkorg — bekräftelser för flyg, hotell och aktiviteter landar på exakt den dag de hör till.',
+  'about.featureCollab':
+    'Realtidssamarbete — bjud in upp till fem resenärer per resa, med varje ändring som synkas live och kommentarer trådade under varje stopp.',
+  'about.featureMapsBudget':
+    'Kartor, destinationer och en delad budget — se hela resan på en karta, upptäck redaktörskurerade destinationer och håll koll på utgifterna så att ingen spenderar för mycket.',
+  'about.featureTimelines':
+    'Dag-för-dag-tidslinjer — dra stopp för att ändra ordning, lägg in transportsträckor och se itinerariet räknas om som ett levande dokument.',
+  'about.intro':
+    '{{app}} förvandlar en mapp full av halvfärdiga planer till en enda delad resa som hela gruppen faktiskt kan följa. Bygg ett dag-för-dag-itinerarium, lägg in flyg och hotell, kartlägg varje stopp och håll koll på budgeten — allt på en lugn plats i stället för ett dussin flikar och en gruppchatt.',
+  'about.missionBody':
+    'Reseplanering borde kännas som att resan redan blir bättre, inte som läxor. {{app}} finns för att göra samarbetsresor enkla — så att varje resenär dyker upp med koll på planen, och varje stopp berättar en historia värd att minnas.',
+  'about.missionTitle': 'Vårt uppdrag',
   'about.pageTitle': 'Om {{app}}',
   'auth.legalConsent': 'Genom att fortsätta godkänner du våra',
   'bookings.empty.body': 'Lägg till ett flyg, hotell eller aktivitet för att starta inkorgen.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Hotell',
   'bookings.type.other': 'Andra',
   'budgetSpendCard.budgetTotal': 'av {{total}} planerat',
+  'budgetSpendCard.overBy': '{{amount}} över budget',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} senaste',
+  'budgetSpendCard.remaining': '{{amount}} kvar',
   'calendar.eyebrow': 'Året framöver',
   'calendar.heading': 'Varje resa i en enda kalender.',
   'calendar.legendHeading': 'Resor under den här månaden',
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'och',
   'common.goToDashboard': 'Gå till översikt',
   'dashboard.budgetHeading': 'Budgetpuls',
+  'dashboard.empty.body':
+    'Planera din första resa och din översikt fylls med dag-för-dag-tidslinjer, budgetpuls och bokningar.',
+  'dashboard.empty.cta': 'Planera din första resa',
   'dashboard.empty.heading': 'Inga resor än — din atlas är tom.',
   'dashboard.eyebrow': 'Uppdragskontroll',
   'dashboard.heading': 'Ditt nästa äventyr, i ett lugnt hörn.',
   'dashboard.newTripCta': 'Starta en ny resa',
+  'dashboard.subheading':
+    'En nedräkning till nästa resa, dagens utgiftspuls och en snabb blick på varje pågående itinerarium.',
   'dashboard.tripsHeading': 'Resor i rörelse',
   'dashboard.viewAllExpenses': 'Se alla utgifter',
   'dashboard.viewAllTrips': 'Se alla resor',
   'dayTimelineRow.category.accommodation': 'Vistelse',
+  'dayTimelineRow.category.food': 'Mat & dryck',
+  'dayTimelineRow.category.sightseeing': 'Sightseeing',
   'dayTimelineRow.category.transport': 'Transport',
   'destinationOrbCard.exploreCta': 'Lägg till i en resa',
   'destinationOrbCard.tripCount': '{{count}} resor',
+  'destinations.empty.body': 'Byt tillbaka till Alla och redaktörens fynd dyker upp igen.',
   'destinations.empty.heading': 'Inga destinationer än.',
+  'destinations.emptyFiltered.heading': 'Inget taggat så ännu.',
   'destinations.errors.load': 'Kunde inte ladda destinationer.',
   'destinations.eyebrow': 'Vart härnäst',
   'destinations.heading': 'Sparade hörn och redaktörsfynd.',
@@ -70,7 +98,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Leverantör',
   'expenses.formHeading': 'Logga utgift för {{trip}}',
   'expenses.heading': 'Vart resans budget faktiskt går.',
+  'expenses.heroBudget': '{{pct}}% av {{total}} planerat',
   'expenses.heroEyebrow': '{{trip}} • budgetöversikt',
+  'expenses.heroNoBudget': 'Ingen budget angiven för den här resan ännu.',
   'expenses.noTrips.body': 'Planera en resa först — utgifter kopplas till en resas budget.',
   'expenses.noTrips.heading': 'Inga resor än.',
   'expenses.receiptCount': '{{count}} kvitton',
@@ -82,12 +112,16 @@ export const ui: UiTranslations = {
     'Varje kvitto och bekräftelse rullas upp till rätt kategori här — inget kalkylblad behövs.',
   'forgotPassword.eyebrow': 'Återställ din resplan',
   'forgotPassword.heading': 'Glömt ditt lösenord?',
+  'forgotPassword.subheading':
+    'Ange e-postadressen du använde för {{appName}} så skickar vi en länk för att återställa ditt lösenord.',
   'forgotPassword.submit': 'Skicka återställningsmejl',
   'forgotPassword.submitPending': 'Skickar återställningsmejl…',
   'forgotPassword.successHint':
     'Inget mejl än? Kolla skräpkorgen, eller försök igen med en annan adress.',
   'forgotPassword.successSubheading':
     'Vi skickade en återställningslänk till {{email}}. Länken är giltig i 30 minuter.',
+  'forgotPassword.tryAgain': 'Skicka till en annan e-postadress',
+  'landing.cta.eyebrow': 'Börja med gratisplanen',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Skapa gratiskonto',
   'landing.cta.subheading':
@@ -99,8 +133,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Starta en gratis resa',
   'landing.hero.ctaSecondary': 'Se en exempelresa',
+  'landing.hero.eyebrow': 'Reseplanerare · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint förvandlar en mapp full av halvfärdiga planer till en delad, dag-för-dag-resplan som din grupp faktiskt kan följa — med bokningar, kartor och budget på ett ställe.',
+  'landing.hero.title': 'Planera en gång. Vandra tillsammans.',
   'landing.nav.join': 'Starta en gratis resa',
   'landing.nav.preview': 'Inuti Waypoint',
   'landing.preview.cta': 'Planera en egen',
@@ -108,6 +144,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Några resor som resenärer vandrar just nu',
   'login.eyebrow': 'Medlemsområde',
   'login.heading': 'Välkommen tillbaka, resenär',
+  'login.noAccount': 'Ny på Tessera?',
   'login.signupLink': 'Skapa ett gratiskonto',
   'login.subheading':
     'Logga in för att hantera dina resor, dagsplaner, bokningar och dagboksanteckningar du redan har börjat med.',
@@ -118,6 +155,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Kunde inte uppdatera avisering.',
   'notifications.heading': 'Vad som ändrats i dina resor idag.',
   'notifications.markUnread': 'Markera som oläst',
+  'notifications.subheading':
+    '{{count}} nya \\u2014 bokningsbekräftelser, medarbetarnotiser, prissänkningar och påminnelser.',
   'notifications.time.daysAgo': '{{count}}d sedan',
   'notifications.time.hoursAgo': '{{count}}h sedan',
   'notifications.time.justNow': 'just nu',
@@ -136,6 +175,7 @@ export const ui: UiTranslations = {
     'Anslutna tjänster, valuta, pushaviseringar och inloggningsuppgifterna du använder.',
   'signup.and': 'och',
   'signup.eyebrow': 'Gå med i Waypoint',
+  'signup.haveAccount': 'Redan på vandring?',
   'signup.heading': 'Planera en gång. Vandra tillsammans.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -147,6 +187,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Öppna resplan',
   'tripCountdownHeroCard.ctaSecondary': 'Planera en annan resa',
   'tripCountdownHeroCard.daysLabel': '{{days}} dagar kvar',
+  'tripCountdownHeroCard.eyebrow': 'Nästa äventyr · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} nätter — ditt itinerarium är redo att resa.',
   'tripCoverCard.stops': '{{count}} stopp',
   'tripCoverCard.travelers': '{{count}} resenärer',
   'tripDetail.addActivity': 'Lägg till aktivitet',
@@ -156,6 +199,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Aktivitetstitel',
   'tripDetail.adding': 'Lägger till…',
   'tripDetail.backToTrips': 'Tillbaka till alla resor',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Resenärer',
   'tripDetail.dayLabel': 'Dag {{day}}',
   'tripDetail.empty': 'Inga aktiviteter än — lägg till en för att starta tidslinjen.',
@@ -166,14 +210,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Resplan • {{country}}',
   'tripDetail.invite': 'Bjud in',
   'tripDetail.inviteLabel': 'Bjud in via e-post',
+  'tripDetail.invitePlaceholder': 'nagon@exempel.se',
   'tripDetail.inviteSent': 'Inbjudan skickad till {{email}}.',
   'tripDetail.inviting': 'Skickar…',
   'tripDetail.loading': 'Laddar resa…',
   'tripDetail.noCollaborators': 'Bara du, för stunden.',
+  'tripDetail.notesHeading': 'Reseanteckningar',
   'tripDetail.notesPlaceholder': 'Inga anteckningar än.',
   'tripDetail.notFound.heading': 'Resa hittades inte',
   'tripDetail.openBookings': 'Öppna bokningsinkorgen',
   'tripDetail.shareCopied': 'Delningslänk kopierad till urklipp:',
+  'tripDetail.shareReady': 'Delningslänk klar:',
   'tripDetail.stops': '{{count}} stopp',
   'tripDetail.timelineEyebrow': 'Dagstidslinje',
   'tripDetail.timelineHeading': 'Dag-för-dag-plan',
@@ -191,6 +238,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Resenärer',
   'tripPlanner.heading': 'Skissa en resa på under en minut.',
   'tripPlanner.preview.eyebrow': 'Förhandsvisning live',
+  'tripPlanner.preview.placeholderCountry': 'Välj ett land',
   'tripPlanner.preview.placeholderDestination': 'Ditt nästa äventyr',
   'tripPlanner.section1.title': 'Var & när',
   'tripPlanner.section2.title': 'Resenärer & budget',
@@ -199,10 +247,13 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Dag {{day}} — lägg till stopp, transport och bokningar här.',
   'tripPlanner.section3.day2': 'Dag {{day}} — lägg till stopp, transport och bokningar här.',
   'tripPlanner.section3.day3': 'Dag {{day}} — lägg till stopp, transport och bokningar här.',
+  'tripPlanner.section3.title': 'Startpaket för dagsplan',
   'tripPlanner.subheading':
     'Lägg in grunderna nedan — du kan alltid bjuda in medarbetare, dra in stopp och vidarebefordra bokningar senare.',
   'tripPlanner.submit': 'Skapa resa',
   'tripPlanner.submitting': 'Skapar…',
+  'trips.empty.body': 'Byt tillbaka till Alla resor eller börja planera din nästa vandring.',
+  'trips.empty.cta': 'Planera en resa',
   'trips.empty.heading': 'Inget matchar det filtret än.',
   'trips.eyebrow': 'Atlasen',
   'trips.filterLabel': 'Filtrera resor efter status',
@@ -213,6 +264,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Inga resor än.',
   'trips.pastHeading': 'Tidigare äventyr',
   'trips.subheading': '{{count}} resplaner — förr, nu och en dag.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Planera en gång. Vandra tillsammans. Minns för alltid.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · {{appName}} medlemmar sedan 2024',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} förvandlade en hektisk 3-veckorsresa genom fyra länder till det lugnaste itinerarium vi någonsin har delat.',
   'waypointLayout.mobileNavClose': 'Stäng navigeringsmenyn',
   'waypointLayout.primaryNavLabel': 'Primär navigering',
 }

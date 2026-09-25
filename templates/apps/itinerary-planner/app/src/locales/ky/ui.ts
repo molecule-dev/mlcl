@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пикир калтырғыңыз келеби, ката таптыңызбы же чоң пландарыңыз барбы? Бизге аккаунт жөндөөлөрүңүздөн жазыңыз — ар бир билдирүү командадагы чыныгы адамга жетет.',
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Брондоолор бир кутуда — учуу, мейманкана жана иш-чара ырастоолору тиешелүү күнүнө так келип түшөт.',
+  'about.featureCollab':
+    'Реалдуу убакытта кызматташуу — ар бир сапарга бешке чейин саякатчы чакырыңыз, бардык өзгөртүүлөр жандуу синхрондошот жана ар бир токтолуунун астында комментарийлер топтолот.',
+  'about.featureMapsBudget':
+    'Карталар, багыттар жана жалпы бюджет — бүт сапарды картадан көрүңүз, редактор тандаган багыттарды ачыңыз жана чыгымдарды көзөмөлдөп, эч ким ашыкча сарптабасын.',
+  'about.featureTimelines':
+    'Күн-күнү менен графиктер — токтолууларды сүйрөп тартиптеңиз, транспорт бөлүктөрүн кошуңуз жана маршрут бир тирүү документ катары кайра эсептелгенин көрүңүз.',
+  'about.intro':
+    '{{app}} жарым-жартылай пландарга толгон папканы бүт топ ээрчий алган бирдиктүү, жалпы сапарга айландырат. Күн-күнү менен маршрут түзүңүз, учууларды жана мейманканаларды кошуңуз, ар бир токтолууну картага түшүрүңүз жана бюджетти көзөмөлдөңүз — ондогон өтмөктүн жана топтук чаттын ордуна баары бир тынч жерде.',
+  'about.missionBody':
+    'Саякат пландоо тапшырма эмес, сапар азыр эле жакшырып жаткандай сезилиши керек. {{app}} биргелешкен сапарларды жеңил кылуу үчүн бар — ар бир саякатчы планды билип келсин, ар бир токтолуу эсте каларлык окуя айтсын.',
+  'about.missionTitle': 'Биздин миссиябыз',
   'about.pageTitle': '{{app}} жөнүндө',
   'auth.legalConsent': 'Улантуу менен, сиз биздин макулдашасыз',
   'bookings.empty.body':
@@ -31,7 +47,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Мейманкана',
   'bookings.type.other': 'Башка',
   'budgetSpendCard.budgetTotal': '...нын {{total}} пландаштырылган',
+  'budgetSpendCard.overBy': '{{amount}} бюджеттен ашык',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} акыркы',
+  'budgetSpendCard.remaining': '{{amount}} калды',
   'calendar.eyebrow': 'Алдыдагы жыл',
   'calendar.heading': 'Ар бир сапар бир календарда.',
   'calendar.legendHeading': 'Бул айдагы сапарлар',
@@ -42,18 +61,27 @@ export const ui: UiTranslations = {
   'common.and': 'жана',
   'common.goToDashboard': 'Башкы бетке өтүү',
   'dashboard.budgetHeading': 'Бюджеттик импульс',
+  'dashboard.empty.body':
+    'Биринчи сапарыңызды пландаңыз, ошондо башкаруу панелиңиз күн-күнү менен графиктерге, бюджет пульсуна жана брондоолорго толот.',
+  'dashboard.empty.cta': 'Биринчи сапарыңызды пландаңыз',
   'dashboard.empty.heading': 'Азырынча сапарлар жок — атласыңыз бош.',
   'dashboard.eyebrow': 'Миссияны башкаруу',
   'dashboard.heading': 'Кийинки укмуштуу окуяңыз тынч бурчта.',
   'dashboard.newTripCta': 'Жаңы сапар баштоо',
+  'dashboard.subheading':
+    'Кийинки сапарга чейинки эсеп, бүгүнкү чыгым пульсу жана ар бир кыймылдагы маршрутка кыскача көз чаптыруу.',
   'dashboard.tripsHeading': 'Кыймылдагы сапарлар',
   'dashboard.viewAllExpenses': 'Ар бир чыгымды көрүү',
   'dashboard.viewAllTrips': 'Ар бир сапарды көрүү',
   'dayTimelineRow.category.accommodation': 'Кал',
+  'dayTimelineRow.category.food': 'Тамак-аш жана суусундук',
+  'dayTimelineRow.category.sightseeing': 'Көрүнүктүү жерлерди көрүү',
   'dayTimelineRow.category.transport': 'Транспорт',
   'destinationOrbCard.exploreCta': 'Сапарга кошуу',
   'destinationOrbCard.tripCount': '{{count}} саякаттар',
+  'destinations.empty.body': 'Баарына кайтуу менен редактордун табылгалары кайра пайда болот.',
   'destinations.empty.heading': 'Азырынча көздөгөн жерлер жок.',
+  'destinations.emptyFiltered.heading': 'Азырынча ушундай белгиленген эч нерсе жок.',
   'destinations.errors.load': 'Көздөгөн жерлер жүктөлбөй койду.',
   'destinations.eyebrow': 'Кийинкиси кайда',
   'destinations.heading': 'Сакталган бурчтар жана редактордун тапкандары.',
@@ -71,7 +99,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Сатуучу',
   'expenses.formHeading': 'Журнал чыгымы {{trip}}',
   'expenses.heading': 'Сапардын бюджети чындыгында кайда кетет.',
+  'expenses.heroBudget': '{{total}} ичинен {{pct}}% пландалды',
   'expenses.heroEyebrow': '{{trip}} • бюджеттин кыскача баяндамасы',
+  'expenses.heroNoBudget': 'Бул сапарга азырынча бюджет коюлган жок.',
   'expenses.noTrips.body':
     'Алгач сапарды пландаштырыңыз - чыгымдар сапардын бюджетине байланыштуу.',
   'expenses.noTrips.heading': 'Азырынча сапарлар жок.',
@@ -84,12 +114,16 @@ export const ui: UiTranslations = {
     'Ар бир квитанция жана ырастоо бул жердеги туура категорияга киргизилет - электрондук жадыбалдын кереги жок.',
   'forgotPassword.eyebrow': 'Маршрутуңузду калыбына келтириңиз',
   'forgotPassword.heading': 'Сырсөзүңүздү унутуп калдыңызбы?',
+  'forgotPassword.subheading':
+    '{{appName}} үчүн колдонгон электрондук почтаңызды киргизиңиз, биз сырсөздү кайра коюу шилтемесин жөнөтөбүз.',
   'forgotPassword.submit': 'Калыбына келтирүүчү электрондук кат жөнөтүү',
   'forgotPassword.submitPending': 'Калыбына келтирүүчү электрондук кат жөнөтүлүүдө…',
   'forgotPassword.successHint':
     'Электрондук почтаңыз жокпу? Спам папкаңызды текшериңиз же башка дарек менен кайра аракет кылыңыз.',
   'forgotPassword.successSubheading':
     'Биз калыбына келтирүү шилтемесин төмөнкү дарекке жөнөттүк {{email}} Шилтеме 30 мүнөткө жарактуу.',
+  'forgotPassword.tryAgain': 'Башка электрондук почтага жөнөтүү',
+  'landing.cta.eyebrow': 'Акысыз планда баштоо',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Акысыз аккаунт түзүү',
   'landing.cta.subheading':
@@ -101,8 +135,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Акысыз саякат баштаңыз',
   'landing.hero.ctaSecondary': 'Үлгү сапарды көрүү',
+  'landing.hero.eyebrow': 'Сапар пландоочу · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint жарым-жартылай түзүлгөн пландар менен толтурулган папканы сиздин тобуңуз чындап эле аткара турган жалпы, күн сайын пландаштырылган маршрутка айландырат — брондоолор, карталар жана бюджет бир жерде көзөмөлдөнөт.',
+  'landing.hero.title': 'Бир жолу пландаштыр. Чогуу сейилде.',
   'landing.nav.join': 'Акысыз саякат баштаңыз',
   'landing.nav.preview': 'Ички жол чекити',
   'landing.preview.cta': 'Өзүңүздүн планыңыздын бирин түзүңүз',
@@ -110,6 +146,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Саякатчылар азыр кыдырып жүргөн бир нече саякаттар',
   'login.eyebrow': 'Мүчөлөр аймагы',
   'login.heading': 'Кайрадан кош келиңиз, саякатчы',
+  'login.noAccount': 'Тессерага жаңы келдиңизби?',
   'login.signupLink': 'Акысыз аккаунт түзүңүз',
   'login.subheading':
     'Сапарларыңызды, күнүмдүк пландарыңызды, брондоолоруңузду жана мурунтан эле баштаган журнал жазууларыңызды башкаруу үчүн кириңиз.',
@@ -120,6 +157,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Эскертме жаңыртылган жок.',
   'notifications.heading': 'Бүгүнкү сапарларыңызда эмне өзгөрдү.',
   'notifications.markUnread': 'Окула элек деп белгилөө',
+  'notifications.subheading':
+    '{{count}} жаңы — брондоо ырастоолору, кызматташуучулардын эскертүүлөрү, тарифтин төмөндөшү жана эскертмелер.',
   'notifications.time.daysAgo': '{{count}} күн мурун',
   'notifications.time.hoursAgo': '{{count}} саат мурун',
   'notifications.time.justNow': 'азыр эле',
@@ -138,6 +177,7 @@ export const ui: UiTranslations = {
     'Байланышкан кызматтар, валюта, push-билдирүүлөр жана сиз кирген эсептик маалыматтар.',
   'signup.and': 'жана',
   'signup.eyebrow': 'Waypointке кошулуңуз',
+  'signup.haveAccount': 'Азыр эле саякаттап жүрөсүзбү?',
   'signup.heading': 'Бир жолу пландаштыр. Чогуу сейилде.',
   'signup.namePlaceholder': 'Ирис Ларсен',
   'signup.subheading':
@@ -149,6 +189,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Ачык маршрут',
   'tripCountdownHeroCard.ctaSecondary': 'Дагы бир сапар пландаштырыңыз',
   'tripCountdownHeroCard.daysLabel': '{{days}} кете турган күндөр',
+  'tripCountdownHeroCard.eyebrow': 'Кийинки окуя · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} түн — маршрутуңуз саякатка даяр.',
   'tripCoverCard.stops': '{{count}} аялдамалар',
   'tripCoverCard.travelers': '{{count}} саякатчылар',
   'tripDetail.addActivity': 'Иш-аракет кошуу',
@@ -158,6 +201,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Иш-аракеттин аталышы',
   'tripDetail.adding': 'Кошулууда…',
   'tripDetail.backToTrips': 'Бардык сапарларга кайтуу',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Саякатчылар',
   'tripDetail.dayLabel': 'Күн {{day}}',
   'tripDetail.empty':
@@ -169,14 +213,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Маршрут • {{country}}',
   'tripDetail.invite': 'Чакыруу',
   'tripDetail.inviteLabel': 'Электрондук почта аркылуу чакыруу',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'Чакыруу жөнөтүлдү {{email}} .',
   'tripDetail.inviting': 'Жөнөтүлүүдө…',
   'tripDetail.loading': 'Сапар жүктөлүүдө…',
   'tripDetail.noCollaborators': 'Азырынча сен гана.',
+  'tripDetail.notesHeading': 'Сапар эскертмелери',
   'tripDetail.notesPlaceholder': 'Азырынча эч кандай жазуу жок.',
   'tripDetail.notFound.heading': 'Сапар табылган жок',
   'tripDetail.openBookings': 'Брондоолордун келген каттары кутучасын ачуу',
   'tripDetail.shareCopied': 'Шилтемени алмашуу буферине көчүрүү:',
+  'tripDetail.shareReady': 'Бөлүшүү шилтемеси даяр:',
   'tripDetail.stops': '{{count}} аялдамалар',
   'tripDetail.timelineEyebrow': 'Күндүн убакыт сызыгы',
   'tripDetail.timelineHeading': 'Күнүмдүк план',
@@ -194,6 +241,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Саякатчылар',
   'tripPlanner.heading': 'Бир мүнөттөн аз убакыттын ичинде саякатыңыздын эскизин тартыңыз.',
   'tripPlanner.preview.eyebrow': 'Түз эфирдеги алдын ала көрүү',
+  'tripPlanner.preview.placeholderCountry': 'Өлкө тандаңыз',
   'tripPlanner.preview.placeholderDestination': 'Кийинки укмуштуу окуяңыз',
   'tripPlanner.section1.title': 'Кайда жана качан',
   'tripPlanner.section2.title': 'Саякатчылар жана бюджет',
@@ -205,10 +253,13 @@ export const ui: UiTranslations = {
     'Күн {{day}} — бул жерге аялдамаларды, транспортту жана брондоолорду кошуңуз.',
   'tripPlanner.section3.day3':
     'Күн {{day}} — бул жерге аялдамаларды, транспортту жана брондоолорду кошуңуз.',
+  'tripPlanner.section3.title': 'Күн планынын баштапкысы',
   'tripPlanner.subheading':
     'Негизги маалыматтарды төмөндө калтырыңыз — сиз каалаган убакта кызматташтарды чакыра аласыз, аялдамаларды сүйрөп келип, брондоолорду кийинчерээк жөнөтө аласыз.',
   'tripPlanner.submit': 'Сапар түзүү',
   'tripPlanner.submitting': 'Түзүлүүдө…',
+  'trips.empty.body': 'Баары сапарларга кайтыңыз же кийинки саякатыңызды пландай баштаңыз.',
+  'trips.empty.cta': 'Саякатты пландоо',
   'trips.empty.heading': 'Ал чыпкага азырынча эч нерсе дал келе элек.',
   'trips.eyebrow': 'Атлас',
   'trips.filterLabel': 'Сапарларды статусу боюнча чыпкалоо',
@@ -220,6 +271,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Азырынча сапарлар жок.',
   'trips.pastHeading': 'Өткөн окуялар',
   'trips.subheading': '{{count}} саякат пландары — өткөн, азыркы жана качандыр бир кездеги.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Бир жолу планда. Чогуу саякатта. Түбөлүк эсте.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · 2024-жылдан бери {{appName}} мүчө',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} төрт өлкөнү камтыган үч жумалык тыгыз сапарды биз бөлүшкөн эң тынч маршрутка айландырды.',
   'waypointLayout.mobileNavClose': 'Навигация менюсун жабуу',
   'waypointLayout.primaryNavLabel': 'Негизги навигация',
 }

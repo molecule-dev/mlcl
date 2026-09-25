@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Mistoqsijiet, talbiet għal funzjonijiet ġodda, jew meter li għandna nappoġġjaw? Ikkuntattja lit-tim ta' {{appName}} mill-issettjar tal-kont tiegħek — kull messaġġ jasal għand persuna reali.",
   'about.contactTitle': 'Kellem magħna',
   'about.eyebrow': 'Dwar',
+  'about.featuresTitle': 'Dak li tikseb',
+  'about.intro':
+    "{{appName}} huwa monitoraġġ tal-enerġija f'ħin reali għal djar solari u timijiet ta' faċilitajiet. Aħna nbiddlu l-fluss kbir ta' data mill-meters, l-inverters u l-batteriji f'veduta kalma ta' kmamar tal-kontroll — wattage live, produzzjoni solari, spiża skont il-ħin tal-użu, u avviżi, kollha f'qoxra waħda.",
+  'about.missionBody':
+    "L-enerġija li tista' tara hija enerġija li tista' tamministra. Aħna nemmnu li kulmin iħaddem meter — dar b'solar fuq il-bejt jew tim li jħares lejn bini — jistħoqqlu għarfien tal-livell tal-utilitajiet mingħajr kuntratt tal-livell tal-utilitajiet. Kull funzjoni hija mibnija biex il-kilowatt-siegħa li jmiss tkun għażla infurmata, mhux sorpriża fuq il-kont.",
+  'about.missionTitle': 'Il-missjoni tagħna',
   'about.pageTitle': 'Dwar {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Ack',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@yourdomain.com',
   'alertRule.eyebrow': 'Regola ġdida',
   'alertRule.heading': 'Aqbad il-ponta qabel ma tiswik',
+  'alertRule.nameLabel': 'Isem tar-regola',
   'alertRule.namePlaceholder': 'eż. għassa tal-HVAC wara l-ħinijiet tax-xogħol',
   'alertRule.subheading':
     "Agħżel metrika, limitu, u fejn tibgħat l-allert. Tista' teditjah jew twaqqafh f'kull ħin.",
   'alertRule.submit': 'Salva r-regola',
   'alertRule.submitError': 'Ma setgħetx tiġi salvata r-regola.',
   'alertRule.thresholdLabel': 'Limitu',
+  'alertRule.typeLabel': "Tip ta' attivazzjoni",
   'alerts.checking': 'Qed jiġi ċċekkjat…',
   'alerts.confirmDelete': 'Ikkonferma t-tħassir',
+  'alerts.empty': "Xejn x'jintwera — l-ebda avviż f'dan l-istat.",
   'alerts.emptyNoRules':
     "Għad m'hemm l-ebda allerti — żid regola, imbagħad ikklikkja “Evalwa issa” biex tittestjaha.",
   'alerts.errorAck': 'Ma stajtx nirrikonoxxi.',
@@ -41,12 +52,15 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Evalwa issa',
   'alerts.subheading':
     "Twissijiet ta' limitu u xejra li jattivaw fuq il-miters tiegħek, flimkien mar-regoli li jmexxuhom.",
+  'billing.activeBlurb': 'L-abbonament tiegħek huwa attiv. Immaniġġjah meta trid.',
   'billing.cancelError': 'Ma stajtx nikkanċella l-abbonament.',
   'billing.cancelling': 'Kanċellazzjoni…',
   'billing.currentBadge': 'Kurrenti',
   'billing.freeBlurb':
     "Inti fuq il-pjan B'Xejn. Aġġorna għal aktar miters, storja itwal, u aktar regoli ta' twissija.",
   'billing.heading': 'Pjanijiet u kontijiet',
+  'billing.historyEmpty':
+    'Il-fatturi mħallsa se jidhru hawn ladarba l-abbonament tiegħek jiġi ffatturat.',
   'billing.historyHeading': 'Storja tal-fattura',
   'billing.loadError': 'Ma setax jitgħabba l-kontijiet.',
   'billing.loading': 'Pjanijiet tat-tagħbija…',
@@ -58,17 +72,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Ikkuntattja l-bejgħ',
   'common.goToDashboard': 'Mur għad-Dashboard',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} kWh fil-quċċata · {{offPeak}} kWh barra mill-quċċata',
   'dailyCostMeter.runningLabel': 'Total kontinwu',
   'dailyCostMeter.title': "L-ispiża s'issa llum",
   'dailyCostMeter.utilizationLabel': "Tal-baġit ta' kuljum",
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Żid meter',
   'dashboard.alertsHeading': 'Twissijiet attivi',
   'dashboard.devicesHeading': 'L-aqwa ċirkwiti bħalissa',
   'dashboard.empty.body':
     "Żid miter intelliġenti jew inverter solari biex tibda ssegwi l-ġbid u l-produzzjoni f'ħin reali.",
+  'dashboard.empty.title': "Għad m'hemmx meters",
   'dashboard.eyebrow': 'Kamra tal-kontroll tal-Voltrace',
   'dashboard.heading': 'Stampa diretta tal-enerġija',
   'dashboard.loadError': 'Ma setax jitgħabba l-qari dirett.',
   'dashboard.loading': 'Tissettja l-miters tiegħek…',
+  'dashboard.noAlerts': 'Kollox kwiet — xejn ma jaqbeż il-limiti tiegħek.',
   'dashboard.noAlertsAndNoMeters':
     'Ladarba tqabbad miter, hawnhekk jidhru allerti bbażati fuq il-limiti tiegħek.',
   'dashboard.noCircuits': "Għad m'hemm l-ebda ċirkwit x'turi — żid miter biex tibda.",
@@ -76,6 +95,7 @@ export const ui: UiTranslations = {
     "Il-konsum tad-dar kollha, il-produzzjoni solari, u l-ispiża s'issa llum.",
   'dashboard.viewAllAlerts': 'Immaniġġja l-allerti →',
   'dashboard.viewAllDevices': 'Kull apparat →',
+  'deviceDetail.activeTokens': 'Tokens tal-ġbir attivi',
   'deviceDetail.alreadyOff': 'Diġà waqfa',
   'deviceDetail.back': 'Iċ-ċirkwiti kollha',
   'deviceDetail.confirmDelete': 'Ikkonferma t-tħassir',
@@ -116,21 +136,33 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Ma setgħux jitgħabbew il-miters.',
   'devices.loading': 'Qed ninterroga kull miter…',
   'devices.newRule': "Regola ġdida ta' twissija",
+  'devices.noResults': "L-ebda ċirkwit ma jaqbel ma' dan il-filtru.",
   'devices.placeholder.location': 'eż. Kamra mekkanika',
   'devices.placeholder.name': 'eż. Sottopannell tal-garaxx',
   'devices.subheading': "Qawwa diretta u kWh tal-lum minn kull ċirkwit li Voltrace jista' jara.",
+  'deviceWattageRow.todayKwh': '{{kwh}} kWh illum',
+  'deviceWattageRow.watts': '{{watts}} Punent',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Menù',
+  'energyMonitoringLayout.primaryNavLabel': 'Navigazzjoni primarja',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    "{{appName}} jikkomunika ma' ħafna meters tal-livell tal-utilitajiet, inverters solari, u munzelli ta' batteriji — bil-fili jew bil-WiFi.",
   'landing.ctaHeading': "Imqabbad il-miter tiegħek, ara l-watts f'minuti",
   'landing.eyebrow': "Intelliġenza tal-enerġija f'ħin reali",
+  'landing.featuresHeading': "Kull watt, kull minuta, f'qoxra waħda",
   'landing.getStarted': 'Ipplaggja Voltrace',
   'landing.heroCta': 'Ipplaggja Voltrace',
+  'landing.heroSubtitle':
+    "Wattage live, produzzjoni solari, spiża skont il-ħin tal-użu, u avviżi ta' użu għoli f'qoxra ta' kamra tal-kontroll mibnija għal djar solari u timijiet ta' faċilitajiet.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Estrazzjoni tad-dar kollha',
   'landing.sampleSolar': '+3,820 W solari',
   'landing.sampleSummary': "Esportazzjoni ta' 1,680 W lejn il-grid · 18.4 kWh illum",
   'landing.sampleWatts': '2,140 Punent',
   'powerHeroCard.solar': '+ {{watts}} W solari',
   'powerHeroCard.title': 'Estrazzjoni tad-dar kollha',
+  'powerHeroCard.todayKwh': '{{kwh}} kWh illum',
   'powerHeroCard.watts': '{{watts}} Punent',
   'pricing.choose': 'Agħżel {{name}}',
   'pricing.contact': 'Teħtieġ xi ħaġa apposta?',
@@ -143,6 +175,7 @@ export const ui: UiTranslations = {
     "Ibda b'xejn. Aġġorna meta jkollok bżonn aktar miters, storja itwal, jew aktar regoli ta' twissija.",
   'pricing.unavailable': 'Dan il-pjan mhux disponibbli bħalissa — Stripe mhux ikkonfigurat.',
   'profile.errorGeneric': 'Ma setgħux jiġu salvati l-bidliet fil-profil.',
+  'profile.errorGoal': 'Il-mira tal-kWh tax-xahar trid tkun numru pożittiv.',
   'profile.errorHousehold': 'Id-daqs tad-dar irid ikun numru pożittiv.',
   'profile.householdHeading': 'Dar u miri',
   'profile.householdSize': 'Daqs tad-dar',
@@ -159,9 +192,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'Qari aggregat…',
   'reports.subheading':
     "Totali ta' kuljum għall-konsum, il-produzzjoni, u l-ispiża — imqassma skont id-data.",
+  'reports.tableHeading': "Tqassim ta' kuljum",
   'settings.currency': 'Munita',
   'settings.errorFlat': 'Ir-rata fissa trid tkun ≥ 0.',
   'settings.errorNotify': 'Ma setgħux jiġu salvati l-preferenzi tan-notifikazzjonijiet.',
+  'settings.errorSave': 'Ma setax jiġi salvat il-pjan tar-rati.',
   'settings.errorTou':
     'Huma meħtieġa rati tal-ħinijiet l-aktar traffikużi/barra l-ħinijiet l-aktar traffikużi u tieqa valida tal-ħinijiet l-aktar traffikużi.',
   'settings.exportBody':
@@ -182,10 +217,21 @@ export const ui: UiTranslations = {
   'settings.saving': 'Iffrankar…',
   'settings.securityHeading': "Awtentikazzjoni b'żewġ fatturi",
   'settings.subheading': 'Rati, notifiki, u esportazzjoni tad-dejta.',
+  'settings.twoFactorBody':
+    "Talb kodiċi ta' darba mill-app tal-awtentikazzjoni tiegħek kull darba li tidħol.",
   'settings.twoFactorCode': "Kodiċi ta' awtentikazzjoni",
   'settings.twoFactorDisable': 'Iddiżattiva',
+  'settings.twoFactorDisableTitle': "Itfi l-awtentikazzjoni b'żewġ fatturi",
   'settings.twoFactorEnable': 'Ippermetti',
+  'settings.twoFactorEnableTitle': "Ixgħel l-awtentikazzjoni b'żewġ fatturi",
   'settings.twoFactorInvalidCode': 'Kodiċi invalidu',
+  'settings.twoFactorOAuth':
+    "Il-kont tiegħek jidħol permezz ta' fornitur konness, għalhekk l-awtentikazzjoni b'żewġ fatturi tiġi amministrata hemmhekk.",
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Kodiċi QR taż-żewġ fatturi',
+  'settings.twoFactorScan':
+    "Skennja dan il-kodiċi QR bl-app tal-awtentikatur tiegħek, imbagħad daħħal il-kodiċi ta' 6 ċifri.",
+  'settings.twoFactorUnavailable':
+    "L-awtentikazzjoni b'żewġ fatturi mhijiex disponibbli għal din l-app.",
   'settings.twoFactorVerify': 'Ivverifika u attiva',
 }

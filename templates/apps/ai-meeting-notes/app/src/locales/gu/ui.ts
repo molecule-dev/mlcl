@@ -1,19 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'પ્રશ્નો, પ્રતિસાદ અથવા ફીચર વિનંતી? hello@murmur.app પર ટીમને ઈમેલ કરો — દરેક સંદેશ પ્રોડક્ટ પર કામ કરતા સાચા માણસ સુધી પહોંચે છે.',
   'about.contactTitle': 'અમારી સાથે વાત કરો',
   'about.eyebrow': 'અમારા વિશે',
+  'about.intro':
+    '{{app}} એવી ટીમો માટે મીટિંગ ઇન્ટેલિજન્સ છે જે નોંધ લેવા કરતાં નિર્ણય લેવાનું પસંદ કરે છે. તે તમારા કૉલમાં જોડાય છે, દરેક શબ્દ સ્પીકર લેબલ સાથે ટ્રાન્સક્રાઇબ કરે છે, અને મીટિંગ પૂરી થતાં જ AI સારાંશ સાથે સોંપાયેલા એક્શન આઇટમ્સ આપે છે.',
+  'about.missionBody':
+    'મીટિંગ એ જગ્યા છે જ્યાં ટીમો નિર્ણય લે છે — અને જ્યાં એ નિર્ણયો ખોવાઈ જાય છે. {{app}} એ સુનિશ્ચિત કરવા માટે છે કે વાતચીતમાં થયેલું કામ વાતચીતથી આગળ ટકે: એક વિશ્વાસપાત્ર રેકોર્ડ, સ્પષ્ટ રીકેપ અને જવાબદારી સાથેના આગળના પગલાં, આપોઆપ.',
+  'about.missionTitle': 'અમારું ધ્યેય',
   'actions.empty': 'કોઈ ક્રિયા વસ્તુઓ મેળ ખાતી નથી.',
   'actions.heading': 'ક્રિયા વસ્તુઓ',
   'actions.loadError': 'ક્રિયા આઇટમ્સ લોડ કરવામાં નિષ્ફળ થયાં.',
   'actions.subheading': 'દરેક મીટિંગમાં એકત્રિત. ફોકસ કરવા માટે સ્થિતિ દ્વારા ફિલ્ટર કરો.',
   'actions.toggleDoneLabel': 'થઈ ગયું તરીકે ચિહ્નિત કરો',
   'actions.toggleReopenLabel': 'ખુલ્લું તરીકે ચિહ્નિત કરો',
+  'auth.footer': '© {{year}} {{app}}. દરેક શબ્દ, સારરૂપે.',
   'calendar.heading': 'કેલેન્ડર',
   'calendar.joinCta': 'જોડાઓ',
   'calendar.loadError': 'કેલેન્ડર લોડ કરવામાં નિષ્ફળ.',
   'calendar.nextMonth': 'આવતા મહિને',
   'calendar.noEventsForDay': 'આ દિવસે કોઈ મીટિંગ શેડ્યૂલ કરેલી નથી.',
+  'calendar.noUpcomingEvents':
+    'કોઈ આવનારી મીટિંગ નથી. આ યાદી ભરવા માટે Integrations માંથી કૅલેન્ડર કનેક્ટ કરો.',
   'calendar.previousMonth': 'પાછલો મહિનો',
   'calendar.recent': 'તાજેતરના',
   'common.daysAgo': '{{count}} દિવસ પહેલા',
@@ -25,9 +35,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} ક્રિયા વસ્તુઓ',
   'dashboard.empty.body':
     'રેકોર્ડિંગ શરૂ કરો અથવા Google Calendar કનેક્ટ કરો જેથી Murmur તમારી આગામી મીટિંગમાં આપમેળે જોડાય.',
+  'dashboard.empty.cta': 'રેકોર્ડિંગ શરૂ કરો',
   'dashboard.empty.heading': 'હજુ સુધી કોઈ મીટિંગ નથી',
   'dashboard.eyebrow': 'તમારી મીટિંગ ફીડ',
   'dashboard.loadError': 'ડેશબોર્ડ લોડ કરવામાં નિષ્ફળ.',
+  'dashboard.noActions': 'કોઈ એક્શન નથી',
   'dashboard.recentHeading': 'તાજેતરની મીટિંગ્સ',
   'dashboard.recordCta': 'મીટિંગ રેકોર્ડ કરો',
   'dashboard.stat.actions': 'ક્રિયા વસ્તુઓ',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} તમે છેલ્લે ચેક કર્યું ત્યારથી વાંચ્યા વગરના સારાંશ. મર્મરે દરેક શબ્દ રેકોર્ડ કર્યો - અહીં સારાંશ છે.',
   'dashboard.viewCalendar': 'કેલેન્ડર જુઓ →',
+  'footer.linksLabel': 'ફૂટર',
   'forgot.failed': 'રીસેટ ઇમેઇલ મોકલી શકાયો નથી.',
   'forgot.sentBody':
     'જો કોઈ એકાઉન્ટ અસ્તિત્વમાં હોય તો {{email}}, તમને ટૂંક સમયમાં રીસેટ લિંક મળશે.',
@@ -48,14 +61,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'મુર્મર આપમેળે જોડાય તે માટે કેલેન્ડર અને વિડીયો પ્લેટફોર્મ કનેક્ટ કરો.',
   'integrations.updateError': 'અપડેટ નિષ્ફળ.',
+  'landing.ctaBody':
+    'દર મહિને પ્રથમ 5 મીટિંગ માટે મફત. ક્રેડિટ કાર્ડ નહીં. એક મિનિટથી ઓછા સમયમાં Google Calendar કનેક્ટ કરો.',
   'landing.ctaButton': 'શરૂઆત કરો — તે મફત છે',
   'landing.ctaHeading': 'નોંધ લેવાનું બંધ કરો. નિર્ણયો લેવાનું શરૂ કરો.',
+  'landing.demo.aiBody':
+    'ઓપ્સ સ્ટાફિંગ માટે જગ્યા આપવા લૉન્ચ મે 5 → મે 12 પર ખસેડાયું. ડેશબોર્ડ રીડિઝાઇન મે 26 પર અલગ કરાયું.',
   'landing.demo.aiLabel': 'AI સારાંશ, લાઇવ મુસદ્દો તૈયાર કરેલ',
   'landing.demo.recording': 'રેકોર્ડિંગ · લાઇવ',
   'landing.eyebrow': 'AI મીટિંગ ઇન્ટેલિજન્સ',
   'landing.featuresHeading': 'મીટિંગ સમાપ્ત થયા પછી તમારી ટીમને જે જોઈએ છે તે બધું',
+  'landing.featuresSubheading':
+    'હવે "અરે, આ કોનું છે?" નહીં. {{appName}} કૉલ ડિસ્કનેક્ટ થાય તે પહેલાં રીકેપ મોકલે છે.',
   'landing.getStarted': 'મફતમાં અજમાવી જુઓ',
   'landing.heroSecondary': '90-સેકન્ડનો પ્રવાસ જુઓ',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} તમારા કૉલમાં જોડાય છે, દરેક શબ્દ સ્પીકર લેબલ સાથે ટ્રાન્સક્રાઇબ કરે છે, અને મીટિંગ પૂરી થતાં જ AI સારાંશ સાથે સોંપાયેલા એક્શન આઇટમ્સ આપે છે.',
   'landing.heroTitle': 'દરેક મીટિંગને કેપ્ચર કરો. શું મહત્વનું છે તે દર્શાવો.',
   'login.altPrompt': 'મુર્મરમાં નવા છો?',
   'login.failed': 'સાઇન ઇન કરી શકાયું નથી. તમારો ઇમેઇલ અને પાસવર્ડ તપાસો.',
@@ -63,6 +84,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'ક્રિયા વસ્તુઓ',
   'meetingDetail.back': 'બધી મીટિંગ્સ',
   'meetingDetail.decisionsHeading': 'નિર્ણયો',
+  'meetingDetail.dueDate': '{{date}} સુધી',
   'meetingDetail.followupsHeading': 'ફોલો-અપ્સ',
   'meetingDetail.loadError': 'મીટિંગ લોડ કરવામાં નિષ્ફળ.',
   'meetingDetail.noActions': 'કોઈ ક્રિયા આઇટમ મળી નથી.',
@@ -76,7 +98,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'હજુ સુધી કોઈ મીટિંગ નથી',
   'meetings.heading': 'મીટિંગ્સ',
   'meetings.loadError': 'મીટિંગ લોડ કરવામાં નિષ્ફળ.',
+  'meetings.recordCta': 'મીટિંગ રેકોર્ડ કરો',
   'meetings.subheading': 'દરેક રેકોર્ડ કરેલી, અપલોડ કરેલી અને સિંક કરેલી મીટિંગ.',
+  'murmurLayout.closeMenu': 'નેવિગેશન મેનૂ બંધ કરો',
   'murmurLayout.openMenu': 'નેવિગેશન મેનૂ ખોલો',
   'murmurLayout.primaryNavLabel': 'પ્રાથમિક નેવિગેશન',
   'nav.legal': 'કાનૂની',
@@ -101,7 +125,14 @@ export const ui: UiTranslations = {
   'profile.loading': 'લોડ કરી રહ્યું છે...',
   'profile.navLabel': 'પ્રોફાઇલ વિભાગો',
   'profile.notifications.assignments': 'મને સોંપેલ ક્રિયા વસ્તુઓ',
+  'profile.notifications.assignmentsHint': 'તમારા માટે એક્શન આઇટમ કેપ્ચર થાય ત્યારે સૂચિત કરો.',
+  'profile.notifications.mentions': 'ટ્રાન્સક્રિપ્ટમાં ઉલ્લેખ',
+  'profile.notifications.mentionsHint': 'કોઈ તમને @-મેન્શન કરે ત્યારે ઈમેલ + પુશ.',
+  'profile.notifications.subheading':
+    'પસંદ કરો કે {{appName}} ની કઈ ઇવેન્ટ્સ તમારા સુધી પહોંચવી જોઈએ.',
   'profile.notifications.summaries': 'સાપ્તાહિક ડાયજેસ્ટ',
+  'profile.notifications.summariesHint': 'ગયા અઠવાડિયાની દરેક મીટિંગનો સોમવારનો રીકેપ.',
+  'profile.preferences.speakerColor': 'ડિફૉલ્ટ સ્પીકર રંગ',
   'profile.preferences.subheading': 'તમે જોડાશો તે દરેક રેકોર્ડિંગ પર લાગુ થતા ડિફોલ્ટ.',
   'profile.preferences.timezone': 'સમય ઝોન',
   'profile.preferences.title': 'નોકરીનું શીર્ષક',
@@ -113,17 +144,22 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'તમારા બ્રાઉઝરમાં રેકોર્ડિંગને સપોર્ટ કરતું નથી. Chrome, Edge અથવા Safari અજમાવી જુઓ.',
   'record.error.upload': 'અપલોડ નિષ્ફળ ગયું. ફરી પ્રયાસ કરો.',
+  'record.errorLabel': 'કંઈક ખોટું થયું',
   'record.heading': 'રેકોર્ડ',
   'record.idleLabel': 'રેકોર્ડિંગ શરૂ કરવા માટે ટૅપ કરો',
   'record.processingLabel': 'વ્હિસ્પર સાથે ટ્રાન્સક્રિપ્શન, ક્લાઉડ સાથે સારાંશ...',
+  'record.recordingLabel': 'રેકોર્ડ કરી રહ્યા છીએ…',
   'record.retryCta': 'ફરી પ્રયાસ કરો',
   'record.subheading':
     'શરૂ કરવા માટે માઇક દબાવો. મુર્મર ઑડિઓ કેપ્ચર કરે છે, વ્હિસ્પર દ્વારા ટ્રાન્સક્રાઇબ કરે છે અને ક્લાઉડ-સંચાલિત સારાંશ લખે છે.',
+  'record.titlePlaceholder': 'મીટિંગ શીર્ષક (વૈકલ્પિક)',
+  'reset.altPrompt': 'મન બદલ્યું?',
   'reset.hint': 'અક્ષરો અને સંખ્યાઓના મિશ્રણ સાથે ઓછામાં ઓછા 8 અક્ષરોનો ઉપયોગ કરો.',
   'reset.missingToken':
     'રીસેટ લિંક ખૂટે છે અથવા તેની સમયસીમા સમાપ્ત થઈ ગઈ છે. નવી લિંકની વિનંતી કરો.',
   'reset.newPassword': 'નવો પાસવર્ડ',
   'reset.subheading': 'એવો પાસવર્ડ પસંદ કરો જેનો તમે બીજે ક્યાંય ઉપયોગ ન કરો.',
+  'reset.tooShort': 'પાસવર્ડ ઓછામાં ઓછો 8 અક્ષરોનો હોવો જોઈએ.',
   'search.empty': 'ટ્રાન્સક્રિપ્ટ્સ શોધવા માટે ટાઇપ કરો.',
   'search.loadError': 'શોધ નિષ્ફળ ગઈ. ફરી પ્રયાસ કરો.',
   'search.noResults': '"" માટે કોઈ પરિણામો નથી {{q}} ”.',
@@ -138,7 +174,9 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'ઑડિઓ આટલા માટે રાખો',
   'settings.retention.heading': 'રીટેન્શન',
   'settings.retention.transcript': 'ટ્રાન્સક્રિપ્ટ્સ આ માટે રાખો',
+  'settings.revokeDeviceWarning': 'આ ડિવાઇસની ઍક્સેસ ટૂંક સમયમાં રદ થશે. તેને સાઇન આઉટ કરીએ?',
   'settings.saveError': 'સાચવવામાં નિષ્ફળ.',
+  'settings.security.subheading': 'સાઇન ઇન કરવા માટે વપરાતો પાસવર્ડ અપડેટ કરો.',
   'settings.sharing.exportFormat': 'નિકાસ ફોર્મેટ',
   'settings.sharing.heading': 'શેરિંગ ડિફૉલ્ટ્સ',
   'settings.sharing.scope': 'ડિફૉલ્ટ શેર સ્કોપ',
@@ -155,6 +193,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'સાથીદારને આમંત્રિત કરો',
   'team.invitedAs': 'આ તરીકે આમંત્રિત {{role}}',
   'team.inviteFailed': 'આમંત્રણ મોકલી શકાયું નથી.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'આમંત્રણ મોકલો',
   'team.inviteSubtitle': 'તેમને જોડાવાની લિંક સાથેનો એક ઇમેઇલ પ્રાપ્ત થશે.',
   'team.inviteTitle': 'સાથીદારને આમંત્રણ આપો',

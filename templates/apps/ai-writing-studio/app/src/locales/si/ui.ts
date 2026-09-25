@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ප්‍රතිචාර තිබේද, දෝෂයක් හමු වුණාද, නැතහොත් විශේෂාංගයක් අවශ්‍යද? ඔබේ ගිණුම් සැකසුම් වෙතින් අප හා සම්බන්ධ වන්න — සෑම පණිවිඩයක්ම කණ්ඩායමේ සැබෑ පුද්ගලයෙකුට යයි.',
   'about.contactTitle': 'සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
+  'about.intro':
+    '{{app}} යනු තම ලේඛනය ගැන ගැඹුරින් සැලකිලිමත් වන ලේඛකයන් සඳහා වූ AI ලේඛන ස්ටුඩියෝවකි. එය දිගු-ආකෘති AI ජනනය, නිහඬ සංස්කාරකයක්, SEO ලකුණු කිරීම සහ රූප ජනනය එකට යoking කරයි — එවිට ඔබේ හඬ කිසිදා නොනැසී හිස් පිටුවක සිට ප්‍රකාශිත දක්වා ලේඛනයක් ගෙන යා හැක.',
+  'about.missionBody':
+    'AI ඔබ වෙනුවට නොව, ඔබ අසලින් කෙටුම්පත් කළ යුතු යැයි අපි විශ්වාස කරමු. {{app}} යෝජනා ඔබේම වචනවලින් පැහැදිලිව වෙන් කර තබයි, ඔබ නිර්මාණය කරන සෑම ලේඛනයකම හිමිකරු ඔබම ලෙස තබයි, සහ ලේඛනයට බාධා නොවන ලෙස මෙවලම් ඉවත් කරයි.',
+  'about.missionTitle': 'අපගේ මෙහෙවර',
   'about.pageTitle': '{{app}} පිළිබඳව',
   'aiSuggestionCard.applied': 'යෝජනාව යොදන ලදී',
   'aiSuggestionCard.apply': 'අයදුම් කරන්න',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'ගමනාගමන මූලාශ්‍ර',
   'billing.activePlan': 'දායකත්වය සක්‍රියයි.',
   'billing.aiWordsLabel': 'AI පරම්පරා ඇතුළත් වේ',
+  'billing.cancelFailed': 'දායකත්වය අවලංගු කිරීමට නොහැකි විය.',
   'billing.cancelPlan': 'සැලැස්ම අවලංගු කරන්න',
+  'billing.cancelPlanConfirm': 'අවලංගු කිරීම තහවුරු කරන්නද?',
   'billing.cancelSuccess': 'දායකත්වය අවලංගු කරන ලදී. සැලැස්ම යාවත්කාලීන කිරීමට නැවුම් කරන්න.',
   'billing.changePlan': 'සැලැස්ම වෙනස් කරන්න',
   'billing.col.invoice': 'ඉන්වොයිසිය',
@@ -42,26 +51,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'සැලසුම් බලන්න',
   'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'dashboard.continueWriting': 'ලිවීම දිගටම කරගෙන යන්න',
+  'dashboard.createFirst': 'ලේඛනය සාදන්න',
   'dashboard.days.sat': 'Sat',
   'dashboard.days.sun': 'Sun',
   'dashboard.defaultWriterName': 'ලේඛකයා',
   'dashboard.greeting': 'සුභ උදෑසනක්, {{name}}',
   'dashboard.loadError': 'ඔබගේ උපකරණ පුවරුව පූරණය කිරීමට නොහැකි විය.',
+  'dashboard.loading': 'ඔබේ ස්ටුඩියෝව පූරණය වෙමින්…',
   'dashboard.loadingDocs': 'මෑත ලේඛන පූරණය වෙමින්…',
   'dashboard.noDocuments': 'තවම ලේඛන නැත - ඔබේ පළමු එක ආරම්භ කරන්න.',
   'dashboard.startWriting': 'නව ලේඛනයක් ආරම්භ කරන්න',
+  'dashboard.streakBody': 'ඔබ මෙම සතියේ වචන {{words}} ක් ලියා ඇත.',
   'dashboard.streakTitle': '{{count}} - දින රේඛාව',
+  'dashboard.subgreeting': 'ඔබේ පුස්තකාලයේ ලේඛන {{count}} ක් — ගමන් වේගය රැක ගන්න.',
+  'documentCard.seoScoreTitle': 'SEO ලකුණුව: {{score}}/100',
+  'documents.createNew': 'නව ලේඛනයක් සාදන්න',
   'documents.empty': 'ඔබේ පුස්තකාලය බලා සිටී — ඔබේ පළමු ලේඛනය ආරම්භ කරන්න.',
+  'documents.emptyFiltered': 'ඔබේ පෙරහන් සමඟ ගැළපෙන ලේඛන තවම නැත.',
   'documents.loadError': 'ලේඛන පූරණය කළ නොහැකි විය.',
   'documents.loading': 'ඔබේ පුස්තකාලය පූරණය වෙමින්...',
   'documents.new': 'නව ලේඛනය',
+  'documents.searchAriaLabel': 'ලේඛන සොයන්න',
   'documents.searchPlaceholder': 'ලේඛන සොයන්න...',
   'documents.subtitle': '{{count}} ඔබේ පුස්තකාලයේ ඇති ලේඛන.',
   'documents.title': 'ලේඛන',
   'editor.aiPanelTitle': 'ප්ලූම් බුද්ධිය',
+  'editor.aiSuggestion.empty':
+    'සක්‍රීය පිරිපහදු නැත. දෙවන ඇස් යුගලයක් අවශ්‍ය වූ විට {{appName}} වෙතින් යෝජනාවක් ඉල්ලන්න.',
   'editor.aiSuggestion.failed': 'දැන් යෝජනා පූරණය කළ නොහැකි විය.',
   'editor.aiSuggestion.loadingBody': 'පැහැදිලි බව වැඩි දියුණු කිරීම...',
   'editor.backToDocuments': 'සියලුම ලේඛන',
+  'editor.bodyAriaLabel': 'ලේඛනයේ අන්තර්ගතය',
   'editor.closeAiPanel': 'AI පැනලය වසන්න',
   'editor.createFailed': 'ලේඛනය නිර්මාණය කිරීමට නොහැකි විය.',
   'editor.exported': '{{format}} ලෙස අපනයනය කරන ලදී.',
@@ -77,18 +97,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'ප්‍රශස්තිකරණයක් ඉල්ලන්න',
   'editor.saveBeforePublish': 'ප්‍රකාශනය කිරීමට පෙර ලේඛනය සුරකින්න.',
   'editor.status.chars': '{{count}} චරිත',
+  'editor.status.readTime': '{{minutes}} අවම කියවීම',
   'editor.status.savedAt': 'සුරකින ලදී {{time}}',
   'editor.status.saveError': 'සුරැකීම අසාර්ථක විය.',
+  'editor.status.unsaved': 'තවම සුරකින නැත',
   'editor.titleAriaLabel': 'ලේඛන මාතෘකාව',
   'editor.titlePlaceholder': 'මාතෘකා රහිත ලේඛනය',
   'editor.toggleAiPanel': 'AI පැනලය ටොගල් කරන්න',
   'editor.viewSeo': 'SEO යනු කුමක්ද?',
   'forgotPassword.emailPlaceholder': 'කර්තෘ@example.com',
+  'forgotPassword.sent': '{{email}} ගොනුවේ තිබේ නම්, නැවත සැකසීමේ සබැඳියක් එවමින් පවතී.',
   'imageGenerator.failed': 'රූප උත්පාදනය අසාර්ථක විය.',
   'imageGenerator.generate': 'රූපය ජනනය කරන්න',
   'imageGenerator.generating': 'ජනනය කරමින්...',
   'imageGenerator.placeholder': 'ඔබට ජනනය කිරීමට අවශ්‍ය රූපය විස්තර කරන්න...',
+  'imageGenerator.promptAriaLabel': 'රූප විමසුම',
+  'imageGenerator.subtitle': 'ආවරණ රූපයක් විස්තර කරන්න, AI එය නිරූපණය කරයි.',
   'imageGenerator.title': 'AI රූප උත්පාදක යන්ත්‍රය',
+  'landing.aiSuggestionBody':
+    '42 වන මහලේ බැල්කනියේ සිටගෙන, එලියාස්ට නගරය ඔහුට එරෙහිව තෙරපෙන බව දැනුණි — සුළඟ පරිසරයේ ගුමුව ඉවත් කර දැමූ අතර, දීප්තිමත් ජාලයට ඉහළින් සිසිල්, නිහඬ හිස් අවකාශයක ඔහු එල්ලී සිටියේය.',
   'landing.eyebrow': 'බැරෑරුම් ලේඛකයින් සඳහා AI ලිවීමේ මැදිරිය',
   'landing.featuresHeading': 'මඟ හැරෙන මෙවලම්',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -98,14 +125,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'ඔවුන්ගේ ගද්‍ය, වේගය සහ නිරවද්‍යතාවය ගැන සැලකිලිමත් වන ලේඛකයින් සඳහා නිර්මාණය කරන ලද චිත්‍රාගාරයක්. ඔබ අසල ප්ලූම් කෙටුම්පත් - කිසි විටෙකත් ඔබ වෙනුවට නොවේ.',
   'landing.heroTitle.eloquence': 'වාචාලකම',
+  'landing.heroTitle.intelligence': 'බුද්ධිය හමුවෙයි ',
   'landing.nav.testimonials': 'විචාර',
   'landing.plan.cta': 'මෙම සැලැස්ම සමඟ ආරම්භ කරන්න',
   'landing.plan.popular': 'වඩාත්ම ආදරය කරන ලද',
   'landing.pricingEyebrow': 'මිල ගණන්',
   'landing.pricingHeading': 'ඔබේ පුහුණුවට ගැලපෙන දේ තෝරන්න',
   'landing.sampleDocTitle': 'නිහඬතාවයේ ගෘහ නිර්මාණ ශිල්පය',
+  'landing.sampleParagraph1':
+    'නගරය කිසිදා සැබවින්ම නිහඬ වූයේ නැත. රාත්‍රියේ ගැඹුරුම පැයවල පවා, කොන්ක්‍රීට් අත්තිවාරම් හරහා අඩු ගුමුවක් කම්පනය විය — භූගත දුම්රිය සහ වාතාශ්‍රය උමංවල යාන්ත්‍රික හෘද ස්පන්දනයක්.',
+  'landing.sampleParagraph2.after': ' වීදුරුවට එරෙහිව.',
+  'landing.sampleParagraph2.before': 'නමුත් ',
   'landing.sampleParagraph2.highlight':
     '42 වන මහලේ බැල්කනියේ සිටගෙන සිටියදී, එලියාස්ට ගැඹුරු හුදකලා හැඟීමක් දැනුනි.',
+  'landing.showcaseBody':
+    'වාක්‍යයක් උද්දීපනය කරන්න, {{appName}} පිරිපහදුවක් ඉදිරිපත් කරයි. එය පිළිගන්න, වෙනස් කරන්න, නැතහොත් ඉවත දමන්න. යෝජනා සැමවිටම දම් පැහැයෙන් යුක්ත වන අතර, ඔබ ලියූ දේ සහ ඉදිරිපත් කළ දේ ඔබට පැහැදිලි වේ.',
+  'landing.showcaseHeading': 'දෙවන ඇස් යුගලයක් — කිසිදා දෙවන කතුවරයෙක් නොවේ.',
   'landing.startWriting': 'ලිවීම ආරම්භ කරන්න',
   'login.emailPlaceholder': 'කර්තෘ@example.com',
   'login.failed': 'පුරනය වීම අසාර්ථක විය.',
@@ -120,8 +155,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'උපකරණ පුවරුව විවෘත කරන්න',
   'notFound.title': 'මෙම පරිච්ඡේදය තවම ලියා නැත.',
   'plumeSidebarLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
+  'pricing.maxDocuments': '{{count}} ලේඛන',
+  'pricing.maxGenerate': '{{count}} AI ජනන',
+  'pricing.maxImages': '{{count}} රූප ජනන',
   'privacy.data':
     'ඔබගේ ගිණුමේ විද්‍යුත් තැපෑල සහ හැෂ් මුරපදය. ඔබ නිර්මාණය කරන ලේඛන සහ සැකිලි. බිල්පත් සහ විශ්ලේෂණ සඳහා AI යෝජනා ලොග් (ආදාන + ප්‍රතිදානය). ඉරි සහිත පාරිභෝගික + දායකත්ව හඳුනාගැනීම්; අපි කිසි විටෙකත් සම්පූර්ණ කාඩ්පත් අංක ගබඩා නොකරමු.',
+  'privacy.intro':
+    '{{app}} ක්‍රියාත්මක කිරීමට අවශ්‍ය දත්ත පමණක් අපි රැස් කරමු: ඔබේ විද්‍යුත් තැපෑල, ඔබ සාදන ලේඛන, සහ ඔබ කරන AI ඉල්ලීම්. ඔබේ ලේඛන හෝ ඔබේ විමසුම් අපි කිසිදා විකුණන්නේ නැත.',
   'profile.loadError': 'ඔබගේ පැතිකඩ පූරණය කිරීමට නොහැකි විය.',
   'profile.loading': 'ඔබගේ පැතිකඩ පූරණය වෙමින්...',
   'profile.loadingPublished': 'ප්‍රකාශිත ලේඛන පූරණය වෙමින්…',
@@ -132,7 +172,13 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'නව මුරපදය',
   'seoAnalysis.backToEditor': 'සංස්කාරක වෙත ආපසු',
   'seoAnalysis.eyebrow': 'SEO විශ්ලේෂණය',
+  'seoAnalysis.heroBody':
+    'යෙදිය යුතු {{count}} යෝජනාව(න්). සෑම එකක්ම රතු කොඩි බිත්තියක් නොව, ව්‍යුහාත්මක හෝ මූල පද ඉහළ නැංවීමකි.',
+  'seoAnalysis.heroBodyEmpty':
+    'කියවීමේ පහසුව, මූල පද ඝනත්වය සහ ව්‍යුහය ලකුණු කිරීමට "විශ්ලේෂණය ධාවනය කරන්න" ක්ලික් කරන්න.',
   'seoAnalysis.heroEmpty': 'තවම විශ්ලේෂණයක් නැත. මෙම කෙටුම්පත ලකුණු කිරීමට එකක් ධාවනය කරන්න.',
+  'seoAnalysis.heroNeedsWork': 'සමහර ව්‍යුහාත්මක ඉහළ නැංවීම් ප්‍රවේශය වැඩි කරයි.',
+  'seoAnalysis.heroStrong': 'ශක්තිමත් කෘතියක් — විශිෂ්ටත්වයට කුඩා ඉහළ නැංවීම් කිහිපයක් පමණි.',
   'seoAnalysis.historyEmpty': 'පෙර විශ්ලේෂණ කිසිවක් වාර්තා කර නොමැත.',
   'seoAnalysis.historyTitle': 'විශ්ලේෂණ ඉතිහාසය',
   'seoAnalysis.keywordEmpty':
@@ -159,8 +205,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'ඔබ ලියන ආකාරයට ගැලපෙන පරිදි ප්ලූම් සුසර කරන්න.',
   'settings.toggleIntegrationFailed': 'ඒකාබද්ධ කිරීමේ යාවත්කාලීන කිරීම අසාර්ථක විය.',
   'settings.writing.aiSuggestions': 'ටයිප් කරන අතරතුර AI යෝජනා පේළිගත කරන්න.',
+  'settings.writing.aiSuggestionsBody':
+    'ඔබ ලියන විට පිරිපහදු පෙන්වයි. යෝජනා සැමවිටම වාක්‍යයකට වරම් ලබා ගැනීම මත ය.',
   'settings.writing.autoSave': 'තත්පර 30 කට වරක් ස්වයංක්‍රීයව සුරකින්න',
+  'settings.writing.autoSaveBody':
+    '{{appName}} ඔබේ කෙටුම්පතේ ඡායාරූපයක් තබා ගනී, එවිට ඕනෑම ටැබයකින් ඔබට යථා තත්ත්වයට පත් විය හැක.',
   'settings.writing.notifyEmail': 'සතිපතා ලිවීමේ සාරාංශ මට ඊමේල් කරන්න.',
+  'settings.writing.notifyEmailBody':
+    'අඛණ්ඩ පැවැත්ම, කෙටුම්පත් සහ SEO වැඩිදියුණු කිරීම් පිළිබඳ කෙටි ඉරිදා සාරාංශයක්.',
   'settings.writing.title': 'ලිවීමේ මනාපයන්',
   'settings.writing.tone': 'පෙරනිමි නාද පෙර සැකසුම',
   'signup.emailPlaceholder': 'කර්තෘ@example.com',
@@ -172,8 +224,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'විස්තරයක් සපයා නැත.',
   'templates.subtitle':
     'සටනින් පරීක්ෂා කරන ලද කතුවැකි රාමුවකින් ආරම්භ කරන්න, පසුව එය ඔබේම කර ගන්න.',
+  'terms.intro':
+    'මෙම නියමයන් {{app}} භාවිතය පාලනය කරයි. ගිණුමක් සාදා ගැනීමෙන් ඔබ නීත්‍යානුකූල ලේඛනය සඳහා සේවාව භාවිත කිරීමට සහ ඔබේ ගිණුම් අක්තපත්‍ර රහස්‍යව තබා ගැනීමට එකඟ වේ.',
   'terms.license':
     'ඔබ නිර්මාණය කරන සෑම ලේඛනයකම, සැකිල්ලකම සහ AI උත්පාදනයකම හිමිකාරිත්වය ඔබ රඳවා ගනී. ඔබේ කාර්යය සත්කාරකත්වය සැපයීමට සහ ඔබ වෙත ආපසු ලබා දීමට සහ ඔබ තෝරා ගන්නා බන්ධිත සැපයුම්කරුවන් හරහා AI ඉල්ලීම් සැකසීමට අපට සුවිශේෂී නොවන බලපත්‍රයක් අවශ්‍ය වේ.',
   'writingStreakHeroCard.change': '{{sign}} {{amount}} වචන',
   'writingStreakHeroCard.greeting': 'සුබ දිනක්, {{name}}',
+  'writingStreakHeroCard.subtitle': 'මෙම සතියේ ලියූ වචන — {{count}}-දින අඛණ්ඩ පැවැත්ම',
+  'writingStreakHeroCard.tagline': 'දිනකට පිටුවක් මියුස් සක්‍රීයව තබයි.',
 }

@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Туралы',
+  'about.featureAlerts':
+    'Маңызды шарттар бойынша баға ескертулері электрондық пошта және push арқылы жіберіледі, сондықтан ешқашан өзгерісті өткізіп алмайсыз.',
+  'about.featureMarkets':
+    'Мыңдаған монета бойынша нарықтың тікелей деректері мен баға графиктері, нарықтық капитал, көлем және серпін бойынша реттелген.',
+  'about.featurePortfolio':
+    'Нақты пайда мен шығын, шығын негізі және бөлуді ескеретін портфельді бақылау — транзакция тарихыңызбен байланысқан.',
+  'about.featureWatchlist':
+    'Жеке бақылау тізімі және сіз бақылайтын активтер туралы сигналдары бар таңдамалы крипто жаңалықтары.',
+  'about.missionTitle': 'Біздің миссиямыз',
+  'alertConditionCard.armedSince': '{{when}} бері қарулы',
   'alertConditionCard.condition.${alert.condition}': 'Іске қосылған {{қашан}}',
   'alertConditionCard.confirmDelete': 'Жоюды растау',
+  'alertConditionCard.deleteAriaLabel': 'Ескертуді жою',
   'alertConditionCard.pauseAriaLabel': 'Дабыл кідірту',
   'alertConditionCard.resumeAriaLabel': 'Жалғастыру туралы ескерту',
+  'alertConditionCard.triggeredAt': '{{when}} іске қосылды',
   'alertNew.condition': 'Жағдай',
   'alertNew.createCta': 'Ескерту жасау',
   'alertNew.error': 'Ескерту жасалмады.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Әлі ешқандай ескертулер жоқ.',
   'alerts.eyebrow': 'Сигил трипсвайрлары',
   'alerts.loadError': 'Ескертулер жүктелмеді.',
+  'alerts.newCta': '+ Жаңа тұзақ',
   'alerts.subheading':
     'Баға, өзгеріс немесе көлем сіздің шегіңізден асып кеткенде, пинг туралы хабарлама алыңыз.',
   'alerts.summary.armed': 'Қарулы',
@@ -24,6 +38,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Барлық уақыттағы ең жоғары көрсеткіш',
   'coinDetail.allTimeLow': 'Барлық уақыттағы ең төменгі көрсеткіш',
   'coinDetail.back': 'Барлық нарықтар',
+  'coinDetail.chartAriaLabel': '{{name}} баға графигі, соңғы 30 күн',
   'coinDetail.chartHeading': 'Бағасы · соңғы 30 күн',
   'coinDetail.circulating': 'Айналымдағы қоректендіру',
   'coinDetail.fdv': 'Толық сұйылтылған бағалау',
@@ -60,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Сыммен байланысты қалпына келтіру.',
   'login.eyebrow': 'Терминалға кіріңіз',
   'login.heading': 'Қош келдіңіз, сигнал беруші.',
+  'login.noAccountQuestion': 'Тессерамен жаңа таныстыңыз ба?',
   'login.secureNote': '🔒 Тасымалдау кезінде шифрланған',
   'login.signingInCta': 'Таспаны оқып жатыр...',
   'login.signupLink': 'Есептік жазба ашу →',
@@ -94,6 +110,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Сіз сканерлеген бағыт белгілі монета немесе бетке сәйкес келмейді. Таңбаны қайта тексеріп, қайталап көріңіз.',
   'notFound.browseMarkets': 'Нарықтарды шолу',
+  'notFound.eyebrow': '{{appName}} сигналы жоғалды',
+  'notFound.heading': 'Бұл сигнал ауқымнан тыс',
+  'planUpdated.body':
+    'Төлем өзгерісіңіз енді белсенді. Жоспарыңызды төлем бетінен кез келген уақытта басқара аласыз.',
+  'planUpdated.retry': 'Қайталап көріңіз',
+  'planUpdated.verifyFailed': 'Төлеміңізді әзірге растай алмадық.',
+  'planUpdated.verifyFailedBody':
+    'Төлеміңіз әлі өңделуде болуы мүмкін. Біраздан кейін қайталап көріңіз.',
   'planUpdated.verifying': 'Төлеміңіз расталуда…',
   'portfolio.addError': 'Таңбаны, оң соманы және құнын енгізіңіз.',
   'portfolio.addHoldingCta': '+ Холдингті қосу',
@@ -117,12 +141,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Портфолионың жалпы құны',
   'portfolioHeroCard.totalPnl': 'Жалпы пайда/л',
   'pricing.heading': 'ескертулер',
+  'pricing.limit.alerts': 'ескертулер',
   'pricing.limit.coins': 'тиындар',
   'pricing.limit.market': 'нарық',
   'pricing.limit.portfolio': 'портфолио',
   'resetPassword.eyebrow': 'Жаңа шифр',
   'resetPassword.missingToken':
     'Бұл қалпына келтіру сілтемесі жоқ немесе жарамсыз. Жаңасын сұраңыз.',
+  'resetPassword.passwordPlaceholder': 'Жаңа құпия сөз',
   'resetPassword.subheading': 'Тек өзіңіз декодтай алатын нәрсені таңдаңыз.',
   'settings.apiKeys.body':
     'Транзакция тарихын импорттауға арналған тек оқуға арналған пернелер. Жазылғаннан кейін /pricing арқылы OAuth арқылы қосылыңыз.',
@@ -134,18 +160,34 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Баға белгілеу валютасы',
   'settings.preferences.locale': 'Жергілікті тіл',
   'settings.preferences.push': 'Басыңыз',
+  'settings.preferences.refresh': 'Бағаны жаңарту (секунд)',
   'settings.preferences.sms': 'қысқаша хабар қызметі',
+  'settings.revokeDeviceWarning':
+    'Бұл құрылғының кіруі жақын арада қайтарып алынады. Оны шығаруға келісесіз бе?',
   'settings.security.body':
     'Құпия сөз және екі факторлы параметрлер сіздің тіркелгіңізбен басқарылады.',
   'settings.signOutDevice': 'Шығу',
   'settings.twoFactorCode': 'Аутентификация коды',
   'settings.twoFactorDisable': 'Өшіру',
+  'settings.twoFactorDisableTitle': 'Екі факторлы аутентификацияны өшіру',
   'settings.twoFactorEnable': 'Қосу',
+  'settings.twoFactorEnableTitle': 'Екі факторлы аутентификацияны қосу',
   'settings.twoFactorInvalidCode': 'Жарамсыз код',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Екі факторлы QR коды',
+  'settings.twoFactorScan':
+    'Осы QR кодын аутентификатор қолданбасымен сканерлеңіз, содан кейін 6 таңбалы кодты енгізіңіз.',
+  'settings.twoFactorUnavailable': 'Бұл қолданба үшін екі факторлы аутентификация қолжетімді емес.',
   'settings.twoFactorVerify': 'Тексеру және қосу',
   'sigilAuthShell.backHomeCta': '← Сигилге оралу',
+  'sigilAuthShell.brandBody':
+    'Нақты уақыттағы бағалар, портфельдің пайда/шығыны және маңызды шарттар бойынша тұрақты күзеттер — барлығы бір терминалда.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — Molecule негізінде жасалған',
+  'sigilAuthShell.brandHeadline': 'Бүкіл тізілімдегі әрбір сигналды шешіп оқыңыз.',
+  'sigilAuthShell.samplePortfolio': 'Үлгі портфель',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Негізгі навигация',
+  'signup.creating': 'Терминалыңыз ашылуда…',
   'signup.eyebrow': 'Терминалды ашу',
   'signup.heading': 'Сигліңізді жасаңыз',
   'signup.subheading': 'Әрбір тиынды бақылаңыз, әрбір қателіктен сақтаныңыз. Бастау тегін.',
@@ -162,6 +204,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Транзакцияларды жүктеу сәтсіз аяқталды.',
   'watchlist.addCta': 'Нарықтарды шолу',
   'watchlist.col.change24h': '24 сағат',
+  'watchlist.col.coin': 'Монета',
   'watchlist.col.marketCap': 'Mkt қақпағы',
   'watchlist.empty':
     'Бақылау тізіміңізде монеталар жоқ — оларды қосу үшін /markets сайтынан монеталарды жұлдызшамен белгілеңіз.',

@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ceisteanna, aiseolas nó iarratas ar ghné? Déan teagmháil le foireann {{app}} ó Socruithe → Fógraí, nó scríobh chugainn am ar bith — téann gach teachtaireacht chuig duine daonna.',
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
+  'about.featureCapture':
+    'Gabháil admhálacha le híoslódáil grianghraf a cheanglaíonn íomhánna leis an gcostas ceart, líne ar líne.',
+  'about.featureExport':
+    "Easpórtálacha CSV ininiúchta de gach tuarascáil, costas agus staid cheadaithe — réidh do d'fhoireann chuntasaíochta.",
+  'about.featurePolicy':
+    'Ráillí beartais — uasteorainneacha laethúla, teorainneacha de réir catagóire, agus tairseacha a éilíonn admháil curtha i bhfeidhm tráth an aighniú.',
+  'about.featureWorkflow':
+    'Sreabhadh ceadaithe dhá shraith le nótaí ó athbhreithneoirí, bratacha sáraithe beartais, agus marcáil aisíocaíochta le haon chliceáil.',
+  'about.intro':
+    "Is ardán bainistíochta costas é {{app}} d'fhoirne airgeadais agus do na daoine a n-aisíoctar iad. Gabh admháil, comhdaigh costas, seol tuarascáil tríd an gceadú, agus rianaigh gach aisíocaíocht — gan an tsearmanas scarbhileoige.",
+  'about.missionBody':
+    'Ba cheart aisíocaíocht a bheith tapa, cothrom agus ininiúchta. Thógamar {{app}} ionas go n-aisíoctar na haighneoirí gan a bheith ag crá, go bhfeiceann ceadaitheoirí go beacht cad atá á cheadú acu, agus go bhfuil rian glan ag an airgeadas ar gach dollar — seiceálacha beartais agus achan rud eile.',
+  'about.missionTitle': 'Ár misean',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Ag ceadú…',
   'approvals.confirmReject': 'Deimhnigh diúltú',
+  'approvals.empty': 'Tá tú go hiomlán cothrom le dáta — níl aon tuarascáil ag fanacht.',
   'approvals.eyebrow': 'Scuaine an bhainisteora',
   'approvals.kpi.flaggedLabel': 'Polasaí brataithe',
+  'approvals.kpi.queueLabel': 'Ag fanacht le hathbhreithniú',
   'approvals.kpi.totalLabel': 'Luach ar feitheamh',
   'approvals.lineCount': '{{count}} costais',
   'approvals.queueFallback':
     'Níl an scuaine bheo ar fáil — ag taispeáint sonraí taispeána coimeádta.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Ag diúltú…',
+  'approvals.rejectPlaceholder': 'Cúis (riachtanach)',
   'approvals.rejectPrompt': 'Cén fáth a bhfuil tú ag diúltú don tuarascáil seo?',
   'approvals.review': 'Athbhreithniú',
   'approvals.title': 'Ceaduithe ar feitheamh',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Ceadaithe · MTD',
   'dashboard.kpi.pendingDelta': '+2 an tseachtain seo',
+  'dashboard.kpi.pendingLabel': 'Athbhreithniú ar feitheamh',
   'dashboard.kpi.receiptsDelta': 'Gníomh riachtanach',
   'dashboard.kpi.receiptsLabel': 'Ag fanacht le hadmhálacha',
   'dashboard.kpi.reimbursedDelta': '+$2.4k',
   'dashboard.kpi.reimbursedLabel': 'Aisíocadh · MTD',
   'dashboard.newReport': 'Tuarascáil nua',
+  'dashboard.recent.empty': 'Níl aon tuarascáil ann fós — cuir tús le do chéad cheann thuas.',
   'dashboard.recent.title': 'Tuairiscí le déanaí',
   'dashboard.recent.viewAll': 'Féach ar na tuarascálacha uile',
   'dashboard.summaryFallback': 'Achoimre bheo ar fáil — ag taispeáint sonraí taispeána coimeádta.',
@@ -39,11 +60,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'Admhálacha agus míreanna inaisíoctha',
   'expenses.listFallback': 'Liosta beo ar fáil — ag taispeáint sonraí taispeána coimeádta.',
   'expenses.searchPlaceholder': 'Cuardaigh ceannaí nó catagóir…',
+  'expenses.subtotal': '{{count}} costas · fo-iomlán',
   'expenses.title': 'Costais',
+  'forgotPassword.continue': 'Tá cód agam · Lean ar aghaidh',
+  'forgotPassword.subheading':
+    'Cuir isteach do ríomhphost oibre agus seolfaimid nasc chun pasfhocal nua a shocrú.',
   'forgotPassword.successBody':
     'Má tá cuntas ann do {{email}} Gheobhaidh tú nasc athshocraithe sna cúpla nóiméad amach romhainn.',
+  'landing.copyright': '© {{year}} {{app}}. Tógtha le Molecule.dev.',
+  'landing.ctaBody':
+    'Saor in aisce don chéad 25 chostas gach mí. Gan cárta creidmheasa, gan glao cur i bhfeidhm.',
   'landing.ctaHeading': 'Réidh chun an méid atá dlite do do fhoireann a aisghabháil?',
   'landing.eyebrow': 'Tuairiscí caiteachais do fhoirne airgeadais',
+  'landing.featuresHeading': 'Aisíocaíocht, in aon spás oibre suaimhneach amháin',
   'landing.heroSubtitle':
     'Cuir isteach, ceadaigh agus aisíoc costais ghnó gan an searmanas scarbhileog. Admhálacha OCR, seiceálacha beartais, agus amlíne formheasa trédhearcach — iad uile in aon spás oibre amháin.',
   'landing.heroTitle': 'Gach admháil, aisghafa.',
@@ -61,10 +90,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Nótaí',
   'newExpense.descriptionPlaceholder':
     'Cén fáth a raibh an costas seo bainteach le gnó (le feiceáil ag do cheadaitheoir).',
+  'newExpense.eyebrow': 'Mír aisíoctha',
   'newExpense.merchant': 'Ceannaí',
   'newExpense.merchantPlaceholder': 'Óstán Adlon Kempinski',
   'newExpense.policyHint':
     'Meabhrúchán: ní mór nóta réasúnaithe a bheith ag gabháil le béilí os cionn $80/lá nó le haon mhír os cionn $250.',
+  'newExpense.receipt': 'Admháil',
+  'newExpense.receiptHint': 'JPG, PNG nó PDF · 10 MB ar a mhéad',
   'newExpense.receiptOcrHint': 'Réimsí réamhlíonta ag OCR',
   'newExpense.receiptPrompt': 'Fág grianghraf nó PDF anseo, nó cliceáil chun brabhsáil',
   'newExpense.receiptUploadFailed':
@@ -75,17 +107,21 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Tóg nó uaslódáil admháil agus réamhlíonfaidh Recoup an ceannaí, an dáta agus an t-iomlán. Deimhnigh gach rud thíos sula sábhálann tú.',
   'newExpense.title': 'Cuir costas leis',
+  'newReport.approverHint':
+    'Gheobhaidh siad ríomhphost nuair a sheolann tú an tuarascáil seo le hathbhreithniú.',
   'newReport.approverLabel': 'Ríomhphost an cheadaitheora (roghnach)',
   'newReport.approverPlaceholder': 'bainisteoir@dochuideachta.com',
   'newReport.availableExpenses': 'Costais atá ar fáil',
   'newReport.createFailed': 'Níorbh fhéidir tuarascáil a chruthú. Déan iarracht arís.',
   'newReport.draftsFallback':
     'Liosta costas beo ar fáil — ag taispeáint sonraí taispeána coimeádta.',
+  'newReport.eyebrow': 'Grúpáil costais · seol le ceadú',
   'newReport.includedCount': '{{count}} san áireamh',
   'newReport.purposeLabel': 'Cuspóir gnó',
   'newReport.purposePlaceholder':
     'Déan cur síos ar an turas nó ar an tionscadal a bhaineann na costais seo leis (le feiceáil ag do cheadaitheoir agus airgeadais).',
   'newReport.saveDraft': 'Sábháil mar dhréacht',
+  'newReport.saveDraftFailed': 'Níorbh fhéidir an dréacht a shábháil. Bain triail eile as.',
   'newReport.submit': 'Cuir isteach lena cheadú',
   'newReport.submitFailed': 'Níorbh fhéidir an tuarascáil a chur isteach. Déan iarracht arís.',
   'newReport.summary': 'Achoimre ar an tuarascáil',
@@ -99,16 +135,23 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Níl an fotha beo ar fáil — ag taispeáint sonraí taispeána coimeádta.',
   'notifications.openReport': 'Oscail an tuarascáil ›',
+  'pricing.approvalsLabel': 'ceaduithe',
   'pricing.expensesLabel': 'costais',
   'pricing.heading': 'ceaduithe',
   'pricing.policiesLabel': 'beartais',
   'pricing.receiptsLabel': 'admhálacha',
   'recoveredAmountHeroCard.label': 'Aisíocaíocht aisghafa · Go dtí seo',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} tuarascáil atá ag fanacht le hathbhreithniú faoi láthair i measc na gceadaitheoirí uile.',
+  'reports.approvalFlow': 'Sreabhadh ceadaithe',
   'reports.backToList': 'Ar ais chuig na tuarascálacha',
   'reports.detailFallback': 'Tuarascáil bheo ar fáil — ag taispeáint sonraí taispeána coimeádta.',
   'reports.lineItems': 'Míreanna líne',
   'reports.lineItemsCount': '{{count}} costais',
+  'reports.lineItemsEmpty': 'Níl aon chostas ar an tuarascáil seo fós.',
+  'reports.openLibrary': 'Oscail leabharlann na dtuarascálacha',
   'reports.policyTitle': 'Bratach beartais',
+  'reports.selectPrompt': 'Roghnaigh tuarascáil ón leabharlann chun a sonraí a fheiceáil.',
   'reports.summary.lineCount': 'Míreanna líne',
   'reports.summary.reimbursable': 'Inaisíoctha',
   'reports.summary.total': 'Iomlán tuairiscithe',
@@ -117,6 +160,7 @@ export const ui: UiTranslations = {
   'reportsList.lineItems': '{{count}} costais',
   'reportsList.listFallback': 'Liosta beo ar fáil — ag taispeáint sonraí taispeána coimeádta.',
   'reportsList.newReport': 'Tuarascáil nua',
+  'reportsList.submittedOn': 'Curtha isteach {{date}}',
   'reportsList.title': 'Leabharlann tuairiscí',
   'resetPassword.hidePassword': 'Folaigh an focal faire',
   'resetPassword.newPasswordLabel': 'Pasfhocal nua',
@@ -142,6 +186,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Sábháilte ✓',
   'settings.profileSaveFailed': 'Níorbh fhéidir an phróifíl a nuashonrú. Déan iarracht arís.',
   'signup.heading': 'Cruthaigh do chuntas Aisghabhála',
+  'signup.hidePassword': 'Folaigh an focal faire',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Taispeáin an focal faire',
   'signup.subheading': 'Saor in aisce le haghaidh 25 costas gach mí — gan cárta creidmheasa.',

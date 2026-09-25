@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'about.featureAlerts':
+    'Mga alerto sa presyo sa mga kondisyong mahalaga, ipinapadala sa email at push para hindi ka makaligtaan ng galaw.',
+  'about.featureMarkets':
+    'Live na data ng merkado at mga chart ng presyo sa libu-libong coin, niraranggo ayon sa market cap, volume, at momentum.',
+  'about.featurePortfolio':
+    'Pagsubaybay sa portfolio na may tunay na tubo-at-pagkalugi, cost basis, at alokasyon — konektado sa iyong kasaysayan ng transaksyon.',
+  'about.featureWatchlist':
+    'Personal na watchlist at piniling balita sa crypto na may mga senyales sa mga asset na sinusubaybayan mo.',
+  'about.missionTitle': 'Ang aming misyon',
+  'alertConditionCard.armedSince': 'Nakabantay mula {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'Na-trigger {{nang}}',
   'alertConditionCard.confirmDelete': 'Kumpirmahin ang pagbura',
+  'alertConditionCard.deleteAriaLabel': 'Burahin ang alerto',
   'alertConditionCard.pauseAriaLabel': 'I-pause ang alerto',
   'alertConditionCard.resumeAriaLabel': 'Alerto sa resume',
+  'alertConditionCard.triggeredAt': 'Na-trigger {{when}}',
   'alertNew.condition': 'Kundisyon',
   'alertNew.createCta': 'Gumawa ng alerto',
   'alertNew.error': 'Hindi makagawa ng alerto.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Wala pang mga alerto.',
   'alerts.eyebrow': 'Mga tripwire ng Bourse',
   'alerts.loadError': 'Nabigong i-load ang mga alerto.',
+  'alerts.newCta': '+ Bagong tripwire',
   'alerts.subheading':
     'Makatanggap ng ping kapag ang presyo, pagbabago, o volume ay lumampas sa iyong limitasyon.',
   'alerts.summary.armed': 'Armado',
@@ -24,6 +38,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Pinakamataas sa lahat ng panahon',
   'coinDetail.allTimeLow': 'Pinakamababa sa lahat ng panahon',
   'coinDetail.back': 'Lahat ng merkado',
+  'coinDetail.chartAriaLabel': '{{name}} chart ng presyo, huling 30 araw',
   'coinDetail.chartHeading': 'Presyo · huling 30 araw',
   'coinDetail.circulating': 'Nagpapalipat-lipat na suplay',
   'coinDetail.fdv': 'Ganap na diluted na pagpapahalaga',
@@ -60,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'I-reset ang link na naka-wire.',
   'login.eyebrow': 'Pumasok sa terminal',
   'login.heading': 'Maligayang pagbabalik, tagapagsenyas.',
+  'login.noAccountQuestion': 'Bago sa Tessera?',
   'login.secureNote': '🔒 Naka-encrypt habang dinadala',
   'login.signingInCta': 'Binabasa ang teyp…',
   'login.signupLink': 'Magbukas ng account →',
@@ -94,6 +110,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Ang rutang iyong na-scan ay hindi nagpapakita ng isang kilalang barya o pahina. Suriin muli ang simbolo at subukang muli.',
   'notFound.browseMarkets': 'Mag-browse ng mga merkado',
+  'notFound.eyebrow': 'Nawala ang senyales ng {{appName}}',
+  'notFound.heading': 'Wala na sa saklaw ang senyales na ito',
+  'planUpdated.body':
+    'Aktibo na ang pagbabago sa iyong billing. Maaari mong pamahalaan ang iyong plano anumang oras mula sa billing page.',
+  'planUpdated.retry': 'Subukan muli',
+  'planUpdated.verifyFailed': 'Hindi pa namin makumpirma ang iyong bayad.',
+  'planUpdated.verifyFailedBody':
+    'Maaaring pinoproseso pa rin ang iyong bayad. Subukan muli maya-maya.',
   'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'portfolio.addError': 'Ilagay ang simbolo, positibong halaga, at gastos.',
   'portfolio.addHoldingCta': '+ Magdagdag ng hawak',
@@ -117,12 +141,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Kabuuang halaga ng portfolio',
   'portfolioHeroCard.totalPnl': 'Kabuuang P/L',
   'pricing.heading': 'mga alerto',
+  'pricing.limit.alerts': 'mga alerto',
   'pricing.limit.coins': 'mga barya',
   'pricing.limit.market': 'pamilihan',
   'pricing.limit.portfolio': 'portfolio',
   'resetPassword.eyebrow': 'Bagong cipher',
   'resetPassword.missingToken':
     'Nawawala o hindi wasto ang link na ito para sa pag-reset. Humingi ng bago.',
+  'resetPassword.passwordPlaceholder': 'Bagong password',
   'resetPassword.subheading': 'Pumili ng isang bagay na ikaw lang ang makakapag-decode.',
   'settings.apiKeys.body':
     'Mga read-only key para mag-import ng history ng transaksyon. Kumonekta sa pamamagitan ng OAuth mula sa /pricing kapag nakapag-subscribe na.',
@@ -134,18 +160,35 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Pera ng quote',
   'settings.preferences.locale': 'Locale',
   'settings.preferences.push': 'Itulak',
+  'settings.preferences.refresh': 'Pag-refresh ng presyo (segundo)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning':
+    'Mababawi ang access ng device na ito sa ilang sandali. I-sign out ito?',
   'settings.security.body':
     'Ang password at mga two-factor setting ay pinamamahalaan ng iyong account.',
   'settings.signOutDevice': 'Mag-sign out',
   'settings.twoFactorCode': 'Kodigo ng pagpapatunay',
   'settings.twoFactorDisable': 'I-disable',
+  'settings.twoFactorDisableTitle': 'I-disable ang two-factor authentication',
   'settings.twoFactorEnable': 'I-enable',
+  'settings.twoFactorEnableTitle': 'I-enable ang two-factor authentication',
   'settings.twoFactorInvalidCode': 'Hindi wastong code',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Two-factor QR code',
+  'settings.twoFactorScan':
+    'I-scan ang QR code na ito gamit ang iyong authenticator app, pagkatapos ay ilagay ang 6-digit na code.',
+  'settings.twoFactorUnavailable':
+    'Hindi available ang two-factor authentication para sa app na ito.',
   'settings.twoFactorVerify': 'I-verify at paganahin',
   'sigilAuthShell.backHomeCta': '← Balik sa Bourse',
+  'sigilAuthShell.brandBody':
+    'Realtime na presyo, portfolio P/L, at mga nakatayong bantay sa mga kondisyong mahalaga — lahat sa isang terminal.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — built on Molecule',
+  'sigilAuthShell.brandHeadline': 'I-decode ang bawat senyales sa buong ledger.',
+  'sigilAuthShell.samplePortfolio': 'Halimbawang portfolio',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Pangunahing navigation',
+  'signup.creating': 'Binubuksan ang iyong terminal…',
   'signup.eyebrow': 'Magbukas ng terminal',
   'signup.heading': 'Gumawa ng iyong Bourse',
   'signup.subheading':
@@ -163,6 +206,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Nabigo sa pag-load ng mga transaksyon.',
   'watchlist.addCta': 'Mag-browse ng mga merkado',
   'watchlist.col.change24h': '24 oras',
+  'watchlist.col.coin': 'Barya',
   'watchlist.col.marketCap': 'Takong ng Mkt',
   'watchlist.empty':
     'Walang mga barya sa iyong watchlist — lagyan ng star ang mga barya mula sa /markets para idagdag ang mga ito.',

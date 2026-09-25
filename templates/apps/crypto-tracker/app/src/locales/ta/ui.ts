@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.featureAlerts':
+    'முக்கியமான நிபந்தனைகளுக்கான விலை எச்சரிக்கைகள், மின்னஞ்சல் மற்றும் புஷ் மூலம் அனுப்பப்படும், எனவே ஒரு நகர்வையும் தவறவிட மாட்டீர்கள்.',
+  'about.featureMarkets':
+    'நேரடி சந்தை தரவு மற்றும் விலை வரைபடங்கள் ஆயிரக்கணக்கான நாணயங்களுக்கு, சந்தை மூலதனம், அளவு மற்றும் வேகத்தால் தரவரிசைப்படுத்தப்பட்டது.',
+  'about.featurePortfolio':
+    'உண்மையான லாபம்-நஷ்டம், செலவு அடிப்படை மற்றும் ஒதுக்கீட்டுடன் கூடிய போர்ட்ஃபோலியோ கண்காணிப்பு — உங்கள் பரிவர்த்தனை வரலாற்றுடன் இணைக்கப்பட்டது.',
+  'about.featureWatchlist':
+    'ஒரு தனிப்பட்ட கண்காணிப்பு பட்டியல் மற்றும் நீங்கள் பின்தொடரும் சொத்துகள் பற்றிய சமிக்ஞைகளுடன் தொகுக்கப்பட்ட கிரிப்டோ செய்திகள்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
+  'alertConditionCard.armedSince': '{{when}} முதல் ஆயுதம் ஏந்தியது',
   'alertConditionCard.condition.${alert.condition}': 'தூண்டப்பட்டது {{எப்போது}}',
   'alertConditionCard.confirmDelete': 'நீக்குவதை உறுதிப்படுத்துக',
+  'alertConditionCard.deleteAriaLabel': 'எச்சரிக்கையை நீக்கு',
   'alertConditionCard.pauseAriaLabel': 'இடைநிறுத்த எச்சரிக்கை',
   'alertConditionCard.resumeAriaLabel': 'மீண்டும் தொடங்குவதற்கான அறிவிப்பு',
+  'alertConditionCard.triggeredAt': '{{when}} தூண்டப்பட்டது',
   'alertNew.condition': 'நிபந்தனை',
   'alertNew.createCta': 'எச்சரிக்கையை உருவாக்கு',
   'alertNew.error': 'எச்சரிக்கையை உருவாக்க முடியவில்லை.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'இன்னும் எச்சரிக்கைகள் எதுவும் வரவில்லை.',
   'alerts.eyebrow': 'சிகில் ட்ரிப்வயர்ஸ்',
   'alerts.loadError': 'எச்சரிக்கைகளை ஏற்ற முடியவில்லை.',
+  'alerts.newCta': '+ புதிய டிரிப்வயர்',
   'alerts.subheading':
     'விலை, மாற்றம் அல்லது வர்த்தக அளவு உங்கள் எல்லையைத் தாண்டும்போது உங்களுக்கு அறிவிப்பு வரும்.',
   'alerts.summary.armed': 'ஆயுதம் ஏந்திய',
@@ -24,6 +38,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'எல்லாக் காலத்திலும் இல்லாத உச்சம்',
   'coinDetail.allTimeLow': 'எல்லாக் குறைந்த',
   'coinDetail.back': 'அனைத்து சந்தைகளும்',
+  'coinDetail.chartAriaLabel': '{{name}} விலை வரைபடம், கடந்த 30 நாட்கள்',
   'coinDetail.chartHeading': 'விலை · கடந்த 30 நாட்கள்',
   'coinDetail.circulating': 'புழக்கத்தில் உள்ள விநியோகம்',
   'coinDetail.fdv': 'முழுமையாக நீர்த்த மதிப்பீடு',
@@ -60,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'கம்பிவழி இணைப்பை மீட்டமைக்கவும்.',
   'login.eyebrow': 'முனையத்திற்குள் நுழையுங்கள்',
   'login.heading': 'மீண்டும் வருக, சிக்னலர்.',
+  'login.noAccountQuestion': 'டெஸ்ஸெராவுக்குப் புதியவரா?',
   'login.secureNote': '🔒 பரிமாற்றத்தின் போது குறியாக்கம் செய்யப்பட்டது',
   'login.signingInCta': 'அந்த டேப்பைப் படிக்கும்போது…',
   'login.signupLink': 'கணக்கைத் திறக்கவும் →',
@@ -96,6 +112,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'நீங்கள் ஸ்கேன் செய்த வழித்தடம், அறியப்பட்ட நாணயம் அல்லது பக்கத்தைக் காட்டவில்லை. குறியீட்டை மீண்டும் சரிபார்த்து, மறுபடியும் முயற்சிக்கவும்.',
   'notFound.browseMarkets': 'சந்தைகளை உலாவுக',
+  'notFound.eyebrow': '{{appName}} சமிக்ஞை இழக்கப்பட்டது',
+  'notFound.heading': 'இந்த சமிக்ஞை வரம்பிற்கு வெளியே உள்ளது',
+  'planUpdated.body':
+    'உங்கள் பில்லிங் மாற்றம் இப்போது செயலில் உள்ளது. பில்லிங் பக்கத்திலிருந்து எப்போது வேண்டுமானாலும் உங்கள் திட்டத்தை நிர்வகிக்கலாம்.',
+  'planUpdated.retry': 'மீண்டும் முயற்சிக்கவும்',
+  'planUpdated.verifyFailed': 'உங்கள் கட்டணத்தை எங்களால் இன்னும் உறுதிப்படுத்த முடியவில்லை.',
+  'planUpdated.verifyFailedBody':
+    'உங்கள் கட்டணம் இன்னும் செயலாக்கத்தில் இருக்கலாம். சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.',
   'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'portfolio.addError': 'குறியீடு, நேர்மறைத் தொகை மற்றும் விலையை உள்ளிடவும்.',
   'portfolio.addHoldingCta': '+ வைத்திருப்பதைச் சேர்க்கவும்',
@@ -119,12 +143,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'மொத்த போர்ட்ஃபோலியோ மதிப்பு',
   'portfolioHeroCard.totalPnl': 'மொத்த லாபம்/நஷ்டம்',
   'pricing.heading': 'எச்சரிக்கைகள்',
+  'pricing.limit.alerts': 'எச்சரிக்கைகள்',
   'pricing.limit.coins': 'நாணயங்கள்',
   'pricing.limit.market': 'சந்தை',
   'pricing.limit.portfolio': 'போர்ட்ஃபோலியோ',
   'resetPassword.eyebrow': 'புதிய குறியீடு',
   'resetPassword.missingToken':
     'இந்த மீட்டமைப்பு இணைப்பு காணவில்லை அல்லது செல்லாததாக உள்ளது. புதிய இணைப்பைக் கோரவும்.',
+  'resetPassword.passwordPlaceholder': 'புதிய கடவுச்சொல்',
   'resetPassword.subheading': 'உங்களால் மட்டுமே புரிந்துகொள்ளக்கூடிய ஒன்றைத் தேர்ந்தெடுங்கள்.',
   'settings.apiKeys.body':
     'பரிவர்த்தனை வரலாற்றை இறக்குமதி செய்வதற்கான படிக்க-மட்டும் திறவிகள். சந்தா செலுத்தியவுடன் /pricing இலிருந்து OAuth வழியாக இணைக்கவும்.',
@@ -136,18 +162,35 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'மேற்கோள் நாணயம்',
   'settings.preferences.locale': 'வட்டாரம்',
   'settings.preferences.push': 'தள்ளு',
+  'settings.preferences.refresh': 'விலை புதுப்பிப்பு (வினாடிகள்)',
   'settings.preferences.sms': 'எஸ்எம்எஸ்',
+  'settings.revokeDeviceWarning':
+    'இந்தச் சாதனத்தின் அணுகல் விரைவில் ரத்து செய்யப்படும். வெளியேற்றவா?',
   'settings.security.body':
     'கடவுச்சொல் மற்றும் இரு காரணி அங்கீகார அமைப்புகள் உங்கள் கணக்கினால் நிர்வகிக்கப்படுகின்றன.',
   'settings.signOutDevice': 'வெளியேறு',
   'settings.twoFactorCode': 'அங்கீகாரக் குறியீடு',
   'settings.twoFactorDisable': 'முடக்கு',
+  'settings.twoFactorDisableTitle': 'இரு-காரணி அங்கீகாரத்தை முடக்கு',
   'settings.twoFactorEnable': 'இயக்கு',
+  'settings.twoFactorEnableTitle': 'இரு-காரணி அங்கீகாரத்தை இயக்கு',
   'settings.twoFactorInvalidCode': 'தவறான குறியீடு',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'இரு-காரணி QR குறியீடு',
+  'settings.twoFactorScan':
+    'உங்கள் அங்கீகரிப்பு செயலியில் இந்த QR குறியீட்டை ஸ்கேன் செய்து, 6 இலக்கக் குறியீட்டை உள்ளிடவும்.',
+  'settings.twoFactorUnavailable': 'இந்த செயலியில் இரு காரணி அங்கீகாரம் கிடைக்காது.',
   'settings.twoFactorVerify': 'சரிபார்த்து இயக்கு',
   'sigilAuthShell.backHomeCta': '← சிகிலுக்குத் திரும்பு',
+  'sigilAuthShell.brandBody':
+    'நேரடி விலைகள், போர்ட்ஃபோலியோ லாபம்/நஷ்டம் மற்றும் முக்கியமான நிபந்தனைகளுக்கான நிலையான கண்காணிப்புகள் — அனைத்தும் ஒரே முனையத்தில்.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — Molecule இல் கட்டப்பட்டது',
+  'sigilAuthShell.brandHeadline':
+    'முழு லெட்ஜர் முழுவதும் ஒவ்வொரு சமிக்ஞையையும் டிகோட் செய்யுங்கள்.',
+  'sigilAuthShell.samplePortfolio': 'மாதிரி போர்ட்ஃபோலியோ',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
+  'signup.creating': 'உங்கள் முனையத்தைத் திறக்கிறது…',
   'signup.eyebrow': 'ஒரு முனையத்தைத் திறக்கவும்',
   'signup.heading': 'உங்கள் முத்திரையை உருவாக்குங்கள்',
   'signup.subheading':
@@ -165,6 +208,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'பரிவர்த்தனைகளை ஏற்ற முடியவில்லை.',
   'watchlist.addCta': 'சந்தைகளை உலாவுக',
   'watchlist.col.change24h': '24 மணிநேரம்',
+  'watchlist.col.coin': 'நாணயம்',
   'watchlist.col.marketCap': 'சந்தை மூலதனம்',
   'watchlist.empty':
     'உங்கள் கண்காணிப்புப் பட்டியலில் நாணயங்கள் இல்லை — அவற்றைச் சேர்க்க, /markets இலிருந்து நாணயங்களை நட்சத்திரக் குறியிடவும்.',

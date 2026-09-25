@@ -1,14 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May mga tanong, feedback, o gusto ng walkthrough para sa iyong hiring team? Mag-email sa hello@example.com at may tunay na tao sa team na magbabalik sa iyo sa loob ng dalawang business day.',
   'about.contactHeading': 'Makipag-ugnayan',
+  'about.intro':
+    'Ang {{app}} ay isang applicant tracking system para sa mga recruiter at hiring manager na gusto ng signal, hindi ingay — malinis na pipeline, AI screening na nagpapaliwanag ng sarili, at hiring analytics, lahat sa isang lugar.',
+  'about.missionBody':
+    'Ang pag-hire ay isa sa pinakamataas na taya na desisyon ng isang team, ngunit karamihan nito ay nasa magkakaibang spreadsheet at email thread pa rin. Dinadala ng {{app}} ang buong loop sa isang board para bawat kandidato ay na-track, bawat interview ay structured, at bawat desisyon ay patas, mabilis, at maipapaliwanag.',
+  'about.missionHeading': 'Ang aming misyon',
   'auth.legalConsent': 'Sa pagpapatuloy, sumasang-ayon ka sa aming',
   'billing.cardExp': 'Mag-e-expire {{exp}}',
+  'billing.cardLinkError': 'Hindi masimulan ang update-card flow.',
   'billing.cardLinkSent': 'Sinimulan na ang pag-update ng card — tingnan ang iyong email.',
+  'billing.cardLinkUnavailable':
+    'Hindi available ang card updates — walang payment provider na naka-configure sa deployment na ito.',
   'billing.cardMissing': 'Walang card na naka-save',
   'billing.col.invoice': 'Invoice',
   'billing.downloadUnavailable': '—',
   'billing.editCard': 'I-update ang card',
+  'billing.eyebrow': 'Plano at paggamit',
   'billing.invoiceHeading': 'Mga kamakailang invoice',
   'billing.invoicesEmpty': 'Wala pang invoice.',
   'billing.invoicesLoading': 'Naglo-load ng mga invoice…',
@@ -22,6 +33,7 @@ export const ui: UiTranslations = {
   'billing.seatsError':
     'Ang planong ito ay para sa isang upuan lamang. Mag-upgrade sa Team para sa maraming upuan.',
   'billing.seatsHint': '{{used}} sa {{max}} ang kasama',
+  'billing.seatsLabel': 'Aktibong seats',
   'billing.spentLabel': 'Gastos mula simula ng taon',
   'billing.subheading': 'Subscription, upuan, paggamit ng AI screening at mga invoice.',
   'billing.unlimited': 'Walang limitasyon',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'candidateDetail.advanceError': 'Hindi ma-update ang yugto.',
   'candidateDetail.advanceFinal': 'Nasa huling yugto na.',
   'candidateDetail.advanceHeading': 'Ilipat sa yugto',
+  'candidateDetail.appliedOn': 'Nag-apply {{date}} sa pamamagitan ng {{source}}.',
   'candidateDetail.back': 'Lahat ng kandidato',
   'candidateDetail.loadError': 'Nabigo ang pag-load ng kandidato.',
   'candidateDetail.noInterviews': 'Wala pang interview.',
@@ -46,8 +59,13 @@ export const ui: UiTranslations = {
   'candidateDetail.notePlaceholder':
     'Magbahagi ng feedback, mga impresyon sa panayam, mga susunod na hakbang...',
   'candidateDetail.noteSave': 'I-save ang tala',
+  'candidateDetail.panel': 'Panel: {{panel}}',
+  'candidateDetail.panelScore': 'Panel score: {{score}}/100',
+  'candidateDetail.resumeMissing': 'Wala pang resume preview na available para sa kandidatong ito.',
   'candidateDetail.scheduleError': 'Hindi ma-iskedyul ang interview.',
+  'candidateDetail.scheduleHeading': 'I-schedule ang interview',
   'candidateDetail.scheduleInterviewer': 'Interviewer',
+  'candidateDetail.scheduleInterviewerPlaceholder': 'Pangalan ng interviewer',
   'candidateDetail.scheduleMinutes': 'Tagal (min)',
   'candidateDetail.scheduleMissing': 'Pumili muna ng petsa at oras.',
   'candidateDetail.scoreEmpty': 'Naghihintay ng pagsusuri ng AI.',
@@ -70,6 +88,7 @@ export const ui: UiTranslations = {
   'candidates.heading': 'Mga kandidato',
   'candidates.loadError': 'Nabigo ang pag-load ng mga kandidato.',
   'candidates.searchPlaceholder': 'Maghanap ng kandidato, papel o trabaho…',
+  'candidates.sourceLabel': 'Pinagkukunan',
   'candidates.sourcePlaceholder': 'Pinagmulan (LinkedIn, Referral…)',
   'candidates.subheading':
     'Database ng mga kandidato sa lahat ng posisyon na may AI scoring at pagsubaybay ng pinagmulan.',
@@ -84,6 +103,7 @@ export const ui: UiTranslations = {
   'dashboard.kpi.interviews': 'Mga interview ngayong linggo',
   'dashboard.kpi.openJobs': 'Mga bukas na trabaho',
   'dashboard.loading': 'Naglo-load…',
+  'dashboard.newJobCta': 'Mag-post ng trabaho',
   'dashboard.subheading': 'Kalusugan ng pipeline, dami ng interview at mga alok na in-process.',
   'dashboard.topEmpty': 'Wala pang kandidato.',
   'dashboard.topEyebrow': 'Pinakamahusay na AI matches',
@@ -104,6 +124,7 @@ export const ui: UiTranslations = {
   'jobDetail.back': 'Lahat ng trabaho',
   'jobDetail.descriptionEyebrow': 'Paglalarawan ng papel',
   'jobDetail.descriptionMissing': 'Walang paglalarawang ibinigay pa.',
+  'jobDetail.employmentType': 'Uri ng employment: {{type}}',
   'jobDetail.empty': 'Wala pang aplikante.',
   'jobDetail.funnelEyebrow': 'Stage funnel',
   'jobDetail.funnelHeading': 'Kalagayan ng mga aplikante',
@@ -112,6 +133,7 @@ export const ui: UiTranslations = {
   'jobDetail.kpi.hires': 'Mga na-hire',
   'jobDetail.kpi.inInterview': 'Sa interview',
   'jobDetail.loadError': 'Nabigo ang pag-load ng trabaho.',
+  'jobDetail.requirementsHeading': 'Mga requirement',
   'jobDetail.topEyebrow': 'Pinakamahusay na aplikante',
   'jobDetail.topHeading': 'Mga AI match muna',
   'jobDetail.unavailable': 'Hindi na nakalista ang trabahong ito.',
@@ -127,6 +149,7 @@ export const ui: UiTranslations = {
   'jobs.heading': 'Mga trabaho',
   'jobs.loadError': 'Nabigo ang pag-load ng mga trabaho.',
   'jobs.newCta': 'Mag-post ng trabaho',
+  'landing.copyright': '© {{year}} {{app}}. Ginawa gamit ang Molecule.',
   'landing.eyebrow': 'Hiring na may tulong ng AI · v2',
   'landing.featuresEyebrow': 'Paano ito gumagana',
   'landing.featuresHeading': 'Signal — hindi spreadsheet.',
@@ -135,8 +158,11 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Magsimula nang libre sa loob ng 30 araw',
   'landing.heroProof': 'Walang credit card. Kanselahin kahit kailan. Available ang SSO sa Pro.',
   'landing.heroSecondary': 'Tingnan ang presyo →',
+  'landing.heroSubtitle':
+    'Malinis na kanban pipeline, AI screening na nagpapaliwanag ng sarili, at fairness analytics ayon sa stage. Ginawa para sa mga recruiter at hiring manager na gusto ng signal — hindi ingay.',
   'landing.heroTitle': 'Mag-hire nang malinaw.',
   'landing.previewHeading': 'Senior Backend Engineer',
+  'landing.previewLabel': 'Pipeline · Engineering',
   'landing.pricingEyebrow': 'Pagpepresyo',
   'landing.pricingHeading': 'Mga plano para sa lahat ng laki ng team.',
   'landing.socialEyebrow': 'Ginagamit ng mga hiring team sa',
@@ -153,6 +179,9 @@ export const ui: UiTranslations = {
   'loginBrandPanel.headlineLine2': 'malinaw.',
   'loginBrandPanel.stage.interview': 'Interview',
   'loginBrandPanel.stage.screening': 'Screening',
+  'loginBrandPanel.stage.sourced': 'Sourced',
+  'loginBrandPanel.subtext':
+    'I-drag ang mga kandidato sa Sourced → Screening → Interview → Offer → Hired. Nag-screen ang AI. Pinapanatiling tapat ng fairness pulse ang bawat stage.',
   'nav.closeMenu': 'Isara ang menu',
   'nav.legal': 'Legal',
   'nav.openMenu': 'Buksan ang menu',
@@ -161,6 +190,7 @@ export const ui: UiTranslations = {
     'Ini-rank ang mga resume laban sa mga kinakailangan; unang tinitingnan ng recruiter ang mga pinakamahusay na match.',
   'newJob.aiToggle': 'Auto-score ng mga bagong aplikante',
   'newJob.back': 'Bumalik sa mga trabaho',
+  'newJob.basicsHeading': 'Mga basic ng role',
   'newJob.compHeading': 'Kompensasyon',
   'newJob.departmentLabel': 'Departamento',
   'newJob.descHeading': 'Paglalarawan at mga kinakailangan',
@@ -170,6 +200,7 @@ export const ui: UiTranslations = {
   'newJob.failed': 'Hindi ma-save ang trabaho.',
   'newJob.heading': 'Mag-post ng trabaho',
   'newJob.publish': 'I-publish ang trabaho',
+  'newJob.reqLabel': 'Mga requirement (isa kada linya)',
   'newJob.salaryMax': 'Pinakamataas na sahod (USD)',
   'newJob.salaryMin': 'Pinakamababang sahod (USD)',
   'newJob.stagesHeading': 'Mga yugto ng pipeline',
@@ -185,6 +216,7 @@ export const ui: UiTranslations = {
   'newJob.type.fullTime': 'Full-time',
   'newJob.type.partTime': 'Part-time',
   'newJob.typeLabel': 'Uri ng trabaho',
+  'pipeline.advanceTo': 'I-advance',
   'pipeline.allRoles': 'Lahat ng papel',
   'pipeline.daysInStage': '{{days}}d',
   'pipeline.empty': 'Walang kandidato',
@@ -197,13 +229,22 @@ export const ui: UiTranslations = {
     'I-drag ang mga kandidato sa pagitan ng mga yugto. Ipinapakita ang AI score at mga araw sa yugto sa bawat card.',
   'pipeline.viewTable': 'Table view →',
   'pipelineFunnelHero.totalLabel': 'In motion',
+  'planUpdated.body':
+    'Aktibo na ang pagbabago sa iyong billing. Maaari mong pamahalaan ang iyong plano anumang oras mula sa billing page.',
+  'planUpdated.retry': 'Subukan muli',
+  'planUpdated.verifyFailed': 'Hindi pa namin makumpirma ang iyong bayad.',
+  'planUpdated.verifyFailedBody':
+    'Maaaring pinoproseso pa rin ang iyong bayad. Subukan muli maya-maya.',
   'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'pricing.heading': 'mga aplikasyon',
+  'pricing.limits.applications': 'mga application',
   'pricing.limits.candidates': 'mga kandidato',
   'pricing.limits.jobs': 'mga trabaho',
   'pricing.limits.scorecards': 'mga scorecard',
   'privacy.dataBody':
     'Email ng account, naka-hash na password, metadata ng profile at mga rekord ng kandidato/trabaho na iyong nililikha. Hindi namin kailanman ibinibenta o ibinabahagi ang data na ito.',
+  'privacy.intro':
+    'Pinoproseso ng {{app}} ang recruiting data para sa mga customer. Itinuturing naming kumpidensyal ang mga candidate record, resume, at komunikasyon ng hiring team at iniimbak ang mga ito nang naka-encrypt at rest.',
   'privacy.retentionBody':
     'Maaari mong tanggalin ang iyong account anumang oras mula sa Settings. Tatanggalin namin ang mga kaugnay na rekord sa loob ng 30 araw, maliban kung kinakailangan ng batas na panatilihin ang mga ito.',
   'privacy.title': 'Patakaran sa privacy',
@@ -213,6 +254,7 @@ export const ui: UiTranslations = {
     'Payagan ang mga kandidato at aplikante na makita ang iyong pangalan at papel sa mga job post.',
   'profile.publicLabel': 'Pampublikong profile',
   'profile.publicOff': 'Nakatago',
+  'profile.publicOn': 'Visible',
   'profile.recentEmpty': 'Wala pang placement.',
   'profile.recentError': 'Hindi ma-load ang mga kamakailang placement.',
   'profile.recentEyebrow': 'Mga kamakailang placement',
@@ -238,9 +280,14 @@ export const ui: UiTranslations = {
   'resetPassword.missingFields': 'Pumili at kumpirmahin ang bagong password.',
   'resetPassword.missingToken': 'Nawawala o nag-expire na ang reset link — humiling ng bago.',
   'resetPassword.passwordLabel': 'Bagong password',
+  'resetPassword.signInCta': 'Mag-sign in →',
+  'resetPassword.signInPrompt': 'Gamitin ang iyong bagong password para mag-sign in.',
   'resetPassword.subheading':
     'Pumili ng matibay na password — hindi bababa sa 12 karakter na may halo ng malaki at maliit na titik.',
+  'settings.appearance.description': 'Mag-toggle sa pagitan ng light at dark mode.',
   'settings.appearance.title': 'Hitsura',
+  'settings.deleteAccountModal.confirm':
+    'Ilagay ang iyong password para kumpirmahin. Permanenteng aksyon ito.',
   'settings.emailTemplates.empty': 'Wala pang naka-configure na template.',
   'settings.emailTemplates.heading': 'Mga email template',
   'settings.emailTemplates.loadError': 'Hindi ma-load ang mga template.',
@@ -251,10 +298,17 @@ export const ui: UiTranslations = {
   'settings.integrations.statusDisconnected': 'Hindi nakakonekta',
   'settings.integrations.updateError': 'Hindi ma-update ang integration.',
   'settings.name': 'Pangalan',
+  'settings.passwordHelp': 'I-update ang password na ginagamit mo sa pag-sign in.',
+  'settings.revokeDeviceWarning':
+    'Mababawi ang access ng device na ito sa ilang sandali. I-sign out ito?',
   'settings.saveEmail': 'I-save ang email',
   'settings.signOutDevice': 'Mag-sign out',
   'settings.stages.empty': 'Wala pang naka-configure na yugto.',
+  'settings.stages.heading': 'Mga yugto ng pipeline',
+  'settings.stages.help':
+    'Ang mga stage na dinadaanan ng mga kandidato. Alisin ang hindi mo ginagamit.',
   'settings.stages.loadError': 'Hindi ma-load ang mga yugto.',
+  'settings.stages.loading': 'Naglo-load ng mga stage…',
   'settings.stages.removeAria': 'Alisin ang yugtong {{name}}',
   'settings.stages.removeError': 'Hindi maalis ang yugto.',
   'settings.team.empty': 'Wala pang katrabaho — mag-imbita ng una sa ibaba.',
@@ -270,9 +324,16 @@ export const ui: UiTranslations = {
   'settings.team.removeError': 'Hindi maalis ang miyembro.',
   'settings.twoFactorCode': 'Kodigo ng pagpapatunay',
   'settings.twoFactorDisable': 'I-disable',
+  'settings.twoFactorDisableTitle': 'I-disable ang two-factor authentication',
   'settings.twoFactorEnable': 'I-enable',
+  'settings.twoFactorEnableTitle': 'I-enable ang two-factor authentication',
   'settings.twoFactorInvalidCode': 'Hindi wastong code',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Two-factor QR code',
+  'settings.twoFactorScan':
+    'I-scan ang QR code na ito gamit ang iyong authenticator app, pagkatapos ay ilagay ang 6-digit na code.',
+  'settings.twoFactorUnavailable':
+    'Hindi available ang two-factor authentication para sa app na ito.',
   'settings.twoFactorVerify': 'I-verify at paganahin',
   'settings.unknownDevice': 'Hindi kilalang aparato',
   'signup.confirmPlaceholder': 'Ilagay muli ang iyong password',
@@ -282,6 +343,8 @@ export const ui: UiTranslations = {
   'signup.subheading': 'Gumawa ng hiring board sa loob ng 60 segundo. Mag-imbita ng team mamaya.',
   'terms.acceptableUseBody':
     'Hindi ka dapat mag-abuse ng serbisyo, magpatakbo ng automated scraping, subukang sirain ang seguridad, o gamitin ito para diskriminahin ang mga protektadong grupo.',
+  'terms.intro':
+    'Sa paggamit ng {{app}}, sumasang-ayon ka sa mga tuntuning ito. Ang serbisyo ay ibinibigay sa as-is na batayan kasama ang mga obligasyon at limitasyong inilarawan sa ibaba.',
   'terms.subscriptionBody':
     'Ang mga bayad na plano ay nire-renew bawat buwan hanggang hindi kinakansela. Maaari kang mag-cancel mula sa Billing anumang oras; mananatiling aktibo ang iyong plano hanggang katapusan ng kasalukuyang panahon.',
   'terms.title': 'Mga tuntunin ng serbisyo',

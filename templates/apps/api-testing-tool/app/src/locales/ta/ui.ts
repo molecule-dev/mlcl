@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'பிழை கண்டீர்களா, அம்சக் கோரிக்கை உள்ளதா, அல்லது அடுத்து என்ன உருவாக்க வேண்டும் என்பதை எங்களிடம் சொல்ல விரும்புகிறீர்களா? hello@pylon.dev க்கு மின்னஞ்சல் அனுப்புங்கள் — ஒவ்வொரு செய்தியும் குழுவில் உள்ள உண்மையான பொறியாளரை அடையும்.',
   'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
+  'about.intro':
+    '{{app}} என்பது டெர்மினலில் வாழும் பொறியாளர்களுக்கான வேகமான, விசைப்பலகை-இயல்பான API சோதனை பணியிடம் — Postman-பாணி கோரிக்கைகள், தொகுப்புகள், சூழல்கள் மற்றும் வரலாறு, தேவையற்ற சுமை இல்லாமல்.',
+  'about.missionBody':
+    'நவீன மென்பொருளின் முதுகெலும்பு APIகள், ஆனால் அவற்றைப் பயன்படுத்துவதற்கான கருவிகள் மெதுவானவை, சுமையானவை, சுட்டி-இயக்கப்படுபவை. {{app}} உருவாக்குநர்களுக்கு கூர்மையான, வேகமான, டெர்மினல்-தரமான பணியிடத்தை வழங்க உள்ளது: கோரிக்கைகளை எய்யுங்கள், நம்பிக்கையை வளர்த்துக் கொள்ளுங்கள், விசைப்பலகையை விட்டு வெளியேறாமல் வெளியிடுங்கள்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'about.pageTitle': '{{app}} பற்றி',
   'authShell.statusLabel': 'ஆன்லைன் ஓட்டப்பந்தய வீரர்கள்',
   'collections.createError': 'தொகுப்பை உருவாக்க முடியவில்லை.',
   'collections.defaultName': 'தலைப்பிடப்படாத தொகுப்பு {{n}}',
+  'collections.empty':
+    'இன்னும் தொகுப்புகள் இல்லை — உங்கள் முதல் கோப்புறையை உருவாக்க “New collection” என்பதைக் கிளிக் செய்யவும்.',
   'collections.eyebrow': '$ pylon collections --tree',
   'collections.fetchError': 'தொகுப்புகளை ஏற்ற முடியவில்லை.',
   'collections.heading': 'சேகரிப்புகள்',
   'collections.loading': 'தொகுப்புகள் ஏற்றப்படுகின்றன…',
+  'collections.metric.allGreen': 'அனைத்தும் சரி',
   'collections.metric.collections': 'சேகரிப்புகள்',
   'collections.metric.failing': 'தோல்வி',
   'collections.metric.failingCaption': 'கடைசி ஓட்டத்தில் தோல்விகள் ஏற்பட்டன.',
@@ -24,6 +34,8 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'மாறிகள்',
   'environments.createError': 'சூழலை உருவாக்க முடியவில்லை.',
   'environments.defaultName': 'பெயரிடப்படாத சூழல் {{n}}',
+  'environments.empty':
+    'இன்னும் சூழல்கள் இல்லை — ஒன்றைச் சேர்க்க “New environment” என்பதைக் கிளிக் செய்யவும்.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'சூழல்களை ஏற்ற முடியவில்லை.',
   'environments.heading': 'சூழல்கள்',
@@ -31,8 +43,11 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'புதிய சூழல்',
   'environments.subheading':
     'கோரிக்கைகளை அனுப்பும் நேரத்தில் அவற்றுடன் பரிமாறிக்கொள்ளும் மாறிகள். ஒவ்வொரு பணிவெளிக்கும் ஒரு செயலில் உள்ள சூழல்.',
+  'forgotPassword.statusLabel': 'மீட்டமை · பாதுகாப்பான சுரங்கப்பாதை',
   'forgotPassword.success':
     'அந்த மின்னஞ்சலுக்கு ஏற்கனவே ஒரு கணக்கு இருந்தால், அதை மீட்டமைப்பதற்கான இணைப்பு அனுப்பப்பட்டுக்கொண்டிருக்கும். உங்கள் இன்பாக்ஸைச் சரிபார்க்கவும்.',
+  'history.empty':
+    'இங்கே இன்னும் எதுவும் இல்லை — Workspace தாவலில் இருந்து உங்கள் முதல் கோரிக்கையை எய்யுங்கள்.',
   'history.eyebrow': '$ pylon history --tail',
   'history.fetchError': 'வரலாற்றை ஏற்ற முடியவில்லை.',
   'history.heading': 'ஓட்ட வரலாறு',
@@ -41,9 +56,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'கடைசி 50',
+  'history.realtime': 'நிகழ்நேரம்',
   'history.subheading':
     'இந்தப் பணிவெளியில் அனுப்பப்பட்ட ஒவ்வொரு கோரிக்கையும், அதன் நிலை, தாமதம் மற்றும் தரவுச் சுமையின் அளவு ஆகியவற்றுடன்.',
   'landing.choosePlan': 'திட்டத்தைத் தேர்ந்தெடுக்கவும்',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Forge confidence.',
   'landing.ctaBody':
     'கடன் அட்டை தேவையில்லை. பிளாட்ஃபார்ம் இன்ஜினியர் தேவையில்லை. ⌘K-ஐத் திறந்து, ஐந்து நிமிடங்களுக்குள் உங்கள் முதல் கோரிக்கையை அனுப்புங்கள்.',
   'landing.ctaHeading': 'தன்னம்பிக்கையை உருவாக்குங்கள்.',
@@ -87,6 +104,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'சராசரி தாமதம்',
   'mocks.metric.live': 'பொது',
   'mocks.metric.servers': 'போலிகள்',
+  'mocks.ms': 'எம்எஸ்',
   'mocks.newMock': 'புதிய போலி',
   'mocks.online': 'பொது',
   'mocks.paused': 'தனியார்',
@@ -111,9 +129,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'ஆரோக்கியமான',
   'monitors.metric.uptime': 'சராசரி இயக்க நேரம்',
   'monitors.newMonitor': 'புதிய மானிட்டர்',
+  'monitors.paused': 'இடைநிறுத்தப்பட்டது',
   'monitors.run': 'ஓடு',
   'monitors.runError': 'பிணையப் பிழையுடன் செயல்பாடு நிறைவடைந்தது: {{error}}',
+  'monitors.runFailed': 'இயக்கம் தோல்வியடைந்தது.',
   'monitors.running': 'ஓடிக்கொண்டிருக்கிறது…',
+  'monitors.runSuccess': '{{status}} இயக்கவும் — மேல்நிலை {{ms}}ms இல் {{code}} திருப்பியது.',
   'monitors.sparkLabel': 'தாமதப் போக்கு',
   'monitors.subheading':
     "சேமிக்கப்பட்ட எந்தவொரு சோதனைக்குமான உடனடிச் சோதனைகள். ஒரு சோதனையை இணைத்து, 'ரன்' என்பதை அழுத்தி, ஒவ்வொரு முறை அது செயல்படுத்தப்படும்போதும் 24 மணி நேர வெற்றி விகிதம் புதுப்பிக்கப்படுவதைக் காணுங்கள்.",
@@ -122,28 +143,56 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'செயல்பாட்டு நேரம் · 24 மணிநேரம்',
   'nav.legal': 'சட்டப்பூர்வமான',
   'notFound.backToWorkspace': 'பணிச்சூழலுக்குத் திரும்பு',
+  'notFound.body':
+    '{{app}} இந்த URL க்கு ஒரு கோரிக்கையை எய்தது, ஆனால் எதுவும் திரும்பவில்லை. வழியை இருமுறை சரிபார்க்கவும் அல்லது பணியிடத்திற்குத் திரும்பவும்.',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'வழி காணப்படவில்லை',
+  'planUpdated.body':
+    'உங்கள் பில்லிங் மாற்றம் இப்போது செயலில் உள்ளது. பில்லிங் பக்கத்திலிருந்து எப்போது வேண்டுமானாலும் உங்கள் திட்டத்தை நிர்வகிக்கலாம்.',
+  'planUpdated.retry': 'மீண்டும் முயற்சிக்கவும்',
+  'planUpdated.verifyFailed': 'உங்கள் கட்டணத்தை எங்களால் இன்னும் உறுதிப்படுத்த முடியவில்லை.',
+  'planUpdated.verifyFailedBody':
+    'உங்கள் கட்டணம் இன்னும் செயலாக்கத்தில் இருக்கலாம். சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.',
   'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
+  'pricing.advancedFeatures': 'மேம்பட்ட அம்சங்கள்: {{yes}}',
+  'pricing.canExport': 'தரவு ஏற்றுமதி: {{yes}}',
+  'pricing.heading': 'உங்கள் {{app}} திட்டத்தைத் தேர்ந்தெடுக்கவும்',
+  'pricing.maxCollections': '{{count}} தொகுப்புகள்',
+  'pricing.maxEnvironments': '{{count}} சூழல்கள்',
+  'pricing.maxHistory': '{{count}} வரலாற்று உள்ளீடுகள்',
+  'pricing.maxRequests': '{{count}} கோரிக்கைகள்',
   'privacy.collect.account':
     'கணக்கு: உங்கள் மின்னஞ்சல், ஹேஷ் செய்யப்பட்ட கடவுச்சொல், காட்சிப் பெயர் மற்றும் நீங்கள் கடைசியாக உள்நுழைந்த நேர முத்திரை.',
+  'privacy.intro':
+    '{{app}} உங்கள் தனியுரிமையை மதிக்கிறது. இந்தப் பக்கம் நாங்கள் சேகரிக்கும் தரவு, அதை ஏன் சேகரிக்கிறோம், அதை எவ்வாறு அகற்றுவது என்பதைச் சுருக்கமாக விளக்குகிறது.',
   'privacy.rights.body':
     'உங்கள் சேகரிப்புகள் மற்றும் சூழல்களை நீங்கள் எப்போது வேண்டுமானாலும் ஏற்றுமதி செய்யலாம், அல்லது 30 நாட்களுக்குள் எல்லாத் தரவுகளையும் நிரந்தரமாக அகற்ற, அமைப்புகளிலிருந்து உங்கள் கணக்கை நீக்கலாம்.',
   'privacy.share.body':
     'நீங்கள் மட்டுமே. நாங்கள் உங்கள் பணிச்சூழல் உள்ளடக்கத்தை மூன்றாம் தரப்பினருக்கு ஒருபோதும் விற்பதோ, பகிர்வதோ, வாடகைக்கு விடுவதோ இல்லை. சம்பவங்களுக்குப் பதிலளிப்பதற்காக சேவையகப் பதிவுகள் 30 நாட்களுக்குப் பாதுகாக்கப்பட்டு, பின்னர் நீக்கப்படும்.',
   'privacy.title': 'தனியுரிமை அறிவிப்பு',
+  'profile.bio':
+    'உங்கள் தனிப்பட்ட {{app}} பணியிடம் — தொகுப்புகளைப் பின் செய்யுங்கள், சூழல்களைப் பகிருங்கள், தயாரிப்பை வெளியிடும் APIகளைக் கண்காணியுங்கள்.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'இணைந்தார் {{when}}',
+  'profile.metric.collections': 'சேகரிப்புகள்',
   'profile.metric.monitors': 'மானிட்டர்கள்',
   'profile.metric.requests': 'சேமிக்கப்பட்ட கோரிக்கைகள்',
+  'profile.noActivity':
+    'இன்னும் எந்தக் கோரிக்கையும் எய்யப்படவில்லை — ஒன்றைச் செய்ய Workspace தாவலுக்குச் செல்லவும்.',
   'profile.signedOut': 'உங்கள் சுயவிவரத்தைக் காண உள்நுழையவும்',
   'pylonShell.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
+  'resetPassword.passwordLabel': 'புதிய கடவுச்சொல்',
+  'resetPassword.statusLabel': 'மீட்டமை · டோக்கன் சரிபார்க்கப்பட்டது',
   'resetPassword.subtitle':
     'நீங்கள் இதற்கு முன் பயன்படுத்தாத, வலிமையான கடவுச்சொல்லைத் தேர்ந்தெடுக்கவும்.',
   'resetPassword.tokenPlaceholder': 'மின்னஞ்சலிலிருந்து ஒட்டவும்',
+  'settings.accountManagement.desc':
+    'உங்கள் மின்னஞ்சல் மற்றும் கடவுச்சொல்லைப் புதுப்பிக்கவும், அறிவிப்புகள் மற்றும் சாதனங்களை நிர்வகிக்கவும், வெளியேறவும் அல்லது உங்கள் கணக்கை நீக்கவும்.',
+  'settings.accountManagement.title': 'கணக்கு மற்றும் பாதுகாப்பு',
   'settings.eyebrow': '$ pylon settings --edit',
   'settings.fetchError': 'அமைப்புகளை ஏற்ற முடியவில்லை.',
   'settings.language.title': 'மொழி',
+  'settings.seeding': 'விதைக்கிறது…',
   'settings.seedStarter': 'விதை தொடக்க உள்ளடக்கம்',
   'settings.starterCollection': 'ஸ்டார்டர் சேகரிப்பு',
   'settings.starterCollectionDesc': 'அமைப்புகளிலிருந்து உருவாக்கப்பட்டது {{ts}}',
@@ -157,6 +206,8 @@ export const ui: UiTranslations = {
     'உங்கள் கடவுச்சொல்லைப் பாதுகாப்பது உங்கள் பொறுப்பாகும். இலவச அல்லது புரோ திட்டங்களில், ஒரு கணக்கை பலருடன் பகிர்வது அனுமதிக்கப்படவில்லை — பகிரப்பட்ட பணிச்சூழல்களுக்கு குழு சந்தாவை வாங்கவும்.',
   'terms.billing.body':
     'கட்டணச் சந்தாக்கள் ஒவ்வொரு பில்லிங் காலத்திலும் தானாகவே புதுப்பிக்கப்படும். அமைப்புகள் வழியாக எப்போது வேண்டுமானாலும் ரத்து செய்யலாம்; தற்போதைய காலம் முடியும் வரை உங்கள் அணுகல் தொடரும்.',
+  'terms.intro':
+    '{{app}} கணக்கை உருவாக்குவதன் மூலம் கீழே உள்ள விதிமுறைகளை ஏற்கிறீர்கள். அவற்றை ஒருமுறை படியுங்கள்; பின்னோக்கிய மாற்றங்களால் நாங்கள் உங்களை ஆச்சரியப்படுத்த மாட்டோம்.',
   'terms.title': 'சேவை விதிமுறைகள்',
   'terms.usage.body':
     'உங்களுக்குச் சொந்தமில்லாத அல்லது சோதிப்பதற்குத் தெளிவான அனுமதி இல்லாத சேவைகளுக்குக் கோரிக்கைகளை அனுப்ப பைலானைப் பயன்படுத்தாதீர்கள். விகித வரம்புகளை மீறுவதற்கோ அல்லது மோசடி செய்வதற்கோ பைலானைப் பயன்படுத்தாதீர்கள்.',
@@ -177,17 +228,23 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'இயக்கப்படவில்லை',
   'testRunner.metric.passed': 'தேர்ச்சி பெற்றார்',
   'testRunner.never': 'ஒருபோதும் ஓடாதீர்கள்',
+  'testRunner.newTest': 'புதிய சோதனை',
   'testRunner.noAssertions': 'இந்தச் சோதனை குறித்து இதுவரை எந்தக் கூற்றும் கூறப்படவில்லை.',
+  'testRunner.noRunsYet':
+    'இன்னும் எந்த இயக்கமும் பதிவாகவில்லை — வரலாற்றை நிரப்ப “Run all” என்பதை அழுத்தவும்.',
   'testRunner.passed': 'பாஸ்',
+  'testRunner.recentRuns': 'சமீபத்திய ஓட்டங்கள்',
   'testRunner.runAll': 'அனைத்தையும் இயக்கவும்',
   'testRunner.running': 'ஓடிக்கொண்டிருக்கிறது…',
   'testRunner.runOne': 'ஓடு',
   'testRunner.subheading':
     'தொகுப்பு முடிவுகள், உறுதிப்படுத்தல் வேறுபாடுகள் மற்றும் கடைசி 50 சோதனைகள்.',
+  'testRunner.suites': 'தொகுதிகள்',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'உள்நுழைந்தவர்',
   'workspace.auth.keyName': 'தலைப்பு பெயர்',
   'workspace.auth.keyValue': 'முக்கிய மதிப்பு',
+  'workspace.auth.noneHint': 'இந்தக் கோரிக்கையுடன் எந்த அங்கீகார தலைப்பும் அனுப்பப்படாது.',
   'workspace.auth.password': 'கடவுச்சொல்',
   'workspace.auth.username': 'பயனர்பெயர்',
   'workspace.authOption.apikey': 'API விசை',
@@ -197,13 +254,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'வகை',
   'workspace.authTypeLabel': 'அங்கீகார வகை',
+  'workspace.body.contentLabel': 'கோரிக்கை அமைப்பு',
+  'workspace.body.hint':
+    'கோரிக்கை எய்யப்படுவதற்கு முன் {{envVars}} மாற்றீடு செய்யப்படும். POST/PUT/PATCH/DELETE இல் உடல்கள் அனுப்பப்படும்.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'ஏதுமில்லை',
+  'workspace.body.noneHint':
+    'எந்தக் கோரிக்கை உடலும் அனுப்பப்படாது. ஒன்றைச் சேர்க்க JSON அல்லது மூல உரையைத் தேர்ந்தெடுக்கவும்.',
   'workspace.body.text': 'மூல உரை',
   'workspace.body.type': 'வகை',
   'workspace.environment': 'சூழல் இல்லை',
   'workspace.envVar': 'சூழல் மாறி',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.failedCount': '{{count}} தோல்வியுற்றது',
+  'workspace.idle': 'செயலற்ற',
   'workspace.kv.addHeader': 'தலைப்பைச் சேர்க்கவும்',
   'workspace.kv.addParam': 'அளவுருவைச் சேர்க்கவும்',
   'workspace.kv.headerKey': 'தலைப்பு பெயர்',
@@ -216,13 +280,17 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP முறை',
   'workspace.metric.latency': 'தாமதம்',
   'workspace.metric.latencyCaption': 'இந்த ஓட்டத்திலிருந்து சென்று திரும்புதல்',
+  'workspace.metric.size': 'பேலோட்',
   'workspace.metric.sizeCaption': 'பதில் உடல் பைட்டுகள்',
   'workspace.metric.statusCaption': 'கடைசி பதில்',
   'workspace.metric.tests': 'சோதனைகள்',
+  'workspace.metric.testsAllPassing': 'அனைத்து உறுதிமொழிகளும் சரி',
   'workspace.metric.testsFailing': '{{count}} தோல்வி',
+  'workspace.metric.testsIdle': 'மதிப்பிட ஒரு கோரிக்கையை அனுப்பவும்',
   'workspace.noAssertions':
     'உள்ளமைக்கப்பட்ட உறுதிப்படுத்தல்களை மதிப்பிடுவதற்கான கோரிக்கையை இயக்கவும்.',
   'workspace.noResponseYet': 'இன்னும் பதில் வரவில்லை',
+  'workspace.passedCount': '{{count}} தேர்ச்சி பெற்றார்',
   'workspace.responseHint': "கோரிக்கையை அனுப்பி, பதிலைப் பெறுவதற்கு 'அனுப்பு' பொத்தானை அழுத்தவும்.",
   'workspace.saveError': 'கோரிக்கையைச் சேமிக்க முடியவில்லை.',
   'workspace.statusError': 'கோரிக்கையை அனுப்ப முடியவில்லை.',
@@ -231,10 +299,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'ஒரு கோரிக்கையை உருவாக்கி, அதைச் செயல்படுத்தி, பின்னர் பதிலை உறுதிப்படுத்துங்கள் — இவை அனைத்தையும் ஒரே சாளரத்தில் செய்யுங்கள்.',
   'workspace.testResults': 'சோதனை முடிவுகள்',
+  'workspace.tests.autoHint':
+    'நிலைக் குடும்பம், தாமதம், உடல் அளவு மற்றும் போக்குவரத்து ஆரோக்கியம் தானாகவே உறுதிப்படுத்தப்படும் — முடிவுகள் பதில் பலகையில் “Test results” கீழ் தோன்றும்.',
+  'workspace.tests.autoTitle': 'ஒவ்வொரு பதிலிலும் உள்ளமைந்த உறுதிமொழிகள் இயங்கும்',
   'workspace.token': 'டோக்கன்',
   'workspace.tokenHint':
     'அங்கீகாரமாக அனுப்பப்பட்டது: தாங்கி<token> இந்தத் தொகுப்பில் உள்ள ஒவ்வொரு கோரிக்கையின் பேரிலும்.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'தலைப்பிடப்படாத கோரிக்கை',
+  'workspace.urlLabel': 'கோரிக்கை URL',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
+  'about.featureAlerts':
+    "Muhim shartlar bo'yicha narx ogohlantirishlari, email va push orqali yuboriladi, shunda hech qanday o'zgarishni o'tkazib yubormaysiz.",
+  'about.featureMarkets':
+    "Minglab tangalar bo'yicha jonli bozor ma'lumotlari va narx grafiklari, bozor kapitallashuvi, hajm va momentum bo'yicha tartiblangan.",
+  'about.featurePortfolio':
+    'Haqiqiy foyda-zarar, xarajat asosi va taqsimot bilan portfelni kuzatish — tranzaksiyalar tarixingizga ulangan.',
+  'about.featureWatchlist':
+    "Shaxsiy kuzatuv ro'yxati va kuzatayotgan aktivlaringiz bo'yicha signallar bilan tanlangan kripto yangiliklari.",
+  'about.missionTitle': 'Bizning vazifamiz',
+  'alertConditionCard.armedSince': '{{when}} dan beri qurollangan',
   'alertConditionCard.condition.${alert.condition}': 'Tetiklandi {{qachon}}',
   'alertConditionCard.confirmDelete': "O'chirishni tasdiqlang",
+  'alertConditionCard.deleteAriaLabel': "Ogohlantirishni o'chirish",
   'alertConditionCard.pauseAriaLabel': 'Ogohlantirishni to’xtatib turish',
   'alertConditionCard.resumeAriaLabel': 'Davom etish haqida ogohlantirish',
+  'alertConditionCard.triggeredAt': '{{when}} da ishga tushdi',
   'alertNew.condition': 'Ahvoli',
   'alertNew.createCta': 'Ogohlantirish yaratish',
   'alertNew.error': "Ogohlantirish yaratib bo'lmadi.",
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': "Hali hech qanday ogohlantirish yo'q.",
   'alerts.eyebrow': 'Bourse uch simlari',
   'alerts.loadError': "Bildirishnomalarni yuklab bo'lmadi.",
+  'alerts.newCta': '+ Yangi tripwire',
   'alerts.subheading':
     "Narx, o'zgarish yoki hajm chegarangizdan oshib ketganda ping xabarlarini oling.",
   'alerts.summary.armed': 'Qurollangan',
@@ -24,6 +38,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': "Barcha vaqtlardagi eng yuqori ko'rsatkich",
   'coinDetail.allTimeLow': "Barcha vaqtlardagi eng past ko'rsatkich",
   'coinDetail.back': 'Barcha bozorlar',
+  'coinDetail.chartAriaLabel': '{{name}} narx grafigi, oxirgi 30 kun',
   'coinDetail.chartHeading': 'Narxi · oxirgi 30 kun',
   'coinDetail.circulating': "Aylanma ta'minot",
   'coinDetail.fdv': "To'liq suyultirilgan baholash",
@@ -60,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Simli havolani tiklash.',
   'login.eyebrow': "Terminalga qadam qo'ying",
   'login.heading': 'Xush kelibsiz, signalchi.',
+  'login.noAccountQuestion': 'Tesserada yangimisiz?',
   'login.secureNote': '🔒 Tranzitda shifrlangan',
   'login.signingInCta': "Lentani o'qish…",
   'login.signupLink': 'Hisob ochish →',
@@ -94,6 +110,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     "Siz skanerlagan yo'nalish ma'lum tanga yoki sahifaga mos kelmayapti. Belgini qayta tekshiring va qaytadan urinib ko'ring.",
   'notFound.browseMarkets': "Bozorlarni ko'rib chiqing",
+  'notFound.eyebrow': "{{appName}} signali yo'qoldi",
+  'notFound.heading': 'Bu signal diapazondan tashqarida',
+  'planUpdated.body':
+    "Hisob-kitob o'zgarishingiz endi faol. Tarifingizni istalgan vaqtda hisob-kitob sahifasidan boshqarishingiz mumkin.",
+  'planUpdated.retry': 'Qayta urinib ko’ring',
+  'planUpdated.verifyFailed': "To'lovingizni hali tasdiqlay olmadik.",
+  'planUpdated.verifyFailedBody':
+    "To'lovingiz hali ham amalga oshirilayotgan bo'lishi mumkin. Birozdan keyin qayta urinib ko'ring.",
   'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'portfolio.addError': 'Belgini, musbat miqdorni va narxni kiriting.',
   'portfolio.addHoldingCta': "+ Xolding qo'shish",
@@ -117,12 +141,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Umumiy portfel qiymati',
   'portfolioHeroCard.totalPnl': 'Jami daromad/kuch',
   'pricing.heading': 'ogohlantirishlar',
+  'pricing.limit.alerts': 'ogohlantirishlar',
   'pricing.limit.coins': 'tangalar',
   'pricing.limit.market': 'bozor',
   'pricing.limit.portfolio': 'portfel',
   'resetPassword.eyebrow': 'Yangi shifr',
   'resetPassword.missingToken':
     "Ushbu tiklash havolasi mavjud emas yoki yaroqsiz. Yangisini so'rang.",
+  'resetPassword.passwordPlaceholder': 'Yangi parol',
   'resetPassword.subheading': "Faqat o'zingiz dekodlay oladigan narsani tanlang.",
   'settings.apiKeys.body':
     "Tranzaksiyalar tarixini import qilish uchun faqat o'qish tugmalari. Obuna bo'lgandan so'ng /pricing dan OAuth orqali ulaning.",
@@ -134,18 +160,34 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Valyuta kotirovkasi',
   'settings.preferences.locale': 'Mahalliy',
   'settings.preferences.push': 'Durang',
+  'settings.preferences.refresh': 'Narx yangilanishi (sekundlar)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning':
+    'Bu qurilmaning kirish huquqi tez orada bekor qilinadi. Uni chiqarasizmi?',
   'settings.security.body':
     'Parol va ikki faktorli sozlamalar sizning hisobingiz tomonidan boshqariladi.',
   'settings.signOutDevice': 'tizimdan chiqish',
   'settings.twoFactorCode': 'Autentifikatsiya kodi',
   'settings.twoFactorDisable': "O'chirish",
+  'settings.twoFactorDisableTitle': "Ikki faktorli autentifikatsiyani o'chirish",
   'settings.twoFactorEnable': 'Yoqish',
+  'settings.twoFactorEnableTitle': 'Ikki faktorli autentifikatsiyani yoqish',
   'settings.twoFactorInvalidCode': "Noto'g'ri kod",
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Ikki faktorli QR kod',
+  'settings.twoFactorScan':
+    "Ushbu QR kodni autentifikator ilovangiz bilan skanerlang, so'ng 6 xonali kodni kiriting.",
+  'settings.twoFactorUnavailable': 'Ushbu ilova uchun ikki faktorli autentifikatsiya mavjud emas.',
   'settings.twoFactorVerify': 'Tasdiqlash va yoqish',
   'sigilAuthShell.backHomeCta': '← Bourse qaytish',
+  'sigilAuthShell.brandBody':
+    "Realtime narxlar, portfel P/L va muhim shartlar bo'yicha doimiy qo'riqchilar — barchasi bitta terminalda.",
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — Molecule asosida qurilgan',
+  'sigilAuthShell.brandHeadline': "Butun ledjer bo'ylab har bir signalni dekodlang.",
+  'sigilAuthShell.samplePortfolio': 'Namuna portfel',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Asosiy navigatsiya',
+  'signup.creating': 'Terminalingiz ochilmoqda…',
   'signup.eyebrow': 'Terminalni oching',
   'signup.heading': 'Bourse yarating',
   'signup.subheading': 'Har bir tangani kuzatib boring, har bir xatodan saqlaning. Boshlash bepul.',
@@ -162,6 +204,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': "Tranzaksiyalarni yuklab bo'lmadi.",
   'watchlist.addCta': "Bozorlarni ko'rib chiqing",
   'watchlist.col.change24h': '24 soat',
+  'watchlist.col.coin': 'Tanga',
   'watchlist.col.marketCap': "Mkt qopqog'i",
   'watchlist.empty':
     "Kuzatuv ro'yxatingizda tangalar yo'q — ularni qo'shish uchun /markets’dan tangalarni yulduzcha bilan belgilang.",

@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Küsimused, tagasiside või soovid oma meeskonnale demo? Kirjuta meile aadressil hello@conduit.dev — iga sõnum jõuab päris inimeseni meeskonnas.',
   'about.contactHeading': 'Võtke ühendust',
   'about.eyebrow': 'Teave',
+  'about.featuresHeading': 'Mida sa saad',
+  'about.introBody':
+    '{{app}} toob GitHub Actionsi stiilis pideva tarne ühte kiiresse armatuurlauda: torujuhtmed, ehituste logid, artefaktid, olekumärgised ja juurutuste keskkonnad kõigi sinu hoidlate jaoks ühes kohas. Ei vahekaartide vahetamist, ei oletamist, milline ehitus katki läks — iga käivitus, logirida ja juurutus on ühe klõpsu kaugusel.',
+  'about.introHeading': 'Mis on {{app}}',
+  'about.missionBody':
+    "Tarkvara tarnimine peaks olema rahulik ja etteaimatav, mitte hirmuallikas. Me ehitame torujuhtmed, logid ja juurutustööriistad, et tee commit'ist tootmiseni oleks kiire, nähtav ja usaldusväärne — esimene roheline ehitus viie minutiga ja iga järgnev ehitus sama selge.",
+  'about.missionHeading': 'Meie missioon',
+  'about.subtitle':
+    '{{app}} on CI/CD armatuurlaud meeskondadele, kes soovivad jälgida ehitusi, juurutusi ja keskkondi kõigis hoidlates — ja tarnida kindlusega.',
   'artifacts.empty': 'Esemeid pole veel leitud.',
   'artifacts.heading': 'Esemed',
   'artifacts.loadError': 'Artefaktide laadimine ebaõnnestus.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Keskkonnad',
   'environments.loadError': 'Keskkondi ei õnnestunud laadida.',
+  'environments.loading': 'Keskkondade laadimine…',
   'environments.subheading': 'Reaalajas rakendamise staatus kõigi sihtkohtade lõikes.',
   'forgotPassword.runnerStatus': 'taasta · turvaline tunnel',
+  'forgotPassword.success':
+    'Kui selle e-posti aadressiga on konto juba olemas, on lähtestamise link teel. Kontrollige oma postkasti.',
   'insights.changeFailureRate': 'Muuda rikke määra',
   'insights.deployFrequency': 'Kasutuselevõtud päevas',
   'insights.empty': 'Andmeid pole veel piisavalt.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Andmeid ei õnnestunud laadida.',
   'insights.meanP95': 'vt {{mean}} · lk 95 {{p95}}',
   'insights.mttr': 'keskmine remondiaeg',
+  'insights.slowestStepsHeading': 'Aeglaseimad torujuhtme sammud',
   'insights.successRateHeading': "Pipeline'i edukuse määr (viimased 14 päeva)",
   'landing.choosePlan': 'Vali pakett',
+  'landing.copyright': '© {{year}} {{app}}. Tarni kindlusega.',
   'landing.ctaBody':
     'Krediitkaarti pole vaja. Platvormiinseneri abi pole vaja. Esimene töötav töötlusvoog on valmis viie minutiga.',
   'landing.ctaHeading': 'Saada kindlalt.',
   'landing.featuresEyebrow': '// platvormi funktsioonid',
   'landing.featuresHeading': 'Loodud vedajate poolt vedajate jaoks',
+  'landing.heroSubtitle':
+    'Torujuhtmed, mis valmivad sekunditega. Logid, mida saab lugeda. Juurutused, mida saab usaldada.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ hind --plain',
   'landing.pricingHeading': 'Lihtne ja arusaadav hinnakujundus',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Praegu lennul',
   'pipelines.metric.successCaption': '{{count}} {{total}}i jooksudest',
   'pipelines.metric.successRate': 'Eduka tulemuse määr',
+  'pipelines.realtimeOn': 'reaalajas',
   'pipelines.subheading': 'Reaalajas uudised kõigist jälgitavatest hoidlatest.',
+  'pricing.advancedFeatures': 'Täiustatud funktsioonid: {{mark}}',
+  'pricing.canExport': 'Andmete eksport: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artefakti',
+  'pricing.maxBuilds': '{{count}} ehitust',
+  'pricing.maxPipelines': '{{count}} torujuhet',
   'privacy.dataAccount': 'Konto: nimi, e-post, parooli hash, paketi tase.',
   'privacy.intro':
     '{{app}} kogub vaid minimaalselt andmeid, mida vajame teie pideva tarnimise konto haldamiseks: teie e-posti aadress, ühendatud andmehoidlad, teie käivitajate poolt loodud kinnituste ja koostamise metaandmed ning salajased andmed, mida otsustate meie juures hoida. Me ei vaata teie lähtekoodi kunagi väljaspool koostamise käivitajat; koostamise tulemused salvestatakse teie S3-salvestuspaika, kui see on konfigureeritud.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Arveldamiseks kasutame Stripe’i, tehingutega seotud e-kirjade saatmiseks Mailguni ja koostatud artefaktide salvestamiseks AWS S3-d. Iga teenusepakkuja on lepinguga kohustatud töötlema vaid teenuse osutamiseks vajalikku minimaalse ulatusega andmeid.',
   'privacy.rightsBody':
     'Võite eksportida kõik oma andmed, kustutada oma konto igal ajal seadete alt ning taotleda oma konto kohta aruannet iga webhooki kättetoimetamise kohta. Vastame GDPR-i / CCPA-ga seotud taotlustele 30 päeva jooksul.',
+  'privacy.subtitle':
+    'Kuidas {{app}} kogub, salvestab ja kaitseb sinu andmeid, kui me sinu torujuhtmeid käitame.',
   'privacy.title': 'Andmekaitsepoliitika',
   'repositories.empty': 'Ühtegi hoidlat pole ühendatud.',
   'repositories.heading': 'Andmebaasid',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Kõik hoidlad',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Andmebaasi laadimine ebaõnnestus.',
+  'repositoryDetail.meanDuration': 'Keskmine kestus',
   'repositoryDetail.notFound': 'Andmebaasi ei leitud.',
+  'repositoryDetail.successRate': 'Eduka tulemuse määr',
   'repositoryDetail.totalBuilds': 'Kokku koostatud',
   'repositoryDetail.webhookActive': 'aktiivne',
   'repositoryDetail.webhookPaused': 'peatatud',
   'repositoryDetail.webhooksHeading': 'Veebihargid',
+  'resetPassword.passwordLabel': 'Uus parool',
   'resetPassword.runnerStatus': 'taasta · token kinnitatud',
   'resetPassword.subtitle': 'Vali tugev parool, mida sa varem kasutanud pole.',
   'resetPassword.tokenPlaceholder': 'kopeeritud e-kirjast',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Repositooriumid, mida Conduit jälgib. Katkesta ühendus oma versioonihaldussüsteemi pakkujaga, et peatada sündmuste vastuvõtmine.',
   'settings.repositories.empty': 'Veebivarusid pole veel ühendatud.',
+  'settings.repositories.heading': 'Hoidlate ühendused',
   'settings.repositories.loadError': 'Repositooriume ei õnnestunud laadida.',
   'settings.secrets.addCta': 'Lisa salasõna',
   'settings.secrets.addError': 'Salasõna lisamine ebaõnnestus.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Salasõna kustutamine ebaõnnestus.',
   'settings.secrets.empty': 'Salasid ei säilitatud.',
   'settings.secrets.heading': 'Saladused',
+  'settings.secrets.lastUsed': 'viimati kasutatud {{date}}',
   'settings.secrets.loadError': 'Salasõnu ei õnnestunud laadida.',
   'settings.secrets.neverUsed': 'pole kunagi kasutanud',
   'settings.secrets.rotateCta': 'Pööra',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Webhooki uuendamine ebaõnnestus.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'tasuta pakett · 1000 koostatud versiooni kuus',
+  'terms.intro':
+    'Luues {{app}} konto, nõustud nende tingimustega. Need katavad ehitustööriistade elfogadliku kasutamise, meie SLA piirid ja tingimused, mille alusel võime sinu konto kuritahtlike töökoormuste tõttu peatada või lõpetada.',
   'terms.slaBody':
     'Pro- ja Team-paketid tagavad API-le ja käivitajate reservile 99,95% igakuise töökindluse. Tasuta pakett pakutakse sellisena, nagu see on. Teenuse katkestustest teatatakse veebilehel status.conduit.dev ning need hüvitatakse arvel esitatud valemi alusel.',
   'terms.terminationBody':

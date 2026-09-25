@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O aplikaci',
+  'about.featureConnections':
+    'Správce připojení, který bezpečně ukládá vaše databáze a barevně je odlišuje — přihlašovací údaje jsou šifrovány v klidu, nikdy v otevřeném textu.',
+  'about.featureMonitoring':
+    'Živé sledování výkonu dotazů a aktivity databáze, s klávesovými zkratkami a paletou příkazů, které vše ovládají bez rukou.',
+  'about.featurePlans':
+    'Plány, které rostou s vámi — Free pro samostatnou práci, Pro a Team pro více připojení, delší uchovávání dotazů, exporty a pokročilé funkce.',
+  'about.featureQueryEditor':
+    'SQL editor poháněný Monacem s historií dotazů, uloženými dotazy a exportem výsledků do CSV jedním kliknutím.',
+  'about.featureSchema':
+    'Průzkumník schémat a prohlížeč tabulek pro navigaci v databázích, tabulkách a sloupcích, s možností prohlížet, filtrovat a upravovat řádky přímo na místě.',
+  'about.missionTitle': 'Naše poslání',
   'authShell.commands': 'Příkazy',
   'authShell.ssoSupported': 'Podpora SSO',
   'common.run': 'Spustit',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Dotazy',
   'connections.schema': 'Schéma',
   'connections.subtitle': 'Spravujte svá databázová připojení.',
+  'connections.test': 'Test',
   'databaseAdminLayout.adminRole': 'Role správce',
   'databaseAdminLayout.commandPalette': 'Paleta příkazů',
   'databaseAdminLayout.commands': 'příkazy',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Nové připojení',
   'databaseAdminLayout.queries': 'Dotazy',
   'databaseAdminLayout.ready': 'Připraveno',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Hledat příkazy, dotazy, tabulky…',
   'databaseAdminLayout.user': 'Uživatel',
   'editConnection.confirmDelete': 'Chcete toto připojení odstranit?',
   'editConnection.deleteButton': 'Odstranit připojení',
+  'editConnection.newPassword': 'Nové heslo (ponechte prázdné pro zachování)',
   'editConnection.saved': 'Připojení bylo uloženo.',
   'editConnection.title': 'Upravit připojení',
   'forgotPassword.success': 'Pokud tento účet existuje, odesíláme vám odkaz pro obnovení hesla.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Úspěchy',
   'monitoring.title': 'Sledování',
   'monitoring.totalQueries': 'Celkový počet dotazů',
+  'nav.schema': 'Schéma',
   'newConnection.database': 'Databáze',
   'newConnection.engine': 'Motor',
   'newConnection.host': 'Hostitel',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'K tomuto úryvku není přiřazeno žádné připojení.',
   'savedQuery.notBound': 'Není vázáno',
   'savedQuery.title': 'Uložený dotaz',
+  'schema.columns': 'Sloupce',
   'schema.foreignKeys': 'Cizí klíče',
   'schema.indexes': 'Rejstříky',
   'schemaExplorer.browseRows': 'Procházet řádky',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 's možností nulové hodnoty',
   'schemaExplorer.colType': 'typ',
   'schemaExplorer.noColumns': 'Žádné sloupce.',
+  'schemaExplorer.noForeignKeys': 'Žádné cizí klíče.',
   'schemaExplorer.noIndexes': 'Žádné indexy.',
   'schemaExplorer.noTables': 'Žádné tabulky',
   'schemaExplorer.pickATable': 'Vyberte si tabulku z postranního panelu.',
   'schemaExplorer.tables': 'Tabulky',
   'schemaExplorer.title': 'Prohlížeč schémat',
+  'settings.session': 'Zasedání',
   'settings.subtitle': 'Spravujte svůj účet a tarif.',
   'signup.heading': 'Vytvořte si účet na Quarry',
   'signup.tagline': 'Zprovozněte přístup za méně než minutu.',
   'tableBrowser.noRows': 'Tato tabulka zatím neobsahuje žádné řádky.',
+  'tableBrowser.subtitle': 'Prohlížení řádků z vaší vzdálené databáze.',
   'tableBrowser.title': 'Procházení řádků ve vzdálené databázi.',
 }

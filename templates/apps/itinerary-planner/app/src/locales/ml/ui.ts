@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഫീഡ്ബാക്ക് ഉണ്ടോ, ഒരു ബഗ് കണ്ടെത്തിയോ, അതോ വലിയ കാര്യങ്ങൾ പ്ലാൻ ചെയ്യുന്നുണ്ടോ? നിങ്ങളുടെ അക്കൗണ്ട് സെറ്റിംഗ്സിൽ നിന്ന് ഞങ്ങളെ ബന്ധപ്പെടുക — ഓരോ സന്ദേശവും ടീമിലെ ഒരു യഥാർത്ഥ മനുഷ്യനിലേക്കാണ് എത്തുന്നത്.',
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'എല്ലാ ബുക്കിംഗുകളും ഒരു ഇൻബോക്സിൽ — ഫ്ലൈറ്റുകളും ഹോട്ടലുകളും ആക്ടിവിറ്റി സ്ഥിരീകരണങ്ങളും അവയുടെ കൃത്യമായ ദിവസത്തിൽ എത്തുന്നു.',
+  'about.featureCollab':
+    'തത്സമയ സഹകരണം — ഓരോ യാത്രയ്ക്കും അഞ്ച് യാത്രക്കാരെ വരെ ക്ഷണിക്കാം, എല്ലാ മാറ്റങ്ങളും തത്സമയം സിങ്ക് ചെയ്യുന്നു, ഓരോ സ്റ്റോപ്പിനും കീഴിൽ കമന്റുകൾ ത്രെഡ് ചെയ്യുന്നു.',
+  'about.featureMapsBudget':
+    'മാപ്പുകൾ, ലക്ഷ്യസ്ഥാനങ്ങൾ, പങ്കിട്ട ബജറ്റ് — മുഴുവൻ യാത്രയും ഒരു മാപ്പിൽ കാണുക, എഡിറ്റർ തിരഞ്ഞെടുത്ത ലക്ഷ്യസ്ഥാനങ്ങൾ കണ്ടെത്തുക, ചെലവുകൾ ട്രാക്ക് ചെയ്യുക, ആരും അധികം ചെലവഴിക്കാതിരിക്കാൻ.',
+  'about.featureTimelines':
+    'ദിവസം തോറുമുള്ള ടൈംലൈനുകൾ — സ്റ്റോപ്പുകൾ വലിച്ച് ക്രമീകരിക്കുക, ഗതാഗത വിഭാഗങ്ങൾ ചേർക്കുക, ഒരു ജീവിക്കുന്ന രേഖയായി ഇറ്റിനററി വീണ്ടും കണക്കാക്കുന്നത് കാണുക.',
+  'about.intro':
+    '{{app}} പകുതി പൂർത്തിയായ പ്ലാനുകൾ നിറഞ്ഞ ഒരു ഫോൾഡറിനെ നിങ്ങളുടെ മുഴുവൻ ഗ്രൂപ്പിനും യഥാർത്ഥത്തിൽ പിന്തുടരാൻ കഴിയുന്ന ഒരു പങ്കിട്ട യാത്രയാക്കി മാറ്റുന്നു. ദിവസം തോറുമുള്ള ഇറ്റിനററി നിർമ്മിക്കുക, ഫ്ലൈറ്റുകളും ഹോട്ടലുകളും ചേർക്കുക, ഓരോ സ്റ്റോപ്പും മാപ്പിൽ അടയാളപ്പെടുത്തുക, ബജറ്റ് ട്രാക്ക് ചെയ്യുക — പത്തിലധികം ടാബുകളും ഒരു ഗ്രൂപ്പ് ചാറ്റും ഉപയോഗിക്കുന്നതിനുപകരം ഇതെല്ലാം ഒരു ശാന്തമായ ഇടത്ത്.',
+  'about.missionBody':
+    'യാത്രാ പ്ലാനിംഗ് ഹോംവർക്ക് പോലെയല്ല, യാത്ര ഇതിനകം മെച്ചപ്പെട്ടുകൊണ്ടിരിക്കുന്നതുപോലെ അനുഭവപ്പെടണം. സഹകരണ യാത്രകൾ അനായാസമാക്കാൻ {{app}} നിലകൊള്ളുന്നു — ഓരോ യാത്രക്കാരനും പ്ലാൻ അറിഞ്ഞുകൊണ്ട് എത്തുകയും ഓരോ സ്റ്റോപ്പും ഓർമ്മിക്കാൻ യോഗ്യമായ ഒരു കഥ പറയുകയും ചെയ്യാൻ.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'about.pageTitle': '{{app}} നെക്കുറിച്ച്',
   'auth.legalConsent': 'തുടരുന്നതിലൂടെ, ഞങ്ങളുടെ നിബന്ധനകൾ അംഗീകരിക്കുന്നു',
   'bookings.empty.body':
@@ -32,7 +48,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'ഹോട്ടൽ',
   'bookings.type.other': 'മറ്റുള്ളവ',
   'budgetSpendCard.budgetTotal': 'യുടെ {{total}} ആസൂത്രണം ചെയ്ത',
+  'budgetSpendCard.overBy': '{{amount}} ബജറ്റിന് മുകളിൽ',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} സമീപകാലം',
+  'budgetSpendCard.remaining': '{{amount}} ശേഷിക്കുന്നു',
   'calendar.eyebrow': 'വരാനിരിക്കുന്ന വർഷം',
   'calendar.heading': 'ഓരോ യാത്രയും ഒരൊറ്റ കലണ്ടറിൽ.',
   'calendar.legendHeading': 'ഈ മാസത്തെ യാത്രകൾ',
@@ -43,18 +62,28 @@ export const ui: UiTranslations = {
   'common.and': 'ഒപ്പം',
   'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'dashboard.budgetHeading': 'ബജറ്റ് പൾസ്',
+  'dashboard.empty.body':
+    'നിങ്ങളുടെ ആദ്യ യാത്ര പ്ലാൻ ചെയ്യുക, ദിവസം തോറുമുള്ള ടൈംലൈനുകളും ബജറ്റ് പൾസും ബുക്കിംഗുകളും കൊണ്ട് നിങ്ങളുടെ ഡാഷ്ബോർഡ് നിറയും.',
+  'dashboard.empty.cta': 'നിങ്ങളുടെ ആദ്യ യാത്ര പ്ലാൻ ചെയ്യുക',
   'dashboard.empty.heading': 'ഇതുവരെ യാത്രകളൊന്നുമില്ല — നിങ്ങളുടെ അറ്റ്ലസ് ശൂന്യമാണ്.',
   'dashboard.eyebrow': 'മിഷൻ നിയന്ത്രണം',
   'dashboard.heading': 'നിങ്ങളുടെ അടുത്ത സാഹസിക യാത്ര, ഒരു നിശബ്ദ കോണിൽ.',
   'dashboard.newTripCta': 'പുതിയൊരു യാത്ര ആരംഭിക്കൂ',
+  'dashboard.subheading':
+    'അടുത്ത യാത്രയിലേക്കുള്ള കൗണ്ട്ഡൗൺ, ഇന്നത്തെ ചെലവിന്റെ പൾസ്, ഓരോ ചലിക്കുന്ന ഇറ്റിനററിയിലേക്കും ഒരു ക്വിക്ക് ഗ്ലാൻസ്.',
   'dashboard.tripsHeading': 'യാത്രകൾ നീങ്ങുന്നു',
   'dashboard.viewAllExpenses': 'എല്ലാ ചെലവുകളും കാണുക',
   'dashboard.viewAllTrips': 'എല്ലാ യാത്രയും കാണുക',
   'dayTimelineRow.category.accommodation': 'താമസിക്കുക',
+  'dayTimelineRow.category.food': 'ഭക്ഷണവും പാനീയവും',
+  'dayTimelineRow.category.sightseeing': 'കാഴ്ചകൾ',
   'dayTimelineRow.category.transport': 'ഗതാഗതം',
   'destinationOrbCard.exploreCta': 'ഒരു യാത്രയിലേക്ക് ചേർക്കുക',
   'destinationOrbCard.tripCount': '{{count}} യാത്രകൾ',
+  'destinations.empty.body':
+    'All-ലേക്ക് തിരികെ മാറിയാൽ എഡിറ്റർ കണ്ടെത്തലുകൾ വീണ്ടും പ്രത്യക്ഷപ്പെടും.',
   'destinations.empty.heading': 'ഇതുവരെ ലക്ഷ്യസ്ഥാനങ്ങളൊന്നുമില്ല.',
+  'destinations.emptyFiltered.heading': 'അങ്ങനെ ടാഗ് ചെയ്തത് ഇതുവരെ ഒന്നുമില്ല.',
   'destinations.errors.load': 'ലക്ഷ്യസ്ഥാനങ്ങൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'destinations.eyebrow': 'അടുത്തതായി എവിടേക്ക് പോകണം',
   'destinations.heading': 'സംരക്ഷിച്ച കോണുകളും എഡിറ്റർ കണ്ടെത്തലുകളും.',
@@ -73,7 +102,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'വിൽപ്പനക്കാരൻ',
   'expenses.formHeading': 'ചെലവ് രേഖപ്പെടുത്തുക {{trip}}',
   'expenses.heading': 'യാത്രാ ബജറ്റ് യഥാർത്ഥത്തിൽ എവിടേക്കാണ് പോകുന്നത്.',
+  'expenses.heroBudget': '{{total}}-ൽ {{pct}}% പ്ലാൻ ചെയ്തു',
   'expenses.heroEyebrow': '{{trip}} • ബജറ്റ് സ്നാപ്പ്ഷോട്ട്',
+  'expenses.heroNoBudget': 'ഈ യാത്രയിൽ ഇതുവരെ ബജറ്റ് സെറ്റ് ചെയ്തിട്ടില്ല.',
   'expenses.noTrips.body':
     'ആദ്യം ഒരു യാത്ര ആസൂത്രണം ചെയ്യുക — ചെലവുകൾ യാത്രയുടെ ബജറ്റിൽ അറ്റാച്ചുചെയ്യുക.',
   'expenses.noTrips.heading': 'ഇതുവരെ യാത്രകളൊന്നുമില്ല.',
@@ -86,12 +117,16 @@ export const ui: UiTranslations = {
     'എല്ലാ രസീതും സ്ഥിരീകരണവും ഇവിടെ ശരിയായ വിഭാഗത്തിലേക്ക് ചുരുളഴിയുന്നു — സ്പ്രെഡ്ഷീറ്റ് ആവശ്യമില്ല.',
   'forgotPassword.eyebrow': 'നിങ്ങളുടെ യാത്രാ പരിപാടി വീണ്ടെടുക്കുക',
   'forgotPassword.heading': 'നിങ്ങളുടെ പാസ്വേഡ് മറന്നോ?',
+  'forgotPassword.subheading':
+    '{{appName}}-നായി നിങ്ങൾ ഉപയോഗിച്ച ഇമെയിൽ നൽകുക, നിങ്ങളുടെ പാസ്വേഡ് റീസെറ്റ് ചെയ്യാനുള്ള ലിങ്ക് ഞങ്ങൾ അയയ്ക്കും.',
   'forgotPassword.submit': 'വീണ്ടെടുക്കൽ ഇമെയിൽ അയയ്ക്കുക',
   'forgotPassword.submitPending': 'വീണ്ടെടുക്കൽ ഇമെയിൽ അയയ്ക്കുന്നു…',
   'forgotPassword.successHint':
     'ഇതുവരെ ഇമെയിൽ ഇല്ലേ? നിങ്ങളുടെ സ്പാം ഫോൾഡർ പരിശോധിക്കുക, അല്ലെങ്കിൽ മറ്റൊരു വിലാസം ഉപയോഗിച്ച് വീണ്ടും ശ്രമിക്കുക.',
   'forgotPassword.successSubheading':
     'ഞങ്ങൾ ഒരു വീണ്ടെടുക്കൽ ലിങ്ക് ഇതിലേക്ക് അയച്ചു {{email}} . ലിങ്കിന് 30 മിനിറ്റ് കാലാവധിയുണ്ട്.',
+  'forgotPassword.tryAgain': 'മറ്റൊരു ഇമെയിലിലേക്ക് അയയ്ക്കുക',
+  'landing.cta.eyebrow': 'സൗജന്യ പ്ലാനിൽ ആരംഭിക്കുക',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'സൗജന്യ അക്കൗണ്ട് സൃഷ്ടിക്കുക',
   'landing.cta.subheading':
@@ -103,8 +138,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'ഒരു സൗജന്യ യാത്ര ആരംഭിക്കൂ',
   'landing.hero.ctaSecondary': 'ഒരു സാമ്പിൾ യാത്ര കാണുക',
+  'landing.hero.eyebrow': 'ട്രിപ്പ് പ്ലാനർ · {{tagline}}',
   'landing.hero.subtitle':
     'പകുതി രൂപപ്പെടുത്തിയ പ്ലാനുകൾ നിറഞ്ഞ ഒരു ഫോൾഡറിനെ, നിങ്ങളുടെ ഗ്രൂപ്പിന് പിന്തുടരാൻ കഴിയുന്ന ഒരു പങ്കിട്ട, ദൈനംദിന യാത്രാ പരിപാടിയാക്കി വേപോയിന്റ് മാറ്റുന്നു - ബുക്കിംഗുകൾ, മാപ്പുകൾ, ബജറ്റ് എന്നിവ ഒരിടത്ത് ട്രാക്ക് ചെയ്യപ്പെടുന്നു.',
+  'landing.hero.title': 'ഒരിക്കൽ പ്ലാൻ ചെയ്യൂ. ഒരുമിച്ച് ചുറ്റിനടക്കൂ.',
   'landing.nav.join': 'ഒരു സൗജന്യ യാത്ര ആരംഭിക്കൂ',
   'landing.nav.preview': 'ഇൻസൈഡ് വേപോയിന്റ്',
   'landing.preview.cta': 'നിങ്ങളുടേതായ ഒന്ന് പ്ലാൻ ചെയ്യുക',
@@ -112,6 +149,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'യാത്രക്കാർ ഇപ്പോൾ അലഞ്ഞുതിരിയുന്ന കുറച്ച് യാത്രകൾ',
   'login.eyebrow': 'അംഗങ്ങളുടെ ഏരിയ',
   'login.heading': 'വീണ്ടും സ്വാഗതം, സഞ്ചാരി.',
+  'login.noAccount': 'ടെസേറയിൽ പുതിയ ആളാണോ?',
   'login.signupLink': 'ഒരു സൗജന്യ അക്കൗണ്ട് സൃഷ്ടിക്കുക',
   'login.subheading':
     'നിങ്ങളുടെ യാത്രകൾ, ദിവസ പദ്ധതികൾ, ബുക്കിംഗുകൾ, നിങ്ങൾ ഇതിനകം ആരംഭിച്ച ജേണൽ എൻട്രികൾ എന്നിവ കൈകാര്യം ചെയ്യാൻ സൈൻ ഇൻ ചെയ്യുക.',
@@ -122,6 +160,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'അറിയിപ്പ് അപ്ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'notifications.heading': 'ഇന്ന് നിങ്ങളുടെ യാത്രകളിൽ എന്തൊക്കെ മാറ്റങ്ങളാണ് ഉണ്ടായത്.',
   'notifications.markUnread': 'വായിക്കാത്തതായി അടയാളപ്പെടുത്തുക',
+  'notifications.subheading':
+    '{{count}} പുതിയത് — ബുക്കിംഗ് സ്ഥിരീകരണങ്ങൾ, സഹകാരി കുറിപ്പുകൾ, നിരക്ക് കുറവുകൾ, ഓർമ്മപ്പെടുത്തലുകൾ.',
   'notifications.time.daysAgo': '{{count}} ഡി മുമ്പ്',
   'notifications.time.hoursAgo': '{{count}} മണിക്കൂർ മുമ്പ്',
   'notifications.time.justNow': 'ഇപ്പോൾ തന്നെ',
@@ -140,6 +180,7 @@ export const ui: UiTranslations = {
     'കണക്റ്റുചെയ്‌ത സേവനങ്ങൾ, കറൻസി, പുഷ് അറിയിപ്പുകൾ, നിങ്ങൾ സൈൻ ഇൻ ചെയ്യുന്ന ക്രെഡൻഷ്യലുകൾ.',
   'signup.and': 'ഒപ്പം',
   'signup.eyebrow': 'വേപോയിന്റിൽ ചേരുക',
+  'signup.haveAccount': 'ഇതിനകം അലഞ്ഞുതിരിയുന്നുണ്ടോ?',
   'signup.heading': 'ഒരിക്കൽ പ്ലാൻ ചെയ്യൂ. ഒരുമിച്ച് ചുറ്റിനടക്കൂ.',
   'signup.namePlaceholder': 'ഐറിസ് ലാർസൻ',
   'signup.subheading':
@@ -151,6 +192,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'യാത്രാ പരിപാടി തുറക്കുക',
   'tripCountdownHeroCard.ctaSecondary': 'മറ്റൊരു യാത്ര പ്ലാൻ ചെയ്യുക',
   'tripCountdownHeroCard.daysLabel': '{{days}} ദിവസങ്ങൾ ബാക്കി',
+  'tripCountdownHeroCard.eyebrow': 'അടുത്ത സാഹസികത · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} രാത്രികൾ — നിങ്ങളുടെ ഇറ്റിനററി യാത്രയ്ക്ക് തയ്യാർ.',
   'tripCoverCard.stops': '{{count}} നിർത്തുന്നു',
   'tripCoverCard.travelers': '{{count}} സഞ്ചാരികൾ',
   'tripDetail.addActivity': 'ആക്റ്റിവിറ്റി ചേർക്കുക',
@@ -160,6 +204,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'പ്രവർത്തന ശീർഷകം',
   'tripDetail.adding': 'ചേർക്കുന്നു…',
   'tripDetail.backToTrips': 'എല്ലാ യാത്രകളിലേക്കും മടങ്ങുക',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'സഞ്ചാരികൾ',
   'tripDetail.dayLabel': 'ദിവസം {{day}}',
   'tripDetail.empty': 'ഇതുവരെ പ്രവർത്തനങ്ങളൊന്നുമില്ല — ടൈംലൈൻ ആരംഭിക്കാൻ ഒന്ന് ചേർക്കുക.',
@@ -170,14 +215,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'യാത്രാ പരിപാടി • {{country}}',
   'tripDetail.invite': 'ക്ഷണിക്കുക',
   'tripDetail.inviteLabel': 'ഇമെയിൽ വഴി ക്ഷണിക്കുക',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'ക്ഷണം അയച്ചു {{email}} .',
   'tripDetail.inviting': 'അയയ്ക്കുന്നു…',
   'tripDetail.loading': 'യാത്ര ലോഡ് ചെയ്യുന്നു…',
   'tripDetail.noCollaborators': 'ഇപ്പോൾ, നീ മാത്രം.',
+  'tripDetail.notesHeading': 'ട്രിപ്പ് കുറിപ്പുകൾ',
   'tripDetail.notesPlaceholder': 'ഇതുവരെ കുറിപ്പുകളൊന്നുമില്ല.',
   'tripDetail.notFound.heading': 'യാത്ര കണ്ടെത്തിയില്ല.',
   'tripDetail.openBookings': 'ബുക്കിംഗ് ഇൻബോക്സ് തുറക്കുക',
   'tripDetail.shareCopied': 'പങ്കിടൽ ലിങ്ക് ക്ലിപ്പ്ബോർഡിലേക്ക് പകർത്തി:',
+  'tripDetail.shareReady': 'ഷെയർ ലിങ്ക് തയ്യാർ:',
   'tripDetail.stops': '{{count}} നിർത്തുന്നു',
   'tripDetail.timelineEyebrow': 'ദിവസ ടൈംലൈൻ',
   'tripDetail.timelineHeading': 'ദിവസേനയുള്ള പ്ലാൻ',
@@ -195,6 +243,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'സഞ്ചാരികൾ',
   'tripPlanner.heading': 'ഒരു മിനിറ്റിനുള്ളിൽ ഒരു യാത്രയുടെ രൂപരേഖ തയ്യാറാക്കൂ.',
   'tripPlanner.preview.eyebrow': 'തത്സമയ പ്രിവ്യൂ',
+  'tripPlanner.preview.placeholderCountry': 'ഒരു രാജ്യം തിരഞ്ഞെടുക്കുക',
   'tripPlanner.preview.placeholderDestination': 'നിങ്ങളുടെ അടുത്ത സാഹസികത',
   'tripPlanner.section1.title': 'എവിടെ & എപ്പോൾ',
   'tripPlanner.section2.title': 'സഞ്ചാരികളും ബജറ്റും',
@@ -206,10 +255,14 @@ export const ui: UiTranslations = {
     'ദിവസം {{day}} — ഇവിടെ സ്റ്റോപ്പുകൾ, ഗതാഗതം, ബുക്കിംഗുകൾ എന്നിവ ചേർക്കുക.',
   'tripPlanner.section3.day3':
     'ദിവസം {{day}} — ഇവിടെ സ്റ്റോപ്പുകൾ, ഗതാഗതം, ബുക്കിംഗുകൾ എന്നിവ ചേർക്കുക.',
+  'tripPlanner.section3.title': 'ഡേ പ്ലാൻ സ്റ്റാർട്ടർ',
   'tripPlanner.subheading':
     'അടിസ്ഥാനകാര്യങ്ങൾ താഴെ കൊടുക്കുക — നിങ്ങൾക്ക് എപ്പോൾ വേണമെങ്കിലും സഹകാരികളെ ക്ഷണിക്കാം, സ്റ്റോപ്പുകൾ വലിച്ചിടാം, ബുക്കിംഗുകൾ പിന്നീട് ഫോർവേഡ് ചെയ്യാം.',
   'tripPlanner.submit': 'യാത്ര സൃഷ്ടിക്കുക',
   'tripPlanner.submitting': 'സൃഷ്ടിക്കുന്നു…',
+  'trips.empty.body':
+    'All trips-ലേക്ക് തിരികെ മാറുക അല്ലെങ്കിൽ നിങ്ങളുടെ അടുത്ത അലച്ചിൽ പ്ലാൻ ചെയ്യാൻ തുടങ്ങുക.',
+  'trips.empty.cta': 'യാത്ര ആസൂത്രണം ചെയ്യുക',
   'trips.empty.heading': 'ആ ഫിൽട്ടറുമായി പൊരുത്തപ്പെടുന്ന ഒന്നും ഇതുവരെ ലഭിച്ചിട്ടില്ല.',
   'trips.eyebrow': 'അറ്റ്ലസ്',
   'trips.filterLabel': 'സ്റ്റാറ്റസ് അനുസരിച്ച് യാത്രകൾ ഫിൽട്ടർ ചെയ്യുക',
@@ -221,6 +274,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'ഇതുവരെ യാത്രകളൊന്നുമില്ല.',
   'trips.pastHeading': 'കഴിഞ്ഞ സാഹസികതകൾ',
   'trips.subheading': '{{count}} യാത്രാ പദ്ധതികൾ - ഭൂതകാലം, വർത്തമാനം, ഒരുനാൾ.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'ഒരിക്കൽ പ്ലാൻ ചെയ്യുക. ഒരുമിച്ച് അലയുക. എന്നെന്നും ഓർക്കുക.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · 2024 മുതൽ {{appName}} അംഗങ്ങൾ',
+  'waypointAuthShell.testimonial.quote':
+    'നാല് രാജ്യങ്ങളിലായി മൂന്ന് ആഴ്ച നീണ്ട ഒരു തിരക്കേറിയ യാത്രയെ {{appName}} ഞങ്ങൾ ഇതുവരെ പങ്കിട്ടതിൽ ഏറ്റവും ശാന്തമായ ഇറ്റിനററിയാക്കി മാറ്റി.',
   'waypointLayout.mobileNavClose': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
   'waypointLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
 }

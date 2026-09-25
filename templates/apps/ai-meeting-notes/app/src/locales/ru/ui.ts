@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Вопросы, отзывы или предложения по функциям? Напишите команде на hello@murmur.app — каждое сообщение попадает к реальному человеку, который работает над продуктом.',
   'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О нас',
+  'about.intro':
+    '{{app}} — это аналитика встреч для команд, которые предпочитают принимать решения, а не вести записи. Он подключается к вашим звонкам, транскрибирует каждое слово с указанием говорящих и сразу после окончания встречи присылает ИИ-резюме и назначенные задачи.',
+  'about.missionBody':
+    'Встречи — это место, где команды принимают решения, и где эти решения теряются. {{app}} существует, чтобы работа, проделанная в разговоре, пережила сам разговор: точная запись, понятное резюме и ответственные следующие шаги — автоматически.',
+  'about.missionTitle': 'Наша миссия',
   'actions.empty': 'Соответствующих задач не найдено.',
   'actions.heading': 'Задачи',
   'actions.loadError': 'Не удалось загрузить задачи.',
@@ -10,11 +17,14 @@ export const ui: UiTranslations = {
     'Суммировано по всем встречам. Фильтруйте по статусу, чтобы сосредоточиться.',
   'actions.toggleDoneLabel': 'Пометить как выполненное',
   'actions.toggleReopenLabel': 'Пометить как открытое',
+  'auth.footer': '© {{year}} {{app}}. Каждое слово — по существу.',
   'calendar.heading': 'Календарь',
   'calendar.joinCta': 'Присоединяйтесь',
   'calendar.loadError': 'Не удалось загрузить календарь.',
   'calendar.nextMonth': 'В следующем месяце',
   'calendar.noEventsForDay': 'На сегодня встреч не запланировано.',
+  'calendar.noUpcomingEvents':
+    'Нет предстоящих встреч. Подключите календарь в разделе «Интеграции», чтобы заполнить этот список.',
   'calendar.previousMonth': 'Предыдущий месяц',
   'calendar.recent': 'Недавний',
   'common.daysAgo': '{{count}} д назад',
@@ -26,9 +36,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} задачи',
   'dashboard.empty.body':
     'Начните запись или подключите Google Календарь, чтобы Murmur автоматически присоединялся к вашей следующей встрече.',
+  'dashboard.empty.cta': 'Начать запись',
   'dashboard.empty.heading': 'Пока нет встреч',
   'dashboard.eyebrow': 'Лента встреч',
   'dashboard.loadError': 'Не удалось загрузить панель управления.',
+  'dashboard.noActions': 'Нет задач',
   'dashboard.recentHeading': 'Последние встречи',
   'dashboard.recordCta': 'Запись встречи',
   'dashboard.stat.actions': 'Задачи',
@@ -38,6 +50,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} непрочитанные сводки с момента вашего последнего посещения. Murmur зафиксировал каждое слово — вот краткое изложение.',
   'dashboard.viewCalendar': 'Посмотреть календарь →',
+  'footer.linksLabel': 'Нижняя навигация',
   'forgot.failed': 'Не удалось отправить письмо для сброса пароля.',
   'forgot.sentBody':
     'Если для адреса {{email}} существует учетная запись, в ближайшее время вы получите ссылку для сброса пароля.',
@@ -51,15 +64,23 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Свяжите календари и видеоплатформы, чтобы Murmur подключался автоматически.',
   'integrations.updateError': 'Не удалось обновить.',
+  'landing.ctaBody':
+    'Бесплатно для первых 5 встреч каждый месяц. Без банковской карты. Подключите Google Calendar меньше чем за минуту.',
   'landing.ctaButton': 'Начните прямо сейчас — это бесплатно',
   'landing.ctaHeading': 'Хватит делать заметки. Начинайте принимать решения.',
+  'landing.demo.aiBody':
+    'Запуск перенесён с 5 мая → на 12 мая, чтобы дать операционной команде время на подготовку. Редизайн дашборда выделен в отдельный этап на 26 мая.',
   'landing.demo.aiLabel':
     'Резюме, составленное искусственным интеллектом в режиме реального времени',
   'landing.demo.recording': 'Запись · в прямом эфире',
   'landing.eyebrow': 'Искусственный интеллект в сфере организации встреч',
   'landing.featuresHeading': 'Все, что понадобится вашей команде после завершения встречи',
+  'landing.featuresSubheading':
+    'Больше никаких «подождите, а кто за это отвечает?» {{appName}} присылает резюме ещё до отключения звонка.',
   'landing.getStarted': 'Попробуйте бесплатно',
   'landing.heroSecondary': 'Посмотрите 90-секундную экскурсию',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} подключается к вашим звонкам, транскрибирует каждое слово с указанием говорящих и сразу после окончания встречи присылает ИИ-резюме и назначенные задачи.',
   'landing.heroTitle': 'Записывайте каждую встречу. Выделяйте самое важное.',
   'login.altPrompt': 'Вы впервые на Murmur?',
   'login.failed': 'Не удалось войти в систему. Проверьте свой адрес электронной почты и пароль.',
@@ -67,6 +88,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Задачи',
   'meetingDetail.back': 'Все встречи',
   'meetingDetail.decisionsHeading': 'Решения',
+  'meetingDetail.dueDate': 'до {{date}}',
   'meetingDetail.followupsHeading': 'Дальнейшие действия',
   'meetingDetail.loadError': 'Не удалось загрузить встречу.',
   'meetingDetail.noActions': 'Задач на выполнение не обнаружено.',
@@ -80,7 +102,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Пока нет встреч',
   'meetings.heading': 'Встречи',
   'meetings.loadError': 'Не удалось загрузить встречи.',
+  'meetings.recordCta': 'Запись встречи',
   'meetings.subheading': 'Каждая записанная, загруженная и синхронизированная встреча.',
+  'murmurLayout.closeMenu': 'Закрыть меню навигации',
   'murmurLayout.openMenu': 'Открыть меню навигации',
   'murmurLayout.primaryNavLabel': 'Основная навигация',
   'nav.legal': 'Юридические',
@@ -105,7 +129,15 @@ export const ui: UiTranslations = {
   'profile.loading': 'Загрузка…',
   'profile.navLabel': 'Профильные секции',
   'profile.notifications.assignments': 'Задачи, порученные мне',
+  'profile.notifications.assignmentsHint': 'Уведомлять, когда для вас создаётся задача.',
+  'profile.notifications.mentions': 'Упоминания в транскриптах',
+  'profile.notifications.mentionsHint':
+    'Email и push-уведомление, когда кто-то упоминает вас через @.',
+  'profile.notifications.subheading': 'Выберите, какие события {{appName}} должны доходить до вас.',
   'profile.notifications.summaries': 'Еженедельный дайджест',
+  'profile.notifications.summariesHint':
+    'Еженедельный обзор всех встреч за прошлую неделю по понедельникам.',
+  'profile.preferences.speakerColor': 'Цвет говорящего по умолчанию',
   'profile.preferences.subheading':
     'Настройки по умолчанию, которые применяются ко всем записям, к которым вы присоединяетесь.',
   'profile.preferences.timezone': 'Часовой пояс',
@@ -118,17 +150,22 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Ваш браузер не поддерживает запись. Попробуйте Chrome, Edge или Safari.',
   'record.error.upload': 'Загрузка не удалась. Попробуйте ещё раз.',
+  'record.errorLabel': 'Что-то пошло не так',
   'record.heading': 'Записывать',
   'record.idleLabel': 'Нажмите, чтобы начать запись',
   'record.processingLabel':
     'Транскрибирование с помощью Whisper, составление резюме с помощью Claude…',
+  'record.recordingLabel': 'Запись…',
   'record.retryCta': 'Попробуйте ещё раз',
   'record.subheading':
     'Нажмите на микрофон, чтобы начать. Murmur записывает аудио, транскрибирует его с помощью Whisper и создает резюме на базе модели Claude.',
+  'record.titlePlaceholder': 'Название встречи (необязательно)',
+  'reset.altPrompt': 'Передумали?',
   'reset.hint': 'Используйте не менее 8 символов, включая буквы и цифры.',
   'reset.missingToken': 'Ссылка для сброса не указана или срок её действия истек. Запросите новую.',
   'reset.newPassword': 'Новый пароль',
   'reset.subheading': 'Выберите пароль, который вы нигде больше не используете.',
+  'reset.tooShort': 'Пароль должен состоять как минимум из 8 символов.',
   'search.empty': 'Введите текст для поиска в стенограммах.',
   'search.loadError': 'Поиск не удался. Попробуйте ещё раз.',
   'search.noResults': 'Результаты по запросу «{{q}}» не найдены.',
@@ -143,7 +180,9 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Сохранить звук для',
   'settings.retention.heading': 'Удержание',
   'settings.retention.transcript': 'Храните транскрипты для',
+  'settings.revokeDeviceWarning': 'Доступ этого устройства скоро будет отозван. Выйти?',
   'settings.saveError': 'Сохранение не удалось.',
+  'settings.security.subheading': 'Обновите пароль, который вы используете для входа.',
   'settings.sharing.exportFormat': 'Формат экспорта',
   'settings.sharing.heading': 'Общие настройки по умолчанию',
   'settings.sharing.scope': 'Область действия общих ресурсов по умолчанию',
@@ -161,6 +200,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Пригласить товарища по команде',
   'team.invitedAs': 'Приглашен в качестве «{{role}}»',
   'team.inviteFailed': 'Не удалось отправить приглашение.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'Отправить приглашение',
   'team.inviteSubtitle': 'Они получат электронное письмо со ссылкой для входа.',
   'team.inviteTitle': 'Пригласить товарища по команде',

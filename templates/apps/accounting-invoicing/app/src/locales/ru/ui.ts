@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Есть вопрос, нашли ошибку или хотите перенести свои книги? Свяжитесь с командой {{app}} по адресу hello@{{app}}.example — каждое сообщение читает живой человек.',
   'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
+  'about.intro':
+    '{{app}} — это бухгалтерия для малого бизнеса, которая учитывает каждый цент: счета, расходы, платежи и отчёты в одном спокойном месте для владельцев, бухгалтеров и аудиторов.',
+  'about.missionBody':
+    'Ведение бизнеса не должно означать страх перед бухгалтерией. {{app}} заменяет хаос из таблиц понятными цифрами, на которые можно опереться, чтобы вы меньше времени тратили на сверку и больше — на дело, ради которого и начинали бизнес.',
+  'about.missionTitle': 'Наша миссия',
   'about.title': 'О {{app}}',
   'accounts.count': '{{count}} счета',
+  'accounts.emptyBody':
+    'Счета бухгалтерского учёта показывают, где хранятся и куда движутся деньги. Они появятся здесь, как только ваш бухгалтер или интеграция их настроят.',
   'accounts.emptyTitle': 'Пока нет аккаунтов',
   'accounts.heading': 'План счетов',
   'accounts.kpi.accounts': 'Счета',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Все счета главной книги, связанные с вашими счетами-фактурами, расходами и платежами, сгруппированные по типу.',
   'accounts.tag.inactive': 'неактивный',
   'authBrandPanel.attributionName': 'Сара Дженкинс',
+  'authBrandPanel.attributionRole': 'Финансовый директор, Horizon Tech',
   'authBrandPanel.eyebrow': 'Финансовым командам доверяют.',
   'authBrandPanel.label': 'Витрина бренда',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Все клиенты',
   'customerDetail.invoiceMeta': 'Дата выдачи{{issued}} · Срок возврата{{due}}',
   'customerDetail.loadError': 'Не удалось загрузить клиента.',
+  'customerDetail.missingBody':
+    'Не удалось загрузить запрошенную запись клиента. Возможно, она была удалена или у вас нет к ней доступа.',
   'customerDetail.missingHeading': 'Данные клиента недоступны.',
+  'customerDetail.missingHelp':
+    'Вернитесь к списку клиентов по ссылке выше или выберите там другую запись.',
+  'customerDetail.noInvoices': 'Счетов пока нет.',
   'customerDetail.notesEmpty': 'Заметок пока нет.',
   'customerDetail.paymentsEmpty': 'Платежи не зафиксированы.',
   'customerDetail.paymentTerms': 'Условия оплаты',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Франшиза',
   'expenseDetail.detailsHeading': 'Детали транзакции',
   'expenseDetail.loadError': 'Не удалось загрузить расходы.',
+  'expenseDetail.matched': 'Сопоставлено · {{description}}',
   'expenseDetail.missingBody':
     'Запрошенные расходы не удалось загрузить. Возможно, они были удалены, или у вас нет к ним доступа.',
   'expenseDetail.missingHeading': 'Документация по расходам недоступна',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Квитанция',
   'expenseDetail.receiptHeading': 'Квитанция',
   'expenseDetail.reconciled': 'Примирение',
+  'expenseDetail.unreconciled': 'Непримиримый',
   'expenses.empty': 'Расходов пока нет.',
   'expenses.heading': 'Расходы',
   'expenses.kpi.deductible': 'Франшиза',
@@ -101,6 +118,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Не удалось загрузить счета-фактуры.',
   'invoices.searchPlaceholder': 'Найдите номер счета или имя клиента…',
   'invoices.summary.paid': 'Оплачено за этот период',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'Бесплатно в течение 30 дней. Карта не требуется. Приведите своего бухгалтера — он будет вам благодарен.',
   'landing.ctaTitle': 'Перенесите книги в более спокойное место.',
@@ -115,6 +133,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Дебиторская задолженность',
   'ledgerStatTriad.eyebrow.mtd': 'С начала месяца по сегодняшний день',
   'ledgerStatTriad.netSub': 'Сеть {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} просрочено',
   'ledgerStatTriad.revenueLabel': 'Выручка',
   'login.failed': 'Не удалось войти в систему.',
   'login.hidePassword': 'Скрыть пароль',
@@ -125,6 +144,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Войти',
   'nav.legal': 'Юридические',
   'newExpense.back': 'Расходы',
+  'newExpense.clearReceiptCta': 'Очистить прикреплённый чек',
   'newExpense.deductible': 'Подлежит налоговому вычету',
   'newExpense.dropPrompt': 'Перетащите сюда фотографию чека или PDF-файл для прикрепления.',
   'newExpense.failed': 'Сэкономить не удалось.',
@@ -153,6 +173,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Не удалось загрузить платежи.',
   'payments.unmatchedTag': 'не имеющий себе равных',
   'planUpdated.pageLabel': 'Обновление плана.',
+  'pricing.advancedFeatures': 'Расширенные функции: {{yes}}',
+  'pricing.canExport': 'Экспорт данных: {{yes}}',
+  'pricing.heading': 'Выберите ваш план {{app}}',
+  'pricing.maxAccounts': '{{count}} счета',
+  'pricing.maxExpenses': '{{count}} затраты',
+  'pricing.maxInvoices': 'Счетов: {{count}}',
+  'privacy.intro':
+    'В настоящей Политике конфиденциальности описано, как {{app}} собирает, использует и раскрывает информацию о компаниях, которые пользуются сервисом.',
   'privacy.lastUpdated': 'Последнее обновление: {{дата}}',
   'privacy.section.collected.body':
     'Мы собираем данные учетной записи (имя, адрес электронной почты, компания), загруженные вами финансовые документы (счета-фактуры, расходы, информация о клиентах, платежи) и стандартные журналы работы сервиса (IP-адрес, пользовательский агент, временные метки).',
@@ -165,8 +193,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Информация используется для обеспечения работы сервиса, генерации запрашиваемых вами отчетов и PDF-файлов, отправки транзакционных писем через Mailgun и обработки платежей через Stripe. Мы не продаем и не сдаем в аренду персональные данные.',
   'recentInvoicesCard.dueMeta': 'Должный {{date}}',
+  'recentInvoicesCard.empty': 'Ни один из счетов-фактур не совпадает.',
   'recentInvoicesCard.eyebrow': 'Дебиторская задолженность',
   'recentInvoicesCard.searchAriaLabel': 'Поиск счетов-фактур',
+  'recentInvoicesCard.searchPlaceholder': 'Поиск счетов…',
   'recentInvoicesCard.title': 'Последние счета',
   'recentInvoicesCard.viewAll': 'Просмотреть все счета →',
   'reports.assets': 'Ресурсы',
@@ -182,16 +212,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Отчет о прибылях и убытках (за 12 месяцев)',
   'resetPassword.backToLogin': '← Назад к входу',
   'resetPassword.hidePassword': 'Скрыть пароль',
+  'resetPassword.passwordLabel': 'Новый пароль',
   'resetPassword.showPassword': 'Показать пароль',
+  'resetPassword.subheading': 'Выберите надёжный пароль — не менее восьми символов.',
   'resetPassword.submit': 'Сбросить пароль',
   'resetPassword.tooShort': 'Пароль должен состоять как минимум из 8 символов.',
   'settings.account.changePassword': 'Изменить пароль',
   'settings.account.changingPassword': 'Изменения…',
   'settings.account.currentPassword': 'Текущий пароль',
+  'settings.account.dangerZone': 'Опасная зона',
   'settings.account.deleteAccount': 'Удалить аккаунт',
   'settings.account.deleteDescription':
     'Окончательно удалить вашу учетную запись и все связанные с ней данные.',
   'settings.account.deleteError': 'Не удалось удалить учетную запись.',
+  'settings.account.deleteWarning':
+    'Это безвозвратно удалит ваш аккаунт, и отменить это будет нельзя. Введите пароль для подтверждения.',
   'settings.account.deleting': 'Удаление…',
   'settings.account.devices': 'Устройства',
   'settings.account.email': 'Электронная почта',
@@ -202,6 +237,7 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Пароль',
   'settings.account.passwordError': 'Не удалось изменить пароль.',
   'settings.account.pushNotifications': 'Push-уведомления на этом устройстве',
+  'settings.account.revokeDeviceWarning': 'Доступ этого устройства скоро будет отозван. Выйти?',
   'settings.account.saveError': 'Не удалось обновить профиль.',
   'settings.account.security': 'Безопасность',
   'settings.account.signOutDevice': 'выход',
@@ -209,12 +245,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Двухфакторная аутентификация',
   'settings.account.twoFactorCode': 'Код аутентификации',
   'settings.account.twoFactorDisable': 'Отключить',
+  'settings.account.twoFactorDisableTitle': 'Отключить двухфакторную аутентификацию',
   'settings.account.twoFactorEnable': 'Включить',
+  'settings.account.twoFactorEnableTitle': 'Включить двухфакторную аутентификацию',
   'settings.account.twoFactorInvalidCode': 'Неверный код',
   'settings.account.twoFactorOn': 'О',
+  'settings.account.twoFactorQrAlt': 'QR-код для двухфакторной аутентификации',
+  'settings.account.twoFactorScan':
+    'Отсканируйте этот QR-код в приложении-аутентификаторе, затем введите 6-значный код.',
+  'settings.account.twoFactorUnavailable':
+    'Двухфакторная аутентификация для этого приложения недоступна.',
   'settings.account.twoFactorVerify': 'Проверить и включить',
   'settings.account.unknownDevice': 'Неизвестное устройство',
   'settings.company.email': 'Электронное письмо для выставления счетов',
+  'settings.company.heading': 'Компания и налоги',
   'settings.company.name': 'Юридическое название',
   'settings.company.saveButton': 'Сохранить профиль компании',
   'settings.company.taxId': 'Идентификационный номер налогоплательщика / EIN',
@@ -258,6 +302,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Примерно раз в квартал',
   'taxes.kpi.owed': 'Задолженность',
   'taxes.loadError': 'Не удалось загрузить налоговую сводку.',
+  'taxes.remittedPct': '(перечислено {{pct}}%)',
+  'terms.intro':
+    'Настоящие Условия обслуживания («Условия») регулируют ваш доступ к {{app}} и его использование. Создавая аккаунт или пользуясь сервисом, вы соглашаетесь соблюдать их.',
   'terms.lastUpdated': 'Последнее обновление: {{дата}}',
   'terms.section.acceptable.body':
     'Вы соглашаетесь не использовать сервис для нарушения каких-либо законов, посягательства на права интеллектуальной собственности, распространения вредоносного программного обеспечения или попыток несанкционированного доступа к другим учетным записям или нашей инфраструктуре.',

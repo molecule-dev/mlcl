@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.featureConnections':
+    'Pengelola koneksi yang menyimpan database Anda dengan aman dan memberi kode warna — kredensial dienkripsi saat disimpan, tidak pernah dalam bentuk teks biasa.',
+  'about.featureMonitoring':
+    'Pemantauan langsung performa kueri dan aktivitas database, dengan pintasan keyboard dan command palette untuk mengendalikan semuanya tanpa tangan.',
+  'about.featurePlans':
+    'Paket yang berkembang bersama Anda — Gratis untuk kerja solo, Pro dan Team untuk lebih banyak koneksi, retensi kueri lebih lama, ekspor, dan fitur lanjutan.',
+  'about.featureQueryEditor':
+    'Editor SQL berbasis Monaco dengan riwayat kueri, kueri tersimpan, dan ekspor CSV hasil Anda dengan satu klik.',
+  'about.featureSchema':
+    'Penjelajah skema dan penjelajah tabel untuk menavigasi database, tabel, dan kolom, lalu menelusuri, memfilter, dan mengedit baris secara inline.',
+  'about.missionTitle': 'Misi kami',
   'authShell.commands': 'Perintah',
   'authShell.ssoSupported': 'SSO didukung',
   'common.run': 'Lari',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Kueri',
   'connections.schema': 'Skema',
   'connections.subtitle': 'Kelola koneksi basis data Anda.',
+  'connections.test': 'Tes',
   'databaseAdminLayout.adminRole': 'Peran admin',
   'databaseAdminLayout.commandPalette': 'Palet perintah',
   'databaseAdminLayout.commands': 'perintah',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Koneksi baru',
   'databaseAdminLayout.queries': 'Kueri',
   'databaseAdminLayout.ready': 'Siap',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Cari perintah, kueri, tabel…',
   'databaseAdminLayout.user': 'Pengguna',
   'editConnection.confirmDelete': 'Hapus koneksi ini?',
   'editConnection.deleteButton': 'Hapus koneksi',
+  'editConnection.newPassword': 'Kata sandi baru (biarkan kosong untuk mempertahankan)',
   'editConnection.saved': 'Koneksi tersimpan.',
   'editConnection.title': 'Sunting koneksi',
   'forgotPassword.success': 'Jika akun tersebut ada, tautan atur ulang sedang dikirim.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Prestasi',
   'monitoring.title': 'Pemantauan',
   'monitoring.totalQueries': 'Total kueri',
+  'nav.schema': 'Skema',
   'newConnection.database': 'Basis data',
   'newConnection.engine': 'Mesin',
   'newConnection.host': 'Host',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Tidak ada koneksi yang terikat ke cuplikan ini.',
   'savedQuery.notBound': 'Tidak terikat',
   'savedQuery.title': 'Kueri tersimpan',
+  'schema.columns': 'Kolom',
   'schema.foreignKeys': 'Kunci asing',
   'schema.indexes': 'Indeks',
   'schemaExplorer.browseRows': 'Telusuri baris',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'dapat bernilai null',
   'schemaExplorer.colType': 'jenis',
   'schemaExplorer.noColumns': 'Tidak ada kolom.',
+  'schemaExplorer.noForeignKeys': 'Tidak ada foreign key.',
   'schemaExplorer.noIndexes': 'Tidak ada indeks.',
   'schemaExplorer.noTables': 'Tidak ada tabel',
   'schemaExplorer.pickATable': 'Pilih tabel dari bilah sisi.',
   'schemaExplorer.tables': 'Tabel',
   'schemaExplorer.title': 'Penjelajah skema',
+  'settings.session': 'Sesi',
   'settings.subtitle': 'Kelola akun dan paket Anda.',
   'signup.heading': 'Buat akun Quarry Anda',
   'signup.tagline': 'Buka akses dalam waktu kurang dari satu menit.',
   'tableBrowser.noRows': 'Tabel ini belum memiliki baris apa pun.',
+  'tableBrowser.subtitle': 'Menelusuri baris dari database jarak jauh Anda.',
   'tableBrowser.title': 'Menjelajahi baris dari basis data jarak jauh Anda.',
 }

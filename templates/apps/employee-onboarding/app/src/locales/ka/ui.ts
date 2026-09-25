@@ -1,27 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'გსურთ გუნდისთვის უფრო თბილი ონბორდინგი შემოიღოთ, შეცდომა იპოვეთ თუ გამოხმაურება გაქვთ? მოგვწერეთ ანგარიშის პარამეტრებიდან — ყველა შეტყობინება ნამდვილ ადამიანამდე აღწევს, რომელიც დაგეხმარებათ.',
   'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
+  'about.missionTitle': 'ჩვენი მისია',
   'auth.forgotPassword.emailPlaceholder': 'სახელი@თქვენიკომპანია.com',
   'auth.forgotPassword.heading': 'პაროლის აღდგენა.',
+  'auth.forgotPassword.panel.body':
+    'გადატვირთვას 30 წამი სჭირდება — თქვენი ჩამონათვალის პროგრესი გელოდებათ.',
+  'auth.forgotPassword.panel.headline': 'ზუსტად იქ, სადაც შეჩერდით.',
+  'auth.forgotPassword.subheading': 'შეიყვანეთ სამსახურის ელფოსტა და გამოგიგზავნით აღდგენის ბმულს.',
   'auth.forgotPassword.successSubheading':
     'შეამოწმეთ თქვენი შემოსული წერილები — ჩვენ გამოგიგზავნეთ გადატვირთვის ინსტრუქციები.',
   'auth.login.emailPlaceholder': 'სახელი@თქვენიკომპანია.com',
   'auth.login.heading': 'კეთილი იყოს თქვენი დაბრუნება.',
   'auth.login.passwordPlaceholder': 'თქვენი პაროლი',
+  'auth.login.signupPrompt': 'ახალი ხართ გუნდში?',
   'auth.login.subheading':
     'შედით სისტემაში, რათა გააგრძელოთ თქვენი რეგისტრაციის პროცესი იქიდან, სადაც შეწყვიტეთ.',
   'auth.login.submit': 'განაგრძეთ თქვენი მოგზაურობა',
+  'auth.panel.body':
+    'თქვენი პირადი ჩამონათვალი, ტრენინგის ეტაპები და გუნდის გაცნობა — ყველაფერი ერთ მშვიდ ადგილას.',
   'auth.panel.footnote': '© Embark — დღეიდან ადამიანების ინტეგრირება პრიორიტეტულია.',
   'auth.panel.headline': 'თავდაჯერებული პირველი 90 დღე აქ იწყება.',
   'auth.resetPassword.heading': 'დააყენეთ ახალი პაროლი.',
   'auth.resetPassword.newPasswordLabel': 'ახალი პაროლი',
+  'auth.resetPassword.panel.body':
+    'შეინახეთ ახალი პაროლი და მაშინვე დაგაბრუნებთ თქვენს ონბორდინგის გზაზე.',
+  'auth.resetPassword.panel.headline': 'თითქმის დავბრუნდით.',
   'auth.resetPassword.subheading': 'აირჩიეთ ისეთი რამ, რაც დაიმახსოვრებთ — მინიმუმ 8 სიმბოლო.',
   'auth.signup.emailPlaceholder': 'სახელი@თქვენიკომპანია.com',
   'auth.signup.heading': 'კეთილი იყოს თქვენი მობრძანება პირველ 90 დღეში.',
   'auth.signup.panel.body':
     'ინსტრუქციით გათვალისწინებული საკონტროლო სია, როლების გაცნობიერების ტრენინგი და ადამიანების გაცნობა — მზად იქნება თქვენს შესვლამდე.',
+  'auth.signup.panel.headline': 'პირველი დღე — პირველივე დღეს.',
   'auth.signup.subheading':
     'შექმენით თქვენი Embark ანგარიში, რათა დაიწყოთ თქვენი ხელმძღვანელობით ადაპტაციის პროცესი.',
   'checklist.empty.body': 'სხვა დავალებების სანახავად შეცვალეთ ფილტრი.',
@@ -29,6 +43,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'რეგისტრაცია · საკონტროლო სია',
   'checklist.loading': 'თქვენი საკონტროლო სია იტვირთება…',
   'checklist.stat.actionNeeded': 'საჭირო ქმედება',
+  'checklist.stat.completion': 'დასრულება',
+  'checklist.stat.inProgress': 'მიმდინარეობს',
   'checklist.stat.inProgressHelper': 'განაგრძეთ იქიდან, სადაც შეწყვიტეთ',
   'checklist.stat.overdueHelper': 'ჯერ ესენი დაიჭირე',
   'checklist.subtitle':
@@ -60,6 +76,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'დოკუმენტები ჯერ არ არის',
   'documents.eyebrow': 'რეგისტრაცია · დოკუმენტები',
   'documents.loading': 'დოკუმენტები იტვირთება…',
+  'documents.stat.actionNeeded': 'დარეგისტრირდით ახლავე',
+  'documents.stat.all': 'ყველა დოკუმენტი',
   'documents.stat.allHelper': 'სხვადასხვა კატეგორიებში',
   'documents.stat.pending': 'მომლოდინე ხელმოწერები',
   'documents.stat.pendingHelper': 'დასრულებისთვის აუცილებელია',
@@ -67,6 +85,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'უსაფრთხოდ შენახული',
   'documents.status.optional': 'არასავალდებულო',
   'documents.status.required': 'სავალდებულო',
+  'documents.status.signed': 'ხელმოწერილი',
   'documents.subtitle':
     'თქვენი სახელმძღვანელო, ფორმები და ხელმოწერილი ხელშეკრულებები — ყველაფერი ერთ ადგილას.',
   'documents.title': 'ყველაფერი, რაც უნდა წაიკითხოთ და მოაწეროთ ხელი.',
@@ -74,10 +93,14 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'მნახველი',
   'documentViewer.breadcrumbDocs': 'დოკუმენტები',
   'documentViewer.downloadMeta': 'მეტამონაცემების ჩამოტვირთვა',
+  'documentViewer.helpBody':
+    'People & Culture უპასუხებს სახელმძღვანელოს კითხვებს Slack-ში #ask-people არხზე.',
   'documentViewer.helpEyebrow': 'დახმარება გჭირდებათ?',
   'documentViewer.loadError': 'ამ დოკუმენტის ჩატვირთვა ვერ მოხერხდა.',
   'documentViewer.loading': 'დოკუმენტი იტვირთება…',
   'documentViewer.notFound': 'დოკუმენტი ვერ მოიძებნა',
+  'documentViewer.previewBody':
+    'როცა ატვირთვები კონფიგურირებულია, ფაილს პირდაპირ ვაჩვენებთ. ჯერჯერობით, მეტამონაცემების ჩამოტვირთვა საშუალებას გაძლევთ დაადასტუროთ, რომ ჩანაწერი ნამდვილია.',
   'documentViewer.previewBodyExternal':
     'ფაილის ახალ ჩანართში გასახსნელად გამოიყენეთ ჩამოტვირთვის ღილაკი.',
   'documentViewer.previewTitle': 'დოკუმენტის გადახედვა',
@@ -85,6 +108,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'წაიკითხეთ დოკუმენტი, შემდეგ კი დააწკაპუნეთ ქვემოთ ხელმოწერისა და დადასტურებისთვის.',
   'documentViewer.signatureHeading': 'ხელმოწერა სავალდებულოა',
+  'documentViewer.signed': '✓ ხელმოწერილი და დალაგებული',
   'documentViewer.signing': 'ხელმოწერა…',
   'documentViewer.uploadedRecently': 'ახლახან ატვირთული',
   'landing.closing.body':
@@ -94,10 +118,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'მე უკვე მაქვს ანგარიში',
   'landing.feature1.body':
     'ყველა დავალება — დოკუმენტაცია, ანგარიშგება, შესავალი — წინასწარ იყო დალაგებული, ვადებითა და შესაბამისი მფლობელით.',
+  'landing.feature1.title': 'მართული ჩამონათვალი',
   'landing.feature2.body':
     'მოდულები იხსნება 30/60/90 ეტაპებზე, როლსა და გუნდზე მორგებული, რომელსაც დასაქმებული უერთდება.',
+  'landing.feature2.title': 'როლზე მორგებული ტრენინგი',
   'landing.feature3.body':
     'მეგობრების, მენეჯერების და სხვადასხვა ფუნქციური ჯგუფის შესავლები დაგეგმილია — ამიტომ არავინ იწყებს მარტო.',
+  'landing.feature3.title': 'ნამდვილი გაცნობები',
   'landing.featureEyebrow': 'რატომ Embark-ში',
   'landing.featureHeadline': 'სამი გზა, რომლითაც Embark-ი პირველივე დღეს ნდობას იმსახურებს.',
   'landing.footer.rights': 'ყველა უფლება დაცულია.',
@@ -107,6 +134,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'შემდეგი: შეხვდით თქვენს მეგობარს 30-წუთიანი ყავის სასაუბროდ — სამშაბათს, დილის 10:00 საათზე.',
   'landing.preview.eyebrow': '90-დან მე-14 დღე — დაფის ნიმუში',
+  'landing.preview.headline': 'კეთილი იყოს თქვენი დაბრუნება, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR-ის მოთხოვნებთან თავსებადია',
   'landing.proof.teams': 'შექმნილია 50–5000 კაციანი გუნდებისთვის',
   'landing.proof.time': '14-დღიანი უფასო საცდელი პერიოდი',
@@ -123,16 +151,25 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'გუშინ',
   'planUpdated.message': 'მზად ხარ.',
   'planUpdated.preparing': 'თქვენი გეგმის განახლება…',
+  'planUpdated.retry': 'ხელახლა სცადეთ',
+  'planUpdated.verifyFailed': 'თქვენი გადახდის დადასტურება ჯერ ვერ შევძელით.',
+  'planUpdated.verifyFailedBody':
+    'შესაძლოა, თქვენი გადახდა ჯერ კიდევ მუშავდება. სცადეთ ხელახლა ცოტა ხანში.',
   'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'pricing.documentsLabel': 'დოკუმენტები',
   'pricing.onboardingsLabel': 'რეგისტრაცია',
   'pricing.tasksLabel': 'ამოცანები',
   'profile.dayNumber': 'დღე',
   'profile.detailsHeading': 'რეგისტრაციის დეტალები',
+  'profile.encouragementBody': 'ბადი და მენეჯერი ინფორმირებულნი არიან — პატარა ნაბიჯები გროვდება.',
   'profile.milestones': 'ეტაპები',
   'profile.progressEyebrow': 'რეგისტრაციის პროგრესი',
   'profile.tasks': 'დავალებები',
   'profile.unknownName': 'კეთილი იყოს თქვენი მობრძანება',
+  'settings.appearance.description': 'გადართვა ღია და ბნელ რეჟიმებს შორის.',
+  'settings.appearance.title': 'გარეგნობა',
+  'settings.subtitle':
+    'შეტყობინებები, უსაფრთხოება, მოწყობილობები და მონაცემების ექსპორტი — ყველაფერი აქ რჩება, თქვენი პირობებით.',
   'settings.title': 'პარამეტრები და პრეფერენციები.',
   'taskDetail.backToChecklist': 'დაბრუნება საკონტროლო სიაში',
   'taskDetail.breadcrumbChecklist': 'საკონტროლო სია',
@@ -144,7 +181,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'ვადა არ არის',
   'taskDetail.notFound': 'დავალება ვერ მოიძებნა',
   'taskDetail.notFoundBody': 'შესაძლოა, ეს დავალება წაშლილია ან სხვა მომხმარებელს ეკუთვნოდეს.',
+  'taskDetail.tipBody':
+    'თუ რამე გიშლით ხელს, მოწერეთ თქვენს ონბორდინგის ბადის Slack-ში — ის თქვენი პირველი დახმარებაა.',
   'taskDetail.tipEyebrow': 'სწრაფი რჩევა',
+  'team.empty.body': 'სცადეთ უფრო ფართო ძებნა ან აირჩიეთ სხვა დეპარტამენტი.',
   'team.empty.title': 'თანაგუნდელები ერთმანეთს არ ეჯიბრებიან',
   'team.eyebrow': 'ადაპტაცია · ადამიანები',
   'team.loading': 'თანაგუნდელები იტვირთება…',
@@ -166,14 +206,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'ეტაპები',
   'timeline.stat.current': 'მიმდინარე ეტაპი',
   'timeline.stat.next': 'შემდეგი განბლოკვა',
+  'timeline.stat.progress': 'საერთო ჯამში',
   'timeline.subtitle':
     'თითოეული ეტაპი ახალ მოდულებს, შესავლებსა და განვითარების საუბრებს ხსნის. არანაირი ზეწოლა - მხოლოდ პროგრესი.',
+  'timeline.tipBody':
+    'დაგეგმეთ 30-წუთიანი რეფლექსია მე-30, მე-60 და მე-90 დღეებში მენეჯერთან — ეს გამოხმაურებას კონკრეტულს და პროგრესს თვალსაჩინოს ხდის.',
   'timeline.tipEyebrow': 'მენეჯერის რჩევა',
+  'timeline.tipTitle': 'კალენდარში დრო დაბლოკეთ ეტაპებისთვის.',
   'timeline.title': 'თქვენი 30/60/90-იანი მოგზაურობა.',
   'training.badge.notStarted': 'არ დაწყებულა',
   'training.empty': 'სასწავლო მოდულები ჯერ არ არის.',
   'training.eyebrow': 'ონბორდინგში ჩართვა · ტრენინგი',
   'training.loading': 'მოდულების ჩატვირთვა…',
+  'training.stat.all': 'მოდულები მინიჭებულია',
   'training.subtitle':
     'მოდულები იხსნება 30/60/90-ზე, თქვენი როლის შესაბამისად. სავალდებულო მოდულები პირველ რიგში ენიჭებათ.',
   'training.title': 'უნარები, ხელსაწყოები და ისტორიები — თქვენი ტემპით.',
@@ -185,9 +230,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'მოდული ვერ მოიძებნა',
   'trainingModule.quizBody': 'მოდულის დასრულებულად ჩასათვლელად, მიიღეთ 80% ან მეტი ქულა.',
   'trainingModule.quizHeading': 'მოდულის დასასრულის ვიქტორინა',
+  'trainingModule.quizLocked': 'ჯერ მოდული დაიწყეთ',
   'trainingModule.quizNone': 'ამ მოდულზე ვიქტორინა არ არის.',
   'trainingModule.quizRetry': 'ხელახლა სცადეთ',
+  'trainingModule.quizStart': 'დაიწყეთ ქვიზი',
   'trainingModule.quizSubmit': 'პასუხების გაგზავნა',
+  'trainingModule.start': 'მოდულის დაწყება',
   'trainingModule.statusNotStarted': 'არ დაწყებულა',
   'welcomeHeroCard.completeLabel': 'დასრულებული',
   'welcomeHeroCard.milestonesLabel': 'ეტაპები',

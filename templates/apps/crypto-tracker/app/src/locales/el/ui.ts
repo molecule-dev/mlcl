@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.featureAlerts':
+    'Ειδοποιήσεις τιμών για τις συνθήκες που έχουν σημασία, με email και push, ώστε να μη χάνετε ποτέ μια κίνηση.',
+  'about.featureMarkets':
+    'Ζωντανά δεδομένα αγοράς και γραφήματα τιμών για χιλιάδες νομίσματα, με κατάταξη κατά κεφαλαιοποίηση, όγκο και ορμή.',
+  'about.featurePortfolio':
+    'Παρακολούθηση χαρτοφυλακίου με πραγματικό κέρδος και ζημία, κόστος κτήσης και κατανομή — συνδεδεμένη με το ιστορικό συναλλαγών σας.',
+  'about.featureWatchlist':
+    'Προσωπική λίστα παρακολούθησης και επιλεγμένα νέα κρυπτονομισμάτων με σήματα για τα περιουσιακά στοιχεία που ακολουθείτε.',
+  'about.missionTitle': 'Η αποστολή μας',
+  'alertConditionCard.armedSince': 'Ενεργό από {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'Ενεργοποιήθηκε {{όταν}}',
   'alertConditionCard.confirmDelete': 'Επιβεβαίωση διαγραφής',
+  'alertConditionCard.deleteAriaLabel': 'Διαγραφή ειδοποίησης',
   'alertConditionCard.pauseAriaLabel': 'Παύση ειδοποίησης',
   'alertConditionCard.resumeAriaLabel': 'Ειδοποίηση συνέχισης',
+  'alertConditionCard.triggeredAt': 'Ενεργοποιήθηκε {{when}}',
   'alertNew.condition': 'Κατάσταση',
   'alertNew.createCta': 'Δημιουργία ειδοποίησης',
   'alertNew.error': 'Δεν ήταν δυνατή η δημιουργία ειδοποίησης.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Δεν υπάρχουν ακόμη ειδοποιήσεις.',
   'alerts.eyebrow': 'Σίγιλ σύρματα ταξιδιού',
   'alerts.loadError': 'Αποτυχία φόρτωσης ειδοποιήσεων.',
+  'alerts.newCta': '+ Νέο tripwire',
   'alerts.subheading': 'Λάβετε ping όταν η τιμή, η αλλαγή ή ο όγκος ξεπεράσει τα όριά σας.',
   'alerts.summary.armed': 'Ενοπλος',
   'alerts.summary.triggered': 'Ενεργοποιήθηκε',
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Υψηλότερο όλων των εποχών',
   'coinDetail.allTimeLow': 'Το χαμηλότερο όλων των εποχών',
   'coinDetail.back': 'Όλες οι αγορές',
+  'coinDetail.chartAriaLabel': 'Γράφημα τιμής {{name}}, τελευταίες 30 ημέρες',
   'coinDetail.chartHeading': 'Τιμή · τελευταίες 30 ημέρες',
   'coinDetail.circulating': 'Κυκλοφορούσα προσφορά',
   'coinDetail.fdv': 'Πλήρως αραιωμένη αποτίμηση',
@@ -59,6 +74,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Επαναφορά καλωδιωμένης σύνδεσης.',
   'login.eyebrow': 'Μπείτε στο τερματικό',
   'login.heading': 'Καλώς ήρθες πίσω, σηματοδότη.',
+  'login.noAccountQuestion': 'Νέος στο Tessera;',
   'login.secureNote': '🔒 Κρυπτογραφημένο κατά τη μεταφορά',
   'login.signingInCta': 'Διαβάζοντας την κασέτα…',
   'login.signupLink': 'Άνοιγμα λογαριασμού →',
@@ -93,6 +109,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Η διαδρομή που σαρώσατε δεν καταλήγει σε γνωστό νόμισμα ή σελίδα. Ελέγξτε ξανά το σύμβολο και προσπαθήστε ξανά.',
   'notFound.browseMarkets': 'Περιηγηθείτε στις αγορές',
+  'notFound.eyebrow': 'Χάθηκε το σήμα {{appName}}',
+  'notFound.heading': 'Αυτό το σήμα είναι εκτός εμβέλειας',
+  'planUpdated.body':
+    'Η αλλαγή χρέωσής σας είναι πλέον ενεργή. Μπορείτε να διαχειρίζεστε το πλάνο σας οποιαδήποτε στιγμή από τη σελίδα χρέωσης.',
+  'planUpdated.retry': 'Δοκιμάστε ξανά',
+  'planUpdated.verifyFailed': 'Δεν μπορέσαμε να επιβεβαιώσουμε ακόμη την πληρωμή σας.',
+  'planUpdated.verifyFailedBody':
+    'Η πληρωμή σας ενδέχεται να βρίσκεται ακόμη υπό επεξεργασία. Δοκιμάστε ξανά σε λίγο.',
   'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'portfolio.addError': 'Εισαγάγετε το σύμβολο, το θετικό ποσό και το κόστος.',
   'portfolio.addHoldingCta': '+ Προσθήκη συμμετοχής',
@@ -116,12 +140,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Συνολική αξία χαρτοφυλακίου',
   'portfolioHeroCard.totalPnl': 'Σύνολο Κερδών/Ζημιών',
   'pricing.heading': 'ειδοποιήσεις',
+  'pricing.limit.alerts': 'ειδοποιήσεις',
   'pricing.limit.coins': 'νομίσματα',
   'pricing.limit.market': 'αγορά',
   'pricing.limit.portfolio': 'χαρτοφυλάκιο',
   'resetPassword.eyebrow': 'Νέος κρυπτογράφος',
   'resetPassword.missingToken':
     'Αυτός ο σύνδεσμος επαναφοράς λείπει ή δεν είναι έγκυρος. Ζητήστε έναν νέο.',
+  'resetPassword.passwordPlaceholder': 'Νέος κωδικός πρόσβασης',
   'resetPassword.subheading': 'Διάλεξε κάτι που μόνο εσύ μπορείς να αποκωδικοποιήσεις.',
   'settings.apiKeys.body':
     'Κλειδιά μόνο για ανάγνωση για την εισαγωγή ιστορικού συναλλαγών. Συνδεθείτε μέσω OAuth από το /pricing μόλις εγγραφείτε.',
@@ -133,18 +159,35 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Προσφορά νομίσματος',
   'settings.preferences.locale': 'Τοπική ρύθμιση',
   'settings.preferences.push': 'Σπρώξτε',
+  'settings.preferences.refresh': 'Ανανέωση τιμών (δευτερόλεπτα)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning':
+    'Η πρόσβαση αυτής της συσκευής θα ανακληθεί σύντομα. Να γίνει αποσύνδεση;',
   'settings.security.body':
     'Ο λογαριασμός σας διαχειρίζεται τον κωδικό πρόσβασης και τις ρυθμίσεις δύο παραγόντων.',
   'settings.signOutDevice': 'Αποσύνδεση',
   'settings.twoFactorCode': 'Κωδικός επαλήθευσης',
   'settings.twoFactorDisable': 'Απενεργοποίηση',
+  'settings.twoFactorDisableTitle': 'Απενεργοποίηση ελέγχου ταυτότητας δύο παραγόντων',
   'settings.twoFactorEnable': 'Ενεργοποίηση',
+  'settings.twoFactorEnableTitle': 'Ενεργοποίηση ελέγχου ταυτότητας δύο παραγόντων',
   'settings.twoFactorInvalidCode': 'Μη έγκυρος κώδικας',
   'settings.twoFactorOn': 'Στις',
+  'settings.twoFactorQrAlt': 'Κωδικός QR ταυτοποίησης δύο παραγόντων',
+  'settings.twoFactorScan':
+    'Σαρώστε αυτόν τον κωδικό QR με την εφαρμογή ελέγχου ταυτότητας και, στη συνέχεια, εισαγάγετε τον 6ψήφιο κωδικό.',
+  'settings.twoFactorUnavailable':
+    'Ο έλεγχος ταυτότητας δύο παραγόντων δεν είναι διαθέσιμος για αυτήν την εφαρμογή.',
   'settings.twoFactorVerify': 'Επαλήθευση και ενεργοποίηση',
   'sigilAuthShell.backHomeCta': '← Πίσω στο Bourse',
+  'sigilAuthShell.brandBody':
+    'Τιμές σε πραγματικό χρόνο, κέρδος/ζημία χαρτοφυλακίου και μόνιμες προστασίες για τις συνθήκες που έχουν σημασία — όλα σε ένα τερματικό.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — βασισμένο στο Molecule',
+  'sigilAuthShell.brandHeadline': 'Αποκωδικοποιήστε κάθε σήμα σε ολόκληρο το καθολικό.',
+  'sigilAuthShell.samplePortfolio': 'Δείγμα χαρτοφυλακίου',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Κύρια πλοήγηση',
+  'signup.creating': 'Άνοιγμα του τερματικού σας…',
   'signup.eyebrow': 'Άνοιγμα τερματικού',
   'signup.heading': 'Δημιουργήστε το Σίγκιλό σας',
   'signup.subheading': 'Παρακολουθήστε κάθε νόμισμα, αποκρούστε κάθε αστοχία. Ξεκινήστε δωρεάν.',
@@ -161,6 +204,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Αποτυχία φόρτωσης συναλλαγών.',
   'watchlist.addCta': 'Περιηγηθείτε στις αγορές',
   'watchlist.col.change24h': '24 ώρες',
+  'watchlist.col.coin': 'Κέρμα',
   'watchlist.col.marketCap': 'ανώτατο όριο αγοράς',
   'watchlist.empty':
     'Δεν υπάρχουν νομίσματα στη λίστα παρακολούθησής σας — προσθέστε star coins από το /markets.',

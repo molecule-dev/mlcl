@@ -1,19 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vragen, feedback of een functieverzoek? Mail het team op hello@murmur.app — elk bericht bereikt een echt persoon die aan het product werkt.',
   'about.contactTitle': 'Neem contact met ons op',
   'about.eyebrow': 'Over ons',
+  'about.intro':
+    '{{app}} is meeting intelligence voor teams die liever beslissingen nemen dan notities maken. Het sluit aan bij je calls, transcribeert elk woord met sprekerlabels en levert direct na de vergadering een AI-samenvatting plus toegewezen actiepunten.',
+  'about.missionBody':
+    'Vergaderingen zijn waar teams dingen beslissen — en waar die beslissingen verloren gaan. {{app}} bestaat om ervoor te zorgen dat het werk dat in een gesprek gebeurt, het gesprek overleeft: een trouw verslag, een duidelijke samenvatting en verantwoordelijke vervolgstappen, automatisch.',
+  'about.missionTitle': 'Onze missie',
   'actions.empty': 'Geen actiepunten gevonden.',
   'actions.heading': 'Actiepunten',
   'actions.loadError': 'Actiepunten konden niet worden geladen.',
   'actions.subheading': 'Verzameld uit al uw vergaderingen. Filter op status om te focussen.',
   'actions.toggleDoneLabel': 'Markeren als afgerond',
   'actions.toggleReopenLabel': 'Markeren als open',
+  'auth.footer': '© {{year}} {{app}}. Elk woord, gedestilleerd.',
   'calendar.heading': 'Agenda',
   'calendar.joinCta': 'Deelnemen',
   'calendar.loadError': 'Agenda kon niet worden geladen.',
   'calendar.nextMonth': 'Volgende maand',
   'calendar.noEventsForDay': 'Geen vergaderingen gepland voor deze dag.',
+  'calendar.noUpcomingEvents':
+    'Geen aankomende vergaderingen. Koppel een agenda via Integraties om deze lijst te vullen.',
   'calendar.previousMonth': 'Vorige maand',
   'calendar.recent': 'Recent',
   'common.daysAgo': '{{count}}d geleden',
@@ -25,9 +35,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} actiepunten',
   'dashboard.empty.body':
     'Start een opname of koppel Google Calendar zodat Murmur automatisch deelneemt aan uw volgende vergadering.',
+  'dashboard.empty.cta': 'Start opname',
   'dashboard.empty.heading': 'Nog geen vergaderingen',
   'dashboard.eyebrow': 'Uw vergaderfeed',
   'dashboard.loadError': 'Dashboard kon niet worden geladen.',
+  'dashboard.noActions': 'Geen acties',
   'dashboard.recentHeading': 'Recente vergaderingen',
   'dashboard.recordCta': 'Vergadering opnemen',
   'dashboard.stat.actions': 'Actiepunten',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} ongelezen samenvattingen sinds uw laatste bezoek. Murmur heeft elk woord vastgelegd — hier is de samenvatting.',
   'dashboard.viewCalendar': 'Agenda bekijken →',
+  'footer.linksLabel': 'Footer',
   'forgot.failed': 'Resetmail kon niet worden verzonden.',
   'forgot.sentBody':
     'Als er een account bestaat voor {{email}}, ontvangt u binnenkort een resetlink.',
@@ -48,14 +61,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     "Koppel agenda's en videoplatforms zodat Murmur automatisch deelneemt.",
   'integrations.updateError': 'Update mislukt.',
+  'landing.ctaBody':
+    'Gratis voor de eerste 5 vergaderingen per maand. Geen creditcard. Koppel Google Calendar in minder dan een minuut.',
   'landing.ctaButton': 'Aan de slag — het is gratis',
   'landing.ctaHeading': 'Stop met notities maken. Begin met beslissingen nemen.',
+  'landing.demo.aiBody':
+    'Lancering uitgesteld van 5 mei → 12 mei om ops personele ruimte te geven. Herontwerp dashboard afgesplitst naar 26 mei.',
   'landing.demo.aiLabel': 'AI-samenvatting, live opgesteld',
   'landing.demo.recording': 'Opname · live',
   'landing.eyebrow': 'AI-vergaderintelligentie',
   'landing.featuresHeading': 'Alles wat uw team nodig heeft na de vergadering',
+  'landing.featuresSubheading':
+    'Nooit meer "wacht, wie is hiervoor verantwoordelijk?" {{appName}} levert de samenvatting voordat de call wordt verbroken.',
   'landing.getStarted': 'Probeer gratis',
   'landing.heroSecondary': 'Bekijk rondleiding van 90 seconden',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} sluit aan bij je calls, transcribeert elk woord met sprekerlabels en levert direct na de vergadering AI-samenvattingen plus toegewezen actiepunten.',
   'landing.heroTitle': 'Leg elke vergadering vast. Breng aan het licht wat belangrijk is.',
   'login.altPrompt': 'Nieuw bij Murmur?',
   'login.failed': 'Inloggen mislukt. Controleer uw e-mail en wachtwoord.',
@@ -63,6 +84,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Actiepunten',
   'meetingDetail.back': 'Alle vergaderingen',
   'meetingDetail.decisionsHeading': 'Beslissingen',
+  'meetingDetail.dueDate': 'vervalt {{date}}',
   'meetingDetail.followupsHeading': 'Vervolgacties',
   'meetingDetail.loadError': 'Vergadering kon niet worden geladen.',
   'meetingDetail.noActions': 'Geen actiepunten gedetecteerd.',
@@ -76,7 +98,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Nog geen vergaderingen',
   'meetings.heading': 'Vergaderingen',
   'meetings.loadError': 'Vergaderingen konden niet worden geladen.',
+  'meetings.recordCta': 'Vergadering opnemen',
   'meetings.subheading': 'Elke opgenomen, geüploade en gesynchroniseerde vergadering.',
+  'murmurLayout.closeMenu': 'Navigatiemenu sluiten',
   'murmurLayout.openMenu': 'Navigatiemenu openen',
   'murmurLayout.primaryNavLabel': 'Hoofdnavigatie',
   'nav.legal': 'Juridisch',
@@ -102,7 +126,15 @@ export const ui: UiTranslations = {
   'profile.loading': 'Laden…',
   'profile.navLabel': 'Profielsecties',
   'profile.notifications.assignments': 'Actiepunten die aan mij zijn toegewezen',
+  'profile.notifications.assignmentsHint':
+    'Melding wanneer er een actiepunt voor jou wordt vastgelegd.',
+  'profile.notifications.mentions': 'Vermeldingen in transcripties',
+  'profile.notifications.mentionsHint': 'E-mail + pushmelding wanneer iemand je @-noemt.',
+  'profile.notifications.subheading': 'Kies welke {{appName}}-gebeurtenissen je bereiken.',
   'profile.notifications.summaries': 'Wekelijkse samenvatting',
+  'profile.notifications.summariesHint':
+    'Een maandagse samenvatting van elke vergadering van vorige week.',
+  'profile.preferences.speakerColor': 'Standaard sprekerkleur',
   'profile.preferences.subheading':
     'Standaardinstellingen die van toepassing zijn op elke opname waaraan u deelneemt.',
   'profile.preferences.timezone': 'Tijdzone',
@@ -115,16 +147,21 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Uw browser ondersteunt geen opnames. Probeer Chrome, Edge of Safari.',
   'record.error.upload': 'Uploaden mislukt. Probeer opnieuw.',
+  'record.errorLabel': 'Er ging iets mis',
   'record.heading': 'Opnemen',
   'record.idleLabel': 'Tik om opname te starten',
   'record.processingLabel': 'Transcriberen met Whisper, samenvatten met Claude…',
+  'record.recordingLabel': 'Vastleggen…',
   'record.retryCta': 'Opnieuw proberen',
   'record.subheading':
     'Druk op de microfoon om te starten. Murmur legt de audio vast, transcribeert via Whisper en schrijft een door Claude aangedreven samenvatting.',
+  'record.titlePlaceholder': 'Titel van vergadering (optioneel)',
+  'reset.altPrompt': 'Van gedachten veranderd?',
   'reset.hint': 'Gebruik ten minste 8 tekens met een combinatie van letters en cijfers.',
   'reset.missingToken': 'Resetlink ontbreekt of is verlopen. Vraag een nieuwe aan.',
   'reset.newPassword': 'Nieuw wachtwoord',
   'reset.subheading': 'Kies een wachtwoord dat u nergens anders gebruikt.',
+  'reset.tooShort': 'Wachtwoord moet minimaal 8 tekens bevatten.',
   'search.empty': 'Typ om transcripten te doorzoeken.',
   'search.loadError': 'Zoeken is mislukt. Probeer het nog eens.',
   'search.noResults': 'Geen resultaten voor “{{q}}”.',
@@ -140,7 +177,10 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Audio bewaren gedurende',
   'settings.retention.heading': 'Bewaring',
   'settings.retention.transcript': 'Transcripten bewaren gedurende',
+  'settings.revokeDeviceWarning':
+    'De toegang van dit apparaat wordt binnenkort ingetrokken. Uitloggen?',
   'settings.saveError': 'Opslaan mislukt.',
+  'settings.security.subheading': 'Werk het wachtwoord bij dat je gebruikt om in te loggen.',
   'settings.sharing.exportFormat': 'Exportformaat',
   'settings.sharing.heading': 'Standaardinstellingen voor delen',
   'settings.sharing.scope': 'Standaard deelbereik',
@@ -158,6 +198,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Teamlid uitnodigen',
   'team.invitedAs': 'Uitgenodigd als {{role}}',
   'team.inviteFailed': 'Uitnodiging kon niet worden verzonden.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'Uitnodiging versturen',
   'team.inviteSubtitle': 'Zij ontvangen een e-mail met een deelnamelink.',
   'team.inviteTitle': 'Een teamlid uitnodigen',

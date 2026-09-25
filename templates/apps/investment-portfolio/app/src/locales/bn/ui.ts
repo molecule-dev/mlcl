@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'মতামত আছে, বাগ পেয়েছেন, বা কোনো ফিচার চান? আপনার অ্যাকাউন্ট সেটিংস থেকে জানান — প্রতিটি বার্তা টিমের একজন প্রকৃত মানুষের কাছে পৌঁছায়। মনে রাখবেন: এখানে কিছুই বিনিয়োগ পরামর্শ নয়; প্রতিটি ট্রেডের নিয়ন্ত্রণ আপনার হাতেই থাকে।',
+  'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
+  'about.featureAttribution':
+    'পারফরম্যান্স অ্যাট্রিবিউশন — সেক্টর, অঞ্চল ও অ্যাসেট ক্লাস অনুযায়ী রিটার্ন বিশ্লেষণ করুন, এবং যেকোনো সময়সীমায় বেঞ্চমার্ক করুন।',
+  'about.featureRebalance':
+    'সুশৃঙ্খল রিব্যালান্সিং — টার্গেট অ্যালোকেশন ও টলারেন্স ব্যান্ড নির্ধারণ করুন, ড্রিফট আগেই চিহ্নিত হতে দেখুন, এবং আপনাকে ট্র্যাকে ফেরানো ট্রেডগুলো পান।',
+  'about.featureTax':
+    'ট্যাক্স-ডকুমেন্ট ব্যবস্থাপনা — রিয়ালাইজড ও আনরিয়ালাইজড গেইন, ডিভিডেন্ড ও 1099 ডকুমেন্ট এক জায়গায়, ওয়াশ-সেল ফ্ল্যাগসহ।',
+  'about.featureUnified':
+    'একটি সমন্বিত পোর্টফোলিও — ইকুইটি, ETF, মিউচুয়াল ফান্ড, বন্ড এবং আরও অনেক কিছু, প্রতিটি ব্রোকারেজ অ্যাকাউন্ট থেকে একত্রে।',
+  'about.featureWatchlist':
+    'ওয়াচলিস্ট, নিউজ ও প্রাইস অ্যালার্ট, যাতে অপ্রয়োজনীয় শব্দ ছাড়াই গুরুত্বপূর্ণ বিষয়ে পদক্ষেপ নিতে পারেন।',
+  'about.intro':
+    '{{app}} হলো ব্যক্তিগত বিনিয়োগকারী ও স্বাধীন উপদেষ্টাদের জন্য একটি মাল্টি-অ্যাসেট পোর্টফোলিও ড্যাশবোর্ড। ইকুইটি, ETF, মিউচুয়াল ফান্ড, বন্ড, রিয়েল এস্টেট ও নগদ — প্রতিটি অ্যাকাউন্টের প্রতিটি হোল্ডিং, এক জায়গায়, একজন পেশাদার ডেস্কের সুশৃঙ্খলার সাথে।',
+  'about.missionBody':
+    'ভালো বিনিয়োগ মূলত সুশৃঙ্খলা: একটি স্পষ্ট টার্গেট অ্যালোকেশন, সৎ পারফরম্যান্স অ্যাট্রিবিউশন, এবং গোছানো ট্যাক্স রেকর্ড। {{app}} এই প্রাতিষ্ঠানিক অভ্যাসগুলো সবার জন্য নিয়ে আসে, যাতে আপনি আবেগের বদলে সচেতনভাবে রিব্যালান্স করতে পারেন — এবং আপনার পোর্টফোলিও আসলে কী করছে তা কখনোই চোখের আড়াল না হয়।',
+  'about.missionTitle': 'আমাদের লক্ষ্য',
   'about.pageTitle': '{{app}} সম্পর্কে',
   'argentAuthShell.brandEyebrow': 'আর্জেন্ট · সম্পদ সরঞ্জাম',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . এটি কোনো বিনিয়োগ পরামর্শ নয়।',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'ব্যক্তিগত বিনিয়োগকারী এবং উপদেষ্টাদের জন্য একটি পোর্টফোলিও ড্যাশবোর্ড, যারা অপ্রয়োজনীয় জটিলতা ছাড়াই সুশৃঙ্খল পুনর্ভারসাম্য, নির্ভুল পারফরম্যান্স অ্যাট্রিবিউশন এবং ট্যাক্স-ডকুমেন্টের পরিচ্ছন্নতা চান।',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · অতীতের পারফরম্যান্স ভবিষ্যতের ফলাফলের নিশ্চয়তা দেয় না।',
   'argentAuthShell.sampleChange': 'আজ +$২,৮৪১ (+০.২৮%)',
+  'argentAuthShell.sampleLabel': 'পোর্টফোলিও মূল্য',
   'argentAuthShell.sampleValue': '$১,০৩২,২৫১',
   'argentLayout.primaryNavLabel': 'প্রাথমিক নেভিগেশন',
   'assetAllocationDonut.heading': 'আপনার টাকা কীভাবে বিনিয়োগ করা হয়',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'আজ',
   'assetDetail.txEmpty': 'এই টিকারে কোনো লেনদেন হয়নি।',
   'assetDetail.txHeading': 'আপনার লেনদেন',
+  'auth.legalConsent.prefix': 'চালিয়ে যাওয়ার মাধ্যমে, আপনি {{appName}}-এর সাথে সম্মত হচ্ছেন',
   'common.and': 'এবং',
   'common.goToDashboard': 'ড্যাশবোর্ডে যান',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'আজ',
   'dashboard.topHoldings.heading': 'আপনার টাকা কোথায় কাজ করছে',
   'dashboard.topHoldings.label': 'শীর্ষ হোল্ডিং',
+  'forgotPassword.gotLinkCta': 'আমার একটি রিসেট লিংক আছে →',
+  'forgotPassword.subheading':
+    'আপনার Gavl অ্যাকাউন্টে থাকা ইমেলটি প্রবেশ করান এবং আমরা আপনাকে একটি সুরক্ষিত রিসেট লিঙ্ক পাঠিয়ে দেব।',
   'forgotPassword.successBody':
     'কয়েক মিনিটের মধ্যে ইমেলটি না পেলে, আপনার স্প্যাম ফোল্ডারটি দেখুন অথবা অন্য কোনো ইমেল দিয়ে চেষ্টা করুন।',
   'forgotPassword.successSubheading':
     'চেক {{email}} রিসেট লিঙ্কের জন্য। এটির মেয়াদ ৬০ মিনিটে শেষ হয়ে যাবে।',
+  'forgotPassword.successTitle': 'রিসেট ইমেইল পাঠানো হচ্ছে',
   'holdingHighlightRow.todayLabel': 'আজ',
   'holdings.addCta': 'কিনুন',
   'holdings.col.allocation': 'বরাদ্দ',
@@ -58,6 +87,8 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} । এটি কোনো বিনিয়োগ পরামর্শ নয়। অতীতের কর্মক্ষমতা ভবিষ্যতের ফলাফলের নিশ্চয়তা দেয় না।',
   'landing.eyebrow': 'আর্জেন্ট · সম্পদ গড়ার একটি প্ল্যাটফর্ম',
   'landing.features.heading': 'একজন উপদেষ্টা নিজের জন্য যা কিছু তৈরি করে নেন।',
+  'landing.finalCta.body': 'দুই ক্লিকে আপনার ব্রোকারেজ সংযুক্ত করুন। বাকিটা {{appName}} করবে।',
+  'landing.finalCta.cta': 'আপনার আর্জেন্ট অ্যাকাউন্ট খুলুন',
   'landing.finalCta.heading': 'আপনার পোর্টফোলিওতে শৃঙ্খলা ফিরিয়ে আনুন।',
   'landing.footerSignup': 'একটি অ্যাকাউন্ট খুলুন',
   'landing.getStarted': 'একটি অ্যাকাউন্ট খুলুন',
@@ -65,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'মূল্য দেখুন',
   'landing.heroSubtitle':
     'ব্যক্তিগত বিনিয়োগকারী এবং উপদেষ্টাদের জন্য একটি পোর্টফোলিও ড্যাশবোর্ড, যারা অপ্রয়োজনীয় জটিলতা ছাড়াই সুশৃঙ্খল পুনর্ভারসাম্য, নির্ভুল পারফরম্যান্স অ্যাট্রিবিউশন এবং ট্যাক্স-ডকুমেন্টের পরিচ্ছন্নতা চান।',
+  'landing.heroTitle': '{{tagline}}।',
   'landing.sampleCaption': 'একটি প্রতিনিধিত্বমূলক পোর্টফোলিও থেকে সরাসরি পূর্বরূপ',
   'login.heading': 'আর্জেন্টে সাইন ইন করুন',
   'login.subheading':
@@ -76,6 +108,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} কয়েক ঘন্টা আগে',
   'news.justNow': 'এইমাত্র',
   'news.loadError': 'সংবাদ লোড করা সম্ভব হয়নি।',
+  'planUpdated.body':
+    'আপনার বিলিং পরিবর্তন এখন সক্রিয়। বিলিং পেজ থেকে যেকোনো সময় আপনার প্ল্যান পরিচালনা করতে পারেন।',
+  'planUpdated.retry': 'আবার চেষ্টা করুন',
+  'planUpdated.verifyFailed': 'আমরা এখনও আপনার পেমেন্ট নিশ্চিত করতে পারিনি।',
+  'planUpdated.verifyFailedBody':
+    'আপনার পেমেন্টটি এখনও প্রক্রিয়াধীন থাকতে পারে। কিছুক্ষণ পর আবার চেষ্টা করুন।',
   'planUpdated.verifying': 'আপনার পেমেন্ট নিশ্চিত করা হচ্ছে…',
   'portfolioHeroCard.label': 'পোর্টফোলিও মূল্য',
   'pricing.holdingsLabel': 'হোল্ডিং',
@@ -86,12 +124,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'বরাদ্দ বিচ্যুতি',
   'rebalance.empty': 'এখনো কোনো লক্ষ্যমাত্রা নির্ধারণ করা হয়নি।',
   'rebalance.executeCta': 'স্থান {{count}} বাণিজ্য',
+  'rebalance.executeError': 'ট্রেড স্থাপন করা যায়নি।',
   'rebalance.executeOk': 'স্থাপন করা {{count}} লেনদেনগুলো। লেনদেন পৃষ্ঠায় সেগুলো দেখুন।',
+  'rebalance.executing': 'স্থাপন করা হচ্ছে…',
   'rebalance.eyebrow': 'পুনর্ভারসাম্য · আর্জেন্ট উপদেষ্টা',
   'rebalance.heading': 'আপনার পোর্টফোলিওকে শৃঙ্খলার মধ্যে ফিরিয়ে আনুন',
   'rebalance.loadError': 'রিব্যালেন্স প্ল্যান লোড করতে ব্যর্থ হয়েছে।',
+  'rebalance.plan.driftLine': 'বর্তমানে {{current}}% · টার্গেট {{target}}%',
   'rebalance.planHeading': 'আর্জেন্ট টিকেট — জমা দেওয়ার আগে পর্যালোচনা করুন',
   'rebalance.planLabel': 'প্রস্তাবিত বাণিজ্য পরিকল্পনা',
+  'rebalance.subheading':
+    'তাদের টলারেন্স ব্যান্ডের বাইরে থাকা সারিগুলো ট্রেড সাজেশন তৈরি করে। {{appName}} শুধু আপনার নিশ্চিতকরণেই কাজ করে।',
   'rebalance.summary.buyLabel': 'ক্রয়',
   'rebalance.summary.buySub': 'টপ আপ করার পদ',
   'rebalance.summary.driftLabel': 'আউট-অফ-ব্যান্ড',
@@ -100,6 +143,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'প্রস্তাবিত লেনদেন জুড়ে',
   'rebalance.summary.sellLabel': 'বিক্রি করে',
   'rebalance.summary.sellSub': 'ছাঁটাই করার পদ',
+  'rebalanceDriftCard.drift': 'ড্রিফট {{sign}}{{pct}}% · ব্যান্ড ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'লক্ষ্য {{pct}} %',
   'reports.attributionHeading': 'কর্মক্ষমতা আরোপণ (১ বছর)',
   'reports.col.alpha': 'আলফা',
@@ -113,37 +157,68 @@ export const ui: UiTranslations = {
   'reports.col.year': 'বছর',
   'reports.gainsHeading': 'বাস্তবায়িত ও অবাস্তবায়িত লাভ',
   'reports.noAttribution': 'এখনও কোনো উৎস-নির্দেশনা তথ্য নেই।',
+  'reports.noGains': 'এখনো কোনো রিয়ালাইজড/আনরিয়ালাইজড গেইন ডেটা নেই।',
   'reports.noPerformance': 'এখনো কোনো পারফরম্যান্স ডেটা পাওয়া যায়নি।',
   'reports.noTaxDocs': 'এখনো কোনো কর সংক্রান্ত নথি পাওয়া যায়নি।',
   'reports.performanceHeading': 'পারফরম্যান্স বনাম বেঞ্চমার্ক',
   'reports.taxHeading': 'কর নথি',
   'resetPassword.heading': 'একটি শক্তিশালী নতুন পাসওয়ার্ড বেছে নিন।',
+  'resetPassword.passwordPlaceholder': 'নতুন পাসওয়ার্ড',
   'resetPassword.subheading':
     'আপনার পাসওয়ার্ড সেট করা হয়ে গেলে আর্জেন্ট আপনাকে স্বয়ংক্রিয়ভাবে সাইন ইন করিয়ে দেবে।',
   'resetPassword.tokenPlaceholder': 'ইমেল থেকে টোকেন রিসেট করুন',
+  'settings.appearance.description': 'লাইট ও ডার্ক মোডের মধ্যে পরিবর্তন করুন।',
   'settings.appearance.title': 'চেহারা',
+  'settings.devices.body': 'আপনার অ্যাকাউন্টে বর্তমানে সাইন ইন করা ডিভাইসগুলো।',
+  'settings.devices.empty': 'কোনো ডিভাইস পাওয়া যায়নি।',
   'settings.devices.heading': 'ডিভাইস',
+  'settings.devices.revokeWarning':
+    'এই ডিভাইসের অ্যাক্সেস শীঘ্রই প্রত্যাহার করা হবে। এটি সাইন আউট করবেন?',
   'settings.devices.signOut': 'সাইন আউট',
   'settings.devices.thisDevice': 'এই ডিভাইসটি',
   'settings.devices.unknown': 'অজানা ডিভাইস',
   'settings.linked.body':
     'ব্রোকারেজ সিঙ্কিংয়ের জন্য একটি থার্ড-পার্টি কানেক্টর (যেমন প্লেড, ইয়োডলি ইত্যাদি) প্রয়োজন। অটো-ইম্পোর্ট চালু করতে আপনার পরিবেশে প্রোভাইডারকে কনফিগার করুন।',
   'settings.linked.heading': 'সংযুক্ত ব্রোকারেজ অ্যাকাউন্ট',
+  'settings.linked.placeholder': 'এখনো কোনো অ্যাকাউন্ট লিঙ্ক করা হয়নি।',
+  'settings.notifications.dividendsPaid': 'প্রদত্ত ডিভিডেন্ড',
   'settings.notifications.error': 'পছন্দ আপডেট করা সম্ভব হয়নি।',
   'settings.notifications.priceAlerts': 'মূল্য সতর্কতা',
+  'settings.notifications.rebalanceDrift': 'রিব্যালান্স ড্রিফট',
+  'settings.notifications.taxDocsReady': 'ট্যাক্স ডক প্রস্তুত',
   'settings.profile.advisor': 'উপদেষ্টার ইমেল (ঐচ্ছিক)',
   'settings.profile.heading': 'প্রোফাইল',
   'settings.security.changePassword': 'পাসওয়ার্ড পরিবর্তন করুন',
+  'settings.security.changePasswordTitle': 'পাসওয়ার্ড পরিবর্তন করুন',
   'settings.security.changing': 'পরিবর্তন হচ্ছে…',
+  'settings.security.confirmPassword': 'পাসওয়ার্ড',
+  'settings.security.currentPassword': 'বর্তমান পাসওয়ার্ড',
   'settings.security.deleteAccount': 'অ্যাকাউন্ট মুছে ফেলুন',
   'settings.security.deleteError': 'অ্যাকাউন্টটি মুছে ফেলা সম্ভব হয়নি।',
   'settings.security.deleteHeading': 'অ্যাকাউন্ট মুছে ফেলুন',
+  'settings.security.deleteModalWarning':
+    'এটি আপনার অ্যাকাউন্ট ও ডেটা স্থায়ীভাবে মুছে ফেলবে। নিশ্চিত করতে আপনার পাসওয়ার্ড লিখুন।',
+  'settings.security.deleteWarning':
+    'স্থায়ীভাবে আপনার অ্যাকাউন্ট এবং সমস্ত সংশ্লিষ্ট ডেটা মুছুন। এটি ফিরিয়ে আনা যাবে না।',
   'settings.security.deleting': 'মুছে ফেলা হচ্ছে…',
   'settings.security.heading': 'নিরাপত্তা',
   'settings.security.newPassword': 'নতুন পাসওয়ার্ড',
   'settings.security.password': 'পাসওয়ার্ড',
+  'settings.security.passwordError': 'পাসওয়ার্ড পরিবর্তন করা যায়নি।',
+  'settings.security.passwordHint': 'সাইন ইন করতে যে পাসওয়ার্ড ব্যবহার করেন তা পরিবর্তন করুন।',
+  'settings.security.twoFactor': 'দ্বি-স্তর প্রমাণীকরণ',
+  'settings.security.twoFactorCode': 'প্রমাণীকরণ কোড',
+  'settings.security.twoFactorDisable': 'অক্ষম করুন',
+  'settings.security.twoFactorDisableTitle': 'দুই-ধাপ প্রমাণীকরণ বন্ধ করুন',
   'settings.security.twoFactorEnable': 'সক্ষম করুন',
+  'settings.security.twoFactorEnableTitle': 'দুই-ধাপ প্রমাণীকরণ চালু করুন',
+  'settings.security.twoFactorHint': 'আপনার অ্যাকাউন্টে অতিরিক্ত সুরক্ষার স্তর যোগ করুন।',
   'settings.security.twoFactorInvalidCode': 'অবৈধ কোড',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'টু-ফ্যাক্টর QR কোড',
+  'settings.security.twoFactorScan':
+    'আপনার অথেনটিকেটর অ্যাপ দিয়ে এই QR কোডটি স্ক্যান করুন, তারপর ৬ সংখ্যার কোডটি লিখুন।',
+  'settings.security.twoFactorUnavailable': 'এই অ্যাপটির জন্য দ্বি-স্তরীয় প্রমাণীকরণ উপলব্ধ নেই।',
   'settings.security.twoFactorVerify': 'যাচাই ও সক্রিয় করুন',
   'settings.tax.error': 'কর পদ্ধতি হালনাগাদ করা সম্ভব হয়নি।',
   'settings.tax.heading': 'ট্যাক্স লট অ্যাকাউন্টিং',
@@ -154,6 +229,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'কর পদ্ধতি সংরক্ষিত হয়েছে।',
   'signup.eyebrow': 'একটি অ্যাকাউন্ট খুলুন',
   'signup.heading': 'আপনার আর্জেন্ট অ্যাকাউন্ট খুলুন',
+  'signup.legalPrefix': 'অ্যাকাউন্ট তৈরি করে আপনি {{appName}}-এ সম্মত হচ্ছেন',
   'signup.subheading':
     '৩০ দিনের জন্য বিনামূল্যে। কোনো কার্ডের প্রয়োজন নেই। যেকোনো সময় বাতিল করা যাবে।',
   'signup.terms':

@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da',
+  'about.featureConnections':
+    'Manajan haɗin da ke adana bayanan databases ɗinka cikin aminci tare da launi daban-daban — bayanan sirri ana ɓoye su a ajiya, ba a bayyane ba.',
+  'about.featureMonitoring':
+    'Sa ido kai tsaye kan aikin tambaya da ayyukan database, tare da gajerun hanyoyin madannai da command palette don tafiyar da komai ba tare da hannu ba.',
+  'about.featurePlans':
+    'Tsare-tsare da suka dace da kai — Kyauta don aikin kai, Pro da Team don ƙarin haɗi, riƙe tambaya mai tsawo, fitarwa, da manyan fasaloli.',
+  'about.featureQueryEditor':
+    'Editan SQL mai ƙarfin Monaco tare da tarihin tambaya, tambayoyin da aka adana, da fitar da sakamakonka zuwa CSV da danna ɗaya.',
+  'about.featureSchema':
+    'Mai binciken schema da mai duba tebur don kewaya databases, tebura, da ginshiƙai, sannan duba, tace, da gyara layuka kai tsaye.',
+  'about.missionTitle': 'Manufarmu',
   'authShell.commands': 'Umarni',
   'authShell.ssoSupported': 'Ana tallafawa SSO',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Tambayoyi',
   'connections.schema': 'Tsarin tsari',
   'connections.subtitle': 'Sarrafa haɗin bayananka.',
+  'connections.test': 'Gwaji',
   'databaseAdminLayout.adminRole': 'Matsayin Gudanarwa',
   'databaseAdminLayout.commandPalette': 'Paletin umarni',
   'databaseAdminLayout.commands': 'umarni',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Sabuwar haɗi',
   'databaseAdminLayout.queries': 'Tambayoyi',
   'databaseAdminLayout.ready': 'A shirye',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Nemo umarni, tambayoyi, tebura…',
   'databaseAdminLayout.user': 'Mai amfani',
   'editConnection.confirmDelete': 'A goge wannan haɗin?',
   'editConnection.deleteButton': 'Share haɗin',
+  'editConnection.newPassword': 'Sabon kalmar sirri (bar fanko don kiyaye)',
   'editConnection.saved': 'An adana haɗin.',
   'editConnection.title': 'Gyara haɗin',
   'forgotPassword.success': 'Idan wannan asusun yana nan, hanyar sake saitawa tana kan hanya.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Nasarorin',
   'monitoring.title': 'Sa ido',
   'monitoring.totalQueries': 'Jimlar tambayoyi',
+  'nav.schema': 'Tsarin tsari',
   'newConnection.database': 'Bayanan Bayanai',
   'newConnection.engine': 'Injin',
   'newConnection.host': 'Mai masaukin baki',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Babu wata alaƙa da ke da alaƙa da wannan ɓangaren.',
   'savedQuery.notBound': 'Ba a ɗaure ba',
   'savedQuery.title': 'An adana tambayar',
+  'schema.columns': 'Ginshiƙai',
   'schema.foreignKeys': 'Maɓallan ƙasashen waje',
   'schema.indexes': 'Fihirisa',
   'schemaExplorer.browseRows': 'Bincika layuka',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'wanda ba a iya warwarewa ba',
   'schemaExplorer.colType': "nau'in",
   'schemaExplorer.noColumns': 'Babu ginshiƙai.',
+  'schemaExplorer.noForeignKeys': 'Babu maɓallan waje.',
   'schemaExplorer.noIndexes': 'Babu fihirisa.',
   'schemaExplorer.noTables': 'Babu tebura',
   'schemaExplorer.pickATable': 'Zaɓi tebur daga gefen gefe.',
   'schemaExplorer.tables': 'Tebura',
   'schemaExplorer.title': 'Mai binciken zane',
+  'settings.session': 'Zaman zama',
   'settings.subtitle': 'Sarrafa asusunka da kuma shirinka.',
   'signup.heading': 'Ƙirƙiri asusun Quarry ɗinku',
   'signup.tagline': 'Ƙara hanyar shiga cikin ƙasa da minti ɗaya.',
   'tableBrowser.noRows': 'Wannan teburin ba shi da layuka tukuna.',
+  'tableBrowser.subtitle': 'Duba layuka daga database ɗinka na nesa.',
   'tableBrowser.title': 'Duba layuka daga rumbun adana bayanai na nesa.',
 }

@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ചോദ്യങ്ങൾ, ഫീഡ്ബാക്ക്, അല്ലെങ്കിൽ ഒരു ഫീച്ചർ അഭ്യർത്ഥന? hello@murmur.app എന്ന വിലാസത്തിൽ ടീമിന് ഇമെയിൽ ചെയ്യുക — ഓരോ സന്ദേശവും ഉൽപ്പന്നത്തിൽ പ്രവർത്തിക്കുന്ന ഒരു യഥാർത്ഥ മനുഷ്യനെ എത്തുന്നു.',
   'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'ഞങ്ങളേക്കുറിച്ച്',
+  'about.intro':
+    'കുറിപ്പുകൾ എടുക്കുന്നതിനേക്കാൾ തീരുമാനങ്ങൾ എടുക്കാൻ ഇഷ്ടപ്പെടുന്ന ടീമുകൾക്കുള്ള മീറ്റിംഗ് ഇന്റലിജൻസ് ആണ് {{app}}. ഇത് നിങ്ങളുടെ കോളുകളിൽ ചേരുന്നു, സ്പീക്കർ ലേബലുകളോടെ ഓരോ വാക്കും ട്രാൻസ്ക്രൈബ് ചെയ്യുന്നു, മീറ്റിംഗ് അവസാനിക്കുന്ന നിമിഷം ഒരു AI സംഗ്രഹവും ഉത്തരവാദിത്തമുള്ള ആക്ഷൻ ഐറ്റങ്ങളും നൽകുന്നു.',
+  'about.missionBody':
+    'ടീമുകൾ തീരുമാനങ്ങൾ എടുക്കുന്നത് മീറ്റിംഗുകളിലാണ് — ആ തീരുമാനങ്ങൾ നഷ്ടപ്പെടുന്നതും അവിടെത്തന്നെ. ഒരു സംഭാഷണത്തിൽ നടക്കുന്ന പ്രവർത്തനം ആ സംഭാഷണത്തെ അതിജീവിക്കുന്നുവെന്ന് ഉറപ്പാക്കാൻ {{app}} നിലകൊള്ളുന്നു: ഒരു വിശ്വസ്ത രേഖ, വ്യക്തമായ ഒരു റീക്യാപ്പ്, ഉത്തരവാദിത്തമുള്ള അടുത്ത ഘട്ടങ്ങൾ — സ്വയമേവ.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'actions.empty': 'ഒരു പ്രവർത്തന ഇനവും പൊരുത്തപ്പെടുന്നില്ല.',
   'actions.heading': 'പ്രവർത്തന ഇനങ്ങൾ',
   'actions.loadError': 'പ്രവർത്തന ഇനങ്ങൾ ലോഡ് ചെയ്യാനായില്ല.',
@@ -10,11 +17,14 @@ export const ui: UiTranslations = {
     'എല്ലാ മീറ്റിംഗിലും സംഗ്രഹിച്ചിരിക്കുന്നു. ഫോക്കസ് ചെയ്യാൻ സ്റ്റാറ്റസ് അനുസരിച്ച് ഫിൽട്ടർ ചെയ്യുക.',
   'actions.toggleDoneLabel': 'പൂർത്തിയായതായി അടയാളപ്പെടുത്തുക',
   'actions.toggleReopenLabel': 'തുറന്നതായി അടയാളപ്പെടുത്തുക',
+  'auth.footer': '© {{year}} {{app}}. ഓരോ വാക്കും, സത്തയാക്കി.',
   'calendar.heading': 'കലണ്ടർ',
   'calendar.joinCta': 'ചേരുക',
   'calendar.loadError': 'കലണ്ടർ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
   'calendar.nextMonth': 'അടുത്ത മാസം',
   'calendar.noEventsForDay': 'ഈ ദിവസത്തേക്ക് മീറ്റിംഗുകളൊന്നും ഷെഡ്യൂൾ ചെയ്തിട്ടില്ല.',
+  'calendar.noUpcomingEvents':
+    'വരാനിരിക്കുന്ന മീറ്റിംഗുകളില്ല. ഈ ലിസ്റ്റ് നിറയ്ക്കാൻ Integrations-ൽ നിന്ന് ഒരു കലണ്ടർ കണക്റ്റ് ചെയ്യുക.',
   'calendar.previousMonth': 'കഴിഞ്ഞ മാസം',
   'calendar.recent': 'സമീപകാലം',
   'common.daysAgo': '{{count}} ഡി മുമ്പ്',
@@ -26,9 +36,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} ആക്ഷൻ ഇനങ്ങൾ',
   'dashboard.empty.body':
     'മുറുമുറുപ്പ് നിങ്ങളുടെ അടുത്ത മീറ്റിംഗിൽ സ്വയമേവ ചേരുന്നതിന് ഒരു റെക്കോർഡിംഗ് ആരംഭിക്കുക അല്ലെങ്കിൽ Google കലണ്ടർ ബന്ധിപ്പിക്കുക.',
+  'dashboard.empty.cta': 'റെക്കോർഡിംഗ് ആരംഭിക്കുക',
   'dashboard.empty.heading': 'ഇതുവരെ മീറ്റിംഗുകളൊന്നുമില്ല',
   'dashboard.eyebrow': 'നിങ്ങളുടെ മീറ്റിംഗ് ഫീഡ്',
   'dashboard.loadError': 'ഡാഷ്‌ബോർഡ് ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
+  'dashboard.noActions': 'ആക്ഷനുകളില്ല',
   'dashboard.recentHeading': 'സമീപകാല മീറ്റിംഗുകൾ',
   'dashboard.recordCta': 'മീറ്റിംഗ് റെക്കോർഡ് ചെയ്യുക',
   'dashboard.stat.actions': 'പ്രവർത്തന ഇനങ്ങൾ',
@@ -38,6 +50,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} നിങ്ങൾ അവസാനം പരിശോധിച്ചതിനുശേഷം വായിക്കാത്ത സംഗ്രഹങ്ങൾ. പിറുപിറുപ്പ് ഓരോ വാക്കും പിടിച്ചെടുത്തു - ഇതാ ഒരു സംഗ്രഹം.',
   'dashboard.viewCalendar': 'കലണ്ടർ കാണുക →',
+  'footer.linksLabel': 'ഫൂട്ടർ',
   'forgot.failed': 'പുനഃസജ്ജീകരണ ഇമെയിൽ അയയ്ക്കാൻ കഴിഞ്ഞില്ല.',
   'forgot.sentBody':
     'ഒരു അക്കൗണ്ട് നിലവിലുണ്ടെങ്കിൽ {{email}}, നിങ്ങൾക്ക് ഉടൻ തന്നെ ഒരു റീസെറ്റ് ലിങ്ക് ലഭിക്കും.',
@@ -49,14 +62,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'കലണ്ടറുകളും വീഡിയോ പ്ലാറ്റ്‌ഫോമുകളും ബന്ധിപ്പിക്കുന്നതിലൂടെ മുറുമുറുപ്പ് യാന്ത്രികമായി ചേരും.',
   'integrations.updateError': 'അപ്ഡേറ്റ് പരാജയപ്പെട്ടു.',
+  'landing.ctaBody':
+    'എല്ലാ മാസവും ആദ്യ 5 മീറ്റിംഗുകൾക്ക് സൗജന്യം. ക്രെഡിറ്റ് കാർഡ് വേണ്ട. ഒരു മിനിറ്റിനുള്ളിൽ Google Calendar കണക്റ്റ് ചെയ്യുക.',
   'landing.ctaButton': 'ആരംഭിക്കൂ — ഇത് സൗജന്യമാണ്',
   'landing.ctaHeading': 'കുറിപ്പുകൾ എടുക്കുന്നത് നിർത്തൂ. തീരുമാനങ്ങൾ എടുക്കാൻ തുടങ്ങൂ.',
+  'landing.demo.aiBody':
+    'ഓപ്സ് സ്റ്റാഫിംഗിന് ഇടം നൽകാൻ ലോഞ്ച് മെയ് 5 → മെയ് 12 ലേക്ക് മാറ്റി. ഡാഷ്ബോർഡ് റീഡിസൈൻ മെയ് 26 ലേക്ക് വേർതിരിച്ചു.',
   'landing.demo.aiLabel': 'AI സംഗ്രഹം, തത്സമയം തയ്യാറാക്കിയത്',
   'landing.demo.recording': 'റെക്കോർഡിംഗ് · തത്സമയം',
   'landing.eyebrow': 'AI മീറ്റിംഗ് ഇന്റലിജൻസ്',
   'landing.featuresHeading': 'മീറ്റിംഗ് അവസാനിച്ചതിന് ശേഷം നിങ്ങളുടെ ടീമിന് ആവശ്യമായതെല്ലാം',
+  'landing.featuresSubheading':
+    'ഇനി "ഇതിന്റെ ഉത്തരവാദിത്തം ആർക്കാണ്?" എന്ന് ചോദിക്കേണ്ട. കോൾ വിച്ഛേദിക്കുന്നതിന് മുമ്പ് {{appName}} റീക്യാപ്പ് നൽകുന്നു.',
   'landing.getStarted': 'സൗജന്യമായി പരീക്ഷിക്കൂ',
   'landing.heroSecondary': '90 സെക്കൻഡ് ടൂർ കാണുക',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} നിങ്ങളുടെ കോളുകളിൽ ചേരുന്നു, സ്പീക്കർ ലേബലുകളോടെ ഓരോ വാക്കും ട്രാൻസ്ക്രൈബ് ചെയ്യുന്നു, മീറ്റിംഗ് അവസാനിക്കുന്ന നിമിഷം AI സംഗ്രഹങ്ങളും ഉത്തരവാദിത്തമുള്ള ആക്ഷൻ ഐറ്റങ്ങളും നൽകുന്നു.',
   'landing.heroTitle': 'ഓരോ മീറ്റിംഗും പകർത്തുക. എന്താണ് പ്രധാനമെന്ന് പുറത്തുകൊണ്ടുവരിക.',
   'login.altPrompt': 'മുർമുറിൽ പുതിയ ആളാണോ?',
   'login.failed': 'സൈൻ ഇൻ ചെയ്യാൻ കഴിഞ്ഞില്ല. നിങ്ങളുടെ ഇമെയിലും പാസ്‌വേഡും പരിശോധിക്കുക.',
@@ -64,6 +85,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'പ്രവർത്തന ഇനങ്ങൾ',
   'meetingDetail.back': 'എല്ലാ മീറ്റിംഗുകളും',
   'meetingDetail.decisionsHeading': 'തീരുമാനങ്ങൾ',
+  'meetingDetail.dueDate': '{{date}} വരെ',
   'meetingDetail.followupsHeading': 'ഫോളോ-അപ്പുകൾ',
   'meetingDetail.loadError': 'മീറ്റിംഗ് ലോഡ് ചെയ്യാനായില്ല.',
   'meetingDetail.noActions': 'പ്രവർത്തന ഇനങ്ങളൊന്നും കണ്ടെത്തിയില്ല.',
@@ -77,8 +99,10 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'ഇതുവരെ മീറ്റിംഗുകളൊന്നുമില്ല',
   'meetings.heading': 'മീറ്റിംഗുകൾ',
   'meetings.loadError': 'മീറ്റിംഗുകൾ ലോഡ് ചെയ്യാനായില്ല.',
+  'meetings.recordCta': 'മീറ്റിംഗ് റെക്കോർഡ് ചെയ്യുക',
   'meetings.subheading':
     'റെക്കോർഡുചെയ്‌തതും അപ്‌ലോഡുചെയ്‌തതും സമന്വയിപ്പിച്ചതുമായ എല്ലാ മീറ്റിംഗും.',
+  'murmurLayout.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
   'murmurLayout.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'murmurLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'nav.legal': 'നിയമപരമായ',
@@ -103,7 +127,16 @@ export const ui: UiTranslations = {
   'profile.loading': 'ലോഡ് ചെയ്യുന്നു...',
   'profile.navLabel': 'പ്രൊഫൈൽ വിഭാഗങ്ങൾ',
   'profile.notifications.assignments': 'എനിക്ക് നിയോഗിച്ച പ്രവർത്തന ഇനങ്ങൾ',
+  'profile.notifications.assignmentsHint':
+    'നിങ്ങൾക്കായി ഒരു ആക്ഷൻ ഐറ്റം ക്യാപ്ചർ ചെയ്യുമ്പോൾ അറിയിക്കുക.',
+  'profile.notifications.mentions': 'ട്രാൻസ്ക്രിപ്റ്റുകളിലെ പരാമർശങ്ങൾ',
+  'profile.notifications.mentionsHint': 'ആരെങ്കിലും നിങ്ങളെ @-മെൻഷൻ ചെയ്യുമ്പോൾ ഇമെയിലും പുഷും.',
+  'profile.notifications.subheading':
+    'ഏതൊക്കെ {{appName}} ഇവന്റുകൾ നിങ്ങളിലേക്ക് എത്തണമെന്ന് തിരഞ്ഞെടുക്കുക.',
   'profile.notifications.summaries': 'ആഴ്ചതോറുമുള്ള ഡൈജസ്റ്റ്',
+  'profile.notifications.summariesHint':
+    'കഴിഞ്ഞ ആഴ്ചയിലെ എല്ലാ മീറ്റിംഗുകളുടെയും ഒരു തിങ്കളാഴ്ചത്തെ റീക്യാപ്പ്.',
+  'profile.preferences.speakerColor': 'സ്ഥിരസ്ഥിതി സ്പീക്കർ നിറം',
   'profile.preferences.subheading': 'നിങ്ങൾ ചേരുന്ന ഓരോ റെക്കോർഡിംഗിനും ബാധകമായ ഡിഫോൾട്ടുകൾ.',
   'profile.preferences.timezone': 'സമയ മേഖല',
   'profile.preferences.title': 'തൊഴില് പേര്',
@@ -115,19 +148,24 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'നിങ്ങളുടെ ബ്രൗസർ റെക്കോർഡിംഗ് പിന്തുണയ്ക്കുന്നില്ല. Chrome, Edge, അല്ലെങ്കിൽ Safari എന്നിവ പരീക്ഷിച്ചുനോക്കൂ.',
   'record.error.upload': 'അപ്‌ലോഡ് പരാജയപ്പെട്ടു. വീണ്ടും ശ്രമിക്കുക.',
+  'record.errorLabel': 'എന്തോ തെറ്റ് സംഭവിച്ചു',
   'record.heading': 'റെക്കോർഡ് ചെയ്യുക',
   'record.idleLabel': 'റെക്കോർഡിംഗ് ആരംഭിക്കാൻ ടാപ്പ് ചെയ്യുക',
   'record.processingLabel':
     'വിസ്പർ ഉപയോഗിച്ച് ട്രാൻസ്ക്രൈബുചെയ്യുന്നു, ക്ലോഡുമായി സംഗ്രഹിക്കുന്നു...',
+  'record.recordingLabel': 'രേഖപ്പെടുത്തുന്നു…',
   'record.retryCta': 'വീണ്ടും ശ്രമിക്കുക',
   'record.subheading':
     'ആരംഭിക്കാൻ മൈക്ക് അമർത്തുക. മർമർ ഓഡിയോ പകർത്തുന്നു, വിസ്പർ വഴി ട്രാൻസ്ക്രൈബ് ചെയ്യുന്നു, ക്ലോഡ് നൽകുന്ന ഒരു സംഗ്രഹം എഴുതുന്നു.',
+  'record.titlePlaceholder': 'മീറ്റിംഗ് ശീർഷകം (ഓപ്ഷണൽ)',
+  'reset.altPrompt': 'മനസ്സ് മാറിയോ?',
   'reset.hint':
     'അക്ഷരങ്ങളുടെയും അക്കങ്ങളുടെയും മിശ്രിതത്തിൽ കുറഞ്ഞത് 8 പ്രതീകങ്ങളെങ്കിലും ഉപയോഗിക്കുക.',
   'reset.missingToken':
     'റീസെറ്റ് ലിങ്ക് കാണുന്നില്ല അല്ലെങ്കിൽ കാലഹരണപ്പെട്ടു. പുതിയൊരെണ്ണം അഭ്യർത്ഥിക്കുക.',
   'reset.newPassword': 'പുതിയ പാസ്വേഡ്',
   'reset.subheading': 'മറ്റെവിടെയും ഉപയോഗിക്കാത്ത ഒരു പാസ്‌വേഡ് തിരഞ്ഞെടുക്കുക.',
+  'reset.tooShort': 'പാസ്‌വേഡിൽ കുറഞ്ഞത് 8 പ്രതീകങ്ങളെങ്കിലും ഉണ്ടായിരിക്കണം.',
   'search.empty': 'ട്രാൻസ്ക്രിപ്റ്റുകൾ തിരയാൻ ടൈപ്പ് ചെയ്യുക.',
   'search.loadError': 'തിരയൽ പരാജയപ്പെട്ടു. വീണ്ടും ശ്രമിക്കുക.',
   'search.noResults': '“എന്നതിന് ഫലങ്ങളൊന്നുമില്ല. {{q}} ”.',
@@ -143,7 +181,10 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'ഓഡിയോ സൂക്ഷിക്കുക',
   'settings.retention.heading': 'നിലനിർത്തൽ',
   'settings.retention.transcript': 'ട്രാൻസ്ക്രിപ്റ്റുകൾ സൂക്ഷിക്കുക',
+  'settings.revokeDeviceWarning':
+    'ഈ ഉപകരണത്തിന്റെ ആക്‌സസ് ഉടൻ പിൻവലിക്കപ്പെടും. സൈൻ ഔട്ട് ചെയ്യണോ?',
   'settings.saveError': 'സംരക്ഷിക്കൽ പരാജയപ്പെട്ടു.',
+  'settings.security.subheading': 'സൈൻ ഇൻ ചെയ്യാൻ നിങ്ങൾ ഉപയോഗിക്കുന്ന പാസ്വേഡ് അപ്ഡേറ്റ് ചെയ്യുക.',
   'settings.sharing.exportFormat': 'എക്സ്പോർട്ട് ഫോർമാറ്റ്',
   'settings.sharing.heading': 'പങ്കിടൽ സ്ഥിരസ്ഥിതികൾ',
   'settings.sharing.scope': 'ഡിഫോൾട്ട് പങ്കിടൽ സ്കോപ്പ്',
@@ -161,6 +202,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'സഹതാരത്തെ ക്ഷണിക്കുക',
   'team.invitedAs': 'ക്ഷണിച്ചു {{role}}',
   'team.inviteFailed': 'ക്ഷണം അയയ്ക്കാൻ കഴിഞ്ഞില്ല.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'ക്ഷണം അയയ്ക്കുക',
   'team.inviteSubtitle': 'ചേരാനുള്ള ലിങ്ക് അടങ്ങിയ ഒരു ഇമെയിൽ അവർക്ക് ലഭിക്കും.',
   'team.inviteTitle': 'ഒരു സഹതാരത്തെ ക്ഷണിക്കുക',

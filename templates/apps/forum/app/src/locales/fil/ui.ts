@@ -1,20 +1,44 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May feedback ka, may nahanap kang bug, o gusto mong magsimula ng komunidad sa {{appName}}? Buksan ang iyong Settings para maabot ang team — bawat mensahe ay napupunta sa isang tunay na tao na nagbabasa nito.',
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
+  'about.featureModeration':
+    'Isang built-in na moderation queue at mga tool sa pag-report para manatiling malusog at makapagsarili ang bawat komunidad.',
+  'about.featurePricing':
+    'Libreng sumali at makilahok; ang Pro at Team na mga plano ay nagbubukas ng mas mataas na limitasyon, advanced na moderation, at data export.',
+  'about.featureThreads':
+    'Mga organisadong komunidad at kategorya na may threaded, markdown-rich na mga talakayan na madaling sundan at hanapin.',
+  'about.featureVoting':
+    'Up/down voting at isang kinita na reputation system na naglalabas ng pinaka-kapaki-pakinabang na mga contributor at pinakamahusay na mga sagot.',
+  'about.intro':
+    'Ang {{appName}} ay isang community-first na discussion platform — Reddit-style na mga thread, voting, at reputation, na ginawa para sa mga taong mas gusto ang isang magandang usapan kaysa habulin ang isang feed. Bawat boses ay mahalaga, at ang pinakamahusay na mga ideya ay umaangat sa merito, hindi sa dami.',
+  'about.missionBody':
+    'Naniniwala kami na ang online discussion ay dapat gantimpalaan ang pagiging maalalahanin, hindi ang galit. Binibigyan ng {{appName}} ang bawat komunidad ng mga tool para manatiling mahinahon at makapagsarili — transparent na voting, kinita na reputation, at moderation na naglalagay sa mga pinagkakatiwalaang miyembro sa kontrol — para ang mga thread ay tumubo tungo sa isang bagay na sulit balikan.',
+  'about.missionTitle': 'Ang aming misyon',
   'authShell.communities': 'Mga Komunidad',
+  'authShell.copyright': '{{appName}} — bawat boses ay mahalaga.',
   'authShell.trending': 'Nagte-trend',
+  'categories.emptyFilter': 'Walang komunidad na maipapakita.',
+  'categories.emptySubscribed': 'Wala ka pang nasubscribe na komunidad.',
+  'categories.emptySubscribedHint':
+    'Buksan ang isang komunidad at pindutin ang Subscribe para idagdag ito dito.',
   'categories.eyebrow': 'Mga Komunidad',
   'categories.loadError': 'Hindi ma-load ang mga komunidad.',
   'categories.loading': 'Naglo-load ng mga komunidad…',
   'categories.subtitle':
     'Mag-browse sa mga komunidad ng Agora ayon sa aktibidad, paksa, at kung gaano sila kaingay. Mag-subscribe para magdagdag ng feed sa iyong tahanan.',
   'categories.title': 'Hanapin ang iyong silid',
+  'categoryCard.activeNow': '{{count}} aktibo',
   'categoryCard.namePrefix': 'c/',
   'categoryCard.subscribers': '{{count}} mga miyembro',
   'categoryDetail.empty': 'Wala pang mga thread dito.',
   'categoryDetail.namePrefix': 'c/',
   'categoryDetail.newPost': 'Bagong post',
   'categoryDetail.ruleBeKind': 'Maging mabait. Pag-usapan ang trabaho, hindi ang tao.',
+  'categoryDetail.ruleNoSpam': 'Walang spam, walang marketplace links.',
+  'categoryDetail.ruleStayOnTopic': 'Manatili sa paksa para sa komunidad na ito.',
   'categoryDetail.startFirst': 'Simulan ang unang thread →',
   'categoryDetail.subscribe': 'Mag-subscribe',
   'categoryDetail.subscribed': 'Naka-subscribe',
@@ -35,6 +59,7 @@ export const ui: UiTranslations = {
   'compose.eyebrow': 'Magsimula ng isang thread',
   'compose.flairLabel': 'Flair (opsyonal)',
   'compose.imageUrlPrompt': 'URL ng Larawan',
+  'compose.insertUrl': 'Ipasok',
   'compose.linkUrlPrompt': 'URL ng Link',
   'compose.markdownHint': 'Sinusuportahan ang Markdown.',
   'compose.publishFailed': 'Nabigong i-publish ang thread.',
@@ -52,11 +77,18 @@ export const ui: UiTranslations = {
   'feed.empty': 'Wala pang mga thread.',
   'feed.emptyHint': 'Maging una na magsimula ng talakayan — pumunta sa Mag-compose.',
   'feed.loadError': 'Hindi ma-load ang feed.',
+  'feed.metaCommunityDescription':
+    'Ang meta community para sa lahat ng humuhubog sa {{appName}} — voting, governance, at mga debate sa feature.',
+  'feed.ruleBeCivil': 'Maging mahinahon. Palagi.',
   'feed.ruleBeCivilDesc':
     'Hindi sang-ayon nang hindi nagpapawalang-bisa sa pagkatao. Mabilis mag-escalate ang mga mod sa mga personal na atake.',
+  'feed.ruleCiteSources': 'I-link ang bagay na iyong ginagawan ng reaksyon.',
+  'feed.ruleOnePerWeek': 'Isang meta post kada linggo kada account.',
   'feed.subtitle':
     'Mga thread mula sa mga komunidad na sinusundan mo, kasama ang ilan na maaari mong iboto. Bumoto para ituro ang algorithm.',
   'feed.title': 'Ang iyong feed',
+  'forgotPassword.description':
+    'Ilagay ang iyong email at padadalhan ka namin ng link para i-reset.',
   'forgotPassword.successBody':
     'Nagpadala kami ng reset link sa {{email}}. Mag-e-expire ito sa loob ng 30 minuto.',
   'forgotPassword.tryAnother': 'Subukan ang ibang email',
@@ -67,9 +99,15 @@ export const ui: UiTranslations = {
   'landing.communitiesSubtitle':
     'Kumita ng karma, magbahagi ng trabaho, magtanong ng mas mahuhusay na tanong.',
   'landing.communitiesTitle': 'Mga komunidad para magsimula',
+  'landing.ctaBody':
+    'Mag-sign up nang libre. Bumuo ng reputation sa mga paksang mahalaga sa iyo, at tulungan ang iba sa amin na mag-isip nang mas malinaw.',
   'landing.ctaEyebrow': 'Handa ka na kapag ikaw ay',
   'landing.ctaHeadline': 'Hanapin ang iyong komunidad. Ipahayag ang iyong boses.',
   'landing.heroCtaSecondary': 'Mag-browse ng mga komunidad',
+  'landing.heroEyebrow': 'Maligayang pagdating sa {{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Mga talakayan na tumutubo, sa halip na nawawala.',
+  'landing.heroLede':
+    'Ang {{appName}} ay isang slow-cooked na forum para sa mga hobbyist, builder, at tahimik na mapag-opinyong eksperto. Kumita ng katayuan isang magandang thread sa isang pagkakataon.',
   'landing.heroStat1': '847k',
   'landing.heroStat2': '2,180',
   'landing.heroStat2Label': 'Mga Komunidad',
@@ -84,13 +122,17 @@ export const ui: UiTranslations = {
   'landing.trendingViewAll': 'Tingnan lahat',
   'login.description': 'Ituloy kung saan natapos ang usapan.',
   'login.heading': 'Mag-sign in sa Agora',
+  'login.noAccount': 'Bago dito?',
   'login.passwordPlaceholder': 'Ang iyong password',
   'login.twoFactorLabel': '2FA code (opsyonal)',
   'login.twoFactorPlaceholder': '6-digit na kodigo',
+  'login.twoFactorRequiredHint':
+    'Naka-enable ang two-factor authentication sa account na ito. Ilagay ang 6-digit na code mula sa iyong authenticator app para magpatuloy.',
   'login.twoFactorRequiredLabel': 'Ilagay ang iyong 2FA code',
   'modQueue.automodEmpty':
     'Wala pang na-configure na mga panuntunan sa auto-mod para sa komunidad na ito.',
   'modQueue.automodTitle': 'Aktibidad ng awtomatikong pagbabago (huling 24 oras)',
+  'modQueue.empty': 'Inbox zero. Walang nakabinbin.',
   'modQueue.eyebrow': 'Moderasyon',
   'modQueue.kindThread': 'Sinulid',
   'modQueue.loadError': 'Hindi ma-load ang mga ulat.',
@@ -117,8 +159,12 @@ export const ui: UiTranslations = {
   'notifications.mentionedYouIn': 'nabanggit ka sa',
   'notifications.repliedTo': 'tumugon sa',
   'notifications.subtitle': 'Mayroon ka {{count}} mga hindi pa nababasang abiso.',
+  'pricing.limits.advancedFeatures': 'Mga advanced na tampok:',
   'pricing.limits.categories': '{{count}} mga kategorya',
   'pricing.limits.export': 'Pag-export ng data:',
+  'pricing.limits.moderation': 'Mga aksyon sa moderation ng {{count}}',
+  'pricing.limits.threads': '{{count}} mga thread',
+  'pricing.limits.votes': '{{count}} boto',
   'profile.noComments': 'Wala pang komento.',
   'profile.noPosts': 'Wala pang mga post.',
   'profile.noSaved': 'Wala pang naka-save na mga post.',
@@ -129,6 +175,7 @@ export const ui: UiTranslations = {
     'Pumili ng matibay. Isa-sign in ka namin kapag nagtagumpay ang pag-reset.',
   'resetPassword.newPasswordLabel': 'Bagong password',
   'resetPassword.tokenPlaceholder': 'Idikit ang token ng link',
+  'search.clear': 'I-clear',
   'search.communitiesEmpty': 'Walang magkatugmang komunidad.',
   'search.communitiesHeading': 'Mga Komunidad',
   'search.empty': 'Walang magkatugmang mga thread.',
@@ -140,20 +187,28 @@ export const ui: UiTranslations = {
   'settings.displayTitle': 'Ipakita',
   'settings.emailDigestDesc':
     'Mga nangungunang thread mula sa mga komunidad na iyong naka-subscribe tuwing Lunes.',
+  'settings.emailDigestLabel': 'Lingguhang digest',
+  'settings.emailMentionsDesc': 'Kapag may nag-@-mention sa iyo sa isang thread o komento.',
+  'settings.emailMentionsLabel': 'I-email ako sa mga mention',
+  'settings.emailRepliesDesc': 'Mga thread na sinimulan o tinugunan mo.',
   'settings.emailRepliesLabel': 'I-email ako sa mga tugon',
   'settings.loadError': 'Hindi ma-load ang iyong account.',
   'settings.loading': 'Nilo-load ang iyong mga setting…',
   'settings.notificationsSubtitle':
     'Magpasya kung ano ang makakarating sa iyong inbox kumpara sa iyong push device.',
+  'settings.pushRepliesLabel': 'I-push para sa mga tugon',
+  'settings.pushVotesDesc': 'Threshold ping sa 100, 500, 1000.',
   'settings.pushVotesLabel': 'Isulong ang mga milestone ng upvote',
   'settings.saveAccount': 'I-save ang account',
   'settings.showFlair': 'Ipakita ang kakaibang istilo ng kategorya sa mga thread',
+  'settings.showThumbnails': 'Ipakita ang mga thumbnail ng link/larawan',
   'settings.usernamePlaceholder': 'Pumili ng hawakan',
   'signup.confirmPlaceholder': 'I-type mo ulit',
   'signup.description':
     'Kumita sa pamamagitan ng pagtayo ng isang magandang thread sa bawat pagkakataon.',
   'signup.eyebrow': 'Sumali sa silid',
   'threadRow.authorPrefix': 'ikaw/',
+  'threadRow.commentCount': '{{count}} komento',
   'threadRow.statusFlagged': 'Sinusuri',
   'threadRow.statusHot': 'Mainit',
   'threadRow.statusLocked': 'Naka-lock',
@@ -175,6 +230,7 @@ export const ui: UiTranslations = {
   'threadView.lockedNotice': 'Naka-lock na ang thread na ito. Hindi pinagana ang mga bagong tugon.',
   'threadView.modActionFailed': 'Nabigo ang aksyon ng moderator.',
   'threadView.modTools': 'Mga kagamitan sa pag-mod',
+  'threadView.noComments': 'Wala pang komento. Maging ang una.',
   'threadView.notFound': 'Hindi natagpuan ang sinulid.',
   'threadView.pin': 'I-pin',
   'threadView.pinned': 'Naka-pin',

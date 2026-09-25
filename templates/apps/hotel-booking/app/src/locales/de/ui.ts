@@ -1,10 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Fragen zu einer Buchung, Feedback oder einer Unterkunft, die deiner Meinung nach auf {{app}} gehört? Erreiche unser Team über dein Konto — jede Nachricht geht an einen echten Menschen, der helfen kann.',
+  'about.contactTitle': 'Sprechen Sie uns an',
   'about.eyebrow': 'Über uns',
+  'about.featureLoyalty':
+    'Preise nur für Mitglieder und ein Treueprogramm, das bei jeder Buchung Punkte, späten Check-out und Zimmer-Upgrades bringt.',
+  'about.featureReviews':
+    'Verifizierte Gästebewertungen und redaktionelle Empfehlungen, damit du dem Aufenthalt vertrauen kannst, bevor du ankommst.',
+  'about.featureRooms':
+    'Zimmer, Preise und Ausstattung im direkten Vergleich mit transparenten All-in-Preisen — Steuern und Resortgebühren inklusive, bevor du zahlst.',
+  'about.featureSearch':
+    'Echtzeitsuche über geprüfte Hotels mit Live-Verfügbarkeit, Kartenansicht und umfangreichen Fotogalerien.',
+  'about.featureTrips':
+    'Gespeicherte Favoriten und ein Trips-Dashboard, das jede Reservierung, jeden Reiseplan und jede Bestätigung an einem Ort bündelt.',
+  'about.intro':
+    '{{app}} ist eine Hotelbuchungsplattform für Reisende, denen Qualität wichtig ist. Jede Unterkunft wird von unserem Redaktionsteam persönlich geprüft — kein Aggregator-Inventar, keine Lockangebote. Suche echte Verfügbarkeit, vergleiche Zimmer, Preise und Ausstattung direkt nebeneinander und buche dann mit wenigen Tipps zu einem klaren All-in-Preis.',
+  'about.missionBody':
+    'Eine Unterkunft zu buchen sollte sich ruhig und ehrlich anfühlen. Wir zeigen transparente Preise mit Steuern und Resortgebühren von Anfang an, belohnen treue Gäste, statt ihnen jeden Cent aus der Tasche zu ziehen, und stellen die Aufenthalte in den Vordergrund, die dein Geld wert sind — damit du weniger Zeit mit dem Vergleichen von Tabs und mehr Zeit mit der Reise selbst verbringst.',
+  'about.missionTitle': 'Unsere Mission',
+  'about.subtitle':
+    'Eine kuratierte, transparente Möglichkeit, das richtige Hotel zu finden und zu buchen.',
   'account.loyalty.activitySummary': '{{nights}} Nächte · {{spend}} dieses Jahr ausgegeben',
+  'account.loyalty.benefitsHeading': 'Deine Vorteile',
   'account.loyalty.heading': 'Treueprogramm',
   'account.loyalty.loading': 'Treueprogramm wird geladen…',
+  'account.loyalty.maxTier': 'Höchste Stufe — genieße deine Vorteile.',
   'account.loyalty.pointsTowardNext': '{{points}} / {{next}} Punkte bis {{nextTier}}',
   'account.loyalty.tier': 'Aktuelle Stufe',
   'account.loyalty.unavailable': 'Treueinformationen nicht verfügbar.',
@@ -22,6 +44,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Buchung bestätigen · {{total}}',
   'bookingCheckout.datesRequired': 'Bitte wählen Sie Ihre Check-in- und Check-out-Termine.',
   'bookingCheckout.guestHeading': 'Hauptgast',
+  'bookingCheckout.heading': 'Bestätigen und buchen',
   'bookingCheckout.loadError': 'Unterkunft konnte nicht geladen werden.',
   'bookingCheckout.nights': '{{rate}} × {{count}} Nächte',
   'bookingCheckout.notFound': 'Unterkunft nicht gefunden.',
@@ -32,6 +55,9 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Steuern und Gebühren',
   'bookingCheckout.tripHeading': 'Ihre Reise',
   'bookingConfirmation.allTripsCta': 'Alle Reisen',
+  'bookingConfirmation.confNumber': 'Bestätigungsnummer: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Deine Reservierung wird bearbeitet.',
   'bookingConfirmation.heading': 'Buchung bestätigt',
   'bookingConfirmation.loading': 'Reservierung wird geladen…',
   'bookingConfirmation.searchMoreCta': 'Weitere Unterkünfte entdecken',
@@ -46,6 +72,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Favoriten konnten nicht geladen werden.',
   'favorites.pricePerNight': '{{price}} / Nacht',
   'favorites.removeCta': 'Entfernen',
+  'favorites.removing': 'Entfernen…',
   'forgotPassword.subheading':
     'Geben Sie die E-Mail-Adresse Ihres Kontos ein, und wir senden Ihnen einen sicheren Link zum Zurücksetzen.',
   'forgotPassword.successBody':
@@ -53,6 +80,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Auberge-Mitglieder',
   'landing.cta.heading': 'Mitgliedertarife. Bei jeder Buchung, immer.',
   'landing.cta.signup': 'Kostenloses Konto erstellen',
+  'landing.cta.subheading':
+    'Sammle bei jedem Aufenthalt Treuepunkte, schalte späten Check-out und Zimmer-Upgrades frei und erhalte als Erster Zugang zu neuen Unterkünften, bevor sie öffentlich gelistet werden.',
   'landing.destinations.eyebrow': 'Wohin als Nächstes',
   'landing.destinations.heading': 'Ausgewählte Reiseziele',
   'landing.destinations.seeAll': 'Alle Reiseziele ansehen',
@@ -61,13 +90,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Geschichten, für die es sich zu packen lohnt',
   'landing.nav.join': 'Auberge beitreten',
   'landing.nav.search': 'Unterkünfte suchen',
+  'landing.preview.browseAll': 'Die gesamte Kollektion durchsuchen',
   'landing.preview.eyebrow': 'Ein Blick hinein',
   'landing.preview.heading': 'Handverlesene Unterkünfte diesen Monat',
+  'landing.preview.subheading':
+    'Jede Unterkunft auf {{appName}} wird von unserem Redaktionsteam persönlich geprüft — kein Aggregator-Inventar, keine Lockangebote.',
   'login.eyebrow': 'Mitgliederbereich',
+  'login.noAccount': 'Neu bei Tessera?',
   'login.signupLink': 'Kostenloses Konto erstellen',
   'login.subheading':
     'Melden Sie sich an, um Ihre Reisen zu verwalten, Bestätigungen einzusehen und dort weiterzumachen, wo Sie aufgehört haben.',
+  'loyaltyTierBadge.points': '{{points}} Pkt.',
   'planUpdated.heading': 'Tarif aktualisiert',
+  'planUpdated.retry': 'Erneut versuchen',
+  'planUpdated.verifyFailed': 'Wir konnten deine Zahlung noch nicht bestätigen.',
+  'planUpdated.verifyFailedBody':
+    'Deine Zahlung wird möglicherweise noch verarbeitet. Versuche es gleich noch einmal.',
   'planUpdated.verifying': 'Bestätige Ihre Zahlung…',
   'pricing.limit.advancedFeatures': 'Erweiterte Funktionen:',
   'pricing.limit.canExport': 'Datenexport:',
@@ -79,7 +117,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Was diese Unterkunft bietet',
   'propertyDetail.backLink': 'Zurück zur Suche',
   'propertyDetail.bookCta': 'Reservieren',
+  'propertyDetail.bookmarkAria': 'Unterkunft speichern',
   'propertyDetail.bookmarkAriaSaved': 'Aus gespeicherten Unterkünften entfernen',
+  'propertyDetail.galleryImageAlt': '{{name}} Foto {{number}}',
   'propertyDetail.heroImageAlt': 'Titelbild von {{name}}',
   'propertyDetail.hidePhotos': 'Fotos ausblenden',
   'propertyDetail.lineCleaning': 'Reinigungsgebühr',
@@ -89,6 +129,9 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'Nacht',
   'propertyDetail.noChargeYet': 'Sie werden noch nicht belastet',
   'propertyDetail.notFound': 'Unterkunft nicht gefunden.',
+  'propertyDetail.perNight': '/ Nacht',
+  'propertyDetail.pickDatesHint':
+    'Wähle deine Daten, um die vollständige Preisaufschlüsselung zu sehen.',
   'propertyDetail.reviewCount': '({{count}} Bewertungen)',
   'propertyDetail.reviewsHeading': 'Aktuelle Bewertungen',
   'propertyDetail.roomCapacity': 'Platz für {{count}}',
@@ -101,6 +144,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Neues Passwort',
   'resetPassword.subheading':
     'Wählen Sie ein neues Passwort für Ihr Auberge-Konto. Verwenden Sie mindestens 8 Zeichen; wir empfehlen eine Passphrase.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Keine Unterkünfte entsprechen Ihrer Suche.',
   'searchResults.emptyHint':
     'Versuchen Sie, Ihre Filter zu erweitern oder die Preisobergrenze zu entfernen — Auberge bietet Unterkünfte in 14 Ländern.',
@@ -108,19 +152,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Kuratierte Unterkünfte',
   'searchResults.headingForQuery': 'Unterkünfte für „{{q}}"',
   'searchResults.loadError': 'Unterkünfte konnten nicht geladen werden.',
+  'searchResults.mapHint':
+    'Fahre über eine Karte, um sie auf der Karte hervorzuheben. Live-Mapbox-Kacheln in der Produktion.',
   'searchResults.mapPinAria': '{{name}} — {{price}} pro Nacht',
   'searchResults.sortLabel': 'Sortieren nach',
   'searchResults.subheading': '{{count}} Unterkünfte · {{guests}} Gäste',
   'signup.eyebrow': 'Werden Sie Mitglied',
   'signup.subheading':
     'Werden Sie Auberge-Mitglied und erhalten Sie Mitgliedertarife, späten Check-out und ersten Zugang zu neuen Unterkünften.',
+  'sojournAuthShell.brand.eyebrow': 'Übernachte an einem außergewöhnlichen Ort',
+  'sojournAuthShell.brand.heading':
+    'Eine kuratierte Sammlung von Unterkünften — schön präsentiert, transparent bepreist.',
   'sojournHeroSearchCard.checkInAria': 'Check-in-Datum',
   'sojournHeroSearchCard.checkOutAria': 'Check-out-Datum',
+  'sojournHeroSearchCard.destAria': 'Reiseziel',
+  'sojournHeroSearchCard.destLabel': 'Wo',
   'sojournHeroSearchCard.destPlaceholder': 'Stadt, Region oder Unterkunft',
   'sojournHeroSearchCard.eyebrow': 'Kuratierte Unterkünfte · Mitgliedertarife',
   'sojournHeroSearchCard.guestsOption': '{{n}} Gäste',
   'sojournHeroSearchCard.subtitle':
     'Eine kuratierte Sammlung von Boutique-Hotels, designorientierten Unterkünften und seltenen Rückzugsorten — transparent bepreist, wunderschön präsentiert.',
+  'sojournHeroSearchCard.title': 'Übernachte an einem außergewöhnlichen Ort',
+  'sojournHeroSearchCard.trustLoyalty': 'Sammle bei jedem Aufenthalt Punkte',
   'sojournHeroSearchCard.trustNoFees': 'Keine versteckten Gebühren, niemals',
   'sojournHeroSearchCard.trustVetted': 'Nur handverlesene Unterkünfte',
   'sojournLayout.primaryNavLabel': 'Hauptnavigation',

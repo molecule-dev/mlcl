@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கருத்து உள்ளதா, பிழை கண்டீர்களா, அல்லது உங்கள் கருத்துகளை எப்படி வரைபடமாக்குகிறீர்கள் என்பதை எங்களிடம் சொல்ல விரும்புகிறீர்களா? ஒவ்வொரு குறிப்பையும் நாங்கள் படிக்கிறோம் — எப்போது வேண்டுமானாலும் தொடர்பு கொள்ளுங்கள், குழுவில் உள்ள ஒரு உண்மையான மனிதர் உங்களுக்கு பதிலளிப்பார்.',
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.featureCanvas':
+    'இழுக்கக்கூடிய முனைகள், மென்மையான வளைவு இணைப்புகள், தடையற்ற பெரிதாக்கம் மற்றும் நகர்த்தல் கொண்ட எல்லையற்ற கேன்வாஸ்.',
+  'about.featureCollab':
+    'நேரடி கர்சர்களுடன் நிகழ்நேர ஒத்துழைப்பு, எனவே உங்கள் குழு தங்கள் முறைக்காக காத்திருக்காமல் உங்களுடன் இணைந்து கிளைக்க முடியும்.',
+  'about.featurePricing':
+    'தனிநபர் சிந்தனையாளர்களுக்கு எப்போதும் இலவசம்; Pro மற்றும் Team திட்டங்கள் அதிக வரைபடங்கள், அதிக முனைகள், மேம்பட்ட அம்சங்கள் மற்றும் தரவு ஏற்றுமதியைச் சேர்க்கின்றன.',
+  'about.featureTemplates':
+    'தொடக்க டெம்ப்ளேட்டுகளின் நூலகம் மற்றும் முழு பதிப்பு வரலாறு, எனவே நீங்கள் ஒரு வரைபடத்தை விரைவாகத் தொடங்கி எந்த மாற்றத்தையும் மீட்டெடுக்கலாம்.',
+  'about.intro':
+    '{{app}} என்பது மனவரைபடத்திற்கான விசாலமான, எல்லையற்ற கேன்வாஸ் — மூளைச்சலவைகள், கருத்து வரைபடங்கள், SWOTகள் மற்றும் திட்டத் திட்டங்கள். முனைகளை எங்கு வேண்டுமானாலும் இழுக்கவும், கருத்துகளை ஓட்டமான இணைப்புகளுடன் இணைக்கவும், விளிம்புகளில் மோதாமல் பெரிதாக்கி நகர்த்தவும், உங்கள் சிந்தனையுடன் வரைபடம் வளரட்டும்.',
+  'about.missionBody':
+    'சத்தமாக சிந்திப்பது எளிதாகவும் பகிரப்பட்டதாகவும் இருக்க வேண்டும். நாங்கள் வழியிலிருந்து விலகி நிற்கும் கருவிகளை உருவாக்குகிறோம் — கடினமான கட்டங்கள் இல்லை, பெட்டிக்குள் அடைக்கப்பட்ட டெம்ப்ளேட்டுகள் இல்லை, கவனத்தைத் திருடும் UI இல்லை — எனவே தனிநபர்களும் குழுக்களும் கருத்துகள் தோன்றும் தருணத்திலேயே அவற்றைப் பிடித்து ஒன்றாக வடிவமைக்க முடியும்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'about.pageTitle': '{{app}} பற்றி',
   'auth.brandEyebrow': 'எண்ணங்கள் கிளை பரப்பும் இடம்',
   'auth.brandStatement':
@@ -13,19 +29,26 @@ export const ui: UiTranslations = {
   'billing.feature.export': 'SVG / PNG ஆக ஏற்றுமதி செய்யவும்',
   'billing.feature.maps': '{{count}} வரைபடங்கள்',
   'billing.feature.nodes': '{{count}} ஒரு வரைபடத்திற்கான முனைகள்',
+  'billing.freeNoticeBody':
+    'அதிக வரைபடங்களைத் திறக்க மேலே உள்ள கட்டணத் திட்டத்தைத் தேர்ந்தெடுக்கவும்.',
   'billing.loadError': 'கட்டண நிலையை ஏற்ற முடியவில்லை.',
+  'billing.loading': 'கட்டணம் ஏற்றப்படுகிறது…',
   'billing.perMonth': ' / மாதம்',
   'billing.plansTitle': 'திட்டங்கள்',
+  'billing.priceMissing': 'Stripe விலை ID கட்டமைக்கப்படவில்லை.',
   'billing.starting': 'பணம் செலுத்தும் செயல்முறை தொடங்குகிறது…',
   'billing.title': 'பில்லிங் மற்றும் திட்டம்',
   'billing.unavailableTier':
     'இந்த அடுக்கு இன்னும் செக்அவுட்டிற்காக உள்ளமைக்கப்படவில்லை — உங்கள் சூழலில் ஸ்ட்ரைப் விலை ஐடியை அமைக்கவும்.',
   'billing.unlimited': 'வரம்பற்ற',
   'billing.upgradeMonthly': 'மேம்படுத்த {{name}} (மாதாந்திர)',
+  'billing.upgradeYearly': 'ஆண்டுதோறும் செலுத்து · {{price}}',
   'brand.tagline': 'எண்ணங்கள் கிளை பரப்பும் இடம்',
   'common.and': 'மற்றும்',
   'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'dashboard.activityAction': 'புதுப்பிக்கப்பட்டது',
+  'dashboard.activityEmpty':
+    'இன்னும் செயல்பாடு இல்லை — உங்கள் காலவரிசையைத் தொடங்க ஒரு வரைபடத்தைத் திருத்தவும்.',
   'dashboard.daysAgo': '{{count}} டி நோ',
   'dashboard.empty.body':
     'யோசனைகளைப் பிரிக்கத் தொடங்க ஒரு வரைபடத்தை உருவாக்குங்கள். வார்ப்புருக்கள் தொடங்குவதை எளிதாக்குகின்றன.',
@@ -44,26 +67,35 @@ export const ui: UiTranslations = {
   'dendriteHero.activeMaps': 'செயலில் உள்ள வரைபடங்கள்',
   'dendriteHero.eyebrow': 'இன்று கேன்வாஸில்',
   'dendriteHero.greeting': 'புதிய யோசனைகளைக் கிளைப்படுத்துங்கள், {{name}}',
+  'dendriteHero.greetingAnon': 'புதிய கருத்துகளைக் கிளைக்கவும்',
   'dendriteHero.openMaps': 'என் வரைபடங்களைத் திறக்கவும்',
   'dendriteHero.subtitle':
     'இழுத்து, இணைத்து, உங்கள் சிந்தனையை வளர விடுங்கள். ஒவ்வொரு பொறியும் அடுத்த பொறியிலிருந்து ஓர் முடிச்சு தொலைவில் உள்ளது.',
   'dendriteHero.weeklyChange': '{{sign}} {{count}} இந்த வாரம்',
+  'forgotPassword.brandStatement':
+    'உங்கள் வரைபடங்கள் பாதுகாப்பானவை. சிறிது நேரத்தில் உங்களை உங்கள் கிளைகளுக்கு அழைத்துச் செல்வோம்.',
   'forgotPassword.subheading':
     'உங்கள் மின்னஞ்சலை உள்ளிடவும், நாங்கள் புதிய மீட்டமைப்பு இணைப்பை அனுப்புவோம்.',
   'forgotPassword.success':
     'அந்த மின்னஞ்சல் முகவரியில் ஒரு கணக்கு இருந்தால், மீட்டமைப்பு இணைப்பு அனுப்பப்பட்டுக்கொண்டிருக்கும்.',
   'landing.cta.body':
     'தனித்து சிந்திப்பவர்களுக்கு என்றென்றும் இலவசம். உங்கள் குழுவும் உங்களுடன் சேர்ந்து விரிவடையத் தொடங்கும் போது மட்டும் மேம்படுத்திக் கொள்ளுங்கள்.',
+  'landing.cta.button': 'உங்கள் முதல் வரைபடத்தை உருவாக்கவும்',
   'landing.cta.title': 'உங்கள் முதல் யோசனையை இன்றே விதைக்கவும்.',
   'landing.feature.branch.body':
     'எந்தவொரு முனையிலிருந்தும் மற்றொரு முனையை இழுக்கவும் — இணைப்புகள் மென்மையான வளைவுகளாகப் பாயும், இறுக்கமான கட்டமைப்பு தேவையில்லை.',
+  'landing.feature.branch.title': 'இயற்கையான கிளைத்தல்',
   'landing.feature.canvas.body':
     'வரைபடத்தை நகர்த்தி, பெரிதாக்கி, விளிம்புகளில் மோதாமல் அதை வளர விடுங்கள். உங்கள் சிந்தனைக்குச் சுதந்திரமாகச் செயல்பட இடம் தேவை.',
   'landing.feature.canvas.title': 'எல்லையற்ற கேன்வாஸ்',
   'landing.feature.collab.body':
     'உங்கள் குழு உறுப்பினர்கள் உங்களுடன் இணைந்து நிகழ்நேரத்தில் செயல்படுவதைக் காணுங்கள். தொடர்களாக அல்லாமல், ஒன்றாக இணைந்து சிந்தியுங்கள்.',
+  'landing.feature.collab.title': 'கூட்டு கர்சர்கள்',
   'landing.feature.shortcuts.body':
     'குழந்தையைச் சேர்க்க Tab, உடன்பிறப்பைச் சேர்க்க Enter, எங்கும் தாவ ⌘K. திறன்மிகு பயனர்கள் தங்கள் வேலையைத் தடையின்றித் தொடரலாம்.',
+  'landing.feature.shortcuts.title': 'விசைப்பலகை-முதன்மை',
+  'landing.featuresBody':
+    'கருவிப்பட்டிகள், பேனல்கள் மற்றும் குறுக்குவழிகள் சுற்றுப்புறமாக உணரப்படும் — தேவைப்படும்போது இருக்கும், தேவைப்படாதபோது கண்ணுக்குத் தெரியாது.',
   'landing.featuresEyebrow': 'சிந்தனையாளர்களுக்காக உருவாக்கப்பட்டது',
   'landing.featuresTitle': 'ஒவ்வொரு ஊடாட்டமும் அந்தத் திரையில் தனக்கான இடத்தைப் பெறுகிறது.',
   'landing.footer.copyright': '© {{year}} {{appName}} . Molecule.dev கொண்டு உருவாக்கப்பட்டது.',
@@ -71,6 +103,7 @@ export const ui: UiTranslations = {
     '{{appName}} என்பது சிந்தனைத் தூண்டல், கருத்து வரைபடங்கள் மற்றும் SWOT பகுப்பாய்வுகளுக்கான ஒரு விசாலமான, எல்லையற்ற தளமாகும். இழுத்து, இணைத்து, அந்த வரைபடத்தை உங்களுடன் சேர்ந்து வளர விடுங்கள் — இதில் இறுக்கமான கட்டங்களோ, வரையறுக்கப்பட்ட வார்ப்புருக்களோ இல்லை.',
   'landing.hero.ctaPrimary': 'இலவசமாக கிளை பிரிக்கத் தொடங்குங்கள்',
   'landing.hero.eyebrow': 'வடிவமைப்பாளர்கள் மற்றும் சிந்தனையாளர்களுக்கான மன வரைபடம்',
+  'landing.hero.title': 'கருத்துகள் கிளைக்கும் இடம்.',
   'landing.nav.start': 'கிளைகளைத் தொடங்கு',
   'landing.proof.export': 'PNG, SVG அல்லது Markdown ஆக ஏற்றுமதி செய்யவும்',
   'landing.proof.free': '3 வரைபடங்களுக்கு இலவசம்',
@@ -78,6 +111,7 @@ export const ui: UiTranslations = {
   'layout.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
   'layout.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
   'layout.searchPlaceholder': 'வரைபடங்கள், வார்ப்புருக்கள் அல்லது கணுக்களைத் தேடுங்கள்…',
+  'login.noAccount': 'இங்கு புதிதா?',
   'login.signIn': 'நிம்பஸில் உள்நுழைக',
   'login.subheading': 'நீங்கள் விட்ட இடத்திலிருந்து தொடர்ந்து செல்ல உள்நுழையவும்.',
   'login.twoFactor': 'இரு காரணி டோக்கன் (செயல்படுத்தப்பட்டிருந்தால்)',
@@ -96,9 +130,11 @@ export const ui: UiTranslations = {
     '+ கருவியைத் தேர்ந்தெடுத்து, உங்கள் முதல் கணுவைச் சேர்க்க எங்கு வேண்டுமானாலும் சொடுக்கவும்.',
   'mapEditor.export': 'ஏற்றுமதி',
   'mapEditor.exportError': 'வரைபடத்தை ஏற்றுமதி செய்ய முடியவில்லை.',
+  'mapEditor.exportLocked': 'ஏற்றுமதி என்பது Pro அம்சம்.',
   'mapEditor.exportMarkdown': 'மார்க்டவுன் (.md)',
   'mapEditor.exportPng': 'படம் (.png)',
   'mapEditor.exportSvg': 'வெக்டர் (.svg)',
+  'mapEditor.exportUpgrade': 'ஏற்றுமதிக்கு மேம்படுத்து →',
   'mapEditor.hint.add': 'ஒரு கணுவை இடுவதற்கு கேன்வாஸைக் கிளிக் செய்யவும்.',
   'mapEditor.hint.connectSource': 'மூல முனையைச் சொடுக்கவும்…',
   'mapEditor.hint.connectTarget': 'இலக்கு முனையைச் சொடுக்கவும்…',
@@ -107,6 +143,7 @@ export const ui: UiTranslations = {
   'mapEditor.loading': 'கேன்வாஸை ஏற்றுகிறது…',
   'mapEditor.newNodeText': 'New idea',
   'mapEditor.panel.color': 'நிறம்',
+  'mapEditor.panel.eyebrow': 'தேர்ந்தெடுக்கப்பட்ட முனை',
   'mapEditor.panel.nodes': 'முனைகள்',
   'mapEditor.panel.noSelection': 'ஒரு கணுவைத் திருத்த, அதைக் கிளிக் செய்யவும்.',
   'mapEditor.panel.stats': 'வரைபட புள்ளிவிவரங்கள்',
@@ -146,12 +183,19 @@ export const ui: UiTranslations = {
   'notifications.accept': 'ஏற்றுக்கொள்',
   'notifications.acceptAndOpen': 'ஏற்றுக்கொண்டு திறக்கவும்',
   'notifications.acceptedInvite': 'இணைந்தது {{title}}.',
+  'notifications.acceptError': 'அழைப்பை ஏற்க முடியவில்லை.',
   'notifications.empty.body':
     'அணி வீரர்கள் உங்களை வரைபடங்களுக்கு அழைக்கும்போது, அவர்கள் இங்கே தோன்றுவார்கள்.',
   'notifications.empty.title': 'நிலுவையில் உள்ள அழைப்புகள் இல்லை',
+  'notifications.inviteBody': '{{email}} க்கு அனுப்பப்பட்டது',
   'notifications.inviteTitle': 'அழைக்கப்பட்டவர் {{role}}"க்கு {{title}}"',
   'notifications.subtitle': '{{count}} நிலுவையில் உள்ள அழைப்புகள்.',
   'notifications.view': 'பார்வை',
+  'pricing.limit.advanced': 'மேம்பட்ட அம்சங்கள்: {{state}}',
+  'pricing.limit.connections': '{{count}} இணைப்புகள்',
+  'pricing.limit.export': 'தரவு ஏற்றுமதி: {{state}}',
+  'pricing.limit.maps': '{{count}} வரைபடங்கள்',
+  'pricing.limit.nodes': '{{count}} ஒரு வரைபடத்திற்கான முனைகள்',
   'profile.loading': 'உங்கள் புள்ளிவிவரங்கள் ஏற்றப்படுகின்றன…',
   'profile.stat.collabs': 'கூட்டுப்பணிகள்',
   'profile.stat.maps': 'வரைபடங்கள் உருவாக்கப்பட்டன',
@@ -163,26 +207,37 @@ export const ui: UiTranslations = {
   'publicMap.loadError': 'இந்த வரைபடம் இனி பகிரப்படாது, அல்லது இணைப்பு செல்லாததாக உள்ளது.',
   'publicMap.loading': 'வரைபடம் ஏற்றப்படுகிறது…',
   'publicMap.notFound': 'வரைபடம் காணப்படவில்லை.',
+  'resetPassword.newPassword': 'புதிய கடவுச்சொல்',
   'resetPassword.subheading':
     'நினைவில் நிற்கும் ஒன்றைத் தேர்ந்தெடுங்கள். நாங்கள் உங்களைத் தானாகவே மீண்டும் உள்நுழையச் செய்வோம்.',
   'resetPassword.submit': 'கடவுச்சொல்லை மீட்டமைத்து உள்நுழையவும்',
   'resetPassword.tokenPlaceholder': 'உங்கள் மின்னஞ்சலிலிருந்து ஒட்டப்பட்டது',
   'settings.account.subtitle': 'உங்கள் காட்சிப் பெயரையும் மின்னஞ்சல் முகவரியையும் புதுப்பிக்கவும்.',
+  'settings.field.currentPassword': 'தற்போதைய கடவுச்சொல்',
   'settings.field.newPassword': 'புதிய கடவுச்சொல்',
   'settings.password.subtitle':
     'வலிமையான கடவுச்சொல்லைத் தேர்ந்தெடுக்கவும் (குறைந்தது 8 எழுத்துக்கள்).',
   'settings.passwordError':
     'கடவுச்சொல்லை மாற்ற முடியவில்லை. உங்கள் தற்போதைய கடவுச்சொல்லைச் சரிபார்க்கவும்.',
+  'settings.passwordMismatch': 'புதிய கடவுச்சொற்கள் பொருந்தவில்லை.',
   'settings.passwordSaved': 'கடவுச்சொல் வெற்றிகரமாக மாற்றப்பட்டது.',
   'settings.passwordTooShort': 'கடவுச்சொல் குறைந்தபட்சம் 8 எழுத்துகள் கொண்டதாக இருக்க வேண்டும்.',
   'settings.profileError': 'சுயவிவர மாற்றங்களைச் சேமிக்க முடியவில்லை.',
   'settings.subtitle': 'உங்கள் கணக்கையும் பாதுகாப்பையும் சரிசெய்யவும்.',
   'settings.twoFactorCode': 'அங்கீகாரக் குறியீடு',
   'settings.twoFactorDisable': 'முடக்கு',
+  'settings.twoFactorDisableTitle': 'இரு-காரணி அங்கீகாரத்தை முடக்கு',
   'settings.twoFactorEnable': 'இயக்கு',
+  'settings.twoFactorEnableTitle': 'இரு-காரணி அங்கீகாரத்தை இயக்கு',
   'settings.twoFactorInvalidCode': 'தவறான குறியீடு. மீண்டும் முயற்சிக்கவும்.',
+  'settings.twoFactorOffLine': 'இரண்டு-காரணி அங்கீகாரம் அணைக்கப்பட்டுள்ளது.',
+  'settings.twoFactorOnLine': 'இரண்டு-காரணி அங்கீகாரம் இயக்கப்பட்டுள்ளது.',
+  'settings.twoFactorQrAlt': 'இரு-காரணி QR குறியீடு',
+  'settings.twoFactorScan':
+    'உங்கள் அங்கீகரிப்பு செயலியில் இந்த QR குறியீட்டை ஸ்கேன் செய்து, 6 இலக்கக் குறியீட்டை உள்ளிடவும்.',
   'settings.twoFactorSubtitle':
     'உங்கள் கடவுச்சொல்லுடன், உங்கள் அங்கீகாரச் செயலியில் இருந்து ஒரு முறை பயன்படுத்தும் குறியீட்டையும் சேர்க்கவும்.',
+  'settings.twoFactorUnavailable': 'இந்த செயலியில் இரு காரணி அங்கீகாரம் கிடைக்காது.',
   'settings.twoFactorVerify': 'சரிபார்த்து இயக்கு',
   'share.accepted': 'ஏற்றுக்கொள்ளப்பட்டது',
   'share.backToMap': 'வரைபடத்திற்குத் திரும்பு',
@@ -193,7 +248,10 @@ export const ui: UiTranslations = {
   'share.copySuccess': 'இணைப்பு பெயரிடப்பட்டது.',
   'share.invite.button': 'அழைப்பு',
   'share.invite.title': 'மின்னஞ்சல் மூலம் அழைக்கவும்',
+  'share.inviteError': 'அழைப்பிதழ் அனுப்ப முடியவில்லை.',
   'share.inviteSuccess': 'அழைக்கப்பட்ட {{email}}.',
+  'share.link.disabledHint':
+    'இந்த வரைபடத்திற்கு பொதுவில் படிக்க-மட்டும் இணைப்பை உருவாக்க இயக்கவும்.',
   'share.link.title': 'பொது இணைப்பு',
   'share.loadError': 'பகிர்வு அமைப்புகளை ஏற்ற முடியவில்லை.',
   'share.pending': 'நிலுவையில் உள்ள அழைப்பு',
@@ -205,14 +263,20 @@ export const ui: UiTranslations = {
   'share.roleError': 'பங்கை புதுப்பிக்க முடியவில்லை.',
   'share.title': 'இந்த வரைபடத்தைப் பகிரவும்',
   'share.unnamedCollaborator': 'நிலுவையில் உள்ள அழைப்பு',
+  'signup.brandStatement':
+    'மிகத் துணிச்சலான மூளைச்சலவைக்கு போதுமான அகலமான கேன்வாஸ் — சிந்திக்க போதுமான அமைதியானது.',
+  'signup.haveAccount': 'ஏற்கனவே உறுப்பினரா?',
   'signup.heading': 'உங்கள் முதல் யோசனையை விதைக்கவும்',
   'signup.namePlaceholder': 'ஏவரி சென்',
   'signup.subheading': '3 வரைபடங்கள் நிரந்தரமாக இலவசம். கடன் அட்டை தேவையில்லை.',
   'templateDetail.backToTemplates': 'அனைத்து வார்ப்புருக்களும்',
   'templateDetail.browseMore': 'மேலும் உலாவுக',
+  'templateDetail.editableHint':
+    'நீங்கள் டெம்ப்ளேட்டை உருவாக்கியதும் ஒவ்வொரு முனையும் விளிம்பும் முழுமையாகத் திருத்தக்கூடியது.',
   'templateDetail.instantiateError':
     'இந்த வார்ப்புருவிலிருந்து ஒரு வரைபடத்தை உருவாக்க முடியவில்லை.',
   'templateDetail.loadError': 'இந்த வார்ப்புருவை ஏற்ற முடியவில்லை.',
+  'templateDetail.loading': 'வார்ப்புரு ஏற்றப்படுகிறது…',
   'templateDetail.nodes': 'முன் விதைக்கப்பட்ட கணுக்கள்',
   'templateDetail.notFound': 'வார்ப்புரு காணப்படவில்லை.',
   'templateDetail.systemEyebrow': 'உள்ளமைக்கப்பட்ட வார்ப்புரு',
@@ -235,6 +299,7 @@ export const ui: UiTranslations = {
   'trash.empty.body': 'சுத்தம் செய்ய எதுவும் இல்லை. உங்கள் கிளைகள் பாதுகாப்பாக உள்ளன.',
   'trash.empty.title': 'குப்பைத்தொட்டி காலியாக உள்ளது',
   'trash.loadError': 'சேதமடைந்த வரைபடங்களை ஏற்ற முடியவில்லை.',
+  'trash.loading': 'குப்பையை ஏற்றுகிறது…',
   'trash.restore': 'மீட்டெடு',
   'trash.restoreError': 'வரைபடத்தை மீட்டெடுக்க முடியவில்லை.',
   'trash.subtitle':
@@ -243,11 +308,13 @@ export const ui: UiTranslations = {
   'versionHistory.backToMap': 'வரைபடத்திற்குத் திரும்பு',
   'versionHistory.empty':
     'இன்னும் புகைப்படங்கள் எடுக்கவில்லை. ஒரு சரிபார்ப்பாக வைத்துக்கொள்ள, உங்கள் முதல் புகைப்படத்தைச் சேமித்து வையுங்கள்.',
+  'versionHistory.emptyDetail': 'உங்கள் காலவரிசையைத் தொடங்க ஒரு ஸ்னாப்ஷாட்டைச் சேமிக்கவும்.',
   'versionHistory.loadError': 'பதிப்பு வரலாற்றை ஏற்ற முடியவில்லை.',
   'versionHistory.nodeCount': 'முனைகள்',
   'versionHistory.restoreButton': 'இந்தப் பதிப்பை மீட்டமைக்கவும்',
   'versionHistory.restoreError': 'ஸ்னாப்ஷாட்டை மீட்டெடுக்க முடியவில்லை.',
   'versionHistory.restoreSuccess': 'ஸ்கிரீன்ஷாட் மீட்டெடுக்கப்பட்டது.',
+  'versionHistory.selectHint': 'பார்க்க ஒரு ஸ்னாப்ஷாட்டைத் தேர்ந்தெடுக்கவும்.',
   'versionHistory.snapshotDefault': 'கைமுறை ஸ்னாப்ஷாட்',
   'versionHistory.snapshotError': 'ஸ்கிரீன்ஷாட்டைச் சேமிக்க முடியவில்லை.',
   'versionHistory.snapshotEyebrow': 'ஸ்னாப்ஷாட்',

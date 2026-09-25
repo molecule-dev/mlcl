@@ -1,33 +1,50 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ingin menerapkan onboarding yang lebih hangat untuk tim Anda, menemukan bug, atau punya masukan? Hubungi kami dari pengaturan akun Anda — setiap pesan diterima oleh manusia sungguhan yang siap membantu.',
   'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.missionTitle': 'Misi kami',
   'auth.forgotPassword.emailPlaceholder': 'nama@perusahaananda.com',
   'auth.forgotPassword.heading': 'Atur ulang kata sandi Anda.',
+  'auth.forgotPassword.panel.body':
+    'Reset hanya butuh 30 detik — progres checklist Anda sudah menunggu.',
+  'auth.forgotPassword.panel.headline': 'Lanjut tepat dari tempat Anda berhenti.',
+  'auth.forgotPassword.subheading':
+    'Masukkan email kerja Anda dan kami akan mengirimkan tautan reset.',
   'auth.forgotPassword.successSubheading':
     'Periksa kotak masuk Anda — kami telah mengirim petunjuk pengaturan ulang.',
   'auth.login.emailPlaceholder': 'nama@perusahaananda.com',
   'auth.login.heading': 'Selamat datang kembali.',
   'auth.login.passwordPlaceholder': 'Kata sandi Anda',
+  'auth.login.signupPrompt': 'Baru di tim Anda?',
   'auth.login.subheading':
     'Masuk untuk melanjutkan perjalanan onboarding Anda dari tempat Anda berhenti.',
   'auth.login.submit': 'Lanjutkan perjalanan Anda',
+  'auth.panel.body':
+    'Checklist pribadi, tonggak pelatihan, dan perkenalan tim — semua di satu tempat yang tenang.',
   'auth.panel.footnote': '© Embark — onboarding yang mengutamakan manusia, sejak hari ini.',
   'auth.panel.headline': '90 hari pertama yang percaya diri dimulai di sini.',
   'auth.resetPassword.heading': 'Tetapkan kata sandi baru.',
   'auth.resetPassword.newPasswordLabel': 'Kata sandi baru',
+  'auth.resetPassword.panel.body':
+    'Simpan kata sandi baru dan kami akan mengembalikan Anda langsung ke perjalanan onboarding Anda.',
+  'auth.resetPassword.panel.headline': 'Hampir kembali masuk.',
   'auth.resetPassword.subheading': 'Pilih sesuatu yang akan Anda ingat — minimal 8 karakter.',
   'auth.signup.emailPlaceholder': 'nama@perusahaananda.com',
   'auth.signup.heading': 'Selamat datang di 90 hari pertama Anda.',
   'auth.signup.panel.body':
     'Daftar tugas terpandu, pelatihan sesuai peran, dan perkenalan manusiawi — siap sebelum Anda masuk.',
+  'auth.signup.panel.headline': 'Hari pertama, di hari pertama.',
   'auth.signup.subheading': 'Buat akun Embark Anda untuk memulai perjalanan onboarding terpandu.',
   'checklist.empty.body': 'Ubah filter untuk melihat tugas lain.',
   'checklist.empty.title': 'Tidak ada apa-apa di sini sekarang',
   'checklist.eyebrow': 'Onboarding · Daftar tugas',
   'checklist.loading': 'Memuat daftar tugas Anda…',
   'checklist.stat.actionNeeded': 'Perlu tindakan',
+  'checklist.stat.completion': 'Penyelesaian',
+  'checklist.stat.inProgress': 'Sedang berjalan',
   'checklist.stat.inProgressHelper': 'Lanjutkan dari tempat Anda berhenti',
   'checklist.stat.overdueHelper': 'Selesaikan ini lebih dulu',
   'checklist.subtitle':
@@ -59,6 +76,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Belum ada dokumen',
   'documents.eyebrow': 'Onboarding · Dokumen',
   'documents.loading': 'Memuat dokumen…',
+  'documents.stat.actionNeeded': 'Tandatangani sekarang',
+  'documents.stat.all': 'Semua dokumen',
   'documents.stat.allHelper': 'Di semua kategori',
   'documents.stat.pending': 'Tanda tangan tertunda',
   'documents.stat.pendingHelper': 'Diperlukan untuk penyelesaian',
@@ -66,6 +85,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Disimpan dengan aman',
   'documents.status.optional': 'Opsional',
   'documents.status.required': 'Wajib',
+  'documents.status.signed': 'Ditandatangani',
   'documents.subtitle':
     'Buku panduan, formulir, dan perjanjian yang ditandatangani — semuanya di satu tempat.',
   'documents.title': 'Semua yang perlu Anda baca & tandatangani.',
@@ -73,16 +93,21 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'Penampil',
   'documentViewer.breadcrumbDocs': 'Dokumen',
   'documentViewer.downloadMeta': 'Unduh metadata',
+  'documentViewer.helpBody':
+    'People & Culture menjawab pertanyaan handbook di #ask-people pada Slack.',
   'documentViewer.helpEyebrow': 'Butuh bantuan?',
   'documentViewer.loadError': 'Kami tidak dapat memuat dokumen ini.',
   'documentViewer.loading': 'Memuat dokumen…',
   'documentViewer.notFound': 'Dokumen tidak ditemukan',
+  'documentViewer.previewBody':
+    'Saat unggahan dikonfigurasi, kami menampilkan file secara inline. Untuk sekarang, unduhan metadata memungkinkan Anda memastikan catatan itu asli.',
   'documentViewer.previewBodyExternal': 'Gunakan tombol unduh untuk membuka file di tab baru.',
   'documentViewer.previewTitle': 'Pratinjau dokumen',
   'documentViewer.sign': 'Tandatangani dan setujui',
   'documentViewer.signatureBody':
     'Bacalah dokumen ini, lalu klik di bawah untuk menandatangani dan menyatakan persetujuan.',
   'documentViewer.signatureHeading': 'Tanda tangan diperlukan',
+  'documentViewer.signed': '✓ Ditandatangani & diarsipkan',
   'documentViewer.signing': 'Menandatangani…',
   'documentViewer.uploadedRecently': 'Baru saja diunggah',
   'landing.closing.body':
@@ -92,10 +117,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Saya sudah punya akun',
   'landing.feature1.body':
     'Setiap tugas — dokumen, akun, perkenalan — disiapkan sebelumnya dengan tenggat dan pemilik yang tepat.',
+  'landing.feature1.title': 'Checklist terpandu',
   'landing.feature2.body':
     'Modul terbuka pada tonggak 30/60/90, disesuaikan dengan peran dan tim yang dimasuki karyawan baru.',
+  'landing.feature2.title': 'Pelatihan sesuai peran',
   'landing.feature3.body':
     'Pendamping, manajer, dan perkenalan lintas fungsi terjadwal — sehingga tidak ada yang memulai sendirian.',
+  'landing.feature3.title': 'Perkenalan sungguhan',
   'landing.featureEyebrow': 'Mengapa Embark',
   'landing.featureHeadline': 'Tiga cara Embark mendapatkan kepercayaan di hari pertama.',
   'landing.footer.rights': 'Hak cipta dilindungi.',
@@ -105,6 +133,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Berikutnya: Bertemu pendamping Anda untuk obrolan kopi 30 menit — Sel 10:00.',
   'landing.preview.eyebrow': 'Hari 14 dari 90 — dasbor contoh',
+  'landing.preview.headline': 'Selamat datang kembali, Maya.',
   'landing.proof.spec': 'Siap SOC 2 + GDPR',
   'landing.proof.teams': 'Dibangun untuk tim 50–5.000 orang',
   'landing.proof.time': 'Uji coba gratis 14 hari',
@@ -121,16 +150,25 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'Kemarin',
   'planUpdated.message': 'Anda sudah siap.',
   'planUpdated.preparing': 'Memperbarui paket Anda…',
+  'planUpdated.retry': 'Coba lagi',
+  'planUpdated.verifyFailed': 'Kami belum dapat mengkonfirmasi pembayaran Anda.',
+  'planUpdated.verifyFailedBody':
+    'Pembayaran Anda mungkin masih diproses. Coba lagi sebentar lagi.',
   'planUpdated.verifying': 'Mengonfirmasi pembayaran Anda…',
   'pricing.documentsLabel': 'dokumen',
   'pricing.onboardingsLabel': 'onboarding',
   'pricing.tasksLabel': 'tugas',
   'profile.dayNumber': 'Hari',
   'profile.detailsHeading': 'Detail onboarding',
+  'profile.encouragementBody': 'Beri tahu buddy dan manajer Anda — langkah kecil berdampak besar.',
   'profile.milestones': 'Tonggak',
   'profile.progressEyebrow': 'Progres onboarding',
   'profile.tasks': 'Tugas',
   'profile.unknownName': 'Selamat datang',
+  'settings.appearance.description': 'Beralih antara mode terang dan gelap.',
+  'settings.appearance.title': 'Tampilan',
+  'settings.subtitle':
+    'Atur notifikasi, keamanan, perangkat, dan ekspor data — semuanya tetap di sini, sesuai keinginan Anda.',
   'settings.title': 'Pengaturan & preferensi.',
   'taskDetail.backToChecklist': 'Kembali ke daftar tugas',
   'taskDetail.breadcrumbChecklist': 'Daftar tugas',
@@ -142,7 +180,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'Tanpa tenggat',
   'taskDetail.notFound': 'Tugas tidak ditemukan',
   'taskDetail.notFoundBody': 'Tugas ini mungkin telah dihapus atau milik pengguna lain.',
+  'taskDetail.tipBody':
+    'Jika Anda terhambat, kirim pesan ke buddy onboarding Anda di Slack — mereka adalah bantuan pertama Anda.',
   'taskDetail.tipEyebrow': 'Tips cepat',
+  'team.empty.body': 'Coba pencarian yang lebih luas atau pilih departemen lain.',
   'team.empty.title': 'Tidak ada rekan tim yang cocok',
   'team.eyebrow': 'Onboarding · Orang',
   'team.loading': 'Memuat rekan tim…',
@@ -165,14 +206,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Tonggak',
   'timeline.stat.current': 'Pencapaian penting saat ini',
   'timeline.stat.next': 'Pembukaan berikutnya',
+  'timeline.stat.progress': 'Keseluruhan',
   'timeline.subtitle':
     'Setiap tonggak membuka modul baru, perkenalan, dan percakapan pertumbuhan. Tanpa tekanan — hanya kemajuan.',
+  'timeline.tipBody':
+    'Jadwalkan refleksi 30 menit pada hari ke-30, 60, dan 90 bersama manajer Anda — ini membuat umpan balik lebih spesifik dan kemajuan terlihat.',
   'timeline.tipEyebrow': 'Tips manajer',
+  'timeline.tipTitle': 'Blokir waktu kalender untuk tonggak-tonggak itu.',
   'timeline.title': 'Perjalanan 30 / 60 / 90 Anda.',
   'training.badge.notStarted': 'Belum dimulai',
   'training.empty': 'Belum ada modul pelatihan.',
   'training.eyebrow': 'Onboarding · Pelatihan',
   'training.loading': 'Memuat modul…',
+  'training.stat.all': 'Modul ditugaskan',
   'training.subtitle':
     'Modul terbuka pada 30/60/90 sesuai peran Anda. Yang wajib datang lebih dulu.',
   'training.title': 'Keterampilan, alat, dan cerita — sesuai kecepatan Anda.',
@@ -184,9 +230,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'Modul tidak ditemukan',
   'trainingModule.quizBody': 'Raih skor 80% atau lebih untuk menyelesaikan modul ini.',
   'trainingModule.quizHeading': 'Kuis akhir modul',
+  'trainingModule.quizLocked': 'Mulai modul dulu',
   'trainingModule.quizNone': 'Tidak ada kuis di modul ini.',
   'trainingModule.quizRetry': 'Coba lagi',
+  'trainingModule.quizStart': 'Mulai kuis',
   'trainingModule.quizSubmit': 'Kirim jawaban',
+  'trainingModule.start': 'Mulai modul',
   'trainingModule.statusNotStarted': 'Belum dimulai',
   'welcomeHeroCard.completeLabel': 'Selesai',
   'welcomeHeroCard.milestonesLabel': 'Tonggak',

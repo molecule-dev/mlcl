@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ጥያቄዎች፣ አስተያየት ወይም ለቡድንዎ ማሳያ ይፈልጋሉ? በ hello@conduit.dev ኢሜይል ያግኙን — እያንዳንዱ መልእክት በቡድኑ ውስጥ ያለ እውነተኛ ሰው ይደርሳል።',
   'about.contactHeading': 'ያግኙን',
   'about.eyebrow': 'ስለ',
+  'about.featuresHeading': 'የምታገኘው ነገር',
+  'about.introBody':
+    '{{app}} የGitHub Actions ዘይቤ ቀጣይ አቅርቦትን ወደ አንድ ፈጣን ዳሽቦርድ ያመጣል፦ ለሁሉም ማከማቻዎችዎ በአንድ ቦታ የቧንቧ መስመሮች፣ የግንባታ መዝገቦች፣ ቅርሶች፣ የሁኔታ ባጆች እና የማሰማሪያ አካባቢዎች። ትር መዝለል የለም፣ የትኛው ግንባታ እንደተበላሸ መገመት የለም — እያንዳንዱ ሩጫ፣ የመዝገብ መስመር እና ማሰማራት በአንድ ጠቅታ ርቀት ላይ ነው።',
+  'about.introHeading': '{{app}} ምን እንደሆነ',
+  'about.missionBody':
+    'ሶፍትዌር ማድረስ ሁከት የሌለውና ሊተነበይ የሚችል መሆን አለበት፣ የፍርሃት ምንጭ ሳይሆን። ከኮሚት እስከ ምርት ያለው መንገድ ፈጣን፣ የሚታይና የሚታመን እንዲሆን ቧንቧ መስመሮችን፣ መዝገቦችንና የማሰማሪያ መሣሪያዎችን እንገነባለን — የመጀመሪያው አረንጓዴ ግንባታ በአምስት ደቂቃ፣ ከዚያ በኋላ ያለው እያንዳንዱ ግንባታም እንዲሁ ግልጽ ነው።',
+  'about.missionHeading': 'የእኛ ተልዕኮ',
+  'about.subtitle':
+    '{{app}} በሁሉም ማከማቻ ላይ ግንባታዎችን፣ ማሰማራቶችንና አካባቢዎችን መከታተል ለሚፈልጉ ቡድኖች — እና በእርግጠኝነት ለማድረስ የሚፈልጉ — የCI/CD ዳሽቦርድ ነው።',
   'artifacts.empty': 'እስካሁን ምንም ቅርሶች የሉም።',
   'artifacts.heading': 'ቅርሶች',
   'artifacts.loadError': 'ቅርሶችን መጫን አልተሳካም።',
@@ -29,8 +40,10 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ ኮንዱት env --list',
   'environments.heading': 'አካባቢዎች',
   'environments.loadError': 'አካባቢዎችን መጫን አልተሳካም።',
+  'environments.loading': 'አካባቢዎችን በመጫን ላይ…',
   'environments.subheading': 'በእያንዳንዱ ኢላማ ላይ የቀጥታ የማሰማራት ሁኔታ።',
   'forgotPassword.runnerStatus': 'ዳግም አስጀምር · ደህንነቱ የተጠበቀ ዋሻ',
+  'forgotPassword.success': 'ለዚያ ኢሜይል መለያ ካለ፣ ዳግም የማስጀመሪያ አገናኝ እየመጣ ነው። የገቢ መልእክት ሳጥንዎን ያረጋግጡ።',
   'insights.changeFailureRate': 'የውድቀት መጠን ለውጥ',
   'insights.deployFrequency': 'ይተላለፋል / ቀን',
   'insights.empty': 'እስካሁን በቂ ውሂብ የለም።',
@@ -39,13 +52,17 @@ export const ui: UiTranslations = {
   'insights.loadError': 'ግንዛቤዎችን መጫን አልተሳካም።',
   'insights.meanP95': 'መካከለኛ {{mean}} · ገጽ 95 {{p95}}',
   'insights.mttr': 'ኤምቲአር',
+  'insights.slowestStepsHeading': 'በጣም ቀርፋፋ የቧንቧ መስመር ደረጃዎች',
   'insights.successRateHeading': 'የቧንቧ መስመር ስኬት መጠን (ባለፉት 14 ቀናት)',
   'landing.choosePlan': 'ዕቅድ ይምረጡ',
+  'landing.copyright': '© {{year}} {{app}}። በእርግጠኝነት ያድርሱ።',
   'landing.ctaBody':
     'የክሬዲት ካርድ የለም። የመድረክ መሐንዲስ አያስፈልግም። የመጀመሪያውን የቧንቧ መስመር አረንጓዴ በአምስት ደቂቃዎች ውስጥ ያግኙ።',
   'landing.ctaHeading': 'በእርግጠኝነት ላክ።',
   'landing.featuresEyebrow': '// የመድረክ ባህሪያት',
   'landing.featuresHeading': 'ለላኪዎች የተገነባ፣ በላኪዎች የተሰራ',
+  'landing.heroSubtitle': 'በሰከንዶች ውስጥ የሚጠናቀቁ ቧንቧ መስመሮች። ማንበብ የሚችሉ መዝገቦች። ማመን የሚችሉ ማሰማራቶች።',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./ኮንዱይት --በደህንነቱ የተጠበቀ ማሰማራት',
   'landing.pricingEyebrow': '// $ ዋጋ አሰጣጥ --ፕላን',
   'landing.pricingHeading': 'ቀላል፣ ሊገመት የሚችል ዋጋ',
@@ -84,7 +101,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'አሁን በረራ ላይ',
   'pipelines.metric.successCaption': '{{count}} የ {{total}} ሩጫዎች',
   'pipelines.metric.successRate': 'የስኬት መጠን',
+  'pipelines.realtimeOn': 'በእውነተኛ ጊዜ',
   'pipelines.subheading': 'ከእያንዳንዱ የታየ ማከማቻ የቀጥታ ዝማኔዎች።',
+  'pricing.advancedFeatures': 'የላቁ ባህሪያት፦ {{mark}}',
+  'pricing.canExport': 'የውሂብ ወደ ውጭ ማውጣት፦ {{mark}}',
+  'pricing.maxArtifacts': '{{count}} ቅርሶች',
+  'pricing.maxBuilds': '{{count}} ግንባታዎች',
+  'pricing.maxPipelines': '{{count}} ቧንቧ መስመሮች',
   'privacy.dataAccount': 'መለያ፡ ስም፣ ኢሜይል፣ የተደበቀ የይለፍ ቃል፣ የዕቅድ ደረጃ።',
   'privacy.intro':
     '{{መተግበሪያ}} ቀጣይነት ያለው የማድረሻ መለያዎን ለማስኬድ የሚያስፈልገንን ዝቅተኛውን መረጃ ብቻ ይሰበስባል፡- ኢሜይልዎ፣ የሚያገናኙዋቸው የውሂብ ማከማቻዎች፣ ሯጮችዎ የሚያመርቷቸውን የተግባር እና የግንባታ ሜታዳታ እና ከእኛ ጋር ለማከማቸት የመረጡዋቸውን ሚስጥሮች። የምንጭ ኮድዎን ከግንባታ ሯጭ ውጭ በፍፁም አናነብም፤ የግንባታ ቅርሶች ሲዋቀሩ በS3 ባልዲዎ ውስጥ ይቀመጣሉ።',
@@ -92,6 +115,7 @@ export const ui: UiTranslations = {
     'ለሂሳብ አከፋፈል ስትሪፕ፣ ለግብይት ኢሜይል Mailgun እና ለግንባታ ቅርስ ማከማቻ AWS S3 እንጠቀማለን። እያንዳንዱ አገልግሎቱን ለማቅረብ ከሚያስፈልገው ዝቅተኛ የውሂብ ወሰን ጋር በውል የተሳሰረ ነው።',
   'privacy.rightsBody':
     'የውሂብዎን እያንዳንዱን ባይት ወደ ውጭ መላክ፣ መለያዎን በማንኛውም ጊዜ ከቅንብሮች መሰረዝ እና በመለያዎ ላይ ያለውን የእያንዳንዱን የድር መንጠቆ ማድረስ መዝገብ መጠየቅ ይችላሉ። ለGDPR / CCPA ጥያቄዎች በ30 ቀናት ውስጥ ምላሽ እንሰጣለን።',
+  'privacy.subtitle': '{{app}} ቧንቧ መስመሮችዎን በምናስኬድበት ጊዜ ውሂብዎን እንዴት እንደሚሰበስብ፣ እንደሚያከማችና እንደሚጠብቅ።',
   'privacy.title': 'የግላዊነት መመሪያ',
   'repositories.empty': 'ምንም የውሂብ ማከማቻዎች አልተገናኙም።',
   'repositories.heading': 'ማከማቻዎች',
@@ -100,11 +124,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'ሁሉም ማከማቻዎች',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'ማከማቻውን መጫን አልተሳካም።',
+  'repositoryDetail.meanDuration': 'አማካይ ቆይታ',
   'repositoryDetail.notFound': 'ማከማቻ አልተገኘም።',
+  'repositoryDetail.successRate': 'የስኬት መጠን',
   'repositoryDetail.totalBuilds': 'ጠቅላላ ግንባታዎች',
   'repositoryDetail.webhookActive': 'ንቁ',
   'repositoryDetail.webhookPaused': 'ለአፍታ ቆሟል',
   'repositoryDetail.webhooksHeading': 'የድር መንጠቆዎች',
+  'resetPassword.passwordLabel': 'አዲስ የይለፍ ቃል',
   'resetPassword.runnerStatus': 'ዳግም አስጀምር · ቶከን ተረጋግጧል',
   'resetPassword.subtitle': 'ከዚህ በፊት ተጠቅመውበት የማያውቁትን ጠንካራ የይለፍ ቃል ይምረጡ።',
   'resetPassword.tokenPlaceholder': 'ከኢሜይል ለጥፍ',
@@ -117,6 +144,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'የማከማቻ ቦታዎች የኮንዱይት ሰዓቶች። ዝግጅቶችን መመገብን ለማቆም ከቪሲኤስ አቅራቢዎ ጋር ያለውን ግንኙነት ያቋርጡ።',
   'settings.repositories.empty': 'እስካሁን ምንም የተገናኙ ማከማቻዎች የሉም።',
+  'settings.repositories.heading': 'የማከማቻ ግንኙነቶች',
   'settings.repositories.loadError': 'ማከማቻዎችን መጫን አልተሳካም።',
   'settings.secrets.addCta': 'ሚስጥር ያክሉ',
   'settings.secrets.addError': 'ሚስጥር ማከል አልተሳካም።',
@@ -124,6 +152,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'ሚስጥሩን መሰረዝ አልተሳካም።',
   'settings.secrets.empty': 'ምንም ሚስጥሮች አልተቀመጡም።',
   'settings.secrets.heading': 'ምስጢሮች',
+  'settings.secrets.lastUsed': 'ለመጨረሻ ጊዜ ጥቅም ላይ የዋለው {{date}}',
   'settings.secrets.loadError': 'ምስጢሮችን መጫን አልተሳካም።',
   'settings.secrets.neverUsed': 'በጭራሽ ጥቅም ላይ አልዋለም',
   'settings.secrets.rotateCta': 'አዙር',
@@ -146,6 +175,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'የድር መንጠቆን ማዘመን አልተሳካም።',
   'signup.namePlaceholder': 'ራይሊ ፓርክ',
   'signup.runnerStatus': 'ነፃ ደረጃ · 1,000 ግንባታ ደቂቃ/ወር',
+  'terms.intro':
+    'የ {{app}} መዝገብ በመፍጠር እነዚህን ውሎች ተቀብለዋል። እነሱ የግንባታ ማስኪያዎችን ተቀባይነት ያለው አጠቃቀም፣ የSLA ወሰኖቻችንን እና ለአጥፊ ሥራዎች መዝገብዎን ለጊዜው የምናግድበት ወይም የምናቋርጥበትን ሁኔታዎች ይሸፍናሉ።',
   'terms.slaBody':
     'የፕሮ እና የቡድን ዕቅዶች ለኤፒአይ እና ለሩጫ ገንዳ ወርሃዊ የስራ ሰዓት 99.95% ኢላማ ያደርጋሉ። ነፃው ዕቅድ እንደደረሰው ይቀርባል። መቋረጦች በstatus.conduit.dev ላይ ሪፖርት ይደረጋሉ እና በደረሰኝዎ ውስጥ ባለው ቀመር መሠረት ይከፈላሉ።',
   'terms.terminationBody':

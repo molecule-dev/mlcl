@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ಪ್ರತಿಕ್ರಿಯೆ ಇದೆಯೇ, ದೋಷ ಸಿಕ್ಕಿದೆಯೇ, ಅಥವಾ ನಿಮ್ಮ ಆಲೋಚನೆಗಳನ್ನು ಹೇಗೆ ನಕ್ಷೆ ಮಾಡುತ್ತೀರಿ ಎಂದು ನಮಗೆ ಹೇಳಲು ಬಯಸುವಿರಾ? ನಾವು ಪ್ರತಿ ಟಿಪ್ಪಣಿಯನ್ನೂ ಓದುತ್ತೇವೆ — ಯಾವಾಗ ಬೇಕಾದರೂ ಸಂಪರ್ಕಿಸಿ, ತಂಡದ ನಿಜವಾದ ವ್ಯಕ್ತಿಯೊಬ್ಬರು ನಿಮಗೆ ಪ್ರತ್ಯುತ್ತರ ನೀಡುತ್ತಾರೆ.',
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': 'ನಮ್ಮ ಬಗ್ಗೆ',
+  'about.featureCanvas':
+    'ಎಳೆಯಬಹುದಾದ ನೋಡ್ಗಳು, ನಯವಾದ-ವಕ್ರ ರೇಖೆಯ ಸಂಪರ್ಕಗಳು ಮತ್ತು ದ್ರವದಂತಹ ಜೂಮ್ ಮತ್ತು ಪ್ಯಾನ್ ಹೊಂದಿರುವ ಅನಂತ ಕ್ಯಾನ್ವಾಸ್.',
+  'about.featureCollab':
+    'ಲೈವ್ ಕರ್ಸರ್ಗಳೊಂದಿಗೆ ನೈಜ-ಸಮಯ ಸಹಯೋಗ, ಇದರಿಂದ ನಿಮ್ಮ ತಂಡವು ತಮ್ಮ ಸರದಿಗಾಗಿ ಕಾಯದೆ ನಿಮ್ಮ ಜೊತೆಗೆ ಕವಲೊಡೆಯಬಹುದು.',
+  'about.featurePricing':
+    'ಏಕಾಂಗಿ ಚಿಂತಕರಿಗೆ ಶಾಶ್ವತವಾಗಿ ಉಚಿತ; Pro ಮತ್ತು Team ಯೋಜನೆಗಳು ಹೆಚ್ಚು ನಕ್ಷೆಗಳು, ಹೆಚ್ಚು ನೋಡ್ಗಳು, ಸುಧಾರಿತ ವೈಶಿಷ್ಟ್ಯಗಳು ಮತ್ತು ಡೇಟಾ ರಫ್ತು ಸೇರಿಸುತ್ತವೆ.',
+  'about.featureTemplates':
+    'ಆರಂಭಿಕ ಟೆಂಪ್ಲೇಟ್ಗಳ ಗ್ರಂಥಾಲಯ ಮತ್ತು ಪೂರ್ಣ ಆವೃತ್ತಿ ಇತಿಹಾಸ, ಇದರಿಂದ ನೀವು ನಕ್ಷೆಯನ್ನು ತ್ವರಿತವಾಗಿ ಪ್ರಾರಂಭಿಸಿ ಯಾವುದೇ ಬದಲಾವಣೆಯನ್ನು ಹಿಂತಿರುಗಿಸಬಹುದು.',
+  'about.intro':
+    '{{app}} ಮನಸ್ಸಿನ ನಕ್ಷೆಗಾಗಿ ವಿಶಾಲವಾದ, ಅನಂತ ಕ್ಯಾನ್ವಾಸ್ — ಆಲೋಚನಾ ಸ್ಫೋಟಗಳು, ಪರಿಕಲ್ಪನಾ ರೇಖಾಚಿತ್ರಗಳು, SWOTಗಳು ಮತ್ತು ಯೋಜನಾ ಯೋಜನೆಗಳು. ನೋಡ್ಗಳನ್ನು ಎಲ್ಲಿಯಾದರೂ ಎಳೆಯಿರಿ, ಆಲೋಚನೆಗಳನ್ನು ಹರಿಯುವ ಕೊಂಡಿಗಳಿಂದ ಸಂಪರ್ಕಿಸಿ, ಅಂಚುಗಳಿಗೆ ಡಿಕ್ಕಿ ಹೊಡೆಯದೆ ಜೂಮ್ ಮತ್ತು ಪ್ಯಾನ್ ಮಾಡಿ, ಮತ್ತು ನಿಮ್ಮ ಯೋಚನೆಯೊಂದಿಗೆ ನಕ್ಷೆ ಬೆಳೆಯಲಿ.',
+  'about.missionBody':
+    'ಗಟ್ಟಿಯಾಗಿ ಯೋಚಿಸುವುದು ಸುಲಭ ಮತ್ತು ಹಂಚಿಕೊಂಡಂತೆ ಅನಿಸಬೇಕು. ನಾವು ದಾರಿಯಿಂದ ಹೊರಬರುವ ಸಾಧನಗಳನ್ನು ನಿರ್ಮಿಸುತ್ತೇವೆ — ಕಠಿಣ ಗ್ರಿಡ್ಗಳಿಲ್ಲ, ಚೌಕಟ್ಟಿನ ಟೆಂಪ್ಲೇಟ್ಗಳಿಲ್ಲ, ಗಮನ ಸೆಳೆಯುವ UI ಇಲ್ಲ — ಇದರಿಂದ ವ್ಯಕ್ತಿಗಳು ಮತ್ತು ತಂಡಗಳು ಆಲೋಚನೆಗಳು ಹೊಳೆದ ಕ್ಷಣವೇ ಅವನ್ನು ಸೆರೆಹಿಡಿದು ಒಟ್ಟಿಗೆ ರೂಪಿಸಬಹುದು.',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
   'about.pageTitle': '{{app}} ಬಗ್ಗೆ',
   'auth.brandEyebrow': 'ಕಲ್ಪನೆಗಳು ಕವಲೊಡೆಯುವ ಸ್ಥಳ',
   'auth.brandStatement':
@@ -13,19 +29,25 @@ export const ui: UiTranslations = {
   'billing.feature.export': 'SVG / PNG ಗೆ ರಫ್ತು ಮಾಡಿ',
   'billing.feature.maps': '{{count}} ನಕ್ಷೆಗಳು',
   'billing.feature.nodes': '{{count}} ಪ್ರತಿ ನಕ್ಷೆಗೆ ನೋಡ್‌ಗಳು',
+  'billing.freeNoticeBody': 'ಹೆಚ್ಚು ನಕ್ಷೆಗಳನ್ನು ಅನ್ಲಾಕ್ ಮಾಡಲು ಮೇಲಿನ ಪಾವತಿಸಿದ ಯೋಜನೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ.',
   'billing.loadError': 'ಬಿಲ್ಲಿಂಗ್ ಸ್ಥಿತಿಯನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'billing.loading': 'ಬಿಲ್ಲಿಂಗ್ ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
   'billing.perMonth': ' / ತಿಂಗಳು',
   'billing.plansTitle': 'ಯೋಜನೆಗಳು',
+  'billing.priceMissing': 'Stripe ಬೆಲೆ ID ಕಾನ್ಫಿಗರ್ ಮಾಡಲಾಗಿಲ್ಲ.',
   'billing.starting': 'ಚೆಕ್ಔಟ್ ಪ್ರಾರಂಭಿಸಲಾಗುತ್ತಿದೆ…',
   'billing.title': 'ಬಿಲ್ಲಿಂಗ್ ಮತ್ತು ಯೋಜನೆ',
   'billing.unavailableTier':
     'ಈ ಶ್ರೇಣಿಯನ್ನು ಇನ್ನೂ ಚೆಕ್‌ಔಟ್‌ಗಾಗಿ ಕಾನ್ಫಿಗರ್ ಮಾಡಲಾಗಿಲ್ಲ — ನಿಮ್ಮ ಪರಿಸರದಲ್ಲಿ ಸ್ಟ್ರೈಪ್ ಬೆಲೆ ಐಡಿಯನ್ನು ಹೊಂದಿಸಿ.',
   'billing.unlimited': 'ಅನಿಯಮಿತ',
   'billing.upgradeMonthly': 'ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ {{name}} (ಮಾಸಿಕ)',
+  'billing.upgradeYearly': 'ವಾರ್ಷಿಕವಾಗಿ ಪಾವತಿಸಿ · {{price}}',
   'brand.tagline': 'ಕಲ್ಪನೆಗಳು ಕವಲೊಡೆಯುವ ಸ್ಥಳ',
   'common.and': 'ಮತ್ತು',
   'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'dashboard.activityAction': 'ನವೀಕರಿಸಲಾಗಿದೆ',
+  'dashboard.activityEmpty':
+    'ಇನ್ನೂ ಚಟುವಟಿಕೆ ಇಲ್ಲ — ನಿಮ್ಮ ಟೈಮ್ಲೈನ್ ಪ್ರಾರಂಭಿಸಲು ನಕ್ಷೆಯನ್ನು ಸಂಪಾದಿಸಿ.',
   'dashboard.daysAgo': '{{count}} ಡಿ ಹಿಂದೆ',
   'dashboard.empty.body':
     'ಕಲ್ಪನೆಗಳನ್ನು ಕವಲೊಡೆಯಲು ಪ್ರಾರಂಭಿಸಲು ನಕ್ಷೆಯನ್ನು ರಚಿಸಿ. ಟೆಂಪ್ಲೇಟ್‌ಗಳು ಪ್ರಾರಂಭಿಸಲು ಸುಲಭಗೊಳಿಸುತ್ತವೆ.',
@@ -44,26 +66,35 @@ export const ui: UiTranslations = {
   'dendriteHero.activeMaps': 'ಸಕ್ರಿಯ ನಕ್ಷೆಗಳು',
   'dendriteHero.eyebrow': 'ಇಂದು ಕ್ಯಾನ್ವಾಸ್‌ನಲ್ಲಿ',
   'dendriteHero.greeting': 'ಹೊಸ ವಿಚಾರಗಳನ್ನು ಕವಲೊಡೆಯಿರಿ, {{name}}',
+  'dendriteHero.greetingAnon': 'ಹೊಸ ಆಲೋಚನೆಗಳನ್ನು ಕವಲೊಡೆಯಿಸಿ',
   'dendriteHero.openMaps': 'ನನ್ನ ನಕ್ಷೆಗಳನ್ನು ತೆರೆಯಿರಿ',
   'dendriteHero.subtitle':
     'ಎಳೆಯಿರಿ, ಸಂಪರ್ಕಪಡಿಸಿ ಮತ್ತು ನಿಮ್ಮ ಆಲೋಚನೆ ಬೆಳೆಯಲು ಬಿಡಿ. ಪ್ರತಿಯೊಂದು ಕಿಡಿಯೂ ಇನ್ನೊಂದು ನೋಡ್‌ನಿಂದ ಒಂದು ನೋಡ್ ದೂರದಲ್ಲಿದೆ.',
   'dendriteHero.weeklyChange': '{{sign}} {{count}} ಈ ವಾರ',
+  'forgotPassword.brandStatement':
+    'ನಿಮ್ಮ ನಕ್ಷೆಗಳು ಸುರಕ್ಷಿತವಾಗಿವೆ. ಸ್ವಲ್ಪ ಸಮಯದಲ್ಲಿ ನಿಮ್ಮ ಕವಲುಗಳಿಗೆ ನಿಮ್ಮನ್ನು ಕರೆತರುತ್ತೇವೆ.',
   'forgotPassword.subheading':
     'ನಿಮ್ಮ ಇಮೇಲ್ ಅನ್ನು ನಮೂದಿಸಿ, ನಾವು ಹೊಸ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಕಳುಹಿಸುತ್ತೇವೆ.',
   'forgotPassword.success':
     'ಆ ಇಮೇಲ್ ವಿಳಾಸವಿರುವ ಖಾತೆ ಅಸ್ತಿತ್ವದಲ್ಲಿದ್ದರೆ, ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಬರುತ್ತಿದೆ.',
   'landing.cta.body':
     'ಏಕವ್ಯಕ್ತಿ ಚಿಂತಕರಿಗೆ ಶಾಶ್ವತವಾಗಿ ಉಚಿತ. ನಿಮ್ಮ ತಂಡವು ನಿಮ್ಮೊಂದಿಗೆ ಕವಲೊಡೆಯಲು ಪ್ರಾರಂಭಿಸಿದಾಗ ಮಾತ್ರ ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ.',
+  'landing.cta.button': 'ನಿಮ್ಮ ಮೊದಲ ನಕ್ಷೆಯನ್ನು ರಚಿಸಿ',
   'landing.cta.title': 'ಇಂದು ನಿಮ್ಮ ಮೊದಲ ಐಡಿಯಾವನ್ನು ನೆಡಿ.',
   'landing.feature.branch.body':
     'ಬೇರೆ ಯಾವುದೇ ನೋಡ್‌ನಿಂದ ನೋಡ್ ಅನ್ನು ಎಳೆಯಿರಿ — ಸಂಪರ್ಕಗಳು ನಯವಾದ ವಕ್ರಾಕೃತಿಗಳಾಗಿ ಹರಿಯುತ್ತವೆ, ಯಾವುದೇ ಕಟ್ಟುನಿಟ್ಟಿನ ಗ್ರಿಡ್ ಅಗತ್ಯವಿಲ್ಲ.',
+  'landing.feature.branch.title': 'ಸಾವಯವ ಕವಲೊಡೆಯುವಿಕೆ',
   'landing.feature.canvas.body':
     'ಅಂಚುಗಳಿಗೆ ಡಿಕ್ಕಿ ಹೊಡೆಯದೆ ನಕ್ಷೆಯನ್ನು ಪ್ಯಾನ್ ಮಾಡಿ, ಜೂಮ್ ಮಾಡಿ ಮತ್ತು ಬೆಳೆಯಲು ಬಿಡಿ. ನಿಮ್ಮ ಆಲೋಚನೆಗೆ ಉಸಿರಾಡಲು ಸ್ಥಳಾವಕಾಶ ಬೇಕು.',
   'landing.feature.canvas.title': 'ಅನಂತ ಕ್ಯಾನ್ವಾಸ್',
   'landing.feature.collab.body':
     'ತಂಡದ ಸದಸ್ಯರು ನಿಮ್ಮ ಪಕ್ಕದಲ್ಲಿ ಹೇಗೆ ಬೇರ್ಪಡುತ್ತಾರೆ ಎಂಬುದನ್ನು ನೈಜ ಸಮಯದಲ್ಲಿ ನೋಡಿ. ಸರಣಿಯಲ್ಲಿ ಅಲ್ಲ, ಒಟ್ಟಾಗಿ ಚಿಂತನೆ ಮಾಡಿ.',
+  'landing.feature.collab.title': 'ಸಹಯೋಗದ ಕರ್ಸರ್ಗಳು',
   'landing.feature.shortcuts.body':
     'ಮಗುವನ್ನು ಸೇರಿಸಲು ಟ್ಯಾಬ್, ಒಡಹುಟ್ಟಿದವರಿಗಾಗಿ ನಮೂದಿಸಿ, ಎಲ್ಲಿಯಾದರೂ ಜಿಗಿಯಲು ⌘K. ವಿದ್ಯುತ್ ಬಳಕೆದಾರರು ಹರಿವಿನಲ್ಲಿಯೇ ಇರುತ್ತಾರೆ.',
+  'landing.feature.shortcuts.title': 'ಕೀಬೋರ್ಡ್ ಮೊದಲು',
+  'landing.featuresBody':
+    'ಟೂಲ್ಬಾರ್ಗಳು, ಪ್ಯಾನೆಲ್ಗಳು ಮತ್ತು ಶಾರ್ಟ್ಕಟ್ಗಳು ಸುತ್ತಮುತ್ತಲಿನಂತೆ ಅನಿಸುತ್ತವೆ — ಬೇಕಾದಾಗ ಇರುತ್ತವೆ, ಬೇಡವಾದಾಗ ಅದೃಶ್ಯವಾಗುತ್ತವೆ.',
   'landing.featuresEyebrow': 'ಚಿಂತಕರಿಗಾಗಿ ನಿರ್ಮಿಸಲಾಗಿದೆ',
   'landing.featuresTitle': 'ಪ್ರತಿಯೊಂದು ಸಂವಹನವು ಕ್ಯಾನ್ವಾಸ್‌ನಲ್ಲಿ ತನ್ನ ಸ್ಥಾನವನ್ನು ಗಳಿಸುತ್ತದೆ.',
   'landing.footer.copyright': '© {{year}} {{appName}} . Molecule.dev ನೊಂದಿಗೆ ನಿರ್ಮಿಸಲಾಗಿದೆ.',
@@ -71,6 +102,7 @@ export const ui: UiTranslations = {
     '{{appName}} ಎಂಬುದು ಬುದ್ದಿಮತ್ತೆ ಚರ್ಚೆ, ಪರಿಕಲ್ಪನಾ ರೇಖಾಚಿತ್ರಗಳು ಮತ್ತು SWOT ಗಳಿಗೆ ವಿಶಾಲವಾದ ಅನಂತ ಕ್ಯಾನ್ವಾಸ್ ಆಗಿದೆ. ಎಳೆಯಿರಿ, ಸಂಪರ್ಕಿಸಿ ಮತ್ತು ನಕ್ಷೆಯು ನಿಮ್ಮೊಂದಿಗೆ ಬೆಳೆಯಲು ಬಿಡಿ - ಯಾವುದೇ ಕಠಿಣ ಗ್ರಿಡ್‌ಗಳಿಲ್ಲ, ಬಾಕ್ಸ್-ಇನ್ ಟೆಂಪ್ಲೇಟ್‌ಗಳಿಲ್ಲ.',
   'landing.hero.ctaPrimary': 'ಮುಕ್ತವಾಗಿ ಕವಲೊಡೆಯಲು ಪ್ರಾರಂಭಿಸಿ',
   'landing.hero.eyebrow': 'ವಿನ್ಯಾಸಕರು ಮತ್ತು ಚಿಂತಕರಿಗೆ ಮೈಂಡ್ ಮ್ಯಾಪಿಂಗ್',
+  'landing.hero.title': 'ಆಲೋಚನೆಗಳು ಕವಲೊಡೆಯುವ ಸ್ಥಳ.',
   'landing.nav.start': 'ಕವಲೊಡೆಯಲು ಪ್ರಾರಂಭಿಸಿ',
   'landing.proof.export': 'PNG, SVG, ಅಥವಾ Markdown ಗೆ ರಫ್ತು ಮಾಡಿ',
   'landing.proof.free': '3 ನಕ್ಷೆಗಳಿಗೆ ಉಚಿತ',
@@ -78,6 +110,7 @@ export const ui: UiTranslations = {
   'layout.closeMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ಮುಚ್ಚಿರಿ',
   'layout.openMenu': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ತೆರೆಯಿರಿ',
   'layout.searchPlaceholder': 'ನಕ್ಷೆಗಳು, ಟೆಂಪ್ಲೇಟ್‌ಗಳು ಅಥವಾ ನೋಡ್‌ಗಳನ್ನು ಹುಡುಕಿ...',
+  'login.noAccount': 'ಇಲ್ಲಿ ಹೊಸಬರೇ?',
   'login.signIn': 'Nimbus‌ಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ',
   'login.subheading': 'ನೀವು ನಿಲ್ಲಿಸಿದ ಸ್ಥಳದಿಂದ ಶಾಖೆಯನ್ನು ಮುಂದುವರಿಸಲು ಸೈನ್ ಇನ್ ಮಾಡಿ.',
   'login.twoFactor': 'ಎರಡು-ಅಂಶ ಟೋಕನ್ (ಸಕ್ರಿಯಗೊಳಿಸಿದ್ದರೆ)',
@@ -96,9 +129,11 @@ export const ui: UiTranslations = {
     '+ ಉಪಕರಣವನ್ನು ಆರಿಸಿ, ನಂತರ ನಿಮ್ಮ ಮೊದಲ ನೋಡ್ ಅನ್ನು ಸೇರಿಸಲು ಎಲ್ಲಿಯಾದರೂ ಕ್ಲಿಕ್ ಮಾಡಿ.',
   'mapEditor.export': 'ರಫ್ತು ಮಾಡಿ',
   'mapEditor.exportError': 'ನಕ್ಷೆಯನ್ನು ರಫ್ತು ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'mapEditor.exportLocked': 'ರಫ್ತು ಮಾಡುವುದು Pro ವೈಶಿಷ್ಟ್ಯ.',
   'mapEditor.exportMarkdown': 'ಮಾರ್ಕ್‌ಡೌನ್ (.md)',
   'mapEditor.exportPng': 'ಚಿತ್ರ (.png)',
   'mapEditor.exportSvg': 'ವೆಕ್ಟರ್ (.svg)',
+  'mapEditor.exportUpgrade': 'ರಫ್ತಿಗೆ ಅಪ್ಗ್ರೇಡ್ ಮಾಡಿ →',
   'mapEditor.hint.add': 'ನೋಡ್ ಅನ್ನು ಬಿಡಲು ಕ್ಯಾನ್ವಾಸ್ ಅನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ',
   'mapEditor.hint.connectSource': 'ಮೂಲ ನೋಡ್ ಅನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ...',
   'mapEditor.hint.connectTarget': 'ಗುರಿ ನೋಡ್ ಅನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ...',
@@ -107,6 +142,7 @@ export const ui: UiTranslations = {
   'mapEditor.loading': 'ಕ್ಯಾನ್ವಾಸ್ ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
   'mapEditor.newNodeText': 'New idea',
   'mapEditor.panel.color': 'ಬಣ್ಣ',
+  'mapEditor.panel.eyebrow': 'ಆಯ್ಕೆಮಾಡಿದ ನೋಡ್',
   'mapEditor.panel.nodes': 'ನೋಡ್‌ಗಳು',
   'mapEditor.panel.noSelection': 'ಅದನ್ನು ಸಂಪಾದಿಸಲು ನೋಡ್ ಅನ್ನು ಕ್ಲಿಕ್ ಮಾಡಿ.',
   'mapEditor.panel.stats': 'ನಕ್ಷೆಯ ಅಂಕಿಅಂಶಗಳು',
@@ -146,12 +182,19 @@ export const ui: UiTranslations = {
   'notifications.accept': 'ಸ್ವೀಕರಿಸಿ',
   'notifications.acceptAndOpen': 'ಸ್ವೀಕರಿಸಿ ಮತ್ತು ತೆರೆಯಿರಿ',
   'notifications.acceptedInvite': 'ಸೇರಿಕೊಂಡರು {{title}}.',
+  'notifications.acceptError': 'ಆಹ್ವಾನವನ್ನು ಸ್ವೀಕರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'notifications.empty.body':
     'ತಂಡದ ಸದಸ್ಯರು ನಿಮ್ಮನ್ನು ನಕ್ಷೆಗಳಿಗೆ ಆಹ್ವಾನಿಸಿದಾಗ, ಅವರು ಇಲ್ಲಿ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತಾರೆ.',
   'notifications.empty.title': 'ಯಾವುದೇ ಆಹ್ವಾನಗಳು ಬಾಕಿ ಉಳಿದಿಲ್ಲ.',
+  'notifications.inviteBody': '{{email}} ಗೆ ಕಳುಹಿಸಲಾಗಿದೆ',
   'notifications.inviteTitle': 'ಆಹ್ವಾನಿಸಲಾಗಿದೆ {{role}} ಗೆ "{{title}}"',
   'notifications.subtitle': '{{count}} ಬಾಕಿ ಇರುವ ಆಹ್ವಾನಗಳು.',
   'notifications.view': 'ವೀಕ್ಷಿಸಿ',
+  'pricing.limit.advanced': 'ಸುಧಾರಿತ ವೈಶಿಷ್ಟ್ಯಗಳು: {{state}}',
+  'pricing.limit.connections': '{{count}} ಸಂಪರ್ಕಗಳು',
+  'pricing.limit.export': 'ಡೇಟಾ ರಫ್ತು: {{state}}',
+  'pricing.limit.maps': '{{count}} ನಕ್ಷೆಗಳು',
+  'pricing.limit.nodes': '{{count}} ಪ್ರತಿ ನಕ್ಷೆಗೆ ನೋಡ್‌ಗಳು',
   'profile.loading': 'ನಿಮ್ಮ ಅಂಕಿಅಂಶಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'profile.stat.collabs': 'ಸಹಯೋಗಗಳು',
   'profile.stat.maps': 'ನಕ್ಷೆಗಳನ್ನು ರಚಿಸಲಾಗಿದೆ',
@@ -163,25 +206,36 @@ export const ui: UiTranslations = {
   'publicMap.loadError': 'ಈ ನಕ್ಷೆಯನ್ನು ಇನ್ನು ಮುಂದೆ ಹಂಚಿಕೊಳ್ಳಲಾಗುವುದಿಲ್ಲ, ಅಥವಾ ಲಿಂಕ್ ಅಮಾನ್ಯವಾಗಿದೆ.',
   'publicMap.loading': 'ನಕ್ಷೆಯನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'publicMap.notFound': 'ನಕ್ಷೆ ಕಂಡುಬಂದಿಲ್ಲ.',
+  'resetPassword.newPassword': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'resetPassword.subheading':
     'ಸ್ಮರಣೀಯವಾದದ್ದನ್ನು ಆರಿಸಿ. ನಾವು ನಿಮ್ಮನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಮರಳಿ ಲಾಗ್ ಇನ್ ಮಾಡುತ್ತೇವೆ.',
   'resetPassword.submit': 'ಪಾಸ್‌ವರ್ಡ್ ಮರುಹೊಂದಿಸಿ ಮತ್ತು ಸೈನ್ ಇನ್ ಮಾಡಿ',
   'resetPassword.tokenPlaceholder': 'ನಿಮ್ಮ ಇಮೇಲ್‌ನಿಂದ ಅಂಟಿಸಲಾಗಿದೆ',
   'settings.account.subtitle': 'ನಿಮ್ಮ ಡಿಸ್‌ಪ್ಲೇ ಹೆಸರು ಮತ್ತು ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ನವೀಕರಿಸಿ.',
+  'settings.field.currentPassword': 'ಪ್ರಸ್ತುತ ಪಾಸ್‌ವರ್ಡ್',
   'settings.field.newPassword': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'settings.password.subtitle': 'ಬಲವಾದ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಆರಿಸಿ (ಕನಿಷ್ಠ 8 ಅಕ್ಷರಗಳು).',
   'settings.passwordError':
     'ಪಾಸ್‌ವರ್ಡ್ ಬದಲಾಯಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ನಿಮ್ಮ ಪ್ರಸ್ತುತ ಪಾಸ್‌ವರ್ಡ್ ಪರಿಶೀಲಿಸಿ.',
+  'settings.passwordMismatch': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್‌ಗಳು ಹೊಂದಿಕೆಯಾಗುತ್ತಿಲ್ಲ.',
   'settings.passwordSaved': 'ಪಾಸ್‌ವರ್ಡ್ ಯಶಸ್ವಿಯಾಗಿ ಬದಲಾಯಿಸಲಾಗಿದೆ.',
   'settings.passwordTooShort': 'ಪಾಸ್‌ವರ್ಡ್ ಕನಿಷ್ಠ 8 ಅಕ್ಷರಗಳನ್ನು ಹೊಂದಿರಬೇಕು.',
   'settings.profileError': 'ಪ್ರೊಫೈಲ್ ಬದಲಾವಣೆಗಳನ್ನು ಉಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'settings.subtitle': 'ನಿಮ್ಮ ಖಾತೆ ಮತ್ತು ಭದ್ರತೆಯನ್ನು ಟ್ಯೂನ್ ಮಾಡಿ.',
   'settings.twoFactorCode': 'ದೃಢೀಕರಣ ಕೋಡ್',
   'settings.twoFactorDisable': 'ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ',
+  'settings.twoFactorDisableTitle': 'ಎರಡು-ಅಂಶ ದೃಢೀಕರಣವನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ',
   'settings.twoFactorEnable': 'ಸಕ್ರಿಯಗೊಳಿಸಿ',
+  'settings.twoFactorEnableTitle': 'ಎರಡು-ಅಂಶ ದೃಢೀಕರಣವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ',
   'settings.twoFactorInvalidCode': 'ಅಮಾನ್ಯ ಕೋಡ್. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
+  'settings.twoFactorOffLine': 'ಎರಡು-ಅಂಶ ದೃಢೀಕರಣ ಆಫ್ ಆಗಿದೆ.',
+  'settings.twoFactorOnLine': 'ಎರಡು-ಅಂಶ ದೃಢೀಕರಣ ಆನ್ ಆಗಿದೆ.',
+  'settings.twoFactorQrAlt': 'ಎರಡು-ಅಂಶ QR ಕೋಡ್',
+  'settings.twoFactorScan':
+    'ನಿಮ್ಮ ದೃಢೀಕರಣ ಅಪ್ಲಿಕೇಶನ್ನಿಂದ ಈ QR ಕೋಡ್ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ, ನಂತರ 6-ಅಂಕಿಯ ಕೋಡ್ ನಮೂದಿಸಿ.',
   'settings.twoFactorSubtitle':
     'ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್‌ನ ಮೇಲೆ ನಿಮ್ಮ ದೃಢೀಕರಣ ಅಪ್ಲಿಕೇಶನ್‌ನಿಂದ ಒಂದು-ಬಾರಿಯ ಕೋಡ್ ಅನ್ನು ಸೇರಿಸಿ.',
+  'settings.twoFactorUnavailable': 'ಈ ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಎರಡು ಅಂಶದ ದೃಢೀಕರಣ ಲಭ್ಯವಿಲ್ಲ.',
   'settings.twoFactorVerify': 'ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಸಕ್ರಿಯಗೊಳಿಸಿ',
   'share.accepted': 'ಸ್ವೀಕರಿಸಲಾಗಿದೆ',
   'share.backToMap': 'ನಕ್ಷೆಗೆ ಹಿಂತಿರುಗಿ',
@@ -192,7 +246,9 @@ export const ui: UiTranslations = {
   'share.copySuccess': 'ಲಿಂಕ್ ನಕಲಿಸಲಾಗಿದೆ.',
   'share.invite.button': 'ಆಹ್ವಾನಿಸಿ',
   'share.invite.title': 'ಇಮೇಲ್ ಮೂಲಕ ಆಹ್ವಾನಿಸಿ',
+  'share.inviteError': 'ಆಹ್ವಾನ ಕಳುಹಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'share.inviteSuccess': 'ಆಹ್ವಾನಿಸಲಾಗಿದೆ {{email}}.',
+  'share.link.disabledHint': 'ಈ ನಕ್ಷೆಗೆ ಸಾರ್ವಜನಿಕ ಓದಲು-ಮಾತ್ರ ಲಿಂಕ್ ರಚಿಸಲು ಆನ್ ಮಾಡಿ.',
   'share.link.title': 'ಸಾರ್ವಜನಿಕ ಲಿಂಕ್',
   'share.loadError': 'ಹಂಚಿಕೆ ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'share.pending': 'ಆಹ್ವಾನ ಬಾಕಿ ಇದೆ',
@@ -204,13 +260,19 @@ export const ui: UiTranslations = {
   'share.roleError': 'ಪಾತ್ರವನ್ನು ನವೀಕರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'share.title': 'ಈ ನಕ್ಷೆಯನ್ನು ಹಂಚಿಕೊಳ್ಳಿ',
   'share.unnamedCollaborator': 'ಆಹ್ವಾನ ಬಾಕಿ ಇದೆ',
+  'signup.brandStatement':
+    'ಅತ್ಯಂತ ಧೈರ್ಯಶಾಲಿ ಆಲೋಚನಾ ಸ್ಫೋಟಕ್ಕೂ ಸಾಕಷ್ಟು ವಿಶಾಲವಾದ — ಮತ್ತು ಯೋಚಿಸಲು ಸಾಕಷ್ಟು ಶಾಂತವಾದ ಕ್ಯಾನ್ವಾಸ್.',
+  'signup.haveAccount': 'ಈಗಾಗಲೇ ಸದಸ್ಯರೇ?',
   'signup.heading': 'ನಿಮ್ಮ ಮೊದಲ ಆಲೋಚನೆಯನ್ನು ನೆಡಿ',
   'signup.namePlaceholder': 'ಅವೆರಿ ಚೆನ್',
   'signup.subheading': '3 ನಕ್ಷೆಗಳಿಗೆ ಶಾಶ್ವತವಾಗಿ ಉಚಿತ. ಯಾವುದೇ ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್ ಅಗತ್ಯವಿಲ್ಲ.',
   'templateDetail.backToTemplates': 'ಎಲ್ಲಾ ಟೆಂಪ್ಲೇಟ್‌ಗಳು',
   'templateDetail.browseMore': 'ಇನ್ನಷ್ಟು ಬ್ರೌಸ್ ಮಾಡಿ',
+  'templateDetail.editableHint':
+    'ಟೆಂಪ್ಲೇಟ್ ಅನ್ನು ಇನ್ಸ್ಟಾನ್ಶಿಯೇಟ್ ಮಾಡಿದ ನಂತರ ಪ್ರತಿ ನೋಡ್ ಮತ್ತು ಎಡ್ಜ್ ಸಂಪೂರ್ಣವಾಗಿ ಸಂಪಾದಿಸಬಹುದು.',
   'templateDetail.instantiateError': 'ಈ ಟೆಂಪ್ಲೇಟ್‌ನಿಂದ ನಕ್ಷೆಯನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'templateDetail.loadError': 'ಈ ಟೆಂಪ್ಲೇಟ್ ಅನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'templateDetail.loading': 'ಟೆಂಪ್ಲೇಟ್ ಲೋಡ್ ಆಗುತ್ತಿದೆ...',
   'templateDetail.nodes': 'ಪೂರ್ವ-ಬೀಜದ ನೋಡ್‌ಗಳು',
   'templateDetail.notFound': 'ಟೆಂಪ್ಲೇಟ್ ಕಂಡುಬಂದಿಲ್ಲ.',
   'templateDetail.systemEyebrow': 'ಅಂತರ್ನಿರ್ಮಿತ ಟೆಂಪ್ಲೇಟ್',
@@ -233,6 +295,7 @@ export const ui: UiTranslations = {
   'trash.empty.body': 'ತೆರವುಗೊಳಿಸಲು ಏನೂ ಕಾಯುತ್ತಿಲ್ಲ. ನಿಮ್ಮ ಶಾಖೆಗಳು ಸುರಕ್ಷಿತವಾಗಿವೆ.',
   'trash.empty.title': 'ಅನುಪಯುಕ್ತ ಖಾಲಿಯಾಗಿದೆ',
   'trash.loadError': 'ಅನುಪಯುಕ್ತ ನಕ್ಷೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'trash.loading': 'ಟ್ರ್ಯಾಶ್ ಲೋಡ್ ಆಗುತ್ತಿದೆ…',
   'trash.restore': 'ಮರುಸ್ಥಾಪಿಸಿ',
   'trash.restoreError': 'ನಕ್ಷೆಯನ್ನು ಮರುಸ್ಥಾಪಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'trash.subtitle':
@@ -241,11 +304,13 @@ export const ui: UiTranslations = {
   'versionHistory.backToMap': 'ನಕ್ಷೆಗೆ ಹಿಂತಿರುಗಿ',
   'versionHistory.empty':
     'ಇನ್ನೂ ಯಾವುದೇ ಸ್ನ್ಯಾಪ್‌ಶಾಟ್‌ಗಳಿಲ್ಲ. ಚೆಕ್‌ಪಾಯಿಂಟ್ ಇರಿಸಿಕೊಳ್ಳಲು ನಿಮ್ಮ ಮೊದಲನೆಯದನ್ನು ಉಳಿಸಿ.',
+  'versionHistory.emptyDetail': 'ನಿಮ್ಮ ಟೈಮ್ಲೈನ್ ಪ್ರಾರಂಭಿಸಲು ಸ್ನ್ಯಾಪ್ಶಾಟ್ ಉಳಿಸಿ.',
   'versionHistory.loadError': 'ಆವೃತ್ತಿ ಇತಿಹಾಸವನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'versionHistory.nodeCount': 'ನೋಡ್‌ಗಳು',
   'versionHistory.restoreButton': 'ಈ ಆವೃತ್ತಿಯನ್ನು ಮರುಸ್ಥಾಪಿಸಿ',
   'versionHistory.restoreError': 'ಸ್ನ್ಯಾಪ್‌ಶಾಟ್ ಅನ್ನು ಮರುಸ್ಥಾಪಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'versionHistory.restoreSuccess': 'ಸ್ನ್ಯಾಪ್‌ಶಾಟ್ ಅನ್ನು ಮರುಸ್ಥಾಪಿಸಲಾಗಿದೆ.',
+  'versionHistory.selectHint': 'ವೀಕ್ಷಿಸಲು ಸ್ನ್ಯಾಪ್ಶಾಟ್ ಆಯ್ಕೆಮಾಡಿ.',
   'versionHistory.snapshotDefault': 'ಹಸ್ತಚಾಲಿತ ಸ್ನ್ಯಾಪ್‌ಶಾಟ್',
   'versionHistory.snapshotError': 'ಸ್ನ್ಯಾಪ್‌ಶಾಟ್ ಅನ್ನು ಉಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'versionHistory.snapshotEyebrow': 'ಸ್ನ್ಯಾಪ್‌ಶಾಟ್',

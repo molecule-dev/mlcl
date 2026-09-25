@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Санал хүсэлт байна уу, алдаа олсон уу, эсвэл санаагаа хэрхэн зураглаж байгаагаа бидэнд хэлэхийг хүсэж байна уу? Бид бүх тэмдэглэлийг уншдаг — хүссэн үедээ холбогдоорой, багийн жинхэнэ хүн танд эргэн хариулах болно.',
+  'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
+  'about.featureCanvas':
+    'Хязгааргүй канвас, чирж болох зангилаа, гөлгөр муруй холболт, шингэн томруулалт болон гүйлгэлттэй.',
+  'about.featureCollab':
+    'Бодит цагийн хамтын ажиллагаа, шууд курсоруудтай тул танай баг ээлжээ хүлээхгүйгээр таны хажууд салбарлаж чадна.',
+  'about.featurePricing':
+    'Ганцаараа бодогчдод үүрд үнэгүй; Pro болон Team багцууд илүү олон зураглал, илүү олон зангилаа, дэвшилтэт боломжууд болон өгөгдөл экспортлох боломжийг нэмдэг.',
+  'about.featureTemplates':
+    'Эхлэлийн загваруудын сан болон бүрэн хувилбарын түүхтэй тул зураглалаа хурдан эхлүүлж, ямар ч өөрчлөлтийг буцаах боломжтой.',
+  'about.intro':
+    '{{app}} нь оюуны зураглалд зориулсан өргөн уудам, хязгааргүй канвас юм — санааны шуурга, ойлголтын диаграм, SWOT, төслийн төлөвлөгөө. Зангилааг хаана ч чирж, санааг урсгалтай холбоосоор холбож, ирмэгт тулгарахгүйгээр томруулж, гүйлгэж, зураглалыг бодолтой хамт өсгөөрэй.',
+  'about.missionBody':
+    'Чанга бодох нь хялбар бөгөөд хуваалцсан мэт санагдах ёстой. Бид саад болохгүй хэрэгслүүдийг бүтээдэг — хатуу тор, хайрцагт хийсэн загвар, анхаарал сарниулах UI байхгүй — ингэснээр хувь хүн болон багууд санаа төрсөн даруйд нь барьж аваад хамтдаа хэлбэржүүлж чадна.',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
   'about.pageTitle': '{{app}}-ийн тухай',
   'auth.brandEyebrow': 'Санаанууд хаана салаалж байна',
   'auth.brandStatement':
@@ -13,19 +29,25 @@ export const ui: UiTranslations = {
   'billing.feature.export': 'SVG / PNG руу экспортлох',
   'billing.feature.maps': '{{count}} газрын зураг',
   'billing.feature.nodes': '{{count}} газрын зураг бүрийн зангилаанууд',
+  'billing.freeNoticeBody': 'Илүү олон зураглал нээхийн тулд дээрээс төлбөртэй багц сонгоно уу.',
   'billing.loadError': 'Төлбөрийн төлөвийг ачаалж чадсангүй.',
+  'billing.loading': 'Төлбөр тооцоог ачаалж байна…',
   'billing.perMonth': ' / сар',
   'billing.plansTitle': 'Төлөвлөгөө',
+  'billing.priceMissing': 'Stripe үнийн ID тохируулагдаагүй байна.',
   'billing.starting': 'Төлбөр тооцоог эхлүүлж байна...',
   'billing.title': 'Төлбөр тооцоо ба төлөвлөгөө',
   'billing.unavailableTier':
     'Энэ түвшинг төлбөр тооцоонд хараахан тохируулаагүй байна — өөрийн орчинд Stripe үнийн ID-г тохируулна уу.',
   'billing.unlimited': 'Хязгааргүй',
   'billing.upgradeMonthly': 'Шинэчлэх {{name}} (сарын)',
+  'billing.upgradeYearly': 'Жил бүр төлөх · {{price}}',
   'brand.tagline': 'Санаанууд хаана салаалж байна',
   'common.and': 'мөн',
   'common.goToDashboard': 'Хянах самбар руу очих',
   'dashboard.activityAction': 'шинэчлэгдсэн',
+  'dashboard.activityEmpty':
+    'Одоогоор үйл ажиллагаа байхгүй — цаг хугацааны шугамаа эхлүүлэхийн тулд зураглал засна уу.',
   'dashboard.daysAgo': '{{count}} өдрийн өмнө',
   'dashboard.empty.body':
     'Санаагаа салбарлаж эхлэхийн тулд газрын зураг үүсгээрэй. Загварууд нь эхлүүлэхэд хялбар болгодог.',
@@ -44,26 +66,35 @@ export const ui: UiTranslations = {
   'dendriteHero.activeMaps': 'Идэвхтэй газрын зураг',
   'dendriteHero.eyebrow': 'Өнөөдөр зураг дээр',
   'dendriteHero.greeting': 'Шинэ санаануудыг салбарлах, {{name}}',
+  'dendriteHero.greetingAnon': 'Шинэ санааг салбарлах',
   'dendriteHero.openMaps': 'Миний газрын зургийг нээх',
   'dendriteHero.subtitle':
     'Чирж, холбож, сэтгэлгээгээ хөгжүүлээрэй. Оч бүр нөгөө зангилаанаас нэг зангилааны зайтай байдаг.',
   'dendriteHero.weeklyChange': '{{sign}} {{count}} энэ долоо хоногт',
+  'forgotPassword.brandStatement':
+    'Таны зураглалууд аюулгүй байна. Бид таныг удахгүй салбарууд руу тань буцаана.',
   'forgotPassword.subheading':
     'Имэйл хаягаа оруулна уу, бид дахин тохируулах холбоос илгээх болно.',
   'forgotPassword.success':
     'Хэрэв тухайн имэйл хаягтай бүртгэл байгаа бол дахин тохируулах холбоос гарч ирнэ.',
   'landing.cta.body':
     'Ганцаараа сэтгэгчдэд үүрд үнэгүй. Танай баг тантай зэрэгцэн салбарлаж эхлэх үед л сайжруулалт хийгээрэй.',
+  'landing.cta.button': 'Эхний зураглалаа үүсгэх',
   'landing.cta.title': 'Өнөөдөр анхны санаагаа тарь.',
   'landing.feature.branch.body':
     'Бусад зангилаанаас зангилааг чирнэ үү — холболтууд нь гөлгөр муруй хэлбэрээр урсдаг бөгөөд хатуу тор шаардлагагүй.',
+  'landing.feature.branch.title': 'Органик салбарлалт',
   'landing.feature.canvas.body':
     'Газрын зургийг ирмэгүүдтэй мөргөлдөхгүйгээр томруулж, гүйлгээд үзээрэй. Таны сэтгэлгээ амьсгалах зайтай байх ёстой.',
   'landing.feature.canvas.title': 'Хязгааргүй зураг',
   'landing.feature.collab.body':
     'Багийн гишүүд тантай хамт салаалахыг бодит цаг хугацаанд хараарай. Цуврал хэлбэрээр биш, хамтдаа санал бодлоо солилцоорой.',
+  'landing.feature.collab.title': 'Хамтын курсорууд',
   'landing.feature.shortcuts.body':
     'Хүүхэд нэмэхийн тулд Tab, ах дүү нэмэхийн тулд Enter, хаашаа ч үсрэхийн тулд ⌘K дарна уу. Туршлагатай хэрэглэгчид урсгалаа үргэлжлүүлнэ.',
+  'landing.feature.shortcuts.title': 'Гарын товчлуурт',
+  'landing.featuresBody':
+    'Хэрэгслийн мөр, самбар, товчлолууд орчны мэт санагддаг — хэрэгтэй үедээ байж, хэрэггүй үедээ үл үзэгдэх.',
   'landing.featuresEyebrow': 'Сэтгэгчдэд зориулан бүтээгдсэн',
   'landing.featuresTitle': 'Харилцаа бүр зураг дээр өөрийн гэсэн байр сууриа эзэлдэг',
   'landing.footer.copyright': '© {{year}} {{appName}} . Molecule.dev ашиглан бүтээгдсэн.',
@@ -71,6 +102,7 @@ export const ui: UiTranslations = {
     '{{appName}} нь тархины шуурга, концепцийн диаграмм, SWOT-д зориулсан өргөн уудам хязгааргүй зураг юм. Чирж, холбож, газрын зургийг өөртэйгөө хамт ургуул - хатуу тор, хайрцагласан загвар байхгүй.',
   'landing.hero.ctaPrimary': 'Үнэгүй салбарлаж эхэл',
   'landing.hero.eyebrow': 'Дизайнер болон сэтгэгчдэд зориулсан оюун ухааны зураглал',
+  'landing.hero.title': 'Санаа салбарлах газар.',
   'landing.nav.start': 'Салбарлаж эхлэх',
   'landing.proof.export': 'PNG, SVG эсвэл Markdown руу экспортлох',
   'landing.proof.free': '3 газрын зураг үнэгүй',
@@ -78,6 +110,7 @@ export const ui: UiTranslations = {
   'layout.closeMenu': 'Навигацийн цэсийг хаах',
   'layout.openMenu': 'Навигацийн цэсийг нээх',
   'layout.searchPlaceholder': 'Газрын зураг, загвар эсвэл зангилаа хайх...',
+  'login.noAccount': 'Шинээр энд байна уу?',
   'login.signIn': 'Nimbus руу нэвтрэх',
   'login.subheading': 'Түр зогссон газраасаа салбарлахын тулд нэвтэрнэ үү.',
   'login.twoFactor': 'Хоёр хүчин зүйлийн токен (идэвхжүүлсэн бол)',
@@ -95,9 +128,11 @@ export const ui: UiTranslations = {
     '+ хэрэгслийг сонгоод, дараа нь анхны зангилаагаа нэмэхийн тулд хаана ч дарна уу',
   'mapEditor.export': 'Экспортлох',
   'mapEditor.exportError': 'Газрын зургийг экспортлож чадсангүй.',
+  'mapEditor.exportLocked': 'Экспортлох нь Pro боломж юм.',
   'mapEditor.exportMarkdown': 'Хямдрал (.md)',
   'mapEditor.exportPng': 'Зураг (.png)',
   'mapEditor.exportSvg': 'Вектор (.svg)',
+  'mapEditor.exportUpgrade': 'Экспортлохын тулд шинэчлэх →',
   'mapEditor.hint.add': 'Зангилааг буулгахын тулд зураг дээр дарна уу',
   'mapEditor.hint.connectSource': 'Эх сурвалжийн зангилааг дарна уу...',
   'mapEditor.hint.connectTarget': 'Зорилтот зангилааг дарна уу...',
@@ -106,6 +141,7 @@ export const ui: UiTranslations = {
   'mapEditor.loading': 'Зургийн материалыг ачаалж байна...',
   'mapEditor.newNodeText': 'New idea',
   'mapEditor.panel.color': 'Өнгө',
+  'mapEditor.panel.eyebrow': 'Сонгосон зангилаа',
   'mapEditor.panel.nodes': 'Зангилаанууд',
   'mapEditor.panel.noSelection': 'Засварлахын тулд зангилаа дээр дарна уу.',
   'mapEditor.panel.stats': 'Газрын зургийн статистик',
@@ -145,11 +181,18 @@ export const ui: UiTranslations = {
   'notifications.accept': 'Хүлээн авах',
   'notifications.acceptAndOpen': 'Хүлээн авах ба нээх',
   'notifications.acceptedInvite': 'Нэгдсэн {{title}}.',
+  'notifications.acceptError': 'Урилгыг хүлээн авч чадсангүй.',
   'notifications.empty.body': 'Багийнхан таныг газрын зурагт урих үед тэд энд гарч ирнэ.',
   'notifications.empty.title': 'Хүлээгдэж буй урилга байхгүй',
+  'notifications.inviteBody': '{{email}} руу илгээсэн',
   'notifications.inviteTitle': 'Уригдсан {{role}} руу "{{title}}"',
   'notifications.subtitle': '{{count}} хүлээгдэж буй урилгууд.',
   'notifications.view': 'Харах',
+  'pricing.limit.advanced': 'Дэвшилтэт боломжууд: {{state}}',
+  'pricing.limit.connections': '{{count}} холболт',
+  'pricing.limit.export': 'Өгөгдөл экспортлох: {{state}}',
+  'pricing.limit.maps': '{{count}} газрын зураг',
+  'pricing.limit.nodes': '{{count}} газрын зураг бүрийн зангилаанууд',
   'profile.loading': 'Таны статистикийг ачаалж байна…',
   'profile.stat.collabs': 'Хамтын ажиллагаа',
   'profile.stat.maps': 'Газрын зураг үүсгэсэн',
@@ -161,24 +204,36 @@ export const ui: UiTranslations = {
   'publicMap.loadError': 'Энэ газрын зургийг хуваалцахаа больсон эсвэл холбоос хүчингүй байна.',
   'publicMap.loading': 'Газрын зургийг ачаалж байна...',
   'publicMap.notFound': 'Газрын зураг олдсонгүй.',
+  'resetPassword.newPassword': 'Шинэ нууц үг',
   'resetPassword.subheading':
     'Дурсамжтай зүйл сонгоорой. Бид таныг автоматаар буцааж оруулах болно.',
   'resetPassword.submit': 'Нууц үгийг дахин тохируулж, нэвтрэх',
   'resetPassword.tokenPlaceholder': 'Таны имэйлээс буулгасан',
   'settings.account.subtitle': 'Дэлгэцийн нэр болон имэйл хаягаа шинэчилнэ үү.',
+  'settings.field.currentPassword': 'Одоогийн нууц үг',
   'settings.field.newPassword': 'Шинэ нууц үг',
   'settings.password.subtitle': 'Хүчтэй нууц үг сонгоно уу (дор хаяж 8 тэмдэгт).',
   'settings.passwordError': 'Нууц үгийг өөрчилж чадсангүй. Одоогийн нууц үгээ шалгана уу.',
+  'settings.passwordMismatch': 'Шинэ нууц үгнүүд таарахгүй байна.',
   'settings.passwordSaved': 'Нууц үгийг амжилттай өөрчиллөө.',
   'settings.passwordTooShort': 'Нууц үг дор хаяж 8 тэмдэгтээс бүрдэх ёстой.',
   'settings.profileError': 'Профайлын өөрчлөлтийг хадгалж чадсангүй.',
   'settings.subtitle': 'Бүртгэл болон аюулгүй байдлаа тохируулна уу.',
   'settings.twoFactorCode': 'Баталгаажуулах код',
   'settings.twoFactorDisable': 'Идэвхгүй болгох',
+  'settings.twoFactorDisableTitle': 'Хоёр шатлалт баталгаажуулалтыг идэвхгүй болгох',
   'settings.twoFactorEnable': 'Идэвхжүүлэх',
+  'settings.twoFactorEnableTitle': 'Хоёр шатлалт баталгаажуулалтыг идэвхжүүлэх',
   'settings.twoFactorInvalidCode': 'Код буруу байна. Дахин оролдоно уу.',
+  'settings.twoFactorOffLine': 'Хоёр шатлалт баталгаажуулалт унтарсан.',
+  'settings.twoFactorOnLine': 'Хоёр шатлалт баталгаажуулалт асаалттай.',
+  'settings.twoFactorQrAlt': 'Хоёр хүчин зүйлийн QR код',
+  'settings.twoFactorScan':
+    'Энэ QR кодыг баталгаажуулагч аппаараа сканнердаж, дараа нь 6 оронтой кодыг оруулна уу.',
   'settings.twoFactorSubtitle':
     'Нууц үгнийхээ дээр баталгаажуулагч аппликейшнаасаа нэг удаагийн код нэмнэ үү.',
+  'settings.twoFactorUnavailable':
+    'Энэ аппликейшнд хоёр хүчин зүйлийн баталгаажуулалт боломжгүй байна.',
   'settings.twoFactorVerify': 'Баталгаажуулах ба идэвхжүүлэх',
   'share.accepted': 'Хүлээн зөвшөөрөгдсөн',
   'share.backToMap': 'Газрын зураг руу буцах',
@@ -189,7 +244,10 @@ export const ui: UiTranslations = {
   'share.copySuccess': 'Холбоосыг хуулсан.',
   'share.invite.button': 'Урих',
   'share.invite.title': 'Имэйлээр урих',
+  'share.inviteError': 'Урилга илгээж чадсангүй.',
   'share.inviteSuccess': 'Уригдсан {{email}}.',
+  'share.link.disabledHint':
+    'Энэ зураглал руу нийтэд нээлттэй зөвхөн уншигдах холбоос үүсгэхийн тулд асаана уу.',
   'share.link.title': 'Олон нийтийн холбоос',
   'share.loadError': 'Хуваалцах тохиргоог ачаалж чадсангүй.',
   'share.pending': 'Хүлээгдэж буй урилга',
@@ -201,13 +259,19 @@ export const ui: UiTranslations = {
   'share.roleError': 'Үүргийг шинэчилж чадсангүй.',
   'share.title': 'Энэ газрын зургийг хуваалцах',
   'share.unnamedCollaborator': 'Хүлээгдэж буй урилга',
+  'signup.brandStatement':
+    'Хамгийн зоригтой санааны шуурганд хангалттай өргөн — бодоход хангалттай нам гүм канвас.',
+  'signup.haveAccount': 'Аль хэдийн гишүүн болсон уу?',
   'signup.heading': 'Анхны санаагаа тарь',
   'signup.namePlaceholder': 'Авери Чен',
   'signup.subheading': '3 газрын зураг авахад үүрд үнэгүй. Зээлийн карт шаардлагагүй.',
   'templateDetail.backToTemplates': 'Бүх загварууд',
   'templateDetail.browseMore': 'Дэлгэрэнгүй үзэх',
+  'templateDetail.editableHint':
+    'Загварыг үүсгэсний дараа зангилаа болон ирмэг бүр бүрэн засварлагдана.',
   'templateDetail.instantiateError': 'Энэ загвараас газрын зураг үүсгэж чадсангүй.',
   'templateDetail.loadError': 'Энэ загварыг ачаалж чадсангүй.',
+  'templateDetail.loading': 'Загварыг ачаалж байна…',
   'templateDetail.nodes': 'Урьдчилан үржүүлсэн зангилаанууд',
   'templateDetail.notFound': 'Загвар олдсонгүй.',
   'templateDetail.systemEyebrow': 'Суурилагдсан загвар',
@@ -230,6 +294,7 @@ export const ui: UiTranslations = {
   'trash.empty.body': 'Цэвэрлэхийг хүлээж байгаа зүйл алга. Таны мөчрүүд аюулгүй байна.',
   'trash.empty.title': 'Хогийн сав хоосон байна',
   'trash.loadError': 'Хаягдсан газрын зургийг ачаалж чадсангүй.',
+  'trash.loading': 'Хогийн сав ачаалж байна…',
   'trash.restore': 'Сэргээх',
   'trash.restoreError': 'Газрын зургийг сэргээж чадсангүй.',
   'trash.subtitle':
@@ -238,11 +303,13 @@ export const ui: UiTranslations = {
   'versionHistory.backToMap': 'Газрын зураг руу буцах',
   'versionHistory.empty':
     'Одоогоор агшин зураг алга. Шалгах цэгийг хадгалахын тулд эхнийхийгээ хадгална уу.',
+  'versionHistory.emptyDetail': 'Цаг хугацааны шугамаа эхлүүлэхийн тулд агшин зураг хадгална уу.',
   'versionHistory.loadError': 'Хувилбарын түүхийг ачаалж чадсангүй.',
   'versionHistory.nodeCount': 'Зангилаанууд',
   'versionHistory.restoreButton': 'Энэ хувилбарыг сэргээх',
   'versionHistory.restoreError': 'Агшин зургийг сэргээж чадсангүй.',
   'versionHistory.restoreSuccess': 'Агшин зургийг сэргээсэн.',
+  'versionHistory.selectHint': 'Үзэхийн тулд агшин зураг сонгоно уу.',
   'versionHistory.snapshotDefault': 'Гараар хийсэн зураг',
   'versionHistory.snapshotError': 'Агшин зургийг хадгалж чадсангүй.',
   'versionHistory.snapshotEyebrow': 'Агшин зураг',

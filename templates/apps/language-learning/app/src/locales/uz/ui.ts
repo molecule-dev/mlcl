@@ -1,12 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Savollaringiz, fikr-mulohazalaringiz yoki xatolik haqida xabar bermoqchimisiz? Hisob sozlamalaridan jamoa bilan bog'laning — har bir xabar tillarni o'rganayotgan haqiqiy insonga yetib boradi.",
   'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Biz haqimizda',
+  'about.missionTitle': 'Bizning vazifamiz',
+  'about.whatYouGet': 'Sizga nima beriladi',
   'common.goToDashboard': "Boshqaruv paneliga o'tish",
   'common.logout': 'Chiqish',
+  'dailyStatsTriad.heartsHint': "Har dars boshida to'ldiring",
   'dailyStatsTriad.heartsLabel': 'Yuraklar',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
+  'dailyStatsTriad.minutesHint': 'Bugungi mashqlardan',
   'dailyStatsTriad.minutesLabel': 'Bugungi daqiqalar',
   'dailyStatsTriad.minutesValue': '{{count}} daqiqa',
   'dailyStatsTriad.wordsLabel': "O'zlashtirilgan so'zlar",
@@ -15,18 +21,29 @@ export const ui: UiTranslations = {
   'dashboard.heading': 'Buenos-Días, {{name}} .',
   'dashboard.loadError':
     "So'nggi bajarilish jarayonini yuklab bo'lmadi — keshlangan qiymatlar ko'rsatilmoqda.",
+  'dashboard.loading': 'Tetiklashtirmoqda…',
   'dashboard.noLessons': "Hozircha darslar mavjud emas — tez orada qayta tekshirib ko'ring.",
+  'dashboard.startPractice': 'Gapirish mashqini boshlang',
+  'dashboard.subheading':
+    "To'xtagan joyingizdan davom eting — uchta qisqa mashg'ulot va bugungi maqsadingizga yetasiz.",
   'dashboard.viewAllLessons': 'Barcha darslar →',
+  'forgotPassword.subheading': 'Emailingizni kiriting, biz tiklash havolasini yuboramiz.',
   'forgotPassword.successBody':
     'Pochta qutingizni tekshiring — biz uni qayta tiklash uchun havola yubordik.',
   'forgotPassword.successHint':
     'Agar {{email}} hisob qaydnomasi bilan mos kelsa, havola bir daqiqa ichida yetib boradi.',
+  'landing.copyright': "© {{year}} {{app}}. Kattalar uchun mo'ljallangan.",
   'landing.ctaBody':
     'Karta kerak emas. Elektron pochtangizni yuboring, tilni tanlang va ertadan boshlang.',
   'landing.ctaHeading': "O'zingizning aksentingizni topishga tayyormisiz?",
   'landing.eyebrow': 'Kattalar uchun kundalik til mashqlari',
   'landing.featuresHeading': 'Vaqtingizni hurmat qiladigan mashq aylanishi',
+  'landing.featuresSubheading':
+    "Haftada o'ttiz soat emas, kuniga o'ttiz daqiqaga mo'ljallangan kattalar uchun.",
   'landing.heroCta': '7 kunlik seriyani boshlang',
+  'landing.heroSubtitle':
+    "Kofe tanaffusiga sig'adigan besh daqiqalik darslar. Mashqlar, so'z boyligi, gapirish — barchasi davom ettiradigan seriyaga o'ralgan.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.languagesEyebrow': 'Tilni tanlang',
   'landing.languagesHeading': "O'n to'rt til, bitta kundalik odat",
   'landing.proof.languages': '{{count}} tillar',
@@ -41,11 +58,18 @@ export const ui: UiTranslations = {
   'leaderboard.heading': 'Yetakchilar jadvali',
   'leaderboard.loadError': "Yetakchilar jadvalini yuklab bo'lmadi.",
   'leaderboard.loading': 'Yetakchilar jadvali yuklanmoqda…',
+  'leaderboard.rewardBody':
+    "Uch hafta ketma-ket oltin darajani saqlasangiz, olmos darajasiga ko'tarilasiz. Faqat do'stona raqobat.",
+  'leaderboard.rewardEyebrow': 'Bu haftaning sovrini',
+  'leaderboard.rewardHeading': 'Eng yaxshi {{count}} oltin liga nishonini oladi',
   'leaderboard.subheading':
     "Bu hafta XP. Yakshanba kuni mahalliy vaqt bilan yarim tunda qayta o'rnatiladi.",
   'leaderboard.weeklyPeriod': "Bu hafta · do'stlar",
+  'leaderboardPanel.rankSuffix': 'Daraja # {{rank}}',
   'leaderboardPanel.title': "Do'stlar reytingi",
+  'leaderboardPanel.xp': '{{xp}} XP',
   'leaderboardPanel.you': '(Siz)',
+  'lessonCard.continue': 'Davom etish →',
   'lessonCard.duration': '{{min}} daqiqa',
   'lessonCard.level': 'Daraja {{level}}',
   'lessonCard.progressPercent': '{{percent}} % bajarildi',
@@ -54,14 +78,17 @@ export const ui: UiTranslations = {
   'lessonDetail.check': 'Tekshirish',
   'lessonDetail.checking': 'Tekshirilmoqda…',
   'lessonDetail.correct': 'Ajoyib!',
+  'lessonDetail.correctHint': '+{{xp}} XP. Davom eting.',
   'lessonDetail.empty': "Bu darsda mashqlar yo'q.",
   'lessonDetail.exit': 'Darsdan chiqish',
   'lessonDetail.fillBlank': "Bo'sh joyni to'ldiring",
   'lessonDetail.finish': 'Darsni tugatish',
   'lessonDetail.incorrect': 'Unchalik emas — “ {{answer}} "',
+  'lessonDetail.incorrectHint': "Bu so'zni ertangi takrorlashda yana ko'rasiz.",
   'lessonDetail.lessonId': 'Dars · {{id}}',
   'lessonDetail.loadError': "Mashqlarni yuklab bo'lmadi.",
   'lessonDetail.loading': 'Dars yuklanmoqda…',
+  'lessonDetail.pronunciation': "To'g'ri talaffuzni tanlang",
   'lessonDetail.submitError': 'Javob yuborilmadi.',
   'lessonDetail.translation': 'Jumlani tarjima qiling',
   'lessonDetail.xpEarned': "XP qo'lga kiritildi · {{xp}}",
@@ -80,6 +107,12 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'Navigatsiya menyusini ochish',
   'parlanceLayout.nav.profile': 'Profil',
   'parlanceLayout.primaryNavLabel': 'Asosiy navigatsiya',
+  'planUpdated.body':
+    "Hisob-kitob o'zgarishingiz endi faol. Tarifingizni istalgan vaqtda hisob-kitob sahifasidan boshqarishingiz mumkin.",
+  'planUpdated.retry': 'Qayta urinib ko’ring',
+  'planUpdated.verifyFailed': "To'lovingizni hali tasdiqlay olmadik.",
+  'planUpdated.verifyFailedBody':
+    "To'lovingiz hali ham amalga oshirilayotgan bo'lishi mumkin. Birozdan keyin qayta urinib ko'ring.",
   'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'practice.empty': 'Hozircha hech qanday iboralar mavjud emas.',
   'practice.eyebrow': 'Nutq amaliyoti',
@@ -103,6 +136,9 @@ export const ui: UiTranslations = {
   'pricing.limits.progress': 'taraqqiyot yozuvlari',
   'profile.anonymous': "O'quvchi",
   'profile.avatarAlt': '{{name}} avatar',
+  'profile.eyebrow': "{{joined}} dan beri a'zo",
+  'profile.eyebrowNew': "Yangi o'quvchi",
+  'profile.langLessonCount': '{{count}} darslar',
   'profile.langLevel': 'Daraja {{level}}',
   'profile.languages': 'Tillar',
   'profile.languagesHeading': 'Davom etilayotgan tillar',
@@ -111,6 +147,7 @@ export const ui: UiTranslations = {
   'profile.streak': 'Chiziq',
   'profile.totalXp': 'Jami XP',
   'resetPassword.confirmPlaceholder': 'Qaytadan tering',
+  'resetPassword.mismatch': 'Parollar mos kelmaydi.',
   'resetPassword.newPasswordLabel': 'Yangi parol',
   'resetPassword.newPasswordPlaceholder': "Sakkiz yoki undan ko'p belgi",
   'resetPassword.subheading':
@@ -119,6 +156,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Amaliy afzalliklar',
   'settings.goalBody':
     'Har kuni qancha XP ga erishmoqchisiz. Darvozaga urganingizda chiziqlar saqlanib qoladi.',
+  'settings.goalHeading': 'Kunlik maqsad',
   'settings.goalMinutes': '~ {{min}} daqiqa/kun',
   'settings.language.description': 'Ilova menyulari va yorliqlarida ishlatiladigan tilni tanlang.',
   'settings.language.title': 'Interfeys tili',

@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пикир калтырғыңыз келеби, ката таптыңызбы же {{appName}}де өзүңүздүн тактаңызды каалайсызбы? Командага жетүү үчүн Жөндөөлөрдү ачыңыз — ар бир билдирүүнү окуган чыныгы адамга барат.',
+  'about.contactTitle': 'Биз менен байланышуу',
+  'about.featureModeration':
+    'Чейрек белгилери бар ачык жол картасы, аткарылган ишти релиз жазууларына айландырган өзгөрүүлөр тизмеси жана эл эмнени көбүрөөк каалаарын көрсөткөн башкаруу панели.',
+  'about.featurePricing':
+    'Бир-эки тактаны акысыз жүргүзүүгө болот; Pro жана Team пландары көбүрөөк такталарды, жогорку чектөөлөрдү жана маалымат экспортун ачат.',
+  'about.featureThreads':
+    'Тема боюнча уюштурулган ачык пикир такталары, кайталанмаларды бириктирип, добуштарды бир чыныгы суроо-талап сигналына топтойт.',
+  'about.featureVoting':
+    'Ар бир колдонуучуга бир добуш берүү жана толук статус агымы — ачык, пландалган, иштелип жатат, аткарылды же четке кагылды — жана ар бир чечим боюнча расмий жооп.',
+  'about.intro':
+    '{{appName}} — продукт пикири платформасы — кардарлар сурамдарын жазып, керектүүсүнө добуш берип, ар бир идеяны пландалгандан аткарылганга чейин көзөмөлдөгөн ачык такталар. Командалар эмнени курууну божомолдоону токтотот, анткени суроо-талап өзү рейтингге турат.',
+  'about.missionBody':
+    'Биз эң жакшы продукт чечимдери ачык жерде кабыл алынат деп ишенебиз. {{appName}} ар бир командага добуш берилген сурамдардын ачык тактасын, максаттуу чейректери бар расмий жол картасын жана циклди жапкан өзгөрүүлөр тизмесин берет — ошентип кардарлар өз таасирин, командалар өз мандатын көрөт.',
+  'about.missionTitle': 'Биздин миссиябыз',
   'admin.backToBoards': 'Такталарга кайтуу',
   'admin.denied': 'Администраторлор гана.',
   'admin.eyebrow': 'Продукт тобу',
@@ -11,6 +27,8 @@ export const ui: UiTranslations = {
   'admin.title': 'Пикир панели',
   'admin.topOpen': 'Эң мыкты ачык сурамдар',
   'admin.totalVotes': 'Жалпы {{count}}',
+  'admin.votesChartLabel':
+    'Акыркы сегиз жума ичинде жума сайын берилген добуштардын тилке диаграммасы',
   'admin.votesOverTime': 'Убакыт боюнча добуштар',
   'auth.forgotPassword.email': 'Электрондук почта',
   'auth.forgotPassword.sendResetLink': 'Калыбына келтирүү шилтемесин жөнөтүү',
@@ -30,7 +48,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Эсебиңизди түзүңүз',
   'auth.username': 'Колдонуучу аты',
   'authShell.communities': 'Коомчулуктар',
+  'authShell.copyright': '{{appName}} — ар бир үн эсепке алынат.',
   'authShell.trending': 'Тренддеги',
+  'boardCard.postCount': '{{count}} пост',
   'boardDetail.allBoards': 'Бардык тактылар',
   'boardDetail.backToBoards': 'Такталарга кайтуу',
   'boardDetail.empty': 'Бул чыпкаларга туура келген жазуулар жок.',
@@ -54,6 +74,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Ар бир жазуу добуш алган сурам катары башталган. Добуш бергендер анын жүрүшүн көрдү; бул жетишкен жери.',
   'changelog.title': 'Жөнөтүлгөндөр, далилдери менен',
+  'changelog.voteCount': 'Муну {{count}} добуш курууга жардам берди',
   'common.atLeast8Characters': 'Эң аз дегенде 8 белги',
   'common.checkYourInbox': 'Почтаңызды текшериңиз',
   'common.loadingEllipsis': 'Жүктөлүүдө…',
@@ -64,6 +85,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Жөнөтүлүүдө…',
   'footer.about': '{{appName}} жөнүндө',
   'footer.language': 'Тил',
+  'forgotPassword.description':
+    'Электрондук почтаңызды киргизиңиз, биз сизге баштапкы абалга келтирүү үчүн шилтеме жөнөтөбүз.',
+  'forgotPassword.successBody':
+    'Биз баштапкы абалга келтирүү шилтемесин жөнөттүк {{email}} Ал 30 мүнөттөн кийин бүтөт.',
   'forgotPassword.tryAnother': 'Башка электрондук почта менен аракет кылыңыз',
   'form.displayName': 'Көрсөтүлгөн ат',
   'form.firstName': 'Аты',
@@ -74,6 +99,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'Сиздин жол картаңыз, добуштар менен колдоого алынган.',
   'landing.heroCtaPrimary': 'Добуштарды чогултууну баштоо',
   'landing.heroCtaSecondary': 'Түз тактаны көрүү',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Божомолдоону токтот. Алар добуш берген нерсени жеткир.',
+  'landing.heroLede':
+    '{{appName}} чачыраган функция сурамдарын добуш берилген идеялардын ачык тактасына, расмий жол картасына жана кардарларыңыз чындап окуган өзгөрүүлөр тизмесине айландырат.',
   'landing.heroStat1': '3,200+',
   'landing.heroStat1Label': 'Угуп жаткан топтор',
   'landing.heroStat2': '1.4m',
@@ -85,9 +114,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Өзгөртүүлөр журналы',
   'landing.navJoin': '{{appName}}га кошулуу',
   'landing.navRoadmap': 'Жол картасы',
+  'landing.step1Body':
+    'Кардарлар ачык такталарга идеяларды жазышат. Кайталанмалар биригет, добуштар топтолот жана суроо-талап өзү рейтингге турат.',
   'landing.step1Title': 'Чогултуу',
+  'landing.step2Body':
+    'Сурамдарды максаттуу чейрек менен пландалган же иштелип жатат деп белгилеңиз — жол картасы ошол замат жаңыланат.',
+  'landing.step2Title': 'Жайгаштыруу',
   'landing.step3Body':
     'Жөнөтүлгөн жазуулар өзгөртүүлөр журналынын жазууларына айланат жана ар бир добуш берген өз тизмесинде натыйжаны көрөт.',
+  'landing.step3Title': 'Жеткирүү',
   'landing.topSubtitle': 'Ушул тактадан түз — добуш кошуу үчүн кириңиз.',
   'landing.topTitle': 'Колдонуучулар азыр эмне сурашууда',
   'landing.topViewAll': 'Бардык тактылар',
@@ -95,14 +130,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Негизги',
   'layout.signUp': 'Катталуу',
   'layout.submit': 'Пикир жөнөтүү',
+  'login.description': 'Маекти токтоткон жерден улантыңыз.',
+  'login.heading': "Nimbus'ка кириңиз",
+  'login.noAccount': 'Бул жерде жаңысызбы?',
   'login.passwordPlaceholder': 'Сиздин сырсөз',
   'login.twoFactorLabel': '2FA коду (милдеттүү эмес)',
   'login.twoFactorPlaceholder': '6 саннын коду',
+  'login.twoFactorRequiredHint':
+    'Бул аккаунтта эки факторлуу аутентификация күйгүзүлгөн. Улантуу үчүн аутентификатор колдонмоңуздагы 6 орундуу кодду киргизиңиз.',
   'login.twoFactorRequiredLabel': '2FA кодуңузду киргизиңиз',
+  'myActivity.browseCta': 'Такталарды карап чыгуу',
+  'myActivity.emptyPosts': 'Сиз азырынча сурам жаза элексиз.',
+  'myActivity.emptyVotes': 'Азырынча эч нерсе жок — такталарды карап, идеяны колдоңуз.',
   'myActivity.eyebrow': 'Сиздин активдүүлүгүңүз',
   'myActivity.loadError': 'Иш-аракетиңиз жүктөлбөй койду.',
   'myActivity.postsTitle': 'Сиз жөнөткөн сурамдар',
+  'myActivity.shippedNote': 'Алардын {{count}}и жеткирилди — түрткүңүз үчүн рахмат.',
   'myActivity.submitCta': 'Сурам жарыялоо',
+  'myActivity.tabLabel': 'Көрүү',
   'myActivity.tabPosts': 'Менин жазууларым',
   'myActivity.tabVotes': 'Менин добуштарым',
   'myActivity.votesTitle': 'Сиз добуш берген сурамдар',
@@ -137,8 +182,13 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Жазуу табылган жок',
   'postsAdmin.backToDashboard': 'Башкаруу панели',
   'postsAdmin.eyebrow': 'Продукт тобу',
+  'postsAdmin.mergeApplied':
+    'Бириктирилди — {{votes}} добуш жана {{comments}} комментарий көчүрүлдү.',
   'postsAdmin.mergeApply': 'Бириктирүү жана добуштарды көчүрүү',
   'postsAdmin.mergeChoose': 'Максаттуу жазууну тандаңыз…',
+  'postsAdmin.mergeFailed': 'Бириктирүү ишке ашпады.',
+  'postsAdmin.mergeHint':
+    'Добуштар топтолот (ар бир колдонуучуга бир), комментарийлер көчөт жана бул постко "көчүрүлдү" деген белги коюлат.',
   'postsAdmin.mergeLabel': 'Кайталануучуну бириктирүү',
   'postsAdmin.responseLabel': 'Расмий жооп',
   'postsAdmin.responsePlaceholder': 'Топ эмне чечти жана эмне үчүн — жазууда ачык көрсөтүлөт.',
@@ -152,7 +202,13 @@ export const ui: UiTranslations = {
     'Расмий статусту коюңуз, ачык жооп бериңиз, жол картасынын чейрегин белгилеңиз жана кайталануучуларды бириктириңиз.',
   'postsAdmin.title': 'Пикир жазууларын башкаруу',
   'postsAdmin.votes': '{{count}} добуш',
+  'pricing.limits.advancedFeatures': 'Өркүндөтүлгөн функциялар:',
+  'pricing.limits.boards': '{{count}} тактайлар',
   'pricing.limits.export': 'Маалыматтарды экспорттоо:',
+  'pricing.limits.posts': '{{count}} пикир посттору',
+  'pricing.limits.votes': '{{count}} добуш',
+  'resetPassword.description':
+    'Күчтүүсүн тандаңыз. Баштапкы абалга келтирүү ийгиликтүү болгондон кийин сизди аккаунтка киргизебиз.',
   'resetPassword.newPasswordLabel': 'Жаңы сырсөз',
   'resetPassword.tokenPlaceholder': 'Шилтеме токенин чаптаңыз',
   'roadmap.cardMeta': '{{author}} тарабынан · {{board}}',
@@ -169,6 +225,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'Кайталануучу жарыялоодон мурун бар болгон сурамдарды табуу үчүн суроо терип киргизиңиз.',
   'search.loadError': 'Издөө ишке ашкан жок — кайра аракет кылыңыз.',
+  'search.searching': 'Изделүүдө…',
   'search.submit': 'Издөө',
   'search.submitNew': 'Жаңы сурам катары жарыялоо',
   'search.title': 'Пикирди издөө',
@@ -178,12 +235,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'Эсеп айырышуу',
   'settings.displaySubtitle': 'Агымдардын канчалык тыгыз экенин тандаңыз.',
   'settings.displayTitle': 'Көрсөтүү',
+  'settings.emailDigestDesc': 'Ар дүйшөмбүдө эң көп добуш алган ачык сурамдар.',
+  'settings.emailDigestLabel': 'Апталык дайджест',
+  'settings.emailMentionsDesc': 'Сиз көзөмөлдөгөн постко бирөө жооп бергенде.',
+  'settings.emailMentionsLabel': 'Эскертүүлөр боюнча мага email жөнөт',
+  'settings.emailRepliesDesc': 'Сиз баштаган же жооп берген темалар.',
+  'settings.emailRepliesLabel': 'Жооптор боюнча мага электрондук кат жөнөтүңүз',
   'settings.loadError': 'Эсебиңизди жүктөө мүмкүн болгон жок.',
   'settings.loading': 'Тууралооларыңыз жүктөлүүдө…',
   'settings.notifications': 'Билдирүүлөр',
   'settings.notificationsSubtitle':
     'Почтаңызга же түрткү түзмөгүңүзгө эмне жетиши керектигин чечиңиз.',
+  'settings.pushRepliesLabel': 'Жооптор үчүн push',
+  'settings.pushVotesDesc': '100, 500, 1000де босого эскертүүсү.',
+  'settings.pushVotesLabel': '"Жакшы добуш берүү" этаптарына өтүү үчүн аракет кылыңыз',
   'settings.saveAccount': 'Эсепти сактоо',
+  'settings.showFlair': 'Посттордо такта чиптерин көрсөтүү',
+  'settings.showThumbnails': 'Шилтеме/сүрөт миниатюраларын көрсөтүү',
   'settings.usernamePlaceholder': 'Колдонуучу атын тандаңыз',
   'signup.confirmPlaceholder': 'Кайра терип киргизиңиз',
   'signup.description': 'Эмне куруп жатканыбызды түзүңүз.',

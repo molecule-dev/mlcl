@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Rəy bildirmək, xəta tapmaq və ya {{app}}-i məktəbinizə və ya komandanıza gətirmək istəyirsiniz? Biz hər mesajı oxuyuruq — hesab parametrlərinizdən bizə yazın və real insan cavab verəcək.',
   'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
+  'about.intro':
+    '{{app}} gündəlik söz tapmacasıdır. Beş hərfli sözü altı cəhddə tap, seriyanı davam etdir, emoji şəbəkəni paylaş və hamının bugünkü sözdə necə çıxış etdiyini gör.',
+  'about.missionBody':
+    'Yaxşı tapmaca kiçik gündəlik qələbədir. {{app}} gündə bir ortaq söz ətrafında qurulub — qəhvə fasiləsi üçün kifayət qədər sürətli, sabah yenidən qayıtmaq üçün kifayət qədər kəskin.',
+  'about.missionTitle': 'Missiyamız',
   'about.title': '{{app}} Haqqında',
   'archive.loadError': 'Arxiv yüklənə bilmədi.',
   'archive.missed': 'Qaçırılıb',
   'archive.notPlayed': 'Oynanılmayıb',
+  'archive.subhead':
+    'İstənilən keçmiş günü məşq kimi yenidən oyna — seriya yox, statistika yox, yalnız əyləncə.',
   'archive.title': 'Arxiv',
   'auth.backToHome': 'Ana səhifəyə qayıt',
   'auth.backToHomeArrow': '← Ana səhifəyə qayıt',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Şifrəni unutmusunuz?',
   'auth.login.loggingIn': 'Daxil olursunuz…',
   'auth.login.logIn': 'Bu günün sözünü oynayın',
+  'auth.login.noAccount': 'Tessera-da yenisiniz?',
   'auth.login.or': 'və ya davam edin',
   'auth.login.password': 'Şifrə',
   'auth.login.signInButton': 'Daxil ol',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Saxlanılır…',
   'common.sendingEllipsis': 'Göndərilir…',
   'common.startingEllipsis': 'Başlayır…',
+  'forgotPassword.subhead':
+    'E-poçtunuzu daxil edin və biz sizə sıfırlama üçün bir keçid göndərəcəyik.',
+  'forgotPassword.success.body':
+    'Əgər hesab mövcuddursa {{email}} , bir neçə dəqiqə ərzində sıfırlama linki alacaqsınız.',
+  'forgotPassword.success.title': 'Gələnlər qutunuzu yoxlayın.',
   'form.name': 'Ad',
   'howToPlay.cta.home': 'Evə qayıt',
   'howToPlay.cta.play': 'Bu günün tapmacasını oynayın',
@@ -68,10 +83,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Qırmaq istəmədiyiniz ardıcıllıqlar',
   'leaderboard.daily.title': 'Bu günün həlləri',
   'leaderboard.loadError': 'Lider lövhəsi yüklənə bilmədi.',
+  'leaderboard.streaks.empty': 'Hələ seriya yoxdur — ilk sən ol.',
+  'leaderboard.streaks.subhead': 'Bütün zamanların ən uzun qələbə seriyaları.',
   'leaderboard.streaks.title': 'Ardıcıllıq liderləri',
+  'leaderboard.subhead': 'Hamı bugün necə çıxış etdi və ən uzun seriyaları kim saxlayır.',
   'leaderboard.title': 'Lider lövhəsi',
   'login.headline': 'Xoş gəlmisiniz.',
   'login.streakPill': '{{days}} günlük ardıcıllıq gözləyir',
+  'login.subhead':
+    'Seriyanı davam etdirmək və bugünkü sözdə necə çıxış etdiyini görmək üçün daxil ol.',
   'nav.archive': 'Arxiv',
   'nav.editProfile': 'Profili redaktə et',
   'nav.getStarted': 'Başlayın',
@@ -89,6 +109,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Belə söz yoxdur',
   'notFound.title': 'Bu marşrut boşdur.',
   'planUpdated.message': 'Planınız aktivdir.',
+  'planUpdated.retry': 'Yenidən cəhd edin',
+  'planUpdated.verifyFailed': 'Ödənişinizi hələ təsdiqləyə bilmədik.',
+  'planUpdated.verifyFailedBody':
+    'Ödənişiniz hələ də emal oluna bilər. Bir an sonra yenidən cəhd edin.',
   'planUpdated.verifying': 'Ödənişiniz təsdiqlənir…',
   'play.alreadyFinished': 'Bu tapmaca artıq bitirmişsiniz',
   'play.answerWas': 'Söz bu idi',
@@ -104,6 +128,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Məşq tapmacası',
   'play.tooShort': 'Kifayət qədər hərf yoxdur',
   'play.won': 'Həll etdiniz!',
+  'pricing.advancedStats': 'Ətraflı statistika: {{yes}}',
+  'pricing.archiveHistory': '{{count}} gün arxiv tarixçəsi',
+  'pricing.archivePlays': 'Gündə {{count}} arxiv təkrarı',
+  'pricing.archiveUnlimited': 'Limitsiz arxiv tarixçəsi',
+  'pricing.canExport': 'Məlumat ixracı: {{yes}}',
+  'pricing.checkoutError': 'Ödəniş başlaya bilmədi. Zəhmət olmasa, yenidən cəhd edin.',
   'pricing.dailyWord': 'Gündəlik söz',
   'pricing.heading': '{{app}} planınızı seçin',
   'pricing.included': 'Daxildir',
@@ -111,7 +141,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Gündəlik söz həmişə pulsuzdur. Limitsiz arxiv təkrarları və daha dərin statistika üçün yüksəldin.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} məxfiliyinizə hörmət edir. Bu səhifə saxladığımız məlumatları, nə üçün saxladığımızı və onları necə siləcəyinizi izah edir.',
   'privacy.title': 'Məxfilik bildirişi',
+  'resetPassword.subhead': 'Seriyanıza qayıtmaq üçün yeni şifrə seçin.',
   'settings.account': 'Hesab',
   'settings.danger.body': '{{appName}} hesabınızı və bütün tapmaca tarixçəsini həmişəlik silin.',
   'settings.danger.confirm': 'Bəli, həmişəlik sil',
@@ -120,17 +153,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'Qonaq',
   'settings.language.title': 'Dil',
   'settings.subhead': 'Profilinizi, səsinizi və lider lövhəsində görünüşünüzü tənzimləyin.',
+  'settings.unnamed': 'Sparq oyunçusu',
   'settings.upgrade': 'Yüksəlt',
   'signup.eyebrow': 'Həmişəlik pulsuz — gündə bir söz',
   'signup.headline': 'Ardıcıllığınızı başladın.',
+  'signup.subhead':
+    'Gündəlik sözü oynamaq, seriya qurmaq və lider lövhəsində yüksəlmək üçün {{appName}} hesabı yaradın.',
   'stats.currentStreak': 'Ardıcıllıq',
   'stats.distribution.title': 'Təxmin bölgüsü',
   'stats.loadError': 'Statistikanız yüklənə bilmədi.',
   'stats.maxStreak': 'Maksimum ardıcıllıq',
   'stats.played': 'Oynanılan',
   'stats.playToday': 'Bu günün tapmacasını oynayın',
+  'stats.subhead': 'Yalnız reytinqli gündəlik tapmacalar — arxiv məşqi heç vaxt sayılmır.',
   'stats.title': 'Statistikanız',
   'stats.winRate': 'Qalibiyyət nisbəti',
   'status.monthly': 'Aylıq',
+  'terms.intro':
+    '{{app}}-dən istifadə etməklə aşağıdakı qaydalarla razılaşırsınız. Onları qəbul edə bilmirsinizsə, lütfən xidmətdən istifadə etməyin.',
   'terms.title': 'Xidmət şərtləri',
 }

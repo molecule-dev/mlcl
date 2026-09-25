@@ -1,14 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ai întrebări, feedback sau vrei o prezentare pentru echipa ta de recrutare? Scrie la hello@example.com și o persoană reală din echipă îți va răspunde în maximum două zile lucrătoare.',
   'about.contactHeading': 'Contactați-ne',
+  'about.intro':
+    '{{app}} este un sistem de urmărire a candidaților pentru recrutorii și managerii de angajare care vor semnal, nu zgomot — un pipeline curat, screening AI care se explică singur și analize de recrutare, toate într-un singur loc.',
+  'about.missionBody':
+    'Recrutarea este una dintre cele mai importante decizii pe care le ia o echipă, dar cea mai mare parte se desfășoară încă în foi de calcul împrăștiate și fire de e-mail. {{app}} aduce întregul proces pe un singur board, astfel încât fiecare candidat este urmărit, fiecare interviu este structurat, iar fiecare decizie este corectă, rapidă și explicabilă.',
+  'about.missionHeading': 'Misiunea noastră',
   'auth.legalConsent': 'Continuând, ești de acord cu',
   'billing.cardExp': 'Expiră la {{exp}}',
+  'billing.cardLinkError': 'Fluxul de actualizare a cardului nu a putut fi pornit.',
   'billing.cardLinkSent': 'Actualizarea cardului a fost inițiată — verificați e-mailul.',
+  'billing.cardLinkUnavailable':
+    'Actualizările cardului nu sunt disponibile — această implementare nu are un furnizor de plăți configurat.',
   'billing.cardMissing': 'Niciun card înregistrat',
   'billing.col.invoice': 'Factură',
   'billing.downloadUnavailable': '—',
   'billing.editCard': 'Actualizează cardul',
+  'billing.eyebrow': 'Plan și utilizare',
   'billing.invoiceHeading': 'Facturi recente',
   'billing.invoicesEmpty': 'Nicio factură deocamdată.',
   'billing.invoicesLoading': 'Se încarcă facturile…',
@@ -22,6 +33,7 @@ export const ui: UiTranslations = {
   'billing.seatsError':
     'Acest plan este pentru un singur loc. Faceți upgrade la Team pentru utilizare cu mai multe locuri.',
   'billing.seatsHint': '{{used}} din {{max}} incluse',
+  'billing.seatsLabel': 'Locuri active',
   'billing.spentLabel': 'Cheltuit de la începutul anului',
   'billing.subheading': 'Abonament, locuri, utilizare screening AI și facturi.',
   'billing.unlimited': 'Nelimitat',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'candidateDetail.advanceError': 'Nu s-a putut actualiza etapa.',
   'candidateDetail.advanceFinal': 'Deja la etapa finală.',
   'candidateDetail.advanceHeading': 'Mută la etapa',
+  'candidateDetail.appliedOn': 'A aplicat {{date}} prin {{source}}.',
   'candidateDetail.back': 'Toți candidații',
   'candidateDetail.loadError': 'Nu s-a putut încărca candidatul.',
   'candidateDetail.noInterviews': 'Niciun interviu deocamdată.',
@@ -46,8 +59,14 @@ export const ui: UiTranslations = {
   'candidateDetail.notePlaceholder':
     'Împărtășiți-ne părerea dumneavoastră, impresiile despre interviu, pașii următori…',
   'candidateDetail.noteSave': 'Salvează nota',
+  'candidateDetail.panel': 'Panel: {{panel}}',
+  'candidateDetail.panelScore': 'Scor panel: {{score}}/100',
+  'candidateDetail.resumeMissing':
+    'Nu există încă o previzualizare a CV-ului pentru acest candidat.',
   'candidateDetail.scheduleError': 'Nu s-a putut programa interviul.',
+  'candidateDetail.scheduleHeading': 'Programează interviul',
   'candidateDetail.scheduleInterviewer': 'Intervievator',
+  'candidateDetail.scheduleInterviewerPlaceholder': 'Numele intervievatorului',
   'candidateDetail.scheduleMinutes': 'Durată (min)',
   'candidateDetail.scheduleMissing': 'Selectați mai întâi o dată și o oră.',
   'candidateDetail.scoreEmpty': 'Așteaptă evaluarea AI.',
@@ -70,6 +89,7 @@ export const ui: UiTranslations = {
   'candidates.heading': 'Candidați',
   'candidates.loadError': 'Nu s-au putut încărca candidații.',
   'candidates.searchPlaceholder': 'Caută candidat, rol sau job…',
+  'candidates.sourceLabel': 'Sursă',
   'candidates.sourcePlaceholder': 'Sursă (LinkedIn, Recomandare…)',
   'candidates.subheading':
     'Bază de date de candidați transversală cu scoring AI și atribuire de surse.',
@@ -84,6 +104,7 @@ export const ui: UiTranslations = {
   'dashboard.kpi.interviews': 'Interviuri săptămâna aceasta',
   'dashboard.kpi.openJobs': 'Joburi deschise',
   'dashboard.loading': 'Se încarcă…',
+  'dashboard.newJobCta': 'Publică un job',
   'dashboard.subheading': 'Sănătatea pipeline-ului, volumul de interviuri și ofertele în curs.',
   'dashboard.topEmpty': 'Niciun candidat deocamdată.',
   'dashboard.topEyebrow': 'Cele mai bune potriviri AI',
@@ -104,6 +125,7 @@ export const ui: UiTranslations = {
   'jobDetail.back': 'Toate joburile',
   'jobDetail.descriptionEyebrow': 'Descrierea rolului',
   'jobDetail.descriptionMissing': 'Nicio descriere furnizată deocamdată.',
+  'jobDetail.employmentType': 'Tip de angajare: {{type}}',
   'jobDetail.empty': 'Niciun aplicant deocamdată.',
   'jobDetail.funnelEyebrow': 'Pâlnia etapelor',
   'jobDetail.funnelHeading': 'Situația aplicanților',
@@ -112,6 +134,7 @@ export const ui: UiTranslations = {
   'jobDetail.kpi.hires': 'Angajați',
   'jobDetail.kpi.inInterview': 'La interviu',
   'jobDetail.loadError': 'Nu s-a putut încărca jobul.',
+  'jobDetail.requirementsHeading': 'Cerințe',
   'jobDetail.topEyebrow': 'Cei mai buni aplicanți',
   'jobDetail.topHeading': 'Potriviri AI primele',
   'jobDetail.unavailable': 'Acest job nu mai este listat.',
@@ -127,6 +150,7 @@ export const ui: UiTranslations = {
   'jobs.heading': 'Joburi',
   'jobs.loadError': 'Nu s-au putut încărca joburile.',
   'jobs.newCta': 'Publică job',
+  'landing.copyright': '© {{year}} {{app}}. Construit cu Molecule.',
   'landing.eyebrow': 'Recrutare asistată de AI · v2',
   'landing.featuresEyebrow': 'Cum funcționează',
   'landing.featuresHeading': 'Semnal — nu foi de calcul.',
@@ -135,8 +159,11 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Începeți gratuit 30 de zile',
   'landing.heroProof': 'Niciun card. Anulați oricând. SSO disponibil pe Pro.',
   'landing.heroSecondary': 'Vezi prețuri →',
+  'landing.heroSubtitle':
+    'Un pipeline kanban curat, screening AI care se explică singur și analize de echitate pe etape. Creat pentru recrutorii și managerii de angajare care vor semnal — nu zgomot.',
   'landing.heroTitle': 'Angajați cu claritate.',
   'landing.previewHeading': 'Senior Backend Engineer',
+  'landing.previewLabel': 'Pipeline · Engineering',
   'landing.pricingEyebrow': 'Prețuri',
   'landing.pricingHeading': 'Planuri pentru echipe de orice dimensiune.',
   'landing.socialEyebrow': 'Folosit de echipele de recrutare la',
@@ -152,6 +179,9 @@ export const ui: UiTranslations = {
   'loginBrandPanel.headlineLine2': 'claritate.',
   'loginBrandPanel.stage.interview': 'Interviu',
   'loginBrandPanel.stage.screening': 'Screening',
+  'loginBrandPanel.stage.sourced': 'Sursă',
+  'loginBrandPanel.subtext':
+    'Trage candidații prin Sursă → Screening → Interviu → Ofertă → Angajat. AI face screening. Pulsul de echitate menține fiecare etapă corectă.',
   'nav.closeMenu': 'Închide meniul',
   'nav.legal': 'Legal',
   'nav.openMenu': 'Deschideți meniul',
@@ -160,6 +190,7 @@ export const ui: UiTranslations = {
     'CV-urile sunt clasificate în funcție de cerințe; recruterul revizuiește mai întâi cele mai bune potriviri.',
   'newJob.aiToggle': 'Scorează automat noii aplicanți',
   'newJob.back': 'Înapoi la joburi',
+  'newJob.basicsHeading': 'Bazele rolului',
   'newJob.compHeading': 'Compensare',
   'newJob.departmentLabel': 'Departament',
   'newJob.descHeading': 'Descriere și cerințe',
@@ -169,6 +200,7 @@ export const ui: UiTranslations = {
   'newJob.failed': 'Nu s-a putut salva jobul.',
   'newJob.heading': 'Publică un job',
   'newJob.publish': 'Publică job',
+  'newJob.reqLabel': 'Cerințe (una pe linie)',
   'newJob.salaryMax': 'Salariu maxim (USD)',
   'newJob.salaryMin': 'Salariu minim (USD)',
   'newJob.stagesHeading': 'Etapele pipeline-ului',
@@ -184,6 +216,7 @@ export const ui: UiTranslations = {
   'newJob.type.fullTime': 'Normă întreagă',
   'newJob.type.partTime': 'Normă parțială',
   'newJob.typeLabel': 'Tipul angajării',
+  'pipeline.advanceTo': 'Avansează',
   'pipeline.allRoles': 'Toate rolurile',
   'pipeline.daysInStage': '{{days}}z',
   'pipeline.empty': 'Niciun candidat',
@@ -197,13 +230,22 @@ export const ui: UiTranslations = {
     'Trageți candidații între etape. Scorul AI și zilele în etapă sunt afișate pe fiecare card.',
   'pipeline.viewTable': 'Vizualizare tabel →',
   'pipelineFunnelHero.totalLabel': 'În curs',
+  'planUpdated.body':
+    'Modificarea facturării este acum activă. Îți poți gestiona planul oricând din pagina de facturare.',
+  'planUpdated.retry': 'Încercați din nou',
+  'planUpdated.verifyFailed': 'Nu am putut încă să vă confirmăm plata.',
+  'planUpdated.verifyFailedBody':
+    'Este posibil ca plata dvs. să fie încă în curs de procesare. Încercați din nou imediat.',
   'planUpdated.verifying': 'Se confirmă plata…',
   'pricing.heading': 'aplicații',
+  'pricing.limits.applications': 'aplicări',
   'pricing.limits.candidates': 'candidați',
   'pricing.limits.jobs': 'joburi',
   'pricing.limits.scorecards': 'fișe de evaluare',
   'privacy.dataBody':
     'E-mailul contului, parola hash-uită, metadatele profilului și înregistrările candidaților/joburilor pe care le creați. Nu vindem sau partajăm niciodată aceste date.',
+  'privacy.intro':
+    '{{app}} prelucrează date de recrutare în numele clienților. Tratăm dosarele candidaților, CV-urile și comunicările echipei de recrutare ca fiind confidențiale și le stocăm criptate în repaus.',
   'privacy.retentionBody':
     'Puteți șterge contul oricând din Setări. Vom elimina înregistrările asociate în 30 de zile, cu excepția cazului în care legea impune păstrarea lor.',
   'privacy.title': 'Politica de confidențialitate',
@@ -213,6 +255,7 @@ export const ui: UiTranslations = {
     'Permiteți candidaților și aplicanților să vă vadă numele și rolul pe anunțuri.',
   'profile.publicLabel': 'Profil public',
   'profile.publicOff': 'Ascuns',
+  'profile.publicOn': 'Vizibil',
   'profile.recentEmpty': 'Nicio plasare deocamdată.',
   'profile.recentError': 'Nu s-au putut încărca plasările recente.',
   'profile.recentEyebrow': 'Plasări recente',
@@ -238,9 +281,14 @@ export const ui: UiTranslations = {
   'resetPassword.missingFields': 'Alegeți și confirmați o parolă nouă.',
   'resetPassword.missingToken': 'Link-ul de resetare lipsește sau a expirat — solicitați unul nou.',
   'resetPassword.passwordLabel': 'Parolă nouă',
+  'resetPassword.signInCta': 'Conectați-vă →',
+  'resetPassword.signInPrompt': 'Folosește-ți noua parolă pentru a te conecta.',
   'resetPassword.subheading':
     'Alegeți o parolă puternică — cel puțin 12 caractere cu litere mari și mici.',
+  'settings.appearance.description': 'Comutați între modul luminos și întunecat.',
   'settings.appearance.title': 'Aspect',
+  'settings.deleteAccountModal.confirm':
+    'Introdu parola pentru a confirma. Această acțiune este permanentă.',
   'settings.emailTemplates.empty': 'Niciun șablon configurat deocamdată.',
   'settings.emailTemplates.heading': 'Șabloane de e-mail',
   'settings.emailTemplates.loadError': 'Nu s-au putut încărca șabloanele.',
@@ -251,10 +299,17 @@ export const ui: UiTranslations = {
   'settings.integrations.statusDisconnected': 'Neconectat',
   'settings.integrations.updateError': 'Nu s-a putut actualiza integrarea.',
   'settings.name': 'Nume',
+  'settings.passwordHelp': 'Actualizează parola pe care o folosești pentru autentificare.',
+  'settings.revokeDeviceWarning':
+    'Accesul acestui dispozitiv va fi revocat în curând. Îl deconectezi?',
   'settings.saveEmail': 'Salvează adresa de e-mail',
   'settings.signOutDevice': 'Deconectați-vă',
   'settings.stages.empty': 'Nicio etapă configurată deocamdată.',
+  'settings.stages.heading': 'Etapele pipeline-ului',
+  'settings.stages.help':
+    'Etapele prin care trec candidații. Elimină-le pe cele pe care nu le folosești.',
   'settings.stages.loadError': 'Nu s-au putut încărca etapele.',
+  'settings.stages.loading': 'Se încarcă etapele…',
   'settings.stages.removeAria': 'Eliminați etapa {{name}}',
   'settings.stages.removeError': 'Nu s-a putut elimina etapa.',
   'settings.team.empty': 'Niciun coleg deocamdată — invitați primul mai jos.',
@@ -270,9 +325,16 @@ export const ui: UiTranslations = {
   'settings.team.removeError': 'Nu s-a putut elimina membrul.',
   'settings.twoFactorCode': 'Cod de autentificare',
   'settings.twoFactorDisable': 'Dezactivați',
+  'settings.twoFactorDisableTitle': 'Dezactivează autentificarea în doi factori',
   'settings.twoFactorEnable': 'Activați',
+  'settings.twoFactorEnableTitle': 'Activează autentificarea în doi factori',
   'settings.twoFactorInvalidCode': 'Cod nevalid',
   'settings.twoFactorOn': 'Pe',
+  'settings.twoFactorQrAlt': 'Cod QR pentru autentificare în doi pași',
+  'settings.twoFactorScan':
+    'Scanează acest cod QR cu aplicația ta de autentificare, apoi introdu codul din 6 cifre.',
+  'settings.twoFactorUnavailable':
+    'Autentificarea cu doi factori nu este disponibilă pentru această aplicație.',
   'settings.twoFactorVerify': 'Verifică și activează',
   'settings.unknownDevice': 'Dispozitiv necunoscut',
   'signup.confirmPlaceholder': 'Reintroduceți parola',
@@ -283,6 +345,8 @@ export const ui: UiTranslations = {
     'Configurați un tablou de recrutare în 60 de secunde. Invitați echipa mai târziu.',
   'terms.acceptableUseBody':
     'Nu veți abuza de serviciu, nu veți rula scraping automat, nu veți încerca să compromiteți securitatea sau nu îl veți folosi pentru a discrimina grupuri protejate.',
+  'terms.intro':
+    'Prin utilizarea {{app}} accepți acești termeni. Serviciul este furnizat ca atare, cu obligațiile și limitările descrise mai jos.',
   'terms.subscriptionBody':
     'Planurile plătite se reînnoiesc lunar până la anulare. Puteți anula din Facturare oricând; planul rămâne activ până la sfârșitul perioadei curente.',
   'terms.title': 'Termeni și condiții',

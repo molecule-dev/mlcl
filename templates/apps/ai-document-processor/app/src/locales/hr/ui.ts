@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Imate pitanje, pronašli ste grešku ili želite demo za svoj tim? Javite nam se iz postavki računa — svaka poruka stiže stvarnoj osobi u timu.',
   'about.contactTitle': 'Kontaktirajte nas',
+  'about.intro':
+    '{{app}} pretvara hrpe skeniranih dokumenata i PDF-ova u strukturirane, pretražive i arhivirane podatke. Ubacite fakture, račune, ugovore ili obrasce i prepustite AI-u da ih pročita, izvuče podatke, klasificira i arhivira — s bojama pouzdanosti kako bi vaš tim pregledao samo ono što stvarno zahtijeva čovjeka.',
+  'about.missionBody':
+    'Dosadno administrativno sređivanje dokumenata ne bi smjelo pojesti cijeli dan vašem timu. Vjerujemo da svaka izvučena vrijednost mora biti objašnjiva i provjerljiva — kako biste mogli vjerovati automatizaciji bez gubitka traga o dokumentima. {{app}} je izgrađen da uštedi sate po hrpi, a da čovjek ostane uključen tamo gdje je to važno.',
+  'about.missionTitle': 'Naša misija',
+  'about.subtitle':
+    'OCR, AI izvlačenje podataka, klasifikacija i automatizirano arhiviranje vaših dokumenata.',
   'about.title': 'O aplikaciji {{app}}',
+  'about.whatYouGetTitle': 'Što dobijete',
   'authShell.backToLanding': '← Natrag na slijetanje',
   'common.goToDashboard': 'Idi na kontrolnu ploču',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Danas · Pregled poslovanja',
   'dashboard.heading': 'Obavještajni podaci o dokumentima',
+  'dashboard.metric.accuracy': 'Prosječna točnost',
   'dashboard.metric.filed': 'Podneseno danas',
   'dashboard.metric.filedCaption': 'Usmjereno prema pravilima podnošenja',
   'dashboard.metric.processed': 'Obrađeno danas',
@@ -23,11 +34,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'Preneseno',
   'dashboard.recent.heading': 'Nedavni dokumenti',
+  'dashboard.recent.typeUnknown': 'Čeka klasifikaciju',
   'dashboard.subheading':
     'Svaka stranica je klasificirana, izdvojena i arhivirana — s pouzdanim bojama kako bi pregled ostao fokusiran.',
   'documentDetail.audit.heading': 'Vremenski okvir revizije',
+  'documentDetail.audit.subheading': 'Svaki korak poduzet na ovom dokumentu, s odgovornom osobom.',
   'documentDetail.back': 'Svi dokumenti',
   'documentDetail.downloadHint': 'Koristite Preuzmi za otvaranje izvorne datoteke.',
+  'documentDetail.extracted.empty': 'Još nema izvučenih polja.',
   'documentDetail.extracted.heading': 'Izdvojena polja',
   'documentDetail.extracted.subheading':
     '{{count}} polja · kliknite bilo koje polje za označavanje na stranici',
@@ -55,13 +69,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Pretraži dokumente…',
   'documents.subheading': '{{count}} dokumenti u vašoj biblioteci, sortirani od najnovijih prvo.',
   'documents.uploadCta': 'Prenesi dokumente',
+  'documentTypeBreakdown.barAria': 'Sastav dokumenata po vrsti',
   'documentTypeBreakdown.empty': 'Još nijedan dokument nije obrađen.',
   'documentTypeBreakdown.subtitle': '{{total}} obrađeno',
   'documentTypeBreakdown.title': 'Sastav dokumenta',
+  'forgotPassword.backToSignIn': '← Natrag na prijavu',
   'forgotPassword.checkEmail': 'Provjerite svoju e-poštu',
   'forgotPassword.tip': 'Niste primili? Provjerite neželjenu poštu ili pokušajte s drugom adresom.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Izgrađeno za operativne timove koji provjeravaju svaku stranicu.',
+  'landing.ctaBody':
+    '14-dnevno probno razdoblje. Bez kartice. Otkažite bilo kada. Izgrađeno za operativne timove koji brzo rade, a temeljito provjeravaju.',
   'landing.ctaHeading': 'Prestanite tipkati račune. Počnite ih arhivirati.',
   'landing.eyebrow': 'OCR · Ekstrakcija · Podnošenje pomoću umjetne inteligencije',
+  'landing.featuresHeading': 'Dokumentna inteligencija koja sama sebe objašnjava',
+  'landing.heroSubtitle':
+    'Ubacite hrpu faktura, računa, ugovora ili obrazaca. {{app}} ih klasificira, izvlači podatke i arhivira — s bojama pouzdanosti kako bi vaš tim pregledao samo ono što stvarno zahtijeva čovjeka.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Dnevni obujam · zadnjih 7 dana',
   'landing.sampleCardLabel': 'Dokumenti obrađeni danas',
   'landing.sampleCardSubtitle': 'Prosječna točnost od 96,2% na računima, potvrdama i obrascima.',
   'login.hidePassword': 'Sakrij lozinku',
@@ -74,6 +99,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Otvori odredišnu stranicu',
   'notFound.title': 'Ta stranica nije u datoteci',
+  'parcelaHeroCard.accuracy': 'Prosječna točnost {{value}}% za sva izvlačenja',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % u odnosu na jučer',
   'parcelaHeroCard.title': 'Dokumenti obrađeni danas',
   'parcelaLayout.primaryNavLabel': 'Primarna navigacija',
@@ -81,6 +107,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'dokumenti',
   'pricing.processingLabel': 'obrada poslova',
   'resetPassword.confirmPlaceholder': 'Ponovite novu lozinku',
+  'resetPassword.hidePassword': 'Sakrij lozinku',
   'resetPassword.passwordLabel': 'Nova lozinka',
   'resetPassword.showPassword': 'Prikaži lozinku',
   'resetPassword.subtitle': 'Odaberite nešto dugo barem 8 znakova.',
@@ -97,10 +124,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Učitavanje pravila nije uspjelo.',
   'rules.loading': 'Učitavanje pravila…',
   'rules.matched30d': '{{count}} dokumenti pronađeni u posljednjih 30 dana',
+  'rules.neverUsed': 'Nikad korišteno',
   'rules.newRule': 'Novo pravilo',
   'rules.saveError': 'Spremanje pravila nije uspjelo.',
   'rules.subheading':
     'Recite sustavu gdje svaka vrsta dokumenta treba ići. Uvjeti se lančaju od vrha do dna - prvo podudaranje pobjeđuje.',
+  'rules.templatesEmpty': 'Još nema predložaka za izvlačenje.',
   'rules.templatesHeading': 'Predlošci za izdvajanje',
   'rules.templatesSubheading': 'Sheme polja koje ekstraktor koristi za svaku vrstu dokumenta.',
   'rules.then': 'Zatim',
@@ -109,17 +138,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Naziv radnog prostora',
   'settings.account.subheading':
     'Ime za prikaz i primarna e-pošta za obavijesti i povijest revizije.',
+  'settings.api.confirmRevoke': 'Potvrditi?',
   'settings.api.copyOnce': 'Kopiraj ovaj ključ — više se neće prikazivati',
   'settings.api.createdOn': 'Izrađeno {{date}}',
   'settings.api.empty': 'Još nema API ključeva. Generirajte jedan gore.',
   'settings.api.error': 'Nije uspjelo stvaranje ključa.',
+  'settings.api.generating': 'Generiranje…',
+  'settings.api.heading': 'API ključevi',
   'settings.api.labelPlaceholder': 'Ključna oznaka (npr. CI učitivač)',
+  'settings.api.loading': 'Učitavanje ključeva…',
   'settings.api.newKey': 'Generiraj ključ',
   'settings.api.subheading':
     'Koristite ih za slanje dokumenata iz skripte ili vašeg ERP-a. Rotirajte bilo koju tipku u bilo kojem trenutku.',
   'settings.integrations.heading': 'Integracije s podnošenjem dokumenata',
   'settings.integrations.subheading':
     'Pošaljite podnesene dokumente na disk u oblaku ili alat za chat u kojem vaš tim već živi.',
+  'settings.subheading':
+    'Upravljajte računom, API ključevima i integracijama za arhiviranje za svoj {{app}} radni prostor.',
+  'signup.hidePassword': 'Sakrij lozinku',
   'signup.identityPrompt': 'Kako bismo vam se trebali obraćati?',
   'signup.showPassword': 'Prikaži lozinku',
   'signup.subtitle': '14 dana besplatno, kartica nije potrebna.',
@@ -127,6 +163,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Prijenos nije uspio.',
   'upload.eyebrow': 'Gutanje',
   'upload.heading': 'Prenesi dokumente',
+  'upload.queue.clear': 'Očisti dovršeno',
   'upload.queue.col.confidence': 'Povjerenje',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Otkrivanje…',
@@ -139,5 +176,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Ili ispustite više datoteka odjednom za skupno izdvajanje, klasifikaciju i arhiviranje.',
   'uploadDropZone.cta': 'Odaberite datoteke',
+  'uploadDropZone.maxSize': 'Maks. 25 MB po datoteci · End-to-end šifrirano',
   'uploadDropZone.title': 'Ispustite dokumente za početak obrade',
 }

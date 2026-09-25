@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Punya masukan, menemukan bug, atau merencanakan sesuatu yang ambisius? Hubungi kami dari pengaturan akun Anda — setiap pesan sampai ke orang sungguhan di tim kami.',
+  'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Pemesanan dalam satu kotak masuk — konfirmasi penerbangan, hotel, dan aktivitas masuk tepat pada hari yang seharusnya.',
+  'about.featureCollab':
+    'Kolaborasi real-time — undang hingga lima pelancong per perjalanan, dengan setiap perubahan tersinkron langsung dan komentar tersusun di bawah setiap perhentian.',
+  'about.featureMapsBudget':
+    'Peta, destinasi, dan anggaran bersama — lihat seluruh perjalanan di peta, temukan destinasi pilihan editor, dan lacak pengeluaran agar tidak ada yang boros.',
+  'about.featureTimelines':
+    'Linimasa hari demi hari — seret perhentian untuk mengubah urutan, tambahkan segmen transportasi, dan lihat itinerary dihitung ulang sebagai satu dokumen hidup.',
+  'about.intro':
+    '{{app}} mengubah folder penuh rencana setengah matang menjadi satu perjalanan bersama yang benar-benar bisa diikuti seluruh grup Anda. Susun itinerary hari demi hari, tambahkan penerbangan dan hotel, petakan setiap perhentian, dan lacak anggaran — semua di satu tempat yang tenang alih-alih belasan tab dan obrolan grup.',
+  'about.missionBody':
+    'Merencanakan perjalanan seharusnya terasa seperti perjalanannya sudah membaik, bukan seperti pekerjaan rumah. {{app}} hadir untuk membuat perjalanan kolaboratif tanpa repot — agar setiap pelancong datang dengan tahu rencananya, dan setiap perhentian menceritakan kisah yang layak dikenang.',
+  'about.missionTitle': 'Misi kami',
   'about.pageTitle': 'Tentang {{app}}',
   'auth.legalConsent': 'Dengan melanjutkan, Anda menyetujui',
   'bookings.empty.body': 'Tambahkan penerbangan, hotel, atau aktivitas untuk memulai kotak masuk.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Hotel',
   'bookings.type.other': 'Lainnya',
   'budgetSpendCard.budgetTotal': 'dari {{total}} yang direncanakan',
+  'budgetSpendCard.overBy': '{{amount}} melebihi anggaran',
   'budgetSpendCard.pct': '{{pct}}%',
+  'budgetSpendCard.recentCount': '{{count}} terbaru',
+  'budgetSpendCard.remaining': '{{amount}} tersisa',
   'calendar.eyebrow': 'Tahun mendatang',
   'calendar.heading': 'Setiap perjalanan dalam satu kalender.',
   'calendar.legendHeading': 'Perjalanan di bulan ini',
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'dan',
   'common.goToDashboard': 'Ke Dashboard',
   'dashboard.budgetHeading': 'Denyut anggaran',
+  'dashboard.empty.body':
+    'Rencanakan perjalanan pertama Anda dan dasbor Anda akan terisi linimasa hari demi hari, denyut anggaran, dan pemesanan.',
+  'dashboard.empty.cta': 'Rencanakan perjalanan pertama Anda',
   'dashboard.empty.heading': 'Belum ada perjalanan — atlas Anda kosong.',
   'dashboard.eyebrow': 'Pusat kendali',
   'dashboard.heading': 'Petualangan berikutnya Anda, di sudut yang tenang.',
   'dashboard.newTripCta': 'Mulai perjalanan baru',
+  'dashboard.subheading':
+    'Hitung mundur ke perjalanan berikutnya, denyut pengeluaran hari ini, dan sekilas pandang setiap itinerary yang berjalan.',
   'dashboard.tripsHeading': 'Perjalanan berjalan',
   'dashboard.viewAllExpenses': 'Lihat semua pengeluaran',
   'dashboard.viewAllTrips': 'Lihat semua perjalanan',
   'dayTimelineRow.category.accommodation': 'Tinggal',
+  'dayTimelineRow.category.food': 'Makanan & minuman',
+  'dayTimelineRow.category.sightseeing': 'Jalan-jalan',
   'dayTimelineRow.category.transport': 'Mengangkut',
   'destinationOrbCard.exploreCta': 'Tambahkan ke perjalanan',
   'destinationOrbCard.tripCount': '{{count}} perjalanan',
+  'destinations.empty.body': 'Beralih kembali ke Semua dan temuan editor akan muncul lagi.',
   'destinations.empty.heading': 'Belum ada destinasi.',
+  'destinations.emptyFiltered.heading': 'Belum ada yang diberi tag seperti itu.',
   'destinations.errors.load': 'Tidak dapat memuat destinasi.',
   'destinations.eyebrow': 'Tujuan berikutnya',
   'destinations.heading': 'Sudut tersimpan dan pilihan editor.',
@@ -70,7 +98,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Vendor',
   'expenses.formHeading': 'Catat pengeluaran untuk {{trip}}',
   'expenses.heading': 'Ke mana anggaran perjalanan sebenarnya pergi.',
+  'expenses.heroBudget': '{{pct}}% dari {{total}} direncanakan',
   'expenses.heroEyebrow': '{{trip}} • snapshot anggaran',
+  'expenses.heroNoBudget': 'Belum ada anggaran yang ditetapkan untuk perjalanan ini.',
   'expenses.noTrips.body':
     'Rencanakan perjalanan terlebih dahulu — pengeluaran melekat pada anggaran perjalanan.',
   'expenses.noTrips.heading': 'Belum ada perjalanan.',
@@ -83,12 +113,16 @@ export const ui: UiTranslations = {
     'Setiap kuitansi dan konfirmasi dirangkum ke kategori yang tepat di sini — tidak perlu spreadsheet.',
   'forgotPassword.eyebrow': 'Pulihkan jadwal Anda',
   'forgotPassword.heading': 'Lupa kata sandi?',
+  'forgotPassword.subheading':
+    'Masukkan email yang Anda gunakan untuk {{appName}} dan kami akan mengirim tautan untuk mengatur ulang kata sandi Anda.',
   'forgotPassword.submit': 'Kirim email pemulihan',
   'forgotPassword.submitPending': 'Mengirim email pemulihan…',
   'forgotPassword.successHint':
     'Belum ada email? Periksa folder spam, atau coba lagi dengan alamat berbeda.',
   'forgotPassword.successSubheading':
     'Kami telah mengirim tautan pemulihan ke {{email}}. Tautan berlaku selama 30 menit.',
+  'forgotPassword.tryAgain': 'Kirim ke email lain',
+  'landing.cta.eyebrow': 'Mulai dengan paket gratis',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Buat akun gratis',
   'landing.cta.subheading':
@@ -100,8 +134,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Mulai perjalanan gratis',
   'landing.hero.ctaSecondary': 'Lihat perjalanan contoh',
+  'landing.hero.eyebrow': 'Perencana perjalanan · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint mengubah folder yang penuh rencana setengah jadi menjadi jadwal harian bersama yang dapat diikuti oleh grup Anda — dengan pemesanan, peta, dan anggaran dilacak di satu tempat.',
+  'landing.hero.title': 'Rencanakan sekali. Jelajahi bersama.',
   'landing.nav.join': 'Mulai perjalanan gratis',
   'landing.nav.preview': 'Di dalam Waypoint',
   'landing.preview.cta': 'Rencanakan milik Anda sendiri',
@@ -109,6 +145,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Beberapa perjalanan yang sedang dijelajahi oleh pelancong saat ini',
   'login.eyebrow': 'Area anggota',
   'login.heading': 'Selamat datang kembali, pelancong',
+  'login.noAccount': 'Baru di Tessera?',
   'login.signupLink': 'Buat akun gratis',
   'login.subheading':
     'Masuk untuk mengelola perjalanan, rencana harian, pemesanan, dan entri jurnal yang sudah Anda mulai.',
@@ -119,6 +156,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Tidak dapat memperbarui notifikasi.',
   'notifications.heading': 'Apa yang berubah di perjalanan Anda hari ini.',
   'notifications.markUnread': 'Tandai sebagai belum dibaca',
+  'notifications.subheading':
+    '{{count}} baru — konfirmasi pemesanan, catatan kolaborator, penurunan tarif, dan pengingat.',
   'notifications.time.daysAgo': '{{count}}h lalu',
   'notifications.time.hoursAgo': '{{count}}j lalu',
   'notifications.time.justNow': 'baru saja',
@@ -137,6 +176,7 @@ export const ui: UiTranslations = {
     'Layanan terhubung, mata uang, notifikasi push, dan kredensial yang Anda gunakan untuk masuk.',
   'signup.and': 'dan',
   'signup.eyebrow': 'Bergabung dengan Waypoint',
+  'signup.haveAccount': 'Sudah ingin berkelana?',
   'signup.heading': 'Rencanakan sekali. Jelajahi bersama.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -148,6 +188,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Buka jadwal',
   'tripCountdownHeroCard.ctaSecondary': 'Rencanakan perjalanan lain',
   'tripCountdownHeroCard.daysLabel': '{{days}} hari lagi',
+  'tripCountdownHeroCard.eyebrow': 'Petualangan berikutnya · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} malam — itinerary Anda siap untuk dijalani.',
   'tripCoverCard.stops': '{{count}} perhentian',
   'tripCoverCard.travelers': '{{count}} pelancong',
   'tripDetail.addActivity': 'Tambah aktivitas',
@@ -157,6 +200,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Judul aktivitas',
   'tripDetail.adding': 'Menambahkan…',
   'tripDetail.backToTrips': 'Kembali ke semua perjalanan',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Pelancong',
   'tripDetail.dayLabel': 'Hari {{day}}',
   'tripDetail.empty': 'Belum ada aktivitas — tambahkan satu untuk memulai linimasa.',
@@ -167,14 +211,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Jadwal • {{country}}',
   'tripDetail.invite': 'Undang',
   'tripDetail.inviteLabel': 'Undang melalui email',
+  'tripDetail.invitePlaceholder': 'seseorang@example.com',
   'tripDetail.inviteSent': 'Undangan dikirim ke {{email}}.',
   'tripDetail.inviting': 'Mengirim…',
   'tripDetail.loading': 'Memuat perjalanan…',
   'tripDetail.noCollaborators': 'Hanya Anda, untuk saat ini.',
+  'tripDetail.notesHeading': 'Catatan perjalanan',
   'tripDetail.notesPlaceholder': 'Belum ada catatan.',
   'tripDetail.notFound.heading': 'Perjalanan tidak ditemukan',
   'tripDetail.openBookings': 'Buka kotak masuk pemesanan',
   'tripDetail.shareCopied': 'Tautan berbagi disalin ke clipboard:',
+  'tripDetail.shareReady': 'Tautan berbagi siap:',
   'tripDetail.stops': '{{count}} perhentian',
   'tripDetail.timelineEyebrow': 'Linimasa harian',
   'tripDetail.timelineHeading': 'Rencana harian',
@@ -192,6 +239,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Pelancong',
   'tripPlanner.heading': 'Sketsa perjalanan dalam waktu kurang dari satu menit.',
   'tripPlanner.preview.eyebrow': 'Pratinjau langsung',
+  'tripPlanner.preview.placeholderCountry': 'Pilih negara',
   'tripPlanner.preview.placeholderDestination': 'Petualangan berikutnya Anda',
   'tripPlanner.section1.title': 'Di mana & kapan',
   'tripPlanner.section2.title': 'Pelancong & anggaran',
@@ -203,10 +251,14 @@ export const ui: UiTranslations = {
     'Hari {{day}} — tambahkan perhentian, transportasi, dan pemesanan di sini.',
   'tripPlanner.section3.day3':
     'Hari {{day}} — tambahkan perhentian, transportasi, dan pemesanan di sini.',
+  'tripPlanner.section3.title': 'Panduan awal rencana harian',
   'tripPlanner.subheading':
     'Masukkan dasar-dasar di bawah — Anda selalu dapat mengundang kolaborator, menyeret perhentian, dan meneruskan pemesanan nanti.',
   'tripPlanner.submit': 'Buat perjalanan',
   'tripPlanner.submitting': 'Membuat…',
+  'trips.empty.body':
+    'Beralih kembali ke Semua perjalanan atau mulai rencanakan petualangan berikutnya.',
+  'trips.empty.cta': 'Rencanakan perjalanan',
   'trips.empty.heading': 'Belum ada yang cocok dengan filter itu.',
   'trips.eyebrow': 'Atlas',
   'trips.filterLabel': 'Filter perjalanan berdasarkan status',
@@ -217,6 +269,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Belum ada perjalanan.',
   'trips.pastHeading': 'Petualangan masa lalu',
   'trips.subheading': '{{count}} jadwal — masa lalu, sekarang, dan suatu hari nanti.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Rencanakan sekali. Jelajahi bersama. Kenang selamanya.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · anggota {{appName}} sejak 2024',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} mengubah perjalanan 3 minggu yang padat melintasi empat negara menjadi itinerary paling santai yang pernah kami bagikan.',
   'waypointLayout.mobileNavClose': 'Tutup menu navigasi',
   'waypointLayout.primaryNavLabel': 'Navigasi utama',
 }

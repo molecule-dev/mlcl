@@ -1,10 +1,31 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'बुकिंग, फ़ीडबैक, या किसी ऐसी प्रॉपर्टी के बारे में सवाल जो आपको लगता है कि {{app}} पर होनी चाहिए? अपने अकाउंट से हमारी टीम तक पहुंचें — हर संदेश एक असली इंसान तक जाता है जो मदद कर सकता है।',
+  'about.contactTitle': 'हमसे बात करें',
   'about.eyebrow': 'हमारे बारे में',
+  'about.featureLoyalty':
+    'केवल सदस्यों के लिए रेट्स और एक लॉयल्टी प्रोग्राम जिसमें हर बुकिंग पर पॉइंट्स, लेट चेकआउट और रूम अपग्रेड मिलते हैं।',
+  'about.featureReviews':
+    'सत्यापित गेस्ट रिव्यू और एडिटोरियल पिक्स ताकि आप पहुंचने से पहले ही ठहराव पर भरोसा कर सकें।',
+  'about.featureRooms':
+    'साथ-साथ रूम, रेट्स और सुविधाएं — पारदर्शी, ऑल-इन प्राइसिंग के साथ, भुगतान से पहले टैक्स और रिज़ॉर्ट फीस शामिल।',
+  'about.featureSearch':
+    'सत्यापित होटलों में रियल-टाइम सर्च, लाइव उपलब्धता, मैप व्यू और समृद्ध फ़ोटो गैलरी के साथ।',
+  'about.featureTrips':
+    'सेव किए गए फ़ेवरेट और एक Trips डैशबोर्ड जो हर रिज़र्वेशन, इटिनरेरी और कन्फ़र्मेशन को एक ही जगह रखता है।',
+  'about.intro':
+    '{{app}} उन यात्रियों के लिए एक होटल-बुकिंग प्लेटफ़ॉर्म है जिन्हें गुणवत्ता की परवाह है। हर प्रॉपर्टी हमारी एडिटोरियल टीम द्वारा व्यक्तिगत रूप से सत्यापित की जाती है — न एग्रीगेटर इन्वेंटरी, न बेट-एंड-स्विच लिस्टिंग। असली उपलब्धता खोजें, रूम, रेट्स और सुविधाओं की साथ-साथ तुलना करें, फिर स्पष्ट, ऑल-इन कीमत के साथ कुछ ही टैप में बुक करें।',
+  'about.missionBody':
+    'ठहरने की जगह बुक करना शांत और ईमानदार महसूस होना चाहिए। हम टैक्स और रिज़ॉर्ट फीस सहित पारदर्शी रेट्स पहले ही दिखाते हैं, वफ़ादार मेहमानों को निकल-एंड-डाइम करने के बजाय इनाम देते हैं, और आपके पैसे के लायक ठहरावों को पहले रखते हैं — ताकि आप टैब की तुलना में कम समय और यात्रा पर ज़्यादा समय बिता सकें।',
+  'about.missionTitle': 'हमारा विशेष कार्य',
+  'about.subtitle': 'सही होटल खोजने और बुक करने का एक क्यूरेटेड, पारदर्शी तरीका।',
   'account.loyalty.activitySummary': '{{nights}} रातें · इस वर्ष {{spend}} खर्च किए',
+  'account.loyalty.benefitsHeading': 'आपके लाभ',
   'account.loyalty.heading': 'लॉयल्टी',
   'account.loyalty.loading': 'लॉयल्टी लोड हो रही है…',
+  'account.loyalty.maxTier': 'टॉप टियर — अपने लाभों का आनंद लें।',
   'account.loyalty.pointsTowardNext': '{{points}} / {{next}} अंक — {{nextTier}} तक',
   'account.loyalty.tier': 'वर्तमान स्तर',
   'account.loyalty.unavailable': 'लॉयल्टी जानकारी उपलब्ध नहीं है।',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'बुकिंग पुष्टि करें · {{total}}',
   'bookingCheckout.datesRequired': 'कृपया अपनी चेक-इन और चेक-आउट तिथियाँ चुनें।',
   'bookingCheckout.guestHeading': 'मुख्य अतिथि',
+  'bookingCheckout.heading': 'कन्फ़र्म करें और बुक करें',
   'bookingCheckout.loadError': 'संपत्ति लोड करने में विफल।',
   'bookingCheckout.nights': '{{rate}} × {{count}} रातें',
   'bookingCheckout.notFound': 'संपत्ति नहीं मिली।',
@@ -32,6 +54,9 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'कर और शुल्क',
   'bookingCheckout.tripHeading': 'आपकी यात्रा',
   'bookingConfirmation.allTripsCta': 'सभी यात्राएँ',
+  'bookingConfirmation.confNumber': 'कन्फ़र्मेशन नंबर: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'आपका रिज़र्वेशन प्रोसेस किया जा रहा है।',
   'bookingConfirmation.heading': 'बुकिंग पुष्टि हुई',
   'bookingConfirmation.loading': 'आपका आरक्षण लोड हो रहा है…',
   'bookingConfirmation.searchMoreCta': 'और ठहराव देखें',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'पसंदीदा लोड करने में विफल।',
   'favorites.pricePerNight': '{{price}} / रात',
   'favorites.removeCta': 'हटाएँ',
+  'favorites.removing': 'हटाना…',
   'forgotPassword.subheading':
     'अपने खाते का ईमेल दर्ज करें और हम आपको एक सुरक्षित रीसेट लिंक भेजेंगे।',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Auberge सदस्य',
   'landing.cta.heading': 'केवल सदस्यों के लिए दरें। हर बुकिंग, हर बार।',
   'landing.cta.signup': 'मुफ़्त खाता बनाएँ',
+  'landing.cta.subheading':
+    'हर ठहराव पर लॉयल्टी पॉइंट्स कमाएं, लेट चेकआउट और रूम अपग्रेड अनलॉक करें, और नई प्रॉपर्टीज़ के सार्वजनिक रूप से लिस्ट होने से पहले उन तक पहली पहुंच पाएं।',
   'landing.destinations.eyebrow': 'अगला कहाँ',
   'landing.destinations.heading': 'विशेष गंतव्य',
   'landing.destinations.seeAll': 'सभी गंतव्य देखें',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'पैक करने योग्य कहानियाँ',
   'landing.nav.join': 'Auberge से जुड़ें',
   'landing.nav.search': 'ठहराव खोजें',
+  'landing.preview.browseAll': 'पूरा कलेक्शन ब्राउज़ करें',
   'landing.preview.eyebrow': 'एक झलक',
   'landing.preview.heading': 'इस महीने के हस्त-चयनित ठहराव',
+  'landing.preview.subheading':
+    '{{appName}} पर हर प्रॉपर्टी हमारी एडिटोरियल टीम द्वारा व्यक्तिगत रूप से सत्यापित की जाती है — न एग्रीगेटर इन्वेंटरी, न बेट-एंड-स्विच लिस्टिंग।',
   'login.eyebrow': 'सदस्य क्षेत्र',
+  'login.noAccount': 'Tessera पर नए हैं?',
   'login.signupLink': 'मुफ़्त खाता बनाएँ',
   'login.subheading':
     'अपनी यात्राएँ प्रबंधित करने, पुष्टिकरण देखने और जहाँ छोड़ा था वहीं से जारी रखने के लिए साइन इन करें।',
+  'loyaltyTierBadge.points': '{{points}} अंक',
   'planUpdated.heading': 'योजना अपडेट हुई',
+  'planUpdated.retry': 'फिर से प्रयास करें',
+  'planUpdated.verifyFailed': 'हम अभी तक आपके भुगतान की पुष्टि नहीं कर पाए हैं।',
+  'planUpdated.verifyFailedBody':
+    'आपका भुगतान अभी भी प्रक्रियाधीन हो सकता है। कृपया कुछ देर बाद पुनः प्रयास करें।',
   'planUpdated.verifying': 'आपके भुगतान की पुष्टि की जा रही है…',
   'pricing.limit.advancedFeatures': 'उन्नत सुविधाएँ:',
   'pricing.limit.canExport': 'डेटा निर्यात:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'यह स्थान क्या प्रदान करता है',
   'propertyDetail.backLink': 'खोज पर वापस',
   'propertyDetail.bookCta': 'आरक्षित करें',
+  'propertyDetail.bookmarkAria': 'संपत्ति सहेजें',
   'propertyDetail.bookmarkAriaSaved': 'सहेजी गई संपत्तियों से हटाएँ',
+  'propertyDetail.galleryImageAlt': '{{name}} फ़ोटो {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} की मुख्य तस्वीर',
   'propertyDetail.hidePhotos': 'फ़ोटो छुपाएँ',
   'propertyDetail.lineCleaning': 'सफ़ाई शुल्क',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'रात',
   'propertyDetail.noChargeYet': 'आपसे अभी शुल्क नहीं लिया जाएगा',
   'propertyDetail.notFound': 'संपत्ति नहीं मिली।',
+  'propertyDetail.perNight': '/ रात',
+  'propertyDetail.pickDatesHint': 'पूरी कीमत का ब्यौरा देखने के लिए अपनी तारीखें चुनें।',
   'propertyDetail.reviewCount': '({{count}} समीक्षाएँ)',
   'propertyDetail.reviewsHeading': 'हाल की समीक्षाएँ',
   'propertyDetail.roomCapacity': '{{count}} व्यक्ति',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'नया पासवर्ड',
   'resetPassword.subheading':
     'अपने Auberge खाते के लिए नया पासवर्ड चुनें। कम से कम 8 अक्षर उपयोग करें; हम पासफ़्रेज़ की अनुशंसा करते हैं।',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'कोई संपत्ति आपकी खोज से मेल नहीं खाती।',
   'searchResults.emptyHint':
     'अपने फ़िल्टर विस्तृत करने या मूल्य सीमा हटाने का प्रयास करें — Auberge के पास 14 देशों में ठहराव हैं।',
@@ -108,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'क्यूरेटेड ठहराव',
   'searchResults.headingForQuery': '"{{q}}" के लिए ठहराव',
   'searchResults.loadError': 'संपत्तियाँ लोड करने में विफल।',
+  'searchResults.mapHint':
+    'मैप पर हाइलाइट करने के लिए किसी कार्ड पर होवर करें। प्रोडक्शन में लाइव Mapbox टाइल्स।',
   'searchResults.mapPinAria': '{{name}} — {{price}} प्रति रात्रि',
   'searchResults.sortLabel': 'इसके अनुसार क्रमबद्ध करें',
   'searchResults.subheading': '{{count}} संपत्तियाँ · {{guests}} अतिथि',
   'signup.eyebrow': 'सदस्य बनें',
   'signup.subheading':
     'केवल सदस्यों के लिए दरें, देर से चेकआउट और नई संपत्तियों तक पहली पहुँच अनलॉक करने के लिए Auberge में शामिल हों।',
+  'sojournAuthShell.brand.eyebrow': 'कहीं असाधारण जगह ठहरें',
+  'sojournAuthShell.brand.heading':
+    'प्रॉपर्टीज़ का एक क्यूरेटेड कलेक्शन — खूबसूरती से प्रस्तुत, पारदर्शी कीमतों के साथ।',
   'sojournHeroSearchCard.checkInAria': 'चेक-इन तिथि',
   'sojournHeroSearchCard.checkOutAria': 'चेक-आउट तिथि',
+  'sojournHeroSearchCard.destAria': 'गंतव्य',
+  'sojournHeroSearchCard.destLabel': 'कहां',
   'sojournHeroSearchCard.destPlaceholder': 'शहर, क्षेत्र, या संपत्ति',
   'sojournHeroSearchCard.eyebrow': 'क्यूरेटेड ठहराव · केवल सदस्यों के लिए दरें',
   'sojournHeroSearchCard.guestsOption': '{{n}} अतिथि',
   'sojournHeroSearchCard.subtitle':
     'बुटीक होटलों, डिज़ाइन-केंद्रित संपत्तियों और दुर्लभ रिट्रीट्स का एक क्यूरेटेड संग्रह — पारदर्शी मूल्य, खूबसूरत प्रस्तुति।',
+  'sojournHeroSearchCard.title': 'कहीं असाधारण जगह ठहरें',
+  'sojournHeroSearchCard.trustLoyalty': 'हर ठहराव पर पॉइंट्स कमाएं',
   'sojournHeroSearchCard.trustNoFees': 'कोई छिपा शुल्क नहीं, कभी नहीं',
   'sojournHeroSearchCard.trustVetted': 'केवल हस्त-जाँची संपत्तियाँ',
   'sojournLayout.primaryNavLabel': 'मुख्य नेविगेशन',

@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ката таптыңызбы, функция суранычыңыз барбы же кийинки эмне куруубузду айткыңыз келеби? hello@pylon.dev дарегине жазыңыз — ар бир билдирүү командадагы чыныгы инженерге жетет.',
   'about.contactTitle': 'Биз менен байланышуу',
+  'about.intro':
+    '{{app}} — терминалда жашаган инженерлер үчүн тез, клавиатурага ылайыкталган API тестирлөө иш тактасы: Postman стилиндеги сурамдар, коллекциялар, чөйрөлөр жана тарых, ашыкча салмагы жок.',
+  'about.missionBody':
+    "API'лер заманбап программалык камсыздоонун негизи, бирок аларды иштетүүчү куралдар жай, оор жана чычканга көз каранды. {{app}} иштеп чыгуучуларга курч, тез, терминал деңгээлиндеги иш тактасын берүү үчүн бар: сурамдарды жөнөтүңүз, ишенимди бекемдеңиз жана клавиатурадан чыкпай эле жеткириңиз.",
+  'about.missionTitle': 'Биздин миссиябыз',
   'about.pageTitle': '{{app}} жөнүндө',
   'authShell.statusLabel': 'онлайн чуркоочулар',
   'collections.createError': 'Жыйнак түзүлбөй койду.',
   'collections.defaultName': 'Аталышы жок жыйнак {{n}}',
+  'collections.empty':
+    'Азырынча коллекциялар жок — биринчи папкаңызды түзүү үчүн «Жаңы коллекция» баскычын басыңыз.',
   'collections.eyebrow': '$ пилон коллекциялары --дарак',
   'collections.fetchError': 'Жыйнактар жүктөлбөй койду.',
   'collections.heading': 'Жыйнактар',
   'collections.loading': 'Жыйнактар жүктөлүүдө…',
+  'collections.metric.allGreen': 'Баары жакшы',
   'collections.metric.collections': 'Жыйнактар',
   'collections.metric.failing': 'Ийгиликсиз болуу',
   'collections.metric.failingCaption': 'Акыркы жолу ийгиликсиз болду',
@@ -24,6 +34,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Өзгөрмөлөр',
   'environments.createError': 'Чөйрө түзө алган жок.',
   'environments.defaultName': 'Аталышы жок чөйрө {{n}}',
+  'environments.empty': 'Азырынча чөйрөлөр жок — кошуу үчүн «Жаңы чөйрө» баскычын басыңыз.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'Чөйрөлөр жүктөлбөй койду.',
   'environments.heading': 'Айлана-чөйрөлөр',
@@ -31,8 +42,11 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Жаңы чөйрө',
   'environments.subheading':
     'Жөнөтүү учурунда суроо-талаптарга алмашуучу өзгөрмөлөр. Ар бир жумуш мейкиндигине бир активдүү чөйрө.',
+  'forgotPassword.statusLabel': 'баштапкы абалга келтирүү · коопсуз туннель',
   'forgotPassword.success':
     'Эгер ал электрондук почта үчүн аккаунт бар болсо, баштапкы абалга келтирүү шилтемеси жөнөтүлүүдө. Келген каттар кутучаңызды текшериңиз.',
+  'history.empty':
+    'Бул жерде азырынча эч нерсе жок — биринчи сурамыңызды Иш мейкиндиги өтмөгүнөн жөнөтүңүз.',
   'history.eyebrow': '$ пилон тарыхы --tail',
   'history.fetchError': 'Тарых жүктөлбөй койду.',
   'history.heading': 'Иштөө тарыхы',
@@ -41,9 +55,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Акыркы 50',
+  'history.realtime': 'реалдуу убакыт',
   'history.subheading':
     'Бул жумуш мейкиндигинде ар бир суроо-талап, абалы, кечигүүсү жана пайдалуу жүктөмдүн өлчөмү менен иштетилди.',
   'landing.choosePlan': 'План тандаңыз',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Ишенимди бекемдеңиз.',
   'landing.ctaBody':
     'Кредиттик карта жок. Платформа инженери талап кылынбайт. ⌘K ачып, биринчи сурамыңызды беш мүнөттүн ичинде жөнөтүңүз.',
   'landing.ctaHeading': 'Ишенимди бекемдеңиз.',
@@ -86,6 +102,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Орточо кечигүү',
   'mocks.metric.live': 'Коомдук',
   'mocks.metric.servers': 'Мазактар',
+  'mocks.ms': 'айым',
   'mocks.newMock': 'Жаңы макет',
   'mocks.online': 'Коомдук',
   'mocks.paused': 'Жеке',
@@ -110,9 +127,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Ден соолукка пайдалуу',
   'monitors.metric.uptime': 'Орточо иштөө убактысы',
   'monitors.newMonitor': 'Жаңы монитор',
+  'monitors.paused': 'тындырылды',
   'monitors.run': 'Чуркоо',
   'monitors.runError': 'Иштөө тармак катасы менен аяктады: {{error}}',
+  'monitors.runFailed': 'Иштетүү ишке ашпады.',
   'monitors.running': 'Аткарылууда…',
+  'monitors.runSuccess': '{{status}} иштетүү — жогорку агым {{ms}}мс ичинде {{code}} кайтарды.',
   'monitors.sparkLabel': 'Кечигүү тенденциясы',
   'monitors.subheading':
     'Сакталган тесттин каалаган түрүн суроо-талап боюнча текшерет. Тестти байлап, "Ишке киргизүү" баскычын басыңыз жана ар бир өрт чыккан сайын 24 сааттык ийгилик көрсөткүчүнүн жаңырышын көрүңүз.',
@@ -121,27 +141,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Иштөө убактысы · 24 саат',
   'nav.legal': 'Юридикалык',
   'notFound.backToWorkspace': 'Жумуш ордуна кайтуу',
+  'notFound.body':
+    '{{app}} бул URL үчүн сурам жөнөттү, бирок эч нерсе кайткан жок. Маршрутту текшериңиз же иш мейкиндигине кайтыңыз.',
   'notFound.eyebrow': '$ пилон чечими --strict',
   'notFound.title': 'Маршрут табылган жок',
+  'planUpdated.body':
+    'Төлөм өзгөртүүңүз эми активдүү. Планыңызды каалаган убакта төлөм барагынан башкара аласыз.',
+  'planUpdated.retry': 'Кайра аракет кыл',
+  'planUpdated.verifyFailed': 'Төлөмүңүздү азырынча ырастай алган жокпуз.',
+  'planUpdated.verifyFailedBody':
+    'Төлөмүңүз дагы эле иштетилип жатышы мүмкүн. Бир аздан кийин кайра аракет кылыңыз.',
   'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
+  'pricing.advancedFeatures': 'Кеңейтилген функциялар: {{yes}}',
+  'pricing.canExport': 'Маалыматтарды экспорттоо: {{yes}}',
+  'pricing.heading': '{{app}} тарифиңизди тандаңыз',
+  'pricing.maxCollections': '{{count}} коллекция',
+  'pricing.maxEnvironments': '{{count}} чөйрө',
+  'pricing.maxHistory': '{{count}} тарых жазуусу',
+  'pricing.maxRequests': '{{count}} өтүнүчтөр',
   'privacy.collect.account':
     'Каттоо эсеби: электрондук почтаңыз, хэштелген сырсөзүңүз, көрсөтүлүүчү атыңыз жана акыркы жолу кирген убакыт белгиңиз.',
+  'privacy.intro':
+    '{{app}} жеке жашооңуздун купуялуулугун сыйлайт. Бул бетте биз чогулткан маалыматтар, аларды эмне үчүн чогултканыбыз жана аларды кантип өчүрүү керектиги жөнүндө кыскача жазылган.',
   'privacy.rights.body':
     'Сиз коллекцияларыңызды + чөйрөлөрүңүздү каалаган убакта экспорттой аласыз же 30 күндүн ичинде бардык маалыматтарды биротоло жок кылуу үчүн Жөндөөлөрдөн аккаунтуңузду жок кыла аласыз.',
   'privacy.share.body':
     'Сиз гана. Биз сиздин жумуш мейкиндигиңиздин мазмунун эч качан үчүнчү жактарга сатпайбыз, бөлүшпөйбүз же ижарага бербейбиз. Сервер журналдары окуяга жооп кайтаруу үчүн 30 күн сакталат жана андан кийин өчүрүлөт.',
   'privacy.title': 'Купуялык жөнүндө эскертүү',
+  'profile.bio':
+    "Жеке {{app}} иш мейкиндигиңиз — коллекцияларды бекитиңиз, чөйрөлөрдү бөлүшүңүз жана продукт чыгарган API'лерди көзөмөлдөңүз.",
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'кошулган {{when}}',
+  'profile.metric.collections': 'Жыйнактар',
   'profile.metric.monitors': 'Мониторлор',
   'profile.metric.requests': 'Сакталган сурамдар',
+  'profile.noActivity':
+    'Азырынча эч бир сурам жөнөтүлгөн жок — жасоо үчүн Иш мейкиндиги өтмөгүнө өтүңүз.',
   'profile.signedOut': 'Профилиңизди көрүү үчүн кириңиз',
   'pylonShell.primaryNavLabel': 'Негизги навигация',
+  'resetPassword.passwordLabel': 'Жаңы сыр сөз',
+  'resetPassword.statusLabel': 'баштапкы абалга келтирүү · Токен текшерилди',
   'resetPassword.subtitle': 'Мурда колдонбогон күчтүү сырсөз тандаңыз.',
   'resetPassword.tokenPlaceholder': 'электрондук почтадан чаптоо',
+  'settings.accountManagement.desc':
+    'Электрондук почтаңызды жана сырсөзүңүздү жаңыртыңыз, билдирүүлөрдү жана түзмөктөрдү башкарыңыз, чыгыңыз же аккаунтуңузду өчүрүңүз.',
+  'settings.accountManagement.title': 'Аккаунт жана коопсуздук',
   'settings.eyebrow': '$ pylon жөндөөлөрү --түзөтүү',
   'settings.fetchError': 'Жөндөөлөр жүктөлбөй койду.',
   'settings.language.title': 'Тил',
+  'settings.seeding': 'Баштапкы маалыматтар жүктөлүүдө…',
   'settings.seedStarter': 'Үрөн баштоочу мазмун',
   'settings.starterCollection': 'Башталгычтар жыйнагы',
   'settings.starterCollectionDesc': 'Жөндөөлөрдөн түзүлдү {{ts}}',
@@ -156,6 +204,8 @@ export const ui: UiTranslations = {
     'Сырсөзүңүздүн коопсуздугуна сиз жооптуусуз. Акысыз же Pro пландарында бир аккаунтту бир нече адам менен бөлүшүүгө уруксат берилбейт — жалпы жумуш мейкиндиктери үчүн Team жазылуусун сатып алыңыз.',
   'terms.billing.body':
     'Акы төлөнүүчү жазылуулар ар бир эсептешүү мезгилинде автоматтык түрдө жаңыртылат. Каалаган убакта Жөндөөлөрдөн жокко чыгарыңыз; сиздин мүмкүнчүлүгүңүз учурдагы мезгилдин аягына чейин уланат.',
+  'terms.intro':
+    '{{app}} аккаунтун түзүү менен төмөнкү шарттарга макул болосуз. Аларды бир жолу окуңуз; биз сизди артка карай өзгөртүүлөр менен таң калтырбайбыз.',
   'terms.title': 'Тейлөө шарттары',
   'terms.usage.body':
     'Сизге таандык эмес же сыноого ачык уруксаты жок кызматтарга суроо-талаптарды жөнөтүү үчүн Pylon колдонбоңуз. Pylonду тарифтик чектөөлөрдү айланып өтүү же алдамчылык кылуу үчүн колдонбоңуз.',
@@ -176,16 +226,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Иштетилбейт',
   'testRunner.metric.passed': 'Өтүп кетти',
   'testRunner.never': 'Эч качан иштетпе',
+  'testRunner.newTest': 'Жаңы тест',
   'testRunner.noAssertions': 'Бул сыноо боюнча азырынча эч кандай ырастоолор жок.',
+  'testRunner.noRunsYet':
+    'Азырынча эч бир иштетүү жазылган жок — тарыхты толтуруу үчүн «Баарын иштетүү» баскычын басыңыз.',
   'testRunner.passed': 'өтүп кетүү',
+  'testRunner.recentRuns': 'Акыркы чуркоолор',
   'testRunner.runAll': 'Баарын иштетүү',
   'testRunner.running': 'Аткарылууда…',
   'testRunner.runOne': 'Чуркоо',
   'testRunner.subheading': 'Топтомдун жыйынтыктары, ырастоо айырмачылыктары жана акыркы 50 чуркоо.',
+  'testRunner.suites': 'Топтомдор',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Кирген колдонуучу:',
   'workspace.auth.keyName': 'Башкы аталыштын аталышы',
   'workspace.auth.keyValue': 'Негизги маани',
+  'workspace.auth.noneHint': 'Бул сурам менен авторизация аталышы жөнөтүлбөйт.',
   'workspace.auth.password': 'Сырсөз',
   'workspace.auth.username': 'Колдонуучу аты',
   'workspace.authOption.apikey': 'API ачкычы',
@@ -195,13 +251,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Түрү',
   'workspace.authTypeLabel': 'Авторизация түрү',
+  'workspace.body.contentLabel': 'Сурамдын негизги бөлүгү',
+  'workspace.body.hint':
+    '{{envVars}} сурам жөнөтүлүүдөн мурун алмаштырылат. Денелер POST/PUT/PATCH/DELETE учурунда жөнөтүлөт.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Эч бири',
+  'workspace.body.noneHint':
+    'Эч бир сурам денеси жөнөтүлбөйт. Кошуу үчүн JSON же чийки текстти тандаңыз.',
   'workspace.body.text': 'Чийки текст',
   'workspace.body.type': 'Түрү',
   'workspace.environment': 'Конверт жок',
   'workspace.envVar': 'айлана-чөйрө өзгөрмөсү',
   'workspace.eyebrow': '$ pylon жумушчу мейкиндиги --pane split',
+  'workspace.failedCount': '{{count}} ийгиликсиз болду',
+  'workspace.idle': 'Бош турган режим',
   'workspace.kv.addHeader': 'Башкы сап кошуу',
   'workspace.kv.addParam': 'Параметр кошуу',
   'workspace.kv.headerKey': 'Башкы аталыштын аталышы',
@@ -214,12 +277,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP ыкмасы',
   'workspace.metric.latency': 'Кечигүү',
   'workspace.metric.latencyCaption': 'Бул сапардан кийин эки тарапка сапар',
+  'workspace.metric.size': 'Жүк',
   'workspace.metric.sizeCaption': 'Жооп денесинин байттары',
   'workspace.metric.statusCaption': 'Акыркы жооп',
   'workspace.metric.tests': 'Тесттер',
+  'workspace.metric.testsAllPassing': 'Бардык текшерүүлөр ийгиликтүү',
   'workspace.metric.testsFailing': '{{count}} ийгиликсиз',
+  'workspace.metric.testsIdle': 'Баалоо үчүн сурам жөнөтүңүз',
   'workspace.noAssertions': 'Орнотулган ырастоолорду баалоо үчүн суроо-талапты иштетиңиз.',
   'workspace.noResponseYet': 'Азырынча жооп жок',
+  'workspace.passedCount': '{{count}} өттү',
   'workspace.responseHint': '// Сурамды иштетүү жана жоопту алуу үчүн "Жөнөтүү" баскычын басыңыз.',
   'workspace.saveError': 'Сурам сакталган жок.',
   'workspace.statusError': 'Сурам жөнөтүлгөн жок.',
@@ -228,10 +295,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Сурам түзүп, аны иштетип, андан кийин жоопту ырастаңыз — мунун баары бир панелде.',
   'workspace.testResults': 'Сыноо жыйынтыктары',
+  'workspace.tests.autoHint':
+    'Статус тобу, кечигүү, дене өлчөмү жана транспорттун абалы автоматтык түрдө текшерилет — жыйынтыктар жооп панелиндеги «Тест жыйынтыктары» бөлүмүндө көрүнөт.',
+  'workspace.tests.autoTitle': 'Ар бир жоопко курулган текшерүүлөр иштейт',
   'workspace.token': 'Токен',
   'workspace.tokenHint':
     'Уруксат катары жөнөтүлдү: Алуучу<token> бул жыйнактагы ар бир суроо-талап боюнча.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Аталышы жок сурам',
+  'workspace.urlLabel': 'URL дарегин сураңыз',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

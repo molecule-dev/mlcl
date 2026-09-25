@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du feedback, hittat en bugg eller vill ha en egen tavla på {{appName}}? Öppna dina inställningar för att nå teamet — varje meddelande går till en riktig människa som läser det.',
+  'about.contactTitle': 'Kontakta oss',
+  'about.featureModeration':
+    'En offentlig roadmap med kvartalsetiketter, en changelog som förvandlar levererat arbete till release notes och en dashboard som visar vad användarna vill ha mest.',
+  'about.featurePricing':
+    'Gratis att driva ett par tavlor; Pro- och Team-planerna låser upp fler tavlor, högre gränser och dataexport.',
+  'about.featureThreads':
+    'Offentliga feedbacktavlor organiserade efter ämne, med sammanslagning av dubbletter som samlar röster till en ärlig efterfrågesignal.',
+  'about.featureVoting':
+    'En röst per användare med ett komplett statusflöde — öppen, planerad, pågående, levererad eller avvisad — och ett officiellt svar på varje beslut.',
+  'about.intro':
+    '{{appName}} är en plattform för produktfeedback — offentliga tavlor där kunder postar önskemål, röstar på det de behöver och följer varje idé från planerad till levererad. Team slutar gissa vad de ska bygga härnäst eftersom efterfrågan rangordnar sig själv.',
+  'about.missionBody':
+    'Vi tror att de bästa produktbesluten fattas öppet. {{appName}} ger varje team en offentlig tavla med röstade önskemål, en officiell roadmap med målkvartal och en changelog som sluter cirkeln — så att kunder ser sin påverkan och team ser sitt mandat.',
+  'about.missionTitle': 'Vårt uppdrag',
   'admin.backToBoards': 'Tillbaka till anslagstavlor',
   'admin.denied': 'Endast administratörer.',
   'admin.eyebrow': 'Produktteam',
@@ -11,6 +27,8 @@ export const ui: UiTranslations = {
   'admin.title': 'Feedbackinstrumentpanel',
   'admin.topOpen': 'Toppar öppna förfrågningar',
   'admin.totalVotes': '{{count}} totalt',
+  'admin.votesChartLabel':
+    'Stapeldiagram över avgivna röster per vecka under de senaste åtta veckorna',
   'admin.votesOverTime': 'Röster över tid',
   'auth.forgotPassword.email': 'E-post',
   'auth.forgotPassword.sendResetLink': 'Skicka återställningslänk',
@@ -30,7 +48,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Skapa ditt konto',
   'auth.username': 'Användarnamn',
   'authShell.communities': 'Gemenskaper',
+  'authShell.copyright': '{{appName}} — varje röst räknas.',
   'authShell.trending': 'Trendande',
+  'boardCard.postCount': '{{count}} inlägg',
   'boardDetail.allBoards': 'Alla anslagstavlor',
   'boardDetail.backToBoards': 'Tillbaka till anslagstavlor',
   'boardDetail.empty': 'Inga inlägg matchar dessa filter än.',
@@ -54,6 +74,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Varje post började som en röstad förfrågan. Väljare såg den flytta; här är där den landade.',
   'changelog.title': 'Skeppat, med kvitton',
+  'changelog.voteCount': '{{count}} röster byggde detta',
   'common.atLeast8Characters': 'Minst 8 tecken',
   'common.checkYourInbox': 'Kolla din inkorg',
   'common.loadingEllipsis': 'Laddar…',
@@ -64,6 +85,9 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Skickar…',
   'footer.about': 'Om {{appName}}',
   'footer.language': 'Språk',
+  'forgotPassword.description': 'Ange din e-post så skickar vi en länk för att återställa.',
+  'forgotPassword.successBody':
+    'Vi skickade en återställningslänk till {{email}}. Den löper ut om 30 minuter.',
   'forgotPassword.tryAnother': 'Prova en annan e-postadress',
   'form.displayName': 'Visningsnamn',
   'form.firstName': 'Förnamn',
@@ -74,6 +98,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'Din färdplan, stödd av röster.',
   'landing.heroCtaPrimary': 'Börja samla röster',
   'landing.heroCtaSecondary': 'Se en live-anslagstavla',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Sluta gissa. Leverera det de röstar på.',
+  'landing.heroLede':
+    '{{appName}} förvandlar spridda funktionsönskemål till en offentlig tavla med röstade idéer, en officiell roadmap och en changelog som dina kunder faktiskt läser.',
   'landing.heroStat1': '3 200+',
   'landing.heroStat1Label': 'Team som lyssnar',
   'landing.heroStat2': '1,4m',
@@ -85,9 +113,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Ändringslogg',
   'landing.navJoin': 'Gå med i {{appName}}',
   'landing.navRoadmap': 'Färdplan',
+  'landing.step1Body':
+    'Kunder postar idéer på offentliga tavlor. Dubbletter slås samman, röster samlas och efterfrågan rangordnar sig själv.',
   'landing.step1Title': 'Samla',
+  'landing.step2Body':
+    'Markera önskemål som planerade eller pågående med ett målkvartal — roadmappen uppdateras i samma stund.',
+  'landing.step2Title': 'Begå',
   'landing.step3Body':
     'Skeppade inlägg blir ändringsloggposter, och varje väljare ser resultatet på sin egen lista.',
+  'landing.step3Title': 'Leverera',
   'landing.topSubtitle': 'Live från denna anslagstavla — logga in för att lägga till din röst.',
   'landing.topTitle': 'Vad användare frågar efter just nu',
   'landing.topViewAll': 'Alla anslagstavlor',
@@ -95,14 +129,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Grundskola',
   'layout.signUp': 'Registrera dig',
   'layout.submit': 'Skicka feedback',
+  'login.description': 'Fortsätt där samtalet slutade.',
+  'login.heading': 'Logga in på Nimbus',
+  'login.noAccount': 'Ny här?',
   'login.passwordPlaceholder': 'Ditt lösenord',
   'login.twoFactorLabel': '2FA-kod (valfritt)',
   'login.twoFactorPlaceholder': '6-siffrig kod',
+  'login.twoFactorRequiredHint':
+    'Det här kontot har tvåfaktorsautentisering aktiverat. Ange den 6-siffriga koden från din autentiseringsapp för att fortsätta.',
   'login.twoFactorRequiredLabel': 'Ange din 2FA-kod',
+  'myActivity.browseCta': 'Bläddra bland tavlor',
+  'myActivity.emptyPosts': 'Du har inte lagt upp en förfrågan än.',
+  'myActivity.emptyVotes': 'Inget än — bläddra bland tavlorna och stötta en idé.',
   'myActivity.eyebrow': 'Din aktivitet',
   'myActivity.loadError': 'Det gick inte att ladda din aktivitet.',
   'myActivity.postsTitle': 'Förfrågningar du skickat in',
+  'myActivity.shippedNote': '{{count}} av dem har sjösatts — tack för knuffen.',
   'myActivity.submitCta': 'Skicka en förfrågan',
+  'myActivity.tabLabel': 'Visa',
   'myActivity.tabPosts': 'Mina inlägg',
   'myActivity.tabVotes': 'Mina röster',
   'myActivity.votesTitle': 'Förfrågningar du röstat på',
@@ -138,8 +182,13 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Inlägg hittades inte',
   'postsAdmin.backToDashboard': 'Instrumentpanel',
   'postsAdmin.eyebrow': 'Produktteam',
+  'postsAdmin.mergeApplied':
+    'Sammanslagen — {{votes}} röster och {{comments}} kommentarer flyttades.',
   'postsAdmin.mergeApply': 'Slå samman & flytta röster',
   'postsAdmin.mergeChoose': 'Välj ett målinlägg…',
+  'postsAdmin.mergeFailed': 'Sammanslagningen misslyckades.',
+  'postsAdmin.mergeHint':
+    'Rösterna slås samman (en per användare), kommentarer flyttas och det här inlägget får en "flyttad"-notis.',
   'postsAdmin.mergeLabel': 'Slå samman dubblett till',
   'postsAdmin.responseLabel': 'Officiellt svar',
   'postsAdmin.responsePlaceholder':
@@ -154,7 +203,12 @@ export const ui: UiTranslations = {
     'Ställ in den officiella statusen, svara offentligt, märk färdplanskvartal och slå samman dubbletter.',
   'postsAdmin.title': 'Hantera feedbackinlägg',
   'postsAdmin.votes': '{{count}} röster',
+  'pricing.limits.advancedFeatures': 'Avancerade funktioner:',
+  'pricing.limits.boards': '{{count}} tavlor',
   'pricing.limits.export': 'Dataexport:',
+  'pricing.limits.posts': '{{count}} återkopplingsinlägg',
+  'pricing.limits.votes': '{{count}} röster',
+  'resetPassword.description': 'Välj ett starkt. Vi loggar in dig när återställningen lyckas.',
   'resetPassword.newPasswordLabel': 'Nytt lösenord',
   'resetPassword.tokenPlaceholder': 'Klistra in länktoken',
   'roadmap.cardMeta': 'av {{author}} · {{board}}',
@@ -171,6 +225,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'Skriv en sökning för att hitta befintliga förfrågningar innan du publicerar en dubblett.',
   'search.loadError': 'Sökningen misslyckades — försök igen.',
+  'search.searching': 'Söker…',
   'search.submit': 'Sök',
   'search.submitNew': 'Publicera det som en ny förfrågan',
   'search.title': 'Sök feedback',
@@ -179,11 +234,22 @@ export const ui: UiTranslations = {
   'settings.billing': 'Fakturering',
   'settings.displaySubtitle': 'Välj hur täta flöden känns.',
   'settings.displayTitle': 'Visning',
+  'settings.emailDigestDesc': 'De mest röstade öppna förfrågningarna varje måndag.',
+  'settings.emailDigestLabel': 'Veckosammanfattning',
+  'settings.emailMentionsDesc': 'När någon svarar på ett inlägg du följer.',
+  'settings.emailMentionsLabel': 'Mejla mig vid omnämnanden',
+  'settings.emailRepliesDesc': 'Trådar du startat eller svarat i.',
+  'settings.emailRepliesLabel': 'Mejla mig vid svar',
   'settings.loadError': 'Kunde inte ladda ditt konto.',
   'settings.loading': 'Laddar dina inställningar…',
   'settings.notifications': 'Aviseringar',
   'settings.notificationsSubtitle': 'Bestäm vad som når din inkorg kontra din push-enhet.',
+  'settings.pushRepliesLabel': 'Push för svar',
+  'settings.pushVotesDesc': 'Tröskelnotis vid 100, 500, 1000.',
+  'settings.pushVotesLabel': 'Push för uppröstningsmilstolpar',
   'settings.saveAccount': 'Spara konto',
+  'settings.showFlair': 'Visa anslagstavlor som etiketter på inlägg',
+  'settings.showThumbnails': 'Visa miniatyrbilder för länkar/bilder',
   'settings.usernamePlaceholder': 'Välj ett användarnamn',
   'signup.confirmPlaceholder': 'Skriv det igen',
   'signup.description': 'Forma vad vi bygger härnäst.',

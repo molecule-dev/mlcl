@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'มีข้อเสนอแนะ เจอบั๊ก หรืออยากเล่าให้เราฟังว่าการเขียนบันทึกช่วยคุณได้อย่างไร? เราอ่านทุกข้อความ — ติดต่อเราได้ทุกเมื่อ แล้วจะมีคนจริง ๆ ตอบกลับคุณ',
+  'about.contactTitle': 'ติดต่อเรา',
+  'about.featureInsights':
+    'การสะท้อนตัวเองด้วย AI ที่ช่วยชี้ให้เห็นตัวกระตุ้น อารมณ์ และสิ่งน่าขอบคุณอย่างนุ่มนวล — โดยไม่ทำให้เสียงของคุณหายไป',
+  'about.featureMood':
+    'การติดตามอารมณ์และกิจกรรมพร้อมมุมมองปฏิทินและกราฟแนวโน้มที่เผยให้เห็นสิ่งที่ช่วยให้คุณเติบโต',
+  'about.featurePrivacy':
+    'การเข้ารหัสแบบต้นทางถึงปลายทาง ล็อกด้วยรหัสผ่าน และส่งออก CSV ได้เต็มรูปแบบ เพื่อให้บันทึกของคุณเป็นส่วนตัวและพกพาได้',
+  'about.featurePrompts':
+    'คำถามชวนคิดประจำวันอย่างอ่อนโยน เพื่อให้คุณมีจุดเริ่มต้นเสมอ — ไม่มีหน้าว่างเปล่าอีกต่อไป',
+  'about.intro':
+    '{{app}} เป็นบันทึกสุขภาพใจที่เป็นส่วนตัวและอ่อนโยน สำหรับการสะท้อนตัวเองประจำวัน การติดตามอารมณ์ และความกตัญญู คำถามชวนคิดที่ใส่ใจมาแทนหน้าว่างเปล่า การค้นหาแบบแผนอย่างเงียบ ๆ ช่วยให้คุณเข้าใจว่าอะไรส่งผลต่อความรู้สึกของคุณ และการเข้ารหัสแบบต้นทางถึงปลายทางทำให้ถ้อยคำของคุณเป็นของคุณคนเดียว',
+  'about.missionBody':
+    'เราเชื่อว่าการเช็กอินกับตัวเองควรให้ความรู้สึกสงบ ไม่ใช่เหมือนอยู่ในคลินิก — และไม่ใช่เหมือนแอปอีกตัวที่เรียกร้องความสนใจของคุณ {{app}} ถูกสร้างมาเพื่อช่วย ไม่ใช่เพื่อรบกวน: ไม่กี่นาทีอันเงียบสงบต่อวัน เพื่อสังเกตอารมณ์ของคุณ เขียนอย่างซื่อตรง และค่อย ๆ มองเห็นตัวเองชัดขึ้น',
+  'about.missionTitle': 'พันธกิจของเรา',
   'about.pageTitle': 'เกี่ยวกับ {{app}}',
   'authShell.encryptionBadge': 'ข้อมูลที่คุณป้อนจะถูกเข้ารหัสแบบ end-to-end',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'วันที่ {{day}} — ไม่มีบันทึก',
   'calendar.cellMood': 'วัน {{day}} — {{mood}}',
   'calendar.distributionHeading': 'ภาพรวมประจำเดือนนี้',
   'calendar.eyebrow': 'อารมณ์โดยสังเขป',
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'ติดตาม {{tracked}} ของ {{total}} จำนวนวันในเดือนนี้',
   'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'common.tryAgain': 'ลองอีกครั้ง',
+  'entryComposer.bodyPlaceholder': 'เขียนอะไรก็ได้ที่รู้สึกซื่อตรง ไม่มีใครอ่านสิ่งนี้',
   'entryComposer.cancel': 'กลับไปที่บันทึกประจำวัน',
   'entryComposer.heading': 'ข้อคิดประจำวันนี้',
   'entryComposer.moodLabel': 'คุณรู้สึกอย่างไรบ้าง?',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'ลบ {{tag}}',
   'entryComposer.save': 'บันทึกการสะท้อน',
   'entryComposer.saveError': 'ไม่สามารถบันทึกข้อมูลของคุณได้',
+  'entryComposer.tagPlaceholder': 'เพิ่มแท็กแล้วกด Enter',
   'entryComposer.titlePlaceholder': 'ตั้งชื่อให้กับภาพสะท้อนนี้...',
   'entryDetail.back': 'กลับไปที่บันทึกประจำวัน',
   'entryDetail.delete': 'ลบรายการนี้',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'กำลังโหลดภาพสะท้อน…',
   'entryDetail.notFound': 'ไม่พบข้อมูล',
   'entryDetail.reflectionsHeading': 'การสะท้อนความคิดของ AI',
+  'forgotPassword.continueButton': 'กรอกรหัสรีเซ็ต',
   'forgotPassword.eyebrow': 'ไม่ต้องกังวล',
   'forgotPassword.subheading': 'เราจะส่งลิงก์สำหรับรีเซ็ตระบบอย่างนุ่มนวลไปที่อีเมลของคุณ',
   'forgotPassword.successBody': 'หากมีบัญชีอยู่แล้วสำหรับ {{email}} ลิงก์สำหรับรีเซ็ตกำลังถูกส่งไป',
@@ -57,14 +77,21 @@ export const ui: UiTranslations = {
     'ยังไม่มีธีมใดๆ — เพิ่มแท็กสักหนึ่งหรือสองแท็กให้กับผลงานของคุณ แล้วผลงานเหล่านั้นจะมารวมกันที่นี่',
   'insights.themesHeading': 'ธีมยอดนิยม',
   'insights.triggerFrequency': 'สังเกตเห็น {{count}} × เดือนนี้',
+  'insights.triggersEmpty':
+    'ยังไม่มีอะไรให้น่าสังเกต อีกไม่กี่บันทึกในหลาย ๆ วันจะแสดงแบบแผนของคุณ',
   'insights.triggersHeading': 'รูปแบบที่ส่งผลต่ออารมณ์ของคุณ',
+  'journal.empty': 'ไม่มีบันทึกที่ตรงกัน — ลองเปลี่ยนตัวกรองหรือเขียนบันทึกใหม่',
   'journal.eyebrow': 'ข้อคิดของคุณ',
   'journal.heading': 'วารสาร',
   'journal.loadError': 'ไม่สามารถโหลดข้อมูลได้',
   'journal.loading': 'กำลังโหลดข้อมูล…',
+  'journal.newEntry': 'รายการใหม่',
   'journal.searchPlaceholder': 'ค้นหาความรู้สึก ชื่อ หรือช่วงเวลาหนึ่ง...',
   'journal.subheading': '{{count}} บันทึกทุกรายการล้วนควรค่าแก่การเก็บรักษา',
   'journalEntryCard.encryptedLabel': 'เข้ารหัส',
+  'landing.ctaBody':
+    'เริ่มต้นใช้ฟรี Pro ปลดล็อกการส่งออกข้อมูล บันทึกที่ใหญ่ขึ้น และประวัติเต็มหนึ่งปี',
+  'landing.ctaButton': 'เริ่มป้อนข้อมูลแรกของคุณ',
   'landing.ctaTitle': 'แค่ไม่กี่นาทีต่อวันก็เพียงพอแล้ว',
   'landing.eyebrow': 'การฝึกฝนอย่างอ่อนโยนทุกวัน',
   'landing.featuresBody':
@@ -83,6 +110,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'พื้นที่อันสงบเงียบสำหรับการไตร่ตรองในชีวิตประจำวัน',
   'mentalHealthJournalLayout.closeMenu': 'ปิดเมนู',
   'mentalHealthJournalLayout.openMenu': 'เปิดเมนู',
+  'mentalHealthJournalLayout.primaryNavLabel': 'การนำทางหลัก',
+  'moodHeroCard.entriesThisWeek': '{{count}} สัปดาห์นี้',
   'moodHeroCard.streakSuffix': 'สถิติรายวัน',
   'moodHeroCard.title': 'ข้อคิดประจำวันนี้',
   'moodTrendChart.aiBadge': 'พร้อมใช้งาน AI Insight แล้ว',
@@ -93,11 +122,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'การเดินทางของคุณ',
   'profile.fallbackName': 'แผ่นสะท้อนแสง',
   'profile.loadError': 'ไม่สามารถโหลดข้อมูลสถิติได้',
+  'profile.loading': 'กำลังรีเฟรชสถิติของคุณ…',
   'profile.longestStreak': 'สถิติที่ยาวนานที่สุด',
   'profile.memberSince': 'ย้อนคิดตั้งแต่ {{date}}',
   'profile.milestones': 'เหตุการณ์สำคัญ',
   'profile.milestonesEmpty':
     'ก้าวแรกของคุณอยู่ห่างออกไปเพียงแค่การเขียนบันทึกครั้งเดียว — เขียนเมื่อไหร่ก็ได้ที่คุณรู้สึกพร้อม',
+  'profile.moodMix': 'อารมณ์ของคุณในฤดูกาลนี้',
   'profile.streakValue': '{{days}} ง',
   'profile.totalEntries': 'การสะท้อน',
   'profile.totalWords': 'คำที่เขียน',
@@ -110,6 +141,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'เขียนเกี่ยวกับเรื่องนี้',
   'resetPassword.eyebrow': 'การเริ่มต้นใหม่',
   'resetPassword.mismatchError': 'รหัสผ่านไม่ตรงกัน',
+  'resetPassword.passwordLabel': 'รหัสผ่านใหม่',
   'resetPassword.subheading': 'เลือกอะไรที่ปลอดภัย — ภาพสะท้อนของคุณคู่ควรกับสิ่งนั้น',
   'resetPassword.tokenPlaceholder': 'รีเซ็ตโค้ดจากอีเมล',
   'settings.dangerDescription':
@@ -121,11 +153,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'ไม่สามารถลบบัญชีได้',
   'settings.exportDescription': 'คำพูดของคุณเป็นของคุณเสมอ คุณสามารถดาวน์โหลดสำเนาได้ทุกเมื่อ',
   'settings.exportDone': 'ส่งออก {{format}}.',
+  'settings.exportError': 'การส่งออกล้มเหลว',
+  'settings.exportHeading': 'ส่งออกบันทึกของคุณ',
   'settings.exportLoading': 'กำลังเตรียม...',
   'settings.eyebrow': 'พื้นที่ของคุณ กฎของคุณเอง',
   'settings.languageHeading': 'ภาษา',
   'settings.privacyHeading': 'ความเป็นส่วนตัวและการเข้ารหัส',
   'settings.remindersHeading': 'การแจ้งเตือนประจำวัน',
+  'settings.reminderToggleAria': 'เปิด/ปิดการเตือนประจำวัน',
   'settings.reminderToggleDescription':
     'การแจ้งเตือนเพียงครั้งเดียวอย่างใจเย็น ในเวลาที่คุณเลือก ไม่มีการให้คะแนนหรือความรู้สึกผิดจากการทำต่อเนื่อง',
   'settings.reminderToggleLabel': 'ส่งสัญญาณเตือนเบาๆ',
@@ -138,6 +173,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'กำลังสร้างสมุดบันทึก…',
   'signup.subheading': 'พื้นที่ปลอดภัยสำหรับความคิดของคุณ',
   'wellnessRingsTriad.mindfulnessCaption': 'เป้าหมาย {{goal}} นาทีวันนี้',
+  'wellnessRingsTriad.mindfulnessLabel': 'สติ',
   'wellnessRingsTriad.sleepCaption': 'เป้าหมาย {{goal}} h / กลางคืน',
   'wellnessRingsTriad.sleepLabel': 'นอน',
+  'wellnessRingsTriad.sleepValue': '{{hours}} ชม.',
+  'wellnessRingsTriad.streakCaption': 'เป้าหมาย {{goal}} วัน',
+  'wellnessRingsTriad.streakLabel': 'สถิติการเขียนบันทึกต่อเนื่อง',
+  'wellnessRingsTriad.streakValue': '{{days}} ง',
 }

@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пикириңиз барбы, ката таптыңызбы же {{app}}ди мектебиңизге же командаңызга алып келгиңиз келеби? Биз ар бир билдирүүнү окуйбуз — аккаунт жөндөөлөрүңүздөн кайрылыңыз, чыныгы адам жооп берет.',
   'about.contactTitle': 'Биз менен байланышыңыз',
   'about.eyebrow': 'Жөнүндө',
+  'about.intro':
+    '{{app}} — күнүмдүк сөз табышмагы. Беш тамгалуу сөздү алты аракетте табыңыз, серияңызды улантыңыз, эмодзи торуңузду бөлүшүңүз жана бүгүнкү сөздү башкалар кантип тапканын көрүңүз.',
+  'about.missionBody':
+    'Жакшы табышмак — күнүмдүк кичине жеңиш. {{app}} күнүнө бир жалпы сөзгө негизделген — кофе тыныгууга жетет, эртең кайра келгидей кызыктуу.',
+  'about.missionTitle': 'Биздин миссиябыз',
   'about.title': '{{app}} жөнүндө',
   'archive.loadError': 'Архивди жүктөө мүмкүн болбоду.',
   'archive.missed': 'Өткөрүлдү',
   'archive.notPlayed': 'Ойнолгон эмес',
+  'archive.subhead':
+    'Каалаган өткөн күндү машыгуу катары кайра ойноңуз — серия жок, статистика жок, бирок кызык толук.',
   'archive.title': 'Архив',
   'auth.backToHome': 'Башкы бетке кайтуу',
   'auth.backToHomeArrow': '← Башкы бетке кайтуу',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Сырсөздү унуттуңузбу?',
   'auth.login.loggingIn': 'Кирүүдө…',
   'auth.login.logIn': 'Бүгүнкү сөздү ойноо',
+  'auth.login.noAccount': 'Тессерага жаңы келдиңизби?',
   'auth.login.or': 'же төмөнкү аркылуу улантыңыз',
   'auth.login.password': 'Сырсөз',
   'auth.login.signInButton': 'Кирүү',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Сакталууда…',
   'common.sendingEllipsis': 'Жөнөтүлүүдө…',
   'common.startingEllipsis': 'Башталууда…',
+  'forgotPassword.subhead':
+    'Электрондук почтаңызды киргизиңиз, биз сизге баштапкы абалга келтирүү үчүн шилтеме жөнөтөбүз.',
+  'forgotPassword.success.body':
+    'Эгерде аккаунт бар болсо {{email}} , бир нече мүнөттөн кийин баштапкы абалга келтирүү шилтемесин аласыз.',
+  'forgotPassword.success.title': 'Келген каттар кутучаңызды текшериңиз.',
   'form.name': 'Аты',
   'howToPlay.cta.home': 'Үйгө кайтуу',
   'howToPlay.cta.play': 'Бүгүнкү жумактыны ойноо',
@@ -68,10 +83,14 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Үзгүңүз келбеген стриктер',
   'leaderboard.daily.title': 'Бүгүнкү чечимдер',
   'leaderboard.loadError': 'Лидерлер тактасын жүктөө мүмкүн болбоду.',
+  'leaderboard.streaks.empty': 'Азырынча серия жок — биринчи болуңуз.',
+  'leaderboard.streaks.subhead': 'Бардык убактагы эң узун жеңиш сериялары.',
   'leaderboard.streaks.title': 'Стрик лидерлери',
+  'leaderboard.subhead': 'Бүгүн башкалар кантип ойногону жана ким эң узун серияны кармап турганы.',
   'leaderboard.title': 'Лидерлер тактасы',
   'login.headline': 'Кош келдиңиз.',
   'login.streakPill': '{{days}} күндүк стрик күтүп жатат',
+  'login.subhead': 'Серияңызды улантуу жана бүгүнкү сөздө кантип ойногонуңузду көрүү үчүн кириңиз.',
   'nav.archive': 'Архив',
   'nav.editProfile': 'Профилди өзгөртүү',
   'nav.getStarted': 'Баштоо',
@@ -89,6 +108,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Мындай сөз жок',
   'notFound.title': 'Бул багыт бош.',
   'planUpdated.message': 'Тарифиңиз иштеп жатат.',
+  'planUpdated.retry': 'Кайра аракет кыл',
+  'planUpdated.verifyFailed': 'Төлөмүңүздү азырынча ырастай алган жокпуз.',
+  'planUpdated.verifyFailedBody':
+    'Төлөмүңүз дагы эле иштетилип жатышы мүмкүн. Бир аздан кийин кайра аракет кылыңыз.',
   'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'play.alreadyFinished': 'Сиз бул жумакты буга чейин бүтүргөнсүз',
   'play.answerWas': 'Сөз мындай болгон',
@@ -104,6 +127,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Машыгуу жумагы',
   'play.tooShort': 'Тамгалар жетишсиз',
   'play.won': 'Чечтиңиз!',
+  'pricing.advancedStats': 'Кеңейтилген статистика: {{yes}}',
+  'pricing.archiveHistory': '{{count}} күндүк архив тарыхы',
+  'pricing.archivePlays': 'Күнүнө {{count}} архив кайра ойнотуу',
+  'pricing.archiveUnlimited': 'Чексиз архив тарыхы',
+  'pricing.canExport': 'Маалыматтарды экспорттоо: {{yes}}',
+  'pricing.checkoutError': 'Төлөм башталган жок. Кайра аракет кылып көрүңүз.',
   'pricing.dailyWord': 'Күндүк сөз',
   'pricing.heading': '{{app}} тарифиңизди тандаңыз',
   'pricing.included': 'Камтылган',
@@ -111,7 +140,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Күндүк сөз ар дайым акысыз. Архивди чексиз кайра ойноо жана тереңирээк статистика үчүн жаңыртыңыз.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} жеке жашыруундугуңузду сыйлайт. Бул бетте биз сактаган маалыматтар, аларды эмне үчүн сактайбыз жана кантип өчүрүү керектиги жөнүндө айтылат.',
   'privacy.title': 'Купуялык эскертмеси',
+  'resetPassword.subhead': 'Серияңызга кайтуу үчүн жаңы сырсөз тандаңыз.',
   'settings.account': 'Эсеп',
   'settings.danger.body': '{{appName}} эсебиңизди жана бардык жумак тарыхын биротоло өчүрүү.',
   'settings.danger.confirm': 'Ооба, биротоло өчүрүү',
@@ -121,17 +153,23 @@ export const ui: UiTranslations = {
   'settings.language.title': 'Тил',
   'settings.subhead':
     'Профилиңизди, үнүңүздү жана лидерлер тактасында кандай көрүнөрүңүздү тууралаңыз.',
+  'settings.unnamed': 'Sparq оюнчусу',
   'settings.upgrade': 'Жаңыртуу',
   'signup.eyebrow': 'Түбөлүккө акысыз — күнүнө бир сөз',
   'signup.headline': 'Стрикти баштаңыз.',
+  'signup.subhead':
+    'Күнүмдүк сөздү ойноо, серия түзүү жана лидерлер тактасына көтөрүлүү үчүн {{appName}} аккаунтун түзүңүз.',
   'stats.currentStreak': 'Стрик',
   'stats.distribution.title': 'Болжолдордун бөлүштүрүлүшү',
   'stats.loadError': 'Статистикаңызды жүктөө мүмкүн болбоду.',
   'stats.maxStreak': 'Макс стрик',
   'stats.played': 'Ойнолду',
   'stats.playToday': 'Бүгүнкү жумактыны ойноо',
+  'stats.subhead': 'Рейтингдүү күнүмдүк табышмактар гана — архив машыгуусу эч качан эсептелбейт.',
   'stats.title': 'Статистикаңыз',
   'stats.winRate': 'Жеңиш деңгээли',
   'status.monthly': 'Айлык',
+  'terms.intro':
+    '{{app}} колдонуу менен төмөнкү эрежелерге макул болосуз. Эгер аларды кабыл албасаңыз, кызматты колдонбоңуз.',
   'terms.title': 'Кызмат көрсөтүү шарттары',
 }

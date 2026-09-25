@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Вопросы, отзывы или предложение функции? Свяжитесь с командой {{app}} в разделе «Настройки → Уведомления» или напишите нам в любое время — каждое сообщение попадает к реальному человеку.',
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
+  'about.featureCapture':
+    'Съёмка чеков с загрузкой фото, которое прикрепляет изображения к нужному расходу, строка за строкой.',
+  'about.featureExport':
+    'Проверяемые экспорты CSV по каждому отчёту, расходу и статусу утверждения — готовы для вашей бухгалтерии.',
+  'about.featurePolicy':
+    'Ограничения политики — дневные лимиты, лимиты по категориям и пороги обязательных чеков, применяемые при отправке.',
+  'about.featureWorkflow':
+    'Двухуровневый процесс утверждения с примечаниями проверяющего, флагами нарушений политики и отметкой возмещения в один тап.',
+  'about.intro':
+    '{{app}} — это платформа управления расходами для финансовых команд и людей, которым они возмещают затраты. Сфотографируйте чек, оформите расход, отправьте отчёт на утверждение и отслеживайте каждое возмещение — без бюрократии с таблицами.',
+  'about.missionBody':
+    'Возмещение должно быть быстрым, справедливым и проверяемым. Мы создали {{app}}, чтобы отправители получали деньги без напоминаний, утверждающие точно видели, что подписывают, а финансисты имели чистую историю по каждому доллару — вместе с проверками политики.',
+  'about.missionTitle': 'Наша миссия',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Одобрение…',
   'approvals.confirmReject': 'Подтвердить отклонение',
+  'approvals.empty': 'Вы всё просмотрели — отчётов в ожидании нет.',
   'approvals.eyebrow': 'Очередь менеджера',
   'approvals.kpi.flaggedLabel': 'Политика отмечена',
+  'approvals.kpi.queueLabel': 'Ожидает проверки',
   'approvals.kpi.totalLabel': 'Ожидаемое значение',
   'approvals.lineCount': '{{count}} затраты',
   'approvals.queueFallback':
     'Очередь в реальном времени недоступна — отображаются отобранные демонстрационные данные.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Отвергая…',
+  'approvals.rejectPlaceholder': 'Причина (обязательно)',
   'approvals.rejectPrompt': 'Почему вы отклоняете этот отчет?',
   'approvals.review': 'Обзор',
   'approvals.title': 'Ожидаются согласования.',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Одобрено · MTD',
   'dashboard.kpi.pendingDelta': '+2 на этой неделе',
+  'dashboard.kpi.pendingLabel': 'На рассмотрении',
   'dashboard.kpi.receiptsDelta': 'Необходимы действия',
   'dashboard.kpi.receiptsLabel': 'Ожидаются квитанции',
   'dashboard.kpi.reimbursedDelta': '+2,4 тыс. долларов',
   'dashboard.kpi.reimbursedLabel': 'Возмещение расходов · MTD',
   'dashboard.newReport': 'Новый отчет',
+  'dashboard.recent.empty': 'Отчётов пока нет — создайте первый выше.',
   'dashboard.recent.title': 'Последние сообщения',
   'dashboard.recent.viewAll': 'Просмотреть все отчеты',
   'dashboard.summaryFallback':
@@ -41,11 +62,18 @@ export const ui: UiTranslations = {
   'expenses.listFallback':
     'Актуальный список недоступен — отображаются отобранные демографические данные.',
   'expenses.searchPlaceholder': 'Поиск по продавцу или категории…',
+  'expenses.subtotal': 'Расходы {{count}} · промежуточный итог',
   'expenses.title': 'Расходы',
+  'forgotPassword.continue': 'У меня есть код · Продолжить',
+  'forgotPassword.subheading': 'Введите рабочую почту, и мы отправим ссылку для сброса пароля.',
   'forgotPassword.successBody':
     'Если существует учетная запись для {{email}} В ближайшие несколько минут вы получите ссылку для сброса пароля.',
+  'landing.copyright': '© {{year}} {{app}}. Создано с помощью Molecule.dev.',
+  'landing.ctaBody':
+    'Бесплатно для первых 25 расходов каждый месяц. Без кредитной карты, без звонка о внедрении.',
   'landing.ctaHeading': 'Готовы вернуть то, что причитается вашей команде?',
   'landing.eyebrow': 'Отчеты о расходах для финансовых отделов',
+  'landing.featuresHeading': 'Возмещение в одном спокойном рабочем пространстве',
   'landing.heroSubtitle':
     'Отправляйте, утверждайте и возмещайте деловые расходы без лишних хлопот с электронными таблицами. Распознавание символов на чеках, проверка соответствия правилам и прозрачный график утверждения — все в одном спокойном рабочем пространстве.',
   'landing.heroTitle': 'Все чеки восстановлены.',
@@ -63,10 +91,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Примечания',
   'newExpense.descriptionPlaceholder':
     'Почему эти расходы были связаны с бизнесом (информация доступна утверждающему лицу).',
+  'newExpense.eyebrow': 'Возмещаемая позиция',
   'newExpense.merchant': 'Торговец',
   'newExpense.merchantPlaceholder': 'Отель Адлон Кемпински',
   'newExpense.policyHint':
     'Напоминаем: для блюд стоимостью более 80 долларов в день или для любых позиций стоимостью более 250 долларов требуется пояснительная записка.',
+  'newExpense.receipt': 'Квитанция',
+  'newExpense.receiptHint': 'JPG, PNG или PDF · не более 10 МБ',
   'newExpense.receiptOcrHint': 'OCR предварительно заполняет поля',
   'newExpense.receiptPrompt':
     'Перетащите сюда фотографию или PDF-файл, или нажмите, чтобы просмотреть.',
@@ -78,17 +109,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Сфотографируйте или загрузите чек, и Recoup автоматически заполнит поля «Продавец», «Дата» и «Итого». Перед сохранением подтвердите все данные ниже.',
   'newExpense.title': 'Добавить расходы',
+  'newReport.approverHint': 'Они получат письмо, когда вы отправите этот отчёт на проверку.',
   'newReport.approverLabel': 'Адрес электронной почты для утверждения (необязательно)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'Доступные расходы',
   'newReport.createFailed': 'Не удалось создать отчёт. Пожалуйста, попробуйте ещё раз.',
   'newReport.draftsFallback':
     'Актуальный список расходов недоступен — отображаются отобранные демонстрационные данные.',
+  'newReport.eyebrow': 'Группировать расходы · отправить на утверждение',
   'newReport.includedCount': '{{count}} включено',
   'newReport.purposeLabel': 'Цель бизнеса',
   'newReport.purposePlaceholder':
     'Опишите поездку или проект, к которому относятся эти расходы (информация должна быть доступна вашему утверждающему лицу и финансовому отделу).',
   'newReport.saveDraft': 'Сохранить как черновик',
+  'newReport.saveDraftFailed': 'Не удалось сохранить черновик. Попробуйте ещё раз.',
   'newReport.submit': 'Отправить на утверждение',
   'newReport.submitFailed': 'Не удалось отправить отчет. Пожалуйста, попробуйте еще раз.',
   'newReport.summary': 'Краткое содержание отчета',
@@ -102,17 +136,23 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Прямая трансляция недоступна — отображаются отобранные демографические данные.',
   'notifications.openReport': 'Открыть отчет ›',
+  'pricing.approvalsLabel': 'утверждения',
   'pricing.expensesLabel': 'затраты',
   'pricing.heading': 'одобрения',
   'pricing.policiesLabel': 'политики',
   'pricing.receiptsLabel': 'квитанции',
   'recoveredAmountHeroCard.label': 'Возмещенные расходы получены · С начала года',
+  'recoveredAmountHeroCard.pending': 'Отчётов, ожидающих проверки у всех утверждающих: {{count}}.',
+  'reports.approvalFlow': 'Процесс утверждения',
   'reports.backToList': 'Вернуться к отчетам',
   'reports.detailFallback':
     'Отчет в режиме реального времени недоступен — отображаются отобранные демографические данные.',
   'reports.lineItems': 'Пункты списка',
   'reports.lineItemsCount': '{{count}} затраты',
+  'reports.lineItemsEmpty': 'В этом отчёте пока нет расходов.',
+  'reports.openLibrary': 'Открыть библиотеку отчётов',
   'reports.policyTitle': 'Флаг политики',
+  'reports.selectPrompt': 'Выберите отчёт из библиотеки, чтобы увидеть его детали.',
   'reports.summary.lineCount': 'Пункты списка',
   'reports.summary.reimbursable': 'Возмещаемые',
   'reports.summary.total': 'Сообщенная сумма',
@@ -122,6 +162,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Актуальный список недоступен — отображаются отобранные демографические данные.',
   'reportsList.newReport': 'Новый отчет',
+  'reportsList.submittedOn': 'Отправлено {{date}}',
   'reportsList.title': 'Библиотека отчетов',
   'resetPassword.hidePassword': 'Скрыть пароль',
   'resetPassword.newPasswordLabel': 'Новый пароль',
@@ -148,6 +189,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Сохранено ✓',
   'settings.profileSaveFailed': 'Не удалось обновить профиль. Пожалуйста, попробуйте еще раз.',
   'signup.heading': 'Создайте свою учетную запись Recoup',
+  'signup.hidePassword': 'Скрыть пароль',
   'signup.namePlaceholder': 'Майя Окафор',
   'signup.showPassword': 'Показать пароль',
   'signup.subheading':

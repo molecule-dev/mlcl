@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Rəy bildirmək, xəta tapmaq və ya gündəlik yazmağın sizə necə kömək etdiyini bizə danışmaq istəyirsiniz? Hər mesajı oxuyuruq — istənilən vaxt bizə müraciət edin və real bir şəxs sizə cavab verəcək.',
+  'about.contactTitle': 'Bizimlə əlaqə saxlayın',
+  'about.featureInsights':
+    'Süni intellektlə dəstəklənən düşüncələr sizin səsinizi itirmədən tetikleyicileri, mövzuları və minnətdarlıqları incə şəkildə üzə çıxarır.',
+  'about.featureMood':
+    'Əhval və fəaliyyət izləmə, təqvim görünüşü və sizə inkişaf etməyə kömək edənləri üzə çıxaran trend qrafikləri ilə.',
+  'about.featurePrivacy':
+    'Uçdan-uca şifrələmə, keçid kodu kilidi və tam CSV ixracı — düşüncələriniz həm məxfi, həm də daşına bilən qalsın.',
+  'about.featurePrompts':
+    'Hər gün üçün yumşaq təkliflər — həmişə haradan başlayacağınız olsun, heç vaxt boş səhifə olmasın.',
+  'about.intro':
+    '{{app}} gündəlik düşüncə, əhval izləmə və minnətdarlıq üçün yumşaq, məxfi bir ruhi sağlamlıq jurnalıdır. Düşünülmüş təkliflər boş səhifəni əvəz edir, sakit nümunə tapma hissinizə nəyin təsir etdiyini anlamağa kömək edir və uçdan-uca şifrələmə sözlərinizi sizinlə saxlayır.',
+  'about.missionBody':
+    'İnanırıq ki, özünüzlə əlaqə saxlamaq sakit hiss etdirməli, heç vaxt klinik və ya diqqətinizi tələb edən başqa bir tətbiq kimi olmamalıdır. {{app}} kömək etmək üçün yaradılıb, narahat etmək üçün deyil: gündə bir neçə sakit dəqiqə əhvalınızı fərq etmək, dürüst yazmaq və yavaş-yavaş özünüzü daha aydın görmək üçün.',
+  'about.missionTitle': 'Missiyamız',
   'about.pageTitle': '{{app}} haqqında',
   'authShell.encryptionBadge': 'Girişləriniz başdan-ayağa şifrələnir.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Gün {{day}} — qeyd yoxdur',
   'calendar.cellMood': 'Gün {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Bu ay qısaca',
   'calendar.eyebrow': 'Bir baxışda əhval-ruhiyyə',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'İzlənilən {{tracked}} -ın {{total}} bu ayın günləri.',
   'common.goToDashboard': 'İdarə panelinə keç',
   'common.tryAgain': 'Yenidən cəhd edin',
+  'entryComposer.bodyPlaceholder':
+    'Nə dürüst hiss edirsinizsə, onu yazın. Bunu başqa heç kim oxumayacaq.',
   'entryComposer.cancel': 'Jurnala qayıt',
   'entryComposer.heading': 'Bugünkü əks',
   'entryComposer.moodLabel': 'Özünüzü necə hiss edirsiniz?',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Sil {{tag}}',
   'entryComposer.save': 'Əksini yadda saxla',
   'entryComposer.saveError': 'Girişinizi yadda saxlamaq mümkün olmadı.',
+  'entryComposer.tagPlaceholder': 'Etiket əlavə edin və enter düyməsini basın',
   'entryComposer.titlePlaceholder': 'Bu əksinə ad verin...',
   'entryDetail.back': 'Jurnala qayıt',
   'entryDetail.delete': 'Bu girişi silin',
@@ -36,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Əks olunma yüklənir…',
   'entryDetail.notFound': 'Giriş tapılmadı.',
   'entryDetail.reflectionsHeading': 'Süni intellekt əks olunmaları',
+  'forgotPassword.continueButton': 'Sıfırlama kodunu daxil edin',
   'forgotPassword.eyebrow': 'Narahatlıq yoxdur',
   'forgotPassword.subheading': 'E-poçtunuza ehtiyatla sıfırlama linki göndərəcəyik.',
   'forgotPassword.successBody': 'Əgər hesab mövcuddursa {{email}}, sıfırlama linki yoldadır.',
@@ -57,14 +78,21 @@ export const ui: UiTranslations = {
     'Hələ mövzu yoxdur — girişlərinizə bir və ya iki etiket əlavə edin və onlar burada toplanacaq.',
   'insights.themesHeading': 'Ən yaxşı mövzular',
   'insights.triggerFrequency': 'fərqinə vardı {{count}} × bu ay',
+  'insights.triggersEmpty':
+    'Hələ fərq ediləcək bir şey yoxdur. Bir neçə gün ərzində bir neçə qeyd nümunələrinizi göstərəcək.',
   'insights.triggersHeading': 'Əhvalınızı dəyişdirən naxışlar',
+  'journal.empty': 'Uyğun düşüncə yoxdur — fərqli filtr yoxlayın və ya yeni qeyd yazın.',
   'journal.eyebrow': 'Sizin əksləriniz',
   'journal.heading': 'Jurnal',
   'journal.loadError': 'Girişləri yükləmək alınmadı.',
   'journal.loading': 'Girişlər yüklənir…',
+  'journal.newEntry': 'Yeni giriş',
   'journal.searchPlaceholder': 'Bir hiss, bir ad, bir anı axtarın...',
   'journal.subheading': '{{count}} qeydlər — hər biri saxlamağa dəyər.',
   'journalEntryCard.encryptedLabel': 'Şifrələnmiş',
+  'landing.ctaBody':
+    'Başlamaq pulsuzdur. Pro məlumat ixracını, daha böyük jurnalı və tam bir illik tarixçəni açır.',
+  'landing.ctaButton': 'İlk girişinizə başlayın',
   'landing.ctaTitle': 'Gündə bir neçə dəqiqə sakit vaxt. Vəssalam.',
   'landing.eyebrow': 'Zərif gündəlik təcrübə',
   'landing.featuresBody':
@@ -83,6 +111,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Gündəlik düşüncə üçün rahat bir məkan.',
   'mentalHealthJournalLayout.closeMenu': 'Menyunu bağlayın',
   'mentalHealthJournalLayout.openMenu': 'Menyunu açın',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Əsas naviqasiya',
+  'moodHeroCard.entriesThisWeek': '{{count}} bu həftə',
   'moodHeroCard.streakSuffix': 'gün seriyası',
   'moodHeroCard.title': 'Bugünkü əks',
   'moodTrendChart.aiBadge': 'Süni intellekt hazırdır',
@@ -93,11 +123,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Səyahətiniz',
   'profile.fallbackName': 'Reflektor',
   'profile.loadError': 'Statistika yüklənmədi.',
+  'profile.loading': 'Statistikalarınız yenilənir…',
   'profile.longestStreak': 'Ən uzun seriya',
   'profile.memberSince': 'O vaxtdan bəri əks etdirir {{date}}',
   'profile.milestones': 'Mərhələlər',
   'profile.milestonesEmpty':
     'İlk mərhələniz bir addımlıqdadır — hazır olduğunuzu hiss etdiyiniz zaman yazın.',
+  'profile.moodMix': 'Bu mövsüm əhval qarışığınız',
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'Əks olunmalar',
   'profile.totalWords': 'Yazılmış sözlər',
@@ -110,6 +142,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Bu barədə yazın',
   'resetPassword.eyebrow': 'Yeni bir başlanğıc',
   'resetPassword.mismatchError': 'Parollar uyğun gəlmir.',
+  'resetPassword.passwordLabel': 'Yeni parol',
   'resetPassword.subheading': 'Təhlükəsiz bir şey seçin - əks olunmalarınız buna layiqdir.',
   'resetPassword.tokenPlaceholder': 'Kodu e-poçtdan sıfırlayın',
   'settings.dangerDescription':
@@ -122,11 +155,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     'Sözləriniz həmişə sizə məxsusdur. İstənilən vaxt bir nüsxəni yükləyin.',
   'settings.exportDone': 'İxrac edildi {{format}}.',
+  'settings.exportError': 'İxrac uğursuz oldu.',
+  'settings.exportHeading': 'Düşüncələrinizi ixrac edin',
   'settings.exportLoading': 'Hazırlanır…',
   'settings.eyebrow': 'Sənin məkanın, sənin qaydaların',
   'settings.languageHeading': 'Dil',
   'settings.privacyHeading': 'Məxfilik və şifrələmə',
   'settings.remindersHeading': 'Gündəlik xatırlatma',
+  'settings.reminderToggleAria': 'Gündəlik xatırlatmanı aç/bağla',
   'settings.reminderToggleDescription':
     'Seçdiyiniz vaxtda tək bir sakit xatırlatma. Nişanlar və ya ardıcıl günahkarlıq hissi yoxdur.',
   'settings.reminderToggleLabel': 'Zərif bir təkan göndərin',
@@ -139,6 +175,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Jurnal yaradılır…',
   'signup.subheading': 'Düşüncələriniz üçün təhlükəsiz bir məkan.',
   'wellnessRingsTriad.mindfulnessCaption': 'Məqsəd {{goal}} dəqiqə bu gün',
+  'wellnessRingsTriad.mindfulnessLabel': 'Diqqətlilik',
   'wellnessRingsTriad.sleepCaption': 'Məqsəd {{goal}} saat / gecə',
   'wellnessRingsTriad.sleepLabel': 'Yuxu',
+  'wellnessRingsTriad.sleepValue': '{{hours}} saat',
+  'wellnessRingsTriad.streakCaption': 'Hədəf {{goal}} gün',
+  'wellnessRingsTriad.streakLabel': 'Jurnal seriyası',
+  'wellnessRingsTriad.streakValue': '{{days}} d',
 }

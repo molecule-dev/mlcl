@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
+  'about.featureConnections':
+    'Ryšių tvarkyklė, kuri saugiai saugo ir spalvomis žymi jūsų duomenų bazes — kredencialai šifruojami saugykloje, niekada ne paprastu tekstu.',
+  'about.featureMonitoring':
+    'Tiesioginė užklausų našumo ir duomenų bazės aktyvumo stebėsena, valdoma klaviatūros sparčiaisiais klavišais ir komandų palete nenaudojant rankų.',
+  'about.featurePlans':
+    'Planai, augantys kartu su jumis — „Free“ savarankiškam darbui, „Pro“ ir „Team“ didesniam ryšių skaičiui, ilgesniam užklausų saugojimui, eksportavimui ir išplėstinėms funkcijoms.',
+  'about.featureQueryEditor':
+    '„Monaco“ pagrindu veikiantis SQL redaktorius su užklausų istorija, išsaugotomis užklausomis ir rezultatų eksportavimu į CSV vienu paspaudimu.',
+  'about.featureSchema':
+    'Schemos naršyklė ir lentelių peržiūra, leidžianti naršyti duomenų bazes, lenteles ir stulpelius, o tada peržiūrėti, filtruoti ir redaguoti eilutes vietoje.',
+  'about.missionTitle': 'Mūsų misija',
   'authShell.commands': 'Komandos',
   'authShell.ssoSupported': 'Palaikoma SSO',
   'common.run': 'Paleisti',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Užklausos',
   'connections.schema': 'Schema',
   'connections.subtitle': 'Valdykite savo duomenų bazių ryšius.',
+  'connections.test': 'Testas',
   'databaseAdminLayout.adminRole': 'Administratoriaus vaidmuo',
   'databaseAdminLayout.commandPalette': 'Komandų paletė',
   'databaseAdminLayout.commands': 'komandos',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Naujas ryšys',
   'databaseAdminLayout.queries': 'Užklausos',
   'databaseAdminLayout.ready': 'Pasiruošęs',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Ieškoti komandų, užklausų, lentelių…',
   'databaseAdminLayout.user': 'Vartotojas',
   'editConnection.confirmDelete': 'Ar norite pašalinti šį ryšį?',
   'editConnection.deleteButton': 'Ištrinti ryšį',
+  'editConnection.newPassword': 'Naujas slaptažodis (palikite tuščią, kad nekeistumėte)',
   'editConnection.saved': 'Ryšys išsaugotas.',
   'editConnection.title': 'Redaguoti ryšį',
   'forgotPassword.success':
@@ -48,6 +63,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Pasiekimai',
   'monitoring.title': 'Stebėjimas',
   'monitoring.totalQueries': 'Iš viso užklausų',
+  'nav.schema': 'Schema',
   'newConnection.database': 'Duomenų bazė',
   'newConnection.engine': 'Variklis',
   'newConnection.host': 'Šeimininkas',
@@ -84,6 +100,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Šiam kodų fragmentui nėra priskirta jokia jungtis.',
   'savedQuery.notBound': 'Nesusietas',
   'savedQuery.title': 'Išsaugotas užklausimas',
+  'schema.columns': 'Stulpeliai',
   'schema.foreignKeys': 'Užsienio raktų',
   'schema.indexes': 'Rodyklės',
   'schemaExplorer.browseRows': 'Naršyti eilutes',
@@ -92,14 +109,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'gali būti nulinis',
   'schemaExplorer.colType': 'tipas',
   'schemaExplorer.noColumns': 'Nėra stulpelių.',
+  'schemaExplorer.noForeignKeys': 'Nėra išorinių raktų.',
   'schemaExplorer.noIndexes': 'Nėra rodyklių.',
   'schemaExplorer.noTables': 'Lentelių nėra',
   'schemaExplorer.pickATable': 'Pasirinkite lentelę iš šoninės juostos.',
   'schemaExplorer.tables': 'Lentelės',
   'schemaExplorer.title': 'Schemos naršyklė',
+  'settings.session': 'Sesija',
   'settings.subtitle': 'Valdykite savo paskyrą ir planą.',
   'signup.heading': 'Sukurkite savo „Quarry“ paskyrą',
   'signup.tagline': 'Pradėkite naudotis paslauga per mažiau nei minutę.',
   'tableBrowser.noRows': 'Šioje lentelėje kol kas nėra eilučių.',
+  'tableBrowser.subtitle': 'Eilučių naršymas jūsų nuotolinėje duomenų bazėje.',
   'tableBrowser.title': 'Duomenų eilučių peržiūra iš nuotolinės duomenų bazės.',
 }

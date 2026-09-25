@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Máte spätnú väzbu, našli ste chybu alebo nám chcete povedať, ako vám denník pomohol? Čítame každú správu — kedykoľvek sa ozvite a ozve sa vám skutočný človek.',
+  'about.contactTitle': 'Kontaktujte nás',
+  'about.featureInsights':
+    'Úvahy poháňané AI, ktoré jemne upozorňujú na spúšťače, témy a vďačnosť — bez toho, aby ste stratili svoj hlas.',
+  'about.featureMood':
+    'Sledovanie nálady a aktivity s kalendárovým zobrazením a grafmi trendov, ktoré odhalia, čo vám pomáha prospievať.',
+  'about.featurePrivacy':
+    'End-to-end šifrovanie, zámok s prístupovým kódom a úplný export do CSV, aby vaše úvahy zostali súkromné a prenosné.',
+  'about.featurePrompts':
+    'Jemné denné podnety, aby ste vždy mali kde začať — nikdy prázdna stránka.',
+  'about.intro':
+    '{{app}} je jemný, súkromný denník duševného zdravia na denné zamyslenie, sledovanie nálady a vďačnosť. Premyslené podnety nahrádzajú prázdnu stránku, tiché hľadanie vzorcov vám pomáha pochopiť, čo ovplyvňuje to, ako sa cítite, a end-to-end šifrovanie udržiava vaše slová len vaše.',
+  'about.missionBody':
+    'Veríme, že zastaviť sa pri sebe by malo pôsobiť pokojne, nikdy nie klinicky — a nikdy nie ako ďalšia aplikácia, ktorá si žiada vašu pozornosť. {{app}} je vytvorená tak, aby pomáhala, nie otravovala: pár tichých minút denne na to, aby ste si všimli svoju náladu, písali úprimne a pomaly sa videli jasnejšie.',
+  'about.missionTitle': 'Naše poslanie',
   'about.pageTitle': 'O aplikácii {{app}}',
   'authShell.encryptionBadge': 'Vaše záznamy sú šifrované od začiatku do konca.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Deň {{day}} — žiadny záznam',
   'calendar.cellMood': 'Deň {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Tento mesiac v skratke',
   'calendar.eyebrow': 'Nálada na prvý pohľad',
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Sledované {{tracked}} z {{total}} dni v tomto mesiaci.',
   'common.goToDashboard': 'Prejsť na prehľad',
   'common.tryAgain': 'Skúste to znova',
+  'entryComposer.bodyPlaceholder': 'Napíšte, čo sa zdá úprimné. Nikto iný to nebude čítať.',
   'entryComposer.cancel': 'Späť do denníka',
   'entryComposer.heading': 'Dnešné zamyslenie',
   'entryComposer.moodLabel': 'Ako sa cítiš?',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Odstrániť {{tag}}',
   'entryComposer.save': 'Uložiť odraz',
   'entryComposer.saveError': 'Váš záznam sa nepodarilo uložiť.',
+  'entryComposer.tagPlaceholder': 'Pridajte štítok a stlačte enter',
   'entryComposer.titlePlaceholder': 'Dajte tomuto odrazu meno…',
   'entryDetail.back': 'Späť do denníka',
   'entryDetail.delete': 'Odstrániť tento záznam',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Načítava sa odraz…',
   'entryDetail.notFound': 'Záznam sa nenašiel.',
   'entryDetail.reflectionsHeading': 'Odrazy umelej inteligencie',
+  'forgotPassword.continueButton': 'Zadajte kód na obnovenie',
   'forgotPassword.eyebrow': 'Žiadne starosti',
   'forgotPassword.subheading': 'Na váš e-mail vám pošleme odkaz na jemný reset.',
   'forgotPassword.successBody': 'Ak existuje účet pre {{email}}, odkaz na reset je na ceste.',
@@ -57,14 +77,21 @@ export const ui: UiTranslations = {
     'Zatiaľ žiadne témy – pridajte k svojim príspevkom jednu alebo dve značky a zhromaždia sa tu.',
   'insights.themesHeading': 'Najlepšie témy',
   'insights.triggerFrequency': 'všimol {{count}} × tento mesiac',
+  'insights.triggersEmpty':
+    'Zatiaľ nie je čo spozorovať. Niekoľko záznamov za pár dní ukáže vaše vzorce.',
   'insights.triggersHeading': 'Vzory, ktoré vám pomôžu naladiť sa',
+  'journal.empty': 'Žiadne úvahy nezodpovedajú — skúste iný filter alebo napíšte nový záznam.',
   'journal.eyebrow': 'Tvoje úvahy',
   'journal.heading': 'Denník',
   'journal.loadError': 'Nepodarilo sa načítať položky.',
   'journal.loading': 'Načítavajú sa záznamy…',
+  'journal.newEntry': 'Nový záznam',
   'journal.searchPlaceholder': 'Hľadaj pocit, meno, okamih…',
   'journal.subheading': '{{count}} záznamy – každý z nich stojí za to si ho ponechať.',
   'journalEntryCard.encryptedLabel': 'Šifrované',
+  'landing.ctaBody':
+    'Začnite zadarmo. Pro odomyká export údajov, väčší denník a celý rok histórie.',
+  'landing.ctaButton': 'Začnite svoj prvý záznam',
   'landing.ctaTitle': 'Pár minút ticha denne. To je všetko.',
   'landing.eyebrow': 'Jemná každodenná prax',
   'landing.featuresBody':
@@ -83,6 +110,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Jemný priestor na každodenné zamyslenie.',
   'mentalHealthJournalLayout.closeMenu': 'Zatvoriť ponuku',
   'mentalHealthJournalLayout.openMenu': 'Otvoriť ponuku',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Hlavná navigácia',
+  'moodHeroCard.entriesThisWeek': '{{count}} tento týždeň',
   'moodHeroCard.streakSuffix': 'denná séria',
   'moodHeroCard.title': 'Dnešné zamyslenie',
   'moodTrendChart.aiBadge': 'Pripravené prehľady umelej inteligencie',
@@ -93,11 +122,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Vaša cesta',
   'profile.fallbackName': 'Reflektor',
   'profile.loadError': 'Nepodarilo sa načítať štatistiky.',
+  'profile.loading': 'Obnovujú sa vaše štatistiky…',
   'profile.longestStreak': 'Najdlhšia séria',
   'profile.memberSince': 'Odrážajúc odvtedy {{date}}',
   'profile.milestones': 'Míľniky',
   'profile.milestonesEmpty':
     'Váš prvý míľnik je už len jeden záznam – píšte, kedykoľvek sa budete cítiť pripravení.',
+  'profile.moodMix': 'Vaša zmes nálad v tejto sezóne',
   'profile.streakValue': '{{days}} deň',
   'profile.totalEntries': 'Úvahy',
   'profile.totalWords': 'Napísané slová',
@@ -110,6 +141,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Napíšte o tomto',
   'resetPassword.eyebrow': 'Nový začiatok',
   'resetPassword.mismatchError': 'Heslá sa nezhodujú.',
+  'resetPassword.passwordLabel': 'Nové heslo',
   'resetPassword.subheading': 'Vyberte si niečo bezpečné – vaše odrazy si to zaslúžia.',
   'resetPassword.tokenPlaceholder': 'Obnoviť kód z e-mailu',
   'settings.dangerDescription':
@@ -121,11 +153,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'Účet sa nepodarilo odstrániť.',
   'settings.exportDescription': 'Tvoje slová patria vždy tebe. Kedykoľvek si stiahnite kópiu.',
   'settings.exportDone': 'Exportované {{format}}.',
+  'settings.exportError': 'Export zlyhal.',
+  'settings.exportHeading': 'Exportujte svoje úvahy',
   'settings.exportLoading': 'Príprava…',
   'settings.eyebrow': 'Tvoj priestor, tvoje pravidlá',
   'settings.languageHeading': 'Jazyk',
   'settings.privacyHeading': 'Súkromie a šifrovanie',
   'settings.remindersHeading': 'Denná pripomienka',
+  'settings.reminderToggleAria': 'Prepnúť denné pripomenutie',
   'settings.reminderToggleDescription':
     'Jedna pokojná pripomienka v čase, ktorý si vyberiete. Žiadne odznaky ani výčitky svedomia.',
   'settings.reminderToggleLabel': 'Jemne postrčiť',
@@ -138,6 +173,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Vytváranie denníka…',
   'signup.subheading': 'Bezpečný priestor pre vaše myšlienky.',
   'wellnessRingsTriad.mindfulnessCaption': 'Gól {{goal}} minúta dnes',
+  'wellnessRingsTriad.mindfulnessLabel': 'Všímavosť',
   'wellnessRingsTriad.sleepCaption': 'Gól {{goal}} hod. / noc',
   'wellnessRingsTriad.sleepLabel': 'Spánok',
+  'wellnessRingsTriad.sleepValue': '{{hours}} h',
+  'wellnessRingsTriad.streakCaption': 'Cieľ {{goal}} dní',
+  'wellnessRingsTriad.streakLabel': 'Séria denníka',
+  'wellnessRingsTriad.streakValue': '{{days}} deň',
 }

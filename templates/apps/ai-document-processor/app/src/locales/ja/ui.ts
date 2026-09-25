@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '質問がある、バグを見つけた、チーム向けのデモを希望する場合は、アカウント設定からご連絡ください — すべてのメッセージはチームの実在の担当者に届きます。',
   'about.contactTitle': 'お問い合わせ',
+  'about.intro':
+    '{{app}}は、スキャンした書類やPDFの山を、構造化された検索可能なファイリング済みデータに変換します。請求書、領収書、契約書、フォームをドロップするだけで、AIが読み取り、抽出、分類、ファイリング — 信頼度を色で示すので、チームは本当に人の確認が必要なものだけをレビューできます。',
+  'about.missionBody':
+    '書類の雑務がチームの一日を奪うべきではありません。抽出されたすべての値は説明可能で監査可能であるべきだと考えています — だからこそ、紙の記録を失わずに自動化を信頼できます。{{app}}は、必要なところには人を介在させながら、山ごとに何時間も節約できるように作られています。',
+  'about.missionTitle': '私たちの使命',
+  'about.subtitle': '書類のOCR、AI抽出、分類、自動ファイリング。',
   'about.title': '{{app}}について',
+  'about.whatYouGetTitle': '得られるもの',
   'authShell.backToLanding': '← ランディングに戻る',
   'common.goToDashboard': 'ダッシュボードへ',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': '今日 · 業務概要',
   'dashboard.heading': 'ドキュメントインテリジェンス',
+  'dashboard.metric.accuracy': '平均精度',
   'dashboard.metric.filed': '本日の振り分け',
   'dashboard.metric.filedCaption': '振り分けルールで自動振り分け',
   'dashboard.metric.processed': '本日の処理数',
@@ -23,11 +33,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'ドキュメント',
   'dashboard.recent.col.uploaded': 'アップロード日時',
   'dashboard.recent.heading': '最近のドキュメント',
+  'dashboard.recent.typeUnknown': '分類待ち',
   'dashboard.subheading':
     'すべてのページが分類、抽出、振り分けされます — 信頼度カラーでレビューを的確に。',
   'documentDetail.audit.heading': '監査タイムライン',
+  'documentDetail.audit.subheading': 'この書類で行われたすべてのステップと、その実行者。',
   'documentDetail.back': 'すべてのドキュメント',
   'documentDetail.downloadHint': 'ダウンロードを使用して元のファイルを開きます。',
+  'documentDetail.extracted.empty': 'まだ抽出されたフィールドはありません。',
   'documentDetail.extracted.heading': '抽出されたフィールド',
   'documentDetail.extracted.subheading':
     '{{count}}フィールド · フィールドをクリックするとページ上で強調表示されます',
@@ -56,13 +69,24 @@ export const ui: UiTranslations = {
   'documents.subheading':
     'ライブラリ内に{{count}}件のドキュメントがあります。新しい順にソートされています。',
   'documents.uploadCta': 'ドキュメントをアップロード',
+  'documentTypeBreakdown.barAria': '種類別の書類構成',
   'documentTypeBreakdown.empty': 'まだ処理されたドキュメントはありません。',
   'documentTypeBreakdown.subtitle': '{{total}}件処理済み',
   'documentTypeBreakdown.title': 'ドキュメント構成',
+  'forgotPassword.backToSignIn': '← サインインに戻る',
   'forgotPassword.checkEmail': 'メールをご確認ください',
   'forgotPassword.tip': '届かない場合は、迷惑メールを確認するか別のアドレスをお試しください。',
+  'landing.copyright':
+    '© {{year}} {{app}}. すべてのページを監査する運用チームのために作られました。',
+  'landing.ctaBody':
+    '14日間のトライアル。カード不要。いつでもキャンセル可能。素早く動き、じっくり監査する運用チームのために作られました。',
   'landing.ctaHeading': '領収書を打ち込むのをやめて、振り分けを始めましょう。',
   'landing.eyebrow': 'OCR · 抽出 · AI振り分け',
+  'landing.featuresHeading': '自らを説明する書類インテリジェンス',
+  'landing.heroSubtitle':
+    '請求書、領収書、契約書、フォームの山をドロップしてください。{{app}}がそれらを分類、抽出、ファイリング — 信頼度を色で示すので、チームは本当に人の確認が必要なものだけをレビューできます。',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': '日次ボリューム · 過去7日間',
   'landing.sampleCardLabel': '本日処理されたドキュメント',
   'landing.sampleCardSubtitle': '請求書、領収書、フォーム全体で平均精度96.2%。',
   'login.hidePassword': 'パスワードを隠す',
@@ -75,6 +99,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} ・404',
   'notFound.home': 'ランディングページを開く',
   'notFound.title': 'そのページはファイルにありません',
+  'parcelaHeroCard.accuracy': 'すべての抽出における平均精度{{value}}%',
   'parcelaHeroCard.change': '{{sign}}{{amount}}% 昨日比',
   'parcelaHeroCard.title': '本日処理されたドキュメント',
   'parcelaLayout.primaryNavLabel': 'メインナビゲーション',
@@ -82,6 +107,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'ドキュメント',
   'pricing.processingLabel': '処理ジョブ',
   'resetPassword.confirmPlaceholder': '新しいパスワードを繰り返す',
+  'resetPassword.hidePassword': 'パスワードを非表示',
   'resetPassword.passwordLabel': '新しいパスワード',
   'resetPassword.showPassword': 'パスワードを表示',
   'resetPassword.subtitle': '8文字以上のものを選んでください。',
@@ -98,10 +124,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'ルールの読み込みに失敗しました。',
   'rules.loading': 'ルールを読み込み中…',
   'rules.matched30d': '過去30日間で{{count}}件のドキュメントが一致しました',
+  'rules.neverUsed': '未使用',
   'rules.newRule': '新規ルール',
   'rules.saveError': 'ルールの保存に失敗しました。',
   'rules.subheading':
     '各種類のドキュメントの振り分け先をシステムに教えます。条件は上から下へ連鎖し、最初に一致したものが優先されます。',
+  'rules.templatesEmpty': 'まだ抽出テンプレートはありません。',
   'rules.templatesHeading': '抽出テンプレート',
   'rules.templatesSubheading': '各ドキュメントタイプで抽出器が使用するフィールドスキーマ。',
   'rules.then': 'そのとき',
@@ -109,17 +137,24 @@ export const ui: UiTranslations = {
   'settings.account.error': '保存に失敗しました。',
   'settings.account.nameLabel': 'ワークスペース名',
   'settings.account.subheading': '通知と監査履歴のための表示名と主要メールアドレス。',
+  'settings.api.confirmRevoke': '確認しますか？',
   'settings.api.copyOnce': 'このキーをコピーしてください — 再度表示されません',
   'settings.api.createdOn': '{{date}}に作成',
   'settings.api.empty': 'APIキーはまだありません。上で生成してください。',
   'settings.api.error': 'キーの作成に失敗しました。',
+  'settings.api.generating': '生成中…',
+  'settings.api.heading': 'API キー',
   'settings.api.labelPlaceholder': 'キーラベル(例:CIアップローダー)',
+  'settings.api.loading': 'キーを読み込み中…',
   'settings.api.newKey': 'キーを生成',
   'settings.api.subheading':
     'スクリプトやERPからドキュメントをプッシュするためにご利用ください。いつでもキーをローテートできます。',
   'settings.integrations.heading': '振り分け連携',
   'settings.integrations.subheading':
     '振り分け済みドキュメントを、チームがすでに使っているクラウドドライブやチャットツールに送信します。',
+  'settings.subheading':
+    '{{app}}ワークスペースのアカウント、APIキー、ファイリング連携を管理します。',
+  'signup.hidePassword': 'パスワードを非表示',
   'signup.identityPrompt': 'どのようにお呼びすればよいですか?',
   'signup.showPassword': 'パスワードを表示',
   'signup.subtitle': '14日間無料、カード不要。',
@@ -127,6 +162,7 @@ export const ui: UiTranslations = {
   'upload.error': 'アップロードに失敗しました。',
   'upload.eyebrow': '取り込み',
   'upload.heading': 'ドキュメントをアップロード',
+  'upload.queue.clear': '完了をクリア',
   'upload.queue.col.confidence': '信頼度',
   'upload.queue.col.file': 'ファイル',
   'upload.queue.detecting': '検出中…',
@@ -139,5 +175,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'または複数のファイルを一度にドロップして、バッチ抽出、分類、振り分けを行えます。',
   'uploadDropZone.cta': 'ファイルを選択',
+  'uploadDropZone.maxSize': '1ファイル最大25 MB · エンドツーエンド暗号化',
   'uploadDropZone.title': '処理を開始するためにドキュメントをドロップ',
 }

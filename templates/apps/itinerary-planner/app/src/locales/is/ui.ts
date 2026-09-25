@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ertu með endurgjöf, fannst þú villu eða ertu að skipuleggja eitthvað stórfenglegt? Hafa samband við okkur í stillingum reikningsins þíns — hver skilaboð fara til alvöru manneskju í teyminu.',
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Bókanir í einum innhólfi — flug, hótel og staðfestingar á viðburðum lenda á nákvæmlega þeim degi sem þau tilheyra.',
+  'about.featureCollab':
+    'Samvinna í rauntíma — bjóddu allt að fimm ferðalöngum í hverja ferð, þar sem allar breytingar samstillast í rauntíma og athugasemdir raðast undir hverja stoppistöð.',
+  'about.featureMapsBudget':
+    'Kort, áfangastaðir og sameiginlegt fjárhagsáætlun — sjáðu alla ferðina á korti, uppgötvaðu áfangastaði valda af ritstjórum og fylgstu með útgjöldum svo enginn eyði of miklu.',
+  'about.featureTimelines':
+    'Dag-fyrir-dag tímalínur — dragðu stoppistöðvar til að endurraða, bættu við samgönguhluta og fylgstu með því að ferðaáætlunin endurreiknast sem eitt lifandi skjal.',
+  'about.intro':
+    '{{app}} breytir möppu fullri af hálfkláruðum áætlunum í eina sameiginlega ferð sem allur hópurinn þinn getur í raun fylgt. Byggðu dag-fyrir-dag ferðaáætlun, bættu við flugi og hótelum, kortleggðu hverja stoppistöð og fylgstu með fjárhagsáætluninni — allt á einum rólegum stað í stað tugi flipa og hópspjalls.',
+  'about.missionBody':
+    'Að skipuleggja ferð ætti að líða eins og ferðin sé þegar að verða betri, ekki eins og heimavinna. {{app}} er til að gera sameiginlegar ferðir áreynslulausar — svo hver ferðalangur mæti vitandi áætlunina og hver stoppistöð segi sögu sem er þess virði að muna.',
+  'about.missionTitle': 'Markmið okkar',
   'about.pageTitle': 'Um {{app}}',
   'auth.legalConsent': 'Með því að halda áfram samþykkir þú',
   'bookings.empty.body': 'Bættu við flugi, hóteli eða afþreyingu til að hefja pósthólfið.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Hótel',
   'bookings.type.other': 'Annað',
   'budgetSpendCard.budgetTotal': 'af {{total}} áætlað',
+  'budgetSpendCard.overBy': '{{amount}} yfir fjárhagsáætlun',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} nýleg',
+  'budgetSpendCard.remaining': '{{amount}} eftir',
   'calendar.eyebrow': 'Árið framundan',
   'calendar.heading': 'Hver ferð á einu dagatali.',
   'calendar.legendHeading': 'Ferðir í þessum mánuði',
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'og',
   'common.goToDashboard': 'Fara á yfirlit',
   'dashboard.budgetHeading': 'Fjárhagsáætlunarpúls',
+  'dashboard.empty.body':
+    'Skipuleggðu fyrstu ferðina þína og mælaborðið þitt fyllist af dag-fyrir-dag tímalínum, fjárhagsáætlunarpúlsi og bókunum.',
+  'dashboard.empty.cta': 'Skipuleggðu fyrstu ferðina þína',
   'dashboard.empty.heading': 'Engar ferðir ennþá — atlasinn þinn er tómur.',
   'dashboard.eyebrow': 'Leiðarstjórnun',
   'dashboard.heading': 'Næsta ævintýri þitt, í einum rólegum horni.',
   'dashboard.newTripCta': 'Byrja nýja ferð',
+  'dashboard.subheading':
+    'Niðurtalning að næstu ferð, útgjaldapúls dagsins og fljótlegt yfirlit yfir hverja ferðaáætlun sem er í gangi.',
   'dashboard.tripsHeading': 'Ferðir í hreyfingu',
   'dashboard.viewAllExpenses': 'Skoða alla útgjöld',
   'dashboard.viewAllTrips': 'Sjá hverja ferð',
   'dayTimelineRow.category.accommodation': 'Vertu',
+  'dayTimelineRow.category.food': 'Matur og drykkur',
+  'dayTimelineRow.category.sightseeing': 'Skoðunarferðir',
   'dayTimelineRow.category.transport': 'Samgöngur',
   'destinationOrbCard.exploreCta': 'Bæta við ferð',
   'destinationOrbCard.tripCount': '{{count}} ferðir',
+  'destinations.empty.body': 'Skiptu aftur yfir í Allt og ritstjóravalið birtist aftur.',
   'destinations.empty.heading': 'Engir áfangastaðir ennþá.',
+  'destinations.emptyFiltered.heading': 'Ekkert merkt svona ennþá.',
   'destinations.errors.load': 'Ekki tókst að hlaða áfangastöðum.',
   'destinations.eyebrow': 'Hvert á að fara næst',
   'destinations.heading': 'Vistað horn og niðurstöður ritstjóra.',
@@ -70,7 +98,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Söluaðili',
   'expenses.formHeading': 'Skrá kostnað fyrir {{trip}}',
   'expenses.heading': 'Hvert ferðafjárhagsáætlunin fer í raun og veru.',
+  'expenses.heroBudget': '{{pct}}% af {{total}} áætlað',
   'expenses.heroEyebrow': '{{trip}} Yfirlit yfir fjárhagsáætlun •',
+  'expenses.heroNoBudget': 'Engin fjárhagsáætlun sett fyrir þessa ferð ennþá.',
   'expenses.noTrips.body': 'Skipuleggðu ferð fyrst og útgjöld fylgja fjárhagsáætlun ferðarinnar.',
   'expenses.noTrips.heading': 'Engar ferðir ennþá.',
   'expenses.receiptCount': '{{count}} kvittanir',
@@ -82,12 +112,16 @@ export const ui: UiTranslations = {
     'Allar kvittanir og staðfestingar falla í réttan flokk hér og engin þörf er á töflureikni.',
   'forgotPassword.eyebrow': 'Endurheimta ferðaáætlun þína',
   'forgotPassword.heading': 'Gleymdirðu lykilorðinu þínu?',
+  'forgotPassword.subheading':
+    'Sláðu inn netfangið sem þú notaðir fyrir {{appName}} og við sendum hlekk til að endurstilla lykilorðið þitt.',
   'forgotPassword.submit': 'Senda endurheimtartölvupóst',
   'forgotPassword.submitPending': 'Sendi endurheimtartölvupóst…',
   'forgotPassword.successHint':
     'Enginn tölvupóstur ennþá? Athugaðu ruslpóstmöppuna þína eða reyndu aftur með öðru netfangi.',
   'forgotPassword.successSubheading':
     'Við sendum endurheimtartengil til {{email}} Tengillinn er gildur í 30 mínútur.',
+  'forgotPassword.tryAgain': 'Senda á annað netfang',
+  'landing.cta.eyebrow': 'Byrjaðu á ókeypis áætluninni',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Stofna ókeypis aðgang',
   'landing.cta.subheading':
@@ -99,8 +133,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Byrjaðu ókeypis ferð',
   'landing.hero.ctaSecondary': 'Sjáðu sýnishorn af ferð',
+  'landing.hero.eyebrow': 'Ferðaáætlun · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint breytir möppu fullri af hálfgerðum áætlunum í sameiginlega, daglega ferðaáætlun sem hópurinn þinn getur í raun fylgt — með bókunum, kortum og fjárhagsáætlun á einum stað.',
+  'landing.hero.title': 'Skipuleggið þetta einu sinni. Gangið um þetta saman.',
   'landing.nav.join': 'Byrjaðu ókeypis ferð',
   'landing.nav.preview': 'Innan leiðarpunkts',
   'landing.preview.cta': 'Skipuleggðu einn af þínum eigin',
@@ -108,6 +144,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Nokkrar ferðir sem ferðalangar eru að fara í núna',
   'login.eyebrow': 'Meðlimasvæði',
   'login.heading': 'Velkominn aftur, ferðalangur',
+  'login.noAccount': 'Nýr/ný í Tessera?',
   'login.signupLink': 'Stofna ókeypis aðgang',
   'login.subheading':
     'Skráðu þig inn til að stjórna ferðum þínum, dagsáætlunum, bókunum og dagbókarfærslum sem þú hefur þegar byrjað á.',
@@ -118,6 +155,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Gat ekki uppfært tilkynninguna.',
   'notifications.heading': 'Hvað breyttist í ferðum þínum í dag.',
   'notifications.markUnread': 'Merkja sem ólesið',
+  'notifications.subheading':
+    '{{count}} ný — bókunarstaðfestingar, athugasemdir samstarfsaðila, verðlækkanir og áminningar.',
   'notifications.time.daysAgo': '{{count}} fyrir dögum',
   'notifications.time.hoursAgo': '{{count}} fyrir klst.',
   'notifications.time.justNow': 'rétt í þessu',
@@ -136,6 +175,7 @@ export const ui: UiTranslations = {
     'Tengdar þjónustur, gjaldmiðill, tilkynningar og innskráningarupplýsingar sem þú notar til að skrá þig inn.',
   'signup.and': 'og',
   'signup.eyebrow': 'Tengjast við leiðarpunkt',
+  'signup.haveAccount': 'Ertu þegar á flakki?',
   'signup.heading': 'Skipuleggið þetta einu sinni. Gangið um þetta saman.',
   'signup.namePlaceholder': 'Íris Larsen',
   'signup.subheading':
@@ -147,6 +187,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Opna ferðaáætlun',
   'tripCountdownHeroCard.ctaSecondary': 'Skipuleggja aðra ferð',
   'tripCountdownHeroCard.daysLabel': '{{days}} dagar eftir',
+  'tripCountdownHeroCard.eyebrow': 'Næsta ævintýri · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} nætur — ferðaáætlunin þín er tilbúin í ferð.',
   'tripCoverCard.stops': '{{count}} stoppistöðvar',
   'tripCoverCard.travelers': '{{count}} ferðalangar',
   'tripDetail.addActivity': 'Bæta við virkni',
@@ -156,6 +199,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Heiti virkni',
   'tripDetail.adding': 'Bætir við…',
   'tripDetail.backToTrips': 'Til baka í allar ferðir',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Ferðalangar',
   'tripDetail.dayLabel': 'Dagur {{day}}',
   'tripDetail.empty': 'Engar athafnir ennþá — bæta við einni til að hefja tímalínuna.',
@@ -166,14 +210,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Ferðaáætlun • {{country}}',
   'tripDetail.invite': 'Bjóða',
   'tripDetail.inviteLabel': 'Boða með tölvupósti',
+  'tripDetail.invitePlaceholder': 'einhver@example.com',
   'tripDetail.inviteSent': 'Boð sent til {{email}} .',
   'tripDetail.inviting': 'Sendi…',
   'tripDetail.loading': 'Hleður ferð…',
   'tripDetail.noCollaborators': 'Bara þú, í bili.',
+  'tripDetail.notesHeading': 'Ferðaskýringar',
   'tripDetail.notesPlaceholder': 'Engar athugasemdir ennþá.',
   'tripDetail.notFound.heading': 'Ferð fannst ekki',
   'tripDetail.openBookings': 'Opna bókanir í pósthólfinu',
   'tripDetail.shareCopied': 'Deilingartengill afritaður á klippiborð:',
+  'tripDetail.shareReady': 'Deilihlekkur tilbúinn:',
   'tripDetail.stops': '{{count}} stoppistöðvar',
   'tripDetail.timelineEyebrow': 'Tímalína dagsins',
   'tripDetail.timelineHeading': 'Dagleg áætlun',
@@ -191,6 +238,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Ferðalangar',
   'tripPlanner.heading': 'Teiknaðu upp ferð á innan við mínútu.',
   'tripPlanner.preview.eyebrow': 'Forskoðun í beinni',
+  'tripPlanner.preview.placeholderCountry': 'Veldu land',
   'tripPlanner.preview.placeholderDestination': 'Næsta ævintýri þitt',
   'tripPlanner.section1.title': 'Hvar og hvenær',
   'tripPlanner.section2.title': 'Ferðalangar og fjárhagsáætlun',
@@ -199,10 +247,13 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Dagur {{day}} Bætið við stoppistöðvum, samgöngum og bókunum hér.',
   'tripPlanner.section3.day2': 'Dagur {{day}} Bætið við stoppistöðvum, samgöngum og bókunum hér.',
   'tripPlanner.section3.day3': 'Dagur {{day}} Bætið við stoppistöðvum, samgöngum og bókunum hér.',
+  'tripPlanner.section3.title': 'Byrjunaráætlun dags',
   'tripPlanner.subheading':
     'Settu grunnatriðin hér að neðan og þú getur alltaf boðið samstarfsaðilum, dregið inn viðkomustað og framsent bókanir síðar.',
   'tripPlanner.submit': 'Búa til ferð',
   'tripPlanner.submitting': 'Að búa til…',
+  'trips.empty.body': 'Skiptu aftur yfir í Allar ferðir eða byrjaðu að skipuleggja næsta flakk.',
+  'trips.empty.cta': 'Skipuleggja ferð',
   'trips.empty.heading': 'Ekkert passar við þá síu ennþá.',
   'trips.eyebrow': 'Atlasinn',
   'trips.filterLabel': 'Sía ferðir eftir stöðu',
@@ -214,6 +265,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Engar ferðir ennþá.',
   'trips.pastHeading': 'Ævintýri í fortíðinni',
   'trips.subheading': '{{count}} Ferðaáætlanir — fortíð, nútíð og einhvern tímann.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Skipuleggðu einu sinni. Flakkaðu saman. Mundu það að eilífu.',
+  'waypointAuthShell.testimonial.author': 'Iris og Jonas · {{appName}} meðlimir síðan 2024',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} breytti annasamri 3 vikna ferð um fjögur lönd í afslappaðustu ferðaáætlun sem við höfum nokkurn tíma deilt.',
   'waypointLayout.mobileNavClose': 'Loka flakkvalmynd',
   'waypointLayout.primaryNavLabel': 'Aðalflakk',
 }

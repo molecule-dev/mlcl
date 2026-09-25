@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'မေးခွန်းများ၊ အကြံပြုချက်များ သို့မဟုတ် အင်္ဂါရပ်တောင်းဆိုမှုရှိပါသလား။ Settings → Notifications မှ {{app}} အဖွဲ့ထံ ဆက်သွယ်ပါ၊ သို့မဟုတ် အချိန်မရွေး ကျွန်ုပ်တို့ထံ စာရေးပေးပါ — မက်ဆေ့ခ်ျတိုင်း လူတစ်ဦးထံ ရောက်ပါသည်။',
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.featureCapture':
+    'ဓာတ်ပုံတင်ပြီး ပြေစာဖမ်းယူနိုင်ခြင်း — ပုံများကို သက်ဆိုင်ရာ အသုံးစရိတ်တွင် လိုင်းအလိုက် ချိတ်ဆက်ပေးသည်။',
+  'about.featureExport':
+    'အစီရင်ခံစာ၊ အသုံးစရိတ်နှင့် အတည်ပြုမှုအခြေအနေ တစ်ခုချင်းစီကို စစ်ဆေးနိုင်သော CSV ဖိုင်များ — သင့်စာရင်းကိုင်အဖွဲ့အတွက် အသင့်။',
+  'about.featurePolicy':
+    'မူဝါဒထိန်းချုပ်မှုများ — နေ့စဉ်ကန့်သတ်ချက်၊ အမျိုးအစားအလိုက် ကန့်သတ်ချက်နှင့် ပြေစာလိုအပ်သော သတ်မှတ်ချက်များကို တင်သွင်းချိန်တွင် ကျင့်သုံးသည်။',
+  'about.featureWorkflow':
+    'သုံးသပ်သူမှတ်ချက်များ၊ မူဝါဒချိုးဖောက်မှု အလံများနှင့် တစ်ချက်နှိပ်ပြီး ပြန်အမ်းငွေအမှတ်အသားပြုခြင်းပါသော အဆင့်နှစ်ဆင့် အတည်ပြုလုပ်ငန်းစဉ်။',
+  'about.intro':
+    '{{app}} သည် ဘဏ္ဍာရေးအဖွဲ့များနှင့် ၎င်းတို့ ပြန်အမ်းပေးသော သူများအတွက် အသုံးစရိတ်စီမံခန့်ခွဲမှု ပလက်ဖောင်းတစ်ခု ဖြစ်သည်။ ပြေစာဖမ်းယူပါ၊ အသုံးစရိတ်တင်ပါ၊ အစီရင်ခံစာကို အတည်ပြုမှုလုပ်ငန်းစဉ်သို့ ပို့ပါ၊ ပြန်အမ်းငွေတိုင်းကို ခြေရာခံပါ — စာရင်းဇယားအခမ်းအနား မလိုဘဲ။',
+  'about.missionBody':
+    'ပြန်အမ်းငွေသည် လျင်မြန်၊ တရားမျှတပြီး စစ်ဆေးနိုင်ရမည်။ တင်သွင်းသူများ မတိုက်တွန်းရဘဲ ပြန်အမ်းငွေရရှိစေရန်၊ အတည်ပြုသူများ အတည်ပြုသည့်အရာကို အတိအကျမြင်စေရန်၊ ဘဏ္ဍာရေးအတွက် ဒေါ်လာတိုင်း၏ သန့်ရှင်းသော ခြေရာလမ်းရှိစေရန် — မူဝါဒစစ်ဆေးမှုများအပါအဝင် — {{app}} ကို ကျွန်ုပ်တို့ တည်ဆောက်ခဲ့သည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'approvals.approve': 'Approve',
   'approvals.approving': 'အတည်ပြုနေသည်…',
   'approvals.confirmReject': 'ငြင်းပယ်ရန် အတည်ပြုပါ',
+  'approvals.empty': 'အားလုံး ပြီးပါပြီ — စောင့်ဆိုင်းနေသော အစီရင်ခံစာ မရှိပါ။',
   'approvals.eyebrow': 'မန်နေဂျာတန်းစီခြင်း',
   'approvals.kpi.flaggedLabel': 'မူဝါဒကို အလံပြထားသည်',
+  'approvals.kpi.queueLabel': 'သုံးသပ်မှု စောင့်ဆိုင်းနေသည်',
   'approvals.kpi.totalLabel': 'ဆိုင်းငံ့ထားသော တန်ဖိုး',
   'approvals.lineCount': '{{count}} ကုန်ကျစရိတ်များ',
   'approvals.queueFallback':
     'တိုက်ရိုက်စောင့်ဆိုင်းစာရင်း မရနိုင်ပါ — ရွေးချယ်ထားသော သရုပ်ပြဒေတာကို ပြသနေသည်။',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'ငြင်းပယ်နေသည်…',
+  'approvals.rejectPlaceholder': 'အကြောင်းရင်း (လိုအပ်သည်)',
   'approvals.rejectPrompt': 'ဒီအစီရင်ခံစာကို ဘာလို့ငြင်းပယ်တာလဲ။',
   'approvals.review': 'ပြန်လည်သုံးသပ်ချက်',
   'approvals.title': 'စောင့်ဆိုင်းနေသော အတည်ပြုချက်များ',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+၁၈%',
   'dashboard.kpi.approvedLabel': 'အတည်ပြုပြီး · MTD',
   'dashboard.kpi.pendingDelta': 'ဒီအပတ်မှာ +၂',
+  'dashboard.kpi.pendingLabel': 'ပြန်လည်သုံးသပ်ခြင်းကို ဆိုင်းငံ့ထားသည်',
   'dashboard.kpi.receiptsDelta': 'လုပ်ဆောင်ချက် လိုအပ်ပါသည်',
   'dashboard.kpi.receiptsLabel': 'ပြေစာများကို စောင့်ဆိုင်းနေသည်',
   'dashboard.kpi.reimbursedDelta': '+ဒေါ်လာ ၂.၄၀၀၀',
   'dashboard.kpi.reimbursedLabel': 'ပြန်အမ်းငွေ · MTD',
   'dashboard.newReport': 'အစီရင်ခံစာအသစ်',
+  'dashboard.recent.empty': 'အစီရင်ခံစာ မရှိသေးပါ — အပေါ်တွင် ပထမဆုံးတစ်ခု စတင်ပါ။',
   'dashboard.recent.title': 'မကြာသေးမီက အစီရင်ခံစာများ',
   'dashboard.recent.viewAll': 'အစီရင်ခံစာအားလုံးကို ကြည့်ရှုပါ',
   'dashboard.summaryFallback':
@@ -41,11 +62,19 @@ export const ui: UiTranslations = {
   'expenses.listFallback':
     'တိုက်ရိုက်စာရင်း မရရှိနိုင်ပါ — ရွေးချယ်ထားသော သရုပ်ပြဒေတာကို ပြသထားသည်။',
   'expenses.searchPlaceholder': 'ကုန်သည် သို့မဟုတ် အမျိုးအစားကို ရှာပါ…',
+  'expenses.subtotal': '{{count}} အသုံးစရိတ် · စုစုပေါင်းခွဲ',
   'expenses.title': 'ကုန်ကျစရိတ်များ',
+  'forgotPassword.continue': 'ကျွန်ုပ်တွင် ကုဒ်တစ်ခု ရှိသည် · ဆက်လုပ်ပါ',
+  'forgotPassword.subheading':
+    'သင့်အလုပ်အီးမေးလ်ကို ထည့်ပါ၊ စကားဝှက်အသစ် သတ်မှတ်ရန် လင့်ခ်တစ်ခု ကျွန်ုပ်တို့ ပေးပို့ပါမည်။',
   'forgotPassword.successBody':
     'အကောင့်တစ်ခုရှိနေပါက {{email}} နောက်မိနစ်အနည်းငယ်အတွင်း reset link ကို သင်ရရှိပါမည်။',
+  'landing.copyright': '© {{year}} {{app}}။ Molecule.dev ဖြင့် တည်ဆောက်ထားသည်။',
+  'landing.ctaBody':
+    'လစဉ် ပထမဆုံး အသုံးစရိတ် 25 ခုအထိ အခမဲ့။ ခရက်ဒစ်ကတ် မလိုပါ၊ အကောင်အထည်ဖော်ရေး ခေါ်ဆိုမှု မလိုပါ။',
   'landing.ctaHeading': 'အသင်းအတွက် ပေးဆပ်ရမယ့်အရာတွေကို ပြန်လည်ရယူဖို့ အဆင်သင့်ဖြစ်ပြီလား။',
   'landing.eyebrow': 'ဘဏ္ဍာရေးအဖွဲ့များအတွက် ကုန်ကျစရိတ်အစီရင်ခံစာများ',
+  'landing.featuresHeading': 'ပြန်အမ်းငွေ — အေးချမ်းသော လုပ်ငန်းခွင်တစ်ခုတွင်',
   'landing.heroSubtitle':
     'စာရင်းဇယားအခမ်းအနားမပါဘဲ စီးပွားရေးကုန်ကျစရိတ်များကို တင်သွင်း၊ အတည်ပြုပြီး ပြန်လည်ပေးချေပါ။ ပြေစာ OCR၊ မူဝါဒစစ်ဆေးမှုများနှင့် ပွင့်လင်းမြင်သာသော ခွင့်ပြုချက်အချိန်ဇယား — အားလုံးကို တည်ငြိမ်သော အလုပ်ခွင်တစ်ခုတည်းတွင် ရရှိနိုင်ပါသည်။',
   'landing.heroTitle': 'ပြေစာတိုင်းကို ပြန်လည်ရရှိပါပြီ။',
@@ -63,10 +92,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'မှတ်စုများ',
   'newExpense.descriptionPlaceholder':
     'ဒီကုန်ကျစရိတ်ဟာ ဘာကြောင့် စီးပွားရေးနဲ့ သက်ဆိုင်တာလဲ (သင့်ခွင့်ပြုချက်ရသူ မြင်နိုင်ပါတယ်)။',
+  'newExpense.eyebrow': 'ပြန်အမ်းနိုင်သော အရာ',
   'newExpense.merchant': 'ကုန်သည်',
   'newExpense.merchantPlaceholder': 'ဟိုတယ် အက်ဒ်လွန် ကမ်ပင်စကီ',
   'newExpense.policyHint':
     'သတိပေးချက်- တစ်ရက်လျှင် ဒေါ်လာ ၈၀ ကျော်သော အစားအစာများ သို့မဟုတ် ဒေါ်လာ ၂၅၀ ကျော်သော မည်သည့်ပစ္စည်းမဆို အကြောင်းပြချက်မှတ်စု လိုအပ်ပါသည်။',
+  'newExpense.receipt': 'ပြေစာ',
+  'newExpense.receiptHint': 'JPG၊ PNG သို့မဟုတ် PDF · အများဆုံး 10 MB',
   'newExpense.receiptOcrHint': 'OCR ကြိုတင်ဖြည့်သွင်းထားသော အကွက်များ',
   'newExpense.receiptPrompt':
     'ဓာတ်ပုံ သို့မဟုတ် PDF ဖိုင်ကို ဤနေရာတွင် ထည့်ပါ၊ သို့မဟုတ် ကြည့်ရှုရန် နှိပ်ပါ',
@@ -78,17 +110,21 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'ပြေစာကို ရိုက်ယူပါ သို့မဟုတ် အပ်လုဒ်လုပ်ပါ၊ ထို့နောက် Recoup သည် ကုန်သည်၊ ရက်စွဲနှင့် စုစုပေါင်းကို ကြိုတင်ဖြည့်ပေးပါမည်။ သိမ်းဆည်းခြင်းမပြုမီ အောက်ပါအားလုံးကို အတည်ပြုပါ။',
   'newExpense.title': 'ကုန်ကျစရိတ်ထည့်ပါ',
+  'newReport.approverHint':
+    'ဤအစီရင်ခံစာကို သုံးသပ်ရန် တင်သွင်းသောအခါ သူတို့ အီးမေးလ် လက်ခံရရှိမည်။',
   'newReport.approverLabel': 'အတည်ပြုသူ အီးမေးလ် (ရွေးချယ်နိုင်သည်)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'ရရှိနိုင်သော ကုန်ကျစရိတ်များ',
   'newReport.createFailed': 'အစီရင်ခံစာ ဖန်တီး၍မရပါ။ ထပ်မံကြိုးစားပါ။',
   'newReport.draftsFallback':
     'တိုက်ရိုက်ကုန်ကျစရိတ်စာရင်း မရရှိနိုင်ပါ — ရွေးချယ်ထားသော သရုပ်ပြဒေတာကို ပြသထားသည်။',
+  'newReport.eyebrow': 'အသုံးစရိတ်များ အုပ်စုဖွဲ့ပါ · အတည်ပြုရန် တင်သွင်းပါ',
   'newReport.includedCount': '{{count}} ပါဝင်သည်',
   'newReport.purposeLabel': 'စီးပွားရေးရည်ရွယ်ချက်',
   'newReport.purposePlaceholder':
     'ဤကုန်ကျစရိတ်များနှင့် သက်ဆိုင်သည့် ခရီးစဉ် သို့မဟုတ် ပရောဂျက်ကို ဖော်ပြပါ (သင့်အတည်ပြုသူနှင့် ဘဏ္ဍာရေးဌာနမှ မြင်နိုင်သည်)။',
   'newReport.saveDraft': 'မူကြမ်းအဖြစ် သိမ်းဆည်းပါ',
+  'newReport.saveDraftFailed': 'မူကြမ်း သိမ်းဆည်း၍ မရပါ။ ထပ်မံကြိုးစားပါ။',
   'newReport.submit': 'အတည်ပြုချက်အတွက် တင်ပြပါ',
   'newReport.submitFailed': 'အစီရင်ခံစာ တင်သွင်း၍မရပါ။ ထပ်မံကြိုးစားပါ။',
   'newReport.summary': 'အစီရင်ခံစာအကျဉ်းချုပ်',
@@ -102,17 +138,24 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'တိုက်ရိုက်ထုတ်လွှင့်မှု မရရှိနိုင်ပါ — ရွေးချယ်ထားသော သရုပ်ပြဒေတာကို ပြသနေသည်။',
   'notifications.openReport': 'အစီရင်ခံစာဖွင့်ပါ ›',
+  'pricing.approvalsLabel': 'အတည်ပြုမှုများ',
   'pricing.expensesLabel': 'ကုန်ကျစရိတ်များ',
   'pricing.heading': 'အတည်ပြုချက်များ',
   'pricing.policiesLabel': 'မူဝါဒများ',
   'pricing.receiptsLabel': 'ပြေစာများ',
   'recoveredAmountHeroCard.label': 'ပြန်လည်ရရှိငွေ · YTD',
+  'recoveredAmountHeroCard.pending':
+    'အတည်ပြုသူအားလုံးတွင် လက်ရှိ သုံးသပ်မှု စောင့်ဆိုင်းနေသော အစီရင်ခံစာ {{count}} ခု။',
+  'reports.approvalFlow': 'အတည်ပြုမှု လုပ်ငန်းစဉ်',
   'reports.backToList': 'အစီရင်ခံစာများသို့ ပြန်သွားရန်',
   'reports.detailFallback':
     'တိုက်ရိုက်အစီရင်ခံစာ မရရှိနိုင်ပါ — ရွေးချယ်ထားသော သရုပ်ပြဒေတာကို ပြသနေသည်။',
   'reports.lineItems': 'လိုင်းပစ္စည်းများ',
   'reports.lineItemsCount': '{{count}} ကုန်ကျစရိတ်များ',
+  'reports.lineItemsEmpty': 'ဤအစီရင်ခံစာတွင် အသုံးစရိတ် မရှိသေးပါ။',
+  'reports.openLibrary': 'အစီရင်ခံစာ စာကြည့်တိုက် ဖွင့်ပါ',
   'reports.policyTitle': 'မူဝါဒအလံ',
+  'reports.selectPrompt': 'အသေးစိတ်ကြည့်ရန် စာကြည့်တိုက်မှ အစီရင်ခံစာတစ်ခု ရွေးပါ။',
   'reports.summary.lineCount': 'လိုင်းပစ္စည်းများ',
   'reports.summary.reimbursable': 'ပြန်အမ်းငွေရနိုင်သည်',
   'reports.summary.total': 'စုစုပေါင်း အစီရင်ခံစာ',
@@ -122,6 +165,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'တိုက်ရိုက်စာရင်း မရရှိနိုင်ပါ — ရွေးချယ်ထားသော သရုပ်ပြဒေတာကို ပြသထားသည်။',
   'reportsList.newReport': 'အစီရင်ခံစာအသစ်',
+  'reportsList.submittedOn': '{{date}} တွင် တင်သွင်းခဲ့သည်',
   'reportsList.title': 'အစီရင်ခံစာစာကြည့်တိုက်',
   'resetPassword.hidePassword': 'စကားဝှက်ကို ဝှက်ပါ',
   'resetPassword.newPasswordLabel': 'စကားဝှက်အသစ်',
@@ -147,6 +191,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'သိမ်းဆည်းပြီးပါပြီ ✓',
   'settings.profileSaveFailed': 'ပရိုဖိုင်ကို အပ်ဒိတ်လုပ်၍မရပါ။ ထပ်ကြိုးစားပါ။',
   'signup.heading': 'သင့်ရဲ့ Recoup အကောင့်ကို ဖန်တီးပါ',
+  'signup.hidePassword': 'စကားဝှက်ကို ဝှက်ပါ',
   'signup.namePlaceholder': 'မာယာ အိုကာဖော်',
   'signup.showPassword': 'စကားဝှက်ပြပါ',
   'signup.subheading': 'လစဉ် ၂၅ ကြိမ် ကုန်ကျစရိတ်အတွက် အခမဲ့ — ခရက်ဒစ်ကတ် မလိုအပ်ပါ။',

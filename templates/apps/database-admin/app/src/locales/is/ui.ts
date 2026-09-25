@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Hafðu samband við okkur',
   'about.eyebrow': 'Um',
+  'about.featureConnections':
+    'Tengistjóri sem geymir gagnagrunnana þína á öruggan hátt og litakóðar þá — skilríki eru dulkóðuð í hvíld, aldrei í hreinu textaformi.',
+  'about.featureMonitoring':
+    'Vöktun í rauntíma á afköstum fyrirspurna og virkni gagnagrunnsins, með flýtileiðum á lyklaborði og skipanavalmynd til að stýra öllu án handa.',
+  'about.featurePlans':
+    'Áskriftir sem vaxa með þér — Ókeypis fyrir einstaklinga, Pro og Team fyrir fleiri tengingar, lengri geymslu fyrirspurna, útflutning og háþróaða eiginleika.',
+  'about.featureQueryEditor':
+    'SQL-ritill knúinn af Monaco með fyrirspurnasögu, vistuðum fyrirspurnum og eins-smells CSV-útflutningi á niðurstöðum þínum.',
+  'about.featureSchema':
+    'Skema- og töfluskoðari til að vafra um gagnagrunna, töflur og dálka, og skoða, sía og breyta röðum beint.',
+  'about.missionTitle': 'Markmið okkar',
   'authShell.commands': 'Skipanir',
   'authShell.ssoSupported': 'SSO stutt',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Fyrirspurnir',
   'connections.schema': 'Skema',
   'connections.subtitle': 'Stjórnaðu gagnagrunnstengingum þínum.',
+  'connections.test': 'Próf',
   'databaseAdminLayout.adminRole': 'Stjórnunarhlutverk',
   'databaseAdminLayout.commandPalette': 'Skipanapalletta',
   'databaseAdminLayout.commands': 'skipanir',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Ný tenging',
   'databaseAdminLayout.queries': 'Fyrirspurnir',
   'databaseAdminLayout.ready': 'Tilbúinn',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Leita að skipunum, fyrirspurnum, töflum…',
   'databaseAdminLayout.user': 'Notandi',
   'editConnection.confirmDelete': 'Eyða þessari tengingu?',
   'editConnection.deleteButton': 'Eyða tengingu',
+  'editConnection.newPassword': 'Nýtt lykilorð (skildu eftir autt til að halda því)',
   'editConnection.saved': 'Tenging vistuð.',
   'editConnection.title': 'Breyta tengingu',
   'forgotPassword.success':
@@ -47,6 +62,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Árangur',
   'monitoring.title': 'Eftirlit',
   'monitoring.totalQueries': 'Heildarfjöldi fyrirspurna',
+  'nav.schema': 'Skema',
   'newConnection.database': 'Gagnagrunnur',
   'newConnection.engine': 'Vél',
   'newConnection.host': 'Gestgjafi',
@@ -82,6 +98,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Engin tenging tengd þessum bút.',
   'savedQuery.notBound': 'Ekki bundið',
   'savedQuery.title': 'Vistað fyrirspurn',
+  'schema.columns': 'Dálkar',
   'schema.foreignKeys': 'Erlendum lyklum',
   'schema.indexes': 'Vísitölur',
   'schemaExplorer.browseRows': 'Skoða raðir',
@@ -90,14 +107,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'núllstillanlegt',
   'schemaExplorer.colType': 'gerð',
   'schemaExplorer.noColumns': 'Engir dálkar.',
+  'schemaExplorer.noForeignKeys': 'Engir aðkomulyklar.',
   'schemaExplorer.noIndexes': 'Engar vísitölur.',
   'schemaExplorer.noTables': 'Engin borð',
   'schemaExplorer.pickATable': 'Veldu töflu úr hliðarstikunni.',
   'schemaExplorer.tables': 'Töflur',
   'schemaExplorer.title': 'Skemakönnunarforrit',
+  'settings.session': 'Setu',
   'settings.subtitle': 'Stjórnaðu reikningnum þínum og áætlun.',
   'signup.heading': 'Stofnaðu Quarry reikninginn þinn',
   'signup.tagline': 'Fáðu aðgang á innan við mínútu.',
   'tableBrowser.noRows': 'Þessi tafla hefur engar raðir ennþá.',
+  'tableBrowser.subtitle': 'Vafra um raðir úr fjartengdum gagnagrunni þínum.',
   'tableBrowser.title': 'Að skoða raðir úr fjarlægum gagnagrunni þínum.',
 }

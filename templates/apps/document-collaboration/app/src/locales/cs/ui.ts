@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Máte zpětnou vazbu, našli jste chybu nebo chcete {{app}} pro své studio či tým? Ozvěte se z nastavení účtu — každá zpráva se dostane ke skutečnému člověku z týmu.',
   'about.contactTitle': 'Kontaktujte nás',
+  'about.intro':
+    '{{app}} je studio pro společnou tvorbu, kde editoři, autoři a týmy píší společně v reálném čase. Otevřete dokument a stránka se stane sdílenou — kurzory se pohybují, komentáře se řadí na okraj a každá revize je bezpečně uložena v historii.',
+  'about.missionBody':
+    'Věříme, že si dlouhé texty zaslouží klidné a soustředěné místo — takové, které je postavené kolem rukopisu, ne kolem schůzky nebo schránky. Náš editor, přítomnost v reálném čase a historie verzí jsou navrženy tak, aby spolupracovníci mohli společně postupovat rychle, aniž by kdokoli ztratil odstavec nebo myšlenku.',
+  'about.missionTitle': 'Naše poslání',
+  'about.subtitle': 'Myslete společně, pište navždy.',
   'about.title': 'O aplikaci {{app}}',
   'comments.addFailed': 'Nepodařilo se odeslat komentář.',
   'comments.backToDoc': 'Zpět k rukopisu',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Diskusní vlákna',
   'comments.loading': 'Načítání vláken…',
   'comments.newPlaceholder': 'Přidejte komentář k rukopisu…',
+  'comments.newSubmit': 'Zveřejnit',
   'comments.reopen': 'Znovu otevřít',
   'comments.reopenFailed': 'Nepodařilo se znovu otevřít.',
   'comments.replyFailed': 'Odpověď se nepodařilo odeslat.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Poslední návrhy, sdílené dokumenty a dnešní úpravy.',
   'dashboard.viewFeed': 'Zdroje →',
   'editor.back': 'Zpět k rukopisům',
+  'editor.bodyLabel': 'Tělo dokumentu',
   'editor.bodyPlaceholder': 'Začněte tam, kde bliká kurzor.',
   'editor.comments': 'Komentáře',
   'editor.createFailed': 'Dokument se nepodařilo vytvořit.',
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Pokud existuje účet s adresou {{email}}, odesíláme vám odkaz pro resetování hesla.',
+  'forgotPassword.sentHeading': 'Zkontrolujte svůj e-mail',
+  'forgotPassword.submitting': 'Odesílání\\u2026',
   'forgotPassword.subtitle': 'Zašleme vám e-mailem odkaz pro obnovení hesla.',
   'landing.copyright': '\\u00a9 {{year}} {{app}}. Vytvořeno pomocí Molecule.',
+  'landing.ctaBody':
+    'Zdarma pro samostatné autory. Plány Studio pro týmy editorů, ghostwriterů a recenzentů.',
   'landing.ctaHeading': 'Otevřete stránku. Nechte kurzor začít.',
   'landing.ctaPrimary': 'Otevřít studio',
   'landing.eyebrow': 'Pro autory, redaktory a týmy',
   'landing.featuresEyebrow': 'Co získáte',
   'landing.featuresHeading': 'Prostor pro psaní delších textů.',
+  'landing.featuresSubtitle':
+    '{{appName}} je postaveno kolem rukopisu — ne kolem schůzky, ne kolem schránky.',
   'landing.getStarted': 'Otevřete studio',
   'landing.heroCta': 'Začít psát',
   'landing.heroSubtitle':
@@ -95,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} nečtené · komentáře, zmínky, pozvánky ke sdílení a žádosti o návrhy.',
   'presenceAvatars.label': '{{count}} spolupracovníci',
+  'privacy.intro': 'Jak shromažďujeme, používáme a chráníme vaše informace.',
   'privacy.title': 'Zásady ochrany osobních údajů',
   'profile.about.description': 'Krátký životopis pro váš veřejný profil a stránky přispěvatelů.',
   'profile.eyebrow': 'Identita studia',
@@ -106,7 +123,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Přítomnost',
   'profile.pronouns': 'Zájmena',
   'profile.publicToggle': 'Zobrazit profil spoluhráčům',
+  'profile.role': 'Role / pozice',
   'profile.subtitle': 'Jak na vás působí vaši spolupracovníci.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} spisovatelé působící ve studiu',
   'quillonAuthBrandPanel.quote':
     '„Psaní je jediná věc, při které nemám pocit, že bych měl dělat něco jiného.“',
@@ -114,6 +133,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Otevřít →',
   'quillonKpiCard.trend': 'Současný trend',
   'quillonLayout.menu': 'Nabídka',
+  'quillonLayout.mobileNavLabel': 'Mobilní navigace',
   'quillonLayout.primaryNavLabel': 'Primární navigace',
   'quillonStudioHero.collab': 'Spolupracovníci',
   'quillonStudioHero.docs': 'Dokumenty, s nimiž se pracovalo',
@@ -123,7 +143,9 @@ export const ui: UiTranslations = {
     'Vezměte rukopis do ruky, napište komentář, posuňte text o odstavec dál.',
   'quillonStudioHero.words': 'Dnešní slova',
   'resetPassword.confirmPlaceholder': 'Zopakujte nové heslo',
+  'resetPassword.passwordLabel': 'Nové heslo',
   'resetPassword.passwordPlaceholder': 'Zadejte nové heslo',
+  'resetPassword.submitting': 'Resetování…',
   'resetPassword.subtitle': 'Zvolte si silné heslo – alespoň 12 znaků.',
   'settings.account.description': 'Jak se přihlásit.',
   'settings.billing.canceled': 'Předplatné zrušeno.',
@@ -132,7 +154,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Není nakonfigurováno',
   'settings.billing.updated': 'Plán byl aktualizován.',
   'settings.editor.description': 'Jak se plátno chová při psaní.',
+  'settings.editor.title': 'Předvolby editoru',
   'settings.eyebrow': 'Nastavení studia',
+  'settings.language.title': 'Jazyk',
   'settings.notifications.${n.key}.description': 'Jazyk',
   'settings.notifications.description': 'Vyberte si, co se vám bude zobrazovat ve schránce.',
   'settings.subtitle': 'Upravte si nastavení oznámení, pracovní plochu editoru a předvolby účtu.',
@@ -141,6 +165,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Sdíleli to se mnou',
   'shared.loadFailed': 'Nepodařilo se načíst sdílené dokumenty.',
   'shared.subtitle': 'Rukopisy, podklady a poznámky z ostatních částí studia.',
+  'signup.brandAttribution': 'Anaïs Park — editorka, The Quarterly',
   'signup.brandQuote':
     '„První rukopis je nejtěžší. Quillon vám pomůže překonat ten pocit osamění.“',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -148,6 +173,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Anaïs',
   'signup.heading': 'Vytvořte si účet na Quillonu',
   'signup.lastNamePlaceholder': 'Park',
+  'signup.submitting': 'Otevíráme vaše studio\\u2026',
   'signup.subtitle':
     'Klidné pracovní místo, příjemní spolupracovníci a editor pro psaní delších textů, který vám nepřekáží.',
   'templates.blank.subtitle': 'Prázdná stránka. Kurzor je na začátku.',
@@ -160,11 +186,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Začněte s promyšlenou strukturou. Upravujte ji podle libosti.',
   'templates.useFailed': 'Nelze otevřít dokument vytvořený z této šablony.',
   'templates.useTemplate': 'Použijte tuto šablonu',
+  'terms.intro': 'Podmínky, za kterých můžete tuto službu používat.',
   'terms.title': 'Podmínky služby',
   'time.daysAgo': 'před {{days}}d',
   'time.hoursAgo': 'před {{hours}}h',
   'time.justNow': 'právě teď',
   'trash.confirmDelete': 'Potvrdit smazání',
+  'trash.confirmEmpty': 'Potvrdit — smazat vše',
   'trash.deleteFailed': 'Odstranění se nezdařilo.',
   'trash.deleteForever': 'Trvale smazat',
   'trash.empty': 'Není co obnovit.',
@@ -178,7 +206,9 @@ export const ui: UiTranslations = {
   'versionHistory.backToDoc': 'Zpět k rukopisu',
   'versionHistory.empty': 'Zatím žádné revize – uložte dokument a vytvořte jeho historii.',
   'versionHistory.heading': 'Historie verzí',
+  'versionHistory.latest': 'Nejnovější',
   'versionHistory.loadFailed': 'Historii se nepodařilo načíst.',
+  'versionHistory.noContent': 'Pro tuto revizi nebyl zachycen žádný obsah.',
   'versionHistory.previewing': 'Náhled',
   'versionHistory.restore': 'Obnovit tuto verzi',
   'versionHistory.restoreFailed': 'Obnovení se nezdařilo.',

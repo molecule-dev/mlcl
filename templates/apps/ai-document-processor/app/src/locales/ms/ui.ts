@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ada soalan, jumpa pepijat, atau mahu demo untuk pasukan anda? Hubungi kami dari tetapan akaun anda — setiap mesej sampai kepada orang sebenar dalam pasukan.',
   'about.contactTitle': 'Hubungi kami',
+  'about.intro':
+    '{{app}} menukar timbunan dokumen yang diimbas dan PDF menjadi data berstruktur, boleh dicari dan difailkan. Masukkan invois, resit, kontrak atau borang dan biarkan AI membaca, mengekstrak, mengelaskan dan memfailkannya — dengan warna keyakinan supaya pasukan anda hanya menyemak apa yang benar-benar memerlukan manusia.',
+  'about.missionBody':
+    'Kerja-kerja dokumen yang membosankan tidak sepatutnya menghabiskan masa pasukan anda. Kami percaya setiap nilai yang diekstrak harus boleh dijelaskan dan diaudit — supaya anda boleh mempercayai automasi tanpa kehilangan jejak dokumen. {{app}} dibina untuk menjimatkan berjam-jam bagi setiap timbunan sambil mengekalkan manusia dalam gelung di mana ia penting.',
+  'about.missionTitle': 'Misi kami',
+  'about.subtitle': 'OCR, pengekstrakan AI, pengelasan dan pemfailan automatik untuk dokumen anda.',
   'about.title': 'Perihal {{app}}',
+  'about.whatYouGetTitle': 'Yang Anda dapatkan',
   'authShell.backToLanding': '← Kembali ke halaman utama',
   'common.goToDashboard': 'Pergi ke Papan Pemuka',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Hari ini · Gambaran operasi',
   'dashboard.heading': 'Kecerdasan dokumen',
+  'dashboard.metric.accuracy': 'Purata ketepatan',
   'dashboard.metric.filed': 'Difailkan hari ini',
   'dashboard.metric.filedCaption': 'Dihalakan oleh peraturan pemfailan',
   'dashboard.metric.processed': 'Diproses hari ini',
@@ -23,11 +33,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Dokumen',
   'dashboard.recent.col.uploaded': 'Dimuat naik',
   'dashboard.recent.heading': 'Dokumen terkini',
+  'dashboard.recent.typeUnknown': 'Menunggu pengelasan',
   'dashboard.subheading':
     'Setiap halaman dikelaskan, diekstrak dan difailkan — dengan warna keyakinan supaya semakan Anda kekal fokus.',
   'documentDetail.audit.heading': 'Garis masa audit',
+  'documentDetail.audit.subheading':
+    'Setiap langkah yang diambil pada dokumen ini, dengan pelaku yang bertanggungjawab.',
   'documentDetail.back': 'Semua dokumen',
   'documentDetail.downloadHint': 'Gunakan Muat turun untuk membuka fail asal.',
+  'documentDetail.extracted.empty': 'Tiada medan diekstrak lagi.',
   'documentDetail.extracted.heading': 'Medan yang diekstrak',
   'documentDetail.extracted.subheading':
     '{{count}} medan · klik mana-mana medan untuk menyerlahkannya pada halaman',
@@ -55,13 +69,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Cari dokumen…',
   'documents.subheading': '{{count}} dokumen dalam perpustakaan Anda, disusun terbaru dahulu.',
   'documents.uploadCta': 'Muat naik dokumen',
+  'documentTypeBreakdown.barAria': 'Komposisi dokumen mengikut jenis',
   'documentTypeBreakdown.empty': 'Belum ada dokumen yang diproses.',
   'documentTypeBreakdown.subtitle': '{{total}} diproses',
   'documentTypeBreakdown.title': 'Komposisi dokumen',
+  'forgotPassword.backToSignIn': '← Kembali ke log masuk',
   'forgotPassword.checkEmail': 'Semak e-mel Anda',
   'forgotPassword.tip': 'Tidak terima? Semak spam atau cuba alamat lain.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Dibina untuk pasukan operasi yang mengaudit setiap halaman.',
+  'landing.ctaBody':
+    'Percubaan 14 hari. Tiada kad diperlukan. Batal bila-bila masa. Dibina untuk pasukan operasi yang bergerak pantas dan mengaudit dengan teliti.',
   'landing.ctaHeading': 'Berhenti menaip resit. Mula memfailkannya.',
   'landing.eyebrow': 'OCR · Pengekstrakan · Pemfailan AI',
+  'landing.featuresHeading': 'Kecerdasan dokumen yang menjelaskan dirinya sendiri',
+  'landing.heroSubtitle':
+    'Masukkan timbunan invois, resit, kontrak atau borang. {{app}} mengelaskan, mengekstrak dan memfailkannya — dengan warna keyakinan supaya pasukan anda hanya menyemak apa yang benar-benar memerlukan manusia.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Jumlah harian · 7 hari lepas',
   'landing.sampleCardLabel': 'Dokumen diproses hari ini',
   'landing.sampleCardSubtitle': 'Ketepatan purata 96.2 % merentas invois, resit dan borang.',
   'login.hidePassword': 'Sembunyikan kata laluan',
@@ -74,6 +99,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Buka halaman utama',
   'notFound.title': 'Halaman itu tidak difailkan',
+  'parcelaHeroCard.accuracy': 'Purata ketepatan {{value}}% merentas semua pengekstrakan',
   'parcelaHeroCard.change': '{{sign}}{{amount}} % berbanding semalam',
   'parcelaHeroCard.title': 'Dokumen diproses hari ini',
   'parcelaLayout.primaryNavLabel': 'Navigasi utama',
@@ -81,6 +107,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'dokumen',
   'pricing.processingLabel': 'tugas pemprosesan',
   'resetPassword.confirmPlaceholder': 'Ulang kata laluan baharu',
+  'resetPassword.hidePassword': 'Sembunyikan kata laluan',
   'resetPassword.passwordLabel': 'Kata laluan baharu',
   'resetPassword.showPassword': 'Tunjuk kata laluan',
   'resetPassword.subtitle': 'Pilih sesuatu yang sekurang-kurangnya 8 aksara panjang.',
@@ -97,10 +124,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Gagal memuatkan peraturan.',
   'rules.loading': 'Memuatkan peraturan…',
   'rules.matched30d': '{{count}} dokumen sepadan dalam 30 hari terakhir',
+  'rules.neverUsed': 'Tidak pernah digunakan',
   'rules.newRule': 'Peraturan baharu',
   'rules.saveError': 'Gagal menyimpan peraturan.',
   'rules.subheading':
     'Beritahu sistem ke mana setiap jenis dokumen perlu pergi. Syarat dirantai dari atas ke bawah — padanan pertama menang.',
+  'rules.templatesEmpty': 'Tiada templat pengekstrakan lagi.',
   'rules.templatesHeading': 'Templat pengekstrakan',
   'rules.templatesSubheading':
     'Skema medan yang digunakan oleh pengekstrak untuk setiap jenis dokumen.',
@@ -110,17 +139,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Nama ruang kerja',
   'settings.account.subheading':
     'Nama paparan dan e-mel utama untuk pemberitahuan dan sejarah audit.',
+  'settings.api.confirmRevoke': 'Sahkan?',
   'settings.api.copyOnce': 'Salin kunci ini — ia tidak akan ditunjukkan lagi',
   'settings.api.createdOn': 'Dicipta {{date}}',
   'settings.api.empty': 'Belum ada kunci API. Jana satu di atas.',
   'settings.api.error': 'Gagal mencipta kunci.',
+  'settings.api.generating': 'Menjana…',
+  'settings.api.heading': 'Kunci API',
   'settings.api.labelPlaceholder': 'Label kunci (contoh: pemuat naik CI)',
+  'settings.api.loading': 'Memuatkan kunci…',
   'settings.api.newKey': 'Jana kunci',
   'settings.api.subheading':
     'Gunakan ini untuk menolak dokumen dari skrip atau ERP Anda. Putar mana-mana kunci pada bila-bila masa.',
   'settings.integrations.heading': 'Integrasi pemfailan',
   'settings.integrations.subheading':
     'Hantar dokumen yang difailkan ke pemacu awan atau alat sembang yang sudah digunakan pasukan Anda.',
+  'settings.subheading':
+    'Urus akaun, kunci API dan integrasi pemfailan untuk ruang kerja {{app}} anda.',
+  'signup.hidePassword': 'Sembunyikan kata laluan',
   'signup.identityPrompt': 'Bagaimana kami harus memanggil Anda?',
   'signup.showPassword': 'Tunjuk kata laluan',
   'signup.subtitle': '14 hari percuma, tiada kad diperlukan.',
@@ -128,6 +164,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Muat naik gagal.',
   'upload.eyebrow': 'Penerimaan',
   'upload.heading': 'Muat naik dokumen',
+  'upload.queue.clear': 'Kosongkan yang selesai',
   'upload.queue.col.confidence': 'Keyakinan',
   'upload.queue.col.file': 'Fail',
   'upload.queue.detecting': 'Mengesan…',
@@ -140,5 +177,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Atau letakkan beberapa fail sekaligus untuk pengekstrakan, pengelasan dan pemfailan berkelompok.',
   'uploadDropZone.cta': 'Pilih fail',
+  'uploadDropZone.maxSize': 'Maks 25 MB setiap fail · Disulitkan hujung ke hujung',
   'uploadDropZone.title': 'Letakkan dokumen untuk memulakan pemprosesan',
 }

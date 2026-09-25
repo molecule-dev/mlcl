@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Masz pytania, uwagi lub propozycję funkcji? Napisz do zespołu {{app}} w Ustawienia → Powiadomienia albo do nas w dowolnym momencie — każda wiadomość trafia do prawdziwego człowieka.',
+  'about.contactTitle': 'Skontaktuj się z nami',
   'about.eyebrow': 'O nas',
+  'about.featureCapture':
+    'Skanowanie paragonów ze zdjęciem, które dołącza obrazy do właściwego wydatku, pozycja po pozycji.',
+  'about.featureExport':
+    'Audytowalne eksporty CSV każdego raportu, wydatku i stanu zatwierdzenia — gotowe dla Twojego zespołu księgowego.',
+  'about.featurePolicy':
+    'Zabezpieczenia polityki — dzienne limity, limity na kategorię i progi wymagające paragonu egzekwowane w momencie zgłoszenia.',
+  'about.featureWorkflow':
+    'Dwuetapowy proces zatwierdzania z uwagami recenzenta, oznaczeniami naruszeń polityki i oznaczaniem zwrotu jednym dotknięciem.',
+  'about.intro':
+    '{{app}} to platforma do zarządzania wydatkami dla zespołów finansowych i osób, którym zwracają koszty. Zeskanuj paragon, zgłoś wydatek, prześlij raport do zatwierdzenia i śledź każdy zwrot — bez ceregieli z arkuszem kalkulacyjnym.',
+  'about.missionBody':
+    'Zwrot kosztów powinien być szybki, sprawiedliwy i audytowalny. Stworzyliśmy {{app}}, aby zgłaszający otrzymywali zwrot bez ponaglania, zatwierdzający dokładnie widzieli, na co się zgadzają, a finanse miały czysty ślad każdego dolara — wraz z kontrolami polityki.',
+  'about.missionTitle': 'Nasza misja',
   'approvals.approve': 'Zatwierdź',
   'approvals.approving': 'Zatwierdzanie…',
   'approvals.confirmReject': 'Potwierdź odrzucenie',
+  'approvals.empty': 'Wszystko masz na bieżąco — żadne raporty nie czekają.',
   'approvals.eyebrow': 'Kolejka menedżera',
   'approvals.kpi.flaggedLabel': 'Oznaczone przez politykę',
+  'approvals.kpi.queueLabel': 'Oczekuje na przegląd',
   'approvals.kpi.totalLabel': 'Oczekująca wartość',
   'approvals.lineCount': '{{count}} wydatków',
   'approvals.queueFallback':
     'Kolejka na żywo niedostępna — wyświetlanie wyselekcjonowanych danych demo.',
   'approvals.reject': 'Odrzuć',
   'approvals.rejecting': 'Odrzucanie…',
+  'approvals.rejectPlaceholder': 'Powód (wymagany)',
   'approvals.rejectPrompt': 'Dlaczego odrzuca Pan/Pani ten raport?',
   'approvals.review': 'Przejrzyj',
   'approvals.title': 'Oczekujące zatwierdzenia',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Zatwierdzone · MTD',
   'dashboard.kpi.pendingDelta': '+2 w tym tygodniu',
+  'dashboard.kpi.pendingLabel': 'Oczekuje na przegląd',
   'dashboard.kpi.receiptsDelta': 'Wymagane działanie',
   'dashboard.kpi.receiptsLabel': 'Oczekujące paragony',
   'dashboard.kpi.reimbursedDelta': '+$2.4k',
   'dashboard.kpi.reimbursedLabel': 'Zwrócone · MTD',
   'dashboard.newReport': 'Nowy raport',
+  'dashboard.recent.empty': 'Brak raportów — zacznij pierwszy powyżej.',
   'dashboard.recent.title': 'Ostatnie raporty',
   'dashboard.recent.viewAll': 'Zobacz wszystkie raporty',
   'dashboard.summaryFallback':
@@ -41,11 +62,19 @@ export const ui: UiTranslations = {
   'expenses.listFallback':
     'Lista na żywo niedostępna — wyświetlanie wyselekcjonowanych danych demo.',
   'expenses.searchPlaceholder': 'Szukaj sprzedawcy lub kategorii…',
+  'expenses.subtotal': 'Wydatki {{count}} · suma częściowa',
   'expenses.title': 'Wydatki',
+  'forgotPassword.continue': 'Mam kod · Kontynuuj',
+  'forgotPassword.subheading':
+    'Podaj swój służbowy adres e-mail, a wyślemy link do ustawienia nowego hasła.',
   'forgotPassword.successBody':
     'Jeśli konto dla {{email}} istnieje, otrzyma Pan/Pani link resetujący w ciągu kilku minut.',
+  'landing.copyright': '© {{year}} {{app}}. Zbudowane z Molecule.dev.',
+  'landing.ctaBody':
+    'Bezpłatnie przez pierwsze 25 wydatków każdego miesiąca. Bez karty kredytowej, bez rozmowy wdrożeniowej.',
   'landing.ctaHeading': 'Gotowi odzyskać to, co należy się Pana/Pani zespołowi?',
   'landing.eyebrow': 'Raporty wydatków dla zespołów finansowych',
+  'landing.featuresHeading': 'Zwrot kosztów w jednym spokojnym miejscu pracy',
   'landing.heroSubtitle':
     'Wysyłaj, zatwierdzaj i zwracaj wydatki firmowe bez konieczności korzystania z arkusza kalkulacyjnego. OCR paragonów, sprawdzanie zgodności z polityką i przejrzysty harmonogram zatwierdzania — wszystko w jednym, spokojnym miejscu pracy.',
   'landing.heroTitle': 'Odzyskano każdy paragon.',
@@ -63,10 +92,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Notatki',
   'newExpense.descriptionPlaceholder':
     'Dlaczego ten wydatek miał charakter służbowy (widoczne dla osoby zatwierdzającej).',
+  'newExpense.eyebrow': 'Pozycja podlegająca zwrotowi',
   'newExpense.merchant': 'Sprzedawca',
   'newExpense.merchantPlaceholder': 'Hotel Adlon Kempinski',
   'newExpense.policyHint':
     'Przypomnienie: posiłki powyżej $80/dzień lub jakakolwiek pozycja powyżej $250 wymagają uzasadnienia.',
+  'newExpense.receipt': 'Paragon',
+  'newExpense.receiptHint': 'JPG, PNG lub PDF · maks. 10 MB',
   'newExpense.receiptOcrHint': 'OCR wstępnie wypełnia pola',
   'newExpense.receiptPrompt': 'Upuść tutaj zdjęcie lub PDF, albo kliknij, aby przeglądać',
   'newExpense.receiptUploadFailed':
@@ -76,17 +108,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Zrób zdjęcie lub prześlij paragon, a Recoup automatycznie uzupełni sprzedawcę, datę i sumę. Proszę zweryfikować wszystko przed zapisaniem.',
   'newExpense.title': 'Dodaj wydatek',
+  'newReport.approverHint': 'Otrzymają e-mail, gdy prześlesz ten raport do przeglądu.',
   'newReport.approverLabel': 'E-mail osoby zatwierdzającej (opcjonalnie)',
   'newReport.approverPlaceholder': 'manager@twojafirma.com',
   'newReport.availableExpenses': 'Dostępne wydatki',
   'newReport.createFailed': 'Nie można utworzyć raportu. Proszę spróbować ponownie.',
   'newReport.draftsFallback':
     'Lista bieżących wydatków jest niedostępna — wyświetlane są wybrane dane demonstracyjne.',
+  'newReport.eyebrow': 'Grupuj wydatki · prześlij do zatwierdzenia',
   'newReport.includedCount': '{{count}} dołączonych',
   'newReport.purposeLabel': 'Cel służbowy',
   'newReport.purposePlaceholder':
     'Proszę opisać podróż lub projekt, którego dotyczą te wydatki (widoczne dla osoby zatwierdzającej i działu finansów).',
   'newReport.saveDraft': 'Zapisz jako wersję roboczą',
+  'newReport.saveDraftFailed': 'Nie udało się zapisać wersji roboczej. Spróbuj ponownie.',
   'newReport.submit': 'Prześlij do zatwierdzenia',
   'newReport.submitFailed': 'Nie można przesłać raportu. Proszę spróbować ponownie.',
   'newReport.summary': 'Podsumowanie raportu',
@@ -100,17 +135,24 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Kanał na żywo niedostępny — wyświetlanie wyselekcjonowanych danych demo.',
   'notifications.openReport': 'Otwórz raport ›',
+  'pricing.approvalsLabel': 'zatwierdzenia',
   'pricing.expensesLabel': 'wydatki',
   'pricing.heading': 'zatwierdzenia',
   'pricing.policiesLabel': 'zasady',
   'pricing.receiptsLabel': 'paragony',
   'recoveredAmountHeroCard.label': 'Odzyskane zwroty · YTD',
+  'recoveredAmountHeroCard.pending':
+    'Raporty ({{count}}) obecnie oczekujące na przegląd u wszystkich zatwierdzających.',
+  'reports.approvalFlow': 'Przepływ zatwierdzania',
   'reports.backToList': 'Powrót do raportów',
   'reports.detailFallback':
     'Raport na żywo niedostępny — wyświetlanie wyselekcjonowanych danych demo.',
   'reports.lineItems': 'Pozycje',
   'reports.lineItemsCount': '{{count}} wydatków',
+  'reports.lineItemsEmpty': 'Ten raport nie ma jeszcze żadnych wydatków.',
+  'reports.openLibrary': 'Otwórz bibliotekę raportów',
   'reports.policyTitle': 'Oznaczenie polityki',
+  'reports.selectPrompt': 'Wybierz raport z biblioteki, aby zobaczyć jego szczegóły.',
   'reports.summary.lineCount': 'Pozycje',
   'reports.summary.reimbursable': 'Podlegające zwrotowi',
   'reports.summary.total': 'Zgłoszona suma',
@@ -120,6 +162,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Lista na żywo niedostępna — wyświetlanie wyselekcjonowanych danych demo.',
   'reportsList.newReport': 'Nowy raport',
+  'reportsList.submittedOn': 'Przesłano {{date}}',
   'reportsList.title': 'Biblioteka raportów',
   'resetPassword.hidePassword': 'Ukryj hasło',
   'resetPassword.newPasswordLabel': 'Nowe hasło',
@@ -145,6 +188,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Zapisano ✓',
   'settings.profileSaveFailed': 'Nie można zaktualizować profilu. Proszę spróbować ponownie.',
   'signup.heading': 'Utwórz swoje konto Recoup',
+  'signup.hidePassword': 'Ukryj hasło',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Pokaż hasło',
   'signup.subheading': 'Bezpłatnie dla 25 wydatków miesięcznie — bez karty kredytowej.',

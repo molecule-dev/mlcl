@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Unombono, uthole iphutha, noma ufuna isici? Xhumana nathi kusukela kuzilungiselelo ze-akhawunti yakho — yonke imiyalezo ifinyelela kumuntu wangempela eqenjini. Qaphela: akukho lutho lapha okuyiseluleko sokutshala imali; uhlala ulawula konke ukuhweba.',
+  'about.contactTitle': 'Xoxa nathi',
+  'about.featureAttribution':
+    'Ukuchazwa kokusebenza — hlukanisa imbuyiselo ngomkhakha, isifunda kanye nekilasi lempahla, bese uqhathanisa kunoma yisiphi isikhathi.',
+  'about.featureRebalance':
+    'Ukulinganisa okuhlelekile — setha izabelo eziqondiwe kanye namabhendi okubekezelela, bona ukuchezuka kutholakala kusenesikhathi, futhi uthole ukuhweba okukubuyisela emuva.',
+  'about.featureTax':
+    'Ukuhlanjululwa kwamadokhumenti entela — inzuzo ebonakalayo nengabonakali, izabelo kanye namadokhumenti e-1099 endaweni eyodwa, kufakwe nezimpawu zokuthengisa okulahlekelayo.',
+  'about.featureUnified':
+    'Iphothifoliyo eyodwa ehlanganisiwe — amasheya, ama-ETF, izikhwama zokutshala, amabhondi nokunye, kuhlanganiswe kuzo zonke izikhwama zokuhweba.',
+  'about.featureWatchlist':
+    'Uhlu lokubuka, izindaba kanye nezexwayiso zentengo ukuze wenze okubalulekile ngaphandle komsindo.',
+  'about.intro':
+    '{{app}} iyideshibhodi yephothifoliyo yezimpahla eziningi yabatshalizimali ngabanye kanye nabeluleki abazimele. Amasheya, ama-ETF, izikhwama zokutshala, amabhondi, izakhiwo kanye nemali — konke okuphethwe kuyo yonke i-akhawunti, endaweni eyodwa, ngokuhleleka kwedeski lochwepheshe.',
+  'about.missionBody':
+    'Ukutshala imali okuhle ikakhulukazi ukuhleleka: isabelo esiqondiwe esicacile, ukuchazwa kokusebenza okuqotho, kanye namarekhodi entela ahlanzekile. {{app}} iletha lezo zindlela zokusebenza zezikhungo kunoma ubani, ukuze ukwazi ukulinganisa ngenhloso esikhundleni sokwenza ngokungacabangi — futhi ungaze ukhohlwe ukuthi iphothifoliyo yakho yenzani ngempela.',
+  'about.missionTitle': 'Umsebenzi wethu',
   'about.pageTitle': 'Mayelana ne-{{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Amathuluzi engcebo',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Akuyona iseluleko sokutshala imali.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Ideshibhodi yephothifoliyo yabatshalizimali ngabanye kanye nabeluleki abafuna ukulinganisela kabusha okuhlelekile, ukuchazwa kokusebenza okubukhali, kanye nokuhlanzeka kwemibhalo yentela - ngaphandle komsindo.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · Ukusebenza kwesikhathi esedlule akusiqinisekisi imiphumela yesikhathi esizayo.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) namuhla',
+  'argentAuthShell.sampleLabel': 'Inani lephothifoliyo',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'assetAllocationDonut.heading': 'Indlela imali yakho etshalwa ngayo',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'namuhla',
   'assetDetail.txEmpty': 'Akukho ukuthengiselana kwale ticker.',
   'assetDetail.txHeading': 'Ukuthengiselana kwakho',
+  'auth.legalConsent.prefix': 'Ngokuqhubeka, uyavuma {{appName}}’s',
   'common.and': 'futhi',
   'common.goToDashboard': 'Yiya ku-Dashboard',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'namuhla',
   'dashboard.topHoldings.heading': 'Lapho imali yakho isebenza khona',
   'dashboard.topHoldings.label': 'Izimpahla Eziphezulu',
+  'forgotPassword.gotLinkCta': 'Nginokuxhumanisa kokusetha kabusha →',
+  'forgotPassword.subheading':
+    'Faka i-imeyili ku-akhawunti yakho ye-Gavl futhi sizokuthumelela isixhumanisi sokusetha kabusha esiphephile.',
   'forgotPassword.successBody':
     'Uma ungayiboni ngemizuzu embalwa, hlola ifolda yakho yogaxekile noma uzame i-imeyili ehlukile.',
   'forgotPassword.successSubheading':
     'Isheke {{email}} ukuze uthole isixhumanisi sokusetha kabusha. Siphelelwa yisikhathi ngemizuzu engama-60.',
+  'forgotPassword.successTitle': 'I-imeyili yokusetha kabusha isendleleni',
   'holdingHighlightRow.todayLabel': 'namuhla',
   'holdings.addCta': 'Thenga',
   'holdings.col.allocation': 'Ukunikezwa',
@@ -58,6 +87,8 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Akuyona iseluleko sokutshala imali. Ukusebenza kwesikhathi esidlule akuqinisekisi imiphumela yesikhathi esizayo.',
   'landing.eyebrow': 'I-Argent · Ipulatifomu yokusebenzisa ingcebo',
   'landing.features.heading': 'Konke umeluleki angazakhela kona.',
+  'landing.finalCta.body': 'Xhuma i-brokerage yakho ngokuchofoza kabili. {{appName}} yenza okunye.',
+  'landing.finalCta.cta': 'Vula i-akhawunti yakho ye-Argent',
   'landing.finalCta.heading': 'Buyisela isiyalo kuphothifoliyo yakho.',
   'landing.footerSignup': 'Vula i-akhawunti',
   'landing.getStarted': 'Vula i-akhawunti',
@@ -65,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Bona amanani',
   'landing.heroSubtitle':
     'Ideshibhodi yephothifoliyo yabatshalizimali ngabanye kanye nabeluleki abafuna ukulinganisela kabusha okuhlelekile, ukuchazwa kokusebenza okubukhali, kanye nokuhlanzeka kwemibhalo yentela - ngaphandle komsindo.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Ukubuka kuqala okubukhoma okuvela kuphothifoliyo emele',
   'login.heading': 'Ngena ngemvume ku-Argent',
   'login.subheading':
@@ -76,6 +108,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} edlule',
   'news.justNow': 'khona manje',
   'news.loadError': 'Yehlulekile ukulayisha izindaba.',
+  'planUpdated.body':
+    'Ushintsho lwakho lokukhokha lusebenza manje. Ungaphatha uhlelo lwakho noma nini kusuka ekhasini lokukhokha.',
+  'planUpdated.retry': 'Zama futhi',
+  'planUpdated.verifyFailed': 'Asikwazanga ukuqinisekisa inkokhelo yakho okwamanje.',
+  'planUpdated.verifyFailedBody':
+    'Inkokhelo yakho ingase isacutshungulwa. Zama futhi ngemva kwesikhashana.',
   'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'portfolioHeroCard.label': 'Inani lephothifoliyo',
   'pricing.holdingsLabel': 'izimpahla ezibanjiwe',
@@ -86,12 +124,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Ukuzulazula kwesabelo',
   'rebalance.empty': 'Azikho izinhloso ezibekiwe okwamanje.',
   'rebalance.executeCta': 'Indawo {{count}} imisebenzi',
+  'rebalance.executeError': 'Kuhlulekile ukufaka ukuhweba.',
   'rebalance.executeOk': 'Kubekwe {{count}} ukuhweba. Zibuke ekhasini le-Transactions.',
+  'rebalance.executing': 'Iyafaka…',
   'rebalance.eyebrow': 'Ukulinganisela kabusha · Umeluleki we-Argent',
   'rebalance.heading': 'Buyisela iphothifoliyo yakho ekufundiseni',
   'rebalance.loadError': 'Yehlulekile ukulayisha uhlelo lokulinganisa kabusha.',
+  'rebalance.plan.driftLine': 'njengamanje {{current}}% · okuhlosiwe {{target}}%',
   'rebalance.planHeading': 'Ithikithi le-Argent — buyekeza ngaphambi kokubeka',
   'rebalance.planLabel': 'Uhlelo lokuhweba oluphakanyisiwe',
+  'rebalance.subheading':
+    'Imigqa engaphandle kwebhendi yokubekezelela icupha iziphakamiso zokuhweba. {{appName}} yenza kuphela uma uqinisekisa.',
   'rebalance.summary.buyLabel': 'Ukuthenga',
   'rebalance.summary.buySub': 'izikhundla okufanele zigcwaliswe',
   'rebalance.summary.driftLabel': 'Ngaphandle kwebhendi',
@@ -100,6 +143,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'kuzo zonke izinsizakalo eziphakanyisiwe',
   'rebalance.summary.sellLabel': 'Ukuthengisa',
   'rebalance.summary.sellSub': 'izikhundla zokusika',
+  'rebalanceDriftCard.drift': 'ukuchezuka {{sign}}{{pct}}% · ibhendi ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'ithagethi {{pct}} %',
   'reports.attributionHeading': 'Ukuchazwa kokusebenza (1Y)',
   'reports.col.alpha': 'I-Alfa',
@@ -113,37 +157,68 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Unyaka',
   'reports.gainsHeading': 'Izinzuzo ezitholakale nezingatholakalanga',
   'reports.noAttribution': 'Ayikho idatha yokunikeza imininingwane okwamanje.',
+  'reports.noGains': 'Ayikho idatha yenzuzo ebonakalayo/engabonakali okwamanje.',
   'reports.noPerformance': 'Ayikho idatha yokusebenza okwamanje.',
   'reports.noTaxDocs': 'Awekho amadokhumenti entela okwamanje.',
   'reports.performanceHeading': 'Ukusebenza vs izinga lokulinganisa',
   'reports.taxHeading': 'Amadokhumenti entela',
   'resetPassword.heading': 'Khetha iphasiwedi entsha eqinile',
+  'resetPassword.passwordPlaceholder': 'Iphasiwedi Entsha',
   'resetPassword.subheading':
     'I-Argent izokungenisa ngokuzenzakalelayo uma iphasiwedi yakho isisethiwe.',
   'resetPassword.tokenPlaceholder': 'Setha kabusha ithokheni kusuka ku-imeyili',
+  'settings.appearance.description': 'Shintsha phakathi kwemodi yokukhanya neyomnyama.',
   'settings.appearance.title': 'Ukubukeka',
+  'settings.devices.body': 'Amadivayisi angene ngemvume ku-akhawunti yakho okwamanje.',
+  'settings.devices.empty': 'Awekho amadivayisi atholakele.',
   'settings.devices.heading': 'Amadivayisi',
+  'settings.devices.revokeWarning': 'Ukufinyelela kwaledivayisi kuyokhishwa maduze. Yiphulise?',
   'settings.devices.signOut': 'Phuma ngemvume',
   'settings.devices.thisDevice': 'Le divayisi',
   'settings.devices.unknown': 'Idivayisi engaziwa',
   'settings.linked.body':
     'Ukuvumelanisa umthengisi kudinga isixhumi senkampani yangaphandle (i-Plaid, i-Yodlee, njll.). Lungiselela umhlinzeki wakho endaweni yakho ukuze unike amandla ukungenisa okuzenzakalelayo.',
   'settings.linked.heading': 'Ama-akhawunti omthengisi axhunyiwe',
+  'settings.linked.placeholder': 'Awekho ama-akhawunti axhunyiwe okwamanje.',
+  'settings.notifications.dividendsPaid': 'Izabelo ezikhokhiwe',
   'settings.notifications.error': 'Ayikwazanga ukubuyekeza okuthandwayo.',
   'settings.notifications.priceAlerts': 'Izexwayiso zamanani',
+  'settings.notifications.rebalanceDrift': 'Ukuchezuka kokulinganisa',
+  'settings.notifications.taxDocsReady': 'Amadokhumenti entela alungile',
   'settings.profile.advisor': 'I-imeyili yomeluleki (ongakukhetha)',
   'settings.profile.heading': 'Iphrofayela',
   'settings.security.changePassword': 'SHINTSHA iphasiwedi',
+  'settings.security.changePasswordTitle': 'SHINTSHA iphasiwedi',
   'settings.security.changing': 'Ukushintsha…',
+  'settings.security.confirmPassword': 'Iphasiwedi',
+  'settings.security.currentPassword': 'I-password Yamanje',
   'settings.security.deleteAccount': 'Susa i-akhawunti',
   'settings.security.deleteError': 'Ayikwazanga ukususa i-akhawunti.',
   'settings.security.deleteHeading': 'Susa i-akhawunti',
+  'settings.security.deleteModalWarning':
+    'Lokhu kususa unomphela i-akhawunti yakho nedatha. Faka iphasiwedi yakho ukuze uqinisekise.',
+  'settings.security.deleteWarning':
+    'Susa i-akhawunti yakho nedatha yonke ehlobene nayo unomphela. Lokhu akukwazi ukuhlehliswa.',
   'settings.security.deleting': 'Iyasusa…',
   'settings.security.heading': 'Ukuphepha',
   'settings.security.newPassword': 'Iphasiwedi Entsha',
   'settings.security.password': 'Iphasiwedi',
+  'settings.security.passwordError': 'Ayikwazanga ukushintsha iphasiwedi.',
+  'settings.security.passwordHint': 'Shintsha iphasiwedi oyisebenzisayo ukungena.',
+  'settings.security.twoFactor': 'Ukuqinisekiswa kwezinto ezimbili',
+  'settings.security.twoFactorCode': 'Ikhodi yokuqinisekisa',
+  'settings.security.twoFactorDisable': 'Khubaza',
+  'settings.security.twoFactorDisableTitle': 'Vala ukufakazela ubuwena ngezinto ezimbili',
   'settings.security.twoFactorEnable': 'Nika amandla',
+  'settings.security.twoFactorEnableTitle': 'Vula ukufakazela ubuwena ngezinto ezimbili',
+  'settings.security.twoFactorHint': 'Engeza isendlalelo esengeziwe sokuvikela ku-akhawunti yakho.',
   'settings.security.twoFactorInvalidCode': 'Ikhodi engavumelekile',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'Ikhodi ye-QR yezigaba ezimbili',
+  'settings.security.twoFactorScan':
+    'Skena le khodi ye-QR ngohlelo lwakho lokufakazela ubuwena, bese ufaka ikhodi enezinombolo eziyisithupha.',
+  'settings.security.twoFactorUnavailable':
+    'Ukuqinisekiswa kwezinto ezimbili akutholakali kulolu hlelo lokusebenza.',
   'settings.security.twoFactorVerify': 'Qinisekisa futhi unike amandla',
   'settings.tax.error': 'Ayikwazanga ukubuyekeza indlela yentela.',
   'settings.tax.heading': 'Ukubalwa kwezimali kwentela',
@@ -154,6 +229,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Indlela yentela ilondoloziwe.',
   'signup.eyebrow': 'Vula i-akhawunti',
   'signup.heading': 'Vula i-akhawunti yakho ye-Argent',
+  'signup.legalPrefix': 'Ngokudala i-akhawunti uvuma {{appName}}',
   'signup.subheading':
     'Kumahhala izinsuku ezingu-30. Akukho khadi elidingekayo. Khansela noma nini.',
   'signup.terms':

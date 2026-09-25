@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'An ceist agat, aimsíodh fabht, nó ar mhaith leat do leabhair a aistriú? Déan teagmháil le foireann {{app}} ag hello@{{app}}.example — léann duine fíor gach teachtaireacht.',
   'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
+  'about.intro':
+    "Is cuntasaíocht do ghnóthaí beaga é {{app}} a choinníonn cuntas ar gach cent — sonraisc, costais, íocaíochtaí agus tuarascálacha in aon áit chiúin amháin d'úinéirí, do choimeádaithe leabhar agus do chuntasóirí.",
+  'about.missionBody':
+    'Níor cheart gur rud eagla a bheith ort roimh do leabhair a bheith i gceist le gnó a reáchtáil. Tagann {{app}} in áit an scaipeadh scarbhileog le huimhreacha soiléire ar féidir leat gníomhú orthu, ionas go gcaithfidh tú níos lú ama ag réiteach agus níos mó ama ag déanamh na hoibre ar thosaigh tú an gnó lena déanamh i ndáiríre.',
+  'about.missionTitle': 'Ár misean',
   'about.title': 'Faoi {{app}}',
   'accounts.count': '{{count}} cuntas',
+  'accounts.emptyBody':
+    'Rianaíonn cuntais mhórleabhair cá bhfuil airgead agus cá ngluaiseann sé. Taispeántar iad anseo nuair a shocraíonn do choimeádaí leabhar nó do chomhtháthú iad.',
   'accounts.emptyTitle': 'Gan aon chuntais fós',
   'accounts.heading': 'Cairt na gcuntas',
   'accounts.kpi.accounts': 'Accounts',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Gach cuntas mórleabhar atá taobh thiar de do shonraisc, do chaiteachas agus d’íocaíochtaí, grúpáilte de réir cineáil.',
   'accounts.tag.inactive': 'neamhghníomhach',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Príomhoifigeach Airgeadais, Horizon Tech',
   'authBrandPanel.eyebrow': 'Muinín ag foirne airgeadais',
   'authBrandPanel.label': 'Taispeántas branda',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Gach custaiméir',
   'customerDetail.invoiceMeta': 'Eisithe {{issued}} · Dlite {{due}}',
   'customerDetail.loadError': 'Theip ar an gcustaiméir a lódáil.',
+  'customerDetail.missingBody':
+    'Níorbh fhéidir an taifead custaiméara a iarradh a lódáil. Seans gur baineadh é, nó seans nach bhfuil rochtain agat air.',
   'customerDetail.missingHeading': 'Taifead custaiméara ar fáil',
+  'customerDetail.missingHelp':
+    'Úsáid an nasc siar thuas chun filleadh ar an liosta custaiméirí, nó roghnaigh taifead difriúil ón áit sin.',
+  'customerDetail.noInvoices': 'Gan aon sonraisc fós.',
   'customerDetail.notesEmpty': 'Gan nótaí fós.',
   'customerDetail.paymentsEmpty': 'Gan aon íocaíochtaí taifeadta.',
   'customerDetail.paymentTerms': 'Téarmaí íocaíochta',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Inasbhainte',
   'expenseDetail.detailsHeading': 'Sonraí idirbhirt',
   'expenseDetail.loadError': 'Theip ar an gcostas a lódáil.',
+  'expenseDetail.matched': 'Meaitseáilte · {{description}}',
   'expenseDetail.missingBody':
     'Níorbh fhéidir an costas iarrtha a luchtú. B’fhéidir gur baineadh é, nó b’fhéidir nach bhfuil rochtain agat air.',
   'expenseDetail.missingHeading': 'Níl taifead caiteachais ar fáil',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Admháil',
   'expenseDetail.receiptHeading': 'Admháil',
   'expenseDetail.reconciled': 'Réitithe',
+  'expenseDetail.unreconciled': 'Gan réiteach',
   'expenses.empty': 'Gan aon chostais fós.',
   'expenses.heading': 'Costais',
   'expenses.kpi.deductible': 'Inasbhainte',
@@ -101,6 +118,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Theip ar na sonraisc a lódáil.',
   'invoices.searchPlaceholder': 'Cuardaigh uimhir an tsonraisc nó an chustaiméara…',
   'invoices.summary.paid': 'Íoctha an tréimhse seo',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'Saor in aisce ar feadh 30 lá. Gan cárta. Tabhair do chuntasóir leat — beidh siad buíoch díot.',
   'landing.ctaTitle': 'Bog do leabhair go dtí áit níos ciúine.',
@@ -115,6 +133,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Cuntais infhaighte',
   'ledgerStatTriad.eyebrow.mtd': 'Mí go dtí seo',
   'ledgerStatTriad.netSub': 'Glan {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} thar téarma',
   'ledgerStatTriad.revenueLabel': 'Ioncam',
   'login.failed': 'Theip ar an síniú isteach.',
   'login.hidePassword': 'Folaigh an focal faire',
@@ -125,6 +144,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Sínigh Isteach',
   'nav.legal': 'Dlíthiúil',
   'newExpense.back': 'Costais',
+  'newExpense.clearReceiptCta': 'Glan an t-admháil ceangailte',
   'newExpense.deductible': 'Cáin inasbhainte',
   'newExpense.dropPrompt': 'Fág grianghraf nó PDF den admháil anseo le ceangal.',
   'newExpense.failed': 'Níorbh fhéidir costas a shábháil.',
@@ -153,6 +173,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Theip ar lódáil na n-íocaíochtaí.',
   'payments.unmatchedTag': 'gan sárú',
   'planUpdated.pageLabel': 'Deimhniú nuashonraithe an phlean',
+  'pricing.advancedFeatures': 'Gnéithe casta: {{yes}}',
+  'pricing.canExport': 'Easpórtáil sonraí: {{yes}}',
+  'pricing.heading': 'Roghnaigh do phlean {{app}}',
+  'pricing.maxAccounts': '{{count}} cuntas',
+  'pricing.maxExpenses': '{{count}} costais',
+  'pricing.maxInvoices': '{{count}} sonrasc',
+  'privacy.intro':
+    'Déanann an Beartas Príobháideachais seo cur síos ar an gcaoi a mbailíonn, a úsáideann agus a nochtann {{app}} faisnéis faoi ghnólachtaí a úsáideann an tseirbhís.',
   'privacy.lastUpdated': 'Nuashonraithe go deireanach: {{dáta}}',
   'privacy.section.collected.body':
     'Bailímid sonraí cuntais (ainm, ríomhphost, cuideachta), na taifid airgeadais a uaslódálann tú (sonraisc, costais, custaiméirí, íocaíochtaí), agus logaí caighdeánacha oibríochta seirbhíse (IP, gníomhaire úsáideora, stampaí ama).',
@@ -165,8 +193,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Úsáidtear faisnéis chun an tseirbhís a oibriú, na tuarascálacha agus na PDFanna a iarrann tú a ghiniúint, ríomhphoist idirbheartaíochta a sheoladh trí Mailgun, agus íocaíochtaí a phróiseáil trí Stripe. Ní dhíolaimid ná ní ligeann muid faisnéis phearsanta ar cíos.',
   'recentInvoicesCard.dueMeta': 'Dlite {{date}}',
+  'recentInvoicesCard.empty': 'Níl aon sonraisc ag teacht le chéile.',
   'recentInvoicesCard.eyebrow': 'Cuntais infhaighte',
   'recentInvoicesCard.searchAriaLabel': 'Cuardaigh sonraisc',
+  'recentInvoicesCard.searchPlaceholder': 'Cuardaigh sonraisc…',
   'recentInvoicesCard.title': 'Sonraisc le déanaí',
   'recentInvoicesCard.viewAll': 'Féach ar na sonraisc uile →',
   'reports.assets': 'Sócmhainní',
@@ -182,16 +212,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Brabús & caillteanas (12 mhí)',
   'resetPassword.backToLogin': '← Ar ais chuig Logáil Isteach',
   'resetPassword.hidePassword': 'Folaigh an focal faire',
+  'resetPassword.passwordLabel': 'Pasfhocal nua',
   'resetPassword.showPassword': 'Taispeáin an focal faire',
+  'resetPassword.subheading': 'Roghnaigh pasfhocal láidir — ocht gcarachtar ar a laghad.',
   'resetPassword.submit': 'Athshocraigh Pasfhocal',
   'resetPassword.tooShort': 'Ní mór don phasfhocal a bheith 8 gcarachtar ar a laghad.',
   'settings.account.changePassword': 'Athraigh an focal faire',
   'settings.account.changingPassword': 'Ag athrú…',
   'settings.account.currentPassword': 'Focal faire reatha',
+  'settings.account.dangerZone': 'Crios contúirte',
   'settings.account.deleteAccount': 'Scrios cuntas',
   'settings.account.deleteDescription':
     'Scrios do chuntas agus na sonraí gaolmhara go léir go buan.',
   'settings.account.deleteError': 'Theip ar an gcuntas a scriosadh.',
+  'settings.account.deleteWarning':
+    'Scriosann sé seo do chuntas go buan agus ní féidir é a chealú. Cuir isteach do phasfhocal le deimhniú.',
   'settings.account.deleting': 'Ag scriosadh…',
   'settings.account.devices': 'Gléasanna',
   'settings.account.email': 'Ríomhphost',
@@ -202,6 +237,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Pasfhocal',
   'settings.account.passwordError': 'Theip ar an bpasfhocal a athrú.',
   'settings.account.pushNotifications': 'Fógraí brú ar an ngléas seo',
+  'settings.account.revokeDeviceWarning':
+    'Cuirfear deireadh le rochtain an ghléis seo go luath. Sínigh amach é?',
   'settings.account.saveError': 'Theip ar an bpróifíl a nuashonrú.',
   'settings.account.security': 'Slándáil',
   'settings.account.signOutDevice': 'Sínigh amach',
@@ -209,12 +246,19 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Fíordheimhniú dhá fhachtóir',
   'settings.account.twoFactorCode': 'Cód fíordheimhnithe',
   'settings.account.twoFactorDisable': 'Díchumasaigh',
+  'settings.account.twoFactorDisableTitle': 'Díchumasaigh fíordheimhniú dhá fhachtóir',
   'settings.account.twoFactorEnable': 'Cumasaigh',
+  'settings.account.twoFactorEnableTitle': 'Cumasaigh fíordheimhniú dhá fhachtóir',
   'settings.account.twoFactorInvalidCode': 'Cód neamhbhailí',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'Cód QR dhá fhachtóir',
+  'settings.account.twoFactorScan':
+    "Scan an cód QR seo le d'aip fhíordheimhniúcháin, ansin cuir isteach an cód 6 dhigit.",
+  'settings.account.twoFactorUnavailable': 'Níl fíordheimhniú dhá fhachtóir ar fáil don aip seo.',
   'settings.account.twoFactorVerify': 'Fíoraigh & cumasaigh',
   'settings.account.unknownDevice': 'Gléas anaithnid',
   'settings.company.email': 'Ríomhphost billeála',
+  'settings.company.heading': 'Cuideachta & cáin',
   'settings.company.name': 'Ainm dlíthiúil',
   'settings.company.saveButton': 'Sábháil próifíl na cuideachta',
   'settings.company.taxId': 'Uimhir Aitheantais Cánach / Uimhir EIN',
@@ -258,6 +302,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Meastar go ráithiúil',
   'taxes.kpi.owed': 'Dlite',
   'taxes.loadError': 'Theip ar an achoimre chánach a lódáil.',
+  'taxes.remittedPct': '({{pct}}% a aistríodh)',
+  'terms.intro':
+    'Rialaíonn na Téarmaí Seirbhíse seo ("Téarmaí") do rochtain ar {{app}} agus d\'úsáid as. Trí chuntas a chruthú nó an tseirbhís a úsáid aontaíonn tú go mbeidh tú faoi cheangal acu.',
   'terms.lastUpdated': 'Nuashonraithe go deireanach: {{dáta}}',
   'terms.section.acceptable.body':
     'Aontaíonn tú gan an tseirbhís a úsáid chun aon dlí a shárú, cearta maoine intleachtúla a shárú, malware a tharchur, ná iarracht a dhéanamh rochtain neamhúdaraithe a fháil ar chuntais eile nó ar ár mbonneagar.',

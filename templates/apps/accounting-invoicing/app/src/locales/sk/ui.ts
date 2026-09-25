@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Máte otázku, našli ste chybu alebo chcete presunúť svoje knihy? Obráťte sa na tím {{app}} na hello@{{app}}.example — každú správu číta skutočný človek.',
   'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O nás',
+  'about.intro':
+    '{{app}} je účtovníctvo pre malé firmy, ktoré drží každý cent pod kontrolou — faktúry, výdavky, platby a prehľady na jednom pokojnom mieste pre majiteľov, účtovníkov a audítorov.',
+  'about.missionBody':
+    'Podnikať by nemalo znamenať obávať sa svojich kníh. {{app}} nahrádza rozrastené tabuľky jasnými číslami, podľa ktorých môžete konať, takže menej času trávite zúčtovaním a viac času prácou, kvôli ktorej ste podnikanie vlastne začali.',
+  'about.missionTitle': 'Naše poslanie',
   'about.title': 'O aplikácii {{app}}',
   'accounts.count': '{{count}} účty',
+  'accounts.emptyBody':
+    'Účty hlavnej knihy sledujú, kde peniaze sú a kam sa pohybujú. Zobrazia sa tu, keď ich váš účtovník alebo integrácia nastaví.',
   'accounts.emptyTitle': 'Zatiaľ žiadne účty',
   'accounts.heading': 'Účtová osnova',
   'accounts.kpi.accounts': 'Accounts',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Všetky účty v hlavnej knihe, ktoré súvisia s vašimi faktúrami, výdavkami a platbami, zoskupené podľa typu.',
   'accounts.tag.inactive': 'neaktívny',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Finančný riaditeľ, Horizon Tech',
   'authBrandPanel.eyebrow': 'Dôvera finančných tímov',
   'authBrandPanel.label': 'Prezentácia značky',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Všetci zákazníci',
   'customerDetail.invoiceMeta': 'Dátum vydania{{issued}} · Dátum splatnosti{{due}}',
   'customerDetail.loadError': 'Nepodarilo sa načítať zákazníka.',
+  'customerDetail.missingBody':
+    'Požadovaný záznam zákazníka sa nepodarilo načítať. Možno bol odstránený alebo k nemu nemáte prístup.',
   'customerDetail.missingHeading': 'Záznam zákazníka nie je k dispozícii',
+  'customerDetail.missingHelp':
+    'Pomocou odkazu späť vyššie sa vráťte na zoznam zákazníkov alebo si tam vyberte iný záznam.',
+  'customerDetail.noInvoices': 'Zatiaľ žiadne faktúry.',
   'customerDetail.notesEmpty': 'Zatiaľ žiadne poznámky.',
   'customerDetail.paymentsEmpty': 'Neboli zaznamenané žiadne platby.',
   'customerDetail.paymentTerms': 'Platobné podmienky',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Odpočítateľná položka',
   'expenseDetail.detailsHeading': 'Podrobnosti o transakcii',
   'expenseDetail.loadError': 'Načítanie výdavkov zlyhalo.',
+  'expenseDetail.matched': 'Spárované · {{description}}',
   'expenseDetail.missingBody':
     'Požadovaný výdavok sa nepodarilo načítať. Možno bol odstránený alebo k nemu nemáte prístup.',
   'expenseDetail.missingHeading': 'Záznam o výdavkoch nie je k dispozícii',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Potvrdenka',
   'expenseDetail.receiptHeading': 'Potvrdenka',
   'expenseDetail.reconciled': 'Zmierené',
+  'expenseDetail.unreconciled': 'Nezmierené',
   'expenses.empty': 'Zatiaľ žiadne výdavky.',
   'expenses.heading': 'Výdavky',
   'expenses.kpi.deductible': 'Odpočítateľná položka',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Nepodarilo sa načítať faktúry.',
   'invoices.searchPlaceholder': 'Vyhľadať číslo faktúry alebo zákazníka…',
   'invoices.summary.paid': 'Zaplatené v tomto období',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'Zadarmo na 30 dní. Bez karty. Prineste si svojho účtovníka – poďakuje sa vám.',
   'landing.ctaTitle': 'Presuňte si knihy na pokojnejšie miesto.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Pohľadávky',
   'ledgerStatTriad.eyebrow.mtd': 'Mesiac od začiatku roka',
   'ledgerStatTriad.netSub': 'Čistá {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} po termíne',
   'ledgerStatTriad.revenueLabel': 'Tržby',
   'login.failed': 'Prihlásenie zlyhalo.',
   'login.hidePassword': 'Skryť heslo',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Prihlásiť sa',
   'nav.legal': 'Právne',
   'newExpense.back': 'Výdavky',
+  'newExpense.clearReceiptCta': 'Vymazať priložený doklad',
   'newExpense.deductible': 'Daňovo odpočítateľné',
   'newExpense.dropPrompt': 'Sem vložte fotografiu alebo PDF dokladu a priložte ho.',
   'newExpense.failed': 'Nepodarilo sa ušetriť na výdavkoch.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Platby sa nepodarilo načítať.',
   'payments.unmatchedTag': 'bezkonkurenčný',
   'planUpdated.pageLabel': 'Potvrdenie aktualizácie plánu',
+  'pricing.advancedFeatures': 'Rozšírené funkcie: {{yes}}',
+  'pricing.canExport': 'Export údajov: {{yes}}',
+  'pricing.heading': 'Vyberte si svoj {{app}} plán',
+  'pricing.maxAccounts': '{{count}} účty',
+  'pricing.maxExpenses': '{{count}} výdavky',
+  'pricing.maxInvoices': 'Faktúry: {{count}}',
+  'privacy.intro':
+    'Tieto zásady ochrany osobných údajov opisujú, ako {{app}} zhromažďuje, používa a zverejňuje informácie o podnikoch, ktoré využívajú túto službu.',
   'privacy.lastUpdated': 'Naposledy aktualizované: {{dátum}}',
   'privacy.section.collected.body':
     'Zhromažďujeme údaje o účte (meno, e-mail, spoločnosť), finančné záznamy, ktoré nahrávate (faktúry, výdavky, zákazníci, platby) a štandardné záznamy o prevádzke služieb (IP adresa, používateľský agent, časové pečiatky).',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Informácie sa používajú na prevádzkovanie služby, generovanie požadovaných prehľadov a súborov PDF, odosielanie transakčných e-mailov prostredníctvom služby Mailgun a spracovanie platieb prostredníctvom služby Stripe. Osobné údaje nepredávame ani neprenajímame.',
   'recentInvoicesCard.dueMeta': 'Dátum splatnosti {{date}}',
+  'recentInvoicesCard.empty': 'Žiadne faktúry sa nezhodujú.',
   'recentInvoicesCard.eyebrow': 'Pohľadávky',
   'recentInvoicesCard.searchAriaLabel': 'Vyhľadávanie faktúr',
+  'recentInvoicesCard.searchPlaceholder': 'Hľadať faktúry…',
   'recentInvoicesCard.title': 'Posledné faktúry',
   'recentInvoicesCard.viewAll': 'Zobraziť všetky faktúry →',
   'reports.assets': 'Aktíva',
@@ -181,15 +211,20 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Zisk a strata (12 mesiacov)',
   'resetPassword.backToLogin': '← Späť na prihlásenie',
   'resetPassword.hidePassword': 'Skryť heslo',
+  'resetPassword.passwordLabel': 'Nové heslo',
   'resetPassword.showPassword': 'Zobraziť heslo',
+  'resetPassword.subheading': 'Zvoľte si silné heslo – minimálne osem znakov.',
   'resetPassword.submit': 'Obnoviť heslo',
   'resetPassword.tooShort': 'Heslo musí mať minimálne 8 znakov.',
   'settings.account.changePassword': 'Zmeniť heslo',
   'settings.account.changingPassword': 'Zmena…',
   'settings.account.currentPassword': 'Súčasné heslo',
+  'settings.account.dangerZone': 'Nebezpečná zóna',
   'settings.account.deleteAccount': 'Odstrániť účet',
   'settings.account.deleteDescription': 'Trvalo odstráňte svoj účet a všetky súvisiace údaje.',
   'settings.account.deleteError': 'Nepodarilo sa odstrániť účet.',
+  'settings.account.deleteWarning':
+    'Týmto sa natrvalo vymaže váš účet a nebude to možné vrátiť späť. Potvrďte zadaním hesla.',
   'settings.account.deleting': 'Odstraňuje sa…',
   'settings.account.devices': 'Zariadenia',
   'settings.account.email': 'E-mail',
@@ -200,6 +235,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Heslo',
   'settings.account.passwordError': 'Zmena hesla zlyhala.',
   'settings.account.pushNotifications': 'Push notifikácie na tomto zariadení',
+  'settings.account.revokeDeviceWarning':
+    'Prístup tohto zariadenia bude čoskoro zrušený. Odhlásiť ho?',
   'settings.account.saveError': 'Aktualizácia profilu zlyhala.',
   'settings.account.security': 'Bezpečnosť',
   'settings.account.signOutDevice': 'Odhlásiť sa',
@@ -207,12 +244,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Dvojfaktorové overenie',
   'settings.account.twoFactorCode': 'Overovací kód',
   'settings.account.twoFactorDisable': 'Vypnúť',
+  'settings.account.twoFactorDisableTitle': 'Vypnúť dvojfaktorové overenie',
   'settings.account.twoFactorEnable': 'Zapnúť',
+  'settings.account.twoFactorEnableTitle': 'Zapnúť dvojfaktorové overenie',
   'settings.account.twoFactorInvalidCode': 'Neplatný kód',
   'settings.account.twoFactorOn': 'Dňa',
+  'settings.account.twoFactorQrAlt': 'QR kód dvojfaktorového overenia',
+  'settings.account.twoFactorScan':
+    'Naskenujte tento QR kód pomocou aplikácie autentifikátora a potom zadajte 6-ciferný kód.',
+  'settings.account.twoFactorUnavailable':
+    'Dvojfaktorové overenie nie je pre túto aplikáciu k dispozícii.',
   'settings.account.twoFactorVerify': 'Overiť a aktivovať',
   'settings.account.unknownDevice': 'Neznáme zariadenie',
   'settings.company.email': 'Fakturačný e-mail',
+  'settings.company.heading': 'Spoločnosť a dane',
   'settings.company.name': 'Oficiálny názov',
   'settings.company.saveButton': 'Uložiť profil spoločnosti',
   'settings.company.taxId': 'DIČ / IČO',
@@ -256,6 +301,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Odhadovaný štvrťročný',
   'taxes.kpi.owed': 'Dlhovaný',
   'taxes.loadError': 'Nepodarilo sa načítať súhrn daní.',
+  'taxes.remittedPct': '(odvedených {{pct}} %)',
+  'terms.intro':
+    'Tieto podmienky používania („podmienky“) upravujú váš prístup k {{app}} a jeho používanie. Vytvorením účtu alebo používaním služby súhlasíte s tým, že budete týmito podmienkami viazaní.',
   'terms.lastUpdated': 'Naposledy aktualizované: {{dátum}}',
   'terms.section.acceptable.body':
     'Súhlasíte s tým, že nebudete používať službu na porušenie akéhokoľvek zákona, porušovanie práv duševného vlastníctva, prenos škodlivého softvéru ani sa pokúšať získať neoprávnený prístup k iným účtom alebo našej infraštruktúre.',

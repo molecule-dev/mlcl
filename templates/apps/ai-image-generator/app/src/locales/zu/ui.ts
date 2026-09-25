@@ -1,14 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Unombono, uhlangabezane nenkinga, noma ufuna ukusitshela okuzolandelayo? Thinta ithimba ku-hello@reverie.app — yonke imiyalezo ifinyelela kumuntu wangempela owenza umkhiqizo.',
   'about.contactTitle': 'Xoxa nathi',
+  'about.missionTitle': 'Umsebenzi wethu',
   'auth.fields.newPassword': 'Iphasiwedi Entsha',
   'collectionDetail.addImage': 'I-Conjure yokuqoqa',
   'collectionDetail.backCta': 'Buyela emaqoqweni',
   'collectionDetail.coverNote': 'Ibhodi lemizwa elikhethiwe eline {{count}} izithombe.',
   'collectionDetail.editName': 'Igama leqoqo',
+  'collectionDetail.empty':
+    'Azikho izithombe kuleli qoqo okwamanje — khiqiza okuthile ukuze wengeze.',
   'collectionDetail.loading': 'Ilayisha iqoqo…',
   'collectionDetail.loadingImages': 'Ilayisha izithombe…',
+  'collectionDetail.notFoundBody': 'Leli qoqo lisusiwe noma liyimfihlo.',
   'collectionDetail.notFoundTitle': 'Iqoqo alitholakali',
   'collectionDetail.shared': 'Ukubonakala kushintshiwe',
   'collections.create': 'Iqoqo elisha',
@@ -16,6 +22,7 @@ export const ui: UiTranslations = {
     'Azikho izingxoxo okwamanje. Dala eyodwa ukuze uqale ukuhlela umsebenzi wakho.',
   'collections.imageCount': '{{count}} izithombe',
   'collections.loading': 'Ilayisha amaqoqo…',
+  'collections.noDescription': 'Ayikho incazelo okwamanje — vula ukuze wengeze eyodwa.',
   'collections.subtitle': 'Amabhodi emizwa, izincwajana kanye nochungechunge oluqhubekayo',
   'collections.title': 'Amaqoqo',
   'collections.untitled': 'Akunasihloko · {{stamp}}',
@@ -55,6 +62,7 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'Faka i-imeyili exhunywe kwi-akhawunti yakho ye-Reverie bese sizokuthumela isixhumanisi sokusetha kabusha.',
   'forgot.successBody': 'Isixhumanisi sokusetha kabusha sisendleleni eya {{email}} .',
+  'gallery.empty.body': 'Zama isimo esihlukile noma ukhiqize inqwaba entsha esitudiyo.',
   'gallery.empty.title': 'Akukho okuhambisana nalelo hlungi',
   'gallery.exportAll': 'Thumela konke',
   'gallery.exported': 'Ukuthumela kufakwe emgqeni',
@@ -77,12 +85,15 @@ export const ui: UiTranslations = {
   'generate.controls.title': 'Lungisa iphupho',
   'generate.defaultPrompt': 'Iphupho elisha',
   'generate.progress': 'Isinyathelo {{step}} / {{total}}',
+  'generate.submitFailed':
+    'Ukukhiqiza akukwazanga ukufakwa emgqeni — hlola ukuxhumana kwakho bese uzama futhi.',
   'generate.subtitle': 'Bhala umyalo, shayela izilawuli, veza izinhlobo ezahlukene',
   'generate.title': 'Isitudiyo',
   'generation.created': '{{when}}',
   'imageDetail.acting': 'Kuyasebenza…',
   'imageDetail.actionFailed': 'Isenzo sehlulekile.',
   'imageDetail.actions': 'Izenzo zesithombe',
+  'imageDetail.downloadStarted': 'Ukulanda kuqalile.',
   'imageDetail.downloadUnavailable': 'Asikho isithombe esitholakalayo ukuze silandwe okwamanje.',
   'imageDetail.fields.aspect': 'Isici',
   'imageDetail.fields.created': 'Kudalwe',
@@ -93,11 +104,17 @@ export const ui: UiTranslations = {
   'imageDetail.notFoundTitle': 'Isithombe asitholakali',
   'imageDetail.noVariations': 'Azikho izinguquko okwamanje — cela eyodwa engenhla.',
   'imageDetail.openEditor': 'Vula kumhleli',
+  'imageDetail.tips.lockSeed':
+    'Khiya imbewu ukuze uphindaphinde ukukhanyisa ngaphandle kokulahlekelwa ukuhlelwa.',
+  'imageDetail.tips.upscale':
+    'Sebenzisa ukukhulisa 4× ngaphambi kokukhipha ukuze uthole ikhwalithi elungele ukuphrinta.',
   'imageDetail.tipsTitle': 'Hlaziya iphupho',
+  'imageDetail.title': 'Image',
   'imageDetail.upscaleQueued': 'Kubekwe emgqeni ophezulu',
   'imageDetail.variations': 'Izinguquko',
   'imageDetail.variationsQueued': 'Izinguquko ezifakwe emgqeni',
   'imageDetail.visibilityToggled': 'Ukubonakala kubuyekeziwe',
+  'landing.copyright': '© {{year}} {{appName}} Labs. Yakhiwe nge-Molecule.dev.',
   'landing.cta': 'Qala ukudala',
   'landing.eyebrow': 'Manje ihlinzeka ngeReverie XL v3',
   'landing.featuresEyebrow': 'Kungani i-Reverie',
@@ -139,8 +156,18 @@ export const ui: UiTranslations = {
     'Imisebenzi yokukhiqiza, ukwabelana kanye nezexwayiso zekhredithi kuzovela lapha.',
   'notifications.empty.title': 'Akukho okufanele kubikwe',
   'notifications.subtitle': 'Imicimbi yesizukulwane ihlelwe ngokwezinsuku',
+  'planUpdated.confirmed': 'Uhlelo lwakho lwe-{{planKey}} luyasebenza futhi amakhredithi engeziwe.',
+  'planUpdated.error':
+    'Asikwazanga ukuqinisekisa ukunyuswa kwakho ngokuzenzakalela. Sicela uxhumane nokusekelwa.',
+  'planUpdated.retry': 'Zama futhi',
+  'planUpdated.unpaid':
+    'Iseshini yakho yokukhokha ayikakhokhelwa. Zama futhi kusukela ku-Settings.',
+  'planUpdated.verifyFailed': 'Asikwazanga ukuqinisekisa inkokhelo yakho okwamanje.',
+  'planUpdated.verifyFailedBody':
+    'Inkokhelo yakho ingase isacutshungulwa. Zama futhi ngemva kwesikhashana.',
   'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'pricing.limits.gallery': '{{count}} igalari',
+  'pricing.limits.generations': '{{count}} okukhiqiziwe',
   'privacy.collect.body':
     'Uma ubhalisa siqoqa igama lakho, ikheli le-imeyili, kanye nephasiwedi esheshisiwe. Njengoba usebenzisa i-Reverie sigcina izixwayiso ozithumelayo, izithombe esizikhiqizela wena, izitayela namaqoqo owalondolozayo, kanye nemethadatha efana nemodeli esetshenzisiwe, izitembu zesikhathi zokukhiqiza, kanye nebhalansi yesikweletu.',
   'privacy.cookies.body':
@@ -154,6 +181,8 @@ export const ui: UiTranslations = {
   'profile.followedBio': 'Ngilandele umdali manje nje',
   'profile.following': 'Ukulandela…',
   'profile.loadingWorks': 'Ilayisha imisebenzi yomphakathi…',
+  'profile.noPublicWorks':
+    'Ayikho imisebenzi yomphakathi okwamanje — yabelana ngesithombe ukuze ugcwalise le galari.',
   'profile.notFoundTitle': 'Iphrofayela ayitholakali',
   'profile.publicWorks': 'Imisebenzi yomphakathi',
   'profile.subtitle': '@ {{handle}} · iphrofayela yomdali yomphakathi',
@@ -166,6 +195,7 @@ export const ui: UiTranslations = {
   'prompts.empty.cta': 'Vula isitudiyo',
   'prompts.empty.title': 'Azikho izixwayiso ezigciniwe ezifanayo',
   'prompts.lastUsed': 'Kusetshenzisiwe {{when}}',
+  'prompts.loading': 'Ilayisha izixwayiso…',
   'prompts.negativeLabel': 'I-NEG',
   'prompts.runAgain': 'Gijima',
   'prompts.running': 'Ukugijima…',
@@ -181,6 +211,7 @@ export const ui: UiTranslations = {
   'settings.account.saveFailed': 'Ayikwazanga ukulondoloza iphrofayela',
   'settings.account.title': 'Iphrofayela yomdali',
   'settings.accountSecurity': 'I-akhawunti kanye nokuphepha',
+  'settings.accountSecurity.title': 'Ukungena, amadivayisi ne-akhawunti',
   'settings.api.empty':
     'Azikho izinkinobho ze-API okwamanje — dala eyodwa ukuze uqale ukuhlanganisa.',
   'settings.api.loading': 'Ilayisha okhiye be-API…',
@@ -200,14 +231,18 @@ export const ui: UiTranslations = {
   'sidebar.secondary': 'Ukuzulazula kwesibili',
   'signup.failed': 'Ukubhalisa kwehlulekile. Zama futhi.',
   'signup.firstNamePlaceholder': 'I-Aria',
+  'signup.haveAccount': 'Usuvele ungumphuphi?',
   'signup.heading': 'Qala i-reverie yakho',
   'signup.lastNamePlaceholder': 'uLin',
   'signup.subheading': 'Dala i-akhawunti bese uthola amakhredithi angu-120 mahhala.',
+  'styles.body':
+    'Isethi ngayinye yokuqala ihlanganisa imodeli yayo, isampula, isakhiwo sombhalo kanye namachiphu esitayela. Yenza eyodwa isebenze ukuze ukhiye yonke istudiyo kuleso simo — kulungele umsebenzi wochungechunge.',
   'styles.empty':
     'Azikho izilungiselelo zesitayela okwamanje — zizovela ngemva kokungena ngemvume kokuqala.',
   'styles.eyebrow': 'Kukhethwe',
   'styles.headline':
     'Yenza kube lula ngokushesha ngamasethingi abonakalayo angasetshenziswa kabusha',
+  'styles.loading': 'Ilayisha umtapo wesitayela…',
   'styles.subtitle': 'Amasethingi abonakalayo akhethiwe enziwe yithimba lesitudiyo iReverie',
   'styles.title': 'Ilabhulali yesitayela',
   'terms.acceptableUse.body':

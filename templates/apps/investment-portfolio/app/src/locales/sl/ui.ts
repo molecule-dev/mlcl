@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Imate povratno informacijo, ste našli hrošča ali si želite funkcijo? Pišite nam iz nastavitev računa — vsako sporočilo prebere resnična oseba iz ekipe. Opomba: nič tukaj ni naložbeni nasvet; nadzor nad vsako transakcijo ostaja vaš.',
+  'about.contactTitle': 'Kontaktirajte nas',
+  'about.featureAttribution':
+    'Atribucija uspešnosti — razčlenite donose po sektorju, regiji in razredu sredstev ter jih primerjajte v poljubnem obdobju.',
+  'about.featureRebalance':
+    'Disciplinirano uravnoteženje — nastavite ciljne dodelitve in tolerance, zgodaj opazite odstopanja ter prejmite predloge transakcij, ki vas vrnejo na cilj.',
+  'about.featureTax':
+    'Urejena davčna dokumentacija — realizirani in nerealizirani dobički, dividende in dokumenti 1099 na enem mestu, vključno z opozorili za wash-sale.',
+  'about.featureUnified':
+    'Enoten portfelj — delnice, ETF-i, vzajemni skladi, obveznice in več, zbrano z vseh borznih računov.',
+  'about.featureWatchlist':
+    'Seznami spremljanja, novice in cenovna opozorila, da lahko ukrepate pri tem, kar je pomembno, brez hrupa.',
+  'about.intro':
+    '{{app}} je nadzorna plošča večsredstvenega portfelja za posamezne vlagatelje in neodvisne svetovalce. Delnice, ETF-i, vzajemni skladi, obveznice, nepremičnine in denar — vsak delež na vsakem računu, na enem mestu, z disciplino profesionalnega oddelka.',
+  'about.missionBody':
+    'Dobro vlaganje je večinoma disciplina: jasna ciljna dodelitev, poštena atribucija uspešnosti in urejeni davčni zapisi. {{app}} prinaša te institucionalne navade vsakomur, da lahko uravnotežite namerno in ne impulzivno — in nikoli ne izgubite izpred oči, kaj vaš portfelj dejansko počne.',
+  'about.missionTitle': 'Naše poslanstvo',
   'about.pageTitle': 'O aplikaciji {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Orodja za premoženje',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Ni investicijski nasvet.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Nadzorna plošča portfelja za individualne vlagatelje in svetovalce, ki si želijo discipliniranega uravnoteženja, natančne atribucije uspešnosti in higiene davčne dokumentacije – brez hrupa.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · Pretekli donosi ne zagotavljajo prihodnjih rezultatov.',
   'argentAuthShell.sampleChange': '+2.841 $ (+0,28 %) danes',
+  'argentAuthShell.sampleLabel': 'Vrednost portfelja',
   'argentAuthShell.sampleValue': '1.032.251 $',
   'argentLayout.primaryNavLabel': 'Primarna navigacija',
   'assetAllocationDonut.heading': 'Kako je vaš denar vložen',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'danes',
   'assetDetail.txEmpty': 'Za ta ticker ni transakcij.',
   'assetDetail.txHeading': 'Vaše transakcije',
+  'auth.legalConsent.prefix': 'Z nadaljevanjem se strinjate s pogoji {{appName}}',
   'common.and': 'in',
   'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'danes',
   'dashboard.topHoldings.heading': 'Kje deluje vaš denar',
   'dashboard.topHoldings.label': 'Najboljša premoženja',
+  'forgotPassword.gotLinkCta': 'Imam povezavo za ponastavitev →',
+  'forgotPassword.subheading':
+    'Vnesite e-poštni naslov svojega Gavl računa in poslali vam bomo varno povezavo za ponastavitev.',
   'forgotPassword.successBody':
     'Če ga ne vidite v nekaj minutah, preverite mapo z neželeno pošto ali poskusite z drugim e-poštnim naslovom.',
   'forgotPassword.successSubheading':
     'Preveri {{email}} za povezavo za ponastavitev. Poteče čez 60 minut.',
+  'forgotPassword.successTitle': 'E-pošta za ponastavitev je na poti',
   'holdingHighlightRow.todayLabel': 'danes',
   'holdings.addCta': 'Kupi',
   'holdings.col.allocation': 'Dodelitev',
@@ -58,6 +87,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Ni investicijski nasvet. Pretekla uspešnost ne zagotavlja prihodnjih rezultatov.',
   'landing.eyebrow': 'Argent · Platforma za ustvarjanje premoženja',
   'landing.features.heading': 'Vse, kar bi si svetovalec zgradil sam.',
+  'landing.finalCta.body':
+    'Povežite svoj borzni račun v dveh klikih. {{appName}} poskrbi za ostalo.',
+  'landing.finalCta.cta': 'Odprite svoj Argent račun',
   'landing.finalCta.heading': 'Vrnite disciplino v svoj portfelj.',
   'landing.footerSignup': 'Odprite račun',
   'landing.getStarted': 'Odprite račun',
@@ -65,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Oglejte si cenik',
   'landing.heroSubtitle':
     'Nadzorna plošča portfelja za individualne vlagatelje in svetovalce, ki si želijo discipliniranega uravnoteženja, natančne atribucije uspešnosti in higiene davčne dokumentacije – brez hrupa.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Predogled v živo iz reprezentativnega portfelja',
   'login.heading': 'Prijava v Argent',
   'login.subheading':
@@ -76,6 +109,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} pred h',
   'news.justNow': 'ravnokar',
   'news.loadError': 'Nalaganje novic ni uspelo.',
+  'planUpdated.body':
+    'Sprememba obračuna je zdaj aktivna. Svoj načrt lahko kadar koli upravljate na strani za obračun.',
+  'planUpdated.retry': 'Poskusi še enkrat',
+  'planUpdated.verifyFailed': 'Vašega plačila še nismo mogli potrditi.',
+  'planUpdated.verifyFailedBody':
+    'Vaše plačilo se morda še vedno obdeluje. Poskusite znova čez trenutek.',
   'planUpdated.verifying': 'Potrjevanje vašega plačila…',
   'portfolioHeroCard.label': 'Vrednost portfelja',
   'pricing.holdingsLabel': 'posesti',
@@ -86,12 +125,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Premik dodelitve',
   'rebalance.empty': 'Še ni določenih ciljev.',
   'rebalance.executeCta': 'Kraj {{count}} obrti',
+  'rebalance.executeError': 'Transakcij ni bilo mogoče oddati.',
   'rebalance.executeOk': 'Postavljeno {{count}} trgovanja. Oglejte si jih na strani Transakcije.',
+  'rebalance.executing': 'Oddajanje …',
   'rebalance.eyebrow': 'Rebalance · Argent svetovalec',
   'rebalance.heading': 'Vrnite disciplino svojemu portfelju',
   'rebalance.loadError': 'Nalaganje načrta za ponovno uravnoteženje ni uspelo.',
+  'rebalance.plan.driftLine': 'trenutno {{current}} % · cilj {{target}} %',
   'rebalance.planHeading': 'Argent vstopnica – pregled pred oddajo',
   'rebalance.planLabel': 'Predlagani načrt trgovanja',
+  'rebalance.subheading':
+    'Vrstice zunaj tolerančnega pasu sprožijo predloge transakcij. {{appName}} ukrepa le na vašo potrditev.',
   'rebalance.summary.buyLabel': 'Nakupi',
   'rebalance.summary.buySub': 'pozicije za dopolnitev',
   'rebalance.summary.driftLabel': 'Izven pasu',
@@ -100,6 +144,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'v predlaganih menjavah',
   'rebalance.summary.sellLabel': 'Prodaja',
   'rebalance.summary.sellSub': 'položaji za obrezovanje',
+  'rebalanceDriftCard.drift': 'odstopanje {{sign}}{{pct}} % · pas ±{{tolerance}} %',
   'rebalanceDriftCard.targetLabel': 'tarča {{pct}} %',
   'reports.attributionHeading': 'Atribucija uspešnosti (1 leto)',
   'reports.col.alpha': 'Alfa',
@@ -113,36 +158,67 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Leto',
   'reports.gainsHeading': 'Realizirani in nerealizirani dobički',
   'reports.noAttribution': 'Podatkov o atribuciji še ni.',
+  'reports.noGains': 'Podatkov o realiziranih/nerealiziranih dobičkih še ni.',
   'reports.noPerformance': 'Podatkov o uspešnosti še ni.',
   'reports.noTaxDocs': 'Davčnih dokumentov še ni.',
   'reports.performanceHeading': 'Zmogljivost v primerjavi z referenčno vrednostjo',
   'reports.taxHeading': 'Davčni dokumenti',
   'resetPassword.heading': 'Izberite močno novo geslo',
+  'resetPassword.passwordPlaceholder': 'Novo geslo',
   'resetPassword.subheading': 'Argent vas bo samodejno prijavil, ko bo vaše geslo nastavljeno.',
   'resetPassword.tokenPlaceholder': 'Ponastavi žeton iz e-pošte',
+  'settings.appearance.description': 'Preklapljanje med svetlim in temnim načinom.',
   'settings.appearance.title': 'Videz',
+  'settings.devices.body': 'Naprave, ki so trenutno prijavljene v vaš račun.',
+  'settings.devices.empty': 'Ni najdenih naprav.',
   'settings.devices.heading': 'Naprave',
+  'settings.devices.revokeWarning': 'Dostop te naprave bo kmalu preklican. Jo odjavite?',
   'settings.devices.signOut': 'Odjava',
   'settings.devices.thisDevice': 'Ta naprava',
   'settings.devices.unknown': 'Neznana naprava',
   'settings.linked.body':
     'Sinhronizacija posredniških storitev zahteva povezovalnik drugega ponudnika (Plaid, Yodlee itd.). Konfigurirajte ponudnika v svojem okolju, da omogočite samodejni uvoz.',
   'settings.linked.heading': 'Povezani borznoposredniški računi',
+  'settings.linked.placeholder': 'Še ni povezanih računov.',
+  'settings.notifications.dividendsPaid': 'Izplačane dividende',
   'settings.notifications.error': 'Nastavitev ni bilo mogoče posodobiti.',
   'settings.notifications.priceAlerts': 'Opozorila o cenah',
+  'settings.notifications.rebalanceDrift': 'Odstopanje pri uravnoteženju',
+  'settings.notifications.taxDocsReady': 'Davčni dokumenti pripravljeni',
   'settings.profile.advisor': 'E-poštni naslov svetovalca (neobvezno)',
   'settings.profile.heading': 'Profil',
   'settings.security.changePassword': 'Spremeni geslo',
+  'settings.security.changePasswordTitle': 'Spremeni geslo',
   'settings.security.changing': 'Spreminjanje …',
+  'settings.security.confirmPassword': 'Geslo',
+  'settings.security.currentPassword': 'Trenutno geslo',
   'settings.security.deleteAccount': 'Izbriši račun',
   'settings.security.deleteError': 'Računa ni bilo mogoče izbrisati.',
   'settings.security.deleteHeading': 'Izbriši račun',
+  'settings.security.deleteModalWarning':
+    'To trajno izbriše vaš račun in podatke. Za potrditev vnesite geslo.',
+  'settings.security.deleteWarning':
+    'Trajno izbrišite svoj račun in vse povezane podatke. Tega ni mogoče razveljaviti.',
   'settings.security.deleting': 'Brisanje …',
   'settings.security.heading': 'Varnost',
   'settings.security.newPassword': 'Novo geslo',
   'settings.security.password': 'Geslo',
+  'settings.security.passwordError': 'Gesla ni bilo mogoče spremeniti.',
+  'settings.security.passwordHint': 'Spremenite geslo, s katerim se prijavljate.',
+  'settings.security.twoFactor': 'Dvofaktorska avtentikacija',
+  'settings.security.twoFactorCode': 'Koda za avtentifikacijo',
+  'settings.security.twoFactorDisable': 'Onemogoči',
+  'settings.security.twoFactorDisableTitle': 'Onemogoči dvostopenjsko preverjanje pristnosti',
   'settings.security.twoFactorEnable': 'Omogoči',
+  'settings.security.twoFactorEnableTitle': 'Omogoči dvostopenjsko preverjanje pristnosti',
+  'settings.security.twoFactorHint': 'Dodajte dodatno raven zaščite za svoj račun.',
   'settings.security.twoFactorInvalidCode': 'Neveljavna koda',
+  'settings.security.twoFactorOn': 'Na',
+  'settings.security.twoFactorQrAlt': 'QR koda za dvostopenjsko preverjanje',
+  'settings.security.twoFactorScan':
+    'Skenirajte to kodo QR z aplikacijo za preverjanje pristnosti, nato vnesite 6-mestno kodo.',
+  'settings.security.twoFactorUnavailable':
+    'Dvofaktorska avtentikacija ni na voljo za to aplikacijo.',
   'settings.security.twoFactorVerify': 'Preveri in omogoči',
   'settings.tax.error': 'Davčne metode ni bilo mogoče posodobiti.',
   'settings.tax.heading': 'Davčno računovodstvo',
@@ -153,6 +229,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Davčna metoda shranjena.',
   'signup.eyebrow': 'Odprite račun',
   'signup.heading': 'Odprite svoj Argent račun',
+  'signup.legalPrefix': 'Z ustvarjanjem računa se strinjate z {{appName}}',
   'signup.subheading': 'Brezplačno 30 dni. Kartica ni potrebna. Prekličete lahko kadar koli.',
   'signup.terms':
     'Z ustvarjanjem računa se strinjate s pogoji storitve in politiko zasebnosti Argent.',

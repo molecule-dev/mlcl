@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ទាក់ទងមកយើង',
   'about.eyebrow': 'អំពី',
+  'about.featureAlerts':
+    'ការជូនដំណឹងអំពីតម្លៃលើលក្ខខណ្ឌសំខាន់ៗ ផ្ញើតាមអ៊ីមែល និងការជូនដំណឹង ដើម្បីកុំឱ្យអ្នកខកខានចលនាណាមួយ។',
+  'about.featureMarkets':
+    'ទិន្នន័យទីផ្សារផ្ទាល់ និងក្រាហ្វតម្លៃសម្រាប់កាក់រាប់ពាន់ ដែលរៀបចំតាមតម្លៃទីផ្សារ បរិមាណ និងសន្ទុះ។',
+  'about.featurePortfolio':
+    'ការតាមដានផលប័ត្រជាមួយនឹងចំណេញ-ខាតពិតប្រាកដ តម្លៃដើម និងការបែងចែក — ភ្ជាប់ទៅនឹងប្រវត្តិប្រតិបត្តិការរបស់អ្នក។',
+  'about.featureWatchlist':
+    'បញ្ជីតាមដានផ្ទាល់ខ្លួន និងព័ត៌មានគ្រីបតូដែលជ្រើសរើសយ៉ាងល្អិតល្អន់ ជាមួយសញ្ញាអំពីទ្រព្យសកម្មដែលអ្នកតាមដាន។',
+  'about.missionTitle': 'បេសកកម្មរបស់យើង',
+  'alertConditionCard.armedSince': 'បានដំឡើងតាំងពី {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'បាន​បង្ក​ឲ្យ​មាន​ការ​រំខាន {{ពេលណា}}',
   'alertConditionCard.confirmDelete': 'បញ្ជាក់ការលុប',
+  'alertConditionCard.deleteAriaLabel': 'លុបការជូនដំណឹង',
   'alertConditionCard.pauseAriaLabel': 'ផ្អាកការជូនដំណឹង',
   'alertConditionCard.resumeAriaLabel': 'ការជូនដំណឹងអំពីការបន្ត',
+  'alertConditionCard.triggeredAt': 'បានកេះ {{when}}',
   'alertNew.condition': 'ស្ថានភាព',
   'alertNew.createCta': 'បង្កើតការជូនដំណឹង',
   'alertNew.error': 'មិនអាចបង្កើតការជូនដំណឹងបានទេ។',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'មិនទាន់មានការជូនដំណឹងនៅឡើយទេ។',
   'alerts.eyebrow': 'ស៊ីហ្គល ទ្រីបវីរស៍',
   'alerts.loadError': 'មិនអាចផ្ទុកការជូនដំណឹងបានទេ។',
+  'alerts.newCta': '+ ខ្សែកេះថ្មី',
   'alerts.subheading':
     'ទទួលបាន ping នៅពេលដែលតម្លៃ ការប្រែប្រួល ឬបរិមាណជួញដូរឆ្លងកាត់បន្ទាត់របស់អ្នក។',
   'alerts.summary.armed': 'ប្រដាប់អាវុធ',
@@ -24,6 +38,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'ខ្ពស់បំផុតគ្រប់ពេល',
   'coinDetail.allTimeLow': 'ទាបបំផុតគ្រប់ពេល',
   'coinDetail.back': 'ទីផ្សារទាំងអស់',
+  'coinDetail.chartAriaLabel': 'ក្រាហ្វតម្លៃ {{name}} រយៈពេល 30 ថ្ងៃចុងក្រោយ',
   'coinDetail.chartHeading': 'តម្លៃ · ៣០ថ្ងៃចុងក្រោយ',
   'coinDetail.circulating': 'ការផ្គត់ផ្គង់ចរាចរ',
   'coinDetail.fdv': 'ការវាយតម្លៃដែលបានពនលាយយ៉ាងពេញលេញ',
@@ -60,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'កំណត់​តំណ​ឡើង​វិញ​ដែល​មាន​ខ្សែ។',
   'login.eyebrow': 'ចូលទៅក្នុងស្ថានីយ',
   'login.heading': 'សូមស្វាគមន៍មកវិញ អ្នកផ្តល់សញ្ញា។',
+  'login.noAccountQuestion': 'ទើបតែស្គាល់ Tessera?',
   'login.secureNote': '🔒 បានអ៊ិនគ្រីបក្នុងពេលដឹកជញ្ជូន',
   'login.signingInCta': 'ការអានកាសែត…',
   'login.signupLink': 'បើកគណនី →',
@@ -94,6 +110,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'ផ្លូវដែលអ្នកបានស្កេនមិនបង្ហាញជាកាក់ ឬទំព័រដែលគេស្គាល់ទេ។ សូមពិនិត្យមើលនិមិត្តសញ្ញាឡើងវិញ ហើយព្យាយាមម្តងទៀត។',
   'notFound.browseMarkets': 'រកមើលទីផ្សារ',
+  'notFound.eyebrow': 'សញ្ញា {{appName}} បាត់បង់',
+  'notFound.heading': 'សញ្ញានេះស្ថិតនៅក្រៅជួរ',
+  'planUpdated.body':
+    'ការផ្លាស់ប្តូរវិក្កយបត្ររបស់អ្នកឥឡូវសកម្មហើយ។ អ្នកអាចគ្រប់គ្រងគម្រោងរបស់អ្នកបានគ្រប់ពេលពីទំព័រវិក្កយបត្រ។',
+  'planUpdated.retry': 'ព្យាយាមម្តងទៀត',
+  'planUpdated.verifyFailed': 'យើងមិនទាន់អាចបញ្ជាក់ការទូទាត់របស់អ្នកបាននៅឡើយទេ។',
+  'planUpdated.verifyFailedBody':
+    'ការទូទាត់របស់អ្នកប្រហែលជានៅតែកំពុងដំណើរការ។ សូមព្យាយាមម្តងទៀតនៅពេលបន្តិចទៀត។',
   'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
   'portfolio.addError': 'បញ្ចូលនិមិត្តសញ្ញា ចំនួនទឹកប្រាក់វិជ្ជមាន និងថ្លៃដើម។',
   'portfolio.addHoldingCta': '+ បន្ថែម​ការ​កាន់កាប់',
@@ -117,11 +141,13 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'តម្លៃផលប័ត្រសរុប',
   'portfolioHeroCard.totalPnl': 'ប្រាក់ចំណេញសរុប/ប្រាក់ចំណេញសុទ្ធ',
   'pricing.heading': 'ការជូនដំណឹង',
+  'pricing.limit.alerts': 'ការជូនដំណឹង',
   'pricing.limit.coins': 'កាក់',
   'pricing.limit.market': 'ទីផ្សារ',
   'pricing.limit.portfolio': 'ផលប័ត្រ',
   'resetPassword.eyebrow': 'លេខសម្ងាត់ថ្មី',
   'resetPassword.missingToken': 'តំណ​កំណត់​ឡើង​វិញ​នេះ​បាត់ ឬ​មិន​ត្រឹមត្រូវ។ ស្នើសុំ​តំណ​ថ្មី។',
+  'resetPassword.passwordPlaceholder': 'ពាក្យសម្ងាត់ថ្មី',
   'resetPassword.subheading': 'ជ្រើសរើសអ្វីមួយដែលអ្នកអាចឌិគ្រីបបាន។',
   'settings.apiKeys.body':
     'សោ​សម្រាប់​តែ​អាន​ប៉ុណ្ណោះ ដើម្បី​នាំចូល​ប្រវត្តិ​ប្រតិបត្តិការ។ ភ្ជាប់​តាមរយៈ OAuth ពី /pricing នៅពេល​ដែល​បាន​ជាវ។',
@@ -133,17 +159,32 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'រូបិយប័ណ្ណសម្រង់',
   'settings.preferences.locale': 'មូលដ្ឋាន',
   'settings.preferences.push': 'រុញ',
+  'settings.preferences.refresh': 'ការធ្វើបច្ចុប្បន្នភាពតម្លៃ (វិនាទី)',
   'settings.preferences.sms': 'សារ SMS',
+  'settings.revokeDeviceWarning': 'ការចូលប្រើរបស់ឧបករណ៍នេះនឹងត្រូវបានដកហូតក្នុងពេលឆាប់ៗ។ ចាកចេញវា?',
   'settings.security.body': 'ពាក្យសម្ងាត់ និងការកំណត់ពីរកត្តាត្រូវបានគ្រប់គ្រងដោយគណនីរបស់អ្នក។',
   'settings.signOutDevice': 'ចាកចេញ',
   'settings.twoFactorCode': 'លេខកូដផ្ទៀងផ្ទាត់',
   'settings.twoFactorDisable': 'បិទ',
+  'settings.twoFactorDisableTitle': 'បិទការផ្ទៀងផ្ទាត់ពីរជាន់',
   'settings.twoFactorEnable': 'បើកដំណើរការ',
+  'settings.twoFactorEnableTitle': 'បើកការផ្ទៀងផ្ទាត់ពីរជាន់',
   'settings.twoFactorInvalidCode': 'លេខកូដមិនត្រឹមត្រូវ',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'កូដ QR ការផ្ទៀងផ្ទាត់ពីរកត្តា',
+  'settings.twoFactorScan':
+    'ស្កេនកូដ QR នេះដោយកម្មវិធីផ្ទៀងផ្ទាត់របស់អ្នក បន្ទាប់មកបញ្ចូលកូដ 6 ខ្ទង់។',
+  'settings.twoFactorUnavailable': 'ការផ្ទៀងផ្ទាត់ពីរកត្តាមិនអាចប្រើសម្រាប់កម្មវិធីនេះបានទេ។',
   'settings.twoFactorVerify': 'ផ្ទៀងផ្ទាត់ និងបើក',
   'sigilAuthShell.backHomeCta': '← ត្រឡប់ទៅសញ្ញាសម្គាល់',
+  'sigilAuthShell.brandBody':
+    'តម្លៃពេលជាក់ស្តែង ចំណេញ/ខាតផលប័ត្រ និងការឃ្លាំមើលជាប្រចាំលើលក្ខខណ្ឌសំខាន់ៗ — ទាំងអស់នៅលើផ្ទាំងតែមួយ។',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — បង្កើតនៅលើ Molecule',
+  'sigilAuthShell.brandHeadline': 'ឌិកូដគ្រប់សញ្ញានៅទូទាំងសៀវភៅបញ្ជីទាំងមូល។',
+  'sigilAuthShell.samplePortfolio': 'ផលប័ត្រគំរូ',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'ការរុករកចម្បង',
+  'signup.creating': 'កំពុងបើកផ្ទាំងរបស់អ្នក…',
   'signup.eyebrow': 'បើកស្ថានីយមួយ',
   'signup.heading': 'បង្កើតស៊ីហ្គលរបស់អ្នក',
   'signup.subheading': 'តាមដានកាក់នីមួយៗ ការពាររាល់ការខកខាន។ ឥតគិតថ្លៃដើម្បីចាប់ផ្តើម។',
@@ -160,6 +201,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'បរាជ័យក្នុងការផ្ទុកប្រតិបត្តិការ។',
   'watchlist.addCta': 'រកមើលទីផ្សារ',
   'watchlist.col.change24h': '២៤ ម៉ោង',
+  'watchlist.col.coin': 'កាក់',
   'watchlist.col.marketCap': 'ទុនទីផ្សារ',
   'watchlist.empty':
     'គ្មានកាក់នៅក្នុងបញ្ជីតាមដានរបស់អ្នកទេ — សូមដាក់ផ្កាយលើកាក់ពី /markets ដើម្បីបន្ថែមវា។',

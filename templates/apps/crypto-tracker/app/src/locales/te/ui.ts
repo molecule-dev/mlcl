@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'గురించి',
+  'about.featureAlerts':
+    'ముఖ్యమైన షరతులపై ధర హెచ్చరికలు, ఇమెయిల్ మరియు పుష్ ద్వారా పంపబడతాయి, కాబట్టి మీరు ఎప్పుడూ ఒక కదలికను మిస్ అవ్వరు.',
+  'about.featureMarkets':
+    'వేలాది కాయిన్లలో లైవ్ మార్కెట్ డేటా మరియు ధర చార్ట్లు, మార్కెట్ క్యాప్, వాల్యూమ్ మరియు మొమెంటం ద్వారా ర్యాంక్ చేయబడ్డాయి.',
+  'about.featurePortfolio':
+    'నిజమైన లాభం-నష్టం, కాస్ట్ బేసిస్ మరియు కేటాయింపుతో పోర్ట్ఫోలియో ట్రాకింగ్ — మీ లావాదేవీల చరిత్రకు అనుసంధానించబడింది.',
+  'about.featureWatchlist':
+    'వ్యక్తిగత వాచ్లిస్ట్ మరియు మీరు ఫాలో అయ్యే ఆస్తులపై సిగ్నల్స్తో క్యూరేటెడ్ క్రిప్టో న్యూస్.',
+  'about.missionTitle': 'మా లక్ష్యం',
+  'alertConditionCard.armedSince': '{{when}} నుండి సిద్ధంగా',
   'alertConditionCard.condition.${alert.condition}': 'ప్రేరేపించబడింది {{ఎప్పుడు}}',
   'alertConditionCard.confirmDelete': 'తొలగింపును నిర్ధారించండి',
+  'alertConditionCard.deleteAriaLabel': 'హెచ్చరికను తొలగించండి',
   'alertConditionCard.pauseAriaLabel': 'పాజ్ అలర్ట్',
   'alertConditionCard.resumeAriaLabel': 'పునఃప్రారంభ హెచ్చరిక',
+  'alertConditionCard.triggeredAt': '{{when}} ట్రిగ్గర్ చేయబడింది',
   'alertNew.condition': 'పరిస్థితి',
   'alertNew.createCta': 'అలర్ట్ సృష్టించండి',
   'alertNew.error': 'అలర్ట్‌ను సృష్టించలేకపోయాము.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'ఇంకా ఎలాంటి హెచ్చరికలు రాలేదు.',
   'alerts.eyebrow': 'సిగిల్ ట్రిప్‌వైర్లు',
   'alerts.loadError': 'హెచ్చరికలను లోడ్ చేయడంలో విఫలమైంది.',
+  'alerts.newCta': '+ కొత్త ట్రిప్వైర్',
   'alerts.subheading': 'ధర, మార్పు లేదా వాల్యూమ్ మీ లైన్‌ను దాటినప్పుడు మీకు నోటిఫికేషన్ వస్తుంది.',
   'alerts.summary.armed': 'సాయుధ',
   'alerts.summary.triggered': 'ప్రేరేపించబడింది',
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'సర్వకాలిక గరిష్టం',
   'coinDetail.allTimeLow': 'సర్వకాలిక కనిష్ట',
   'coinDetail.back': 'అన్ని మార్కెట్లు',
+  'coinDetail.chartAriaLabel': '{{name}} ధర చార్ట్, చివరి 30 రోజులు',
   'coinDetail.chartHeading': 'ధర · గత 30 రోజులు',
   'coinDetail.circulating': 'సరఫరా',
   'coinDetail.fdv': 'పూర్తిగా పలుచన చేయబడిన విలువ',
@@ -59,6 +74,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'వైర్డ్ లింక్‌ను రీసెట్ చేయండి.',
   'login.eyebrow': 'టెర్మినల్‌లోకి ప్రవేశించండి',
   'login.heading': 'తిరిగి స్వాగతం, సంకేతకర్త.',
+  'login.noAccountQuestion': 'టెస్సెరాకు కొత్తవారా?',
   'login.secureNote': '🔒 ప్రయాణంలో గుప్తీకరించబడింది',
   'login.signingInCta': 'టేప్ చదవడం…',
   'login.signupLink': 'ఖాతా తెరవండి →',
@@ -94,6 +110,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'మీరు స్కాన్ చేసిన మార్గం తెలిసిన నాణెం లేదా పేజీకి దారితీయడం లేదు. చిహ్నాన్ని మళ్లీ తనిఖీ చేసి, తిరిగి ప్రయత్నించండి.',
   'notFound.browseMarkets': 'మార్కెట్లను బ్రౌజ్ చేయండి',
+  'notFound.eyebrow': '{{appName}} సిగ్నల్ పోయింది',
+  'notFound.heading': 'ఈ సిగ్నల్ పరిధి వెలుపల ఉంది',
+  'planUpdated.body':
+    'మీ బిల్లింగ్ మార్పు ఇప్పుడు యాక్టివ్గా ఉంది. మీ ప్లాన్ను బిల్లింగ్ పేజీ నుండి ఎప్పుడైనా నిర్వహించవచ్చు.',
+  'planUpdated.retry': 'మళ్ళీ ప్రయత్నించండి',
+  'planUpdated.verifyFailed': 'మేము మీ చెల్లింపును ఇంకా ధృవీకరించలేకపోయాము.',
+  'planUpdated.verifyFailedBody':
+    'మీ చెల్లింపు ఇంకా ప్రాసెస్ అవుతూ ఉండవచ్చు. కాసేపటి తర్వాత మళ్ళీ ప్రయత్నించండి.',
   'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'portfolio.addError': 'గుర్తు, ధనాత్మక మొత్తం మరియు ధరను నమోదు చేయండి.',
   'portfolio.addHoldingCta': '+ హోల్డింగ్ జోడించండి',
@@ -117,12 +141,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'మొత్తం పోర్ట్‌ఫోలియో విలువ',
   'portfolioHeroCard.totalPnl': 'మొత్తం లాభం/నష్టం',
   'pricing.heading': 'హెచ్చరికలు',
+  'pricing.limit.alerts': 'హెచ్చరికలు',
   'pricing.limit.coins': 'నాణేలు',
   'pricing.limit.market': 'మార్కెట్',
   'pricing.limit.portfolio': 'పోర్ట్‌ఫోలియో',
   'resetPassword.eyebrow': 'కొత్త సైఫర్',
   'resetPassword.missingToken':
     'ఈ రీసెట్ లింక్ అందుబాటులో లేదు లేదా చెల్లదు. దయచేసి కొత్త లింక్‌ను అభ్యర్థించండి.',
+  'resetPassword.passwordPlaceholder': 'కొత్త పాస్‌వర్డ్',
   'resetPassword.subheading': 'మీరు మాత్రమే అర్థం చేసుకోగలిగేదాన్ని ఎంచుకోండి.',
   'settings.apiKeys.body':
     'లావాదేవీల చరిత్రను దిగుమతి చేసుకోవడానికి రీడ్-ఓన్లీ కీలు. సబ్‌స్క్రయిబ్ చేసుకున్న తర్వాత /pricing నుండి OAuth ద్వారా కనెక్ట్ అవ్వండి.',
@@ -134,18 +160,34 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'కోట్ కరెన్సీ',
   'settings.preferences.locale': 'స్థానిక',
   'settings.preferences.push': 'నెట్టు',
+  'settings.preferences.refresh': 'ధర రిఫ్రెష్ (సెకన్లు)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning':
+    'ఈ పరికరం యొక్క యాక్సెస్ త్వరలో రద్దు చేయబడుతుంది. సైన్ అవుట్ చేయాలా?',
   'settings.security.body':
     'పాస్‌వర్డ్ మరియు టూ-ఫ్యాక్టర్ సెట్టింగ్‌లు మీ ఖాతా ద్వారా నిర్వహించబడతాయి.',
   'settings.signOutDevice': 'సైన్ అవుట్',
   'settings.twoFactorCode': 'ప్రమాణీకరణ కోడ్',
   'settings.twoFactorDisable': 'నిలిపివేయండి',
+  'settings.twoFactorDisableTitle': 'రెండు-కారకాల ప్రామాణీకరణను నిలిపివేయండి',
   'settings.twoFactorEnable': 'ప్రారంభించండి',
+  'settings.twoFactorEnableTitle': 'రెండు-కారకాల ప్రామాణీకరణను ప్రారంభించండి',
   'settings.twoFactorInvalidCode': 'చెల్లని కోడ్',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'రెండు-కారకాల QR కోడ్',
+  'settings.twoFactorScan':
+    'మీ ప్రామాణీకరణ యాప్తో ఈ QR కోడ్ను స్కాన్ చేయండి, ఆపై 6-అంకెల కోడ్ను నమోదు చేయండి.',
+  'settings.twoFactorUnavailable': 'ఈ యాప్‌కు టూ-ఫ్యాక్టర్ అథెంటికేషన్ అందుబాటులో లేదు.',
   'settings.twoFactorVerify': 'ధృవీకరించి, ప్రారంభించండి',
   'sigilAuthShell.backHomeCta': '← సిగిల్‌కు తిరిగి వెళ్లండి',
+  'sigilAuthShell.brandBody':
+    'రియల్టైమ్ ధరలు, పోర్ట్ఫోలియో P/L మరియు ముఖ్యమైన షరతులపై స్థిరమైన వార్డ్లు — అన్నీ ఒకే టెర్మినల్లో.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — Molecule పై నిర్మించబడింది',
+  'sigilAuthShell.brandHeadline': 'మొత్తం లెడ్జర్లో ప్రతి సిగ్నల్ను డీకోడ్ చేయండి.',
+  'sigilAuthShell.samplePortfolio': 'నమూనా పోర్ట్ఫోలియో',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
+  'signup.creating': 'మీ టెర్మినల్ తెరుస్తోంది…',
   'signup.eyebrow': 'టెర్మినల్ తెరవండి',
   'signup.heading': 'మీ సిగిల్‌ను సృష్టించండి',
   'signup.subheading':
@@ -163,6 +205,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'లావాదేవీలను లోడ్ చేయడంలో విఫలమైంది.',
   'watchlist.addCta': 'మార్కెట్లను బ్రౌజ్ చేయండి',
   'watchlist.col.change24h': '24 గంటలు',
+  'watchlist.col.coin': 'నాణెం',
   'watchlist.col.marketCap': 'మార్కెట్ క్యాప్',
   'watchlist.empty':
     'మీ వాచ్‌లిస్ట్‌లో కాయిన్‌లు లేవా — వాటిని జోడించడానికి /markets నుండి కాయిన్‌లను స్టార్ చేయండి.',

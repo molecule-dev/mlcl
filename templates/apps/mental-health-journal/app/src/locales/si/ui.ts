@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ප්‍රතිචාරයක් තිබේද, දෝෂයක් හමු වුණාද, නැතහොත් ඩයරි ලිවීම ඔබට කෙසේ උපකාරී වුණාද යන්න අපට කියන්න අවශ්‍යද? අපි සෑම පණිවිඩයක්ම කියවනවා — ඕනෑම වේලාවක අප හා සම්බන්ධ වන්න, සැබෑ පුද්ගලයෙක් ඔබට පිළිතුරු දෙනවා.',
+  'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
+  'about.featureInsights':
+    'ඔබේ හඬ නැති නොකර, සංවේදක, තේමා සහ කෘතඥතා මෘදු ලෙස ඉස්මතු කරන AI බලගැන්වූ පරාවර්තන.',
+  'about.featureMood':
+    'ඔබට සමෘද්ධිමත් වීමට උපකාරී වන දේ මතු කරන දින දර්ශන දසුනක් සහ ප්‍රවණතා ප්‍රස්තාර සමඟ මනෝභාවය සහ ක්‍රියාකාරකම් නිරීක්ෂණය.',
+  'about.featurePrivacy':
+    'අග සිට අග දක්වා සංකේතනය, අංක රහස් කේත අගුලක් සහ සම්පූර්ණ CSV නිර්යාතනය — ඔබේ පරාවර්තන පෞද්ගලිකව සහ ගෙන යා හැකිව තබා ගැනීමට.',
+  'about.featurePrompts':
+    'ඔබට සැමවිටම ආරම්භ කිරීමට යමක් තිබෙන පරිදි මෘදු දෛනික උත්තේජන — කිසිදා හිස් පිටුවක් නොවේ.',
+  'about.intro':
+    '{{app}} යනු දෛනික පරාවර්තනය, මනෝභාවය නිරීක්ෂණය සහ කෘතඥතාව සඳහා වන මෘදු, පෞද්ගලික මානසික සෞඛ්‍ය ඩයරියකි. සැලකිලිමත් උත්තේජන හිස් පිටුව වෙනුවට පැමිණේ, නිහඬ රටා සොයා ගැනීම ඔබට කෙසේ හැඟෙනවාද යන්නට බලපාන දේ තේරුම් ගැනීමට උපකාරී වේ, සහ අග සිට අග දක්වා සංකේතනය ඔබේ වචන ඔබ සතුව තබයි.',
+  'about.missionBody':
+    'ඔබ සමඟම පරීක්ෂා කර බැලීම සන්සුන් ලෙස දැනිය යුතුය, කිසිදා වෛද්‍යමය ලෙස නොව — සහ ඔබේ අවධානය ඉල්ලන තවත් යෙදුමක් ලෙස කිසිදා නොවේ. {{app}} උපකාරී වීමට නිර්මාණය කර ඇත, හිරිහැර කිරීමට නොවේ: දිනකට නිහඬ මිනිත්තු කිහිපයක් ඔබේ මනෝභාවය දැනගැනීමට, අවංකව ලිවීමට, සහ සෙමින් ඔබව වඩාත් පැහැදිලිව දැකීමට.',
+  'about.missionTitle': 'අපගේ මෙහෙවර',
   'about.pageTitle': '{{app}} පිළිබඳව',
   'authShell.encryptionBadge': 'ඔබගේ ඇතුළත් කිරීම් අන්තයේ සිට අගට සංකේතනය කර ඇත.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'දිනය {{day}} — සටහනක් නැත',
   'calendar.cellMood': 'දහවල {{day}} — {{mood}}',
   'calendar.distributionHeading': 'මේ මාසය කෙටියෙන්',
   'calendar.eyebrow': 'බැලූ බැල්මට මනෝභාවය',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'නිරීක්ෂණය කරන ලදී {{tracked}} වල {{total}} මේ මාසයේ දින.',
   'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'common.tryAgain': 'නැවත උත්සාහ කරන්න',
+  'entryComposer.bodyPlaceholder':
+    'අවංක ලෙස දැනෙන ඕනෑම දෙයක් ලියන්න. වෙන කිසිවෙක් මෙය කියවන්නේ නැත.',
   'entryComposer.cancel': 'නැවත සඟරාවට',
   'entryComposer.heading': 'අද දින පරාවර්තනය',
   'entryComposer.moodLabel': 'ඔයාට දැනේන්නේ කොහොම ද?',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'ඉවත් කරන්න {{tag}}',
   'entryComposer.save': 'පරාවර්තනය සුරකින්න',
   'entryComposer.saveError': 'ඔබගේ ඇතුළත් කිරීම සුරැකීමට නොහැකි විය.',
+  'entryComposer.tagPlaceholder': 'ටැගයක් එක් කර එන්ටර් ඔබන්න',
   'entryComposer.titlePlaceholder': 'මෙම පරාවර්තනයට නමක් දෙන්න...',
   'entryDetail.back': 'නැවත සඟරාවට',
   'entryDetail.delete': 'මෙම ඇතුළත් කිරීම මකන්න',
@@ -36,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'පරාවර්තනය පූරණය වෙමින්…',
   'entryDetail.notFound': 'ඇතුළත් කිරීම හමු නොවීය.',
   'entryDetail.reflectionsHeading': 'AI පරාවර්තන',
+  'forgotPassword.continueButton': 'නැවත සැකසීමේ කේතය ඇතුළත් කරන්න',
   'forgotPassword.eyebrow': 'කරදර නැහැ',
   'forgotPassword.subheading': 'අපි ඔබගේ විද්‍යුත් තැපෑලට මෘදු යළි පිහිටුවීමේ සබැඳියක් එවන්නෙමු.',
   'forgotPassword.successBody':
@@ -58,14 +79,21 @@ export const ui: UiTranslations = {
     'තවම තේමා නොමැත — ඔබේ ඇතුළත් කිරීම් වලට ටැගයක් හෝ දෙකක් එක් කරන්න, එවිට ඒවා මෙහි රැස්වනු ඇත.',
   'insights.themesHeading': 'ඉහළම තේමා',
   'insights.triggerFrequency': 'දැක්කා {{count}} × මේ මාසයේ',
+  'insights.triggersEmpty':
+    'තවම දැනගැනීමට කිසිවක් නැත. දින කිහිපයක් පුරා සටහන් කිහිපයක් ඔබේ රටා පෙන්වයි.',
   'insights.triggersHeading': 'ඔබේ මනෝභාවය චලනය කරන රටා',
+  'journal.empty': 'ගැළපෙන පරාවර්තන නැත — වෙනත් පෙරහනක් උත්සාහ කරන්න හෝ නව සටහනක් ලියන්න.',
   'journal.eyebrow': 'ඔබේ පරාවර්තන',
   'journal.heading': 'සඟරාව',
   'journal.loadError': 'ඇතුළත් කිරීම් පූරණය කිරීමට අසමත් විය.',
   'journal.loading': 'ඇතුළත් කිරීම් පූරණය වෙමින්…',
+  'journal.newEntry': 'නව ඇතුළත් කිරීම',
   'journal.searchPlaceholder': 'හැඟීමක්, නමක්, මොහොතක් සොයන්න...',
   'journal.subheading': '{{count}} සටහන් - සෑම එකක්ම තබා ගැනීම වටී.',
   'journalEntryCard.encryptedLabel': 'සංකේතනය කරන ලදී',
+  'landing.ctaBody':
+    'ආරම්භ කිරීමට නොමිලේ. Pro මගින් දත්ත නිර්යාතනය, විශාල ඩයරියක්, සහ පූර්ණ වසරක ඉතිහාසයක් අගුළු හරියි.',
+  'landing.ctaButton': 'ඔබේ පළමු ඇතුළත් කිරීම ආරම්භ කරන්න',
   'landing.ctaTitle': 'දිනකට නිහඬ මිනිත්තු කිහිපයක්. එච්චරයි.',
   'landing.eyebrow': 'මෘදු දෛනික අභ්‍යාසයක්',
   'landing.featuresBody':
@@ -84,6 +112,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'දිනපතා මෙනෙහි කිරීම සඳහා මෘදු අවකාශයක්.',
   'mentalHealthJournalLayout.closeMenu': 'මෙනුව වසන්න',
   'mentalHealthJournalLayout.openMenu': 'මෙනුව විවෘත කරන්න',
+  'mentalHealthJournalLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
+  'moodHeroCard.entriesThisWeek': '{{count}} මෙම සතිය',
   'moodHeroCard.streakSuffix': 'දින රේඛාව',
   'moodHeroCard.title': 'අද දින පරාවර්තනය',
   'moodTrendChart.aiBadge': 'AI තීක්ෂ්ණ බුද්ධිය සූදානම්',
@@ -94,11 +124,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'ඔබේ ගමන',
   'profile.fallbackName': 'පරාවර්තකය',
   'profile.loadError': 'සංඛ්‍යාලේඛන පූරණය කිරීමට අසමත් විය.',
+  'profile.loading': 'ඔබේ සංඛ්‍යාලේඛන නැවුම් කරමින්…',
   'profile.longestStreak': 'දිගම රේඛාව',
   'profile.memberSince': 'එතැන් සිට පරාවර්තනය කරමින් {{date}}',
   'profile.milestones': 'සන්ධිස්ථාන',
   'profile.milestonesEmpty':
     'ඔබේ පළමු සන්ධිස්ථානයට ඇත්තේ එක් ප්‍රවේශයක් පමණි - ඔබට සූදානම් යැයි හැඟෙන ඕනෑම වේලාවක ලියන්න.',
+  'profile.moodMix': 'මෙම කන්නයේ ඔබේ මනෝභාවය මිශ්‍රණය',
   'profile.streakValue': '{{days}} ඈ',
   'profile.totalEntries': 'පරාවර්තන',
   'profile.totalWords': 'ලියා ඇති වචන',
@@ -111,6 +143,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'මේ ගැන ලියන්න',
   'resetPassword.eyebrow': 'නැවුම් ආරම්භයක්',
   'resetPassword.mismatchError': 'මුරපද නොගැලපේ.',
+  'resetPassword.passwordLabel': 'නව මුරපදය',
   'resetPassword.subheading': 'ආරක්ෂිත දෙයක් තෝරන්න - ඔබේ පරාවර්තනය එයට සුදුසුයි.',
   'resetPassword.tokenPlaceholder': 'ඊමේල් එකෙන් කේතය නැවත සකසන්න',
   'settings.dangerDescription': 'ඔබගේ ගිණුම සහ සෑම පරාවර්තනයක්ම ස්ථිරවම මකන්න. මෙය අහෝසි කළ නොහැක.',
@@ -121,11 +154,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'ගිණුම මැකීමට නොහැකි විය.',
   'settings.exportDescription': 'ඔබේ වචන සැමවිටම ඔබට අයත් වේ. ඕනෑම වේලාවක පිටපතක් බාගන්න.',
   'settings.exportDone': 'අපනයනය කරන ලදී {{format}}.',
+  'settings.exportError': 'අපනයනය අසාර්ථක විය.',
+  'settings.exportHeading': 'ඔබේ පරාවර්තන නිර්යාත කරන්න',
   'settings.exportLoading': 'සූදානම් වෙමින්...',
   'settings.eyebrow': 'ඔබේ අවකාශය, ඔබේ නීති',
   'settings.languageHeading': 'භාෂාව',
   'settings.privacyHeading': 'පෞද්ගලිකත්වය සහ සංකේතනය',
   'settings.remindersHeading': 'දිනපතා මතක් කිරීම',
+  'settings.reminderToggleAria': 'දෛනික මතක් කිරීම මාරු කරන්න',
   'settings.reminderToggleDescription':
     'ඔබ තෝරා ගන්නා වේලාවට සන්සුන් මතක් කිරීමක්. ලාංඡන හෝ වරදකාරී හැඟීම් නොමැති.',
   'settings.reminderToggleLabel': 'මෘදු තල්ලුවක් යවන්න',
@@ -138,6 +174,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'සඟරාවක් නිර්මාණය කරමින්...',
   'signup.subheading': 'ඔබේ සිතුවිලි සඳහා ආරක්ෂිත ඉඩක්.',
   'wellnessRingsTriad.mindfulnessCaption': 'ඉලක්කය {{goal}} අද විනාඩි',
+  'wellnessRingsTriad.mindfulnessLabel': 'සිහිකල්පනාව',
   'wellnessRingsTriad.sleepCaption': 'ඉලක්කය {{goal}} පැය / රාත්‍රිය',
   'wellnessRingsTriad.sleepLabel': 'නින්ද',
+  'wellnessRingsTriad.sleepValue': '{{hours}}පැ',
+  'wellnessRingsTriad.streakCaption': 'ඉලක්කය දින {{goal}}',
+  'wellnessRingsTriad.streakLabel': 'ඩයරි අඛණ්ඩ පැවැත්ම',
+  'wellnessRingsTriad.streakValue': '{{days}} ඈ',
 }

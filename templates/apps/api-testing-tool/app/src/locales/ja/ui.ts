@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'バグを見つけた、機能リクエストがある、次に何を作るべきか教えたい？hello@pylon.dev までメールを — すべてのメッセージはチームの本物のエンジニアに届きます。',
   'about.contactTitle': 'お問い合わせ',
+  'about.intro':
+    '{{app}} はターミナルで生きるエンジニアのための、高速でキーボードネイティブな API テストワークベンチです — Postman スタイルのリクエスト、コレクション、環境、履歴を、肥大化なしで。',
+  'about.missionBody':
+    'API は現代のソフトウェアの背骨ですが、それを試すためのツールは遅く、肥大化し、マウス操作前提です。{{app}} は開発者に鋭く高速なターミナル級のワークベンチを提供するために存在します。リクエストを放ち、自信を鍛え、キーボードから離れずに出荷しましょう。',
+  'about.missionTitle': '私たちの使命',
   'about.pageTitle': '{{app}}について',
   'authShell.statusLabel': 'ランナーがオンライン',
   'collections.createError': 'コレクションを作成できませんでした。',
   'collections.defaultName': '無題のコレクション {{n}}',
+  'collections.empty':
+    'コレクションはまだありません — 「New collection」をクリックして最初のフォルダを作成しましょう。',
   'collections.eyebrow': '$ pylon collections --tree',
   'collections.fetchError': 'コレクションを読み込めませんでした。',
   'collections.heading': 'コレクション',
   'collections.loading': 'コレクションを読み込み中…',
+  'collections.metric.allGreen': 'すべて正常',
   'collections.metric.collections': 'コレクション',
   'collections.metric.failing': '失敗中',
   'collections.metric.failingCaption': '最後の実行で失敗がありました',
@@ -23,6 +33,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': '変数',
   'environments.createError': '環境を作成できませんでした。',
   'environments.defaultName': '無題の環境 {{n}}',
+  'environments.empty': '環境はまだありません — 「New environment」をクリックして追加しましょう。',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': '環境を読み込めませんでした。',
   'environments.heading': '環境',
@@ -30,8 +41,11 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': '新規環境',
   'environments.subheading':
     '送信時にリクエストに差し込まれる変数。ワークスペースごとに1つのアクティブな環境。',
+  'forgotPassword.statusLabel': 'リセット・セキュアトンネル',
   'forgotPassword.success':
     'そのメールにアカウントが存在する場合、リセットリンクをお送りしています。受信箱をご確認ください。',
+  'history.empty':
+    'ここにはまだ何もありません — Workspace タブから最初のリクエストを放ちましょう。',
   'history.eyebrow': '$ pylon history --tail',
   'history.fetchError': '履歴を読み込めませんでした。',
   'history.heading': '実行履歴',
@@ -40,9 +54,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': '直近50件',
+  'history.realtime': 'リアルタイム',
   'history.subheading':
     'このワークスペースで発行されたすべてのリクエスト、ステータス、レイテンシ、ペイロードサイズ付き。',
   'landing.choosePlan': 'プランを選択',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Forge confidence.',
   'landing.ctaBody':
     'クレジットカード不要。プラットフォームエンジニア不要。⌘Kを開いて、5分未満で最初のリクエストを送信できます。',
   'landing.ctaHeading': '信頼を築く。',
@@ -84,6 +100,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': '平均レイテンシ',
   'mocks.metric.live': '公開中',
   'mocks.metric.servers': 'モック',
+  'mocks.ms': 'ミリ秒',
   'mocks.newMock': '新規モック',
   'mocks.online': '公開',
   'mocks.paused': 'プライベート',
@@ -108,9 +125,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': '正常',
   'monitors.metric.uptime': '平均稼働率',
   'monitors.newMonitor': '新規モニター',
+  'monitors.paused': '一時停止',
   'monitors.run': '実行',
   'monitors.runError': 'ネットワークエラーで実行が終了しました: {{error}}',
+  'monitors.runFailed': '実行に失敗しました。',
   'monitors.running': '実行中…',
+  'monitors.runSuccess': '{{status}} を実行 — 上流が {{ms}}ms で {{code}} を返しました。',
   'monitors.sparkLabel': 'レイテンシの推移',
   'monitors.subheading':
     '保存された任意のテストに対するオンデマンドチェック。テストをバインドし、実行を押し、24時間の成功率が発射ごとに更新されるのを見守ります。',
@@ -119,27 +139,54 @@ export const ui: UiTranslations = {
   'monitors.uptime': '稼働率 · 24時間',
   'nav.legal': '法的事項',
   'notFound.backToWorkspace': 'ワークスペースに戻る',
+  'notFound.body':
+    '{{app}} がこの URL にリクエストを送信しましたが、何も返ってきませんでした。ルートを再確認するか、ワークスペースに戻りましょう。',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'ルートが見つかりません',
+  'planUpdated.body': '請求の変更が有効になりました。プランは請求ページからいつでも管理できます。',
+  'planUpdated.retry': 'もう一度試す',
+  'planUpdated.verifyFailed': 'お支払いの確認がまだできていません。',
+  'planUpdated.verifyFailedBody':
+    'お支払いの処理がまだ完了していない可能性があります。しばらくしてからもう一度お試しください。',
   'planUpdated.verifying': 'お支払いを確認中…',
+  'pricing.advancedFeatures': '高度な機能: {{yes}}',
+  'pricing.canExport': 'データエクスポート: {{yes}}',
+  'pricing.heading': '{{app}}プランを選択',
+  'pricing.maxCollections': '{{count}} 件のコレクション',
+  'pricing.maxEnvironments': '{{count}} 件の環境',
+  'pricing.maxHistory': '{{count}} 件の履歴エントリ',
+  'pricing.maxRequests': '{{count}}リクエスト',
   'privacy.collect.account':
     'アカウント: メール、ハッシュ化されたパスワード、表示名、最終サインインのタイムスタンプ。',
+  'privacy.intro':
+    '{{app}} はあなたのプライバシーを尊重します。このページでは、収集するデータ、収集する理由、削除する方法をまとめています。',
   'privacy.rights.body':
     'コレクションと環境はいつでもエクスポートできます。設定からアカウントを削除すれば、すべてのデータが30日以内に完全に削除されます。',
   'privacy.share.body':
     'あなただけ。当社はワークスペースの内容を第三者に販売、共有、貸与することはありません。サーバーログはインシデント対応のため30日間保存され、その後削除されます。',
   'privacy.title': 'プライバシー通知',
+  'profile.bio':
+    'あなた専用の {{app}} ワークスペース — コレクションをピン留めし、環境を共有し、製品を出荷する API を監視しましょう。',
   'profile.eyebrow': '@{{handle}}',
   'profile.joined': '{{when}}に参加',
+  'profile.metric.collections': 'コレクション',
   'profile.metric.monitors': 'モニター',
   'profile.metric.requests': '保存されたリクエスト',
+  'profile.noActivity':
+    'まだリクエストが送信されていません — Workspace タブに移動して送信しましょう。',
   'profile.signedOut': 'サインインしてプロフィールを表示してください',
   'pylonShell.primaryNavLabel': 'メインナビゲーション',
+  'resetPassword.passwordLabel': '新しいパスワード',
+  'resetPassword.statusLabel': 'リセット・トークン検証済み',
   'resetPassword.subtitle': '以前に使用したことのない強力なパスワードを選択してください。',
   'resetPassword.tokenPlaceholder': 'メールから貼り付け',
+  'settings.accountManagement.desc':
+    'メールアドレスとパスワードの更新、通知とデバイスの管理、サインアウト、アカウントの削除ができます。',
+  'settings.accountManagement.title': 'アカウントとセキュリティ',
   'settings.eyebrow': '$ pylon settings --edit',
   'settings.fetchError': '設定を読み込めませんでした。',
   'settings.language.title': '言語',
+  'settings.seeding': 'シード中…',
   'settings.seedStarter': 'スターターコンテンツをシード',
   'settings.starterCollection': 'スターターコレクション',
   'settings.starterCollectionDesc': '{{ts}}に設定から作成',
@@ -153,6 +200,8 @@ export const ui: UiTranslations = {
     'パスワードの保護はお客様の責任です。1つのアカウントを複数人で共有することは、FreeまたはProプランでは許可されていません — 共有ワークスペースにはTeamサブスクリプションを購入してください。',
   'terms.billing.body':
     '有料サブスクリプションは各請求期間ごとに自動更新されます。設定からいつでもキャンセルでき、現在の期間終了までアクセスは継続します。',
+  'terms.intro':
+    '{{app}} アカウントを作成すると、以下の利用規約に同意したことになります。一度お読みください。遡及的な変更で驚かせることはありません。',
   'terms.title': '利用規約',
   'terms.usage.body':
     '所有していない、または明示的なテスト許可のないサービスへのリクエスト発射にPylonを使用しないでください。レート制限を回避したり詐欺を行うためにPylonを使用しないでください。',
@@ -173,16 +222,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': '未実行',
   'testRunner.metric.passed': '成功',
   'testRunner.never': '実行されたことなし',
+  'testRunner.newTest': '新規テスト',
   'testRunner.noAssertions': 'このテストにはまだアサーションがありません。',
+  'testRunner.noRunsYet':
+    'まだ実行が記録されていません — 「Run all」を押して履歴を蓄積しましょう。',
   'testRunner.passed': '成功',
+  'testRunner.recentRuns': '最近の実行',
   'testRunner.runAll': 'すべて実行',
   'testRunner.running': '実行中…',
   'testRunner.runOne': '実行',
   'testRunner.subheading': 'スイート結果、アサーション差分、直近50回の実行。',
+  'testRunner.suites': 'スイート',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'サインイン中のユーザー',
   'workspace.auth.keyName': 'ヘッダー名',
   'workspace.auth.keyValue': 'キー値',
+  'workspace.auth.noneHint': 'このリクエストには認証ヘッダーが送信されません。',
   'workspace.auth.password': 'パスワード',
   'workspace.auth.username': 'ユーザー名',
   'workspace.authOption.apikey': 'APIキー',
@@ -192,13 +247,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'タイプ',
   'workspace.authTypeLabel': '認証タイプ',
+  'workspace.body.contentLabel': 'リクエストボディ',
+  'workspace.body.hint':
+    '{{envVars}} はリクエスト送信前に置換されます。ボディは POST/PUT/PATCH/DELETE で送信されます。',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'なし',
+  'workspace.body.noneHint':
+    'リクエストボディは送信されません。JSON または生テキストを選んで追加してください。',
   'workspace.body.text': '生テキスト',
   'workspace.body.type': '種類',
   'workspace.environment': '環境なし',
   'workspace.envVar': '環境変数',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.failedCount': '{{count}} 失敗した',
+  'workspace.idle': 'アイドル',
   'workspace.kv.addHeader': 'ヘッダーを追加',
   'workspace.kv.addParam': 'パラメータを追加',
   'workspace.kv.headerKey': 'ヘッダー名',
@@ -211,12 +273,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTPメソッド',
   'workspace.metric.latency': 'レイテンシ',
   'workspace.metric.latencyCaption': 'この実行のラウンドトリップ',
+  'workspace.metric.size': 'ペイロード',
   'workspace.metric.sizeCaption': 'レスポンスボディのバイト数',
   'workspace.metric.statusCaption': '最後のレスポンス',
   'workspace.metric.tests': 'テスト',
+  'workspace.metric.testsAllPassing': 'すべてのアサーションが正常',
   'workspace.metric.testsFailing': '{{count}}件失敗',
+  'workspace.metric.testsIdle': '評価するにはリクエストを送信してください',
   'workspace.noAssertions': 'リクエストを実行して、組み込みのアサーションを評価してください。',
   'workspace.noResponseYet': 'まだレスポンスがありません',
+  'workspace.passedCount': '{{count}} 合格した',
   'workspace.responseHint': '// 送信を押してリクエストを発射し、レスポンスをキャプチャします。',
   'workspace.saveError': 'リクエストを保存できませんでした。',
   'workspace.statusError': 'リクエストを送信できませんでした。',
@@ -225,10 +291,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'リクエストを作成し、発射し、レスポンスをアサートする — すべて1つのペインで。',
   'workspace.testResults': '試験結果',
+  'workspace.tests.autoHint':
+    'ステータスファミリー、レイテンシ、ボディサイズ、トランスポートの健全性は自動的にアサートされます — 結果はレスポンスパネルの「Test results」に表示されます。',
+  'workspace.tests.autoTitle': '組み込みアサーションはすべてのレスポンスで実行されます',
   'workspace.token': 'トークン',
   'workspace.tokenHint':
     'このコレクション内のすべてのリクエストでAuthorization: Bearer <token>として送信されます。',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': '無題のリクエスト',
+  'workspace.urlLabel': 'リクエストURL',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

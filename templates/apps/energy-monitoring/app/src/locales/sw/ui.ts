@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Maswali, maombi ya vipengele, au mita tunayopaswa kuauni? Wasiliana na timu ya {{appName}} kutoka kwenye mipangilio ya akaunti yako — kila ujumbe humfikia mtu halisi.',
   'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
+  'about.featuresTitle': 'Unachopata',
+  'about.intro':
+    '{{appName}} ni ufuatiliaji wa nishati wa wakati halisi kwa nyumba za sola na timu za vituo. Tunabadilisha data nyingi za mita, inverter, na betri kuwa mwonekano tulivu wa chumba cha udhibiti — wattage ya moja kwa moja, uzalishaji wa sola, gharama kwa muda wa matumizi, na arifa, vyote katika mfumo mmoja.',
+  'about.missionBody':
+    'Nishati unayoweza kuiona ni nishati unayoweza kusimamia. Tunaamini kila mtu anayeendesha mita — kaya yenye sola ya paa au timu inayofuatilia jengo — anastahili ufahamu wa kiwango cha shirika la umeme bila mkataba wa kiwango cha shirika la umeme. Kila kipengele kimeundwa kufanya kilowati-saa inayofuata kuwa chaguo lenye ufahamu, si mshangao kwenye bili.',
+  'about.missionTitle': 'Dhamira yetu',
   'about.pageTitle': 'Kuhusu {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Ack',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@yourdomain.com',
   'alertRule.eyebrow': 'Sheria mpya',
   'alertRule.heading': 'Chukua ongezeko la bei kabla halijakugharimu',
+  'alertRule.nameLabel': 'Jina la sheria',
   'alertRule.namePlaceholder': 'mfano saa ya HVAC ya baada ya saa za kazi',
   'alertRule.subheading':
     'Chagua kipimo, kizingiti, na mahali pa kutuma arifa. Unaweza kuibadilisha au kuisimamisha wakati wowote.',
   'alertRule.submit': 'Hifadhi sheria',
   'alertRule.submitError': 'Haikuweza kuhifadhi sheria.',
   'alertRule.thresholdLabel': 'Kizingiti',
+  'alertRule.typeLabel': 'Aina ya kichochezi',
   'alerts.checking': 'Inaangalia…',
   'alerts.confirmDelete': 'Thibitisha kufuta',
+  'alerts.empty': 'Hakuna cha kuonyesha — hakuna arifa katika hali hii.',
   'alerts.emptyNoRules':
     'Hakuna arifa bado — ongeza sheria, kisha bofya "Tathmini sasa" ili kuijaribu.',
   'alerts.errorAck': 'Sikuweza kukiri.',
@@ -41,12 +52,14 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Tathmini sasa',
   'alerts.subheading':
     'Tahadhari za kizingiti na muundo zinazolenga mita zako, pamoja na sheria zinazoziendesha.',
+  'billing.activeBlurb': 'Usajili wako unafanya kazi. Uweza kuusimamia wakati wowote.',
   'billing.cancelError': 'Haikuweza kughairi usajili.',
   'billing.cancelling': 'Inaghairi...',
   'billing.currentBadge': 'Mkondo wa sasa',
   'billing.freeBlurb':
     'Uko kwenye mpango wa Bure. Boresha kwa mita zaidi, historia ndefu, na sheria zaidi za tahadhari.',
   'billing.heading': 'Mipango na bili',
+  'billing.historyEmpty': 'Ankara zilizolipiwa zitaonekana hapa mara usajili wako utakapotoza.',
   'billing.historyHeading': 'Historia ya ankara',
   'billing.loadError': 'Haikuweza kupakia bili.',
   'billing.loading': 'Mipango ya kupakia…',
@@ -58,17 +71,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Wasiliana na mauzo',
   'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} kilele · {{offPeak}} kWh nje ya kilele',
   'dailyCostMeter.runningLabel': 'Jumla ya mbio',
   'dailyCostMeter.title': 'Gharama hadi sasa leo',
   'dailyCostMeter.utilizationLabel': 'Ya bajeti ya kila siku',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Ongeza mita',
   'dashboard.alertsHeading': 'Arifa zinazotumika',
   'dashboard.devicesHeading': 'Mizunguko ya juu hivi sasa',
   'dashboard.empty.body':
     'Ongeza mita mahiri au kibadilishaji umeme cha nishati ya jua ili kuanza kufuatilia uzalishaji na uchoraji wa moja kwa moja.',
+  'dashboard.empty.title': 'Hakuna mita bado',
   'dashboard.eyebrow': 'Chumba cha kudhibiti volteji',
   'dashboard.heading': 'Picha ya nishati hai',
   'dashboard.loadError': 'Haikuweza kupakia usomaji wa moja kwa moja.',
   'dashboard.loading': 'Kurekebisha mita zako…',
+  'dashboard.noAlerts': 'Kila kitu kimya — hakuna kinachovuka vizingiti vyako.',
   'dashboard.noAlertsAndNoMeters':
     'Ukishaunganisha mita moja, arifa kulingana na vizingiti vyako zitaonekana hapa.',
   'dashboard.noCircuits': 'Hakuna saketi za kuonyesha bado — ongeza mita ili kuanza.',
@@ -76,6 +94,7 @@ export const ui: UiTranslations = {
     'Kuchota nyumba nzima, uzalishaji wa nishati ya jua, na gharama hadi sasa.',
   'dashboard.viewAllAlerts': 'Dhibiti arifa →',
   'dashboard.viewAllDevices': 'Kila kifaa →',
+  'deviceDetail.activeTokens': 'Tokeni za upokeaji zinazotumika',
   'deviceDetail.alreadyOff': 'Tayari imesitishwa',
   'deviceDetail.back': 'Mizunguko yote',
   'deviceDetail.confirmDelete': 'Thibitisha kufuta',
@@ -115,22 +134,34 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Haikuweza kupakia mita.',
   'devices.loading': 'Kupiga kura kwa kila mita…',
   'devices.newRule': 'Sheria mpya ya tahadhari',
+  'devices.noResults': 'Hakuna mizunguko inayolingana na kichujio hiki.',
   'devices.placeholder.location': 'mfano chumba cha mitambo',
   'devices.placeholder.name': 'k.m. paneli ndogo ya Gereji',
   'devices.subheading':
     'Nguvu ya umeme inayotumika na kWh ya leo kupitia kila mzunguko ambao Voltrace inaweza kuona.',
+  'deviceWattageRow.todayKwh': '{{kwh}} kWh leo',
+  'deviceWattageRow.watts': '{{watts}} W',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Menyu',
+  'energyMonitoringLayout.primaryNavLabel': 'Usogezaji mkuu',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    '{{appName}} huwasiliana na mita nyingi za kiwango cha shirika la umeme, inverter za sola, na betri — kwa waya au kwa WiFi.',
   'landing.ctaHeading': 'Oanisha mita yako, angalia wati kwa dakika chache',
   'landing.eyebrow': 'Ujuzi wa nishati ya wakati halisi',
+  'landing.featuresHeading': 'Kila wati, kila dakika, katika mfumo mmoja',
   'landing.getStarted': 'Chomeka Voltrasi',
   'landing.heroCta': 'Chomeka Voltrasi',
+  'landing.heroSubtitle':
+    'Wattage ya moja kwa moja, uzalishaji wa sola, gharama kwa muda wa matumizi, na arifa za matumizi makubwa katika mfumo wa chumba cha udhibiti ulioundwa kwa nyumba za sola na timu za vituo.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Droo ya nyumba nzima',
   'landing.sampleSolar': '+3,820 W nishati ya jua',
   'landing.sampleSummary': 'Inasafirisha nje 1,680 W kwenye gridi ya taifa · 18.4 kWh leo',
   'landing.sampleWatts': '2,140 Wati',
   'powerHeroCard.solar': '+ {{watts}} W jua',
   'powerHeroCard.title': 'Droo ya nyumba nzima',
+  'powerHeroCard.todayKwh': '{{kwh}} kWh leo',
   'powerHeroCard.watts': '{{watts}} W',
   'pricing.choose': 'Chagua {{name}}',
   'pricing.contact': 'Unahitaji kitu maalum?',
@@ -143,6 +174,7 @@ export const ui: UiTranslations = {
     'Anza bila malipo. Boresha unapohitaji mita zaidi, historia ndefu, au sheria zaidi za tahadhari.',
   'pricing.unavailable': 'Mpango huu haupatikani kwa sasa — Stripe haijasanidiwa.',
   'profile.errorGeneric': 'Haikuweza kuhifadhi mabadiliko ya wasifu.',
+  'profile.errorGoal': 'Lengo la kWh la mwezi lazima liwe namba chanya.',
   'profile.errorHousehold': 'Ukubwa wa kaya lazima uwe nambari chanya.',
   'profile.householdHeading': 'Kaya na malengo',
   'profile.householdSize': 'Ukubwa wa kaya',
@@ -160,9 +192,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'Kujumlisha usomaji…',
   'reports.subheading':
     'Jumla ya kila siku ya matumizi, uzalishaji, na gharama — imegawanywa kulingana na tarehe.',
+  'reports.tableHeading': 'Mchanganuo wa kila siku',
   'settings.currency': 'Sarafu',
   'settings.errorFlat': 'Kiwango cha usawa lazima kiwe ≥ 0.',
   'settings.errorNotify': 'Haikuweza kuhifadhi mapendeleo ya arifa.',
+  'settings.errorSave': 'Imeshindwa kuhifadhi mpango wa viwango.',
   'settings.errorTou': 'Viwango vya kilele/bila kilele na dirisha halali la kilele vinahitajika.',
   'settings.exportBody':
     'Pakua CSV ya siku 30 zilizopita za jumla ya kila siku au pata tokeni ya kuingiza kutoka ukurasa wowote wa maelezo ya mita ili kusukuma usomaji kiprogramu.',
@@ -182,10 +216,21 @@ export const ui: UiTranslations = {
   'settings.saving': 'Kuhifadhi…',
   'settings.securityHeading': 'Uthibitishaji wa vipengele viwili',
   'settings.subheading': 'Viwango, arifa, na usafirishaji wa data.',
+  'settings.twoFactorBody':
+    'Hitaji msimbo wa mara moja kutoka kwenye programu yako ya uthibitishaji kila unapoingia.',
   'settings.twoFactorCode': 'Nambari ya uthibitishaji',
   'settings.twoFactorDisable': 'Zima',
+  'settings.twoFactorDisableTitle': 'Zima uthibitishaji wa hatua mbili',
   'settings.twoFactorEnable': 'Washa',
+  'settings.twoFactorEnableTitle': 'Washa uthibitishaji wa hatua mbili',
   'settings.twoFactorInvalidCode': 'Nambari batili',
+  'settings.twoFactorOAuth':
+    'Akaunti yako huingia kupitia mtoa huduma aliyeunganishwa, kwa hivyo uthibitishaji wa hatua mbili unasimamiwa huko.',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Msimbo wa QR wa hatua mbili',
+  'settings.twoFactorScan':
+    'Skani msimbo huu wa QR kwa programu yako ya uthibitishaji, kisha weka msimbo wa tarakimu 6.',
+  'settings.twoFactorUnavailable':
+    'Uthibitishaji wa vipengele viwili haupatikani kwa programu hii.',
   'settings.twoFactorVerify': 'Thibitisha na uwashe',
 }

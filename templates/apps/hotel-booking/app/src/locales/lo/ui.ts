@@ -1,10 +1,31 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ມີຄຳຖາມກ່ຽວກັບການຈອງ, ຄຳຕິຊົມ, ຫຼືຊັບສິນທີ່ທ່ານຄິດວ່າຄວນຢູ່ໃນ {{app}}? ຕິດຕໍ່ທີມງານຂອງພວກເຮົາຈາກບັນຊີຂອງທ່ານ — ທຸກຂໍ້ຄວາມຈະສົ່ງໄປຫາຄົນຈິງທີ່ສາມາດຊ່ວຍໄດ້.',
+  'about.contactTitle': 'ຕິດຕໍ່ພວກເຮົາ',
   'about.eyebrow': 'ກ່ຽວກັບພວກເຮົາ',
+  'about.featureLoyalty':
+    'ລາຄາສະເພາະສະມາຊິກ ແລະ ໂປແກຣມສະສົມຄະແນນທີ່ໄດ້ຄະແນນ, ການອອກຊ້າ, ແລະ ການອັບເກຣດຫ້ອງໃນທຸກການຈອງ.',
+  'about.featureReviews':
+    'ຣີວິວຈາກແຂກທີ່ຢືນຢັນແລ້ວ ແລະ ການຄັດເລືອກຈາກບັນນາທິການ ເພື່ອໃຫ້ທ່ານໝັ້ນໃຈໃນການພັກກ່ອນທີ່ຈະມາຮອດ.',
+  'about.featureRooms':
+    'ປຽບທຽບຫ້ອງ, ລາຄາ, ແລະ ສິ່ງອຳນວຍຄວາມສະດວກແບບຄຽງກັນ ດ້ວຍລາຄາລວມທັງໝົດທີ່ໂປ່ງໃສ — ພາສີ ແລະ ຄ່າທຳນຽມຣີສອດລວມຢູ່ແລ້ວກ່ອນທີ່ທ່ານຈ່າຍ.',
+  'about.featureSearch':
+    'ຄົ້ນຫາແບບທັນສະພາບການທົ່ວໂຮງແຮມທີ່ຜ່ານການກວດສອບ ດ້ວຍຄວາມພ້ອມໃຫ້ບໍລິການແບບສົດໆ, ມຸມມອງແຜນທີ່, ແລະ ຄັງຮູບພາບທີ່ອຸດົມສົມບູນ.',
+  'about.featureTrips':
+    'ລາຍການທີ່ມັກທີ່ບັນທຶກໄວ້ ແລະ ແດຊບອດ Trips ທີ່ເກັບທຸກການຈອງ, ແຜນການເດີນທາງ, ແລະ ການຢືນຢັນໄວ້ໃນບ່ອນດຽວ.',
+  'about.intro':
+    '{{app}} ເປັນແພລດຟອມຈອງໂຮງແຮມສຳລັບນັກເດີນທາງທີ່ໃຫ້ຄວາມສຳຄັນກັບຄຸນນະພາບ. ທຸກຊັບສິນຖືກກວດສອບດ້ວຍຕົນເອງໂດຍທີມບັນນາທິການຂອງພວກເຮົາ — ບໍ່ມີສິນຄ້າຈາກຕົວລວມ, ບໍ່ມີລາຍການແບບຫຼອກລວງ. ຄົ້ນຫາຄວາມພ້ອມໃຫ້ບໍລິການຈິງ, ປຽບທຽບຫ້ອງ, ລາຄາ, ແລະ ສິ່ງອຳນວຍຄວາມສະດວກແບບຄຽງກັນ, ແລ້ວຈອງໄດ້ໃນສອງສາມແຕະດ້ວຍລາຄາລວມທັງໝົດທີ່ຊັດເຈນ.',
+  'about.missionBody':
+    'ການຈອງບ່ອນພັກຄວນຮູ້ສຶກສະຫງົບ ແລະ ຊື່ສັດ. ພວກເຮົາສະແດງລາຄາທີ່ໂປ່ງໃສ ພ້ອມພາສີ ແລະ ຄ່າທຳນຽມຣີສອດຢູ່ຂ້າງໜ້າ, ໃຫ້ລາງວັນແກ່ແຂກທີ່ສັດຊື່ແທນທີ່ຈະຄິດເງິນເພີ່ມເລື້ອຍໆ, ແລະ ໃຫ້ຄວາມສຳຄັນກັບບ່ອນພັກທີ່ຄຸ້ມຄ່າເງິນຂອງທ່ານກ່ອນ — ເພື່ອໃຫ້ທ່ານໃຊ້ເວລາໜ້ອຍລົງໃນການປຽບທຽບແທັບ ແລະ ໃຊ້ເວລາຫຼາຍຂຶ້ນກັບການເດີນທາງ.',
+  'about.missionTitle': 'ພາລະກິດຂອງພວກເຮົາ',
+  'about.subtitle': 'ວິທີການຄັດເລືອກທີ່ໂປ່ງໃສ ສຳລັບການຊອກຫາ ແລະ ຈອງໂຮງແຮມທີ່ເໝາະສົມ.',
+  'account.loyalty.benefitsHeading': 'ສິດປະໂຫຍດຂອງທ່ານ',
   'account.loyalty.heading': 'ຄວາມຈົງຮັກພັກດີ',
   'account.loyalty.loading': 'ກຳລັງໂຫຼດຄວາມພັກດີ…',
-  'account.loyalty.pointsTowardNext': '{{ຄະແນນ}} / {{ຕໍ່ໄປ}} ຊີ້ໃຫ້ເຫັນ {{nextTier}}',
+  'account.loyalty.maxTier': 'ລະດັບສູງສຸດ — ເພີດເພີນກັບສິດປະໂຫຍດຂອງທ່ານ.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} ຄະແນນເຖິງ {{nextTier}}',
   'account.loyalty.tier': 'ຊັ້ນປັດຈຸບັນ',
   'account.loyalty.unavailable': 'ບໍ່ມີຂໍ້ມູນກ່ຽວກັບຄວາມພັກດີ.',
   'account.navLabel': 'ພາກສ່ວນບັນຊີ',
@@ -21,6 +42,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'ຢືນຢັນການຈອງ · {{total}}',
   'bookingCheckout.datesRequired': 'ກະລຸນາເລືອກວັນທີເຊັກອິນ ແລະ ເຊັກເອົ້າຂອງທ່ານ.',
   'bookingCheckout.guestHeading': 'ແຂກນຳໜ້າ',
+  'bookingCheckout.heading': 'ຢືນຢັນ ແລະ ຈອງ',
   'bookingCheckout.loadError': 'ໂຫຼດຄຸນສົມບັດບໍ່ສຳເລັດ.',
   'bookingCheckout.nights': '{{rate}} × {{count}} ຄືນ',
   'bookingCheckout.notFound': 'ບໍ່ພົບຊັບສິນ.',
@@ -31,11 +53,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'ພາສີ ແລະ ຄ່າທຳນຽມ',
   'bookingCheckout.tripHeading': 'ການເດີນທາງຂອງທ່ານ',
   'bookingConfirmation.allTripsCta': 'ການເດີນທາງທັງໝົດ',
+  'bookingConfirmation.confNumber': 'ເລກທີ່ຢືນຢັນ: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'ການຈອງຂອງທ່ານກຳລັງຖືກດຳເນີນການ.',
   'bookingConfirmation.heading': 'ຢືນຢັນການຈອງແລ້ວ',
   'bookingConfirmation.loading': 'ກຳລັງໂຫຼດການຈອງຂອງທ່ານ…',
   'bookingConfirmation.searchMoreCta': 'ເລືອກເບິ່ງການພັກເຊົາເພີ່ມເຕີມ',
   'bookingConfirmation.subheadingForTrip':
-    '{{ຊັບສິນ}} ໃນ {{ເມືອງ}} , {{ປະເທດ}} ພວກເຮົາຈະພົບກັນໃນ {{ກວດສອບ}} .',
+    '{{property}} ໃນ {{city}}, {{country}}. ພົບກັນວັນທີ {{checkIn}}.',
   'bookingConfirmation.total': 'ທັງໝົດ {{total}}',
   'bookingConfirmation.viewTripCta': 'ເບິ່ງການເດີນທາງ',
   'common.goToDashboard': 'ໄປທີ່ໜ້າຫຼັກ',
@@ -45,6 +70,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'ໂຫຼດລາຍການທີ່ມັກບໍ່ສຳເລັດ.',
   'favorites.pricePerNight': 'ລາຄາ {{price}} / ຄືນ',
   'favorites.removeCta': 'ຍົກເລີກການບັນທຶກ',
+  'favorites.removing': 'ກຳລັງລຶບອອກ...',
   'forgotPassword.subheading':
     'ໃສ່ອີເມວໃນບັນຊີຂອງທ່ານ ແລະ ພວກເຮົາຈະສົ່ງລິ້ງຕັ້ງຄ່າໃໝ່ທີ່ປອດໄພໃຫ້ທ່ານ.',
   'forgotPassword.successBody':
@@ -52,6 +78,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'ສະມາຊິກພັກເຊົາ',
   'landing.cta.heading': 'ອັດຕາສະເພາະສະມາຊິກ. ທຸກໆການຈອງ, ທຸກໆຄັ້ງ.',
   'landing.cta.signup': 'ສ້າງບັນຊີຟຣີ',
+  'landing.cta.subheading':
+    'ສະສົມຄະແນນສະມາຊິກໃນທຸກການພັກ, ປົດລັອກການອອກຊ້າ ແລະ ການອັບເກຣດຫ້ອງ, ແລະ ໄດ້ເຂົ້າເຖິງຊັບສິນໃໝ່ກ່ອນທີ່ຈະປະກາດສາທາລະນະ.',
   'landing.destinations.eyebrow': 'ໄປໃສຕໍ່',
   'landing.destinations.heading': 'ຈຸດໝາຍປາຍທາງທີ່ໂດດເດັ່ນ',
   'landing.destinations.seeAll': 'ເບິ່ງຈຸດໝາຍປາຍທາງທັງໝົດ',
@@ -60,13 +88,21 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'ເລື່ອງລາວທີ່ຄຸ້ມຄ່າທີ່ຈະເກັບໄວ້ເບິ່ງ',
   'landing.nav.join': 'ເຂົ້າຮ່ວມ Auberge',
   'landing.nav.search': 'ການຢຸດການຄົ້ນຫາ',
+  'landing.preview.browseAll': 'ເບິ່ງຄໍເລັກຊັນທັງໝົດ',
   'landing.preview.eyebrow': 'ແນມເບິ່ງພາຍໃນ',
   'landing.preview.heading': 'ການພັກທີ່ເລືອກໂດຍມືເປົ່າໃນເດືອນນີ້',
+  'landing.preview.subheading':
+    'ທຸກຊັບສິນໃນ {{appName}} ຖືກກວດສອບດ້ວຍຕົນເອງໂດຍທີມບັນນາທິການຂອງພວກເຮົາ — ບໍ່ມີສິນຄ້າຈາກຕົວລວມ, ບໍ່ມີລາຍການແບບຫຼອກລວງ.',
   'login.eyebrow': 'ພື້ນທີ່ສະມາຊິກ',
+  'login.noAccount': 'ຍັງໃໝ່ກັບ Tessera ບໍ?',
   'login.signupLink': 'ສ້າງບັນຊີຟຣີ',
   'login.subheading':
     'ເຂົ້າສູ່ລະບົບເພື່ອຈັດການການເດີນທາງຂອງທ່ານ, ເບິ່ງການຢືນຢັນ ແລະ ສືບຕໍ່ຈາກບ່ອນທີ່ທ່ານຢຸດໄວ້.',
+  'loyaltyTierBadge.points': '{{points}} ຄະແນນ',
   'planUpdated.heading': 'ອັບເດດແຜນການແລ້ວ',
+  'planUpdated.retry': 'ລອງໃໝ່ອີກຄັ້ງ',
+  'planUpdated.verifyFailed': 'ພວກເຮົາບໍ່ສາມາດຢືນຢັນການຈ່າຍເງິນຂອງທ່ານໄດ້ເທື່ອ.',
+  'planUpdated.verifyFailedBody': 'ການຈ່າຍເງິນຂອງທ່ານອາດຈະຍັງກຳລັງດຳເນີນການຢູ່. ລອງໃໝ່ໃນອີກບໍ່ດົນ.',
   'planUpdated.verifying': 'ກຳລັງຢືນຢັນການຊຳລະຂອງທ່ານ…',
   'pricing.limit.advancedFeatures': 'ຄຸນສົມບັດຂັ້ນສູງ:',
   'pricing.limit.canExport': 'ການສົ່ງອອກຂໍ້ມູນ:',
@@ -78,7 +114,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'ສິ່ງທີ່ສະຖານທີ່ນີ້ສະເໜີໃຫ້',
   'propertyDetail.backLink': 'ກັບໄປທີ່ການຄົ້ນຫາ',
   'propertyDetail.bookCta': 'ຈອງ',
+  'propertyDetail.bookmarkAria': 'ບັນທຶກຊັບສິນ',
   'propertyDetail.bookmarkAriaSaved': 'ລຶບອອກຈາກຄຸນສົມບັດທີ່ບັນທຶກໄວ້',
+  'propertyDetail.galleryImageAlt': 'ຮູບ {{name}} ຮູບທີ {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} ຮູບຖ່າຍວິລະຊົນ',
   'propertyDetail.hidePhotos': 'ເຊື່ອງຮູບພາບ',
   'propertyDetail.lineCleaning': 'ຄ່າທຳຄວາມສະອາດ',
@@ -88,6 +126,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'ກາງຄືນ',
   'propertyDetail.noChargeYet': 'ທ່ານຈະຍັງບໍ່ທັນຖືກຮຽກເກັບເງິນເທື່ອ',
   'propertyDetail.notFound': 'ບໍ່ພົບຊັບສິນ.',
+  'propertyDetail.perNight': '/ ຄືນ',
+  'propertyDetail.pickDatesHint': 'ເລືອກວັນທີຂອງທ່ານເພື່ອເບິ່ງລາຍລະອຽດລາຄາທັງໝົດ.',
   'propertyDetail.reviewCount': '( {{count}} ການທົບທວນຄືນ)',
   'propertyDetail.reviewsHeading': 'ການທົບທວນຄືນຫຼ້າສຸດ',
   'propertyDetail.roomCapacity': 'ນອນຫຼັບ {{count}}',
@@ -100,6 +140,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'ລະຫັດຜ່ານໃໝ່',
   'resetPassword.subheading':
     'ເລືອກລະຫັດຜ່ານໃໝ່ສຳລັບບັນຊີ Auberge ຂອງທ່ານ. ໃຊ້ຢ່າງໜ້ອຍ 8 ຕົວອັກສອນ; ພວກເຮົາແນະນຳໃຫ້ໃຊ້ລະຫັດຜ່ານ.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'ບໍ່ພົບຊັບສິນທີ່ກົງກັບການຄົ້ນຫາຂອງທ່ານ.',
   'searchResults.emptyHint':
     'ລອງຂະຫຍາຍຕົວກອງຂອງທ່ານ ຫຼື ລຶບເພດານລາຄາອອກ — Auberge ໄດ້ພັກເຊົາຢູ່ໃນ 14 ປະເທດ.',
@@ -107,19 +148,26 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'ການພັກເຊົາທີ່ຄັດສັນມາ',
   'searchResults.headingForQuery': 'ພັກໄວ້ເປັນເວລາ " {{q}} "',
   'searchResults.loadError': 'ໂຫຼດຄຸນສົມບັດບໍ່ສຳເລັດ.',
+  'searchResults.mapHint': 'ວາງເມົາສ໌ເທິງບັດເພື່ອໄຮໄລຕ໌ເທິງແຜນທີ່. ໄທລ໌ Mapbox ແບບສົດໆໃນລະບົບຈິງ.',
   'searchResults.mapPinAria': '{{name}} — {{price}} ຕໍ່ຄືນ',
   'searchResults.sortLabel': 'ຈັດຮຽງຕາມ',
   'searchResults.subheading': '{{count}} ຄຸນສົມບັດ · {{guests}} ແຂກ',
   'signup.eyebrow': 'ກາຍເປັນສະມາຊິກ',
   'signup.subheading':
     'ເຂົ້າຮ່ວມ Auberge ເພື່ອປົດລັອກລາຄາສະເພາະສະມາຊິກ, ການຈ່າຍເງິນຊ້າ, ແລະ ສິດເຂົ້າພັກທີ່ພັກໃໝ່ໄດ້ກ່ອນໃຜ.',
+  'sojournAuthShell.brand.eyebrow': 'ພັກໃນບ່ອນທີ່ພິເສດ',
+  'sojournAuthShell.brand.heading': 'ຄໍເລັກຊັນຊັບສິນທີ່ຄັດເລືອກ — ນຳສະເໜີຢ່າງສວຍງາມ, ລາຄາໂປ່ງໃສ.',
   'sojournHeroSearchCard.checkInAria': 'ວັນທີເຊັກອິນ',
   'sojournHeroSearchCard.checkOutAria': 'ວັນທີເຊັກເອົ້າ',
+  'sojournHeroSearchCard.destAria': 'ຈຸດໝາຍປາຍທາງ',
+  'sojournHeroSearchCard.destLabel': 'ບ່ອນໃດ',
   'sojournHeroSearchCard.destPlaceholder': 'ເມືອງ, ພາກພື້ນ ຫຼື ຊັບສິນ',
   'sojournHeroSearchCard.eyebrow': 'ການພັກເຊົາທີ່ຄັດສັນມາ · ອັດຕາສະເພາະສະມາຊິກ',
   'sojournHeroSearchCard.guestsOption': '{{n}} ແຂກ',
   'sojournHeroSearchCard.subtitle':
     'ໂຮງແຮມບູຕິກທີ່ຄັດສັນມາอย่างดี, ຊັບສິນທີ່ມີການອອກແບບທີ່ທັນສະໄໝ, ແລະ ສະຖານທີ່ພັກຜ່ອນທີ່ຫາຍາກ — ລາຄາໂປ່ງໃສ, ນຳສະເໜີຢ່າງສວຍງາມ.',
+  'sojournHeroSearchCard.title': 'ພັກໃນບ່ອນທີ່ພິເສດ',
+  'sojournHeroSearchCard.trustLoyalty': 'ສະສົມຄະແນນໃນທຸກການພັກ',
   'sojournHeroSearchCard.trustNoFees': 'ບໍ່ມີຄ່າທຳນຽມທີ່ເຊື່ອງໄວ້, ບໍ່ເຄີຍ',
   'sojournHeroSearchCard.trustVetted': 'ຊັບສິນທີ່ຜ່ານການກວດສອບດ້ວຍມືເທົ່ານັ້ນ',
   'sojournLayout.primaryNavLabel': 'ການນຳທາງຫຼັກ',

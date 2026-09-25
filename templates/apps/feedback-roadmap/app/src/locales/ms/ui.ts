@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ada maklum balas, jumpa pepijat, atau mahu papan anda sendiri di {{appName}}? Buka Tetapan anda untuk menghubungi pasukan — setiap mesej sampai kepada manusia sebenar yang membacanya.',
+  'about.contactTitle': 'Hubungi kami',
+  'about.featureModeration':
+    'Peta jalan awam dengan label suku tahun, log perubahan yang menukar kerja yang dihantar menjadi nota keluaran, dan papan pemuka yang menunjukkan apa yang paling diingini orang ramai.',
+  'about.featurePricing':
+    'Percuma untuk mengendalikan beberapa papan; pelan Pro dan Team membuka lebih banyak papan, had lebih tinggi dan eksport data.',
+  'about.featureThreads':
+    'Papan maklum balas awam yang disusun mengikut topik, dengan penggabungan pendua yang mengumpulkan undi menjadi satu isyarat permintaan yang jujur.',
+  'about.featureVoting':
+    'Pengundian satu undi setiap pengguna dengan aliran status penuh — terbuka, dirancang, dalam proses, dihantar atau ditolak — dan respons rasmi pada setiap keputusan.',
+  'about.intro':
+    '{{appName}} ialah platform maklum balas produk — papan awam tempat pelanggan menyiarkan permintaan, mengundi apa yang mereka perlukan dan mengikuti setiap idea daripada dirancang hingga dihantar. Pasukan tidak lagi meneka apa yang perlu dibina kerana permintaan menyusun kedudukannya sendiri.',
+  'about.missionBody':
+    'Kami percaya keputusan produk terbaik dibuat secara terbuka. {{appName}} memberikan setiap pasukan papan awam permintaan yang diundi, peta jalan rasmi dengan suku tahun sasaran dan log perubahan yang menutup gelung — supaya pelanggan melihat kesan mereka dan pasukan melihat mandat mereka.',
+  'about.missionTitle': 'Misi kami',
   'admin.backToBoards': 'Kembali ke papan',
   'admin.denied': 'Pentadbir sahaja.',
   'admin.eyebrow': 'Pasukan produk',
@@ -11,6 +27,8 @@ export const ui: UiTranslations = {
   'admin.title': 'Papan pemuka maklum balas',
   'admin.topOpen': 'Permintaan terbuka teratas',
   'admin.totalVotes': '{{count}} jumlah',
+  'admin.votesChartLabel':
+    'Carta bar undi yang diberikan setiap minggu sepanjang lapan minggu lepas',
   'admin.votesOverTime': 'Undian dari semasa ke semasa',
   'auth.forgotPassword.email': 'E-mel',
   'auth.forgotPassword.sendResetLink': 'Hantar pautan tetapkan semula',
@@ -30,7 +48,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Cipta akaun anda',
   'auth.username': 'Nama pengguna',
   'authShell.communities': 'Komuniti',
+  'authShell.copyright': '{{appName}} — setiap suara dikira.',
   'authShell.trending': 'Trending',
+  'boardCard.postCount': '{{count}} siaran',
   'boardDetail.allBoards': 'Semua papan',
   'boardDetail.backToBoards': 'Kembali ke papan',
   'boardDetail.empty': 'Tiada siaran sepadan dengan penapis ini lagi.',
@@ -54,6 +74,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Setiap entri bermula sebagai permintaan yang diundi. Pengundi melihatnya bergerak; di sinilah ia berakhir.',
   'changelog.title': 'Dihantar, dengan bukti',
+  'changelog.voteCount': '{{count}} undi menjadikan ini dibina',
   'common.atLeast8Characters': 'Sekurang-kurangnya 8 aksara',
   'common.checkYourInbox': 'Semak peti masuk anda',
   'common.loadingEllipsis': 'Memuatkan…',
@@ -64,6 +85,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Menghantar…',
   'footer.about': 'Tentang {{appName}}',
   'footer.language': 'Bahasa',
+  'forgotPassword.description':
+    'Masukkan emel anda dan kami akan menghantar pautan untuk menetapkan semula.',
+  'forgotPassword.successBody':
+    'Kami menghantar pautan tetapan semula ke {{email}}. Ia tamat tempoh dalam 30 minit.',
   'forgotPassword.tryAnother': 'Cuba e-mel lain',
   'form.displayName': 'Nama paparan',
   'form.firstName': 'Nama pertama',
@@ -74,6 +99,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'Peta jalan anda, disokong oleh undian.',
   'landing.heroCtaPrimary': 'Mula mengumpul undian',
   'landing.heroCtaSecondary': 'Lihat papan langsung',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Berhenti meneka. Hantar apa yang mereka undi.',
+  'landing.heroLede':
+    '{{appName}} menukar permintaan ciri yang berselerak menjadi papan awam idea yang diundi, peta jalan rasmi dan log perubahan yang benar-benar dibaca pelanggan anda.',
   'landing.heroStat1': '3,200+',
   'landing.heroStat1Label': 'Pasukan mendengar',
   'landing.heroStat2': '1.4j',
@@ -85,9 +114,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Log perubahan',
   'landing.navJoin': 'Sertai {{appName}}',
   'landing.navRoadmap': 'Peta jalan',
+  'landing.step1Body':
+    'Pelanggan menyiarkan idea pada papan awam. Pendua digabungkan, undi dikumpulkan dan permintaan menyusun kedudukannya sendiri.',
   'landing.step1Title': 'Kumpul',
+  'landing.step2Body':
+    'Tandakan permintaan sebagai dirancang atau dalam proses dengan suku tahun sasaran — peta jalan dikemas kini sebaik sahaja anda melakukannya.',
+  'landing.step2Title': 'Komitmen',
   'landing.step3Body':
     'Siaran yang dihantar menjadi entri log perubahan, dan setiap pengundi melihat hasilnya pada senarai mereka sendiri.',
+  'landing.step3Title': 'Hantar',
   'landing.topSubtitle': 'Langsung dari papan ini — log masuk untuk menambah undi anda.',
   'landing.topTitle': 'Apa yang pengguna minta sekarang',
   'landing.topViewAll': 'Semua papan',
@@ -95,14 +130,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Utama',
   'layout.signUp': 'Daftar',
   'layout.submit': 'Hantar maklum balas',
+  'login.description': 'Sambung dari tempat perbualan berhenti.',
+  'login.heading': 'Log masuk ke Nimbus',
+  'login.noAccount': 'Baru di sini?',
   'login.passwordPlaceholder': 'Kata laluan anda',
   'login.twoFactorLabel': 'Kod 2FA (pilihan)',
   'login.twoFactorPlaceholder': 'Kod 6 digit',
+  'login.twoFactorRequiredHint':
+    'Akaun ini mempunyai pengesahan dua faktor yang diaktifkan. Masukkan kod 6 digit daripada aplikasi pengesah anda untuk teruskan.',
   'login.twoFactorRequiredLabel': 'Masukkan kod 2FA anda',
+  'myActivity.browseCta': 'Layari papan',
+  'myActivity.emptyPosts': 'Anda belum menyiarkan sebarang permintaan.',
+  'myActivity.emptyVotes': 'Belum ada apa-apa — layari papan dan sokong satu idea.',
   'myActivity.eyebrow': 'Aktiviti anda',
   'myActivity.loadError': 'Tidak dapat memuatkan aktiviti anda.',
   'myActivity.postsTitle': 'Permintaan yang anda hantar',
+  'myActivity.shippedNote': '{{count}} daripadanya telah dihantar — terima kasih atas peringatan.',
   'myActivity.submitCta': 'Siarkan permintaan',
+  'myActivity.tabLabel': 'Lihat',
   'myActivity.tabPosts': 'Siaran saya',
   'myActivity.tabVotes': 'Undian saya',
   'myActivity.votesTitle': 'Permintaan yang anda undi',
@@ -137,8 +182,12 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Siaran tidak ditemui',
   'postsAdmin.backToDashboard': 'Papan Pemuka',
   'postsAdmin.eyebrow': 'Pasukan produk',
+  'postsAdmin.mergeApplied': 'Digabungkan — {{votes}} undi dan {{comments}} komen dipindahkan.',
   'postsAdmin.mergeApply': 'Gabung & alih undian',
   'postsAdmin.mergeChoose': 'Pilih siaran sasaran…',
+  'postsAdmin.mergeFailed': 'Penggabungan gagal.',
+  'postsAdmin.mergeHint':
+    'Undi dikumpulkan (satu setiap pengguna), komen dipindahkan dan siaran ini mendapat nota "dipindahkan".',
   'postsAdmin.mergeLabel': 'Gabungkan pendua ke dalam',
   'postsAdmin.responseLabel': 'Respons rasmi',
   'postsAdmin.responsePlaceholder':
@@ -153,7 +202,13 @@ export const ui: UiTranslations = {
     'Tetapkan status rasmi, jawab secara awam, label suku peta jalan, dan gabungkan pendua.',
   'postsAdmin.title': 'Urus siaran maklum balas',
   'postsAdmin.votes': '{{count}} undian',
+  'pricing.limits.advancedFeatures': 'Ciri-ciri lanjutan:',
+  'pricing.limits.boards': '{{count}} papan',
   'pricing.limits.export': 'Eksport data:',
+  'pricing.limits.posts': '{{count}} siaran maklum balas',
+  'pricing.limits.votes': '{{count}} undian',
+  'resetPassword.description':
+    'Pilih yang kukuh. Kami akan melog masuk anda sebaik sahaja tetapan semula berjaya.',
   'resetPassword.newPasswordLabel': 'Kata laluan baharu',
   'resetPassword.tokenPlaceholder': 'Tampal token pautan',
   'roadmap.cardMeta': 'oleh {{author}} · {{board}}',
@@ -169,6 +224,7 @@ export const ui: UiTranslations = {
   'search.empty': 'Tiada permintaan sepadan dengan carian itu.',
   'search.hint': 'Taip pertanyaan untuk mencari permintaan sedia ada sebelum menyiarkan pendua.',
   'search.loadError': 'Carian gagal — cuba lagi.',
+  'search.searching': 'Mencari…',
   'search.submit': 'Cari',
   'search.submitNew': 'Siarkan sebagai permintaan baharu',
   'search.title': 'Cari maklum balas',
@@ -177,12 +233,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'Pengebilan',
   'settings.displaySubtitle': 'Pilih betapa padatnya suapan terasa.',
   'settings.displayTitle': 'Paparan',
+  'settings.emailDigestDesc': 'Permintaan terbuka dengan undi tertinggi setiap Isnin.',
+  'settings.emailDigestLabel': 'Ringkasan mingguan',
+  'settings.emailMentionsDesc': 'Apabila seseorang membalas siaran yang anda ikuti.',
+  'settings.emailMentionsLabel': 'E-mel saya apabila disebut',
+  'settings.emailRepliesDesc': 'Benang yang anda mulakan atau balas.',
+  'settings.emailRepliesLabel': 'Emel saya untuk balasan',
   'settings.loadError': 'Tidak dapat memuatkan akaun anda.',
   'settings.loading': 'Memuatkan tetapan anda…',
   'settings.notifications': 'Pemberitahuan',
   'settings.notificationsSubtitle':
     'Tentukan apa yang sampai ke peti masuk anda vs peranti tolak anda.',
+  'settings.pushRepliesLabel': 'Tolak untuk balasan',
+  'settings.pushVotesDesc': 'Ping ambang pada 100, 500, 1000.',
+  'settings.pushVotesLabel': 'Dorong untuk pencapaian undian positif',
   'settings.saveAccount': 'Simpan akaun',
+  'settings.showFlair': 'Tunjukkan cip papan pada siaran',
+  'settings.showThumbnails': 'Tunjukkan lakaran kecil pautan/imej',
   'settings.usernamePlaceholder': 'Pilih nama pengguna',
   'signup.confirmPlaceholder': 'Taip semula',
   'signup.description': 'Bentuk apa yang kami bina seterusnya.',

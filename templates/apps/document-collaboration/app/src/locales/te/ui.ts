@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ఫీడ్‌బ్యాక్ ఉందా, బగ్ కనుగొన్నారా, లేదా మీ స్టూడియో లేదా టీమ్ కోసం {{app}} కావాలా? మీ ఖాతా సెట్టింగ్‌ల నుండి సంప్రదించండి — ప్రతి సందేశం టీమ్‌లోని నిజమైన వ్యక్తికి చేరుతుంది.',
   'about.contactTitle': 'మాతో మాట్లాడండి',
+  'about.intro':
+    '{{app}} అనేది ఎడిటర్లు, రచయితలు మరియు టీమ్‌లు నిజ సమయంలో కలిసి రాసే సహకార రచనా స్టూడియో. ఒక డాక్యుమెంట్ తెరవండి — పేజీ షేర్ అవుతుంది: కర్సర్లు కదులుతాయి, మార్జిన్‌లో కామెంట్లు థ్రెడ్ అవుతాయి, ప్రతి సవరణ చరిత్రలో సురక్షితంగా ఉంటుంది.',
+  'about.missionBody':
+    'సుదీర్ఘ రచనకు ప్రశాంతమైన, కేంద్రీకృత స్థలం అవసరమని మేము నమ్ముతాము — మీటింగ్ లేదా ఇన్‌బాక్స్ కాదు, మాన్యుస్క్రిప్ట్ చుట్టూ నిర్మించినది. మా ఎడిటర్, నిజ-సమయ ఉనికి మరియు వెర్షన్ చరిత్ర అన్నీ సహకారులు ఎవరూ ఒక పేరా లేదా ఆలోచనను కోల్పోకుండా కలిసి వేగంగా ముందుకు సాగేలా రూపొందించబడ్డాయి.',
+  'about.missionTitle': 'మా లక్ష్యం',
+  'about.subtitle': 'కలిసి ఆలోచించండి, శాశ్వతంగా రాయండి.',
   'about.title': '{{app}} గురించి',
   'comments.addFailed': 'వ్యాఖ్యను పోస్ట్ చేయలేకపోయాను.',
   'comments.backToDoc': 'మాన్యుస్క్రిప్ట్‌కు తిరిగి వెళ్లండి',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'వ్యాఖ్యల థ్రెడ్‌లు',
   'comments.loading': 'థ్రెడ్‌లు లోడ్ అవుతున్నాయి…',
   'comments.newPlaceholder': 'రాతప్రతికి ఒక వ్యాఖ్యను జోడించండి…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'తిరిగి తెరవండి',
   'comments.reopenFailed': 'తిరిగి తెరవలేకపోయాను.',
   'comments.replyFailed': 'ప్రత్యుత్తరం పోస్ట్ చేయలేకపోయాను.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'ఇటీవలి ముసాయిదాలు, పంచుకున్న రచనలు మరియు ఆ రోజు సవరణలు.',
   'dashboard.viewFeed': 'ఫీడ్ →',
   'editor.back': 'వ్రాతప్రతులకు తిరిగి వెళ్లండి',
+  'editor.bodyLabel': 'పత్రం బాడీ',
   'editor.bodyPlaceholder': 'కర్సర్ మినుకుమినుకుమనే చోట మొదలుపెట్టండి.',
   'editor.comments': 'వ్యాఖ్యలు',
   'editor.createFailed': 'పత్రాన్ని సృష్టించలేకపోయాము.',
@@ -62,13 +72,19 @@ export const ui: UiTranslations = {
   'editor.version': 'వి {{v}}',
   'forgotPassword.emailPlaceholder': 'రచయిత@స్టూడియో.కామ్',
   'forgotPassword.sentBody': 'ఖాతా ఉంటే {{email}} రీసెట్ లింక్ వస్తోంది.',
+  'forgotPassword.sentHeading': 'మీ ఇమెయిల్‌ను తనిఖీ చేయండి',
+  'forgotPassword.submitting': 'పంపుతోంది',
   'forgotPassword.subtitle': 'మేము మీకు రీసెట్ లింక్‌ను ఇమెయిల్ చేస్తాము.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . మాలిక్యూల్‌తో నిర్మించబడింది.',
+  'landing.ctaBody':
+    'ఒంటరి రచయితలకు ఉచితం. ఎడిటర్లు, ఘోస్ట్‌రైటర్లు మరియు సమీక్షకుల టీమ్‌ల కోసం స్టూడియో ప్లాన్‌లు.',
   'landing.ctaHeading': 'పేజీని తెరవండి. కర్సర్‌ను ప్రారంభించండి.',
   'landing.ctaPrimary': 'స్టూడియోను తెరవండి',
   'landing.eyebrow': 'రచయితలు, సంపాదకులు మరియు బృందాల కోసం',
   'landing.featuresEyebrow': 'మీకు లభించేది',
   'landing.featuresHeading': 'దీర్ఘ-రూప ముసాయిదా కోసం ఒక స్టూడియో.',
+  'landing.featuresSubtitle':
+    '{{appName}} మాన్యుస్క్రిప్ట్ చుట్టూ నిర్మించబడింది — మీటింగ్ చుట్టూ కాదు, ఇన్‌బాక్స్ చుట్టూ కాదు.',
   'landing.getStarted': 'స్టూడియోని తెరవండి',
   'landing.heroCta': 'రాయడం ప్రారంభించండి',
   'landing.heroSubtitle':
@@ -94,6 +110,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} చదవని · వ్యాఖ్యలు, ప్రస్తావనలు, భాగస్వామ్య ఆహ్వానాలు మరియు సూచన అభ్యర్థనలు.',
   'presenceAvatars.label': '{{count}} సహకారులు',
+  'privacy.intro': 'మేము మీ సమాచారాన్ని ఎలా సేకరిస్తాము, ఉపయోగిస్తాము మరియు రక్షిస్తాము.',
   'privacy.title': 'గోప్యతా విధానం',
   'profile.about.description': 'మీ పబ్లిక్ ప్రొఫైల్ మరియు కంట్రిబ్యూటర్ పేజీల కోసం ఒక చిన్న బయో.',
   'profile.eyebrow': 'స్టూడియో గుర్తింపు',
@@ -105,7 +122,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'ఉనికి',
   'profile.pronouns': 'సర్వనామాలు',
   'profile.publicToggle': 'సహచరులకు ప్రొఫైల్ చూపించు',
+  'profile.role': 'పాత్ర / శీర్షిక',
   'profile.subtitle': 'మీ సహోద్యోగులకు మీరు ఎలా కనిపిస్తారు.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} స్టూడియోలో చురుకుగా ఉన్న రచయితలు',
   'quillonAuthBrandPanel.quote':
     '"నేను రాస్తున్నప్పుడు తప్ప, వేరే ఏ పనీ చేయాలని నాకు అనిపించని ఏకైక పని రాయడం."',
@@ -113,6 +132,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'తెరవండి →',
   'quillonKpiCard.trend': 'ఇటీవలి ధోరణి',
   'quillonLayout.menu': 'మెనూ',
+  'quillonLayout.mobileNavLabel': 'మొబైల్ నావిగేషన్',
   'quillonLayout.primaryNavLabel': 'ప్రాథమిక నావిగేషన్',
   'quillonStudioHero.collab': 'సహకారులు',
   'quillonStudioHero.docs': 'తాకిన పత్రాలు',
@@ -122,7 +142,9 @@ export const ui: UiTranslations = {
     'రాతప్రతిని తీసుకోండి, ఒక వ్యాఖ్యను రాయండి, ఒక పేరాను ముందుకు జరపండి.',
   'quillonStudioHero.words': 'నేటి పదాలు',
   'resetPassword.confirmPlaceholder': 'కొత్త పాస్‌వర్డ్‌ను పునరావృతం చేయండి',
+  'resetPassword.passwordLabel': 'కొత్త పాస్‌వర్డ్',
   'resetPassword.passwordPlaceholder': 'కొత్త పాస్‌వర్డ్‌ను నమోదు చేయండి',
+  'resetPassword.submitting': 'రీసెట్టింగ్™',
   'resetPassword.subtitle': 'కనీసం 12 అక్షరాలతో బలమైన పాస్‌వర్డ్‌ను ఎంచుకోండి.',
   'settings.account.description': 'మీరు ఎలా సైన్ ఇన్ చేస్తారు.',
   'settings.billing.canceled': 'సభ్యత్వం రద్దు చేయబడింది.',
@@ -132,7 +154,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'కాన్ఫిగర్ చేయబడలేదు',
   'settings.billing.updated': 'ప్రణాళిక నవీకరించబడింది.',
   'settings.editor.description': 'మీరు రాస్తున్నప్పుడు కాన్వాస్ ఎలా ప్రవర్తిస్తుంది.',
+  'settings.editor.title': 'ఎడిటర్ ప్రాధాన్యతలు',
   'settings.eyebrow': 'స్టూడియో ప్రాధాన్యతలు',
+  'settings.language.title': 'భాష',
   'settings.notifications.${n.key}.description': 'భాష',
   'settings.notifications.description': 'మీ ఇన్‌బాక్స్‌కు ఏమి చేరాలో ఎంచుకోండి.',
   'settings.subtitle': 'నోటిఫికేషన్‌లు, ఎడిటర్ కాన్వాస్ మరియు మీ ఖాతా ప్రాధాన్యతలను ట్యూన్ చేయండి.',
@@ -142,6 +166,7 @@ export const ui: UiTranslations = {
   'shared.loadFailed': 'భాగస్వామ్యం చేయబడిన పత్రాలను లోడ్ చేయలేకపోయాము.',
   'shared.subtitle':
     'స్టూడియోలోని మిగతా వారి నుండి వచ్చిన రాతప్రతులు, సంక్షిప్త నివేదికలు మరియు గమనికలు.',
+  'signup.brandAttribution': 'Anaïs Park — ఎడిటర్, The Quarterly',
   'signup.brandQuote':
     '‘మీ మొదటి రాతప్రతి అన్నింటికన్నా కష్టమైనది. క్విలాన్ ఆ ఒంటరితనాన్ని తగ్గిస్తుంది.’',
   'signup.emailPlaceholder': 'రచయిత@స్టూడియో.కామ్',
@@ -149,6 +174,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'అనైస్',
   'signup.heading': 'మీ క్విలాన్ ఖాతాను సృష్టించండి',
   'signup.lastNamePlaceholder': 'పార్క్',
+  'signup.submitting': 'మీ స్టూడియో తెరుచుకుంటోంది\\u2026',
   'signup.subtitle':
     'ప్రశాంతమైన డెస్క్, స్నేహపూర్వక సహోద్యోగులు, మరియు మీకు అడ్డుపడని ఒక దీర్ఘ-రూప సంపాదకుడు.',
   'templates.blank.subtitle': 'శుభ్రమైన పేజీ. కర్సర్ మొదలవుతుంది.',
@@ -161,11 +187,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'ఆలోచనాత్మకమైన నిర్మాణంతో ప్రారంభించండి. మీకు నచ్చినట్లుగా మార్చుకోండి.',
   'templates.useFailed': 'ఈ టెంప్లేట్ నుండి డాక్యుమెంట్‌ను ప్రారంభించలేకపోయాను.',
   'templates.useTemplate': 'ఈ టెంప్లేట్‌ను ఉపయోగించండి',
+  'terms.intro': 'మీరు ఈ సేవను ఉపయోగించగల షరతులు.',
   'terms.title': 'సేవా నిబంధనలు',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'ఇప్పుడే',
   'trash.confirmDelete': 'తొలగింపును నిర్ధారించండి',
+  'trash.confirmEmpty': 'నిర్ధారించండి — అన్నింటినీ తొలగించండి',
   'trash.deleteFailed': 'తొలగించలేకపోయాను.',
   'trash.deleteForever': 'శాశ్వతంగా తొలగించండి',
   'trash.empty': 'తిరిగి పొందడానికి ఏమీ లేదు.',
@@ -181,7 +209,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'ఇంకా సవరణలు జరగలేదు — దాని చరిత్రను ప్రారంభించడానికి పత్రాన్ని సేవ్ చేయండి.',
   'versionHistory.heading': 'వెర్షన్ చరిత్ర',
+  'versionHistory.latest': 'తాజా',
   'versionHistory.loadFailed': 'చరిత్రను లోడ్ చేయలేకపోయింది.',
+  'versionHistory.noContent': 'ఈ సవరణ కోసం ఎటువంటి కంటెంట్ క్యాప్చర్ చేయబడలేదు.',
   'versionHistory.previewing': 'ప్రివ్యూయింగ్',
   'versionHistory.restore': 'ఈ వెర్షన్‌ను పునరుద్ధరించండి',
   'versionHistory.restoreFailed': 'పునరుద్ధరణ విఫలమైంది.',

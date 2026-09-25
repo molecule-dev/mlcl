@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Una maoni, umepata hitilafu, au unataka kuleta {{app}} shuleni kwako au kwa timu yako? Tunasoma kila ujumbe — wasiliana nasi kutoka kwenye mipangilio ya akaunti yako na mtu halisi atakujibu.',
   'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
+  'about.intro':
+    '{{app}} ni fumbo la neno la kila siku. Nadhani neno la herufi tano katika majaribio sita, endeleza mfululizo wako, shiriki gridi yako ya emoji, na uone jinsi wote walivyofanya kwenye neno la leo.',
+  'about.missionBody':
+    'Fumbo zuri ni ushindi mdogo wa kila siku. {{app}} imejengwa kuzunguka neno moja linaloshirikiwa kila siku — la haraka vya kutosha kwa mapumziko ya kahawa, la kuvutia vya kutosha kurudi kesho.',
+  'about.missionTitle': 'Dhamira yetu',
   'about.title': 'Kuhusu {{app}}',
   'archive.loadError': 'Imeshindwa kupakia kumbukumbu.',
   'archive.missed': 'Imekosekana',
   'archive.notPlayed': 'Haijachezwa',
+  'archive.subhead':
+    'Cheza tena siku yoyote iliyopita kama mazoezi — hakuna mfululizo, hakuna takwimu, furaha yote.',
   'archive.title': 'Kumbukumbu',
   'auth.backToHome': 'Rudi mwanzoni',
   'auth.backToHomeArrow': '← Rudi mwanzoni',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Umesahau nenosiri?',
   'auth.login.loggingIn': 'Tunakuingiza…',
   'auth.login.logIn': 'Cheza neno la leo',
+  'auth.login.noAccount': 'Mgeni kwa Tessera?',
   'auth.login.or': 'au endelea na',
   'auth.login.password': 'Nenosiri',
   'auth.login.signInButton': 'Ingia',
@@ -32,6 +42,10 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Inahifadhi…',
   'common.sendingEllipsis': 'Inatuma…',
   'common.startingEllipsis': 'Inaanza…',
+  'forgotPassword.subhead': 'Ingiza barua pepe yako nasi tutakutumia kiungo cha kuweka upya.',
+  'forgotPassword.success.body':
+    'Ikiwa akaunti ipo kwa {{email}} , utapata kiungo cha kuweka upya baada ya dakika chache.',
+  'forgotPassword.success.title': 'Angalia kikasha chako cha barua pepe.',
   'form.name': 'Jina',
   'howToPlay.cta.home': 'Kurudi nyumbani',
   'howToPlay.cta.play': 'Cheza fumbo la leo',
@@ -68,10 +82,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Mifululizo unayochukia kuivunja',
   'leaderboard.daily.title': 'Ufumbuzi wa leo',
   'leaderboard.loadError': 'Imeshindwa kupakia ubao wa viongozi.',
+  'leaderboard.streaks.empty': 'Hakuna mfululizo bado — kuwa wa kwanza.',
+  'leaderboard.streaks.subhead': 'Mfululizo mrefu zaidi wa ushindi wa wakati wote.',
   'leaderboard.streaks.title': 'Viongozi wa mfululizo',
+  'leaderboard.subhead': 'Jinsi wote walivyofanya leo, na nani ana mfululizo mrefu zaidi.',
   'leaderboard.title': 'Ubao wa viongozi',
   'login.headline': 'Karibu tena.',
   'login.streakPill': 'Mfululizo wa siku {{days}} unasubiri',
+  'login.subhead':
+    'Ingia ili kuendeleza mfululizo wako na uone jinsi ulivyofanya kwenye neno la leo.',
   'nav.archive': 'Kumbukumbu',
   'nav.editProfile': 'Hariri wasifu',
   'nav.getStarted': 'Anza',
@@ -89,6 +108,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Hakuna neno kama hilo',
   'notFound.title': 'Njia hiyo ni tupu.',
   'planUpdated.message': 'Mpango wako upo hai.',
+  'planUpdated.retry': 'Jaribu tena',
+  'planUpdated.verifyFailed': 'Hatukuweza kuthibitisha malipo yako bado.',
+  'planUpdated.verifyFailedBody':
+    'Huenda malipo yako bado yanashughulikiwa. Jaribu tena baada ya muda mfupi.',
   'planUpdated.verifying': 'Inathibitisha malipo yako…',
   'play.alreadyFinished': 'Tayari umemaliza fumbo hili',
   'play.answerWas': 'Neno lilikuwa',
@@ -104,6 +127,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Fumbo la mazoezi',
   'play.tooShort': 'Herufi hazitoshi',
   'play.won': 'Umetatua!',
+  'pricing.advancedStats': 'Takwimu za kina: {{yes}}',
+  'pricing.archiveHistory': '{{count}} siku za historia ya kumbukumbu',
+  'pricing.archivePlays': '{{count}} marudio ya kumbukumbu / siku',
+  'pricing.archiveUnlimited': 'Historia ya kumbukumbu isiyo na kikomo',
+  'pricing.canExport': 'Usafirishaji wa data: {{yes}}',
+  'pricing.checkoutError': 'Haikuweza kuanza kulipa. Tafadhali jaribu tena.',
   'pricing.dailyWord': 'Neno la kila siku',
   'pricing.heading': 'Chagua mpango wako wa {{app}}',
   'pricing.included': 'Imejumuishwa',
@@ -111,7 +140,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Neno la kila siku ni bure daima. Pata toleo bora kwa kurudi kucheza kumbukumbu bila kikomo na takwimu za kina zaidi.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} inaheshimu faragha yako. Ukurasa huu unafupisha data tunayohifadhi, kwa nini tunaihifadhi, na jinsi ya kuiondoa.',
   'privacy.title': 'Ilani ya faragha',
+  'resetPassword.subhead': 'Chagua nenosiri jipya ili kurudi kwenye mfululizo wako.',
   'settings.account': 'Akaunti',
   'settings.danger.body': 'Ondoa kabisa akaunti yako ya {{appName}} na historia yote ya fumbo.',
   'settings.danger.confirm': 'Ndiyo, futa kabisa',
@@ -121,17 +153,23 @@ export const ui: UiTranslations = {
   'settings.language.title': 'Lugha',
   'settings.subhead':
     'Rekebisha wasifu wako, sauti, na jinsi unavyoonekana kwenye ubao wa viongozi.',
+  'settings.unnamed': 'Mchezaji wa Sparq',
   'settings.upgrade': 'Pata toleo bora',
   'signup.eyebrow': 'Bure milele — neno moja kila siku',
   'signup.headline': 'Anza mfululizo wako.',
+  'signup.subhead':
+    'Fungua akaunti ya {{appName}} ili kucheza neno la kila siku, kujenga mfululizo, na kupanda kwenye orodha ya viongozi.',
   'stats.currentStreak': 'Mfululizo',
   'stats.distribution.title': 'Mgawanyo wa mikokotoo',
   'stats.loadError': 'Imeshindwa kupakia takwimu zako.',
   'stats.maxStreak': 'Mfululizo wa juu zaidi',
   'stats.played': 'Imechezwa',
   'stats.playToday': 'Cheza fumbo la leo',
+  'stats.subhead': 'Fumbo za kila siku zenye viwango pekee — mazoezi ya kumbukumbu hayahesabiwi.',
   'stats.title': 'Takwimu zako',
   'stats.winRate': 'Kiwango cha ushindi',
   'status.monthly': 'Kila mwezi',
+  'terms.intro':
+    'Kwa kutumia {{app}} unakubali sheria zilizo hapa chini. Ikiwa hauwezi kuzikubali, tafadhali usitumie huduma hii.',
   'terms.title': 'Masharti ya huduma',
 }

@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tes suxestións, atopaches un erro ou queres unha función? Escríbenos desde a configuración da túa conta — cada mensaxe chega a unha persoa real do equipo. Nota: nada do que hai aquí é asesoramento de investimento; ti tes o control de cada operación.',
+  'about.contactTitle': 'Fala connosco',
+  'about.featureAttribution':
+    'Atribución do rendemento — desglosa os retornos por sector, rexión e clase de activo, e compáraos con calquera referencia en calquera período.',
+  'about.featureRebalance':
+    'Reequilibrio disciplinado — define asignacións obxectivo e marxes de tolerancia, ve o desvío sinalado a tempo e obtén as operacións que te devolven ao obxectivo.',
+  'about.featureTax':
+    'Hixiene dos documentos fiscais — ganancias realizadas e non realizadas, dividendos e documentos 1099 nun só lugar, con avisos de vendas con perdas (wash-sale) incluídos.',
+  'about.featureUnified':
+    'Unha carteira unificada — accións, ETF, fondos de investimento, bonos e máis, reunidos de todas as contas de corretaxe.',
+  'about.featureWatchlist':
+    'Listas de seguimento, noticias e alertas de prezos para que actúes sobre o que importa sen ruído.',
+  'about.intro':
+    '{{app}} é un panel de carteiras multiactivo para investidores individuais e asesores independentes. Accións, ETF, fondos de investimento, bonos, inmobles e efectivo — todas as posicións de todas as contas, nun só lugar, coa disciplina dunha mesa profesional.',
+  'about.missionBody':
+    'Investir ben é sobre todo disciplina: unha asignación obxectivo clara, unha atribución do rendemento honesta e rexistros fiscais en orde. {{app}} trae eses hábitos institucionais a calquera persoa, para que poidas reequilibrar a propósito en vez de por impulso — e nunca perdas de vista o que está a facer realmente a túa carteira.',
+  'about.missionTitle': 'A nosa misión',
   'about.pageTitle': 'Acerca de {{app}}',
   'argentAuthShell.brandEyebrow': 'Prata · Ferramentas de riqueza',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Non é asesoramento sobre investimentos.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Un panel de control de carteira para investidores individuais e asesores que desexan un reequilibrio disciplinado, unha atribución precisa do rendemento e hixiene fiscal, sen ruído.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · O rendemento pasado non garante resultados futuros.',
   'argentAuthShell.sampleChange': '+2.841 $ (+0,28 %) hoxe',
+  'argentAuthShell.sampleLabel': 'Valor da carteira',
   'argentAuthShell.sampleValue': '1.032.251 dólares',
   'argentLayout.primaryNavLabel': 'Navegación principal',
   'assetAllocationDonut.heading': 'Como se inviste o teu diñeiro',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'hoxe',
   'assetDetail.txEmpty': 'Non hai transaccións para este ticker.',
   'assetDetail.txHeading': 'As túas transaccións',
+  'auth.legalConsent.prefix': 'Ao continuar, aceptas os termos de {{appName}}',
   'common.and': 'e',
   'common.goToDashboard': 'Ir ao panel',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'hoxe',
   'dashboard.topHoldings.heading': 'Onde traballa o teu diñeiro',
   'dashboard.topHoldings.label': 'Principais accións',
+  'forgotPassword.gotLinkCta': 'Teño unha ligazón de restablecemento →',
+  'forgotPassword.subheading':
+    'Introduce o correo electrónico da túa conta de Gavl e enviarémosche unha ligazón de restablecemento seguro.',
   'forgotPassword.successBody':
     'Se non o ves nuns minutos, comproba o teu cartafol de correo non desexado ou proba cun correo electrónico diferente.',
   'forgotPassword.successSubheading':
     'Comprobar {{email}} para unha ligazón de restablecemento. Caduca en 60 minutos.',
+  'forgotPassword.successTitle': 'Correo de restablecemento en camiño',
   'holdingHighlightRow.todayLabel': 'hoxe',
   'holdings.addCta': 'Comprar',
   'holdings.col.allocation': 'Asignación',
@@ -58,6 +87,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Non é asesoramento sobre investimentos. A rendibilidade pasada non garante os resultados futuros.',
   'landing.eyebrow': 'Argent · Unha plataforma de ferramentas para a obtención de riqueza',
   'landing.features.heading': 'Todo o que un asesor construiría para si mesmo.',
+  'landing.finalCta.body':
+    'Conecta a túa conta de corretaxe en dous clics. {{appName}} encárgase do resto.',
+  'landing.finalCta.cta': 'Abre a túa conta Argent',
   'landing.finalCta.heading': 'Devolve a disciplina ao teu portfolio.',
   'landing.footerSignup': 'Abrir unha conta',
   'landing.getStarted': 'Abrir unha conta',
@@ -65,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Ver prezos',
   'landing.heroSubtitle':
     'Un panel de control de carteira para investidores individuais e asesores que desexan un reequilibrio disciplinado, unha atribución precisa do rendemento e hixiene fiscal, sen ruído.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Unha vista previa en directo dun portfolio representativo',
   'login.heading': 'Iniciar sesión en Argent',
   'login.subheading':
@@ -76,6 +109,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} hai horas',
   'news.justNow': 'agora mesmo',
   'news.loadError': 'Non se puideron cargar as noticias.',
+  'planUpdated.body':
+    'O cambio da túa facturación xa está activo. Podes xestionar o teu plan en calquera momento desde a páxina de facturación.',
+  'planUpdated.retry': 'Téntao de novo',
+  'planUpdated.verifyFailed': 'Aínda non puidemos confirmar o teu pagamento.',
+  'planUpdated.verifyFailedBody':
+    'É posible que o teu pago aínda estea procesándose. Téntao de novo nun momento.',
   'planUpdated.verifying': 'Confirmando o teu pago…',
   'portfolioHeroCard.label': 'Valor da carteira',
   'pricing.holdingsLabel': 'explotacións',
@@ -86,12 +125,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Deriva da asignación',
   'rebalance.empty': 'Aínda non hai obxectivos establecidos.',
   'rebalance.executeCta': 'Lugar {{count}} comercios',
+  'rebalance.executeError': 'Non se puideron realizar as operacións.',
   'rebalance.executeOk': 'Colocado {{count}} operacións. Visualízaas na páxina Transaccións.',
+  'rebalance.executing': 'Realizando…',
   'rebalance.eyebrow': 'Reequilibrio · Asesor Argento',
   'rebalance.heading': 'Recupera a disciplina do teu portafolio',
   'rebalance.loadError': 'Non se puido cargar o plan de reequilibrio.',
+  'rebalance.plan.driftLine': 'actualmente {{current}}% · obxectivo {{target}}%',
   'rebalance.planHeading': 'Ticket Argent: revisión antes de colocalo',
   'rebalance.planLabel': 'Plan comercial suxerido',
+  'rebalance.subheading':
+    'As filas fóra da súa marxe de tolerancia xeran suxestións de operacións. {{appName}} só actúa coa túa confirmación.',
   'rebalance.summary.buyLabel': 'Compras',
   'rebalance.summary.buySub': 'posicións para recargar',
   'rebalance.summary.driftLabel': 'Fóra de banda',
@@ -100,6 +144,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'en operacións suxeridas',
   'rebalance.summary.sellLabel': 'Vende',
   'rebalance.summary.sellSub': 'posicións para recortar',
+  'rebalanceDriftCard.drift': 'desvío {{sign}}{{pct}}% · marxe ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'obxectivo {{pct}} %',
   'reports.attributionHeading': 'Atribución de rendemento (1 ano)',
   'reports.col.alpha': 'Alfa',
@@ -113,37 +158,69 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Ano',
   'reports.gainsHeading': 'Ganancias realizadas e non realizadas',
   'reports.noAttribution': 'Aínda non hai datos de atribución.',
+  'reports.noGains': 'Aínda non hai datos de ganancias realizadas/non realizadas.',
   'reports.noPerformance': 'Aínda non hai datos de rendemento.',
   'reports.noTaxDocs': 'Aínda non hai documentos fiscais.',
   'reports.performanceHeading': 'Rendemento fronte a referencia',
   'reports.taxHeading': 'Documentos fiscais',
   'resetPassword.heading': 'Escolle un contrasinal novo e forte',
+  'resetPassword.passwordPlaceholder': 'Novo contrasinal',
   'resetPassword.subheading':
     'Argent iniciarache sesión automaticamente unha vez que o teu contrasinal estea configurado.',
   'resetPassword.tokenPlaceholder': 'Restablecer o token do correo electrónico',
+  'settings.appearance.description': 'Alternar entre o modo claro e o modo escuro.',
   'settings.appearance.title': 'Aparencia',
+  'settings.devices.body': 'Dispositivos nos que se iniciou sesión na túa conta.',
+  'settings.devices.empty': 'Non se atoparon dispositivos.',
   'settings.devices.heading': 'Dispositivos',
+  'settings.devices.revokeWarning':
+    'O acceso deste dispositivo revogarase en breve. Pechar sesión?',
   'settings.devices.signOut': 'Pechar sesión',
   'settings.devices.thisDevice': 'Este dispositivo',
   'settings.devices.unknown': 'Dispositivo descoñecido',
   'settings.linked.body':
     'A sincronización de corretores require un conector de terceiros (Plaid, Yodlee, etc.). Configura o teu provedor no teu entorno para activar a importación automática.',
   'settings.linked.heading': 'Contas de corretagem vinculadas',
+  'settings.linked.placeholder': 'Aínda non hai contas vinculadas.',
+  'settings.notifications.dividendsPaid': 'Dividendos pagados',
   'settings.notifications.error': 'Non se puido actualizar a preferencia.',
   'settings.notifications.priceAlerts': 'Alertas de prezos',
+  'settings.notifications.rebalanceDrift': 'Desvío de reequilibrio',
+  'settings.notifications.taxDocsReady': 'Documentos fiscais listos',
   'settings.profile.advisor': 'Correo electrónico do asesor (opcional)',
   'settings.profile.heading': 'Perfil',
   'settings.security.changePassword': 'Cambiar contrasinal',
+  'settings.security.changePasswordTitle': 'Cambiar contrasinal',
   'settings.security.changing': 'Cambiando…',
+  'settings.security.confirmPassword': 'Contrasinal',
+  'settings.security.currentPassword': 'Contrasinal actual',
   'settings.security.deleteAccount': 'Eliminar conta',
   'settings.security.deleteError': 'Non se puido eliminar a conta.',
   'settings.security.deleteHeading': 'Eliminar conta',
+  'settings.security.deleteModalWarning':
+    'Isto elimina permanentemente a túa conta e os teus datos. Introduce o teu contrasinal para confirmar.',
+  'settings.security.deleteWarning':
+    'Elimina permanentemente a túa conta e todos os datos asociados. Esta acción non se pode desfacer.',
   'settings.security.deleting': 'Eliminando…',
   'settings.security.heading': 'Seguridade',
   'settings.security.newPassword': 'Novo contrasinal',
   'settings.security.password': 'Contrasinal',
+  'settings.security.passwordError': 'Non se puido cambiar o contrasinal.',
+  'settings.security.passwordHint': 'Cambia o contrasinal que usas para iniciar sesión.',
+  'settings.security.twoFactor': 'Autenticación de dous factores',
+  'settings.security.twoFactorCode': 'Código de autenticación',
+  'settings.security.twoFactorDisable': 'Desactivar',
+  'settings.security.twoFactorDisableTitle': 'Desactivar a autenticación de dous factores',
   'settings.security.twoFactorEnable': 'Activar',
+  'settings.security.twoFactorEnableTitle': 'Activar a autenticación de dous factores',
+  'settings.security.twoFactorHint': 'Engade unha capa extra de protección á túa conta.',
   'settings.security.twoFactorInvalidCode': 'Código non válido',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'Código QR de dous factores',
+  'settings.security.twoFactorScan':
+    'Escanea este código QR coa túa aplicación de autenticación e introduce o código de 6 díxitos.',
+  'settings.security.twoFactorUnavailable':
+    'A autenticación de dous factores non está dispoñible para esta aplicación.',
   'settings.security.twoFactorVerify': 'Verificar e activar',
   'settings.tax.error': 'Non se puido actualizar o método tributario.',
   'settings.tax.heading': 'Contabilidade de lotes fiscais',
@@ -154,6 +231,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Método tributario gardado.',
   'signup.eyebrow': 'Abrir unha conta',
   'signup.heading': 'Abre a túa conta Argent',
+  'signup.legalPrefix': 'Ao crear unha conta aceptas os {{appName}}',
   'signup.subheading':
     'Gratis durante 30 días. Non se require tarxeta. Cancela en calquera momento.',
   'signup.terms':

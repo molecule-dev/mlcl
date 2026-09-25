@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vai jums ir jautājums, esat atraduši kļūdu vai vēlaties pārcelt savas grāmatas? Sazinieties ar {{app}} komandu pa hello@{{app}}.example — katru ziņu lasa īsts cilvēks.',
   'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
+  'about.intro':
+    '{{app}} ir mazo uzņēmumu grāmatvedība, kas uzskaita katru centu — rēķini, izdevumi, maksājumi un atskaites vienā mierīgā vietā uzņēmumu īpašniekiem, grāmatvežiem un auditoriem.',
+  'about.missionBody':
+    'Uzņēmuma vadīšanai nevajadzētu nozīmēt bailes no grāmatvedības. {{app}} aizstāj izklīdušās izklājlapas ar skaidriem skaitļiem, pēc kuriem varat rīkoties, tāpēc jūs pavadāt mazāk laika saskaņošanā un vairāk laika, darot to, kā dēļ uzņēmumu vispār sākāt.',
+  'about.missionTitle': 'Mūsu misija',
   'about.title': 'Par {{app}}',
   'accounts.count': '{{count}} konti',
+  'accounts.emptyBody':
+    'Virsgrāmatas konti parāda, kur nauda atrodas un pārvietojas. Tie parādīsies šeit, tiklīdz jūsu grāmatvedis vai integrācija tos iestatīs.',
   'accounts.emptyTitle': 'Vēl nav kontu',
   'accounts.heading': 'Grāmatvedības kontu plāns',
   'accounts.kpi.accounts': 'Accounts',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Katrs grāmatvedības konts, kas saistīts ar jūsu rēķiniem, izdevumiem un maksājumiem, sagrupēts pēc veida.',
   'accounts.tag.inactive': 'neaktīvs',
   'authBrandPanel.attributionName': 'Sāra Dženkinsa',
+  'authBrandPanel.attributionRole': 'Finanšu direktors, Horizon Tech',
   'authBrandPanel.eyebrow': 'Finanšu komandu uzticēšanās',
   'authBrandPanel.label': 'Zīmola prezentācija',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Visi klienti',
   'customerDetail.invoiceMeta': 'Izdošanas datums{{issued}} · Nodrošināšanas termiņš{{due}}',
   'customerDetail.loadError': 'Neizdevās ielādēt klientu.',
+  'customerDetail.missingBody':
+    'Pieprasīto klienta ierakstu nevarēja ielādēt. Iespējams, tas ir dzēsts vai jums nav piekļuves tam.',
   'customerDetail.missingHeading': 'Klienta ieraksts nav pieejams',
+  'customerDetail.missingHelp':
+    'Izmantojiet atgriešanās saiti augstāk, lai atgrieztos klientu sarakstā, vai izvēlieties citu ierakstu tur.',
+  'customerDetail.noInvoices': 'Rēķinu vēl nav.',
   'customerDetail.notesEmpty': 'Vēl nav piezīmju.',
   'customerDetail.paymentsEmpty': 'Nav reģistrētu maksājumu.',
   'customerDetail.paymentTerms': 'Maksājuma noteikumi',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Pašrisks',
   'expenseDetail.detailsHeading': 'Darījuma informācija',
   'expenseDetail.loadError': 'Neizdevās ielādēt izdevumus.',
+  'expenseDetail.matched': 'Saskaņots · {{description}}',
   'expenseDetail.missingBody':
     'Pieprasīto izdevumu nevarēja ielādēt. Iespējams, tas ir noņemts vai arī jums nav piekļuves tam.',
   'expenseDetail.missingHeading': 'Izdevumu ieraksts nav pieejams',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Čeks',
   'expenseDetail.receiptHeading': 'Čeks',
   'expenseDetail.reconciled': 'Saskaņots',
+  'expenseDetail.unreconciled': 'Nesamierināts',
   'expenses.empty': 'Vēl nav izdevumu.',
   'expenses.heading': 'Izdevumi',
   'expenses.kpi.deductible': 'Pašrisks',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Neizdevās ielādēt rēķinus.',
   'invoices.searchPlaceholder': 'Meklēt rēķina numuru vai klientu…',
   'invoices.summary.paid': 'Apmaksāts šajā periodā',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     '30 dienas bez maksas. Karte nav nepieciešama. Paņemiet līdzi savu grāmatvedi — viņš jums pateiksies.',
   'landing.ctaTitle': 'Pārvietojiet grāmatas uz mierīgāku vietu.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Debitoru parādi',
   'ledgerStatTriad.eyebrow.mtd': 'Mēnesis līdz šim brīdim',
   'ledgerStatTriad.netSub': 'Tīkls {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} nokavēts',
   'ledgerStatTriad.revenueLabel': 'Ieņēmumi',
   'login.failed': 'Pierakstīšanās neizdevās.',
   'login.hidePassword': 'Paslēpt paroli',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Pieslēgties',
   'nav.legal': 'Juridiskā informācija',
   'newExpense.back': 'Izdevumi',
+  'newExpense.clearReceiptCta': 'Notīrīt pievienoto kvīti',
   'newExpense.deductible': 'Nodokļu atskaitāms',
   'newExpense.dropPrompt': 'Ievietojiet šeit čeka fotoattēlu vai PDF failu, lai pievienotu.',
   'newExpense.failed': 'Neizdevās ietaupīt izdevumus.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Neizdevās ielādēt maksājumus.',
   'payments.unmatchedTag': 'nepārspējams',
   'planUpdated.pageLabel': 'Plāna atjaunināšanas apstiprinājums',
+  'pricing.advancedFeatures': 'Papildu funkcijas: {{yes}}',
+  'pricing.canExport': 'Datu eksports: {{yes}}',
+  'pricing.heading': 'Izvēlieties savu {{app}} plānu',
+  'pricing.maxAccounts': '{{count}} konti',
+  'pricing.maxExpenses': '{{count}} izdevumi',
+  'pricing.maxInvoices': '{{count}} rēķini',
+  'privacy.intro':
+    'Šī privātuma politika apraksta, kā {{app}} vāc, izmanto un atklāj informāciju par uzņēmumiem, kas izmanto pakalpojumu.',
   'privacy.lastUpdated': 'Pēdējoreiz atjaunināts: datums',
   'privacy.section.collected.body':
     'Mēs apkopojam konta informāciju (vārdu, e-pastu, uzņēmumu), jūsu augšupielādētos finanšu ierakstus (rēķinus, izdevumus, klientus, maksājumus) un standarta pakalpojumu darbības žurnālus (IP adresi, lietotāja aģentu, laika zīmogus).',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Informācija tiek izmantota pakalpojuma darbībai, jūsu pieprasīto pārskatu un PDF failu ģenerēšanai, darījumu e-pasta nosūtīšanai, izmantojot Mailgun, un maksājumu apstrādei, izmantojot Stripe. Mēs nepārdodam un neiznomājam personas informāciju.',
   'recentInvoicesCard.dueMeta': 'Avots: {{date}}',
+  'recentInvoicesCard.empty': 'Neviens rēķins neatbilst.',
   'recentInvoicesCard.eyebrow': 'Debitoru parādi',
   'recentInvoicesCard.searchAriaLabel': 'Meklēt rēķinus',
+  'recentInvoicesCard.searchPlaceholder': 'Meklēt rēķinus…',
   'recentInvoicesCard.title': 'Pēdējie rēķini',
   'recentInvoicesCard.viewAll': 'Skatīt visus rēķinus →',
   'reports.assets': 'Aktīvi',
@@ -181,15 +211,20 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Peļņa un zaudējumi (12 mēneši)',
   'resetPassword.backToLogin': '← Atpakaļ uz pieteikšanos',
   'resetPassword.hidePassword': 'Paslēpt paroli',
+  'resetPassword.passwordLabel': 'Jauna parole',
   'resetPassword.showPassword': 'Rādīt paroli',
+  'resetPassword.subheading': 'Izvēlieties drošu paroli — vismaz astoņas rakstzīmes.',
   'resetPassword.submit': 'Atiestatīt paroli',
   'resetPassword.tooShort': 'Parolei jābūt vismaz 8 rakstzīmes garai.',
   'settings.account.changePassword': 'Mainīt paroli',
   'settings.account.changingPassword': 'Mainās…',
   'settings.account.currentPassword': 'Pašreizējais paroles',
+  'settings.account.dangerZone': 'Bīstamā zona',
   'settings.account.deleteAccount': 'Dzēst kontu',
   'settings.account.deleteDescription': 'Galīgi izdzēst savu kontu un visus ar to saistītos datus.',
   'settings.account.deleteError': 'Neizdevās izdzēst kontu.',
+  'settings.account.deleteWarning':
+    'Tas neatgriezeniski dzēš jūsu kontu, un to nevar atsaukt. Ievadiet savu paroli, lai apstiprinātu.',
   'settings.account.deleting': 'Dzēš…',
   'settings.account.devices': 'Ierīces',
   'settings.account.email': 'E-pasts',
@@ -200,6 +235,7 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Parole',
   'settings.account.passwordError': 'Neizdevās mainīt paroli.',
   'settings.account.pushNotifications': 'Paziņojumi ar pieskārienu šajā ierīcē',
+  'settings.account.revokeDeviceWarning': 'Šīs ierīces piekļuve drīz tiks atsaukta. Izrakstīt to?',
   'settings.account.saveError': 'Neizdevās atjaunināt profilu.',
   'settings.account.security': 'Drošība',
   'settings.account.signOutDevice': 'Izrakstīties',
@@ -207,12 +243,19 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Divfaktoru autentifikācija',
   'settings.account.twoFactorCode': 'Autentifikācijas kods',
   'settings.account.twoFactorDisable': 'Atspējot',
+  'settings.account.twoFactorDisableTitle': 'Atspējot divpakāpju autentifikāciju',
   'settings.account.twoFactorEnable': 'Ieslēgt',
+  'settings.account.twoFactorEnableTitle': 'Iespējot divpakāpju autentifikāciju',
   'settings.account.twoFactorInvalidCode': 'Nepareizs kods',
   'settings.account.twoFactorOn': 'Par',
+  'settings.account.twoFactorQrAlt': 'Divfaktoru QR kods',
+  'settings.account.twoFactorScan':
+    'Noskenējiet šo QR kodu ar savu autentifikācijas lietotni, pēc tam ievadiet 6 ciparu kodu.',
+  'settings.account.twoFactorUnavailable': 'Divfaktoru autentifikācija šai lietotnei nav pieejama.',
   'settings.account.twoFactorVerify': 'Pārbaudīt un aktivizēt',
   'settings.account.unknownDevice': 'Nezināma ierīce',
   'settings.company.email': 'Norēķinu e-pasts',
+  'settings.company.heading': 'Uzņēmums un nodokļi',
   'settings.company.name': 'Juridiskais nosaukums',
   'settings.company.saveButton': 'Saglabāt uzņēmuma profilu',
   'settings.company.taxId': 'Nodokļu maksātāja ID/EIN',
@@ -256,6 +299,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Aptuvenais ceturkšņa rādītājs',
   'taxes.kpi.owed': 'Parāds',
   'taxes.loadError': 'Neizdevās ielādēt nodokļu kopsavilkumu.',
+  'taxes.remittedPct': '({{pct}}% pārskaitīti)',
+  'terms.intro':
+    'Šie pakalpojuma noteikumi ("Noteikumi") regulē jūsu piekļuvi {{app}} un tā izmantošanu. Izveidojot kontu vai izmantojot pakalpojumu, jūs piekrītat, ka esat ar tiem saistīts.',
   'terms.lastUpdated': 'Pēdējoreiz atjaunināts: datums',
   'terms.section.acceptable.body':
     'Jūs piekrītat neizmantot pakalpojumu, lai pārkāptu jebkuru likumu, aizskartu intelektuālā īpašuma tiesības, pārsūtītu ļaunprogrammatūru vai mēģinātu iegūt neatļautu piekļuvi citiem kontiem vai mūsu infrastruktūrai.',

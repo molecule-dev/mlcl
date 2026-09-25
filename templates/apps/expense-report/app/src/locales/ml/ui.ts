@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ചോദ്യങ്ങൾ, ഫീഡ്ബാക്ക്, അല്ലെങ്കിൽ ഒരു ഫീച്ചർ അഭ്യർത്ഥനയുണ്ടോ? Settings → Notifications-ൽ നിന്ന് {{app}} ടീമിനെ സമീപിക്കുക, അല്ലെങ്കിൽ എപ്പോൾ വേണമെങ്കിലും ഞങ്ങൾക്ക് എഴുതുക — ഓരോ സന്ദേശവും ഒരു യഥാർത്ഥ മനുഷ്യനിലേക്കാണ് എത്തുന്നത്.',
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
+  'about.featureCapture':
+    'ഫോട്ടോ അപ്‌ലോഡ് ഉപയോഗിച്ച് രസീത് ക്യാപ്‌ചർ ചെയ്യൽ, ചിത്രങ്ങൾ ശരിയായ ചെലവിലേക്ക് വരി വരിയായി ചേർക്കുന്നു.',
+  'about.featureExport':
+    'ഓരോ റിപ്പോർട്ടിന്റെയും ചെലവിന്റെയും അനുമതി നിലയുടെയും ഓഡിറ്റ് ചെയ്യാവുന്ന CSV എക്‌സ്‌പോർട്ടുകൾ — നിങ്ങളുടെ അക്കൗണ്ടിംഗ് ടീമിന് തയ്യാർ.',
+  'about.featurePolicy':
+    'പോളിസി ഗാർഡ്‌റെയിലുകൾ — ദൈനംദിന പരിധികൾ, ഓരോ വിഭാഗത്തിനുമുള്ള പരിധികൾ, രസീത് ആവശ്യമായ ത്രെഷോൾഡുകൾ എന്നിവ സമർപ്പിക്കുന്ന സമയത്ത് നടപ്പാക്കുന്നു.',
+  'about.featureWorkflow':
+    'റിവ്യൂവർ കുറിപ്പുകൾ, പോളിസി ലംഘന ഫ്ലാഗുകൾ, ഒറ്റ ടാപ്പ് റീയിംബേഴ്‌സ്‌മെന്റ് അടയാളപ്പെടുത്തൽ എന്നിവയുള്ള രണ്ട്-തല അനുമതി വർക്ക്ഫ്ലോ.',
+  'about.intro':
+    '{{app}} എന്നത് ഫിനാൻസ് ടീമുകൾക്കും അവർ റീയിംബേഴ്‌സ് ചെയ്യുന്ന ആളുകൾക്കുമുള്ള ഒരു ചെലവ് മാനേജ്‌മെന്റ് പ്ലാറ്റ്ഫോമാണ്. ഒരു രസീത് ക്യാപ്‌ചർ ചെയ്യുക, ഒരു ചെലവ് ഫയൽ ചെയ്യുക, ഒരു റിപ്പോർട്ട് അനുമതിയിലൂടെ അയയ്ക്കുക, ഓരോ റീയിംബേഴ്‌സ്‌മെന്റും ട്രാക്ക് ചെയ്യുക — സ്പ്രെഡ്‌ഷീറ്റ് ചടങ്ങുകളില്ലാതെ.',
+  'about.missionBody':
+    'റീയിംബേഴ്‌സ്‌മെന്റ് വേഗതയുള്ളതും നീതിയുള്ളതും ഓഡിറ്റ് ചെയ്യാവുന്നതുമായിരിക്കണം. ബുദ്ധിമുട്ടിക്കാതെ സമർപ്പിക്കുന്നവർക്ക് പണം തിരികെ ലഭിക്കാനും, അനുമതി നൽകുന്നവർ അവർ ഒപ്പിടുന്നത് കൃത്യമായി കാണാനും, ഓരോ ഡോളറിനും വ്യക്തമായ ഒരു ട്രെയിൽ ഫിനാൻസിന് ലഭിക്കാനും ഞങ്ങൾ {{app}} നിർമ്മിച്ചു — പോളിസി പരിശോധനകളും ഉൾപ്പെടെ.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'approvals.approve': 'Approve',
   'approvals.approving': 'അംഗീകരിക്കുന്നു...',
   'approvals.confirmReject': 'നിരസിക്കൽ സ്ഥിരീകരിക്കുക',
+  'approvals.empty': 'നിങ്ങൾ എല്ലാം കണ്ടു കഴിഞ്ഞു — കാത്തിരിക്കുന്ന റിപ്പോർട്ടുകളൊന്നുമില്ല.',
   'approvals.eyebrow': 'മാനേജർ ക്യൂ',
   'approvals.kpi.flaggedLabel': 'നയം ഫ്ലാഗ് ചെയ്‌തു',
+  'approvals.kpi.queueLabel': 'അവലോകനത്തിനായി കാത്തിരിക്കുന്നു',
   'approvals.kpi.totalLabel': 'ശേഷിക്കുന്ന മൂല്യം',
   'approvals.lineCount': '{{count}} ചെലവുകൾ',
   'approvals.queueFallback': 'ലൈവ് ക്യൂ ലഭ്യമല്ല — ക്യുറേറ്റ് ചെയ്ത ഡെമോ ഡാറ്റ കാണിക്കുന്നു.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'നിരസിക്കുന്നു...',
+  'approvals.rejectPlaceholder': 'കാരണം (ആവശ്യമാണ്)',
   'approvals.rejectPrompt': 'എന്തുകൊണ്ടാണ് നിങ്ങൾ ഈ റിപ്പോർട്ട് നിരസിക്കുന്നത്?',
   'approvals.review': 'അവലോകനം',
   'approvals.title': 'തീർച്ചപ്പെടുത്താത്ത അംഗീകാരങ്ങൾ',
@@ -24,11 +43,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+ 18%',
   'dashboard.kpi.approvedLabel': 'അംഗീകരിച്ചു · MTD',
   'dashboard.kpi.pendingDelta': 'ഈ ആഴ്ച +2',
+  'dashboard.kpi.pendingLabel': 'അവലോകനം തീർച്ചപ്പെടുത്തിയിട്ടില്ല',
   'dashboard.kpi.receiptsDelta': 'നടപടി ആവശ്യമാണ്',
   'dashboard.kpi.receiptsLabel': 'രസീതുകൾക്കായി കാത്തിരിക്കുന്നു',
   'dashboard.kpi.reimbursedDelta': '+$2.4k',
   'dashboard.kpi.reimbursedLabel': 'റീഇംബേഴ്‌സ്ഡ് · MTD',
   'dashboard.newReport': 'പുതിയ റിപ്പോർട്ട്',
+  'dashboard.recent.empty':
+    'ഇതുവരെ റിപ്പോർട്ടുകളില്ല — മുകളിൽ നിന്ന് നിങ്ങളുടെ ആദ്യത്തേത് ആരംഭിക്കുക.',
   'dashboard.recent.title': 'സമീപകാല റിപ്പോർട്ടുകൾ',
   'dashboard.recent.viewAll': 'എല്ലാ റിപ്പോർട്ടുകളും കാണുക',
   'dashboard.summaryFallback':
@@ -39,11 +61,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'രസീതുകളും തിരിച്ചടയ്ക്കാവുന്ന ഇനങ്ങളും',
   'expenses.listFallback': 'ലൈവ് ലിസ്റ്റ് ലഭ്യമല്ല — ക്യുറേറ്റ് ചെയ്ത ഡെമോ ഡാറ്റ കാണിക്കുന്നു.',
   'expenses.searchPlaceholder': 'വ്യാപാരിയെയോ വിഭാഗത്തെയോ തിരയുക...',
+  'expenses.subtotal': '{{count}} ചെലവുകൾ · ഉപമൊത്തം',
   'expenses.title': 'ചെലവുകൾ',
+  'forgotPassword.continue': 'എനിക്ക് ഒരു കോഡ് ഉണ്ട് · തുടരുക',
+  'forgotPassword.subheading':
+    'നിങ്ങളുടെ ജോലി ഇമെയിൽ നൽകുക, പുതിയ പാസ്വേഡ് സെറ്റ് ചെയ്യാനുള്ള ലിങ്ക് ഞങ്ങൾ അയയ്ക്കും.',
   'forgotPassword.successBody':
     'ഒരു അക്കൗണ്ട് നിലവിലുണ്ടെങ്കിൽ {{email}} അടുത്ത കുറച്ച് മിനിറ്റുകൾക്കുള്ളിൽ നിങ്ങൾക്ക് ഒരു റീസെറ്റ് ലിങ്ക് ലഭിക്കും.',
+  'landing.copyright': '© {{year}} {{app}}. Molecule.dev ഉപയോഗിച്ച് നിർമ്മിച്ചത്.',
+  'landing.ctaBody':
+    'ഓരോ മാസവും ആദ്യത്തെ 25 ചെലവുകൾക്ക് സൗജന്യം. ക്രെഡിറ്റ് കാർഡില്ല, ഇംപ്ലിമെന്റേഷൻ കോളില്ല.',
   'landing.ctaHeading': 'നിങ്ങളുടെ ടീമിന് നൽകാനുള്ളത് തിരിച്ചുപിടിക്കാൻ തയ്യാറാണോ?',
   'landing.eyebrow': 'ധനകാര്യ ടീമുകൾക്കുള്ള ചെലവ് റിപ്പോർട്ടുകൾ',
+  'landing.featuresHeading': 'റീയിംബേഴ്‌സ്‌മെന്റ്, ഒരു ശാന്തമായ വർക്ക്‌സ്‌പേസിൽ',
   'landing.heroSubtitle':
     'സ്പ്രെഡ്ഷീറ്റ് ചടങ്ങ് ഇല്ലാതെ തന്നെ ബിസിനസ് ചെലവുകൾ സമർപ്പിക്കുക, അംഗീകരിക്കുക, തിരികെ നൽകുക. രസീത് OCR, പോളിസി പരിശോധനകൾ, സുതാര്യമായ അംഗീകാര ടൈംലൈൻ - എല്ലാം ഒരു ശാന്തമായ വർക്ക്‌സ്‌പെയ്‌സിൽ.',
   'landing.heroTitle': 'എല്ലാ രസീതും, വീണ്ടെടുത്തു.',
@@ -61,10 +91,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'കുറിപ്പുകൾ',
   'newExpense.descriptionPlaceholder':
     'ഈ ചെലവ് ബിസിനസുമായി ബന്ധപ്പെട്ടതായിരുന്നത് എന്തുകൊണ്ട് (നിങ്ങളുടെ അംഗീകാരം നൽകുന്നയാൾക്ക് ദൃശ്യമാണ്).',
+  'newExpense.eyebrow': 'റീയിംബേഴ്‌സ് ചെയ്യാവുന്ന ഇനം',
   'newExpense.merchant': 'വ്യാപാരി',
   'newExpense.merchantPlaceholder': 'ഹോട്ടൽ അഡ്ലോൺ കെംപിൻസ്കി',
   'newExpense.policyHint':
     'ഓർമ്മപ്പെടുത്തൽ: പ്രതിദിനം $80-ൽ കൂടുതലുള്ള ഭക്ഷണത്തിനോ $250-ൽ കൂടുതലുള്ള ഏതെങ്കിലും ഇനത്തിനോ ഒരു ന്യായീകരണ കുറിപ്പ് ആവശ്യമാണ്.',
+  'newExpense.receipt': 'രസീത്',
+  'newExpense.receiptHint': 'JPG, PNG, അല്ലെങ്കിൽ PDF · പരമാവധി 10 MB',
   'newExpense.receiptOcrHint': 'OCR ഫീൽഡുകൾ പ്രീ-ഫിൽ ചെയ്യുന്നു',
   'newExpense.receiptPrompt':
     'ഒരു ഫോട്ടോ അല്ലെങ്കിൽ PDF ഇവിടെ ഇടുക, അല്ലെങ്കിൽ ബ്രൗസ് ചെയ്യാൻ ക്ലിക്ക് ചെയ്യുക.',
@@ -76,17 +109,21 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'ഒരു രസീത് എടുക്കുകയോ അപ്‌ലോഡ് ചെയ്യുകയോ ചെയ്താൽ റീകപ്പ് വ്യാപാരി, തീയതി, ആകെ തുക എന്നിവ മുൻകൂട്ടി പൂരിപ്പിക്കും. സംരക്ഷിക്കുന്നതിന് മുമ്പ് താഴെയുള്ളതെല്ലാം സ്ഥിരീകരിക്കുക.',
   'newExpense.title': 'ചെലവ് ചേർക്കുക',
+  'newReport.approverHint':
+    'ഈ റിപ്പോർട്ട് അവലോകനത്തിനായി നിങ്ങൾ സമർപ്പിക്കുമ്പോൾ അവർക്ക് ഒരു ഇമെയിൽ ലഭിക്കും.',
   'newReport.approverLabel': 'അനുമതി നൽകുന്നയാളുടെ ഇമെയിൽ (ഓപ്ഷണൽ)',
   'newReport.approverPlaceholder': 'മാനേജർ@yourcompany.com',
   'newReport.availableExpenses': 'ലഭ്യമായ ചെലവുകൾ',
   'newReport.createFailed': 'റിപ്പോർട്ട് സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക.',
   'newReport.draftsFallback':
     'തത്സമയ ചെലവുകളുടെ പട്ടിക ലഭ്യമല്ല — ക്യുറേറ്റ് ചെയ്ത ഡെമോ ഡാറ്റ കാണിക്കുന്നു.',
+  'newReport.eyebrow': 'ചെലവുകൾ ഗ്രൂപ്പ് ചെയ്യുക · അനുമതിക്കായി സമർപ്പിക്കുക',
   'newReport.includedCount': '{{count}} ഉൾപ്പെടുത്തിയിട്ടുണ്ട്',
   'newReport.purposeLabel': 'ബിസിനസ് ഉദ്ദേശ്യം',
   'newReport.purposePlaceholder':
     'ഈ ചെലവുകൾ ബന്ധപ്പെട്ട യാത്രയെക്കുറിച്ചോ പ്രോജക്റ്റിനെക്കുറിച്ചോ വിവരിക്കുക (നിങ്ങളുടെ അംഗീകാരം നൽകുന്നയാൾക്കും ധനകാര്യ സ്ഥാപനത്തിനും ദൃശ്യമാകും).',
   'newReport.saveDraft': 'ഡ്രാഫ്റ്റായി സംരക്ഷിക്കുക',
+  'newReport.saveDraftFailed': 'ഡ്രാഫ്റ്റ് സേവ് ചെയ്യാനായില്ല. വീണ്ടും ശ്രമിക്കുക.',
   'newReport.submit': 'അംഗീകാരത്തിനായി സമർപ്പിക്കുക',
   'newReport.submitFailed': 'റിപ്പോർട്ട് സമർപ്പിക്കാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക.',
   'newReport.summary': 'റിപ്പോർട്ട് സംഗ്രഹം',
@@ -99,17 +136,25 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'വർക്ക്‌സ്‌പെയ്‌സ് ആക്റ്റിവിറ്റി',
   'notifications.feedFallback': 'തത്സമയ ഫീഡ് ലഭ്യമല്ല — ക്യുറേറ്റ് ചെയ്ത ഡെമോ ഡാറ്റ കാണിക്കുന്നു.',
   'notifications.openReport': 'റിപ്പോർട്ട് തുറക്കുക ›',
+  'pricing.approvalsLabel': 'അനുമതികൾ',
   'pricing.expensesLabel': 'ചെലവുകൾ',
   'pricing.heading': 'അംഗീകാരങ്ങൾ',
   'pricing.policiesLabel': 'നയങ്ങൾ',
   'pricing.receiptsLabel': 'രസീതുകൾ',
   'recoveredAmountHeroCard.label': 'റീഇംബേഴ്‌സ്‌മെന്റ് തിരിച്ചുപിടിച്ചു · YTD',
+  'recoveredAmountHeroCard.pending':
+    'എല്ലാ അനുമതി നൽകുന്നവരിലുമായി നിലവിൽ അവലോകനത്തിന് കാത്തിരിക്കുന്ന {{count}} റിപ്പോർട്ട്(കൾ).',
+  'reports.approvalFlow': 'അനുമതി പ്രവാഹം',
   'reports.backToList': 'റിപ്പോർട്ടുകളിലേക്ക് മടങ്ങുക',
   'reports.detailFallback':
     'തത്സമയ റിപ്പോർട്ട് ലഭ്യമല്ല — ക്യുറേറ്റ് ചെയ്ത ഡെമോ ഡാറ്റ കാണിക്കുന്നു.',
   'reports.lineItems': 'ലൈൻ ഇനങ്ങൾ',
   'reports.lineItemsCount': '{{count}} ചെലവുകൾ',
+  'reports.lineItemsEmpty': 'ഈ റിപ്പോർട്ടിൽ ഇതുവരെ ചെലവുകളില്ല.',
+  'reports.openLibrary': 'റിപ്പോർട്ട് ലൈബ്രറി തുറക്കുക',
   'reports.policyTitle': 'നയ ഫ്ലാഗ്',
+  'reports.selectPrompt':
+    'അതിന്റെ വിശദാംശങ്ങൾ കാണാൻ ലൈബ്രറിയിൽ നിന്ന് ഒരു റിപ്പോർട്ട് തിരഞ്ഞെടുക്കുക.',
   'reports.summary.lineCount': 'ലൈൻ ഇനങ്ങൾ',
   'reports.summary.reimbursable': 'തിരിച്ചടയ്ക്കാവുന്നത്',
   'reports.summary.total': 'റിപ്പോർട്ട് ചെയ്ത ആകെ എണ്ണം',
@@ -118,6 +163,7 @@ export const ui: UiTranslations = {
   'reportsList.lineItems': '{{count}} ചെലവുകൾ',
   'reportsList.listFallback': 'ലൈവ് ലിസ്റ്റ് ലഭ്യമല്ല — ക്യുറേറ്റ് ചെയ്ത ഡെമോ ഡാറ്റ കാണിക്കുന്നു.',
   'reportsList.newReport': 'പുതിയ റിപ്പോർട്ട്',
+  'reportsList.submittedOn': '{{date}}-ന് സമർപ്പിച്ചു',
   'reportsList.title': 'ലൈബ്രറി റിപ്പോർട്ട് ചെയ്യുക',
   'resetPassword.hidePassword': 'പാസ്‌വേഡ് മറയ്ക്കുക',
   'resetPassword.newPasswordLabel': 'പുതിയ പാസ്വേഡ്',
@@ -143,6 +189,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'സംരക്ഷിച്ചു ✓',
   'settings.profileSaveFailed': 'പ്രൊഫൈൽ അപ്ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കുക.',
   'signup.heading': 'നിങ്ങളുടെ റീകപ്പ് അക്കൗണ്ട് സൃഷ്ടിക്കുക',
+  'signup.hidePassword': 'പാസ്‌വേഡ് മറയ്ക്കുക',
   'signup.namePlaceholder': 'മായ ഒകാഫോർ',
   'signup.showPassword': 'പാസ്‌വേഡ് കാണിക്കുക',
   'signup.subheading': 'പ്രതിമാസം 25 ചെലവുകൾക്ക് സൗജന്യം — ക്രെഡിറ്റ് കാർഡ് ആവശ്യമില്ല.',

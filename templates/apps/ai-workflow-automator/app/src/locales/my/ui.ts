@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite သည် trigger များ၊ AI အခြေအနေများနှင့် multi-step action များကို အတူတကွ ချိတ်ဆက်ပေးသည့် workflow automation platform တစ်ခုဖြစ်ပြီး၊ ထို့ကြောင့် အဖွဲ့များသည် glue code ရေးသားစရာမလိုဘဲ စနစ်များအကြား အလုပ်များကို ရွှေ့ပြောင်းနိုင်သည်။',
+  'about.philosophy':
+    'လုပ်ငန်းစဉ်တိုင်းသည် သေးငယ်၍ စောင့်ကြည့်နိုင်သော အဆင့်များ၏ ဂရပ်တစ်ခုဖြစ်သည်။ အဆင့်တစ်ခုစီသည် ၎င်း၏ ထည့်သွင်းချက်များ၊ ထွက်ရှိချက်များနှင့် အချိန်ကို မှတ်တမ်းတင်ထားသဖြင့် စစ်ဆေးနိုင်ခြင်း၊ ပြန်လည်လည်ပတ်နိုင်ခြင်း သို့မဟုတ် ပြန်လည်ဖျက်သိမ်းနိုင်ခြင်းတို့ ပြုလုပ်နိုင်သည်။ ၎င်းတို့ကို အမြင်အာရုံဖြင့် ပေါင်းစပ်ပါ၊ ကုဒ်ကဲ့သို့ ဗားရှင်းသတ်မှတ်ပါ။',
   'about.title': 'ဒန်ဒရိုက်အကြောင်း',
   'authShell.brand': 'ဒန်ဒရိုက်',
   'authShell.support': 'ပံ့ပိုးမှု',
@@ -15,9 +17,15 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'အစီအစဉ်ပြောင်းပါ',
   'billing.description':
     'အသုံးပြုမှုကို ခြေရာခံပါ၊ သင့်အစီအစဉ်ကို စီမံခန့်ခွဲပါ၊ စာရင်းကိုင်အတွက် ငွေတောင်းခံလွှာများကို ထုတ်ယူပါ။',
+  'billing.eyebrow': 'အကောင့် · အစီအစဉ်နှင့် အသုံးပြုမှု',
+  'billing.failedLabel': 'မအောင်မြင်သော လည်ပတ်မှုများ · ၂၄ နာရီ',
+  'billing.invoicesEmpty':
+    'ငွေတောင်းခံလွှာ မရှိသေးပါ။ ပထမဆုံး အခကြေးငွေဖြင့် သက်တမ်းတိုးပြီးနောက် ဤနေရာတွင် ပေါ်လာပါမည်။',
   'billing.invoicesTitle': 'ငွေတောင်းခံလွှာမှတ်တမ်း',
   'billing.planNoteFree':
     'အခမဲ့အဆင့် — {{runs}} ပြေးခြင်းနှင့် {{workflows}} တက်ကြွသော workflow များ။ မြင့်မားသောကန့်သတ်ချက်များအတွက် အဆင့်မြှင့်တင်ပါ။',
+  'billing.planNotePaid':
+    'အခကြေးငွေပေးရသော အစီအစဉ် — လည်ပတ်မှု {{runs}} ခုနှင့် အသုံးပြုနေသော လုပ်ငန်းစဉ် {{workflows}} ခု။',
   'billing.runsLabel': 'ပြီးခဲ့သည့် ၂၄ နာရီအတွင်း လုပ်ဆောင်ခဲ့သည်',
   'billing.tiersBlurb':
     'သီးသန့်ဈေးနှုန်းစာမျက်နှာတွင် အဆင့်တိုင်း — လုပ်ဆောင်မှုများ၊ တက်ကြွသောလုပ်ငန်းစဉ်များ၊ အဆင့်မြင့်အင်္ဂါရပ်များနှင့် ပံ့ပိုးမှု — ကို နှိုင်းယှဉ်ပါ။',
@@ -35,10 +43,14 @@ export const ui: UiTranslations = {
     'မှတ်ပုံတင်ထားသော ပေါင်းစပ်မှုများ မရှိပါ။ ငွေချေးစာချုပ်များကို ဖွင့်ရန် ပံ့ပိုးပေးသူသော့များကို ပြင်ဆင်သတ်မှတ်ပါ။',
   'connections.error': 'ချိတ်ဆက်မှုများကို တင်၍မရပါ။',
   'connections.eyebrow': 'ပေါင်းစည်းမှုများ · {{connected}} ချိတ်ဆက်ထားသော',
+  'connections.loading': 'ပေါင်းစပ်မှုများကို တင်နေသည်…',
+  'connections.openEnv':
+    'ဤပံ့ပိုးသူကို ချိတ်ဆက်ရန် ၎င်း၏ API ကီးကို api/.env တွင် သတ်မှတ်ပြီး ဆာဗာကို ပြန်လည်စတင်ပါ။',
   'dashboard.description':
     '{{active}} workflow များ လှုပ်ရှားနေပါသည်။ {{failed}} ပြီးခဲ့တဲ့ ၂၄ နာရီအတွင်း မအောင်မြင်ခဲ့ပါဘူး။',
   'dashboard.error': 'ဒက်ရှ်ဘုတ်ကို ဖွင့်၍မရပါ။',
   'dashboard.eyebrow': 'လည်ပတ်မှုများ · တိုက်ရိုက်',
+  'dashboard.hero.label': 'ယနေ့ လည်ပတ်မှုများ',
   'dashboard.hero.medianLatency': 'p50 နှောင့်နှေးမှု',
   'dashboard.hero.queue': 'တန်းစီချိန် အနက်',
   'dashboard.hero.success': 'အောင်မြင်မှု',
@@ -46,14 +58,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'ပျမ်းမျှကြာချိန်',
   'dashboard.kpi.failedRuns': 'မအောင်မြင်ပါ · ၂၄ နာရီ',
   'dashboard.kpi.outOf': '၏ {{total}} စုစုပေါင်း',
+  'dashboard.kpi.successRate': 'အောင်မြင်မှုနှုန်း · ၂၄ နာရီ',
   'dashboard.loading': 'ဒက်ရှ်ဘုတ်ကို တင်နေသည်…',
   'dashboard.recentRuns.empty':
     'လုပ်ဆောင်မှုများ မရှိသေးပါ။ workflow တစ်ခုကို စတင်ခြင်းဖြင့် ဤ feed ကို ဖြည့်သွင်းပေးပါမည်။',
   'dashboard.recentRuns.title': 'မကြာသေးမီက ပြေးမှုများ',
   'dashboard.recentRuns.viewAll': 'ပွင့်လင်းသော အကောင်အထည်ဖော်မှုများ →',
+  'dashboard.recentWorkflows.browse': 'တင်းပလိတ်များကို ကြည့်ရှုပါ →',
   'dashboard.recentWorkflows.empty':
     'လုပ်ငန်းစဉ်များ မရှိသေးပါ။ template တစ်ခုကို ထည့်သွင်းပါ သို့မဟုတ် အစမှ တည်ဆောက်ပါ။',
   'dashboard.recentWorkflows.title': 'မကြာသေးမီက လည်ပတ်ခဲ့သည်',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'စတင်ခဲ့သည်',
   'dashboard.run.col.trigger': 'ထရစ်ဂါ',
   'dashboard.run.col.workflow': 'လုပ်ငန်းလည်ပတ်မှု',
@@ -89,6 +104,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'လုပ်ငန်းလည်ပတ်မှု',
   'executions.description':
     'workflow run တိုင်း၊ retry တိုင်း၊ output တိုင်း — အားလုံးကို မြင်တွေ့နိုင်သည်။',
+  'executions.empty.filter': 'ဤစစ်ထုတ်မှုနှင့် ကိုက်ညီသော လည်ပတ်မှု မရှိပါ။',
   'executions.empty.first':
     'လုပ်ဆောင်မှုများ မရှိသေးပါ — ဤစာရင်းကို ဖြည့်သွင်းရန် workflow တစ်ခုကို စတင်ပါ။',
   'executions.error': 'လုပ်ဆောင်မှုများကို တင်၍မရပါ။',
@@ -99,30 +115,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'လည်ပတ်မှုမှတ်တမ်းကို တင်နေသည်…',
   'executions.title': 'ကွပ်မျက်မှုများ',
   'forgotPassword.confirmation': 'ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ပို့ထားသည် {{email}} ။',
+  'forgotPassword.subhead': 'ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ကို ရယူရန် သင့်အီးမေးလ်ကို ရိုက်ထည့်ပါ။',
   'forgotPassword.successSubhead':
     'ကျွန်ုပ်တို့သည် ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ကို ပေးပို့လိုက်ပါပြီ {{email}} မိနစ် ၃၀ အတွင်း သက်တမ်းကုန်ဆုံးမည်။',
   'help.connections.body':
     'AI၊ အီးမေးလ်နှင့် သိုလှောင်မှုအဆင့်များအတွက် api/.env ဖိုင်တွင် provider key များကို သတ်မှတ်ရန် လိုအပ်သည်။ key တစ်ခုကို configure လုပ်ပြီးသည်နှင့်၊ သက်ဆိုင်ရာ integration သည် Connections စာမျက်နှာတွင် connected အဖြစ် ပေါ်လာသည်။',
+  'help.connections.cta': 'ချိတ်ဆက်မှုများကို ဖွင့်ပါ →',
   'help.connections.title': 'ဝန်ဆောင်မှုပေးသူများကို ချိတ်ဆက်ခြင်း',
   'help.gettingStarted.body':
     'template library မှ workflow အသစ်များကို ထည့်သွင်းနိုင်သည် သို့မဟုတ် workflow builder တွင် အစမှတည်ဆောက်နိုင်သည်။ workflow တစ်ခုချင်းစီတွင် trigger (manual၊ webhook သို့မဟုတ် cron) နှင့် အစီအစဉ်အတိုင်း လုပ်ဆောင်သော အဆင့်များရှိသည်။',
+  'help.gettingStarted.cta': 'ပုံစံပြ စာကြည့်တိုက်ကို လေ့လာပါ →',
+  'help.gettingStarted.title': 'စတင်အသုံးပြုခြင်း',
   'help.intro':
     'workflow များတည်ဆောက်ခြင်း၊ ချိတ်ဆက်မှုများကို configure လုပ်ခြင်းနှင့် run output ကို အဓိပ္ပာယ်ဖွင့်ဆိုခြင်းဆိုင်ရာ အမေးများသောမေးခွန်းများအတွက် အဖြေများကို ရှာဖွေပါ။ အဖြစ်အများဆုံးခေါင်းစဉ်များကို အောက်တွင်ဖော်ပြထားပါသည်။ မပါဝင်သော မည်သည့်အရာအတွက်မဆို သင့် workspace administrator ထံ ဆက်သွယ်ပါ။',
   'help.runs.body':
     'လုပ်ဆောင်မှုတိုင်းသည် အဆင့်တစ်ခုစီကို အခြေအနေ (အောင်မြင်မှု၊ ကျရှုံးမှု၊ ကျော်သွားမှု) နှင့် အထွက်အပိုင်းအစဖြင့် သီးခြားစီ မှတ်တမ်းတင်သည်။ လုပ်ဆောင်မှုအသေးစိတ်စာမျက်နှာတွင် အဆင့်ဆင့်ခြေရာခံမှုအပြည့်အစုံနှင့် ကောက်ချက်ချထားသော မက်ထရစ်များကို ပြသထားသည်။',
+  'help.runs.cta': 'ပွင့်လင်းသော အကောင်အထည်ဖော်မှုများ →',
   'help.runs.title': 'လည်ပတ်မှုအထွက်ကိုဖတ်ခြင်း',
   'help.title': 'အကူအညီစင်တာ',
   'integrationCard.manage': 'စီမံခန့်ခွဲပါ',
   'landing.brand': 'ဒန်ဒရိုက်',
   'landing.demo.action.subtitle': 'လှည့်လည်ယှဉ်ပြိုင်မှု · နယ်မြေ',
+  'landing.demo.action.title': 'ကိုယ်စားလှယ်ကို အသိပေးပါ',
   'landing.demo.condition.subtitle': 'AI ရည်ရွယ်ချက် အမျိုးအစားခွဲခြားကိရိယာ',
+  'landing.demo.condition.title': 'အမှတ် ≥ အလယ်အလတ် လား။',
   'landing.demo.trigger.subtitle': 'POST /ပုံစံများ/ဆက်သွယ်ရန်',
   'landing.demo.trigger.title': 'ဝင်လာတဲ့ ဝဘ်ဟွတ်ခ်',
+  'landing.features.body':
+    'အစပျိုးမှုများ လုပ်ဆောင်သည်။ အခြေအနေများ ခွဲထွက်သည်။ လုပ်ဆောင်ချက်များ အလုပ်ကို ပို့ဆောင်သည်။ ၎င်းတို့ကို အမြင်အာရုံဖြင့် ပေါင်းစပ်ပါ၊ ကုဒ်ကဲ့သို့ ဗားရှင်းသတ်မှတ်ပါ။',
   'landing.features.heading': 'node အမျိုးအစား သုံးမျိုး။ အဆုံးမရှိ ပုံသဏ္ဍာန်များ။',
   'landing.footer.help': 'ကူညီကြပါ',
   'landing.footer.tagline': 'လှုပ်ရှားနေသော ဉာဏ်ရည်',
+  'landing.hero.body':
+    '{{appName}} သည် Zapier ကို ကျော်လွန်လာသော လုပ်ငန်းလည်ပတ်ရေး အဖွဲ့များအတွက် လုပ်ငန်းစဉ် အင်ဂျင်ဖြစ်သည်။ အစပျိုးမှု၊ အခြေအနေ၊ လုပ်ဆောင်ချက် — သင်အမှန်တကယ် အသုံးပြုသော စနစ်တိုင်းနှင့် ချိတ်ဆက်ထားသည်။',
   'landing.hero.eyebrow': 'လှုပ်ရှားနေသော ဉာဏ်ရည်',
   'landing.hero.headline': 'သင့်အပုံလေးကို ဝါယာကြိုးနဲ့ ချည်ပါ။ အလုပ်ကို ပြီးအောင်လုပ်ပါ။',
+  'landing.hero.primaryCta': 'သင်၏ ပထမဆုံး လုပ်ငန်းစဉ်ကို တည်ဆောက်ပါ',
   'landing.hero.proof.ai': 'AI node များ ထည့်သွင်းထားသည်',
   'landing.hero.proof.free': 'တစ်လလျှင် ပြေးပွဲ ၁၀၀၀ အခမဲ့',
   'landing.hero.proof.soc2': 'SOC 2 အမျိုးအစား II',
@@ -130,10 +158,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'ထိုင်ခုံအတွက်မဟုတ်ဘဲ ပြေးပွဲအတွက် ငွေပေးချေပါ။',
   'landing.templates.body':
     'အဖွဲ့တိုင်းအတွက် ကြိုတင်ချိတ်ဆက်ထားသော workflow များ — အရောင်း၊ ပံ့ပိုးမှု၊ ဖွံ့ဖြိုးတိုးတက်ရေးလုပ်ငန်းစဉ်များ၊ ဘဏ္ဍာရေး။ တစ်ချက်နှိပ်ရုံဖြင့် ထည့်သွင်းပြီး မည်သည့်အရာကိုမဆို ချိန်ညှိပါ။',
+  'landing.templates.cta': 'ပုံစံပြများကို လေ့လာရန် စာရင်းသွင်းပါ →',
   'landing.templates.eyebrow': 'စက္ကန့်ပိုင်းအတွင်း စတင်ပါ',
   'landing.templates.heading': 'စိစစ်ပြီးသော ချက်ပြုတ်နည်းများ စာကြည့်တိုက်။',
   'landing.templates.signupHint': 'ထည့်သွင်းရန် စာရင်းသွင်းပါ',
   'login.hidePassword': 'စကားဝှက်ကို ဝှက်ပါ',
+  'login.noAccount': 'Tessera ကို အသစ်လား။',
   'login.showPassword': 'စကားဝှက်ပြပါ',
   'login.subhead': 'သင်၏ အလိုအလျောက်စနစ်များ ဆက်လက်လည်ပတ်နေစေရန် လက်မှတ်ထိုးဝင်ပါ။',
   'mobileNav.drawerLabel': 'အဓိက လမ်းညွှန်ချက်',
@@ -149,8 +179,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'ဤ feed ကို ဖြည့်သွင်းရန် workflow တစ်ခုကို လုပ်ဆောင်ပါ။',
   'notifications.empty.title': 'အားလုံးပြီးသွားပါပြီ',
   'notifications.eyebrow': '{{n}} မဖတ်ရသေးသော',
+  'planUpdated.body':
+    'သင့်ငွေတောင်းခံမှု ပြောင်းလဲမှုသည် ယခု အသက်ဝင်နေပါပြီ။ သင့်အစီအစဉ်ကို ငွေတောင်းခံမှုစာမျက်နှာမှ မည်သည့်အချိန်တွင်မဆို စီမံနိုင်ပါသည်။',
+  'planUpdated.retry': 'ထပ်ကြိုးစားပါ',
+  'planUpdated.verifyFailed': 'သင့်ငွေပေးချေမှုကို ကျွန်ုပ်တို့ အတည်မပြုနိုင်သေးပါ။',
+  'planUpdated.verifyFailedBody':
+    'သင့်ငွေပေးချေမှုကို လုပ်ဆောင်နေဆဲဖြစ်နိုင်ပါသည်။ ခဏအကြာတွင် ထပ်မံကြိုးစားပါ။',
   'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'pricing.heading': 'ပြေးခြင်း',
+  'pricing.runsSuffix': 'လည်ပတ်မှုများ',
   'pricing.workflowsSuffix': 'လုပ်ငန်းစဉ်များ',
   'privacy.collect.body':
     'သင်စာရင်းသွင်းထားသော အီးမေးလ်လိပ်စာ၊ သင် configure လုပ်ထားသော workflow များနှင့် run တစ်ခုစီ၏ metadata (စတင်ချိန်၊ ပြီးဆုံးချိန်၊ အခြေအနေ) ကို ကျွန်ုပ်တို့စုဆောင်းပါသည်။ workspace owner အတွက် run viewer တွင်ပြသရန် လိုအပ်သည်ထက်ကျော်လွန်၍ triggers သို့မဟုတ် step outputs များမှ payload content များကို ကျွန်ုပ်တို့ဘယ်တော့မှ မစုဆောင်း သို့မဟုတ် သိမ်းဆည်းပါ။',
@@ -166,12 +203,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'စကားဝှက်ကို အပ်ဒိတ်လုပ်၍မရပါ။',
   'resetPassword.newPassword': 'စကားဝှက်အသစ်',
   'resetPassword.subhead': 'သင်သာ ခန့်မှန်းနိုင်သောအရာတစ်ခုကို ရွေးချယ်ပါ။',
+  'settings.appearance.description': 'အလင်းနှင့် အမှောင်မုဒ်အကြား ပြောင်းပါ။',
+  'settings.appearance.title': 'အသွင်အပြင်',
   'settings.billingShortcut.cta': 'ငွေတောင်းခံလွှာဖွင့်ခြင်း',
   'settings.billingShortcut.description':
     'အစီအစဉ်၊ အသုံးပြုမှုနှင့် ငွေတောင်းခံလွှာများကို သီးသန့်ငွေတောင်းခံလွှာစာမျက်နှာတွင် တိုက်ရိုက်ကြည့်ရှုနိုင်ပါသည်။',
   'settings.danger.confirm':
     'သေချာပါသလား။ ၎င်းသည် သင့်အလုပ်ခွင်ကို ဖျက်ရန်အတွက် တန်းစီနေမည်ဖြစ်သည်။',
   'settings.danger.confirmYes': 'ဟုတ်ကဲ့၊ တန်းစီဖျက်ခြင်း',
+  'settings.danger.deleteWorkspace.cta': 'အလုပ်ခွင်ကို ဖျက်ပါ',
   'settings.danger.deleteWorkspace.hint':
     '၁၄ ရက်ကြာ ကျေးဇူးပြုကာလပြီးနောက် workflows၊ runs နှင့် connections အားလုံးကို ဖယ်ရှားသည်။',
   'settings.danger.deleteWorkspace.title': 'အလုပ်ခွင်ကို ဖျက်ပါ',
@@ -183,10 +223,15 @@ export const ui: UiTranslations = {
     'သင့်အကောင့်၊ အလုပ်ခွင်၊ ပေါင်းစပ်မှုများနှင့် ငွေတောင်းခံလွှာများကို တစ်နေရာတည်းတွင် စီမံခန့်ခွဲပါ။',
   'settings.notifications.description':
     'ဘယ်ပွဲတွေကို စာမျက်နှာပို့မလဲ၊ အီးမေးလ်ပို့မလဲ ဒါမှမဟုတ် တိတ်တိတ်နေမလားဆိုတာ ရွေးချယ်ပါ။',
+  'settings.notifications.failures.hint':
+    'မအောင်မြင်သော လည်ပတ်မှုတိုင်းအတွက် အီးမေးလ်နှင့် အက်ပ်အတွင်း အသိပေးချက်။',
+  'settings.notifications.failures.title': 'လုပ်ငန်းစဉ် မအောင်မြင်မှုများ',
   'settings.notifications.product.hint':
     'တင်းပလိတ်အသစ်များနှင့် အင်္ဂါရပ်များအကြောင်း ရံဖန်ရံခါ အီးမေးလ်များ။',
+  'settings.notifications.product.title': 'ထုတ်ကုန် အပ်ဒိတ်များ',
   'settings.notifications.weekly.hint':
     'တနင်္လာနေ့မနက်ပိုင်းက ပြီးခဲ့တဲ့အပတ်က ပြေးခဲ့တဲ့ ရမှတ်တွေနဲ့ ငွေစုမှုတွေကို ပြန်လည်သုံးသပ်ချက်။',
+  'settings.notifications.weekly.title': 'အပတ်စဉ် အကျဉ်းချုပ်',
   'settings.profile.description':
     'workflow runner ထဲမှာ သင်ဘယ်လိုပေါ်လာသလဲ။ workspace လုပ်ဆောင်ချက်မှာ အသုံးပြုသည်။',
   'settings.profile.noEmail': 'မှတ်တမ်းတင်ထားသော အီးမေးလ် မရှိပါ',
@@ -195,12 +240,23 @@ export const ui: UiTranslations = {
   'settings.profile.unnamedUser': 'အမည်မဖော်ပြထားသော အသုံးပြုသူ',
   'settings.security.audit.hint':
     'webhook မှတစ်ဆင့် လုပ်ဆောင်ချက်တိုင်းကို သင့် SIEM သို့ တိုက်ရိုက်ထုတ်လွှင့်ပါ။',
+  'settings.security.audit.title': 'စစ်ဆေးမှု မှတ်တမ်း ပို့ဆောင်ခြင်း',
   'settings.security.description': 'နှစ်ဆင့်-အချက် auth၊ SSO နှင့် active session များ။',
   'settings.security.sso.hint': 'Scale နှင့် Enterprise အစီအစဉ်များတွင် ရရှိနိုင်ပါသည်။',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'မည်သည့် အလုပ်ခွင် ပိုင်ရှင် လုပ်ဆောင်ချက်အတွက်မဆို လိုအပ်သည်။',
+  'settings.security.totp.title': 'နှစ်ဆင့် အတည်ပြုခြင်း (TOTP)',
   'settings.twoFactorCode': 'အထောက်အထားစိစစ်ရေးကုဒ်',
   'settings.twoFactorDisable': 'ပိတ်ရန်',
+  'settings.twoFactorDisableTitle': 'နှစ်ဆင့်အတည်ပြုခြင်းကို ပိတ်ပါ',
   'settings.twoFactorEnable': 'ဖွင့်ပါ',
+  'settings.twoFactorEnableTitle': 'နှစ်ဆင့်အတည်ပြုခြင်းကို ဖွင့်ပါ',
   'settings.twoFactorInvalidCode': 'ကုဒ် မမှန်ကန်ပါ',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'နှစ်ဆင့် QR ကုဒ်',
+  'settings.twoFactorScan':
+    'ဤ QR ကုဒ်ကို သင့်အတည်ပြုကိရိယာအက်ပ်ဖြင့် စကင်ဖတ်ပြီး ၆ လုံးပါ ကုဒ်ကို ထည့်ပါ။',
+  'settings.twoFactorUnavailable': 'ဤအက်ပ်အတွက် နှစ်ဆင့်အထောက်အထားစိစစ်ခြင်း မရရှိနိုင်ပါ။',
   'settings.twoFactorVerify': 'အတည်ပြုပြီး ဖွင့်ပါ',
   'settings.workspace.description':
     'သင့်အဖွဲ့အတွက် မျှဝေထားသော အထောက်အထား၊ ဒေသနှင့် လည်ပတ်မှု မူရင်းများ။',
@@ -229,6 +285,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'ပုံစံ',
   'templates.description':
     'အသုံးအများဆုံး အလိုအလျောက်စနစ်များအတွက် ကြိုတင်တည်ဆောက်ထားသော ပုံစံငယ်များ။ ခက်ရင်းခွဲပါ၊ စိတ်ကြိုက်ပြင်ဆင်ပါ၊ ပို့ဆောင်ပါ။',
+  'templates.empty.filter': 'သင်၏ ရှာဖွေမှုနှင့် ကိုက်ညီသော ပုံစံပြ မရှိပါ။',
   'templates.empty.first': 'လောလောဆယ်တွင် တင်းပလိတ်များ မရှိပါ။',
   'templates.error': 'တင်းပလိတ်များကို တင်၍မရပါ။',
   'templates.installs': 'ထည့်သွင်းမှုများ',
@@ -255,6 +312,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'ပိတ်ရန်',
   'workflowBuilder.enable': 'ဖွင့်ပါ',
   'workflowBuilder.error': 'လုပ်ငန်းစဉ်ကို ဖွင့်၍မရပါ။',
+  'workflowBuilder.inspector.config': 'Config',
+  'workflowBuilder.inspector.cron': 'Cron ဖော်ပြချက်',
+  'workflowBuilder.inspector.disabled': 'ပိတ်ထားသည် — အလိုအလျောက် လည်ပတ်မည် မဟုတ်ပါ။',
   'workflowBuilder.inspector.enabled': 'ဖွင့်ထားသည် — trigger ပေါ်တွင် လုပ်ဆောင်သည်။',
   'workflowBuilder.inspector.eyebrow': 'စစ်ဆေးရေးမှူး',
   'workflowBuilder.inspector.id': 'အိုင်ဒီ',
@@ -273,18 +333,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'ပြောင်း/ပိတ် မအောင်မြင်ပါ။',
   'workflowBuilder.workflow': 'လုပ်ငန်းလည်ပတ်မှု · v {{v}}',
   'workflowBuilder.zoom.in': 'ချဲ့ကြည့်ပါ',
+  'workflowBuilder.zoom.label': 'Canvas ဇူးမ် ထိန်းချုပ်မှုများ',
+  'workflowBuilder.zoom.out': 'ဇူးမ်ဖြုတ်ပါ',
   'workflowCard.lastRun': 'နောက်ဆုံးပြေးခြင်း {{when}}',
   'workflowCard.runs': '{{count}} ပြေးခြင်း',
+  'workflowCard.success': 'အောင်မြင်မှု {{rate}}%',
   'workflowHeroCard.last24h': 'ပြီးခဲ့တဲ့ ၂၄ နာရီ',
+  'workflows.browseTemplates': 'တင်းပလိတ်များကို ကြည့်ရှုပါ →',
   'workflows.description':
     'ကျန်းမာရေးနှင့် မကြာသေးမီက လှုပ်ရှားမှုများကို တစ်ချက်ကြည့်လိုက်ရုံဖြင့် သင့်အလုပ်ခွင်ရှိ အလိုအလျောက်လုပ်ဆောင်မှုတိုင်း။',
+  'workflows.empty.body': 'စစ်ထုတ်မှုကို ရှင်းလင်းကြည့်ပါ သို့မဟုတ် ပုံစံပြမှ စတင်ကြည့်ပါ။',
   'workflows.empty.firstBody': 'စက္ကန့်ပိုင်းအတွင်း စတင်နိုင်ရန် template တစ်ခုကို ထည့်သွင်းပါ။',
   'workflows.empty.firstTitle': 'လုပ်ငန်းစဉ်များ မရှိသေးပါ',
   'workflows.empty.title': 'ကိုက်ညီသော လုပ်ငန်းစဉ်များ မရှိပါ',
   'workflows.error': 'လုပ်ငန်းစဉ်များကို တင်၍မရပါ။',
   'workflows.eyebrow': 'စာကြည့်တိုက် · {{count}} စုစုပေါင်း',
+  'workflows.loading': 'လုပ်ငန်းစဉ်များ ဖွင့်နေသည်…',
   'workflows.newFromTemplate': 'ပုံစံမှ အသစ်',
   'workflows.searchPlaceholder': 'လုပ်ငန်းစဉ်များကို ရှာဖွေပါ…',
+  'workflows.title': 'လုပ်ငန်းစဉ်များ',
   'workflowSidebar.brand': 'ဒန်ဒရိုက်',
   'workflowSidebar.status': 'စနစ်အားလုံးလည်ပတ်နေသည်',
   'workflowSidebar.tagline': 'လှုပ်ရှားနေသော ဉာဏ်ရည်',

@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'بازخوردی دارید، باگی پیدا کرده‌اید، یا می‌خواهید بگویید ژورنال‌نویسی چطور به شما کمک کرده؟ ما هر پیامی را می‌خوانیم — هر زمان که خواستید پیام بدهید و یک انسان واقعی به شما پاسخ می‌دهد.',
+  'about.contactTitle': 'با ما صحبت کنید',
+  'about.featureInsights':
+    'بازتاب‌های مبتنی بر هوش مصنوعی که با ملایمت محرک‌ها، موضوع‌ها و شکرگزاری‌ها را برجسته می‌کنند — بدون اینکه صدای شما از دست برود.',
+  'about.featureMood':
+    'ردیابی خلق‌وخو و فعالیت با نمای تقویم و نمودارهای روند که نشان می‌دهند چه چیزی به شکوفایی شما کمک می‌کند.',
+  'about.featurePrivacy':
+    'رمزنگاری سرتاسری، قفل رمز عبور و خروجی کامل CSV تا بازتاب‌های شما خصوصی و قابل انتقال بمانند.',
+  'about.featurePrompts':
+    'یادآورهای روزانه ملایم تا همیشه جایی برای شروع داشته باشید — هرگز صفحه‌ای خالی.',
+  'about.intro':
+    '{{app}} یک ژورنال سلامت روان ملایم و خصوصی برای بازتاب روزانه، ردیابی خلق‌وخو و شکرگزاری است. یادآورهای سنجیده جای صفحه خالی را می‌گیرند، الیابی آرام به شما کمک می‌کند بفهمید چه چیزی بر احساس‌تان اثر می‌گذارد، و رمزنگاری سرتاسری واژه‌های شما را از آن خودتان نگه می‌دارد.',
+  'about.missionBody':
+    'ما باور داریم که بررسی حال خود باید آرام باشد، نه بالینی — و هرگز مثل اپلیکیشنی دیگر که توجه شما را طلب کند. {{app}} ساخته شده تا کمک کند، نه غر بزند: چند دقیقه سکوت در روز برای توجه به خلق‌وخو، نوشتن صادقانه و دیدن آرام‌وآهسته خود با شفافیت بیشتر.',
+  'about.missionTitle': 'ماموریت ما',
   'about.pageTitle': 'درباره {{app}}',
   'authShell.encryptionBadge': 'ورودی‌های شما از ابتدا تا انتها رمزگذاری شده‌اند.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'روز {{day}} — بدون نوشته',
   'calendar.cellMood': 'روز {{day}} — {{mood}}',
   'calendar.distributionHeading': 'این ماه در یک نگاه',
   'calendar.eyebrow': 'خلق و خو در یک نگاه',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'ردیابی شده {{tracked}} از {{total}} روزهای این ماه.',
   'common.goToDashboard': 'رفتن به داشبورد',
   'common.tryAgain': 'دوباره امتحان کنید',
+  'entryComposer.bodyPlaceholder':
+    'هر چه صادقانه به نظر می‌رسد بنویسید. هیچ‌کس دیگری این را نخواهد خواند.',
   'entryComposer.cancel': 'بازگشت به ژورنال',
   'entryComposer.heading': 'بازتاب امروز',
   'entryComposer.moodLabel': 'چه احساسی دارید؟',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'حذف {{tag}}',
   'entryComposer.save': 'ذخیره انعکاس',
   'entryComposer.saveError': 'نتوانستم ورودی شما را ذخیره کنم.',
+  'entryComposer.tagPlaceholder': 'یک برچسب اضافه کنید و Enter را بزنید',
   'entryComposer.titlePlaceholder': 'به این انعکاس یک اسم بدهید…',
   'entryDetail.back': 'بازگشت به ژورنال',
   'entryDetail.delete': 'این نوشته را حذف کنید',
@@ -36,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'در حال بارگذاری بازتاب…',
   'entryDetail.notFound': 'ورودی یافت نشد.',
   'entryDetail.reflectionsHeading': 'بازتاب‌های هوش مصنوعی',
+  'forgotPassword.continueButton': 'کد بازنشانی را وارد کنید',
   'forgotPassword.eyebrow': 'جای نگرانی نیست',
   'forgotPassword.subheading': 'ما یک لینک تنظیم مجدد ملایم به ایمیل شما ارسال خواهیم کرد.',
   'forgotPassword.successBody': 'اگر حسابی برای {{email}}، لینک بازنشانی در راه است.',
@@ -57,14 +78,21 @@ export const ui: UiTranslations = {
     'هنوز هیچ تمی وجود ندارد - یک یا دو برچسب به نوشته‌های خود اضافه کنید و آنها اینجا جمع می‌شوند.',
   'insights.themesHeading': 'تم‌های برتر',
   'insights.triggerFrequency': 'متوجه شد {{count}} × این ماه',
+  'insights.triggersEmpty':
+    'هنوز چیزی برای توجه نیست. چند نوشته در طول چند روز الگوهای شما را نشان می‌دهد.',
   'insights.triggersHeading': 'الگوهایی که حال و هوای شما را تغییر می‌دهند',
+  'journal.empty': 'هیچ بازتابی مطابقت ندارد — فیلتر دیگری را امتحان کنید یا نوشته جدیدی بنویسید.',
   'journal.eyebrow': 'تأملات شما',
   'journal.heading': 'مجله',
   'journal.loadError': 'بارگیری ورودی‌ها ناموفق بود.',
   'journal.loading': 'در حال بارگذاری ورودی‌ها…',
+  'journal.newEntry': 'ورودی جدید',
   'journal.searchPlaceholder': 'دنبال یک حس، یک اسم، یک لحظه بگردید…',
   'journal.subheading': '{{count}} نوشته‌ها - هر کدام ارزش نگه داشتن دارند.',
   'journalEntryCard.encryptedLabel': 'رمزگذاری شده',
+  'landing.ctaBody':
+    'شروع رایگان است. Pro خروجی داده، ژورنال بزرگ‌تر و یک سال کامل تاریخچه را باز می‌کند.',
+  'landing.ctaButton': 'اولین ورود خود را آغاز کنید',
   'landing.ctaTitle': 'چند دقیقه سکوت در روز. همین.',
   'landing.eyebrow': 'یک تمرین ملایم روزانه',
   'landing.featuresBody':
@@ -83,6 +111,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'فضایی دلنشین برای تفکر روزانه.',
   'mentalHealthJournalLayout.closeMenu': 'بستن منو',
   'mentalHealthJournalLayout.openMenu': 'منوی باز',
+  'mentalHealthJournalLayout.primaryNavLabel': 'ناوبری اولیه',
+  'moodHeroCard.entriesThisWeek': '{{count}} این هفته',
   'moodHeroCard.streakSuffix': 'خط روز',
   'moodHeroCard.title': 'بازتاب امروز',
   'moodTrendChart.aiBadge': 'بینش هوش مصنوعی آماده است',
@@ -93,11 +123,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'سفر شما',
   'profile.fallbackName': 'بازتابنده',
   'profile.loadError': 'بارگیری آمار ناموفق بود.',
+  'profile.loading': 'در حال به‌روزرسانی آمار شما…',
   'profile.longestStreak': 'طولانی‌ترین روند',
   'profile.memberSince': 'تأمل از زمان {{date}}',
   'profile.milestones': 'نقاط عطف',
   'profile.milestonesEmpty':
     'اولین نقطه عطف شما فقط یک ورودی فاصله دارد - هر زمان که احساس آمادگی کردید، بنویسید.',
+  'profile.moodMix': 'ترکیب خلق‌وخوی شما در این فصل',
   'profile.streakValue': '{{days}} د',
   'profile.totalEntries': 'بازتاب‌ها',
   'profile.totalWords': 'کلمات نوشته شده',
@@ -110,6 +142,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'در این مورد بنویسید',
   'resetPassword.eyebrow': 'یک شروع تازه',
   'resetPassword.mismatchError': 'رمزهای عبور مطابقت ندارند.',
+  'resetPassword.passwordLabel': 'رمز عبور جدید',
   'resetPassword.subheading': 'چیزی امن انتخاب کنید - بازتاب‌های شما شایسته‌ی آن هستند.',
   'resetPassword.tokenPlaceholder': 'تنظیم مجدد کد از طریق ایمیل',
   'settings.dangerDescription':
@@ -122,11 +155,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     'کلمات شما همیشه متعلق به خودتان هستند. هر زمان که خواستید، یک نسخه از آنها را دانلود کنید.',
   'settings.exportDone': 'صادر شده {{format}}.',
+  'settings.exportError': 'صادرات ناموفق بود.',
+  'settings.exportHeading': 'بازتاب‌های خود را خروجی بگیرید',
   'settings.exportLoading': 'در حال آماده‌سازی…',
   'settings.eyebrow': 'فضای شما، قوانین شما',
   'settings.languageHeading': 'زبان',
   'settings.privacyHeading': 'حریم خصوصی و رمزگذاری',
   'settings.remindersHeading': 'یادآوری روزانه',
+  'settings.reminderToggleAria': 'تغییر یادآور روزانه',
   'settings.reminderToggleDescription':
     'یک یادآوری آرام در زمانی که شما انتخاب می‌کنید. بدون هیچ نشان یا احساس گناهی.',
   'settings.reminderToggleLabel': 'یک تلنگر ملایم ارسال کنید',
@@ -139,6 +175,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'ایجاد دفتر خاطرات…',
   'signup.subheading': 'فضایی امن برای افکارتان.',
   'wellnessRingsTriad.mindfulnessCaption': 'هدف {{goal}} دقیقه امروز',
+  'wellnessRingsTriad.mindfulnessLabel': 'ذهن‌آگاهی',
   'wellnessRingsTriad.sleepCaption': 'هدف {{goal}} ساعت / شب',
   'wellnessRingsTriad.sleepLabel': 'خواب',
+  'wellnessRingsTriad.sleepValue': '{{hours}} ساعت',
+  'wellnessRingsTriad.streakCaption': 'هدف {{goal}} روز',
+  'wellnessRingsTriad.streakLabel': 'زنجیره ژورنال',
+  'wellnessRingsTriad.streakValue': '{{days}} د',
 }

@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Bizimle iletişime geçin',
   'about.eyebrow': 'Hakkında',
+  'about.featureAlerts':
+    'Önemli olan koşullarda fiyat uyarıları, e-posta ve bildirimle iletilir, böylece hiçbir hareketi kaçırmazsınız.',
+  'about.featureMarkets':
+    'Binlerce coin için canlı piyasa verileri ve fiyat grafikleri; piyasa değeri, hacim ve momentuma göre sıralanır.',
+  'about.featurePortfolio':
+    'Gerçek kâr-zarar, maliyet esası ve dağılımla portföy takibi — işlem geçmişinize bağlı.',
+  'about.featureWatchlist':
+    'Kişisel izleme listesi ve takip ettiğiniz varlıklara dair sinyaller içeren seçilmiş kripto haberleri.',
+  'about.missionTitle': 'Misyonumuz',
+  'alertConditionCard.armedSince': '{{when}} tarihinden beri etkin',
   'alertConditionCard.condition.${alert.condition}': '{{when}} tetiklendi',
   'alertConditionCard.confirmDelete': 'Silme işlemini onayla',
+  'alertConditionCard.deleteAriaLabel': 'Uyarıyı sil',
   'alertConditionCard.pauseAriaLabel': 'Uyarıyı duraklat',
   'alertConditionCard.resumeAriaLabel': 'Uyarıyı sürdür',
+  'alertConditionCard.triggeredAt': '{{when}} tetiklendi',
   'alertNew.condition': 'Koşul',
   'alertNew.createCta': 'Uyarı oluştur',
   'alertNew.error': 'Uyarı oluşturulamadı.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Henüz uyarı yok.',
   'alerts.eyebrow': 'Bourse tetikleyicileri',
   'alerts.loadError': 'Uyarılar yüklenemedi.',
+  'alerts.newCta': '+ Yeni tripwire',
   'alerts.subheading': 'Fiyat, değişim veya hacim sınırınızı aştığında size haber verelim.',
   'alerts.summary.armed': 'Aktif',
   'alerts.summary.triggered': 'Tetiklendi',
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Tüm zamanların en yükseği',
   'coinDetail.allTimeLow': 'Tüm zamanların en düşüğü',
   'coinDetail.back': 'Tüm piyasalar',
+  'coinDetail.chartAriaLabel': '{{name}} fiyat grafiği, son 30 gün',
   'coinDetail.chartHeading': 'Fiyat · son 30 gün',
   'coinDetail.circulating': 'Dolaşımdaki arz',
   'coinDetail.fdv': 'Tam seyreltilmiş değerleme',
@@ -59,6 +74,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Sıfırlama bağlantısı gönderildi.',
   'login.eyebrow': 'Terminale giriş yapın',
   'login.heading': 'Tekrar hoş geldiniz, sinyalci.',
+  'login.noAccountQuestion': "Tessera'da yeni misiniz?",
   'login.secureNote': '🔒 Aktarımda şifreli',
   'login.signingInCta': 'Bant okunuyor…',
   'login.signupLink': 'Hesap açın →',
@@ -93,6 +109,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Taradığınız adres bilinen bir coin veya sayfaya çözümlenmiyor. Sembolü kontrol edip tekrar deneyin.',
   'notFound.browseMarkets': 'Piyasalara göz atın',
+  'notFound.eyebrow': '{{appName}} sinyali kayboldu',
+  'notFound.heading': 'Bu sinyal menzil dışında',
+  'planUpdated.body':
+    'Faturalandırma değişikliğiniz artık etkin. Planınızı istediğiniz zaman faturalandırma sayfasından yönetebilirsiniz.',
+  'planUpdated.retry': 'Tekrar dene',
+  'planUpdated.verifyFailed': 'Ödemenizi henüz onaylayamadık.',
+  'planUpdated.verifyFailedBody':
+    'Ödemeniz hala işleniyor olabilir. Lütfen biraz sonra tekrar deneyin.',
   'planUpdated.verifying': 'Ödemeniz onaylanıyor…',
   'portfolio.addError': 'Sembol, pozitif miktar ve maliyet girin.',
   'portfolio.addHoldingCta': '+ Varlık ekle',
@@ -116,12 +140,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Toplam portföy değeri',
   'portfolioHeroCard.totalPnl': 'Toplam K/Z',
   'pricing.heading': 'uyarılar',
+  'pricing.limit.alerts': 'uyarılar',
   'pricing.limit.coins': 'coin',
   'pricing.limit.market': 'piyasa',
   'pricing.limit.portfolio': 'portföy',
   'resetPassword.eyebrow': 'Yeni şifre',
   'resetPassword.missingToken':
     'Bu sıfırlama bağlantısı eksik veya geçersiz. Yeni bir tane talep edin.',
+  'resetPassword.passwordPlaceholder': 'Yeni şifre',
   'resetPassword.subheading': 'Yalnızca sizin çözebileceğiniz bir şey seçin.',
   'settings.apiKeys.body':
     'İşlem geçmişini içe aktarmak için salt okunur anahtarlar. Abone olduktan sonra /pricing üzerinden OAuth ile bağlanın.',
@@ -133,17 +159,34 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Kotasyon para birimi',
   'settings.preferences.locale': 'Yerel ayar',
   'settings.preferences.push': 'Push',
+  'settings.preferences.refresh': 'Fiyat yenileme (saniye)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning':
+    'Bu cihazın erişimi kısa süre içinde iptal edilecek. Oturumu kapat?',
   'settings.security.body': 'Parola ve iki faktörlü ayarlar hesabınız tarafından yönetilir.',
   'settings.signOutDevice': 'Oturumu kapat',
   'settings.twoFactorCode': 'Doğrulama kodu',
   'settings.twoFactorDisable': 'Devre dışı bırak',
+  'settings.twoFactorDisableTitle': 'İki faktörlü kimlik doğrulamayı devre dışı bırak',
   'settings.twoFactorEnable': 'Etkinleştir',
+  'settings.twoFactorEnableTitle': 'İki faktörlü kimlik doğrulamayı etkinleştir',
   'settings.twoFactorInvalidCode': 'Geçersiz kod',
   'settings.twoFactorOn': 'Tarih',
+  'settings.twoFactorQrAlt': 'İki faktörlü QR kodu',
+  'settings.twoFactorScan':
+    'Bu QR kodunu kimlik doğrulayıcı uygulamanızla tarayın, ardından 6 haneli kodu girin.',
+  'settings.twoFactorUnavailable':
+    'Bu uygulama için iki faktörlü kimlik doğrulama özelliği mevcut değil.',
   'settings.twoFactorVerify': 'Doğrula ve etkinleştir',
   'sigilAuthShell.backHomeCta': "← Bourse'e geri dön",
+  'sigilAuthShell.brandBody':
+    'Gerçek zamanlı fiyatlar, portföy K/Z ve önemli koşullarda bekleyen nöbetler — hepsi tek terminalde.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — Molecule üzerinde geliştirildi',
+  'sigilAuthShell.brandHeadline': 'Tüm defterdeki her sinyali çözümleyin.',
+  'sigilAuthShell.samplePortfolio': 'Örnek portföy',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Birincil gezinme',
+  'signup.creating': 'Terminaliniz açılıyor…',
   'signup.eyebrow': 'Terminal açın',
   'signup.heading': 'Bourse hesabınızı oluşturun',
   'signup.subheading': 'Her coini takip edin, hiçbir fırsatı kaçırmayın. Başlamak ücretsiz.',
@@ -160,6 +203,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'İşlemler yüklenemedi.',
   'watchlist.addCta': 'Piyasalara göz atın',
   'watchlist.col.change24h': '24sa',
+  'watchlist.col.coin': 'Coin',
   'watchlist.col.marketCap': 'Piyasa d.',
   'watchlist.empty':
     'İzleme listenizde coin yok — eklemek için /markets üzerinden coinleri yıldızlayın.',

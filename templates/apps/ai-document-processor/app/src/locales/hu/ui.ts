@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kérdése van, hibát talált, vagy demót szeretne a csapatának? Írjon nekünk a fiókbeállításokból — minden üzenet a csapat egy valódi tagjához kerül.',
   'about.contactTitle': 'Lépjen kapcsolatba velünk',
+  'about.intro':
+    'A {{app}} szkennelt dokumentumok és PDF-ek halmát alakítja strukturált, kereshető, iktatott adatokká. Dobja be a számlákat, nyugtákat, szerződéseket vagy űrlapokat, és hagyja, hogy az AI elolvassa, kinyerje, osztályozza és iktassa őket — megbízhatósági színekkel, így a csapata csak azt ellenőrzi, ami valóban emberi beavatkozást igényel.',
+  'about.missionBody':
+    'A dokumentumokkal járó adminisztráció nem eheti fel a csapata napját. Hiszünk abban, hogy minden kinyert érték magyarázható és auditálható legyen — így megbízhat az automatizálásban anélkül, hogy elveszítené a papírnyomot. A {{app}} órákat takarít meg halmanként, miközben ott tartja az embert a folyamatban, ahol számít.',
+  'about.missionTitle': 'Küldetésünk',
+  'about.subtitle':
+    'OCR, AI-alapú adatkinyerés, osztályozás és automatikus iktatás a dokumentumaihoz.',
   'about.title': 'A {{app}} névjegye',
+  'about.whatYouGetTitle': 'Amit kap',
   'authShell.backToLanding': '← Vissza a kezdőlapra',
   'common.goToDashboard': 'Ugrás a műszerfalra',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Ma · Műveleti áttekintés',
   'dashboard.heading': 'Dokumentumintelligencia',
+  'dashboard.metric.accuracy': 'Átlagos pontosság',
   'dashboard.metric.filed': 'Ma iktatva',
   'dashboard.metric.filedCaption': 'Iktatási szabályok által irányítva',
   'dashboard.metric.processed': 'Ma feldolgozva',
@@ -23,11 +34,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Dokumentum',
   'dashboard.recent.col.uploaded': 'Feltöltve',
   'dashboard.recent.heading': 'Legutóbbi dokumentumok',
+  'dashboard.recent.typeUnknown': 'Osztályozásra vár',
   'dashboard.subheading':
     'Minden oldal besorolva, kinyerve és iktatva — biztonsági színekkel, hogy a felülvizsgálat fókuszált maradjon.',
   'documentDetail.audit.heading': 'Auditidővonal',
+  'documentDetail.audit.subheading':
+    'Minden lépés, amelyet ezen a dokumentumon tettek, a felelős szereplővel együtt.',
   'documentDetail.back': 'Minden dokumentum',
   'documentDetail.downloadHint': 'Használja a Letöltést az eredeti fájl megnyitásához.',
+  'documentDetail.extracted.empty': 'Még nincsenek kinyert mezők.',
   'documentDetail.extracted.heading': 'Kinyert mezők',
   'documentDetail.extracted.subheading':
     '{{count}} mező · kattintson bármelyik mezőre az oldalon való kiemeléshez',
@@ -55,13 +70,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Dokumentumok keresése…',
   'documents.subheading': '{{count}} dokumentum az Ön könyvtárában, legújabb előre rendezve.',
   'documents.uploadCta': 'Dokumentumok feltöltése',
+  'documentTypeBreakdown.barAria': 'Dokumentumok összetétele típus szerint',
   'documentTypeBreakdown.empty': 'Még nincs feldolgozott dokumentum.',
   'documentTypeBreakdown.subtitle': '{{total}} feldolgozva',
   'documentTypeBreakdown.title': 'Dokumentum-összetétel',
+  'forgotPassword.backToSignIn': '← Vissza a bejelentkezéshez',
   'forgotPassword.checkEmail': 'Ellenőrizze az e-mailjét',
   'forgotPassword.tip': 'Nem érkezett meg? Nézze meg a spam mappát vagy próbáljon egy másik címet.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Olyan operatív csapatoknak, amelyek minden oldalt auditálnak.',
+  'landing.ctaBody':
+    '14 napos próbaidő. Kártya nélkül. Bármikor lemondható. Olyan operatív csapatoknak, amelyek gyorsan haladnak és lassan auditálnak.',
   'landing.ctaHeading': 'Ne gépelje a nyugtákat. Iktassa őket.',
   'landing.eyebrow': 'OCR · Kinyerés · AI iktatás',
+  'landing.featuresHeading': 'Önmagát magyarázó dokumentumintelligencia',
+  'landing.heroSubtitle':
+    'Dobjon be egy halom számlát, nyugtát, szerződést vagy űrlapot. A {{app}} osztályozza, kinyeri és iktatja őket — megbízhatósági színekkel, így a csapata csak azt ellenőrzi, ami valóban emberi beavatkozást igényel.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Napi mennyiség · elmúlt 7 nap',
   'landing.sampleCardLabel': 'Ma feldolgozott dokumentumok',
   'landing.sampleCardSubtitle': '96,2 % átl. pontosság számlákon, nyugtákon és űrlapokon.',
   'login.hidePassword': 'Jelszó elrejtése',
@@ -74,6 +100,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Kezdőlap megnyitása',
   'notFound.title': 'Ez az oldal nincs iktatva',
+  'parcelaHeroCard.accuracy': 'Átlagos pontosság {{value}}% az összes kinyerésnél',
   'parcelaHeroCard.change': '{{sign}}{{amount}} % a tegnapihoz képest',
   'parcelaHeroCard.title': 'Ma feldolgozott dokumentumok',
   'parcelaLayout.primaryNavLabel': 'Fő navigáció',
@@ -81,6 +108,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'dokumentumok',
   'pricing.processingLabel': 'feldolgozási feladat',
   'resetPassword.confirmPlaceholder': 'Ismételje meg az új jelszót',
+  'resetPassword.hidePassword': 'Jelszó elrejtése',
   'resetPassword.passwordLabel': 'Új jelszó',
   'resetPassword.showPassword': 'Jelszó megjelenítése',
   'resetPassword.subtitle': 'Válasszon valamit, ami legalább 8 karakter hosszú.',
@@ -98,10 +126,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Nem sikerült betölteni a szabályokat.',
   'rules.loading': 'Szabályok betöltése…',
   'rules.matched30d': '{{count}} dokumentum egyezett az elmúlt 30 napban',
+  'rules.neverUsed': 'Soha nem használtam',
   'rules.newRule': 'Új szabály',
   'rules.saveError': 'Nem sikerült menteni a szabályt.',
   'rules.subheading':
     'Mondja meg a rendszernek, hová kerüljön az egyes dokumentumtípusok. A feltételek fentről lefelé láncolódnak — az első egyezés nyer.',
+  'rules.templatesEmpty': 'Még nincsenek kinyerési sablonok.',
   'rules.templatesHeading': 'Kinyerési sablonok',
   'rules.templatesSubheading': 'Mezősémák, amelyeket a kinyerő minden dokumentumtípushoz használ.',
   'rules.then': 'Akkor',
@@ -110,17 +140,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Munkaterület neve',
   'settings.account.subheading':
     'Megjelenítendő név és elsődleges e-mail értesítésekhez és audittörténethez.',
+  'settings.api.confirmRevoke': 'Megerősíteni?',
   'settings.api.copyOnce': 'Másolja ezt a kulcsot — többé nem jelenik meg',
   'settings.api.createdOn': 'Létrehozva: {{date}}',
   'settings.api.empty': 'Még nincsenek API-kulcsok. Generáljon egyet fent.',
   'settings.api.error': 'Nem sikerült létrehozni a kulcsot.',
+  'settings.api.generating': 'Elkészítés…',
+  'settings.api.heading': 'API kulcsok',
   'settings.api.labelPlaceholder': 'Kulcscímke (pl. CI-feltöltő)',
+  'settings.api.loading': 'Kulcsok betöltése…',
   'settings.api.newKey': 'Kulcs generálása',
   'settings.api.subheading':
     'Használja ezeket dokumentumok beküldésére szkriptből vagy ERP-jéből. Bármely kulcsot bármikor cserélheti.',
   'settings.integrations.heading': 'Iktatási integrációk',
   'settings.integrations.subheading':
     'Küldje el az iktatott dokumentumokat arra a felhőmeghajtóra vagy chat-eszközre, amelyet csapata már használ.',
+  'settings.subheading':
+    'Fiók, API-kulcsok és iktatási integrációk kezelése a {{app}} munkaterülethez.',
+  'signup.hidePassword': 'Jelszó elrejtése',
   'signup.identityPrompt': 'Hogyan szólíthatjuk meg Önt?',
   'signup.showPassword': 'Jelszó megjelenítése',
   'signup.subtitle': '14 nap ingyenes, bankkártya nélkül.',
@@ -128,6 +165,7 @@ export const ui: UiTranslations = {
   'upload.error': 'A feltöltés sikertelen.',
   'upload.eyebrow': 'Beolvasás',
   'upload.heading': 'Dokumentumok feltöltése',
+  'upload.queue.clear': 'Befejezettek törlése',
   'upload.queue.col.confidence': 'Biztonság',
   'upload.queue.col.file': 'Fájl',
   'upload.queue.detecting': 'Észlelés…',
@@ -140,5 +178,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Vagy dobjon be egyszerre több fájlt köteges kinyeréshez, besoroláshoz és iktatáshoz.',
   'uploadDropZone.cta': 'Fájlok kiválasztása',
+  'uploadDropZone.maxSize': 'Fájlonként max. 25 MB · végponttól végpontig titkosítva',
   'uploadDropZone.title': 'Dobjon ide dokumentumokat a feldolgozás indításához',
 }

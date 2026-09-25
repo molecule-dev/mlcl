@@ -1,11 +1,33 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kérdése van egy foglalással, visszajelzéssel vagy egy szálláshellyel kapcsolatban, amely szerintünk felkerülne a {{app}} oldalra? Vegye fel a kapcsolatot csapatunkkal a fiókjából — minden üzenet valódi emberhez kerül, aki segíteni tud.',
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Rólunk',
+  'about.featureLoyalty':
+    'Csak tagoknak szóló árak és hűségprogram, amellyel pontokat, késői kijelentkezést és szobafeltöltést szerezhet minden foglalásnál.',
+  'about.featureReviews':
+    'Ellenőrzött vendégvélemények és szerkesztői válogatások, hogy már az érkezés előtt biztos lehessen a szállásban.',
+  'about.featureRooms':
+    'Szobák, árak és szolgáltatások egymás mellett, átlátható, mindent tartalmazó árazással — az adók és a resortdíjak is benne vannak, mielőtt fizet.',
+  'about.featureSearch':
+    'Valós idejű keresés ellenőrzött szállodák között élő elérhetőséggel, térképes nézettel és gazdag fotógalériákkal.',
+  'about.featureTrips':
+    'Elmentett kedvencek és egy Utazások irányítópult, amely egy helyen tartja nyilván az összes foglalást, útvonaltervet és visszaigazolást.',
+  'about.intro':
+    'A {{app}} egy szállásfoglalási platform azoknak az utazóknak, akik adnak a minőségre. Minden szálláshelyet személyesen ellenőriz a szerkesztői csapatunk — nincs aggregátorkészlet, nincs megtévesztő ajánlat. Keressen valós elérhetőségeket, hasonlítsa össze a szobákat, árakat és szolgáltatásokat egymás mellett, majd foglaljon néhány koppintással, átlátható, mindent tartalmazó áron.',
+  'about.missionBody':
+    'A szállásfoglalásnak nyugodtnak és őszintének kell lennie. Átlátható árakat mutatunk, az adókkal és a resortdíjakkal együtt előre, jutalmazzuk a hűséges vendégeket ahelyett, hogy apránként lehúznánk őket, és a pénzére érdemes szállásokat helyezzük előtérbe — így kevesebb időt tölthet a lapok összehasonlításával, és többet magával az utazással.',
+  'about.missionTitle': 'Küldetésünk',
+  'about.subtitle':
+    'Válogatott, átlátható módja a megfelelő szálloda megtalálásának és lefoglalásának.',
   'account.loyalty.activitySummary': '{{nights}} éjszakák · {{spend}} idén elköltött',
+  'account.loyalty.benefitsHeading': 'Az Ön előnyei',
   'account.loyalty.heading': 'Hűség',
   'account.loyalty.loading': 'Hűségprogram betöltése…',
-  'account.loyalty.pointsTowardNext': '{{pont}} / {{következő}} rámutat {{következőSzint}}',
+  'account.loyalty.maxTier': 'Legfelső szint — élvezze az előnyeit.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} pont a {{nextTier}} pontig',
   'account.loyalty.tier': 'Jelenlegi szint',
   'account.loyalty.unavailable': 'Hűséginformációk nem érhetők el.',
   'account.navLabel': 'Fiókrészek',
@@ -22,6 +44,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Foglalás megerősítése · {{total}}',
   'bookingCheckout.datesRequired': 'Kérjük, válassza ki az érkezés és a távozás dátumát.',
   'bookingCheckout.guestHeading': 'Fő vendég',
+  'bookingCheckout.heading': 'Megerősítés és foglalás',
   'bookingCheckout.loadError': 'Nem sikerült betölteni a tulajdonságot.',
   'bookingCheckout.nights': '{{rate}} × {{count}} éjszakák',
   'bookingCheckout.notFound': 'Az ingatlan nem található.',
@@ -32,11 +55,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Adók és díjak',
   'bookingCheckout.tripHeading': 'Az utazásod',
   'bookingConfirmation.allTripsCta': 'Minden utazás',
+  'bookingConfirmation.confNumber': 'Visszaigazolási szám: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'A foglalása feldolgozás alatt van.',
   'bookingConfirmation.heading': 'Foglalás megerősítve',
   'bookingConfirmation.loading': 'Foglalás betöltése…',
   'bookingConfirmation.searchMoreCta': 'További szállások böngészése',
   'bookingConfirmation.subheadingForTrip':
-    '{{ingatlan}} ban {{város}} , {{ország}} Találkozunk Bejelentkezés .',
+    '{{property}} itt: {{city}}, {{country}}. Találkozunk {{checkIn}}.',
   'bookingConfirmation.total': 'Teljes {{total}}',
   'bookingConfirmation.viewTripCta': 'Utazás megtekintése',
   'common.goToDashboard': 'Ugrás a műszerfalra',
@@ -46,6 +72,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Nem sikerült betölteni a kedvenceket.',
   'favorites.pricePerNight': '{{price}} / éjszaka',
   'favorites.removeCta': 'Visszavonás',
+  'favorites.removing': 'Eltávolítás…',
   'forgotPassword.subheading':
     'Add meg a fiókodhoz tartozó e-mail címet, és küldünk neked egy biztonságos visszaállítási linket.',
   'forgotPassword.successBody':
@@ -53,6 +80,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Tartózkodó tagok',
   'landing.cta.heading': 'Csak tagoknak szóló árak. Minden foglalás, minden alkalommal.',
   'landing.cta.signup': 'Ingyenes fiók létrehozása',
+  'landing.cta.subheading':
+    'Szerezzen hűségpontokat minden tartózkodásnál, nyisson fel késői kijelentkezést és szobafeltöltést, és kapjon elsőként hozzáférést az új szálláshelyekhez, mielőtt azok nyilvánosan megjelennek.',
   'landing.destinations.eyebrow': 'Merre tovább',
   'landing.destinations.heading': 'Kiemelt úti célok',
   'landing.destinations.seeAll': 'Összes úti cél megtekintése',
@@ -61,13 +90,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Történetek, amikért érdemes csomagolni',
   'landing.nav.join': 'Csatlakozz a Aubergehoz',
   'landing.nav.search': 'Szállások keresése',
+  'landing.preview.browseAll': 'Böngéssze a teljes kínálatot',
   'landing.preview.eyebrow': 'Egy pillantás a belsejébe',
   'landing.preview.heading': 'Gondosan válogatott szállások ebben a hónapban',
+  'landing.preview.subheading':
+    'A {{appName}} minden szálláshelyét személyesen ellenőrzi a szerkesztői csapatunk — nincs aggregátorkészlet, nincs megtévesztő ajánlat.',
   'login.eyebrow': 'Tagoknak fenntartott terület',
+  'login.noAccount': 'Új a Tesserában?',
   'login.signupLink': 'Hozz létre egy ingyenes fiókot',
   'login.subheading':
     'Jelentkezz be az utazásaid kezeléséhez, a visszaigazolások megtekintéséhez és a folytatáshoz ott, ahol abbahagytad.',
+  'loyaltyTierBadge.points': '{{points}} pontok',
   'planUpdated.heading': 'Csomag frissítve',
+  'planUpdated.retry': 'Próbálja újra',
+  'planUpdated.verifyFailed': 'Még nem tudtuk megerősíteni a fizetését.',
+  'planUpdated.verifyFailedBody':
+    'Lehetséges, hogy a fizetése még feldolgozás alatt áll. Próbálja újra egy pillanat múlva.',
   'planUpdated.verifying': 'Fizetésed megerősítése…',
   'pricing.limit.advancedFeatures': 'Speciális funkciók:',
   'pricing.limit.canExport': 'Adatexport:',
@@ -79,7 +117,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Mit kínál ez a hely',
   'propertyDetail.backLink': 'Vissza a kereséshez',
   'propertyDetail.bookCta': 'Tartalék',
+  'propertyDetail.bookmarkAria': 'Ingatlan mentése',
   'propertyDetail.bookmarkAriaSaved': 'Eltávolítás a mentett tulajdonságok közül',
+  'propertyDetail.galleryImageAlt': '{{name}} fotó {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} hősfotó',
   'propertyDetail.hidePhotos': 'Fotók elrejtése',
   'propertyDetail.lineCleaning': 'Takarítási díj',
@@ -89,6 +129,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'éjszaka',
   'propertyDetail.noChargeYet': 'Még nem terheljük meg a számládat',
   'propertyDetail.notFound': 'Az ingatlan nem található.',
+  'propertyDetail.perNight': '/ éj',
+  'propertyDetail.pickDatesHint': 'Válassza ki a dátumokat a teljes árbontás megtekintéséhez.',
   'propertyDetail.reviewCount': '( {{count}} vélemények)',
   'propertyDetail.reviewsHeading': 'Legutóbbi vélemények',
   'propertyDetail.roomCapacity': 'Alszik {{count}}',
@@ -101,6 +143,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Új jelszó',
   'resetPassword.subheading':
     'Válasszon új jelszót a Auberge fiókjához. Legalább 8 karaktert használjon; jelszót ajánlunk.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Nincsenek a keresésnek megfelelő ingatlanok.',
   'searchResults.emptyHint':
     'Próbáld meg szélesíteni a szűrőket, vagy eltávolítani az árplafont — a Auberge 14 országban kínál szállásokat.',
@@ -108,19 +151,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Válogatott szállások',
   'searchResults.headingForQuery': 'Maradások száma: " {{q}} "',
   'searchResults.loadError': 'Nem sikerült betölteni a tulajdonságokat.',
+  'searchResults.mapHint':
+    'Vigye az egeret egy kártya fölé az térképen való kiemeléshez. Éles környezetben élő Mapbox csempék.',
   'searchResults.mapPinAria': '{{name}} — {{price}} éjszakánként',
   'searchResults.sortLabel': 'Rendezés',
   'searchResults.subheading': '{{count}} ingatlanok · {{guests}} vendégek',
   'signup.eyebrow': 'Legyen tag',
   'signup.subheading':
     'Csatlakozz a Aubergehoz, hogy feloldd a tagoknak szóló árakat, a késői kijelentkezést és az új szálláshelyekhez való első hozzáférést.',
+  'sojournAuthShell.brand.eyebrow': 'Szálljon meg valahol rendkívüli helyen',
+  'sojournAuthShell.brand.heading':
+    'Válogatott szálláshelyek gyűjteménye — szépen bemutatva, átlátható áron.',
   'sojournHeroSearchCard.checkInAria': 'Bejelentkezés dátuma',
   'sojournHeroSearchCard.checkOutAria': 'Kijelentkezés dátuma',
+  'sojournHeroSearchCard.destAria': 'Rendeltetési hely',
+  'sojournHeroSearchCard.destLabel': 'Hol',
   'sojournHeroSearchCard.destPlaceholder': 'Város, régió vagy ingatlan',
   'sojournHeroSearchCard.eyebrow': 'Válogatott szállások · Csak tagoknak szóló árak',
   'sojournHeroSearchCard.guestsOption': '{{n}} vendégek',
   'sojournHeroSearchCard.subtitle':
     'Butikhotelek, előremutató dizájnnal rendelkező szálláshelyek és ritka helyek gondosan összeállított gyűjteménye – átlátható árakon, gyönyörűen bemutatva.',
+  'sojournHeroSearchCard.title': 'Szálljon meg valahol rendkívüli helyen',
+  'sojournHeroSearchCard.trustLoyalty': 'Szerezzen pontokat minden tartózkodásnál',
   'sojournHeroSearchCard.trustNoFees': 'Nincsenek rejtett költségek, soha',
   'sojournHeroSearchCard.trustVetted': 'Csak kézzel ellenőrzött ingatlanok',
   'sojournLayout.primaryNavLabel': 'Elsődleges navigáció',

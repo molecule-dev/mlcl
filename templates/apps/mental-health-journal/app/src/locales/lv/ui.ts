@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ir atsauksmes, atradi kļūdu vai vēlies pastāstīt, kā dienasgrāmatas rakstīšana tev palīdzējusi? Mēs lasām katru ziņu — sazinies jebkurā laikā, un īsts cilvēks tev atbildēs.',
+  'about.contactTitle': 'Sazinieties ar mums',
+  'about.featureInsights':
+    'AI atspoguļojumi, kas maigi izceļ ierosinātājus, tēmas un pateicības — nezaudējot tavu balsi.',
+  'about.featureMood':
+    'Noskaņojuma un aktivitāšu izsekošana ar kalendāra skatu un tendenču diagrammām, kas parāda, kas palīdz tev uzplaukt.',
+  'about.featurePrivacy':
+    'Galvenā šifrēšana, piekļuves koda bloķēšana un pilna CSV eksportēšana, lai tavi pārdomu ieraksti paliktu privāti un pārnesami.',
+  'about.featurePrompts':
+    'Maigi ikdienas ierosinājumi, lai tev vienmēr būtu ar ko sākt — nekad tukša lapa.',
+  'about.intro':
+    '{{app}} ir maiga, privāta garīgās veselības dienasgrāmata ikdienas pārdomām, noskaņojuma izsekošanai un pateicībai. Pārdomāti ierosinājumi aizstāj tukšo lapu, klusa likumsakarību meklēšana palīdz saprast, kas ietekmē tavas sajūtas, un galvenā šifrēšana nodrošina, ka tavi vārdi paliek tavi.',
+  'about.missionBody':
+    'Mēs ticam, ka pārbaudīt savas sajūtas ir jādara mierīgi, nekad klīniski — un nekad kā vēl viena lietotne, kas pieprasa tavu uzmanību. {{app}} ir veidota, lai palīdzētu, nevis uzmāktos: dažas klusas minūtes dienā, lai pamanītu savu noskaņojumu, rakstītu godīgi un lēnām ieraudzītu sevi skaidrāk.',
+  'about.missionTitle': 'Mūsu misija',
   'about.pageTitle': 'Par {{app}}',
   'authShell.encryptionBadge': 'Jūsu ieraksti ir pilnībā šifrēti.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Diena {{day}} — nav ieraksta',
   'calendar.cellMood': 'Diena {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Šomēnes īsumā',
   'calendar.eyebrow': 'Noskaņojums īsumā',
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Izsekots {{tracked}} no {{total}} dienām šajā mēnesī.',
   'common.goToDashboard': 'Uz informācijas paneli',
   'common.tryAgain': 'Mēģini vēlreiz',
+  'entryComposer.bodyPlaceholder': 'Raksti visu, kas šķiet godīgi. Neviens cits to nelasīs.',
   'entryComposer.cancel': 'Atpakaļ uz dienasgrāmatu',
   'entryComposer.heading': 'Šodienas pārdomas',
   'entryComposer.moodLabel': 'Kā tu jūties?',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Noņemt {{tag}}',
   'entryComposer.save': 'Saglabāt atspulgu',
   'entryComposer.saveError': 'Nevarēja saglabāt jūsu ierakstu.',
+  'entryComposer.tagPlaceholder': 'Pievieno tagu un nospied Enter',
   'entryComposer.titlePlaceholder': 'Dodiet šim atspulgam vārdu…',
   'entryDetail.back': 'Atpakaļ uz dienasgrāmatu',
   'entryDetail.delete': 'Dzēst šo ierakstu',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Notiek atspulga ielāde…',
   'entryDetail.notFound': 'Ieraksts nav atrasts.',
   'entryDetail.reflectionsHeading': 'AI pārdomas',
+  'forgotPassword.continueButton': 'Ievadi atiestatīšanas kodu',
   'forgotPassword.eyebrow': 'Nav jāuztraucas',
   'forgotPassword.subheading': 'Mēs nosūtīsim uz jūsu e-pastu saiti uz atiestatīšanu.',
   'forgotPassword.successBody': 'Ja konts pastāv {{email}}, atiestatīšanas saite ir ceļā.',
@@ -57,14 +77,21 @@ export const ui: UiTranslations = {
     'Vēl nav tēmu — pievienojiet saviem ierakstiem vienu vai divas atzīmes, un tās tiks apkopotas šeit.',
   'insights.themesHeading': 'Populārākās tēmas',
   'insights.triggerFrequency': 'pamanīja {{count}} × šomēnes',
+  'insights.triggersEmpty':
+    'Vēl nav ko pamanīt. Daži ieraksti vairāku dienu laikā parādīs tavas likumsakarības.',
   'insights.triggersHeading': 'Raksti, kas ietekmē jūsu noskaņojumu',
+  'journal.empty': 'Nav atbilstošu pārdomu — izmēģini citu filtru vai raksti jaunu ierakstu.',
   'journal.eyebrow': 'Tavas pārdomas',
   'journal.heading': 'Žurnāls',
   'journal.loadError': 'Neizdevās ielādēt ierakstus.',
   'journal.loading': 'Notiek ierakstu ielāde…',
+  'journal.newEntry': 'Jauns ieraksts',
   'journal.searchPlaceholder': 'Meklē sajūtu, vārdu, mirkli…',
   'journal.subheading': '{{count}} ieraksti — katrs ir saglabāšanas vērts.',
   'journalEntryCard.encryptedLabel': 'Šifrēts',
+  'landing.ctaBody':
+    'Sākums bez maksas. Pro atslēdz datu eksportēšanu, lielāku dienasgrāmatu un pilnu gadu vēstures.',
+  'landing.ctaButton': 'Sāciet savu pirmo ierakstu',
   'landing.ctaTitle': 'Dažas klusas minūtes dienā. Tas arī viss.',
   'landing.eyebrow': 'Maiga ikdienas prakse',
   'landing.featuresBody':
@@ -83,6 +110,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Maiga telpa ikdienas pārdomām.',
   'mentalHealthJournalLayout.closeMenu': 'Aizvērt izvēlni',
   'mentalHealthJournalLayout.openMenu': 'Atvērt izvēlni',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Galvenā navigācija',
+  'moodHeroCard.entriesThisWeek': '{{count}} šonedēļ',
   'moodHeroCard.streakSuffix': 'dienas sērija',
   'moodHeroCard.title': 'Šodienas pārdomas',
   'moodTrendChart.aiBadge': 'Gatavs mākslīgā intelekta ieskatiem',
@@ -93,11 +122,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Tavs ceļojums',
   'profile.fallbackName': 'Atstarotājs',
   'profile.loadError': 'Neizdevās ielādēt statistiku.',
+  'profile.loading': 'Atjaunojam tavu statistiku…',
   'profile.longestStreak': 'Garākā sērija',
   'profile.memberSince': 'Pārdomas kopš {{date}}',
   'profile.milestones': 'Atskaites punkti',
   'profile.milestonesEmpty':
     'Tavs pirmais atskaites punkts ir viena ieraksta attālumā — raksti, kad vien jūties gatavs.',
+  'profile.moodMix': 'Tavs noskaņojumu kopums šosezon',
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'Pārdomas',
   'profile.totalWords': 'Uzrakstītie vārdi',
@@ -110,6 +141,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Rakstiet par šo',
   'resetPassword.eyebrow': 'Jauns sākums',
   'resetPassword.mismatchError': 'Paroles nesakrīt.',
+  'resetPassword.passwordLabel': 'Jauna parole',
   'resetPassword.subheading': 'Izvēlieties kaut ko drošu — jūsu pārdomas to ir pelnījušas.',
   'resetPassword.tokenPlaceholder': 'Atiestatīt kodu no e-pasta',
   'settings.dangerDescription':
@@ -121,11 +153,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'Nevarēja izdzēst kontu.',
   'settings.exportDescription': 'Tavi vārdi vienmēr pieder tev. Lejupielādē kopiju jebkurā laikā.',
   'settings.exportDone': 'Eksportēts {{format}}.',
+  'settings.exportError': 'Eksportēšana neizdevās.',
+  'settings.exportHeading': 'Eksportē savas pārdomas',
   'settings.exportLoading': 'Gatavošanās…',
   'settings.eyebrow': 'Tava telpa, tavi noteikumi',
   'settings.languageHeading': 'Valoda',
   'settings.privacyHeading': 'Konfidencialitāte un šifrēšana',
   'settings.remindersHeading': 'Dienas atgādinājums',
+  'settings.reminderToggleAria': 'Pārslēgt ikdienas atgādinājumu',
   'settings.reminderToggleDescription':
     'Viens mierīgs atgādinājums jūsu izvēlētajā laikā. Nekādu nozīmīšu vai vainas apziņas.',
   'settings.reminderToggleLabel': 'Nosūtiet maigu grūdienu',
@@ -138,6 +173,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Notiek žurnāla izveide…',
   'signup.subheading': 'Droša telpa tavām domām.',
   'wellnessRingsTriad.mindfulnessCaption': 'Mērķis {{goal}} min šodien',
+  'wellnessRingsTriad.mindfulnessLabel': 'Apzinātība',
   'wellnessRingsTriad.sleepCaption': 'Mērķis {{goal}} h/nakts',
   'wellnessRingsTriad.sleepLabel': 'Miegs',
+  'wellnessRingsTriad.sleepValue': '{{hours}}h',
+  'wellnessRingsTriad.streakCaption': 'Mērķis {{goal}} dienas',
+  'wellnessRingsTriad.streakLabel': 'Dienasgrāmatas rakstīšanas sērija',
+  'wellnessRingsTriad.streakValue': '{{days}} d',
 }

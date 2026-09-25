@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite lan-fluxuen automatizazio plataforma bat da, abiarazleak, adimen artifizialaren baldintzak eta urrats anitzeko ekintzak elkarrekin lotzen dituena, taldeek lana sistemen artean mugitu ahal izan dezaten kode itsaskorra idatzi gabe.',
+  'about.philosophy':
+    'Workflow bakoitza urrats txiki eta behatu daitezkeen grafo bat da. Urrats bakoitzak bere sarrerak, irteerak eta denborak erregistratzen ditu, ikuskatu, berregin edo atzera bota ahal izateko. Konposatu itzazu bisualki, bertsionatu kodea bezala.',
   'about.title': 'Dendritari buruz',
   'authShell.brand': 'Dendrita',
   'authShell.support': 'Laguntza',
@@ -15,9 +17,14 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Aldatu plana',
   'billing.description':
     'Jarrai ezazu erabilera, kudeatu zure plana eta atera fakturak kontabilitaterako.',
+  'billing.eyebrow': 'Kontua · Plana eta erabilera',
+  'billing.failedLabel': 'Huts egindako exekuzioak · 24h',
+  'billing.invoicesEmpty':
+    'Oraindik ez dago fakturarik. Hemen agertuko dira zure lehen berritze ordainduaren ondoren.',
   'billing.invoicesTitle': 'Faktura-historia',
   'billing.planNoteFree':
     'Doako maila — {{runs}} korrika egiten du eta {{workflows}} Lan-fluxu aktiboak. Eguneratu muga altuagoak lortzeko.',
+  'billing.planNotePaid': 'Ordainpeko plana — {{runs}} exekuzio eta {{workflows}} workflow aktibo.',
   'billing.runsLabel': 'Azken 24 orduetan exekutatzen da',
   'billing.tiersBlurb':
     'Konparatu maila guztiak — exekuzioak, lan-fluxu aktiboak, funtzio aurreratuak eta laguntza — prezioen orrialde dedikatuan.',
@@ -35,10 +42,14 @@ export const ui: UiTranslations = {
     'Ez da integraziorik erregistratuta. Konfiguratu hornitzailearen gakoak loturak gaitzeko.',
   'connections.error': 'Ezin izan dira konexioak kargatu.',
   'connections.eyebrow': 'Integrazioak · {{connected}} konektatuta',
+  'connections.loading': 'Integrazioak kargatzen…',
+  'connections.openEnv':
+    'Hornitzaile hau konektatzeko, ezarri bere API gakoa api/.env fitxategian eta berrabiarazi zerbitzaria.',
   'dashboard.description':
     '{{active}} lan-fluxuak aktibo. {{failed}} huts egin du azken 24 orduetan.',
   'dashboard.error': 'Ezin izan da aginte-panela kargatu.',
   'dashboard.eyebrow': 'Operazioak · zuzenean',
+  'dashboard.hero.label': 'Gaurko exekuzioak',
   'dashboard.hero.medianLatency': 'p50 latentzia',
   'dashboard.hero.queue': 'Ilararen sakonera',
   'dashboard.hero.success': 'Arrakasta',
@@ -46,14 +57,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Batez besteko iraupena',
   'dashboard.kpi.failedRuns': 'Huts egin du · 24 ordu',
   'dashboard.kpi.outOf': '-ren {{total}} guztira',
+  'dashboard.kpi.successRate': 'Arrakasta-tasa · 24h',
   'dashboard.loading': 'Kontrol-panela kargatzen…',
   'dashboard.recentRuns.empty':
     'Ez da oraindik exekuziorik egin. Lan-fluxu bat abiaraztean jario hau agertuko da.',
   'dashboard.recentRuns.title': 'Azken lasterketak',
   'dashboard.recentRuns.viewAll': 'Exekuzio irekiak →',
+  'dashboard.recentWorkflows.browse': 'Txantiloiak arakatu →',
   'dashboard.recentWorkflows.empty':
     'Ez dago lan-fluxurik oraindik. Instalatu txantiloi bat edo sortu bat hutsetik.',
   'dashboard.recentWorkflows.title': 'Duela gutxi exekutatua',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'Hasi da',
   'dashboard.run.col.trigger': 'Abiarazlea',
   'dashboard.run.col.workflow': 'Lan-fluxua',
@@ -89,6 +103,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Lan-fluxua',
   'executions.description':
     'Lan-fluxu oro exekutatu, berriro saiakera oro, urrats bakoitzaren emaitza — dena behagarria.',
+  'executions.empty.filter': 'Ez dago exekuziorik iragazki honekin bat datorrenik.',
   'executions.empty.first':
     'Oraindik ez da exekuziorik egin — abiarazi lan-fluxu bat zerrenda hau betetzeko.',
   'executions.error': 'Ezin izan dira exekuzioak kargatu.',
@@ -99,30 +114,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Korrika-historia kargatzen…',
   'executions.title': 'Exekuzioak',
   'forgotPassword.confirmation': 'Berrezarri esteka bidali da helbide honetara {{email}} .',
+  'forgotPassword.subhead': 'Idatzi zure helbide elektronikoa berrezartzeko esteka jasotzeko.',
   'forgotPassword.successSubhead':
     'Berrezartzeko esteka bat bidali diogu honera: {{email}} 30 minutu barru iraungitzen da.',
   'help.connections.body':
     'Adimen artifizialaren, posta elektronikoaren eta biltegiratzearen urratsek hornitzailearen gakoak api/.env fitxategian ezarri behar dituzte. Gako bat konfiguratu ondoren, dagokion integrazioa konektatuta agertzen da Konexioak orrian.',
+  'help.connections.cta': 'Ireki konexioak →',
   'help.connections.title': 'Hornitzaileak konektatzea',
   'help.gettingStarted.body':
     'Lan-fluxu berriak txantiloien liburutegitik instala daitezke edo hutsetik eraiki daitezke lan-fluxuen eraikitzailean. Lan-fluxu bakoitzak abiarazle bat (eskuzkoa, webhook-a edo cron-a) eta ordenan exekutatzen diren urratsen sekuentzia bat ditu.',
+  'help.gettingStarted.cta': 'Arakatu txantiloi liburutegia →',
+  'help.gettingStarted.title': 'Hasteko',
   'help.intro':
     'Bilatu lan-fluxuak eraikitzeari, konexioak konfiguratzeari eta exekuzio-irteera interpretatzeari buruzko ohiko galderen erantzunak. Gai ohikoenak behean zerrendatzen dira; azaltzen ez den edozer gauzatarako, jarri harremanetan zure lan-eremuaren administratzailearekin.',
   'help.runs.body':
     'Exekuzio bakoitzak urrats bakoitza modu independentean erregistratzen du, egoerarekin (arrakasta, hutsegitea, saltatua) eta irteeraren zati batekin. Exekuzioaren xehetasunen orrialdeak urratsez urratseko traza osoa eta ondorioztatutako metrikak erakusten ditu.',
+  'help.runs.cta': 'Exekuzio irekiak →',
   'help.runs.title': 'Exekuzioaren irteera irakurtzen',
   'help.title': 'Laguntza zentroa',
   'integrationCard.manage': 'Kudeatu',
   'landing.brand': 'Dendrita',
   'landing.demo.action.subtitle': 'Txandakako lurraldea',
+  'landing.demo.action.title': 'Jakinarazi ordezkariari',
   'landing.demo.condition.subtitle': 'IA asmoen sailkatzailea',
+  'landing.demo.condition.title': 'Puntuazioa ≥ ertaina?',
   'landing.demo.trigger.subtitle': 'POST /formularioak/kontaktua',
   'landing.demo.trigger.title': 'Sarrerako webhook-a',
+  'landing.features.body':
+    'Triggerrek abiarazten dute. Baldintzek adarkatzen dute. Ekintzek lana bidaltzen dute. Konposatu itzazu bisualki, bertsionatu kodea bezala.',
   'landing.features.heading': 'Hiru nodo mota. Forma infinituak.',
   'landing.footer.help': 'Laguntza',
   'landing.footer.tagline': 'Mugimenduan dagoen adimena',
+  'landing.hero.body':
+    '{{appName}} Zapier gainditu zuten ops taldeentzako workflow motorra da. Trigger, baldintza, ekintza — benetan erabiltzen dituzun sistema guztiekin konektatuta.',
   'landing.hero.eyebrow': 'Mugimenduan dagoen adimena',
   'landing.hero.headline': 'Konektatu zure pila elkarrekin. Utzi lana egiten.',
+  'landing.hero.primaryCta': 'Eraiki zure lehen workflowa',
   'landing.hero.proof.ai': 'IA nodoak txertatuta',
   'landing.hero.proof.free': 'Doan 1000 korrika/hilean',
   'landing.hero.proof.soc2': 'SOC 2 II mota',
@@ -130,10 +157,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Ordaindu korrikaldiengatik, ez eserlekuengatik.',
   'landing.templates.body':
     'Talde guztientzako aurrez prestatutako lan-fluxuak — salmentak, laguntza, garapen-operazioak, finantzak. Klik bakarrarekin instalatu; edozer gauza doitu.',
+  'landing.templates.cta': 'Eman izena txantiloiak arakatzeko →',
   'landing.templates.eyebrow': 'Hasi segundotan',
   'landing.templates.heading': 'Errezeta egiaztatuen liburutegia.',
   'landing.templates.signupHint': 'Eman izena instalatzeko',
   'login.hidePassword': 'Ezkutatu pasahitza',
+  'login.noAccount': 'Tesseran berria zara?',
   'login.showPassword': 'Erakutsi pasahitza',
   'login.subhead': 'Hasi saioa automatizazioak martxan jarraitzeko.',
   'mobileNav.drawerLabel': 'Nabigazio nagusia',
@@ -149,8 +178,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Exekutatu lan-fluxu bat jario hau betetzen hasteko.',
   'notifications.empty.title': 'Guztiok harrapatuta zaudete.',
   'notifications.eyebrow': '{{n}} irakurri gabe',
+  'planUpdated.body':
+    'Zure fakturazio-aldaketa aktibo dago orain. Zure plana noiznahi kudea dezakezu fakturazio-orritik.',
+  'planUpdated.retry': 'Saiatu berriro',
+  'planUpdated.verifyFailed': 'Ezin izan dugu oraindik zure ordainketa baieztatu.',
+  'planUpdated.verifyFailedBody':
+    'Baliteke zure ordainketa prozesatzen ari izatea oraindik. Saiatu berriro une batean.',
   'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'pricing.heading': 'korrika egiten du',
+  'pricing.runsSuffix': 'exekuzio',
   'pricing.workflowsSuffix': 'lan-fluxuak',
   'privacy.collect.body':
     'Izena emateko erabiltzen duzun helbide elektronikoa, konfiguratzen dituzun lan-fluxuak eta exekuzio bakoitzari buruzko metadatuak (hasiera ordua, amaiera ordua, egoera) biltzen ditugu. Ez dugu inoiz abiarazleen edo urratsen irteeren karga-edukia biltzen edo gordetzen, lan-eremuaren jabearentzat exekuzio-ikusgailuan bistaratzeko beharrezkoa dena baino haratago.',
@@ -166,11 +202,14 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Ezin izan da pasahitza eguneratu.',
   'resetPassword.newPassword': 'Pasahitz berria',
   'resetPassword.subhead': 'Aukeratu zuk bakarrik asmatuko zenukeen zerbait.',
+  'settings.appearance.description': 'Aldatu modu argiaren eta ilunaren artean.',
+  'settings.appearance.title': 'Itxura',
   'settings.billingShortcut.cta': 'Fakturazio irekia',
   'settings.billingShortcut.description':
     'Plana, erabilera eta fakturak fakturazio-orrialde dedikatuan daude ikusgai.',
   'settings.danger.confirm': 'Ziur zaude? Honek zure lan-eremua ezabatzeko ilaran jarriko du.',
   'settings.danger.confirmYes': 'Bai, ilara ezabatzea',
+  'settings.danger.deleteWorkspace.cta': 'Ezabatu lan-eremua',
   'settings.danger.deleteWorkspace.hint':
     '14 eguneko epearen ondoren, lan-fluxu, exekuzio eta konexio guztiak kentzen ditu.',
   'settings.danger.deleteWorkspace.title': 'Ezabatu lan-eremua',
@@ -182,10 +221,15 @@ export const ui: UiTranslations = {
     'Kudeatu zure kontua, lan-eremua, integrazioak eta fakturazioa leku bakarrean.',
   'settings.notifications.description':
     'Aukeratu zein gertaeren orrialdera bidali nahi duzun, zein mezu elektroniko bidali edo zein isildu.',
+  'settings.notifications.failures.hint':
+    'Posta elektronikoko eta aplikazioko jakinarazpena huts egindako exekuzio bakoitzean.',
+  'settings.notifications.failures.title': 'Workflowen hutsegiteak',
   'settings.notifications.product.hint':
     'Txantiloi eta funtzio berriei buruzko noizean behingo mezu elektronikoak.',
+  'settings.notifications.product.title': 'Produktuaren eguneraketak',
   'settings.notifications.weekly.hint':
     'Astelehen goizeko aurreko asteko lasterketen eta aurrezkien laburpena.',
+  'settings.notifications.weekly.title': 'Asteko laburpena',
   'settings.profile.description':
     'Lan-fluxuaren exekutatzailearen barruan nola agertzen zaren. Lan-eremuaren jardueran erabiltzen da.',
   'settings.profile.noEmail': 'Ez dago posta elektronikorik erregistratuta',
@@ -193,12 +237,24 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Ezin izan dira profileko aldaketak gorde.',
   'settings.profile.unnamedUser': 'Erabiltzaile izengabea',
   'settings.security.audit.hint': 'Ekintza guztiak zure SIEM-era transmititu webhook bidez.',
+  'settings.security.audit.title': 'Auditoretza-erregistroaren birbidalketa',
   'settings.security.description': 'Bi faktoreko autentifikazioa, SSO eta saio aktiboak.',
   'settings.security.sso.hint': 'Eskala eta Enpresa planetan eskuragarri.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'Workspace jabearen edozein ekintzatarako beharrezkoa.',
+  'settings.security.totp.title': 'Bi faktoreko autentifikazioa (TOTP)',
   'settings.twoFactorCode': 'Autentifikazio kodea',
   'settings.twoFactorDisable': 'Desgaitu',
+  'settings.twoFactorDisableTitle': 'Desgaitu bi faktoreko autentifikazioa',
   'settings.twoFactorEnable': 'Gaitu',
+  'settings.twoFactorEnableTitle': 'Gaitu bi faktoreko autentifikazioa',
   'settings.twoFactorInvalidCode': 'Kode baliogabea',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Bi faktoreko QR kodea',
+  'settings.twoFactorScan':
+    'Eskaneatu QR kode hau zure autentifikazio-aplikazioarekin, eta gero sartu 6 digituko kodea.',
+  'settings.twoFactorUnavailable':
+    'Bi faktoreko autentifikazioa ez dago erabilgarri aplikazio honetarako.',
   'settings.twoFactorVerify': 'Egiaztatu eta gaitu',
   'settings.workspace.description':
     'Zure taldearentzako identitate partekatua, eskualdea eta exekuzio lehenetsiak.',
@@ -227,6 +283,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Txantiloia',
   'templates.description':
     'Automatizazio ohikoenen plano aurrez eraikiak. Sortu, pertsonalizatu, bidali.',
+  'templates.empty.filter': 'Ez dago zure bilaketarekin bat datorren txantiloirik.',
   'templates.empty.first': 'Ez dago txantiloirik eskuragarri une honetan.',
   'templates.error': 'Ezin izan dira txantiloiak kargatu.',
   'templates.installs': 'instalazioak',
@@ -252,6 +309,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Desgaitu',
   'workflowBuilder.enable': 'Gaitu',
   'workflowBuilder.error': 'Ezin izan da lan-fluxua kargatu.',
+  'workflowBuilder.inspector.config': 'Konfigurazioa',
+  'workflowBuilder.inspector.cron': 'Cron adierazpena',
+  'workflowBuilder.inspector.disabled': 'Desgaituta — ez da automatikoki exekutatuko.',
   'workflowBuilder.inspector.enabled': 'Gaituta — abiaraztean exekutatzen da.',
   'workflowBuilder.inspector.eyebrow': 'Ikuskatzailea',
   'workflowBuilder.inspector.id': 'IDa',
@@ -270,18 +330,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Txandakatzeak huts egin du.',
   'workflowBuilder.workflow': 'Lan-fluxua · v {{v}}',
   'workflowBuilder.zoom.in': 'Handiagotu',
+  'workflowBuilder.zoom.label': 'Oihalaren zoom kontrolak',
+  'workflowBuilder.zoom.out': 'Txikitu zooma',
   'workflowCard.lastRun': 'Azken lasterketa {{when}}',
   'workflowCard.runs': '{{count}} korrika egiten du',
+  'workflowCard.success': '{{rate}}% arrakasta',
   'workflowHeroCard.last24h': 'Azken 24 orduak',
+  'workflows.browseTemplates': 'Txantiloiak arakatu →',
   'workflows.description':
     'Zure lan-eremuko automatizazio guztiak, osasuna eta azken jarduera begirada batean.',
+  'workflows.empty.body': 'Saiatu iragazkia garbitzen edo hasi txantiloi batetik.',
   'workflows.empty.firstBody': 'Instalatu txantiloi bat segundo gutxitan hasteko.',
   'workflows.empty.firstTitle': 'Ez dago lan-fluxurik oraindik',
   'workflows.empty.title': 'Ez dago bat datorren lan-fluxurik',
   'workflows.error': 'Ezin izan dira lan-fluxuak kargatu.',
   'workflows.eyebrow': 'Liburutegia · {{count}} guztira',
+  'workflows.loading': 'Workflowak kargatzen…',
   'workflows.newFromTemplate': 'Txantiloitik berria',
   'workflows.searchPlaceholder': 'Bilaketa-fluxuak…',
+  'workflows.title': 'Workflowak',
   'workflowSidebar.brand': 'Dendrita',
   'workflowSidebar.status': 'Sistema guztiak martxan',
   'workflowSidebar.tagline': 'Mugimenduan dagoen adimena',

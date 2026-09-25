@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '피드백이 있거나, 버그를 발견했거나, 저널링이 얼마나 도움이 되었는지 알려주고 싶으신가요? 모든 메시지를 읽습니다 — 언제든 연락 주시면 실제 사람이 답변해 드립니다.',
+  'about.contactTitle': '문의하기',
+  'about.featureInsights':
+    '당신의 목소리를 잃지 않으면서 트리거, 주제, 감사함을 부드럽게 짚어주는 AI 기반 성찰.',
+  'about.featureMood':
+    '달력 보기와 추세 차트로 기분과 활동을 추적하여 무엇이 당신을 번창하게 하는지 보여줍니다.',
+  'about.featurePrivacy':
+    '종단간 암호화, 비밀번호 잠금, 전체 CSV 내보내기로 당신의 성찰이 비공개로 유지되고 이동 가능합니다.',
+  'about.featurePrompts':
+    '매일 부드러운 질문으로 언제나 시작할 곳이 있습니다 — 결코 빈 페이지가 아닙니다.',
+  'about.intro':
+    '{{app}}은 일상적인 성찰, 기분 추적, 감사를 위한 부드럽고 사적인 정신 건강 저널입니다. 사려 깊은 질문이 빈 페이지를 대신하고, 조용한 패턴 찾기가 당신의 기분에 영향을 미치는 것을 이해하도록 도우며, 종단간 암호화가 당신의 글을 당신의 것으로 지켜줍니다.',
+  'about.missionBody':
+    '우리는 자신을 돌아보는 것이 차분하게 느껴져야 하며, 결코 임상적이지 않고, 또 다른 앱이 당신의 주의를 요구하는 것처럼 느껴져서는 안 된다고 믿습니다. {{app}}은 잔소리가 아니라 도움을 주기 위해 만들어졌습니다: 하루에 몇 분의 조용한 시간으로 기분을 알아차리고, 솔직하게 쓰고, 천천히 자신을 더 명확하게 보는 것입니다.',
+  'about.missionTitle': '우리의 사명',
   'about.pageTitle': '{{app}} 소개',
   'authShell.encryptionBadge': '입력하신 내용은 종단 간 암호화됩니다.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': '{{day}}일차 — 기록 없음',
   'calendar.cellMood': '{{day}}일 — {{mood}}',
   'calendar.distributionHeading': '이번 달 주요 소식',
   'calendar.eyebrow': '기분 한눈에 보기',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': '이번 달 {{tracked}}일 중 {{total}}일을 기록했습니다.',
   'common.goToDashboard': '대시보드로 이동',
   'common.tryAgain': '다시 시도',
+  'entryComposer.bodyPlaceholder':
+    '솔직하게 느껴지는 대로 쓰세요. 다른 사람은 이것을 읽지 않습니다.',
   'entryComposer.cancel': '저널로 돌아가기',
   'entryComposer.heading': '오늘의 성찰',
   'entryComposer.moodLabel': '지금 기분이 어떠세요?',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': '{{tag}} 제거',
   'entryComposer.save': '성찰 저장',
   'entryComposer.saveError': '기록을 저장할 수 없습니다.',
+  'entryComposer.tagPlaceholder': '태그를 추가하고 Enter를 누르세요',
   'entryComposer.titlePlaceholder': '이 성찰에 이름을 지어 주세요…',
   'entryDetail.back': '저널로 돌아가기',
   'entryDetail.delete': '이 항목을 삭제하세요',
@@ -36,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': '성찰을 불러오는 중…',
   'entryDetail.notFound': '기록을 찾을 수 없습니다.',
   'entryDetail.reflectionsHeading': 'AI 성찰',
+  'forgotPassword.continueButton': '재설정 코드 입력',
   'forgotPassword.eyebrow': '걱정하지 마세요',
   'forgotPassword.subheading': '이메일로 부드러운 재설정 링크를 보내 드립니다.',
   'forgotPassword.successBody': '{{email}} 계정이 존재한다면, 재설정 링크가 곧 도착합니다.',
@@ -56,14 +77,21 @@ export const ui: UiTranslations = {
     '아직 테마가 없습니다. 게시물에 태그를 하나 또는 두 개 추가하면 여기에 자동으로 모입니다.',
   'insights.themesHeading': '주요 주제',
   'insights.triggerFrequency': '이번 달에 {{count}}회 발견',
+  'insights.triggersEmpty':
+    '아직 눈에 띄는 것이 없습니다. 며칠 동안 몇 개의 기록이 쌓이면 패턴이 보일 것입니다.',
   'insights.triggersHeading': '기분에 영향을 주는 패턴',
+  'journal.empty': '일치하는 성찰이 없습니다 — 다른 필터를 시도하거나 새 기록을 작성하세요.',
   'journal.eyebrow': '회원님의 성찰',
   'journal.heading': '저널',
   'journal.loadError': '기록을 불러오지 못했습니다.',
   'journal.loading': '기록을 불러오는 중…',
+  'journal.newEntry': '새 기록',
   'journal.searchPlaceholder': '감정, 이름, 순간을 검색해 보세요…',
   'journal.subheading': '{{count}}개의 기록 — 모두 간직할 가치가 있습니다.',
   'journalEntryCard.encryptedLabel': '암호화됨',
+  'landing.ctaBody':
+    '무료로 시작할 수 있습니다. Pro는 데이터 내보내기, 더 큰 저널, 1년 전체 기록을 잠금 해제합니다.',
+  'landing.ctaButton': '첫 기록을 시작하세요',
   'landing.ctaTitle': '하루 몇 분의 조용한 시간. 그것이면 충분합니다.',
   'landing.eyebrow': '부드러운 일상 습관',
   'landing.featuresBody':
@@ -82,6 +110,8 @@ export const ui: UiTranslations = {
   'login.subheading': '매일의 성찰을 위한 부드러운 공간입니다.',
   'mentalHealthJournalLayout.closeMenu': '메뉴 닫기',
   'mentalHealthJournalLayout.openMenu': '메뉴 열기',
+  'mentalHealthJournalLayout.primaryNavLabel': '기본 탐색',
+  'moodHeroCard.entriesThisWeek': '이번 주 {{count}}건',
   'moodHeroCard.streakSuffix': '일 연속',
   'moodHeroCard.title': '오늘의 성찰',
   'moodTrendChart.aiBadge': 'AI 인사이트 준비됨',
@@ -92,11 +122,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': '회원님의 여정',
   'profile.fallbackName': '성찰자',
   'profile.loadError': '통계를 불러오지 못했습니다.',
+  'profile.loading': '통계를 새로 고치는 중…',
   'profile.longestStreak': '최장 연속 기록',
   'profile.memberSince': '{{date}}부터 성찰 중',
   'profile.milestones': '이정표',
   'profile.milestonesEmpty':
     '첫 번째 목표 달성은 단 한 번의 기록만 남았습니다. 준비가 되었다고 느껴질 때 언제든 글을 써보세요.',
+  'profile.moodMix': '이번 시즌의 기분 구성',
   'profile.streakValue': '{{days}}일',
   'profile.totalEntries': '성찰',
   'profile.totalWords': '작성한 단어',
@@ -109,6 +141,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': '이것에 대해 쓰기',
   'resetPassword.eyebrow': '새로운 시작',
   'resetPassword.mismatchError': '비밀번호가 일치하지 않습니다.',
+  'resetPassword.passwordLabel': '새 비밀번호',
   'resetPassword.subheading': '안전한 것으로 선택하세요 — 회원님의 성찰은 그럴 가치가 있습니다.',
   'resetPassword.tokenPlaceholder': '이메일로 받은 재설정 코드',
   'settings.dangerDescription': '계정과 모든 성찰을 영구적으로 삭제합니다. 되돌릴 수 없습니다.',
@@ -119,11 +152,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     '회원님의 글은 항상 회원님의 것입니다. 언제든지 사본을 다운로드하세요.',
   'settings.exportDone': '{{format}} 형식으로 내보냈습니다.',
+  'settings.exportError': '내보내기에 실패했습니다.',
+  'settings.exportHeading': '성찰 내보내기',
   'settings.exportLoading': '준비 중…',
   'settings.eyebrow': '회원님의 공간, 회원님의 규칙',
   'settings.languageHeading': '언어',
   'settings.privacyHeading': '개인정보 및 암호화',
   'settings.remindersHeading': '매일 알림',
+  'settings.reminderToggleAria': '일일 알림 전환',
   'settings.reminderToggleDescription':
     '선택하신 시간에 단 한 번의 차분한 알림. 배지나 연속 기록 압박은 없습니다.',
   'settings.reminderToggleLabel': '부드러운 알림 보내기',
@@ -136,6 +172,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': '저널 만드는 중…',
   'signup.subheading': '회원님의 생각을 위한 안전한 공간입니다.',
   'wellnessRingsTriad.mindfulnessCaption': '오늘 목표 {{goal}}분',
+  'wellnessRingsTriad.mindfulnessLabel': '마음챙김',
   'wellnessRingsTriad.sleepCaption': '밤 목표 {{goal}}시간',
   'wellnessRingsTriad.sleepLabel': '수면',
+  'wellnessRingsTriad.sleepValue': '{{hours}}시간',
+  'wellnessRingsTriad.streakCaption': '목표 {{goal}}일',
+  'wellnessRingsTriad.streakLabel': '저널 연속 기록',
+  'wellnessRingsTriad.streakValue': '{{days}}일',
 }

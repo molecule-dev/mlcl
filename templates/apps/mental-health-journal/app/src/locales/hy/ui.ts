@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ունե՞ք արձագանք, գտե՞լ եք սխալ, թե՞ ուզում եք պատմել, թե ինչպես է օրագիր պահելը օգնել ձեզ։ Մենք կարդում ենք ամեն հաղորդագրություն — գրեք ցանկացած պահի, և իրական մարդ կպատասխանի ձեզ։',
+  'about.contactTitle': 'Կապվեք մեզ հետ',
+  'about.featureInsights':
+    'AI-ով աշխատող անդրադարձումներ, որոնք նրբորեն ընդգծում են խթանիչները, թեմաները և երախտագիտությունները՝ չկորցնելով ձեր ձայնը։',
+  'about.featureMood':
+    'Տրամադրության և ակտիվության հետևում օրացույցի դիտումով և միտումների գծապատկերներով, որոնք բացահայտում են այն, ինչ օգնում է ձեզ ծաղկել։',
+  'about.featurePrivacy':
+    'Ծայրից ծայր գաղտնագրում, գաղտնաբառի կողպեք և ամբողջական CSV արտահանում, որպեսզի ձեր անդրադարձումները մնան գաղտնի և տեղափոխելի։',
+  'about.featurePrompts':
+    'Նուրբ ամենօրյա հուշումներ, որպեսզի միշտ ունենաք սկսելու տեղ — երբեք դատարկ էջ։',
+  'about.intro':
+    '{{app}}-ը նուրբ, գաղտնի հոգեկան առողջության օրագիր է ամենօրյա անդրադարձման, տրամադրության հետևման և երախտագիտության համար։ Մտածված հուշումները փոխարինում են դատարկ էջին, հանգիստ օրինաչափությունների հայտնաբերումն օգնում է հասկանալ, թե ինչն է ազդում ձեր զգացմունքների վրա, իսկ ծայրից ծայր գաղտնագրումը ձեր բառերը պահում է ձերը։',
+  'about.missionBody':
+    'Մենք հավատում ենք, որ ինքներդ ձեզ հետ կապ հաստատելը պետք է լինի հանգիստ, երբեք կլինիկական — և երբեք չնմանվի ձեր ուշադրությունը պահանջող մեկ այլ հավելվածի։ {{app}}-ը ստեղծված է օգնելու, ոչ թե ձանձրացնելու. օրական մի քանի հանգիստ րոպե՝ նկատելու ձեր տրամադրությունը, ազնվորեն գրելու և աստիճանաբար ինքներդ ձեզ ավելի պարզ տեսնելու համար։',
+  'about.missionTitle': 'Մեր առաքելությունը',
   'about.pageTitle': '{{app}}-ի մասին',
   'authShell.encryptionBadge': 'Ձեր գրառումները ծայրից ծայր կոդավորված են։',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Օր {{day}} — գրառում չկա',
   'calendar.cellMood': 'Օր {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Այս ամիսը՝ համառոտ',
   'calendar.eyebrow': 'Տրամադրությունը մի հայացքով',
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Հետևված է {{tracked}} -ի {{total}} օրեր այս ամսվա ընթացքում։',
   'common.goToDashboard': 'Անցնել վահանակ',
   'common.tryAgain': 'Փորձեք կրկին',
+  'entryComposer.bodyPlaceholder': 'Գրեք այնպես, ինչպես ազնիվ է զգացվում։ Ուրիշ ոչ ոք չի կարդա սա։',
   'entryComposer.cancel': 'Վերադառնալ օրագրին',
   'entryComposer.heading': 'Այսօրվա արտացոլումը',
   'entryComposer.moodLabel': 'Ինչպե՞ս ես զգում։',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Հեռացնել {{tag}}',
   'entryComposer.save': 'Պահպանել արտացոլումը',
   'entryComposer.saveError': 'Չհաջողվեց պահպանել ձեր գրառումը։',
+  'entryComposer.tagPlaceholder': 'Ավելացրեք պիտակ և սեղմեք Enter',
   'entryComposer.titlePlaceholder': 'Անուն տվեք այս արտացոլմանը…',
   'entryDetail.back': 'Վերադառնալ օրագրին',
   'entryDetail.delete': 'Ջնջել այս գրառումը',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Արտացոլումը բեռնվում է…',
   'entryDetail.notFound': 'Գրառումը չի գտնվել։',
   'entryDetail.reflectionsHeading': 'Արհեստական բանականության արտացոլումներ',
+  'forgotPassword.continueButton': 'Մուտքագրեք վերականգնման կոդը',
   'forgotPassword.eyebrow': 'Անհանգստանալու կարիք չկա',
   'forgotPassword.subheading': 'Մենք ձեր էլ. փոստին կուղարկենք վերականգնման հղում։',
   'forgotPassword.successBody':
@@ -58,14 +78,21 @@ export const ui: UiTranslations = {
     'Դեռ թեմաներ չկան. ավելացրեք մեկ կամ երկու թեգ ձեր գրառումներին, և դրանք կհավաքվեն այստեղ։',
   'insights.themesHeading': 'Առաջատար թեմաներ',
   'insights.triggerFrequency': 'նկատեց {{count}} × այս ամիս',
+  'insights.triggersEmpty':
+    'Դեռ նկատելու բան չկա։ Մի քանի գրառում մի քանի օրվա ընթացքում ցույց կտա ձեր օրինաչափությունները։',
   'insights.triggersHeading': 'Նախշեր, որոնք փոխում են ձեր տրամադրությունը',
+  'journal.empty': 'Ոչ մի անդրադարձում չի համապատասխանում — փորձեք այլ զտիչ կամ գրեք նոր գրառում։',
   'journal.eyebrow': 'Ձեր արտացոլումները',
   'journal.heading': 'Օրագիր',
   'journal.loadError': 'Չհաջողվեց բեռնել գրառումները։',
   'journal.loading': 'Գրառումները բեռնվում են…',
+  'journal.newEntry': 'Նոր գրառում',
   'journal.searchPlaceholder': 'Փնտրեք մի զգացողություն, մի անուն, մի պահ…',
   'journal.subheading': '{{count}} գրառումներ՝ որոնցից յուրաքանչյուրը արժե պահպանել։',
   'journalEntryCard.encryptedLabel': 'Գաղտնագրված',
+  'landing.ctaBody':
+    'Անվճար է սկսելու համար։ Pro-ն բացում է տվյալների արտահանումը, ավելի մեծ օրագիր և ամբողջ տարվա պատմություն։',
+  'landing.ctaButton': 'Սկսեք ձեր առաջին մուտքագրումը',
   'landing.ctaTitle': 'Օրական մի քանի րոպե լռություն։ Այսքանը։',
   'landing.eyebrow': 'Նուրբ ամենօրյա պրակտիկա',
   'landing.featuresBody':
@@ -84,6 +111,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Ամենօրյա մտորումների համար նուրբ տարածք։',
   'mentalHealthJournalLayout.closeMenu': 'Փակել ընտրացանկը',
   'mentalHealthJournalLayout.openMenu': 'Բացել ընտրացանկը',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
+  'moodHeroCard.entriesThisWeek': '{{count}} այս շաբաթ',
   'moodHeroCard.streakSuffix': 'օրվա շարք',
   'moodHeroCard.title': 'Այսօրվա արտացոլումը',
   'moodTrendChart.aiBadge': 'Արհեստական բանականության պատկերացում պատրաստ է',
@@ -94,11 +123,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Ձեր ճանապարհորդությունը',
   'profile.fallbackName': 'Ռեֆլեկտոր',
   'profile.loadError': 'Չհաջողվեց բեռնել վիճակագրությունը։',
+  'profile.loading': 'Թարմացնում ենք ձեր վիճակագրությունը…',
   'profile.longestStreak': 'Ամենաերկար շարքը',
   'profile.memberSince': 'Անդրադառնալով այն բանից հետո, երբ {{date}}',
   'profile.milestones': 'Կարևորագույն պահեր',
   'profile.milestonesEmpty':
     'Ձեր առաջին հանգրվանը մեկ մուտքի հեռավորության վրա է՝ գրեք, երբ պատրաստ լինեք։',
+  'profile.moodMix': 'Ձեր տրամադրության խառնուրդն այս սեզոնին',
   'profile.streakValue': '{{days}} դ',
   'profile.totalEntries': 'Արտացոլումներ',
   'profile.totalWords': 'Գրված բառեր',
@@ -111,6 +142,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Գրեք այս մասին',
   'resetPassword.eyebrow': 'Նոր սկիզբ',
   'resetPassword.mismatchError': 'Գաղտնաբառերը չեն համընկնում։',
+  'resetPassword.passwordLabel': 'Նոր գաղտնաբառ',
   'resetPassword.subheading': 'Ընտրեք ինչ-որ անվտանգ բան՝ ձեր արտացոլանքները արժանի են դրան։',
   'resetPassword.tokenPlaceholder': 'Վերականգնել կոդը էլ. փոստից',
   'settings.dangerDescription':
@@ -122,11 +154,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     'Քո խոսքերը միշտ քեզ են պատկանում։ Ներբեռնեք պատճենը ցանկացած պահի։',
   'settings.exportDone': 'Արտահանված {{format}}.',
+  'settings.exportError': 'Արտահանումը ձախողվեց։',
+  'settings.exportHeading': 'Արտահանեք ձեր անդրադարձումները',
   'settings.exportLoading': 'Պատրաստվում է…',
   'settings.eyebrow': 'Ձեր տարածքը, ձեր կանոնները',
   'settings.languageHeading': 'Լեզու',
   'settings.privacyHeading': 'Գաղտնիություն և կոդավորում',
   'settings.remindersHeading': 'Ամենօրյա հիշեցում',
+  'settings.reminderToggleAria': 'Փոխարկել ամենօրյա հիշեցումը',
   'settings.reminderToggleDescription':
     'Մեկ հանգստացնող հիշեցում ձեր ընտրած պահին։ Առանց կրծքանշանների կամ մեղքի զգացման։',
   'settings.reminderToggleLabel': 'Ուղարկեք թեթև հրում',
@@ -139,6 +174,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Օրագրի ստեղծում…',
   'signup.subheading': 'Անվտանգ տարածք ձեր մտքերի համար։',
   'wellnessRingsTriad.mindfulnessCaption': 'Նպատակ {{goal}} րոպե այսօր',
+  'wellnessRingsTriad.mindfulnessLabel': 'Մտածողություն',
   'wellnessRingsTriad.sleepCaption': 'Նպատակ {{goal}} ժ / գիշեր',
   'wellnessRingsTriad.sleepLabel': 'Քուն',
+  'wellnessRingsTriad.sleepValue': '{{hours}}ժ',
+  'wellnessRingsTriad.streakCaption': 'Նպատակը {{goal}} օր',
+  'wellnessRingsTriad.streakLabel': 'Օրագրի շարք',
+  'wellnessRingsTriad.streakValue': '{{days}} դ',
 }

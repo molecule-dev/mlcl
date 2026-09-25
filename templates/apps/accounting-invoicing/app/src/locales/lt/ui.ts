@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Turite klausimą, radote klaidą ar norite perkelti savo knygas? Susisiekite su {{app}} komanda adresu hello@{{app}}.example — kiekvieną žinutę perskaito tikras žmogus.',
   'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
+  'about.intro':
+    '{{app}} – tai mažų įmonių apskaita, kurioje kiekvienas centas yra apskaitomas: sąskaitos faktūros, išlaidos, mokėjimai ir ataskaitos vienoje ramioje vietoje savininkams, buhalteriams ir apskaitininkams.',
+  'about.missionBody':
+    'Verslo vykdymas neturėtų reikšti baimės prieš savo buhalteriją. {{app}} pakeičia išsibarsčiusias skaičiuokles aiškiais skaičiais, pagal kuriuos galite veikti, todėl praleidžiate mažiau laiko derindami ir daugiau laiko darydami tai, dėl ko iš tikrųjų pradėjote verslą.',
+  'about.missionTitle': 'Mūsų misija',
   'about.title': 'Apie {{app}}',
   'accounts.count': '{{count}} sąskaitos',
+  'accounts.emptyBody':
+    'Didžiosios knygos sąskaitos seka, kur pinigai yra ir kur jie juda. Jos atsiras čia, kai jūsų buhalteris ar integracija jas nustatys.',
   'accounts.emptyTitle': 'Dar nėra paskyrų',
   'accounts.heading': 'Sąskaitų planas',
   'accounts.kpi.accounts': 'Accounts',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Visos apskaitos sąskaitos, susijusios su jūsų sąskaitomis faktūromis, išlaidomis ir mokėjimais, sugrupuotos pagal tipą.',
   'accounts.tag.inactive': 'neaktyvus',
   'authBrandPanel.attributionName': 'Sara Dženkins',
+  'authBrandPanel.attributionRole': 'Finansų direktorius, Horizon Tech',
   'authBrandPanel.eyebrow': 'Finansų komandų pasitikėjimas',
   'authBrandPanel.label': 'Prekės ženklo demonstracija',
   'authBrandPanel.quote': '„Ledger“ pakeitė pajamų stebėjimo būdą. Tikslumas – pats geriausias.“',
@@ -30,7 +40,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Visi klientai',
   'customerDetail.invoiceMeta': 'Išduota {{issued}} · Grąžinimo data {{due}}',
   'customerDetail.loadError': 'Nepavyko įkelti kliento.',
+  'customerDetail.missingBody':
+    'Nepavyko įkelti prašyto kliento įrašo. Jis galėjo būti pašalintas arba galite neturėti prieigos prie jo.',
   'customerDetail.missingHeading': 'Kliento įrašas nepasiekiamas',
+  'customerDetail.missingHelp':
+    'Naudokite aukščiau esančią nuorodą „Atgal“, kad grįžtumėte į klientų sąrašą, arba ten pasirinkite kitą įrašą.',
+  'customerDetail.noInvoices': 'Sąskaitų dar nėra.',
   'customerDetail.notesEmpty': 'Dar nėra užrašų.',
   'customerDetail.paymentsEmpty': 'Mokėjimų neužfiksuota.',
   'customerDetail.paymentTerms': 'Mokėjimo sąlygos',
@@ -57,6 +72,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Atskaitoma suma',
   'expenseDetail.detailsHeading': 'Operacijos informacija',
   'expenseDetail.loadError': 'Nepavyko įkelti išlaidų.',
+  'expenseDetail.matched': 'Suderinta · {{description}}',
   'expenseDetail.missingBody':
     'Nepavyko įkelti prašomos išlaidos. Jos galėjo būti pašalintos arba neturite prie jų prieigos.',
   'expenseDetail.missingHeading': 'Išlaidų įrašas nepasiekiamas',
@@ -64,6 +80,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Kvitą',
   'expenseDetail.receiptHeading': 'Kvitą',
   'expenseDetail.reconciled': 'Suderinta',
+  'expenseDetail.unreconciled': 'Nesuderintas',
   'expenses.empty': 'Išlaidų dar nėra.',
   'expenses.heading': 'Išlaidos',
   'expenses.kpi.deductible': 'Atskaitoma suma',
@@ -99,6 +116,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Nepavyko įkelti sąskaitų faktūrų.',
   'invoices.searchPlaceholder': 'Ieškoti sąskaitos faktūros Nr. arba kliento…',
   'invoices.summary.paid': 'Sumokėta šiuo laikotarpiu',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     '30 dienų nemokamai. Nereikia kortelės. Atsiveskite savo buhalterį – jis jums padėkos.',
   'landing.ctaTitle': 'Perkelkite knygas į ramesnę vietą.',
@@ -113,6 +131,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Gautinos sumos',
   'ledgerStatTriad.eyebrow.mtd': 'Mėnuo nuo šiol',
   'ledgerStatTriad.netSub': 'Grynasis {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} vėluoja',
   'ledgerStatTriad.revenueLabel': 'Pajamos',
   'login.failed': 'Prisijungti nepavyko.',
   'login.hidePassword': 'Paslėpti slaptažodį',
@@ -123,6 +142,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Prisijungti',
   'nav.legal': 'Teisinis',
   'newExpense.back': 'Išlaidos',
+  'newExpense.clearReceiptCta': 'Išvalyti pridėtą kvitą',
   'newExpense.deductible': 'Mokesčių atskaitymas',
   'newExpense.dropPrompt': 'Prisekite kvito nuotrauką arba PDF failą čia.',
   'newExpense.failed': 'Nepavyko sutaupyti išlaidų.',
@@ -151,6 +171,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Nepavyko įkelti mokėjimų.',
   'payments.unmatchedTag': 'neprilygstamas',
   'planUpdated.pageLabel': 'Plano atnaujinimo patvirtinimas',
+  'pricing.advancedFeatures': 'Išplėstinės funkcijos: {{yes}}',
+  'pricing.canExport': 'Duomenų eksportas: {{yes}}',
+  'pricing.heading': 'Pasirinkite savo {{app}} planą',
+  'pricing.maxAccounts': '{{count}} sąskaitos',
+  'pricing.maxExpenses': '{{count}} išlaidos',
+  'pricing.maxInvoices': '{{count}} sąskaitų faktūrų',
+  'privacy.intro':
+    'Šioje privatumo politikoje aprašoma, kaip {{app}} renka, naudoja ir atskleidžia informaciją apie įmones, kurios naudojasi paslauga.',
   'privacy.lastUpdated': 'Paskutinį kartą atnaujinta: {{data}}',
   'privacy.section.collected.body':
     'Mes renkame paskyros duomenis (vardą, pavardę, el. pašto adresą, įmonę), jūsų įkeltus finansinius įrašus (sąskaitas faktūras, išlaidas, klientus, mokėjimus) ir standartinius paslaugų veikimo žurnalus (IP, vartotojo agentą, laiko žymas).',
@@ -163,8 +191,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Informacija naudojama paslaugai valdyti, jūsų prašomoms ataskaitoms ir PDF failams generuoti, operacijų el. laiškams siųsti per „Mailgun“ ir mokėjimams apdoroti per „Stripe“. Mes neparduodame ir nenuomojame asmeninės informacijos.',
   'recentInvoicesCard.dueMeta': 'Dėl {{date}}',
+  'recentInvoicesCard.empty': 'Nėra sutampančių sąskaitų faktūrų.',
   'recentInvoicesCard.eyebrow': 'Gautinos sumos',
   'recentInvoicesCard.searchAriaLabel': 'Ieškoti sąskaitų faktūrų',
+  'recentInvoicesCard.searchPlaceholder': 'Ieškoti sąskaitų faktūrų…',
   'recentInvoicesCard.title': 'Naujausios sąskaitos',
   'recentInvoicesCard.viewAll': 'Peržiūrėti visas sąskaitas faktūras →',
   'reports.assets': 'Turtas',
@@ -180,16 +210,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Pelnas ir nuostolis (12 mėn.)',
   'resetPassword.backToLogin': '← Atgal į prisijungimą',
   'resetPassword.hidePassword': 'Paslėpti slaptažodį',
+  'resetPassword.passwordLabel': 'Naujas slaptažodis',
   'resetPassword.showPassword': 'Rodyti slaptažodį',
+  'resetPassword.subheading': 'Pasirinkite stiprų slaptažodį – bent aštuonis simbolius.',
   'resetPassword.submit': 'Atkurti slaptažodį',
   'resetPassword.tooShort': 'Slaptažodis turi būti ne trumpesnis kaip 8 simbolių.',
   'settings.account.changePassword': 'Keisti slaptažodį',
   'settings.account.changingPassword': 'Keičiasi…',
   'settings.account.currentPassword': 'Dabartinis slaptažodis',
+  'settings.account.dangerZone': 'Pavojinga zona',
   'settings.account.deleteAccount': 'Ištrinti paskyrą',
   'settings.account.deleteDescription':
     'Galutinai ištrinkite savo paskyrą ir visus su ja susijusius duomenis.',
   'settings.account.deleteError': 'Nepavyko ištrinti paskyros.',
+  'settings.account.deleteWarning':
+    'Tai visam laikui ištrina jūsų paskyrą ir negalima atšaukti. Įveskite slaptažodį, kad patvirtintumėte.',
   'settings.account.deleting': 'Ištrinama…',
   'settings.account.devices': 'Įrenginiai',
   'settings.account.email': 'El. paštas',
@@ -200,6 +235,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Slaptažodis',
   'settings.account.passwordError': 'Nepavyko pakeisti slaptažodžio.',
   'settings.account.pushNotifications': 'Pranešimai apie naujus įvykius šiame įrenginyje',
+  'settings.account.revokeDeviceWarning':
+    'Šio įrenginio prieiga netrukus bus atšaukta. Atjungti jį?',
   'settings.account.saveError': 'Nepavyko atnaujinti profilio.',
   'settings.account.security': 'Saugumas',
   'settings.account.signOutDevice': 'Atsijungti',
@@ -207,12 +244,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Dviejų veiksnių autentifikavimas',
   'settings.account.twoFactorCode': 'Autentifikavimo kodas',
   'settings.account.twoFactorDisable': 'Išjungti',
+  'settings.account.twoFactorDisableTitle': 'Išjungti dviejų veiksnių autentifikavimą',
   'settings.account.twoFactorEnable': 'Įjungti',
+  'settings.account.twoFactorEnableTitle': 'Įjungti dviejų veiksnių autentifikavimą',
   'settings.account.twoFactorInvalidCode': 'Neteisingas kodas',
   'settings.account.twoFactorOn': 'Dėl',
+  'settings.account.twoFactorQrAlt': 'Dviejų veiksnių QR kodas',
+  'settings.account.twoFactorScan':
+    'Nuskaitykite šį QR kodą su autentifikavimo programa, tada įveskite 6 skaitmenų kodą.',
+  'settings.account.twoFactorUnavailable':
+    'Dviejų veiksnių autentifikavimas šiai programai negalimas.',
   'settings.account.twoFactorVerify': 'Patikrinti ir įjungti',
   'settings.account.unknownDevice': 'Nežinomas įrenginys',
   'settings.company.email': 'Atsiskaitymo el. paštas',
+  'settings.company.heading': 'Įmonė ir mokesčiai',
   'settings.company.name': 'Teisinis pavadinimas',
   'settings.company.saveButton': 'Išsaugoti įmonės profilį',
   'settings.company.taxId': 'Mokesčių mokėtojo kodas / El. pašto identifikavimo numeris',
@@ -256,6 +301,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Apskaičiuota kas ketvirtį',
   'taxes.kpi.owed': 'Skola',
   'taxes.loadError': 'Nepavyko įkelti mokesčių suvestinės.',
+  'taxes.remittedPct': '({{pct}} % pervesta)',
+  'terms.intro':
+    'Šios paslaugų teikimo sąlygos („Sąlygos“) reglamentuoja jūsų prieigą prie {{app}} ir naudojimąsi ja. Sukurdami paskyrą ar naudodamiesi paslauga sutinkate laikytis šių sąlygų.',
   'terms.lastUpdated': 'Paskutinį kartą atnaujinta: {{data}}',
   'terms.section.acceptable.body':
     'Jūs sutinkate nenaudoti paslaugos pažeidžiant jokius įstatymus, intelektinės nuosavybės teises, neperduodant kenkėjiškų programų ar bandant gauti neteisėtą prieigą prie kitų paskyrų ar mūsų infrastruktūros.',

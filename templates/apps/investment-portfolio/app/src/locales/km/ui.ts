@@ -1,10 +1,33 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'មានមតិកែលម្អ រកឃើញកំហុស ឬចង់បានមុខងារថ្មី? ទាក់ទងមកពីការកំណត់គណនីរបស់អ្នក — រាល់សារទាំងអស់ត្រូវបានផ្ញើទៅមនុស្សពិតប្រាកដក្នុងក្រុមការងារ។ ចំណាំ៖ គ្មានអ្វីនៅទីនេះជាដំបូន្មានវិនិយោគទេ អ្នកនៅតែគ្រប់គ្រងរាល់ការជួញដូររបស់អ្នក។',
+  'about.contactTitle': 'ទាក់ទងមកយើង',
+  'about.featureAttribution':
+    'ការវិភាគលទ្ធផល — បំបែកផលត្រឡប់តាមវិស័យ តំបន់ និងប្រភេទទ្រព្យ ព្រមទាំងប្រៀបធៀបជាមួយសន្ទស្សន៍ក្នុងរយៈពេលណាមួយ។',
+  'about.featureRebalance':
+    'ការធ្វើសមតុល្យឡើងវិញប្រកបដោយវិន័យ — កំណត់គោលដៅបែងចែក និងជួរអត់ធ្មត់ មើលឃើញគម្លាតត្រូវបានសម្គាល់ទាន់ពេល និងទទួលបានការជួញដូរដែលនាំអ្នកត្រឡប់មកវិញ។',
+  'about.featureTax':
+    'ភាពរៀបរយនៃឯកសារពន្ធ — ផលចំណេញដែលបានដាក់លក់ និងមិនទាន់ដាក់លក់ ភាគលាភ និងឯកសារ 1099 នៅកន្លែងតែមួយ ព្រមទាំងសញ្ញាសម្គាល់ការលក់ខាតពន្ធ។',
+  'about.featureUnified':
+    'ផលប័ត្ររួមតែមួយ — ភាគហ៊ុន ETF មូលនិធិទៅវិញទៅមក សញ្ញាបណ្ណ និងច្រើនទៀត ប្រមូលផ្តុំពីគ្រប់គណនីឈ្មួញកណ្តាល។',
+  'about.featureWatchlist':
+    'បញ្ជីតាមដាន ព័ត៌មាន និងការជូនដំណឹងតម្លៃ ដើម្បីឱ្យអ្នកអាចធ្វើសកម្មភាពលើអ្វីដែលសំខាន់ដោយគ្មានសំឡេងរំខាន។',
+  'about.intro':
+    '{{app}} គឺជាផ្ទាំងគ្រប់គ្រងផលប័ត្រពហុទ្រព្យសម្រាប់វិនិយោគិនបុគ្គល និងទីប្រឹក្សាឯករាជ្យ។ ភាគហ៊ុន ETF មូលនិធិទៅវិញទៅមក សញ្ញាបណ្ណ អចលនទ្រព្យ និងសាច់ប្រាក់ — រាល់ការកាន់កាប់ក្នុងគ្រប់គណនី នៅកន្លែងតែមួយ ជាមួយវិន័យនៃតុជំនាញអាជីព។',
+  'about.missionBody':
+    'ការវិនិយោគល្អភាគច្រើនគឺវិន័យ៖ គោលដៅបែងចែកច្បាស់លាស់ ការវិភាគលទ្ធផលដោយស្មោះត្រង់ និងកំណត់ត្រាពន្ធរៀបរយ។ {{app}} នាំយកទម្លាប់ស្ថាប័នទាំងនោះមកឱ្យអ្នកគ្រប់គ្នា ដើម្បីឱ្យអ្នកអាចធ្វើសមតុល្យឡើងវិញដោយចេតនា ជាជាងតាមអារម្មណ៍ — ហើយមិនបាត់បង់ការមើលឃើញពីអ្វីដែលផលប័ត្ររបស់អ្នកកំពុងធ្វើ។',
+  'about.missionTitle': 'បេសកកម្មរបស់យើង',
   'about.pageTitle': 'អំពី {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · ឧបករណ៍​សម្រាប់​គ្រប់គ្រង​ទ្រព្យសម្បត្តិ',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} ។ មិនមែនជាដំបូន្មានវិនិយោគទេ។',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'ផ្ទាំងគ្រប់គ្រងផលប័ត្រសម្រាប់វិនិយោគិន និងទីប្រឹក្សាបុគ្គល ដែលចង់បានការធ្វើឱ្យមានតុល្យភាពឡើងវិញដោយមានវិន័យ ការបញ្ជាក់អំពីការអនុវត្តដ៏មុតស្រួច និងអនាម័យឯកសារពន្ធដារ — ដោយគ្មានសំឡេងរំខាន។',
+  'argentAuthShell.formFooter': '© {{year}} {{app}} · លទ្ធផលកន្លងមកមិនធានាលទ្ធផលអនាគតទេ។',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) ថ្ងៃនេះ',
+  'argentAuthShell.sampleLabel': 'តម្លៃផលប័ត្រ',
   'argentAuthShell.sampleValue': '១,០៣២,២៥១ ដុល្លារ',
   'argentLayout.primaryNavLabel': 'ការរុករកចម្បង',
   'assetAllocationDonut.heading': 'របៀបដែលប្រាក់របស់អ្នកត្រូវបានវិនិយោគ',
@@ -26,6 +49,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'ថ្ងៃនេះ',
   'assetDetail.txEmpty': 'គ្មានប្រតិបត្តិការសម្រាប់សញ្ញាសម្គាល់នេះទេ។',
   'assetDetail.txHeading': 'ប្រតិបត្តិការរបស់អ្នក',
+  'auth.legalConsent.prefix': 'ដោយបន្ត អ្នកយល់ព្រមនឹង {{appName}} របស់',
   'common.and': 'និង',
   'common.goToDashboard': 'ទៅផ្ទាំងគ្រប់គ្រង',
   'common.no': '—',
@@ -37,10 +61,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'ថ្ងៃនេះ',
   'dashboard.topHoldings.heading': 'កន្លែងដែលលុយរបស់អ្នកកំពុងដំណើរការ',
   'dashboard.topHoldings.label': 'ក្រុមហ៊ុន​ភាគហ៊ុន​កំពូលៗ',
+  'forgotPassword.gotLinkCta': 'ខ្ញុំមានតំណកំណត់ឡើងវិញ →',
+  'forgotPassword.subheading':
+    'បញ្ចូលអ៊ីមែលនៅលើគណនី Gavl របស់អ្នក ហើយយើងនឹងផ្ញើតំណភ្ជាប់កំណត់ឡើងវិញដែលមានសុវត្ថិភាពទៅអ្នក។',
   'forgotPassword.successBody':
     'ប្រសិនបើអ្នកមិនឃើញវាក្នុងរយៈពេលពីរបីនាទីទេ សូមពិនិត្យមើលថតសារឥតបានការរបស់អ្នក ឬសាកល្បងអ៊ីមែលផ្សេង។',
   'forgotPassword.successSubheading':
     'ពិនិត្យ {{email}} សម្រាប់តំណកំណត់ឡើងវិញ។ វាផុតកំណត់ក្នុងរយៈពេល 60 នាទី។',
+  'forgotPassword.successTitle': 'អ៊ីមែលកំណត់ឡើងវិញកំពុងផ្ញើមក',
   'holdingHighlightRow.todayLabel': 'ថ្ងៃនេះ',
   'holdings.addCta': 'ទិញ',
   'holdings.col.allocation': 'បែងចែក',
@@ -58,6 +86,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} ។ មិនមែនជាដំបូន្មានវិនិយោគទេ។ ការអនុវត្តកន្លងមកមិនធានានូវលទ្ធផលនាពេលអនាគតទេ។',
   'landing.eyebrow': 'Argent · វេទិកាឧបករណ៍សម្រាប់ទ្រព្យសម្បត្តិ',
   'landing.features.heading': 'អ្វីគ្រប់យ៉ាងដែលអ្នកប្រឹក្សានឹងសាងសង់សម្រាប់ខ្លួនឯង។',
+  'landing.finalCta.body':
+    'ភ្ជាប់គណនីឈ្មួញកណ្តាលរបស់អ្នកក្នុងពីរចុច។ {{appName}} ធ្វើអ្វីដែលនៅសល់។',
+  'landing.finalCta.cta': 'បើកគណនី Argent របស់អ្នក',
   'landing.finalCta.heading': 'នាំយកវិន័យត្រឡប់ទៅក្នុងផលប័ត្ររបស់អ្នកវិញ។',
   'landing.footerSignup': 'បើកគណនីមួយ',
   'landing.getStarted': 'បើកគណនីមួយ',
@@ -65,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'មើលតម្លៃ',
   'landing.heroSubtitle':
     'ផ្ទាំងគ្រប់គ្រងផលប័ត្រសម្រាប់វិនិយោគិន និងទីប្រឹក្សាបុគ្គល ដែលចង់បានការធ្វើឱ្យមានតុល្យភាពឡើងវិញដោយមានវិន័យ ការបញ្ជាក់អំពីការអនុវត្តដ៏មុតស្រួច និងអនាម័យឯកសារពន្ធដារ — ដោយគ្មានសំឡេងរំខាន។',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'ការមើលជាមុនផ្ទាល់ពីផលប័ត្រតំណាង',
   'login.heading': 'ចូលគណនី Argent',
   'login.subheading':
@@ -76,6 +108,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} ម៉ោងមុន',
   'news.justNow': 'អម្បាញ់មិញ',
   'news.loadError': 'បរាជ័យក្នុងការផ្ទុកព័ត៌មាន។',
+  'planUpdated.body':
+    'ការផ្លាស់ប្តូរវិក្កយបត្ររបស់អ្នកឥឡូវសកម្មហើយ។ អ្នកអាចគ្រប់គ្រងគម្រោងរបស់អ្នកបានគ្រប់ពេលពីទំព័រវិក្កយបត្រ។',
+  'planUpdated.retry': 'ព្យាយាមម្តងទៀត',
+  'planUpdated.verifyFailed': 'យើងមិនទាន់អាចបញ្ជាក់ការទូទាត់របស់អ្នកបាននៅឡើយទេ។',
+  'planUpdated.verifyFailedBody':
+    'ការទូទាត់របស់អ្នកប្រហែលជានៅតែកំពុងដំណើរការ។ សូមព្យាយាមម្តងទៀតនៅពេលបន្តិចទៀត។',
   'planUpdated.verifying': 'កំពុងបញ្ជាក់ការទូទាត់របស់អ្នក…',
   'portfolioHeroCard.label': 'តម្លៃផលប័ត្រ',
   'pricing.holdingsLabel': 'ការកាន់កាប់',
@@ -86,12 +124,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'គម្លាត​នៃ​ការ​បែងចែក',
   'rebalance.empty': 'មិនទាន់មានគោលដៅកំណត់នៅឡើយទេ។',
   'rebalance.executeCta': 'ទីកន្លែង {{count}} ការជួញដូរ',
+  'rebalance.executeError': 'បរាជ័យក្នុងការដាក់ការជួញដូរ។',
   'rebalance.executeOk': 'បានដាក់ {{count}} ការជួញដូរ។ មើលពួកវានៅលើទំព័រប្រតិបត្តិការ។',
+  'rebalance.executing': 'កំពុងដាក់…',
   'rebalance.eyebrow': 'តុល្យភាពឡើងវិញ · ទីប្រឹក្សា Argent',
   'rebalance.heading': 'នាំយកផលប័ត្ររបស់អ្នកត្រឡប់ទៅរកវិន័យវិញ',
   'rebalance.loadError': 'បរាជ័យក្នុងការផ្ទុកផែនការធ្វើឱ្យមានតុល្យភាពឡើងវិញ។',
+  'rebalance.plan.driftLine': 'បច្ចុប្បន្ន {{current}}% · គោលដៅ {{target}}%',
   'rebalance.planHeading': 'សំបុត្រ Argent — ពិនិត្យឡើងវិញមុនពេលដាក់',
   'rebalance.planLabel': 'ផែនការពាណិជ្ជកម្មដែលបានណែនាំ',
+  'rebalance.subheading':
+    'ជួរដែលនៅក្រៅជួរអត់ធ្មត់របស់ពួកវានឹងបង្កឱ្យមានសំណើជួញដូរ។ {{appName}} ធ្វើសកម្មភាពតែលើការបញ្ជាក់របស់អ្នកប៉ុណ្ណោះ។',
   'rebalance.summary.buyLabel': 'ទិញ',
   'rebalance.summary.buySub': 'មុខតំណែងដើម្បីបំពេញបន្ថែម',
   'rebalance.summary.driftLabel': 'ក្រៅ​ក្រុម​តន្ត្រី',
@@ -100,6 +143,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'ឆ្លងកាត់ការជួញដូរដែលបានណែនាំ',
   'rebalance.summary.sellLabel': 'លក់',
   'rebalance.summary.sellSub': 'មុខតំណែងសម្រាប់កាត់',
+  'rebalanceDriftCard.drift': 'គម្លាត {{sign}}{{pct}}% · ជួរ ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'គោលដៅ {{pct}} %',
   'reports.attributionHeading': 'ការបញ្ជាក់អំពីការអនុវត្ត (1 ឆ្នាំ)',
   'reports.col.alpha': 'អាល់ហ្វា',
@@ -113,37 +157,69 @@ export const ui: UiTranslations = {
   'reports.col.year': 'ឆ្នាំ',
   'reports.gainsHeading': 'ចំណេញ​ដែល​បាន​សម្រេច និង​មិន​បាន​សម្រេច',
   'reports.noAttribution': 'មិនទាន់មានទិន្នន័យបញ្ជាក់នៅឡើយទេ។',
+  'reports.noGains': 'មិនទាន់មានទិន្នន័យផលចំណេញដែលបានដាក់លក់/មិនទាន់ដាក់លក់នៅឡើយទេ។',
   'reports.noPerformance': 'មិនទាន់មានទិន្នន័យប្រតិបត្តិការនៅឡើយទេ។',
   'reports.noTaxDocs': 'មិនទាន់មានឯកសារពន្ធនៅឡើយទេ។',
   'reports.performanceHeading': 'ការអនុវត្តធៀបនឹងស្តង់ដារ',
   'reports.taxHeading': 'ឯកសារពន្ធ',
   'resetPassword.heading': 'ជ្រើសរើសពាក្យសម្ងាត់ថ្មីដែលរឹងមាំ',
+  'resetPassword.passwordPlaceholder': 'ពាក្យសម្ងាត់ថ្មី',
   'resetPassword.subheading':
     'Argent នឹងនាំអ្នកចូលដោយស្វ័យប្រវត្តិ នៅពេលដែលពាក្យសម្ងាត់របស់អ្នកត្រូវបានកំណត់។',
   'resetPassword.tokenPlaceholder': 'កំណត់​សញ្ញាសម្ងាត់​ឡើងវិញ​ពី​អ៊ីមែល',
+  'settings.appearance.description': 'ប្តូររវាងរបៀបភ្លឺ និងងងឹត។',
   'settings.appearance.title': 'រូបរាង',
+  'settings.devices.body': 'ឧបករណ៍​ដែល​កំពុង​ចូល​គណនី​របស់​អ្នក។',
+  'settings.devices.empty': 'រកមិនឃើញឧបករណ៍ទេ។',
   'settings.devices.heading': 'ឧបករណ៍',
+  'settings.devices.revokeWarning':
+    'ការចូលប្រើរបស់ឧបករណ៍នេះនឹងត្រូវបានដកហូតក្នុងពេលឆាប់ៗ។ ចាកចេញវា?',
   'settings.devices.signOut': 'ចាកចេញ',
   'settings.devices.thisDevice': 'ឧបករណ៍នេះ',
   'settings.devices.unknown': 'ឧបករណ៍មិនស្គាល់',
   'settings.linked.body':
     'ការធ្វើសមកាលកម្មឈ្មួញកណ្តាលតម្រូវឱ្យមានឧបករណ៍ភ្ជាប់ភាគីទីបី (Plaid, Yodlee ។ល។)។ កំណត់រចនាសម្ព័ន្ធអ្នកផ្តល់សេវារបស់អ្នកនៅក្នុងបរិស្ថានរបស់អ្នក ដើម្បីបើកការនាំចូលដោយស្វ័យប្រវត្តិ។',
   'settings.linked.heading': 'គណនីឈ្មួញកណ្តាលដែលបានភ្ជាប់',
+  'settings.linked.placeholder': 'មិនទាន់មានគណនីដែលបានភ្ជាប់នៅឡើយទេ។',
+  'settings.notifications.dividendsPaid': 'ភាគលាភបានបង់',
   'settings.notifications.error': 'មិនអាចធ្វើបច្ចុប្បន្នភាពចំណូលចិត្តបានទេ។',
   'settings.notifications.priceAlerts': 'ការជូនដំណឹងអំពីតម្លៃ',
+  'settings.notifications.rebalanceDrift': 'គម្លាតសមតុល្យឡើងវិញ',
+  'settings.notifications.taxDocsReady': 'ឯកសារពន្ធរួចរាល់',
   'settings.profile.advisor': 'អ៊ីមែលអ្នកប្រឹក្សា (ស្រេចចិត្ត)',
   'settings.profile.heading': 'ប្រវត្តិរូប',
   'settings.security.changePassword': 'ប្តូរពាក្យសម្ងាត់',
+  'settings.security.changePasswordTitle': 'ប្តូរពាក្យសម្ងាត់',
   'settings.security.changing': 'កំពុងផ្លាស់ប្តូរ…',
+  'settings.security.confirmPassword': 'ពាក្យសម្ងាត់',
+  'settings.security.currentPassword': 'ពាក្យសម្ងាត់បច្ចុប្បន្ន',
   'settings.security.deleteAccount': 'លុបគណនី',
   'settings.security.deleteError': 'មិនអាចលុបគណនីបានទេ។',
   'settings.security.deleteHeading': 'លុបគណនី',
+  'settings.security.deleteModalWarning':
+    'ការនេះលុបគណនី និងទិន្នន័យរបស់អ្នកជាអចិន្ត្រៃយ៍។ បញ្ចូលពាក្យសម្ងាត់របស់អ្នកដើម្បីបញ្ជាក់។',
+  'settings.security.deleteWarning':
+    'លុបគណនីរបស់អ្នក និងទិន្នន័យពាក់ព័ន្ធទាំងអស់ជាអចិន្ត្រៃយ៍។ ការនេះមិនអាចត្រឡប់វិញបានទេ។',
   'settings.security.deleting': 'កំពុងលុប…',
   'settings.security.heading': 'សន្តិសុខ',
   'settings.security.newPassword': 'ពាក្យសម្ងាត់ថ្មី',
   'settings.security.password': 'ពាក្យសម្ងាត់',
+  'settings.security.passwordError': 'មិនអាចប្តូរពាក្យសម្ងាត់បានទេ។',
+  'settings.security.passwordHint': 'ផ្លាស់ប្តូរពាក្យសម្ងាត់ដែលអ្នកប្រើដើម្បីចូល។',
+  'settings.security.twoFactor': 'ការផ្ទៀងផ្ទាត់ពីរកត្តា',
+  'settings.security.twoFactorCode': 'លេខកូដផ្ទៀងផ្ទាត់',
+  'settings.security.twoFactorDisable': 'បិទ',
+  'settings.security.twoFactorDisableTitle': 'បិទការផ្ទៀងផ្ទាត់ពីរជាន់',
   'settings.security.twoFactorEnable': 'បើកដំណើរការ',
+  'settings.security.twoFactorEnableTitle': 'បើកការផ្ទៀងផ្ទាត់ពីរជាន់',
+  'settings.security.twoFactorHint': 'បន្ថែមស្រទាប់ការពារបន្ថែមទៀតដល់គណនីរបស់អ្នក។',
   'settings.security.twoFactorInvalidCode': 'លេខកូដមិនត្រឹមត្រូវ',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'កូដ QR ការផ្ទៀងផ្ទាត់ពីរកត្តា',
+  'settings.security.twoFactorScan':
+    'ស្កេនកូដ QR នេះដោយកម្មវិធីផ្ទៀងផ្ទាត់របស់អ្នក បន្ទាប់មកបញ្ចូលកូដ 6 ខ្ទង់។',
+  'settings.security.twoFactorUnavailable':
+    'ការផ្ទៀងផ្ទាត់ពីរកត្តាមិនអាចប្រើសម្រាប់កម្មវិធីនេះបានទេ។',
   'settings.security.twoFactorVerify': 'ផ្ទៀងផ្ទាត់ និងបើក',
   'settings.tax.error': 'មិនអាចធ្វើបច្ចុប្បន្នភាពវិធីសាស្ត្របង់ពន្ធបានទេ។',
   'settings.tax.heading': 'គណនេយ្យពន្ធដារ',
@@ -154,6 +230,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'វិធីសាស្ត្រពន្ធត្រូវបានរក្សាទុក។',
   'signup.eyebrow': 'បើកគណនីមួយ',
   'signup.heading': 'បើកគណនី Argent របស់អ្នក',
+  'signup.legalPrefix': 'ដោយបង្កើតគណនី អ្នកយល់ព្រមនឹង {{appName}}',
   'signup.subheading': 'ឥតគិតថ្លៃរយៈពេល 30 ថ្ងៃ។ មិនតម្រូវឱ្យមានកាតទេ។ លុបចោលនៅពេលណាក៏បាន។',
   'signup.terms':
     'តាមរយៈការបង្កើតគណនី អ្នកយល់ព្រមតាមលក្ខខណ្ឌនៃសេវាកម្ម និងគោលការណ៍ឯកជនភាពរបស់ Argent។',

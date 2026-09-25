@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Savollar, fikr-mulohaza yoki funksiya so'rovi bormi? Sozlamalar → Bildirishnomalar bo'limidan {{app}} jamoasiga murojaat qiling yoki istalgan vaqtda bizga yozing — har bir xabar haqiqiy insonga yetib boradi.",
+  'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
+  'about.featureCapture':
+    "Xarajatni qatorma-qator to'g'ri joyga biriktiruvchi foto yuklash bilan chekni suratga olish.",
+  'about.featureExport':
+    'Har bir hisobot, xarajat va tasdiqlash holatining audit qilinadigan CSV eksporti — buxgalteriya jamoangiz uchun tayyor.',
+  'about.featurePolicy':
+    "Siyosat himoyalari — kunlik cheklovlar, toifa bo'yicha limitlar va chek talab qilinadigan chegaralar topshirish vaqtida qo'llaniladi.",
+  'about.featureWorkflow':
+    "Ko'rib chiquvchi izohlari, siyosat buzilishi belgilari va bir tegishda qoplashni belgilash bilan ikki bosqichli tasdiqlash jarayoni.",
+  'about.intro':
+    "{{app}} — moliya jamoalari va ular qoplab beradigan xodimlar uchun xarajatlarni boshqarish platformasi. Chekni suratga oling, xarajatni kiriting, hisobotni tasdiqlashga yuboring va har bir qoplashni kuzatib boring — jadval bilan ovora bo'lmasdan.",
+  'about.missionBody':
+    "Qoplash tez, adolatli va audit qilinadigan bo'lishi kerak. Biz {{app}} ni shunday yaratdikki, topshiruvchilar hech kimga eslatmasdan pulini qaytarib oladi, tasdiqlovchilar nimani tasdiqlayotganini aniq ko'radi, moliya esa har bir dollar uchun toza izga ega bo'ladi — siyosat tekshiruvlari bilan birga.",
+  'about.missionTitle': 'Bizning vazifamiz',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Tasdiqlanmoqda…',
   'approvals.confirmReject': 'Rad etishni tasdiqlash',
+  'approvals.empty': "Hammasi ko'rib chiqildi — kutayotgan hisobot yo'q.",
   'approvals.eyebrow': 'Menejer navbati',
   'approvals.kpi.flaggedLabel': 'Siyosat belgilandi',
+  'approvals.kpi.queueLabel': "Ko'rib chiqilishi kutilmoqda",
   'approvals.kpi.totalLabel': 'Kutilayotgan qiymat',
   'approvals.lineCount': '{{count}} xarajatlar',
   'approvals.queueFallback':
     "Jonli navbat mavjud emas — tanlangan demo ma'lumotlar ko'rsatilmoqda.",
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Rad etilmoqda…',
+  'approvals.rejectPlaceholder': 'Sabab (majburiy)',
   'approvals.rejectPrompt': 'Nega bu hisobotni rad etyapsiz?',
   'approvals.review': 'Sharh',
   'approvals.title': 'Kutilayotgan tasdiqlar',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Tasdiqlangan · MTD',
   'dashboard.kpi.pendingDelta': 'Bu hafta +2',
+  'dashboard.kpi.pendingLabel': "Ko'rib chiqish kutilmoqda",
   'dashboard.kpi.receiptsDelta': 'Harakat talab qilinadi',
   'dashboard.kpi.receiptsLabel': 'Chek kutilmoqda',
   'dashboard.kpi.reimbursedDelta': '+2,4 ming dollar',
   'dashboard.kpi.reimbursedLabel': 'Qoplandi · MTD',
   'dashboard.newReport': 'Yangi hisobot',
+  'dashboard.recent.empty': "Hozircha hisobot yo'q — birinchisini yuqorida boshlang.",
   'dashboard.recent.title': "So'nggi hisobotlar",
   'dashboard.recent.viewAll': "Barcha hisobotlarni ko'rish",
   'dashboard.summaryFallback':
@@ -40,11 +61,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'Cheklar va qaytariladigan narsalar',
   'expenses.listFallback': 'Jonli roʻyxat mavjud emas — tanlangan demo maʼlumotlar koʻrsatilmoqda.',
   'expenses.searchPlaceholder': 'Sotuvchi yoki kategoriyani qidirish…',
+  'expenses.subtotal': '{{count}} xarajat · oraliq summa',
   'expenses.title': 'Xarajatlar',
+  'forgotPassword.continue': 'Menda kod bor · Davom etish',
+  'forgotPassword.subheading':
+    "Ish elektron pochtangizni kiriting va biz yangi parol o'rnatish uchun havola yuboramiz.",
   'forgotPassword.successBody':
     "Agar hisob mavjud bo'lsa {{email}} Keyingi bir necha daqiqada siz tiklash havolasini olasiz.",
+  'landing.copyright': '© {{year}} {{app}}. Molecule.dev bilan yaratilgan.',
+  'landing.ctaBody':
+    "Har oy dastlabki 25 xarajat uchun bepul. Kredit karta ham, joriy etish qo'ng'irog'i ham kerak emas.",
   'landing.ctaHeading': "Jamoangiz qarzdor bo'lgan pulni undirishga tayyormisiz?",
   'landing.eyebrow': 'Moliyaviy guruhlar uchun xarajatlar hisobotlari',
+  'landing.featuresHeading': 'Qoplash — bitta xotirjam ish maydonida',
   'landing.heroSubtitle':
     'Elektron jadval marosimisiz biznes xarajatlarini topshiring, tasdiqlang va qoplang. Chek OCR, siyosat tekshiruvlari va shaffof tasdiqlash muddati — barchasi bitta xotirjam ish maydonida.',
   'landing.heroTitle': 'Har bir chek qaytarib olindi.',
@@ -62,10 +91,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Izohlar',
   'newExpense.descriptionPlaceholder':
     "Nima uchun bu xarajat biznes bilan bog'liq edi (tasdiqlovchiga ko'rinib turibdi).",
+  'newExpense.eyebrow': "Qoplanishi mumkin bo'lgan element",
   'newExpense.merchant': 'Savdogar',
   'newExpense.merchantPlaceholder': 'Adlon Kempinski mehmonxonasi',
   'newExpense.policyHint':
     'Eslatma: kuniga 80 dollardan ortiq ovqatlanish yoki 250 dollardan ortiq har qanday mahsulot uchun asosli eslatma talab qilinadi.',
+  'newExpense.receipt': 'Chek',
+  'newExpense.receiptHint': 'JPG, PNG yoki PDF · maksimal 10 MB',
   'newExpense.receiptOcrHint': "OCR maydonlarni oldindan to'ldiradi",
   'newExpense.receiptPrompt':
     "Bu yerga rasm yoki PDF faylini qo'ying yoki ko'rib chiqish uchun bosing",
@@ -77,17 +109,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     "Chekni suratga oling yoki yuklang, shunda Recoup sotuvchi, sana va jami ma'lumotlarni oldindan to'ldiradi. Saqlashdan oldin quyidagi barcha ma'lumotlarni tasdiqlang.",
   'newExpense.title': "Xarajat qo'shish",
+  'newReport.approverHint': "Siz bu hisobotni ko'rib chiqishga topshirganingizda ular email oladi.",
   'newReport.approverLabel': 'Tasdiqlovchining elektron pochta manzili (ixtiyoriy)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'Mavjud xarajatlar',
   'newReport.createFailed': "Hisobot yaratib bo'lmadi. Qaytadan urinib ko'ring.",
   'newReport.draftsFallback':
     'Jonli xarajatlar roʻyxati mavjud emas — tanlangan demo maʼlumotlar koʻrsatilmoqda.',
+  'newReport.eyebrow': 'Xarajatlarni guruhlash · tasdiqlashga yuborish',
   'newReport.includedCount': '{{count}} kiritilgan',
   'newReport.purposeLabel': 'Biznes maqsadi',
   'newReport.purposePlaceholder':
     "Ushbu xarajatlar bilan bog'liq bo'lgan sayohat yoki loyihani tasvirlab bering (tasdiqlovchi va moliyalashtiruvchingizga ko'rinadigan).",
   'newReport.saveDraft': 'Qoralama sifatida saqlash',
+  'newReport.saveDraftFailed': "Qoralamani saqlab bo'lmadi. Iltimos, qayta urinib ko'ring.",
   'newReport.submit': 'Tasdiqlash uchun yuboring',
   'newReport.submitFailed': "Hisobotni yuborib bo'lmadi. Qaytadan urinib ko'ring.",
   'newReport.summary': 'Hisobot xulosasi',
@@ -101,17 +136,24 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     "Jonli efir mavjud emas — tanlangan demo ma'lumotlar ko'rsatilmoqda.",
   'notifications.openReport': 'Ochiq hisobot ›',
+  'pricing.approvalsLabel': 'tasdiqlashlar',
   'pricing.expensesLabel': 'xarajatlar',
   'pricing.heading': 'tasdiqlashlar',
   'pricing.policiesLabel': 'siyosatlar',
   'pricing.receiptsLabel': 'kvitansiyalar',
   'recoveredAmountHeroCard.label': 'Qoplangan mablagʻ · YIL',
+  'recoveredAmountHeroCard.pending':
+    "Barcha tasdiqlovchilar bo'ylab hozirda ko'rib chiqilishi kutilayotgan {{count}} hisobot.",
+  'reports.approvalFlow': 'Tasdiqlash jarayoni',
   'reports.backToList': 'Hisobotlarga qaytish',
   'reports.detailFallback':
     "Jonli hisobot mavjud emas — tanlangan demo ma'lumotlar ko'rsatilmoqda.",
   'reports.lineItems': 'Qator elementlari',
   'reports.lineItemsCount': '{{count}} xarajatlar',
+  'reports.lineItemsEmpty': "Bu hisobotda hozircha xarajat yo'q.",
+  'reports.openLibrary': 'Hisobotlar kutubxonasini ochish',
   'reports.policyTitle': "Siyosat bayrog'i",
+  'reports.selectPrompt': "Tafsilotlarini ko'rish uchun kutubxonadan hisobot tanlang.",
   'reports.summary.lineCount': 'Qator elementlari',
   'reports.summary.reimbursable': 'Qaytariladigan',
   'reports.summary.total': 'Hisobot qilingan jami',
@@ -121,6 +163,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Jonli roʻyxat mavjud emas — tanlangan demo maʼlumotlar koʻrsatilmoqda.',
   'reportsList.newReport': 'Yangi hisobot',
+  'reportsList.submittedOn': '{{date}} yuborildi',
   'reportsList.title': 'Hisobot kutubxonasi',
   'resetPassword.hidePassword': 'Parolni yashirish',
   'resetPassword.newPasswordLabel': 'Yangi parol',
@@ -146,6 +189,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Saqlandi ✓',
   'settings.profileSaveFailed': "Profilni yangilab bo'lmadi. Qaytadan urinib ko'ring.",
   'signup.heading': 'Recoup hisobingizni yarating',
+  'signup.hidePassword': 'Parolni yashirish',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': "Parolni ko'rsatish",
   'signup.subheading': 'Har oy 25 ta xarajat uchun bepul — kredit kartasiz.',

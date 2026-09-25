@@ -1,11 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'உங்கள் பட்டியலை இடமாற்றுவது குறித்து கேள்வி உள்ளதா, பிழை கண்டீர்களா, அல்லது {{appName}} பற்றிய வழிகாட்டல் வேண்டுமா? உங்கள் கணக்கு அமைப்புகளிலிருந்து எங்களை அணுகவும் — ஒவ்வொரு செய்தியும் குழுவில் உள்ள ஒரு உண்மையான நபரையே சென்றடையும்.',
   'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.intro':
+    '{{appName}} ஒவ்வொரு SKU, ஒவ்வொரு கிடங்கு, ஒவ்வொரு இயக்கத்தையும் ஒரே பலகையில் கொண்டு வருகிறது. செயல்பாட்டு தலைவர்கள் மற்றும் கிடங்குக் குழுவினருக்காக உருவாக்கப்பட்ட இது, பொருட்களைப் பெறுதல் முதல் அனுப்புதல் வரை இழக்கும் பரவலான விரிதாள்களையும் இணைப்பற்ற அமைப்புகளையும் ஒரே, தணிக்கைக்குத் தயாரான உண்மை மூலத்தால் மாற்றுகிறது.',
+  'about.missionBody':
+    'செயல்பாடுகள் சலிப்பான விஷயங்களில் இயங்குகின்றன: எண்ணிக்கைகள், இயக்கங்கள், எச்சரிக்கைகள். சலிப்பான விஷயங்களை நாங்கள் வேகமாகவும், கண்காணிக்கக்கூடியதாகவும், போலியாக்க முடியாததாகவும் ஆக்குகிறோம் — அதனால் திரையில் உள்ள எண்ணே அலமாரியில் உள்ள எண்ணாக இருக்கும், மீண்டும் எண்ணாமல் செயல்படும் அளவுக்கு உங்கள் குழு அதை நம்ப முடியும்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
+  'about.subtitle': 'ஒவ்வொரு அலகையும் எண்ணும் செயல்பாட்டாளர்களுக்கான இருப்பு மேலாண்மை.',
+  'about.whatYouGetTitle': 'நீங்கள் பெறுவது',
   'auth.legalConsent': 'தொடர்வதன் மூலம், நீங்கள் எங்கள் விதிமுறைகளை ஏற்கிறீர்கள்',
   'authShell.brandSubtitle': 'சரக்குக் கட்டுப்பாடுகள்',
   'authShell.eyebrow': 'லோக்கஸுக்கு வரவேற்கிறோம்',
+  'authShell.footer': '{{appName}} · செயல்பாட்டு பலகை',
   'authShell.pitch':
     'ஒவ்வொரு பொருள் வகை (SKU), ஒவ்வொரு கிடங்கு மற்றும் ஒவ்வொரு நகர்வு ஆகியவற்றின் துல்லியமான, செயல்பாட்டாளர் தரத்திலான பார்வை — முக்கியமானவற்றைக் கணக்கிடும் குழுக்களுக்காக உருவாக்கப்பட்டது.',
   'authShell.sampleCaption': 'அலகுகள் · 1,284 SKU-கள் · 6 கிடங்குகள்',
@@ -21,6 +31,8 @@ export const ui: UiTranslations = {
     'ஒவ்வொரு தயாரிப்பும் அதன் மறுவரிசைப்படுத்தும் விலையைத் தாண்டியுள்ளது. அருமையான செயல்பாடு.',
   'dashboard.alerts.eyebrow': 'மறுவரிசைப்படுத்து வரிசை',
   'dashboard.alerts.title': 'குறைந்த இருப்பு எச்சரிக்கைகள்',
+  'dashboard.errorFallback':
+    'நேரடி தரவு தற்காலிகமாக கிடைக்கவில்லை — சமீபத்திய ஸ்னாப்ஷாட் காட்டப்படுகிறது.',
   'dashboard.eyebrow': 'செயல்பாட்டுக் கட்டுப்பாட்டு அறை',
   'dashboard.heroPeriod': 'கடந்த 12 வாரங்கள்',
   'dashboard.kpis.lowStock': 'குறைந்த கையிருப்பு SKUகள்',
@@ -37,13 +49,18 @@ export const ui: UiTranslations = {
   'dashboard.movements.viewAll': 'திறந்த பேரேடு',
   'dashboard.subtitle': 'குறுக்கே {{warehouses}} கிடங்குகள் · நேரலைப் பேரேடு',
   'dashboard.title': 'இன்று கப்பல் படை முழுவதும்',
+  'forgotPassword.subheading':
+    'உங்கள் {{appName}} கணக்குடன் இணைக்கப்பட்ட மின்னஞ்சலை உள்ளிடவும், மீட்டமைப்பு இணைப்பை அனுப்புவோம்.',
   'forgotPassword.subheadingSent':
     'ஒருமுறை மீட்டமைப்பதற்கான இணைப்புக்கு உங்கள் இன்பாக்ஸைச் சரிபார்க்கவும்.',
+  'forgotPassword.successBody':
+    'புதிய கடவுச்சொல்லை அமைக்க மின்னஞ்சலில் உள்ள இணைப்பைக் கிளிக் செய்யவும். இணைப்பு 30 நிமிடங்களில் காலாவதியாகும்.',
   'forgotPassword.successHeadline': 'மீட்டமை இணைப்பு அதன் வழியில் உள்ளது {{email}}',
   'inventory.actions.add': 'SKU-வைச் சேர்க்கவும்',
   'inventory.add.cost': 'அடக்க விலை ($)',
   'inventory.add.description':
     'ஒரு பொருளை உருவாக்குங்கள். பின்னர், கையிருப்பைச் சரிசெய்து கிடங்குகளை ஒதுக்குங்கள்.',
+  'inventory.add.name': 'தயாரிப்பு பெயர்',
   'inventory.add.sell': 'விற்பனை விலை ($)',
   'inventory.add.sku': 'SKU குறியீடு',
   'inventory.add.submit': 'SKU-வை உருவாக்கவும்',
@@ -52,6 +69,7 @@ export const ui: UiTranslations = {
   'inventory.col.cost': 'அலகு செலவு',
   'inventory.col.qty': 'கையில்',
   'inventory.col.sku': 'SKU',
+  'inventory.empty': 'அந்த வடிகட்டிகளுடன் எந்த SKU-களும் இன்னும் பொருந்தவில்லை.',
   'inventory.emptyState':
     'இன்னும் SKU-க்கள் இல்லை. உங்கள் முதல் தயாரிப்பை உருவாக்க, "SKU-வைச் சேர்" என்பதைக் கிளிக் செய்யவும்.',
   'inventory.eyebrow': 'லைவ் லெட்ஜர்',
@@ -61,6 +79,7 @@ export const ui: UiTranslations = {
   'inventory.filters.lowStatus': 'குறைந்த / வெளியே மட்டும்',
   'inventory.loading': 'சரக்கு இருப்பு ஏற்றப்படுகிறது…',
   'inventory.pageStatus': '{{from}} – {{to}} இல் {{total}}',
+  'inventory.searchAria': 'தேடல் சரக்கு',
   'inventory.searchPlaceholder': 'பெயர், SKU அல்லது வகை வாரியாகத் தேடவும்',
   'inventory.subtitle': '{{count}} SKU-க்கள் உங்கள் வடிப்பான்களுடன் பொருந்துகின்றன.',
   'inventory.threshold': 'மறுவரிசைப்படுத்து @ {{qty}}',
@@ -68,12 +87,15 @@ export const ui: UiTranslations = {
   'inventoryHeroCard.changeWithPeriod': '{{change}} · {{period}}',
   'inventoryHeroCard.eyebrow': 'மொத்தமாக கையில்',
   'inventoryHeroCard.subtitle': 'குறுக்கே {{count}} செயலில் உள்ள SKUகள்',
+  'inventoryHeroCard.units': 'அனைத்து கிடங்குகளிலும் உள்ள அலகுகள்',
   'inventoryManagementLayout.brandSubtitle': 'சரக்குக் கட்டுப்பாடுகள்',
   'inventoryManagementLayout.defaultUser': 'செயல்பாடுகள்',
   'inventoryManagementLayout.menu': 'மெனு',
+  'inventoryManagementLayout.mobileNavLabel': 'மொபைல் வழிசெலுத்தல்',
   'inventoryManagementLayout.notificationsAria': 'அறிவிப்புகளைத் திறக்கவும்',
   'inventoryManagementLayout.role': 'செயல்பாடுகள் தலைவர்',
   'inventoryManagementLayout.searchAria': 'SKU-கள், பொருட்கள், கிடங்குகளைத் தேடுங்கள்',
+  'inventoryManagementLayout.searchPlaceholder': 'SKU-கள், தயாரிப்புகள், கிடங்குகளைத் தேடுங்கள்…',
   'landing.cta.body':
     'உங்கள் கிடங்குகளை இணைத்து, SKU-க்களை இறக்குமதி செய்து, உங்கள் குழுவை ஒரு நாளுக்குள் ஸ்கேன் மூலம் சுழற்சி எண்ணிக்கையை இயக்கச் செய்யுங்கள்.',
   'landing.cta.primary': 'இலவச சோதனையைத் தொடங்குங்கள்',
@@ -82,6 +104,7 @@ export const ui: UiTranslations = {
   'landing.eyebrow': 'சரக்கு இருப்பு · செயல்பாடுகள் · உண்மை',
   'landing.features.body':
     'செயல்பாடுகள் எண்ணிக்கைகள், நகர்வுகள், எச்சரிக்கைகள் போன்ற சலிப்பூட்டும் விஷயங்களைக் கொண்டு இயங்குகின்றன. லோகஸ் இந்தச் சலிப்பூட்டும் விஷயங்களை வேகமானதாகவும், கண்காணிக்கக்கூடியதாகவும், போலியாகச் செய்ய முடியாததாகவும் ஆக்குகிறது.',
+  'landing.features.eyebrow': 'செயல்பாட்டாளர்களுக்காக உருவாக்கப்பட்டது',
   'landing.features.title': 'சரக்கு இருப்பு உண்மையின் மூன்று தண்டவாளங்கள்.',
   'landing.footer.copy': '© {{year}} இருப்பிடம் · சரக்கு இருப்பு கட்டுப்பாட்டில் உள்ளது.',
   'landing.heroCard.period': 'கடந்த 12 வாரங்கள்',
@@ -99,7 +122,9 @@ export const ui: UiTranslations = {
   'landing.proof.line3': 'ஒரு நாளுக்குள் வாழுங்கள்',
   'landing.proof.title': 'எண்கள் தினமும் அனுப்பப்படுவதால், ஆபரேட்டர்கள் அவற்றை நம்புகிறார்கள்.',
   'login.heading': 'லோக்கஸில் உள்நுழைக',
+  'login.noAccount': '{{appName}} கணக்கு இல்லையா?',
   'login.subheading': 'அனைத்து SKU மற்றும் கிடங்குகளையும் ஒரே கன்சோலில் நிர்வகிக்கவும்.',
+  'lowStockAlertCard.action': 'மறுவரிசைப்படுத்து',
   'lowStockAlertCard.actionAria': 'மறுவரிசைப்படுத்து {{name}}',
   'lowStockAlertCard.lowStock': 'மட்டும் {{quantity}} இன் {{threshold}} மீதமுள்ள அலகுகள்',
   'lowStockAlertCard.outOfStock': 'கையிருப்பு இல்லை',
@@ -108,7 +133,9 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · தரைக்கு வெளியே உள்ள வரைபடம்',
   'notFound.search': 'தேடல் சரக்கு',
   'notFound.title': 'அந்தத் தொட்டி இல்லை.',
+  'notifications.acknowledge': 'ஒப்புக்கொள்',
   'notifications.alerts.empty': 'செயலில் உள்ள குறைந்த இருப்பு எச்சரிக்கைகள் எதுவும் இல்லை.',
+  'notifications.alerts.eyebrow': 'மறுவரிசைப்படுத்து வரிசை',
   'notifications.alerts.title': 'குறைந்த இருப்பு எச்சரிக்கைகள்',
   'notifications.movement.empty': 'இதுவரை பங்குகளில் எந்த மாற்றமும் இல்லை.',
   'notifications.movement.eyebrow': 'பேரேடு புதுப்பிப்புகள்',
@@ -116,6 +143,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     'குறைந்த இருப்பு எச்சரிக்கைகள், கணக்குப்பதிவு மாற்றங்கள் மற்றும் கணினி நிகழ்வுகள் அனைத்தும் ஒரே இடத்தில்.',
   'notifications.system.empty': 'கணினி நிகழ்வுகள் எதுவும் இல்லை.',
+  'notifications.system.eyebrow': 'அமைப்பு',
   'notifications.system.title': 'கன்சோல் நிகழ்வுகள்',
   'notifications.tabs.${option}': 'மறுவரிசைப்படுத்து வரிசை',
   'orderDetail.back': 'அனைத்து ஆர்டர்களும்',
@@ -139,11 +167,13 @@ export const ui: UiTranslations = {
   'orderDetail.shipping.title': 'ஆர்டர் விவரங்கள்',
   'orderDetail.timeline.created': 'ஆர்டர் உருவாக்கப்பட்டது',
   'orderDetail.timeline.eyebrow': 'தணிக்கைப் பாதை',
+  'orderDetail.timeline.pending': 'இன்னும் கூடுதல் நிகழ்வுகள் இல்லை.',
   'orderDetail.timeline.received': 'பெறப்பட்டதாகக் குறிக்கப்பட்டது',
   'orderDetail.timeline.shipped': 'அனுப்பப்பட்டது எனக் குறியிடப்பட்டது',
   'orderDetail.timeline.title': 'ஆர்டர் நிகழ்வுகள்',
   'orders.col.eta': 'ETA',
   'orders.col.partner': 'கூட்டாளர்',
+  'orders.col.reference': 'குறிப்பு',
   'orders.col.units': 'அலகுகள்',
   'orders.col.value': 'மதிப்பு',
   'orders.col.warehouse': 'கிடங்கு',
@@ -170,16 +200,31 @@ export const ui: UiTranslations = {
   'orders.kpis.openOutbound': 'திறந்த வெளிச்செல்லும்',
   'orders.kpis.shippedToday': 'மூடப்பட்டது (பெறப்பட்டது/அனுப்பப்பட்டது)',
   'orders.loading': 'ஆர்டர்கள் ஏற்றப்படுகின்றன…',
+  'orders.row.po': 'கொள்முதல் ஆணை',
   'orders.row.so': 'விற்பனை ஆணை',
   'orders.subtitle':
     'நெட்வொர்க் முழுவதும் உள்வரும் கொள்முதல் ஆணைகள் மற்றும் வெளிச்செல்லும் கொள்முதல் ஆணைகள்.',
   'orders.title': 'ஆர்டர்கள்',
+  'planUpdated.body':
+    'உங்கள் பில்லிங் மாற்றம் இப்போது செயலில் உள்ளது. பில்லிங் பக்கத்திலிருந்து எப்போது வேண்டுமானாலும் உங்கள் திட்டத்தை நிர்வகிக்கலாம்.',
   'planUpdated.pageTitle': 'திட்டம் புதுப்பிக்கப்பட்டது',
+  'planUpdated.retry': 'மீண்டும் முயற்சிக்கவும்',
+  'planUpdated.verifyFailed': 'உங்கள் கட்டணத்தை எங்களால் இன்னும் உறுதிப்படுத்த முடியவில்லை.',
+  'planUpdated.verifyFailedBody':
+    'உங்கள் கட்டணம் இன்னும் செயலாக்கத்தில் இருக்கலாம். சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.',
   'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
+  'pricing.advancedFeatures': 'மேம்பட்ட அம்சங்கள்: {{value}}',
+  'pricing.alerts': '{{count}} எச்சரிக்கைகள்',
+  'pricing.dataExport': 'தரவு ஏற்றுமதி: {{value}}',
+  'pricing.products': '{{count}} தயாரிப்புகள்',
+  'pricing.stock': '{{count}} இருப்புப் பதிவுகள்',
+  'pricing.transfers': '{{count}} பரிமாற்றங்கள்',
+  'pricing.warehouses': '{{count}} கிடங்குகள்',
   'productDetail.back': 'சரக்குப்பட்டியலுக்குத் திரும்பு',
   'productDetail.barcode': 'பார்கோடு',
   'productDetail.cost': 'செலவு',
   'productDetail.eyebrow': 'தயாரிப்பு விவரக்குறிப்பு',
+  'productDetail.history.empty': 'இன்னும் பதிவு செய்யப்பட்ட இயக்கங்கள் இல்லை.',
   'productDetail.history.eyebrow': 'இயக்க வரலாறு',
   'productDetail.kpis.locations': 'இடங்கள்',
   'productDetail.kpis.onHand': 'கையில்',
@@ -204,6 +249,8 @@ export const ui: UiTranslations = {
   'profile.kpis.actionsHint': 'கடந்த 30 நாட்கள்',
   'profile.kpis.cycle': 'சொந்தமான சுழற்சி எண்ணிக்கைகள்',
   'profile.kpis.transfers': 'இடமாற்றங்கள் நிர்வகிக்கப்பட்டன',
+  'profile.security.active': 'செயலில்',
+  'profile.security.thisSessionHint': 'இந்தச் சாதனத்தில் உள்நுழைந்துள்ளீர்கள்',
   'profile.security.thisSessionLabel': 'இந்த உலாவி · {{email}}',
   'profile.security.title': 'உள்நுழைவு மற்றும் சாதனங்கள்',
   'reports.aging.eyebrow': 'வயதாதல்',
@@ -223,8 +270,12 @@ export const ui: UiTranslations = {
   'reports.topValue.title': 'இருப்பு மதிப்பின் அடிப்படையில் சிறந்த SKU-கள்',
   'reports.turnover.eyebrow': 'விற்றுமுதல் போக்கு',
   'reports.turnover.title': 'சரக்கு இருப்பு குறைவு',
+  'resetPassword.changedMind': 'மனம் மாறிவிட்டதா?',
+  'resetPassword.missingToken': 'தொடர உங்கள் மின்னஞ்சலில் உள்ள மீட்டமைப்பு இணைப்பைத் திறக்கவும்.',
   'resetPassword.newPassword': 'புதிய கடவுச்சொல்',
   'resetPassword.signInNow': 'இப்போது உள்நுழையவும்',
+  'resetPassword.subheading':
+    'நினைவில் நிற்கும் ஆனால் தனித்துவமான ஒன்றைத் தேர்ந்தெடுக்கவும். அது அமைக்கப்பட்டதும் உங்களை உள்நுழைப்போம்.',
   'resetPassword.subheadingDone':
     'கடவுச்சொல் புதுப்பிக்கப்பட்டது. மீண்டும் உள்நுழைவதற்குத் திருப்பி அனுப்பப்படுகிறது…',
   'resetPassword.submitting': 'கடவுச்சொல்லைப் புதுப்பிக்கிறது…',
@@ -236,8 +287,11 @@ export const ui: UiTranslations = {
   'settings.billing.viewPlans': 'திட்டங்களைப் பார்க்கவும்',
   'settings.billing.warehouseLimit': 'கிடங்கு வரம்பு',
   'settings.integrations.description': 'சேனல்கள், ERPகள், கணக்கியல் மற்றும் ஷிப்பிங் வழங்குநர்கள்.',
+  'settings.integrations.saving': 'சேமிப்பு…',
   'settings.integrations.status.${status}': 'சேமிப்பு…',
   'settings.locations.add': 'கிடங்குகளை நிர்வகிக்கவும்',
+  'settings.locations.body':
+    'ஒரு தளத்தைச் சேர்க்க, அதன் கொள்ளளவைத் திருத்த, அல்லது பழைய இருப்பிடத்தை அகற்ற கிடங்குகள் பலகையைத் திறக்கவும். அங்குள்ள மாற்றங்கள் முழு லெட்ஜரிலும் பரவும்.',
   'settings.locations.description':
     'ஒவ்வொரு தளத்திற்கும் அனுப்பும் முகவரிகள், நேர மண்டலங்கள் மற்றும் இயல்புநிலை மண்டல உள்ளமைவுகளைக் குறிக்கவும்.',
   'settings.locations.title': 'கிடங்கு இருப்பிடங்கள்',
@@ -260,6 +314,7 @@ export const ui: UiTranslations = {
   'stockTransfer.commit': 'பரிமாற்றத்தை உறுதிப்படுத்து',
   'stockTransfer.committed':
     'பரிமாற்றம் உருவாக்கப்பட்டது — சரக்கை நகர்த்துவதற்கு நிறைவுற்றதாகக் குறிக்கவும்.',
+  'stockTransfer.complete': 'முழுமையான',
   'stockTransfer.confirmation':
     'பரிமாற்றம் நிறைவடைந்ததாகக் குறிக்கப்பட்டவுடன், நகர்வுகள் அணு அளவில் நிகழ்கின்றன.',
   'stockTransfer.destination': 'இலக்கு கிடங்கு',
@@ -275,7 +330,12 @@ export const ui: UiTranslations = {
   'stockTransfer.list.noNotes': 'குறிப்புகள் இல்லை',
   'stockTransfer.list.title': 'சமீபத்திய இடமாற்றங்கள்',
   'stockTransfer.list.viewMovements': 'இயக்கங்களைக் காண்க',
+  'stockTransfer.needWarehouses.body':
+    'முதலில் மூல மற்றும் இலக்கு கிடங்குகளை உருவாக்கவும், பின்னர் ஒரு மேனிஃபெஸ்ட்டை ஸ்கேன் செய்ய இங்கே திரும்பவும்.',
   'stockTransfer.needWarehouses.title': 'உங்களுக்குக் குறைந்தபட்சம் இரண்டு கிடங்குகள் தேவை.',
+  'stockTransfer.notesPlaceholder':
+    'விருப்பக் குறிப்புகள் — எ.கா. "வாராந்திர குறுக்கு-டாக் சமநிலை"',
+  'stockTransfer.openWarehouses': 'கிடங்குகளைத் திற',
   'stockTransfer.sameWarehouse': 'மூலக் கிடங்கும் சேருமிடக் கிடங்கும் வெவ்வேறாக இருக்க வேண்டும்.',
   'stockTransfer.scanPlaceholder': 'SKU அல்லது பார்கோடை ஸ்கேன் செய்து Enter-ஐ அழுத்தவும்.',
   'stockTransfer.source': 'மூலக் கிடங்கு',
@@ -287,10 +347,11 @@ export const ui: UiTranslations = {
   'warehouseDetail.back': 'அனைத்து கிடங்குகளும்',
   'warehouseDetail.inventory': 'SKU-க்களைத் திருத்து',
   'warehouseDetail.kpis.noCapacity': '—',
+  'warehouseDetail.kpis.noCapHint': 'கொள்ளளவு அமைக்கப்படவில்லை',
   'warehouseDetail.kpis.skus': 'செயலில் உள்ள SKUகள்',
   'warehouseDetail.kpis.units': 'மொத்த அலகுகள்',
   'warehouseDetail.kpis.utilization': 'பயன்பாடு',
-  'warehouseDetail.kpis.utilizationHint': '{{பயன்படுத்தப்பட்டது}} / {{cap}} அலகுகள்',
+  'warehouseDetail.kpis.utilizationHint': '{{used}} / {{cap}} அலகுகள்',
   'warehouseDetail.loading': 'கிடங்கில் சரக்கு ஏற்றப்படுகிறது…',
   'warehouseDetail.notFound': 'கிடங்கு கண்டுபிடிக்கப்படவில்லை.',
   'warehouseDetail.skus.empty':
@@ -304,9 +365,11 @@ export const ui: UiTranslations = {
   'warehouses.add.capacity': 'கொள்ளளவு (அலகுகள்)',
   'warehouses.add.capacityHint':
     'விருப்பத்தேர்வு — பயன்பாட்டு வரைபடங்களுக்குப் பயன்படுத்தப்படுகிறது.',
+  'warehouses.add.city': 'நகரம்',
   'warehouses.add.code': 'குறியீடு (தனித்துவமானது)',
   'warehouses.add.codeHint': 'ஒரு சுருக்கமான அடையாளங்காட்டி — எ.கா. ரெனோ-1, மெம்-டிசி',
   'warehouses.add.contactEmail': 'தொடர்பு மின்னஞ்சல்',
+  'warehouses.add.contactName': 'தொடர்பு பெயர்',
   'warehouses.add.country': 'நாடு',
   'warehouses.add.description':
     'வரவுகள், பரிமாற்றங்கள் மற்றும் இருப்புகளை முறைப்படுத்த ஒரு தளத்தைப் பதிவு செய்யுங்கள்.',
@@ -316,6 +379,8 @@ export const ui: UiTranslations = {
   'warehouses.emptyBody': 'கையிருப்பைக் கண்காணிக்கத் தொடங்க, உங்கள் முதல் தளத்தைச் சேர்க்கவும்.',
   'warehouses.emptyTitle': 'இன்னும் கிடங்குகள் இல்லை',
   'warehouses.loading': 'கிடங்கு வலையமைப்பு ஏற்றப்படுகிறது…',
+  'warehouses.noCapacity': '{{used}} அலகுகள் இருப்பில் · கொள்ளளவு அமைக்கப்படவில்லை',
+  'warehouses.skus': 'SKU-கள்',
   'warehouses.subtitle': '{{count}} தளங்கள் · கொள்ளளவு, பணியாளர்கள் மற்றும் SKU பாதுகாப்பு',
   'warehouses.title': 'கிடங்குகள்',
   'warehouses.utilization': 'பயன்பாடு',

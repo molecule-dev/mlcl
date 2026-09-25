@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Het jy terugvoer, het jy 'n fout raakgesien, of wil jy {{app}} na jou skool of span bring? Ons lees elke boodskap — kontak ons vanuit jou rekeninginstellings en 'n regte mens sal antwoord.",
   'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Oor',
+  'about.intro':
+    "{{app}} is 'n daaglikse woordraaisel. Raai die vyfletterwoord in ses probeerslae, hou jou streep aan die gang, deel jou emoji-rooster, en sien hoe die hele veld op vandag se woord gevaar het.",
+  'about.missionBody':
+    "'n Goeie raaisel is 'n klein daaglikse oorwinning. {{app}} is gebou rondom een gedeelde woord per dag — vinnig genoeg vir 'n koffiepouse, skerp genoeg om môre terug te kom.",
+  'about.missionTitle': 'Ons missie',
   'about.title': 'Oor {{app}}',
   'archive.loadError': 'Kon nie die argief laai nie.',
   'archive.missed': 'Gemis',
   'archive.notPlayed': 'Nie gespeel nie',
+  'archive.subhead':
+    'Speel enige vorige dag oor as oefening — geen strepe, geen statistieke, al die pret.',
   'archive.title': 'Argief',
   'auth.backToHome': 'Terug na tuis',
   'auth.backToHomeArrow': '← Terug na tuis',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Wagwoord vergeet?',
   'auth.login.loggingIn': 'Meld jou aan…',
   'auth.login.logIn': 'Speel vandag se woord',
+  'auth.login.noAccount': 'Nuut by Tessera?',
   'auth.login.or': 'of gaan voort met',
   'auth.login.password': 'Wagwoord',
   'auth.login.signInButton': 'Meld aan',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Stoor…',
   'common.sendingEllipsis': 'Stuur…',
   'common.startingEllipsis': 'Begin…',
+  'forgotPassword.subhead':
+    "Voer jou e-posadres in en ons sal vir jou 'n skakel stuur om te herstel.",
+  'forgotPassword.success.body':
+    "Indien 'n rekening bestaan vir {{email}} , jy sal binne 'n paar minute 'n terugstelskakel kry.",
+  'forgotPassword.success.title': 'Gaan jou inboks na.',
   'form.name': 'Naam',
   'howToPlay.cta.home': 'Terug huis toe',
   'howToPlay.cta.play': 'Speel vandag se raaisel',
@@ -68,10 +83,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Strepe wat jy haat om te breek',
   'leaderboard.daily.title': 'Vandag se oplossings',
   'leaderboard.loadError': 'Kon nie die telbord laai nie.',
+  'leaderboard.streaks.empty': 'Nog geen strepe nie — wees die eerste.',
+  'leaderboard.streaks.subhead': 'Die langste wenstrepe van alle tye.',
   'leaderboard.streaks.title': 'Streep-leiers',
+  'leaderboard.subhead': 'Hoe die veld vandag gevaar het, en wie die langste strepe het.',
   'leaderboard.title': 'Telbord',
   'login.headline': 'Welkom terug.',
   'login.streakPill': '{{days}}-dag streep wag',
+  'login.subhead':
+    'Meld aan om jou streep aan die gang te hou en te sien hoe jy op vandag se woord gevaar het.',
   'nav.archive': 'Argief',
   'nav.editProfile': 'Redigeer profiel',
   'nav.getStarted': 'Begin',
@@ -89,6 +109,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Geen sodanige woord',
   'notFound.title': 'Daardie roete is leeg.',
   'planUpdated.message': 'Jou plan is regstreeks.',
+  'planUpdated.retry': 'Probeer weer',
+  'planUpdated.verifyFailed': 'Ons kon nog nie jou betaling bevestig nie.',
+  'planUpdated.verifyFailedBody':
+    "Jou betaling word dalk steeds verwerk. Probeer weer oor 'n oomblik.",
   'planUpdated.verifying': 'Bevestig jou betaling…',
   'play.alreadyFinished': 'Jy het hierdie raaisel reeds voltooi',
   'play.answerWas': 'Die woord was',
@@ -104,6 +128,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Oefeningraaisel',
   'play.tooShort': 'Nie genoeg letters nie',
   'play.won': 'Het dit opgelos!',
+  'pricing.advancedStats': 'Gevorderde statistieke: {{yes}}',
+  'pricing.archiveHistory': '{{count}} dae se argiefgeskiedenis',
+  'pricing.archivePlays': '{{count}} argiefherspelings / dag',
+  'pricing.archiveUnlimited': 'Onbeperkte argiefgeskiedenis',
+  'pricing.canExport': 'Data-uitvoer: {{yes}}',
+  'pricing.checkoutError': 'Kon nie met afhandeling begin nie. Probeer asseblief weer.',
   'pricing.dailyWord': 'Die daaglikse woord',
   'pricing.heading': 'Kies jou {{app}}-plan',
   'pricing.included': 'Ingesluit',
@@ -111,7 +141,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Die daaglikse woord is altyd gratis. Gradeer op vir onbeperkte argief-herspelings en dieper statistieke.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    "{{app}} respekteer jou privaatheid. Hierdie bladsy gee 'n opsomming van die data wat ons stoor, hoekom ons dit stoor, en hoe om dit te verwyder.",
   'privacy.title': 'Privaatheidskennisgewing',
+  'resetPassword.subhead': "Kies 'n nuwe wagwoord om terug te keer na jou streep.",
   'settings.account': 'Rekening',
   'settings.danger.body': 'Verwyder permanent jou {{appName}}-rekening en alle raaiselgeskiedenis.',
   'settings.danger.confirm': 'Ja, skrap permanent',
@@ -120,17 +153,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'Gas',
   'settings.language.title': 'Taal',
   'settings.subhead': 'Verstel jou profiel, klank, en hoe jy op die telbord verskyn.',
+  'settings.unnamed': 'Sparq-speler',
   'settings.upgrade': 'Gradeer op',
   'signup.eyebrow': 'Vir ewig gratis — een woord per dag',
   'signup.headline': 'Begin jou streep.',
+  'signup.subhead':
+    "Skep 'n {{appName}}-rekening om die daaglikse woord te speel, 'n streep op te bou, en die ranglys te klim.",
   'stats.currentStreak': 'Streep',
   'stats.distribution.title': 'Raai-verspreiding',
   'stats.loadError': 'Kon nie jou statistieke laai nie.',
   'stats.maxStreak': 'Maks streep',
   'stats.played': 'Gespeel',
   'stats.playToday': 'Speel vandag se raaisel',
+  'stats.subhead': 'Slegs gerangskikte daaglikse raaisels — argiefoefening tel nooit nie.',
   'stats.title': 'Jou statistieke',
   'stats.winRate': 'Wen-tempo',
   'status.monthly': 'Maandeliks',
+  'terms.intro':
+    'Deur {{app}} te gebruik, stem jy in tot die reëls hieronder. As jy dit nie kan aanvaar nie, moet asseblief nie die diens gebruik nie.',
   'terms.title': 'Diensbepalings',
 }

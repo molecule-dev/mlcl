@@ -1,19 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Àwọn ìbéèrè, èsì, tàbí ìbéèrè ẹ̀yà? Fi í ránṣẹ́ sí ẹgbẹ́ ní hello@murmur.app — gbogbo ìṣẹ́ rẹ̀ dé ọ̀dọ̀ ènìyàn gidi tí ń ṣiṣẹ́ lórí ọjà náà.',
   'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'about.eyebrow': 'Nipa re',
+  'about.intro':
+    '{{app}} jẹ́ ìmọ̀ ìpàdé fún àwọn ẹgbẹ́ tí wọ́n fẹ́ ṣe ìpinnu ju kíkọ àkọsílẹ̀ lọ. Ó ń darapọ̀ mọ́ àwọn ìpè rẹ, ó ń kọ gbogbo ọ̀rọ̀ pẹ̀lú àmì olùsọ̀rọ̀, ó sì ń fi àkópọ̀ AI pẹ̀lú àwọn ohun tí a yàn láti ṣe ránṣẹ́ ní kété tí ìpàdé bá parí.',
+  'about.missionBody':
+    'Àwọn ìpàdé ni ibi tí àwọn ẹgbẹ́ ti ń ṣe ìpinnu — àti ibi tí àwọn ìpinnu yẹn ti ń sọnù. {{app}} wà láti rí i dájú pé iṣẹ́ tí ó ṣẹlẹ̀ nínú ìjíròrò kan ju ìjíròrò náà lọ: àkọsílẹ̀ olóòótọ́, àkópọ̀ tí ó ṣe kedere, àti àwọn ìgbésẹ̀ tí ó tẹ̀ lé e, láìṣe afọwọ́ṣe.',
+  'about.missionTitle': 'Iṣẹ́ àwa',
   'actions.empty': 'Kò sí àwọn ohun ìṣe tó bá ara wọn mu.',
   'actions.heading': 'Àwọn ohun ìṣe',
   'actions.loadError': 'Kò ṣeé ṣe láti gbé àwọn nǹkan ìgbésẹ̀ sókè.',
   'actions.subheading': 'A kó gbogbo ìpàdé jọ. Àlẹ̀mọ́ nípa ipò sí àfiyèsí.',
   'actions.toggleDoneLabel': 'Ṣe àmì sí i pé a ti ṣe é',
   'actions.toggleReopenLabel': 'Ṣe àmì sí i pé ó ṣí sílẹ̀',
+  'auth.footer': '© {{year}} {{app}}. Gbogbo ọ̀rọ̀, ní ṣókí.',
   'calendar.heading': 'Kàlẹ́ńdà',
   'calendar.joinCta': 'Dára pọ̀ mọ́',
   'calendar.loadError': 'Kò ṣeé ṣe láti gbé kàlẹ́ńdà sórí rẹ̀.',
   'calendar.nextMonth': 'Oṣù tó ń bọ̀',
   'calendar.noEventsForDay': 'Ko si ipade ti a ṣeto fun ọjọ yii.',
+  'calendar.noUpcomingEvents':
+    'Kò sí ìpàdé tí ń bọ̀. So kàlẹ́ndà kan pọ̀ láti Àwọn Ìsopọ̀ láti kún àkọsílẹ̀ yìí.',
   'calendar.previousMonth': 'Oṣù tó kọjá',
   'calendar.recent': 'Tuntun',
   'common.daysAgo': '{{count}} ọdun sẹyin',
@@ -25,9 +35,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} awọn nkan iṣe',
   'dashboard.empty.body':
     'Bẹ̀rẹ̀ gbígbọ́ tàbí so Google Calendar pọ̀ kí Murmur lè dara pọ̀ mọ́ ìpàdé rẹ tó ń bọ̀ láìfọwọ́sí.',
+  'dashboard.empty.cta': 'Bẹ̀rẹ̀ gbígbàsílẹ̀',
   'dashboard.empty.heading': 'Kò sí ìpàdé kankan síbẹ̀',
   'dashboard.eyebrow': 'Àkójọpọ̀ ìpàdé rẹ',
   'dashboard.loadError': 'Kò ṣeé ṣe láti gbé pásíbọ̀dù jáde.',
+  'dashboard.noActions': 'Kò sí àwọn ìgbésẹ̀',
   'dashboard.recentHeading': 'Àwọn ìpàdé tuntun',
   'dashboard.recordCta': 'Ìpàdé ìgbàsílẹ̀',
   'dashboard.stat.actions': 'Àwọn ohun ìṣe',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} Àkópọ̀ tí a kò kà láti ìgbà tí o ti ṣàyẹ̀wò kẹ́yìn. Ìkùn mú gbogbo ọ̀rọ̀ — àkópọ̀ náà nìyí.',
   'dashboard.viewCalendar': 'Wo kàlẹ́ńdà →',
+  'footer.linksLabel': 'Ìsàlẹ̀ ojú-ìwé',
   'forgot.failed': 'Kò le fi imeeli tuntun ranṣẹ.',
   'forgot.sentBody': 'Tí àkọọ́lẹ̀ kan bá wà fún {{email}}, iwọ yoo gba ọna asopọ atunto laipẹ.',
   'forgot.sentSubheading': 'Ṣayẹwo apo-iwọle rẹ fun ọna asopọ atunto.',
@@ -47,14 +60,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'So awọn kalẹnda ati awọn iru ẹrọ fidio pọ ki Murmur darapọ mọ laifọwọyi.',
   'integrations.updateError': 'Ìṣàyípadà kùnà.',
+  'landing.ctaBody':
+    'Ọ̀fẹ́ fún àwọn ìpàdé 5 àkọ́kọ́ lóṣù. Kò sí káàdì kírẹ́dítì. So Google Calendar pọ̀ ní ìsẹ́jú kan.',
   'landing.ctaButton': 'Bẹ̀rẹ̀ — ọ̀fẹ́ ni',
   'landing.ctaHeading': 'Dáwọ́ ṣíṣàkọsílẹ̀. Bẹ̀rẹ̀ sí í ṣe ìpinnu.',
+  'landing.demo.aiBody':
+    'A ti gbé ìfilọ́lẹ̀ láti May 5 → May 12 láti fún àwọn òṣìṣẹ́ iṣẹ́ ààyè. A pín àtúnṣe Dashboard sọ́tọ̀ sí May 26.',
   'landing.demo.aiLabel': 'Àkópọ̀ AI, tí a ṣe àkójọ láyìíká',
   'landing.demo.recording': 'Gbigbasilẹ · laaye',
   'landing.eyebrow': 'Imọye ipade AI',
   'landing.featuresHeading': 'Ohun gbogbo tí ẹgbẹ́ rẹ nílò lẹ́yìn tí ìpàdé náà bá parí',
+  'landing.featuresSubheading':
+    'Kò sí "dúró, ta ni ó ni èyí?" mọ́. {{appName}} ń fi àkópọ̀ ránṣẹ́ kí ìpè tó já.',
   'landing.getStarted': 'Gbiyanju lọfẹẹ',
   'landing.heroSecondary': 'Wo ìrìn àjò ìṣẹ́jú-àáyá 90',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} ń darapọ̀ mọ́ àwọn ìpè rẹ, ó ń kọ gbogbo ọ̀rọ̀ pẹ̀lú àmì olùsọ̀rọ̀, ó sì ń fi àkópọ̀ AI pẹ̀lú àwọn ohun tí a yàn láti ṣe ránṣẹ́ ní kété tí ìpàdé bá parí.',
   'landing.heroTitle': 'Gba gbogbo ìpàdé. Ṣe àfihàn ohun tó ṣe pàtàkì.',
   'login.altPrompt': 'Ṣé o ṣẹ̀ṣẹ̀ dé sí Murmur?',
   'login.failed': 'Kò le wọlé. Ṣàyẹ̀wò ìmeeli àti ọ̀rọ̀ìpamọ́ rẹ.',
@@ -62,6 +83,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Àwọn ohun ìṣe',
   'meetingDetail.back': 'Gbogbo ìpàdé',
   'meetingDetail.decisionsHeading': 'Àwọn ìpinnu',
+  'meetingDetail.dueDate': 'tó yẹ ní {{date}}',
   'meetingDetail.followupsHeading': 'Àwọn àtẹ̀lé',
   'meetingDetail.loadError': 'Kò ṣeé ṣe láti gbé ìpàdé sórí ìkànnì.',
   'meetingDetail.noActions': 'A ko ri awọn nkan iṣe kankan.',
@@ -74,8 +96,10 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Kò sí ìpàdé kankan síbẹ̀',
   'meetings.heading': 'Àwọn ìpàdé',
   'meetings.loadError': 'Kò ṣeé ṣe láti gbé àwọn ìpàdé sórí ayélujára.',
+  'meetings.recordCta': 'Ìpàdé ìgbàsílẹ̀',
   'meetings.subheading':
     'Gbogbo ìpàdé tí a gbà sílẹ̀, tí a gbé sórí ayélujára, àti tí a bá ṣe ìṣọ̀kan.',
+  'murmurLayout.closeMenu': 'Ti akojọ aṣayan lilọ kiri pa',
   'murmurLayout.openMenu': 'Ṣí àkójọ ìlọ kiri',
   'murmurLayout.primaryNavLabel': 'Lilọ kiri akọkọ',
   'nav.legal': 'Ofin',
@@ -100,7 +124,14 @@ export const ui: UiTranslations = {
   'profile.loading': 'N n gbe…',
   'profile.navLabel': 'Àwọn apá ìrísí',
   'profile.notifications.assignments': 'Àwọn ohun ìṣe tí a yàn fún mi',
+  'profile.notifications.assignmentsHint':
+    'Fi tó ẹ létí nígbà tí a bá gba ohun kan tí ó yẹ kí o ṣe.',
+  'profile.notifications.mentions': 'Àwọn ìdárúkọ nínú àwọn àkọsílẹ̀',
+  'profile.notifications.mentionsHint': 'Ímẹ̀élì + ìtìjú nígbà tí ẹnìkan bá dárúkọ ọ pẹ̀lú @.',
+  'profile.notifications.subheading': 'Yan irú àwọn ìṣẹ̀lẹ̀ {{appName}} tí ó yẹ kí ó dé ọ̀dọ̀ rẹ.',
   'profile.notifications.summaries': 'Àkójọpọ̀ ọ̀sọ̀ọ̀sẹ̀',
+  'profile.notifications.summariesHint': 'Àkópọ̀ ọjọ́ Ajé ti gbogbo ìpàdé láti ọ̀sẹ̀ tí ó kọjá.',
+  'profile.preferences.speakerColor': 'Àwọ̀ olùsọ̀rọ̀ àkọ́kọ́',
   'profile.preferences.subheading':
     'Àwọn ìlànà àìyípadà tí ó kan gbogbo ìgbà tí o bá dara pọ̀ mọ́ ọn.',
   'profile.preferences.timezone': 'Agbègbè Àkókò',
@@ -113,16 +144,21 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Aṣàwákiri rẹ kò ṣe àtìlẹ́yìn fún gbígbàsílẹ̀. Gbìyànjú Chrome, Edge, tàbí Safari.',
   'record.error.upload': 'Ìgbésókè kò yọrí sí rere. Gbìyànjú lẹ́ẹ̀kan síi.',
+  'record.errorLabel': 'Nǹkan kan ṣẹlẹ̀',
   'record.heading': 'Àkọsílẹ̀',
   'record.idleLabel': 'Fọwọ́ kan láti bẹ̀rẹ̀ gbígbàsílẹ̀',
   'record.processingLabel': 'Ṣíṣe àkọsílẹ̀ pẹ̀lú Whisper, ṣíṣe àkópọ̀ pẹ̀lú Claude…',
+  'record.recordingLabel': 'Ń ṣàkọsílẹ̀…',
   'record.retryCta': 'Gbiyanju lẹẹkansi',
   'record.subheading':
     'Tẹ gbohungbohun náà láti bẹ̀rẹ̀. Murmur gba ohùn náà, ó kọ ọ́ sínú ìwé Whisper, ó sì kọ àkótán tí Claude ń lò.',
+  'record.titlePlaceholder': 'Àkọlé ìpàdé (àṣàyàn)',
+  'reset.altPrompt': 'Ṣé o ti yí ọkàn rẹ padà?',
   'reset.hint': 'Lo o kere ju awọn ohun kikọ 8 pẹlu adalu awọn lẹta ati awọn nọmba.',
   'reset.missingToken': 'Àtúntò ìjápọ̀ náà ti sọnù tàbí ó ti parí. Béèrè fún èyí tuntun.',
   'reset.newPassword': 'Ọrọ aṣina Tuntun',
   'reset.subheading': 'Yan ọrọ igbaniwọle kan ti o ko lo nibikibi miiran.',
+  'reset.tooShort': 'Ọ̀rọ̀ìpamọ́ gbọ́dọ̀ jẹ́ ó kéré tán àwọn ohun kikọ 8.',
   'search.empty': 'Tẹ lati wa awọn iwe afọwọkọ.',
   'search.loadError': 'Wíwá kò ṣiṣẹ́ dáadáa. Gbìyànjú lẹ́ẹ̀kan síi.',
   'search.noResults': 'Ko si awọn abajade fun “ {{q}} “.',
@@ -138,7 +174,9 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Pa ohùn mọ́ fún',
   'settings.retention.heading': 'Ìdúró',
   'settings.retention.transcript': 'Pa àwọn ìwé àkọsílẹ̀ mọ́ fún',
+  'settings.revokeDeviceWarning': 'Wíwọlé ẹ̀rọ yìí yóò di fífà padà láìpẹ́. Mú u jáde?',
   'settings.saveError': 'Fifipamọ kuna.',
+  'settings.security.subheading': 'Ṣe àtúnṣe ọ̀rọ̀ ìkọ̀kọ̀ tí o ń lò láti wọlé.',
   'settings.sharing.exportFormat': 'Ìgbéjáde ọ̀nà ìtajà',
   'settings.sharing.heading': 'Pínpín àwọn àìṣeédá',
   'settings.sharing.scope': 'Ààyè ìpínpín àìyípadà',
@@ -155,6 +193,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Pe ẹgbẹ́ agbábọ́ọ̀lù',
   'team.invitedAs': 'A pè é gẹ́gẹ́ bí {{role}}',
   'team.inviteFailed': 'Kò le fi ìkésíni ránṣẹ́.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'Fi ìkésíni ránṣẹ́',
   'team.inviteSubtitle': 'Wọn yoo gba imeeli pẹlu ọna asopọ isopọmọ.',
   'team.inviteTitle': 'Pe ẹlẹgbẹ kan',

@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'มีข้อเสนอแนะ เจอบั๊ก หรือกำลังวางแผนอะไร ambitious อยู่ใช่ไหม? ติดต่อเราจากการตั้งค่าบัญชีของคุณ — ทุกข้อความส่งตรงถึงทีมงานจริง',
+  'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'การจองในกล่องเดียว — เที่ยวบิน โรงแรม และการยืนยันกิจกรรมจะปรากฏในวันที่ตรงกับรายการนั้น',
+  'about.featureCollab':
+    'การทำงานร่วมกันแบบเรียลไทม์ — เชิญผู้เดินทางได้สูงสุดห้าคนต่อทริป ทุกการเปลี่ยนแปลงซิงก์แบบสด และมีความคิดเห็นเป็นเธรดใต้แต่ละจุดแวะ',
+  'about.featureMapsBudget':
+    'แผนที่ จุดหมายปลายทาง และงบประมาณที่แชร์ร่วมกัน — ดูทริปทั้งหมดบนแผนที่ ค้นพบจุดหมายที่คัดสรรโดยบรรณาธิการ และติดตามค่าใช้จ่ายเพื่อไม่ให้ใครใช้เกิน',
+  'about.featureTimelines':
+    'ไทม์ไลน์รายวัน — ลากจุดแวะเพื่อจัดลำดับใหม่ เพิ่มช่วงการเดินทาง และดูแผนการเดินทางคำนวณใหม่เป็นเอกสารที่มีชีวิต',
+  'about.intro':
+    '{{app}} เปลี่ยนโฟลเดอร์ที่เต็มไปด้วยแผนครึ่งๆ กลางๆ ให้เป็นทริปเดียวที่แชร์ร่วมกันซึ่งทั้งกลุ่มติดตามได้จริง สร้างแผนการเดินทางรายวัน ใส่เที่ยวบินและโรงแรม ปักทุกจุดแวะบนแผนที่ และติดตามงบประมาณ — ทั้งหมดในที่เดียวที่สงบ แทนที่จะเปิดเป็นสิบแท็บกับแชทกลุ่ม',
+  'about.missionBody':
+    'การวางแผนเดินทางควรให้ความรู้สึกเหมือนทริปกำลังดีขึ้น ไม่ใช่เหมือนการบ้าน {{app}} มีอยู่เพื่อทำให้ทริปที่วางแผนร่วมกันเป็นเรื่องง่าย — เพื่อให้ผู้เดินทางทุกคนมารู้แผน และทุกจุดแวะเล่าเรื่องที่ควรค่าแก่การจดจำ',
+  'about.missionTitle': 'พันธกิจของเรา',
   'about.pageTitle': 'เกี่ยวกับ {{app}}',
   'auth.legalConsent': 'เมื่อดำเนินการต่อ แสดงว่าคุณยอมรับ',
   'bookings.empty.body': 'เพิ่มเที่ยวบิน โรงแรม หรือกิจกรรมเพื่อเริ่มต้นกล่องจดหมายเข้า',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'โรงแรม',
   'bookings.type.other': 'อื่นๆ',
   'budgetSpendCard.budgetTotal': 'ของ {{total}} วางแผน',
+  'budgetSpendCard.overBy': '{{amount}} เกินงบ',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} ล่าสุด',
+  'budgetSpendCard.remaining': '{{amount}} คงเหลือ',
   'calendar.eyebrow': 'ปีข้างหน้า',
   'calendar.heading': 'ทุกการเดินทางจะถูกบันทึกไว้ในปฏิทินเดียว',
   'calendar.legendHeading': 'ทริปท่องเที่ยวในเดือนนี้',
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'และ',
   'common.goToDashboard': 'ไปที่แดชบอร์ด',
   'dashboard.budgetHeading': 'จังหวะงบประมาณ',
+  'dashboard.empty.body':
+    'วางแผนทริปแรกของคุณ แล้วแดชบอร์ดจะเต็มไปด้วยไทม์ไลน์รายวัน สัญญาณงบประมาณ และการจอง',
+  'dashboard.empty.cta': 'วางแผนทริปแรกของคุณ',
   'dashboard.empty.heading': 'ยังไม่มีการเดินทางใดๆ — แผนที่ของคุณจึงว่างเปล่า',
   'dashboard.eyebrow': 'ศูนย์ควบคุมภารกิจ',
   'dashboard.heading': 'การผจญภัยครั้งต่อไปของคุณ ในมุมสงบแห่งหนึ่ง',
   'dashboard.newTripCta': 'เริ่มต้นการเดินทางครั้งใหม่',
+  'dashboard.subheading':
+    'นับถอยหลังสู่ทริปถัดไป สัญญาณการใช้จ่ายวันนี้ และภาพรวมอย่างรวดเร็วของทุกแผนการเดินทางที่กำลังดำเนินอยู่',
   'dashboard.tripsHeading': 'การเดินทางที่กำลังเคลื่อนไหว',
   'dashboard.viewAllExpenses': 'ตรวจสอบค่าใช้จ่ายทุกรายการ',
   'dashboard.viewAllTrips': 'ดูทุกการเดินทาง',
   'dayTimelineRow.category.accommodation': 'อยู่',
+  'dayTimelineRow.category.food': 'อาหารและเครื่องดื่ม',
+  'dayTimelineRow.category.sightseeing': 'เที่ยวชมสถานที่',
   'dayTimelineRow.category.transport': 'ขนส่ง',
   'destinationOrbCard.exploreCta': 'เพิ่มลงในทริป',
   'destinationOrbCard.tripCount': '{{count}} การเดินทาง',
+  'destinations.empty.body': 'สลับกลับไปที่ทั้งหมด แล้วสิ่งที่บรรณาธิการคัดสรรจะปรากฏขึ้นอีกครั้ง',
   'destinations.empty.heading': 'ยังไม่มีจุดหมายปลายทาง',
+  'destinations.emptyFiltered.heading': 'ยังไม่มีอะไรติดแท็กแบบนั้น',
   'destinations.errors.load': 'ไม่สามารถโหลดปลายทางได้',
   'destinations.eyebrow': 'ต่อไปจะไปที่ไหน',
   'destinations.heading': 'มุมที่บันทึกไว้และสิ่งที่บรรณาธิการค้นพบ',
@@ -70,7 +98,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'ผู้ขาย',
   'expenses.formHeading': 'บันทึกค่าใช้จ่ายสำหรับ {{trip}}',
   'expenses.heading': 'งบประมาณการเดินทางส่วนใหญ่ไปอยู่ที่ไหนกันแน่',
+  'expenses.heroBudget': 'วางแผนแล้ว {{pct}}% ของ {{total}}',
   'expenses.heroEyebrow': '{{trip}} • ภาพรวมงบประมาณ',
+  'expenses.heroNoBudget': 'ทริปนี้ยังไม่ได้ตั้งงบประมาณ',
   'expenses.noTrips.body':
     'วางแผนการเดินทางก่อน – ค่าใช้จ่ายต่างๆ จะถูกแนบไปกับงบประมาณของการเดินทาง',
   'expenses.noTrips.heading': 'ยังไม่มีการเดินทางใดๆ',
@@ -83,12 +113,16 @@ export const ui: UiTranslations = {
     'ใบเสร็จและเอกสารยืนยันทุกฉบับจะถูกจัดอยู่ในหมวดหมู่ที่ถูกต้องที่นี่ — ไม่จำเป็นต้องใช้สเปรดชีต',
   'forgotPassword.eyebrow': 'กู้คืนแผนการเดินทางของคุณ',
   'forgotPassword.heading': 'ลืมรหัสผ่านใช่ไหม?',
+  'forgotPassword.subheading':
+    'กรอกอีเมลที่คุณใช้กับ {{appName}} แล้วเราจะส่งลิงก์สำหรับรีเซ็ตรหัสผ่านให้',
   'forgotPassword.submit': 'ส่งอีเมลกู้คืน',
   'forgotPassword.submitPending': 'กำลังส่งอีเมลกู้คืน...',
   'forgotPassword.successHint':
     'ยังไม่ได้รับอีเมลใช่ไหม ตรวจสอบโฟลเดอร์สแปม หรือลองใหม่อีกครั้งด้วยที่อยู่อีเมลอื่น',
   'forgotPassword.successSubheading':
     'เราได้ส่งลิงก์กู้คืนไปให้แล้ว {{email}} ลิงก์นี้ใช้งานได้ 30 นาที',
+  'forgotPassword.tryAgain': 'ส่งไปยังอีเมลอื่น',
+  'landing.cta.eyebrow': 'เริ่มด้วยแผนฟรี',
   'landing.cta.heading': '{{tagline}}',
   'landing.cta.signup': 'สร้างบัญชีฟรี',
   'landing.cta.subheading':
@@ -100,8 +134,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}',
   'landing.hero.ctaPrimary': 'เริ่มต้นการเดินทางฟรี',
   'landing.hero.ctaSecondary': 'ดูตัวอย่างการเดินทาง',
+  'landing.hero.eyebrow': 'ตัววางแผนทริป · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint เปลี่ยนโฟลเดอร์ที่เต็มไปด้วยแผนการเดินทางที่ยังไม่สมบูรณ์ ให้กลายเป็นแผนการเดินทางแบบวันต่อวันที่กลุ่มของคุณสามารถปฏิบัติตามได้อย่างแท้จริง โดยมีการติดตามการจอง แผนที่ และงบประมาณไว้ในที่เดียว',
+  'landing.hero.title': 'วางแผนครั้งเดียว แล้วออกเดินทางไปด้วยกัน',
   'landing.nav.join': 'เริ่มต้นการเดินทางฟรี',
   'landing.nav.preview': 'ภายในจุดอ้างอิง',
   'landing.preview.cta': 'วางแผนกิจกรรมของคุณเองสักกิจกรรม',
@@ -110,6 +146,7 @@ export const ui: UiTranslations = {
     'นี่คือเส้นทางท่องเที่ยวบางส่วนที่นักท่องเที่ยวกำลังวางแผนอยู่ในขณะนี้',
   'login.eyebrow': 'พื้นที่สำหรับสมาชิก',
   'login.heading': 'ยินดีต้อนรับกลับมาอีกครั้ง นักเดินทาง',
+  'login.noAccount': 'เพิ่งใช้บริการ Tessera เป็นครั้งแรกใช่ไหม?',
   'login.signupLink': 'สร้างบัญชีฟรี',
   'login.subheading':
     'ลงชื่อเข้าใช้เพื่อจัดการการเดินทาง แผนการเดินทางประจำวัน การจอง และบันทึกประจำวันที่คุณได้เริ่มไว้แล้ว',
@@ -120,6 +157,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'ไม่สามารถอัปเดตการแจ้งเตือนได้',
   'notifications.heading': 'วันนี้การเดินทางของคุณเปลี่ยนแปลงอะไรบ้าง',
   'notifications.markUnread': 'ทำเครื่องหมายว่ายังไม่ได้อ่าน',
+  'notifications.subheading':
+    'ใหม่ {{count}} รายการ — การยืนยันการจอง บันทึกจากผู้ร่วมงาน ราคาตั๋วที่ลดลง และการแจ้งเตือน',
   'notifications.time.daysAgo': '{{count}} หลายวันก่อน',
   'notifications.time.hoursAgo': '{{count}} ฮ. ที่ผ่านมา',
   'notifications.time.justNow': 'เมื่อสักครู่',
@@ -138,6 +177,7 @@ export const ui: UiTranslations = {
     'บริการที่เชื่อมต่อ สกุลเงิน การแจ้งเตือนแบบพุช และข้อมูลประจำตัวที่คุณใช้ในการเข้าสู่ระบบ',
   'signup.and': 'และ',
   'signup.eyebrow': 'เข้าร่วม Waypoint',
+  'signup.haveAccount': 'ออกเดินทางอยู่แล้วหรือ?',
   'signup.heading': 'วางแผนครั้งเดียว แล้วออกเดินทางไปด้วยกัน',
   'signup.namePlaceholder': 'ไอริส ลาร์เซน',
   'signup.subheading':
@@ -149,6 +189,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'กำหนดการเดินทางแบบเปิด',
   'tripCountdownHeroCard.ctaSecondary': 'วางแผนการเดินทางครั้งต่อไป',
   'tripCountdownHeroCard.daysLabel': '{{days}} เหลืออีกไม่กี่วัน',
+  'tripCountdownHeroCard.eyebrow': 'การผจญภัยครั้งถัดไป · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} คืน — แผนการเดินทางของคุณพร้อมออกเดินทางแล้ว',
   'tripCoverCard.stops': '{{count}} หยุด',
   'tripCoverCard.travelers': '{{count}} นักเดินทาง',
   'tripDetail.addActivity': 'เพิ่มกิจกรรม',
@@ -158,6 +201,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'ชื่อกิจกรรม',
   'tripDetail.adding': 'การเพิ่ม…',
   'tripDetail.backToTrips': 'กลับไปยังการเดินทางทั้งหมด',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'นักเดินทาง',
   'tripDetail.dayLabel': 'วัน {{day}}',
   'tripDetail.empty': 'ยังไม่มีกิจกรรมใดๆ – เพิ่มกิจกรรมเพื่อเริ่มต้นไทม์ไลน์',
@@ -168,14 +212,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'กำหนดการเดินทาง ➡ {{country}}',
   'tripDetail.invite': 'เชิญ',
   'tripDetail.inviteLabel': 'เชิญทางอีเมล',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'ส่งคำเชิญไปยัง {{email}} .',
   'tripDetail.inviting': 'กำลังส่ง…',
   'tripDetail.loading': 'การเดินทางเพื่อขนถ่ายสินค้า…',
   'tripDetail.noCollaborators': 'ตอนนี้ก็มีแค่คุณคนเดียวนะ',
+  'tripDetail.notesHeading': 'บันทึกทริป',
   'tripDetail.notesPlaceholder': 'ยังไม่มีบันทึกใดๆ',
   'tripDetail.notFound.heading': 'ไม่พบการเดินทาง',
   'tripDetail.openBookings': 'กล่องข้อความสำหรับการจอง',
   'tripDetail.shareCopied': 'คัดลอกลิงก์แชร์ไปยังคลิปบอร์ดแล้ว:',
+  'tripDetail.shareReady': 'ลิงก์แชร์พร้อมแล้ว:',
   'tripDetail.stops': '{{count}} หยุด',
   'tripDetail.timelineEyebrow': 'ไทม์ไลน์รายวัน',
   'tripDetail.timelineHeading': 'แผนรายวัน',
@@ -193,6 +240,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'นักเดินทาง',
   'tripPlanner.heading': 'วางแผนการเดินทางโดยย่อภายในเวลาไม่ถึงหนึ่งนาที',
   'tripPlanner.preview.eyebrow': 'ดูตัวอย่างสด',
+  'tripPlanner.preview.placeholderCountry': 'เลือกประเทศ',
   'tripPlanner.preview.placeholderDestination': 'การผจญภัยครั้งต่อไปของคุณ',
   'tripPlanner.section1.title': 'ที่ไหนและเมื่อไหร่',
   'tripPlanner.section2.title': 'นักเดินทางและงบประมาณ',
@@ -201,10 +249,13 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'วัน {{day}} • เพิ่มจุดจอด การเดินทาง และการจองที่นี่',
   'tripPlanner.section3.day2': 'วัน {{day}} • เพิ่มจุดจอด การเดินทาง และการจองที่นี่',
   'tripPlanner.section3.day3': 'วัน {{day}} • เพิ่มจุดจอด การเดินทาง และการจองที่นี่',
+  'tripPlanner.section3.title': 'เทมเพลตแผนรายวัน',
   'tripPlanner.subheading':
     'ใส่ข้อมูลพื้นฐานลงไปด้านล่าง – คุณสามารถเชิญผู้ร่วมงาน เพิ่มจุดแวะพัก และส่งต่อการจองในภายหลังได้เสมอ',
   'tripPlanner.submit': 'สร้างทริป',
   'tripPlanner.submitting': 'สร้างสรรค์…',
+  'trips.empty.body': 'สลับกลับไปที่ทริปทั้งหมด หรือเริ่มวางแผนการเดินทางครั้งถัดไปของคุณ',
+  'trips.empty.cta': 'วางแผนการเดินทาง',
   'trips.empty.heading': 'ยังไม่มีอะไรตรงกับตัวกรองนั้นเลย',
   'trips.eyebrow': 'แผนที่โลก',
   'trips.filterLabel': 'กรองการเดินทางตามสถานะ',
@@ -215,6 +266,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'ยังไม่มีการเดินทางใดๆ',
   'trips.pastHeading': 'การผจญภัยในอดีต',
   'trips.subheading': '{{count}} แผนการเดินทาง — ในอดีต ปัจจุบัน และในอนาคต',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'วางแผนครั้งเดียว ออกเดินทางด้วยกัน จดจำไปตลอด',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · สมาชิก {{appName}} คนตั้งแต่ปี 2024',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} เปลี่ยนทริป 3 สัปดาห์ที่วุ่นวายข้ามสี่ประเทศให้กลายเป็นแผนการเดินทางที่ผ่อนคลายที่สุดเท่าที่เราเคยแชร์กันมา',
   'waypointLayout.mobileNavClose': 'ปิดเมนูนำทาง',
   'waypointLayout.primaryNavLabel': 'การนำทางหลัก',
 }

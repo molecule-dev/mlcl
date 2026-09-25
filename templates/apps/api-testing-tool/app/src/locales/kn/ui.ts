@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ಬಗ್ ಕಂಡುಬಂದಿದೆಯೇ, ವೈಶಿಷ್ಟ್ಯದ ವಿನಂತಿ ಇದೆಯೇ, ಅಥವಾ ಮುಂದೆ ಏನನ್ನು ನಿರ್ಮಿಸಬೇಕೆಂದು ನಮಗೆ ಹೇಳಲು ಬಯಸುವಿರಾ? hello@pylon.dev ಗೆ ಇಮೇಲ್ ಮಾಡಿ — ಪ್ರತಿ ಸಂದೇಶವೂ ತಂಡದ ನಿಜವಾದ ಎಂಜಿನಿಯರ್‌ಗೆ ತಲುಪುತ್ತದೆ.',
   'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
+  'about.intro':
+    '{{app}} ಟರ್ಮಿನಲ್‌ನಲ್ಲೇ ಬದುಕುವ ಎಂಜಿನಿಯರ್‌ಗಳಿಗಾಗಿ ವೇಗದ, ಕೀಬೋರ್ಡ್-ಸ್ನೇಹಿ API ಪರೀಕ್ಷಾ ವರ್ಕ್‌ಬೆಂಚ್ — Postman-ಶೈಲಿಯ ವಿನಂತಿಗಳು, ಸಂಗ್ರಹಗಳು, ಪರಿಸರಗಳು ಮತ್ತು ಇತಿಹಾಸ, ಯಾವುದೇ ಹೊರೆಯಿಲ್ಲದೆ.',
+  'about.missionBody':
+    'ಆಧುನಿಕ ಸಾಫ್ಟ್‌ವೇರ್‌ನ ಬೆನ್ನೆಲುಬು APIಗಳು, ಆದರೆ ಅವನ್ನು ಬಳಸುವ ಸಾಧನಗಳು ನಿಧಾನ, ಭಾರೀ ಮತ್ತು ಮೌಸ್-ಚಾಲಿತ. {{app}} ಅಸ್ತಿತ್ವದಲ್ಲಿರುವುದು ಡೆವಲಪರ್‌ಗಳಿಗೆ ತೀಕ್ಷ್ಣ, ವೇಗದ, ಟರ್ಮಿನಲ್-ದರ್ಜೆಯ ವರ್ಕ್‌ಬೆಂಚ್ ನೀಡಲು: ವಿನಂತಿಗಳನ್ನು ಹಾರಿಸಿ, ವಿಶ್ವಾಸವನ್ನು ಕForgೆ, ಮತ್ತು ಕೀಬೋರ್ಡ್ ಬಿಡದೆ ಶಿಪ್ ಮಾಡಿ.',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
   'about.pageTitle': '{{app}} ಬಗ್ಗೆ',
   'authShell.statusLabel': 'ಓಟಗಾರರು ಆನ್‌ಲೈನ್',
   'collections.createError': 'ಸಂಗ್ರಹವನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'collections.defaultName': 'ಶೀರ್ಷಿಕೆರಹಿತ ಸಂಗ್ರಹ {{n}}',
+  'collections.empty':
+    'ಇನ್ನೂ ಯಾವುದೇ ಸಂಗ್ರಹಗಳಿಲ್ಲ — ನಿಮ್ಮ ಮೊದಲ ಫೋಲ್ಡರ್ ರಚಿಸಲು “New collection” ಕ್ಲಿಕ್ ಮಾಡಿ.',
   'collections.eyebrow': '$ ಪೈಲಾನ್ ಸಂಗ್ರಹಗಳು --ಮರ',
   'collections.fetchError': 'ಸಂಗ್ರಹಣೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'collections.heading': 'ಸಂಗ್ರಹಣೆಗಳು',
   'collections.loading': 'ಸಂಗ್ರಹಣೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
+  'collections.metric.allGreen': 'ಎಲ್ಲವೂ ಸರಿ',
   'collections.metric.collections': 'ಸಂಗ್ರಹಣೆಗಳು',
   'collections.metric.failing': 'ವಿಫಲವಾಗುತ್ತಿದೆ',
   'collections.metric.failingCaption': 'ಕೊನೆಯ ರನ್ ವಿಫಲವಾಗಿತ್ತು',
@@ -24,6 +34,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'ಅಸ್ಥಿರಗಳು',
   'environments.createError': 'ಪರಿಸರವನ್ನು ಸೃಷ್ಟಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'environments.defaultName': 'ಶೀರ್ಷಿಕೆರಹಿತ ಪರಿಸರ {{n}}',
+  'environments.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಪರಿಸರಗಳಿಲ್ಲ — ಒಂದನ್ನು ಸೇರಿಸಲು “New environment” ಕ್ಲಿಕ್ ಮಾಡಿ.',
   'environments.eyebrow': '$ ಪೈಲಾನ್ env --ಸ್ವಿಚ್',
   'environments.fetchError': 'ಪರಿಸರಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'environments.heading': 'ಪರಿಸರಗಳು',
@@ -31,8 +42,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'ಹೊಸ ಪರಿಸರ',
   'environments.subheading':
     'ಕಳುಹಿಸುವ ಸಮಯದಲ್ಲಿ ವಿನಂತಿಗಳಾಗಿ ವಿನಿಮಯವಾಗುವ ವೇರಿಯೇಬಲ್‌ಗಳು. ಪ್ರತಿ ಕಾರ್ಯಕ್ಷೇತ್ರಕ್ಕೆ ಒಂದು ಸಕ್ರಿಯ ಪರಿಸರ.',
+  'forgotPassword.statusLabel': 'ಮರುಹೊಂದಿಸಿ · ಸುರಕ್ಷಿತ ಸುರಂಗ',
   'forgotPassword.success':
     'ಆ ಇಮೇಲ್‌ಗಾಗಿ ಖಾತೆ ಅಸ್ತಿತ್ವದಲ್ಲಿದ್ದರೆ, ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಬರುತ್ತಿದೆ. ನಿಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್ ಪರಿಶೀಲಿಸಿ.',
+  'history.empty': 'ಇಲ್ಲಿ ಇನ್ನೂ ಏನೂ ಇಲ್ಲ — Workspace ಟ್ಯಾಬ್‌ನಿಂದ ನಿಮ್ಮ ಮೊದಲ ವಿನಂತಿ ಹಾರಿಸಿ.',
   'history.eyebrow': '$ ಪೈಲಾನ್ ಇತಿಹಾಸ --ಟೈಲ್',
   'history.fetchError': 'ಇತಿಹಾಸವನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'history.heading': 'ಇತಿಹಾಸವನ್ನು ಚಲಾಯಿಸಿ',
@@ -41,9 +54,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'ಕೊನೆಯ 50',
+  'history.realtime': 'ನೈಜ ಸಮಯ',
   'history.subheading':
     'ಈ ಕಾರ್ಯಸ್ಥಳದಲ್ಲಿ ಸ್ಥಿತಿ, ವಿಳಂಬ ಮತ್ತು ಪೇಲೋಡ್ ಗಾತ್ರದೊಂದಿಗೆ ಪ್ರತಿಯೊಂದು ವಿನಂತಿಯನ್ನು ಸಲ್ಲಿಸಲಾಗುತ್ತದೆ.',
   'landing.choosePlan': 'ಯೋಜನೆಯನ್ನು ಆರಿಸಿ',
+  'landing.copyright': '© {{year}} {{app}} Engineering. ವಿಶ್ವಾಸವನ್ನು ಕForgೆ.',
   'landing.ctaBody':
     'ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್ ಇಲ್ಲ. ಪ್ಲಾಟ್‌ಫಾರ್ಮ್ ಎಂಜಿನಿಯರ್ ಅಗತ್ಯವಿಲ್ಲ. ⌘K ತೆರೆಯಿರಿ ಮತ್ತು ನಿಮ್ಮ ಮೊದಲ ವಿನಂತಿಯನ್ನು ಐದು ನಿಮಿಷಗಳಿಗಿಂತ ಕಡಿಮೆ ಅವಧಿಯಲ್ಲಿ ರವಾನಿಸಿ.',
   'landing.ctaHeading': 'ಆತ್ಮವಿಶ್ವಾಸವನ್ನು ಬೆಳೆಸಿಕೊಳ್ಳಿ.',
@@ -85,6 +100,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'ಸರಾಸರಿ ವಿಳಂಬ',
   'mocks.metric.live': 'ಸಾರ್ವಜನಿಕ',
   'mocks.metric.servers': 'ಅಣಕುಗಳು',
+  'mocks.ms': 'ಮಿಸೆಸ್',
   'mocks.newMock': 'ಹೊಸ ಅಣಕು',
   'mocks.online': 'ಸಾರ್ವಜನಿಕ',
   'mocks.paused': 'ಖಾಸಗಿ',
@@ -109,9 +125,13 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'ಆರೋಗ್ಯಕರ',
   'monitors.metric.uptime': 'ಸರಾಸರಿ ಅಪ್‌ಟೈಮ್',
   'monitors.newMonitor': 'ಹೊಸ ಮಾನಿಟರ್',
+  'monitors.paused': 'ವಿರಾಮಗೊಳಿಸಲಾಗಿದೆ',
   'monitors.run': 'ಓಡು',
   'monitors.runError': 'ನೆಟ್‌ವರ್ಕ್ ದೋಷದೊಂದಿಗೆ ರನ್ ಮುಗಿದಿದೆ: {{error}}',
+  'monitors.runFailed': 'ರನ್ ವಿಫಲವಾಯಿತು.',
   'monitors.running': 'ಓಡುತ್ತಿದೆ...',
+  'monitors.runSuccess':
+    '{{status}} ರನ್ ಮಾಡಿ — ಅಪ್‌ಸ್ಟ್ರೀಮ್ {{ms}}ms ನಲ್ಲಿ {{code}} ಹಿಂತಿರುಗಿಸಿತು.',
   'monitors.sparkLabel': 'ಅನಿಶ್ಚಿತತೆಯ ಪ್ರವೃತ್ತಿ',
   'monitors.subheading':
     'ಯಾವುದೇ ಉಳಿಸಿದ ಪರೀಕ್ಷೆಗೆ ಬೇಡಿಕೆಯ ಮೇರೆಗೆ ಪರಿಶೀಲನೆಗಳು. ಪರೀಕ್ಷೆಯನ್ನು ಬೈಂಡ್ ಮಾಡಿ, ರನ್ ಒತ್ತಿ ಮತ್ತು ಪ್ರತಿ ಫೈರ್‌ನೊಂದಿಗೆ 24-ಗಂಟೆಗಳ ಯಶಸ್ಸಿನ ದರ ನವೀಕರಣವನ್ನು ವೀಕ್ಷಿಸಿ.',
@@ -120,27 +140,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'ಅಪ್‌ಟೈಮ್ · 24 ಗಂಟೆಗಳು',
   'nav.legal': 'ಕಾನೂನುಬದ್ಧ',
   'notFound.backToWorkspace': 'ಕಾರ್ಯಸ್ಥಳಕ್ಕೆ ಹಿಂತಿರುಗಿ',
+  'notFound.body':
+    '{{app}} ಈ URLಗಾಗಿ ವಿನಂತಿ ಹಾರಿಸಿತು ಆದರೆ ಏನೂ ಹಿಂತಿರುಗಲಿಲ್ಲ. ಮಾರ್ಗವನ್ನು ಪರಿಶೀಲಿಸಿ ಅಥವಾ ವರ್ಕ್‌ಸ್ಪೇಸ್‌ಗೆ ಹಿಂತಿರುಗಿ.',
   'notFound.eyebrow': '$ ಪೈಲಾನ್ ರೆಸಲ್ಯೂವ್ --ಸ್ಟ್ರಿಕ್ಟ್',
   'notFound.title': 'ಮಾರ್ಗ ಕಂಡುಬಂದಿಲ್ಲ.',
+  'planUpdated.body':
+    'ನಿಮ್ಮ ಬಿಲ್ಲಿಂಗ್ ಬದಲಾವಣೆ ಈಗ ಸಕ್ರಿಯವಾಗಿದೆ. ಬಿಲ್ಲಿಂಗ್ ಪುಟದಿಂದ ಯಾವಾಗ ಬೇಕಾದರೂ ನಿಮ್ಮ ಯೋಜನೆಯನ್ನು ನಿರ್ವಹಿಸಬಹುದು.',
+  'planUpdated.retry': 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ',
+  'planUpdated.verifyFailed': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ನಮಗೆ ಇನ್ನೂ ಖಚಿತಪಡಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'planUpdated.verifyFailedBody':
+    'ನಿಮ್ಮ ಪಾವತಿ ಇನ್ನೂ ಪ್ರಕ್ರಿಯೆಗೊಳ್ಳುತ್ತಿರಬಹುದು. ಸ್ವಲ್ಪ ಸಮಯದ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'planUpdated.verifying': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ದೃಢೀಕರಿಸಲಾಗುತ್ತಿದೆ…',
+  'pricing.advancedFeatures': 'ಸುಧಾರಿತ ವೈಶಿಷ್ಟ್ಯಗಳು: {{yes}}',
+  'pricing.canExport': 'ಡೇಟಾ ರಫ್ತು: {{yes}}',
+  'pricing.heading': 'ನಿಮ್ಮ {{app}} ಯೋಜನೆ ಆಯ್ಕೆಮಾಡಿ',
+  'pricing.maxCollections': '{{count}} ಸಂಗ್ರಹಗಳು',
+  'pricing.maxEnvironments': '{{count}} ಪರಿಸರಗಳು',
+  'pricing.maxHistory': '{{count}} ಇತಿಹಾಸ ನಮೂದುಗಳು',
+  'pricing.maxRequests': '{{count}} ವಿನಂತಿಗಳು',
   'privacy.collect.account':
     'ಖಾತೆ: ನಿಮ್ಮ ಇಮೇಲ್, ಹ್ಯಾಶ್ ಮಾಡಿದ ಪಾಸ್‌ವರ್ಡ್, ಪ್ರದರ್ಶನ ಹೆಸರು ಮತ್ತು ನಿಮ್ಮ ಕೊನೆಯ ಸೈನ್-ಇನ್‌ನ ಸಮಯಸ್ಟ್ಯಾಂಪ್.',
+  'privacy.intro':
+    '{{app}} ನಿಮ್ಮ ಗೌಪ್ಯತೆಯನ್ನು ಗೌರವಿಸುತ್ತದೆ. ಈ ಪುಟವು ನಾವು ಸಂಗ್ರಹಿಸುವ ಡೇಟಾ, ಏಕೆ ಸಂಗ್ರಹಿಸುತ್ತೇವೆ ಮತ್ತು ಅದನ್ನು ಹೇಗೆ ತೆಗೆದುಹಾಕುವುದು ಎಂಬುದನ್ನು ಸಂಕ್ಷಿಪ್ತವಾಗಿ ತಿಳಿಸುತ್ತದೆ.',
   'privacy.rights.body':
     'ನೀವು ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ನಿಮ್ಮ ಸಂಗ್ರಹಣೆಗಳು + ಪರಿಸರಗಳನ್ನು ರಫ್ತು ಮಾಡಬಹುದು, ಅಥವಾ 30 ದಿನಗಳಲ್ಲಿ ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಶಾಶ್ವತವಾಗಿ ತೆಗೆದುಹಾಕಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಂದ ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಅಳಿಸಬಹುದು.',
   'privacy.share.body':
     'ನಿಮಗೆ ಮಾತ್ರ. ನಾವು ನಿಮ್ಮ ಕಾರ್ಯಸ್ಥಳದ ವಿಷಯವನ್ನು ಮೂರನೇ ವ್ಯಕ್ತಿಗಳಿಗೆ ಎಂದಿಗೂ ಮಾರಾಟ ಮಾಡುವುದಿಲ್ಲ, ಹಂಚಿಕೊಳ್ಳುವುದಿಲ್ಲ ಅಥವಾ ಬಾಡಿಗೆಗೆ ನೀಡುವುದಿಲ್ಲ. ಘಟನೆಯ ಪ್ರತಿಕ್ರಿಯೆಗಾಗಿ ಸರ್ವರ್ ಲಾಗ್‌ಗಳನ್ನು 30 ದಿನಗಳವರೆಗೆ ಉಳಿಸಿಕೊಳ್ಳಲಾಗುತ್ತದೆ ಮತ್ತು ನಂತರ ಅಳಿಸಲಾಗುತ್ತದೆ.',
   'privacy.title': 'ಗೌಪ್ಯತೆ ಸೂಚನೆ',
+  'profile.bio':
+    'ನಿಮ್ಮ ವೈಯಕ್ತಿಕ {{app}} ವರ್ಕ್‌ಸ್ಪೇಸ್ — ಸಂಗ್ರಹಗಳನ್ನು ಪಿನ್ ಮಾಡಿ, ಪರಿಸರಗಳನ್ನು ಹಂಚಿಕೊಳ್ಳಿ ಮತ್ತು ಉತ್ಪನ್ನವನ್ನು ಶಿಪ್ ಮಾಡುವ APIಗಳನ್ನು ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡಿ.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'ಸೇರಿದರು {{when}}',
+  'profile.metric.collections': 'ಸಂಗ್ರಹಣೆಗಳು',
   'profile.metric.monitors': 'ಮಾನಿಟರ್‌ಗಳು',
   'profile.metric.requests': 'ಉಳಿಸಲಾದ ವಿನಂತಿಗಳು',
+  'profile.noActivity':
+    'ಇನ್ನೂ ಯಾವುದೇ ವಿನಂತಿಗಳನ್ನು ಹಾರಿಸಲಾಗಿಲ್ಲ — ಒಂದನ್ನು ಮಾಡಲು Workspace ಟ್ಯಾಬ್‌ಗೆ ಹೋಗಿ.',
   'profile.signedOut': 'ನಿಮ್ಮ ಪ್ರೊಫೈಲ್ ವೀಕ್ಷಿಸಲು ಸೈನ್ ಇನ್ ಮಾಡಿ',
   'pylonShell.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
+  'resetPassword.passwordLabel': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
+  'resetPassword.statusLabel': 'ಮರುಹೊಂದಿಸಿ · ಟೋಕನ್ ಪರಿಶೀಲಿಸಲಾಗಿದೆ',
   'resetPassword.subtitle': 'ನೀವು ಮೊದಲು ಬಳಸದ ಬಲವಾದ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಆರಿಸಿ.',
   'resetPassword.tokenPlaceholder': 'ಇಮೇಲ್‌ನಿಂದ ಅಂಟಿಸಿ',
+  'settings.accountManagement.desc':
+    'ನಿಮ್ಮ ಇಮೇಲ್ ಮತ್ತು ಪಾಸ್‌ವರ್ಡ್ ನವೀಕರಿಸಿ, ಅಧಿಸೂಚನೆಗಳು ಮತ್ತು ಸಾಧನಗಳನ್ನು ನಿರ್ವಹಿಸಿ, ಸೈನ್ ಔಟ್ ಮಾಡಿ ಅಥವಾ ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಅಳಿಸಿ.',
+  'settings.accountManagement.title': 'ಖಾತೆ ಮತ್ತು ಭದ್ರತೆ',
   'settings.eyebrow': '$ ಪೈಲಾನ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳು --ಸಂಪಾದಿಸಿ',
   'settings.fetchError': 'ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'settings.language.title': 'ಭಾಷೆ',
+  'settings.seeding': 'ಸೀಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ…',
   'settings.seedStarter': 'ಬೀಜ ಆರಂಭಿಕ ಅಂಶ',
   'settings.starterCollection': 'ಆರಂಭಿಕ ಸಂಗ್ರಹ',
   'settings.starterCollectionDesc': 'ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಂದ ರಚಿಸಲಾಗಿದೆ {{ts}}',
@@ -154,6 +202,8 @@ export const ui: UiTranslations = {
     'ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ರಕ್ಷಿಸುವ ಜವಾಬ್ದಾರಿ ನಿಮ್ಮದು. ಉಚಿತ ಅಥವಾ ಪ್ರೊ ಯೋಜನೆಗಳಲ್ಲಿ ಒಂದೇ ಖಾತೆಯನ್ನು ಬಹು ವ್ಯಕ್ತಿಗಳೊಂದಿಗೆ ಹಂಚಿಕೊಳ್ಳಲು ಅನುಮತಿ ಇಲ್ಲ - ಹಂಚಿಕೆಯ ಕಾರ್ಯಸ್ಥಳಗಳಿಗಾಗಿ ತಂಡದ ಚಂದಾದಾರಿಕೆಯನ್ನು ಖರೀದಿಸಿ.',
   'terms.billing.body':
     'ಪಾವತಿಸಿದ ಚಂದಾದಾರಿಕೆಗಳು ಪ್ರತಿ ಬಿಲ್ಲಿಂಗ್ ಅವಧಿಯಲ್ಲಿ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ನವೀಕರಣಗೊಳ್ಳುತ್ತವೆ. ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಂದ ರದ್ದುಗೊಳಿಸಿ; ನಿಮ್ಮ ಪ್ರವೇಶವು ಪ್ರಸ್ತುತ ಅವಧಿಯ ಅಂತ್ಯದವರೆಗೆ ಮುಂದುವರಿಯುತ್ತದೆ.',
+  'terms.intro':
+    '{{app}} ಖಾತೆಯನ್ನು ರಚಿಸುವ ಮೂಲಕ ನೀವು ಕೆಳಗಿನ ನಿಯಮಗಳಿಗೆ ಒಪ್ಪುತ್ತೀರಿ. ಅವನ್ನು ಒಮ್ಮೆ ಓದಿ; ಹಿಂದಿನ ದಿನಾಂಕದಿಂದ ಜಾರಿಯಾಗುವ ಬದಲಾವಣೆಗಳಿಂದ ನಾವು ನಿಮ್ಮನ್ನು ಆಶ್ಚರ್ಯಗೊಳಿಸುವುದಿಲ್ಲ.',
   'terms.title': 'ಸೇವಾ ನಿಯಮಗಳು',
   'terms.usage.body':
     'ನೀವು ಹೊಂದಿರದ ಅಥವಾ ಪರೀಕ್ಷಿಸಲು ಸ್ಪಷ್ಟ ಅನುಮತಿಯನ್ನು ಹೊಂದಿರದ ಸೇವೆಗಳಲ್ಲಿ ವಿನಂತಿಗಳನ್ನು ಸಲ್ಲಿಸಲು ಪೈಲಾನ್ ಅನ್ನು ಬಳಸಬೇಡಿ. ದರ ಮಿತಿಗಳನ್ನು ತಪ್ಪಿಸಲು ಅಥವಾ ವಂಚನೆ ಮಾಡಲು ಪೈಲಾನ್ ಅನ್ನು ಬಳಸಬೇಡಿ.',
@@ -174,16 +224,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'ಓಡುತ್ತಿಲ್ಲ',
   'testRunner.metric.passed': 'ಉತ್ತೀರ್ಣರಾದರು',
   'testRunner.never': 'ಎಂದಿಗೂ ಓಡಬೇಡಿ',
+  'testRunner.newTest': 'ಹೊಸ ಪರೀಕ್ಷೆ',
   'testRunner.noAssertions': 'ಈ ಪರೀಕ್ಷೆಯ ಬಗ್ಗೆ ಇನ್ನೂ ಯಾವುದೇ ಸಮರ್ಥನೆಗಳಿಲ್ಲ.',
+  'testRunner.noRunsYet':
+    'ಇನ್ನೂ ಯಾವುದೇ ರನ್‌ಗಳನ್ನು ದಾಖಲಿಸಲಾಗಿಲ್ಲ — ಇತಿಹಾಸವನ್ನು ತುಂಬಲು “Run all” ಒತ್ತಿರಿ.',
   'testRunner.passed': 'ಹಾದುಹೋಗುವಿಕೆ',
+  'testRunner.recentRuns': 'ಇತ್ತೀಚಿನ ಓಟಗಳು',
   'testRunner.runAll': 'ಎಲ್ಲವನ್ನೂ ರನ್ ಮಾಡಿ',
   'testRunner.running': 'ಓಡುತ್ತಿದೆ...',
   'testRunner.runOne': 'ಓಡು',
   'testRunner.subheading': 'ಸೂಟ್ ಫಲಿತಾಂಶಗಳು, ಪ್ರತಿಪಾದನಾ ವ್ಯತ್ಯಾಸಗಳು ಮತ್ತು ಕೊನೆಯ 50 ರನ್‌ಗಳು.',
+  'testRunner.suites': 'ಸೂಟ್‌ಗಳು',
   'userMenu.shortcut': '⌘ಎಲ್',
   'userMenu.signedInAs': 'ಸೈನ್ ಇನ್ ಮಾಡಲಾಗಿದೆ',
   'workspace.auth.keyName': 'ಶಿರೋಲೇಖದ ಹೆಸರು',
   'workspace.auth.keyValue': 'ಪ್ರಮುಖ ಮೌಲ್ಯ',
+  'workspace.auth.noneHint': 'ಈ ವಿನಂತಿಯೊಂದಿಗೆ ಯಾವುದೇ ಅಧಿಕಾರ ಹೆಡರ್ ಕಳುಹಿಸಲಾಗುವುದಿಲ್ಲ.',
   'workspace.auth.password': 'ಪಾಸ್ವರ್ಡ್',
   'workspace.auth.username': 'ಬಳಕೆದಾರಹೆಸರು',
   'workspace.authOption.apikey': 'API ಕೀ',
@@ -193,13 +249,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'ಪ್ರಕಾರ',
   'workspace.authTypeLabel': 'ದೃಢೀಕರಣ ಪ್ರಕಾರ',
+  'workspace.body.contentLabel': 'ವಿನಂತಿ ಪಠ್ಯ',
+  'workspace.body.hint':
+    'ವಿನಂತಿ ಹಾರಿಸುವ ಮೊದಲು {{envVars}} ಬದಲಾಯಿಸಲಾಗುತ್ತದೆ. POST/PUT/PATCH/DELETE ನಲ್ಲಿ ಬಾಡಿಗಳನ್ನು ಕಳುಹಿಸಲಾಗುತ್ತದೆ.',
   'workspace.body.json': 'ಜೆಎಸ್ಒಎನ್',
   'workspace.body.none': 'ಯಾವುದೂ ಇಲ್ಲ',
+  'workspace.body.noneHint':
+    'ಯಾವುದೇ ವಿನಂತಿ ಬಾಡಿ ಕಳುಹಿಸಲಾಗುವುದಿಲ್ಲ. ಒಂದನ್ನು ಸೇರಿಸಲು JSON ಅಥವಾ ಕಚ್ಚಾ ಪಠ್ಯವನ್ನು ಆಯ್ಕೆಮಾಡಿ.',
   'workspace.body.text': 'ಕಚ್ಚಾ ಪಠ್ಯ',
   'workspace.body.type': 'ಪ್ರಕಾರ',
   'workspace.environment': 'env ಇಲ್ಲ',
   'workspace.envVar': 'env ವೇರಿಯೇಬಲ್',
   'workspace.eyebrow': '$ ಪೈಲಾನ್ ಕಾರ್ಯಕ್ಷೇತ್ರ --ಪೇನ್ ಸ್ಪ್ಲಿಟ್',
+  'workspace.failedCount': '{{count}} ವಿಫಲವಾಗಿದೆ',
+  'workspace.idle': 'ಐಡಲ್',
   'workspace.kv.addHeader': 'ಶಿರೋಲೇಖವನ್ನು ಸೇರಿಸಿ',
   'workspace.kv.addParam': 'ಪ್ಯಾರಾಮ್ ಸೇರಿಸಿ',
   'workspace.kv.headerKey': 'ಶಿರೋಲೇಖದ ಹೆಸರು',
@@ -212,12 +275,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP ವಿಧಾನ',
   'workspace.metric.latency': 'ವಿಳಂಬ',
   'workspace.metric.latencyCaption': 'ಈ ಓಟದಿಂದ ರೌಂಡ್-ಟ್ರಿಪ್',
+  'workspace.metric.size': 'ಪೇಲೋಡ್',
   'workspace.metric.sizeCaption': 'ಪ್ರತಿಕ್ರಿಯೆಯ ಮುಖ್ಯ ಭಾಗ ಬೈಟ್‌ಗಳು',
   'workspace.metric.statusCaption': 'ಕೊನೆಯ ಪ್ರತಿಕ್ರಿಯೆ',
   'workspace.metric.tests': 'ಪರೀಕ್ಷೆಗಳು',
+  'workspace.metric.testsAllPassing': 'ಎಲ್ಲಾ ಸಮರ್ಥನೆಗಳು ಸರಿ',
   'workspace.metric.testsFailing': '{{count}} ವಿಫಲಗೊಳ್ಳುತ್ತಿದೆ',
+  'workspace.metric.testsIdle': 'ಮೌಲ್ಯಮಾಪನ ಮಾಡಲು ವಿನಂತಿ ಕಳುಹಿಸಿ',
   'workspace.noAssertions': 'ಅಂತರ್ನಿರ್ಮಿತ ಪ್ರತಿಪಾದನೆಗಳನ್ನು ಮೌಲ್ಯಮಾಪನ ಮಾಡಲು ವಿನಂತಿಯನ್ನು ಚಲಾಯಿಸಿ.',
   'workspace.noResponseYet': 'ಇನ್ನೂ ಯಾವುದೇ ಪ್ರತಿಕ್ರಿಯೆ ಇಲ್ಲ.',
+  'workspace.passedCount': '{{count}} ಪಾಸಾಗಿದೆ',
   'workspace.responseHint':
     '// ವಿನಂತಿಯನ್ನು ಸಲ್ಲಿಸಲು ಮತ್ತು ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ಸೆರೆಹಿಡಿಯಲು ಕಳುಹಿಸು ಒತ್ತಿರಿ.',
   'workspace.saveError': 'ವಿನಂತಿಯನ್ನು ಉಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
@@ -227,10 +294,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'ವಿನಂತಿಯನ್ನು ರಚಿಸಿ, ಅದನ್ನು ಸಲ್ಲಿಸಿ, ನಂತರ ಪ್ರತಿಕ್ರಿಯೆಯನ್ನು ದೃಢೀಕರಿಸಿ - ಎಲ್ಲವೂ ಒಂದೇ ಫಲಕದಲ್ಲಿ.',
   'workspace.testResults': 'ಪರೀಕ್ಷಾ ಫಲಿತಾಂಶಗಳು',
+  'workspace.tests.autoHint':
+    'ಸ್ಥಿತಿ ಕುಟುಂಬ, ವಿಳಂಬ, ಬಾಡಿ ಗಾತ್ರ ಮತ್ತು ಸಾಗಣೆ ಆರೋಗ್ಯವನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸಮರ್ಥಿಸಲಾಗುತ್ತದೆ — ಫಲಿತಾಂಶಗಳು ಪ್ರತಿಕ್ರಿಯೆ ಪ್ಯಾನೆಲ್‌ನ “Test results” ಅಡಿಯಲ್ಲಿ ಕಾಣಿಸುತ್ತವೆ.',
+  'workspace.tests.autoTitle': 'ಪ್ರತಿ ಪ್ರತಿಕ್ರಿಯೆಯ ಮೇಲೆ ಅಂತರ್ನಿರ್ಮಿತ ಸಮರ್ಥನೆಗಳು ಚಲಿಸುತ್ತವೆ',
   'workspace.token': 'ಟೋಕನ್',
   'workspace.tokenHint':
     'ಅಧಿಕಾರವಾಗಿ ಕಳುಹಿಸಲಾಗಿದೆ: ಬೇರರ್<token> ಈ ಸಂಗ್ರಹದಲ್ಲಿರುವ ಪ್ರತಿಯೊಂದು ವಿನಂತಿಯ ಮೇಲೂ.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'ಶೀರ್ಷಿಕೆರಹಿತ ವಿನಂತಿ',
+  'workspace.urlLabel': 'URL ವಿನಂತಿಸಿ',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

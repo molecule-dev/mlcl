@@ -1,12 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Imibuzo mayelana nokubhuka, impendulo, noma indawo ocabanga ukuthi kufanele ibe ku-{{app}}? Xhumana neqembu lethu kusuka ku-akhawunti yakho — yonke imiyalezo ifinyelela kumuntu wangempela ongakusiza.',
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana NATHI',
+  'about.featureLoyalty':
+    'Amanani abamalungu kuphela kanye nohlelo lokwethembeka oluzuza amaphuzu, ukuphuma sekwephuzile, kanye nokuthuthukiswa kwegumbi kukho konke ukubhuka.',
+  'about.featureReviews':
+    'Izibuyekezo zezivakashi eziqinisekisiwe kanye nokukhethwa kwabahleli ukuze uthembe indawo yokuhlala ngaphambi kokufika.',
+  'about.featureRooms':
+    'Amagumbi, amanani, kanye nezinsiza ezinhlangothini olulodwa ngenani elicacile, elihlanganisa konke — izintela kanye nezindleko zendawo yokuphumula zifakiwe ngaphambi kokukhokha.',
+  'about.featureSearch':
+    'Ukusesha ngesikhathi sangempela kumahhotela aqinisekisiwe ngokutholakala okubukhoma, ukubuka kwemephu, kanye namagalari ezithombe acebile.',
+  'about.featureTrips':
+    'Okuthandwayo okugciniwe kanye nedashibhodi ye-Trips egcina yonke into yokubhuka, uhambo, kanye nesiqinisekiso endaweni eyodwa.',
+  'about.intro':
+    'I-{{app}} iyipulatifomu yokubhuka amahhotela yabahambi abakhathalela izinga. Yonke indawo iqinisekiswa ngokwethu yiqembu lethu labahleli — akukho mpahla ye-aggregator, akukho zinhlu zokukhohlisa. Sesha ukutholakala kwangempela, qhathanisa amagumbi, amanani, kanye nezinsiza ezinhlangothini olulodwa, bese ubhuka ngokuthepha okumbalwa ngenani elicacile, elihlanganisa konke.',
+  'about.missionBody':
+    'Ukubhuka indawo yokuhlala kufanele kuzwakale kuthule futhi kuthembekile. Sikhombisa amanani acacile anezintela kanye nezindleko zendawo yokuphumula kusukela ekuqaleni, sihlomulisa izivakashi ezithembekile esikhundleni sokuzikhokhisa ngokweqile, futhi sibeka phambili izindawo zokuhlala ezifanele imali yakho — ukuze uchithe isikhathi esincane uqhathanisa amathebhu kanye nesikhathi esiningi ohambweni ngokwalo.',
+  'about.missionTitle': 'Umsebenzi wethu',
+  'about.subtitle': 'Indlela ekhethiwe, esobala yokuthola nokubhuka ihhotela elifanele.',
   'account.loyalty.activitySummary': '{{nights}} ubusuku · {{spend}} kusetshenziswe kulo nyaka',
+  'account.loyalty.benefitsHeading': 'Izinzuzo zakho',
   'account.loyalty.heading': 'Ukwethembeka',
   'account.loyalty.loading': 'Ilayisha ukwethembeka…',
-  'account.loyalty.pointsTowardNext':
-    '{{amaphuzu}} / {{Olandelayo}} kukhomba ku- {{Isigaba esilandelayo}}',
+  'account.loyalty.maxTier': 'Izinga eliphezulu — jabulela izinzuzo zakho.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} amaphuzu kuya ku-{{nextTier}}',
   'account.loyalty.tier': 'Izinga lamanje',
   'account.loyalty.unavailable': 'Ulwazi lokwethembeka alutholakali.',
   'account.navLabel': 'Izigaba ze-akhawunti',
@@ -24,6 +44,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.datesRequired':
     'Sicela ukhethe izinsuku zakho zokungena kanye nezinsuku zokuphuma.',
   'bookingCheckout.guestHeading': 'Isivakashi esiholayo',
+  'bookingCheckout.heading': 'Qinisekisa bese ubhuka',
   'bookingCheckout.loadError': 'Yehlulekile ukulayisha impahla.',
   'bookingCheckout.nights': '{{rate}} × {{count}} ubusuku',
   'bookingCheckout.notFound': 'Impahla ayitholakalanga.',
@@ -34,11 +55,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Intela kanye nezimali',
   'bookingCheckout.tripHeading': 'Uhambo lwakho',
   'bookingConfirmation.allTripsCta': 'Zonke izinkambo',
+  'bookingConfirmation.confNumber': 'Inombolo yokuqinisekisa: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Isicelo sakho sokubhuka siyacutshungulwa.',
   'bookingConfirmation.heading': 'Ukubhukha kuqinisekisiwe',
   'bookingConfirmation.loading': 'Ilayisha ukubhukha kwakho…',
   'bookingConfirmation.searchMoreCta': 'Phequlula ukuhlala okwengeziwe',
   'bookingConfirmation.subheadingForTrip':
-    '{{impahla}} ku {{idolobha}} , {{izwe}} Sizokubona ku- {{Ngena}} .',
+    '{{property}} ku-{{city}}, {{country}}. Sizokubona ngo-{{checkIn}}.',
   'bookingConfirmation.total': 'Isiyonke {{total}}',
   'bookingConfirmation.viewTripCta': 'Buka uhambo',
   'common.goToDashboard': 'Yiya ku-Dashboard',
@@ -48,6 +72,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Yehlulekile ukulayisha izintandokazi.',
   'favorites.pricePerNight': '{{price}} / ubusuku',
   'favorites.removeCta': 'Susa ukulondoloza',
+  'favorites.removing': 'Iyasusa…',
   'forgotPassword.subheading':
     'Faka i-imeyili ku-akhawunti yakho bese sizokuthumelela isixhumanisi sokusetha kabusha esiphephile.',
   'forgotPassword.successBody':
@@ -55,6 +80,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Amalungu okuhlala ekhaya',
   'landing.cta.heading': 'Amanani amalungu kuphela. Ukubhukha ngakunye, njalo.',
   'landing.cta.signup': 'Dala i-akhawunti yamahhala',
+  'landing.cta.subheading':
+    'Zuza amaphuzu okwethembeka kukho konke ukuhlala, vula ukuphuma sekwephuzile kanye nokuthuthukiswa kwegumbi, futhi uthole ukufinyelela kokuqala ezindaweni ezintsha ngaphambi kokuba zifakwe esidlangalaleni.',
   'landing.destinations.eyebrow': 'Lapho uya khona ngokulandelayo',
   'landing.destinations.heading': 'Izindawo ezifakiwe',
   'landing.destinations.seeAll': 'Bona zonke izindawo oya kuzo',
@@ -63,13 +90,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Izindaba ezifanele ukupakisha',
   'landing.nav.join': 'Joyina Uhambo Olude',
   'landing.nav.search': 'Ukuhlala kokusesha',
+  'landing.preview.browseAll': 'Phequlula iqoqo eliphelele',
   'landing.preview.eyebrow': 'Ukubheka ngaphakathi',
   'landing.preview.heading': 'Ukuhlala okukhethwe ngesandla kule nyanga',
+  'landing.preview.subheading':
+    'Yonke indawo ku-{{appName}} iqinisekiswa ngokwethu yiqembu lethu labahleli — akukho mpahla ye-aggregator, akukho zinhlu zokukhohlisa.',
   'login.eyebrow': 'Indawo yamalungu',
+  'login.noAccount': 'Usanda kufika eTessera?',
   'login.signupLink': 'Dala i-akhawunti yamahhala',
   'login.subheading':
     'Ngena ngemvume ukuze uphathe uhambo lwakho, ubuke iziqinisekiso, bese uqala lapho ugcine khona.',
+  'loyaltyTierBadge.points': '{{points}} amaphuzu',
   'planUpdated.heading': 'Uhlelo lubuyekeziwe',
+  'planUpdated.retry': 'Zama futhi',
+  'planUpdated.verifyFailed': 'Asikwazanga ukuqinisekisa inkokhelo yakho okwamanje.',
+  'planUpdated.verifyFailedBody':
+    'Inkokhelo yakho ingase isacutshungulwa. Zama futhi ngemva kwesikhashana.',
   'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
   'pricing.limit.advancedFeatures': 'Izici ezithuthukisiwe:',
   'pricing.limit.canExport': 'Ukuthunyelwa kwedatha:',
@@ -81,7 +117,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Lokho okunikezwa yile ndawo',
   'propertyDetail.backLink': 'Buyela kusesho',
   'propertyDetail.bookCta': 'Bhukha',
+  'propertyDetail.bookmarkAria': 'Londoloza impahla',
   'propertyDetail.bookmarkAriaSaved': 'Susa ezakhiweni ezigciniwe',
+  'propertyDetail.galleryImageAlt': 'Isithombe esingu-{{name}} sika-{{number}}',
   'propertyDetail.heroImageAlt': '{{name}} isithombe seqhawe',
   'propertyDetail.hidePhotos': 'Fihla izithombe',
   'propertyDetail.lineCleaning': 'Imali yokuhlanza',
@@ -91,6 +129,9 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'ubusuku',
   'propertyDetail.noChargeYet': 'Ngeke ukhokhiswe okwamanje',
   'propertyDetail.notFound': 'Impahla ayitholakalanga.',
+  'propertyDetail.perNight': '/ ubusuku',
+  'propertyDetail.pickDatesHint':
+    'Khetha izinsuku zakho ukuze ubone ukuhlukaniswa kwamanani okuphelele.',
   'propertyDetail.reviewCount': '( {{count}} ukubuyekezwa)',
   'propertyDetail.reviewsHeading': 'Izibuyekezo zakamuva',
   'propertyDetail.roomCapacity': 'Ukulala {{count}}',
@@ -103,6 +144,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Iphasiwedi Entsha',
   'resetPassword.subheading':
     'Khetha iphasiwedi entsha ye-akhawunti yakho ye-Auberge. Sebenzisa okungenani izinhlamvu ezingu-8; sincoma igama lokungena.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Azikho izakhiwo ezifanelana nosesho lwakho.',
   'searchResults.emptyHint':
     'Zama ukwandisa izihlungi zakho noma ukususa umkhawulo wentengo — I-Auberge inezinsalela emazweni angu-14.',
@@ -110,19 +152,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Ukuhlala okuhleliwe',
   'searchResults.headingForQuery': '"Ihlala" {{q}} "',
   'searchResults.loadError': 'Yehlulekile ukulayisha izakhiwo.',
+  'searchResults.mapHint':
+    'Hambisa ikhadi ukuze uqhakambise kumephu. Amathayela e-Mapbox abukhoma ekukhiqizeni.',
   'searchResults.mapPinAria': '{{name}} — {{price}} ngobusuku',
   'searchResults.sortLabel': 'Hlunga nge',
   'searchResults.subheading': '{{count}} izakhiwo · {{guests}} izivakashi',
   'signup.eyebrow': 'Yiba yilungu',
   'signup.subheading':
     'Joyina i-Auberge ukuze uvule amanani amalungu kuphela, ukukhokha sekwephuzile, kanye nokufinyelela kokuqala ezindaweni ezintsha.',
+  'sojournAuthShell.brand.eyebrow': 'Hlala endaweni emangalisayo',
+  'sojournAuthShell.brand.heading':
+    'Iqoqo lezindawo elikhethiwe — elivezwa kahle, elinamanani asobala.',
   'sojournHeroSearchCard.checkInAria': 'Usuku lokungena',
   'sojournHeroSearchCard.checkOutAria': 'Usuku lokuphuma',
+  'sojournHeroSearchCard.destAria': 'Indawo oya kuyo',
+  'sojournHeroSearchCard.destLabel': 'Kuphi',
   'sojournHeroSearchCard.destPlaceholder': 'Idolobha, isifunda, noma impahla',
   'sojournHeroSearchCard.eyebrow': 'Ukuhlala okukhethiwe · Amanani amalungu kuphela',
   'sojournHeroSearchCard.guestsOption': '{{n}} izivakashi',
   'sojournHeroSearchCard.subtitle':
     'Iqoqo elikhethiwe lamahhotela amahle kakhulu, izindawo eziklanywe ngendlela ehlelekile, kanye nezindawo zokuphumula ezingavamile — ngentengo esobala, ezivezwe kahle.',
+  'sojournHeroSearchCard.title': 'Hlala endaweni emangalisayo',
+  'sojournHeroSearchCard.trustLoyalty': 'Zuza amaphuzu kukho konke ukuhlala',
   'sojournHeroSearchCard.trustNoFees': 'Azikho izimali ezifihliwe, noma nini',
   'sojournHeroSearchCard.trustVetted': 'Izakhiwo ezihlolwe ngesandla kuphela',
   'sojournLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',

@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Pitanja, predlozi za funkcije ili brojilo koje bi trebalo da podržimo? Obratite se {{appName}} timu iz podešavanja naloga — svaka poruka stiže do prave osobe.',
   'about.contactTitle': 'Kontaktirajte nas',
   'about.eyebrow': 'О нама',
+  'about.featuresTitle': 'Шта добијате',
+  'about.intro':
+    '{{appName}} je praćenje potrošnje energije u realnom vremenu za solarne domove i timove koji upravljaju objektima. Poplavu podataka sa brojila, invertera i baterija pretvaramo u miran prikaz kontrolne sobe — trenutna snaga, proizvodnja solarne energije, trošak po tarifama i upozorenja, sve na jednom mestu.',
+  'about.missionBody':
+    'Energija koju vidite je energija kojom možete da upravljate. Verujemo da svako ko ima brojilo — domaćinstvo sa solarnim panelima na krovu ili tim koji nadgleda zgradu — zaslužuje uvid na nivou distributera bez ugovora na nivou distributera. Svaka funkcija je napravljena tako da sledeći kilovat-sat bude informisana odluka, a ne iznenađenje na računu.',
+  'about.missionTitle': 'Наша мисија',
   'about.pageTitle': 'О нама {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Потврда',
@@ -14,6 +22,7 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@yourdomain.com',
   'alertRule.eyebrow': 'Ново правило',
   'alertRule.heading': 'Ухвати шиљак пре него што те кошта',
+  'alertRule.nameLabel': 'Назив правила',
   'alertRule.namePlaceholder':
     'нпр. надзор система за грејање, вентилацију и климатизацију након радног времена',
   'alertRule.subheading':
@@ -21,8 +30,10 @@ export const ui: UiTranslations = {
   'alertRule.submit': 'Сачувај правило',
   'alertRule.submitError': 'Није могуће сачувати правило.',
   'alertRule.thresholdLabel': 'Праг',
+  'alertRule.typeLabel': 'Тип окидача',
   'alerts.checking': 'Провера…',
   'alerts.confirmDelete': 'Потврди брисање',
+  'alerts.empty': 'Nema šta da se prikaže — nema upozorenja u ovom stanju.',
   'alerts.emptyNoRules':
     'Још нема упозорења — додајте правило, а затим кликните на „Процени сада“ да бисте га тестирали.',
   'alerts.errorAck': 'Није било могуће признати.',
@@ -42,12 +53,14 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Процените сада',
   'alerts.subheading':
     'Упозорења о праговима и обрасцима која се активирају на вашим мерачима, плус правила која их покрећу.',
+  'billing.activeBlurb': 'Vaša pretplata je aktivna. Upravljajte njome u svakom trenutku.',
   'billing.cancelError': 'Није могуће отказати претплату.',
   'billing.cancelling': 'Отказивање…',
   'billing.currentBadge': 'Тренутни',
   'billing.freeBlurb':
     'Користите бесплатни план. Надоградите за више бројила, дужу историју и више правила упозорења.',
   'billing.heading': 'Планови и наплата',
+  'billing.historyEmpty': 'Plaćeni računi će se pojaviti ovde kada pretplata bude naplaćena.',
   'billing.historyHeading': 'Историја фактура',
   'billing.loadError': 'Није могуће учитати обрачун.',
   'billing.loading': 'Учитавање планова…',
@@ -59,17 +72,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Контактирајте продају',
   'common.goToDashboard': 'Иди на контролну таблу',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} vršna · {{offPeak}} vanvršna kWh',
   'dailyCostMeter.runningLabel': 'Укупан укупан износ',
   'dailyCostMeter.title': 'Трошкови до сада данас',
   'dailyCostMeter.utilizationLabel': 'Дневног буџета',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Dodaj brojilo',
   'dashboard.alertsHeading': 'Активна упозорења',
   'dashboard.devicesHeading': 'Тренутно најбоља кола',
   'dashboard.empty.body':
     'Додајте паметно бројило или соларни инвертор да бисте почели да пратите потрошњу и производњу струје.',
+  'dashboard.empty.title': 'Još nema brojila',
   'dashboard.eyebrow': 'Контролна соба Волтрејса',
   'dashboard.heading': 'Снимак енергије уживо',
   'dashboard.loadError': 'Није могуће учитати очитавања уживо.',
   'dashboard.loading': 'Подешавање на ваше мераче…',
+  'dashboard.noAlerts': 'Sve je mirno — ništa ne prelazi vaše pragove.',
   'dashboard.noAlertsAndNoMeters':
     'Када повежете бројило, овде ће се појавити упозорења на основу ваших прагова.',
   'dashboard.noCircuits': 'Још нема кола за приказ — додајте мерач да бисте започели.',
@@ -77,6 +95,7 @@ export const ui: UiTranslations = {
     'Потрошња енергије за целу кућу, производња соларне енергије и трошкови до сада данас.',
   'dashboard.viewAllAlerts': 'Управљање упозорењима →',
   'dashboard.viewAllDevices': 'Сваки уређај →',
+  'deviceDetail.activeTokens': 'Aktivni tokeni za prijem podataka',
   'deviceDetail.alreadyOff': 'Већ је паузирано',
   'deviceDetail.back': 'Сва кола',
   'deviceDetail.confirmDelete': 'Потврди брисање',
@@ -116,22 +135,34 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Није могуће учитати бројила.',
   'devices.loading': 'Анкетирање сваког бројила…',
   'devices.newRule': 'Ново правило упозорења',
+  'devices.noResults': 'Nijedno kolo ne odgovara ovom filteru.',
   'devices.placeholder.location': 'нпр. машинска соба',
   'devices.placeholder.name': 'нпр. подпанел гараже',
   'devices.subheading':
     'Снага у ватима и данашња електрична енергија у kWh кроз свако коло које Voltrace може да види.',
+  'deviceWattageRow.todayKwh': '{{kwh}} kWh danas',
+  'deviceWattageRow.watts': '{{watts}} З',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Мени',
+  'energyMonitoringLayout.primaryNavLabel': 'Примарна навигација',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    '{{appName}} komunicira sa većinom brojila na nivou distributera, solarnih invertera i baterijskih sistema — žično ili preko WiFi-ja.',
   'landing.ctaHeading': 'Упарите свој мерач, видите вате за неколико минута',
   'landing.eyebrow': 'Енергетска интелигенција у реалном времену',
+  'landing.featuresHeading': 'Svaki vat, svakog minuta, na jednom mestu',
   'landing.getStarted': 'Укључите Волтрејс',
   'landing.heroCta': 'Укључите Волтрејс',
+  'landing.heroSubtitle':
+    'Trenutna snaga, proizvodnja solarne energije, trošak po tarifama i upozorenja o velikoj potrošnji u prikazu kontrolne sobe napravljenom za solarne domove i timove koji upravljaju objektima.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Жртва за цео дом',
   'landing.sampleSolar': '+3.820 W соларне енергије',
   'landing.sampleSummary': 'Извоз 1.680 W у мрежу · 18,4 kWh данас',
   'landing.sampleWatts': '2.140 W',
   'powerHeroCard.solar': '+ {{watts}} W соларни',
   'powerHeroCard.title': 'Жртва за цео дом',
+  'powerHeroCard.todayKwh': '{{kwh}} kWh danas',
   'powerHeroCard.watts': '{{watts}} З',
   'pricing.choose': 'Изаберите {{name}}',
   'pricing.contact': 'Треба нешто по мери?',
@@ -144,6 +175,7 @@ export const ui: UiTranslations = {
     'Почните бесплатно. Надоградите када вам је потребно више бројила, дужа историја или више правила упозорења.',
   'pricing.unavailable': 'Овај план тренутно није доступан — Stripe није конфигурисан.',
   'profile.errorGeneric': 'Није могуће сачувати промене профила.',
+  'profile.errorGoal': 'Mesečni cilj u kWh mora biti pozitivan broj.',
   'profile.errorHousehold': 'Величина домаћинства мора бити позитиван број.',
   'profile.householdHeading': 'Домаћинство и циљеви',
   'profile.householdSize': 'Величина домаћинства',
@@ -161,9 +193,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'Агрегирање очитавања…',
   'reports.subheading':
     'Дневни укупни износи за потрошњу, производњу и трошкове — разврстани по датуму.',
+  'reports.tableHeading': 'Dnevni pregled',
   'settings.currency': 'Валута',
   'settings.errorFlat': 'Фиксна стопа мора бити ≥ 0.',
   'settings.errorNotify': 'Није могуће сачувати подешавања обавештења.',
+  'settings.errorSave': 'Nije moguće sačuvati tarifni plan.',
   'settings.errorTou':
     'Потребне су вршне/ванвршне тарифе и важећи временски оквир за вршну потрошњу.',
   'settings.exportBody':
@@ -184,10 +218,20 @@ export const ui: UiTranslations = {
   'settings.saving': 'Чување…',
   'settings.securityHeading': 'Двофакторска аутентификација',
   'settings.subheading': 'Цене, обавештења и извоз података.',
+  'settings.twoFactorBody':
+    'Zatražite jednokratni kod iz aplikacije za autentifikaciju pri svakoj prijavi.',
   'settings.twoFactorCode': 'Код за аутентификацију',
   'settings.twoFactorDisable': 'Онемогући',
+  'settings.twoFactorDisableTitle': 'Onemogući dvofaktorsku autentifikaciju',
   'settings.twoFactorEnable': 'Омогући',
+  'settings.twoFactorEnableTitle': 'Omogući dvofaktorsku autentifikaciju',
   'settings.twoFactorInvalidCode': 'Неважећи код',
+  'settings.twoFactorOAuth':
+    'Vaš nalog se prijavljuje preko povezanog provajdera, pa se dvofaktorska autentifikacija upravlja tamo.',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Dvofaktorski QR kod',
+  'settings.twoFactorScan':
+    'Skenirajte ovaj QR kod pomoću aplikacije za autentifikaciju, a zatim unesite šestocifreni kod.',
+  'settings.twoFactorUnavailable': 'Двофакторска аутентификација није доступна за ову апликацију.',
   'settings.twoFactorVerify': 'Провери и омогући',
 }

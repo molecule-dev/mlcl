@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Liên hệ với chúng tôi',
   'about.eyebrow': 'Giới thiệu',
+  'about.featureConnections':
+    'Trình quản lý kết nối lưu trữ an toàn và mã hóa màu cho các cơ sở dữ liệu của bạn — thông tin đăng nhập được mã hóa khi lưu trữ, không bao giờ ở dạng văn bản thuần.',
+  'about.featureMonitoring':
+    'Giám sát trực tiếp hiệu suất truy vấn và hoạt động cơ sở dữ liệu, với các phím tắt và bảng lệnh để điều khiển mọi thứ hoàn toàn không cần dùng tay.',
+  'about.featurePlans':
+    'Các gói dịch vụ mở rộng theo nhu cầu của bạn — Miễn phí cho công việc cá nhân, Pro và Team cho nhiều kết nối hơn, thời gian lưu truy vấn lâu hơn, xuất dữ liệu và các tính năng nâng cao.',
+  'about.featureQueryEditor':
+    'Trình soạn thảo SQL sử dụng Monaco với lịch sử truy vấn, truy vấn đã lưu và xuất kết quả ra CSV chỉ với một cú nhấp.',
+  'about.featureSchema':
+    'Trình khám phá lược đồ và duyệt bảng để điều hướng cơ sở dữ liệu, bảng và cột, sau đó duyệt, lọc và chỉnh sửa hàng trực tiếp.',
+  'about.missionTitle': 'Sứ mệnh của chúng tôi',
   'authShell.commands': 'Lệnh',
   'authShell.ssoSupported': 'Hỗ trợ SSO',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Truy vấn',
   'connections.schema': 'Lược đồ',
   'connections.subtitle': 'Quản lý các kết nối cơ sở dữ liệu của quý vị.',
+  'connections.test': 'Kiểm thử',
   'databaseAdminLayout.adminRole': 'Vai trò quản trị',
   'databaseAdminLayout.commandPalette': 'Bảng lệnh',
   'databaseAdminLayout.commands': 'lệnh',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Kết nối mới',
   'databaseAdminLayout.queries': 'Truy vấn',
   'databaseAdminLayout.ready': 'Sẵn sàng',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Tìm kiếm lệnh, truy vấn, bảng…',
   'databaseAdminLayout.user': 'Người dùng',
   'editConnection.confirmDelete': 'Xóa kết nối này?',
   'editConnection.deleteButton': 'Xóa kết nối',
+  'editConnection.newPassword': 'Mật khẩu mới (để trống để giữ nguyên)',
   'editConnection.saved': 'Đã lưu kết nối.',
   'editConnection.title': 'Chỉnh sửa kết nối',
   'forgotPassword.success': 'Nếu tài khoản đó tồn tại, một liên kết khôi phục đang được gửi đi.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Thành công',
   'monitoring.title': 'Giám sát',
   'monitoring.totalQueries': 'Tổng truy vấn',
+  'nav.schema': 'Lược đồ',
   'newConnection.database': 'Cơ sở dữ liệu',
   'newConnection.engine': 'Máy chủ',
   'newConnection.host': 'Máy chủ',
@@ -82,6 +98,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Không có kết nối nào được liên kết với đoạn mã này.',
   'savedQuery.notBound': 'Chưa liên kết',
   'savedQuery.title': 'Truy vấn đã lưu',
+  'schema.columns': 'Cột',
   'schema.foreignKeys': 'Khóa ngoại',
   'schema.indexes': 'Chỉ mục',
   'schemaExplorer.browseRows': 'Duyệt các hàng',
@@ -90,14 +107,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'có thể null',
   'schemaExplorer.colType': 'kiểu',
   'schemaExplorer.noColumns': 'Không có cột nào.',
+  'schemaExplorer.noForeignKeys': 'Không có khóa ngoại.',
   'schemaExplorer.noIndexes': 'Không có mục lục.',
   'schemaExplorer.noTables': 'Không có bảng',
   'schemaExplorer.pickATable': 'Chọn một bảng từ thanh bên.',
   'schemaExplorer.tables': 'Bảng',
   'schemaExplorer.title': 'Trình khám phá lược đồ',
+  'settings.session': 'Buổi tập',
   'settings.subtitle': 'Quản lý tài khoản và gói của quý vị.',
   'signup.heading': 'Tạo tài khoản Quarry của quý vị',
   'signup.tagline': 'Mở quyền truy cập trong chưa đầy một phút.',
   'tableBrowser.noRows': 'Bảng này chưa có hàng nào.',
+  'tableBrowser.subtitle': 'Đang duyệt các hàng từ cơ sở dữ liệu từ xa của bạn.',
   'tableBrowser.title': 'Duyệt các hàng từ cơ sở dữ liệu từ xa của bạn.',
 }

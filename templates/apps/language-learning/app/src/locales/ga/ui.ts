@@ -1,12 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ceisteanna, aiseolas, nó fabht le tuairisciú? Déan teagmháil leis an bhfoireann ó shocruithe do chuntais — téann gach teachtaireacht chuig fíorduine a fhoghlaimíonn teangacha freisin.',
   'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Fúinn',
+  'about.missionTitle': 'Ár misean',
+  'about.whatYouGet': 'Cad a gheobhaidh tú',
   'common.goToDashboard': 'Téigh chuig an Deais',
   'common.logout': 'Logáil Amach',
+  'dailyStatsTriad.heartsHint': 'Athlíon ag tús gach ceachta',
   'dailyStatsTriad.heartsLabel': 'Croíthe',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
+  'dailyStatsTriad.minutesHint': 'Ó chleachtaí an lae inniu',
   'dailyStatsTriad.minutesLabel': 'Nóiméid inniu',
   'dailyStatsTriad.minutesValue': '{{count}} nóim',
   'dailyStatsTriad.wordsLabel': 'Focail máistrithe',
@@ -15,18 +21,29 @@ export const ui: UiTranslations = {
   'dashboard.heading': 'Lá maith agaibh, {{name}} .',
   'dashboard.loadError':
     'Níorbh fhéidir an dul chun cinn is déanaí a lódáil — ag taispeáint luachanna taisceáilte.',
+  'dashboard.loading': 'Ag athnuachan…',
   'dashboard.noLessons': 'Níl aon cheachtanna ar fáil go fóill — seiceáil ar ais go luath.',
+  'dashboard.startPractice': 'Tosaigh cleachtadh labhartha',
+  'dashboard.subheading':
+    "Lean ort ón áit a d'fhág tú — trí sheisiún ghearra agus sroichfidh tú sprioc an lae inniu.",
   'dashboard.viewAllLessons': 'Gach ceacht →',
+  'forgotPassword.subheading': 'Cuir isteach do ríomhphost agus seolfaimid nasc athshocraithe.',
   'forgotPassword.successBody':
     'Seiceáil do bhosca isteach — sheolamar nasc chugat chun é a athshocrú.',
   'forgotPassword.successHint':
     'Má {{email}} má mheaitseálann sé cuntas, tiocfaidh an nasc laistigh de nóiméad.',
+  'landing.copyright': '© {{year}} {{app}}. Tógtha do dhaoine fásta atá ag foghlaim.',
   'landing.ctaBody':
     'Níl cárta ag teastáil. Fág do sheoladh ríomhphoist, roghnaigh teanga, agus tosaigh amárach.',
   'landing.ctaHeading': 'Réidh le do bhlas a aimsiú?',
   'landing.eyebrow': 'Cleachtadh teanga laethúil do dhaoine fásta',
   'landing.featuresHeading': "Lúb cleachtaidh a thugann meas do d'am",
+  'landing.featuresSubheading':
+    'Deartha do dhaoine fásta a bhfuil tríocha nóiméad sa lá acu, ní tríocha uair sa tseachtain.',
   'landing.heroCta': 'Tosaigh sraith 7 lá',
+  'landing.heroSubtitle':
+    'Ceachtanna cúig nóiméad a oireann do shos caife. Druileanna, stór focal, labhairt — go léir fillte i sraith a choinneoidh tú.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.languagesEyebrow': 'Roghnaigh teanga',
   'landing.languagesHeading': 'Ceithre theanga déag, aon nós laethúil amháin',
   'landing.proof.languages': '{{count}} teangacha',
@@ -41,11 +58,18 @@ export const ui: UiTranslations = {
   'leaderboard.heading': 'Clár Ceannaireachta',
   'leaderboard.loadError': 'Níorbh fhéidir an clár ceannaireachta a lódáil.',
   'leaderboard.loading': 'Ag lódáil an chláir ceannaireachta…',
+  'leaderboard.rewardBody':
+    'Má choinníonn tú ór ar feadh trí seachtaine as a chéile, ardófar go diamant thú. Geallta cairdiúla amháin.',
+  'leaderboard.rewardEyebrow': 'Duais na seachtaine seo',
+  'leaderboard.rewardHeading': 'Faigheann an {{count}} is fearr suaitheantas na sraithe óir',
   'leaderboard.subheading':
     "XP an tseachtain seo. Athshocraítear é Dé Domhnaigh ag meán oíche i d'am áitiúil.",
   'leaderboard.weeklyPeriod': 'An tseachtain seo · cairde',
+  'leaderboardPanel.rankSuffix': 'Rang # {{rank}}',
   'leaderboardPanel.title': 'Clár ceannairí cairde',
+  'leaderboardPanel.xp': '{{xp}} XP',
   'leaderboardPanel.you': '(Tusa)',
+  'lessonCard.continue': 'Lean ar aghaidh →',
   'lessonCard.duration': '{{min}} nóim',
   'lessonCard.level': 'Leibhéal {{level}}',
   'lessonCard.progressPercent': '{{percent}} % críochnaithe',
@@ -54,14 +78,17 @@ export const ui: UiTranslations = {
   'lessonDetail.check': 'Seiceáil',
   'lessonDetail.checking': 'Ag seiceáil…',
   'lessonDetail.correct': 'Iontach!',
+  'lessonDetail.correctHint': '+{{xp}} XP. Lean ort.',
   'lessonDetail.empty': 'Gan aon chleachtaí sa cheacht seo.',
   'lessonDetail.exit': 'Scoir an cheacht',
   'lessonDetail.fillBlank': 'Líon an bearna',
   'lessonDetail.finish': 'Críochnaigh an ceacht',
   'lessonDetail.incorrect': 'Ní go díreach — “ {{answer}} "',
+  'lessonDetail.incorrectHint': 'Feicfidh tú an ceann seo arís in athbhreithniú an lae amárach.',
   'lessonDetail.lessonId': 'Ceacht · {{id}}',
   'lessonDetail.loadError': 'Níorbh fhéidir cleachtaí a lódáil.',
   'lessonDetail.loading': 'Ag lódáil ceacht…',
+  'lessonDetail.pronunciation': 'Roghnaigh an fhuaimniú ceart',
   'lessonDetail.submitError': 'Níorbh fhéidir freagra a chur isteach.',
   'lessonDetail.translation': 'Aistrigh an frása',
   'lessonDetail.xpEarned': 'XP tuillte · {{xp}}',
@@ -81,6 +108,12 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'Oscail an roghchlár nascleanúna',
   'parlanceLayout.nav.profile': 'Próifíl',
   'parlanceLayout.primaryNavLabel': 'Príomh-loingseoireacht',
+  'planUpdated.body':
+    "Tá d'athrú billeála gníomhach anois. Is féidir leat do phlean a bhainistiú am ar bith ón leathanach billeála.",
+  'planUpdated.retry': 'Déan iarracht arís',
+  'planUpdated.verifyFailed': 'Ní raibh muid in ann d’íocaíocht a dheimhniú go fóill.',
+  'planUpdated.verifyFailedBody':
+    'B’fhéidir go bhfuil d’íocaíocht fós á próiseáil. Bain triail eile as i gceann nóiméid.',
   'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'practice.empty': 'Níl aon frásaí ar fáil go fóill.',
   'practice.eyebrow': 'Cleachtadh labhartha',
@@ -104,6 +137,10 @@ export const ui: UiTranslations = {
   'pricing.limits.progress': 'iontrálacha dul chun cinn',
   'profile.anonymous': 'Foghlaimeoir',
   'profile.avatarAlt': '{{name}} Avatár \\u2019s',
+  'profile.eyebrow': 'Ball ó {{joined}}',
+  'profile.eyebrowNew': 'Foghlaimeoir nua',
+  'profile.langLessonCount': '{{count}} ceachtanna',
+  'profile.langLevel': 'Leibhéal {{level}}',
   'profile.languages': 'Teangacha',
   'profile.languagesHeading': 'Teangacha atá ar siúl',
   'profile.noAchievements': 'Críochnaigh ceacht chun tús a chur le gnóthachtálacha a thuilleamh.',
@@ -112,6 +149,7 @@ export const ui: UiTranslations = {
   'profile.streak': 'Sreang',
   'profile.totalXp': 'Iomlán XP',
   'resetPassword.confirmPlaceholder': 'Clóscríobh arís é',
+  'resetPassword.mismatch': 'Ní hionann na pasfhocail.',
   'resetPassword.newPasswordLabel': 'Pasfhocal nua',
   'resetPassword.newPasswordPlaceholder': 'Ocht gcarachtar nó níos mó',
   'resetPassword.subheading': 'Roghnaigh rud éigin cuimhneacháin, ocht gcarachtar nó níos mó.',
@@ -119,6 +157,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Roghanna cleachtais',
   'settings.goalBody':
     'Cé mhéad XP atá mar aidhm agat gach lá. Coinnítear sraitheanna aon uair a shroicheann tú an sprioc.',
+  'settings.goalHeading': 'Sprioc laethúil',
   'settings.goalMinutes': '~ {{min}} nóim/lá',
   'settings.language.description':
     'Roghnaigh an teanga a úsáidtear ar fud biachláir agus lipéid an aip.',

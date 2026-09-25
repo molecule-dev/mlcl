@@ -1,9 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Imate povratno informacijo, ste našli hrošča ali nam želite povedati, kako vam je pisanje dnevnika pomagalo? Preberemo vsako sporočilo — obrnite se na nas kadar koli in odgovorila vam bo resnična oseba.',
+  'about.contactTitle': 'Kontaktirajte nas',
+  'about.featureInsights':
+    'Razmisleki s pomočjo umetne inteligence, ki nežno izpostavijo sprožilce, teme in hvaležnosti — ne da bi izgubili svoj glas.',
+  'about.featureMood':
+    'Spremljanje razpoloženja in dejavnosti s pogledom koledarja in grafi trendov, ki razkrijejo, kaj vam pomaga uspevati.',
+  'about.featurePrivacy':
+    'Šifriranje od konca do konca, zaklep s kodo in popoln izvoz CSV, da vaši razmisleki ostanejo zasebni in prenosljivi.',
+  'about.featurePrompts': 'Nežna dnevna vprašanja, da imate vedno izhodišče — nikoli prazna stran.',
+  'about.intro':
+    '{{app}} je nežen, zaseben dnevnik duševnega zdravja za dnevno refleksijo, spremljanje razpoloženja in hvaležnost. Premišljena vprašanja nadomestijo prazno stran, tiho iskanje vzorcev vam pomaga razumeti, kaj vpliva na vaše počutje, šifriranje od konca do konca pa poskrbi, da vaše besede ostanejo vaše.',
+  'about.missionBody':
+    'Verjamemo, da bi moralo biti preverjanje svojega počutja umirjeno, nikoli klinično — in nikoli kot še ena aplikacija, ki zahteva vašo pozornost. {{app}} je zasnovan tako, da pomaga, ne da teži: nekaj tihih minut na dan, da opazite svoje razpoloženje, pišete iskreno in se počasi vidite jasneje.',
+  'about.missionTitle': 'Naše poslanstvo',
   'about.pageTitle': 'O aplikaciji {{app}}',
   'authShell.encryptionBadge': 'Vaši vnosi so šifrirani od konca do konca.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Dan {{day}} — brez vnosa',
   'calendar.cellMood': 'Dan {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Ta mesec na kratko',
   'calendar.eyebrow': 'Razpoloženje na prvi pogled',
@@ -15,6 +31,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Sledeno {{tracked}} od {{total}} dni v tem mesecu.',
   'common.goToDashboard': 'Pojdi na nadzorno ploščo',
   'common.tryAgain': 'Poskusi še enkrat',
+  'entryComposer.bodyPlaceholder':
+    'Napišite, kar se vam zdi iskreno. Nihče drug tega ne bo prebral.',
   'entryComposer.cancel': 'Nazaj v dnevnik',
   'entryComposer.heading': 'Današnji razmislek',
   'entryComposer.moodLabel': 'Kako se počutiš?',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Odstrani {{tag}}',
   'entryComposer.save': 'Shrani odsev',
   'entryComposer.saveError': 'Vašega vnosa ni bilo mogoče shraniti.',
+  'entryComposer.tagPlaceholder': 'Dodajte oznako in pritisnite enter',
   'entryComposer.titlePlaceholder': 'Daj temu odsevu ime ...',
   'entryDetail.back': 'Nazaj v dnevnik',
   'entryDetail.delete': 'Izbriši ta vnos',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Nalaganje odseva …',
   'entryDetail.notFound': 'Vnosa ni bilo mogoče najti.',
   'entryDetail.reflectionsHeading': 'Odsevi umetne inteligence',
+  'forgotPassword.continueButton': 'Vnesite kodo za ponastavitev',
   'forgotPassword.eyebrow': 'Brez skrbi',
   'forgotPassword.subheading':
     'Na vaš e-poštni naslov vam bomo poslali povezavo za nežno ponastavitev.',
@@ -59,14 +79,22 @@ export const ui: UiTranslations = {
     'Še ni tem – dodajte svojim vnosom oznako ali dve in zbrali se bodo tukaj.',
   'insights.themesHeading': 'Najbolj priljubljene teme',
   'insights.triggerFrequency': 'opazil {{count}} × ta mesec',
+  'insights.triggersEmpty':
+    'Ni še ničesar za opaziti. Nekaj vnosov v nekaj dneh bo pokazalo vaše vzorce.',
   'insights.triggersHeading': 'Vzorci, ki vam spremenijo razpoloženje',
+  'journal.empty':
+    'Ni ujemajočih se razmislekov — poskusite z drugim filtrom ali napišite nov vnos.',
   'journal.eyebrow': 'Tvoji odsevi',
   'journal.heading': 'Dnevnik',
   'journal.loadError': 'Nalaganje vnosov ni uspelo.',
   'journal.loading': 'Nalaganje vnosov …',
+  'journal.newEntry': 'Nov vnos',
   'journal.searchPlaceholder': 'Išči občutek, ime, trenutek ...',
   'journal.subheading': '{{count}} vnosov – vsakega je vredno obdržati.',
   'journalEntryCard.encryptedLabel': 'Šifrirano',
+  'landing.ctaBody':
+    'Brezplačno za začetek. Pro odklene izvoz podatkov, večji dnevnik in celo leto zgodovine.',
+  'landing.ctaButton': 'Začnite svoj prvi vnos',
   'landing.ctaTitle': 'Nekaj minut miru na dan. To je vse.',
   'landing.eyebrow': 'Nežna vsakodnevna praksa',
   'landing.featuresBody':
@@ -85,6 +113,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Nežen prostor za vsakodnevno razmišljanje.',
   'mentalHealthJournalLayout.closeMenu': 'Zapri meni',
   'mentalHealthJournalLayout.openMenu': 'Odpri meni',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Primarna navigacija',
+  'moodHeroCard.entriesThisWeek': '{{count}} ta teden',
   'moodHeroCard.streakSuffix': 'dnevni niz',
   'moodHeroCard.title': 'Današnji razmislek',
   'moodTrendChart.aiBadge': 'Pripravljeno za vpogled v umetno inteligenco',
@@ -95,11 +125,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Vaše potovanje',
   'profile.fallbackName': 'Reflektor',
   'profile.loadError': 'Nalaganje statističnih podatkov ni uspelo.',
+  'profile.loading': 'Osveževanje vaše statistike…',
   'profile.longestStreak': 'Najdaljši niz',
   'profile.memberSince': 'Razmišljanje od takrat {{date}}',
   'profile.milestones': 'Mejniki',
   'profile.milestonesEmpty':
     'Vaš prvi mejnik je le še en vnos stran – pišite, kadar koli se boste počutili pripravljene.',
+  'profile.moodMix': 'Vaša mešanica razpoloženja to sezono',
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'Razmišljanja',
   'profile.totalWords': 'Napisane besede',
@@ -112,6 +144,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Pišite o tem',
   'resetPassword.eyebrow': 'Nov začetek',
   'resetPassword.mismatchError': 'Gesli se ne ujemata.',
+  'resetPassword.passwordLabel': 'Novo geslo',
   'resetPassword.subheading': 'Izberite nekaj varnega – vaši odsevi si to zaslužijo.',
   'resetPassword.tokenPlaceholder': 'Ponastavi kodo iz e-pošte',
   'settings.dangerDescription':
@@ -123,11 +156,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'Računa ni bilo mogoče izbrisati.',
   'settings.exportDescription': 'Tvoje besede vedno pripadajo tebi. Prenesi kopijo kadarkoli.',
   'settings.exportDone': 'Izvoženo {{format}}.',
+  'settings.exportError': 'Izvoz ni uspel.',
+  'settings.exportHeading': 'Izvezite svoje razmisleke',
   'settings.exportLoading': 'Priprava …',
   'settings.eyebrow': 'Tvoj prostor, tvoja pravila',
   'settings.languageHeading': 'Jezik',
   'settings.privacyHeading': 'Zasebnost in šifriranje',
   'settings.remindersHeading': 'Dnevni opomnik',
+  'settings.reminderToggleAria': 'Preklopite dnevni opomnik',
   'settings.reminderToggleDescription':
     'En sam miren opomnik ob času, ki ga izberete. Brez značk ali občutkov krivde.',
   'settings.reminderToggleLabel': 'Pošljite nežen drigljaj',
@@ -140,6 +176,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Ustvarjanje dnevnika …',
   'signup.subheading': 'Varen prostor za vaše misli.',
   'wellnessRingsTriad.mindfulnessCaption': 'Gol {{goal}} min danes',
+  'wellnessRingsTriad.mindfulnessLabel': 'Čuječnost',
   'wellnessRingsTriad.sleepCaption': 'Gol {{goal}} h / noč',
   'wellnessRingsTriad.sleepLabel': 'Spanje',
+  'wellnessRingsTriad.sleepValue': '{{hours}} h',
+  'wellnessRingsTriad.streakCaption': 'Cilj {{goal}} dni',
+  'wellnessRingsTriad.streakLabel': 'Niz dnevnika',
+  'wellnessRingsTriad.streakValue': '{{days}} d',
 }

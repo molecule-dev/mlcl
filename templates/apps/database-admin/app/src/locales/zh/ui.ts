@@ -1,7 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': '联系我们',
   'about.eyebrow': '关于',
+  'about.featureConnections':
+    '一个连接管理器，可安全存储数据库并按颜色分类——凭据静态加密，绝不以明文保存。',
+  'about.featureMonitoring':
+    '实时监控查询性能和数据库活动，配合键盘快捷键和命令面板，全程无需鼠标操作。',
+  'about.featurePlans':
+    '随你成长的方案——Free 适合个人使用，Pro 和 Team 提供更多连接、更长的查询保留期、导出功能以及高级特性。',
+  'about.featureQueryEditor':
+    '由 Monaco 驱动的 SQL 编辑器，支持查询历史、已保存查询，并可一键将结果导出为 CSV。',
+  'about.featureSchema': '架构浏览器和表浏览器，可浏览数据库、表和列，然后内联浏览、筛选和编辑行。',
+  'about.missionTitle': '我们的使命',
   'authShell.commands': '命令',
   'authShell.ssoSupported': '支持 SSO',
   'common.run': '运行',
@@ -18,6 +29,7 @@ export const ui: UiTranslations = {
   'connections.queries': '查询',
   'connections.schema': '架构',
   'connections.subtitle': '管理你的数据库连接。',
+  'connections.test': '测试',
   'databaseAdminLayout.adminRole': '管理员角色',
   'databaseAdminLayout.commandPalette': '命令面板',
   'databaseAdminLayout.commands': '命令',
@@ -26,9 +38,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': '新建连接',
   'databaseAdminLayout.queries': '查询',
   'databaseAdminLayout.ready': '就绪',
+  'databaseAdminLayout.searchPlaceholder': '⌘K 搜索命令、查询、表…',
   'databaseAdminLayout.user': '用户',
   'editConnection.confirmDelete': '删除此连接？',
   'editConnection.deleteButton': '删除连接',
+  'editConnection.newPassword': '新密码（留空则保持不变）',
   'editConnection.saved': '连接已保存。',
   'editConnection.title': '编辑连接',
   'forgotPassword.success': '如果该账户存在，重置链接将很快送达。',
@@ -46,6 +60,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': '成功案例',
   'monitoring.title': '监控',
   'monitoring.totalQueries': '总查询数',
+  'nav.schema': '架构',
   'newConnection.database': '数据库',
   'newConnection.engine': '引擎',
   'newConnection.host': '主机',
@@ -81,6 +96,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': '没有连接绑定到此片段。',
   'savedQuery.notBound': '未绑定',
   'savedQuery.title': '已保存的查询',
+  'schema.columns': '列',
   'schema.foreignKeys': '外键',
   'schema.indexes': '索引',
   'schemaExplorer.browseRows': '浏览行',
@@ -89,14 +105,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': '可为空的',
   'schemaExplorer.colType': '类型',
   'schemaExplorer.noColumns': '无列。',
+  'schemaExplorer.noForeignKeys': '无外键。',
   'schemaExplorer.noIndexes': '没有索引。',
   'schemaExplorer.noTables': '无表',
   'schemaExplorer.pickATable': '从侧边栏选择一个表。',
   'schemaExplorer.tables': '表',
   'schemaExplorer.title': '架构浏览器',
+  'settings.session': '练习',
   'settings.subtitle': '管理你的账户和套餐。',
   'signup.heading': '创建你的 Quarry 账户',
   'signup.tagline': '一分钟内即可获取访问权限。',
   'tableBrowser.noRows': '该表目前尚无行。',
+  'tableBrowser.subtitle': '正在浏览远程数据库中的行。',
   'tableBrowser.title': '正在浏览远程数据库中的行。',
 }

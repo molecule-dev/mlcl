@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Una maoni, umepata hitilafu, au unapanga jambo kubwa? Wasiliana nasi kutoka kwenye mipangilio ya akaunti yako — kila ujumbe humfikia mtu halisi wa timu.',
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Uhifadhi wote katika kikasha kimoja — uthibitisho wa ndege, hoteli, na shughuli hufika siku ile ile inayohusika.',
+  'about.featureCollab':
+    'Ushirikiano wa wakati halisi — alika hadi wasafiri watano kwa safari, na kila mabadiliko husawazishwa moja kwa moja na maoni hupangwa chini ya kila kituo.',
+  'about.featureMapsBudget':
+    'Ramani, maeneo, na bajeti ya pamoja — ona safari nzima kwenye ramani, gundua maeneo yaliyochaguliwa na wahariri, na fuatilia matumizi ili mtu yeyote asizidi.',
+  'about.featureTimelines':
+    'Ratiba ya siku kwa siku — buruta vituo ili kupanga upya, ongeza sehemu za usafiri, na uone ratiba ikikokotolewa upya kama hati moja hai.',
+  'about.intro':
+    '{{app}} hubadilisha folda iliyojaa mipango isiyokamilika kuwa safari moja ya pamoja ambayo kundi lako lote linaweza kufuata. Jenga ratiba ya siku kwa siku, ongeza ndege na hoteli, weka kila kituo kwenye ramani, na fuatilia bajeti — yote mahali pamoja tulivu badala ya tabo kadhaa na kikundi cha gumzo.',
+  'about.missionBody':
+    'Kupanga safari kunapaswa kuhisi kama safari inakuwa bora tayari, si kama kazi ya shule. {{app}} ipo ili kufanya safari za pamoja ziwe rahisi — ili kila msafiri afike akijua mpango, na kila kituo kisimulie hadithi inayostahili kukumbukwa.',
+  'about.missionTitle': 'Dhamira yetu',
   'about.pageTitle': 'Kuhusu {{app}}',
   'auth.legalConsent': 'Kwa kuendelea, unakubali',
   'bookings.empty.body': 'Ongeza safari ya ndege, hoteli, au shughuli ili kuanza kisanduku pokezi.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Hoteli',
   'bookings.type.other': 'Nyingine',
   'budgetSpendCard.budgetTotal': 'ya {{total}} iliyopangwa',
+  'budgetSpendCard.overBy': '{{amount}} imezidi bajeti',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} za hivi karibuni',
+  'budgetSpendCard.remaining': '{{amount}} zimesalia',
   'calendar.eyebrow': 'Mwaka ujao',
   'calendar.heading': 'Kila safari kwenye kalenda moja.',
   'calendar.legendHeading': 'Safari za mwezi huu',
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'na',
   'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'dashboard.budgetHeading': 'Msukumo wa bajeti',
+  'dashboard.empty.body':
+    'Panga safari yako ya kwanza na dashibodi yako itajaa ratiba za siku kwa siku, mwendo wa bajeti, na uhifadhi.',
+  'dashboard.empty.cta': 'Panga safari yako ya kwanza',
   'dashboard.empty.heading': 'Hakuna safari bado — atlasi yako iko wazi.',
   'dashboard.eyebrow': 'Udhibiti wa misheni',
   'dashboard.heading': 'Matukio yako yanayofuata, katika kona moja tulivu.',
   'dashboard.newTripCta': 'Anza safari mpya',
+  'dashboard.subheading':
+    'Kuhesabu siku hadi safari ijayo, mwendo wa matumizi ya leo, na mtazamo wa haraka wa kila ratiba inayoendelea.',
   'dashboard.tripsHeading': 'Safari zikiwa katika mwendo',
   'dashboard.viewAllExpenses': 'Tazama kila gharama',
   'dashboard.viewAllTrips': 'Tazama kila safari',
   'dayTimelineRow.category.accommodation': 'Kaa',
+  'dayTimelineRow.category.food': 'Chakula na vinywaji',
+  'dayTimelineRow.category.sightseeing': 'Kutazama vivutio',
   'dayTimelineRow.category.transport': 'Usafiri',
   'destinationOrbCard.exploreCta': 'Ongeza kwenye safari',
   'destinationOrbCard.tripCount': '{{count}} safari',
+  'destinations.empty.body': 'Rudi kwenye Zote na matokeo ya kihariri yataonekana tena.',
   'destinations.empty.heading': 'Hakuna sehemu za kwenda bado.',
+  'destinations.emptyFiltered.heading': 'Hakuna kilichowekwa lebo hivyo bado.',
   'destinations.errors.load': 'Haikuweza kupakia maeneo unayoenda.',
   'destinations.eyebrow': 'Wapi pa kwenda baadaye',
   'destinations.heading': 'Pembe zilizohifadhiwa na matokeo ya kihariri.',
@@ -70,7 +98,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Muuzaji',
   'expenses.formHeading': 'Gharama ya kumbukumbu kwa {{trip}}',
   'expenses.heading': 'Bajeti ya safari inaelekea wapi hasa.',
+  'expenses.heroBudget': '{{pct}}% ya {{total}} imepangwa',
   'expenses.heroEyebrow': '{{trip}} • muhtasari wa bajeti',
+  'expenses.heroNoBudget': 'Hakuna bajeti iliyowekwa kwenye safari hii bado.',
   'expenses.noTrips.body': 'Panga safari kwanza na gharama ziambatanishwe na bajeti ya safari.',
   'expenses.noTrips.heading': 'Hakuna safari bado.',
   'expenses.receiptCount': '{{count}} risiti',
@@ -82,12 +112,16 @@ export const ui: UiTranslations = {
     'Kila risiti na uthibitisho huwekwa katika kategoria sahihi hapa — hakuna lahajedwali inayohitajika.',
   'forgotPassword.eyebrow': 'Rejesha ratiba yako',
   'forgotPassword.heading': 'Umesahau nenosiri lako?',
+  'forgotPassword.subheading':
+    'Weka barua pepe uliyotumia kwa {{appName}} na tutatuma kiungo cha kuweka upya nenosiri lako.',
   'forgotPassword.submit': 'Tuma barua pepe ya kurejesha akaunti',
   'forgotPassword.submitPending': 'Inatuma barua pepe ya kurejesha akaunti...',
   'forgotPassword.successHint':
     'Huna barua pepe bado? Angalia folda yako ya barua taka, au jaribu tena ukitumia anwani tofauti.',
   'forgotPassword.successSubheading':
     'Tulituma kiungo cha kurejesha data kwa {{email}} Kiungo hiki ni halali kwa dakika 30.',
+  'forgotPassword.tryAgain': 'Tuma kwa barua pepe nyingine',
+  'landing.cta.eyebrow': 'Anza na mpango wa bure',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Fungua akaunti ya bure',
   'landing.cta.subheading':
@@ -99,8 +133,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Anza safari ya bure',
   'landing.hero.ctaSecondary': 'Tazama safari ya mfano',
+  'landing.hero.eyebrow': 'Mpangaji wa safari · {{tagline}}',
   'landing.hero.subtitle':
     'Waypoint hubadilisha folda iliyojaa mipango isiyo na muundo wowote kuwa ratiba ya pamoja ya kila siku ambayo kikundi chako kinaweza kufuata — huku nafasi, ramani, na bajeti zikifuatiliwa mahali pamoja.',
+  'landing.hero.title': 'Panga mara moja. Zunguka pamoja.',
   'landing.nav.join': 'Anza safari ya bure',
   'landing.nav.preview': 'Sehemu ya Ndani ya Njia',
   'landing.preview.cta': 'Panga moja yako mwenyewe',
@@ -108,6 +144,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Safari chache ambazo wasafiri wanazurura hivi sasa',
   'login.eyebrow': 'Eneo la wanachama',
   'login.heading': 'Karibu tena, msafiri',
+  'login.noAccount': 'Mgeni kwa Tessera?',
   'login.signupLink': 'Fungua akaunti ya bure',
   'login.subheading':
     'Ingia ili kudhibiti safari zako, mipango ya siku, nafasi, na maingizo ya shajara ambayo tayari umeanza.',
@@ -118,6 +155,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Haikuweza kusasisha arifa.',
   'notifications.heading': 'Kilichobadilika katika safari zako za leo.',
   'notifications.markUnread': 'Tia alama kama haijasomwa',
+  'notifications.subheading':
+    '{{count}} mpya \\u2014 uthibitisho wa uhifadhi, maelezo ya washirika, punguzo la nauli, na vikumbusho.',
   'notifications.time.daysAgo': '{{count}} siku iliyopita',
   'notifications.time.hoursAgo': '{{count}} h iliyopita',
   'notifications.time.justNow': 'sasa hivi',
@@ -136,6 +175,7 @@ export const ui: UiTranslations = {
     'Huduma zilizounganishwa, sarafu, arifa za programu zinazotumwa kwa wakati mmoja, na vitambulisho unavyotumia kuingia.',
   'signup.and': 'na',
   'signup.eyebrow': 'Jiunge na Waypoint',
+  'signup.haveAccount': 'Unazurura tayari?',
   'signup.heading': 'Panga mara moja. Zunguka pamoja.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -147,6 +187,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Ratiba ya wazi',
   'tripCountdownHeroCard.ctaSecondary': 'Panga safari nyingine',
   'tripCountdownHeroCard.daysLabel': '{{days}} siku za mwisho',
+  'tripCountdownHeroCard.eyebrow': 'Safari ijayo · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · usiku {{nights}} — ratiba yako iko tayari kusafiri.',
   'tripCoverCard.stops': '{{count}} vituo',
   'tripCoverCard.travelers': '{{count}} wasafiri',
   'tripDetail.addActivity': 'Ongeza shughuli',
@@ -156,6 +199,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Kichwa cha shughuli',
   'tripDetail.adding': 'Inaongeza…',
   'tripDetail.backToTrips': 'Rudi kwenye safari zote',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Wasafiri',
   'tripDetail.dayLabel': 'Siku {{day}}',
   'tripDetail.empty': 'Hakuna shughuli bado — ongeza moja ili kuanza ratiba.',
@@ -166,14 +210,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Ratiba • {{country}}',
   'tripDetail.invite': 'Mwaliko',
   'tripDetail.inviteLabel': 'Mwalike kwa barua pepe',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'Mwaliko umetumwa kwa {{email}} .',
   'tripDetail.inviting': 'Inatuma…',
   'tripDetail.loading': 'Inapakia safari…',
   'tripDetail.noCollaborators': 'Wewe tu, kwa sasa.',
+  'tripDetail.notesHeading': 'Maelezo ya safari',
   'tripDetail.notesPlaceholder': 'Hakuna madokezo bado.',
   'tripDetail.notFound.heading': 'Safari haipatikani',
   'tripDetail.openBookings': 'Fungua kikasha cha kuhifadhi nafasi',
   'tripDetail.shareCopied': 'Shiriki kiungo kimenakiliwa kwenye ubao wa kunakili:',
+  'tripDetail.shareReady': 'Kiungo cha kushiriki kiko tayari:',
   'tripDetail.stops': '{{count}} vituo',
   'tripDetail.timelineEyebrow': 'Ratiba ya siku',
   'tripDetail.timelineHeading': 'Mpango wa siku baada ya siku',
@@ -191,6 +238,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Wasafiri',
   'tripPlanner.heading': 'Chora safari ndani ya dakika moja.',
   'tripPlanner.preview.eyebrow': 'Hakikisho la moja kwa moja',
+  'tripPlanner.preview.placeholderCountry': 'Chagua nchi',
   'tripPlanner.preview.placeholderDestination': 'Matukio yako yanayofuata',
   'tripPlanner.section1.title': 'Wapi na lini',
   'tripPlanner.section2.title': 'Wasafiri na bajeti',
@@ -199,10 +247,13 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Siku {{day}} — ongeza vituo, usafiri, na nafasi hapa.',
   'tripPlanner.section3.day2': 'Siku {{day}} — ongeza vituo, usafiri, na nafasi hapa.',
   'tripPlanner.section3.day3': 'Siku {{day}} — ongeza vituo, usafiri, na nafasi hapa.',
+  'tripPlanner.section3.title': 'Kianzio cha mpango wa siku',
   'tripPlanner.subheading':
     'Andika misingi hapa chini — unaweza kuwaalika washirika, kuburuta vituo, na kusambaza nafasi baadaye.',
   'tripPlanner.submit': 'Unda safari',
   'tripPlanner.submitting': 'Kuunda…',
+  'trips.empty.body': 'Rudi kwenye Safari zote au anza kupanga mzunguko wako ujao.',
+  'trips.empty.cta': 'Panga safari',
   'trips.empty.heading': 'Hakuna kinacholingana na kichujio hicho bado.',
   'trips.eyebrow': 'Atlasi',
   'trips.filterLabel': 'Chuja safari kwa hali',
@@ -213,6 +264,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Hakuna safari bado.',
   'trips.pastHeading': 'Matukio ya zamani',
   'trips.subheading': '{{count}} ratiba — zilizopita, za sasa, na za siku moja.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'Ipange mara moja. Zururieni pamoja. Ikumbuke milele.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · wanachama {{appName}} tangu 2024',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} ilibadilisha safari yenye shughuli nyingi ya wiki 3 katika nchi nne kuwa ratiba tulivu zaidi tuliyowahi kushiriki.',
   'waypointLayout.mobileNavClose': 'Funga menyu ya kusogeza',
   'waypointLayout.primaryNavLabel': 'Usogezaji mkuu',
 }

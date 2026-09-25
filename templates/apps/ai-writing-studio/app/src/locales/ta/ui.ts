@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கருத்து உள்ளதா, பிழை கண்டீர்களா, அல்லது ஒரு அம்சம் வேண்டுமா? உங்கள் கணக்கு அமைப்புகளிலிருந்து எங்களை அணுகவும் — ஒவ்வொரு செய்தியும் குழுவில் உள்ள ஒரு உண்மையான நபரையே சென்றடையும்.',
   'about.contactTitle': 'தொடர்பு கொள்ளுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.intro':
+    '{{app}} என்பது தங்கள் எழுத்துக்களை மிகவும் பொருட்படுத்தும் எழுத்தாளர்களுக்கான AI எழுத்து ஸ்டுடியோ. நீண்ட வடிவ AI உருவாக்கத்தை அமைதியான எடிட்டர், SEO மதிப்பீடு, பட உருவாக்கம் ஆகியவற்றுடன் இணைத்து, வெற்றுப் பக்கத்திலிருந்து வெளியிடப்பட்ட படைப்பு வரை — உங்கள் குரலை இழக்காமல் — கொண்டு செல்ல உதவுகிறது.',
+  'about.missionBody':
+    'AI உங்களுக்குப் பதிலாக அல்ல, உங்களுடன் சேர்ந்து எழுத வேண்டும் என்று நாங்கள் நம்புகிறோம். {{app}} பரிந்துரைகளை உங்கள் சொற்களிலிருந்து தெளிவாக வேறுபடுத்திக் காட்டுகிறது, நீங்கள் உருவாக்கும் ஒவ்வொரு ஆவணத்திற்கும் உங்களையே உரிமையாளராக வைத்திருக்கிறது, எழுத்தின் வழியிலிருந்து கருவிகளை விலக்கி வைக்கிறது.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'about.pageTitle': '{{app}} பற்றி',
   'aiSuggestionCard.applied': 'பரிந்துரை பயன்படுத்தப்பட்டது',
   'aiSuggestionCard.apply': 'விண்ணப்பிக்கவும்',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'போக்குவரத்து ஆதாரங்கள்',
   'billing.activePlan': 'சந்தா செயலில் உள்ளது.',
   'billing.aiWordsLabel': 'செயற்கை நுண்ணறிவு தலைமுறைகள் சேர்க்கப்பட்டுள்ளன',
+  'billing.cancelFailed': 'சந்தாவை ரத்து செய்ய முடியவில்லை.',
   'billing.cancelPlan': 'திட்டத்தை ரத்து செய்',
+  'billing.cancelPlanConfirm': 'ரத்துசெய்வதை உறுதிப்படுத்தவா?',
   'billing.cancelSuccess':
     'சந்தா ரத்து செய்யப்பட்டது. திட்டத்தைப் புதுப்பிக்க, பக்கத்தைப் புதுப்பிக்கவும்.',
   'billing.changePlan': 'திட்டத்தை மாற்றவும்',
@@ -44,26 +53,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'திட்டங்களைப் பார்க்கவும்',
   'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'dashboard.continueWriting': 'தொடர்ந்து எழுதவும்',
+  'dashboard.createFirst': 'ஆவணத்தை உருவாக்கு',
   'dashboard.days.sat': 'Sat',
   'dashboard.days.sun': 'Sun',
   'dashboard.defaultWriterName': 'எழுத்தாளர்',
   'dashboard.greeting': 'காலை வணக்கம், {{name}}',
   'dashboard.loadError': 'உங்கள் டாஷ்போர்டை ஏற்ற முடியவில்லை.',
+  'dashboard.loading': 'உங்கள் ஸ்டுடியோ ஏற்றப்படுகிறது…',
   'dashboard.loadingDocs': 'சமீபத்திய ஆவணங்கள் ஏற்றப்படுகின்றன…',
   'dashboard.noDocuments': 'இன்னும் ஆவணங்கள் இல்லை — உங்கள் முதல் ஆவணத்தைத் தொடங்கவும்.',
   'dashboard.startWriting': 'புதிய ஆவணத்தைத் தொடங்கவும்',
+  'dashboard.streakBody': 'இந்த வாரம் நீங்கள் {{words}} சொற்களை எழுதியுள்ளீர்கள்.',
   'dashboard.streakTitle': '{{count}} -நாள் தொடர்',
+  'dashboard.subgreeting': 'உங்கள் நூலகத்தில் {{count}} ஆவணங்கள் — இந்த வேகத்தைத் தொடரவும்.',
+  'documentCard.seoScoreTitle': 'SEO மதிப்பெண்: {{score}}/100',
+  'documents.createNew': 'புதிய ஆவணத்தை உருவாக்கு',
   'documents.empty': 'உங்கள் நூலகம் காத்திருக்கிறது — உங்கள் முதல் ஆவணத்தைத் தொடங்கவும்.',
+  'documents.emptyFiltered': 'உங்கள் வடிகட்டிகளுடன் இன்னும் எந்த ஆவணமும் பொருந்தவில்லை.',
   'documents.loadError': 'ஆவணங்களை ஏற்ற முடியவில்லை.',
   'documents.loading': 'உங்கள் நூலகம் ஏற்றப்படுகிறது…',
   'documents.new': 'புதிய ஆவணம்',
+  'documents.searchAriaLabel': 'ஆவணங்களைத் தேடு',
   'documents.searchPlaceholder': 'ஆவணங்களைத் தேடுங்கள்…',
   'documents.subtitle': '{{count}} உங்கள் நூலகத்தில் உள்ள ஆவணங்கள்.',
   'documents.title': 'ஆவணங்கள்',
   'editor.aiPanelTitle': 'ப்ளூம் நுண்ணறிவு',
+  'editor.aiSuggestion.empty':
+    'செயலில் உள்ள மேம்பாடுகள் இல்லை. இரண்டாவது பார்வை வேண்டும்போது {{appName}}-ஐ ஒரு பரிந்துரைக்குக் கேளுங்கள்.',
   'editor.aiSuggestion.failed': 'தற்சமயம் பரிந்துரைகளை ஏற்ற முடியவில்லை.',
   'editor.aiSuggestion.loadingBody': 'தெளிவு மேம்படுத்தலை உருவாக்குதல்…',
   'editor.backToDocuments': 'அனைத்து ஆவணங்களும்',
+  'editor.bodyAriaLabel': 'ஆவணத்தின் உள்ளடக்கம்',
   'editor.closeAiPanel': 'AI பேனலை மூடுக',
   'editor.createFailed': 'ஆவணத்தை உருவாக்க முடியவில்லை.',
   'editor.exported': '{{format}} வடிவத்தில் ஏற்றுமதி செய்யப்பட்டது.',
@@ -80,18 +100,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'திருத்தம் கோரவும்',
   'editor.saveBeforePublish': 'வெளியிடுவதற்கு முன் ஆவணத்தைச் சேமிக்கவும்.',
   'editor.status.chars': '{{count}} கதாபாத்திரங்கள்',
+  'editor.status.readTime': '{{minutes}} குறைந்தபட்ச வாசிப்பு',
   'editor.status.savedAt': 'சேமிக்கப்பட்டது {{time}}',
   'editor.status.saveError': 'சேமிப்பு தோல்வியடைந்தது',
+  'editor.status.unsaved': 'இன்னும் சேமிக்கப்படவில்லை',
   'editor.titleAriaLabel': 'ஆவணத்தின் தலைப்பு',
   'editor.titlePlaceholder': 'தலைப்பிடப்படாத ஆவணம்',
   'editor.toggleAiPanel': 'AI பேனலை மாற்று',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'author@example.com',
+  'forgotPassword.sent': '{{email}} பதிவில் இருந்தால், மீட்டமைப்பு இணைப்பு வழியில் உள்ளது.',
   'imageGenerator.failed': 'பட உருவாக்கம் தோல்வியடைந்தது.',
   'imageGenerator.generate': 'படத்தை உருவாக்கு',
   'imageGenerator.generating': 'உருவாக்குகிறது...',
   'imageGenerator.placeholder': 'நீங்கள் உருவாக்க விரும்பும் படத்தை விவரிக்கவும்...',
+  'imageGenerator.promptAriaLabel': 'படத் தூண்டுதல்',
+  'imageGenerator.subtitle': 'ஒரு அட்டைப் படத்தை விவரித்து, AI மூலம் அதை வரையச் செய்யுங்கள்.',
   'imageGenerator.title': 'AI பட ஜெனரேட்டர்',
+  'landing.aiSuggestionBody':
+    '42-வது மாடியின் பால்கனியில் நின்றுகொண்டு, எலியாஸ் நகரம் தன்னை நெருக்குவதை உணர்ந்தான் — காற்று சுற்றுப்புற முணுமுணுப்பை அடித்துச் சென்று, ஒளிரும் கட்டத்திற்கு மேலே குளிர்ந்த, அமைதியான வெறுமையில் அவனைத் தொங்கவிட்டது.',
   'landing.eyebrow': 'தீவிர எழுத்தாளர்களுக்கான AI எழுத்துப் பட்டறை',
   'landing.featuresHeading': 'வழியில் குறுக்கிடாத கருவிகள்',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -101,14 +128,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'தங்கள் உரைநடை, நடை மற்றும் துல்லியம் ஆகியவற்றில் அக்கறை கொண்ட எழுத்தாளர்களுக்காகவே உருவாக்கப்பட்ட ஒரு ஸ்டுடியோ. ப்ளூம் உங்களுக்குப் பக்கத்தில் இருந்து வரைவுகளை உருவாக்கும் — ஒருபோதும் உங்களுக்குப் பதிலாக அல்ல.',
   'landing.heroTitle.eloquence': 'சொல்லாற்றல்',
+  'landing.heroTitle.intelligence': 'நுண்ணறிவு சந்திக்கிறது ',
   'landing.nav.testimonials': 'சான்றுகள்',
   'landing.plan.cta': 'இந்தத் திட்டத்துடன் தொடங்குங்கள்',
   'landing.plan.popular': 'மிகவும் விரும்பப்பட்ட',
   'landing.pricingEyebrow': 'விலை நிர்ணயம்',
   'landing.pricingHeading': 'உங்கள் நடைமுறைக்கு ஏற்றதைத் தேர்ந்தெடுங்கள்',
   'landing.sampleDocTitle': 'மௌனத்தின் கட்டிடக்கலைஞர்',
+  'landing.sampleParagraph1':
+    'நகரம் ஒருபோதும் உண்மையிலேயே அமைதியாக இருந்ததில்லை. இரவின் ஆழ்ந்த நேரங்களிலும் கூட, கான்கிரீட் அடித்தளங்கள் வழியாக ஒரு தாழ்ந்த முணுமுணுப்பு அதிர்ந்தது — சுரங்க ரயில்கள் மற்றும் காற்றோட்டக் குழாய்களின் இயந்திர இதயத் துடிப்பு.',
+  'landing.sampleParagraph2.after': ' கண்ணாடிக்கு எதிராக.',
+  'landing.sampleParagraph2.before': 'ஆனால் ',
   'landing.sampleParagraph2.highlight':
     '42வது மாடியின் பால்கனியில் நின்றுகொண்டிருந்த எலியாஸ், ஆழ்ந்த தனிமை உணர்வை உணர்ந்தான்.',
+  'landing.showcaseBody':
+    'ஒரு வாக்கியத்தைத் தேர்ந்தெடுத்தால் {{appName}} ஒரு மேம்பாட்டை வழங்கும். அதை ஏற்றுக்கொள்ளுங்கள், சிறிது மாற்றுங்கள், அல்லது தவிர்த்துவிடுங்கள். நீங்கள் எழுதியதற்கும் வழங்கப்பட்டதற்கும் உள்ள வேறுபாட்டை அறிய பரிந்துரைகள் எப்போதும் ஊதா நிறத்தில் காட்டப்படும்.',
+  'landing.showcaseHeading': 'இரண்டாவது பார்வை — ஒருபோதும் இரண்டாவது ஆசிரியர் அல்ல.',
   'landing.startWriting': 'எழுதத் தொடங்குங்கள்',
   'login.emailPlaceholder': 'author@example.com',
   'login.failed': 'உள்நுழைவு தோல்வியடைந்தது',
@@ -123,8 +158,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'டாஷ்போர்டைத் திறக்கவும்',
   'notFound.title': 'இந்த அத்தியாயம் இன்னும் எழுதப்படவில்லை.',
   'plumeSidebarLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
+  'pricing.maxDocuments': '{{count}} ஆவணங்கள்',
+  'pricing.maxGenerate': '{{count}} AI உருவாக்கங்கள்',
+  'pricing.maxImages': '{{count}} பட உருவாக்கங்கள்',
   'privacy.data':
     'உங்கள் கணக்கு மின்னஞ்சல் மற்றும் ஹேஷ் செய்யப்பட்ட கடவுச்சொல். நீங்கள் உருவாக்கும் ஆவணங்கள் மற்றும் வார்ப்புருக்கள். கட்டணம் மற்றும் பகுப்பாய்விற்கான AI பரிந்துரைப் பதிவுகள் (உள்ளீடு + வெளியீடு). ஸ்ட்ரைப் வாடிக்கையாளர் + சந்தா அடையாளங்காட்டிகள்; நாங்கள் ஒருபோதும் முழு அட்டை எண்களைச் சேமிப்பதில்லை.',
+  'privacy.intro':
+    '{{app}}-ஐ இயக்கத் தேவையான தரவை மட்டுமே நாங்கள் சேகரிக்கிறோம்: உங்கள் மின்னஞ்சல், நீங்கள் உருவாக்கும் ஆவணங்கள், நீங்கள் செய்யும் AI கோரிக்கைகள். உங்கள் எழுத்தையோ உங்கள் ப்ராம்ப்ட்களையோ நாங்கள் ஒருபோதும் விற்க மாட்டோம்.',
   'profile.loadError': 'உங்கள் சுயவிவரத்தை ஏற்ற முடியவில்லை.',
   'profile.loading': 'உங்கள் சுயவிவரம் ஏற்றப்படுகிறது…',
   'profile.loadingPublished': 'வெளியிடப்பட்ட ஆவணங்கள் ஏற்றப்படுகின்றன…',
@@ -136,8 +176,14 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'புதிய கடவுச்சொல்',
   'seoAnalysis.backToEditor': 'எடிட்டருக்குத் திரும்பு',
   'seoAnalysis.eyebrow': 'SEO பகுப்பாய்வு',
+  'seoAnalysis.heroBody':
+    'பயன்படுத்த வேண்டிய {{count}} பரிந்துரை(கள்). ஒவ்வொன்றும் ஒரு கட்டமைப்பு அல்லது முக்கியச்சொல் மேம்பாடு, சிவப்புக் கொடிகளின் சுவர் அல்ல.',
+  'seoAnalysis.heroBodyEmpty':
+    'வாசிப்புத்திறன், முக்கியச்சொல் அடர்த்தி, கட்டமைப்பு ஆகியவற்றை மதிப்பிட "Run analysis" என்பதைக் கிளிக் செய்யவும்.',
   'seoAnalysis.heroEmpty':
     'இன்னும் பகுப்பாய்வு இல்லை. இந்த வரைவுக்கு மதிப்பெண் வழங்க ஒன்றை இயக்கவும்.',
+  'seoAnalysis.heroNeedsWork': 'சில கட்டமைப்பு மேம்பாடுகள் சென்றடைவை அதிகரிக்கும்.',
+  'seoAnalysis.heroStrong': 'வலுவான படைப்பு — சிறிய மேம்பாடுகளே சிறப்பிலிருந்து விலகி உள்ளது.',
   'seoAnalysis.historyEmpty': 'முந்தைய பகுப்பாய்வுகள் எதுவும் பதிவு செய்யப்படவில்லை.',
   'seoAnalysis.historyTitle': 'பகுப்பாய்வு வரலாறு',
   'seoAnalysis.keywordEmpty':
@@ -164,8 +210,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'நீங்கள் எழுதும் முறைக்கு ஏற்றவாறு ப்ளூமைச் சரிசெய்யுங்கள்.',
   'settings.toggleIntegrationFailed': 'ஒருங்கிணைப்புப் புதுப்பித்தல் தோல்வியடைந்தது.',
   'settings.writing.aiSuggestions': 'தட்டச்சு செய்யும் போது உள்ளமைந்த AI பரிந்துரைகள்',
+  'settings.writing.aiSuggestionsBody':
+    'நீங்கள் எழுதும்போது மேம்பாடுகளைக் காட்டுகிறது. பரிந்துரைகள் எப்போதும் வாக்கியத்திற்கு விருப்பத்தேர்வாகவே இருக்கும்.',
   'settings.writing.autoSave': 'ஒவ்வொரு 30 வினாடிக்கும் தானாகச் சேமிக்கவும்',
+  'settings.writing.autoSaveBody':
+    'எந்தத் தாவலிலிருந்தும் மீட்க உங்கள் வரைவின் ஒரு ஸ்நாப்ஷாட்டை {{appName}} வைத்திருக்கிறது.',
   'settings.writing.notifyEmail': 'வாராந்திர எழுத்துச் சுருக்கங்களை எனக்கு மின்னஞ்சல் செய்யவும்.',
+  'settings.writing.notifyEmailBody':
+    'தொடர் நாட்கள், வரைவுகள், SEO மேம்பாடுகள் பற்றிய ஒரு சிறிய ஞாயிறு சுருக்கம்.',
   'settings.writing.title': 'எழுதும் விருப்பங்கள்',
   'settings.writing.tone': 'இயல்புநிலை தொனி முன்னமைவு',
   'signup.emailPlaceholder': 'author@example.com',
@@ -177,8 +229,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'விவரங்கள் எதுவும் வழங்கப்படவில்லை.',
   'templates.subtitle':
     'பலமுறை சோதிக்கப்பட்ட ஒரு தலையங்கக் கட்டமைப்பிலிருந்து தொடங்கி, அதை உங்களுக்கேற்றவாறு மாற்றியமைத்துக் கொள்ளுங்கள்.',
+  'terms.intro':
+    'இந்த விதிமுறைகள் {{app}}-ஐ நீங்கள் பயன்படுத்துவதை நிர்வகிக்கின்றன. ஒரு கணக்கை உருவாக்குவதன் மூலம், சட்டபூர்வமான எழுத்துக்காகச் சேவையைப் பயன்படுத்தவும், உங்கள் கணக்கு சான்றுகளை ரகசியமாக வைத்திருக்கவும் ஒப்புக்கொள்கிறீர்கள்.',
   'terms.license':
     'நீங்கள் உருவாக்கும் ஒவ்வொரு ஆவணம், வார்ப்புரு மற்றும் AI உருவாக்கத்தின் உரிமையையும் நீங்களே தக்க வைத்துக் கொள்கிறீர்கள். உங்கள் படைப்புகளை ஹோஸ்ட் செய்து உங்களுக்குத் திருப்பி வழங்குவதற்கும், நீங்கள் தேர்ந்தெடுக்கும் பிணைக்கப்பட்ட வழங்குநர்கள் மூலம் AI கோரிக்கைகளைச் செயல்படுத்துவதற்கும் எங்களுக்கு ஒரு பிரத்தியேகமற்ற உரிமம் தேவைப்படுகிறது.',
   'writingStreakHeroCard.change': '{{sign}} {{amount}} வார்த்தைகள்',
   'writingStreakHeroCard.greeting': 'வணக்கம், {{name}}',
+  'writingStreakHeroCard.subtitle': 'இந்த வாரம் எழுதிய சொற்கள் — {{count}} நாள் தொடர்',
+  'writingStreakHeroCard.tagline': 'நாளொன்றுக்கு ஒரு பக்கம் கலைமூஸை ஈடுபாட்டுடன் வைத்திருக்கும்.',
 }

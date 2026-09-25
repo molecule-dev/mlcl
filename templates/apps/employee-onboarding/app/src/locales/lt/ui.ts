@@ -1,27 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Norite savo komandai pasiūlyti šiltesnį įvedimą, radote klaidą ar turite atsiliepimų? Susisiekite per savo paskyros nustatymus — kiekviena žinutė pasiekia tikrą žmogų, kuris gali padėti.',
   'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
+  'about.missionTitle': 'Mūsų misija',
   'auth.forgotPassword.emailPlaceholder': 'vardas@jūsųįmonė.com',
   'auth.forgotPassword.heading': 'Atkurkite slaptažodį.',
+  'auth.forgotPassword.panel.body':
+    'Atstatymas užtrunka 30 sekundžių — jūsų kontrolinio sąrašo pažanga laukia.',
+  'auth.forgotPassword.panel.headline': 'Grįžtate ten, kur baigėte.',
+  'auth.forgotPassword.subheading': 'Įveskite savo darbo el. paštą ir atsiųsime atstatymo nuorodą.',
   'auth.forgotPassword.successSubheading':
     'Patikrinkite savo pašto dėžutę – išsiuntėme atstatymo instrukcijas.',
   'auth.login.emailPlaceholder': 'vardas@jūsųįmonė.com',
   'auth.login.heading': 'Sveika sugrįžusi.',
   'auth.login.passwordPlaceholder': 'Jūsų slaptažodis',
+  'auth.login.signupPrompt': 'Naujokas komandoje?',
   'auth.login.subheading':
     'Prisijunkite, kad galėtumėte tęsti savo įvadinę kelionę nuo ten, kur ją baigėte.',
   'auth.login.submit': 'Tęskite savo kelionę',
+  'auth.panel.body':
+    'Jūsų asmeninis kontrolinis sąrašas, mokymų etapai ir pažintys su komanda — viskas vienoje ramioje vietoje.',
   'auth.panel.footnote': '© „Embark“ – nuo šiandien pirmiausia atsižvelgiame į žmones.',
   'auth.panel.headline': 'Užtikrintos pirmosios 90 dienų prasideda čia.',
   'auth.resetPassword.heading': 'Nustatykite naują slaptažodį.',
   'auth.resetPassword.newPasswordLabel': 'Naujas slaptažodis',
+  'auth.resetPassword.panel.body':
+    'Išsaugokite naują slaptažodį ir iškart grąžinsime jus į įvedimo kelionę.',
+  'auth.resetPassword.panel.headline': 'Jau beveik atgal.',
   'auth.resetPassword.subheading': 'Pasirinkite kažką, ką prisiminsite – bent 8 simbolius.',
   'auth.signup.emailPlaceholder': 'vardas@jūsųįmonė.com',
   'auth.signup.heading': 'Sveiki atvykę į pirmąsias 90 dienų.',
   'auth.signup.panel.body':
     'Kontrolinis sąrašas su instrukcijomis, vaidmenų suvokimo mokymai ir žmonių prisistatymai – viskas paruošta dar prieš jums įeinant.',
+  'auth.signup.panel.headline': 'Pirmoji diena — pačią pirmą dieną.',
   'auth.signup.subheading':
     'Sukurkite „Embark“ paskyrą, kad pradėtumėte savo įvadinę kelionę su instruktoriumi.',
   'checklist.empty.body': 'Perjunkite filtrą, kad pamatytumėte kitas užduotis.',
@@ -29,6 +43,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'Įvadinis kontrolinis sąrašas',
   'checklist.loading': 'Įkeliamas kontrolinis sąrašas…',
   'checklist.stat.actionNeeded': 'Reikia imtis veiksmų',
+  'checklist.stat.completion': 'Užbaigimas',
+  'checklist.stat.inProgress': 'Vykdoma',
   'checklist.stat.inProgressHelper': 'Tęskite ten, kur baigėte',
   'checklist.stat.overdueHelper': 'Pirmiausia pasiimkite šiuos',
   'checklist.subtitle':
@@ -60,6 +76,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Dar nėra dokumentų',
   'documents.eyebrow': 'Įdarbinimas · Dokumentai',
   'documents.loading': 'Įkeliami dokumentai…',
+  'documents.stat.actionNeeded': 'Pasirašykite dabar',
+  'documents.stat.all': 'Visi dokumentai',
   'documents.stat.allHelper': 'Visose kategorijose',
   'documents.stat.pending': 'Laukiami parašai',
   'documents.stat.pendingHelper': 'Būtina užbaigimui',
@@ -67,16 +85,21 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Saugiai saugoma',
   'documents.status.optional': 'Pasirinktinai',
   'documents.status.required': 'Privaloma',
+  'documents.status.signed': 'Pasirašyta',
   'documents.subtitle': 'Jūsų vadovas, formos ir pasirašytos sutartys – viskas vienoje vietoje.',
   'documents.title': 'Viskas, ką reikia perskaityti ir pasirašyti.',
   'documents.uploadedRecently': 'Neseniai įkelta',
   'documentViewer.breadcrumbCurrent': 'Peržiūros programa',
   'documentViewer.breadcrumbDocs': 'Dokumentai',
   'documentViewer.downloadMeta': 'Atsisiųsti metaduomenis',
+  'documentViewer.helpBody':
+    'Į klausimus apie personalo vadovą „People & Culture“ atsako #ask-people kanale „Slack“.',
   'documentViewer.helpEyebrow': 'Reikia pagalbos?',
   'documentViewer.loadError': 'Nepavyko įkelti šio dokumento.',
   'documentViewer.loading': 'Įkeliama…',
   'documentViewer.notFound': 'Dokumentas nerastas',
+  'documentViewer.previewBody':
+    'Kai įkėlimai sukonfigūruoti, failą rodome tiesiogiai. Kol kas metaduomenų atsisiuntimas leidžia patvirtinti, kad įrašas tikras.',
   'documentViewer.previewBodyExternal':
     'Norėdami atidaryti failą naujame skirtuke, naudokite atsisiuntimo mygtuką.',
   'documentViewer.previewTitle': 'Dokumento peržiūra',
@@ -84,6 +107,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Perskaitykite dokumentą, tada spustelėkite žemiau, kad pasirašytumėte ir patvirtintumėte.',
   'documentViewer.signatureHeading': 'Reikalingas parašas',
+  'documentViewer.signed': '✓ Pasirašyta ir įtraukta',
   'documentViewer.signing': 'Pasirašoma…',
   'documentViewer.uploadedRecently': 'Neseniai įkelta',
   'landing.closing.body':
@@ -93,10 +117,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Aš jau turiu paskyrą',
   'landing.feature1.body':
     'Kiekviena užduotis – dokumentai, sąskaitos, prisistatymai – yra iš anksto paruošta, su terminais ir paskirtu atsakingu asmeniu.',
+  'landing.feature1.title': 'Vadovaujamas kontrolinis sąrašas',
   'landing.feature2.body':
     'Moduliai atrakinami pasiekus 30/60/90 etapus, atsižvelgiant į vaidmenį ir komandą, prie kurios prisijungia darbuotojas.',
+  'landing.feature2.title': 'Pagal vaidmenį pritaikyti mokymai',
   'landing.feature3.body':
     'Suplanuoti draugų, vadovų ir skirtingų sričių specialistų pristatymai – kad niekas nepradėtų vienas.',
+  'landing.feature3.title': 'Tikri prisistatymai',
   'landing.featureEyebrow': 'Kodėl verta leistis į kelionę',
   'landing.featureHeadline': 'Trys būdai, kaip „Embark“ pelno pasitikėjimą nuo pirmos dienos.',
   'landing.footer.rights': 'Visos teisės saugomos.',
@@ -106,6 +133,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Toliau: Susitikite su savo draugu 30 minučių pokalbiui prie kavos — antradieniais 10:00 val.',
   'landing.preview.eyebrow': '14 diena iš 90 – pavyzdinė ataskaitų suvestinė',
+  'landing.preview.headline': 'Sveiki sugrįžę, Maya.',
   'landing.proof.spec': 'SOC 2 + paruoštas BDAR',
   'landing.proof.teams': 'Sukurta 50–5000 žmonių komandoms',
   'landing.proof.time': '14 dienų nemokamas bandomasis laikotarpis',
@@ -122,16 +150,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Viskas paruošta.',
   'planUpdated.preparing': 'Atnaujinamas jūsų planas…',
+  'planUpdated.retry': 'Pabandyk dar kartą',
+  'planUpdated.verifyFailed': 'Mes dar negalėjome patvirtinti jūsų mokėjimo.',
+  'planUpdated.verifyFailedBody':
+    'Jūsų mokėjimas vis dar gali būti apdorojamas. Bandykite dar kartą po akimirkos.',
   'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'pricing.documentsLabel': 'dokumentai',
   'pricing.onboardingsLabel': 'įdarbinimo',
   'pricing.tasksLabel': 'užduotys',
   'profile.dayNumber': 'Diena',
   'profile.detailsHeading': 'Įvadinė informacija',
+  'profile.encouragementBody':
+    'Laikykite savo kuratorių ir vadovą informuotus — maži žingsniai sumuojasi.',
   'profile.milestones': 'Pagrindiniai etapai',
   'profile.progressEyebrow': 'Įdiegimo eiga',
   'profile.tasks': 'Užduotys',
   'profile.unknownName': 'Sveiki atvykę',
+  'settings.appearance.description': 'Perjungti šviesų ir tamsų režimus.',
+  'settings.appearance.title': 'Išvaizda',
+  'settings.subtitle':
+    'Tvarkykite pranešimus, saugumą, įrenginius ir duomenų eksportą — viskas lieka čia, jūsų sąlygomis.',
   'settings.title': 'Nustatymai ir nuostatos.',
   'taskDetail.backToChecklist': 'Atgal į kontrolinį sąrašą',
   'taskDetail.breadcrumbChecklist': 'Kontrolinis sąrašas',
@@ -143,7 +181,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'Nėra termino',
   'taskDetail.notFound': 'Užduotis nerasta',
   'taskDetail.notFoundBody': 'Ši užduotis galėjo būti ištrinta arba priklauso kitam vartotojui.',
+  'taskDetail.tipBody':
+    'Jei užstrigote, parašykite savo įvedimo kuratoriui „Slack“ — jis yra pirmoji jūsų pagalba.',
   'taskDetail.tipEyebrow': 'Greitas patarimas',
+  'team.empty.body': 'Pabandykite platesnę paiešką arba pasirinkite kitą skyrių.',
   'team.empty.title': 'Nėra komandos draugų, kurie rungtyniautų',
   'team.eyebrow': 'Įdarbinimas · Žmonės',
   'team.loading': 'Įkeliami komandos nariai…',
@@ -166,14 +207,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Pagrindiniai etapai',
   'timeline.stat.current': 'Dabartinis etapas',
   'timeline.stat.next': 'Kitas atrakinimas',
+  'timeline.stat.progress': 'Apskritai',
   'timeline.subtitle':
     'Kiekvienas etapas atveria naujus modulius, įžangas ir pokalbius apie augimą. Jokio spaudimo – tik progresas.',
+  'timeline.tipBody':
+    'Suplanuokite 30 minučių apmąstymą 30, 60 ir 90 dienomis su savo vadovu — taip atsiliepimai tampa konkretūs, o pažanga matoma.',
   'timeline.tipEyebrow': 'Vadybininko arbatpinigiai',
+  'timeline.tipTitle': 'Rezervuokite laiką kalendoriuje etapams.',
   'timeline.title': 'Jūsų 30 / 60 / 90 kelionė.',
   'training.badge.notStarted': 'Dar nepradėta',
   'training.empty': 'Mokymo modulių dar nėra.',
   'training.eyebrow': 'Įvadinis mokymas · Mokymai',
   'training.loading': 'Įkeliami moduliai…',
+  'training.stat.all': 'Priskirti moduliai',
   'training.subtitle':
     'Moduliai atrakinami ties 30/60/90, kad atitiktų jūsų vaidmenį. Privalomi yra pirmiausia.',
   'training.title': 'Įgūdžiai, įrankiai ir istorijos – jūsų tempu.',
@@ -185,9 +231,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'Modulis nerastas',
   'trainingModule.quizBody': 'Surinkite 80 % ar daugiau balų, kad modulis būtų laikomas baigtu.',
   'trainingModule.quizHeading': 'Modulio pabaigos testas',
+  'trainingModule.quizLocked': 'Pirmiausia pradėkite modulį',
   'trainingModule.quizNone': 'Šiame modulyje nėra viktorinos.',
   'trainingModule.quizRetry': 'Pabandyk dar kartą',
+  'trainingModule.quizStart': 'Pradėti viktoriną',
   'trainingModule.quizSubmit': 'Pateikti atsakymus',
+  'trainingModule.start': 'Pradėti modulį',
   'trainingModule.statusNotStarted': 'Dar nepradėta',
   'welcomeHeroCard.completeLabel': 'Užbaigtas',
   'welcomeHeroCard.milestonesLabel': 'Pagrindiniai etapai',

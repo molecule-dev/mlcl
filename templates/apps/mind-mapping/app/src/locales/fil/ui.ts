@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May feedback ka, may nahanap kang bug, o gusto mong sabihin sa amin kung paano mo minamapa ang iyong mga ideya? Binabasa namin ang bawat tala — makipag-ugnayan anumang oras at may tunay na tao sa team na magbabalik sa iyo.',
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'about.featureCanvas':
+    'Isang walang hanggang canvas na may mga draggable na node, makinis na kurbadang koneksyon, at tuluy-tuloy na zoom at pan.',
+  'about.featureCollab':
+    'Real-time na kolaborasyon na may live na cursor, para makasabay ang iyong team sa iyo sa halip na maghintay ng kanilang turn.',
+  'about.featurePricing':
+    'Libre habang-buhay para sa solo thinkers; ang Pro at Team na mga plano ay nagdaragdag ng mas maraming mapa, mas maraming node, advanced na feature, at data export.',
+  'about.featureTemplates':
+    'Isang library ng mga starter template at buong version history, para makapagsimula agad ng mapa at maibalik ang anumang pagbabago.',
+  'about.intro':
+    'Ang {{app}} ay isang maluwag, walang hanggang canvas para sa mind mapping — brainstorms, concept diagrams, SWOTs, at project plans. I-drag ang mga node kahit saan, ikonekta ang mga ideya gamit ang dumadaloy na link, mag-zoom at mag-pan nang hindi tumatama sa mga gilid, at hayaang lumaki ang mapa kasabay ng iyong pag-iisip.',
+  'about.missionBody':
+    'Ang pag-iisip nang malakas ay dapat walang kahirap-hirap at pinagsasaluhan. Gumagawa kami ng mga tool na hindi nakakasagabal — walang matigas na grid, walang nakakulong na template, walang UI na umaagaw ng atensyon — para ang mga indibidwal at team ay makakakuha ng mga ideya sa sandaling dumating ang mga ito at hubugin ang mga ito nang sama-sama.',
+  'about.missionTitle': 'Ang aming misyon',
   'about.pageTitle': 'Tungkol sa {{app}}',
   'auth.brandEyebrow': 'Kung saan sumasanga ang mga ideya',
   'auth.brandStatement':
@@ -13,19 +29,26 @@ export const ui: UiTranslations = {
   'billing.feature.export': 'I-export sa SVG / PNG',
   'billing.feature.maps': '{{count}} mga mapa',
   'billing.feature.nodes': '{{count}} mga node bawat mapa',
+  'billing.freeNoticeBody':
+    'Pumili ng bayad na plano sa itaas para ma-unlock ang mas maraming mapa.',
   'billing.loadError': 'Hindi ma-load ang status ng pagsingil.',
+  'billing.loading': 'Naglo-load ng billing…',
   'billing.perMonth': ' / buwan',
   'billing.plansTitle': 'Mga plano',
+  'billing.priceMissing': 'Hindi naka-configure ang Stripe price ID.',
   'billing.starting': 'Sinisimulan ang checkout…',
   'billing.title': 'Pagsingil at plano',
   'billing.unavailableTier':
     'Hindi pa na-configure ang tier na ito para sa checkout — itakda ang Stripe price ID sa iyong environment.',
   'billing.unlimited': 'Walang limitasyon',
   'billing.upgradeMonthly': 'Mag-upgrade sa {{name}} (buwan-buwan)',
+  'billing.upgradeYearly': 'Magbayad taun-taon · {{price}}',
   'brand.tagline': 'Kung saan sumasanga ang mga ideya',
   'common.and': 'at',
   'common.goToDashboard': 'Pumunta sa Dashboard',
   'dashboard.activityAction': 'na-update',
+  'dashboard.activityEmpty':
+    'Wala pang aktibidad — mag-edit ng mapa para simulan ang iyong timeline.',
   'dashboard.daysAgo': '{{count}}a nakalipas',
   'dashboard.empty.body':
     'Gumawa ng mapa upang simulan ang pagsasanga-sanga ng mga ideya. Pinapadali ng mga template ang pagsisimula.',
@@ -44,26 +67,35 @@ export const ui: UiTranslations = {
   'dendriteHero.activeMaps': 'Mga aktibong mapa',
   'dendriteHero.eyebrow': 'Ngayon sa canvas',
   'dendriteHero.greeting': 'Magbigay ng mga bagong ideya, {{name}}',
+  'dendriteHero.greetingAnon': 'Mag-branch ng mga bagong ideya',
   'dendriteHero.openMaps': 'Buksan ang aking mga mapa',
   'dendriteHero.subtitle':
     'I-drag, ikonekta, at hayaang lumago ang iyong pag-iisip. Ang bawat kislap ay isang buhol ang layo mula sa susunod.',
   'dendriteHero.weeklyChange': '{{sign}} {{count}} ngayong linggo',
+  'forgotPassword.brandStatement':
+    'Ligtas ang iyong mga mapa. Ibabalik ka namin sa iyong mga branch sa ilang sandali.',
   'forgotPassword.subheading':
     'Ilagay ang iyong email at magpapadala kami ng bagong link sa pag-reset.',
   'forgotPassword.success':
     'Kung mayroon nang account na may ganoong email, may paparating nang link para sa pag-reset.',
   'landing.cta.body':
     'Libre magpakailanman para sa mga nag-iisang nag-iisip. Mag-upgrade lamang kapag ang iyong koponan ay nagsimulang sumulong kasama mo.',
+  'landing.cta.button': 'Gumawa ng iyong unang mapa',
   'landing.cta.title': 'Itanim ang iyong unang ideya ngayon.',
   'landing.feature.branch.body':
     'Mag-drag ng node mula sa kahit anong ibang node — ang mga koneksyon ay dumadaloy bilang makinis na mga kurba, hindi kinakailangan ng matibay na grid.',
+  'landing.feature.branch.title': 'Organikong pagsasanga',
   'landing.feature.canvas.body':
     'I-pan, i-zoom, at hayaang lumaki ang mapa nang hindi nabubunggo sa mga gilid. Ang iyong pag-iisip ay nararapat na magkaroon ng espasyo para huminga.',
   'landing.feature.canvas.title': 'Walang katapusang canvas',
   'landing.feature.collab.body':
     'Tingnan ang mga kasamahan sa koponan na nagsasama-sama sa iyo sa totoong oras. Magsama-samang mag-brainstorm, hindi sa serye.',
+  'landing.feature.collab.title': 'Mga collaborative na cursor',
   'landing.feature.shortcuts.body':
     'Pindutin ang Tab para magdagdag ng anak, Pindutin ang Enter para sa kapatid, at pindutin ang ⌘K para lumipat kahit saan. Nananatili sa daloy ang mga power user.',
+  'landing.feature.shortcuts.title': 'Keyboard muna',
+  'landing.featuresBody':
+    'Ang mga toolbar, panel, at shortcut ay parang ambient — naroroon kapag kailangan mo, hindi nakikita kapag hindi.',
   'landing.featuresEyebrow': 'Ginawa para sa mga palaisip',
   'landing.featuresTitle': 'Ang bawat interaksyon ay nagkakamit ng lugar nito sa canvas',
   'landing.footer.copyright': '© {{year}} {{appName}} . Ginawa gamit ang Molecule.dev.',
@@ -71,6 +103,7 @@ export const ui: UiTranslations = {
     '{{appName}} ay isang malawak at walang katapusang canvas para sa brainstorming, mga concept diagram, at mga SWOT. I-drag, ikonekta, at hayaang lumaki ang mapa kasama mo — walang matibay na grid, walang naka-box na template.',
   'landing.hero.ctaPrimary': 'Simulan ang pagsasanga nang walang sanga',
   'landing.hero.eyebrow': 'Pagmamapa ng isip para sa mga taga-disenyo at palaisip',
+  'landing.hero.title': 'Kung saan nagsasanga ang mga ideya.',
   'landing.nav.start': 'Simulan ang pagsasanga',
   'landing.proof.export': 'I-export sa PNG, SVG, o Markdown',
   'landing.proof.free': 'Libre para sa 3 mapa',
@@ -78,6 +111,7 @@ export const ui: UiTranslations = {
   'layout.closeMenu': 'Isara ang menu ng nabigasyon',
   'layout.openMenu': 'Buksan ang menu ng nabigasyon',
   'layout.searchPlaceholder': 'Maghanap ng mga mapa, template, o node…',
+  'login.noAccount': 'Bago dito?',
   'login.signIn': 'Mag-sign in sa Nimbus',
   'login.subheading': 'Mag-sign in para magpatuloy sa pagsasanga kung saan ka tumigil.',
   'login.twoFactor': 'Two-factor token (kung pinagana)',
@@ -96,9 +130,11 @@ export const ui: UiTranslations = {
     'Piliin ang tool na +, pagkatapos ay mag-click kahit saan para idagdag ang iyong unang node',
   'mapEditor.export': 'I-export',
   'mapEditor.exportError': 'Hindi ma-export ang mapa.',
+  'mapEditor.exportLocked': 'Ang pag-export ay isang Pro na feature.',
   'mapEditor.exportMarkdown': 'Markdown (.md)',
   'mapEditor.exportPng': 'Larawan (.png)',
   'mapEditor.exportSvg': 'Vector (.svg)',
+  'mapEditor.exportUpgrade': 'Mag-upgrade para mag-export →',
   'mapEditor.hint.add': 'I-click ang canvas para mag-drop ng node',
   'mapEditor.hint.connectSource': 'I-click ang pinagmulang node…',
   'mapEditor.hint.connectTarget': 'I-click ang target na node…',
@@ -107,6 +143,7 @@ export const ui: UiTranslations = {
   'mapEditor.loading': 'Nilo-load ang canvas…',
   'mapEditor.newNodeText': 'New idea',
   'mapEditor.panel.color': 'Kulay',
+  'mapEditor.panel.eyebrow': 'Napiling node',
   'mapEditor.panel.nodes': 'Mga Node',
   'mapEditor.panel.noSelection': 'Mag-click sa isang node para i-edit ito.',
   'mapEditor.panel.stats': 'Mga istatistika ng mapa',
@@ -146,12 +183,19 @@ export const ui: UiTranslations = {
   'notifications.accept': 'Tanggapin',
   'notifications.acceptAndOpen': 'Tanggapin at buksan',
   'notifications.acceptedInvite': 'Sumali {{title}}.',
+  'notifications.acceptError': 'Hindi matanggap ang imbitasyon.',
   'notifications.empty.body':
     'Kapag inimbitahan ka ng mga kasamahan sa koponan sa mga mapa, lilitaw sila rito.',
   'notifications.empty.title': 'Walang nakabinbing imbitasyon',
+  'notifications.inviteBody': 'Ipinadala kay {{email}}',
   'notifications.inviteTitle': 'Inimbitahan bilang {{role}} sa "{{title}}"',
   'notifications.subtitle': '{{count}} mga nakabinbing imbitasyon.',
   'notifications.view': 'Tingnan',
+  'pricing.limit.advanced': 'Mga advanced na feature: {{state}}',
+  'pricing.limit.connections': '{{count}} na koneksyon',
+  'pricing.limit.export': 'Data export: {{state}}',
+  'pricing.limit.maps': '{{count}} mga mapa',
+  'pricing.limit.nodes': '{{count}} mga node bawat mapa',
   'profile.loading': 'Nilo-load ang iyong mga istatistika…',
   'profile.stat.collabs': 'Mga Kolaborasyon',
   'profile.stat.maps': 'Mga mapa na ginawa',
@@ -163,24 +207,36 @@ export const ui: UiTranslations = {
   'publicMap.loadError': 'Hindi na ibinabahagi ang mapang ito, o hindi wasto ang link.',
   'publicMap.loading': 'Nilo-load ang mapa…',
   'publicMap.notFound': 'Hindi natagpuan ang mapa.',
+  'resetPassword.newPassword': 'Bagong password',
   'resetPassword.subheading':
     'Pumili ng isang bagay na hindi mo malilimutan. Awtomatiko ka naming ila-log in muli.',
   'resetPassword.submit': 'I-reset ang password at mag-sign in',
   'resetPassword.tokenPlaceholder': 'Na-paste mula sa iyong email',
   'settings.account.subtitle': 'I-update ang iyong display name at email address.',
+  'settings.field.currentPassword': 'Kasalukuyang password',
   'settings.field.newPassword': 'Bagong password',
   'settings.password.subtitle': 'Pumili ng matibay na password (hindi bababa sa 8 karakter).',
   'settings.passwordError': 'Hindi mabago ang password. Suriin ang iyong kasalukuyang password.',
+  'settings.passwordMismatch': 'Hindi magkatugma ang mga bagong password.',
   'settings.passwordSaved': 'Matagumpay na napalitan ang password.',
   'settings.passwordTooShort': 'Ang password ay dapat na hindi bababa sa 8 character.',
   'settings.profileError': 'Hindi mai-save ang mga pagbabago sa profile.',
   'settings.subtitle': 'Ayusin ang iyong account at seguridad.',
   'settings.twoFactorCode': 'Kodigo ng pagpapatunay',
   'settings.twoFactorDisable': 'I-disable',
+  'settings.twoFactorDisableTitle': 'I-disable ang two-factor authentication',
   'settings.twoFactorEnable': 'I-enable',
+  'settings.twoFactorEnableTitle': 'I-enable ang two-factor authentication',
   'settings.twoFactorInvalidCode': 'Hindi wastong code. Pakisubukang muli.',
+  'settings.twoFactorOffLine': 'Naka-off ang two-factor authentication.',
+  'settings.twoFactorOnLine': 'Naka-on ang two-factor authentication.',
+  'settings.twoFactorQrAlt': 'Two-factor QR code',
+  'settings.twoFactorScan':
+    'I-scan ang QR code na ito gamit ang iyong authenticator app, pagkatapos ay ilagay ang 6-digit na code.',
   'settings.twoFactorSubtitle':
     'Magdagdag ng one-time code mula sa iyong authenticator app sa ibabaw ng iyong password.',
+  'settings.twoFactorUnavailable':
+    'Hindi available ang two-factor authentication para sa app na ito.',
   'settings.twoFactorVerify': 'I-verify at paganahin',
   'share.accepted': 'Tinanggap',
   'share.backToMap': 'Balik sa mapa',
@@ -191,7 +247,10 @@ export const ui: UiTranslations = {
   'share.copySuccess': 'Nakopya na ang link.',
   'share.invite.button': 'Imbitahan',
   'share.invite.title': 'Mag-imbita sa pamamagitan ng email',
+  'share.inviteError': 'Hindi mapadala ang imbitasyon.',
   'share.inviteSuccess': 'Inimbitahan {{email}}.',
+  'share.link.disabledHint':
+    'I-toggle on para gumawa ng pampublikong read-only na link sa mapang ito.',
   'share.link.title': 'Pampublikong link',
   'share.loadError': 'Hindi ma-load ang mga setting ng pagbabahagi.',
   'share.pending': 'Naghihintay na imbitasyon',
@@ -203,13 +262,19 @@ export const ui: UiTranslations = {
   'share.roleError': 'Hindi ma-update ang role.',
   'share.title': 'Ibahagi ang mapang ito',
   'share.unnamedCollaborator': 'Naghihintay na imbitasyon',
+  'signup.brandStatement':
+    'Isang canvas na sapat ang lapad para sa pinakamatapang na brainstorm — at sapat ang katahimikan para makapag-isip.',
+  'signup.haveAccount': 'Miyembro ka na?',
   'signup.heading': 'Itanim ang iyong unang ideya',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.subheading': 'Libre magpakailanman para sa 3 mapa. Hindi kailangan ng credit card.',
   'templateDetail.backToTemplates': 'Lahat ng template',
   'templateDetail.browseMore': 'Mag-browse pa',
+  'templateDetail.editableHint':
+    'Ang bawat node at edge ay ganap na na-e-edit kapag na-instantiate mo na ang template.',
   'templateDetail.instantiateError': 'Hindi makagawa ng mapa mula sa template na ito.',
   'templateDetail.loadError': 'Hindi ma-load ang template na ito.',
+  'templateDetail.loading': 'Nilo-load ang template…',
   'templateDetail.nodes': 'Mga node na pre-seeded',
   'templateDetail.notFound': 'Template hindi nahanap.',
   'templateDetail.systemEyebrow': 'Naka-embed na template',
@@ -232,6 +297,7 @@ export const ui: UiTranslations = {
   'trash.empty.body': 'Walang naghihintay na linisin. Ligtas ang inyong mga sanga.',
   'trash.empty.title': 'Walang laman ang basurahan',
   'trash.loadError': 'Hindi ma-load ang mga itinapong mapa.',
+  'trash.loading': 'Naglo-load ng trash…',
   'trash.restore': 'I-restore',
   'trash.restoreError': 'Hindi maibalik ang mapa.',
   'trash.subtitle':
@@ -240,11 +306,13 @@ export const ui: UiTranslations = {
   'versionHistory.backToMap': 'Balik sa mapa',
   'versionHistory.empty':
     'Wala pang mga snapshot. I-save ang una para mapanatili ang isang checkpoint.',
+  'versionHistory.emptyDetail': 'Mag-save ng snapshot para simulan ang iyong timeline.',
   'versionHistory.loadError': 'Hindi ma-load ang history ng bersyon.',
   'versionHistory.nodeCount': 'Mga Node',
   'versionHistory.restoreButton': 'Ibalik ang bersyong ito',
   'versionHistory.restoreError': 'Hindi maibalik ang snapshot.',
   'versionHistory.restoreSuccess': 'Naibalik na ang snapshot.',
+  'versionHistory.selectHint': 'Pumili ng snapshot para tingnan ito.',
   'versionHistory.snapshotDefault': 'Manu-manong snapshot',
   'versionHistory.snapshotError': 'Hindi ma-save ang snapshot.',
   'versionHistory.snapshotEyebrow': 'Snapshot',

@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'An bhfuil aiseolas agat, aimsíodh fabht, nó ar mhaith leat {{app}} a thabhairt chuig do scoil nó do fhoireann? Léimid gach teachtaireacht — déan teagmháil ó shocruithe do chuntais agus freagróidh duine daonna thú.',
   'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
+  'about.intro':
+    'Puzal focal laethúil is ea {{app}}. Tomhais an focal cúig litir i sé iarracht, coinnigh do shraith beo, roinn do ghreille emoji, agus féach mar a rinne an pháirc iomlán ar fhocal an lae inniu.',
+  'about.missionBody':
+    'Is bua beag laethúil é puzal maith. Tá {{app}} tógtha timpeall ar aon fhocal amháin in aghaidh an lae — tapa go leor do shos caife, géar go leor le teacht ar ais don lá amárach.',
+  'about.missionTitle': 'Ár misean',
   'about.title': 'Maidir le {{app}}',
   'archive.loadError': 'Níorbh fhéidir an cartlann a luchtú.',
   'archive.missed': 'Caillte',
   'archive.notPlayed': 'Gan imirt',
+  'archive.subhead':
+    'Athsheinn aon lá roimhe seo mar chleachtadh — gan sraitheanna, gan staitisticí, an spraoi ar fad.',
   'archive.title': 'Cartlann',
   'auth.backToHome': 'Ar ais go dtí an baile',
   'auth.backToHomeArrow': '← Ar ais go dtí an baile',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Pasfhocal dearmadta?',
   'auth.login.loggingIn': 'Á do shíniú isteach…',
   'auth.login.logIn': 'Imir focal an lae inniu',
+  'auth.login.noAccount': 'Nua i dTessera?',
   'auth.login.or': 'nó lean ar aghaidh le',
   'auth.login.password': 'Pasfhocal',
   'auth.login.signInButton': 'Sínigh isteach',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Á shábháil…',
   'common.sendingEllipsis': 'Á sheoladh…',
   'common.startingEllipsis': 'Á thosú…',
+  'forgotPassword.subhead':
+    'Cuir isteach do sheoladh ríomhphoist agus cuirfimid nasc chugat le hathshocrú.',
+  'forgotPassword.success.body':
+    'Má tá cuntas ann do {{email}} , gheobhaidh tú nasc athshocraithe i gceann cúpla nóiméad.',
+  'forgotPassword.success.title': 'Seiceáil do bhosca isteach.',
   'form.name': 'Ainm',
   'howToPlay.cta.home': 'Ar ais sa bhaile',
   'howToPlay.cta.play': 'Imir puzal an lae inniu',
@@ -68,10 +83,16 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Streaks is fuath leat a bhriseadh',
   'leaderboard.daily.title': 'Réitigh inniu',
   'leaderboard.loadError': 'Níorbh fhéidir an tábla ceannas a luchtú.',
+  'leaderboard.streaks.empty': 'Níl aon sraith ann fós — bí ar an gcéad duine.',
+  'leaderboard.streaks.subhead': 'Na sraitheanna bua is faide riamh.',
   'leaderboard.streaks.title': 'Ceannairí streak',
+  'leaderboard.subhead':
+    'Mar a rinne an pháirc inniu, agus cé atá ag coinneáil na sraitheanna is faide.',
   'leaderboard.title': 'Tábla ceannas',
   'login.headline': 'Fáilte ar ais.',
   'login.streakPill': 'Streak {{days}} lá ag fanacht',
+  'login.subhead':
+    'Sínigh isteach chun do shraith a choinneáil beo agus féach mar a rinne tú ar fhocal an lae inniu.',
   'nav.archive': 'Cartlann',
   'nav.editProfile': 'Cuir próifíl in eagar',
   'nav.getStarted': 'Tosaigh',
@@ -89,6 +110,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': "404 · Níl a leithéid d'fhocal ann",
   'notFound.title': 'Tá an bealach sin folamh.',
   'planUpdated.message': 'Tá do phlean beo.',
+  'planUpdated.retry': 'Déan iarracht arís',
+  'planUpdated.verifyFailed': 'Ní raibh muid in ann d’íocaíocht a dheimhniú go fóill.',
+  'planUpdated.verifyFailedBody':
+    'B’fhéidir go bhfuil d’íocaíocht fós á próiseáil. Bain triail eile as i gceann nóiméid.',
   'planUpdated.verifying': 'Do íocaíocht á dearbhú…',
   'play.alreadyFinished': 'Chríochnaigh tú an puzal seo cheana',
   'play.answerWas': 'Ba é an focal ná',
@@ -104,6 +129,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Puzal cleachtaidh',
   'play.tooShort': 'Gan dóthain litreacha',
   'play.won': 'Réitigh tú é!',
+  'pricing.advancedStats': 'Staitisticí casta: {{yes}}',
+  'pricing.archiveHistory': '{{count}} lá de stair an chartlainne',
+  'pricing.archivePlays': '{{count}} athsheinm chartlainne / lá',
+  'pricing.archiveUnlimited': 'Stair chartlainne gan teorainn',
+  'pricing.canExport': 'Easpórtáil sonraí: {{yes}}',
+  'pricing.checkoutError': 'Níorbh fhéidir an tseiceáil amach a thosú. Déan iarracht arís.',
   'pricing.dailyWord': 'An focal laethúil',
   'pricing.heading': 'Roghnaigh do phlean {{app}}',
   'pricing.included': 'San áireamh',
@@ -111,7 +142,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Tá an focal laethúil saor in aisce i gcónaí. Uasghrádaigh le haghaidh athimirtí cartlainne gan teorainn agus staitisticí níos doimhne.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    'Tá meas ag {{app}} ar do phríobháideachas. Déanann an leathanach seo achoimre ar na sonraí a stórálaimid, cén fáth a stórálaimid iad, agus conas iad a bhaint.',
   'privacy.title': 'Fógra príobháideachais',
+  'resetPassword.subhead': 'Roghnaigh pasfhocal nua chun filleadh ar do shraith.',
   'settings.account': 'Cuntas',
   'settings.danger.body': 'Bain do chuntas {{appName}} agus an stair puzal go léir go buan.',
   'settings.danger.confirm': 'Tá, scrios go deo',
@@ -120,17 +154,24 @@ export const ui: UiTranslations = {
   'settings.guest': 'Aoi',
   'settings.language.title': 'Teanga',
   'settings.subhead': 'Tiúnaigh do phróifíl, fuaim, agus conas a fheictear tú ar an tábla ceannas.',
+  'settings.unnamed': 'Imreoir Sparq',
   'settings.upgrade': 'Uasghrádaigh',
   'signup.eyebrow': 'Saor in aisce go deo — focal amháin sa lá',
   'signup.headline': 'Tosaigh do streak.',
+  'signup.subhead':
+    'Cruthaigh cuntas {{appName}} chun an focal laethúil a imirt, sraith a thógáil, agus dul suas an clár ceannairí.',
   'stats.currentStreak': 'Streak',
   'stats.distribution.title': 'Dáileadh buillí faoi thuairim',
   'stats.loadError': 'Níorbh fhéidir do staitisticí a luchtú.',
   'stats.maxStreak': 'Streak uasta',
   'stats.played': 'Imeartha',
   'stats.playToday': 'Imir puzal an lae inniu',
+  'stats.subhead':
+    'Puzail laethúla rangaithe amháin — ní chomhairtear cleachtadh cartlainne riamh.',
   'stats.title': 'Do staitisticí',
   'stats.winRate': 'Ráta bua',
   'status.monthly': 'Míosúil',
+  'terms.intro':
+    'Trí úsáid a bhaint as {{app}} aontaíonn tú leis na rialacha thíos. Mura féidir leat glacadh leo, ná húsáid an tseirbhís.',
   'terms.title': 'Téarmaí seirbhíse',
 }

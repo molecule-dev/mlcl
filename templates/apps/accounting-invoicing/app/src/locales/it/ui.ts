@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Hai una domanda, hai trovato un bug o vuoi trasferire i tuoi libri? Contatta il team di {{app}} all'indirizzo hello@{{app}}.example — una persona reale legge ogni messaggio.",
   'about.contactTitle': 'Contattaci',
   'about.eyebrow': 'Informazioni',
+  'about.intro':
+    '{{app}} è la contabilità per piccole imprese che tiene traccia di ogni centesimo — fatture, spese, pagamenti e report in un unico posto tranquillo per titolari, contabili e commercialisti.',
+  'about.missionBody':
+    "Gestire un'impresa non dovrebbe significare temere la propria contabilità. {{app}} sostituisce il caos dei fogli di calcolo con numeri chiari su cui agire, così passi meno tempo a riconciliare e più tempo a fare il lavoro per cui hai davvero avviato l'attività.",
+  'about.missionTitle': 'La nostra missione',
   'about.title': 'Info su {{app}}',
   'accounts.count': '{{count}} conti',
+  'accounts.emptyBody':
+    "I conti di contabilità generale tracciano dove si trovano e si muovono i soldi. Compaiono qui una volta che il tuo contabile o l'integrazione li ha configurati.",
   'accounts.emptyTitle': 'Nessun account ancora',
   'accounts.heading': 'Piano dei conti',
   'accounts.kpi.accounts': 'Conti',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Tutte le voci contabili relative alle fatture, alle spese e ai pagamenti, raggruppate per tipologia.',
   'accounts.tag.inactive': 'inattivo',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Direttore finanziario, Horizon Tech',
   'authBrandPanel.eyebrow': 'Affidabile per i team finanziari',
   'authBrandPanel.label': 'Vetrina del marchio',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Tutti i clienti',
   'customerDetail.invoiceMeta': 'Data di emissione{{issued}} · Scadenza{{due}}',
   'customerDetail.loadError': 'Impossibile caricare il cliente.',
+  'customerDetail.missingBody':
+    'Impossibile caricare il record cliente richiesto. Potrebbe essere stato rimosso oppure potresti non avere accesso.',
   'customerDetail.missingHeading': 'Record cliente non disponibile',
+  'customerDetail.missingHelp':
+    "Usa il link indietro qui sopra per tornare all'elenco dei clienti, oppure scegli un altro record da lì.",
+  'customerDetail.noInvoices': 'Nessuna fattura ancora.',
   'customerDetail.notesEmpty': 'Nessuna nota ancora.',
   'customerDetail.paymentsEmpty': 'Nessun pagamento registrato.',
   'customerDetail.paymentTerms': 'Termini di pagamento',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Deducibile',
   'expenseDetail.detailsHeading': 'Dettagli della transazione',
   'expenseDetail.loadError': 'Impossibile caricare la spesa.',
+  'expenseDetail.matched': 'Abbinato · {{description}}',
   'expenseDetail.missingBody':
     'Non è stato possibile caricare la spesa richiesta. Potrebbe essere stata rimossa o Lei potrebbe non avervi accesso.',
   'expenseDetail.missingHeading': 'Record spesa non disponibile',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Ricevuta',
   'expenseDetail.receiptHeading': 'Ricevuta',
   'expenseDetail.reconciled': 'Riconciliato',
+  'expenseDetail.unreconciled': 'Non riconciliate',
   'expenses.empty': 'Nessuna spesa ancora.',
   'expenses.heading': 'Spese',
   'expenses.kpi.deductible': 'Deducibili',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Impossibile caricare le fatture.',
   'invoices.searchPlaceholder': 'Cerca n. fattura o cliente…',
   'invoices.summary.paid': 'Pagate in questo periodo',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'Gratis per 30 giorni. Senza carta. Porti il suo commercialista — La ringrazierà.',
   'landing.ctaTitle': 'Sposti i suoi libri contabili in un posto più sereno.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Crediti commerciali',
   'ledgerStatTriad.eyebrow.mtd': "Dall'inizio del mese",
   'ledgerStatTriad.netSub': 'Netto {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} in ritardo',
   'ledgerStatTriad.revenueLabel': 'Ricavi',
   'login.failed': 'Accesso non riuscito.',
   'login.hidePassword': 'Nascondi password',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Accedi',
   'nav.legal': 'Legale',
   'newExpense.back': 'Spese',
+  'newExpense.clearReceiptCta': 'Rimuovi la ricevuta allegata',
   'newExpense.deductible': 'Deducibile fiscalmente',
   'newExpense.dropPrompt': 'Trascini qui una foto o un PDF della ricevuta per allegarli.',
   'newExpense.failed': 'Impossibile salvare la spesa.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Impossibile caricare i pagamenti.',
   'payments.unmatchedTag': 'senza pari',
   'planUpdated.pageLabel': "Conferma dell'aggiornamento del piano",
+  'pricing.advancedFeatures': 'Funzionalità avanzate: {{yes}}',
+  'pricing.canExport': 'Esportazione dati: {{yes}}',
+  'pricing.heading': 'Scegli il tuo piano {{app}}',
+  'pricing.maxAccounts': '{{count}} conti',
+  'pricing.maxExpenses': '{{count}} spese',
+  'pricing.maxInvoices': '{{count}} fatture',
+  'privacy.intro':
+    'La presente Informativa sulla privacy descrive come {{app}} raccoglie, utilizza e divulga le informazioni relative alle imprese che utilizzano il servizio.',
   'privacy.lastUpdated': 'Ultimo aggiornamento: {{date}}',
   'privacy.section.collected.body':
     "Raccogliamo dettagli dell'account (nome, email, azienda), i record finanziari caricati (fatture, spese, clienti, pagamenti) e log standard di operatività del servizio (IP, user-agent, marche temporali).",
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Le informazioni vengono utilizzate per gestire il servizio, generare i report e i PDF richiesti, inviare email transazionali tramite Mailgun ed elaborare pagamenti tramite Stripe. Non vendiamo né affittiamo informazioni personali.',
   'recentInvoicesCard.dueMeta': 'Scadenza {{date}}',
+  'recentInvoicesCard.empty': 'Nessuna fattura corrisponde.',
   'recentInvoicesCard.eyebrow': 'Crediti commerciali',
   'recentInvoicesCard.searchAriaLabel': 'Cerca fatture',
+  'recentInvoicesCard.searchPlaceholder': 'Cerca fatture…',
   'recentInvoicesCard.title': 'Fatture recenti',
   'recentInvoicesCard.viewAll': 'Vedi tutte le fatture →',
   'reports.assets': 'Attività',
@@ -181,16 +211,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Conto economico (12 mesi)',
   'resetPassword.backToLogin': "← Torna all'accesso",
   'resetPassword.hidePassword': 'Nascondi password',
+  'resetPassword.passwordLabel': 'Nuova password',
   'resetPassword.showPassword': 'Mostra password',
+  'resetPassword.subheading': 'Scegli una password sicura — minimo otto caratteri.',
   'resetPassword.submit': 'Reimposta password',
   'resetPassword.tooShort': 'La password deve contenere almeno 8 caratteri.',
   'settings.account.changePassword': 'Cambia password',
   'settings.account.changingPassword': 'Modifica in corso…',
   'settings.account.currentPassword': 'Password attuale',
+  'settings.account.dangerZone': 'Zona pericolosa',
   'settings.account.deleteAccount': 'Elimina account',
   'settings.account.deleteDescription':
     'Elimina definitivamente il tuo account e tutti i dati associati.',
   'settings.account.deleteError': "Impossibile eliminare l'account.",
+  'settings.account.deleteWarning':
+    'Questa operazione elimina definitivamente il tuo account e non può essere annullata. Inserisci la password per confermare.',
   'settings.account.deleting': 'Eliminazione…',
   'settings.account.devices': 'Dispositivi',
   'settings.account.email': 'E-mail',
@@ -201,6 +236,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Password',
   'settings.account.passwordError': 'Impossibile cambiare la password.',
   'settings.account.pushNotifications': 'Notifiche push su questo dispositivo',
+  'settings.account.revokeDeviceWarning':
+    "L'accesso di questo dispositivo verrà revocato a breve. Disconnetterlo?",
   'settings.account.saveError': 'Impossibile aggiornare il profilo.',
   'settings.account.security': 'Sicurezza',
   'settings.account.signOutDevice': 'Esci',
@@ -208,12 +245,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Autenticazione a due fattori',
   'settings.account.twoFactorCode': 'Codice di autenticazione',
   'settings.account.twoFactorDisable': 'Disattiva',
+  'settings.account.twoFactorDisableTitle': "Disattiva l'autenticazione a due fattori",
   'settings.account.twoFactorEnable': 'Attiva',
+  'settings.account.twoFactorEnableTitle': "Attiva l'autenticazione a due fattori",
   'settings.account.twoFactorInvalidCode': 'Codice non valido',
   'settings.account.twoFactorOn': 'Il',
+  'settings.account.twoFactorQrAlt': 'Codice QR autenticazione a due fattori',
+  'settings.account.twoFactorScan':
+    'Scansiona questo codice QR con la tua app di autenticazione, poi inserisci il codice a 6 cifre.',
+  'settings.account.twoFactorUnavailable':
+    "L'autenticazione a due fattori non è disponibile per questa app.",
   'settings.account.twoFactorVerify': 'Verifica e abilita',
   'settings.account.unknownDevice': 'Dispositivo sconosciuto',
   'settings.company.email': 'Email di fatturazione',
+  'settings.company.heading': 'Azienda e fisco',
   'settings.company.name': 'Denominazione legale',
   'settings.company.saveButton': 'Salva il profilo aziendale',
   'settings.company.taxId': 'Partita IVA / EIN',
@@ -257,6 +302,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Stim. trimestrale',
   'taxes.kpi.owed': 'Dovuta',
   'taxes.loadError': 'Impossibile caricare il riepilogo fiscale.',
+  'taxes.remittedPct': '({{pct}}% versato)',
+  'terms.intro':
+    'I presenti Termini di servizio ("Termini") regolano l\'accesso e l\'utilizzo di {{app}}. Creando un account o utilizzando il servizio accetti di esserne vincolato.',
   'terms.lastUpdated': 'Ultimo aggiornamento: {{date}}',
   'terms.section.acceptable.body':
     'Lei si impegna a non utilizzare il servizio per violare alcuna legge, infrangere diritti di proprietà intellettuale, trasmettere malware o tentare di ottenere accesso non autorizzato ad altri account o alla nostra infrastruttura.',

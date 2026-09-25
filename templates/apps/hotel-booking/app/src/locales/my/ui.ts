@@ -1,11 +1,33 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ကြိုတင်စာရင်းသွင်းမှု၊ အကြံပြုချက် သို့မဟုတ် {{app}} တွင် ပါဝင်သင့်သည်ဟု သင်ထင်သော အိမ်ခြံမြေအကြောင်း မေးခွန်းများရှိပါသလား။ သင့်အကောင့်မှ ကျွန်ုပ်တို့အဖွဲ့ကို ဆက်သွယ်ပါ — မက်ဆေ့ခ်ျတိုင်း အကူအညီပေးနိုင်သော လူသားတစ်ဦးထံ ရောက်ပါသည်။',
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'ကြှနျုပျတို့အကွောငျး',
+  'about.featureLoyalty':
+    'အဖွဲ့ဝင်များအတွက်သာ ရရှိသော နှုန်းထားများနှင့် ကြိုတင်စာရင်းသွင်းမှုတိုင်းတွင် အမှတ်များ၊ နောက်ကျထွက်ခွာခွင့်နှင့် အခန်းအဆင့်မြှင့်တင်မှုများ ရရှိစေသော သစ္စာစောင့်သိမှုအစီအစဉ်။',
+  'about.featureReviews':
+    'သင်မရောက်ရှိမီ တည်းခိုမှုကို ယုံကြည်စိတ်ချနိုင်စေရန် အတည်ပြုပြီးသော ဧည့်သည်သုံးသပ်ချက်များနှင့် အယ်ဒီတာရွေးချယ်မှုများ။',
+  'about.featureRooms':
+    'အခွန်များနှင့် အပန်းဖြေစခန်းအခကြေးငွေများ မပေးမီ ထည့်သွင်းထားသော ပွင့်လင်းမြင်သာသည့် စျေးနှုန်းအပြည့်အစုံဖြင့် အခန်းများ၊ နှုန်းထားများနှင့် သာယာအဆင်ပြေမှုများကို ဘေးချင်းယှဉ်၍ ကြည့်ရှုပါ။',
+  'about.featureSearch':
+    'တိုက်ရိုက်ရရှိနိုင်မှု၊ မြေပုံကြည့်ရှုမှုနှင့် ဓာတ်ပုံပြခန်းများစွာဖြင့် စိစစ်ပြီးသော ဟိုတယ်များကို အချိန်နှင့်တပြေးညီ ရှာဖွေပါ။',
+  'about.featureTrips':
+    'သိမ်းဆည်းထားသော စိတ်ကြိုက်များနှင့် ကြိုတင်စာရင်းသွင်းမှု၊ ခရီးစဉ်အစီအစဉ်နှင့် အတည်ပြုချက်တိုင်းကို တစ်နေရာတည်းတွင် ထိန်းသိမ်းထားသော Trips ဒက်ရှ်ဘုတ်။',
+  'about.intro':
+    '{{app}} သည် အရည်အသွေးကို အလေးထားသော ခရီးသွားများအတွက် ဟိုတယ်ကြိုတင်စာရင်းသွင်းမှုပလက်ဖောင်းတစ်ခုဖြစ်သည်။ အိမ်ခြံမြေတိုင်းကို ကျွန်ုပ်တို့၏ အယ်ဒီတာအဖွဲ့မှ ကိုယ်တိုင်စိစစ်ထားသည် — စုစည်းထားသော စာရင်းများမရှိ၊ လှည့်ဖြားသော စာရင်းများမရှိပါ။ တိုက်ရိုက်ရရှိနိုင်မှုကို ရှာဖွေပါ၊ အခန်းများ၊ နှုန်းထားများနှင့် သာယာအဆင်ပြေမှုများကို ဘေးချင်းယှဉ်နှိုင်းယှဉ်ပြီး ရှင်းလင်းသော စျေးနှုန်းအပြည့်အစုံဖြင့် နှိပ်ချက်အနည်းငယ်ဖြင့် ကြိုတင်စာရင်းသွင်းပါ။',
+  'about.missionBody':
+    'တည်းခိုရာနေရာတစ်ခု ကြိုတင်စာရင်းသွင်းခြင်းသည် အေးဆေးပြီး ရိုးသားမှုရှိသင့်သည်။ ကျွန်ုပ်တို့သည် အခွန်များနှင့် အပန်းဖြေစခန်းအခကြေးငွေများကို ကြိုတင်ထည့်သွင်းထားသော ပွင့်လင်းမြင်သာသည့် နှုန်းထားများကို ပြသပြီး သစ္စာရှိဧည့်သည်များကို အပိုအခကြေးငွေများကောက်ခံမည့်အစား ဆုချီးမြှင့်ကာ သင့်ငွေနှင့်ထိုက်တန်သော တည်းခိုမှုများကို ဦးစားပေးသည် — ထို့ကြောင့် တဘ်များနှိုင်းယှဉ်ရန် အချိန်နည်းနည်းသုံးပြီး ခရီးစဉ်ကိုယ်တိုင်အတွက် အချိန်ပိုပေးနိုင်ပါသည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
+  'about.subtitle':
+    'မှန်ကန်သော ဟိုတယ်ကို ရှာဖွေပြီး ကြိုတင်စာရင်းသွင်းရန် စုစည်းထားသော၊ ပွင့်လင်းမြင်သာသည့် နည်းလမ်း။',
   'account.loyalty.activitySummary': '{{nights}} ညများ · {{spend}} ဒီနှစ်မှာ သုံးစွဲခဲ့တဲ့',
+  'account.loyalty.benefitsHeading': 'သင့်အကျိုးခံစားခွင့်များ',
   'account.loyalty.heading': 'သစ္စာစောင့်သိမှု',
   'account.loyalty.loading': 'သစ္စာရှိမှုကို တင်နေသည်…',
-  'account.loyalty.pointsTowardNext': '{{အမှတ်များ}} / {{နောက်တစ်ခု}} ညွှန်ပြသည် {{nextTier}}',
+  'account.loyalty.maxTier': 'အမြင့်ဆုံးအဆင့် — သင့်အကျိုးခံစားခွင့်များကို ခံစားပါ။',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} အမှတ်မှ {{nextTier}} သို့',
   'account.loyalty.tier': 'လက်ရှိအဆင့်',
   'account.loyalty.unavailable': 'သစ္စာရှိမှု အချက်အလက်များ မရရှိနိုင်ပါ။',
   'account.navLabel': 'အကောင့်ကဏ္ဍများ',
@@ -24,6 +46,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.datesRequired':
     'ကျေးဇူးပြု၍ သင် check-in ဝင်မည့်ရက်နှင့် check-out ထွက်မည့်ရက်ကို ရွေးချယ်ပါ။',
   'bookingCheckout.guestHeading': 'ဦးဆောင်ဧည့်သည်',
+  'bookingCheckout.heading': 'အတည်ပြုပြီး ကြိုတင်စာရင်းသွင်းပါ',
   'bookingCheckout.loadError': 'ဂုဏ်သတ္တိကို တင်၍မရပါ။',
   'bookingCheckout.nights': '{{rate}} × {{count}} ညများ',
   'bookingCheckout.notFound': 'အိမ်ခြံမြေ ရှာမတွေ့ပါ။',
@@ -34,11 +57,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'အခွန်နှင့် အခကြေးငွေများ',
   'bookingCheckout.tripHeading': 'သင့်ခရီးစဉ်',
   'bookingConfirmation.allTripsCta': 'ခရီးစဉ်အားလုံး',
+  'bookingConfirmation.confNumber': 'အတည်ပြုနံပါတ် — {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'သင့်ကြိုတင်စာရင်းသွင်းမှုကို ဆောင်ရွက်နေပါသည်။',
   'bookingConfirmation.heading': 'ဘွတ်ကင်အတည်ပြုပြီးပါပြီ',
   'bookingConfirmation.loading': 'သင့်ကြိုတင်မှာယူမှုကို တင်နေသည်…',
   'bookingConfirmation.searchMoreCta': 'နောက်ထပ် တည်းခိုမှုများကို ကြည့်ရှုပါ',
   'bookingConfirmation.subheadingForTrip':
-    '{{ပိုင်ဆိုင်မှု}} ထဲမှာ {{မြို့}} , {{နိုင်ငံ}} . မှာ တွေ့ကြတာပေါ့ {{ရောက်ရှိကြောင်းစာရင်းသွင်းခြင်း}} ။',
+    '{{city}}၊ {{country}} ရှိ {{property}}။ {{checkIn}} တွင် တွေ့ဆုံပါမည်။',
   'bookingConfirmation.total': 'စုစုပေါင်း {{total}}',
   'bookingConfirmation.viewTripCta': 'ခရီးစဉ်ကို ကြည့်ရှုပါ',
   'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
@@ -48,6 +74,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'အကြိုက်ဆုံးများကို တင်၍မရပါ။',
   'favorites.pricePerNight': '{{price}} / ည',
   'favorites.removeCta': 'သိမ်းဆည်းမှု မပြုရန်',
+  'favorites.removing': 'ဖယ်ရှားနေသည်…',
   'forgotPassword.subheading':
     'သင့်အကောင့်ရှိ အီးမေးလ်ကို ရိုက်ထည့်ပါ၊ ကျွန်ုပ်တို့က လုံခြုံသော ပြန်လည်သတ်မှတ်ခြင်းလင့်ခ်ကို ပေးပို့ပါမည်။',
   'forgotPassword.successBody':
@@ -55,6 +82,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'တည်းခိုခန်းအဖွဲ့ဝင်များ',
   'landing.cta.heading': 'အဖွဲ့ဝင်သီးသန့်နှုန်းထားများ။ ဘွတ်ကင်တိုင်း၊ အချိန်တိုင်း။',
   'landing.cta.signup': 'အခမဲ့အကောင့်တစ်ခု ဖန်တီးပါ',
+  'landing.cta.subheading':
+    'တည်းခိုမှုတိုင်းတွင် သစ္စာစောင့်သိမှုအမှတ်များ ရယူပါ၊ နောက်ကျထွက်ခွာခွင့်နှင့် အခန်းအဆင့်မြှင့်တင်မှုများ ရယူပါ၊ အိမ်ခြံမြေအသစ်များကို အများသိရှိမထုတ်ပြန်မီ ဦးစွာဝင်ရောက်ကြည့်ရှုခွင့် ရယူပါ။',
   'landing.destinations.eyebrow': 'နောက်ဘယ်ကိုသွားမလဲ',
   'landing.destinations.heading': 'ထင်ရှားသော နေရာများ',
   'landing.destinations.seeAll': 'ဦးတည်ရာအားလုံးကိုကြည့်ပါ',
@@ -63,13 +92,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'ထုပ်ပိုးထားသင့်တဲ့ ဇာတ်လမ်းတွေ',
   'landing.nav.join': 'Auberge မှာ ပါဝင်လိုက်ပါ',
   'landing.nav.search': 'ရှာဖွေမှု ဆက်လက်တည်ရှိနေပါသည်',
+  'landing.preview.browseAll': 'စုစည်းမှုအပြည့်အစုံကို ကြည့်ရှုပါ',
   'landing.preview.eyebrow': 'အထဲကို တစ်ချက်ချောင်းကြည့်',
   'landing.preview.heading': 'ဒီလအတွက် ရွေးချယ်ထားတဲ့ တည်းခိုခန်းတွေ',
+  'landing.preview.subheading':
+    '{{appName}} ရှိ အိမ်ခြံမြေတိုင်းကို ကျွန်ုပ်တို့၏ အယ်ဒီတာအဖွဲ့မှ ကိုယ်တိုင်စိစစ်ထားသည် — စုစည်းထားသော စာရင်းများမရှိ၊ လှည့်ဖြားသော စာရင်းများမရှိပါ။',
   'login.eyebrow': 'အဖွဲ့ဝင်များ ဧရိယာ',
+  'login.noAccount': 'Tessera ကို အသစ်လား။',
   'login.signupLink': 'အခမဲ့အကောင့်တစ်ခု ဖန်တီးပါ',
   'login.subheading':
     'သင့်ခရီးစဉ်များကို စီမံခန့်ခွဲရန်၊ အတည်ပြုချက်များကိုကြည့်ရှုရန်နှင့် သင်ရပ်တန့်ထားသည့်နေရာမှ ဆက်လက်လုပ်ဆောင်ရန် လက်မှတ်ထိုးဝင်ပါ။',
+  'loyaltyTierBadge.points': '{{points}} အမှတ်များ',
   'planUpdated.heading': 'အစီအစဉ်ကို အပ်ဒိတ်လုပ်ထားသည်',
+  'planUpdated.retry': 'ထပ်ကြိုးစားပါ',
+  'planUpdated.verifyFailed': 'သင့်ငွေပေးချေမှုကို ကျွန်ုပ်တို့ အတည်မပြုနိုင်သေးပါ။',
+  'planUpdated.verifyFailedBody':
+    'သင့်ငွေပေးချေမှုကို လုပ်ဆောင်နေဆဲဖြစ်နိုင်ပါသည်။ ခဏအကြာတွင် ထပ်မံကြိုးစားပါ။',
   'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'pricing.limit.advancedFeatures': 'အဆင့်မြင့်အင်္ဂါရပ်များ-',
   'pricing.limit.canExport': 'ဒေတာ ထုတ်ယူမှု-',
@@ -81,7 +119,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'ဒီနေရာက ဘာတွေ ပေးစွမ်းနိုင်လဲ',
   'propertyDetail.backLink': 'ရှာဖွေမှုသို့ ပြန်သွားရန်',
   'propertyDetail.bookCta': 'ကြိုတင်မှာယူပါ',
+  'propertyDetail.bookmarkAria': 'ပိုင်ဆိုင်မှုကို သိမ်းဆည်းပါ',
   'propertyDetail.bookmarkAriaSaved': 'သိမ်းဆည်းထားသော ဂုဏ်သတ္တိများမှ ဖယ်ရှားပါ',
+  'propertyDetail.galleryImageAlt': '{{name}} ဓာတ်ပုံ {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} သူရဲကောင်းဓာတ်ပုံ',
   'propertyDetail.hidePhotos': 'ဓာတ်ပုံများကို ဝှက်ပါ',
   'propertyDetail.lineCleaning': 'သန့်ရှင်းရေးအခကြေးငွေ',
@@ -91,6 +131,9 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'ည',
   'propertyDetail.noChargeYet': 'သင့်အား ငွေကောက်ခံမည်မဟုတ်ပါ',
   'propertyDetail.notFound': 'အိမ်ခြံမြေ ရှာမတွေ့ပါ။',
+  'propertyDetail.perNight': '/ ည',
+  'propertyDetail.pickDatesHint':
+    'စျေးနှုန်းအပြည့်အစုံ ခွဲခြမ်းရှင်းလင်းချက်ကို ကြည့်ရန် သင့်ရက်စွဲများကို ရွေးပါ။',
   'propertyDetail.reviewCount': '( {{count}} သုံးသပ်ချက်များ)',
   'propertyDetail.reviewsHeading': 'မကြာသေးမီက သုံးသပ်ချက်များ',
   'propertyDetail.roomCapacity': 'အိပ်စက်ခြင်း {{count}}',
@@ -103,6 +146,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'စကားဝှက်အသစ်',
   'resetPassword.subheading':
     'သင့် Auberge အကောင့်အတွက် စကားဝှက်အသစ်တစ်ခု ရွေးချယ်ပါ။ အနည်းဆုံး စာလုံး ၈ လုံးသုံးပါ။ စကားဝှက်ကို ကျွန်ုပ်တို့ အကြံပြုပါသည်။',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'သင့်ရှာဖွေမှုနှင့် ကိုက်ညီသော အိမ်ခြံမြေများ မရှိပါ။',
   'searchResults.emptyHint':
     'သင့်ရဲ့ filter တွေကို ချဲ့ကြည့်ပါ ဒါမှမဟုတ် ဈေးနှုန်းကန့်သတ်ချက်ကို ဖယ်ရှားကြည့်ပါ — Auberge ဟာ နိုင်ငံပေါင်း ၁၄ နိုင်ငံမှာ တည်းခိုခွင့်ရှိပါတယ်။',
@@ -110,20 +154,29 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'ရွေးချယ်ထားသော တည်းခိုမှုများ',
   'searchResults.headingForQuery': '"အတွက် တည်းခိုသည် {{q}} "',
   'searchResults.loadError': 'ဂုဏ်သတ္တိများကို တင်၍မရပါ။',
+  'searchResults.mapHint':
+    'မြေပုံပေါ်တွင် မီးမောင်းထိုးပြရန် ကတ်တစ်ခုကို ဖြတ်ရွှေ့ပါ။ ထုတ်လုပ်မှုတွင် တိုက်ရိုက် Mapbox လွှာများ။',
   'searchResults.mapPinAria': '{{name}} — တစ်ညလျှင် {{price}}',
   'searchResults.sortLabel': 'အလိုက်စဥ်သည်',
   'searchResults.subheading': '{{count}} ဂုဏ်သတ္တိများ · {{guests}} ဧည့်သည်များ',
   'signup.eyebrow': 'အဖွဲ့ဝင်ဖြစ်လာပါ',
   'signup.subheading':
     'အဖွဲ့ဝင်သီးသန့်နှုန်းထားများ၊ နောက်ကျငွေရှင်းခြင်းနှင့် အိမ်ခြံမြေအသစ်များသို့ ဦးစွာဝင်ရောက်ခွင့်တို့ကို ရရှိရန် Auberge တွင် ပါဝင်လိုက်ပါ။',
+  'sojournAuthShell.brand.eyebrow': 'ထူးခြားသောနေရာတစ်ခုတွင် တည်းခိုပါ',
+  'sojournAuthShell.brand.heading':
+    'လှပစွာတင်ဆက်ထားပြီး ပွင့်လင်းမြင်သာစွာ စျေးနှုန်းသတ်မှတ်ထားသော အိမ်ခြံမြေများ စုစည်းမှု။',
   'sojournHeroSearchCard.checkInAria': 'ဝင်ရောက်မည့်ရက်စွဲ',
   'sojournHeroSearchCard.checkOutAria': 'ထွက်မည့်ရက်စွဲ',
+  'sojournHeroSearchCard.destAria': 'ဦးတည်ရာ',
+  'sojournHeroSearchCard.destLabel': 'နေရာ',
   'sojournHeroSearchCard.destPlaceholder': 'မြို့၊ ဒေသ သို့မဟုတ် ပိုင်ဆိုင်မှု',
   'sojournHeroSearchCard.eyebrow':
     'ရွေးချယ်ထားသော တည်းခိုမှုများ · အဖွဲ့ဝင်များအတွက်သာ နှုန်းထားများ',
   'sojournHeroSearchCard.guestsOption': '{{n}} ဧည့်သည်များ',
   'sojournHeroSearchCard.subtitle':
     'ဘူတစ်ဟိုတယ်များ၊ ဒီဇိုင်းဆန်းသစ်သော အိမ်ခြံမြေများနှင့် ရှားပါးအပန်းဖြေစခန်းများကို ပွင့်လင်းမြင်သာသော ဈေးနှုန်းဖြင့် လှပစွာ တင်ဆက်ထားပါသည်။',
+  'sojournHeroSearchCard.title': 'ထူးခြားသောနေရာတစ်ခုတွင် တည်းခိုပါ',
+  'sojournHeroSearchCard.trustLoyalty': 'တည်းခိုမှုတိုင်းတွင် အမှတ်များ ရယူပါ',
   'sojournHeroSearchCard.trustNoFees': 'ဝှက်ထားသောအခကြေးငွေများမရှိပါ၊ ဘယ်တော့မှ',
   'sojournHeroSearchCard.trustVetted': 'လက်ဖြင့်စစ်ဆေးထားသော အိမ်ခြံမြေများသာ',
   'sojournLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',

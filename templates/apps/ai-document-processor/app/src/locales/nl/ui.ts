@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Heb je een vraag, een bug gevonden of wil je een demo voor je team? Neem contact op via je accountinstellingen — elk bericht komt bij een echt persoon in het team terecht.',
   'about.contactTitle': 'Neem contact op',
+  'about.intro':
+    "{{app}} verandert stapels gescande documenten en PDF's in gestructureerde, doorzoekbare, gearchiveerde data. Sleep facturen, bonnen, contracten of formulieren erin en laat AI ze lezen, extraheren, classificeren en archiveren — met betrouwbaarheidskleuren zodat je team alleen beoordeelt wat echt een mens nodig heeft.",
+  'about.missionBody':
+    'Documentrompslomp zou niet je hele dag van je team moeten opslokken. Wij vinden dat elke geëxtraheerde waarde uitlegbaar en controleerbaar moet zijn — zodat je automatisering kunt vertrouwen zonder het papieren spoor kwijt te raken. {{app}} is gebouwd om uren per stapel te besparen en tegelijk een mens in de lus te houden waar het telt.',
+  'about.missionTitle': 'Onze missie',
+  'about.subtitle':
+    'OCR, AI-extractie, classificatie en geautomatiseerd archiveren voor je documenten.',
   'about.title': 'Over {{app}}',
+  'about.whatYouGetTitle': 'Wat u krijgt',
   'authShell.backToLanding': '← Terug naar landing',
   'common.goToDashboard': 'Ga naar Dashboard',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Vandaag · Operationeel overzicht',
   'dashboard.heading': 'Documentintelligentie',
+  'dashboard.metric.accuracy': 'Gem. nauwkeurigheid',
   'dashboard.metric.filed': 'Vandaag gearchiveerd',
   'dashboard.metric.filedCaption': 'Gerouteerd door archiveringsregels',
   'dashboard.metric.processed': 'Vandaag verwerkt',
@@ -23,11 +34,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'Geüpload',
   'dashboard.recent.heading': 'Recente documenten',
+  'dashboard.recent.typeUnknown': 'Wacht op classificatie',
   'dashboard.subheading':
     'Elke pagina geclassificeerd, geëxtraheerd en gearchiveerd — met vertrouwenskleuren zodat de beoordeling gefocust blijft.',
   'documentDetail.audit.heading': 'Audit-tijdlijn',
+  'documentDetail.audit.subheading':
+    'Elke stap die op dit document is gezet, met de verantwoordelijke actor.',
   'documentDetail.back': 'Alle documenten',
   'documentDetail.downloadHint': 'Gebruik Downloaden om het originele bestand te openen.',
+  'documentDetail.extracted.empty': 'Nog geen velden geëxtraheerd.',
   'documentDetail.extracted.heading': 'Geëxtraheerde velden',
   'documentDetail.extracted.subheading':
     '{{count}} velden · klik op een veld om het op de pagina te markeren',
@@ -55,13 +70,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Zoek documenten…',
   'documents.subheading': '{{count}} documenten in uw bibliotheek, gesorteerd op nieuwste eerst.',
   'documents.uploadCta': 'Documenten uploaden',
+  'documentTypeBreakdown.barAria': 'Documentsamenstelling per type',
   'documentTypeBreakdown.empty': 'Nog geen documenten verwerkt.',
   'documentTypeBreakdown.subtitle': '{{total}} verwerkt',
   'documentTypeBreakdown.title': 'Documentsamenstelling',
+  'forgotPassword.backToSignIn': '← Terug naar inloggen',
   'forgotPassword.checkEmail': 'Controleer uw e-mail',
   'forgotPassword.tip': 'Niet ontvangen? Controleer spam of probeer een ander adres.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Gebouwd voor operationele teams die elke pagina controleren.',
+  'landing.ctaBody':
+    '14 dagen proberen. Geen kaart nodig. Altijd opzegbaar. Gebouwd voor operationele teams die snel werken en langzaam controleren.',
   'landing.ctaHeading': 'Stop met bonnen typen. Begin ze te archiveren.',
   'landing.eyebrow': 'OCR · Extractie · AI-archivering',
+  'landing.featuresHeading': 'Documentintelligentie die zichzelf uitlegt',
+  'landing.heroSubtitle':
+    'Sleep een stapel facturen, bonnen, contracten of formulieren erin. {{app}} classificeert, extraheert en archiveert ze — met betrouwbaarheidskleuren zodat je team alleen beoordeelt wat echt een mens nodig heeft.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Dagelijks volume · afgelopen 7 dagen',
   'landing.sampleCardLabel': 'Vandaag verwerkte documenten',
   'landing.sampleCardSubtitle': '96,2% gem. nauwkeurigheid over facturen, bonnen en formulieren.',
   'login.hidePassword': 'Wachtwoord verbergen',
@@ -74,6 +100,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Open landing-pagina',
   'notFound.title': 'Die pagina staat niet in het archief',
+  'parcelaHeroCard.accuracy': 'Gem. nauwkeurigheid {{value}}% over alle extracties',
   'parcelaHeroCard.change': '{{sign}}{{amount}}% t.o.v. gisteren',
   'parcelaHeroCard.title': 'Vandaag verwerkte documenten',
   'parcelaLayout.primaryNavLabel': 'Hoofdnavigatie',
@@ -81,6 +108,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'documenten',
   'pricing.processingLabel': 'verwerkingsjobs',
   'resetPassword.confirmPlaceholder': 'Herhaal het nieuwe wachtwoord',
+  'resetPassword.hidePassword': 'Wachtwoord verbergen',
   'resetPassword.passwordLabel': 'Nieuw wachtwoord',
   'resetPassword.showPassword': 'Wachtwoord tonen',
   'resetPassword.subtitle': 'Kies iets van minimaal 8 tekens.',
@@ -97,10 +125,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Regels konden niet worden geladen.',
   'rules.loading': 'Regels laden…',
   'rules.matched30d': '{{count}} documenten kwamen overeen in de laatste 30 dagen',
+  'rules.neverUsed': 'Nooit gebruikt',
   'rules.newRule': 'Nieuwe regel',
   'rules.saveError': 'Kon regel niet opslaan.',
   'rules.subheading':
     'Vertel het systeem waar elk soort document heen moet. Voorwaarden ketenen van boven naar beneden — de eerste match wint.',
+  'rules.templatesEmpty': 'Nog geen extractiesjablonen.',
   'rules.templatesHeading': 'Extractietemplates',
   'rules.templatesSubheading': "Veldschema's die de extractor gebruikt voor elk documenttype.",
   'rules.then': 'Dan',
@@ -109,17 +139,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Workspace-naam',
   'settings.account.subheading':
     'Weergavenaam en primair e-mailadres voor meldingen en audit-geschiedenis.',
+  'settings.api.confirmRevoke': 'Bevestigen?',
   'settings.api.copyOnce': 'Kopieer deze sleutel — hij wordt niet meer getoond',
   'settings.api.createdOn': 'Aangemaakt {{date}}',
   'settings.api.empty': 'Nog geen API-sleutels. Genereer er een hierboven.',
   'settings.api.error': 'Aanmaken van sleutel mislukt.',
+  'settings.api.generating': 'Genereren…',
+  'settings.api.heading': 'API-sleutels',
   'settings.api.labelPlaceholder': 'Sleutellabel (bijv. CI-uploader)',
+  'settings.api.loading': 'Sleutels laden…',
   'settings.api.newKey': 'Sleutel genereren',
   'settings.api.subheading':
     'Gebruik deze om documenten te pushen vanuit een script of uw ERP. Roteer een sleutel op elk gewenst moment.',
   'settings.integrations.heading': 'Archiveringsintegraties',
   'settings.integrations.subheading':
     'Stuur gearchiveerde documenten naar de cloud drive of chattool waar uw team al in werkt.',
+  'settings.subheading':
+    'Beheer account, API-sleutels en archiveerintegraties voor je {{app}}-werkruimte.',
+  'signup.hidePassword': 'Wachtwoord verbergen',
   'signup.identityPrompt': 'Hoe mogen we u aanspreken?',
   'signup.showPassword': 'Wachtwoord tonen',
   'signup.subtitle': '14 dagen gratis, geen kaart vereist.',
@@ -127,6 +164,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Upload mislukt.',
   'upload.eyebrow': 'Ingestie',
   'upload.heading': 'Documenten uploaden',
+  'upload.queue.clear': 'Voltooide wissen',
   'upload.queue.col.confidence': 'Vertrouwen',
   'upload.queue.col.file': 'Bestand',
   'upload.queue.detecting': 'Detecteren…',
@@ -139,5 +177,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Of drop meerdere bestanden tegelijk voor batchextractie, classificatie en archivering.',
   'uploadDropZone.cta': 'Kies bestanden',
+  'uploadDropZone.maxSize': 'Max. 25 MB per bestand · end-to-end versleuteld',
   'uploadDropZone.title': 'Drop documenten om verwerking te starten',
 }

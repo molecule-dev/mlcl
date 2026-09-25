@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Санал хүсэлт байна уу, алдаа олсон уу, эсвэл {{app}}-г сургууль эсвэл багтаа нэвтрүүлэхийг хүсэж байна уу? Бид бүх мессежийг уншдаг — бүртгэлийн тохиргооноос хандаарай, жинхэнэ хүн хариулах болно.',
   'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
+  'about.intro':
+    '{{app}} бол өдөр тутмын үгийн оньсого юм. Таван үсэгтэй үгийг зургаан оролдлогоор тааж, цувралаа хадгалж, эможи торлоо хуваалцаж, өнөөдрийн үгээр бүх талбай хэрхэн ажилласныг хараарай.',
+  'about.missionBody':
+    'Сайн оньсого бол өдөр тутмын жижиг ялалт. {{app}} нь өдөрт нэг хуваалцсан үгэн дээр төвлөрдөг — кофе завсарлагаанд хангалттай хурдан, маргааш дахин ирэхэд хангалттай сонирхолтой.',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
   'about.title': '{{app}}-ын тухай',
   'archive.loadError': 'Архивыг ачаалж чадсангүй.',
   'archive.missed': 'Алдсан',
   'archive.notPlayed': 'Тоглоогүй',
+  'archive.subhead':
+    'Өнгөрсөн аль ч өдрийг дасгал болгон дахин тогло — цувралгүй, статистикгүй, зөвхөн зугаа цэнгэл.',
   'archive.title': 'Архив',
   'auth.backToHome': 'Нүүр хуудас руу буцах',
   'auth.backToHomeArrow': '← Нүүр хуудас руу буцах',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Нууц үг мартсан уу?',
   'auth.login.loggingIn': 'Нэвтэрч байна…',
   'auth.login.logIn': 'Өнөөдрийн үгийг тоглох',
+  'auth.login.noAccount': 'Тессератай шинээр танилцаж байна уу?',
   'auth.login.or': 'эсвэл үргэлжлүүлэх',
   'auth.login.password': 'Нууц үг',
   'auth.login.signInButton': 'Нэвтрэх',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Хадгалж байна…',
   'common.sendingEllipsis': 'Илгээж байна…',
   'common.startingEllipsis': 'Эхэлж байна…',
+  'forgotPassword.subhead':
+    'Имэйл хаягаа оруулна уу, бид танд дахин тохируулах холбоос илгээх болно.',
+  'forgotPassword.success.body':
+    'Хэрэв данс байгаа бол {{email}} , та хэдэн минутын дараа дахин тохируулах холбоос авах болно.',
+  'forgotPassword.success.title': 'Ирсэн имэйлээ шалгана уу.',
   'form.name': 'Нэр',
   'howToPlay.cta.home': 'Гэртээ буцах',
   'howToPlay.cta.play': 'Өнөөдрийн оньсого тоглох',
@@ -68,10 +83,14 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Тасалж үзмээргүй хэлхээ',
   'leaderboard.daily.title': 'Өнөөдрийн шийдлүүд',
   'leaderboard.loadError': 'Толгой хэсгийг ачаалж чадсангүй.',
+  'leaderboard.streaks.empty': 'Одоогоор цуврал байхгүй — анхны хүн болоорой.',
+  'leaderboard.streaks.subhead': 'Бүх цаг үеийн хамгийн урт ялалтын цувралууд.',
   'leaderboard.streaks.title': 'Хэлхээний тэргүүлэгчид',
+  'leaderboard.subhead': 'Өнөөдөр талбай хэрхэн ажилласан, хэн хамгийн урт цувралыг хадгалж байна.',
   'leaderboard.title': 'Толгой хэсэг',
   'login.headline': 'Тавтай морил.',
   'login.streakPill': '{{days}}-өдрийн хэлхээ хүлээж байна',
+  'login.subhead': 'Цувралаа хадгалахын тулд нэвтэрч, өнөөдрийн үгээр хэрхэн ажилласнаа хараарай.',
   'nav.archive': 'Архив',
   'nav.editProfile': 'Профайл засах',
   'nav.getStarted': 'Эхлэх',
@@ -89,6 +108,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Ийм үг байхгүй',
   'notFound.title': 'Энэ маршрут хоосон байна.',
   'planUpdated.message': 'Таны төлөвлөгөө идэвхтэй боллоо.',
+  'planUpdated.retry': 'Дахин оролдоно уу',
+  'planUpdated.verifyFailed': 'Бид таны төлбөрийг хараахан баталгаажуулж чадсангүй.',
+  'planUpdated.verifyFailedBody':
+    'Таны төлбөрийг боловсруулж байж магадгүй. Хэсэг хугацааны дараа дахин оролдоно уу.',
   'planUpdated.verifying': 'Төлбөр баталгаажуулж байна…',
   'play.alreadyFinished': 'Та энэ оньсогыг аль хэдийн дуусгасан байна',
   'play.answerWas': 'Үг нь',
@@ -104,6 +127,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Дасгалын оньсого',
   'play.tooShort': 'Үсэг дутуу байна',
   'play.won': 'Шийдлээ!',
+  'pricing.advancedStats': 'Дэвшилтэт статистик: {{yes}}',
+  'pricing.archiveHistory': '{{count}} өдрийн архивын түүх',
+  'pricing.archivePlays': 'Өдөрт {{count}} архивын дахин тоглолт',
+  'pricing.archiveUnlimited': 'Хязгааргүй архивын түүх',
+  'pricing.canExport': 'Өгөгдөл экспортлох: {{yes}}',
+  'pricing.checkoutError': 'Төлбөр тооцоог эхлүүлж чадсангүй. Дахин оролдоно уу.',
   'pricing.dailyWord': 'Өдөр бүрийн үг',
   'pricing.heading': '{{app}} төлөвлөгөөгөө сонгох',
   'pricing.included': 'Багтсан',
@@ -111,7 +140,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Өдөр бүрийн үг үргэлж үнэгүй. Хязгааргүй архив болон гүнзгий статистикийн төлөө шинэчлээрэй.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} таны нууцлалыг хүндэтгэдэг. Энэ хуудас нь бидний хадгалдаг өгөгдөл, яагаад хадгалдаг, хэрхэн устгах талаар товч мэдээлэл өгдөг.',
   'privacy.title': 'Нууцлалын мэдэгдэл',
+  'resetPassword.subhead': 'Цувралдаа эргэн орохын тулд шинэ нууц үг сонгоно уу.',
   'settings.account': 'Бүртгэл',
   'settings.danger.body': '{{appName}} бүртгэл болон бүх оньсогын түүхийг бүрмөсөн устгах.',
   'settings.danger.confirm': 'Тийм, үүрд устга',
@@ -120,17 +152,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'Зочин',
   'settings.language.title': 'Хэл',
   'settings.subhead': 'Профайл, дуу, толгой хэсэгт хэрхэн харагдахаа тохируулах.',
+  'settings.unnamed': 'Спарк тоглогч',
   'settings.upgrade': 'Шинэчлэх',
   'signup.eyebrow': 'Үүрд үнэгүй — өдөрт нэг үг',
   'signup.headline': 'Хэлхээгээ эхлүүлэх.',
+  'signup.subhead':
+    'Өдөр тутмын үгийг тоглож, цуврал бүрдүүлж, тэргүүлэгчдийн самбарт гарахын тулд {{appName}} бүртгэл үүсгээрэй.',
   'stats.currentStreak': 'Хэлхээ',
   'stats.distribution.title': 'Таамгийн хуваарилалт',
   'stats.loadError': 'Статистикийг ачаалж чадсангүй.',
   'stats.maxStreak': 'Хамгийн урт хэлхээ',
   'stats.played': 'Тоглосон',
   'stats.playToday': 'Өнөөдрийн оньсого тоглох',
+  'stats.subhead': 'Зөвхөн чансаатай өдөр тутмын оньсого — архивын дасгал хэзээ ч тооцогдохгүй.',
   'stats.title': 'Таны статистик',
   'stats.winRate': 'Хожлын хувь',
   'status.monthly': 'Сарын',
+  'terms.intro':
+    '{{app}}-г ашигласнаар та доорх дүрмийг зөвшөөрч байна. Хэрэв та тэдгээрийг хүлээн зөвшөөрөх боломжгүй бол үйлчилгээг ашиглахгүй байна уу.',
   'terms.title': 'Үйлчилгээний нөхцөл',
 }

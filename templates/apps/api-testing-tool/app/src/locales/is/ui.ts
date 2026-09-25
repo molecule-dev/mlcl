@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Fannstu villu, ert með ósk um eiginleika eða vilt segja okkur hvað við eigum að byggja næst? Sendu tölvupóst á hello@pylon.dev — hver skilaboð berast alvöru verkfræðingi í teyminu.',
   'about.contactTitle': 'Hafðu samband við okkur',
+  'about.intro':
+    '{{app}} er hröð, lyklaborðsmiðuð API-prófunarverkfærasmiðja fyrir verkfræðinga sem lifa í skjáherminum — Postman-stíl beiðnir, söfn, umhverfi og ferill án yfirþyngdar.',
+  'about.missionBody':
+    'API eru burðarás nútímahugbúnaðar, en verkfærin til að prófa þau eru hæg, þung og músastýrð. {{app}} er til að gefa forriturum beittan, hraðan smiðju í skjáhermaflokki: sendu beiðnir, byggðu upp traust og sendu frá þér án þess að yfirgefa lyklaborðið.',
+  'about.missionTitle': 'Markmið okkar',
   'about.pageTitle': 'Um {{app}}',
   'authShell.statusLabel': 'hlauparar á netinu',
   'collections.createError': 'Gat ekki búið til safn.',
   'collections.defaultName': 'Ónefnd safn {{n}}',
+  'collections.empty':
+    'Engin söfn ennþá — smelltu á „Nýtt safn“ til að búa til fyrstu möppuna þína.',
   'collections.eyebrow': '$ pylon söfn --tree',
   'collections.fetchError': 'Gat ekki hlaðið söfnum.',
   'collections.heading': 'Söfn',
   'collections.loading': 'Hleður söfn…',
+  'collections.metric.allGreen': 'Allt grænt',
   'collections.metric.collections': 'Söfn',
   'collections.metric.failing': 'Að mistakast',
   'collections.metric.failingCaption': 'Síðasta keyrsla hafði mistök',
@@ -23,6 +33,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Breytur',
   'environments.createError': 'Gat ekki búið til umhverfi.',
   'environments.defaultName': 'Ónefnd umhverfi {{n}}',
+  'environments.empty': 'Engin umhverfi ennþá — smelltu á „Nýtt umhverfi“ til að bæta einu við.',
   'environments.eyebrow': '$ pylon umgjörð --rofi',
   'environments.fetchError': 'Gat ekki hlaðið umhverfi.',
   'environments.heading': 'Umhverfi',
@@ -30,8 +41,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Nýtt umhverfi',
   'environments.subheading':
     'Breytur sem skipta yfir í beiðnir við sendingu. Eitt virkt umhverfi á vinnusvæði.',
+  'forgotPassword.statusLabel': 'endurstilla · öruggur göng',
   'forgotPassword.success':
     'Ef aðgangur er til staðar fyrir þetta netfang, þá er tengill til að endurstilla reikninginn væntanlegur. Athugaðu pósthólfið þitt.',
+  'history.empty': 'Ekkert hér ennþá — sendu fyrstu beiðnina þína frá Vinnusvæðisflipanum.',
   'history.eyebrow': '$ pylon saga --tail',
   'history.fetchError': 'Gat ekki hlaðið inn sögu.',
   'history.heading': 'Keyrslusaga',
@@ -40,9 +53,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Síðustu 50',
+  'history.realtime': 'rauntíma',
   'history.subheading':
     'Sérhver beiðni sem keyrð er á þessu vinnusvæði, með stöðu, seinkun og stærð gagna.',
   'landing.choosePlan': 'Veldu áætlun',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Byggðu upp traust.',
   'landing.ctaBody':
     'Ekkert kreditkort. Enginn verkfræðingur þarf. Opnaðu ⌘K og sendu fyrstu beiðnina þína á innan við fimm mínútum.',
   'landing.ctaHeading': 'Byggðu upp sjálfstraust.',
@@ -84,6 +99,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Meðaltal seinkunar',
   'mocks.metric.live': 'Opinber',
   'mocks.metric.servers': 'Herðar',
+  'mocks.ms': 'fröken',
   'mocks.newMock': 'Nýtt eftirlíking',
   'mocks.online': 'Opinber',
   'mocks.paused': 'Einkamál',
@@ -107,9 +123,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Heilbrigður',
   'monitors.metric.uptime': 'Meðalspenntími',
   'monitors.newMonitor': 'Nýr skjár',
+  'monitors.paused': 'gert hlé',
   'monitors.run': 'Hlaupa',
   'monitors.runError': 'Keyrslu lokið með netvillu: {{error}}',
+  'monitors.runFailed': 'Keyrsla mistókst.',
   'monitors.running': 'Hlaupandi…',
+  'monitors.runSuccess': 'Keyrðu {{status}} — uppstreymisþjónn skilaði {{code}} á {{ms}}ms.',
   'monitors.sparkLabel': 'Seinkunarþróun',
   'monitors.subheading':
     'Athuganir á eftirspurn fyrir öll vistuð próf. Tengdu próf, smelltu á Keyra og horfðu á 24 tíma uppfærslu á velgengnihlutfalli með hverri eldun.',
@@ -118,27 +137,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Spenntími · 24 klst.',
   'nav.legal': 'Löglegt',
   'notFound.backToWorkspace': 'Til baka á vinnusvæðið',
+  'notFound.body':
+    '{{app}} sendi beiðni fyrir þessa slóð og fékk ekkert til baka. Athugaðu slóðina eða farðu aftur á vinnusvæðið.',
   'notFound.eyebrow': '$ pylon lausn --strict',
   'notFound.title': 'Leið fannst ekki',
+  'planUpdated.body':
+    'Greiðslubreytingin þín er nú virk. Þú getur stýrt áskriftinni þinni hvenær sem er á greiðslusíðunni.',
+  'planUpdated.retry': 'Reyndu aftur',
+  'planUpdated.verifyFailed': 'Við gátum ekki staðfest greiðsluna þína ennþá.',
+  'planUpdated.verifyFailedBody':
+    'Greiðslan þín gæti enn verið í vinnslu. Reyndu aftur eftir smástund.',
   'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
+  'pricing.advancedFeatures': 'Ítarlegir eiginleikar: {{yes}}',
+  'pricing.canExport': 'Útflutningur gagna: {{yes}}',
+  'pricing.heading': 'Veldu {{app}} áætlunina þína',
+  'pricing.maxCollections': '{{count}} söfn',
+  'pricing.maxEnvironments': '{{count}} umhverfi',
+  'pricing.maxHistory': '{{count}} ferilfærslur',
+  'pricing.maxRequests': '{{count}} beiðnir',
   'privacy.collect.account':
     'Reikningur: netfangið þitt, dulkóðað lykilorð, birtingarnafn og tímastimpill síðustu innskráningar.',
+  'privacy.intro':
+    '{{app}} virðir friðhelgi þína. Þessi síða dregur saman þau gögn sem við söfnum, hvers vegna við söfnum þeim og hvernig á að eyða þeim.',
   'privacy.rights.body':
     'Þú getur flutt út söfnin þín + umhverfi hvenær sem er, eða eytt reikningnum þínum úr Stillingum til að fjarlægja öll gögn varanlega innan 30 daga.',
   'privacy.share.body':
     'Aðeins þú. Við seljum, deilum eða leigjum aldrei efni vinnusvæðisins þíns til þriðja aðila. Þjónaskrár eru geymdar í 30 daga til að bregðast við atvikum og síðan eytt.',
   'privacy.title': 'Persónuverndaryfirlýsing',
+  'profile.bio':
+    'Þitt persónulega {{app}} vinnusvæði — festu söfn, deildu umhverfum og fylgstu með API sem senda frá sér vöru.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'gekk til liðs við {{when}}',
+  'profile.metric.collections': 'Söfn',
   'profile.metric.monitors': 'Skjáir',
   'profile.metric.requests': 'Vistaðar beiðnir',
+  'profile.noActivity':
+    'Engar beiðnir hafa verið sendar ennþá — farðu á Vinnusvæðisflipann til að senda eina.',
   'profile.signedOut': 'Skráðu þig inn til að skoða prófílinn þinn',
   'pylonShell.primaryNavLabel': 'Aðalflakk',
+  'resetPassword.passwordLabel': 'Nýtt lykilorð',
+  'resetPassword.statusLabel': 'endurstilla · auðkenni staðfest',
   'resetPassword.subtitle': 'Veldu sterkt lykilorð sem þú hefur ekki notað áður.',
   'resetPassword.tokenPlaceholder': 'líma úr tölvupósti',
+  'settings.accountManagement.desc':
+    'Uppfærðu netfangið þitt og lykilorð, stýrðu tilkynningum og tækjum, skráðu þig út eða eyddu reikningnum þínum.',
+  'settings.accountManagement.title': 'Reikningur og öryggi',
   'settings.eyebrow': '$ pylon stillingar --breyta',
   'settings.fetchError': 'Ekki tókst að hlaða stillingum.',
   'settings.language.title': 'Tungumál',
+  'settings.seeding': 'Undirbý…',
   'settings.seedStarter': 'Fræupprunaefni',
   'settings.starterCollection': 'Byrjunarsafn',
   'settings.starterCollectionDesc': 'Búið til úr Stillingum þann {{ts}}',
@@ -152,6 +199,8 @@ export const ui: UiTranslations = {
     'Þú berð ábyrgð á að vernda lykilorðið þitt. Það er ekki leyfilegt að deila einum aðgangi með fleiri en einum í ókeypis eða atvinnuáskriftum — keyptu Team áskrift fyrir sameiginleg vinnusvæði.',
   'terms.billing.body':
     'Greiddar áskriftir endurnýjast sjálfkrafa í hverju reikningstímabili. Hægt er að hætta við áskriftina hvenær sem er í stillingum; aðgangurinn helst til loka núverandi tímabils.',
+  'terms.intro':
+    'Með því að stofna {{app}} reikning samþykkir þú skilmálana hér að neðan. Lestu þá einu sinni; við munum ekki koma þér á óvart með afturvirkum breytingum.',
   'terms.title': 'Þjónustuskilmálar',
   'terms.usage.body':
     'Ekki nota Pylon til að senda beiðnir á þjónustur sem þú átt ekki eða hefur ekki skýrt leyfi til að prófa. Ekki nota Pylon til að komast hjá hraðamörkum eða fremja svik.',
@@ -172,16 +221,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Ekki keyrt',
   'testRunner.metric.passed': 'Samþykkt',
   'testRunner.never': 'Aldrei hlaupa',
+  'testRunner.newTest': 'Nýtt próf',
   'testRunner.noAssertions': 'Engar fullyrðingar um þetta próf ennþá.',
+  'testRunner.noRunsYet':
+    'Engar keyrslur skráðar ennþá — ýttu á „Keyra allt“ til að fylla ferilinn.',
   'testRunner.passed': 'að fara framhjá',
+  'testRunner.recentRuns': 'Nýlegar keyrslur',
   'testRunner.runAll': 'Keyra allt',
   'testRunner.running': 'Hlaupandi…',
   'testRunner.runOne': 'Hlaupa',
   'testRunner.subheading': 'Niðurstöður svítu, mismunur á staðhæfingum og síðustu 50 keyrslur.',
+  'testRunner.suites': 'Sett',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Innskráð(ur) sem',
   'workspace.auth.keyName': 'Nafn hauss',
   'workspace.auth.keyValue': 'Lykilgildi',
+  'workspace.auth.noneHint': 'Enginn auðkenningarhaus verður sendur með þessari beiðni.',
   'workspace.auth.password': 'Lykilorð',
   'workspace.auth.username': 'Notandanafn',
   'workspace.authOption.apikey': 'API lykill',
@@ -191,13 +246,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Tegund',
   'workspace.authTypeLabel': 'Heimildartegund',
+  'workspace.body.contentLabel': 'Beiðnitexti',
+  'workspace.body.hint':
+    '{{envVars}} eru skipt út áður en beiðnin er send. Bolir eru sendir á POST/PUT/PATCH/DELETE.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Enginn',
+  'workspace.body.noneHint':
+    'Enginn beiðniboli verður sendur. Veldu JSON eða hráan texta til að bæta einum við.',
   'workspace.body.text': 'Óunninn texti',
   'workspace.body.type': 'Tegund',
   'workspace.environment': 'Engin umgjörð',
   'workspace.envVar': 'umhverfisbreyta',
   'workspace.eyebrow': '$ pylon vinnusvæði --rúðuskipting',
+  'workspace.failedCount': '{{count}} mistókst',
+  'workspace.idle': 'Í óvirku ástandi',
   'workspace.kv.addHeader': 'Bæta við haus',
   'workspace.kv.addParam': 'Bæta við breytu',
   'workspace.kv.headerKey': 'Nafn hauss',
@@ -210,12 +272,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP aðferð',
   'workspace.metric.latency': 'Seinkun',
   'workspace.metric.latencyCaption': 'Hringferð frá þessari leið',
+  'workspace.metric.size': 'Gagnamagn',
   'workspace.metric.sizeCaption': 'Bæti í svarhluta',
   'workspace.metric.statusCaption': 'Síðasta svar',
   'workspace.metric.tests': 'Prófanir',
+  'workspace.metric.testsAllPassing': 'Allar fullyrðingar grænar',
   'workspace.metric.testsFailing': '{{count}} mistekst',
+  'workspace.metric.testsIdle': 'Sendu beiðni til að meta',
   'workspace.noAssertions': 'Keyrðu beiðni til að meta innbyggðar fullyrðingar.',
   'workspace.noResponseYet': 'Ekkert svar ennþá',
+  'workspace.passedCount': '{{count}} samþykkt',
   'workspace.responseHint': '// Ýttu á Senda til að senda beiðnina og taka upp svarið.',
   'workspace.saveError': 'Gat ekki vistað beiðnina.',
   'workspace.statusError': 'Gat ekki sent beiðnina.',
@@ -224,9 +290,13 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Semdu beiðni, keyrðu hana og staðfestu síðan svarið - allt í einum glugga.',
   'workspace.testResults': 'Niðurstöður prófana',
+  'workspace.tests.autoHint':
+    'Stöðuflokkur, biðtími, stærð bols og heilsa flutnings eru metin sjálfkrafa — niðurstöður birtast undir „Prófniðurstöður“ í svarpanelnum.',
+  'workspace.tests.autoTitle': 'Innbyggðar fullyrðingar keyra á hvert svar',
   'workspace.token': 'Tákn',
   'workspace.tokenHint': 'Sent sem heimild: Handhafi<token> á hverri beiðni í þessu safni.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Ónefnd beiðni',
+  'workspace.urlLabel': 'Beiðni um vefslóð',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

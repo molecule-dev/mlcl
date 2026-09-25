@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ਕੋਈ ਸਵਾਲ ਹੈ, ਬੱਗ ਮਿਲਿਆ ਹੈ, ਜਾਂ ਆਪਣੀ ਟੀਮ ਲਈ ਡੈਮੋ ਚਾਹੁੰਦੇ ਹੋ? ਆਪਣੀ ਖਾਤਾ ਸੈਟਿੰਗਾਂ ਤੋਂ ਸੰਪਰਕ ਕਰੋ — ਹਰ ਸੁਨੇਹਾ ਟੀਮ ਦੇ ਕਿਸੇ ਅਸਲ ਵਿਅਕਤੀ ਤੱਕ ਪਹੁੰਚਦਾ ਹੈ।',
   'about.contactTitle': 'ਸੰਪਰਕ ਕਰੋ',
+  'about.intro':
+    '{{app}} ਸਕੈਨ ਕੀਤੇ ਦਸਤਾਵੇਜ਼ਾਂ ਅਤੇ PDFਾਂ ਦੇ ਢੇਰਾਂ ਨੂੰ ਸੰਰਚਿਤ, ਖੋਜਯੋਗ, ਫਾਈਲ ਕੀਤੇ ਡੇਟਾ ਵਿੱਚ ਬਦਲਦਾ ਹੈ। ਇਨਵੌਇਸ, ਰਸੀਦਾਂ, ਇਕਰਾਰਨਾਮੇ ਜਾਂ ਫਾਰਮ ਪਾਓ ਅਤੇ AI ਨੂੰ ਪੜ੍ਹਨ, ਕੱਢਣ, ਵਰਗੀਕਰਨ ਅਤੇ ਫਾਈਲ ਕਰਨ ਦਿਓ — ਭਰੋਸੇ ਦੇ ਰੰਗਾਂ ਨਾਲ ਤਾਂ ਜੋ ਤੁਹਾਡੀ ਟੀਮ ਸਿਰਫ਼ ਉਹੀ ਸਮੀਖਿਆ ਕਰੇ ਜਿਸ ਲਈ ਸੱਚਮੁੱਚ ਮਨੁੱਖ ਦੀ ਲੋੜ ਹੈ।',
+  'about.missionBody':
+    "ਦਸਤਾਵੇਜ਼ਾਂ ਦਾ ਬੇਕਾਰ ਕੰਮ ਤੁਹਾਡੀ ਟੀਮ ਦਾ ਦਿਨ ਨਹੀਂ ਖਾਣਾ ਚਾਹੀਦਾ। ਸਾਡਾ ਮੰਨਣਾ ਹੈ ਕਿ ਹਰ ਕੱਢੀ ਗਈ ਵੈਲਿਊ ਵਿਆਖਿਆਯੋਗ ਅਤੇ ਆਡਿਟਯੋਗ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ — ਤਾਂ ਜੋ ਤੁਸੀਂ ਕਾਗਜ਼ੀ ਰਿਕਾਰਡ ਗੁਆਏ ਬਿਨਾਂ ਆਟੋਮੇਸ਼ਨ 'ਤੇ ਭਰੋਸਾ ਕਰ ਸਕੋ। {{app}} ਹਰ ਢੇਰ ਲਈ ਘੰਟੇ ਬਚਾਉਣ ਲਈ ਬਣਾਇਆ ਗਿਆ ਹੈ, ਜਦੋਂ ਕਿ ਜਿੱਥੇ ਵੀ ਜ਼ਰੂਰੀ ਹੋ ਮਨੁੱਖ ਨੂੰ ਲੂਪ ਵਿੱਚ ਰੱਖਦਾ ਹੈ।",
+  'about.missionTitle': 'ਸਾਡਾ ਮਿਸ਼ਨ',
+  'about.subtitle': 'ਤੁਹਾਡੇ ਦਸਤਾਵੇਜ਼ਾਂ ਲਈ OCR, AI ਐਕਸਟਰੈਕਸ਼ਨ, ਵਰਗੀਕਰਨ ਅਤੇ ਆਟੋਮੈਟਿਕ ਫਾਈਲਿੰਗ।',
   'about.title': '{{app}} ਬਾਰੇ',
+  'about.whatYouGetTitle': 'ਤੁਹਾਨੂੰ ਕੀ ਮਿਲਦਾ ਹੈ',
   'authShell.backToLanding': "← ਲੈਂਡਿੰਗ 'ਤੇ ਵਾਪਸ ਜਾਓ",
   'common.goToDashboard': "ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਜਾਓ",
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'ਅੱਜ · ਕਾਰਜਾਂ ਦਾ ਸੰਖੇਪ ਜਾਣਕਾਰੀ',
   'dashboard.heading': 'ਦਸਤਾਵੇਜ਼ ਖੁਫੀਆ ਜਾਣਕਾਰੀ',
+  'dashboard.metric.accuracy': 'ਔਸਤ ਸ਼ੁੱਧਤਾ',
   'dashboard.metric.filed': 'ਅੱਜ ਦਾਇਰ ਕੀਤਾ ਗਿਆ',
   'dashboard.metric.filedCaption': 'ਫਾਈਲਿੰਗ ਨਿਯਮਾਂ ਦੁਆਰਾ ਭੇਜਿਆ ਗਿਆ',
   'dashboard.metric.processed': 'ਅੱਜ ਪ੍ਰਕਿਰਿਆ ਕੀਤੀ ਗਈ',
@@ -23,11 +33,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'ਦਸਤਾਵੇਜ਼',
   'dashboard.recent.col.uploaded': 'ਅੱਪਲੋਡ ਕੀਤਾ ਗਿਆ',
   'dashboard.recent.heading': 'ਹਾਲੀਆ ਦਸਤਾਵੇਜ਼',
+  'dashboard.recent.typeUnknown': 'ਵਰਗੀਕਰਨ ਦੀ ਉਡੀਕ ਵਿੱਚ',
   'dashboard.subheading':
     'ਹਰੇਕ ਪੰਨੇ ਨੂੰ ਵਰਗੀਕ੍ਰਿਤ, ਕੱਢਿਆ ਅਤੇ ਫਾਈਲ ਕੀਤਾ ਗਿਆ — ਭਰੋਸੇਮੰਦ ਰੰਗਾਂ ਨਾਲ ਤਾਂ ਜੋ ਸਮੀਖਿਆ ਕੇਂਦਰਿਤ ਰਹੇ।',
   'documentDetail.audit.heading': 'ਆਡਿਟ ਟਾਈਮਲਾਈਨ',
+  'documentDetail.audit.subheading': "ਇਸ ਦਸਤਾਵੇਜ਼ 'ਤੇ ਚੁੱਕਿਆ ਗਿਆ ਹਰ ਕਦਮ, ਜ਼ਿੰਮੇਵਾਰ ਅਦਾਕਾਰ ਸਮੇਤ।",
   'documentDetail.back': 'ਸਾਰੇ ਦਸਤਾਵੇਜ਼',
   'documentDetail.downloadHint': 'ਅਸਲੀ ਫਾਈਲ ਖੋਲ੍ਹਣ ਲਈ ਡਾਊਨਲੋਡ ਦੀ ਵਰਤੋਂ ਕਰੋ।',
+  'documentDetail.extracted.empty': 'ਹਾਲੇ ਕੋਈ ਫੀਲਡ ਨਹੀਂ ਕੱਢੀ ਗਈ।',
   'documentDetail.extracted.heading': 'ਕੱਢੇ ਗਏ ਖੇਤਰ',
   'documentDetail.extracted.subheading':
     "{{count}} ਖੇਤਰ · ਪੰਨੇ 'ਤੇ ਉਜਾਗਰ ਕਰਨ ਲਈ ਕਿਸੇ ਵੀ ਖੇਤਰ 'ਤੇ ਕਲਿੱਕ ਕਰੋ",
@@ -56,13 +69,24 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} ਤੁਹਾਡੀ ਲਾਇਬ੍ਰੇਰੀ ਵਿੱਚ ਦਸਤਾਵੇਜ਼, ਸਭ ਤੋਂ ਪਹਿਲਾਂ ਨਵੇਂ ਅਨੁਸਾਰ ਕ੍ਰਮਬੱਧ ਕੀਤੇ ਗਏ।',
   'documents.uploadCta': 'ਦਸਤਾਵੇਜ਼ ਅੱਪਲੋਡ ਕਰੋ',
+  'documentTypeBreakdown.barAria': 'ਕਿਸਮ ਅਨੁਸਾਰ ਦਸਤਾਵੇਜ਼ ਦੀ ਬਣਾਵਟ',
   'documentTypeBreakdown.empty': 'ਅਜੇ ਤੱਕ ਕੋਈ ਦਸਤਾਵੇਜ਼ ਪ੍ਰਕਿਰਿਆ ਨਹੀਂ ਕੀਤੇ ਗਏ।',
   'documentTypeBreakdown.subtitle': '{{total}} ਪ੍ਰੋਸੈਸਡ',
   'documentTypeBreakdown.title': 'ਦਸਤਾਵੇਜ਼ ਰਚਨਾ',
+  'forgotPassword.backToSignIn': "← ਸਾਈਨ ਇਨ 'ਤੇ ਵਾਪਸ ਜਾਓ",
   'forgotPassword.checkEmail': 'ਆਪਣੀ ਈਮੇਲ ਚੈੱਕ ਕਰੋ',
   'forgotPassword.tip': 'ਕੀ ਸਮਝ ਨਹੀਂ ਆਇਆ? ਸਪੈਮ ਦੀ ਜਾਂਚ ਕਰੋ ਜਾਂ ਕੋਈ ਵੱਖਰਾ ਪਤਾ ਅਜ਼ਮਾਓ।',
+  'landing.copyright':
+    '© {{year}} {{app}}। ਉਹਨਾਂ ਓਪਸ ਟੀਮਾਂ ਲਈ ਬਣਾਇਆ ਗਿਆ ਜੋ ਹਰ ਪੰਨੇ ਦਾ ਆਡਿਟ ਕਰਦੀਆਂ ਹਨ।',
+  'landing.ctaBody':
+    '14-ਦਿਨਾਂ ਟਰਾਇਲ। ਕਾਰਡ ਦੀ ਲੋੜ ਨਹੀਂ। ਕਦੇ ਵੀ ਰੱਦ ਕਰੋ। ਉਹਨਾਂ ਓਪਸ ਟੀਮਾਂ ਲਈ ਬਣਾਇਆ ਗਿਆ ਜੋ ਤੇਜ਼ੀ ਨਾਲ ਚੱਲਦੀਆਂ ਹਨ ਅਤੇ ਹੌਲੀ ਆਡਿਟ ਕਰਦੀਆਂ ਹਨ।',
   'landing.ctaHeading': 'ਰਸੀਦਾਂ ਟਾਈਪ ਕਰਨਾ ਬੰਦ ਕਰੋ। ਉਹਨਾਂ ਨੂੰ ਫਾਈਲ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰੋ।',
   'landing.eyebrow': 'OCR · ਐਕਸਟਰੈਕਸ਼ਨ · AI ਫਾਈਲਿੰਗ',
+  'landing.featuresHeading': 'ਦਸਤਾਵੇਜ਼ ਬੁੱਧੀ ਜੋ ਆਪਣੇ ਆਪ ਦੀ ਵਿਆਖਿਆ ਕਰਦੀ ਹੈ',
+  'landing.heroSubtitle':
+    'ਇਨਵੌਇਸ, ਰਸੀਦਾਂ, ਇਕਰਾਰਨਾਮਿਆਂ ਜਾਂ ਫਾਰਮਾਂ ਦਾ ਢੇਰ ਪਾਓ। {{app}} ਉਹਨਾਂ ਨੂੰ ਵਰਗੀਕ੍ਰਿਤ, ਕੱਢਦਾ ਅਤੇ ਫਾਈਲ ਕਰਦਾ ਹੈ — ਭਰੋਸੇ ਦੇ ਰੰਗਾਂ ਨਾਲ ਤਾਂ ਜੋ ਤੁਹਾਡੀ ਟੀਮ ਸਿਰਫ਼ ਉਹੀ ਸਮੀਖਿਆ ਕਰੇ ਜਿਸ ਲਈ ਸੱਚਮੁੱਚ ਮਨੁੱਖ ਦੀ ਲੋੜ ਹੈ।',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'ਰੋਜ਼ਾਨਾ ਵਾਲੀਅਮ · ਪਿਛਲੇ 7 ਦਿਨ',
   'landing.sampleCardLabel': 'ਅੱਜ ਪ੍ਰਕਿਰਿਆ ਕੀਤੇ ਗਏ ਦਸਤਾਵੇਜ਼',
   'landing.sampleCardSubtitle': 'ਇਨਵੌਇਸਾਂ, ਰਸੀਦਾਂ ਅਤੇ ਫਾਰਮਾਂ ਵਿੱਚ 96.2% ਔਸਤ ਸ਼ੁੱਧਤਾ।',
   'login.hidePassword': 'ਪਾਸਵਰਡ ਲੁਕਾਓ',
@@ -75,6 +99,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'ਲੈਂਡਿੰਗ ਪੰਨਾ ਖੋਲ੍ਹੋ',
   'notFound.title': 'ਉਹ ਪੰਨਾ ਫਾਈਲ ਵਿੱਚ ਨਹੀਂ ਹੈ।',
+  'parcelaHeroCard.accuracy': 'ਸਾਰੇ ਐਕਸਟਰੈਕਸ਼ਨਾਂ ਵਿੱਚ ਔਸਤ ਸ਼ੁੱਧਤਾ {{value}}%',
   'parcelaHeroCard.change': '{{sign}} {{amount}} ਕੱਲ੍ਹ ਦੇ ਮੁਕਾਬਲੇ %',
   'parcelaHeroCard.title': 'ਅੱਜ ਪ੍ਰਕਿਰਿਆ ਕੀਤੇ ਗਏ ਦਸਤਾਵੇਜ਼',
   'parcelaLayout.primaryNavLabel': 'ਪ੍ਰਾਇਮਰੀ ਨੈਵੀਗੇਸ਼ਨ',
@@ -82,6 +107,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'ਦਸਤਾਵੇਜ਼',
   'pricing.processingLabel': 'ਪ੍ਰੋਸੈਸਿੰਗ ਨੌਕਰੀਆਂ',
   'resetPassword.confirmPlaceholder': 'ਨਵਾਂ ਪਾਸਵਰਡ ਦੁਹਰਾਓ',
+  'resetPassword.hidePassword': 'ਪਾਸਵਰਡ ਲੁਕਾਓ',
   'resetPassword.passwordLabel': 'ਨਵਾਂ ਪਾਸਵਰਡ',
   'resetPassword.showPassword': 'ਪਾਸਵਰਡ ਦਿਖਾਓ',
   'resetPassword.subtitle': 'ਘੱਟੋ-ਘੱਟ 8 ਅੱਖਰਾਂ ਵਾਲਾ ਕੋਈ ਸ਼ਬਦ ਚੁਣੋ।',
@@ -98,10 +124,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'ਨਿਯਮ ਲੋਡ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'rules.loading': 'ਨਿਯਮ ਲੋਡ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ…',
   'rules.matched30d': '{{count}} ਪਿਛਲੇ 30 ਦਿਨਾਂ ਵਿੱਚ ਮੇਲ ਖਾਂਦੇ ਦਸਤਾਵੇਜ਼',
+  'rules.neverUsed': 'ਕਦੇ ਨਹੀਂ ਵਰਤਿਆ',
   'rules.newRule': 'ਨਵਾਂ ਨਿਯਮ',
   'rules.saveError': 'ਨਿਯਮ ਰੱਖਿਅਤ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'rules.subheading':
     'ਸਿਸਟਮ ਨੂੰ ਦੱਸੋ ਕਿ ਹਰੇਕ ਕਿਸਮ ਦਾ ਦਸਤਾਵੇਜ਼ ਕਿੱਥੇ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ। ਹਾਲਾਤਾਂ ਦੀ ਲੜੀ ਉੱਪਰ ਤੋਂ ਹੇਠਾਂ ਤੱਕ — ਪਹਿਲਾ ਮੈਚ ਜਿੱਤਦਾ ਹੈ।',
+  'rules.templatesEmpty': 'ਹਾਲੇ ਕੋਈ ਐਕਸਟਰੈਕਸ਼ਨ ਟੈਂਪਲੇਟ ਨਹੀਂ।',
   'rules.templatesHeading': 'ਐਕਸਟਰੈਕਸ਼ਨ ਟੈਂਪਲੇਟ',
   'rules.templatesSubheading': 'ਹਰੇਕ ਦਸਤਾਵੇਜ਼ ਕਿਸਮ ਲਈ ਐਕਸਟਰੈਕਟਰ ਦੁਆਰਾ ਵਰਤੇ ਜਾਣ ਵਾਲੇ ਫੀਲਡ ਸਕੀਮਾ।',
   'rules.then': 'ਫਿਰ',
@@ -109,17 +137,24 @@ export const ui: UiTranslations = {
   'settings.account.error': 'ਰੱਖਿਅਤ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'settings.account.nameLabel': 'ਵਰਕਸਪੇਸ ਨਾਮ',
   'settings.account.subheading': 'ਸੂਚਨਾਵਾਂ ਅਤੇ ਆਡਿਟ ਇਤਿਹਾਸ ਲਈ ਨਾਮ ਅਤੇ ਪ੍ਰਾਇਮਰੀ ਈਮੇਲ ਦਿਖਾਓ।',
+  'settings.api.confirmRevoke': 'ਪੁਸ਼ਟੀ ਕਰੋ?',
   'settings.api.copyOnce': 'ਇਸ ਕੁੰਜੀ ਨੂੰ ਕਾਪੀ ਕਰੋ — ਇਹ ਦੁਬਾਰਾ ਨਹੀਂ ਦਿਖਾਈ ਜਾਵੇਗੀ।',
   'settings.api.createdOn': 'ਬਣਾਇਆ ਗਿਆ {{date}}',
   'settings.api.empty': 'ਅਜੇ ਕੋਈ API ਕੁੰਜੀਆਂ ਨਹੀਂ ਹਨ। ਉੱਪਰ ਇੱਕ ਤਿਆਰ ਕਰੋ।',
   'settings.api.error': 'ਕੁੰਜੀ ਬਣਾਉਣ ਵਿੱਚ ਅਸਫਲ।',
+  'settings.api.generating': 'ਬਣਾਈ ਜਾ ਰਹੀ ਹੈ…',
+  'settings.api.heading': 'API ਕੁੰਜੀਆਂ',
   'settings.api.labelPlaceholder': 'ਕੁੰਜੀ ਲੇਬਲ (ਜਿਵੇਂ ਕਿ CI ਅਪਲੋਡਰ)',
+  'settings.api.loading': 'ਕੁੰਜੀਆਂ ਲੋਡ ਹੋ ਰਹੀਆਂ ਹਨ…',
   'settings.api.newKey': 'ਕੁੰਜੀ ਤਿਆਰ ਕਰੋ',
   'settings.api.subheading':
     'ਇਹਨਾਂ ਦੀ ਵਰਤੋਂ ਸਕ੍ਰਿਪਟ ਜਾਂ ਆਪਣੇ ERP ਤੋਂ ਦਸਤਾਵੇਜ਼ਾਂ ਨੂੰ ਪੁਸ਼ ਕਰਨ ਲਈ ਕਰੋ। ਕਿਸੇ ਵੀ ਸਮੇਂ ਕਿਸੇ ਵੀ ਕੁੰਜੀ ਨੂੰ ਘੁੰਮਾਓ।',
   'settings.integrations.heading': 'ਫਾਈਲਿੰਗ ਏਕੀਕਰਨ',
   'settings.integrations.subheading':
     "ਫਾਈਲ ਕੀਤੇ ਦਸਤਾਵੇਜ਼ ਉਸ ਕਲਾਉਡ ਡਰਾਈਵ ਜਾਂ ਚੈਟ ਟੂਲ 'ਤੇ ਭੇਜੋ ਜਿਸ ਵਿੱਚ ਤੁਹਾਡੀ ਟੀਮ ਪਹਿਲਾਂ ਹੀ ਰਹਿੰਦੀ ਹੈ।",
+  'settings.subheading':
+    'ਤੁਹਾਡੇ {{app}} ਵਰਕਸਪੇਸ ਲਈ ਖਾਤਾ, API ਕੁੰਜੀਆਂ ਅਤੇ ਫਾਈਲਿੰਗ ਇੰਟੀਗ੍ਰੇਸ਼ਨਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ।',
+  'signup.hidePassword': 'ਪਾਸਵਰਡ ਲੁਕਾਓ',
   'signup.identityPrompt': 'ਸਾਨੂੰ ਤੁਹਾਨੂੰ ਕਿਵੇਂ ਸੰਬੋਧਨ ਕਰਨਾ ਚਾਹੀਦਾ ਹੈ?',
   'signup.showPassword': 'ਪਾਸਵਰਡ ਦਿਖਾਓ',
   'signup.subtitle': '14 ਦਿਨ ਮੁਫ਼ਤ, ਕਿਸੇ ਕਾਰਡ ਦੀ ਲੋੜ ਨਹੀਂ।',
@@ -127,6 +162,7 @@ export const ui: UiTranslations = {
   'upload.error': 'ਅੱਪਲੋਡ ਅਸਫਲ ਰਿਹਾ।',
   'upload.eyebrow': 'ਗ੍ਰਹਿਣ',
   'upload.heading': 'ਦਸਤਾਵੇਜ਼ ਅੱਪਲੋਡ ਕਰੋ',
+  'upload.queue.clear': 'ਪੂਰੀਆਂ ਹੋਈਆਂ ਸਾਫ਼ ਕਰੋ',
   'upload.queue.col.confidence': 'ਵਿਸ਼ਵਾਸ',
   'upload.queue.col.file': 'ਫਾਈਲ',
   'upload.queue.detecting': 'ਪਤਾ ਲਗਾਇਆ ਜਾ ਰਿਹਾ ਹੈ...',
@@ -138,5 +174,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.aria': 'ਅੱਪਲੋਡ ਕਰਨ ਲਈ ਦਸਤਾਵੇਜ਼ ਛੱਡੋ',
   'uploadDropZone.body': 'ਜਾਂ ਬੈਚ ਕੱਢਣ, ਵਰਗੀਕਰਨ ਅਤੇ ਫਾਈਲਿੰਗ ਲਈ ਇੱਕੋ ਸਮੇਂ ਕਈ ਫਾਈਲਾਂ ਛੱਡੋ।',
   'uploadDropZone.cta': 'ਫਾਈਲਾਂ ਚੁਣੋ',
+  'uploadDropZone.maxSize': 'ਪ੍ਰਤੀ ਫਾਈਲ ਵੱਧ ਤੋਂ ਵੱਧ 25 MB · ਸਿਰੇ ਤੋਂ ਸਿਰੇ ਤੱਕ ਐਨਕ੍ਰਿਪਟਿਡ',
   'uploadDropZone.title': 'ਪ੍ਰਕਿਰਿਆ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਦਸਤਾਵੇਜ਼ ਛੱਡੋ',
 }

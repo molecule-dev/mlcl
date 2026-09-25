@@ -1,12 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Des questions, des retours ou des idées de partenariat ? Écrivez à l’équipe {{appName}} à hello@nimbus.example — nous lisons chaque message.',
   'about.contactTitle': 'Nous contacter',
   'about.eyebrow': 'À propos',
+  'about.highlightsTitle': 'Ce que vous obtenez',
   'about.intro':
     "Nimbus est un foyer apaisé et bien pensé pour les fichiers que vous voulez vraiment retrouver. Téléversez, partagez et restaurez avec la rapidité d'un ordinateur de bureau et la durabilité du cloud.",
+  'about.mission':
+    'Notre mission est simple : faire en sorte que le stockage cloud soit sans pesanteur. Pas d’encombrement, pas de roues qui tournent, pas besoin de deviner où est passé un fichier — juste de la clarté, pour les particuliers comme pour les équipes.',
+  'about.subtitle': 'L’archive sans pesanteur de votre vie numérique.',
   'about.title': 'À propos de Nimbus',
   'authShell.copyright': '© {{year}} Nimbus Archive',
+  'authShell.footer': 'Stockage cloud sécurisé · Chiffrement de bout en bout',
   'common.goToDashboard': 'Aller au tableau de bord',
   'fileDetail.about.eyebrow': 'À propos de ce fichier',
   'fileDetail.actions.delete': 'Mettre à la corbeille',
@@ -39,18 +46,24 @@ export const ui: UiTranslations = {
     'Saisissez votre e-mail et nous vous enverrons un lien pour en choisir un nouveau.',
   'forgotPassword.successSubheading':
     'Nous avons envoyé un lien de réinitialisation à {{email}}. Le lien est valable pendant 60 minutes.',
+  'help.backHome': '← Retour à l’accueil {{appName}}',
   'help.contactBody':
     "Écrivez à support@nimbus.example et nous vous répondrons sous un jour ouvré. Les formules Pro et Team bénéficient d'un acheminement prioritaire.",
+  'help.contactTitle': 'Besoin d’une personne ?',
   'help.eyebrow': 'Support',
   'help.intro':
     "La plupart des réponses sont à un clic. Glissez vos fichiers dans la zone de téléversement pour les ajouter, cliquez sur Partager sur n'importe quelle ligne pour générer un lien, et consultez la Corbeille pour restaurer tout ce que vous avez supprimé au cours des 30 derniers jours.",
+  'help.subtitle': 'Réponses aux questions fréquentes sur {{appName}}.',
   'help.title': 'Aide et assistance',
   'landing.cta.body':
     'Commencez avec 15 Go gratuits. Passez à Pro pour 200 Go ou invitez votre équipe dans un espace partagé — toujours avec la même expérience Nimbus fluide.',
   'landing.cta.primary': 'Créez votre archive',
   'landing.cta.title': 'Allégez le désordre. Gardez le travail.',
+  'landing.features.body':
+    'Conçu pour les particuliers et les équipes qui veulent que leurs fichiers soient sans pesanteur — faciles à retrouver, sûrs à partager et agréables à organiser.',
   'landing.features.eyebrow': 'Pourquoi Nimbus',
   'landing.features.title': "Un stockage qui s'efface devant vous.",
+  'landing.footer.copyright': '© {{year}} {{appName}}. Conçu pour la légèreté.',
   'landing.hero.body':
     "L'archive légère pour votre vie numérique. Un stockage cloud unifié comme une bouffée d'air frais. Pas de désordre, juste de la clarté.",
   'landing.hero.eyebrow': 'Découvrez Nimbus v2',
@@ -68,6 +81,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'Afficher le mot de passe',
   'login.subheading': 'Connectez-vous pour accéder à votre archive.',
   'myFiles.breadcrumb.folder': 'Dossier',
+  'myFiles.breadcrumb.home': 'Tessera',
   'myFiles.breadcrumb.myFiles': 'Mes fichiers',
   'myFiles.fetchError': 'Impossible de charger vos fichiers.',
   'myFiles.files.col.modified': 'Modifié',
@@ -81,12 +95,17 @@ export const ui: UiTranslations = {
   'myFiles.folders.justCreated': "Vient d'être créé",
   'myFiles.folders.seeAll': 'Tout voir',
   'myFiles.folders.title': 'Dossiers',
+  'myFiles.hero.bodyDynamic': '{{files}} fichiers synchronisés — {{used}} utilisés jusqu’ici.',
+  'myFiles.hero.bodyEmpty':
+    'Importez un fichier pour commencer — votre archive se synchronisera partout.',
   'myFiles.hero.eyebrow': 'Votre archive',
   'myFiles.hero.recentCta': "Voir l'activité récente",
   'myFiles.hero.title': 'Bon retour, {{name}}.',
   'myFiles.hero.uploadCta': 'Téléverser des fichiers',
   'myFiles.hero.youFallback': 'vous',
   'myFiles.refresh': 'Actualiser',
+  'myFiles.stats.collaboratorsDetail': 'Dans les fichiers partagés',
+  'myFiles.stats.foldersDetail': 'Dans votre archive',
   'myFiles.stats.totalFilesDetail': '{{count}} favoris',
   'myFiles.stats.usageDetail': 'de {{total}} sur Pro',
   'myFiles.time.daysAgo': 'il y a {{count}} j',
@@ -107,6 +126,7 @@ export const ui: UiTranslations = {
   'nimbusSideNav.upgradeCta': 'Améliorer la formule',
   'nimbusStorageMeter.ariaLabel': 'Stockage utilisé',
   'nimbusStorageMeter.compactLabel': 'Stockage',
+  'nimbusStorageMeter.compactSummary': '{{used}} sur {{total}} utilisés',
   'nimbusStorageMeter.percentUsed': '{{percent}} %',
   'nimbusStorageMeter.usedLabel': 'Stockage utilisé',
   'nimbusStorageMeter.usedOfTotal': '{{used}} sur {{total}}',
@@ -115,10 +135,20 @@ export const ui: UiTranslations = {
   'notFound.code': '404',
   'notFound.heading': "Ce fichier n'est pas dans votre archive.",
   'notFound.primaryCta': 'Ouvrir Mes fichiers',
+  'planUpdated.currentPlan': 'Vous êtes actuellement au plan {{plan}}.',
+  'planUpdated.retry': 'Réessayer',
+  'planUpdated.verifyFailed': "Nous n'avons pas encore pu confirmer votre paiement.",
+  'planUpdated.verifyFailedBody':
+    'Votre paiement est peut-être encore en cours de traitement. Veuillez réessayer dans quelques instants.',
   'planUpdated.verifying': 'Confirmation de votre paiement…',
+  'pricing.limit.advancedFeatures': 'Fonctionnalités avancées :',
   'pricing.limit.canExport': 'Exportation de données :',
+  'pricing.limit.files': '{{count}} fichiers',
+  'pricing.limit.folders': '{{count}} dossiers',
+  'pricing.limit.shares': '{{count}} partages',
   'privacy.intro':
     "Nous collectons le minimum d'informations nécessaires au fonctionnement de Nimbus : votre e-mail de compte, les fichiers que vous téléversez et les métadonnées requises pour les afficher et les rechercher. Nous ne vendons jamais vos données.",
+  'privacy.subtitle': 'Comment {{appName}} gère vos fichiers et vos informations personnelles.',
   'recent.activity.empty': 'Rien à afficher pour le moment.',
   'recent.activity.youInitials': 'V',
   'recent.crumbs.home': 'Nimbus',
@@ -136,15 +166,18 @@ export const ui: UiTranslations = {
   'resetPassword.passwordPlaceholder': 'Minimum 8 caractères',
   'resetPassword.signIn': 'Se connecter à Nimbus',
   'resetPassword.subheading': 'Choisissez un mot de passe fort — au moins 8 caractères.',
+  'resetPassword.successHeading': 'Réinitialisation du mot de passe',
   'resetPassword.successSubheading':
     'Vous pouvez maintenant vous connecter avec votre nouveau mot de passe.',
   'search.backToFiles': 'Retour à tous les fichiers',
   'search.clearLabel': 'Effacer la recherche',
   'search.crumbs.home': 'Nimbus',
+  'search.emptyNoQuery': 'Saisissez une requête ci-dessus pour rechercher dans votre archive.',
   'search.emptyWithQuery': 'Aucun fichier ne correspond à « {{query}} ».',
   'search.fetchError': 'Impossible de charger les fichiers.',
   'search.hero.body':
     "Filtrez par type pour cibler. Cliquez sur n'importe quel résultat pour l'ouvrir.",
+  'search.hero.titleEmpty': 'Rechercher dans votre archive',
   'search.hero.titleWithQuery': '{{count}} résultats pour « {{query}} »',
   'search.input.placeholder': 'Rechercher dans Nimbus…',
   'search.section.allFiles': 'Fichiers correspondants',
@@ -160,9 +193,12 @@ export const ui: UiTranslations = {
   'shared.empty':
     'Aucun fichier partagé pour le moment. Ouvrez un fichier et cliquez sur Partager pour envoyer un lien.',
   'shared.fetchError': 'Impossible de charger les fichiers partagés.',
+  'shared.hero.body':
+    'Chaque fichier que vous partagez via un lien ou une invitation apparaît ici. Activez une autorisation pour voir l’accès accordé.',
   'shared.hero.title': '{{count}} fichiers avec des liens actifs',
   'shared.list.subtitle': '{{count}} fichiers',
   'shared.list.title': 'Partagés récemment',
+  'shared.row.sharedSummary': '{{count}} lien(s)',
   'shared.time.daysAgo': 'il y a {{count}} j',
   'shared.time.hoursAgo': 'il y a {{count}} h',
   'shared.time.minutesAgo': 'il y a {{count}} min',
@@ -172,6 +208,7 @@ export const ui: UiTranslations = {
   'sharePublic.eyebrow': 'Partagé via Nimbus',
   'sharePublic.fetchError': 'Impossible de charger le fichier partagé.',
   'sharePublic.home': "Retour à l'accueil de Nimbus",
+  'sharePublic.loading': 'Résolution du lien de partage…',
   'sharePublic.missingToken': 'Aucun jeton de partage fourni.',
   'sharePublic.notFound': 'Lien de partage introuvable ou expiré.',
   'sharePublic.permission': '{{permission}}',
@@ -187,7 +224,10 @@ export const ui: UiTranslations = {
   'starred.empty':
     "Aucun favori pour le moment. Cliquez sur l'étoile d'un fichier pour le garder à portée de main.",
   'starred.fetchError': 'Impossible de charger les fichiers favoris.',
+  'starred.hero.body':
+    'Ajoutez une étoile à tout ce que vous voudrez retrouver. Nous le mettons en avant sur chaque appareil, chaque espace de travail, à chaque fois.',
   'starred.hero.title': "{{count}} favoris, prêts à l'emploi",
+  'starred.row.meta': '{{size}} · {{modified}}',
   'starred.time.daysAgo': 'il y a {{count}} j',
   'starred.time.hoursAgo': 'il y a {{count}} h',
   'starred.time.minutesAgo': 'il y a {{count}} min',
@@ -197,7 +237,10 @@ export const ui: UiTranslations = {
   'storage.crumbs.home': 'Nimbus',
   'storage.crumbs.storage': 'Stockage',
   'storage.fetchError': 'Impossible de charger le stockage.',
+  'storage.hero.body':
+    'De la place pour grandir. Nous vous alerterons lorsque vous dépasserez 75 % — puis à 90 % — afin que vous puissiez élaguer les fichiers lourds avant qu’ils ne ralentissent qui que ce soit.',
   'storage.hero.eyebrow': 'Aperçu du stockage',
+  'storage.hero.headroom': '{{headroom}} de marge',
   'storage.hero.meterLabel': '{{percent}} % de la formule',
   'storage.hero.title': '{{used}} sur {{total}} utilisés',
   'storage.plans.body':
@@ -205,12 +248,15 @@ export const ui: UiTranslations = {
   'storage.plans.choose': 'Choisir {{name}}',
   'storage.plans.included': '{{storage}} inclus',
   'storage.plans.maxFiles': '{{count}} fichiers',
+  'storage.plans.maxFolders': '{{count}} dossiers',
+  'storage.plans.maxShares': '{{count}} partages',
   'storage.plans.title': 'Des formules qui évoluent avec vous',
   'storage.plans.unavailable':
     'Les informations sur les formules apparaîtront ici une fois configurées.',
   'storage.plans.youreOn': 'Votre formule actuelle',
   'terms.intro':
     'En utilisant Nimbus, vous acceptez de garder confidentiels les identifiants de votre compte et de ne téléverser que des contenus que vous avez le droit de stocker et de partager.',
+  'terms.subtitle': 'Les conditions dans lesquelles vous pouvez utiliser {{appName}}.',
   'trash.actions.emptyAll': 'Vider la corbeille',
   'trash.actions.emptyConfirm': 'Oui, vide',
   'trash.actions.emptyConfirmPrompt': 'Tout supprimer définitivement ?',
@@ -229,7 +275,9 @@ export const ui: UiTranslations = {
   'trash.restoreError': 'Impossible de restaurer le fichier.',
   'trash.row.daysAgo': 'il y a {{count}} j',
   'trash.row.deleteConfirm': 'Supprimer',
+  'trash.row.deleteConfirmPrompt': 'Supprimer définitivement ?',
   'trash.row.deleteForever': 'Supprimer définitivement',
+  'trash.row.expires': '{{days}}d gauche',
   'trash.row.hoursAgo': 'il y a {{count}} h',
   'trash.row.meta': 'Supprimé {{deletedAt}}',
   'trash.row.minutesAgo': 'il y a {{count}} min',
@@ -249,6 +297,7 @@ export const ui: UiTranslations = {
   'upload.progress.error': 'Échec du téléversement.',
   'upload.progress.uploadFailed': 'Échec du téléversement.',
   'upload.progress.uploading': 'Téléversement des octets…',
+  'upload.queue.clearDone': 'Synchronisé clair',
   'upload.queue.emptyHint':
     'Déposez des fichiers dans la zone ci-dessus ou utilisez les boutons Choisir pour commencer.',
   'upload.queue.idle': 'Aucun téléversement en cours.',

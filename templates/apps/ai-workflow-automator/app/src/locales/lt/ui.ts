@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     '„Dendrite“ yra darbo eigos automatizavimo platforma, kuri sujungia paleidiklius, dirbtinio intelekto sąlygas ir kelių žingsnių veiksmus, kad komandos galėtų perkelti darbą tarp sistemų nerašydamos jungiamojo kodo.',
+  'about.philosophy':
+    'Kiekvienas darbo procesas yra mažų, stebimų žingsnių grafas. Kiekvienas žingsnis įrašo savo įvestis, išvestis ir trukmę, kad jį būtų galima patikrinti, atkartoti ar atšaukti. Kurkite juos vizualiai, versijuokite kaip kodą.',
   'about.title': 'Apie dendritą',
   'authShell.brand': 'Dendritas',
   'authShell.support': 'Pagalba',
@@ -15,9 +17,14 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Pakeisti planą',
   'billing.description':
     'Stebėkite naudojimą, valdykite savo planą ir ištraukite sąskaitas faktūras apskaitai.',
+  'billing.eyebrow': 'Paskyra · Planas ir naudojimas',
+  'billing.failedLabel': 'Nepavykę paleidimai · 24 val.',
+  'billing.invoicesEmpty': 'Sąskaitų kol kas nėra. Jos atsiras čia po pirmojo mokamo atnaujinimo.',
   'billing.invoicesTitle': 'Sąskaitų istorija',
   'billing.planNoteFree':
     'Nemokamas lygis — {{runs}} bėgimai ir {{workflows}} aktyvios darbo eigos. Atnaujinkite, kad gautumėte didesnius limitus.',
+  'billing.planNotePaid':
+    'Mokamas planas — {{runs}} paleidimų ir {{workflows}} aktyvūs darbo procesai.',
   'billing.runsLabel': 'Vykdoma per pastarąsias 24 val.',
   'billing.tiersBlurb':
     'Palyginkite kiekvieną lygį – paleidimus, aktyvius darbo eigų etapus, išplėstines funkcijas ir palaikymą – specialiame kainodaros puslapyje.',
@@ -35,10 +42,14 @@ export const ui: UiTranslations = {
     'Integracijų neužregistruota. Konfigūruokite teikėjo raktus, kad būtų įjungti ryšiai.',
   'connections.error': 'Nepavyko įkelti jungčių.',
   'connections.eyebrow': 'Integracijos · {{connected}} prijungtas',
+  'connections.loading': 'Įkeliamos integracijos…',
+  'connections.openEnv':
+    'Norėdami prijungti šį teikėją, nustatykite jo API raktą faile api/.env ir paleiskite serverį iš naujo.',
   'dashboard.description':
     '{{active}} aktyvios darbo eigos. {{failed}} nepavyko per pastarąsias 24 valandas.',
   'dashboard.error': 'Nepavyko įkelti prietaisų skydelio.',
   'dashboard.eyebrow': 'Operacijos · tiesiogiai',
+  'dashboard.hero.label': 'Paleidimai šiandien',
   'dashboard.hero.medianLatency': 'p50 delsa',
   'dashboard.hero.queue': 'Eilės gylis',
   'dashboard.hero.success': 'Sėkmė',
@@ -46,14 +57,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Vidutinė trukmė',
   'dashboard.kpi.failedRuns': 'Nepavyko · 24 val.',
   'dashboard.kpi.outOf': 'iš {{total}} iš viso',
+  'dashboard.kpi.successRate': 'Sėkmės rodiklis · 24 val.',
   'dashboard.loading': 'Kraunama prietaisų skydelis…',
   'dashboard.recentRuns.empty':
     'Dar nėra paleidimų. Suaktyvinus darbo eigą, šis sklaidos kanalas bus užpildytas.',
   'dashboard.recentRuns.title': 'Naujausi bėgimai',
   'dashboard.recentRuns.viewAll': 'Atviros egzekucijos →',
+  'dashboard.recentWorkflows.browse': 'Naršyti šablonus →',
   'dashboard.recentWorkflows.empty':
     'Kol kas nėra darbo eigų. Įdiekite šabloną arba sukurkite jį nuo nulio.',
   'dashboard.recentWorkflows.title': 'Neseniai paleistas',
+  'dashboard.run.col.run': 'Paleisti',
   'dashboard.run.col.started': 'Pradėta',
   'dashboard.run.col.trigger': 'Sparnelis',
   'dashboard.run.col.workflow': 'Darbo eiga',
@@ -89,6 +103,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Darbo eiga',
   'executions.description':
     'Kiekvienas darbo eigos vykdymas, kiekvienas pakartotinis bandymas, kiekvieno žingsnio išvestis – visa tai stebima.',
+  'executions.empty.filter': 'Nė vienas paleidimas neatitinka šio filtro.',
   'executions.empty.first':
     'Dar nėra paleidimų – suaktyvinkite darbo eigą, kad šis sąrašas būtų užpildytas.',
   'executions.error': 'Nepavyko įkelti vykdymų.',
@@ -99,30 +114,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Įkeliama paleidimo istorija…',
   'executions.title': 'Egzekucijos',
   'forgotPassword.confirmation': 'Atkurti nuorodą, išsiųstą gavėjui {{email}} .',
+  'forgotPassword.subhead': 'Įveskite savo el. pašto adresą, kad gautumėte atstatymo nuorodą.',
   'forgotPassword.successSubhead':
     'Išsiuntėme atstatymo nuorodą adresu {{email}} Galioja 30 minučių.',
   'help.connections.body':
     'Dirbtinio intelekto, el. pašto ir saugyklos veiksmams reikia nustatyti teikėjo raktus api/.env faile. Sukonfigūravus raktą, atitinkama integracija rodoma kaip prijungta puslapyje „Ryšiai“.',
+  'help.connections.cta': 'Atidaryti ryšius →',
   'help.connections.title': 'Prijungiantys paslaugų teikėjai',
   'help.gettingStarted.body':
     'Naujus darbo eigų procesus galima įdiegti iš šablonų bibliotekos arba sukurti nuo nulio darbo eigų kūrimo priemonėje. Kiekvienas darbo eigas turi paleidiklį (rankinį, „webhook“ arba „cron“) ir veiksmų seką, kuri vykdoma tam tikra tvarka.',
+  'help.gettingStarted.cta': 'Naršyti šablonų biblioteką →',
+  'help.gettingStarted.title': 'Pradžia',
   'help.intro':
     'Raskite atsakymus į dažniausiai užduodamus klausimus apie darbo eigų kūrimą, ryšių konfigūravimą ir vykdymo išvesties interpretavimą. Dažniausiai užduodami klausimai pateikiami toliau; dėl visko, kas neaptarta, kreipkitės į savo darbo srities administratorių.',
   'help.runs.body':
     'Kiekvienas vykdymas registruoja kiekvieną veiksmą atskirai su būsena (sėkminga, nesėkminga, praleista) ir išvesties fragmentu. Vykdymo išsamios informacijos puslapyje rodomas visas žingsnis po žingsnio sekimas ir numatoma metrika.',
+  'help.runs.cta': 'Atviros egzekucijos →',
   'help.runs.title': 'Skaitymo išvestis',
   'help.title': 'Pagalbos centras',
   'integrationCard.manage': 'Tvarkyti',
   'landing.brand': 'Dendritas',
   'landing.demo.action.subtitle': 'Apvalioji sistema · teritorija',
+  'landing.demo.action.title': 'Pranešti atstovui',
   'landing.demo.condition.subtitle': 'DI ketinimų klasifikatorius',
+  'landing.demo.condition.title': 'Balas ≥ vidutinis?',
   'landing.demo.trigger.subtitle': 'PAŠTAS /formos/kontaktas',
   'landing.demo.trigger.title': 'Įeinantis žiniatinklio kabliukas',
+  'landing.features.body':
+    'Paleidikliai suveikia. Sąlygos išsišakoja. Veiksmai atlieka darbą. Kurkite juos vizualiai, versijuokite kaip kodą.',
   'landing.features.heading': 'Trys mazgų tipai. Begalinės formos.',
   'landing.footer.help': 'Pagalba',
   'landing.footer.tagline': 'Intelektas judesyje',
+  'landing.hero.body':
+    '{{appName}} yra darbo procesų variklis operacijų komandoms, kurioms nepakako Zapier. Paleidiklis, sąlyga, veiksmas — sujungta su visomis sistemomis, kurias iš tikrųjų naudojate.',
   'landing.hero.eyebrow': 'Intelektas judesyje',
   'landing.hero.headline': 'Sujunkite savo krūvą laidais. Leiskite darbui vykti.',
+  'landing.hero.primaryCta': 'Sukurkite pirmąjį darbo procesą',
   'landing.hero.proof.ai': 'Integruoti dirbtinio intelekto mazgai',
   'landing.hero.proof.free': 'Nemokamai 1 tūkst. bėgimų per mėnesį',
   'landing.hero.proof.soc2': 'SOC 2 II tipo',
@@ -130,10 +157,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Mokėkite už reisus, o ne už vietas.',
   'landing.templates.body':
     'Iš anksto paruošti darbo srautai kiekvienai komandai – pardavimams, palaikymo komandai, kūrimo operacijoms, finansams. Įdiekite vienu spustelėjimu; koreguokite bet ką.',
+  'landing.templates.cta': 'Registruokitės, kad galėtumėte naršyti šablonus →',
   'landing.templates.eyebrow': 'Pradėti per kelias sekundes',
   'landing.templates.heading': 'Patikrintų receptų biblioteka.',
   'landing.templates.signupHint': 'Užsiregistruokite, kad įdiegtumėte',
   'login.hidePassword': 'Paslėpti slaptažodį',
+  'login.noAccount': 'Naujokas „Tessera“?',
   'login.showPassword': 'Rodyti slaptažodį',
   'login.subhead': 'Prisijunkite, kad automatizavimas veiktų sklandžiai.',
   'mobileNav.drawerLabel': 'Pagrindinė navigacija',
@@ -149,8 +178,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Paleiskite darbo eigą, kad pradėtumėte pildyti šį sklaidos kanalą.',
   'notifications.empty.title': 'Jūs jau viską žinote',
   'notifications.eyebrow': '{{n}} neskaitytas',
+  'planUpdated.body':
+    'Jūsų mokėjimo pakeitimas dabar aktyvus. Savo planą galite tvarkyti bet kada mokėjimų puslapyje.',
+  'planUpdated.retry': 'Pabandyk dar kartą',
+  'planUpdated.verifyFailed': 'Mes dar negalėjome patvirtinti jūsų mokėjimo.',
+  'planUpdated.verifyFailedBody':
+    'Jūsų mokėjimas vis dar gali būti apdorojamas. Bandykite dar kartą po akimirkos.',
   'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'pricing.heading': 'bėgimai',
+  'pricing.runsSuffix': 'paleidimai',
   'pricing.workflowsSuffix': 'darbo eigos',
   'privacy.collect.body':
     'Renkame jūsų el. pašto adresą, kuriuo registruojatės, jūsų konfigūruojamas darbo eigas ir kiekvieno paleidimo metaduomenis (pradžios laiką, pabaigos laiką, būseną). Niekada nerenkame ir nesaugome naudingosios apkrovos turinio iš paleidiklių ar veiksmų išvesčių, išskyrus tai, kas būtina, kad būtų rodoma paleidimo peržiūros priemonėje darbo srities savininkui.',
@@ -166,11 +202,14 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Nepavyko atnaujinti slaptažodžio.',
   'resetPassword.newPassword': 'Naujas slaptažodis',
   'resetPassword.subhead': 'Pasirinkite tai, ką tik spėtumėte.',
+  'settings.appearance.description': 'Perjungti šviesų ir tamsų režimus.',
+  'settings.appearance.title': 'Išvaizda',
   'settings.billingShortcut.cta': 'Atviras atsiskaitymas',
   'settings.billingShortcut.description':
     'Planas, naudojimas ir sąskaitos faktūros rodomos specialiame atsiskaitymo puslapyje.',
   'settings.danger.confirm': 'Ar tikrai? Tai sukurs jūsų darbo srities eilę ištrynimui.',
   'settings.danger.confirmYes': 'Taip, eilės ištrynimas',
+  'settings.danger.deleteWorkspace.cta': 'Ištrinti darbo sritį',
   'settings.danger.deleteWorkspace.hint':
     'Po 14 dienų atidėjimo laikotarpio pašalina visus darbo eigų procesus, vykdymus ir ryšius.',
   'settings.danger.deleteWorkspace.title': 'Ištrinti darbo sritį',
@@ -181,10 +220,15 @@ export const ui: UiTranslations = {
     'Tvarkykite savo paskyrą, darbo sritį, integracijas ir atsiskaitymą vienoje vietoje.',
   'settings.notifications.description':
     'Pasirinkite, kurį įvykių puslapį norite, el. laišką ar tylėkite.',
+  'settings.notifications.failures.hint':
+    'El. pašto ir programėlės pranešimas apie kiekvieną nepavykusį paleidimą.',
+  'settings.notifications.failures.title': 'Darbo procesų klaidos',
   'settings.notifications.product.hint':
     'Retkarčiais siunčiami el. laiškai apie naujus šablonus ir funkcijas.',
+  'settings.notifications.product.title': 'Produkto naujienos',
   'settings.notifications.weekly.hint':
     'Pirmadienio ryto praėjusios savaitės bėgimų ir taupymo apžvalga.',
+  'settings.notifications.weekly.title': 'Savaitės apžvalga',
   'settings.profile.description':
     'Kaip atrodote darbo eigos vykdymo viduje. Naudojamas darbo srities veikloje.',
   'settings.profile.noEmail': 'Nėra registruoto el. pašto adreso',
@@ -192,13 +236,24 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Nepavyko išsaugoti profilio pakeitimų.',
   'settings.profile.unnamedUser': 'Neįvardytas vartotojas',
   'settings.security.audit.hint': 'Transliuokite kiekvieną veiksmą į savo SIEM per webhook.',
+  'settings.security.audit.title': 'Audito žurnalo persiuntimas',
   'settings.security.description':
     'Dviejų veiksnių autentifikavimas, vienkartinis prisijungimas ir aktyvūs seansai.',
   'settings.security.sso.hint': 'Galima įsigyti pagal „Scale“ ir „Enterprise“ planus.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'Būtina bet kokiam darbo srities savininko veiksmui.',
+  'settings.security.totp.title': 'Dviejų veiksnių autentifikavimas (TOTP)',
   'settings.twoFactorCode': 'Autentifikavimo kodas',
   'settings.twoFactorDisable': 'Išjungti',
+  'settings.twoFactorDisableTitle': 'Išjungti dviejų veiksnių autentifikavimą',
   'settings.twoFactorEnable': 'Įjungti',
+  'settings.twoFactorEnableTitle': 'Įjungti dviejų veiksnių autentifikavimą',
   'settings.twoFactorInvalidCode': 'Neteisingas kodas',
+  'settings.twoFactorOn': 'Dėl',
+  'settings.twoFactorQrAlt': 'Dviejų veiksnių QR kodas',
+  'settings.twoFactorScan':
+    'Nuskaitykite šį QR kodą su autentifikavimo programa, tada įveskite 6 skaitmenų kodą.',
+  'settings.twoFactorUnavailable': 'Dviejų veiksnių autentifikavimas šiai programai negalimas.',
   'settings.twoFactorVerify': 'Patikrinti ir įjungti',
   'settings.workspace.description':
     'Bendrinamos tapatybės, regiono ir vykdymo numatytosios reikšmės jūsų komandai.',
@@ -227,6 +282,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Šablonas',
   'templates.description':
     'Iš anksto paruošti dažniausiai naudojamų automatizavimo procesų brėžiniai. Sukurkite šaką, pritaikykite, išsiųskite.',
+  'templates.empty.filter': 'Nė vienas šablonas neatitinka jūsų paieškos.',
   'templates.empty.first': 'Šiuo metu nėra pasiekiamų šablonų.',
   'templates.error': 'Nepavyko įkelti šablonų.',
   'templates.installs': 'diegimai',
@@ -252,6 +308,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Išjungti',
   'workflowBuilder.enable': 'Įjungti',
   'workflowBuilder.error': 'Nepavyko įkelti darbo eigos.',
+  'workflowBuilder.inspector.config': 'Konfigūracija',
+  'workflowBuilder.inspector.cron': 'Cron išraiška',
+  'workflowBuilder.inspector.disabled': 'Išjungta — nebus paleidžiama automatiškai.',
   'workflowBuilder.inspector.enabled': 'Įjungta – veikia gavus trigerį.',
   'workflowBuilder.inspector.eyebrow': 'Inspektorius',
   'workflowBuilder.inspector.id': 'ID',
@@ -269,18 +328,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Perjungti nepavyko.',
   'workflowBuilder.workflow': 'Darbo eiga · v {{v}}',
   'workflowBuilder.zoom.in': 'Priartinti',
+  'workflowBuilder.zoom.label': 'Drobės mastelio valdikliai',
+  'workflowBuilder.zoom.out': 'Atitolinti',
   'workflowCard.lastRun': 'Paskutinis bėgimas {{when}}',
   'workflowCard.runs': '{{count}} bėgimai',
+  'workflowCard.success': '{{rate}} % sėkmės',
   'workflowHeroCard.last24h': 'Paskutinės 24 val.',
+  'workflows.browseTemplates': 'Naršyti šablonus →',
   'workflows.description':
     'Kiekviena jūsų darbo srities automatizacija, su būsenos ir naujausios veiklos apžvalga.',
+  'workflows.empty.body': 'Pabandykite išvalyti filtrą arba pradėkite nuo šablono.',
   'workflows.empty.firstBody': 'Įdiekite šabloną, kad galėtumėte pradėti per kelias sekundes.',
   'workflows.empty.firstTitle': 'Kol kas nėra darbo eigų',
   'workflows.empty.title': 'Nėra atitinkančių darbo eigų',
   'workflows.error': 'Nepavyko įkelti darbo eigų.',
   'workflows.eyebrow': 'Biblioteka · {{count}} iš viso',
+  'workflows.loading': 'Įkeliami darbo procesai…',
   'workflows.newFromTemplate': 'Naujas iš šablono',
   'workflows.searchPlaceholder': 'Ieškoti darbo eigų…',
+  'workflows.title': 'Darbo procesai',
   'workflowSidebar.brand': 'Dendritas',
   'workflowSidebar.status': 'Visos sistemos veikia',
   'workflowSidebar.tagline': 'Intelektas judesyje',

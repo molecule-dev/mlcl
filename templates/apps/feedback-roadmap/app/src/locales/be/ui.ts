@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ёсць водгук, знайшлі памылку ці хочаце сваю дошку на {{appName}}? Адкрыйце Налады, каб звязацца з камандай — кожнае паведамленне чытае рэальны чалавек.',
+  'about.contactTitle': 'Звяжыцеся з намі',
+  'about.featureModeration':
+    'Публічная дарожная карта з пазначэннем кварталаў, спіс змяненняў, які ператварае зробленую працу ў нататкі да выпуску, і панэль, што паказвае, чаго людзі хочуць найбольш.',
+  'about.featurePricing':
+    'Бясплатна можна весці пару дошак; планы Pro і Team адкрываюць больш дошак, вышэйшыя ліміты і экспарт даных.',
+  'about.featureThreads':
+    "Публічныя дошкі водгукаў, арганізаваныя па тэмах, з аб'яднаннем дублікатаў, якое злівае галасы ў адзін сумленны сігнал попыту.",
+  'about.featureVoting':
+    'Адзін голас на карыстальніка з поўным працэсам статусаў — адкрыта, запланавана, у працы, выпушчана ці адхілена — і афіцыйны адказ на кожнае рашэнне.',
+  'about.intro':
+    '{{appName}} — гэта платформа водгукаў пра прадукт: публічныя дошкі, дзе кліенты пакідаюць запыты, галасуюць за тое, што ім патрэбна, і сочаць за кожнай ідэяй ад плана да выпуску. Каманды перастаюць здагадвацца, што будаваць далей, бо попыт сам сябе ранжыруе.',
+  'about.missionBody':
+    'Мы верым, што найлепшыя рашэнні пра прадукт прымаюцца адкрыта. {{appName}} дае кожнай камандзе публічную дошку запытаў з галасаваннем, афіцыйную дарожную карту з мэтавымі кварталамі і спіс змяненняў, які замыкае цыкл — так кліенты бачаць свой уплыў, а каманды бачаць свой мандат.',
+  'about.missionTitle': 'Наша місія',
   'admin.backToBoards': 'Назад да дошак',
   'admin.denied': 'Толькі для адміністратараў.',
   'admin.eyebrow': 'Каманда прадукту',
@@ -11,6 +27,7 @@ export const ui: UiTranslations = {
   'admin.title': 'Панэль водгукаў',
   'admin.topOpen': 'Лепшыя адкрытыя запыты',
   'admin.totalVotes': '{{count}} усяго',
+  'admin.votesChartLabel': 'Слупковая дыяграма галасоў за тыдзень за апошнія восем тыдняў',
   'admin.votesOverTime': 'Галасы з часам',
   'auth.forgotPassword.email': 'Email',
   'auth.forgotPassword.sendResetLink': 'Адправіць спасылку скіду',
@@ -30,7 +47,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Стварыце ваш уліковы запіс',
   'auth.username': 'Імя карыстальніка',
   'authShell.communities': 'Супольнасці',
+  'authShell.copyright': '{{appName}} — кожны голас важны.',
   'authShell.trending': 'У трэндзе',
+  'boardCard.postCount': '{{count}} допісаў',
   'boardDetail.allBoards': 'Усе дошкі',
   'boardDetail.backToBoards': 'Назад да дошак',
   'boardDetail.empty': 'Няма публікацый, якія адпавядаюць гэтым фільтрам.',
@@ -54,6 +73,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Кожны запіс пачынаўся як прагаласаваны запыт. Тыя, хто галасаваў, бачылі яго прасоўванне; вось дзе ён скончыўся.',
   'changelog.title': 'Выпушчана, з пацверджаннямі',
+  'changelog.voteCount': '{{count}} галасоў дапамаглі гэта стварыць',
   'common.atLeast8Characters': 'Мінімум 8 сімвалаў',
   'common.checkYourInbox': 'Праверце ваш паштовы скрын',
   'common.loadingEllipsis': 'Загрузка…',
@@ -64,6 +84,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Адпраўка…',
   'footer.about': 'Пра {{appName}}',
   'footer.language': 'Мова',
+  'forgotPassword.description':
+    'Увядзіце свой адрас электроннай пошты, і мы дашлем вам спасылку для скіду налад.',
+  'forgotPassword.successBody':
+    'Мы даслалі спасылку для скіду налад {{email}} Тэрмін дзеяння мінае праз 30 хвілін.',
   'forgotPassword.tryAnother': 'Паспрабуйце іншы email',
   'form.displayName': 'Бачнае імя',
   'form.firstName': 'Імя',
@@ -74,6 +98,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'Ваша дарожная карта, падтрыманая галасамі.',
   'landing.heroCtaPrimary': 'Пачаць збіраць галасы',
   'landing.heroCtaSecondary': 'Паглядзець актыўную дошку',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Хопіць здагадвацца. Выпускайце тое, за што галасуюць.',
+  'landing.heroLede':
+    '{{appName}} ператварае разрозненыя запыты на функцыі ў публічную дошку ідэй з галасаваннем, афіцыйную дарожную карту і спіс змяненняў, які вашыя кліенты сапраўды чытаюць.',
   'landing.heroStat1': '3200+',
   'landing.heroStat1Label': 'Каманд слухаюць',
   'landing.heroStat2': '1,4 млн',
@@ -85,9 +113,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Спіс змен',
   'landing.navJoin': 'Далучыцца да {{appName}}',
   'landing.navRoadmap': 'Дарожная карта',
+  'landing.step1Body':
+    "Кліенты пакідаюць ідэі на публічных дошках. Дублікаты аб'ядноўваюцца, галасы зліваюцца, і попыт сам сябе ранжыруе.",
   'landing.step1Title': 'Збіраць',
+  'landing.step2Body':
+    'Пазначайце запыты як запланаваныя ці ў працы з мэтавым кварталам — дарожная карта абнаўляецца ў той жа момант.',
+  'landing.step2Title': 'Зацвердзіць',
   'landing.step3Body':
     'Выпушчаныя публікацыі становяцца запісамі ў спісе змен, і кожны, хто галасаваў, бачыць вынік у сваім уласным спісе.',
+  'landing.step3Title': 'Выпусціць',
   'landing.topSubtitle': 'Наўжыва з гэтай дошкі — увайдзіце, каб дадаць свой голас.',
   'landing.topTitle': 'Што карыстальнікі просяць зараз',
   'landing.topViewAll': 'Усе дошкі',
@@ -95,14 +129,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Пачатковая',
   'layout.signUp': 'Зарэгістравацца',
   'layout.submit': 'Адправіць водгук',
+  'login.description': 'Працягвайце размову з таго месца, на якім яна спынілася.',
+  'login.heading': 'Увайсці ў Nimbus',
+  'login.noAccount': 'Новы тут?',
   'login.passwordPlaceholder': 'Ваш пароль',
   'login.twoFactorLabel': '2FA код (апцыянальна)',
   'login.twoFactorPlaceholder': '6-значны код',
+  'login.twoFactorRequiredHint':
+    'У гэтага акаўнта ўключана двухфактарная аўтэнтыфікацыя. Увядзіце 6-значны код з праграмы-аўтэнтыфікатара, каб працягнуць.',
   'login.twoFactorRequiredLabel': 'Увядзіце ваш 2FA код',
+  'myActivity.browseCta': 'Праглядзець дошкі',
+  'myActivity.emptyPosts': 'Вы яшчэ не пакінулі запыт.',
+  'myActivity.emptyVotes': 'Пакуль нічога — прагледзьце дошкі і падтрымайце ідэю.',
   'myActivity.eyebrow': 'Ваша актыўнасць',
   'myActivity.loadError': 'Не атрымалася загрузіць вашу актыўнасць.',
   'myActivity.postsTitle': 'Запыты, якія вы адправілі',
+  'myActivity.shippedNote': '{{count}} з іх выпушчаны — дзякуй за штуршок.',
   'myActivity.submitCta': 'Апублікаваць запыт',
+  'myActivity.tabLabel': 'Прагляд',
   'myActivity.tabPosts': 'Мае публікацыі',
   'myActivity.tabVotes': 'Мае галасы',
   'myActivity.votesTitle': 'Запыты, за якія вы прагаласавалі',
@@ -138,8 +182,12 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Публікацыя не знойдзена',
   'postsAdmin.backToDashboard': 'Панэль кіравання',
   'postsAdmin.eyebrow': 'Каманда прадукту',
+  'postsAdmin.mergeApplied': "Аб'яднана — перанесена {{votes}} галасоў і {{comments}} каментароў.",
   'postsAdmin.mergeApply': "Аб'яднаць і перанесці галасы",
   'postsAdmin.mergeChoose': 'Выберыце мэтавую публікацыю…',
+  'postsAdmin.mergeFailed': "Не ўдалося аб'яднаць.",
+  'postsAdmin.mergeHint':
+    'Галасы зліваюцца (адзін на карыстальніка), каментары пераносяцца, а гэты допіс атрымлівае пазнаку "перанесена".',
   'postsAdmin.mergeLabel': "Аб'яднаць дублікат у",
   'postsAdmin.responseLabel': 'Афіцыйны адказ',
   'postsAdmin.responsePlaceholder':
@@ -154,7 +202,13 @@ export const ui: UiTranslations = {
     "Устанавіце афіцыйны статус, адкажыце публічна, пазначце квартал дарожнай карты і аб'яднайце дублікаты.",
   'postsAdmin.title': 'Кіраваць публікацыямі водгукаў',
   'postsAdmin.votes': '{{count}} галасоў',
+  'pricing.limits.advancedFeatures': 'Пашыраныя функцыі:',
+  'pricing.limits.boards': '{{count}} дошкі',
   'pricing.limits.export': 'Экспарт даных:',
+  'pricing.limits.posts': '{{count}} допісаў водгукаў',
+  'pricing.limits.votes': '{{count}} галасоў',
+  'resetPassword.description':
+    'Выберыце надзейны варыянт. Мы ўвойдзем у сістэму пасля паспяховага скіду.',
   'resetPassword.newPasswordLabel': 'Новы пароль',
   'resetPassword.tokenPlaceholder': 'Устаўце токен са спасылкі',
   'roadmap.cardMeta': 'ад {{author}} · {{board}}',
@@ -170,6 +224,7 @@ export const ui: UiTranslations = {
   'search.empty': 'Няма запытаў, якія адпавядаюць пошуку.',
   'search.hint': 'Увядзіце запыт, каб знайсці існуючыя запыты перад публікацыяй дублікату.',
   'search.loadError': 'Пошук не ўдаўся — паспрабуйце яшчэ раз.',
+  'search.searching': 'Пошук…',
   'search.submit': 'Пошук',
   'search.submitNew': 'Апублікаваць як новы запыт',
   'search.title': 'Пошук водгукаў',
@@ -178,12 +233,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'Плацяжы',
   'settings.displaySubtitle': 'Выберыце, наколькі шчыльнымі адчуваюцца стужкі.',
   'settings.displayTitle': 'Адлюстраванне',
+  'settings.emailDigestDesc': 'Найбольш падтрыманыя адкрытыя запыты кожны панядзелак.',
+  'settings.emailDigestLabel': 'Штотыднёвы дайджэст',
+  'settings.emailMentionsDesc': 'Калі хтосьці адказвае на допіс, за якім вы сочыце.',
+  'settings.emailMentionsLabel': 'Паведамляць мне пра згадкі',
+  'settings.emailRepliesDesc': 'Галіны, якія вы пачалі ці ў якіх адказалі.',
+  'settings.emailRepliesLabel': 'Напішыце мне пра адказы',
   'settings.loadError': 'Не ўдалося загрузіць ваш уліковы запіс.',
   'settings.loading': 'Загрузка вашых налад…',
   'settings.notifications': 'Апавяшчэнні',
   'settings.notificationsSubtitle':
     'Вырашыце, што трапляе ў ваш паштовы скрын, а што на прыладу push.',
+  'settings.pushRepliesLabel': 'Push-апавяшчэнні пра адказы',
+  'settings.pushVotesDesc': 'Напамін пры дасягненні 100, 500, 1000.',
+  'settings.pushVotesLabel': 'Дамагайцеся дасягнення этапаў галасавання за',
   'settings.saveAccount': 'Захаваць уліковы запіс',
+  'settings.showFlair': 'Паказваць значкі дошак на допісах',
+  'settings.showThumbnails': 'Паказваць мініяцюры спасылак/выяў',
   'settings.usernamePlaceholder': 'Выберыце лагін',
   'signup.confirmPlaceholder': 'Увядзіце яшчэ раз',
   'signup.description': 'Уплывайце на тое, што мы будуем далей.',

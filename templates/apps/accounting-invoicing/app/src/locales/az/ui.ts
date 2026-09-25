@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Sualınız var, xəta tapdınız və ya kitablarınızı köçürmək istəyirsiniz? {{app}} komandası ilə hello@{{app}}.example ünvanından əlaqə saxlayın — hər mesajı real bir şəxs oxuyur.',
   'about.contactTitle': 'Bizimlə əlaqə saxlayın',
   'about.eyebrow': 'Haqqımızda',
+  'about.intro':
+    '{{app}} kiçik biznes mühasibatlığıdır və hər qəpikin hesabını aparır — fakturalar, xərclər, ödənişlər və hesabatlar sahiblər, mühasiblər və maliyyə mütəxəssisləri üçün bir sakit yerdə.',
+  'about.missionBody':
+    'Biznes idarə etmək kitablarınızdan qorxmaq demək olmamalıdır. {{app}} cədvəl qarışıqlığını üzərində işləyə biləcəyiniz aydın rəqəmlərlə əvəz edir, beləliklə uzlaşdırmaya daha az, biznesi qurmaq səbəbiniz olan işə isə daha çox vaxt ayırırsınız.',
+  'about.missionTitle': 'Missiyamız',
   'about.title': '{{app}} haqqında',
   'accounts.count': '{{count}} hesab',
+  'accounts.emptyBody':
+    'Mühasibat hesabları pulun harada olduğunu və hara hərəkət etdiyini izləyir. Mühasibiniz və ya inteqrasiya onları qurduqdan sonra burada görünürlər.',
   'accounts.emptyTitle': 'Hələ hesab yoxdur',
   'accounts.heading': 'Hesablar qrafiki',
   'accounts.kpi.accounts': 'Accounts',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Faktura, xərc və ödənişlərinizin arxasındakı hər bir mühasibat uçotu növünə görə qruplaşdırılıb.',
   'accounts.tag.inactive': 'qeyri-aktiv',
   'authBrandPanel.attributionName': 'Sara Cenkins',
+  'authBrandPanel.attributionRole': 'Baş Maliyyə Direktoru, Horizon Tech',
   'authBrandPanel.eyebrow': 'Maliyyə qrupları tərəfindən etibar edilir',
   'authBrandPanel.label': 'Brend nümayişi',
   'authBrandPanel.quote': '"Ledger gəlirləri izləmə tərzimizi dəyişdirdi. Ən yüksək dəqiqliklə."',
@@ -30,7 +40,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Bütün müştərilər',
   'customerDetail.invoiceMeta': 'Buraxılış tarixi {{issued}} · Son tarixi {{due}}',
   'customerDetail.loadError': 'Müştərini yükləmək alınmadı.',
+  'customerDetail.missingBody':
+    'Sorğulanan müştəri qeydi yüklənə bilmədi. O, silinmiş ola bilər və ya ona girişiniz olmaya bilər.',
   'customerDetail.missingHeading': 'Müştəri qeydi mövcud deyil',
+  'customerDetail.missingHelp':
+    'Müştərilərin siyahısına qayıtmaq üçün yuxarıdakı geri keçidindən istifadə edin və ya oradan başqa bir qeyd seçin.',
+  'customerDetail.noInvoices': 'Hələ ki, faktura yoxdur.',
   'customerDetail.notesEmpty': 'Hələ qeyd yoxdur.',
   'customerDetail.paymentsEmpty': 'Heç bir ödəniş qeydə alınmayıb.',
   'customerDetail.paymentTerms': 'Ödəniş şərtləri',
@@ -57,6 +72,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Çıxarıla bilən',
   'expenseDetail.detailsHeading': 'Əməliyyat təfərrüatları',
   'expenseDetail.loadError': 'Xərcləri yükləmək alınmadı.',
+  'expenseDetail.matched': 'Uyğunlaşdırıldı · {{description}}',
   'expenseDetail.missingBody':
     'Tələb olunan xərc yüklənə bilmədi. Ola bilsin ki, silinib və ya ona girişiniz yoxdur.',
   'expenseDetail.missingHeading': 'Xərc qeydi mövcud deyil',
@@ -64,6 +80,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Qəbz',
   'expenseDetail.receiptHeading': 'Qəbz',
   'expenseDetail.reconciled': 'Barışmış',
+  'expenseDetail.unreconciled': 'Barışmamış',
   'expenses.empty': 'Hələlik xərc yoxdur.',
   'expenses.heading': 'Xərclər',
   'expenses.kpi.deductible': 'Çıxarıla bilən',
@@ -99,6 +116,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Fakturaları yükləmək alınmadı.',
   'invoices.searchPlaceholder': 'Faktura nömrəsini və ya müştərini axtarın...',
   'invoices.summary.paid': 'Bu müddət ərzində ödəniş edilib',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     '30 gün pulsuz. Kart yoxdur. Mühasibinizi gətirin — sizə təşəkkür edəcəklər.',
   'landing.ctaTitle': 'Kitablarınızı daha sakit bir yerə köçürün.',
@@ -113,6 +131,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Debitor borcları',
   'ledgerStatTriad.eyebrow.mtd': 'Aydan bu günə qədər',
   'ledgerStatTriad.netSub': 'Xalis {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} gecikmiş',
   'ledgerStatTriad.revenueLabel': 'Gəlir',
   'login.failed': 'Daxil olma uğursuz oldu.',
   'login.hidePassword': 'Şifrəni gizlət',
@@ -123,6 +142,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Daxil ol',
   'nav.legal': 'Hüquqi',
   'newExpense.back': 'Xərclər',
+  'newExpense.clearReceiptCta': 'Əlavə edilmiş qəbzi təmizlə',
   'newExpense.deductible': 'Vergidən azadolma',
   'newExpense.dropPrompt': 'Əlavə etmək üçün qəbz şəklini və ya PDF faylını buraya atın.',
   'newExpense.failed': 'Xərclərə qənaət etmək mümkün olmadı.',
@@ -151,6 +171,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Ödənişləri yükləmək alınmadı.',
   'payments.unmatchedTag': 'misilsiz',
   'planUpdated.pageLabel': 'Planın təsdiqlənməsi yeniləndi',
+  'pricing.advancedFeatures': 'Qabaqcıl funksiyalar: {{yes}}',
+  'pricing.canExport': 'Məlumat ixracı: {{yes}}',
+  'pricing.heading': '{{app}} planınızı seçin',
+  'pricing.maxAccounts': '{{count}} hesab',
+  'pricing.maxExpenses': '{{count}} xərclər',
+  'pricing.maxInvoices': '{{count}} faktura',
+  'privacy.intro':
+    'Bu Məxfilik Siyasəti {{app}} xidmətindən istifadə edən bizneslər haqqında məlumatları necə topladığını, istifadə etdiyini və açıqladığını təsvir edir.',
   'privacy.lastUpdated': 'Son yenilənmə: {{tarix}}',
   'privacy.section.collected.body':
     'Hesab məlumatlarını (ad, e-poçt, şirkət), yüklədiyiniz maliyyə qeydlərini (fakturalar, xərclər, müştərilər, ödənişlər) və standart xidmət əməliyyatı qeydlərini (İP, istifadəçi agenti, zaman damğaları) toplayırıq.',
@@ -163,8 +191,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Məlumat xidməti idarə etmək, tələb etdiyiniz hesabatları və PDF-ləri yaratmaq, Mailgun vasitəsilə əməliyyat e-poçtları göndərmək və Stripe vasitəsilə ödənişləri emal etmək üçün istifadə olunur. Biz şəxsi məlumatları satmırıq və ya icarəyə vermirik.',
   'recentInvoicesCard.dueMeta': 'Ödəniləcək məbləğ {{date}}',
+  'recentInvoicesCard.empty': 'Uyğun faktura yoxdur.',
   'recentInvoicesCard.eyebrow': 'Debitor borcları',
   'recentInvoicesCard.searchAriaLabel': 'Faktura axtarın',
+  'recentInvoicesCard.searchPlaceholder': 'Fakturaları axtar…',
   'recentInvoicesCard.title': 'Son fakturalar',
   'recentInvoicesCard.viewAll': 'Bütün fakturalara baxın →',
   'reports.assets': 'Aktivlər',
@@ -180,16 +210,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Mənfəət və zərər (12 ay)',
   'resetPassword.backToLogin': '← Daxil olmağa qayıt',
   'resetPassword.hidePassword': 'Şifrəni gizlət',
+  'resetPassword.passwordLabel': 'Yeni parol',
   'resetPassword.showPassword': 'Şifrəni göstər',
+  'resetPassword.subheading': 'Güclü parol seçin — minimum səkkiz simvol.',
   'resetPassword.submit': 'Şifrəni Sıfırlayın',
   'resetPassword.tooShort': 'Şifrə ən azı 8 simvoldan ibarət olmalıdır.',
   'settings.account.changePassword': 'Şifrəni dəyişdirin',
   'settings.account.changingPassword': 'Dəyişir…',
   'settings.account.currentPassword': 'Cari parol',
+  'settings.account.dangerZone': 'Təhlükə zonası',
   'settings.account.deleteAccount': 'Hesabı silin',
   'settings.account.deleteDescription':
     'Hesabınızı və bütün əlaqəli məlumatlarınızı birdəfəlik silin.',
   'settings.account.deleteError': 'Hesabı silmək alınmadı.',
+  'settings.account.deleteWarning':
+    'Bu, hesabınızı həmişəlik silir və geri qaytarıla bilməz. Təsdiqləmək üçün parolunuzu daxil edin.',
   'settings.account.deleting': 'Silinir…',
   'settings.account.devices': 'Cihazlar',
   'settings.account.email': 'E-poçt',
@@ -200,6 +235,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Şifrə',
   'settings.account.passwordError': 'Şifrəni dəyişdirmək alınmadı.',
   'settings.account.pushNotifications': 'Bu cihazda push bildirişləri',
+  'settings.account.revokeDeviceWarning':
+    'Bu cihazın girişi tezliklə ləğv ediləcək. Çıxış edilsin?',
   'settings.account.saveError': 'Profil yenilənmədi.',
   'settings.account.security': 'Təhlükəsizlik',
   'settings.account.signOutDevice': 'Çıxış',
@@ -207,12 +244,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'İki faktorlu identifikasiya',
   'settings.account.twoFactorCode': 'Doğrulama kodu',
   'settings.account.twoFactorDisable': 'Deaktiv edin',
+  'settings.account.twoFactorDisableTitle': 'İki faktorlu autentifikasiyanı deaktiv et',
   'settings.account.twoFactorEnable': 'Aktivləşdirin',
+  'settings.account.twoFactorEnableTitle': 'İki faktorlu autentifikasiyanı aktiv et',
   'settings.account.twoFactorInvalidCode': 'Yanlış kod',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'İki faktorlu QR kodu',
+  'settings.account.twoFactorScan':
+    'Bu QR kodu autentifikator tətbiqinizlə skan edin, sonra 6 rəqəmli kodu daxil edin.',
+  'settings.account.twoFactorUnavailable':
+    'Bu tətbiq üçün iki faktorlu identifikasiya mövcud deyil.',
   'settings.account.twoFactorVerify': 'Təsdiqləyin və aktivləşdirin',
   'settings.account.unknownDevice': 'Naməlum cihaz',
   'settings.company.email': 'Faktura e-poçtu',
+  'settings.company.heading': 'Şirkət və vergi',
   'settings.company.name': 'Hüquqi ad',
   'settings.company.saveButton': 'Şirkət profilini yadda saxla',
   'settings.company.taxId': 'Vergi ID / EIN',
@@ -256,6 +301,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Təxmini rüblük',
   'taxes.kpi.owed': 'Borclu',
   'taxes.loadError': 'Vergi xülasəsini yükləmək alınmadı.',
+  'taxes.remittedPct': '({{pct}}% ödənilib)',
+  'terms.intro':
+    'Bu Xidmət Şərtləri ("Şərtlər") {{app}}-a girişinizi və ondan istifadəinizi tənzimləyir. Hesab yaratmaqla və ya xidmətdən istifadə etməklə onlarla bağlı olmağa razılaşırsınız.',
   'terms.lastUpdated': 'Son yenilənmə: {{tarix}}',
   'terms.section.acceptable.body':
     'Xidmətdən heç bir qanunu pozmaq, əqli mülkiyyət hüquqlarını pozmaq, zərərli proqram təminatı ötürmək və ya digər hesablara və ya infrastrukturumuza icazəsiz giriş əldə etməyə cəhd etmək üçün istifadə etməməyə razılaşırsınız.',

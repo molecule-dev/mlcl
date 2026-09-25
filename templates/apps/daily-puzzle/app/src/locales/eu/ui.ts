@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Iritzia duzu, akats bat aurkitu duzu, edo {{app}} zure eskolara edo taldera eraman nahi duzu? Mezu guztiak irakurtzen ditugu — jarri harremanetan zure kontuaren ezarpenetatik eta benetako pertsona batek erantzungo dizu.',
   'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Buruz',
+  'about.intro':
+    '{{app}} eguneroko hitz-joko bat da. Asmatu bost letrako hitza sei saiakeratan, mantendu zure bolada bizirik, partekatu zure emoji-sarea eta ikusi nola ibili den jendea gaurko hitzarekin.',
+  'about.missionBody':
+    'Hitz-joko on bat eguneroko garaipen txiki bat da. {{app}} egunean behin partekatutako hitz baten inguruan dago eraikita — nahikoa azkar kafe-atsedenerako, nahikoa zorrotz biharko itzultzeko.',
+  'about.missionTitle': 'Gure misioa',
   'about.title': '{{app}}(r)i buruz',
   'archive.loadError': 'Ezin izan da artxiboa kargatu.',
   'archive.missed': 'Galduta',
   'archive.notPlayed': 'Ez jokatu',
+  'archive.subhead':
+    'Jokatu berriro edozein egun iraganeko praktika gisa — boladarik gabe, estatistikarik gabe, dibertsio osoa.',
   'archive.title': 'Artxiboa',
   'auth.backToHome': 'Atzera hasierara',
   'auth.backToHomeArrow': '← Atzera hasierara',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Pasahitza ahaztu duzu?',
   'auth.login.loggingIn': 'Saioa hasten...',
   'auth.login.logIn': 'Jokatu gaurko hitza',
+  'auth.login.noAccount': 'Tesseran berria zara?',
   'auth.login.or': 'edo jarraitu honekin',
   'auth.login.password': 'Pasahitza',
   'auth.login.signInButton': 'Hasi saioa',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Gordetzen...',
   'common.sendingEllipsis': 'Bidaltzen...',
   'common.startingEllipsis': 'Hasten...',
+  'forgotPassword.subhead':
+    'Sartu zure helbide elektronikoa eta berrezartzeko esteka bat bidaliko dizugu.',
+  'forgotPassword.success.body':
+    'Kontu bat badago {{email}} , berrezartzeko esteka bat jasoko duzu minutu gutxiren buruan.',
+  'forgotPassword.success.title': 'Begiratu zure sarrera-ontzia.',
   'form.name': 'Izena',
   'howToPlay.cta.home': 'Etxera itzuli',
   'howToPlay.cta.play': 'Jokatu gaurko puzzlea',
@@ -68,10 +83,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Apurtzeko gorroto dituzun sekuentziak',
   'leaderboard.daily.title': 'Gaurko ebazpenak',
   'leaderboard.loadError': 'Ezin izan da sailkapen-taula kargatu.',
+  'leaderboard.streaks.empty': 'Oraindik ez dago boladarik — izan zaitez lehena.',
+  'leaderboard.streaks.subhead': 'Inoizko irabazi-boladarik luzeenak.',
   'leaderboard.streaks.title': 'Sekuentzia-liderrak',
+  'leaderboard.subhead': 'Nola ibili den jendea gaur, eta nork duen boladarik luzeena.',
   'leaderboard.title': 'Sailkapen-taula',
   'login.headline': 'Ongietorri berriz.',
   'login.streakPill': '{{days}} eguneko sekuentzia zain',
+  'login.subhead':
+    'Hasi saioa zure bolada bizirik mantentzeko eta ikusi nola ibili zaren gaurko hitzarekin.',
   'nav.archive': 'Artxiboa',
   'nav.editProfile': 'Editatu profila',
   'nav.getStarted': 'Hasi',
@@ -89,6 +109,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Ez dago hitzik',
   'notFound.title': 'Bide hori hutsik dago.',
   'planUpdated.message': 'Zure plana martxan dago.',
+  'planUpdated.retry': 'Saiatu berriro',
+  'planUpdated.verifyFailed': 'Ezin izan dugu oraindik zure ordainketa baieztatu.',
+  'planUpdated.verifyFailedBody':
+    'Baliteke zure ordainketa prozesatzen ari izatea oraindik. Saiatu berriro une batean.',
   'planUpdated.verifying': 'Zure ordainketa baieztatzen...',
   'play.alreadyFinished': 'Puzzle hau jadanik bukatu duzu',
   'play.answerWas': 'Hitza hau zen',
@@ -104,6 +128,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Praktika-puzzlea',
   'play.tooShort': 'Ez dira nahikoa letra',
   'play.won': 'Ebatzi duzu!',
+  'pricing.advancedStats': 'Estatistika aurreratuak: {{yes}}',
+  'pricing.archiveHistory': '{{count}} eguneko artxibo-historia',
+  'pricing.archivePlays': '{{count}} artxibo-erreprodukzio / egun',
+  'pricing.archiveUnlimited': 'Artxibo-historia mugagabea',
+  'pricing.canExport': 'Datuen esportazioa: {{yes}}',
+  'pricing.checkoutError': 'Ezin izan da ordainketa hasi. Saiatu berriro.',
   'pricing.dailyWord': 'Eguneko hitza',
   'pricing.heading': 'Aukeratu zure {{app}} plana',
   'pricing.included': 'Barne',
@@ -111,7 +141,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Eguneko hitza beti doan da. Eguneratu artxibo-errepikapen mugagabeetarako eta estatistika sakonagoak lortzeko.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}}k zure pribatutasuna errespetatzen du. Orri honek gordetzen ditugun datuak, zergatik gordetzen ditugun eta nola ezabatu laburbiltzen du.',
   'privacy.title': 'Pribatutasun-oharra',
+  'resetPassword.subhead': 'Aukeratu pasahitz berri bat zure boladara itzultzeko.',
   'settings.account': 'Kontua',
   'settings.danger.body': 'Kendu betiko zure {{appName}} kontua eta puzzle-historia guztia.',
   'settings.danger.confirm': 'Bai, ezabatu betiko',
@@ -120,17 +153,24 @@ export const ui: UiTranslations = {
   'settings.guest': 'Gonbidatua',
   'settings.language.title': 'Hizkuntza',
   'settings.subhead': 'Doitu zure profila, soinua eta sailkapen-taulan nola agertzen zaren.',
+  'settings.unnamed': 'Sparq jokalaria',
   'settings.upgrade': 'Eguneratu',
   'signup.eyebrow': 'Betiko doan — eguneko hitz bat',
   'signup.headline': 'Hasi zure sekuentzia.',
+  'signup.subhead':
+    'Sortu {{appName}} kontu bat eguneroko hitza jokatzeko, bolada bat eraikitzeko eta sailkapenean gora egiteko.',
   'stats.currentStreak': 'Sekuentzia',
   'stats.distribution.title': 'Asmaketen banaketa',
   'stats.loadError': 'Ezin izan dira zure estatistikak kargatu.',
   'stats.maxStreak': 'Gehieneko sekuentzia',
   'stats.played': 'Jokatuta',
   'stats.playToday': 'Jokatu gaurko puzzlea',
+  'stats.subhead':
+    'Sailkatutako eguneroko hitz-jokoak soilik — artxiboko praktikak ez du inoiz balio.',
   'stats.title': 'Zure estatistikak',
   'stats.winRate': 'Irabazpen-tasa',
   'status.monthly': 'Hilekoa',
+  'terms.intro':
+    '{{app}} erabiliz gero, beheko arauak onartzen dituzu. Onartu ezin badituzu, mesedez ez erabili zerbitzua.',
   'terms.title': 'Zerbitzu-baldintzak',
 }

@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Unombuzo, uthole iphutha, noma ufuna idemo lethimba lakho? Xhumana nathi kusukela kuzilungiselelo ze-akhawunti yakho — yonke imiyalezo ifinyelela kumuntu wangempela ethimbeni.',
   'about.contactTitle': 'Xhumana nathi',
+  'about.intro':
+    'I-{{app}} iguqula izinqwaba zamadokhumenti askeniwe nama-PDF zibe idatha ehlelekile, eseshekayo, egcinwe efayeleni. Faka ama-invoyisi, amarisidi, izinkontileka, noma amafomu bese uvumela i-AI iwafunde, ikhiphe okuqukethwe, iwahlukanise, futhi iwagcine — ngemibala yokuzethemba ukuze ithimba lakho lihlole kuphela lokho okudinga umuntu ngempela.',
+  'about.missionBody':
+    'Umsebenzi wedokhumenti ongadingekile akufanele udle usuku lwethimba lakho. Sikholelwa ukuthi yonke inani elikhishiwe kufanele lichazwe futhi lihlolwe — ukuze uthembe ukuzenzakalela ngaphandle kokulahlekelwa umkhondo wamaphepha. I-{{app}} yakhelwe ukonga amahora ngesiqwaba ngasinye kuyilapho igcina umuntu esemjikelezweni lapho kubalulekile.',
+  'about.missionTitle': 'Umsebenzi wethu',
+  'about.subtitle':
+    'I-OCR, ukukhipha nge-AI, ukuhlukanisa, nokugcinwa okuzenzakalelayo kwamadokhumenti akho.',
   'about.title': 'Mayelana ne-{{app}}',
+  'about.whatYouGetTitle': 'Lokho okutholayo',
   'authShell.backToLanding': '← Buyela ekufikeni',
   'common.goToDashboard': 'Yiya ku-Dashboard',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Namuhla · Ukubuka konke kokusebenza',
   'dashboard.heading': 'Ubuhlakani bedokhumenti',
+  'dashboard.metric.accuracy': 'Ukunemba okumaphakathi',
   'dashboard.metric.filed': 'Kufakwe namuhla',
   'dashboard.metric.filedCaption': 'Kuhanjiswa ngemithetho yokufaka',
   'dashboard.metric.processed': 'Kucutshungulwe namuhla',
@@ -23,11 +34,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'Kulayishiwe',
   'dashboard.recent.heading': 'Amadokhumenti akamuva',
+  'dashboard.recent.typeUnknown': 'Kulindwe ukuhlukaniswa',
   'dashboard.subheading':
     'Ikhasi ngalinye lihlukaniswe, likhishwe, futhi lifakwe — ngemibala yokuzethemba ngakho ukubuyekezwa kuhlala kugxile.',
   'documentDetail.audit.heading': 'Uhlu lwesikhathi lokuhlola',
+  'documentDetail.audit.subheading':
+    'Zonke izinyathelo ezithathiwe kulo dokhumenti, kanye nomuntu obhekene nazo.',
   'documentDetail.back': 'Yonke imibhalo',
   'documentDetail.downloadHint': 'Sebenzisa ukulanda ukuze uvule ifayela lokuqala.',
+  'documentDetail.extracted.empty': 'Awekho amasimu akhishiwe okwamanje.',
   'documentDetail.extracted.heading': 'Izinkambu ezikhishiwe',
   'documentDetail.extracted.subheading':
     '{{count}} amasimu · chofoza noma iyiphi insimu ukuze ugqamise ekhasini',
@@ -55,13 +70,23 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Sesha amadokhumenti…',
   'documents.subheading': '{{count}} amadokhumenti kulabhulali yakho, ahlelwe kabusha kuqala.',
   'documents.uploadCta': 'Layisha amadokhumenti',
+  'documentTypeBreakdown.barAria': 'Ukwakheka kwamadokhumenti ngohlobo',
   'documentTypeBreakdown.empty': 'Awekho amadokhumenti acutshunguliwe okwamanje.',
   'documentTypeBreakdown.subtitle': '{{total}} kucutshungulwe',
   'documentTypeBreakdown.title': 'Ukwakheka kwedokhumenti',
+  'forgotPassword.backToSignIn': '← Buyela emuva ukuze ungene ngemvume',
   'forgotPassword.checkEmail': 'Hlola i-imeyili yakho',
   'forgotPassword.tip': 'Awuzange ukuthole? Hlola ugaxekile noma zama ikheli elihlukile.',
+  'landing.copyright': '© {{year}} {{app}}. Yakhelwe amathimba okusebenza ahlola lonke ikhasi.',
+  'landing.ctaBody':
+    'Uhlelo lwezinsuku ezingu-14. Akukho khadi elidingekayo. Khansela noma nini. Yakhelwe amathimba okusebenza ahamba ngokushesha futhi ahlola kancane.',
   'landing.ctaHeading': 'Yeka ukuthayipha amarisidi. Qala ukuwafaka.',
   'landing.eyebrow': 'I-OCR · Ukukhipha · Ukufaka i-AI',
+  'landing.featuresHeading': 'Ubuhlakani bedokhumenti obuzichaza ngokwabo',
+  'landing.heroSubtitle':
+    'Faka isiqwaba sama-invoyisi, amarisidi, izinkontileka, noma amafomu. I-{{app}} iyahlukanisa, ikhiphe okuqukethwe, futhi iwagcine — ngemibala yokuzethemba ukuze ithimba lakho lihlole kuphela lokho okudinga umuntu ngempela.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Umthamo wansuku zonke · izinsuku ezi-7 ezedlule',
   'landing.sampleCardLabel': 'Amadokhumenti acutshungulwe namuhla',
   'landing.sampleCardSubtitle':
     'Ukunemba okumaphakathi okungu-96.2% kuwo wonke ama-invoyisi, amarisidi, namafomu.',
@@ -75,6 +100,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Vula ikhasi lokufikela',
   'notFound.title': 'Lelo khasi alikho efayeleni',
+  'parcelaHeroCard.accuracy': 'Ukunemba okumaphakathi {{value}}% kukho konke ukukhipha',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % uma kuqhathaniswa nosuku lwayizolo',
   'parcelaHeroCard.title': 'Amadokhumenti acutshungulwe namuhla',
   'parcelaLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
@@ -82,6 +108,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'imibhalo',
   'pricing.processingLabel': 'imisebenzi yokucubungula',
   'resetPassword.confirmPlaceholder': 'Phinda iphasiwedi entsha',
+  'resetPassword.hidePassword': 'Fihla iphasiwedi',
   'resetPassword.passwordLabel': 'Iphasiwedi Entsha',
   'resetPassword.showPassword': 'Bonisa iphasiwedi',
   'resetPassword.subtitle': 'Khetha into okungenani enezinhlamvu ezingu-8 ubude.',
@@ -99,10 +126,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Yehlulekile ukulayisha imithetho.',
   'rules.loading': 'Ilayisha imithetho…',
   'rules.matched30d': '{{count}} amadokhumenti afanayo ezinsukwini ezingu-30 ezedlule',
+  'rules.neverUsed': 'Akukaze kusetshenziswe',
   'rules.newRule': 'Umthetho omusha',
   'rules.saveError': 'Yehlulekile ukulondoloza umthetho.',
   'rules.subheading':
     'Tshela uhlelo ukuthi uhlobo ngalunye lwedokhumenti kufanele luye kuphi. Izimo zilandelana kusukela phezulu kuya phansi — ukunqoba komdlalo wokuqala.',
+  'rules.templatesEmpty': 'Awekho amathuluzi okukhipha okwamanje.',
   'rules.templatesHeading': 'Amathempulethi okukhipha',
   'rules.templatesSubheading':
     'Ama-field schema asetshenziswa yi-extractor kuhlobo ngalunye lwedokhumenti.',
@@ -112,17 +141,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Igama lendawo yokusebenza',
   'settings.account.subheading':
     'Bonisa igama kanye ne-imeyili eyinhloko yezaziso kanye nomlando wokuhlola.',
+  'settings.api.confirmRevoke': 'Qinisekisa?',
   'settings.api.copyOnce': 'Kopisha lesi sihluthulelo — ngeke siphinde siboniswe',
   'settings.api.createdOn': 'Kudalwe {{date}}',
   'settings.api.empty': 'Azikho izinkinobho ze-API okwamanje. Khiqiza eyodwa ngenhla.',
   'settings.api.error': 'Yehlulekile ukudala ukhiye.',
+  'settings.api.generating': 'Iyakhiqiza…',
+  'settings.api.heading': 'Okhiye be-API',
   'settings.api.labelPlaceholder': 'Ilebula lokhiye (isb. umlayishi we-CI)',
+  'settings.api.loading': 'Kulayishwa okhiye…',
   'settings.api.newKey': 'Khiqiza ukhiye',
   'settings.api.subheading':
     'Sebenzisa lokhu ukuze ucindezele amadokhumenti kusuka kuskripthi noma ku-ERP yakho. Zungezisa noma yimuphi ukhiye nganoma yisiphi isikhathi.',
   'settings.integrations.heading': 'Ukuhlanganiswa kokufaka',
   'settings.integrations.subheading':
     'Thumela amadokhumenti afakiwe ku-cloud drive noma ithuluzi lokuxoxa ithimba lakho elivele lihlala kulo.',
+  'settings.subheading':
+    'Phatha i-akhawunti, okhiye be-API, nokuxhumana kokugcina kwewokisiphethi yakho ye-{{app}}.',
+  'signup.hidePassword': 'Fihla iphasiwedi',
   'signup.identityPrompt': 'Kufanele sikubize kanjani?',
   'signup.showPassword': 'Bonisa iphasiwedi',
   'signup.subtitle': 'Izinsuku ezingu-14 zamahhala, akukho khadi elidingekayo.',
@@ -130,6 +166,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Ukulayisha kuhlulekile.',
   'upload.eyebrow': 'Ukungenisa',
   'upload.heading': 'Layisha amadokhumenti',
+  'upload.queue.clear': 'Susa okugcwalisiwe',
   'upload.queue.col.confidence': 'Ukuzethemba',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Iyathola…',
@@ -142,5 +179,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Noma lahla amafayela amaningi ngesikhathi esisodwa ukuze kukhishwe inqwaba, kuhlukaniswe, futhi kufakwe amafayela.',
   'uploadDropZone.cta': 'Khetha amafayela',
+  'uploadDropZone.maxSize': 'Okungenani 25 MB ngefayela · Kubethelwe ngokuphelele',
   'uploadDropZone.title': 'Lahla amadokhumenti ukuze uqale ukucubungula',
 }

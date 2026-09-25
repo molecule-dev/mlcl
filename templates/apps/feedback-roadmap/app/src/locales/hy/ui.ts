@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ունե՞ք արձագանք, գտե՞լ եք սխալ, թե՞ ուզում եք ձեր սեփական տախտակը {{appName}}-ում։ Բացեք Կարգավորումները՝ թիմին հասնելու համար — ամեն հաղորդագրություն հասնում է իրական մարդու, որը կարդում է այն։',
+  'about.contactTitle': 'Կապվեք մեզ հետ',
+  'about.featureModeration':
+    'Հանրային ճանապարհային քարտեզ՝ եռամսյակների պիտակներով, փոփոխությունների մատյան, որը թողարկված աշխատանքը վերածում է թողարկման նշումների, և վահանակ, որը ցույց է տալիս, թե ինչն է ամենաշատը պահանջվում։',
+  'about.featurePricing':
+    'Անվճար կարող եք վարել մի քանի տախտակ. Pro և Team փաթեթները բացում են ավելի շատ տախտակներ, ավելի բարձր սահմանաչափեր և տվյալների արտահանում։',
+  'about.featureThreads':
+    'Հանրային արձագանքների տախտակներ՝ ըստ թեմաների, կրկնօրինակների միաձուլմամբ, որը ձայները հավաքում է մեկ ազնիվ պահանջարկի ազդանշանի մեջ։',
+  'about.featureVoting':
+    'Մեկ ձայն մեկ օգտատիրոջ համար քվեարկություն՝ ամբողջական կարգավիճակի հոսքով — բաց, պլանավորված, ընթացքի մեջ, թողարկված կամ մերժված — և պաշտոնական պատասխան յուրաքանչյուր որոշման համար։',
+  'about.intro':
+    '{{appName}}-ը արտադրանքի արձագանքների հարթակ է — հանրային տախտակներ, որտեղ հաճախորդները տեղադրում են հարցումներ, քվեարկում իրենց անհրաժեշտի օգտին և հետևում յուրաքանչյուր գաղափարին՝ պլանավորվածից մինչև թողարկված։ Թիմերն այլևս չեն գուշակում, թե ինչ կառուցել հետո, որովհետև պահանջարկն ինքն է դասակարգվում։',
+  'about.missionBody':
+    'Մենք հավատում ենք, որ լավագույն արտադրանքային որոշումները կայացվում են բացահայտ։ {{appName}}-ը յուրաքանչյուր թիմի տալիս է քվեարկված հարցումների հանրային տախտակ, պաշտոնական ճանապարհային քարտեզ՝ նպատակային եռամսյակներով, և փոփոխությունների մատյան, որը փակում է շրջանը — այնպես որ հաճախորդները տեսնում են իրենց ազդեցությունը, իսկ թիմերը՝ իրենց մանդատը։',
+  'about.missionTitle': 'Մեր առաքելությունը',
   'admin.backToBoards': 'Վերադառնալ տախտակներին',
   'admin.denied': 'Միայն ադմինիստրատորների համար։',
   'admin.eyebrow': 'Ապրանքի թիմ',
@@ -11,6 +27,8 @@ export const ui: UiTranslations = {
   'admin.title': 'Հետադարձ կապի վահանակ',
   'admin.topOpen': 'Լավագույն բաց հարցումները',
   'admin.totalVotes': '{{count}} ընդամենը',
+  'admin.votesChartLabel':
+    'Վերջին ութ շաբաթվա ընթացքում շաբաթական տրված ձայների սյունակային դիագրամ',
   'admin.votesOverTime': 'Քվեարկությունները ժամանակի ընթացքում',
   'auth.forgotPassword.email': 'Էլ․ փոստ',
   'auth.forgotPassword.sendResetLink': 'Ուղարկել վերականգնման հղում',
@@ -30,7 +48,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Ստեղծել ձեր հաշիվը',
   'auth.username': 'Մուտքանուն',
   'authShell.communities': 'Համայնքներ',
+  'authShell.copyright': '{{appName}} — ամեն ձայն հաշվի է առնվում։',
   'authShell.trending': 'Հայտնի',
+  'boardCard.postCount': '{{count}} գրառում',
   'boardDetail.allBoards': 'Բոլոր տախտակները',
   'boardDetail.backToBoards': 'Վերադառնալ տախտակներին',
   'boardDetail.empty': 'Այս ֆիլտրերին համապատասխանող գրառումներ դեռ չկան։',
@@ -54,6 +74,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Յուրաքանչյուր գրառում սկսվել է որպես քվեարկված հարցում։ Քվեարկողները տեսել են դրա տեղաշարժը, այստեղ է, որ այն վերջացել է։',
   'changelog.title': 'Իրականացվել է՝ ապացույցներով',
+  'changelog.voteCount': '{{count}} ձայն կառուցեց սա',
   'common.atLeast8Characters': 'Առնվազն 8 նիշ',
   'common.checkYourInbox': 'Ստուգեք ձեր փոստարկղը',
   'common.loadingEllipsis': 'Բեռնում…',
@@ -64,6 +85,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Ուղարկում…',
   'footer.about': '{{appName}}-ի մասին',
   'footer.language': 'Լեզու',
+  'forgotPassword.description':
+    'Մուտքագրեք ձեր էլ. փոստը, և մենք ձեզ կուղարկենք հղում՝ վերագործարկելու համար։',
+  'forgotPassword.successBody':
+    'Մենք վերակայման հղում ուղարկեցինք հետևյալ հասցեին՝ {{email}} Այն լրանում է 30 րոպեից։',
   'forgotPassword.tryAnother': 'Փորձեք մեկ այլ էլ․ փոստ',
   'form.displayName': 'Ցուցադրվող անուն',
   'form.firstName': 'Անուն',
@@ -74,6 +99,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'Ձեր ճանապարհային քարտեզը, հիմնված քվեարկությունների վրա։',
   'landing.heroCtaPrimary': 'Սկսել հավաքել քվեարկություններ',
   'landing.heroCtaSecondary': 'Տեսնել ուղիղ տախտակ',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Դադարեք գուշակել։ Թողարկեք այն, ինչի օգտին քվեարկում են։',
+  'landing.heroLede':
+    '{{appName}}-ը ցրված ֆունկցիաների հարցումները վերածում է քվեարկված գաղափարների հանրային տախտակի, պաշտոնական ճանապարհային քարտեզի և փոփոխությունների մատյանի, որը ձեր հաճախորդները իրոք կարդում են։',
   'landing.heroStat1': '3,200+',
   'landing.heroStat1Label': 'Թիմեր՝ լսում են',
   'landing.heroStat2': '1.4m',
@@ -85,9 +114,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Փոփոխությունների մատյան',
   'landing.navJoin': 'Միանալ {{appName}}-ին',
   'landing.navRoadmap': 'Ճանապարհային քարտեզ',
+  'landing.step1Body':
+    'Հաճախորդները գաղափարներ են տեղադրում հանրային տախտակներում։ Կրկնօրինակները միաձուլվում են, ձայները հավաքվում են, և պահանջարկն ինքն է դասակարգվում։',
   'landing.step1Title': 'Հավաքել',
+  'landing.step2Body':
+    'Նշեք հարցումները որպես պլանավորված կամ ընթացքի մեջ՝ նպատակային եռամսյակով — ճանապարհային քարտեզը թարմացվում է հենց այդ պահին։',
+  'landing.step2Title': 'Կատարել',
   'landing.step3Body':
     'Իրականացված գրառումները դառնում են փոփոխությունների մատյանի գրառումներ, և յուրաքանչյուր քվեարկող տեսնում է արդյունքը իր ցանկում։',
+  'landing.step3Title': 'Թողարկել',
   'landing.topSubtitle': 'Ուղիղ այս տախտակից՝ մուտք գործեք ձեր քվեն ավելացնելու համար։',
   'landing.topTitle': 'Այն, ինչ օգտատերերը այս պահին խնդրում են',
   'landing.topViewAll': 'Բոլոր տախտակները',
@@ -95,14 +130,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Հիմնական',
   'layout.signUp': 'Գրանցվել',
   'layout.submit': 'Ուղարկել հետադարձ կապ',
+  'login.description': 'Շարունակեք զրույցը այնտեղից, որտեղ ավարտվեց։',
+  'login.heading': 'Մուտք գործեք Nimbus-ում',
+  'login.noAccount': 'Նորեկ եք այստեղ՞',
   'login.passwordPlaceholder': 'Ձեր գաղտնաբառը',
   'login.twoFactorLabel': '2FA կոդ (ըստ ցանկության)',
   'login.twoFactorPlaceholder': '6-նիշանոց կոդ',
+  'login.twoFactorRequiredHint':
+    'Այս հաշվում միացված է երկգործոն նույնականացումը։ Շարունակելու համար մուտքագրեք ձեր նույնականացուցիչ հավելվածի 6-նիշանոց կոդը։',
   'login.twoFactorRequiredLabel': 'Մուտքագրեք ձեր 2FA կոդը',
+  'myActivity.browseCta': 'Դիտել տախտակները',
+  'myActivity.emptyPosts': 'Դուք դեռ հարցում չեք տեղադրել։',
+  'myActivity.emptyVotes': 'Դեռ ոչինչ — դիտեք տախտակները և պաշտպանեք մի գաղափար։',
   'myActivity.eyebrow': 'Ձեր գործունեությունը',
   'myActivity.loadError': 'Չհաջողվեց բեռնել ձեր գործունեությունը։',
   'myActivity.postsTitle': 'Ձեր ուղարկած հարցումները',
+  'myActivity.shippedNote': '{{count}}-ը թողարկվել է — շնորհակալություն հուշելու համար։',
   'myActivity.submitCta': 'Հրապարակել հարցում',
+  'myActivity.tabLabel': 'Դիտել',
   'myActivity.tabPosts': 'Իմ գրառումները',
   'myActivity.tabVotes': 'Իմ քվեարկությունները',
   'myActivity.votesTitle': 'Հարցումներ, որոնց դուք քվեարկել եք',
@@ -137,8 +182,13 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Գրառումը չի գտնվել',
   'postsAdmin.backToDashboard': 'Կառավարման վահանակ',
   'postsAdmin.eyebrow': 'Ապրանքի թիմ',
+  'postsAdmin.mergeApplied':
+    'Միաձուլված — {{votes}} ձայն և {{comments}} մեկնաբանություն տեղափոխվեց։',
   'postsAdmin.mergeApply': 'Միացնել և տեղափոխել քվեարկությունները',
   'postsAdmin.mergeChoose': 'Ընտրել թիրախային գրառում…',
+  'postsAdmin.mergeFailed': 'Միաձուլումը ձախողվեց։',
+  'postsAdmin.mergeHint':
+    'Ձայները հավաքվում են (մեկը մեկ օգտատիրոջ համար), մեկնաբանությունները տեղափոխվում են, և այս գրառումը ստանում է «տեղափոխված» նշում։',
   'postsAdmin.mergeLabel': 'Միացնել կրկնօրինակը',
   'postsAdmin.responseLabel': 'Պաշտոնական պատասխան',
   'postsAdmin.responsePlaceholder':
@@ -154,7 +204,13 @@ export const ui: UiTranslations = {
     'Սահմանեք պաշտոնական կարգավիճակը, հրապարակայնորեն պատասխանեք, նշեք ճանապարհային քարտեզի եռամսյակը և միացրեք կրկնօրինակները։',
   'postsAdmin.title': 'Կառավարել հետադարձ կապի գրառումները',
   'postsAdmin.votes': '{{count}} քվեարկություն',
+  'pricing.limits.advancedFeatures': 'Ընդլայնված հնարավորություններ՝',
+  'pricing.limits.boards': '{{count}} տախտակներ',
   'pricing.limits.export': 'Տվյալների արտահանում՝',
+  'pricing.limits.posts': '{{count}} արձագանքների գրառում',
+  'pricing.limits.votes': '{{count}} քվեարկություն',
+  'resetPassword.description':
+    'Ընտրեք ուժեղ մեկը։ Մենք ձեզ կմուտքագրենք, երբ վերագործարկումը հաջողվի։',
   'resetPassword.newPasswordLabel': 'Նոր գաղտնաբառ',
   'resetPassword.tokenPlaceholder': 'Տեղադրեք հղման կոդը',
   'roadmap.cardMeta': '{{author}}-ի կողմից · {{board}}',
@@ -170,6 +226,7 @@ export const ui: UiTranslations = {
   'search.empty': 'Որոնմանը համապատասխանող հարցումներ չկան։',
   'search.hint': 'Մուտքագրեք հարցում՝ կրկնօրինակ հրապարակելուց առաջ գտնելու առկա հարցումները։',
   'search.loadError': 'Որոնումը ձախողվեց՝ փորձեք կրկին։',
+  'search.searching': 'Որոնում…',
   'search.submit': 'Որոնում',
   'search.submitNew': 'Հրապարակել որպես նոր հարցում',
   'search.title': 'Որոնել հետադարձ կապ',
@@ -178,12 +235,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'Վճարում',
   'settings.displaySubtitle': 'Ընտրեք, թե որքան խիտ են տվյալահոսքերը։',
   'settings.displayTitle': 'Ցուցադրում',
+  'settings.emailDigestDesc': 'Ամեն երկուշաբթի ամենաշատ ձայն ստացած բաց հարցումները։',
+  'settings.emailDigestLabel': 'Շաբաթական ամփոփագիր',
+  'settings.emailMentionsDesc': 'Երբ ինչ-որ մեկը պատասխանում է ձեր հետևած գրառմանը։',
+  'settings.emailMentionsLabel': 'Ուղարկել ինձ էլ. նամակ հիշատակումների դեպքում',
+  'settings.emailRepliesDesc': 'Թեմաներ, որոնք դուք սկսել կամ պատասխանել եք։',
+  'settings.emailRepliesLabel': 'Գրեք ինձ էլ.փոստով պատասխանների մասին տեղեկանալու համար։',
   'settings.loadError': 'Չհաջողվեց բեռնել ձեր հաշիվը։',
   'settings.loading': 'Բեռնում են ձեր կարգավորումները…',
   'settings.notifications': 'Ծանուցումներ',
   'settings.notificationsSubtitle':
     'Որոշեք, թե ինչը հասնի ձեր փոստարկղին՝ ի տարբերություն ձեր ծանուցումների սարքի։',
+  'settings.pushRepliesLabel': 'Ծանուցում պատասխանների համար',
+  'settings.pushVotesDesc': 'Շեմային ծանուցում 100, 500, 1000-ի դեպքում։',
+  'settings.pushVotesLabel': 'Հպեք դրական քվեարկության փուլերին',
   'settings.saveAccount': 'Պահպանել հաշիվը',
+  'settings.showFlair': 'Ցուցադրել տախտակի պիտակները գրառումների վրա',
+  'settings.showThumbnails': 'Ցուցադրել հղումների/պատկերների մանրապատկերները',
   'settings.usernamePlaceholder': 'Ընտրեք մուտքանուն',
   'signup.confirmPlaceholder': 'Մուտքագրեք կրկին',
   'signup.description': 'Ձևավորեք այն, ինչ մենք կառուցում ենք հաջորդը։',

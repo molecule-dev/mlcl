@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '¿Encontraste un bug, tienes una solicitud de función o quieres decirnos qué construir después? Escribe a hello@pylon.dev — cada mensaje llega a un ingeniero real del equipo.',
   'about.contactTitle': 'Habla con nosotros',
+  'about.intro':
+    '{{app}} es un banco de pruebas de API rápido y nativo de teclado para ingenieros que viven en la terminal — peticiones estilo Postman, colecciones, entornos e historial sin la hinchazón.',
+  'about.missionBody':
+    'Las APIs son la columna vertebral del software moderno, pero las herramientas para ejercitarlas son lentas, hinchadas y dependientes del ratón. {{app}} existe para dar a los desarrolladores un banco de trabajo afilado, rápido y de nivel terminal: lanza peticiones, forja confianza y despliega sin dejar el teclado.',
+  'about.missionTitle': 'Nuestra misión',
   'about.pageTitle': 'Acerca de {{app}}',
   'authShell.statusLabel': 'runners en línea',
   'collections.createError': 'No se pudo crear la colección.',
   'collections.defaultName': 'Colección sin título {{n}}',
+  'collections.empty':
+    'Aún no hay colecciones — haz clic en “Nueva colección” para crear tu primera carpeta.',
   'collections.eyebrow': '$ pylon collections --tree',
   'collections.fetchError': 'No se pudieron cargar las colecciones.',
   'collections.heading': 'Colecciones',
   'collections.loading': 'Cargando colecciones…',
+  'collections.metric.allGreen': 'Todo en verde',
   'collections.metric.collections': 'Colecciones',
   'collections.metric.failing': 'Fallando',
   'collections.metric.failingCaption': 'La última ejecución tuvo fallos',
@@ -24,6 +34,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Variables',
   'environments.createError': 'No se pudo crear el entorno.',
   'environments.defaultName': 'Entorno sin título {{n}}',
+  'environments.empty': 'Aún no hay entornos — haz clic en “Nuevo entorno” para añadir uno.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'No se pudieron cargar los entornos.',
   'environments.heading': 'Entornos',
@@ -31,8 +42,11 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Nuevo entorno',
   'environments.subheading':
     'Variables que se intercambian en las solicitudes al enviarlas. Un entorno activo por espacio de trabajo.',
+  'forgotPassword.statusLabel': 'restablecer · túnel seguro',
   'forgotPassword.success':
     'Si existe una cuenta para ese correo, el enlace de restablecimiento ya está en camino. Revisa tu bandeja de entrada.',
+  'history.empty':
+    'Aún no hay nada aquí — lanza tu primera petición desde la pestaña Espacio de trabajo.',
   'history.eyebrow': '$ pylon history --tail',
   'history.fetchError': 'No se pudo cargar el historial.',
   'history.heading': 'Historial de ejecuciones',
@@ -41,9 +55,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Últimas 50',
+  'history.realtime': 'tiempo real',
   'history.subheading':
     'Cada solicitud lanzada en este espacio de trabajo, con estado, latencia y tamaño del payload.',
   'landing.choosePlan': 'Elegir plan',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Forge confidence.',
   'landing.ctaBody':
     'Sin tarjeta de crédito. Sin ingeniero de plataforma. Abre ⌘K y envía tu primera solicitud en menos de cinco minutos.',
   'landing.ctaHeading': 'Forja confianza.',
@@ -85,6 +101,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Latencia media',
   'mocks.metric.live': 'Públicos',
   'mocks.metric.servers': 'Mocks',
+  'mocks.ms': 'ms',
   'mocks.newMock': 'Nuevo mock',
   'mocks.online': 'Público',
   'mocks.paused': 'Privado',
@@ -108,9 +125,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Saludable',
   'monitors.metric.uptime': 'Uptime medio',
   'monitors.newMonitor': 'Nuevo monitor',
+  'monitors.paused': 'pausado',
   'monitors.run': 'Ejecutar',
   'monitors.runError': 'La ejecución terminó con un error de red: {{error}}',
+  'monitors.runFailed': 'La ejecución falló.',
   'monitors.running': 'Ejecutando…',
+  'monitors.runSuccess': 'Ejecutar {{status}} — el upstream devolvió {{code}} en {{ms}}ms.',
   'monitors.sparkLabel': 'Tendencia de latencia',
   'monitors.subheading':
     'Comprobaciones bajo demanda para cualquier test guardado. Vincula un test, pulsa Ejecutar y observa cómo la tasa de éxito de 24 horas se actualiza con cada disparo.',
@@ -119,27 +139,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Uptime · 24h',
   'nav.legal': 'Legal',
   'notFound.backToWorkspace': 'Volver al espacio de trabajo',
+  'notFound.body':
+    '{{app}} lanzó una petición para esta URL y no recibió nada. Verifica la ruta o vuelve al espacio de trabajo.',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Ruta no encontrada',
+  'planUpdated.body':
+    'Tu cambio de facturación ya está activo. Puedes gestionar tu plan en cualquier momento desde la página de facturación.',
+  'planUpdated.retry': 'Intentar de nuevo',
+  'planUpdated.verifyFailed': 'Todavía no hemos podido confirmar su pago.',
+  'planUpdated.verifyFailedBody':
+    'Es posible que tu pago aún se esté procesando. Inténtalo de nuevo en un momento.',
   'planUpdated.verifying': 'Confirmando tu pago…',
+  'pricing.advancedFeatures': 'Funciones avanzadas: {{yes}}',
+  'pricing.canExport': 'Exportación de datos: {{yes}}',
+  'pricing.heading': 'Elige tu plan de {{app}}',
+  'pricing.maxCollections': '{{count}} colecciones',
+  'pricing.maxEnvironments': '{{count}} entornos',
+  'pricing.maxHistory': '{{count}} entradas de historial',
+  'pricing.maxRequests': '{{count}} solicitudes',
   'privacy.collect.account':
     'Cuenta: tu correo, contraseña con hash, nombre visible y la marca de tiempo del último inicio de sesión.',
+  'privacy.intro':
+    '{{app}} respeta tu privacidad. Esta página resume los datos que recopilamos, por qué los recopilamos y cómo eliminarlos.',
   'privacy.rights.body':
     'Puedes exportar tus colecciones y entornos en cualquier momento, o eliminar tu cuenta desde Ajustes para borrar permanentemente todos los datos en un plazo de 30 días.',
   'privacy.share.body':
     'Solo tú. Nunca vendemos, compartimos ni alquilamos el contenido de tu espacio de trabajo a terceros. Los registros del servidor se conservan durante 30 días para respuesta a incidentes y luego se eliminan.',
   'privacy.title': 'Aviso de privacidad',
+  'profile.bio':
+    'Tu espacio de trabajo personal de {{app}} — fija colecciones, comparte entornos y monitoriza las APIs que entregan producto.',
   'profile.eyebrow': '@{{handle}}',
   'profile.joined': 'se unió {{when}}',
+  'profile.metric.collections': 'Colecciones',
   'profile.metric.monitors': 'Monitores',
   'profile.metric.requests': 'Solicitudes guardadas',
+  'profile.noActivity':
+    'Aún no se ha lanzado ninguna petición — ve a la pestaña Espacio de trabajo para hacer una.',
   'profile.signedOut': 'Inicia sesión para ver tu perfil',
   'pylonShell.primaryNavLabel': 'Navegación principal',
+  'resetPassword.passwordLabel': 'Nueva contraseña',
+  'resetPassword.statusLabel': 'restablecer · token verificado',
   'resetPassword.subtitle': 'Elige una contraseña fuerte que no hayas usado antes.',
   'resetPassword.tokenPlaceholder': 'pegar desde el correo',
+  'settings.accountManagement.desc':
+    'Actualiza tu correo y contraseña, gestiona notificaciones y dispositivos, cierra sesión o elimina tu cuenta.',
+  'settings.accountManagement.title': 'Cuenta y seguridad',
   'settings.eyebrow': '$ pylon settings --edit',
   'settings.fetchError': 'No se pudieron cargar los ajustes.',
   'settings.language.title': 'Idioma',
+  'settings.seeding': 'Inicializando…',
   'settings.seedStarter': 'Sembrar contenido inicial',
   'settings.starterCollection': 'Colección inicial',
   'settings.starterCollectionDesc': 'Creada desde Ajustes el {{ts}}',
@@ -153,6 +201,8 @@ export const ui: UiTranslations = {
     'Eres responsable de salvaguardar tu contraseña. Compartir una cuenta con varias personas no está permitido en los planes Free o Pro — adquiere una suscripción Team para espacios de trabajo compartidos.',
   'terms.billing.body':
     'Las suscripciones de pago se renuevan automáticamente cada período de facturación. Cancela desde Ajustes en cualquier momento; tu acceso continúa hasta el final del período actual.',
+  'terms.intro':
+    'Al crear una cuenta de {{app}} aceptas los términos a continuación. Léelos una vez; no te sorprenderemos con cambios retroactivos.',
   'terms.title': 'Términos de servicio',
   'terms.usage.body':
     'No uses Pylon para disparar solicitudes a servicios que no posees o para los que no tienes permiso explícito de probar. No uses Pylon para eludir límites de tasa o cometer fraude.',
@@ -173,17 +223,23 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'No ejecutadas',
   'testRunner.metric.passed': 'Pasadas',
   'testRunner.never': 'Nunca ejecutado',
+  'testRunner.newTest': 'Nueva prueba',
   'testRunner.noAssertions': 'Aún no hay aserciones en este test.',
+  'testRunner.noRunsYet':
+    'Aún no hay ejecuciones registradas — pulsa “Ejecutar todo” para llenar el historial.',
   'testRunner.passed': 'pasando',
+  'testRunner.recentRuns': 'Ejecuciones recientes',
   'testRunner.runAll': 'Ejecutar todo',
   'testRunner.running': 'Ejecutando…',
   'testRunner.runOne': 'Ejecutar',
   'testRunner.subheading':
     'Resultados de suite, diferencias de aserción y las últimas 50 ejecuciones.',
+  'testRunner.suites': 'Suites',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Sesión iniciada como',
   'workspace.auth.keyName': 'Nombre del encabezado',
   'workspace.auth.keyValue': 'Valor clave',
+  'workspace.auth.noneHint': 'No se enviará ninguna cabecera de autorización con esta petición.',
   'workspace.auth.password': 'Contraseña',
   'workspace.auth.username': 'Nombre de usuario',
   'workspace.authOption.apikey': 'Clave API',
@@ -193,13 +249,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Tipo',
   'workspace.authTypeLabel': 'Tipo de auth',
+  'workspace.body.contentLabel': 'Cuerpo de la solicitud',
+  'workspace.body.hint':
+    '{{envVars}} se sustituyen antes de lanzar la petición. Los cuerpos se envían en POST/PUT/PATCH/DELETE.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Ninguno',
+  'workspace.body.noneHint':
+    'No se enviará ningún cuerpo de petición. Elige JSON o texto sin formato para añadir uno.',
   'workspace.body.text': 'Texto sin formato',
   'workspace.body.type': 'Tipo',
   'workspace.environment': 'Sin entorno',
   'workspace.envVar': 'variable de entorno',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.failedCount': '{{count}} falló',
+  'workspace.idle': 'Inactivo',
   'workspace.kv.addHeader': 'Agregar encabezado',
   'workspace.kv.addParam': 'Añadir parámetro',
   'workspace.kv.headerKey': 'Nombre del encabezado',
@@ -212,12 +275,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'Método HTTP',
   'workspace.metric.latency': 'Latencia',
   'workspace.metric.latencyCaption': 'Ida y vuelta de esta ejecución',
+  'workspace.metric.size': 'Carga útil',
   'workspace.metric.sizeCaption': 'Bytes del cuerpo de respuesta',
   'workspace.metric.statusCaption': 'Última respuesta',
   'workspace.metric.tests': 'Tests',
+  'workspace.metric.testsAllPassing': 'Todas las aserciones en verde',
   'workspace.metric.testsFailing': '{{count}} fallando',
+  'workspace.metric.testsIdle': 'Envía una petición para evaluar',
   'workspace.noAssertions': 'Ejecuta una solicitud para evaluar las aserciones integradas.',
   'workspace.noResponseYet': 'Sin respuesta todavía',
+  'workspace.passedCount': '{{count}} aprobado',
   'workspace.responseHint': '// Pulsa Enviar para disparar la solicitud y capturar la respuesta.',
   'workspace.saveError': 'No se pudo guardar la solicitud.',
   'workspace.statusError': 'No se pudo enviar la solicitud.',
@@ -226,10 +293,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Compón una solicitud, dispárala y luego asevera la respuesta — todo en un solo panel.',
   'workspace.testResults': 'Resultados de las pruebas',
+  'workspace.tests.autoHint':
+    'La familia de estado, la latencia, el tamaño del cuerpo y la salud del transporte se verifican automáticamente — los resultados aparecen en “Resultados de pruebas” en el panel de respuesta.',
+  'workspace.tests.autoTitle': 'Las aserciones integradas se ejecutan en cada respuesta',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Enviado como Authorization: Bearer <token> en cada solicitud de esta colección.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Solicitud sin título',
+  'workspace.urlLabel': 'URL de la solicitud',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

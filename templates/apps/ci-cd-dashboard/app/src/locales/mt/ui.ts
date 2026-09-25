@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Mistoqsijiet, feedback, jew tixtieq demo għat-tim tiegħek? Ibgħatilna email fuq hello@conduit.dev — kull messaġġ jasal għand persuna reali fit-tim.',
   'about.contactHeading': 'Ikkuntattjana',
   'about.eyebrow': 'Dwar',
+  'about.featuresHeading': 'Dak li tikseb',
+  'about.introBody':
+    "{{app}} iġib il-kunsinna kontinwa stil GitHub Actions f'dashboard wieħed veloċi: pipelines, logs tal-bini, artifacts, badges tal-istatus, u ambjenti tal-deployment għar-repositories kollha tiegħek f'post wieħed. L-ebda qbiż bejn tabs, l-ebda stima ta' liema build tkisser — kull run, linja tal-log, u deploy huma klikk wieħed 'il bogħod.",
+  'about.introHeading': "X'inhu {{app}}",
+  'about.missionBody':
+    "Il-kunsinna tas-software għandha tkun kalma u prevedibbli, mhux sors ta' biża'. Aħna nibnu l-pipelines, il-logs, u l-għodod tal-deploy biex it-triq mill-commit għall-produzzjoni tkun veloċi, viżibbli, u affidabbli — l-ewwel build aħdar f'ħames minuti, u kull build warajh daqshekk ċar.",
+  'about.missionHeading': 'Il-missjoni tagħna',
+  'about.subtitle':
+    "{{app}} huwa dashboard CI/CD għal timijiet li jridu jimmonitorjaw builds, deployments, u ambjenti f'kull repository — u jikkunsinnaw b'ċertezza.",
   'artifacts.empty': "Għad m'hemm l-ebda artifatti.",
   'artifacts.heading': 'Artefatti',
   'artifacts.loadError': 'Ma rnexxiex jitgħabbew l-artefatti.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ kondott env --list',
   'environments.heading': 'Ambjenti',
   'environments.loadError': 'Ma rnexxiex jitgħabbew l-ambjenti.',
+  'environments.loading': 'Qed jitgħabbew l-ambjenti…',
   'environments.subheading': "Status tal-iskjerament dirett f'kull mira.",
   'forgotPassword.runnerStatus': 'irrisettja · mina sigura',
+  'forgotPassword.success':
+    "Jekk teżisti kont għal dik l-email, link ta' reset jinsab fi triqtu. Iċċekkja l-inbox tiegħek.",
   'insights.changeFailureRate': "Rata ta' falliment tal-bidla",
   'insights.deployFrequency': 'Skjeramenti / jum',
   'insights.empty': "Għad m'hemmx biżżejjed dejta.",
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Ma rnexxiex it-tagħbija tal-informazzjoni.',
   'insights.meanP95': 'tfisser {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'L-aktar passi bil-mod tal-pipeline',
   'insights.successRateHeading': "Rata ta' suċċess tal-pipeline (l-aħħar 14-il jum)",
   'landing.choosePlan': 'Agħżel pjan',
+  'landing.copyright': "© {{year}} {{app}}. Ikkunsinna b'ċertezza.",
   'landing.ctaBody':
     "L-ebda karta ta' kreditu. L-ebda inġinier tal-pjattaforma mhu meħtieġ. Ikseb l-ewwel pipeline aħdar f'ħames minuti.",
   'landing.ctaHeading': "Ibgħat b'ċertezza.",
   'landing.featuresEyebrow': '// karatteristiċi tal-pjattaforma',
   'landing.featuresHeading': 'Magħmul għal dawk li jibgħatu, minn dawk li jibgħatu',
+  'landing.heroSubtitle':
+    "Pipelines li jispiċċaw f'sekondi. Logs li tista' taqra. Deploys li tista' tafdahom.",
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// Prezzijiet tal-$ --sempliċi',
   'landing.pricingHeading': 'Prezzijiet sempliċi u prevedibbli',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Issa qed titjira',
   'pipelines.metric.successCaption': "{{count}} ta' {{total}} ġirjiet",
   'pipelines.metric.successRate': "Rata ta' suċċess",
+  'pipelines.realtimeOn': 'ħin reali',
   'pipelines.subheading': 'Aġġornamenti diretti minn kull repożitorju osservat.',
+  'pricing.advancedFeatures': 'Karatteristiċi avvanzati: {{mark}}',
+  'pricing.canExport': 'Esportazzjoni tad-data: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artifacts',
+  'pricing.maxBuilds': '{{count}} builds',
+  'pricing.maxPipelines': '{{count}} pipelines',
   'privacy.dataAccount': 'Kont: isem, email, password hashed, livell tal-pjan.',
   'privacy.intro':
     "{{app}} jiġbor biss id-dejta minima li neħtieġu biex noperaw il-kont tiegħek ta' kunsinna kontinwa: l-email tiegħek, ir-repożitorji li tikkonnettja, il-commits u l-metadata tal-bini li jipproduċu r-runners tiegħek, u s-sigrieti li tagħżel li taħżen magħna. Aħna qatt ma naqraw il-kodiċi tas-sors tiegħek barra r-runner tal-bini; l-artefatti tal-bini huma maħżuna fil-bucket S3 tiegħek meta kkonfigurat.",
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Aħna nużaw Stripe għall-kontijiet, Mailgun għall-email transazzjonali, u AWS S3 għall-ħażna tal-artefatti tal-bini. Kull wieħed huwa marbut kuntrattwalment mal-ambitu minimu tad-dejta meħtieġa biex jagħti s-servizz tiegħu.',
   'privacy.rightsBody':
     "Tista' tesporta kull byte tad-dejta tiegħek, tħassar il-kont tiegħek fi kwalunkwe ħin minn Settings, u titlob rekord ta' kull kunsinna ta' webhook fuq il-kont tiegħek. Aħna nwieġbu għat-talbiet tal-GDPR / CCPA fi żmien 30 jum.",
+  'privacy.subtitle':
+    'Kif {{app}} jiġbor, jaħżen, u jipproteġi d-data tiegħek waqt li nħaddmu l-pipelines tiegħek.',
   'privacy.title': 'Politika tal-privatezza',
   'repositories.empty': 'L-ebda repożitorju mhu konness.',
   'repositories.heading': 'Repożitorji',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Ir-repożitorji kollha',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Ma rnexxiex it-tagħbija tar-repożitorju.',
+  'repositoryDetail.meanDuration': 'Tul medju',
   'repositoryDetail.notFound': 'Repożitorju mhux misjub.',
+  'repositoryDetail.successRate': "Rata ta' suċċess",
   'repositoryDetail.totalBuilds': 'Bini totali',
   'repositoryDetail.webhookActive': 'attiv',
   'repositoryDetail.webhookPaused': 'waqfa',
   'repositoryDetail.webhooksHeading': 'Webhooks',
+  'resetPassword.passwordLabel': 'Password ġdida',
   'resetPassword.runnerStatus': 'irrisettja · token verifikat',
   'resetPassword.subtitle': "Agħżel password b'saħħitha li qatt ma użajt qabel.",
   'resetPassword.tokenPlaceholder': 'pejst mill-email',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Repożitorji tal-Konduits. Skonnettja mill-fornitur tal-VCS tiegħek biex twaqqaf l-inġestjoni tal-avvenimenti.',
   'settings.repositories.empty': "Għad m'hemm l-ebda repożitorju konness.",
+  'settings.repositories.heading': 'Konnessjonijiet tar-repository',
   'settings.repositories.loadError': 'Ma rnexxiex it-tagħbija tar-repożitorji.',
   'settings.secrets.addCta': 'Żid sigriet',
   'settings.secrets.addError': 'Ma rnexxiex iżżid is-sigriet.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Ma rnexxiex jitħassar is-sigriet.',
   'settings.secrets.empty': 'L-ebda sigriet maħżun.',
   'settings.secrets.heading': 'Sigrieti',
+  'settings.secrets.lastUsed': 'l-aħħar użu {{date}}',
   'settings.secrets.loadError': "Ma rnexxiex ittella' s-sigrieti.",
   'settings.secrets.neverUsed': 'qatt ma ntuża',
   'settings.secrets.rotateCta': 'Dawwar',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Ma rnexxiex l-aġġornament tal-webhook.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'livell bla ħlas · 1,000 bini minimu/xahar',
+  'terms.intro':
+    "Bil-ħolqien ta' kont {{app}} taqbel ma' dawn it-termini. Dawn ikopru l-użu aċċettabbli tal-build runners, il-limiti tal-SLA tagħna, u l-kundizzjonijiet li taħthom nistgħu jissospendu jew jitterminaw il-kont tiegħek għal workloads abbużivi.",
   'terms.slaBody':
     'Il-pjanijiet Pro u Team jimmiraw għal 99.95% uptime fix-xahar għall-API u r-runner pool. Il-pjan Free huwa pprovdut kif inhu. Il-qtugħ tas-servizz jiġi rrappurtat fuq status.conduit.dev u kkreditat skont il-formula fil-fattura tiegħek.',
   'terms.terminationBody':

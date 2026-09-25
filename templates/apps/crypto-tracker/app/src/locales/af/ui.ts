@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Oor',
+  'about.featureAlerts':
+    "Prysalarms op die toestande wat saak maak, per e-pos en push gestuur sodat jy nooit 'n skuif misloop nie.",
+  'about.featureMarkets':
+    'Lewendige markdata en prysgrafieke oor duisende munte, gerangskik volgens markkapitalisasie, volume en momentum.',
+  'about.featurePortfolio':
+    'Portefeuljebestuur met werklike wins-en-verlies, kostebasis en toewysing — gekoppel aan jou transaksiegeskiedenis.',
+  'about.featureWatchlist':
+    "'n Persoonlike dophoulys en saamgestelde kriptonuus met seine oor die bates wat jy volg.",
+  'about.missionTitle': 'Ons missie',
+  'alertConditionCard.armedSince': 'Gewapen sedert {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'Geaktiveer {{wanneer}}',
   'alertConditionCard.confirmDelete': 'Bevestig verwydering',
+  'alertConditionCard.deleteAriaLabel': 'Vee waarskuwing uit',
   'alertConditionCard.pauseAriaLabel': 'Onderbreek waarskuwing',
   'alertConditionCard.resumeAriaLabel': 'Hervat waarskuwing',
+  'alertConditionCard.triggeredAt': 'Geaktiveer {{when}}',
   'alertNew.condition': 'Toestand',
   'alertNew.createCta': 'Skep waarskuwing',
   'alertNew.error': 'Kon nie waarskuwing skep nie.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Geen waarskuwings nog nie.',
   'alerts.eyebrow': 'Bourse-struikdrade',
   'alerts.loadError': 'Kon nie waarskuwings laai nie.',
+  'alerts.newCta': '+ Nuwe tripwire',
   'alerts.subheading': 'Kry \'n "ping" wanneer prys, verandering of volume jou lyn oorskry.',
   'alerts.summary.armed': 'Gewapen',
   'alerts.summary.triggered': 'Geaktiveer',
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Allerhoogste',
   'coinDetail.allTimeLow': 'Allerlaagtepunt',
   'coinDetail.back': 'Alle markte',
+  'coinDetail.chartAriaLabel': '{{name}}-prysgrafiek, laaste 30 dae',
   'coinDetail.chartHeading': 'Prys · laaste 30 dae',
   'coinDetail.circulating': 'Sirkulerende voorraad',
   'coinDetail.fdv': 'Volledig verdunde waardasie',
@@ -59,6 +74,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Herstel skakel bedraad.',
   'login.eyebrow': 'Stap in die terminaal in',
   'login.heading': 'Welkom terug, seingewer.',
+  'login.noAccountQuestion': 'Nuut by Tessera?',
   'login.secureNote': '🔒 Geënkripteer tydens transito',
   'login.signingInCta': 'Lees die bandopname…',
   'login.signupLink': "Maak 'n rekening oop →",
@@ -93,6 +109,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     "Die roete wat jy geskandeer het, los nie op na 'n bekende muntstuk of bladsy nie. Kontroleer die simbool weer en probeer weer.",
   'notFound.browseMarkets': 'Blaai deur markte',
+  'notFound.eyebrow': '{{appName}} sein verloor',
+  'notFound.heading': 'Hierdie sein is buite bereik',
+  'planUpdated.body':
+    'Jou faktureringsverandering is nou aktief. Jy kan jou plan enige tyd vanaf die faktureringsbladsy bestuur.',
+  'planUpdated.retry': 'Probeer weer',
+  'planUpdated.verifyFailed': 'Ons kon nog nie jou betaling bevestig nie.',
+  'planUpdated.verifyFailedBody':
+    "Jou betaling word dalk steeds verwerk. Probeer weer oor 'n oomblik.",
   'planUpdated.verifying': 'Bevestig jou betaling…',
   'portfolio.addError': 'Voer simbool, positiewe bedrag en koste in.',
   'portfolio.addHoldingCta': '+ Voeg hou by',
@@ -116,12 +140,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Totale portefeuljewaarde',
   'portfolioHeroCard.totalPnl': 'Totale wins/verlies',
   'pricing.heading': 'waarskuwings',
+  'pricing.limit.alerts': 'alarms',
   'pricing.limit.coins': 'muntstukke',
   'pricing.limit.market': 'mark',
   'pricing.limit.portfolio': 'portefeulje',
   'resetPassword.eyebrow': 'Nuwe kodering',
   'resetPassword.missingToken':
     "Hierdie terugstelskakel ontbreek of is ongeldig. Versoek 'n nuwe een.",
+  'resetPassword.passwordPlaceholder': 'Nuwe wagwoord',
   'resetPassword.subheading': 'Kies iets wat net jy kan ontsyfer.',
   'settings.apiKeys.body':
     'Leesalleen-sleutels om transaksiegeskiedenis in te voer. Koppel via OAuth vanaf /pryse sodra jy ingeteken is.',
@@ -133,17 +159,34 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Kwotasie-geldeenheid',
   'settings.preferences.locale': 'Lokasie',
   'settings.preferences.push': 'Stoot',
+  'settings.preferences.refresh': 'Prysverfrissing (sekondes)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning':
+    'Hierdie toestel se toegang sal binnekort herroep word. Teken dit uit?',
   'settings.security.body': 'Wagwoord- en tweefaktorinstellings word deur jou rekening bestuur.',
   'settings.signOutDevice': 'Teken uit',
   'settings.twoFactorCode': 'Verifikasiekode',
   'settings.twoFactorDisable': 'Deaktiveer',
+  'settings.twoFactorDisableTitle': 'Deaktiveer tweefaktor-verifikasie',
   'settings.twoFactorEnable': 'Aktiveer',
+  'settings.twoFactorEnableTitle': 'Aktiveer tweefaktor-verifikasie',
   'settings.twoFactorInvalidCode': 'Ongeldige kode',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Tweefaktor QR-kode',
+  'settings.twoFactorScan':
+    'Skandeer hierdie QR-kode met jou verifikasie-app en voer dan die 6-syferkode in.',
+  'settings.twoFactorUnavailable':
+    'Tweefaktor-verifikasie is nie vir hierdie toepassing beskikbaar nie.',
   'settings.twoFactorVerify': 'Verifieer en aktiveer',
   'sigilAuthShell.backHomeCta': '← Terug na Bourse',
+  'sigilAuthShell.brandBody':
+    'Realtime pryse, portefeulje-wins/verlies en staande wagte op die toestande wat saak maak — alles op een terminaal.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — gebou op Molecule',
+  'sigilAuthShell.brandHeadline': 'Ontleed elke sein oor die hele grootboek.',
+  'sigilAuthShell.samplePortfolio': 'Voorbeeldportefeulje',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Primêre navigasie',
+  'signup.creating': 'Besig om jou terminaal oop te maak…',
   'signup.eyebrow': "Maak 'n terminaal oop",
   'signup.heading': 'Skep jou Bourse',
   'signup.subheading': 'Spoor elke muntstuk op, weer elke mis af. Gratis om te begin.',
@@ -160,6 +203,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Kon nie transaksies laai nie.',
   'watchlist.addCta': 'Blaai deur markte',
   'watchlist.col.change24h': '24 uur',
+  'watchlist.col.coin': 'Muntstuk',
   'watchlist.col.marketCap': 'Marktkapitaal',
   'watchlist.empty':
     'Geen muntstukke op jou dophoulys nie — merk muntstukke van /markte om hulle by te voeg.',

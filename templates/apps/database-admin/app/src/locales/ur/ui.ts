@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ہم سے بات کریں',
   'about.eyebrow': 'کے بارے میں',
+  'about.featureConnections':
+    'ایک کنکشن مینیجر جو آپ کے ڈیٹا بیسز کو محفوظ طریقے سے اسٹور کرتا ہے اور رنگوں کے ساتھ کوڈ کرتا ہے — اسناد آرام کے وقت انکرپٹڈ رہتی ہیں، کبھی بھی سادہ متن میں نہیں۔',
+  'about.featureMonitoring':
+    'کوئری کی کارکردگی اور ڈیٹا بیس کی سرگرمی کی لائیو نگرانی، کی بورڈ شارٹ کٹس اور کمانڈ پیلیٹ کے ساتھ جو یہ سب ہینڈز فری چلاتا ہے۔',
+  'about.featurePlans':
+    'پلانز جو آپ کے ساتھ بڑھتے ہیں — سولو کام کے لیے مفت، زیادہ کنکشنز، طویل کوئری برقراری، ایکسپورٹس اور جدید خصوصیات کے لیے Pro اور Team۔',
+  'about.featureQueryEditor':
+    'ایک Monaco سے چلنے والا SQL ایڈیٹر جس میں کوئری ہسٹری، محفوظ کوئریز، اور آپ کے نتائج کی ایک کلک CSV ایکسپورٹ شامل ہے۔',
+  'about.featureSchema':
+    'ایک اسکیما ایکسپلورر اور ٹیبل براؤزر جو ڈیٹا بیسز، ٹیبلز اور کالمز میں نیویگیٹ کرتا ہے، پھر قطاروں کو براؤز، فلٹر اور ان لائن ایڈٹ کرتا ہے۔',
+  'about.missionTitle': 'ہمارا مشن',
   'authShell.commands': 'احکام',
   'authShell.ssoSupported': 'ایس ایس او نے تعاون کیا۔',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'سوالات',
   'connections.schema': 'سکیما',
   'connections.subtitle': 'اپنے ڈیٹا بیس کنکشن کا نظم کریں۔',
+  'connections.test': 'ٹیسٹ',
   'databaseAdminLayout.adminRole': 'ایڈمن کا کردار',
   'databaseAdminLayout.commandPalette': 'کمانڈ پیلیٹ',
   'databaseAdminLayout.commands': 'احکامات',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'نیا کنکشن',
   'databaseAdminLayout.queries': 'سوالات',
   'databaseAdminLayout.ready': 'تیار',
+  'databaseAdminLayout.searchPlaceholder': '⌘K کمانڈز، کوئریز، ٹیبلز تلاش کریں…',
   'databaseAdminLayout.user': 'صارف',
   'editConnection.confirmDelete': 'اس کنکشن کو حذف کریں؟',
   'editConnection.deleteButton': 'کنکشن حذف کریں۔',
+  'editConnection.newPassword': 'نیا پاس ورڈ (برقرار رکھنے کے لیے خالی چھوڑیں)',
   'editConnection.saved': 'کنکشن محفوظ ہو گیا۔',
   'editConnection.title': 'کنکشن میں ترمیم کریں۔',
   'forgotPassword.success': 'اگر وہ اکاؤنٹ موجود ہے تو، ایک ری سیٹ لنک اپنے راستے پر ہے۔',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'کامیابیاں',
   'monitoring.title': 'نگرانی',
   'monitoring.totalQueries': 'کل سوالات',
+  'nav.schema': 'سکیما',
   'newConnection.database': 'ڈیٹا بیس',
   'newConnection.engine': 'انجن',
   'newConnection.host': 'میزبان',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'اس ٹکڑوں سے کوئی تعلق نہیں ہے۔',
   'savedQuery.notBound': 'پابند نہیں۔',
   'savedQuery.title': 'محفوظ کردہ استفسار',
+  'schema.columns': 'کالم',
   'schema.foreignKeys': 'غیر ملکی چابیاں',
   'schema.indexes': 'اشاریہ جات',
   'schemaExplorer.browseRows': 'قطاریں براؤز کریں۔',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'کالعدم',
   'schemaExplorer.colType': 'قسم',
   'schemaExplorer.noColumns': 'کوئی کالم نہیں۔',
+  'schemaExplorer.noForeignKeys': 'کوئی فارن کی نہیں۔',
   'schemaExplorer.noIndexes': 'کوئی اشاریہ جات نہیں۔',
   'schemaExplorer.noTables': 'کوئی میزیں نہیں۔',
   'schemaExplorer.pickATable': 'سائڈبار سے ایک میز چنیں۔',
   'schemaExplorer.tables': 'میزیں',
   'schemaExplorer.title': 'سکیما ایکسپلورر',
+  'settings.session': 'سیشن',
   'settings.subtitle': 'اپنے اکاؤنٹ اور پلان کا نظم کریں۔',
   'signup.heading': 'اپنا Quarry اکاؤنٹ بنائیں',
   'signup.tagline': 'ایک منٹ کے اندر اندر رسائی کو گھماؤ۔',
   'tableBrowser.noRows': 'اس ٹیبل میں ابھی تک کوئی قطار نہیں ہے۔',
+  'tableBrowser.subtitle': 'آپ کے ریموٹ ڈیٹا بیس سے قطاریں براؤز کرنا۔',
   'tableBrowser.title': 'اپنے ریموٹ ڈیٹا بیس سے قطاروں کو براؤز کرنا۔',
 }

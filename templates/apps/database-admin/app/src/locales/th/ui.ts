@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ติดต่อเรา',
   'about.eyebrow': 'เกี่ยวกับ',
+  'about.featureConnections':
+    'ตัวจัดการการเชื่อมต่อที่จัดเก็บฐานข้อมูลของคุณอย่างปลอดภัยและกำหนดรหัสสี — ข้อมูลรับรองถูกเข้ารหัสขณะจัดเก็บ ไม่เคยเป็นข้อความธรรมดา',
+  'about.featureMonitoring':
+    'การตรวจสอบประสิทธิภาพการค้นหาและกิจกรรมของฐานข้อมูลแบบเรียลไทม์ พร้อมทางลัดแป้นพิมพ์และชุดคำสั่งเพื่อควบคุมทั้งหมดได้โดยไม่ต้องใช้มือ',
+  'about.featurePlans':
+    'แผนที่เติบโตไปพร้อมกับคุณ — ฟรีสำหรับการทำงานคนเดียว Pro และ Team สำหรับการเชื่อมต่อที่มากขึ้น การเก็บประวัติการค้นหาที่นานขึ้น การส่งออก และคุณสมบัติขั้นสูง',
+  'about.featureQueryEditor':
+    'ตัวแก้ไข SQL ที่ขับเคลื่อนด้วย Monaco พร้อมประวัติการค้นหา การค้นหาที่บันทึกไว้ และการส่งออกผลลัพธ์เป็น CSV ในคลิกเดียว',
+  'about.featureSchema':
+    'ตัวสำรวจสคีมาและเบราว์เซอร์ตารางเพื่อนำทางฐานข้อมูล ตาราง และคอลัมน์ จากนั้นเรียกดู กรอง และแก้ไขแถวแบบอินไลน์',
+  'about.missionTitle': 'พันธกิจของเรา',
   'authShell.commands': 'คำสั่ง',
   'authShell.ssoSupported': 'รองรับ SSO',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'คำถาม',
   'connections.schema': 'แผนผัง',
   'connections.subtitle': 'จัดการการเชื่อมต่อฐานข้อมูลของคุณ',
+  'connections.test': 'ทดสอบ',
   'databaseAdminLayout.adminRole': 'บทบาทผู้ดูแลระบบ',
   'databaseAdminLayout.commandPalette': 'พาเลทคำสั่ง',
   'databaseAdminLayout.commands': 'คำสั่ง',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'การเชื่อมต่อใหม่',
   'databaseAdminLayout.queries': 'คำถาม',
   'databaseAdminLayout.ready': 'พร้อม',
+  'databaseAdminLayout.searchPlaceholder': '⌘K ค้นหาคำสั่ง การค้นหา ตาราง…',
   'databaseAdminLayout.user': 'ผู้ใช้',
   'editConnection.confirmDelete': 'ลบการเชื่อมต่อนี้?',
   'editConnection.deleteButton': 'ลบการเชื่อมต่อ',
+  'editConnection.newPassword': 'รหัสผ่านใหม่ (เว้นว่างไว้เพื่อคงเดิม)',
   'editConnection.saved': 'การเชื่อมต่อสำเร็จแล้ว',
   'editConnection.title': 'แก้ไขการเชื่อมต่อ',
   'forgotPassword.success': 'หากบัญชีดังกล่าวมีอยู่จริง ลิงก์สำหรับรีเซ็ตจะถูกส่งไปให้ในเร็วๆ นี้',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'ความสำเร็จ',
   'monitoring.title': 'การตรวจสอบ',
   'monitoring.totalQueries': 'จำนวนการสอบถามทั้งหมด',
+  'nav.schema': 'แผนผัง',
   'newConnection.database': 'ฐานข้อมูล',
   'newConnection.engine': 'เครื่องยนต์',
   'newConnection.host': 'เจ้าภาพ',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'ไม่มีการเชื่อมต่อใดๆ กับส่วนโค้ดนี้',
   'savedQuery.notBound': 'ไม่ผูกพัน',
   'savedQuery.title': 'แบบสอบถามที่บันทึกไว้',
+  'schema.columns': 'คอลัมน์',
   'schema.foreignKeys': 'คีย์ต่างประเทศ',
   'schema.indexes': 'ดัชนี',
   'schemaExplorer.browseRows': 'เรียกดูแถว',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'อนุญาตให้เป็นค่าว่าง',
   'schemaExplorer.colType': 'พิมพ์',
   'schemaExplorer.noColumns': 'ไม่มีคอลัมน์',
+  'schemaExplorer.noForeignKeys': 'ไม่มีคีย์ต่างประเทศ',
   'schemaExplorer.noIndexes': 'ไม่มีดัชนี',
   'schemaExplorer.noTables': 'ไม่มีโต๊ะ',
   'schemaExplorer.pickATable': 'เลือกตารางจากแถบด้านข้าง',
   'schemaExplorer.tables': 'ตาราง',
   'schemaExplorer.title': 'ตัวสำรวจสคีมา',
+  'settings.session': 'การประชุม',
   'settings.subtitle': 'จัดการบัญชีและแผนของคุณ',
   'signup.heading': 'สร้างบัญชี Quarry ของคุณ',
   'signup.tagline': 'เริ่มใช้งานได้ภายในเวลาไม่ถึงนาที',
   'tableBrowser.noRows': 'ตารางนี้ยังไม่มีแถวใดๆ',
+  'tableBrowser.subtitle': 'กำลังเรียกดูแถวจากฐานข้อมูลระยะไกลของคุณ',
   'tableBrowser.title': 'กำลังเรียกดูแถวจากฐานข้อมูลระยะไกลของคุณ',
 }

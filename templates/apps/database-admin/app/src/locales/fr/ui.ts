@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Contactez-nous',
   'about.eyebrow': 'À propos',
+  'about.featureConnections':
+    'Un gestionnaire de connexions qui stocke vos bases de données en toute sécurité et les code par couleur — les identifiants sont chiffrés au repos, jamais en clair.',
+  'about.featureMonitoring':
+    "Surveillance en direct des performances des requêtes et de l'activité de la base de données, avec les raccourcis clavier et la palette de commandes pour tout piloter sans les mains.",
+  'about.featurePlans':
+    'Des offres qui évoluent avec vous — Gratuit pour un usage solo, Pro et Team pour plus de connexions, une rétention des requêtes plus longue, des exports et des fonctionnalités avancées.',
+  'about.featureQueryEditor':
+    'Un éditeur SQL propulsé par Monaco avec historique des requêtes, requêtes enregistrées et export CSV de vos résultats en un clic.',
+  'about.featureSchema':
+    'Un explorateur de schéma et un navigateur de tables pour parcourir les bases de données, les tables et les colonnes, puis consulter, filtrer et modifier les lignes en ligne.',
+  'about.missionTitle': 'Notre mission',
   'authShell.commands': 'Commandes',
   'authShell.ssoSupported': 'SSO pris en charge',
   'common.run': 'Courir',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Requêtes',
   'connections.schema': 'Schéma',
   'connections.subtitle': 'Gérez vos connexions de base de données.',
+  'connections.test': 'Test',
   'databaseAdminLayout.adminRole': 'Rôle administrateur',
   'databaseAdminLayout.commandPalette': 'Palette de commandes',
   'databaseAdminLayout.commands': 'commandes',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Nouvelle connexion',
   'databaseAdminLayout.queries': 'Requêtes',
   'databaseAdminLayout.ready': 'Prêt',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Rechercher des commandes, requêtes, tables…',
   'databaseAdminLayout.user': 'Utilisateur',
   'editConnection.confirmDelete': 'Supprimer cette connexion ?',
   'editConnection.deleteButton': 'Supprimer la connexion',
+  'editConnection.newPassword': 'Nouveau mot de passe (laisser vide pour conserver)',
   'editConnection.saved': 'Connexion enregistrée.',
   'editConnection.title': 'Modifier la connexion',
   'forgotPassword.success': 'Si ce compte existe, un lien de réinitialisation est en route.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Réussites',
   'monitoring.title': 'Supervision',
   'monitoring.totalQueries': 'Total des requêtes',
+  'nav.schema': 'Schéma',
   'newConnection.database': 'Base de données',
   'newConnection.engine': 'Moteur',
   'newConnection.host': 'Hôte',
@@ -82,6 +98,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Aucune connexion liée à cet extrait.',
   'savedQuery.notBound': 'Non lié',
   'savedQuery.title': 'Requête enregistrée',
+  'schema.columns': 'Colonnes',
   'schema.foreignKeys': 'Clés étrangères',
   'schema.indexes': 'Index',
   'schemaExplorer.browseRows': 'Parcourir les lignes',
@@ -90,14 +107,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'pouvant être nul',
   'schemaExplorer.colType': 'type',
   'schemaExplorer.noColumns': 'Pas de colonnes.',
+  'schemaExplorer.noForeignKeys': 'Aucune clé étrangère.',
   'schemaExplorer.noIndexes': "Pas d'index.",
   'schemaExplorer.noTables': 'Aucune table',
   'schemaExplorer.pickATable': 'Sélectionnez une table dans la barre latérale.',
   'schemaExplorer.tables': 'Tables',
   'schemaExplorer.title': 'Explorateur de schéma',
+  'settings.session': 'Séance',
   'settings.subtitle': 'Gérez votre compte et votre forfait.',
   'signup.heading': 'Créez votre compte Quarry',
   'signup.tagline': 'Configurez votre accès en moins d’une minute.',
   'tableBrowser.noRows': 'Cette table ne contient encore aucune ligne.',
+  'tableBrowser.subtitle': 'Parcours des lignes de votre base de données distante.',
   'tableBrowser.title': 'Parcourir les lignes de votre base de données distante.',
 }

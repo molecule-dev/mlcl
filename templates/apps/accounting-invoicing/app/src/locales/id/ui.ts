@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Punya pertanyaan, menemukan bug, atau ingin memindahkan pembukuan Anda? Hubungi tim {{app}} di hello@{{app}}.example — ada orang sungguhan yang membaca setiap pesan.',
   'about.contactTitle': 'Hubungi kami',
   'about.eyebrow': 'Tentang',
+  'about.intro':
+    '{{app}} adalah akuntansi untuk usaha kecil yang memastikan setiap sen tercatat — faktur, pengeluaran, pembayaran, dan laporan di satu tempat yang tenang untuk pemilik usaha, staf pembukuan, dan akuntan.',
+  'about.missionBody':
+    'Menjalankan usaha seharusnya tidak berarti takut menghadapi pembukuan. {{app}} menggantikan tumpukan spreadsheet dengan angka yang jelas dan bisa Anda tindak lanjuti, sehingga Anda lebih sedikit waktu merekonsiliasi dan lebih banyak waktu mengerjakan hal yang membuat Anda memulai usaha ini.',
+  'about.missionTitle': 'Misi kami',
   'about.title': 'Tentang {{app}}',
   'accounts.count': '{{count}} akun',
+  'accounts.emptyBody':
+    'Akun buku besar melacak di mana uang berada dan berpindah. Akun akan muncul di sini setelah staf pembukuan atau integrasi Anda menyiapkannya.',
   'accounts.emptyTitle': 'Belum ada akun',
   'accounts.heading': 'Daftar akun',
   'accounts.kpi.accounts': 'Akun',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Setiap akun buku besar yang terkait dengan faktur, pengeluaran, dan pembayaran Anda, dikelompokkan berdasarkan jenisnya.',
   'accounts.tag.inactive': 'tidak aktif',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Chief Financial Officer, Horizon Tech',
   'authBrandPanel.eyebrow': 'Dipercaya oleh tim keuangan',
   'authBrandPanel.label': 'Pameran merek',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Semua pelanggan',
   'customerDetail.invoiceMeta': 'Diterbitkan pada {{issued}} · Jatuh tempo pada {{due}}',
   'customerDetail.loadError': 'Gagal memuat pelanggan.',
+  'customerDetail.missingBody':
+    'Data pelanggan yang diminta tidak dapat dimuat. Data mungkin telah dihapus, atau Anda tidak memiliki akses ke sana.',
   'customerDetail.missingHeading': 'Catatan pelanggan tidak tersedia',
+  'customerDetail.missingHelp':
+    'Gunakan tautan kembali di atas untuk kembali ke daftar pelanggan, atau pilih data lain dari sana.',
+  'customerDetail.noInvoices': 'Belum ada faktur.',
   'customerDetail.notesEmpty': 'Belum ada catatan.',
   'customerDetail.paymentsEmpty': 'Tidak ada pembayaran tercatat.',
   'customerDetail.paymentTerms': 'Ketentuan pembayaran',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Dapat dikurangkan',
   'expenseDetail.detailsHeading': 'Detail transaksi',
   'expenseDetail.loadError': 'Gagal memuat pengeluaran.',
+  'expenseDetail.matched': 'Cocok · {{description}}',
   'expenseDetail.missingBody':
     'Pengeluaran yang diminta tidak dapat dimuat. Mungkin telah dihapus, atau Anda mungkin tidak memiliki akses.',
   'expenseDetail.missingHeading': 'Catatan pengeluaran tidak tersedia',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Kuitansi',
   'expenseDetail.receiptHeading': 'Kuitansi',
   'expenseDetail.reconciled': 'Terekonsiliasi',
+  'expenseDetail.unreconciled': 'Belum direkonsiliasi',
   'expenses.empty': 'Belum ada pengeluaran.',
   'expenses.heading': 'Pengeluaran',
   'expenses.kpi.deductible': 'Dapat dikurangkan',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Gagal memuat faktur.',
   'invoices.searchPlaceholder': 'Cari no. faktur atau pelanggan…',
   'invoices.summary.paid': 'Dibayar periode ini',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'Gratis selama 30 hari. Tanpa kartu. Ajak akuntan Anda — mereka akan berterima kasih.',
   'landing.ctaTitle': 'Pindahkan pembukuan Anda ke tempat yang lebih tenang.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Piutang usaha',
   'ledgerStatTriad.eyebrow.mtd': 'Sejak awal bulan',
   'ledgerStatTriad.netSub': 'Bersih {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} terlambat',
   'ledgerStatTriad.revenueLabel': 'Pendapatan',
   'login.failed': 'Masuk gagal.',
   'login.hidePassword': 'Sembunyikan kata sandi',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Masuk',
   'nav.legal': 'Hukum',
   'newExpense.back': 'Pengeluaran',
+  'newExpense.clearReceiptCta': 'Hapus tanda terima terlampir',
   'newExpense.deductible': 'Dapat dikurangkan pajak',
   'newExpense.dropPrompt': 'Letakkan foto kuitansi atau PDF di sini untuk melampirkan.',
   'newExpense.failed': 'Tidak dapat menyimpan pengeluaran.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Gagal memuat pembayaran.',
   'payments.unmatchedTag': 'tak tertandingi',
   'planUpdated.pageLabel': 'Konfirmasi pembaruan rencana',
+  'pricing.advancedFeatures': 'Fitur lanjutan: {{yes}}',
+  'pricing.canExport': 'Ekspor data: {{yes}}',
+  'pricing.heading': 'Pilih paket {{app}} Anda',
+  'pricing.maxAccounts': '{{count}} akun',
+  'pricing.maxExpenses': '{{count}} pengeluaran',
+  'pricing.maxInvoices': '{{count}} faktur',
+  'privacy.intro':
+    'Kebijakan Privasi ini menjelaskan bagaimana {{app}} mengumpulkan, menggunakan, dan mengungkapkan informasi tentang bisnis yang menggunakan layanan ini.',
   'privacy.lastUpdated': 'Terakhir diperbarui: {{date}}',
   'privacy.section.collected.body':
     'Kami mengumpulkan detail akun (nama, email, perusahaan), catatan keuangan yang Anda unggah (faktur, pengeluaran, pelanggan, pembayaran), dan log operasi layanan standar (IP, user-agent, stempel waktu).',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Informasi digunakan untuk mengoperasikan layanan, menghasilkan laporan dan PDF yang Anda minta, mengirim email transaksional melalui Mailgun, dan memproses pembayaran melalui Stripe. Kami tidak menjual atau menyewakan informasi pribadi.',
   'recentInvoicesCard.dueMeta': 'Jatuh tempo {{date}}',
+  'recentInvoicesCard.empty': 'Tidak ada faktur yang cocok.',
   'recentInvoicesCard.eyebrow': 'Piutang usaha',
   'recentInvoicesCard.searchAriaLabel': 'Cari faktur',
+  'recentInvoicesCard.searchPlaceholder': 'Cari faktur…',
   'recentInvoicesCard.title': 'Faktur terbaru',
   'recentInvoicesCard.viewAll': 'Lihat semua faktur →',
   'reports.assets': 'Aset',
@@ -181,16 +211,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Laba & rugi (12 bulan)',
   'resetPassword.backToLogin': '← Kembali ke masuk',
   'resetPassword.hidePassword': 'Sembunyikan kata sandi',
+  'resetPassword.passwordLabel': 'Kata sandi baru',
   'resetPassword.showPassword': 'Tampilkan kata sandi',
+  'resetPassword.subheading': 'Pilih kata sandi yang kuat — minimal delapan karakter.',
   'resetPassword.submit': 'Reset kata sandi',
   'resetPassword.tooShort': 'Kata sandi harus minimal 8 karakter.',
   'settings.account.changePassword': 'Ubah kata sandi',
   'settings.account.changingPassword': 'Mengubah…',
   'settings.account.currentPassword': 'Kata sandi saat ini',
+  'settings.account.dangerZone': 'Zona berbahaya',
   'settings.account.deleteAccount': 'Hapus akun',
   'settings.account.deleteDescription':
     'Hapus akun Anda dan semua data yang terkait secara permanen.',
   'settings.account.deleteError': 'Gagal menghapus akun.',
+  'settings.account.deleteWarning':
+    'Ini akan menghapus akun Anda secara permanen dan tidak dapat dibatalkan. Masukkan kata sandi Anda untuk mengonfirmasi.',
   'settings.account.deleting': 'Menghapus…',
   'settings.account.devices': 'Perangkat',
   'settings.account.email': 'E-mail',
@@ -201,6 +236,7 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Kata sandi',
   'settings.account.passwordError': 'Gagal mengubah kata sandi.',
   'settings.account.pushNotifications': 'Pemberitahuan push di perangkat ini',
+  'settings.account.revokeDeviceWarning': 'Akses perangkat ini akan segera dicabut. Keluarkan?',
   'settings.account.saveError': 'Gagal memperbarui profil.',
   'settings.account.security': 'Keamanan',
   'settings.account.signOutDevice': 'Keluar',
@@ -208,12 +244,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Autentikasi dua faktor',
   'settings.account.twoFactorCode': 'Kode otentikasi',
   'settings.account.twoFactorDisable': 'Nonaktifkan',
+  'settings.account.twoFactorDisableTitle': 'Nonaktifkan autentikasi dua faktor',
   'settings.account.twoFactorEnable': 'Aktifkan',
+  'settings.account.twoFactorEnableTitle': 'Aktifkan autentikasi dua faktor',
   'settings.account.twoFactorInvalidCode': 'Kode tidak valid',
   'settings.account.twoFactorOn': 'Pada',
+  'settings.account.twoFactorQrAlt': 'Kode QR dua faktor',
+  'settings.account.twoFactorScan':
+    'Pindai kode QR ini dengan aplikasi autentikator Anda, lalu masukkan kode 6 digit.',
+  'settings.account.twoFactorUnavailable':
+    'Autentikasi dua faktor tidak tersedia untuk aplikasi ini.',
   'settings.account.twoFactorVerify': 'Verifikasi & aktifkan',
   'settings.account.unknownDevice': 'Perangkat tidak dikenal',
   'settings.company.email': 'Email penagihan',
+  'settings.company.heading': 'Perusahaan & pajak',
   'settings.company.name': 'Nama hukum',
   'settings.company.saveButton': 'Simpan profil perusahaan',
   'settings.company.taxId': 'NPWP / EIN',
@@ -256,6 +300,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Est. kuartalan',
   'taxes.kpi.owed': 'Terhutang',
   'taxes.loadError': 'Gagal memuat ringkasan pajak.',
+  'taxes.remittedPct': '({{pct}}% disetorkan)',
+  'terms.intro':
+    'Ketentuan Layanan ("Ketentuan") ini mengatur akses dan penggunaan Anda atas {{app}}. Dengan membuat akun atau menggunakan layanan ini, Anda setuju untuk terikat olehnya.',
   'terms.lastUpdated': 'Terakhir diperbarui: {{date}}',
   'terms.section.acceptable.body':
     'Anda setuju untuk tidak menggunakan layanan ini untuk melanggar hukum apa pun, melanggar hak kekayaan intelektual, mentransmisikan malware, atau mencoba mendapatkan akses tidak sah ke akun lain atau infrastruktur kami.',

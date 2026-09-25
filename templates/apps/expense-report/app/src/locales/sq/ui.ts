@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Pyetje, komente ose një kërkesë për veçori? Kontaktoni ekipin e {{app}} nga Cilësimet → Njoftimet, ose na shkruani në çdo kohë — çdo mesazh shkon te një njeri i vërtetë.',
+  'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
+  'about.featureCapture':
+    'Kapja e faturave me ngarkim fotografie që bashkëngjit imazhet te shpenzimi i duhur, rresht pas rreshti.',
+  'about.featureExport':
+    'Eksporte CSV të auditueshme për çdo raport, shpenzim dhe gjendje miratimi — gati për ekipin tuaj të kontabilitetit.',
+  'about.featurePolicy':
+    'Rregulla politike — kufij ditorë, kufizime për kategori dhe pragje që kërkojnë faturë, të zbatuara në momentin e dorëzimit.',
+  'about.featureWorkflow':
+    'Një rrjedhë miratimi me dy nivele me shënime të shqyrtuesit, flamuj shkeljesh politike dhe shënim rimbursimi me një prekje.',
+  'about.intro':
+    '{{app}} është një platformë e menaxhimit të shpenzimeve për ekipet financiare dhe njerëzit që ato rimbursojnë. Kapni një faturë, regjistroni një shpenzim, dërgoni një raport për miratim dhe ndiqni çdo rimbursim — pa ceremoninë e tabelave.',
+  'about.missionBody':
+    'Rimbursimi duhet të jetë i shpejtë, i drejtë dhe i auditueshëm. E ndërtuam {{app}} që dorëzuesit të paguhen pa u ngacmuar, miratuesit të shohin saktësisht se çfarë po miratojnë dhe financa të ketë një gjurmë të pastër për çdo dollar — me kontrollet e politikës dhe gjithçka.',
+  'about.missionTitle': 'Misioni ynë',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Duke miratuar…',
   'approvals.confirmReject': 'Konfirmo refuzimin',
+  'approvals.empty': 'Jeni në rregull — asnjë raport në pritje.',
   'approvals.eyebrow': 'Radha e menaxherit',
   'approvals.kpi.flaggedLabel': 'Politika u raportua',
+  'approvals.kpi.queueLabel': 'Në pritje të shqyrtimit',
   'approvals.kpi.totalLabel': 'Vlerë në pritje',
   'approvals.lineCount': '{{count}} shpenzime',
   'approvals.queueFallback':
     'Radha e drejtpërdrejtë nuk është e disponueshme — duke shfaqur të dhëna demo të kuruara.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Duke refuzuar…',
+  'approvals.rejectPlaceholder': 'Arsyeja (e detyrueshme)',
   'approvals.rejectPrompt': 'Pse e refuzoni këtë raport?',
   'approvals.review': 'Rishikimi',
   'approvals.title': 'Miratimet në pritje',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Miratuar · MTD',
   'dashboard.kpi.pendingDelta': '+2 këtë javë',
+  'dashboard.kpi.pendingLabel': 'Në pritje të shqyrtimit',
   'dashboard.kpi.receiptsDelta': 'Veprim i kërkuar',
   'dashboard.kpi.receiptsLabel': 'Në pritje të faturave',
   'dashboard.kpi.reimbursedDelta': '+2.4 mijë dollarë',
   'dashboard.kpi.reimbursedLabel': 'Rimbursuar · MTD',
   'dashboard.newReport': 'Raport i ri',
+  'dashboard.recent.empty': 'Asnjë raport ende — filloni të parin më sipër.',
   'dashboard.recent.title': 'Raportet e fundit',
   'dashboard.recent.viewAll': 'Shiko të gjitha raportet',
   'dashboard.summaryFallback':
@@ -41,11 +62,19 @@ export const ui: UiTranslations = {
   'expenses.listFallback':
     'Lista aktuale nuk është e disponueshme — duke shfaqur të dhëna demo të kuruara.',
   'expenses.searchPlaceholder': 'Kërko tregtar ose kategori…',
+  'expenses.subtotal': '{{count}} shpenzime · nëntotali',
   'expenses.title': 'Shpenzimet',
+  'forgotPassword.continue': 'Kam një kod · Vazhdo',
+  'forgotPassword.subheading':
+    'Shkruaj emailin e punës dhe do të dërgojmë një lidhje për të vendosur një fjalëkalim të ri.',
   'forgotPassword.successBody':
     'Nëse ekziston një llogari për {{email}} Do të merrni një lidhje rivendosjeje brenda pak minutash.',
+  'landing.copyright': '© {{year}} {{app}}. Ndërtuar me Molecule.dev.',
+  'landing.ctaBody':
+    'Falas për 25 shpenzimet e para çdo muaj. Pa kartë krediti, pa telefonatë implementimi.',
   'landing.ctaHeading': 'Gati për të rikuperuar atë që i detyrohet ekipit tuaj?',
   'landing.eyebrow': 'Raportet e shpenzimeve për ekipet financiare',
+  'landing.featuresHeading': 'Rimbursimi, në një hapësirë të qetë pune',
   'landing.heroSubtitle':
     'Dorëzoni, miratoni dhe rimbursoni shpenzimet e biznesit pa ceremoninë e spreadsheet-it. OCR i pranimit, kontrolle të politikave dhe një afat kohor transparent miratimi - të gjitha në një hapësirë pune të qetë.',
   'landing.heroTitle': 'Çdo faturë, e rikuperuar.',
@@ -63,10 +92,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Shënime',
   'newExpense.descriptionPlaceholder':
     'Pse ky shpenzim ishte i lidhur me biznesin (i dukshëm për miratuesin tuaj).',
+  'newExpense.eyebrow': 'Zë i rimbursueshëm',
   'newExpense.merchant': 'Tregtar',
   'newExpense.merchantPlaceholder': 'Hotel Adlon Kempinski',
   'newExpense.policyHint':
     'Kujtesë: vaktet mbi 80 dollarë në ditë ose çdo artikull mbi 250 dollarë kërkojnë një shënim justifikues.',
+  'newExpense.receipt': 'Faturë',
+  'newExpense.receiptHint': 'JPG, PNG ose PDF · maksimumi 10 MB',
   'newExpense.receiptOcrHint': 'Fushat e para-mbushjes së OCR-së',
   'newExpense.receiptPrompt': 'Vendosni një foto ose PDF këtu, ose klikoni për të shfletuar',
   'newExpense.receiptUploadFailed':
@@ -77,17 +109,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Vendosni ose ngarkoni një faturë dhe Recoup do të plotësojë paraprakisht tregtarin, datën dhe totalin. Konfirmoni gjithçka më poshtë para se ta ruani.',
   'newExpense.title': 'Shto shpenzime',
+  'newReport.approverHint': 'Ata do të marrin një email kur ta dorëzoni këtë raport për shqyrtim.',
   'newReport.approverLabel': 'Email-i i miratuesit (opsional)',
   'newReport.approverPlaceholder': 'menaxher@kompaniajuaj.com',
   'newReport.availableExpenses': 'Shpenzimet e disponueshme',
   'newReport.createFailed': 'Raporti nuk mund të krijohej. Ju lutemi provoni përsëri.',
   'newReport.draftsFallback':
     'Lista e shpenzimeve aktuale nuk është e disponueshme — duke shfaqur të dhëna demo të kuruara.',
+  'newReport.eyebrow': 'Grupo shpenzimet · dorëzo për miratim',
   'newReport.includedCount': '{{count}} përfshirë',
   'newReport.purposeLabel': 'Qëllimi i biznesit',
   'newReport.purposePlaceholder':
     'Përshkruani udhëtimin ose projektin me të cilin lidhen këto shpenzime (i dukshëm për miratuesin dhe financuesin tuaj).',
   'newReport.saveDraft': 'Ruaj si draft',
+  'newReport.saveDraftFailed': 'Drafti nuk u ruajt. Ju lutemi provoni përsëri.',
   'newReport.submit': 'Dorëzo për miratim',
   'newReport.submitFailed': 'Raporti nuk mund të dërgohej. Ju lutemi provoni përsëri.',
   'newReport.summary': 'Përmbledhje e raportit',
@@ -101,17 +136,24 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Transmetimi i drejtpërdrejtë nuk është i disponueshëm — duke shfaqur të dhëna demo të kuruara.',
   'notifications.openReport': 'Hap raportin ›',
+  'pricing.approvalsLabel': 'miratimet',
   'pricing.expensesLabel': 'shpenzime',
   'pricing.heading': 'miratimet',
   'pricing.policiesLabel': 'politikat',
   'pricing.receiptsLabel': 'faturat',
   'recoveredAmountHeroCard.label': 'Rimbursimi u rikuperua · YTD',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} raport(e) aktualisht në pritje të shqyrtimit nga të gjithë miratuesit.',
+  'reports.approvalFlow': 'Rrjedha e miratimit',
   'reports.backToList': 'Kthehu te raportet',
   'reports.detailFallback':
     'Raporti i drejtpërdrejtë nuk është i disponueshëm — duke shfaqur të dhëna demo të kuruara.',
   'reports.lineItems': 'Artikuj të linjës',
   'reports.lineItemsCount': '{{count}} shpenzime',
+  'reports.lineItemsEmpty': 'Asnjë shpenzim në këtë raport ende.',
+  'reports.openLibrary': 'Hap bibliotekën e raporteve',
   'reports.policyTitle': 'Flag i politikës',
+  'reports.selectPrompt': 'Zgjidhni një raport nga biblioteka për të parë detajet e tij.',
   'reports.summary.lineCount': 'Artikuj të linjës',
   'reports.summary.reimbursable': 'I rimbursueshëm',
   'reports.summary.total': 'Totali i raportuar',
@@ -121,6 +163,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Lista aktuale nuk është e disponueshme — duke shfaqur të dhëna demo të kuruara.',
   'reportsList.newReport': 'Raport i ri',
+  'reportsList.submittedOn': 'U dërgua më {{date}}',
   'reportsList.title': 'Biblioteka e raporteve',
   'resetPassword.hidePassword': 'Fshih fjalëkalimin',
   'resetPassword.newPasswordLabel': 'Fjalëkalim i ri',
@@ -146,6 +189,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Ruajtur ✓',
   'settings.profileSaveFailed': 'Profili nuk mund të përditësohej. Ju lutemi provoni përsëri.',
   'signup.heading': 'Krijo llogarinë tënde të rikuperimit',
+  'signup.hidePassword': 'Fshih fjalëkalimin',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Shfaq fjalëkalimin',
   'signup.subheading': 'Falas për 25 shpenzime çdo muaj — pa kartë krediti.',

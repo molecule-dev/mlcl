@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'မေးခွန်းများ၊ အကြံပြုချက်များ သို့မဟုတ် သင့်အဖွဲ့အတွက် demo လိုချင်ပါသလား။ hello@conduit.dev သို့ အီးမေးလ်ပို့ပါ — မက်ဆေ့ခ်ျတိုင်း အဖွဲ့မှ လူတစ်ဦးဆီ ရောက်ပါသည်။',
   'about.contactHeading': 'ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.featuresHeading': 'သင်ရရှိသောအရာ',
+  'about.introBody':
+    '{{app}} သည် GitHub Actions ပုံစံ continuous delivery ကို မြန်ဆန်သော dashboard တစ်ခုတည်းသို့ ယူဆောင်လာသည် — သင့် repository အားလုံးအတွက် pipelines၊ build logs၊ artifacts၊ status badges နှင့် deployment environments များကို တစ်နေရာတည်းတွင် စုစည်းပေးသည်။ Tab ခုန်ကြည့်ရန် မလိုအပ်၊ မည်သည့် build ပျက်သည်ကို ခန့်မှန်းရန် မလိုအပ် — run၊ log line နှင့် deploy တိုင်း တစ်ချက်နှိပ်ရုံဖြင့် ရနိုင်သည်။',
+  'about.introHeading': '{{app}} ဆိုသည်မှာ',
+  'about.missionBody':
+    'Software ပို့ဆောင်ခြင်းသည် ကြောက်စရာမဟုတ်ဘဲ အေးဆေးပြီး ကြိုတင်ခန့်မှန်းနိုင်သော ဖြစ်စဉ်တစ်ခု ဖြစ်သင့်သည်။ Commit မှ production အထိ လမ်းကြောင်းကို မြန်ဆန်၊ မြင်သာပြီး ယုံကြည်စိတ်ချရသော ဖြစ်စေရန် ကျွန်ုပ်တို့သည် pipelines၊ logs နှင့် deploy tooling များကို တည်ဆောက်ပေးသည် — ပထမဆုံး green build ကို ငါးမိနစ်အတွင်း ရရှိပြီး နောက်ဆက်တွဲ build တိုင်းလည်း ထို့ထက်ပင် ရှင်းလင်းပါသည်။',
+  'about.missionHeading': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
+  'about.subtitle':
+    '{{app}} သည် repository တိုင်းရှိ builds၊ deployments နှင့် environments များကို စောင့်ကြည့်လိုပြီး ယုံကြည်စိတ်ချစွာ ပို့ဆောင်လိုသော အဖွဲ့များအတွက် CI/CD dashboard တစ်ခု ဖြစ်သည်။',
   'artifacts.empty': 'လက်ရာများ မရှိသေးပါ။',
   'artifacts.heading': 'ရှေးဟောင်းပစ္စည်းများ',
   'artifacts.loadError': 'ရှေးဟောင်းပစ္စည်းများကို တင်၍မရပါ။',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'ပတ်ဝန်းကျင်များ',
   'environments.loadError': 'ပတ်ဝန်းကျင်များကို တင်၍မရပါ။',
+  'environments.loading': 'ပတ်ဝန်းကျင်များကို တင်နေသည်…',
   'environments.subheading': 'ပစ်မှတ်တိုင်းတွင် တိုက်ရိုက်ဖြန့်ကျက်မှုအခြေအနေ။',
   'forgotPassword.runnerStatus': 'ပြန်လည်သတ်မှတ်ခြင်း · လုံခြုံသောဥမင်လိုဏ်ခေါင်း',
+  'forgotPassword.success':
+    'အဲဒီအီးမေးလ်အတွက် အကောင့်တစ်ခုရှိနေရင် reset link တစ်ခု ပို့ပေးပါမယ်။ သင့်ရဲ့ inbox ကို စစ်ဆေးကြည့်ပါ။',
   'insights.changeFailureRate': 'ကျရှုံးမှုနှုန်း ပြောင်းလဲခြင်း',
   'insights.deployFrequency': 'ဖြန့်ကျက် / တစ်ရက်',
   'insights.empty': 'ဒေတာ မလုံလောက်သေးပါဘူး။',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'အချက်အလက်များ တင်၍မရပါ။',
   'insights.meanP95': 'ပျမ်းမျှ {{mean}} · စာမျက်နှာ ၉၅ {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'အနှေးဆုံး pipeline အဆင့်များ',
   'insights.successRateHeading': 'ပိုက်လိုင်းအောင်မြင်မှုနှုန်း (ပြီးခဲ့သည့် ၁၄ ရက်)',
   'landing.choosePlan': 'အစီအစဉ် ရွေးချယ်ပါ',
+  'landing.copyright': '© {{year}} {{app}}။ ယုံကြည်စိတ်ချစွာ ပို့ဆောင်ပါ။',
   'landing.ctaBody':
     'ခရက်ဒစ်ကတ်မလိုပါ။ ပလက်ဖောင်းအင်ဂျင်နီယာမလိုပါ။ ပထမဆုံးပိုက်လိုင်းကို ငါးမိနစ်အတွင်း အစိမ်းရောင်ရအောင်လုပ်ပါ။',
   'landing.ctaHeading': 'သေချာစွာ ပို့ဆောင်ပေးပါသည်။',
   'landing.featuresEyebrow': '// ပလက်ဖောင်းအင်္ဂါရပ်များ',
   'landing.featuresHeading': 'ပို့ဆောင်သူများအတွက်၊ ပို့ဆောင်သူများမှ တည်ဆောက်ထားသည်',
+  'landing.heroSubtitle':
+    'စက္ကန့်ပိုင်းအတွင်း ပြီးဆုံးသော pipelines များ။ ဖတ်နိုင်သော logs များ။ ယုံကြည်နိုင်သော deploys များ။',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit ဖြန့်ကျက် --လုံခြုံစွာ',
   'landing.pricingEyebrow': '// $ ဈေးနှုန်း --ရိုးရှင်းသော',
   'landing.pricingHeading': 'ရိုးရှင်းပြီး ခန့်မှန်းနိုင်သော ဈေးနှုန်း',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'ယခုပျံသန်းနေသည်',
   'pipelines.metric.successCaption': '{{count}} ၏ {{total}} ပြေးခြင်း',
   'pipelines.metric.successRate': 'အောင်မြင်မှုနှုန်း',
+  'pipelines.realtimeOn': 'အချိန်နှင့်တပြေးညီ',
   'pipelines.subheading': 'ကြည့်ရှုထားသော repository တိုင်းမှ တိုက်ရိုက်အပ်ဒိတ်များ။',
+  'pricing.advancedFeatures': 'အဆင့်မြင့် အင်္ဂါရပ်များ — {{mark}}',
+  'pricing.canExport': 'ဒေတာ ထုတ်ယူခြင်း — {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artifacts',
+  'pricing.maxBuilds': '{{count}} builds',
+  'pricing.maxPipelines': '{{count}} pipelines',
   'privacy.dataAccount': 'အကောင့်- အမည်၊ အီးမေးလ်၊ hash လုပ်ထားသော စကားဝှက်၊ အစီအစဉ်အဆင့်။',
   'privacy.intro':
     '{{အက်ပ်}} သင့်ရဲ့ စဉ်ဆက်မပြတ်ပေးပို့မှုအကောင့်ကို လည်ပတ်ဖို့ ကျွန်ုပ်တို့လိုအပ်တဲ့ အနည်းဆုံးဒေတာတွေကိုသာ စုဆောင်းပါတယ်- သင့်ရဲ့ အီးမေးလ်၊ သင်ချိတ်ဆက်တဲ့ repositories၊ သင့်ရဲ့ runner တွေထုတ်လုပ်တဲ့ commits နဲ့ build metadata နဲ့ ကျွန်ုပ်တို့နဲ့အတူ သိမ်းဆည်းဖို့ ရွေးချယ်တဲ့ လျှို့ဝှက်ချက်တွေပါ။ ကျွန်ုပ်တို့ဟာ သင့်ရဲ့ source code ကို build runner ပြင်ပမှာ ဘယ်တော့မှ မဖတ်ပါဘူး။ build artifacts တွေကို configure လုပ်တဲ့အခါ သင့်ရဲ့ S3 bucket မှာ သိမ်းဆည်းပါတယ်။',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'ကျွန်ုပ်တို့သည် ငွေတောင်းခံလွှာအတွက် Stripe၊ ငွေပေးငွေယူဆိုင်ရာ အီးမေးလ်အတွက် Mailgun နှင့် တည်ဆောက်ထားသော artifact storage အတွက် AWS S3 ကို အသုံးပြုပါသည်။ တစ်ခုချင်းစီကို ၎င်း၏ဝန်ဆောင်မှုပေးအပ်ရန် လိုအပ်သော အနည်းဆုံးဒေတာအတိုင်းအတာအထိ စာချုပ်အရ ချည်နှောင်ထားသည်။',
   'privacy.rightsBody':
     'သင့်ဒေတာ၏ byte တိုင်းကို ထုတ်ယူနိုင်သည်၊ ဆက်တင်များမှ သင့်အကောင့်ကို အချိန်မရွေး ဖျက်နိုင်သည်၊ နှင့် သင့်အကောင့်ရှိ webhook ပေးပို့မှုတိုင်း၏ မှတ်တမ်းကို တောင်းဆိုနိုင်သည်။ GDPR / CCPA တောင်းဆိုမှုများကို ရက် ၃၀ အတွင်း ကျွန်ုပ်တို့ တုံ့ပြန်ပါသည်။',
+  'privacy.subtitle':
+    'ကျွန်ုပ်တို့ သင့် pipelines များကို လည်ပတ်စဉ် {{app}} သည် သင့်ဒေတာကို မည်သို့ စုဆောင်း၊ သိမ်းဆည်းပြီး ကာကွယ်သည်ကို ရှင်းလင်းထားသည်။',
   'privacy.title': 'ကိုယ်ရေးအချက်အလက်မူဝါဒ',
   'repositories.empty': 'ချိတ်ဆက်ထားသော သိုလှောင်ရုံများ မရှိပါ။',
   'repositories.heading': 'သိုလှောင်ရုံများ',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'သိုလှောင်ရုံအားလုံး',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'repository ကို တင်၍မရပါ။',
+  'repositoryDetail.meanDuration': 'ပျမ်းမျှ ကြာချိန်',
   'repositoryDetail.notFound': 'သိုလှောင်ရုံကို ရှာမတွေ့ပါ။',
+  'repositoryDetail.successRate': 'အောင်မြင်မှုနှုန်း',
   'repositoryDetail.totalBuilds': 'စုစုပေါင်းတည်ဆောက်မှုများ',
   'repositoryDetail.webhookActive': 'တက်ကြွသော',
   'repositoryDetail.webhookPaused': 'ခေတ္တရပ်ထားသည်',
   'repositoryDetail.webhooksHeading': 'ဝဘ်ဟွတ်ခ်များ',
+  'resetPassword.passwordLabel': 'စကားဝှက်အသစ်',
   'resetPassword.runnerStatus': 'ပြန်လည်သတ်မှတ်ခြင်း · တိုကင် အတည်ပြုပြီး',
   'resetPassword.subtitle': 'သင်ယခင်က အသုံးမပြုဖူးသော ခိုင်မာသည့် စကားဝှက်တစ်ခုကို ရွေးချယ်ပါ။',
   'resetPassword.tokenPlaceholder': 'အီးမေးလ်မှ ကူးထည့်ပါ',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Repositories Conduit watches များ။ event များကို စုပ်ယူခြင်းကို ရပ်တန့်ရန် သင်၏ VCS provider မှ ချိတ်ဆက်မှု ဖြုတ်ပါ။',
   'settings.repositories.empty': 'ချိတ်ဆက်ထားသော သိုလှောင်ရုံများ မရှိသေးပါ။',
+  'settings.repositories.heading': 'Repository ချိတ်ဆက်မှုများ',
   'settings.repositories.loadError': 'repositories များကို တင်၍မရပါ။',
   'settings.secrets.addCta': 'လျှို့ဝှက်ချက်ထည့်ပါ',
   'settings.secrets.addError': 'လျှို့ဝှက်ချက်ထည့်၍မရပါ။',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'လျှို့ဝှက်ချက်ကို ဖျက်၍မရပါ။',
   'settings.secrets.empty': 'လျှို့ဝှက်ချက်တွေကို သိမ်းဆည်းထားတာ မရှိဘူး။',
   'settings.secrets.heading': 'လျှို့ဝှက်ချက်များ',
+  'settings.secrets.lastUsed': 'နောက်ဆုံးအသုံးပြုခဲ့သည် {{date}}',
   'settings.secrets.loadError': 'လျှို့ဝှက်ချက်များကို တင်၍မရပါ။',
   'settings.secrets.neverUsed': 'ဘယ်တုန်းကမှ မသုံးဖူးဘူး',
   'settings.secrets.rotateCta': 'လှည့်ပါ',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'webhook အပ်ဒိတ်လုပ်၍မရပါ။',
   'signup.namePlaceholder': 'ရိုင်လီ ပန်းခြံ',
   'signup.runnerStatus': 'အခမဲ့အဆင့် · အနည်းဆုံး/လတွင် တည်ဆောက်မှု ၁၀၀၀',
+  'terms.intro':
+    '{{app}} အကောင့်တစ်ခု ဖန်တီးခြင်းဖြင့် ဤစည်းကမ်းချက်များကို သင်သဘောတူပါသည်။ ၎င်းတို့တွင် build runners များကို လက်ခံနိုင်သော အသုံးပြုမှု၊ ကျွန်ုပ်တို့၏ SLA ၏ နယ်နိမိတ်များနှင့် အလွဲသုံးစားလုပ်သော အလုပ်များအတွက် သင့်အကောင့်ကို ရပ်ဆိုင်းနိုင်သည် သို့မဟုတ် ဖျက်သိမ်းနိုင်သည့် အခြေအနေများ ပါဝင်သည်။',
   'terms.slaBody':
     'Pro နှင့် Team အစီအစဉ်များသည် API နှင့် runner pool အတွက် လစဉ် uptime ၉၉.၉၅% ကို ရည်မှန်းထားသည်။ အခမဲ့အစီအစဉ်ကို လက်ရှိအတိုင်း ပံ့ပိုးပေးထားပါသည်။ ပြတ်တောက်မှုများကို status.conduit.dev တွင် အစီရင်ခံပြီး သင့်ငွေတောင်းခံလွှာရှိ ဖော်မြူလာအတိုင်း ထည့်သွင်းပေးပါသည်။',
   'terms.terminationBody':

@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Heb je feedback, een bug gevonden, of wil je {{app}} voor je studio of team? Neem contact op via je accountinstellingen — elk bericht komt bij een echt persoon in het team terecht.',
   'about.contactTitle': 'Neem contact met ons op',
+  'about.intro':
+    '{{app}} is een collaboratieve schrijfstudio waar redacteuren, schrijvers en teams samen in realtime aan teksten werken. Open een document en de pagina wordt gedeeld — cursors bewegen, opmerkingen verschijnen in de marge en elke revisie wordt veilig bewaard in de geschiedenis.',
+  'about.missionBody':
+    'Wij vinden dat langere teksten een rustige, gefocuste thuisbasis verdienen — een die draait om het manuscript, niet om de vergadering of de inbox. Onze editor, realtime aanwezigheid en versiegeschiedenis zijn allemaal ontworpen zodat samenwerkers samen snel vooruit kunnen zonder dat iemand een alinea of een gedachte kwijtraakt.',
+  'about.missionTitle': 'Onze missie',
+  'about.subtitle': 'Denk samen, schrijf voor altijd.',
   'about.title': 'Over {{app}}',
   'comments.addFailed': 'Reactie kon niet worden geplaatst.',
   'comments.backToDoc': 'Terug naar manuscript',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Reactiethreads',
   'comments.loading': 'Threads laden…',
   'comments.newPlaceholder': 'Voeg een reactie toe aan het manuscript…',
+  'comments.newSubmit': 'Plaatsen',
   'comments.reopen': 'Heropenen',
   'comments.reopenFailed': 'Heropenen mislukt.',
   'comments.replyFailed': 'Antwoord kon niet worden geplaatst.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Recente concepten, gedeelde werken en de bewerkingen van vandaag.',
   'dashboard.viewFeed': 'Feed →',
   'editor.back': 'Terug naar manuscripten',
+  'editor.bodyLabel': 'Documenttekst',
   'editor.bodyPlaceholder': 'Begin waar de cursor knippert.',
   'editor.comments': 'Reacties',
   'editor.createFailed': 'Document kon niet worden aangemaakt.',
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Als er een account bestaat voor {{email}}, sturen we u een herstellink.',
+  'forgotPassword.sentHeading': 'Controleer uw e-mail',
+  'forgotPassword.submitting': 'Verzenden…',
   'forgotPassword.subtitle': 'We sturen u een herstellink per e-mail.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Gebouwd met Molecule.',
+  'landing.ctaBody':
+    'Gratis voor soloschrijvers. Studio-abonnementen voor teams van redacteuren, ghostwriters en reviewers.',
   'landing.ctaHeading': 'Open de pagina. Laat de cursor beginnen.',
   'landing.ctaPrimary': 'Open een studio',
   'landing.eyebrow': 'Voor schrijvers, redacteuren en teams',
   'landing.featuresEyebrow': 'Wat u krijgt',
   'landing.featuresHeading': 'Een studio voor het lange concept.',
+  'landing.featuresSubtitle':
+    '{{appName}} draait om het manuscript — niet om de vergadering, niet om de inbox.',
   'landing.getStarted': 'Studio openen',
   'landing.heroCta': 'Begin met schrijven',
   'landing.heroSubtitle':
@@ -95,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} ongelezen · reacties, vermeldingen, deeluitnodigingen en suggestieverzoeken.',
   'presenceAvatars.label': '{{count}} medewerkers',
+  'privacy.intro': 'Hoe we je informatie verzamelen, gebruiken en beschermen.',
   'privacy.title': 'Privacybeleid',
   'profile.about.description': "Een korte bio voor uw openbare profiel en de bijdragerspagina's.",
   'profile.eyebrow': 'Studio-identiteit',
@@ -107,7 +124,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Aanwezigheid',
   'profile.pronouns': 'Voornaamwoorden',
   'profile.publicToggle': 'Profiel tonen aan teamgenoten',
+  'profile.role': 'Rol / titel',
   'profile.subtitle': 'Hoe u verschijnt bij uw medewerkers.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} schrijvers actief in de studio',
   'quillonAuthBrandPanel.quote':
     '“Schrijven is het enige waarvan ik, terwijl ik het doe, niet het gevoel heb dat ik iets anders zou moeten doen.”',
@@ -115,6 +134,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Openen →',
   'quillonKpiCard.trend': 'Recente trend',
   'quillonLayout.menu': 'Menu',
+  'quillonLayout.mobileNavLabel': 'Mobiele navigatie',
   'quillonLayout.primaryNavLabel': 'Hoofdnavigatie',
   'quillonStudioHero.collab': 'Medewerkers',
   'quillonStudioHero.docs': 'Aangeraakte documenten',
@@ -124,7 +144,9 @@ export const ui: UiTranslations = {
     'Pak het manuscript op, plaats een reactie, duw een alinea vooruit.',
   'quillonStudioHero.words': 'Woorden vandaag',
   'resetPassword.confirmPlaceholder': 'Herhaal het nieuwe wachtwoord',
+  'resetPassword.passwordLabel': 'Nieuw wachtwoord',
   'resetPassword.passwordPlaceholder': 'Voer een nieuw wachtwoord in',
+  'resetPassword.submitting': 'Bezig met opnieuw instellen…',
   'resetPassword.subtitle': 'Kies een sterk wachtwoord — minstens 12 tekens.',
   'settings.account.description': 'Hoe u zich aanmeldt.',
   'settings.billing.canceled': 'Abonnement opgezegd.',
@@ -133,7 +155,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Niet geconfigureerd',
   'settings.billing.updated': 'Abonnement bijgewerkt.',
   'settings.editor.description': 'Hoe het canvas zich gedraagt terwijl u schrijft.',
+  'settings.editor.title': 'Editor-voorkeuren',
   'settings.eyebrow': 'Studio-voorkeuren',
+  'settings.language.title': 'Taal',
   'settings.notifications.${n.key}.description': 'Taal',
   'settings.notifications.description': 'Kies wat in uw inbox terechtkomt.',
   'settings.subtitle': 'Stem meldingen, het editor-canvas en uw accountvoorkeuren af.',
@@ -142,6 +166,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Met mij gedeeld',
   'shared.loadFailed': 'Gedeelde documenten kunnen niet worden geladen.',
   'shared.subtitle': 'Manuscripten, briefings en notities van de rest van de studio.',
+  'signup.brandAttribution': 'Anaïs Park — Redacteur, The Quarterly',
   'signup.brandQuote':
     '“Uw eerste manuscript is het moeilijkst. Quillon maakt het minder eenzaam.”',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -149,6 +174,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Anaïs',
   'signup.heading': 'Maak uw Quillon-account aan',
   'signup.lastNamePlaceholder': 'Park',
+  'signup.submitting': 'Je studio wordt geopend\\u2026',
   'signup.subtitle':
     'Een rustig bureau, omringd door medewerkers, en een lange-vorm editor die u de ruimte geeft.',
   'templates.blank.subtitle': 'Een schone pagina. De cursor begint.',
@@ -161,11 +187,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Begin met een doordachte structuur. Pas eindeloos aan.',
   'templates.useFailed': 'Document kon niet worden gestart vanuit dit sjabloon.',
   'templates.useTemplate': 'Dit sjabloon gebruiken',
+  'terms.intro': 'De voorwaarden waaronder je deze service mag gebruiken.',
   'terms.title': 'Servicevoorwaarden',
   'time.daysAgo': '{{days}}d geleden',
   'time.hoursAgo': '{{hours}}u geleden',
   'time.justNow': 'zojuist',
   'trash.confirmDelete': 'Bevestig verwijdering',
+  'trash.confirmEmpty': 'Bevestigen — alles verwijderen',
   'trash.deleteFailed': 'Verwijderen mislukt.',
   'trash.deleteForever': 'Definitief verwijderen',
   'trash.empty': 'Niets te herstellen.',
@@ -180,7 +208,9 @@ export const ui: UiTranslations = {
   'versionHistory.backToDoc': 'Terug naar manuscript',
   'versionHistory.empty': 'Nog geen revisies — sla het document op om de geschiedenis te starten.',
   'versionHistory.heading': 'Versiegeschiedenis',
+  'versionHistory.latest': 'Nieuwste',
   'versionHistory.loadFailed': 'Geschiedenis kon niet worden geladen.',
+  'versionHistory.noContent': 'Geen inhoud vastgelegd voor deze revisie.',
   'versionHistory.previewing': 'Voorbeeld',
   'versionHistory.restore': 'Deze versie herstellen',
   'versionHistory.restoreFailed': 'Herstellen mislukt.',

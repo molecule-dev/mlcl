@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഒരു ബഗ് കണ്ടെത്തിയോ, ഒരു ഫീച്ചർ അഭ്യർത്ഥനയുണ്ടോ, അല്ലെങ്കിൽ അടുത്തതായി എന്ത് നിർമ്മിക്കണമെന്ന് ഞങ്ങളോട് പറയാൻ ആഗ്രഹമുണ്ടോ? hello@pylon.dev എന്ന വിലാസത്തിൽ ഇമെയിൽ ചെയ്യുക — ഓരോ സന്ദേശവും ടീമിലെ ഒരു യഥാർത്ഥ എഞ്ചിനീയറിലേക്ക് എത്തുന്നു.',
   'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
+  'about.intro':
+    'ടെർമിനലിൽ ജീവിക്കുന്ന എഞ്ചിനീയർമാർക്കുള്ള വേഗതയേറിയ, കീബോർഡ്-നേറ്റീവ് API ടെസ്റ്റിംഗ് വർക്ക്ബെഞ്ചാണ് {{app}} — അനാവശ്യ ഭാരമില്ലാതെ Postman-ശൈലിയിലുള്ള അഭ്യർത്ഥനകൾ, കളക്ഷനുകൾ, എൻവയോൺമെന്റുകൾ, ചരിത്രം.',
+  'about.missionBody':
+    'ആധുനിക സോഫ്റ്റ്വെയറിന്റെ നട്ടെല്ലാണ് API-കൾ, പക്ഷേ അവ പരീക്ഷിക്കാനുള്ള ഉപകരണങ്ങൾ മന്ദഗതിയിലുള്ളതും ഭാരമേറിയതും മൗസ് അധിഷ്ഠിതവുമാണ്. ഡെവലപ്പർമാർക്ക് മൂർച്ചയുള്ളതും വേഗതയേറിയതും ടെർമിനൽ-നിലവാരമുള്ളതുമായ ഒരു വർക്ക്ബെഞ്ച് നൽകാനാണ് {{app}} നിലകൊള്ളുന്നത്: അഭ്യർത്ഥനകൾ അയയ്ക്കുക, ആത്മവിശ്വാസം വളർത്തുക, കീബോർഡ് വിടാതെ ഷിപ്പ് ചെയ്യുക.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'about.pageTitle': '{{app}} നെക്കുറിച്ച്',
   'authShell.statusLabel': 'റണ്ണേഴ്സ് ഓൺലൈനിൽ',
   'collections.createError': 'ശേഖരം സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല.',
   'collections.defaultName': 'പേരില്ലാത്ത ശേഖരം {{n}}',
+  'collections.empty':
+    'ഇതുവരെ കളക്ഷനുകളില്ല — നിങ്ങളുടെ ആദ്യ ഫോൾഡർ സൃഷ്ടിക്കാൻ “New collection” ക്ലിക്ക് ചെയ്യുക.',
   'collections.eyebrow': '$ പൈലോൺ ശേഖരങ്ങൾ --ട്രീ',
   'collections.fetchError': 'ശേഖരങ്ങൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'collections.heading': 'ശേഖരങ്ങൾ',
   'collections.loading': 'ശേഖരങ്ങൾ ലോഡ് ചെയ്യുന്നു...',
+  'collections.metric.allGreen': 'എല്ലാം പച്ച',
   'collections.metric.collections': 'ശേഖരങ്ങൾ',
   'collections.metric.failing': 'പരാജയപ്പെടുന്നു',
   'collections.metric.failingCaption': 'അവസാന ഓട്ടം പരാജയങ്ങളായിരുന്നു',
@@ -24,6 +34,8 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'വേരിയബിളുകൾ',
   'environments.createError': 'പരിസ്ഥിതി സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല.',
   'environments.defaultName': 'പേരില്ലാത്ത പരിസ്ഥിതി {{n}}',
+  'environments.empty':
+    'ഇതുവരെ എൻവയോൺമെന്റുകളില്ല — ഒന്ന് ചേർക്കാൻ “New environment” ക്ലിക്ക് ചെയ്യുക.',
   'environments.eyebrow': '$ പൈലോൺ env --സ്വിച്ച്',
   'environments.fetchError': 'എൻവയോൺമെന്റുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'environments.heading': 'പരിസ്ഥിതികൾ',
@@ -31,8 +43,11 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'പുതിയ പരിസ്ഥിതി',
   'environments.subheading':
     'അയയ്ക്കുന്ന സമയത്ത് അഭ്യർത്ഥനകളായി മാറുന്ന വേരിയബിളുകൾ. ഓരോ വർക്ക്‌സ്‌പെയ്‌സിനും ഒരു സജീവ പരിസ്ഥിതി.',
+  'forgotPassword.statusLabel': 'പുനഃസജ്ജീകരണം · സുരക്ഷിത തുരങ്കം',
   'forgotPassword.success':
     'ആ ഇമെയിലിന് ഒരു അക്കൗണ്ട് നിലവിലുണ്ടെങ്കിൽ, ഒരു റീസെറ്റ് ലിങ്ക് ലഭിക്കുന്നതാണ്. നിങ്ങളുടെ ഇൻബോക്സ് പരിശോധിക്കുക.',
+  'history.empty':
+    'ഇവിടെ ഇതുവരെ ഒന്നുമില്ല — Workspace ടാബിൽ നിന്ന് നിങ്ങളുടെ ആദ്യ അഭ്യർത്ഥന അയയ്ക്കുക.',
   'history.eyebrow': '$ പൈലോൺ ചരിത്രം --ടെയിൽ',
   'history.fetchError': 'ചരിത്രം ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'history.heading': 'റൺ ചരിത്രം',
@@ -41,9 +56,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'അവസാന 50',
+  'history.realtime': 'തത്സമയം',
   'history.subheading':
     'ഈ വർക്ക്‌സ്‌പെയ്‌സിൽ സ്റ്റാറ്റസ്, ലേറ്റൻസി, പേലോഡ് വലുപ്പം എന്നിവ ഉൾപ്പെടെ എല്ലാ അഭ്യർത്ഥനകളും നടത്തുന്നു.',
   'landing.choosePlan': 'പ്ലാൻ തിരഞ്ഞെടുക്കുക',
+  'landing.copyright': '© {{year}} {{app}} Engineering. ആത്മവിശ്വാസം വളർത്തുക.',
   'landing.ctaBody':
     'ക്രെഡിറ്റ് കാർഡ് വേണ്ട. പ്ലാറ്റ്‌ഫോം എഞ്ചിനീയർ ആവശ്യമില്ല. ⌘K തുറന്ന് അഞ്ച് മിനിറ്റിനുള്ളിൽ നിങ്ങളുടെ ആദ്യ അഭ്യർത്ഥന അയയ്ക്കുക.',
   'landing.ctaHeading': 'ആത്മവിശ്വാസം വളർത്തുക.',
@@ -86,6 +103,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'ശരാശരി ലേറ്റൻസി',
   'mocks.metric.live': 'പൊതു',
   'mocks.metric.servers': 'പരിഹാസങ്ങൾ',
+  'mocks.ms': 'മിസ്',
   'mocks.newMock': 'പുതിയ മോക്ക്',
   'mocks.online': 'പൊതു',
   'mocks.paused': 'സ്വകാര്യം',
@@ -110,9 +128,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'ആരോഗ്യമുള്ള',
   'monitors.metric.uptime': 'ശരാശരി പ്രവർത്തനസമയം',
   'monitors.newMonitor': 'പുതിയ മോണിറ്റർ',
+  'monitors.paused': 'താൽക്കാലികമായി നിർത്തി',
   'monitors.run': 'ഓടുക',
   'monitors.runError': 'ഒരു നെറ്റ്‌വർക്ക് പിശകോടെ ഓട്ടം പൂർത്തിയായി: {{error}}',
+  'monitors.runFailed': 'റൺ പരാജയപ്പെട്ടു.',
   'monitors.running': 'ഓടുന്നു...',
+  'monitors.runSuccess': '{{status}} റൺ ചെയ്യുക — അപ്സ്ട്രീം {{ms}}ms-ൽ {{code}} തിരികെ നൽകി.',
   'monitors.sparkLabel': 'ലേറ്റൻസി ട്രെൻഡ്',
   'monitors.subheading':
     'സേവ് ചെയ്ത ഏതൊരു ടെസ്റ്റിനും ഓൺ-ഡിമാൻഡ് പരിശോധനകൾ. ഒരു ടെസ്റ്റ് ബൈൻഡ് ചെയ്യുക, റൺ അമർത്തുക, ഓരോ ഫയറിനുമൊപ്പം 24 മണിക്കൂർ വിജയ നിരക്ക് അപ്‌ഡേറ്റ് കാണുക.',
@@ -121,28 +142,56 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'പ്രവർത്തനസമയം · 24 മണിക്കൂർ',
   'nav.legal': 'നിയമപരമായ',
   'notFound.backToWorkspace': 'വർക്ക്‌സ്‌പെയ്‌സിലേക്ക് മടങ്ങുക',
+  'notFound.body':
+    'ഈ URL-നായി {{app}} ഒരു അഭ്യർത്ഥന അയച്ചു, പക്ഷേ ഒന്നും തിരികെ ലഭിച്ചില്ല. റൂട്ട് ഒന്നുകൂടി പരിശോധിക്കുക അല്ലെങ്കിൽ വർക്ക്സ്പേസിലേക്ക് മടങ്ങുക.',
   'notFound.eyebrow': '$ പൈലോൺ റിസോൾവ് --സ്ട്രിക്റ്റ്',
   'notFound.title': 'റൂട്ട് കണ്ടെത്തിയില്ല',
+  'planUpdated.body':
+    'നിങ്ങളുടെ ബില്ലിംഗ് മാറ്റം ഇപ്പോൾ സജീവമാണ്. ബില്ലിംഗ് പേജിൽ നിന്ന് എപ്പോൾ വേണമെങ്കിലും നിങ്ങളുടെ പ്ലാൻ മാനേജ് ചെയ്യാം.',
+  'planUpdated.retry': 'വീണ്ടും ശ്രമിക്കുക',
+  'planUpdated.verifyFailed': 'നിങ്ങളുടെ പേയ്‌മെന്റ് ഞങ്ങൾക്ക് ഇതുവരെ സ്ഥിരീകരിക്കാൻ കഴിഞ്ഞില്ല.',
+  'planUpdated.verifyFailedBody':
+    'നിങ്ങളുടെ പേയ്‌മെന്റ് ഇപ്പോഴും പ്രോസസ്സ് ചെയ്തുകൊണ്ടിരിക്കുകയായിരിക്കാം. അൽപ്പസമയത്തിനുള്ളിൽ വീണ്ടും ശ്രമിക്കുക.',
   'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
+  'pricing.advancedFeatures': 'വിപുലമായ സവിശേഷതകൾ: {{yes}}',
+  'pricing.canExport': 'ഡാറ്റ എക്സ്പോർട്ട്: {{yes}}',
+  'pricing.heading': 'നിങ്ങളുടെ {{app}} പ്ലാൻ തിരഞ്ഞെടുക്കുക',
+  'pricing.maxCollections': '{{count}} കളക്ഷനുകൾ',
+  'pricing.maxEnvironments': '{{count}} എൻവയോൺമെന്റുകൾ',
+  'pricing.maxHistory': '{{count}} ചരിത്ര എൻട്രികൾ',
+  'pricing.maxRequests': '{{count}} അഭ്യർത്ഥനകൾ',
   'privacy.collect.account':
     'അക്കൗണ്ട്: നിങ്ങളുടെ ഇമെയിൽ, ഹാഷ് ചെയ്ത പാസ്‌വേഡ്, പ്രദർശന നാമം, നിങ്ങളുടെ അവസാന സൈൻ-ഇന്നിന്റെ ടൈംസ്റ്റാമ്പ്.',
+  'privacy.intro':
+    '{{app}} നിങ്ങളുടെ സ്വകാര്യതയെ മാനിക്കുന്നു. ഞങ്ങൾ ശേഖരിക്കുന്ന ഡാറ്റ, അത് ശേഖരിക്കാനുള്ള കാരണം, അത് എങ്ങനെ നീക്കം ചെയ്യാം എന്നിവ ഈ പേജ് സംഗ്രഹിക്കുന്നു.',
   'privacy.rights.body':
     'നിങ്ങളുടെ ശേഖരങ്ങൾ + പരിതസ്ഥിതികൾ എപ്പോൾ വേണമെങ്കിലും കയറ്റുമതി ചെയ്യാം, അല്ലെങ്കിൽ 30 ദിവസത്തിനുള്ളിൽ എല്ലാ ഡാറ്റയും ശാശ്വതമായി നീക്കം ചെയ്യുന്നതിന് ക്രമീകരണങ്ങളിൽ നിന്ന് നിങ്ങളുടെ അക്കൗണ്ട് ഇല്ലാതാക്കാം.',
   'privacy.share.body':
     'നിങ്ങൾക്ക് മാത്രം. നിങ്ങളുടെ വർക്ക്‌സ്‌പെയ്‌സ് ഉള്ളടക്കം ഞങ്ങൾ ഒരിക്കലും മൂന്നാം കക്ഷികൾക്ക് വിൽക്കുകയോ പങ്കിടുകയോ വാടകയ്‌ക്കെടുക്കുകയോ ചെയ്യില്ല. സംഭവ പ്രതികരണത്തിനായി സെർവർ ലോഗുകൾ 30 ദിവസത്തേക്ക് സൂക്ഷിക്കുകയും തുടർന്ന് ഇല്ലാതാക്കുകയും ചെയ്യും.',
   'privacy.title': 'സ്വകാര്യതാ അറിയിപ്പ്',
+  'profile.bio':
+    'നിങ്ങളുടെ വ്യക്തിഗത {{app}} വർക്ക്സ്പേസ് — കളക്ഷനുകൾ പിൻ ചെയ്യുക, എൻവയോൺമെന്റുകൾ പങ്കിടുക, ഉൽപ്പന്നം ഷിപ്പ് ചെയ്യുന്ന API-കൾ നിരീക്ഷിക്കുക.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'ചേർന്നു {{when}}',
+  'profile.metric.collections': 'ശേഖരങ്ങൾ',
   'profile.metric.monitors': 'മോണിറ്ററുകൾ',
   'profile.metric.requests': 'സംരക്ഷിച്ച അഭ്യർത്ഥനകൾ',
+  'profile.noActivity':
+    'ഇതുവരെ അഭ്യർത്ഥനകളൊന്നും അയച്ചിട്ടില്ല — ഒന്ന് നടത്താൻ Workspace ടാബിലേക്ക് പോകുക.',
   'profile.signedOut': 'നിങ്ങളുടെ പ്രൊഫൈൽ കാണാൻ സൈൻ ഇൻ ചെയ്യുക',
   'pylonShell.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
+  'resetPassword.passwordLabel': 'പുതിയ പാസ്വേഡ്',
+  'resetPassword.statusLabel': 'പുനഃസജ്ജമാക്കൽ · ടോക്കൺ പരിശോധിച്ചു',
   'resetPassword.subtitle':
     'നിങ്ങൾ മുമ്പ് ഉപയോഗിച്ചിട്ടില്ലാത്ത ശക്തമായ ഒരു പാസ്‌വേഡ് തിരഞ്ഞെടുക്കുക.',
   'resetPassword.tokenPlaceholder': 'ഇമെയിലിൽ നിന്ന് ഒട്ടിക്കുക',
+  'settings.accountManagement.desc':
+    'നിങ്ങളുടെ ഇമെയിലും പാസ്വേഡും അപ്ഡേറ്റ് ചെയ്യുക, അറിയിപ്പുകളും ഉപകരണങ്ങളും നിയന്ത്രിക്കുക, സൈൻ ഔട്ട് ചെയ്യുക, അല്ലെങ്കിൽ നിങ്ങളുടെ അക്കൗണ്ട് ഇല്ലാതാക്കുക.',
+  'settings.accountManagement.title': 'അക്കൗണ്ടും സുരക്ഷയും',
   'settings.eyebrow': '$ പൈലോൺ ക്രമീകരണങ്ങൾ --എഡിറ്റ് ചെയ്യുക',
   'settings.fetchError': 'ക്രമീകരണങ്ങൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'settings.language.title': 'ഭാഷ',
+  'settings.seeding': 'സീഡ് ചെയ്യുന്നു…',
   'settings.seedStarter': 'വിത്ത് സ്റ്റാർട്ടർ ഉള്ളടക്കം',
   'settings.starterCollection': 'സ്റ്റാർട്ടർ ശേഖരം',
   'settings.starterCollectionDesc': 'ക്രമീകരണങ്ങളിൽ നിന്ന് സൃഷ്ടിച്ചത് {{ts}}',
@@ -156,6 +205,8 @@ export const ui: UiTranslations = {
     'നിങ്ങളുടെ പാസ്‌വേഡ് സംരക്ഷിക്കേണ്ട ഉത്തരവാദിത്തം നിങ്ങൾക്കാണ്. ഫ്രീ അല്ലെങ്കിൽ പ്രോ പ്ലാനുകളിൽ ഒന്നിലധികം ആളുകളുമായി ഒരു അക്കൗണ്ട് പങ്കിടുന്നത് അനുവദനീയമല്ല - പങ്കിട്ട വർക്ക്‌സ്‌പെയ്‌സുകൾക്കായി ഒരു ടീം സബ്‌സ്‌ക്രിപ്‌ഷൻ വാങ്ങുക.',
   'terms.billing.body':
     'പണമടച്ചുള്ള സബ്‌സ്‌ക്രിപ്‌ഷനുകൾ ഓരോ ബില്ലിംഗ് കാലയളവിലും സ്വയമേവ പുതുക്കപ്പെടും. ക്രമീകരണങ്ങളിൽ നിന്ന് എപ്പോൾ വേണമെങ്കിലും റദ്ദാക്കുക; നിലവിലെ കാലയളവിന്റെ അവസാനം വരെ നിങ്ങളുടെ ആക്‌സസ് തുടരും.',
+  'terms.intro':
+    'ഒരു {{app}} അക്കൗണ്ട് സൃഷ്ടിക്കുന്നതിലൂടെ താഴെയുള്ള നിബന്ധനകൾ നിങ്ങൾ അംഗീകരിക്കുന്നു. അവ ഒരിക്കൽ വായിക്കുക; പിന്നീടുള്ള മാറ്റങ്ങളിലൂടെ ഞങ്ങൾ നിങ്ങളെ അമ്പരപ്പിക്കില്ല.',
   'terms.title': 'സേവന നിബന്ധനകൾ',
   'terms.usage.body':
     'നിങ്ങളുടെ ഉടമസ്ഥതയിലുള്ളതോ പരീക്ഷിക്കാൻ വ്യക്തമായ അനുമതിയില്ലാത്തതോ ആയ സേവനങ്ങളിൽ അഭ്യർത്ഥനകൾ നടത്താൻ പൈലോൺ ഉപയോഗിക്കരുത്. നിരക്ക് പരിധികൾ മറികടക്കുന്നതിനോ വഞ്ചന നടത്തുന്നതിനോ പൈലോൺ ഉപയോഗിക്കരുത്.',
@@ -176,16 +227,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'ഓടുന്നില്ല',
   'testRunner.metric.passed': 'പാസ്സായി',
   'testRunner.never': 'ഒരിക്കലും ഓടരുത്',
+  'testRunner.newTest': 'പുതിയ ടെസ്റ്റ്',
   'testRunner.noAssertions': 'ഈ പരിശോധനയെക്കുറിച്ച് ഇതുവരെ ഒരു പ്രസ്താവനയും വന്നിട്ടില്ല.',
+  'testRunner.noRunsYet':
+    'ഇതുവരെ റണ്ണുകളൊന്നും രേഖപ്പെടുത്തിയിട്ടില്ല — ചരിത്രം നിറയ്ക്കാൻ “Run all” അമർത്തുക.',
   'testRunner.passed': 'കടന്നുപോകുന്നു',
+  'testRunner.recentRuns': 'സമീപകാല റൺസ്',
   'testRunner.runAll': 'എല്ലാം പ്രവർത്തിപ്പിക്കുക',
   'testRunner.running': 'ഓടുന്നു...',
   'testRunner.runOne': 'ഓടുക',
   'testRunner.subheading': 'സ്യൂട്ട് ഫലങ്ങൾ, അസെർമെന്റ് വ്യത്യാസങ്ങൾ, അവസാന 50 റൺസ്.',
+  'testRunner.suites': 'സ്യൂട്ടുകൾ',
   'userMenu.shortcut': '⌘എൽ',
   'userMenu.signedInAs': 'ആയി സൈൻ ഇൻ ചെയ്‌തു',
   'workspace.auth.keyName': 'തലക്കെട്ടിന്റെ പേര്',
   'workspace.auth.keyValue': 'പ്രധാന മൂല്യം',
+  'workspace.auth.noneHint': 'ഈ അഭ്യർത്ഥനയോടൊപ്പം ഒരു അംഗീകാര ഹെഡറും അയയ്ക്കില്ല.',
   'workspace.auth.password': 'പാസ്‌വേഡ്',
   'workspace.auth.username': 'ഉപയോക്തൃനാമം',
   'workspace.authOption.apikey': 'API കീ',
@@ -195,13 +252,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'ഒഎഉത് 2.0',
   'workspace.authType': 'ടൈപ്പ് ചെയ്യുക',
   'workspace.authTypeLabel': 'ഓത്ത് തരം',
+  'workspace.body.contentLabel': 'അഭ്യർത്ഥന ബോഡി',
+  'workspace.body.hint':
+    'അഭ്യർത്ഥന അയയ്ക്കുന്നതിന് മുമ്പ് {{envVars}} പകരം വയ്ക്കുന്നു. POST/PUT/PATCH/DELETE-ൽ ബോഡികൾ അയയ്ക്കുന്നു.',
   'workspace.body.json': 'ജെ‌എസ്‌ഒ‌എൻ‌',
   'workspace.body.none': 'ഒന്നുമില്ല',
+  'workspace.body.noneHint':
+    'ഒരു അഭ്യർത്ഥന ബോഡിയും അയയ്ക്കില്ല. ഒന്ന് ചേർക്കാൻ JSON അല്ലെങ്കിൽ റോ ടെക്സ്റ്റ് തിരഞ്ഞെടുക്കുക.',
   'workspace.body.text': 'റോ ടെക്സ്റ്റ്',
   'workspace.body.type': 'ടൈപ്പ് ചെയ്യുക',
   'workspace.environment': 'എൻവി ഇല്ല',
   'workspace.envVar': 'env വേരിയബിൾ',
   'workspace.eyebrow': '$ പൈലോൺ വർക്ക്‌സ്‌പെയ്‌സ് --പാളി വിഭജനം',
+  'workspace.failedCount': '{{count}} പരാജയപ്പെട്ടു',
+  'workspace.idle': 'അലസമായത്',
   'workspace.kv.addHeader': 'തലക്കെട്ട് ചേർക്കുക',
   'workspace.kv.addParam': 'പാരാമീറ്റർ ചേർക്കുക',
   'workspace.kv.headerKey': 'തലക്കെട്ടിന്റെ പേര്',
@@ -214,13 +278,17 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP രീതി',
   'workspace.metric.latency': 'ലേറ്റൻസി',
   'workspace.metric.latencyCaption': 'ഈ ഓട്ടത്തിൽ നിന്നുള്ള മടക്കയാത്ര',
+  'workspace.metric.size': 'പേലോഡ്',
   'workspace.metric.sizeCaption': 'പ്രതികരണ ബോഡി ബൈറ്റുകൾ',
   'workspace.metric.statusCaption': 'അവസാന പ്രതികരണം',
   'workspace.metric.tests': 'ടെസ്റ്റുകൾ',
+  'workspace.metric.testsAllPassing': 'എല്ലാ അസർഷനുകളും പച്ച',
   'workspace.metric.testsFailing': '{{count}} പരാജയപ്പെടുന്നു',
+  'workspace.metric.testsIdle': 'വിലയിരുത്താൻ ഒരു അഭ്യർത്ഥന അയയ്ക്കുക',
   'workspace.noAssertions':
     'ബിൽറ്റ്-ഇൻ പ്രസ്താവനകൾ വിലയിരുത്തുന്നതിന് ഒരു അഭ്യർത്ഥന പ്രവർത്തിപ്പിക്കുക.',
   'workspace.noResponseYet': 'ഇതുവരെ പ്രതികരണമൊന്നുമില്ല.',
+  'workspace.passedCount': '{{count}} പാസ്സായി',
   'workspace.responseHint':
     '// അഭ്യർത്ഥന സമർപ്പിക്കുന്നതിനും പ്രതികരണം പിടിച്ചെടുക്കുന്നതിനും അയയ്ക്കുക അമർത്തുക.',
   'workspace.saveError': 'അഭ്യർത്ഥന സംരക്ഷിക്കാൻ കഴിഞ്ഞില്ല.',
@@ -230,9 +298,13 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'ഒരു അഭ്യർത്ഥന രചിക്കുക, അത് പൂരിപ്പിക്കുക, തുടർന്ന് പ്രതികരണം ഉറപ്പിക്കുക - എല്ലാം ഒരു പാളിയിൽ.',
   'workspace.testResults': 'പരിശോധനാ ഫലങ്ങൾ',
+  'workspace.tests.autoHint':
+    'സ്റ്റാറ്റസ് ഫാമിലി, ലേറ്റൻസി, ബോഡി വലിപ്പം, ട്രാൻസ്പോർട്ട് ആരോഗ്യം എന്നിവ സ്വയമേവ അസർട്ട് ചെയ്യുന്നു — ഫലങ്ങൾ പ്രതികരണ പാനലിലെ “Test results” എന്നതിന് കീഴിൽ ദൃശ്യമാകും.',
+  'workspace.tests.autoTitle': 'ഓരോ പ്രതികരണത്തിലും ബിൽറ്റ്-ഇൻ അസർഷനുകൾ പ്രവർത്തിക്കുന്നു',
   'workspace.token': 'ടോക്കൺ',
   'workspace.tokenHint': 'അംഗീകാരമായി അയച്ചു: ബെയറർ<token> ഈ ശേഖരത്തിലെ ഓരോ അഭ്യർത്ഥനയിലും.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'പേരില്ലാത്ത അഭ്യർത്ഥന',
+  'workspace.urlLabel': 'URL അഭ്യർത്ഥിക്കുക',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

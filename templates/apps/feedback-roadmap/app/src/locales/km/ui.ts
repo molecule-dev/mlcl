@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'មានមតិកែលម្អ រកឃើញកំហុស ឬចង់បានក្តារផ្ទាល់ខ្លួននៅលើ {{appName}}? បើកការកំណត់របស់អ្នកដើម្បីទាក់ទងក្រុមការងារ — រាល់សារទាំងអស់ត្រូវបានអានដោយមនុស្សពិតប្រាកដ។',
+  'about.contactTitle': 'ទាក់ទងមកយើង',
+  'about.featureModeration':
+    'ផែនទីបង្ហាញផ្លូវសាធារណៈដែលមានស្លាកត្រីមាស កំណត់ហេតុការផ្លាស់ប្តូរដែលបំប្លែងការងារដែលបានចេញផ្សាយទៅជាកំណត់សម្គាល់ការចេញផ្សាយ និងផ្ទាំងគ្រប់គ្រងដែលបង្ហាញអ្វីដែលមនុស្សចង់បានច្រើនបំផុត។',
+  'about.featurePricing':
+    'ឥតគិតថ្លៃសម្រាប់ការដំណើរការក្តារពីរបី គម្រោង Pro និង Team បើកក្តារបន្ថែម ដែនកំណត់ខ្ពស់ជាង និងការនាំចេញទិន្នន័យ។',
+  'about.featureThreads':
+    'ក្តារមតិកែលម្អសាធារណៈដែលរៀបចំតាមប្រធានបទ ជាមួយការបញ្ចូលគ្នានៃធាតុស្ទួនដែលប្រមូលផ្តុំសំឡេងគាំទ្រទៅជាសញ្ញាតម្រូវការតែមួយដ៏ស្មោះត្រង់។',
+  'about.featureVoting':
+    'ការបោះឆ្នោតម្នាក់មួយសំឡេងជាមួយលំហូរការងារស្ថានភាពពេញលេញ — បើក គ្រោងទុក កំពុងដំណើរការ ចេញផ្សាយ ឬបដិសេធ — និងការឆ្លើយតបផ្លូវការលើរាល់ការសម្រេចចិត្ត។',
+  'about.intro':
+    '{{appName}} គឺជាវេទិកាមតិកែលម្អផលិតផល — ក្តារសាធារណៈដែលអតិថិជនបង្ហោះសំណើ បោះឆ្នោតសម្រាប់អ្វីដែលពួកគេត្រូវការ និងតាមដានគំនិតនីមួយៗពីការគ្រោងទុកដល់ការចេញផ្សាយ។ ក្រុមការងារឈប់ទាយថាត្រូវសាងសង់អ្វីបន្ទាប់ ព្រោះតម្រូវការរៀបចំចំណាត់ថ្នាក់ដោយខ្លួនឯង។',
+  'about.missionBody':
+    'យើងជឿថាការសម្រេចចិត្តលើផលិតផលដ៏ល្អបំផុតត្រូវបានធ្វើឡើងដោយបើកចំហ។ {{appName}} ផ្តល់ឱ្យរាល់ក្រុមការងារនូវក្តារសាធារណៈនៃសំណើដែលបានបោះឆ្នោត ផែនទីបង្ហាញផ្លូវផ្លូវការជាមួយត្រីមាសគោលដៅ និងកំណត់ហេតុការផ្លាស់ប្តូរដែលបិទវដ្ត — ដូច្នេះអតិថិជនឃើញផលប៉ះពាល់របស់ពួកគេ ហើយក្រុមការងារឃើញអាណត្តិរបស់ពួកគេ។',
+  'about.missionTitle': 'បេសកកម្មរបស់យើង',
   'admin.backToBoards': 'ត្រឡប់ទៅក្ដារ',
   'admin.denied': 'សម្រាប់តែអ្នកគ្រប់គ្រង។',
   'admin.eyebrow': 'ក្រុមផលិតផល',
@@ -11,6 +27,8 @@ export const ui: UiTranslations = {
   'admin.title': 'ផ្ទាំងគ្រប់គ្រងមតិយោបល់',
   'admin.topOpen': 'សំណើបើកកំពូល',
   'admin.totalVotes': '{{count}} សរុប',
+  'admin.votesChartLabel':
+    'គំនូសតាងជួរឈរនៃសំឡេងឆ្នោតដែលបានបោះក្នុងមួយសប្តាហ៍ក្នុងរយៈពេលប្រាំបីសប្តាហ៍ចុងក្រោយ',
   'admin.votesOverTime': 'ការបោះឆ្នោតតាមពេលវេលា',
   'auth.forgotPassword.email': 'អ៊ីមែល',
   'auth.forgotPassword.sendResetLink': 'ផ្ញើតំណកំណត់ឡើងវិញ',
@@ -30,7 +48,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'បង្កើតគណនីរបស់អ្នក',
   'auth.username': 'ឈ្មោះអ្នកប្រើប្រាស់',
   'authShell.communities': 'សហគមន៍',
+  'authShell.copyright': '{{appName}} — រាល់សំឡេងសុទ្ធតែសំខាន់។',
   'authShell.trending': 'និន្នាការ',
+  'boardCard.postCount': 'ប្រកាស {{count}}',
   'boardDetail.allBoards': 'ក្ដារទាំងអស់',
   'boardDetail.backToBoards': 'ត្រឡប់ទៅក្ដារ',
   'boardDetail.empty': 'គ្មានប្រកាសត្រូវនឹងតម្រងទាំងនេះនៅឡើយទេ។',
@@ -54,6 +74,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'ធាតុនីមួយៗចាប់ផ្ដើមជាសំណើបោះឆ្នោត។ អ្នកបោះឆ្នោតបានឃើញការផ្លាស់ទី។ នេះគឺជាទីដែលវាមកដល់។',
   'changelog.title': 'ដឹកជញ្ជូនជាមួយភស្តុតាង',
+  'changelog.voteCount': 'សំឡេងឆ្នោត {{count}} បានធ្វើឱ្យវាត្រូវបានសាងសង់',
   'common.atLeast8Characters': 'យ៉ាងហោចណាស់ ៨ តួអក្សរ',
   'common.checkYourInbox': 'ពិនិត្យប្រអប់សាររបស់អ្នក',
   'common.loadingEllipsis': 'កំពុងផ្ទុក…',
@@ -64,6 +85,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'កំពុងដាក់ស្នើ…',
   'footer.about': 'អំពី {{appName}}',
   'footer.language': 'ភាសា',
+  'forgotPassword.description':
+    'សូមបញ្ចូលអ៊ីមែលរបស់អ្នក ហើយយើងនឹងផ្ញើតំណភ្ជាប់ទៅអ្នកដើម្បីកំណត់ឡើងវិញ។',
+  'forgotPassword.successBody':
+    'យើងបានផ្ញើតំណភ្ជាប់កំណត់ឡើងវិញទៅ {{email}} វាផុតកំណត់ក្នុងរយៈពេល 30 នាទី។',
   'forgotPassword.tryAnother': 'សាកល្បងអ៊ីមែលផ្សេង',
   'form.displayName': 'ឈ្មោះបង្ហាញ',
   'form.firstName': 'នាមត្រកូល',
@@ -74,6 +99,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'ផែនការរបស់អ្នក គាំទ្រដោយការបោះឆ្នោត។',
   'landing.heroCtaPrimary': 'ចាប់ផ្ដើមប្រមូលការបោះឆ្នោត',
   'landing.heroCtaSecondary': 'មើលក្ដារផ្ទាល់',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'ឈប់ទាយ។ ចេញផ្សាយអ្វីដែលពួកគេបោះឆ្នោតឱ្យ។',
+  'landing.heroLede':
+    '{{appName}} បំប្លែងសំណើមុខងារដែលខ្ចាត់ខ្ចាយទៅជាក្តារសាធារណៈនៃគំនិតដែលបានបោះឆ្នោត ផែនទីបង្ហាញផ្លូវផ្លូវការ និងកំណត់ហេតុការផ្លាស់ប្តូរដែលអតិថិជនរបស់អ្នកពិតជាអាន។',
   'landing.heroStat1': '3,200+',
   'landing.heroStat1Label': 'ក្រុមកំពុងស្ដាប់',
   'landing.heroStat2': '1.4m',
@@ -85,9 +114,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'កំណត់ហេតុការផ្លាស់ប្ដូរ',
   'landing.navJoin': 'ចូលរួម {{appName}}',
   'landing.navRoadmap': 'ផែនការ',
+  'landing.step1Body':
+    'អតិថិជនបង្ហោះគំនិតទៅក្តារសាធារណៈ។ ធាតុស្ទួនត្រូវបានបញ្ចូលគ្នា សំឡេងឆ្នោតត្រូវបានប្រមូលផ្តុំ ហើយតម្រូវការរៀបចំចំណាត់ថ្នាក់ដោយខ្លួនឯង។',
   'landing.step1Title': 'ប្រមូល',
+  'landing.step2Body':
+    'សម្គាល់សំណើថាបានគ្រោងទុក ឬកំពុងដំណើរការជាមួយត្រីមាសគោលដៅ — ផែនទីបង្ហាញផ្លូវធ្វើបច្ចុប្បន្នភាពភ្លាមៗនៅពេលអ្នកធ្វើ។',
+  'landing.step2Title': 'ប្តេជ្ញាចិត្ត',
   'landing.step3Body':
     'ប្រកាសដែលបានដឹកជញ្ជូនក្លាយជាធាតុកំណត់ហេតុ ហើយអ្នកបោះឆ្នោតទាំងអស់ឃើញលទ្ធផលនៅលើបញ្ជីផ្ទាល់ខ្លួន។',
+  'landing.step3Title': 'ចេញផ្សាយ',
   'landing.topSubtitle': 'ផ្ទាល់ពីក្ដារនេះ — ចូលគណនីដើម្បីបន្ថែមការបោះឆ្នោតរបស់អ្នក។',
   'landing.topTitle': 'អ្វីដែលអ្នកប្រើប្រាស់កំពុងស្នើសុំឥឡូវនេះ',
   'landing.topViewAll': 'ក្ដារទាំងអស់',
@@ -95,14 +130,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'បឋម',
   'layout.signUp': 'ចុះឈ្មោះ',
   'layout.submit': 'ដាក់ស្នើមតិយោបល់',
+  'login.description': 'បន្ត​ពី​កន្លែង​ដែល​ការសន្ទនា​បាន​បញ្ចប់។',
+  'login.heading': 'ចូលទៅកាន់ Nimbus',
+  'login.noAccount': 'ថ្មីនៅទីនេះ?',
   'login.passwordPlaceholder': 'ពាក្យសម្ងាត់របស់អ្នក',
   'login.twoFactorLabel': 'លេខកូដ 2FA (ស្រេចចិត្ត)',
   'login.twoFactorPlaceholder': 'លេខកូដ ៦ ខ្ទង់',
+  'login.twoFactorRequiredHint':
+    'គណនីនេះបានបើកការផ្ទៀងផ្ទាត់ពីរជាន់។ បញ្ចូលកូដ 6 ខ្ទង់ពីកម្មវិធីផ្ទៀងផ្ទាត់របស់អ្នកដើម្បីបន្ត។',
   'login.twoFactorRequiredLabel': 'បញ្ចូលលេខកូដ 2FA របស់អ្នក',
+  'myActivity.browseCta': 'រកមើលក្តារ',
+  'myActivity.emptyPosts': 'អ្នកមិនទាន់បានបង្ហោះសំណើណាមួយនៅឡើយទេ។',
+  'myActivity.emptyVotes': 'មិនទាន់មានអ្វីនៅឡើយទេ — រុករកក្តារនានា ហើយគាំទ្រគំនិតមួយ។',
   'myActivity.eyebrow': 'សកម្មភាពរបស់អ្នក',
   'myActivity.loadError': 'មិនអាចផ្ទុកសកម្មភាពរបស់អ្នកបានទេ។',
   'myActivity.postsTitle': 'សំណើដែលអ្នកបានដាក់ស្នើ',
+  'myActivity.shippedNote': '{{count}} ក្នុងចំណោមនោះបានចេញផ្សាយ — អរគុណសម្រាប់ការរំលឹក។',
   'myActivity.submitCta': 'ប្រកាសសំណើ',
+  'myActivity.tabLabel': 'មើល',
   'myActivity.tabPosts': 'ប្រកាសរបស់ខ្ញុំ',
   'myActivity.tabVotes': 'ការបោះឆ្នោតរបស់ខ្ញុំ',
   'myActivity.votesTitle': 'សំណើដែលអ្នកបានបោះឆ្នោត',
@@ -137,8 +182,13 @@ export const ui: UiTranslations = {
   'posts.notFound': 'រកមិនឃើញប្រកាស',
   'postsAdmin.backToDashboard': 'ផ្ទាំងគ្រប់គ្រង',
   'postsAdmin.eyebrow': 'ក្រុមផលិតផល',
+  'postsAdmin.mergeApplied':
+    'បានបញ្ចូលគ្នា — សំឡេងឆ្នោត {{votes}} និងមតិយោបល់ {{comments}} ត្រូវបានផ្លាស់ទី។',
   'postsAdmin.mergeApply': 'បញ្ចូលគ្នា និងផ្ទេរការបោះឆ្នោត',
   'postsAdmin.mergeChoose': 'ជ្រើសរើសប្រកាសគោលដៅ…',
+  'postsAdmin.mergeFailed': 'ការបញ្ចូលគ្នាបានបរាជ័យ។',
+  'postsAdmin.mergeHint':
+    'សំឡេងឆ្នោតត្រូវបានប្រមូលផ្តុំ (ម្នាក់មួយ) មតិយោបល់ត្រូវបានផ្លាស់ទី ហើយប្រកាសនេះទទួលបានកំណត់សម្គាល់ "បានផ្លាស់ទី"។',
   'postsAdmin.mergeLabel': 'បញ្ចូលស្ទួនគ្នាទៅក្នុង',
   'postsAdmin.responseLabel': 'ការឆ្លើយតបផ្លូវការ',
   'postsAdmin.responsePlaceholder':
@@ -153,7 +203,13 @@ export const ui: UiTranslations = {
     'កំណត់ស្ថានភាពផ្លូវការ ឆ្លើយតបជាសាធារណៈ ដាក់ស្លាករយៈពេលផែនការ និងបញ្ចូលស្ទួនគ្នា។',
   'postsAdmin.title': 'គ្រប់គ្រងប្រកាសមតិយោបល់',
   'postsAdmin.votes': '{{count}} ការបោះឆ្នោត',
+  'pricing.limits.advancedFeatures': 'លក្ខណៈពិសេសកម្រិតខ្ពស់៖',
+  'pricing.limits.boards': '{{count}} ក្តារ',
   'pricing.limits.export': 'នាំចេញទិន្នន័យ:',
+  'pricing.limits.posts': 'ប្រកាសមតិកែលម្អ {{count}}',
+  'pricing.limits.votes': '{{count}} ការបោះឆ្នោត',
+  'resetPassword.description':
+    'ជ្រើសរើស​មួយ​ដែល​ខ្លាំង។ យើង​នឹង​នាំ​អ្នក​ចូល​នៅ​ពេល​ដែល​ការ​កំណត់​ឡើង​វិញ​បាន​ជោគជ័យ។',
   'resetPassword.newPasswordLabel': 'ពាក្យសម្ងាត់ថ្មី',
   'resetPassword.tokenPlaceholder': 'បិទភ្ជាប់លេខកូដតំណ',
   'roadmap.cardMeta': 'ដោយ {{author}} · {{board}}',
@@ -169,6 +225,7 @@ export const ui: UiTranslations = {
   'search.empty': 'គ្មានសំណើត្រូវនឹងការស្វែងរកនោះទេ។',
   'search.hint': 'វាយសំណួរដើម្បីស្វែងរកសំណើដែលមានស្រាប់ មុនពេលប្រកាសស្ទួន។',
   'search.loadError': 'ការស្វែងរកបរាជ័យ - សូមព្យាយាមម្តងទៀត។',
+  'search.searching': 'កំពុង​ស្វែងរក…',
   'search.submit': 'ស្វែងរក',
   'search.submitNew': 'ប្រកាសវាជាសំណើថ្មី',
   'search.title': 'ស្វែងរកមតិយោបល់',
@@ -178,11 +235,22 @@ export const ui: UiTranslations = {
   'settings.billing': 'ការចេញវិក្កយបត្រ',
   'settings.displaySubtitle': 'ជ្រើសរើសរបៀបដែលមតិព័ត៌មានមានភាពក្រាស់។',
   'settings.displayTitle': 'ការបង្ហាញ',
+  'settings.emailDigestDesc': 'សំណើបើកចំហដែលមានសំឡេងឆ្នោតខ្ពស់បំផុតជារៀងរាល់ថ្ងៃចន្ទ។',
+  'settings.emailDigestLabel': 'សេចក្តីសង្ខេបប្រចាំសប្តាហ៍',
+  'settings.emailMentionsDesc': 'នៅពេលនរណាម្នាក់ឆ្លើយតបទៅប្រកាសដែលអ្នកតាមដាន។',
+  'settings.emailMentionsLabel': 'ផ្ញើអ៊ីមែលមកខ្ញុំនៅពេលមានការលើកឡើង',
+  'settings.emailRepliesDesc': 'ខ្សែសន្ទនាដែលអ្នកបានចាប់ផ្តើម ឬឆ្លើយតប។',
+  'settings.emailRepliesLabel': 'ផ្ញើអ៊ីមែលមកខ្ញុំនៅពេលមានការឆ្លើយតប',
   'settings.loadError': 'មិនអាចផ្ទុកគណនីរបស់អ្នកបានទេ។',
   'settings.loading': 'កំពុងផ្ទុកការកំណត់របស់អ្នក…',
   'settings.notifications': 'ការជូនដំណឹង',
   'settings.notificationsSubtitle': 'សម្រេចថាអ្វីមកដល់ប្រអប់សាររបស់អ្នក និងឧបករណ៍ជំរុញរបស់អ្នក។',
+  'settings.pushRepliesLabel': 'ជូនដំណឹងសម្រាប់ការឆ្លើយតប',
+  'settings.pushVotesDesc': 'ជូនដំណឹងនៅពេលឈានដល់ 100, 500, 1000។',
+  'settings.pushVotesLabel': 'ជំរុញ​សម្រាប់​ព្រឹត្តិការណ៍​សំខាន់ៗ​នៃ​ការ​បោះឆ្នោត​គាំទ្រ',
   'settings.saveAccount': 'រក្សាទុកគណនី',
+  'settings.showFlair': 'បង្ហាញស្លាកក្តារនៅលើប្រកាស',
+  'settings.showThumbnails': 'បង្ហាញរូបភាពតូចនៃតំណ/រូបភាព',
   'settings.usernamePlaceholder': 'ជ្រើសរើសឈ្មោះក្រៅ',
   'signup.confirmPlaceholder': 'វាយម្ដងទៀត',
   'signup.description': 'រៀបចំអ្វីដែលយើងបង្កើតបន្ទាប់។',

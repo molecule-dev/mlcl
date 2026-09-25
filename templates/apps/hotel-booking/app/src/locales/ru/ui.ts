@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Есть вопросы о бронировании, отзыв или отель, который, по вашему мнению, должен быть на {{app}}? Свяжитесь с нашей командой из своего аккаунта — каждое сообщение попадает к реальному человеку, который может помочь.',
+  'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О нас',
+  'about.featureLoyalty':
+    'Тарифы только для участников и программа лояльности, которая приносит баллы, поздний выезд и повышение категории номера при каждом бронировании.',
+  'about.featureReviews':
+    'Проверенные отзывы гостей и подборки редакции, чтобы вы могли доверять отелю ещё до приезда.',
+  'about.featureRooms':
+    'Номера, тарифы и удобства рядом друг с другом с прозрачной ценой всё включено — налоги и курортные сборы учтены до оплаты.',
+  'about.featureSearch':
+    'Поиск в реальном времени по проверенным отелям с актуальным наличием, видом на карте и богатыми фотогалереями.',
+  'about.featureTrips':
+    'Избранное и панель «Поездки», где хранятся все бронирования, маршруты и подтверждения.',
+  'about.intro':
+    '{{app}} — платформа бронирования отелей для путешественников, которым важно качество. Каждый отель лично проверен нашей редакцией — никаких агрегаторских баз и заманчивых, но ложных предложений. Ищите реальное наличие, сравнивайте номера, тарифы и удобства рядом друг с другом, а затем бронируйте в пару касаний по понятной цене всё включено.',
+  'about.missionBody':
+    'Бронирование жилья должно быть спокойным и честным. Мы показываем прозрачные тарифы с налогами и курортными сборами сразу, вознаграждаем постоянных гостей вместо того, чтобы обирать их по мелочам, и ставим на первое место отели, достойные ваших денег, — чтобы вы меньше времени тратили на сравнение вкладок, а больше — на саму поездку.',
+  'about.missionTitle': 'Наша миссия',
+  'about.subtitle': 'Продуманный и прозрачный способ найти и забронировать нужный отель.',
   'account.loyalty.activitySummary': '{{nights}} ночи · {{spend}} провел этот год',
+  'account.loyalty.benefitsHeading': 'Ваши преимущества',
   'account.loyalty.heading': 'Верность',
   'account.loyalty.loading': 'Загрузка лояльности…',
-  'account.loyalty.pointsTowardNext': '{{points}} / {{следующий}} указывает на {{nextTier}}',
+  'account.loyalty.maxTier': 'Высший уровень — пользуйтесь своими преимуществами.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} баллов до {{nextTier}}',
   'account.loyalty.tier': 'Текущий уровень',
   'account.loyalty.unavailable': 'Информация о программе лояльности недоступна.',
   'account.navLabel': 'Разделы учетной записи',
@@ -23,6 +44,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Подтвердите бронирование · {{total}}',
   'bookingCheckout.datesRequired': 'Пожалуйста, выберите даты заезда и выезда.',
   'bookingCheckout.guestHeading': 'Главный гость',
+  'bookingCheckout.heading': 'Подтвердить и забронировать',
   'bookingCheckout.loadError': 'Не удалось загрузить свойство.',
   'bookingCheckout.nights': '{{rate}} × {{count}} ночи',
   'bookingCheckout.notFound': 'Объект не найден.',
@@ -33,11 +55,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Налоги и сборы',
   'bookingCheckout.tripHeading': 'Ваше путешествие',
   'bookingConfirmation.allTripsCta': 'Все поездки',
+  'bookingConfirmation.confNumber': 'Номер подтверждения: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Ваше бронирование обрабатывается.',
   'bookingConfirmation.heading': 'Бронирование подтверждено',
   'bookingConfirmation.loading': 'Загрузка вашего бронирования…',
   'bookingConfirmation.searchMoreCta': 'Посмотреть другие варианты проживания',
   'bookingConfirmation.subheadingForTrip':
-    '{{свойство}} в {{город}} , {{страна}} Увидимся! {{регистрироваться}} .',
+    '{{property}} в {{city}}, {{country}}. Увидимся {{checkIn}}.',
   'bookingConfirmation.total': 'Общий {{total}}',
   'bookingConfirmation.viewTripCta': 'Посмотреть поездку',
   'common.goToDashboard': 'Перейти к панели',
@@ -47,6 +72,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Не удалось загрузить избранное.',
   'favorites.pricePerNight': '{{price}} / ночь',
   'favorites.removeCta': 'Отменить сохранение',
+  'favorites.removing': 'Удаление…',
   'forgotPassword.subheading':
     'Введите адрес электронной почты, указанный в вашем аккаунте, и мы вышлем вам защищенную ссылку для сброса пароля.',
   'forgotPassword.successBody':
@@ -54,6 +80,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Участники Auberge',
   'landing.cta.heading': 'Специальные тарифы для членов клуба. Каждое бронирование, каждый раз.',
   'landing.cta.signup': 'Создать бесплатный аккаунт',
+  'landing.cta.subheading':
+    'Получайте баллы лояльности за каждое проживание, открывайте поздний выезд и повышение категории номера и получайте доступ к новым отелям раньше, чем они появятся в открытом списке.',
   'landing.destinations.eyebrow': 'Куда дальше?',
   'landing.destinations.heading': 'Рекомендуемые направления',
   'landing.destinations.seeAll': 'Посмотреть все направления',
@@ -62,13 +90,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Истории, ради которых стоит взять с собой вещи.',
   'landing.nav.join': 'Присоединяйтесь к Auberge',
   'landing.nav.search': 'Поиск проживания',
+  'landing.preview.browseAll': 'Смотреть всю коллекцию',
   'landing.preview.eyebrow': 'Взгляд изнутри',
   'landing.preview.heading': 'Тщательно отобранные варианты размещения в этом месяце',
+  'landing.preview.subheading':
+    'Каждый отель на {{appName}} лично проверен нашей редакцией — никаких агрегаторских баз и заманчивых, но ложных предложений.',
   'login.eyebrow': 'Личный кабинет',
+  'login.noAccount': 'Впервые пользуетесь Tessera?',
   'login.signupLink': 'Создайте бесплатный аккаунт',
   'login.subheading':
     'Войдите в систему, чтобы управлять своими поездками, просматривать подтверждения и продолжить с того места, где вы остановились.',
+  'loyaltyTierBadge.points': '{{points}} баллы',
   'planUpdated.heading': 'План обновлен',
+  'planUpdated.retry': 'Попробуйте ещё раз',
+  'planUpdated.verifyFailed': 'Мы пока не можем подтвердить ваш платеж.',
+  'planUpdated.verifyFailedBody':
+    'Ваш платеж, возможно, еще обрабатывается. Попробуйте еще раз через минуту.',
   'planUpdated.verifying': 'Подтверждение платежа…',
   'pricing.limit.advancedFeatures': 'Расширенные возможности:',
   'pricing.limit.canExport': 'Экспорт данных:',
@@ -80,7 +117,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Что предлагает это место',
   'propertyDetail.backLink': 'Вернуться к поиску',
   'propertyDetail.bookCta': 'Бронировать',
+  'propertyDetail.bookmarkAria': 'Сохранить объект',
   'propertyDetail.bookmarkAriaSaved': 'Удалить из сохраненных свойств',
+  'propertyDetail.galleryImageAlt': 'Фото {{name}} из {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} фотография героя',
   'propertyDetail.hidePhotos': 'Скрыть фотографии',
   'propertyDetail.lineCleaning': 'плата за уборку',
@@ -90,6 +129,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'ночь',
   'propertyDetail.noChargeYet': 'С вас пока не будет взиматься плата.',
   'propertyDetail.notFound': 'Объект не найден.',
+  'propertyDetail.perNight': '/ ночь',
+  'propertyDetail.pickDatesHint': 'Выберите даты, чтобы увидеть полную разбивку цены.',
   'propertyDetail.reviewCount': '( {{count}} отзывы)',
   'propertyDetail.reviewsHeading': 'Последние отзывы',
   'propertyDetail.roomCapacity': 'Спит {{count}}',
@@ -102,6 +143,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Новый пароль',
   'resetPassword.subheading':
     'Выберите новый пароль для своей учетной записи Auberge. Используйте не менее 8 символов; мы рекомендуем кодовую фразу.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'По вашему запросу не найдено ни одного объекта недвижимости.',
   'searchResults.emptyHint':
     'Попробуйте расширить фильтры или снять ограничение по цене — на Auberge доступны варианты размещения в 14 странах.',
@@ -109,20 +151,29 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Специально подобранные варианты проживания',
   'searchResults.headingForQuery': 'Остается на " {{q}} "',
   'searchResults.loadError': 'Не удалось загрузить свойства.',
+  'searchResults.mapHint':
+    'Наведите курсор на карточку, чтобы выделить её на карте. В продакшене — живые тайлы Mapbox.',
   'searchResults.mapPinAria': '{{name}} — {{price}} за ночь',
   'searchResults.sortLabel': 'Сортировать по',
   'searchResults.subheading': '{{count}} характеристики · {{guests}} гости',
   'signup.eyebrow': 'Станьте участником',
   'signup.subheading':
     'Присоединяйтесь к Auberge, чтобы получить доступ к эксклюзивным тарифам для участников, возможности позднего выезда и приоритетному доступу к новым объектам размещения.',
+  'sojournAuthShell.brand.eyebrow': 'Остановитесь в чём-то необыкновенном',
+  'sojournAuthShell.brand.heading':
+    'Продуманная коллекция отелей — красиво представленных и с прозрачными ценами.',
   'sojournHeroSearchCard.checkInAria': 'Дата заезда',
   'sojournHeroSearchCard.checkOutAria': 'Дата выезда',
+  'sojournHeroSearchCard.destAria': 'Место назначения',
+  'sojournHeroSearchCard.destLabel': 'Где',
   'sojournHeroSearchCard.destPlaceholder': 'Город, регион или недвижимость',
   'sojournHeroSearchCard.eyebrow':
     'Специально подобранные предложения · Тарифы только для участников',
   'sojournHeroSearchCard.guestsOption': '{{n}} гости',
   'sojournHeroSearchCard.subtitle':
     'Тщательно подобранная коллекция бутик-отелей, дизайнерских объектов и редких мест для отдыха — прозрачные цены, великолепное оформление.',
+  'sojournHeroSearchCard.title': 'Остановитесь в чём-то необыкновенном',
+  'sojournHeroSearchCard.trustLoyalty': 'Получайте баллы за каждое проживание',
   'sojournHeroSearchCard.trustNoFees': 'Никаких скрытых платежей, никогда.',
   'sojournHeroSearchCard.trustVetted': 'Только тщательно отобранные объекты недвижимости.',
   'sojournLayout.primaryNavLabel': 'Основная навигация',

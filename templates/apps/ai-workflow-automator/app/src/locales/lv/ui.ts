@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite ir darbplūsmas automatizācijas platforma, kas apvieno trigerus, mākslīgā intelekta nosacījumus un daudzpakāpju darbības, lai komandas varētu pārvietot darbu starp sistēmām, nerakstot sasaistes kodu.',
+  'about.philosophy':
+    'Katrs darbplūsma ir grafs no maziem, novērojamiem soļiem. Katrs solis reģistrē savus ievades datus, izvades datus un laiku, lai to varētu pārbaudīt, atkārtot vai atritināt. Veidojiet tos vizuāli, versijojiet kā kodu.',
   'about.title': 'Par dendrītu',
   'authShell.brand': 'Dendrīts',
   'authShell.support': 'Atbalsts',
@@ -15,9 +17,14 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Mainīt plānu',
   'billing.description':
     'Sekojiet līdzi lietojumam, pārvaldiet savu plānu un izvelciet rēķinus grāmatvedībai.',
+  'billing.eyebrow': 'Konts · Plāns un lietojums',
+  'billing.failedLabel': 'Neveiksmīgi izpildījumi · 24h',
+  'billing.invoicesEmpty': 'Vēl nav rēķinu. Tie parādīsies šeit pēc pirmā apmaksātā atjaunojuma.',
   'billing.invoicesTitle': 'Rēķinu vēsture',
   'billing.planNoteFree':
     'Bezmaksas līmenis — {{runs}} skrien un {{workflows}} aktīvas darbplūsmas. Jauniniet, lai iegūtu lielākus ierobežojumus.',
+  'billing.planNotePaid':
+    'Apmaksāts plāns — {{runs}} izpildījumi un {{workflows}} aktīvas darbplūsmas.',
   'billing.runsLabel': 'Darbojas pēdējo 24 stundu laikā',
   'billing.tiersBlurb':
     'Salīdziniet katru līmeni — palaišanas reizes, aktīvās darbplūsmas, papildu funkcijas un atbalstu — īpašajā cenu lapā.',
@@ -25,6 +32,7 @@ export const ui: UiTranslations = {
   'billing.title': 'Norēķini un lietošana',
   'billing.updateBilling': 'Atjaunināšanas iestatījumi',
   'billing.viewPricing': 'Skatīt cenas',
+  'billing.workflowsCaption': '{{total}} kopā darbvietā',
   'billing.workflowsLabel': 'Aktīvās darbplūsmas',
   'common.goToDashboard': 'Uz informācijas paneli',
   'connections.count': '{{n}} integrācijas',
@@ -34,24 +42,32 @@ export const ui: UiTranslations = {
     'Nav reģistrētu integrāciju. Konfigurējiet pakalpojumu sniedzēja atslēgas, lai iespējotu saites.',
   'connections.error': 'Nevarēja ielādēt savienojumus.',
   'connections.eyebrow': 'Integrācijas · {{connected}} savienots',
+  'connections.loading': 'Tiek ielādētas integrācijas…',
+  'connections.openEnv':
+    'Lai pievienotu šo pakalpojumu sniedzēju, iestatiet tā API atslēgu failā api/.env un restartējiet serveri.',
   'dashboard.description':
     '{{active}} aktīvas darbplūsmas. {{failed}} neizdevās pēdējo 24 stundu laikā.',
   'dashboard.error': 'Nevarēja ielādēt informācijas paneli.',
   'dashboard.eyebrow': 'Darbības · tiešraide',
+  'dashboard.hero.label': 'Izpildījumi šodien',
   'dashboard.hero.medianLatency': 'p50 latentums',
   'dashboard.hero.queue': 'Rindas dziļums',
   'dashboard.hero.success': 'Panākumi',
   'dashboard.kpi.activeWorkflows': 'Aktīvās darbplūsmas',
   'dashboard.kpi.avgDuration': 'Vidējais ilgums',
   'dashboard.kpi.failedRuns': 'Neizdevās · 24 stundas',
+  'dashboard.kpi.outOf': 'no {{total}} kopā',
+  'dashboard.kpi.successRate': 'Veiksmes rādītājs · 24h',
   'dashboard.loading': 'Notiek informācijas paneļa ielāde…',
   'dashboard.recentRuns.empty':
     'Vēl nav nevienas palaišanas. Darbplūsmas aktivizēšana aizpildīs šo plūsmu.',
   'dashboard.recentRuns.title': 'Nesenie skrējieni',
   'dashboard.recentRuns.viewAll': 'Atklātas nāvessoda izpildes →',
+  'dashboard.recentWorkflows.browse': 'Pārlūkot veidnes →',
   'dashboard.recentWorkflows.empty':
     'Vēl nav darbplūsmu. Instalējiet veidni vai izveidojiet to no nulles.',
   'dashboard.recentWorkflows.title': 'Nesen palaists',
+  'dashboard.run.col.run': 'Sākt',
   'dashboard.run.col.started': 'Sākts',
   'dashboard.run.col.trigger': 'Sprūds',
   'dashboard.run.col.workflow': 'Darbplūsma',
@@ -87,6 +103,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Darbplūsma',
   'executions.description':
     'Katra darbplūsmas palaišana, katrs atkārtots mēģinājums, katra soļa izvade — viss ir novērojams.',
+  'executions.empty.filter': 'Neviens izpildījums neatbilst šim filtram.',
   'executions.empty.first':
     'Vēl nav palaistu reižu — aktivizējiet darbplūsmu, lai aizpildītu šo sarakstu.',
   'executions.error': 'Nevarēja ielādēt izpildes.',
@@ -97,30 +114,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Notiek palaišanas vēstures ielāde…',
   'executions.title': 'Izpildījumi',
   'forgotPassword.confirmation': 'Atiestatīt saiti, kas nosūtīta uz {{email}} .',
+  'forgotPassword.subhead': 'Ievadiet savu e-pastu, lai saņemtu atiestatīšanas saiti.',
   'forgotPassword.successSubhead':
     'Mēs nosūtījām atiestatīšanas saiti uz {{email}} Tas beidzas pēc 30 minūtēm.',
   'help.connections.body':
     'Mākslīgā intelekta, e-pasta un krātuves darbībām ir nepieciešams iestatīt pakalpojumu sniedzēja atslēgas api/.env failā. Kad atslēga ir konfigurēta, atbilstošā integrācija savienojumu lapā tiek parādīta kā savienota.',
+  'help.connections.cta': 'Atvērt savienojumus →',
   'help.connections.title': 'Pakalpojumu sniedzēju savienošana',
   'help.gettingStarted.body':
     'Jaunas darbplūsmas var instalēt no veidņu bibliotēkas vai izveidot no nulles darbplūsmu veidotājā. Katrai darbplūsmai ir aktivizētājs (manuāls, tīmekļa aizķere vai cron) un darbību secība, kas tiek izpildīta noteiktā secībā.',
+  'help.gettingStarted.cta': 'Pārlūkot veidņu bibliotēku →',
+  'help.gettingStarted.title': 'Darba sākšana',
   'help.intro':
     'Atrodiet atbildes uz bieži uzdotiem jautājumiem par darbplūsmu veidošanu, savienojumu konfigurēšanu un izpildes izvades interpretēšanu. Visbiežāk uzdotās tēmas ir uzskaitītas tālāk; ja kaut kas nav aplūkots, sazinieties ar savu darbvietas administratoru.',
   'help.runs.body':
     'Katrā izpildes reizē katrs solis tiek reģistrēts atsevišķi ar statusu (veiksmīgi, neizdevās, izlaists) un izvades fragmentu. Izpildes detalizētajā lapā ir redzama pilna soli pa solim izsekošana, kā arī secinātie rādītāji.',
+  'help.runs.cta': 'Atklātas nāvessoda izpildes →',
   'help.runs.title': 'Lasīšanas izvades nolasīšana',
   'help.title': 'Palīdzības centrs',
   'integrationCard.manage': 'Pārvaldīt',
   'landing.brand': 'Dendrīts',
   'landing.demo.action.subtitle': 'Apļa turnīrs · teritorija',
+  'landing.demo.action.title': 'Paziņot pārstāvim',
   'landing.demo.condition.subtitle': 'AI nodomu klasifikators',
+  'landing.demo.condition.title': 'Vērtējums ≥ vidējs?',
   'landing.demo.trigger.subtitle': 'PASTS /veidlapas/kontakti',
   'landing.demo.trigger.title': 'Ienākošā tīmekļa pieslēgvieta',
+  'landing.features.body':
+    'Trigeri iedarbojas. Nosacījumi sazarojas. Darbības nogādā darbu. Veidojiet tos vizuāli, versijojiet kā kodu.',
   'landing.features.heading': 'Trīs mezglu veidi. Bezgalīgas formas.',
   'landing.footer.help': 'Palīdzība',
   'landing.footer.tagline': 'Intelekts kustībā',
+  'landing.hero.body':
+    '{{appName}} ir darbplūsmu dzinējs operāciju komandām, kas ir pāraugušas Zapier. Trigeris, nosacījums, darbība — savienoti ar katru sistēmu, ko jūs patiešām izmantojat.',
   'landing.hero.eyebrow': 'Intelekts kustībā',
   'landing.hero.headline': 'Savienojiet savu steku kopā. Ļaujiet darbam notikt.',
+  'landing.hero.primaryCta': 'Izveidojiet savu pirmo darbplūsmu',
   'landing.hero.proof.ai': 'Iebūvēti mākslīgā intelekta mezgli',
   'landing.hero.proof.free': 'Bez maksas 1000 skrējienu mēnesī',
   'landing.hero.proof.soc2': 'SOC 2 II tips',
@@ -128,10 +157,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Maksājiet par braucieniem, nevis par sēdvietām.',
   'landing.templates.body':
     'Iepriekš sagatavotas darbplūsmas katrai komandai — pārdošana, atbalsts, izstrādes operācijas, finanses. Instalējiet ar vienu klikšķi; pielāgojiet jebko.',
+  'landing.templates.cta': 'Reģistrējieties, lai pārlūkotu veidnes →',
   'landing.templates.eyebrow': 'Sākt sekundēs',
   'landing.templates.heading': 'Pārbaudītu recepšu bibliotēka.',
   'landing.templates.signupHint': 'Reģistrējieties, lai instalētu',
   'login.hidePassword': 'Paslēpt paroli',
+  'login.noAccount': 'Jauns lietotājs Tessera?',
   'login.showPassword': 'Rādīt paroli',
   'login.subhead': 'Pierakstieties, lai nodrošinātu nepārtrauktu automatizāciju.',
   'mobileNav.drawerLabel': 'Galvenā navigācija',
@@ -147,8 +178,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Palaidiet darbplūsmu, lai sāktu aizpildīt šo plūsmu.',
   'notifications.empty.title': 'Jūs esat pilnībā informēti',
   'notifications.eyebrow': '{{n}} nelasīts',
+  'planUpdated.body':
+    'Tavas norēķinu izmaiņas tagad ir aktīvas. Plānu vari pārvaldīt jebkurā laikā norēķinu lapā.',
+  'planUpdated.retry': 'Mēģini vēlreiz',
+  'planUpdated.verifyFailed': 'Mēs vēl nevarējām apstiprināt jūsu maksājumu.',
+  'planUpdated.verifyFailedBody':
+    'Jūsu maksājums, iespējams, joprojām tiek apstrādāts. Pēc brīža mēģiniet vēlreiz.',
   'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'pricing.heading': 'skrējieni',
+  'pricing.runsSuffix': 'izpildījumi',
   'pricing.workflowsSuffix': 'darbplūsmas',
   'privacy.collect.body':
     'Mēs apkopojam jūsu e-pasta adresi, ar kuru reģistrējaties, jūsu konfigurētās darbplūsmas un metadatus par katru palaišanu (sākuma laiks, beigu laiks, statuss). Mēs nekad neapkopojam un neuzglabājam lietderīgās slodzes saturu no trigeriem vai darbību izvades datiem, izņemot to, kas nepieciešams, lai darbvietas īpašniekam parādītu palaišanas skatītājā.',
@@ -164,11 +202,14 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Nevarēja atjaunināt paroli.',
   'resetPassword.newPassword': 'Jauna parole',
   'resetPassword.subhead': 'Izvēlies kaut ko tādu, ko tikai tu uzminētu.',
+  'settings.appearance.description': 'Pārslēgties starp gaišo un tumšo režīmu.',
+  'settings.appearance.title': 'Izskats',
   'settings.billingShortcut.cta': 'Atvērt norēķinu',
   'settings.billingShortcut.description':
     'Plāns, lietojums un rēķini ir pieejami speciālajā norēķinu lapā.',
   'settings.danger.confirm': 'Vai tiešām? Tas ievietos jūsu darbvietu rindā dzēšanai.',
   'settings.danger.confirmYes': 'Jā, rindas dzēšana',
+  'settings.danger.deleteWorkspace.cta': 'Dzēst darbvietu',
   'settings.danger.deleteWorkspace.hint':
     'Pēc 14 dienu labvēlības perioda noņem visas darbplūsmas, izpildes un savienojumus.',
   'settings.danger.deleteWorkspace.title': 'Dzēst darbvietu',
@@ -179,9 +220,14 @@ export const ui: UiTranslations = {
     'Pārvaldiet savu kontu, darba telpu, integrācijas un norēķinus vienuviet.',
   'settings.notifications.description':
     'Izvēlieties, kuru pasākumu lapu vēlaties, nosūtīt jums e-pastu vai klusēt.',
+  'settings.notifications.failures.hint':
+    'E-pasta un lietotnē iekļautais paziņojums par katru neveiksmīgo izpildījumu.',
+  'settings.notifications.failures.title': 'Darbplūsmu kļūmes',
   'settings.notifications.product.hint': 'Neregulāri e-pasti par jaunām veidnēm un funkcijām.',
+  'settings.notifications.product.title': 'Produkta atjauninājumi',
   'settings.notifications.weekly.hint':
     'Pirmdienas rīta kopsavilkums par pagājušās nedēļas skrējieniem un ietaupījumiem.',
+  'settings.notifications.weekly.title': 'Nedēļas kopsavilkums',
   'settings.profile.description':
     'Kā jūs izskatāties darbplūsmas izpildītājā. Izmanto darbvietas aktivitātēs.',
   'settings.profile.noEmail': 'Nav reģistrēta e-pasta adrese',
@@ -190,13 +236,24 @@ export const ui: UiTranslations = {
   'settings.profile.unnamedUser': 'Nenosaukts lietotājs',
   'settings.security.audit.hint':
     'Straumējiet katru darbību savā SIEM sistēmā, izmantojot tīmekļa āķi.',
+  'settings.security.audit.title': 'Audita žurnāla pārsūtīšana',
   'settings.security.description':
     'Divfaktoru autentifikācija, vienreizēja pierakstīšanās un aktīvas sesijas.',
   'settings.security.sso.hint': 'Pieejams Scale un Enterprise plānos.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'Nepieciešams jebkurai darbvietas īpašnieka darbībai.',
+  'settings.security.totp.title': 'Divu faktoru autentifikācija (TOTP)',
   'settings.twoFactorCode': 'Autentifikācijas kods',
   'settings.twoFactorDisable': 'Atspējot',
+  'settings.twoFactorDisableTitle': 'Atspējot divpakāpju autentifikāciju',
   'settings.twoFactorEnable': 'Ieslēgt',
+  'settings.twoFactorEnableTitle': 'Iespējot divpakāpju autentifikāciju',
   'settings.twoFactorInvalidCode': 'Nepareizs kods',
+  'settings.twoFactorOn': 'Par',
+  'settings.twoFactorQrAlt': 'Divfaktoru QR kods',
+  'settings.twoFactorScan':
+    'Noskenējiet šo QR kodu ar savu autentifikācijas lietotni, pēc tam ievadiet 6 ciparu kodu.',
+  'settings.twoFactorUnavailable': 'Divfaktoru autentifikācija šai lietotnei nav pieejama.',
   'settings.twoFactorVerify': 'Pārbaudīt un aktivizēt',
   'settings.workspace.description':
     'Koplietota identitāte, reģions un palaišanas noklusējuma iestatījumi jūsu komandai.',
@@ -225,6 +282,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Veidne',
   'templates.description':
     'Iepriekš izstrādāti rasējumi visbiežāk izmantotajām automatizācijām. Sadalīšana, pielāgošana, nosūtīšana.',
+  'templates.empty.filter': 'Neviena veidne neatbilst jūsu meklējumam.',
   'templates.empty.first': 'Pašlaik nav pieejamas veidnes.',
   'templates.error': 'Neizdevās ielādēt veidnes.',
   'templates.installs': 'instalācijas',
@@ -250,6 +308,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Atspējot',
   'workflowBuilder.enable': 'Ieslēgt',
   'workflowBuilder.error': 'Nevarēja ielādēt darbplūsmu.',
+  'workflowBuilder.inspector.config': 'Konfigurācija',
+  'workflowBuilder.inspector.cron': 'Cron izteiksme',
+  'workflowBuilder.inspector.disabled': 'Atspējots — netiks palaists automātiski.',
   'workflowBuilder.inspector.enabled': 'Iespējots — darbojas, kad tiek aktivizēts.',
   'workflowBuilder.inspector.eyebrow': 'Inspektors',
   'workflowBuilder.inspector.id': 'ID',
@@ -267,18 +328,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Pārslēgšana neizdevās.',
   'workflowBuilder.workflow': 'Darbplūsma · v {{v}}',
   'workflowBuilder.zoom.in': 'Tuvināt',
+  'workflowBuilder.zoom.label': 'Audekla tālummaiņas vadīklas',
+  'workflowBuilder.zoom.out': 'Tālināt',
   'workflowCard.lastRun': 'Pēdējais skrējiens {{when}}',
   'workflowCard.runs': '{{count}} skrējieni',
+  'workflowCard.success': '{{rate}}% veiksmes',
   'workflowHeroCard.last24h': 'Pēdējās 24 stundas',
+  'workflows.browseTemplates': 'Pārlūkot veidnes →',
   'workflows.description':
     'Katra automatizācija jūsu darba vietā, ar veselības stāvokli un nesenajām darbībām vienā mirklī.',
+  'workflows.empty.body': 'Mēģiniet notīrīt filtru vai sākt no veidnes.',
   'workflows.empty.firstBody': 'Instalējiet veidni, lai sāktu darbu dažu sekunžu laikā.',
   'workflows.empty.firstTitle': 'Vēl nav darbplūsmu',
   'workflows.empty.title': 'Nav atbilstošu darbplūsmu',
   'workflows.error': 'Nevarēja ielādēt darbplūsmas.',
   'workflows.eyebrow': 'Bibliotēka · {{count}} kopā',
+  'workflows.loading': 'Ielādē darbplūsmas…',
   'workflows.newFromTemplate': 'Jauns no veidnes',
   'workflows.searchPlaceholder': 'Meklēt darbplūsmas…',
+  'workflows.title': 'Darbplūsmas',
   'workflowSidebar.brand': 'Dendrīts',
   'workflowSidebar.status': 'Visas sistēmas darbojas',
   'workflowSidebar.tagline': 'Intelekts kustībā',

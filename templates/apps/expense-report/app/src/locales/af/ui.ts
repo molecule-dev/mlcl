@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Vrae, terugvoer of 'n kenmerkversoek? Bereik die {{app}}-span vanaf Instellings → Kennisgewings, of skryf enige tyd aan ons — elke boodskap gaan na 'n regte mens.",
+  'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Oor',
+  'about.featureCapture':
+    'Kwitansie-opname met foto-oplaai wat beelde by die regte uitgawe voeg, reël vir reël.',
+  'about.featureExport':
+    'Ouditeerbare CSV-uitvoere van elke verslag, uitgawe en goedkeuringstatus — gereed vir jou rekeningkundige span.',
+  'about.featurePolicy':
+    'Beleidsriglyne — daaglikse limiete, per-kategorie beperkings en kwitansie-vereiste drempels wat by indiening toegepas word.',
+  'about.featureWorkflow':
+    "'n Twee-vlak goedkeuringswerkvloei met keurder-notas, beleidsoortreding-vlae en een-tik vergoeding-merking.",
+  'about.intro':
+    "{{app}} is 'n uitgawebestuursplatform vir finansiespanne en die mense wat hulle vergoed. Neem 'n kwitansie op, liasseer 'n uitgawe, stuur 'n verslag deur goedkeuring en volg elke vergoeding — sonder die sigblad-seremonie.",
+  'about.missionBody':
+    "Vergoeding moet vinnig, regverdig en ouditeerbaar wees. Ons het {{app}} gebou sodat indieners terugbetaal word sonder om te zeur, goedkeurders presies sien waarvoor hulle teken, en finansies 'n skoon spoor vir elke dollar het — beleidstoetse en al.",
+  'about.missionTitle': 'Ons missie',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Goedkeuring…',
   'approvals.confirmReject': 'Bevestig verwerping',
+  'approvals.empty': 'Jy is heeltemal op datum — geen verslae wat wag nie.',
   'approvals.eyebrow': 'Bestuurderwaglys',
   'approvals.kpi.flaggedLabel': 'Beleid gemerk',
+  'approvals.kpi.queueLabel': 'Wag op hersiening',
   'approvals.kpi.totalLabel': 'Hangende waarde',
   'approvals.lineCount': '{{count}} uitgawes',
   'approvals.queueFallback':
     'Regstreekse waglys nie beskikbaar nie — wys saamgestelde demonstrasiedata.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Verwerp tans…',
+  'approvals.rejectPlaceholder': 'Rede (vereis)',
   'approvals.rejectPrompt': 'Waarom verwerp u hierdie verslag?',
   'approvals.review': 'Resensie',
   'approvals.title': 'Hangende goedkeurings',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Goedgekeur · MTD',
   'dashboard.kpi.pendingDelta': '+2 hierdie week',
+  'dashboard.kpi.pendingLabel': 'Hangende hersiening',
   'dashboard.kpi.receiptsDelta': 'Aksie vereis',
   'dashboard.kpi.receiptsLabel': 'Wag tans vir kwitansies',
   'dashboard.kpi.reimbursedDelta': '+$2.4k',
   'dashboard.kpi.reimbursedLabel': 'Vergoed · MTD',
   'dashboard.newReport': 'Nuwe verslag',
+  'dashboard.recent.empty': 'Nog geen verslae nie — begin jou eerste een hierbo.',
   'dashboard.recent.title': 'Onlangse verslae',
   'dashboard.recent.viewAll': 'Bekyk alle verslae',
   'dashboard.summaryFallback':
@@ -41,11 +62,19 @@ export const ui: UiTranslations = {
   'expenses.listFallback':
     'Regstreekse lys nie beskikbaar nie — wys saamgestelde demonstrasiedata.',
   'expenses.searchPlaceholder': 'Soek handelaar of kategorie…',
+  'expenses.subtotal': '{{count}} uitgawes · subtotaal',
   'expenses.title': 'Uitgawes',
+  'forgotPassword.continue': "Ek het 'n kode · Gaan voort",
+  'forgotPassword.subheading':
+    "Voer jou werks-e-pos in en ons stuur 'n skakel om 'n nuwe wagwoord te stel.",
   'forgotPassword.successBody':
     "Indien 'n rekening bestaan vir {{email}} Jy sal binne die volgende paar minute 'n terugstelskakel ontvang.",
+  'landing.copyright': '© {{year}} {{app}}. Gebou met Molecule.dev.',
+  'landing.ctaBody':
+    'Gratis vir die eerste 25 uitgawes elke maand. Geen kredietkaart, geen implementeringsoproep.',
   'landing.ctaHeading': 'Gereed om te verhaal wat jou span verskuldig is?',
   'landing.eyebrow': 'Uitgaweverslae vir finansiële spanne',
+  'landing.featuresHeading': 'Vergoeding, in een rustige werkruimte',
   'landing.heroSubtitle':
     "Dien in, keur goed en vergoed besigheidsuitgawes sonder die sigbladseremonie. Ontvangs-OCR, beleidskontroles en 'n deursigtige goedkeuringstydlyn - alles in een kalm werkspasie.",
   'landing.heroTitle': 'Elke kwitansie, verhaal.',
@@ -63,10 +92,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Notas',
   'newExpense.descriptionPlaceholder':
     'Waarom hierdie uitgawe besigheidsverwant was (sigbaar vir jou goedkeurder).',
+  'newExpense.eyebrow': 'Vergoedbare item',
   'newExpense.merchant': 'Handelaar',
   'newExpense.merchantPlaceholder': 'Hotel Adlon Kempinski',
   'newExpense.policyHint':
     "Herinnering: maaltye oor $80/dag of enige item oor $250 vereis 'n regverdigingsnota.",
+  'newExpense.receipt': 'Kwitansie',
+  'newExpense.receiptHint': 'JPG, PNG of PDF · maks 10 MB',
   'newExpense.receiptOcrHint': 'OCR vul velde vooraf in',
   'newExpense.receiptPrompt': "Plaas 'n foto of PDF hier, of klik om te blaai",
   'newExpense.receiptUploadFailed':
@@ -77,17 +109,21 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     "Neem of laai 'n kwitansie op en Recoup sal die handelaar, datum en totaal vooraf invul. Bevestig alles hieronder voordat jy stoor.",
   'newExpense.title': 'Voeg uitgawe by',
+  'newReport.approverHint':
+    "Hulle sal 'n e-pos ontvang wanneer jy hierdie verslag vir hersiening indien.",
   'newReport.approverLabel': 'Goedkeurder e-posadres (opsioneel)',
   'newReport.approverPlaceholder': 'bestuurder@joumaatskappy.com',
   'newReport.availableExpenses': 'Beskikbare uitgawes',
   'newReport.createFailed': 'Kon nie verslag skep nie. Probeer asseblief weer.',
   'newReport.draftsFallback':
     'Regstreekse uitgawelys nie beskikbaar nie — wys saamgestelde demonstrasiedata.',
+  'newReport.eyebrow': 'Groepeer uitgawes · dien in vir goedkeuring',
   'newReport.includedCount': '{{count}} ingesluit',
   'newReport.purposeLabel': 'Besigheidsdoel',
   'newReport.purposePlaceholder':
     'Beskryf die reis of projek waarmee hierdie uitgawes verband hou (sigbaar vir jou goedkeurder en finansies).',
   'newReport.saveDraft': 'Stoor as konsep',
+  'newReport.saveDraftFailed': 'Kon nie konsep stoor nie. Probeer asseblief weer.',
   'newReport.submit': 'Dien in vir goedkeuring',
   'newReport.submitFailed': 'Kon nie verslag indien nie. Probeer asseblief weer.',
   'newReport.summary': 'Verslagopsomming',
@@ -101,17 +137,24 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Regstreekse stroom nie beskikbaar nie — wys saamgestelde demonstrasiedata.',
   'notifications.openReport': 'Maak verslag oop ›',
+  'pricing.approvalsLabel': 'goedkeurings',
   'pricing.expensesLabel': 'uitgawes',
   'pricing.heading': 'goedkeurings',
   'pricing.policiesLabel': 'beleide',
   'pricing.receiptsLabel': 'kwitansies',
   'recoveredAmountHeroCard.label': 'Terugbetaling verhaal · Jaar tot datum',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} verslag(e) wat tans by alle goedkeurders op hersiening wag.',
+  'reports.approvalFlow': 'Goedkeuringsvloei',
   'reports.backToList': 'Terug na verslae',
   'reports.detailFallback':
     'Regstreekse verslag nie beskikbaar nie — wys saamgestelde demonstrasiedata.',
   'reports.lineItems': 'Lynitems',
   'reports.lineItemsCount': '{{count}} uitgawes',
+  'reports.lineItemsEmpty': 'Nog geen uitgawes op hierdie verslag nie.',
+  'reports.openLibrary': 'Maak verslagbiblioteek oop',
   'reports.policyTitle': 'Beleidsvlag',
+  'reports.selectPrompt': "Kies 'n verslag uit die biblioteek om die besonderhede te sien.",
   'reports.summary.lineCount': 'Lynitems',
   'reports.summary.reimbursable': 'Vergoedbaar',
   'reports.summary.total': 'Gerapporteerde totaal',
@@ -121,6 +164,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Regstreekse lys nie beskikbaar nie — wys saamgestelde demonstrasiedata.',
   'reportsList.newReport': 'Nuwe verslag',
+  'reportsList.submittedOn': 'Ingedien {{date}}',
   'reportsList.title': 'Verslagbiblioteek',
   'resetPassword.hidePassword': 'Versteek wagwoord',
   'resetPassword.newPasswordLabel': 'Nuwe wagwoord',
@@ -146,6 +190,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Gestoor ✓',
   'settings.profileSaveFailed': 'Kon nie profiel opdateer nie. Probeer asseblief weer.',
   'signup.heading': 'Skep jou Herwinningsrekening',
+  'signup.hidePassword': 'Versteek wagwoord',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Wys wagwoord',
   'signup.subheading': 'Gratis vir 25 uitgawes elke maand — geen kredietkaart nie.',

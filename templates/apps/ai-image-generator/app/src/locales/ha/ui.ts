@@ -1,20 +1,27 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Kuna da ra'ayi, kun sami matsala, ko kuna son gaya mana abin da za mu gina na gaba? Tuntuɓi ƙungiyar a hello@reverie.app — kowane saƙo yana zuwa ga mutum na gaske wanda ke yin samfurin.",
   'about.contactTitle': 'Yi magana da mu',
+  'about.missionTitle': 'Manufarmu',
   'auth.fields.newPassword': 'Sabuwar kalmar sirri',
   'collectionDetail.addImage': 'Conjure don tattarawa',
   'collectionDetail.backCta': 'Komawa ga tarin abubuwa',
   'collectionDetail.coverNote': 'An tsara yanayin yanayi tare da {{count}} hotuna.',
   'collectionDetail.editName': 'Sunan tarin',
+  'collectionDetail.empty':
+    'Babu hotuna a cikin wannan tarin tukuna — ƙirƙira wani abu don ƙarawa.',
   'collectionDetail.loading': 'Ana loda tarin…',
   'collectionDetail.loadingImages': 'Ana loda hotuna…',
+  'collectionDetail.notFoundBody': 'An cire wannan tarin ko na sirri ne.',
   'collectionDetail.notFoundTitle': 'Babu tarin abubuwa',
   'collectionDetail.shared': 'An canza ganuwa',
   'collections.create': 'Sabuwar tarin',
   'collections.empty': 'Babu tarin abubuwa tukuna. Ƙirƙiri ɗaya don fara tsara aikinka.',
   'collections.imageCount': '{{count}} hotuna',
   'collections.loading': 'Ana loda tarin…',
+  'collections.noDescription': 'Babu bayani tukuna — buɗe don ƙarawa.',
   'collections.subtitle':
     'Allon yanayi, taƙaitaccen bayani da kuma jerin shirye-shirye masu gudana',
   'collections.title': 'Tarin abubuwa',
@@ -57,6 +64,7 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'Shigar da imel ɗin da aka haɗa zuwa asusunka na Reverie kuma za mu aika hanyar haɗin sake saitawa.',
   'forgot.successBody': 'Hanyar sake saitawa tana kan hanyarta zuwa {{email}} .',
+  'gallery.empty.body': 'Gwada wani yanayi daban ko ƙirƙira sabon rukuni daga ɗakin studio.',
   'gallery.empty.title': 'Babu wani abu da ya dace da wannan matatar',
   'gallery.exportAll': 'Fitar da duk',
   'gallery.exported': 'Fitar da layi',
@@ -79,6 +87,8 @@ export const ui: UiTranslations = {
   'generate.controls.title': 'Gyara mafarkin',
   'generate.defaultPrompt': 'Sabuwar mafarki',
   'generate.progress': 'Mataki {{step}} / {{total}}',
+  'generate.submitFailed':
+    'Ba a iya jera ƙirƙirar ba — duba haɗin yanar gizonka sannan ka sake gwadawa.',
   'generate.subtitle':
     "Rubuta saƙo, danna maɓallin sarrafawa, kuma zaɓi nau'ikan da za a iya haɗa su",
   'generate.title': 'Studio',
@@ -86,6 +96,7 @@ export const ui: UiTranslations = {
   'imageDetail.acting': 'Aiki…',
   'imageDetail.actionFailed': 'Aikin ya gaza.',
   'imageDetail.actions': 'Ayyukan hoto',
+  'imageDetail.downloadStarted': 'An fara saukewa.',
   'imageDetail.downloadUnavailable': 'Babu hoton da za a iya saukewa tukuna.',
   'imageDetail.fields.aspect': 'Bangare',
   'imageDetail.fields.created': 'An ƙirƙira',
@@ -96,11 +107,16 @@ export const ui: UiTranslations = {
   'imageDetail.notFoundTitle': 'Babu hoton',
   'imageDetail.noVariations': 'Babu wani bambanci tukuna - nemi ɗaya a sama.',
   'imageDetail.openEditor': 'Buɗe a cikin edita',
+  'imageDetail.tips.lockSeed': 'Kulle iri don ci gaba da gyaran haske ba tare da rasa tsarin ba.',
+  'imageDetail.tips.upscale':
+    'Gudanar da haɓakawa 4× kafin fitarwa don ingancin da ya dace da bugu.',
   'imageDetail.tipsTitle': 'Gyara mafarkin',
+  'imageDetail.title': 'Image',
   'imageDetail.upscaleQueued': 'An yi layi mai girma',
   'imageDetail.variations': 'Bambancin',
   'imageDetail.variationsQueued': 'Bambance-bambancen da aka yi layi a jere',
   'imageDetail.visibilityToggled': 'An sabunta gani',
+  'landing.copyright': '© {{year}} {{appName}} Labs. An gina shi da Molecule.dev.',
   'landing.cta': 'Fara ƙirƙira',
   'landing.eyebrow': 'Yanzu ana hidimar Reverie XL v3',
   'landing.featuresEyebrow': 'Me yasa Reverie',
@@ -140,8 +156,16 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Ayyukan samarwa, rabawa da faɗakarwar bashi za su bayyana a nan.',
   'notifications.empty.title': 'Babu abin da za a bayar da rahoto',
   'notifications.subtitle': 'An tsara abubuwan da suka faru na tsarawa ta rana',
+  'planUpdated.confirmed': 'Shirin ku na {{planKey}} yana aiki kuma an ƙara kuɗi.',
+  'planUpdated.error': 'Ba mu iya tabbatar da haɓakarku kai tsaye ba. Don Allah a tuntuɓi tallafi.',
+  'planUpdated.retry': 'Gwada kuma',
+  'planUpdated.unpaid': 'Ba a biya kuɗin zaman ku na biya ba. Sake gwadawa daga Saituna.',
+  'planUpdated.verifyFailed': 'Ba mu iya tabbatar da biyan kuɗin ku ba tukuna.',
+  'planUpdated.verifyFailedBody':
+    'Ana iya ci gaba da aiwatar da biyan kuɗin ku. Gwada kuma nan ba da jimawa ba.',
   'planUpdated.verifying': 'Ana tabbatar da biyan ku...',
   'pricing.limits.gallery': '{{count}} gidan hotuna',
+  'pricing.limits.generations': 'Ƙirƙirori {{count}}',
   'privacy.collect.body':
     "Idan ka yi rajista, za mu tattara sunanka, adireshin imel, da kalmar sirri mai hashed. Yayin da kake amfani da Reverie, muna adana tambayoyin da ka gabatar, hotunan da muke samarwa a gare ka, salo da tarin bayanai da kake adanawa, da kuma bayanai kamar samfurin da aka yi amfani da shi, tambarin lokaci na samarwa, da kuma ma'aunin bashi.",
   'privacy.cookies.body':
@@ -155,6 +179,7 @@ export const ui: UiTranslations = {
   'profile.followedBio': 'Na bi wani mai ƙirƙira yanzu haka',
   'profile.following': 'Mai zuwa…',
   'profile.loadingWorks': "Ana loda ayyukan jama'a…",
+  'profile.noPublicWorks': "Babu ayyukan jama'a tukuna — raba hoto don cika wannan hoton.",
   'profile.notFoundTitle': 'Babu bayanin martaba',
   'profile.publicWorks': "Ayyukan jama'a",
   'profile.subtitle': "@ {{handle}} · bayanin martabar mai ƙirƙira na jama'a",
@@ -166,6 +191,7 @@ export const ui: UiTranslations = {
   'prompts.empty.cta': 'Situdiyo a buɗe',
   'prompts.empty.title': 'Babu wani tayin da aka ajiye da ya dace',
   'prompts.lastUsed': 'An yi amfani da shi {{when}}',
+  'prompts.loading': 'Ana loda umarni…',
   'prompts.negativeLabel': 'NEG',
   'prompts.runAgain': 'Gudu',
   'prompts.running': 'Ana aiki…',
@@ -181,6 +207,7 @@ export const ui: UiTranslations = {
   'settings.account.saveFailed': 'Ba za a iya adana bayanin martaba ba',
   'settings.account.title': 'Bayanin mai ƙirƙira',
   'settings.accountSecurity': 'Asusu & tsaro',
+  'settings.accountSecurity.title': "Shiga, na'urori & asusu",
   'settings.api.empty': 'Babu maɓallan API tukuna - ƙirƙiri ɗaya don fara haɗawa.',
   'settings.api.loading': 'Ana loda maɓallan API…',
   'settings.api.revoked': 'An soke maɓallin API',
@@ -199,12 +226,16 @@ export const ui: UiTranslations = {
   'sidebar.secondary': 'Kewaya ta biyu',
   'signup.failed': 'Rijista ta gaza. Gwada kuma.',
   'signup.firstNamePlaceholder': 'Aria',
+  'signup.haveAccount': 'Kai ma mai mafarki ne?',
   'signup.heading': 'Fara tunaninka',
   'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Ƙirƙiri asusu kuma ku nemi maki 120 kyauta.',
+  'styles.body':
+    'Kowane saiti yana ɗauke da nasa samfurin, mai samfuri, ginin rubutu da guntun salo. Kunna ɗaya don kulle dukan ɗakin studio cikin wannan yanayi — cikakke don aikin jerin.',
   'styles.empty': 'Babu saitattun salo tukuna — za su bayyana bayan shiga ta farko.',
   'styles.eyebrow': 'An shirya',
   'styles.headline': 'Yi sauri da sauri tare da saitattun gani da za a iya sake amfani da su',
+  'styles.loading': 'Ana loda ɗakin karatun salo…',
   'styles.subtitle':
     'An tsara saitattun abubuwan gani da ƙungiyar ɗakin studio ta Reverie ta tsara',
   'styles.title': 'Laburaren salo',

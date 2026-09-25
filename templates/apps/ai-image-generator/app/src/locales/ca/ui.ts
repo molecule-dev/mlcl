@@ -1,14 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens comentaris, has trobat un problema o vols dir-nos què construir després? Contacta amb l'equip a hello@reverie.app — cada missatge arriba a una persona real que fa el producte.",
   'about.contactTitle': 'Parla amb nosaltres',
+  'about.missionTitle': 'La nostra missió',
   'auth.fields.newPassword': 'Nova contrasenya',
   'collectionDetail.addImage': 'Conjurar per a la col·lecció',
   'collectionDetail.backCta': 'Torna a les col·leccions',
   'collectionDetail.coverNote': "Tauler d'inspiració seleccionat amb {{count}} imatges.",
   'collectionDetail.editName': 'Nom de la col·lecció',
+  'collectionDetail.empty':
+    'Encara no hi ha imatges en aquesta col·lecció — genera alguna cosa per afegir-hi.',
   'collectionDetail.loading': "S'està carregant la col·lecció…",
   'collectionDetail.loadingImages': "S'estan carregant les imatges…",
+  'collectionDetail.notFoundBody': "Aquesta col·lecció s'ha eliminat o és privada.",
   'collectionDetail.notFoundTitle': 'Col·lecció no disponible',
   'collectionDetail.shared': 'Visibilitat activada',
   'collections.create': 'Nova col·lecció',
@@ -16,6 +22,7 @@ export const ui: UiTranslations = {
     "Encara no hi ha cap col·lecció. Crea'n una per començar a seleccionar la teva obra.",
   'collections.imageCount': '{{count}} imatges',
   'collections.loading': "S'estan carregant les col·leccions…",
+  'collections.noDescription': 'Encara no hi ha descripció — obre-la per afegir-ne una.',
   'collections.subtitle': 'Moodboards, resums i sèries en curs',
   'collections.title': 'Col·leccions',
   'collections.untitled': 'Sense títol · {{stamp}}',
@@ -55,6 +62,7 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     "Introdueix el correu electrònic vinculat al teu compte de Reverie i t'enviarem un enllaç de restabliment.",
   'forgot.successBody': 'Un enllaç de restabliment està en camí cap a {{email}} .',
+  'gallery.empty.body': "Prova un estat diferent o genera un lot nou des de l'estudi.",
   'gallery.empty.title': 'Res coincideix amb aquest filtre',
   'gallery.exportAll': 'Exporta-ho tot',
   'gallery.exported': 'Exportació en cua',
@@ -78,12 +86,15 @@ export const ui: UiTranslations = {
   'generate.controls.title': 'Afina el somni',
   'generate.defaultPrompt': 'Un nou somni',
   'generate.progress': 'Pas {{step}} / {{total}}',
+  'generate.submitFailed':
+    "No s'ha pogut posar la generació a la cua — comprova la connexió i torna-ho a provar.",
   'generate.subtitle': 'Crea una indicació, configura els controls, crea variants',
   'generate.title': 'Estudi',
   'generation.created': '{{when}}',
   'imageDetail.acting': 'Treballant…',
   'imageDetail.actionFailed': "L'acció ha fallat.",
   'imageDetail.actions': "Accions d'imatge",
+  'imageDetail.downloadStarted': 'Descàrrega iniciada.',
   'imageDetail.downloadUnavailable': 'Encara no hi ha cap imatge disponible per descarregar.',
   'imageDetail.fields.aspect': 'Aspecte',
   'imageDetail.fields.created': 'Creat',
@@ -94,11 +105,17 @@ export const ui: UiTranslations = {
   'imageDetail.notFoundTitle': 'Imatge no disponible',
   'imageDetail.noVariations': 'Encara no hi ha variacions; sol·liciteu-ne una més amunt.',
   'imageDetail.openEditor': "Obre a l'editor",
+  'imageDetail.tips.lockSeed':
+    'Bloqueja la llavor per iterar la il·luminació sense perdre la composició.',
+  'imageDetail.tips.upscale':
+    "Executa l'escalat 4× abans d'exportar per obtenir qualitat per a impressió.",
   'imageDetail.tipsTitle': 'Refina el somni',
+  'imageDetail.title': 'Image',
   'imageDetail.upscaleQueued': 'Cua de luxe',
   'imageDetail.variations': 'Variacions',
   'imageDetail.variationsQueued': 'Variacions en cua',
   'imageDetail.visibilityToggled': 'Visibilitat actualitzada',
+  'landing.copyright': '© {{year}} {{appName}} Labs. Creat amb Molecule.dev.',
   'landing.cta': 'Comença a crear',
   'landing.eyebrow': 'Ara servint Reverie XL v3',
   'landing.featuresEyebrow': 'Per què Reverie',
@@ -139,8 +156,18 @@ export const ui: UiTranslations = {
     "Aquí apareixeran les alertes d'activitat de generació, compartició i crèdit.",
   'notifications.empty.title': 'Res a informar',
   'notifications.subtitle': 'Esdeveniments de generació agrupats per dia',
+  'planUpdated.confirmed': "El teu pla {{planKey}} està actiu i s'han afegit crèdits.",
+  'planUpdated.error':
+    "No hem pogut confirmar la teva millora automàticament. Contacta amb l'assistència.",
+  'planUpdated.retry': 'Torna-ho a intentar',
+  'planUpdated.unpaid':
+    "La teva sessió de pagament no s'ha pagat. Torna-ho a provar des de Configuració.",
+  'planUpdated.verifyFailed': 'Encara no hem pogut confirmar el vostre pagament.',
+  'planUpdated.verifyFailedBody':
+    "És possible que el vostre pagament encara s'estigui processant. Torneu-ho a provar en un moment.",
   'planUpdated.verifying': 'Confirmant el teu pagament…',
   'pricing.limits.gallery': '{{count}} galeria',
+  'pricing.limits.generations': '{{count}} generacions',
   'privacy.collect.body':
     'Quan et registres, recopilem el teu nom, la teva adreça electrònica i una contrasenya amb hash. A mesura que fas servir Reverie, emmagatzemem les sol·licituds que envies, les imatges que generem per a tu, els estils i les col·leccions que deses i les metadades com ara el model utilitzat, les marques de temps de generació i el saldo de crèdit.',
   'privacy.cookies.body':
@@ -154,6 +181,8 @@ export const ui: UiTranslations = {
   'profile.followedBio': 'Acabo de seguir un creador',
   'profile.following': 'Seguint…',
   'profile.loadingWorks': "S'estan carregant les obres públiques…",
+  'profile.noPublicWorks':
+    'Encara no hi ha obres públiques — comparteix una imatge per omplir aquesta galeria.',
   'profile.notFoundTitle': 'Perfil no disponible',
   'profile.publicWorks': 'Obres públiques',
   'profile.subtitle': '@ {{handle}} · perfil públic del creador',
@@ -165,6 +194,7 @@ export const ui: UiTranslations = {
   'prompts.empty.cta': 'Estudi obert',
   'prompts.empty.title': 'No hi ha coincidències de sol·licituds desades',
   'prompts.lastUsed': 'Usat {{when}}',
+  'prompts.loading': "S'estan carregant les indicacions…",
   'prompts.negativeLabel': 'NEG',
   'prompts.runAgain': 'Corre',
   'prompts.running': 'Corrent…',
@@ -180,6 +210,7 @@ export const ui: UiTranslations = {
   'settings.account.saveFailed': "No s'ha pogut desar el perfil",
   'settings.account.title': 'Perfil del creador',
   'settings.accountSecurity': 'Compte i seguretat',
+  'settings.accountSecurity.title': 'Inici de sessió, dispositius i compte',
   'settings.api.empty': "Encara no hi ha cap clau API; crea'n una per començar la integració.",
   'settings.api.loading': "S'estan carregant les claus de l'API…",
   'settings.api.revoked': 'Clau API revocada',
@@ -198,13 +229,17 @@ export const ui: UiTranslations = {
   'sidebar.secondary': 'Navegació secundària',
   'signup.failed': 'El registre ha fallat. Torna-ho a intentar.',
   'signup.firstNamePlaceholder': 'Ària',
+  'signup.haveAccount': 'Ja ets un somiador?',
   'signup.heading': 'Comença la teva ensopegada',
   'signup.lastNamePlaceholder': 'Lin',
   'signup.subheading': 'Crea un compte i reclama 120 crèdits gratuïts.',
+  'styles.body':
+    "Cada prestatge agrupa el seu propi model, mostrejador, bastida d'indicacions i xips d'estil. Activa'n un per bloquejar tot l'estudi en aquest ambient — perfecte per a treballs en sèrie.",
   'styles.empty':
     "Encara no hi ha cap configuració predefinida d'estil; apareixeran després del primer inici de sessió.",
   'styles.eyebrow': 'Curat',
   'styles.headline': 'Crea evocacions més ràpides amb configuracions visuals reutilitzables',
+  'styles.loading': "S'està carregant la biblioteca d'estils…",
   'styles.subtitle': "Presets visuals seleccionats per l'equip de Reverie Studio",
   'styles.title': "Biblioteca d'estils",
   'terms.acceptableUse.body':

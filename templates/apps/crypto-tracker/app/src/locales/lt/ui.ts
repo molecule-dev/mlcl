@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Susisiekite su mumis',
   'about.eyebrow': 'Apie',
+  'about.featureAlerts':
+    'Kainų įspėjimai apie svarbias sąlygas, siunčiami el. paštu ir push pranešimais, kad nepraleistumėte pokyčių.',
+  'about.featureMarkets':
+    'Tiesioginiai rinkos duomenys ir kainų grafikai tūkstančiams monetų, surikiuotų pagal rinkos kapitalizaciją, apimtį ir momentumą.',
+  'about.featurePortfolio':
+    'Portfelio stebėjimas su tikru pelnu ir nuostoliu, įsigijimo kaina ir paskirstymu — susietas su jūsų operacijų istorija.',
+  'about.featureWatchlist':
+    'Asmeninis stebimųjų sąrašas ir atrinktos kriptovaliutų naujienos su signalais apie jūsų stebimus turtus.',
+  'about.missionTitle': 'Mūsų misija',
+  'alertConditionCard.armedSince': 'Aktyvuota nuo {{when}}',
   'alertConditionCard.condition.${alert.condition}': 'Suaktyvinta {{kai}}',
   'alertConditionCard.confirmDelete': 'Patvirtinti ištrynimą',
+  'alertConditionCard.deleteAriaLabel': 'Ištrinti įspėjimą',
   'alertConditionCard.pauseAriaLabel': 'Pristabdyti įspėjimą',
   'alertConditionCard.resumeAriaLabel': 'Tęsimo įspėjimas',
+  'alertConditionCard.triggeredAt': 'Suaktyvinta {{when}}',
   'alertNew.condition': 'Būklė',
   'alertNew.createCta': 'Sukurti įspėjimą',
   'alertNew.error': 'Nepavyko sukurti įspėjimo.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'Kol kas nėra įspėjimų.',
   'alerts.eyebrow': 'Bourse apsauginiai laidai',
   'alerts.loadError': 'Nepavyko įkelti įspėjimų.',
+  'alerts.newCta': '+ Naujas signalas',
   'alerts.subheading': 'Gaukite pranešimą, kai kaina, pokytis ar apimtis peržengia jūsų ribą.',
   'alerts.summary.armed': 'Ginkluotas',
   'alerts.summary.triggered': 'Suaktyvinta',
@@ -23,6 +37,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'Visų laikų rekordas',
   'coinDetail.allTimeLow': 'Visų laikų žemiausias lygis',
   'coinDetail.back': 'Visos rinkos',
+  'coinDetail.chartAriaLabel': '{{name}} kainų grafikas, paskutinės 30 dienų',
   'coinDetail.chartHeading': 'Kaina · pastarosios 30 dienų',
   'coinDetail.circulating': 'Cirkuliacinis tiekimas',
   'coinDetail.fdv': 'Visiškai praskiestas vertinimas',
@@ -59,6 +74,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'Atstatyti laidinę jungtį.',
   'login.eyebrow': 'Įženkite į terminalą',
   'login.heading': 'Sveikas sugrįžęs, signalininke.',
+  'login.noAccountQuestion': 'Naujokas „Tessera“?',
   'login.secureNote': '🔒 Užšifruota perdavimo metu',
   'login.signingInCta': 'Skaitant juostą…',
   'login.signupLink': 'Atidaryti sąskaitą →',
@@ -93,6 +109,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'Nuskaitytas maršrutas nerodo žinomos monetos ar puslapio. Dar kartą patikrinkite simbolį ir bandykite dar kartą.',
   'notFound.browseMarkets': 'Naršyti rinkas',
+  'notFound.eyebrow': '{{appName}} signalas prarastas',
+  'notFound.heading': 'Šis signalas nebe pasiekiamas',
+  'planUpdated.body':
+    'Jūsų mokėjimo pakeitimas dabar aktyvus. Savo planą galite tvarkyti bet kada mokėjimų puslapyje.',
+  'planUpdated.retry': 'Pabandyk dar kartą',
+  'planUpdated.verifyFailed': 'Mes dar negalėjome patvirtinti jūsų mokėjimo.',
+  'planUpdated.verifyFailedBody':
+    'Jūsų mokėjimas vis dar gali būti apdorojamas. Bandykite dar kartą po akimirkos.',
   'planUpdated.verifying': 'Patvirtinamas jūsų mokėjimas…',
   'portfolio.addError': 'Įveskite simbolį, teigiamą sumą ir kainą.',
   'portfolio.addHoldingCta': '+ Pridėti ūkį',
@@ -116,12 +140,14 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'Bendra portfelio vertė',
   'portfolioHeroCard.totalPnl': 'Bendras P/N',
   'pricing.heading': 'įspėjimai',
+  'pricing.limit.alerts': 'įspėjimai',
   'pricing.limit.coins': 'monetos',
   'pricing.limit.market': 'turgus',
   'pricing.limit.portfolio': 'portfelis',
   'resetPassword.eyebrow': 'Naujas šifras',
   'resetPassword.missingToken':
     'Šios nustatymo iš naujo nuorodos nėra arba ji negalioja. Pateikite užklausą dėl naujos.',
+  'resetPassword.passwordPlaceholder': 'Naujas slaptažodis',
   'resetPassword.subheading': 'Pasirinkite tai, ką galite iššifruoti tik jūs.',
   'settings.apiKeys.body':
     'Tik skaitymui skirti raktai operacijų istorijai importuoti. Prisijunkite per „OAuth“ iš /pricing, kai užsiprenumeruosite.',
@@ -133,17 +159,32 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'Citatos valiuta',
   'settings.preferences.locale': 'Lokalė',
   'settings.preferences.push': 'Stumti',
+  'settings.preferences.refresh': 'Kainų atnaujinimas (sekundėmis)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning': 'Šio įrenginio prieiga netrukus bus atšaukta. Atjungti jį?',
   'settings.security.body': 'Slaptažodį ir dviejų veiksnių nustatymus tvarko jūsų paskyra.',
   'settings.signOutDevice': 'Atsijungti',
   'settings.twoFactorCode': 'Autentifikavimo kodas',
   'settings.twoFactorDisable': 'Išjungti',
+  'settings.twoFactorDisableTitle': 'Išjungti dviejų veiksnių autentifikavimą',
   'settings.twoFactorEnable': 'Įjungti',
+  'settings.twoFactorEnableTitle': 'Įjungti dviejų veiksnių autentifikavimą',
   'settings.twoFactorInvalidCode': 'Neteisingas kodas',
   'settings.twoFactorOn': 'Dėl',
+  'settings.twoFactorQrAlt': 'Dviejų veiksnių QR kodas',
+  'settings.twoFactorScan':
+    'Nuskaitykite šį QR kodą su autentifikavimo programa, tada įveskite 6 skaitmenų kodą.',
+  'settings.twoFactorUnavailable': 'Dviejų veiksnių autentifikavimas šiai programai negalimas.',
   'settings.twoFactorVerify': 'Patikrinti ir įjungti',
   'sigilAuthShell.backHomeCta': '← Atgal į Bourse',
+  'sigilAuthShell.brandBody':
+    'Tiesioginės kainos, portfelio P/L ir nuolatiniai stebėjimai dėl svarbių sąlygų — viskas viename terminale.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — sukurta su Molecule',
+  'sigilAuthShell.brandHeadline': 'Iššifruokite kiekvieną signalą visoje apskaitoje.',
+  'sigilAuthShell.samplePortfolio': 'Pavyzdinis portfelis',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'Pagrindinė navigacija',
+  'signup.creating': 'Atidaromas jūsų terminalas…',
   'signup.eyebrow': 'Atidarykite terminalą',
   'signup.heading': 'Sukurkite savo Bourse',
   'signup.subheading':
@@ -161,6 +202,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'Nepavyko įkelti sandorių.',
   'watchlist.addCta': 'Naršyti rinkas',
   'watchlist.col.change24h': '24 val.',
+  'watchlist.col.coin': 'Moneta',
   'watchlist.col.marketCap': 'Rinkos riba',
   'watchlist.empty':
     'Jūsų stebimųjų sąraše nėra monetų – jas galite pridėti naudodami „star coins“ iš /markets.',

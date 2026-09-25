@@ -1,12 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கேள்விகள், கருத்துகள் அல்லது கூட்டாண்மை யோசனைகள் உள்ளதா? {{appName}} குழுவுக்கு hello@nimbus.example என்ற முகவரியில் மின்னஞ்சல் அனுப்புங்கள் — ஒவ்வொரு செய்தியையும் நாங்கள் படிக்கிறோம்.',
   'about.contactTitle': 'தொடர்பு கொள்ளுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.highlightsTitle': 'நீங்கள் பெறுவது',
   'about.intro':
     'Nimbus என்பது நீங்கள் உண்மையில் கண்டறிய விரும்பும் கோப்புகளுக்கான ஒரு அமைதியான, தெளிவான தளமாகும். டெஸ்க்டாப்பின் வேகத்துடனும் கிளவுடின் நீடித்த தன்மையுடனும் கோப்புகளைப் பதிவேற்றவும், பகிரவும் மற்றும் மீட்டெடுக்கவும்.',
+  'about.mission':
+    'எங்கள் நோக்கம் எளிதானது: கிளவுட் சேமிப்பை எடையற்றதாக உணரச் செய்வது. குழப்பமில்லை, சுழலிகளில்லை, கோப்பு எங்கே போனது என்ற ஊகமில்லை — தனிநபர்களுக்கும் குழுக்களுக்கும் தெளிவு மட்டுமே.',
+  'about.subtitle': 'உங்கள் டிஜிட்டல் வாழ்வுக்கான எடையற்ற காப்பகம்.',
   'about.title': 'Nimbus பற்றி',
   'authShell.copyright': '© {{year}} Nimbus காப்பகம்',
+  'authShell.footer': 'பாதுகாப்பான கிளவுட் சேமிப்பு · முனை-முதல்-முனை வரை குறியாக்கம்',
   'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'fileDetail.about.eyebrow': 'இந்தக் கோப்பைப் பற்றி',
   'fileDetail.actions.delete': 'குப்பைகளுக்கு நகர்த்தவும்',
@@ -39,18 +46,24 @@ export const ui: UiTranslations = {
     'உங்கள் மின்னஞ்சலை உள்ளிடவும், புதிய ஒன்றைத் தேர்ந்தெடுப்பதற்கான இணைப்பை நாங்கள் உங்களுக்கு அனுப்புவோம்.',
   'forgotPassword.successSubheading':
     'நாங்கள் கடவுச்சொல் மீட்டமைப்பு இணைப்பை அனுப்பினோம் {{email}} இந்த இணைப்பு 60 நிமிடங்களுக்குச் செல்லுபடியாகும்.',
+  'help.backHome': '← {{appName}} முகப்புக்குத் திரும்பு',
   'help.contactBody':
     'support@nimbus.example என்ற முகவரிக்கு மின்னஞ்சல் அனுப்பவும், நாங்கள் ஒரு வேலை நாளுக்குள் பதிலளிப்போம். புரோ மற்றும் டீம் திட்டங்களுக்கு வழித்தடத்தில் முன்னுரிமை அளிக்கப்படும்.',
+  'help.contactTitle': 'ஒரு நபர் தேவையா?',
   'help.eyebrow': 'ஆதரவு',
   'help.intro':
     "பெரும்பாலான பதில்கள் ஒரே சொடுக்கில் கிடைக்கின்றன. கோப்புகளைச் சேர்க்க, அவற்றை பதிவேற்றப் பகுதிக்குள் இழுத்து விடுங்கள்; ஒரு இணைப்பை உருவாக்க, எந்தவொரு வரிசையிலும் உள்ள 'பகிர்' (Share) பொத்தானைச் சொடுக்கவும்; கடந்த 30 நாட்களில் நீங்கள் நீக்கிய கோப்புகளை மீட்டெடுக்க, 'குப்பைத்தொட்டி' (Trash) பக்கத்திற்குச் செல்லவும்.",
+  'help.subtitle': 'பொதுவான {{appName}} கேள்விகளுக்கான பதில்கள்.',
   'help.title': 'உதவி மற்றும் ஆதரவு',
   'landing.cta.body':
     '15 GB இலவசத்துடன் தொடங்குங்கள். 200 GB-க்கு ப்ரோ பதிப்பிற்கு மேம்படுத்திக்கொள்ளுங்கள் அல்லது உங்கள் குழுவை ஒரு பகிரப்பட்ட இடத்திற்கு அழையுங்கள் — இவை அனைத்தையும் அதே தடையற்ற Nimbus அனுபவத்துடன் பெறுங்கள்.',
   'landing.cta.primary': 'உங்கள் காப்பகத்தை உருவாக்கவும்',
   'landing.cta.title': 'தேவையற்றவற்றை அகற்றுங்கள். வேலையைத் தொடருங்கள்.',
+  'landing.features.body':
+    'தங்கள் கோப்புகள் எடையற்றதாக உணர வேண்டும் என விரும்பும் தனிநபர்களுக்கும் குழுக்களுக்கும் உருவாக்கப்பட்டது — விரைவாகக் கண்டுபிடிக்க, பாதுகாப்பாகப் பகிர, மகிழ்ச்சியுடன் ஒழுங்கமைக்க.',
   'landing.features.eyebrow': 'Nimbus ஏன்?',
   'landing.features.title': 'உங்கள் வழியில் குறுக்கிடாத சேமிப்பகம்.',
+  'landing.footer.copyright': '© {{year}} {{appName}}. எடையற்றவர்களுக்காக உருவாக்கப்பட்டது.',
   'landing.hero.body':
     'உங்கள் டிஜிட்டல் வாழ்க்கைக்கான பாரமற்ற காப்பகம். புத்துணர்ச்சி தரும் ஒருங்கிணைந்த கிளவுட் சேமிப்பகம். தேவையற்றவை இல்லை, தெளிவு மட்டுமே.',
   'landing.hero.eyebrow': 'Nimbus v2 அறிமுகம்',
@@ -68,6 +81,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'login.subheading': 'உங்கள் காப்பகத்தை அணுக உள்நுழையவும்.',
   'myFiles.breadcrumb.folder': 'கோப்புறை',
+  'myFiles.breadcrumb.home': 'டெஸ்ஸெரா',
   'myFiles.breadcrumb.myFiles': 'எனது கோப்புகள்',
   'myFiles.fetchError': 'உங்கள் கோப்புகளை ஏற்ற முடியவில்லை.',
   'myFiles.files.col.modified': 'மாற்றியமைக்கப்பட்டது',
@@ -82,12 +96,18 @@ export const ui: UiTranslations = {
   'myFiles.folders.justCreated': 'இப்போதுதான் உருவாக்கப்பட்டது',
   'myFiles.folders.seeAll': 'அனைத்தையும் காண்க',
   'myFiles.folders.title': 'கோப்புறைகள்',
+  'myFiles.hero.bodyDynamic':
+    '{{files}} கோப்புகள் ஒத்திசைக்கப்பட்டன — இதுவரை {{used}} பயன்படுத்தப்பட்டது.',
+  'myFiles.hero.bodyEmpty':
+    'தொடங்க ஒரு கோப்பைப் பதிவேற்றுங்கள் — உங்கள் காப்பகம் எல்லா இடங்களிலும் ஒத்திசைக்கப்படும்.',
   'myFiles.hero.eyebrow': 'உங்கள் காப்பகம்',
   'myFiles.hero.recentCta': 'சமீபத்திய செயல்பாடுகளைப் பார்க்கவும்',
   'myFiles.hero.title': 'மீண்டும் வருக, {{name}} .',
   'myFiles.hero.uploadCta': 'கோப்புகளைப் பதிவேற்றவும்',
   'myFiles.hero.youFallback': 'அங்கே',
   'myFiles.refresh': 'புதுப்பிக்கவும்',
+  'myFiles.stats.collaboratorsDetail': 'பகிரப்பட்ட கோப்புகள் முழுவதும்',
+  'myFiles.stats.foldersDetail': 'உங்கள் காப்பகம் முழுவதும்',
   'myFiles.stats.totalFilesDetail': '{{count}} நட்சத்திரக் குறியிடப்பட்ட',
   'myFiles.stats.usageDetail': 'இன் {{total}} ப்ரோவில்',
   'myFiles.time.daysAgo': '{{count}} டி நோ',
@@ -108,6 +128,7 @@ export const ui: UiTranslations = {
   'nimbusSideNav.upgradeCta': 'மேம்படுத்தல் திட்டம்',
   'nimbusStorageMeter.ariaLabel': 'சேமிப்பகம் பயன்படுத்தப்பட்டது',
   'nimbusStorageMeter.compactLabel': 'சேமிப்பு',
+  'nimbusStorageMeter.compactSummary': '{{used}} இன் {{total}} பயன்படுத்தப்பட்ட',
   'nimbusStorageMeter.percentUsed': '{{percent}} %',
   'nimbusStorageMeter.usedLabel': 'சேமிப்பகம் பயன்படுத்தப்பட்டது',
   'nimbusStorageMeter.usedOfTotal': '{{used}} இன் {{total}}',
@@ -116,10 +137,21 @@ export const ui: UiTranslations = {
   'notFound.code': '404',
   'notFound.heading': 'இந்தக் கோப்பு உங்கள் காப்பகத்தில் இல்லை.',
   'notFound.primaryCta': 'எனது கோப்புகளைத் திறக்கவும்',
+  'planUpdated.currentPlan': 'நீங்கள் தற்போது {{plan}} திட்டத்தில் இருக்கிறீர்கள்.',
+  'planUpdated.retry': 'மீண்டும் முயற்சிக்கவும்',
+  'planUpdated.verifyFailed': 'உங்கள் கட்டணத்தை எங்களால் இன்னும் உறுதிப்படுத்த முடியவில்லை.',
+  'planUpdated.verifyFailedBody':
+    'உங்கள் கட்டணம் இன்னும் செயலாக்கத்தில் இருக்கலாம். சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.',
   'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
+  'pricing.limit.advancedFeatures': 'மேம்பட்ட அம்சங்கள்:',
   'pricing.limit.canExport': 'தரவு ஏற்றுமதி:',
+  'pricing.limit.files': '{{count}} கோப்புகள்',
+  'pricing.limit.folders': '{{count}} கோப்புறைகள்',
+  'pricing.limit.shares': '{{count}} பகிர்வுகள்',
   'privacy.intro':
     'நிம்பஸை இயக்குவதற்குத் தேவையான குறைந்தபட்ச தகவல்களை நாங்கள் சேகரிக்கிறோம்: உங்கள் கணக்கு மின்னஞ்சல், நீங்கள் பதிவேற்றும் கோப்புகள், மற்றும் அவற்றைக் காட்சிப்படுத்தவும் தேடவும் தேவைப்படும் மெட்டாடேட்டா. நாங்கள் உங்கள் தரவை ஒருபோதும் விற்பதில்லை.',
+  'privacy.subtitle':
+    '{{appName}} உங்கள் கோப்புகளையும் தனிப்பட்ட தகவல்களையும் எவ்வாறு கையாளுகிறது.',
   'recent.activity.empty': 'இன்னும் காட்டுவதற்கு ஒன்றுமில்லை.',
   'recent.activity.youInitials': 'ஒய்',
   'recent.crumbs.home': 'Nimbus',
@@ -139,15 +171,18 @@ export const ui: UiTranslations = {
   'resetPassword.signIn': 'நிம்பஸில் உள்நுழைக',
   'resetPassword.subheading':
     'வலிமையான கடவுச்சொல்லைத் தேர்ந்தெடுக்கவும் — குறைந்தபட்சம் 8 எழுத்துக்கள் கொண்டதாக இருக்க வேண்டும்.',
+  'resetPassword.successHeading': 'கடவுச்சொல் மீட்டமைப்பு',
   'resetPassword.successSubheading':
     'நீங்கள் இப்போது உங்கள் புதிய கடவுச்சொல்லைப் பயன்படுத்தி உள்நுழையலாம்.',
   'search.backToFiles': 'அனைத்து கோப்புகளுக்கும் திரும்பு',
   'search.clearLabel': 'தேடலைத் தெளிவுபடுத்து',
   'search.crumbs.home': 'Nimbus',
+  'search.emptyNoQuery': 'உங்கள் காப்பகத்தில் தேட மேலே ஒரு வினவலைத் தட்டச்சு செய்யுங்கள்.',
   'search.emptyWithQuery': 'கோப்புகள் எதுவும் பொருந்தவில்லை {{query}} ”.',
   'search.fetchError': 'கோப்புகளை ஏற்ற முடியவில்லை.',
   'search.hero.body':
     'கவனம் செலுத்த வகையின் அடிப்படையில் வடிகட்டவும். எந்தவொரு முடிவையும் திறக்க அதைத் தட்டவும்.',
+  'search.hero.titleEmpty': 'உங்கள் காப்பகத்தில் தேடுங்கள்',
   'search.hero.titleWithQuery': '{{count}} "இதற்கான முடிவுகள்" {{query}} "',
   'search.input.placeholder': 'நிம்பஸைத் தேடுங்கள்…',
   'search.section.allFiles': 'பொருந்தும் கோப்புகள்',
@@ -163,9 +198,12 @@ export const ui: UiTranslations = {
   'shared.empty':
     "இன்னும் கோப்புகள் பகிரப்படவில்லை. ஏதேனும் ஒரு கோப்பைத் திறந்து, இணைப்பை அனுப்ப 'பகிர்' என்பதைத் தட்டவும்.",
   'shared.fetchError': 'பகிரப்பட்ட கோப்புகளை ஏற்ற முடியவில்லை.',
+  'shared.hero.body':
+    'இணைப்பு அல்லது அழைப்பு மூலம் நீங்கள் பகிரும் ஒவ்வொரு கோப்பும் இங்கே தோன்றும். எந்த அணுகல் வழங்கப்பட்டுள்ளது என்பதைப் பார்க்க ஒரு அனுமதியை மாற்றுங்கள்.',
   'shared.hero.title': '{{count}} செயலில் உள்ள இணைப்புகளுடன் கூடிய கோப்புகள்',
   'shared.list.subtitle': '{{count}} கோப்புகள்',
   'shared.list.title': 'சமீபத்தில் பகிரப்பட்டது',
+  'shared.row.sharedSummary': '{{count}} இணைப்பு(கள்)',
   'shared.time.daysAgo': '{{count}} டி நோ',
   'shared.time.hoursAgo': '{{count}} எச் முன்பு',
   'shared.time.minutesAgo': '{{count}} ஒரு நிமிடத்திற்கு முன்பு',
@@ -175,6 +213,7 @@ export const ui: UiTranslations = {
   'sharePublic.eyebrow': 'Nimbus வழியாகப் பகிரப்பட்டது',
   'sharePublic.fetchError': 'பகிரப்பட்ட கோப்பை ஏற்ற முடியவில்லை.',
   'sharePublic.home': 'Nimbus முகப்புக்குத் திரும்பு',
+  'sharePublic.loading': 'பகிர்வு இணைப்பு தீர்க்கப்படுகிறது…',
   'sharePublic.missingToken': 'பங்கு டோக்கன் வழங்கப்படவில்லை.',
   'sharePublic.notFound': 'பகிர்வு இணைப்பு காணப்படவில்லை அல்லது காலாவதியாகிவிட்டது.',
   'sharePublic.permission': '{{permission}}',
@@ -191,7 +230,10 @@ export const ui: UiTranslations = {
   'starred.empty':
     'இன்னும் எதுவும் நட்சத்திரமிடப்படவில்லை. எந்தவொரு கோப்பையும் எளிதில் அணுக, அதிலுள்ள நட்சத்திரக்குறியைத் தட்டவும்.',
   'starred.fetchError': 'நட்சத்திரக் குறியிடப்பட்ட கோப்புகளை ஏற்ற முடியவில்லை.',
+  'starred.hero.body':
+    'நீங்கள் மீண்டும் வரும் எதையும் நட்சத்திரமிடுங்கள். ஒவ்வொரு சாதனத்திலும், ஒவ்வொரு பணியிடத்திலும், ஒவ்வொரு முறையும் அதைக் காட்டுகிறோம்.',
   'starred.hero.title': '{{count}} விருப்பமானவை, செல்லத் தயார்',
+  'starred.row.meta': '{{size}} · {{modified}}',
   'starred.time.daysAgo': '{{count}} டி நோ',
   'starred.time.hoursAgo': '{{count}} எச் முன்பு',
   'starred.time.minutesAgo': '{{count}} ஒரு நிமிடத்திற்கு முன்பு',
@@ -201,7 +243,10 @@ export const ui: UiTranslations = {
   'storage.crumbs.home': 'Nimbus',
   'storage.crumbs.storage': 'சேமிப்பு',
   'storage.fetchError': 'சேமிப்பகத்தை ஏற்ற முடியவில்லை.',
+  'storage.hero.body':
+    'வளர நிறைய இடம் உள்ளது. நீங்கள் 75% தாண்டும்போது — மீண்டும் 90%இல் — எச்சரிக்கிறோம், அதனால் யாரையும் மெதுவாக்கும் முன் கனமானவற்றைக் குறைக்கலாம்.',
   'storage.hero.eyebrow': 'சேமிப்பக கண்ணோட்டம்',
+  'storage.hero.headroom': '{{headroom}} இடம்',
   'storage.hero.meterLabel': '{{percent}} திட்டத்தின் %',
   'storage.hero.title': '{{used}} இன் {{total}} பயன்படுத்தப்பட்ட',
   'storage.plans.body':
@@ -209,11 +254,14 @@ export const ui: UiTranslations = {
   'storage.plans.choose': 'தேர்வு செய் {{name}}',
   'storage.plans.included': '{{storage}} சேர்க்கப்பட்டது',
   'storage.plans.maxFiles': '{{count}} கோப்புகள்',
+  'storage.plans.maxFolders': '{{count}} கோப்புறைகள்',
+  'storage.plans.maxShares': '{{count}} பகிர்வுகள்',
   'storage.plans.title': 'உங்களுடன் வளரும் திட்டங்கள்',
   'storage.plans.unavailable': 'உள்ளமைக்கப்பட்டதும் திட்டத் தகவல்கள் இங்கே தோன்றும்.',
   'storage.plans.youreOn': 'நீங்கள் இந்தத் திட்டத்தில் இருக்கிறீர்கள்',
   'terms.intro':
     'நிம்பஸைப் பயன்படுத்துவதன் மூலம், உங்கள் கணக்குச் சான்றுகளை இரகசியமாக வைத்திருக்கவும், சேமிக்கவும் பகிரவும் உங்களுக்கு உரிமை உள்ள உள்ளடக்கத்தை மட்டும் பதிவேற்றவும் ஒப்புக்கொள்கிறீர்கள்.',
+  'terms.subtitle': '{{appName}}ஐ நீங்கள் பயன்படுத்தக்கூடிய நிபந்தனைகள்.',
   'trash.actions.emptyAll': 'குப்பைகளை காலி செய்',
   'trash.actions.emptyConfirm': 'ஆம், காலியாக உள்ளது',
   'trash.actions.emptyConfirmPrompt': 'அனைத்தையும் நிரந்தரமாக நீக்கவா?',
@@ -232,7 +280,9 @@ export const ui: UiTranslations = {
   'trash.restoreError': 'கோப்பை மீட்டெடுக்க முடியவில்லை.',
   'trash.row.daysAgo': '{{count}} டி நோ',
   'trash.row.deleteConfirm': 'நீக்கு',
+  'trash.row.deleteConfirmPrompt': 'நிரந்தரமாக நீக்கவா?',
   'trash.row.deleteForever': 'நிரந்தரமாக நீக்கு',
+  'trash.row.expires': '{{days}} d மீதம் உள்ளது',
   'trash.row.hoursAgo': '{{count}} எச் முன்பு',
   'trash.row.meta': 'நீக்கப்பட்டது {{deletedAt}}',
   'trash.row.minutesAgo': '{{count}} ஒரு நிமிடத்திற்கு முன்பு',
@@ -252,6 +302,7 @@ export const ui: UiTranslations = {
   'upload.progress.error': 'பதிவேற்றம் தோல்வியடைந்தது.',
   'upload.progress.uploadFailed': 'பதிவேற்றம் தோல்வியடைந்தது.',
   'upload.progress.uploading': 'பைட்டுகள் பதிவேற்றப்படுகின்றன…',
+  'upload.queue.clearDone': 'ஒத்திசைவு தெளிவு',
   'upload.queue.emptyHint':
     'மேலே உள்ள பகுதியில் கோப்புகளை இடவும் அல்லது தொடங்குவதற்குத் தேர்வு பொத்தான்களைப் பயன்படுத்தவும்.',
   'upload.queue.idle': 'செயலில் உள்ள பதிவேற்றங்கள் இல்லை.',

@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '¿Tienes comentarios, encontraste un error o quieres un tablero propio en {{appName}}? Abre tus Ajustes para contactar con el equipo: cada mensaje llega a una persona real que lo lee.',
+  'about.contactTitle': 'Habla con nosotros',
+  'about.featureModeration':
+    'Un roadmap público con etiquetas de trimestre, un changelog que convierte el trabajo publicado en notas de versión y un panel que muestra lo que más pide la gente.',
+  'about.featurePricing':
+    'Gratis para gestionar un par de tableros; los planes Pro y Team desbloquean más tableros, límites más altos y exportación de datos.',
+  'about.featureThreads':
+    'Tableros públicos de comentarios organizados por tema, con fusión de duplicados que agrupa los votos en una única señal honesta de demanda.',
+  'about.featureVoting':
+    'Votación de un voto por usuario con un flujo de estados completo —abierto, planificado, en curso, publicado o rechazado— y una respuesta oficial en cada decisión.',
+  'about.intro':
+    '{{appName}} es una plataforma de comentarios de producto: tableros públicos donde los clientes publican solicitudes, votan por lo que necesitan y siguen cada idea desde planificada hasta publicada. Los equipos dejan de adivinar qué construir porque la demanda se ordena sola.',
+  'about.missionBody':
+    'Creemos que las mejores decisiones de producto se toman en abierto. {{appName}} da a cada equipo un tablero público de solicitudes votadas, un roadmap oficial con trimestres objetivo y un changelog que cierra el círculo, para que los clientes vean su impacto y los equipos vean su mandato.',
+  'about.missionTitle': 'Nuestra misión',
   'admin.backToBoards': 'Volver a los tableros',
   'admin.denied': 'Solo administradores.',
   'admin.eyebrow': 'Equipo de producto',
@@ -11,6 +27,8 @@ export const ui: UiTranslations = {
   'admin.title': 'Panel de comentarios',
   'admin.topOpen': 'Principales solicitudes abiertas',
   'admin.totalVotes': '{{count}} total',
+  'admin.votesChartLabel':
+    'Gráfico de barras de los votos emitidos por semana en las últimas ocho semanas',
   'admin.votesOverTime': 'Votos a lo largo del tiempo',
   'auth.forgotPassword.email': 'Correo electrónico',
   'auth.forgotPassword.sendResetLink': 'Enviar enlace de restablecimiento',
@@ -30,7 +48,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Crea tu cuenta',
   'auth.username': 'Nombre de usuario',
   'authShell.communities': 'Comunidades',
+  'authShell.copyright': '{{appName}} — cada voz cuenta.',
   'authShell.trending': 'Tendencias',
+  'boardCard.postCount': '{{count}} publicaciones',
   'boardDetail.allBoards': 'Todos los tableros',
   'boardDetail.backToBoards': 'Volver a los tableros',
   'boardDetail.empty': 'Ninguna publicación coincide con estos filtros aún.',
@@ -54,6 +74,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Cada entrada comenzó como una solicitud votada. Los votantes la vieron avanzar; aquí es donde quedó.',
   'changelog.title': 'Enviado, con recibos',
+  'changelog.voteCount': '{{count}} votos hicieron posible esto',
   'common.atLeast8Characters': 'Al menos 8 caracteres',
   'common.checkYourInbox': 'Revisa tu bandeja de entrada',
   'common.loadingEllipsis': 'Cargando…',
@@ -64,6 +85,9 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Enviando…',
   'footer.about': 'Acerca de {{appName}}',
   'footer.language': 'Idioma',
+  'forgotPassword.description': 'Ingresa tu correo y te enviaremos un enlace para restablecerla.',
+  'forgotPassword.successBody':
+    'Enviamos un enlace de restablecimiento a {{email}}. Caduca en 30 minutos.',
   'forgotPassword.tryAnother': 'Prueba con otro correo electrónico',
   'form.displayName': 'Nombre para mostrar',
   'form.firstName': 'Nombre',
@@ -74,6 +98,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'Tu hoja de ruta, respaldada por votos.',
   'landing.heroCtaPrimary': 'Comienza a recopilar votos',
   'landing.heroCtaSecondary': 'Ver un tablero en vivo',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Deja de adivinar. Publica lo que votan.',
+  'landing.heroLede':
+    '{{appName}} convierte solicitudes dispersas en un tablero público de ideas votadas, un roadmap oficial y un changelog que tus clientes sí leen.',
   'landing.heroStat1': '3,200+',
   'landing.heroStat1Label': 'Equipos escuchando',
   'landing.heroStat2': '1.4m',
@@ -85,9 +113,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Registro de cambios',
   'landing.navJoin': 'Únete a {{appName}}',
   'landing.navRoadmap': 'Hoja de ruta',
+  'landing.step1Body':
+    'Los clientes publican ideas en tableros públicos. Los duplicados se fusionan, los votos se agrupan y la demanda se ordena sola.',
   'landing.step1Title': 'Recopilar',
+  'landing.step2Body':
+    'Marca las solicitudes como planificadas o en curso con un trimestre objetivo: el roadmap se actualiza en cuanto lo haces.',
+  'landing.step2Title': 'Comprometerse',
   'landing.step3Body':
     'Las publicaciones enviadas se convierten en entradas del registro de cambios, y cada votante ve el resultado en su propia lista.',
+  'landing.step3Title': 'Publicar',
   'landing.topSubtitle': 'En vivo desde este tablero — inicia sesión para añadir tu voto.',
   'landing.topTitle': 'Lo que los usuarios están pidiendo ahora mismo',
   'landing.topViewAll': 'Todos los tableros',
@@ -95,14 +129,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Primaria',
   'layout.signUp': 'Registrarse',
   'layout.submit': 'Enviar comentario',
+  'login.description': 'Retoma la conversación donde la dejaste.',
+  'login.heading': 'Iniciar sesión en Nimbus',
+  'login.noAccount': '¿Nuevo aquí?',
   'login.passwordPlaceholder': 'Tu contraseña',
   'login.twoFactorLabel': 'Código 2FA (opcional)',
   'login.twoFactorPlaceholder': 'Código de 6 dígitos',
+  'login.twoFactorRequiredHint':
+    'Esta cuenta tiene activada la autenticación en dos pasos. Introduce el código de 6 dígitos de tu aplicación de autenticación para continuar.',
   'login.twoFactorRequiredLabel': 'Ingresa tu código 2FA',
+  'myActivity.browseCta': 'Explorar tableros',
+  'myActivity.emptyPosts': 'Aún no has publicado ninguna solicitud.',
+  'myActivity.emptyVotes': 'Nada todavía: explora los tableros y apoya una idea.',
   'myActivity.eyebrow': 'Tu actividad',
   'myActivity.loadError': 'No se ha podido cargar tu actividad.',
   'myActivity.postsTitle': 'Solicitudes que enviaste',
+  'myActivity.shippedNote': '{{count}} de ellas publicadas: gracias por el empujón.',
   'myActivity.submitCta': 'Publicar una solicitud',
+  'myActivity.tabLabel': 'Ver',
   'myActivity.tabPosts': 'Mis publicaciones',
   'myActivity.tabVotes': 'Mis votos',
   'myActivity.votesTitle': 'Solicitudes que votaste',
@@ -137,8 +181,12 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Publicación no encontrada',
   'postsAdmin.backToDashboard': 'Panel',
   'postsAdmin.eyebrow': 'Equipo de producto',
+  'postsAdmin.mergeApplied': 'Fusionado: {{votes}} votos y {{comments}} comentarios trasladados.',
   'postsAdmin.mergeApply': 'Fusionar y mover votos',
   'postsAdmin.mergeChoose': 'Elige una publicación de destino…',
+  'postsAdmin.mergeFailed': 'Error al fusionar.',
+  'postsAdmin.mergeHint':
+    'Los votos se agrupan (uno por usuario), los comentarios se trasladan y esta publicación recibe una nota de "trasladada".',
   'postsAdmin.mergeLabel': 'Fusionar duplicado en',
   'postsAdmin.responseLabel': 'Respuesta oficial',
   'postsAdmin.responsePlaceholder':
@@ -154,7 +202,13 @@ export const ui: UiTranslations = {
     'Establece el estado oficial, responde públicamente, etiqueta el trimestre de la hoja de ruta y fusiona duplicados.',
   'postsAdmin.title': 'Gestionar publicaciones de comentarios',
   'postsAdmin.votes': '{{count}} votos',
+  'pricing.limits.advancedFeatures': 'Funciones avanzadas:',
+  'pricing.limits.boards': '{{count}} tableros',
   'pricing.limits.export': 'Exportación de datos:',
+  'pricing.limits.posts': '{{count}} publicaciones de comentarios',
+  'pricing.limits.votes': '{{count}} votos',
+  'resetPassword.description':
+    'Elige una contraseña fuerte. Te iniciaremos sesión una vez que el restablecimiento tenga éxito.',
   'resetPassword.newPasswordLabel': 'Nueva contraseña',
   'resetPassword.tokenPlaceholder': 'Pega el token del enlace',
   'roadmap.cardMeta': 'por {{author}} · {{board}}',
@@ -171,6 +225,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'Escribe una consulta para encontrar solicitudes existentes antes de publicar un duplicado.',
   'search.loadError': 'La búsqueda ha fallado. Inténtalo de nuevo.',
+  'search.searching': 'Buscando…',
   'search.submit': 'Buscar',
   'search.submitNew': 'Publicarla como una nueva solicitud',
   'search.title': 'Buscar comentarios',
@@ -180,12 +235,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'Facturación',
   'settings.displaySubtitle': 'Elige qué tan densos se sienten los feeds.',
   'settings.displayTitle': 'Visualización',
+  'settings.emailDigestDesc': 'Las solicitudes abiertas más votadas cada lunes.',
+  'settings.emailDigestLabel': 'Resumen semanal',
+  'settings.emailMentionsDesc': 'Cuando alguien responde a una publicación que sigues.',
+  'settings.emailMentionsLabel': 'Enviarme un correo cuando me mencionen',
+  'settings.emailRepliesDesc': 'Hilos que iniciaste o en los que respondiste.',
+  'settings.emailRepliesLabel': 'Avísame por correo de las respuestas',
   'settings.loadError': 'No se pudo cargar tu cuenta.',
   'settings.loading': 'Cargando tu configuración…',
   'settings.notifications': 'Notificaciones',
   'settings.notificationsSubtitle':
     'Decide qué llega a tu bandeja de entrada versus tu dispositivo push.',
+  'settings.pushRepliesLabel': 'Notificación push para respuestas',
+  'settings.pushVotesDesc': 'Aviso al alcanzar 100, 500, 1000.',
+  'settings.pushVotesLabel': 'Push por hitos de votos positivos',
   'settings.saveAccount': 'Guardar cuenta',
+  'settings.showFlair': 'Mostrar etiquetas de tablero en las publicaciones',
+  'settings.showThumbnails': 'Mostrar miniaturas de enlaces e imágenes',
   'settings.usernamePlaceholder': 'Elige un identificador',
   'signup.confirmPlaceholder': 'Escríbela de nuevo',
   'signup.description': 'Da forma a lo que construimos a continuación.',

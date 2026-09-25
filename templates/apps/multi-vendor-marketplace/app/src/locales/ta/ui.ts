@@ -1,17 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கடை திறக்க வேண்டுமா, சிக்கலைப் புகாரளிக்க வேண்டுமா, அல்லது வெறுமனே வணக்கம் சொல்ல வேண்டுமா? உதவி மையத்தில் எங்களை அணுகுங்கள் — ஒவ்வொரு செய்தியும் குழுவில் உள்ள ஒரு உண்மையான நபரையே சென்றடையும்.',
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
+  'about.featureNotifications':
+    'புதிய ஆர்டர்கள், ஷிப்பிங் புதுப்பிப்புகள் மற்றும் மதிப்புரைகளுக்கான நிகழ்நேர அறிவிப்புகள், மேலும் வாடிக்கையாளர் மற்றும் விற்பனையாளர் கருவிகளைத் தனித்தனியாக வைத்திருக்கும் பங்கு அடிப்படையிலான அனுமதிகள்.',
+  'about.featurePayments':
+    'பாதுகாப்பான Stripe இயக்கும் செக்அவுட், தானியங்கி கமிஷன் பிரிப்புகள் மற்றும் திட்டமிடப்பட்ட பணப்பட்டுவாடிகள் — விற்பனையாளர்கள் தாங்கள் சம்பாதித்ததை எப்போதும் சரியாக அறிவார்கள்.',
+  'about.featureShop':
+    'ஆயிரக்கணக்கான சுயாதீன விற்பனையாளர்களை உள்ளடக்கிய தேடக்கூடிய பட்டியல், சரிபார்க்கப்பட்ட கடைகள், மதிப்பீடுகள் மற்றும் மதிப்புரைகளுடன் — நம்பிக்கையுடன் வாங்கலாம்.',
+  'about.featureVendor':
+    'முழுமையான விற்பனையாளர் கருவித்தொகுப்பு: பிராண்ட் செய்யப்பட்ட கடைமுகம், தயாரிப்பு மற்றும் இருப்பு மேலாண்மை, படப் பதிவேற்றங்கள் மற்றும் ஆர்டர் நிறைவேற்றம் — அனைத்தும் ஒரே டாஷ்போர்டில்.',
+  'about.intro':
+    '{{name}} என்பது ஒரு தொகுக்கப்பட்ட சந்தை; இங்கு சுயாதீன கைவினைஞர்கள் தங்கள் சொந்தக் கடைகளைத் திறக்கிறார்கள், வாடிக்கையாளர்கள் வேறெங்கும் கிடைக்காத பொருட்களைக் கண்டறிகிறார்கள். கைச் சக்கரத்தில் வடிக்கப்பட்ட பீங்கான்கள் முதல் தொகுதி அச்சிட்ட ஜவுளிகள் வரை, ஒவ்வொரு பட்டியலும் ஒரு கதையுடன் கூடிய உண்மையான விற்பனையாளரிடமிருந்தே வருகிறது.',
+  'about.missionBody':
+    'கைவினைஞர்கள் தங்கள் கைவினையைத் தங்களதாகவே வைத்திருக்க வேண்டும் என நாங்கள் நம்புகிறோம். {{name}} ஒரு நிலையான, வெளிப்படையான கமிஷனை வசூலிக்கிறது, ஒவ்வொரு வாரமும் நம்பகமாகப் பணம் செலுத்துகிறது, மேலும் ஒவ்வொரு விற்பனையாளருக்கும் அவர்கள் முழுமையாகக் கட்டுப்படுத்தும் கடைமுகத்தை வழங்குகிறது — எனவே நாங்கள் சந்தையை நடத்தும்போது அவர்கள் தங்கள் வேலையில் கவனம் செலுத்தலாம்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'about.pageTitle': 'பற்றி {{name}}',
   'cart.checkoutCta': 'பணம் செலுத்துவதற்குத் தொடரவும்',
   'cart.decreaseAria': 'அளவைக் குறைக்கவும்',
+  'cart.deliveryEstimate': 'மதிப்பிடப்பட்ட டெலிவரி {{range}}',
   'cart.empty.body':
     'பட்டியலைப் பார்த்து, சில தயாரிப்பாளர்களை உங்கள் பையில் சேர்த்துக் கொள்ளுங்கள்.',
+  'cart.empty.cta': 'பட்டியலை உலாவுக',
   'cart.empty.title': 'உங்கள் கூடை காலியாக உள்ளது',
   'cart.eyebrow': 'உங்கள் வண்டி',
+  'cart.increaseAria': 'அளவை அதிகரித்தல்',
   'cart.loadError': 'உங்கள் கூடையை ஏற்ற முடியவில்லை. மீண்டும் முயற்சிக்கவும்.',
   'cart.loading': 'உங்கள் கூடை ஏற்றப்படுகிறது…',
+  'cart.protectionNote':
+    '{{appName}} ஒவ்வொரு ஆர்டரையும் பாதுகாக்கிறது. 30 நாட்களுக்குள் இலவச திருப்பிச் செலுத்துதல்.',
   'cart.removeError': 'பொருளை அகற்ற முடியவில்லை.',
   'cart.shippingFromVendor': 'இந்த விற்பனையாளரிடமிருந்து அனுப்பப்படும் பொருட்கள்: {{amount}}',
+  'cart.subtitle':
+    'ஒவ்வொரு விற்பனையாளரும் தாங்களே அனுப்புகிறார்கள் — நீங்கள் ஒருமுறை மட்டுமே செக்அவுட் செய்யுங்கள். மீதியை {{appName}} கவனிக்கிறது.',
+  'cart.subtotalGroup': 'துணைத் தொகை {{amount}}',
   'cart.summaryItems': 'பொருட்கள்',
   'cart.summaryShipping': 'கப்பல் போக்குவரத்து (ஒருங்கிணைந்த)',
   'cart.title': 'வண்டி · {{count}} பொருட்களிலிருந்து {{vendorCount}} விற்பனையாளர்கள்',
@@ -24,6 +48,7 @@ export const ui: UiTranslations = {
   'catalog.featuredVendors': 'சிறப்புக் கடைகள்',
   'catalog.loading': 'பொருட்கள் ஏற்றப்படுகின்றன…',
   'catalog.resultCount': '{{count}} தயாரிப்புகள்',
+  'catalog.searchAria': 'பட்டியலில் தேடுங்கள்',
   'catalog.searchPlaceholder': 'பொருட்கள், விற்பனையாளர்கள் அல்லது குறிச்சொற்களைத் தேடுங்கள்…',
   'catalog.sortBy': 'வரிசைப்படுத்து',
   'catalog.subtitle':
@@ -31,6 +56,7 @@ export const ui: UiTranslations = {
   'catalog.title': 'Vendry-இல் உள்ள ஒவ்வொரு கடையையும் உலாவுக',
   'checkout.emptyCta': 'பட்டியலை உலாவுக',
   'checkout.emptyTitle': 'உங்கள் கூடை காலியாக உள்ளது.',
+  'checkout.eyebrow': 'பாதுகாப்பான செக்அவுட்',
   'checkout.loadError': 'உங்கள் கூடையை ஏற்ற முடியவில்லை. மீண்டும் முயற்சிக்கவும்.',
   'checkout.loading': 'உங்கள் கூடை ஏற்றப்படுகிறது…',
   'checkout.payment.testNote':
@@ -40,12 +66,14 @@ export const ui: UiTranslations = {
   'checkout.placingOrder': 'ஆர்டர் செய்தல்…',
   'checkout.review.shipTo': 'கப்பல் போக்குவரத்து',
   'checkout.review.subtotal': 'விற்பனையாளர் மொத்தத்தொகை',
+  'checkout.review.title': 'உங்கள் ஆர்டரை, விற்பனையாளர் வாரியாக மதிப்பாய்வு செய்யுங்கள்',
   'checkout.shipping.title': 'எங்கு அனுப்ப வேண்டும்?',
   'checkout.shippingValidation': 'அனுப்புதலுக்குத் தேவையான அனைத்து விவரங்களையும் நிரப்பவும்.',
   'checkout.summary.shipping': 'கப்பல் பயணம்',
   'checkout.summary.tax': 'மதிப்பிடப்பட்ட வரி',
   'checkout.title': 'ஒரே செக்அவுட், பல தயாரிப்பாளர்கள்',
   'common.and': 'மற்றும்',
+  'forgotPassword.continue': 'என்னுடைய மீட்டமைப்பு குறியீடு என்னிடம் உள்ளது',
   'forgotPassword.emailLabel': 'கணக்கு மின்னஞ்சல்',
   'forgotPassword.heading': 'உங்கள் கடவுச்சொல்லை மறந்துவிட்டீர்களா?',
   'forgotPassword.subheading':
@@ -53,6 +81,7 @@ export const ui: UiTranslations = {
   'forgotPassword.submit': 'மின்னஞ்சல் மீட்டமைப்பு இணைப்பு',
   'forgotPassword.success':
     'சரிபார்க்கவும் {{email}} மீட்டமைப்பு இணைப்பு — இது அடுத்த 30 நிமிடங்களுக்குச் செல்லுபடியாகும்.',
+  'landing.featured.cta': 'அனைத்து விற்பனையாளர்களையும் உலாவுங்கள்',
   'landing.featured.eyebrow': 'ஸ்பாட்லைட் கடைகள்',
   'landing.featured.title': 'இந்த மாதம் பெரும் தாக்கத்தை ஏற்படுத்தும் விற்பனையாளர்கள்',
   'landing.footer.becomeVendor': 'விற்பனையாளராகுங்கள்',
@@ -62,6 +91,9 @@ export const ui: UiTranslations = {
   'landing.nav.sell': 'விற்பனை',
   'landing.nav.shop': 'கடை',
   'landing.nav.signUp': 'சேருங்கள்',
+  'landing.sellPitch.cta': 'விற்பனைக்கு விண்ணப்பியுங்கள்',
+  'landing.sellPitch.description':
+    'நிலையான 8% கமிஷன், ஒவ்வொரு வெள்ளிக்கிழமையும் பணப்பட்டுவாடி, உங்கள் கடைமுகம், உங்கள் கதை. சந்தையை நாங்கள் கவனிக்கிறோம்; நீங்கள் உங்கள் கைவினையில் இருங்கள்.',
   'landing.sellPitch.eyebrow': 'உருவாக்குபவர்களுக்காக',
   'landing.sellPitch.title':
     'ஒரு கடையைத் திறங்கள். அதை உங்களுடையதாக ஆக்கும் அம்சங்களை உங்களிடமே வைத்துக்கொள்ளுங்கள்.',
@@ -71,6 +103,7 @@ export const ui: UiTranslations = {
   'login.accountTypeAria': 'கணக்கு வகை',
   'login.heading': 'வென்ட்ரிக்கு மீண்டும் வருக.',
   'login.legalPrefix': 'உள்நுழைவதன் மூலம், எங்கள் விதிமுறைகளுக்கு நீங்கள் ஒப்புக்கொள்கிறீர்கள்.',
+  'login.signupPrompt': 'டெஸ்ஸெராவுக்குப் புதியவரா?',
   'login.subheading': 'தொடர்ந்து ஷாப்பிங் செய்ய உள்நுழையவும் அல்லது உங்கள் கடைக்குத் திரும்பவும்.',
   'login.submitShopper': 'ஷாப்பிங் செய்ய உள்நுழையவும்',
   'login.submitVendor': 'என் கடையில் உள்நுழையவும்',
@@ -86,37 +119,51 @@ export const ui: UiTranslations = {
   'notifications.markAllError': 'அனைத்தையும் படித்ததாகக் குறிக்க முடியவில்லை.',
   'notifications.read': 'படிக்கவும்',
   'notifications.time.daysAgo': '{{count}} சில நாட்களுக்கு முன்பு',
+  'notifications.time.hourAgo': '1 மணி நேரத்திற்கு முன்',
+  'notifications.time.hoursAgo': '{{count}} சில மணிநேரங்களுக்கு முன்பு',
   'notifications.time.justNow': 'இப்போதே',
+  'notifications.time.minutesAgo': '{{count}} ஒரு நிமிடத்திற்கு முன்பு',
+  'notifications.time.yesterday': 'நேற்று',
   'orderDetail.backToOrders': 'அனைத்து ஆர்டர்களுக்கும் திரும்பு',
   'orderDetail.eyebrow': 'ஆர்டர் விவரம்',
   'orderDetail.helpBody':
     'வென்ட்ரி ஆதரவுக் குழு, வார இறுதி நாட்களிலும்கூட 4 மணி நேரத்திற்குள் பதிலளிக்கும்.',
+  'orderDetail.helpCta': 'ஆதரவைத் தொடர்பு கொள்ளவும்',
   'orderDetail.helpTitle': 'இந்த ஆர்டரில் ஏதேனும் தவறு உள்ளதா?',
   'orderDetail.summary':
     'வைக்கப்பட்டது {{date}} · {{vendorCount}} விற்பனையாளர்(கள்) · பல விற்பனையாளர் நிறைவேற்றம்',
+  'orderDetail.timelineTitle': 'ஆர்டர் பயணம்',
   'orders.empty': 'இன்னும் இந்த வடிகட்டியுடன் எந்த ஆர்டர்களும் பொருந்தவில்லை.',
   'orders.emptyTitle': 'இன்னும் இங்கே ஆர்டர்கள் எதுவும் வரவில்லை.',
   'orders.eyebrow': 'உங்கள் கொள்முதல்',
   'orders.subtitle':
     'யார் எதை அனுப்பினார் என்பதைப் பாருங்கள், விற்பனையாளர் வாரியாகக் கண்காணிப்பைப் பின்தொடருங்கள், இனி ஒருபோதும் பார்சலைத் தவறவிடாதீர்கள்.',
   'orders.title': 'விற்பனையாளர் வாரியாக தொகுக்கப்பட்ட ஆர்டர்கள்',
+  'planUpdated.retry': 'மீண்டும் முயற்சிக்கவும்',
+  'planUpdated.verifyFailed': 'உங்கள் கட்டணத்தை எங்களால் இன்னும் உறுதிப்படுத்த முடியவில்லை.',
+  'planUpdated.verifyFailedBody':
+    'உங்கள் கட்டணம் இன்னும் செயலாக்கத்தில் இருக்கலாம். சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.',
   'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'productDetail.addToCart': 'கூடையில் சேர்க்கவும்',
   'productDetail.addToCartError': 'கூடையில் சேர்க்க முடியவில்லை.',
   'productDetail.addToCartSuccess': '“ {{name}} உங்கள் கூடையில் சேர்க்கப்பட்டது.',
   'productDetail.backToCatalog': 'பட்டியலுக்குத் திரும்பு',
   'productDetail.breadcrumbCatalog': 'பட்டியல்',
+  'productDetail.colorLabel': 'நிறம் · {{name}}',
   'productDetail.decreaseAria': 'அளவைக் குறைக்கவும்',
   'productDetail.description': 'Vendry-இல் ஒரு சுயாதீன படைப்பாளரால் உருவாக்கப்பட்டது.',
   'productDetail.featuredBadge': 'சிறப்பு தயாரிப்பாளர்',
   'productDetail.galleryThumbAria': 'படத்தைக் காட்டு {{index}}',
+  'productDetail.increaseAria': 'அளவை அதிகரித்தல்',
   'productDetail.loading': 'தயாரிப்பு ஏற்றப்படுகிறது…',
   'productDetail.notFound': 'பொருள் காணப்படவில்லை.',
   'productDetail.relatedTitle': 'இந்த படைப்பாளியிடமிருந்து மேலும்',
   'productDetail.reviewsTitle': 'கடைக்காரர்கள் என்ன சொன்னார்கள்',
   'productDetail.trust.protection': 'காற்றோட்ட பாதுகாப்பு',
+  'productDetail.trust.returns': '30-நாள் திருப்பிச் செலுத்துதல்',
   'productDetail.trust.shipping': '2 நாட்களில் அனுப்பப்படும்',
   'productDetail.verifiedAria': 'சரிபார்க்கப்பட்ட விற்பனையாளர்',
+  'resetPassword.didntGetCode': 'குறியீடு கிடைக்கவில்லையா?',
   'resetPassword.emailLabel': 'கணக்கு மின்னஞ்சல்',
   'resetPassword.mismatch': 'கடவுச்சொற்கள் இன்னும் பொருந்தவில்லை.',
   'resetPassword.newPasswordLabel': 'புதிய கடவுச்சொல்',
@@ -125,8 +172,10 @@ export const ui: UiTranslations = {
     'நாங்கள் உங்களுக்கு மின்னஞ்சல் அனுப்பிய குறியீட்டை உள்ளிட்டு, பின்னர் ஒரு புதிய கடவுச்சொல்லைத் தேர்ந்தெடுத்து மீண்டும் உள்நுழைவதை முடிக்கவும்.',
   'resetPassword.submit': 'மீட்டமைத்து உள்நுழையவும்',
   'resetPassword.submitting': 'கடவுச்சொல்லைப் புதுப்பிக்கிறது…',
+  'settings.appearance.description': 'ஒளி மற்றும் இருண்ட பயன்முறைகளுக்கு இடையே மாறவும்.',
   'settings.appearance.title': 'தோற்றம்',
   'settings.language.description': 'சந்தை முழுவதும் பயன்படுத்தப்படும் மொழியைத் தேர்ந்தெடுக்கவும்.',
+  'settings.payouts.accountLabel': 'கணக்கு எண் / IBAN',
   'settings.payouts.body':
     'வென்ட்ரி ஒவ்வொரு வெள்ளிக்கிழமையும் 8% தரகுத்தொகையைக் கழித்து, உங்கள் உள்ளூர் நாணயத்தில் பணத்தை வழங்குகிறது.',
   'settings.payouts.save': 'பணம் செலுத்தும் விவரங்களைச் சேமிக்கவும்',
@@ -145,27 +194,40 @@ export const ui: UiTranslations = {
   'signup.mismatch': 'கடவுச்சொற்கள் இன்னும் பொருந்தவில்லை.',
   'signup.subheading':
     '4,000-க்கும் மேற்பட்ட சுயாதீன உற்பத்தியாளர்களின் படைப்புகளைப் பாருங்கள், அல்லது உங்களுக்கென ஒரு கடையைத் தொடங்குங்கள்.',
+  'signup.submit': 'சந்தையில் இணையுங்கள்',
   'status.delivered': 'வழங்கப்பட்டது',
   'status.refunded': 'பணம் திரும்ப அளிக்கப்பட்டது',
   'userMenu.marketplaceSettings': 'சந்தை அமைப்புகள்',
   'vendor.memberSince': 'உறுப்பினர் காலம் {{date}}',
   'vendorDashboard.defaultShop': 'உங்கள் கடை',
+  'vendorDashboard.eyebrow': 'விற்பனையாளர் நிர்வாகம் · {{vendor}}',
   'vendorDashboard.heroCaption':
     '{{payout}} வென்ட்ரி கமிஷனுக்குப் பிறகு பணம் செலுத்தப்பட்டது. அடுத்த பணம் செலுத்துதல் வெள்ளிக்கிழமை.',
   'vendorDashboard.heroLabel': 'மொத்த விற்பனை · கடந்த 30 நாட்கள்',
+  'vendorDashboard.kpi.conversion': 'மாற்றம்',
   'vendorDashboard.kpi.conversionCaption': 'இந்த வாரம் ஆர்டர் செய்ய வருகை தரவும்',
   'vendorDashboard.kpi.netPayout': 'நிகர செலுத்துகை',
   'vendorDashboard.kpi.netPayoutCaption': '8% விற்பனையாளர் கமிஷனுக்குப் பிறகு',
   'vendorDashboard.kpi.orders': 'ஆர்டர்கள்',
   'vendorDashboard.kpi.ordersCaption': 'கடந்த 30 நாட்களுடன் ஒப்பிடுகையில்',
+  'vendorDashboard.kpi.pendingPayout': 'நிலுவையில் உள்ள பணப்பட்டுவாடி',
   'vendorDashboard.kpi.pendingPayoutCaption': 'இந்த வெள்ளிக்கிழமை வெளியாகிறது',
   'vendorDashboard.newProductCta': 'புதிய தயாரிப்பு',
   'vendorDashboard.payoutsCta': 'பணம் செலுத்துதல்களைக் காண்க',
   'vendorDashboard.recentOrders.cta': 'அனைத்து ஆர்டர்களையும் காண்க →',
+  'vendorDashboard.recentOrders.emptyBody':
+    'வாடிக்கையாளர்கள் செக்அவுட் செய்தவுடன் உங்கள் கடைக்கான ஆர்டர்கள் இங்கே தோன்றும்.',
+  'vendorDashboard.recentOrders.emptyCta': 'உங்கள் முதல் தயாரிப்பைச் சேர்க்கவும்',
+  'vendorDashboard.recentOrders.emptyTitle': 'இன்னும் ஆர்டர்கள் எதுவும் வரவில்லை',
   'vendorDashboard.recentOrders.title': 'சமீபத்திய ஆர்டர்கள்',
+  'vendorDashboard.subtitle': 'இந்த வாரம் உங்கள் கடை எப்படிச் செயல்படுகிறது என்பது இங்கே.',
+  'vendorDashboard.title': 'மீண்டும் வருக, {{name}}',
   'vendorOnboarding.about': 'உங்கள் கடையைப் பற்றி எங்களிடம் கூறுங்கள்',
   'vendorOnboarding.aboutPlaceholder':
     'நீங்கள் எங்கே உருவாக்குகிறீர்கள், என்ன உருவாக்குகிறீர்கள், அது ஏன் முக்கியம்.',
+  'vendorOnboarding.bankLabel': 'வங்கிக் கணக்கு / IBAN',
+  'vendorOnboarding.categoriesHint':
+    'பொருந்தும் அனைத்தையும் தேர்ந்தெடுங்கள் — பின்னர் மாற்றிக்கொள்ளலாம்.',
   'vendorOnboarding.currencyLabel': 'நாணயத்தில் தீர்வு',
   'vendorOnboarding.errors.shopName': 'கடையின் பெயர் கட்டாயம் தேவை.',
   'vendorOnboarding.errors.submit': 'உங்கள் விண்ணப்பத்தைச் சமர்ப்பிக்க முடியவில்லை.',
@@ -174,8 +236,15 @@ export const ui: UiTranslations = {
   'vendorOnboarding.field.shopName': 'கடையின் பெயர்',
   'vendorOnboarding.heroBody':
     'நிலையான 8% கமிஷன், ஒவ்வொரு வெள்ளிக்கிழமையும் பணம் வழங்கப்படும், உங்கள் கடை, உங்கள் கதை. உங்கள் கடையைப் பற்றிச் சிறிது கூறுங்கள், 48 மணி நேரத்திற்குள் நாங்கள் உங்களைத் தொடர்புகொள்வோம்.',
+  'vendorOnboarding.review.categories': 'பிரிவுகள்',
   'vendorOnboarding.review.contact': 'தொடர்பு',
   'vendorOnboarding.review.currency': 'நாணயம்',
+  'vendorOnboarding.review.point1':
+    '{{appName}} நிலையான 8% கமிஷனை எடுக்கிறது — பட்டியல் கட்டணங்கள் இல்லை, மறைமுகக் கட்டணங்கள் இல்லை.',
+  'vendorOnboarding.review.point2':
+    'பணப்பட்டுவாடிகள் ஒவ்வொரு வெள்ளிக்கிழமையும் உங்கள் உள்ளூர் நாணயத்தில் தீர்க்கப்படும்.',
+  'vendorOnboarding.review.point3':
+    'உங்கள் கடையை எப்போது வேண்டுமானாலும் இடைநிறுத்தலாம் அல்லது அகற்றலாம்.',
   'vendorOnboarding.review.tagline': 'டேக்லைன்',
   'vendorOnboarding.review.website': 'வலைத்தளம்',
   'vendorOnboarding.reviewBody':
@@ -186,6 +255,8 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'விண்ணப்பம் சமர்ப்பிக்கப்பட்டது! நாங்கள் உங்கள் கடையை மதிப்பாய்வு செய்து, 48 மணி நேரத்திற்குள் உங்களுக்கு மின்னஞ்சல் அனுப்புவோம்.',
   'vendorOnboarding.taxIdLabel': 'வரி அடையாள எண்',
+  'vendorOrders.emptyBody':
+    'வாடிக்கையாளர்கள் உங்கள் தயாரிப்புகளை வாங்கும்போது, அவர்களின் ஆர்டர்கள் இங்கே தோன்றும்.',
   'vendorOrders.emptyTitle': 'இன்னும் நிறைவேற்ற வேண்டிய ஆர்டர்கள் எதுவும் இல்லை.',
   'vendorOrders.eyebrow': 'விற்பனையாளர் நிர்வாகி',
   'vendorOrders.kpi.awaiting': 'நிறைவேற்றத்திற்காக காத்திருக்கிறது',
@@ -193,6 +264,8 @@ export const ui: UiTranslations = {
   'vendorOrders.subtitle':
     'லேபிள்களை அச்சிடுங்கள், நிறைவேற்றப்பட்டது எனக் குறியிடுங்கள், மற்றும் கேள்விகளுக்குப் பதிலளியுங்கள் — இவை அனைத்தையும் வென்ட்ரியை விட்டு வெளியேறாமலேயே செய்யுங்கள்.',
   'vendorOrders.title': 'உள்வரும் ஆர்டர்கள்',
+  'vendorPayouts.emptyBody':
+    'உங்கள் விற்பனை 8% கமிஷனைத் தீர்த்த பிறகு, பணப்பட்டுவாடிகள் ஒவ்வொரு வெள்ளிக்கிழமையும் வெளியிடப்படும்.',
   'vendorPayouts.emptyTitle': 'இன்னும் பணம் வழங்கப்படவில்லை',
   'vendorPayouts.eyebrow': 'விற்பனையாளர் நிதி',
   'vendorPayouts.heroCaption': 'பாங்கோ பிபிஐ-க்கு தீர்வு காண்கிறது {{account}} · 1–2 வேலை நாட்கள்',
@@ -218,6 +291,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.images.body':
     '8 படங்கள் வரை இழுத்துப் போடலாம். முதல் புகைப்படம் கடையின் முகப்பு அட்டையாக மாறும்.',
   'vendorProductForm.images.cta': 'புகைப்படங்களை இங்கே இழுக்கவும் அல்லது உலாவவும்',
+  'vendorProductForm.images.hint': 'PNG / JPG · ஒவ்வொன்றும் அதிகபட்சம் 8MB',
   'vendorProductForm.images.title': 'புகைப்படங்கள்',
   'vendorProductForm.nameLabel': 'தயாரிப்பு பெயர்',
   'vendorProductForm.preview.namePlaceholder': 'தயாரிப்பு பெயர்',
@@ -227,6 +301,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.title': 'உங்கள் பொருளைப் பற்றி வாடிக்கையாளர்களுக்குத் தெரிவியுங்கள்',
   'vendorProductForm.variants.colInventory': 'சரக்கு',
   'vendorProductForm.variants.colVariant': 'மாறுபாடு',
+  'vendorProductForm.variants.title': 'வகைகள் & இருப்பு',
   'vendorProducts.eyebrow': 'விற்பனையாளர் நிர்வாகி',
   'vendorProducts.kpi.draft': 'வரைவுகள்',
   'vendorProducts.kpi.lowStock': 'குறைந்த கையிருப்பு',
@@ -253,6 +328,7 @@ export const ui: UiTranslations = {
     'உங்கள் கடையை நிர்வகிக்கவும், ஒவ்வொரு விற்பனையாளரிடமிருந்தும் ஆர்டர்களைக் கண்காணிக்கவும், சுயாதீன உற்பத்தியாளர்களின் புதுமையான தொகுப்புகளைக் கண்டறியவும் உள்நுழையுங்கள்.',
   'vendryAuthShell.sampleVendorMeta': 'சரிபார்க்கப்பட்டது · 4.9 ★ · 1,240 விற்பனைகள்',
   'vendryAuthShell.sampleVendorName': 'மீரா & கோ. செராமிக்ஸ்',
+  'vendryAuthShell.sampleVendorTag': 'சிறப்பு அம்சங்கள்',
   'vendryMarketHero.description':
     'ஆயிரக்கணக்கான சுயாதீன விற்பனையாளர்கள், கையால் தேர்ந்தெடுக்கப்பட்ட சேகரிப்புகள் மற்றும் தங்கள் இதயத்தை அதில் கொட்டும் மக்களால் நடத்தப்படும் விற்பனை நிலையங்களைக் கண்டறியுங்கள். துணிச்சலுடன் வாங்குங்கள், உண்மையான படைப்பாளிகளை ஆதரியுங்கள்.',
   'vendryMarketHero.eyebrow': 'தேர்ந்தெடுக்கப்பட்ட சந்தை · 2026 தொகுப்பு',
@@ -261,11 +337,13 @@ export const ui: UiTranslations = {
   'vendryMarketHero.stat1Label': 'சுயாதீன தயாரிப்பாளர்கள்',
   'vendryMarketHero.stat2Label': 'தேர்ந்தெடுக்கப்பட்ட தயாரிப்புகள்',
   'vendryMarketHero.stat3Label': 'சராசரி மதிப்பீடு',
+  'vendryMarketHero.title': 'ஒவ்வொரு கைவினைஞரும், ஒரே சந்தை.',
   'vendryOrderCard.idLabel': 'ஆர்டர்கள்',
   'vendryOrderCard.placedOn': 'வைக்கப்பட்டது {{date}}',
   'vendryOrderCard.qty': 'அளவு {{count}}',
   'vendryOrderCard.vendorCount': '{{count}} இந்த வரிசையில் விற்பனையாளர்(கள்)',
   'vendryOrderCard.verifiedAria': 'சரிபார்க்கப்பட்ட விற்பனையாளர்',
+  'vendryOrderCard.viewDetails': 'விவரங்களைக் காண்க',
   'vendryProductCard.favoriteAria': 'பிடித்தவைகளில் சேமிக்கவும்',
   'vendryProductCard.saleBadge': 'விற்பனை',
   'vendryProductCard.verified': 'சரிபார்க்கப்பட்ட விற்பனையாளர்',

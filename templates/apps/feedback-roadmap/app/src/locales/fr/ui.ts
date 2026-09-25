@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Vous avez des commentaires, vous avez trouvé un bug ou vous voulez votre propre tableau sur {{appName}} ? Ouvrez vos paramètres pour joindre l'équipe — chaque message est lu par un vrai humain.",
+  'about.contactTitle': 'Contactez-nous',
+  'about.featureModeration':
+    'Une feuille de route publique avec des trimestres, un journal des modifications qui transforme le travail livré en notes de version, et un tableau de bord qui montre ce que le public veut le plus.',
+  'about.featurePricing':
+    "Gratuit pour gérer quelques tableaux ; les offres Pro et Team débloquent plus de tableaux, des limites plus élevées et l'export de données.",
+  'about.featureThreads':
+    'Des tableaux de retours publics organisés par thème, avec la fusion des doublons qui regroupe les votes en un seul signal de demande honnête.',
+  'about.featureVoting':
+    'Un vote par utilisateur avec un workflow de statut complet — ouvert, prévu, en cours, livré ou refusé — et une réponse officielle pour chaque décision.',
+  'about.intro':
+    "{{appName}} est une plateforme de retours produit — des tableaux publics où les clients publient leurs demandes, votent pour ce dont ils ont besoin et suivent chaque idée, de « prévu » à « livré ». Les équipes arrêtent de deviner quoi construire ensuite, car la demande se classe d'elle-même.",
+  'about.missionBody':
+    'Nous croyons que les meilleures décisions produit se prennent au grand jour. {{appName}} offre à chaque équipe un tableau public de demandes votées, une feuille de route officielle avec les trimestres cibles et un journal des modifications qui boucle la boucle — pour que les clients voient leur impact et que les équipes voient leur mandat.',
+  'about.missionTitle': 'Notre mission',
   'admin.backToBoards': 'Retour aux tableaux',
   'admin.denied': 'Réservé aux administrateurs.',
   'admin.eyebrow': 'Équipe produit',
@@ -11,6 +27,8 @@ export const ui: UiTranslations = {
   'admin.title': 'Tableau de bord des retours',
   'admin.topOpen': 'Principales demandes ouvertes',
   'admin.totalVotes': '{{count}} au total',
+  'admin.votesChartLabel':
+    'Diagramme à barres des votes exprimés par semaine sur les huit dernières semaines',
   'admin.votesOverTime': 'Votes dans le temps',
   'auth.forgotPassword.email': 'E-mail',
   'auth.forgotPassword.sendResetLink': 'Envoyer le lien de réinitialisation',
@@ -30,7 +48,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Créez votre compte',
   'auth.username': "Nom d'utilisateur",
   'authShell.communities': 'Communautés',
+  'authShell.copyright': '{{appName}} — chaque voix compte.',
   'authShell.trending': 'Tendances',
+  'boardCard.postCount': '{{count}} publications',
   'boardDetail.allBoards': 'Tous les tableaux',
   'boardDetail.backToBoards': 'Retour aux tableaux',
   'boardDetail.empty': "Aucune publication ne correspond à ces filtres pour l'instant.",
@@ -54,6 +74,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     "Chaque entrée a commencé comme une demande votée. Les votants l'ont vue évoluer ; voici où elle a abouti.",
   'changelog.title': 'Livrés, avec preuves',
+  'changelog.voteCount': '{{count}} votes ont permis de le construire',
   'common.atLeast8Characters': 'Au moins 8 caractères',
   'common.checkYourInbox': 'Vérifiez votre boîte de réception',
   'common.loadingEllipsis': 'Chargement…',
@@ -64,6 +85,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Envoi…',
   'footer.about': 'À propos de {{appName}}',
   'footer.language': 'Langue',
+  'forgotPassword.description':
+    'Entrez votre e-mail et nous vous enverrons un lien de réinitialisation.',
+  'forgotPassword.successBody':
+    'Nous avons envoyé un lien de réinitialisation à {{email}}. Il expire dans 30 minutes.',
   'forgotPassword.tryAnother': 'Essayer une autre adresse e-mail',
   'form.displayName': "Nom d'affichage",
   'form.firstName': 'Prénom',
@@ -74,6 +99,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'Votre feuille de route, soutenue par des votes.',
   'landing.heroCtaPrimary': 'Commencer à collecter des votes',
   'landing.heroCtaSecondary': 'Voir un tableau en direct',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Arrêtez de deviner. Livrez ce pour quoi ils votent.',
+  'landing.heroLede':
+    "{{appName}} transforme des demandes de fonctionnalités éparpillées en un tableau public d'idées votées, une feuille de route officielle et un journal des modifications que vos clients lisent vraiment.",
   'landing.heroStat1': '3 200+',
   'landing.heroStat1Label': "Équipes à l'écoute",
   'landing.heroStat2': '1,4m',
@@ -85,9 +114,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Journal des modifications',
   'landing.navJoin': 'Rejoindre {{appName}}',
   'landing.navRoadmap': 'Feuille de route',
+  'landing.step1Body':
+    "Les clients publient leurs idées sur des tableaux publics. Les doublons fusionnent, les votes se regroupent et la demande se classe d'elle-même.",
   'landing.step1Title': 'Collecter',
+  'landing.step2Body':
+    'Marquez les demandes comme prévues ou en cours avec un trimestre cible — la feuille de route se met à jour dès que vous le faites.',
+  'landing.step2Title': 'Commettre',
   'landing.step3Body':
     'Les publications livrées deviennent des entrées de journal, et chaque votant voit le résultat dans sa propre liste.',
+  'landing.step3Title': 'Livrer',
   'landing.topSubtitle': 'En direct depuis ce tableau — connectez-vous pour ajouter votre vote.',
   'landing.topTitle': 'Ce que les utilisateurs demandent en ce moment',
   'landing.topViewAll': 'Tous les tableaux',
@@ -95,14 +130,25 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Primaire',
   'layout.signUp': "S'inscrire",
   'layout.submit': 'Soumettre un retour',
+  'login.description': "Reprenez la conversation là où vous l'avez laissée.",
+  'login.heading': 'Se connecter à Nimbus',
+  'login.noAccount': 'Nouveau ici ?',
   'login.passwordPlaceholder': 'Votre mot de passe',
   'login.twoFactorLabel': 'Code 2FA (facultatif)',
   'login.twoFactorPlaceholder': 'Code à 6 chiffres',
+  'login.twoFactorRequiredHint':
+    "Ce compte a l'authentification à deux facteurs activée. Saisissez le code à 6 chiffres de votre application d'authentification pour continuer.",
   'login.twoFactorRequiredLabel': 'Entrez votre code 2FA',
+  'myActivity.browseCta': 'Parcourir les tableaux',
+  'myActivity.emptyPosts': "Vous n'avez pas encore publié de demande.",
+  'myActivity.emptyVotes': "Rien pour l'instant — parcourez les tableaux et soutenez une idée.",
   'myActivity.eyebrow': 'Votre activité',
   'myActivity.loadError': 'Impossible de charger votre activité.',
   'myActivity.postsTitle': 'Demandes que vous avez soumises',
+  'myActivity.shippedNote':
+    "{{count}} d'entre elles ont été livrées — merci pour le coup de pouce.",
   'myActivity.submitCta': 'Publier une demande',
+  'myActivity.tabLabel': 'Voir',
   'myActivity.tabPosts': 'Mes publications',
   'myActivity.tabVotes': 'Mes votes',
   'myActivity.votesTitle': 'Demandes pour lesquelles vous avez voté',
@@ -137,8 +183,12 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Publication introuvable',
   'postsAdmin.backToDashboard': 'Tableau de bord',
   'postsAdmin.eyebrow': 'Équipe produit',
+  'postsAdmin.mergeApplied': 'Fusionné — {{votes}} votes et {{comments}} commentaires déplacés.',
   'postsAdmin.mergeApply': 'Fusionner et déplacer les votes',
   'postsAdmin.mergeChoose': 'Choisir une publication cible…',
+  'postsAdmin.mergeFailed': 'Échec de la fusion.',
+  'postsAdmin.mergeHint':
+    'Les votes se regroupent (un par utilisateur), les commentaires sont déplacés et ce post reçoit une note « déplacé ».',
   'postsAdmin.mergeLabel': 'Fusionner le doublon dans',
   'postsAdmin.responseLabel': 'Réponse officielle',
   'postsAdmin.responsePlaceholder':
@@ -154,7 +204,13 @@ export const ui: UiTranslations = {
     'Définissez le statut officiel, répondez publiquement, étiquetez le trimestre de la feuille de route et fusionnez les doublons.',
   'postsAdmin.title': 'Gérer les publications de retours',
   'postsAdmin.votes': '{{count}} votes',
+  'pricing.limits.advancedFeatures': 'Fonctionnalités avancées :',
+  'pricing.limits.boards': '{{count}} tableaux',
   'pricing.limits.export': 'Export de données :',
+  'pricing.limits.posts': '{{count}} posts de retours',
+  'pricing.limits.votes': '{{count}} votes',
+  'resetPassword.description':
+    'Choisissez-en un solide. Nous vous connecterons une fois la réinitialisation réussie.',
   'resetPassword.newPasswordLabel': 'Nouveau mot de passe',
   'resetPassword.tokenPlaceholder': 'Collez le jeton du lien',
   'roadmap.cardMeta': 'par {{author}} · {{board}}',
@@ -171,6 +227,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'Saisissez une requête pour trouver les demandes existantes avant de publier un doublon.',
   'search.loadError': 'La recherche a échoué — réessayez.',
+  'search.searching': 'Recherche…',
   'search.submit': 'Rechercher',
   'search.submitNew': 'Publier comme nouvelle demande',
   'search.title': 'Rechercher des retours',
@@ -180,12 +237,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'Facturation',
   'settings.displaySubtitle': "Choisissez la densité des fils d'actualité.",
   'settings.displayTitle': 'Affichage',
+  'settings.emailDigestDesc': 'Les demandes ouvertes les plus votées chaque lundi.',
+  'settings.emailDigestLabel': 'Résumé hebdomadaire',
+  'settings.emailMentionsDesc': "Quand quelqu'un répond à un post que vous suivez.",
+  'settings.emailMentionsLabel': "M'envoyer un e-mail en cas de mention",
+  'settings.emailRepliesDesc': 'Les fils que vous avez lancés ou auxquels vous avez répondu.',
+  'settings.emailRepliesLabel': "M'envoyer un e-mail pour les réponses",
   'settings.loadError': 'Impossible de charger votre compte.',
   'settings.loading': 'Chargement de vos paramètres…',
   'settings.notifications': 'Notifications',
   'settings.notificationsSubtitle':
     'Décidez ce qui arrive dans votre boîte de réception ou sur votre appareil.',
+  'settings.pushRepliesLabel': 'Notification push pour les réponses',
+  'settings.pushVotesDesc': 'Alerte de seuil à 100, 500, 1000.',
+  'settings.pushVotesLabel': 'Push pour les paliers de votes positifs',
   'settings.saveAccount': 'Enregistrer le compte',
+  'settings.showFlair': 'Afficher les puces de tableau sur les posts',
+  'settings.showThumbnails': 'Afficher les vignettes de lien/image',
   'settings.usernamePlaceholder': 'Choisir un identifiant',
   'signup.confirmPlaceholder': 'Retapez-le',
   'signup.description': 'Façonnez ce que nous construisons ensuite.',

@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Հարցեր, կարծիքներ կամ ուզում եք դեմո ձեր թիմի համար։ Գրեք մեզ hello@conduit.dev հասցեով — ամեն հաղորդագրություն հասնում է թիմի իրական մարդու։',
   'about.contactHeading': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մասին',
+  'about.featuresHeading': 'Ինչ եք ստանում',
+  'about.introBody':
+    '{{app}}-ը GitHub Actions-ի ոճի շարունակական առաքումը բերում է մեկ արագ վահանակի մեջ՝ փայփլայններ, կառուցման մատյաններ, արտեֆակտներ, կարգավիճակի նշաններ և տեղակայման միջավայրեր ձեր բոլոր պահոցների համար մեկ տեղում։ Ոչ ներդիրների միջև թռիչք, ոչ կռահում, թե որ կառուցումն է կոտրվել — ամեն գործարկում, մատյանի տող և տեղակայում մեկ սեղմումով հեռու է։',
+  'about.introHeading': 'Ինչ է {{app}}-ը',
+  'about.missionBody':
+    'Ծրագրային ապահովման առաքումը պետք է լինի հանգիստ և կանխատեսելի, ոչ թե ահի աղբյուր։ Մենք կառուցում ենք փայփլայնները, մատյանները և տեղակայման գործիքները, որպեսզի commit-ից մինչև արտադրություն ճանապարհը լինի արագ, տեսանելի և վստահելի — առաջին կանաչ կառուցումը հինգ րոպեում, և դրանից հետո ամեն կառուցում նույնքան պարզ։',
+  'about.missionHeading': 'Մեր առաքելությունը',
+  'about.subtitle':
+    '{{app}}-ը CI/CD վահանակ է թիմերի համար, որոնք ուզում են հետևել կառուցումներին, տեղակայումներին և միջավայրերին բոլոր պահոցներում — և առաքել վստահությամբ։',
   'artifacts.empty': 'Արտեֆակտներ դեռ չկան։',
   'artifacts.heading': 'Արտեֆակտներ',
   'artifacts.loadError': 'Չհաջողվեց բեռնել արտեֆակտները։',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ խողովակի միջավայր --ցուցակ',
   'environments.heading': 'Միջավայրեր',
   'environments.loadError': 'Միջավայրերը չհաջողվեց բեռնել։',
+  'environments.loading': 'Միջավայրերի բեռնում…',
   'environments.subheading': 'Յուրաքանչյուր թիրախի վրա իրական ժամանակում տեղակայման կարգավիճակը։',
   'forgotPassword.runnerStatus': 'վերագործարկել · անվտանգ թունել',
+  'forgotPassword.success':
+    'Եթե այդ էլ. փոստի համար հաշիվ գոյություն ունի, ապա վերակայման հղումը ճանապարհին է։ Ստուգեք ձեր էլ. փոստը։',
   'insights.changeFailureRate': 'Փոփոխել ձախողման մակարդակը',
   'insights.deployFrequency': 'Տեղակայում / օր',
   'insights.empty': 'Դեռ բավարար տվյալներ չկան։',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Չհաջողվեց բեռնել վիճակագրությունը։',
   'insights.meanP95': 'նշանակում է {{mean}} · էջ 95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Ամենադանդաղ փայփլայնի քայլերը',
   'insights.successRateHeading': 'Խողովակաշարի հաջողության մակարդակը (վերջին 14 օրվա ընթացքում)',
   'landing.choosePlan': 'Ընտրեք պլան',
+  'landing.copyright': '© {{year}} {{app}}։ Առաքիր վստահությամբ։',
   'landing.ctaBody':
     'Վարկային քարտ չկա։ Հարթակի ինժեների կարիք չկա։ Առաջին խողովակաշարը կանաչացրեք հինգ րոպեում։',
   'landing.ctaHeading': 'Վստահորեն առաքեք։',
   'landing.featuresEyebrow': '// հարթակի առանձնահատկությունները',
   'landing.featuresHeading': 'Կառուցված է բեռնափոխադրողների համար, բեռնափոխադրողների կողմից',
+  'landing.heroSubtitle':
+    'Փայփլայններ, որ ավարտվում են վայրկյաններում։ Մատյաններ, որ կարող ես կարդալ։ Տեղակայումներ, որոնց կարող ես վստահել։',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit տեղակայել --անվտանգ կերպով',
   'landing.pricingEyebrow': '// $ գնագոյացում --պարզ',
   'landing.pricingHeading': 'Պարզ, կանխատեսելի գնագոյացում',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Հիմա թռիչքի մեջ է',
   'pipelines.metric.successCaption': '{{count}} -ի {{total}} վազում է',
   'pipelines.metric.successRate': 'Հաջողության մակարդակը',
+  'pipelines.realtimeOn': 'իրական ժամանակում',
   'pipelines.subheading': 'Ուղիղ թարմացումներ յուրաքանչյուր դիտվող պահոցից։',
+  'pricing.advancedFeatures': 'Ընդլայնված հնարավորություններ՝ {{mark}}',
+  'pricing.canExport': 'Տվյալների արտահանում՝ {{mark}}',
+  'pricing.maxArtifacts': '{{count}} արտեֆակտ',
+  'pricing.maxBuilds': '{{count}} կառուցում',
+  'pricing.maxPipelines': '{{count}} փայփլայն',
   'privacy.dataAccount': 'Հաշիվ՝ անուն, էլ․ հասցե, հեշավորված գաղտնաբառ, պլանի մակարդակ։',
   'privacy.intro':
     '{{հավելված}} հավաքում է միայն ձեր անընդհատ մատակարարման հաշիվը գործարկելու համար մեզ անհրաժեշտ նվազագույն տվյալները՝ ձեր էլ. փոստը, ձեր միացված պահոցները, ձեր վազորդների կողմից ստեղծվող կոմիտները և կառուցման մետատվյալները, ինչպես նաև այն գաղտնիքները, որոնք դուք ընտրում եք մեզ մոտ պահելու համար: Մենք երբեք չենք կարդում ձեր սկզբնական կոդը կառուցման վազորդից դուրս. կառուցման արտեֆակտները պահվում են ձեր S3 դույլում, երբ դրանք կարգավորված են:',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Մենք օգտագործում ենք Stripe-ը հաշիվ-ապրանքագրերի, Mailgun-ը՝ գործարքային էլ. փոստի և AWS S3-ը՝ արտեֆակտների պահեստավորման համար։ Յուրաքանչյուրը պայմանագրային պարտավորություն ունի իր ծառայությունը մատուցելու համար անհրաժեշտ տվյալների նվազագույն շրջանակի նկատմամբ։',
   'privacy.rightsBody':
     'Դուք կարող եք արտահանել ձեր տվյալների յուրաքանչյուր բայթը, ջնջել ձեր հաշիվը ցանկացած պահի կարգավորումներից և պահանջել ձեր հաշվին վեբհուկների յուրաքանչյուր առաքման մասին գրառում: Մենք պատասխանում ենք GDPR / CCPA հարցումներին 30 օրվա ընթացքում:',
+  'privacy.subtitle':
+    'Ինչպես է {{app}}-ը հավաքում, պահում և պաշտպանում ձեր տվյալները, մինչ մենք գործարկում ենք ձեր փայփլայնները։',
   'privacy.title': 'Գաղտնիության քաղաքականություն',
   'repositories.empty': 'Միացված պահոցներ չկան։',
   'repositories.heading': 'Պահոցներ',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Բոլոր պահոցները',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Չհաջողվեց բեռնել պահոցը։',
+  'repositoryDetail.meanDuration': 'Միջին տևողություն',
   'repositoryDetail.notFound': 'Պահոցը չի գտնվել։',
+  'repositoryDetail.successRate': 'Հաջողության մակարդակը',
   'repositoryDetail.totalBuilds': 'Կառուցումների ընդհանուր թիվը',
   'repositoryDetail.webhookActive': 'ակտիվ',
   'repositoryDetail.webhookPaused': 'դադարեցված',
   'repositoryDetail.webhooksHeading': 'Վեբհուքեր',
+  'resetPassword.passwordLabel': 'Նոր գաղտնաբառ',
   'resetPassword.runnerStatus': 'վերագործարկում · տոկենը հաստատված է',
   'resetPassword.subtitle': 'Ընտրեք ուժեղ գաղտնաբառ, որը նախկինում չեք օգտագործել։',
   'resetPassword.tokenPlaceholder': 'կպցնել էլ. փոստից',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Պահոցներ Conduit-ը հետևում է։ Անջատեք ձեր VCS մատակարարից՝ իրադարձությունների ընդունումը դադարեցնելու համար։',
   'settings.repositories.empty': 'Դեռևս միացված պահոցներ չկան։',
+  'settings.repositories.heading': 'Պահոցների միացումներ',
   'settings.repositories.loadError': 'Չհաջողվեց բեռնել պահոցները։',
   'settings.secrets.addCta': 'Ավելացնել գաղտնիք',
   'settings.secrets.addError': 'Գաղտնիքը չհաջողվեց ավելացնել։',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Գաղտնիքը չհաջողվեց ջնջել։',
   'settings.secrets.empty': 'Գաղտնիքներ չեն պահվում։',
   'settings.secrets.heading': 'Գաղտնիքներ',
+  'settings.secrets.lastUsed': 'վերջին օգտագործումը՝ {{date}}',
   'settings.secrets.loadError': 'Գաղտնիքները չհաջողվեց բեռնել։',
   'settings.secrets.neverUsed': 'երբեք չի օգտագործվել',
   'settings.secrets.rotateCta': 'Պտտել',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Չհաջողվեց թարմացնել վեբհուքը։',
   'signup.namePlaceholder': 'Ռայլի Պարկ',
   'signup.runnerStatus': 'անվճար մակարդակ · 1000 կառուցման նվազագույն ժամանակ/ամիս',
+  'terms.intro':
+    'Ստեղծելով {{app}} հաշիվ՝ դուք համաձայնում եք այս պայմաններին։ Դրանք ներառում են կառուցման runner-ների ընդունելի օգտագործումը, մեր SLA-ի սահմանները և այն պայմանները, որոնց դեպքում մենք կարող ենք կասեցնել կամ դադարեցնել ձեր հաշիվը չարաշահող ծանրաբեռնվածությունների համար։',
   'terms.slaBody':
     'Pro և Team պլանները API-ի և runner pool-ի համար ապահովում են ամսական 99.95% անխափան աշխատանք։ Անվճար պլանը տրամադրվում է այնպես, ինչպես կա։ Անջատումները հաղորդվում են status.conduit.dev կայքում և հաշվարկվում են ձեր հաշիվ-ապրանքագրում նշված բանաձևի համաձայն։',
   'terms.terminationBody':

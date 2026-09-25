@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Маєте відгук, знайшли помилку або хочете запровадити {{app}} у своїй школі чи команді? Ми читаємо кожне повідомлення — напишіть нам із налаштувань акаунта, і відповість справжня людина.',
   'about.contactTitle': "Зв'яжіться з нами",
   'about.eyebrow': 'Про нас',
+  'about.intro':
+    '{{app}} — це щоденна головоломка зі словами. Вгадайте п’ятилітерне слово за шість спроб, не втрачайте серію, діліться своєю сіткою емодзі та дивіться, як усі впоралися зі словом дня.',
+  'about.missionBody':
+    'Хороша головоломка — це маленька щоденна перемога. {{app}} побудовано навколо одного спільного слова на день — досить швидко для перерви на каву й досить цікаво, щоб повернутися завтра.',
+  'about.missionTitle': 'Наша місія',
   'about.title': 'Про {{app}}',
   'archive.loadError': 'Не вдалося завантажити архів.',
   'archive.missed': 'Пропущено',
   'archive.notPlayed': 'Не зіграно',
+  'archive.subhead':
+    'Перегравайте будь-який минулий день як тренування — без серій, без статистики, лише задоволення.',
   'archive.title': 'Архівувати',
   'auth.backToHome': 'Назад на головну',
   'auth.backToHomeArrow': '← Назад на головну',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Забули пароль?',
   'auth.login.loggingIn': 'Вхід…',
   'auth.login.logIn': 'Грати сьогоднішнє слово',
+  'auth.login.noAccount': 'Вперше в Tessera?',
   'auth.login.or': 'або продовжити через',
   'auth.login.password': 'Пароль',
   'auth.login.signInButton': 'Увійти',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Збереження…',
   'common.sendingEllipsis': 'Надсилання…',
   'common.startingEllipsis': 'Запуск…',
+  'forgotPassword.subhead':
+    'Введіть свою електронну адресу, і ми надішлемо вам посилання для скидання налаштувань.',
+  'forgotPassword.success.body':
+    'Якщо обліковий запис існує для {{email}} , ви отримаєте посилання для скидання налаштувань за кілька хвилин.',
+  'forgotPassword.success.title': 'Перевірте свою поштову скриньку.',
   'form.name': "Ім'я",
   'howToPlay.cta.home': 'Назад на головну',
   'howToPlay.cta.play': 'Грати сьогоднішню головоломку',
@@ -68,10 +83,14 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Серії, які не хочеться обривати',
   'leaderboard.daily.title': "Сьогоднішні розв'язання",
   'leaderboard.loadError': 'Не вдалося завантажити таблицю лідерів.',
+  'leaderboard.streaks.empty': 'Серій ще немає — станьте першим.',
+  'leaderboard.streaks.subhead': 'Найдовші серії перемог за весь час.',
   'leaderboard.streaks.title': 'Лідери серій',
+  'leaderboard.subhead': 'Як усі впоралися сьогодні та хто має найдовші серії.',
   'leaderboard.title': 'Таблиця лідерів',
   'login.headline': 'З поверненням.',
   'login.streakPill': 'Серія з {{days}} днів на вас чекає',
+  'login.subhead': 'Увійдіть, щоб не втратити серію та побачити, як ви впоралися зі словом дня.',
   'nav.archive': 'Архівувати',
   'nav.editProfile': 'Редагувати профіль',
   'nav.getStarted': 'Почати',
@@ -89,6 +108,9 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Такого слова немає',
   'notFound.title': 'Цей маршрут порожній.',
   'planUpdated.message': 'Ваш план активний.',
+  'planUpdated.retry': 'Спробувати ще раз',
+  'planUpdated.verifyFailed': 'Нам ще не вдалося підтвердити ваш платіж.',
+  'planUpdated.verifyFailedBody': 'Можливо, ваш платіж ще обробляється. Спробуйте ще раз за мить.',
   'planUpdated.verifying': 'Підтвердження платежу…',
   'play.alreadyFinished': 'Ви вже завершили цю головоломку',
   'play.answerWas': 'Слово було',
@@ -104,6 +126,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Тренувальна головоломка',
   'play.tooShort': 'Недостатньо літер',
   'play.won': 'Розгадано!',
+  'pricing.advancedStats': 'Розширена статистика: {{yes}}',
+  'pricing.archiveHistory': '{{count}} днів історії архіву',
+  'pricing.archivePlays': '{{count}} перегравань архіву / день',
+  'pricing.archiveUnlimited': 'Необмежена історія архіву',
+  'pricing.canExport': 'Експорт даних: {{yes}}',
+  'pricing.checkoutError': 'Не вдалося розпочати оформлення. Будь ласка, спробуйте ще раз.',
   'pricing.dailyWord': 'Щоденне слово',
   'pricing.heading': 'Оберіть свій план {{app}}',
   'pricing.included': 'Включено',
@@ -111,7 +139,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Щоденне слово завжди безкоштовне. Оновіть план для необмеженого доступу до архіву та глибшої статистики.',
   'pricing.yearly': 'Щорічно',
+  'privacy.intro':
+    '{{app}} поважає вашу приватність. На цій сторінці описано, які дані ми зберігаємо, навіщо та як їх видалити.',
   'privacy.title': 'Повідомлення про конфіденційність',
+  'resetPassword.subhead': 'Виберіть новий пароль, щоб повернутися до своєї серії.',
   'settings.account': 'Обліковий запис',
   'settings.danger.body':
     'Остаточно видалити ваш обліковий запис {{appName}} та всю історію головоломок.',
@@ -121,17 +152,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'Гість',
   'settings.language.title': 'Мова',
   'settings.subhead': 'Налаштуйте свій профіль, звук і те, як ви відображаєтесь у таблиці лідерів.',
+  'settings.unnamed': 'Гравець Sparq',
   'settings.upgrade': 'Оновити план',
   'signup.eyebrow': 'Безкоштовно назавжди — одне слово на день',
   'signup.headline': 'Почніть свою серію.',
+  'signup.subhead':
+    'Створіть акаунт {{appName}}, щоб грати в слово дня, накопичувати серію та підніматися в таблиці лідерів.',
   'stats.currentStreak': 'Серія',
   'stats.distribution.title': 'Розподіл спроб',
   'stats.loadError': 'Не вдалося завантажити вашу статистику.',
   'stats.maxStreak': 'Макс. серія',
   'stats.played': 'Зіграно',
   'stats.playToday': 'Грати сьогоднішню головоломку',
+  'stats.subhead': 'Лише рейтингові щоденні головоломки — тренування в архіві не зараховується.',
   'stats.title': 'Ваша статистика',
   'stats.winRate': 'Відсоток перемог',
   'status.monthly': 'Щомісячний',
+  'terms.intro':
+    'Користуючись {{app}}, ви погоджуєтеся з наведеними нижче правилами. Якщо ви не можете їх прийняти, будь ласка, не користуйтеся сервісом.',
   'terms.title': 'Умови надання послуг',
 }

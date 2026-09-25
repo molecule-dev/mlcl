@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Сұрақтарыңыз, мүмкіндік сұрауларыңыз немесе біз қолдауымыз керек есептегіш пе? Тіркелгі параметрлеріңізден {{appName}} командасына хабарласыңыз — әрбір хабарлама нақты адамға жетеді.',
   'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Туралы',
+  'about.featuresTitle': 'Сіз не аласыз',
+  'about.intro':
+    '{{appName}} — күн панельді үйлер мен нысан командаларына арналған нақты уақыттағы қуат мониторингі. Біз есептегіш, инвертор және батарея деректерінің ағынын тыныш басқару бөлмесінің көрінісіне айналдырамыз — тікелей қуат, күн өндірісі, уақытқа байланысты құн және ескертулер, барлығы бір қабықта.',
+  'about.missionBody':
+    'Көре алатын энергияңыз — басқара алатын энергияңыз. Біз есептегішті басқаратын әркім — шатырында күн панелі бар үй немесе ғимаратты бақылайтын команда — коммуналдық деңгейдегі шартсыз коммуналдық деңгейдегі түсінікке лайық деп санаймыз. Әрбір мүмкіндік келесі киловатт-сағатты шоттағы тосынсый емес, саналы таңдауға айналдыру үшін жасалған.',
+  'about.missionTitle': 'Біздің миссиямыз',
   'about.pageTitle': 'Туралы {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'Ак',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@yourdomain.com',
   'alertRule.eyebrow': 'Жаңа ереже',
   'alertRule.heading': 'Шығынға ұшырамай тұрып, бағаның күрт өсуіне қол жеткізіңіз',
+  'alertRule.nameLabel': 'Ереже атауы',
   'alertRule.namePlaceholder': 'мысалы, жұмыс уақытынан кейінгі HVAC бақылауы',
   'alertRule.subheading':
     'Көрсеткішті, шекті мәнді және ескертуді қайда жіберу керектігін таңдаңыз. Оны кез келген уақытта өңдеуге немесе кідіртуге болады.',
   'alertRule.submit': 'Ережені сақтау',
   'alertRule.submitError': 'Ережені сақтау мүмкін болмады.',
   'alertRule.thresholdLabel': 'Табалдырық',
+  'alertRule.typeLabel': 'Триггер түрі',
   'alerts.checking': 'Тексерілуде…',
   'alerts.confirmDelete': 'Жоюды растау',
+  'alerts.empty': 'Көрсететін ештеңе жоқ — бұл күйде ескертулер жоқ.',
   'alerts.emptyNoRules':
     'Әлі ескертулер жоқ — ереже қосыңыз, содан кейін оны тексеру үшін «Қазір бағалау» түймесін басыңыз.',
   'alerts.errorAck': 'Мойындау мүмкін болмады.',
@@ -41,12 +52,14 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'Қазір бағалаңыз',
   'alerts.subheading':
     'Есептегіштеріңізге түсетін шекті және үлгілік дабылдар, сондай-ақ оларды басқаратын ережелер.',
+  'billing.activeBlurb': 'Жазылымыңыз белсенді. Оны кез келген уақытта басқара аласыз.',
   'billing.cancelError': 'Жазылымнан бас тарту мүмкін болмады.',
   'billing.cancelling': 'Бас тартылуда…',
   'billing.currentBadge': 'Ағымдағы',
   'billing.freeBlurb':
     'Сіз тегін жоспардасыз. Көбірек есептегіштер, ұзағырақ тарих және көбірек ескерту ережелері үшін жаңартыңыз.',
   'billing.heading': 'Жоспарлар және төлемдер',
+  'billing.historyEmpty': 'Жазылым ақысы алынғанда, төленген шоттар осында пайда болады.',
   'billing.historyHeading': 'Шот-фактура тарихы',
   'billing.loadError': 'Есепшот жүктелмеді.',
   'billing.loading': 'Жоспарлар жүктелуде…',
@@ -58,17 +71,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'Сату бөліміне хабарласыңыз',
   'common.goToDashboard': 'Бақылау тақтасына өту',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} шың · {{offPeak}} тыс kWh',
   'dailyCostMeter.runningLabel': 'Жалпы жүгіріс',
   'dailyCostMeter.title': 'Бүгінгі күнге дейінгі құны',
   'dailyCostMeter.utilizationLabel': 'Күнделікті бюджеттен',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'Есептегіш қосу',
   'dashboard.alertsHeading': 'Белсенді ескертулер',
   'dashboard.devicesHeading': 'Қазіргі уақыттағы ең үздік айналымдар',
   'dashboard.empty.body':
     'Тікелей эфирдегі тарту мен өндірісті бақылауды бастау үшін ақылды есептегішті немесе күн энергиясын инвертор ретінде қосыңыз.',
+  'dashboard.empty.title': 'Әзірге есептегіштер жоқ',
   'dashboard.eyebrow': 'Кернеуді басқару бөлмесі',
   'dashboard.heading': 'Тікелей эфирдегі энергия туралы қысқаша ақпарат',
   'dashboard.loadError': 'Тікелей оқуларды жүктеу мүмкін болмады.',
   'dashboard.loading': 'Есептегіштер реттелуде…',
+  'dashboard.noAlerts': 'Барлығы тыныш — шектеріңізді ештеңе бұзбайды.',
   'dashboard.noAlertsAndNoMeters':
     'Есептегішті қосқаннан кейін, сіздің шектік мәндеріңізге негізделген ескертулер осында пайда болады.',
   'dashboard.noCircuits': 'Әзірге көрсететін тізбектер жоқ — бастау үшін есептегіш қосыңыз.',
@@ -76,6 +94,7 @@ export const ui: UiTranslations = {
     'Үйді толығымен суару, күн энергиясын өндіру және бүгінгі күнге дейінгі шығындар.',
   'dashboard.viewAllAlerts': 'Ескертулерді басқару →',
   'dashboard.viewAllDevices': 'Әрбір құрылғы →',
+  'deviceDetail.activeTokens': 'Белсенді қабылдау токендері',
   'deviceDetail.alreadyOff': 'Қазірдің өзінде кідіртілген',
   'deviceDetail.back': 'Барлық тізбектер',
   'deviceDetail.confirmDelete': 'Жоюды растау',
@@ -116,22 +135,34 @@ export const ui: UiTranslations = {
   'devices.loadError': 'Есептегіштерді жүктеу мүмкін болмады.',
   'devices.loading': 'Әр есептегішті сұрау…',
   'devices.newRule': 'Жаңа ескерту ережесі',
+  'devices.noResults': 'Бұл сүзгіге ешбір тізбек сәйкес келмейді.',
   'devices.placeholder.location': 'мысалы, механикалық бөлме',
   'devices.placeholder.name': 'мысалы, гараждың ішкі панелі',
   'devices.subheading':
     'Voltrace әрбір тізбек арқылы нақты ватт қуатын және бүгінгі кВт/сағ көрсеткішін көре алады.',
+  'deviceWattageRow.todayKwh': 'Бүгін {{kwh}} kWh',
+  'deviceWattageRow.watts': '{{watts}} W',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'Мәзір',
+  'energyMonitoringLayout.primaryNavLabel': 'Негізгі навигация',
+  'landing.copyright': '© {{year}} {{app}}. {{tagline}}.',
+  'landing.ctaBody':
+    '{{appName}} көптеген коммуналдық деңгейдегі есептегіштермен, күн инверторларымен және батарея стектерімен байланысады — сымды немесе WiFi арқылы.',
   'landing.ctaHeading': 'Есептегішті жұптаңыз, ватттарды бірнеше минут ішінде көріңіз',
   'landing.eyebrow': 'Нақты уақыттағы энергетикалық интеллект',
+  'landing.featuresHeading': 'Әрбір ватт, әрбір минут, бір қабықта',
   'landing.getStarted': 'Розеткаға қосу кернеуі',
   'landing.heroCta': 'Розеткаға қосу кернеуі',
+  'landing.heroSubtitle':
+    'Күн панельді үйлер мен нысан командаларына арналған басқару бөлмесі қабығында тікелей қуат, күн өндірісі, уақытқа байланысты құн және жоғары тұтыну ескертулері.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'Үйдегі барлық ойын',
   'landing.sampleSolar': '+3,820 Вт күн энергиясы',
   'landing.sampleSummary': 'Бүгін 1680 Вт электр желісіне экспортталуда · 18,4 кВт/сағ',
   'landing.sampleWatts': '2140 Вт',
   'powerHeroCard.solar': '+ {{watts}} W күн сәулесі',
   'powerHeroCard.title': 'Үйдегі барлық ойын',
+  'powerHeroCard.todayKwh': 'Бүгін {{kwh}} kWh',
   'powerHeroCard.watts': '{{watts}} W',
   'pricing.choose': 'Таңдау {{name}}',
   'pricing.contact': 'Арнайы нәрсе керек пе?',
@@ -144,6 +175,7 @@ export const ui: UiTranslations = {
     'Тегін бастаңыз. Көбірек есептегіштер, ұзағырақ тарих немесе көбірек ескерту ережелері қажет болған кезде жаңартыңыз.',
   'pricing.unavailable': 'Бұл жоспар қазір қолжетімді емес — Stripe конфигурацияланбаған.',
   'profile.errorGeneric': 'Профиль өзгерістерін сақтау мүмкін болмады.',
+  'profile.errorGoal': 'Айлық kWh мақсаты оң сан болуы керек.',
   'profile.errorHousehold': 'Үй шаруашылығының мөлшері оң сан болуы керек.',
   'profile.householdHeading': 'Үй шаруашылығы және мақсаттар',
   'profile.householdSize': 'Үй шаруашылығының мөлшері',
@@ -161,9 +193,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'Көрсеткіштерді жинақтау…',
   'reports.subheading':
     'Тұтыну, өндіріс және құн бойынша күнделікті жалпы көрсеткіштер — күні бойынша бөлінген.',
+  'reports.tableHeading': 'Күнделікті бөлшектеу',
   'settings.currency': 'Валюта',
   'settings.errorFlat': 'Тұрақты мөлшерлеме ≥ 0 болуы керек.',
   'settings.errorNotify': 'Хабарландыру параметрлерін сақтау мүмкін болмады.',
+  'settings.errorSave': 'Тариф жоспарын сақтау мүмкін болмады.',
   'settings.errorTou':
     'Ең жоғары/ең жоғары емес бағалар және жарамды ең жоғары деңгей терезесі қажет.',
   'settings.exportBody':
@@ -184,10 +218,20 @@ export const ui: UiTranslations = {
   'settings.saving': 'Сақталуда…',
   'settings.securityHeading': 'Екі факторлы аутентификация',
   'settings.subheading': 'Тарифтер, хабарландырулар және деректерді экспорттау.',
+  'settings.twoFactorBody':
+    'Әр кірген сайын аутентификатор қосымшасынан бір реттік кодты талап етіңіз.',
   'settings.twoFactorCode': 'Аутентификация коды',
   'settings.twoFactorDisable': 'Өшіру',
+  'settings.twoFactorDisableTitle': 'Екі факторлы аутентификацияны өшіру',
   'settings.twoFactorEnable': 'Қосу',
+  'settings.twoFactorEnableTitle': 'Екі факторлы аутентификацияны қосу',
   'settings.twoFactorInvalidCode': 'Жарамсыз код',
+  'settings.twoFactorOAuth':
+    'Тіркелгіңіз қосылған провайдер арқылы кіреді, сондықтан екі факторлы аутентификация сол жерде басқарылады.',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Екі факторлы QR коды',
+  'settings.twoFactorScan':
+    'Осы QR кодын аутентификатор қолданбасымен сканерлеңіз, содан кейін 6 таңбалы кодты енгізіңіз.',
+  'settings.twoFactorUnavailable': 'Бұл қолданба үшін екі факторлы аутентификация қолжетімді емес.',
   'settings.twoFactorVerify': 'Тексеру және қосу',
 }

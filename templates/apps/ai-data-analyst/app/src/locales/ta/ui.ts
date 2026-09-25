@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கேள்விகள், கருத்துகள் அல்லது மாதிரியை திணறடித்த தரவுத்தொகுப்பா? ஆப் உள்ளேயே உள்ள உதவி மெனுவிலிருந்து {{app}} குழுவை அணுகவும் — ஒவ்வொரு செய்தியும் தயாரிப்பில் பணிபுரியும் உண்மையான நபரையே சென்றடையும்.',
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.intro':
+    '{{app}} என்பது மூலத் தரவை பதில்களாக மாற்றும் AI தரவு ஆய்வாளர். ஒரு CSV பதிவேற்றவும் அல்லது ஒரு வேர்ஹவுஸை இணைக்கவும், எளிய தமிழில் ஒரு கேள்வி கேட்கவும், சரியான விளக்கப்படம், அதை ஆதரிக்கும் அட்டவணை, அதை உருவாக்கிய SQL ஆகியவற்றைப் பெறவும் — {{tagline}}.',
+  'about.missionBody':
+    'பகுப்பாய்வுக்கு ஒரு பேக்லாக் டிக்கெட்டும் ஒரு வார காத்திருப்பும் தேவைப்படக்கூடாது. {{app}} ஒரு திறமையான ஆய்வாளரை ஒரு உரைப் பெட்டிக்குப் பின்னால் வைக்கிறது, அதனால் தயாரிப்பு, செயல்பாடு, நிதிக் குழுக்கள் தங்கள் சொந்தக் கேள்விகளுக்கு நிமிடங்களில் பதிலளிக்க முடியும் — ஒவ்வொரு முடிவும் மீளுருவாக்கக்கூடியதாகவும் தணிக்கைக்குரியதாகவும் இருக்கும்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'about.pageTitle': '{{app}} பற்றி',
+  'about.whatYouGet': 'நீங்கள் பெறுவது',
+  'askClarionBar.ariaLabel': '{{appName}}-இடம் ஒரு கேள்வி கேளுங்கள்',
   'askClarionBar.askCta': 'கேளுங்கள்',
   'askClarionBar.placeholder':
     'உங்கள் தரவுகள் குறித்து ஒரு கேள்வியைக் கேளுங்கள் — உதாரணமாக, “மூன்றாம் காலாண்டு வருவாயின் அடிப்படையில் முதல் 10 வாடிக்கையாளர்கள்”',
@@ -20,16 +30,21 @@ export const ui: UiTranslations = {
   'dashboard.insightsHeading': 'சமீபத்திய நுண்ணறிவுகள்',
   'dashboard.noInsights':
     'இன்னும் முடிவுகள் எதுவும் கிடைக்கவில்லை — தொடங்குவதற்கு ஒரு தரவுத்தொகுப்பைப் பதிவேற்றவும்.',
+  'dashboard.subhead':
+    'நேற்றிலிருந்து மூன்று புதிய நுண்ணறிவுகள். நெருக்கமாகப் பார்க்க வேண்டிய ஒரு முரண்பாடு.',
   'dashboard.uploadCta': 'தரவைப் பதிவேற்றவும்',
   'datasetCard.analyzedPrefix': 'ஆய்வு {{when}}',
   'datasetCard.cols': 'கோல்கள்',
   'datasetCard.rows': 'வரிசைகள்',
+  'datasetDetail.aiHeading': 'செயற்கை நுண்ணறிவு நுண்ணறிவுகள்',
   'datasetDetail.back': 'தரவுத்தொகுப்புகள்',
   'datasetDetail.col.example': 'உதாரணம்',
   'datasetDetail.col.name': 'Field',
   'datasetDetail.col.nullable': 'பூஜ்யமாக்கக்கூடிய',
   'datasetDetail.col.unique': 'தனித்துவமான',
   'datasetDetail.cols': 'நெடுவரிசைகள்',
+  'datasetDetail.lineageEmpty':
+    'பதிவேற்றத்திலிருந்து இறக்குமதி செய்யப்பட்டது — மேல்நிலை மாற்றங்கள் இல்லை.',
   'datasetDetail.loadError': 'தரவுத்தொகுப்பை ஏற்ற முடியவில்லை.',
   'datasetDetail.notFound': 'தரவுத்தொகுப்பு காணப்படவில்லை.',
   'datasetDetail.queriesEmpty':
@@ -45,17 +60,22 @@ export const ui: UiTranslations = {
   'datasetDetail.tab.${tk}': 'Field',
   'datasets.empty': 'இன்னும் தரவுத்தொகுப்புகள் இல்லை — தொடங்குவதற்கு ஒன்றை பதிவேற்றவும்.',
   'datasets.eyebrow': '{{count}} தரவுத்தொகுப்புகள் · {{rows}} வரிசைகள்',
+  'datasets.heading': 'தரவுத்தொகுப்புகள்',
   'datasets.loadError': 'தரவுத்தொகுப்புகளை ஏற்ற முடியவில்லை.',
   'datasets.subhead':
     'கிளாரியன் அட்டவணைப்படுத்தி, வினவக்கூடியதாக மாற்றிய கோப்புகள். ஸ்கீமா, புள்ளிவிவரங்கள் மற்றும் மூலத்தொடர்பை ஆய்வு செய்ய ஒரு கார்டைக் கிளிக் செய்யவும்.',
   'datasets.uploadCta': 'தரவுத்தொகுப்பைப் பதிவேற்றவும்',
+  'forgotPassword.backPrompt': 'எல்லாவற்றுக்கும் பிறகும் நினைவிருக்கிறதா? ',
   'forgotPassword.checkSpam':
     'ஒரு நிமிடத்திற்குள் அது தென்படவில்லை என்றால், உங்கள் ஸ்பேம் கோப்புறையைச் சரிபார்க்கவும் அல்லது மீண்டும் அனுப்ப முயற்சிக்கவும்.',
   'forgotPassword.emailRequired': 'மின்னஞ்சல் தேவை',
+  'forgotPassword.resend': 'மீண்டும் அனுப்பு',
   'forgotPassword.sendError': 'மீட்டமைப்பு மின்னஞ்சலை அனுப்ப முடியவில்லை',
   'forgotPassword.sentHeading': 'உங்கள் மின்னஞ்சலைச் சரிபார்க்கவும்',
   'forgotPassword.sentSubheading':
     'நாங்கள் ஒரு மீட்டமைப்பு இணைப்பை அனுப்பினோம் {{email}} இந்த இணைப்பு 30 நிமிடங்களில் காலாவதியாகிவிடும்.',
+  'forgotPassword.subheading':
+    'உங்கள் பணி மின்னஞ்சலை உள்ளிடவும், புதிய கடவுச்சொல்லை அமைக்க ஒரு இணைப்பை அனுப்புவோம்.',
   'googleSignInButton.label': 'கூகிள் உடன் தொடரவும்',
   'insightFeedCard.viewCta': 'பார்வை',
   'insightHeroCard.subtitle':
@@ -65,30 +85,47 @@ export const ui: UiTranslations = {
   'landing.closing.cta': 'கிளாரியனை இலவசமாக முயற்சிக்கவும்',
   'landing.closing.heading':
     'டாஷ்போர்டுகளை உருவாக்குவதை நிறுத்துங்கள். கேள்விகள் கேட்கத் தொடங்குங்கள்.',
+  'landing.closing.subhead':
+    '14 நாட்களுக்கு இலவசம். ஒரு CSV கொண்டு வாருங்கள், ஐந்து நிமிடங்களுக்குள் உங்கள் முதல் மூன்று நுண்ணறிவுகளைப் பெறுங்கள்.',
   'landing.features.eyebrow': 'கிளாரியன் எவ்வாறு செயல்படுகிறது',
   'landing.features.heading':
     'ஒரு CSV கோப்பை அனுப்புங்கள். ஒரு கேள்வியைக் கேளுங்கள். பதிலைப் பெறுங்கள்.',
+  'landing.features.subhead':
+    'SQL தேவையில்லை. டாஷ்போர்டு குவியல் இல்லை. ஒவ்வொரு பதிலும் ஒரு விளக்கப்படம், ஒரு அட்டவணை, இயங்கிய SQL — ஒரே கிளிக்கில் ஏற்றுமதி செய்யலாம்.',
   'landing.hero.eyebrow': 'AI தரவு ஆய்வாளர் · தயாரிப்பு மற்றும் செயல்பாட்டுக் குழுக்களுக்கு',
   'landing.hero.primaryCta': 'கிளாரியனை 14 நாட்களுக்கு இலவசமாக முயற்சித்துப் பாருங்கள்.',
   'landing.hero.secondaryCta': 'மாதிரி வினவலைக் காண்க',
   'landing.hero.subtitle':
     'ஒரு தரவுத்தொகுப்பைப் பதிவேற்றுங்கள், எளிய ஆங்கிலத்தில் கேள்விகளைக் கேளுங்கள், சரியான விளக்கப்படத்தைப் பெறுங்கள். கிளாரியன் SQL, ஸ்கீமா கண்டறிதல் மற்றும் வம்சாவளி ஆகியவற்றைக் கையாள்வதால், ஆய்வாளர்கள் 10 மடங்கு வேகமாகத் தங்கள் பணிகளை வெளியிட முடியும்.',
+  'landing.hero.title': '{{tagline}}.',
   'landing.hero.trust1': 'கடன் அட்டை இல்லை',
   'landing.hero.trust2': 'SOC 2 வகை II',
   'landing.hero.trust3': 'ஒவ்வொரு விளக்கப்படத்திலும் வம்சாவளி',
   'landing.nav.tryFree': 'இலவசமாக முயற்சி செய்யுங்கள்',
+  'landing.preview.cta': 'ஒரு வினவலை முயற்சிக்கவும்',
   'landing.preview.label': 'இந்த மாதம் புதிய தகவல்கள் வெளிவந்தன.',
   'landing.proof.heading': 'தீவிர பகுப்பாய்வுக் குழுக்களுக்காக உருவாக்கப்பட்டது',
   'login.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
+  'login.newUserPrompt': '{{appName}}-க்கு புதியவரா? ',
   'login.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'login.subheading': 'உங்கள் தரவுகளிடம் மேலும் சிறந்த கேள்விகளைக் கேட்க உள்நுழையுங்கள்.',
+  'login.trialCta': 'உங்கள் {{days}}-நாள் சோதனையைத் தொடங்குங்கள்',
   'mobileNav.closeMenu': 'வழிசெலுத்தல் மெனுவை மூடுக',
   'mobileNav.openMenu': 'வழிசெலுத்தல் மெனுவைத் திறக்கவும்',
+  'planUpdated.body':
+    'உங்கள் பில்லிங் மாற்றம் இப்போது செயலில் உள்ளது. பில்லிங் பக்கத்திலிருந்து எப்போது வேண்டுமானாலும் உங்கள் திட்டத்தை நிர்வகிக்கலாம்.',
+  'planUpdated.retry': 'மீண்டும் முயற்சிக்கவும்',
+  'planUpdated.verifyFailed': 'உங்கள் கட்டணத்தை எங்களால் இன்னும் உறுதிப்படுத்த முடியவில்லை.',
+  'planUpdated.verifyFailedBody':
+    'உங்கள் கட்டணம் இன்னும் செயலாக்கத்தில் இருக்கலாம். சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.',
   'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
+  'pricing.limits.advanced': 'மேம்பட்ட அம்சங்கள்',
   'queryEditor.aiBadge': 'செயற்கை நுண்ணறிவு உருவாக்கியது',
   'queryEditor.aiSummary': 'AI சுருக்கம்',
   'queryEditor.copyFailed': 'கிளிப்போர்டுக்கு நகலெடுக்க முடியவில்லை.',
   'queryEditor.dataHeading': 'தரவு',
+  'queryEditor.emptyBody':
+    '{{appName}} மூன்று பகுதிகளாகப் பதிலளிக்கிறது: ஒரு விளக்கப்படம், அதன் அடிப்படைத் தரவு அட்டவணை, இயங்கிய SQL.',
   'queryEditor.emptyHeading':
     'ஒரு பரிந்துரையைத் தேர்ந்தெடுக்கவும் அல்லது உங்கள் சொந்தக் கருத்தைத் தட்டச்சு செய்யவும்.',
   'queryEditor.emptyResult': 'பதில் எதுவும் வரவில்லை. வேறு கேள்வியைக் கேட்டுப் பாருங்கள்.',
@@ -96,6 +133,7 @@ export const ui: UiTranslations = {
   'queryEditor.eyebrow': 'கிளாரியனிடம் கேளுங்கள் · இயல்மொழி வினவல்',
   'queryEditor.heading': 'நீங்கள் என்ன தெரிந்துகொள்ள விரும்புகிறீர்கள்?',
   'queryEditor.questionEyebrow': 'நீங்கள் கேட்டீர்கள்',
+  'queryEditor.runFailed': 'அந்த வினவலை இயக்க முடியவில்லை. மீண்டும் முயற்சிக்கவும்.',
   'queryEditor.sqlHeading': 'உருவாக்கப்பட்ட SQL',
   'queryEditor.subhead':
     'ஒரு கேள்வியை எளிய ஆங்கிலத்தில் தட்டச்சு செய்யவும். கிளாரியன் அந்த விளக்கப்படத்தைத் தேர்ந்தெடுத்து, SQL-ஐ இயக்கி, அதன் வம்சாவளியை உங்களுக்குக் காண்பிக்கும்.',
@@ -107,12 +145,16 @@ export const ui: UiTranslations = {
   'reportDetail.momSuffix': 'MoM',
   'reportDetail.notFound': 'அறிக்கை காணப்படவில்லை.',
   'reports.empty': 'இன்னும் அறிக்கைகள் வரவில்லை — ஒரு வினவலை இயக்கிச் சேமிக்கவும்.',
+  'reports.eyebrow': '{{count}} அறிக்கைகள் · {{scheduled}} திட்டமிடப்பட்டது',
   'reports.newCta': 'புதிய அறிக்கை',
   'reports.subhead':
     'சேமிக்கப்பட்ட பகுப்பாய்வுகளை நீங்கள் பகிரலாம், திட்டமிடலாம் மற்றும் ஏற்றுமதி செய்யலாம். முழு அறிக்கையைத் திறக்க, ஏதேனும் ஒரு சிறுபடத்தைக் கிளிக் செய்யவும்.',
   'reportThumbnailCard.onDemand': 'தேவைக்கேற்ப',
+  'reportThumbnailCard.runPrefix': '{{when}}-ஐ இயக்கு',
+  'resetPassword.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
   'resetPassword.newPasswordLabel': 'புதிய கடவுச்சொல்',
   'resetPassword.newPasswordPlaceholder': 'புதிய கடவுச்சொல்',
+  'resetPassword.passwordTooShort': 'கடவுச்சொல் குறைந்தது {{min}} எழுத்துகள் இருக்க வேண்டும்',
   'resetPassword.resetFailed': 'மீட்டமைப்பு தோல்வியடைந்தது',
   'resetPassword.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'resetPassword.subheading':
@@ -129,20 +171,27 @@ export const ui: UiTranslations = {
   'settings.apiKeys.createCta': 'உருவாக்கு',
   'settings.apiKeys.created': 'புதிய API சாவி உருவாக்கப்பட்டது.',
   'settings.apiKeys.createError': 'API சாவியை உருவாக்க முடியவில்லை.',
+  'settings.apiKeys.creating': 'உருவாக்கப்படுகிறது…',
   'settings.apiKeys.deleted': 'API சாவி திரும்பப் பெறப்பட்டது.',
   'settings.apiKeys.deleteError': 'API சாவியை ரத்து செய்ய முடியவில்லை.',
+  'settings.apiKeys.empty': 'இன்னும் API விசைகள் இல்லை — மேலே ஒன்றை உருவாக்கவும்.',
   'settings.apiKeys.heading': 'API விசைகள்',
   'settings.apiKeys.namePlaceholder': 'சாவியின் பெயர் (எ.கா. சிஐ பாட்)',
   'settings.apiKeys.rotateCta': 'சுழற்று',
   'settings.apiKeys.rotated':
     'API சாவி மாற்றப்பட்டுள்ளது. உங்கள் ஒருங்கிணைப்புகளைப் புதுப்பிக்கவும்.',
+  'settings.apiKeys.rotateError': 'API விசையை சுழற்ற முடியவில்லை.',
+  'settings.appearance.description': 'ஒளி மற்றும் இருண்ட பயன்முறைகளுக்கு இடையே மாறவும்.',
   'settings.appearance.title': 'தோற்றம்',
   'settings.dangerZone': 'அபாய மண்டலம்',
   'settings.integrations.body':
     'கோப்புகளைப் பதிவேற்றுவதற்குப் பதிலாக, நிகழ்நேரத் தரவை வினவ ஒரு தரவுக்கிடங்கை இணைக்கவும்.',
   'settings.integrations.connected': 'புதுப்பிக்கப்பட்ட இணைப்புக்கான {{source}} .',
   'settings.integrations.connectedTag': 'இணைக்கப்பட்ட',
+  'settings.integrations.error': 'ஒருங்கிணைப்பைப் புதுப்பிக்க முடியவில்லை.',
   'settings.integrations.heading': 'தரவு மூலங்கள்',
+  'settings.revokeDeviceWarning':
+    'இந்தச் சாதனத்தின் அணுகல் விரைவில் ரத்து செய்யப்படும். வெளியேற்றவா?',
   'settings.security.heading': 'பாதுகாப்பு',
   'settings.signOutDevice': 'வெளியேறு',
   'settings.team.empty':
@@ -150,21 +199,30 @@ export const ui: UiTranslations = {
   'settings.team.removed': 'குழு உறுப்பினர் நீக்கப்பட்டார்.',
   'settings.twoFactorCode': 'அங்கீகாரக் குறியீடு',
   'settings.twoFactorDisable': 'முடக்கு',
+  'settings.twoFactorDisableTitle': 'இரு-காரணி அங்கீகாரத்தை முடக்கு',
   'settings.twoFactorEnable': 'இயக்கு',
+  'settings.twoFactorEnableTitle': 'இரு-காரணி அங்கீகாரத்தை இயக்கு',
   'settings.twoFactorInvalidCode': 'தவறான குறியீடு',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'இரு-காரணி QR குறியீடு',
+  'settings.twoFactorScan':
+    'உங்கள் அங்கீகரிப்பு செயலியில் இந்த QR குறியீட்டை ஸ்கேன் செய்து, 6 இலக்கக் குறியீட்டை உள்ளிடவும்.',
+  'settings.twoFactorUnavailable': 'இந்த செயலியில் இரு காரணி அங்கீகாரம் கிடைக்காது.',
   'settings.twoFactorVerify': 'சரிபார்த்து இயக்கு',
   'sideNavBar.appSubtitle': 'AI தரவு ஆய்வாளர்',
   'sideNavBar.datasets': 'தரவுத்தொகுப்புகள்',
   'sideNavBar.newAnalysis': 'புதிய பகுப்பாய்வு',
   'sideNavBar.queries': 'வினவல்கள்',
   'signup.failed': 'பதிவு தோல்வியடைந்தது',
+  'signup.haveAccount': 'ஏற்கனவே கணக்கு உள்ளதா? ',
+  'signup.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
   'signup.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'signup.subheading':
     '14 நாட்கள் இலவசம். கடன் அட்டை தேவையில்லை. ஒரு CSV கோப்பைக் கொண்டு வாருங்கள் — மீதியை கிளாரியன் பார்த்துக்கொள்ளும்.',
   'topNavBar.help': 'உதவி',
   'topNavBar.lastDays': 'கடைசி {{நாட்கள்}} நாட்கள்',
   'topNavBar.userProfileAlt': 'பயனர் சுயவிவரம்',
+  'upload.dropPrompt': 'கோப்பை இங்கே இடவும், அல்லது உலாவ கிளிக் செய்யவும்.',
   'upload.maxSize': 'மேக்ஸ் {{size}}',
   'upload.noRecent': 'இன்னும் பதிவேற்றங்கள் எதுவும் இல்லை.',
   'upload.recentHeading': 'சமீபத்திய பதிவேற்றங்கள்',
@@ -175,9 +233,13 @@ export const ui: UiTranslations = {
   'upload.uploading': 'பதிவேற்றப்படுகிறது…',
   'upload.viewCta': 'தரவுத்தொகுப்புகள் →',
   'uploadDropZone.eyebrow': 'ஒரு கோப்பை இடவும் · அல்லது உலாவ கிளிக் செய்யவும்',
+  'uploadDropZone.fileInputLabel': 'பதிவேற்ற ஒரு கோப்பைத் தேர்ந்தெடுக்கவும்',
+  'uploadDropZone.maxSize':
+    'அதிகபட்ச கோப்பு அளவு {{size}} · மிகப்பெரிய தரவுத்தொகுப்புகளுக்கு CSV விரும்பத்தக்கது',
   'uploadDropZone.readyEyebrow': 'பகுப்பாய்வு செய்ய தயார்',
   'uploadDropZone.subtitle':
     'உங்கள் கோப்பு வந்தடைந்த உடனேயே, கிளாரியன் ஸ்கீமாவைத் தானாகவே கண்டறிந்து, புள்ளிவிவரங்களைச் செயல்படுத்தி, முரண்பாடுகளை வெளிக்கொணர்கிறது.',
+  'uploadDropZone.title': 'உங்கள் தரவுத்தொகுப்பைப் பதிவேற்றவும்',
   'uploadDropZone.unknownType': 'அறியப்படாத வகை',
   'userMenu.datasets': 'எனது தரவுத்தொகுப்புகள்',
 }

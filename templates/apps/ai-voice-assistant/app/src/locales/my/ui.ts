@@ -5,7 +5,13 @@ export const ui: UiTranslations = {
     'တုံ့ပြန်ချက်ရှိပါသလား၊ အင်္ဂါရပ်တောင်းဆိုချက်ရှိပါသလား၊ သို့မဟုတ် bug တစ်ခုတွေ့ပါသလား။ သင့်အကောင့်မီနူးရှိ ပံ့ပိုးမှုလင့်ခ်မှတစ်ဆင့် {{app}} အဖွဲ့ထံ ဆက်သွယ်ပါ — မက်ဆေ့ချ်တိုင်းသည် လူသားအစစ်အမှန်ထံ ရောက်ရှိပါသည်။',
   'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.intro':
+    '{{app}} သည် အသံဖြင့် အသုံးပြုနိုင်သော AI အကူအညီပေးသူ ဖြစ်သည်။ သဘာဝကျစွာ ပြောဆိုပါ၊ သင့်စကားလုံးများ စာသားအဖြစ် ပြောင်းလဲသွားသည်ကို ကြည့်ပါ၊ ပြီးလျှင် ပြန်လည်ပြောဆိုထားသော အဖြေများကို ရယူပါ — ထို့ကြောင့် အားလုံးကို စာရိုက်မနေဘဲ အသံထွက်တွေးတောနိုင်သည်။',
+  'about.missionBody':
+    'စာရိုက်ခြင်းသည် သင့်အတွေးအခေါ်များနှင့် ၎င်းတို့ကို ထုတ်ဖော်ခြင်းအကြား အတားအဆီးတစ်ခု ဖြစ်သည်။ {{app}} သည် ၎င်းကို ဖယ်ရှားရန် တည်ရှိသည် — အကောင်းဆုံးအဆင့်မီ စကားပြောခြင်းနှင့် ဆင်ခြင်တွေးခေါ်မှု မော်ဒယ်များဖြင့် ပံ့ပိုးထားသော၊ သင့်ဒေတာကို သီးသန့်ထားရှိစဉ် လက်မလိုဘဲ စကားပြောဆိုနိုင်သော နည်းလမ်းတစ်ခုဖြစ်သည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'agentDetail.back': 'အေးဂျင့်အားလုံး',
+  'agentDetail.behavior': 'အပြုအမူ',
   'agentDetail.capabilities': 'စွမ်းရည်များ',
   'agentDetail.delete': 'ပုဂ္ဂိုလ်ရေးကို ဖျက်ပါ',
   'agentDetail.deleteConfirm': 'ဒီပုဂ္ဂိုလ်ကို ဖျက်မလား။ ဒါကို ပြန်ပြင်လို့မရပါဘူး။',
@@ -39,15 +45,20 @@ export const ui: UiTranslations = {
   'agents.subtitle':
     'အေးဂျင့်တိုင်းမှာ ကိုယ်ပိုင်လေသံ၊ အရှိန်အဟုန်နဲ့ အထူးပြုချက်တွေ ရှိပါတယ်။ စကားပြောဆိုနေချိန်မှာ အချိန်မရွေး ပြောင်းလဲနိုင်ပါတယ်။',
   'agents.title': 'စဉ်းစားရန် အသံတစ်ခုကို ရွေးချယ်ပါ။',
+  'authShell.tagline': '{{tagline}} — {{brand}}',
+  'billing.cardNoneBody':
+    'အဆင့်မြှင့်သည့်အခါ တစ်ခု ထည့်ပါ — သိုလှောင်မှုအားလုံးကို Stripe က ကိုင်တွယ်သည်။',
   'billing.cardNoneTitle': 'မှတ်တမ်းတွင် ကတ်မရှိပါ',
   'billing.choose': 'ပြောင်းပါ',
   'billing.currentPlan': 'မင်းရဲ့အစီအစဉ်',
   'billing.currentPlanReadout': '{{plan}} အစီအစဉ်',
   'billing.eyebrow': 'အစီအစဉ်နှင့် အသုံးပြုမှု',
   'billing.fetchError': 'ငွေတောင်းခံလွှာအချက်အလက်များကို တင်၍မရပါ။',
+  'billing.loadingStatus': 'အခြေအနေ တင်နေသည်…',
   'billing.noTiers': 'လောလောဆယ်တွင် မည်သည့်အစီအစဉ်မျှ မရှိပါ။',
   'billing.plansTitle': 'အစီအစဉ်များ',
   'billing.switching': 'ပြောင်းလဲနေသည်…',
+  'billing.updateAcknowledged': '{{time}} တွင် အပ်ဒိတ်ကို အသိအမှတ်ပြုပြီးပါပြီ',
   'billing.updateError': 'အပ်ဒိတ်လုပ်ခြင်းကို စတင်၍မရပါ။',
   'billing.usageHeading': 'ဤစက်ဝန်းတွင် အသံအသုံးပြုမှု',
   'chatBubble.source.text': 'စာသား',
@@ -67,11 +78,13 @@ export const ui: UiTranslations = {
   'conversation.title': 'ဆွေးနွေးကြည့်ပါ',
   'conversation.toggleMic': 'မိုက်ခရိုဖုန်း ပြောင်းရန်',
   'conversation.toggleVoicePlayback': 'အသံဖွင့်ခြင်း',
+  'conversation.transcribeError': 'အသံကို စာသားအဖြစ် ပြောင်းလဲ၍ မရပါ။',
   'conversation.transcriptionEmpty': 'ဘာမှ မကြားရဘူး။ ထပ်ကြိုးစားကြည့်မလား။',
   'conversation.voiceOff': 'အသံပိတ်ထားသည်',
   'conversation.voiceOn': 'အသံဖွင့်ထားသည်',
   'conversationDetail.assistant': 'လက်ထောက်',
   'conversationDetail.back': 'သမိုင်းသို့ ပြန်သွားပါ',
+  'conversationDetail.elapsed': '00:00 / {{duration}}',
   'conversationDetail.empty': 'ဤစကားဝိုင်းတွင် မက်ဆေ့ချ်များ မရှိသေးပါ။',
   'conversationDetail.eyebrow': 'မှတ်တမ်း',
   'conversationDetail.fetchError': 'စာသားမှတ်တမ်းကို တင်၍မရပါ။',
@@ -82,6 +95,7 @@ export const ui: UiTranslations = {
   'conversationDetail.setSpeed': 'ဖွင့်သည့်အမြန်နှုန်းကို အောက်ပါအတိုင်း သတ်မှတ်ပါ {{speed}}',
   'conversationDetail.system': 'စနစ်',
   'conversationDetail.untitled': 'ခေါင်းစဉ်မဲ့ စကားဝိုင်း',
+  'conversationListItem.messageCount': '{{count}} မက်ဆေ့ခ်ျ',
   'forgotPassword.subheading':
     'သင့်အီးမေးလ်ကို ရိုက်ထည့်ပါ၊ ကျွန်ုပ်တို့က ပြန်လည်သတ်မှတ်ရန်လင့်ခ်ကို ပေးပို့ပါမည်။',
   'forgotPassword.successBody': 'ကျွန်တော်တို့ reset link ပို့လိုက်ပါပြီ {{email}} ။',
@@ -98,6 +112,10 @@ export const ui: UiTranslations = {
   'history.voiceOnly': 'အသံသာ',
   'landing.copyright': '© {{year}} {{brand}} ။ ကျယ်ကျယ်စဉ်းစားပါ။',
   'landing.demoMessage1': 'ဟိုင်း ဆာရာ — ကမ်ပိန်းအသစ်ကို စဉ်းစားဖို့ အဆင်သင့်ဖြစ်ပြီလား။',
+  'landing.demoMessage2':
+    'ဟုတ်ကဲ့ — Q3 အတွက် သဘာဝအလျောက် တိုးတက်မှု မဟာဗျူဟာများကို အာရုံစိုက်ကြရအောင်။',
+  'landing.demoMessage3':
+    'ကောင်းပါတယ်။ ကျွန်တော် လူထုဦးဆောင်သော ဆောင်ရွက်ချက်တစ်ခုဖြင့် စတင်မည်။ အဆင့်များကို အကြမ်းဖျင်း ရေးပြပေးရမလား။',
   'landing.eyebrow': 'အသံဖြင့် အလိုအလျောက်လုပ်ဆောင်နိုင်သော AI',
   'landing.featuresSubtitle':
     'သဘာဝကျသော စကားပြောဆိုမှုအတွက် တည်ဆောက်ထားသည် — သင့်အမြန်နှုန်း၊ လေသံနှင့် အကြောင်းအရာနှင့် လိုက်လျောညီထွေဖြစ်အောင် ပြုလုပ်ထားသည်။',
@@ -127,10 +145,12 @@ export const ui: UiTranslations = {
   'parlanceLayout.openMenu': 'လမ်းညွှန်မီနူးကို ဖွင့်ပါ',
   'parlanceLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
   'pricing.conversations': '{{count}} စကားပြောဆိုမှုများ',
+  'pricing.cta.start': '{{tierName}} ကို ရွေးပါ',
   'pricing.cta.startFree': 'အခမဲ့စတင်လိုက်ပါ',
   'pricing.cta.upgrade': 'အဆင့်မြှင့်တင်ရန် {{tierName}}',
   'pricing.empty': 'လောလောဆယ်တွင် မည်သည့်အစီအစဉ်မျှ မရှိပါ။',
   'pricing.error': 'ဈေးနှုန်းတင်၍မရပါ။ နောက်မှ ထပ်မံကြိုးစားပါ။',
+  'pricing.speech': '{{count}} စကားပြောခြင်း',
   'pricing.subtitle':
     'သင့်လက်ထောက်နှင့် မည်မျှမကြာခဏ စကားပြောဆိုရမည်နှင့် ကိုက်ညီသော အစီအစဉ်တစ်ခုကို ရွေးချယ်ပါ။',
   'privacy.collection.account': 'သင့်အကောင့် အီးမေးလ်နှင့် ပြသထားသောအမည်',
@@ -139,6 +159,8 @@ export const ui: UiTranslations = {
   'privacy.deletion.body':
     'သက်ဆိုင်ရာစာမျက်နှာမှ စကားပြောဆိုမှု၊ ကိုယ်ရေးကိုယ်တာ သို့မဟုတ် အသံကလစ်ကို အချိန်မရွေး ဖျက်နိုင်ပါသည်။ သင့်အကောင့်ကို ဆက်တင်များမှ ဖျက်ခြင်းဖြင့် သင့်အလုပ်ခွင်နှင့် ချိတ်ဆက်ထားသော စကားပြောဆိုမှု၊ မှတ်တမ်းနှင့် ကိုယ်ရေးကိုယ်တာအတန်းတိုင်းကို ဖျက်ပစ်ပါသည်။',
   'privacy.eyebrow': 'ဥပဒေရေးရာ',
+  'privacy.intro':
+    '{{app}} သည် သင်ဖန်တီးသော စကားပြောဆိုမှုများနှင့် အသံကလစ်များကို အကူအညီပေးသူ အတွေ့အကြုံကို ပေးအပ်ရန် လိုအပ်သလောက်သာ သိမ်းဆည်းထားသည်။ ကျွန်ုပ်တို့သည် သင့်ဒေတာကို ဘယ်သောအခါမျှ ရောင်းချမည်မဟုတ်ပါ၊ ပြင်ပ AI မော်ဒယ်များကို လေ့ကျင့်ရန် ဖောက်သည် အသံ သို့မဟုတ် စာသားမှတ်တမ်းများကို ဘယ်သောအခါမျှ အသုံးမပြုပါ။',
   'privacy.lastUpdated': 'နောက်ဆုံးအပ်ဒိတ်လုပ်ခဲ့သည့်ရက်စွဲ: ၂၀၂၆-၀၅-၀၁',
   'privacy.processors.body':
     'သင့်လက်ထောက်နှင့် စကားပြောသောအခါ သင့်အသံကို စာသားပြန်ဆိုရန်အတွက် OpenAI Whisper သို့၊ သင့်စာသားပြန်ဆိုမှုကို Anthropic (Claude) သို့ အကြောင်းပြန်ပြီး အသံပေါင်းစပ်မှုအတွက် ElevenLabs သို့မဟုတ် OpenAI သို့ အကြောင်းပြန်ပါသည်။ ဝန်ဆောင်မှုပေးသူတိုင်းသည် ၎င်းတို့၏ကိုယ်ပိုင်ဒေတာလုပ်ဆောင်ခြင်းဆိုင်ရာ စည်းကမ်းချက်များဖြင့် ချည်နှောင်ထားပြီး ပြန်လည်လေ့ကျင့်ရန်အတွက် မည်သည့်အရာကိုမျှ သိမ်းဆည်းထားခြင်းမရှိပါ။',
@@ -160,13 +182,19 @@ export const ui: UiTranslations = {
   'resetPassword.newPassword': 'စကားဝှက်အသစ်',
   'resetPassword.subheading': 'စကားပြောဆိုရန်အတွက် စကားဝှက်အသစ်တစ်ခုကို ရွေးချယ်ပါ။',
   'search.agentPreview': 'ဖော်ပြချက်မရှိပါ',
+  'search.emptyBody': 'အခြားသော သော့ချက်စကားလုံးတစ်ခုကို စမ်းကြည့်ပါ သို့မဟုတ် အသံထွက်၍ ပြောပါ။',
   'search.emptyTitle': 'ကိုက်ညီမှုမရှိပါ',
   'search.eyebrow': 'ညွှန်ကြားချက် ပြား',
   'search.fetchError': 'ရှာဖွေမှုအညွှန်းကို တင်၍မရပါ။',
+  'search.static.billing.preview': 'အစီအစဉ်များ၊ ငွေပေးချေမှုနည်းလမ်းနှင့် ငွေတောင်းခံလွှာများ',
+  'search.static.billing.title': 'ငွေတောင်းခံခြင်း',
   'search.static.profile.preview': 'ပြသရန်အမည်၊ လက်ကိုင်၊ အတ္ထုပ္ပတ္တိ',
+  'search.static.profile.title': 'ပရိုဖိုင်',
+  'search.static.voice.preview': 'မူလအသံနှင့် ဘာသာစကား ဦးစားပေးချက်များ',
   'search.static.voice.title': 'အသံ',
   'search.title': 'စကားအသုံးအနှုန်းရှာဖွေခြင်း',
   'search.transcriptPreview': 'မှတ်တမ်းဖွင့်ပါ',
+  'settings.appearance.description': 'အလင်းနှင့် အမှောင်မုဒ်အကြား ပြောင်းပါ။',
   'settings.appearance.title': 'အသွင်အပြင်',
   'settings.loadError': 'ဆက်တင်များကို တင်၍မရပါ။',
   'settings.privacy.${row.key}.label': 'အကြောင်းကြားချက်များ',
@@ -183,6 +211,8 @@ export const ui: UiTranslations = {
   'terms.changes.body':
     'ဤစည်းကမ်းချက်များ သိသိသာသာပြောင်းလဲသွားပါက အက်ပ်အတွင်း အကြောင်းကြားပေးပါမည်။ အသိပေးချက်ပြီးနောက် ဆက်လက်အသုံးပြုခြင်းသည် အပ်ဒိတ်များကို သင်လက်ခံသည်ဟု ဆိုလိုပါသည်။',
   'terms.eyebrow': 'ဥပဒေရေးရာ',
+  'terms.intro':
+    'ဤစည်းကမ်းချက်များသည် {{app}} ကို သင်အသုံးပြုခြင်းကို စီမံခန့်ခွဲသည်။ အကောင့်တစ်ခု ဖန်တီးခြင်းဖြင့် သင်သည် ၎င်းတို့ကို သဘောတူပါသည်။',
   'terms.lastUpdated': 'နောက်ဆုံးအပ်ဒိတ်လုပ်ခဲ့သည့်ရက်စွဲ: ၂၀၂၆-၀၅-၀၁',
   'terms.title': 'ဝန်ဆောင်မှုဆိုင်ရာ စည်းကမ်းချက်များ',
   'terms.usage.body':

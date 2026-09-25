@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Имате обратна връзка, открихте бъг или искате собствена дъска в {{appName}}? Отворете Настройки, за да се свържете с екипа — всяко съобщение стига до истински човек, който го чете.',
+  'about.contactTitle': 'Свържете се с нас',
+  'about.featureModeration':
+    'Публичен пътна карта с етикети за тримесечия, списък с промени, който превръща свършената работа в бележки за изданието, и табло, което показва какво иска най-много публиката.',
+  'about.featurePricing':
+    'Безплатно е да управлявате няколко дъски; плановете Pro и Team отключват повече дъски, по-високи лимити и експорт на данни.',
+  'about.featureThreads':
+    'Публични дъски за обратна връзка, организирани по тема, със сливане на дубликати, което обединява гласовете в един честен сигнал за търсене.',
+  'about.featureVoting':
+    'Гласуване с един глас на потребител и пълен работен поток със статуси — отворено, планирано, в процес на работа, издадено или отказано — и официален отговор за всяко решение.',
+  'about.intro':
+    '{{appName}} е платформа за обратна връзка за продукти — публични дъски, където клиентите публикуват заявки, гласуват за това, което им трябва, и следят всяка идея от планирана до издадена. Екипите спират да гадаят какво да разработят следващо, защото търсенето се подрежда само.',
+  'about.missionBody':
+    'Вярваме, че най-добрите продуктови решения се вземат открито. {{appName}} дава на всеки екип публична дъска със заявки, подкрепени с гласове, официален пътна карта с целеви тримесечия и списък с промени, който затваря цикъла — така клиентите виждат своето влияние, а екипите виждат своя мандат.',
+  'about.missionTitle': 'Нашата мисия',
   'admin.backToBoards': 'Обратно към дъските',
   'admin.denied': 'Само за администратори.',
   'admin.eyebrow': 'Продуктов екип',
@@ -11,6 +27,8 @@ export const ui: UiTranslations = {
   'admin.title': 'Табло за обратна връзка',
   'admin.topOpen': 'Топ отворени заявки',
   'admin.totalVotes': '{{count}} общо',
+  'admin.votesChartLabel':
+    'Стълбовидна диаграма на подадените гласове на седмица през последните осем седмици',
   'admin.votesOverTime': 'Гласове във времето',
   'auth.forgotPassword.email': 'Имейл',
   'auth.forgotPassword.sendResetLink': 'Изпрати линк за нулиране',
@@ -30,7 +48,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Създайте своя акаунт',
   'auth.username': 'Потребителско име',
   'authShell.communities': 'Общности',
+  'authShell.copyright': '{{appName}} — всеки глас е от значение.',
   'authShell.trending': 'Актуално',
+  'boardCard.postCount': '{{count}} публикации',
   'boardDetail.allBoards': 'Всички дъски',
   'boardDetail.backToBoards': 'Обратно към дъските',
   'boardDetail.empty': 'Все още няма публикации, съответстващи на тези филтри.',
@@ -54,6 +74,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Всяка позиция започна като гласувана заявка. Гласувалите видяха как се движи; ето къде е приключила.',
   'changelog.title': 'Пуснато, с доказателства',
+  'changelog.voteCount': '{{count}} гласа доведоха до това',
   'common.atLeast8Characters': 'Поне 8 знака',
   'common.checkYourInbox': 'Проверете входящата си поща',
   'common.loadingEllipsis': 'Зареждане…',
@@ -64,6 +85,8 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Изпращане…',
   'footer.about': 'Относно {{appName}}',
   'footer.language': 'Език',
+  'forgotPassword.description': 'Въведете имейл адреса си и ще ви изпратим линк за нулиране.',
+  'forgotPassword.successBody': 'Изпратихме линк за нулиране на {{email}} Изтича след 30 минути.',
   'forgotPassword.tryAnother': 'Опитайте с друг имейл',
   'form.displayName': 'Показвано име',
   'form.firstName': 'Собствено име',
@@ -74,6 +97,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'Вашата пътна карта, подкрепена с гласове.',
   'landing.heroCtaPrimary': 'Започнете да събирате гласове',
   'landing.heroCtaSecondary': 'Вижте действаща дъска',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Спрете да гадаете. Издавайте това, за което гласуват.',
+  'landing.heroLede':
+    '{{appName}} превръща разпръснатите заявки за функции в публична дъска с идеи, подкрепени с гласове, официален пътна карта и списък с промени, който клиентите ви наистина четат.',
   'landing.heroStat1': '3,200+',
   'landing.heroStat1Label': 'Екипи слушат',
   'landing.heroStat2': '1.4m',
@@ -85,9 +112,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Дневник на промените',
   'landing.navJoin': 'Присъединете се към {{appName}}',
   'landing.navRoadmap': 'Пътна карта',
+  'landing.step1Body':
+    'Клиентите публикуват идеи на публични дъски. Дубликатите се сливат, гласовете се обединяват и търсенето се подрежда само.',
   'landing.step1Title': 'Събиране',
+  'landing.step2Body':
+    'Отбележете заявките като планирани или в процес на работа с целево тримесечие — пътната карта се обновява веднага щом го направите.',
+  'landing.step2Title': 'Потвърди',
   'landing.step3Body':
     'Пуснатите публикации стават записи в дневника на промените и всеки гласувал вижда резултата в собствения си списък.',
+  'landing.step3Title': 'Издай',
   'landing.topSubtitle': 'На живо от тази дъска — влезте, за да добавите своя глас.',
   'landing.topTitle': 'За какво потребителите питат точно сега',
   'landing.topViewAll': 'Всички дъски',
@@ -95,14 +128,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Начално',
   'layout.signUp': 'Регистрация',
   'layout.submit': 'Изпрати обратна връзка',
+  'login.description': 'Продължете оттам, откъдето разговорът е спрял.',
+  'login.heading': 'Влезте в Nimbus',
+  'login.noAccount': 'Нов тук?',
   'login.passwordPlaceholder': 'Вашата парола',
   'login.twoFactorLabel': '2FA код (по избор)',
   'login.twoFactorPlaceholder': '6-цифрен код',
+  'login.twoFactorRequiredHint':
+    'Този акаунт има включена двуфакторна автентикация. Въведете 6-цифрения код от приложението си за автентикация, за да продължите.',
   'login.twoFactorRequiredLabel': 'Въведете вашия 2FA код',
+  'myActivity.browseCta': 'Разгледайте дъските',
+  'myActivity.emptyPosts': 'Все още не сте публикували заявка.',
+  'myActivity.emptyVotes': 'Още нищо — разгледайте дъските и подкрепете идея.',
   'myActivity.eyebrow': 'Вашата активност',
   'myActivity.loadError': 'Не успяхме да заредим вашата дейност.',
   'myActivity.postsTitle': 'Заявки, които сте изпратили',
+  'myActivity.shippedNote': '{{count}} от тях са издадени — благодарим за подсещането.',
   'myActivity.submitCta': 'Публикувайте заявка',
+  'myActivity.tabLabel': 'Виж',
   'myActivity.tabPosts': 'Моите публикации',
   'myActivity.tabVotes': 'Моите гласове',
   'myActivity.votesTitle': 'Заявки, за които сте гласували',
@@ -137,8 +180,12 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Публикацията не е намерена',
   'postsAdmin.backToDashboard': 'Табло',
   'postsAdmin.eyebrow': 'Продуктов екип',
+  'postsAdmin.mergeApplied': 'Слято — преместени са {{votes}} гласа и {{comments}} коментара.',
   'postsAdmin.mergeApply': 'Обедини и премести гласове',
   'postsAdmin.mergeChoose': 'Изберете целева публикация…',
+  'postsAdmin.mergeFailed': 'Сливането не бе успешно.',
+  'postsAdmin.mergeHint':
+    'Гласовете се обединяват (по един на потребител), коментарите се преместват, а тази публикация получава бележка „преместена“.',
   'postsAdmin.mergeLabel': 'Обедини дубликат в',
   'postsAdmin.responseLabel': 'Официален отговор',
   'postsAdmin.responsePlaceholder':
@@ -154,7 +201,13 @@ export const ui: UiTranslations = {
     'Задайте официалния статус, отговорете публично, етикетирайте тримесечието на пътната карта и обединете дубликати.',
   'postsAdmin.title': 'Управление на публикации с обратна връзка',
   'postsAdmin.votes': '{{count}} гласа',
+  'pricing.limits.advancedFeatures': 'Разширени функции:',
+  'pricing.limits.boards': '{{count}} дъски',
   'pricing.limits.export': 'Експорт на данни:',
+  'pricing.limits.posts': '{{count}} публикации с обратна връзка',
+  'pricing.limits.votes': '{{count}} гласа',
+  'resetPassword.description':
+    'Изберете надежден. Ще ви впишем в профила, след като нулирането е успешно.',
   'resetPassword.newPasswordLabel': 'Нова парола',
   'resetPassword.tokenPlaceholder': 'Поставете токена от линка',
   'roadmap.cardMeta': 'от {{author}} · {{board}}',
@@ -171,6 +224,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'Въведете запитване, за да намерите съществуващи заявки, преди да публикувате дубликат.',
   'search.loadError': 'Търсенето се провали — опитайте отново.',
+  'search.searching': 'Търсене…',
   'search.submit': 'Търсене',
   'search.submitNew': 'Публикувайте го като нова заявка',
   'search.title': 'Търсене на обратна връзка',
@@ -179,12 +233,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'Фактуриране',
   'settings.displaySubtitle': 'Изберете колко плътни са емисиите.',
   'settings.displayTitle': 'Изглед',
+  'settings.emailDigestDesc': 'Най-гласуваните отворени заявки всеки понеделник.',
+  'settings.emailDigestLabel': 'Седмичен обзор',
+  'settings.emailMentionsDesc': 'Когато някой отговори на публикация, която следвате.',
+  'settings.emailMentionsLabel': 'Изпращай ми имейл при споменавания',
+  'settings.emailRepliesDesc': 'Теми, които сте започнали или в които сте отговорили.',
+  'settings.emailRepliesLabel': 'Изпращай ми имейли за отговори',
   'settings.loadError': 'Не можа да се зареди вашият акаунт.',
   'settings.loading': 'Зареждане на вашите настройки…',
   'settings.notifications': 'Известия',
   'settings.notificationsSubtitle':
     'Решете какво достига до входящата ви кутия спрямо устройството ви за push.',
+  'settings.pushRepliesLabel': 'Известие при отговор',
+  'settings.pushVotesDesc': 'Сигнал при достигане на 100, 500, 1000.',
+  'settings.pushVotesLabel': 'Настоявайте за етапи на гласуване за одобрение',
   'settings.saveAccount': 'Запази акаунт',
+  'settings.showFlair': 'Показвай етикетите на дъските в публикациите',
+  'settings.showThumbnails': 'Показвай миниатюри на връзки/изображения',
   'settings.usernamePlaceholder': 'Изберете потребителско име',
   'signup.confirmPlaceholder': 'Въведете го отново',
   'signup.description': 'Оформете какво изграждаме следващо.',

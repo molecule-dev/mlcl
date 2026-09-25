@@ -1,11 +1,33 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May mga tanong tungkol sa booking, feedback, o property na sa tingin mo ay dapat nasa {{app}}? Makipag-ugnayan sa aming team mula sa iyong account — bawat mensahe ay napupunta sa isang tunay na tao na makakatulong.',
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol sa amin',
+  'about.featureLoyalty':
+    'Mga rate na para sa mga miyembro lang at loyalty program na nagbibigay ng points, late checkouts, at room upgrades sa bawat booking.',
+  'about.featureReviews':
+    'Mga verified na review ng guest at editorial picks para mapagkakatiwalaan mo ang stay bago ka pa dumating.',
+  'about.featureRooms':
+    'Magkatabing paghahambing ng mga kuwarto, rate, at amenity na may transparent at all-in na presyo — kasama na ang taxes at resort fees bago ka magbayad.',
+  'about.featureSearch':
+    'Real-time na paghahanap sa mga vetting na hotel na may live availability, map view, at mayayamang photo gallery.',
+  'about.featureTrips':
+    'Mga naka-save na paborito at Trips dashboard na nag-iingat sa bawat reservation, itinerary, at confirmation sa isang lugar.',
+  'about.intro':
+    'Ang {{app}} ay isang hotel-booking platform para sa mga traveler na mahalaga ang kalidad. Bawat property ay personal na vinevet ng aming editorial team — walang aggregator inventory, walang bait-and-switch na listing. Maghanap ng tunay na availability, ihambing ang mga kuwarto, rate, at amenity nang magkatabi, pagkatapos ay mag-book sa ilang tap lang gamit ang malinaw at all-in na presyo.',
+  'about.missionBody':
+    'Dapat kalmado at tapat ang pag-book ng matutuluyan. Ipinapakita namin ang transparent na rate kasama na ang taxes at resort fees sa simula pa lang, ginagantimpalaan namin ang loyal na guest sa halip na singilin sila nang labis, at inuuna namin ang mga stay na sulit ang pera mo — para mas kaunting oras ang gugugulin mo sa paghahambing ng mga tab at mas marami sa mismong trip.',
+  'about.missionTitle': 'Ang aming misyon',
+  'about.subtitle':
+    'Isang curated at transparent na paraan para mahanap at ma-book ang tamang hotel.',
   'account.loyalty.activitySummary': '{{nights}} mga gabi · {{spend}} ginugol ngayong taon',
+  'account.loyalty.benefitsHeading': 'Mga benepisyo mo',
   'account.loyalty.heading': 'Katapatan',
   'account.loyalty.loading': 'Naglo-load ng katapatan…',
-  'account.loyalty.pointsTowardNext': '{{mga puntos}} / {{susunod}} tumuturo sa {{nextTier}}',
+  'account.loyalty.maxTier': 'Top tier — i-enjoy ang iyong mga benepisyo.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} points hanggang {{nextTier}}',
   'account.loyalty.tier': 'Kasalukuyang antas',
   'account.loyalty.unavailable': 'Hindi magagamit ang impormasyon tungkol sa katapatan.',
   'account.navLabel': 'Mga seksyon ng account',
@@ -23,6 +45,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.datesRequired':
     'Mangyaring piliin ang mga petsa ng iyong check-in at check-out.',
   'bookingCheckout.guestHeading': 'Pangunahing panauhin',
+  'bookingCheckout.heading': 'Kumpirmahin at i-book',
   'bookingCheckout.loadError': 'Nabigong i-load ang property.',
   'bookingCheckout.nights': '{{rate}} × {{count}} mga gabi',
   'bookingCheckout.notFound': 'Hindi natagpuan ang ari-arian.',
@@ -33,11 +56,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Mga buwis at bayarin',
   'bookingCheckout.tripHeading': 'Ang iyong biyahe',
   'bookingConfirmation.allTripsCta': 'Lahat ng biyahe',
+  'bookingConfirmation.confNumber': 'Confirmation number: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Pinoproseso na ang iyong reservation.',
   'bookingConfirmation.heading': 'Nakumpirma na ang booking',
   'bookingConfirmation.loading': 'Nilo-load ang iyong reserbasyon…',
   'bookingConfirmation.searchMoreCta': 'Mag-browse ng higit pang mga matutuluyan',
   'bookingConfirmation.subheadingForTrip':
-    '{{ari-arian}} sa {{lungsod}} , {{bansa}} Magkikita tayo sa {{checkIn}} .',
+    '{{property}} sa {{city}}, {{country}}. Magkita tayo sa {{checkIn}}.',
   'bookingConfirmation.total': 'Kabuuan {{total}}',
   'bookingConfirmation.viewTripCta': 'Tingnan ang biyahe',
   'common.goToDashboard': 'Pumunta sa Dashboard',
@@ -47,6 +73,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Nabigong i-load ang mga paborito.',
   'favorites.pricePerNight': '{{price}} / gabi',
   'favorites.removeCta': 'I-unsave',
+  'favorites.removing': 'Tinatanggal…',
   'forgotPassword.subheading':
     'Ilagay ang email sa iyong account at padadalhan ka namin ng secure na reset link.',
   'forgotPassword.successBody':
@@ -55,6 +82,8 @@ export const ui: UiTranslations = {
   'landing.cta.heading':
     'Mga rate para sa mga miyembro lamang. Bawat booking, sa bawat pagkakataon.',
   'landing.cta.signup': 'Gumawa ng libreng account',
+  'landing.cta.subheading':
+    'Kumita ng loyalty points sa bawat stay, i-unlock ang late checkouts at room upgrades, at mauna sa pag-access sa mga bagong property bago pa ito mailista sa publiko.',
   'landing.destinations.eyebrow': 'Saan susunod',
   'landing.destinations.heading': 'Mga itinatampok na destinasyon',
   'landing.destinations.seeAll': 'Tingnan ang lahat ng destinasyon',
@@ -63,13 +92,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Mga kwentong sulit ipagbili',
   'landing.nav.join': 'Sumali sa Panuluyan',
   'landing.nav.search': 'Mga pananatili sa paghahanap',
+  'landing.preview.browseAll': 'Tingnan ang buong koleksyon',
   'landing.preview.eyebrow': 'Isang sulyap sa loob',
   'landing.preview.heading': 'Mga piling tuluyan ngayong buwan',
+  'landing.preview.subheading':
+    'Bawat property sa {{appName}} ay personal na vinevet ng aming editorial team — walang aggregator inventory, walang bait-and-switch na listing.',
   'login.eyebrow': 'Lugar ng mga Miyembro',
+  'login.noAccount': 'Bago sa Tessera?',
   'login.signupLink': 'Gumawa ng libreng account',
   'login.subheading':
     'Mag-sign in para pamahalaan ang iyong mga biyahe, tingnan ang mga kumpirmasyon, at ipagpatuloy kung saan ka tumigil.',
+  'loyaltyTierBadge.points': '{{points}} puntos',
   'planUpdated.heading': 'Na-update ang plano',
+  'planUpdated.retry': 'Subukan muli',
+  'planUpdated.verifyFailed': 'Hindi pa namin makumpirma ang iyong bayad.',
+  'planUpdated.verifyFailedBody':
+    'Maaaring pinoproseso pa rin ang iyong bayad. Subukan muli maya-maya.',
   'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'pricing.limit.advancedFeatures': 'Mga advanced na tampok:',
   'pricing.limit.canExport': 'Pag-export ng data:',
@@ -81,7 +119,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Ang inaalok ng lugar na ito',
   'propertyDetail.backLink': 'Balik sa paghahanap',
   'propertyDetail.bookCta': 'Reserba',
+  'propertyDetail.bookmarkAria': 'I-save ang ari-arian',
   'propertyDetail.bookmarkAriaSaved': 'Alisin mula sa mga naka-save na property',
+  'propertyDetail.galleryImageAlt': '{{name}} larawan {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} litrato ng bayani',
   'propertyDetail.hidePhotos': 'Itago ang mga larawan',
   'propertyDetail.lineCleaning': 'Bayad sa paglilinis',
@@ -91,6 +131,9 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'gabi',
   'propertyDetail.noChargeYet': 'Hindi ka pa sisingilin',
   'propertyDetail.notFound': 'Hindi natagpuan ang ari-arian.',
+  'propertyDetail.perNight': '/ gabi',
+  'propertyDetail.pickDatesHint':
+    'Piliin ang iyong mga petsa para makita ang buong breakdown ng presyo.',
   'propertyDetail.reviewCount': '( {{count}} mga review)',
   'propertyDetail.reviewsHeading': 'Mga kamakailang review',
   'propertyDetail.roomCapacity': 'Natutulog {{count}}',
@@ -103,6 +146,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Bagong password',
   'resetPassword.subheading':
     'Pumili ng bagong password para sa iyong Auberge account. Gumamit ng kahit 8 karakter; inirerekomenda namin ang isang passphrase.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Walang mga ari-arian na tumutugma sa iyong paghahanap.',
   'searchResults.emptyHint':
     'Subukang palawakin ang iyong mga filter o alisin ang price ceiling — ang Auberge ay may mga pamamalagi sa 14 na bansa.',
@@ -110,19 +154,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Mga napiling pamamalagi',
   'searchResults.headingForQuery': 'Mananatili para sa " {{q}} "',
   'searchResults.loadError': 'Nabigong i-load ang mga property.',
+  'searchResults.mapHint':
+    'I-hover ang isang card para i-highlight sa mapa. Live Mapbox tiles sa production.',
   'searchResults.mapPinAria': '{{name}} — {{price}} kada gabi',
   'searchResults.sortLabel': 'Ayusin ayon sa',
   'searchResults.subheading': '{{count}} mga ari-arian · {{guests}} mga bisita',
   'signup.eyebrow': 'Maging miyembro',
   'signup.subheading':
     'Sumali sa Auberge para sa mga rate na para lang sa mga miyembro, mga late checkout, at unang access sa mga bagong property.',
+  'sojournAuthShell.brand.eyebrow': 'Mag-stay sa isang pambihirang lugar',
+  'sojournAuthShell.brand.heading':
+    'Isang curated na koleksyon ng mga property — maganda ang presentasyon, transparent ang presyo.',
   'sojournHeroSearchCard.checkInAria': 'Petsa ng pag-check in',
   'sojournHeroSearchCard.checkOutAria': 'Petsa ng pag-check out',
+  'sojournHeroSearchCard.destAria': 'Destinasyon',
+  'sojournHeroSearchCard.destLabel': 'Saan',
   'sojournHeroSearchCard.destPlaceholder': 'Lungsod, rehiyon, o ari-arian',
   'sojournHeroSearchCard.eyebrow': 'Mga napiling pamamalagi · Mga rate para sa mga miyembro lamang',
   'sojournHeroSearchCard.guestsOption': '{{n}} mga bisita',
   'sojournHeroSearchCard.subtitle':
     'Isang piling koleksyon ng mga boutique hotel, mga property na dinisenyo nang may magandang disenyo, at mga pambihirang retreat — tapat sa presyo, at maganda ang presentasyon.',
+  'sojournHeroSearchCard.title': 'Mag-stay sa isang pambihirang lugar',
+  'sojournHeroSearchCard.trustLoyalty': 'Kumita ng points sa bawat stay',
   'sojournHeroSearchCard.trustNoFees': 'Walang mga nakatagong bayarin, kailanman',
   'sojournHeroSearchCard.trustVetted': 'Mga ari-ariang sinuri nang mano-mano lamang',
   'sojournLayout.primaryNavLabel': 'Pangunahing navigation',

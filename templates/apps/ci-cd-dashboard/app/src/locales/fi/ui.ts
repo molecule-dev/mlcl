@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kysymyksiä, palautetta tai haluatko esittelyn tiimillesi? Lähetä sähköpostia osoitteeseen hello@conduit.dev — jokainen viesti tavoittaa oikean ihmisen tiimissä.',
   'about.contactHeading': 'Ota yhteyttä',
   'about.eyebrow': 'Tietoja',
+  'about.featuresHeading': 'Mitä saat',
+  'about.introBody':
+    '{{app}} tuo GitHub Actions -tyylisen jatkuvan toimitukseen yhteen nopeaan hallintapaneeliin: putkistot, koontilokit, artefaktit, tilamerkit ja käyttöönotto-ympäristöt kaikille repositorioillesi yhdessä paikassa. Ei välilehtien välillä hyppimistä, ei arvailua siitä, mikä koonti hajosi — jokainen ajo, lokirivi ja käyttöönotto on yhden napsautuksen päässä.',
+  'about.introHeading': 'Mikä {{app}} on',
+  'about.missionBody':
+    'Ohjelmiston julkaisemisen pitäisi olla rauhallista ja ennustettavaa, ei pelon lähde. Rakennamme putkistot, lokit ja käyttöönottotyökalut, jotta polku commitista tuotantoon on nopea, näkyvä ja luotettava — ensimmäinen vihreä koonti viidessä minuutissa ja jokainen sen jälkeinen koonti yhtä selkeä.',
+  'about.missionHeading': 'Missiomme',
+  'about.subtitle':
+    '{{app}} on CI/CD-hallintapaneeli tiimeille, jotka haluavat seurata koontikertoja, käyttöönottoja ja ympäristöjä kaikissa repositorioissaan — ja julkaista varmuudella.',
   'artifacts.empty': 'Ei vielä artefakteja.',
   'artifacts.heading': 'Artefaktit',
   'artifacts.loadError': 'Artefaktien lataaminen epäonnistui.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Ympäristöt',
   'environments.loadError': 'Ympäristöjen lataaminen epäonnistui.',
+  'environments.loading': 'Ladataan ympäristöjä…',
   'environments.subheading': 'Reaaliaikainen deployment-tila kaikissa kohteissa.',
   'forgotPassword.runnerStatus': 'nollaus · suojattu tunneli',
+  'forgotPassword.success':
+    'Jos kyseisellä sähköpostilla on tili, palautuslinkki on matkalla. Tarkista postilaatikkosi.',
   'insights.changeFailureRate': 'Muutosten virheaste',
   'insights.deployFrequency': 'Deployit / päivä',
   'insights.empty': 'Ei vielä riittävästi dataa.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Analytiikan lataaminen epäonnistui.',
   'insights.meanP95': 'keskiarvo {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Hitaimmat putkistovaiheet',
   'insights.successRateHeading': 'Pipelinen onnistumisaste (viimeiset 14 päivää)',
   'landing.choosePlan': 'Valitse suunnitelma',
+  'landing.copyright': '© {{year}} {{app}}. Julkaise varmuudella.',
   'landing.ctaBody':
     'Ei luottokorttia. Ei platform-insinööriä tarvita. Saa ensimmäinen pipeline vihreäksi viidessä minuutissa.',
   'landing.ctaHeading': 'Toimita varmuudella.',
   'landing.featuresEyebrow': '// platform features',
   'landing.featuresHeading': 'Rakennettu toimittajille, toimittajien toimesta',
+  'landing.heroSubtitle':
+    'Putkistot, jotka valmistuvat sekunneissa. Lokit, joita voi lukea. Käyttöönotot, joihin voi luottaa.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Yksinkertainen, ennakoitava hinnoittelu',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Parhaillaan käynnissä',
   'pipelines.metric.successCaption': '{{count}} / {{total}} ajoa',
   'pipelines.metric.successRate': 'Onnistumisaste',
+  'pipelines.realtimeOn': 'reaaliaikainen',
   'pipelines.subheading': 'Reaaliaikaiset päivitykset kaikista seuratuista repositorioista.',
+  'pricing.advancedFeatures': 'Lisäominaisuudet: {{mark}}',
+  'pricing.canExport': 'Tietojen vienti: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artefaktia',
+  'pricing.maxBuilds': '{{count}} koontikertaa',
+  'pricing.maxPipelines': '{{count}} putkistoa',
   'privacy.dataAccount': 'Tili: nimi, sähköposti, hajautettu salasana, suunnitelmatasoitus.',
   'privacy.intro':
     '{{app}} kerää vain vähimmäistiedot, joita tarvitsemme jatkuvan toimituksen tilisi ylläpitoon: sähköpostiosoitteesi, yhdistämäsi repositoriot, runneriesi tuottamat commitit ja build-metatiedot sekä meille tallentamasi salaisuudet. Emme koskaan lue lähdekoodiasi build-runnerin ulkopuolella; build-artefaktit tallennetaan S3-buckettisi, kun se on konfiguroitu.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Käytämme Stripea laskutukseen, Mailgunia transaktiosähköposteihin ja AWS S3:a build-artefaktien tallennukseen. Jokainen on sopimusvelvoitteella sidottu tietojen minimaaliseen laajuuteen, jota tarvitaan palvelunsa toimittamiseen.',
   'privacy.rightsBody':
     'Voit viedä jokaisen tavun dataasi, poistaa tilisi milloin tahansa asetuksista ja pyytää tietoja kaikista webhook-toimituksista tilillesi. Vastaamme GDPR/CCPA-pyyntöihin 30 päivän kuluessa.',
+  'privacy.subtitle':
+    'Miten {{app}} kerää, tallentaa ja suojaa tietojasi, kun suoritamme putkistojasi.',
   'privacy.title': 'Tietosuojakäytäntö',
   'repositories.empty': 'Ei yhdistettyjä repositorioita.',
   'repositories.heading': 'Repositoriot',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Kaikki repositoriot',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Repositorion lataaminen epäonnistui.',
+  'repositoryDetail.meanDuration': 'Keskimääräinen kesto',
   'repositoryDetail.notFound': 'Repositoriota ei löydy.',
+  'repositoryDetail.successRate': 'Onnistumisprosentti',
   'repositoryDetail.totalBuilds': 'Buildit yhteensä',
   'repositoryDetail.webhookActive': 'aktiivinen',
   'repositoryDetail.webhookPaused': 'keskeytetty',
   'repositoryDetail.webhooksHeading': 'Webhookit',
+  'resetPassword.passwordLabel': 'Uusi salasana',
   'resetPassword.runnerStatus': 'nollaus · token vahvistettu',
   'resetPassword.subtitle': 'Valitse vahva salasana, jota et ole käyttänyt aiemmin.',
   'resetPassword.tokenPlaceholder': 'liitä sähköpostista',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Repositoriot, joita Conduit seuraa. Katkaise yhteys VCS-palveluntarjoajastasi lopettaaksesi tapahtumien vastaanottamisen.',
   'settings.repositories.empty': 'Ei vielä yhdistettyjä repositorioita.',
+  'settings.repositories.heading': 'Repositorioyhteydet',
   'settings.repositories.loadError': 'Repositorioiden lataaminen epäonnistui.',
   'settings.secrets.addCta': 'Lisää salaisuus',
   'settings.secrets.addError': 'Salasanan lisääminen epäonnistui.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Salaisuuden poistaminen epäonnistui.',
   'settings.secrets.empty': 'Ei tallennettuja salaisuuksia.',
   'settings.secrets.heading': 'Salaisuudet',
+  'settings.secrets.lastUsed': 'viimeksi käytetty {{date}}',
   'settings.secrets.loadError': 'Salaisuuksien lataaminen epäonnistui.',
   'settings.secrets.neverUsed': 'ei koskaan käytetty',
   'settings.secrets.rotateCta': 'Kierrä',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Webhookin päivittäminen epäonnistui.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'ilmainen taso · 1 000 build-min/kk',
+  'terms.intro':
+    'Luomalla {{app}}-tilin hyväksyt nämä ehdot. Ne kattavat koontiajureiden hyväksyttävän käytön, SLA-mme rajat ja ehdot, joiden nojalla voimme keskeyttää tai lopettaa tilisi väärinkäytösten vuoksi.',
   'terms.slaBody':
     'Pro- ja Team-suunnitelmat tavoittelevat 99,95 %:n kuukausittaista käytettävyyttä API:lle ja runner-poolille. Ilmainen suunnitelma toimitetaan sellaisenaan. Katkokset raportoidaan osoitteessa status.conduit.dev ja hyvitetään laskussasi olevan kaavan mukaan.',
   'terms.terminationBody':

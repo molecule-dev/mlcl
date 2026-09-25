@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'అభిప్రాయం ఉందా, బగ్ కనుగొన్నారా, లేదా {{app}}ని మీ పాఠశాల లేదా జట్టుకు తీసుకురావాలనుకుంటున్నారా? మేము ప్రతి సందేశాన్ని చదువుతాము — మీ ఖాతా సెట్టింగ్‌ల నుండి సంప్రదించండి, నిజమైన వ్యక్తి సమాధానం ఇస్తారు.',
   'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'గురించి',
+  'about.intro':
+    '{{app}} ఒక రోజువారీ పద పజిల్. ఆరు ప్రయత్నాలలో ఐదు అక్షరాల పదాన్ని ఊహించండి, మీ స్ట్రీక్‌ను కొనసాగించండి, మీ ఎమోజీ గ్రిడ్‌ను షేర్ చేయండి, మరియు నేటి పదంపై అందరూ ఎలా రాణించారో చూడండి.',
+  'about.missionBody':
+    'మంచి పజిల్ అంటే ప్రతిరోజూ ఒక చిన్న విజయం. {{app}} రోజుకు ఒకే షేర్ చేసిన పదం చుట్టూ రూపొందించబడింది — కాఫీ విరామానికి సరిపడేంత వేగంగా, రేపటికి తిరిగి వచ్చేంత ఆసక్తికరంగా.',
+  'about.missionTitle': 'మా లక్ష్యం',
   'about.title': '{{app}} గురించి',
   'archive.loadError': 'ఆర్కైవ్‌ను లోడ్ చేయడం సాధ్యం కాలేదు.',
   'archive.missed': 'తప్పిపోయింది',
   'archive.notPlayed': 'ఆడలేదు',
+  'archive.subhead':
+    'గతంలోని ఏ రోజునైనా ప్రాక్టీస్‌గా మళ్లీ ఆడండి — స్ట్రీక్‌లు లేవు, గణాంకాలు లేవు, సరదా మాత్రమే.',
   'archive.title': 'ఆర్కైవ్',
   'auth.backToHome': 'హోమ్‌కు తిరిగి వెళ్లండి',
   'auth.backToHomeArrow': '← హోమ్‌కు తిరిగి వెళ్లండి',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'పాస్‌వర్డ్ మర్చిపోయారా?',
   'auth.login.loggingIn': 'మిమ్మల్ని సైన్ ఇన్ చేస్తున్నాం…',
   'auth.login.logIn': 'నేటి పదాన్ని ఆడండి',
+  'auth.login.noAccount': 'టెస్సెరాకు కొత్తవారా?',
   'auth.login.or': 'లేదా ఇలా కొనసాగించండి',
   'auth.login.password': 'పాస్‌వర్డ్',
   'auth.login.signInButton': 'సైన్ ఇన్',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'సేవ్ చేస్తున్నాం…',
   'common.sendingEllipsis': 'పంపుతున్నాం…',
   'common.startingEllipsis': 'ప్రారంభిస్తున్నాం…',
+  'forgotPassword.subhead':
+    'మీ ఇమెయిల్‌ను నమోదు చేయండి, మేము మీకు రీసెట్ చేయడానికి ఒక లింక్‌ను పంపుతాము.',
+  'forgotPassword.success.body':
+    'ఖాతా ఉంటే {{email}} మీకు కొన్ని నిమిషాల్లో రీసెట్ లింక్ లభిస్తుంది.',
+  'forgotPassword.success.title': 'మీ ఇన్‌బాక్స్‌ను తనిఖీ చేయండి.',
   'form.name': 'పేరు',
   'howToPlay.cta.home': 'ఇంటికి తిరిగి వెళ్లండి',
   'howToPlay.cta.play': 'నేటి పజిల్ ఆడండి',
@@ -68,10 +83,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'విరగ్గొట్టడానికి మీరు ఇష్టపడని స్ట్రీక్‌లు',
   'leaderboard.daily.title': 'ఈరోజు పరిష్కరించినవి',
   'leaderboard.loadError': 'లీడర్‌బోర్డ్‌ను లోడ్ చేయడం సాధ్యం కాలేదు.',
+  'leaderboard.streaks.empty': 'ఇంకా స్ట్రీక్‌లు లేవు — మొదటివారు అవ్వండి.',
+  'leaderboard.streaks.subhead': 'అత్యధిక పొడవైన విజయ స్ట్రీక్‌లు.',
   'leaderboard.streaks.title': 'స్ట్రీక్ లీడర్లు',
+  'leaderboard.subhead': 'నేడు అందరూ ఎలా రాణించారో, మరియు ఎవరు పొడవైన స్ట్రీక్‌లు కలిగి ఉన్నారో.',
   'leaderboard.title': 'లీడర్‌బోర్డ్',
   'login.headline': 'తిరిగి స్వాగతం.',
   'login.streakPill': '{{days}}-రోజుల స్ట్రీక్ వేచి ఉంది',
+  'login.subhead':
+    'మీ స్ట్రీక్‌ను కొనసాగించడానికి మరియు నేటి పదంపై మీరు ఎలా రాణించారో చూడటానికి సైన్ ఇన్ చేయండి.',
   'nav.archive': 'ఆర్కైవ్',
   'nav.editProfile': 'ప్రొఫైల్‌ను సవరించండి',
   'nav.getStarted': 'ప్రారంభించండి',
@@ -89,6 +109,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · అలాంటి పదం లేదు',
   'notFound.title': 'ఆ మార్గం ఖాళీగా ఉంది.',
   'planUpdated.message': 'మీ ప్లాన్ లైవ్‌లో ఉంది.',
+  'planUpdated.retry': 'మళ్ళీ ప్రయత్నించండి',
+  'planUpdated.verifyFailed': 'మేము మీ చెల్లింపును ఇంకా ధృవీకరించలేకపోయాము.',
+  'planUpdated.verifyFailedBody':
+    'మీ చెల్లింపు ఇంకా ప్రాసెస్ అవుతూ ఉండవచ్చు. కాసేపటి తర్వాత మళ్ళీ ప్రయత్నించండి.',
   'planUpdated.verifying': 'మీ చెల్లింపును నిర్ధారిస్తున్నాం…',
   'play.alreadyFinished': 'మీరు ఈ పజిల్‌ను ఇప్పటికే పూర్తి చేసారు',
   'play.answerWas': 'పదం ఇది',
@@ -104,6 +128,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'ప్రాక్టీస్ పజిల్',
   'play.tooShort': 'తగినంత అక్షరాలు లేవు',
   'play.won': 'పరిష్కరించారు!',
+  'pricing.advancedStats': 'అధునాతన గణాంకాలు: {{yes}}',
+  'pricing.archiveHistory': '{{count}} రోజుల ఆర్కైవ్ చరిత్ర',
+  'pricing.archivePlays': '{{count}} ఆర్కైవ్ రీప్లేలు / రోజు',
+  'pricing.archiveUnlimited': 'అపరిమిత ఆర్కైవ్ చరిత్ర',
+  'pricing.canExport': 'డేటా ఎగుమతి: {{yes}}',
+  'pricing.checkoutError': 'చెక్‌అవుట్ ప్రారంభించలేకపోయాము. దయచేసి మళ్ళీ ప్రయత్నించండి.',
   'pricing.dailyWord': 'రోజువారీ పదం',
   'pricing.heading': 'మీ {{app}} ప్లాన్‌ను ఎంచుకోండి',
   'pricing.included': 'చేర్చబడింది',
@@ -111,7 +141,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'రోజువారీ పదం ఎల్లప్పుడూ ఉచితం. అపరిమిత ఆర్కైవ్ రీప్లేలు మరియు లోతైన గణాంకాల కోసం అప్‌గ్రేడ్ చేయండి.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} మీ గోప్యతను గౌరవిస్తుంది. ఈ పేజీ మేము నిల్వ చేసే డేటా, దానిని ఎందుకు నిల్వ చేస్తాము, మరియు దానిని ఎలా తొలగించాలో సంగ్రహిస్తుంది.',
   'privacy.title': 'గోప్యతా నోటీసు',
+  'resetPassword.subhead': 'మీ స్ట్రీక్‌కు తిరిగి వెళ్లడానికి కొత్త పాస్‌వర్డ్‌ను ఎంచుకోండి.',
   'settings.account': 'ఖాతా',
   'settings.danger.body': 'మీ {{appName}} ఖాతా మరియు మొత్తం పజిల్ చరిత్రను శాశ్వతంగా తొలగించండి.',
   'settings.danger.confirm': 'అవును, శాశ్వతంగా తొలగించండి',
@@ -120,17 +153,24 @@ export const ui: UiTranslations = {
   'settings.guest': 'అతిథి',
   'settings.language.title': 'భాష',
   'settings.subhead': 'మీ ప్రొఫైల్, సౌండ్ మరియు లీడర్‌బోర్డ్‌లో మీరు ఎలా కనిపించాలో ట్యూన్ చేయండి.',
+  'settings.unnamed': 'స్పార్క్ ప్లేయర్',
   'settings.upgrade': 'అప్‌గ్రేడ్',
   'signup.eyebrow': 'ఎప్పటికీ ఉచితం — రోజుకు ఒక పదం',
   'signup.headline': 'మీ స్ట్రీక్‌ను ప్రారంభించండి.',
+  'signup.subhead':
+    'రోజువారీ పదాన్ని ఆడటానికి, స్ట్రీక్‌ను నిర్మించడానికి మరియు లీడర్‌బోర్డ్‌లో ఎక్కడానికి {{appName}} ఖాతాను సృష్టించండి.',
   'stats.currentStreak': 'స్ట్రీక్',
   'stats.distribution.title': 'అంచనా పంపిణీ',
   'stats.loadError': 'మీ గణాంకాలను లోడ్ చేయడం సాధ్యం కాలేదు.',
   'stats.maxStreak': 'గరిష్ట స్ట్రీక్',
   'stats.played': 'ఆడారు',
   'stats.playToday': 'నేటి పజిల్ ఆడండి',
+  'stats.subhead':
+    'ర్యాంక్ చేసిన రోజువారీ పజిల్‌లు మాత్రమే — ఆర్కైవ్ ప్రాక్టీస్ ఎప్పుడూ లెక్కించబడదు.',
   'stats.title': 'మీ గణాంకాలు',
   'stats.winRate': 'గెలుపు రేటు',
   'status.monthly': 'నెలవారీ',
+  'terms.intro':
+    '{{app}}ని ఉపయోగించడం ద్వారా మీరు క్రింది నియమాలకు అంగీకరిస్తారు. మీరు వాటిని అంగీకరించలేకపోతే, దయచేసి సేవను ఉపయోగించవద్దు.',
   'terms.title': 'సేవా నిబంధనలు',
 }

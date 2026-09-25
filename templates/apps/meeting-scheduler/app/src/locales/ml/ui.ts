@@ -1,7 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ചോദ്യങ്ങളോ ഫീഡ്ബാക്കോ {{app}}-ൽ ഉണ്ടാകണമെന്ന് നിങ്ങൾ ആഗ്രഹിക്കുന്ന ഒരു ഫീച്ചറോ ഉണ്ടോ? ഞങ്ങൾ എല്ലാ സന്ദേശവും വായിക്കുന്നു — നിങ്ങളുടെ അക്കൗണ്ട് ക്രമീകരണങ്ങളിൽ നിന്ന് ഞങ്ങളെ ബന്ധപ്പെടുക, ടീമിലെ ഒരു യഥാർത്ഥ വ്യക്തി നിങ്ങളെ തിരികെ ബന്ധപ്പെടും.',
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'ഞങ്ങളേക്കുറിച്ച്',
+  'about.intro':
+    'സമയമാണ് അവരുടെ ഉൽപ്പന്നമായ ആളുകൾക്കുള്ള ഷെഡ്യൂളിംഗ് സോഫ്റ്റ്വെയറാണ് {{app}}. ഒരു ബുക്കിംഗ് ലിങ്ക് പങ്കിടുക, നിങ്ങളുടെ ലഭ്യത ഒരിക്കൽ സജ്ജീകരിക്കുക, എല്ലാ സമയമേഖലകളിലുമുള്ള കലണ്ടർ കണക്കുകൾ ഞങ്ങൾ കൈകാര്യം ചെയ്യട്ടെ — അങ്ങനെ ആവർത്തിച്ചുള്ള ആശയവിനിമയമില്ലാതെ മീറ്റിംഗുകൾ ബുക്ക് ചെയ്യപ്പെടും.',
+  'about.missionBody':
+    'ഷെഡ്യൂളിംഗ് പശ്ചാത്തലത്തിൽ അപ്രത്യക്ഷമാകണം എന്നാണ് ഞങ്ങൾ വിശ്വസിക്കുന്നത്. സ്ഥാപകർ, റിക്രൂട്ടർമാർ, കൺസൾട്ടന്റുകൾ, സപ്പോർട്ട് ടീമുകൾ എന്നിവർ ഇമെയിൽ ആശയവിനിമയത്തിൽ മണിക്കൂറുകൾ നഷ്ടപ്പെടുത്തരുത് — അവർ ഒരു ലിങ്ക് അയച്ച് ജോലിയിലേക്ക് മടങ്ങണം. ഓരോ ബുക്കിംഗും അനായാസവും ബ്രാൻഡിന് അനുയോജ്യവുമാക്കാൻ {{app}} നിർമ്മിച്ചിരിക്കുന്നു.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
+  'about.whatYouGetTitle': 'നിങ്ങൾക്ക് ലഭിക്കുന്നത്',
   'availability.closed': 'Closed',
   'availability.eyebrow': 'മണിക്കൂറുകൾ',
   'availability.loadError': 'ലഭ്യതാ നിയമങ്ങൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
@@ -18,7 +27,11 @@ export const ui: UiTranslations = {
   'billing.checkoutError':
     'ചെക്ക്ഔട്ട് ആരംഭിക്കാൻ കഴിഞ്ഞില്ല — ഒരു നിമിഷത്തിനുള്ളിൽ വീണ്ടും ശ്രമിക്കുക.',
   'billing.compareHeading': 'പ്ലാനുകൾ താരതമ്യം ചെയ്യുക',
+  'billing.confirmCancel':
+    'നിങ്ങളുടെ സബ്സ്ക്രിപ്ഷൻ റദ്ദാക്കണോ? കാലയളവിന്റെ അവസാനത്തിൽ നിങ്ങളെ Free-ലേക്ക് തരംതാഴ്ത്തും.',
   'billing.freeNote': 'നിങ്ങൾ സൗജന്യ പ്ലാനിലാണ്.',
+  'billing.invoiceBody':
+    'നിങ്ങളുടെ Stripe കസ്റ്റമർ പോർട്ടലിൽ ഇൻവോയ്സുകൾ കാണുക, ഡൗൺലോഡ് ചെയ്യുക, കൈകാര്യം ചെയ്യുക — നിങ്ങളുടെ സബ്സ്ക്രിപ്ഷൻ രസീത് ഇമെയിലിൽ നിന്ന് ആക്സസ് ചെയ്യാം.',
   'billing.invoiceHeading': 'ഇൻവോയ്സ് ചരിത്രം',
   'billing.loadError': 'ബില്ലിംഗ് വിശദാംശങ്ങൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'billing.loading': 'പ്ലാനുകൾ ലോഡ് ചെയ്യുന്നു...',
@@ -34,9 +47,12 @@ export const ui: UiTranslations = {
   'bookingConfirmation.cancelledEyebrow': 'ബുക്കിംഗ് റദ്ദാക്കി',
   'bookingConfirmation.cancelledHeading':
     'വിഷമിക്കേണ്ട — നിങ്ങൾക്ക് എപ്പോൾ വേണമെങ്കിലും റീബുക്ക് ചെയ്യാം.',
+  'bookingConfirmation.eyebrow': 'നിങ്ങൾ ബുക്ക് ചെയ്തു',
+  'bookingConfirmation.heading': 'വീണ്ടും കാണാം',
   'bookingConfirmation.loading': 'നിങ്ങളുടെ ബുക്കിംഗ് ലോഡ് ചെയ്യുന്നു...',
   'bookingConfirmation.missingToken': 'ബുക്കിംഗ് സ്ഥിരീകരണ ലിങ്കിൽ ടോക്കൺ കാണുന്നില്ല.',
   'bookingConfirmation.notFound': 'ഈ ബുക്കിംഗ് സ്ഥിരീകരണം കണ്ടെത്താനായില്ല.',
+  'bookingConfirmation.poweredBy': '{{app}} നൽകുന്നത്',
   'bookingConfirmation.scheduledFor': 'ഷെഡ്യൂൾ ചെയ്‌തത്',
   'bookingConfirmation.subheading':
     '{{host}} എന്നയാളുമായി {{meeting}} നുള്ള ബുക്കിംഗ് സ്ഥിരീകരിച്ചു.',
@@ -44,11 +60,13 @@ export const ui: UiTranslations = {
   'bookingListItem.defaultEventType': 'മീറ്റിംഗ്',
   'bookingPage.availabilityError': 'ലഭ്യമായ സമയങ്ങൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല — വീണ്ടും ശ്രമിക്കുക.',
   'bookingPage.confirm': 'ബുക്കിംഗ് സ്ഥിരീകരിക്കുക',
+  'bookingPage.confirmDisabled': 'തുടരാൻ ഒരു സമയം തിരഞ്ഞെടുക്കുക',
   'bookingPage.eventLine': '{{name}} · {{mins}} മിനിറ്റ്',
   'bookingPage.eyebrow': 'ഒരു മീറ്റിംഗ് ബുക്ക് ചെയ്യുക',
   'bookingPage.field.email': 'നിങ്ങളുടെ ഇമെയിൽ',
   'bookingPage.field.notes': 'എന്തെങ്കിലും ചേർക്കാനുണ്ടോ? (ഓപ്ഷണൽ)',
   'bookingPage.host': 'ആതിഥേയത്വം വഹിക്കുന്നത്',
+  'bookingPage.loadError': 'ഈ ബുക്കിംഗ് ലിങ്ക് ലോഡ് ചെയ്യാനായില്ല.',
   'bookingPage.loading': 'ബുക്കിംഗ് ലിങ്ക് ലോഡ് ചെയ്യുന്നു…',
   'bookingPage.loadingSlots': 'ലോഡ് ചെയ്യുന്ന സമയം...',
   'bookingPage.notFound': 'ഈ ബുക്കിംഗ് ലിങ്ക് ഇനി സജീവമല്ല.',
@@ -57,7 +75,10 @@ export const ui: UiTranslations = {
   'bookingPage.slotTaken': 'ആ സ്ലോട്ട് ഇപ്പോൾ എടുത്തതാണ് - മറ്റൊന്ന് തിരഞ്ഞെടുക്കുക.',
   'bookingPage.submitError':
     'ബുക്കിംഗ് സൃഷ്ടിച്ചു, പക്ഷേ ടോക്കൺ തിരികെ ലഭിച്ചില്ല. പുതുക്കാൻ ശ്രമിക്കുക.',
+  'bookingPage.submitting': 'ബുക്കിംഗ്…',
   'bookingPage.timezone': 'കാണിച്ചിരിക്കുന്ന സമയങ്ങൾ {{tz}}',
+  'bookings.empty.body':
+    'ക്ഷണിക്കപ്പെട്ടവർ ഒരു സ്ലോട്ട് തിരഞ്ഞെടുക്കുമ്പോൾ ബുക്കിംഗുകൾ ഇവിടെ കാണിക്കും.',
   'bookings.empty.title': 'ഇവിടെ ഇതുവരെ ഒന്നുമില്ല',
   'bookings.loadError': 'നിങ്ങളുടെ ബുക്കിംഗുകൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
   'bookings.loading': 'ബുക്കിംഗുകൾ ലോഡ് ചെയ്യുന്നു...',
@@ -73,10 +94,12 @@ export const ui: UiTranslations = {
   'common.goToDashboard': 'ഡാഷ്‌ബോർഡിലേക്ക് പോകുക',
   'common.retry': 'വീണ്ടും ശ്രമിക്കുക',
   'dashboard.empty.body': 'നിങ്ങളുടെ കലണ്ടറിൽ വിവരങ്ങൾ നിറയ്ക്കാൻ ഒരു ബുക്കിംഗ് ലിങ്ക് പങ്കിടുക.',
+  'dashboard.empty.cta': 'നിങ്ങളുടെ ആദ്യ ബുക്കിംഗ് ലിങ്ക് സൃഷ്ടിക്കുക',
   'dashboard.empty.title': 'വരാനിരിക്കുന്ന മീറ്റിംഗുകളൊന്നുമില്ല',
   'dashboard.greeting': 'നിങ്ങളുടെ ഷെഡ്യൂൾ, ഒറ്റനോട്ടത്തിൽ',
   'dashboard.kpis.bookedToday': 'ഇന്ന് ബുക്ക് ചെയ്തു',
   'dashboard.kpis.bookedTodaySub': '{{count}} സ്ഥിരീകരിച്ചു',
+  'dashboard.kpis.pending': 'മറുപടിക്കായി കാത്തിരിക്കുന്നു',
   'dashboard.kpis.pendingSub': 'ഇന്ന് രാത്രി ഓർമ്മപ്പെടുത്തലുകൾ പുറപ്പെടും',
   'dashboard.kpis.weekTotal': 'ഈ ആഴ്ച ബുക്ക് ചെയ്തു',
   'dashboard.kpis.weekTotalSub': 'കഴിഞ്ഞ 7 ദിവസം',
@@ -88,6 +111,7 @@ export const ui: UiTranslations = {
     'ഇന്നത്തെ മീറ്റിംഗുകൾ, വരാനിരിക്കുന്ന അഭ്യർത്ഥനകൾ, ആഴ്ച എങ്ങനെ പോകുന്നു എന്നിവ.',
   'dashboard.upcomingHeading': 'വരാനിരിക്കുന്ന മീറ്റിംഗുകൾ',
   'dashboard.viewAll': 'എല്ലാ ബുക്കിംഗുകളും കാണുക →',
+  'eventTypeCard.bookingsThisWeek': '{{count}} ഈ ആഴ്ച',
   'eventTypeCard.editLink': 'എഡിറ്റ് →',
   'eventTypeCard.noDescription':
     'ഒരു വൃത്തിയുള്ള മീറ്റിംഗ് സ്ലോട്ട് - ബുക്കിംഗ് ആരംഭിക്കാൻ ലിങ്ക് പങ്കിടുക.',
@@ -96,14 +120,19 @@ export const ui: UiTranslations = {
   'eventTypeEditor.advanced.heading': 'ബഫറുകൾ + അറിയിപ്പ്',
   'eventTypeEditor.advanced.minNotice': 'കുറഞ്ഞ അറിയിപ്പ് (കുറഞ്ഞത്)',
   'eventTypeEditor.back': 'ഇവന്റ് തരങ്ങളിലേക്ക് മടങ്ങുക',
+  'eventTypeEditor.confirmDelete': 'ഈ ഇവന്റ് തരം ഇല്ലാതാക്കണോ? നിലവിലുള്ള ബുക്കിംഗുകൾ നിലനിൽക്കും.',
   'eventTypeEditor.deleteError': 'ഇവന്റ് തരം ഇല്ലാതാക്കാൻ കഴിഞ്ഞില്ല.',
   'eventTypeEditor.fields.location': 'സ്ഥിരസ്ഥിതി സ്ഥാനം',
   'eventTypeEditor.fields.name': 'പേര്',
   'eventTypeEditor.fields.slug': 'ബുക്കിംഗ് ലിങ്ക് സ്ലഗ്',
   'eventTypeEditor.loadError': 'ഈ ഇവന്റ് തരം ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
+  'eventTypeEditor.loading': 'ഇവന്റ് തരം ലോഡ് ചെയ്യുന്നു…',
   'eventTypeEditor.notFound': 'ഇവന്റ് തരം കണ്ടെത്തിയില്ല.',
   'eventTypeEditor.preview.copy': 'ലിങ്ക് പകർത്തുക',
   'eventTypeEditor.preview.heading': 'ബുക്കിംഗ് ലിങ്ക് പ്രിവ്യൂ',
+  'eventTypeEditor.reminders.body':
+    'ഇമെയിൽ ഓർമ്മപ്പെടുത്തലുകൾ സ്വയമേവ അയയ്ക്കും — ക്ഷണിക്കപ്പെട്ടയാൾക്ക് ഉടൻ ഒരു സ്ഥിരീകരണം ലഭിക്കും, ഹോസ്റ്റിന് ഒരു "പുതിയ ബുക്കിംഗ്" അറിയിപ്പും ലഭിക്കും.',
+  'eventTypeEditor.reminders.heading': 'ഓർമ്മപ്പെടുത്തലുകൾ',
   'eventTypeEditor.saveErrorMissing':
     'സേവ് ചെയ്ത വരി തിരികെ ലഭിച്ചില്ല — ദയവായി വീണ്ടും ശ്രമിക്കുക.',
   'eventTypeEditor.toggleError': 'സജീവ അവസ്ഥ മാറ്റാൻ കഴിഞ്ഞില്ല.',
@@ -111,6 +140,7 @@ export const ui: UiTranslations = {
   'eventTypes.create': 'പുതിയ ഇവന്റ് തരം',
   'eventTypes.empty.body':
     'നിങ്ങളുടെ ആദ്യ ബുക്കിംഗ് ലിങ്ക് സൃഷ്ടിക്കുക — ഒരു പേര്, പേര്, ദൈർഘ്യം എന്നിവ തിരഞ്ഞെടുക്കുക, ബാക്കിയുള്ളവ ഞങ്ങൾ കൈകാര്യം ചെയ്യും.',
+  'eventTypes.empty.cta': 'ഇവന്റ് തരം സൃഷ്ടിക്കുക',
   'eventTypes.empty.title': 'ഇതുവരെ ഇവന്റ് തരങ്ങളൊന്നുമില്ല.',
   'eventTypes.eyebrow': 'ബുക്ക് ചെയ്യാവുന്ന ലിങ്കുകൾ',
   'eventTypes.loadError': 'ഇവന്റ് തരങ്ങൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
@@ -118,6 +148,7 @@ export const ui: UiTranslations = {
   'eventTypes.subtitle':
     'ഓരോ ലിങ്കും ഒരു നിശ്ചിത ദൈർഘ്യമുള്ള മീറ്റിംഗ് തരമാണ്. ലഭ്യത, ബഫറുകൾ, ഓർമ്മപ്പെടുത്തലുകൾ എന്നിവ സ്വതന്ത്രമായി ഇഷ്ടാനുസൃതമാക്കുക.',
   'eventTypes.title': 'ഇവന്റ് തരങ്ങൾ',
+  'forgotPassword.subheading': 'നിങ്ങളുടെ ഇമെയിൽ നൽകുക, ഞങ്ങൾ ഒരു റീസെറ്റ് ലിങ്ക് അയയ്ക്കും.',
   'forgotPassword.successBody':
     'ഞങ്ങൾ ഇപ്പോൾ ഒരു റീസെറ്റ് ലിങ്ക് ഇമെയിൽ ചെയ്തു, {{email}} . ലിങ്ക് 30 മിനിറ്റിനുള്ളിൽ കാലഹരണപ്പെടും.',
   'integrations.connected': 'ബന്ധിപ്പിച്ചു',
@@ -127,11 +158,17 @@ export const ui: UiTranslations = {
   'integrations.saveError': 'സംയോജന നില സംരക്ഷിക്കാൻ കഴിഞ്ഞില്ല.',
   'integrations.subtitle':
     'നിങ്ങൾ ഉപയോഗിക്കുന്ന സംയോജനങ്ങൾ മാറ്റുക. നിങ്ങളുടെ ദാതാവിന്റെ ക്രമീകരണങ്ങളിലൂടെ OAuth വയർ ചെയ്‌തതിനുശേഷം കലണ്ടർ/വീഡിയോ സമന്വയം പ്രവർത്തിക്കുന്നു.',
+  'landing.copyright': '© {{year}} {{app}}. ഷെഡ്യൂളുകൾ ഒത്തുചേരുന്നിടം.',
+  'landing.ctaBody':
+    'ആരംഭിക്കാൻ സൗജന്യം, ആദ്യ ദിവസം മുതൽ മികവുറ്റത്. Pro അൺലിമിറ്റഡ് ബുക്കിംഗ് ലിങ്കുകളും കസ്റ്റം ബ്രാൻഡിംഗും ചേർക്കുന്നു; Team റൗണ്ട്-റോബിനും പങ്കിട്ട ലഭ്യതയും ചേർക്കുന്നു.',
   'landing.ctaHeading': 'മറുപടികൾ തേടുന്നത് നിർത്തൂ. ലിങ്കുകൾ അയയ്ക്കാൻ തുടങ്ങൂ.',
   'landing.eyebrow': 'പ്രൊഫഷണലുകൾക്കുള്ള ഷെഡ്യൂളിംഗ്',
   'landing.featuresHeading': 'സ്വയം ഷെഡ്യൂൾ ചെയ്യുന്ന മീറ്റിംഗുകൾ',
   'landing.getStarted': 'ഷെഡ്യൂൾ ചെയ്യാൻ ആരംഭിക്കുക',
   'landing.heroCta': 'നിങ്ങളുടെ ബുക്കിംഗ് ലിങ്ക് സൃഷ്ടിക്കുക',
+  'landing.heroSubtitle':
+    'ഒരു ബുക്കിംഗ് ലിങ്ക് പങ്കിടുക, നിങ്ങളുടെ ലഭ്യത സജ്ജീകരിക്കുക, എല്ലാ സമയമേഖലകളിലുമുള്ള കലണ്ടർ കണക്കുകൾ {{app}} കൈകാര്യം ചെയ്യട്ടെ.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.pricingCta': 'വിലനിർണ്ണയം കാണുക',
   'landing.sampleCardLabel': 'ഇന്നത്തെ ഷെഡ്യൂൾ',
   'landing.sampleCardNext': 'അടുത്തത്: 28 മീറ്ററിൽ ആവറി ലിയു',
@@ -148,14 +185,23 @@ export const ui: UiTranslations = {
   'meetingDetail.defaultEventType': 'മീറ്റിംഗ്',
   'meetingDetail.endsAt': 'അവസാനിക്കുന്നു',
   'meetingDetail.joinCall': 'വീഡിയോ കോളിൽ ചേരുക',
+  'meetingDetail.loading': 'മീറ്റിംഗ് ലോഡ് ചെയ്യുന്നു…',
   'meetingDetail.notes': 'ക്ഷണിക്കപ്പെട്ടയാളുടെ കുറിപ്പുകൾ',
   'meetingDetail.notFound': 'ഈ മീറ്റിംഗ് ഇനി നിലവിലില്ല.',
   'meetingDetail.startsAt': 'ആരംഭിക്കുന്നു',
+  'meetingDetail.timezoneNote':
+    'ക്ഷണിക്കപ്പെട്ടയാളുടെ സമയമേഖല: {{tz}} — സമയങ്ങൾ നിങ്ങളുടേതിൽ കാണിച്ചിരിക്കുന്നു',
   'meetingDetail.viewAll': 'എല്ലാ ബുക്കിംഗുകളും കാണുക',
   'meridianLayout.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
   'meridianLayout.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'meridianLayout.primaryNavLabel': 'പ്രാഥമിക നാവിഗേഷൻ',
   'notifications.channels': 'ചാനലുകൾ',
+  'notifications.feed.bookedBody': '{{when}}-ന് ഷെഡ്യൂൾ ചെയ്തത്',
+  'notifications.feed.bookedTitle': '{{name}} ഒരു മീറ്റിംഗ് ബുക്ക് ചെയ്തു',
+  'notifications.feed.cancelledBody': 'യഥാർത്ഥത്തിൽ {{when}}-ന്',
+  'notifications.feed.cancelledTitle': '{{name}} റദ്ദാക്കി',
+  'notifications.feed.updatedBody': 'ഇപ്പോൾ {{when}}',
+  'notifications.feed.updatedTitle': '{{name}} അപ്ഡേറ്റ് ചെയ്തു',
   'notifications.reminders': 'ഓർമ്മപ്പെടുത്തലുകൾ',
   'notifications.saveError': 'മുൻഗണനകൾ സംരക്ഷിക്കാൻ കഴിഞ്ഞില്ല.',
   'notifications.time.daysAgo': '{{count}} ഡി മുമ്പ്',
@@ -169,21 +215,27 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'ശക്തമായ ഒരു പാസ്‌വേഡ് തിരഞ്ഞെടുക്കുക — ഞങ്ങൾ ഉടൻ തന്നെ നിങ്ങളെ സൈൻ ഇൻ ചെയ്യും.',
   'settings.loadError': 'നിങ്ങളുടെ പ്രൊഫൈൽ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.',
+  'settings.preferences.heading': 'ബുക്കിംഗ് സ്ഥിരസ്ഥിതികൾ',
   'settings.save': 'മുൻഗണനകൾ സംരക്ഷിക്കുക',
   'settings.saving': 'സംരക്ഷിക്കുന്നു...',
+  'settings.security.confirmSignOut':
+    'ഈ ഉപകരണത്തിൽ നിന്ന് സൈൻ ഔട്ട് ചെയ്യണോ? നിങ്ങളെ ലോഗിനിലേക്ക് റീഡയറക്ട് ചെയ്യും.',
   'settings.security.currentPwd': 'നിലവിലെ പാസ്വേഡ്',
   'settings.security.newPwd': 'പുതിയ പാസ്വേഡ്',
   'settings.security.passwordError':
     'പാസ്‌വേഡ് മാറ്റാൻ കഴിഞ്ഞില്ല — നിങ്ങളുടെ നിലവിലുള്ള പാസ്‌വേഡ് പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക.',
+  'settings.security.savedAt': '{{time}}-ൽ അപ്ഡേറ്റ് ചെയ്തത്',
   'settings.security.weakPassword':
     'പുതിയ പാസ്‌വേഡിൽ കുറഞ്ഞത് 8 പ്രതീകങ്ങളെങ്കിലും ഉണ്ടായിരിക്കണം.',
   'settings.tab.billing': 'ബില്ലിംഗ്',
   'signup.namePlaceholder': 'ആവറി ലിയു',
   'signup.subheading':
     'അടിസ്ഥാന കാര്യങ്ങൾക്ക് എന്നെന്നേക്കുമായി സൗജന്യം — എപ്പോൾ വേണമെങ്കിലും അപ്‌ഗ്രേഡ് ചെയ്യൂ.',
+  'signup.submitting': 'നിങ്ങളുടെ ബുക്കിംഗ് ലിങ്ക് സൃഷ്ടിക്കുന്നു…',
   'timeSlotPicker.empty.subtitle':
     'വ്യത്യസ്തമായ ഒരു ദിവസം പരീക്ഷിച്ചുനോക്കൂ — മെറിഡിയൻ എല്ലാ ദിവസവും രാവിലെ പുതിയ സ്ലോട്ടുകൾ തുറക്കുന്നു.',
   'timeSlotPicker.empty.title': 'സമയക്രമം ലഭ്യമല്ല.',
+  'timeSlotPicker.label': 'ലഭ്യമായ സമയം',
   'timeSlotPicker.unavailable': 'ബുക്ക് ചെയ്തു',
   'todayHeroCard.nextMeeting': 'അടുത്തത്: {{invitee}} {{when}}',
   'todayHeroCard.title': 'ഇന്നത്തെ ഷെഡ്യൂൾ',

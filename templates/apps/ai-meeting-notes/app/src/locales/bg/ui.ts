@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Въпроси, обратна връзка или заявка за функция? Пишете на екипа на hello@murmur.app — всяко съобщение стига до реален човек, който работи по продукта.',
   'about.contactTitle': 'Свържете се с нас',
   'about.eyebrow': 'За нас',
+  'about.intro':
+    '{{app}} е разузнаване за срещи за екипи, които предпочитат да вземат решения, вместо да водят бележки. Той се присъединява към разговорите ви, транскрибира всяка дума с етикети на говорещите и доставя AI резюме плюс възложени задачи веднага щом срещата приключи.',
+  'about.missionBody':
+    'Срещите са мястото, където екипите решават неща — и където тези решения се губят. {{app}} съществува, за да гарантира, че работата, която се случва в разговор, надживява разговора: точен запис, ясно резюме и отговорни следващи стъпки, автоматично.',
+  'about.missionTitle': 'Нашата мисия',
   'actions.empty': 'Няма съвпадения.',
   'actions.heading': 'Задачи за изпълнение',
   'actions.loadError': 'Не успяхме да заредим задачите за действие.',
@@ -10,11 +17,14 @@ export const ui: UiTranslations = {
     'Обобщени данни за всички срещи. Филтрирайте по статус, за да се фокусирате.',
   'actions.toggleDoneLabel': 'Маркирай като изпълнено',
   'actions.toggleReopenLabel': 'Маркирай като отворено',
+  'auth.footer': '© {{year}} {{app}}. Всяка дума, извлечена.',
   'calendar.heading': 'Календар',
   'calendar.joinCta': 'Присъединете се',
   'calendar.loadError': 'Не успях да заредя календара.',
   'calendar.nextMonth': 'Следващия месец',
   'calendar.noEventsForDay': 'За днес няма насрочени срещи.',
+  'calendar.noUpcomingEvents':
+    'Няма предстоящи срещи. Свържете календар от Integrations, за да попълните този списък.',
   'calendar.previousMonth': 'Предишният месец',
   'calendar.recent': 'Скорошни',
   'common.daysAgo': '{{count}} преди дни',
@@ -26,9 +36,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} задачи за изпълнение',
   'dashboard.empty.body':
     'Започнете запис или свържете Google Календар, за да може Murmur автоматично да се присъедини към следващата ви среща.',
+  'dashboard.empty.cta': 'Започнете запис',
   'dashboard.empty.heading': 'Все още няма срещи',
   'dashboard.eyebrow': 'Потокът с вашите срещи',
   'dashboard.loadError': 'Зареждането на таблото за управление не бе успешно.',
+  'dashboard.noActions': 'Няма действия',
   'dashboard.recentHeading': 'Последни срещи',
   'dashboard.recordCta': 'Запис на срещата',
   'dashboard.stat.actions': 'Задачи за изпълнение',
@@ -38,6 +50,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} непрочетени резюмета от последния път, когато проверихте. Murmur е записал всяка дума — ето обобщението.',
   'dashboard.viewCalendar': 'Виж календара →',
+  'footer.linksLabel': 'Долен колонтитул',
   'forgot.failed': 'Не успяхме да изпратим имейла за възстановяване на паролата.',
   'forgot.sentBody':
     'Ако имате профил на адрес {{email}}, скоро ще получите линк за възстановяване на паролата.',
@@ -50,14 +63,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Свържете календарите и видеоплатформите, за да се включи Murmur автоматично.',
   'integrations.updateError': 'Актуализацията се провали.',
+  'landing.ctaBody':
+    'Безплатно за първите 5 срещи всеки месец. Без кредитна карта. Свържете Google Calendar за под минута.',
   'landing.ctaButton': 'Започнете — това е безплатно',
   'landing.ctaHeading': 'Спрете да си водите бележки. Започнете да взимате решения.',
+  'landing.demo.aiBody':
+    'Стартирането се отлага от 5 май → 12 май, за да се даде време за персонал на операциите. Преработката на таблото се отделя за 26 май.',
   'landing.demo.aiLabel': 'Обобщение, изготвено на живо с помощта на изкуствен интелект',
   'landing.demo.recording': 'Запис · на живо',
   'landing.eyebrow': 'Изкуствен интелект в областта на срещите',
   'landing.featuresHeading': 'Всичко, от което екипът ви се нуждае след края на срещата',
+  'landing.featuresSubheading':
+    'Край на "чакай, кой отговаря за това?" {{appName}} изпраща резюмето, преди разговорът да прекъсне.',
   'landing.getStarted': 'Опитайте безплатно',
   'landing.heroSecondary': 'Гледайте 90-секундна обиколка',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} се присъединява към разговорите ви, транскрибира всяка дума с етикети на говорещите и доставя AI резюмета плюс възложени задачи веднага щом срещата приключи.',
   'landing.heroTitle':
     'Записвайте всяка среща. Извеждайте на преден план това, което има значение.',
   'login.altPrompt': 'За първи път в Murmur?',
@@ -66,6 +87,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Задачи за изпълнение',
   'meetingDetail.back': 'Всички срещи',
   'meetingDetail.decisionsHeading': 'Решения',
+  'meetingDetail.dueDate': 'краен срок {{date}}',
   'meetingDetail.followupsHeading': 'Последващи действия',
   'meetingDetail.loadError': 'Не успях да заредя срещата.',
   'meetingDetail.noActions': 'Не са открити задачи за изпълнение.',
@@ -79,7 +101,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Все още няма срещи',
   'meetings.heading': 'Срещи',
   'meetings.loadError': 'Не успях да заредя срещите.',
+  'meetings.recordCta': 'Запис на срещата',
   'meetings.subheading': 'Всяка записана, качена и синхронизирана среща.',
+  'murmurLayout.closeMenu': 'Затвори менюто за навигация',
   'murmurLayout.openMenu': 'Отвори менюто за навигация',
   'murmurLayout.primaryNavLabel': 'Основна навигация',
   'nav.legal': 'Правни',
@@ -104,7 +128,13 @@ export const ui: UiTranslations = {
   'profile.loading': 'Зареждане…',
   'profile.navLabel': 'Профилни профили',
   'profile.notifications.assignments': 'Задачи, възложени на мен',
+  'profile.notifications.assignmentsHint': 'Уведомяване, когато е регистрирана задача за вас.',
+  'profile.notifications.mentions': 'Споменавания в транскрипти',
+  'profile.notifications.mentionsHint': 'Имейл + push, когато някой ви @-спомене.',
+  'profile.notifications.subheading': 'Изберете кои събития на {{appName}} да достигат до вас.',
   'profile.notifications.summaries': 'Седмичен обзор',
+  'profile.notifications.summariesHint': 'Понеделнишко резюме на всяка среща от миналата седмица.',
+  'profile.preferences.speakerColor': 'Цвят по подразбиране на говорещия',
   'profile.preferences.subheading':
     'Настройки по подразбиране, които се прилагат за всеки запис, към който се присъединявате.',
   'profile.preferences.timezone': 'Часова зона',
@@ -117,16 +147,21 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Вашият браузър не поддържа запис. Опитайте с Chrome, Edge или Safari.',
   'record.error.upload': 'Качването се провали. Опитайте отново.',
+  'record.errorLabel': 'Нещо се обърка',
   'record.heading': 'Запис',
   'record.idleLabel': 'Докоснете, за да започнете запис',
   'record.processingLabel': 'Транскрибиране с Whisper, обобщаване с Claude…',
+  'record.recordingLabel': 'Записване…',
   'record.retryCta': 'Опитайте отново',
   'record.subheading':
     'Натиснете микрофона, за да започнете. Murmur записва аудио, преобразува го в текст чрез Whisper и изготвя резюме с помощта на Claude.',
+  'record.titlePlaceholder': 'Заглавие на срещата (по избор)',
+  'reset.altPrompt': 'Променихте решението си?',
   'reset.hint': 'Използвайте най-малко 8 символа, състоящи се от комбинация от букви и цифри.',
   'reset.missingToken': 'Връзката за нулиране липсва или е изтекла. Поискайте нова.',
   'reset.newPassword': 'Нова парола',
   'reset.subheading': 'Изберете парола, която не използвате никъде другаде.',
+  'reset.tooShort': 'Паролата трябва да съдържа най-малко 8 символа.',
   'search.empty': 'Въведете текст, за да търсите в стенограмите.',
   'search.loadError': 'Търсенето не успя. Опитайте отново.',
   'search.noResults': 'Няма резултати за „{{q}}“.',
@@ -142,7 +177,10 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Запази аудио за',
   'settings.retention.heading': 'Задържане',
   'settings.retention.transcript': 'Съхранявайте академичните справки за',
+  'settings.revokeDeviceWarning':
+    'Достъпът на това устройство скоро ще бъде отменен. Да се излезе ли?',
   'settings.saveError': 'Запазването не бе успешно.',
+  'settings.security.subheading': 'Актуализирайте паролата, с която влизате.',
   'settings.sharing.exportFormat': 'Формат за експортиране',
   'settings.sharing.heading': 'Настройки по подразбиране за споделяне',
   'settings.sharing.scope': 'Стандартен обхват на споделяне',
@@ -160,6 +198,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Покани съотборник',
   'team.invitedAs': 'Поканен като „{{role}}“',
   'team.inviteFailed': 'Не успях да изпратя покана.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'Изпрати покана',
   'team.inviteSubtitle': 'Те ще получат имейл с линк за присъединяване.',
   'team.inviteTitle': 'Покани съотборник',

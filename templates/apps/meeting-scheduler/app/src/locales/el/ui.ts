@@ -1,7 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχετε ερωτήσεις, σχόλια ή κάποια λειτουργία που θα θέλατε να έχει το {{app}}; Διαβάζουμε κάθε μήνυμα — επικοινωνήστε από τις ρυθμίσεις του λογαριασμού σας και ένα πραγματικό μέλος της ομάδας θα σας απαντήσει.',
+  'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά με εμάς',
+  'about.intro':
+    'Το {{app}} είναι λογισμικό προγραμματισμού ραντεβού για ανθρώπους των οποίων ο χρόνος είναι το προϊόν τους. Μοιραστείτε έναν σύνδεσμο κράτησης, ορίστε τη διαθεσιμότητά σας μία φορά και αφήστε μας να αναλάβουμε τα μαθηματικά του ημερολογίου σε κάθε ζώνη ώρας — ώστε τα ραντεβού να κλείνονται χωρίς αλληλογραφία.',
+  'about.missionBody':
+    'Πιστεύουμε ότι ο προγραμματισμός ραντεβού πρέπει να εξαφανίζεται στο παρασκήνιο. Ιδρυτές, recruiters, σύμβουλοι και ομάδες υποστήριξης δεν πρέπει να χάνουν ώρες σε ανταλλαγή email — πρέπει να στέλνουν έναν σύνδεσμο και να επιστρέφουν στη δουλειά τους. Το {{app}} είναι φτιαγμένο ώστε κάθε κράτηση να μοιάζει αβίαστη και σύμφωνη με την ταυτότητά σας.',
+  'about.missionTitle': 'Η αποστολή μας',
+  'about.whatYouGetTitle': 'Τι αποκτάτε',
   'availability.closed': 'Κλειστός',
   'availability.eyebrow': 'Ώρες',
   'availability.loadError': 'Δεν ήταν δυνατή η φόρτωση των κανόνων διαθεσιμότητας.',
@@ -18,7 +27,11 @@ export const ui: UiTranslations = {
   'billing.checkoutError':
     'Δεν ήταν δυνατή η έναρξη της ολοκλήρωσης αγοράς — δοκιμάστε ξανά σε λίγο.',
   'billing.compareHeading': 'Σύγκριση σχεδίων',
+  'billing.confirmCancel':
+    'Ακύρωση της συνδρομής σας; Θα υποβαθμιστείτε στο Free στο τέλος της περιόδου.',
   'billing.freeNote': 'Χρησιμοποιείτε το δωρεάν πλάνο.',
+  'billing.invoiceBody':
+    'Δείτε, κατεβάστε και διαχειριστείτε τα τιμολόγια στο Stripe customer portal — προσβάσιμο από το email της απόδειξης συνδρομής σας.',
   'billing.invoiceHeading': 'Ιστορικό τιμολογίων',
   'billing.loadError': 'Δεν ήταν δυνατή η φόρτωση των στοιχείων χρέωσης.',
   'billing.loading': 'Φόρτωση πλάνων…',
@@ -34,10 +47,13 @@ export const ui: UiTranslations = {
   'bookingConfirmation.cancelledEyebrow': 'Η κράτηση ακυρώθηκε.',
   'bookingConfirmation.cancelledHeading':
     'Μην ανησυχείτε — μπορείτε να κάνετε εκ νέου κράτηση οποιαδήποτε στιγμή.',
+  'bookingConfirmation.eyebrow': 'Η κράτησή σας καταχωρήθηκε',
+  'bookingConfirmation.heading': 'Τα λέμε σύντομα',
   'bookingConfirmation.loading': 'Φόρτωση της κράτησής σας…',
   'bookingConfirmation.missingToken':
     'Λείπει το διακριτικό του από τον σύνδεσμο επιβεβαίωσης κράτησης.',
   'bookingConfirmation.notFound': 'Δεν ήταν δυνατή η εύρεση αυτής της επιβεβαίωσης κράτησης.',
+  'bookingConfirmation.poweredBy': 'Με την υποστήριξη του {{app}}',
   'bookingConfirmation.scheduledFor': 'Προγραμματισμένο για',
   'bookingConfirmation.subheading': 'Η κράτηση επιβεβαιώθηκε με τον {{host}} για τη {{meeting}} .',
   'bookingConfirmation.timezone': '{{tz}}',
@@ -45,11 +61,13 @@ export const ui: UiTranslations = {
   'bookingPage.availabilityError':
     'Δεν ήταν δυνατή η φόρτωση των διαθέσιμων ωρών — δοκιμάστε ξανά.',
   'bookingPage.confirm': 'Επιβεβαίωση κράτησης',
+  'bookingPage.confirmDisabled': 'Επιλέξτε ώρα για να συνεχίσετε',
   'bookingPage.eventLine': '{{name}} · {{mins}} πρακτικά',
   'bookingPage.eyebrow': 'Κλείστε μια συνάντηση',
   'bookingPage.field.email': 'Το ηλεκτρονικό σας ταχυδρομείο',
   'bookingPage.field.notes': 'Κάτι να προσθέσετε; (προαιρετικό)',
   'bookingPage.host': 'Φιλοξενείται από',
+  'bookingPage.loadError': 'Δεν ήταν δυνατή η φόρτωση αυτού του συνδέσμου κράτησης.',
   'bookingPage.loading': 'Φόρτωση συνδέσμου κράτησης…',
   'bookingPage.loadingSlots': 'Χρόνοι φόρτωσης…',
   'bookingPage.notFound': 'Αυτός ο σύνδεσμος κράτησης δεν είναι πλέον ενεργός.',
@@ -58,7 +76,9 @@ export const ui: UiTranslations = {
   'bookingPage.slotTaken': 'Αυτή η θέση μόλις πιάστηκε — διάλεξε άλλη.',
   'bookingPage.submitError':
     'Η κράτηση δημιουργήθηκε αλλά δεν επιστράφηκε διακριτικό. Δοκιμάστε να κάνετε ανανέωση.',
+  'bookingPage.submitting': 'Εγγραφή…',
   'bookingPage.timezone': 'Οι ώρες που εμφανίζονται σε {{tz}}',
+  'bookings.empty.body': 'Οι κρατήσεις εμφανίζονται εδώ όταν οι προσκεκλημένοι επιλέγουν ώρα.',
   'bookings.empty.title': 'Δεν υπάρχει τίποτα ακόμα εδώ',
   'bookings.loadError': 'Δεν ήταν δυνατή η φόρτωση των κρατήσεών σας.',
   'bookings.loading': 'Φόρτωση κρατήσεων…',
@@ -74,10 +94,12 @@ export const ui: UiTranslations = {
   'common.retry': 'Επανάληψη',
   'dashboard.empty.body':
     'Κοινοποιήστε έναν σύνδεσμο κράτησης για να αρχίσετε να γεμίζετε το ημερολόγιό σας.',
+  'dashboard.empty.cta': 'Δημιουργήστε τον πρώτο σας σύνδεσμο κράτησης',
   'dashboard.empty.title': 'Δεν υπάρχουν επερχόμενες συναντήσεις',
   'dashboard.greeting': 'Το πρόγραμμά σας, με μια ματιά',
   'dashboard.kpis.bookedToday': 'Κράτηση σήμερα',
   'dashboard.kpis.bookedTodaySub': '{{count}} επιβεβαιωμένος',
+  'dashboard.kpis.pending': 'Σε αναμονή απάντησης',
   'dashboard.kpis.pendingSub': 'Οι υπενθυμίσεις βγαίνουν απόψε',
   'dashboard.kpis.weekTotal': 'Κράτηση αυτήν την εβδομάδα',
   'dashboard.kpis.weekTotalSub': 'Τελευταίες 7 ημέρες',
@@ -89,6 +111,7 @@ export const ui: UiTranslations = {
     'Οι σημερινές συναντήσεις, τα επερχόμενα αιτήματα και πώς διαμορφώνεται η εβδομάδα.',
   'dashboard.upcomingHeading': 'Προσεχείς συναντήσεις',
   'dashboard.viewAll': 'Δείτε όλες τις κρατήσεις →',
+  'eventTypeCard.bookingsThisWeek': '{{count}} αυτή την εβδομάδα',
   'eventTypeCard.editLink': 'Επεξεργασία →',
   'eventTypeCard.noDescription':
     'Ένα καθαρό χρονικό διάστημα συνάντησης — κοινοποιήστε τον σύνδεσμο για να ξεκινήσετε την κράτηση.',
@@ -97,20 +120,27 @@ export const ui: UiTranslations = {
   'eventTypeEditor.advanced.heading': 'Προσωρινά διαστήματα + ειδοποίηση',
   'eventTypeEditor.advanced.minNotice': 'Ελάχιστη ειδοποίηση (λεπτά)',
   'eventTypeEditor.back': 'Επιστροφή στους τύπους συμβάντων',
+  'eventTypeEditor.confirmDelete':
+    'Διαγραφή αυτού του τύπου συμβάντος; Οι υπάρχουσες κρατήσεις παραμένουν.',
   'eventTypeEditor.deleteError': 'Δεν ήταν δυνατή η διαγραφή του τύπου συμβάντος.',
   'eventTypeEditor.fields.location': 'Προεπιλεγμένη τοποθεσία',
   'eventTypeEditor.fields.name': 'Όνομα',
   'eventTypeEditor.fields.slug': 'Σύνδεσμος κράτησης slug',
   'eventTypeEditor.loadError': 'Δεν ήταν δυνατή η φόρτωση αυτού του τύπου συμβάντος.',
+  'eventTypeEditor.loading': 'Φόρτωση τύπου συμβάντος…',
   'eventTypeEditor.notFound': 'Δεν βρέθηκε ο τύπος συμβάντος.',
   'eventTypeEditor.preview.copy': 'Αντιγραφή συνδέσμου',
   'eventTypeEditor.preview.heading': 'Προεπισκόπηση συνδέσμου κράτησης',
+  'eventTypeEditor.reminders.body':
+    'Οι υπενθυμίσεις email αποστέλλονται αυτόματα — ο προσκεκλημένος λαμβάνει αμέσως επιβεβαίωση και ο οικοδεσπότης ειδοποίηση "νέας κράτησης".',
+  'eventTypeEditor.reminders.heading': 'Υπενθυμίσεις',
   'eventTypeEditor.saveErrorMissing': 'Η αποθήκευση δεν επέστρεψε καμία γραμμή — δοκιμάστε ξανά.',
   'eventTypeEditor.toggleError': 'Δεν ήταν δυνατή η αλλαγή της ενεργής κατάστασης.',
   'eventTypeEditor.untitled': 'Νέος τύπος συμβάντος',
   'eventTypes.create': 'Νέος τύπος συμβάντος',
   'eventTypes.empty.body':
     'Δημιουργήστε τον πρώτο σας σύνδεσμο κράτησης — επιλέξτε ένα όνομα, ένα slug και μια διάρκεια και εμείς θα αναλάβουμε τα υπόλοιπα.',
+  'eventTypes.empty.cta': 'Δημιουργία τύπου συμβάντος',
   'eventTypes.empty.title': 'Δεν υπάρχουν ακόμη τύποι συμβάντων',
   'eventTypes.eyebrow': 'Σύνδεσμοι με δυνατότητα κράτησης',
   'eventTypes.loadError': 'Αποτυχία φόρτωσης τύπων συμβάντων.',
@@ -118,6 +148,7 @@ export const ui: UiTranslations = {
   'eventTypes.subtitle':
     'Κάθε σύνδεσμος είναι ένας τύπος σύσκεψης σταθερής διάρκειας. Προσαρμόστε τη διαθεσιμότητα, τα buffer και τις υπενθυμίσεις ανεξάρτητα.',
   'eventTypes.title': 'Τύποι συμβάντων',
+  'forgotPassword.subheading': 'Εισαγάγετε το email σας και θα σας στείλουμε σύνδεσμο επαναφοράς.',
   'forgotPassword.successBody':
     'Μόλις στείλαμε μέσω email έναν σύνδεσμο επαναφοράς στη διεύθυνση {{email}} Ο σύνδεσμος λήγει σε 30 λεπτά.',
   'integrations.connected': 'Συνδεδεμένο',
@@ -127,11 +158,17 @@ export const ui: UiTranslations = {
   'integrations.saveError': 'Δεν ήταν δυνατή η αποθήκευση της κατάστασης ενσωμάτωσης.',
   'integrations.subtitle':
     'Ενεργοποιήστε/απενεργοποιήστε τις ενσωματώσεις που χρησιμοποιείτε. Ο συγχρονισμός ημερολογίου/βίντεο εκτελείται αφού το OAuth συνδεθεί μέσω των ρυθμίσεων του παρόχου σας.',
+  'landing.copyright': '© {{year}} {{app}}. Όπου τα προγράμματα ευθυγραμμίζονται.',
+  'landing.ctaBody':
+    'Δωρεάν για να ξεκινήσετε, άψογο από την πρώτη μέρα. Το Pro προσθέτει απεριόριστους συνδέσμους κράτησης και προσαρμοσμένη ταυτότητα· το Team προσθέτει round-robin και κοινή διαθεσιμότητα.',
   'landing.ctaHeading': 'Σταμάτα να κυνηγάς απαντήσεις. Άρχισε να στέλνεις συνδέσμους.',
   'landing.eyebrow': 'Προγραμματισμός για επαγγελματίες',
   'landing.featuresHeading': 'Συναντήσεις που προγραμματίζονται μόνες τους',
   'landing.getStarted': 'Έναρξη προγραμματισμού',
   'landing.heroCta': 'Δημιουργήστε τον σύνδεσμο κράτησής σας',
+  'landing.heroSubtitle':
+    'Μοιραστείτε έναν σύνδεσμο κράτησης, ορίστε τη διαθεσιμότητά σας και αφήστε το {{app}} να αναλάβει τα μαθηματικά του ημερολογίου σε κάθε ζώνη ώρας.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.pricingCta': 'Δείτε τις τιμές',
   'landing.sampleCardLabel': 'Το σημερινό πρόγραμμα',
   'landing.sampleCardNext': 'Επόμενο: Avery Liu στα 28μ',
@@ -147,14 +184,23 @@ export const ui: UiTranslations = {
   'meetingDetail.defaultEventType': 'Συνάντηση',
   'meetingDetail.endsAt': 'Λήγει',
   'meetingDetail.joinCall': 'Συμμετοχή σε βιντεοκλήση',
+  'meetingDetail.loading': 'Φόρτωση συνάντησης…',
   'meetingDetail.notes': 'Σημειώσεις προσκεκλημένου',
   'meetingDetail.notFound': 'Αυτή η συνάντηση δεν υπάρχει πλέον.',
   'meetingDetail.startsAt': 'Ξεκινά',
+  'meetingDetail.timezoneNote':
+    'Ζώνη ώρας προσκεκλημένου: {{tz}} — οι ώρες εμφανίζονται στη δική σας',
   'meetingDetail.viewAll': 'Δείτε όλες τις κρατήσεις',
   'meridianLayout.closeMenu': 'Κλείσιμο μενού πλοήγησης',
   'meridianLayout.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'meridianLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'notifications.channels': 'Κανάλια',
+  'notifications.feed.bookedBody': 'Προγραμματισμένο για {{when}}',
+  'notifications.feed.bookedTitle': 'Ο/Η {{name}} έκλεισε συνάντηση',
+  'notifications.feed.cancelledBody': 'Αρχικά για {{when}}',
+  'notifications.feed.cancelledTitle': 'Ο/Η {{name}} ακύρωσε',
+  'notifications.feed.updatedBody': 'Τώρα {{when}}',
+  'notifications.feed.updatedTitle': 'Ο/Η {{name}} ενημέρωσε',
   'notifications.reminders': 'Υπενθυμίσεις',
   'notifications.saveError': 'Δεν ήταν δυνατή η αποθήκευση προτιμήσεων.',
   'notifications.time.daysAgo': '{{count}}η πριν',
@@ -168,20 +214,26 @@ export const ui: UiTranslations = {
   'resetPassword.subheading':
     'Επιλέξτε έναν ισχυρό κωδικό πρόσβασης — θα σας συνδέσουμε αμέσως μετά.',
   'settings.loadError': 'Δεν ήταν δυνατή η φόρτωση του προφίλ σας.',
+  'settings.preferences.heading': 'Προεπιλογές κρατήσεων',
   'settings.save': 'Αποθήκευση προτιμήσεων',
   'settings.saving': 'Αποθήκευση…',
+  'settings.security.confirmSignOut':
+    'Αποσύνδεση από αυτή τη συσκευή; Θα μεταφερθείτε στη σελίδα σύνδεσης.',
   'settings.security.currentPwd': 'Τρέχων κωδικός',
   'settings.security.newPwd': 'Νέος κωδικός πρόσβασης',
   'settings.security.passwordError':
     'Δεν ήταν δυνατή η αλλαγή του κωδικού πρόσβασης — ελέγξτε τον τρέχοντα κωδικό πρόσβασής σας και δοκιμάστε ξανά.',
+  'settings.security.savedAt': 'Ενημερώθηκε στις {{time}}',
   'settings.security.weakPassword':
     'Ο νέος κωδικός πρόσβασης πρέπει να έχει τουλάχιστον 8 χαρακτήρες.',
   'settings.tab.billing': 'Χρέωση',
   'signup.namePlaceholder': 'Άιβερι Λιού',
   'signup.subheading': 'Δωρεάν για πάντα για τα βασικά — αναβάθμιση οποιαδήποτε στιγμή.',
+  'signup.submitting': 'Δημιουργία του συνδέσμου κράτησής σας…',
   'timeSlotPicker.empty.subtitle':
     'Δοκιμάστε μια διαφορετική μέρα — η Meridian ανοίγει νέες θέσεις κάθε πρωί.',
   'timeSlotPicker.empty.title': 'Δεν υπάρχουν διαθέσιμες ώρες',
+  'timeSlotPicker.label': 'Διαθέσιμες ώρες',
   'timeSlotPicker.unavailable': 'Κράτηση',
   'todayHeroCard.nextMeeting': 'Επόμενος: {{invitee}} {{when}}',
   'todayHeroCard.title': 'Το σημερινό πρόγραμμα',

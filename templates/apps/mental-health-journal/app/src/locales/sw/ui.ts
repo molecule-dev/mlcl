@@ -1,10 +1,27 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Una maoni, umepata hitilafu, au unataka kutuambia jinsi uandishi wa jarida umekusaidia? Tunasoma kila ujumbe — wasiliana nasi wakati wowote na mtu halisi atakujibu.',
+  'about.contactTitle': 'Wasiliana nasi',
+  'about.featureInsights':
+    'Tafakari zinazoendeshwa na AI ambazo zinaangazia kwa upole vichocheo, mada, na shukrani — bila kupoteza sauti yako.',
+  'about.featureMood':
+    'Ufuatiliaji wa hisia na shughuli wenye mwonekano wa kalenda na chati za mwenendo zinazoonyesha kile kinachokusaidia kustawi.',
+  'about.featurePrivacy':
+    'Usimbaji fiche kutoka mwanzo hadi mwisho, kufuli kwa nambari ya siri, na uhamishaji kamili wa CSV ili tafakari zako zibaki za faragha na zinazohamishika.',
+  'about.featurePrompts':
+    'Vidokezo vya kila siku kwa upole ili kila wakati uwe na mahali pa kuanzia — kamwe si ukurasa tupu.',
+  'about.intro':
+    '{{app}} ni jarida la afya ya akili la upole na la faragha kwa tafakari ya kila siku, ufuatiliaji wa hisia, na shukrani. Vidokezo vya kufikiri huchukua nafasi ya ukurasa tupu, utafutaji wa mifumo kwa utulivu hukusaidia kuelewa kile kinachoathiri jinsi unavyojisikia, na usimbaji fiche kutoka mwanzo hadi mwisho huhakikisha maneno yako yanabaki yako.',
+  'about.missionBody':
+    'Tunaamini kuwa kujiangalia hali yako kunapaswa kuhisi utulivu, kamwe si kama hospitali — na kamwe si kama programu nyingine inayodai umakini wako. {{app}} imeundwa kusaidia, si kusumbua: dakika chache za utulivu kila siku kutambua hisia zako, kuandika kwa uaminifu, na hatua kwa hatua kujiona waziwazi zaidi.',
+  'about.missionTitle': 'Dhamira yetu',
   'about.pageTitle': 'Kuhusu {{app}}',
   'authShell.encryptionBadge':
     'Maingizo yako yamesimbwa kwa njia fiche kuanzia mwanzo hadi mwisho.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Siku {{day}} — hakuna maandishi',
   'calendar.cellMood': 'Siku {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Mwezi huu kwa muhtasari',
   'calendar.eyebrow': 'Hisia kwa mtazamo',
@@ -16,6 +33,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Imefuatiliwa {{tracked}} ya {{total}} siku za mwezi huu.',
   'common.goToDashboard': 'Nenda kwenye Dashibodi',
   'common.tryAgain': 'Jaribu tena',
+  'entryComposer.bodyPlaceholder':
+    'Andika chochote kinachohisi kuwa cha uaminifu. Hakuna mtu mwingine atakayesoma hii.',
   'entryComposer.cancel': 'Rudi kwenye jarida',
   'entryComposer.heading': 'Tafakari ya leo',
   'entryComposer.moodLabel': 'Unajisikiaje?',
@@ -24,6 +43,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Ondoa {{tag}}',
   'entryComposer.save': 'Hifadhi tafakari',
   'entryComposer.saveError': 'Haikuweza kuhifadhi ingizo lako.',
+  'entryComposer.tagPlaceholder': 'Ongeza lebo na ubonyeze enter',
   'entryComposer.titlePlaceholder': 'Ipe tafakari hii jina…',
   'entryDetail.back': 'Rudi kwenye jarida',
   'entryDetail.delete': 'Futa ingizo hili',
@@ -37,6 +57,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Inapakia tafakari…',
   'entryDetail.notFound': 'Ingizo halikupatikana.',
   'entryDetail.reflectionsHeading': 'Tafakari za AI',
+  'forgotPassword.continueButton': 'Ingiza msimbo wa kuweka upya',
   'forgotPassword.eyebrow': 'Usijali',
   'forgotPassword.subheading': 'Tutatuma kiungo cha kuweka upya kwa upole kwenye barua pepe yako.',
   'forgotPassword.successBody':
@@ -59,14 +80,22 @@ export const ui: UiTranslations = {
     'Hakuna mada bado — ongeza lebo moja au mbili kwenye maingizo yako na yatakusanyika hapa.',
   'insights.themesHeading': 'Mandhari kuu',
   'insights.triggerFrequency': 'niliona {{count}} × mwezi huu',
+  'insights.triggersEmpty':
+    'Hakuna cha kutambua bado. Maandishi machache kwa siku kadhaa yataonyesha mifumo yako.',
   'insights.triggersHeading': 'Mifumo inayogusa hisia zako',
+  'journal.empty':
+    'Hakuna tafakari zinazolingana — jaribu kichujio tofauti au andika maandishi mapya.',
   'journal.eyebrow': 'Tafakari zako',
   'journal.heading': 'Jarida',
   'journal.loadError': 'Imeshindwa kupakia maingizo.',
   'journal.loading': 'Inapakia maingizo…',
+  'journal.newEntry': 'Ingizo jipya',
   'journal.searchPlaceholder': 'Tafuta hisia, jina, wakati…',
   'journal.subheading': '{{count}} maingizo — kila moja linafaa kuhifadhiwa.',
   'journalEntryCard.encryptedLabel': 'Imesimbwa kwa njia fiche',
+  'landing.ctaBody':
+    'Bure kuanza. Pro hufungua uhamishaji wa data, jarida kubwa zaidi, na historia ya mwaka mzima.',
+  'landing.ctaButton': 'Anza ingizo lako la kwanza',
   'landing.ctaTitle': 'Dakika chache za utulivu kwa siku. Ni hayo tu.',
   'landing.eyebrow': 'Mazoezi ya kila siku yenye upole',
   'landing.featuresBody':
@@ -85,6 +114,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Nafasi nzuri ya kutafakari kila siku.',
   'mentalHealthJournalLayout.closeMenu': 'Funga menyu',
   'mentalHealthJournalLayout.openMenu': 'Fungua menyu',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Usogezaji mkuu',
+  'moodHeroCard.entriesThisWeek': '{{count}} wiki hii',
   'moodHeroCard.streakSuffix': 'mfululizo wa siku',
   'moodHeroCard.title': 'Tafakari ya leo',
   'moodTrendChart.aiBadge': 'Ufahamu wa akili bandia uko tayari',
@@ -95,11 +126,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Safari yako',
   'profile.fallbackName': 'Kiakisi',
   'profile.loadError': 'Imeshindwa kupakia takwimu.',
+  'profile.loading': 'Inasasisha takwimu zako…',
   'profile.longestStreak': 'Mfululizo mrefu zaidi',
   'profile.memberSince': 'Kutafakari tangu {{date}}',
   'profile.milestones': 'Hatua Muhimu',
   'profile.milestonesEmpty':
     'Hatua yako ya kwanza muhimu ni kuingia mara moja tu - andika wakati wowote unapohisi uko tayari.',
+  'profile.moodMix': 'Mchanganyiko wako wa hisia msimu huu',
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'Tafakari',
   'profile.totalWords': 'Maneno yaliyoandikwa',
@@ -112,6 +145,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Andika kuhusu hili',
   'resetPassword.eyebrow': 'Mwanzo mpya',
   'resetPassword.mismatchError': 'Manenosiri hayalingani.',
+  'resetPassword.passwordLabel': 'Nenosiri jipya',
   'resetPassword.subheading': 'Chagua kitu salama — tafakari zako zinastahili.',
   'resetPassword.tokenPlaceholder': 'Weka upya msimbo kutoka kwa barua pepe',
   'settings.dangerDescription':
@@ -122,11 +156,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'Haikuweza kufuta akaunti.',
   'settings.exportDescription': 'Maneno yako ni yako kila wakati. Pakua nakala wakati wowote.',
   'settings.exportDone': 'Imesafirishwa {{format}}.',
+  'settings.exportError': 'Imeshindwa kuhamisha.',
+  'settings.exportHeading': 'Hamisha tafakari zako',
   'settings.exportLoading': 'Inaandaa…',
   'settings.eyebrow': 'Nafasi yako, sheria zako',
   'settings.languageHeading': 'Lugha',
   'settings.privacyHeading': 'Faragha na usimbaji fiche',
   'settings.remindersHeading': 'Kikumbusho cha kila siku',
+  'settings.reminderToggleAria': 'Washa/kuzima kikumbusho cha kila siku',
   'settings.reminderToggleDescription':
     'Kikumbusho kimoja cha utulivu wakati unaochagua. Hakuna beji au hatia ya mstari.',
   'settings.reminderToggleLabel': 'Tuma msukumo mpole',
@@ -139,6 +176,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Kuunda shajara…',
   'signup.subheading': 'Nafasi salama kwa mawazo yako.',
   'wellnessRingsTriad.mindfulnessCaption': 'Lengo {{goal}} dakika ya leo',
+  'wellnessRingsTriad.mindfulnessLabel': 'Utulivu wa akili',
   'wellnessRingsTriad.sleepCaption': 'Lengo {{goal}} saa / usiku',
   'wellnessRingsTriad.sleepLabel': 'Kulala',
+  'wellnessRingsTriad.sleepValue': 'saa {{hours}}',
+  'wellnessRingsTriad.streakCaption': 'Lengo siku {{goal}}',
+  'wellnessRingsTriad.streakLabel': 'Mfululizo wa jarida',
+  'wellnessRingsTriad.streakValue': '{{days}} d',
 }

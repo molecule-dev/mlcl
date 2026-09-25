@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'တုံ့ပြန်ချက် ရှိပါသလား၊ ချို့ယွင်းချက် တွေ့ပါသလား၊ သို့မဟုတ် လုပ်ဆောင်ချက် တစ်ခု လိုချင်ပါသလား။ သင့်အကောင့် ဆက်တင်များမှ ဆက်သွယ်ပါ — မက်ဆေ့ခ်ျတိုင်း အဖွဲ့ထဲရှိ လူတစ်ဦးထံ ရောက်ပါသည်။',
   'about.contactTitle': 'ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.intro':
+    '{{app}} သည် မိမိတို့၏ စာပေကို အလွန်ဂရုစိုက်သော စာရေးဆရာများအတွက် AI စာရေးစတူဒီယိုတစ်ခု ဖြစ်သည်။ ၎င်းသည် ရှည်လျားသော AI ဖန်တီးမှုကို အေးဆေးသော အယ်ဒီတာ၊ SEO အမှတ်ပေးစနစ်နှင့် ပုံဖန်တီးမှုတို့နှင့် တွဲဖက်ပေးထားသောကြောင့် စာမျက်နှာအလွတ်မှ ထုတ်ဝေသည်အထိ သင့်အသံကို လုံးဝမဆုံးရှုံးဘဲ ရေးသားနိုင်ပါသည်။',
+  'about.missionBody':
+    'AI သည် သင့်အစား မဟုတ်ဘဲ သင့်အနီးတွင် မူကြမ်းရေးပေးသင့်သည်ဟု ကျွန်ုပ်တို့ ယုံကြည်ပါသည်။ {{app}} သည် အကြံပြုချက်များကို သင့်ကိုယ်ပိုင်စကားလုံးများနှင့် ထင်ရှားစွာ ခွဲခြားထားပြီး သင်ဖန်တီးသော စာရွက်စာတမ်းတိုင်း၏ ပိုင်ရှင်အဖြစ် သင့်ကို ထားရှိပေးကာ ကိရိယာများကို စာရေးခြင်း၏ လမ်းမှ ဖယ်ပေးထားပါသည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'about.pageTitle': '{{app}} အကြောင်း',
   'aiSuggestionCard.applied': 'အကြံပြုချက်ကို အသုံးချပြီးပါပြီ',
   'aiSuggestionCard.apply': 'လျှောက်ထားပါ',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'လမ်းကြောင်းရင်းမြစ်များ',
   'billing.activePlan': 'စာရင်းသွင်းမှုကို အသက်သွင်းထားသည်။',
   'billing.aiWordsLabel': 'AI မျိုးဆက်များ ပါဝင်သည်',
+  'billing.cancelFailed': 'စာရင်းသွင်းမှုကို ပယ်ဖျက်၍မရပါ။',
   'billing.cancelPlan': 'အစီအစဉ်ကို ပယ်ဖျက်ပါ',
+  'billing.cancelPlanConfirm': 'ပယ်ဖျက်မှုကို အတည်ပြုမလား။',
   'billing.cancelSuccess':
     'စာရင်းသွင်းမှုကို ပယ်ဖျက်လိုက်ပါပြီ။ အစီအစဉ်ကို အပ်ဒိတ်လုပ်ရန် ပြန်လည်စတင်ပါ။',
   'billing.changePlan': 'အစီအစဉ်ပြောင်းပါ',
@@ -44,26 +53,38 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'အစီအစဉ်များကို ကြည့်ရှုပါ',
   'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'dashboard.continueWriting': 'ဆက်လက်ရေးသားပါ',
+  'dashboard.createFirst': 'စာရွက်စာတမ်း ဖန်တီးပါ',
   'dashboard.days.sat': 'Sat',
   'dashboard.days.sun': 'Sun',
   'dashboard.defaultWriterName': 'စာရေးဆရာ',
   'dashboard.greeting': 'မင်္ဂလာနံနက်ခင်းပါ, {{name}}',
   'dashboard.loadError': 'သင့်ဒက်ရှ်ဘုတ်ကို တင်၍မရပါ။',
+  'dashboard.loading': 'သင့်စတူဒီယိုကို ဖွင့်နေသည်…',
   'dashboard.loadingDocs': 'မကြာသေးမီက စာရွက်စာတမ်းများကို တင်နေသည်…',
   'dashboard.noDocuments': 'စာရွက်စာတမ်းများ မရှိသေးပါ — သင့်ပထမဆုံးတစ်ခုကို စတင်ပါ။',
   'dashboard.startWriting': 'စာရွက်စာတမ်းအသစ်တစ်ခု စတင်ပါ',
+  'dashboard.streakBody': 'ဤအပတ်တွင် သင်သည် စကားလုံး {{words}} လုံး ရေးသားခဲ့ပါသည်။',
   'dashboard.streakTitle': '{{count}} - တစ်နေ့တာ ဆက်တိုက်',
+  'dashboard.subgreeting':
+    'သင့်စာကြည့်တိုက်တွင် စာရွက်စာတမ်း {{count}} ခု — ဤအရှိန်ကို ဆက်ထိန်းထားပါ။',
+  'documentCard.seoScoreTitle': 'SEO အမှတ် — {{score}}/100',
+  'documents.createNew': 'စာရွက်စာတမ်းအသစ် ဖန်တီးပါ',
   'documents.empty': 'သင့်စာကြည့်တိုက်က စောင့်နေပါသည် — သင့်ပထမဆုံးစာရွက်စာတမ်းကို စတင်ပါ။',
+  'documents.emptyFiltered': 'သင့်စစ်ထုတ်မှုများနှင့် ကိုက်ညီသော စာရွက်စာတမ်း မရှိသေးပါ။',
   'documents.loadError': 'စာရွက်စာတမ်းများကို တင်၍မရပါ။',
   'documents.loading': 'သင့်စာကြည့်တိုက်ကို တင်နေသည်…',
   'documents.new': 'စာရွက်စာတမ်းအသစ်',
+  'documents.searchAriaLabel': 'စာရွက်စာတမ်းများ ရှာဖွေပါ',
   'documents.searchPlaceholder': 'စာရွက်စာတမ်းများ ရှာဖွေရန်…',
   'documents.subtitle': '{{count}} သင့်စာကြည့်တိုက်ရှိ စာရွက်စာတမ်းများ။',
   'documents.title': 'စာရွက်စာတမ်းများ',
   'editor.aiPanelTitle': 'ပလူမီ ထောက်လှမ်းရေး',
+  'editor.aiSuggestion.empty':
+    'လက်ရှိ ပြုပြင်မွမ်းမံမှု မရှိပါ။ ဒုတိယမျက်လုံးတစ်စုံ လိုချင်သည့်အခါ {{appName}} ကို အကြံပြုချက် တောင်းပါ။',
   'editor.aiSuggestion.failed': 'အကြံပြုချက်များကို ယခုတင်၍မရပါ။',
   'editor.aiSuggestion.loadingBody': 'ကြည်လင်ပြတ်သားမှု ပိုမိုကောင်းမွန်အောင် ဖန်တီးပေးခြင်း...',
   'editor.backToDocuments': 'စာရွက်စာတမ်းအားလုံး',
+  'editor.bodyAriaLabel': 'စာရွက်စာတမ်း အကြောင်းအရာ',
   'editor.closeAiPanel': 'AI panel ကို ပိတ်ပါ',
   'editor.createFailed': 'စာရွက်စာတမ်းကို ဖန်တီး၍မရပါ။',
   'editor.exported': '{{format}} အဖြစ် ထုတ်ယူထားသည်။',
@@ -79,18 +100,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'ပြုပြင်မွမ်းမံမှုတောင်းဆိုပါ',
   'editor.saveBeforePublish': 'ထုတ်ဝေခြင်းမပြုမီ စာရွက်စာတမ်းကို သိမ်းဆည်းပါ။',
   'editor.status.chars': '{{count}} ဇာတ်ကောင်များ',
+  'editor.status.readTime': '{{minutes}} မိနစ်ဖတ်ရန်',
   'editor.status.savedAt': 'သိမ်းဆည်းပြီးပါပြီ {{time}}',
   'editor.status.saveError': 'သိမ်းဆည်းမှု မအောင်မြင်ပါ',
+  'editor.status.unsaved': 'မသိမ်းဆည်းရသေးပါ',
   'editor.titleAriaLabel': 'စာရွက်စာတမ်းခေါင်းစဉ်',
   'editor.titlePlaceholder': 'ခေါင်းစဉ်မဲ့ စာရွက်စာတမ်း',
   'editor.toggleAiPanel': 'AI panel ကို ပြောင်းပါ',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'author@example.com',
+  'forgotPassword.sent': '{{email}} မှတ်တမ်းတွင် ရှိပါက ပြန်လည်သတ်မှတ်ရန် လင့်ခ် လာနေပါပြီ။',
   'imageGenerator.failed': 'ရုပ်ပုံထုတ်လုပ်ခြင်း မအောင်မြင်ပါ။',
   'imageGenerator.generate': 'ရုပ်ပုံထုတ်လုပ်ပါ',
   'imageGenerator.generating': 'ထုတ်လုပ်နေသည်...',
   'imageGenerator.placeholder': 'သင်ဖန်တီးလိုသော ရုပ်ပုံကို ဖော်ပြပါ...',
+  'imageGenerator.promptAriaLabel': 'ရုပ်ပုံတောင်းဆိုချက်',
+  'imageGenerator.subtitle': 'မျက်နှာဖုံးပုံကို ဖော်ပြပြီး AI ဖြင့် ပုံဖော်ခိုင်းပါ။',
   'imageGenerator.title': 'AI ရုပ်ပုံထုတ်လုပ်စက်',
+  'landing.aiSuggestionBody':
+    '၄၂ လွှာရှိ လသာဆောင်ပေါ်တွင် ရပ်နေစဉ် အီလီးယပ်စ်သည် မြို့တော်က သူ့အပေါ် ဖိထားသလို ခံစားရသည် — လေက ပတ်ဝန်းကျင်အသံကို ဖြတ်ယူသွားပြီး လင်းနေသော ဇယားကွက်အထက်တွင် အေးစက်ပြီး တိတ်ဆိတ်သော ဟင်းလင်းပြင်ထဲ သူ့ကို ချိတ်ဆွဲထားခဲ့သည်။',
   'landing.eyebrow': 'စာရေးဆရာကောင်းများအတွက် AI စာရေးစတူဒီယို',
   'landing.featuresHeading': 'လမ်းကြောင်းမှ ဖယ်ထုတ်နိုင်သော ကိရိယာများ',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -100,14 +128,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'စကားပြေ၊ အရှိန်အဟုန်နှင့် တိကျမှုကို ဂရုစိုက်သော စာရေးဆရာများအတွက် ဖန်တီးထားသော စတူဒီယိုတစ်ခု။ သင့်ဘေးတွင် ငှက်မွှေးပုံကြမ်းများ ပေါ်လာသည် — သင့်အစား ဘယ်တော့မှ မဟုတ်ပါ။',
   'landing.heroTitle.eloquence': 'နှုတ်သတ္တိ',
+  'landing.heroTitle.intelligence': 'ဉာဏ်ရည်နှင့် ',
   'landing.nav.testimonials': 'ထောက်ခံချက်များ',
   'landing.plan.cta': 'ဒီအစီအစဉ်နဲ့ စတင်လိုက်ပါ',
   'landing.plan.popular': 'အချစ်ဆုံး',
   'landing.pricingEyebrow': 'ဈေးနှုန်း',
   'landing.pricingHeading': 'သင့်အလေ့အကျင့်နှင့် ကိုက်ညီသောအရာကို ရွေးချယ်ပါ',
   'landing.sampleDocTitle': 'တိတ်ဆိတ်မှု၏ဗိသုကာ',
+  'landing.sampleParagraph1':
+    'မြို့တော်သည် ဘယ်တော့မှ တကယ် တိတ်ဆိတ်မနေခဲ့ပါ။ ည၏ အနက်ရှိုင်းဆုံး အချိန်များတွင်ပင် ကွန်ကရစ်အုတ်မြစ်များကို ဖြတ်၍ အသံနိမ့်တစ်ခု တုန်ခါနေသည် — မြေအောက်ရထားများနှင့် လေဝင်လေထွက်ရှပ်များ၏ စက်ပိုင်းဆိုင်ရာ နှလုံးခုန်သံ။',
+  'landing.sampleParagraph2.after': ' ဖန်ကို ထိလျက်။',
+  'landing.sampleParagraph2.before': 'သို့သော် ',
   'landing.sampleParagraph2.highlight':
     '၄၂ ထပ်ရဲ့ လသာဆောင်မှာ ရပ်နေတုန်း အီလီယက်စ်ဟာ အထီးကျန်မှုကို နက်နက်ရှိုင်းရှိုင်း ခံစားလိုက်ရတယ်။',
+  'landing.showcaseBody':
+    'ဝါကျတစ်ကြောင်းကို ရွေးပြီး {{appName}} က ပြုပြင်မွမ်းမံမှု တစ်ခု အကြံပြုပါလိမ့်မည်။ လက်ခံပါ၊ ချိန်ညှိပါ၊ သို့မဟုတ် ပယ်လိုက်ပါ။ အကြံပြုချက်များကို အမြဲ ခရမ်းရောင် ခြယ်ထားသောကြောင့် သင်ရေးခဲ့သည်နှင့် အကြံပြုခဲ့သည်ကို ခွဲခြားသိနိုင်ပါသည်။',
+  'landing.showcaseHeading': 'ဒုတိယမျက်လုံးတစ်စုံ — ဒုတိယစာရေးဆရာ ဘယ်တော့မှ မဟုတ်။',
   'landing.startWriting': 'ရေးသားခြင်း စတင်ပါ',
   'login.emailPlaceholder': 'author@example.com',
   'login.failed': 'အကောင့်ဝင်၍မရပါ',
@@ -122,8 +158,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'ဒက်ရှ်ဘုတ်ဖွင့်ပါ',
   'notFound.title': 'ဒီအခန်းကို မရေးရသေးပါဘူး။',
   'plumeSidebarLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
+  'pricing.maxDocuments': '{{count}} စာရွက်စာတမ်းများ',
+  'pricing.maxGenerate': '{{count}} AI ဖန်တီးမှုများ',
+  'pricing.maxImages': '{{count}} ပုံဖန်တီးမှုများ',
   'privacy.data':
     'သင့်အကောင့် အီးမေးလ်နှင့် hash လုပ်ထားသော စကားဝှက်။ သင်ဖန်တီးထားသော စာရွက်စာတမ်းများနှင့် တင်းပလိတ်များ။ ငွေတောင်းခံလွှာနှင့် ခွဲခြမ်းစိတ်ဖြာမှုအတွက် AI အကြံပြုချက်မှတ်တမ်းများ (input + output)။ Stripe ဖောက်သည် + စာရင်းသွင်းမှု အမှတ်အသားများ၊ ကျွန်ုပ်တို့သည် ကတ်နံပါတ်အပြည့်အစုံကို ဘယ်သောအခါမှ သိမ်းဆည်းမည်မဟုတ်ပါ။',
+  'privacy.intro':
+    'ကျွန်ုပ်တို့သည် {{app}} လည်ပတ်ရန် လိုအပ်သော ဒေတာကိုသာ စုဆောင်းပါသည် — သင့်အီးမေးလ်၊ သင်ဖန်တီးသော စာရွက်စာတမ်းများနှင့် သင်ပြုလုပ်သော AI တောင်းဆိုမှုများ။ သင့်စာပေ သို့မဟုတ် သင့် prompt များကို ဘယ်တော့မှ ရောင်းချမည် မဟုတ်ပါ။',
   'profile.loadError': 'သင့်ပရိုဖိုင်ကို တင်၍မရပါ။',
   'profile.loading': 'သင့်ပရိုဖိုင်ကို တင်နေသည်…',
   'profile.loadingPublished': 'ထုတ်ဝေထားသော စာရွက်စာတမ်းများကို တင်နေသည်…',
@@ -136,7 +177,14 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'စကားဝှက်အသစ်',
   'seoAnalysis.backToEditor': 'အယ်ဒီတာသို့ ပြန်သွားရန်',
   'seoAnalysis.eyebrow': 'SEO ခွဲခြမ်းစိတ်ဖြာခြင်း',
+  'seoAnalysis.heroBody':
+    'အသုံးပြုရန် {{count}} အကြံပြုချက်။ တစ်ခုချင်းစီသည် ဖွဲ့စည်းပုံ သို့မဟုတ် သော့ချက်စကားလုံး မြှင့်တင်မှုဖြစ်ပြီး အနီရောင်အလံများ အစုအပုံ မဟုတ်ပါ။',
+  'seoAnalysis.heroBodyEmpty':
+    'ဖတ်ရလွယ်မှု၊ သော့ချက်စကားလုံး သိပ်သည်းမှုနှင့် ဖွဲ့စည်းပုံကို အမှတ်ပေးရန် "ခွဲခြမ်းစိတ်ဖြာမှု လုပ်ဆောင်ပါ" ကို နှိပ်ပါ။',
   'seoAnalysis.heroEmpty': 'ခွဲခြမ်းစိတ်ဖြာမှု မရှိသေးပါ။ ဤမူကြမ်းကို ရမှတ်ရရန် တစ်ခုလုပ်ဆောင်ပါ။',
+  'seoAnalysis.heroNeedsWork':
+    'အချို့သော ဖွဲ့စည်းပုံ မြှင့်တင်မှုများက လက်လှမ်းမီမှုကို တိုးစေပါလိမ့်မည်။',
+  'seoAnalysis.heroStrong': 'ကောင်းသော လက်ရာ — ထူးချွန်မှုနှင့် အနည်းငယ်သာ ကွာပါသည်။',
   'seoAnalysis.historyEmpty': 'ယခင် ခွဲခြမ်းစိတ်ဖြာမှုများ မှတ်တမ်းတင်ထားခြင်း မရှိပါ။',
   'seoAnalysis.historyTitle': 'ခွဲခြမ်းစိတ်ဖြာမှုမှတ်တမ်း',
   'seoAnalysis.keywordEmpty':
@@ -163,8 +211,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'သင်ရေးသားပုံနှင့် ကိုက်ညီစေရန် Plume ကို ချိန်ညှိပါ။',
   'settings.toggleIntegrationFailed': 'ပေါင်းစည်းမှု အပ်ဒိတ်လုပ်ခြင်း မအောင်မြင်ပါ။',
   'settings.writing.aiSuggestions': 'စာရိုက်နေစဉ်အတွင်း AI အကြံပြုချက်များ',
+  'settings.writing.aiSuggestionsBody':
+    'သင်ရေးနေစဉ် ပြုပြင်မွမ်းမံမှုများကို ပြသသည်။ အကြံပြုချက်များကို ဝါကျအလိုက် ရွေးချယ်နိုင်သည်။',
   'settings.writing.autoSave': 'စက္ကန့် ၃၀ တိုင်း အလိုအလျောက် သိမ်းဆည်းခြင်း',
+  'settings.writing.autoSaveBody':
+    '{{appName}} သည် သင့်မူကြမ်း၏ လျှပ်တစ်ပြက်ပုံကို သိမ်းထားသောကြောင့် မည်သည့် tab မှမဆို ပြန်လည်ရယူနိုင်ပါသည်။',
   'settings.writing.notifyEmail': 'အပတ်စဉ် ရေးသားမှု အနှစ်ချုပ်များကို ကျွန်ုပ်ထံ အီးမေးလ်ပို့ပါ။',
+  'settings.writing.notifyEmailBody':
+    'streak များ၊ မူကြမ်းများနှင့် SEO တိုးတက်မှုများအကြောင်း တစ်ပတ်တစ်ကြိမ် တနင်္ဂနွေ အကျဉ်းချုပ်။',
   'settings.writing.title': 'ရေးသားခြင်း ဦးစားပေးမှုများ',
   'settings.writing.tone': 'ပုံသေအသံကြိုတင်သတ်မှတ်ထားခြင်း',
   'signup.emailPlaceholder': 'author@example.com',
@@ -176,8 +230,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'ဖော်ပြချက် မပေးထားပါ။',
   'templates.subtitle':
     'တိုက်ပွဲတွင် စမ်းသပ်ထားသော အယ်ဒီတာ့အာဘော်ဘောင်မှ စတင်ပါ၊ ထို့နောက် ၎င်းကို သင့်ကိုယ်ပိုင်ဘောင်အဖြစ် ဖန်တီးပါ။',
+  'terms.intro':
+    'ဤစည်းကမ်းချက်များသည် {{app}} အသုံးပြုမှုကို ထိန်းချုပ်ပါသည်။ အကောင့်ဖန်တီးခြင်းဖြင့် သင်သည် ဝန်ဆောင်မှုကို တရားဝင်စာရေးသားရန် အသုံးပြုမည်ဖြစ်ပြီး သင့်အကောင့် အထောက်အထားများကို လျှို့ဝှက်ထားမည်ဟု သဘောတူပါသည်။',
   'terms.license':
     'သင်ဖန်တီးသော စာရွက်စာတမ်း၊ တင်းပလိတ်နှင့် AI ထုတ်လုပ်မှုတိုင်း၏ ပိုင်ဆိုင်မှုကို သင်ဆက်လက်ထိန်းသိမ်းထားပါသည်။ သင့်အလုပ်ကို သင့်ထံ ပြန်လည်လက်ခံပြီး ဝန်ဆောင်မှုပေးရန်နှင့် သင်ရွေးချယ်ထားသော ကတိကဝတ်ရှိသော ဝန်ဆောင်မှုပေးသူများမှတစ်ဆင့် AI တောင်းဆိုမှုများကို စီမံဆောင်ရွက်ရန်အတွက် သီးသန့်မဟုတ်သော လိုင်စင်တစ်ခု ကျွန်ုပ်တို့ လိုအပ်ပါသည်။',
   'writingStreakHeroCard.change': '{{sign}} {{amount}} စကားလုံးများ',
   'writingStreakHeroCard.greeting': 'ကောင်းသောနေ့လေးဖြစ်ပါစေ၊ {{name}}',
+  'writingStreakHeroCard.subtitle': 'ဤအပတ်တွင် ရေးသားသော စကားလုံးများ — {{count}} ရက် streak',
+  'writingStreakHeroCard.tagline': 'တစ်နေ့တစ်မျက်နှာဆိုလျှင် စိတ်ကူးစိတ်သန်းက ဆက်လက်တက်ကြွနေမည်။',
 }

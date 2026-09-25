@@ -1,12 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Erreserba bati, iritzi bati edo {{app}}-n egon beharko litzatekeen ostatua dela uste duzunari buruzko galderarik? Jarri harremanetan gure taldearekin zure kontutik — mezu bakoitza laguntzeko prest dagoen benetako pertsona batengana iristen da.',
+  'about.contactTitle': 'Hitz egin gurekin',
   'about.eyebrow': 'Guri buruz',
+  'about.featureLoyalty':
+    'Kideentzako soilik diren tarifak eta leialtasun-programa bat, erreserba bakoitzean puntuak, check-out berantiarrak eta gela-hobekuntzak ematen dituena.',
+  'about.featureReviews':
+    'Egiaztatutako gonbidatuen iritziak eta editoreen hautaketak, iritsi aurretik ostatuaz fidatu zaitezen.',
+  'about.featureRooms':
+    'Gelak, tarifak eta zerbitzuak alboan alboan, prezio garden eta guztiz barne — zergak eta resort-kuotak ordaindu aurretik sartuta.',
+  'about.featureSearch':
+    'Denbora errealeko bilaketa egiaztatutako hoteletan, erabilgarritasun bizia, mapa-ikuspegia eta argazki-galeria aberatsak.',
+  'about.featureTrips':
+    'Gordetako gogokoak eta Bidaien panel bat, erreserba, ibilbide eta berrespen guztiak leku bakarrean gordetzen dituena.',
+  'about.intro':
+    '{{app}} kalitateari garrantzia ematen dioten bidaiarientzako hotel-erreserba plataforma bat da. Gure editore-taldeak ostatua bakoitza pertsonalki egiaztatzen du — ez dago agregatzaileen inbentariorik, ez zerrenda engainagarririk. Bilatu benetako erabilgarritasuna, alderatu gelak, tarifak eta zerbitzuak alboan alboan, eta egin erreserba ukitu gutxi batzuetan, prezio argi eta guztiz barne batekin.',
+  'about.missionBody':
+    'Ostatu bat erreserbatzea lasaia eta zintzoa izan beharko litzateke. Tarifa gardenak erakusten ditugu, zergak eta resort-kuotak aurrez, gonbidatu leialei sariak ematen dizkiegu haiei txanponak banan-banan kendu beharrean, eta dirua merezi duten ostatuak jartzen ditugu lehenengo — horrela, denbora gutxiago emango duzu fitxak alderatzen eta gehiago bidaian bertan.',
+  'about.missionTitle': 'Gure misioa',
+  'about.subtitle': 'Hotel egokia aurkitzeko eta erreserbatzeko modu hautatu eta gardena.',
   'account.loyalty.activitySummary': '{{nights}} gauak · {{spend}} aurten gastatu',
+  'account.loyalty.benefitsHeading': 'Zure onurak',
   'account.loyalty.heading': 'Leialtasuna',
   'account.loyalty.loading': 'Leialtasuna kargatzen…',
-  'account.loyalty.pointsTowardNext':
-    '{{puntuak}} / {{hurrengoa}} seinalatzen du {{hurrengo maila}}',
+  'account.loyalty.maxTier': 'Maila gorena — gozatu zure onurak.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} puntu {{nextTier}} arte',
   'account.loyalty.tier': 'Uneko maila',
   'account.loyalty.unavailable': 'Leialtasun-informazioa ez dago eskuragarri.',
   'account.navLabel': 'Kontuaren atalak',
@@ -23,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Erreserba baieztatu · {{total}}',
   'bookingCheckout.datesRequired': 'Mesedez, aukeratu zure sarrera eta irteera datak.',
   'bookingCheckout.guestHeading': 'Gonbidatu nagusia',
+  'bookingCheckout.heading': 'Berretsi eta erreserbatu',
   'bookingCheckout.loadError': 'Ezin izan da propietatea kargatu.',
   'bookingCheckout.nights': '{{rate}} × {{count}} gauak',
   'bookingCheckout.notFound': 'Ez da jabetza aurkitu.',
@@ -33,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Zergak eta tasak',
   'bookingCheckout.tripHeading': 'Zure bidaia',
   'bookingConfirmation.allTripsCta': 'Bidaia guztiak',
+  'bookingConfirmation.confNumber': 'Berrespen-zenbakia: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Zure erreserba prozesatzen ari da.',
   'bookingConfirmation.heading': 'Erreserba baieztatuta',
   'bookingConfirmation.loading': 'Erreserba kargatzen…',
   'bookingConfirmation.searchMoreCta': 'Arakatu egonaldi gehiago',
   'bookingConfirmation.subheadingForTrip':
-    '{{propietatea}} barruan {{hiria}} , {{herrialdea}} . Ikusiko zaitugu {{checkIn}} .',
+    '{{property}} {{city}}-n, {{country}}. {{checkIn}} egunean ikusiko dugu elkar.',
   'bookingConfirmation.total': 'Guztira {{total}}',
   'bookingConfirmation.viewTripCta': 'Ikusi bidaia',
   'common.goToDashboard': 'Joan aginte-panelera',
@@ -47,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Gogokoak kargatzea ezinezkoa izan da.',
   'favorites.pricePerNight': '{{price}} gaua',
   'favorites.removeCta': 'Gorde ez',
+  'favorites.removing': 'Kentzen…',
   'forgotPassword.subheading':
     'Sartu zure kontuan agertzen den helbide elektronikoa eta berrezarpen segururako esteka bat bidaliko dizugu.',
   'forgotPassword.successBody':
@@ -54,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Auberge kideak',
   'landing.cta.heading': 'Bazkideentzako tarifak. Erreserba guztietan, beti.',
   'landing.cta.signup': 'Sortu doako kontua',
+  'landing.cta.subheading':
+    'Irabazi leialtasun-puntuak ostaldi bakoitzean, desblokeatu check-out berantiarrak eta gela-hobekuntzak, eta izan lehen sarbidea jabetza berrietara publikoki zerrendatu aurretik.',
   'landing.destinations.eyebrow': 'Nora hurrengoa',
   'landing.destinations.heading': 'Helmuga aipagarriak',
   'landing.destinations.seeAll': 'Ikusi helmuga guztiak',
@@ -62,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Maletak hartzeko moduko istorioak',
   'landing.nav.join': 'Batu zaitez Auberge-era',
   'landing.nav.search': 'Bilaketa egonaldiak',
+  'landing.preview.browseAll': 'Arakatu bilduma osoa',
   'landing.preview.eyebrow': 'Barrura begirada bat',
   'landing.preview.heading': 'Hilabete honetako egonaldi hautatuak',
+  'landing.preview.subheading':
+    '{{appName}}-ko jabetza bakoitza gure editore-taldeak pertsonalki egiaztatzen du — ez dago agregatzaileen inbentariorik, ez zerrenda engainagarririk.',
   'login.eyebrow': 'Bazkideen eremua',
+  'login.noAccount': 'Tesseran berria zara?',
   'login.signupLink': 'Sortu doako kontu bat',
   'login.subheading':
     'Hasi saioa zure bidaiak kudeatzeko, baieztapenak ikusteko eta utzi zenuen tokitik jarraitzeko.',
+  'loyaltyTierBadge.points': '{{points}} puntuak',
   'planUpdated.heading': 'Plana eguneratua',
+  'planUpdated.retry': 'Saiatu berriro',
+  'planUpdated.verifyFailed': 'Ezin izan dugu oraindik zure ordainketa baieztatu.',
+  'planUpdated.verifyFailedBody':
+    'Baliteke zure ordainketa prozesatzen ari izatea oraindik. Saiatu berriro une batean.',
   'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
   'pricing.limit.advancedFeatures': 'Ezaugarri aurreratuak:',
   'pricing.limit.canExport': 'Datuen esportazioa:',
@@ -80,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Leku honek eskaintzen duena',
   'propertyDetail.backLink': 'Bilaketara itzuli',
   'propertyDetail.bookCta': 'Erreserba',
+  'propertyDetail.bookmarkAria': 'Gorde jabetza',
   'propertyDetail.bookmarkAriaSaved': 'Kendu gordetako propietateetatik',
+  'propertyDetail.galleryImageAlt': '{{name}} {{number}}. argazkia',
   'propertyDetail.heroImageAlt': '{{name}} heroiaren argazkia',
   'propertyDetail.hidePhotos': 'Ezkutatu argazkiak',
   'propertyDetail.lineCleaning': 'Garbiketa-kuota',
@@ -90,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'gaua',
   'propertyDetail.noChargeYet': 'Oraindik ez dizute kobratuko',
   'propertyDetail.notFound': 'Ez da jabetza aurkitu.',
+  'propertyDetail.perNight': '/ gaua',
+  'propertyDetail.pickDatesHint': 'Aukeratu zure datak prezioaren xehetasun osoa ikusteko.',
   'propertyDetail.reviewCount': '( {{count}} iritziak)',
   'propertyDetail.reviewsHeading': 'Azken iritziak',
   'propertyDetail.roomCapacity': 'Loak {{count}}',
@@ -102,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Pasahitz berria',
   'resetPassword.subheading':
     'Aukeratu pasahitz berri bat zure Auberge konturako. Erabili gutxienez 8 karaktere; pasahitz bat gomendatzen dugu.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Ez dago zure bilaketarekin bat datorren propietaterik.',
   'searchResults.emptyHint':
     'Saiatu iragazkiak zabaltzen edo prezioen muga kentzen — Auberge-ek 14 herrialdetan ditu egonaldiak.',
@@ -109,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Egonaldi zainduak',
   'searchResults.headingForQuery': 'Egonaldiak " {{q}} "',
   'searchResults.loadError': 'Ezaugarriak kargatzea huts egin da.',
+  'searchResults.mapHint':
+    'Egin kurtsorea txartel baten gainean mapan nabarmentzeko. Mapbox-en fitxak zuzenean produkzioan.',
   'searchResults.mapPinAria': '{{name}} — {{price}} gau bakoitzeko',
   'searchResults.sortLabel': 'Ordenatu honen arabera',
   'searchResults.subheading': '{{count}} propietateak · {{guests}} gonbidatuak',
   'signup.eyebrow': 'Bazkide egin',
   'signup.subheading':
     'Batu zaitez Auberge-era kideentzako tarifa esklusiboak, irteera berantiarrak eta propietate berrietarako lehen sarbidea desblokeatzeko.',
+  'sojournAuthShell.brand.eyebrow': 'Egon zaitez leku aparta batean',
+  'sojournAuthShell.brand.heading':
+    'Jabetzen bilduma hautatua — ederki aurkeztua, prezio gardenekin.',
   'sojournHeroSearchCard.checkInAria': 'Sarrera data',
   'sojournHeroSearchCard.checkOutAria': 'Irteera data',
+  'sojournHeroSearchCard.destAria': 'Helmuga',
+  'sojournHeroSearchCard.destLabel': 'Non',
   'sojournHeroSearchCard.destPlaceholder': 'Hiria, eskualdea edo jabetza',
   'sojournHeroSearchCard.eyebrow': 'Egonaldi zainduak · Bazkideentzako tarifa esklusiboak',
   'sojournHeroSearchCard.guestsOption': '{{n}} gonbidatuak',
   'sojournHeroSearchCard.subtitle':
     'Boutique hotelen, diseinu aurreratuko propietateen eta atsedenleku arraroen bilduma zaindua — prezio gardenak, aurkezpen ederra.',
+  'sojournHeroSearchCard.title': 'Egon zaitez leku aparta batean',
+  'sojournHeroSearchCard.trustLoyalty': 'Irabazi puntuak ostaldi bakoitzean',
   'sojournHeroSearchCard.trustNoFees': 'Ez dago ezkutuko tasarik, inoiz',
   'sojournHeroSearchCard.trustVetted': 'Eskuz egiaztatutako propietateak soilik',
   'sojournLayout.primaryNavLabel': 'Nabigazio nagusia',

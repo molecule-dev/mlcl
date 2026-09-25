@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'ඩෙන්ඩ්‍රයිට් යනු වැඩ ප්‍රවාහ ස්වයංක්‍රීයකරණ වේදිකාවක් වන අතර එය ප්‍රේරක, AI තත්වයන් සහ බහු-පියවර ක්‍රියා එකට වයර් කරන අතර එමඟින් කණ්ඩායම්වලට මැලියම් කේතය ලිවීමෙන් තොරව පද්ධති අතර වැඩ මාරු කළ හැකිය.',
+  'about.philosophy':
+    'සෑම කාර්ය ප්‍රවාහයක්ම කුඩා, නිරීක්ෂණය කළ හැකි පියවරවල ප්‍රස්තාරයකි. සෑම පියවරක්ම එහි ආදාන, ප්‍රතිදාන සහ කාලය සටහන් කරයි, එවිට එය පරීක්ෂා කිරීමට, නැවත ධාවනය කිරීමට හෝ පසුපසට හැරවීමට හැකිය. ඒවා දෘශ්‍යමය වශයෙන් සම්පාදනය කරන්න, කේතයක් මෙන් අනුවාද කරන්න.',
   'about.title': 'ඩෙන්ඩ්රයිට් ගැන',
   'authShell.brand': 'ඩෙන්ඩ්රයිට්',
   'authShell.support': 'සහාය',
@@ -15,9 +17,15 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'සැලැස්ම වෙනස් කරන්න',
   'billing.description':
     'භාවිතය නිරීක්ෂණය කරන්න, ඔබේ සැලැස්ම කළමනාකරණය කරන්න, සහ ගිණුම්කරණය සඳහා ඉන්වොයිසි අදින්න.',
+  'billing.eyebrow': 'ගිණුම · සැලසුම සහ භාවිතය',
+  'billing.failedLabel': 'අසාර්ථක ධාවන · පැය 24',
+  'billing.invoicesEmpty':
+    'තවම ඉන්වොයිස් නැත. ඔබේ පළමු ගෙවන ලද අලුත් කිරීමෙන් පසු ඒවා මෙහි දිස්වනු ඇත.',
   'billing.invoicesTitle': 'ඉන්වොයිස් ඉතිහාසය',
   'billing.planNoteFree':
     'නිදහස් ස්ථරය — {{runs}} දුවනවා සහ {{workflows}} ක්‍රියාකාරී වැඩ ප්‍රවාහ. ඉහළ සීමාවන් සඳහා උත්ශ්‍රේණි කරන්න.',
+  'billing.planNotePaid':
+    'ගෙවන ලද සැලසුම — ධාවන {{runs}}ක් සහ සක්‍රීය කාර්ය ප්‍රවාහ {{workflows}}ක්.',
   'billing.runsLabel': 'පසුගිය පැය 24 තුළ ධාවනය වේ',
   'billing.tiersBlurb':
     'කැපවූ මිලකරණ පිටුවේ සෑම ස්ථරයක්ම - ධාවනය, ක්‍රියාකාරී වැඩ ප්‍රවාහ, උසස් විශේෂාංග සහ සහාය - සසඳන්න.',
@@ -35,10 +43,14 @@ export const ui: UiTranslations = {
     'ඒකාබද්ධ කිරීම් ලියාපදිංචි කර නැත. බැඳුම්කර සබල කිරීමට සැපයුම්කරු යතුරු වින්‍යාස කරන්න.',
   'connections.error': 'සම්බන්ධතා පූරණය කළ නොහැකි විය.',
   'connections.eyebrow': 'ඒකාබද්ධ කිරීම් · {{connected}} සම්බන්ධයි',
+  'connections.loading': 'ඒකාබද්ධ කිරීම් පූරණය වෙමින්…',
+  'connections.openEnv':
+    'මෙම සැපයුම්කරු සම්බන්ධ කිරීමට, api/.env තුළ එහි API යතුර සකසා සේවාදායකය නැවත අරඹන්න.',
   'dashboard.description':
     '{{active}} වැඩ ප්‍රවාහ සක්‍රීයයි. {{failed}} පසුගිය පැය 24 තුළ අසාර්ථක විය.',
   'dashboard.error': 'උපකරණ පුවරුව පූරණය කිරීමට නොහැකි විය.',
   'dashboard.eyebrow': 'මෙහෙයුම් · සජීවී',
+  'dashboard.hero.label': 'අද ධාවන',
   'dashboard.hero.medianLatency': 'p50 ප්‍රමාදය',
   'dashboard.hero.queue': 'පෝලිමේ ගැඹුර',
   'dashboard.hero.success': 'සාර්ථකත්වය',
@@ -46,14 +58,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'මධ්‍යන්‍ය කාල සීමාව',
   'dashboard.kpi.failedRuns': 'අසාර්ථකයි · පැය 24',
   'dashboard.kpi.outOf': 'වල {{total}} මුළු',
+  'dashboard.kpi.successRate': 'සාර්ථකත්ව අනුපාතය · පැය 24',
   'dashboard.loading': 'උපකරණ පුවරුව පූරණය වෙමින්…',
   'dashboard.recentRuns.empty':
     'තවම ධාවනයන් නොමැත. වැඩ ප්‍රවාහයක් ක්‍රියාරම්භ කිරීමෙන් මෙම සංග්‍රහය පුරවනු ඇත.',
   'dashboard.recentRuns.title': 'මෑත කාලීන දිවීම්',
   'dashboard.recentRuns.viewAll': 'විවෘත ක්‍රියාත්මක කිරීම් →',
+  'dashboard.recentWorkflows.browse': 'සැකිලි බ්‍රවුස් කරන්න →',
   'dashboard.recentWorkflows.empty':
     'තවම වැඩ ප්‍රවාහ නොමැත. අච්චුවක් ස්ථාපනය කරන්න හෝ මුල සිට එකක් සාදන්න.',
   'dashboard.recentWorkflows.title': 'මෑතකදී ධාවනය කළ',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'ආරම්භ කරන ලදී',
   'dashboard.run.col.trigger': 'ප්‍රේරකය',
   'dashboard.run.col.workflow': 'කාර්ය ප්‍රවාහය',
@@ -89,6 +104,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'කාර්ය ප්‍රවාහය',
   'executions.description':
     'සෑම වැඩ ප්‍රවාහ ධාවනයක්ම, සෑම නැවත උත්සාහයක්ම, සෑම පියවර ප්‍රතිදානයක්ම - සියල්ල නිරීක්ෂණය කළ හැකිය.',
+  'executions.empty.filter': 'මෙම පෙරහනට ගැළපෙන ධාවන නැත.',
   'executions.empty.first':
     'තවම ධාවනයන් නොමැත — මෙම ලැයිස්තුව පිරවීම සඳහා වැඩ ප්‍රවාහයක් ක්‍රියාරම්භ කරන්න.',
   'executions.error': 'ක්‍රියාත්මක කිරීම් පූරණය කළ නොහැකි විය.',
@@ -99,30 +115,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'ධාවන ඉතිහාසය පූරණය වෙමින්…',
   'executions.title': 'ක්‍රියාත්මක කිරීම්',
   'forgotPassword.confirmation': 'යළි පිහිටුවීමේ සබැඳිය යවන ලද්දේ {{email}} .',
+  'forgotPassword.subhead': 'යළි පිහිටුවීමේ සබැඳියක් ලබා ගැනීමට ඔබගේ විද්‍යුත් තැපෑල ඇතුළත් කරන්න.',
   'forgotPassword.successSubhead':
     'අපි යළි පිහිටුවීමේ සබැඳියක් යැව්වා {{email}} . එය විනාඩි 30 කින් කල් ඉකුත් වේ.',
   'help.connections.body':
     'AI, විද්‍යුත් තැපෑල සහ ගබඩා පියවර සඳහා සැපයුම්කරු යතුරු api/.env ගොනුව තුළ සැකසීමට අවශ්‍ය වේ. යතුරක් වින්‍යාස කළ පසු, අනුරූප ඒකාබද්ධ කිරීම සම්බන්ධතා පිටුවේ සම්බන්ධ වී ඇති බව දිස්වේ.',
+  'help.connections.cta': 'සම්බන්ධතා විවෘත කරන්න →',
   'help.connections.title': 'සැපයුම්කරුවන් සම්බන්ධ කිරීම',
   'help.gettingStarted.body':
     'නව වැඩ ප්‍රවාහ සැකිලි පුස්තකාලයෙන් ස්ථාපනය කළ හැකිය, නැතහොත් වැඩ ප්‍රවාහ සාදන්නා තුළ මුල සිටම ගොඩනගා ගත හැකිය. සෑම වැඩ ප්‍රවාහයකටම ප්‍රේරකයක් (අත්පොත, වෙබ් හුක් හෝ ක්‍රෝන්) සහ අනුපිළිවෙලින් ක්‍රියාත්මක වන පියවර අනුපිළිවෙලක් ඇත.',
+  'help.gettingStarted.cta': 'අච්චු පුස්තකාලය බලන්න →',
+  'help.gettingStarted.title': 'ආරම්භ කිරීම',
   'help.intro':
     'වැඩ ප්‍රවාහ ගොඩනැගීම, සම්බන්ධතා වින්‍යාස කිරීම සහ ධාවන ප්‍රතිදානය අර්ථ නිරූපණය කිරීම පිළිබඳ පොදු ප්‍රශ්නවලට පිළිතුරු සොයන්න. වඩාත් පොදු මාතෘකා පහත ලැයිස්තුගත කර ඇත; ආවරණය නොකළ ඕනෑම දෙයක් සඳහා, ඔබේ වැඩබිම් පරිපාලක අමතන්න.',
   'help.runs.body':
     'සෑම ධාවනයක්ම තත්ත්වය (සාර්ථකත්වය, අසාර්ථකත්වය, මඟ හැරුණු) සහ ප්‍රතිදාන කොටසකින් ස්වාධීනව සෑම පියවරක්ම ලොග් කරයි. ක්‍රියාත්මක කිරීමේ විස්තර පිටුවේ සම්පූර්ණ පියවරෙන් පියවර හෝඩුවාව සහ අනුමාන කළ මිනුම් පෙන්වයි.',
+  'help.runs.cta': 'විවෘත ක්‍රියාත්මක කිරීම් →',
   'help.runs.title': 'ධාවන ප්‍රතිදානය කියවීම',
   'help.title': 'උදව් මධ්‍යස්ථානය',
   'integrationCard.manage': 'කළමනාකරණය කරන්න',
   'landing.brand': 'ඩෙන්ඩ්රයිට්',
   'landing.demo.action.subtitle': 'රවුන්ඩ්-රොබින් · භූමිය',
+  'landing.demo.action.title': 'නියෝජිතයාට දන්වන්න',
   'landing.demo.condition.subtitle': 'AI අභිප්‍රාය වර්ගීකරණය',
+  'landing.demo.condition.title': 'ලකුණු ≥ මධ්‍යම?',
   'landing.demo.trigger.subtitle': 'තැපෑල / පෝරම / සම්බන්ධතා',
   'landing.demo.trigger.title': 'එන වෙබ් හුක්',
+  'landing.features.body':
+    'ට්‍රිගර් ක්‍රියාත්මක වේ. කොන්දේසි අත්තට බෙදේ. ක්‍රියා කාර්යය ඉටු කරයි. ඒවා දෘශ්‍යමය වශයෙන් සම්පාදනය කරන්න, කේතයක් මෙන් අනුවාද කරන්න.',
   'landing.features.heading': 'නෝඩ් වර්ග තුනක්. අනන්ත හැඩතල.',
   'landing.footer.help': 'උදව්',
   'landing.footer.tagline': 'චලනය වන බුද්ධිය',
+  'landing.hero.body':
+    'Zapier වලින් ඔබ්බට ගිය මෙහෙයුම් කණ්ඩායම් සඳහා {{appName}} යනු කාර්ය ප්‍රවාහ එන්ජිමයි. ට්‍රිගර්, කොන්දේසි, ක්‍රියා — ඔබ ඇත්තටම භාවිතා කරන සෑම පද්ධතියකටම සම්බන්ධ කර ඇත.',
   'landing.hero.eyebrow': 'චලනය වන බුද්ධිය',
   'landing.hero.headline': 'ඔබේ තොගය එකට වයර් කරන්න. වැඩ සිදු වීමට ඉඩ දෙන්න.',
+  'landing.hero.primaryCta': 'ඔබේ පළමු කාර්ය ප්‍රවාහය ගොඩනඟන්න',
   'landing.hero.proof.ai': 'AI නෝඩ් බිල්ට්-ඉන්',
   'landing.hero.proof.free': 'මසකට දුවන 1,000කට නොමිලේ',
   'landing.hero.proof.soc2': 'SOC 2 වර්ගය II',
@@ -130,10 +158,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'ආසන සඳහා නොව, ලකුණු සඳහා ගෙවන්න.',
   'landing.templates.body':
     'සෑම කණ්ඩායමක් සඳහාම පෙර-රැහැන්ගත වැඩ ප්‍රවාහ - විකුණුම්, සහාය, සංවර්ධක, මූල්‍ය. එක් ක්ලික් කිරීමකින් ස්ථාපනය කරන්න; ඕනෑම දෙයක් වෙනස් කරන්න.',
+  'landing.templates.cta': 'අච්චු බැලීමට ලියාපදිංචි වන්න →',
   'landing.templates.eyebrow': 'තත්පර කිහිපයකින් ආරම්භ කරන්න',
   'landing.templates.heading': 'පරීක්ෂා කරන ලද වට්ටෝරු පුස්තකාලයක්.',
   'landing.templates.signupHint': 'ස්ථාපනය කිරීමට ලියාපදිංචි වන්න',
   'login.hidePassword': 'මුරපදය සඟවන්න',
+  'login.noAccount': 'ටෙසේරා වලට අලුත්ද?',
   'login.showPassword': 'මුරපදය පෙන්වන්න',
   'login.subhead': 'ඔබේ ස්වයංක්‍රීයකරණයන් අඛණ්ඩව පවත්වාගෙන යාමට පුරන්න.',
   'mobileNav.drawerLabel': 'ප්‍රධාන සංචාලනය',
@@ -149,8 +179,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'මෙම සංග්‍රහය පිරවීම ආරම්භ කිරීමට වැඩ ප්‍රවාහයක් ධාවනය කරන්න.',
   'notifications.empty.title': 'ඔබ සියල්ල හසු කරගෙන ඇත.',
   'notifications.eyebrow': '{{n}} නොකියවූ',
+  'planUpdated.body':
+    'ඔබේ බිල්පත් වෙනස දැන් සක්‍රීයයි. ඕනෑම වේලාවක බිල්පත් පිටුවෙන් ඔබේ සැලසුම කළමනාකරණය කළ හැක.',
+  'planUpdated.retry': 'නැවත උත්සාහ කරන්න',
+  'planUpdated.verifyFailed': 'අපට තවමත් ඔබගේ ගෙවීම තහවුරු කිරීමට නොහැකි විය.',
+  'planUpdated.verifyFailedBody':
+    'ඔබේ ගෙවීම තවමත් සැකසෙමින් තිබිය හැක. මොහොතකින් නැවත උත්සාහ කරන්න.',
   'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'pricing.heading': 'දුවනවා',
+  'pricing.runsSuffix': 'ධාවන',
   'pricing.workflowsSuffix': 'වැඩ ප්‍රවාහ',
   'privacy.collect.body':
     'ඔබ ලියාපදිංචි වන විද්‍යුත් තැපැල් ලිපිනය, ඔබ වින්‍යාස කරන වැඩ ප්‍රවාහ සහ එක් එක් ධාවනය පිළිබඳ පාර-දත්ත (ආරම්භක වේලාව, අවසන් කාලය, තත්ත්වය) අපි රැස් කරමු. වැඩබිම හිමිකරු සඳහා ධාවන නරඹන්නා තුළ පෙන්වීමට අවශ්‍ය ප්‍රමාණයට වඩා අපි කිසි විටෙකත් ප්‍රේරක හෝ පියවර ප්‍රතිදාන වලින් ගෙවීම් අන්තර්ගතයන් එකතු නොකරමු හෝ ගබඩා නොකරමු.',
@@ -166,11 +203,14 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'මුරපදය යාවත්කාලීන කළ නොහැකි විය.',
   'resetPassword.newPassword': 'නව මුරපදය',
   'resetPassword.subhead': 'ඔබ පමණක් අනුමාන කරන දෙයක් තෝරන්න.',
+  'settings.appearance.description': 'ආලෝකය සහ අඳුරු මාදිලිය අතර මාරු වන්න.',
+  'settings.appearance.title': 'පෙනුම',
   'settings.billingShortcut.cta': 'බිල්පත් විවෘත කරන්න',
   'settings.billingShortcut.description':
     'සැලැස්ම, භාවිතය සහ ඉන්වොයිසි කැපවූ බිල්පත් පිටුවේ සජීවීව ඇත.',
   'settings.danger.confirm': 'ඔබට විශ්වාසද? මෙය ඔබගේ වැඩබිම මකා දැමීම සඳහා පෝලිම් කරනු ඇත.',
   'settings.danger.confirmYes': 'ඔව්, පෝලිම් මකා දැමීම',
+  'settings.danger.deleteWorkspace.cta': 'වැඩබිම මකන්න',
   'settings.danger.deleteWorkspace.hint':
     'දින 14ක සහන කාලයකින් පසු සියලුම වැඩ ප්‍රවාහ, ධාවන සහ සම්බන්ධතා ඉවත් කරයි.',
   'settings.danger.deleteWorkspace.title': 'වැඩබිම මකන්න',
@@ -180,9 +220,14 @@ export const ui: UiTranslations = {
     'ඔබගේ ගිණුම, වැඩබිම, ඒකාබද්ධ කිරීම් සහ බිල්පත් එකම ස්ථානයකින් කළමනාකරණය කරන්න.',
   'settings.notifications.description':
     'ඔබ කුමන සිදුවීම් පිටුවට ගෙනියන්නේද, ඔබට ඊමේල් කරන්නේද, නැතහොත් නිහඬව සිටින්නේද යන්න තෝරන්න.',
+  'settings.notifications.failures.hint':
+    'සෑම අසාර්ථක ධාවනයකදීම විද්‍යුත් තැපැල් සහ යෙදුම තුළ දැනුම්දීම.',
+  'settings.notifications.failures.title': 'කාර්ය ප්‍රවාහ අසාර්ථකවීම්',
   'settings.notifications.product.hint': 'නව සැකිලි සහ විශේෂාංග පිළිබඳ ඉඳහිට ඊමේල්.',
+  'settings.notifications.product.title': 'නිෂ්පාදන යාවත්කාලීන',
   'settings.notifications.weekly.hint':
     'පසුගිය සතියේ ධාවනය සහ ඉතිරිකිරීම් පිළිබඳ සඳුදා උදෑසන සාරාංශයක්.',
+  'settings.notifications.weekly.title': 'සතිපතා සංග්‍රහය',
   'settings.profile.description':
     'වැඩ ප්‍රවාහ ධාවකය තුළ ඔබ දිස්වන ආකාරය. වැඩබිම් ක්‍රියාකාරකම් වලදී භාවිතා වේ.',
   'settings.profile.noEmail': 'වාර්තාගත ඊමේල් නොමැත',
@@ -190,12 +235,23 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'පැතිකඩ වෙනස්කම් සුරැකීමට නොහැකි විය.',
   'settings.profile.unnamedUser': 'නම් නොකළ පරිශීලකයා',
   'settings.security.audit.hint': 'සෑම ක්‍රියාවක්ම වෙබ් හුක් හරහා ඔබේ SIEM වෙත ප්‍රවාහනය කරන්න.',
+  'settings.security.audit.title': 'විගණන ලොග් යැවීම',
   'settings.security.description': 'ද්වි-සාධක සත්‍යාපනය, SSO, සහ ක්‍රියාකාරී සැසි.',
   'settings.security.sso.hint': 'පරිමාණ සහ ව්‍යවසාය සැලසුම් මත ලබා ගත හැකිය.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'ඕනෑම කාර්ය අවකාශ හිමිකරු ක්‍රියාවකට අවශ්‍යයි.',
+  'settings.security.totp.title': 'ද්වි-සාධක සත්‍යාපනය (TOTP)',
   'settings.twoFactorCode': 'සත්‍යාපන කේතය',
   'settings.twoFactorDisable': 'අබල කරන්න',
+  'settings.twoFactorDisableTitle': 'ද්වි-සාධක සත්‍යාපනය අක්‍රීය කරන්න',
   'settings.twoFactorEnable': 'සක්‍රීය කරන්න',
+  'settings.twoFactorEnableTitle': 'ද්වි-සාධක සත්‍යාපනය සක්‍රීය කරන්න',
   'settings.twoFactorInvalidCode': 'අවලංගු කේතයකි',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'ද්වි-සාධක QR කේතය',
+  'settings.twoFactorScan':
+    'ඔබේ සත්‍යාපන යෙදුමෙන් මෙම QR කේතය පරිලෝකනය කර, පසුව අංක 6ක කේතය ඇතුළත් කරන්න.',
+  'settings.twoFactorUnavailable': 'මෙම යෙදුම සඳහා ද්වි-සාධක සත්‍යාපනය ලබා ගත නොහැක.',
   'settings.twoFactorVerify': 'සත්‍යාපනය කර සබල කරන්න',
   'settings.workspace.description':
     'ඔබේ කණ්ඩායම සඳහා බෙදාගත් අනන්‍යතාවය, කලාපය සහ පෙරනිමි ක්‍රියාත්මක කරන්න.',
@@ -224,6 +280,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'සැකිල්ල',
   'templates.description':
     'වඩාත් පොදු ස්වයංක්‍රීයකරණයන් සඳහා පෙර-සාදන ලද බ්ලූප්‍රින්ට්. දෙබලක, අභිරුචිකරණය, නැව්ගත කිරීම.',
+  'templates.empty.filter': 'ඔබේ සෙවුමට ගැළපෙන අච්චු නැත.',
   'templates.empty.first': 'දැන් සැකිලි නොමැත.',
   'templates.error': 'සැකිලි පූරණය කළ නොහැකි විය.',
   'templates.installs': 'ස්ථාපනය කරයි',
@@ -249,6 +306,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'අබල කරන්න',
   'workflowBuilder.enable': 'සක්‍රීය කරන්න',
   'workflowBuilder.error': 'වැඩ ප්‍රවාහය පූරණය කිරීමට නොහැකි විය.',
+  'workflowBuilder.inspector.config': 'වින්‍යාසය',
+  'workflowBuilder.inspector.cron': 'Cron ප්‍රකාශනය',
+  'workflowBuilder.inspector.disabled': 'අක්‍රීයයි — ස්වයංක්‍රීයව ධාවනය නොවේ.',
   'workflowBuilder.inspector.enabled': 'සක්‍රීය කර ඇත — ට්‍රිගරය මත ධාවනය වේ.',
   'workflowBuilder.inspector.eyebrow': 'පරීක්ෂක',
   'workflowBuilder.inspector.id': 'හැඳුනුම්පත',
@@ -266,18 +326,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'ටොගල් කිරීම අසාර්ථක විය.',
   'workflowBuilder.workflow': 'කාර්ය ප්‍රවාහය · v {{v}}',
   'workflowBuilder.zoom.in': 'විශාලනය කරන්න',
+  'workflowBuilder.zoom.label': 'කැන්වස් විශාලන පාලන',
+  'workflowBuilder.zoom.out': 'විශාලනය අඩු කරන්න',
   'workflowCard.lastRun': 'අවසන් ධාවනය {{when}}',
   'workflowCard.runs': '{{count}} දුවනවා',
+  'workflowCard.success': '{{rate}}% සාර්ථකත්වය',
   'workflowHeroCard.last24h': 'පසුගිය පැය 24',
+  'workflows.browseTemplates': 'සැකිලි බ්‍රවුස් කරන්න →',
   'workflows.description':
     'ඔබේ සේවා ස්ථානයේ සෑම ස්වයංක්‍රීයකරණයක්ම, සෞඛ්‍යය සහ මෑත කාලීන ක්‍රියාකාරකම් එක බැල්මකින්.',
+  'workflows.empty.body': 'පෙරහන ඉවත් කිරීමට හෝ අච්චුවකින් ආරම්භ කිරීමට උත්සාහ කරන්න.',
   'workflows.empty.firstBody': 'තත්පර කිහිපයකින් ආරම්භ කිරීමට අච්චුවක් ස්ථාපනය කරන්න.',
   'workflows.empty.firstTitle': 'තවමත් වැඩ ප්‍රවාහ නොමැත',
   'workflows.empty.title': 'වැඩ ප්‍රවාහ කිසිවක් ගැළපෙන්නේ නැත',
   'workflows.error': 'වැඩ ප්‍රවාහ පූරණය කිරීමට නොහැකි විය.',
   'workflows.eyebrow': 'පුස්තකාලය · {{count}} මුළු',
+  'workflows.loading': 'කාර්ය ප්‍රවාහ පූරණය වෙමින්…',
   'workflows.newFromTemplate': 'අච්චුවෙන් අලුත්',
   'workflows.searchPlaceholder': 'වැඩ ප්‍රවාහ සොයන්න...',
+  'workflows.title': 'කාර්ය ප්‍රවාහ',
   'workflowSidebar.brand': 'ඩෙන්ඩ්රයිට්',
   'workflowSidebar.status': 'සියලුම පද්ධති ක්‍රියාත්මක වේ',
   'workflowSidebar.tagline': 'චලනය වන බුද්ධිය',

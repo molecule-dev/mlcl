@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'አግኙን',
   'about.eyebrow': 'ስለ',
+  'about.featureConnections':
+    'የውሂብ ጎታዎችዎን በደህንነት የሚያከማች እና በቀለም የሚለይ የግንኙነት አስተዳዳሪ — ማረጋገጫዎች በእረፍት ጊዜ የሚመሰጠሩ ናቸው፣ በግልጽ ጽሑፍ ፈጽሞ አይደሉም።',
+  'about.featureMonitoring':
+    'የጥያቄ አፈጻጸም እና የውሂብ ጎታ እንቅስቃሴ በቀጥታ ክትትል፣ ሁሉንም ያለእጅ ለመቆጣጠር የቁልፍ አቋራጮች እና የትዕዛዝ ፓሌት።',
+  'about.featurePlans':
+    'ከእርስዎ ጋር የሚያድጉ እቅዶች — ለግል ሥራ ነፃ፣ Pro እና Team ለተጨማሪ ግንኙነቶች፣ ረዘም ያለ የጥያቄ ማቆያ፣ ወደ ውጭ መላክ እና የላቁ ባህሪያት።',
+  'about.featureQueryEditor':
+    'በ Monaco የተጎለበተ የSQL አርታዒ ከጥያቄ ታሪክ፣ ከተቀመጡ ጥያቄዎች እና ከአንድ ጠቅታ የCSV ውጤቶችዎ ወደ ውጭ መላክ ጋር።',
+  'about.featureSchema':
+    'የውሂብ ጎታዎችን፣ ሠንጠረዦችን እና አምዶችን ለማሰስ የሚያገለግል የንድፍ አሳሽ እና የሠንጠረዥ አሳሽ፣ ከዚያም ረድፎችን በመስመር ላይ ያስሱ፣ ያጣሩ እና ያርትዑ።',
+  'about.missionTitle': 'የእኛ ተልዕኮ',
   'authShell.commands': 'ትዕዛዞች',
   'authShell.ssoSupported': 'የSSO ድጋፍ',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'ጥያቄዎች',
   'connections.schema': 'ንድፍ',
   'connections.subtitle': 'የውሂብ ጎታ ግንኙነቶችዎን ያስተዳድሩ።',
+  'connections.test': 'ሙከራ',
   'databaseAdminLayout.adminRole': 'የአስተዳደር ሚና',
   'databaseAdminLayout.commandPalette': 'የትእዛዝ ቤተ-ስዕል',
   'databaseAdminLayout.commands': 'ትዕዛዞች',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'አዲስ ግንኙነት',
   'databaseAdminLayout.queries': 'ጥያቄዎች',
   'databaseAdminLayout.ready': 'ዝግጁ',
+  'databaseAdminLayout.searchPlaceholder': '⌘K ትዕዛዞችን፣ ጥያቄዎችን፣ ሠንጠረዦችን… ይፈልጉ',
   'databaseAdminLayout.user': 'ተጠቃሚ',
   'editConnection.confirmDelete': 'ይህ ግንኙነት ይሰረዝ?',
   'editConnection.deleteButton': 'ግንኙነት ሰርዝ',
+  'editConnection.newPassword': 'አዲስ የይለፍ ቃል (ለመጠበቅ ባዶ ይተዉት)',
   'editConnection.saved': 'ግንኙነት ተቀምጧል።',
   'editConnection.title': 'ግንኙነትን ያርትዑ',
   'forgotPassword.success': 'ያ መለያ ካለ፣ ዳግም የማስጀመሪያ አገናኝ እየመጣ ነው።',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'ስኬቶች',
   'monitoring.title': 'ክትትል',
   'monitoring.totalQueries': 'ጠቅላላ ጥያቄዎች',
+  'nav.schema': 'ንድፍ',
   'newConnection.database': 'የውሂብ ጎታ',
   'newConnection.engine': 'ሞተር',
   'newConnection.host': 'አስተናጋጅ',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'ከዚህ ቅንጣቢ ጋር ምንም ግንኙነት የለም።',
   'savedQuery.notBound': 'ያልተገደበ',
   'savedQuery.title': 'የተቀመጠ መጠይቅ',
+  'schema.columns': 'አምዶች',
   'schema.foreignKeys': 'የውጭ ቁልፎች',
   'schema.indexes': 'ኢንዴክሶች',
   'schemaExplorer.browseRows': 'ረድፎችን ያስሱ',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'ሊበላሽ የሚችል',
   'schemaExplorer.colType': 'አይነት',
   'schemaExplorer.noColumns': 'ምንም አምዶች የሉም።',
+  'schemaExplorer.noForeignKeys': 'የውጭ ቁልፎች የሉም።',
   'schemaExplorer.noIndexes': 'ምንም ኢንዴክሶች የሉም።',
   'schemaExplorer.noTables': 'ጠረጴዛዎች የሉም',
   'schemaExplorer.pickATable': 'ከጎን አሞሌው ላይ አንድ ጠረጴዛ ይምረጡ።',
   'schemaExplorer.tables': 'ሰንጠረዦች',
   'schemaExplorer.title': 'የንድፍ አሳሽ',
+  'settings.session': 'ክፍለ ጊዜ',
   'settings.subtitle': 'መለያዎን እና እቅድዎን ያስተዳድሩ።',
   'signup.heading': 'የኳሪ መለያዎን ይፍጠሩ',
   'signup.tagline': 'በአንድ ደቂቃ ውስጥ መዳረሻውን ያሳድጉ።',
   'tableBrowser.noRows': 'ይህ ሰንጠረዥ እስካሁን ምንም ረድፎች የሉትም።',
+  'tableBrowser.subtitle': 'ረድፎችን ከርቀት የውሂብ ጎታዎ በማሰስ ላይ።',
   'tableBrowser.title': 'ረድፎችን ከርቀት የውሂብ ጎታዎ ማሰስ።',
 }

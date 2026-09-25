@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Akats bat aurkitu duzu, eginbide-eskaera bat duzu, edo hurrengo zer eraiki behar dugun esan nahi diguzu? Idatzi hello@pylon.dev helbidera — mezu bakoitza taldeko benetako ingeniari bati iristen zaio.',
   'about.contactTitle': 'Hitz egin gurekin',
+  'about.intro':
+    '{{app}} API probatzeko lan-mahaia azkarra eta teklatuzkoa da terminalean bizi diren ingeniariei zuzendua — Postman estiloko eskaerak, bildumak, inguruneak eta historia, pisu handirik gabe.',
+  'about.missionBody':
+    'APIak software modernoaren bizkarrezurra dira, baina haiek erabiltzeko tresnak motelak, astunak eta saguaren menpekoak dira. {{app}}-ek garatzaileei lan-mahai zorrotz, azkar eta terminal-mailakoa eskaintzeko sortu zen: jaurti eskaerak, sortu konfiantza eta bidali teklatua utzi gabe.',
+  'about.missionTitle': 'Gure misioa',
   'about.pageTitle': '{{app}}(r)i buruz',
   'authShell.statusLabel': 'korrikalariak sarean',
   'collections.createError': 'Ezin izan da bilduma sortu.',
   'collections.defaultName': 'Izenik gabeko bilduma {{n}}',
+  'collections.empty':
+    'Oraindik ez dago bildumarik — sakatu “Bilduma berria” zure lehen karpeta sortzeko.',
   'collections.eyebrow': '$ pylon bildumak --tree',
   'collections.fetchError': 'Ezin izan dira bildumak kargatu.',
   'collections.heading': 'Bildumak',
   'collections.loading': 'Bildumak kargatzen…',
+  'collections.metric.allGreen': 'Dena ondo',
   'collections.metric.collections': 'Bildumak',
   'collections.metric.failing': 'Huts egiten',
   'collections.metric.failingCaption': 'Azken exekuzioak huts egin zuen',
@@ -24,6 +34,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Aldagaiak',
   'environments.createError': 'Ezin izan da ingurunea sortu.',
   'environments.defaultName': 'Izenik gabeko ingurunea {{n}}',
+  'environments.empty': 'Oraindik ez dago ingurunerik — sakatu “Ingurune berria” bat gehitzeko.',
   'environments.eyebrow': '$ pylon ingurunea --switch',
   'environments.fetchError': 'Ezin izan dira inguruneak kargatu.',
   'environments.heading': 'Inguruneak',
@@ -31,8 +42,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Ingurune berria.',
   'environments.subheading':
     'Bidalketa-unean eskaeretan aldatzen diren aldagaiak. Lan-eremu bakoitzeko ingurune aktibo bat.',
+  'forgotPassword.statusLabel': 'berrezarri · tunel segurua',
   'forgotPassword.success':
     'Mezu elektroniko horretarako kontu bat badago, berrezartzeko esteka bat bidean da. Begiratu zure sarrera-ontzia.',
+  'history.empty': 'Oraindik ez dago ezer hemen — jaurti zure lehen eskaera Lan-eremua fitxatik.',
   'history.eyebrow': '$ pylon historia --tail',
   'history.fetchError': 'Ezin izan da historia kargatu.',
   'history.heading': 'Exekuzio-historia',
@@ -41,9 +54,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Azken 50ak',
+  'history.realtime': 'denbora errealean',
   'history.subheading':
     'Lan-eremu honetan abiarazitako eskaera guztiak, egoerarekin, latentziarekin eta kargaren tamainarekin.',
   'landing.choosePlan': 'Aukeratu plana',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Sortu konfiantza.',
   'landing.ctaBody':
     'Ez da kreditu txartelik behar. Ez da plataforma ingeniaririk behar. Ireki ⌘K eta bidali zure lehen eskaera bost minutu baino gutxiagotan.',
   'landing.ctaHeading': 'Konfiantza landu.',
@@ -86,6 +101,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Batez besteko latentzia',
   'mocks.metric.live': 'Publikoa',
   'mocks.metric.servers': 'Iseka',
+  'mocks.ms': 'ms',
   'mocks.newMock': 'Simulazio berria',
   'mocks.online': 'Publikoa',
   'mocks.paused': 'Pribatua',
@@ -109,9 +125,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Osasuntsua',
   'monitors.metric.uptime': 'Batez besteko funtzionamendu-denbora',
   'monitors.newMonitor': 'Monitore berria',
+  'monitors.paused': 'pausatuta',
   'monitors.run': 'Korrika egin',
   'monitors.runError': 'Exekuzioa sareko errore batekin amaitu da: {{error}}',
+  'monitors.runFailed': 'Exekuzioak huts egin du.',
   'monitors.running': 'Korrika…',
+  'monitors.runSuccess': 'Exekutatu {{status}} — gorakoak {{code}} itzuli du {{ms}}ms-an.',
   'monitors.sparkLabel': 'Latentzia joera',
   'monitors.subheading':
     'Gordetako edozein probaren eskaeraren araberako egiaztapenak. Lotu proba bat, sakatu Exekutatu eta ikusi 24 orduko arrakasta-tasaren eguneratzea su bakoitzarekin.',
@@ -120,27 +139,54 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Funtzionamendu-denbora · 24 ordu',
   'nav.legal': 'Legezko',
   'notFound.backToWorkspace': 'Lan-eremura itzuli',
+  'notFound.body':
+    '{{app}}-ek eskaera bat jaurti zuen URL honetarako eta ez zuen ezer jaso. Egiaztatu bidea edo itzuli lan-eremura.',
   'notFound.eyebrow': '$ pylon ebazpena --strict',
   'notFound.title': 'Ibilbidea ez da aurkitu',
+  'planUpdated.body':
+    'Zure fakturazio-aldaketa aktibo dago orain. Zure plana noiznahi kudea dezakezu fakturazio-orritik.',
+  'planUpdated.retry': 'Saiatu berriro',
+  'planUpdated.verifyFailed': 'Ezin izan dugu oraindik zure ordainketa baieztatu.',
+  'planUpdated.verifyFailedBody':
+    'Baliteke zure ordainketa prozesatzen ari izatea oraindik. Saiatu berriro une batean.',
   'planUpdated.verifying': 'Zure ordainketa baieztatzen…',
+  'pricing.advancedFeatures': 'Eginbide aurreratuak: {{yes}}',
+  'pricing.canExport': 'Datuen esportazioa: {{yes}}',
+  'pricing.heading': 'Aukeratu zure {{app}} plana',
+  'pricing.maxCollections': '{{count}} bilduma',
+  'pricing.maxEnvironments': '{{count}} ingurune',
+  'pricing.maxHistory': '{{count}} historia-sarrera',
+  'pricing.maxRequests': '{{count}} eskaerak',
   'privacy.collect.account':
     'Kontua: zure helbide elektronikoa, pasahitza hash bidez, bistaratzeko izena eta azken saioa hastearen denbora-zigilua.',
+  'privacy.intro':
+    '{{app}}-ek zure pribatutasuna errespetatzen du. Orri honek biltzen dugun datua, zergatik biltzen dugun eta nola ezabatu laburbiltzen du.',
   'privacy.rights.body':
     'Zure bildumak + inguruneak edozein unetan esportatu ditzakezu, edo zure kontua ezabatu Ezarpenetatik datu guztiak behin betiko kentzeko 30 eguneko epean.',
   'privacy.share.body':
     'Zu bakarrik. Ez dugu inoiz zure lan-eremuaren edukia hirugarrenei saltzen, partekatzen edo alokatzen. Zerbitzariaren erregistroak 30 egunez gordetzen dira intzidenteei erantzuteko eta gero ezabatzen dira.',
   'privacy.title': 'Pribatutasun oharra',
+  'profile.bio':
+    'Zure {{app}} lan-eremu pertsonala — ainguratu bildumak, partekatu inguruneak eta monitorizatu produktua bidaltzen duten APIak.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'batu da {{when}}',
+  'profile.metric.collections': 'Bildumak',
   'profile.metric.monitors': 'Monitoreak',
   'profile.metric.requests': 'Gordetako eskaerak',
+  'profile.noActivity': 'Oraindik ez da eskaerarik jaurti — joan Lan-eremua fitxara bat egiteko.',
   'profile.signedOut': 'Hasi saioa zure profila ikusteko',
   'pylonShell.primaryNavLabel': 'Nabigazio nagusia',
+  'resetPassword.passwordLabel': 'Pasahitz berria',
+  'resetPassword.statusLabel': 'berrezarri · tokena egiaztatuta',
   'resetPassword.subtitle': 'Aukeratu lehenago erabili ez duzun pasahitz sendo bat.',
   'resetPassword.tokenPlaceholder': 'itsatsi mezu elektroniko batetik',
+  'settings.accountManagement.desc':
+    'Eguneratu zure posta elektronikoa eta pasahitza, kudeatu jakinarazpenak eta gailuak, amaitu saioa edo ezabatu zure kontua.',
+  'settings.accountManagement.title': 'Kontua eta segurtasuna',
   'settings.eyebrow': '$ pylon ezarpenak --edit',
   'settings.fetchError': 'Ezin izan dira ezarpenak kargatu.',
   'settings.language.title': 'Hizkuntza',
+  'settings.seeding': 'Hazia ereiten…',
   'settings.seedStarter': 'Hazien hasierako edukia',
   'settings.starterCollection': 'Hasierako bilduma',
   'settings.starterCollectionDesc': 'Ezarpenetatik sortua hemen: {{ts}}',
@@ -154,6 +200,8 @@ export const ui: UiTranslations = {
     'Zure pasahitza babesteaz arduratzen zara. Kontu bera hainbat pertsonarekin partekatzea ez dago baimenduta Doako edo Pro planetan — erosi Team harpidetza bat lan-eremu partekatuetarako.',
   'terms.billing.body':
     'Ordainpeko harpidetzak automatikoki berritzen dira fakturazio-aldi bakoitzean. Ezeztatu Ezarpenetatik edozein unetan; sarbidea uneko aldiaren amaierara arte mantenduko da.',
+  'terms.intro':
+    '{{app}} kontu bat sortzean beheko baldintzak onartzen dituzu. Irakurri behin; ez dizugu atzeraeraginezko aldaketarik egingo.',
   'terms.title': 'Zerbitzu-baldintzak',
   'terms.usage.body':
     'Ez erabili Pylon zure jabetzakoak ez diren edo probatzeko baimen esplizitua ez duzun zerbitzuetan eskaerak egiteko. Ez erabili Pylon abiadura-mugak saihesteko edo iruzurra egiteko.',
@@ -174,16 +222,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Ez korrika egin',
   'testRunner.metric.passed': 'Gaindituta',
   'testRunner.never': 'Ez korrika egin inoiz.',
+  'testRunner.newTest': 'Test berria',
   'testRunner.noAssertions': 'Ez dago oraindik proba honi buruzko baieztapenik.',
+  'testRunner.noRunsYet':
+    'Oraindik ez da exekuziorik erregistratu — sakatu “Exekutatu dena” historia betetzeko.',
   'testRunner.passed': 'pasatzean',
+  'testRunner.recentRuns': 'Azken lasterketak',
   'testRunner.runAll': 'Exekutatu guztiak',
   'testRunner.running': 'Korrika…',
   'testRunner.runOne': 'Korrika egin',
   'testRunner.subheading': 'Suite emaitzak, baieztapen desberdintasunak eta azken 50 exekuzioak.',
+  'testRunner.suites': 'Multzoak',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Honela hasita saioa',
   'workspace.auth.keyName': 'Goiburuaren izena',
   'workspace.auth.keyValue': 'Gako-balioa',
+  'workspace.auth.noneHint': 'Ez da autorizazio-goibururik bidaliko eskaera honekin.',
   'workspace.auth.password': 'Pasahitza',
   'workspace.auth.username': 'Erabiltzaile-izena',
   'workspace.authOption.apikey': 'API gakoa',
@@ -193,13 +247,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Mota',
   'workspace.authTypeLabel': 'Autentifikazio mota',
+  'workspace.body.contentLabel': 'Eskaeraren gorputza',
+  'workspace.body.hint':
+    '{{envVars}} ordezkatzen dira eskaera jaurti aurretik. Gorputzak POST/PUT/PATCH/DELETE eskaeretan bidaltzen dira.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Bat ere ez',
+  'workspace.body.noneHint':
+    'Ez da eskaera-gorputzik bidaliko. Aukeratu JSON edo testu gordina bat gehitzeko.',
   'workspace.body.text': 'Testu gordina',
   'workspace.body.type': 'Mota',
   'workspace.environment': 'Ingurunerik ez',
   'workspace.envVar': 'ingurune aldagaia',
   'workspace.eyebrow': '$ pylon lan-eremua --pane split',
+  'workspace.failedCount': '{{count}} huts egin du',
+  'workspace.idle': 'Inaktibo',
   'workspace.kv.addHeader': 'Gehitu goiburua',
   'workspace.kv.addParam': 'Gehitu parametroa',
   'workspace.kv.headerKey': 'Goiburuaren izena',
@@ -212,12 +273,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP metodoa',
   'workspace.metric.latency': 'Latentzia',
   'workspace.metric.latencyCaption': 'Joan-etorriko bidaia lasterketa honetatik',
+  'workspace.metric.size': 'Karga',
   'workspace.metric.sizeCaption': 'Erantzunaren gorputzeko byteak',
   'workspace.metric.statusCaption': 'Azken erantzuna',
   'workspace.metric.tests': 'Probak',
+  'workspace.metric.testsAllPassing': 'Egiaztapen guztiak ondo',
   'workspace.metric.testsFailing': '{{count}} huts egiten',
+  'workspace.metric.testsIdle': 'Bidali eskaera bat ebaluatzeko',
   'workspace.noAssertions': 'Exekutatu eskaera bat barneratutako baieztapenak ebaluatzeko.',
   'workspace.noResponseYet': 'Oraindik ez dago erantzunik',
+  'workspace.passedCount': '{{count}} gainditu',
   'workspace.responseHint': '// Sakatu Bidali eskaera abiarazteko eta erantzuna jasotzeko.',
   'workspace.saveError': 'Ezin izan da eskaera gorde.',
   'workspace.statusError': 'Ezin izan da eskaera bidali.',
@@ -226,10 +291,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Idatzi eskaera bat, bidali eta gero baieztatu erantzuna — guztia panel bakarrean.',
   'workspace.testResults': 'Probaren emaitzak',
+  'workspace.tests.autoHint':
+    'Egoera-familia, latentzia, gorputzaren tamaina eta garraioaren osasuna automatikoki egiaztatzen dira — emaitzak “Test results” atalean agertzen dira erantzun-panelean.',
+  'workspace.tests.autoTitle': 'Egiaztapen integratuak erantzun bakoitzean exekutatzen dira',
   'workspace.token': 'Tokena',
   'workspace.tokenHint':
     'Baimen gisa bidalia: Eramailea<token> bilduma honetako eskaera guztietan.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Izenik gabeko eskaera',
+  'workspace.urlLabel': 'Eskaera URLa',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

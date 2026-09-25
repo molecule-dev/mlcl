@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'An aiseolas agat, aimsíodh fabht, nó ar mhaith leat insint dúinn conas a mhapálann tú do chuid smaointe? Léimid gach nóta — déan teagmháil am ar bith agus tiocfaidh duine fíor ón bhfoireann ar ais chugat.',
+  'about.contactTitle': 'Labhair linn',
   'about.eyebrow': 'Maidir',
+  'about.featureCanvas':
+    'Canbhás gan teorainn le nóid is féidir a tharraingt, naisc le cuair réidh, agus zúmáil agus pánáil shreabhach.',
+  'about.featureCollab':
+    'Comhoibriú fíor-ama le cúrsóirí beo, ionas gur féidir le do fhoireann brainse a dhéanamh taobh leat in ionad fanacht ar a seal.',
+  'about.featurePricing':
+    'Saor in aisce go deo do smaointeoirí aonair; cuireann pleananna Pro agus Team níos mó léarscáileanna, níos mó nód, gnéithe chun cinn, agus easpórtáil sonraí leis.',
+  'about.featureTemplates':
+    'Leabharlann de theimpléid tosaigh móide stair iomlán leaganacha, ionas gur féidir leat léarscáil a thosú go tapa agus aon athrú a chur ar ais.',
+  'about.intro':
+    'Is canbhás fairsing gan teorainn é {{app}} le haghaidh mapála smaointe — smaointeoireacht chruthaitheach, léaráidí coincheapa, SWOTanna, agus pleananna tionscadail. Tarraing nóid áit ar bith, ceangail smaointe le naisc shreabhacha, zúmáil agus pánáil gan bualadh le himill, agus lig don léarscáil fás le do chuid smaointeoireachta.',
+  'about.missionBody':
+    "Ba chóir go mbeadh smaoineamh os ard éasca agus roinnte. Tógaimid uirlisí a thagann as an mbealach — gan greillí docht, gan teimpléid chúnga, gan chomhéadan a ghoidfidh d'aird — ionas gur féidir le daoine aonair agus foirne smaointe a ghabháil an nóiméad a bhuailfidh siad leo agus iad a mhúnlú le chéile.",
+  'about.missionTitle': 'Ár misean',
   'about.pageTitle': 'Faoi {{app}}',
   'auth.brandEyebrow': 'An áit a scaipeann smaointe amach',
   'auth.brandStatement':
@@ -13,19 +29,26 @@ export const ui: UiTranslations = {
   'billing.feature.export': 'Easpórtáil go SVG / PNG',
   'billing.feature.maps': '{{count}} léarscáileanna',
   'billing.feature.nodes': '{{count}} nóid in aghaidh an léarscáil',
+  'billing.freeNoticeBody':
+    'Roghnaigh plean íoctha thuas chun níos mó léarscáileanna a dhíghlasáil.',
   'billing.loadError': 'Níorbh fhéidir stádas billeála a lódáil.',
+  'billing.loading': 'Billeáil á lódáil…',
   'billing.perMonth': ' / mí',
   'billing.plansTitle': 'Pleananna',
+  'billing.priceMissing': 'Aitheantas praghais Stripe gan chumrú.',
   'billing.starting': 'Ag tosú ag seiceáil amach…',
   'billing.title': 'Billeáil & plean',
   'billing.unavailableTier':
     'Níl an ciseal seo cumraithe le haghaidh seiceála amach fós — socraigh an t-aitheantas praghais Stripe i do thimpeallacht.',
   'billing.unlimited': 'Gan teorainn',
   'billing.upgradeMonthly': 'Uasghrádaigh go {{name}} (gach mí)',
+  'billing.upgradeYearly': 'Íoc go bliantúil · {{price}}',
   'brand.tagline': 'An áit a scaipeann smaointe amach',
   'common.and': 'agus',
   'common.goToDashboard': 'Téigh chuig an Deais',
   'dashboard.activityAction': 'nuashonraithe',
+  'dashboard.activityEmpty':
+    'Gan aon ghníomhaíocht fós — cuir léarscáil in eagar chun do amlíne a thosú.',
   'dashboard.daysAgo': '{{count}} lá ó shin',
   'dashboard.empty.body':
     'Cruthaigh léarscáil chun tús a chur le smaointe a roinnt. Déanann teimpléid éasca tosú.',
@@ -44,26 +67,35 @@ export const ui: UiTranslations = {
   'dendriteHero.activeMaps': 'Léarscáileanna gníomhacha',
   'dendriteHero.eyebrow': 'Ar an chanbhás inniu',
   'dendriteHero.greeting': 'Smaointe nua brainse, {{name}}',
+  'dendriteHero.greetingAnon': 'Brainseáil smaointe nua',
   'dendriteHero.openMaps': 'Oscail mo léarscáileanna',
   'dendriteHero.subtitle':
     'Tarraing, ceangail, agus lig do do smaointeoireacht fás. Tá gach splanc nód amháin ar shiúl ón gcéad cheann eile.',
   'dendriteHero.weeklyChange': '{{sign}} {{count}} an tseachtain seo',
+  'forgotPassword.brandStatement':
+    'Tá do chuid léarscáileanna slán. Tabharfaimid ar ais chuig do chuid brainse tú i gceann nóiméid.',
   'forgotPassword.subheading':
     'Cuir isteach do sheoladh ríomhphoist agus seolfaimid nasc athshocraithe úr chugat.',
   'forgotPassword.success':
     'Má tá cuntas leis an seoladh ríomhphoist sin ann, tá nasc athshocraithe ar an mbealach.',
   'landing.cta.body':
     'Saor in aisce go deo do smaointeoirí aonair. Ní féidir leat uasghrádú a dhéanamh ach amháin nuair a thosaíonn do fhoireann ag forbairt leat.',
+  'landing.cta.button': 'Cruthaigh do chéad léarscáil',
   'landing.cta.title': 'Cuir do chéad smaoineamh inniu.',
   'landing.feature.branch.body':
     'Tarraing nód ó aon nód eile — sreabhann naisc mar chuair réidh, níl aon ghá le greille righin.',
+  'landing.feature.branch.title': 'Brainseáil orgánach',
   'landing.feature.canvas.body':
     'Panáil, súmáil agus lig don léarscáil fás gan bualadh le himill. Tuillte ag do smaointeoireacht spás le hanáil.',
   'landing.feature.canvas.title': 'Canbhás gan teorainn',
   'landing.feature.collab.body':
     'Féach ar chomhghleacaithe ag brainseáil taobh leat i bhfíor-am. Déan smaointeoireacht le chéile, ní i sraitheanna.',
+  'landing.feature.collab.title': 'Cúrsóirí comhoibríocha',
   'landing.feature.shortcuts.body':
     'Tab chun leanbh a chur leis, Iontráil le haghaidh siblín, ⌘K chun léim áit ar bith. Fanann úsáideoirí cumhachtacha sa sreabhadh.',
+  'landing.feature.shortcuts.title': 'Méarchlár ar dtús',
+  'landing.featuresBody':
+    'Bíonn barraí uirlisí, painéil, agus aicearraí timpeallach — i láthair nuair a bhíonn siad uait, dofheicthe nuair nach mbíonn.',
   'landing.featuresEyebrow': 'Tógtha do smaointeoirí',
   'landing.featuresTitle': 'Tuilleann gach idirghníomhaíocht a háit ar an chanbhás',
   'landing.footer.copyright': '© {{year}} {{appName}} . Tógtha le Molecule.dev.',
@@ -71,6 +103,7 @@ export const ui: UiTranslations = {
     'Is chanbhás fairsing gan teorainn é {{appName}} le haghaidh smaointeoireachta, léaráidí coincheapa, agus SWOTanna. Tarraing, ceangail, agus lig don léarscáil fás leat — gan aon ghreillí dochta, gan aon teimpléid i mboscaí.',
   'landing.hero.ctaPrimary': 'Tosaigh ag craobhú saor in aisce',
   'landing.hero.eyebrow': 'Mapáil intinne do dhearthóirí agus smaointeoirí',
+  'landing.hero.title': 'An áit a mbrainseálann smaointe amach.',
   'landing.nav.start': 'Tosaigh ag craobhú',
   'landing.proof.export': 'Easpórtáil go PNG, SVG, nó Markdown',
   'landing.proof.free': 'Saor in aisce ar feadh 3 léarscáileanna',
@@ -78,6 +111,7 @@ export const ui: UiTranslations = {
   'layout.closeMenu': 'Dún an roghchlár nascleanúna',
   'layout.openMenu': 'Oscail an roghchlár nascleanúna',
   'layout.searchPlaceholder': 'Cuardaigh léarscáileanna, teimpléid, nó nóid…',
+  'login.noAccount': 'Nua anseo?',
   'login.signIn': 'Sínigh isteach i Nimbus',
   'login.subheading': 'Sínigh isteach le leanúint ar aghaidh ag brainseáil san áit ar stop tú.',
   'login.twoFactor': 'Comhartha dhá fhachtóir (más cumasaithe)',
@@ -96,9 +130,11 @@ export const ui: UiTranslations = {
     'Roghnaigh an uirlis +, ansin cliceáil áit ar bith chun do chéad nód a chur leis',
   'mapEditor.export': 'Easpórtáil',
   'mapEditor.exportError': 'Níorbh fhéidir an léarscáil a easpórtáil.',
+  'mapEditor.exportLocked': 'Is gné Pro í an easpórtáil.',
   'mapEditor.exportMarkdown': 'Marcáil síos (.md)',
   'mapEditor.exportPng': 'Íomhá (.png)',
   'mapEditor.exportSvg': 'Veicteoir (.svg)',
+  'mapEditor.exportUpgrade': 'Uasghrádaigh chun easpórtáil →',
   'mapEditor.hint.add': 'Cliceáil ar chanbhás chun nód a scaoileadh',
   'mapEditor.hint.connectSource': 'Cliceáil ar an nód foinse…',
   'mapEditor.hint.connectTarget': 'Cliceáil ar an nód sprice…',
@@ -107,6 +143,7 @@ export const ui: UiTranslations = {
   'mapEditor.loading': 'Ag lódáil an chanbhás…',
   'mapEditor.newNodeText': 'New idea',
   'mapEditor.panel.color': 'Dath',
+  'mapEditor.panel.eyebrow': 'Nód roghnaithe',
   'mapEditor.panel.nodes': 'Nóid',
   'mapEditor.panel.noSelection': 'Cliceáil nód chun é a chur in eagar.',
   'mapEditor.panel.stats': 'Staitisticí léarscáile',
@@ -146,12 +183,19 @@ export const ui: UiTranslations = {
   'notifications.accept': 'Glac leis',
   'notifications.acceptAndOpen': 'Glac & oscail',
   'notifications.acceptedInvite': 'Chuaigh isteach {{title}}.',
+  'notifications.acceptError': 'Níorbh fhéidir glacadh leis an gcuireadh.',
   'notifications.empty.body':
     'Nuair a thugann comhghleacaithe cuireadh duit chuig léarscáileanna, beidh siad le feiceáil anseo.',
   'notifications.empty.title': 'Gan aon chuireadh ar feitheamh',
+  'notifications.inviteBody': 'Seolta chuig {{email}}',
   'notifications.inviteTitle': 'Tugadh cuireadh dó mar {{role}} go "{{title}}"',
   'notifications.subtitle': '{{count}} cuirí ar feitheamh.',
   'notifications.view': 'Amharc',
+  'pricing.limit.advanced': 'Gnéithe chun cinn: {{state}}',
+  'pricing.limit.connections': '{{count}} nasc',
+  'pricing.limit.export': 'Easpórtáil sonraí: {{state}}',
+  'pricing.limit.maps': '{{count}} léarscáileanna',
+  'pricing.limit.nodes': '{{count}} nóid in aghaidh an léarscáil',
   'profile.loading': 'Ag lódáil do staitisticí…',
   'profile.stat.collabs': 'Comhoibrithe',
   'profile.stat.maps': 'Léarscáileanna cruthaithe',
@@ -163,23 +207,34 @@ export const ui: UiTranslations = {
   'publicMap.loadError': 'Níl an léarscáil seo á roinnt a thuilleadh, nó tá an nasc neamhbhailí.',
   'publicMap.loading': 'Ag lódáil an léarscáil…',
   'publicMap.notFound': 'Léarscáil gan aimsiú.',
+  'resetPassword.newPassword': 'Pasfhocal nua',
   'resetPassword.subheading':
     'Roghnaigh rud éigin a bheidh cuimhneach ort. Logálfaimid isteach arís go huathoibríoch thú.',
   'resetPassword.submit': 'Athshocraigh an focal faire & sínigh isteach',
   'resetPassword.tokenPlaceholder': 'Greamaithe ó do ríomhphost',
   'settings.account.subtitle': 'Nuashonraigh d’ainm taispeána agus do sheoladh ríomhphoist.',
+  'settings.field.currentPassword': 'Focal faire reatha',
   'settings.field.newPassword': 'Pasfhocal nua',
   'settings.password.subtitle': 'Roghnaigh pasfhocal láidir (8 gcarachtar ar a laghad).',
   'settings.passwordError': 'Níorbh fhéidir an focal faire a athrú. Seiceáil do phasfhocal reatha.',
+  'settings.passwordMismatch': 'Ní hionann na pasfhocail nua.',
   'settings.passwordSaved': 'Athraíodh an focal faire go rathúil.',
   'settings.passwordTooShort': 'Ní mór don phasfhocal a bheith 8 gcarachtar ar a laghad.',
   'settings.profileError': 'Níorbh fhéidir athruithe próifíle a shábháil.',
   'settings.subtitle': 'Coigeartaigh do chuntas agus do shlándáil.',
   'settings.twoFactorCode': 'Cód fíordheimhnithe',
   'settings.twoFactorDisable': 'Díchumasaigh',
+  'settings.twoFactorDisableTitle': 'Díchumasaigh fíordheimhniú dhá fhachtóir',
   'settings.twoFactorEnable': 'Cumasaigh',
+  'settings.twoFactorEnableTitle': 'Cumasaigh fíordheimhniú dhá fhachtóir',
   'settings.twoFactorInvalidCode': 'Cód neamhbhailí. Déan iarracht arís.',
+  'settings.twoFactorOffLine': 'Tá fíordheimhniú dhá fhachtóir as.',
+  'settings.twoFactorOnLine': 'Tá fíordheimhniú dhá fhachtóir ar siúl.',
+  'settings.twoFactorQrAlt': 'Cód QR dhá fhachtóir',
+  'settings.twoFactorScan':
+    "Scan an cód QR seo le d'aip fhíordheimhniúcháin, ansin cuir isteach an cód 6 dhigit.",
   'settings.twoFactorSubtitle': "Cuir cód aonuaire ó d'aip fíordheimhnitheora le do phasfhocal.",
+  'settings.twoFactorUnavailable': 'Níl fíordheimhniú dhá fhachtóir ar fáil don aip seo.',
   'settings.twoFactorVerify': 'Fíoraigh & cumasaigh',
   'share.accepted': 'Glactha',
   'share.backToMap': 'Ar ais chuig an léarscáil',
@@ -190,7 +245,10 @@ export const ui: UiTranslations = {
   'share.copySuccess': 'Nasc cóipeáilte.',
   'share.invite.button': 'Cuireadh',
   'share.invite.title': 'Cuireadh trí ríomhphost',
+  'share.inviteError': 'Níorbh fhéidir an cuireadh a sheoladh.',
   'share.inviteSuccess': 'Cuireadh {{email}}.',
+  'share.link.disabledHint':
+    'Scoránaigh chun nasc poiblí inléite amháin a chruthú don léarscáil seo.',
   'share.link.title': 'Nasc poiblí',
   'share.loadError': 'Níorbh fhéidir socruithe comhroinnte a lódáil.',
   'share.pending': 'Cuireadh ar feitheamh',
@@ -202,14 +260,20 @@ export const ui: UiTranslations = {
   'share.roleError': 'Níorbh fhéidir an ról a nuashonrú.',
   'share.title': 'Comhroinn an léarscáil seo',
   'share.unnamedCollaborator': 'Cuireadh ar feitheamh',
+  'signup.brandStatement':
+    'Canbhás atá leathan go leor don smaoineamh is dána — agus ciúin go leor le smaoineamh.',
+  'signup.haveAccount': 'An ball tú cheana féin?',
   'signup.heading': 'Cuir do chéad smaoineamh',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.subheading':
     'Saor in aisce go deo ar feadh 3 léarscáil. Níl cárta creidmheasa ag teastáil.',
   'templateDetail.backToTemplates': 'Gach teimpléad',
   'templateDetail.browseMore': 'Brabhsáil tuilleadh',
+  'templateDetail.editableHint':
+    'Tá gach nód agus imeall in-eagarthóireacht go hiomlán nuair a chruthaíonn tú an teimpléad.',
   'templateDetail.instantiateError': 'Níorbh fhéidir léarscáil a chruthú ón teimpléad seo.',
   'templateDetail.loadError': 'Níorbh fhéidir an teimpléad seo a luchtú.',
+  'templateDetail.loading': 'Ag lódáil an teimpléid…',
   'templateDetail.nodes': 'Nóid réamhshíolraithe',
   'templateDetail.notFound': 'Teimpléad gan aimsiú.',
   'templateDetail.systemEyebrow': 'Teimpléad ionsuite',
@@ -232,6 +296,7 @@ export const ui: UiTranslations = {
   'trash.empty.body': 'Níl aon rud ag fanacht le glanadh. Tá do chraobhacha sábháilte.',
   'trash.empty.title': 'Tá an bruscar folamh',
   'trash.loadError': 'Níorbh fhéidir léarscáileanna bruscair a lódáil.',
+  'trash.loading': 'Á lódáil an bhruscar…',
   'trash.restore': 'Athchóirigh',
   'trash.restoreError': 'Níorbh fhéidir an léarscáil a athchóiriú.',
   'trash.subtitle':
@@ -240,11 +305,13 @@ export const ui: UiTranslations = {
   'versionHistory.backToMap': 'Ar ais chuig an léarscáil',
   'versionHistory.empty':
     'Gan aon ghrianghraif fós. Sábháil do chéad cheann le seicphointe a choinneáil.',
+  'versionHistory.emptyDetail': 'Sábháil pictiúr chun do amlíne a thosú.',
   'versionHistory.loadError': 'Níorbh fhéidir stair leaganacha a luchtú.',
   'versionHistory.nodeCount': 'Nóid',
   'versionHistory.restoreButton': 'Athchóirigh an leagan seo',
   'versionHistory.restoreError': 'Níorbh fhéidir an pictiúr a athchóiriú.',
   'versionHistory.restoreSuccess': 'Grianghraf athchóirithe.',
+  'versionHistory.selectHint': 'Roghnaigh pictiúr chun é a fheiceáil.',
   'versionHistory.snapshotDefault': 'Pictiúr láimhe',
   'versionHistory.snapshotError': 'Níorbh fhéidir an pictiúr a shábháil.',
   'versionHistory.snapshotEyebrow': 'Pictiúr',

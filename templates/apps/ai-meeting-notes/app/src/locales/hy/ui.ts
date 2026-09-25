@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Հարցեր, կարծիքներ կամ նոր ֆունկցիայի առաջարկ ունե՞ք։ Գրեք թիմին hello@murmur.app հասցեով — ամեն հաղորդագրություն հասնում է իրական մարդու, որը աշխատում է ապրանքի վրա։',
   'about.contactTitle': 'Կապվեք մեզ հետ',
   'about.eyebrow': 'Մեր մասին',
+  'about.intro':
+    '{{app}}-ը հանդիպումների վերլուծություն է թիմերի համար, որոնք նախընտրում են որոշումներ կայացնել, քան արձանագրություններ վարել։ Այն միանում է ձեր զանգերին, արտագրում է ամեն բառ՝ խոսողների պիտակներով, և հանդիպման ավարտին անմիջապես տրամադրում է AI ամփոփում և պատասխանատուներով գործողություններ։',
+  'about.missionBody':
+    'Հանդիպումները այն վայրն են, որտեղ թիմերը որոշումներ են կայացնում, և որտեղ այդ որոշումները կորչում են։ {{app}}-ը գոյություն ունի, որպեսզի զրույցի ընթացքում կատարված աշխատանքը ապրի ավելի երկար, քան ինքը զրույցը՝ հավատարիմ արձանագրություն, հստակ ամփոփում և հաշվետու հաջորդ քայլեր՝ ավտոմատ կերպով։',
+  'about.missionTitle': 'Մեր առաքելությունը',
   'actions.empty': 'Համապատասխանող առաջադրանքներ չկան։',
   'actions.heading': 'Գործողություններ',
   'actions.loadError': 'Չհաջողվեց բեռնել գործողությունները։',
@@ -10,11 +17,14 @@ export const ui: UiTranslations = {
     'Ամփոփված է յուրաքանչյուր հանդիպման համար։ Զտեք կարգավիճակով՝ կենտրոնանալու համար։',
   'actions.toggleDoneLabel': 'Նշել որպես կատարված',
   'actions.toggleReopenLabel': 'Նշել որպես բաց',
+  'auth.footer': '© {{year}} {{app}}։ Ամեն բառ՝ թորած։',
   'calendar.heading': 'Օրացույց',
   'calendar.joinCta': 'Միանալ',
   'calendar.loadError': 'Չհաջողվեց բեռնել օրացույցը։',
   'calendar.nextMonth': 'Հաջորդ ամիս',
   'calendar.noEventsForDay': 'Այս օրվա համար հանդիպումներ նախատեսված չեն։',
+  'calendar.noUpcomingEvents':
+    'Առաջիկա հանդիպումներ չկան։ Ինտեգրումներից միացրեք օրացույց՝ այս ցանկը լրացնելու համար։',
   'calendar.previousMonth': 'Նախորդ ամիս',
   'calendar.recent': 'Վերջերս',
   'common.daysAgo': '{{count}} օր առաջ',
@@ -26,9 +36,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} գործողությունների տարրեր',
   'dashboard.empty.body':
     'Սկսեք ձայնագրություն կամ միացեք Google Calendar-ին, որպեսզի Murmur-ը ավտոմատ կերպով միանա ձեր հաջորդ հանդիպմանը։',
+  'dashboard.empty.cta': 'Սկսել ձայնագրությունը',
   'dashboard.empty.heading': 'Դեռևս հանդիպումներ չկան',
   'dashboard.eyebrow': 'Ձեր հանդիպման լրահոսը',
   'dashboard.loadError': 'Չհաջողվեց բեռնել վահանակը։',
+  'dashboard.noActions': 'Գործողություններ չկան',
   'dashboard.recentHeading': 'Վերջին հանդիպումները',
   'dashboard.recordCta': 'Հանդիպման ձայնագրություն',
   'dashboard.stat.actions': 'Գործողություններ',
@@ -38,6 +50,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} Ձեր վերջին ստուգումից ի վեր չկարդացված ամփոփագրեր։ Շշուկը գրանցել է յուրաքանչյուր բառ՝ ահա ամփոփումը։',
   'dashboard.viewCalendar': 'Դիտել օրացույցը →',
+  'footer.linksLabel': 'Ներքևի նավիգացիա',
   'forgot.failed': 'Չհաջողվեց ուղարկել վերակայման էլ. նամակը։',
   'forgot.sentBody': 'Եթե հաշիվ գոյություն ունի {{email}}, շուտով կստանաք վերակայման հղում։',
   'forgot.sentSubheading': 'Ստուգեք ձեր էլ. փոստը՝ վերակայման հղումը գտնելու համար։',
@@ -48,14 +61,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Միացրեք օրացույցներն ու տեսանյութերի հարթակները, որպեսզի Murmur-ը միանա ավտոմատ կերպով։',
   'integrations.updateError': 'Թարմացումը ձախողվեց։',
+  'landing.ctaBody':
+    'Անվճար է ամեն ամսվա առաջին 5 հանդիպումների համար։ Առանց բանկային քարտի։ Միացրեք Google Calendar-ը մեկ րոպեից էլ քիչ ժամանակում։',
   'landing.ctaButton': 'Սկսե՛ք՝ դա անվճար է',
   'landing.ctaHeading': 'Դադարեք նշումներ անել։ Սկսեք որոշումներ կայացնել։',
+  'landing.demo.aiBody':
+    'Թողարկումը տեղափոխվել է մայիսի 5-ից → մայիսի 12՝ օպերացիոն թիմին ռեսուրսներ տրամադրելու համար։ Վահանակի վերափոխումը առանձնացվել է մայիսի 26-ին։',
   'landing.demo.aiLabel': 'Արհեստական բանականության ամփոփում, նախագծված ուղիղ եթերում',
   'landing.demo.recording': 'Ձայնագրություն · ուղիղ եթերում',
   'landing.eyebrow': 'Արհեստական բանականության հանդիպումների հետախուզություն',
   'landing.featuresHeading': 'Ամեն ինչ, ինչ ձեր թիմին անհրաժեշտ է հանդիպման ավարտից հետո',
+  'landing.featuresSubheading':
+    'Այլևս ոչ մի «սպասի՛ր, ո՞վ է սրա պատասխանատուն»։ {{appName}}-ը ուղարկում է ամփոփումը նախքան զանգի անջատվելը։',
   'landing.getStarted': 'Փորձեք անվճար',
   'landing.heroSecondary': 'Դիտեք 90 վայրկյան տևողությամբ շրջագայությունը',
+  'landing.heroSubtitle':
+    '{{tagline}}։ {{appName}}-ը միանում է ձեր զանգերին, արտագրում է ամեն բառ՝ խոսողների պիտակներով, և հանդիպման ավարտին անմիջապես տրամադրում է AI ամփոփումներ և պատասխանատուներով գործողություններ։',
   'landing.heroTitle': 'Գրանցեք յուրաքանչյուր հանդիպում։ Բացահայտեք կարևորը։',
   'login.altPrompt': 'Նորեկ եք Մուրմուրում՞',
   'login.failed': 'Մուտք գործել հնարավոր չէ։ Ստուգեք ձեր էլ․ հասցեն և գաղտնաբառը։',
@@ -63,6 +84,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Գործողություններ',
   'meetingDetail.back': 'Բոլոր հանդիպումները',
   'meetingDetail.decisionsHeading': 'Որոշումներ',
+  'meetingDetail.dueDate': 'ժամկետ {{date}}',
   'meetingDetail.followupsHeading': 'Հետագա գործողություններ',
   'meetingDetail.loadError': 'Հանդիպումը չհաջողվեց բեռնել։',
   'meetingDetail.noActions': 'Գործողություններ չեն հայտնաբերվել։',
@@ -76,7 +98,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Դեռևս հանդիպումներ չկան',
   'meetings.heading': 'Հանդիպումներ',
   'meetings.loadError': 'Հանդիպումները չհաջողվեց բեռնել։',
+  'meetings.recordCta': 'Հանդիպման ձայնագրություն',
   'meetings.subheading': 'Յուրաքանչյուր ձայնագրված, վերբեռնված և համաժամեցված հանդիպում։',
+  'murmurLayout.closeMenu': 'Փակել նավիգացիոն ցանկը',
   'murmurLayout.openMenu': 'Բացել նավիգացիոն ցանկը',
   'murmurLayout.primaryNavLabel': 'Հիմնական նավիգացիա',
   'nav.legal': 'Իրավական',
@@ -102,7 +126,15 @@ export const ui: UiTranslations = {
   'profile.loading': 'Բեռնվում է…',
   'profile.navLabel': 'Պրոֆիլային բաժիններ',
   'profile.notifications.assignments': 'Ինձ տրված առաջադրանքներ',
+  'profile.notifications.assignmentsHint': 'Ծանուցել, երբ ձեզ համար գործողություն է գրանցվում։',
+  'profile.notifications.mentions': 'Հիշատակումները արտագրություններում',
+  'profile.notifications.mentionsHint': 'Էլ. փոստ + ծանուցում, երբ ինչ-որ մեկը ձեզ @-հիշատակում է։',
+  'profile.notifications.subheading':
+    'Ընտրեք, թե {{appName}}-ի որ իրադարձությունները պետք է հասնեն ձեզ։',
   'profile.notifications.summaries': 'Շաբաթական ամփոփագիր',
+  'profile.notifications.summariesHint':
+    'Երկուշաբթի օրվա ամփոփում անցյալ շաբաթվա բոլոր հանդիպումների մասին։',
+  'profile.preferences.speakerColor': 'Խոսողի գույնը՝ ըստ լռելյայնի',
   'profile.preferences.subheading':
     'Լռելյայն կարգավորումներ, որոնք կիրառվում են ձեր միացած յուրաքանչյուր ձայնագրության համար։',
   'profile.preferences.timezone': 'Ժամային գոտի',
@@ -115,16 +147,21 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Ձեր դիտարկիչը չի աջակցում ձայնագրությունը։ Փորձեք Chrome, Edge կամ Safari։',
   'record.error.upload': 'Վերբեռնումը ձախողվեց։ Փորձեք կրկին։',
+  'record.errorLabel': 'Ինչ-որ բան սխալ է',
   'record.heading': 'Ձայնագրություն',
   'record.idleLabel': 'Հպեք՝ ձայնագրությունը սկսելու համար',
   'record.processingLabel': 'Տառադարձում Whisper-ի հետ, ամփոփում Claude-ի հետ…',
+  'record.recordingLabel': 'Գրանցվում է…',
   'record.retryCta': 'Փորձեք կրկին',
   'record.subheading':
     'Սեղմեք միկրոֆոնը՝ սկսելու համար: Murmur-ը ձայնագրում է ձայնը, տառադարձում Whisper-ի միջոցով և գրում Claude-ի միջոցով գրված ամփոփում:',
+  'record.titlePlaceholder': 'Հանդիպման վերնագիր (ըստ ցանկության)',
+  'reset.altPrompt': 'Փոխե՞լ եք միտքը։',
   'reset.hint': 'Օգտագործեք առնվազն 8 նիշ՝ տառերի և թվերի համադրությամբ։',
   'reset.missingToken': 'Վերակայման հղումը բացակայում է կամ ժամկետանց է։ Խնդրեք նորը։',
   'reset.newPassword': 'Նոր գաղտնաբառ',
   'reset.subheading': 'Ընտրեք գաղտնաբառ, որը չեք օգտագործում ոչ մի այլ տեղ։',
+  'reset.tooShort': 'Գաղտնաբառը պետք է լինի առնվազն 8 նիշ։',
   'search.empty': 'Մուտքագրեք՝ տառադարձումներ որոնելու համար։',
   'search.loadError': 'Որոնումը ձախողվեց։ Փորձեք կրկին։',
   'search.noResults': '«» հարցման արդյունքներ չկան {{q}} «',
@@ -140,7 +177,9 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Պահել աուդիոն',
   'settings.retention.heading': 'Պահպանում',
   'settings.retention.transcript': 'Պահպանեք տառադարձումները',
+  'settings.revokeDeviceWarning': 'Այս սարքի մուտքը շուտով կանդադարի։ Դուրս գալ՞',
   'settings.saveError': 'Պահպանումը ձախողվեց։',
+  'settings.security.subheading': 'Թարմացրեք ձեր մուտքի գաղտնաբառը։',
   'settings.sharing.exportFormat': 'Արտահանման ձևաչափ',
   'settings.sharing.heading': 'Կիսվելու լռելյայն կարգավորումներ',
   'settings.sharing.scope': 'Լռելյայն համօգտագործման շրջանակ',
@@ -158,6 +197,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Հրավիրել թիմակցին',
   'team.invitedAs': 'Հրավիրված է որպես {{role}}',
   'team.inviteFailed': 'Հնարավոր չէ հրավեր ուղարկել։',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'Ուղարկել հրավեր',
   'team.inviteSubtitle': 'Նրանք կստանան էլեկտրոնային նամակ՝ միանալու հղումով։',
   'team.inviteTitle': 'Հրավիրեք թիմակցի',

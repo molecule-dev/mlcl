@@ -1,26 +1,41 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Quer lançar um onboarding mais acolhedor para a sua equipe, encontrou um bug ou tem feedback? Fale com a gente pelas configurações da sua conta — toda mensagem chega a uma pessoa de verdade que pode ajudar.',
   'about.contactTitle': 'Fale connosco',
   'about.eyebrow': 'Sobre',
+  'about.missionTitle': 'Nossa missão',
   'auth.forgotPassword.emailPlaceholder': 'nome@suaempresa.com',
   'auth.forgotPassword.heading': 'Redefina sua senha.',
+  'auth.forgotPassword.panel.body':
+    'A redefinição leva 30 segundos — o progresso da sua checklist está esperando.',
+  'auth.forgotPassword.panel.headline': 'De volta exatamente de onde você parou.',
+  'auth.forgotPassword.subheading':
+    'Informe seu e-mail de trabalho e enviaremos um link de redefinição.',
   'auth.forgotPassword.successSubheading':
     'Confira sua caixa de entrada — enviamos as instruções de redefinição.',
   'auth.login.emailPlaceholder': 'nome@suaempresa.com',
   'auth.login.heading': 'Bem-vindo de volta.',
   'auth.login.passwordPlaceholder': 'Sua senha',
+  'auth.login.signupPrompt': 'Novo na sua equipe?',
   'auth.login.subheading': 'Entre para continuar sua jornada de onboarding de onde você parou.',
   'auth.login.submit': 'Continuar sua jornada',
+  'auth.panel.body':
+    'Sua checklist pessoal, marcos de treinamento e apresentações da equipe — tudo em um só lugar tranquilo.',
   'auth.panel.footnote': '© Embark — onboarding com as pessoas em primeiro lugar, desde hoje.',
   'auth.panel.headline': 'Seus primeiros 90 dias com confiança começam aqui.',
   'auth.resetPassword.heading': 'Defina uma nova senha.',
   'auth.resetPassword.newPasswordLabel': 'Nova senha',
+  'auth.resetPassword.panel.body':
+    'Salve uma nova senha e vamos te levar de volta direto para a sua jornada de onboarding.',
+  'auth.resetPassword.panel.headline': 'Quase de volta.',
   'auth.resetPassword.subheading': 'Escolha algo que você vá lembrar — pelo menos 8 caracteres.',
   'auth.signup.emailPlaceholder': 'nome@suaempresa.com',
   'auth.signup.heading': 'Bem-vindo aos seus primeiros 90 dias.',
   'auth.signup.panel.body':
     'Uma checklist guiada, treinamento de acordo com o cargo e apresentações humanas — prontas antes de você chegar.',
+  'auth.signup.panel.headline': 'Primeiro dia, logo no primeiro dia.',
   'auth.signup.subheading':
     'Crie sua conta no Embark para começar sua jornada de onboarding guiada.',
   'checklist.empty.body': 'Mude o filtro para ver outras tarefas.',
@@ -28,6 +43,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'Onboarding · Checklist',
   'checklist.loading': 'Carregando sua checklist…',
   'checklist.stat.actionNeeded': 'Requer ação',
+  'checklist.stat.completion': 'Conclusão',
+  'checklist.stat.inProgress': 'Em andamento',
   'checklist.stat.inProgressHelper': 'Retome de onde parou',
   'checklist.stat.overdueHelper': 'Coloque estas em dia primeiro',
   'checklist.subtitle':
@@ -59,6 +76,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Sem documentos ainda',
   'documents.eyebrow': 'Onboarding · Documentos',
   'documents.loading': 'Carregando documentos…',
+  'documents.stat.actionNeeded': 'Assinar agora',
+  'documents.stat.all': 'Todos os documentos',
   'documents.stat.allHelper': 'Entre todas as categorias',
   'documents.stat.pending': 'Assinaturas pendentes',
   'documents.stat.pendingHelper': 'Necessárias para concluir',
@@ -66,16 +85,21 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Armazenados com segurança',
   'documents.status.optional': 'Opcional',
   'documents.status.required': 'Obrigatório',
+  'documents.status.signed': 'Assinados',
   'documents.subtitle': 'Seu manual, formulários e acordos assinados — tudo em um só lugar.',
   'documents.title': 'Tudo o que você precisa ler e assinar.',
   'documents.uploadedRecently': 'Carregado recentemente',
   'documentViewer.breadcrumbCurrent': 'Visualizador',
   'documentViewer.breadcrumbDocs': 'Documentos',
   'documentViewer.downloadMeta': 'Baixar metadados',
+  'documentViewer.helpBody':
+    'People & Culture responde dúvidas do handbook no #ask-people no Slack.',
   'documentViewer.helpEyebrow': 'Precisa de ajuda?',
   'documentViewer.loadError': 'Não foi possível carregar este documento.',
   'documentViewer.loading': 'Carregando documento…',
   'documentViewer.notFound': 'Documento não encontrado',
+  'documentViewer.previewBody':
+    'Quando os uploads estão configurados, exibimos o arquivo na própria página. Por enquanto, o download dos metadados permite confirmar que o registro é real.',
   'documentViewer.previewBodyExternal':
     'Use o botão de download para abrir o arquivo em uma nova aba.',
   'documentViewer.previewTitle': 'Pré-visualização do documento',
@@ -83,6 +107,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Leia o documento e, em seguida, clique abaixo para assinar e confirmar.',
   'documentViewer.signatureHeading': 'Assinatura necessária',
+  'documentViewer.signed': '✓ Assinado e arquivado',
   'documentViewer.signing': 'Assinando…',
   'documentViewer.uploadedRecently': 'Carregado recentemente',
   'landing.closing.body':
@@ -92,10 +117,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Já tenho uma conta',
   'landing.feature1.body':
     'Cada tarefa — burocracia, contas, apresentações — preparada com prazos e a pessoa responsável certa.',
+  'landing.feature1.title': 'Uma checklist guiada',
   'landing.feature2.body':
     'Os módulos são desbloqueados nos marcos de 30/60/90, ajustados ao cargo e ao time em que a pessoa está entrando.',
+  'landing.feature2.title': 'Treinamento por função',
   'landing.feature3.body':
     'Mentores, líderes e apresentações interfuncionais agendados — para que ninguém comece sozinho.',
+  'landing.feature3.title': 'Apresentações de verdade',
   'landing.featureEyebrow': 'Por que Embark',
   'landing.featureHeadline': 'Três formas com que o Embark conquista confiança no primeiro dia.',
   'landing.footer.rights': 'Todos os direitos reservados.',
@@ -104,6 +132,7 @@ export const ui: UiTranslations = {
   'landing.headlineLine2': 'uma recepção mais calorosa.',
   'landing.preview.body': 'A seguir: café de 30 minutos com seu mentor — terça-feira, 10h00.',
   'landing.preview.eyebrow': 'Dia 14 de 90 — painel de exemplo',
+  'landing.preview.headline': 'Bem-vinda de volta, Maya.',
   'landing.proof.spec': 'Pronto para SOC 2 e LGPD',
   'landing.proof.teams': 'Feito para times de 50 a 5.000',
   'landing.proof.time': '14 dias de teste grátis',
@@ -120,16 +149,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'ontem',
   'planUpdated.message': 'Está tudo pronto.',
   'planUpdated.preparing': 'Atualizando seu plano…',
+  'planUpdated.retry': 'Tentar novamente',
+  'planUpdated.verifyFailed': 'Ainda não foi possível confirmar o seu pagamento.',
+  'planUpdated.verifyFailedBody':
+    'Seu pagamento ainda pode estar sendo processado. Tente novamente em instantes.',
   'planUpdated.verifying': 'A confirmar o seu pagamento…',
   'pricing.documentsLabel': 'documentos',
   'pricing.onboardingsLabel': 'onboardings',
   'pricing.tasksLabel': 'tarefas',
   'profile.dayNumber': 'Dia',
   'profile.detailsHeading': 'Detalhes do onboarding',
+  'profile.encouragementBody':
+    'Mantenha seu buddy e seu gestor a par — pequenos passos se acumulam.',
   'profile.milestones': 'Marcos',
   'profile.progressEyebrow': 'Progresso do onboarding',
   'profile.tasks': 'Tarefas',
   'profile.unknownName': 'Bem-vinda',
+  'settings.appearance.description': 'Alternar entre o modo claro e o modo escuro.',
+  'settings.appearance.title': 'Aparência',
+  'settings.subtitle':
+    'Ajuste notificações, segurança, dispositivos e exportação de dados — tudo fica aqui, do seu jeito.',
   'settings.title': 'Ajustes e preferências.',
   'taskDetail.backToChecklist': 'Voltar para a checklist',
   'taskDetail.breadcrumbChecklist': 'Checklist',
@@ -141,7 +180,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'Sem prazo',
   'taskDetail.notFound': 'Tarefa não encontrada',
   'taskDetail.notFoundBody': 'Esta tarefa pode ter sido excluída ou pertencer a outra pessoa.',
+  'taskDetail.tipBody':
+    'Se você estiver travado, mande uma mensagem para o seu buddy de onboarding no Slack — ele é sua primeira linha de ajuda.',
   'taskDetail.tipEyebrow': 'Dica rápida',
+  'team.empty.body': 'Tente uma busca mais ampla ou escolha outro departamento.',
   'team.empty.title': 'Nenhum colega corresponde',
   'team.eyebrow': 'Onboarding · Pessoas',
   'team.loading': 'Carregando colegas…',
@@ -164,14 +206,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Marcos',
   'timeline.stat.current': 'Marco atual',
   'timeline.stat.next': 'Próximo desbloqueio',
+  'timeline.stat.progress': 'Geral',
   'timeline.subtitle':
     'Cada marco desbloqueia novos módulos, apresentações e conversas de crescimento. Sem pressão — só progresso.',
+  'timeline.tipBody':
+    'Agende uma reflexão de 30 minutos nos dias 30, 60 e 90 com seu gestor — isso torna o feedback específico e o progresso visível.',
   'timeline.tipEyebrow': 'Dica do líder',
+  'timeline.tipTitle': 'Reserve tempo na agenda para os marcos.',
   'timeline.title': 'Sua jornada 30 / 60 / 90.',
   'training.badge.notStarted': 'Não iniciado',
   'training.empty': 'Sem módulos de treinamento ainda.',
   'training.eyebrow': 'Onboarding · Treinamento',
   'training.loading': 'Carregando módulos…',
+  'training.stat.all': 'Módulos atribuídos',
   'training.subtitle':
     'Os módulos são desbloqueados em 30/60/90, alinhados ao seu cargo. Os obrigatórios vêm primeiro.',
   'training.title': 'Habilidades, ferramentas e histórias — no seu ritmo.',
@@ -183,9 +230,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'Módulo não encontrado',
   'trainingModule.quizBody': 'Para concluir este módulo, obtenha uma nota de 80% ou mais.',
   'trainingModule.quizHeading': 'Quiz de fim de módulo',
+  'trainingModule.quizLocked': 'Comece o módulo primeiro',
   'trainingModule.quizNone': 'Sem quiz neste módulo.',
   'trainingModule.quizRetry': 'Tentar novamente',
+  'trainingModule.quizStart': 'Iniciar quiz',
   'trainingModule.quizSubmit': 'Enviar respostas',
+  'trainingModule.start': 'Iniciar módulo',
   'trainingModule.statusNotStarted': 'Não iniciado',
   'welcomeHeroCard.completeLabel': 'Concluído',
   'welcomeHeroCard.milestonesLabel': 'Marcos',

@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May nahanap kang bug, may feature request, o gusto mong sabihin sa amin ang susunod na itatayo? I-email ang hello@pylon.dev — bawat mensahe ay nakakarating sa isang tunay na engineer sa team.',
   'about.contactTitle': 'Makipag-ugnayan sa amin',
+  'about.intro':
+    'Ang {{app}} ay isang mabilis, keyboard-native na API testing workbench para sa mga engineer na namumuhay sa terminal — Postman-style na mga request, collection, environment, at history na walang bloat.',
+  'about.missionBody':
+    'Ang mga API ang backbone ng modernong software, pero ang mga tool para gamitin ang mga ito ay mabagal, bloated, at mouse-driven. Umiiral ang {{app}} para bigyan ang mga developer ng matalas, mabilis, terminal-grade na workbench: magpaputok ng request, mag-forge ng confidence, at mag-ship nang hindi umaalis sa keyboard.',
+  'about.missionTitle': 'Ang aming misyon',
   'about.pageTitle': 'Tungkol sa {{app}}',
   'authShell.statusLabel': 'mga runner online',
   'collections.createError': 'Hindi nagawa ang koleksyon.',
   'collections.defaultName': 'Walang pangalang koleksyon {{n}}',
+  'collections.empty':
+    'Wala pang collection — i-click ang “New collection” para gumawa ng iyong unang folder.',
   'collections.eyebrow': '$ pylon collections --tree',
   'collections.fetchError': 'Hindi ma-load ang mga koleksyon.',
   'collections.heading': 'Mga Koleksyon',
   'collections.loading': 'Nilo-load ang mga koleksyon…',
+  'collections.metric.allGreen': 'All green',
   'collections.metric.collections': 'Mga Koleksyon',
   'collections.metric.failing': 'May pagkabigo',
   'collections.metric.failingCaption': 'Ang huling takbo ay may mga error',
@@ -24,6 +34,8 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Mga Variable',
   'environments.createError': 'Hindi nagawa ang environment.',
   'environments.defaultName': 'Walang pangalang environment {{n}}',
+  'environments.empty':
+    'Wala pang environment — i-click ang “New environment” para magdagdag ng isa.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'Hindi ma-load ang mga environment.',
   'environments.heading': 'Mga Environment',
@@ -31,8 +43,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Bagong environment',
   'environments.subheading':
     'Mga variable na papalitan sa mga kahilingan sa oras ng pagpapadala. Isang aktibong environment bawat workspace.',
+  'forgotPassword.statusLabel': 'i-reset · ligtas na tunnel',
   'forgotPassword.success':
     'Kung may account para sa email na iyon, may reset link na paparating. Tingnan ang iyong inbox.',
+  'history.empty': 'Wala pa rito — magpaputok ng iyong unang request mula sa Workspace tab.',
   'history.eyebrow': '$ pylon history --tail',
   'history.fetchError': 'Hindi ma-load ang kasaysayan.',
   'history.heading': 'Kasaysayan ng takbo',
@@ -41,9 +55,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Huling 50',
+  'history.realtime': 'realtime',
   'history.subheading':
     'Bawat kahilingang ipinadala sa workspace na ito, kasama ang status, latency, at laki ng payload.',
   'landing.choosePlan': 'Pumili ng plano',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Forge confidence.',
   'landing.ctaBody':
     'Walang credit card. Hindi kailangan ng platform engineer. Buksan ang ⌘K at ipadala ang iyong unang kahilingan sa loob ng limang minuto.',
   'landing.ctaHeading': 'Bumuo ng tiwala.',
@@ -85,6 +101,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Avg na latency',
   'mocks.metric.live': 'Pampubliko',
   'mocks.metric.servers': 'Mga Mock',
+  'mocks.ms': 'ms',
   'mocks.newMock': 'Bagong mock',
   'mocks.online': 'Pampubliko',
   'mocks.paused': 'Pribado',
@@ -109,9 +126,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Maayos',
   'monitors.metric.uptime': 'Avg na uptime',
   'monitors.newMonitor': 'Bagong monitor',
+  'monitors.paused': 'nakahinto',
   'monitors.run': 'Patakbuhin',
   'monitors.runError': 'Natapos ang takbo na may network error: {{error}}',
+  'monitors.runFailed': 'Nabigo ang run.',
   'monitors.running': 'Tumatakbo…',
+  'monitors.runSuccess': 'Run {{status}} — nagbalik ang upstream ng {{code}} sa {{ms}}ms.',
   'monitors.sparkLabel': 'Trend ng latency',
   'monitors.subheading':
     'Mga on-demand na pagsusuri para sa anumang naka-save na pagsubok. I-bind ang isang pagsubok, pindutin ang Patakbuhin, at panoorin ang 24-oras na rate ng tagumpay na mag-update sa bawat pagpalabas.',
@@ -120,27 +140,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Uptime · 24h',
   'nav.legal': 'Legal',
   'notFound.backToWorkspace': 'Bumalik sa workspace',
+  'notFound.body':
+    'Nagpaputok ang {{app}} ng request para sa URL na ito at walang bumalik. I-double-check ang route o bumalik sa workspace.',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Hindi nahanap ang ruta',
+  'planUpdated.body':
+    'Aktibo na ang pagbabago sa iyong billing. Maaari mong pamahalaan ang iyong plano anumang oras mula sa billing page.',
+  'planUpdated.retry': 'Subukan muli',
+  'planUpdated.verifyFailed': 'Hindi pa namin makumpirma ang iyong bayad.',
+  'planUpdated.verifyFailedBody':
+    'Maaaring pinoproseso pa rin ang iyong bayad. Subukan muli maya-maya.',
   'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
+  'pricing.advancedFeatures': 'Mga advanced na feature: {{yes}}',
+  'pricing.canExport': 'Data export: {{yes}}',
+  'pricing.heading': 'Pumili ng iyong {{app}} plano',
+  'pricing.maxCollections': '{{count}} collections',
+  'pricing.maxEnvironments': '{{count}} environments',
+  'pricing.maxHistory': '{{count}} history entries',
+  'pricing.maxRequests': '{{count}} mga kahilingan',
   'privacy.collect.account':
     'Account: ang iyong email, naka-hash na password, display name, at timestamp ng iyong huling pag-sign in.',
+  'privacy.intro':
+    'Ginagalang ng {{app}} ang iyong privacy. Ang page na ito ay nagbubuod ng data na kinokolekta namin, kung bakit namin ito kinokolekta, at kung paano ito aalisin.',
   'privacy.rights.body':
     'Maaari kang mag-export ng iyong mga koleksyon at environment anumang oras, o i-delete ang iyong account mula sa Mga Setting para permanenteng alisin ang lahat ng data sa loob ng 30 araw.',
   'privacy.share.body':
     'Ikaw lamang. Hindi namin kailanman ibinebenta, ibinabahagi, o inuupahan ang nilalaman ng iyong workspace sa mga third party. Ang mga server log ay pinapanatili nang 30 araw para sa pagtugon sa insidente at pagkatapos ay tinatanggal.',
   'privacy.title': 'Abiso sa privacy',
+  'profile.bio':
+    'Ang iyong personal na {{app}} workspace — i-pin ang mga collection, ibahagi ang mga environment, at i-monitor ang mga API na nag-ship ng produkto.',
   'profile.eyebrow': '@{{handle}}',
   'profile.joined': 'sumali {{when}}',
+  'profile.metric.collections': 'Mga koleksyon',
   'profile.metric.monitors': 'Mga Monitor',
   'profile.metric.requests': 'Mga naka-save na kahilingan',
+  'profile.noActivity':
+    'Wala pang request na napaputok — pumunta sa Workspace tab para gumawa ng isa.',
   'profile.signedOut': 'Mag-sign in para makita ang iyong profile',
   'pylonShell.primaryNavLabel': 'Pangunahing navigation',
+  'resetPassword.passwordLabel': 'Bagong password',
+  'resetPassword.statusLabel': 'i-reset · na-verify ang token',
   'resetPassword.subtitle': 'Pumili ng matibay na password na hindi mo pa ginamit.',
   'resetPassword.tokenPlaceholder': 'i-paste mula sa email',
+  'settings.accountManagement.desc':
+    'I-update ang iyong email at password, pamahalaan ang mga notification at device, mag-sign out, o i-delete ang iyong account.',
+  'settings.accountManagement.title': 'Account at seguridad',
   'settings.eyebrow': '$ pylon settings --edit',
   'settings.fetchError': 'Hindi ma-load ang mga setting.',
   'settings.language.title': 'Wika',
+  'settings.seeding': 'Seeding…',
   'settings.seedStarter': 'Mag-seed ng starter content',
   'settings.starterCollection': 'Starter na koleksyon',
   'settings.starterCollectionDesc': 'Ginawa mula sa Mga Setting noong {{ts}}',
@@ -154,6 +202,8 @@ export const ui: UiTranslations = {
     'Responsable kang pangalagaan ang iyong password. Ang pagbabahagi ng isang account sa maraming tao ay hindi pinahihintulutan sa mga Free o Pro na plano — bumili ng Team subscription para sa mga shared na workspace.',
   'terms.billing.body':
     'Ang mga bayad na subscription ay awtomatikong nare-renew bawat billing period. Kanselahin mula sa Mga Setting anumang oras; magpapatuloy ang iyong access hanggang sa katapusan ng kasalukuyang panahon.',
+  'terms.intro':
+    'Sa paggawa ng {{app}} account, sumasang-ayon ka sa mga tuntunin sa ibaba. Basahin ang mga ito nang isang beses; hindi ka namin bibiglain ng retroactive na pagbabago.',
   'terms.title': 'Mga Tuntunin ng Serbisyo',
   'terms.usage.body':
     'Huwag gamitin ang Pylon para magpadala ng mga kahilingan sa mga serbisyong hindi mo pag-aari o wala kang malinaw na pahintulot na subukan. Huwag gamitin ang Pylon para mag-bypass ng mga rate limit o magsagawa ng panloloko.',
@@ -174,17 +224,23 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Hindi pa natakbo',
   'testRunner.metric.passed': 'Pumasa',
   'testRunner.never': 'Hindi pa kailanman natakbo',
+  'testRunner.newTest': 'New test',
   'testRunner.noAssertions': 'Wala pang mga assertion sa pagsubok na ito.',
+  'testRunner.noRunsYet':
+    'Wala pang run na naitala — pindutin ang “Run all” para punan ang history.',
   'testRunner.passed': 'pumasa',
+  'testRunner.recentRuns': 'Mga kamakailang run',
   'testRunner.runAll': 'Patakbuhin lahat',
   'testRunner.running': 'Tumatakbo…',
   'testRunner.runOne': 'Patakbuhin',
   'testRunner.subheading':
     'Mga resulta ng suite, mga pagkakaiba ng assertion, at ang huling 50 na takbo.',
+  'testRunner.suites': 'Suites',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Naka-sign in bilang',
   'workspace.auth.keyName': 'Pangalan ng header',
   'workspace.auth.keyValue': 'Pangunahing halaga',
+  'workspace.auth.noneHint': 'Walang authorization header na ipapadala kasama ng request na ito.',
   'workspace.auth.password': 'Password',
   'workspace.auth.username': 'Pangalan ng Gumagamit',
   'workspace.authOption.apikey': 'Susi ng API',
@@ -194,13 +250,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Uri',
   'workspace.authTypeLabel': 'Uri ng auth',
+  'workspace.body.contentLabel': 'Request body',
+  'workspace.body.hint':
+    'Ang {{envVars}} ay pinapalitan bago magpaputok ang request. Ang mga body ay ipinapadala sa POST/PUT/PATCH/DELETE.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Wala',
+  'workspace.body.noneHint':
+    'Walang request body na ipapadala. Pumili ng JSON o raw text para magdagdag ng isa.',
   'workspace.body.text': 'Hilaw na teksto',
   'workspace.body.type': 'Uri',
   'workspace.environment': 'Walang env',
   'workspace.envVar': 'env variable',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.failedCount': '{{count}} nabigo',
+  'workspace.idle': 'Hindi aktibo',
   'workspace.kv.addHeader': 'Magdagdag ng header',
   'workspace.kv.addParam': 'Magdagdag ng parametro',
   'workspace.kv.headerKey': 'Pangalan ng header',
@@ -213,12 +276,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP method',
   'workspace.metric.latency': 'Latency',
   'workspace.metric.latencyCaption': 'Round-trip mula sa takbong ito',
+  'workspace.metric.size': 'Payload',
   'workspace.metric.sizeCaption': 'Mga byte ng response body',
   'workspace.metric.statusCaption': 'Huling response',
   'workspace.metric.tests': 'Mga Pagsubok',
+  'workspace.metric.testsAllPassing': 'All assertions green',
   'workspace.metric.testsFailing': '{{count}} nabigo',
+  'workspace.metric.testsIdle': 'Magpadala ng request para mag-evaluate',
   'workspace.noAssertions': 'Magpatakbo ng kahilingan para suriin ang mga built-in na assertion.',
   'workspace.noResponseYet': 'Wala pang response',
+  'workspace.passedCount': '{{count}} nakapasa',
   'workspace.responseHint':
     '// Pindutin ang Ipadala para patakbuhin ang kahilingan at makuha ang response.',
   'workspace.saveError': 'Hindi na-save ang kahilingan.',
@@ -228,10 +295,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Mag-compose ng kahilingan, ipadala ito, at suriin ang response — lahat sa isang pane.',
   'workspace.testResults': 'Mga resulta ng pagsubok',
+  'workspace.tests.autoHint':
+    'Ang status family, latency, body size, at transport health ay awtomatikong ini-assert — lumalabas ang mga resulta sa ilalim ng “Test results” sa response panel.',
+  'workspace.tests.autoTitle': 'Built-in assertions run on every response',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Ipinapadala bilang Authorization: Bearer <token> sa bawat kahilingan sa koleksyong ito.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Walang pangalang kahilingan',
+  'workspace.urlLabel': 'Request URL',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kérdésed, visszajelzésed vagy funkciójavaslatod van? A {{app}} csapatát a Beállítások → Értesítések menüpontban érheted el, vagy írj nekünk bármikor — minden üzenetet valódi ember olvas el.',
+  'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Névjegy',
+  'about.featureCapture':
+    'Nyugtafotó feltöltése, amely a képeket a megfelelő költséghez csatolja, tételesen.',
+  'about.featureExport':
+    'Auditálható CSV-exportok minden jelentésről, költségről és jóváhagyási állapotról — készen a könyvelési csapatodnak.',
+  'about.featurePolicy':
+    'Szabályzati korlátok — napi limitek, kategóriánkénti keretek és nyugta kötelező küszöbértékek, már beküldéskor érvényesítve.',
+  'about.featureWorkflow':
+    'Kétszintű jóváhagyási folyamat ellenőrző megjegyzésekkel, szabálysértési jelzésekkel és egy koppintásos térítésmegjelöléssel.',
+  'about.intro':
+    'A {{app}} egy költségkezelő platform pénzügyi csapatoknak és azoknak, akiknek a térítést fizetik. Készíts nyugtafotót, rögzíts egy költséget, küldj be egy jelentést jóváhagyásra, és kövesd nyomon minden térítést — táblázatos ceremónia nélkül.',
+  'about.missionBody':
+    'A térítés legyen gyors, tisztességes és auditálható. Azért építettük a {{app}}-t, hogy a beküldők zaklatás nélkül kapják vissza a pénzüket, a jóváhagyók pontosan lássák, mit hagynak jóvá, a pénzügy pedig tiszta nyomot kapjon minden forintról — szabályzati ellenőrzésekkel együtt.',
+  'about.missionTitle': 'Küldetésünk',
   'approvals.approve': 'Jóváhagyás',
   'approvals.approving': 'Jóváhagyás…',
   'approvals.confirmReject': 'Elutasítás megerősítése',
+  'approvals.empty': 'Minden naprakész — nincs jóváhagyásra váró jelentés.',
   'approvals.eyebrow': 'Vezetői sor',
   'approvals.kpi.flaggedLabel': 'Szabályzat megjelölve',
+  'approvals.kpi.queueLabel': 'Jóváhagyásra vár',
   'approvals.kpi.totalLabel': 'Függőben lévő érték',
   'approvals.lineCount': '{{count}} költségek',
   'approvals.queueFallback': 'Élő sor nem érhető el — kurátorált demóadatok láthatók.',
   'approvals.reject': 'Elutasítás',
   'approvals.rejecting': 'Elutasítás…',
+  'approvals.rejectPlaceholder': 'Indok (kötelező)',
   'approvals.rejectPrompt': 'Miért utasítja el ezt a jelentést?',
   'approvals.review': 'Ellenőrzés',
   'approvals.title': 'Függőben lévő jóváhagyások',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Jóváhagyva · MTD',
   'dashboard.kpi.pendingDelta': '+2 ezen a héten',
+  'dashboard.kpi.pendingLabel': 'Felülvizsgálatra vár',
   'dashboard.kpi.receiptsDelta': 'Szükséges intézkedés',
   'dashboard.kpi.receiptsLabel': 'Várható bevételek',
   'dashboard.kpi.reimbursedDelta': '+2,4 ezer dollár',
   'dashboard.kpi.reimbursedLabel': 'Megtérített · MTD',
   'dashboard.newReport': 'Új jelentés',
+  'dashboard.recent.empty': 'Még nincs jelentés — indítsd el az elsőt fent.',
   'dashboard.recent.title': 'Legutóbbi jelentések',
   'dashboard.recent.viewAll': 'Az összes jelentés megtekintése',
   'dashboard.summaryFallback':
@@ -39,11 +60,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'Nyugták és visszatérítendő tételek',
   'expenses.listFallback': 'Élő lista nem érhető el — válogatott demóadatokat jelenítünk meg.',
   'expenses.searchPlaceholder': 'Kereskedő vagy kategória keresése…',
+  'expenses.subtotal': '{{count}} költség · részösszeg',
   'expenses.title': 'Kiadások',
+  'forgotPassword.continue': 'Van kódom · Folytatás',
+  'forgotPassword.subheading':
+    'Add meg a munkahelyi e-mail-címedet, és küldünk egy linket az új jelszó beállításához.',
   'forgotPassword.successBody':
     'Ha létezik egy fiók a következőhöz: {{email}} A következő percekben kapni fogsz egy visszaállítási linket.',
+  'landing.copyright': '© {{year}} {{app}}. A Molecule.dev segítségével készült.',
+  'landing.ctaBody':
+    'Az első 25 költség minden hónapban ingyenes. Nincs bankkártya, nincs bevezetési hívás.',
   'landing.ctaHeading': 'Készen állsz behajtani, amivel a csapatod tartozik?',
   'landing.eyebrow': 'Költségjelentések pénzügyi csapatok számára',
+  'landing.featuresHeading': 'Térítés, egy nyugodt munkaterületen',
   'landing.heroSubtitle':
     'Küldje be, hagyja jóvá és térítse meg az üzleti költségeket táblázatkezelési ceremónia nélkül. Nyugták OCR-je, szabályzat-ellenőrzések és átlátható jóváhagyási ütemterv – mindezt egyetlen nyugodt munkaterületen.',
   'landing.heroTitle': 'Minden nyugta visszaszerezve.',
@@ -61,10 +90,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Megjegyzések',
   'newExpense.descriptionPlaceholder':
     'Miért volt ez a kiadás üzleti jellegű (a jóváhagyó számára látható).',
+  'newExpense.eyebrow': 'Téríthető tétel',
   'newExpense.merchant': 'Kereskedő',
   'newExpense.merchantPlaceholder': 'Hotel Adlon Kempinski',
   'newExpense.policyHint':
     'Emlékeztető: a napi 80 dollár feletti étkezésekhez, illetve a 250 dollár feletti tételekhez indokolás szükséges.',
+  'newExpense.receipt': 'Nyugta',
+  'newExpense.receiptHint': 'JPG, PNG vagy PDF · max. 10 MB',
   'newExpense.receiptOcrHint': 'Az OCR előre kitölti a mezőket',
   'newExpense.receiptPrompt': 'Húzz ide egy fotót vagy PDF-et, vagy kattints a böngészéshez',
   'newExpense.receiptUploadFailed':
@@ -75,17 +107,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Nyomtass vagy tölts fel egy nyugtát, és a Recoup előre kitölti a kereskedő, a dátum és az összeg adatait. Mentés előtt erősíts meg mindent alább.',
   'newExpense.title': 'Költség hozzáadása',
+  'newReport.approverHint': 'E-mailt kap, amikor beküldöd ezt a jelentést jóváhagyásra.',
   'newReport.approverLabel': 'Jóváhagyó e-mail címe (opcionális)',
   'newReport.approverPlaceholder': 'manager@aceged.com',
   'newReport.availableExpenses': 'Elérhető költségek',
   'newReport.createFailed': 'Nem sikerült létrehozni a jelentést. Próbáld újra.',
   'newReport.draftsFallback':
     'Élő költséglista nem érhető el — kurátori demóadatokat jelenítünk meg.',
+  'newReport.eyebrow': 'Költségek csoportosítása · beküldés jóváhagyásra',
   'newReport.includedCount': '{{count}} benne foglaltatik',
   'newReport.purposeLabel': 'Üzleti cél',
   'newReport.purposePlaceholder':
     'Írd le az utazást vagy projektet, amelyhez ezek a költségek kapcsolódnak (a jóváhagyó és a pénzügy számára látható).',
   'newReport.saveDraft': 'Mentés vázlatként',
+  'newReport.saveDraftFailed': 'A piszkozat mentése nem sikerült. Próbáld újra.',
   'newReport.submit': 'Jóváhagyásra beküldés',
   'newReport.submitFailed': 'Nem sikerült elküldeni a jelentést. Kérjük, próbálja újra.',
   'newReport.summary': 'Jelentésösszefoglaló',
@@ -99,16 +134,23 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Élő közvetítés nem érhető el — válogatott demóadatokat jelenítünk meg.',
   'notifications.openReport': 'Jelentés megnyitása ›',
+  'pricing.approvalsLabel': 'jóváhagyások',
   'pricing.expensesLabel': 'költségek',
   'pricing.heading': 'jóváhagyások',
   'pricing.policiesLabel': 'szabályzatok',
   'pricing.receiptsLabel': 'bevételek',
   'recoveredAmountHeroCard.label': 'Visszatérített költség · Idén',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} jelentés vár jelenleg jóváhagyásra az összes jóváhagyónál.',
+  'reports.approvalFlow': 'Jóváhagyási folyamat',
   'reports.backToList': 'Vissza a jelentésekhez',
   'reports.detailFallback': 'Élő jelentés nem érhető el — válogatott demóadatokat jelenít meg.',
   'reports.lineItems': 'Tételsorok',
   'reports.lineItemsCount': '{{count}} költségek',
+  'reports.lineItemsEmpty': 'Ezen a jelentésen még nincs költség.',
+  'reports.openLibrary': 'Jelentéstár megnyitása',
   'reports.policyTitle': 'Szabályzatjelző',
+  'reports.selectPrompt': 'Válassz egy jelentést a tárból a részletek megtekintéséhez.',
   'reports.summary.lineCount': 'Tételsorok',
   'reports.summary.reimbursable': 'Megtéríthető',
   'reports.summary.total': 'Jelentett összesen',
@@ -117,6 +159,7 @@ export const ui: UiTranslations = {
   'reportsList.lineItems': '{{count}} költségek',
   'reportsList.listFallback': 'Élő lista nem érhető el — válogatott demóadatokat jelenítünk meg.',
   'reportsList.newReport': 'Új jelentés',
+  'reportsList.submittedOn': 'Beküldve: {{date}}',
   'reportsList.title': 'Jelentéstár',
   'resetPassword.hidePassword': 'Jelszó elrejtése',
   'resetPassword.newPasswordLabel': 'Új jelszó',
@@ -143,6 +186,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Mentett ✓',
   'settings.profileSaveFailed': 'Nem sikerült frissíteni a profilt. Próbáld újra.',
   'signup.heading': 'Hozza létre a Visszatérítési fiókját',
+  'signup.hidePassword': 'Jelszó elrejtése',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Jelszó megjelenítése',
   'signup.subheading': 'Havi 25 költés esetén ingyenes – hitelkártya nélkül.',

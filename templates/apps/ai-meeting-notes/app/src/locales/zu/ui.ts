@@ -1,19 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Imibuzo, impendulo, noma isicelo sesici? Thumela i-imeyili eqenjini ku-hello@murmur.app — yonke imiyalezo ifinyelela kumuntu wangempela osebenza kulo mkhiqizo.',
   'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana NATHI',
+  'about.intro':
+    'I-{{app}} iwukuhlakanipha komhlangano emaqenjini akhetha ukuthatha izinqumo kunokubhala amanothi. Ijoyina izingcingo zakho, ibhale wonke amagama ngezilebula zezikhulumi, futhi ithumele isifinyezo se-AI kanye nezinto zokusebenza ezinomnikazi ngaso leso sikhathi umhlangano uphela.',
+  'about.missionBody':
+    'Imihlangano yilapho amaqembu ethatha khona izinqumo — futhi yilapho lezo zinqumo zilahleka khona. I-{{app}} ikhona ukuze iqinisekise ukuthi umsebenzi owenzeka engxoxweni uhlala isikhathi eside kunengxoxo ngokwayo: irekhodi elithembekile, isifinyezo esicacile, nezinyathelo ezilandelayo ezizobophezeleka, ngokuzenzakalela.',
+  'about.missionTitle': 'Umsebenzi wethu',
   'actions.empty': 'Azikho izinto zesenzo ezifanayo.',
   'actions.heading': 'Izinto zesenzo',
   'actions.loadError': 'Yehlulekile ukulayisha izinto zesenzo.',
   'actions.subheading': 'Kuhlanganiswe kuyo yonke imihlangano. Hlunga ngesimo ukuze ugxile.',
   'actions.toggleDoneLabel': 'Maka njengokuqediwe',
   'actions.toggleReopenLabel': 'Maka njengokuvuliwe',
+  'auth.footer': '© {{year}} {{app}}. Wonke amagama, afingqiwe.',
   'calendar.heading': 'Ikhalenda',
   'calendar.joinCta': 'Joyina',
   'calendar.loadError': 'Yehlulekile ukulayisha ikhalenda.',
   'calendar.nextMonth': 'Inyanga ezayo',
   'calendar.noEventsForDay': 'Akukho mihlangano ehlelelwe lolu suku.',
+  'calendar.noUpcomingEvents':
+    'Ayikho imihlangano ezayo. Xhuma ikhalenda kusuka ku-Integrations ukuze ugcwalise lolu hlu.',
   'calendar.previousMonth': 'Inyanga edlule',
   'calendar.recent': 'Okwakamuva',
   'common.daysAgo': '{{count}} kudala',
@@ -25,9 +35,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} izinto zesenzo',
   'dashboard.empty.body':
     'Qala ukurekhoda noma uxhume i-Google Calendar ukuze uMurmur ajoyine umhlangano wakho olandelayo ngokuzenzakalelayo.',
+  'dashboard.empty.cta': 'Qala ukurekhoda',
   'dashboard.empty.heading': 'Akukho mihlangano okwamanje',
   'dashboard.eyebrow': 'Okuphakelayo kwakho komhlangano',
   'dashboard.loadError': 'Yehlulekile ukulayisha ideshibhodi.',
+  'dashboard.noActions': 'Azikho izenzo',
   'dashboard.recentHeading': 'Imihlangano yakamuva',
   'dashboard.recordCta': 'Umhlangano oqophayo',
   'dashboard.stat.actions': 'Izinto zesenzo',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} izifinyezo ezingakafundwa kusukela okokugcina uhlole. UMurmur uthwebule wonke amagama — nansi incazelo.',
   'dashboard.viewCalendar': 'Buka ikhalenda →',
+  'footer.linksLabel': 'Uphaphe',
   'forgot.failed': 'Ayikwazanga ukuthumela i-imeyili yokusetha kabusha.',
   'forgot.sentBody':
     'Uma kukhona i-akhawunti ye- {{email}}, uzothola isixhumanisi sokusetha kabusha maduze.',
@@ -49,14 +62,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Xhuma amakhalenda namapulatifomu evidiyo ukuze uMurmur ajoyine ngokuzenzakalelayo.',
   'integrations.updateError': 'Ukubuyekeza kuhlulekile.',
+  'landing.ctaBody':
+    'Mahhala emihlanganweni emi-5 yokuqala njalo ngenyanga. Ayikho ikhadi lesikweletu. Xhuma i-Google Calendar ngaphansi komzuzu.',
   'landing.ctaButton': 'Qala — kumahhala',
   'landing.ctaHeading': 'Yeka ukubhala amanothi. Qala ukwenza izinqumo.',
+  'landing.demo.aiBody':
+    'Ukuqaliswa kuhlehliswe kusuka ku-May 5 → May 12 ukuze kunikezwe isikhathi sabasebenzi. Ukuhlelwa kabusha kwe-Dashboard kuhlukaniselwe u-May 26.',
   'landing.demo.aiLabel': 'Isifinyezo se-AI, okubhalwe bukhoma',
   'landing.demo.recording': 'Ukurekhoda · bukhoma',
   'landing.eyebrow': 'Ubuhlakani bemihlangano ye-AI',
   'landing.featuresHeading': 'Konke okudingwa yithimba lakho ngemva kokuphela komhlangano',
+  'landing.featuresSubheading':
+    'Akusekho "wait, who owns this?" I-{{appName}} ithumela isifinyezo ngaphambi kokuba ucingo lunqanyulwe.',
   'landing.getStarted': 'Zama mahhala',
   'landing.heroSecondary': 'Bukela uhambo lwemizuzwana engama-90',
+  'landing.heroSubtitle':
+    '{{tagline}}. I-{{appName}} ijoyina izingcingo zakho, ibhale wonke amagama ngezilebula zezikhulumi, futhi ithumele izifinyezo ze-AI kanye nezinto zokusebenza ezinomnikazi ngaso leso sikhathi umhlangano uphela.',
   'landing.heroTitle': 'Thwebula yonke imihlangano. Veza okubalulekile.',
   'login.altPrompt': 'Usanda ku-Murmur?',
   'login.failed': 'Ayikwazanga ukungena ngemvume. Hlola i-imeyili yakho nephasiwedi.',
@@ -64,6 +85,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Izinto zesenzo',
   'meetingDetail.back': 'Yonke imihlangano',
   'meetingDetail.decisionsHeading': 'Izinqumo',
+  'meetingDetail.dueDate': 'kufanele {{date}}',
   'meetingDetail.followupsHeading': 'Ukulandelela',
   'meetingDetail.loadError': 'Yehlulekile ukulayisha umhlangano.',
   'meetingDetail.noActions': 'Azikho izinto zesenzo ezitholiwe.',
@@ -77,7 +99,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Akukho mihlangano okwamanje',
   'meetings.heading': 'Imihlangano',
   'meetings.loadError': 'Yehlulekile ukulayisha imihlangano.',
+  'meetings.recordCta': 'Umhlangano oqophayo',
   'meetings.subheading': 'Yonke imihlangano eqoshiwe, elayishiwe, nevumelanisiwe.',
+  'murmurLayout.closeMenu': 'Vala imenyu yokuzulazula',
   'murmurLayout.openMenu': 'Vula imenyu yokuzulazula',
   'murmurLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
   'nav.legal': 'Ezomthetho',
@@ -103,7 +127,15 @@ export const ui: UiTranslations = {
   'profile.loading': 'Iyalayisha…',
   'profile.navLabel': 'Izigaba zephrofayela',
   'profile.notifications.assignments': 'Izinto zesenzo ezinikezwe mina',
+  'profile.notifications.assignmentsHint': 'Yazisa lapho into yokusebenza ibanjwa yakho.',
+  'profile.notifications.mentions': 'Ukukhulunywa ngaye kumbhalo',
+  'profile.notifications.mentionsHint': 'I-imeyili + push uma othile ekubiza nge-@.',
+  'profile.notifications.subheading':
+    'Khetha ukuthi yimiphi imicimbi ye-{{appName}} okufanele ifinyelele kuwe.',
   'profile.notifications.summaries': 'Inhlolovo yamasonto onke',
+  'profile.notifications.summariesHint':
+    'Isifinyezo sangoMsombuluko sawo wonke umhlangano wangesonto eledlule.',
+  'profile.preferences.speakerColor': 'Umbala ozimisiwe womkhulumi',
   'profile.preferences.subheading': 'Okuzenzakalelayo okusebenza kukho konke ukuqopha okujoyinayo.',
   'profile.preferences.timezone': 'Indawo yesikhathi',
   'profile.preferences.title': 'Isihloko somsebenzi',
@@ -115,18 +147,23 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Isiphequluli sakho asisekeli ukurekhoda. Zama i-Chrome, i-Edge, noma i-Safari.',
   'record.error.upload': 'Ukulayisha kuhlulekile. Zama futhi.',
+  'record.errorLabel': 'Kukhona okungahambanga kahle',
   'record.heading': 'Irekhodi',
   'record.idleLabel': 'Thepha ukuze uqale ukurekhoda',
   'record.processingLabel': 'Ukubhala nge-Whisper, ukufingqa noClaude…',
+  'record.recordingLabel': 'Iyarekhoda…',
   'record.retryCta': 'Zama futhi',
   'record.subheading':
     'Cindezela imakrofoni ukuze uqale. UMurmur uthwebula umsindo, abhale nge-Whisper, bese ebhala isifinyezo esiqhutshwa nguClaude.',
+  'record.titlePlaceholder': 'Isihloko somhlangano (okuzikhethela)',
+  'reset.altPrompt': 'Ushintshile umqondo?',
   'reset.hint':
     'Sebenzisa okungenani izinhlamvu ezingu-8 ezinenhlanganisela yezinhlamvu nezinombolo.',
   'reset.missingToken':
     'Isixhumanisi sokusetha kabusha asikho noma siphelelwe yisikhathi. Cela esisha.',
   'reset.newPassword': 'Iphasiwedi Entsha',
   'reset.subheading': 'Khetha iphasiwedi ongayisebenzisi kwenye indawo.',
+  'reset.tooShort': 'Iphasiwedi kumele okungenani ibe nezinhlamvu ezingu-8.',
   'search.empty': 'Thayipha ukuze useshe imibhalo eqoshiwe.',
   'search.loadError': 'Ukusesha kuhlulekile. Zama futhi.',
   'search.noResults': 'Ayikho imiphumela ye-“ {{q}} ".',
@@ -142,7 +179,9 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Gcina umsindo ukuze',
   'settings.retention.heading': 'Ukugcinwa',
   'settings.retention.transcript': 'Gcina okubhaliwe ukuze',
+  'settings.revokeDeviceWarning': 'Ukufinyelela kwaledivayisi kuyokhishwa maduze. Yiphulise?',
   'settings.saveError': 'Ukulondoloza kwehlulekile.',
+  'settings.security.subheading': 'Buyekeza iphasiwedi oyisebenzisayo ukungena.',
   'settings.sharing.exportFormat': 'Ifomethi yokuthumela ngaphandle',
   'settings.sharing.heading': 'Okuzenzakalelayo kokwabelana',
   'settings.sharing.scope': 'Ububanzi bokwabelana obuzenzakalelayo',
@@ -160,6 +199,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Mema osebenza naye eqenjini',
   'team.invitedAs': 'Umenywe njengo {{role}}',
   'team.inviteFailed': 'Ayikwazanga ukuthumela isimemo.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'Thumela isimemo',
   'team.inviteSubtitle': 'Bazothola i-imeyili enesixhumanisi sokujoyina.',
   'team.inviteTitle': 'Mema umuntu osebenza naye eqenjini',

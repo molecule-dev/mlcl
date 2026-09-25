@@ -1,28 +1,43 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Gusto mo bang maglunsad ng mas mainit na onboarding para sa iyong team, nakakita ng bug, o may feedback? Makipag-ugnayan mula sa iyong account settings — bawat mensahe ay napupunta sa isang tunay na tao na makakatulong.',
   'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'about.missionTitle': 'Ang aming misyon',
   'auth.forgotPassword.emailPlaceholder': 'pangalan@iyongkumpanya.com',
   'auth.forgotPassword.heading': 'I-reset ang iyong password.',
+  'auth.forgotPassword.panel.body':
+    '30 segundo lang ang reset — naghihintay na ang progreso ng iyong checklist.',
+  'auth.forgotPassword.panel.headline': 'Bumalik kaagad kung saan ka tumigil.',
+  'auth.forgotPassword.subheading':
+    'Ilagay ang iyong work email at padadalhan ka namin ng reset link.',
   'auth.forgotPassword.successSubheading':
     'Tingnan ang iyong inbox — nagpadala na kami ng mga tagubilin sa pag-reset.',
   'auth.login.emailPlaceholder': 'pangalan@iyongkumpanya.com',
   'auth.login.heading': 'Maligayang pagbabalik.',
   'auth.login.passwordPlaceholder': 'Ang iyong password',
+  'auth.login.signupPrompt': 'Bago ka ba sa iyong team?',
   'auth.login.subheading':
     'Mag-sign in para ipagpatuloy ang iyong onboarding journey kung saan ka tumigil.',
   'auth.login.submit': 'Ipagpatuloy ang iyong paglalakbay',
+  'auth.panel.body':
+    'Ang iyong personal na checklist, training milestones, at team intros — lahat sa isang kalmadong lugar.',
   'auth.panel.footnote': '© Embark — inuuna ang pag-onboard ng mga tao simula ngayon.',
   'auth.panel.headline': 'Dito nagsisimula ang isang kumpiyansang unang 90 araw.',
   'auth.resetPassword.heading': 'Magtakda ng bagong password.',
   'auth.resetPassword.newPasswordLabel': 'Bagong password',
+  'auth.resetPassword.panel.body':
+    'Mag-save ng bagong password at ibabalik ka namin agad sa iyong onboarding journey.',
+  'auth.resetPassword.panel.headline': 'Halos bumalik ka na.',
   'auth.resetPassword.subheading':
     'Pumili ng isang bagay na maaalala mo — kahit man lang 8 karakter.',
   'auth.signup.emailPlaceholder': 'pangalan@iyongkumpanya.com',
   'auth.signup.heading': 'Maligayang pagdating sa iyong unang 90 araw.',
   'auth.signup.panel.body':
     'Isang guided checklist, role-awareness training, at mga pagpapakilala ng tao — handa na bago ka pumasok.',
+  'auth.signup.panel.headline': 'Day one, sa day one.',
   'auth.signup.subheading':
     'Gumawa ng iyong Embark account para simulan ang iyong gabay na paglalakbay sa onboarding.',
   'checklist.empty.body': 'Palitan ang filter para makita ang iba pang mga gawain.',
@@ -30,6 +45,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'Checklist sa Pag-onboard',
   'checklist.loading': 'Nilo-load ang iyong checklist…',
   'checklist.stat.actionNeeded': 'Kailangan ng aksyon',
+  'checklist.stat.completion': 'Pagkumpleto',
+  'checklist.stat.inProgress': 'Kasalukuyang ginagawa',
   'checklist.stat.inProgressHelper': 'Ituloy mula sa kung saan ka huminto',
   'checklist.stat.overdueHelper': 'Abangan muna ang mga ito',
   'checklist.subtitle':
@@ -61,6 +78,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Wala pang mga dokumento',
   'documents.eyebrow': 'Pag-onboard · Mga Dokumento',
   'documents.loading': 'Naglo-load ng mga dokumento…',
+  'documents.stat.actionNeeded': 'Mag-sign ngayon',
+  'documents.stat.all': 'Lahat ng dokumento',
   'documents.stat.allHelper': "Sa iba't ibang kategorya",
   'documents.stat.pending': 'Mga nakabinbing lagda',
   'documents.stat.pendingHelper': 'Kinakailangan para sa pagkumpleto',
@@ -68,6 +87,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Nakaimbak nang ligtas',
   'documents.status.optional': 'Opsyonal',
   'documents.status.required': 'Kinakailangan',
+  'documents.status.signed': 'Nilagdaan',
   'documents.subtitle':
     'Ang iyong handbook, mga form, at mga nilagdaang kasunduan — lahat sa iisang lugar.',
   'documents.title': 'Lahat ng kailangan mong basahin at pirmahan.',
@@ -75,10 +95,14 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'Manonood',
   'documentViewer.breadcrumbDocs': 'Mga Dokumento',
   'documentViewer.downloadMeta': 'I-download ang metadata',
+  'documentViewer.helpBody':
+    'Sinasagot ng People & Culture ang mga tanong tungkol sa handbook sa #ask-people sa Slack.',
   'documentViewer.helpEyebrow': 'Kailangan mo ng tulong?',
   'documentViewer.loadError': 'Hindi namin ma-load ang dokumentong ito.',
   'documentViewer.loading': 'Naglo-load ng dokumento po…',
   'documentViewer.notFound': 'Hindi natagpuan ang dokumento',
+  'documentViewer.previewBody':
+    'Kapag naka-configure na ang mga upload, ipapakita namin ang file nang inline. Sa ngayon, ang metadata download ang tumutulong sa iyong kumpirmahin na totoo ang record.',
   'documentViewer.previewBodyExternal':
     'Gamitin ang buton ng pag-download upang buksan ang file sa isang bagong tab.',
   'documentViewer.previewTitle': 'Preview ng dokumento',
@@ -86,6 +110,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Basahin ang dokumento, pagkatapos ay mag-click sa ibaba upang pumirma at kilalanin.',
   'documentViewer.signatureHeading': 'Kinakailangan ang lagda',
+  'documentViewer.signed': '✓ Signed & filed',
   'documentViewer.signing': 'Pagpirma…',
   'documentViewer.uploadedRecently': 'Kamakailang na-upload',
   'landing.closing.body':
@@ -95,10 +120,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Mayroon na akong account',
   'landing.feature1.body':
     'Bawat gawain — mga papeles, account, introduksyon — ay naka-iskedyul na nang may mga takdang petsa at ang tamang may-ari.',
+  'landing.feature1.title': 'Isang guided checklist',
   'landing.feature2.body':
     'Maa-unlock ang mga module sa 30/60/90 milestones, depende sa role at team na sasalihan ng isang hire.',
+  'landing.feature2.title': 'Role-aware na training',
   'landing.feature3.body':
     "Naka-iskedyul ang mga pagpapakilala ng mga kaibigan, manager, at iba't ibang uri ng pagpapakilala — para walang sinuman ang magsisimula nang mag-isa.",
+  'landing.feature3.title': 'Tunay na pagpapakilala',
   'landing.featureEyebrow': 'Bakit Sumakay',
   'landing.featureHeadline':
     'Tatlong paraan kung paano nakakamit ng Embark ang tiwala sa unang araw pa lang.',
@@ -109,6 +137,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Susunod: Makipag-usap sa iyong kaibigan nang 30 minuto habang nagkakape — Martes 10:00 AM.',
   'landing.preview.eyebrow': 'Ika-14 na araw ng 90 — halimbawang dashboard',
+  'landing.preview.headline': 'Welcome back, Maya.',
   'landing.proof.spec': 'Handa na para sa SOC 2 + GDPR',
   'landing.proof.teams': 'Ginawa para sa mga pangkat na may bilang na 50–5,000 katao',
   'landing.proof.time': '14-araw na libreng pagsubok',
@@ -125,16 +154,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'kahapon',
   'planUpdated.message': 'Handa ka na.',
   'planUpdated.preparing': 'Ina-update ang iyong plano…',
+  'planUpdated.retry': 'Subukan muli',
+  'planUpdated.verifyFailed': 'Hindi pa namin makumpirma ang iyong bayad.',
+  'planUpdated.verifyFailedBody':
+    'Maaaring pinoproseso pa rin ang iyong bayad. Subukan muli maya-maya.',
   'planUpdated.verifying': 'Kino-confirm ang iyong bayad…',
   'pricing.documentsLabel': 'mga dokumento',
   'pricing.onboardingsLabel': 'mga onboarding',
   'pricing.tasksLabel': 'mga gawain',
   'profile.dayNumber': 'Araw',
   'profile.detailsHeading': 'Mga detalye ng onboarding',
+  'profile.encouragementBody':
+    'Ipaalam sa iyong buddy at manager — maliliit na hakbang, malaking epekto.',
   'profile.milestones': 'Mga Milestone',
   'profile.progressEyebrow': 'Pag-usad ng onboarding',
   'profile.tasks': 'Mga Gawain',
   'profile.unknownName': 'Maligayang pagdating',
+  'settings.appearance.description': 'Mag-toggle sa pagitan ng light at dark mode.',
+  'settings.appearance.title': 'Hitsura',
+  'settings.subtitle':
+    'I-tune ang notifications, security, devices, at data export — lahat ay mananatili dito, ayon sa iyong kagustuhan.',
   'settings.title': 'Mga setting at kagustuhan.',
   'taskDetail.backToChecklist': 'Balik sa checklist',
   'taskDetail.breadcrumbChecklist': 'Checklist',
@@ -147,7 +186,10 @@ export const ui: UiTranslations = {
   'taskDetail.notFound': 'Hindi natagpuan ang gawain',
   'taskDetail.notFoundBody':
     'Maaaring nabura na ang gawaing ito o pagmamay-ari na ito ng ibang user.',
+  'taskDetail.tipBody':
+    'Kung hindi ka makausad, i-message ang iyong onboarding buddy sa Slack — sila ang una mong matatakbuhan.',
   'taskDetail.tipEyebrow': 'Mabilisang tip',
+  'team.empty.body': 'Subukan ang mas malawak na paghahanap o pumili ng ibang department.',
   'team.empty.title': 'Walang kalaban sa koponan',
   'team.eyebrow': 'Pag-onboard · Mga Tao',
   'team.loading': 'Naglo-load ng mga kasamahan sa koponan…',
@@ -170,14 +212,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Mga Milestone',
   'timeline.stat.current': 'Kasalukuyang milestone',
   'timeline.stat.next': 'Susunod na pag-unlock',
+  'timeline.stat.progress': 'Kabuuan',
   'timeline.subtitle':
     'Ang bawat milestone ay nagbubukas ng mga bagong modyul, introduksyon, at mga usapang pangkaunlaran. Walang pressure — progreso lang.',
+  'timeline.tipBody':
+    'Mag-schedule ng 30-minutong reflection sa days 30, 60, at 90 kasama ang iyong manager — ginagawa nitong tiyak ang feedback at nakikita ang progreso.',
   'timeline.tipEyebrow': 'Tip ng tagapamahala',
+  'timeline.tipTitle': 'Maglaan ng oras sa calendar para sa mga milestone.',
   'timeline.title': 'Ang iyong 30/60/90 na paglalakbay.',
   'training.badge.notStarted': 'Hindi pa nagsisimula',
   'training.empty': 'Wala pang mga modyul sa pagsasanay.',
   'training.eyebrow': 'Pagsasanay · Pagsasanay',
   'training.loading': 'Naglo-load ng mga module…',
+  'training.stat.all': 'Mga module na naitalaga',
   'training.subtitle':
     'Ang mga module ay maa-unlock sa 30/60/90 upang tumugma sa iyong tungkulin. Unahin ang mga kinakailangan.',
   'training.title': 'Mga kasanayan, kagamitan, at kwento — sa iyong bilis.',
@@ -190,9 +237,12 @@ export const ui: UiTranslations = {
   'trainingModule.quizBody':
     'Kumuha ng 80% o higit pa upang markahan ang pagtatapos ng modyul na ito.',
   'trainingModule.quizHeading': 'Pagsusulit sa pagtatapos ng modyul',
+  'trainingModule.quizLocked': 'Simulan muna ang module',
   'trainingModule.quizNone': 'Walang pagsusulit sa modyul na ito.',
   'trainingModule.quizRetry': 'Subukan muli',
+  'trainingModule.quizStart': 'Simulan ang quiz',
   'trainingModule.quizSubmit': 'Isumite ang mga sagot',
+  'trainingModule.start': 'Simulan ang module',
   'trainingModule.statusNotStarted': 'Hindi pa nagsisimula',
   'welcomeHeroCard.completeLabel': 'Kumpleto',
   'welcomeHeroCard.milestonesLabel': 'Mga Milestone',

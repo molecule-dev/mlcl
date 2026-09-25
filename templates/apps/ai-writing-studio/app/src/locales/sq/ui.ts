@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Keni komente, keni gjetur një gabim ose dëshironi një veçori? Na shkruani nga cilësimet e llogarisë — çdo mesazh shkon te një person i vërtetë i ekipit.',
   'about.contactTitle': 'Na kontaktoni',
   'about.eyebrow': 'Rreth',
+  'about.intro':
+    '{{app}} është një studio shkrimi me AI për shkrimtarë që kujdesen thellësisht për prozën e tyre. Ajo bashkon gjenerimin afatgjatë me AI me një redaktor të qetë, vlerësim SEO dhe gjenerim imazhesh, që ta çoni një shkrim nga faqja bosh në botim — pa e humbur kurrë zërin tuaj.',
+  'about.missionBody':
+    'Ne besojmë se AI duhet të hartojë pranë jush, kurrë në vendin tuaj. {{app}} i mban sugjerimet dukshëm të dallueshme nga fjalët tuaja, ju lë pronar të çdo dokumenti që krijoni dhe i heq mjetet nga rruga e shkrimit.',
+  'about.missionTitle': 'Misioni ynë',
   'about.pageTitle': 'Rreth {{app}}',
   'aiSuggestionCard.applied': 'Sugjerimi u zbatua',
   'aiSuggestionCard.apply': 'Zbato',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Burimet e trafikut',
   'billing.activePlan': 'Abonimi është aktiv.',
   'billing.aiWordsLabel': 'Gjeneratat e inteligjencës artificiale të përfshira',
+  'billing.cancelFailed': 'Nuk mund të anulohej abonimi.',
   'billing.cancelPlan': 'Anulo planin',
+  'billing.cancelPlanConfirm': 'Të konfirmohet anulimi?',
   'billing.cancelSuccess': 'Abonimi u anulua. Rifresko për të përditësuar planin.',
   'billing.changePlan': 'Ndrysho planin',
   'billing.col.invoice': 'Faturë',
@@ -43,26 +52,38 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'Shiko planet',
   'common.goToDashboard': 'Shko te paneli',
   'dashboard.continueWriting': 'Vazhdo të shkruash',
+  'dashboard.createFirst': 'Krijo dokument',
   'dashboard.days.sat': 'Sat',
   'dashboard.days.sun': 'Sun',
   'dashboard.defaultWriterName': 'Shkrimtar',
   'dashboard.greeting': 'Mirëmëngjes, {{name}}',
   'dashboard.loadError': 'Paneli juaj i kontrollit nuk mund të ngarkohej.',
+  'dashboard.loading': 'Po ngarkohet studioja juaj…',
   'dashboard.loadingDocs': 'Duke ngarkuar dokumentet e fundit…',
   'dashboard.noDocuments': 'Ende nuk ka dokumente — filloni të parin.',
   'dashboard.startWriting': 'Filloni një dokument të ri',
+  'dashboard.streakBody': 'Keni shkruar {{words}} fjalë këtë javë.',
   'dashboard.streakTitle': '{{count}} seri ditore',
+  'dashboard.subgreeting':
+    '{{count}} dokumente në bibliotekën tuaj — vazhdoni me të njëjtin ritëm.',
+  'documentCard.seoScoreTitle': 'Vlerësimi SEO: {{score}}/100',
+  'documents.createNew': 'Krijo dokument të ri',
   'documents.empty': 'Biblioteka juaj është duke pritur — filloni dokumentin tuaj të parë.',
+  'documents.emptyFiltered': 'Asnjë dokument nuk përputhet ende me filtrat tuaj.',
   'documents.loadError': 'Nuk mund të ngarkoheshin dokumentet.',
   'documents.loading': 'Duke ngarkuar bibliotekën tënde…',
   'documents.new': 'Dokument i ri',
+  'documents.searchAriaLabel': 'Kërko dokumente',
   'documents.searchPlaceholder': 'Kërko dokumente…',
   'documents.subtitle': '{{count}} dokumente në bibliotekën tuaj.',
   'documents.title': 'Dokumente',
   'editor.aiPanelTitle': 'Inteligjenca e Plumbave',
+  'editor.aiSuggestion.empty':
+    'Nuk ka përmirësime aktive. Kërkojini {{appName}} një sugjerim kur të doni një palë sy të dytë.',
   'editor.aiSuggestion.failed': 'Nuk mund të ngarkohen sugjerimet tani.',
   'editor.aiSuggestion.loadingBody': 'Duke gjeneruar një rafinim të qartësisë…',
   'editor.backToDocuments': 'Të gjitha dokumentet',
+  'editor.bodyAriaLabel': 'Trupi i dokumentit',
   'editor.closeAiPanel': 'Mbyll panelin e inteligjencës artificiale',
   'editor.createFailed': 'Nuk mundi të krijonte dokument.',
   'editor.exported': 'U eksportua si {{format}} .',
@@ -78,18 +99,26 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'Kërko një rafinim',
   'editor.saveBeforePublish': 'Ruaj dokumentin para publikimit.',
   'editor.status.chars': '{{count}} personazhe',
+  'editor.status.readTime': '{{minutes}} minuta leximi',
   'editor.status.savedAt': 'Ruajtur {{time}}',
   'editor.status.saveError': 'Ruajtja dështoi',
+  'editor.status.unsaved': 'Nuk është ruajtur ende',
   'editor.titleAriaLabel': 'Titulli i dokumentit',
   'editor.titlePlaceholder': 'Dokument pa titull',
   'editor.toggleAiPanel': 'Aktivizo/çaktivizo panelin e inteligjencës artificiale',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'autor@example.com',
+  'forgotPassword.sent':
+    'Nëse {{email}} është në evidencë, një lidhje rivendosjeje është në rrugë.',
   'imageGenerator.failed': 'Gjenerimi i imazhit dështoi.',
   'imageGenerator.generate': 'Gjenero imazh',
   'imageGenerator.generating': 'Duke gjeneruar...',
   'imageGenerator.placeholder': 'Përshkruani imazhin që dëshironi të krijoni...',
+  'imageGenerator.promptAriaLabel': 'Imazhi i kërkesës',
+  'imageGenerator.subtitle': 'Përshkruani një imazh kopertine dhe lërini AI ta ilustrojë.',
   'imageGenerator.title': 'Gjenerator i Imazheve me IA',
+  'landing.aiSuggestionBody':
+    'duke qëndruar në ballkonin e katit 42, Elias e ndjeu qytetin duke iu shtypur — era shkëputi gumëzhimën e ambientit, duke e lënë të varur në një zbrazëti të ftohtë e të heshtur mbi rrjetën e ndritshme.',
   'landing.eyebrow': 'Studio shkrimi me inteligjencë artificiale për shkrimtarë seriozë',
   'landing.featuresHeading': 'Mjete që të lënë mënjanë',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -99,14 +128,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Një studio e krijuar për shkrimtarë që kujdesen për prozën, ritmin dhe saktësinë e tyre. Plume harton pranë jush — kurrë në vend tuajin.',
   'landing.heroTitle.eloquence': 'elokuencë',
+  'landing.heroTitle.intelligence': 'Inteligjenca takohet me ',
   'landing.nav.testimonials': 'Dëshmi',
   'landing.plan.cta': 'Filloni me këtë plan',
   'landing.plan.popular': 'Më të dashurat',
   'landing.pricingEyebrow': 'Çmimet',
   'landing.pricingHeading': 'Zgjidhni atë që i përshtatet praktikës suaj',
   'landing.sampleDocTitle': 'Arkitektura e Heshtjes',
+  'landing.sampleParagraph1':
+    'Qyteti nuk ishte kurrë vërtet i qetë. Edhe në orët më të thella të natës, një gumëzhimë e ulët dridhej nëpër themelet e betonit — një rrahje mekanike zemre e trenave të metrosë dhe boshteve të ventilimit.',
+  'landing.sampleParagraph2.after': ' kundër xhamit.',
+  'landing.sampleParagraph2.before': 'Por ',
   'landing.sampleParagraph2.highlight':
     'Duke qëndruar në ballkonin e katit të 42-të, Eliasi ndjeu një ndjenjë të thellë izolimi.',
+  'landing.showcaseBody':
+    'Theksoni një fjali dhe {{appName}} ofron një përmirësim. Pranojeni, rregullojeni ose hidheni poshtë. Sugjerimet janë gjithmonë të ngjyrosura vjollcë, që të dini çfarë shkruat ju kundrejt asaj që u ofrua.',
+  'landing.showcaseHeading': 'Një palë sy të dytë — kurrë një autor i dytë.',
   'landing.startWriting': 'Filloni të shkruani',
   'login.emailPlaceholder': 'autor@example.com',
   'login.failed': 'Hyrja dështoi',
@@ -121,8 +158,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Hap panelin e kontrollit',
   'notFound.title': 'Ky kapitull nuk është shkruar ende.',
   'plumeSidebarLayout.primaryNavLabel': 'Navigimi kryesor',
+  'pricing.maxDocuments': '{{count}} dokumente',
+  'pricing.maxGenerate': '{{count}} gjenerime me AI',
+  'pricing.maxImages': '{{count}} gjenerime imazhesh',
   'privacy.data':
     'Email-i i llogarisë suaj dhe një fjalëkalim i hashuar. Dokumente dhe shabllone që krijoni. Regjistra sugjerimesh të inteligjencës artificiale (hyrje + dalje) për faturim dhe analiza. Identifikues të klientit + abonimit Stripe; ne kurrë nuk i ruajmë numrat e plotë të kartave.',
+  'privacy.intro':
+    'Ne mbledhim vetëm të dhënat e nevojshme për të operuar {{app}}: emailin tuaj, dokumentet që krijoni dhe kërkesat AI që bëni. Nuk i shesim kurrë shkrimet apo promptet tuaja.',
   'profile.loadError': 'Profili juaj nuk mund të ngarkohej.',
   'profile.loading': 'Duke ngarkuar profilin tënd…',
   'profile.loadingPublished': 'Duke ngarkuar dokumentet e publikuara…',
@@ -133,7 +175,13 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Fjalëkalim i ri',
   'seoAnalysis.backToEditor': 'Kthehu te redaktori',
   'seoAnalysis.eyebrow': 'Analiza SEO',
+  'seoAnalysis.heroBody':
+    "{{count}} sugjerim(e) për t'u zbatuar. Secili është një ngritje strukturore ose fjalëkyçe, jo një mur me flamuj të kuq.",
+  'seoAnalysis.heroBodyEmpty':
+    'Klikoni "Run analysis" për të vlerësuar lexueshmërinë, dendësinë e fjalëkyçeve dhe strukturën.',
   'seoAnalysis.heroEmpty': 'Ende nuk ka analizë. Kryeni një për të vlerësuar këtë draft.',
+  'seoAnalysis.heroNeedsWork': 'Disa ngritje strukturore do të rrisin shtrirjen.',
+  'seoAnalysis.heroStrong': 'Shkrim i fortë — pak hapa larg shkëlqimit.',
   'seoAnalysis.historyEmpty': 'Nuk janë regjistruar analiza të mëparshme.',
   'seoAnalysis.historyTitle': 'Historiku i analizës',
   'seoAnalysis.keywordEmpty':
@@ -161,8 +209,14 @@ export const ui: UiTranslations = {
   'settings.toggleIntegrationFailed': 'Përditësimi i integrimit dështoi.',
   'settings.writing.aiSuggestions':
     'Sugjerime të integruara të inteligjencës artificiale gjatë shkrimit',
+  'settings.writing.aiSuggestionsBody':
+    'Shfaq përmirësimet ndërsa shkruani. Sugjerimet janë gjithmonë me zgjedhje për çdo fjali.',
   'settings.writing.autoSave': 'Ruaj automatikisht çdo 30 sekonda',
+  'settings.writing.autoSaveBody':
+    '{{appName}} mban një kopje të draftit tuaj, që të rikuperoheni nga çdo skedë.',
   'settings.writing.notifyEmail': 'Më dërgoni me email përmbledhjet javore të shkrimeve',
+  'settings.writing.notifyEmailBody':
+    'Një përmbledhje e shkurtër e së dielës për seritë, draftet dhe përmirësimet SEO.',
   'settings.writing.title': 'Preferencat e shkrimit',
   'settings.writing.tone': 'Parazgjedhja e tonit të parazgjedhur',
   'signup.emailPlaceholder': 'autor@example.com',
@@ -174,8 +228,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'Nuk është dhënë përshkrim.',
   'templates.subtitle':
     'Filloni nga një kornizë editoriale e provuar në betejë, pastaj bëjeni tuajin.',
+  'terms.intro':
+    "Këto kushte rregullojnë përdorimin tuaj të {{app}}. Duke krijuar një llogari, ju pranoni ta përdorni shërbimin për shkrim të ligjshëm dhe t'i mbani konfidenciale kredencialet e llogarisë tuaj.",
   'terms.license':
     "Ju mbani pronësinë e çdo dokumenti, shablloni dhe gjenerate të IA-së që krijoni. Ne kemi nevojë për një licencë jo-ekskluzive për të pritur dhe për t'jua shërbyer punën tuaj, si dhe për të përpunuar kërkesat e IA-së përmes ofruesve të lidhur që zgjidhni.",
   'writingStreakHeroCard.change': '{{sign}} {{amount}} fjalë',
   'writingStreakHeroCard.greeting': 'Ditë e mirë, {{name}}',
+  'writingStreakHeroCard.subtitle': 'Fjalë të shkruara këtë javë — seri {{count}}-ditore',
+  'writingStreakHeroCard.tagline': 'Një faqe në ditë e mban muzën të angazhuar.',
 }

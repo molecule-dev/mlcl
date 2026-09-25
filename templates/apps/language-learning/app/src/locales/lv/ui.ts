@@ -1,12 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vai ir jautājumi, atsauksmes vai kļūda, par ko ziņot? Sazinies ar komandu konta iestatījumos — katrs ziņojums nonāk pie īsta cilvēka, kas arī mācās valodas.',
   'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
+  'about.missionTitle': 'Mūsu misija',
+  'about.whatYouGet': 'Ko jūs iegūstat',
   'common.goToDashboard': 'Uz informācijas paneli',
   'common.logout': 'Izrakstīties',
+  'dailyStatsTriad.heartsHint': 'Papildināt katras nodarbības sākumā',
   'dailyStatsTriad.heartsLabel': 'Sirdis',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
+  'dailyStatsTriad.minutesHint': 'No šodienas vingrinājumiem',
   'dailyStatsTriad.minutesLabel': 'Minūtes šodien',
   'dailyStatsTriad.minutesValue': '{{count}} min',
   'dailyStatsTriad.wordsLabel': 'Apgūti vārdi',
@@ -15,17 +21,28 @@ export const ui: UiTranslations = {
   'dashboard.heading': 'Buenosairesa, {{name}} .',
   'dashboard.loadError':
     'Nevarēja ielādēt jaunāko progresu — tiek rādītas kešatmiņā saglabātās vērtības.',
+  'dashboard.loading': 'Atsvaidzinoši…',
   'dashboard.noLessons': 'Vēl nav pieejamas nodarbības — pārbaudiet vēlāk.',
+  'dashboard.startPractice': 'Sāc runāšanas praksi',
+  'dashboard.subheading':
+    'Turpini tur, kur apstājies — trīs īsas sesijas, un šodienas mērķis būs sasniegts.',
   'dashboard.viewAllLessons': 'Visas nodarbības →',
+  'forgotPassword.subheading': 'Ievadi savu e-pastu, un mēs nosūtīsim atjaunošanas saiti.',
   'forgotPassword.successBody':
     'Pārbaudiet savu iesūtni — mēs nosūtījām saiti, lai to atiestatītu.',
   'forgotPassword.successHint': 'Ja {{email}} atbilst kontam, saite pienāks minūtes laikā.',
+  'landing.copyright': '© {{year}} {{app}}. Veidots pieaugušajiem, kas mācās.',
   'landing.ctaBody':
     'Karte nav nepieciešama. Atstājiet savu e-pastu, izvēlieties valodu un sāciet jau rīt.',
   'landing.ctaHeading': 'Gatavs atrast savu akcentu?',
   'landing.eyebrow': 'Ikdienas valodas prakse pieaugušajiem',
   'landing.featuresHeading': 'Prakses cikls, kas respektē jūsu laiku',
+  'landing.featuresSubheading':
+    'Veidots pieaugušajiem ar trīsdesmit minūtēm dienā, nevis trīsdesmit stundām nedēļā.',
   'landing.heroCta': 'Sāciet 7 dienu sēriju',
+  'landing.heroSubtitle':
+    'Piecu minūšu nodarbības, kas iederas kafijas pauzē. Vingrinājumi, vārdiņi, runāšana — viss iekļauts sērijā, ko tiešām turpināsi.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.languagesEyebrow': 'Izvēlieties valodu',
   'landing.languagesHeading': 'Četrpadsmit valodas, viens ikdienas ieradums',
   'landing.proof.languages': '{{count}} valodas',
@@ -40,11 +57,18 @@ export const ui: UiTranslations = {
   'leaderboard.heading': 'Līderu saraksts',
   'leaderboard.loadError': 'Nevarēja ielādēt līderu sarakstu.',
   'leaderboard.loading': 'Notiek līderu saraksta ielāde…',
+  'leaderboard.rewardBody':
+    'Zelta līmenī trīs nedēļas pēc kārtas — un tu pārej uz dimanta līmeni. Tikai draudzīgas likmes.',
+  'leaderboard.rewardEyebrow': 'Šīs nedēļas balva',
+  'leaderboard.rewardHeading': 'Labākie {{count}} iegūst zelta līgas nozīmīti',
   'leaderboard.subheading':
     'XP šonedēļ. Atiestatīšana notiek svētdien pusnaktī pēc jūsu vietējā laika.',
   'leaderboard.weeklyPeriod': 'Šonedēļ · draugi',
+  'leaderboardPanel.rankSuffix': 'Ranga nr. {{rank}}',
   'leaderboardPanel.title': 'Draugu līderu saraksts',
+  'leaderboardPanel.xp': '{{xp}} XP',
   'leaderboardPanel.you': '(Tu)',
+  'lessonCard.continue': 'Turpināt →',
   'lessonCard.duration': '{{min}} min',
   'lessonCard.level': 'Līmenis {{level}}',
   'lessonCard.progressPercent': '{{percent}} Pabeigts %',
@@ -53,14 +77,17 @@ export const ui: UiTranslations = {
   'lessonDetail.check': 'Pārbaudiet',
   'lessonDetail.checking': 'Pārbaude…',
   'lessonDetail.correct': 'Izcili!',
+  'lessonDetail.correctHint': '+{{xp}} XP. Turpini!',
   'lessonDetail.empty': 'Šajā nodarbībā nav vingrinājumu.',
   'lessonDetail.exit': 'Iziet nodarbību',
   'lessonDetail.fillBlank': 'Aizpildiet tukšo vietu',
   'lessonDetail.finish': 'Pabeigt nodarbību',
   'lessonDetail.incorrect': 'Ne gluži — “ {{answer}} "',
+  'lessonDetail.incorrectHint': 'Šo vārdu redzēsi vēlreiz rītdienas atkārtojumā.',
   'lessonDetail.lessonId': 'Nodarbība · {{id}}',
   'lessonDetail.loadError': 'Nevarēja ielādēt vingrinājumus.',
   'lessonDetail.loading': 'Tiek ielādēta nodarbība…',
+  'lessonDetail.pronunciation': 'Izvēlies pareizo izrunu',
   'lessonDetail.submitError': 'Nevarēja iesniegt atbildi.',
   'lessonDetail.translation': 'Tulkojiet frāzi',
   'lessonDetail.xpEarned': 'Nopelnītā pieredze · {{xp}}',
@@ -79,6 +106,12 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'Atvērt navigācijas izvēlni',
   'parlanceLayout.nav.profile': 'Profils',
   'parlanceLayout.primaryNavLabel': 'Galvenā navigācija',
+  'planUpdated.body':
+    'Tavas norēķinu izmaiņas tagad ir aktīvas. Plānu vari pārvaldīt jebkurā laikā norēķinu lapā.',
+  'planUpdated.retry': 'Mēģini vēlreiz',
+  'planUpdated.verifyFailed': 'Mēs vēl nevarējām apstiprināt jūsu maksājumu.',
+  'planUpdated.verifyFailedBody':
+    'Jūsu maksājums, iespējams, joprojām tiek apstrādāts. Pēc brīža mēģiniet vēlreiz.',
   'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'practice.empty': 'Vēl nav pieejamas frāzes.',
   'practice.eyebrow': 'Runāšanas prakse',
@@ -102,6 +135,9 @@ export const ui: UiTranslations = {
   'pricing.limits.progress': 'progresa ieraksti',
   'profile.anonymous': 'Mācību dalībnieks',
   'profile.avatarAlt': '{{name}} lietotāja avatārs',
+  'profile.eyebrow': 'Dalībnieks kopš {{joined}}',
+  'profile.eyebrowNew': 'Jauns lietotājs',
+  'profile.langLessonCount': '{{count}} nodarbības',
   'profile.langLevel': 'Līmenis {{level}}',
   'profile.languages': 'Valodas',
   'profile.languagesHeading': 'Valodas tiek apstrādātas',
@@ -111,6 +147,7 @@ export const ui: UiTranslations = {
   'profile.streak': 'Svītra',
   'profile.totalXp': 'Kopējais XP',
   'resetPassword.confirmPlaceholder': 'Ierakstiet to vēlreiz',
+  'resetPassword.mismatch': 'Paroles nesakrīt.',
   'resetPassword.newPasswordLabel': 'Jauna parole',
   'resetPassword.newPasswordPlaceholder': 'Astoņas vai vairāk rakstzīmes',
   'resetPassword.subheading': 'Izvēlieties kaut ko neaizmirstamu, astoņus vai vairāk varoņus.',
@@ -118,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Prakses preferences',
   'settings.goalBody':
     'Cik daudz XP jūs vēlaties iegūt katru dienu. Svītras tiek saglabātas ikreiz, kad sasniedzat mērķi.',
+  'settings.goalHeading': 'Dienas mērķis',
   'settings.goalMinutes': '~ {{min}} min/dienā',
   'settings.language.description':
     'Izvēlieties valodu, kas tiek izmantota visās lietotnes izvēlnēs un etiķetēs.',
@@ -125,6 +163,7 @@ export const ui: UiTranslations = {
   'settings.notifyBody':
     'Maigs, nevis uzbāzīgs. Maksimāli divi atgādinājumi dienā, un jūs varat atsevišķi izslēgt svītru brīdinājumus.',
   'settings.notifyDaily': 'Ikdienas prakses atgādinājums',
+  'settings.notifyDailyHint': 'Reizi dienā {{time}} pēc vietējā laika.',
   'settings.notifyDigest': 'Iknedēļas e-pasta kopsavilkums',
   'settings.notifyStreak': 'Sērijas zuduma brīdinājums',
   'settings.reminderTime': 'Atgādinājuma laiks',

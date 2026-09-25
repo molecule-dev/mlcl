@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens comentaris, has trobat un error o vols explicar-nos com mapeges les teves idees? Llegim cada missatge — posa't en contacte quan vulguis i una persona real de l'equip et respondrà.",
+  'about.contactTitle': 'Parla amb nosaltres',
   'about.eyebrow': 'Sobre',
+  'about.featureCanvas':
+    'Un llenç infinit amb nodes arrossegables, connexions de corbes suaus i zoom i desplaçament fluids.',
+  'about.featureCollab':
+    "Col·laboració en temps real amb cursors en directe, perquè el teu equip pugui ramificar-se al teu costat en lloc d'esperar el seu torn.",
+  'about.featurePricing':
+    'Gratis per sempre per a pensadors en solitari; els plans Pro i Team afegeixen més mapes, més nodes, funcions avançades i exportació de dades.',
+  'about.featureTemplates':
+    'Una biblioteca de plantilles inicials i un historial de versions complet, perquè puguis engegar un mapa ràpidament i revertir qualsevol canvi.',
+  'about.intro':
+    "{{app}} és un llenç espaiós i infinit per a mapes mentals — pluges d'idees, diagrames conceptuals, DAFO i plans de projecte. Arrossega els nodes on vulguis, connecta idees amb enllaços fluids, fes zoom i desplaça't sense topar amb les vores, i deixa que el mapa creixi amb el teu pensament.",
+  'about.missionBody':
+    "Pensar en veu alta hauria de ser fàcil i compartit. Construïm eines que no destorben — sense graelles rígides, sense plantilles encotillades, sense interfícies que roben l'atenció — perquè les persones i els equips puguin capturar idees en el moment que sorgeixen i donar-hi forma junts.",
+  'about.missionTitle': 'La nostra missió',
   'about.pageTitle': 'Sobre {{app}}',
   'auth.brandEyebrow': 'On les idees es ramifiquen',
   'auth.brandStatement':
@@ -13,19 +29,25 @@ export const ui: UiTranslations = {
   'billing.feature.export': 'Exporta a SVG / PNG',
   'billing.feature.maps': '{{count}} mapes',
   'billing.feature.nodes': '{{count}} nodes per mapa',
+  'billing.freeNoticeBody': 'Tria un pla de pagament a dalt per desbloquejar més mapes.',
   'billing.loadError': 'No s’ha pogut carregar l’estat de facturació.',
+  'billing.loading': "S'està carregant la facturació…",
   'billing.perMonth': ' / mes',
   'billing.plansTitle': 'Plans',
+  'billing.priceMissing': "L'ID de preu de Stripe no està configurat.",
   'billing.starting': 'Iniciant el procés de compra…',
   'billing.title': 'Facturació i pla',
   'billing.unavailableTier':
     'Aquest nivell encara no està configurat per al pagament; defineix l’identificador de preu de Stripe al teu entorn.',
   'billing.unlimited': 'Il·limitat',
   'billing.upgradeMonthly': 'Actualitza a {{name}} (mensual)',
+  'billing.upgradeYearly': 'Paga anualment · {{price}}',
   'brand.tagline': 'On les idees es ramifiquen',
   'common.and': 'i',
   'common.goToDashboard': 'Anar al panell',
   'dashboard.activityAction': 'actualitzat',
+  'dashboard.activityEmpty':
+    'Encara no hi ha activitat — edita un mapa per iniciar la teva cronologia.',
   'dashboard.daysAgo': '{{count}} fa uns dies',
   'dashboard.empty.body':
     'Crea un mapa per començar a ramificar idees. Les plantilles faciliten l’inici.',
@@ -44,26 +66,35 @@ export const ui: UiTranslations = {
   'dendriteHero.activeMaps': 'Mapes actius',
   'dendriteHero.eyebrow': 'Avui sobre el llenç',
   'dendriteHero.greeting': 'Noves idees ramificades, {{name}}',
+  'dendriteHero.greetingAnon': 'Ramifica idees noves',
   'dendriteHero.openMaps': 'Obre els meus mapes',
   'dendriteHero.subtitle':
     'Arrossega, connecta i deixa que el teu pensament creixi. Cada guspira està a un node de distància de la següent.',
   'dendriteHero.weeklyChange': '{{sign}} {{count}} aquesta setmana',
+  'forgotPassword.brandStatement':
+    "Els teus mapes estan segurs. Et tornarem a les teves ramificacions d'aquí un moment.",
   'forgotPassword.subheading':
     'Introdueix el teu correu electrònic i t’enviarem un enllaç de restabliment nou.',
   'forgotPassword.success':
     'Si ja existeix un compte amb aquest correu electrònic, hi haurà un enllaç de restabliment en camí.',
   'landing.cta.body':
     'Gratuït per sempre per a pensadors individuals. Actualitza només quan el teu equip comenci a diversificar-se al teu costat.',
+  'landing.cta.button': 'Crea el teu primer mapa',
   'landing.cta.title': 'Planta la teva primera idea avui.',
   'landing.feature.branch.body':
     'Arrossegueu un node des de qualsevol altre node: les connexions flueixen com a corbes suaus, no cal cap quadrícula rígida.',
+  'landing.feature.branch.title': 'Ramificació orgànica',
   'landing.feature.canvas.body':
     'Desplaça’t, fes zoom i deixa que el mapa creixi sense topar amb les vores. El teu pensament mereix espai per respirar.',
   'landing.feature.canvas.title': 'llenç infinit',
   'landing.feature.collab.body':
     'Veureu els vostres companys d’equip col·laborant en temps real. Feu pluja d’idees junts, no en sèries.',
+  'landing.feature.collab.title': 'Cursors col·laboratius',
   'landing.feature.shortcuts.body':
     'Tabulador per afegir un fill, Retorn per un germà, ⌘K per anar a qualsevol lloc. Els usuaris avançats es mantenen al dia.',
+  'landing.feature.shortcuts.title': 'Teclat primer',
+  'landing.featuresBody':
+    "Les barres d'eines, els panells i les dreceres són ambientals — presents quan els necessites, invisibles quan no.",
   'landing.featuresEyebrow': 'Creat per a pensadors',
   'landing.featuresTitle': 'Cada interacció es guanya el seu lloc al llenç',
   'landing.footer.copyright': '© {{year}} {{appName}} . Creat amb Molecule.dev.',
@@ -71,6 +102,7 @@ export const ui: UiTranslations = {
     "{{appName}} és un llenç infinit i espaiós per a la pluja d'idees, diagrames conceptuals i anàlisis DAFO. Arrossega, connecta i deixa que el mapa creixi amb tu: sense quadrícules rígides ni plantilles enquadrades.",
   'landing.hero.ctaPrimary': 'Comença a ramificar gratuïtament',
   'landing.hero.eyebrow': 'Mapes mentals per a dissenyadors i pensadors',
+  'landing.hero.title': 'On les idees es ramifiquen.',
   'landing.nav.start': 'Comença la ramificació',
   'landing.proof.export': 'Exporta a PNG, SVG o Markdown',
   'landing.proof.free': 'Gratuït per a 3 mapes',
@@ -78,6 +110,7 @@ export const ui: UiTranslations = {
   'layout.closeMenu': 'Tanca el menú de navegació',
   'layout.openMenu': 'Obre el menú de navegació',
   'layout.searchPlaceholder': 'Cerca mapes, plantilles o nodes…',
+  'login.noAccount': 'Ets nou aquí?',
   'login.signIn': 'Inicia la sessió a Nimbus',
   'login.subheading': 'Inicia la sessió per continuar navegant on ho vas deixar.',
   'login.twoFactor': 'Token de dos factors (si està habilitat)',
@@ -96,9 +129,11 @@ export const ui: UiTranslations = {
     'Seleccioneu l’eina + i feu clic a qualsevol lloc per afegir el primer node.',
   'mapEditor.export': 'Exporta',
   'mapEditor.exportError': "No s'ha pogut exportar el mapa.",
+  'mapEditor.exportLocked': "L'exportació és una funció Pro.",
   'mapEditor.exportMarkdown': 'Rebaixa (.md)',
   'mapEditor.exportPng': 'Imatge (.png)',
   'mapEditor.exportSvg': 'Vector (.svg)',
+  'mapEditor.exportUpgrade': 'Actualitza per exportar →',
   'mapEditor.hint.add': 'Feu clic al llenç per deixar anar un node',
   'mapEditor.hint.connectSource': 'Feu clic al node font…',
   'mapEditor.hint.connectTarget': 'Feu clic al node de destinació…',
@@ -107,6 +142,7 @@ export const ui: UiTranslations = {
   'mapEditor.loading': 'S’està carregant el llenç…',
   'mapEditor.newNodeText': 'New idea',
   'mapEditor.panel.color': 'Color',
+  'mapEditor.panel.eyebrow': 'Node seleccionat',
   'mapEditor.panel.nodes': 'Nodes',
   'mapEditor.panel.noSelection': 'Feu clic a un node per editar-lo.',
   'mapEditor.panel.stats': 'Estadístiques del mapa',
@@ -146,11 +182,18 @@ export const ui: UiTranslations = {
   'notifications.accept': 'Accepta',
   'notifications.acceptAndOpen': 'Accepta i obre',
   'notifications.acceptedInvite': 'S’ha unit {{title}}.',
+  'notifications.acceptError': "No s'ha pogut acceptar la invitació.",
   'notifications.empty.body': 'Quan els companys d’equip et convidin a mapes, apareixeran aquí.',
   'notifications.empty.title': 'Cap invitació pendent',
+  'notifications.inviteBody': 'Enviat a {{email}}',
   'notifications.inviteTitle': 'Convidat com a {{role}} a "{{title}}"',
   'notifications.subtitle': '{{count}} invitacions pendents.',
   'notifications.view': 'Vista',
+  'pricing.limit.advanced': 'Funcions avançades: {{state}}',
+  'pricing.limit.connections': '{{count}} connexions',
+  'pricing.limit.export': 'Exportació de dades: {{state}}',
+  'pricing.limit.maps': '{{count}} mapes',
+  'pricing.limit.nodes': '{{count}} nodes per mapa',
   'profile.loading': 'S’estan carregant les estadístiques…',
   'profile.stat.collabs': 'Col·laboracions',
   'profile.stat.maps': 'Mapes creats',
@@ -162,25 +205,37 @@ export const ui: UiTranslations = {
   'publicMap.loadError': "Aquest mapa ja no es comparteix o l'enllaç no és vàlid.",
   'publicMap.loading': "S'està carregant el mapa…",
   'publicMap.notFound': "No s'ha trobat el mapa.",
+  'resetPassword.newPassword': 'Nova contrasenya',
   'resetPassword.subheading':
     'Tria alguna cosa memorable. Tornarem a iniciar la sessió automàticament.',
   'resetPassword.submit': 'Restableix la contrasenya i inicia la sessió',
   'resetPassword.tokenPlaceholder': 'Enganxat des del teu correu electrònic',
   'settings.account.subtitle': 'Actualitza el teu nom de visualització i l’adreça electrònica.',
+  'settings.field.currentPassword': 'Contrasenya actual',
   'settings.field.newPassword': 'Nova contrasenya',
   'settings.password.subtitle': 'Trieu una contrasenya segura (d’almenys 8 caràcters).',
   'settings.passwordError':
     'No s’ha pogut canviar la contrasenya. Comproveu la vostra contrasenya actual.',
+  'settings.passwordMismatch': 'Les contrasenyes noves no coincideixen.',
   'settings.passwordSaved': 'La contrasenya s’ha canviat correctament.',
   'settings.passwordTooShort': 'La contrasenya ha de tenir com a mínim 8 caràcters.',
   'settings.profileError': 'No s’han pogut desar els canvis de perfil.',
   'settings.subtitle': 'Ajusta el teu compte i la teva seguretat.',
   'settings.twoFactorCode': "Codi d'autenticació",
   'settings.twoFactorDisable': 'Desactiva',
+  'settings.twoFactorDisableTitle': "Desactiva l'autenticació de dos factors",
   'settings.twoFactorEnable': 'Activa',
+  'settings.twoFactorEnableTitle': "Activa l'autenticació de dos factors",
   'settings.twoFactorInvalidCode': 'Codi no vàlid. Si us plau, torneu-ho a intentar.',
+  'settings.twoFactorOffLine': "L'autenticació de dos factors està desactivada.",
+  'settings.twoFactorOnLine': "L'autenticació de dos factors està activada.",
+  'settings.twoFactorQrAlt': 'Codi QR de dos factors',
+  'settings.twoFactorScan':
+    "Escaneja aquest codi QR amb la teva aplicació d'autenticació i després introdueix el codi de 6 dígits.",
   'settings.twoFactorSubtitle':
     "Afegeix un codi d'un sol ús de l'aplicació d'autenticació a sobre de la contrasenya.",
+  'settings.twoFactorUnavailable':
+    "L'autenticació de dos factors no està disponible per a aquesta aplicació.",
   'settings.twoFactorVerify': 'Verifica i activa',
   'share.accepted': 'Acceptat',
   'share.backToMap': 'Torna al mapa',
@@ -191,7 +246,10 @@ export const ui: UiTranslations = {
   'share.copySuccess': 'Enllaç copiat.',
   'share.invite.button': 'Convidar',
   'share.invite.title': 'Convidar per correu electrònic',
+  'share.inviteError': "No s'ha pogut enviar la invitació.",
   'share.inviteSuccess': 'Convidat/da {{email}}.',
+  'share.link.disabledHint':
+    'Activa-ho per generar un enllaç públic de només lectura a aquest mapa.',
   'share.link.title': 'Enllaç públic',
   'share.loadError': 'No s’ha pogut carregar la configuració de compartició.',
   'share.pending': 'Invitació pendent',
@@ -203,13 +261,19 @@ export const ui: UiTranslations = {
   'share.roleError': 'No s’ha pogut actualitzar el rol.',
   'share.title': 'Comparteix aquest mapa',
   'share.unnamedCollaborator': 'Invitació pendent',
+  'signup.brandStatement':
+    "Un llenç prou ampli per a la pluja d'idees més agosarada — i prou tranquil per pensar.",
+  'signup.haveAccount': 'Ja ets membre?',
   'signup.heading': 'Planta la teva primera idea',
   'signup.namePlaceholder': 'Avery Chen',
   'signup.subheading': 'Gratuït per sempre per a 3 mapes. No cal targeta de crèdit.',
   'templateDetail.backToTemplates': 'Totes les plantilles',
   'templateDetail.browseMore': 'Navega més',
+  'templateDetail.editableHint':
+    'Cada node i aresta és totalment editable un cop instancies la plantilla.',
   'templateDetail.instantiateError': 'No s’ha pogut crear un mapa a partir d’aquesta plantilla.',
   'templateDetail.loadError': 'No s’ha pogut carregar aquesta plantilla.',
+  'templateDetail.loading': "S'està carregant la plantilla…",
   'templateDetail.nodes': 'Nodes presembrats',
   'templateDetail.notFound': 'No s’ha trobat la plantilla.',
   'templateDetail.systemEyebrow': 'Plantilla integrada',
@@ -232,6 +296,7 @@ export const ui: UiTranslations = {
   'trash.empty.body': 'Res esperant a ser netejat. Les teves sucursals estan segures.',
   'trash.empty.title': 'La paperera és buida',
   'trash.loadError': 'No s’han pogut carregar els mapes enviats a la paperera.',
+  'trash.loading': "S'està carregant la paperera…",
   'trash.restore': 'Restaurar',
   'trash.restoreError': 'No s’ha pogut restaurar el mapa.',
   'trash.subtitle':
@@ -240,11 +305,13 @@ export const ui: UiTranslations = {
   'versionHistory.backToMap': 'Torna al mapa',
   'versionHistory.empty':
     'Encara no hi ha cap instantània. Desa la primera per mantenir un punt de control.',
+  'versionHistory.emptyDetail': 'Desa una instantània per iniciar la teva cronologia.',
   'versionHistory.loadError': 'No s’ha pogut carregar l’historial de versions.',
   'versionHistory.nodeCount': 'Nodes',
   'versionHistory.restoreButton': 'Restaura aquesta versió',
   'versionHistory.restoreError': 'No s’ha pogut restaurar la instantània.',
   'versionHistory.restoreSuccess': 'Instantània restaurada.',
+  'versionHistory.selectHint': 'Selecciona una instantània per veure-la.',
   'versionHistory.snapshotDefault': 'Instantànies manuals',
   'versionHistory.snapshotError': 'No s’ha pogut desar la instantània.',
   'versionHistory.snapshotEyebrow': 'Instantània',

@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Kuna da tambaya, kun sami matsala, ko kuna son canja littattafanku? Tuntuɓi ƙungiyar {{app}} a hello@{{app}}.example — mutum na gaske yana karanta kowane saƙo.',
   'about.contactTitle': 'Yi magana da mu',
   'about.eyebrow': 'Game da',
+  'about.intro':
+    '{{app}} lissafin kasuwanci ne na ƙananan kasuwanci wanda ke lissafta kowane kuɗi — daftari, kashe kuɗi, biyan kuɗi, da rahotanni a wuri ɗaya natsuwa ga masu kasuwanci, masu kula da littattafai, da akawu.',
+  'about.missionBody':
+    "Gudanar da kasuwanci bai kamata ya zama abin tsoro game da littattafanka ba. {{app}} yana maye gurbin warwatsewar ma'aunin lissafi da lambobi bayyanannu da za ka iya aiki da su, don haka za ka rage lokacin da ake yi wajen daidaitawa kuma ka ƙara lokacin yin aikin da ka fara kasuwanci don yinsa.",
+  'about.missionTitle': 'Manufarmu',
   'about.title': 'Game da {{app}}',
   'accounts.count': 'Asusun {{count}}',
+  'accounts.emptyBody':
+    'Asusun ajiya suna bin diddigin inda kuɗi yake da inda yake motsi. Suna bayyana a nan da zarar mai kula da littattafanka ko haɗin fasaha ya saita su.',
   'accounts.emptyTitle': 'Babu asusu tukuna',
   'accounts.heading': 'Jadawalin asusu',
   'accounts.kpi.accounts': 'Asusun',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     "Kowace asusun ajiyar kuɗi da ke bayan takardar lissafin ku, kuɗaɗen ku, da biyan kuɗi, an haɗa su ta nau'i.",
   'accounts.tag.inactive': 'rashin aiki',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': "Babban Jami'in Kuɗi, Horizon Tech",
   'authBrandPanel.eyebrow': 'Ƙungiyoyin kuɗi sun amince da shi',
   'authBrandPanel.label': 'Nunin alama',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Duk abokan ciniki',
   'customerDetail.invoiceMeta': 'An bayar {{issued}} · An biya {{due}}',
   'customerDetail.loadError': 'An kasa loda abokin ciniki.',
+  'customerDetail.missingBody':
+    'Ba a iya loda bayanan abokin ciniki da aka nema ba. Wataƙila an cire shi, ko kuma ba ka da damar samunsa.',
   'customerDetail.missingHeading': 'Babu rikodin abokin ciniki',
+  'customerDetail.missingHelp':
+    'Yi amfani da hanyar komawa da ke sama don komawa jerin abokan ciniki, ko zaɓi wani bayani daban daga can.',
+  'customerDetail.noInvoices': 'Babu takardar kuɗi tukuna.',
   'customerDetail.notesEmpty': 'Babu bayanin kula tukuna.',
   'customerDetail.paymentsEmpty': 'Ba a yi rikodin biyan kuɗi ba.',
   'customerDetail.paymentTerms': 'Sharuɗɗan biyan kuɗi',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Mai cirewa',
   'expenseDetail.detailsHeading': "Cikakkun bayanai game da ma'amala",
   'expenseDetail.loadError': 'An kasa ɗora kuɗi.',
+  'expenseDetail.matched': 'An daidaita · {{description}}',
   'expenseDetail.missingBody':
     'Ba za a iya loda kuɗin da aka nema ba. Wataƙila an cire shi, ko kuma ba za ka iya samun damar yin hakan ba.',
   'expenseDetail.missingHeading': 'Ba a samun tarihin kashe kuɗi ba',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Rasidi',
   'expenseDetail.receiptHeading': 'Rasidi',
   'expenseDetail.reconciled': 'An sulhunta',
+  'expenseDetail.unreconciled': 'Ba a sulhunta ba',
   'expenses.empty': 'Babu kashe kuɗi tukuna.',
   'expenses.heading': 'Kuɗi',
   'expenses.kpi.deductible': 'Mai cirewa',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'An kasa loda takardun kuɗi.',
   'invoices.searchPlaceholder': 'Bincika lambar lissafin kuɗi ko abokin ciniki…',
   'invoices.summary.paid': 'An biya wannan lokacin',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle': 'Kyauta na tsawon kwanaki 30. Babu kati. Kawo akawu — za su gode maka.',
   'landing.ctaTitle': 'Matsar da littattafanka zuwa wuri mai natsuwa.',
   'landing.eyebrow': 'Lissafin ƙananan kasuwanci, an sake tunaninsa',
@@ -113,6 +131,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Asusun da za a iya karɓa',
   'ledgerStatTriad.eyebrow.mtd': 'Wata zuwa yau',
   'ledgerStatTriad.netSub': 'Net {{amount}}',
+  'ledgerStatTriad.overdueSub': "{{amount}} ya wuce wa'adi",
   'ledgerStatTriad.revenueLabel': 'Kudin Shiga',
   'login.failed': 'Shiga ya gaza.',
   'login.hidePassword': 'Ɓoye kalmar sirri',
@@ -123,6 +142,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Shiga',
   'nav.legal': "Shari'a",
   'newExpense.back': 'Kuɗi',
+  'newExpense.clearReceiptCta': 'Share rasidin da aka makala',
   'newExpense.deductible': 'Ana cire haraji',
   'newExpense.dropPrompt': 'Aika hoton rasidi ko PDF a nan don haɗawa.',
   'newExpense.failed': 'Ba zan iya adana kuɗi ba.',
@@ -151,6 +171,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'An kasa ɗora kuɗi.',
   'payments.unmatchedTag': 'wanda ba a iya misaltawa ba',
   'planUpdated.pageLabel': 'Tabbatar da sabunta tsarin',
+  'pricing.advancedFeatures': 'Fasaloli na ci gaba: {{yes}}',
+  'pricing.canExport': 'Fitar da bayanai: {{yes}}',
+  'pricing.heading': 'Zaɓi tsarin {{app}} ku',
+  'pricing.maxAccounts': 'Asusun {{count}}',
+  'pricing.maxExpenses': '{{count}} kashe kuɗi',
+  'pricing.maxInvoices': 'daftari {{count}}',
+  'privacy.intro':
+    'Wannan Manufar Sirri tana bayanin yadda {{app}} ke tattarawa, amfani, da bayyana bayanai game da kasuwancin da ke amfani da sabis ɗin.',
   'privacy.lastUpdated': 'An sabunta shi na ƙarshe: {{kwanan wata}}',
   'privacy.section.collected.body':
     'Muna tattara bayanan asusu (suna, imel, kamfani), bayanan kuɗi da kuka ɗora (rasidu, kuɗaɗe, abokan ciniki, biyan kuɗi), da kuma rajistan ayyukan sabis na yau da kullun (IP, wakilin mai amfani, tambarin lokaci).',
@@ -163,8 +191,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Ana amfani da bayanai don gudanar da sabis ɗin, samar da rahotanni da PDFs da kuka buƙata, aika imel na ciniki ta hanyar Mailgun, da kuma aiwatar da biyan kuɗi ta hanyar Stripe. Ba ma sayar ko yin hayar bayanan sirri.',
   'recentInvoicesCard.dueMeta': 'An biya {{date}}',
+  'recentInvoicesCard.empty': 'Babu daidaito tsakanin rasit.',
   'recentInvoicesCard.eyebrow': 'Asusun da za a iya karɓa',
   'recentInvoicesCard.searchAriaLabel': 'Bincika takardar kuɗi',
+  'recentInvoicesCard.searchPlaceholder': 'Nemo daftari…',
   'recentInvoicesCard.title': 'Rasitan kuɗi na baya-bayan nan',
   'recentInvoicesCard.viewAll': 'Duba duk takardun kuɗi →',
   'reports.assets': 'Kadarori',
@@ -180,15 +210,20 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Riba da asara (watanni 12)',
   'resetPassword.backToLogin': '← Komawa zuwa Shiga',
   'resetPassword.hidePassword': 'Ɓoye kalmar sirri',
+  'resetPassword.passwordLabel': 'Sabuwar kalmar sirri',
   'resetPassword.showPassword': 'Nuna kalmar sirri',
+  'resetPassword.subheading': 'Zaɓi kalmar sirri mai ƙarfi — aƙalla haruffa takwas.',
   'resetPassword.submit': 'Sake saita Kalmar Sirri',
   'resetPassword.tooShort': 'Dole ne kalmar sirri ta kasance aƙalla haruffa 8.',
   'settings.account.changePassword': 'Canza kalmar sirri',
   'settings.account.changingPassword': 'Canzawa…',
   'settings.account.currentPassword': 'Kalmar shiga na halin yanzu',
+  'settings.account.dangerZone': 'Yankin haɗari',
   'settings.account.deleteAccount': 'Share asusu',
   'settings.account.deleteDescription': 'Share asusunka da duk bayanan da ke da alaƙa har abada.',
   'settings.account.deleteError': 'An kasa share asusu.',
+  'settings.account.deleteWarning':
+    'Wannan yana share asusunka gaba ɗaya kuma ba za a iya soke shi ba. Shigar da kalmar sirrinka don tabbatarwa.',
   'settings.account.deleting': 'Ana gogewa…',
   'settings.account.devices': "Na'urori",
   'settings.account.email': 'Imel',
@@ -199,6 +234,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Kalmar sirri',
   'settings.account.passwordError': 'An kasa canza kalmar sirri.',
   'settings.account.pushNotifications': "Tura sanarwa akan wannan na'urar",
+  'settings.account.revokeDeviceWarning':
+    "Za a soke izinin wannan na'ura nan ba da jimawa ba. Ka fitar da ita?",
   'settings.account.saveError': 'An kasa sabunta bayanin martaba.',
   'settings.account.security': 'Tsaro',
   'settings.account.signOutDevice': 'Fita',
@@ -206,12 +243,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Tantancewa ta abu biyu',
   'settings.account.twoFactorCode': 'Lambar tabbatarwa',
   'settings.account.twoFactorDisable': 'A kashe',
+  'settings.account.twoFactorDisableTitle': 'Kashe tabbatarwa ta matakai biyu',
   'settings.account.twoFactorEnable': 'Kunna',
+  'settings.account.twoFactorEnableTitle': 'Kunna tabbatarwa ta matakai biyu',
   'settings.account.twoFactorInvalidCode': 'Lambar da ba ta aiki ba',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'Lambar QR ta matakai biyu',
+  'settings.account.twoFactorScan':
+    'Duba wannan lambar QR da manhajar tabbatarwa, sannan shigar da lambar mai lambobi 6.',
+  'settings.account.twoFactorUnavailable':
+    'Ba a samun tantance abubuwa biyu don wannan app ɗin ba.',
   'settings.account.twoFactorVerify': 'Tabbatar & kunna',
   'settings.account.unknownDevice': "Na'urar da ba a sani ba",
   'settings.company.email': 'Imel ɗin biyan kuɗi',
+  'settings.company.heading': 'Kamfani da haraji',
   'settings.company.name': 'Sunan doka',
   'settings.company.saveButton': 'Ajiye bayanin martaba na kamfani',
   'settings.company.taxId': 'Lambar Haraji / Lambar EIN',
@@ -254,6 +299,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'An kiyasta kwata-kwata',
   'taxes.kpi.owed': 'An yi masa bashi',
   'taxes.loadError': 'An kasa ɗora taƙaitaccen bayanin haraji.',
+  'taxes.remittedPct': '({{pct}}% an biya)',
+  'terms.intro':
+    'Waɗannan Sharuɗɗan Sabis ("Sharuɗɗan") suna gudanar da damarka na shiga da amfani da {{app}}. Ta hanyar ƙirƙirar asusu ko amfani da sabis ɗin, ka yarda a ɗaure ka da su.',
   'terms.lastUpdated': 'An sabunta shi na ƙarshe: {{kwanan wata}}',
   'terms.section.acceptable.body':
     'Kun yarda kada ku yi amfani da sabis ɗin don keta kowace doka, keta haƙƙin mallakar fasaha, aika malware, ko ƙoƙarin samun damar shiga wasu asusu ko kayayyakin more rayuwa ba tare da izini ba.',

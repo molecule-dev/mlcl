@@ -1,16 +1,40 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Сакате да отворите продавница, да пријавите проблем или само да кажете здраво? Контактирајте нè преку Центарот за помош — секоја порака стигнува до вистинска личност од тимот.',
+  'about.contactTitle': 'Контактирајте не',
+  'about.featureNotifications':
+    'Известувања во реално време за нови нарачки, ажурирања за испорака и оценки, плус дозволи базирани на улоги што ги одвојуваат алатките за купувачи и продавачи.',
+  'about.featurePayments':
+    'Безбедно плаќање преку Stripe, автоматска поделба на провизијата и закажани исплати — продавачите секогаш знаат точно што заработиле.',
+  'about.featureShop':
+    'Пребаруван каталог со илјадници независни продавачи, со верификувани продавници, оценки и рецензии за да купувате со доверба.',
+  'about.featureVendor':
+    'Комплетен комплет алатки за продавачи: брендирана продавница, управување со производи и залихи, прикачување слики и исполнување нарачки на една контролна табла.',
+  'about.intro':
+    '{{name}} е куриран пазар каде независни творци отвораат свои продавници, а купувачите откриваат производи што не можат да ги најдат на друго место. Од рачно изработена керамика до текстил печатен со дрвени блокови, секој оглас доаѓа од вистински продавач со приказна зад себе.',
+  'about.missionBody':
+    'Веруваме дека творците треба да го задржат она што го прави нивниот занает нивен. {{name}} наплаќа фиксна, транспарентна провизија, исплаќа сигурно секоја недела и на секој продавач му дава продавница што целосно ја контролира — за да можат да останат фокусирани на работата, додека ние го водиме пазарот.',
+  'about.missionTitle': 'Нашата мисија',
   'about.pageTitle': 'За {{name}}',
   'cart.checkoutCta': 'Продолжете кон наплатата',
   'cart.decreaseAria': 'Намали количина',
+  'cart.deliveryEstimate': 'Проценета испорака {{range}}',
   'cart.empty.body': 'Прелистајте го каталогот и додадете неколку производители во вашата торба.',
+  'cart.empty.cta': 'Прелистајте го каталогот',
   'cart.empty.title': 'Вашата кошничка е празна',
   'cart.eyebrow': 'Вашата кошничка',
+  'cart.increaseAria': 'Зголеми количина',
   'cart.loadError': 'Не може да се вчита вашата кошничка. Обидете се повторно.',
   'cart.loading': 'Се вчитува вашата кошничка…',
+  'cart.protectionNote':
+    '{{appName}} ја штити секоја нарачка. Бесплатни враќања во рок од 30 дена.',
   'cart.removeError': 'Не можеше да се отстрани ставката.',
   'cart.shippingFromVendor': 'Испорака од овој продавач: {{amount}}',
+  'cart.subtitle':
+    'Секој продавач испраќа самостојно — вие плаќате само еднаш. {{appName}} се грижи за останатото.',
+  'cart.subtotalGroup': 'Меѓузбир {{amount}}',
   'cart.summaryItems': 'Предмети',
   'cart.summaryShipping': 'Испорака (комбинирана)',
   'cart.title': 'Кошничка · {{count}} предмети од {{vendorCount}} продавачи',
@@ -23,6 +47,7 @@ export const ui: UiTranslations = {
   'catalog.featuredVendors': 'Препорачани продавници',
   'catalog.loading': 'Се вчитуваат производи…',
   'catalog.resultCount': '{{count}} производи',
+  'catalog.searchAria': 'Пребарајте го каталогот',
   'catalog.searchPlaceholder': 'Пребарувајте производи, добавувачи или ознаки…',
   'catalog.sortBy': 'Сортирај по',
   'catalog.subtitle':
@@ -30,6 +55,7 @@ export const ui: UiTranslations = {
   'catalog.title': 'Прелистајте ја секоја продавница на Vendry',
   'checkout.emptyCta': 'Прелистајте го каталогот',
   'checkout.emptyTitle': 'Вашата кошничка е празна.',
+  'checkout.eyebrow': 'Безбедна наплата',
   'checkout.loadError': 'Не може да се вчита вашата кошничка. Обидете се повторно.',
   'checkout.loading': 'Се вчитува вашата кошничка…',
   'checkout.payment.testNote':
@@ -39,12 +65,14 @@ export const ui: UiTranslations = {
   'checkout.placingOrder': 'Нарачката се прави…',
   'checkout.review.shipTo': 'Испорака до',
   'checkout.review.subtotal': 'Меѓузбир на добавувач',
+  'checkout.review.title': 'Прегледајте ја нарачката, продавач по продавач',
   'checkout.shipping.title': 'Каде треба да испратиме?',
   'checkout.shippingValidation': 'Ве молиме пополнете ги сите задолжителни полиња за испорака.',
   'checkout.summary.shipping': 'Испорака',
   'checkout.summary.tax': 'Проценета даночна стапка',
   'checkout.title': 'Една каса, многу производители',
   'common.and': 'и',
+  'forgotPassword.continue': 'Го имам мојот код за ресетирање',
   'forgotPassword.emailLabel': 'Е-пошта на сметката',
   'forgotPassword.heading': 'Ја заборавивте лозинката?',
   'forgotPassword.subheading':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'forgotPassword.submit': 'Линк за ресетирање на е-пошта',
   'forgotPassword.success':
     'Проверка {{email}} за линк за ресетирање — важи за следните 30 минути.',
+  'landing.featured.cta': 'Прегледајте ги сите продавачи',
   'landing.featured.eyebrow': 'Продавници во центарот на вниманието',
   'landing.featured.title': 'Продавачите прават бранувања овој месец',
   'landing.footer.becomeVendor': 'Станете продавач',
@@ -61,6 +90,9 @@ export const ui: UiTranslations = {
   'landing.nav.sell': 'Продавај на Vendry',
   'landing.nav.shop': 'Продавница',
   'landing.nav.signUp': 'Придружи се',
+  'landing.sellPitch.cta': 'Пријавете се за продажба',
+  'landing.sellPitch.description':
+    'Фиксна провизија од 8%, исплати секој петок, вашата продавница, вашата приказна. Ние го водиме пазарот; вие останувате во вашиот занает.',
   'landing.sellPitch.eyebrow': 'За креаторите',
   'landing.sellPitch.title': 'Отвори продавница. Задржи го она што ја прави твоја.',
   'landing.trending.cta': 'Купувајте во каталогот',
@@ -69,6 +101,7 @@ export const ui: UiTranslations = {
   'login.accountTypeAria': 'Тип на сметка',
   'login.heading': 'Добредојдовте назад во Вендри',
   'login.legalPrefix': 'Со најавувањето, се согласувате со нашите',
+  'login.signupPrompt': 'Нов во Тесера?',
   'login.subheading':
     'Најавете се за да продолжите да купувате или вратете се во вашата продавница.',
   'login.submitShopper': 'Најавете се за да купувате',
@@ -85,37 +118,51 @@ export const ui: UiTranslations = {
   'notifications.markAllError': 'Не можеше да се означат сите како прочитани.',
   'notifications.read': 'Прочитај',
   'notifications.time.daysAgo': '{{count}} пред неколку дена',
+  'notifications.time.hourAgo': 'Пред 1 час',
+  'notifications.time.hoursAgo': '{{count}} пред неколку часа',
   'notifications.time.justNow': 'токму сега',
+  'notifications.time.minutesAgo': '{{count}} пред мин',
+  'notifications.time.yesterday': 'Вчера',
   'orderDetail.backToOrders': 'Назад кон сите нарачки',
   'orderDetail.eyebrow': 'Детали за нарачката',
   'orderDetail.helpBody':
     'Поддршката од Vendry одговара во рок од 4 часа, дури и за време на викендите.',
+  'orderDetail.helpCta': 'Контактирајте ја поддршката',
   'orderDetail.helpTitle': 'Нешто не е во ред со оваа нарачка?',
   'orderDetail.summary':
     'Поставено {{date}} · {{vendorCount}} добавувач(и) · исполнување од повеќе добавувачи',
+  'orderDetail.timelineTitle': 'Патување на нарачката',
   'orders.empty': 'Сè уште нема нарачки што одговараат на овој филтер.',
   'orders.emptyTitle': 'Сè уште нема нарачки тука',
   'orders.eyebrow': 'Вашите купувања',
   'orders.subtitle':
     'Видете кој што испратил, следете го следењето по добавувач и никогаш повеќе не губите пратка.',
   'orders.title': 'Нарачки, групирани по добавувач',
+  'planUpdated.retry': 'Обидете се повторно',
+  'planUpdated.verifyFailed': 'Сè уште не можевме да ја потврдиме вашата уплата.',
+  'planUpdated.verifyFailedBody':
+    'Вашето плаќање можеби сè уште се обработува. Обидете се повторно за момент.',
   'planUpdated.verifying': 'Се потврдува вашата уплата…',
   'productDetail.addToCart': 'Додај во кошничка',
   'productDetail.addToCartError': 'Не може да се додаде во кошничката.',
   'productDetail.addToCartSuccess': '„ {{name}} „додадено во вашата кошничка.“',
   'productDetail.backToCatalog': 'Назад кон каталогот',
   'productDetail.breadcrumbCatalog': 'Каталог',
+  'productDetail.colorLabel': 'Боја · {{name}}',
   'productDetail.decreaseAria': 'Намали количина',
   'productDetail.description': 'Направено од независен производител на Vendry.',
   'productDetail.featuredBadge': 'Претставен творец',
   'productDetail.galleryThumbAria': 'Прикажи слика {{index}}',
+  'productDetail.increaseAria': 'Зголеми количина',
   'productDetail.loading': 'Се вчитува производот…',
   'productDetail.notFound': 'Производот не е пронајден.',
   'productDetail.relatedTitle': 'Повеќе од овој производител',
   'productDetail.reviewsTitle': 'Што рекоа купувачите',
   'productDetail.trust.protection': 'Заштита на продажба',
+  'productDetail.trust.returns': 'Враќања во рок од 30 дена',
   'productDetail.trust.shipping': 'Се испорачува за 2 дена',
   'productDetail.verifiedAria': 'Потврден продавач',
+  'resetPassword.didntGetCode': 'Не добивте код?',
   'resetPassword.emailLabel': 'Е-пошта на сметката',
   'resetPassword.mismatch': 'Лозинките сè уште не се совпаѓаат.',
   'resetPassword.newPasswordLabel': 'Нова лозинка',
@@ -124,8 +171,10 @@ export const ui: UiTranslations = {
     'Внесете го кодот што ви го испративме по е-пошта, а потоа изберете нова лозинка за да го завршите повторното најавување.',
   'resetPassword.submit': 'Ресетирај и најави се',
   'resetPassword.submitting': 'Лозинката се ажурира…',
+  'settings.appearance.description': 'Префрлувајте помеѓу светлиот и темниот режим.',
   'settings.appearance.title': 'Изглед',
   'settings.language.description': 'Изберете го јазикот што се користи на целиот пазар.',
+  'settings.payouts.accountLabel': 'Број на сметка / IBAN',
   'settings.payouts.body':
     'Vendry исплаќа секој петок во вашата локална валута, минус провизија од 8%.',
   'settings.payouts.save': 'Зачувај детали за исплата',
@@ -144,6 +193,7 @@ export const ui: UiTranslations = {
   'signup.mismatch': 'Лозинките сè уште не се совпаѓаат.',
   'signup.subheading':
     'Пребарувајте над 4.000 независни производители или отворете своја продавница.',
+  'signup.submit': 'Придружете се на пазарот',
   'status.delivered': 'Доставено',
   'status.refunded': 'Рефундирано',
   'userMenu.marketplaceSettings': 'Поставки на пазарот',
@@ -153,18 +203,28 @@ export const ui: UiTranslations = {
   'vendorDashboard.heroCaption':
     '{{payout}} исчистено по провизијата за Vendry. Следната исплата е во петок.',
   'vendorDashboard.heroLabel': 'Бруто продажба · последните 30 дена',
+  'vendorDashboard.kpi.conversion': 'Конверзија',
   'vendorDashboard.kpi.conversionCaption': 'Посетете за да нарачате оваа недела',
   'vendorDashboard.kpi.netPayout': 'Нето исплата',
   'vendorDashboard.kpi.netPayoutCaption': 'По 8% провизија за продажба',
   'vendorDashboard.kpi.orders': 'Нарачки',
   'vendorDashboard.kpi.ordersCaption': 'во споредба со последните 30 дена',
+  'vendorDashboard.kpi.pendingPayout': 'Исплата во чекање',
   'vendorDashboard.kpi.pendingPayoutCaption': 'Издава овој петок',
   'vendorDashboard.newProductCta': 'Нов производ',
   'vendorDashboard.payoutsCta': 'Погледнете ги исплатите',
   'vendorDashboard.recentOrders.cta': 'Погледнете ги сите нарачки →',
+  'vendorDashboard.recentOrders.emptyBody':
+    'Нарачките за вашата продавница ќе се појават овде штом клиентите ќе платат.',
+  'vendorDashboard.recentOrders.emptyCta': 'Додајте го вашиот прв производ',
+  'vendorDashboard.recentOrders.emptyTitle': 'Сè уште нема нарачки',
   'vendorDashboard.recentOrders.title': 'Неодамнешни нарачки',
+  'vendorDashboard.subtitle': 'Еве како се одвива вашата продавница оваа недела.',
+  'vendorDashboard.title': 'Добредојде назад, {{name}}',
   'vendorOnboarding.about': 'Кажете ни за вашата продавница',
   'vendorOnboarding.aboutPlaceholder': 'Каде произведувате, што произведувате, зошто е важно.',
+  'vendorOnboarding.bankLabel': 'Банкарска сметка / IBAN',
+  'vendorOnboarding.categoriesHint': 'Изберете сè што одговара — можете да го промените подоцна.',
   'vendorOnboarding.currencyLabel': 'Наплата во валута',
   'vendorOnboarding.errors.shopName': 'Името на продавницата е задолжително.',
   'vendorOnboarding.errors.submit': 'Не можев да ја поднесам вашата апликација.',
@@ -173,8 +233,15 @@ export const ui: UiTranslations = {
   'vendorOnboarding.field.shopName': 'Име на продавница',
   'vendorOnboarding.heroBody':
     'Фиксна провизија од 8%, исплати секој петок, вашата продавница, вашата приказна. Кажете ни малку за вашата продавница и ќе ве контактираме во рок од 48 часа.',
+  'vendorOnboarding.review.categories': 'Категории',
   'vendorOnboarding.review.contact': 'Контакт',
   'vendorOnboarding.review.currency': 'Валута',
+  'vendorOnboarding.review.point1':
+    '{{appName}} наплаќа фиксна провизија од 8% — без такси за огласување, без скриени трошоци.',
+  'vendorOnboarding.review.point2':
+    'Исплатите се реализираат секој петок во вашата локална валута.',
+  'vendorOnboarding.review.point3':
+    'Можете да ја паузирате или отстраните вашата продавница во секое време.',
   'vendorOnboarding.review.tagline': 'Слоган',
   'vendorOnboarding.review.website': 'Веб-страница',
   'vendorOnboarding.reviewBody':
@@ -185,6 +252,8 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'Апликацијата е поднесена! Ќе ја разгледаме вашата продавница и ќе ви испратиме е-пошта во рок од 48 часа.',
   'vendorOnboarding.taxIdLabel': 'Даночен број',
+  'vendorOrders.emptyBody':
+    'Кога клиентите ќе ги купат вашите производи, нивните нарачки ќе се појават овде.',
   'vendorOrders.emptyTitle': 'Сè уште нема нарачки за исполнување',
   'vendorOrders.eyebrow': 'Администратор на добавувач',
   'vendorOrders.kpi.awaiting': 'Чека исполнување',
@@ -192,6 +261,8 @@ export const ui: UiTranslations = {
   'vendorOrders.subtitle':
     'Печатете етикети, означете како исполнето и одговорете на прашања - сè без да го напуштите Vendry.',
   'vendorOrders.title': 'Дојдовни нарачки',
+  'vendorPayouts.emptyBody':
+    'Исплатите се ослободуваат секој петок откако вашата продажба ќе ја покрие провизијата од 8%.',
   'vendorPayouts.emptyTitle': 'Сè уште нема исплати',
   'vendorPayouts.eyebrow': 'Финансирање од добавувачи',
   'vendorPayouts.heroCaption': 'Се населува во Banco BPI {{account}} · 1–2 работни дена',
@@ -215,6 +286,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.images.body':
     'Повлечете и спуштете до 8 слики. Првата фотографија станува насловна страница на излогот.',
   'vendorProductForm.images.cta': 'Повлечете фотографии тука или прелистајте',
+  'vendorProductForm.images.hint': 'PNG / JPG · макс. 8MB секоја',
   'vendorProductForm.images.title': 'Фотографии',
   'vendorProductForm.nameLabel': 'Име на производот',
   'vendorProductForm.preview.namePlaceholder': 'Име на производот',
@@ -224,6 +296,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.title': 'Кажете им на купувачите за вашиот производ',
   'vendorProductForm.variants.colInventory': 'Инвентар',
   'vendorProductForm.variants.colVariant': 'Варијанта',
+  'vendorProductForm.variants.title': 'Варијанти и залиха',
   'vendorProducts.eyebrow': 'Администратор на добавувач',
   'vendorProducts.kpi.draft': 'Нацрти',
   'vendorProducts.kpi.lowStock': 'Мали залихи',
@@ -250,6 +323,7 @@ export const ui: UiTranslations = {
     'Најавете се за да управувате со вашата продавница, да ги следите нарачките кај секој продавач и да откривате смели колекции од независни производители.',
   'vendryAuthShell.sampleVendorMeta': 'Потврдено · 4,9 ★ · 1.240 продажби',
   'vendryAuthShell.sampleVendorName': 'Мира и Ко. Керамика',
+  'vendryAuthShell.sampleVendorTag': 'Препорачано',
   'vendryMarketHero.description':
     'Откријте илјадници независни добавувачи, рачно курирани колекции и продавници водени од луѓе кои вложуваат многу труд во нив. Купувајте смело, поддржете ги вистинските креатори.',
   'vendryMarketHero.eyebrow': 'Куриран пазар · Колекција од 2026 година',
@@ -258,11 +332,13 @@ export const ui: UiTranslations = {
   'vendryMarketHero.stat1Label': 'Независни производители',
   'vendryMarketHero.stat2Label': 'Курирани производи',
   'vendryMarketHero.stat3Label': 'Просечна оценка',
+  'vendryMarketHero.title': 'Секој творец, еден пазар.',
   'vendryOrderCard.idLabel': 'Нарачајте',
   'vendryOrderCard.placedOn': 'Поставено {{date}}',
   'vendryOrderCard.qty': 'Количина {{count}}',
   'vendryOrderCard.vendorCount': '{{count}} добавувач(и) во оваа нарачка',
   'vendryOrderCard.verifiedAria': 'Потврден продавач',
+  'vendryOrderCard.viewDetails': 'Погледнете ги деталите',
   'vendryProductCard.favoriteAria': 'Зачувај во омилени',
   'vendryProductCard.saleBadge': 'Распродажба',
   'vendryProductCard.verified': 'Потврден продавач',

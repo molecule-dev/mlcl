@@ -1,33 +1,50 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Командаңыз үчүн жылуураак кирүү процессин киргизгиңиз келеби, ката таптыңызбы же пикириңиз барбы? Аккаунт жөндөөлөрүңүздөн кайрылыңыз — ар бир билдирүү жардам бере алган чыныгы адамга жетет.',
   'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Жөнүндө',
+  'about.missionTitle': 'Биздин миссиябыз',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Сырсөзүңүздү баштапкы абалга келтириңиз.',
+  'auth.forgotPassword.panel.body':
+    'Калыбына келтирүү 30 секунд алат — текшерүү тизмеңиздин прогресси сизди күтүп турат.',
+  'auth.forgotPassword.panel.headline': 'Так токтогон жериңизден улантасыз.',
+  'auth.forgotPassword.subheading':
+    'Жумуш электрондук почтаңызды киргизиңиз, биз сизге калыбына келтирүү шилтемесин жөнөтөбүз.',
   'auth.forgotPassword.successSubheading':
     'Почтаңызды текшериңиз — биз баштапкы абалга келтирүү боюнча көрсөтмөлөрдү жөнөттүк.',
   'auth.login.emailPlaceholder': 'name@yourcompany.com',
   'auth.login.heading': 'Кайра кош келиңиз.',
   'auth.login.passwordPlaceholder': 'Сиздин сырсөзүңүз',
+  'auth.login.signupPrompt': 'Командаңызга жаңысызбы?',
   'auth.login.subheading':
     'Каттоодон өтүү сапарыңызды токтогон жериңизден улантуу үчүн аккаунтуңузга кириңиз.',
   'auth.login.submit': 'Сапарыңызды улантыңыз',
+  'auth.panel.body':
+    'Жеке текшерүү тизмеңиз, окутуу этаптары жана команда менен таанышуу — баары бир тынч жерде.',
   'auth.panel.footnote': '© Embark — бүгүнтөн баштап биринчи кезекте адамдарды кабыл алуу.',
   'auth.panel.headline': 'Ишенимдүү алгачкы 90 күн ушул жерден башталат.',
   'auth.resetPassword.heading': 'Жаңы сырсөз коюңуз.',
   'auth.resetPassword.newPasswordLabel': 'Жаңы сыр сөз',
+  'auth.resetPassword.panel.body':
+    'Жаңы сырсөз сактаңыз, биз сизди кирүү процессиңизге кайра алып барабыз.',
+  'auth.resetPassword.panel.headline': 'Дээрлик кайттыңыз.',
   'auth.resetPassword.subheading': 'Эсиңизде кала турган нерсени тандаңыз — кеминде 8 белги.',
   'auth.signup.emailPlaceholder': 'name@yourcompany.com',
   'auth.signup.heading': 'Алгачкы 90 күнүңүзгө кош келиңиз.',
   'auth.signup.panel.body':
     'Жетектелген текшерүү тизмеси, ролдорду түшүнүү боюнча окутуу жана адамдарды тааныштыруу — сиз кирерден мурун даяр болот.',
+  'auth.signup.panel.headline': 'Биринчи күн, биринчи күнү эле.',
   'auth.signup.subheading': 'Гид менен кирүү сапарыңызды баштоо үчүн Embark аккаунтуңузду түзүңүз.',
   'checklist.empty.body': 'Башка тапшырмаларды көрүү үчүн чыпканы которуштуруңуз.',
   'checklist.empty.title': 'Азыр бул жерде эч нерсе жок',
   'checklist.eyebrow': 'Жаңыдан таанышуу · Текшерүү тизмеси',
   'checklist.loading': 'Текшерүү тизмеси жүктөлүүдө…',
   'checklist.stat.actionNeeded': 'Аракет керек',
+  'checklist.stat.completion': 'Аяктоо',
+  'checklist.stat.inProgress': 'Прогрессте',
   'checklist.stat.inProgressHelper': 'Токтоткон жериңизден улантыңыз',
   'checklist.stat.overdueHelper': 'Адегенде ушуларды кармагыла',
   'checklist.subtitle':
@@ -59,6 +76,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Азырынча документтер жок',
   'documents.eyebrow': 'Жаңыдан жумушка орношуу · Документтер',
   'documents.loading': 'Документтер жүктөлүүдө…',
+  'documents.stat.actionNeeded': 'Азыр кол коюңуз',
+  'documents.stat.all': 'Бардык документтер',
   'documents.stat.allHelper': 'Категориялар боюнча',
   'documents.stat.pending': 'Күтүлүп жаткан кол тамгалар',
   'documents.stat.pendingHelper': 'Аяктоо үчүн талап кылынат',
@@ -66,6 +85,7 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Коопсуз сакталган',
   'documents.status.optional': 'Кошумча',
   'documents.status.required': 'Талап кылынат',
+  'documents.status.signed': 'Кол коюлган',
   'documents.subtitle':
     'Колдонмоңуз, формаларыңыз жана кол коюлган келишимдериңиз — баары бир жерде.',
   'documents.title': 'Окуп, кол коюу үчүн керектүү нерселердин баары.',
@@ -73,16 +93,21 @@ export const ui: UiTranslations = {
   'documentViewer.breadcrumbCurrent': 'Көрүүчү',
   'documentViewer.breadcrumbDocs': 'Документтер',
   'documentViewer.downloadMeta': 'Метадайындарды жүктөп алуу',
+  'documentViewer.helpBody':
+    "People & Culture Slack'теги #ask-people каналында колдонмо боюнча суроолорго жооп берет.",
   'documentViewer.helpEyebrow': 'Жардам керекпи?',
   'documentViewer.loadError': 'Бул документ жүктөлбөй койду.',
   'documentViewer.loading': 'Документ жүктөлүүдө…',
   'documentViewer.notFound': 'Документ табылган жок',
+  'documentViewer.previewBody':
+    'Жүктөөлөр жөндөлгөндө файлды түз көрсөтөбүз. Азырынча метаберилиштерди жүктөө жазуунун чыныгы экенин ырастоого мүмкүндүк берет.',
   'documentViewer.previewBodyExternal': 'Файлды жаңы өтмөктө ачуу үчүн жүктөө баскычын колдонуңуз.',
   'documentViewer.previewTitle': 'Документти алдын ала көрүү',
   'documentViewer.sign': 'Кол коюп, моюнга алыңыз',
   'documentViewer.signatureBody':
     'Документти окуп чыгып, андан кийин кол коюу жана ырастоо үчүн төмөндөгү баскычты басыңыз.',
   'documentViewer.signatureHeading': 'Кол коюу талап кылынат',
+  'documentViewer.signed': '✓ Кол коюлду жана архивделди',
   'documentViewer.signing': 'Кол коюлууда…',
   'documentViewer.uploadedRecently': 'Жакында жүктөлдү',
   'landing.closing.body':
@@ -92,10 +117,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Менин аккаунтум мурунтан эле бар',
   'landing.feature1.body':
     'Ар бир тапшырма — документтер, эсептер, кириш сөздөр — алдын ала этап-этабы менен аткарылышы керек жана кимге тапшырылышы керек.',
+  'landing.feature1.title': 'Жетектелген текшерүү тизмеси',
   'landing.feature2.body':
     'Модулдар жалданма кызматкер кошулуп жаткан ролго жана командага ылайыкташтырылып, 30/60/90 этаптарында ачылат.',
+  'landing.feature2.title': 'Ролго ылайыктуу окутуу',
   'landing.feature3.body':
     'Достор, менеджерлер жана ар кандай функциялар боюнча тааныштыруулар пландаштырылган — ошондуктан эч ким жалгыз баштабайт.',
+  'landing.feature3.title': 'Чыныгы таанышуулар',
   'landing.featureEyebrow': 'Эмне үчүн аттануу керек',
   'landing.featureHeadline': 'Embark биринчи күнү ишенимге ээ болуунун үч жолу.',
   'landing.footer.rights': 'Бардык укуктар корголгон.',
@@ -105,6 +133,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Кийинкиси: Шейшемби күнү саат 10:00дө досуңуз менен 30 мүнөттүк кофе баарлашуу үчүн жолугушуңуз.',
   'landing.preview.eyebrow': '90-күндүн 14-күнү — үлгү башкаруу панели',
+  'landing.preview.headline': 'Кайра кош келиңиз, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR даяр',
   'landing.proof.teams': '50–5000 адамдан турган командалар үчүн курулган',
   'landing.proof.time': '14 күндүк акысыз сыноо мөөнөтү',
@@ -121,16 +150,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Баары даяр.',
   'planUpdated.preparing': 'Планыңыз жаңыртылууда…',
+  'planUpdated.retry': 'Кайра аракет кыл',
+  'planUpdated.verifyFailed': 'Төлөмүңүздү азырынча ырастай алган жокпуз.',
+  'planUpdated.verifyFailedBody':
+    'Төлөмүңүз дагы эле иштетилип жатышы мүмкүн. Бир аздан кийин кайра аракет кылыңыз.',
   'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'pricing.documentsLabel': 'документтер',
   'pricing.onboardingsLabel': 'жаңы мүчөлөр',
   'pricing.tasksLabel': 'тапшырмалар',
   'profile.dayNumber': 'Күн',
   'profile.detailsHeading': 'Жаңыдан кабыл алуунун чоо-жайы',
+  'profile.encouragementBody':
+    'Баддиңизди жана менеджериңизди кабардар кылып туруңуз — кичине кадамдар топтолот.',
   'profile.milestones': 'Этаптар',
   'profile.progressEyebrow': 'Жаңыдан жумушка орношуу процесси',
   'profile.tasks': 'Тапшырмалар',
   'profile.unknownName': 'Кош келдиңиз',
+  'settings.appearance.description': 'Жарык жана караңгы режимдердин ортосунда которулуңуз.',
+  'settings.appearance.title': 'Көрүнүшү',
+  'settings.subtitle':
+    'Эскертүүлөрдү, коопсуздукту, түзмөктөрдү жана берилиштерди экспорттоону жөндөңүз — баары ушул жерде, өз шарттарыңызда калат.',
   'settings.title': 'Орнотуулар жана артыкчылыктар.',
   'taskDetail.backToChecklist': 'Текшерүү тизмесине кайтуу',
   'taskDetail.breadcrumbChecklist': 'Текшерүү тизмеси',
@@ -142,7 +181,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'Мөөнөтү жок',
   'taskDetail.notFound': 'Тапшырма табылган жок',
   'taskDetail.notFoundBody': 'Бул тапшырма өчүрүлгөн же башка колдонуучуга таандык болушу мүмкүн.',
+  'taskDetail.tipBody':
+    "Тоскоолдукка туш болсоңуз, Slack'те кирүү баддиңизге жазыңыз — алар сиздин биринчи жардамчыңыз.",
   'taskDetail.tipEyebrow': 'Тез кеңеш',
+  'team.empty.body': 'Кеңирээк издөөнү байкап көрүңүз же башка бөлүмдү тандаңыз.',
   'team.empty.title': 'Командалаштар менен беттешүү жок',
   'team.eyebrow': 'Жаңыдан жумушка орношуу · Адамдар',
   'team.loading': 'Командалаштар жүктөлүүдө…',
@@ -165,14 +207,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Этаптар',
   'timeline.stat.current': 'Учурдагы этап',
   'timeline.stat.next': 'Кийинки кулпуну ачуу',
+  'timeline.stat.progress': 'Жалпысынан',
   'timeline.subtitle':
     'Ар бир этап жаңы модулдарды, киришүүлөрдү жана өсүү боюнча сүйлөшүүлөрдү ачат. Кысым жок — жөн гана прогресс.',
+  'timeline.tipBody':
+    'Менеджериңиз менен 30, 60 жана 90-күндөрү 30 мүнөттүк талкуу пландаштырыңыз — бул пикирди так жана прогрести көрүнүктүү кылат.',
   'timeline.tipEyebrow': 'Менеджердин кеңеши',
+  'timeline.tipTitle': 'Этаптар үчүн календарга убакыт белгилеңиз.',
   'timeline.title': 'Сиздин 30/60/90 сапарыңыз.',
   'training.badge.notStarted': 'Башталган жок',
   'training.empty': 'Азырынча окутуу модулдары жок.',
   'training.eyebrow': 'Жаңыдан тааныштыруу · Окутуу',
   'training.loading': 'Модулдар жүктөлүүдө…',
+  'training.stat.all': 'Модулдар дайындалды',
   'training.subtitle':
     'Модулдар сиздин ролуңузга дал келүү үчүн 30/60/90до ачылат. Керектүүлөрү биринчи орунда турат.',
   'training.title': 'Көндүмдөр, куралдар жана окуялар — сиздин темпиңизде.',
@@ -184,9 +231,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'Модуль табылган жок',
   'trainingModule.quizBody': 'Бул модулду бүтүрүү үчүн 80% же андан көп балл алыңыз.',
   'trainingModule.quizHeading': 'Модулдун аягындагы викторина',
+  'trainingModule.quizLocked': 'Алгач модулду баштаңыз',
   'trainingModule.quizNone': 'Бул модулда викторина жок.',
   'trainingModule.quizRetry': 'Кайра аракет кыл',
+  'trainingModule.quizStart': 'Тестти баштоо',
   'trainingModule.quizSubmit': 'Жоопторду жөнөтүү',
+  'trainingModule.start': 'Модулду баштоо',
   'trainingModule.statusNotStarted': 'Башталган жок',
   'welcomeHeroCard.completeLabel': 'Аяктады',
   'welcomeHeroCard.milestonesLabel': 'Этаптар',

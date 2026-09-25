@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'გაქვთ შეკითხვა, იპოვეთ ხარვეზი ან გსურთ წიგნების გადმოტანა? დაუკავშირდით {{app}}-ის გუნდს მისამართზე hello@{{app}}.example — ყველა შეტყობინებას ნამდვილი ადამიანი კითხულობს.',
   'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
+  'about.intro':
+    '{{app}} არის მცირე ბიზნესის ბუღალტერია, რომელიც ყოველ ცენტრს ითვალისწინებს — ინვოისები, ხარჯები, გადახდები და ანგარიშები ერთ მშვიდ სივრცეში მფლობელებისთვის, ბუღალტრებისა და აუდიტორებისთვის.',
+  'about.missionBody':
+    'ბიზნესის წარმოება არ უნდა ნიშნავდეს ბუღალტერიის შიშს. {{app}} ცვლის გაფანტულ ცხრილებს მკაფიო რიცხვებით, რომლებზეც შეგიძლიათ იმოქმედოთ, რათა ნაკლები დრო დახარჯოთ შეჯერებაზე და მეტი — იმ საქმეზე, რისთვისაც ბიზნესი დაიწყეთ.',
+  'about.missionTitle': 'ჩვენი მისია',
   'about.title': '{{app}}-ის შესახებ',
   'accounts.count': '{{count}} ანგარიში',
+  'accounts.emptyBody':
+    'ლეჯერის ანგარიშები ადევნებს თვალს, სად არის და სად მოძრაობს ფული. ისინი აქ გამოჩნდება მას შემდეგ, რაც თქვენი ბუღალტერი ან ინტეგრაცია დააყენებს მათ.',
   'accounts.emptyTitle': 'ანგარიშები ჯერ არ არის',
   'accounts.heading': 'ანგარიშების სქემა',
   'accounts.kpi.accounts': 'ანგარიშები',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'თქვენი ინვოისების, ხარჯებისა და გადახდების უკან არსებული ყველა სარეგისტრაციო ანგარიში, დაჯგუფებული ტიპის მიხედვით.',
   'accounts.tag.inactive': 'არააქტიური',
   'authBrandPanel.attributionName': 'სარა ჯენკინსი',
+  'authBrandPanel.attributionRole': 'ფინანსური დირექტორი, Horizon Tech',
   'authBrandPanel.eyebrow': 'ფინანსური გუნდების ნდობით აღჭურვილი',
   'authBrandPanel.label': 'ბრენდის ვიტრინა',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'ყველა მომხმარებელი',
   'customerDetail.invoiceMeta': 'გაცემულია {{issued}} · ვადა {{due}}',
   'customerDetail.loadError': 'კლიენტის ჩატვირთვა ვერ მოხერხდა.',
+  'customerDetail.missingBody':
+    'მოთხოვნილი მომხმარებლის ჩანაწერი ვერ ჩაიტვირთა. შესაძლოა ის წაშლილია ან მასზე წვდომა არ გაქვთ.',
   'customerDetail.missingHeading': 'მომხმარებლის ჩანაწერი მიუწვდომელია',
+  'customerDetail.missingHelp':
+    'დაბრუნდით მომხმარებლების სიაში ზემოთ მოცემული უკან დაბრუნების ბმულით ან აირჩიეთ სხვა ჩანაწერი იქიდან.',
+  'customerDetail.noInvoices': 'ინვოისები ჯერ არ არის.',
   'customerDetail.notesEmpty': 'შენიშვნები ჯერ არ არის.',
   'customerDetail.paymentsEmpty': 'გადახდები არ არის რეგისტრირებული.',
   'customerDetail.paymentTerms': 'გადახდის პირობები',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'გამოქვითვა',
   'expenseDetail.detailsHeading': 'ტრანზაქციის დეტალები',
   'expenseDetail.loadError': 'ხარჯების ჩატვირთვა ვერ მოხერხდა.',
+  'expenseDetail.matched': 'დამთხვეული · {{description}}',
   'expenseDetail.missingBody':
     'მოთხოვნილი ხარჯის ჩატვირთვა ვერ მოხერხდა. შესაძლოა, ის წაიშალა ან მასზე წვდომა არ გქონდეთ.',
   'expenseDetail.missingHeading': 'ხარჯების ჩანაწერი მიუწვდომელია',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'ქვითარი',
   'expenseDetail.receiptHeading': 'ქვითარი',
   'expenseDetail.reconciled': 'შერიგებული',
+  'expenseDetail.unreconciled': 'შეურიგებელი',
   'expenses.empty': 'ხარჯები ჯერ არ არის.',
   'expenses.heading': 'ხარჯები',
   'expenses.kpi.deductible': 'გამოქვითვა',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'ინვოისების ჩატვირთვა ვერ მოხერხდა.',
   'invoices.searchPlaceholder': 'მოძებნეთ ინვოისის ნომერი ან მომხმარებელი…',
   'invoices.summary.paid': 'გადახდილია ამ პერიოდში',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'უფასოა 30 დღის განმავლობაში. ბარათის გარეშე. მოიყვანეთ თქვენი ბუღალტერი - ისინი მადლიერები დარჩებიან.',
   'landing.ctaTitle': 'წიგნები უფრო მშვიდ ადგილას გადაიტანეთ.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'დებიტორული დავალიანება',
   'ledgerStatTriad.eyebrow.mtd': 'თვიდან დღემდე',
   'ledgerStatTriad.netSub': 'ბადე {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} ვადაგადაცილებული',
   'ledgerStatTriad.revenueLabel': 'შემოსავალი',
   'login.failed': 'შესვლა ვერ მოხერხდა.',
   'login.hidePassword': 'პაროლის დამალვა',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'შესვლა',
   'nav.legal': 'იურიდიული',
   'newExpense.back': 'ხარჯები',
+  'newExpense.clearReceiptCta': 'მიმაგრებული ქვითრის გასუფთავება',
   'newExpense.deductible': 'გადასახადისგან გათავისუფლება',
   'newExpense.dropPrompt': 'ქვითრის ფოტო ან PDF ფაილი აქ ჩააგდეთ დასამაგრებლად.',
   'newExpense.failed': 'ხარჯების დაზოგვა ვერ მოხერხდა.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'გადახდების ჩატვირთვა ვერ მოხერხდა.',
   'payments.unmatchedTag': 'შეუდარებელი',
   'planUpdated.pageLabel': 'გეგმის განახლების დადასტურება',
+  'pricing.advancedFeatures': 'დამატებითი ფუნქციები: {{yes}}',
+  'pricing.canExport': 'მონაცემების ექსპორტი: {{yes}}',
+  'pricing.heading': 'აირჩიეთ თქვენი {{app}} ტარიფი',
+  'pricing.maxAccounts': '{{count}} ანგარიში',
+  'pricing.maxExpenses': '{{count}} ხარჯები',
+  'pricing.maxInvoices': '{{count}} ინვოისი',
+  'privacy.intro':
+    'წინამდებარე კონფიდენციალურობის პოლიტიკა აღწერს, თუ როგორ აგროვებს, იყენებს და ამხელს {{app}} ინფორმაციას სერვისით მოსარგებლე ბიზნესების შესახებ.',
   'privacy.lastUpdated': 'ბოლო განახლება: {{თარიღი}}',
   'privacy.section.collected.body':
     'ჩვენ ვაგროვებთ ანგარიშის დეტალებს (სახელი, ელ. ფოსტა, კომპანია), თქვენს მიერ ატვირთულ ფინანსურ ჩანაწერებს (ინვოისები, ხარჯები, მომხმარებლები, გადახდები) და სტანდარტულ სერვის-ოპერაციის ჟურნალებს (IP, მომხმარებლის აგენტი, დროის ნიშნულები).',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'ინფორმაცია გამოიყენება სერვისის ფუნქციონირებისთვის, თქვენს მიერ მოთხოვნილი ანგარიშებისა და PDF ფაილების გენერირებისთვის, Mailgun-ის მეშვეობით ტრანზაქციული ელფოსტის გასაგზავნად და Stripe-ის მეშვეობით გადახდების დასამუშავებლად. ჩვენ არ ვყიდით და არ ვაქირავებთ პერსონალურ ინფორმაციას.',
   'recentInvoicesCard.dueMeta': 'ვადა {{date}}',
+  'recentInvoicesCard.empty': 'ინვოისები არ ემთხვევა.',
   'recentInvoicesCard.eyebrow': 'დებიტორული დავალიანება',
   'recentInvoicesCard.searchAriaLabel': 'ინვოისების ძიება',
+  'recentInvoicesCard.searchPlaceholder': 'ინვოისების ძებნა…',
   'recentInvoicesCard.title': 'ბოლო ინვოისები',
   'recentInvoicesCard.viewAll': 'ყველა ინვოისის ნახვა →',
   'reports.assets': 'აქტივები',
@@ -181,16 +211,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'მოგება და ზარალი (12 თვე)',
   'resetPassword.backToLogin': '← უკან შესვლაზე',
   'resetPassword.hidePassword': 'პაროლის დამალვა',
+  'resetPassword.passwordLabel': 'ახალი პაროლი',
   'resetPassword.showPassword': 'პაროლის ჩვენება',
+  'resetPassword.subheading': 'აირჩიეთ ძლიერი პაროლი — მინიმუმ რვა სიმბოლო.',
   'resetPassword.submit': 'პაროლის აღდგენა',
   'resetPassword.tooShort': 'პაროლი უნდა იყოს მინიმუმ 8 სიმბოლო.',
   'settings.account.changePassword': 'პაროლის შეცვლა',
   'settings.account.changingPassword': 'იცვლება…',
   'settings.account.currentPassword': 'მიმდინარე პაროლი',
+  'settings.account.dangerZone': 'საფრთხის ზონა',
   'settings.account.deleteAccount': 'ანგარიშის წაშლა',
   'settings.account.deleteDescription':
     'სამუდამოდ წაშალეთ თქვენი ანგარიში და მასთან დაკავშირებული ყველა მონაცემი.',
   'settings.account.deleteError': 'ანგარიშის წაშლა ვერ მოხერხდა.',
+  'settings.account.deleteWarning':
+    'ეს სამუდამოდ წაშლის თქვენს ანგარიშს და ვერ დაბრუნდება. დასადასტურებლად შეიყვანეთ პაროლი.',
   'settings.account.deleting': 'წაშლა…',
   'settings.account.devices': 'მოწყობილობები',
   'settings.account.email': 'ელ. ფოსტა',
@@ -201,6 +236,7 @@ export const ui: UiTranslations = {
   'settings.account.password': 'პაროლი',
   'settings.account.passwordError': 'პაროლის შეცვლა ვერ მოხერხდა.',
   'settings.account.pushNotifications': 'push-შეტყობინებები ამ მოწყობილობაზე',
+  'settings.account.revokeDeviceWarning': 'ამ მოწყობილობის წვდომა მალე გაუქმდება. გასვლა?',
   'settings.account.saveError': 'პროფილის განახლება ვერ მოხერხდა.',
   'settings.account.security': 'უსაფრთხოება',
   'settings.account.signOutDevice': 'გასვლა',
@@ -208,12 +244,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'ორფაქტორიანი ავთენტიფიკაცია',
   'settings.account.twoFactorCode': 'ავტორიზაციის კოდი',
   'settings.account.twoFactorDisable': 'გამორთვა',
+  'settings.account.twoFactorDisableTitle': 'ორფაქტორიანი ავთენტიფიკაციის გამორთვა',
   'settings.account.twoFactorEnable': 'ჩართვა',
+  'settings.account.twoFactorEnableTitle': 'ორფაქტორიანი ავთენტიფიკაციის ჩართვა',
   'settings.account.twoFactorInvalidCode': 'არასწორი კოდი',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'ორფაქტორიანი QR კოდი',
+  'settings.account.twoFactorScan':
+    'დაასკანერეთ ეს QR კოდი ავთენტიფიკატორის აპით, შემდეგ შეიყვანეთ 6-ნიშნა კოდი.',
+  'settings.account.twoFactorUnavailable':
+    'ორფაქტორიანი ავთენტიფიკაცია ამ აპლიკაციისთვის მიუწვდომელია.',
   'settings.account.twoFactorVerify': 'დადასტურება და ჩართვა',
   'settings.account.unknownDevice': 'უცნობი მოწყობილობა',
   'settings.company.email': 'გადახდის ელფოსტა',
+  'settings.company.heading': 'კომპანია და გადასახადები',
   'settings.company.name': 'იურიდიული სახელი',
   'settings.company.saveButton': 'კომპანიის პროფილის შენახვა',
   'settings.company.taxId': 'საგადასახადო ID / EIN',
@@ -257,6 +301,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'დაახლ. კვარტალური',
   'taxes.kpi.owed': 'ვალი',
   'taxes.loadError': 'საგადასახადო შეჯამების ჩატვირთვა ვერ მოხერხდა.',
+  'taxes.remittedPct': '({{pct}}% გადარიცხული)',
+  'terms.intro':
+    'წინამდებარე მომსახურების პირობები ("პირობები") არეგულირებს თქვენს წვდომას და გამოყენებას {{app}}-ის. ანგარიშის შექმნით ან სერვისით სარგებლობით თქვენ ეთანხმებით მათ.',
   'terms.lastUpdated': 'ბოლო განახლება: {{თარიღი}}',
   'terms.section.acceptable.body':
     'თქვენ ეთანხმებით, რომ არ გამოიყენებთ სერვისს რაიმე კანონის დარღვევისთვის, ინტელექტუალური საკუთრების უფლებების დარღვევისთვის, მავნე პროგრამების გადასაცემად ან სხვა ანგარიშებზე ან ჩვენს ინფრასტრუქტურაზე არაავტორიზებული წვდომის მოპოვების მცდელობისთვის.',

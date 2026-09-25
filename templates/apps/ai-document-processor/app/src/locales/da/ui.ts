@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Har du et spørgsmål, fundet en fejl, eller vil du have en demo til dit team? Kontakt os via dine kontoindstillinger — hver besked går til en rigtig person på teamet.',
   'about.contactTitle': 'Kontakt os',
+  'about.intro':
+    "{{app}} forvandler bunker af scannede dokumenter og PDF'er til strukturerede, søgbare, arkiverede data. Læg fakturaer, kvitteringer, kontrakter eller formularer ind, og lad AI læse, udtrække, klassificere og arkivere dem — med tillidsfarver, så dit team kun gennemgår det, der virkelig kræver et menneske.",
+  'about.missionBody':
+    'Dokumentrutinearbejde bør ikke spise dit teams dag. Vi mener, at hver udtrukket værdi bør kunne forklares og revideres — så du kan stole på automatiseringen uden at miste sporet. {{app}} er bygget til at spare timer pr. bunke, mens et menneske holdes i loopet, hvor det betyder noget.',
+  'about.missionTitle': 'Vores mission',
+  'about.subtitle': 'OCR, AI-udtræk, klassificering og automatisk arkivering af dine dokumenter.',
   'about.title': 'Om {{app}}',
+  'about.whatYouGetTitle': 'Hvad du får',
   'authShell.backToLanding': '← Tilbage til forsiden',
   'common.goToDashboard': 'Gå til Dashboard',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'I dag · Driftsoversigt',
   'dashboard.heading': 'Dokumentintelligens',
+  'dashboard.metric.accuracy': 'Gns. nøjagtighed',
   'dashboard.metric.filed': 'Arkiveret i dag',
   'dashboard.metric.filedCaption': 'Dirigeret af arkiveringsregler',
   'dashboard.metric.processed': 'Behandlet i dag',
@@ -23,11 +33,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Dokument',
   'dashboard.recent.col.uploaded': 'Uploadet',
   'dashboard.recent.heading': 'Seneste dokumenter',
+  'dashboard.recent.typeUnknown': 'Afventer klassificering',
   'dashboard.subheading':
     'Hver side klassificeret, udtrukket og arkiveret — med konfidensfarver, så gennemgang holder fokus.',
   'documentDetail.audit.heading': 'Revisionstidslinje',
+  'documentDetail.audit.subheading':
+    'Hvert skridt taget på dette dokument, med den ansvarlige aktør.',
   'documentDetail.back': 'Alle dokumenter',
   'documentDetail.downloadHint': 'Brug Download for at åbne den oprindelige fil.',
+  'documentDetail.extracted.empty': 'Ingen felter udtrukket endnu.',
   'documentDetail.extracted.heading': 'Udtrukne felter',
   'documentDetail.extracted.subheading':
     '{{count}} felter · klik på et felt for at fremhæve det på siden',
@@ -55,13 +69,23 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'Søg dokumenter…',
   'documents.subheading': '{{count}} dokumenter i dit bibliotek, sorteret med de nyeste først.',
   'documents.uploadCta': 'Upload dokumenter',
+  'documentTypeBreakdown.barAria': 'Dokumentsammensætning efter type',
   'documentTypeBreakdown.empty': 'Endnu ingen dokumenter behandlet.',
   'documentTypeBreakdown.subtitle': '{{total}} behandlet',
   'documentTypeBreakdown.title': 'Dokumentsammensætning',
+  'forgotPassword.backToSignIn': '← Tilbage til login',
   'forgotPassword.checkEmail': 'Tjek din e-mail',
   'forgotPassword.tip': 'Fik du det ikke? Tjek spam eller prøv en anden adresse.',
+  'landing.copyright': '© {{year}} {{app}}. Bygget til driftsteams, der reviderer hver side.',
+  'landing.ctaBody':
+    '14 dages prøveperiode. Intet kort nødvendigt. Annuller når som helst. Bygget til driftsteams, der arbejder hurtigt og reviderer i ro og mag.',
   'landing.ctaHeading': 'Stop med at indtaste kvitteringer. Begynd at arkivere dem.',
   'landing.eyebrow': 'OCR · Udtrækning · AI-arkivering',
+  'landing.featuresHeading': 'Dokumentintelligens, der forklarer sig selv',
+  'landing.heroSubtitle':
+    'Læg en bunke fakturaer, kvitteringer, kontrakter eller formularer ind. {{app}} klassificerer, udtrækker og arkiverer dem — med tillidsfarver, så dit team kun gennemgår det, der virkelig kræver et menneske.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Daglig volumen · seneste 7 dage',
   'landing.sampleCardLabel': 'Dokumenter behandlet i dag',
   'landing.sampleCardSubtitle':
     '96,2 % gns. nøjagtighed på tværs af fakturaer, kvitteringer og formularer.',
@@ -75,6 +99,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Åbn forsiden',
   'notFound.title': 'Den side er ikke i arkivet',
+  'parcelaHeroCard.accuracy': 'Gns. nøjagtighed {{value}}% på tværs af alle udtræk',
   'parcelaHeroCard.change': '{{sign}}{{amount}} % vs. i går',
   'parcelaHeroCard.title': 'Dokumenter behandlet i dag',
   'parcelaLayout.primaryNavLabel': 'Primær navigation',
@@ -82,6 +107,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'dokumenter',
   'pricing.processingLabel': 'behandlingsjob',
   'resetPassword.confirmPlaceholder': 'Gentag den nye adgangskode',
+  'resetPassword.hidePassword': 'Skjul adgangskode',
   'resetPassword.passwordLabel': 'Ny adgangskode',
   'resetPassword.showPassword': 'Vis adgangskode',
   'resetPassword.subtitle': 'Vælg noget, der er mindst 8 tegn langt.',
@@ -98,10 +124,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Kunne ikke indlæse regler.',
   'rules.loading': 'Indlæser regler…',
   'rules.matched30d': '{{count}} dokumenter matchet de seneste 30 dage',
+  'rules.neverUsed': 'Aldrig brugt',
   'rules.newRule': 'Ny regel',
   'rules.saveError': 'Kunne ikke gemme reglen.',
   'rules.subheading':
     'Fortæl systemet, hvor hver type dokument skal hen. Betingelser kædes oppefra og ned — første match vinder.',
+  'rules.templatesEmpty': 'Ingen udtræksskabeloner endnu.',
   'rules.templatesHeading': 'Udtrækningsskabeloner',
   'rules.templatesSubheading': 'Feltskemaer, som udtrækkeren bruger for hver dokumenttype.',
   'rules.then': 'Så',
@@ -110,17 +138,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Arbejdsområdenavn',
   'settings.account.subheading':
     'Visningsnavn og primær e-mail til notifikationer og revisionshistorik.',
+  'settings.api.confirmRevoke': 'Bekræfte?',
   'settings.api.copyOnce': 'Kopiér denne nøgle — den vises ikke igen',
   'settings.api.createdOn': 'Oprettet {{date}}',
   'settings.api.empty': 'Ingen API-nøgler endnu. Generér en ovenfor.',
   'settings.api.error': 'Kunne ikke oprette nøgle.',
+  'settings.api.generating': 'Genererer…',
+  'settings.api.heading': 'API-nøgler',
   'settings.api.labelPlaceholder': 'Nøgleetiket (f.eks. CI-uploader)',
+  'settings.api.loading': 'Indlæser nøgler…',
   'settings.api.newKey': 'Generér nøgle',
   'settings.api.subheading':
     'Brug disse til at sende dokumenter fra et script eller dit ERP. Rotér en nøgle når som helst.',
   'settings.integrations.heading': 'Arkiveringsintegrationer',
   'settings.integrations.subheading':
     'Send arkiverede dokumenter til det skydrev eller chatværktøj, dit team allerede bruger.',
+  'settings.subheading':
+    'Administrer konto, API-nøgler og arkiveringsintegrationer for dit {{app}}-arbejdsområde.',
+  'signup.hidePassword': 'Skjul adgangskode',
   'signup.identityPrompt': 'Hvad skal vi kalde dig?',
   'signup.showPassword': 'Vis adgangskode',
   'signup.subtitle': '14 dage gratis, intet kort kræves.',
@@ -128,6 +163,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Upload mislykkedes.',
   'upload.eyebrow': 'Indtagelse',
   'upload.heading': 'Upload dokumenter',
+  'upload.queue.clear': 'Ryd gennemførte',
   'upload.queue.col.confidence': 'Konfidens',
   'upload.queue.col.file': 'Fil',
   'upload.queue.detecting': 'Registrerer…',
@@ -140,5 +176,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Eller smid flere filer på én gang til batch-udtrækning, klassificering og arkivering.',
   'uploadDropZone.cta': 'Vælg filer',
+  'uploadDropZone.maxSize': 'Maks. 25 MB pr. fil · End-to-end-krypteret',
   'uploadDropZone.title': 'Smid dokumenter for at starte behandling',
 }

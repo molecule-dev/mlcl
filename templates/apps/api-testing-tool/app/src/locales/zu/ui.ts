@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Uthole ibhagi, unesicelo sesici, noma ufuna ukusitshela ukuthi yini okufanele sakhe ngokulandelayo? Thumela i-imeyili ku-hello@pylon.dev — yonke imiyalezo ifinyelela unjiniyela wangempela eqenjini.',
   'about.contactTitle': 'Xoxa nathi',
+  'about.intro':
+    'I-{{app}} iyindawo yokusebenza yokuhlola i-API esheshayo, esebenza ngekhibhodi yonjiniyela abahlala kutheminali — izicelo ezifana ne-Postman, amaqoqo, izimo zokusebenza, nomlando ngaphandle kokukhuluphala.',
+  'about.missionBody':
+    'Ama-API ayisisekelo sesofthiwe yesimanje, kodwa amathuluzi okuwasebenzisa ayashesha kancane, akhuluphele, futhi asetshenziswa ngegundane. I-{{app}} ikhona ukuze inikeze abathuthukisi indawo yokusebenza ebukhali, esheshayo, esezingeni letheminali: thumela izicelo, zakha ukuzethemba, futhi uthumele ngaphandle kokushiya ikhibhodi.',
+  'about.missionTitle': 'Umsebenzi wethu',
   'about.pageTitle': 'Mayelana ne-{{app}}',
   'authShell.statusLabel': 'abagijimi abaku-inthanethi',
   'collections.createError': 'Ayikwazanga ukudala iqoqo.',
   'collections.defaultName': 'Iqoqo elingenasihloko {{n}}',
+  'collections.empty':
+    'Awekho amaqoqo okwamanje — chofoza “Iqoqo elisha” ukuze wakhe ifolda yakho yokuqala.',
   'collections.eyebrow': 'Amaqoqo e-pylon angu-$ --tree',
   'collections.fetchError': 'Ayikwazanga ukulayisha amaqoqo.',
   'collections.heading': 'Amaqoqo',
   'collections.loading': 'Ilayisha amaqoqo…',
+  'collections.metric.allGreen': 'Konke kuluhlaza',
   'collections.metric.collections': 'Amaqoqo',
   'collections.metric.failing': 'Ukwehluleka',
   'collections.metric.failingCaption': 'Ukugijima kokugcina kube nokwehluleka',
@@ -24,6 +34,8 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Izinguquko',
   'environments.createError': 'Ayikwazanga ukudala indawo.',
   'environments.defaultName': 'Indawo engenasihloko {{n}}',
+  'environments.empty':
+    'Azikho izimo zokusebenza okwamanje — chofoza “Isimo esisha sokusebenza” ukuze wengeze esisodwa.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'Ayikwazanga ukulayisha izindawo.',
   'environments.heading': 'Izindawo',
@@ -31,8 +43,11 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Indawo entsha',
   'environments.subheading':
     'Izinguquko ezishintshana zibe yizicelo ngesikhathi sokuthumela. Indawo eyodwa esebenzayo endaweni yokusebenza ngayinye.',
+  'forgotPassword.statusLabel': 'setha kabusha · umhubhe ovikelekile',
   'forgotPassword.success':
     'Uma kukhona i-akhawunti yaleyo imeyili, isixhumanisi sokusetha kabusha sisendleleni. Hlola ibhokisi lakho lokungenayo.',
+  'history.empty':
+    'Akukho lutho lapha okwamanje — thumela isicelo sakho sokuqala kusuka kuthebhu ye-Workspace.',
   'history.eyebrow': 'umlando we-pylon ka-$ --tail',
   'history.fetchError': 'Ayikwazanga ukulayisha umlando.',
   'history.heading': 'Umlando wokuqalisa',
@@ -41,9 +56,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Ama-50 okugcina',
+  'history.realtime': 'isikhathi sangempela',
   'history.subheading':
     'Isicelo ngasinye sithunyelwe kule ndawo yokusebenza, ngesimo, ukubambezeleka, kanye nosayizi womthwalo.',
   'landing.choosePlan': 'Khetha uhlelo',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Zakha ukuzethemba.',
   'landing.ctaBody':
     'Akukho khadi lesikweletu. Akudingeki unjiniyela weplatifomu. Vula i-⌘K bese uthumela isicelo sakho sokuqala ngaphansi kwemizuzu emihlanu.',
   'landing.ctaHeading': 'Yakha ukuzethemba.',
@@ -85,6 +102,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Ukubambezeleka okumaphakathi',
   'mocks.metric.live': 'Omphakathi',
   'mocks.metric.servers': 'Ama-Mocks',
+  'mocks.ms': 'ms',
   'mocks.newMock': 'I-mock entsha',
   'mocks.online': 'Omphakathi',
   'mocks.paused': 'Okuyimfihlo',
@@ -109,9 +127,13 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Kuphilile',
   'monitors.metric.uptime': 'Isikhathi esimaphakathi sokusebenza',
   'monitors.newMonitor': 'Isikrini esisha',
+  'monitors.paused': 'kumiswe okwesikhashana',
   'monitors.run': 'Gijima',
   'monitors.runError': 'Ukusebenza kuqediwe ngephutha lenethiwekhi: {{error}}',
+  'monitors.runFailed': 'Ukusebenza kwehlulekile.',
   'monitors.running': 'Ukugijima…',
+  'monitors.runSuccess':
+    'Sebenzisa i-{{status}} — i-upstream ibuyisele i-{{code}} ngemizuzwana engu-{{ms}}ms.',
   'monitors.sparkLabel': 'Ithrendi yokubambezeleka',
   'monitors.subheading':
     'Ukuhlolwa okufunwayo kwanoma yikuphi ukuhlolwa okulondoloziwe. Bopha isivivinyo, cindezela u-Run, bese ubuka isibuyekezo sezinga lempumelelo samahora angama-24 ngomlilo ngamunye.',
@@ -120,27 +142,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Isikhathi Sokusebenza · amahora angu-24',
   'nav.legal': 'Ezomthetho',
   'notFound.backToWorkspace': 'Buyela endaweni yokusebenza',
+  'notFound.body':
+    'I-{{app}} ithumele isicelo kule URL futhi ayitholanga lutho. Hlola kabili umzila noma buyela emuva endaweni yokusebenza.',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Umzila awutholakalanga',
+  'planUpdated.body':
+    'Ushintsho lwakho lokukhokha lusebenza manje. Ungaphatha uhlelo lwakho noma nini kusuka ekhasini lokukhokha.',
+  'planUpdated.retry': 'Zama futhi',
+  'planUpdated.verifyFailed': 'Asikwazanga ukuqinisekisa inkokhelo yakho okwamanje.',
+  'planUpdated.verifyFailedBody':
+    'Inkokhelo yakho ingase isacutshungulwa. Zama futhi ngemva kwesikhashana.',
   'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
+  'pricing.advancedFeatures': 'Izici ezithuthukile: {{yes}}',
+  'pricing.canExport': 'Ukuthunyelwa kwedatha ngaphandle: {{yes}}',
+  'pricing.heading': 'Khetha uhlelo lwakho lwe-{{app}}',
+  'pricing.maxCollections': 'Amaqoqo angu-{{count}}',
+  'pricing.maxEnvironments': 'Izimo zokusebenza ezingu-{{count}}',
+  'pricing.maxHistory': 'Okufakiwe emlandweni okungu-{{count}}',
+  'pricing.maxRequests': '{{count}} izicelo',
   'privacy.collect.account':
     'I-akhawunti: i-imeyili yakho, iphasiwedi esheshisiwe, igama lokubonisa, kanye nesitembu sesikhathi sokungena kwakho kokugcina.',
+  'privacy.intro':
+    'I-{{app}} ihlonipha ubumfihlo bakho. Leli khasi lifingqa idatha esiyiqoqayo, ukuthi kungani siyiqoqa, nokuthi singayisusa kanjani.',
   'privacy.rights.body':
     'Ungathumela amaqoqo akho + izindawo nganoma yisiphi isikhathi, noma ususe i-akhawunti yakho kuzilungiselelo ukuze ususe yonke idatha unomphela zingakapheli izinsuku ezingu-30.',
   'privacy.share.body':
     'Wena kuphela. Asilokothi sithengise, sabelane, noma siqashe okuqukethwe kwendawo yakho yokusebenza kubantu besithathu. Amalogi eseva agcinwa izinsuku ezingu-30 ukuze kuphendulwe ngesehlakalo bese esuswa.',
   'privacy.title': 'Isaziso sobumfihlo',
+  'profile.bio':
+    'Indawo yakho yokusebenza yomuntu siqu ye-{{app}} — phina amaqoqo, yabelana ngezimo zokusebenza, futhi uqaphe ama-API athumela umkhiqizo.',
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'ujoyine {{when}}',
+  'profile.metric.collections': 'Amaqoqo',
   'profile.metric.monitors': 'Amamonitha',
   'profile.metric.requests': 'Izicelo ezilondoloziwe',
+  'profile.noActivity':
+    'Azikho izicelo ezithunyelwe okwamanje — iya kuthebhu ye-Workspace ukuze wenze esisodwa.',
   'profile.signedOut': 'Ngena ngemvume ukuze ubuke iphrofayela yakho',
   'pylonShell.primaryNavLabel': 'Ukuzulazula okuyinhloko',
+  'resetPassword.passwordLabel': 'Iphasiwedi Entsha',
+  'resetPassword.statusLabel': 'setha kabusha · ithokheni iqinisekisiwe',
   'resetPassword.subtitle': 'Khetha iphasiwedi eqinile ongakaze uyisebenzise ngaphambili.',
   'resetPassword.tokenPlaceholder': 'namathisela kusuka ku-imeyili',
+  'settings.accountManagement.desc':
+    'Buyekeza i-imeyili yakho nephasiwedi, phatha izaziso namadivayisi, phuma, noma susa i-akhawunti yakho.',
+  'settings.accountManagement.title': 'I-akhawunti kanye nokuphepha',
   'settings.eyebrow': 'Izilungiselelo ze-pylon ze-$ --hlela',
   'settings.fetchError': 'Ayikwazanga ukulayisha izilungiselelo.',
   'settings.language.title': 'Ulimi',
+  'settings.seeding': 'Iyalayisha…',
   'settings.seedStarter': 'Okuqukethwe kokuqala kwembewu',
   'settings.starterCollection': 'Iqoqo lokuqala',
   'settings.starterCollectionDesc': 'Kudalwe kusukela kuzilungiselelo ku- {{ts}}',
@@ -154,6 +204,8 @@ export const ui: UiTranslations = {
     'Unesibopho sokuvikela iphasiwedi yakho. Ukwabelana nge-akhawunti eyodwa nabantu abaningi akuvunyelwe ezinhlelweni zamahhala noma ze-Pro — thenga okubhaliselwe kweQembu kwezindawo zokusebenza ezabiwe.',
   'terms.billing.body':
     'Okubhaliselwe okukhokhelwayo kuvuselelwa ngokuzenzakalelayo isikhathi ngasinye sokukhokha. Khansela kusuka kuzilungiselelo nganoma yisiphi isikhathi; ukufinyelela kwakho kuyaqhubeka kuze kube sekupheleni kwesikhathi samanje.',
+  'terms.intro':
+    'Ngokudala i-akhawunti ye-{{app}} uvuma imigomo engezansi. Yifunde kanye; ngeke sikumangaze ngezinguquko ezibuyela emuva.',
   'terms.title': 'Imigomo yesevisi',
   'terms.usage.body':
     'Ungayisebenzisi i-Pylon ukuze ufake izicelo kumasevisi ongewona awakho noma onemvume ecacile yokuhlola. Ungayisebenzisi i-Pylon ukuze weqe imikhawulo yamanani noma wenze ukukhwabanisa.',
@@ -174,17 +226,23 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Akusebenzi',
   'testRunner.metric.passed': 'Kudlulile',
   'testRunner.never': 'Ungalokothi ugijime',
+  'testRunner.newTest': 'Ukuhlola okusha',
   'testRunner.noAssertions': 'Azikho iziqinisekiso kulolu vivinyo okwamanje.',
+  'testRunner.noRunsYet':
+    'Awekho ama-run aqoshiwe okwamanje — cindezela “Sebenzisa konke” ukuze ugcwalise umlando.',
   'testRunner.passed': 'ukudlula',
+  'testRunner.recentRuns': 'Ukugijima kwakamuva',
   'testRunner.runAll': 'Sebenzisa konke',
   'testRunner.running': 'Ukugijima…',
   'testRunner.runOne': 'Gijima',
   'testRunner.subheading':
     'Imiphumela ye-Suite, i-assertion iyahluka, kanye nama-run angu-50 okugcina.',
+  'testRunner.suites': 'Ama-Suite',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Ungene ngemvume njengo',
   'workspace.auth.keyName': 'Igama lesihloko',
   'workspace.auth.keyValue': 'Inani lokhiye',
+  'workspace.auth.noneHint': 'Akukho isihloko sokugunyazwa esizothunyelwa nalesi sicelo.',
   'workspace.auth.password': 'Iphasiwedi',
   'workspace.auth.username': 'Igama lomsebenzisi',
   'workspace.authOption.apikey': 'Ukhiye we-API',
@@ -194,13 +252,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'I-OAuth 2.0',
   'workspace.authType': 'Uhlobo',
   'workspace.authTypeLabel': 'Uhlobo lokuqinisekisa',
+  'workspace.body.contentLabel': 'Umzimba wesicelo',
+  'workspace.body.hint':
+    'I-{{envVars}} ishintshwa ngaphambi kokuba isicelo sithunyelwe. Imizimba ithunyelwa ku-POST/PUT/PATCH/DELETE.',
   'workspace.body.json': 'I-JSON',
   'workspace.body.none': 'Akukho',
+  'workspace.body.noneHint':
+    'Akukho mzimba wesicelo ozothunyelwa. Khetha i-JSON noma umbhalo ongahluziwe ukuze wengeze owodwa.',
   'workspace.body.text': 'Umbhalo ongahluziwe',
   'workspace.body.type': 'Uhlobo',
   'workspace.environment': 'Ayikho i-env',
   'workspace.envVar': 'i-env variable',
   'workspace.eyebrow': 'indawo yokusebenza ye-pylon engu-$ --i-pane split',
+  'workspace.failedCount': '{{count}} yehlulekile',
+  'workspace.idle': 'Ukungenzi lutho',
   'workspace.kv.addHeader': 'Engeza isihloko',
   'workspace.kv.addParam': 'Engeza i-param',
   'workspace.kv.headerKey': 'Igama lesihloko',
@@ -213,12 +278,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'Indlela ye-HTTP',
   'workspace.metric.latency': 'Ukubambezeleka',
   'workspace.metric.latencyCaption': 'Uhambo oluya nokubuya kusukela kulo mjaho',
+  'workspace.metric.size': 'Umthwalo',
   'workspace.metric.sizeCaption': 'Amabhayithi omzimba wempendulo',
   'workspace.metric.statusCaption': 'Impendulo yokugcina',
   'workspace.metric.tests': 'Ukuhlolwa',
+  'workspace.metric.testsAllPassing': 'Zonke iziqinisekiso ziluhlaza',
   'workspace.metric.testsFailing': '{{count}} ukwehluleka',
+  'workspace.metric.testsIdle': 'Thumela isicelo ukuze kuhlolwe',
   'workspace.noAssertions': 'Sebenzisa isicelo sokuhlola iziqinisekiso ezakhelwe ngaphakathi.',
   'workspace.noResponseYet': 'Ayikho impendulo okwamanje',
+  'workspace.passedCount': '{{count}} kudlulile',
   'workspace.responseHint':
     '// Cindezela u-Thumela ukuze uqalise isicelo bese uthwebula impendulo.',
   'workspace.saveError': 'Ayikwazanga ukulondoloza isicelo.',
@@ -228,10 +297,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     'Bhala isicelo, usikhiphe, bese uqinisekisa impendulo — konke kuphaneli elilodwa.',
   'workspace.testResults': 'Imiphumela yokuhlolwa',
+  'workspace.tests.autoHint':
+    'Isimo somndeni, ukubambezeleka, usayizi womzimba, nempilo yokuthutha kuqinisekiswa ngokuzenzakalela — imiphumela ivela ngaphansi kwe-“Imiphumela yokuhlola” kuphaneli yempendulo.',
+  'workspace.tests.autoTitle': 'Iziqinisekiso ezakhelwe ngaphakathi zisebenza kuyo yonke impendulo',
   'workspace.token': 'Ithokheni',
   'workspace.tokenHint':
     'Kuthunyelwe Njengokugunyazwa: Umphathi<token> kuzo zonke izicelo kuleli qoqo.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Isicelo esingenasihloko',
+  'workspace.urlLabel': 'I-URL yesicelo',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

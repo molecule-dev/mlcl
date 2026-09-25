@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    '{{app}} பற்றி கேள்விகள், கருத்துகள் அல்லது யோசனைகள் உள்ளனவா? உங்களிடமிருந்து கேட்க விரும்புகிறோம் — ஒவ்வொரு செய்தியும் குழுவில் உள்ள ஒரு உண்மையான நபரை அடைகிறது.',
   'about.contactTitle': 'தொடர்பு கொள்ளுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.intro':
+    '{{app}} என்பது ஃபிளாஷ்கார்டுகள், வினாடி வினாக்கள் மற்றும் சாக்ரடிக் உரையாடலுக்கான உங்கள் பொறுமையான AI ஆசிரியர். {{tagline}} — எந்தவொரு பாடத்தையும் உங்கள் சொந்த வேகத்தில் ஆழமாகவும் நிலையாகவும் புரிந்துகொள்ளுங்கள்.',
+  'about.missionBody':
+    'உண்மையான கற்றல் மனப்பாடம் செய்வதிலிருந்து அல்ல, புரிந்துகொள்வதிலிருந்து வருகிறது. {{app}} தகவமைப்பு டியூட்டரிங், இடைவெளி மறுநினைவு மற்றும் நேர்மையான முன்னேற்றக் கண்காணிப்பு ஆகியவற்றை ஒன்றிணைத்து, ஒவ்வொரு கற்பவருக்கும் அவர்கள் இருக்கும் இடத்திலேயே சந்திக்கும் அறிவுள்ள வழிகாட்டியை வழங்குகிறது — பொறுமையை ஒருபோதும் இழக்காது.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
+  'about.whatYouGetTitle': 'நீங்கள் பெறுவது',
   'billing.cta.upgrade': 'திட்டத்தைத் தேர்ந்தெடுக்கவும்',
   'billing.error': 'கட்டணத் தகவலை ஏற்ற முடியவில்லை.',
   'billing.freeLabel': 'இலவசம்',
@@ -11,11 +19,13 @@ export const ui: UiTranslations = {
   'billing.loading': 'திட்டத் தகவல்கள் ஏற்றப்படுகின்றன…',
   'billing.popular': 'மிகவும் விரும்பப்பட்ட',
   'billing.subtitle': 'உங்கள் படிப்பு வேகத்திற்குப் பொருந்தும் திட்டத்தைத் தேர்ந்தெடுங்கள்.',
+  'billing.viewPricing': 'முழு விலை விவரங்களைப் பார்க்க →',
   'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'common.today': 'இன்று',
   'common.yesterday': 'நேற்று',
   'courseDetail.empty.body':
     'இந்தத் தலைப்பில் தேர்ச்சி பெறத் தொடங்குவதற்கு, ஒரு பாடப் பொருளைச் சேர்க்கவும்.',
+  'courseDetail.empty.title': 'இன்னும் பாடங்கள் இல்லை',
   'courseDetail.error': 'பாடத்தை ஏற்ற முடியவில்லை.',
   'courseDetail.loading': 'பாடநெறி ஏற்றப்படுகிறது…',
   'courseDetail.masteryHint':
@@ -35,8 +45,10 @@ export const ui: UiTranslations = {
   'courses.title': 'உங்கள் படிப்புகள்',
   'courses.titleLabel': 'பாடநெறி தலைப்பு',
   'courses.titlePlaceholder': 'எ.கா. நேரியல் இயற்கணிதம்',
+  'dashboard.dueLabel': '{{count}} காரணமாக',
   'dashboard.error': 'டாஷ்போர்டை ஏற்ற முடியவில்லை.',
   'dashboard.greeting': 'காலை வணக்கம், {{name}}',
+  'dashboard.greetingGeneric': 'காலை வணக்கம்',
   'dashboard.kpi.cards': 'அட்டைகளில் தேர்ச்சி பெற்றவர்',
   'dashboard.kpi.hours': 'படித்த மணிநேரங்கள்',
   'dashboard.kpi.hoursSuffix': 'மணிநேரம்',
@@ -55,7 +67,10 @@ export const ui: UiTranslations = {
   'dashboard.subgreeting': 'மற்றொரு அமர்விற்குத் தயாரா?',
   'dashboard.timeline.cards': 'அட்டைகள்',
   'dashboard.timeline.empty': 'நீங்கள் நிறைவு செய்யும் அமர்வுகள் இங்கே காட்டப்படும்.',
+  'dashboard.timeline.qaDetail': '{{ai}} AI பரிமாற்றங்கள்',
+  'dashboard.timeline.reviewDetail': '{{cards}} அட்டைகள் மதிப்பாய்வு செய்யப்பட்டன',
   'dashboard.timeline.title': 'ஆய்வு காலவரிசை',
+  'dashboard.upToDate': 'புதுப்பித்த நிலையில்',
   'deckDetail.addCard': '+ அட்டையைச் சேர்க்கவும்',
   'deckDetail.addError': 'அட்டையைச் சேர்க்க முடியவில்லை.',
   'deckDetail.addSubmit': 'அட்டையைச் சேர்க்கவும்',
@@ -68,6 +83,7 @@ export const ui: UiTranslations = {
   'deckDetail.error': 'டெக்கை ஏற்ற முடியவில்லை.',
   'deckDetail.eyebrow': 'டெக்',
   'deckDetail.frontLabel': 'முன்பக்கம் (கேள்வி)',
+  'deckDetail.hint': 'குறிப்பு:',
   'deckDetail.loading': 'சரக்கு ஏற்றும் தளம்…',
   'deckDetail.question': 'கேள்வி',
   'deckDetail.subtitle': 'செயலூக்க நினைவு மீட்டல் — ஒரு பதிலில் உறுதியாக இருக்கும்போது புரட்டவும்.',
@@ -85,6 +101,7 @@ export const ui: UiTranslations = {
   'flashcards.loading': 'தளங்களை ஏற்றுதல்…',
   'flashcards.mastery': 'தேர்ச்சி',
   'flashcards.nameLabel': 'டெக் பெயர்',
+  'flashcards.noneDue': 'புதுப்பித்த நிலையில்',
   'flashcards.subtitle':
     'உங்கள் வேகத்திற்கு ஏற்றவாறு மாறும் இடைவெளி விட்டு மீண்டும் மீண்டும் செய்தல்.',
   'flashcards.title': 'ஃபிளாஷ் கார்டுகள்',
@@ -109,6 +126,7 @@ export const ui: UiTranslations = {
   'landing.startLearning': 'இலவசமாகக் கற்கத் தொடங்குங்கள்',
   'landing.streakBannerLead':
     'தொடர் வெற்றியில் 50,000க்கும் மேற்பட்ட மாணவர்களுடன் இணையுங்கள் — சராசரி ',
+  'landing.streakBannerMid': '42-நாள்',
   'landing.streakBannerTail': ' கோடு',
   'login.heading': 'மீண்டும் வருக, கற்பவரே',
   'login.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
@@ -116,6 +134,7 @@ export const ui: UiTranslations = {
   'login.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'login.signUp': 'ஒரு கணக்கை உருவாக்குங்கள் — இது இலவசம்.',
   'login.subheading': 'உங்கள் வெற்றிப் பயணத்தைத் தொடருங்கள்.',
+  'masteryHeroCard.cardsMastered': '{{total}} அட்டைகளில் {{mastered}} தேர்ச்சி பெற்றன',
   'masteryHeroCard.title': 'ஒட்டுமொத்த தேர்ச்சி',
   'masteryHeroCard.weeklyHours': '{{hours}} இந்த வாரம் மணிநேரம்',
   'masteryRing.label': 'தேர்ச்சி பெற்றவர்',
@@ -129,16 +148,27 @@ export const ui: UiTranslations = {
     'அந்த இணையதள முகவரி இதுவரை அறியப்படாத ஒன்று. ஒருவேளை அது தட்டச்சுப் பிழையாக இருக்கலாம், அல்லது நீக்கப்பட்ட பாடமாக இருக்கலாம் — எதுவாக இருந்தாலும், உங்களை மீண்டும் படிப்பிற்கு அழைத்துச் செல்வோம்.',
   'notFound.heading': 'பக்கம் காணப்படவில்லை.',
   'notFound.label': '{{appName}} · 404',
+  'notifications.empty.body': 'புதிய புதுப்பிப்புகள் இங்கே வந்து சேரும்.',
   'notifications.empty.title': 'நீங்கள் அனைத்தையும் தெரிந்துகொண்டீர்கள்',
   'notifications.filter.${opt}': 'அறிவிப்புகள் ஏற்றப்படுகின்றன…',
+  'notifications.loading': 'அறிவிப்புகள் ஏற்றப்படுகின்றன…',
   'notifications.markAllError': 'அனைத்தையும் படித்ததாகக் குறிக்க முடியவில்லை.',
   'notifications.markError': 'படித்ததாகக் குறிக்க முடியவில்லை.',
   'notifications.subtitle': '{{count}} படிக்கப்படாத புதுப்பிப்புகள்',
+  'planUpdated.body':
+    'உங்கள் பில்லிங் மாற்றம் இப்போது செயலில் உள்ளது. பில்லிங் பக்கத்திலிருந்து எப்போது வேண்டுமானாலும் உங்கள் திட்டத்தை நிர்வகிக்கலாம்.',
+  'planUpdated.retry': 'மீண்டும் முயற்சிக்கவும்',
+  'planUpdated.verifyFailed': 'உங்கள் கட்டணத்தை எங்களால் இன்னும் உறுதிப்படுத்த முடியவில்லை.',
+  'planUpdated.verifyFailedBody':
+    'உங்கள் கட்டணம் இன்னும் செயலாக்கத்தில் இருக்கலாம். சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.',
   'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'pricing.heading': 'வினாடி வினாக்கள்',
+  'pricing.limits.quizzes': 'வினாடி வினாக்கள்',
   'pricing.limits.topics': 'தலைப்புகள்',
   'privacy.collectBody':
     'கணக்கு மின்னஞ்சல், நீங்கள் உருவாக்கும் பாடநெறிகள், விளக்கவுரைத் தொகுப்புகள், குறிப்புகள் மற்றும் வினாடி வினா முயற்சிகள், மற்றும் உங்கள் முன்னேற்ற விளக்கப்படங்களைக் காண்பிக்கப் பயன்படுத்தப்படும் ஒட்டுமொத்தப் படிப்புச் செயல்பாடு.',
+  'privacy.intro':
+    '{{app}} உங்கள் தனியுரிமையை மதிக்கிறது. நாங்கள் எதைச் சேகரிக்கிறோம், ஏன், அதை எவ்வாறு கட்டுப்படுத்துவது என்பதை இந்தப் பக்கம் விளக்குகிறது.',
   'privacy.shareBody':
     'செயற்கை நுண்ணறிவு பயிற்றுவிப்பாளர் கேள்விகள் உருவாக்கத்திற்காக எங்கள் LLM வழங்குநருக்கு அனுப்பப்படுகின்றன. கட்டணங்கள் ஸ்ட்ரைப் (Stripe) மூலம் செயலாக்கப்படுகின்றன. அங்கீகார மின்னஞ்சல்கள் மெயில்கன் (Mailgun) வழியாக அனுப்பப்படுகின்றன.',
   'privacy.title': 'தனியுரிமைக் கொள்கை',
@@ -148,6 +178,7 @@ export const ui: UiTranslations = {
   'profile.kpi.badges': 'சம்பாதித்த பேட்ஜ்கள்',
   'profile.kpi.hours': 'மொத்த மணிநேரம்',
   'profile.kpi.quizzes': 'எடுக்கப்பட்ட வினாடி வினாக்கள்',
+  'profile.kpi.subjects': 'செயலில் உள்ள பாடங்கள்',
   'profile.locked': 'பூட்டப்பட்டது',
   'profile.member': 'உறுப்பினர் காலம் {{year}}',
   'profile.subtitle': 'உங்கள் கற்றல் அடையாளத்தின் ஒரு துணுக்கு.',
@@ -155,6 +186,7 @@ export const ui: UiTranslations = {
   'progress.chart.empty':
     'இன்னும் கற்றல் செயல்பாடு எதுவும் இல்லை — உங்கள் முதல் அமர்வு இங்கே காட்டப்படும்.',
   'progress.chart.label': 'வாராந்திர நிமிடங்கள்',
+  'progress.chart.peak': 'உச்சம்: {{peak}}m',
   'progress.chart.title': 'உங்கள் படிப்பு நிமிடங்கள் — கடந்த 7 நாட்கள்',
   'progress.error': 'முன்னேற்றத்தை ஏற்ற முடியவில்லை.',
   'progress.eyebrow': 'உள்நோக்குகள்',
@@ -162,6 +194,7 @@ export const ui: UiTranslations = {
   'progress.kpi.recall': 'நினைவுபடுத்தும் விகிதம்',
   'progress.kpi.streak': 'தொடர்',
   'progress.kpi.streakValue': '{{count}} நாட்கள்',
+  'progress.loading': 'முன்னேற்றம் ஏற்றப்படுகிறது…',
   'progress.overall': 'ஒட்டுமொத்தமாக',
   'progress.subjects': 'பாடப் போக்குகள் (கடந்த 30 நாட்கள்)',
   'progress.subtitle': 'நீங்கள் சென்ற இடங்கள், மீண்டும் பார்க்க வேண்டியவை மற்றும் அடுத்த மலை.',
@@ -172,6 +205,7 @@ export const ui: UiTranslations = {
   'quiz.endQuiz': 'வினாடி வினாவை முடிக்கவும்',
   'quiz.error': 'வினாவிடையை ஏற்ற முடியவில்லை.',
   'quiz.eyebrow': 'வினாடி வினா',
+  'quiz.loading': 'வினாவிடை ஏற்றப்படுகிறது…',
   'quiz.next': 'அடுத்து →',
   'quiz.prev': 'முந்தைய',
   'quiz.progress': 'கேள்வி {{current}} இன் {{total}}',
@@ -183,8 +217,11 @@ export const ui: UiTranslations = {
   'quizResults.empty.body':
     'உங்கள் மதிப்பெண் விவரங்களை இங்கே காண, இந்த வினாவிடைப் போட்டியில் பங்கேற்கவும்.',
   'quizResults.empty.title': 'இன்னும் முயற்சிகள் இல்லை',
+  'quizResults.encouragement':
+    'நீங்கள் தவறவிட்ட கேள்விகளுக்கான விளக்கங்களை கீழே மதிப்பாய்வு செய்யுங்கள்.',
   'quizResults.error': 'வினாவிடைத் தேர்வு முடிவுகளை ஏற்ற முடியவில்லை.',
   'quizResults.eyebrow': 'முடிவுகள்',
+  'quizResults.kpi.correct': 'சரி',
   'quizResults.kpi.incorrect': 'தவறான',
   'quizResults.kpi.skipped': 'தவிர்க்கவும்',
   'quizResults.loading': 'முடிவுகள் ஏற்றப்படுகின்றன…',
@@ -195,9 +232,11 @@ export const ui: UiTranslations = {
   'quizResults.title': 'வினாடி வினா நிறைவு',
   'quizResults.your': 'உங்கள் பதில்:',
   'resetPassword.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
+  'resetPassword.newPasswordLabel': 'புதிய கடவுச்சொல்',
   'resetPassword.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'resetPassword.subtitle': 'நினைவில் நிற்கும் மற்றும் தனித்துவமான ஒன்றைத் தேர்ந்தெடுங்கள்.',
   'reviewQueueCard.cardsWaiting': '{{count}} காத்திருக்கும் அட்டைகள்',
+  'reviewQueueCard.startReview': 'மதிப்பாய்வைத் தொடங்கு',
   'search.empty.body': 'வேறு முக்கியச்சொல் அல்லது வடிகட்டியைப் பயன்படுத்திப் பாருங்கள்.',
   'search.empty.title': 'எதுவும் பொருந்தவில்லை.',
   'search.error': 'முடிவுகளை ஏற்ற முடியவில்லை.',
@@ -222,6 +261,7 @@ export const ui: UiTranslations = {
     'உங்கள் தொடர் வெற்றியைச் சேமிக்க, தானாகவே முடக்கத்தைப் பயன்படுத்துங்கள்.',
   'settings.reminders.time': 'தினசரி நினைவூட்டல் நேரம்',
   'settings.reminders.timeHelp': 'நாங்கள் உங்களை எப்போது தூண்ட வேண்டும்?',
+  'settings.reminders.weekend': 'வார இறுதி தளர்வு',
   'settings.reminders.weekendHelp':
     'சனி மற்றும் ஞாயிற்றுக்கிழமைகளில் தினசரி இலக்கைக் குறைத்துக் கொள்ளவும்.',
   'settings.saveError': 'அமைப்புகளைச் சேமிக்க முடியவில்லை.',
@@ -229,6 +269,7 @@ export const ui: UiTranslations = {
     'உகந்த கவனக்குவிப்பிற்காக உங்கள் படிப்பு அனுபவத்தை வடிவமைத்துக் கொள்ளுங்கள்.',
   'signup.fullNamePrompt': 'நாங்கள் உங்களை எவ்வாறு அழைக்க வேண்டும்?',
   'signup.heading': 'உங்கள் கல்விப் பயணத்தைத் தொடங்குங்கள்',
+  'signup.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
   'signup.showPassword': 'கடவுச்சொல்லைக் காட்டு',
   'signup.subheading': 'என்றென்றும் இலவசம் — கடன் அட்டை தேவையில்லை.',
   'streakBadge.days': '{{count}} நாள் தொடர்',
@@ -242,17 +283,23 @@ export const ui: UiTranslations = {
   'studySession.loading': 'படிப்பு அமர்வு ஏற்றப்படுகிறது…',
   'studySession.markError': 'மதிப்பாய்வு செய்யப்பட்டதாகக் குறிக்க முடியவில்லை.',
   'studySession.markReviewed': 'மார்க் மதிப்பாய்வு செய்தார்',
+  'studySession.masteryPct': '{{pct}}% தேர்ச்சி',
   'studySession.reviewed': 'மதிப்பாய்வு செய்யப்பட்டது',
   'studySession.thinking': 'யோசித்துக் கொண்டிருக்கிறேன்…',
   'studySession.title': 'ஆய்வு அமர்வு',
   'studySession.tutor.label': 'பயிற்றுவிப்பாளர்',
   'studySession.tutor.name': 'AI பயிற்றுவிப்பாளர்',
   'studySession.tutor.status': 'பொறுமையான · சாக்ரடீஸ் பாணியிலான · தகவமைத்துக் கொள்ளும்',
+  'studySession.welcomeGeneric':
+    'நான் உதவ இங்கே இருக்கிறேன். இந்தத் தலைப்பைப் பற்றி எதையும் கேளுங்கள்.',
   'studySession.welcomeWithTopic':
     "மீண்டும் வருக {{title}} எதை வேண்டுமானாலும் கேளுங்கள், அல்லது தொடங்குவதற்கு 'மீள்பார்வை' என்று சொல்லுங்கள்.",
+  'subjectCard.cardCount': '{{count}} அட்டைகள்',
   'subjectCard.mastery': 'தேர்ச்சி',
   'terms.contentBody':
     'நீங்கள் உருவாக்கும் பாடநெறிகள், விளக்கக்காட்சித் தொகுப்புகள், குறிப்புகள் மற்றும் அரட்டைச் செய்திகளின் உரிமையை நீங்களே தக்க வைத்துக் கொள்கிறீர்கள். கற்றல் அனுபவத்தை வழங்குவதற்கும் உங்கள் தரவைப் பாதுகாப்பாக வைத்திருப்பதற்கும் மட்டுமே நாங்கள் அவற்றைச் செயலாக்குகிறோம்.',
+  'terms.intro':
+    '{{app}} இல் கணக்கை உருவாக்குவதன் மூலம், மரியாதையுடன் படிப்பது, உங்கள் கணக்கு சான்றுகளை ரகசியமாக வைத்திருப்பது மற்றும் தளத்தை தனிப்பட்ட கற்றல் நோக்கங்களுக்குப் பயன்படுத்துவது ஆகியவற்றை ஏற்கிறீர்கள்.',
   'terms.terminationBody':
     'அமைப்புகள் வழியாக உங்கள் கணக்கை எப்போது வேண்டுமானாலும் நீக்கலாம். அறிவிப்புக்குப் பிறகு, தவறாகப் பயன்படுத்தும் கணக்குகளை நாங்கள் இடைநிறுத்தம் செய்யலாம். கணக்கு நிறுத்தப்பட்டவுடன், முப்பது நாட்களுக்குள் உங்கள் படிப்புத் தரவுகளை நாங்கள் நீக்கிவிடுவோம்.',
   'terms.useBody':

@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Heb je feedback, een bug gevonden, of wil je {{app}} naar je school of team brengen? We lezen elk bericht — neem contact op via je accountinstellingen en een echt mens antwoordt.',
   'about.contactTitle': 'Neem contact met ons op',
   'about.eyebrow': 'Over',
+  'about.intro':
+    '{{app}} is een dagelijkse woordpuzzel. Raad het woord van vijf letters in zes pogingen, houd je reeks in leven, deel je emoji-raster en zie hoe het hele veld het deed met het woord van vandaag.',
+  'about.missionBody':
+    'Een goede puzzel is een kleine dagelijkse overwinning. {{app}} draait om één gedeeld woord per dag — snel genoeg voor een koffiepauze, scherp genoeg om morgen terug te komen.',
+  'about.missionTitle': 'Onze missie',
   'about.title': 'Over {{app}}',
   'archive.loadError': 'Kan het archief niet laden.',
   'archive.missed': 'Gemist',
   'archive.notPlayed': 'Niet gespeeld',
+  'archive.subhead':
+    'Speel elke eerdere dag opnieuw als oefening — geen reeksen, geen statistieken, al het plezier.',
   'archive.title': 'Archiveren',
   'auth.backToHome': 'Terug naar home',
   'auth.backToHomeArrow': '← Terug naar home',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Wachtwoord vergeten?',
   'auth.login.loggingIn': 'Bezig met inloggen…',
   'auth.login.logIn': 'Speel het woord van vandaag',
+  'auth.login.noAccount': 'Nieuw bij Tessera?',
   'auth.login.or': 'of ga verder met',
   'auth.login.password': 'Wachtwoord',
   'auth.login.signInButton': 'Inloggen',
@@ -32,6 +42,10 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Opslaan…',
   'common.sendingEllipsis': 'Verzenden…',
   'common.startingEllipsis': 'Starten…',
+  'forgotPassword.subhead': 'Voer uw e-mail in en wij sturen u een link om te resetten.',
+  'forgotPassword.success.body':
+    'Als er een account bestaat voor {{email}}, ontvangt u binnen enkele minuten een resetlink.',
+  'forgotPassword.success.title': 'Controleer uw inbox.',
   'form.name': 'Naam',
   'howToPlay.cta.home': 'Terug naar home',
   'howToPlay.cta.play': 'Speel de puzzle van vandaag',
@@ -68,10 +82,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Reeksen die je niet wilt breken',
   'leaderboard.daily.title': 'Oplossingen van vandaag',
   'leaderboard.loadError': 'Kan het klassement niet laden.',
+  'leaderboard.streaks.empty': 'Nog geen reeksen — wees de eerste.',
+  'leaderboard.streaks.subhead': 'Langste winreeksen aller tijden.',
   'leaderboard.streaks.title': 'Reeksleiders',
+  'leaderboard.subhead': 'Hoe het veld het vandaag deed, en wie de langste reeksen heeft.',
   'leaderboard.title': 'Klassement',
   'login.headline': 'Welkom terug.',
   'login.streakPill': '{{days}}-daagse reeks wacht',
+  'login.subhead':
+    'Meld je aan om je reeks in leven te houden en te zien hoe je het deed met het woord van vandaag.',
   'nav.archive': 'Archiveren',
   'nav.editProfile': 'Profiel bewerken',
   'nav.getStarted': 'Aan de slag',
@@ -89,6 +108,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Woord niet gevonden',
   'notFound.title': 'Die route is leeg.',
   'planUpdated.message': 'Je abonnement is actief.',
+  'planUpdated.retry': 'Opnieuw proberen',
+  'planUpdated.verifyFailed': 'We hebben uw betaling nog niet kunnen bevestigen.',
+  'planUpdated.verifyFailedBody':
+    'Uw betaling wordt mogelijk nog verwerkt. Probeer het over een moment opnieuw.',
   'planUpdated.verifying': 'Je betaling bevestigen…',
   'play.alreadyFinished': 'Je hebt deze puzzle al voltooid',
   'play.answerWas': 'Het woord was',
@@ -104,6 +127,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Oefenpuzzle',
   'play.tooShort': 'Niet genoeg letters',
   'play.won': 'Opgelost!',
+  'pricing.advancedStats': 'Geavanceerde statistieken: {{yes}}',
+  'pricing.archiveHistory': '{{count}} dagen archiefgeschiedenis',
+  'pricing.archivePlays': '{{count}} archiefherhalingen / dag',
+  'pricing.archiveUnlimited': 'Onbeperkte archiefgeschiedenis',
+  'pricing.canExport': 'Gegevensexport: {{yes}}',
+  'pricing.checkoutError': 'Kon afrekenen niet starten. Probeer opnieuw.',
   'pricing.dailyWord': 'Het dagelijkse woord',
   'pricing.heading': 'Kies je {{app}}-abonnement',
   'pricing.included': 'Inbegrepen',
@@ -111,7 +140,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Het dagelijkse woord is altijd gratis. Upgrade voor onbeperkte archief-herhalingen en uitgebreidere statistieken.',
   'pricing.yearly': 'Jaarlijks',
+  'privacy.intro':
+    '{{app}} respecteert je privacy. Deze pagina vat samen welke gegevens we opslaan, waarom we ze opslaan en hoe je ze verwijdert.',
   'privacy.title': 'Privacyverklaring',
+  'resetPassword.subhead': 'Kies een nieuw wachtwoord om terug te keren naar je reeks.',
   'settings.account': 'Account',
   'settings.danger.body': 'Verwijder je {{appName}}-account en alle puzzelgeschiedenis permanent.',
   'settings.danger.confirm': 'Ja, definitief verwijderen',
@@ -120,17 +152,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'Gast',
   'settings.language.title': 'Taal',
   'settings.subhead': 'Pas je profiel, geluid en hoe je op het klassement verschijnt aan.',
+  'settings.unnamed': 'Sparq-speler',
   'settings.upgrade': 'Upgraden',
   'signup.eyebrow': 'Voor altijd gratis — één woord per dag',
   'signup.headline': 'Start je reeks.',
+  'signup.subhead':
+    'Maak een {{appName}}-account aan om het dagelijkse woord te spelen, een reeks op te bouwen en te klimmen op het klassement.',
   'stats.currentStreak': 'Reeks',
   'stats.distribution.title': 'Raadverdeling',
   'stats.loadError': 'Kan je statistieken niet laden.',
   'stats.maxStreak': 'Maximale reeks',
   'stats.played': 'Gespeeld',
   'stats.playToday': 'Speel de puzzle van vandaag',
+  'stats.subhead': 'Alleen dagelijkse puzzels met rangschikking — archiefoefening telt nooit mee.',
   'stats.title': 'Je statistieken',
   'stats.winRate': 'Winratio',
   'status.monthly': 'Maandelijks',
+  'terms.intro':
+    'Door {{app}} te gebruiken ga je akkoord met de onderstaande regels. Als je ze niet kunt accepteren, gebruik de service dan niet.',
   'terms.title': 'Servicevoorwaarden',
 }

@@ -1,10 +1,31 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Frågor om en bokning, feedback eller en boendeanläggning som du tycker borde finnas på {{app}}? Nå vårt team från ditt konto — varje meddelande går till en riktig människa som kan hjälpa till.',
+  'about.contactTitle': 'Kontakta oss',
   'about.eyebrow': 'Om oss',
+  'about.featureLoyalty':
+    'Medlemspriser och ett lojalitetsprogram som ger poäng, sen utcheckning och rumsuppgraderingar vid varje bokning.',
+  'about.featureReviews':
+    'Verifierade gästrecensioner och redaktionella urval så att du kan lita på vistelsen innan du kommer fram.',
+  'about.featureRooms':
+    'Rum, priser och bekvämligheter sida vid sida med transparenta allt-i-ett-priser — skatter och resortavgifter ingår innan du betalar.',
+  'about.featureSearch':
+    'Realtidssökning bland granskade hotell med aktuell tillgänglighet, kartvy och rika fotogallerier.',
+  'about.featureTrips':
+    'Sparade favoriter och en Resor-översikt som samlar varje bokning, resplan och bekräftelse på ett ställe.',
+  'about.intro':
+    '{{app}} är en hotellbokningsplattform för resenärer som bryr sig om kvalitet. Varje boende granskas personligen av vårt redaktionella team — inget aggregatorinnehåll, inga lockpriser. Sök verklig tillgänglighet, jämför rum, priser och bekvämligheter sida vid sida och boka sedan med några tryck till ett tydligt allt-i-ett-pris.',
+  'about.missionBody':
+    'Att boka en plats att bo på borde kännas lugnt och ärligt. Vi visar transparenta priser med skatter och resortavgifter direkt, belönar lojala gäster i stället för att mjölka dem på småavgifter och sätter vistelserna som är värda dina pengar först — så att du kan lägga mindre tid på att jämföra flikar och mer tid på själva resan.',
+  'about.missionTitle': 'Vårt uppdrag',
+  'about.subtitle': 'Ett kurerat, transparent sätt att hitta och boka rätt hotell.',
   'account.loyalty.activitySummary': '{{nights}} nätter · {{spend}} spenderat i år',
+  'account.loyalty.benefitsHeading': 'Dina förmåner',
   'account.loyalty.heading': 'Lojalitet',
   'account.loyalty.loading': 'Laddar lojalitet…',
+  'account.loyalty.maxTier': 'Högsta nivån — njut av dina förmåner.',
   'account.loyalty.pointsTowardNext': '{{points}} / {{next}} poäng till {{nextTier}}',
   'account.loyalty.tier': 'Nuvarande nivå',
   'account.loyalty.unavailable': 'Lojalitetsinformation är inte tillgänglig.',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Bekräfta bokning · {{total}}',
   'bookingCheckout.datesRequired': 'Välj dina in- och utcheckningsdatum.',
   'bookingCheckout.guestHeading': 'Huvudgäst',
+  'bookingCheckout.heading': 'Bekräfta och boka',
   'bookingCheckout.loadError': 'Det gick inte att läsa in objektet.',
   'bookingCheckout.nights': '{{rate}} × {{count}} nätter',
   'bookingCheckout.notFound': 'Objektet hittades inte.',
@@ -32,6 +54,9 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Skatter och avgifter',
   'bookingCheckout.tripHeading': 'Din resa',
   'bookingConfirmation.allTripsCta': 'Alla resor',
+  'bookingConfirmation.confNumber': 'Bekräftelsenummer: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Din bokning behandlas.',
   'bookingConfirmation.heading': 'Bokning bekräftad',
   'bookingConfirmation.loading': 'Laddar din reservation…',
   'bookingConfirmation.searchMoreCta': 'Bläddra bland fler boenden',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Det gick inte att läsa in favoriter.',
   'favorites.pricePerNight': '{{price}} / natt',
   'favorites.removeCta': 'Ta bort',
+  'favorites.removing': 'Tar bort…',
   'forgotPassword.subheading':
     'Ange e-postadressen för ditt konto så skickar vi en säker återställningslänk.',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Auberge-medlemmar',
   'landing.cta.heading': 'Priser endast för medlemmar. Varje bokning, varje gång.',
   'landing.cta.signup': 'Skapa ett gratis konto',
+  'landing.cta.subheading':
+    'Tjäna lojalitetspoäng vid varje vistelse, lås upp sen utcheckning och rumsuppgraderingar och få först tillgång till nya boenden innan de listas offentligt.',
   'landing.destinations.eyebrow': 'Vart härnäst',
   'landing.destinations.heading': 'Utvalda destinationer',
   'landing.destinations.seeAll': 'Se alla destinationer',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Berättelser värda att packa för',
   'landing.nav.join': 'Gå med i Auberge',
   'landing.nav.search': 'Sök boenden',
+  'landing.preview.browseAll': 'Utforska hela kollektionen',
   'landing.preview.eyebrow': 'En titt inuti',
   'landing.preview.heading': 'Handplockade boenden den här månaden',
+  'landing.preview.subheading':
+    'Varje boende på {{appName}} granskas personligen av vårt redaktionella team — inget aggregatorinnehåll, inga lockpriser.',
   'login.eyebrow': 'Medlemsområde',
+  'login.noAccount': 'Ny på Tessera?',
   'login.signupLink': 'Skapa ett gratis konto',
   'login.subheading':
     'Logga in för att hantera dina resor, visa bekräftelser och fortsätta där du slutade.',
+  'loyaltyTierBadge.points': '{{points}} poäng',
   'planUpdated.heading': 'Plan uppdaterad',
+  'planUpdated.retry': 'Försök igen',
+  'planUpdated.verifyFailed': 'Vi kunde inte bekräfta din betalning ännu.',
+  'planUpdated.verifyFailedBody':
+    'Din betalning kan fortfarande behandlas. Försök igen om en stund.',
   'planUpdated.verifying': 'Bekräftar din betalning…',
   'pricing.limit.advancedFeatures': 'Avancerade funktioner:',
   'pricing.limit.canExport': 'Dataexport:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Vad denna plats erbjuder',
   'propertyDetail.backLink': 'Tillbaka till sök',
   'propertyDetail.bookCta': 'Boka',
+  'propertyDetail.bookmarkAria': 'Spara objekt',
   'propertyDetail.bookmarkAriaSaved': 'Ta bort från sparade objekt',
+  'propertyDetail.galleryImageAlt': '{{name}} foto {{number}}',
   'propertyDetail.heroImageAlt': 'Huvudbild av {{name}}',
   'propertyDetail.hidePhotos': 'Dölj foton',
   'propertyDetail.lineCleaning': 'Städavgift',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'natt',
   'propertyDetail.noChargeYet': 'Du debiteras inte ännu',
   'propertyDetail.notFound': 'Objektet hittades inte.',
+  'propertyDetail.perNight': '/ natt',
+  'propertyDetail.pickDatesHint': 'Välj dina datum för att se hela prisuppdelningen.',
   'propertyDetail.reviewCount': '({{count}} recensioner)',
   'propertyDetail.reviewsHeading': 'Senaste recensioner',
   'propertyDetail.roomCapacity': 'Plats för {{count}}',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Nytt lösenord',
   'resetPassword.subheading':
     'Välj ett nytt lösenord för ditt Auberge-konto. Använd minst 8 tecken; vi rekommenderar en lösenfras.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Inga objekt matchar din sökning.',
   'searchResults.emptyHint':
     'Försök bredda dina filter eller ta bort pristaket — Auberge har boenden i 14 länder.',
@@ -108,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Utvalda boenden',
   'searchResults.headingForQuery': 'Boenden för "{{q}}"',
   'searchResults.loadError': 'Det gick inte att läsa in objekten.',
+  'searchResults.mapHint':
+    'Håll muspekaren över ett kort för att markera det på kartan. Live Mapbox-tiles i produktion.',
   'searchResults.mapPinAria': '{{name}} — {{price}} per natt',
   'searchResults.sortLabel': 'Sortera efter',
   'searchResults.subheading': '{{count}} objekt · {{guests}} gäster',
   'signup.eyebrow': 'Bli medlem',
   'signup.subheading':
     'Gå med i Auberge för att låsa upp priser endast för medlemmar, sen utcheckning och tidig tillgång till nya objekt.',
+  'sojournAuthShell.brand.eyebrow': 'Bo någonstans enastående',
+  'sojournAuthShell.brand.heading':
+    'En kurerad kollektion av boenden — vackert presenterade, transparent prissatta.',
   'sojournHeroSearchCard.checkInAria': 'Incheckningsdatum',
   'sojournHeroSearchCard.checkOutAria': 'Utcheckningsdatum',
+  'sojournHeroSearchCard.destAria': 'Destination',
+  'sojournHeroSearchCard.destLabel': 'Var',
   'sojournHeroSearchCard.destPlaceholder': 'Stad, region eller objekt',
   'sojournHeroSearchCard.eyebrow': 'Utvalda boenden · Priser endast för medlemmar',
   'sojournHeroSearchCard.guestsOption': '{{n}} gäster',
   'sojournHeroSearchCard.subtitle':
     'En utvald samling av boutiquehotell, designorienterade objekt och sällsynta retreater — transparent prissatta, vackert presenterade.',
+  'sojournHeroSearchCard.title': 'Bo någonstans enastående',
+  'sojournHeroSearchCard.trustLoyalty': 'Tjäna poäng vid varje vistelse',
   'sojournHeroSearchCard.trustNoFees': 'Inga dolda avgifter, någonsin',
   'sojournHeroSearchCard.trustVetted': 'Endast handplockade objekt',
   'sojournLayout.primaryNavLabel': 'Primär navigering',

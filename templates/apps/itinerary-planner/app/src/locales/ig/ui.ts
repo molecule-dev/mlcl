@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Nwere nzaghachi, hụrụ nnukwu nsogbu, ma ọ bụ na-eme atụmatụ ihe dị egwu? Kpọtụrụ anyị site na ntọala akaụntụ gị — ozi ọ bụla na-erute mmadụ n'ezie nọ n'òtù anyị.",
+  'about.contactTitle': 'Gwa anyị okwu',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    "Ndokwa n'otu igbe ozi — ụgbọ elu, họtel, na nkwenye mmemme na-abata n'ụbọchị ha kpọmkwem.",
+  'about.featureCollab':
+    "Mmekọ oge-ozugbo — kpọọ ihe ruru ndị njem ise n'otu njem, mgbanwe ọ bụla na-emekọrịta ozugbo, na nkọwa na-eso n'okpuru nkwụsị ọ bụla.",
+  'about.featureMapsBudget':
+    'Maapụ, ebe ndị a na-aga, na mmefu ego nkekọrịta — hụ njem ahụ dum na maapụ, chọpụta ebe ndị nchịkọta akụkọ họọrọ, ma soro mmefu ka onye ọ bụla ghara imefu karịa.',
+  'about.featureTimelines':
+    "Usoro ụbọchị n'ụbọchị — dọrọ nkwụsị iji hazie ọzọ, tinye akụkụ njem, ma hụ ka atụmatụ njem na-agbakọ ọzọ dịka otu akwụkwọ dị ndụ.",
+  'about.intro':
+    "{{app}} na-agbanwe folda jupụtara na atụmatụ ezughị ezu ka ọ bụrụ otu njem nkekọrịta nke òtù gị dum nwere ike iso. Wuo atụmatụ ụbọchị n'ụbọchị, tinye ụgbọ elu na họtel, see ebe ọ bụla na maapụ, ma soro mmefu ego — niile n'otu ebe dị jụụ kama ọtụtụ taabụ na mkparịta ụka òtù.",
+  'about.missionBody':
+    'Atụmatụ njem kwesịrị ịdị ka njem ahụ na-aka mma, ọ bụghị dịka ọrụ ụlọ. {{app}} dị iji mee ka njem nkekọrịta dị mfe — ka onye njem ọ bụla bịa na-ama atụmatụ ahụ, na nkwụsị ọ bụla kọọ akụkọ kwesịrị icheta.',
+  'about.missionTitle': 'Ọrụ anyị',
   'about.pageTitle': 'Gbasara {{app}}',
   'auth.legalConsent': "Site n'ịga n'ihu, ị kwenyere n'usoro anyị",
   'bookings.empty.body': 'Tinye ụgbọelu, họtel, ma ọ bụ ihe omume iji malite igbe mbata.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Họtel',
   'bookings.type.other': 'Nke ọzọ',
   'budgetSpendCard.budgetTotal': 'nke {{total}} atụmatụ',
+  'budgetSpendCard.overBy': '{{amount}} karịrị mmefu ego',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} nke na-adịbeghị anya',
+  'budgetSpendCard.remaining': '{{amount}} fọdụrụ',
   'calendar.eyebrow': "Afọ dị n'ihu",
   'calendar.heading': 'Njem ọ bụla na otu kalenda.',
   'calendar.legendHeading': "Njem n'ọnwa a",
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'na',
   'common.goToDashboard': 'Gaa na Dashboard',
   'dashboard.budgetHeading': 'Mmefu ego na-akpali akpali',
+  'dashboard.empty.body':
+    "Mee atụmatụ njem mbụ gị, dashboard gị ga-ejupụta na usoro ụbọchị n'ụbọchị, ọnọdụ mmefu ego, na ndokwa.",
+  'dashboard.empty.cta': 'Mee atụmatụ njem mbụ gị',
   'dashboard.empty.heading': 'Enweghị njem ọ bụla — atlas gị efuola.',
   'dashboard.eyebrow': 'Njikwa ozi',
   'dashboard.heading': "Njem gị ọzọ, n'otu akụkụ dị jụụ.",
   'dashboard.newTripCta': 'Malite njem ọhụrụ',
+  'dashboard.subheading':
+    'Ngụkọ oge ruo njem ọzọ, ọnọdụ mmefu nke taa, na ilele ngwa ngwa atụmatụ njem ọ bụla na-aga.',
   'dashboard.tripsHeading': "Njem ndị na-aga n'ihu",
   'dashboard.viewAllExpenses': 'Lelee mmefu ọ bụla',
   'dashboard.viewAllTrips': 'Lee njem ọ bụla',
   'dayTimelineRow.category.accommodation': 'Nọrọnụ',
+  'dayTimelineRow.category.food': 'Nri na ihe ọṅụṅụ',
+  'dayTimelineRow.category.sightseeing': 'Nlegharị anya',
   'dayTimelineRow.category.transport': 'Njem',
   'destinationOrbCard.exploreCta': 'Tinye na njem',
   'destinationOrbCard.tripCount': '{{count}} njem',
+  'destinations.empty.body': 'Laghachi na All, ihe nchịkọta akụkọ chọtara ga-apụta ọzọ.',
   'destinations.empty.heading': 'Enweghị ebe ọ bụla.',
+  'destinations.emptyFiltered.heading': 'Ọ dịbeghị ihe akpọrọ aha otu ahụ.',
   'destinations.errors.load': 'Enweghị ike ibuli ebe ndị a na-aga.',
   'destinations.eyebrow': 'Ebee ka ị ga-esote',
   'destinations.heading': 'E chekwara akụkụ na ihe nchịkọta akụkọ.',
@@ -70,7 +98,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Onye na-ere ahịa',
   'expenses.formHeading': 'Ọnụ ego ndekọ maka {{trip}}',
   'expenses.heading': "Ebee ka mmefu ego njem ahụ na-aga n'ezie.",
+  'expenses.heroBudget': '{{pct}}% nke {{total}} e mere atụmatụ',
   'expenses.heroEyebrow': '{{trip}} Foto mmefu ego',
+  'expenses.heroNoBudget': 'Edebeghị mmefu ego na njem a.',
   'expenses.noTrips.body': 'Mee atụmatụ njem mbụ, tinye ego ị ga-akwụ na mmefu njem gị.',
   'expenses.noTrips.heading': 'Enweghị njem ugbua.',
   'expenses.receiptCount': '{{count}} akwụkwọ nnata',
@@ -82,12 +112,16 @@ export const ui: UiTranslations = {
     "Nnata na nkwenye ọ bụla na-abanye n'ụdị kwesịrị ekwesị ebe a - ọ dịghị mkpa ka e dee mpempe akwụkwọ.",
   'forgotPassword.eyebrow': 'Weghachite usoro njem gị',
   'forgotPassword.heading': 'Chefuru okwuntughe gị?',
+  'forgotPassword.subheading':
+    'Tinye email ahụ i ji mee {{appName}}, anyị ga-eziga njikọ iji tọgharịa paswọọdụ gị.',
   'forgotPassword.submit': 'Zipu ozi-e mgbake',
   'forgotPassword.submitPending': 'Na-eziga ozi-e mgbake…',
   'forgotPassword.successHint':
     'Ị nwebeghị ozi email? Lelee folda spam gị, ma ọ bụ nwaa ọzọ site na adreesị ọzọ.',
   'forgotPassword.successSubheading':
     'Anyị zigara njikọ mgbake na {{email}} Njikọ ahụ dị irè maka nkeji iri atọ.',
+  'forgotPassword.tryAgain': 'Ziga na email ọzọ',
+  'landing.cta.eyebrow': 'Malite na atụmatụ efu',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Mepụta akaụntụ efu',
   'landing.cta.subheading':
@@ -99,8 +133,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Malite njem efu',
   'landing.hero.ctaSecondary': 'Lee ihe atụ njem',
+  'landing.hero.eyebrow': 'Onye na-eme atụmatụ njem · {{tagline}}',
   'landing.hero.subtitle':
     "Waypoint na-agbanwe folda jupụtara na atụmatụ ndị e guzobere ọkara ka ọ bụrụ usoro a na-ekerịta kwa ụbọchị nke otu gị nwere ike ịgbaso - yana ndebanye aha, maapụ, na mmefu ego n'otu ebe.",
+  'landing.hero.title': 'Hazie ya otu ugboro. Gụọ ya ọnụ.',
   'landing.nav.join': 'Malite njem efu',
   'landing.nav.preview': "Ọnụ Ụzọ Dị n'ime",
   'landing.preview.cta': 'Hazie otu nke gị',
@@ -108,6 +144,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Njem ole na ole ndị njem na-awagharị ugbu a',
   'login.eyebrow': 'Mpaghara ndị otu',
   'login.heading': 'Nnọọ nabata, onye njem',
+  'login.noAccount': 'Ị bụ onye ọhụrụ na Tessera?',
   'login.signupLink': 'Mepụta akaụntụ efu',
   'login.subheading':
     'Banye iji jikwaa njem gị, atụmatụ ụbọchị gị, ndoputa, na ntinye akwụkwọ ndekọ ị malitere.',
@@ -118,6 +155,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Enweghị ike imelite ọkwa.',
   'notifications.heading': "Ihe gbanwere n'oge njem gị taa.",
   'notifications.markUnread': 'Kanye akara dị ka agụghị ya',
+  'notifications.subheading':
+    '{{count}} ọhụrụ — nkwenye ndokwa, ndetu ndị mmekọ, mbelata ọnụ ahịa, na ihe ncheta.',
   'notifications.time.daysAgo': '{{count}} gara aga',
   'notifications.time.hoursAgo': '{{count}} awa gara aga',
   'notifications.time.justNow': 'naanị ugbu a',
@@ -134,6 +173,7 @@ export const ui: UiTranslations = {
   'settings.subheading': 'Ọrụ ejikọtara, ego, ọkwa nkwado, na nzere ị ji abanye.',
   'signup.and': 'na',
   'signup.eyebrow': 'Jikọọ na Waypoint',
+  'signup.haveAccount': 'Ị na-awagharịlarị?',
   'signup.heading': 'Hazie ya otu ugboro. Gụọ ya ọnụ.',
   'signup.namePlaceholder': 'Iris Larsen',
   'signup.subheading':
@@ -145,6 +185,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Usoro mmemme mepere emepe',
   'tripCountdownHeroCard.ctaSecondary': 'Hazie njem ọzọ',
   'tripCountdownHeroCard.daysLabel': '{{days}} ụbọchị ndị ga-aga',
+  'tripCountdownHeroCard.eyebrow': 'Njem ọzọ · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · abalị {{nights}} — atụmatụ njem gị dị njikere ịga.',
   'tripCoverCard.stops': '{{count}} nkwụsị',
   'tripCoverCard.travelers': '{{count}} ndị njem',
   'tripDetail.addActivity': 'Tinye ihe omume',
@@ -154,6 +197,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Aha ihe omume',
   'tripDetail.adding': 'Na-agbakwụnye…',
   'tripDetail.backToTrips': 'Laghachi na njem niile',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Ndị njem',
   'tripDetail.dayLabel': 'Ụbọchị {{day}}',
   'tripDetail.empty': 'Enweghị ihe omume ọ bụla ugbu a — tinye otu iji malite usoro iheomume.',
@@ -164,14 +208,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Usoro njem • {{country}}',
   'tripDetail.invite': 'Kpọọ òkù',
   'tripDetail.inviteLabel': 'Kpọọ òkù site na email',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'E zigara ọkpụkpọ òkù na {{email}} .',
   'tripDetail.inviting': 'Na-eziga…',
   'tripDetail.loading': 'Na-ebugo njem…',
   'tripDetail.noCollaborators': 'Naanị gị, maka ugbu a.',
+  'tripDetail.notesHeading': 'Ndetu njem',
   'tripDetail.notesPlaceholder': 'Enweghị ihe ndetu ọ bụla.',
   'tripDetail.notFound.heading': 'Achọtaghị njem ahụ',
   'tripDetail.openBookings': 'Mepee igbe mbata ndoputa',
   'tripDetail.shareCopied': 'Kekọrịta njikọ e depụtaghachiri na klipbọọdụ:',
+  'tripDetail.shareReady': 'Njikọ nkekọrịta dị njikere:',
   'tripDetail.stops': '{{count}} nkwụsị',
   'tripDetail.timelineEyebrow': 'Usoro iheomume nke ụbọchị',
   'tripDetail.timelineHeading': 'Atụmatụ kwa ụbọchị',
@@ -189,6 +236,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Ndị njem',
   'tripPlanner.heading': "Mee njem n'ime otu nkeji.",
   'tripPlanner.preview.eyebrow': 'Nlele anya ozugbo',
+  'tripPlanner.preview.placeholderCountry': 'Họrọ obodo',
   'tripPlanner.preview.placeholderDestination': 'Njem gị na-esote',
   'tripPlanner.section1.title': 'Ebee na mgbe',
   'tripPlanner.section2.title': 'Ndị njem na mmefu ego',
@@ -197,10 +245,13 @@ export const ui: UiTranslations = {
   'tripPlanner.section3.day1': 'Ụbọchị {{day}} — tinye nkwụsị, njem, na ndoputa ebe a.',
   'tripPlanner.section3.day2': 'Ụbọchị {{day}} — tinye nkwụsị, njem, na ndoputa ebe a.',
   'tripPlanner.section3.day3': 'Ụbọchị {{day}} — tinye nkwụsị, njem, na ndoputa ebe a.',
+  'tripPlanner.section3.title': 'Ihe mmalite atụmatụ ụbọchị',
   'tripPlanner.subheading':
     "Tinye ihe ndị bụ isi n'okpuru — ị nwere ike ịkpọ ndị ọrụ ibe gị òkù mgbe niile, dọpụta nkwụsị, ma ziga ndenye aha ma emechaa.",
   'tripPlanner.submit': 'Mepụta njem',
   'tripPlanner.submitting': 'Ịmepụta…',
+  'trips.empty.body': 'Laghachi na All trips ma ọ bụ malite atụmatụ njem ọzọ gị.',
+  'trips.empty.cta': 'Hazie njem',
   'trips.empty.heading': 'Ọ dịghị ihe dakọtara na nzacha ahụ.',
   'trips.eyebrow': 'Atlas ahụ',
   'trips.filterLabel': 'Njem ndị ahụ site na ọkwa',
@@ -211,6 +262,12 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Enweghị njem ugbua.',
   'trips.pastHeading': 'Njem ndị gara aga',
   'trips.subheading': '{{count}} usoro njem — gara aga, ugbu a, na otu ụbọchị.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading':
+    'Mee atụmatụ otu ugboro. Soro ya gaa ọnụ. Cheta ya ruo mgbe ebighị ebi.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · ndị otu {{appName}} kemgbe 2024',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} gbanwere njem izu atọ na-akpata isi gafere mba anọ ka ọ bụrụ atụmatụ njem kacha dị jụụ anyị kekọrịtara.',
   'waypointLayout.mobileNavClose': 'Mechie menu nsoroụzọ',
   'waypointLayout.primaryNavLabel': 'Ntugharị isi',
 }

@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Cwestiynau, adborth, neu gais am nodwedd? Cysylltwch â'r tîm {{app}} o'r Gosodiadau → Hysbysiadau, neu ysgrifennwch atom ar unrhyw adeg — mae pob neges yn mynd at berson go iawn.",
+  'about.contactTitle': 'Siaradwch â ni',
   'about.eyebrow': 'Ynglŷn â',
+  'about.featureCapture':
+    "Cipio derbyniadau gyda llwytho lluniau sy'n atodi delweddau i'r draul gywir, linell wrth linell.",
+  'about.featureExport':
+    "Allglenadau CSV archwiladwy o bob adroddiad, traul, a chyflwr cymeradwyo — yn barod i'ch tîm cyfrifyddu.",
+  'about.featurePolicy':
+    "Canllawiau polisi — terfynau dyddiol, terfynau fesul categori, a throthwyon sy'n gofyn am dderbyniad a orfodir adeg cyflwyno.",
+  'about.featureWorkflow':
+    'Llif gwaith cymeradwyo dau haen gyda nodiadau adolygydd, baneri torri polisi, ac arianu un tap.',
+  'about.intro':
+    "Mae {{app}} yn blatfform rheoli treuliau ar gyfer timau cyllid a'r bobl maen nhw'n eu had-dalu. Cipiwch dderbyniad, ffeiliwch draul, anfonwch adroddiad drwy gymeradwyaeth, a dilynwch bob ad-daliad — heb y seremoni taenlen.",
+  'about.missionBody':
+    "Dylai ad-daliad fod yn gyflym, yn deg, ac yn archwiladwy. Fe wnaethon ni adeiladu {{app}} fel bod cyflwynwyr yn cael eu talu'n ôl heb flino, bod cymeradwywyr yn gweld yn union beth maen nhw'n ei gymeradwyo, a bod gan gyllid lwybr glân ar gyfer pob doler — gwiriadau polisi a phopeth.",
+  'about.missionTitle': 'Ein cenhadaeth',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Yn cymeradwyo…',
   'approvals.confirmReject': 'Cadarnhau gwrthod',
+  'approvals.empty': "Rydych chi i gyd yn gyfredol — dim adroddiadau'n aros.",
   'approvals.eyebrow': 'Ciw rheolwr',
   'approvals.kpi.flaggedLabel': "Polisi wedi'i nodi",
+  'approvals.kpi.queueLabel': 'Yn aros am adolygiad',
   'approvals.kpi.totalLabel': 'Gwerth sydd ar y gweill',
   'approvals.lineCount': '{{count}} treuliau',
   'approvals.queueFallback': "Ciw byw ddim ar gael — yn dangos data demo wedi'i guradu.",
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Yn gwrthod…',
+  'approvals.rejectPlaceholder': 'Rheswm (gofynnol)',
   'approvals.rejectPrompt': "Pam rydych chi'n gwrthod yr adroddiad hwn?",
   'approvals.review': 'Adolygiad',
   'approvals.title': "Cymeradwyaethau sy'n aros",
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': "Wedi'i Gymeradwyo · MTD",
   'dashboard.kpi.pendingDelta': '+2 yr wythnos hon',
+  'dashboard.kpi.pendingLabel': 'Adolygiad yn yr arfaeth',
   'dashboard.kpi.receiptsDelta': 'Camau gweithredu sydd eu hangen',
   'dashboard.kpi.receiptsLabel': 'Yn aros am dderbynebau',
   'dashboard.kpi.reimbursedDelta': '+$2.4k',
   'dashboard.kpi.reimbursedLabel': 'Ad-dalwyd · MTD',
   'dashboard.newReport': 'Adroddiad newydd',
+  'dashboard.recent.empty': 'Dim adroddiadau eto — dechreuwch eich un cyntaf uchod.',
   'dashboard.recent.title': 'Adroddiadau diweddar',
   'dashboard.recent.viewAll': 'Gweld yr holl adroddiadau',
   'dashboard.summaryFallback': "Crynodeb byw ddim ar gael — yn dangos data demo wedi'i guradu.",
@@ -38,11 +59,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'Derbynebau ac eitemau ad-daladwy',
   'expenses.listFallback': "Rhestr fyw ddim ar gael — yn dangos data demo wedi'i guradu.",
   'expenses.searchPlaceholder': 'Chwiliwch am fasnachwr neu gategori…',
+  'expenses.subtotal': 'Treuliau {{count}} · is-gyfanswm',
   'expenses.title': 'Treuliau',
+  'forgotPassword.continue': 'Mae gen i god · Parhau',
+  'forgotPassword.subheading':
+    'Rhowch eich e-bost gwaith a byddwn yn anfon dolen i osod cyfrinair newydd.',
   'forgotPassword.successBody':
     'Os oes cyfrif yn bodoli ar gyfer {{email}} byddwch yn derbyn dolen ailosod yn yr ychydig funudau nesaf.',
+  'landing.copyright': "© {{year}} {{app}}. Wedi'i adeiladu gyda Molecule.dev.",
+  'landing.ctaBody':
+    'Am ddim ar gyfer y 25 traul cyntaf bob mis. Dim cerdyn credyd, dim galwad gweithredu.',
   'landing.ctaHeading': "Yn barod i adennill yr hyn sy'n ddyledus i'ch tîm?",
   'landing.eyebrow': 'Adroddiadau treuliau ar gyfer timau cyllid',
+  'landing.featuresHeading': 'Ad-daliad, mewn un gweithle tawel',
   'landing.heroSubtitle':
     'Cyflwyno, cymeradwyo ac ad-dalu treuliau busnes heb y seremoni daenlen. OCR derbynebau, gwiriadau polisi ac amserlen gymeradwyo dryloyw — i gyd mewn un gweithle tawel.',
   'landing.heroTitle': "Pob derbynneb, wedi'i adfer.",
@@ -60,10 +89,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Nodiadau',
   'newExpense.descriptionPlaceholder':
     "Pam roedd y gost hon yn gysylltiedig â busnes (yn weladwy i'ch cymeradwywr).",
+  'newExpense.eyebrow': 'Eitem ad-daladwy',
   'newExpense.merchant': 'Masnachwr',
   'newExpense.merchantPlaceholder': 'Gwesty Adlon Kempinski',
   'newExpense.policyHint':
     'Nodyn atgoffa: mae angen nodyn cyfiawnhad ar gyfer prydau bwyd dros $80/dydd neu unrhyw eitem dros $250.',
+  'newExpense.receipt': 'Derbynneb',
+  'newExpense.receiptHint': 'JPG, PNG, neu PDF · 10 MB ar y mwyaf',
   'newExpense.receiptOcrHint': 'Mae OCR yn llenwi meysydd ymlaen llaw',
   'newExpense.receiptPrompt': 'Gollyngwch lun neu PDF yma, neu cliciwch i bori',
   'newExpense.receiptUploadFailed':
@@ -73,17 +105,21 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     "Lluniau neu uwchlwytho derbynneb a bydd Recoup yn llenwi'r masnachwr, y dyddiad a'r cyfanswm ymlaen llaw. Cadarnhewch bopeth isod cyn arbed.",
   'newExpense.title': 'Ychwanegu treuliau',
+  'newReport.approverHint':
+    "Byddant yn derbyn e-bost pan fyddwch yn cyflwyno'r adroddiad hwn i'w adolygu.",
   'newReport.approverLabel': 'E-bost cymeradwywr (dewisol)',
   'newReport.approverPlaceholder': 'rheolwr@eichcwmni.com',
   'newReport.availableExpenses': 'Treuliau sydd ar gael',
   'newReport.createFailed': 'Methwyd creu adroddiad. Rhowch gynnig arall arni.',
   'newReport.draftsFallback':
     "Rhestr treuliau byw ddim ar gael — yn dangos data demo wedi'i guradu.",
+  'newReport.eyebrow': "Grwpio treuliau · cyflwyno i'w gymeradwyo",
   'newReport.includedCount': "{{count}} wedi'i gynnwys",
   'newReport.purposeLabel': 'Diben busnes',
   'newReport.purposePlaceholder':
     "Disgrifiwch y daith neu'r prosiect y mae'r treuliau hyn yn ymwneud ag ef (yn weladwy i'ch cymeradwywr a'ch cyllidwr).",
   'newReport.saveDraft': 'Cadw fel drafft',
+  'newReport.saveDraftFailed': "Methu cadw'r drafft. Rhowch gynnig arall arni.",
   'newReport.submit': "Cyflwyno i'w gymeradwyo",
   'newReport.submitFailed': 'Methwyd cyflwyno adroddiad. Rhowch gynnig arall arni.',
   'newReport.summary': "Crynodeb o'r adroddiad",
@@ -96,16 +132,23 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'Gweithgaredd gweithle',
   'notifications.feedFallback': "Nid yw'r ffrwd fyw ar gael — yn dangos data demo wedi'i guradu.",
   'notifications.openReport': 'Agor adroddiad ›',
+  'pricing.approvalsLabel': 'cymeradwyaethau',
   'pricing.expensesLabel': 'treuliau',
   'pricing.heading': 'cymeradwyaethau',
   'pricing.policiesLabel': 'polisïau',
   'pricing.receiptsLabel': 'derbynebau',
   'recoveredAmountHeroCard.label': "Ad-daliad wedi'i adennill · Hyd at flwyddyn newydd",
+  'recoveredAmountHeroCard.pending':
+    '{{count}} adroddiad(au) yn aros am adolygiad ar draws pob cymeradwywr.',
+  'reports.approvalFlow': 'Llif cymeradwyo',
   'reports.backToList': 'Yn ôl at adroddiadau',
   'reports.detailFallback': "Adroddiad byw ddim ar gael — yn dangos data demo wedi'i guradu.",
   'reports.lineItems': 'Eitemau llinell',
   'reports.lineItemsCount': '{{count}} treuliau',
+  'reports.lineItemsEmpty': 'Dim treuliau ar yr adroddiad hwn eto.',
+  'reports.openLibrary': 'Agor llyfrgell adroddiadau',
   'reports.policyTitle': 'Baner polisi',
+  'reports.selectPrompt': "Dewiswch adroddiad o'r llyfrgell i weld ei fanylion.",
   'reports.summary.lineCount': 'Eitemau llinell',
   'reports.summary.reimbursable': 'Ad-daladwy',
   'reports.summary.total': 'Cyfanswm a adroddwyd',
@@ -114,6 +157,7 @@ export const ui: UiTranslations = {
   'reportsList.lineItems': '{{count}} treuliau',
   'reportsList.listFallback': "Rhestr fyw ddim ar gael — yn dangos data demo wedi'i guradu.",
   'reportsList.newReport': 'Adroddiad newydd',
+  'reportsList.submittedOn': 'Cyflwynwyd {{date}}',
   'reportsList.title': 'Llyfrgell adroddiadau',
   'resetPassword.hidePassword': "Cuddio'r cyfrinair",
   'resetPassword.newPasswordLabel': 'Cyfrinair newydd',
@@ -139,6 +183,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': "Wedi'i gadw ✓",
   'settings.profileSaveFailed': "Methwyd diweddaru'r proffil. Rhowch gynnig arall arni.",
   'signup.heading': 'Creu eich cyfrif Adfer',
+  'signup.hidePassword': "Cuddio'r cyfrinair",
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Dangos cyfrinair',
   'signup.subheading': 'Am ddim ar gyfer 25 o dreuliau bob mis — dim cerdyn credyd.',

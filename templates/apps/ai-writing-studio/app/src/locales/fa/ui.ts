@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'بازخوردی دارید، باگی پیدا کرده‌اید یا ویژگی جدیدی می‌خواهید؟ از تنظیمات حساب خود با ما در تماس باشید — هر پیام به دست یک عضو واقعی تیم می‌رسد.',
   'about.contactTitle': 'تماس بگیرید',
   'about.eyebrow': 'درباره',
+  'about.intro':
+    '{{app}} یک استودیوی نویسندگی هوش مصنوعی برای نویسندگانی است که به متن‌شان عمیقاً اهمیت می‌دهند. این استودیو تولید متن بلند با هوش مصنوعی را با ویرایشگری آرام، امتیازدهی سئو و تولید تصویر ترکیب می‌کند تا بتوانید یک نوشته را از صفحه سفید تا انتشار ببرید — بدون اینکه هرگز صدای خودتان را از دست بدهید.',
+  'about.missionBody':
+    'ما باور داریم هوش مصنوعی باید در کنار شما بنویسد، نه به‌جای شما. {{app}} پیشنهادها را به‌وضوح از کلمات خودتان جدا نگه می‌دارد، مالکیت هر سندی که می‌سازید را به شما می‌سپارد و ابزارها را از سر راه نوشتن کنار می‌زند.',
+  'about.missionTitle': 'ماموریت ما',
   'about.pageTitle': 'درباره {{app}}',
   'aiSuggestionCard.applied': 'پیشنهاد اعمال شد',
   'aiSuggestionCard.apply': 'اعمال کردن',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'منابع ترافیک',
   'billing.activePlan': 'اشتراک فعال است.',
   'billing.aiWordsLabel': 'نسل‌های هوش مصنوعی گنجانده شده است',
+  'billing.cancelFailed': 'لغو اشتراک امکان‌پذیر نبود.',
   'billing.cancelPlan': 'لغو طرح',
+  'billing.cancelPlanConfirm': 'لغو شود؟',
   'billing.cancelSuccess': 'اشتراک لغو شد. برای به‌روزرسانی طرح، رفرش کنید.',
   'billing.changePlan': 'طرح تغییر',
   'billing.col.invoice': 'فاکتور',
@@ -43,26 +52,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'مشاهده طرح‌ها',
   'common.goToDashboard': 'رفتن به داشبورد',
   'dashboard.continueWriting': 'ادامه نوشتن',
+  'dashboard.createFirst': 'ایجاد سند',
   'dashboard.days.sat': 'شن',
   'dashboard.days.sun': 'یک',
   'dashboard.defaultWriterName': 'نویسنده',
   'dashboard.greeting': 'صبح بخیر، {{name}}',
   'dashboard.loadError': 'داشبورد شما بارگیری نشد.',
+  'dashboard.loading': 'در حال بارگذاری استودیوی شما…',
   'dashboard.loadingDocs': 'در حال بارگیری اسناد اخیر…',
   'dashboard.noDocuments': 'هنوز هیچ سندی وجود ندارد - اولین سند خود را شروع کنید.',
   'dashboard.startWriting': 'شروع یک سند جدید',
+  'dashboard.streakBody': 'این هفته {{words}} کلمه نوشته‌اید.',
   'dashboard.streakTitle': '{{count}} -روز متوالی',
+  'dashboard.subgreeting': '{{count}} سند در کتابخانه شما — این روند را ادامه دهید.',
+  'documentCard.seoScoreTitle': 'امتیاز سئو: {{score}}/۱۰۰',
+  'documents.createNew': 'ایجاد سند جدید',
   'documents.empty': 'کتابخانه شما منتظر است - اولین سند خود را شروع کنید.',
+  'documents.emptyFiltered': 'هنوز هیچ سندی با فیلترهای شما مطابقت ندارد.',
   'documents.loadError': 'اسناد بارگیری نشدند.',
   'documents.loading': 'در حال بارگذاری کتابخانه شما…',
   'documents.new': 'سند جدید',
+  'documents.searchAriaLabel': 'جستجوی اسناد',
   'documents.searchPlaceholder': 'جستجوی اسناد…',
   'documents.subtitle': '{{count}} اسناد موجود در کتابخانه شما.',
   'documents.title': 'اسناد',
   'editor.aiPanelTitle': 'هوش پلوم',
+  'editor.aiSuggestion.empty':
+    'هیچ اصلاح فعالی وجود ندارد. هر وقت خواستید چشم دومی روی نوشته‌تان باشد، از {{appName}} درخواست پیشنهاد کنید.',
   'editor.aiSuggestion.failed': 'در حال حاضر امکان بارگذاری پیشنهادات وجود ندارد.',
   'editor.aiSuggestion.loadingBody': 'ایجاد یک اصلاح وضوح…',
   'editor.backToDocuments': 'همه اسناد',
+  'editor.bodyAriaLabel': 'متن سند',
   'editor.closeAiPanel': 'بستن پنل هوش مصنوعی',
   'editor.createFailed': 'نتوانستم سند ایجاد کنم.',
   'editor.exported': 'به صورت {{format}} صادر شد.',
@@ -78,18 +98,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'درخواست اصلاحیه',
   'editor.saveBeforePublish': 'قبل از انتشار، سند را ذخیره کنید.',
   'editor.status.chars': '{{count}} شخصیت‌ها',
+  'editor.status.readTime': '{{minutes}} دقیقه خوانده شده',
   'editor.status.savedAt': 'ذخیره شده {{time}}',
   'editor.status.saveError': 'ذخیره ناموفق بود',
+  'editor.status.unsaved': 'هنوز ذخیره نشده',
   'editor.titleAriaLabel': 'عنوان سند',
   'editor.titlePlaceholder': 'سند بدون عنوان',
   'editor.toggleAiPanel': 'پنل هوش مصنوعی را تغییر دهید',
   'editor.viewSeo': 'سئو',
   'forgotPassword.emailPlaceholder': 'author@example.com',
+  'forgotPassword.sent': 'اگر {{email}} در سیستم ثبت شده باشد، پیوند بازنشانی در راه است.',
   'imageGenerator.failed': 'تولید تصویر ناموفق بود.',
   'imageGenerator.generate': 'تولید تصویر',
   'imageGenerator.generating': 'تولید ...',
   'imageGenerator.placeholder': 'تصویری که می‌خواهید ایجاد کنید را توصیف کنید...',
+  'imageGenerator.promptAriaLabel': 'تصویر فوری',
+  'imageGenerator.subtitle': 'یک تصویر جلد را توصیف کنید تا هوش مصنوعی آن را تصویرسازی کند.',
   'imageGenerator.title': 'تولیدکننده تصویر هوش مصنوعی',
+  'landing.aiSuggestionBody':
+    'ایستاده بر بالکن طبقه چهل‌ودوم، الیاس فشار شهر را بر خود حس می‌کرد — باد همهمه محیط را می‌تراشید و او را در خلأی سرد و خاموش بالای شبکه درخشان معلق می‌گذاشت.',
   'landing.eyebrow': 'استودیوی نویسندگی هوش مصنوعی برای نویسندگان جدی',
   'landing.featuresHeading': 'ابزارهایی که از دسترس خارج می‌شوند',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -99,14 +126,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'استودیویی ساخته شده برای نویسندگانی که به نثر، ریتم و دقت خود اهمیت می‌دهند. پلام در کنار شما پیش‌نویس می‌نویسد - هرگز به جای شما.',
   'landing.heroTitle.eloquence': 'فصاحت و بلاغت',
+  'landing.heroTitle.intelligence': 'هوش با ',
   'landing.nav.testimonials': 'نظرات مشتریان',
   'landing.plan.cta': 'با این طرح شروع کنید',
   'landing.plan.popular': 'محبوب ترین',
   'landing.pricingEyebrow': 'قیمت‌گذاری',
   'landing.pricingHeading': 'آنچه را که با تمرین شما مطابقت دارد انتخاب کنید',
   'landing.sampleDocTitle': 'معماری سکوت',
+  'landing.sampleParagraph1':
+    'شهر هرگز واقعاً ساکت نبود. حتی در عمیق‌ترین ساعات شب، همهمه‌ای کوتاه در پی‌های بتنی می‌لرزید — ضربان مکانیکی قطارهای مترو و کانال‌های تهویه.',
+  'landing.sampleParagraph2.after': ' روی شیشه.',
+  'landing.sampleParagraph2.before': 'اما ',
   'landing.sampleParagraph2.highlight':
     'الیاس در حالی که روی بالکن طبقه چهل و دوم ایستاده بود، احساس عمیقی از انزوا داشت.',
+  'landing.showcaseBody':
+    'یک جمله را برجسته کنید تا {{appName}} اصلاحی پیشنهاد دهد. آن را بپذیرید، تغییرش دهید یا ردش کنید. پیشنهادها همیشه به رنگ بنفش نمایش داده می‌شوند تا بدانید چه چیزی را خودتان نوشته‌اید و چه چیزی پیشنهاد شده است.',
+  'landing.showcaseHeading': 'چشم دومی — هرگز نویسنده دوم.',
   'landing.startWriting': 'شروع به نوشتن کنید',
   'login.emailPlaceholder': 'author@example.com',
   'login.failed': 'ورود ناموفق بود',
@@ -121,8 +156,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'داشبورد را باز کنید',
   'notFound.title': 'این فصل هنوز نوشته نشده است.',
   'plumeSidebarLayout.primaryNavLabel': 'ناوبری اولیه',
+  'pricing.maxDocuments': '{{count}} اسناد',
+  'pricing.maxGenerate': '{{count}} تولید متن با هوش مصنوعی',
+  'pricing.maxImages': '{{count}} تولید تصویر',
   'privacy.data':
     'ایمیل حساب شما و رمز عبور هش شده. اسناد و قالب‌هایی که ایجاد می‌کنید. گزارش‌های پیشنهاد هوش مصنوعی (ورودی + خروجی) برای صورتحساب و تجزیه و تحلیل. شناسه‌های مشتری + اشتراک Stripe؛ ما هرگز شماره کارت کامل را ذخیره نمی‌کنیم.',
+  'privacy.intro':
+    'ما فقط داده‌های لازم برای اداره {{app}} را جمع‌آوری می‌کنیم: ایمیل شما، اسنادی که می‌سازید و درخواست‌های هوش مصنوعی که ارسال می‌کنید. ما هرگز نوشته‌ها یا درخواست‌های شما را نمی‌فروشیم.',
   'profile.loadError': 'نتوانستم نمایه شما را بارگذاری کنم.',
   'profile.loading': 'در حال بارگذاری پروفایل شما…',
   'profile.loadingPublished': 'در حال بارگیری اسناد منتشر شده…',
@@ -133,8 +173,14 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'رمز عبور جدید',
   'seoAnalysis.backToEditor': 'بازگشت به ویرایشگر',
   'seoAnalysis.eyebrow': 'تحلیل سئو',
+  'seoAnalysis.heroBody':
+    '{{count}} پیشنهاد برای اعمال. هر کدام یک بهبود ساختاری یا کلیدواژه‌ای است، نه دیواری از هشدارهای قرمز.',
+  'seoAnalysis.heroBodyEmpty':
+    'برای امتیازدهی خوانایی، تراکم کلیدواژه و ساختار، روی «اجرای تحلیل» کلیک کنید.',
   'seoAnalysis.heroEmpty':
     'هنوز تحلیلی وجود ندارد. برای امتیازدهی به این پیش‌نویس، یکی را اجرا کنید.',
+  'seoAnalysis.heroNeedsWork': 'برخی بهبودهای ساختاری بازدید را افزایش می‌دهند.',
+  'seoAnalysis.heroStrong': 'اثری قوی — با چند بهبود کوچک به عالی می‌رسد.',
   'seoAnalysis.historyEmpty': 'هیچ تحلیل قبلی ثبت نشده است.',
   'seoAnalysis.historyTitle': 'تاریخچه تحلیل',
   'seoAnalysis.keywordEmpty':
@@ -161,8 +207,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'Plume را طوری تنظیم کنید که با نحوه‌ی نوشتن شما مطابقت داشته باشد.',
   'settings.toggleIntegrationFailed': 'به‌روزرسانی ادغام ناموفق بود.',
   'settings.writing.aiSuggestions': 'پیشنهادهای درون خطی هوش مصنوعی هنگام تایپ',
+  'settings.writing.aiSuggestionsBody':
+    'اصلاحات را هنگام نوشتن نشان می‌دهد. پیشنهادها همیشه به‌صورت جمله‌به‌جمله و اختیاری ارائه می‌شوند.',
   'settings.writing.autoSave': 'ذخیره خودکار هر 30 ثانیه',
+  'settings.writing.autoSaveBody':
+    '{{appName}} از پیش‌نویس شما نسخه‌ای ذخیره می‌کند تا از هر تب بتوانید بازیابی کنید.',
   'settings.writing.notifyEmail': 'خلاصه‌های هفتگی را برای من ایمیل کنید',
+  'settings.writing.notifyEmailBody':
+    'خلاصه کوتاه یکشنبه‌ها از زنجیره‌ها، پیش‌نویس‌ها و بهبودهای سئو.',
   'settings.writing.title': 'ترجیحات نوشتن',
   'settings.writing.tone': 'پیش‌تنظیم لحن پیش‌فرض',
   'signup.emailPlaceholder': 'author@example.com',
@@ -174,8 +226,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'هیچ توضیحی ارائه نشده است.',
   'templates.subtitle':
     'از یک چارچوب ویراستاری امتحان پس داده شروع کنید، سپس آن را از آنِ خودتان کنید.',
+  'terms.intro':
+    'این شرایط استفاده شما از {{app}} را تعیین می‌کند. با ساخت حساب کاربری می‌پذیرید که از این سرویس برای نوشتن قانونی استفاده کنید و اطلاعات ورود حساب خود را محرمانه نگه دارید.',
   'terms.license':
     'شما مالکیت هر سند، الگو و نسل هوش مصنوعی که ایجاد می‌کنید را حفظ می‌کنید. ما به یک مجوز غیر انحصاری برای میزبانی و ارائه کار شما به شما و پردازش درخواست‌های هوش مصنوعی از طریق ارائه دهندگان تضمین شده‌ای که انتخاب می‌کنید، نیاز داریم.',
   'writingStreakHeroCard.change': '{{sign}} {{amount}} کلمات',
   'writingStreakHeroCard.greeting': 'روز بخیر، {{name}}',
+  'writingStreakHeroCard.subtitle': 'کلمات نوشته‌شده این هفته — زنجیره {{count}} روزه',
+  'writingStreakHeroCard.tagline': 'روزی یک صفحه، الهام را پای کار نگه می‌دارد.',
 }

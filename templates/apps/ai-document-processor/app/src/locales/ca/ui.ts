@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens alguna pregunta, has trobat un error o vols una demostració per al teu equip? Escriu-nos des de la configuració del teu compte — cada missatge arriba a una persona real de l'equip.",
   'about.contactTitle': 'Poseu-vos en contacte',
+  'about.intro':
+    '{{app}} converteix piles de documents escanejats i PDF en dades estructurades, cercables i arxivades. Deixa-hi factures, rebuts, contractes o formularis i deixa que la IA els llegeixi, extregui, classifiqui i arxivi — amb colors de confiança perquè el teu equip només revisi el que realment necessita una persona.',
+  'about.missionBody':
+    "La feina pesada amb documents no hauria de consumir el dia del teu equip. Creiem que cada valor extret hauria de ser explicable i auditable — perquè puguis confiar en l'automatització sense perdre el rastre del paper. {{app}} està dissenyat per estalviar hores per pila i mantenir una persona en el circuit allà on importa.",
+  'about.missionTitle': 'La nostra missió',
+  'about.subtitle':
+    'OCR, extracció amb IA, classificació i arxivament automàtic per als teus documents.',
   'about.title': 'Sobre {{app}}',
+  'about.whatYouGetTitle': 'El que obtens',
   'authShell.backToLanding': "← Torna a l'aterratge",
   'common.goToDashboard': 'Anar al panell',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Avui · Visió general de les operacions',
   'dashboard.heading': 'Intel·ligència documental',
+  'dashboard.metric.accuracy': 'Precisió mitjana',
   'dashboard.metric.filed': 'Presentat avui',
   'dashboard.metric.filedCaption': "Enviat per regles d'arxiu",
   'dashboard.metric.processed': 'Processat avui',
@@ -23,11 +34,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'Pujat',
   'dashboard.recent.heading': 'Documents recents',
+  'dashboard.recent.typeUnknown': 'Pendent de classificació',
   'dashboard.subheading':
     'Cada pàgina està classificada, extreta i arxivada, amb colors de confiança perquè la revisió es mantingui centrada.',
   'documentDetail.audit.heading': "Cronologia de l'auditoria",
+  'documentDetail.audit.subheading': 'Cada pas fet en aquest document, amb la persona responsable.',
   'documentDetail.back': 'Tots els documents',
   'documentDetail.downloadHint': 'Feu servir Descarrega per obrir el fitxer original.',
+  'documentDetail.extracted.empty': "Encara no s'ha extret cap camp.",
   'documentDetail.extracted.heading': 'Camps extrets',
   'documentDetail.extracted.subheading':
     '{{count}} camps · feu clic a qualsevol camp per ressaltar-lo a la pàgina',
@@ -56,13 +70,24 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} documents de la vostra biblioteca, ordenats del més nou al més recent.',
   'documents.uploadCta': 'Puja documents',
+  'documentTypeBreakdown.barAria': 'Composició dels documents per tipus',
   'documentTypeBreakdown.empty': "Encara no s'ha processat cap document.",
   'documentTypeBreakdown.subtitle': '{{total}} processat',
   'documentTypeBreakdown.title': 'Composició del document',
+  'forgotPassword.backToSignIn': '← Torna a iniciar sessió',
   'forgotPassword.checkEmail': 'Revisa el teu correu electrònic',
   'forgotPassword.tip': 'No ho has entès? Revisa el correu brossa o prova amb una adreça diferent.',
+  'landing.copyright':
+    "© {{year}} {{app}}. Creat per a equips d'operacions que auditen cada pàgina.",
+  'landing.ctaBody':
+    "Prova de 14 dies. Sense targeta. Cancel·la quan vulguis. Creat per a equips d'operacions que van de pressa i auditen amb calma.",
   'landing.ctaHeading': "Deixa d'escriure rebuts. Comença a arxivar-los.",
   'landing.eyebrow': 'OCR · Extracció · Arxiu amb IA',
+  'landing.featuresHeading': "Intel·ligència documental que s'explica sola",
+  'landing.heroSubtitle':
+    'Deixa-hi una pila de factures, rebuts, contractes o formularis. {{app}} els classifica, extreu i arxiva — amb colors de confiança perquè el teu equip només revisi el que realment necessita una persona.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Volum diari · últims 7 dies',
   'landing.sampleCardLabel': 'Documents processats avui',
   'landing.sampleCardSubtitle': 'Precisió mitjana del 96,2% en factures, rebuts i formularis.',
   'login.hidePassword': 'Amaga la contrasenya',
@@ -75,6 +100,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Obre la pàgina de destinació',
   'notFound.title': 'Aquesta pàgina no està arxivada',
+  'parcelaHeroCard.accuracy': 'Precisió mitjana del {{value}}% en totes les extraccions',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % respecte ahir',
   'parcelaHeroCard.title': 'Documents processats avui',
   'parcelaLayout.primaryNavLabel': 'Navegació principal',
@@ -82,6 +108,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'documents',
   'pricing.processingLabel': 'tasques de processament',
   'resetPassword.confirmPlaceholder': 'Repetiu la nova contrasenya',
+  'resetPassword.hidePassword': 'Amaga la contrasenya',
   'resetPassword.passwordLabel': 'Nova contrasenya',
   'resetPassword.showPassword': 'Mostra la contrasenya',
   'resetPassword.subtitle': 'Trieu alguna cosa de com a mínim 8 caràcters.',
@@ -98,10 +125,12 @@ export const ui: UiTranslations = {
   'rules.loadError': "No s'han pogut carregar les regles.",
   'rules.loading': "S'estan carregant les regles…",
   'rules.matched30d': '{{count}} documents coincidents en els darrers 30 dies',
+  'rules.neverUsed': 'Mai utilitzat',
   'rules.newRule': 'Nova regla',
   'rules.saveError': "No s'ha pogut desar la regla.",
   'rules.subheading':
     "Indiqueu al sistema on ha d'anar cada tipus de document. Cadena de condicions de dalt a baix: guanya la primera coincidència.",
+  'rules.templatesEmpty': "Encara no hi ha plantilles d'extracció.",
   'rules.templatesHeading': "Plantilles d'extracció",
   'rules.templatesSubheading':
     "Esquemes de camp que l'extractor utilitza per a cada tipus de document.",
@@ -111,17 +140,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': "Nom de l'espai de treball",
   'settings.account.subheading':
     "Nom per mostrar i correu electrònic principal per a les notificacions i l'historial d'auditoria.",
+  'settings.api.confirmRevoke': 'Confirmar?',
   'settings.api.copyOnce': 'Copia aquesta clau: no es tornarà a mostrar',
   'settings.api.createdOn': 'Creat {{date}}',
   'settings.api.empty': "Encara no hi ha cap clau API. Genera'n una a dalt.",
   'settings.api.error': "No s'ha pogut crear la clau.",
+  'settings.api.generating': 'Generant…',
+  'settings.api.heading': 'Claus API',
   'settings.api.labelPlaceholder': 'Etiqueta clau (p. ex., carregador de CI)',
+  'settings.api.loading': "S'estan carregant les claus…",
   'settings.api.newKey': 'Generar clau',
   'settings.api.subheading':
     "Feu servir aquestes eines per enviar documents des d'un script o el vostre ERP. Gireu qualsevol tecla en qualsevol moment.",
   'settings.integrations.heading': "Integracions d'arxiu",
   'settings.integrations.subheading':
     "Envia documents arxivats a la unitat de núvol o a l'eina de xat on ja resideix el teu equip.",
+  'settings.subheading':
+    "Gestiona el compte, les claus d'API i les integracions d'arxivament del teu espai de treball {{app}}.",
+  'signup.hidePassword': 'Amaga la contrasenya',
   'signup.identityPrompt': "Com ens hem d'adreçar a tu?",
   'signup.showPassword': 'Mostra la contrasenya',
   'signup.subtitle': '14 dies gratuïts, no cal targeta.',
@@ -129,6 +165,7 @@ export const ui: UiTranslations = {
   'upload.error': 'La càrrega ha fallat.',
   'upload.eyebrow': 'Ingestió',
   'upload.heading': 'Puja documents',
+  'upload.queue.clear': 'Esborra les completades',
   'upload.queue.col.confidence': 'Confiança',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Detectant…',
@@ -141,5 +178,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     "O bé, solteu diversos fitxers alhora per a l'extracció, la classificació i l'arxivament per lots.",
   'uploadDropZone.cta': 'Tria fitxers',
+  'uploadDropZone.maxSize': "Màx. 25 MB per fitxer · Xifrat d'extrem a extrem",
   'uploadDropZone.title': 'Deixa anar els documents per iniciar el processament',
 }

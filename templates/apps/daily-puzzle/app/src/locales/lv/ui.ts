@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ir atsauksmes, atradi kļūdu vai vēlies ieviest {{app}} savā skolā vai komandā? Mēs lasām katru ziņu — sazinies ar mums no sava konta iestatījumiem, un atbildēs īsts cilvēks.',
   'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
+  'about.intro':
+    '{{app}} ir ikdienas vārdu mīkla. Uzmini piecu burtu vārdu sešos mēģinājumos, saglabā savu sēriju, dalies ar savu emocijzīmju režģi un uzzini, kā visiem klājās ar šodienas vārdu.',
+  'about.missionBody':
+    'Laba mīkla ir mazs ikdienas panākums. {{app}} ir veidota ap vienu kopīgu vārdu dienā — pietiekami ātra kafijas pauzei, pietiekami aizraujoša, lai atgrieztos arī rīt.',
+  'about.missionTitle': 'Mūsu misija',
   'about.title': 'Par {{app}}',
   'archive.loadError': 'Neizdevās ielādēt arhīvu.',
   'archive.missed': 'Palaists garām',
   'archive.notPlayed': 'Nav spēlēts',
+  'archive.subhead':
+    'Pārspēlē jebkuru iepriekšējo dienu kā treniņu — bez sērijām, bez statistikas, tikai priekšā.',
   'archive.title': 'Arhīvs',
   'auth.backToHome': 'Atpakaļ uz sākumu',
   'auth.backToHomeArrow': '← Atpakaļ uz sākumu',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Aizmirsāt paroli?',
   'auth.login.loggingIn': 'Piesakās…',
   'auth.login.logIn': 'Spēlēt šodienas vārdu',
+  'auth.login.noAccount': 'Jauns lietotājs Tessera?',
   'auth.login.or': 'vai turpināt ar',
   'auth.login.password': 'Parole',
   'auth.login.signInButton': 'Pierakstīties',
@@ -32,6 +42,11 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'Saglabā…',
   'common.sendingEllipsis': 'Sūta…',
   'common.startingEllipsis': 'Sāk…',
+  'forgotPassword.subhead':
+    'Ievadiet savu e-pasta adresi, un mēs nosūtīsim jums saiti atiestatīšanai.',
+  'forgotPassword.success.body':
+    'Ja konts pastāv {{email}} , pēc dažām minūtēm saņemsiet atiestatīšanas saiti.',
+  'forgotPassword.success.title': 'Pārbaudi savu iesūtni.',
   'form.name': 'Vārds',
   'howToPlay.cta.home': 'Atpakaļ mājās',
   'howToPlay.cta.play': 'Spēlēt šodienas mīklu',
@@ -68,10 +83,15 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'Sērijas, kuras negribas pārtraukt',
   'leaderboard.daily.title': 'Šodienas risinājumi',
   'leaderboard.loadError': 'Neizdevās ielādēt rezultātu tabulu.',
+  'leaderboard.streaks.empty': 'Vēl nav nevienas sērijas — esi pirmais.',
+  'leaderboard.streaks.subhead': 'Visu laiku garākās uzvaru sērijas.',
   'leaderboard.streaks.title': 'Sēriju līderi',
+  'leaderboard.subhead': 'Kā visiem klājās šodien un kam pieder garākās sērijas.',
   'leaderboard.title': 'Rezultātu tabula',
   'login.headline': 'Laipni lūdzam atpakaļ.',
   'login.streakPill': '{{days}} dienu sērija gaida',
+  'login.subhead':
+    'Piesakies, lai saglabātu savu sēriju un uzzinātu, kā tev klājās ar šodienas vārdu.',
   'nav.archive': 'Arhīvs',
   'nav.editProfile': 'Rediģēt profilu',
   'nav.getStarted': 'Sākt darbu',
@@ -89,6 +109,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Nav tāda vārda',
   'notFound.title': 'Šis maršruts ir tukšs.',
   'planUpdated.message': 'Jūsu plāns ir aktīvs.',
+  'planUpdated.retry': 'Mēģini vēlreiz',
+  'planUpdated.verifyFailed': 'Mēs vēl nevarējām apstiprināt jūsu maksājumu.',
+  'planUpdated.verifyFailedBody':
+    'Jūsu maksājums, iespējams, joprojām tiek apstrādāts. Pēc brīža mēģiniet vēlreiz.',
   'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'play.alreadyFinished': 'Jūs jau esat pabeidzis šo mīklu',
   'play.answerWas': 'Vārds bija',
@@ -104,6 +128,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'Prakses mīkla',
   'play.tooShort': 'Nav pietiekami daudz burtu',
   'play.won': 'Atrisināts!',
+  'pricing.advancedStats': 'Paplašinātā statistika: {{yes}}',
+  'pricing.archiveHistory': '{{count}} dienas arhīva vēstures',
+  'pricing.archivePlays': '{{count}} arhīva atkārtojumi / dienā',
+  'pricing.archiveUnlimited': 'Neierobežota arhīva vēsture',
+  'pricing.canExport': 'Datu eksports: {{yes}}',
+  'pricing.checkoutError': 'Nevarēja sākt norēķināšanos. Lūdzu, mēģiniet vēlreiz.',
   'pricing.dailyWord': 'Ikdienas vārds',
   'pricing.heading': 'Izvēlieties savu {{app}} plānu',
   'pricing.included': 'Iekļauts',
@@ -111,7 +141,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'Ikdienas vārds vienmēr ir bezmaksas. Jauniniet, lai iegūtu neierobežotu arhīva atkārtojumu un dziļāku statistiku.',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} respektē tavu privātumu. Šajā lapā ir apkopots, kādus datus mēs glabājam, kāpēc tos glabājam un kā tos izdzēst.',
   'privacy.title': 'Privātuma paziņojums',
+  'resetPassword.subhead': 'Izvēlies jaunu paroli, lai atgrieztos pie savas sērijas.',
   'settings.account': 'Konts',
   'settings.danger.body': 'Neatgriezeniski noņemiet savu {{appName}} kontu un visu mīklu vēsturi.',
   'settings.danger.confirm': 'Jā, dzēst uz visiem laikiem',
@@ -120,17 +153,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'Viesis',
   'settings.language.title': 'Valoda',
   'settings.subhead': 'Pielāgojiet savu profilu, skaņu un to, kā jūs parādāties rezultātu tabulā.',
+  'settings.unnamed': 'Sparq spēlētājs',
   'settings.upgrade': 'Jaunināt',
   'signup.eyebrow': 'Bez maksas uz visiem laikiem — viens vārds dienā',
   'signup.headline': 'Sāciet savu sēriju.',
+  'signup.subhead':
+    'Izveido {{appName}} kontu, lai spēlētu ikdienas vārdu, veidotu sēriju un kāptu līderu sarakstā.',
   'stats.currentStreak': 'Sērija',
   'stats.distribution.title': 'Minējumu sadalījums',
   'stats.loadError': 'Neizdevās ielādēt jūsu statistiku.',
   'stats.maxStreak': 'Maks. sērija',
   'stats.played': 'Spēlēts',
   'stats.playToday': 'Spēlēt šodienas mīklu',
+  'stats.subhead': 'Tikai reitinga ikdienas mīklas — arhīva treniņi nekad netiek ieskaitīti.',
   'stats.title': 'Jūsu statistika',
   'stats.winRate': 'Uzvaras līmenis',
   'status.monthly': 'Mēneša',
+  'terms.intro':
+    'Izmantojot {{app}}, tu piekrīti tālāk norādītajiem noteikumiem. Ja nevari tos pieņemt, lūdzu, neizmanto pakalpojumu.',
   'terms.title': 'Pakalpojumu sniegšanas noteikumi',
 }

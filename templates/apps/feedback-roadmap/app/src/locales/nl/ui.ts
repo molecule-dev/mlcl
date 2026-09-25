@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Heb je feedback, een bug gevonden, of wil je je eigen board op {{appName}}? Open je Instellingen om het team te bereiken — elk bericht komt bij een echt persoon terecht die het leest.',
+  'about.contactTitle': 'Neem contact met ons op',
+  'about.featureModeration':
+    'Een openbare roadmap met kwartaallabels, een changelog die uitgebracht werk omzet in release notes, en een dashboard dat laat zien wat het publiek het liefst wil.',
+  'about.featurePricing':
+    'Gratis voor een paar boards; Pro- en Team-abonnementen ontgrendelen meer boards, hogere limieten en data-export.',
+  'about.featureThreads':
+    'Openbare feedbackboards georganiseerd per onderwerp, met het samenvoegen van duplicaten waardoor stemmen samenkomen in één eerlijk signaal van vraag.',
+  'about.featureVoting':
+    'Eén stem per gebruiker met een volledige statusworkflow — open, gepland, in behandeling, uitgebracht of afgewezen — en een officieel antwoord bij elke beslissing.',
+  'about.intro':
+    '{{appName}} is een productfeedbackplatform — openbare boards waar klanten verzoeken plaatsen, stemmen op wat ze nodig hebben en elk idee volgen van gepland tot uitgebracht. Teams hoeven niet meer te raden wat ze hierna moeten bouwen, want de vraag rangschikt zichzelf.',
+  'about.missionBody':
+    'Wij geloven dat de beste productbeslissingen in de openbaarheid worden genomen. {{appName}} geeft elk team een openbaar board met gestemde verzoeken, een officiële roadmap met doelkwartalen en een changelog die de cirkel sluit — zodat klanten hun impact zien en teams hun mandaat.',
+  'about.missionTitle': 'Onze missie',
   'admin.backToBoards': 'Terug naar boards',
   'admin.denied': 'Alleen voor beheerders.',
   'admin.eyebrow': 'Productteam',
@@ -11,6 +27,8 @@ export const ui: UiTranslations = {
   'admin.title': 'Feedback dashboard',
   'admin.topOpen': 'Top openstaande verzoeken',
   'admin.totalVotes': '{{count}} totaal',
+  'admin.votesChartLabel':
+    'Staafdiagram van uitgebrachte stemmen per week over de afgelopen acht weken',
   'admin.votesOverTime': 'Stemmen over tijd',
   'auth.forgotPassword.email': 'E-mail',
   'auth.forgotPassword.sendResetLink': 'Resetlink verzenden',
@@ -30,7 +48,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Maak je account aan',
   'auth.username': 'Gebruikersnaam',
   'authShell.communities': 'Communities',
+  'authShell.copyright': '{{appName}} — elke stem telt.',
   'authShell.trending': 'Trending',
+  'boardCard.postCount': '{{count}} berichten',
   'boardDetail.allBoards': 'Alle boards',
   'boardDetail.backToBoards': 'Terug naar boards',
   'boardDetail.empty': 'Geen berichten komen overeen met deze filters.',
@@ -54,6 +74,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Elk item begon als een gestemd verzoek. Stemmers zagen het bewegen; hier is waar het terechtkwam.',
   'changelog.title': 'Verzonden, met bewijs',
+  'changelog.voteCount': '{{count}} stemmen zorgden dat dit is gebouwd',
   'common.atLeast8Characters': 'Minimaal 8 tekens',
   'common.checkYourInbox': 'Controleer je inbox',
   'common.loadingEllipsis': 'Laden…',
@@ -64,6 +85,9 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Verzenden…',
   'footer.about': 'Over {{appName}}',
   'footer.language': 'Taal',
+  'forgotPassword.description': 'Voer uw e-mail in en wij sturen u een link om te resetten.',
+  'forgotPassword.successBody':
+    'We hebben een resetlink verzonden naar {{email}}. Deze verloopt over 30 minuten.',
   'forgotPassword.tryAnother': 'Probeer een ander e-mailadres',
   'form.displayName': 'Weergavenaam',
   'form.firstName': 'Voornaam',
@@ -74,6 +98,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'Jouw roadmap, ondersteund door stemmen.',
   'landing.heroCtaPrimary': 'Begin met stemmen verzamelen',
   'landing.heroCtaSecondary': 'Bekijk een live board',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Stop met gokken. Lever wat zij bevestigen.',
+  'landing.heroLede':
+    '{{appName}} verandert verspreide featureverzoeken in een openbaar board met gestemde ideeën, een officiële roadmap en een changelog die je klanten echt lezen.',
   'landing.heroStat1': '3.200+',
   'landing.heroStat1Label': 'Teams luisteren',
   'landing.heroStat2': '1,4m',
@@ -85,9 +113,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Changelog',
   'landing.navJoin': 'Word lid van {{appName}}',
   'landing.navRoadmap': 'Roadmap',
+  'landing.step1Body':
+    'Klanten plaatsen ideeën op openbare boards. Duplicaten worden samengevoegd, stemmen komen samen en de vraag rangschikt zichzelf.',
   'landing.step1Title': 'Verzamel',
+  'landing.step2Body':
+    'Markeer verzoeken als gepland of in behandeling met een doelkwartaal — de roadmap wordt direct bijgewerkt.',
+  'landing.step2Title': 'Verbinden',
   'landing.step3Body':
     'Verzonden berichten worden changelog items, en elke stemmer ziet het resultaat op hun eigen lijst.',
+  'landing.step3Title': 'Uitbrengen',
   'landing.topSubtitle': 'Live van dit board — log in om je stem toe te voegen.',
   'landing.topTitle': 'Waar gebruikers nu om vragen',
   'landing.topViewAll': 'Alle boards',
@@ -95,14 +129,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Basisonderwijs',
   'layout.signUp': 'Registreren',
   'layout.submit': 'Feedback indienen',
+  'login.description': 'Ga verder waar het gesprek bleef.',
+  'login.heading': 'Aanmelden bij Nimbus',
+  'login.noAccount': 'Nieuw hier?',
   'login.passwordPlaceholder': 'Je wachtwoord',
   'login.twoFactorLabel': '2FA code (optioneel)',
   'login.twoFactorPlaceholder': '6-cijferige code',
+  'login.twoFactorRequiredHint':
+    'Dit account heeft tweestapsverificatie ingeschakeld. Voer de 6-cijferige code uit je authenticator-app in om door te gaan.',
   'login.twoFactorRequiredLabel': 'Voer je 2FA code in',
+  'myActivity.browseCta': 'Borden verkennen',
+  'myActivity.emptyPosts': 'Je hebt nog geen verzoek geplaatst.',
+  'myActivity.emptyVotes': 'Nog niets — blader door de boards en steun een idee.',
   'myActivity.eyebrow': 'Jouw activiteit',
   'myActivity.loadError': 'Je activiteit kon niet worden geladen.',
   'myActivity.postsTitle': 'Verzoeken die je hebt ingediend',
+  'myActivity.shippedNote': '{{count}} daarvan zijn uitgebracht — bedankt voor de zet.',
   'myActivity.submitCta': 'Plaats een verzoek',
+  'myActivity.tabLabel': 'Bekijken',
   'myActivity.tabPosts': 'Mijn berichten',
   'myActivity.tabVotes': 'Mijn stemmen',
   'myActivity.votesTitle': 'Verzoeken waarop je hebt gestemd',
@@ -137,8 +181,13 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Bericht niet gevonden',
   'postsAdmin.backToDashboard': 'Dashboard',
   'postsAdmin.eyebrow': 'Productteam',
+  'postsAdmin.mergeApplied':
+    'Samengevoegd — {{votes}} stemmen en {{comments}} reacties verplaatst.',
   'postsAdmin.mergeApply': 'Samenvoegen & stemmen verplaatsen',
   'postsAdmin.mergeChoose': 'Kies een doelbericht…',
+  'postsAdmin.mergeFailed': 'Samenvoegen mislukt.',
+  'postsAdmin.mergeHint':
+    'Stemmen komen samen (één per gebruiker), reacties verplaatsen en dit bericht krijgt een "verplaatst"-notitie.',
   'postsAdmin.mergeLabel': 'Duplicaat samenvoegen in',
   'postsAdmin.responseLabel': 'Officieel antwoord',
   'postsAdmin.responsePlaceholder':
@@ -153,7 +202,13 @@ export const ui: UiTranslations = {
     'Stel de officiële status in, reageer publiekelijk, label het roadmap kwartaal, en voeg duplicaten samen.',
   'postsAdmin.title': 'Feedback berichten beheren',
   'postsAdmin.votes': '{{count}} stemmen',
+  'pricing.limits.advancedFeatures': 'Geavanceerde functies:',
+  'pricing.limits.boards': '{{count}} borden',
   'pricing.limits.export': 'Data export:',
+  'pricing.limits.posts': '{{count}} feedbackberichten',
+  'pricing.limits.votes': '{{count}} stemmen',
+  'resetPassword.description':
+    'Kies een sterk wachtwoord. We melden u aan zodra de reset is gelukt.',
   'resetPassword.newPasswordLabel': 'Nieuw wachtwoord',
   'resetPassword.tokenPlaceholder': 'Plak het link token',
   'roadmap.cardMeta': 'door {{author}} · {{board}}',
@@ -170,6 +225,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'Typ een zoekopdracht om bestaande verzoeken te vinden voordat je een duplicaat plaatst.',
   'search.loadError': 'Zoeken mislukt — probeer het nog eens.',
+  'search.searching': 'Zoeken…',
   'search.submit': 'Zoeken',
   'search.submitNew': 'Plaats het als een nieuw verzoek',
   'search.title': 'Zoek feedback',
@@ -178,11 +234,22 @@ export const ui: UiTranslations = {
   'settings.billing': 'Facturering',
   'settings.displaySubtitle': 'Kies hoe compact feeds aanvoelen.',
   'settings.displayTitle': 'Weergave',
+  'settings.emailDigestDesc': 'De best gestemde open verzoeken, elke maandag.',
+  'settings.emailDigestLabel': 'Wekelijkse samenvatting',
+  'settings.emailMentionsDesc': 'Wanneer iemand reageert op een bericht dat je volgt.',
+  'settings.emailMentionsLabel': 'E-mail mij bij vermeldingen',
+  'settings.emailRepliesDesc': 'Threads die je bent gestart of waarop je hebt gereageerd.',
+  'settings.emailRepliesLabel': 'E-mail mij bij reacties',
   'settings.loadError': 'Kon je account niet laden.',
   'settings.loading': 'Je instellingen laden…',
   'settings.notifications': 'Notificaties',
   'settings.notificationsSubtitle': 'Bepaal wat je inbox bereikt versus je push-apparaat.',
+  'settings.pushRepliesLabel': 'Push bij reacties',
+  'settings.pushVotesDesc': 'Drempelmelding bij 100, 500, 1000.',
+  'settings.pushVotesLabel': 'Push voor upvote-mijlpalen',
   'settings.saveAccount': 'Account opslaan',
+  'settings.showFlair': 'Toon board-chips op berichten',
+  'settings.showThumbnails': 'Toon link-/afbeeldingsminiaturen',
   'settings.usernamePlaceholder': 'Kies een gebruikersnaam',
   'signup.confirmPlaceholder': 'Typ het opnieuw',
   'signup.description': 'Vorm mee wat we hierna bouwen.',

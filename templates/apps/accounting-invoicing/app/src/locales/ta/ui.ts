@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ஒரு கேள்வி உள்ளதா, பிழை கண்டீர்களா, அல்லது உங்கள் புத்தகங்களை மாற்ற விரும்புகிறீர்களா? {{app}} குழுவை hello@{{app}}.example இல் அணுகவும் — ஒவ்வொரு செய்தியையும் ஒரு உண்மையான நபர் படிக்கிறார்.',
   'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
   'about.eyebrow': 'பற்றி',
+  'about.intro':
+    '{{app}} என்பது ஒவ்வொரு பைசாவையும் கணக்கில் வைத்திருக்கும் சிறு வணிக கணக்கியல் — விலைப்பட்டியல்கள், செலவுகள், பணம் செலுத்துதல்கள் மற்றும் அறிக்கைகள் உரிமையாளர்கள், கணக்குப்பதிவாளர்கள் மற்றும் கணக்காளர்களுக்காக ஒரே அமைதியான இடத்தில்.',
+  'about.missionBody':
+    'வணிகம் நடத்துவது உங்கள் கணக்குகளைப் பற்றிய பயத்தைக் குறிக்கக்கூடாது. {{app}} சிதறிய விரிதாள்களுக்குப் பதிலாக நீங்கள் செயல்படக்கூடிய தெளிவான எண்களைத் தருகிறது, எனவே சரிசெய்வதில் குறைந்த நேரமும், வணிகத்தைத் தொடங்கிய உண்மையான வேலையில் அதிக நேரமும் செலவிடுவீர்கள்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'about.title': '{{app}} பற்றி',
   'accounts.count': '{{count}} கணக்குகள்',
+  'accounts.emptyBody':
+    'லெட்ஜர் கணக்குகள் பணம் எங்கு உள்ளது, எங்கு நகர்கிறது என்பதைக் கண்காணிக்கின்றன. உங்கள் கணக்குப்பதிவாளர் அல்லது ஒருங்கிணைப்பு அவற்றை அமைத்த பிறகு இங்கே தோன்றும்.',
   'accounts.emptyTitle': 'இன்னும் கணக்குகள் இல்லை',
   'accounts.heading': 'கணக்குகளின் விளக்கப்படம்',
   'accounts.kpi.accounts': 'கணக்குகள்',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'உங்கள் விலைப்பட்டியல்கள், செலவுகள் மற்றும் கொடுப்பனவுகளுக்குப் பின்னால் உள்ள ஒவ்வொரு பேரேட்டுக் கணக்கும், வகை வாரியாக தொகுக்கப்பட்டுள்ளது.',
   'accounts.tag.inactive': 'செயலற்ற',
   'authBrandPanel.attributionName': 'சாரா ஜென்கின்ஸ்',
+  'authBrandPanel.attributionRole': 'தலைமை நிதி அதிகாரி, ஹொரைசன் டெக்',
   'authBrandPanel.eyebrow': 'நிதி குழுக்களால் நம்பப்படுகிறது',
   'authBrandPanel.label': 'பிராண்ட் காட்சிப்படுத்தல்',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'அனைத்து வாடிக்கையாளர்களும்',
   'customerDetail.invoiceMeta': 'வழங்கப்பட்டது {{issued}} · செலுத்த வேண்டிய தேதி {{due}}',
   'customerDetail.loadError': 'வாடிக்கையாளரை ஏற்ற முடியவில்லை.',
+  'customerDetail.missingBody':
+    'கோரப்பட்ட வாடிக்கையாளர் பதிவை ஏற்ற முடியவில்லை. அது நீக்கப்பட்டிருக்கலாம், அல்லது அதற்கான அணுகல் உங்களுக்கு இல்லாமல் இருக்கலாம்.',
   'customerDetail.missingHeading': 'வாடிக்கையாளர் பதிவு கிடைக்கவில்லை',
+  'customerDetail.missingHelp':
+    'வாடிக்கையாளர்களின் பட்டியலுக்குத் திரும்ப மேலே உள்ள பின்செல் இணைப்பைப் பயன்படுத்தவும், அல்லது அங்கிருந்து வேறு பதிவைத் தேர்ந்தெடுக்கவும்.',
+  'customerDetail.noInvoices': 'இன்னும் விலைப்பட்டியல்கள் வரவில்லை.',
   'customerDetail.notesEmpty': 'இன்னும் குறிப்புகள் இல்லை.',
   'customerDetail.paymentsEmpty': 'பணம் செலுத்துதல் எதுவும் பதிவு செய்யப்படவில்லை.',
   'customerDetail.paymentTerms': 'கட்டண விதிமுறைகள்',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'விலக்கு',
   'expenseDetail.detailsHeading': 'பரிவர்த்தனை விவரங்கள்',
   'expenseDetail.loadError': 'செலவை ஏற்ற முடியவில்லை.',
+  'expenseDetail.matched': 'பொருந்தியது · {{description}}',
   'expenseDetail.missingBody':
     'கோரப்பட்ட செலவினத்தை ஏற்ற முடியவில்லை. அது நீக்கப்பட்டிருக்கலாம், அல்லது அதை அணுக உங்களுக்கு அனுமதி இல்லாமல் இருக்கலாம்.',
   'expenseDetail.missingHeading': 'செலவுப் பதிவு கிடைக்கவில்லை',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'ரசீது',
   'expenseDetail.receiptHeading': 'ரசீது',
   'expenseDetail.reconciled': 'சமரசம் செய்யப்பட்டது',
+  'expenseDetail.unreconciled': 'சமரசம் செய்யப்படாத',
   'expenses.empty': 'இதுவரை செலவுகள் எதுவும் இல்லை.',
   'expenses.heading': 'செலவுகள்',
   'expenses.kpi.deductible': 'விலக்கு',
@@ -101,6 +118,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'விலைப்பட்டியல்களை ஏற்ற முடியவில்லை.',
   'invoices.searchPlaceholder': 'விலைப்பட்டியல் எண் அல்லது வாடிக்கையாளரைத் தேடவும்…',
   'invoices.summary.paid': 'இந்தக் காலகட்டத்தில் செலுத்தப்பட்டது',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     '30 நாட்களுக்கு இலவசம். அட்டை தேவையில்லை. உங்கள் கணக்காளரை அழைத்து வாருங்கள் — அவர் உங்களுக்கு நன்றி சொல்வார்.',
   'landing.ctaTitle': 'உங்கள் புத்தகங்களை அமைதியான இடத்திற்கு மாற்றுங்கள்.',
@@ -115,6 +133,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'பெறத்தக்க கணக்குகள்',
   'ledgerStatTriad.eyebrow.mtd': 'மாதம் இதுவரை',
   'ledgerStatTriad.netSub': 'வலை {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} தாமதம்',
   'ledgerStatTriad.revenueLabel': 'வருவாய்',
   'login.failed': 'உள்நுழைவு தோல்வியடைந்தது.',
   'login.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
@@ -125,6 +144,7 @@ export const ui: UiTranslations = {
   'login.submit': 'உள்நுழை',
   'nav.legal': 'சட்டப்பூர்வமான',
   'newExpense.back': 'செலவுகள்',
+  'newExpense.clearReceiptCta': 'இணைக்கப்பட்ட ரசீதை அழி',
   'newExpense.deductible': 'வரி விலக்கு',
   'newExpense.dropPrompt': 'இணைப்பதற்காக, ரசீதின் புகைப்படம் அல்லது PDF கோப்பை இங்கே பதிவிடவும்.',
   'newExpense.failed': 'செலவைக் குறைக்க முடியவில்லை.',
@@ -153,6 +173,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'பணம் செலுத்துதலில் தோல்வி ஏற்பட்டது.',
   'payments.unmatchedTag': 'இணையற்ற',
   'planUpdated.pageLabel': 'திட்டம் புதுப்பிக்கப்பட்ட உறுதிப்படுத்தல்',
+  'pricing.advancedFeatures': 'மேம்பட்ட அம்சங்கள்: {{yes}}',
+  'pricing.canExport': 'தரவு ஏற்றுமதி: {{yes}}',
+  'pricing.heading': 'உங்கள் {{app}} திட்டத்தைத் தேர்ந்தெடுக்கவும்',
+  'pricing.maxAccounts': '{{count}} கணக்குகள்',
+  'pricing.maxExpenses': '{{count}} செலவுகள்',
+  'pricing.maxInvoices': '{{count}} விலைப்பட்டியல்கள்',
+  'privacy.intro':
+    'இந்த தனியுரிமைக் கொள்கை, சேவையைப் பயன்படுத்தும் வணிகங்களைப் பற்றிய தகவலை {{app}} எவ்வாறு சேகரிக்கிறது, பயன்படுத்துகிறது மற்றும் வெளிப்படுத்துகிறது என்பதை விவரிக்கிறது.',
   'privacy.lastUpdated': 'கடைசியாகப் புதுப்பிக்கப்பட்டது: {{தேதி}}',
   'privacy.section.collected.body':
     'நாங்கள் கணக்கு விவரங்கள் (பெயர், மின்னஞ்சல், நிறுவனம்), நீங்கள் பதிவேற்றும் நிதிப் பதிவுகள் (விலைப்பட்டியல்கள், செலவுகள், வாடிக்கையாளர்கள், கொடுப்பனவுகள்) மற்றும் வழக்கமான சேவை செயல்பாட்டுப் பதிவுகள் (IP, பயனர் முகவர், நேர முத்திரைகள்) ஆகியவற்றைச் சேகரிக்கிறோம்.',
@@ -165,8 +193,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'சேவையை இயக்குவதற்கும், நீங்கள் கோரும் அறிக்கைகள் மற்றும் PDF-களை உருவாக்குவதற்கும், Mailgun வழியாகப் பரிவர்த்தனை மின்னஞ்சல்களை அனுப்புவதற்கும், Stripe வழியாகப் பணம் செலுத்துதலைச் செயல்படுத்துவதற்கும் தகவல்கள் பயன்படுத்தப்படுகின்றன. நாங்கள் தனிப்பட்ட தகவல்களை விற்பனை செய்வதோ அல்லது வாடகைக்கு விடுவதோ இல்லை.',
   'recentInvoicesCard.dueMeta': 'காரணமாக {{date}}',
+  'recentInvoicesCard.empty': 'விலைப்பட்டியல்கள் எதுவும் பொருந்தவில்லை.',
   'recentInvoicesCard.eyebrow': 'பெறத்தக்க கணக்குகள்',
   'recentInvoicesCard.searchAriaLabel': 'விலைப்பட்டியல்களைத் தேடு',
+  'recentInvoicesCard.searchPlaceholder': 'விலைப்பட்டியல்களைத் தேடு…',
   'recentInvoicesCard.title': 'சமீபத்திய விலைப்பட்டியல்கள்',
   'recentInvoicesCard.viewAll': 'அனைத்து விலைப்பட்டியல்களையும் காண்க →',
   'reports.assets': 'சொத்துக்கள்',
@@ -182,16 +212,22 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'இலாப நட்டம் (12 மாதங்கள்)',
   'resetPassword.backToLogin': '← உள்நுழைவுக்குத் திரும்பு',
   'resetPassword.hidePassword': 'கடவுச்சொல்லை மறைக்கவும்',
+  'resetPassword.passwordLabel': 'புதிய கடவுச்சொல்',
   'resetPassword.showPassword': 'கடவுச்சொல்லைக் காட்டு',
+  'resetPassword.subheading':
+    'வலுவான கடவுச்சொல்லைத் தேர்ந்தெடுக்கவும் — குறைந்தது எட்டு எழுத்துகள்.',
   'resetPassword.submit': 'கடவுச்சொல்லை மீட்டமைக்கவும்',
   'resetPassword.tooShort': 'கடவுச்சொல் குறைந்தபட்சம் 8 எழுத்துகள் கொண்டதாக இருக்க வேண்டும்.',
   'settings.account.changePassword': 'கடவுச்சொல்லை மாற்றவும்',
   'settings.account.changingPassword': 'மாறும்…',
   'settings.account.currentPassword': 'தற்போதைய கடவுச்சொல்',
+  'settings.account.dangerZone': 'அபாய மண்டலம்',
   'settings.account.deleteAccount': 'கணக்கை நீக்கு',
   'settings.account.deleteDescription':
     'உங்கள் கணக்கையும் அதனுடன் தொடர்புடைய அனைத்து தரவுகளையும் நிரந்தரமாக நீக்கவும்.',
   'settings.account.deleteError': 'கணக்கை நீக்க முடியவில்லை.',
+  'settings.account.deleteWarning':
+    'இது உங்கள் கணக்கை நிரந்தரமாக நீக்கும், மீட்டெடுக்க முடியாது. உறுதிப்படுத்த உங்கள் கடவுச்சொல்லை உள்ளிடவும்.',
   'settings.account.deleting': 'நீக்குகிறது…',
   'settings.account.devices': 'சாதனங்கள்',
   'settings.account.email': 'மின்னஞ்சல்',
@@ -202,6 +238,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'கடவுச்சொல்',
   'settings.account.passwordError': 'கடவுச்சொல்லை மாற்ற முடியவில்லை.',
   'settings.account.pushNotifications': 'இந்தச் சாதனத்தில் புஷ் அறிவிப்புகள்',
+  'settings.account.revokeDeviceWarning':
+    'இந்தச் சாதனத்தின் அணுகல் விரைவில் ரத்து செய்யப்படும். வெளியேற்றவா?',
   'settings.account.saveError': 'சுயவிவரத்தைப் புதுப்பிக்க முடியவில்லை.',
   'settings.account.security': 'பாதுகாப்பு',
   'settings.account.signOutDevice': 'வெளியேறு',
@@ -209,12 +247,19 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'இரு காரணி அங்கீகாரம்',
   'settings.account.twoFactorCode': 'அங்கீகாரக் குறியீடு',
   'settings.account.twoFactorDisable': 'முடக்கு',
+  'settings.account.twoFactorDisableTitle': 'இரு-காரணி அங்கீகாரத்தை முடக்கு',
   'settings.account.twoFactorEnable': 'இயக்கு',
+  'settings.account.twoFactorEnableTitle': 'இரு-காரணி அங்கீகாரத்தை இயக்கு',
   'settings.account.twoFactorInvalidCode': 'தவறான குறியீடு',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'இரு-காரணி QR குறியீடு',
+  'settings.account.twoFactorScan':
+    'உங்கள் அங்கீகரிப்பு செயலியில் இந்த QR குறியீட்டை ஸ்கேன் செய்து, 6 இலக்கக் குறியீட்டை உள்ளிடவும்.',
+  'settings.account.twoFactorUnavailable': 'இந்த செயலியில் இரு காரணி அங்கீகாரம் கிடைக்காது.',
   'settings.account.twoFactorVerify': 'சரிபார்த்து இயக்கு',
   'settings.account.unknownDevice': 'அறியப்படாத சாதனம்',
   'settings.company.email': 'பில்லிங் மின்னஞ்சல்',
+  'settings.company.heading': 'நிறுவனம் & வரி',
   'settings.company.name': 'சட்டப்பூர்வ பெயர்',
   'settings.company.saveButton': 'நிறுவன சுயவிவரத்தைச் சேமிக்கவும்',
   'settings.company.taxId': 'வரி அடையாள எண் / EIN',
@@ -259,6 +304,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'காலாண்டுக்கு ஒருமுறை என மதிப்பிடப்பட்டுள்ளது',
   'taxes.kpi.owed': 'கடன்பட்ட',
   'taxes.loadError': 'வரிச் சுருக்கத்தை ஏற்ற முடியவில்லை.',
+  'taxes.remittedPct': '({{pct}}% செலுத்தப்பட்டது)',
+  'terms.intro':
+    'இந்த சேவை விதிமுறைகள் ("விதிமுறைகள்") {{app}} அணுகல் மற்றும் பயன்பாட்டை நிர்வகிக்கின்றன. ஒரு கணக்கை உருவாக்குவதன் மூலம் அல்லது சேவையைப் பயன்படுத்துவதன் மூலம் அவற்றுக்குக் கட்டுப்படுவதை ஏற்கிறீர்கள்.',
   'terms.lastUpdated': 'கடைசியாகப் புதுப்பிக்கப்பட்டது: {{தேதி}}',
   'terms.section.acceptable.body':
     'எந்தவொரு சட்டத்தையும் மீறுவதற்கோ, அறிவுசார் சொத்துரிமைகளை மீறுவதற்கோ, தீம்பொருளைப் பரப்புவதற்கோ, அல்லது பிற கணக்குகளுக்கோ எங்கள் உள்கட்டமைப்பிற்கோ அங்கீகரிக்கப்படாத அணுகலைப் பெற முயற்சிப்பதற்கோ இந்தச் சேவையைப் பயன்படுத்த மாட்டீர்கள் என்பதை நீங்கள் ஒப்புக்கொள்கிறீர்கள்.',

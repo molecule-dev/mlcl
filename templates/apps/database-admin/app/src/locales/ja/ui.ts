@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'お気軽にお問い合わせください',
   'about.eyebrow': '概要',
+  'about.featureConnections':
+    'データベースを安全に保存し、色分けして管理する接続マネージャー — 認証情報は保存時に暗号化され、平文になることはありません。',
+  'about.featureMonitoring':
+    'クエリのパフォーマンスとデータベースのアクティビティをリアルタイムで監視。キーボードショートカットとコマンドパレットで、すべてをハンズフリーで操作できます。',
+  'about.featurePlans':
+    'あなたとともに拡張するプラン — 個人作業ならFree、より多くの接続、クエリ保持期間の延長、エクスポート、高度な機能が必要ならProとTeam。',
+  'about.featureQueryEditor':
+    'クエリ履歴、保存済みクエリ、ワンクリックでの結果CSVエクスポートを備えたMonaco搭載のSQLエディタ。',
+  'about.featureSchema':
+    'データベース、テーブル、カラムを移動し、行をインラインで閲覧・フィルタ・編集できるスキーマエクスプローラーとテーブルブラウザー。',
+  'about.missionTitle': '私たちの使命',
   'authShell.commands': 'コマンド',
   'authShell.ssoSupported': 'SSO対応',
   'common.run': '実行',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'クエリ',
   'connections.schema': 'スキーマ',
   'connections.subtitle': 'データベース接続を管理します。',
+  'connections.test': 'テスト',
   'databaseAdminLayout.adminRole': '管理者ロール',
   'databaseAdminLayout.commandPalette': 'コマンドパレット',
   'databaseAdminLayout.commands': 'コマンド',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': '新しい接続',
   'databaseAdminLayout.queries': 'クエリ',
   'databaseAdminLayout.ready': '準備完了',
+  'databaseAdminLayout.searchPlaceholder': '⌘K コマンド、クエリ、テーブルを検索…',
   'databaseAdminLayout.user': 'ユーザー',
   'editConnection.confirmDelete': 'この接続を削除しますか？',
   'editConnection.deleteButton': '接続を削除する',
+  'editConnection.newPassword': '新しいパスワード（変更しない場合は空欄）',
   'editConnection.saved': '接続を保存しました。',
   'editConnection.title': '接続を編集',
   'forgotPassword.success': 'そのアカウントが存在する場合、リセットリンクをお送りします。',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': '成功事例',
   'monitoring.title': 'モニタリング',
   'monitoring.totalQueries': '合計クエリ数',
+  'nav.schema': 'スキーマ',
   'newConnection.database': 'データベース',
   'newConnection.engine': 'エンジン',
   'newConnection.host': 'ホスト',
@@ -82,6 +98,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'このスニペットにバインドされた接続はありません。',
   'savedQuery.notBound': '未バインド',
   'savedQuery.title': '保存されたクエリ',
+  'schema.columns': '列',
   'schema.foreignKeys': '外部キー',
   'schema.indexes': '索引',
   'schemaExplorer.browseRows': '行を閲覧する',
@@ -90,14 +107,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'null許容',
   'schemaExplorer.colType': 'タイプ',
   'schemaExplorer.noColumns': '列はありません。',
+  'schemaExplorer.noForeignKeys': '外部キーはありません。',
   'schemaExplorer.noIndexes': 'インデックスはありません。',
   'schemaExplorer.noTables': 'テーブルがありません',
   'schemaExplorer.pickATable': 'サイドバーからテーブルを選択してください。',
   'schemaExplorer.tables': 'テーブル',
   'schemaExplorer.title': 'スキーマエクスプローラー',
+  'settings.session': 'セッション',
   'settings.subtitle': 'アカウントとプランを管理します。',
   'signup.heading': 'Quarryアカウントを作成',
   'signup.tagline': '1分以内にアクセスを設定できます。',
   'tableBrowser.noRows': 'このテーブルにはまだ行がありません。',
+  'tableBrowser.subtitle': 'リモートデータベースの行を閲覧しています。',
   'tableBrowser.title': 'リモートデータベースから行を参照しています。',
 }

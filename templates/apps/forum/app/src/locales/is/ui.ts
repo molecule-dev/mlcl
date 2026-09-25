@@ -1,20 +1,44 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ertu með endurgjöf, fannst þú villu eða vilt stofna samfélag á {{appName}}? Opnaðu stillingarnar til að ná í teymið — hver skilaboð fara til raunverulegrar manneskju sem les þau.',
+  'about.contactTitle': 'Hafðu samband við okkur',
+  'about.featureModeration':
+    'Innbyggð biðröð fyrir yfirferð og tilkynningatól svo hvert samfélag geti haldist heilbrigt og stjórnað sér sjálft.',
+  'about.featurePricing':
+    'Ókeypis að ganga í og taka þátt; Pro- og Team-áskriftir opna hærri mörk, ítarlegri yfirferð og gagnadreifingu.',
+  'about.featureThreads':
+    'Skipulögð samfélög og flokkar með þráðum, markdown-ríkum umræðum sem eru auðveldar að fylgjast með og leita í.',
+  'about.featureVoting':
+    'Upp/níður atkvæðagreiðsla og áunnið orðspor sem dregur fram hjálpsömustu framlagendurna og bestu svörin.',
+  'about.intro':
+    '{{appName}} er samfélagsmiðuð umræðuvettvangur — Reddit-stíl þræðir, atkvæðagreiðsla og orðspor, byggður fyrir fólk sem vill frekar eina góða samræðu en að eltast við straum. Hver rödd skiptir máli og bestu hugmyndirnar rísa á verðleikum, ekki magni.',
+  'about.missionBody':
+    'Við trúum því að umræður á netinu eigi að verðlauna ígrundun, ekki reiði. {{appName}} gefur hverju samfélagi tólin til að haldast kurteist og stjórna sér sjálft — gagnsæ atkvæðagreiðsla, áunnið orðspor og yfirferð sem setur trausta meðlimi við stjórnvölinn — svo þræðir safnist upp í eitthvað sem er þess virði að koma aftur að.',
+  'about.missionTitle': 'Markmið okkar',
   'authShell.communities': 'Samfélög',
+  'authShell.copyright': '{{appName}} — hver rödd skiptir máli.',
   'authShell.trending': 'Vinsælt',
+  'categories.emptyFilter': 'Engin samfélög til að sýna.',
+  'categories.emptySubscribed': 'Þú hefur ekki gerst áskrifandi að neinum samfélögum ennþá.',
+  'categories.emptySubscribedHint':
+    'Opnaðu samfélag og ýttu á Gerast áskrifandi til að bæta því við hér.',
   'categories.eyebrow': 'Samfélög',
   'categories.loadError': 'Gat ekki hlaðið samfélögum.',
   'categories.loading': 'Hleður samfélög…',
   'categories.subtitle':
     'Skoðaðu Agora samfélög eftir virkni, efni og hversu hávær þau eru. Gerstu áskrifandi til að bæta við straumi á heimasíðuna þína.',
   'categories.title': 'Finndu herbergið þitt',
+  'categoryCard.activeNow': '{{count}} virkur',
   'categoryCard.namePrefix': 'c/',
   'categoryCard.subscribers': '{{count}} meðlimir',
   'categoryDetail.empty': 'Engir þræðir hér ennþá.',
   'categoryDetail.namePrefix': 'c/',
   'categoryDetail.newPost': 'Ný færsla',
   'categoryDetail.ruleBeKind': 'Vertu góður. Ræddu um vinnuna, ekki manneskjuna.',
+  'categoryDetail.ruleNoSpam': 'Engin ruslpóstur, engir hlekkir á markaðstorg.',
+  'categoryDetail.ruleStayOnTopic': 'Haltu þér við efnið í þessu samfélagi.',
   'categoryDetail.startFirst': 'Byrja fyrsta þráðinn →',
   'categoryDetail.subscribe': 'Gerast áskrifandi',
   'categoryDetail.subscribed': 'Áskrifandi',
@@ -34,6 +58,7 @@ export const ui: UiTranslations = {
   'compose.eyebrow': 'Byrja þráð',
   'compose.flairLabel': 'Bragð (valfrjálst)',
   'compose.imageUrlPrompt': 'Myndarvefslóð',
+  'compose.insertUrl': 'Setja inn',
   'compose.linkUrlPrompt': 'Tengilslóð',
   'compose.markdownHint': 'Afsláttur studdur.',
   'compose.publishFailed': 'Mistókst að birta þráðinn.',
@@ -51,11 +76,18 @@ export const ui: UiTranslations = {
   'feed.empty': 'Engir þræðir ennþá.',
   'feed.emptyHint': 'Vertu fyrstur til að hefja umræðu — farðu á Skrifa.',
   'feed.loadError': 'Gat ekki hlaðið inn straumi.',
+  'feed.metaCommunityDescription':
+    'Meta-samfélagið fyrir alla sem móta {{appName}} — atkvæðagreiðsla, stjórnun og umræður um eiginleika.',
+  'feed.ruleBeCivil': 'Vertu kurteis. Alltaf.',
   'feed.ruleBeCivilDesc':
     'Ósammála án þess að gera fólk ómannlegt. Stjórnendur auka hraðann á persónulegum árásum.',
+  'feed.ruleCiteSources': 'Hlekkjaðu það sem þú ert að bregðast við.',
+  'feed.ruleOnePerWeek': 'Ein meta-færsla á viku á hvern reikning.',
   'feed.subtitle':
     'Þræðir frá samfélögunum sem þú fylgist með, auk nokkurra sem þú gætir fylgst með. Kjósðu til að kenna reikniritið.',
   'feed.title': 'Fæðan þín',
+  'forgotPassword.description':
+    'Sláðu inn netfangið þitt og við sendum þér tengil til að endurstilla.',
   'forgotPassword.successBody':
     'Við sendum endurstillingarhlekk til {{email}} Það rennur út eftir 30 mínútur.',
   'forgotPassword.tryAnother': 'Prófaðu annað netfang',
@@ -65,9 +97,15 @@ export const ui: UiTranslations = {
   'forumLayout.openMenu': 'Opna flakkvalmynd',
   'landing.communitiesSubtitle': 'Aflaðu þér karma, deildu vinnunni, spurðu betri spurninga.',
   'landing.communitiesTitle': 'Samfélög til að byrja með',
+  'landing.ctaBody':
+    'Skráðu þig ókeypis. Byggðu þér orðspor á þeim sviðum sem skipta þig máli og hjálpaðu okkur hinum að hugsa aðeins skýrar.',
   'landing.ctaEyebrow': 'Tilbúinn þegar þú ert tilbúinn',
   'landing.ctaHeadline': 'Finndu samfélag þitt. Láttu rödd þína ráða för.',
   'landing.heroCtaSecondary': 'Skoða samfélög',
+  'landing.heroEyebrow': 'Velkomin í {{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Umræður sem safnast upp í stað þess að hverfa.',
+  'landing.heroLede':
+    '{{appName}} er hægsoðinn vettvangur fyrir áhugafólk, smiði og hljóðláta sérfræðinga með skoðanir. Byggðu þér stöðu, einn góðan þráð í einu.',
   'landing.heroStat1': '847 þúsund',
   'landing.heroStat2': '2.180',
   'landing.heroStat2Label': 'Samfélög',
@@ -82,13 +120,17 @@ export const ui: UiTranslations = {
   'landing.trendingViewAll': 'Sjá allt',
   'login.description': 'Taktu upp þar sem samtalinu var hætt.',
   'login.heading': 'Innskráning í Agora',
+  'login.noAccount': 'Nýr hér?',
   'login.passwordPlaceholder': 'Lykilorðið þitt',
   'login.twoFactorLabel': '2FA kóði (valfrjálst)',
   'login.twoFactorPlaceholder': '6 stafa kóði',
+  'login.twoFactorRequiredHint':
+    'Þessi reikningur er með tvíþátta auðkenningu virka. Sláðu inn 6 stafa kóðann úr auðkenningarforritinu þínu til að halda áfram.',
   'login.twoFactorRequiredLabel': 'Sláðu inn 2FA kóðann þinn',
   'modQueue.automodEmpty':
     'Engar reglur um sjálfvirkar breytingar eru stilltar fyrir þetta samfélag ennþá.',
   'modQueue.automodTitle': 'Sjálfvirk breyting (síðasta sólarhring)',
+  'modQueue.empty': 'Innhólf á núlli. Ekkert í bið.',
   'modQueue.eyebrow': 'Hófsemi',
   'modQueue.kindThread': 'Þráður',
   'modQueue.loadError': 'Ekki tókst að hlaða skýrslum.',
@@ -115,8 +157,12 @@ export const ui: UiTranslations = {
   'notifications.mentionedYouIn': 'minntist á þig í',
   'notifications.repliedTo': 'svaraði til',
   'notifications.subtitle': 'Þú hefur {{count}} ólesnar tilkynningar.',
+  'pricing.limits.advancedFeatures': 'Ítarlegri eiginleikar:',
   'pricing.limits.categories': '{{count}} flokkar',
   'pricing.limits.export': 'Útflutningur gagna:',
+  'pricing.limits.moderation': 'Yfirferðaraðgerðir {{count}}',
+  'pricing.limits.threads': '{{count}} þræðir',
+  'pricing.limits.votes': '{{count}} atkvæði',
   'profile.noComments': 'Engar athugasemdir ennþá.',
   'profile.noPosts': 'Engar færslur ennþá.',
   'profile.noSaved': 'Engar vistaðar færslur ennþá.',
@@ -127,6 +173,7 @@ export const ui: UiTranslations = {
     'Veldu öflugan. Við munum skrá þig inn um leið og endurstillingin tekst.',
   'resetPassword.newPasswordLabel': 'Nýtt lykilorð',
   'resetPassword.tokenPlaceholder': 'Líma tengilstáknið',
+  'search.clear': 'Hreinsa',
   'search.communitiesEmpty': 'Engin samfélög passa.',
   'search.communitiesHeading': 'Samfélög',
   'search.empty': 'Engir þræðir passa.',
@@ -138,19 +185,27 @@ export const ui: UiTranslations = {
   'settings.displayTitle': 'Sýna',
   'settings.emailDigestDesc':
     'Vinsælustu umræður frá samfélögum sem þú ert áskrifandi að á hverjum mánudegi.',
+  'settings.emailDigestLabel': 'Vikuleg samantekt',
+  'settings.emailMentionsDesc': 'Þegar einhver @-nefnir þig í þræði eða athugasemd.',
+  'settings.emailMentionsLabel': 'Senda mér tölvupóst um tilvitnanir',
+  'settings.emailRepliesDesc': 'Þræðir sem þú byrjaðir eða svaraðir.',
   'settings.emailRepliesLabel': 'Sendu mér tölvupóst í svörum',
   'settings.loadError': 'Gat ekki hlaðið aðgangnum þínum.',
   'settings.loading': 'Hleður stillingarnar þínar…',
   'settings.notificationsSubtitle':
     'Ákveddu hvað berst í pósthólfið þitt samanborið við ýtingartækið þitt.',
+  'settings.pushRepliesLabel': 'Ýta tilkynningu fyrir svör',
+  'settings.pushVotesDesc': 'Tilkynning við 100, 500, 1000.',
   'settings.pushVotesLabel': 'Ýttu á eftir áfanga í uppatkvæðagreiðslu',
   'settings.saveAccount': 'Vista reikning',
   'settings.showFlair': 'Sýna flokksstíl í þráðum',
+  'settings.showThumbnails': 'Sýna smámyndir af hlekkjum/myndum',
   'settings.usernamePlaceholder': 'Veldu handfang',
   'signup.confirmPlaceholder': 'Skrifaðu það aftur',
   'signup.description': 'Vinnðu þér inn sæti í einum góðum þræði í einu.',
   'signup.eyebrow': 'Vertu með í herberginu',
   'threadRow.authorPrefix': 'þú/',
+  'threadRow.commentCount': '{{count}} athugasemdir',
   'threadRow.statusFlagged': 'Í skoðun',
   'threadRow.statusHot': 'Heitt',
   'threadRow.statusLocked': 'Læst',
@@ -172,6 +227,7 @@ export const ui: UiTranslations = {
   'threadView.lockedNotice': 'Þessi þráður er læstur. Ný svör eru óvirk.',
   'threadView.modActionFailed': 'Aðgerð stjórnanda mistókst.',
   'threadView.modTools': 'Breytingartól',
+  'threadView.noComments': 'Engar athugasemdir ennþá. Vertu fyrstur.',
   'threadView.notFound': 'Þráður fannst ekki.',
   'threadView.pin': 'Pinna',
   'threadView.pinned': 'Fest',

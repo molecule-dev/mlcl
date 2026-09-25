@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'प्रश्न आहे, बग सापडला, किंवा तुमच्या टीमसाठी डेमो हवा? तुमच्या खाते सेटिंग्जमधून संपर्क साधा — प्रत्येक संदेश टीममधील खऱ्या व्यक्तीपर्यंत पोहोचतो.',
   'about.contactTitle': 'संपर्क साधा',
+  'about.intro':
+    '{{app}} स्कॅन केलेल्या कागदपत्रांच्या आणि PDF च्या राशी संरचित, शोधण्यायोग्य, फाइल केलेल्या डेटामध्ये रूपांतरित करते. इनव्हॉइस, पावत्या, करार किंवा फॉर्म टाका आणि AI ला ते वाचू, काढू, वर्गीकृत करू आणि फाइल करू द्या — कॉन्फिडन्स रंगांसह जेणेकरून तुमची टीम फक्त मानवी पुनरावलोकन आवश्यक असलेल्या गोष्टींचेच पुनरावलोकन करेल.',
+  'about.missionBody':
+    'कागदपत्रांचे कंटाळवाणे काम तुमच्या टीमचा दिवस खाऊ नये. आमचा विश्वास आहे की प्रत्येक काढलेले मूल्य स्पष्टीकरणक्षम आणि ऑडिट करण्यायोग्य असावे — जेणेकरून तुम्ही कागदपत्रांचा मागोवा न गमावता ऑटोमेशनवर विश्वास ठेवू शकता. {{app}} प्रत्येक राशीवर तास वाचवण्यासाठी तयार केले आहे आणि जिथे महत्त्वाचे तिथे मानवी सहभाग ठेवते.',
+  'about.missionTitle': 'आमचे ध्येय',
+  'about.subtitle': 'तुमच्या कागदपत्रांसाठी OCR, AI एक्सट्रॅक्शन, वर्गीकरण आणि स्वयंचलित फाइलिंग.',
   'about.title': '{{app}} बद्दल',
+  'about.whatYouGetTitle': 'तुम्हाला काय मिळते',
   'authShell.backToLanding': '← लँडिंगकडे परत जा',
   'common.goToDashboard': 'डॅशबोर्डवर जा',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'आज · कामकाजाचा आढावा',
   'dashboard.heading': 'दस्तऐवज बुद्धिमत्ता',
+  'dashboard.metric.accuracy': 'सरासरी अचूकता',
   'dashboard.metric.filed': 'आज दाखल केले',
   'dashboard.metric.filedCaption': 'फाइलिंग नियमांनुसार मार्गस्थ केले',
   'dashboard.metric.processed': 'आज प्रक्रिया केली',
@@ -23,11 +33,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'दस्तऐवज',
   'dashboard.recent.col.uploaded': 'अपलोड केले',
   'dashboard.recent.heading': 'अलीकडील कागदपत्रे',
+  'dashboard.recent.typeUnknown': 'वर्गीकरणाची प्रतीक्षा आहे',
   'dashboard.subheading':
     'प्रत्येक पान वर्गीकृत, संकलित आणि दाखल केलेले आहे — आणि तेही विश्वासार्ह रंगांसह, जेणेकरून पुनरावलोकन केंद्रित राहील.',
   'documentDetail.audit.heading': 'ऑडिटची कालमर्यादा',
+  'documentDetail.audit.subheading': 'या कागदपत्रावर उचललेले प्रत्येक पाऊल, जबाबदार व्यक्तीसह.',
   'documentDetail.back': 'सर्व कागदपत्रे',
   'documentDetail.downloadHint': 'मूळ फाईल उघडण्यासाठी डाउनलोडचा वापर करा.',
+  'documentDetail.extracted.empty': 'अद्याप कोणतीही फील्ड काढलेली नाहीत.',
   'documentDetail.extracted.heading': 'काढलेली क्षेत्रे',
   'documentDetail.extracted.subheading':
     '{{count}} फील्ड्स · पेजवर हायलाइट करण्यासाठी कोणत्याही फील्डवर क्लिक करा',
@@ -56,12 +69,24 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} तुमच्या लायब्ररीमधील कागदपत्रे, नवीन प्रथम या क्रमाने लावलेली.',
   'documents.uploadCta': 'कागदपत्रे अपलोड करा',
+  'documentTypeBreakdown.barAria': 'प्रकारानुसार कागदपत्रांची रचना',
   'documentTypeBreakdown.empty': 'अद्याप कोणत्याही कागदपत्रांवर प्रक्रिया झालेली नाही.',
+  'documentTypeBreakdown.subtitle': '{{total}} प्रक्रिया केली',
   'documentTypeBreakdown.title': 'दस्तऐवज रचना',
+  'forgotPassword.backToSignIn': '← साइन इन करण्यासाठी मागे जा',
   'forgotPassword.checkEmail': 'तुमचा ईमेल तपासा',
   'forgotPassword.tip': 'मिळाले नाही का? स्पॅम तपासा किंवा दुसरा पत्ता वापरून पहा.',
+  'landing.copyright':
+    '© {{year}} {{app}}. प्रत्येक पृष्ठाचे ऑडिट करणाऱ्या ऑप्स टीमसाठी तयार केलेले.',
+  'landing.ctaBody':
+    '14-दिवसांची चाचणी. कार्डची गरज नाही. कधीही रद्द करा. वेगाने काम करणाऱ्या आणि संयमाने ऑडिट करणाऱ्या ऑप्स टीमसाठी तयार केलेले.',
   'landing.ctaHeading': 'पावत्या टाईप करणे थांबवा. त्या फाईल करायला सुरुवात करा.',
   'landing.eyebrow': 'OCR · निष्कर्षण · AI फाइलिंग',
+  'landing.featuresHeading': 'स्वतःचे स्पष्टीकरण देणारी कागदपत्र बुद्धिमत्ता',
+  'landing.heroSubtitle':
+    'इनव्हॉइस, पावत्या, करार किंवा फॉर्मची रास टाका. {{app}} त्यांना वर्गीकृत करते, काढते आणि फाइल करते — कॉन्फिडन्स रंगांसह जेणेकरून तुमची टीम फक्त मानवी पुनरावलोकन आवश्यक असलेल्या गोष्टींचेच पुनरावलोकन करेल.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'दैनिक व्हॉल्यूम · शेवटचे 7 दिवस',
   'landing.sampleCardLabel': 'आज प्रक्रिया केलेले दस्तऐवज',
   'landing.sampleCardSubtitle': 'इनव्हॉइस, رسید आणि फॉर्म्समध्ये ९६.२% सरासरी अचूकता.',
   'login.hidePassword': 'पासवर्ड लपवा',
@@ -74,6 +99,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · ४०४',
   'notFound.home': 'लँडिंग पेज उघडा',
   'notFound.title': 'ते पान फाईलमध्ये नाही.',
+  'parcelaHeroCard.accuracy': 'सर्व एक्सट्रॅक्शनमध्ये सरासरी अचूकता {{value}}%',
   'parcelaHeroCard.change': '{{sign}} {{amount}} कालच्या तुलनेत टक्केवारी',
   'parcelaHeroCard.title': 'आज प्रक्रिया केलेले दस्तऐवज',
   'parcelaLayout.primaryNavLabel': 'प्राथमिक नेव्हिगेशन',
@@ -81,6 +107,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'कागदपत्रे',
   'pricing.processingLabel': 'प्रक्रिया नोकऱ्या',
   'resetPassword.confirmPlaceholder': 'नवीन पासवर्ड पुन्हा टाका',
+  'resetPassword.hidePassword': 'पासवर्ड लपवा',
   'resetPassword.passwordLabel': 'नवीन पासवर्ड',
   'resetPassword.showPassword': 'पासवर्ड दाखवा',
   'resetPassword.subtitle': 'किमान ८ अक्षरे लांबीचा काहीतरी पर्याय निवडा.',
@@ -97,10 +124,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'नियम लोड करण्यात अयशस्वी झाले.',
   'rules.loading': 'नियम लोड होत आहेत…',
   'rules.matched30d': '{{count}} गेल्या ३० दिवसांत जुळलेले दस्तऐवज',
+  'rules.neverUsed': 'कधीही वापरले नाही',
   'rules.newRule': 'नवीन नियम',
   'rules.saveError': 'नियम जतन करण्यात अयशस्वी झाले.',
   'rules.subheading':
     'प्रत्येक प्रकारचा दस्तऐवज कोठे पाठवायचा आहे, हे प्रणालीला सांगा. अटींची साखळी वरून खाली तयार होते — पहिली जुळणारी अट ग्राह्य धरली जाते.',
+  'rules.templatesEmpty': 'अद्याप कोणतेही एक्सट्रॅक्शन टेम्पलेट नाहीत.',
   'rules.templatesHeading': 'निष्कर्षण टेम्पलेट्स',
   'rules.templatesSubheading':
     'प्रत्येक दस्तऐवज प्रकारासाठी एक्सट्रॅक्टर वापरत असलेले फील्ड स्कीमा.',
@@ -109,17 +138,24 @@ export const ui: UiTranslations = {
   'settings.account.error': 'जतन करण्यात अयशस्वी झाले.',
   'settings.account.nameLabel': 'कार्यक्षेत्राचे नाव',
   'settings.account.subheading': 'सूचना आणि ऑडिट इतिहासासाठी नाव आणि प्राथमिक ईमेल दाखवा.',
+  'settings.api.confirmRevoke': 'पुष्टी करायची आहे का?',
   'settings.api.copyOnce': 'ही चावी कॉपी करा — ती पुन्हा दाखवली जाणार नाही.',
   'settings.api.createdOn': 'तयार केले {{date}}',
   'settings.api.empty': 'अद्याप API की तयार नाहीत. वर एक तयार करा.',
   'settings.api.error': 'की तयार करण्यात अयशस्वी झाले.',
+  'settings.api.generating': 'तयार करत आहे…',
+  'settings.api.heading': 'एपीआय की',
   'settings.api.labelPlaceholder': 'मुख्य लेबल (उदा. सीआय अपलोडर)',
+  'settings.api.loading': 'की लोड होत आहेत…',
   'settings.api.newKey': 'की तयार करा',
   'settings.api.subheading':
     'स्क्रिप्ट किंवा तुमच्या ERP मधून दस्तऐवज पाठवण्यासाठी यांचा वापर करा. कोणत्याही वेळी कोणतीही कळ फिरवा.',
   'settings.integrations.heading': 'फाइलिंग इंटिग्रेशन्स',
   'settings.integrations.subheading':
     'दाखल केलेली कागदपत्रे तुमच्या टीमच्या क्लाउड ड्राईव्ह किंवा चॅट टूलवर पाठवा.',
+  'settings.subheading':
+    'तुमच्या {{app}} वर्कस्पेससाठी खाते, API की आणि फाइलिंग इंटिग्रेशन व्यवस्थापित करा.',
+  'signup.hidePassword': 'पासवर्ड लपवा',
   'signup.identityPrompt': 'आम्ही तुम्हाला कसे संबोधावे?',
   'signup.showPassword': 'पासवर्ड दाखवा',
   'signup.subtitle': '१४ दिवस मोफत, कार्डची आवश्यकता नाही.',
@@ -127,6 +163,7 @@ export const ui: UiTranslations = {
   'upload.error': 'अपलोड अयशस्वी झाले.',
   'upload.eyebrow': 'सेवन',
   'upload.heading': 'कागदपत्रे अपलोड करा',
+  'upload.queue.clear': 'पूर्ण झालेले साफ करा',
   'upload.queue.col.confidence': 'आत्मविश्वास',
   'upload.queue.col.file': 'फाईल',
   'upload.queue.detecting': 'शोधत आहे…',
@@ -139,5 +176,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'किंवा बॅच एक्सट्रॅक्शन, वर्गीकरण आणि फाइलिंगसाठी एकाच वेळी अनेक फाइल्स टाका.',
   'uploadDropZone.cta': 'फाईल्स निवडा',
+  'uploadDropZone.maxSize': 'प्रति फाइल कमाल 25 MB · एंड-टू-एंड एन्क्रिप्टेड',
   'uploadDropZone.title': 'प्रक्रिया सुरू करण्यासाठी कागदपत्रे जमा करा.',
 }

@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Oes gennych adborth, wedi dod o hyd i fyg, neu eisiau {{app}} ar gyfer eich stiwdio neu dîm? Cysylltwch o'ch gosodiadau cyfrif — mae pob neges yn mynd at berson go iawn ar y tîm.",
   'about.contactTitle': 'Siaradwch â ni',
+  'about.intro':
+    "Mae {{app}} yn stiwdio ysgrifennu gydweithredol lle mae golygyddion, ysgrifenwyr a thimau yn drafftio gyda'i gilydd mewn amser real. Agorwch ddogfen ac mae'r dudalen yn dod yn rhannol — mae cyrchwyr yn symud, mae sylwadau'n edafu yn yr ymyl, ac mae pob diwygiad yn cael ei gadw'n ddiogel yn yr hanes.",
+  'about.missionBody':
+    "Credwn fod ysgrifennu hir yn haeddu cartref tawel a chanolbwyntiedig — un wedi'i adeiladu o amgylch y llawysgrif, nid y cyfarfod na'r blwch derbyn. Mae ein golygydd, presenoldeb amser real, a hanes fersiynau i gyd wedi'u cynllunio fel y gall cydweithwyr symud yn gyflym gyda'i gilydd heb i neb golli paragraff na meddwl.",
+  'about.missionTitle': 'Ein cenhadaeth',
+  'about.subtitle': "Meddyliwch gyda'n gilydd, ysgrifennwch am byth.",
   'about.title': 'Ynghylch {{app}}',
   'comments.addFailed': 'Methwyd postio sylw.',
   'comments.backToDoc': "Yn ôl i'r llawysgrif",
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Edau sylwadau',
   'comments.loading': "Wrthi'n llwytho edafedd…",
   'comments.newPlaceholder': 'Ychwanegu sylw at y llawysgrif…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Ailagor',
   'comments.reopenFailed': 'Methwyd ag ailagor.',
   'comments.replyFailed': 'Methwyd postio ateb.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': "Drafftiau diweddar, gweithiau a rennir, a golygiadau'r diwrnod.",
   'dashboard.viewFeed': 'Bwydo →',
   'editor.back': 'Yn ôl at lawysgrifau',
+  'editor.bodyLabel': 'Corff y ddogfen',
   'editor.bodyPlaceholder': "Dechreuwch lle mae'r cyrchwr yn blincio.",
   'editor.comments': 'Sylwadau',
   'editor.createFailed': "Methwyd creu'r ddogfen.",
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'awdur@stiwdio.com',
   'forgotPassword.sentBody':
     'Os oes cyfrif yn bodoli ar gyfer {{email}} , mae dolen ailosod ar y ffordd.',
+  'forgotPassword.sentHeading': 'Gwiriwch eich e-bost',
+  'forgotPassword.submitting': 'Yn anfon\\u2026',
   'forgotPassword.subtitle': 'Byddwn yn e-bostio dolen ailosod atoch.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Adeiladwyd gyda Molecule.',
+  'landing.ctaBody':
+    'Am ddim i ysgrifenwyr unigol. Cynlluniau Stiwdio ar gyfer timau o olygyddion, ysgrifenwyr ysbryd a adolygwyr.',
   'landing.ctaHeading': "Agorwch y dudalen. Gadewch i'r cyrchwr ddechrau.",
   'landing.ctaPrimary': 'Agor stiwdio',
   'landing.eyebrow': 'Ar gyfer awduron, golygyddion a thimau',
   'landing.featuresEyebrow': 'Yr hyn a gewch',
   'landing.featuresHeading': 'Stiwdio ar gyfer y drafft hir.',
+  'landing.featuresSubtitle':
+    "Mae {{appName}} wedi'i adeiladu o amgylch y llawysgrif — nid y cyfarfod, nid y blwch derbyn.",
   'landing.getStarted': 'Agorwch y stiwdio',
   'landing.heroCta': 'Dechrau ysgrifennu',
   'landing.heroSubtitle':
@@ -95,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} heb eu darllen · sylwadau, crybwylliadau, gwahoddiadau rhannu, a cheisiadau am awgrymiadau.',
   'presenceAvatars.label': '{{count}} cydweithwyr',
+  'privacy.intro': 'Sut rydym yn casglu, defnyddio ac amddiffyn eich gwybodaeth.',
   'privacy.title': 'Polisi preifatrwydd',
   'profile.about.description':
     "Bywgraffiad byr ar gyfer eich proffil cyhoeddus a'r tudalennau cyfranwyr.",
@@ -102,12 +119,15 @@ export const ui: UiTranslations = {
   'profile.handle': 'Trin',
   'profile.identity.description':
     "Yr enw, yr handlen, a'r rhagenwau sy'n ymddangos wrth ymyl eich cyrchwr.",
+  'profile.presence.color': 'Lliw cyrchwr {{color}}',
   'profile.presence.description':
     'Dewiswch y lliw y mae eich cyrchwr yn ei wisgo mewn dogfennau a rennir. Defnyddir yr un lliw ar gyfer eich dewisiadau, sylwadau ac avatar.',
   'profile.presence.title': 'Presenoldeb',
   'profile.pronouns': 'Rhagenwau',
   'profile.publicToggle': 'Dangos proffil i gyd-chwaraewyr',
+  'profile.role': 'Rôl / teitl',
   'profile.subtitle': "Sut rydych chi'n ymddangos i'ch cydweithwyr.",
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': "{{count}} awduron sy'n weithgar yn y stiwdio",
   'quillonAuthBrandPanel.quote':
     '“Ysgrifennu yw’r unig beth, pan fydda i’n ei wneud, nad ydw i’n teimlo y dylwn i fod yn gwneud rhywbeth arall.”',
@@ -115,6 +135,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Agor →',
   'quillonKpiCard.trend': 'Tuedd ddiweddar',
   'quillonLayout.menu': 'Dewislen',
+  'quillonLayout.mobileNavLabel': 'Llywio symudol',
   'quillonLayout.primaryNavLabel': 'Prif lywio',
   'quillonStudioHero.collab': 'Cydweithwyr',
   'quillonStudioHero.docs': "Dogfennau wedi'u cyffwrdd",
@@ -123,7 +144,9 @@ export const ui: UiTranslations = {
   'quillonStudioHero.subtitle': 'Codwch y llawysgrif, gollyngwch sylw, gwthiwch baragraff ymlaen.',
   'quillonStudioHero.words': 'Geiriau heddiw',
   'resetPassword.confirmPlaceholder': 'Ailadroddwch y cyfrinair newydd',
+  'resetPassword.passwordLabel': 'Cyfrinair newydd',
   'resetPassword.passwordPlaceholder': 'Rhowch gyfrinair newydd',
+  'resetPassword.submitting': 'Ailosod…',
   'resetPassword.subtitle': 'Dewiswch gyfrinair cryf — o leiaf 12 nod.',
   'settings.account.description': "Sut rydych chi'n mewngofnodi.",
   'settings.billing.canceled': "Tanysgrifiad wedi'i ganslo.",
@@ -132,7 +155,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Heb ei ffurfweddu',
   'settings.billing.updated': "Cynllun wedi'i ddiweddaru.",
   'settings.editor.description': "Sut mae'r cynfas yn ymddwyn wrth i chi ysgrifennu.",
+  'settings.editor.title': 'Dewisiadau golygydd',
   'settings.eyebrow': 'Dewisiadau Stiwdio',
+  'settings.language.title': 'Iaith',
   'settings.notifications.${n.key}.description': 'Iaith',
   'settings.notifications.description': "Dewiswch beth sy'n cyrraedd eich mewnflwch.",
   'settings.subtitle': 'Tiwniwch hysbysiadau, cynfas y golygydd, a dewisiadau eich cyfrif.',
@@ -141,6 +166,7 @@ export const ui: UiTranslations = {
   'shared.heading': "Wedi'i rannu gyda mi",
   'shared.loadFailed': 'Methwyd llwytho dogfennau a rennir.',
   'shared.subtitle': 'Llawysgrifau, briffiau, a nodiadau o weddill y stiwdio.',
+  'signup.brandAttribution': 'Anaïs Park — Golygydd, The Quarterly',
   'signup.brandQuote':
     "Eich llawysgrif gyntaf yw'r anoddaf. Mae Quillon yn ei gwneud hi'n llai unig.",
   'signup.emailPlaceholder': 'awdur@stiwdio.com',
@@ -148,6 +174,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Anaïs',
   'signup.heading': 'Creu eich cyfrif Quillon',
   'signup.lastNamePlaceholder': 'Parc',
+  'signup.submitting': 'Yn agor eich stiwdio\\u2026',
   'signup.subtitle':
     "Desg dawel, cydweithwyr amgylchynol, a golygydd ffurf hir sy'n mynd allan o'ch ffordd.",
   'templates.blank.subtitle': "Tudalen lân. Mae'r cyrchwr yn dechrau.",
@@ -160,11 +187,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Dechreuwch gyda strwythur meddylgar. Addaswch yn ddiddiwedd.',
   'templates.useFailed': "Methwyd cychwyn dogfen o'r templed hwn.",
   'templates.useTemplate': 'Defnyddiwch y templed hwn',
+  'terms.intro': "Yr amodau y gallwch ddefnyddio'r gwasanaeth hwn oddi tanynt.",
   'terms.title': 'Telerau gwasanaeth',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'nawr yn unig',
   'trash.confirmDelete': 'Cadarnhau dileu',
+  'trash.confirmEmpty': 'Cadarnhau — dileu popeth',
   'trash.deleteFailed': 'Methwyd dileu.',
   'trash.deleteForever': 'Dileu am byth',
   'trash.empty': "Dim byd i'w adfer.",
@@ -178,7 +207,9 @@ export const ui: UiTranslations = {
   'versionHistory.backToDoc': "Yn ôl i'r llawysgrif",
   'versionHistory.empty': 'Dim diwygiadau eto — cadwch y ddogfen i ddechrau ei hanes.',
   'versionHistory.heading': 'Hanes fersiwn',
+  'versionHistory.latest': 'Diweddaraf',
   'versionHistory.loadFailed': 'Methwyd llwytho hanes.',
+  'versionHistory.noContent': "Dim cynnwys wedi'i gasglu ar gyfer y diwygiad hwn.",
   'versionHistory.previewing': 'Rhagolwg',
   'versionHistory.restore': 'Adfer y fersiwn hon',
   'versionHistory.restoreFailed': 'Methodd yr adferiad.',

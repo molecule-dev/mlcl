@@ -5,7 +5,13 @@ export const ui: UiTranslations = {
     "Fikr-mulohazangiz, funksiya so'rovingiz bormi yoki xato topdingizmi? Hisobingiz menyusidagi qo'llab-quvvatlash havolasi orqali {{app}} jamoasi bilan bog'laning — har bir xabar haqiqiy insonga yuboriladi.",
   'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
+  'about.intro':
+    "{{app}} ovozli tabiiy AI yordamchisidir. Tabiiy gapiring, so'zlaringiz matnga aylanishini kuzating va ovozli javoblarni oling — shunda hammasini yozib o'tirmasdan, ovoz chiqarib o'ylashingiz mumkin.",
+  'about.missionBody':
+    "Yozish — g'oyalaringiz va ularni amalga oshirish o'rtasidagi to'siq. {{app}} uni bartaraf etish uchun yaratilgan: qo'lsiz, suhbat tarzida g'oyalar to'plash, qoralama yozish va qaror qabul qilish — eng ilg'or nutq va fikrlash modellari asosida, ma'lumotlaringiz maxfiy saqlanadi.",
+  'about.missionTitle': 'Bizning vazifamiz',
   'agentDetail.back': 'Barcha agentlar',
+  'agentDetail.behavior': 'Xatti-harakat',
   'agentDetail.capabilities': 'Imkoniyatlar',
   'agentDetail.delete': "Personajni o'chirish",
   'agentDetail.deleteConfirm':
@@ -40,15 +46,20 @@ export const ui: UiTranslations = {
   'agents.subtitle':
     "Har bir agentning o'z ohangi, tempi va ixtisosligi bor. Suhbat o'rtasida istalgan vaqtda o'zgartirishingiz mumkin.",
   'agents.title': 'Fikrlash uchun ovoz tanlang.',
+  'authShell.tagline': '{{tagline}} — {{brand}}',
+  'billing.cardNoneBody':
+    "Tarifni yangilaganingizda bittasini qo'shing — barcha saqlashni Stripe boshqaradi.",
   'billing.cardNoneTitle': "Faylda karta yo'q",
   'billing.choose': 'Switch',
   'billing.currentPlan': 'Sizning rejangiz',
   'billing.currentPlanReadout': '{{plan}} reja',
   'billing.eyebrow': 'Reja va foydalanish',
   'billing.fetchError': 'Toʻlov maʼlumotlarini yuklab boʻlmadi.',
+  'billing.loadingStatus': 'Holat yuklanmoqda…',
   'billing.noTiers': 'Hozirda hech qanday reja mavjud emas.',
   'billing.plansTitle': 'Rejalar',
   'billing.switching': 'Almashtirilmoqda…',
+  'billing.updateAcknowledged': '{{time}} da yangilanish qabul qilindi',
   'billing.updateError': "Yangilashni boshlab bo'lmadi.",
   'billing.usageHeading': 'Ushbu siklda ovozdan foydalanish',
   'chatBubble.source.text': 'matn',
@@ -67,11 +78,13 @@ export const ui: UiTranslations = {
   'conversation.title': 'Buni muhokama qiling',
   'conversation.toggleMic': "Mikrofonni yoqish/o'chirish",
   'conversation.toggleVoicePlayback': 'Ovozni ijro etish',
+  'conversation.transcribeError': "Audioni matnga aylantirib bo'lmadi.",
   'conversation.transcriptionEmpty': "Hech narsa eshitilmadi. Qayta urinib ko'ringmi?",
   'conversation.voiceOff': "Ovoz o'chirilgan",
   'conversation.voiceOn': 'Ovoz yoqilgan',
   'conversationDetail.assistant': 'Yordamchi',
   'conversationDetail.back': 'Tarixga qaytish',
+  'conversationDetail.elapsed': '00:00 / {{duration}}',
   'conversationDetail.empty': "Bu suhbatda hali hech qanday xabar yo'q.",
   'conversationDetail.eyebrow': 'Transkript',
   'conversationDetail.fetchError': "Transkriptni yuklab bo'lmadi.",
@@ -82,6 +95,7 @@ export const ui: UiTranslations = {
   'conversationDetail.setSpeed': 'Ijro tezligini quyidagicha sozlang {{speed}}',
   'conversationDetail.system': 'Tizim',
   'conversationDetail.untitled': 'Nomsiz suhbat',
+  'conversationListItem.messageCount': '{{count}} xabar',
   'forgotPassword.subheading':
     'Elektron pochtangizni kiriting va biz sizga qayta tiklash havolasini yuboramiz.',
   'forgotPassword.successBody': 'Biz hozirgina qayta tiklash havolasini yubordik {{email}} .',
@@ -98,6 +112,10 @@ export const ui: UiTranslations = {
   'history.voiceOnly': 'Faqat ovozli',
   'landing.copyright': "© {{year}} {{brand}} Ovoz chiqarib o'ylang.",
   'landing.demoMessage1': 'Salom Sara — yangi kampaniya haqida fikr bildirishga tayyormisiz?',
+  'landing.demoMessage2':
+    "Ha — keling, 3-chorak uchun organik o'sish strategiyalariga e'tibor qarataylik.",
+  'landing.demoMessage3':
+    "Ajoyib. Men jamoa boshchiligidagi tashabbusdan boshlagan bo'lardim. Bosqichlarni bayon qilib beraymi?",
   'landing.eyebrow': 'Ovozga asoslangan AI',
   'landing.featuresSubtitle':
     'Tabiiy muloqot uchun yaratilgan — tezligingiz, ohangingiz va kontekstingizga moslashadi.',
@@ -127,10 +145,12 @@ export const ui: UiTranslations = {
   'parlanceLayout.openMenu': 'Navigatsiya menyusini ochish',
   'parlanceLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'pricing.conversations': '{{count}} suhbatlar',
+  'pricing.cta.start': '{{tierName}} ni tanlang',
   'pricing.cta.startFree': 'Bepul boshlang',
   'pricing.cta.upgrade': 'Yangilash {{tierName}}',
   'pricing.empty': 'Hozirda hech qanday reja mavjud emas.',
   'pricing.error': "Narxlarni yuklab bo'lmadi. Keyinroq qayta urinib ko'ring.",
+  'pricing.speech': '{{count}} nutqi',
   'pricing.subtitle':
     'Yordamchingiz bilan qanchalik tez-tez gaplashishingizga mos keladigan reja tanlang.',
   'privacy.collection.account':
@@ -140,6 +160,8 @@ export const ui: UiTranslations = {
   'privacy.deletion.body':
     "Siz istalgan vaqtda tegishli sahifadan suhbatni, shaxsiy ma'lumotlarni yoki audio yozuvni o'chirishingiz mumkin. Sozlamalardan hisobingizni o'chirish ish joyingizga bog'langan barcha suhbat, transkript va shaxsiy ma'lumotlar qatorini o'chiradi.",
   'privacy.eyebrow': 'Huquqiy',
+  'privacy.intro':
+    "{{app}} siz yaratgan suhbatlar va ovozli kliplarni faqat yordamchi tajribasini taqdim etish uchun zarur bo'lgan vaqt davomida saqlaydi. Biz hech qachon ma'lumotlaringizni sotmaymiz va mijozlar audiosi yoki transkriptlaridan tashqi AI modellarini o'qitish uchun foydalanmaymiz.",
   'privacy.lastUpdated': 'Oxirgi yangilanish: 2026-05-01',
   'privacy.processors.body':
     "Yordamchingiz bilan gaplashganingizda, biz sizning audio yozuvingizni transkripsiya uchun OpenAI Whisperga, javob uchun transkriptingizni Anthropic (Claude)ga va ovoz sintezi uchun javobni ElevenLabs yoki OpenAIga yuboramiz. Har bir provayder o'zining ma'lumotlarni qayta ishlash shartlari bilan bog'liq; qayta tayyorlash uchun hech narsa saqlanmaydi.",
@@ -161,13 +183,19 @@ export const ui: UiTranslations = {
   'resetPassword.newPassword': 'Yangi parol',
   'resetPassword.subheading': 'Gapirishni davom ettirish uchun yangi parol tanlang.',
   'search.agentPreview': "Tavsif yo'q",
+  'search.emptyBody': "Boshqa kalit so'zni sinab ko'ring yoki uni ovoz chiqarib ayting.",
   'search.emptyTitle': "Mosliklar yo'q",
   'search.eyebrow': 'Buyruqlar palitrasi',
   'search.fetchError': "Qidiruv indeksini yuklab bo'lmadi.",
+  'search.static.billing.preview': "Tariflar, to'lov usuli va hisob-fakturalar",
+  'search.static.billing.title': 'Hisob-kitob',
   'search.static.profile.preview': "Ko'rsatiladigan ism, manzil, tarjimai hol",
+  'search.static.profile.title': 'Profil',
+  'search.static.voice.preview': 'Standart ovoz va til sozlamalari',
   'search.static.voice.title': 'Ovoz',
   'search.title': 'Vox qidiruvi',
   'search.transcriptPreview': 'Transkriptni ochish',
+  'settings.appearance.description': "Yorug'lik va qorong'u rejimlar o'rtasida almashinish.",
   'settings.appearance.title': "Tashqi ko'rinish",
   'settings.loadError': 'Sozlamalar yuklanmadi.',
   'settings.privacy.${row.key}.label': 'Bildirishnomalar',
@@ -184,6 +212,8 @@ export const ui: UiTranslations = {
   'terms.changes.body':
     "Agar ushbu shartlar jiddiy o'zgarsa, biz sizga ilovada xabar beramiz; ogohlantirishdan keyin foydalanishda davom etish sizning yangilanishlarni qabul qilishingizni anglatadi.",
   'terms.eyebrow': 'Huquqiy',
+  'terms.intro':
+    'Ushbu shartlar {{app}} dan foydalanishingizni tartibga soladi. Hisob yaratish bilan siz ularga rozilik bildirasiz.',
   'terms.lastUpdated': 'Oxirgi yangilanish: 2026-05-01',
   'terms.title': "Xizmat ko'rsatish shartlari",
   'terms.usage.body':

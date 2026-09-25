@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Àwọn ìbéèrè nípa ìgbààkókò kan, èsì, tàbí ilé tí o rò pé ó yẹ kí ó wà lórí {{app}}? Kàn sí ẹgbẹ́ wa láti àkọsílẹ̀ rẹ — gbogbo ìṣẹ́ ni ó ń lọ sí ọwọ́ ènìyàn gidi tí ó lè ràn yín lọ́wọ́.',
+  'about.contactTitle': 'Bá wa sọ̀rọ̀',
   'about.eyebrow': 'Nipa re',
+  'about.featureLoyalty':
+    'Àwọn owó àwọn ọmọ ẹgbẹ́ nìkan àti ètò ìdúróṣinṣin tí ó ń gba àwọn kókó, ìjáde pẹ́, àti ìgbéga yàrá ní gbogbo ìgbààkókò.',
+  'about.featureReviews':
+    'Àwọn àgbéyẹ̀wò àlejò tí a fọwọ́sí àti àwọn àṣàyàn olóòtú kí o lè gbẹ́kẹ̀lé ibùdó kí o tó dé.',
+  'about.featureRooms':
+    'Àwọn yàrá, owó, àti àwọn ohun èlò ní ẹ̀gbẹ́ ara wọn pẹ̀lú owó tí ó ṣe kedere, tí ó ní gbogbo nǹkan — àwọn owó orí àti owó ibùdó wà nínú kí o tó sanwó.',
+  'about.featureSearch':
+    'Ìwádìí ní àkókò gidi káàkiri àwọn ilé ìtura tí a fọwọ́sí pẹ̀lú wíwà ní àkókò gidi, ìwòye maapu, àti àwọn àwòrán tí ó lẹ́wà.',
+  'about.featureTrips':
+    'Àwọn ohun àyànfẹ́ tí a fipamọ́ àti pátákó Ìrìnàjò tí ó ń tọ́jú gbogbo ìgbààkókò, ìtòlẹ́sẹẹsẹ ìrìnàjò, àti ìjẹ́rìí ní ibi kan.',
+  'about.intro':
+    '{{app}} jẹ́ pẹpẹ ìgbààkókò ilé ìtura fún àwọn arìnrìnàjò tí ó bìkítà nípa dídára. Ẹgbẹ́ olóòtú wa ń fọwọ́sí gbogbo ilé fúnra wọn — kò sí ọjà àpapọ̀, kò sí àwọn àkọsílẹ̀ ẹ̀tàn. Ṣe ìwádìí wíwà gidi, fi àwọn yàrá, owó, àti àwọn ohun èlò wé ara wọn, lẹ́yìn náà ṣe ìgbààkókò ní ìtẹ̀wọ́gbà mélòó kan pẹ̀lú owó tí ó ṣe kedere, tí ó ní gbogbo nǹkan.',
+  'about.missionBody':
+    'Ìgbààkókò ibi tí a ó gbé yẹ kí ó jẹ́ ìmọ̀lára tí ó ní ìbàlẹ̀ ọkàn àti òtítọ́. A ń fi àwọn owó tí ó ṣe kedere hàn pẹ̀lú àwọn owó orí àti owó ibùdó ní ìbẹ̀rẹ̀, a ń san èrè fún àwọn àlejò olóòtítọ́ dípò fífi wọ́n ṣe owó lọ́nà àìtọ́, a sì ń fi àwọn ibùdó tí ó yẹ fún owó rẹ sí ipò àkọ́kọ́ — kí o lè lo àkókò díẹ̀ sí ìfiwéra àwọn táàbù, kí o sì lo àkókò púpọ̀ sí i lórí ìrìnàjò náà fúnra rẹ̀.',
+  'about.missionTitle': 'Iṣẹ́ àwa',
+  'about.subtitle': 'Ọ̀nà tí a ṣàyàn, tí ó ṣe kedere láti wá àti ṣe ìgbààkókò ilé ìtura tí ó tọ́.',
   'account.loyalty.activitySummary': '{{nights}} àwọn alẹ́ · {{spend}} lo odun yii',
+  'account.loyalty.benefitsHeading': 'Àwọn àǹfààní rẹ',
   'account.loyalty.heading': 'Iṣootọ',
   'account.loyalty.loading': 'N n gbe iṣootọ soke…',
-  'account.loyalty.pointsTowardNext': '{{awọn aaye}} / {{Itele}} tọ́ka sí {{NextTier}}',
+  'account.loyalty.maxTier': 'Ipele gíga jùlọ — gbádùn àwọn àǹfààní rẹ.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} kókó sí {{nextTier}}',
   'account.loyalty.tier': 'Ipele lọwọlọwọ',
   'account.loyalty.unavailable': 'Ìwífún ìdúróṣinṣin kò sí.',
   'account.navLabel': 'Àwọn apá àkọọ́lẹ̀',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Jẹ́rìí sí ìforúkọsílẹ̀ · {{total}}',
   'bookingCheckout.datesRequired': 'Jọwọ yan awọn ọjọ ti iwọ yoo wọle ati jade.',
   'bookingCheckout.guestHeading': 'Alejo asiwaju',
+  'bookingCheckout.heading': 'Ìjẹ́rìí àti ìgbààkókò',
   'bookingCheckout.loadError': 'Kò ṣeé ṣe láti gbé ohun ìní náà sókè.',
   'bookingCheckout.nights': '{{rate}} × {{count}} àwọn alẹ́',
   'bookingCheckout.notFound': 'Kò sí ohun ìní.',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Owó-orí & owó ọ̀yà',
   'bookingCheckout.tripHeading': 'Ìrìnàjò rẹ',
   'bookingConfirmation.allTripsCta': 'Gbogbo ìrìnàjò',
+  'bookingConfirmation.confNumber': 'Nọ́mbà ìjẹ́rìí: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'A ń ṣiṣẹ́ lórí ìgbààkókò rẹ.',
   'bookingConfirmation.heading': 'Iforukọsilẹ ti jẹrisi',
   'bookingConfirmation.loading': 'N n gbe ifiṣura rẹ soke…',
   'bookingConfirmation.searchMoreCta': 'Ṣawari awọn iduro diẹ sii',
   'bookingConfirmation.subheadingForTrip':
-    '{{dúkìá}} nínú {{ìlú}} , {{orilẹ-ede}} A ó rí yín níbí {{wole sinu}} .',
+    '{{property}} ní {{city}}, {{country}}. A ó rí yín ní {{checkIn}}.',
   'bookingConfirmation.total': 'Àròpọ̀ {{total}}',
   'bookingConfirmation.viewTripCta': 'Wo irin ajo naa',
   'common.goToDashboard': 'Lọ sí Dashiboodu',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Kò ṣeé ṣe láti gbé àwọn ayanfẹ́ sórí ayélujára.',
   'favorites.pricePerNight': '{{price}} / alẹ́',
   'favorites.removeCta': 'Má ṣe fipamọ́',
+  'favorites.removing': 'Yíyọ kúrò…',
   'forgotPassword.subheading':
     'Tẹ imeeli sii lori akọọlẹ rẹ ati pe a yoo fi ọna asopọ atunto aabo ranṣẹ si ọ.',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Àwọn ọmọ ẹgbẹ́ àlejò',
   'landing.cta.heading': 'Iye owo fun awọn ọmọ ẹgbẹ nikan. Gbogbo ifiṣura, ni gbogbo igba.',
   'landing.cta.signup': 'Ṣẹ̀dá àkọọ́lẹ̀ ọ̀fẹ́',
+  'landing.cta.subheading':
+    'Gba àwọn kókó ìdúróṣinṣin ní gbogbo ibùdó, ṣí àwọn ìjáde pẹ́ àti ìgbéga yàrá, kí o sì gba àǹfààní àkọ́kọ́ sí àwọn ilé tuntun kí wọ́n tó ṣe àkọsílẹ̀ ní gbangba.',
   'landing.destinations.eyebrow': 'Ibi ti o le lọ tókàn',
   'landing.destinations.heading': 'Àwọn ibi tí a ṣe àfihàn',
   'landing.destinations.seeAll': 'Wo gbogbo awọn ibi ti a nlọ',
@@ -61,13 +89,21 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Àwọn ìtàn tó yẹ kó jọ fún',
   'landing.nav.join': 'Darapọ mọ Auberge',
   'landing.nav.search': 'Àwọn ibi ìwárí',
+  'landing.preview.browseAll': 'Ṣàwárí gbogbo àkójọpọ̀',
   'landing.preview.eyebrow': 'Wíwo inú',
   'landing.preview.heading': 'Àwọn ìdúró tí a yàn ní ọwọ́ ní oṣù yìí',
+  'landing.preview.subheading':
+    'Gbogbo ilé lórí {{appName}} ni ẹgbẹ́ olóòtú wa ń fọwọ́sí fúnra wọn — kò sí ọjà àpapọ̀, kò sí àwọn àkọsílẹ̀ ẹ̀tàn.',
   'login.eyebrow': 'Agbègbè àwọn ọmọ ẹgbẹ́',
+  'login.noAccount': 'Ṣe o jẹ tuntun si Tessera?',
   'login.signupLink': 'Ṣẹda akọọlẹ ọfẹ kan',
   'login.subheading':
     'Wọlé láti ṣàkóso àwọn ìrìnàjò rẹ, wo àwọn ìjẹ́rìí, kí o sì bẹ̀rẹ̀ sí í gbéra níbi tí o ti dúró.',
+  'loyaltyTierBadge.points': '{{points}} awọn pts',
   'planUpdated.heading': 'Ètò tí a ti ṣe àtúnṣe',
+  'planUpdated.retry': 'Gbìyànjú lẹ́ẹ̀kan sí i',
+  'planUpdated.verifyFailed': 'A kò tíì lè jẹ́rìí ìsanwó rẹ.',
+  'planUpdated.verifyFailedBody': 'Ìsanwó rẹ ṣì lè ń lọ lọ́wọ́. Gbìyànjú lẹ́ẹ̀kan sí i ní ìṣẹ́jú díẹ̀.',
   'planUpdated.verifying': 'Ń jẹ̀rìísí sísanwó rẹ…',
   'pricing.limit.advancedFeatures': 'Awọn ẹya ara ẹrọ to ti ni ilọsiwaju:',
   'pricing.limit.canExport': 'Gbigbe data jade:',
@@ -79,7 +115,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Ohun ti ibi yii nfunni',
   'propertyDetail.backLink': 'Pada si wiwa',
   'propertyDetail.bookCta': 'Ṣe ìpamọ́',
+  'propertyDetail.bookmarkAria': 'Fipamọ ohun-ini',
   'propertyDetail.bookmarkAriaSaved': 'Yọ kuro ninu awọn ohun-ini ti a fipamọ',
+  'propertyDetail.galleryImageAlt': '{{name}} àwòrán {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} fọ́tò akọni',
   'propertyDetail.hidePhotos': 'Fi awọn fọto pamọ',
   'propertyDetail.lineCleaning': 'Owo mimọ',
@@ -89,6 +127,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'alẹ́',
   'propertyDetail.noChargeYet': 'A kò ní gba owó lọ́wọ́ rẹ sibẹsibẹ',
   'propertyDetail.notFound': 'Kò sí ohun ìní.',
+  'propertyDetail.perNight': '/ alẹ́',
+  'propertyDetail.pickDatesHint': 'Yan àwọn ọjọ́ rẹ láti rí ìpín owó ní kíkún.',
   'propertyDetail.reviewCount': '( {{count}} àwọn àtúnyẹ̀wò)',
   'propertyDetail.reviewsHeading': 'Àwọn àtúnyẹ̀wò tuntun',
   'propertyDetail.roomCapacity': 'Àwọn oorun ń sùn {{count}}',
@@ -101,6 +141,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Ọrọ aṣina Tuntun',
   'resetPassword.subheading':
     'Yan ọ̀rọ̀ìpamọ́ tuntun fún àkọọ́lẹ̀ Auberge rẹ. Lo ó kéré tán àwọn lẹ́tà mẹ́jọ; a dámọ̀ràn ọ̀rọ̀ìpamọ́ kan.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Kò sí ohun ìní tó bá ìwákiri rẹ mu.',
   'searchResults.emptyHint':
     'Gbìyànjú láti fẹ̀ àwọn àlẹ̀mọ́ rẹ sí i tàbí láti yọ ìdíyelé owó kúrò — Auberge ní àwọn ìdúró ní orílẹ̀-èdè mẹ́rìnlá.',
@@ -108,19 +149,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Àwọn ìdúró tí a ṣètò',
   'searchResults.headingForQuery': 'O duro fun " {{q}} "',
   'searchResults.loadError': 'Kò ṣeé ṣe láti gbé àwọn ohun ìní sórí ayélujára.',
+  'searchResults.mapHint':
+    'Fi kọ́ọ̀dù kan lé orí láti fi hàn lórí maapu. Àwọn tile Mapbox ní àkókò gidi nínú iṣẹ́.',
   'searchResults.mapPinAria': '{{name}} — {{price}} fun alẹ kan',
   'searchResults.sortLabel': 'Sa pelu',
   'searchResults.subheading': '{{count}} àwọn ohun ìní · {{guests}} àwọn àlejò',
   'signup.eyebrow': 'Di ọmọ ẹgbẹ́',
   'signup.subheading':
     'Darapọ̀ mọ́ Auberge láti ṣí àwọn owó tí àwọn ọmọ ẹgbẹ́ nìkan ń gbà, àwọn ìsanwó pẹ́, àti ìwọlé sí àwọn ilé tuntun ní àkọ́kọ́.',
+  'sojournAuthShell.brand.eyebrow': 'Dúró sí ibi àrà ọ̀tọ̀',
+  'sojournAuthShell.brand.heading':
+    'Àkójọpọ̀ àwọn ilé tí a ṣàyàn — tí a gbékalẹ̀ lọ́nà tí ó lẹ́wà, tí owó rẹ̀ ṣe kedere.',
   'sojournHeroSearchCard.checkInAria': 'Ọjọ́ ìforúkọsílẹ̀',
   'sojournHeroSearchCard.checkOutAria': 'Ọjọ́ ìjáde',
+  'sojournHeroSearchCard.destAria': 'Ibùdó tí a ń lọ',
+  'sojournHeroSearchCard.destLabel': 'Níbo',
   'sojournHeroSearchCard.destPlaceholder': 'Ìlú, agbègbè, tàbí dúkìá',
   'sojournHeroSearchCard.eyebrow': 'Àwọn ìdúró tí a ṣètò · Àwọn owó fún àwọn ọmọ ẹgbẹ́ nìkan',
   'sojournHeroSearchCard.guestsOption': '{{n}} àwọn àlejò',
   'sojournHeroSearchCard.subtitle':
     'Àkójọ àwọn hótéẹ̀lì kékeré, àwọn ilé tí a ṣe àwòrán wọn, àti àwọn ibi ìsinmi tí a rí ṣọ̀wọ́n — tí owó wọn hàn gbangba, tí a gbé kalẹ̀ lọ́nà tí ó lẹ́wà.',
+  'sojournHeroSearchCard.title': 'Dúró sí ibi àrà ọ̀tọ̀',
+  'sojournHeroSearchCard.trustLoyalty': 'Gba àwọn kókó ní gbogbo ibùdó',
   'sojournHeroSearchCard.trustNoFees': 'Ko si owo ti o farasin rara, lailai',
   'sojournHeroSearchCard.trustVetted': 'Àwọn dúkìá tí a fi ọwọ́ ṣe àyẹ̀wò nìkan',
   'sojournLayout.primaryNavLabel': 'Lilọ kiri akọkọ',

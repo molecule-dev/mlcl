@@ -1,11 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'നിങ്ങൾക്ക് ഫീഡ്ബാക്ക് ഉണ്ടോ, ഒരു ബഗ് കണ്ടെത്തിയോ, അല്ലെങ്കിൽ ഒരു ഫീച്ചർ നിർദ്ദേശിക്കാൻ ആഗ്രഹിക്കുന്നുവോ? എല്ലാ സന്ദേശവും {{app}} ടീമിലെ ഒരു യഥാർത്ഥ വ്യക്തിയിലേക്ക് എത്തുന്നു — നിങ്ങൾ പഠിക്കുന്നത് എന്താണെന്ന് അറിയാൻ ഞങ്ങൾ ആഗ്രഹിക്കുന്നു.',
   'about.contactTitle': 'ബന്ധപ്പെടുക',
   'about.eyebrow': '{{app}} നെക്കുറിച്ച്',
+  'about.intro':
+    'അറിവ് ശരിക്കും നിലനിൽക്കണം എന്ന് ആഗ്രഹിക്കുന്നവർക്കുള്ള ഒരു spaced-repetition ഫ്ലാഷ്കാർഡ് ആപ്പാണ് {{app}}. നിങ്ങൾ ഒരു ഭാഷ പഠിക്കുകയാണെങ്കിലും, സൂത്രവാക്യങ്ങൾ മനഃപാഠമാക്കുകയാണെങ്കിലും, പരീക്ഷയ്ക്കായി ആശയങ്ങൾ ആവർത്തിക്കുകയാണെങ്കിലും, നിങ്ങൾ മറക്കാൻ പോകുന്ന കൃത്യമായ നിമിഷത്തിൽ ഓരോ കാർഡും ഇത് ഷെഡ്യൂൾ ചെയ്യുന്നു — വസ്തുതകളെ ദീർഘകാല ഓർമ്മയിലേക്ക് മാറ്റാൻ ഓർമ്മശാസ്ത്രം കണ്ടെത്തിയ ഏറ്റവും കാര്യക്ഷമമായ മാർഗ്ഗം.',
+  'about.missionBody':
+    'മിക്ക പഠന ഉപകരണങ്ങളും ചെലവഴിച്ച സമയത്തിനാണ് പ്രാധാന്യം നൽകുന്നത്, നിലനിർത്തിയ അറിവിനല്ല. {{app}} ഇതിന് വിപരീതമാണ് ഒപ്റ്റിമൈസ് ചെയ്യുന്നത്: പ്രധാനപ്പെട്ടത് നിങ്ങളുടെ തലയിൽ നിലനിർത്തുന്ന ഏറ്റവും കുറഞ്ഞ അവലോകനങ്ങൾ. പഠനം ശാന്തവും അളക്കാവുന്നതും നിങ്ങളുടേതുമായിരിക്കണം എന്ന് ഞങ്ങൾ വിശ്വസിക്കുന്നു — തുറന്ന ഡാറ്റ, ഡാർക്ക് പാറ്റേണുകളില്ല, വർഷങ്ങളോളം നിലനിർത്താവുന്ന ഒരു ശീലം.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'about.pageTitle': '{{tagline}}.',
   'authShell.sampleBack': 'വില്നിയസ് — 1.2 സെക്കൻഡിനുള്ളിൽ തിരിച്ചുവിളിച്ചു.',
   'authShell.sampleEyebrow': 'നിങ്ങളുടെ ഭാവി ഡെക്കിൽ നിന്നുള്ള ഒരു കാർഡ്',
+  'authShell.sampleFront': '“ലിത്വാനിയയുടെ തലസ്ഥാനം.”',
+  'authShell.sampleRetention': '{{pct}}% നിലനിർത്തൽ',
   'authShell.sampleStreak': '{{days}} -ദിവസങ്ങളുടെ പരമ്പര',
   'cardEdit.title': 'ഫ്ലാഷ്കാർഡ് എഡിറ്റ് ചെയ്യുക',
   'cardEditor.backLink': 'ഡെക്കിലേക്ക് തിരികെ',
@@ -35,6 +44,8 @@ export const ui: UiTranslations = {
   'dashboard.kpi.days': 'ദിവസങ്ങൾ',
   'deckDetail.backLink': 'എല്ലാ ഡെക്കുകളും',
   'deckDetail.deleteError': 'ഡെക്ക് ഇല്ലാതാക്കുന്നതിൽ പരാജയപ്പെട്ടു.',
+  'deckDetail.empty.body': 'ഓർമ്മ കെട്ടിപ്പടുക്കാൻ തുടങ്ങാൻ നിങ്ങളുടെ ആദ്യ കാർഡ് ചേർക്കുക.',
+  'deckDetail.empty.cta': 'നിങ്ങളുടെ ആദ്യ കാർഡ് ചേർക്കുക',
   'deckDetail.empty.heading': 'ഈ ഡെക്കിൽ ഇതുവരെ കാർഡുകളൊന്നുമില്ല.',
   'deckDetail.filterEmpty': 'ഈ സ്റ്റേറ്റ് ഫിൽട്ടറുമായി പൊരുത്തപ്പെടുന്ന കാർഡുകളൊന്നുമില്ല.',
   'deckDetail.filterLabel': 'സംസ്ഥാനം അനുസരിച്ച് കാർഡുകൾ ഫിൽട്ടർ ചെയ്യുക',
@@ -47,7 +58,10 @@ export const ui: UiTranslations = {
   'deckDetail.stat.total': 'കാർഡുകൾ',
   'deckDetail.studyDueLabel': 'പഠനം {{count}} കാലാവധി',
   'deckProgressCard.cardCount': '{{count}} കാർഡുകൾ',
+  'deckProgressCard.masteredTooltip': '{{count}} വശമാക്കി',
   'deckProgressCard.studyCta': 'പഠനം {{count}}',
+  'decks.confirmDelete':
+    'ഈ ഡെക്കും അതിലെ എല്ലാ കാർഡുകളും ഇല്ലാതാക്കണോ? ഇത് പഴയപടിയാക്കാൻ കഴിയില്ല.',
   'decks.create.heading': 'ഒരു ഡെക്ക് സൃഷ്ടിക്കുക',
   'decks.create.nameLabel': 'ഡെക്കിന്റെ പേര്',
   'decks.create.submit': 'ഡെക്ക് സൃഷ്ടിക്കുക',
@@ -58,6 +72,7 @@ export const ui: UiTranslations = {
   'decks.heading': 'ഡെക്കുകൾ',
   'decks.loadError': 'ഡെക്കുകൾ ലോഡ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.',
   'decks.loading': 'ലോഡ് ചെയ്യുന്നു...',
+  'decks.newDeckLabel': 'പുതിയ ഡെക്ക്',
   'decks.retention': 'നിലനിർത്തുക',
   'decks.studyArrow': 'പഠനം →',
   'decks.subheading': '{{count}} ഡെക്കുകൾ · അവലോകനം ചെയ്യുക, കൈകാര്യം ചെയ്യുക',
@@ -81,6 +96,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondary': 'എനിക്ക് ഇതിനകം ഒരു അക്കൗണ്ട് ഉണ്ട്.',
   'landing.heroSubtitle':
     'ഇടവേളകളിൽ ആവർത്തിക്കുന്നത് തിരക്കിലും ഓർമ്മയിലും വ്യത്യാസം വരുത്തുന്നു. ദിവസവും അഞ്ച് മിനിറ്റ്, വർഷം തോറും, ഭാഷ നിലനിൽക്കും.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.proof.export': 'ഡാറ്റ തുറക്കുക, ലോക്ക്-ഇൻ ഇല്ല',
   'landing.proof.free': 'വ്യക്തിഗത ഉപയോഗത്തിന് എന്നെന്നേക്കുമായി സൗജന്യം',
   'landing.proof.import': '.apkg / CSV ഇറക്കുമതി ചെയ്യുക',
@@ -95,12 +111,16 @@ export const ui: UiTranslations = {
   'login.heading': 'നിങ്ങളുടെ ഡെക്കുകളിലേക്ക് വീണ്ടും സ്വാഗതം.',
   'login.orDivider': 'അല്ലെങ്കിൽ തുടരുക',
   'login.signupLink': 'സൗജന്യമായി പഠനം ആരംഭിക്കൂ',
+  'login.signupPrompt': 'ഇവിടെ പുതിയ ആളാണോ?',
   'login.subtitle': 'നിർത്തിയിടത്ത് നിന്ന് തുടരുക — നിങ്ങളുടെ സ്ട്രീക്ക് കാത്തിരിക്കുന്നു.',
   'mobileNav.closeMenu': 'നാവിഗേഷൻ മെനു അടയ്ക്കുക',
   'mobileNav.openMenu': 'നാവിഗേഷൻ മെനു തുറക്കുക',
   'notifications.markAllReadError': 'എല്ലാം വായിച്ചതായി അടയാളപ്പെടുത്താനായില്ല.',
   'pricing.heading': 'കാർഡുകൾ',
+  'pricing.limits.cards': 'കാർഡുകൾ',
   'pricing.limits.decks': 'ഡെക്കുകൾ',
+  'pricing.limits.historyDays': '{{days}}-ദിവസത്തെ അവലോകന ചരിത്രം',
+  'pricing.limits.historyUnlimited': 'പരിധിയില്ലാത്ത അവലോകന ചരിത്രം',
   'pricing.limits.stats': 'സ്ഥിതിവിവരക്കണക്കുകൾ',
   'pricing.limits.study': 'പഠനം',
   'resetPassword.passwordLabel': 'പുതിയ പാസ്വേഡ്',
@@ -113,17 +133,30 @@ export const ui: UiTranslations = {
   'sessionSummary.heading': 'നന്നായി ചെയ്തു.',
   'sessionSummary.label': 'സെഷൻ പൂർത്തിയായി',
   'settings.changePasswordError': 'പാസ്‌വേഡ് മാറ്റാൻ കഴിഞ്ഞില്ല.',
+  'settings.confirmPassword': 'നിങ്ങളുടെ പാസ്‌വേഡ് സ്ഥിരീകരിക്കുക',
   'settings.currentPassword': 'നിലവിലെ പാസ്വേഡ്',
+  'settings.dangerZone': 'അപകട മേഖല',
+  'settings.deleteAccountHint':
+    'നിങ്ങളുടെ അക്കൗണ്ടും എല്ലാ പഠന ഡാറ്റയും ശാശ്വതമായി ഇല്ലാതാക്കുക. ഇത് പഴയപടിയാക്കാൻ കഴിയില്ല.',
+  'settings.deleteAccountWarning':
+    'ഇത് നിങ്ങളുടെ അക്കൗണ്ടും എല്ലാ ഡെക്കുകളും കാർഡുകളും പഠന ചരിത്രവും ശാശ്വതമായി ഇല്ലാതാക്കുന്നു. ഇത് പഴയപടിയാക്കാൻ കഴിയില്ല.',
   'settings.deleteError':
     'അക്കൗണ്ട് ഇല്ലാതാക്കാനായില്ല. നിങ്ങളുടെ പാസ്‌വേഡ് പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക.',
   'settings.deleting': 'ഇല്ലാതാക്കുന്നു...',
+  'settings.devicesHint': 'നിങ്ങളുടെ അക്കൗണ്ടിൽ നിലവിൽ രജിസ്റ്റർ ചെയ്തിട്ടുള്ള ഉപകരണങ്ങൾ.',
   'settings.newPassword': 'പുതിയ പാസ്വേഡ്',
   'settings.password': 'പാസ്‌വേഡ്',
   'settings.passwordChanged': 'പാസ്‌വേഡ് അപ്‌ഡേറ്റുചെയ്‌തു.',
+  'settings.passwordHint': 'സൈൻ ഇൻ ചെയ്യാൻ നിങ്ങൾ ഉപയോഗിക്കുന്ന പാസ്വേഡ് മാറ്റുക.',
   'settings.reminders.atRisk': 'സ്ട്രീക്ക്-അറ്റ്-റിസ്ക് അലേർട്ട് (രാത്രി 8:00 മണിക്ക് ശേഷം)',
+  'settings.reminders.daily': 'ദൈനംദിന ഓർമ്മപ്പെടുത്തൽ (രാവിലെ 8:00)',
   'settings.reminders.heading': 'ഓർമ്മപ്പെടുത്തലുകൾ',
+  'settings.reminders.milestones': 'നാഴികക്കല്ല് ആഘോഷങ്ങൾ',
   'settings.reminders.note':
     'ഈ ഉപകരണത്തിൽ സംഭരിച്ചു. ഈ ബ്രൗസർ ഉപരിതലങ്ങളിൽ ഏതൊക്കെ പഠനങ്ങളാണ് നഡ്ജ് ചെയ്യേണ്ടതെന്ന് ടോഗിൾ ചെയ്യുക; റീലോഡിലുടനീളം മുൻഗണനകൾ സമന്വയിപ്പിക്കുക.',
+  'settings.reminders.weekly': 'പ്രതിവാര നിലനിർത്തൽ സംഗ്രഹം (ഞായറാഴ്ചകളിൽ)',
+  'settings.revokeDeviceWarning':
+    'ഈ ഉപകരണത്തിന്റെ ആക്‌സസ് ഉടൻ പിൻവലിക്കപ്പെടും. സൈൻ ഔട്ട് ചെയ്യണോ?',
   'settings.saved': 'സംരക്ഷിച്ചു.',
   'settings.saveError': 'സംരക്ഷിക്കുന്നതിൽ പരാജയപ്പെട്ടു.',
   'settings.saving': 'സംരക്ഷിക്കുന്നു...',
@@ -139,6 +172,7 @@ export const ui: UiTranslations = {
   'signup.legal':
     'ഒരു അക്കൗണ്ട് സൃഷ്ടിക്കുന്നതിലൂടെ നിങ്ങൾ ഞങ്ങളുടെ നിബന്ധനകളും സ്വകാര്യതാ നയവും അംഗീകരിക്കുന്നു.',
   'signup.nameLabel': 'നിങ്ങളുടെ പേര് (ഓപ്ഷണൽ)',
+  'signup.orDivider': 'അല്ലെങ്കിൽ സൈൻ അപ്പ് ചെയ്യുക',
   'signup.subtitle': 'ഒരു ദിവസം അഞ്ച് മിനിറ്റ്. ഓർമ്മിക്കുന്ന ഒരു ഭാവി-സ്വയം.',
   'stats.byStateHeading': 'സംസ്ഥാനം തിരിച്ചുള്ള കാർഡുകൾ',
   'stats.dailyHeading': 'പ്രതിദിന അവലോകനങ്ങൾ (കഴിഞ്ഞ 30 ദിവസം)',
@@ -175,5 +209,6 @@ export const ui: UiTranslations = {
   'todayHeroCard.goalLabel': 'ദൈനംദിന ലക്ഷ്യം',
   'todayHeroCard.goalProgress': '{{reviewed}} / {{goal}}',
   'todayHeroCard.streakBadge': '{{days}} -ദിവസങ്ങളുടെ പരമ്പര',
+  'todayHeroCard.studyCta': 'പഠനം ആരംഭിക്കുക',
   'userMenu.stats': 'എന്റെ സ്ഥിതിവിവരക്കണക്കുകൾ',
 }

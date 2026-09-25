@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Звяжыцеся з намі',
   'about.eyebrow': 'Пра нас',
+  'about.featureConnections':
+    'Менеджэр злучэнняў, які бяспечна захоўвае вашы базы даных і прызначае ім колеры — уліковыя даныя шыфруюцца пры захаванні, ніколі не ў адкрытым тэксце.',
+  'about.featureMonitoring':
+    'Маніторынг прадукцыйнасці запытаў і актыўнасці базы даных у рэжыме рэальнага часу, з гаручымі клавішамі і каманднай палітрай для кіравання без рук.',
+  'about.featurePlans':
+    'Планы, якія растуць разам з вамі — Free для самастойнай працы, Pro і Team для большай колькасці злучэнняў, даўжэйшага захавання запытаў, экспарту і пашыраных магчымасцей.',
+  'about.featureQueryEditor':
+    'SQL-рэдактар на базе Monaco з гісторыяй запытаў, захаванымі запытамі і экспартам вынікаў у CSV у адзін клік.',
+  'about.featureSchema':
+    'Агляднік схемы і браўзер табліц для навігацыі па базах даных, табліцах і слупках, а таксама прагляду, фільтрацыі і рэдагавання радкоў непасрэдна на месцы.',
+  'about.missionTitle': 'Наша місія',
   'authShell.commands': 'Каманды',
   'authShell.ssoSupported': 'Падтрымліваецца SSO',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Запыты',
   'connections.schema': 'Схема',
   'connections.subtitle': 'Кіруйце падключэннямі да базы дадзеных.',
+  'connections.test': 'Тэст',
   'databaseAdminLayout.adminRole': 'Роля адміністратара',
   'databaseAdminLayout.commandPalette': 'Палітра каманд',
   'databaseAdminLayout.commands': 'каманды',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Новае падключэнне',
   'databaseAdminLayout.queries': 'Запыты',
   'databaseAdminLayout.ready': 'Гатовы',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Пошук каманд, запытаў, табліц…',
   'databaseAdminLayout.user': 'Карыстальнік',
   'editConnection.confirmDelete': 'Выдаліць гэта падключэнне?',
   'editConnection.deleteButton': 'Выдаліць падключэнне',
+  'editConnection.newPassword': 'Новы пароль (пакіньце пустым, каб захаваць)',
   'editConnection.saved': 'Падключэнне захавана.',
   'editConnection.title': 'Рэдагаваць падключэнне',
   'forgotPassword.success': 'Калі такі ўліковы запіс існуе, спасылка для скіду ўжо ў дарозе.',
@@ -47,6 +62,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Поспехі',
   'monitoring.title': 'Маніторынг',
   'monitoring.totalQueries': 'Агульная колькасць запытаў',
+  'nav.schema': 'Схема',
   'newConnection.database': 'База дадзеных',
   'newConnection.engine': 'Рухавік',
   'newConnection.host': 'Гаспадар',
@@ -83,6 +99,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Да гэтага фрагмента не прывязана ніякая сувязь.',
   'savedQuery.notBound': 'Не звязаны',
   'savedQuery.title': 'Захаваны запыт',
+  'schema.columns': 'Калонкі',
   'schema.foreignKeys': 'Знешнія ключы',
   'schema.indexes': 'Індэксы',
   'schemaExplorer.browseRows': 'Прагляд радкоў',
@@ -91,14 +108,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'можна абнуляць',
   'schemaExplorer.colType': 'тып',
   'schemaExplorer.noColumns': 'Няма калонак.',
+  'schemaExplorer.noForeignKeys': 'Няма знешніх ключоў.',
   'schemaExplorer.noIndexes': 'Няма індэксаў.',
   'schemaExplorer.noTables': 'Няма сталоў',
   'schemaExplorer.pickATable': 'Выберыце стол на бакавой панэлі.',
   'schemaExplorer.tables': 'Табліцы',
   'schemaExplorer.title': 'Аглядальнік схем',
+  'settings.session': 'Сесія',
   'settings.subtitle': 'Кіруйце сваім рахункам і тарыфным планам.',
   'signup.heading': "Стварыце свой уліковы запіс у кар'еры",
   'signup.tagline': 'Адкрыйце доступ менш чым за хвіліну.',
   'tableBrowser.noRows': 'У гэтай табліцы пакуль няма радкоў.',
+  'tableBrowser.subtitle': 'Прагляд радкоў з вашай аддаленай базы даных.',
   'tableBrowser.title': 'Прагляд радкоў з вашай аддаленай базы дадзеных.',
 }

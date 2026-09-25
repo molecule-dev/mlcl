@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Keni komente, keni gjetur një gabim ose dëshironi {{app}} për studion ose ekipin tuaj? Na shkruani nga cilësimet e llogarisë tuaj — çdo mesazh shkon te një person i vërtetë i ekipit.',
   'about.contactTitle': 'Kontaktoni me ne',
+  'about.intro':
+    '{{app}} është një studio bashkëpunuese shkrimi ku redaktorët, shkrimtarët dhe ekipet hartojnë së bashku në kohë reale. Hapni një dokument dhe faqja bëhet e përbashkët — kursorët lëvizin, komentet lidhen në margjinë dhe çdo rishikim ruhet i sigurt në historik.',
+  'about.missionBody':
+    'Ne besojmë se shkrimi i gjatë meriton një shtëpi të qetë e të përqendruar — një shtëpi e ndërtuar rreth dorëshkrimit, jo rreth mbledhjes ose kutisë hyrëse. Redaktori ynë, prania në kohë reale dhe historiku i versioneve janë të gjitha të dizajnuara që bashkëpunëtorët të lëvizin shpejt së bashku pa humbur askush një paragraf apo një mendim.',
+  'about.missionTitle': 'Misioni ynë',
+  'about.subtitle': 'Mendoni së bashku, shkruani përgjithmonë.',
   'about.title': 'Rreth {{app}}',
   'comments.addFailed': 'Nuk mund të postohej koment.',
   'comments.backToDoc': 'Kthehu te dorëshkrimi',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Fijet e komenteve',
   'comments.loading': 'Duke ngarkuar fijet…',
   'comments.newPlaceholder': 'Shtoni një koment në dorëshkrim…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Rihap',
   'comments.reopenFailed': 'Nuk mund të rihapej.',
   'comments.replyFailed': 'Nuk mund të postohej përgjigja.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Draftet e fundit, punimet e përbashkëta dhe redaktimet e ditës.',
   'dashboard.viewFeed': 'Furnizim →',
   'editor.back': 'Kthehu te dorëshkrimet',
+  'editor.bodyLabel': 'Trupi i dokumentit',
   'editor.bodyPlaceholder': 'Filloni aty ku kursori pulson.',
   'editor.comments': 'Komente',
   'editor.createFailed': 'Dokumenti nuk mund të krijohej.',
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'shkrimtar@studio.com',
   'forgotPassword.sentBody':
     'Nëse ekziston një llogari për {{email}} , një lidhje rivendosjeje është duke u dërguar.',
+  'forgotPassword.sentHeading': 'Kontrolloni email-in tuaj',
+  'forgotPassword.submitting': 'Duke dërguar\\u2026',
   'forgotPassword.subtitle': "Do t'ju dërgojmë me email një lidhje rivendosjeje.",
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Ndërtuar me Molecule.',
+  'landing.ctaBody':
+    'Falas për shkrimtarë individualë. Planet Studio për ekipe redaktorësh, shkrimtarësh fantazmë dhe rishikuesish.',
   'landing.ctaHeading': 'Hap faqen. Lëre kursorin të fillojë.',
   'landing.ctaPrimary': 'Hap një studio',
   'landing.eyebrow': 'Për shkrimtarë, redaktorë dhe ekipe',
   'landing.featuresEyebrow': 'Çfarë merr',
   'landing.featuresHeading': 'Një studio për draftin e gjatë.',
+  'landing.featuresSubtitle':
+    '{{appName}} është ndërtuar rreth dorëshkrimit — jo rreth mbledhjes, jo rreth kutisë hyrëse.',
   'landing.getStarted': 'Hap studion',
   'landing.heroCta': 'Filloni të shkruani',
   'landing.heroSubtitle':
@@ -95,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} të palexuara · komente, përmendje, ftesa për ndarje dhe kërkesa për sugjerime.',
   'presenceAvatars.label': '{{count}} bashkëpunëtorë',
+  'privacy.intro': 'Si i mbledhim, përdorim dhe mbrojmë informacionet tuaja.',
   'privacy.title': 'Politika e privatësisë',
   'profile.about.description':
     'Një biografi e shkurtër për profilin tuaj publik dhe faqet e kontribuesve.',
@@ -107,7 +124,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Prania',
   'profile.pronouns': 'Përemrat',
   'profile.publicToggle': 'Trego profilin te shokët e skuadrës',
+  'profile.role': 'Roli / titulli',
   'profile.subtitle': 'Si dukeni para bashkëpunëtorëve tuaj.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} shkrimtarë aktivë në studio',
   'quillonAuthBrandPanel.quote':
     '"Shkrimi është e vetmja gjë që, kur e bëj, nuk ndiej se duhet të bëj diçka tjetër."',
@@ -115,6 +134,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Hap →',
   'quillonKpiCard.trend': 'Trendi i fundit',
   'quillonLayout.menu': 'Menu',
+  'quillonLayout.mobileNavLabel': 'Navigimi në celular',
   'quillonLayout.primaryNavLabel': 'Navigimi kryesor',
   'quillonStudioHero.collab': 'Bashkëpunëtorët',
   'quillonStudioHero.docs': 'Dokumentet e prekura',
@@ -124,7 +144,9 @@ export const ui: UiTranslations = {
     'Merrni dorëshkrimin, lini një koment, shtyni një paragraf përpara.',
   'quillonStudioHero.words': 'Fjalët sot',
   'resetPassword.confirmPlaceholder': 'Përsëritni fjalëkalimin e ri',
+  'resetPassword.passwordLabel': 'Fjalëkalim i ri',
   'resetPassword.passwordPlaceholder': 'Fut një fjalëkalim të ri',
+  'resetPassword.submitting': 'Duke rivendosur…',
   'resetPassword.subtitle': 'Zgjidhni një fjalëkalim të fortë - të paktën 12 karaktere.',
   'settings.account.description': 'Si identifikoheni.',
   'settings.billing.canceled': 'Abonimi u anulua.',
@@ -133,7 +155,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Nuk është konfiguruar',
   'settings.billing.updated': 'Plani u përditësua.',
   'settings.editor.description': 'Si sillet kanavaca ndërsa shkruani.',
+  'settings.editor.title': 'Preferencat e redaktorit',
   'settings.eyebrow': 'Preferencat e studios',
+  'settings.language.title': 'Gjuha',
   'settings.notifications.${n.key}.description': 'Gjuha',
   'settings.notifications.description': 'Zgjidhni atë që arrin në kutinë tuaj postare.',
   'settings.subtitle':
@@ -143,6 +167,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Ndarë me mua',
   'shared.loadFailed': 'Nuk mund të ngarkoheshin dokumentet e përbashkëta.',
   'shared.subtitle': 'Dorëshkrime, përmbledhje dhe shënime nga pjesa tjetër e studios.',
+  'signup.brandAttribution': 'Anaïs Park — Redaktore, The Quarterly',
   'signup.brandQuote':
     '\\u201cDorëshkrimi juaj i parë është më i vështiri. Quillon e bën më pak të vetmuar.\\u201c',
   'signup.emailPlaceholder': 'shkrimtar@studio.com',
@@ -150,6 +175,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Anaïs',
   'signup.heading': 'Krijo llogarinë tënde në Quillon',
   'signup.lastNamePlaceholder': 'Park',
+  'signup.submitting': 'Po hapim studion tuaj\\u2026',
   'signup.subtitle':
     'Një tavolinë e qetë, bashkëpunëtorë ambientalë dhe një redaktor i gjatë që të çliron nga rruga.',
   'templates.blank.subtitle': 'Një faqe e pastër. Kursori fillon.',
@@ -162,11 +188,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Filloni me një strukturë të menduar mirë. Përshtateni pafundësisht.',
   'templates.useFailed': 'Nuk mund të nis një dokument nga ky shabllon.',
   'templates.useTemplate': 'Përdor këtë shabllon',
+  'terms.intro': 'Kushtet në të cilat mund ta përdorni këtë shërbim.',
   'terms.title': 'Kushtet e shërbimit',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'pikërisht tani',
   'trash.confirmDelete': 'Konfirmo fshirjen',
+  'trash.confirmEmpty': 'Konfirmo — fshi gjithçka',
   'trash.deleteFailed': 'Nuk mund të fshihej.',
   'trash.deleteForever': 'Fshij përgjithmonë',
   'trash.empty': 'Asgjë për të rikuperuar.',
@@ -182,7 +210,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'Nuk ka ende rishikime — ruajeni dokumentin për të filluar historikun e tij.',
   'versionHistory.heading': 'Historiku i versioneve',
+  'versionHistory.latest': 'Më të fundit',
   'versionHistory.loadFailed': 'Nuk mund të ngarkohej historiku.',
+  'versionHistory.noContent': 'Nuk u kap asnjë përmbajtje për këtë rishikim.',
   'versionHistory.previewing': 'Parapamje',
   'versionHistory.restore': 'Rivendos këtë version',
   'versionHistory.restoreFailed': 'Rivendosja dështoi.',

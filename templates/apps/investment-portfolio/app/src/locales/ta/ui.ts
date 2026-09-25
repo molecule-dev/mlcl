@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கருத்து உள்ளதா, பிழை கண்டீர்களா, அல்லது ஒரு அம்சம் வேண்டுமா? உங்கள் கணக்கு அமைப்புகளிலிருந்து தொடர்பு கொள்ளுங்கள் — ஒவ்வொரு செய்தியும் குழுவில் உள்ள ஒரு உண்மையான நபருக்கே செல்கிறது. குறிப்பு: இங்குள்ள எதுவும் முதலீட்டு ஆலோசனை அல்ல; ஒவ்வொரு வர்த்தகத்தின் கட்டுப்பாடும் உங்களிடமே.',
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
+  'about.featureAttribution':
+    'செயல்திறன் பங்கீடு — துறை, பிராந்தியம் மற்றும் சொத்து வகை வாரியாக வருவாய்களைப் பிரித்து, எந்தக் காலகட்டத்திலும் அளவுகோலுடன் ஒப்பிடுங்கள்.',
+  'about.featureRebalance':
+    'ஒழுக்கமான மறுசீரமைப்பு — இலக்கு ஒதுக்கீடுகளையும் சகிப்புத்தன்மை வரம்புகளையும் அமைத்து, விலகல் முன்கூட்டியே குறிக்கப்படுவதைப் பார்த்து, உங்களை மீண்டும் சரியான நிலைக்குக் கொண்டுவரும் வர்த்தகங்களைப் பெறுங்கள்.',
+  'about.featureTax':
+    'வரி ஆவண ஒழுங்கு — ஈட்டிய மற்றும் ஈட்டாத லாபங்கள், ஈவுத்தொகைகள் மற்றும் 1099 ஆவணங்கள் ஒரே இடத்தில், wash-sale குறியீடுகளுடன்.',
+  'about.featureUnified':
+    'ஒரே ஒருங்கிணைந்த போர்ட்ஃபோலியோ — பங்குகள், ETF-கள், மியூச்சுவல் ஃபண்டுகள், பாண்டுகள் மற்றும் பல, ஒவ்வொரு ப்ரோக்கரேஜ் கணக்கிலிருந்தும் ஒன்றாக இணைக்கப்பட்டது.',
+  'about.featureWatchlist':
+    'வாட்ச்லிஸ்ட்கள், செய்திகள் மற்றும் விலை எச்சரிக்கைகள் — சத்தமில்லாமல் முக்கியமானவற்றில் நீங்கள் செயல்படலாம்.',
+  'about.intro':
+    '{{app}} என்பது தனிநபர் முதலீட்டாளர்களுக்கும் சுயாதீன ஆலோசகர்களுக்குமான பல-சொத்து போர்ட்ஃபோலியோ டாஷ்போர்டு. பங்குகள், ETF-கள், மியூச்சுவல் ஃபண்டுகள், பாண்டுகள், ரியல் எஸ்டேட் மற்றும் பணம் — ஒவ்வொரு கணக்கிலும் உள்ள ஒவ்வொரு முதலீடும், ஒரே இடத்தில், ஒரு தொழில்முறை டெஸ்க்கின் ஒழுக்கத்துடன்.',
+  'about.missionBody':
+    'நல்ல முதலீடு என்பது பெரும்பாலும் ஒழுக்கம்: தெளிவான இலக்கு ஒதுக்கீடு, நேர்மையான செயல்திறன் பங்கீடு, மற்றும் ஒழுங்கான வரிப் பதிவுகள். அந்த நிறுவனப் பழக்கங்களை {{app}} எல்லோருக்கும் கொண்டு வருகிறது, எனவே உணர்ச்சிவசப்படாமல் வேண்டுமென்றே மறுசீரமைக்கலாம் — உங்கள் போர்ட்ஃபோலியோ உண்மையில் என்ன செய்கிறது என்பதை ஒருபோதும் மறந்துவிடாதீர்கள்.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'about.pageTitle': '{{app}} பற்றி',
   'argentAuthShell.brandEyebrow': 'அர்ஜென்ட் · செல்வக் கருவிகள்',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . இது முதலீட்டு ஆலோசனை அல்ல.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'ஒழுங்குபடுத்தப்பட்ட மறுசமநிலைப்படுத்தல், துல்லியமான செயல்திறன் பங்கீடு மற்றும் வரி ஆவணங்களின் தூய்மை ஆகியவற்றை தேவையற்ற குழப்பங்கள் இன்றி விரும்பும் தனிப்பட்ட முதலீட்டாளர்கள் மற்றும் ஆலோசகர்களுக்கான ஒரு முதலீட்டுத் தொகுப்பு டாஷ்போர்டு.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · கடந்தகால செயல்திறன் எதிர்கால முடிவுகளுக்கு உத்தரவாதம் அளிக்காது.',
   'argentAuthShell.sampleChange': 'இன்று +$2,841 (+0.28%)',
+  'argentAuthShell.sampleLabel': 'போர்ட்ஃபோலியோ மதிப்பு',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'முதன்மை வழிசெலுத்தல்',
   'assetAllocationDonut.heading': 'உங்கள் பணம் எவ்வாறு முதலீடு செய்யப்படுகிறது',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'இன்று',
   'assetDetail.txEmpty': 'இந்த குறியீட்டிற்கு எந்த பரிவர்த்தனைகளும் இல்லை.',
   'assetDetail.txHeading': 'உங்கள் பரிவர்த்தனைகள்',
+  'auth.legalConsent.prefix': 'தொடர்வதன் மூலம், {{appName}} இன்',
   'common.and': 'மற்றும்',
   'common.goToDashboard': 'டாஷ்போர்டுக்குச் செல்',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'இன்று',
   'dashboard.topHoldings.heading': 'உங்கள் பணம் செயல்படும் இடத்தில்',
   'dashboard.topHoldings.label': 'முக்கிய பங்குகள்',
+  'forgotPassword.gotLinkCta': 'என்னிடம் மீட்டமைப்பு இணைப்பு உள்ளது →',
+  'forgotPassword.subheading':
+    'உங்கள் Gavl கணக்கில் உள்ள மின்னஞ்சலை உள்ளிடவும், நாங்கள் உங்களுக்கு ஒரு பாதுகாப்பான மீட்டமைப்பு இணைப்பை அனுப்புவோம்.',
   'forgotPassword.successBody':
     'சில நிமிடங்களில் அது தென்படவில்லை என்றால், உங்கள் ஸ்பேம் கோப்புறையைச் சரிபார்க்கவும் அல்லது வேறு மின்னஞ்சலை முயற்சி செய்யவும்.',
   'forgotPassword.successSubheading':
     'சரிபார்க்கவும் {{email}} மீட்டமைப்பு இணைப்புக்காக. இது 60 நிமிடங்களில் காலாவதியாகிவிடும்.',
+  'forgotPassword.successTitle': 'மீட்டமைப்பு மின்னஞ்சல் வழியில்',
   'holdingHighlightRow.todayLabel': 'இன்று',
   'holdings.addCta': 'வாங்க',
   'holdings.col.allocation': 'ஒதுக்கீடு',
@@ -58,6 +87,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . இது முதலீட்டு ஆலோசனை அல்ல. கடந்தகாலச் செயல்பாடு, எதிர்கால முடிவுகளுக்கு உத்தரவாதம் அளிக்காது.',
   'landing.eyebrow': 'அர்ஜென்ட் · செல்வத்தை உருவாக்கும் ஒரு தளம்',
   'landing.features.heading': 'ஒரு ஆலோசகர் தமக்காக உருவாக்கிக் கொள்ளும் அனைத்தும்.',
+  'landing.finalCta.body':
+    'இரண்டு கிளிக்குகளில் உங்கள் ப்ரோக்கரேஜை இணைக்கவும். மீதியை {{appName}} செய்கிறது.',
+  'landing.finalCta.cta': 'உங்கள் அர்ஜென்ட் கணக்கைத் திறக்கவும்',
   'landing.finalCta.heading': 'உங்கள் பணித்தொகுப்பில் ஒழுங்கை மீண்டும் கொண்டு வாருங்கள்.',
   'landing.footerSignup': 'ஒரு கணக்கைத் திறக்கவும்',
   'landing.getStarted': 'ஒரு கணக்கைத் திறக்கவும்',
@@ -65,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'விலை விவரங்களைப் பார்க்கவும்',
   'landing.heroSubtitle':
     'ஒழுங்குபடுத்தப்பட்ட மறுசமநிலைப்படுத்தல், துல்லியமான செயல்திறன் பங்கீடு மற்றும் வரி ஆவணங்களின் தூய்மை ஆகியவற்றை தேவையற்ற குழப்பங்கள் இன்றி விரும்பும் தனிப்பட்ட முதலீட்டாளர்கள் மற்றும் ஆலோசகர்களுக்கான ஒரு முதலீட்டுத் தொகுப்பு டாஷ்போர்டு.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'ஒரு பிரதிநிதித்துவ போர்ட்ஃபோலியோவிலிருந்து நேரடி முன்னோட்டம்',
   'login.heading': 'அர்ஜென்ட்டில் உள்நுழையவும்',
   'login.subheading':
@@ -76,6 +109,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} எச் முன்பு',
   'news.justNow': 'இப்போதே',
   'news.loadError': 'செய்திகளை ஏற்ற முடியவில்லை.',
+  'planUpdated.body':
+    'உங்கள் பில்லிங் மாற்றம் இப்போது செயலில் உள்ளது. பில்லிங் பக்கத்திலிருந்து எப்போது வேண்டுமானாலும் உங்கள் திட்டத்தை நிர்வகிக்கலாம்.',
+  'planUpdated.retry': 'மீண்டும் முயற்சிக்கவும்',
+  'planUpdated.verifyFailed': 'உங்கள் கட்டணத்தை எங்களால் இன்னும் உறுதிப்படுத்த முடியவில்லை.',
+  'planUpdated.verifyFailedBody':
+    'உங்கள் கட்டணம் இன்னும் செயலாக்கத்தில் இருக்கலாம். சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.',
   'planUpdated.verifying': 'உங்கள் பணம் செலுத்துதலை உறுதிப்படுத்துகிறது…',
   'portfolioHeroCard.label': 'போர்ட்ஃபோலியோ மதிப்பு',
   'pricing.holdingsLabel': 'பங்குகள்',
@@ -86,13 +125,18 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'ஒதுக்கீட்டு விலகல்',
   'rebalance.empty': 'இன்னும் இலக்குகள் எதுவும் நிர்ணயிக்கப்படவில்லை.',
   'rebalance.executeCta': 'இடம் {{count}} வர்த்தகங்கள்',
+  'rebalance.executeError': 'வர்த்தகங்களை வைக்க முடியவில்லை.',
   'rebalance.executeOk':
     'வைக்கப்பட்டது {{count}} வர்த்தகங்கள். அவற்றை பரிவர்த்தனைகள் பக்கத்தில் காணலாம்.',
+  'rebalance.executing': 'வைக்கிறது…',
   'rebalance.eyebrow': 'மறுசமநிலைப்படுத்துதல் · அர்ஜென்ட் ஆலோசகர்',
   'rebalance.heading': 'உங்கள் போர்ட்ஃபோலியோவை மீண்டும் ஒழுங்குபடுத்துங்கள்',
   'rebalance.loadError': 'மறுசமநிலைப்படுத்தும் திட்டத்தை ஏற்ற முடியவில்லை.',
+  'rebalance.plan.driftLine': 'தற்போது {{current}}% · இலக்கு {{target}}%',
   'rebalance.planHeading': 'அவசர டிக்கெட் — வைப்பதற்கு முன் மதிப்பாய்வு செய்யவும்',
   'rebalance.planLabel': 'பரிந்துரைக்கப்பட்ட வர்த்தகத் திட்டம்',
+  'rebalance.subheading':
+    'சகிப்புத்தன்மை வரம்புக்கு வெளியே உள்ள வரிசைகள் வர்த்தக பரிந்துரைகளைத் தூண்டும். உங்கள் உறுதிப்படுத்தலின் பேரிலேயே {{appName}} செயல்படும்.',
   'rebalance.summary.buyLabel': 'வாங்குதல்கள்',
   'rebalance.summary.buySub': 'பதவிகளை நிரப்புவதற்கு',
   'rebalance.summary.driftLabel': 'இசைக் குழுவிற்கு வெளியே',
@@ -101,6 +145,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'பரிந்துரைக்கப்பட்ட வர்த்தகங்கள் முழுவதும்',
   'rebalance.summary.sellLabel': 'விற்கிறது',
   'rebalance.summary.sellSub': 'பதவிகளைக் குறைக்க',
+  'rebalanceDriftCard.drift': 'விலகல் {{sign}}{{pct}}% · வரம்பு ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'இலக்கு {{pct}} %',
   'reports.attributionHeading': 'செயல்திறன் பங்களிப்பு (1 ஆண்டு)',
   'reports.col.alpha': 'ஆல்பா',
@@ -114,37 +159,68 @@ export const ui: UiTranslations = {
   'reports.col.year': 'ஆண்டு',
   'reports.gainsHeading': 'உணரப்பட்ட மற்றும் உணரப்படாத ஆதாயங்கள்',
   'reports.noAttribution': 'இதுவரை காரணம் காட்டும் தரவுகள் இல்லை.',
+  'reports.noGains': 'இன்னும் ஈட்டிய/ஈட்டாத லாப தரவு இல்லை.',
   'reports.noPerformance': 'செயல்திறன் தரவுகள் இன்னும் வெளியிடப்படவில்லை.',
   'reports.noTaxDocs': 'இன்னும் வரி ஆவணங்கள் இல்லை.',
   'reports.performanceHeading': 'செயல்திறன் vs அளவுகோல்',
   'reports.taxHeading': 'வரி ஆவணங்கள்',
   'resetPassword.heading': 'வலிமையான புதிய கடவுச்சொல்லைத் தேர்ந்தெடுக்கவும்',
+  'resetPassword.passwordPlaceholder': 'புதிய கடவுச்சொல்',
   'resetPassword.subheading':
     'உங்கள் கடவுச்சொல்லை அமைத்தவுடன் அர்ஜென்ட் உங்களைத் தானாகவே உள்நுழையச் செய்யும்.',
   'resetPassword.tokenPlaceholder': 'மின்னஞ்சலிலிருந்து டோக்கனை மீட்டமைக்கவும்',
+  'settings.appearance.description': 'ஒளி மற்றும் இருண்ட பயன்முறைகளுக்கு இடையே மாறவும்.',
   'settings.appearance.title': 'தோற்றம்',
+  'settings.devices.body': 'தற்போது உங்கள் கணக்கில் உள்நுழைந்துள்ள சாதனங்கள்.',
+  'settings.devices.empty': 'சாதனங்கள் எதுவும் கிடைக்கவில்லை.',
   'settings.devices.heading': 'சாதனங்கள்',
+  'settings.devices.revokeWarning':
+    'இந்தச் சாதனத்தின் அணுகல் விரைவில் ரத்து செய்யப்படும். வெளியேற்றவா?',
   'settings.devices.signOut': 'வெளியேறு',
   'settings.devices.thisDevice': 'இந்த சாதனம்',
   'settings.devices.unknown': 'அறியப்படாத சாதனம்',
   'settings.linked.body':
     'புரோக்கரேஜ் ஒத்திசைவுக்கு ஒரு மூன்றாம் தரப்பு இணைப்பான் (Plaid, Yodlee, போன்றவை) தேவைப்படுகிறது. தானியங்கு இறக்குமதியை இயக்குவதற்கு, உங்கள் சூழலில் உங்கள் வழங்குநரை உள்ளமைக்கவும்.',
   'settings.linked.heading': 'இணைக்கப்பட்ட தரகு கணக்குகள்',
+  'settings.linked.placeholder': 'இன்னும் எந்தக் கணக்குகளும் இணைக்கப்படவில்லை.',
+  'settings.notifications.dividendsPaid': 'செலுத்தப்பட்ட ஈவுத்தொகைகள்',
   'settings.notifications.error': 'விருப்பத்தேர்வைப் புதுப்பிக்க முடியவில்லை.',
   'settings.notifications.priceAlerts': 'விலை எச்சரிக்கைகள்',
+  'settings.notifications.rebalanceDrift': 'மறுசீரமைப்பு விலகல்',
+  'settings.notifications.taxDocsReady': 'வரி ஆவணங்கள் தயார்',
   'settings.profile.advisor': 'ஆலோசகர் மின்னஞ்சல் (விருப்பத்திற்குரியது)',
   'settings.profile.heading': 'சுயவிவரம்',
   'settings.security.changePassword': 'கடவுச்சொல்லை மாற்றவும்',
+  'settings.security.changePasswordTitle': 'கடவுச்சொல்லை மாற்றவும்',
   'settings.security.changing': 'மாறும்…',
+  'settings.security.confirmPassword': 'கடவுச்சொல்',
+  'settings.security.currentPassword': 'தற்போதைய கடவுச்சொல்',
   'settings.security.deleteAccount': 'கணக்கை நீக்கு',
   'settings.security.deleteError': 'கணக்கை நீக்க முடியவில்லை.',
   'settings.security.deleteHeading': 'கணக்கை நீக்கு',
+  'settings.security.deleteModalWarning':
+    'இது உங்கள் கணக்கையும் தரவையும் நிரந்தரமாக நீக்கும். உறுதிப்படுத்த உங்கள் கடவுச்சொல்லை உள்ளிடவும்.',
+  'settings.security.deleteWarning':
+    'உங்கள் கணக்கையும் அதனுடன் தொடர்புடைய அனைத்து தரவையும் நிரந்தரமாக நீக்கவும். இதை மீளச் செய்ய முடியாது.',
   'settings.security.deleting': 'நீக்குகிறது…',
   'settings.security.heading': 'பாதுகாப்பு',
   'settings.security.newPassword': 'புதிய கடவுச்சொல்',
   'settings.security.password': 'கடவுச்சொல்',
+  'settings.security.passwordError': 'கடவுச்சொல்லை மாற்ற முடியவில்லை.',
+  'settings.security.passwordHint': 'உள்நுழைய நீங்கள் பயன்படுத்தும் கடவுச்சொல்லை மாற்றவும்.',
+  'settings.security.twoFactor': 'இரு காரணி அங்கீகாரம்',
+  'settings.security.twoFactorCode': 'அங்கீகாரக் குறியீடு',
+  'settings.security.twoFactorDisable': 'முடக்கு',
+  'settings.security.twoFactorDisableTitle': 'இரு-காரணி அங்கீகாரத்தை முடக்கு',
   'settings.security.twoFactorEnable': 'இயக்கு',
+  'settings.security.twoFactorEnableTitle': 'இரு-காரணி அங்கீகாரத்தை இயக்கு',
+  'settings.security.twoFactorHint': 'உங்கள் கணக்கிற்கு கூடுதல் பாதுகாப்பு அடுக்கைச் சேர்க்கவும்.',
   'settings.security.twoFactorInvalidCode': 'தவறான குறியீடு',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'இரு-காரணி QR குறியீடு',
+  'settings.security.twoFactorScan':
+    'உங்கள் அங்கீகரிப்பு செயலியில் இந்த QR குறியீட்டை ஸ்கேன் செய்து, 6 இலக்கக் குறியீட்டை உள்ளிடவும்.',
+  'settings.security.twoFactorUnavailable': 'இந்த செயலியில் இரு காரணி அங்கீகாரம் கிடைக்காது.',
   'settings.security.twoFactorVerify': 'சரிபார்த்து இயக்கு',
   'settings.tax.error': 'வரி விதிப்பு முறையைப் புதுப்பிக்க முடியவில்லை.',
   'settings.tax.heading': 'வரி நில கணக்கியல்',
@@ -155,6 +231,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'வரி விதிப்பு முறை சேமிக்கப்பட்டது.',
   'signup.eyebrow': 'ஒரு கணக்கைத் திறக்கவும்',
   'signup.heading': 'உங்கள் அர்ஜென்ட் கணக்கைத் திறக்கவும்',
+  'signup.legalPrefix': 'கணக்கை உருவாக்குவதன் மூலம் {{appName}} உடன் நீங்கள் ஒப்புக்கொள்கிறீர்கள்',
   'signup.subheading':
     '30 நாட்களுக்கு இலவசம். அட்டை தேவையில்லை. எப்போது வேண்டுமானாலும் ரத்து செய்யலாம்.',
   'signup.terms':

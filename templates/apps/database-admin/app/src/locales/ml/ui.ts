@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
   'about.eyebrow': 'കുറിച്ച്',
+  'about.featureConnections':
+    'നിങ്ങളുടെ ഡാറ്റാബേസുകൾ സുരക്ഷിതമായി സംഭരിക്കുകയും നിറം-കോഡ് ചെയ്യുകയും ചെയ്യുന്ന ഒരു കണക്ഷൻ മാനേജർ — ക്രെഡൻഷ്യലുകൾ എൻക്രിപ്റ്റ് ചെയ്ത് സൂക്ഷിക്കുന്നു, ഒരിക്കലും പ്ലെയിൻടെക്സ്റ്റിൽ ഇല്ല.',
+  'about.featureMonitoring':
+    'ക്വറി പെർഫോമൻസിന്റെയും ഡാറ്റാബേസ് പ്രവർത്തനത്തിന്റെയും തത്സമയ നിരീക്ഷണം, കീബോർഡ് കുറുക്കുവഴികളും കമാൻഡ് പാലറ്റും ഉപയോഗിച്ച് എല്ലാം ഹാൻഡ്സ്-ഫ്രീ ആയി നിയന്ത്രിക്കാം.',
+  'about.featurePlans':
+    'നിങ്ങളോടൊപ്പം വളരുന്ന പ്ലാനുകൾ — ഒറ്റയ്ക്കുള്ള ജോലിക്ക് സൗജന്യം, കൂടുതൽ കണക്ഷനുകൾക്കും ദൈർഘ്യമേറിയ ക്വറി റിട്ടൻഷനും എക്സ്പോർട്ടുകൾക്കും നൂതന സവിശേഷതകൾക്കുമായി Pro, Team.',
+  'about.featureQueryEditor':
+    'ക്വറി ഹിസ്റ്ററി, സേവ് ചെയ്ത ക്വറികൾ, ഫലങ്ങളുടെ ഒറ്റ-ക്ലിക്ക് CSV എക്സ്പോർട്ട് എന്നിവയുള്ള Monaco-ൽ പ്രവർത്തിക്കുന്ന SQL എഡിറ്റർ.',
+  'about.featureSchema':
+    'ഡാറ്റാബേസുകളും ടേബിളുകളും കോളങ്ങളും നാവിഗേറ്റ് ചെയ്യാനുള്ള സ്കീമ എക്സ്പ്ലോററും ടേബിൾ ബ്രൗസറും, തുടർന്ന് വരികൾ ബ്രൗസ് ചെയ്യുകയും ഫിൽട്ടർ ചെയ്യുകയും ഇൻലൈൻ എഡിറ്റ് ചെയ്യുകയും ചെയ്യാം.',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'authShell.commands': 'കമാൻഡുകൾ',
   'authShell.ssoSupported': 'SSO പിന്തുണയ്ക്കുന്നു',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'ചോദ്യങ്ങൾ',
   'connections.schema': 'സ്കീമ',
   'connections.subtitle': 'നിങ്ങളുടെ ഡാറ്റാബേസ് കണക്ഷനുകൾ കൈകാര്യം ചെയ്യുക.',
+  'connections.test': 'ടെസ്റ്റ്',
   'databaseAdminLayout.adminRole': 'അഡ്മിൻ റോൾ',
   'databaseAdminLayout.commandPalette': 'കമാൻഡ് പാലറ്റ്',
   'databaseAdminLayout.commands': 'കമാൻഡുകൾ',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'പുതിയ കണക്ഷൻ',
   'databaseAdminLayout.queries': 'ചോദ്യങ്ങൾ',
   'databaseAdminLayout.ready': 'തയ്യാറാണ്',
+  'databaseAdminLayout.searchPlaceholder': '⌘K കമാൻഡുകൾ, ക്വറികൾ, ടേബിളുകൾ… തിരയുക',
   'databaseAdminLayout.user': 'ഉപയോക്താവ്',
   'editConnection.confirmDelete': 'ഈ കണക്ഷൻ ഇല്ലാതാക്കണോ?',
   'editConnection.deleteButton': 'കണക്ഷൻ ഇല്ലാതാക്കുക',
+  'editConnection.newPassword': 'പുതിയ പാസ്വേഡ് (നിലനിർത്താൻ ശൂന്യമായി വിടുക)',
   'editConnection.saved': 'കണക്ഷൻ സംരക്ഷിച്ചു.',
   'editConnection.title': 'കണക്ഷൻ എഡിറ്റ് ചെയ്യുക',
   'forgotPassword.success': 'ആ അക്കൗണ്ട് നിലവിലുണ്ടെങ്കിൽ, ഒരു പുനഃസജ്ജീകരണ ലിങ്ക് ലഭ്യമാകും.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'വിജയങ്ങൾ',
   'monitoring.title': 'നിരീക്ഷണം',
   'monitoring.totalQueries': 'ആകെ അന്വേഷണങ്ങൾ',
+  'nav.schema': 'സ്കീമ',
   'newConnection.database': 'ഡാറ്റാബേസ്',
   'newConnection.engine': 'എഞ്ചിൻ',
   'newConnection.host': 'ഹോസ്റ്റ്',
@@ -82,6 +98,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'ഈ സ്നിപ്പെറ്റുമായി ബന്ധിപ്പിച്ചിരിക്കുന്ന ഒരു കണക്ഷനുമില്ല.',
   'savedQuery.notBound': 'ബന്ധിതമല്ല',
   'savedQuery.title': 'സംരക്ഷിച്ച ചോദ്യം',
+  'schema.columns': 'നിരകൾ',
   'schema.foreignKeys': 'വിദേശ കീകൾ',
   'schema.indexes': 'സൂചികകൾ',
   'schemaExplorer.browseRows': 'വരികൾ ബ്രൗസ് ചെയ്യുക',
@@ -90,14 +107,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'റദ്ദാക്കാവുന്ന',
   'schemaExplorer.colType': 'തരം',
   'schemaExplorer.noColumns': 'കോളങ്ങളൊന്നുമില്ല.',
+  'schemaExplorer.noForeignKeys': 'വിദേശ കീകൾ ഇല്ല.',
   'schemaExplorer.noIndexes': 'സൂചികകളൊന്നുമില്ല.',
   'schemaExplorer.noTables': 'മേശകളൊന്നുമില്ല',
   'schemaExplorer.pickATable': 'സൈഡ്‌ബാറിൽ നിന്ന് ഒരു പട്ടിക തിരഞ്ഞെടുക്കുക.',
   'schemaExplorer.tables': 'പട്ടികകൾ',
   'schemaExplorer.title': 'സ്കീമ എക്സ്പ്ലോറർ',
+  'settings.session': 'സെഷൻ',
   'settings.subtitle': 'നിങ്ങളുടെ അക്കൗണ്ട് കൈകാര്യം ചെയ്ത് പ്ലാൻ ചെയ്യുക.',
   'signup.heading': 'നിങ്ങളുടെ ക്വാറി അക്കൗണ്ട് സൃഷ്ടിക്കുക',
   'signup.tagline': 'ഒരു മിനിറ്റിനുള്ളിൽ ആക്‌സസ് സ്പിൻ അപ്പ് ചെയ്യുക.',
   'tableBrowser.noRows': 'ഈ പട്ടികയിൽ ഇതുവരെ വരികളൊന്നുമില്ല.',
+  'tableBrowser.subtitle': 'നിങ്ങളുടെ റിമോട്ട് ഡാറ്റാബേസിൽ നിന്ന് വരികൾ ബ്രൗസ് ചെയ്യുന്നു.',
   'tableBrowser.title': 'നിങ്ങളുടെ റിമോട്ട് ഡാറ്റാബേസിൽ നിന്ന് വരികൾ ബ്രൗസ് ചെയ്യുന്നു.',
 }

@@ -1,29 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Хотите запустить более тёплый онбординг для своей команды, нашли баг или есть отзыв? Напишите нам в настройках аккаунта — каждое сообщение попадает к реальному человеку, который может помочь.',
   'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
+  'about.missionTitle': 'Наша миссия',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Сбросить пароль.',
+  'auth.forgotPassword.panel.body': 'Сброс занимает 30 секунд — ваш прогресс по чек-листу ждёт.',
+  'auth.forgotPassword.panel.headline': 'Снова там, где вы остановились.',
+  'auth.forgotPassword.subheading': 'Введите рабочую почту, и мы отправим ссылку для сброса.',
   'auth.forgotPassword.successSubheading':
     'Проверьте свою почту — мы отправили инструкции по сбросу настроек.',
   'auth.login.emailPlaceholder': 'name@yourcompany.com',
   'auth.login.heading': 'Добро пожаловать.',
   'auth.login.passwordPlaceholder': 'Ваш пароль',
+  'auth.login.signupPrompt': 'Впервые в команде?',
   'auth.login.subheading':
     'Войдите в систему, чтобы продолжить процесс адаптации с того места, где вы остановились.',
   'auth.login.submit': 'Продолжайте своё путешествие',
+  'auth.panel.body':
+    'Ваш личный чек-лист, этапы обучения и знакомства с командой — всё в одном спокойном месте.',
   'auth.panel.footnote':
     '© Embark — с сегодняшнего дня мы ставим людей на первое место при адаптации новых сотрудников.',
   'auth.panel.headline': 'Уверенные первые 90 дней начинаются здесь.',
   'auth.resetPassword.heading': 'Установите новый пароль.',
   'auth.resetPassword.newPasswordLabel': 'Новый пароль',
+  'auth.resetPassword.panel.body':
+    'Сохраните новый пароль, и мы вернём вас прямо в процесс онбординга.',
+  'auth.resetPassword.panel.headline': 'Почти вернулись.',
   'auth.resetPassword.subheading':
     'Выберите что-нибудь, что вы запомните — как минимум 8 символов.',
   'auth.signup.emailPlaceholder': 'name@yourcompany.com',
   'auth.signup.heading': 'Добро пожаловать в ваши первые 90 дней.',
   'auth.signup.panel.body':
     'Пошаговый контрольный список, обучение с учетом должностных обязанностей и знакомство с сотрудниками — все это готово еще до вашего прихода.',
+  'auth.signup.panel.headline': 'Первый день — в первый же день.',
   'auth.signup.subheading':
     'Создайте свою учетную запись Embark, чтобы начать процесс адаптации под руководством опытного пользователя.',
   'checklist.empty.body': 'Переключите фильтр, чтобы увидеть другие задачи.',
@@ -31,6 +44,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'Ввод в должность · Контрольный список',
   'checklist.loading': 'Загрузка вашего контрольного списка…',
   'checklist.stat.actionNeeded': 'Необходимы действия',
+  'checklist.stat.completion': 'Завершение',
+  'checklist.stat.inProgress': 'В ходе выполнения',
   'checklist.stat.inProgressHelper': 'Продолжите с того места, где остановились.',
   'checklist.stat.overdueHelper': 'Сначала займитесь этим.',
   'checklist.subtitle':
@@ -62,6 +77,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Документов пока нет.',
   'documents.eyebrow': 'Ввод в должность · Документы',
   'documents.loading': 'Загрузка документов…',
+  'documents.stat.actionNeeded': 'Подпишите сейчас',
+  'documents.stat.all': 'Все документы',
   'documents.stat.allHelper': 'По категориям',
   'documents.stat.pending': 'Ожидаются подписи',
   'documents.stat.pendingHelper': 'Необходимо для завершения',
@@ -69,16 +86,21 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Хранится в безопасном месте',
   'documents.status.optional': 'Необязательный',
   'documents.status.required': 'Необходимый',
+  'documents.status.signed': 'Подпись',
   'documents.subtitle': 'Ваше руководство, бланки и подписанные соглашения — все в одном месте.',
   'documents.title': 'Всё, что вам нужно прочитать и подписать.',
   'documents.uploadedRecently': 'Недавно загружено',
   'documentViewer.breadcrumbCurrent': 'Просмотрщик',
   'documentViewer.breadcrumbDocs': 'Документы',
   'documentViewer.downloadMeta': 'Скачать метаданные',
+  'documentViewer.helpBody':
+    'People & Culture отвечает на вопросы по хэндбуку в #ask-people в Slack.',
   'documentViewer.helpEyebrow': 'Нужна помощь?',
   'documentViewer.loadError': 'Нам не удалось загрузить этот документ.',
   'documentViewer.loading': 'Загрузка документа…',
   'documentViewer.notFound': 'Документ не найден',
+  'documentViewer.previewBody':
+    'Когда загрузки настроены, мы показываем файл прямо на странице. Пока же скачивание метаданных позволяет убедиться, что запись настоящая.',
   'documentViewer.previewBodyExternal':
     'Воспользуйтесь кнопкой загрузки, чтобы открыть файл в новой вкладке.',
   'documentViewer.previewTitle': 'Предварительный просмотр документа',
@@ -86,6 +108,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Ознакомьтесь с документом, затем нажмите ниже, чтобы подписать и подтвердить свое согласие.',
   'documentViewer.signatureHeading': 'Требуется подпись',
+  'documentViewer.signed': '✓ Подписано и в архиве',
   'documentViewer.signing': 'Подписание…',
   'documentViewer.uploadedRecently': 'Недавно загружено',
   'landing.closing.body':
@@ -95,10 +118,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'У меня уже есть аккаунт.',
   'landing.feature1.body':
     'Каждая задача — оформление документов, бухгалтерский учет, знакомства — заранее подготовлена с указанием сроков выполнения и ответственного за ее выполнение человека.',
+  'landing.feature1.title': 'Пошаговый чек-лист',
   'landing.feature2.body':
     'Модули открываются на этапах 30/60/90, в зависимости от должности и команды, к которой присоединяется новый сотрудник.',
+  'landing.feature2.title': 'Обучение с учётом роли',
   'landing.feature3.body':
     'Запланированы встречи с коллегами, руководителями и знакомства между сотрудниками разных подразделений — так что никто не начнет работу в одиночку.',
+  'landing.feature3.title': 'Настоящие знакомства',
   'landing.featureEyebrow': 'Почему стоит отправиться в путь?',
   'landing.featureHeadline': 'Три способа, которыми Embark завоевывает доверие с первого дня.',
   'landing.footer.rights': 'Все права защищены.',
@@ -108,6 +134,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Далее: Встреча с другом за 30-минутной беседой за чашечкой кофе — вторник, 10:00.',
   'landing.preview.eyebrow': 'День 14 из 90 — пример панели мониторинга',
+  'landing.preview.headline': 'С возвращением, Maya.',
   'landing.proof.spec': 'Готовность к SOC 2 и GDPR',
   'landing.proof.teams': 'Предназначено для команд численностью от 50 до 5000 человек.',
   'landing.proof.time': '14-дневная бесплатная пробная версия',
@@ -124,16 +151,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'вчера',
   'planUpdated.message': 'Всё готово.',
   'planUpdated.preparing': 'Обновление вашего плана…',
+  'planUpdated.retry': 'Попробуйте ещё раз',
+  'planUpdated.verifyFailed': 'Мы пока не можем подтвердить ваш платеж.',
+  'planUpdated.verifyFailedBody':
+    'Ваш платеж, возможно, еще обрабатывается. Попробуйте еще раз через минуту.',
   'planUpdated.verifying': 'Подтверждение платежа…',
   'pricing.documentsLabel': 'документы',
   'pricing.onboardingsLabel': 'ввод в должность',
   'pricing.tasksLabel': 'задачи',
   'profile.dayNumber': 'День',
   'profile.detailsHeading': 'Информация о процессе адаптации',
+  'profile.encouragementBody':
+    'Держите бадди и руководителя в курсе — маленькие шаги дают накопительный эффект.',
   'profile.milestones': 'Важные этапы',
   'profile.progressEyebrow': 'Ход процесса адаптации',
   'profile.tasks': 'Задачи',
   'profile.unknownName': 'Добро пожаловать',
+  'settings.appearance.description': 'Переключайтесь между светлым и темным режимом.',
+  'settings.appearance.title': 'Появление',
+  'settings.subtitle':
+    'Настройте уведомления, безопасность, устройства и экспорт данных — всё остаётся здесь, на ваших условиях.',
   'settings.title': 'Настройки и предпочтения.',
   'taskDetail.backToChecklist': 'Вернуться к контрольному списку',
   'taskDetail.breadcrumbChecklist': 'Контрольный список',
@@ -145,7 +182,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'Срок оплаты не указан',
   'taskDetail.notFound': 'Задача не найдена',
   'taskDetail.notFoundBody': 'Эта задача могла быть удалена или принадлежит другому пользователю.',
+  'taskDetail.tipBody':
+    'Если вы застряли, напишите своему онбординг-бадди в Slack — он ваша первая линия помощи.',
   'taskDetail.tipEyebrow': 'Быстрый совет',
+  'team.empty.body': 'Попробуйте более широкий поиск или выберите другой отдел.',
   'team.empty.title': 'Нет подходящих товарищей по команде',
   'team.eyebrow': 'Адаптация новых сотрудников · Персонал',
   'team.loading': 'Загрузка товарищей по команде…',
@@ -168,14 +208,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Важные этапы',
   'timeline.stat.current': 'Текущий этап',
   'timeline.stat.next': 'Следующая разблокировка',
+  'timeline.stat.progress': 'Общий',
   'timeline.subtitle':
     'Каждый этап открывает доступ к новым модулям, вводным материалам и обсуждениям, способствующим личностному росту. Никакого давления — только прогресс.',
+  'timeline.tipBody':
+    'Запланируйте 30-минутную рефлексию на 30, 60 и 90-й день с руководителем — так обратная связь становится конкретной, а прогресс заметным.',
   'timeline.tipEyebrow': 'Совет от менеджера',
+  'timeline.tipTitle': 'Забронируйте время в календаре для этапов.',
   'timeline.title': 'Ваше путешествие в 30/60/90 лет.',
   'training.badge.notStarted': 'Не начато',
   'training.empty': 'Учебных модулей пока нет.',
   'training.eyebrow': 'Ввод в должность · Обучение',
   'training.loading': 'Загрузка модулей…',
+  'training.stat.all': 'Модули назначены',
   'training.subtitle':
     'Модули открываются на 30/60/90 уровне в зависимости от вашей роли. В первую очередь открываются необходимые модули.',
   'training.title': 'Навыки, инструменты и истории — в вашем собственном темпе.',
@@ -187,9 +232,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'Модуль не найден',
   'trainingModule.quizBody': 'Для завершения модуля необходимо набрать 80% или более баллов.',
   'trainingModule.quizHeading': 'Итоговый тест по модулю',
+  'trainingModule.quizLocked': 'Сначала запустите модуль',
   'trainingModule.quizNone': 'По этому модулю нет контрольных работ.',
   'trainingModule.quizRetry': 'Попробуйте ещё раз',
+  'trainingModule.quizStart': 'Начать тест',
   'trainingModule.quizSubmit': 'Отправить ответы',
+  'trainingModule.start': 'Начать модуль',
   'trainingModule.statusNotStarted': 'Не начато',
   'welcomeHeroCard.completeLabel': 'Полный',
   'welcomeHeroCard.milestonesLabel': 'Важные этапы',

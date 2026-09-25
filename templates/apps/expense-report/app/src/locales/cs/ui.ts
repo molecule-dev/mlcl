@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Máte dotazy, zpětnou vazbu nebo nápad na novou funkci? Napište týmu {{app}} přes Nastavení → Oznámení, nebo nám kdykoli napište — každá zpráva se dostane k opravdovému člověku.',
+  'about.contactTitle': 'Kontaktujte nás',
   'about.eyebrow': 'O aplikaci',
+  'about.featureCapture':
+    'Snímání účtenek s nahráváním fotografií, které přiřadí obrázky ke správnému výdaji, řádek po řádku.',
+  'about.featureExport':
+    'Auditovatelné exporty do CSV pro každý report, výdaj a stav schválení — připravené pro vaše účetní oddělení.',
+  'about.featurePolicy':
+    'Ochranná pravidla zásad — denní limity, limity podle kategorií a prahové hodnoty vyžadující účtenku vynucené při odeslání.',
+  'about.featureWorkflow':
+    'Dvouúrovňový schvalovací proces s poznámkami recenzenta, označením porušení zásad a označením proplacení jedním klepnutím.',
+  'about.intro':
+    '{{app}} je platforma pro správu výdajů pro finanční týmy a lidi, kterým proplácejí. Naskenujte účtenku, zaevidujte výdaj, pošlete report ke schválení a sledujte každé proplacení — bez tabulkového obřadu.',
+  'about.missionBody':
+    'Proplácení by mělo být rychlé, spravedlivé a auditovatelné. Vytvořili jsme {{app}}, aby žadatelé dostali peníze zpět bez připomínání, schvalovatelé přesně viděli, co podepisují, a finance měly čistou stopu pro každou korunu — včetně kontroly zásad.',
+  'about.missionTitle': 'Naše poslání',
   'approvals.approve': 'Schválit',
   'approvals.approving': 'Schvalování…',
   'approvals.confirmReject': 'Potvrdit zamítnutí',
+  'approvals.empty': 'Máte vše vyřízené — žádné reporty nečekají.',
   'approvals.eyebrow': 'Fronta manažera',
   'approvals.kpi.flaggedLabel': 'Nahlášeno pravidlo',
+  'approvals.kpi.queueLabel': 'Čeká na kontrolu',
   'approvals.kpi.totalLabel': 'Hodnota čekající na vyřízení',
   'approvals.lineCount': '{{count}} výdaje',
   'approvals.queueFallback': 'Živá fronta není k dispozici – zobrazují se upravená demo data.',
   'approvals.reject': 'Zamítnout',
   'approvals.rejecting': 'Odmítání…',
+  'approvals.rejectPlaceholder': 'Důvod (povinné)',
   'approvals.rejectPrompt': 'Proč odmítáte tuto zprávu?',
   'approvals.review': 'Zkontrolovat',
   'approvals.title': 'Čekající schválení',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18 %',
   'dashboard.kpi.approvedLabel': 'Schváleno · MTD',
   'dashboard.kpi.pendingDelta': '+2 tento týden',
+  'dashboard.kpi.pendingLabel': 'Čeká na kontrolu',
   'dashboard.kpi.receiptsDelta': 'Vyžadovaná akce',
   'dashboard.kpi.receiptsLabel': 'Čekání na účtenky',
   'dashboard.kpi.reimbursedDelta': '+2,4 tisíce dolarů',
   'dashboard.kpi.reimbursedLabel': 'Proplaceno · MTD',
   'dashboard.newReport': 'Nová zpráva',
+  'dashboard.recent.empty': 'Zatím žádné reporty — začněte svůj první výše.',
   'dashboard.recent.title': 'Nedávné zprávy',
   'dashboard.recent.viewAll': 'Zobrazit všechny zprávy',
   'dashboard.summaryFallback':
@@ -40,11 +61,19 @@ export const ui: UiTranslations = {
   'expenses.listFallback':
     'Seznam aktivních aktivit není k dispozici – zobrazují se upravená demo data.',
   'expenses.searchPlaceholder': 'Hledat obchodníka nebo kategorii…',
+  'expenses.subtotal': 'Výdaje {{count}} · mezisoučet',
   'expenses.title': 'Výdaje',
+  'forgotPassword.continue': 'Mám kód · Pokračovat',
+  'forgotPassword.subheading':
+    'Zadejte svůj pracovní e-mail a pošleme vám odkaz pro nastavení nového hesla.',
   'forgotPassword.successBody':
     'Pokud existuje účet pro {{email}} Během několika minut obdržíte odkaz pro resetování.',
+  'landing.copyright': '© {{year}} {{app}}. Vytvořeno s Molecule.dev.',
+  'landing.ctaBody':
+    'Zdarma pro prvních 25 výdajů každý měsíc. Bez platební karty, bez zaváděcího hovoru.',
   'landing.ctaHeading': 'Jste připraveni získat zpět to, co vašemu týmu dlužíte?',
   'landing.eyebrow': 'Výkazy výdajů pro finanční týmy',
+  'landing.featuresHeading': 'Proplacení, v jednom klidném pracovním prostoru',
   'landing.heroSubtitle':
     'Odesílejte, schvalujte a proplácejte obchodní výdaje bez ceremoniálu s tabulkami. OCR účtenek, kontroly zásad a transparentní časový harmonogram schvalování – to vše v jednom klidném pracovním prostředí.',
   'landing.heroTitle': 'Každý doklad, získaný zpět.',
@@ -62,10 +91,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Poznámky',
   'newExpense.descriptionPlaceholder':
     'Proč tento výdaj souvisel s podnikáním (viditelné pro vašeho schvalovatele).',
+  'newExpense.eyebrow': 'Položka k proplacení',
   'newExpense.merchant': 'Obchodník',
   'newExpense.merchantPlaceholder': 'Hotel Adlon Kempinski',
   'newExpense.policyHint':
     'Připomínka: Jídla nad 80 USD/den nebo jakákoli položka nad 250 USD vyžadují odůvodnění.',
+  'newExpense.receipt': 'Účtenka',
+  'newExpense.receiptHint': 'JPG, PNG nebo PDF · max. 10 MB',
   'newExpense.receiptOcrHint': 'OCR předvyplňuje pole',
   'newExpense.receiptPrompt': 'Vložte sem fotografii nebo PDF, nebo klikněte pro procházení',
   'newExpense.receiptUploadFailed':
@@ -76,17 +108,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Vyfoťte nebo nahrajte účtenku a Recoup předvyplní obchodníka, datum a celkovou částku. Před uložením vše níže potvrďte.',
   'newExpense.title': 'Přidat výdaj',
+  'newReport.approverHint': 'Až tuto zprávu odešlete ke schválení, obdrží e-mail.',
   'newReport.approverLabel': 'E-mail schvalovatele (volitelné)',
   'newReport.approverPlaceholder': 'manager@vasefirma.com',
   'newReport.availableExpenses': 'Dostupné výdaje',
   'newReport.createFailed': 'Nepodařilo se vytvořit přehled. Zkuste to prosím znovu.',
   'newReport.draftsFallback':
     'Seznam výdajů v reálném čase není k dispozici – zobrazují se upravená demo data.',
+  'newReport.eyebrow': 'Seskupit výdaje · odeslat ke schválení',
   'newReport.includedCount': '{{count}} zahrnuto',
   'newReport.purposeLabel': 'Obchodní účel',
   'newReport.purposePlaceholder':
     'Popište cestu nebo projekt, ke kterému se tyto výdaje vztahují (bude viditelný pro schvalovatele a finančního pracovníka).',
   'newReport.saveDraft': 'Uložit jako koncept',
+  'newReport.saveDraftFailed': 'Koncept se nepodařilo uložit. Zkuste to prosím znovu.',
   'newReport.submit': 'Odeslat ke schválení',
   'newReport.submitFailed': 'Nepodařilo se odeslat hlášení. Zkuste to prosím znovu.',
   'newReport.summary': 'Souhrn zprávy',
@@ -99,16 +134,23 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'Aktivita v pracovním prostoru',
   'notifications.feedFallback': 'Živý přenos není k dispozici – zobrazují se upravená demo data.',
   'notifications.openReport': 'Otevřít zprávu ›',
+  'pricing.approvalsLabel': 'schválení',
   'pricing.expensesLabel': 'výdaje',
   'pricing.heading': 'schválení',
   'pricing.policiesLabel': 'zásady',
   'pricing.receiptsLabel': 'účtenky',
   'recoveredAmountHeroCard.label': 'Náhrada získaná · od začátku roku',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} zpráv aktuálně čeká na kontrolu u všech schvalovatelů.',
+  'reports.approvalFlow': 'Schvalovací tok',
   'reports.backToList': 'Zpět k přehledům',
   'reports.detailFallback': 'Živá sestava není k dispozici – zobrazují se upravená demo data.',
   'reports.lineItems': 'Položky',
   'reports.lineItemsCount': '{{count}} výdaje',
+  'reports.lineItemsEmpty': 'Na této zprávě zatím nejsou žádné výdaje.',
+  'reports.openLibrary': 'Otevřít knihovnu zpráv',
   'reports.policyTitle': 'Příznak zásady',
+  'reports.selectPrompt': 'Vyberte zprávu z knihovny a zobrazte její detail.',
   'reports.summary.lineCount': 'Položky',
   'reports.summary.reimbursable': 'Vratné',
   'reports.summary.total': 'Celkem hlášeno',
@@ -118,6 +160,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Seznam aktivních aktivit není k dispozici – zobrazují se upravená demo data.',
   'reportsList.newReport': 'Nová zpráva',
+  'reportsList.submittedOn': 'Odesláno {{date}}',
   'reportsList.title': 'Knihovna sestav',
   'resetPassword.hidePassword': 'Skrýt heslo',
   'resetPassword.newPasswordLabel': 'Nové heslo',
@@ -143,6 +186,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Uloženo ✓',
   'settings.profileSaveFailed': 'Profil se nepodařilo aktualizovat. Zkuste to prosím znovu.',
   'signup.heading': 'Vytvořte si účet pro zpětné získání',
+  'signup.hidePassword': 'Skrýt heslo',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Zobrazit heslo',
   'signup.subheading': 'Zdarma pro 25 výdajů měsíčně – bez kreditní karty.',

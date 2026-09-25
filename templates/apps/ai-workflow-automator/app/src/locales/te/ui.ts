@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'డెండ్రైట్ అనేది ఒక వర్క్‌ఫ్లో ఆటోమేషన్ ప్లాట్‌ఫారమ్, ఇది ట్రిగ్గర్‌లు, AI కండిషన్‌లు మరియు బహుళ-దశల చర్యలను ఒకదానితో ఒకటి అనుసంధానిస్తుంది, తద్వారా బృందాలు గ్లూ కోడ్ రాయకుండానే సిస్టమ్‌ల మధ్య పనిని బదిలీ చేయగలవు.',
+  'about.philosophy':
+    'ప్రతి వర్క్ఫ్లో అనేది చిన్న, గమనించదగిన దశల గ్రాఫ్. ప్రతి దశ తన ఇన్పుట్లు, అవుట్పుట్లు మరియు సమయాన్ని నమోదు చేస్తుంది, తద్వారా దాన్ని పరిశీలించవచ్చు, రీప్లే చేయవచ్చు లేదా రోల్బ్యాక్ చేయవచ్చు. వాటిని దృశ్యపరంగా కంపోజ్ చేయండి, కోడ్లా వెర్షన్ చేయండి.',
   'about.title': 'డెండ్రైట్ గురించి',
   'authShell.brand': 'డెండ్రైట్',
   'authShell.support': 'మద్దతు',
@@ -15,9 +17,15 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'ప్రణాళికను మార్చండి',
   'billing.description':
     'వినియోగాన్ని ట్రాక్ చేయండి, మీ ప్లాన్‌ను నిర్వహించండి మరియు అకౌంటింగ్ కోసం ఇన్‌వాయిస్‌లను పొందండి.',
+  'billing.eyebrow': 'ఖాతా · ప్లాన్ & వినియోగం',
+  'billing.failedLabel': 'విఫలమైన రన్లు · 24గం',
+  'billing.invoicesEmpty':
+    'ఇంకా ఇన్వాయిస్లు లేవు. మీ మొదటి చెల్లింపు పునరుద్ధరణ తర్వాత అవి ఇక్కడ కనిపిస్తాయి.',
   'billing.invoicesTitle': 'ఇన్‌వాయిస్ చరిత్ర',
   'billing.planNoteFree':
     'ఉచిత శ్రేణి — {{runs}} పరుగెత్తుతుంది మరియు {{workflows}} చురుకైన వర్క్‌ఫ్లోలు. అధిక పరిమితుల కోసం అప్‌గ్రేడ్ చేసుకోండి.',
+  'billing.planNotePaid':
+    'చెల్లింపు ప్లాన్ — {{runs}} రన్లు మరియు {{workflows}} యాక్టివ్ వర్క్ఫ్లోలు.',
   'billing.runsLabel': 'గత 24 గంటల్లో నడుస్తుంది',
   'billing.tiersBlurb':
     'ప్రత్యేక ధరల పేజీలో ప్రతి శ్రేణిని — రన్‌లు, యాక్టివ్ వర్క్‌ఫ్లోలు, అధునాతన ఫీచర్‌లు మరియు సపోర్ట్‌ను — పోల్చి చూడండి.',
@@ -35,8 +43,14 @@ export const ui: UiTranslations = {
     'ఇంటిగ్రేషన్లు ఏవీ నమోదు కాలేదు. బాండ్‌లను ప్రారంభించడానికి ప్రొవైడర్ కీలను కాన్ఫిగర్ చేయండి.',
   'connections.error': 'కనెక్షన్‌లను లోడ్ చేయలేకపోయింది.',
   'connections.eyebrow': 'ఇంటిగ్రేషన్లు · {{connected}} కనెక్ట్ చేయబడింది',
+  'connections.loading': 'ఇంటిగ్రేషన్‌లు లోడ్ అవుతున్నాయి…',
+  'connections.openEnv':
+    'ఈ ప్రొవైడర్ను కనెక్ట్ చేయడానికి, దాని API కీని api/.envలో సెట్ చేసి సర్వర్ను రీస్టార్ట్ చేయండి.',
+  'dashboard.description':
+    '{{active}} వర్క్ఫ్లోలు యాక్టివ్గా ఉన్నాయి. గత 24 గంటల్లో {{failed}} విఫలమయ్యాయి.',
   'dashboard.error': 'డాష్‌బోర్డ్‌ను లోడ్ చేయలేకపోయింది.',
   'dashboard.eyebrow': 'కార్యకలాపాలు · ప్రత్యక్ష ప్రసారం',
+  'dashboard.hero.label': 'ఈరోజు రన్లు',
   'dashboard.hero.medianLatency': 'p50 లేటెన్సీ',
   'dashboard.hero.queue': 'క్యూ లోతు',
   'dashboard.hero.success': 'విజయం',
@@ -44,14 +58,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'మధ్యస్థ వ్యవధి',
   'dashboard.kpi.failedRuns': 'విఫలమైంది · 24గం',
   'dashboard.kpi.outOf': 'యొక్క {{total}} మొత్తం',
+  'dashboard.kpi.successRate': 'విజయ రేటు · 24గం',
   'dashboard.loading': 'డాష్‌బోర్డ్ లోడ్ అవుతోంది…',
   'dashboard.recentRuns.empty':
     'ఇంకా రన్‌లు ఏవీ జరగలేదు. వర్క్‌ఫ్లోను ట్రిగ్గర్ చేయడం ద్వారా ఈ ఫీడ్ నింపబడుతుంది.',
   'dashboard.recentRuns.title': 'ఇటీవలి పరుగుల పోటీలు',
   'dashboard.recentRuns.viewAll': 'బహిరంగ అమలులు →',
+  'dashboard.recentWorkflows.browse': 'టెంప్లేట్‌లను బ్రౌజ్ చేయండి →',
   'dashboard.recentWorkflows.empty':
     'ఇంకా వర్క్‌ఫ్లోలు లేవు. టెంప్లేట్‌ను ఇన్‌స్టాల్ చేయండి లేదా మొదటి నుండి ఒకదాన్ని రూపొందించుకోండి.',
   'dashboard.recentWorkflows.title': 'ఇటీవల నడిచింది',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'ప్రారంభించబడింది',
   'dashboard.run.col.trigger': 'ట్రిగ్గర్',
   'dashboard.run.col.workflow': 'వర్క్‌ఫ్లో',
@@ -87,6 +104,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'వర్క్‌ఫ్లో',
   'executions.description':
     'ప్రతి వర్క్‌ఫ్లో రన్, ప్రతి రీట్రై, ప్రతి స్టెప్ అవుట్‌పుట్ — అన్నీ గమనించదగినవే.',
+  'executions.empty.filter': 'ఈ ఫిల్టర్కు ఏ రన్లు సరిపోలలేదు.',
   'executions.empty.first':
     'ఇంకా రన్‌లు జరగలేదు — ఈ జాబితాను నింపడానికి వర్క్‌ఫ్లోను ప్రారంభించండి.',
   'executions.error': 'ఎగ్జిక్యూషన్‌లను లోడ్ చేయలేకపోయింది.',
@@ -97,30 +115,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'రన్ హిస్టరీ లోడ్ అవుతోంది…',
   'executions.title': 'మరణశిక్షలు',
   'forgotPassword.confirmation': 'రీసెట్ లింక్ పంపబడింది {{email}} .',
+  'forgotPassword.subhead': 'రీసెట్ లింక్‌ను పొందడానికి మీ ఇమెయిల్‌ను నమోదు చేయండి.',
   'forgotPassword.successSubhead':
     'మేము రీసెట్ లింక్‌ను పంపాము {{email}} 30 నిమిషాల్లో గడువు ముగుస్తుంది.',
   'help.connections.body':
     'AI, ఇమెయిల్ మరియు స్టోరేజ్ దశలకు api/.env ఫైల్‌లో ప్రొవైడర్ కీలను సెట్ చేయడం అవసరం. ఒకసారి కీని కాన్ఫిగర్ చేసిన తర్వాత, సంబంధిత ఇంటిగ్రేషన్ కనెక్షన్స్ పేజీలో కనెక్ట్ చేయబడినట్లుగా కనిపిస్తుంది.',
+  'help.connections.cta': 'ఓపెన్ కనెక్షన్లు →',
   'help.connections.title': 'ప్రొవైడర్లను కనెక్ట్ చేయడం',
   'help.gettingStarted.body':
     'కొత్త వర్క్‌ఫ్లోలను టెంప్లేట్‌ల లైబ్రరీ నుండి ఇన్‌స్టాల్ చేసుకోవచ్చు లేదా వర్క్‌ఫ్లో బిల్డర్‌లో మొదటి నుండి నిర్మించుకోవచ్చు. ప్రతి వర్క్‌ఫ్లోకు ఒక ట్రిగ్గర్ (మాన్యువల్, వెబ్‌హుక్ లేదా క్రాన్) మరియు వరుస క్రమంలో నడిచే దశల శ్రేణి ఉంటుంది.',
+  'help.gettingStarted.cta': 'టెంప్లేట్ల లైబ్రరీని బ్రౌజ్ చేయండి →',
+  'help.gettingStarted.title': 'ప్రారంభించడం',
   'help.intro':
     'వర్క్‌ఫ్లోలను నిర్మించడం, కనెక్షన్‌లను కాన్ఫిగర్ చేయడం మరియు రన్ అవుట్‌పుట్‌ను అర్థం చేసుకోవడం గురించిన సాధారణ ప్రశ్నలకు సమాధానాలను కనుగొనండి. అత్యంత సాధారణ అంశాలు క్రింద ఇవ్వబడ్డాయి; ఇందులో పొందుపరచని మరేదైనా విషయం కోసం, మీ వర్క్‌స్పేస్ అడ్మినిస్ట్రేటర్‌ను సంప్రదించండి.',
   'help.runs.body':
     'ప్రతి రన్ ప్రతి దశను దాని స్థితి (విజయం, వైఫల్యం, దాటవేయబడింది) మరియు అవుట్‌పుట్ యొక్క ఒక భాగంతో స్వతంత్రంగా లాగ్ చేస్తుంది. ఎగ్జిక్యూషన్ వివరాల పేజీ పూర్తి దశల వారీ ట్రేస్‌తో పాటు ఊహించిన మెట్రిక్‌లను చూపుతుంది.',
+  'help.runs.cta': 'బహిరంగ అమలులు →',
   'help.runs.title': 'రన్ అవుట్‌పుట్‌ను చదవడం',
   'help.title': 'సహాయ కేంద్రం',
   'integrationCard.manage': 'నిర్వహించండి',
   'landing.brand': 'డెండ్రైట్',
   'landing.demo.action.subtitle': 'రౌండ్-రాబిన్ · భూభాగం',
+  'landing.demo.action.title': 'ప్రతినిధికి తెలియజేయండి',
   'landing.demo.condition.subtitle': 'AI ఉద్దేశ్య వర్గీకరణ',
+  'landing.demo.condition.title': 'స్కోర్ ≥ మధ్యస్థమా?',
   'landing.demo.trigger.subtitle': 'పోస్ట్ /ఫారాలు/సంప్రదించండి',
   'landing.demo.trigger.title': 'ఇన్‌బౌండ్ వెబ్‌హుక్',
+  'landing.features.body':
+    'ట్రిగ్గర్లు ఫైర్ అవుతాయి. షరతులు బ్రాంచ్ అవుతాయి. యాక్షన్లు పనిని పూర్తి చేస్తాయి. వాటిని దృశ్యపరంగా కంపోజ్ చేయండి, కోడ్లా వెర్షన్ చేయండి.',
   'landing.features.heading': 'మూడు నోడ్ రకాలు. అనంతమైన ఆకారాలు.',
   'landing.footer.help': 'సహాయం',
   'landing.footer.tagline': 'చలనంలో ఉన్న మేధస్సు',
+  'landing.hero.body':
+    'Zapier నుండి పెరిగిపోయిన ఆప్స్ టీమ్ల కోసం {{appName}} వర్క్ఫ్లో ఇంజిన్. ట్రిగ్గర్, షరతు, యాక్షన్ — మీరు నిజంగా ఉపయోగించే ప్రతి సిస్టమ్కు అనుసంధానించబడింది.',
   'landing.hero.eyebrow': 'చలనంలో ఉన్న మేధస్సు',
   'landing.hero.headline': 'మీ స్టాక్‌ను ఒకదానితో ఒకటి అనుసంధానించండి. పని జరగనివ్వండి.',
+  'landing.hero.primaryCta': 'మీ మొదటి వర్క్ఫ్లోను నిర్మించండి',
   'landing.hero.proof.ai': 'అంతర్నిర్మిత AI నోడ్‌లు',
   'landing.hero.proof.free': 'నెలకు 1000 పరుగుల వరకు ఉచితం',
   'landing.hero.proof.soc2': 'SOC 2 టైప్ II',
@@ -128,10 +158,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'పరుగుల కోసం డబ్బు చెల్లించండి, సీట్ల కోసం కాదు.',
   'landing.templates.body':
     'సేల్స్, సపోర్ట్, డెవ్-ఆప్స్, ఫైనాన్స్ వంటి ప్రతి బృందం కోసం ముందుగానే సిద్ధం చేసిన వర్క్‌ఫ్లోలు. ఒక్క క్లిక్‌తో ఇన్‌స్టాల్ చేయండి; దేన్నైనా మార్పులు చేయండి.',
+  'landing.templates.cta': 'టెంప్లేట్లను బ్రౌజ్ చేయడానికి సైన్ అప్ చేయండి →',
   'landing.templates.eyebrow': 'సెకన్లలో ప్రారంభించండి',
   'landing.templates.heading': 'ధృవీకరించబడిన వంటకాల సమాహారం.',
   'landing.templates.signupHint': 'ఇన్‌స్టాల్ చేయడానికి సైన్ అప్ చేయండి',
   'login.hidePassword': 'పాస్‌వర్డ్‌ను దాచండి',
+  'login.noAccount': 'టెస్సెరాకు కొత్తవారా?',
   'login.showPassword': 'పాస్‌వర్డ్‌ను చూపించు',
   'login.subhead': 'మీ ఆటోమేషన్‌లు నిరంతరాయంగా కొనసాగడానికి సైన్ ఇన్ చేయండి.',
   'mobileNav.drawerLabel': 'ప్రధాన నావిగేషన్',
@@ -147,8 +179,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'ఈ ఫీడ్‌ను నింపడం ప్రారంభించడానికి వర్క్‌ఫ్లోను అమలు చేయండి.',
   'notifications.empty.title': 'మీరు అంతా తెలుసుకున్నారు',
   'notifications.eyebrow': '{{n}} చదవని',
+  'planUpdated.body':
+    'మీ బిల్లింగ్ మార్పు ఇప్పుడు యాక్టివ్గా ఉంది. మీ ప్లాన్ను బిల్లింగ్ పేజీ నుండి ఎప్పుడైనా నిర్వహించవచ్చు.',
+  'planUpdated.retry': 'మళ్ళీ ప్రయత్నించండి',
+  'planUpdated.verifyFailed': 'మేము మీ చెల్లింపును ఇంకా ధృవీకరించలేకపోయాము.',
+  'planUpdated.verifyFailedBody':
+    'మీ చెల్లింపు ఇంకా ప్రాసెస్ అవుతూ ఉండవచ్చు. కాసేపటి తర్వాత మళ్ళీ ప్రయత్నించండి.',
   'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
   'pricing.heading': 'పరుగు',
+  'pricing.runsSuffix': 'రన్లు',
   'pricing.workflowsSuffix': 'వర్క్‌ఫ్లోలు',
   'privacy.collect.body':
     'మీరు సైన్ అప్ చేసే ఇమెయిల్ చిరునామా, మీరు కాన్ఫిగర్ చేసే వర్క్‌ఫ్లోలు మరియు ప్రతి రన్ గురించిన మెటాడేటాను (ప్రారంభ సమయం, ముగింపు సమయం, స్థితి) మేము సేకరిస్తాము. వర్క్‌స్పేస్ యజమాని కోసం రన్ వ్యూయర్‌లో ప్రదర్శించడానికి అవసరమైన దానికంటే మించి, ట్రిగ్గర్‌లు లేదా స్టెప్ అవుట్‌పుట్‌ల నుండి పేలోడ్ కంటెంట్‌లను మేము ఎప్పుడూ సేకరించము లేదా నిల్వ చేయము.',
@@ -164,12 +203,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'పాస్‌వర్డ్‌ను నవీకరించలేకపోయాము.',
   'resetPassword.newPassword': 'కొత్త పాస్‌వర్డ్',
   'resetPassword.subhead': 'మీరు మాత్రమే ఊహించగలిగేదాన్ని ఎంచుకోండి.',
+  'settings.appearance.description': 'లైట్ మరియు డార్క్ మోడ్‌ల మధ్య మారండి.',
+  'settings.appearance.title': 'స్వరూపం',
   'settings.billingShortcut.cta': 'ఓపెన్ బిల్లింగ్',
   'settings.billingShortcut.description':
     'ప్లాన్, వినియోగం మరియు ఇన్‌వాయిస్‌లు ప్రత్యేక బిల్లింగ్ పేజీలో కనిపిస్తాయి.',
   'settings.danger.confirm':
     'మీరు ఖచ్చితంగా ఉన్నారా? ఇది మీ వర్క్‌స్పేస్‌ను తొలగింపు కోసం వరుసలో ఉంచుతుంది.',
   'settings.danger.confirmYes': 'అవును, క్యూ తొలగింపు',
+  'settings.danger.deleteWorkspace.cta': 'వర్క్‌స్పేస్‌ను తొలగించండి',
   'settings.danger.deleteWorkspace.hint':
     '14 రోజుల గడువు తర్వాత అన్ని వర్క్‌ఫ్లోలు, రన్‌లు మరియు కనెక్షన్‌లను తొలగిస్తుంది.',
   'settings.danger.deleteWorkspace.title': 'వర్క్‌స్పేస్‌ను తొలగించండి',
@@ -180,9 +222,13 @@ export const ui: UiTranslations = {
     'మీ ఖాతా, వర్క్‌స్పేస్, ఇంటిగ్రేషన్‌లు మరియు బిల్లింగ్‌ను ఒకే చోట నిర్వహించుకోండి.',
   'settings.notifications.description':
     'ఏ ఈవెంట్‌లు మీకు పేజీకి రావాలో, ఏవి మీకు ఇమెయిల్ చేయాలో, లేదా ఏవి మౌనంగా ఉండాలో ఎంచుకోండి.',
+  'settings.notifications.failures.hint': 'ప్రతి విఫలమైన రన్పై ఇమెయిల్ మరియు యాప్ నోటిఫికేషన్.',
+  'settings.notifications.failures.title': 'వర్క్ఫ్లో వైఫల్యాలు',
   'settings.notifications.product.hint':
     'కొత్త టెంప్లేట్లు మరియు ఫీచర్ల గురించి అప్పుడప్పుడు వచ్చే ఇమెయిళ్ళు.',
+  'settings.notifications.product.title': 'ఉత్పత్తి నవీకరణలు',
   'settings.notifications.weekly.hint': 'గత వారం కొనుగోళ్లు మరియు పొదుపుల సోమవారం ఉదయం సమీక్ష.',
+  'settings.notifications.weekly.title': 'వారపు సారాంశం',
   'settings.profile.description':
     'వర్క్‌ఫ్లో రన్నర్‌లో మీరు కనిపించే విధానం. వర్క్‌స్పేస్ యాక్టివిటీలో ఉపయోగించబడుతుంది.',
   'settings.profile.noEmail': 'రికార్డులో ఇమెయిల్ లేదు',
@@ -190,12 +236,23 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'ప్రొఫైల్ మార్పులను సేవ్ చేయలేకపోయాను.',
   'settings.profile.unnamedUser': 'పేరులేని వినియోగదారు',
   'settings.security.audit.hint': 'వెబ్‌హుక్ ద్వారా ప్రతి చర్యను మీ SIEMకు ప్రసారం చేయండి.',
+  'settings.security.audit.title': 'ఆడిట్ లాగ్ ఫార్వార్డింగ్',
   'settings.security.description': 'టూ-ఫ్యాక్టర్ ఆథ్, SSO, మరియు యాక్టివ్ సెషన్‌లు.',
   'settings.security.sso.hint': 'స్కేల్ మరియు ఎంటర్‌ప్రైజ్ ప్లాన్‌లలో అందుబాటులో ఉంది.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'ఏదైనా వర్క్స్పేస్ యజమాని చర్యకు అవసరం.',
+  'settings.security.totp.title': 'రెండు-కారకాల ప్రామాణీకరణ (TOTP)',
   'settings.twoFactorCode': 'ప్రమాణీకరణ కోడ్',
   'settings.twoFactorDisable': 'నిలిపివేయండి',
+  'settings.twoFactorDisableTitle': 'రెండు-కారకాల ప్రామాణీకరణను నిలిపివేయండి',
   'settings.twoFactorEnable': 'ప్రారంభించండి',
+  'settings.twoFactorEnableTitle': 'రెండు-కారకాల ప్రామాణీకరణను ప్రారంభించండి',
   'settings.twoFactorInvalidCode': 'చెల్లని కోడ్',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'రెండు-కారకాల QR కోడ్',
+  'settings.twoFactorScan':
+    'మీ ప్రామాణీకరణ యాప్తో ఈ QR కోడ్ను స్కాన్ చేయండి, ఆపై 6-అంకెల కోడ్ను నమోదు చేయండి.',
+  'settings.twoFactorUnavailable': 'ఈ యాప్‌కు టూ-ఫ్యాక్టర్ అథెంటికేషన్ అందుబాటులో లేదు.',
   'settings.twoFactorVerify': 'ధృవీకరించి, ప్రారంభించండి',
   'settings.workspace.description':
     'మీ బృందం కోసం భాగస్వామ్య గుర్తింపు, ప్రాంతం మరియు రన్ డిఫాల్ట్‌లు.',
@@ -224,6 +281,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'టెంప్లేట్',
   'templates.description':
     'అత్యంత సాధారణ ఆటోమేషన్‌ల కోసం ముందుగా రూపొందించిన బ్లూప్రింట్లు. ఫోర్క్ చేయండి, అనుకూలీకరించండి, పంపండి.',
+  'templates.empty.filter': 'మీ శోధనకు ఏ టెంప్లేట్లు సరిపోలలేదు.',
   'templates.empty.first': 'ప్రస్తుతానికి టెంప్లేట్లు అందుబాటులో లేవు.',
   'templates.error': 'టెంప్లేట్‌లను లోడ్ చేయలేకపోయింది.',
   'templates.installs': 'ఇన్‌స్టాల్ చేస్తుంది',
@@ -249,6 +307,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'నిలిపివేయండి',
   'workflowBuilder.enable': 'ప్రారంభించండి',
   'workflowBuilder.error': 'వర్క్‌ఫ్లోను లోడ్ చేయలేకపోయింది.',
+  'workflowBuilder.inspector.config': 'కాన్ఫిగ్',
+  'workflowBuilder.inspector.cron': 'Cron వ్యక్తీకరణ',
+  'workflowBuilder.inspector.disabled': 'నిలిపివేయబడింది — స్వయంచాలకంగా అమలు కాదు.',
   'workflowBuilder.inspector.enabled': 'ఎనేబుల్ చేయబడింది — ట్రిగ్గర్‌పై నడుస్తుంది.',
   'workflowBuilder.inspector.eyebrow': 'ఇన్స్పెక్టర్',
   'workflowBuilder.inspector.id': 'ఐడి',
@@ -267,18 +328,26 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'టోగుల్ విఫలమైంది.',
   'workflowBuilder.workflow': 'వర్క్‌ఫ్లో · v {{v}}',
   'workflowBuilder.zoom.in': 'జూమ్ ఇన్',
+  'workflowBuilder.zoom.label': 'కాన్వాస్ జూమ్ నియంత్రణలు',
+  'workflowBuilder.zoom.out': 'జూమ్ అవుట్',
   'workflowCard.lastRun': 'చివరి పరుగు {{when}}',
   'workflowCard.runs': '{{count}} పరుగు',
+  'workflowCard.success': '{{rate}}% విజయం',
   'workflowHeroCard.last24h': 'గత 24 గంటల్లో',
+  'workflows.browseTemplates': 'టెంప్లేట్‌లను బ్రౌజ్ చేయండి →',
   'workflows.description':
     'మీ వర్క్‌స్పేస్‌లోని ప్రతి ఆటోమేషన్, దాని స్థితి మరియు ఇటీవలి కార్యకలాపాలను ఒకే చూపులో చూడండి.',
+  'workflows.empty.body':
+    'ఫిల్టర్ను క్లియర్ చేయడం లేదా టెంప్లేట్ నుండి ప్రారంభించడం ప్రయత్నించండి.',
   'workflows.empty.firstBody': 'సెకన్లలో ప్రారంభించడానికి టెంప్లేట్‌ను ఇన్‌స్టాల్ చేయండి.',
   'workflows.empty.firstTitle': 'ఇంకా వర్క్‌ఫ్లోలు లేవు',
   'workflows.empty.title': 'వర్క్‌ఫ్లోలు ఏవీ సరిపోలడం లేదు',
   'workflows.error': 'వర్క్‌ఫ్లోలను లోడ్ చేయలేకపోయాము.',
   'workflows.eyebrow': 'గ్రంథాలయం · {{count}} మొత్తం',
+  'workflows.loading': 'వర్క్ఫ్లోలు లోడ్ అవుతున్నాయి…',
   'workflows.newFromTemplate': 'టెంప్లేట్ నుండి కొత్తది',
   'workflows.searchPlaceholder': 'శోధన వర్క్‌ఫ్లోలు…',
+  'workflows.title': 'వర్క్ఫ్లోలు',
   'workflowSidebar.brand': 'డెండ్రైట్',
   'workflowSidebar.status': 'అన్ని వ్యవస్థలు పనిచేస్తున్నాయి',
   'workflowSidebar.tagline': 'చలనంలో ఉన్న మేధస్సు',

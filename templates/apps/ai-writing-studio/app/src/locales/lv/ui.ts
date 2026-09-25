@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vai ir atsauksmes, atradi kļūdu vai vēlies kādu funkciju? Sazinies no sava konta iestatījumiem — katra ziņa nonāk pie īsta komandas cilvēka.',
   'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
+  'about.intro':
+    '{{app}} ir AI rakstīšanas studija rakstītājiem, kuriem ļoti rūp viņu proza. Tā apvieno garas formas AI ģenerēšanu ar mierīgu redaktoru, SEO vērtējumu un attēlu ģenerēšanu, lai tu varētu aizvest darbu no tukšas lapas līdz publicēšanai — nekad nezaudējot savu balsi.',
+  'about.missionBody':
+    'Mēs ticam, ka AI ir jāraksta līdzās tev, nekad tavā vietā. {{app}} saglabā ieteikumus redzami atšķirīgus no taviem vārdiem, atstāj tevi kā katra izveidotā dokumenta īpašnieku un novāc rīkus nost no rakstīšanas ceļa.',
+  'about.missionTitle': 'Mūsu misija',
   'about.pageTitle': 'Par {{app}}',
   'aiSuggestionCard.applied': 'Ieteikums ir ieviests',
   'aiSuggestionCard.apply': 'Pieteikties',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Satiksmes avoti',
   'billing.activePlan': 'Abonements ir aktīvs.',
   'billing.aiWordsLabel': 'Iekļautas AI paaudzes',
+  'billing.cancelFailed': 'Nevarēja atcelt abonementu.',
   'billing.cancelPlan': 'Atcelt plānu',
+  'billing.cancelPlanConfirm': 'Apstiprināt atcelšanu?',
   'billing.cancelSuccess': 'Abonements ir atcelts. Atjauniniet lapu, lai atjauninātu plānu.',
   'billing.changePlan': 'Mainīt plānu',
   'billing.col.invoice': 'Rēķins',
@@ -42,26 +51,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'Skatīt plānus',
   'common.goToDashboard': 'Uz informācijas paneli',
   'dashboard.continueWriting': 'Turpināt rakstīt',
+  'dashboard.createFirst': 'Izveidot dokumentu',
   'dashboard.days.sat': 'Se',
   'dashboard.days.sun': 'Sv',
   'dashboard.defaultWriterName': 'Rakstnieks',
   'dashboard.greeting': 'Labrīt, {{name}}',
   'dashboard.loadError': 'Neizdevās ielādēt jūsu vadības paneli.',
+  'dashboard.loading': 'Ielādējam tavu studiju…',
   'dashboard.loadingDocs': 'Tiek ielādēti pēdējie dokumenti…',
   'dashboard.noDocuments': 'Vēl nav neviena dokumenta — izveido savu pirmo.',
   'dashboard.startWriting': 'Izveidot jaunu dokumentu',
+  'dashboard.streakBody': 'Šonedēļ tu esi uzrakstījis {{words}} vārdus.',
   'dashboard.streakTitle': '{{count}} -dienu sērija',
+  'dashboard.subgreeting': '{{count}} dokumenti tavā bibliotēkā — turpini iesākto.',
+  'documentCard.seoScoreTitle': 'SEO vērtējums: {{score}}/100',
+  'documents.createNew': 'Izveidot jaunu dokumentu',
   'documents.empty': 'Tava bibliotēka jau gaida — sāc veidot savu pirmo dokumentu.',
+  'documents.emptyFiltered': 'Vēl neviens dokuments neatbilst taviem filtriem.',
   'documents.loadError': 'Neizdevās ielādēt dokumentus.',
   'documents.loading': 'Tiek ielādēta jūsu bibliotēka…',
   'documents.new': 'Jauns dokuments',
+  'documents.searchAriaLabel': 'Meklēt dokumentus',
   'documents.searchPlaceholder': 'Meklēt dokumentus…',
   'documents.subtitle': '{{count}} dokumenti jūsu bibliotēkā.',
   'documents.title': 'Dokumenti',
   'editor.aiPanelTitle': 'Plume Intelligence',
+  'editor.aiSuggestion.empty':
+    'Nav aktīvu uzlabojumu. Lūdz {{appName}} ieteikumu, kad vēlies otru acu pāri.',
   'editor.aiSuggestion.failed': 'Šobrīd nav iespējams ielādēt ieteikumus.',
   'editor.aiSuggestion.loadingBody': 'Veicot precizēšanu…',
   'editor.backToDocuments': 'Visi dokumenti',
+  'editor.bodyAriaLabel': 'Dokumenta pamatteksts',
   'editor.closeAiPanel': 'Aizvērt AI paneli',
   'editor.createFailed': 'Neizdevās izveidot dokumentu.',
   'editor.exported': 'Eksportēts kā „{{format}}”.',
@@ -77,18 +97,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'Pieprasīt precizējumu',
   'editor.saveBeforePublish': 'Pirms publicēšanas saglabājiet dokumentu.',
   'editor.status.chars': '{{count}} rakstzīmes',
+  'editor.status.readTime': '{{minutes}} min lasīšanas laiks',
   'editor.status.savedAt': 'Saglabāts {{time}}',
   'editor.status.saveError': 'Saglabāšana neizdevās',
+  'editor.status.unsaved': 'Vēl nav saglabāts',
   'editor.titleAriaLabel': 'Dokumenta nosaukums',
   'editor.titlePlaceholder': 'Dokuments bez nosaukuma',
   'editor.toggleAiPanel': 'Atvērt/aizvērt AI paneli',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'author@example.com',
+  'forgotPassword.sent': 'Ja {{email}} ir reģistrēts, atjaunošanas saite jau ir ceļā.',
   'imageGenerator.failed': 'Attēla ģenerēšana neizdevās.',
   'imageGenerator.generate': 'Izveidot attēlu',
   'imageGenerator.generating': 'Veidojas...',
   'imageGenerator.placeholder': 'Aprakstiet attēlu, kuru vēlaties izveidot...',
+  'imageGenerator.promptAriaLabel': 'Attēla uzvedne',
+  'imageGenerator.subtitle': 'Apraksti vāka attēlu un ļauj AI to ilustrēt.',
   'imageGenerator.title': 'AI attēlu ģenerators',
+  'landing.aiSuggestionBody':
+    'stāvēdams uz 42. stāva balkona, Eliass juta, kā pilsēta spiežas pret viņu — vējš noslīcināja apkārtējo dūkoņu, atstājot viņu iekārtu aukstā, klusā tukšumā virs mirdzošā tīkla.',
   'landing.eyebrow': 'Mākslīgā intelekta rakstīšanas studija nopietniem rakstniekiem',
   'landing.featuresHeading': 'Rīki, kas netraucē',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -98,14 +125,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Studija, kas radīta rakstniekiem, kuriem rūp viņu proza, stāsta ritms un precizitāte. Plume palīdz jums rakstīt — nekad neaizstājot jūs.',
   'landing.heroTitle.eloquence': 'runas dāvanas',
+  'landing.heroTitle.intelligence': 'Intelekts satiekas ar ',
   'landing.nav.testimonials': 'Atsauksmes',
   'landing.plan.cta': 'Sāciet ar šo plānu',
   'landing.plan.popular': 'Visvairāk mīlētais',
   'landing.pricingEyebrow': 'Cenu noteikšana',
   'landing.pricingHeading': 'Izvēlieties to, kas atbilst jūsu praksei',
   'landing.sampleDocTitle': 'Klusuma arhitektūra',
+  'landing.sampleParagraph1':
+    'Pilsēta nekad nebija īsti klusa. Pat dziļākajās nakts stundās caur betona pamatiem vibrēja zema dūkoņa — metro vilcienu un ventilācijas šahtu mehāniskā sirdsdarbība.',
+  'landing.sampleParagraph2.after': ' pret stiklu.',
+  'landing.sampleParagraph2.before': 'Bet ',
   'landing.sampleParagraph2.highlight':
     'Stāvot uz 42. stāva balkona, Eliass sajuta dziļu vientulības sajūtu',
+  'landing.showcaseBody':
+    'Iezīmē teikumu, un {{appName}} piedāvā uzlabojumu. Pieņem to, pielāgo vai noraidi. Ieteikumi vienmēr ir iekrāsoti purpursarkanā, lai tu zinātu, ko rakstīji tu un ko piedāvāja AI.',
+  'landing.showcaseHeading': 'Otrs acu pāris — nekad otrs autors.',
   'landing.startWriting': 'Sāc rakstīt',
   'login.emailPlaceholder': 'author@example.com',
   'login.failed': 'Pieslēgšanās neizdevās',
@@ -120,8 +155,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Atvērt vadības paneli',
   'notFound.title': 'Šī nodaļa vēl nav uzrakstīta.',
   'plumeSidebarLayout.primaryNavLabel': 'Galvenā navigācija',
+  'pricing.maxDocuments': '{{count}} dokumenti',
+  'pricing.maxGenerate': '{{count}} AI ģenerējumi',
+  'pricing.maxImages': '{{count}} attēlu ģenerējumi',
   'privacy.data':
     'Jūsu konta e-pasta adrese un hashēta parole. Jūsu izveidotie dokumenti un veidnes. AI ieteikumu žurnāli (ievade + izvade) rēķinu izrakstīšanai un analīzei. Stripe klientu un abonementu identifikatori; mēs nekad neuzglabājam pilnus kartes numurus.',
+  'privacy.intro':
+    'Mēs apkopojam tikai tos datus, kas nepieciešami {{app}} darbībai: tavu e-pastu, izveidotos dokumentus un veiktos AI pieprasījumus. Mēs nekad nepārdodam tavu rakstīto vai tavus uzvednes tekstus.',
   'profile.loadError': 'Neizdevās ielādēt tavu profilu.',
   'profile.loading': 'Tiek ielādēts tavs profils…',
   'profile.loadingPublished': 'Tiek ielādēti publicētie dokumenti…',
@@ -132,7 +172,13 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Jauna parole',
   'seoAnalysis.backToEditor': 'Atgriezties pie redaktora',
   'seoAnalysis.eyebrow': 'SEO analīze',
+  'seoAnalysis.heroBody':
+    '{{count}} ieteikums(-i), ko piemērot. Katrs no tiem ir strukturāls vai atslēgvārdu uzlabojums, nevis sarkano karodziņu siena.',
+  'seoAnalysis.heroBodyEmpty':
+    'Noklikšķini uz "Palaist analīzi", lai novērtētu lasāmību, atslēgvārdu blīvumu un struktūru.',
   'seoAnalysis.heroEmpty': 'Analīze vēl nav veikta. Veiciet analīzi, lai novērtētu šo projektu.',
+  'seoAnalysis.heroNeedsWork': 'Daži strukturālie uzlabojumi palielinās sasniedzamību.',
+  'seoAnalysis.heroStrong': 'Spēcīgs darbs — līdz izcilībai atlicis maz.',
   'seoAnalysis.historyEmpty': 'Nav reģistrētas iepriekšējās analīzes.',
   'seoAnalysis.historyTitle': 'Analīžu vēsture',
   'seoAnalysis.keywordEmpty':
@@ -159,8 +205,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'Pielāgojiet „Plume“ savam rakstīšanas stilam.',
   'settings.toggleIntegrationFailed': 'Integrācijas atjaunināšana neizdevās.',
   'settings.writing.aiSuggestions': 'AI ieteikumi, rakstot',
+  'settings.writing.aiSuggestionsBody':
+    'Rāda uzlabojumus, kamēr raksti. Ieteikumi vienmēr ir jāapstiprina katram teikumam atsevišķi.',
   'settings.writing.autoSave': 'Automātiska saglabāšana ik pēc 30 sekundēm',
+  'settings.writing.autoSaveBody':
+    '{{appName}} saglabā tavas melnraksta momentuzņēmumu, lai tu varētu atgūties no jebkuras cilnes.',
   'settings.writing.notifyEmail': 'Lūdzu, ik nedēļu nosūtiet man rakstu kopsavilkumus pa e-pastu',
+  'settings.writing.notifyEmailBody':
+    'Īss svētdienas kopsavilkums par sērijām, melnrakstiem un SEO uzlabojumiem.',
   'settings.writing.title': 'Rakstīšanas iestatījumi',
   'settings.writing.tone': 'Noklusējuma skaņas iestatījums',
   'signup.emailPlaceholder': 'author@example.com',
@@ -172,8 +224,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'Apraksts nav pieejams.',
   'templates.subtitle':
     'Sāciet ar praksē pārbaudītu raksta struktūru un pielāgojiet to savām vajadzībām.',
+  'terms.intro':
+    'Šie noteikumi regulē tavu {{app}} lietošanu. Izveidojot kontu, tu piekrīti izmantot pakalpojumu likumīgai rakstīšanai un glabāt sava konta piekļuves datus konfidenciāli.',
   'terms.license':
     'Jums pieder īpašumtiesības uz visiem dokumentiem, veidnēm un mākslīgā intelekta radītajiem rezultātiem, ko izveidojat. Mums ir nepieciešama neekskluzīva licence, lai uzglabātu un nodrošinātu jums piekļuvi jūsu darbiem, kā arī apstrādātu mākslīgā intelekta pieprasījumus, izmantojot jūsu izvēlētos sertificētos pakalpojumu sniedzējus.',
   'writingStreakHeroCard.change': '{{sign}} {{amount}} vārdi',
   'writingStreakHeroCard.greeting': 'Labdien, {{name}}',
+  'writingStreakHeroCard.subtitle': 'Šonedēļ uzrakstītie vārdi — {{count}} dienu sērija',
+  'writingStreakHeroCard.tagline': 'Lapa dienā uztur mūzu modru.',
 }

@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'هل لديك أسئلة أو ملاحظات أو ترغب في عرض توضيحي لفريقك؟ راسلنا على hello@conduit.dev — كل رسالة تصل إلى شخص حقيقي في الفريق.',
   'about.contactHeading': 'تواصل معنا',
   'about.eyebrow': 'حول',
+  'about.featuresHeading': 'ما تحصل عليه',
+  'about.introBody':
+    '{{app}} يجلب التسليم المستمر على غرار GitHub Actions إلى لوحة تحكم واحدة سريعة: خطوط الأنابيب وسجلات البناء والمنتجات وشارات الحالة وبيئات النشر لجميع مستودعاتك في مكان واحد. لا تنقل بين علامات التبويب، ولا تخمين أي بناء تعطّل — كل تشغيل وسطر سجل وعملية نشر على بعد نقرة واحدة.',
+  'about.introHeading': 'ما هو {{app}}',
+  'about.missionBody':
+    'يجب أن يكون شحن البرمجيات هادئًا وقابلًا للتنبؤ، لا مصدرًا للرهبة. نبني خطوط الأنابيب والسجلات وأدوات النشر حتى يكون المسار من الالتزام إلى الإنتاج سريعًا وواضحًا وموثوقًا — أول بناء ناجح خلال خمس دقائق، وكل بناء بعده بنفس الوضوح.',
+  'about.missionHeading': 'مهمتنا',
+  'about.subtitle':
+    '{{app}} هي لوحة تحكم CI/CD للفرق التي تريد مراقبة عمليات البناء والنشر والبيئات عبر كل مستودع — والشحن بثقة.',
   'artifacts.empty': 'لا توجد عناصر بعد.',
   'artifacts.heading': 'العناصر',
   'artifacts.loadError': 'تعذّر تحميل العناصر.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'البيئات',
   'environments.loadError': 'تعذّر تحميل البيئات.',
+  'environments.loading': 'جارٍ تحميل البيئات…',
   'environments.subheading': 'حالة النشر المباشرة عبر كل هدف.',
   'forgotPassword.runnerStatus': 'إعادة تعيين · نفق آمن',
+  'forgotPassword.success':
+    'إذا كان هناك حساب مرتبط بهذا البريد، فإنّ رابط إعادة التعيين في طريقه. يُرجى التحقّق من صندوق الوارد.',
   'insights.changeFailureRate': 'معدل فشل التغيير',
   'insights.deployFrequency': 'عمليات النشر / اليوم',
   'insights.empty': 'لا توجد بيانات كافية بعد.',
@@ -39,12 +53,17 @@ export const ui: UiTranslations = {
   'insights.loadError': 'تعذّر تحميل الرؤى.',
   'insights.meanP95': 'المتوسط {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'أبطأ خطوات خط الأنابيب',
   'insights.successRateHeading': 'معدل نجاح خط الأنابيب (آخر 14 يومًا)',
   'landing.choosePlan': 'اختر الخطة',
+  'landing.copyright': '© {{year}} {{app}}. اشحن بثقة.',
   'landing.ctaBody': 'بدون بطاقة ائتمان. بدون مهندس منصة. اجعل أول خط أنابيب أخضر في خمس دقائق.',
   'landing.ctaHeading': 'اشحن بثقة.',
   'landing.featuresEyebrow': '// ميزات المنصة',
   'landing.featuresHeading': 'صُنع من أجل الشاحنين، بواسطة الشاحنين',
+  'landing.heroSubtitle':
+    'خطوط أنابيب تنتهي في ثوانٍ. سجلات يمكنك قراءتها. عمليات نشر يمكنك الوثوق بها.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'تسعير بسيط ويمكن التنبؤ به',
@@ -83,7 +102,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'قيد التنفيذ الآن',
   'pipelines.metric.successCaption': '{{count}} من {{total}} عملية تشغيل',
   'pipelines.metric.successRate': 'معدل النجاح',
+  'pipelines.realtimeOn': 'الوقت الفعلي',
   'pipelines.subheading': 'تحديثات مباشرة من كل مستودع مراقَب.',
+  'pricing.advancedFeatures': 'الميزات المتقدمة: {{mark}}',
+  'pricing.canExport': 'تصدير البيانات: {{mark}}',
+  'pricing.maxArtifacts': 'منتجات {{count}}',
+  'pricing.maxBuilds': 'عمليات بناء {{count}}',
+  'pricing.maxPipelines': 'خطوط أنابيب {{count}}',
   'privacy.dataAccount': 'الحساب: الاسم، البريد الإلكتروني، كلمة المرور المُجزّأة، مستوى الخطة.',
   'privacy.intro':
     'يجمع {{app}} الحد الأدنى فقط من البيانات التي نحتاجها لتشغيل حساب التسليم المستمر الخاص بك: بريدك الإلكتروني، والمستودعات التي تربطها، والالتزامات وبيانات تعريف البناء التي يُنتجها منفّذوك، والأسرار التي تختار تخزينها معنا. لا نقرأ أبدًا الشيفرة المصدرية خارج منفّذ البناء؛ تُخزَّن عناصر البناء في حاوية S3 الخاصة بك عند إعدادها.',
@@ -91,6 +116,8 @@ export const ui: UiTranslations = {
     'نستخدم Stripe للفوترة، وMailgun للبريد الإلكتروني الخاص بالمعاملات، وAWS S3 لتخزين عناصر البناء. كلٌ منهم مُلزَم تعاقديًا بأقل نطاق من البيانات اللازم لتقديم خدمته.',
   'privacy.rightsBody':
     'يمكنك تصدير جميع بياناتك، وحذف حسابك في أي وقت من الإعدادات، وطلب سجل بجميع عمليات إرسال إشعارات الويب على حسابك. نستجيب لطلبات اللائحة العامة لحماية البيانات (GDPR) وقانون خصوصية المستهلك في كاليفورنيا (CCPA) خلال 30 يومًا.',
+  'privacy.subtitle':
+    'كيف يجمع {{app}} بياناتك ويخزّنها ويحميها أثناء تشغيل خطوط الأنابيب الخاصة بك.',
   'privacy.title': 'سياسة الخصوصية',
   'repositories.empty': 'لا توجد مستودعات مرتبطة.',
   'repositories.heading': 'المستودعات',
@@ -99,11 +126,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'جميع المستودعات',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'تعذّر تحميل المستودع.',
+  'repositoryDetail.meanDuration': 'متوسط المدة',
   'repositoryDetail.notFound': 'لم يُعثر على المستودع.',
+  'repositoryDetail.successRate': 'معدل النجاح',
   'repositoryDetail.totalBuilds': 'إجمالي عمليات البناء',
   'repositoryDetail.webhookActive': 'نشط',
   'repositoryDetail.webhookPaused': 'توقف مؤقتًا',
   'repositoryDetail.webhooksHeading': 'الويب هوكس',
+  'resetPassword.passwordLabel': 'كلمة المرور الجديدة',
   'resetPassword.runnerStatus': 'إعادة تعيين · تم التحقق من الرمز',
   'resetPassword.subtitle': 'اختر كلمة مرور قوية لم تستخدمها من قبل.',
   'resetPassword.tokenPlaceholder': 'الصق من البريد الإلكتروني',
@@ -116,6 +146,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'المستودعات التي يراقبها Conduit. افصل من مزوّد VCS لإيقاف استقبال الأحداث.',
   'settings.repositories.empty': 'لا توجد مستودعات مرتبطة بعد.',
+  'settings.repositories.heading': 'اتصالات المستودعات',
   'settings.repositories.loadError': 'تعذّر تحميل المستودعات.',
   'settings.secrets.addCta': 'إضافة سر',
   'settings.secrets.addError': 'فشل إضافة السر.',
@@ -123,6 +154,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'فشل حذف السر.',
   'settings.secrets.empty': 'لا توجد أسرار مخزّنة.',
   'settings.secrets.heading': 'الأسرار',
+  'settings.secrets.lastUsed': 'آخر استخدام {{date}}',
   'settings.secrets.loadError': 'تعذّر تحميل الأسرار.',
   'settings.secrets.neverUsed': 'لم يُستخدم أبدًا',
   'settings.secrets.rotateCta': 'تدوير',
@@ -146,6 +178,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'فشل تحديث الويب هوك.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'الفئة المجانية · 1,000 دقيقة بناء/شهريًا',
+  'terms.intro':
+    'بإنشائك حساب {{app}} فإنك توافق على هذه الشروط. وهي تغطي الاستخدام المقبول لخوادم البناء، وحدود اتفاقية مستوى الخدمة لدينا، والظروف التي يمكننا بموجبها تعليق حسابك أو إنهائه بسبب أحمال العمل المسيئة.',
   'terms.slaBody':
     'تستهدف خطط Pro وTeam وقت تشغيل شهري بنسبة 99.95٪ لـ API ومجموعة المنفّذين. تُقدَّم الخطة المجانية كما هي. تُبلَّغ الانقطاعات على status.conduit.dev وتُعتمَد وفق الصيغة الموجودة في فاتورتك.',
   'terms.terminationBody':

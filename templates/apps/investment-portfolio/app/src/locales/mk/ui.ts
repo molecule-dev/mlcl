@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Имате повратна информација, најдовте грешка или сакате нова функција? Обратете се од поставките на вашата сметка — секоја порака стигнува до вистинска личност од тимот. Забелешка: ништо овде не е инвестициски совет; вие останувате под контрола на секоја трансакција.',
+  'about.contactTitle': 'Контактирајте не',
+  'about.featureAttribution':
+    'Атрибуција на перформансите — разложете ги приносите по сектор, регион и класа на средства и споредете со репер во кој било период.',
+  'about.featureRebalance':
+    'Дисциплинирано ребалансирање — поставете целни алокации и толерантни опсези, гледајте како отстапувањето се означува рано и добијте трансакции што ве враќаат назад.',
+  'about.featureTax':
+    'Уредност на даночни документи — реализирани и нереализирани добивки, дивиденди и 1099 документи на едно место, со вклучени ознаки за wash-sale.',
+  'about.featureUnified':
+    'Едно обединето портфолио — акции, ETF-ови, взаемни фондови, обврзници и повеќе, собрани заедно од секоја брокерска сметка.',
+  'about.featureWatchlist':
+    'Листи за следење, вести и предупредувања за цени, за да дејствувате на она што е важно без врева.',
+  'about.intro':
+    '{{app}} е контролна табла за портфолио со повеќе средства за индивидуални инвеститори и независни советници. Акции, ETF-ови, взаемни фондови, обврзници, недвижен имот и готовина — секое поседување од секоја сметка, на едно место, со дисциплината на професионален оддел.',
+  'about.missionBody':
+    'Доброто инвестирање е главно дисциплина: јасна целна алокација, чесна атрибуција на перформансите и уредни даночни записи. {{app}} ги носи тие институционални навики на секого, за да можете да ребалансирате намерно наместо импулсивно — и никогаш да не го изгубите од вид она што всушност го прави вашето портфолио.',
+  'about.missionTitle': 'Нашата мисија',
   'about.pageTitle': 'За {{app}}',
   'argentAuthShell.brandEyebrow': 'Аргент · Алатки за богатство',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Не е инвестициски совет.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Контролна табла за портфолио за индивидуални инвеститори и советници кои сакаат дисциплинирано ребалансирање, прецизно припишување на перформансите и хигиена на даночните документи - без бучава.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · Минатите перформанси не гарантираат идни резултати.',
   'argentAuthShell.sampleChange': '+2.841 долари (+0,28%) денес',
+  'argentAuthShell.sampleLabel': 'Вредност на портфолиото',
   'argentAuthShell.sampleValue': '1.032.251 долари',
   'argentLayout.primaryNavLabel': 'Примарна навигација',
   'assetAllocationDonut.heading': 'Како се инвестираат вашите пари',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'денес',
   'assetDetail.txEmpty': 'Нема трансакции за овој тикер.',
   'assetDetail.txHeading': 'Вашите трансакции',
+  'auth.legalConsent.prefix': 'Продолжувајќи, се согласувате со {{appName}}',
   'common.and': 'и',
   'common.goToDashboard': 'Оди до контролна табла',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'денес',
   'dashboard.topHoldings.heading': 'Каде работат вашите пари',
   'dashboard.topHoldings.label': 'Најдобри холдинзи',
+  'forgotPassword.gotLinkCta': 'Имам врска за ресетирање →',
+  'forgotPassword.subheading':
+    'Внесете ја е-поштата на вашата Gavl сметка и ние ќе ви испратиме линк за безбедно ресетирање.',
   'forgotPassword.successBody':
     'Ако не го видите за неколку минути, проверете ја папката со спам или обидете се со друга е-пошта.',
   'forgotPassword.successSubheading':
     'Проверка {{email}} за ресетирање на линкот. Истекува за 60 минути.',
+  'forgotPassword.successTitle': 'Е-поштата за ресетирање е на пат',
   'holdingHighlightRow.todayLabel': 'денес',
   'holdings.addCta': 'Купи',
   'holdings.col.allocation': 'Алок',
@@ -58,6 +87,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Не е инвестициски совет. Минатите перформанси не гарантираат идни резултати.',
   'landing.eyebrow': 'Аргент · Платформа за алатки за богатство',
   'landing.features.heading': 'Сè што советник би изградил за себе.',
+  'landing.finalCta.body':
+    'Поврзете ја вашата брокерска сметка со два клика. {{appName}} го прави остатокот.',
+  'landing.finalCta.cta': 'Отворете ја вашата сметка на Argent',
   'landing.finalCta.heading': 'Вратете ја дисциплината во вашето портфолио.',
   'landing.footerSignup': 'Отвори сметка',
   'landing.getStarted': 'Отвори сметка',
@@ -65,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Видете ги цените',
   'landing.heroSubtitle':
     'Контролна табла за портфолио за индивидуални инвеститори и советници кои сакаат дисциплинирано ребалансирање, прецизно припишување на перформансите и хигиена на даночните документи - без бучава.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Преглед во живо од репрезентативно портфолио',
   'login.heading': 'Најавете се на Argent',
   'login.subheading':
@@ -76,6 +109,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} пред неколку часа',
   'news.justNow': 'токму сега',
   'news.loadError': 'Неуспешно вчитување на вестите.',
+  'planUpdated.body':
+    'Промената на наплатата е сега активна. Можете да го управувате планот во секое време од страницата за наплата.',
+  'planUpdated.retry': 'Обидете се повторно',
+  'planUpdated.verifyFailed': 'Сè уште не можевме да ја потврдиме вашата уплата.',
+  'planUpdated.verifyFailedBody':
+    'Вашето плаќање можеби сè уште се обработува. Обидете се повторно за момент.',
   'planUpdated.verifying': 'Се потврдува вашата уплата…',
   'portfolioHeroCard.label': 'Вредност на портфолиото',
   'pricing.holdingsLabel': 'имоти',
@@ -86,12 +125,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Поместување на распределбата',
   'rebalance.empty': 'Сè уште нема поставени цели.',
   'rebalance.executeCta': 'Место {{count}} тргување',
+  'rebalance.executeError': 'Не успеа да се постават трансакции.',
   'rebalance.executeOk': 'Поставено {{count}} тргувања. Погледнете ги на страницата Трансакции.',
+  'rebalance.executing': 'Поставување…',
   'rebalance.eyebrow': 'Ребаланс · Аргент советник',
   'rebalance.heading': 'Вратете го вашето портфолио во дисциплина',
   'rebalance.loadError': 'Не успеа да се вчита планот за ребалансирање.',
+  'rebalance.plan.driftLine': 'моментално {{current}}% · цел {{target}}%',
   'rebalance.planHeading': 'Аргент билет — преглед пред да го поставите',
   'rebalance.planLabel': 'Предложен план за трговија',
+  'rebalance.subheading':
+    'Редовите надвор од нивниот толерантен опсег активираат предлози за трансакции. {{appName}} дејствува само со ваша потврда.',
   'rebalance.summary.buyLabel': 'Купува',
   'rebalance.summary.buySub': 'позиции за надополнување',
   'rebalance.summary.driftLabel': 'Надвор од опсегот',
@@ -100,6 +144,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'низ предложените тргувања',
   'rebalance.summary.sellLabel': 'Продава',
   'rebalance.summary.sellSub': 'позиции за скратување',
+  'rebalanceDriftCard.drift': 'отстапување {{sign}}{{pct}}% · опсег ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'цел {{pct}} %',
   'reports.attributionHeading': 'Припишување на перформанси (1Г)',
   'reports.col.alpha': 'Алфа',
@@ -113,37 +158,68 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Година',
   'reports.gainsHeading': 'Реализирани и нереализирани добивки',
   'reports.noAttribution': 'Сè уште нема податоци за припишување.',
+  'reports.noGains': 'Сè уште нема податоци за реализирани/нереализирани добивки.',
   'reports.noPerformance': 'Сè уште нема податоци за перформансите.',
   'reports.noTaxDocs': 'Сè уште нема даночни документи.',
   'reports.performanceHeading': 'Перформанси наспроти репер',
   'reports.taxHeading': 'Даночни документи',
   'resetPassword.heading': 'Изберете силна нова лозинка',
+  'resetPassword.passwordPlaceholder': 'Нова лозинка',
   'resetPassword.subheading':
     'Argent ќе ве најави автоматски откако ќе ја поставите вашата лозинка.',
   'resetPassword.tokenPlaceholder': 'Ресетирај токен од е-пошта',
+  'settings.appearance.description': 'Префрлувајте помеѓу светлиот и темниот режим.',
   'settings.appearance.title': 'Изглед',
+  'settings.devices.body': 'Уредите моментално се најавени на вашата сметка.',
+  'settings.devices.empty': 'Не се пронајдени уреди.',
   'settings.devices.heading': 'Уреди',
+  'settings.devices.revokeWarning': 'Пристапот на овој уред ќе биде повлечен наскоро. Одјавете го?',
   'settings.devices.signOut': 'Одјави се',
   'settings.devices.thisDevice': 'Овој уред',
   'settings.devices.unknown': 'Непознат уред',
   'settings.linked.body':
     'Синхронизацијата на брокерските услуги бара конектор од трета страна (Plaid, Yodlee, итн.). Конфигурирајте го вашиот провајдер во вашата околина за да овозможите автоматски увоз.',
   'settings.linked.heading': 'Поврзани брокерски сметки',
+  'settings.linked.placeholder': 'Сè уште нема поврзани сметки.',
+  'settings.notifications.dividendsPaid': 'Исплатени дивиденди',
   'settings.notifications.error': 'Не може да се ажурира поставката.',
   'settings.notifications.priceAlerts': 'Известувања за цени',
+  'settings.notifications.rebalanceDrift': 'Отстапување при ребалансирање',
+  'settings.notifications.taxDocsReady': 'Даночните документи се готови',
   'settings.profile.advisor': 'Е-пошта на советник (опционално)',
   'settings.profile.heading': 'Профил',
   'settings.security.changePassword': 'Промени ја лозинката',
+  'settings.security.changePasswordTitle': 'Промени ја лозинката',
   'settings.security.changing': 'Се менува…',
+  'settings.security.confirmPassword': 'Лозинка',
+  'settings.security.currentPassword': 'Тековна лозинка',
   'settings.security.deleteAccount': 'Избриши сметка',
   'settings.security.deleteError': 'Не можеше да се избрише сметката.',
   'settings.security.deleteHeading': 'Избриши сметка',
+  'settings.security.deleteModalWarning':
+    'Ова трајно ја брише вашата сметка и податоци. Внесете ја вашата лозинка за потврда.',
+  'settings.security.deleteWarning':
+    'Трајно избришете ја вашата сметка и сите поврзани податоци. Ова не може да се врати.',
   'settings.security.deleting': 'Бришење…',
   'settings.security.heading': 'Безбедност',
   'settings.security.newPassword': 'Нова лозинка',
   'settings.security.password': 'Лозинка',
+  'settings.security.passwordError': 'Не можеше да се промени лозинката.',
+  'settings.security.passwordHint': 'Променете ја лозинката што ја користите за најавување.',
+  'settings.security.twoFactor': 'Двофакторска автентикација',
+  'settings.security.twoFactorCode': 'Код за автентикација',
+  'settings.security.twoFactorDisable': 'Оневозможи',
+  'settings.security.twoFactorDisableTitle': 'Оневозможи двофакторска автентикација',
   'settings.security.twoFactorEnable': 'Овозможи',
+  'settings.security.twoFactorEnableTitle': 'Овозможи двофакторска автентикација',
+  'settings.security.twoFactorHint': 'Додајте дополнителен слој заштита на вашата сметка.',
   'settings.security.twoFactorInvalidCode': 'Неважечки код',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'Двофакторски QR код',
+  'settings.security.twoFactorScan':
+    'Скенирајте го овој QR-код со вашата апликација за автентикација, потоа внесете го 6-цифрениот код.',
+  'settings.security.twoFactorUnavailable':
+    'Двофакторската автентикација не е достапна за оваа апликација.',
   'settings.security.twoFactorVerify': 'Потврди и овозможи',
   'settings.tax.error': 'Не може да се ажурира методот на оданочување.',
   'settings.tax.heading': 'Сметководство за даноци',
@@ -154,6 +230,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Методот на данок е зачуван.',
   'signup.eyebrow': 'Отвори сметка',
   'signup.heading': 'Отворете ја вашата сметка на Argent',
+  'signup.legalPrefix': 'Со создавање сметка се согласувате со {{appName}}',
   'signup.subheading': 'Бесплатно 30 дена. Не е потребна картичка. Откажете во секое време.',
   'signup.terms':
     'Со креирање на сметка, се согласувате со Условите за користење и Политиката за приватност на Argent.',

@@ -1,15 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Tes dúbidas, comentarios ou queres unha demostración para o teu equipo de contratación? Escribe a hello@example.com e unha persoa real do equipo responderache nun prazo de dous días laborables.',
   'about.contactHeading': 'Ponte en contacto',
+  'about.intro':
+    '{{app}} é un sistema de seguimento de candidatos para persoal de selección e responsables de contratación que queren sinal, non ruído: unha canle limpa, criba con IA que se explica por si mesma e analíticas de contratación, todo nun só lugar.',
+  'about.missionBody':
+    'A contratación é unha das decisións de maior risco que toma un equipo, e aínda así a maior parte segue en follas de cálculo dispersas e fíos de correo. {{app}} reúne todo o circuíto nun só taboleiro para que cada candidato estea rexistrado, cada entrevista estea estruturada e cada decisión sexa xusta, rápida e explicable.',
+  'about.missionHeading': 'A nosa misión',
   'auth.legalConsent': 'Ao continuar, aceptas as nosas',
   'billing.cardExp': 'Caduca {{exp}}',
+  'billing.cardLinkError': 'Non se puido iniciar o fluxo de actualización da tarxeta.',
   'billing.cardLinkSent':
     'Iniciouse o fluxo de actualización da tarxeta. Consulta o teu correo electrónico.',
+  'billing.cardLinkUnavailable':
+    'As actualizacións de tarxeta non están dispoñibles: esta instalación non ten ningún provedor de pagamento configurado.',
   'billing.cardMissing': 'Non hai tarxeta no arquivo',
   'billing.col.invoice': 'Factura',
   'billing.downloadUnavailable': '—',
   'billing.editCard': 'Actualizar tarxeta',
+  'billing.eyebrow': 'Plan e uso',
   'billing.invoiceHeading': 'Facturas recentes',
   'billing.invoicesEmpty': 'Aínda non hai facturas.',
   'billing.invoicesLoading': 'Cargando facturas…',
@@ -18,10 +29,11 @@ export const ui: UiTranslations = {
   'billing.nextChargeHint': 'Activado {{date}}',
   'billing.nextChargeLabel': 'Próximo cargo',
   'billing.planLoading': 'Cargando o plan…',
-  'billing.planSummary': '{{por asento}} / asento · {{asentos}} asentos · {{total}} / mes',
+  'billing.planSummary': '{{perSeat}} / praza · {{seats}} prazas · {{total}} / mes',
   'billing.seatsAdded': 'Número de asentos actualizado.',
   'billing.seatsError': 'Este plan é para un só posto. Actualiza a Team para usar varios postos.',
   'billing.seatsHint': '{{used}} de {{max}} incluído',
+  'billing.seatsLabel': 'Prazas activas',
   'billing.spentLabel': 'Gasto no que vai de ano',
   'billing.subheading': 'Subscrición, asentos, uso de cribado de IA e facturas.',
   'billing.unlimited': 'Ilimitado',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'candidateDetail.advanceError': 'Non se puido actualizar a etapa.',
   'candidateDetail.advanceFinal': 'Xa na fase final.',
   'candidateDetail.advanceHeading': 'Mover ao escenario',
+  'candidateDetail.appliedOn': 'Solicitou o {{date}} a través de {{source}}.',
   'candidateDetail.back': 'Todos os candidatos',
   'candidateDetail.loadError': 'Non se puido cargar o candidato.',
   'candidateDetail.noInterviews': 'Aínda non hai entrevistas.',
@@ -46,8 +59,14 @@ export const ui: UiTranslations = {
   'candidateDetail.notePlaceholder':
     'Comparte comentarios, impresións da entrevista, seguintes pasos...',
   'candidateDetail.noteSave': 'Gardar nota',
+  'candidateDetail.panel': 'Panel: {{panel}}',
+  'candidateDetail.panelScore': 'Puntuación do panel: {{score}}/100',
+  'candidateDetail.resumeMissing':
+    'Aínda non hai ningunha vista previa do currículo dispoñible para este candidato.',
   'candidateDetail.scheduleError': 'Non se puido programar a entrevista.',
+  'candidateDetail.scheduleHeading': 'Programar entrevista',
   'candidateDetail.scheduleInterviewer': 'Entrevistador/a',
+  'candidateDetail.scheduleInterviewerPlaceholder': 'Nome da persoa entrevistadora',
   'candidateDetail.scheduleMinutes': 'Duración (min)',
   'candidateDetail.scheduleMissing': 'Escolle primeiro unha data e unha hora.',
   'candidateDetail.scoreEmpty': 'Á espera da avaliación da IA.',
@@ -70,6 +89,7 @@ export const ui: UiTranslations = {
   'candidates.heading': 'Candidatos',
   'candidates.loadError': 'Non se puideron cargar os candidatos.',
   'candidates.searchPlaceholder': 'Buscar candidato, posto ou traballo\\u2026',
+  'candidates.sourceLabel': 'Orixe',
   'candidates.sourcePlaceholder': 'Fonte (LinkedIn, Referencia…)',
   'candidates.subheading':
     'Base de datos de candidatos interprofesionais con puntuación de IA e atribución de fontes.',
@@ -84,6 +104,7 @@ export const ui: UiTranslations = {
   'dashboard.kpi.interviews': 'Entrevistas desta semana',
   'dashboard.kpi.openJobs': 'Ofertas de traballo',
   'dashboard.loading': 'Cargando\\u2026',
+  'dashboard.newJobCta': 'Publicar unha oferta de traballo',
   'dashboard.subheading':
     'Estado da carteira de clientes, carga de entrevistas e ofertas en curso.',
   'dashboard.topEmpty': 'Aínda non hai candidatos.',
@@ -106,6 +127,7 @@ export const ui: UiTranslations = {
   'jobDetail.back': 'Todos os traballos',
   'jobDetail.descriptionEyebrow': 'Descrición do rol',
   'jobDetail.descriptionMissing': 'Aínda non se proporcionou ningunha descrición.',
+  'jobDetail.employmentType': 'Tipo de contrato: {{type}}',
   'jobDetail.empty': 'Aínda non hai solicitantes.',
   'jobDetail.funnelEyebrow': 'Funil de escenario',
   'jobDetail.funnelHeading': 'Situación dos solicitantes',
@@ -114,6 +136,7 @@ export const ui: UiTranslations = {
   'jobDetail.kpi.hires': 'Contratacións',
   'jobDetail.kpi.inInterview': 'En entrevista',
   'jobDetail.loadError': 'Non se puido cargar a tarefa.',
+  'jobDetail.requirementsHeading': 'Requisitos',
   'jobDetail.topEyebrow': 'Principais solicitantes',
   'jobDetail.topHeading': 'Primeiro emparellado por IA',
   'jobDetail.unavailable': 'Este traballo xa non aparece na lista.',
@@ -129,6 +152,7 @@ export const ui: UiTranslations = {
   'jobs.heading': 'Empregos',
   'jobs.loadError': 'Non se puideron cargar os traballos.',
   'jobs.newCta': 'Publicar traballo',
+  'landing.copyright': '© {{year}} {{app}} Construído con Molecule.',
   'landing.eyebrow': 'Contratación asistida por IA · v2',
   'landing.featuresEyebrow': 'Como funciona',
   'landing.featuresHeading': 'Sinal, non follas de cálculo.',
@@ -138,8 +162,11 @@ export const ui: UiTranslations = {
   'landing.heroProof':
     'Non se pode pagar con tarxeta de crédito. Cancelar en calquera momento. O SSO está dispoñible en Pro.',
   'landing.heroSecondary': 'Ver prezos →',
+  'landing.heroSubtitle':
+    'Unha canle kanban limpa, criba con IA que se explica por si mesma e analíticas de equidade por fase. Feito para persoal de selección e responsables de contratación que queren sinal, non ruído.',
   'landing.heroTitle': 'Contrata con claridade.',
   'landing.previewHeading': 'Enxeñeiro/a sénior de backend',
+  'landing.previewLabel': 'Canle · Enxeñaría',
   'landing.pricingEyebrow': 'Prezos',
   'landing.pricingHeading': 'Plans para equipos de todos os tamaños.',
   'landing.socialEyebrow': 'Usado pola contratación de equipos en',
@@ -155,6 +182,9 @@ export const ui: UiTranslations = {
   'loginBrandPanel.headlineLine2': 'claridade.',
   'loginBrandPanel.stage.interview': 'Entrevista',
   'loginBrandPanel.stage.screening': 'Cribado',
+  'loginBrandPanel.stage.sourced': 'Captado',
+  'loginBrandPanel.subtext':
+    'Arrastra os candidatos por Captado → Criba → Entrevista → Oferta → Contratado. A IA fai a criba. O pulso de equidade mantén cada fase honesta.',
   'nav.closeMenu': 'Pechar menú',
   'nav.legal': 'Legal',
   'nav.openMenu': 'Abrir menú',
@@ -163,6 +193,7 @@ export const ui: UiTranslations = {
     'Currículos clasificados segundo os requisitos; o recrutador revisa primeiro as mellores coincidencias.',
   'newJob.aiToggle': 'Avaliar automaticamente os novos solicitantes',
   'newJob.back': 'Volver aos traballos',
+  'newJob.basicsHeading': 'Datos básicos do posto',
   'newJob.compHeading': 'Compensación',
   'newJob.departmentLabel': 'Departamento',
   'newJob.descHeading': 'Descrición e requisitos',
@@ -172,6 +203,7 @@ export const ui: UiTranslations = {
   'newJob.failed': 'Non se puido gardar o traballo.',
   'newJob.heading': 'Publicar unha oferta de traballo',
   'newJob.publish': 'Publicar traballo',
+  'newJob.reqLabel': 'Requisitos (un por liña)',
   'newJob.salaryMax': 'Salario máximo (USD)',
   'newJob.salaryMin': 'Salario mínimo (USD)',
   'newJob.stagesHeading': 'Etapas da canalización',
@@ -186,6 +218,7 @@ export const ui: UiTranslations = {
   'newJob.type.fullTime': 'Xornada completa',
   'newJob.type.partTime': 'Tempo parcial',
   'newJob.typeLabel': 'Tipo de emprego',
+  'pipeline.advanceTo': 'Avanzar',
   'pipeline.allRoles': 'Todos os roles',
   'pipeline.daysInStage': '{{days}} d',
   'pipeline.empty': 'Sen candidatos',
@@ -199,13 +232,22 @@ export const ui: UiTranslations = {
     'Arrastra os candidatos entre as etapas. A puntuación da IA e os días na etapa móstranse en cada tarxeta.',
   'pipeline.viewTable': 'Vista de táboa →',
   'pipelineFunnelHero.totalLabel': 'En movemento',
+  'planUpdated.body':
+    'O cambio da túa facturación xa está activo. Podes xestionar o teu plan en calquera momento desde a páxina de facturación.',
+  'planUpdated.retry': 'Téntao de novo',
+  'planUpdated.verifyFailed': 'Aínda non puidemos confirmar o teu pagamento.',
+  'planUpdated.verifyFailedBody':
+    'É posible que o teu pago aínda estea procesándose. Téntao de novo nun momento.',
   'planUpdated.verifying': 'Confirmando o teu pago…',
   'pricing.heading': 'aplicacións',
+  'pricing.limits.applications': 'solicitudes',
   'pricing.limits.candidates': 'candidatos',
   'pricing.limits.jobs': 'traballos',
   'pricing.limits.scorecards': 'tarxetas de puntuación',
   'privacy.dataBody':
     'Correo electrónico da conta, contrasinal con hash, metadatos do perfil e os rexistros de candidatos/empregos que creas. Nunca vendemos nin compartimos estes datos.',
+  'privacy.intro':
+    '{{app}} trata datos de contratación por conta dos clientes. Consideramos confidenciais os rexistros de candidatos, os currículos e as comunicacións do equipo de contratación, e almacenámolos cifrados en repouso.',
   'privacy.retentionBody':
     'Podes eliminar a túa conta en calquera momento desde Configuración. Eliminamos os rexistros asociados nun prazo de 30 días, agás nos casos en que a lei esixa a súa conservación.',
   'privacy.title': 'Política de privacidade',
@@ -215,6 +257,7 @@ export const ui: UiTranslations = {
     'Permite que os candidatos e solicitantes vexan o teu nome e o teu posto nas ofertas de traballo.',
   'profile.publicLabel': 'Perfil público',
   'profile.publicOff': 'Oculto',
+  'profile.publicOn': 'Visible',
   'profile.recentEmpty': 'Aínda non hai colocacións.',
   'profile.recentError': 'Non se puideron cargar as colocacións recentes.',
   'profile.recentEyebrow': 'Colocacións recentes',
@@ -241,9 +284,14 @@ export const ui: UiTranslations = {
   'resetPassword.missingToken':
     'Falta a ligazón de restablecemento ou caducou. Solicita unha nova.',
   'resetPassword.passwordLabel': 'Novo contrasinal',
+  'resetPassword.signInCta': 'Iniciar sesión →',
+  'resetPassword.signInPrompt': 'Usa o teu novo contrasinal para iniciar sesión.',
   'resetPassword.subheading':
     'Escolle un contrasinal forte: de polo menos 12 caracteres con maiúsculas e minúsculas mesturadas.',
+  'settings.appearance.description': 'Alternar entre o modo claro e o modo escuro.',
   'settings.appearance.title': 'Aparencia',
+  'settings.deleteAccountModal.confirm':
+    'Introduce o teu contrasinal para confirmar. Esta acción é permanente.',
   'settings.emailTemplates.empty': 'Aínda non hai modelos configurados.',
   'settings.emailTemplates.heading': 'Modelos de correo electrónico',
   'settings.emailTemplates.loadError': 'Non se puideron cargar os modelos.',
@@ -254,10 +302,15 @@ export const ui: UiTranslations = {
   'settings.integrations.statusDisconnected': 'Sen conexión',
   'settings.integrations.updateError': 'Non se puido actualizar a integración.',
   'settings.name': 'Nome',
+  'settings.passwordHelp': 'Actualiza o contrasinal que usas para iniciar sesión.',
+  'settings.revokeDeviceWarning': 'O acceso deste dispositivo revogarase en breve. Pechar sesión?',
   'settings.saveEmail': 'Gardar correo electrónico',
   'settings.signOutDevice': 'Pechar sesión',
   'settings.stages.empty': 'Aínda non hai etapas configuradas.',
+  'settings.stages.heading': 'Etapas da canalización',
+  'settings.stages.help': 'As fases polas que pasan os candidatos. Elimina as que non uses.',
   'settings.stages.loadError': 'Non se puideron cargar as etapas.',
+  'settings.stages.loading': 'Cargando fases…',
   'settings.stages.removeAria': 'Eliminar {{name}} escenario',
   'settings.stages.removeError': 'Non se puido eliminar o escenario.',
   'settings.team.empty': 'Aínda non tes compañeiros de equipo. Convida ao primeiro de embaixo.',
@@ -273,9 +326,16 @@ export const ui: UiTranslations = {
   'settings.team.removeError': 'Non se puido eliminar o membro.',
   'settings.twoFactorCode': 'Código de autenticación',
   'settings.twoFactorDisable': 'Desactivar',
+  'settings.twoFactorDisableTitle': 'Desactivar a autenticación de dous factores',
   'settings.twoFactorEnable': 'Activar',
+  'settings.twoFactorEnableTitle': 'Activar a autenticación de dous factores',
   'settings.twoFactorInvalidCode': 'Código non válido',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Código QR de dous factores',
+  'settings.twoFactorScan':
+    'Escanea este código QR coa túa aplicación de autenticación e introduce o código de 6 díxitos.',
+  'settings.twoFactorUnavailable':
+    'A autenticación de dous factores non está dispoñible para esta aplicación.',
   'settings.twoFactorVerify': 'Verificar e activar',
   'settings.unknownDevice': 'Dispositivo descoñecido',
   'signup.confirmPlaceholder': 'Volva introducir o seu contrasinal',
@@ -286,6 +346,8 @@ export const ui: UiTranslations = {
     'Crea un taboleiro de contratación en 60 segundos. Convida ao equipo máis tarde.',
   'terms.acceptableUseBody':
     'Non abusarás do servizo, non executarás extracción automática de datos, non tentarás violar a seguridade nin o usarás para discriminar contra as clases protexidas.',
+  'terms.intro':
+    'Ao usar {{app}} aceptas estes termos. O servizo ofrécese tal cal, coas obrigas e limitacións que se describen a continuación.',
   'terms.subscriptionBody':
     'Os plans de pago renóvanse mensualmente ata que se cancelen. Podes cancelar desde Facturación en calquera momento; o teu plan permanece activo ata o final do período actual.',
   'terms.title': 'Condicións de servizo',

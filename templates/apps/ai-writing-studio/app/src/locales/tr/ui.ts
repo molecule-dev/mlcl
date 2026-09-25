@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Geri bildiriminiz mi var, bir hata mı buldunuz yoksa bir özellik mi istiyorsunuz? Hesap ayarlarınızdan bize ulaşın — her mesaj ekibimizdeki gerçek bir kişiye ulaşır.',
   'about.contactTitle': 'İletişime geçin',
   'about.eyebrow': 'Hakkında',
+  'about.intro':
+    '{{app}}, üslubuna derinden önem veren yazarlar için bir yapay zekâ yazı stüdyosudur. Uzun soluklu yapay zekâ üretimini sakin bir editör, SEO puanlaması ve görsel üretimiyle birleştirir; böylece bir yazıyı boş sayfadan yayına kadar taşırken sesinizi asla kaybetmezsiniz.',
+  'about.missionBody':
+    'Yapay zekânın sizin yerinize değil, yanınızda yazması gerektiğine inanıyoruz. {{app}} önerileri kendi sözcüklerinizden görünür biçimde ayrı tutar, oluşturduğunuz her belgenin sahibi olarak sizi bırakır ve araçları yazmanın önünden çeker.',
+  'about.missionTitle': 'Misyonumuz',
   'about.pageTitle': '{{app}} hakkında',
   'aiSuggestionCard.applied': 'Öneri uygulandı',
   'aiSuggestionCard.apply': 'Uygula',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Trafik kaynakları',
   'billing.activePlan': 'Abonelik etkin.',
   'billing.aiWordsLabel': 'Dahil edilen AI nesilleri',
+  'billing.cancelFailed': 'Abonelik iptal edilemedi.',
   'billing.cancelPlan': 'Planı iptal et',
+  'billing.cancelPlanConfirm': 'İptal edilsin mi?',
   'billing.cancelSuccess': 'Abonelik iptal edildi. Planı güncellemek için yenileyin.',
   'billing.changePlan': 'Plan değiştir',
   'billing.col.invoice': 'Fatura',
@@ -42,26 +51,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'Planları görüntüle',
   'common.goToDashboard': 'Panele Git',
   'dashboard.continueWriting': 'Yazmaya devam et',
+  'dashboard.createFirst': 'Belge oluştur',
   'dashboard.days.sat': 'Cmt',
   'dashboard.days.sun': 'Paz',
   'dashboard.defaultWriterName': 'Yazar',
   'dashboard.greeting': 'Günaydın, {{name}}',
   'dashboard.loadError': 'Panonuz yüklenemedi.',
+  'dashboard.loading': 'Stüdyonuz yükleniyor…',
   'dashboard.loadingDocs': 'Son belgeler yükleniyor…',
   'dashboard.noDocuments': 'Henüz belge yok — ilkinizi başlatın.',
   'dashboard.startWriting': 'Yeni bir belge başlat',
+  'dashboard.streakBody': 'Bu hafta {{words}} kelime yazdınız.',
   'dashboard.streakTitle': '{{count}} günlük seri',
+  'dashboard.subgreeting': 'Kitaplığınızda {{count}} belge var — ivmeyi koruyun.',
+  'documentCard.seoScoreTitle': 'SEO puanı: {{score}}/100',
+  'documents.createNew': 'Yeni belge oluştur',
   'documents.empty': 'Kitaplığınız bekliyor — ilk belgenizi başlatın.',
+  'documents.emptyFiltered': 'Filtrelerinizle eşleşen belge yok.',
   'documents.loadError': 'Belgeler yüklenemedi.',
   'documents.loading': 'Kitaplığınız yükleniyor…',
   'documents.new': 'Yeni belge',
+  'documents.searchAriaLabel': 'Belgelerde ara',
   'documents.searchPlaceholder': 'Belgeleri ara…',
   'documents.subtitle': 'Kitaplığınızda {{count}} belge.',
   'documents.title': 'Belgeler',
   'editor.aiPanelTitle': 'Plume Intelligence',
+  'editor.aiSuggestion.empty':
+    "Etkin iyileştirme yok. İkinci bir göz istediğinizde {{appName}}'den öneri isteyin.",
   'editor.aiSuggestion.failed': 'Şu anda öneriler yüklenemedi.',
   'editor.aiSuggestion.loadingBody': 'Bir netlik iyileştirmesi oluşturuluyor…',
   'editor.backToDocuments': 'Tüm belgeler',
+  'editor.bodyAriaLabel': 'Belge gövdesi',
   'editor.closeAiPanel': 'AI panelini kapat',
   'editor.createFailed': 'Belge oluşturulamadı.',
   'editor.exported': '{{format}} olarak dışa aktarıldı.',
@@ -78,18 +98,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'İyileştirme iste',
   'editor.saveBeforePublish': 'Yayımlamadan önce belgeyi kaydedin.',
   'editor.status.chars': '{{count}} karakter',
+  'editor.status.readTime': '{{minutes}} dk okuma',
   'editor.status.savedAt': '{{time}} kaydedildi',
   'editor.status.saveError': 'Kaydetme başarısız',
+  'editor.status.unsaved': 'Henüz kaydedilmedi',
   'editor.titleAriaLabel': 'Belge başlığı',
   'editor.titlePlaceholder': 'Adsız belge',
   'editor.toggleAiPanel': 'AI panelini aç/kapat',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'yazar@ornek.com',
+  'forgotPassword.sent': '{{email}} kayıtlıysa, sıfırlama bağlantısı yolda.',
   'imageGenerator.failed': 'Görüntü oluşturma başarısız.',
   'imageGenerator.generate': 'Görüntü Oluştur',
   'imageGenerator.generating': 'Oluşturuluyor...',
   'imageGenerator.placeholder': 'Oluşturmak istediğiniz görüntüyü tanımlayın...',
+  'imageGenerator.promptAriaLabel': 'Görsel istemi',
+  'imageGenerator.subtitle': 'Bir kapak görseli tanımlayın, yapay zekâ onu resmetsin.',
   'imageGenerator.title': 'AI Görüntü Oluşturucu',
+  'landing.aiSuggestionBody':
+    '42. katın balkonunda duran Elias, şehrin ona baskı yaptığını hissetti — rüzgâr ortamdaki uğultuyu sıyırıp attı ve onu parlayan ızgaranın üzerinde buz gibi, sessiz bir boşlukta asılı bıraktı.',
   'landing.eyebrow': 'Ciddi yazarlar için AI yazma stüdyosu',
   'landing.featuresHeading': 'Yoldan çekilen araçlar',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -99,14 +126,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Düzyazısına, temposuna ve hassasiyetine önem veren yazarlar için tasarlanmış bir stüdyo. Plume sizin yerinize değil, yanınızda yazar.',
   'landing.heroTitle.eloquence': 'belagat',
+  'landing.heroTitle.intelligence': 'Zekâ buluşuyor ',
   'landing.nav.testimonials': 'Tanıklıklar',
   'landing.plan.cta': 'Bu planla başla',
   'landing.plan.popular': 'En sevilen',
   'landing.pricingEyebrow': 'Fiyatlandırma',
   'landing.pricingHeading': 'Uygulamanıza uyanı seçin',
   'landing.sampleDocTitle': 'Sessizliğin Mimarisi',
+  'landing.sampleParagraph1':
+    'Şehir hiçbir zaman gerçekten sessiz olmadı. Gecenin en derin saatlerinde bile beton temellerden alçak bir uğultu titreşirdi — metro trenlerinin ve havalandırma bacalarının mekanik kalp atışı.',
+  'landing.sampleParagraph2.after': ' cama karşı.',
+  'landing.sampleParagraph2.before': 'Ama ',
   'landing.sampleParagraph2.highlight':
     '42. katın balkonunda dururken, Elias derin bir izolasyon hissi yaşadı',
+  'landing.showcaseBody':
+    'Bir cümleyi vurgulayın, {{appName}} bir iyileştirme önersin. Kabul edin, düzenleyin ya da geçin. Öneriler her zaman mor renkte gösterilir; böylece neyi sizin yazdığınızı, neyin önerildiğini bilirsiniz.',
+  'landing.showcaseHeading': 'İkinci bir göz — asla ikinci bir yazar.',
   'landing.startWriting': 'Yazmaya başla',
   'login.emailPlaceholder': 'yazar@ornek.com',
   'login.failed': 'Oturum açma başarısız',
@@ -121,8 +156,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Panoyu aç',
   'notFound.title': 'Bu bölüm henüz yazılmadı.',
   'plumeSidebarLayout.primaryNavLabel': 'Birincil gezinme',
+  'pricing.maxDocuments': '{{count}} belge',
+  'pricing.maxGenerate': '{{count}} yapay zekâ üretimi',
+  'pricing.maxImages': '{{count}} görsel üretimi',
   'privacy.data':
     "Hesap e-postanız ve hash'lenmiş şifre. Oluşturduğunuz belgeler ve şablonlar. Faturalandırma ve analiz için AI öneri günlükleri (giriş + çıkış). Stripe müşteri + abonelik tanımlayıcıları; tam kart numaralarını asla saklamayız.",
+  'privacy.intro':
+    "Yalnızca {{app}}'i çalıştırmak için gereken verileri toplarız: e-postanız, oluşturduğunuz belgeler ve yaptığınız yapay zekâ istekleri. Yazılarınızı veya istemlerinizi asla satmayız.",
   'profile.loadError': 'Profiliniz yüklenemedi.',
   'profile.loading': 'Profiliniz yükleniyor…',
   'profile.loadingPublished': 'Yayımlanmış belgeler yükleniyor…',
@@ -133,7 +173,13 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Yeni şifre',
   'seoAnalysis.backToEditor': 'Düzenleyiciye dön',
   'seoAnalysis.eyebrow': 'SEO analizi',
+  'seoAnalysis.heroBody':
+    'Uygulanacak {{count}} öneri. Her biri yapısal veya anahtar sözcük iyileştirmesi; kırmızı bayraklar duvarı değil.',
+  'seoAnalysis.heroBodyEmpty':
+    'Okunabilirlik, anahtar sözcük yoğunluğu ve yapıyı puanlamak için "Analizi çalıştır"a tıklayın.',
   'seoAnalysis.heroEmpty': 'Henüz analiz yok. Bu taslağı puanlamak için birini çalıştırın.',
+  'seoAnalysis.heroNeedsWork': 'Bazı yapısal iyileştirmeler erişimi artıracak.',
+  'seoAnalysis.heroStrong': 'Güçlü bir yazı — mükemmelliğe küçük iyileştirmeler kaldı.',
   'seoAnalysis.historyEmpty': 'Önceki analiz kaydedilmedi.',
   'seoAnalysis.historyTitle': 'Analiz geçmişi',
   'seoAnalysis.keywordEmpty':
@@ -160,8 +206,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': "Plume'u nasıl yazdığınıza göre ayarlayın.",
   'settings.toggleIntegrationFailed': 'Entegrasyon güncellemesi başarısız.',
   'settings.writing.aiSuggestions': 'Yazarken satır içi AI önerileri',
+  'settings.writing.aiSuggestionsBody':
+    'Siz yazarken iyileştirmeleri gösterir. Öneriler her cümle için isteğe bağlıdır.',
   'settings.writing.autoSave': 'Her 30 saniyede bir otomatik kaydet',
+  'settings.writing.autoSaveBody':
+    '{{appName}} taslağınızın bir anlık görüntüsünü tutar; böylece herhangi bir sekmeden kurtarabilirsiniz.',
   'settings.writing.notifyEmail': 'Bana haftalık yazma özetleri e-postala',
+  'settings.writing.notifyEmailBody':
+    'Seriler, taslaklar ve SEO iyileştirmelerinden oluşan kısa bir pazar özeti.',
   'settings.writing.title': 'Yazma tercihleri',
   'settings.writing.tone': 'Varsayılan ton önayarı',
   'signup.emailPlaceholder': 'yazar@ornek.com',
@@ -173,8 +225,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'Açıklama sağlanmadı.',
   'templates.subtitle':
     'Test edilmiş bir editoryal çerçeveden başlayın, sonra kendinize ait yapın.',
+  'terms.intro':
+    "Bu koşullar {{app}}'i kullanımınızı düzenler. Hesap oluşturarak hizmeti yasal yazarlık için kullanmayı ve hesap bilgilerinizi gizli tutmayı kabul edersiniz.",
   'terms.license':
     'Oluşturduğunuz her belge, şablon ve AI nesli için sahipliği elinizde tutarsınız. Çalışmanızı barındırmak ve size sunmak ve seçtiğiniz bağlı sağlayıcılar aracılığıyla AI isteklerini işlemek için münhasır olmayan bir lisansa ihtiyacımız var.',
   'writingStreakHeroCard.change': '{{sign}}{{amount}} kelime',
   'writingStreakHeroCard.greeting': 'İyi günler, {{name}}',
+  'writingStreakHeroCard.subtitle': 'Bu hafta yazılan kelimeler — {{count}} günlük seri',
+  'writingStreakHeroCard.tagline': 'Günde bir sayfa ilham perisini işin içinde tutar.',
 }

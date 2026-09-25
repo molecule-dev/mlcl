@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ప్రశ్నలు, ఫీడ్‌బ్యాక్, లేదా మోడల్‌ను గందరగోళపరిచిన డేటాసెట్ ఉన్నాయా? యాప్‌లోని సహాయ మెనూ నుండి {{app}} టీమ్‌ను సంప్రదించండి — ప్రతి సందేశం ఉత్పత్తిపై పనిచేసే నిజమైన వ్యక్తికి చేరుతుంది.',
+  'about.contactTitle': 'మాతో మాట్లాడండి',
   'about.eyebrow': 'గురించి',
+  'about.intro':
+    '{{app}} అనేది ముడి డేటాను సమాధానాలుగా మార్చే AI డేటా విశ్లేషకుడు. CSV అప్‌లోడ్ చేయండి లేదా వేర్‌హౌస్‌ను కనెక్ట్ చేయండి, సాధారణ ఇంగ్లీషులో ప్రశ్న అడగండి, సరైన చార్ట్, దానికి ఆధారమైన పట్టిక, మరియు దాన్ని ఉత్పత్తి చేసిన SQL పొందండి — {{tagline}}.',
+  'about.missionBody':
+    'విశ్లేషణలకు బ్యాక్‌లాగ్ టికెట్ మరియు వారం రోజుల వేచి ఉండటం అవసరం కాకూడదు. {{app}} ఒక టెక్స్ట్ బాక్స్ వెనుక సమర్థుడైన విశ్లేషకుడిని అందిస్తుంది, తద్వారా ప్రొడక్ట్, ఆప్స్, మరియు ఫైనాన్స్ టీమ్‌లు నిమిషాల్లో తమ ప్రశ్నలకు సమాధానాలు కనుగొనగలరు — ప్రతి ఫలితం పునరుత్పాదకంగా మరియు ఆడిట్ చేయదగినదిగా ఉంటుంది.',
+  'about.missionTitle': 'మా లక్ష్యం',
   'about.pageTitle': '{{app}} గురించి',
+  'about.whatYouGet': 'మీకు లభించేది',
+  'askClarionBar.ariaLabel': '{{appName}}ను ఒక ప్రశ్న అడగండి',
   'askClarionBar.askCta': 'అడగండి',
   'askClarionBar.placeholder':
     'మీ డేటా గురించి ఒక ప్రశ్న అడగండి — ఉదాహరణకు “Q3 ఆదాయం ప్రకారం టాప్ 10 కస్టమర్లు”',
@@ -20,16 +30,21 @@ export const ui: UiTranslations = {
   'dashboard.insightsHeading': 'ఇటీవలి అంతర్దృష్టులు',
   'dashboard.noInsights':
     'ఇంకా అంతర్దృష్టులు ఏమీ లేవు — ప్రారంభించడానికి ఒక డేటాసెట్‌ను అప్‌లోడ్ చేయండి.',
+  'dashboard.subhead':
+    'నిన్నటి నుండి మూడు కొత్త అంతర్దృష్టులు. ఒక అసాధారణతను నిశితంగా పరిశీలించాల్సి ఉంది.',
   'dashboard.uploadCta': 'డేటాను అప్‌లోడ్ చేయండి',
   'datasetCard.analyzedPrefix': 'విశ్లేషించబడింది {{when}}',
   'datasetCard.cols': 'కోల్స్',
   'datasetCard.rows': 'వరుసలు',
+  'datasetDetail.aiHeading': 'AI అంతర్దృష్టులు',
   'datasetDetail.back': 'డేటాసెట్‌లు',
   'datasetDetail.col.example': 'ఉదాహరణ',
   'datasetDetail.col.name': 'Field',
   'datasetDetail.col.nullable': 'రద్దు చేయదగినది',
   'datasetDetail.col.unique': 'ప్రత్యేకమైన',
   'datasetDetail.cols': 'కాలమ్స్',
+  'datasetDetail.lineageEmpty':
+    'అప్‌లోడ్ నుండి దిగుమతి చేయబడింది — అప్‌స్ట్రీమ్ ట్రాన్స్‌ఫార్మ్‌లు లేవు.',
   'datasetDetail.loadError': 'డేటాసెట్‌ను లోడ్ చేయడంలో విఫలమైంది.',
   'datasetDetail.notFound': 'డేటాసెట్ కనుగొనబడలేదు.',
   'datasetDetail.queriesEmpty': 'ఈ డేటాసెట్‌పై ఇంకా ఎలాంటి క్వెరీలు సేవ్ చేయబడలేదు.',
@@ -43,17 +58,22 @@ export const ui: UiTranslations = {
   'datasetDetail.tab.${tk}': 'Field',
   'datasets.empty': 'ఇంకా డేటాసెట్‌లు లేవు — ప్రారంభించడానికి ఒకదాన్ని అప్‌లోడ్ చేయండి.',
   'datasets.eyebrow': '{{count}} డేటాసెట్‌లు · {{rows}} వరుసలు',
+  'datasets.heading': 'డేటాసెట్‌లు',
   'datasets.loadError': 'డేటాసెట్‌లను లోడ్ చేయడంలో విఫలమైంది.',
   'datasets.subhead':
     'క్లారియన్ సూచికీకరించి, ప్రశ్నించగలిగేలా చేసిన ఫైళ్లు. స్కీమా, గణాంకాలు మరియు వంశవృక్షాన్ని పరిశీలించడానికి ఒక కార్డ్‌పై క్లిక్ చేయండి.',
   'datasets.uploadCta': 'డేటాసెట్‌ను అప్‌లోడ్ చేయండి',
+  'forgotPassword.backPrompt': 'అన్నీ గుర్తుందా? ',
   'forgotPassword.checkSpam':
     'ఒక నిమిషంలోపు అది మీకు కనిపించకపోతే, మీ స్పామ్ ఫోల్డర్‌ను తనిఖీ చేయండి లేదా మళ్లీ పంపడానికి ప్రయత్నించండి.',
   'forgotPassword.emailRequired': 'ఇమెయిల్ అవసరం',
+  'forgotPassword.resend': 'మళ్లీ పంపండి',
   'forgotPassword.sendError': 'రీసెట్ ఇమెయిల్ పంపలేకపోయింది',
   'forgotPassword.sentHeading': 'మీ ఇమెయిల్‌ను తనిఖీ చేయండి',
   'forgotPassword.sentSubheading':
     'మేము రీసెట్ లింక్‌ను పంపాము {{email}} ఈ లింక్ 30 నిమిషాలలో గడువు ముగుస్తుంది.',
+  'forgotPassword.subheading':
+    'మీ పని ఇమెయిల్ నమోదు చేయండి, కొత్త పాస్‌వర్డ్ సెట్ చేయడానికి మేము మీకు లింక్ పంపుతాము.',
   'googleSignInButton.label': 'Googleతో కొనసాగించండి',
   'insightFeedCard.viewCta': 'వీక్షణ',
   'insightHeroCard.subtitle':
@@ -62,35 +82,53 @@ export const ui: UiTranslations = {
   'kpiTileGrid.momSuffix': 'గత నెలతో పోలిస్తే',
   'landing.closing.cta': 'క్లారియన్‌ను ఉచితంగా ప్రయత్నించండి',
   'landing.closing.heading': 'డాష్‌బోర్డ్‌లను నిర్మించడం ఆపండి. ప్రశ్నలు అడగడం మొదలుపెట్టండి.',
+  'landing.closing.subhead':
+    '14 రోజులు ఉచితం. ఒక CSV తీసుకురండి, ఐదు నిమిషాల్లో మీ మొదటి మూడు అంతర్దృష్టులు పొందండి.',
   'landing.features.eyebrow': 'క్లారియన్ ఎలా పనిచేస్తుంది',
   'landing.features.heading': 'ఒక CSV ఫైల్‌ను పంపండి. ఒక ప్రశ్న అడగండి. సమాధానం పొందండి.',
+  'landing.features.subhead':
+    'SQL అవసరం లేదు. డాష్‌బోర్డ్ విస్తరణ లేదు. ప్రతి సమాధానం ఒక చార్ట్, ఒక పట్టిక, మరియు అమలు చేసిన SQL — ఒక క్లిక్‌తో ఎగుమతి చేయదగినది.',
   'landing.hero.eyebrow': 'AI డేటా అనలిస్ట్ · ప్రొడక్ట్ & ఆప్స్ టీమ్‌ల కోసం',
   'landing.hero.primaryCta': 'క్లారియన్‌ను 14 రోజుల పాటు ఉచితంగా ప్రయత్నించండి',
   'landing.hero.secondaryCta': 'నమూనా క్వెరీని చూడండి',
   'landing.hero.subtitle':
     'డేటాసెట్‌ను అప్‌లోడ్ చేయండి, సులభమైన ఆంగ్లంలో ప్రశ్నలు అడగండి, సరైన చార్ట్‌ను తిరిగి పొందండి. క్లారియన్ SQL, స్కీమా డిస్కవరీ మరియు లీనియేజ్‌ను నిర్వహిస్తుంది — కాబట్టి విశ్లేషకులు 10 రెట్లు వేగంగా ఫలితాలను అందించగలరు.',
+  'landing.hero.title': '{{tagline}}.',
   'landing.hero.trust1': 'క్రెడిట్ కార్డ్ లేదు',
   'landing.hero.trust2': 'SOC 2 రకం II',
   'landing.hero.trust3': 'ప్రతి చార్టులో వంశవృక్షం',
   'landing.nav.tryFree': 'ఉచితంగా ప్రయత్నించండి',
+  'landing.preview.cta': 'ఒక క్వెరీ ప్రయత్నించండి',
   'landing.preview.label': 'ఈ నెలలో అంతర్దృష్టులు వెలుగులోకి వచ్చాయి',
   'landing.proof.heading': 'గంభీరమైన విశ్లేషణ బృందాల కోసం నిర్మించబడింది',
   'login.hidePassword': 'పాస్‌వర్డ్‌ను దాచండి',
+  'login.newUserPrompt': '{{appName}}కు కొత్తా? ',
   'login.showPassword': 'పాస్‌వర్డ్‌ను చూపించు',
   'login.subheading': 'మీ డేటాను మరింత మెరుగైన ప్రశ్నలు అడగడం కొనసాగించడానికి సైన్ ఇన్ చేయండి.',
+  'login.trialCta': 'మీ {{days}}-రోజు ట్రయల్ ప్రారంభించండి',
   'mobileNav.closeMenu': 'నావిగేషన్ మెనూను మూసివేయండి',
   'mobileNav.openMenu': 'నావిగేషన్ మెనూను తెరవండి',
+  'planUpdated.body':
+    'మీ బిల్లింగ్ మార్పు ఇప్పుడు యాక్టివ్గా ఉంది. మీ ప్లాన్ను బిల్లింగ్ పేజీ నుండి ఎప్పుడైనా నిర్వహించవచ్చు.',
+  'planUpdated.retry': 'మళ్ళీ ప్రయత్నించండి',
+  'planUpdated.verifyFailed': 'మేము మీ చెల్లింపును ఇంకా ధృవీకరించలేకపోయాము.',
+  'planUpdated.verifyFailedBody':
+    'మీ చెల్లింపు ఇంకా ప్రాసెస్ అవుతూ ఉండవచ్చు. కాసేపటి తర్వాత మళ్ళీ ప్రయత్నించండి.',
   'planUpdated.verifying': 'మీ చెల్లింపు నిర్ధారిస్తోంది…',
+  'pricing.limits.advanced': 'అధునాతన ఫీచర్లు',
   'queryEditor.aiBadge': 'AI ద్వారా రూపొందించబడింది',
   'queryEditor.aiSummary': 'AI సారాంశం',
   'queryEditor.copyFailed': 'క్లిప్‌బోర్డ్‌కు కాపీ చేయలేకపోయాను.',
   'queryEditor.dataHeading': 'డేటా',
+  'queryEditor.emptyBody':
+    '{{appName}} మూడు భాగాల్లో సమాధానం ఇస్తుంది: ఒక చార్ట్, అంతర్లీన డేటా పట్టిక, మరియు అమలు చేసిన SQL.',
   'queryEditor.emptyHeading': 'ఒక సూచనను ఎంచుకోండి లేదా మీ స్వంతంగా టైప్ చేయండి',
   'queryEditor.emptyResult': 'సమాధానం రాలేదు. వేరే ప్రశ్నను ప్రయత్నించండి.',
   'queryEditor.exportCsv': 'CSV',
   'queryEditor.eyebrow': 'క్లారియన్‌ను అడగండి · సహజ-భాషా ప్రశ్న',
   'queryEditor.heading': 'మీరు ఏమి తెలుసుకోవాలనుకుంటున్నారు?',
   'queryEditor.questionEyebrow': 'మీరు అడిగారు',
+  'queryEditor.runFailed': 'ఆ క్వెరీని అమలు చేయలేకపోయాము. దయచేసి మళ్లీ ప్రయత్నించండి.',
   'queryEditor.sqlHeading': 'ఉత్పత్తి చేయబడిన SQL',
   'queryEditor.subhead':
     'ప్రశ్నను సరళమైన ఆంగ్లంలో టైప్ చేయండి. క్లారియన్ చార్ట్‌ను ఎంచుకుని, SQLను అమలు చేసి, దాని మూలాన్ని మీకు చూపిస్తుంది.',
@@ -107,8 +145,11 @@ export const ui: UiTranslations = {
   'reports.subhead':
     'సేవ్ చేసిన విశ్లేషణలను మీరు పంచుకోవచ్చు, షెడ్యూల్ చేయవచ్చు మరియు ఎగుమతి చేయవచ్చు. పూర్తి నివేదికను తెరవడానికి ఏదైనా థంబ్‌నెయిల్‌పై క్లిక్ చేయండి.',
   'reportThumbnailCard.onDemand': 'డిమాండ్‌పై',
+  'reportThumbnailCard.runPrefix': '{{when}} అమలు చేయండి',
+  'resetPassword.hidePassword': 'పాస్‌వర్డ్‌ను దాచండి',
   'resetPassword.newPasswordLabel': 'కొత్త పాస్‌వర్డ్',
   'resetPassword.newPasswordPlaceholder': 'కొత్త పాస్‌వర్డ్',
+  'resetPassword.passwordTooShort': 'పాస్వర్డ్ కనీసం {{min}} అక్షరాలు ఉండాలి',
   'resetPassword.resetFailed': 'రీసెట్ విఫలమైంది',
   'resetPassword.showPassword': 'పాస్‌వర్డ్‌ను చూపించు',
   'resetPassword.subheading':
@@ -124,19 +165,26 @@ export const ui: UiTranslations = {
   'settings.apiKeys.createCta': 'ఉత్పత్తి చేయండి',
   'settings.apiKeys.created': 'కొత్త API కీ రూపొందించబడింది.',
   'settings.apiKeys.createError': 'API కీని సృష్టించలేకపోయాము.',
+  'settings.apiKeys.creating': 'జనరేట్ చేస్తోంది…',
   'settings.apiKeys.deleted': 'API కీ రద్దు చేయబడింది.',
   'settings.apiKeys.deleteError': 'API కీని రద్దు చేయలేకపోయాము.',
+  'settings.apiKeys.empty': 'ఇంకా API కీలు లేవు — పైన ఒకటి జనరేట్ చేయండి.',
   'settings.apiKeys.heading': 'API కీలు',
   'settings.apiKeys.namePlaceholder': 'కీ పేరు (ఉదా. CI బాట్)',
   'settings.apiKeys.rotateCta': 'తిప్పండి',
   'settings.apiKeys.rotated': 'API కీ మార్చబడింది. మీ ఇంటిగ్రేషన్‌లను అప్‌డేట్ చేసుకోండి.',
+  'settings.apiKeys.rotateError': 'API కీని రొటేట్ చేయలేకపోయాము.',
+  'settings.appearance.description': 'లైట్ మరియు డార్క్ మోడ్‌ల మధ్య మారండి.',
   'settings.appearance.title': 'స్వరూపం',
   'settings.dangerZone': 'ప్రమాదకర ప్రాంతం',
   'settings.integrations.body':
     'ఫైళ్లను అప్‌లోడ్ చేయడానికి బదులుగా లైవ్ డేటాను క్వెరీ చేయడానికి వేర్‌హౌస్‌ను కనెక్ట్ చేయండి.',
   'settings.integrations.connected': 'కోసం కనెక్షన్ నవీకరించబడింది {{source}} .',
   'settings.integrations.connectedTag': 'కనెక్ట్ చేయబడింది',
+  'settings.integrations.error': 'ఇంటిగ్రేషన్‌ను అప్‌డేట్ చేయలేకపోయింది.',
   'settings.integrations.heading': 'డేటా మూలాలు',
+  'settings.revokeDeviceWarning':
+    'ఈ పరికరం యొక్క యాక్సెస్ త్వరలో రద్దు చేయబడుతుంది. సైన్ అవుట్ చేయాలా?',
   'settings.security.heading': 'భద్రత',
   'settings.signOutDevice': 'సైన్ అవుట్',
   'settings.team.empty':
@@ -144,21 +192,30 @@ export const ui: UiTranslations = {
   'settings.team.removed': 'జట్టు సభ్యుడిని తొలగించారు.',
   'settings.twoFactorCode': 'ప్రమాణీకరణ కోడ్',
   'settings.twoFactorDisable': 'నిలిపివేయండి',
+  'settings.twoFactorDisableTitle': 'రెండు-కారకాల ప్రామాణీకరణను నిలిపివేయండి',
   'settings.twoFactorEnable': 'ప్రారంభించండి',
+  'settings.twoFactorEnableTitle': 'రెండు-కారకాల ప్రామాణీకరణను ప్రారంభించండి',
   'settings.twoFactorInvalidCode': 'చెల్లని కోడ్',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'రెండు-కారకాల QR కోడ్',
+  'settings.twoFactorScan':
+    'మీ ప్రామాణీకరణ యాప్తో ఈ QR కోడ్ను స్కాన్ చేయండి, ఆపై 6-అంకెల కోడ్ను నమోదు చేయండి.',
+  'settings.twoFactorUnavailable': 'ఈ యాప్‌కు టూ-ఫ్యాక్టర్ అథెంటికేషన్ అందుబాటులో లేదు.',
   'settings.twoFactorVerify': 'ధృవీకరించి, ప్రారంభించండి',
   'sideNavBar.appSubtitle': 'ఏఐ డేటా అనలిస్ట్',
   'sideNavBar.datasets': 'డేటాసెట్‌లు',
   'sideNavBar.newAnalysis': 'కొత్త విశ్లేషణ',
   'sideNavBar.queries': 'ప్రశ్నలు',
   'signup.failed': 'నమోదు విఫలమైంది',
+  'signup.haveAccount': 'ఇప్పటికే ఖాతా ఉందా? ',
+  'signup.hidePassword': 'పాస్‌వర్డ్‌ను దాచండి',
   'signup.showPassword': 'పాస్‌వర్డ్‌ను చూపించు',
   'signup.subheading':
     '14 రోజులు ఉచితం. క్రెడిట్ కార్డ్ అవసరం లేదు. ఒక CSV తీసుకురండి — మిగతాదంతా క్లారియన్ చూసుకుంటుంది.',
   'topNavBar.help': 'సహాయం',
   'topNavBar.lastDays': 'చివరిది {{రోజులు}} రోజులు',
   'topNavBar.userProfileAlt': 'వినియోగదారు ప్రొఫైల్',
+  'upload.dropPrompt': 'ఫైల్‌ను ఇక్కడ డ్రాప్ చేయండి లేదా బ్రౌజ్ చేయడానికి క్లిక్ చేయండి',
   'upload.maxSize': 'మాక్స్ {{size}}',
   'upload.noRecent': 'ఇంకా అప్‌లోడ్‌లు ఏమీ లేవు.',
   'upload.recentHeading': 'ఇటీవలి అప్‌లోడ్‌లు',
@@ -169,9 +226,13 @@ export const ui: UiTranslations = {
   'upload.uploading': 'అప్‌లోడ్ అవుతోంది…',
   'upload.viewCta': 'డేటాసెట్‌లు →',
   'uploadDropZone.eyebrow': 'ఫైల్‌ను డ్రాప్ చేయండి · లేదా బ్రౌజ్ చేయడానికి క్లిక్ చేయండి',
+  'uploadDropZone.fileInputLabel': 'అప్‌లోడ్ చేయడానికి ఒక ఫైల్ ఎంచుకోండి',
+  'uploadDropZone.maxSize':
+    'గరిష్ఠ ఫైల్ పరిమాణం {{size}} · అతిపెద్ద డేటాసెట్‌ల కోసం CSV ప్రాధాన్యం',
   'uploadDropZone.readyEyebrow': 'విశ్లేషించడానికి సిద్ధంగా ఉంది',
   'uploadDropZone.subtitle':
     'మీ ఫైల్ చేరిన వెంటనే క్లారియన్ స్కీమాను స్వయంచాలకంగా గుర్తించి, గణాంకాలను అమలు చేసి, అసాధారణతలను వెలికితీస్తుంది.',
+  'uploadDropZone.title': 'మీ డేటాసెట్‌ను అప్‌లోడ్ చేయండి',
   'uploadDropZone.unknownType': 'తెలియని రకం',
   'userMenu.datasets': 'నా డేటాసెట్‌లు',
 }

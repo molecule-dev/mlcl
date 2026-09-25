@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Kontakta oss',
   'about.eyebrow': 'Om',
+  'about.featureConnections':
+    'En anslutningshanterare som lagrar och färgkodar dina databaser på ett säkert sätt — autentiseringsuppgifter krypteras i vila, aldrig i klartext.',
+  'about.featureMonitoring':
+    'Live-övervakning av frågeprestanda och databasaktivitet, med tangentbordsgenvägar och kommandopalett för att styra allt handsfree.',
+  'about.featurePlans':
+    'Planer som växer med dig — Free för enskilt arbete, Pro och Team för fler anslutningar, längre frågehistorik, exporter och avancerade funktioner.',
+  'about.featureQueryEditor':
+    'En Monaco-baserad SQL-redigerare med frågehistorik, sparade frågor och CSV-export av dina resultat med ett klick.',
+  'about.featureSchema':
+    'En schemautforskare och tabellbläddrare för att navigera bland databaser, tabeller och kolumner, och sedan bläddra, filtrera och redigera rader direkt.',
+  'about.missionTitle': 'Vårt uppdrag',
   'authShell.commands': 'Kommandon',
   'authShell.ssoSupported': 'SSO stöds',
   'common.run': 'Kör',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Frågor',
   'connections.schema': 'Schema',
   'connections.subtitle': 'Hantera dina databasanslutningar.',
+  'connections.test': 'Test',
   'databaseAdminLayout.adminRole': 'Administratörsroll',
   'databaseAdminLayout.commandPalette': 'Kommandopalett',
   'databaseAdminLayout.commands': 'kommandon',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Ny anslutning',
   'databaseAdminLayout.queries': 'Frågor',
   'databaseAdminLayout.ready': 'Redo',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Sök kommandon, frågor, tabeller…',
   'databaseAdminLayout.user': 'Användare',
   'editConnection.confirmDelete': 'Ta bort den här anslutningen?',
   'editConnection.deleteButton': 'Ta bort anslutning',
+  'editConnection.newPassword': 'Nytt lösenord (lämna tomt för att behålla)',
   'editConnection.saved': 'Anslutning sparad.',
   'editConnection.title': 'Redigera anslutning',
   'forgotPassword.success': 'Om det kontot finns är en återställningslänk på väg.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Framgångar',
   'monitoring.title': 'Övervakning',
   'monitoring.totalQueries': 'Totalt antal frågor',
+  'nav.schema': 'Schema',
   'newConnection.database': 'Databas',
   'newConnection.engine': 'Motor',
   'newConnection.host': 'Värd',
@@ -81,6 +97,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Ingen anslutning är bunden till den här snutten.',
   'savedQuery.notBound': 'Inte bunden',
   'savedQuery.title': 'Sparad fråga',
+  'schema.columns': 'Kolumner',
   'schema.foreignKeys': 'Referensnycklar',
   'schema.indexes': 'Index',
   'schemaExplorer.browseRows': 'Bläddra bland raderna',
@@ -89,14 +106,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'kan vara null',
   'schemaExplorer.colType': 'typ',
   'schemaExplorer.noColumns': 'Inga kolumner.',
+  'schemaExplorer.noForeignKeys': 'Inga främmande nycklar.',
   'schemaExplorer.noIndexes': 'Inga index.',
   'schemaExplorer.noTables': 'Inga tabeller',
   'schemaExplorer.pickATable': 'Välj en tabell från sidofältet.',
   'schemaExplorer.tables': 'Tabeller',
   'schemaExplorer.title': 'Schemautforskare',
+  'settings.session': 'Pass',
   'settings.subtitle': 'Hantera ditt konto och din plan.',
   'signup.heading': 'Skapa ditt Quarry-konto',
   'signup.tagline': 'Öppna åtkomst på under en minut.',
   'tableBrowser.noRows': 'Den här tabellen har inga rader än.',
+  'tableBrowser.subtitle': 'Bläddrar bland rader från din fjärrdatabas.',
   'tableBrowser.title': 'Bläddrar bland rader från din fjärrdatabas.',
 }

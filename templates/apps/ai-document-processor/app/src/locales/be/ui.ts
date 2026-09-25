@@ -1,8 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Маеце пытанне, знайшлі памылку або хочаце дэма для вашай каманды? Напішыце нам з налад акаўнта — кожнае паведамленне трапляе да рэальнага чалавека з каманды.',
   'about.contactTitle': 'Звяжыцеся з намі',
+  'about.intro':
+    '{{app}} ператварае стосы сканаваных дакументаў і PDF у структураваныя, даступныя для пошуку, сістэматызаваныя даныя. Загрузіце рахункі, квітанцыі, дагаворы або формы, і няхай ШІ чытае, вымае, класіфікуе і сістэматызуе іх — з колерамі ўпэўненасці, каб ваша каманда правярала толькі тое, што сапраўды патрабуе чалавека.',
+  'about.missionBody':
+    "Папяровая руціна не павінна з'ядаць дзень вашай каманды. Мы верым, што кожнае выманне павінна быць тлумачальным і аўдытаваным — каб вы маглі давяраць аўтаматызацыі, не губляючы паперовы след. {{app}} створаны, каб эканоміць гадзіны на кожным стосе, захоўваючы чалавека ў цыкле там, дзе гэта важна.",
+  'about.missionTitle': 'Наша місія',
+  'about.subtitle':
+    'OCR, выманне з дапамогай ШІ, класіфікацыя і аўтаматычная сістэматызацыя вашых дакументаў.',
   'about.title': 'Пра {{app}}',
+  'about.whatYouGetTitle': 'Што вы атрымліваеце',
   'authShell.backToLanding': '← Назад да пасадкі',
   'common.goToDashboard': 'Перайсці да панэлі',
   'common.no': '—',
@@ -10,6 +20,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Сёння · Агляд аперацый',
   'dashboard.heading': 'Аналітыка дакументаў',
+  'dashboard.metric.accuracy': 'Сярэдняя дакладнасць',
   'dashboard.metric.filed': 'Пададзена сёння',
   'dashboard.metric.filedCaption': 'Маршрутызацыя па правілах падачы',
   'dashboard.metric.processed': 'Апрацавана сёння',
@@ -23,11 +34,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'Загружана',
   'dashboard.recent.heading': 'Нядаўнія дакументы',
+  'dashboard.recent.typeUnknown': 'Чакае класіфікацыі',
   'dashboard.subheading':
     'Кожная старонка класіфікавана, вынята і падшыта — з упэўненымі колерамі, каб рэцэнзія заставалася сканцэнтраванай.',
   'documentDetail.audit.heading': 'Храналогія аўдыту',
+  'documentDetail.audit.subheading':
+    'Кожны крок, зроблены з гэтым дакументам, з адказным выканаўцам.',
   'documentDetail.back': 'Усе дакументы',
   'documentDetail.downloadHint': 'Выкарыстоўвайце «Спампаваць», каб адкрыць арыгінальны файл.',
+  'documentDetail.extracted.empty': 'Пакуль не выманена ніводнага поля.',
   'documentDetail.extracted.heading': 'Вынятыя палі',
   'documentDetail.extracted.subheading':
     '{{count}} палі · націсніце любое поле, каб вылучыць яго на старонцы',
@@ -56,13 +71,24 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} дакументы ў вашай бібліятэцы, адсартаваныя ў парадку найноўшых.',
   'documents.uploadCta': 'Загрузіць дакументы',
+  'documentTypeBreakdown.barAria': 'Склад дакументаў па тыпах',
   'documentTypeBreakdown.empty': 'Пакуль што ніякіх дакументаў не апрацавана.',
   'documentTypeBreakdown.subtitle': '{{total}} апрацаваны',
   'documentTypeBreakdown.title': 'Склад дакумента',
+  'forgotPassword.backToSignIn': '← Назад да ўваходу',
   'forgotPassword.checkEmail': 'Праверце сваю электронную пошту',
   'forgotPassword.tip': 'Не атрымалі? Праверце спам або паспрабуйце іншы адрас.',
+  'landing.copyright':
+    '© {{year}} {{app}}. Створана для аперацыйных каманд, якія аўдытуюць кожную старонку.',
+  'landing.ctaBody':
+    '14-дзённы пробны перыяд. Карта не патрэбна. Скасаваць можна ў любы час. Створана для аперацыйных каманд, якія хутка рухаюцца і павольна аўдытуюць.',
   'landing.ctaHeading': 'Перастаньце друкаваць квітанцыі. Пачніце іх падаваць.',
   'landing.eyebrow': 'OCR · Выманне · Падаванне з дапамогай штучнага інтэлекту',
+  'landing.featuresHeading': 'Інтэлект для дакументаў, які сам сябе тлумачыць',
+  'landing.heroSubtitle':
+    'Загрузіце стос рахункаў, квітанцый, дагавораў або форм. {{app}} класіфікуе, вымае і сістэматызуе іх — з колерамі ўпэўненасці, каб ваша каманда правярала толькі тое, што сапраўды патрабуе чалавека.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': "Штодзённы аб'ём · апошнія 7 дзён",
   'landing.sampleCardLabel': 'Дакументы апрацаваны сёння',
   'landing.sampleCardSubtitle':
     'Сярэдняя дакладнасць 96,2% для рахункаў-фактур, квітанцый і формаў.',
@@ -76,6 +102,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Адкрыць мэтавую старонку',
   'notFound.title': 'Гэтай старонкі няма ў файле',
+  'parcelaHeroCard.accuracy': 'Сярэдняя дакладнасць {{value}}% па ўсіх выманнях',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % у параўнанні з учорашнім днём',
   'parcelaHeroCard.title': 'Дакументы апрацаваны сёння',
   'parcelaLayout.primaryNavLabel': 'Асноўная навігацыя',
@@ -83,6 +110,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'дакументы',
   'pricing.processingLabel': 'апрацоўка заданняў',
   'resetPassword.confirmPlaceholder': 'Паўтарыце новы пароль',
+  'resetPassword.hidePassword': 'Схаваць пароль',
   'resetPassword.passwordLabel': 'Новы пароль',
   'resetPassword.showPassword': 'Паказаць пароль',
   'resetPassword.subtitle': 'Выберыце тэкст даўжынёй не менш за 8 сімвалаў.',
@@ -100,10 +128,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Не атрымалася загрузіць правілы.',
   'rules.loading': 'Загрузка правілаў…',
   'rules.matched30d': '{{count}} дакументы, якія супадалі за апошнія 30 дзён',
+  'rules.neverUsed': 'Ніколі не выкарыстоўваўся',
   'rules.newRule': 'Новае правіла',
   'rules.saveError': 'Не атрымалася захаваць правіла.',
   'rules.subheading':
     'Паведамляйце сістэме, куды павінен ісці кожны тып дакумента. Умовы ланцуюцца зверху ўніз — першы супадзенне перамагае.',
+  'rules.templatesEmpty': 'Пакуль няма шаблонаў вымання.',
   'rules.templatesHeading': 'Шаблоны для здабывання',
   'rules.templatesSubheading':
     'Схемы палёў, якія выкарыстоўвае экстрактар для кожнага тыпу дакумента.',
@@ -113,17 +143,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Назва працоўнай прасторы',
   'settings.account.subheading':
     'Імя і асноўны адрас электроннай пошты для апавяшчэнняў і гісторыі аўдыту.',
+  'settings.api.confirmRevoke': 'Пацвердзіць?',
   'settings.api.copyOnce': 'Скапіруйце гэты ключ — ён больш не будзе паказвацца',
   'settings.api.createdOn': 'Створана {{date}}',
   'settings.api.empty': 'Пакуль няма ключоў API. Згенеруйце адзін вышэй.',
   'settings.api.error': 'Не атрымалася стварыць ключ.',
+  'settings.api.generating': 'Генерацыя…',
+  'settings.api.heading': 'Ключы API',
   'settings.api.labelPlaceholder': 'Ключавая метка (напрыклад, CI uploader)',
+  'settings.api.loading': 'Загрузка ключоў…',
   'settings.api.newKey': 'Згенераваць ключ',
   'settings.api.subheading':
     'Выкарыстоўвайце іх для адпраўкі дакументаў са сцэнарыя або вашай ERP. Павярніце любую клавішу ў любы час.',
   'settings.integrations.heading': 'Інтэграцыі з падачай дакументаў',
   'settings.integrations.subheading':
     'Адпраўляйце падшытыя дакументы на воблачны дыск або ў чат, дзе ўжо працуе ваша каманда.',
+  'settings.subheading':
+    'Кіруйце акаўнтам, ключамі API і інтэграцыямі для сістэматызацыі вашай працоўнай прасторы {{app}}.',
+  'signup.hidePassword': 'Схаваць пароль',
   'signup.identityPrompt': 'Як нам да вас звяртацца?',
   'signup.showPassword': 'Паказаць пароль',
   'signup.subtitle': '14 дзён бясплатна, карта не патрэбна.',
@@ -131,6 +168,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Памылка загрузкі.',
   'upload.eyebrow': 'Прыём',
   'upload.heading': 'Загрузіць дакументы',
+  'upload.queue.clear': 'Ачысціць завершаныя',
   'upload.queue.col.confidence': 'Упэўненасць',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Выяўленне…',
@@ -143,5 +181,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Або перацягніце некалькі файлаў адначасова для пакетнага вымання, класіфікацыі і захоўвання.',
   'uploadDropZone.cta': 'Выберыце файлы',
+  'uploadDropZone.maxSize': 'Макс. 25 МБ на файл · Наскрозь зашыфравана',
   'uploadDropZone.title': 'Перацягніце дакументы, каб пачаць апрацоўку',
 }

@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite é uma plataforma de automação de fluxos de trabalho que conecta gatilhos, condições de IA e ações de múltiplas etapas para que as equipes possam mover trabalho entre sistemas sem escrever código de cola.',
+  'about.philosophy':
+    'Cada fluxo de trabalho é um grafo de pequenos passos observáveis. Cada passo registra suas entradas, saídas e tempo, para que possa ser inspecionado, reproduzido ou revertido. Componha-os visualmente, versione-os como código.',
   'about.title': 'Sobre o Dendrite',
   'authShell.brand': 'Dendrite',
   'authShell.support': 'Suporte',
@@ -15,9 +17,15 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Mudar plano',
   'billing.description':
     'Acompanhe o uso, gerencie seu plano e baixe faturas para a contabilidade.',
+  'billing.eyebrow': 'Conta · Plano e uso',
+  'billing.failedLabel': 'Execuções com falha · 24h',
+  'billing.invoicesEmpty':
+    'Ainda não há faturas. Elas aparecerão aqui após sua primeira renovação paga.',
   'billing.invoicesTitle': 'Histórico de faturas',
   'billing.planNoteFree':
     'Camada grátis — {{runs}} execuções e {{workflows}} fluxos ativos. Faça upgrade para limites maiores.',
+  'billing.planNotePaid':
+    'Plano pago — {{runs}} execuções e {{workflows}} fluxos de trabalho ativos.',
   'billing.runsLabel': 'Execuções nas últimas 24 h',
   'billing.tiersBlurb':
     'Compare cada camada — execuções, fluxos ativos, recursos avançados e suporte — na página de preços dedicada.',
@@ -35,9 +43,13 @@ export const ui: UiTranslations = {
     'Nenhuma integração registrada. Configure chaves de provedor para habilitar os bonds.',
   'connections.error': 'Não foi possível carregar as conexões.',
   'connections.eyebrow': 'Integrações · {{connected}} conectadas',
+  'connections.loading': 'Carregando integrações…',
+  'connections.openEnv':
+    'Para conectar este provedor, defina sua chave de API em api/.env e reinicie o servidor.',
   'dashboard.description': '{{active}} fluxos ativos. {{failed}} falharam nas últimas 24 horas.',
   'dashboard.error': 'Não foi possível carregar o painel.',
   'dashboard.eyebrow': 'Operações · ao vivo',
+  'dashboard.hero.label': 'Execuções hoje',
   'dashboard.hero.medianLatency': 'Latência p50',
   'dashboard.hero.queue': 'Profundidade da fila',
   'dashboard.hero.success': 'Sucesso',
@@ -45,13 +57,16 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Duração mediana',
   'dashboard.kpi.failedRuns': 'Falharam · 24 h',
   'dashboard.kpi.outOf': 'de {{total}} no total',
+  'dashboard.kpi.successRate': 'Taxa de sucesso · 24h',
   'dashboard.loading': 'Carregando painel…',
   'dashboard.recentRuns.empty': 'Ainda não há execuções. Disparar um fluxo vai povoar este feed.',
   'dashboard.recentRuns.title': 'Execuções recentes',
   'dashboard.recentRuns.viewAll': 'Abrir execuções →',
+  'dashboard.recentWorkflows.browse': 'Ver modelos →',
   'dashboard.recentWorkflows.empty':
     'Ainda não há fluxos. Instale um modelo ou construa um do zero.',
   'dashboard.recentWorkflows.title': 'Executados recentemente',
+  'dashboard.run.col.run': 'Correr',
   'dashboard.run.col.started': 'Iniciado',
   'dashboard.run.col.trigger': 'Gatilho',
   'dashboard.run.col.workflow': 'Fluxo',
@@ -87,6 +102,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Fluxo',
   'executions.description':
     'Cada execução de fluxo, cada nova tentativa, cada saída de passo — tudo observável.',
+  'executions.empty.filter': 'Nenhuma execução corresponde a este filtro.',
   'executions.empty.first': 'Ainda não há execuções — dispare um fluxo para preencher esta lista.',
   'executions.error': 'Não foi possível carregar as execuções.',
   'executions.eyebrow': 'Histórico de execuções',
@@ -96,30 +112,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Carregando histórico de execuções…',
   'executions.title': 'Execuções',
   'forgotPassword.confirmation': 'Link de redefinição enviado para {{email}}.',
+  'forgotPassword.subhead': 'Digite seu e-mail para receber um link de redefinição.',
   'forgotPassword.successSubhead':
     'Enviamos um link de redefinição para {{email}}. Ele expira em 30 minutos.',
   'help.connections.body':
     'Os passos de IA, e-mail e armazenamento exigem chaves de provedor definidas no arquivo api/.env. Uma vez configurada uma chave, a integração correspondente aparece como conectada na página de Conexões.',
+  'help.connections.cta': 'Abrir conexões →',
   'help.connections.title': 'Conectando provedores',
   'help.gettingStarted.body':
     'Novos fluxos podem ser instalados a partir da biblioteca de modelos ou construídos do zero no construtor de fluxos. Cada fluxo tem um gatilho (manual, webhook ou cron) e uma sequência de passos que executam em ordem.',
+  'help.gettingStarted.cta': 'Explorar a biblioteca de modelos →',
+  'help.gettingStarted.title': 'Primeiros passos',
   'help.intro':
     'Encontre respostas a perguntas comuns sobre construção de fluxos, configuração de conexões e interpretação de saídas de execução. Os tópicos mais comuns estão listados abaixo; para qualquer assunto não abordado, contate o administrador do seu espaço de trabalho.',
   'help.runs.body':
     'Cada execução registra cada passo independentemente com status (sucesso, falha, ignorado) e um trecho de saída. A página de detalhe da execução mostra o rastreamento passo a passo completo mais métricas inferidas.',
+  'help.runs.cta': 'Abrir execuções →',
   'help.runs.title': 'Lendo a saída de execução',
   'help.title': 'Central de ajuda',
   'integrationCard.manage': 'Gerenciar',
   'landing.brand': 'Dendrite',
   'landing.demo.action.subtitle': 'Rodízio · território',
+  'landing.demo.action.title': 'Notificar o responsável',
   'landing.demo.condition.subtitle': 'Classificador de intenção IA',
+  'landing.demo.condition.title': 'Pontuação ≥ média?',
   'landing.demo.trigger.subtitle': 'POST /forms/contact',
   'landing.demo.trigger.title': 'Webhook de entrada',
+  'landing.features.body':
+    'Gatilhos disparam. Condições ramificam. Ações entregam o trabalho. Componha-os visualmente, versione-os como código.',
   'landing.features.heading': 'Três tipos de nó. Infinitas formas.',
   'landing.footer.help': 'Ajuda',
   'landing.footer.tagline': 'Inteligência em movimento',
+  'landing.hero.body':
+    '{{appName}} é o motor de fluxos de trabalho para equipes de operações que superaram o Zapier. Gatilho, condição, ação — conectados a todos os sistemas que você realmente usa.',
   'landing.hero.eyebrow': 'Inteligência em movimento',
   'landing.hero.headline': 'Conecte sua stack. Deixe o trabalho acontecer.',
+  'landing.hero.primaryCta': 'Crie seu primeiro fluxo de trabalho',
   'landing.hero.proof.ai': 'Nós de IA integrados',
   'landing.hero.proof.free': 'Grátis para 1k execuções/mês',
   'landing.hero.proof.soc2': 'SOC 2 Type II',
@@ -127,10 +155,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Pague por execuções, não por assentos.',
   'landing.templates.body':
     'Fluxos pré-conectados para cada equipe — vendas, suporte, dev-ops, finanças. Instale com um clique; ajuste qualquer coisa.',
+  'landing.templates.cta': 'Cadastre-se para explorar modelos →',
   'landing.templates.eyebrow': 'Comece em segundos',
   'landing.templates.heading': 'Uma biblioteca de receitas avaliadas.',
   'landing.templates.signupHint': 'Cadastre-se para instalar',
   'login.hidePassword': 'Ocultar senha',
+  'login.noAccount': 'Novo no Tessera?',
   'login.showPassword': 'Mostrar senha',
   'login.subhead': 'Entre para manter suas automações fluindo.',
   'mobileNav.drawerLabel': 'Navegação principal',
@@ -146,8 +176,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Execute um fluxo para começar a povoar este feed.',
   'notifications.empty.title': 'Você está em dia',
   'notifications.eyebrow': '{{n}} não lidas',
+  'planUpdated.body':
+    'A sua alteração de faturação está agora ativa. Pode gerir o seu plano a qualquer momento na página de faturação.',
+  'planUpdated.retry': 'Tentar novamente',
+  'planUpdated.verifyFailed': 'Ainda não foi possível confirmar o seu pagamento.',
+  'planUpdated.verifyFailedBody':
+    'Seu pagamento ainda pode estar sendo processado. Tente novamente em instantes.',
   'planUpdated.verifying': 'A confirmar o seu pagamento…',
   'pricing.heading': 'execuções',
+  'pricing.runsSuffix': 'execuções',
   'pricing.workflowsSuffix': 'fluxos',
   'privacy.collect.body':
     'Coletamos o endereço de e-mail com o qual você se cadastra, os fluxos que você configura e metadados sobre cada execução (hora de início, hora de término, status). Nunca coletamos ou armazenamos conteúdos de payload de gatilhos ou saídas de passos além do necessário para exibir no visualizador de execução ao proprietário do espaço.',
@@ -163,12 +200,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Não foi possível atualizar a senha.',
   'resetPassword.newPassword': 'Nova senha',
   'resetPassword.subhead': 'Escolha algo que só você adivinharia.',
+  'settings.appearance.description': 'Alternar entre o modo claro e o modo escuro.',
+  'settings.appearance.title': 'Aparência',
   'settings.billingShortcut.cta': 'Abrir cobrança',
   'settings.billingShortcut.description':
     'Plano, uso e faturas ficam na página dedicada de cobrança.',
   'settings.danger.confirm':
     'Tem certeza? Isso colocará seu espaço de trabalho na fila para exclusão.',
   'settings.danger.confirmYes': 'Sim, enfileirar exclusão',
+  'settings.danger.deleteWorkspace.cta': 'Excluir espaço de trabalho',
   'settings.danger.deleteWorkspace.hint':
     'Remove todos os fluxos, execuções e conexões após um período de carência de 14 dias.',
   'settings.danger.deleteWorkspace.title': 'Excluir espaço de trabalho',
@@ -179,9 +219,14 @@ export const ui: UiTranslations = {
     'Gerencie sua conta, espaço de trabalho, integrações e cobrança em um único lugar.',
   'settings.notifications.description':
     'Escolha quais eventos enviam página para você, e-mail ou ficam em silêncio.',
+  'settings.notifications.failures.hint':
+    'Notificação por e-mail e no aplicativo a cada execução com falha.',
+  'settings.notifications.failures.title': 'Falhas de fluxo de trabalho',
   'settings.notifications.product.hint': 'E-mails ocasionais sobre novos modelos e recursos.',
+  'settings.notifications.product.title': 'Atualizações do produto',
   'settings.notifications.weekly.hint':
     'Resumo de segunda-feira pela manhã das execuções e economias da semana passada.',
+  'settings.notifications.weekly.title': 'Resumo semanal',
   'settings.profile.description':
     'Como você aparece dentro do executor de fluxos. Usado na atividade do espaço.',
   'settings.profile.noEmail': 'Nenhum e-mail registrado',
@@ -189,12 +234,25 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Não foi possível salvar as alterações do perfil.',
   'settings.profile.unnamedUser': 'Usuário sem nome',
   'settings.security.audit.hint': 'Transmita cada ação para o seu SIEM via webhook.',
+  'settings.security.audit.title': 'Encaminhamento do log de auditoria',
   'settings.security.description': 'Autenticação de dois fatores, SSO e sessões ativas.',
   'settings.security.sso.hint': 'Disponível nos planos Scale e Enterprise.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint':
+    'Obrigatório para qualquer ação do proprietário do espaço de trabalho.',
+  'settings.security.totp.title': 'Autenticação de dois fatores (TOTP)',
   'settings.twoFactorCode': 'Código de autenticação',
   'settings.twoFactorDisable': 'Desativar',
+  'settings.twoFactorDisableTitle': 'Desativar a autenticação de dois fatores',
   'settings.twoFactorEnable': 'Ativar',
+  'settings.twoFactorEnableTitle': 'Ativar a autenticação de dois fatores',
   'settings.twoFactorInvalidCode': 'Código inválido',
+  'settings.twoFactorOn': 'Em',
+  'settings.twoFactorQrAlt': 'Código QR de dois fatores',
+  'settings.twoFactorScan':
+    'Digitalize este código QR com a sua aplicação de autenticação e introduza o código de 6 dígitos.',
+  'settings.twoFactorUnavailable':
+    'A autenticação de dois fatores não está disponível para este aplicativo.',
   'settings.twoFactorVerify': 'Verificar e ativar',
   'settings.workspace.description':
     'Identidade compartilhada, região e padrões de execução para sua equipe.',
@@ -223,6 +281,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Modelo',
   'templates.description':
     'Plantas pré-construídas para as automações mais comuns. Faça fork, customize, entregue.',
+  'templates.empty.filter': 'Nenhum modelo corresponde à sua pesquisa.',
   'templates.empty.first': 'Nenhum modelo disponível no momento.',
   'templates.error': 'Não foi possível carregar os modelos.',
   'templates.installs': 'instalações',
@@ -248,6 +307,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Desabilitar',
   'workflowBuilder.enable': 'Habilitar',
   'workflowBuilder.error': 'Não foi possível carregar o fluxo.',
+  'workflowBuilder.inspector.config': 'Configuração',
+  'workflowBuilder.inspector.cron': 'Expressão cron',
+  'workflowBuilder.inspector.disabled': 'Desativado — não será executado automaticamente.',
   'workflowBuilder.inspector.enabled': 'Habilitado — executa no gatilho.',
   'workflowBuilder.inspector.eyebrow': 'Inspetor',
   'workflowBuilder.inspector.id': 'Id',
@@ -265,18 +327,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Falha ao alternar.',
   'workflowBuilder.workflow': 'Fluxo · v{{v}}',
   'workflowBuilder.zoom.in': 'Mais zoom',
+  'workflowBuilder.zoom.label': 'Controles de zoom da tela',
+  'workflowBuilder.zoom.out': 'Menos zoom',
   'workflowCard.lastRun': 'Última execução {{when}}',
   'workflowCard.runs': '{{count}} execuções',
+  'workflowCard.success': '{{rate}}% de sucesso',
   'workflowHeroCard.last24h': 'Últimas 24 h',
+  'workflows.browseTemplates': 'Ver modelos →',
   'workflows.description':
     'Cada automação no seu espaço, com saúde e atividade recente em um relance.',
+  'workflows.empty.body': 'Tente limpar o filtro ou começar a partir de um modelo.',
   'workflows.empty.firstBody': 'Instale um modelo para começar em segundos.',
   'workflows.empty.firstTitle': 'Ainda não há fluxos',
   'workflows.empty.title': 'Nenhum fluxo corresponde',
   'workflows.error': 'Não foi possível carregar os fluxos.',
   'workflows.eyebrow': 'Biblioteca · {{count}} no total',
+  'workflows.loading': 'Carregando fluxos de trabalho…',
   'workflows.newFromTemplate': 'Novo a partir de modelo',
   'workflows.searchPlaceholder': 'Pesquisar fluxos…',
+  'workflows.title': 'Fluxos de trabalho',
   'workflowSidebar.brand': 'Dendrite',
   'workflowSidebar.status': 'Todos os sistemas em operação',
   'workflowSidebar.tagline': 'Inteligência em movimento',

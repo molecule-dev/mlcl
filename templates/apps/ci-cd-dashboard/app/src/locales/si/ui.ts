@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ප්‍රශ්න, ප්‍රතිපෝෂණ, නැතහොත් ඔබේ කණ්ඩායම සඳහා ආදර්ශනයක් අවශ්‍යද? hello@conduit.dev වෙත අපට ඊමේල් කරන්න — සෑම පණිවිඩයක්ම කණ්ඩායමේ සැබෑ පුද්ගලයෙකු වෙත ළඟා වේ.',
   'about.contactHeading': 'සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
+  'about.featuresHeading': 'ඔබට ලැබෙන දේ',
+  'about.introBody':
+    '{{app}} මගින් GitHub Actions-විලාසී සන්තතික බෙදාහැරීම එක් වේගවත් උපකරණ පුවරුවකට ගෙන එයි: සියලුම ගබඩා සඳහා නල මාර්ග, ගොඩනැගීම් ලොග, කෘති, තත්ත්ව ලාංඡන, සහ යෙදවුම් පරිසර එකම තැනක. ටැබ් මාරු කිරීමක් නැත, කුමන ගොඩනැගීම බිඳුණාද යන්න අනුමාන කිරීමක් නැත — සෑම ධාවනයක්ම, ලොග් පේළියක්ම, සහ යෙදවුමක්ම එක් ක්ලික් එකකින්.',
+  'about.introHeading': '{{app}} යනු කුමක්ද',
+  'about.missionBody':
+    'මෘදුකාංග බෙදාහැරීම සන්සුන් හා අනාවැකි කළ හැකි විය යුතුය, බියක මූලාශ්‍රයක් නොවේ. කමිට් සිට නිෂ්පාදනය දක්වා මාර්ගය වේගවත්, දෘශ්‍යමාන, සහ විශ්වාසදායක කිරීම සඳහා අපි නල මාර්ග, ලොග, සහ යෙදවුම් මෙවලම් ගොඩනඟමු — පළමු කොළ පැහැති ගොඩනැගීම මිනිත්තු පහකින්, සහ ඉන් පසු සෑම ගොඩනැගීමක්ම එතරම්ම පැහැදිලිව.',
+  'about.missionHeading': 'අපගේ මෙහෙවර',
+  'about.subtitle':
+    '{{app}} යනු සෑම ගබඩාවක් හරහාම ගොඩනැගීම්, යෙදවුම්, සහ පරිසර නිරීක්ෂණය කිරීමට කැමති කණ්ඩායම් සඳහා වන CI/CD උපකරණ පුවරුවකි — සහ නිශ්චිතභාවයෙන් බෙදාහරින්න.',
   'artifacts.empty': 'තවමත් කෞතුක වස්තු නොමැත.',
   'artifacts.heading': 'කෞතුක වස්තු',
   'artifacts.loadError': 'කෞතුක වස්තු පූරණය කිරීමට අසමත් විය.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ වාහක env --ලැයිස්තුව',
   'environments.heading': 'පරිසරයන්',
   'environments.loadError': 'පරිසරයන් පූරණය කිරීමට අසමත් විය.',
+  'environments.loading': 'පරිසර පූරණය වෙමින්…',
   'environments.subheading': 'සෑම ඉලක්කයක් හරහාම සජීවී යෙදවීමේ තත්ත්වය.',
   'forgotPassword.runnerStatus': 'නැවත සකසන්න · ආරක්ෂිත උමග',
+  'forgotPassword.success':
+    'එම විද්‍යුත් තැපෑල සඳහා ගිණුමක් තිබේ නම්, යළි පිහිටුවීමේ සබැඳියක් පැමිණෙමින් තිබේ. ඔබගේ එන ලිපි පරීක්ෂා කරන්න.',
   'insights.changeFailureRate': 'අසාර්ථක වීමේ අනුපාතය වෙනස් කරන්න',
   'insights.deployFrequency': 'යෙදවීම් / දිනය',
   'insights.empty': 'තවමත් ප්‍රමාණවත් දත්ත නොමැත.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'ඇතුළාන්තයන් පූරණය කිරීමට අසමත් විය.',
   'insights.meanP95': 'මධ්‍යන්‍යය {{mean}} · p95 පි 95 {{p95}}',
   'insights.mttr': 'එම්ටීටීආර්',
+  'insights.slowestStepsHeading': 'මන්දගාමීම නල මාර්ග පියවර',
   'insights.successRateHeading': 'නල මාර්ගයේ සාර්ථකත්ව අනුපාතය (පසුගිය දින 14)',
   'landing.choosePlan': 'සැලැස්ම තෝරන්න',
+  'landing.copyright': '© {{year}} {{app}}. නිශ්චිතභාවයෙන් බෙදාහරින්න.',
   'landing.ctaBody':
     'ක්‍රෙඩිට් කාඩ් එකක් නෑ. වේදිකා ඉංජිනේරුවෙක් අවශ්‍ය නෑ. මිනිත්තු පහකින් පළමු නල මාර්ගය කොළ පාට කරන්න.',
   'landing.ctaHeading': 'නිසැකවම නැව්ගත කරන්න.',
   'landing.featuresEyebrow': '// වේදිකා විශේෂාංග',
   'landing.featuresHeading': 'නැව්ගත කරන්නන් සඳහා, නැව්ගත කරන්නන් විසින් ඉදිකරන ලද්දකි',
+  'landing.heroSubtitle':
+    'තත්පර කිහිපයකින් අවසන් වන නල මාර්ග. කියවිය හැකි ලොග. විශ්වාස කළ හැකි යෙදවුම්.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit --ආරක්ෂිතව යොදවන්න',
   'landing.pricingEyebrow': '// $ මිලකරණය --plain',
   'landing.pricingHeading': 'සරල, පුරෝකථනය කළ හැකි මිලකරණය',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'දැන් පියාසර කරනවා',
   'pipelines.metric.successCaption': '{{count}} වල {{total}} දුවනවා',
   'pipelines.metric.successRate': 'සාර්ථකත්ව අනුපාතය',
+  'pipelines.realtimeOn': 'තත්‍ය කාලීන',
   'pipelines.subheading': 'නැරඹූ සෑම ගබඩාවකින්ම සජීවී යාවත්කාලීන කිරීම්.',
+  'pricing.advancedFeatures': 'උසස් විශේෂාංග: {{mark}}',
+  'pricing.canExport': 'දත්ත නිර්යාත: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} කෘති',
+  'pricing.maxBuilds': '{{count}} ගොඩනැගීම්',
+  'pricing.maxPipelines': '{{count}} නල මාර්ග',
   'privacy.dataAccount': 'ගිණුම: නම, විද්‍යුත් තැපෑල, හැෂ් මුරපදය, සැලසුම් ස්ථරය.',
   'privacy.intro':
     '{{යෙදුම}} ඔබගේ අඛණ්ඩ බෙදාහැරීමේ ගිණුම ක්‍රියාත්මක කිරීමට අපට අවශ්‍ය අවම දත්ත පමණක් රැස් කරයි: ඔබගේ විද්‍යුත් තැපෑල, ඔබ සම්බන්ධ කරන ගබඩාවන්, ඔබගේ ධාවකයන් නිපදවන කැපවීම් සහ ගොඩනැගීමේ මෙටාඩේටා සහ ඔබ අප සමඟ ගබඩා කිරීමට තෝරා ගන්නා රහස්. ගොඩනැගීමේ ධාවකයෙන් පිටත අපි කිසි විටෙකත් ඔබේ මූලාශ්‍ර කේතය කියවන්නේ නැත; වින්‍යාස කළ විට ගොඩනැගීමේ කෞතුක වස්තු ඔබගේ S3 බාල්දියේ ගබඩා කර ඇත.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'අපි බිල්පත් කිරීම සඳහා Stripe, ගනුදෙනු විද්‍යුත් තැපෑල සඳහා Mailgun සහ ගොඩනැගීමේ කෞතුක වස්තුව ගබඩා කිරීම සඳහා AWS S3 භාවිතා කරමු. ඒ සෑම එකක්ම එහි සේවාව ලබා දීමට අවශ්‍ය අවම දත්ත විෂය පථයට ගිවිසුම්ගතව බැඳී ඇත.',
   'privacy.rightsBody':
     'ඔබට ඔබගේ දත්තවල සෑම බයිටයක්ම අපනයනය කිරීමට, සැකසීම් වෙතින් ඕනෑම වේලාවක ඔබගේ ගිණුම මකා දැමීමට සහ ඔබගේ ගිණුමේ සෑම වෙබ්හුක් බෙදාහැරීමකම වාර්තාවක් ඉල්ලා සිටීමට හැකිය. අපි දින 30ක් ඇතුළත GDPR / CCPA ඉල්ලීම්වලට ප්‍රතිචාර දක්වන්නෙමු.',
+  'privacy.subtitle':
+    'අපි ඔබේ නල මාර්ග ධාවනය කරන අතරතුර {{app}} ඔබේ දත්ත එකතු කරන්නේ, ගබඩා කරන්නේ, සහ ආරක්ෂා කරන්නේ කෙසේද.',
   'privacy.title': 'රහස්යතා ප්රතිපත්තිය',
   'repositories.empty': 'සම්බන්ධිත ගබඩා නොමැත.',
   'repositories.heading': 'ගබඩා',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'සියලුම ගබඩා',
   'repositoryDetail.configHeading': '.නල.yml',
   'repositoryDetail.loadError': 'ගබඩාව පූරණය කිරීමට අසමත් විය.',
+  'repositoryDetail.meanDuration': 'සාමාන්‍ය කාලය',
   'repositoryDetail.notFound': 'ගබඩාව හමු නොවීය.',
+  'repositoryDetail.successRate': 'සාර්ථකත්ව අනුපාතය',
   'repositoryDetail.totalBuilds': 'මුළු ගොඩනැගීම්',
   'repositoryDetail.webhookActive': 'ක්‍රියාකාරී',
   'repositoryDetail.webhookPaused': 'විරාම කරන ලදී',
   'repositoryDetail.webhooksHeading': 'වෙබ්හුක්',
+  'resetPassword.passwordLabel': 'නව මුරපදය',
   'resetPassword.runnerStatus': 'නැවත සකසන්න · ටෝකනය සත්‍යාපනය කරන ලදී',
   'resetPassword.subtitle': 'ඔබ මීට පෙර භාවිතා නොකළ ශක්තිමත් මුරපදයක් තෝරන්න.',
   'resetPassword.tokenPlaceholder': 'ඊමේල් එකෙන් අලවන්න',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'ගබඩා කොන්ඩියුට් ඔරලෝසු. සිදුවීම් අවශෝෂණය කිරීම නැවැත්වීමට ඔබේ VCS සැපයුම්කරුගෙන් විසන්ධි කරන්න.',
   'settings.repositories.empty': 'තවමත් කිසිදු ගබඩාවක් සම්බන්ධ වී නොමැත.',
+  'settings.repositories.heading': 'ගබඩා සම්බන්ධතා',
   'settings.repositories.loadError': 'ගබඩා පූරණය කිරීමට අසමත් විය.',
   'settings.secrets.addCta': 'රහසක් එක් කරන්න',
   'settings.secrets.addError': 'රහසක් එක් කිරීමට අසමත් විය.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'රහස මැකීමට අසමත් විය.',
   'settings.secrets.empty': 'රහස් ගබඩා කර නැත.',
   'settings.secrets.heading': 'රහස්',
+  'settings.secrets.lastUsed': 'අවසන් වරට භාවිතා කළේ {{date}}',
   'settings.secrets.loadError': 'රහස් පූරණය කිරීමට අසමත් විය.',
   'settings.secrets.neverUsed': 'කවදාවත් භාවිතා කළේ නැහැ',
   'settings.secrets.rotateCta': 'කරකවන්න',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'වෙබ් හුක් යාවත්කාලීන කිරීමට අසමත් විය.',
   'signup.namePlaceholder': 'රිලී පාර්ක්',
   'signup.runnerStatus': 'නොමිලේ ස්ථරය · අවම වශයෙන් මසකට ගොඩනැගීම් 1,000ක්',
+  'terms.intro':
+    '{{app}} ගිණුමක් සෑදීමෙන් ඔබ මෙම නියමවලට එකඟ වේ. ඒවා ගොඩනැගීම් ධාවකවල පිළිගත හැකි භාවිතය, අපගේ SLA හි සීමාවන්, සහ අපයෝජනීය බර පැටවීම් සඳහා ඔබේ ගිණුම අත්හිටුවීමට හෝ අවසන් කිරීමට අපට ඇති කොන්දේසි ආවරණය කරයි.',
   'terms.slaBody':
     'Pro සහ Team සැලසුම් API සහ ධාවන සංචිතය සඳහා 99.95% මාසික ක්‍රියාකාරී කාලය ඉලක්ක කරයි. නොමිලේ සැලැස්ම පවතින ආකාරයෙන්ම සපයනු ලැබේ. ඇනහිටීම් status.conduit.dev හි වාර්තා කර ඇති අතර ඔබේ ඉන්වොයිසියේ සූත්‍රයට අනුව බැර කරනු ලැබේ.',
   'terms.terminationBody':

@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Сұрағыңыз бар ма, қате таптыңыз ба, әлде кітаптарыңызды көшіргіңіз келе ме? {{app}} командасына hello@{{app}}.example мекенжайы арқылы хабарласыңыз — әр хабарды нақты адам оқиды.',
   'about.contactTitle': 'Бізбен байланысыңыз',
   'about.eyebrow': 'Туралы',
+  'about.intro':
+    '{{app}} — әр тиыны есепке алынатын шағын бизнеске арналған бухгалтерия: шот-фактуралар, шығыстар, төлемдер және есептер иелері, бухгалтерлер мен есепшілер үшін бір тыныш орында.',
+  'about.missionBody':
+    'Бизнес жүргізу бухгалтериядан қорқуды білдірмеуі керек. {{app}} электрондық кестелердің шашыраңқылығын нақты сандармен алмастырады, сондықтан сіз салыстыруға аз уақыт жұмсап, бизнесті бастаудағы нақты жұмысыңызға көбірек уақыт бөлесіз.',
+  'about.missionTitle': 'Біздің миссиямыз',
   'about.title': '{{app}} туралы',
   'accounts.count': '{{count}} есептік жазба',
+  'accounts.emptyBody':
+    'Бухгалтерия шоттары ақшаның қайда тұратынын және қалай қозғалатынын бақылайды. Олар мұнда сіздің бухгалтеріңіз немесе интеграция орнатқаннан кейін пайда болады.',
   'accounts.emptyTitle': 'Әлі тіркелгілер жоқ',
   'accounts.heading': 'Шоттар кестесі',
   'accounts.kpi.accounts': 'Accounts',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Шот-фактураларыңыздың, шығындарыңыздың және төлемдеріңіздің артындағы әрбір бухгалтерлік есеп түрі бойынша топтастырылған.',
   'accounts.tag.inactive': 'белсенді емес',
   'authBrandPanel.attributionName': 'Сара Дженкинс',
+  'authBrandPanel.attributionRole': 'Қаржы директоры, Horizon Tech',
   'authBrandPanel.eyebrow': 'Қаржы топтарының сеніміне ие',
   'authBrandPanel.label': 'Брендті көрсету',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Барлық тұтынушылар',
   'customerDetail.invoiceMeta': 'Берілген күні {{issued}} · Мерзімі: {{due}}',
   'customerDetail.loadError': 'Тұтынушыны жүктеу сәтсіз аяқталды.',
+  'customerDetail.missingBody':
+    'Сұралған тұтынушы жазбасын жүктеу мүмкін болмады. Ол жойылған болуы мүмкін немесе сізде оған қатынас құқығы жоқ болуы мүмкін.',
   'customerDetail.missingHeading': 'Тұтынушы жазбасы қолжетімді емес',
+  'customerDetail.missingHelp':
+    'Тұтынушылар тізіміне оралу үшін жоғарыдағы артқа сілтемесін пайдаланыңыз немесе сол жерден басқа жазбаны таңдаңыз.',
+  'customerDetail.noInvoices': 'Әлі шот-фактуралар жоқ.',
   'customerDetail.notesEmpty': 'Әзірге ешқандай жазба жоқ.',
   'customerDetail.paymentsEmpty': 'Төлемдер тіркелген жоқ.',
   'customerDetail.paymentTerms': 'Төлем шарттары',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Франшиза',
   'expenseDetail.detailsHeading': 'Транзакция мәліметтері',
   'expenseDetail.loadError': 'Шығындар жүктелмеді.',
+  'expenseDetail.matched': 'Сәйкестендірілді · {{description}}',
   'expenseDetail.missingBody':
     'Сұралған шығынды жүктеу мүмкін болмады. Ол жойылған болуы мүмкін немесе сіз оған кіре алмауыңыз мүмкін.',
   'expenseDetail.missingHeading': 'Шығындар туралы жазба қолжетімді емес',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Түбіртек',
   'expenseDetail.receiptHeading': 'Түбіртек',
   'expenseDetail.reconciled': 'Татуласқан',
+  'expenseDetail.unreconciled': 'Келісімсіз',
   'expenses.empty': 'Әзірге шығындар жоқ.',
   'expenses.heading': 'Шығындар',
   'expenses.kpi.deductible': 'Франшиза',
@@ -101,6 +118,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Шот-фактуралар жүктелмеді.',
   'invoices.searchPlaceholder': 'Шот-фактура нөмірін немесе тұтынушыны іздеу…',
   'invoices.summary.paid': 'Осы кезеңге төленді',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     '30 күн тегін. Карта қажет емес. Бухгалтеріңізді әкеліңіз — олар сізге алғыс айтады.',
   'landing.ctaTitle': 'Кітаптарыңызды тыныш жерге қойыңыз.',
@@ -115,6 +133,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Дебиторлық қарыз',
   'ledgerStatTriad.eyebrow.mtd': 'Айдың басынан күнге дейін',
   'ledgerStatTriad.netSub': 'Таза {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} мерзімі өткен',
   'ledgerStatTriad.revenueLabel': 'Табыс',
   'login.failed': 'Кіру сәтсіз аяқталды.',
   'login.hidePassword': 'Құпия сөзді жасыру',
@@ -125,6 +144,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Кіру',
   'nav.legal': 'Заңды',
   'newExpense.back': 'Шығындар',
+  'newExpense.clearReceiptCta': 'Тіркелген түбіртекті тазалау',
   'newExpense.deductible': 'Салықтан шегерілетін',
   'newExpense.dropPrompt': 'Түбіртек фотосуретін немесе PDF файлын тіркеу үшін осы жерге қойыңыз.',
   'newExpense.failed': 'Шығындарды үнемдеу мүмкін болмады.',
@@ -153,6 +173,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Төлемдер жүктелмеді.',
   'payments.unmatchedTag': 'теңдесі жоқ',
   'planUpdated.pageLabel': 'Жоспардың жаңартылған растауы',
+  'pricing.advancedFeatures': 'Кеңейтілген мүмкіндіктер: {{yes}}',
+  'pricing.canExport': 'Деректерді экспорттау: {{yes}}',
+  'pricing.heading': '{{app}} жоспарын таңдаңыз',
+  'pricing.maxAccounts': '{{count}} есептік жазба',
+  'pricing.maxExpenses': '{{count}} шығындар',
+  'pricing.maxInvoices': '{{count}} шот-фактура',
+  'privacy.intro':
+    'Осы Құпиялылық саясаты {{app}} қызметті пайдаланатын бизнестер туралы ақпаратты қалай жинайтынын, пайдаланатынын және ашатынын сипаттайды.',
   'privacy.lastUpdated': 'Соңғы жаңартылған күні: {{date}}',
   'privacy.section.collected.body':
     'Біз тіркелгі деректерін (аты-жөні, электрондық поштасы, компания), сіз жүктеген қаржылық жазбаларды (шот-фактуралар, шығындар, тұтынушылар, төлемдер) және стандартты қызмет көрсету журналдарын (IP, пайдаланушы агенті, уақыт белгілері) жинаймыз.',
@@ -165,8 +193,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Ақпарат қызметті басқару, сіз сұраған есептер мен PDF файлдарын жасау, Mailgun арқылы транзакциялық электрондық пошта жіберу және Stripe арқылы төлемдерді өңдеу үшін пайдаланылады. Біз жеке ақпаратты сатпаймыз немесе жалға бермейміз.',
   'recentInvoicesCard.dueMeta': 'Төлем мерзімі {{date}}',
+  'recentInvoicesCard.empty': 'Сәйкес келетін шот-фактуралар жоқ.',
   'recentInvoicesCard.eyebrow': 'Дебиторлық қарыз',
   'recentInvoicesCard.searchAriaLabel': 'Шот-фактураларды іздеу',
+  'recentInvoicesCard.searchPlaceholder': 'Шот-фактураларды іздеу…',
   'recentInvoicesCard.title': 'Соңғы шот-фактуралар',
   'recentInvoicesCard.viewAll': 'Барлық шот-фактураларды қарау →',
   'reports.assets': 'Активтер',
@@ -182,16 +212,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Пайда және шығын (12 ай)',
   'resetPassword.backToLogin': '← Кіруге оралу',
   'resetPassword.hidePassword': 'Құпия сөзді жасыру',
+  'resetPassword.passwordLabel': 'Жаңа құпия сөз',
   'resetPassword.showPassword': 'Құпия сөзді көрсету',
+  'resetPassword.subheading': 'Күшті құпия сөз таңдаңыз — кемінде сегіз таңба.',
   'resetPassword.submit': 'Құпия сөзді қалпына келтіру',
   'resetPassword.tooShort': 'Құпия сөз кемінде 8 таңбадан тұруы керек.',
   'settings.account.changePassword': 'Құпия сөзді өзгерту',
   'settings.account.changingPassword': 'Өзгеріс…',
   'settings.account.currentPassword': 'Ағымдағы құпия сөз',
+  'settings.account.dangerZone': 'Қауіпті аймақ',
   'settings.account.deleteAccount': 'Тіркелгіні жою',
   'settings.account.deleteDescription':
     'Тіркелгіңізді және онымен байланысты барлық деректерді біржола жою.',
   'settings.account.deleteError': 'Тіркелгіні жою сәтсіз аяқталды.',
+  'settings.account.deleteWarning':
+    'Бұл тіркелгіңізді біржола жояды және оны қайтару мүмкін емес. Растау үшін құпия сөзіңізді енгізіңіз.',
   'settings.account.deleting': 'Жойылуда…',
   'settings.account.devices': 'Құрылғылар',
   'settings.account.email': 'Электрондық пошта',
@@ -202,6 +237,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Құпия сөз',
   'settings.account.passwordError': 'Құпия сөзді өзгерту сәтсіз аяқталды.',
   'settings.account.pushNotifications': 'Осы құрылғыдағы push хабарландырулары',
+  'settings.account.revokeDeviceWarning':
+    'Бұл құрылғының кіруі жақын арада қайтарып алынады. Оны шығаруға келісесіз бе?',
   'settings.account.saveError': 'Профиль жаңартылмады.',
   'settings.account.security': 'Қауіпсіздік',
   'settings.account.signOutDevice': 'Шығу',
@@ -209,12 +246,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Екі факторлы аутентификация',
   'settings.account.twoFactorCode': 'Аутентификация коды',
   'settings.account.twoFactorDisable': 'Өшіру',
+  'settings.account.twoFactorDisableTitle': 'Екі факторлы аутентификацияны өшіру',
   'settings.account.twoFactorEnable': 'Қосу',
+  'settings.account.twoFactorEnableTitle': 'Екі факторлы аутентификацияны қосу',
   'settings.account.twoFactorInvalidCode': 'Жарамсыз код',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'Екі факторлы QR коды',
+  'settings.account.twoFactorScan':
+    'Осы QR кодын аутентификатор қолданбасымен сканерлеңіз, содан кейін 6 таңбалы кодты енгізіңіз.',
+  'settings.account.twoFactorUnavailable':
+    'Бұл қолданба үшін екі факторлы аутентификация қолжетімді емес.',
   'settings.account.twoFactorVerify': 'Тексеру және қосу',
   'settings.account.unknownDevice': 'Белгісіз құрылғы',
   'settings.company.email': 'Төлем электрондық поштасы',
+  'settings.company.heading': 'Компания және салық',
   'settings.company.name': 'Заңды атауы',
   'settings.company.saveButton': 'Компания профилін сақтау',
   'settings.company.taxId': 'Салық төлеушінің сәйкестендіру нөмірі / EIN',
@@ -258,6 +303,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Болжам бойынша тоқсан сайын',
   'taxes.kpi.owed': 'Қарыз',
   'taxes.loadError': 'Салық қорытындысы жүктелмеді.',
+  'taxes.remittedPct': '({{pct}}% аударылды)',
+  'terms.intro':
+    'Осы Қызмет көрсету шарттары ("Шарттар") {{app}} қызметіне қатынауыңызды және оны пайдалануыңызды реттейді. Тіркелгі жасау немесе қызметті пайдалану арқылы сіз олармен байланысуға келісесіз.',
   'terms.lastUpdated': 'Соңғы жаңартылған күні: {{date}}',
   'terms.section.acceptable.body':
     'Сіз қызметті кез келген заңды бұзу, зияткерлік меншік құқықтарын бұзу, зиянды бағдарламаларды тарату немесе басқа тіркелгілерге немесе біздің инфрақұрылымымызға рұқсатсыз кіру әрекетін жасау үшін пайдаланбауға келісесіз.',

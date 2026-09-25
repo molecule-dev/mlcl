@@ -1,12 +1,18 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Pyetje, komente ose një gabim për të raportuar? Kontakto ekipin nga cilësimet e llogarisë — çdo mesazh shkon te një njeri i vërtetë që mëson gjuhë gjithashtu.',
   'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth nesh',
+  'about.missionTitle': 'Misioni ynë',
+  'about.whatYouGet': 'Çfarë merr',
   'common.goToDashboard': 'Shko te paneli',
   'common.logout': 'Dilni',
+  'dailyStatsTriad.heartsHint': 'Rimbushje në fillim të çdo mësimi',
   'dailyStatsTriad.heartsLabel': 'Zemra',
   'dailyStatsTriad.heartsValue': '{{current}} / {{max}}',
+  'dailyStatsTriad.minutesHint': 'Nga ushtrimet e sotme',
   'dailyStatsTriad.minutesLabel': 'Minutat e sotme',
   'dailyStatsTriad.minutesValue': '{{count}} min',
   'dailyStatsTriad.wordsLabel': 'Fjalë të zotëruara',
@@ -15,18 +21,29 @@ export const ui: UiTranslations = {
   'dashboard.heading': 'Buenos días, {{name}} .',
   'dashboard.loadError':
     'Nuk mund të ngarkohej progresi më i fundit — duke shfaqur vlerat e ruajtura në memorien e përkohshme.',
+  'dashboard.loading': 'Duke u rifreskuar…',
   'dashboard.noLessons': 'Nuk ka ende mësime të disponueshme - kontrolloni përsëri së shpejti.',
+  'dashboard.startPractice': 'Fillo praktikën e të folurit',
+  'dashboard.subheading':
+    'Vazhdo aty ku e le — tri seanca të shkurtra dhe arrin objektivin e sotëm.',
   'dashboard.viewAllLessons': 'Të gjitha mësimet →',
+  'forgotPassword.subheading': 'Shkruaj emailin dhe do të dërgojmë një lidhje për rivendosje.',
   'forgotPassword.successBody':
     'Kontrolloni kutinë tuaj postare — ne dërguam një lidhje për ta rivendosur atë.',
   'forgotPassword.successHint':
     'Nëse {{email}} përputhet me një llogari, lidhja do të mbërrijë brenda një minute.',
+  'landing.copyright': '© {{year}} {{app}}. Ndërtuar për të rritur që mësojnë.',
   'landing.ctaBody':
     'Nuk ka nevojë për kartë. Vendosni email-in tuaj, zgjidhni një gjuhë dhe filloni nesër.',
   'landing.ctaHeading': 'Gati për të gjetur theksin tënd?',
   'landing.eyebrow': 'Praktikë e përditshme gjuhësore për të rriturit',
   'landing.featuresHeading': 'Një cikël praktik që respekton kohën tuaj',
+  'landing.featuresSubheading':
+    'Dizajnuar për të rritur me tridhjetë minuta në ditë, jo tridhjetë orë në javë.',
   'landing.heroCta': 'Filloni një seri 7-ditore',
+  'landing.heroSubtitle':
+    'Mësime pesëminutëshe që përshtaten në një pushim kafeje. Ushtrime, fjalor, të folur — të gjitha të mbështjella në një seri që do ta mbani vërtet.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.languagesEyebrow': 'Zgjidh një gjuhë',
   'landing.languagesHeading': 'Katërmbëdhjetë gjuhë, një zakon i përditshëm',
   'landing.proof.languages': '{{count}} gjuhë',
@@ -41,10 +58,17 @@ export const ui: UiTranslations = {
   'leaderboard.heading': 'Tabela e renditjes',
   'leaderboard.loadError': 'Nuk mund të ngarkohej tabela e renditjes.',
   'leaderboard.loading': 'Duke ngarkuar tabelën e renditjes…',
+  'leaderboard.rewardBody':
+    'Të mbash arin tri javë rresht të promovon në diamant. Vetëm baste miqësore.',
+  'leaderboard.rewardEyebrow': 'Çmimi i kësaj jave',
+  'leaderboard.rewardHeading': '{{count}} më të mirët fitojnë distinktivin e ligës së artë',
   'leaderboard.subheading': 'XP këtë javë. Rivendoset të dielën në mesnatë sipas orës suaj lokale.',
   'leaderboard.weeklyPeriod': 'Këtë javë · miq',
+  'leaderboardPanel.rankSuffix': 'Renditja # {{rank}}',
   'leaderboardPanel.title': 'Tabela e renditjes së miqve',
+  'leaderboardPanel.xp': '{{xp}} XP',
   'leaderboardPanel.you': '(Ti)',
+  'lessonCard.continue': 'Vazhdo →',
   'lessonCard.duration': '{{min}} min',
   'lessonCard.level': 'Niveli {{level}}',
   'lessonCard.progressPercent': '{{percent}} % e përfunduar',
@@ -53,14 +77,17 @@ export const ui: UiTranslations = {
   'lessonDetail.check': 'Kontrolloni',
   'lessonDetail.checking': 'Duke kontrolluar…',
   'lessonDetail.correct': 'Shkëlqyeshëm!',
+  'lessonDetail.correctHint': '+{{xp}} XP. Vazhdo kështu.',
   'lessonDetail.empty': 'Nuk ka ushtrime në këtë mësim.',
   'lessonDetail.exit': 'Dil nga mësimi',
   'lessonDetail.fillBlank': 'Plotësoni boshllëkun',
   'lessonDetail.finish': 'Përfundo mësimin',
   'lessonDetail.incorrect': 'Jo tamam — “ {{answer}} "',
+  'lessonDetail.incorrectHint': 'Këtë do ta shohësh përsëri në përsëritjen e nesërme.',
   'lessonDetail.lessonId': 'Mësimi · {{id}}',
   'lessonDetail.loadError': 'Ushtrimet nuk mund të ngarkoheshin.',
   'lessonDetail.loading': 'Duke ngarkuar mësimin…',
+  'lessonDetail.pronunciation': 'Zgjidh shqiptimin e saktë',
   'lessonDetail.submitError': 'Nuk mund të dërgohej përgjigja.',
   'lessonDetail.translation': 'Përkthe frazën',
   'lessonDetail.xpEarned': 'XP të fituara · {{xp}}',
@@ -79,6 +106,12 @@ export const ui: UiTranslations = {
   'mobileNav.openMenu': 'Hap menynë e navigimit',
   'parlanceLayout.nav.profile': 'Profili',
   'parlanceLayout.primaryNavLabel': 'Navigimi kryesor',
+  'planUpdated.body':
+    'Ndryshimi i faturimit tani është aktiv. Mund ta menaxhoni planin tuaj në çdo kohë nga faqja e faturimit.',
+  'planUpdated.retry': 'Provo përsëri',
+  'planUpdated.verifyFailed': 'Nuk mundëm ta konfirmonim ende pagesën tuaj.',
+  'planUpdated.verifyFailedBody':
+    'Pagesa juaj mund të jetë ende duke u përpunuar. Provoni përsëri pas pak.',
   'planUpdated.verifying': 'Po konfirmohet pagesa juaj…',
   'practice.empty': 'Nuk ka ende fraza të disponueshme.',
   'practice.eyebrow': 'Praktikë e të folurit',
@@ -102,6 +135,9 @@ export const ui: UiTranslations = {
   'pricing.limits.progress': 'hyrjet e progresit',
   'profile.anonymous': 'Nxënës',
   'profile.avatarAlt': '{{name}} avatari i tij',
+  'profile.eyebrow': 'Anëtar që nga {{joined}}',
+  'profile.eyebrowNew': 'Mësues i ri',
+  'profile.langLessonCount': '{{count}} mësime',
   'profile.langLevel': 'Niveli {{level}}',
   'profile.languages': 'Gjuhët',
   'profile.languagesHeading': 'Gjuhët në zhvillim e sipër',
@@ -110,6 +146,7 @@ export const ui: UiTranslations = {
   'profile.streak': 'Vijë',
   'profile.totalXp': 'XP totale',
   'resetPassword.confirmPlaceholder': 'Shkruaje përsëri',
+  'resetPassword.mismatch': 'Fjalëkalimet nuk përputhen.',
   'resetPassword.newPasswordLabel': 'Fjalëkalim i ri',
   'resetPassword.newPasswordPlaceholder': 'Tetë karaktere ose më shumë',
   'resetPassword.subheading': 'Zgjidh diçka të paharrueshme, tetë personazhe ose më shumë.',
@@ -117,6 +154,7 @@ export const ui: UiTranslations = {
   'settings.eyebrow': 'Preferencat e praktikës',
   'settings.goalBody':
     'Sa pikë përvojë (XP) synoni çdo ditë. Seritë mbahen sa herë që e arrini objektivin.',
+  'settings.goalHeading': 'Objektivi ditor',
   'settings.goalMinutes': '~ {{min}} min/ditë',
   'settings.language.description':
     'Zgjidhni gjuhën e përdorur në të gjitha menutë dhe etiketat e aplikacionit.',

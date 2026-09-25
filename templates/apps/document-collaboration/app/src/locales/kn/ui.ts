@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ಪ್ರತಿಕ್ರಿಯೆ ಇದೆಯೇ, ದೋಷ ಸಿಕ್ಕಿದೆಯೇ, ಅಥವಾ ನಿಮ್ಮ ಸ್ಟುಡಿಯೋ ಅಥವಾ ತಂಡಕ್ಕಾಗಿ {{app}} ಬೇಕೇ? ನಿಮ್ಮ ಖಾತೆ ಸೆಟ್ಟಿಂಗ್ಗಳಿಂದ ಸಂಪರ್ಕಿಸಿ — ಪ್ರತಿ ಸಂದೇಶವೂ ತಂಡದ ನಿಜವಾದ ವ್ಯಕ್ತಿಗೆ ತಲುಪುತ್ತದೆ.',
   'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
+  'about.intro':
+    '{{app}} ಒಂದು ಸಹಯೋಗಿ ಬರವಣಿಗೆ ಸ್ಟುಡಿಯೋ — ಸಂಪಾದಕರು, ಬರಹಗಾರರು ಮತ್ತು ತಂಡಗಳು ನೈಜ ಸಮಯದಲ್ಲಿ ಒಟ್ಟಿಗೆ ಕರಡು ಬರೆಯುತ್ತಾರೆ. ಒಂದು ಡಾಕ್ಯುಮೆಂಟ್ ತೆರೆಯಿರಿ, ಪುಟ ಹಂಚಿಕೆಯಾಗುತ್ತದೆ — ಕರ್ಸರ್ಗಳು ಚಲಿಸುತ್ತವೆ, ಅಂಚಿನಲ್ಲಿ ಕಾಮೆಂಟ್ಗಳು ಥ್ರೆಡ್ ಆಗುತ್ತವೆ, ಮತ್ತು ಪ್ರತಿ ಪರಿಷ್ಕರಣೆಯೂ ಇತಿಹಾಸದಲ್ಲಿ ಸುರಕ್ಷಿತವಾಗಿರುತ್ತದೆ.',
+  'about.missionBody':
+    'ದೀರ್ಘ-ರೂಪದ ಬರವಣಿಗೆಗೆ ಶಾಂತ, ಕೇಂದ್ರೀಕೃತ ತಾಣ ಬೇಕು ಎಂದು ನಾವು ನಂಬುತ್ತೇವೆ — ಸಭೆ ಅಥವಾ ಇನ್ಬಾಕ್ಸ್ ಸುತ್ತ ಅಲ್ಲ, ಹಸ್ತಪ್ರತಿಯ ಸುತ್ತ ಕಟ್ಟಿದ ತಾಣ. ನಮ್ಮ ಸಂಪಾದಕ, ನೈಜ-ಸಮಯದ ಉಪಸ್ಥಿತಿ ಮತ್ತು ಆವೃತ್ತಿ ಇತಿಹಾಸ — ಎಲ್ಲವೂ ಸಹಯೋಗಿಗಳು ಒಂದು ಪ್ಯಾರಾಗ್ರಾಫ್ ಅಥವಾ ಒಂದು ಆಲೋಚನೆಯನ್ನೂ ಕಳೆದುಕೊಳ್ಳದೆ ಒಟ್ಟಿಗೆ ವೇಗವಾಗಿ ಸಾಗುವಂತೆ ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿದೆ.',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
+  'about.subtitle': 'ಒಟ್ಟಿಗೆ ಯೋಚಿಸಿ, ಶಾಶ್ವತವಾಗಿ ಬರೆಯಿರಿ.',
   'about.title': '{{app}} ಬಗ್ಗೆ',
   'comments.addFailed': 'ಕಾಮೆಂಟ್ ಪೋಸ್ಟ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'comments.backToDoc': 'ಹಸ್ತಪ್ರತಿಗೆ ಹಿಂತಿರುಗಿ',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'ಕಾಮೆಂಟ್ ಥ್ರೆಡ್‌ಗಳು',
   'comments.loading': 'ಥ್ರೆಡ್‌ಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'comments.newPlaceholder': 'ಹಸ್ತಪ್ರತಿಗೆ ಕಾಮೆಂಟ್ ಸೇರಿಸಿ...',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'ಪುನಃ ತೆರೆಯಿರಿ',
   'comments.reopenFailed': 'ಮತ್ತೆ ತೆರೆಯಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'comments.replyFailed': 'ಪ್ರತ್ಯುತ್ತರ ಪೋಸ್ಟ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'ಇತ್ತೀಚಿನ ಡ್ರಾಫ್ಟ್‌ಗಳು, ಹಂಚಿಕೊಂಡ ಕೃತಿಗಳು ಮತ್ತು ದಿನದ ಸಂಪಾದನೆಗಳು.',
   'dashboard.viewFeed': 'ಫೀಡ್ →',
   'editor.back': 'ಹಸ್ತಪ್ರತಿಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
+  'editor.bodyLabel': 'ದಾಖಲೆಯ ಮುಖ್ಯ ಭಾಗ',
   'editor.bodyPlaceholder': 'ಕರ್ಸರ್ ಮಿನುಗುವ ಸ್ಥಳದಿಂದ ಪ್ರಾರಂಭಿಸಿ.',
   'editor.comments': 'ಕಾಮೆಂಟ್‌ಗಳು',
   'editor.createFailed': 'ಡಾಕ್ಯುಮೆಂಟ್ ರಚಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
@@ -62,13 +72,19 @@ export const ui: UiTranslations = {
   'editor.version': 'ಒಳಗೆ {{v}}',
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody': 'ಖಾತೆ ಅಸ್ತಿತ್ವದಲ್ಲಿದ್ದರೆ {{email}} , ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಬರುತ್ತಿದೆ.',
+  'forgotPassword.sentHeading': 'ನಿಮ್ಮ ಇಮೇಲ್ ಪರಿಶೀಲಿಸಿ',
+  'forgotPassword.submitting': 'ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ\\u2026',
   'forgotPassword.subtitle': 'ನಾವು ನಿಮಗೆ ಮರುಹೊಂದಿಸುವ ಲಿಂಕ್ ಅನ್ನು ಇಮೇಲ್ ಮಾಡುತ್ತೇವೆ.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . ಅಣುವಿನೊಂದಿಗೆ ನಿರ್ಮಿಸಲಾಗಿದೆ.',
+  'landing.ctaBody':
+    'ಏಕಾಂಗಿ ಬರಹಗಾರರಿಗೆ ಉಚಿತ. ಸಂಪಾದಕರು, ಘೋಸ್ಟ್ರೈಟರ್ಗಳು ಮತ್ತು ವಿಮರ್ಶಕರ ತಂಡಗಳಿಗೆ ಸ್ಟುಡಿಯೋ ಯೋಜನೆಗಳು.',
   'landing.ctaHeading': 'ಪುಟವನ್ನು ತೆರೆಯಿರಿ. ಕರ್ಸರ್ ಅನ್ನು ಪ್ರಾರಂಭಿಸೋಣ.',
   'landing.ctaPrimary': 'ಸ್ಟುಡಿಯೋ ತೆರೆಯಿರಿ',
   'landing.eyebrow': 'ಬರಹಗಾರರು, ಸಂಪಾದಕರು ಮತ್ತು ತಂಡಗಳಿಗಾಗಿ',
   'landing.featuresEyebrow': 'ನೀವು ಏನು ಪಡೆಯುತ್ತೀರಿ',
   'landing.featuresHeading': 'ದೀರ್ಘ-ರೂಪದ ಡ್ರಾಫ್ಟ್‌ಗಾಗಿ ಒಂದು ಸ್ಟುಡಿಯೋ.',
+  'landing.featuresSubtitle':
+    '{{appName}} ಹಸ್ತಪ್ರತಿಯ ಸುತ್ತ ಕಟ್ಟಿದೆ — ಸಭೆ ಸುತ್ತ ಅಲ್ಲ, ಇನ್ಬಾಕ್ಸ್ ಸುತ್ತ ಅಲ್ಲ.',
   'landing.getStarted': 'ಸ್ಟುಡಿಯೋ ತೆರೆಯಿರಿ.',
   'landing.heroCta': 'ಬರೆಯಲು ಪ್ರಾರಂಭಿಸಿ',
   'landing.heroSubtitle':
@@ -94,6 +110,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} ಓದದಿರುವ · ಕಾಮೆಂಟ್‌ಗಳು, ಉಲ್ಲೇಖಗಳು, ಹಂಚಿಕೆ ಆಹ್ವಾನಗಳು ಮತ್ತು ಸಲಹೆ ವಿನಂತಿಗಳು.',
   'presenceAvatars.label': '{{count}} ಸಹಯೋಗಿಗಳು',
+  'privacy.intro': 'ನಿಮ್ಮ ಮಾಹಿತಿಯನ್ನು ನಾವು ಹೇಗೆ ಸಂಗ್ರಹಿಸುತ್ತೇವೆ, ಬಳಸುತ್ತೇವೆ ಮತ್ತು ರಕ್ಷಿಸುತ್ತೇವೆ.',
   'privacy.title': 'ಗೌಪ್ಯತಾ ನೀತಿ',
   'profile.about.description':
     'ನಿಮ್ಮ ಸಾರ್ವಜನಿಕ ಪ್ರೊಫೈಲ್ ಮತ್ತು ಕೊಡುಗೆದಾರರ ಪುಟಗಳಿಗಾಗಿ ಒಂದು ಸಣ್ಣ ಜೀವನ ಚರಿತ್ರೆ.',
@@ -107,7 +124,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'ಉಪಸ್ಥಿತಿ',
   'profile.pronouns': 'ಸರ್ವನಾಮಗಳು',
   'profile.publicToggle': 'ತಂಡದ ಸದಸ್ಯರಿಗೆ ಪ್ರೊಫೈಲ್ ತೋರಿಸಿ',
+  'profile.role': 'ಪಾತ್ರ / ಹುದ್ದೆ',
   'profile.subtitle': 'ನಿಮ್ಮ ಸಹಯೋಗಿಗಳಿಗೆ ನೀವು ಹೇಗೆ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತೀರಿ.',
+  'quillonAuthBrandPanel.attribution': 'ಗ್ಲೋರಿಯಾ ಸ್ಟೈನೆಮ್',
   'quillonAuthBrandPanel.presence': '{{count}} ಸ್ಟುಡಿಯೋದಲ್ಲಿ ಸಕ್ರಿಯವಾಗಿರುವ ಬರಹಗಾರರು',
   'quillonAuthBrandPanel.quote':
     '"ನಾನು ಬರೆಯುವಾಗ ಬೇರೆ ಏನಾದರೂ ಮಾಡಬೇಕೆಂದು ಅನಿಸದ ಏಕೈಕ ವಿಷಯವೆಂದರೆ ಬರೆಯುವುದು."',
@@ -115,6 +134,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'ತೆರೆಯಿರಿ →',
   'quillonKpiCard.trend': 'ಇತ್ತೀಚಿನ ಪ್ರವೃತ್ತಿ',
   'quillonLayout.menu': 'ಮೆನು',
+  'quillonLayout.mobileNavLabel': 'ಮೊಬೈಲ್ ನ್ಯಾವಿಗೇಷನ್',
   'quillonLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
   'quillonStudioHero.collab': 'ಸಹಯೋಗಿಗಳು',
   'quillonStudioHero.docs': 'ಮುಟ್ಟಿದ ದಾಖಲೆಗಳು',
@@ -124,7 +144,9 @@ export const ui: UiTranslations = {
     'ಹಸ್ತಪ್ರತಿಯನ್ನು ಎತ್ತಿಕೊಳ್ಳಿ, ಒಂದು ಕಾಮೆಂಟ್ ಬಿಡಿ, ಒಂದು ಪ್ಯಾರಾಗ್ರಾಫ್ ಅನ್ನು ಮುಂದಕ್ಕೆ ತಳ್ಳಿರಿ.',
   'quillonStudioHero.words': 'ಇಂದಿನ ಪದಗಳು',
   'resetPassword.confirmPlaceholder': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಪುನರಾವರ್ತಿಸಿ',
+  'resetPassword.passwordLabel': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್',
   'resetPassword.passwordPlaceholder': 'ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ ನಮೂದಿಸಿ',
+  'resetPassword.submitting': 'ಮರುಹೊಂದಿಸಲಾಗುತ್ತಿದೆ…',
   'resetPassword.subtitle': 'ಬಲವಾದ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಆರಿಸಿ - ಕನಿಷ್ಠ 12 ಅಕ್ಷರಗಳು.',
   'settings.account.description': 'ನೀವು ಹೇಗೆ ಸೈನ್ ಇನ್ ಮಾಡುತ್ತೀರಿ.',
   'settings.billing.canceled': 'ಚಂದಾದಾರಿಕೆಯನ್ನು ರದ್ದುಗೊಳಿಸಲಾಗಿದೆ.',
@@ -134,7 +156,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'ಕಾನ್ಫಿಗರ್ ಮಾಡಲಾಗಿಲ್ಲ',
   'settings.billing.updated': 'ಯೋಜನೆಯನ್ನು ನವೀಕರಿಸಲಾಗಿದೆ.',
   'settings.editor.description': 'ನೀವು ಬರೆಯುವಾಗ ಕ್ಯಾನ್ವಾಸ್ ಹೇಗೆ ವರ್ತಿಸುತ್ತದೆ.',
+  'settings.editor.title': 'ಸಂಪಾದಕರ ಆದ್ಯತೆಗಳು',
   'settings.eyebrow': 'ಸ್ಟುಡಿಯೋ ಆದ್ಯತೆಗಳು',
+  'settings.language.title': 'ಭಾಷೆ',
   'settings.notifications.${n.key}.description': 'ಭಾಷೆ',
   'settings.notifications.description': 'ನಿಮ್ಮ ಇನ್‌ಬಾಕ್ಸ್‌ಗೆ ಏನು ತಲುಪುತ್ತದೆ ಎಂಬುದನ್ನು ಆರಿಸಿ.',
   'settings.subtitle': 'ಅಧಿಸೂಚನೆಗಳು, ಸಂಪಾದಕ ಕ್ಯಾನ್ವಾಸ್ ಮತ್ತು ನಿಮ್ಮ ಖಾತೆ ಆದ್ಯತೆಗಳನ್ನು ಟ್ಯೂನ್ ಮಾಡಿ.',
@@ -143,6 +167,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'ನನ್ನೊಂದಿಗೆ ಹಂಚಿಕೊಳ್ಳಲಾಗಿದೆ',
   'shared.loadFailed': 'ಹಂಚಿದ ದಾಖಲೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'shared.subtitle': 'ಸ್ಟುಡಿಯೋದ ಉಳಿದ ಭಾಗದಿಂದ ಹಸ್ತಪ್ರತಿಗಳು, ಸಂಕ್ಷಿಪ್ತ ವಿವರಗಳು ಮತ್ತು ಟಿಪ್ಪಣಿಗಳು.',
+  'signup.brandAttribution': 'ಅನೈಸ್ ಪಾರ್ಕ್ — ಸಂಪಾದಕಿ, ದಿ ಕ್ವಾರ್ಟರ್ಲಿ',
   'signup.brandQuote':
     '\\u201cನಿಮ್ಮ ಮೊದಲ ಹಸ್ತಪ್ರತಿ ಅತ್ಯಂತ ಕಠಿಣವಾಗಿದೆ. ಕ್ವಿಲನ್ ಅದನ್ನು ಕಡಿಮೆ ಒಂಟಿತನಗೊಳಿಸುತ್ತದೆ.\\u201d',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -150,6 +175,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'ಅನೈಸ್',
   'signup.heading': 'ನಿಮ್ಮ ಕ್ವಿಲನ್ ಖಾತೆಯನ್ನು ರಚಿಸಿ',
   'signup.lastNamePlaceholder': 'ಪಾರ್ಕ್',
+  'signup.submitting': 'ನಿಮ್ಮ ಸ್ಟುಡಿಯೋ ತೆರೆಯಲಾಗುತ್ತಿದೆ\\u2026',
   'signup.subtitle':
     'ಶಾಂತವಾದ ಮೇಜು, ಪರಿಸರ ಸಹಯೋಗಿಗಳು ಮತ್ತು ನಿಮ್ಮ ದಾರಿಯಿಂದ ಹೊರಬರುವ ದೀರ್ಘ-ರೂಪದ ಸಂಪಾದಕ.',
   'templates.blank.subtitle': 'ಒಂದು ಖಾಲಿ ಪುಟ. ಕರ್ಸರ್ ಪ್ರಾರಂಭವಾಗುತ್ತದೆ.',
@@ -162,11 +188,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'ಚಿಂತನಶೀಲ ರಚನೆಯೊಂದಿಗೆ ಪ್ರಾರಂಭಿಸಿ. ಅನಂತವಾಗಿ ಕಸ್ಟಮೈಸ್ ಮಾಡಿ.',
   'templates.useFailed': 'ಈ ಟೆಂಪ್ಲೇಟ್‌ನಿಂದ ಡಾಕ್ಯುಮೆಂಟ್ ಅನ್ನು ಪ್ರಾರಂಭಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'templates.useTemplate': 'ಈ ಟೆಂಪ್ಲೇಟ್ ಬಳಸಿ',
+  'terms.intro': 'ಈ ಸೇವೆಯನ್ನು ನೀವು ಬಳಸಬಹುದಾದ ಷರತ್ತುಗಳು.',
   'terms.title': 'ಸೇವಾ ನಿಯಮಗಳು',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'ಈಗ ತಾನೇ',
   'trash.confirmDelete': 'ಅಳಿಸುವಿಕೆಯನ್ನು ದೃಢೀಕರಿಸಿ',
+  'trash.confirmEmpty': 'ದೃಢಪಡಿಸಿ — ಎಲ್ಲವನ್ನೂ ಅಳಿಸಿ',
   'trash.deleteFailed': 'ಅಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'trash.deleteForever': 'ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಿ',
   'trash.empty': 'ಚೇತರಿಸಿಕೊಳ್ಳಲು ಏನೂ ಇಲ್ಲ.',
@@ -182,7 +210,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'ಇನ್ನೂ ಯಾವುದೇ ಪರಿಷ್ಕರಣೆಗಳಿಲ್ಲ — ಅದರ ಇತಿಹಾಸವನ್ನು ಪ್ರಾರಂಭಿಸಲು ಡಾಕ್ಯುಮೆಂಟ್ ಅನ್ನು ಉಳಿಸಿ.',
   'versionHistory.heading': 'ಆವೃತ್ತಿ ಇತಿಹಾಸ',
+  'versionHistory.latest': 'ಇತ್ತೀಚಿನದು',
   'versionHistory.loadFailed': 'ಇತಿಹಾಸವನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'versionHistory.noContent': 'ಈ ಪರಿಷ್ಕರಣೆಗೆ ಯಾವುದೇ ವಿಷಯ ಸೆರೆಹಿಡಿಯಲಾಗಿಲ್ಲ.',
   'versionHistory.previewing': 'ಪೂರ್ವವೀಕ್ಷಣೆ',
   'versionHistory.restore': 'ಈ ಆವೃತ್ತಿಯನ್ನು ಮರುಸ್ಥಾಪಿಸಿ',
   'versionHistory.restoreFailed': 'ಮರುಸ್ಥಾಪನೆ ವಿಫಲವಾಗಿದೆ.',

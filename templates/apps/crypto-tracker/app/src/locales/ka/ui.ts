@@ -1,11 +1,24 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'დაგვიკავშირდით',
   'about.eyebrow': 'შესახებ',
+  'about.featureAlerts':
+    'ფასის შეტყობინებები მნიშვნელოვან პირობებზე, ელფოსტითა და push-ით, რომ ვერც ერთ მოძრაობას გამოტოვებ.',
+  'about.featureMarkets':
+    'ცოცხალი ბაზრის მონაცემები და ფასების გრაფიკები ათასობით მონეტაზე, დალაგებული საბაზრო კაპიტალით, ვოლუმითა და მომენტუმით.',
+  'about.featurePortfolio':
+    'პორტფელის თვალყურის დევნება რეალური მოგება-ზარალით, ხარჯის ბაზისითა და განაწილებით — დაკავშირებული თქვენს ტრანზაქციების ისტორიასთან.',
+  'about.featureWatchlist':
+    'პირადი სანახავი სია და შერჩეული კრიპტო სიახლეები სიგნალებით იმ აქტივებზე, რომლებსაც ადევნებთ თვალს.',
+  'about.missionTitle': 'ჩვენი მისია',
+  'alertConditionCard.armedSince': 'აქტიურია {{when}}-დან',
   'alertConditionCard.condition.${alert.condition}': 'გააქტიურებული {{როდის}}',
   'alertConditionCard.confirmDelete': 'დაადასტურეთ წაშლა',
+  'alertConditionCard.deleteAriaLabel': 'შეტყობინების წაშლა',
   'alertConditionCard.pauseAriaLabel': 'შეტყობინების პაუზა',
   'alertConditionCard.resumeAriaLabel': 'განახლების შეტყობინება',
+  'alertConditionCard.triggeredAt': 'გააქტიურდა {{when}}',
   'alertNew.condition': 'მდგომარეობა',
   'alertNew.createCta': 'შეტყობინების შექმნა',
   'alertNew.error': 'შეტყობინების შექმნა ვერ მოხერხდა.',
@@ -16,6 +29,7 @@ export const ui: UiTranslations = {
   'alerts.empty': 'შეტყობინებები ჯერ არ არის.',
   'alerts.eyebrow': 'სიგილის ტრაპვერები',
   'alerts.loadError': 'შეტყობინებების ჩატვირთვა ვერ მოხერხდა.',
+  'alerts.newCta': '+ ახალი ტრიპვაირი',
   'alerts.subheading':
     'მიიღეთ პინგინგი, როდესაც ფასი, ცვლილება ან მოცულობა გადაკვეთს თქვენს ზღვარს.',
   'alerts.summary.armed': 'შეიარაღებული',
@@ -24,6 +38,7 @@ export const ui: UiTranslations = {
   'coinDetail.allTimeHigh': 'ყველა დროის მაქსიმუმი',
   'coinDetail.allTimeLow': 'ყველა დროის დაბალი მაჩვენებელი',
   'coinDetail.back': 'ყველა ბაზარი',
+  'coinDetail.chartAriaLabel': '{{name}} ფასის გრაფიკი, ბოლო 30 დღე',
   'coinDetail.chartHeading': 'ფასი · ბოლო 30 დღე',
   'coinDetail.circulating': 'ცირკულირებადი მიწოდება',
   'coinDetail.fdv': 'სრულად განზავებული შეფასება',
@@ -60,6 +75,7 @@ export const ui: UiTranslations = {
   'forgotPassword.successHeading': 'სადენიანი ბმულის გადატვირთვა.',
   'login.eyebrow': 'შედით ტერმინალში',
   'login.heading': 'კეთილი იყოს შენი დაბრუნება, სიგნალისო.',
+  'login.noAccountQuestion': 'Tessera-ს ახალი მომხმარებელი ხართ?',
   'login.secureNote': '🔒 დაშიფრულია ტრანზიტში',
   'login.signingInCta': 'ფირის კითხვა…',
   'login.signupLink': 'გახსენით ანგარიში →',
@@ -94,6 +110,14 @@ export const ui: UiTranslations = {
   'notFound.body':
     'თქვენს მიერ დასკანირებული მარშრუტი არ გადადის ცნობილ მონეტაზე ან გვერდზე. ხელახლა შეამოწმეთ სიმბოლო და სცადეთ ხელახლა.',
   'notFound.browseMarkets': 'ბაზრების დათვალიერება',
+  'notFound.eyebrow': '{{appName}} სიგნალი დაიკარგა',
+  'notFound.heading': 'ეს სიგნალი დიაპაზონს გარეთაა',
+  'planUpdated.body':
+    'თქვენი ბილინგის ცვლილება ახლა აქტიურია. გეგმის მართვა ნებისმიერ დროს შეგიძლიათ ბილინგის გვერდიდან.',
+  'planUpdated.retry': 'ხელახლა სცადეთ',
+  'planUpdated.verifyFailed': 'თქვენი გადახდის დადასტურება ჯერ ვერ შევძელით.',
+  'planUpdated.verifyFailedBody':
+    'შესაძლოა, თქვენი გადახდა ჯერ კიდევ მუშავდება. სცადეთ ხელახლა ცოტა ხანში.',
   'planUpdated.verifying': 'თქვენი გადახდის დადასტურება…',
   'portfolio.addError': 'შეიყვანეთ სიმბოლო, დადებითი რაოდენობა და ღირებულება.',
   'portfolio.addHoldingCta': '+ ჰოლდინგის დამატება',
@@ -117,11 +141,13 @@ export const ui: UiTranslations = {
   'portfolioHeroCard.eyebrow': 'პორტფელის მთლიანი ღირებულება',
   'portfolioHeroCard.totalPnl': 'ჯამური მოგება/შ',
   'pricing.heading': 'შეტყობინებები',
+  'pricing.limit.alerts': 'შეტყობინებები',
   'pricing.limit.coins': 'მონეტები',
   'pricing.limit.market': 'ბაზარი',
   'pricing.limit.portfolio': 'პორტფელი',
   'resetPassword.eyebrow': 'ახალი შიფრი',
   'resetPassword.missingToken': 'ეს გადატვირთვის ბმული დაკარგულია ან არასწორია. მოითხოვეთ ახალი.',
+  'resetPassword.passwordPlaceholder': 'ახალი პაროლი',
   'resetPassword.subheading': 'აირჩიეთ ისეთი რამ, რისი გაშიფვრაც მხოლოდ თქვენ შეგიძლიათ.',
   'settings.apiKeys.body':
     'ტრანზაქციების ისტორიის იმპორტისთვის მხოლოდ წასაკითხი გასაღებები. გამოწერის შემდეგ დაუკავშირდით OAuth-ის საშუალებით /pricing-დან.',
@@ -133,17 +159,32 @@ export const ui: UiTranslations = {
   'settings.preferences.currency': 'ვალუტის შეთავაზების შეთავაზება',
   'settings.preferences.locale': 'ლოკალი',
   'settings.preferences.push': 'დააჭირეთ',
+  'settings.preferences.refresh': 'ფასის განახლება (წამი)',
   'settings.preferences.sms': 'SMS',
+  'settings.revokeDeviceWarning': 'ამ მოწყობილობის წვდომა მალე გაუქმდება. გასვლა?',
   'settings.security.body': 'პაროლი და ორფაქტორიანი პარამეტრები თქვენი ანგარიშის მიერ იმართება.',
   'settings.signOutDevice': 'გასვლა',
   'settings.twoFactorCode': 'ავტორიზაციის კოდი',
   'settings.twoFactorDisable': 'გამორთვა',
+  'settings.twoFactorDisableTitle': 'ორფაქტორიანი ავთენტიფიკაციის გამორთვა',
   'settings.twoFactorEnable': 'ჩართვა',
+  'settings.twoFactorEnableTitle': 'ორფაქტორიანი ავთენტიფიკაციის ჩართვა',
   'settings.twoFactorInvalidCode': 'არასწორი კოდი',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'ორფაქტორიანი QR კოდი',
+  'settings.twoFactorScan':
+    'დაასკანერეთ ეს QR კოდი ავთენტიფიკატორის აპით, შემდეგ შეიყვანეთ 6-ნიშნა კოდი.',
+  'settings.twoFactorUnavailable': 'ორფაქტორიანი ავთენტიფიკაცია ამ აპლიკაციისთვის მიუწვდომელია.',
   'settings.twoFactorVerify': 'დადასტურება და ჩართვა',
   'sigilAuthShell.backHomeCta': '← დაბრუნება სიგილზე',
+  'sigilAuthShell.brandBody':
+    'რეალურ დროში ფასები, პორტფელის მოგება/ზარალი და მოქმედი დაცვები მნიშვნელოვან პირობებზე — ყველაფერი ერთ ტერმინალზე.',
+  'sigilAuthShell.brandFooter': '© {{year}} {{appName}} — აგებულია Molecule-ზე',
+  'sigilAuthShell.brandHeadline': 'გაშიფრეთ ყველა სიგნალი მთელ ლეჯერზე.',
+  'sigilAuthShell.samplePortfolio': 'ნიმუშის პორტფელი',
+  'sigilAuthShell.tagline': '— {{tagline}} —',
   'sigilLayout.primaryNavLabel': 'ძირითადი ნავიგაცია',
+  'signup.creating': 'ტერმინალი იხსნება…',
   'signup.eyebrow': 'გახსენით ტერმინალი',
   'signup.heading': 'შექმენით თქვენი სიგილი',
   'signup.subheading': 'თვალყური ადევნეთ ყველა მონეტას, აიცილეთ ყველა აცდენა. დაწყება უფასოა.',
@@ -160,6 +201,7 @@ export const ui: UiTranslations = {
   'transactions.loadError': 'ტრანზაქციების ჩატვირთვა ვერ მოხერხდა.',
   'watchlist.addCta': 'ბაზრების დათვალიერება',
   'watchlist.col.change24h': '24 საათი',
+  'watchlist.col.coin': 'მონეტა',
   'watchlist.col.marketCap': 'ბაზრის კაპიტალიზაცია',
   'watchlist.empty':
     'თქვენს სათვალთვალო სიაში მონეტები არ არის — ვარსკვლავური მონეტები /markets-დან მათი დასამატებლად.',

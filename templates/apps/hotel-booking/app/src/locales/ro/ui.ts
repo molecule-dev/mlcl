@@ -1,11 +1,32 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ai întrebări despre o rezervare, feedback sau o proprietate care crezi că ar trebui să apară pe {{app}}? Contactează echipa noastră din contul tău — fiecare mesaj ajunge la o persoană reală care te poate ajuta.',
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre noi',
+  'about.featureLoyalty':
+    'Tarife exclusive pentru membri și un program de loialitate care îți aduce puncte, check-out târziu și upgrade-uri de cameră la fiecare rezervare.',
+  'about.featureReviews':
+    'Recenzii verificate ale oaspeților și selecții editoriale, ca să ai încredere în cazare înainte să ajungi.',
+  'about.featureRooms':
+    'Camere, tarife și facilități comparate una lângă alta, cu prețuri transparente, totul inclus — taxe și comisioane de resort incluse înainte de plată.',
+  'about.featureSearch':
+    'Căutare în timp real în hoteluri verificate, cu disponibilitate live, vizualizare pe hartă și galerii foto bogate.',
+  'about.featureTrips':
+    'Favorite salvate și un panou Călătorii care păstrează fiecare rezervare, itinerariu și confirmare într-un singur loc.',
+  'about.intro':
+    '{{app}} este o platformă de rezervare hoteluri pentru călătorii cărora le pasă de calitate. Fiecare proprietate este verificată personal de echipa noastră editorială — fără inventar de agregator, fără anunțuri înșelătoare. Caută disponibilitatea reală, compară camere, tarife și facilități una lângă alta, apoi rezervă în câteva atingeri cu un preț clar, totul inclus.',
+  'about.missionBody':
+    'Rezervarea unei cazări ar trebui să fie calmă și onestă. Afișăm tarife transparente cu taxe și comisioane de resort de la început, răsplătim oaspeții fideli în loc să-i taxăm în plus și punem pe primul loc cazările care merită banii tăi — ca să petreci mai puțin timp comparând file și mai mult timp bucurându-te de călătorie.',
+  'about.missionTitle': 'Misiunea noastră',
+  'about.subtitle': 'Un mod selectiv și transparent de a găsi și rezerva hotelul potrivit.',
   'account.loyalty.activitySummary': '{{nights}} nopți · {{spend}} petrecut anul acesta',
+  'account.loyalty.benefitsHeading': 'Beneficiile tale',
   'account.loyalty.heading': 'Loialitate',
   'account.loyalty.loading': 'Se încarcă fidelitatea…',
-  'account.loyalty.pointsTowardNext': '{{puncte}} / {{Următorul}} indică spre {{nextTier}}',
+  'account.loyalty.maxTier': 'Nivel superior — bucură-te de beneficiile tale.',
+  'account.loyalty.pointsTowardNext': '{{points}} / {{next}} puncte până la {{nextTier}}',
   'account.loyalty.tier': 'Nivelul actual',
   'account.loyalty.unavailable': 'Informațiile despre loialitate nu sunt disponibile.',
   'account.navLabel': 'Secțiuni de cont',
@@ -22,6 +43,7 @@ export const ui: UiTranslations = {
   'bookingCheckout.confirm': 'Confirmați rezervarea · {{total}}',
   'bookingCheckout.datesRequired': 'Vă rugăm să alegeți datele de check-in și check-out.',
   'bookingCheckout.guestHeading': 'Invitat principal',
+  'bookingCheckout.heading': 'Confirmă și rezervă',
   'bookingCheckout.loadError': 'Nu s-a putut încărca proprietatea.',
   'bookingCheckout.nights': '{{rate}} × {{count}} nopți',
   'bookingCheckout.notFound': 'Proprietatea nu a fost găsită.',
@@ -32,11 +54,14 @@ export const ui: UiTranslations = {
   'bookingCheckout.taxes': 'Taxe și comisioane',
   'bookingCheckout.tripHeading': 'Călătoria ta',
   'bookingConfirmation.allTripsCta': 'Toate călătoriile',
+  'bookingConfirmation.confNumber': 'Număr de confirmare: {{id}}',
+  'bookingConfirmation.dates': '{{checkIn}} – {{checkOut}}',
+  'bookingConfirmation.fallback': 'Rezervarea ta este în curs de procesare.',
   'bookingConfirmation.heading': 'Rezervare confirmată',
   'bookingConfirmation.loading': 'Se încarcă rezervarea…',
   'bookingConfirmation.searchMoreCta': 'Răsfoiți mai multe sejururi',
   'bookingConfirmation.subheadingForTrip':
-    '{{proprietate}} în {{oraş}} , {{ţară}} Ne vedem pe {{check-in}} .',
+    '{{property}} în {{city}}, {{country}}. Ne vedem pe {{checkIn}}.',
   'bookingConfirmation.total': 'Total {{total}}',
   'bookingConfirmation.viewTripCta': 'Vizualizați călătoria',
   'common.goToDashboard': 'Mergi la Tabloul de bord',
@@ -46,6 +71,7 @@ export const ui: UiTranslations = {
   'favorites.loadError': 'Nu s-au putut încărca favoritele.',
   'favorites.pricePerNight': '{{price}} / noapte',
   'favorites.removeCta': 'Anulează salvarea',
+  'favorites.removing': 'Se șterge…',
   'forgotPassword.subheading':
     'Introdu adresa de e-mail din contul tău și îți vom trimite un link de resetare securizată.',
   'forgotPassword.successBody':
@@ -53,6 +79,8 @@ export const ui: UiTranslations = {
   'landing.cta.eyebrow': 'Membrii Auberge',
   'landing.cta.heading': 'Tarife exclusive pentru membri. Fiecare rezervare, de fiecare dată.',
   'landing.cta.signup': 'Creați un cont gratuit',
+  'landing.cta.subheading':
+    'Câștigă puncte de loialitate la fiecare cazare, deblochează check-out-uri târzii și upgrade-uri de cameră și obține acces prioritar la proprietăți noi înainte de a fi listate public.',
   'landing.destinations.eyebrow': 'Unde urmează',
   'landing.destinations.heading': 'Destinații recomandate',
   'landing.destinations.seeAll': 'Vezi toate destinațiile',
@@ -61,13 +89,22 @@ export const ui: UiTranslations = {
   'landing.journal.heading': 'Povești pentru care merită să împachetezi',
   'landing.nav.join': 'Alătură-te programului Auberge',
   'landing.nav.search': 'Căutare sejururi',
+  'landing.preview.browseAll': 'Explorează colecția completă',
   'landing.preview.eyebrow': 'O privire în interior',
   'landing.preview.heading': 'Sejururi atent selecționate luna aceasta',
+  'landing.preview.subheading':
+    'Fiecare proprietate de pe {{appName}} este verificată personal de echipa noastră editorială — fără inventar de agregator, fără anunțuri înșelătoare.',
   'login.eyebrow': 'Zona membrilor',
+  'login.noAccount': 'Nou în Tessera?',
   'login.signupLink': 'Creați un cont gratuit',
   'login.subheading':
     'Conectați-vă pentru a vă gestiona călătoriile, a vizualiza confirmările și a continua de unde ați rămas.',
+  'loyaltyTierBadge.points': '{{points}} puncte',
   'planUpdated.heading': 'Plan actualizat',
+  'planUpdated.retry': 'Încercați din nou',
+  'planUpdated.verifyFailed': 'Nu am putut încă să vă confirmăm plata.',
+  'planUpdated.verifyFailedBody':
+    'Este posibil ca plata dvs. să fie încă în curs de procesare. Încercați din nou imediat.',
   'planUpdated.verifying': 'Se confirmă plata…',
   'pricing.limit.advancedFeatures': 'Funcții avansate:',
   'pricing.limit.canExport': 'Export de date:',
@@ -79,7 +116,9 @@ export const ui: UiTranslations = {
   'propertyDetail.amenitiesHeading': 'Ce oferă acest loc',
   'propertyDetail.backLink': 'Înapoi la căutare',
   'propertyDetail.bookCta': 'Rezervaţie',
+  'propertyDetail.bookmarkAria': 'Salvați proprietatea',
   'propertyDetail.bookmarkAriaSaved': 'Eliminați din proprietățile salvate',
+  'propertyDetail.galleryImageAlt': '{{name}} fotografie {{number}}',
   'propertyDetail.heroImageAlt': '{{name}} fotografie eroică',
   'propertyDetail.hidePhotos': 'Ascunde fotografiile',
   'propertyDetail.lineCleaning': 'Taxă de curățenie',
@@ -89,6 +128,8 @@ export const ui: UiTranslations = {
   'propertyDetail.night': 'noapte',
   'propertyDetail.noChargeYet': 'Nu veți fi încă taxat(ă)',
   'propertyDetail.notFound': 'Proprietatea nu a fost găsită.',
+  'propertyDetail.perNight': '/ noapte',
+  'propertyDetail.pickDatesHint': 'Alege datele pentru a vedea defalcarea completă a prețului.',
   'propertyDetail.reviewCount': '( {{count}} recenzii)',
   'propertyDetail.reviewsHeading': 'Recenzii recente',
   'propertyDetail.roomCapacity': 'Doarme {{count}}',
@@ -101,6 +142,7 @@ export const ui: UiTranslations = {
   'resetPassword.newPasswordLabel': 'Parolă nouă',
   'resetPassword.subheading':
     'Alege o parolă nouă pentru contul tău Auberge. Folosește cel puțin 8 caractere; recomandăm o parolă.',
+  'searchResults.dates': '{{from}} → {{to}}',
   'searchResults.empty': 'Nicio proprietate nu corespunde căutării dvs.',
   'searchResults.emptyHint':
     'Încearcă să extinzi filtrele sau să elimini plafonul de preț — Auberge oferă sejururi în 14 țări.',
@@ -108,19 +150,28 @@ export const ui: UiTranslations = {
   'searchResults.heading': 'Sejururi atent selecționate',
   'searchResults.headingForQuery': 'Rămâne pentru " {{q}} "',
   'searchResults.loadError': 'Nu s-au putut încărca proprietățile.',
+  'searchResults.mapHint':
+    'Treci cu cursorul peste un card pentru a-l evidenția pe hartă. Tile-uri Mapbox live în producție.',
   'searchResults.mapPinAria': '{{name}} — {{price}} pe noapte',
   'searchResults.sortLabel': 'Sortați după',
   'searchResults.subheading': '{{count}} proprietăți · {{guests}} oaspeți',
   'signup.eyebrow': 'Devino membru',
   'signup.subheading':
     'Alătură-te Auberge pentru a debloca tarife exclusive pentru membri, check-out târzii și acces prioritar la proprietăți noi.',
+  'sojournAuthShell.brand.eyebrow': 'Cazează-te într-un loc extraordinar',
+  'sojournAuthShell.brand.heading':
+    'O colecție selectivă de proprietăți — prezentate frumos, cu prețuri transparente.',
   'sojournHeroSearchCard.checkInAria': 'Data sosirii',
   'sojournHeroSearchCard.checkOutAria': 'Data de check-out',
+  'sojournHeroSearchCard.destAria': 'Destinaţie',
+  'sojournHeroSearchCard.destLabel': 'Unde',
   'sojournHeroSearchCard.destPlaceholder': 'Oraș, regiune sau proprietate',
   'sojournHeroSearchCard.eyebrow': 'Sejururi atent selecționate · Tarife exclusive pentru membri',
   'sojournHeroSearchCard.guestsOption': '{{n}} oaspeți',
   'sojournHeroSearchCard.subtitle':
     'O colecție atent selecționată de hoteluri tip boutique, proprietăți cu design avangardist și refugii rare — prețuri transparente, prezentate frumos.',
+  'sojournHeroSearchCard.title': 'Cazează-te într-un loc extraordinar',
+  'sojournHeroSearchCard.trustLoyalty': 'Câștigă puncte la fiecare cazare',
   'sojournHeroSearchCard.trustNoFees': 'Fără taxe ascunse, niciodată',
   'sojournHeroSearchCard.trustVetted': 'Numai proprietăți verificate manual',
   'sojournLayout.primaryNavLabel': 'Navigare principală',

@@ -1,34 +1,51 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vai vēlaties ieviest siltāku ievadīšanu savai komandai, atradāt kļūdu vai ir atsauksmes? Sazinieties no sava konta iestatījumiem — katra ziņa nonāk pie īsta cilvēka, kas var palīdzēt.',
   'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
+  'about.missionTitle': 'Mūsu misija',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Atjaunojiet savu paroli.',
+  'auth.forgotPassword.panel.body':
+    'Atiestatīšana aizņem 30 sekundes — jūsu kontrolsaraksta progress gaida.',
+  'auth.forgotPassword.panel.headline': 'Tieši tur, kur pārtraucāt.',
+  'auth.forgotPassword.subheading':
+    'Ievadiet savu darba e-pastu, un mēs nosūtīsim jums atiestatīšanas saiti.',
   'auth.forgotPassword.successSubheading':
     'Pārbaudiet savu iesūtni — esam nosūtījuši atiestatīšanas instrukcijas.',
   'auth.login.emailPlaceholder': 'name@yourcompany.com',
   'auth.login.heading': 'Laipni lūgti atpakaļ.',
   'auth.login.passwordPlaceholder': 'Jūsu parole',
+  'auth.login.signupPrompt': 'Jauns komandā?',
   'auth.login.subheading':
     'Pierakstieties, lai turpinātu savu iesācēju procesu no vietas, kur to pārtraucāt.',
   'auth.login.submit': 'Turpiniet savu ceļojumu',
+  'auth.panel.body':
+    'Jūsu personīgais kontrolsaraksts, apmācību pavērsieni un iepazīšanās ar komandu — viss vienā mierīgā vietā.',
   'auth.panel.footnote': '© Embark — cilvēku iesaistīšana pirmajā vietā kopš šodienas.',
   'auth.panel.headline': 'Šeit sākas pārliecinātas pirmās 90 dienas.',
   'auth.resetPassword.heading': 'Iestatiet jaunu paroli.',
   'auth.resetPassword.newPasswordLabel': 'Jauna parole',
+  'auth.resetPassword.panel.body':
+    'Saglabājiet jaunu paroli, un mēs jūs uzreiz atgriezīsim jūsu ievadīšanas ceļojumā.',
+  'auth.resetPassword.panel.headline': 'Gandrīz esat atpakaļ.',
   'auth.resetPassword.subheading':
     'Izvēlieties kaut ko tādu, ko atcerēsities — vismaz 8 rakstzīmes.',
   'auth.signup.emailPlaceholder': 'name@yourcompany.com',
   'auth.signup.heading': 'Laipni lūdzam savās pirmajās 90 dienās.',
   'auth.signup.panel.body':
     'Kontrolsaraksts ar norādījumiem, lomu apzinoša apmācība un iepazīstināšana ar cilvēkiem — viss ir gatavs pirms jūsu ienākšanas.',
+  'auth.signup.panel.headline': 'Pirmā diena jau pirmajā dienā.',
   'auth.signup.subheading': 'Izveidojiet savu Embark kontu, lai sāktu vadītu ieviešanas procesu.',
   'checklist.empty.body': 'Pārslēdziet filtru, lai skatītu citus uzdevumus.',
   'checklist.empty.title': 'Šobrīd šeit nekā nav',
   'checklist.eyebrow': 'Ievads · Kontrolsaraksts',
   'checklist.loading': 'Notiek kontrolsaraksta ielāde…',
   'checklist.stat.actionNeeded': 'Nepieciešama rīcība',
+  'checklist.stat.completion': 'Pabeigšana',
+  'checklist.stat.inProgress': 'Notiek apstrāde',
   'checklist.stat.inProgressHelper': 'Turpiniet no vietas, kur pārtraucāt',
   'checklist.stat.overdueHelper': 'Vispirms ķerieties pie šiem',
   'checklist.subtitle':
@@ -60,6 +77,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Vēl nav dokumentu',
   'documents.eyebrow': 'Ievads · Dokumenti',
   'documents.loading': 'Notiek dokumentu ielāde…',
+  'documents.stat.actionNeeded': 'Pierakstīties tūlīt',
+  'documents.stat.all': 'Visi dokumenti',
   'documents.stat.allHelper': 'Dažādās kategorijās',
   'documents.stat.pending': 'Gaidāmie paraksti',
   'documents.stat.pendingHelper': 'Nepieciešams pabeigšanai',
@@ -67,16 +86,21 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Droši glabāts',
   'documents.status.optional': 'Pēc izvēles',
   'documents.status.required': 'Obligāti',
+  'documents.status.signed': 'Parakstīts',
   'documents.subtitle': 'Jūsu rokasgrāmata, veidlapas un parakstītie līgumi — viss vienuviet.',
   'documents.title': 'Viss, kas jums jāizlasa un jāparaksta.',
   'documents.uploadedRecently': 'Nesen augšupielādēts',
   'documentViewer.breadcrumbCurrent': 'Skatītājs',
   'documentViewer.breadcrumbDocs': 'Dokumenti',
   'documentViewer.downloadMeta': 'Lejupielādēt metadatus',
+  'documentViewer.helpBody':
+    'People & Culture atbild uz rokasgrāmatas jautājumiem kanālā #ask-people vietnē Slack.',
   'documentViewer.helpEyebrow': 'Vai nepieciešama palīdzība?',
   'documentViewer.loadError': 'Mēs nevarējām ielādēt šo dokumentu.',
   'documentViewer.loading': 'Dokumenta ielāde…',
   'documentViewer.notFound': 'Dokuments nav atrasts',
+  'documentViewer.previewBody':
+    'Kad augšupielādes ir konfigurētas, mēs attēlojam failu iekļauti. Pagaidām metadatu lejupielāde ļauj jums apstiprināt, ka ieraksts ir īsts.',
   'documentViewer.previewBodyExternal':
     'Izmantojiet lejupielādes pogu, lai atvērtu failu jaunā cilnē.',
   'documentViewer.previewTitle': 'Dokumenta priekšskatījums',
@@ -84,6 +108,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'Izlasiet dokumentu un pēc tam noklikšķiniet zemāk, lai parakstītu un apstiprinātu tā saņemšanu.',
   'documentViewer.signatureHeading': 'Nepieciešams paraksts',
+  'documentViewer.signed': '✓ Parakstīts un iesniegts',
   'documentViewer.signing': 'Parakstīšanās…',
   'documentViewer.uploadedRecently': 'Nesen augšupielādēts',
   'landing.closing.body':
@@ -93,10 +118,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Man jau ir konts',
   'landing.feature1.body':
     'Katrs uzdevums — dokumenti, konti, ievads — ir iepriekš sagatavots ar izpildes datumiem un īsto īpašnieku.',
+  'landing.feature1.title': 'Vadīts kontrolsaraksts',
   'landing.feature2.body':
     'Moduļi tiek atbloķēti, sasniedzot 30/60/90 atskaites punktus, un tie ir pielāgoti lomai un komandai, kurai darbinieks pievienojas.',
+  'landing.feature2.title': 'Lomai atbilstoša apmācība',
   'landing.feature3.body':
     'Ir ieplānotas iepazīšanās ar draugiem, vadītājiem un starpfunkcionālām komandām — lai neviens nesāktu viens.',
+  'landing.feature3.title': 'Īstas iepazīšanās',
   'landing.featureEyebrow': 'Kāpēc doties ceļā',
   'landing.featureHeadline': 'Trīs veidi, kā Embark iegūst uzticību jau pirmajā dienā.',
   'landing.footer.rights': 'Visas tiesības aizsargātas.',
@@ -106,6 +134,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Tālāk: Satiec savu draugu 30 minūšu kafijas pauzei — otrdien plkst. 10:00.',
   'landing.preview.eyebrow': '14. diena no 90 — informācijas paneļa paraugs',
+  'landing.preview.headline': 'Laipni lūdzam atpakaļ, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR gatavs',
   'landing.proof.teams': 'Radīts komandām no 50 līdz 5000 cilvēkiem',
   'landing.proof.time': '14 dienu bezmaksas izmēģinājuma versija',
@@ -122,16 +151,25 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'yesterday',
   'planUpdated.message': 'Viss ir gatavs.',
   'planUpdated.preparing': 'Notiek plāna atjaunināšana…',
+  'planUpdated.retry': 'Mēģini vēlreiz',
+  'planUpdated.verifyFailed': 'Mēs vēl nevarējām apstiprināt jūsu maksājumu.',
+  'planUpdated.verifyFailedBody':
+    'Jūsu maksājums, iespējams, joprojām tiek apstrādāts. Pēc brīža mēģiniet vēlreiz.',
   'planUpdated.verifying': 'Apstiprina jūsu maksājumu…',
   'pricing.documentsLabel': 'dokumenti',
   'pricing.onboardingsLabel': 'iesācēju apmācības',
   'pricing.tasksLabel': 'uzdevumi',
   'profile.dayNumber': 'Diena',
   'profile.detailsHeading': 'Informācija par iekļaušanu sistēmā',
+  'profile.encouragementBody': 'Informējiet savu draugu un vadītāju — mazi soļi summējas.',
   'profile.milestones': 'Atskaites punkti',
   'profile.progressEyebrow': 'Iesācēju apmācības progress',
   'profile.tasks': 'Uzdevumi',
   'profile.unknownName': 'Laipni lūdzam',
+  'settings.appearance.description': 'Pārslēgties starp gaišo un tumšo režīmu.',
+  'settings.appearance.title': 'Izskats',
+  'settings.subtitle':
+    'Pielāgojiet paziņojumus, drošību, ierīces un datu eksportu — viss paliek šeit, pēc jūsu noteikumiem.',
   'settings.title': 'Iestatījumi un preferences.',
   'taskDetail.backToChecklist': 'Atpakaļ uz kontrolsarakstu',
   'taskDetail.breadcrumbChecklist': 'Kontrolsaraksts',
@@ -143,7 +181,10 @@ export const ui: UiTranslations = {
   'taskDetail.noDue': 'Nav izpildes datuma',
   'taskDetail.notFound': 'Uzdevums nav atrasts',
   'taskDetail.notFoundBody': 'Šis uzdevums, iespējams, ir dzēsts vai pieder citam lietotājam.',
+  'taskDetail.tipBody':
+    'Ja esat iestrēdzis, rakstiet savam ievadīšanas draugam vietnē Slack — viņš ir jūsu pirmā palīdzības līnija.',
   'taskDetail.tipEyebrow': 'Ātrs padoms',
+  'team.empty.body': 'Mēģiniet plašāku meklēšanu vai izvēlieties citu nodaļu.',
   'team.empty.title': 'Nav komandas biedru, kas atbilstu',
   'team.eyebrow': 'Iesācēju apmācība · Cilvēki',
   'team.loading': 'Notiek komandas biedru ielāde…',
@@ -166,14 +207,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Atskaites punkti',
   'timeline.stat.current': 'Pašreizējais atskaites punkts',
   'timeline.stat.next': 'Nākamā atbloķēšana',
+  'timeline.stat.progress': 'Kopumā',
   'timeline.subtitle':
     'Katrs sasniegums paver jaunus moduļus, ievadus un sarunas par izaugsmi. Nav spiediena — tikai progress.',
+  'timeline.tipBody':
+    'Ieplānojiet 30 minūšu pārdomu sesiju 30., 60. un 90. dienā kopā ar savu vadītāju — tas padara atsauksmes konkrētas un progresu redzamu.',
   'timeline.tipEyebrow': 'Vadītāja dzeramnauda',
+  'timeline.tipTitle': 'Ieplānojiet kalendārā laiku pavērsieniem.',
   'timeline.title': 'Tavs 30 / 60 / 90 ceļojums.',
   'training.badge.notStarted': 'Nav sākts',
   'training.empty': 'Vēl nav apmācību moduļu.',
   'training.eyebrow': 'Ievads · Apmācība',
   'training.loading': 'Notiek moduļu ielāde…',
+  'training.stat.all': 'Moduļi piešķirti',
   'training.subtitle':
     'Moduļi tiek atbloķēti 30/60/90 minūtēs atbilstoši jūsu lomai. Obligātie tiek atbloķēti vispirms.',
   'training.title': 'Prasmes, rīki un stāsti — jūsu tempā.',
@@ -185,9 +231,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'Modulis nav atrasts',
   'trainingModule.quizBody': 'Lai moduli atzīmētu kā pabeigtu, jāiegūst 80% vai vairāk punktu.',
   'trainingModule.quizHeading': 'Moduļa noslēguma viktorīna',
+  'trainingModule.quizLocked': 'Vispirms sāciet moduli',
   'trainingModule.quizNone': 'Šajā modulī nav viktorīnas.',
   'trainingModule.quizRetry': 'Mēģini vēlreiz',
+  'trainingModule.quizStart': 'Sākt viktorīnu',
   'trainingModule.quizSubmit': 'Iesniegt atbildes',
+  'trainingModule.start': 'Sākt moduli',
   'trainingModule.statusNotStarted': 'Nav sākts',
   'welcomeHeroCard.completeLabel': 'Pabeigts',
   'welcomeHeroCard.milestonesLabel': 'Atskaites punkti',

@@ -1,12 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'মতামত আছে, কোনো বাগ পেয়েছেন, বা {{app}} আপনার স্কুল বা টিমে আনতে চান? আমরা প্রতিটি বার্তা পড়ি — আপনার অ্যাকাউন্ট সেটিংস থেকে যোগাযোগ করুন, একজন সত্যিকারের মানুষ উত্তর দেবেন।',
   'about.contactTitle': 'আমাদের সাথে যোগাযোগ করুন',
   'about.eyebrow': 'সম্পর্কে',
+  'about.intro':
+    '{{app}} একটি দৈনিক শব্দ ধাঁধা। ছয়টি চেষ্টায় পাঁচ অক্ষরের শব্দটি অনুমান করুন, আপনার স্ট্রিক ধরে রাখুন, আপনার ইমোজি গ্রিড শেয়ার করুন, এবং আজকের শব্দে সবাই কেমন করল দেখুন।',
+  'about.missionBody':
+    'একটি ভালো ধাঁধা হলো প্রতিদিনের ছোট্ট জয়। {{app}} তৈরি হয়েছে দিনে একটি শেয়ার করা শব্দকে ঘিরে — কফি বিরতির জন্য যথেষ্ট দ্রুত, আগামীকাল আবার ফিরে আসার মতো তীক্ষ্ণ।',
+  'about.missionTitle': 'আমাদের লক্ষ্য',
   'about.title': '{{app}} সম্পর্কে',
   'archive.loadError': 'আর্কাইভ লোড করা যায়নি।',
   'archive.missed': 'মিস করেছেন',
   'archive.notPlayed': 'খেলা হয়নি',
+  'archive.subhead':
+    'অনুশীলন হিসেবে যেকোনো আগের দিন আবার খেলুন — স্ট্রিক নেই, পরিসংখ্যান নেই, সব মজা আছে।',
   'archive.title': 'আর্কাইভ',
   'auth.backToHome': 'হোমে ফিরে যান',
   'auth.backToHomeArrow': '← হোমে ফিরে যান',
@@ -16,6 +25,7 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'পাসওয়ার্ড ভুলে গেছেন?',
   'auth.login.loggingIn': 'সাইন ইন করা হচ্ছে…',
   'auth.login.logIn': 'আজকের শব্দ খেলুন',
+  'auth.login.noAccount': 'টেসেরা-তে নতুন?',
   'auth.login.or': 'অথবা এর সাথে চালিয়ে যান',
   'auth.login.password': 'পাসওয়ার্ড',
   'auth.login.signInButton': 'সাইন ইন',
@@ -32,6 +42,10 @@ export const ui: UiTranslations = {
   'common.savingEllipsis': 'সেভ হচ্ছে…',
   'common.sendingEllipsis': 'পাঠানো হচ্ছে…',
   'common.startingEllipsis': 'শুরু হচ্ছে…',
+  'forgotPassword.subhead': 'আপনার ইমেল দিন এবং আমরা আপনাকে রিসেট করার জন্য একটি লিঙ্ক পাঠাবো।',
+  'forgotPassword.success.body':
+    'যদি একটি অ্যাকাউন্ট বিদ্যমান থাকে {{email}} আপনি কয়েক মিনিটের মধ্যে একটি রিসেট লিঙ্ক পেয়ে যাবেন।',
+  'forgotPassword.success.title': 'আপনার ইনবক্স দেখুন।',
   'form.name': 'নাম',
   'howToPlay.cta.home': 'হোমপেজে ফিরে যান',
   'howToPlay.cta.play': 'আজকের পাজল খেলুন',
@@ -68,10 +82,14 @@ export const ui: UiTranslations = {
   'landing.streaks.title': 'স্ট্রিক যা ভাঙতে আপনি অপছন্দ করেন',
   'leaderboard.daily.title': 'আজকের সমাধান',
   'leaderboard.loadError': 'লিডারবোর্ড লোড করা যায়নি।',
+  'leaderboard.streaks.empty': 'এখনো কোনো স্ট্রিক নেই — প্রথম হোন।',
+  'leaderboard.streaks.subhead': 'সর্বকালের দীর্ঘতম জয়ের স্ট্রিক।',
   'leaderboard.streaks.title': 'স্ট্রিক লিডার',
+  'leaderboard.subhead': 'আজ সবাই কেমন করল, এবং কে সবচেয়ে দীর্ঘ স্ট্রিক ধরে রেখেছে।',
   'leaderboard.title': 'লিডারবোর্ড',
   'login.headline': 'স্বাগতম।',
   'login.streakPill': '{{days}}-দিনের স্ট্রিক অপেক্ষা করছে',
+  'login.subhead': 'আপনার স্ট্রিক ধরে রাখতে এবং আজকের শব্দে আপনি কেমন করলেন দেখতে সাইন ইন করুন।',
   'nav.archive': 'আর্কাইভ',
   'nav.editProfile': 'প্রোফাইল সম্পাদনা করুন',
   'nav.getStarted': 'শুরু করুন',
@@ -89,6 +107,10 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · এরকম কোনো শব্দ নেই',
   'notFound.title': 'ঐ রাস্তাটি খালি।',
   'planUpdated.message': 'আপনার প্ল্যান লাইভ।',
+  'planUpdated.retry': 'আবার চেষ্টা করুন',
+  'planUpdated.verifyFailed': 'আমরা এখনও আপনার পেমেন্ট নিশ্চিত করতে পারিনি।',
+  'planUpdated.verifyFailedBody':
+    'আপনার পেমেন্টটি এখনও প্রক্রিয়াধীন থাকতে পারে। কিছুক্ষণ পর আবার চেষ্টা করুন।',
   'planUpdated.verifying': 'আপনার পেমেন্ট নিশ্চিত করা হচ্ছে…',
   'play.alreadyFinished': 'আপনি ইতিমধ্যে এই পাজলটি শেষ করেছেন',
   'play.answerWas': 'শব্দটি ছিল',
@@ -104,6 +126,12 @@ export const ui: UiTranslations = {
   'play.titlePractice': 'অনুশীলন পাজল',
   'play.tooShort': 'যথেষ্ট অক্ষর নেই',
   'play.won': 'সমাধান করেছেন!',
+  'pricing.advancedStats': 'উন্নত পরিসংখ্যান: {{yes}}',
+  'pricing.archiveHistory': '{{count}} দিনের আর্কাইভ ইতিহাস',
+  'pricing.archivePlays': '{{count}} আর্কাইভ রিপ্লে / দিন',
+  'pricing.archiveUnlimited': 'আনলিমিটেড আর্কাইভ ইতিহাস',
+  'pricing.canExport': 'ডেটা এক্সপোর্ট: {{yes}}',
+  'pricing.checkoutError': 'চেকআউট শুরু করা যায়নি। অনুগ্রহ করে আবার চেষ্টা করুন।',
   'pricing.dailyWord': 'দৈনিক শব্দ',
   'pricing.heading': 'আপনার {{app}} প্ল্যান বেছে নিন',
   'pricing.included': 'অন্তর্ভুক্ত',
@@ -111,7 +139,10 @@ export const ui: UiTranslations = {
   'pricing.subhead':
     'দৈনিক শব্দ সবসময় বিনামূল্যে। আনলিমিটেড আর্কাইভ রিপ্লে এবং গভীর পরিসংখ্যানের জন্য আপগ্রেড করুন।',
   'pricing.yearly': 'Yearly',
+  'privacy.intro':
+    '{{app}} আপনার গোপনীয়তাকে সম্মান করে। এই পৃষ্ঠায় আমরা কী ডেটা সংরক্ষণ করি, কেন করি এবং কীভাবে মুছে ফেলবেন তার সারসংক্ষেপ দেওয়া হয়েছে।',
   'privacy.title': 'গোপনীয়তা বিজ্ঞপ্তি',
+  'resetPassword.subhead': 'আপনার স্ট্রিকে ফিরে যেতে একটি নতুন পাসওয়ার্ড বেছে নিন।',
   'settings.account': 'অ্যাকাউন্ট',
   'settings.danger.body':
     'আপনার {{appName}} অ্যাকাউন্ট এবং সমস্ত পাজল ইতিহাস স্থায়ীভাবে মুছে ফেলুন।',
@@ -121,17 +152,23 @@ export const ui: UiTranslations = {
   'settings.guest': 'অতিথি',
   'settings.language.title': 'ভাষা',
   'settings.subhead': 'আপনার প্রোফাইল, শব্দ এবং লিডারবোর্ডে আপনি কীভাবে দেখা যান তা টিউন করুন।',
+  'settings.unnamed': 'স্পার্ক খেলোয়াড়',
   'settings.upgrade': 'আপগ্রেড',
   'signup.eyebrow': 'চিরকাল বিনামূল্যে — দিনে একটি শব্দ',
   'signup.headline': 'আপনার স্ট্রিক শুরু করুন।',
+  'signup.subhead':
+    'দৈনিক শব্দ খেলতে, স্ট্রিক গড়তে এবং লিডারবোর্ডে উঠতে একটি {{appName}} অ্যাকাউন্ট তৈরি করুন।',
   'stats.currentStreak': 'স্ট্রিক',
   'stats.distribution.title': 'অনুমান বিতরণ',
   'stats.loadError': 'আপনার পরিসংখ্যান লোড করা যায়নি।',
   'stats.maxStreak': 'সর্বোচ্চ স্ট্রিক',
   'stats.played': 'খেলা হয়েছে',
   'stats.playToday': 'আজকের পাজল খেলুন',
+  'stats.subhead': 'শুধু র‍্যাঙ্কড দৈনিক ধাঁধা — আর্কাইভ অনুশীলন কখনো গণনা হয় না।',
   'stats.title': 'আপনার পরিসংখ্যান',
   'stats.winRate': 'জয়ের হার',
   'status.monthly': 'মাসিক',
+  'terms.intro':
+    '{{app}} ব্যবহার করে আপনি নিচের নিয়মাবলিতে সম্মত হচ্ছেন। আপনি যদি সেগুলো মেনে নিতে না পারেন, অনুগ্রহ করে সেবাটি ব্যবহার করবেন না।',
   'terms.title': 'সেবার শর্তাবলী',
 }

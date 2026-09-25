@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Асуулт байна уу, алдаа олсон уу, эсвэл номоо шилжүүлэх үү? {{app}} багтай hello@{{app}}.example хаягаар холбогдоорой — мессеж бүрийг жинхэнэ хүн уншдаг.',
   'about.contactTitle': 'Бидэнтэй холбогдох',
   'about.eyebrow': 'Тухай',
+  'about.intro':
+    '{{app}} бол жижиг бизнесийн нягтлан бодох бүртгэлийн систем бөгөөд цент бүрийг бүртгэж, нэхэмжлэх, зардал, төлбөр, тайланг эзэд, нягтлан бодогч, accountant нарт нэг тайван газарт нэгтгэдэг.',
+  'about.missionBody':
+    'Бизнес эрхлэх нь ном бүртгэлээсээ айх гэсэн үг биш. {{app}} нь хүснэгтийн замбараагүй байдлыг тодорхой, ашиглаж болох тоогоор сольж, тохируулга хийх цагийг багасгаж, бизнесээ эхлүүлсэн жинхэнэ ажлаа хийх цагийг нэмэгдүүлдэг.',
+  'about.missionTitle': 'Бидний эрхэм зорилго',
   'about.title': '{{app}}-ийн тухай',
   'accounts.count': '{{count}} бүртгэл',
+  'accounts.emptyBody':
+    'Дансны бүртгэлүүд мөнгө хаана байрлаж, хэрхэн хөдөлж байгааг хянадаг. Нягтлан бодогч эсвэл интеграц тохируулсны дараа энд харагдана.',
   'accounts.emptyTitle': 'Одоогоор бүртгэл алга',
   'accounts.heading': 'Дансны график',
   'accounts.kpi.accounts': 'Accounts',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Таны нэхэмжлэх, зардал, төлбөрийн ард байгаа бүх дансыг төрлөөр нь бүлэглэнэ.',
   'accounts.tag.inactive': 'идэвхгүй',
   'authBrandPanel.attributionName': 'Сара Женкинс',
+  'authBrandPanel.attributionRole': 'Санхүүгийн захирал, Horizon Tech',
   'authBrandPanel.eyebrow': 'Санхүүгийн багуудын итгэлийг хүлээсэн',
   'authBrandPanel.label': 'Брэндийн танилцуулга',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Бүх үйлчлүүлэгчид',
   'customerDetail.invoiceMeta': 'Олгосон {{issued}} · Хугацаа {{due}}',
   'customerDetail.loadError': 'Харилцагчийг ачаалж чадсангүй.',
+  'customerDetail.missingBody':
+    'Хүссэн харилцагчийн бүртгэлийг ачаалж чадсангүй. Устгагдсан байж болзошгүй, эсвэл танд хандах эрх байхгүй байж магадгүй.',
   'customerDetail.missingHeading': 'Харилцагчийн бүртгэл байхгүй байна',
+  'customerDetail.missingHelp':
+    'Харилцагчдын жагсаалт руу буцахын тулд дээрх буцах холбоосыг ашиглана уу, эсвэл тэндээс өөр бүртгэл сонгоно уу.',
+  'customerDetail.noInvoices': 'Одоогоор нэхэмжлэх байхгүй байна.',
   'customerDetail.notesEmpty': 'Одоогоор тэмдэглэл алга.',
   'customerDetail.paymentsEmpty': 'Төлбөр бүртгэгдээгүй байна.',
   'customerDetail.paymentTerms': 'Төлбөрийн нөхцөл',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Хасах боломжтой',
   'expenseDetail.detailsHeading': 'Гүйлгээний дэлгэрэнгүй мэдээлэл',
   'expenseDetail.loadError': 'Зардлыг ачаалж чадсангүй.',
+  'expenseDetail.matched': 'Тохирсон · {{description}}',
   'expenseDetail.missingBody':
     'Хүссэн зардлыг ачаалж чадсангүй. Үүнийг устгасан эсвэл та үүнд хандах эрхгүй байж магадгүй.',
   'expenseDetail.missingHeading': 'Зардлын бүртгэл байхгүй байна',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Баримт',
   'expenseDetail.receiptHeading': 'Баримт',
   'expenseDetail.reconciled': 'Эвлэрсэн',
+  'expenseDetail.unreconciled': 'Эвлэрээгүй',
   'expenses.empty': 'Одоогоор зардал гараагүй байна.',
   'expenses.heading': 'Зардал',
   'expenses.kpi.deductible': 'Хасах боломжтой',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Нэхэмжлэхийг ачаалж чадсангүй.',
   'invoices.searchPlaceholder': 'Нэхэмжлэхийн дугаар эсвэл үйлчлүүлэгчийг хайх...',
   'invoices.summary.paid': 'Энэ хугацаанд төлсөн',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     '30 хоногийн турш үнэгүй. Карт авах шаардлагагүй. Нягтлан бодогчоо авчир - тэд танд талархах болно.',
   'landing.ctaTitle': 'Номоо илүү тайван газар аваач.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Авлагын данс',
   'ledgerStatTriad.eyebrow.mtd': 'Сараас өнөөг хүртэл',
   'ledgerStatTriad.netSub': 'Цэвэр {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} хугацаа хэтэрсэн',
   'ledgerStatTriad.revenueLabel': 'Орлого',
   'login.failed': 'Нэвтрэх амжилтгүй боллоо.',
   'login.hidePassword': 'Нууц үгийг нуух',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Нэвтрэх',
   'nav.legal': 'Хууль эрх зүйн',
   'newExpense.back': 'Зардал',
+  'newExpense.clearReceiptCta': 'Хавсаргасан баримтыг цэвэрлэх',
   'newExpense.deductible': 'Татварын хөнгөлөлт',
   'newExpense.dropPrompt': 'Хавсаргахын тулд баримтын зураг эсвэл PDF файлыг энд оруулна уу.',
   'newExpense.failed': 'Зардлаа хэмнэж чадаагүй.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Төлбөрийг ачаалж чадсангүй.',
   'payments.unmatchedTag': 'хосгүй',
   'planUpdated.pageLabel': 'Төлөвлөгөөний шинэчилсэн баталгаажуулалт',
+  'pricing.advancedFeatures': 'Дэвшилтэт функцууд: {{yes}}',
+  'pricing.canExport': 'Өгөгдөл экспортлох: {{yes}}',
+  'pricing.heading': '{{app}}-ийн төлөвлөгөө сонгох',
+  'pricing.maxAccounts': '{{count}} бүртгэл',
+  'pricing.maxExpenses': '{{count}} зардал',
+  'pricing.maxInvoices': '{{count}} нэхэмжлэх',
+  'privacy.intro':
+    'Энэхүү Нууцлалын бодлого нь {{app}} үйлчилгээг ашигладаг бизнесүүдийн талаарх мэдээллийг хэрхэн цуглуулж, ашиглаж, ил болгодог талаар тайлбарлана.',
   'privacy.lastUpdated': 'Хамгийн сүүлд шинэчилсэн: {{огноо}}',
   'privacy.section.collected.body':
     'Бид дансны мэдээлэл (нэр, имэйл, компани), таны байршуулсан санхүүгийн бүртгэл (нэхэмжлэх, зардал, үйлчлүүлэгчид, төлбөр) болон үйлчилгээний үйл ажиллагааны стандарт бүртгэл (IP, хэрэглэгчийн агент, цагийн тэмдэг)-ийг цуглуулдаг.',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Мэдээллийг үйлчилгээг ажиллуулах, таны хүссэн тайлан болон PDF файлуудыг үүсгэх, Mailgun-ээр дамжуулан гүйлгээний имэйл илгээх, Stripe-ээр дамжуулан төлбөр боловсруулахад ашигладаг. Бид хувийн мэдээллийг зардаггүй эсвэл түрээслүүлдэггүй.',
   'recentInvoicesCard.dueMeta': 'Төлөх хугацаа {{date}}',
+  'recentInvoicesCard.empty': 'Тохирох нэхэмжлэх байхгүй байна.',
   'recentInvoicesCard.eyebrow': 'Авлагын данс',
   'recentInvoicesCard.searchAriaLabel': 'Нэхэмжлэх хайх',
+  'recentInvoicesCard.searchPlaceholder': 'Нэхэмжлэх хайх…',
   'recentInvoicesCard.title': 'Саяхны нэхэмжлэхүүд',
   'recentInvoicesCard.viewAll': 'Бүх нэхэмжлэхийг харах →',
   'reports.assets': 'Хөрөнгө',
@@ -181,15 +211,20 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Ашиг ба алдагдал (12 сар)',
   'resetPassword.backToLogin': '← Нэвтрэх рүү буцах',
   'resetPassword.hidePassword': 'Нууц үгийг нуух',
+  'resetPassword.passwordLabel': 'Шинэ нууц үг',
   'resetPassword.showPassword': 'Нууц үгийг харуулах',
+  'resetPassword.subheading': 'Хүчтэй нууц үг сонгоно уу — дор хаяж найман тэмдэгт.',
   'resetPassword.submit': 'Нууц үгийг дахин тохируулах',
   'resetPassword.tooShort': 'Нууц үг дор хаяж 8 тэмдэгтээс бүрдэх ёстой.',
   'settings.account.changePassword': 'Нууц үг солих',
   'settings.account.changingPassword': 'Өөрчлөгдөж байна…',
   'settings.account.currentPassword': 'Одоогийн нууц үг',
+  'settings.account.dangerZone': 'Аюултай бүс',
   'settings.account.deleteAccount': 'Бүртгэл устгах',
   'settings.account.deleteDescription': 'Бүртгэл болон холбогдох бүх өгөгдлийг бүрмөсөн устгах.',
   'settings.account.deleteError': 'Бүртгэлийг устгаж чадсангүй.',
+  'settings.account.deleteWarning':
+    'Энэ нь таны бүртгэлийг бүрмөсөн устгах бөгөөд буцаах боломжгүй. Баталгаажуулахын тулд нууц үгээ оруулна уу.',
   'settings.account.deleting': 'Устгаж байна…',
   'settings.account.devices': 'Төхөөрөмжүүд',
   'settings.account.email': 'И-мэйл',
@@ -200,6 +235,7 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Нууц үг',
   'settings.account.passwordError': 'Нууц үгийг өөрчилж чадсангүй.',
   'settings.account.pushNotifications': 'Энэ төхөөрөмж дээрх мэдэгдлүүдийг түлхэх',
+  'settings.account.revokeDeviceWarning': 'Энэ төхөөрөмжийн хандалт удахгүй хаагдана. Гаргах уу?',
   'settings.account.saveError': 'Профайлыг шинэчилж чадсангүй.',
   'settings.account.security': 'Аюулгүй байдал',
   'settings.account.signOutDevice': 'Гарах',
@@ -207,12 +243,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Хоёр хүчин зүйлийн баталгаажуулалт',
   'settings.account.twoFactorCode': 'Баталгаажуулах код',
   'settings.account.twoFactorDisable': 'Идэвхгүй болгох',
+  'settings.account.twoFactorDisableTitle': 'Хоёр шатлалт баталгаажуулалтыг идэвхгүй болгох',
   'settings.account.twoFactorEnable': 'Идэвхжүүлэх',
+  'settings.account.twoFactorEnableTitle': 'Хоёр шатлалт баталгаажуулалтыг идэвхжүүлэх',
   'settings.account.twoFactorInvalidCode': 'Буруу код',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'Хоёр хүчин зүйлийн QR код',
+  'settings.account.twoFactorScan':
+    'Энэ QR кодыг баталгаажуулагч аппаараа сканнердаж, дараа нь 6 оронтой кодыг оруулна уу.',
+  'settings.account.twoFactorUnavailable':
+    'Энэ аппликейшнд хоёр хүчин зүйлийн баталгаажуулалт боломжгүй байна.',
   'settings.account.twoFactorVerify': 'Баталгаажуулах ба идэвхжүүлэх',
   'settings.account.unknownDevice': 'Үл мэдэгдэх төхөөрөмж',
   'settings.company.email': 'Төлбөрийн имэйл',
+  'settings.company.heading': 'Компани ба татвар',
   'settings.company.name': 'Хууль ёсны нэр',
   'settings.company.saveButton': 'Компанийн профайлыг хадгалах',
   'settings.company.taxId': 'Татварын дугаар / EIN',
@@ -256,6 +300,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Улирал тутамд тооцоолсон',
   'taxes.kpi.owed': 'Өртэй',
   'taxes.loadError': 'Татварын хураангуйг ачаалж чадсангүй.',
+  'taxes.remittedPct': '({{pct}}% шилжүүлсэн)',
+  'terms.intro':
+    'Энэхүү Үйлчилгээний нөхцөл ("Нөхцөл") нь {{app}}-д хандах, ашиглахыг зохицуулна. Бүртгэл үүсгэх эсвэл үйлчилгээг ашигласнаар та эдгээрт хүлээгдэхээр зөвшөөрч байна.',
   'terms.lastUpdated': 'Хамгийн сүүлд шинэчилсэн: {{огноо}}',
   'terms.section.acceptable.body':
     'Та уг үйлчилгээг ямар нэгэн хууль зөрчих, оюуны өмчийн эрхийг зөрчих, хортой програм дамжуулах, бусад бүртгэл эсвэл манай дэд бүтцэд зөвшөөрөлгүй нэвтрэхийг оролдох зорилгоор ашиглахгүй байхыг зөвшөөрч байна.',

@@ -1,8 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ertu með endurgjöf, fannst þú villu eða viltu nýja eiginleika? Hafðu samband í gegnum reikningsstillingarnar þínar — hver skilaboð fara til raunverulegs einstaklings í teyminu.',
   'about.contactTitle': 'Hafðu samband',
   'about.eyebrow': 'Um',
+  'about.intro':
+    '{{app}} er AI-skrifstofustofa fyrir rithöfunda sem leggja mikla áherslu á textann sinn. Hún sameinar langa AI-textagerð með rólegum ritli, SEO-stigagjöf og myndagerð svo þú getir tekið verk frá auðri síðu til útgáfu — án þess að missa röddina þína.',
+  'about.missionBody':
+    'Við trúum því að AI eigi að skrifa með þér, aldrei í staðinn fyrir þig. {{app}} heldur tillögum sýnilega aðskildum frá þínum eigin orðum, lætur þig eiga hvert skjal sem þú býrð til og heldur tólinu frá skrifunum.',
+  'about.missionTitle': 'Markmið okkar',
   'about.pageTitle': 'Um {{app}}',
   'aiSuggestionCard.applied': 'Tillaga notuð',
   'aiSuggestionCard.apply': 'Sækja um',
@@ -25,7 +32,9 @@ export const ui: UiTranslations = {
   'analytics.trafficTitle': 'Umferðarheimildir',
   'billing.activePlan': 'Áskrift virk.',
   'billing.aiWordsLabel': 'Kynslóðir gervigreindar innifaldar',
+  'billing.cancelFailed': 'Ekki var hægt að segja upp áskriftinni.',
   'billing.cancelPlan': 'Hætta við áætlun',
+  'billing.cancelPlanConfirm': 'Staðfesta hættu við?',
   'billing.cancelSuccess': 'Áskrift sagt upp. Endurnýjaðu til að uppfæra áskriftina.',
   'billing.changePlan': 'Breyta áætlun',
   'billing.col.invoice': 'Reikningur',
@@ -43,26 +52,37 @@ export const ui: UiTranslations = {
   'billing.viewPlans': 'Skoða áætlanir',
   'common.goToDashboard': 'Fara á yfirlit',
   'dashboard.continueWriting': 'Haltu áfram að skrifa',
+  'dashboard.createFirst': 'Búa til skjal',
   'dashboard.days.sat': 'Sat',
   'dashboard.days.sun': 'Sun',
   'dashboard.defaultWriterName': 'Rithöfundur',
   'dashboard.greeting': 'Góðan daginn, {{name}}',
   'dashboard.loadError': 'Ekki tókst að hlaða mælaborðið.',
+  'dashboard.loading': 'Hleð skrifstofunni þinni…',
   'dashboard.loadingDocs': 'Hleður nýleg skjöl…',
   'dashboard.noDocuments': 'Engin skjöl ennþá — byrjaðu á þínu fyrsta.',
   'dashboard.startWriting': 'Byrja nýtt skjal',
+  'dashboard.streakBody': 'Þú hefur skrifað {{words}} orð í þessari viku.',
   'dashboard.streakTitle': '{{count}} -dagsröð',
+  'dashboard.subgreeting': '{{count}} skjöl í safninu þínu — haltu dampinum áfram.',
+  'documentCard.seoScoreTitle': 'SEO-stig: {{score}}/100',
+  'documents.createNew': 'Búa til nýtt skjal',
   'documents.empty': 'Bókasafnið þitt bíður — byrjaðu á fyrsta skjalinu þínu.',
+  'documents.emptyFiltered': 'Engin skjöl passa við síurnar þínar ennþá.',
   'documents.loadError': 'Gat ekki hlaðið inn skjölum.',
   'documents.loading': 'Hleður inn bókasafninu þínu…',
   'documents.new': 'Nýtt skjal',
+  'documents.searchAriaLabel': 'Leita í skjölum',
   'documents.searchPlaceholder': 'Leita í skjölum…',
   'documents.subtitle': '{{count}} skjöl í bókasafninu þínu.',
   'documents.title': 'Skjöl',
   'editor.aiPanelTitle': 'Plume Intelligence',
+  'editor.aiSuggestion.empty':
+    'Engar virkar fínpússanir. Biddu {{appName}} um tillögu þegar þú vilt annað par af augum.',
   'editor.aiSuggestion.failed': 'Ekki tókst að hlaða inn tillögum núna.',
   'editor.aiSuggestion.loadingBody': 'Að búa til skýrleikaþróun…',
   'editor.backToDocuments': 'Öll skjöl',
+  'editor.bodyAriaLabel': 'Skjalsmeginmál',
   'editor.closeAiPanel': 'Loka gervigreindarspjaldi',
   'editor.createFailed': 'Gat ekki búið til skjal.',
   'editor.exported': 'Flutt út sem {{format}} .',
@@ -78,18 +98,25 @@ export const ui: UiTranslations = {
   'editor.requestSuggestion': 'Óska eftir fínstillingu',
   'editor.saveBeforePublish': 'Vistaðu skjalið áður en það er birt.',
   'editor.status.chars': '{{count}} persónur',
+  'editor.status.readTime': '{{minutes}} mín lestur',
   'editor.status.savedAt': 'Vistað {{time}}',
   'editor.status.saveError': 'Vista mistókst',
+  'editor.status.unsaved': 'Ekki vistað ennþá',
   'editor.titleAriaLabel': 'Titill skjals',
   'editor.titlePlaceholder': 'Ónefnd skjal',
   'editor.toggleAiPanel': 'Opna/loka gervigreindarspjald',
   'editor.viewSeo': 'SEO',
   'forgotPassword.emailPlaceholder': 'höfundur@dæmi.com',
+  'forgotPassword.sent': 'Ef {{email}} er skráð, er endurstillingartengill á leiðinni.',
   'imageGenerator.failed': 'Myndagerð mistókst.',
   'imageGenerator.generate': 'Búa til mynd',
   'imageGenerator.generating': 'Að mynda...',
   'imageGenerator.placeholder': 'Lýstu myndinni sem þú vilt búa til...',
+  'imageGenerator.promptAriaLabel': 'Myndafyrirmæli',
+  'imageGenerator.subtitle': 'Lýstu kápumynd og láttu AI myndskreyta hana.',
   'imageGenerator.title': 'Myndaframleiðandi gervigreindar',
+  'landing.aiSuggestionBody':
+    'standandi á svalir á 42. hæð fann Elias borgina þrýsta sér að sér — vindurinn skar burt umhverfishljóðið og skildi hann eftir í köldu, hljóðu tómarúmi yfir glóandi ristinni.',
   'landing.eyebrow': 'Ritunarstofa fyrir alvöru rithöfunda með gervigreind',
   'landing.featuresHeading': 'Verkfæri sem fara úr vegi',
   'landing.footerCopy': '© {{year}} {{tagline}}',
@@ -99,14 +126,22 @@ export const ui: UiTranslations = {
   'landing.heroSubtitle':
     'Stúdíó hannað fyrir rithöfunda sem leggja áherslu á texta sinn, hraða og nákvæmni. Plume drög að texta við hliðina á þér — aldrei í staðinn fyrir þig.',
   'landing.heroTitle.eloquence': 'mælsku',
+  'landing.heroTitle.intelligence': 'Greind mætir ',
   'landing.nav.testimonials': 'Meðmæli',
   'landing.plan.cta': 'Byrjaðu með þessari áætlun',
   'landing.plan.popular': 'Mest elskaðir',
   'landing.pricingEyebrow': 'Verðlagning',
   'landing.pricingHeading': 'Veldu það sem hentar þinni starfsháttum',
   'landing.sampleDocTitle': 'Arkitektúr þagnarinnar',
+  'landing.sampleParagraph1':
+    'Borgin var aldrei sannarlega hljóð. Jafnvel á dýpstu stundum næturinnar titraði lágur hljómur í gegnum steyptan grunninn — vélræn hjartsláttur neðanjarðarlesta og loftrása.',
+  'landing.sampleParagraph2.after': ' gegn glerinu.',
+  'landing.sampleParagraph2.before': 'En ',
   'landing.sampleParagraph2.highlight':
     'Þegar Elias stóð á svölunum á 42. hæð fann hann fyrir djúpri einangrun.',
+  'landing.showcaseBody':
+    'Merktu setningu og {{appName}} býður fínpússun. Samþykktu hana, breyttu henni eða hafnaðu henni. Tillögur eru alltaf fjólubláar svo þú vitir hvað þú skrifaðir og hvað var boðið.',
+  'landing.showcaseHeading': 'Annað par af augum — aldrei annar höfundur.',
   'landing.startWriting': 'Byrjaðu að skrifa',
   'login.emailPlaceholder': 'höfundur@dæmi.com',
   'login.failed': 'Innskráning mistókst',
@@ -121,8 +156,13 @@ export const ui: UiTranslations = {
   'notFound.goDashboard': 'Opna mælaborð',
   'notFound.title': 'Þessi kafli hefur ekki verið skrifaður ennþá.',
   'plumeSidebarLayout.primaryNavLabel': 'Aðalflakk',
+  'pricing.maxDocuments': '{{count}} skjöl',
+  'pricing.maxGenerate': '{{count}} AI-framleiðslur',
+  'pricing.maxImages': '{{count}} myndframleiðslur',
   'privacy.data':
     'Netfang reikningsins þíns og dulkóðað lykilorð. Skjöl og sniðmát sem þú býrð til. Tillöguskrár um gervigreind (inntak + úttak) fyrir reikningsfærslu og greiningar. Auðkenni viðskiptavina + áskriftar frá Stripe; við geymum aldrei öll kortanúmer.',
+  'privacy.intro':
+    'Við söfnum aðeins þeim gögnum sem þarf til að reka {{app}}: netfangið þitt, skjölin sem þú býrð til og AI-beiðnirnar sem þú sendir. Við seljum aldrei skrifin þín eða kvaðirnar þínar.',
   'profile.loadError': 'Gat ekki hlaðið prófílnum þínum.',
   'profile.loading': 'Hleður prófílinn þinn…',
   'profile.loadingPublished': 'Hleður birt skjöl…',
@@ -133,7 +173,13 @@ export const ui: UiTranslations = {
   'resetPassword.password': 'Nýtt lykilorð',
   'seoAnalysis.backToEditor': 'Til baka í ritstjóra',
   'seoAnalysis.eyebrow': 'SEO greining',
+  'seoAnalysis.heroBody':
+    '{{count}} tillaga/tillögur til að beita. Hver þeirra er uppbyggingar- eða leitarorðabót, ekki veggur af rauðum flöggum.',
+  'seoAnalysis.heroBodyEmpty':
+    'Smelltu á „Keyra greiningu“ til að stiga læsileika, leitarorðaþéttleika og uppbyggingu.',
   'seoAnalysis.heroEmpty': 'Engin greining ennþá. Keyrðu eina til að gefa þessum drögum einkunn.',
+  'seoAnalysis.heroNeedsWork': 'Sumar uppbyggingarbætur auka dreifingu.',
+  'seoAnalysis.heroStrong': 'Sterkt verk — stutt í frábært.',
   'seoAnalysis.historyEmpty': 'Engar fyrri greiningar skráðar.',
   'seoAnalysis.historyTitle': 'Greiningarsaga',
   'seoAnalysis.keywordEmpty':
@@ -160,8 +206,14 @@ export const ui: UiTranslations = {
   'settings.subtitle': 'Stilltu Plume til að passa við hvernig þú skrifar.',
   'settings.toggleIntegrationFailed': 'Uppfærsla á samþættingu mistókst.',
   'settings.writing.aiSuggestions': 'Innfelldar tillögur frá gervigreind við innslátt',
+  'settings.writing.aiSuggestionsBody':
+    'Sýnir fínpússanir meðan þú skrifar. Tillögur eru alltaf valkvæðar fyrir hverja setningu.',
   'settings.writing.autoSave': 'Sjálfvirk vistun á 30 sekúndna fresti',
+  'settings.writing.autoSaveBody':
+    '{{appName}} geymir skyndimynd af drögunum þínum svo þú getir endurheimt úr hvaða flipa sem er.',
   'settings.writing.notifyEmail': 'Sendu mér vikulegar ritsamantektir með tölvupósti',
+  'settings.writing.notifyEmailBody':
+    'Stutt sunnudagssamantekt af röðum, drögum og SEO-endurbótum.',
   'settings.writing.title': 'Skrifstillingar',
   'settings.writing.tone': 'Sjálfgefin tónstilling',
   'signup.emailPlaceholder': 'höfundur@dæmi.com',
@@ -173,8 +225,12 @@ export const ui: UiTranslations = {
   'templates.noDescription': 'Engin lýsing gefin.',
   'templates.subtitle':
     'Byrjaðu með ritstjórnarlegum ramma sem hefur reynst bardagavel og gerðu hann síðan að þínum eigin.',
+  'terms.intro':
+    'Þessi skilmálar gilda um notkun þína á {{app}}. Með því að búa til reikning samþykkir þú að nota þjónustuna til löglegra skrifa og halda innskráningargögnum þínum trúnaði.',
   'terms.license':
     'Þú heldur eignarhaldi á hverju skjali, sniðmáti og gervigreindarkynslóð sem þú býrð til. Við þurfum leyfi sem ekki er einkaréttur til að hýsa og afhenda þér verk þitt og til að vinna úr gervigreindarbeiðnum í gegnum þá þjónustuaðila sem þú velur.',
   'writingStreakHeroCard.change': '{{sign}} {{amount}} orð',
   'writingStreakHeroCard.greeting': 'Góðan daginn, {{name}}',
+  'writingStreakHeroCard.subtitle': 'Orð skrifuð í þessari viku — {{count}} daga röð',
+  'writingStreakHeroCard.tagline': 'Ein síða á dag heldur skáldinu við.',
 }

@@ -1,6 +1,22 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Hast du Feedback, einen Bug gefunden oder möchtest du ein eigenes Board auf {{appName}}? Öffne deine Einstellungen, um das Team zu erreichen — jede Nachricht geht an einen echten Menschen, der sie liest.',
+  'about.contactTitle': 'Sprechen Sie uns an',
+  'about.featureModeration':
+    'Eine öffentliche Roadmap mit Quartalsangaben, ein Changelog, das ausgelieferte Arbeit in Release Notes verwandelt, und ein Dashboard, das zeigt, was sich die Community am meisten wünscht.',
+  'about.featurePricing':
+    'Kostenlos für ein paar Boards; die Tarife Pro und Team schalten mehr Boards, höhere Limits und Datenexport frei.',
+  'about.featureThreads':
+    'Öffentliche Feedback-Boards nach Thema sortiert, mit Zusammenführung von Duplikaten, die Stimmen zu einem ehrlichen Nachfragesignal bündelt.',
+  'about.featureVoting':
+    'Eine Stimme pro Nutzer mit vollständigem Status-Workflow — offen, geplant, in Arbeit, ausgeliefert oder abgelehnt — und eine offizielle Antwort zu jeder Entscheidung.',
+  'about.intro':
+    '{{appName}} ist eine Produkt-Feedback-Plattform — öffentliche Boards, auf denen Kunden Wünsche posten, für das abstimmen, was sie brauchen, und jede Idee von geplant bis ausgeliefert verfolgen. Teams raten nicht mehr, was sie als Nächstes bauen sollen, denn die Nachfrage sortiert sich selbst.',
+  'about.missionBody':
+    'Wir glauben, dass die besten Produktentscheidungen offen getroffen werden. {{appName}} gibt jedem Team ein öffentliches Board mit abgestimmten Wünschen, eine offizielle Roadmap mit Zielquartalen und ein Changelog, das den Kreis schließt — so sehen Kunden ihre Wirkung und Teams ihr Mandat.',
+  'about.missionTitle': 'Unsere Mission',
   'admin.backToBoards': 'Zurück zu den Boards',
   'admin.denied': 'Nur für Admins.',
   'admin.eyebrow': 'Produktteam',
@@ -11,6 +27,8 @@ export const ui: UiTranslations = {
   'admin.title': 'Feedback-Dashboard',
   'admin.topOpen': 'Top offene Anfragen',
   'admin.totalVotes': '{{count}} insgesamt',
+  'admin.votesChartLabel':
+    'Balkendiagramm der abgegebenen Stimmen pro Woche über die letzten acht Wochen',
   'admin.votesOverTime': 'Votes im Zeitverlauf',
   'auth.forgotPassword.email': 'E-Mail',
   'auth.forgotPassword.sendResetLink': 'Zurücksetzungslink senden',
@@ -30,7 +48,9 @@ export const ui: UiTranslations = {
   'auth.signup.createYourAccount': 'Konto erstellen',
   'auth.username': 'Benutzername',
   'authShell.communities': 'Communities',
+  'authShell.copyright': '{{appName}} — jede Stimme zählt.',
   'authShell.trending': 'Trending',
+  'boardCard.postCount': '{{count}} Beiträge',
   'boardDetail.allBoards': 'Alle Boards',
   'boardDetail.backToBoards': 'Zurück zu den Boards',
   'boardDetail.empty': 'Noch keine Beiträge, die zu diesen Filtern passen.',
@@ -54,6 +74,7 @@ export const ui: UiTranslations = {
   'changelog.subtitle':
     'Jeder Eintrag begann als eine abgestimmte Anfrage. Voter sahen die Entwicklung; hier ist, wo es gelandet ist.',
   'changelog.title': 'Ausgeliefert, mit Nachweisen',
+  'changelog.voteCount': '{{count}} Stimmen haben das möglich gemacht',
   'common.atLeast8Characters': 'Mindestens 8 Zeichen',
   'common.checkYourInbox': 'Prüfe deinen Posteingang',
   'common.loadingEllipsis': 'Lädt…',
@@ -64,6 +85,10 @@ export const ui: UiTranslations = {
   'common.submittingEllipsis': 'Wird eingereicht…',
   'footer.about': 'Über {{appName}}',
   'footer.language': 'Sprache',
+  'forgotPassword.description':
+    'Geben Sie Ihre E-Mail ein und wir senden Ihnen einen Link zum Zurücksetzen.',
+  'forgotPassword.successBody':
+    'Wir haben einen Reset-Link an {{email}} gesendet. Er läuft in 30 Minuten ab.',
   'forgotPassword.tryAnother': 'Versuche eine andere E-Mail',
   'form.displayName': 'Anzeigename',
   'form.firstName': 'Vorname',
@@ -74,6 +99,10 @@ export const ui: UiTranslations = {
   'landing.ctaHeadline': 'Deine Roadmap, gestützt auf Votes.',
   'landing.heroCtaPrimary': 'Votes sammeln starten',
   'landing.heroCtaSecondary': 'Live-Board ansehen',
+  'landing.heroEyebrow': '{{appName}} — {{tagline}}',
+  'landing.heroHeadline': 'Hör auf zu raten. Liefere, wofür sie stimmen.',
+  'landing.heroLede':
+    '{{appName}} verwandelt verstreute Feature-Wünsche in ein öffentliches Board mit abgestimmten Ideen, eine offizielle Roadmap und ein Changelog, das deine Kunden wirklich lesen.',
   'landing.heroStat1': '3.200+',
   'landing.heroStat1Label': 'Teams hören zu',
   'landing.heroStat2': '1,4 Mio.',
@@ -85,9 +114,15 @@ export const ui: UiTranslations = {
   'landing.navChangelog': 'Changelog',
   'landing.navJoin': '{{appName}} beitreten',
   'landing.navRoadmap': 'Roadmap',
+  'landing.step1Body':
+    'Kunden posten Ideen auf öffentlichen Boards. Duplikate werden zusammengeführt, Stimmen gebündelt und die Nachfrage sortiert sich selbst.',
   'landing.step1Title': 'Sammeln',
+  'landing.step2Body':
+    'Markiere Wünsche als geplant oder in Arbeit mit einem Zielquartal — die Roadmap aktualisiert sich, sobald du das tust.',
+  'landing.step2Title': 'Begehen',
   'landing.step3Body':
     'Ausgelieferte Beiträge werden zu Changelog-Einträgen, und jeder Voter sieht das Ergebnis in seiner eigenen Liste.',
+  'landing.step3Title': 'Ausliefern',
   'landing.topSubtitle': 'Live von diesem Board — melde dich an, um deine Stimme abzugeben.',
   'landing.topTitle': 'Was Nutzer gerade anfragen',
   'landing.topViewAll': 'Alle Boards',
@@ -95,14 +130,24 @@ export const ui: UiTranslations = {
   'layout.primaryNav': 'Grundschule',
   'layout.signUp': 'Registrieren',
   'layout.submit': 'Feedback einreichen',
+  'login.description': 'Setzen Sie das Gespräch dort fort, wo Sie aufgehört haben.',
+  'login.heading': 'Bei Nimbus anmelden',
+  'login.noAccount': 'Neu hier?',
   'login.passwordPlaceholder': 'Dein Passwort',
   'login.twoFactorLabel': '2FA-Code (optional)',
   'login.twoFactorPlaceholder': '6-stelliger Code',
+  'login.twoFactorRequiredHint':
+    'Dieses Konto hat die Zwei-Faktor-Authentifizierung aktiviert. Gib den 6-stelligen Code aus deiner Authenticator-App ein, um fortzufahren.',
   'login.twoFactorRequiredLabel': 'Gib deinen 2FA-Code ein',
+  'myActivity.browseCta': 'Boards durchsuchen',
+  'myActivity.emptyPosts': 'Du hast noch keinen Wunsch gepostet.',
+  'myActivity.emptyVotes': 'Noch nichts — durchstöbere die Boards und unterstütze eine Idee.',
   'myActivity.eyebrow': 'Deine Aktivität',
   'myActivity.loadError': 'Deine Aktivität konnte nicht geladen werden.',
   'myActivity.postsTitle': 'Von dir eingereichte Anfragen',
+  'myActivity.shippedNote': '{{count}} davon ausgeliefert — danke für den Anstoß.',
   'myActivity.submitCta': 'Anfrage posten',
+  'myActivity.tabLabel': 'Ansehen',
   'myActivity.tabPosts': 'Meine Beiträge',
   'myActivity.tabVotes': 'Meine Votes',
   'myActivity.votesTitle': 'Anfragen, für die du gestimmt hast',
@@ -138,8 +183,13 @@ export const ui: UiTranslations = {
   'posts.notFound': 'Beitrag nicht gefunden',
   'postsAdmin.backToDashboard': 'Armaturenbrett',
   'postsAdmin.eyebrow': 'Produktteam',
+  'postsAdmin.mergeApplied':
+    'Zusammengeführt — {{votes}} Stimmen und {{comments}} Kommentare verschoben.',
   'postsAdmin.mergeApply': 'Zusammenführen & Votes verschieben',
   'postsAdmin.mergeChoose': 'Wähle einen Zielbeitrag…',
+  'postsAdmin.mergeFailed': 'Zusammenführen fehlgeschlagen.',
+  'postsAdmin.mergeHint':
+    'Stimmen werden gebündelt (eine pro Nutzer), Kommentare verschoben und dieser Beitrag erhält einen Hinweis „verschoben“.',
   'postsAdmin.mergeLabel': 'Duplikat zusammenführen in',
   'postsAdmin.responseLabel': 'Offizielle Antwort',
   'postsAdmin.responsePlaceholder':
@@ -154,7 +204,13 @@ export const ui: UiTranslations = {
     'Setze den offiziellen Status, antworte öffentlich, kennzeichne das Roadmap-Quartal und führe Duplikate zusammen.',
   'postsAdmin.title': 'Feedback-Beiträge verwalten',
   'postsAdmin.votes': '{{count}} Votes',
+  'pricing.limits.advancedFeatures': 'Erweiterte Funktionen:',
+  'pricing.limits.boards': '{{count}} Boards',
   'pricing.limits.export': 'Datenexport:',
+  'pricing.limits.posts': '{{count}} Feedback-Beiträge',
+  'pricing.limits.votes': '{{count}} Votes',
+  'resetPassword.description':
+    'Wählen Sie ein starkes Passwort. Wir melden Sie nach erfolgreichem Zurücksetzen an.',
   'resetPassword.newPasswordLabel': 'Neues Passwort',
   'resetPassword.tokenPlaceholder': 'Link-Token einfügen',
   'roadmap.cardMeta': 'von {{author}} · {{board}}',
@@ -171,6 +227,7 @@ export const ui: UiTranslations = {
   'search.hint':
     'Gib eine Suchanfrage ein, um bestehende Anfragen zu finden, bevor du ein Duplikat postest.',
   'search.loadError': 'Die Suche ist fehlgeschlagen – bitte versuche es erneut.',
+  'search.searching': 'Wird gesucht…',
   'search.submit': 'Suchen',
   'search.submitNew': 'Als neue Anfrage posten',
   'search.title': 'Feedback durchsuchen',
@@ -179,12 +236,23 @@ export const ui: UiTranslations = {
   'settings.billing': 'Abrechnung',
   'settings.displaySubtitle': 'Wähle, wie kompakt Feeds wirken.',
   'settings.displayTitle': 'Anzeige',
+  'settings.emailDigestDesc': 'Die offenen Wünsche mit den meisten Stimmen, jeden Montag.',
+  'settings.emailDigestLabel': 'Wöchentliche Übersicht',
+  'settings.emailMentionsDesc': 'Wenn jemand auf einen Beitrag antwortet, dem du folgst.',
+  'settings.emailMentionsLabel': 'E-Mail bei Erwähnungen',
+  'settings.emailRepliesDesc': 'Threads, die du gestartet hast oder auf die du geantwortet hast.',
+  'settings.emailRepliesLabel': 'Per E-Mail bei Antworten benachrichtigen',
   'settings.loadError': 'Dein Konto konnte nicht geladen werden.',
   'settings.loading': 'Lade deine Einstellungen…',
   'settings.notifications': 'Benachrichtigungen',
   'settings.notificationsSubtitle':
     'Entscheide, was deinen Posteingang erreicht vs. dein Push-Gerät.',
+  'settings.pushRepliesLabel': 'Push bei Antworten',
+  'settings.pushVotesDesc': 'Schwellenwert-Benachrichtigung bei 100, 500, 1000.',
+  'settings.pushVotesLabel': 'Push für Upvote-Meilensteine',
   'settings.saveAccount': 'Konto speichern',
+  'settings.showFlair': 'Board-Chips auf Beiträgen anzeigen',
+  'settings.showThumbnails': 'Link-/Bild-Vorschaubilder anzeigen',
   'settings.usernamePlaceholder': 'Wähle einen Benutzernamen',
   'signup.confirmPlaceholder': 'Nochmal eingeben',
   'signup.description': 'Gestalte mit, was wir als Nächstes bauen.',

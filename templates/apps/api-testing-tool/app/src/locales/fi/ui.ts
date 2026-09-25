@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Löysitkö virheen, onko sinulla ominaisuustoive tai haluatko kertoa, mitä meidän pitäisi rakentaa seuraavaksi? Lähetä sähköpostia hello@pylon.dev — jokainen viesti tavoittaa tiimin oikean insinöörin.',
   'about.contactTitle': 'Ota yhteyttä',
+  'about.intro':
+    '{{app}} on nopea, näppäimistölähtöinen API-testaustyöpöytä insinööreille, jotka elävät terminaalissa — Postman-tyyliset pyynnöt, kokoelmat, ympäristöt ja historia ilman turhaa painolastia.',
+  'about.missionBody':
+    'API:t ovat nykyaikaisen ohjelmiston selkäranka, mutta niiden testaamiseen tarkoitetut työkalut ovat hitaita, raskaita ja hiirivetoiseja. {{app}} on olemassa antaakseen kehittäjille terävän, nopean, terminaalitason työpöydän: lähetä pyyntöjä, rakenna luottamusta ja toimita poistumatta näppäimistöltä.',
+  'about.missionTitle': 'Missiomme',
   'about.pageTitle': 'Tietoa {{app}}sta',
   'authShell.statusLabel': 'runners verkossa',
   'collections.createError': 'Kokoelmaa ei voitu luoda.',
   'collections.defaultName': 'Nimetön kokoelma {{n}}',
+  'collections.empty':
+    'Ei kokoelmia vielä — napsauta “New collection” luodaksesi ensimmäisen kansiosi.',
   'collections.eyebrow': '$ pylon collections --tree',
   'collections.fetchError': 'Kokoelmia ei voitu ladata.',
   'collections.heading': 'Kokoelmat',
   'collections.loading': 'Ladataan kokoelmia…',
+  'collections.metric.allGreen': 'Kaikki kunnossa',
   'collections.metric.collections': 'Kokoelmat',
   'collections.metric.failing': 'Epäonnistuvat',
   'collections.metric.failingCaption': 'Viimeinen ajo sisälsi virheitä',
@@ -23,6 +33,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Muuttujat',
   'environments.createError': 'Ympäristöä ei voitu luoda.',
   'environments.defaultName': 'Nimetön ympäristö {{n}}',
+  'environments.empty': 'Ei ympäristöjä vielä — napsauta “New environment” lisätäksesi sellaisen.',
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'Ympäristöjä ei voitu ladata.',
   'environments.heading': 'Ympäristöt',
@@ -30,8 +41,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Uusi ympäristö',
   'environments.subheading':
     'Muuttujat, jotka vaihtuvat pyyntoihin lähetyshetkellä. Yksi aktiivinen ympäristö per työtila.',
+  'forgotPassword.statusLabel': 'nollaus · suojattu tunneli',
   'forgotPassword.success':
     'Jos kyseisellä sähköpostilla on tili, palautuslinkki on matkalla. Tarkista postilaatikkosi.',
+  'history.empty': 'Ei vielä mitään täällä — lähetä ensimmäinen pyyntösi Workspace-välilehdeltä.',
   'history.eyebrow': '$ pylon history --tail',
   'history.fetchError': 'Historiaa ei voitu ladata.',
   'history.heading': 'Ajohistoria',
@@ -40,9 +53,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'Viimeiset 50',
+  'history.realtime': 'reaaliaikainen',
   'history.subheading':
     'Kaikki tässä työtilassa lähetetyt pyynnöt statuksineen, viiveineen ja hyötykuormakokoineen.',
   'landing.choosePlan': 'Valitse suunnitelma',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Forge confidence.',
   'landing.ctaBody':
     'Ei luottokorttia. Ei platform-insinööriä tarvita. Avaa ⌘K ja lähetä ensimmäinen pyyntösi alle viidessä minuutissa.',
   'landing.ctaHeading': 'Rakenna luottamusta.',
@@ -83,6 +98,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Keskim. viive',
   'mocks.metric.live': 'Julkinen',
   'mocks.metric.servers': 'Mockit',
+  'mocks.ms': 'ms',
   'mocks.newMock': 'Uusi mock',
   'mocks.online': 'Julkinen',
   'mocks.paused': 'Yksityinen',
@@ -106,9 +122,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': 'Terve',
   'monitors.metric.uptime': 'Keskim. käytettävyys',
   'monitors.newMonitor': 'Uusi monitori',
+  'monitors.paused': 'keskeytetty',
   'monitors.run': 'Aja',
   'monitors.runError': 'Ajo päättyi verkkovirheeseen: {{error}}',
+  'monitors.runFailed': 'Suoritus epäonnistui.',
   'monitors.running': 'Suoritetaan…',
+  'monitors.runSuccess': 'Suorita {{status}} — ylävirta palautti {{code}} ajassa {{ms}}ms.',
   'monitors.sparkLabel': 'Viivetrendi',
   'monitors.subheading':
     'Pyydettäessä tehtävät tarkistukset mille tahansa tallennetulle testille. Sido testi, paina Aja ja seuraa 24 tunnin onnistumisprosentin päivittymistä.',
@@ -117,27 +136,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': 'Käytettävyys · 24t',
   'nav.legal': 'Lainsäädäntö',
   'notFound.backToWorkspace': 'Takaisin työtilaan',
+  'notFound.body':
+    '{{app}} lähetti pyynnön tälle URL-osoitteelle eikä saanut mitään takaisin. Tarkista reitti tai palaa takaisin työtilaan.',
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Reitti ei löydy',
+  'planUpdated.body':
+    'Laskutustietojesi muutos on nyt voimassa. Voit hallita suunnitelmaasi milloin tahansa laskutussivulta.',
+  'planUpdated.retry': 'Yritä uudelleen',
+  'planUpdated.verifyFailed': 'Emme voineet vielä vahvistaa maksuasi.',
+  'planUpdated.verifyFailedBody':
+    'Maksusi käsittely saattaa olla vielä kesken. Yritä uudelleen hetken kuluttua.',
   'planUpdated.verifying': 'Vahvistetaan maksuasi…',
+  'pricing.advancedFeatures': 'Lisäominaisuudet: {{yes}}',
+  'pricing.canExport': 'Tietojen vienti: {{yes}}',
+  'pricing.heading': 'Valitse {{app}}-pakettisi',
+  'pricing.maxCollections': '{{count}} kokoelmaa',
+  'pricing.maxEnvironments': '{{count}} ympäristöä',
+  'pricing.maxHistory': '{{count}} historiamerkintää',
+  'pricing.maxRequests': '{{count}} pyynnöt',
   'privacy.collect.account':
     'Tili: sähköpostisi, hajautettu salasanasi, näyttönimesi ja viimeisen kirjautumisesi aikaleima.',
+  'privacy.intro':
+    '{{app}} kunnioittaa yksityisyyttäsi. Tällä sivulla kerrotaan, mitä tietoja keräämme, miksi keräämme niitä ja miten ne voi poistaa.',
   'privacy.rights.body':
     'Voit viedä kokoelmasi ja ympäristösi milloin tahansa tai poistaa tilisi Asetuksista poistaaksesi kaikki tiedot pysyvästi 30 päivän kuluessa.',
   'privacy.share.body':
     'Vain sinulle. Emme koskaan myy, jaa tai vuokraa työtilasi sisältöä kolmansille osapuolille. Palvelinlokit säilytetään 30 päivää tapahtumavastauksia varten ja poistetaan sitten.',
   'privacy.title': 'Tietosuojaseloste',
+  'profile.bio':
+    'Henkilökohtainen {{app}}-työtilasi — kiinnitä kokoelmia, jaa ympäristöjä ja seuraa API:ita, jotka toimittavat tuotetta.',
   'profile.eyebrow': '@{{handle}}',
   'profile.joined': 'liittynyt {{when}}',
+  'profile.metric.collections': 'Kokoelmat',
   'profile.metric.monitors': 'Monitorit',
   'profile.metric.requests': 'Tallennetut pyynnöt',
+  'profile.noActivity':
+    'Pyyntöjä ei ole vielä lähetetty — siirry Workspace-välilehdelle tekemään sellainen.',
   'profile.signedOut': 'Kirjaudu sisään nähdäksesi profiilisi',
   'pylonShell.primaryNavLabel': 'Päänavigaatio',
+  'resetPassword.passwordLabel': 'Uusi salasana',
+  'resetPassword.statusLabel': 'nollaus · token vahvistettu',
   'resetPassword.subtitle': 'Valitse vahva salasana, jota et ole käyttänyt aiemmin.',
   'resetPassword.tokenPlaceholder': 'liitä sähköpostista',
+  'settings.accountManagement.desc':
+    'Päivitä sähköpostisi ja salasanasi, hallitse ilmoituksia ja laitteita, kirjaudu ulos tai poista tilisi.',
+  'settings.accountManagement.title': 'Tili ja turvallisuus',
   'settings.eyebrow': '$ pylon settings --edit',
   'settings.fetchError': 'Asetuksia ei voitu ladata.',
   'settings.language.title': 'Kieli',
+  'settings.seeding': 'Alustetaan…',
   'settings.seedStarter': 'Siemennä aloitussisältö',
   'settings.starterCollection': 'Aloituskokoelma',
   'settings.starterCollectionDesc': 'Luotu Asetuksista {{ts}}',
@@ -151,6 +198,8 @@ export const ui: UiTranslations = {
     'Olet vastuussa salasanasi suojaamisesta. Yhden tilin jakaminen useiden henkilöiden kesken ei ole sallittua Free- tai Pro-suunnitelmissa — osta Team-tilaus jaettuja työtiloja varten.',
   'terms.billing.body':
     'Maksulliset tilaukset uusitaan automaattisesti joka laskutusjakso. Peruuta Asetuksista milloin tahansa; käyttöoikeutesi jatkuu nykyisen jakson loppuun.',
+  'terms.intro':
+    'Luomalla {{app}}-tilin hyväksyt alla olevat ehdot. Lue ne kerran; emme yllätä sinua taannehtivilla muutoksilla.',
   'terms.title': 'Käyttöehdot',
   'terms.usage.body':
     'Älä käytä Pylonia pyyntöjen lähettämiseen palveluihin, joita et omista tai joihin sinulla ei ole nimenomaista lupaa testata. Älä käytä Pylonia nopeusrajoitusten kiertämiseen tai petoksen tekemiseen.',
@@ -170,16 +219,22 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Ei ajettu',
   'testRunner.metric.passed': 'Läpäisseet',
   'testRunner.never': 'Ei koskaan ajettu',
+  'testRunner.newTest': 'Uusi testi',
   'testRunner.noAssertions': 'Ei väitteitä tällä testillä vielä.',
+  'testRunner.noRunsYet':
+    'Suorituksia ei ole vielä tallennettu — paina “Run all” täyttääksesi historian.',
   'testRunner.passed': 'läpäissyt',
+  'testRunner.recentRuns': 'Viimeisimmät ajot',
   'testRunner.runAll': 'Aja kaikki',
   'testRunner.running': 'Ajetaan…',
   'testRunner.runOne': 'Aja',
   'testRunner.subheading': 'Suite-tulokset, väite-diffit ja viimeiset 50 ajoa.',
+  'testRunner.suites': 'Testisarjat',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Kirjautunut sisään nimellä',
   'workspace.auth.keyName': 'Otsikon nimi',
   'workspace.auth.keyValue': 'Avainarvo',
+  'workspace.auth.noneHint': 'Tämän pyynnön mukana ei lähetetä valtuutusotsikkoa.',
   'workspace.auth.password': 'Salasana',
   'workspace.auth.username': 'Käyttäjänimi',
   'workspace.authOption.apikey': 'API-avain',
@@ -189,13 +244,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Tyyppi',
   'workspace.authTypeLabel': 'Todennustyyppi',
+  'workspace.body.contentLabel': 'Request body',
+  'workspace.body.hint':
+    '{{envVars}} korvataan ennen pyynnön lähettämistä. Rungot lähetetään pyynnöissä POST/PUT/PATCH/DELETE.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Ei mitään',
+  'workspace.body.noneHint':
+    'Pyynnön runkoa ei lähetetä. Valitse JSON tai raakateksti lisätäksesi sellaisen.',
   'workspace.body.text': 'Raakateksti',
   'workspace.body.type': 'Tyyppi',
   'workspace.environment': 'Ei ympäristöä',
   'workspace.envVar': 'ympäristömuuttuja',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.failedCount': '{{count}} epäonnistui',
+  'workspace.idle': 'Passiivinen',
   'workspace.kv.addHeader': 'Lisää otsikko',
   'workspace.kv.addParam': 'Lisää parametri',
   'workspace.kv.headerKey': 'Otsikon nimi',
@@ -208,12 +270,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'HTTP-method',
   'workspace.metric.latency': 'Viive',
   'workspace.metric.latencyCaption': 'Edestakaismatka tästä ajosta',
+  'workspace.metric.size': 'Hyötykuorma',
   'workspace.metric.sizeCaption': 'Response body -tavut',
   'workspace.metric.statusCaption': 'Viimeisin response',
   'workspace.metric.tests': 'Testit',
+  'workspace.metric.testsAllPassing': 'Kaikki väitteet kunnossa',
   'workspace.metric.testsFailing': '{{count}} epäonnistuvaa',
+  'workspace.metric.testsIdle': 'Lähetä pyyntö arvioitavaksi',
   'workspace.noAssertions': 'Aja pyyntö arvioidaksesi sisäänrakennetut väitteet.',
   'workspace.noResponseYet': 'Ei vastausta vielä',
+  'workspace.passedCount': '{{count}} hyväksyttiin',
   'workspace.responseHint': '// Paina Lähetä lähettääksesi pyynnön ja tallentaaksesi vastauksen.',
   'workspace.saveError': 'Pyyntöä ei voitu tallentaa.',
   'workspace.statusError': 'Pyyntöä ei voitu lähettää.',
@@ -221,10 +287,14 @@ export const ui: UiTranslations = {
   'workspace.statusSent': 'Pyyntö lähetetty — katso vastaus alta.',
   'workspace.subheading': 'Luo pyyntö, lähetä se ja vahvista vastaus — kaikki yhdessä ruudussa.',
   'workspace.testResults': 'Testitulokset',
+  'workspace.tests.autoHint':
+    'Tilaluokka, viive, rungon koko ja siirron kunto tarkistetaan automaattisesti — tulokset näkyvät kohdassa “Test results” vastauspaneelissa.',
+  'workspace.tests.autoTitle': 'Sisäänrakennetut väitteet ajetaan jokaiselle vastaukselle',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     'Lähetetään muodossa Authorization: Bearer <token> jokaisessa tämän kokoelman pyynnössä.',
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Nimetön pyyntö',
+  'workspace.urlLabel': 'Pyynnön URL',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

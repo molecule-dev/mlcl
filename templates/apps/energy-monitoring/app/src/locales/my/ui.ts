@@ -1,8 +1,16 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'မေးခွန်းများ၊ အင်္ဂါရပ်တောင်းဆိုချက်များ သို့မဟုတ် ကျွန်ုပ်တို့ပံ့ပိုးသင့်သော မီတာတစ်ခုရှိပါသလား။ သင့်အကောင့်ဆက်တင်များမှ {{appName}} အဖွဲ့ထံ ဆက်သွယ်ပါ — မက်ဆေ့ခ်ျတိုင်း လူတစ်ဦးထံ ရောက်ပါသည်။',
   'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
   'about.eyebrow': 'အကြောင်း',
+  'about.featuresTitle': 'သင်ရရှိသောအရာ',
+  'about.intro':
+    '{{appName}} သည် ဆိုလာအိမ်များနှင့် အဆောက်အအုံအဖွဲ့များအတွက် အချိန်နှင့်တပြေးညီ ပါဝါစောင့်ကြည့်စစ်ဆေးမှုဖြစ်သည်။ မီတာ၊ အင်ဗာတာနှင့် ဘက်ထရီဒေတာများ၏ စီးဆင်းမှုကို အေးဆေးသော ထိန်းချုပ်ခန်းမြင်ကွင်းအဖြစ် ပြောင်းလဲပေးသည် — တိုက်ရိုက်ဝပ်တန်အား၊ ဆိုလာထုတ်လုပ်မှု၊ အချိန်အလိုက်အသုံးပြုမှုကုန်ကျစရိတ်နှင့် သတိပေးချက်များ အားလုံးကို shell တစ်ခုတည်းတွင်။',
+  'about.missionBody':
+    'မြင်နိုင်သော စွမ်းအင်သည် စီမံနိုင်သော စွမ်းအင်ဖြစ်သည်။ မီတာတစ်ခုကို လည်ပတ်နေသူတိုင်း — ခေါင်မိုးဆိုလာရှိသော အိမ်ထောင်စုတစ်ခု သို့မဟုတ် အဆောက်အအုံတစ်ခုကို စောင့်ကြည့်နေသော အဖွဲ့တစ်ဖွဲ့ — utility-grade စာချုပ်မလိုဘဲ utility-grade ထိုးထွင်းသိမြင်မှုကို ရထိုက်သည်ဟု ကျွန်ုပ်တို့ယုံကြည်သည်။ အင်္ဂါရပ်တိုင်းသည် နောက်ကီလိုဝပ်နာရီကို ငွေတောင်းခံလွှာပေါ်ရှိ အံ့အားသင့်ဖွယ်မဟုတ်ဘဲ အသိဉာဏ်ရှိသော ရွေးချယ်မှုတစ်ခုဖြစ်စေရန် တည်ဆောက်ထားသည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'about.pageTitle': 'အကြောင်း {{appName}}',
   'about.tagline': '{{tagline}}',
   'alertCard.acknowledge': 'အက်ခ်',
@@ -14,14 +22,17 @@ export const ui: UiTranslations = {
   'alertRule.emailPlaceholder': 'alerts@yourdomain.com',
   'alertRule.eyebrow': 'စည်းမျဉ်းသစ်',
   'alertRule.heading': 'ကုန်ကျစရိတ်မများခင် ဆူးကိုဖမ်းပါ',
+  'alertRule.nameLabel': 'စည်းမျဉ်းအမည်',
   'alertRule.namePlaceholder': 'ဥပမာ - အလုပ်ချိန်ပြီးနောက် HVAC စောင့်ကြည့်မှု',
   'alertRule.subheading':
     'မက်ထရစ်၊ ကန့်သတ်ချက်နှင့် သတိပေးချက်ပို့ရမည့်နေရာကို ရွေးချယ်ပါ။ ၎င်းကို အချိန်မရွေး တည်းဖြတ်နိုင်သည် သို့မဟုတ် ခေတ္တရပ်နိုင်သည်။',
   'alertRule.submit': 'စည်းမျဉ်းကို သိမ်းဆည်းပါ',
   'alertRule.submitError': 'စည်းမျဉ်းကို သိမ်းဆည်း၍မရပါ။',
   'alertRule.thresholdLabel': 'ကန့်သတ်ချက်',
+  'alertRule.typeLabel': 'ထရစ်ဂါ အမျိုးအစား',
   'alerts.checking': 'စစ်ဆေးနေသည်…',
   'alerts.confirmDelete': 'ဖျက်ရန် အတည်ပြုပါ',
+  'alerts.empty': 'ပြသရန် ဘာမှမရှိ — ဤအခြေအနေတွင် သတိပေးချက်များမရှိပါ။',
   'alerts.emptyNoRules':
     'သတိပေးချက်များ မရှိသေးပါ — စည်းမျဉ်းတစ်ခုထည့်ပါ၊ ထို့နောက် စမ်းသပ်ရန် “ယခု အကဲဖြတ်ပါ” ကို နှိပ်ပါ။',
   'alerts.errorAck': 'အသိအမှတ်ပြုလို့ မရခဲ့ဘူး။',
@@ -41,12 +52,15 @@ export const ui: UiTranslations = {
   'alerts.runCheck': 'ယခု အကဲဖြတ်ပါ',
   'alerts.subheading':
     'မီတာများတွင် ကန့်သတ်ချက်နှင့် ပုံစံသတိပေးချက်များ ထွက်ပေါ်လာခြင်းအပြင် ၎င်းတို့ကို မောင်းနှင်သည့် စည်းမျဉ်းများလည်း ပါဝင်သည်။',
+  'billing.activeBlurb': 'သင့်စာရင်းသွင်းမှု အသက်ဝင်နေပါပြီ။ အချိန်မရွေး စီမံနိုင်ပါတယ်။',
   'billing.cancelError': 'စာရင်းသွင်းမှုကို ပယ်ဖျက်၍မရပါ။',
   'billing.cancelling': 'ပယ်ဖျက်နေသည်…',
   'billing.currentBadge': 'လက်ရှိ',
   'billing.freeBlurb':
     'သင်သည် အခမဲ့အစီအစဉ်တွင် ရှိနေပါသည်။ မီတာများပိုမိုရရှိရန်၊ မှတ်တမ်းပိုမိုရှည်လျားစေရန်နှင့် သတိပေးစည်းမျဉ်းများ ပိုမိုရရှိရန် အဆင့်မြှင့်တင်ပါ။',
   'billing.heading': 'အစီအစဉ်များနှင့် ငွေတောင်းခံလွှာများ',
+  'billing.historyEmpty':
+    'သင့်စာရင်းသွင်းမှု ငွေတောင်းခံလာတဲ့အခါ ပေးချေပြီးသား ငွေတောင်းခံလွှာများ ဒီနေရာမှာ ပေါ်လာပါမယ်။',
   'billing.historyHeading': 'ငွေတောင်းခံလွှာမှတ်တမ်း',
   'billing.loadError': 'ငွေတောင်းခံလွှာကို ဖွင့်၍မရပါ။',
   'billing.loading': 'အစီအစဉ်များကို တင်နေသည်…',
@@ -58,17 +72,22 @@ export const ui: UiTranslations = {
   'billing.unavailable': 'အရောင်းဌာနကို ဆက်သွယ်ပါ',
   'common.goToDashboard': 'ပင်မစာမျက်နှာသို့ သွားရန်',
   'dailyCostMeter.cost': '{{symbol}} {{cost}}',
+  'dailyCostMeter.peakSplit': '{{peak}} peak · {{offPeak}} off-peak kWh',
   'dailyCostMeter.runningLabel': 'စုစုပေါင်းပြေးခြင်း',
   'dailyCostMeter.title': 'ယနေ့အထိ ကုန်ကျစရိတ်',
   'dailyCostMeter.utilizationLabel': 'နေ့စဉ်ဘတ်ဂျက်ထဲက',
+  'dailyCostMeter.utilizationPct': '{{pct}} %',
+  'dashboard.addMeter': 'မီတာတစ်ခု ထည့်ပါ',
   'dashboard.alertsHeading': 'လက်ရှိသတိပေးချက်များ',
   'dashboard.devicesHeading': 'လက်ရှိထိပ်တန်းဆားကစ်များ',
   'dashboard.empty.body':
     'တိုက်ရိုက်ဆွဲခြင်းနှင့် ထုတ်လုပ်မှုကို ခြေရာခံရန် smart meter သို့မဟုတ် solar inverter တစ်ခုထည့်ပါ။',
+  'dashboard.empty.title': 'မီတာများ မရှိသေးပါ',
   'dashboard.eyebrow': 'ဗို့ထရေ့စ် ထိန်းချုပ်ခန်း',
   'dashboard.heading': 'တိုက်ရိုက်စွမ်းအင် လျှပ်တစ်ပြက်ပုံရိပ်',
   'dashboard.loadError': 'တိုက်ရိုက်ဖတ်ရှုမှုများကို ဖွင့်၍မရပါ။',
   'dashboard.loading': 'မီတာများကို ချိန်ညှိနေသည်…',
+  'dashboard.noAlerts': 'အားလုံးတိတ်ဆိတ် — သင့်သတ်မှတ်ချက်များကို ချိုးဖောက်နေသည့်အရာ မရှိပါ။',
   'dashboard.noAlertsAndNoMeters':
     'မီတာကို ဝါယာကြိုးချိတ်ပြီးသည်နှင့် သင့် ကန့်သတ်ချက်များအပေါ် အခြေခံသည့် သတိပေးချက်များကို ဤနေရာတွင် ပေါ်လာပါမည်။',
   'dashboard.noCircuits': 'ပြသရန် ဆားကစ်များ မရှိသေးပါ — စတင်ရန် မီတာတစ်ခု ထည့်ပါ။',
@@ -76,6 +95,7 @@ export const ui: UiTranslations = {
     'အိမ်တစ်အိမ်လုံး လျှပ်စစ်ဓာတ်အား၊ နေရောင်ခြည်စွမ်းအင်ထုတ်လုပ်မှုနှင့် ယနေ့အထိ ကုန်ကျစရိတ်။',
   'dashboard.viewAllAlerts': 'သတိပေးချက်များကို စီမံခန့်ခွဲရန် →',
   'dashboard.viewAllDevices': 'ကိရိယာတိုင်း →',
+  'deviceDetail.activeTokens': 'အသုံးပြုနေသော ingest တိုကင်များ',
   'deviceDetail.alreadyOff': 'ခေတ္တရပ်ထားပြီးသား',
   'deviceDetail.back': 'ဆားကစ်အားလုံး',
   'deviceDetail.confirmDelete': 'ဖျက်ရန် အတည်ပြုပါ',
@@ -116,21 +136,33 @@ export const ui: UiTranslations = {
   'devices.loadError': 'မီတာများကို တင်၍မရပါ။',
   'devices.loading': 'မီတာတစ်ခုချင်းစီကို စစ်တမ်းကောက်ယူခြင်း…',
   'devices.newRule': 'သတိပေးမှု စည်းမျဉ်းအသစ်',
+  'devices.noResults': 'ဤစစ်ထုတ်မှုနှင့် ကိုက်ညီသော circuit များမရှိပါ။',
   'devices.placeholder.location': 'ဥပမာ စက်ပိုင်းဆိုင်ရာ အခန်း',
   'devices.placeholder.name': 'ဥပမာ Garage subpanel',
   'devices.subheading': 'Voltrace မြင်နိုင်သော ဆားကစ်တိုင်းမှတစ်ဆင့် တိုက်ရိုက်ဝပ်နှင့် ယနေ့ kWh။',
+  'deviceWattageRow.todayKwh': 'ယနေ့ {{kwh}} kWh',
+  'deviceWattageRow.watts': '{{watts}} W',
   'energyKpiTriad.delta.${kpi.delta.direction}': '{{pct}} %',
   'energyMonitoringLayout.menu': 'မီနူး',
+  'energyMonitoringLayout.primaryNavLabel': 'အဓိက လမ်းညွှန်ချက်',
+  'landing.copyright': '© {{year}} {{app}}။ {{tagline}}။',
+  'landing.ctaBody':
+    '{{appName}} သည် utility-grade မီတာအများစု၊ ဆိုလာအင်ဗာတာများနှင့် ဘက်ထရီစုစည်းမှုများနှင့် ချိတ်ဆက်နိုင်သည် — ကြိုးဖြင့်ဖြစ်စေ WiFi ဖြင့်ဖြစ်စေ။',
   'landing.ctaHeading': 'သင့်မီတာကို တွဲချိတ်ပါ၊ မိနစ်အလိုက် ဝပ်ကို ကြည့်ပါ',
   'landing.eyebrow': 'အချိန်နှင့်တပြေးညီ စွမ်းအင်အသိဉာဏ်',
+  'landing.featuresHeading': 'ဝပ်တိုင်း၊ မိနစ်တိုင်း၊ shell တစ်ခုတည်းတွင်',
   'landing.getStarted': 'Voltrace ကို ပလပ်ထိုးပါ',
   'landing.heroCta': 'Voltrace ကို ပလပ်ထိုးပါ',
+  'landing.heroSubtitle':
+    'ဆိုလာအိမ်များနှင့် အဆောက်အအုံအဖွဲ့များအတွက် တည်ဆောက်ထားသော ထိန်းချုပ်ခန်း shell တွင် တိုက်ရိုက်ဝပ်တန်အား၊ ဆိုလာထုတ်လုပ်မှု၊ အချိန်အလိုက်အသုံးပြုမှုကုန်ကျစရိတ်နှင့် အသုံးများမှုသတိပေးချက်များ။',
+  'landing.heroTitle': '{{tagline}}',
   'landing.sampleCardLabel': 'အိမ်ကွင်းတစ်ပွဲလုံး သရေကျခြင်း',
   'landing.sampleSolar': '+၃,၈၂၀ ဝပ် ဆိုလာ',
   'landing.sampleSummary': 'ယနေ့ ၁၈.၄ kWh · ဓာတ်အားလိုင်းသို့ ၁,၆၈၀ W တင်ပို့နေသည်',
   'landing.sampleWatts': '၂,၁၄၀ ဝပ်',
   'powerHeroCard.solar': '+ {{watts}} W နေရောင်ခြည်စွမ်းအင်သုံး',
   'powerHeroCard.title': 'အိမ်ကွင်းတစ်ပွဲလုံး သရေကျခြင်း',
+  'powerHeroCard.todayKwh': 'ယနေ့ {{kwh}} kWh',
   'powerHeroCard.watts': '{{watts}} W',
   'pricing.choose': 'ရွေးချယ်ပါ {{name}}',
   'pricing.contact': 'စိတ်ကြိုက်တစ်ခုခု လိုအပ်ပါသလား။',
@@ -144,6 +176,7 @@ export const ui: UiTranslations = {
   'pricing.unavailable':
     'ဤအစီအစဉ်ကို ယခုရရှိနိုင်ခြင်းမရှိပါ — Stripe ကို ပြင်ဆင်သတ်မှတ်ခြင်းမရှိသေးပါ။',
   'profile.errorGeneric': 'ပရိုဖိုင်ပြောင်းလဲမှုများကို သိမ်းဆည်း၍မရပါ။',
+  'profile.errorGoal': 'လစဉ် kWh ပန်းတိုင်သည် အပေါင်းကိန်းတစ်ခု ဖြစ်ရမည်။',
   'profile.errorHousehold': 'အိမ်ထောင်စုအရွယ်အစားသည် အပေါင်းဂဏန်းဖြစ်ရမည်။',
   'profile.householdHeading': 'အိမ်ထောင်စုနှင့် ရည်မှန်းချက်များ',
   'profile.householdSize': 'အိမ်ထောင်စုအရွယ်အစား',
@@ -162,9 +195,11 @@ export const ui: UiTranslations = {
   'reports.loading': 'ဖတ်ရှုမှုများကို စုစည်းနေသည်…',
   'reports.subheading':
     'သုံးစွဲမှု၊ ထုတ်လုပ်မှုနှင့် ကုန်ကျစရိတ်အတွက် နေ့စဉ်စုစုပေါင်း — ရက်စွဲအလိုက် ခွဲခြားထားသည်။',
+  'reports.tableHeading': 'နေ့စဉ်ခွဲခြမ်းစိတ်ဖြာမှု',
   'settings.currency': 'ငွေကြေး',
   'settings.errorFlat': 'ပုံသေနှုန်းထားသည် ≥ 0 ဖြစ်ရမည်။',
   'settings.errorNotify': 'အကြောင်းကြားချက် ကြိုတင်သတ်မှတ်ချက်များကို သိမ်းဆည်း၍မရပါ။',
+  'settings.errorSave': 'နှုန်းထားအစီအစဉ်ကို သိမ်းဆည်း၍မရပါ။',
   'settings.errorTou':
     'အမြင့်ဆုံး/အမြင့်ဆုံးမဟုတ်သော နှုန်းထားများနှင့် တရားဝင် အမြင့်ဆုံးဝင်းဒိုး လိုအပ်ပါသည်။',
   'settings.exportBody':
@@ -185,10 +220,20 @@ export const ui: UiTranslations = {
   'settings.saving': 'သိမ်းဆည်းနေသည်…',
   'settings.securityHeading': 'နှစ်ဆင့်အထောက်အထားစိစစ်ခြင်း',
   'settings.subheading': 'နှုန်းထားများ၊ အကြောင်းကြားချက်များနှင့် ဒေတာထုတ်ယူမှု။',
+  'settings.twoFactorBody':
+    'သင်ဝင်ရောက်တိုင်း သင့် authenticator အက်ပ်မှ တစ်ကြိမ်သုံး ကုဒ်ကို လိုအပ်သည်။',
   'settings.twoFactorCode': 'အထောက်အထားစိစစ်ရေးကုဒ်',
   'settings.twoFactorDisable': 'ပိတ်ရန်',
+  'settings.twoFactorDisableTitle': 'နှစ်ဆင့်အတည်ပြုခြင်းကို ပိတ်ပါ',
   'settings.twoFactorEnable': 'ဖွင့်ပါ',
+  'settings.twoFactorEnableTitle': 'နှစ်ဆင့်အတည်ပြုခြင်းကို ဖွင့်ပါ',
   'settings.twoFactorInvalidCode': 'ကုဒ် မမှန်ကန်ပါ',
+  'settings.twoFactorOAuth':
+    'သင့်အကောင့်သည် ချိတ်ဆက်ထားသော ပံ့ပိုးသူတစ်ခုမှတစ်ဆင့် ဝင်ရောက်သည်၊ ထို့ကြောင့် two-factor ကို ထိုနေရာတွင် စီမံသည်။',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'နှစ်ဆင့် QR ကုဒ်',
+  'settings.twoFactorScan':
+    'ဤ QR ကုဒ်ကို သင့်အတည်ပြုကိရိယာအက်ပ်ဖြင့် စကင်ဖတ်ပြီး ၆ လုံးပါ ကုဒ်ကို ထည့်ပါ။',
+  'settings.twoFactorUnavailable': 'ဤအက်ပ်အတွက် နှစ်ဆင့်အထောက်အထားစိစစ်ခြင်း မရရှိနိုင်ပါ။',
   'settings.twoFactorVerify': 'အတည်ပြုပြီး ဖွင့်ပါ',
 }

@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Keni një pyetje, keni gjetur një gabim ose dëshironi të transferoni librat tuaj? Kontaktoni ekipin e {{app}} në hello@{{app}}.example — një person i vërtetë lexon çdo mesazh.',
   'about.contactTitle': 'Kontaktoni me ne',
   'about.eyebrow': 'Rreth',
+  'about.intro':
+    '{{app}} është kontabilitet për bizneset e vogla që mban çdo qindarkë në llogari — fatura, shpenzime, pagesa dhe raporte në një vend të qetë për pronarët, kontabilistët dhe llogaritarët.',
+  'about.missionBody':
+    'Të drejtosh një biznes nuk duhet të thotë të dridhesh për librat e tu. {{app}} zëvendëson rrëmujën e tabelave me numra të qartë mbi të cilët mund të veprosh, kështu që kalon më pak kohë duke rakordojmë dhe më shumë kohë duke bërë punën për të cilën nisi biznesin.',
+  'about.missionTitle': 'Misioni ynë',
   'about.title': 'Rreth {{app}}',
   'accounts.count': '{{count}} llogari',
+  'accounts.emptyBody':
+    "Llogaritë e librit gjurmojnë ku jeton dhe lëviz paraja. Ato shfaqen këtu pasi kontabilisti ose integrimi t'i konfigurojë.",
   'accounts.emptyTitle': 'Nuk ka ende llogari',
   'accounts.heading': 'Grafiku i llogarive',
   'accounts.kpi.accounts': 'Accounts',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Çdo llogari libri pas faturave, shpenzimeve dhe pagesave tuaja, e grupuar sipas llojit.',
   'accounts.tag.inactive': 'joaktiv',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Drejtor Financiar, Horizon Tech',
   'authBrandPanel.eyebrow': 'I besuar nga ekipet financiare',
   'authBrandPanel.label': 'Prezantimi i markës',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Të gjithë klientët',
   'customerDetail.invoiceMeta': 'Lëshuar {{issued}} · Afati i fundit {{due}}',
   'customerDetail.loadError': 'Ngarkimi i klientit dështoi.',
+  'customerDetail.missingBody':
+    'Regjistri i kërkuar i klientit nuk mund të ngarkohej. Mund të jetë hequr ose mund të mos kesh akses në të.',
   'customerDetail.missingHeading': 'Regjistri i klientit nuk është i disponueshëm',
+  'customerDetail.missingHelp':
+    "Përdor lidhjen e kthimit më sipër për t'u kthyer në listën e klientëve ose zgjidh një regjistër tjetër prej andej.",
+  'customerDetail.noInvoices': 'Nuk ka ende fatura.',
   'customerDetail.notesEmpty': 'Nuk ka ende shënime.',
   'customerDetail.paymentsEmpty': 'Nuk janë regjistruar pagesa.',
   'customerDetail.paymentTerms': 'Kushtet e pagesës',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Zbritje',
   'expenseDetail.detailsHeading': 'Detajet e transaksionit',
   'expenseDetail.loadError': 'Ngarkimi i shpenzimeve dështoi.',
+  'expenseDetail.matched': 'Përputhur · {{description}}',
   'expenseDetail.missingBody':
     'Shpenzimi i kërkuar nuk mund të ngarkohej. Mund të jetë hequr ose mund të mos keni qasje në të.',
   'expenseDetail.missingHeading': 'Regjistri i shpenzimeve nuk është i disponueshëm',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Faturë',
   'expenseDetail.receiptHeading': 'Faturë',
   'expenseDetail.reconciled': 'Pajtuar',
+  'expenseDetail.unreconciled': 'I papajtueshëm',
   'expenses.empty': 'Ende pa shpenzime.',
   'expenses.heading': 'Shpenzimet',
   'expenses.kpi.deductible': 'Zbritje',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Ngarkimi i faturave dështoi.',
   'invoices.searchPlaceholder': 'Kërko numrin e faturës ose klientin…',
   'invoices.summary.paid': 'Paguar këtë periudhë',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     "Falas për 30 ditë. Pa kartë. Sillni kontabilistin tuaj — ata do t'ju falënderojnë.",
   'landing.ctaTitle': 'Zhvendosni librat tuaj në një vend më të qetë.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Llogaritë e arkëtueshme',
   'ledgerStatTriad.eyebrow.mtd': 'Muaji deri më sot',
   'ledgerStatTriad.netSub': 'Rrjeti {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} të vonuara',
   'ledgerStatTriad.revenueLabel': 'Të ardhurat',
   'login.failed': 'Identifikimi dështoi.',
   'login.hidePassword': 'Fshih fjalëkalimin',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Hyr',
   'nav.legal': 'Ligjore',
   'newExpense.back': 'Shpenzimet',
+  'newExpense.clearReceiptCta': 'Fshi faturën e bashkangjitur',
   'newExpense.deductible': 'Zbritje nga taksat',
   'newExpense.dropPrompt': 'Vendosni një foto ose PDF të faturës këtu për ta bashkëngjitur.',
   'newExpense.failed': 'Nuk mund të kurseja shpenzimet.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Ngarkimi i pagesave dështoi.',
   'payments.unmatchedTag': 'i pakrahasueshëm',
   'planUpdated.pageLabel': 'Konfirmimi i përditësimit të planit',
+  'pricing.advancedFeatures': 'Veçori të avancuara: {{yes}}',
+  'pricing.canExport': 'Eksportimi i të dhënave: {{yes}}',
+  'pricing.heading': 'Zgjidhni planin tuaj {{app}}',
+  'pricing.maxAccounts': '{{count}} llogari',
+  'pricing.maxExpenses': '{{count}} shpenzime',
+  'pricing.maxInvoices': '{{count}} fatura',
+  'privacy.intro':
+    'Kjo Politikë e Privatësisë përshkruan se si {{app}} mbledh, përdor dhe zbulon informacione rreth bizneseve që përdorin shërbimin.',
   'privacy.lastUpdated': 'Përditësuar për herë të fundit: {{data}}',
   'privacy.section.collected.body':
     'Ne mbledhim detajet e llogarisë (emri, emaili, kompania), të dhënat financiare që ngarkoni (faturat, shpenzimet, klientët, pagesat) dhe regjistrat standardë të funksionimit të shërbimit (IP, agjenti i përdoruesit, pullat kohore).',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Informacioni përdoret për të operuar shërbimin, për të gjeneruar raportet dhe PDF-të që kërkoni, për të dërguar email transaksionalë përmes Mailgun dhe për të përpunuar pagesat përmes Stripe. Ne nuk shesim ose japim me qira informacione personale.',
   'recentInvoicesCard.dueMeta': "Për t'u paguar {{date}}",
+  'recentInvoicesCard.empty': 'Nuk ka fatura që përputhen.',
   'recentInvoicesCard.eyebrow': 'Llogaritë e arkëtueshme',
   'recentInvoicesCard.searchAriaLabel': 'Kërko faturat',
+  'recentInvoicesCard.searchPlaceholder': 'Kërko fatura…',
   'recentInvoicesCard.title': 'Faturat e fundit',
   'recentInvoicesCard.viewAll': 'Shikoni të gjitha faturat →',
   'reports.assets': 'Asetet',
@@ -181,16 +211,21 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Fitimi dhe humbja (12 muaj)',
   'resetPassword.backToLogin': '← Kthehu te Hyrja',
   'resetPassword.hidePassword': 'Fshih fjalëkalimin',
+  'resetPassword.passwordLabel': 'Fjalëkalim i ri',
   'resetPassword.showPassword': 'Shfaq fjalëkalimin',
+  'resetPassword.subheading': 'Zgjidh një fjalëkalim të fortë — minimumi tetë karaktere.',
   'resetPassword.submit': 'Rivendos fjalëkalimin',
   'resetPassword.tooShort': 'Fjalëkalimi duhet të jetë të paktën 8 karaktere.',
   'settings.account.changePassword': 'Ndrysho fjalëkalimin',
   'settings.account.changingPassword': 'Duke ndryshuar…',
   'settings.account.currentPassword': 'Fjalëkalimi aktual',
+  'settings.account.dangerZone': 'Zona e rrezikut',
   'settings.account.deleteAccount': 'Fshi llogarinë',
   'settings.account.deleteDescription':
     'Fshini përgjithmonë llogarinë tuaj dhe të gjitha të dhënat e lidhura me të.',
   'settings.account.deleteError': 'Fshirja e llogarisë dështoi.',
+  'settings.account.deleteWarning':
+    'Kjo fshin përgjithmonë llogarinë tënde dhe nuk mund të zhbëhet. Shkruaj fjalëkalimin për të konfirmuar.',
   'settings.account.deleting': 'Duke fshirë…',
   'settings.account.devices': 'Pajisjet',
   'settings.account.email': 'Email',
@@ -201,6 +236,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Fjalëkalimi',
   'settings.account.passwordError': 'Dështoi në ndryshimin e fjalëkalimit.',
   'settings.account.pushNotifications': 'Njoftime të reja në këtë pajisje',
+  'settings.account.revokeDeviceWarning':
+    'Qasja e kësaj pajisjeje do të hiqet së shpejti. Të dilet?',
   'settings.account.saveError': 'Përditësimi i profilit dështoi.',
   'settings.account.security': 'Siguria',
   'settings.account.signOutDevice': 'Dil nga llogaria',
@@ -208,12 +245,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Autentifikimi me dy faktorë',
   'settings.account.twoFactorCode': 'Kodi i vërtetimit',
   'settings.account.twoFactorDisable': 'Çaktivizo',
+  'settings.account.twoFactorDisableTitle': 'Çaktivizo vërtetimin me dy faktorë',
   'settings.account.twoFactorEnable': 'Aktivizo',
+  'settings.account.twoFactorEnableTitle': 'Aktivizo vërtetimin me dy faktorë',
   'settings.account.twoFactorInvalidCode': 'Kod i pavlefshëm',
   'settings.account.twoFactorOn': 'On',
+  'settings.account.twoFactorQrAlt': 'Kodi QR dy faktorë',
+  'settings.account.twoFactorScan':
+    'Skano këtë kod QR me aplikacionin e vërtetimit, pastaj shkruaj kodin 6-shifror.',
+  'settings.account.twoFactorUnavailable':
+    'Autentifikimi me dy faktorë nuk është i disponueshëm për këtë aplikacion.',
   'settings.account.twoFactorVerify': 'Verifiko dhe aktivizo',
   'settings.account.unknownDevice': 'Pajisje e panjohur',
   'settings.company.email': 'Email-i i faturimit',
+  'settings.company.heading': 'Kompania & taksa',
   'settings.company.name': 'Emri ligjor',
   'settings.company.saveButton': 'Ruaj profilin e kompanisë',
   'settings.company.taxId': 'ID Tatimore / EIN',
@@ -257,6 +302,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Vlerësim tremujor',
   'taxes.kpi.owed': 'I detyrueshëm',
   'taxes.loadError': 'Ngarkimi i përmbledhjes së taksave dështoi.',
+  'taxes.remittedPct': '({{pct}}% e dërguar)',
+  'terms.intro':
+    'Këto Kushte të Shërbimit ("Kushtet") rregullojnë aksesin dhe përdorimin e {{app}}. Duke krijuar një llogari ose duke përdorur shërbimin, ju pranoni të jeni të detyruar prej tyre.',
   'terms.lastUpdated': 'Përditësuar për herë të fundit: {{data}}',
   'terms.section.acceptable.body':
     'Ju pranoni të mos e përdorni shërbimin për të shkelur ndonjë ligj, për të shkelur të drejtat e pronësisë intelektuale, për të transmetuar programe keqdashëse ose për të tentuar të fitoni akses të paautorizuar në llogari të tjera ose në infrastrukturën tonë.',

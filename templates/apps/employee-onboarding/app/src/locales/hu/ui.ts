@@ -1,27 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Szeretnél melegebb onboardingot indítani a csapatodnak, hibát találtál, vagy visszajelzésed van? Írj nekünk a fiókbeállításaidból — minden üzenetet egy igazi ember kap meg, aki tud segíteni.',
   'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Névjegy',
+  'about.missionTitle': 'Küldetésünk',
   'auth.forgotPassword.emailPlaceholder': 'nev@azaceged.com',
   'auth.forgotPassword.heading': 'Állítsa vissza a jelszavát.',
+  'auth.forgotPassword.panel.body':
+    'A visszaállítás 30 másodpercet vesz igénybe — a checklist-haladásod vár.',
+  'auth.forgotPassword.panel.headline': 'Pont ott folytatod, ahol abbahagytad.',
+  'auth.forgotPassword.subheading':
+    'Add meg a munkahelyi e-mail-címedet, és küldünk egy visszaállítási linket.',
   'auth.forgotPassword.successSubheading':
     'Nézd meg a postaládádat – elküldtük a visszaállítási utasításokat.',
   'auth.login.emailPlaceholder': 'nev@azaceged.com',
   'auth.login.heading': 'Isten hozott ismét.',
   'auth.login.passwordPlaceholder': 'A jelszavad',
+  'auth.login.signupPrompt': 'Új vagy a csapatban?',
   'auth.login.subheading':
     'Jelentkezz be, hogy ott folytasd a bevezető folyamatot, ahol abbahagytad.',
   'auth.login.submit': 'Folytasd az utad',
+  'auth.panel.body':
+    'A személyes checklisted, a képzési mérföldkövek és a csapattagok bemutatkozása — mind egy nyugodt helyen.',
   'auth.panel.footnote': '© Embark — a mai naptól kezdve az embereket helyezzük előtérbe.',
   'auth.panel.headline': 'Egy magabiztos első 90 nap itt kezdődik.',
   'auth.resetPassword.heading': 'Állítson be új jelszót.',
   'auth.resetPassword.newPasswordLabel': 'Új jelszó',
+  'auth.resetPassword.panel.body':
+    'Ments el egy új jelszót, és visszateszünk az onboarding-utadba.',
+  'auth.resetPassword.panel.headline': 'Majdnem visszaértél.',
   'auth.resetPassword.subheading': 'Válassz valamit, amire emlékezni fogsz – legalább 8 karaktert.',
   'auth.signup.emailPlaceholder': 'nev@azaceged.com',
   'auth.signup.heading': 'Üdvözlünk az első 90 napodban.',
   'auth.signup.panel.body':
     'Irányított ellenőrzőlista, szerepkör-tudatos képzés és emberi bemutatkozás – készen áll, mielőtt belépsz.',
+  'auth.signup.panel.headline': 'Az első nap, már az első napon.',
   'auth.signup.subheading':
     'Hozd létre Embark fiókodat, hogy elkezdhesd az irányított bevezető folyamatot.',
   'checklist.empty.body': 'Kapcsold be a szűrőt, hogy más feladatokat is lásd.',
@@ -29,6 +44,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'Bevezetés · Ellenőrzőlista',
   'checklist.loading': 'Ellenőrzőlista betöltése…',
   'checklist.stat.actionNeeded': 'Szükséges intézkedés',
+  'checklist.stat.completion': 'Befejezés',
+  'checklist.stat.inProgress': 'Folyamatban van',
   'checklist.stat.inProgressHelper': 'Folytasd ott, ahol abbahagytad',
   'checklist.stat.overdueHelper': 'Először ezeket szerezd meg',
   'checklist.subtitle':
@@ -60,6 +77,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'Még nincsenek dokumentumok',
   'documents.eyebrow': 'Bevezetés · Dokumentumok',
   'documents.loading': 'Dokumentumok betöltése…',
+  'documents.stat.actionNeeded': 'Jelentkezzen be most',
+  'documents.stat.all': 'Minden dokumentum',
   'documents.stat.allHelper': 'Kategóriák között',
   'documents.stat.pending': 'Füőben lévő aláírások',
   'documents.stat.pendingHelper': 'A kitöltéshez szükséges',
@@ -67,22 +86,28 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Biztonságosan tárolva',
   'documents.status.optional': 'Választható',
   'documents.status.required': 'Szükséges',
+  'documents.status.signed': 'Aláírva',
   'documents.subtitle': 'Kézikönyv, nyomtatványok és aláírt megállapodások – minden egy helyen.',
   'documents.title': 'Minden, amit el kell olvasni és alá kell írni.',
   'documents.uploadedRecently': 'Legutóbb feltöltött',
   'documentViewer.breadcrumbCurrent': 'Néző',
   'documentViewer.breadcrumbDocs': 'Dokumentumok',
   'documentViewer.downloadMeta': 'Metaadatok letöltése',
+  'documentViewer.helpBody':
+    'A People & Culture a Slack #ask-people csatornáján válaszol a kézikönyvvel kapcsolatos kérdésekre.',
   'documentViewer.helpEyebrow': 'Segítségre van szüksége?',
   'documentViewer.loadError': 'Nem tudtuk betölteni ezt a dokumentumot.',
   'documentViewer.loading': 'Dokumentum betöltése…',
   'documentViewer.notFound': 'A dokumentum nem található',
+  'documentViewer.previewBody':
+    'Ha a feltöltések be vannak állítva, a fájlt beágyazva jelenítjük meg. Egyelőre a metaadatok letöltésével ellenőrizheted, hogy a rekord valódi.',
   'documentViewer.previewBodyExternal': 'A letöltés gombbal nyissa meg a fájlt egy új lapon.',
   'documentViewer.previewTitle': 'Dokumentum előnézete',
   'documentViewer.sign': 'Aláírás és tudomásulvétel',
   'documentViewer.signatureBody':
     'Olvassa el a dokumentumot, majd kattintson az alábbi gombra az aláíráshoz és a tudomásulvételhez.',
   'documentViewer.signatureHeading': 'Aláírás szükséges',
+  'documentViewer.signed': '✓ Aláírva és iktatva',
   'documentViewer.signing': 'Aláírás…',
   'documentViewer.uploadedRecently': 'Legutóbb feltöltött',
   'landing.closing.body':
@@ -92,10 +117,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Már van fiókom',
   'landing.feature1.body':
     'Minden feladat – papírmunka, számlák, bemutatkozások – előre elkészített, határidőkkel és megfelelő tulajdonossal.',
+  'landing.feature1.title': 'Irányított checklist',
   'landing.feature2.body':
     'A modulok 30/60/90 mérföldkőnél oldódnak fel, a felvételt végző szerepkörhöz és csapathoz igazítva.',
+  'landing.feature2.title': 'Szerepkörhöz igazodó képzés',
   'landing.feature3.body':
     'Barátok, vezetők és többfunkciós bemutatkozások ütemezve – így senki sem kezd egyedül.',
+  'landing.feature3.title': 'Valódi bemutatkozások',
   'landing.featureEyebrow': 'Miért érdemes elindulni?',
   'landing.featureHeadline':
     'Három módszer, amellyel az Embark már az első napon bizalmat érdemel.',
@@ -106,6 +134,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'Következő lépés: Találkozz a haveroddal egy 30 perces kávézásra — kedd 10:00.',
   'landing.preview.eyebrow': '90 napból a 14. nap – minta műszerfal',
+  'landing.preview.headline': 'Üdv újra, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR-kompatibilis',
   'landing.proof.teams': '50–5000 fős csapatok számára készült',
   'landing.proof.time': '14 napos ingyenes próbaidőszak',
@@ -122,16 +151,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'tegnap',
   'planUpdated.message': 'Készen állsz.',
   'planUpdated.preparing': 'A csomag frissítése…',
+  'planUpdated.retry': 'Próbálja újra',
+  'planUpdated.verifyFailed': 'Még nem tudtuk megerősíteni a fizetését.',
+  'planUpdated.verifyFailedBody':
+    'Lehetséges, hogy a fizetése még feldolgozás alatt áll. Próbálja újra egy pillanat múlva.',
   'planUpdated.verifying': 'Fizetésed megerősítése…',
   'pricing.documentsLabel': 'dokumentumok',
   'pricing.onboardingsLabel': 'onboardingok',
   'pricing.tasksLabel': 'feladatok',
   'profile.dayNumber': 'Nap',
   'profile.detailsHeading': 'Bevezetési részletek',
+  'profile.encouragementBody':
+    'Tartsd képben a buddyodat és a menedzseredet — a kis lépések összeadódnak.',
   'profile.milestones': 'Mérföldkövek',
   'profile.progressEyebrow': 'Bevezetési folyamat',
   'profile.tasks': 'Feladatok',
   'profile.unknownName': 'Üdvözöljük',
+  'settings.appearance.description': 'Váltás a világos és sötét mód között.',
+  'settings.appearance.title': 'Megjelenés',
+  'settings.subtitle':
+    'Állítsd be az értesítéseket, a biztonságot, az eszközöket és az adatexportot — minden itt marad, a te feltételeid szerint.',
   'settings.title': 'Beállítások és preferenciák.',
   'taskDetail.backToChecklist': 'Vissza a listához',
   'taskDetail.breadcrumbChecklist': 'Ellenőrzőlista',
@@ -144,7 +183,10 @@ export const ui: UiTranslations = {
   'taskDetail.notFound': 'Feladat nem található',
   'taskDetail.notFoundBody':
     'Lehetséges, hogy ezt a feladatot törölték, vagy egy másik felhasználóhoz tartozik.',
+  'taskDetail.tipBody':
+    'Ha elakadtál, írj az onboarding buddyodnak Slacken — ő az első segítséged.',
   'taskDetail.tipEyebrow': 'Gyors tipp',
+  'team.empty.body': 'Próbálj szélesebb keresést, vagy válassz másik részleget.',
   'team.empty.title': 'Nincsenek csapattársak, akik egyeznek',
   'team.eyebrow': 'Bevezetés · Emberek',
   'team.loading': 'Csapattársak betöltése…',
@@ -167,14 +209,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Mérföldkövek',
   'timeline.stat.current': 'Jelenlegi mérföldkő',
   'timeline.stat.next': 'Következő feloldás',
+  'timeline.stat.progress': 'Összesített',
   'timeline.subtitle':
     'Minden mérföldkő új modulokat, bemutatkozásokat és fejlődési beszélgetéseket nyit meg. Nincs nyomás – csak fejlődés.',
+  'timeline.tipBody':
+    'Tervezz be egy 30 perces megbeszélést a 30., 60. és 90. napon a menedzsereddel — így a visszajelzés konkrét lesz, a haladás pedig látható.',
   'timeline.tipEyebrow': 'Vezetői borravaló',
+  'timeline.tipTitle': 'Blokkolj időt a naptáradban a mérföldkövekre.',
   'timeline.title': 'A 30 / 60 / 90-es utazásod.',
   'training.badge.notStarted': 'Nem kezdett',
   'training.empty': 'Még nincsenek képzési modulok.',
   'training.eyebrow': 'Bevezetés · Képzés',
   'training.loading': 'Modulok betöltése…',
+  'training.stat.all': 'Modulok hozzárendelve',
   'training.subtitle':
     'A modulok 30/60/90-kor oldódnak fel, a szerepkörödnek megfelelően. A kötelezőek kerülnek először kibocsátásra.',
   'training.title': 'Készségek, eszközök és történetek – a te tempódban.',
@@ -186,9 +233,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'Modul nem található',
   'trainingModule.quizBody': 'A modul teljesítéséhez legalább 80%-os pontszámot kell elérni.',
   'trainingModule.quizHeading': 'Modul végi kvíz',
+  'trainingModule.quizLocked': 'Először indítsd el a modult',
   'trainingModule.quizNone': 'Nincs kvíz ebben a modulban.',
   'trainingModule.quizRetry': 'Próbálja újra',
+  'trainingModule.quizStart': 'Kvíz indítása',
   'trainingModule.quizSubmit': 'Válaszok beküldése',
+  'trainingModule.start': 'Modul indítása',
   'trainingModule.statusNotStarted': 'Nem kezdett',
   'welcomeHeroCard.completeLabel': 'Teljes',
   'welcomeHeroCard.milestonesLabel': 'Mérföldkövek',

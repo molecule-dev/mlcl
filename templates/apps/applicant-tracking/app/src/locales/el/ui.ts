@@ -1,14 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχετε ερωτήσεις, σχόλια ή θέλετε μια παρουσίαση για την ομάδα προσλήψεών σας; Στείλτε email στο hello@example.com και ένα πραγματικό μέλος της ομάδας θα σας απαντήσει εντός δύο εργάσιμων ημερών.',
   'about.contactHeading': 'Επικοινωνήστε μαζί μας',
+  'about.intro':
+    'Το {{app}} είναι ένα σύστημα παρακολούθησης υποψηφίων για recruiters και υπεύθυνους προσλήψεων που θέλουν σήμα, όχι θόρυβο — μια καθαρή ροή υποψηφίων, AI screening που εξηγεί τον εαυτό του και αναλυτικά στοιχεία προσλήψεων, όλα σε ένα μέρος.',
+  'about.missionBody':
+    'Οι προσλήψεις είναι μία από τις πιο κρίσιμες αποφάσεις που παίρνει μια ομάδα, κι όμως το μεγαλύτερο μέρος τους ζει ακόμα σε διάσπαρτα υπολογιστικά φύλλα και αλυσίδες email. Το {{app}} φέρνει όλο τον κύκλο σε έναν πίνακα, ώστε κάθε υποψήφιος να παρακολουθείται, κάθε συνέντευξη να είναι δομημένη και κάθε απόφαση δίκαιη, γρήγορη και εξηγήσιμη.',
+  'about.missionHeading': 'Η αποστολή μας',
   'auth.legalConsent': 'Συνεχίζοντας, συμφωνείτε με τους',
   'billing.cardExp': 'Λήγει {{exp}}',
+  'billing.cardLinkError': 'Δεν ήταν δυνατή η έναρξη της ροής ενημέρωσης κάρτας.',
   'billing.cardLinkSent': 'Η ενημέρωση κάρτας ξεκίνησε — ελέγξτε το email σας.',
+  'billing.cardLinkUnavailable':
+    'Οι ενημερώσεις καρτών δεν είναι διαθέσιμες — αυτή η εγκατάσταση δεν έχει ρυθμισμένο πάροχο πληρωμών.',
   'billing.cardMissing': 'Δεν υπάρχει αποθηκευμένη κάρτα',
   'billing.col.invoice': 'Τιμολόγιο',
   'billing.downloadUnavailable': '—',
   'billing.editCard': 'Ενημέρωση κάρτας',
+  'billing.eyebrow': 'Πλάνο και χρήση',
   'billing.invoiceHeading': 'Πρόσφατα τιμολόγια',
   'billing.invoicesEmpty': 'Δεν υπάρχουν τιμολόγια ακόμα.',
   'billing.invoicesLoading': 'Φόρτωση τιμολογίων…',
@@ -22,6 +33,7 @@ export const ui: UiTranslations = {
   'billing.seatsError':
     'Αυτό το πλάνο είναι για μία θέση. Αναβαθμίστε στο Team για πολλαπλές θέσεις.',
   'billing.seatsHint': '{{used}} από {{max}} συμπεριλαμβάνονται',
+  'billing.seatsLabel': 'Ενεργές θέσεις',
   'billing.spentLabel': 'Δαπάνη από αρχής έτους',
   'billing.subheading': 'Συνδρομή, θέσεις, χρήση AI διαλογής και τιμολόγια.',
   'billing.unlimited': 'Απεριόριστο',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'candidateDetail.advanceError': 'Δεν ήταν δυνατή η ενημέρωση του σταδίου.',
   'candidateDetail.advanceFinal': 'Ήδη στο τελευταίο στάδιο.',
   'candidateDetail.advanceHeading': 'Μετακίνηση σε στάδιο',
+  'candidateDetail.appliedOn': 'Υποβολή {{date}} μέσω {{source}}.',
   'candidateDetail.back': 'Όλοι οι υποψήφιοι',
   'candidateDetail.loadError': 'Αποτυχία φόρτωσης υποψηφίου.',
   'candidateDetail.noInterviews': 'Δεν υπάρχουν συνεντεύξεις ακόμα.',
@@ -46,8 +59,14 @@ export const ui: UiTranslations = {
   'candidateDetail.notePlaceholder':
     'Μοιραστείτε τα σχόλιά σας, τις εντυπώσεις σας από τη συνέντευξη, τα επόμενα βήματα…',
   'candidateDetail.noteSave': 'Αποθήκευση σημειώματος',
+  'candidateDetail.panel': 'Πάνελ: {{panel}}',
+  'candidateDetail.panelScore': 'Βαθμολογία πάνελ: {{score}}/100',
+  'candidateDetail.resumeMissing':
+    'Δεν υπάρχει ακόμη διαθέσιμη προεπισκόπηση βιογραφικού για αυτόν τον υποψήφιο.',
   'candidateDetail.scheduleError': 'Δεν ήταν δυνατός ο προγραμματισμός της συνέντευξης.',
+  'candidateDetail.scheduleHeading': 'Προγραμματισμός συνέντευξης',
   'candidateDetail.scheduleInterviewer': 'Συνεντευκτής',
+  'candidateDetail.scheduleInterviewerPlaceholder': 'Όνομα συνεντευκτή',
   'candidateDetail.scheduleMinutes': 'Διάρκεια (λεπτά)',
   'candidateDetail.scheduleMissing': 'Επιλέξτε πρώτα ημερομηνία και ώρα.',
   'candidateDetail.scoreEmpty': 'Αναμένεται αξιολόγηση AI.',
@@ -70,6 +89,7 @@ export const ui: UiTranslations = {
   'candidates.heading': 'Υποψήφιοι',
   'candidates.loadError': 'Αποτυχία φόρτωσης υποψηφίων.',
   'candidates.searchPlaceholder': 'Αναζήτηση υποψηφίου, ρόλου ή θέσης…',
+  'candidates.sourceLabel': 'Πηγή',
   'candidates.sourcePlaceholder': 'Πηγή (LinkedIn, Σύσταση…)',
   'candidates.subheading':
     'Βάση δεδομένων υποψηφίων για όλες τις θέσεις με βαθμολόγηση AI και παρακολούθηση πηγών.',
@@ -84,6 +104,7 @@ export const ui: UiTranslations = {
   'dashboard.kpi.interviews': 'Συνεντεύξεις αυτή την εβδομάδα',
   'dashboard.kpi.openJobs': 'Ανοιχτές θέσεις',
   'dashboard.loading': 'Φόρτωση…',
+  'dashboard.newJobCta': 'Δημοσίευση θέσης',
   'dashboard.subheading': 'Υγεία pipeline, φόρτος συνεντεύξεων και εκκρεμείς προσφορές.',
   'dashboard.topEmpty': 'Δεν υπάρχουν υποψήφιοι ακόμα.',
   'dashboard.topEyebrow': 'Καλύτερες αντιστοιχίσεις AI',
@@ -104,6 +125,7 @@ export const ui: UiTranslations = {
   'jobDetail.back': 'Όλες οι θέσεις',
   'jobDetail.descriptionEyebrow': 'Περιγραφή ρόλου',
   'jobDetail.descriptionMissing': 'Δεν έχει παρασχεθεί περιγραφή ακόμα.',
+  'jobDetail.employmentType': 'Τύπος απασχόλησης: {{type}}',
   'jobDetail.empty': 'Δεν υπάρχουν αιτήσεις ακόμα.',
   'jobDetail.funnelEyebrow': 'Χοάνη σταδίων',
   'jobDetail.funnelHeading': 'Στάδιο αιτούντων',
@@ -112,6 +134,7 @@ export const ui: UiTranslations = {
   'jobDetail.kpi.hires': 'Προσλήψεις',
   'jobDetail.kpi.inInterview': 'Σε συνέντευξη',
   'jobDetail.loadError': 'Αποτυχία φόρτωσης θέσης.',
+  'jobDetail.requirementsHeading': 'Απαιτήσεις',
   'jobDetail.topEyebrow': 'Κορυφαίοι αιτούντες',
   'jobDetail.topHeading': 'Αντιστοιχίσεις AI πρώτα',
   'jobDetail.unavailable': 'Αυτή η θέση δεν είναι πλέον διαθέσιμη.',
@@ -127,6 +150,7 @@ export const ui: UiTranslations = {
   'jobs.heading': 'Θέσεις',
   'jobs.loadError': 'Αποτυχία φόρτωσης θέσεων.',
   'jobs.newCta': 'Δημοσίευση θέσης',
+  'landing.copyright': '© {{year}} {{app}}. Κατασκευάστηκε με Molecule.',
   'landing.eyebrow': 'Προσλήψεις με υποστήριξη AI · v2',
   'landing.featuresEyebrow': 'Πώς λειτουργεί',
   'landing.featuresHeading': 'Σήμα — όχι υπολογιστικά φύλλα.',
@@ -135,8 +159,11 @@ export const ui: UiTranslations = {
   'landing.heroCta': 'Ξεκινήστε δωρεάν για 30 ημέρες',
   'landing.heroProof': 'Χωρίς πιστωτική κάρτα. Ακύρωση οποτεδήποτε. SSO διαθέσιμο στο Pro.',
   'landing.heroSecondary': 'Δείτε τιμές →',
+  'landing.heroSubtitle':
+    'Μια καθαρή ροή kanban, AI screening που εξηγεί τον εαυτό του και αναλυτικά στοιχεία δικαιοσύνης ανά στάδιο. Φτιαγμένο για recruiters και υπεύθυνους προσλήψεων που θέλουν σήμα — όχι θόρυβο.',
   'landing.heroTitle': 'Προσλάβετε με σαφήνεια.',
   'landing.previewHeading': 'Senior Backend Μηχανικός',
+  'landing.previewLabel': 'Ροή · Μηχανικοί',
   'landing.pricingEyebrow': 'Τιμολόγηση',
   'landing.pricingHeading': 'Πλάνα για ομάδες κάθε μεγέθους.',
   'landing.socialEyebrow': 'Χρησιμοποιείται από ομάδες προσλήψεων στην/στον',
@@ -152,6 +179,9 @@ export const ui: UiTranslations = {
   'loginBrandPanel.headlineLine2': 'σαφήνεια.',
   'loginBrandPanel.stage.interview': 'Συνέντευξη',
   'loginBrandPanel.stage.screening': 'Διαλογή',
+  'loginBrandPanel.stage.sourced': 'Από εξωτερική πηγή',
+  'loginBrandPanel.subtext':
+    'Σύρετε τους υποψηφίους μέσα από τα στάδια Από εξωτερική πηγή → Αξιολόγηση → Συνέντευξη → Προσφορά → Πρόσληψη. Το AI αξιολογεί. Ο δείκτης δικαιοσύνης κρατά κάθε στάδιο έντιμο.',
   'nav.closeMenu': 'Κλείσιμο μενού',
   'nav.legal': 'Νομικά',
   'nav.openMenu': 'Άνοιγμα μενού',
@@ -160,6 +190,7 @@ export const ui: UiTranslations = {
     'Τα βιογραφικά κατατάσσονται βάσει απαιτήσεων· ο υπεύθυνος προσλήψεων αναθεωρεί πρώτα τις καλύτερες αντιστοιχίσεις.',
   'newJob.aiToggle': 'Αυτόματη βαθμολόγηση νέων αιτούντων',
   'newJob.back': 'Επιστροφή στις θέσεις',
+  'newJob.basicsHeading': 'Βασικά στοιχεία θέσης',
   'newJob.compHeading': 'Αποδοχές',
   'newJob.departmentLabel': 'Τμήμα',
   'newJob.descHeading': 'Περιγραφή και απαιτήσεις',
@@ -169,6 +200,7 @@ export const ui: UiTranslations = {
   'newJob.failed': 'Δεν ήταν δυνατή η αποθήκευση της θέσης.',
   'newJob.heading': 'Δημοσίευση θέσης',
   'newJob.publish': 'Δημοσίευση θέσης',
+  'newJob.reqLabel': 'Απαιτήσεις (μία ανά γραμμή)',
   'newJob.salaryMax': 'Μέγιστος μισθός (USD)',
   'newJob.salaryMin': 'Ελάχιστος μισθός (USD)',
   'newJob.stagesHeading': 'Στάδια pipeline',
@@ -184,6 +216,7 @@ export const ui: UiTranslations = {
   'newJob.type.fullTime': 'Πλήρης απασχόληση',
   'newJob.type.partTime': 'Μερική απασχόληση',
   'newJob.typeLabel': 'Τύπος εργασίας',
+  'pipeline.advanceTo': 'Προχώρηση',
   'pipeline.allRoles': 'Όλοι οι ρόλοι',
   'pipeline.daysInStage': '{{days}}η',
   'pipeline.empty': 'Δεν υπάρχουν υποψήφιοι',
@@ -197,13 +230,22 @@ export const ui: UiTranslations = {
     'Σύρετε υποψηφίους μεταξύ σταδίων. Η βαθμολογία AI και οι ημέρες στο στάδιο εμφανίζονται σε κάθε κάρτα.',
   'pipeline.viewTable': 'Προβολή πίνακα →',
   'pipelineFunnelHero.totalLabel': 'Σε εξέλιξη',
+  'planUpdated.body':
+    'Η αλλαγή χρέωσής σας είναι πλέον ενεργή. Μπορείτε να διαχειρίζεστε το πλάνο σας οποιαδήποτε στιγμή από τη σελίδα χρέωσης.',
+  'planUpdated.retry': 'Δοκιμάστε ξανά',
+  'planUpdated.verifyFailed': 'Δεν μπορέσαμε να επιβεβαιώσουμε ακόμη την πληρωμή σας.',
+  'planUpdated.verifyFailedBody':
+    'Η πληρωμή σας ενδέχεται να βρίσκεται ακόμη υπό επεξεργασία. Δοκιμάστε ξανά σε λίγο.',
   'planUpdated.verifying': 'Επιβεβαίωση της πληρωμής σας…',
   'pricing.heading': 'εφαρμογές',
+  'pricing.limits.applications': 'αιτήσεις',
   'pricing.limits.candidates': 'υποψήφιοι',
   'pricing.limits.jobs': 'θέσεις',
   'pricing.limits.scorecards': 'κάρτες αξιολόγησης',
   'privacy.dataBody':
     'Email λογαριασμού, κρυπτογραφημένος κωδικός, μεταδεδομένα προφίλ και εγγραφές υποψηφίων/θέσεων που δημιουργείτε. Δεν πωλούμε ή κοινοποιούμε ποτέ αυτά τα δεδομένα.',
+  'privacy.intro':
+    'Το {{app}} επεξεργάζεται δεδομένα προσλήψεων για λογαριασμό πελατών. Αντιμετωπίζουμε τα αρχεία υποψηφίων, τα βιογραφικά και τις επικοινωνίες της ομάδας προσλήψεων ως εμπιστευτικά και τα αποθηκεύουμε κρυπτογραφημένα σε κατάσταση ηρεμίας.',
   'privacy.retentionBody':
     'Μπορείτε να διαγράψετε τον λογαριασμό σας ανά πάσα στιγμή από τις Ρυθμίσεις. Διαγράφουμε τις σχετικές εγγραφές εντός 30 ημερών, εκτός αν η νομοθεσία απαιτεί διατήρηση.',
   'privacy.title': 'Πολιτική απορρήτου',
@@ -213,6 +255,7 @@ export const ui: UiTranslations = {
     'Να επιτρέπεται στους υποψηφίους και αιτούντες να βλέπουν το όνομα και τον ρόλο σας στις αγγελίες.',
   'profile.publicLabel': 'Δημόσιο προφίλ',
   'profile.publicOff': 'Κρυφό',
+  'profile.publicOn': 'Ορατό',
   'profile.recentEmpty': 'Δεν υπάρχουν τοποθετήσεις ακόμα.',
   'profile.recentError': 'Δεν ήταν δυνατή η φόρτωση πρόσφατων τοποθετήσεων.',
   'profile.recentEyebrow': 'Πρόσφατες τοποθετήσεις',
@@ -238,9 +281,14 @@ export const ui: UiTranslations = {
   'resetPassword.missingFields': 'Επιλέξτε και επιβεβαιώστε νέο κωδικό.',
   'resetPassword.missingToken': 'Ο σύνδεσμος επαναφοράς λείπει ή έχει λήξει — ζητήστε νέο.',
   'resetPassword.passwordLabel': 'Νέος κωδικός',
+  'resetPassword.signInCta': 'Σύνδεση →',
+  'resetPassword.signInPrompt': 'Χρησιμοποιήστε τον νέο σας κωδικό πρόσβασης για να συνδεθείτε.',
   'resetPassword.subheading':
     'Επιλέξτε ισχυρό κωδικό — τουλάχιστον 12 χαρακτήρες με κεφαλαία και πεζά γράμματα.',
+  'settings.appearance.description': 'Εναλλαγή μεταξύ φωτεινής και σκοτεινής λειτουργίας.',
   'settings.appearance.title': 'Εμφάνιση',
+  'settings.deleteAccountModal.confirm':
+    'Εισαγάγετε τον κωδικό πρόσβασής σας για επιβεβαίωση. Αυτή η ενέργεια είναι μόνιμη.',
   'settings.emailTemplates.empty': 'Δεν έχουν διαμορφωθεί πρότυπα ακόμα.',
   'settings.emailTemplates.heading': 'Πρότυπα email',
   'settings.emailTemplates.loadError': 'Δεν ήταν δυνατή η φόρτωση προτύπων.',
@@ -251,10 +299,17 @@ export const ui: UiTranslations = {
   'settings.integrations.statusDisconnected': 'Αποσυνδεδεμένο',
   'settings.integrations.updateError': 'Δεν ήταν δυνατή η ενημέρωση της ενσωμάτωσης.',
   'settings.name': 'Όνομα',
+  'settings.passwordHelp': 'Ενημερώστε τον κωδικό πρόσβασης που χρησιμοποιείτε για να συνδεθείτε.',
+  'settings.revokeDeviceWarning':
+    'Η πρόσβαση αυτής της συσκευής θα ανακληθεί σύντομα. Να γίνει αποσύνδεση;',
   'settings.saveEmail': 'Αποθήκευση email',
   'settings.signOutDevice': 'Αποσύνδεση',
   'settings.stages.empty': 'Δεν έχουν διαμορφωθεί στάδια ακόμα.',
+  'settings.stages.heading': 'Στάδια pipeline',
+  'settings.stages.help':
+    'Τα στάδια από τα οποία περνούν οι υποψήφιοι. Αφαιρέστε όποια δεν χρησιμοποιείτε.',
   'settings.stages.loadError': 'Δεν ήταν δυνατή η φόρτωση σταδίων.',
+  'settings.stages.loading': 'Φόρτωση σταδίων…',
   'settings.stages.removeAria': 'Αφαίρεση σταδίου {{name}}',
   'settings.stages.removeError': 'Δεν ήταν δυνατή η αφαίρεση σταδίου.',
   'settings.team.empty': 'Δεν υπάρχουν συνάδελφοι ακόμα — προσκαλέστε τον πρώτο παρακάτω.',
@@ -270,9 +325,16 @@ export const ui: UiTranslations = {
   'settings.team.removeError': 'Δεν ήταν δυνατή η αφαίρεση μέλους.',
   'settings.twoFactorCode': 'Κωδικός επαλήθευσης',
   'settings.twoFactorDisable': 'Απενεργοποίηση',
+  'settings.twoFactorDisableTitle': 'Απενεργοποίηση ελέγχου ταυτότητας δύο παραγόντων',
   'settings.twoFactorEnable': 'Ενεργοποίηση',
+  'settings.twoFactorEnableTitle': 'Ενεργοποίηση ελέγχου ταυτότητας δύο παραγόντων',
   'settings.twoFactorInvalidCode': 'Μη έγκυρος κώδικας',
   'settings.twoFactorOn': 'Στις',
+  'settings.twoFactorQrAlt': 'Κωδικός QR ταυτοποίησης δύο παραγόντων',
+  'settings.twoFactorScan':
+    'Σαρώστε αυτόν τον κωδικό QR με την εφαρμογή ελέγχου ταυτότητας και, στη συνέχεια, εισαγάγετε τον 6ψήφιο κωδικό.',
+  'settings.twoFactorUnavailable':
+    'Ο έλεγχος ταυτότητας δύο παραγόντων δεν είναι διαθέσιμος για αυτήν την εφαρμογή.',
   'settings.twoFactorVerify': 'Επαλήθευση και ενεργοποίηση',
   'settings.unknownDevice': 'Άγνωστη συσκευή',
   'signup.confirmPlaceholder': 'Εισάγετε ξανά τον κωδικό',
@@ -283,6 +345,8 @@ export const ui: UiTranslations = {
     'Δημιουργήστε έναν πίνακα προσλήψεων σε 60 δευτερόλεπτα. Προσκαλέστε την ομάδα αργότερα.',
   'terms.acceptableUseBody':
     'Δεν επιτρέπεται η κατάχρηση της υπηρεσίας, η εκτέλεση αυτοματοποιημένης συλλογής δεδομένων, η προσπάθεια παραβίασης ασφάλειας ή η χρήση της για διακρίσεις κατά προστατευόμενων ομάδων.',
+  'terms.intro':
+    'Χρησιμοποιώντας το {{app}} συμφωνείτε με αυτούς τους όρους. Η υπηρεσία παρέχεται ως έχει, με τις υποχρεώσεις και τους περιορισμούς που περιγράφονται παρακάτω.',
   'terms.subscriptionBody':
     'Τα επί πληρωμή πλάνα ανανεώνονται μηνιαίως έως την ακύρωση. Μπορείτε να ακυρώσετε από τη Χρέωση ανά πάσα στιγμή· το πλάνο σας παραμένει ενεργό έως το τέλος της τρέχουσας περιόδου.',
   'terms.title': 'Όροι υπηρεσίας',

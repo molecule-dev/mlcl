@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vai jautājumi, atsauksmes vai funkcijas pieprasījums? Sazinieties ar {{app}} komandu sadaļā Iestatījumi → Paziņojumi vai rakstiet mums jebkurā laikā — katra ziņa nonāk pie īsta cilvēka.',
+  'about.contactTitle': 'Sazinieties ar mums',
   'about.eyebrow': 'Par mums',
+  'about.featureCapture':
+    'Čeku uzņemšana ar fotoattēlu augšupielādi, kas pievieno attēlus pareizajiem izdevumiem, rindu pa rindai.',
+  'about.featureExport':
+    'Auditējami CSV eksporti par katru atskaiti, izdevumu un apstiprinājuma statusu — gatavi jūsu grāmatvedības komandai.',
+  'about.featurePolicy':
+    'Politikas ierobežojumi — dienas griesti, kategoriju limiti un čeka obligātuma sliekšņi, kas tiek piemēroti iesniegšanas brīdī.',
+  'about.featureWorkflow':
+    'Divlīmeņu apstiprināšanas process ar recenzentu piezīmēm, politikas pārkāpumu atzīmēm un atlīdzinājuma atzīmēšanu ar vienu pieskārienu.',
+  'about.intro':
+    '{{app}} ir izdevumu pārvaldības platforma finanšu komandām un cilvēkiem, kuriem tās atmaksā izdevumus. Uzņemiet čeku, reģistrējiet izdevumu, nosūtiet atskaiti apstiprināšanai un sekojiet līdzi katram atlīdzinājumam — bez izklājlapu ceremonijas.',
+  'about.missionBody':
+    'Atlīdzināšanai jābūt ātrai, godīgai un auditējamai. Mēs izveidojām {{app}}, lai iesniedzēji saņemtu naudu atpakaļ bez atgādināšanas, apstiprinātāji precīzi redzētu, ko apstiprina, un finansistiem būtu tīrs pieraksts par katru eiro — ar politikas pārbaudēm un visu pārējo.',
+  'about.missionTitle': 'Mūsu misija',
   'approvals.approve': 'Approve',
   'approvals.approving': 'Apstiprināšana…',
   'approvals.confirmReject': 'Apstiprināt noraidījumu',
+  'approvals.empty': 'Jūs esat visu izskatījis — nav atskašu, kas gaida.',
   'approvals.eyebrow': 'Vadītāja rinda',
   'approvals.kpi.flaggedLabel': 'Politika atzīmēta',
+  'approvals.kpi.queueLabel': 'Gaida pārskatīšanu',
   'approvals.kpi.totalLabel': 'Gaidošā vērtība',
   'approvals.lineCount': '{{count}} izdevumi',
   'approvals.queueFallback':
     'Tiešraides rinda nav pieejama — tiek rādīti atlasīti demonstrācijas dati.',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'Noraidīšana…',
+  'approvals.rejectPlaceholder': 'Iemesls (obligāts)',
   'approvals.rejectPrompt': 'Kāpēc jūs noraidāt šo ziņojumu?',
   'approvals.review': 'Atsauksme',
   'approvals.title': 'Gaidāmi apstiprinājumi',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Apstiprināts · MTD',
   'dashboard.kpi.pendingDelta': '+2 šonedēļ',
+  'dashboard.kpi.pendingLabel': 'Pagaidām tiek izskatīts',
   'dashboard.kpi.receiptsDelta': 'Nepieciešama darbība',
   'dashboard.kpi.receiptsLabel': 'Gaida kvītis',
   'dashboard.kpi.reimbursedDelta': '+2,4 tūkstoši ASV dolāru',
   'dashboard.kpi.reimbursedLabel': 'Atlīdzināts · MTD',
   'dashboard.newReport': 'Jauns ziņojums',
+  'dashboard.recent.empty': 'Vēl nav atskašu — sāciet savu pirmo augstāk.',
   'dashboard.recent.title': 'Jaunākie ziņojumi',
   'dashboard.recent.viewAll': 'Skatīt visus pārskatus',
   'dashboard.summaryFallback':
@@ -41,11 +62,19 @@ export const ui: UiTranslations = {
   'expenses.listFallback':
     'Tiešraides saraksts nav pieejams — tiek rādīti atlasīti demonstrācijas dati.',
   'expenses.searchPlaceholder': 'Meklēt tirgotāju vai kategoriju…',
+  'expenses.subtotal': '{{count}} izdevumi · starpsumma',
   'expenses.title': 'Izdevumi',
+  'forgotPassword.continue': 'Man ir kods · Turpināt',
+  'forgotPassword.subheading':
+    'Ievadiet savu darba e-pastu, un mēs nosūtīsim saiti jaunas paroles iestatīšanai.',
   'forgotPassword.successBody':
     'Ja konts pastāv {{email}} Dažu minūšu laikā jūs saņemsiet atiestatīšanas saiti.',
+  'landing.copyright': '© {{year}} {{app}}. Veidots ar Molecule.dev.',
+  'landing.ctaBody':
+    'Bezmaksas par pirmajiem 25 izdevumiem katru mēnesi. Bez kredītkartes, bez ieviešanas zvana.',
   'landing.ctaHeading': 'Vai esat gatavs atgūt to, kas jūsu komandai pienākas?',
   'landing.eyebrow': 'Izdevumu pārskati finanšu komandām',
+  'landing.featuresHeading': 'Atlīdzināšana vienā mierīgā darbvietā',
   'landing.heroSubtitle':
     'Iesniedziet, apstipriniet un atlīdziniet uzņēmuma izdevumus bez izklājlapu ceremonijas. Kvīšu OCR, politikas pārbaudes un caurspīdīgs apstiprināšanas laika grafiks — tas viss vienā mierīgā darba vidē.',
   'landing.heroTitle': 'Katrs čeks, atgūts.',
@@ -63,10 +92,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Piezīmes',
   'newExpense.descriptionPlaceholder':
     'Kāpēc šie izdevumi bija saistīti ar uzņēmējdarbību (redzams jūsu apstiprinātājam).',
+  'newExpense.eyebrow': 'Atlīdzināms postenis',
   'newExpense.merchant': 'Tirgotājs',
   'newExpense.merchantPlaceholder': 'Viesnīca Adlon Kempinski',
   'newExpense.policyHint':
     'Atgādinājums: ēdienreizēm virs 80 USD/dienā vai jebkuram ēdienam virs 250 USD ir nepieciešams attaisnojošs dokuments.',
+  'newExpense.receipt': 'Čeks',
+  'newExpense.receiptHint': 'JPG, PNG vai PDF · ne vairāk kā 10 MB',
   'newExpense.receiptOcrHint': 'OCR iepriekš aizpilda laukus',
   'newExpense.receiptPrompt':
     'Ievietojiet fotoattēlu vai PDF failu šeit vai noklikšķiniet, lai pārlūkotu',
@@ -78,17 +110,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Augšupielādējiet vai nokopējiet čeku, un funkcija “Recoup” iepriekš aizpildīs tirgotāja, datuma un kopējās summas datus. Pirms saglabāšanas apstipriniet visu tālāk norādīto.',
   'newExpense.title': 'Pievienot izdevumus',
+  'newReport.approverHint': 'Viņi saņems e-pastu, kad iesniegsiet šo atskaiti pārskatīšanai.',
   'newReport.approverLabel': 'Apstiprinātāja e-pasta adrese (pēc izvēles)',
   'newReport.approverPlaceholder': 'vadītājs@jūsuuznemums.com',
   'newReport.availableExpenses': 'Pieejamie izdevumi',
   'newReport.createFailed': 'Nevarēja izveidot ziņojumu. Lūdzu, mēģiniet vēlreiz.',
   'newReport.draftsFallback':
     'Tiešraides izdevumu saraksts nav pieejams — tiek rādīti atlasīti demonstrācijas dati.',
+  'newReport.eyebrow': 'Grupēt izdevumus · iesniegt apstiprināšanai',
   'newReport.includedCount': '{{count}} iekļauts',
   'newReport.purposeLabel': 'Uzņēmējdarbības mērķis',
   'newReport.purposePlaceholder':
     'Aprakstiet ceļojumu vai projektu, uz kuru šie izdevumi attiecas (redzams jūsu apstiprinātājam un finanšu nodaļai).',
   'newReport.saveDraft': 'Saglabāt kā melnrakstu',
+  'newReport.saveDraftFailed': 'Neizdevās saglabāt melnrakstu. Lūdzu, mēģiniet vēlreiz.',
   'newReport.submit': 'Iesniegt apstiprināšanai',
   'newReport.submitFailed': 'Nevarēja iesniegt ziņojumu. Lūdzu, mēģiniet vēlreiz.',
   'newReport.summary': 'Ziņojuma kopsavilkums',
@@ -102,17 +137,24 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Tiešraides plūsma nav pieejama — tiek rādīti atlasīti demonstrācijas dati.',
   'notifications.openReport': 'Atvērt pārskatu ›',
+  'pricing.approvalsLabel': 'apstiprinājumi',
   'pricing.expensesLabel': 'izdevumi',
   'pricing.heading': 'apstiprinājumi',
   'pricing.policiesLabel': 'politikas',
   'pricing.receiptsLabel': 'kvītis',
   'recoveredAmountHeroCard.label': 'Atlīdzība atgūta · Kopš šī gada',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} atskaites pašlaik gaida pārskatīšanu pie visiem apstiprinātājiem.',
+  'reports.approvalFlow': 'Apstiprināšanas plūsma',
   'reports.backToList': 'Atpakaļ pie ziņojumiem',
   'reports.detailFallback':
     'Tiešraides pārskats nav pieejams — tiek rādīti atlasīti demonstrācijas dati.',
   'reports.lineItems': 'Rindu vienības',
   'reports.lineItemsCount': '{{count}} izdevumi',
+  'reports.lineItemsEmpty': 'Šai atskaitei vēl nav izdevumu.',
+  'reports.openLibrary': 'Atvērt atskašu bibliotēku',
   'reports.policyTitle': 'Politikas karodziņš',
+  'reports.selectPrompt': 'Izvēlieties atskaiti no bibliotēkas, lai redzētu tās detaļas.',
   'reports.summary.lineCount': 'Rindu vienības',
   'reports.summary.reimbursable': 'Atlīdzināms',
   'reports.summary.total': 'Ziņotā kopsumma',
@@ -122,6 +164,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Tiešraides saraksts nav pieejams — tiek rādīti atlasīti demonstrācijas dati.',
   'reportsList.newReport': 'Jauns ziņojums',
+  'reportsList.submittedOn': 'Iesniegts {{date}}',
   'reportsList.title': 'Atskaišu bibliotēka',
   'resetPassword.hidePassword': 'Paslēpt paroli',
   'resetPassword.newPasswordLabel': 'Jauna parole',
@@ -147,6 +190,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Saglabāts ✓',
   'settings.profileSaveFailed': 'Nevarēja atjaunināt profilu. Lūdzu, mēģiniet vēlreiz.',
   'signup.heading': 'Izveidojiet savu kompensācijas kontu',
+  'signup.hidePassword': 'Paslēpt paroli',
   'signup.namePlaceholder': 'Maija Okafora',
   'signup.showPassword': 'Rādīt paroli',
   'signup.subheading': 'Bez maksas par 25 izdevumiem katru mēnesi — nav nepieciešama kredītkarte.',

@@ -1,16 +1,40 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ဆိုင်ဖွင့်လိုပါသလား၊ ပြဿနာတစ်ခုကို အစီရင်ခံလိုပါသလား၊ ဒါမှမဟုတ် နှုတ်ဆက်ချင်ရုံပါသလား။ Help center မှ ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ — မက်ဆေ့ခ်ျတိုင်း အဖွဲ့ထဲရှိ လူတစ်ဦးထံ ရောက်ပါသည်။',
+  'about.contactTitle': 'ကျွန်ုပ်တို့ကို ဆက်သွယ်ပါ',
+  'about.featureNotifications':
+    'အော်ဒါအသစ်များ၊ ပို့ဆောင်မှု အပ်ဒိတ်များနှင့် သုံးသပ်ချက်များအတွက် အချိန်နှင့်တပြေးညီ အသိပေးချက်များ၊ ထို့အပြင် ဝယ်ယူသူနှင့် ရောင်းချသူ ကိရိယာများကို သီးခြားထားရှိသည့် အခန်းကဏ္ဍအလိုက် ခွင့်ပြုချက်များ။',
+  'about.featurePayments':
+    'Stripe ဖြင့် လုံခြုံသော ငွေရှင်းခြင်း၊ အလိုအလျောက် ကော်မရှင်ခွဲဝေမှုများနှင့် အစီအစဉ်ချ ငွေထုတ်ပေးမှုများ — ရောင်းချသူများ ရရှိထားသည်ကို အတိအကျ အမြဲသိရှိပါသည်။',
+  'about.featureShop':
+    'သီးခြားရောင်းချသူ ထောင်ပေါင်းများစွာ ပါဝင်သော ရှာဖွေနိုင်သည့် ကတ်တလောက်၊ အတည်ပြုထားသော ဆိုင်များ၊ အဆင့်သတ်မှတ်ချက်များနှင့် သုံးသပ်ချက်များဖြင့် ယုံကြည်စိတ်ချစွာ ဝယ်ယူနိုင်ပါသည်။',
+  'about.featureVendor':
+    'ပြည့်စုံသော ရောင်းချသူ ကိရိယာအစုံ — အမှတ်တံဆိပ်ပါ ဆိုင်မျက်နှာစာ၊ ထုတ်ကုန်နှင့် စာရင်းအင်း စီမံခန့်ခွဲမှု၊ ပုံတင်ခြင်းများနှင့် အော်ဒါ ဖြည့်ဆည်းမှုအားလုံး ဒက်ရှ်ဘုတ်တစ်ခုတည်းတွင်။',
+  'about.intro':
+    '{{name}} သည် သီးခြားလုပ်သူများ ကိုယ်ပိုင်ဆိုင်များ ဖွင့်လှစ်နိုင်ပြီး ဝယ်ယူသူများ အခြားမည်သည့်နေရာမှမှ မတွေ့နိုင်သော ပစ္စည်းများကို ရှာဖွေတွေ့ရှိနိုင်သည့် ရွေးချယ်စုစည်းထားသော စျေးကွက်တစ်ခု ဖြစ်သည်။ လက်ဖြင့်လုပ်သော ကြွေထည်များမှ ပိတ်သားပေါ်တွင် ပုံနှိပ်ထားသော အထည်အလိပ်များအထိ စာရင်းတိုင်းသည် နောက်ကွယ်တွင် ဇာတ်လမ်းတစ်ခုရှိသော တကယ့်ရောင်းချသူထံမှ ဖြစ်သည်။',
+  'about.missionBody':
+    'လုပ်သူများသည် သူတို့၏ လက်မှုပညာကို သူတို့ပိုင်ဆိုင်သည့်အရာအဖြစ် ထိန်းသိမ်းထားသင့်သည်ဟု ကျွန်ုပ်တို့ ယုံကြည်ပါသည်။ {{name}} သည် ပွင့်လင်းမြင်သာသော ကော်မရှင်တစ်ခုတည်းကို ကောက်ခံပြီး အပတ်တိုင်း ယုံကြည်စိတ်ချစွာ ငွေထုတ်ပေးကာ ရောင်းချသူတိုင်းအား သူတို့ အပြည့်အဝ ထိန်းချုပ်နိုင်သော ဆိုင်မျက်နှာစာတစ်ခု ပေးအပ်သည် — သို့မှသာ သူတို့သည် လုပ်ငန်းခွင်အပေါ် အာရုံစိုက်နိုင်ပြီး ကျွန်ုပ်တို့က စျေးကွက်ကို စီမံခန့်ခွဲပါသည်။',
+  'about.missionTitle': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'about.pageTitle': 'အကြောင်း {{name}}',
   'cart.checkoutCta': 'ငွေရှင်းရန် ဆက်လက်လုပ်ဆောင်ပါ',
   'cart.decreaseAria': 'ပမာဏ လျှော့ချပါ',
+  'cart.deliveryEstimate': 'ခန့်မှန်းပို့ဆောင်ချိန် {{range}}',
   'cart.empty.body': 'ကတ်တလောက်ကို ကြည့်ပြီး ထုတ်လုပ်သူအနည်းငယ်ကို သင့်အိတ်ထဲ ထည့်ပါ။',
+  'cart.empty.cta': 'ကတ်တလောက်ကို ကြည့်ရှုပါ',
   'cart.empty.title': 'သင့်လှည်းတွင် ဗလာဖြစ်နေသည်',
   'cart.eyebrow': 'သင့်လှည်း',
+  'cart.increaseAria': 'ပမာဏ တိုးပါ',
   'cart.loadError': 'သင့်လှည်းကို တင်၍မရပါ။ ကျေးဇူးပြု၍ ထပ်မံကြိုးစားပါ။',
   'cart.loading': 'သင့်လှည်းကို တင်နေသည်…',
+  'cart.protectionNote':
+    '{{appName}} သည် အော်ဒါတိုင်းကို ကာကွယ်ပေးသည်။ ၃၀ ရက်အတွင်း အခမဲ့ ပြန်အမ်းခြင်း။',
   'cart.removeError': 'အရာကို ဖယ်ရှား၍မရပါ။',
   'cart.shippingFromVendor': 'ဤရောင်းချသူထံမှ ပို့ဆောင်ခြင်း- {{amount}}',
+  'cart.subtitle':
+    'ရောင်းချသူတိုင်း ကိုယ်တိုင် ပို့ဆောင်သည် — သင်သည် တစ်ကြိမ်သာ ငွေရှင်းပါသည်။ ကျန်သည်ကို {{appName}} က ကိုင်တွယ်ပါသည်။',
+  'cart.subtotalGroup': 'စုစုပေါင်းခွဲ {{amount}}',
   'cart.summaryItems': 'ပစ္စည်းများ',
   'cart.summaryShipping': 'ပို့ဆောင်ခ (ပေါင်းစပ်)',
   'cart.title': 'လှည်း · {{count}} မှပစ္စည်းများ {{vendorCount}} ရောင်းချသူများ',
@@ -23,6 +47,7 @@ export const ui: UiTranslations = {
   'catalog.featuredVendors': 'အထူးပြုဆိုင်များ',
   'catalog.loading': 'ထုတ်ကုန်များကို တင်နေသည်…',
   'catalog.resultCount': '{{count}} ထုတ်ကုန်များ',
+  'catalog.searchAria': 'ကတ်တလောက်ကို ရှာဖွေပါ',
   'catalog.searchPlaceholder': 'ထုတ်ကုန်များ၊ ရောင်းချသူများ သို့မဟုတ် တဂ်များကို ရှာဖွေပါ...',
   'catalog.sortBy': 'အလိုက်စဥ်သည်',
   'catalog.subtitle':
@@ -30,6 +55,7 @@ export const ui: UiTranslations = {
   'catalog.title': 'Vendry မှာရှိတဲ့ ဆိုင်တိုင်းကို ကြည့်ရှုလိုက်ပါ',
   'checkout.emptyCta': 'ကတ်တလောက်ကို ကြည့်ရှုပါ',
   'checkout.emptyTitle': 'သင့်လှည်းတွင် ဗလာဖြစ်နေသည်။',
+  'checkout.eyebrow': 'လုံခြုံသော ငွေရှင်းခြင်း',
   'checkout.loadError': 'သင့်လှည်းကို တင်၍မရပါ။ ကျေးဇူးပြု၍ ထပ်မံကြိုးစားပါ။',
   'checkout.loading': 'သင့်လှည်းကို တင်နေသည်…',
   'checkout.payment.testNote':
@@ -39,12 +65,14 @@ export const ui: UiTranslations = {
   'checkout.placingOrder': 'မှာယူမှုပြုလုပ်နေသည်…',
   'checkout.review.shipTo': 'ပို့ဆောင်ရန်',
   'checkout.review.subtotal': 'ရောင်းချသူ စုစုပေါင်း',
+  'checkout.review.title': 'ရောင်းချသူတစ်ဦးချင်းအလိုက် သင့်အော်ဒါကို ပြန်လည်စစ်ဆေးပါ',
   'checkout.shipping.title': 'ကျွန်တော်တို့ ဘယ်ကို ပို့ပေးရမှာလဲ။',
   'checkout.shippingValidation': 'လိုအပ်သော ပို့ဆောင်ရေးအကွက်အားလုံးကို ဖြည့်ပါ။',
   'checkout.summary.shipping': 'သင်္ဘောဖြင့်ကုန်ပစ္စည်းပို့ခြင်း',
   'checkout.summary.tax': 'ခန့်မှန်းအခွန်',
   'checkout.title': 'ငွေရှင်းခြင်းတစ်ခုတည်း၊ ထုတ်လုပ်သူများစွာ',
   'common.and': 'နှင့်',
+  'forgotPassword.continue': 'ကျွန်တော့်မှာ reset code ရှိပါတယ်',
   'forgotPassword.emailLabel': 'အကောင့်အီးမေးလ်',
   'forgotPassword.heading': 'သင့်စကားဝှက်ကိုမေ့နေပါသလား?',
   'forgotPassword.subheading':
@@ -52,6 +80,7 @@ export const ui: UiTranslations = {
   'forgotPassword.submit': 'အီးမေးလ်ပြန်လည်သတ်မှတ်ရန်လင့်ခ်',
   'forgotPassword.success':
     'စစ်ဆေးပါ {{email}} ပြန်လည်သတ်မှတ်ရန်လင့်ခ်အတွက် — နောက် ၃၀ မိနစ်အတွက် ကောင်းပါတယ်။',
+  'landing.featured.cta': 'ရောင်းချသူအားလုံးကို ကြည့်ရှုပါ',
   'landing.featured.eyebrow': 'အထူးအရောင်းဆိုင်များ',
   'landing.featured.title': 'ဒီလမှာ ရောင်းသူတွေ လှုပ်လှုပ်ရှားရှားဖြစ်နေ',
   'landing.footer.becomeVendor': 'ရောင်းချသူဖြစ်လာပါ',
@@ -61,6 +90,9 @@ export const ui: UiTranslations = {
   'landing.nav.sell': 'Vendry မှာ ရောင်းပါ',
   'landing.nav.shop': 'ဈေးဝယ်ပါ',
   'landing.nav.signUp': 'ဝင်ရောက်ပါ',
+  'landing.sellPitch.cta': 'ရောင်းချရန် လျှောက်ထားပါ',
+  'landing.sellPitch.description':
+    'ပွင့်လင်းသော ၈% ကော်မရှင်၊ သောကြာနေ့တိုင်း ငွေထုတ်ပေးမှု၊ သင့်ဆိုင်၊ သင့်ဇာတ်လမ်း။ စျေးကွက်ကို ကျွန်ုပ်တို့ ကိုင်တွယ်ပါသည်။ သင်သည် သင့်လက်မှုပညာတွင် ဆက်လက်ရှိနေပါ။',
   'landing.sellPitch.eyebrow': 'ပြုလုပ်သူများအတွက်',
   'landing.sellPitch.title': 'ဆိုင်တစ်ဆိုင်ဖွင့်ပါ။ ကိုယ့်အတွက်ဖြစ်စေတဲ့အရာကို သိမ်းထားပါ။',
   'landing.trending.cta': 'ကတ်တလောက်ကို ဝယ်ယူပါ',
@@ -69,6 +101,7 @@ export const ui: UiTranslations = {
   'login.accountTypeAria': 'အကောင့်အမျိုးအစား',
   'login.heading': 'Vendry မှ ပြန်လည်ကြိုဆိုပါတယ်',
   'login.legalPrefix': 'အကောင့်ဝင်ခြင်းဖြင့် သင်သည် ကျွန်ုပ်တို့၏',
+  'login.signupPrompt': 'Tessera ကို အသစ်လား။',
   'login.subheading': 'ဆက်လက်ဝယ်ယူရန် သို့မဟုတ် သင့်ဆိုင်သို့ ပြန်ဝင်ရန် လက်မှတ်ထိုးဝင်ပါ။',
   'login.submitShopper': 'ဈေးဝယ်ရန် အကောင့်ဝင်ပါ',
   'login.submitVendor': 'ကျွန်ုပ်၏ဆိုင်သို့ ဝင်ရောက်ပါ',
@@ -84,37 +117,51 @@ export const ui: UiTranslations = {
   'notifications.markAllError': 'အားလုံးကို ဖတ်ပြီးဟု မှတ်သား၍မရပါ။',
   'notifications.read': 'ဖတ်ရန်',
   'notifications.time.daysAgo': '{{count}} ရက်အနည်းငယ်က',
+  'notifications.time.hourAgo': '၁ နာရီက',
+  'notifications.time.hoursAgo': '{{count}} နာရီပိုင်းက',
   'notifications.time.justNow': 'ယခုပင်',
+  'notifications.time.minutesAgo': '{{count}} မိနစ်အကြာက',
+  'notifications.time.yesterday': 'မနေ့က',
   'orderDetail.backToOrders': 'မှာယူမှုအားလုံးသို့ ပြန်သွားရန်',
   'orderDetail.eyebrow': 'မှာယူမှုအသေးစိတ်',
   'orderDetail.helpBody':
     'Vendry ပံ့ပိုးမှုသည် စနေ၊တနင်္ဂနွေများတွင်ပင် ၄ နာရီအတွင်း ပြန်လည်ဖြေကြားပေးပါသည်။',
+  'orderDetail.helpCta': 'ပံ့ပိုးမှုထံ ဆက်သွယ်ပါ',
   'orderDetail.helpTitle': 'ဒီအမိန့်မှာ တစ်ခုခု မှားနေလား။',
   'orderDetail.summary':
     'နေရာချထားပြီး {{date}} · {{vendorCount}} ရောင်းချသူ(များ) · ရောင်းချသူများစွာ ဖြည့်ဆည်းပေးခြင်း',
+  'orderDetail.timelineTitle': 'အော်ဒါ ခရီးစဉ်',
   'orders.empty': 'ဤ filter နှင့် ကိုက်ညီသော မှာယူမှုများ မရှိသေးပါ။',
   'orders.emptyTitle': 'ဒီမှာ မှာယူမှုတွေ မရှိသေးပါ',
   'orders.eyebrow': 'သင့်ရဲ့ဝယ်ယူမှုတွေ',
   'orders.subtitle':
     'ဘယ်သူက ဘာပို့လိုက်လဲဆိုတာ ကြည့်ပါ၊ ရောင်းချသူတစ်ဦးချင်းစီရဲ့ ခြေရာခံမှုကို လိုက်နာပြီး ပါဆယ်တစ်ခုမှ ဘယ်တော့မှ မဆုံးရှုံးတော့ပါဘူး။',
   'orders.title': 'မှာယူမှုများကို ရောင်းချသူအလိုက် အုပ်စုဖွဲ့ထားသည်',
+  'planUpdated.retry': 'ထပ်ကြိုးစားပါ',
+  'planUpdated.verifyFailed': 'သင့်ငွေပေးချေမှုကို ကျွန်ုပ်တို့ အတည်မပြုနိုင်သေးပါ။',
+  'planUpdated.verifyFailedBody':
+    'သင့်ငွေပေးချေမှုကို လုပ်ဆောင်နေဆဲဖြစ်နိုင်ပါသည်။ ခဏအကြာတွင် ထပ်မံကြိုးစားပါ။',
   'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'productDetail.addToCart': 'စျေးဝယ်ခြင်းထဲသို့ထည့်သည်',
   'productDetail.addToCartError': 'လှည်းထဲသို့ ထည့်၍မရပါ။',
   'productDetail.addToCartSuccess': '" {{name}} " သင့်လှည်းထဲသို့ ထည့်လိုက်ပါပြီ။',
   'productDetail.backToCatalog': 'ကတ်တလောက်သို့ ပြန်သွားရန်',
   'productDetail.breadcrumbCatalog': 'ကတ်တလောက်',
+  'productDetail.colorLabel': 'အရောင် · {{name}}',
   'productDetail.decreaseAria': 'ပမာဏ လျှော့ချပါ',
   'productDetail.description': 'Vendry မှာ လွတ်လပ်တဲ့ ထုတ်လုပ်သူတစ်ယောက်က ဖန်တီးထားတာပါ။',
   'productDetail.featuredBadge': 'အထူးပြုလုပ်သူ',
   'productDetail.galleryThumbAria': 'ရုပ်ပုံပြပါ {{index}}',
+  'productDetail.increaseAria': 'ပမာဏ တိုးပါ',
   'productDetail.loading': 'ထုတ်ကုန်ကို တင်နေသည်…',
   'productDetail.notFound': 'ထုတ်ကုန်ကို ရှာမတွေ့ပါ။',
   'productDetail.relatedTitle': 'ဤထုတ်လုပ်သူထံမှ နောက်ထပ်',
   'productDetail.reviewsTitle': 'ဈေးဝယ်သူတွေ ဘာပြောလဲ',
   'productDetail.trust.protection': 'အရောင်းဆိုင်ကာကွယ်မှု',
+  'productDetail.trust.returns': '၃၀ ရက် ပြန်အမ်းခြင်း',
   'productDetail.trust.shipping': '၂ ရက်အတွင်း ပို့ဆောင်ပေးပါသည်',
   'productDetail.verifiedAria': 'အတည်ပြုထားသော ရောင်းချသူ',
+  'resetPassword.didntGetCode': 'ကုဒ် မရဘူးလား။',
   'resetPassword.emailLabel': 'အကောင့်အီးမေးလ်',
   'resetPassword.mismatch': 'စကားဝှက်များ မကိုက်ညီသေးပါ။',
   'resetPassword.newPasswordLabel': 'စကားဝှက်အသစ်',
@@ -123,8 +170,10 @@ export const ui: UiTranslations = {
     'ကျွန်ုပ်တို့ အီးမေးလ်ပို့ထားသော ကုဒ်ကို ရိုက်ထည့်ပြီးနောက် ပြန်လည်ဝင်ရောက်ရန် စကားဝှက်အသစ်တစ်ခုကို ရွေးချယ်ပါ။',
   'resetPassword.submit': 'ပြန်လည်သတ်မှတ်ပြီး လက်မှတ်ထိုးဝင်ပါ',
   'resetPassword.submitting': 'စကားဝှက်ကို အပ်ဒိတ်လုပ်နေသည်…',
+  'settings.appearance.description': 'အလင်းနှင့် အမှောင်မုဒ်အကြား ပြောင်းပါ။',
   'settings.appearance.title': 'အသွင်အပြင်',
   'settings.language.description': 'ဈေးကွက်တစ်လျှောက်လုံးတွင် အသုံးပြုသော ဘာသာစကားကို ရွေးချယ်ပါ။',
+  'settings.payouts.accountLabel': 'အကောင့်နံပါတ် / IBAN',
   'settings.payouts.body':
     'Vendry သည် ကော်မရှင် ၈% နုတ်ပြီး သင့်ဒေသသုံးငွေကြေးဖြင့် သောကြာနေ့တိုင်း ငွေပေးချေပါသည်။',
   'settings.payouts.save': 'ငွေပေးချေမှုအသေးစိတ်အချက်အလက်များကို သိမ်းဆည်းပါ',
@@ -143,6 +192,7 @@ export const ui: UiTranslations = {
   'signup.mismatch': 'စကားဝှက်များ မကိုက်ညီသေးပါ။',
   'signup.subheading':
     'လွတ်လပ်သော ထုတ်လုပ်သူ ၄၀၀၀+ ကို ကြည့်ရှုပါ သို့မဟုတ် သင့်ကိုယ်ပိုင်ဆိုင်တစ်ဆိုင် ဖွင့်လှစ်ပါ။',
+  'signup.submit': 'ဈေးသို့ဝင်ရောက်ပါ',
   'status.delivered': 'ပို့ဆောင်ပြီးပါပြီ',
   'status.refunded': 'ပြန်အမ်းငွေရပြီး',
   'userMenu.marketplaceSettings': 'ဈေးကွက်ဆက်တင်များ',
@@ -152,18 +202,29 @@ export const ui: UiTranslations = {
   'vendorDashboard.heroCaption':
     '{{payout}} Vendry ကော်မရှင်ပြီးနောက် ရှင်းလင်းပြီး။ နောက်တစ်ကြိမ် ငွေပေးချေမှုကို သောကြာနေ့တွင် ပြုလုပ်ပါမည်။',
   'vendorDashboard.heroLabel': 'စုစုပေါင်းရောင်းအား · ပြီးခဲ့သော ၃၀ ရက်',
+  'vendorDashboard.kpi.conversion': 'ပြောင်းလဲခြင်း',
   'vendorDashboard.kpi.conversionCaption': 'ယခုအပတ်အတွင်း လာရောက် မှာယူနိုင်ပါသည်',
   'vendorDashboard.kpi.netPayout': 'အသားတင်ငွေပေးချေမှု',
   'vendorDashboard.kpi.netPayoutCaption': '၈% Vendry ကော်မရှင်ပြီးနောက်',
   'vendorDashboard.kpi.orders': 'မှာယူမှုများ',
   'vendorDashboard.kpi.ordersCaption': 'ပြီးခဲ့သော ရက် ၃၀ နှင့် နှိုင်းယှဉ်ပါက',
+  'vendorDashboard.kpi.pendingPayout': 'ဆိုင်းငံ့ထားသော ငွေထုတ်ပေးမှု',
   'vendorDashboard.kpi.pendingPayoutCaption': 'ဒီသောကြာနေ့မှာ ထုတ်လွှင့်မယ့်',
   'vendorDashboard.newProductCta': 'ထုတ်ကုန်အသစ်',
   'vendorDashboard.payoutsCta': 'ငွေပေးချေမှုများကို ကြည့်ရှုပါ',
   'vendorDashboard.recentOrders.cta': 'မှာယူမှုအားလုံးကိုကြည့်ပါ →',
+  'vendorDashboard.recentOrders.emptyBody':
+    'ဖောက်သည်များ ငွေရှင်းပြီးသည်နှင့် သင့်ဆိုင်အတွက် အော်ဒါများ ဤနေရာတွင် ပေါ်လာပါမည်။',
+  'vendorDashboard.recentOrders.emptyCta': 'သင့်ပထမဆုံး ထုတ်ကုန်ကို ထည့်ပါ',
+  'vendorDashboard.recentOrders.emptyTitle': 'မှာယူမှုများ မရှိသေးပါ',
   'vendorDashboard.recentOrders.title': 'မကြာသေးမီက မှာယူမှုများ',
+  'vendorDashboard.subtitle': 'ဤအပတ်တွင် သင့်ဆိုင်၏ စွမ်းဆောင်ရည်မှာ ဤသို့ဖြစ်သည်။',
+  'vendorDashboard.title': 'ကြိုဆိုပါတယ်, {{name}}',
   'vendorOnboarding.about': 'သင့်ဆိုင်အကြောင်း ကျွန်ုပ်တို့ကို ပြောပြပါ',
   'vendorOnboarding.aboutPlaceholder': 'ဘယ်မှာလုပ်လုပ်၊ ဘာလုပ်လုပ်၊ ဘာကြောင့်အရေးကြီးတာလဲ။',
+  'vendorOnboarding.bankLabel': 'ဘဏ်အကောင့် / IBAN',
+  'vendorOnboarding.categoriesHint':
+    'ကိုက်ညီသည့်အရာအားလုံးကို ရွေးပါ — နောက်ပိုင်းတွင် ပြင်ဆင်နိုင်ပါသည်။',
   'vendorOnboarding.currencyLabel': 'ငွေကြေးဖြင့် အခြေချပါ',
   'vendorOnboarding.errors.shopName': 'ဆိုင်အမည် ပေးရပါမည်။',
   'vendorOnboarding.errors.submit': 'သင့်လျှောက်လွှာကို တင်သွင်း၍မရပါ။',
@@ -172,8 +233,15 @@ export const ui: UiTranslations = {
   'vendorOnboarding.field.shopName': 'ဆိုင်အမည်',
   'vendorOnboarding.heroBody':
     'ကော်မရှင် ၈% ပုံသေ၊ သောကြာနေ့တိုင်း ငွေပေးချေမှုများ၊ သင့်ဆိုင်ရှေ့မျက်နှာစာ၊ သင့်ဇာတ်လမ်း။ သင့်ဆိုင်အကြောင်း အနည်းငယ်ပြောပြပါ၊ ကျွန်ုပ်တို့ ၄၈ နာရီအတွင်း ဆက်သွယ်ပါမည်။',
+  'vendorOnboarding.review.categories': 'အမျိုးအစားများ',
   'vendorOnboarding.review.contact': 'ဆက်သွယ်ရန်',
   'vendorOnboarding.review.currency': 'ငွေကြေး',
+  'vendorOnboarding.review.point1':
+    '{{appName}} သည် ပွင့်လင်းသော ၈% ကော်မရှင်ကို ကောက်ခံသည် — စာရင်းသွင်းခ မရှိ၊ ဝှက်ထားသော ကုန်ကျစရိတ် မရှိ။',
+  'vendorOnboarding.review.point2':
+    'ငွေထုတ်ပေးမှုများသည် သောကြာနေ့တိုင်း သင့်ဒေသခံငွေကြေးဖြင့် ရှင်းလင်းပါသည်။',
+  'vendorOnboarding.review.point3':
+    'သင့်ဆိုင်ကို အချိန်မရွေး ခေတ္တရပ်နိုင်သည် သို့မဟုတ် ဖယ်ရှားနိုင်ပါသည်။',
   'vendorOnboarding.review.tagline': 'တဂ်လိုင်း',
   'vendorOnboarding.review.website': 'ဝဘ်ဆိုက်',
   'vendorOnboarding.reviewBody':
@@ -184,6 +252,8 @@ export const ui: UiTranslations = {
   'vendorOnboarding.successMessage':
     'လျှောက်လွှာတင်ပြီးပါပြီ။ ကျွန်ုပ်တို့သည် သင့်ဆိုင်ကို ပြန်လည်သုံးသပ်ပြီး ၄၈ နာရီအတွင်း အီးမေးလ်ပို့ပါမည်။',
   'vendorOnboarding.taxIdLabel': 'အခွန် ID',
+  'vendorOrders.emptyBody':
+    'ဖောက်သည်များ သင့်ထုတ်ကုန်များကို ဝယ်ယူသောအခါ သူတို့၏ အော်ဒါများ ဤနေရာတွင် ပေါ်လာပါမည်။',
   'vendorOrders.emptyTitle': 'ဖြည့်ဆည်းရန် အမိန့်များ မရှိသေးပါ',
   'vendorOrders.eyebrow': 'ရောင်းချသူ အက်ဒမင်',
   'vendorOrders.kpi.awaiting': 'ပြည့်စုံမှုကို စောင့်ဆိုင်းနေသည်',
@@ -191,6 +261,8 @@ export const ui: UiTranslations = {
   'vendorOrders.subtitle':
     'Vendry မှ ထွက်ခွာရန်မလိုဘဲ တံဆိပ်များ ရိုက်နှိပ်ပါ၊ ပြည့်စုံကြောင်း အမှတ်အသားပြုပါ၊ မေးခွန်းများကို ဖြေဆိုပါ။',
   'vendorOrders.title': 'ဝင်လာသော အော်ဒါများ',
+  'vendorPayouts.emptyBody':
+    'သင့်အရောင်းများ ၈% ကော်မရှင် ရှင်းလင်းပြီးသည်နှင့် ငွေထုတ်ပေးမှုများကို သောကြာနေ့တိုင်း ထုတ်ပေးပါသည်။',
   'vendorPayouts.emptyTitle': 'ငွေပေးချေမှုများ မရှိသေးပါ',
   'vendorPayouts.eyebrow': 'ရောင်းချသူ ဘဏ္ဍာရေး',
   'vendorPayouts.heroCaption': 'Banco BPI မှာ အခြေချနေထိုင်တယ် {{account}} · ၁-၂ ရက်',
@@ -215,6 +287,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.images.body':
     'ပုံ ၈ ပုံအထိ ဆွဲယူချပါ။ ပထမဆုံးဓာတ်ပုံသည် ဆိုင်မျက်နှာဖုံးဖြစ်လာသည်။',
   'vendorProductForm.images.cta': 'ဓာတ်ပုံများကို ဤနေရာသို့ ဆွဲယူပါ သို့မဟုတ် ကြည့်ရှုပါ',
+  'vendorProductForm.images.hint': 'PNG / JPG · တစ်ခုလျှင် အများဆုံး 8MB',
   'vendorProductForm.images.title': 'ဓာတ်ပုံများ',
   'vendorProductForm.nameLabel': 'ထုတ်ကုန်အမည်',
   'vendorProductForm.preview.namePlaceholder': 'ထုတ်ကုန်အမည်',
@@ -224,6 +297,7 @@ export const ui: UiTranslations = {
   'vendorProductForm.title': 'သင့်ပစ္စည်းအကြောင်း ဈေးဝယ်သူများကို ပြောပြပါ',
   'vendorProductForm.variants.colInventory': 'စာရင်း',
   'vendorProductForm.variants.colVariant': 'မူကွဲ',
+  'vendorProductForm.variants.title': 'မျိုးကွဲများနှင့် စာရင်းအင်း',
   'vendorProducts.eyebrow': 'ရောင်းချသူ အက်ဒမင်',
   'vendorProducts.kpi.draft': 'မူကြမ်းများ',
   'vendorProducts.kpi.lowStock': 'စတော့ရှယ်ယာနည်းပါတယ်',
@@ -250,6 +324,7 @@ export const ui: UiTranslations = {
     'သင့်ဆိုင်ကို စီမံခန့်ခွဲရန်၊ ရောင်းချသူတိုင်း၏ မှာယူမှုများကို ခြေရာခံရန်နှင့် လွတ်လပ်သော ထုတ်လုပ်သူများထံမှ ရဲရင့်သော စုစည်းမှုများကို ရှာဖွေတွေ့ရှိရန် အကောင့်ဝင်ပါ။',
   'vendryAuthShell.sampleVendorMeta': 'အတည်ပြုပြီး · ၄.၉ ★ · ရောင်းအား ၁,၂၄၀',
   'vendryAuthShell.sampleVendorName': 'Mira & Co. ကြွေထည်',
+  'vendryAuthShell.sampleVendorTag': 'အထူးဖော်ပြထားသည်',
   'vendryMarketHero.description':
     'လွတ်လပ်သော ရောင်းချသူထောင်ပေါင်းများစွာ၊ လက်ဖြင့်စုစည်းထားသော စုစည်းမှုများနှင့် ၎င်းတို့အပေါ် စေတနာအပြည့်ဖြင့် စေတနာအပြည့်ဖြင့် လုပ်ဆောင်သော စတိုးဆိုင်များကို ရှာဖွေတွေ့ရှိပါ။ ရဲရင့်စွာ ဈေးဝယ်ပါ၊ စစ်မှန်သော ထုတ်လုပ်သူများကို ထောက်ပံ့ပါ။',
   'vendryMarketHero.eyebrow': 'ရွေးချယ်ထားသော ဈေးကွက် · ၂၀၂၆ စုစည်းမှု',
@@ -258,11 +333,13 @@ export const ui: UiTranslations = {
   'vendryMarketHero.stat1Label': 'လွတ်လပ်သော ထုတ်လုပ်သူများ',
   'vendryMarketHero.stat2Label': 'ရွေးချယ်ထားသော ထုတ်ကုန်များ',
   'vendryMarketHero.stat3Label': 'ပျမ်းမျှအဆင့်သတ်မှတ်ချက်',
+  'vendryMarketHero.title': 'လုပ်သူတိုင်း၊ စျေးကွက်တစ်ခု။',
   'vendryOrderCard.idLabel': 'မှာယူမှု',
   'vendryOrderCard.placedOn': 'နေရာချထားပြီး {{date}}',
   'vendryOrderCard.qty': 'အရေအတွက် {{count}}',
   'vendryOrderCard.vendorCount': '{{count}} ဤအစီအစဉ်အတိုင်း ရောင်းချသူ(များ)',
   'vendryOrderCard.verifiedAria': 'အတည်ပြုထားသော ရောင်းချသူ',
+  'vendryOrderCard.viewDetails': 'အသေးစိတ်ကြည့်ရန်',
   'vendryProductCard.favoriteAria': 'အကြိုက်ဆုံးများသို့ သိမ်းဆည်းပါ',
   'vendryProductCard.saleBadge': 'ရောင်းချမှု',
   'vendryProductCard.verified': 'အတည်ပြုထားသော ရောင်းချသူ',

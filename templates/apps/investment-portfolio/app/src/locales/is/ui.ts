@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ertu með endurgjöf, fannst þú villu eða viltu nýja eiginleika? Hafðu samband í gegnum reikningsstillingarnar þínar — hver skilaboð fara til raunverulegs einstaklings í teyminu. Athugið: ekkert hér er fjárfestingarráðgjöf; þú heldur stjórn á hverjum viðskiptum.',
+  'about.contactTitle': 'Hafðu samband við okkur',
+  'about.featureAttribution':
+    'Árangursgreining — sundurliðaðu ávöxtun eftir geira, svæði og eignaflokki, og berðu saman við viðmið yfir hvaða tímabil sem er.',
+  'about.featureRebalance':
+    'Agnarsöm endurjöfnun — stilltu markhlutföll og vikmörk, sjáðu frávik merkt snemma og fáðu viðskiptin sem koma þér aftur á réttan kjöl.',
+  'about.featureTax':
+    'Skattaskjöl í lagi — innleystur og óinnleystur hagnaður, arðgreiðslur og 1099-skjöl á einum stað, með merkingum um wash-sale.',
+  'about.featureUnified':
+    'Ein sameinuð eignasafn — hlutabréf, ETFs, verðbréfasjóðir, skuldabréf og fleira, safnað saman frá hverjum verðbréfareikningi.',
+  'about.featureWatchlist':
+    'Vaktlistar, fréttir og verðviðvaranir svo þú getir brugðist við því sem skiptir máli án hávaðans.',
+  'about.intro':
+    '{{app}} er fjöl-eigna mælaborð fyrir einstaka fjárfesta og sjálfstæða ráðgjafa. Hlutabréf, ETFs, verðbréfasjóðir, skuldabréf, fasteignir og reiðufé — hver eign í hverjum reikningi, á einum stað, með aga faglegrar skrifstofu.',
+  'about.missionBody':
+    'Góð fjárfesting snýst að mestu um aga: skýr markhlutföll, heiðarleg árangursgreining og snyrtileg skattaskjöl. {{app}} færir þessi stofnanavenjur til hvers sem er, svo þú getir endurjafnað af ásettu ráði í stað hvatvísra ákvarðana — og misst aldrei sjónar á því hvað eignasafnið þitt er í raun að gera.',
+  'about.missionTitle': 'Markmið okkar',
   'about.pageTitle': 'Um {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Auðsverkfæri',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Ekki fjárfestingarráðgjöf.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Mælaborð fyrir eignasafn fyrir einstaka fjárfesta og ráðgjafa sem vilja agaða endurjöfnun, skarpa afkomugreiningu og hreinlæti í skattaskjölum — án hávaða.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · Árangur í fortíð er ekki trygging fyrir árangri í framtíðinni.',
   'argentAuthShell.sampleChange': '+2.841 Bandaríkjadalir (+0,28%) í dag',
+  'argentAuthShell.sampleLabel': 'Virði eignasafns',
   'argentAuthShell.sampleValue': '1.032.251 dollarar',
   'argentLayout.primaryNavLabel': 'Aðalflakk',
   'assetAllocationDonut.heading': 'Hvernig peningarnir þínir eru fjárfestir',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'í dag',
   'assetDetail.txEmpty': 'Engar færslur fyrir þetta auðkenni.',
   'assetDetail.txHeading': 'Færslur þínar',
+  'auth.legalConsent.prefix': 'Með því að halda áfram samþykkir þú skilmála {{appName}}',
   'common.and': 'og',
   'common.goToDashboard': 'Fara á yfirlit',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'í dag',
   'dashboard.topHoldings.heading': 'Þar sem peningarnir þínir eru að vinna',
   'dashboard.topHoldings.label': 'Efstu eignarhlutir',
+  'forgotPassword.gotLinkCta': 'Ég er með endurstillingarhlekk →',
+  'forgotPassword.subheading':
+    'Sláðu inn netfangið á Gavl reikningnum þínum og við sendum þér öruggan endurstillingarhlekk.',
   'forgotPassword.successBody':
     'Ef þú sérð það ekki innan nokkurra mínútna skaltu athuga ruslpóstmöppuna þína eða prófa að senda annað netfang.',
   'forgotPassword.successSubheading':
     'Athugaðu {{email}} fyrir endurstillingartengil. Hann rennur út eftir 60 mínútur.',
+  'forgotPassword.successTitle': 'Endurstillingarpóstur á leiðinni',
   'holdingHighlightRow.todayLabel': 'í dag',
   'holdings.addCta': 'Kaupa',
   'holdings.col.allocation': 'Úthlutun',
@@ -58,6 +87,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Ekki fjárfestingarráðgjöf. Fyrri árangur er ekki trygging fyrir framtíðarárangri.',
   'landing.eyebrow': 'Argent · Pallur fyrir auðsöfnun',
   'landing.features.heading': 'Allt sem ráðgjafi myndi smíða fyrir sjálfan sig.',
+  'landing.finalCta.body':
+    'Tengdu verðbréfamiðlarann þinn í tveimur smellum. {{appName}} sér um restina.',
+  'landing.finalCta.cta': 'Opnaðu Argent reikninginn þinn',
   'landing.finalCta.heading': 'Fáðu aga aftur í eignasafn þitt.',
   'landing.footerSignup': 'Opna reikning',
   'landing.getStarted': 'Opna reikning',
@@ -65,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Sjá verðlagningu',
   'landing.heroSubtitle':
     'Mælaborð fyrir eignasafn fyrir einstaka fjárfesta og ráðgjafa sem vilja agaða endurjöfnun, skarpa afkomugreiningu og hreinlæti í skattaskjölum — án hávaða.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Bein útsending frá dæmigerðu eignasafni',
   'login.heading': 'Skráðu þig inn á Argent',
   'login.subheading':
@@ -76,6 +109,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} fyrir klst.',
   'news.justNow': 'rétt í þessu',
   'news.loadError': 'Mistókst að hlaða fréttum.',
+  'planUpdated.body':
+    'Greiðslubreytingin þín er nú virk. Þú getur stýrt áskriftinni þinni hvenær sem er á greiðslusíðunni.',
+  'planUpdated.retry': 'Reyndu aftur',
+  'planUpdated.verifyFailed': 'Við gátum ekki staðfest greiðsluna þína ennþá.',
+  'planUpdated.verifyFailedBody':
+    'Greiðslan þín gæti enn verið í vinnslu. Reyndu aftur eftir smástund.',
   'planUpdated.verifying': 'Staðfesti greiðsluna þína…',
   'portfolioHeroCard.label': 'Virði eignasafns',
   'pricing.holdingsLabel': 'eignarhlutir',
@@ -86,12 +125,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Úthlutunarrek',
   'rebalance.empty': 'Engin markmið sett ennþá.',
   'rebalance.executeCta': 'Staður {{count}} viðskipti',
+  'rebalance.executeError': 'Tókst ekki að leggja inn viðskipti.',
   'rebalance.executeOk': 'Sett {{count}} viðskipti. Skoðaðu þau á síðunni Færslur.',
+  'rebalance.executing': 'Legg inn…',
   'rebalance.eyebrow': 'Endurjöfnun · Ráðgjafi með arði',
   'rebalance.heading': 'Færðu eignasafn þitt aftur í aga',
   'rebalance.loadError': 'Mistókst að hlaða inn endurjöfnunaráætlun.',
+  'rebalance.plan.driftLine': 'núverandi {{current}}% · mark {{target}}%',
   'rebalance.planHeading': 'Argent miði — skoðaðu áður en þú setur miða',
   'rebalance.planLabel': 'Ráðlagður viðskiptaáætlun',
+  'rebalance.subheading':
+    'Línur utan vikmarka kalla á tillögur að viðskiptum. {{appName}} framkvæmir aðeins eftir staðfestingu þína.',
   'rebalance.summary.buyLabel': 'Kaupir',
   'rebalance.summary.buySub': 'stöður til að fylla á',
   'rebalance.summary.driftLabel': 'Utan hljómsveitar',
@@ -100,6 +144,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'yfir ráðlagða viðskipti',
   'rebalance.summary.sellLabel': 'Selur',
   'rebalance.summary.sellSub': 'stöður til að snyrta',
+  'rebalanceDriftCard.drift': 'frávik {{sign}}{{pct}}% · vikmörk ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'skotmark {{pct}} %',
   'reports.attributionHeading': 'Árangurseignun (1 ár)',
   'reports.col.alpha': 'Alfa',
@@ -113,37 +158,69 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Ár',
   'reports.gainsHeading': 'Innleystur og óinnleystur hagnaður',
   'reports.noAttribution': 'Engin tilvísunargögn enn.',
+  'reports.noGains': 'Engin gögn um innleystan/óinnleystan hagnað ennþá.',
   'reports.noPerformance': 'Engar afkastagögn enn sem komið er.',
   'reports.noTaxDocs': 'Engin skattaskjöl ennþá.',
   'reports.performanceHeading': 'Árangur samanborið við viðmiðunargildi',
   'reports.taxHeading': 'Skattskjöl',
   'resetPassword.heading': 'Veldu sterkt nýtt lykilorð',
+  'resetPassword.passwordPlaceholder': 'Nýtt lykilorð',
   'resetPassword.subheading':
     'Argent mun skrá þig inn sjálfkrafa þegar lykilorðið þitt hefur verið stillt.',
   'resetPassword.tokenPlaceholder': 'Endurstilla auðkenni úr tölvupósti',
+  'settings.appearance.description': 'Skipta á milli ljóss og dökks stillingar.',
   'settings.appearance.title': 'Útlit',
+  'settings.devices.body': 'Tæki sem eru nú skráð inn á reikninginn þinn.',
+  'settings.devices.empty': 'Engin tæki fundust.',
   'settings.devices.heading': 'Tæki',
+  'settings.devices.revokeWarning':
+    'Aðgangur þessa tækis verður afturkallaður fljótlega. Skrá það út?',
   'settings.devices.signOut': 'Skrá út',
   'settings.devices.thisDevice': 'Þetta tæki',
   'settings.devices.unknown': 'Óþekkt tæki',
   'settings.linked.body':
     'Samstilling miðlunar krefst tengis frá þriðja aðila (Plaid, Yodlee, o.s.frv.). Stilltu þjónustuveituna þína í umhverfi þínu til að virkja sjálfvirkan innflutning.',
   'settings.linked.heading': 'Tengdir verðbréfareikningar',
+  'settings.linked.placeholder': 'Engir reikningar tengdir ennþá.',
+  'settings.notifications.dividendsPaid': 'Arðgreiðslur greiddar',
   'settings.notifications.error': 'Gat ekki uppfært stillinguna.',
   'settings.notifications.priceAlerts': 'Verðviðvaranir',
+  'settings.notifications.rebalanceDrift': 'Frávik endurjöfnunar',
+  'settings.notifications.taxDocsReady': 'Skattaskjöl tilbúin',
   'settings.profile.advisor': 'Netfang ráðgjafa (valfrjálst)',
   'settings.profile.heading': 'Prófíll',
   'settings.security.changePassword': 'Breyta lykilorði',
+  'settings.security.changePasswordTitle': 'Breyta lykilorði',
   'settings.security.changing': 'Að breytast…',
+  'settings.security.confirmPassword': 'Lykilorð',
+  'settings.security.currentPassword': 'Núverandi lykilorð',
   'settings.security.deleteAccount': 'Eyða reikningi',
   'settings.security.deleteError': 'Gat ekki eytt reikningnum.',
   'settings.security.deleteHeading': 'Eyða reikningi',
+  'settings.security.deleteModalWarning':
+    'Þetta eyðir varanlega reikningnum þínum og gögnum. Sláðu inn lykilorðið þitt til að staðfesta.',
+  'settings.security.deleteWarning':
+    'Eyða reikningnum þínum varanlega og öllum tengdum gögnum. Þetta er ekki hægt að afturkalla.',
   'settings.security.deleting': 'Eyðir…',
   'settings.security.heading': 'Öryggi',
   'settings.security.newPassword': 'Nýtt lykilorð',
   'settings.security.password': 'Lykilorð',
+  'settings.security.passwordError': 'Gat ekki breytt lykilorðinu.',
+  'settings.security.passwordHint': 'Breyttu lykilorðinu sem þú notar til að skrá þig inn.',
+  'settings.security.twoFactor': 'Tvíþátta auðkenning',
+  'settings.security.twoFactorCode': 'Auðkenningarkóði',
+  'settings.security.twoFactorDisable': 'Slökkva',
+  'settings.security.twoFactorDisableTitle': 'Slökkva á tveggja þátta auðkenningu',
   'settings.security.twoFactorEnable': 'Virkja',
+  'settings.security.twoFactorEnableTitle': 'Kveikja á tveggja þátta auðkenningu',
+  'settings.security.twoFactorHint': 'Bættu við auka verndarlagi fyrir reikninginn þinn.',
   'settings.security.twoFactorInvalidCode': 'Ógildur kóði',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'Tveggja þátta QR kóði',
+  'settings.security.twoFactorScan':
+    'Skannaðu þennan QR-kóða með auðkenningarforritinu þínu og sláðu síðan inn 6 stafa kóðann.',
+  'settings.security.twoFactorUnavailable':
+    'Tvíþátta auðkenning er ekki í boði fyrir þetta forrit.',
   'settings.security.twoFactorVerify': 'Staðfesta og virkja',
   'settings.tax.error': 'Ekki tókst að uppfæra skattaaðferð.',
   'settings.tax.heading': 'Skattlotubókhald',
@@ -154,6 +231,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Skattlagningaraðferð vistuð.',
   'signup.eyebrow': 'Opna reikning',
   'signup.heading': 'Opnaðu Argent reikninginn þinn',
+  'signup.legalPrefix': 'Með því að stofna reikning samþykkir þú {{appName}}',
   'signup.subheading': 'Ókeypis í 30 daga. Engin þörf á korti. Hægt er að hætta við hvenær sem er.',
   'signup.terms':
     'Með því að stofna aðgang samþykkir þú þjónustuskilmála og persónuverndarstefnu Argent.',

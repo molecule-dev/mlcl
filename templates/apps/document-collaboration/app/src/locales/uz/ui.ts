@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Fikr-mulohazangiz bormi, xatolik topdingizmi yoki studiyangiz yoki jamoangiz uchun {{app}} xohlaysizmi? Hisob sozlamalaridan murojaat qiling — har bir xabar jamoadagi haqiqiy odamga yetib boradi.',
   'about.contactTitle': "Biz bilan bog'laning",
+  'about.intro':
+    "{{app}} — muharrirlar, yozuvchilar va jamoalar real vaqtda birgalikda qoralama yozadigan hamkorlikdagi yozish studiyasi. Hujjatni ochsangiz, sahifa umumiy bo'ladi — kursorlar harakatlanadi, izohlar chekkada muhokama qilinadi va har bir tahrir tarixda xavfsiz saqlanadi.",
+  'about.missionBody':
+    "Bizning fikrimizcha, uzun matn yozish xotirjam va diqqatni jamlagan makonga loyiq — u yig'ilish yoki pochta qutisi atrofida emas, qo'lyozma atrofida qurilishi kerak. Bizning muharririmiz, real vaqtdagi ishtirok va versiyalar tarixi hamkorlarga birgalikda tez ishlash imkonini beradi, hech kim bir paragraf yoki bir fikrni yo'qotmaydi.",
+  'about.missionTitle': 'Bizning vazifamiz',
+  'about.subtitle': "Birgalikda o'ylang, abadiy yozing.",
   'about.title': '{{app}} haqida',
   'comments.addFailed': "Fikr qoldirish imkoni bo'lmadi.",
   'comments.backToDoc': "Qo'lyozmaga qaytish",
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Izohlar mavzulari',
   'comments.loading': 'Mavzular yuklanmoqda…',
   'comments.newPlaceholder': "Qo'lyozmaga izoh qo'shing...",
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Qayta ochish',
   'comments.reopenFailed': "Qayta ochib bo'lmadi.",
   'comments.replyFailed': "Javob yozib bo'lmadi.",
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': "So'nggi qoralamalar, umumiy ishlar va kunlik tahrirlar.",
   'dashboard.viewFeed': 'Oziqlantirish →',
   'editor.back': "Qo'lyozmalarga qaytish",
+  'editor.bodyLabel': 'Hujjat matni',
   'editor.bodyPlaceholder': 'Kursor miltillagan joydan boshlang.',
   'editor.comments': 'Izohlar',
   'editor.createFailed': "Hujjat yaratib bo'lmadi.",
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     "Agar hisob mavjud bo'lsa {{email}} , qayta o'rnatish havolasi yo'lda.",
+  'forgotPassword.sentHeading': 'Elektron pochtangizni tekshiring',
+  'forgotPassword.submitting': 'Yuborilmoqda\\u2026',
   'forgotPassword.subtitle': 'Sizga qayta tiklash havolasini elektron pochta orqali yuboramiz.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Molecule yordamida yaratilgan.',
+  'landing.ctaBody':
+    'Yakka yozuvchilar uchun bepul. Muharrirlar, ghostwriterlar va taqrizchilardan iborat jamoalar uchun Studio tariflari.',
   'landing.ctaHeading': 'Sahifani oching. Kursorni ishga tushiring.',
   'landing.ctaPrimary': 'Studiya oching',
   'landing.eyebrow': 'Yozuvchilar, muharrirlar va jamoalar uchun',
   'landing.featuresEyebrow': 'Sizga nima beriladi',
   'landing.featuresHeading': 'Uzoq muddatli qoralama uchun studiya.',
+  'landing.featuresSubtitle':
+    "{{appName}} qo'lyozma atrofida qurilgan — yig'ilish yoki pochta qutisi atrofida emas.",
   'landing.getStarted': 'Studiyani oching',
   'landing.heroCta': 'Yozishni boshlang',
   'landing.heroSubtitle':
@@ -95,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     "{{count}} o'qilmagan · izohlar, eslatmalar, taklifnomalarni ulashish va taklif so'rovlari.",
   'presenceAvatars.label': '{{count}} hamkorlar',
+  'privacy.intro': "Ma'lumotlaringizni qanday to'plashimiz, ishlatishimiz va himoya qilishimiz.",
   'privacy.title': 'Maxfiylik siyosati',
   'profile.about.description':
     'Ommaviy profilingiz va muallif sahifalaringiz uchun qisqacha tarjimai hol.',
@@ -107,7 +124,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Mavjudlik',
   'profile.pronouns': 'Olmoshlar',
   'profile.publicToggle': "Profilni jamoadoshlarga ko'rsatish",
+  'profile.role': 'Rol / lavozim',
   'profile.subtitle': "Hamkasblaringizga qanday ko'rinishingiz.",
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} studiyada faol yozuvchilar',
   'quillonAuthBrandPanel.quote':
     '"Yozish - bu men yozayotgan yagona narsa, men buni qilganimda, boshqa biror narsa qilishim kerak deb o\'ylamayman."',
@@ -115,6 +134,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Ochish →',
   'quillonKpiCard.trend': "So'nggi trend",
   'quillonLayout.menu': 'Menyu',
+  'quillonLayout.mobileNavLabel': 'Mobil navigatsiya',
   'quillonLayout.primaryNavLabel': 'Asosiy navigatsiya',
   'quillonStudioHero.collab': 'Hamkorlar',
   'quillonStudioHero.docs': 'Hujjatlarga tegildi',
@@ -123,7 +143,9 @@ export const ui: UiTranslations = {
   'quillonStudioHero.subtitle': "Qo'lyozmani oling, izoh qoldiring, paragrafni oldinga suring.",
   'quillonStudioHero.words': "Bugungi so'zlar",
   'resetPassword.confirmPlaceholder': 'Yangi parolni takrorlang',
+  'resetPassword.passwordLabel': 'Yangi parol',
   'resetPassword.passwordPlaceholder': 'Yangi parolni kiriting',
+  'resetPassword.submitting': 'Qayta tiklash…',
   'resetPassword.subtitle': 'Kuchli parol tanlang — kamida 12 ta belgidan iborat.',
   'settings.account.description': 'Qanday qilib tizimga kirishingiz.',
   'settings.billing.canceled': 'Obuna bekor qilindi.',
@@ -132,7 +154,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Konfiguratsiya qilinmagan',
   'settings.billing.updated': 'Reja yangilandi.',
   'settings.editor.description': 'Yozayotganingizda tuval qanday ishlaydi.',
+  'settings.editor.title': 'Muharrir sozlamalari',
   'settings.eyebrow': 'Studiya sozlamalari',
+  'settings.language.title': 'Til',
   'settings.notifications.${n.key}.description': 'Til',
   'settings.notifications.description': 'Pochta qutingizga nima yetib borishini tanlang.',
   'settings.subtitle': 'Bildirishnomalarni, muharrir panelini va hisob sozlamalaringizni sozlang.',
@@ -142,6 +166,7 @@ export const ui: UiTranslations = {
   'shared.loadFailed': "Umumiy hujjatlarni yuklab bo'lmadi.",
   'shared.subtitle':
     "Studiyaning qolgan qismidan qo'lyozmalar, qisqacha ma'lumotlar va eslatmalar.",
+  'signup.brandAttribution': 'Anaïs Park — muharrir, The Quarterly',
   'signup.brandQuote':
     "\\u201cBirinchi qo'lyozmangiz eng qiyini. Quillon uni kamroq yolg'iz qiladi.\\u201d",
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -149,6 +174,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Anais',
   'signup.heading': 'Quillon hisobingizni yarating',
   'signup.lastNamePlaceholder': 'Park',
+  'signup.submitting': 'Studiyangiz ochilmoqda\\u2026',
   'signup.subtitle':
     'Jim ish stoli, muhitdagi hamkorlar va sizga xalaqit bermaydigan uzun shaklli muharrir.',
   'templates.blank.subtitle': 'Toza sahifa. Kursor boshlanadi.',
@@ -161,11 +187,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': "Puxta o'ylangan tuzilmadan boshlang. Cheksiz ravishda sozlang.",
   'templates.useFailed': "Ushbu shablondan hujjatni ishga tushirib bo'lmadi.",
   'templates.useTemplate': 'Ushbu shablondan foydalaning',
+  'terms.intro': 'Ushbu xizmatdan qanday shartlarda foydalanishingiz mumkinligi.',
   'terms.title': "Xizmat ko'rsatish shartlari",
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'hozirgina',
   'trash.confirmDelete': "O'chirishni tasdiqlang",
+  'trash.confirmEmpty': "Tasdiqlang — hammasini o'chirish",
   'trash.deleteFailed': "O'chirib bo'lmadi.",
   'trash.deleteForever': "Abadiy o'chirish",
   'trash.empty': "Qayta tiklanadigan hech narsa yo'q.",
@@ -181,7 +209,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'Hali hech qanday tuzatish kiritilmagan — hujjat tarixini boshlash uchun uni saqlang.',
   'versionHistory.heading': 'Versiya tarixi',
+  'versionHistory.latest': "Eng so'nggi",
   'versionHistory.loadFailed': "Tarixni yuklab bo'lmadi.",
+  'versionHistory.noContent': 'Bu tahrir uchun hech qanday kontent saqlanmagan.',
   'versionHistory.previewing': "Oldindan ko'rish",
   'versionHistory.restore': 'Ushbu versiyani tiklash',
   'versionHistory.restoreFailed': 'Qayta tiklash amalga oshmadi.',

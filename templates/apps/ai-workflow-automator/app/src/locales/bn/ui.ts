@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'ডেনড্রাইট হলো একটি ওয়ার্কফ্লো অটোমেশন প্ল্যাটফর্ম যা ট্রিগার, এআই কন্ডিশন এবং বহু-ধাপের অ্যাকশনগুলোকে একসাথে সংযুক্ত করে, যাতে টিমগুলো গ্লু কোড না লিখেই সিস্টেমগুলোর মধ্যে কাজ স্থানান্তর করতে পারে।',
+  'about.philosophy':
+    'প্রতিটি ওয়ার্কফ্লো ছোট, পর্যবেক্ষণযোগ্য ধাপের একটি গ্রাফ। প্রতিটি ধাপ তার ইনপুট, আউটপুট এবং সময় রেকর্ড করে যাতে তা পরীক্ষা, রিপ্লে বা রোলব্যাক করা যায়। ভিজ্যুয়ালি সাজান, কোডের মতো ভার্সন করুন।',
   'about.title': 'ডেনড্রাইট সম্পর্কে',
   'authShell.brand': 'ডেনড্রাইট',
   'authShell.support': 'সমর্থন',
@@ -15,9 +17,14 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'পরিকল্পনা পরিবর্তন করুন',
   'billing.description':
     'ব্যবহারের হিসাব রাখুন, আপনার প্ল্যান পরিচালনা করুন এবং হিসাবরক্ষণের জন্য ইনভয়েস সংগ্রহ করুন।',
+  'billing.eyebrow': 'অ্যাকাউন্ট · প্ল্যান ও ব্যবহার',
+  'billing.failedLabel': 'ব্যর্থ রান · ২৪ ঘণ্টা',
+  'billing.invoicesEmpty':
+    'এখনো কোনো ইনভয়েস নেই। আপনার প্রথম পেইড রিনিউয়ালের পরে এখানে দেখা যাবে।',
   'billing.invoicesTitle': 'চালানের ইতিহাস',
   'billing.planNoteFree':
     'ফ্রি টিয়ার — {{runs}} দৌড় এবং {{workflows}} সক্রিয় ওয়ার্কফ্লো। উচ্চতর সীমার জন্য আপগ্রেড করুন।',
+  'billing.planNotePaid': 'পেইড প্ল্যান — {{runs}} রান এবং {{workflows}} সক্রিয় ওয়ার্কফ্লো।',
   'billing.runsLabel': 'গত ২৪ ঘন্টায় রান',
   'billing.tiersBlurb':
     'নির্দিষ্ট মূল্য নির্ধারণ পৃষ্ঠায় প্রতিটি স্তরের — রান, সক্রিয় ওয়ার্কফ্লো, উন্নত বৈশিষ্ট্য এবং সাপোর্ট — তুলনা করুন।',
@@ -35,8 +42,14 @@ export const ui: UiTranslations = {
     'কোনো ইন্টিগ্রেশন নিবন্ধিত নেই। বন্ড সক্রিয় করতে প্রোভাইডার কী কনফিগার করুন।',
   'connections.error': 'সংযোগগুলি লোড করা যায়নি।',
   'connections.eyebrow': 'ইন্টিগ্রেশন · {{connected}} সংযুক্ত',
+  'connections.loading': 'ইন্টিগ্রেশন লোড হচ্ছে…',
+  'connections.openEnv':
+    'এই প্রোভাইডার সংযোগ করতে, api/.env-এ এর API key সেট করুন এবং সার্ভার রিস্টার্ট করুন।',
+  'dashboard.description':
+    '{{active}} ওয়ার্কফ্লো সক্রিয়। গত ২৪ ঘণ্টায় {{failed}} ব্যর্থ হয়েছে।',
   'dashboard.error': 'ড্যাশবোর্ড লোড করা যায়নি।',
   'dashboard.eyebrow': 'অপারেশন · লাইভ',
+  'dashboard.hero.label': 'আজকের রান',
   'dashboard.hero.medianLatency': 'p50 লেটেন্সি',
   'dashboard.hero.queue': 'সারির গভীরতা',
   'dashboard.hero.success': 'সাফল্য',
@@ -44,14 +57,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'গড় সময়কাল',
   'dashboard.kpi.failedRuns': 'ব্যর্থ · ২৪ ঘণ্টা',
   'dashboard.kpi.outOf': 'এর {{total}} মোট',
+  'dashboard.kpi.successRate': 'সফলতার হার · ২৪ ঘণ্টা',
   'dashboard.loading': 'ড্যাশবোর্ড লোড হচ্ছে…',
   'dashboard.recentRuns.empty':
     'এখনো কোনো রান হয়নি। একটি ওয়ার্কফ্লো চালু করলে এই ফিডটি পূর্ণ হবে।',
   'dashboard.recentRuns.title': 'সাম্প্রতিক দৌড়',
   'dashboard.recentRuns.viewAll': 'প্রকাশ্য মৃত্যুদণ্ড →',
+  'dashboard.recentWorkflows.browse': 'টেমপ্লেটগুলি ব্রাউজ করুন →',
   'dashboard.recentWorkflows.empty':
     'এখনো কোনো ওয়ার্কফ্লো নেই। একটি টেমপ্লেট ইনস্টল করুন অথবা একেবারে নতুন করে একটি তৈরি করুন।',
   'dashboard.recentWorkflows.title': 'সম্প্রতি চালানো হয়েছে',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'শুরু হয়েছে',
   'dashboard.run.col.trigger': 'ট্রিগার',
   'dashboard.run.col.workflow': 'কর্মপ্রবাহ',
@@ -86,6 +102,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'কর্মপ্রবাহ',
   'executions.description':
     'প্রতিটি ওয়ার্কফ্লো রান, প্রতিটি রিট্রাই, প্রতিটি স্টেপের আউটপুট — সবই পর্যবেক্ষণযোগ্য।',
+  'executions.empty.filter': 'এই ফিল্টারে কোনো রান মেলে না।',
   'executions.empty.first':
     'এখনো কোনো রান হয়নি — এই তালিকাটি পূরণ করতে একটি ওয়ার্কফ্লো চালু করুন।',
   'executions.error': 'এক্সিকিউশনগুলো লোড করা যায়নি।',
@@ -96,30 +113,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'রান হিস্ট্রি লোড হচ্ছে…',
   'executions.title': 'মৃত্যুদণ্ড',
   'forgotPassword.confirmation': 'রিসেট লিঙ্ক পাঠানো হয়েছে {{email}} .',
+  'forgotPassword.subhead': 'রিসেট লিঙ্ক পেতে আপনার ইমেল লিখুন।',
   'forgotPassword.successSubhead':
     'আমরা একটি রিসেট লিঙ্ক পাঠিয়েছি {{email}} ৩০ মিনিটে এর মেয়াদ শেষ হয়ে যাবে।',
   'help.connections.body':
     'এআই, ইমেল এবং স্টোরেজ ধাপগুলোর জন্য api/.env ফাইলে প্রোভাইডার কী সেট করতে হয়। একবার একটি কী কনফিগার করা হলে, সংশ্লিষ্ট ইন্টিগ্রেশনটি Connections পেজে সংযুক্ত হিসেবে প্রদর্শিত হয়।',
+  'help.connections.cta': 'সংযোগ খুলুন →',
   'help.connections.title': 'সরবরাহকারীদের সংযোগ করা',
   'help.gettingStarted.body':
     'টেমপ্লেট লাইব্রেরি থেকে নতুন ওয়ার্কফ্লো ইনস্টল করা যায় অথবা ওয়ার্কফ্লো বিল্ডারে একেবারে নতুন করে তৈরি করা যায়। প্রতিটি ওয়ার্কফ্লো-এর একটি ট্রিগার (ম্যানুয়াল, ওয়েবহুক বা ক্রন) এবং ক্রমানুসারে চলমান কয়েকটি ধাপ থাকে।',
+  'help.gettingStarted.cta': 'টেমপ্লেট লাইব্রেরি ব্রাউজ করুন →',
+  'help.gettingStarted.title': 'শুরু করা',
   'help.intro':
     'ওয়ার্কফ্লো তৈরি, সংযোগ কনফিগার করা এবং রান আউটপুট ব্যাখ্যা করা সম্পর্কিত সাধারণ প্রশ্নগুলোর উত্তর খুঁজুন। সবচেয়ে প্রচলিত বিষয়গুলো নিচে তালিকাভুক্ত করা হলো; এখানে উল্লেখ নেই এমন কোনো কিছুর জন্য আপনার ওয়ার্কস্পেস অ্যাডমিনিস্ট্রেটরের সাথে যোগাযোগ করুন।',
   'help.runs.body':
     'প্রতিটি রান প্রতিটি ধাপকে তার স্ট্যাটাস (সফল, ব্যর্থ, বাদ দেওয়া) এবং আউটপুটের একটি অংশসহ আলাদাভাবে লগ করে। এক্সিকিউশন ডিটেইল পেজটি সম্পূর্ণ ধাপে ধাপে ট্রেস এবং অনুমানকৃত মেট্রিক্স দেখায়।',
+  'help.runs.cta': 'প্রকাশ্য মৃত্যুদণ্ড →',
   'help.runs.title': 'রিডিং রান আউটপুট',
   'help.title': 'সহায়তা কেন্দ্র',
   'integrationCard.manage': 'পরিচালনা করুন',
   'landing.brand': 'ডেনড্রাইট',
   'landing.demo.action.subtitle': 'রাউন্ড-রবিন · অঞ্চল',
+  'landing.demo.action.title': 'রেপকে জানান',
   'landing.demo.condition.subtitle': 'এআই অভিপ্রায় শ্রেণীবিন্যাসকারী',
+  'landing.demo.condition.title': 'স্কোর ≥ মধ্যম?',
   'landing.demo.trigger.subtitle': 'পোস্ট /ফর্ম/যোগাযোগ',
   'landing.demo.trigger.title': 'ইনবাউন্ড ওয়েবহুক',
+  'landing.features.body':
+    'ট্রিগার চলে। কন্ডিশন শাখা তৈরি করে। অ্যাকশন কাজ সম্পন্ন করে। ভিজ্যুয়ালি সাজান, কোডের মতো ভার্সন করুন।',
   'landing.features.heading': 'তিন ধরনের নোড। অসীম আকৃতি।',
   'landing.footer.help': 'সাহায্য',
   'landing.footer.tagline': 'গতিশীল বুদ্ধিমত্তা',
+  'landing.hero.body':
+    '{{appName}} হলো অপস টিমের জন্য ওয়ার্কফ্লো ইঞ্জিন, যারা Zapier-এর সীমা ছাড়িয়ে গেছে। ট্রিগার, কন্ডিশন, অ্যাকশন — আপনার ব্যবহৃত প্রতিটি সিস্টেমের সাথে সংযুক্ত।',
   'landing.hero.eyebrow': 'গতিশীল বুদ্ধিমত্তা',
   'landing.hero.headline': 'আপনার স্ট্যাকটি একসাথে তার দিয়ে যুক্ত করুন। কাজটা হতে দিন।',
+  'landing.hero.primaryCta': 'আপনার প্রথম ওয়ার্কফ্লো তৈরি করুন',
   'landing.hero.proof.ai': 'অন্তর্নির্মিত এআই নোড',
   'landing.hero.proof.free': 'প্রতি মাসে ১০০০ রানের জন্য বিনামূল্যে।',
   'landing.hero.proof.soc2': 'SOC 2 টাইপ II',
@@ -127,10 +156,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'আসনের জন্য নয়, যাত্রার জন্য অর্থ প্রদান করুন।',
   'landing.templates.body':
     'প্রতিটি টিমের জন্য পূর্ব-নির্ধারিত ওয়ার্কফ্লো — সেলস, সাপোর্ট, ডেভ-অপস, ফিনান্স। এক ক্লিকে ইনস্টল করুন; যেকোনো কিছু পরিবর্তন করুন।',
+  'landing.templates.cta': 'টেমপ্লেট ব্রাউজ করতে সাইন আপ করুন →',
   'landing.templates.eyebrow': 'কয়েক সেকেন্ডে শুরু করুন',
   'landing.templates.heading': 'যাচাইকৃত রেসিপির একটি সংগ্রহশালা।',
   'landing.templates.signupHint': 'ইনস্টল করতে সাইন আপ করুন',
   'login.hidePassword': 'পাসওয়ার্ড লুকান',
+  'login.noAccount': 'টেসেরা-তে নতুন?',
   'login.showPassword': 'পাসওয়ার্ড দেখান',
   'login.subhead': 'আপনার অটোমেশনগুলো চালু রাখতে সাইন ইন করুন।',
   'mobileNav.drawerLabel': 'প্রধান নেভিগেশন',
@@ -146,8 +177,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'এই ফিডটি পূরণ করা শুরু করতে একটি ওয়ার্কফ্লো চালান।',
   'notifications.empty.title': 'আপনি সবকিছু জেনে গেছেন।',
   'notifications.eyebrow': '{{n}} অপঠিত',
+  'planUpdated.body':
+    'আপনার বিলিং পরিবর্তন এখন সক্রিয়। বিলিং পেজ থেকে যেকোনো সময় আপনার প্ল্যান পরিচালনা করতে পারেন।',
+  'planUpdated.retry': 'আবার চেষ্টা করুন',
+  'planUpdated.verifyFailed': 'আমরা এখনও আপনার পেমেন্ট নিশ্চিত করতে পারিনি।',
+  'planUpdated.verifyFailedBody':
+    'আপনার পেমেন্টটি এখনও প্রক্রিয়াধীন থাকতে পারে। কিছুক্ষণ পর আবার চেষ্টা করুন।',
   'planUpdated.verifying': 'আপনার পেমেন্ট নিশ্চিত করা হচ্ছে…',
   'pricing.heading': 'দৌড়',
+  'pricing.runsSuffix': 'রান',
   'pricing.workflowsSuffix': 'ওয়ার্কফ্লো',
   'privacy.collect.body':
     'আপনি যে ইমেল ঠিকানা দিয়ে সাইন আপ করেন, যে ওয়ার্কফ্লো কনফিগার করেন, এবং প্রতিটি রান সম্পর্কিত মেটাডেটা (শুরুর সময়, শেষের সময়, স্ট্যাটাস) আমরা সংগ্রহ করি। ওয়ার্কস্পেস মালিকের জন্য রান ভিউয়ারে প্রদর্শনের জন্য যতটুকু প্রয়োজন, তার বাইরে আমরা ট্রিগার বা স্টেপ আউটপুট থেকে পেলোড কন্টেন্ট কখনও সংগ্রহ বা সংরক্ষণ করি না।',
@@ -163,12 +201,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'পাসওয়ার্ড আপডেট করা যায়নি।',
   'resetPassword.newPassword': 'নতুন পাসওয়ার্ড',
   'resetPassword.subhead': 'এমন কিছু বেছে নিন যা কেবল আপনিই অনুমান করতে পারেন।',
+  'settings.appearance.description': 'লাইট ও ডার্ক মোডের মধ্যে পরিবর্তন করুন।',
+  'settings.appearance.title': 'চেহারা',
   'settings.billingShortcut.cta': 'ওপেন বিলিং',
   'settings.billingShortcut.description':
     'প্ল্যান, ব্যবহার এবং ইনভয়েসগুলো নির্দিষ্ট বিলিং পেজে পাওয়া যায়।',
   'settings.danger.confirm':
     'আপনি কি নিশ্চিত? এটি আপনার ওয়ার্কস্পেসটি মুছে ফেলার জন্য তালিকায় যুক্ত করবে।',
   'settings.danger.confirmYes': 'হ্যাঁ, কিউ মুছে ফেলা',
+  'settings.danger.deleteWorkspace.cta': 'ওয়ার্কস্পেস মুছুন',
   'settings.danger.deleteWorkspace.hint':
     '১৪ দিনের গ্রেস পিরিয়ডের পর সমস্ত ওয়ার্কফ্লো, রান এবং কানেকশন মুছে ফেলে।',
   'settings.danger.deleteWorkspace.title': 'ওয়ার্কস্পেস মুছুন',
@@ -180,9 +221,13 @@ export const ui: UiTranslations = {
     'আপনার অ্যাকাউন্ট, ওয়ার্কস্পেস, ইন্টিগ্রেশন এবং বিলিং এক জায়গায় পরিচালনা করুন।',
   'settings.notifications.description':
     'আপনি কোন ইভেন্ট পেজটি দেখবেন, ইমেল পাবেন, অথবা নীরব থাকবেন তা বেছে নিন।',
+  'settings.notifications.failures.hint': 'প্রতিটি ব্যর্থ রানে ইমেইল ও ইন-অ্যাপ নোটিফিকেশন।',
+  'settings.notifications.failures.title': 'ওয়ার্কফ্লো ব্যর্থতা',
   'settings.notifications.product.hint':
     'নতুন টেমপ্লেট এবং ফিচার সম্পর্কে মাঝেমধ্যে ইমেইল পাঠানো হবে।',
+  'settings.notifications.product.title': 'প্রোডাক্ট আপডেট',
   'settings.notifications.weekly.hint': 'গত সপ্তাহের দৌড় ও সঞ্চয়ের সোমবার সকালের পর্যালোচনা।',
+  'settings.notifications.weekly.title': 'সাপ্তাহিক সারসংক্ষেপ',
   'settings.profile.description':
     'ওয়ার্কফ্লো রানারের ভিতরে আপনাকে যেভাবে দেখানো হয়। এটি ওয়ার্কস্পেস অ্যাক্টিভিটিতে ব্যবহৃত হয়।',
   'settings.profile.noEmail': 'রেকর্ডে কোন ইমেল নেই',
@@ -190,12 +235,23 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'প্রোফাইলের পরিবর্তনগুলো সংরক্ষণ করা যায়নি।',
   'settings.profile.unnamedUser': 'নামহীন ব্যবহারকারী',
   'settings.security.audit.hint': 'ওয়েবহুকের মাধ্যমে আপনার SIEM-এ প্রতিটি কার্যকলাপ স্ট্রিম করুন।',
+  'settings.security.audit.title': 'অডিট লগ ফরওয়ার্ডিং',
   'settings.security.description': 'দ্বি-স্তরীয় প্রমাণীকরণ, SSO, এবং সক্রিয় সেশন।',
   'settings.security.sso.hint': 'স্কেল এবং এন্টারপ্রাইজ প্ল্যানে উপলব্ধ।',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'যেকোনো ওয়ার্কস্পেস মালিকের অ্যাকশনের জন্য প্রয়োজন।',
+  'settings.security.totp.title': 'দুই-ফ্যাক্টর প্রমাণীকরণ (TOTP)',
   'settings.twoFactorCode': 'প্রমাণীকরণ কোড',
   'settings.twoFactorDisable': 'অক্ষম করুন',
+  'settings.twoFactorDisableTitle': 'দুই-ধাপ প্রমাণীকরণ বন্ধ করুন',
   'settings.twoFactorEnable': 'সক্ষম করুন',
+  'settings.twoFactorEnableTitle': 'দুই-ধাপ প্রমাণীকরণ চালু করুন',
   'settings.twoFactorInvalidCode': 'অবৈধ কোড',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'টু-ফ্যাক্টর QR কোড',
+  'settings.twoFactorScan':
+    'আপনার অথেনটিকেটর অ্যাপ দিয়ে এই QR কোডটি স্ক্যান করুন, তারপর ৬ সংখ্যার কোডটি লিখুন।',
+  'settings.twoFactorUnavailable': 'এই অ্যাপটির জন্য দ্বি-স্তরীয় প্রমাণীকরণ উপলব্ধ নেই।',
   'settings.twoFactorVerify': 'যাচাই ও সক্রিয় করুন',
   'settings.workspace.description': 'আপনার দলের জন্য অভিন্ন পরিচয়, অঞ্চল এবং রান ডিফল্ট।',
   'settings.workspace.maxRuns': 'একই সাথে চালানোর সীমা',
@@ -223,6 +279,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'টেমপ্লেট',
   'templates.description':
     'সবচেয়ে প্রচলিত অটোমেশনগুলোর জন্য আগে থেকে তৈরি ব্লুপ্রিন্ট। ফর্ক করুন, নিজের মতো করে সাজিয়ে নিন, প্রকাশ করুন।',
+  'templates.empty.filter': 'আপনার অনুসন্ধানে কোনো টেমপ্লেট মেলে না।',
   'templates.empty.first': 'এই মুহূর্তে কোনো টেমপ্লেট উপলব্ধ নেই।',
   'templates.error': 'টেমপ্লেট লোড করা যায়নি।',
   'templates.installs': 'ইনস্টল',
@@ -248,6 +305,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'অক্ষম করুন',
   'workflowBuilder.enable': 'সক্ষম করুন',
   'workflowBuilder.error': 'ওয়ার্কফ্লো লোড করা যায়নি।',
+  'workflowBuilder.inspector.config': 'কনফিগ',
+  'workflowBuilder.inspector.cron': 'Cron এক্সপ্রেশন',
+  'workflowBuilder.inspector.disabled': 'নিষ্ক্রিয় — স্বয়ংক্রিয়ভাবে চলবে না।',
   'workflowBuilder.inspector.enabled': 'সক্রিয় — ট্রিগারের মাধ্যমে চালু হয়।',
   'workflowBuilder.inspector.eyebrow': 'পরিদর্শক',
   'workflowBuilder.inspector.id': 'আইডি',
@@ -265,18 +325,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'টগল ব্যর্থ হয়েছে।',
   'workflowBuilder.workflow': 'ওয়ার্কফ্লো · ভি {{v}}',
   'workflowBuilder.zoom.in': 'জুম ইন',
+  'workflowBuilder.zoom.label': 'ক্যানভাস জুম নিয়ন্ত্রণ',
+  'workflowBuilder.zoom.out': 'জুম আউট',
   'workflowCard.lastRun': 'শেষবার চালানো হয়েছিল {{when}}',
   'workflowCard.runs': '{{count}} দৌড়',
+  'workflowCard.success': '{{rate}}% সফল',
   'workflowHeroCard.last24h': 'গত ২৪ ঘন্টা',
+  'workflows.browseTemplates': 'টেমপ্লেটগুলি ব্রাউজ করুন →',
   'workflows.description':
     'আপনার ওয়ার্কস্পেসের প্রতিটি অটোমেশন, তার অবস্থা এবং সাম্প্রতিক কার্যকলাপ এক নজরে দেখুন।',
+  'workflows.empty.body': 'ফিল্টার পরিষ্কার করে দেখুন বা একটি টেমপ্লেট থেকে শুরু করুন।',
   'workflows.empty.firstBody': 'কয়েক সেকেন্ডের মধ্যে কাজ শুরু করতে একটি টেমপ্লেট ইনস্টল করুন।',
   'workflows.empty.firstTitle': 'এখনো কোনো ওয়ার্কফ্লো নেই',
   'workflows.empty.title': 'কোন ওয়ার্কফ্লো মেলে না',
   'workflows.error': 'ওয়ার্কফ্লো লোড করা যায়নি।',
   'workflows.eyebrow': 'গ্রন্থাগার · {{count}} মোট',
+  'workflows.loading': 'ওয়ার্কফ্লো লোড হচ্ছে…',
   'workflows.newFromTemplate': 'টেমপ্লেট থেকে নতুন',
   'workflows.searchPlaceholder': 'অনুসন্ধান কর্মপ্রবাহ…',
+  'workflows.title': 'ওয়ার্কফ্লো',
   'workflowSidebar.brand': 'ডেনড্রাইট',
   'workflowSidebar.status': 'সমস্ত সিস্টেম চালু আছে',
   'workflowSidebar.tagline': 'গতিশীল বুদ্ধিমত্তা',

@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Oes gennych gwestiwn, wedi dod o hyd i fyg, neu eisiau demo i'ch tîm? Cysylltwch o leoliadau eich cyfrif — mae pob neges yn mynd at berson go iawn ar y tîm.",
   'about.contactTitle': 'Cysylltwch â ni',
+  'about.intro':
+    "Mae {{app}} yn troi pentwr o ddogfennau wedi'u sganio a PDFau yn ddata strwythuredig, chwiliadwy, wedi'i ffeilio. Gollwng anfonebau, derbyniadau, contractau, neu ffurflenni i mewn a gadewch i AI eu darllen, eu tynnu, eu dosbarthu, a'u ffeilio — gyda lliwiau hyder fel bod eich tîm ond yn adolygu'r hyn sydd wir angen dyn.",
+  'about.missionBody':
+    "Ni ddylai gwaith papur diflas fwyta diwrnod eich tîm. Rydym yn credu y dylai pob gwerth a dynnir fod yn egluradwy ac yn archwiladwy — fel y gallwch ymddiried yn yr awtomeiddio heb golli'r trywydd papur. Mae {{app}} wedi'i adeiladu i arbed oriau fesul pentwr tra'n cadw dyn yn y ddolen lle mae'n cyfrif.",
+  'about.missionTitle': 'Ein cenhadaeth',
+  'about.subtitle': 'OCR, tynnu AI, dosbarthu, a ffeilio awtomatig ar gyfer eich dogfennau.',
   'about.title': 'Ynghylch {{app}}',
+  'about.whatYouGetTitle': 'Yr hyn a gewch',
   'authShell.backToLanding': '← Yn ôl i lanio',
   'common.goToDashboard': "Mynd i'r Dangosfwrdd",
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Heddiw · Trosolwg o weithrediadau',
   'dashboard.heading': 'Deallusrwydd dogfennau',
+  'dashboard.metric.accuracy': 'Cyfartaledd cywirdeb',
   'dashboard.metric.filed': "Wedi'i ffeilio heddiw",
   'dashboard.metric.filedCaption': "Wedi'i gyfeirio gan reolau ffeilio",
   'dashboard.metric.processed': "Wedi'i brosesu heddiw",
@@ -23,11 +33,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': "Wedi'i uwchlwytho",
   'dashboard.recent.heading': 'Dogfennau diweddar',
+  'dashboard.recent.typeUnknown': "Yn aros i'w ddosbarthu",
   'dashboard.subheading':
     "Pob tudalen wedi'i dosbarthu, ei thynnu allan, a'i ffeilio — gyda lliwiau hyderus fel bod yr adolygiad yn aros yn ffocws.",
   'documentDetail.audit.heading': 'Amserlen archwilio',
+  'documentDetail.audit.subheading':
+    "Pob cam a gymerwyd ar y ddogfen hon, gyda'r actor sy'n gyfrifol.",
   'documentDetail.back': 'Pob dogfen',
   'documentDetail.downloadHint': 'Defnyddiwch Lawrlwytho i agor y ffeil wreiddiol.',
+  'documentDetail.extracted.empty': "Dim meysydd wedi'u tynnu eto.",
   'documentDetail.extracted.heading': "Meysydd wedi'u tynnu allan",
   'documentDetail.extracted.subheading':
     "{{count}} meysydd · cliciwch unrhyw faes i'w amlygu ar y dudalen",
@@ -56,13 +70,24 @@ export const ui: UiTranslations = {
   'documents.subheading':
     "{{count}} dogfennau yn eich llyfrgell, wedi'u trefnu'n ddiweddaraf yn gyntaf.",
   'documents.uploadCta': 'Uwchlwytho dogfennau',
+  'documentTypeBreakdown.barAria': 'Cyfansoddiad dogfennau yn ôl math',
   'documentTypeBreakdown.empty': "Dim dogfennau wedi'u prosesu eto.",
   'documentTypeBreakdown.subtitle': "{{total}} wedi'i brosesu",
   'documentTypeBreakdown.title': 'Cyfansoddiad y ddogfen',
+  'forgotPassword.backToSignIn': '← Yn ôl i fewngofnodi',
   'forgotPassword.checkEmail': 'Gwiriwch eich e-bost',
   'forgotPassword.tip': 'Heb ei gael? Gwiriwch y sbam neu rhowch gynnig ar gyfeiriad gwahanol.',
+  'landing.copyright':
+    "© {{year}} {{app}}. Wedi'i adeiladu ar gyfer timau gweithredol sy'n archwilio pob tudalen.",
+  'landing.ctaBody':
+    "Treial 14 diwrnod. Dim cerdyn yn ofynnol. Canslo unrhyw bryd. Wedi'i adeiladu ar gyfer timau gweithredol sy'n symud yn gyflym ac yn archwilio'n araf.",
   'landing.ctaHeading': 'Stopiwch deipio derbynebau. Dechreuwch eu ffeilio.',
   'landing.eyebrow': 'OCR · Echdynnu · Ffeilio AI',
+  'landing.featuresHeading': "Deallusrwydd dogfennau sy'n egluro'i hun",
+  'landing.heroSubtitle':
+    "Gollwng pentwr o anfonebau, derbyniadau, contractau, neu ffurflenni i mewn. Mae {{app}} yn dosbarthu, yn tynnu, ac yn ffeilio — gyda lliwiau hyder fel bod eich tîm ond yn adolygu'r hyn sydd wir angen dyn.",
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Cyfaint dyddiol · 7 diwrnod diwethaf',
   'landing.sampleCardLabel': "Dogfennau wedi'u prosesu heddiw",
   'landing.sampleCardSubtitle':
     'Cywirdeb cyfartalog o 96.2% ar draws anfonebau, derbynebau a ffurflenni.',
@@ -76,6 +101,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Agor tudalen lanio',
   'notFound.title': "Nid yw'r dudalen honno ar ffeil",
+  'parcelaHeroCard.accuracy': 'Cyfartaledd cywirdeb {{value}}% ar draws pob tynnu',
   'parcelaHeroCard.change': "{{sign}} {{amount}} % o'i gymharu â ddoe",
   'parcelaHeroCard.title': "Dogfennau wedi'u prosesu heddiw",
   'parcelaLayout.primaryNavLabel': 'Prif lywio',
@@ -83,6 +109,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'dogfennau',
   'pricing.processingLabel': 'prosesu swyddi',
   'resetPassword.confirmPlaceholder': 'Ailadroddwch y cyfrinair newydd',
+  'resetPassword.hidePassword': "Cuddio'r cyfrinair",
   'resetPassword.passwordLabel': 'Cyfrinair newydd',
   'resetPassword.showPassword': 'Dangos cyfrinair',
   'resetPassword.subtitle': 'Dewiswch rywbeth sydd o leiaf 8 nod o hyd.',
@@ -99,10 +126,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Methwyd llwytho rheolau.',
   'rules.loading': "Wrthi'n llwytho rheolau…",
   'rules.matched30d': '{{count}} dogfennau a barwyd yn ystod y 30 diwrnod diwethaf',
+  'rules.neverUsed': "Erioed wedi'i ddefnyddio",
   'rules.newRule': 'Rheol newydd',
   'rules.saveError': "Methwyd cadw'r rheol.",
   'rules.subheading':
     "Dywedwch wrth y system ble dylai pob math o ddogfen fynd. Mae amodau'n cael eu cadwyno o'r top i'r gwaelod — y gêm gyntaf sy'n ennill.",
+  'rules.templatesEmpty': 'Dim templedi tynnu eto.',
   'rules.templatesHeading': 'Templedi echdynnu',
   'rules.templatesSubheading':
     "Cynlluniau maes y mae'r echdynnwr yn eu defnyddio ar gyfer pob math o ddogfen.",
@@ -112,17 +141,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': "Enw'r man gwaith",
   'settings.account.subheading':
     'Enw arddangos a chyfeiriad e-bost cynradd ar gyfer hysbysiadau a hanes archwilio.',
+  'settings.api.confirmRevoke': 'Cadarnhau?',
   'settings.api.copyOnce': 'Copïwch yr allwedd hon — ni fydd yn cael ei dangos eto',
   'settings.api.createdOn': 'Crëwyd {{date}}',
   'settings.api.empty': 'Dim allweddi API eto. Cynhyrchwch un uchod.',
   'settings.api.error': 'Methwyd creu allwedd.',
+  'settings.api.generating': 'Yn cynhyrchu…',
+  'settings.api.heading': 'Allweddi API',
   'settings.api.labelPlaceholder': 'Label allwedd (e.e. uwchlwythwr CI)',
+  'settings.api.loading': 'Yn llwytho allweddi…',
   'settings.api.newKey': 'Cynhyrchu allwedd',
   'settings.api.subheading':
     "Defnyddiwch y rhain i wthio dogfennau o sgript neu'ch ERP. Cylchdrowch unrhyw allwedd ar unrhyw adeg.",
   'settings.integrations.heading': 'Integreiddiadau ffeilio',
   'settings.integrations.subheading':
     "Anfonwch ddogfennau wedi'u ffeilio i'r gyriant cwmwl neu'r offeryn sgwrsio y mae eich tîm eisoes yn byw ynddo.",
+  'settings.subheading':
+    'Rheoli cyfrif, allweddi API, a chysylltiadau ffeilio ar gyfer eich gweithle {{app}}.',
+  'signup.hidePassword': "Cuddio'r cyfrinair",
   'signup.identityPrompt': 'Sut ddylem ni eich annerch chi?',
   'signup.showPassword': 'Dangos cyfrinair',
   'signup.subtitle': '14 diwrnod am ddim, does dim angen cerdyn.',
@@ -130,6 +166,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Methodd yr uwchlwytho.',
   'upload.eyebrow': 'Llyncu',
   'upload.heading': 'Uwchlwytho dogfennau',
+  'upload.queue.clear': "Clirio'r rhai wedi'u cwblhau",
   'upload.queue.col.confidence': 'Hyder',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': "Wrthi'n canfod…",
@@ -142,5 +179,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Neu ollwng nifer o ffeiliau ar unwaith ar gyfer echdynnu swp, dosbarthu a ffeilio.',
   'uploadDropZone.cta': 'Dewiswch ffeiliau',
+  'uploadDropZone.maxSize': "Uchafswm 25 MB fesul ffeil · Wedi'i amgryptio o'r dechrau i'r diwedd",
   'uploadDropZone.title': 'Gollwng dogfennau i ddechrau prosesu',
 }

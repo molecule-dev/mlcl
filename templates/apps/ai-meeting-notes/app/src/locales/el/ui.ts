@@ -1,19 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Ερωτήσεις, σχόλια ή αίτημα για λειτουργία; Στείλτε email στην ομάδα στο hello@murmur.app — κάθε μήνυμα φτάνει σε έναν πραγματικό άνθρωπο που εργάζεται στο προϊόν.',
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά με εμάς',
+  'about.intro':
+    'Το {{app}} είναι ευφυΐα συ reunions για ομάδες που προτιμούν να παίρνουν αποφάσεις παρά να κρατούν σημειώσεις. Συμμετέχει στις κλήσεις σας, μεταγράφει κάθε λέξη με ετικέτες ομιλητών και παραδίδει μια σύνοψη AI μαζί με ανατεθειμένες ενέργειες μόλις τελειώσει η reunión.',
+  'about.missionBody':
+    'Οι συναντήσεις είναι εκεί όπου οι ομάδες αποφασίζουν — και εκεί όπου αυτές οι αποφάσεις χάνονται. Το {{app}} υπάρχει για να διασφαλίσει ότι η δουλειά που γίνεται σε μια συζήτηση θα επιβιώσει πέρα από τη συζήτηση: ένα πιστό αρχείο, μια σαφής σύνοψη και υπεύθυνα επόμενα βήματα, αυτόματα.',
+  'about.missionTitle': 'Η αποστολή μας',
   'actions.empty': 'Δεν βρέθηκαν αντίστοιχα στοιχεία δράσης.',
   'actions.heading': 'Στοιχεία δράσης',
   'actions.loadError': 'Η φόρτωση των στοιχείων δράσης απέτυχε.',
   'actions.subheading': 'Συγκεντρωτικά από κάθε συνάντηση. Φιλτράρετε ανά κατάσταση για εστίαση.',
   'actions.toggleDoneLabel': 'Σήμανση ως ολοκληρωμένο',
   'actions.toggleReopenLabel': 'Σήμανση ως ανοιχτό',
+  'auth.footer': '© {{year}} {{app}}. Κάθε λέξη, αποσταγμένη.',
   'calendar.heading': 'Ημερολόγιο',
   'calendar.joinCta': 'Συμμετοχή',
   'calendar.loadError': 'Η φόρτωση του ημερολογίου απέτυχε.',
   'calendar.nextMonth': 'Επόμενος μήνας',
   'calendar.noEventsForDay': 'Δεν υπάρχουν προγραμματισμένες συναντήσεις για αυτή την ημέρα.',
+  'calendar.noUpcomingEvents':
+    'Δεν υπάρχουν επερχόμενες συναντήσεις. Συνδέστε ένα ημερολόγιο από τις Ενσωματώσεις για να γεμίσει αυτή η λίστα.',
   'calendar.previousMonth': 'Προηγούμενος μήνας',
   'calendar.recent': 'Πρόσφατα',
   'common.daysAgo': '{{count}}η πριν',
@@ -25,9 +35,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} στοιχεία δράσης',
   'dashboard.empty.body':
     'Ξεκινήστε μια εγγραφή ή συνδέστε το Google Ημερολόγιο για να συμμετέχει το Murmur αυτόματα στην επόμενη συνάντησή σας.',
+  'dashboard.empty.cta': 'Έναρξη εγγραφής',
   'dashboard.empty.heading': 'Δεν υπάρχουν συναντήσεις ακόμα',
   'dashboard.eyebrow': 'Η ροή συναντήσεών σας',
   'dashboard.loadError': 'Αποτυχία φόρτωσης πίνακα ελέγχου.',
+  'dashboard.noActions': 'Δεν υπάρχουν ενέργειες',
   'dashboard.recentHeading': 'Πρόσφατες συναντήσεις',
   'dashboard.recordCta': 'Εγγραφή συνάντησης',
   'dashboard.stat.actions': 'Στοιχεία δράσης',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} μη αναγνωσμένες περιλήψεις από την τελευταία φορά που ελέγξατε. Το Murmur κατέγραψε κάθε λέξη — εδώ είναι η ανακεφαλαίωση.',
   'dashboard.viewCalendar': 'Προβολή ημερολογίου →',
+  'footer.linksLabel': 'Υποσέλιδο',
   'forgot.failed': 'Η αποστολή του email επαναφοράς απέτυχε.',
   'forgot.sentBody':
     'Εάν υπάρχει λογαριασμός για το {{email}}, θα λάβετε σύντομα έναν σύνδεσμο επαναφοράς.',
@@ -48,14 +61,22 @@ export const ui: UiTranslations = {
   'integrations.subheading':
     'Συνδέστε ημερολόγια και πλατφόρμες βίντεο για να συμμετέχει το Murmur αυτόματα.',
   'integrations.updateError': 'Η ενημέρωση απέτυχε.',
+  'landing.ctaBody':
+    'Δωρεάν για τις πρώτες 5 συναντήσεις κάθε μήνα. Χωρίς πιστωτική κάρτα. Συνδέστε το Google Calendar σε λιγότερο από ένα λεπτό.',
   'landing.ctaButton': 'Ξεκινήστε — είναι δωρεάν',
   'landing.ctaHeading': 'Σταματήστε να κρατάτε σημειώσεις. Αρχίστε να παίρνετε αποφάσεις.',
+  'landing.demo.aiBody':
+    'Η κυκλοφορία μετατοπίστηκε από 5 Μαΐου → 12 Μαΐου για να δοθεί χώρος στη στελέχωση των λειτουργιών. Ο επανασχεδιασμός του Dashboard αποσπάστηκε για τις 26 Μαΐου.',
   'landing.demo.aiLabel': 'Περίληψη AI, σχεδιασμένη ζωντανά',
   'landing.demo.recording': 'Εγγραφή · ζωντανά',
   'landing.eyebrow': 'Τεχνητή νοημοσύνη για συναντήσεις',
   'landing.featuresHeading': 'Όλα όσα χρειάζεται η ομάδα σας μετά το τέλος της συνάντησης',
+  'landing.featuresSubheading':
+    'Όχι άλλο «για μισό λεπτό, ποιος το έχει αυτό;» Το {{appName}} παραδίδει τη σύνοψη πριν κλείσει η κλήση.',
   'landing.getStarted': 'Δοκιμάστε δωρεάν',
   'landing.heroSecondary': 'Παρακολουθήστε την περιήγηση 90 δευτερολέπτων',
+  'landing.heroSubtitle':
+    '{{tagline}}. Το {{appName}} συμμετέχει στις κλήσεις σας, μεταγράφει κάθε λέξη με ετικέτες ομιλητών και παραδίδει συνόψεις AI μαζί με ανατεθειμένες ενέργειες μόλις τελειώσει η συνάντηση.',
   'landing.heroTitle': 'Καταγράψτε κάθε συνάντηση. Αναδείξτε αυτό που έχει σημασία.',
   'login.altPrompt': 'Νέος στο Murmur;',
   'login.failed': 'Η σύνδεση απέτυχε. Ελέγξτε το email και τον κωδικό πρόσβασής σας.',
@@ -63,6 +84,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Στοιχεία δράσης',
   'meetingDetail.back': 'Όλες οι συναντήσεις',
   'meetingDetail.decisionsHeading': 'Αποφάσεις',
+  'meetingDetail.dueDate': 'καταληκτική {{date}}',
   'meetingDetail.followupsHeading': 'Παρακολουθήσεις',
   'meetingDetail.loadError': 'Η φόρτωση της συνάντησης απέτυχε.',
   'meetingDetail.noActions': 'Δεν εντοπίστηκαν στοιχεία δράσης.',
@@ -76,7 +98,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Δεν υπάρχουν συναντήσεις ακόμα',
   'meetings.heading': 'Συναντήσεις',
   'meetings.loadError': 'Η φόρτωση των συναντήσεων απέτυχε.',
+  'meetings.recordCta': 'Εγγραφή συνάντησης',
   'meetings.subheading': 'Κάθε εγγεγραμμένη, ανεβασμένη και συγχρονισμένη συνάντηση.',
+  'murmurLayout.closeMenu': 'Κλείσιμο μενού πλοήγησης',
   'murmurLayout.openMenu': 'Άνοιγμα μενού πλοήγησης',
   'murmurLayout.primaryNavLabel': 'Κύρια πλοήγηση',
   'nav.legal': 'Νομικά',
@@ -102,7 +126,14 @@ export const ui: UiTranslations = {
   'profile.loading': 'Φόρτωση…',
   'profile.navLabel': 'Ενότητες προφίλ',
   'profile.notifications.assignments': 'Στοιχεία δράσης που μου ανατέθηκαν',
+  'profile.notifications.assignmentsHint': 'Ειδοποίηση όταν καταγράφεται μια ενέργεια για εσάς.',
+  'profile.notifications.mentions': 'Αναφορές στις μεταγραφές',
+  'profile.notifications.mentionsHint': 'Email + push όταν κάποιος σας αναφέρει με @.',
+  'profile.notifications.subheading': 'Επιλέξτε ποια συμβάντα του {{appName}} θα σας φτάνουν.',
   'profile.notifications.summaries': 'Εβδομαδιαία σύνοψη',
+  'profile.notifications.summariesHint':
+    'Μια σύνοψη Δευτέρας για κάθε συνάντηση της προηγούμενης εβδομάδας.',
+  'profile.preferences.speakerColor': 'Προεπιλεγμένο χρώμα ομιλητή',
   'profile.preferences.subheading':
     'Προεπιλογές που ισχύουν σε κάθε εγγραφή στην οποία συμμετέχετε.',
   'profile.preferences.timezone': 'Ζώνη ώρας',
@@ -115,16 +146,21 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Το πρόγραμμα περιήγησής σας δεν υποστηρίζει εγγραφή. Δοκιμάστε Chrome, Edge ή Safari.',
   'record.error.upload': 'Η μεταφόρτωση απέτυχε. Δοκιμάστε ξανά.',
+  'record.errorLabel': 'Κάτι πήγε στραβά',
   'record.heading': 'Εγγραφή',
   'record.idleLabel': 'Πατήστε για έναρξη εγγραφής',
   'record.processingLabel': 'Μεταγραφή με Whisper, σύνοψη με Claude…',
+  'record.recordingLabel': 'Καταγραφή…',
   'record.retryCta': 'Δοκιμάστε ξανά',
   'record.subheading':
     'Πατήστε το μικρόφωνο για να ξεκινήσετε. Το Murmur καταγράφει τον ήχο, μεταγράφει μέσω Whisper και γράφει μια περίληψη βασισμένη στο Claude.',
+  'record.titlePlaceholder': 'Τίτλος συνάντησης (προαιρετικό)',
+  'reset.altPrompt': 'Αλλάξατε γνώμη;',
   'reset.hint': 'Χρησιμοποιήστε τουλάχιστον 8 χαρακτήρες με συνδυασμό γραμμάτων και αριθμών.',
   'reset.missingToken': 'Ο σύνδεσμος επαναφοράς λείπει ή έχει λήξει. Ζητήστε νέο.',
   'reset.newPassword': 'Νέος κωδικός πρόσβασης',
   'reset.subheading': 'Επιλέξτε κωδικό πρόσβασης που δεν χρησιμοποιείτε αλλού.',
+  'reset.tooShort': 'Ο κωδικός πρόσβασης πρέπει να έχει τουλάχιστον 8 χαρακτήρες.',
   'search.empty': 'Πληκτρολογήστε για αναζήτηση στις μεταγραφές.',
   'search.loadError': 'Η αναζήτηση απέτυχε. Δοκιμάστε ξανά.',
   'search.noResults': 'Δεν βρέθηκαν αποτελέσματα για «{{q}}».',
@@ -140,7 +176,11 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Διατήρηση ήχου για',
   'settings.retention.heading': 'Διατήρηση',
   'settings.retention.transcript': 'Διατήρηση μεταγραφών για',
+  'settings.revokeDeviceWarning':
+    'Η πρόσβαση αυτής της συσκευής θα ανακληθεί σύντομα. Να γίνει αποσύνδεση;',
   'settings.saveError': 'Η αποθήκευση απέτυχε.',
+  'settings.security.subheading':
+    'Ενημερώστε τον κωδικό πρόσβασης που χρησιμοποιείτε για να συνδεθείτε.',
   'settings.sharing.exportFormat': 'Μορφή εξαγωγής',
   'settings.sharing.heading': 'Προεπιλογές κοινής χρήσης',
   'settings.sharing.scope': 'Προεπιλεγμένο εύρος κοινής χρήσης',
@@ -158,6 +198,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Πρόσκληση μέλους ομάδας',
   'team.invitedAs': 'Προσκλήθηκε ως {{role}}',
   'team.inviteFailed': 'Η αποστολή πρόσκλησης απέτυχε.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'Αποστολή πρόσκλησης',
   'team.inviteSubtitle': 'Θα λάβουν email με σύνδεσμο εγγραφής.',
   'team.inviteTitle': 'Πρόσκληση μέλους ομάδας',

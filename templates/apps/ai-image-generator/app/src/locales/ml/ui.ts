@@ -1,14 +1,20 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ഫീഡ്ബാക്ക് ഉണ്ടോ, എന്തെങ്കിലും പ്രശ്നം നേരിട്ടോ, അല്ലെങ്കിൽ അടുത്തതായി എന്ത് നിർമ്മിക്കണമെന്ന് ഞങ്ങളോട് പറയണോ? hello@reverie.app എന്ന വിലാസത്തിൽ ടീമിനെ ബന്ധപ്പെടുക — ഓരോ സന്ദേശവും ഉൽപ്പന്നം നിർമ്മിക്കുന്ന ഒരു യഥാർത്ഥ വ്യക്തിയിലേക്കാണ് എത്തുന്നത്.',
   'about.contactTitle': 'ഞങ്ങളോട് സംസാരിക്കുക',
+  'about.missionTitle': 'ഞങ്ങളുടെ ദൗത്യം',
   'auth.fields.newPassword': 'പുതിയ പാസ്വേഡ്',
   'collectionDetail.addImage': 'ശേഖരണത്തിനായി മോഹിപ്പിക്കുക',
   'collectionDetail.backCta': 'ശേഖരങ്ങളിലേക്ക് മടങ്ങുക',
   'collectionDetail.coverNote': 'ക്യൂറേറ്റ് ചെയ്‌ത മൂഡ്-ബോർഡ് ഉപയോഗിച്ച് {{count}} ചിത്രങ്ങൾ.',
   'collectionDetail.editName': 'ശേഖരത്തിന്റെ പേര്',
+  'collectionDetail.empty':
+    'ഈ കളക്ഷനിൽ ഇതുവരെ ചിത്രങ്ങളില്ല — ചേർക്കാൻ എന്തെങ്കിലും ജനറേറ്റ് ചെയ്യുക.',
   'collectionDetail.loading': 'ശേഖരം ലോഡ് ചെയ്യുന്നു...',
   'collectionDetail.loadingImages': 'ചിത്രങ്ങൾ ലോഡ് ചെയ്യുന്നു...',
+  'collectionDetail.notFoundBody': 'ഈ കളക്ഷൻ നീക്കം ചെയ്യപ്പെട്ടതോ സ്വകാര്യമായതോ ആണ്.',
   'collectionDetail.notFoundTitle': 'ശേഖരം ലഭ്യമല്ല',
   'collectionDetail.shared': 'ദൃശ്യപരത ടോഗിൾ ചെയ്‌തു',
   'collections.create': 'പുതിയ ശേഖരം',
@@ -16,6 +22,7 @@ export const ui: UiTranslations = {
     'ഇതുവരെ ശേഖരങ്ങളൊന്നുമില്ല. നിങ്ങളുടെ വർക്ക് ക്യൂറേറ്റ് ചെയ്യാൻ തുടങ്ങാൻ ഒരെണ്ണം സൃഷ്ടിക്കുക.',
   'collections.imageCount': '{{count}} ചിത്രങ്ങൾ',
   'collections.loading': 'ശേഖരങ്ങൾ ലോഡ് ചെയ്യുന്നു...',
+  'collections.noDescription': 'ഇതുവരെ വിവരണമില്ല — ചേർക്കാൻ തുറക്കുക.',
   'collections.subtitle': 'മൂഡ്-ബോർഡുകൾ, ബ്രീഫുകൾ, തുടർന്നുള്ള പരമ്പരകൾ',
   'collections.title': 'ശേഖരങ്ങൾ',
   'collections.untitled': 'പേരില്ലാത്തത് · {{stamp}}',
@@ -55,6 +62,8 @@ export const ui: UiTranslations = {
   'forgot.subheading':
     'നിങ്ങളുടെ Reverie അക്കൗണ്ടുമായി ബന്ധിപ്പിച്ചിരിക്കുന്ന ഇമെയിൽ വിലാസം നൽകുക, ഞങ്ങൾ ഒരു റീസെറ്റ് ലിങ്ക് അയയ്ക്കും.',
   'forgot.successBody': 'ഒരു പുനഃസജ്ജീകരണ ലിങ്ക് വന്നുകൊണ്ടിരിക്കുകയാണ് {{email}} .',
+  'gallery.empty.body':
+    'മറ്റൊരു സ്റ്റേറ്റ് പരീക്ഷിക്കുക അല്ലെങ്കിൽ സ്റ്റുഡിയോയിൽ നിന്ന് ഒരു പുതിയ ബാച്ച് ജനറേറ്റ് ചെയ്യുക.',
   'gallery.empty.title': 'ആ ഫിൽട്ടറുമായി പൊരുത്തപ്പെടുന്ന ഒന്നും ഇല്ല.',
   'gallery.exportAll': 'എല്ലാം എക്സ്പോർട്ട് ചെയ്യുക',
   'gallery.exported': 'കയറ്റുമതി ക്യൂവിലാക്കി',
@@ -77,6 +86,7 @@ export const ui: UiTranslations = {
   'generate.controls.title': 'സ്വപ്നം ട്യൂൺ ചെയ്യുക',
   'generate.defaultPrompt': 'ഒരു പുതിയ സ്വപ്നം',
   'generate.progress': 'ഘട്ടം {{step}} / {{total}}',
+  'generate.submitFailed': 'ജനറേഷൻ ക്യൂവിൽ ചേർക്കാനായില്ല — കണക്ഷൻ പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക.',
   'generate.subtitle':
     'ഒരു പ്രോംപ്റ്റ് രചിക്കുക, നിയന്ത്രണങ്ങൾ ഡയൽ ചെയ്യുക, വകഭേദങ്ങൾ കൺജ്യൂർ ചെയ്യുക',
   'generate.title': 'സ്റ്റുഡിയോ',
@@ -84,6 +94,7 @@ export const ui: UiTranslations = {
   'imageDetail.acting': 'പ്രവർത്തിക്കുന്നു...',
   'imageDetail.actionFailed': 'പ്രവർത്തനം പരാജയപ്പെട്ടു.',
   'imageDetail.actions': 'ഇമേജ് പ്രവർത്തനങ്ങൾ',
+  'imageDetail.downloadStarted': 'ഡൗൺലോഡ് ആരംഭിച്ചു.',
   'imageDetail.downloadUnavailable': 'ഡൗൺലോഡ് ചെയ്യാൻ ഇതുവരെ ഒരു ചിത്രവും ലഭ്യമല്ല.',
   'imageDetail.fields.aspect': 'വശം',
   'imageDetail.fields.created': 'സൃഷ്ടിച്ചു',
@@ -94,11 +105,17 @@ export const ui: UiTranslations = {
   'imageDetail.notFoundTitle': 'ചിത്രം ലഭ്യമല്ല',
   'imageDetail.noVariations': 'ഇതുവരെ വ്യത്യാസങ്ങളൊന്നുമില്ല - മുകളിൽ ഒന്ന് അഭ്യർത്ഥിക്കുക.',
   'imageDetail.openEditor': 'എഡിറ്ററിൽ തുറക്കുക',
+  'imageDetail.tips.lockSeed':
+    'കോമ്പോസിഷൻ നഷ്ടപ്പെടുത്താതെ ലൈറ്റിംഗിൽ മാറ്റങ്ങൾ വരുത്താൻ സീഡ് ലോക്ക് ചെയ്യുക.',
+  'imageDetail.tips.upscale':
+    'പ്രിന്റ്-റെഡി ഗുണനിലവാരത്തിനായി എക്സ്പോർട്ട് ചെയ്യുന്നതിന് മുമ്പ് 4× അപ്സ്കേൽ പ്രവർത്തിപ്പിക്കുക.',
   'imageDetail.tipsTitle': 'സ്വപ്നം പരിഷ്കരിക്കുക.',
+  'imageDetail.title': 'Image',
   'imageDetail.upscaleQueued': 'അപ്‌സ്‌കെയിൽ ക്യൂവിലാണ്',
   'imageDetail.variations': 'വ്യതിയാനങ്ങൾ',
   'imageDetail.variationsQueued': 'വ്യതിയാനങ്ങൾ ക്യൂവിലാക്കി',
   'imageDetail.visibilityToggled': 'ദൃശ്യപരത അപ്‌ഡേറ്റ് ചെയ്‌തു',
+  'landing.copyright': '© {{year}} {{appName}} Labs. Molecule.dev ഉപയോഗിച്ച് നിർമ്മിച്ചത്.',
   'landing.cta': 'സൃഷ്ടിക്കാൻ തുടങ്ങൂ',
   'landing.eyebrow': 'ഇപ്പോൾ Reverie XL v3 നൽകുന്നു',
   'landing.featuresEyebrow': 'എന്തുകൊണ്ട് റിവറി',
@@ -139,8 +156,18 @@ export const ui: UiTranslations = {
     'ജനറേഷൻ ആക്റ്റിവിറ്റി, പങ്കിടൽ, ക്രെഡിറ്റ് അലേർട്ടുകൾ എന്നിവ ഇവിടെ ദൃശ്യമാകും.',
   'notifications.empty.title': 'റിപ്പോർട്ട് ചെയ്യാൻ ഒന്നുമില്ല',
   'notifications.subtitle': 'ദിവസം അനുസരിച്ച് തരംതിരിച്ച തലമുറ ഇവന്റുകൾ',
+  'planUpdated.confirmed': 'നിങ്ങളുടെ {{planKey}} പ്ലാൻ സജീവമാണ്, ക്രെഡിറ്റുകൾ ചേർത്തിട്ടുണ്ട്.',
+  'planUpdated.error':
+    'നിങ്ങളുടെ അപ്ഗ്രേഡ് സ്വയമേവ സ്ഥിരീകരിക്കാനായില്ല. സപ്പോർട്ടിനെ ബന്ധപ്പെടുക.',
+  'planUpdated.retry': 'വീണ്ടും ശ്രമിക്കുക',
+  'planUpdated.unpaid':
+    'നിങ്ങളുടെ ചെക്ക്ഔട്ട് സെഷൻ പണമടച്ചിട്ടില്ല. സെറ്റിംഗ്സിൽ നിന്ന് വീണ്ടും ശ്രമിക്കുക.',
+  'planUpdated.verifyFailed': 'നിങ്ങളുടെ പേയ്‌മെന്റ് ഞങ്ങൾക്ക് ഇതുവരെ സ്ഥിരീകരിക്കാൻ കഴിഞ്ഞില്ല.',
+  'planUpdated.verifyFailedBody':
+    'നിങ്ങളുടെ പേയ്‌മെന്റ് ഇപ്പോഴും പ്രോസസ്സ് ചെയ്തുകൊണ്ടിരിക്കുകയായിരിക്കാം. അൽപ്പസമയത്തിനുള്ളിൽ വീണ്ടും ശ്രമിക്കുക.',
   'planUpdated.verifying': 'നിങ്ങളുടെ പേയ്‌മെന്റ് സ്ഥിരീകരിക്കുന്നു…',
   'pricing.limits.gallery': '{{count}} ഗാലറി',
+  'pricing.limits.generations': '{{count}} ജനറേഷനുകൾ',
   'privacy.collect.body':
     'നിങ്ങൾ സൈൻ അപ്പ് ചെയ്യുമ്പോൾ നിങ്ങളുടെ പേര്, ഇമെയിൽ വിലാസം, ഒരു ഹാഷ് ചെയ്ത പാസ്‌വേഡ് എന്നിവ ഞങ്ങൾ ശേഖരിക്കും. നിങ്ങൾ Reverie ഉപയോഗിക്കുമ്പോൾ, നിങ്ങൾ സമർപ്പിക്കുന്ന പ്രോംപ്റ്റുകൾ, ഞങ്ങൾ നിങ്ങൾക്കായി സൃഷ്ടിക്കുന്ന ചിത്രങ്ങൾ, നിങ്ങൾ സംരക്ഷിക്കുന്ന സ്റ്റൈലുകളും ശേഖരങ്ങളും, ഉപയോഗിച്ച മോഡൽ, ജനറേഷൻ ടൈംസ്റ്റാമ്പുകൾ, ക്രെഡിറ്റ് ബാലൻസ് തുടങ്ങിയ മെറ്റാഡാറ്റ എന്നിവ ഞങ്ങൾ സംഭരിക്കുന്നു.',
   'privacy.cookies.body':
@@ -154,6 +181,7 @@ export const ui: UiTranslations = {
   'profile.followedBio': 'ഇപ്പോൾ ഒരു സ്രഷ്ടാവിനെ പിന്തുടർന്നു.',
   'profile.following': 'പിന്തുടരുന്നു...',
   'profile.loadingWorks': 'പൊതുമരാമത്ത് ലോഡ് ചെയ്യുന്നു...',
+  'profile.noPublicWorks': 'ഇതുവരെ പൊതു സൃഷ്ടികളില്ല — ഈ ഗാലറി നിറയ്ക്കാൻ ഒരു ചിത്രം പങ്കിടുക.',
   'profile.notFoundTitle': 'പ്രൊഫൈൽ ലഭ്യമല്ല',
   'profile.publicWorks': 'പൊതുമരാമത്ത്',
   'profile.subtitle': '@ {{handle}} · പബ്ലിക് സ്രഷ്ടാവിന്റെ പ്രൊഫൈൽ',
@@ -166,6 +194,7 @@ export const ui: UiTranslations = {
   'prompts.empty.cta': 'സ്റ്റുഡിയോ തുറക്കുക',
   'prompts.empty.title': 'സംരക്ഷിച്ച പ്രോംപ്റ്റുകളൊന്നും പൊരുത്തപ്പെടുന്നില്ല.',
   'prompts.lastUsed': 'ഉപയോഗിച്ചു {{when}}',
+  'prompts.loading': 'നിർദ്ദേശങ്ങൾ ലോഡ് ചെയ്യുന്നു...',
   'prompts.negativeLabel': 'നെഗ്',
   'prompts.runAgain': 'ഓടുക',
   'prompts.running': 'ഓടുന്നു...',
@@ -181,6 +210,7 @@ export const ui: UiTranslations = {
   'settings.account.saveFailed': 'പ്രൊഫൈൽ സംരക്ഷിക്കാൻ കഴിഞ്ഞില്ല',
   'settings.account.title': 'സ്രഷ്ടാവിന്റെ പ്രൊഫൈൽ',
   'settings.accountSecurity': 'അക്കൗണ്ടും സുരക്ഷയും',
+  'settings.accountSecurity.title': 'സൈൻ-ഇൻ, ഉപകരണങ്ങൾ & അക്കൗണ്ട്',
   'settings.api.empty':
     'ഇതുവരെ API കീകളൊന്നുമില്ല — സംയോജിപ്പിക്കാൻ ആരംഭിക്കുന്നതിന് ഒന്ന് സൃഷ്ടിക്കുക.',
   'settings.api.loading': 'API കീകൾ ലോഡ് ചെയ്യുന്നു...',
@@ -200,13 +230,17 @@ export const ui: UiTranslations = {
   'sidebar.secondary': 'ദ്വിതീയ നാവിഗേഷൻ',
   'signup.failed': 'സൈൻ അപ്പ് പരാജയപ്പെട്ടു. വീണ്ടും ശ്രമിക്കുക.',
   'signup.firstNamePlaceholder': 'ആര്യ',
+  'signup.haveAccount': 'ഇതിനകം ഒരു ഡ്രീമറാണോ?',
   'signup.heading': 'നിങ്ങളുടെ ധ്യാനം ആരംഭിക്കൂ',
   'signup.lastNamePlaceholder': 'ലിൻ',
   'signup.subheading': 'ഒരു അക്കൗണ്ട് സൃഷ്ടിച്ച് 120 സൗജന്യ ക്രെഡിറ്റുകൾ ക്ലെയിം ചെയ്യുക.',
+  'styles.body':
+    'ഓരോ പ്രീസെറ്റും അതിന്റേതായ മോഡൽ, സാംപ്ലർ, പ്രോംപ്റ്റ് സ്കാഫോൾഡിംഗ്, സ്റ്റൈൽ ചിപ്പുകൾ എന്നിവ ഒരുമിച്ച് നൽകുന്നു. ഒന്ന് ആക്ടിവേറ്റ് ചെയ്താൽ മുഴുവൻ സ്റ്റുഡിയോയും ആ മൂഡിലേക്ക് ലോക്ക് ചെയ്യും — സീരീസ് ജോലികൾക്ക് അനുയോജ്യം.',
   'styles.empty': 'ഇതുവരെ സ്റ്റൈൽ പ്രീസെറ്റുകളൊന്നുമില്ല — ആദ്യ സൈൻ-ഇന്നിനുശേഷം അവ ദൃശ്യമാകും.',
   'styles.eyebrow': 'ക്യുറേറ്റ് ചെയ്‌തത്',
   'styles.headline':
     'വീണ്ടും ഉപയോഗിക്കാവുന്ന വിഷ്വൽ പ്രീസെറ്റുകൾ ഉപയോഗിച്ച് വേഗത്തിൽ സങ്കൽപ്പിക്കുക',
+  'styles.loading': 'സ്റ്റൈൽ ലൈബ്രറി ലോഡ് ചെയ്യുന്നു…',
   'styles.subtitle': 'റെവറി സ്റ്റുഡിയോ ടീം തയ്യാറാക്കിയ ക്യൂറേറ്റഡ് വിഷ്വൽ പ്രീസെറ്റുകൾ',
   'styles.title': 'സ്റ്റൈൽ ലൈബ്രറി',
   'terms.acceptableUse.body':

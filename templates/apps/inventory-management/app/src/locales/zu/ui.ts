@@ -1,11 +1,21 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Unombuzo mayelana nokufuduka kwekhathalogi yakho, uthole ibhagi, noma ufuna ukuhamba nge-{{appName}}? Xhumana nathi kusuka kuzilungiselelo ze-akhawunti yakho — yonke imilayezo ifinyelela kumuntu wangempela eqenjini.',
   'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': 'Mayelana',
+  'about.intro':
+    'I-{{appName}} iletha yonke i-SKU, yonke indawo yokugcina, kanye nakho konke ukunyakaza kukhonkolo eyodwa. Yakhelwe abaholi bezokusebenza kanye namathimba ezindawo zokugcina, ithatha indawo yokwanda kwamaspredishithi nezinhlelo ezingaxhumene ezilahlekelwa amayunithi phakathi kokwamukela nokuthunyelwa, yenze umthombo wobuqiniso owodwa olungele ukucwaningwa.',
+  'about.missionBody':
+    'Ukuphathwa kwezokusebenza kuncike ezintweni eziyisicefe: izibalo, ukunyakaza, nezexwayiso. Senza lezi zinto eziyisicefe zisheshe, zibonakale, futhi zingakwazi ukwenziwa inkohliso — ukuze inombolo esesikrinini ibe yinombolo eseshalofini, futhi ithimba lakho likwazi ukuyithemba ngokwanele ukuthi lenze ngaphandle kokuphinda libale.',
+  'about.missionTitle': 'Umsebenzi wethu',
+  'about.subtitle': 'Ukuphathwa kwempahla kwabasebenzi ababala yonke iyunithi.',
+  'about.whatYouGetTitle': 'Lokho okutholayo',
   'auth.legalConsent': 'Ngokuqhubeka, uyavuma',
   'authShell.brandSubtitle': 'Ukulawulwa Kwempahla',
   'authShell.eyebrow': 'Siyakwamukela eLocus',
+  'authShell.footer': '{{appName}} · Ikhonsoli yezokusebenza',
   'authShell.pitch':
     'Umbono oqondile, osezingeni lomqhubi we-SKU ngayinye, yonke indawo yokugcina impahla, kanye nokunyakaza ngakunye — okwakhelwe amaqembu abala okubalulekile.',
   'authShell.sampleCaption': 'amayunithi · Ama-SKU angu-1,284 · Izindawo zokugcina impahla eziyi-6',
@@ -21,6 +31,8 @@ export const ui: UiTranslations = {
     'I-SKU ngayinye ingaphezulu kwephuzu layo lokuhlela kabusha. Umsebenzi omuhle.',
   'dashboard.alerts.eyebrow': 'Hlela kabusha umugqa',
   'dashboard.alerts.title': 'Izexwayiso zesitoko esiphansi',
+  'dashboard.errorFallback':
+    'Idatha ebukhoma ayitholakali okwesikhashana — kuboniswa isithombe sakamuva.',
   'dashboard.eyebrow': 'Igumbi lokulawula ukusebenza',
   'dashboard.heroPeriod': 'Amaviki angu-12 edlule',
   'dashboard.kpis.lowStock': 'Ama-SKU ashibhile',
@@ -37,13 +49,18 @@ export const ui: UiTranslations = {
   'dashboard.movements.viewAll': 'Vula ileja',
   'dashboard.subtitle': 'Ngaphesheya {{warehouses}} izimpahla zokugcina impahla · ileja ebukhoma',
   'dashboard.title': 'Namuhla kulo lonke imikhumbi',
+  'forgotPassword.subheading':
+    'Faka i-imeyili exhunywe ku-akhawunti yakho ye-{{appName}} futhi sizokuthumelela isixhumanisi sokuqalisa kabusha.',
   'forgotPassword.subheadingSent':
     'Hlola ibhokisi lakho lokungenayo ukuze uthole isixhumanisi sokusetha kabusha kanye.',
+  'forgotPassword.successBody':
+    'Chofoza isixhumanisi esikuyi-imeyili ukuze usethe iphasiwedi entsha. Isixhumanisi siphelelwa yisikhathi ngemva kwemizuzu engama-30.',
   'forgotPassword.successHeadline': 'Setha kabusha isixhumanisi endleleni eya ku- {{email}}',
   'inventory.actions.add': 'Engeza i-SKU',
   'inventory.add.cost': 'Intengo yezindleko ($)',
   'inventory.add.description':
     'Dala umkhiqizo. Lungisa isitoko bese wabela izindawo zokugcina impahla kamuva.',
+  'inventory.add.name': 'Igama lomkhiqizo',
   'inventory.add.sell': 'Intengo yokuthengisa ($)',
   'inventory.add.sku': 'Ikhodi ye-SKU',
   'inventory.add.submit': 'Dala i-SKU',
@@ -52,6 +69,7 @@ export const ui: UiTranslations = {
   'inventory.col.cost': 'Izindleko zeyunithi',
   'inventory.col.qty': 'Kusezandleni',
   'inventory.col.sku': 'I-SKU',
+  'inventory.empty': 'Awekho ama-SKU ahambisana nalezi zihlungi okwamanje.',
   'inventory.emptyState':
     'Awekho ama-SKU okwamanje. Chofoza okuthi "Engeza i-SKU" ukuze udale umkhiqizo wakho wokuqala.',
   'inventory.eyebrow': 'Incwadi ebukhoma',
@@ -61,6 +79,7 @@ export const ui: UiTranslations = {
   'inventory.filters.lowStatus': 'Kuphansi / Kuphumile kuphela',
   'inventory.loading': 'Ilayisha isitokwe…',
   'inventory.pageStatus': '{{from}} – {{to}} of {{total}}',
+  'inventory.searchAria': 'Sesha isitokwe',
   'inventory.searchPlaceholder': 'Sesha ngegama, i-SKU, noma isigaba',
   'inventory.subtitle': '{{count}} Ama-SKU afana nezihlungi zakho',
   'inventory.threshold': 'oda kabusha @ {{qty}}',
@@ -68,12 +87,15 @@ export const ui: UiTranslations = {
   'inventoryHeroCard.changeWithPeriod': '{{change}} · {{period}}',
   'inventoryHeroCard.eyebrow': 'Isamba esikhona',
   'inventoryHeroCard.subtitle': 'Ngaphesheya {{count}} ama-SKU asebenzayo',
+  'inventoryHeroCard.units': 'amayunithi kuzo zonke izindawo zokugcina',
   'inventoryManagementLayout.brandSubtitle': 'Ukulawulwa Kwempahla',
   'inventoryManagementLayout.defaultUser': 'Imisebenzi',
   'inventoryManagementLayout.menu': 'Imenyu',
+  'inventoryManagementLayout.mobileNavLabel': 'Ukuzulazula kweselula',
   'inventoryManagementLayout.notificationsAria': 'Vula izaziso',
   'inventoryManagementLayout.role': 'Umholi Wezokusebenza',
   'inventoryManagementLayout.searchAria': 'Sesha ama-SKU, imikhiqizo, izindawo zokugcina impahla',
+  'inventoryManagementLayout.searchPlaceholder': 'Sesha ama-SKU, imikhiqizo, izindawo zokugcina…',
   'landing.cta.body':
     'Faka ama-warehouse akho, ungenise ama-SKU, bese ithimba lakho lisebenzisa izibalo zemijikelezo eqhutshwa ukuskena zingakapheli usuku.',
   'landing.cta.primary': 'Qala isivivinyo samahhala',
@@ -82,6 +104,7 @@ export const ui: UiTranslations = {
   'landing.eyebrow': 'Isitoko · Imisebenzi · Iqiniso',
   'landing.features.body':
     'Imisebenzi isebenza ezintweni eziyisicefe: ukubala, ukunyakaza, izexwayiso. I-Locus yenza izinto eziyisicefe zisheshe, zibonakale, futhi kungenzeki ukuzenza sengathi zenziwe mbumbulu.',
+  'landing.features.eyebrow': 'Yakhelwe abasebenzi',
   'landing.features.title': 'Imigqa emithathu yeqiniso lempahla.',
   'landing.footer.copy': '© {{year}} Indawo · Isitokwe silawulwa.',
   'landing.heroCard.period': 'Amaviki angu-12 edlule',
@@ -99,7 +122,9 @@ export const ui: UiTranslations = {
   'landing.proof.line3': 'Phila ngaphansi kosuku olulodwa',
   'landing.proof.title': 'Abasebenzi bayathemba izinombolo ngoba bathumela nsuku zonke.',
   'login.heading': 'Ngena ngemvume ku-Locus',
+  'login.noAccount': 'Awunayo i-akhawunti ye-{{appName}}?',
   'login.subheading': 'Phatha yonke i-SKU kanye ne-warehouse kukhonsoli eyodwa.',
+  'lowStockAlertCard.action': 'Oda kabusha',
   'lowStockAlertCard.actionAria': 'Oda kabusha {{name}}',
   'lowStockAlertCard.lowStock': 'Kuphela {{quantity}} kwe {{threshold}} amayunithi asele',
   'lowStockAlertCard.outOfStock': 'Kuphelile',
@@ -108,7 +133,9 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '404 · Ngaphandle kwemephu ephansi',
   'notFound.search': 'Sesha isitokwe',
   'notFound.title': 'Leyo bhini ayikho.',
+  'notifications.acknowledge': 'Vuma',
   'notifications.alerts.empty': 'Azikho izexwayiso ezisebenzayo ezishibhile.',
+  'notifications.alerts.eyebrow': 'Hlela kabusha umugqa',
   'notifications.alerts.title': 'Izexwayiso zesitoko esiphansi',
   'notifications.movement.empty': 'Akukho ukunyakaza kwesitoko okwamanje.',
   'notifications.movement.eyebrow': 'Izibuyekezo ze-Ledger',
@@ -116,6 +143,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     'Izexwayiso zesitoko esiphansi, ukunyakaza kwe-ledger, kanye nemicimbi yesistimu konke endaweni eyodwa.',
   'notifications.system.empty': 'Azikho izehlakalo zesistimu.',
+  'notifications.system.eyebrow': 'Uhlelo',
   'notifications.system.title': 'Imicimbi yekhonsoli',
   'notifications.tabs.${option}': 'Hlela kabusha umugqa',
   'orderDetail.back': 'Wonke ama-oda',
@@ -139,11 +167,13 @@ export const ui: UiTranslations = {
   'orderDetail.shipping.title': 'Imininingwane ye-oda',
   'orderDetail.timeline.created': 'I-oda lidaliwe',
   'orderDetail.timeline.eyebrow': 'Umzila wokuhlola',
+  'orderDetail.timeline.pending': 'Awekho amanye amacimbi okwamanje.',
   'orderDetail.timeline.received': 'Kumakwe ukuthi kutholiwe',
   'orderDetail.timeline.shipped': 'Kumakwe njengokuthunyelwe',
   'orderDetail.timeline.title': 'Oda imicimbi',
   'orders.col.eta': 'I-ETA',
   'orders.col.partner': 'Uzakwethu',
+  'orders.col.reference': 'Ireferensi',
   'orders.col.units': 'Amayunithi',
   'orders.col.value': 'Inani',
   'orders.col.warehouse': 'Indlu yokugcina impahla',
@@ -169,15 +199,30 @@ export const ui: UiTranslations = {
   'orders.kpis.openOutbound': 'Ivulekile ephumayo',
   'orders.kpis.shippedToday': 'Kuvaliwe (kwamukelwe/kwathunyelwa)',
   'orders.loading': 'Ilayisha ama-oda…',
+  'orders.row.po': 'I-oda lokuthenga',
   'orders.row.so': 'I-oda lokuthengisa',
   'orders.subtitle': 'Ama-PO angenayo kanye nama-SO aphumayo kunethiwekhi yonke.',
   'orders.title': 'Ama-oda',
+  'planUpdated.body':
+    'Ushintsho lwakho lokukhokha lusebenza manje. Ungaphatha uhlelo lwakho noma nini kusuka ekhasini lokukhokha.',
   'planUpdated.pageTitle': 'Uhlelo lubuyekeziwe',
+  'planUpdated.retry': 'Zama futhi',
+  'planUpdated.verifyFailed': 'Asikwazanga ukuqinisekisa inkokhelo yakho okwamanje.',
+  'planUpdated.verifyFailedBody':
+    'Inkokhelo yakho ingase isacutshungulwa. Zama futhi ngemva kwesikhashana.',
   'planUpdated.verifying': 'Iqinisekisa inkokhelo yakho…',
+  'pricing.advancedFeatures': 'Izici ezithuthukile: {{value}}',
+  'pricing.alerts': 'Izexwayiso ezingu-{{count}}',
+  'pricing.dataExport': 'Ukuthunyelwa kwedatha: {{value}}',
+  'pricing.products': '{{count}} imikhiqizo',
+  'pricing.stock': 'Amarekhodi esitoko angu-{{count}}',
+  'pricing.transfers': '{{count}} ukudlulisa',
+  'pricing.warehouses': 'Izindawo zokugcina ezingu-{{count}}',
   'productDetail.back': 'Buyela esitokweni',
   'productDetail.barcode': 'Ikhodi yebha',
   'productDetail.cost': 'Izindleko',
   'productDetail.eyebrow': 'Iphrofayela yomkhiqizo',
+  'productDetail.history.empty': 'Awekho ukunyakaza okurekhodiwe okwamanje.',
   'productDetail.history.eyebrow': 'Umlando wokunyakaza',
   'productDetail.kpis.locations': 'Izindawo',
   'productDetail.kpis.onHand': 'Kusezandleni',
@@ -202,6 +247,8 @@ export const ui: UiTranslations = {
   'profile.kpis.actionsHint': 'Izinsuku ezingu-30 ezedlule',
   'profile.kpis.cycle': 'Ukubalwa kwemijikelezo okuphethwe',
   'profile.kpis.transfers': 'Ukudluliselwa kwezimali kuphethwe',
+  'profile.security.active': 'esebenzayo',
+  'profile.security.thisSessionHint': 'Ungene ngemvume kule divayisi',
   'profile.security.thisSessionLabel': 'Lesi siphequluli · {{email}}',
   'profile.security.title': 'Ukungena ngemvume namadivayisi',
   'reports.aging.eyebrow': 'Ukuguga',
@@ -222,8 +269,13 @@ export const ui: UiTranslations = {
   'reports.topValue.title': 'Ama-SKU aphezulu ngenani lempahla',
   'reports.turnover.eyebrow': 'Umkhuba wokuguquka',
   'reports.turnover.title': 'Ukushintsha kwempahla',
+  'resetPassword.changedMind': 'Ushintshile umqondo?',
+  'resetPassword.missingToken':
+    'Vula isixhumanisi sokuqalisa kabusha esivela kuyi-imeyili yakho ukuze uqhubeke.',
   'resetPassword.newPassword': 'Iphasiwedi Entsha',
   'resetPassword.signInNow': 'Ngena ngemvume manje',
+  'resetPassword.subheading':
+    'Khetha into okhumbulekayo kodwa eyingqayizivele. Sizokungena ngemvume uma isisethiwe.',
   'resetPassword.subheadingDone':
     'Iphasiwedi ibuyekeziwe. Ikubuyisela emuva ukuze ungene ngemvume…',
   'resetPassword.submitting': 'Ibuyekeza iphasiwedi…',
@@ -236,8 +288,11 @@ export const ui: UiTranslations = {
   'settings.billing.warehouseLimit': 'Umkhawulo we-Warehouse',
   'settings.integrations.description':
     'Iziteshi, ama-ERP, ama-accounting, kanye nabahlinzeki bokuthumela.',
+  'settings.integrations.saving': 'Ilondoloza...',
   'settings.integrations.status.${status}': 'Ilondoloza...',
   'settings.locations.add': 'Phatha izindawo zokugcina impahla',
+  'settings.locations.body':
+    'Vula ikhonsoli yezindawo zokugcina ukuze wengeze indawo, uhlele umthamo wayo, noma ususe indawo endala. Izinguquko lapho zisakazeka kulo lonke ileja.',
   'settings.locations.description':
     'Phina amakheli okuthumela, izindawo zesikhathi, kanye nokulungiselelwa kwendawo okuzenzakalelayo ngesayithi ngalinye.',
   'settings.locations.title': 'Izindawo zokugcina impahla',
@@ -259,6 +314,7 @@ export const ui: UiTranslations = {
   'stockTransfer.col.sku': 'I-SKU',
   'stockTransfer.commit': 'Ukudluliselwa kwesibopho',
   'stockTransfer.committed': 'Ukudluliselwa kudaliwe — maka kuqediwe ukuhambisa isitoko.',
+  'stockTransfer.complete': 'Kuqediwe',
   'stockTransfer.confirmation':
     'Ukunyakaza kudlula ngokwe-athomu lapho ukudluliselwa kumakwe njengokuqediwe.',
   'stockTransfer.destination': 'Indlu yokugcina impahla oya kuyo',
@@ -273,7 +329,12 @@ export const ui: UiTranslations = {
   'stockTransfer.list.noNotes': 'Awekho amanothi',
   'stockTransfer.list.title': 'Ukudluliselwa kwakamuva',
   'stockTransfer.list.viewMovements': 'Buka ukunyakaza',
+  'stockTransfer.needWarehouses.body':
+    'Dala kuqala izindawo zokugcina zomthombo nezindawo okuyiwa kuzo, bese ubuya lapha ukuskena imanifesti.',
   'stockTransfer.needWarehouses.title': 'Udinga okungenani izindawo zokugcina impahla ezimbili',
+  'stockTransfer.notesPlaceholder':
+    'Amanothi angakhethekile — isb. "Ukulinganisa kabusha kwamasonto onke kwe-cross-dock"',
+  'stockTransfer.openWarehouses': 'Vula izindawo zokugcina',
   'stockTransfer.sameWarehouse':
     'Izindawo zokugcina impahla ezivela kuzo kanye nezindawo zokugcina impahla kumele zihluke.',
   'stockTransfer.scanPlaceholder': 'Skena i-SKU noma ibhakhodi bese ucindezela u-Enter',
@@ -286,10 +347,11 @@ export const ui: UiTranslations = {
   'warehouseDetail.back': 'Zonke izindawo zokugcina impahla',
   'warehouseDetail.inventory': 'Hlela ama-SKU',
   'warehouseDetail.kpis.noCapacity': '—',
+  'warehouseDetail.kpis.noCapHint': 'Akukho mthamo osethiwe',
   'warehouseDetail.kpis.skus': 'Ama-SKU asebenzayo',
   'warehouseDetail.kpis.units': 'Amayunithi aphelele',
   'warehouseDetail.kpis.utilization': 'Ukusetshenziswa',
-  'warehouseDetail.kpis.utilizationHint': '{{kusetshenzisiwe}} / {{cap}} amayunithi',
+  'warehouseDetail.kpis.utilizationHint': '{{used}} / {{cap}} amayunithi',
   'warehouseDetail.loading': 'Ilayisha i-warehouse…',
   'warehouseDetail.notFound': 'Indawo yokugcina impahla ayitholakalanga.',
   'warehouseDetail.skus.empty':
@@ -302,9 +364,11 @@ export const ui: UiTranslations = {
   'warehouses.add': 'Engeza i-warehouse',
   'warehouses.add.capacity': 'Umthamo (amayunithi)',
   'warehouses.add.capacityHint': 'Ongakukhetha — okusetshenziselwa amashadi okusetshenziswa.',
+  'warehouses.add.city': 'Idolobha',
   'warehouses.add.code': 'Ikhodi (ehlukile)',
   'warehouses.add.codeHint': 'Isihlonzi esifushane — isib. i-RENO-1, i-MEM-DC',
   'warehouses.add.contactEmail': 'I-imeyili yokuxhumana',
+  'warehouses.add.contactName': 'Igama longaxhumana naye',
   'warehouses.add.country': 'Izwe',
   'warehouses.add.description':
     'Bhalisa isayithi ukuze ukwazi ukuhambisa imali etholiwe, edluliselwe, kanye nesitokwe.',
@@ -314,6 +378,8 @@ export const ui: UiTranslations = {
   'warehouses.emptyBody': 'Engeza isayithi lakho lokuqala ukuze uqale ukulandelela isitoko.',
   'warehouses.emptyTitle': 'Azikho izindawo zokugcina impahla okwamanje',
   'warehouses.loading': 'Ilayisha inethiwekhi yesitolo…',
+  'warehouses.noCapacity': '{{used}} amayunithi akhona · umthamo awusethiwe',
+  'warehouses.skus': 'Ama-SKU',
   'warehouses.subtitle': '{{count}} amasayithi · umthamo, abasebenzi, kanye nokumbozwa kwe-SKU',
   'warehouses.title': 'Izindawo zokugcina impahla',
   'warehouses.utilization': 'Ukusetshenziswa',

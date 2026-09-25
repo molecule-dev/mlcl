@@ -1,27 +1,42 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Jamoangiz uchun iliqroq onboarding joriy qilmoqchimisiz, xatolik topdingizmi yoki fikringiz bormi? Hisob sozlamalaridan murojaat qiling — har bir xabar yordam bera oladigan haqiqiy insonga yetib boradi.',
   'about.contactTitle': "Biz bilan bog'laning",
   'about.eyebrow': 'Haqida',
+  'about.missionTitle': 'Bizning vazifamiz',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'Parolingizni qayta tiklang.',
+  'auth.forgotPassword.panel.body':
+    'Tiklash 30 soniya oladi — nazorat ro‘yxati jarayoningiz sizni kutmoqda.',
+  'auth.forgotPassword.panel.headline': 'Qolgan joyingizdan davom eting.',
+  'auth.forgotPassword.subheading':
+    'Ish elektron pochtangizni kiriting va biz sizga tiklash havolasini yuboramiz.',
   'auth.forgotPassword.successSubheading':
     "Elektron pochtangizni tekshiring — biz sozlamalarni tiklash bo'yicha ko'rsatmalar yubordik.",
   'auth.login.emailPlaceholder': 'name@yourcompany.com',
   'auth.login.heading': 'Qaytib kelganingizdan xursandmiz.',
   'auth.login.passwordPlaceholder': 'Parolingiz',
+  'auth.login.signupPrompt': 'Jamoangizda yangimisiz?',
   'auth.login.subheading':
     "Tashrif buyurish safaringizni to'xtatgan joyingizdan davom ettirish uchun tizimga kiring.",
   'auth.login.submit': 'Sayohatingizni davom ettiring',
+  'auth.panel.body':
+    'Shaxsiy nazorat ro‘yxatingiz, o‘quv bosqichlari va jamoa bilan tanishuvlar — barchasi bitta xotirjam joyda.',
   'auth.panel.footnote': "© Embark — bugundan boshlab odamlarni birinchi o'ringa qo'yish.",
   'auth.panel.headline': 'Ishonchli dastlabki 90 kun shu yerdan boshlanadi.',
   'auth.resetPassword.heading': "Yangi parol o'rnating.",
   'auth.resetPassword.newPasswordLabel': 'Yangi parol',
+  'auth.resetPassword.panel.body':
+    'Yangi parol saqlang va biz sizni to‘g‘ridan-to‘g‘ri onboarding sayohatingizga qaytaramiz.',
+  'auth.resetPassword.panel.headline': 'Deyarli qaytdingiz.',
   'auth.resetPassword.subheading': 'Eslab qoladigan narsani tanlang — kamida 8 ta belgi.',
   'auth.signup.emailPlaceholder': 'name@yourcompany.com',
   'auth.signup.heading': 'Dastlabki 90 kuningizga xush kelibsiz.',
   'auth.signup.panel.body':
     "Yo'naltirilgan nazorat ro'yxati, rollarni tushunish bo'yicha trening va odamlar bilan tanishtirish — kirishdan oldin tayyor.",
+  'auth.signup.panel.headline': 'Birinchi kun, birinchi kunda.',
   'auth.signup.subheading':
     "Yo'naltirilgan onboarding safaringizni boshlash uchun Embark hisobingizni yarating.",
   'checklist.empty.body': "Boshqa vazifalarni ko'rish uchun filtrni almashtiring.",
@@ -29,6 +44,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': "Ishga qabul qilish · Tekshirish ro'yxati",
   'checklist.loading': "Tekshirish ro'yxati yuklanmoqda…",
   'checklist.stat.actionNeeded': 'Harakat kerak',
+  'checklist.stat.completion': 'Yakunlash',
+  'checklist.stat.inProgress': 'Jarayonda',
   'checklist.stat.inProgressHelper': "To'xtagan joyingizdan davom eting",
   'checklist.stat.overdueHelper': 'Avval shularni ushlang',
   'checklist.subtitle':
@@ -60,6 +77,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': "Hali hech qanday hujjat yo'q",
   'documents.eyebrow': 'Ishga qabul qilish · Hujjatlar',
   'documents.loading': 'Hujjatlar yuklanmoqda…',
+  'documents.stat.actionNeeded': 'Hozir imzolang',
+  'documents.stat.all': 'Barcha hujjatlar',
   'documents.stat.allHelper': "Kategoriyalar bo'yicha",
   'documents.stat.pending': 'Kutilayotgan imzolar',
   'documents.stat.pendingHelper': 'Yakunlash uchun talab qilinadi',
@@ -67,16 +86,21 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'Xavfsiz saqlangan',
   'documents.status.optional': 'Ixtiyoriy',
   'documents.status.required': 'Majburiy',
+  'documents.status.signed': 'Imzolangan',
   'documents.subtitle': "Qo'llanma, shakllar va imzolangan shartnomalar — barchasi bir joyda.",
   'documents.title': "O'qish va imzolash uchun kerak bo'lgan hamma narsa.",
   'documents.uploadedRecently': 'Yaqinda yuklangan',
   'documentViewer.breadcrumbCurrent': 'Tomoshabin',
   'documentViewer.breadcrumbDocs': 'Hujjatlar',
   'documentViewer.downloadMeta': 'Metamalarni yuklab olish',
+  'documentViewer.helpBody':
+    'People & Culture qo‘llanma savollariga Slack’dagi #ask-people kanalida javob beradi.',
   'documentViewer.helpEyebrow': 'Yordam kerakmi?',
   'documentViewer.loadError': 'Ushbu hujjatni yuklay olmadik.',
   'documentViewer.loading': 'Hujjat yuklanmoqda…',
   'documentViewer.notFound': 'Hujjat topilmadi',
+  'documentViewer.previewBody':
+    'Yuklashlar sozlanganda faylni ichida ko‘rsatamiz. Hozircha metama’lumotlarni yuklab olish yozuv haqiqiyligini tasdiqlash imkonini beradi.',
   'documentViewer.previewBodyExternal':
     'Faylni yangi yorliqda ochish uchun yuklab olish tugmasini bosing.',
   'documentViewer.previewTitle': "Hujjatni oldindan ko'rish",
@@ -84,6 +108,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     "Hujjatni o'qing, so'ngra imzolash va tasdiqlash uchun quyidagi tugmani bosing.",
   'documentViewer.signatureHeading': 'Imzo talab qilinadi',
+  'documentViewer.signed': '✓ Imzolangan va topshirilgan',
   'documentViewer.signing': 'Imzolanmoqda…',
   'documentViewer.uploadedRecently': 'Yaqinda yuklangan',
   'landing.closing.body':
@@ -93,10 +118,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'Menda allaqachon hisob bor',
   'landing.feature1.body':
     "Har bir vazifa — hujjatlar, hisoblar, kirish so'zlari — oldindan belgilangan muddatlar va to'g'ri egasi bilan birga tayyorlanadi.",
+  'landing.feature1.title': 'Yo‘naltiruvchi nazorat ro‘yxati',
   'landing.feature2.body':
     "Modullar 30/60/90 bosqichlarida ochiladi, yollangan xodim qo'shilayotgan rol va jamoaga moslashtiriladi.",
+  'landing.feature2.title': 'Lavozimga mos o‘quv',
   'landing.feature3.body':
     "Do'stlar, menejerlar va turli funktsiyalarga oid tanishtiruvlar rejalashtirilgan — shuning uchun hech kim yolg'iz boshlamaydi.",
+  'landing.feature3.title': 'Haqiqiy tanishuvlar',
   'landing.featureEyebrow': 'Nima uchun kemaga chiqish kerak',
   'landing.featureHeadline': 'Embark birinchi kuni ishonchni qozonishning uchta usuli.',
   'landing.footer.rights': 'Barcha huquqlar himoyalangan.',
@@ -106,6 +134,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     "Keyingisi: Do'stingiz bilan 30 daqiqalik kofe suhbati uchun uchrashing — seshanba kuni soat 10:00.",
   'landing.preview.eyebrow': '90 kundan 14-kun — namunaviy boshqaruv paneli',
+  'landing.preview.headline': 'Xush kelibsiz, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR tayyor',
   'landing.proof.teams': "50–5000 kishilik jamoalar uchun mo'ljallangan",
   'landing.proof.time': '14 kunlik bepul sinov muddati',
@@ -122,16 +151,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'kecha',
   'planUpdated.message': 'Hammasi tayyor.',
   'planUpdated.preparing': 'Rejangiz yangilanmoqda…',
+  'planUpdated.retry': 'Qayta urinib ko’ring',
+  'planUpdated.verifyFailed': "To'lovingizni hali tasdiqlay olmadik.",
+  'planUpdated.verifyFailedBody':
+    "To'lovingiz hali ham amalga oshirilayotgan bo'lishi mumkin. Birozdan keyin qayta urinib ko'ring.",
   'planUpdated.verifying': "To'lovingiz tasdiqlanmoqda…",
   'pricing.documentsLabel': 'hujjatlar',
   'pricing.onboardingsLabel': 'ishga qabul qilish',
   'pricing.tasksLabel': 'vazifalar',
   'profile.dayNumber': 'Kun',
   'profile.detailsHeading': 'Ishga qabul qilish tafsilotlari',
+  'profile.encouragementBody':
+    'Buddyingiz va menejeringizni xabardor qilib turing — kichik qadamlar to‘planib boradi.',
   'profile.milestones': 'Bosqichlar',
   'profile.progressEyebrow': 'Ishga qabul qilish jarayoni',
   'profile.tasks': 'Vazifalar',
   'profile.unknownName': 'Xush kelibsiz',
+  'settings.appearance.description': "Yorug'lik va qorong'u rejimlar o'rtasida almashinish.",
+  'settings.appearance.title': "Tashqi ko'rinish",
+  'settings.subtitle':
+    'Bildirishnomalar, xavfsizlik, qurilmalar va ma’lumotlarni eksport qilishni sozlang — hammasi shu yerda, o‘z shartlaringizda qoladi.',
   'settings.title': 'Sozlamalar va afzalliklar.',
   'taskDetail.backToChecklist': "Tekshirish ro'yxatiga qaytish",
   'taskDetail.breadcrumbChecklist': "Tekshirish ro'yxati",
@@ -144,7 +183,10 @@ export const ui: UiTranslations = {
   'taskDetail.notFound': 'Vazifa topilmadi',
   'taskDetail.notFoundBody':
     "Bu vazifa o'chirilgan yoki boshqa foydalanuvchiga tegishli bo'lishi mumkin.",
+  'taskDetail.tipBody':
+    'Agar to‘siqqa uchrasangiz, Slack’da onboarding buddyingizga yozing — ular sizning birinchi yordamchingiz.',
   'taskDetail.tipEyebrow': 'Tezkor maslahat',
+  'team.empty.body': 'Kengroq qidiruvni sinab ko‘ring yoki boshqa bo‘limni tanlang.',
   'team.empty.title': "Jamoadoshlar o'rtasidagi moslik yo'q",
   'team.eyebrow': 'Ishga qabul qilish · Odamlar',
   'team.loading': 'Jamoadoshlar yuklanmoqda…',
@@ -167,14 +209,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'Bosqichlar',
   'timeline.stat.current': 'Joriy bosqich',
   'timeline.stat.next': 'Keyingi qulfni ochish',
+  'timeline.stat.progress': 'Umumiy',
   'timeline.subtitle':
     "Har bir bosqich yangi modullar, kirish so'zlari va o'sish bo'yicha suhbatlarni ochadi. Bosim yo'q - shunchaki taraqqiyot.",
+  'timeline.tipBody':
+    'Menejeringiz bilan 30, 60 va 90-kunlarda 30 daqiqalik mulohaza uchrashuvini rejalashtiring — bu fikr-mulohazani aniq va taraqqiyotni ko‘rinadigan qiladi.',
   'timeline.tipEyebrow': 'Menejer maslahati',
+  'timeline.tipTitle': 'Bosqichlar uchun kalendarda vaqt ajrating.',
   'timeline.title': 'Sizning 30/60/90 sayohatingiz.',
   'training.badge.notStarted': 'Boshlanmagan',
   'training.empty': "Hali o'quv modullari yo'q.",
   'training.eyebrow': 'Ishga joylashish · Trening',
   'training.loading': 'Modullar yuklanmoqda…',
+  'training.stat.all': 'Modullar tayinlandi',
   'training.subtitle':
     "Modullar rolingizga mos kelishi uchun 30/60/90 da ochiladi. Keraklilari birinchi o'rinda turadi.",
   'training.title': "Ko'nikmalar, vositalar va hikoyalar — sizning tezligingizda.",
@@ -187,9 +234,12 @@ export const ui: UiTranslations = {
   'trainingModule.quizBody':
     'Ushbu modulni tugallangan deb hisoblash uchun 80% yoki undan yuqori ball oling.',
   'trainingModule.quizHeading': 'Modul oxiridagi viktorina',
+  'trainingModule.quizLocked': 'Avval modulni boshlang',
   'trainingModule.quizNone': "Ushbu modulda viktorina yo'q.",
   'trainingModule.quizRetry': 'Qayta urinib ko’ring',
+  'trainingModule.quizStart': 'Testni boshlash',
   'trainingModule.quizSubmit': 'Javoblarni yuboring',
+  'trainingModule.start': 'Modulni boshlash',
   'trainingModule.statusNotStarted': 'Boshlanmagan',
   'welcomeHeroCard.completeLabel': 'Tugallangan',
   'welcomeHeroCard.milestonesLabel': 'Bosqichlar',

@@ -1,14 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'မေးခွန်းများ၊ အကြံပြုချက်များ သို့မဟုတ် သင့်ခေါ်ယူရေးအဖွဲ့အတွက် လမ်းညွှန်ချင်ပါသလား။ hello@example.com သို့ အီးမေးလ်ပို့ပါ၊ အဖွဲ့မှ လူတစ်ဦးက လုပ်ငန်းရက် နှစ်ရက်အတွင်း ပြန်လည်ဆက်သွယ်ပါမည်။',
   'about.contactHeading': 'ဆက်သွယ်ပါ',
+  'about.intro':
+    '{{app}} သည် ဆူညံသံမဟုတ်ဘဲ အချက်အလက်အစစ်ကို လိုချင်သော ခေါ်ယူရေးဝန်ထမ်းများနှင့် ခေါ်ယူရေးမန်နေဂျာများအတွက် လျှောက်လွှာခြေရာခံစနစ်တစ်ခုဖြစ်သည် — သန့်ရှင်းသော လုပ်ငန်းစဉ်၊ ရှင်းလင်းစွာရှင်းပြသည့် AI စစ်ထုတ်မှုနှင့် ခေါ်ယူရေးခွဲခြမ်းစိတ်ဖြာချက်များ အားလုံးကို တစ်နေရာတည်းတွင် ပေးသည်။',
+  'about.missionBody':
+    'ခေါ်ယူရေးသည် အဖွဲ့တစ်ဖွဲ့၏ အလေးအနက်ဆုံး ဆုံးဖြတ်ချက်များထဲမှ တစ်ခုဖြစ်သော်လည်း အများစုမှာ ကြဲဖြန့်နေသော စာရင်းဇယားများနှင့် အီးမေးလ်စာတွဲများတွင် ရှိနေဆဲဖြစ်သည်။ {{app}} သည် လုပ်ငန်းစဉ်တစ်ခုလုံးကို ဘုတ်တစ်ခုပေါ်သို့ ယူဆောင်လာပြီး ကိုယ်စားလှယ်လောင်းတိုင်းကို ခြေရာခံနိုင်ရန်၊ အင်တာဗျူးတိုင်းကို ဖွဲ့စည်းတည်ဆောက်နိုင်ရန်၊ ဆုံးဖြတ်ချက်တိုင်းကို တရားမျှတ၊ လျင်မြန်ပြီး ရှင်းလင်းစွာ ရှင်းပြနိုင်ရန် ဖန်တီးထားသည်။',
+  'about.missionHeading': 'ကျွန်ုပ်တို့၏ ရည်မှန်းချက်',
   'auth.legalConsent': 'ဆက်လက်လုပ်ဆောင်ခြင်းဖြင့် ကျွန်ုပ်တို့၏ စည်းမျဉ်းများကို သဘောတူပါသည်',
   'billing.cardExp': 'သက်တမ်းကုန်ဆုံးမည် {{exp}}',
+  'billing.cardLinkError': 'ကတ်မွမ်းမံခြင်း လုပ်ငန်းစဉ်ကို စတင်၍မရပါ။',
   'billing.cardLinkSent': 'ကတ်အပ်ဒိတ် လုပ်ငန်းစဉ် စတင်ပါပြီ — သင့်အီးမေးလ်ကို စစ်ဆေးပါ။',
+  'billing.cardLinkUnavailable':
+    'ကတ်မွမ်းမံခြင်းများ မရနိုင်ပါ — ဤဖြန့်ကျက်မှုတွင် ငွေပေးချေမှုဝန်ဆောင်မှုပေးသူ သတ်မှတ်မထားပါ။',
   'billing.cardMissing': 'မှတ်တမ်းတွင် ကတ်မရှိပါ',
   'billing.col.invoice': 'ပြေစာ',
   'billing.downloadUnavailable': '—',
   'billing.editCard': 'ကတ်ကို အပ်ဒိတ်လုပ်ပါ',
+  'billing.eyebrow': 'အစီအစဉ်နှင့် အသုံးပြုမှု',
   'billing.invoiceHeading': 'မကြာသေးမီက ပြေစာများ',
   'billing.invoicesEmpty': 'ငွေတောင်းခံလွှာများ မရှိသေးပါ။',
   'billing.invoicesLoading': 'ငွေတောင်းခံလွှာများ တင်နေသည်…',
@@ -17,12 +28,12 @@ export const ui: UiTranslations = {
   'billing.nextChargeHint': 'ဖွင့်ထားသည် {{date}}',
   'billing.nextChargeLabel': 'နောက်ထပ်ကောက်ခံမှု',
   'billing.planLoading': 'အစီအစဉ်ကို တင်နေသည်…',
-  'billing.planSummary':
-    '{{perSeat}} / ထိုင်ခုံ · {{ထိုင်ခုံများ}} ထိုင်ခုံများ · {{စုစုပေါင်း}} / လ',
+  'billing.planSummary': '{{perSeat}} / ထိုင်ခုံ · ထိုင်ခုံ {{seats}} ခု · {{total}} / လ',
   'billing.seatsAdded': 'ထိုင်ခုံအရေအတွက်ကို အပ်ဒိတ်လုပ်ထားသည်။',
   'billing.seatsError':
     'ဤအစီအစဉ်သည် ထိုင်ခုံတစ်လုံးအတွက်ဖြစ်သည်။ ထိုင်ခုံများစွာအသုံးပြုရန်အတွက် Team သို့ အဆင့်မြှင့်တင်ပါ။',
   'billing.seatsHint': '{{used}} ၏ {{max}} ပါဝင်သည်',
+  'billing.seatsLabel': 'အသုံးပြုနေသော ထိုင်ခုံများ',
   'billing.spentLabel': 'တစ်နှစ်တာအထိ သုံးစွဲခဲ့သော',
   'billing.subheading':
     'စာရင်းသွင်းမှု၊ ထိုင်ခုံများ၊ AI စစ်ဆေးခြင်းအသုံးပြုမှုနှင့် ငွေတောင်းခံလွှာများ။',
@@ -40,6 +51,7 @@ export const ui: UiTranslations = {
   'candidateDetail.advanceError': 'အဆင့်ကို အပ်ဒိတ်လုပ်၍မရပါ။',
   'candidateDetail.advanceFinal': 'နောက်ဆုံးအဆင့်ကို ရောက်နေပါပြီ။',
   'candidateDetail.advanceHeading': 'စင်မြင့်သို့ ရွှေ့ပါ',
+  'candidateDetail.appliedOn': '{{source}} မှတစ်ဆင့် {{date}} တွင် လျှောက်ထားခဲ့သည်။',
   'candidateDetail.back': 'ကိုယ်စားလှယ်လောင်းအားလုံး',
   'candidateDetail.loadError': 'ကိုယ်စားလှယ်လောင်းကို တင်၍မရပါ။',
   'candidateDetail.noInterviews': 'အင်တာဗျူးတွေ မရှိသေးပါဘူး။',
@@ -49,8 +61,14 @@ export const ui: UiTranslations = {
   'candidateDetail.notePlaceholder':
     'တုံ့ပြန်ချက်၊ အင်တာဗျူးအတွေ့အကြုံများ၊ နောက်ထပ်လုပ်ဆောင်ရမည့်အဆင့်များကို မျှဝေပါ...',
   'candidateDetail.noteSave': 'မှတ်စုကို သိမ်းဆည်းပါ',
+  'candidateDetail.panel': 'အဖွဲ့ဝင်: {{panel}}',
+  'candidateDetail.panelScore': 'အဖွဲ့ဝင်အမှတ်: {{score}}/100',
+  'candidateDetail.resumeMissing':
+    'ဤကိုယ်စားလှယ်လောင်းအတွက် ကိုယ်ရေးရာဇဝင်အစမ်းကြည့်ရန် မရနိုင်သေးပါ။',
   'candidateDetail.scheduleError': 'အင်တာဗျူးကို အချိန်ဇယားဆွဲ၍မရပါ။',
+  'candidateDetail.scheduleHeading': 'အင်တာဗျူး စီစဉ်ရန်',
   'candidateDetail.scheduleInterviewer': 'အင်တာဗျူးသူ',
+  'candidateDetail.scheduleInterviewerPlaceholder': 'အင်တာဗျူးသူ အမည်',
   'candidateDetail.scheduleMinutes': 'ကြာချိန် (မိနစ်)',
   'candidateDetail.scheduleMissing': 'အရင်ဆုံး ရက်စွဲနဲ့ အချိန်ကို ရွေးပါ။',
   'candidateDetail.scoreEmpty': 'AI အကဲဖြတ်မှုကို စောင့်ဆိုင်းနေပါသည်။',
@@ -74,6 +92,7 @@ export const ui: UiTranslations = {
   'candidates.loadError': 'ကိုယ်စားလှယ်လောင်းများကို တင်၍မရပါ။',
   'candidates.searchPlaceholder':
     'ကိုယ်စားလှယ်လောင်း၊ အခန်းကဏ္ဍ သို့မဟုတ် အလုပ်\\u2026 ကို ရှာဖွေပါ',
+  'candidates.sourceLabel': 'အရင်းအမြစ်',
   'candidates.sourcePlaceholder': 'အရင်းအမြစ် (LinkedIn၊ ရည်ညွှန်းချက်…)',
   'candidates.subheading':
     'AI အမှတ်ပေးခြင်းနှင့် ရင်းမြစ် attribution ပါရှိသော cross-job candidate database။',
@@ -88,6 +107,7 @@ export const ui: UiTranslations = {
   'dashboard.kpi.interviews': 'ဒီအပတ် အင်တာဗျူးတွေ',
   'dashboard.kpi.openJobs': 'အလုပ်အကိုင်များ လစ်လပ်နေပါသည်',
   'dashboard.loading': 'တင်နေသည်\\u2026',
+  'dashboard.newJobCta': 'အလုပ်တစ်ခုတင်ပါ',
   'dashboard.subheading': 'ပိုက်လိုင်းကျန်းမာရေး၊ အင်တာဗျူးဝန်ထုပ်ဝန်ပိုးနှင့် ကမ်းလှမ်းချက်များ။',
   'dashboard.topEmpty': 'ကိုယ်စားလှယ်လောင်းတွေ မရှိသေးပါဘူး။',
   'dashboard.topEyebrow': 'ထိပ်တန်း AI ပွဲစဉ်များ',
@@ -107,6 +127,7 @@ export const ui: UiTranslations = {
   'jobDetail.back': 'အလုပ်အားလုံး',
   'jobDetail.descriptionEyebrow': 'အခန်းကဏ္ဍဖော်ပြချက်',
   'jobDetail.descriptionMissing': 'ဖော်ပြချက် မပေးရသေးပါ။',
+  'jobDetail.employmentType': 'အလုပ်အကိုင်အမျိုးအစား: {{type}}',
   'jobDetail.empty': 'လျှောက်ထားသူ မရှိသေးပါ။',
   'jobDetail.funnelEyebrow': 'စင်မြင့် ဖန်နယ်',
   'jobDetail.funnelHeading': 'လျှောက်ထားသူများရပ်နေသည့်နေရာ',
@@ -115,6 +136,7 @@ export const ui: UiTranslations = {
   'jobDetail.kpi.hires': 'ငှားရမ်းမှုများ',
   'jobDetail.kpi.inInterview': 'အင်တာဗျူးမှာ',
   'jobDetail.loadError': 'အလုပ်ကို တင်၍မရပါ။',
+  'jobDetail.requirementsHeading': 'လိုအပ်ချက်များ',
   'jobDetail.topEyebrow': 'ထိပ်တန်းလျှောက်ထားသူများ',
   'jobDetail.topHeading': 'AI နှင့် ကိုက်ညီသော ပထမဆုံး',
   'jobDetail.unavailable': 'ဒီအလုပ်ကို စာရင်းမသွင်းတော့ပါဘူး။',
@@ -130,6 +152,7 @@ export const ui: UiTranslations = {
   'jobs.heading': 'အလုပ်အကိုင်များ',
   'jobs.loadError': 'အလုပ်များကို တင်၍မရပါ။',
   'jobs.newCta': 'အလုပ်ပြီးမြောက်ခြင်း',
+  'landing.copyright': '© {{year}} {{app}} .မော်လီကျူးဖြင့်တည်ဆောက်ထားသည်။',
   'landing.eyebrow': 'AI အကူအညီဖြင့် အလုပ်ခန့်ထားခြင်း · v2',
   'landing.featuresEyebrow': 'ဘယ်လိုအလုပ်လုပ်လဲ',
   'landing.featuresHeading': 'Signal — spreadsheets မဟုတ်ပါ။',
@@ -139,8 +162,11 @@ export const ui: UiTranslations = {
   'landing.heroProof':
     'ခရက်ဒစ်ကတ် မရှိပါ။ အချိန်မရွေး ပယ်ဖျက်နိုင်ပါသည်။ Pro တွင် SSO ရရှိနိုင်ပါသည်။',
   'landing.heroSecondary': 'ဈေးနှုန်းကိုကြည့်ပါ →',
+  'landing.heroSubtitle':
+    'သန့်ရှင်းသော kanban လုပ်ငန်းစဉ်၊ ရှင်းလင်းစွာရှင်းပြသည့် AI စစ်ထုတ်မှုနှင့် အဆင့်အလိုက် တရားမျှတမှု ခွဲခြမ်းစိတ်ဖြာချက်များ။ ဆူညံသံမဟုတ်ဘဲ အချက်အလက်အစစ်ကို လိုချင်သော ခေါ်ယူရေးဝန်ထမ်းများနှင့် ခေါ်ယူရေးမန်နေဂျာများအတွက် ဖန်တီးထားသည်။',
   'landing.heroTitle': 'ရှင်းလင်းပြတ်သားစွာ ငှားရမ်းပါ။',
   'landing.previewHeading': 'အကြီးတန်းနောက်ခံအင်ဂျင်နီယာ',
+  'landing.previewLabel': 'လုပ်ငန်းစဉ် · အင်ဂျင်နီယာ',
   'landing.pricingEyebrow': 'ဈေးနှုန်း',
   'landing.pricingHeading': 'အသင်းအရွယ်အစားတိုင်းအတွက် အစီအစဉ်တွေ။',
   'landing.socialEyebrow': 'ငှားရမ်းသည့်အဖွဲ့များမှ အသုံးပြုသည်',
@@ -158,6 +184,9 @@ export const ui: UiTranslations = {
   'loginBrandPanel.headlineLine2': 'ရှင်းလင်းပြတ်သားမှု။',
   'loginBrandPanel.stage.interview': 'အင်တာဗျူး',
   'loginBrandPanel.stage.screening': 'စစ်ဆေးခြင်း',
+  'loginBrandPanel.stage.sourced': 'ရှာဖွေတွေ့ရှိထားသူ',
+  'loginBrandPanel.subtext':
+    'ကိုယ်စားလှယ်လောင်းများကို ရှာဖွေတွေ့ရှိထားသူ → စစ်ထုတ်ခြင်း → အင်တာဗျူး → အလုပ်ကမ်းလှမ်းချက် → ခန့်အပ်ပြီး ဆီသို့ ဆွဲယူပါ။ AI က စစ်ထုတ်သည်။ တရားမျှတမှု သွေးခုန်နှုန်းက အဆင့်တိုင်းကို ရိုးသားစွာ ထိန်းသိမ်းသည်။',
   'nav.closeMenu': 'မီနူးကို ပိတ်ပါ',
   'nav.legal': 'ဥပဒေရေးရာ',
   'nav.openMenu': 'မီနူးဖွင့်ပါ',
@@ -166,6 +195,7 @@ export const ui: UiTranslations = {
     'ကိုယ်ရေးရာဇဝင်များကို လိုအပ်ချက်များနှင့် ကိုက်ညီစွာ အဆင့်သတ်မှတ်ပြီး အလုပ်ခန့်အပ်သူသည် ထိပ်တန်းကိုက်ညီမှုများကို ဦးစွာသုံးသပ်ပါသည်။',
   'newJob.aiToggle': 'လျှောက်ထားသူအသစ်များကို အလိုအလျောက်အမှတ်ပေးခြင်း',
   'newJob.back': 'အလုပ်အကိုင်များဆီသို့ ပြန်သွားပါ',
+  'newJob.basicsHeading': 'အခန်းကဏ္ဍ အခြေခံအချက်များ',
   'newJob.compHeading': 'လျော်ကြေးပေးခြင်း',
   'newJob.departmentLabel': 'ဌာန',
   'newJob.descHeading': 'ဖော်ပြချက်နှင့် လိုအပ်ချက်များ',
@@ -175,6 +205,7 @@ export const ui: UiTranslations = {
   'newJob.failed': 'အလုပ်ကို သိမ်းဆည်း၍မရပါ။',
   'newJob.heading': 'အလုပ်တစ်ခုတင်ပါ',
   'newJob.publish': 'အလုပ်ထုတ်ဝေပါ',
+  'newJob.reqLabel': 'လိုအပ်ချက်များ (တစ်ကြောင်းလျှင် တစ်ခု)',
   'newJob.salaryMax': 'အများဆုံးလစာ (USD)',
   'newJob.salaryMin': 'အနည်းဆုံး လစာ (USD)',
   'newJob.stagesHeading': 'ပိုက်လိုင်းအဆင့်များ',
@@ -190,6 +221,7 @@ export const ui: UiTranslations = {
   'newJob.type.fullTime': 'အချိန်ပြည့်',
   'newJob.type.partTime': 'အချိန်ပိုင်း',
   'newJob.typeLabel': 'အလုပ်အကိုင်အမျိုးအစား',
+  'pipeline.advanceTo': 'ရှေ့သို့',
   'pipeline.allRoles': 'အခန်းကဏ္ဍအားလုံး',
   'pipeline.daysInStage': '{{days}} d',
   'pipeline.empty': 'ကိုယ်စားလှယ်လောင်း မရှိပါ',
@@ -202,13 +234,22 @@ export const ui: UiTranslations = {
     'ကိုယ်စားလှယ်လောင်းများကို အဆင့်များအကြား ဆွဲယူပါ။ AI ရမှတ်နှင့် အဆင့်တွင် ရှိနေသည့်ရက်များကို ကတ်တစ်ခုစီတွင် ပြသထားသည်။',
   'pipeline.viewTable': 'ဇယားမြင်ကွင်း →',
   'pipelineFunnelHero.totalLabel': 'ရွေ့လျားနေသည်',
+  'planUpdated.body':
+    'သင့်ငွေတောင်းခံမှု ပြောင်းလဲမှုသည် ယခု အသက်ဝင်နေပါပြီ။ သင့်အစီအစဉ်ကို ငွေတောင်းခံမှုစာမျက်နှာမှ မည်သည့်အချိန်တွင်မဆို စီမံနိုင်ပါသည်။',
+  'planUpdated.retry': 'ထပ်ကြိုးစားပါ',
+  'planUpdated.verifyFailed': 'သင့်ငွေပေးချေမှုကို ကျွန်ုပ်တို့ အတည်မပြုနိုင်သေးပါ။',
+  'planUpdated.verifyFailedBody':
+    'သင့်ငွေပေးချေမှုကို လုပ်ဆောင်နေဆဲဖြစ်နိုင်ပါသည်။ ခဏအကြာတွင် ထပ်မံကြိုးစားပါ။',
   'planUpdated.verifying': 'သင့်ငွေပေးချေမှုကို အတည်ပြုနေသည်…',
   'pricing.heading': 'အပလီကေးရှင်းများ',
+  'pricing.limits.applications': 'လျှောက်လွှာများ',
   'pricing.limits.candidates': 'ကိုယ်စားလှယ်လောင်းများ',
   'pricing.limits.jobs': 'အလုပ်များ',
   'pricing.limits.scorecards': 'ရမှတ်ကတ်များ',
   'privacy.dataBody':
     'အကောင့်အီးမေးလ်၊ hash လုပ်ထားသော စကားဝှက်၊ ပရိုဖိုင် metadata နှင့် သင်ဖန်တီးထားသော ကိုယ်စားလှယ်လောင်း/အလုပ်မှတ်တမ်းများ။ ကျွန်ုပ်တို့သည် ဤဒေတာကို ရောင်းချခြင်း သို့မဟုတ် မျှဝေခြင်း ဘယ်တော့မှ မလုပ်ပါ။',
+  'privacy.intro':
+    '{{app}} သည် ဖောက်သည်များကိုယ်စား ခေါ်ယူရေးဒေတာကို လုပ်ဆောင်သည်။ ကိုယ်စားလှယ်လောင်း မှတ်တမ်းများ၊ ကိုယ်ရေးရာဇဝင်များနှင့် ခေါ်ယူရေးအဖွဲ့ ဆက်သွယ်မှုများကို လျှို့ဝှက်အဖြစ် သတ်မှတ်ပြီး သိမ်းဆည်းထားစဉ် ကုဒ်ဝှက်ထားသည်။',
   'privacy.retentionBody':
     'သင့်အကောင့်ကို ဆက်တင်များမှ အချိန်မရွေး ဖျက်နိုင်ပါသည်။ ဥပဒေအရ သိမ်းဆည်းရန် လိုအပ်သည့်နေရာမှအပ ဆက်စပ်မှတ်တမ်းများကို ရက် ၃၀ အတွင်း ကျွန်ုပ်တို့ ဖယ်ရှားပေးပါသည်။',
   'privacy.title': 'ကိုယ်ရေးအချက်အလက်မူဝါဒ',
@@ -218,6 +259,7 @@ export const ui: UiTranslations = {
     'အလုပ်လျှောက်ထားသူများနှင့် အလုပ်လျှောက်ထားသူများအား အလုပ်အကိုင်ရာထူးများတွင် သင့်အမည်နှင့် အခန်းကဏ္ဍကို မြင်တွေ့ခွင့်ပြုပါ။',
   'profile.publicLabel': 'အများသူငှာ ပရိုဖိုင်',
   'profile.publicOff': 'ဝှက်ထားသည်',
+  'profile.publicOn': 'မြင်နိုင်သည်',
   'profile.recentEmpty': 'နေရာချထားမှုများ မရှိသေးပါ။',
   'profile.recentError': 'မကြာသေးမီက နေရာချထားမှုများကို တင်၍မရပါ။',
   'profile.recentEyebrow': 'မကြာသေးမီက နေရာချထားမှုများ',
@@ -244,9 +286,14 @@ export const ui: UiTranslations = {
   'resetPassword.missingToken':
     'ပြန်လည်သတ်မှတ်ရန်လင့်ခ် ပျောက်ဆုံးနေ သို့မဟုတ် သက်တမ်းကုန်ဆုံးသွားပါပြီ — အသစ်တစ်ခု တောင်းဆိုပါ။',
   'resetPassword.passwordLabel': 'စကားဝှက်အသစ်',
+  'resetPassword.signInCta': 'အကောင့်ဝင်ရန် →',
+  'resetPassword.signInPrompt': 'သင့်စကားဝှက်အသစ်ဖြင့် ဝင်ရောက်ပါ။',
   'resetPassword.subheading':
     'အနည်းဆုံး အက္ခရာ ၁၂ လုံးပါသော ခိုင်မာသည့် စကားဝှက်ကို ရွေးချယ်ပါ — စာလုံးအကြီးအသေး ရောနှောပါ။',
+  'settings.appearance.description': 'အလင်းနှင့် အမှောင်မုဒ်အကြား ပြောင်းပါ။',
   'settings.appearance.title': 'အသွင်အပြင်',
+  'settings.deleteAccountModal.confirm':
+    'အတည်ပြုရန် သင့်စကားဝှက်ကို ထည့်ပါ။ ဤလုပ်ဆောင်ချက်သည် အပြီးအပိုင်ဖြစ်သည်။',
   'settings.emailTemplates.empty': 'တင်းပလိတ်များကို ပြင်ဆင်သတ်မှတ်ခြင်း မရှိသေးပါ။',
   'settings.emailTemplates.heading': 'အီးမေးလ် ပုံစံများ',
   'settings.emailTemplates.loadError': 'တင်းပလိတ်များကို တင်၍မရပါ။',
@@ -257,10 +304,16 @@ export const ui: UiTranslations = {
   'settings.integrations.statusDisconnected': 'ချိတ်ဆက်မထားပါ',
   'settings.integrations.updateError': 'ပေါင်းစပ်မှုကို အပ်ဒိတ်လုပ်၍မရပါ။',
   'settings.name': 'အမည်',
+  'settings.passwordHelp': 'သင်ဝင်ရောက်ရန် အသုံးပြုသော စကားဝှက်ကို အပ်ဒိတ်လုပ်ပါ။',
+  'settings.revokeDeviceWarning': 'ဤစက်ပစ္စည်း၏ ဝင်ခွင့်ကို မကြာမီ ပယ်ဖျက်ပါမည်။ ထွက်မည်လား?',
   'settings.saveEmail': 'အီးမေးလ်ကို သိမ်းဆည်းပါ',
   'settings.signOutDevice': 'ဆိုင်းအောက်',
   'settings.stages.empty': 'အဆင့်တွေ မသတ်မှတ်ထားသေးပါဘူး။',
+  'settings.stages.heading': 'ပိုက်လိုင်းအဆင့်များ',
+  'settings.stages.help':
+    'ကိုယ်စားလှယ်လောင်းများ ဖြတ်သန်းသွားသော အဆင့်များ။ သင်အသုံးမပြုသော အဆင့်များကို ဖယ်ရှားပါ။',
   'settings.stages.loadError': 'အဆင့်များကို တင်၍မရပါ။',
+  'settings.stages.loading': 'အဆင့်များ ဖွင့်နေသည်…',
   'settings.stages.removeAria': 'ဖယ်ရှားပါ {{name}} စင်မြင့်',
   'settings.stages.removeError': 'အဆင့်ကို ဖယ်ရှား၍မရပါ။',
   'settings.team.empty': 'အသင်းဖော် မရှိသေးပါ — အောက်က ပထမဆုံးတစ်ယောက်ကို ဖိတ်ခေါ်ပါ။',
@@ -276,9 +329,15 @@ export const ui: UiTranslations = {
   'settings.team.removeError': 'အဖွဲ့ဝင်ကို ဖယ်ရှား၍မရပါ။',
   'settings.twoFactorCode': 'အထောက်အထားစိစစ်ရေးကုဒ်',
   'settings.twoFactorDisable': 'ပိတ်ရန်',
+  'settings.twoFactorDisableTitle': 'နှစ်ဆင့်အတည်ပြုခြင်းကို ပိတ်ပါ',
   'settings.twoFactorEnable': 'ဖွင့်ပါ',
+  'settings.twoFactorEnableTitle': 'နှစ်ဆင့်အတည်ပြုခြင်းကို ဖွင့်ပါ',
   'settings.twoFactorInvalidCode': 'ကုဒ် မမှန်ကန်ပါ',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'နှစ်ဆင့် QR ကုဒ်',
+  'settings.twoFactorScan':
+    'ဤ QR ကုဒ်ကို သင့်အတည်ပြုကိရိယာအက်ပ်ဖြင့် စကင်ဖတ်ပြီး ၆ လုံးပါ ကုဒ်ကို ထည့်ပါ။',
+  'settings.twoFactorUnavailable': 'ဤအက်ပ်အတွက် နှစ်ဆင့်အထောက်အထားစိစစ်ခြင်း မရရှိနိုင်ပါ။',
   'settings.twoFactorVerify': 'အတည်ပြုပြီး ဖွင့်ပါ',
   'settings.unknownDevice': 'မသိသော စက်ပစ္စည်း',
   'signup.confirmPlaceholder': 'သင့်စကားဝှက်ကို ပြန်လည်ထည့်သွင်းပါ',
@@ -289,6 +348,8 @@ export const ui: UiTranslations = {
     '၆၀ စက္ကန့်အတွင်း အလုပ်ခန့်အပ်မှုဘုတ်ကို လှည့်ပါ။ နောက်မှ အဖွဲ့ကို ဖိတ်ခေါ်ပါ။',
   'terms.acceptableUseBody':
     'သင်သည် ဝန်ဆောင်မှုကို အလွဲသုံးစားလုပ်ခြင်း၊ အလိုအလျောက် scraping လုပ်ခြင်းများကို မလုပ်ဆောင်ခြင်း၊ လုံခြုံရေးကို ချိုးဖောက်ရန် ကြိုးပမ်းခြင်း သို့မဟုတ် ကာကွယ်ထားသော အတန်းအစားများကို ခွဲခြားဆက်ဆံရန် ၎င်းကို အသုံးမပြုရပါ။',
+  'terms.intro':
+    '{{app}} ကို အသုံးပြုခြင်းဖြင့် ဤစည်းကမ်းချက်များကို သင်သဘောတူပါသည်။ ဝန်ဆောင်မှုကို အောက်တွင်ဖော်ပြထားသော တာဝန်များနှင့် ကန့်သတ်ချက်များဖြင့် ရှိသည့်အတိုင်း အခြေခံပေးအပ်သည်။',
   'terms.subscriptionBody':
     'ငွေပေးချေရသော အစီအစဉ်များကို ပယ်ဖျက်သည်အထိ လစဉ်သက်တမ်းတိုးပါသည်။ Billing မှ အချိန်မရွေး ပယ်ဖျက်နိုင်ပါသည်။ သင့်အစီအစဉ်သည် လက်ရှိကာလကုန်ဆုံးသည်အထိ အသက်ဝင်နေမည်ဖြစ်သည်။',
   'terms.title': 'ဝန်ဆောင်မှုဆိုင်ရာ စည်းကမ်းချက်များ',

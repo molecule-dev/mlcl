@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Keni një koment, keni gjetur një gabim ose dëshironi të na tregoni si ju ka ndihmuar ditari? Ne lexojmë çdo mesazh — na shkruani në çdo kohë dhe një person i vërtetë do t'ju përgjigjet.",
+  'about.contactTitle': 'Kontaktoni me ne',
+  'about.featureInsights':
+    'Reflektime të fuqizuara nga AI që nxjerrin butësisht në pah shkaktarët, temat dhe mirënjohjet — pa humbur zërin tuaj.',
+  'about.featureMood':
+    'Ndjekje e humorit dhe aktivitetit me pamje kalendari dhe grafikë tendencash që zbulojnë çfarë ju ndihmon të lulëzoni.',
+  'about.featurePrivacy':
+    'Kriptim nga skaji në skaj, kyç me kod dhe eksport i plotë CSV, që reflektimet tuaja të mbeten private dhe të lëvizshme.',
+  'about.featurePrompts':
+    'Nxitje të buta ditore që të keni gjithmonë nga ku të filloni — kurrë një faqe bosh.',
+  'about.intro':
+    '{{app}} është një ditar i butë dhe privat për shëndetin mendor, për reflektim ditor, ndjekje të humorit dhe mirënjohje. Nxitjet e menduara zëvendësojnë faqen bosh, zbulimi i qetë i modeleve ju ndihmon të kuptoni çfarë ndikon në atë që ndjeni, dhe kriptimi nga skaji në skaj i mban fjalët tuaja tuajat.',
+  'about.missionBody':
+    'Ne besojmë se të kontrollosh veten duhet të ndihet e qetë, kurrë klinike — dhe kurrë si një aplikacion tjetër që kërkon vëmendjen tënde. {{app}} është ndërtuar për të ndihmuar, jo për të ngacmuar: disa minuta të qeta në ditë për të vënë re humorin, për të shkruar sinqerisht dhe për të parë veten gradualisht më qartë.',
+  'about.missionTitle': 'Misioni ynë',
   'about.pageTitle': 'Rreth {{app}}',
   'authShell.encryptionBadge': 'Hyrjet tuaja janë të enkriptuara nga fillimi në fund.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Dita {{day}} — pa shënim',
   'calendar.cellMood': 'Dita {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Ky muaj me një vështrim',
   'calendar.eyebrow': 'Gjendja shpirtërore në një shikim',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Gjurmuar {{tracked}} e {{total}} ditë këtë muaj.',
   'common.goToDashboard': 'Shko te paneli',
   'common.tryAgain': 'Provo përsëri',
+  'entryComposer.bodyPlaceholder':
+    'Shkruaj çfarëdo që ndihet e sinqertë. Askush tjetër nuk do ta lexojë këtë.',
   'entryComposer.cancel': 'Kthehu te ditari',
   'entryComposer.heading': 'Reflektimi i sotëm',
   'entryComposer.moodLabel': 'Si ndiheni?',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Hiq {{tag}}',
   'entryComposer.save': 'Ruaj reflektimin',
   'entryComposer.saveError': 'Nuk mundi ta ruante hyrjen tënde.',
+  'entryComposer.tagPlaceholder': 'Shto një etiketë dhe shtyp enter',
   'entryComposer.titlePlaceholder': 'Jepini këtij reflektimi një emër…',
   'entryDetail.back': 'Kthehu te ditari',
   'entryDetail.delete': 'Fshije këtë hyrje',
@@ -36,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Duke ngarkuar pasqyrimin…',
   'entryDetail.notFound': 'Hyrja nuk u gjet.',
   'entryDetail.reflectionsHeading': 'Reflektime të inteligjencës artificiale',
+  'forgotPassword.continueButton': 'Fut kodin e rivendosjes',
   'forgotPassword.eyebrow': 'Pa shqetësime',
   'forgotPassword.subheading': 'Ne do të dërgojmë një lidhje të butë rivendosjeje në emailin tuaj.',
   'forgotPassword.successBody':
@@ -58,14 +79,22 @@ export const ui: UiTranslations = {
     'Ende nuk ka tema — shtoni një ose dy etiketa në hyrjet tuaja dhe ato do të mblidhen këtu.',
   'insights.themesHeading': 'Temat kryesore',
   'insights.triggerFrequency': 'vënë re {{count}} × këtë muaj',
+  'insights.triggersEmpty':
+    "Asgjë për t'u vënë re ende. Disa shënime gjatë disa ditëve do të tregojnë modelet e tua.",
   'insights.triggersHeading': 'Modele që ndryshojnë humorin tuaj',
+  'journal.empty':
+    'Asnjë reflektim nuk përputhet — provo një filtër tjetër ose shkruaj një shënim të ri.',
   'journal.eyebrow': 'Reflektimet tuaja',
   'journal.heading': 'Ditar',
   'journal.loadError': 'Ngarkimi i hyrjeve dështoi.',
   'journal.loading': 'Duke ngarkuar hyrjet…',
+  'journal.newEntry': 'Hyrje e re',
   'journal.searchPlaceholder': 'Kërko një ndjenjë, një emër, një çast…',
   'journal.subheading': '{{count}} hyrje — secila prej të cilave ia vlen të ruhet.',
   'journalEntryCard.encryptedLabel': 'I enkriptuar',
+  'landing.ctaBody':
+    'Falas për të filluar. Pro zhbllokon eksportimin e të dhënave, një ditar më të madh dhe një vit të plotë historiku.',
+  'landing.ctaButton': 'Filloni hyrjen tuaj të parë',
   'landing.ctaTitle': 'Disa minuta qetësi në ditë. Kaq.',
   'landing.eyebrow': 'Një praktikë e butë e përditshme',
   'landing.featuresBody':
@@ -84,6 +113,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Një hapësirë e qetë për reflektim të përditshëm.',
   'mentalHealthJournalLayout.closeMenu': 'Mbyll menynë',
   'mentalHealthJournalLayout.openMenu': 'Hap menynë',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Navigimi kryesor',
+  'moodHeroCard.entriesThisWeek': '{{count}} këtë javë',
   'moodHeroCard.streakSuffix': 'seri ditore',
   'moodHeroCard.title': 'Reflektimi i sotëm',
   'moodTrendChart.aiBadge': "Informacion mbi inteligjencën artificiale, gati për t'u përdorur",
@@ -94,11 +125,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Udhëtimi juaj',
   'profile.fallbackName': 'Reflektor',
   'profile.loadError': 'Ngarkimi i statistikave dështoi.',
+  'profile.loading': 'Po rifreskohen statistikat e tua…',
   'profile.longestStreak': 'Seria më e gjatë',
   'profile.memberSince': 'Duke reflektuar që nga {{date}}',
   'profile.milestones': 'Gjëra të rëndësishme',
   'profile.milestonesEmpty':
     'Arritja juaj e parë është një hap larg - shkruaj sa herë që të ndiheni gati.',
+  'profile.moodMix': 'Përzierja e humorit tënd këtë stinë',
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'Reflektime',
   'profile.totalWords': 'Fjalë të shkruara',
@@ -111,6 +144,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Shkruaj për këtë',
   'resetPassword.eyebrow': 'Një fillim i ri',
   'resetPassword.mismatchError': 'Fjalëkalimet nuk përputhen.',
+  'resetPassword.passwordLabel': 'Fjalëkalim i ri',
   'resetPassword.subheading': 'Zgjidh diçka të sigurt - reflektimet e tua e meritojnë.',
   'resetPassword.tokenPlaceholder': 'Rivendos kodin nga emaili',
   'settings.dangerDescription':
@@ -123,11 +157,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     'Fjalët e tua gjithmonë të përkasin ty. Shkarko një kopje në çdo kohë.',
   'settings.exportDone': 'Eksportuar {{format}}.',
+  'settings.exportError': 'Eksportimi dështoi.',
+  'settings.exportHeading': 'Eksporto reflektimet e tua',
   'settings.exportLoading': 'Duke u përgatitur…',
   'settings.eyebrow': 'Hapësira juaj, rregullat tuaja',
   'settings.languageHeading': 'Gjuha',
   'settings.privacyHeading': 'Privatësia dhe enkriptimi',
   'settings.remindersHeading': 'Kujtesë e përditshme',
+  'settings.reminderToggleAria': 'Aktivizo/çaktivizo kujtuesin ditor',
   'settings.reminderToggleDescription':
     'Një kujtesë e vetme qetësie në kohën që zgjedh ti. Pa medalje ose ndjenja faji.',
   'settings.reminderToggleLabel': 'Dërgo një shtytje të lehtë',
@@ -140,6 +177,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Duke krijuar ditarin…',
   'signup.subheading': 'Një hapësirë e sigurt për mendimet tuaja.',
   'wellnessRingsTriad.mindfulnessCaption': 'Goli {{goal}} min sot',
+  'wellnessRingsTriad.mindfulnessLabel': 'Vetëdije',
   'wellnessRingsTriad.sleepCaption': 'Goli {{goal}} orë / natë',
   'wellnessRingsTriad.sleepLabel': 'Gjumi',
+  'wellnessRingsTriad.sleepValue': '{{hours}}h',
+  'wellnessRingsTriad.streakCaption': 'Objektivi {{goal}} ditë',
+  'wellnessRingsTriad.streakLabel': 'Seritë e ditarit',
+  'wellnessRingsTriad.streakValue': '{{days}} d',
 }

@@ -1,15 +1,25 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Sibt bug, għandek talba għal funzjoni ġdida, jew trid tgħidilna x'għandna nibnu wara? Ibgħat email lil hello@pylon.dev — kull messaġġ jasal għand inġinier reali fit-tim.",
   'about.contactTitle': 'Kellem magħna',
+  'about.intro':
+    '{{app}} hija bank tax-xogħol għall-ittestjar tal-API mgħaġġel u maħsub għat-tastiera, għall-inġiniera li jgħixu fit-terminal — talbiet stil Postman, kollezzjonijiet, ambjenti, u storja mingħajr ħela.',
+  'about.missionBody':
+    'L-APIs huma s-sinsla tas-software modern, iżda l-għodod biex tħaddimhom huma bil-mod, mimlija ħela, u jiddependu fuq il-mouse. {{app}} teżisti biex tagħti lill-iżviluppaturi bank tax-xogħol qawwi, mgħaġġel u tal-livell tat-terminal: ibgħat talbiet, ibni fiduċja, u ibgħat mingħajr ma tħalli l-keyboard.',
+  'about.missionTitle': 'Il-missjoni tagħna',
   'about.pageTitle': 'Dwar {{app}}',
   'authShell.statusLabel': 'runners online',
   'collections.createError': 'Ma setgħetx tinħoloq kollezzjoni.',
   'collections.defaultName': 'Kollezzjoni bla titlu {{n}}',
+  'collections.empty':
+    "Għad m'hemmx kollezzjonijiet — ikklikkja “Kollezzjoni ġdida” biex toħloq l-ewwel folder tiegħek.",
   'collections.eyebrow': '$ kollezzjonijiet tal-pylon --tree',
   'collections.fetchError': 'Ma setgħux jitgħabbew il-kollezzjonijiet.',
   'collections.heading': 'Kollezzjonijiet',
   'collections.loading': 'Qed jitgħabbew il-kollezzjonijiet…',
+  'collections.metric.allGreen': 'Kollox sew',
   'collections.metric.collections': 'Kollezzjonijiet',
   'collections.metric.failing': 'Falliment',
   'collections.metric.failingCaption': 'L-aħħar ġirja kellha fallimenti',
@@ -24,6 +34,7 @@ export const ui: UiTranslations = {
   'environmentCard.variables': 'Varjabbli',
   'environments.createError': 'Ma setax jinħoloq ambjent.',
   'environments.defaultName': 'Ambjent bla titlu {{n}}',
+  'environments.empty': "Għad m'hemmx ambjenti — ikklikkja “Ambjent ġdid” biex iżżid wieħed.",
   'environments.eyebrow': '$ pylon env --switch',
   'environments.fetchError': 'Ma setgħux jitgħabbew l-ambjenti.',
   'environments.heading': 'Ambjenti',
@@ -31,8 +42,10 @@ export const ui: UiTranslations = {
   'environments.newEnvironment': 'Ambjent ġdid',
   'environments.subheading':
     "Varjabbli li jinbidlu f'talbiet fil-ħin tat-trażmissjoni. Ambjent attiv wieħed għal kull spazju tax-xogħol.",
+  'forgotPassword.statusLabel': 'irrisettja · mina sigura',
   'forgotPassword.success':
     "Jekk teżisti kont għal dik l-email, link ta' reset jinsab fi triqtu. Iċċekkja l-inbox tiegħek.",
+  'history.empty': "Għad m'hemmx xejn hawn — ibgħat l-ewwel talba tiegħek mit-tab Workspace.",
   'history.eyebrow': 'Storja tal-pilastru $ --denb',
   'history.fetchError': 'Ma setgħetx titgħabba l-istorja.',
   'history.heading': 'Storja tal-ġiri',
@@ -41,9 +54,11 @@ export const ui: UiTranslations = {
   'history.metric.errors': '4xx + 5xx',
   'history.metric.success': '2xx',
   'history.metric.total': 'L-aħħar 50',
+  'history.realtime': 'ħin reali',
   'history.subheading':
     "Kull talba li ġiet attivata f'dan l-ispazju tax-xogħol, bl-istatus, il-latenza, u d-daqs tal-payload.",
   'landing.choosePlan': 'Agħżel pjan',
+  'landing.copyright': '© {{year}} {{app}} Engineering. Ibni fiduċja.',
   'landing.ctaBody':
     "L-ebda karta ta' kreditu. L-ebda inġinier tal-pjattaforma mhu meħtieġ. Iftaħ ⌘K u ibgħat l-ewwel talba tiegħek f'inqas minn ħames minuti.",
   'landing.ctaHeading': 'Ifrex il-kunfidenza.',
@@ -85,6 +100,7 @@ export const ui: UiTranslations = {
   'mocks.metric.latency': 'Latenza medja',
   'mocks.metric.live': 'Pubbliku',
   'mocks.metric.servers': 'Mocks',
+  'mocks.ms': 'ms',
   'mocks.newMock': 'Mock ġdid',
   'mocks.online': 'Pubbliku',
   'mocks.paused': 'Privat',
@@ -108,9 +124,12 @@ export const ui: UiTranslations = {
   'monitors.metric.healthy': "B'saħħtu",
   'monitors.metric.uptime': "Ħin medju ta' tħaddim",
   'monitors.newMonitor': 'Monitor ġdid',
+  'monitors.paused': 'waqfa',
   'monitors.run': 'Ġirja',
   'monitors.runError': "It-tħaddim intemm b'żball fin-netwerk: {{error}}",
+  'monitors.runFailed': 'It-tħaddim falla.',
   'monitors.running': 'Ġiri…',
+  'monitors.runSuccess': 'Ħaddem {{status}} — l-upstream irritorna {{code}} fi {{ms}}ms.',
   'monitors.sparkLabel': 'Xejra tal-latenza',
   'monitors.subheading':
     "Verifiki fuq talba għal kwalunkwe test salvat. Orbot test, agħfas Mexxi, u ara l-aġġornament tar-rata ta' suċċess ta' 24 siegħa ma' kull nar.",
@@ -119,27 +138,55 @@ export const ui: UiTranslations = {
   'monitors.uptime': "Ħin ta' tħaddim · 24 siegħa",
   'nav.legal': 'Legali',
   'notFound.backToWorkspace': 'Lura għall-ispazju tax-xogħol',
+  'notFound.body':
+    "{{app}} bagħat talba għal dan l-URL u ma rċeviex tweġiba. Iċċekkja r-rotta mill-ġdid jew erġa' lura għall-workspace.",
   'notFound.eyebrow': '$ pylon resolve --strict',
   'notFound.title': 'Rotta mhux misjuba',
+  'planUpdated.body':
+    "Il-bidla fil-billing tiegħek issa hija attiva. Tista' timmaniġġja l-pjan tiegħek fi kwalunkwe ħin mill-paġna tal-billing.",
+  'planUpdated.retry': 'Erġa’ pprova',
+  'planUpdated.verifyFailed': 'Għadna ma stajniex nikkonfermaw il-ħlas tiegħek.',
+  'planUpdated.verifyFailedBody':
+    "Jista' jkun li l-ħlas tiegħek għadu qed jiġi pproċessat. Erġa' pprova fi ftit ħin.",
   'planUpdated.verifying': 'Qed jikkonferma l-ħlas tiegħek…',
+  'pricing.advancedFeatures': 'Karatteristiċi avvanzati: {{yes}}',
+  'pricing.canExport': 'Esportazzjoni tad-data: {{yes}}',
+  'pricing.heading': 'Agħżel il-pjan {{app}} tiegħek',
+  'pricing.maxCollections': '{{count}} kollezzjonijiet',
+  'pricing.maxEnvironments': '{{count}} ambjenti',
+  'pricing.maxHistory': '{{count}} entrati fl-istorja',
+  'pricing.maxRequests': '{{count}} talbiet',
   'privacy.collect.account':
     'Kont: l-email tiegħek, il-password hashed, l-isem tal-wiri, u t-timestamp tal-aħħar login tiegħek.',
+  'privacy.intro':
+    '{{app}} jirrispetta l-privatezza tiegħek. Din il-paġna tagħti sommarju tad-data li niġbru, għaliex niġbruha, u kif tneħħiha.',
   'privacy.rights.body':
     "Tista' tesporta l-kollezzjonijiet + l-ambjenti tiegħek fi kwalunkwe ħin, jew tħassar il-kont tiegħek mis-Settings biex tneħħi d-dejta kollha b'mod permanenti fi żmien 30 jum.",
   'privacy.share.body':
     'Int biss. Aħna qatt ma nbigħu, naqsmu, jew nikru l-kontenut tal-ispazju tax-xogħol tiegħek lil partijiet terzi. Il-logs tas-server jinżammu għal 30 jum għal rispons għal inċidenti u mbagħad jitħassru.',
   'privacy.title': "Avviż ta' privatezza",
+  'profile.bio':
+    "Il-workspace personali tiegħek ta' {{app}} — waħħal il-kollezzjonijiet, aqsam l-ambjenti, u moniterja l-APIs li jwasslu l-prodott.",
   'profile.eyebrow': '@ {{handle}}',
   'profile.joined': 'ingħaqad {{when}}',
+  'profile.metric.collections': 'Kollezzjonijiet',
   'profile.metric.monitors': 'Moniters',
   'profile.metric.requests': 'Talbiet salvati',
+  'profile.noActivity':
+    'Għadha ma ntbagħtet l-ebda talba — mur fit-tab Workspace biex tagħmel waħda.',
   'profile.signedOut': 'Idħol biex tara l-profil tiegħek',
   'pylonShell.primaryNavLabel': 'Navigazzjoni primarja',
+  'resetPassword.passwordLabel': 'Password ġdida',
+  'resetPassword.statusLabel': 'irrisettja · token verifikat',
   'resetPassword.subtitle': "Agħżel password b'saħħitha li qatt ma użajt qabel.",
   'resetPassword.tokenPlaceholder': 'pejst mill-email',
+  'settings.accountManagement.desc':
+    'Aġġorna l-email u l-password tiegħek, immaniġġja n-notifiki u l-apparati, oħroġ, jew ħassar il-kont tiegħek.',
+  'settings.accountManagement.title': 'Kont u sigurtà',
   'settings.eyebrow': '$ settings tal-pylon --edit',
   'settings.fetchError': 'Ma setgħux jitgħabbew is-settings.',
   'settings.language.title': 'Lingwa',
+  'settings.seeding': 'Qed jitħejja…',
   'settings.seedStarter': 'Kontenut tal-bidu taż-żerriegħa',
   'settings.starterCollection': 'Kollezzjoni tal-bidu',
   'settings.starterCollectionDesc': 'Maħluq minn Settings fuq {{ts}}',
@@ -153,6 +200,8 @@ export const ui: UiTranslations = {
     "Inti responsabbli biex tissalvagwardja l-password tiegħek. Il-kondiviżjoni ta' kont wieħed ma' diversi bnedmin mhijiex permessa fuq pjanijiet Free jew Pro — ixtri abbonament tat-Tim għal spazji tax-xogħol kondiviżi.",
   'terms.billing.body':
     "L-abbonamenti mħallsa jiġġeddu awtomatikament f'kull perjodu ta' kontijiet. Tista' tikkanċella mis-Settings fi kwalunkwe ħin; l-aċċess tiegħek ikompli sal-aħħar tal-perjodu attwali.",
+  'terms.intro':
+    "Billi toħloq kont ta' {{app}} taqbel mat-termini hawn taħt. Aqrahom darba; mhux se nissorprenduk b'tibdil retroattiv.",
   'terms.title': 'Termini tas-servizz',
   'terms.usage.body':
     "Tużax Pylon biex tibgħat talbiet lejn servizzi li m'intix tiegħek jew li m'għandekx permess espliċitu biex tittestja. Tużax Pylon biex tevita l-limiti tar-rata jew twettaq frodi.",
@@ -173,16 +222,23 @@ export const ui: UiTranslations = {
   'testRunner.metric.idle': 'Mhux immexxi',
   'testRunner.metric.passed': 'Għadda',
   'testRunner.never': 'Qatt ma tiġri',
+  'testRunner.newTest': 'Test ġdid',
   'testRunner.noAssertions': "Għad m'hemm l-ebda asserzjonijiet dwar dan it-test.",
+  'testRunner.noRunsYet':
+    'Għadha ma ġiet irreġistrata l-ebda esekuzzjoni — agħfas “Ħaddem kollox” biex timla l-istorja.',
   'testRunner.passed': 'tgħaddi',
+  'testRunner.recentRuns': 'Ġiriet riċenti',
   'testRunner.runAll': 'Mexxi kollox',
   'testRunner.running': 'Ġiri…',
   'testRunner.runOne': 'Ġirja',
   'testRunner.subheading': 'Riżultati tas-suite, differenzi fl-asserzjonijiet, u l-aħħar 50 ġirja.',
+  'testRunner.suites': 'Suites',
   'userMenu.shortcut': '⌘L',
   'userMenu.signedInAs': 'Illoggjat bħala',
   'workspace.auth.keyName': 'Isem tal-intestatura',
   'workspace.auth.keyValue': 'Valur ewlieni',
+  'workspace.auth.noneHint':
+    "L-ebda header ta' awtorizzazzjoni mhu se jintbagħat ma' din it-talba.",
   'workspace.auth.password': 'Password',
   'workspace.auth.username': 'Isem tal-Utent',
   'workspace.authOption.apikey': 'Ċavetta tal-API',
@@ -192,13 +248,20 @@ export const ui: UiTranslations = {
   'workspace.authOption.oauth': 'OAuth 2.0',
   'workspace.authType': 'Tip',
   'workspace.authTypeLabel': "Tip ta' awtorizzazzjoni",
+  'workspace.body.contentLabel': 'Korp tat-talba',
+  'workspace.body.hint':
+    '{{envVars}} jiġu sostitwiti qabel ma tintbagħat it-talba. Il-korpi jintbagħtu fuq POST/PUT/PATCH/DELETE.',
   'workspace.body.json': 'JSON',
   'workspace.body.none': 'Xejn',
+  'workspace.body.noneHint':
+    'L-ebda korp tat-talba mhu se jintbagħat. Agħżel JSON jew test raw biex iżżid wieħed.',
   'workspace.body.text': 'Test mhux ipproċessat',
   'workspace.body.type': 'Tip',
   'workspace.environment': 'L-ebda ambjent',
   'workspace.envVar': 'varjabbli tal-ambjent',
   'workspace.eyebrow': '$ pylon workspace --pane split',
+  'workspace.failedCount': '{{count}} fallew',
+  'workspace.idle': 'Inattiv',
   'workspace.kv.addHeader': 'Żid l-intestatura',
   'workspace.kv.addParam': 'Żid parametru',
   'workspace.kv.headerKey': 'Isem tal-intestatura',
@@ -211,12 +274,16 @@ export const ui: UiTranslations = {
   'workspace.methodLabel': 'Metodu HTTP',
   'workspace.metric.latency': 'Latenza',
   'workspace.metric.latencyCaption': 'Vjaġġ bir-ritorn minn din il-ġirja',
+  'workspace.metric.size': 'Payload',
   'workspace.metric.sizeCaption': 'Bytes tal-korp tar-rispons',
   'workspace.metric.statusCaption': 'L-aħħar tweġiba',
   'workspace.metric.tests': 'Testijiet',
+  'workspace.metric.testsAllPassing': 'L-assertions kollha ħadra',
   'workspace.metric.testsFailing': '{{count}} falliment',
+  'workspace.metric.testsIdle': 'Ibgħat talba biex tevalwa',
   'workspace.noAssertions': 'Mexxi talba biex tevalwa asserzjonijiet integrati.',
   'workspace.noResponseYet': "Għad m'hemm l-ebda tweġiba",
+  'workspace.passedCount': '{{count}} għadda',
   'workspace.responseHint': '// Agħfas Ibgħat biex tibgħat it-talba u taqbad ir-risposta.',
   'workspace.saveError': 'Ma setgħetx issalva t-talba.',
   'workspace.statusError': 'Ma stajtx nibgħat it-talba.',
@@ -225,10 +292,14 @@ export const ui: UiTranslations = {
   'workspace.subheading':
     "Ikteb talba, ibgħatha, imbagħad afferma r-risposta — kollox f'pannell wieħed.",
   'workspace.testResults': 'Riżultati tat-test',
+  'workspace.tests.autoHint':
+    'Il-familja tal-istatus, il-latenza, id-daqs tal-korp, u s-saħħa tat-trasport jiġu vverifikati awtomatikament — ir-riżultati jidhru taħt “Riżultati tat-test” fil-pannell tar-rispons.',
+  'workspace.tests.autoTitle': 'Assertions integrati jaħdmu fuq kull rispons',
   'workspace.token': 'Token',
   'workspace.tokenHint':
     "Mibgħuta bħala Awtorizzazzjoni: Detentur<token> fuq kull talba f'din il-kollezzjoni.",
   'workspace.tokenPlaceholder': '{{API_TOKEN}}',
   'workspace.unnamed': 'Talba bla titlu',
+  'workspace.urlLabel': 'URL tat-talba',
   'workspace.urlPlaceholder': 'https://api.example.com/v1/resource',
 }

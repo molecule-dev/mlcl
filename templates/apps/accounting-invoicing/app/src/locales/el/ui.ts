@@ -1,10 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Έχετε κάποια ερώτηση, βρήκατε κάποιο σφάλμα ή θέλετε να μεταφέρετε τα βιβλία σας; Επικοινωνήστε με την ομάδα του {{app}} στο hello@{{app}}.example — ένας πραγματικός άνθρωπος διαβάζει κάθε μήνυμα.',
   'about.contactTitle': 'Επικοινωνήστε μαζί μας',
   'about.eyebrow': 'Σχετικά',
+  'about.intro':
+    'Το {{app}} είναι λογιστική για μικρές επιχειρήσεις που κρατά κάθε λεπτό καταγεγραμμένο — τιμολόγια, έξοδα, πληρωμές και αναφορές σε ένα ήρεμο μέρος για ιδιοκτήτες, λογιστές και ορκωτούς ελεγκτές.',
+  'about.missionBody':
+    'Το να τρέχεις μια επιχείρηση δεν θα έπρεπε να σημαίνει ότι τρέμεις τα βιβλία σου. Το {{app}} αντικαθιστά τη χαοτική πληθώρα υπολογιστικών φύλλων με καθαρούς αριθμούς πάνω στους οποίους μπορείς να δράσεις, ώστε να περνάς λιγότερο χρόνο σε συμφωνίες και περισσότερο χρόνο κάνοντας τη δουλειά για την οποία ξεκίνησες την επιχείρηση.',
+  'about.missionTitle': 'Η αποστολή μας',
   'about.title': 'Σχετικά με το {{app}}',
   'accounts.count': '{{count}} λογαριασμοί',
+  'accounts.emptyBody':
+    'Οι λογαριασμοί καθολικού παρακολουθούν πού βρίσκονται και πού κινούνται τα χρήματα. Εμφανίζονται εδώ μόλις τους ρυθμίσει ο λογιστής σας ή η ενσωμάτωση.',
   'accounts.emptyTitle': 'Δεν υπάρχουν ακόμη λογαριασμοί',
   'accounts.heading': 'Λογιστικό σχέδιο',
   'accounts.kpi.accounts': 'Λογαριασμοί',
@@ -15,6 +24,7 @@ export const ui: UiTranslations = {
     'Όλοι οι λογαριασμοί του γενικού καθολικού που αντιστοιχούν στα τιμολόγιά σας, τα έξοδά σας και τις πληρωμές σας, ομαδοποιημένοι ανά τύπο.',
   'accounts.tag.inactive': 'ανενεργό',
   'authBrandPanel.attributionName': 'Sarah Jenkins',
+  'authBrandPanel.attributionRole': 'Οικονομικός Διευθυντής, Horizon Tech',
   'authBrandPanel.eyebrow': 'Εμπιστεύονται οι χρηματοοικονομικές ομάδες',
   'authBrandPanel.label': 'Παρουσίαση εταιρικής ταυτότητας',
   'authBrandPanel.quote':
@@ -31,7 +41,12 @@ export const ui: UiTranslations = {
   'customerDetail.back': 'Όλοι οι πελάτες',
   'customerDetail.invoiceMeta': 'Ημερομηνία έκδοσης {{issued}} · Ημερομηνία λήξης {{due}}',
   'customerDetail.loadError': 'Αποτυχία φόρτωσης πελάτη.',
+  'customerDetail.missingBody':
+    'Η ζητούμενη εγγραφή πελάτη δεν ήταν δυνατό να φορτωθεί. Μπορεί να έχει αφαιρεθεί ή να μην έχετε πρόσβαση σε αυτήν.',
   'customerDetail.missingHeading': 'Η εγγραφή πελάτη δεν είναι διαθέσιμη',
+  'customerDetail.missingHelp':
+    'Χρησιμοποιήστε τον σύνδεσμο επιστροφής παραπάνω για να επιστρέψετε στη λίστα πελατών ή επιλέξτε μια διαφορετική εγγραφή από εκεί.',
+  'customerDetail.noInvoices': 'Δεν υπάρχουν ακόμα τιμολόγια.',
   'customerDetail.notesEmpty': 'Δεν υπάρχουν ακόμη σημειώσεις.',
   'customerDetail.paymentsEmpty': 'Δεν έχουν καταγραφεί πληρωμές.',
   'customerDetail.paymentTerms': 'Όροι πληρωμής',
@@ -58,6 +73,7 @@ export const ui: UiTranslations = {
   'expenseDetail.deductible': 'Εκπεστέο',
   'expenseDetail.detailsHeading': 'Λεπτομέρειες συναλλαγής',
   'expenseDetail.loadError': 'Αποτυχία φόρτωσης εξόδου.',
+  'expenseDetail.matched': 'Αντιστοιχίστηκε · {{description}}',
   'expenseDetail.missingBody':
     'Το αιτούμενο έξοδο δεν ήταν δυνατό να φορτωθεί. Ενδέχεται να έχει αφαιρεθεί ή να μην έχετε πρόσβαση σε αυτό.',
   'expenseDetail.missingHeading': 'Η εγγραφή εξόδου δεν είναι διαθέσιμη',
@@ -65,6 +81,7 @@ export const ui: UiTranslations = {
   'expenseDetail.receiptAlt': 'Απόδειξη',
   'expenseDetail.receiptHeading': 'Απόδειξη',
   'expenseDetail.reconciled': 'Συμφωνημένο',
+  'expenseDetail.unreconciled': 'Μη συμφωνημένο',
   'expenses.empty': 'Δεν υπάρχουν ακόμη έξοδα.',
   'expenses.heading': 'Έξοδα',
   'expenses.kpi.deductible': 'Εκπεστέο',
@@ -100,6 +117,7 @@ export const ui: UiTranslations = {
   'invoices.loadError': 'Αποτυχία φόρτωσης τιμολογίων.',
   'invoices.searchPlaceholder': 'Αναζήτηση αρ. τιμολογίου ή πελάτη…',
   'invoices.summary.paid': 'Πληρώθηκε αυτή την περίοδο',
+  'invoices.tick': '#{{count}}',
   'landing.ctaSubtitle':
     'Δωρεάν για 30 ημέρες. Χωρίς κάρτα. Φέρτε τον λογιστή σας — θα σας ευχαριστήσει.',
   'landing.ctaTitle': 'Μεταφέρετε τα βιβλία σας σε ένα πιο ήρεμο μέρος.',
@@ -114,6 +132,7 @@ export const ui: UiTranslations = {
   'ledgerStatTriad.eyebrow.ar': 'Εισπρακτέοι λογαριασμοί',
   'ledgerStatTriad.eyebrow.mtd': 'Μήνας έως σήμερα',
   'ledgerStatTriad.netSub': 'Καθαρό {{amount}}',
+  'ledgerStatTriad.overdueSub': '{{amount}} σε εκκρεμότητα',
   'ledgerStatTriad.revenueLabel': 'Έσοδα',
   'login.failed': 'Η σύνδεση απέτυχε.',
   'login.hidePassword': 'Απόκρυψη κωδικού πρόσβασης',
@@ -124,6 +143,7 @@ export const ui: UiTranslations = {
   'login.submit': 'Σύνδεση',
   'nav.legal': 'Νομικά',
   'newExpense.back': 'Έξοδα',
+  'newExpense.clearReceiptCta': 'Εκκαθάριση συνημμένης απόδειξης',
   'newExpense.deductible': 'Φορολογικά εκπεστέο',
   'newExpense.dropPrompt': 'Αποθέστε εδώ φωτογραφία απόδειξης ή PDF για επισύναψη.',
   'newExpense.failed': 'Αδυναμία αποθήκευσης εξόδου.',
@@ -152,6 +172,14 @@ export const ui: UiTranslations = {
   'payments.loadError': 'Αποτυχία φόρτωσης πληρωμών.',
   'payments.unmatchedTag': 'απαράμιλλη',
   'planUpdated.pageLabel': 'Επιβεβαίωση ενημέρωσης προγράμματος',
+  'pricing.advancedFeatures': 'Σύνθετες λειτουργίες: {{yes}}',
+  'pricing.canExport': 'Εξαγωγή δεδομένων: {{yes}}',
+  'pricing.heading': 'Επιλέξτε το πλάνο {{app}} σας',
+  'pricing.maxAccounts': '{{count}} λογαριασμοί',
+  'pricing.maxExpenses': '{{count}} έξοδα',
+  'pricing.maxInvoices': '{{count}} τιμολόγια',
+  'privacy.intro':
+    'Η παρούσα Πολιτική Απορρήτου περιγράφει πώς το {{app}} συλλέγει, χρησιμοποιεί και αποκαλύπτει πληροφορίες σχετικά με επιχειρήσεις που χρησιμοποιούν την υπηρεσία.',
   'privacy.lastUpdated': 'Τελευταία ενημέρωση: {{date}}',
   'privacy.section.collected.body':
     'Συλλέγουμε στοιχεία λογαριασμού (όνομα, email, εταιρεία), τα οικονομικά αρχεία που ανεβάζετε (τιμολόγια, έξοδα, πελάτες, πληρωμές) και τυπικά αρχεία καταγραφής λειτουργίας υπηρεσίας (IP, user-agent, χρονικές σφραγίδες).',
@@ -164,8 +192,10 @@ export const ui: UiTranslations = {
   'privacy.section.use.body':
     'Οι πληροφορίες χρησιμοποιούνται για τη λειτουργία της υπηρεσίας, τη δημιουργία των αναφορών και αρχείων PDF που ζητάτε, την αποστολή συναλλακτικού email μέσω Mailgun και την επεξεργασία πληρωμών μέσω Stripe. Δεν πωλούμε ούτε ενοικιάζουμε προσωπικές πληροφορίες.',
   'recentInvoicesCard.dueMeta': 'Λήγει {{date}}',
+  'recentInvoicesCard.empty': 'Δεν βρέθηκαν τιμολόγια.',
   'recentInvoicesCard.eyebrow': 'Εισπρακτέοι λογαριασμοί',
   'recentInvoicesCard.searchAriaLabel': 'Αναζήτηση τιμολογίων',
+  'recentInvoicesCard.searchPlaceholder': 'Αναζήτηση τιμολογίων…',
   'recentInvoicesCard.title': 'Πρόσφατα τιμολόγια',
   'recentInvoicesCard.viewAll': 'Προβολή όλων των τιμολογίων →',
   'reports.assets': 'Ενεργητικό',
@@ -181,16 +211,22 @@ export const ui: UiTranslations = {
   'reports.pnlHeading': 'Αποτελέσματα χρήσης (12 μήνες)',
   'resetPassword.backToLogin': '← Επιστροφή στη σύνδεση',
   'resetPassword.hidePassword': 'Απόκρυψη κωδικού πρόσβασης',
+  'resetPassword.passwordLabel': 'Νέος κωδικός πρόσβασης',
   'resetPassword.showPassword': 'Εμφάνιση κωδικού πρόσβασης',
+  'resetPassword.subheading':
+    'Επιλέξτε έναν ισχυρό κωδικό πρόσβασης — τουλάχιστον οκτώ χαρακτήρες.',
   'resetPassword.submit': 'Επαναφορά κωδικού πρόσβασης',
   'resetPassword.tooShort': 'Ο κωδικός πρόσβασης πρέπει να έχει τουλάχιστον 8 χαρακτήρες.',
   'settings.account.changePassword': 'Αλλαγή κωδικού',
   'settings.account.changingPassword': 'Αλλαγή…',
   'settings.account.currentPassword': 'Τρέχων κωδικός',
+  'settings.account.dangerZone': 'Επικίνδυνη ζώνη',
   'settings.account.deleteAccount': 'Διαγραφή λογαριασμού',
   'settings.account.deleteDescription':
     'Διαγράψτε οριστικά τον λογαριασμό σας και όλα τα σχετικά δεδομένα.',
   'settings.account.deleteError': 'Η διαγραφή του λογαριασμού απέτυχε.',
+  'settings.account.deleteWarning':
+    'Αυτό διαγράφει οριστικά τον λογαριασμό σας και δεν μπορεί να αναιρεθεί. Εισαγάγετε τον κωδικό πρόσβασής σας για επιβεβαίωση.',
   'settings.account.deleting': 'Διαγραφή…',
   'settings.account.devices': 'Συσκευές',
   'settings.account.email': 'E-mail',
@@ -201,6 +237,8 @@ export const ui: UiTranslations = {
   'settings.account.password': 'Κωδικός πρόσβασης',
   'settings.account.passwordError': 'Αποτυχία αλλαγής κωδικού πρόσβασης.',
   'settings.account.pushNotifications': 'Ειδοποιήσεις push σε αυτή τη συσκευή',
+  'settings.account.revokeDeviceWarning':
+    'Η πρόσβαση αυτής της συσκευής θα ανακληθεί σύντομα. Να γίνει αποσύνδεση;',
   'settings.account.saveError': 'Η ενημέρωση του προφίλ απέτυχε.',
   'settings.account.security': 'Ασφάλεια',
   'settings.account.signOutDevice': 'Αποσύνδεση',
@@ -208,12 +246,20 @@ export const ui: UiTranslations = {
   'settings.account.twoFactor': 'Έλεγχος ταυτότητας δύο παραγόντων',
   'settings.account.twoFactorCode': 'Κωδικός επαλήθευσης',
   'settings.account.twoFactorDisable': 'Απενεργοποίηση',
+  'settings.account.twoFactorDisableTitle': 'Απενεργοποίηση ελέγχου ταυτότητας δύο παραγόντων',
   'settings.account.twoFactorEnable': 'Ενεργοποίηση',
+  'settings.account.twoFactorEnableTitle': 'Ενεργοποίηση ελέγχου ταυτότητας δύο παραγόντων',
   'settings.account.twoFactorInvalidCode': 'Μη έγκυρος κώδικας',
   'settings.account.twoFactorOn': 'Στις',
+  'settings.account.twoFactorQrAlt': 'Κωδικός QR ταυτοποίησης δύο παραγόντων',
+  'settings.account.twoFactorScan':
+    'Σαρώστε αυτόν τον κωδικό QR με την εφαρμογή ελέγχου ταυτότητας και, στη συνέχεια, εισαγάγετε τον 6ψήφιο κωδικό.',
+  'settings.account.twoFactorUnavailable':
+    'Ο έλεγχος ταυτότητας δύο παραγόντων δεν είναι διαθέσιμος για αυτήν την εφαρμογή.',
   'settings.account.twoFactorVerify': 'Επαλήθευση και ενεργοποίηση',
   'settings.account.unknownDevice': 'Άγνωστη συσκευή',
   'settings.company.email': 'Email χρέωσης',
+  'settings.company.heading': 'Εταιρεία & φόροι',
   'settings.company.name': 'Νομική επωνυμία',
   'settings.company.saveButton': 'Αποθήκευση προφίλ εταιρείας',
   'settings.company.taxId': 'ΑΦΜ / Αρ. ΓΕΜΗ',
@@ -257,6 +303,9 @@ export const ui: UiTranslations = {
   'taxes.kpi.estimated': 'Εκτ. τριμηνιαίο',
   'taxes.kpi.owed': 'Οφειλόμενο',
   'taxes.loadError': 'Αποτυχία φόρτωσης φορολογικής περίληψης.',
+  'taxes.remittedPct': '({{pct}}% αποδόθηκε)',
+  'terms.intro':
+    'Οι παρόντες Όροι Παροχής Υπηρεσιών ("Όροι") διέπουν την πρόσβασή σας και τη χρήση του {{app}}. Δημιουργώντας λογαριασμό ή χρησιμοποιώντας την υπηρεσία, συμφωνείτε να δεσμεύεστε από αυτούς.',
   'terms.lastUpdated': 'Τελευταία ενημέρωση: {{date}}',
   'terms.section.acceptable.body':
     'Συμφωνείτε να μην χρησιμοποιείτε την υπηρεσία για παραβίαση νόμων, παραβίαση δικαιωμάτων διανοητικής ιδιοκτησίας, μεταφορά κακόβουλου λογισμικού ή απόπειρα μη εξουσιοδοτημένης πρόσβασης σε άλλους λογαριασμούς ή στις υποδομές μας.',

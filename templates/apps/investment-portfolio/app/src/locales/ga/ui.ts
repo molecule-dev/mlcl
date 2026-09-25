@@ -1,10 +1,34 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Aiseolas agat, fabht aimsithe, nó gné uait? Déan teagmháil linn ó shocruithe do chuntais — téann gach teachtaireacht chuig duine fíor ar an bhfoireann. Nóta: ní comhairle infheistíochta é aon rud anseo; tá smacht agat ar gach trádáil.',
+  'about.contactTitle': 'Labhair linn',
+  'about.featureAttribution':
+    'Tréithiú feidhmíochta — dí-chomhcheangail torthaí de réir earnála, réigiúin agus aicme sócmhainne, agus déan tagarmharcáil thar aon tréimhse.',
+  'about.featureRebalance':
+    'Athchothromú araíonach — socraigh sprioc-leithdháiltí agus bandaí lamháltais, féach ar an sraonadh á shonrú go luath, agus faigh na trádálacha a thugann ar ais thú.',
+  'about.featureTax':
+    'Sláinteachas doiciméad cánach — gnóthachain réadaithe agus neamhréadaithe, díbhinní agus doiciméid 1099 in aon áit amháin, le bratacha díolacháin nite san áireamh.',
+  'about.featureUnified':
+    'Punann amháin aontaithe — scaireanna, ETFanna, cistí frithpháirteacha, bannaí agus tuilleadh, tarraingthe le chéile ó gach cuntas bróicéireachta.',
+  'about.featureWatchlist':
+    'Liostaí faire, nuacht agus foláirimh praghais ionas gur féidir leat gníomhú ar an rud atá tábhachtach gan an torann.',
+  'about.intro':
+    "Is painéal punainne il-sócmhainne é {{app}} d'infheisteoirí aonair agus do chomhairleoirí neamhspleácha. Scaireanna, ETFanna, cistí frithpháirteacha, bannaí, eastát réadach agus airgead tirim — gach sealúchas i ngach cuntas, in aon áit amháin, le haraíonacht deisce gairmiúil.",
+  'about.missionBody':
+    "Is é an araíonacht an chuid is mó d'infheistíocht mhaith: sprioc-leithdháileadh soiléir, tréithiú feidhmíochta macánta, agus taifid chánach in ord. Tugann {{app}} na nósanna institiúideacha sin do gach duine, ionas gur féidir leat athchothromú a dhéanamh d'aon ghnó seachas ar thuairim — agus gan dearmad a dhéanamh riamh ar a bhfuil do phunann a dhéanamh i ndáiríre.",
+  'about.missionTitle': 'Ár misean',
   'about.pageTitle': 'Faoi {{app}}',
   'argentAuthShell.brandEyebrow': 'Argent · Uirlisí saibhris',
   'argentAuthShell.brandFootnote': '© {{year}} {{app}} . Ní comhairle infheistíochta atá ann.',
+  'argentAuthShell.brandHeading': '{{tagline}}',
+  'argentAuthShell.brandSubheading':
+    'Painéal punainne d’infheisteoirí agus do chomhairleoirí aonair ar mian leo athchothromú disciplínithe, leithdháileadh géar feidhmíochta, agus sláinteachas doiciméad cánach — gan an torann.',
+  'argentAuthShell.formFooter':
+    '© {{year}} {{app}} · Ní ráthaíonn feidhmíocht san am atá thart torthaí sa todhchaí.',
   'argentAuthShell.sampleChange': '+$2,841 (+0.28%) inniu',
+  'argentAuthShell.sampleLabel': 'Luach Punainne',
   'argentAuthShell.sampleValue': '$1,032,251',
   'argentLayout.primaryNavLabel': 'Príomh-loingseoireacht',
   'assetAllocationDonut.heading': 'Conas a infheistítear do chuid airgid',
@@ -26,6 +50,7 @@ export const ui: UiTranslations = {
   'assetDetail.today': 'inniu',
   'assetDetail.txEmpty': 'Gan aon idirbhearta don ticéad seo.',
   'assetDetail.txHeading': 'Do chuid idirbhearta',
+  'auth.legalConsent.prefix': 'Trí leanúint ar aghaidh, aontaíonn tú le {{appName}}',
   'common.and': 'agus',
   'common.goToDashboard': 'Téigh chuig an Deais',
   'common.no': '—',
@@ -37,10 +62,14 @@ export const ui: UiTranslations = {
   'dashboard.kpi.yield.sub': 'inniu',
   'dashboard.topHoldings.heading': 'An áit a bhfuil do chuid airgid ag obair',
   'dashboard.topHoldings.label': 'Príomhshealbhaíochais',
+  'forgotPassword.gotLinkCta': 'Tá nasc athshocraithe agam →',
+  'forgotPassword.subheading':
+    'Cuir isteach an seoladh ríomhphoist atá ar do chuntas Gavl agus cuirfimid nasc athshocraithe slán chugat.',
   'forgotPassword.successBody':
     'Mura bhfeiceann tú é i gceann cúpla nóiméad, seiceáil d’fhillteán turscair nó bain triail as ríomhphost difriúil.',
   'forgotPassword.successSubheading':
     'Seiceáil {{email}} le haghaidh nasc athshocraithe. Rachaidh sé in éag i gceann 60 nóiméad.',
+  'forgotPassword.successTitle': 'Ríomhphost athshocraithe ar a bhealach',
   'holdingHighlightRow.todayLabel': 'inniu',
   'holdings.addCta': 'Ceannaigh',
   'holdings.col.allocation': 'Leithdháileadh',
@@ -58,6 +87,9 @@ export const ui: UiTranslations = {
     '© {{year}} {{app}} . Ní comhairle infheistíochta í. Ní ráthaíocht í feidhmíocht san am atá thart ar thorthaí amach anseo.',
   'landing.eyebrow': 'Argent · Ardán uirlisí saibhris',
   'landing.features.heading': 'Gach rud a thógfadh comhairleoir dóibh féin.',
+  'landing.finalCta.body':
+    'Ceangail do bhróicéireacht in dhá chliceáil. Déanann {{appName}} an chuid eile.',
+  'landing.finalCta.cta': 'Oscail do chuntas Argent',
   'landing.finalCta.heading': 'Tabhair smacht ar ais chuig do phunann oibre.',
   'landing.footerSignup': 'Oscail cuntas',
   'landing.getStarted': 'Oscail cuntas',
@@ -65,6 +97,7 @@ export const ui: UiTranslations = {
   'landing.heroSecondaryCta': 'Féach ar phraghsáil',
   'landing.heroSubtitle':
     'Painéal punainne d’infheisteoirí agus do chomhairleoirí aonair ar mian leo athchothromú disciplínithe, leithdháileadh géar feidhmíochta, agus sláinteachas doiciméad cánach — gan an torann.',
+  'landing.heroTitle': '{{tagline}}.',
   'landing.sampleCaption': 'Réamhamharc beo ó phunann ionadaíoch',
   'login.heading': 'Sínigh isteach chuig Argent',
   'login.subheading':
@@ -76,6 +109,12 @@ export const ui: UiTranslations = {
   'news.hoursAgo': '{{count}} uair an chloig ó shin',
   'news.justNow': 'díreach anois',
   'news.loadError': 'Theip ar an nuacht a lódáil.',
+  'planUpdated.body':
+    "Tá d'athrú billeála gníomhach anois. Is féidir leat do phlean a bhainistiú am ar bith ón leathanach billeála.",
+  'planUpdated.retry': 'Déan iarracht arís',
+  'planUpdated.verifyFailed': 'Ní raibh muid in ann d’íocaíocht a dheimhniú go fóill.',
+  'planUpdated.verifyFailedBody':
+    'B’fhéidir go bhfuil d’íocaíocht fós á próiseáil. Bain triail eile as i gceann nóiméid.',
   'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'portfolioHeroCard.label': 'Luach Punainne',
   'pricing.holdingsLabel': 'sealúchais',
@@ -86,12 +125,17 @@ export const ui: UiTranslations = {
   'rebalance.allocationHeading': 'Drift leithdháilte',
   'rebalance.empty': 'Níl aon spriocanna socraithe fós.',
   'rebalance.executeCta': 'Áit {{count}} ceirdeanna',
+  'rebalance.executeError': 'Theip ar na trádálacha a chur.',
   'rebalance.executeOk': 'Curtha {{count}} ceirdeanna. Féach orthu ar an leathanach Idirbheart.',
+  'rebalance.executing': 'Á gcur…',
   'rebalance.eyebrow': 'Athchothromú · Comhairleoir Argent',
   'rebalance.heading': 'Tabhair do phunann ar ais i ndisciplín',
   'rebalance.loadError': 'Theip ar an bplean athchothromaíochta a lódáil.',
+  'rebalance.plan.driftLine': 'faoi láthair {{current}}% · sprioc {{target}}%',
   'rebalance.planHeading': 'Ticéad Argent — athbhreithniú sula gcuirtear isteach é',
   'rebalance.planLabel': 'Plean trádála molta',
+  'rebalance.subheading':
+    'Spreagann rónna lasmuigh dá mbanda lamháltais moltaí trádála. Ní ghníomhaíonn {{appName}} ach ar do dhearbhú.',
   'rebalance.summary.buyLabel': 'Ceannaíonn',
   'rebalance.summary.buySub': 'poist le cur leis',
   'rebalance.summary.driftLabel': 'Lasmuigh den bhanda',
@@ -100,6 +144,7 @@ export const ui: UiTranslations = {
   'rebalance.summary.notionalSub': 'trasna ceirdeanna molta',
   'rebalance.summary.sellLabel': 'Díolann',
   'rebalance.summary.sellSub': 'suíomhanna le bearradh',
+  'rebalanceDriftCard.drift': 'sraonadh {{sign}}{{pct}}% · banda ±{{tolerance}}%',
   'rebalanceDriftCard.targetLabel': 'sprioc {{pct}} %',
   'reports.attributionHeading': 'Cur i leith feidhmíochta (1Y)',
   'reports.col.alpha': 'Alfa',
@@ -113,37 +158,68 @@ export const ui: UiTranslations = {
   'reports.col.year': 'Bliain',
   'reports.gainsHeading': 'Gnóthachain réadaithe agus neamhréadaithe',
   'reports.noAttribution': 'Gan aon sonraí leithdháilte fós.',
+  'reports.noGains': 'Níl aon sonraí gnóthachan réadaithe/neamhréadaithe fós.',
   'reports.noPerformance': 'Gan aon sonraí feidhmíochta fós.',
   'reports.noTaxDocs': 'Gan aon doiciméid chánach fós.',
   'reports.performanceHeading': 'Feidhmíocht i gcoinne tagarmharc',
   'reports.taxHeading': 'Doiciméid chánach',
   'resetPassword.heading': 'Roghnaigh pasfhocal láidir nua',
+  'resetPassword.passwordPlaceholder': 'Pasfhocal nua',
   'resetPassword.subheading':
     'Síneoidh Argent isteach thú go huathoibríoch a luaithe a bheidh do phasfhocal socraithe.',
   'resetPassword.tokenPlaceholder': 'Athshocraigh an comhartha ón ríomhphost',
+  'settings.appearance.description': 'Athraigh idir mód geal agus dorcha.',
   'settings.appearance.title': 'Dealramh',
+  'settings.devices.body': 'Gléasanna atá logáilte isteach i do chuntas faoi láthair.',
+  'settings.devices.empty': 'Níor aimsíodh aon ghléas.',
   'settings.devices.heading': 'Gléasanna',
+  'settings.devices.revokeWarning':
+    'Cuirfear deireadh le rochtain an ghléis seo go luath. Sínigh amach é?',
   'settings.devices.signOut': 'Sínigh amach',
   'settings.devices.thisDevice': 'An gléas seo',
   'settings.devices.unknown': 'Gléas anaithnid',
   'settings.linked.body':
     'Éilíonn sioncrónú bróicéireachta nascóir tríú páirtí (Plaid, Yodlee, srl.). Cumraigh do sholáthraí i do thimpeallacht chun uath-allmhairiú a chumasú.',
   'settings.linked.heading': 'Cuntais bróicéireachta nasctha',
+  'settings.linked.placeholder': 'Níl aon chuntais nasctha fós.',
+  'settings.notifications.dividendsPaid': 'Díbhinní íoctha',
   'settings.notifications.error': 'Níorbh fhéidir an rogha a nuashonrú.',
   'settings.notifications.priceAlerts': 'Foláirimh phraghais',
+  'settings.notifications.rebalanceDrift': 'Sraonadh athchothromaithe',
+  'settings.notifications.taxDocsReady': 'Doiciméid chánach réidh',
   'settings.profile.advisor': 'Ríomhphost comhairleora (roghnach)',
   'settings.profile.heading': 'Próifíl',
   'settings.security.changePassword': 'Athraigh an focal faire',
+  'settings.security.changePasswordTitle': 'Athraigh an focal faire',
   'settings.security.changing': 'Ag athrú…',
+  'settings.security.confirmPassword': 'Pasfhocal',
+  'settings.security.currentPassword': 'Focal faire reatha',
   'settings.security.deleteAccount': 'Scrios cuntas',
   'settings.security.deleteError': 'Níorbh fhéidir an cuntas a scriosadh.',
   'settings.security.deleteHeading': 'Scrios cuntas',
+  'settings.security.deleteModalWarning':
+    'Scriosann sé seo do chuntas agus do shonraí go buan. Cuir isteach do phasfhocal le dearbhú.',
+  'settings.security.deleteWarning':
+    'Scrios do chuntas agus gach sonra gaolmhar go buan. Ní féidir é seo a chur ar ceal.',
   'settings.security.deleting': 'Ag scriosadh…',
   'settings.security.heading': 'Slándáil',
   'settings.security.newPassword': 'Pasfhocal nua',
   'settings.security.password': 'Pasfhocal',
+  'settings.security.passwordError': 'Níorbh fhéidir an focal faire a athrú.',
+  'settings.security.passwordHint': 'Athraigh an focal faire a úsáideann tú chun síniú isteach.',
+  'settings.security.twoFactor': 'Fíordheimhniú dhá fhachtóir',
+  'settings.security.twoFactorCode': 'Cód fíordheimhnithe',
+  'settings.security.twoFactorDisable': 'Díchumasaigh',
+  'settings.security.twoFactorDisableTitle': 'Díchumasaigh fíordheimhniú dhá fhachtóir',
   'settings.security.twoFactorEnable': 'Cumasaigh',
+  'settings.security.twoFactorEnableTitle': 'Cumasaigh fíordheimhniú dhá fhachtóir',
+  'settings.security.twoFactorHint': 'Cuir sraith bhreise cosanta le do chuntas.',
   'settings.security.twoFactorInvalidCode': 'Cód neamhbhailí',
+  'settings.security.twoFactorOn': 'On',
+  'settings.security.twoFactorQrAlt': 'Cód QR dhá fhachtóir',
+  'settings.security.twoFactorScan':
+    "Scan an cód QR seo le d'aip fhíordheimhniúcháin, ansin cuir isteach an cód 6 dhigit.",
+  'settings.security.twoFactorUnavailable': 'Níl fíordheimhniú dhá fhachtóir ar fáil don aip seo.',
   'settings.security.twoFactorVerify': 'Fíoraigh & cumasaigh',
   'settings.tax.error': 'Níorbh fhéidir an modh cánach a nuashonrú.',
   'settings.tax.heading': 'Cuntasaíocht chánach',
@@ -154,6 +230,7 @@ export const ui: UiTranslations = {
   'settings.tax.saved': 'Modh cánach sábháilte.',
   'signup.eyebrow': 'Oscail cuntas',
   'signup.heading': 'Oscail do chuntas Argent',
+  'signup.legalPrefix': 'Trí chuntas a chruthú aontaíonn tú leis an {{appName}}',
   'signup.subheading': 'Saor in aisce ar feadh 30 lá. Níl cárta ag teastáil. Cealaigh am ar bith.',
   'signup.terms':
     'Trí chuntas a chruthú aontaíonn tú le Téarmaí Seirbhíse agus Polasaí Príobháideachta Argent.',

@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Есть отзыв, нашли ошибку или хотите рассказать, как ведение дневника помогло вам? Мы читаем каждое сообщение — напишите нам в любое время, и вам ответит живой человек.',
+  'about.contactTitle': 'Свяжитесь с нами',
+  'about.featureInsights':
+    'Размышления на основе ИИ, которые мягко подсвечивают триггеры, темы и благодарности — не заглушая ваш голос.',
+  'about.featureMood':
+    'Отслеживание настроения и активности с календарём и графиками трендов, которые показывают, что помогает вам расцветать.',
+  'about.featurePrivacy':
+    'Сквозное шифрование, блокировка кодом-паролем и полный экспорт в CSV, чтобы ваши размышления оставались приватными и переносимыми.',
+  'about.featurePrompts':
+    'Мягкие ежедневные подсказки, чтобы вам всегда было с чего начать — никаких пустых страниц.',
+  'about.intro':
+    '{{app}} — это мягкий и приватный дневник психического здоровья для ежедневных размышлений, отслеживания настроения и благодарности. Продуманные подсказки заменяют пустую страницу, тихий поиск закономерностей помогает понять, что влияет на ваши чувства, а сквозное шифрование сохраняет ваши слова только вашими.',
+  'about.missionBody':
+    'Мы верим, что проверка своего состояния должна быть спокойной, а не клинической — и уж точно не похожей на очередное приложение, требующее вашего внимания. {{app}} создан, чтобы помогать, а не пилить: несколько тихих минут в день, чтобы заметить своё настроение, честно написать и постепенно увидеть себя яснее.',
+  'about.missionTitle': 'Наша миссия',
   'about.pageTitle': 'О {{app}}',
   'authShell.encryptionBadge': 'Ваши данные зашифрованы сквозным шифрованием.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'День {{day}} — нет записи',
   'calendar.cellMood': 'День {{day}} — {{mood}}',
   'calendar.distributionHeading': 'Краткий обзор этого месяца',
   'calendar.eyebrow': 'Настроение с первого взгляда',
@@ -15,6 +32,8 @@ export const ui: UiTranslations = {
   'calendar.subheading': 'Отслеживаемый {{tracked}} из {{total}} дней в этом месяце.',
   'common.goToDashboard': 'Перейти к панели',
   'common.tryAgain': 'Попробуйте ещё раз',
+  'entryComposer.bodyPlaceholder':
+    'Пишите так, как чувствуете. Никто, кроме вас, это не прочитает.',
   'entryComposer.cancel': 'Вернуться в журнал',
   'entryComposer.heading': 'Сегодняшние размышления',
   'entryComposer.moodLabel': 'Как вы себя чувствуете?',
@@ -23,6 +42,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Удалять {{tag}}',
   'entryComposer.save': 'Сохранить отражение',
   'entryComposer.saveError': 'Не удалось сохранить вашу запись.',
+  'entryComposer.tagPlaceholder': 'Добавьте тег и нажмите Enter',
   'entryComposer.titlePlaceholder': 'Дайте этому отражению название…',
   'entryDetail.back': 'Вернуться в журнал',
   'entryDetail.delete': 'Удалить эту запись',
@@ -36,6 +56,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Загрузка отражения…',
   'entryDetail.notFound': 'Запись не найдена.',
   'entryDetail.reflectionsHeading': 'Размышления об ИИ',
+  'forgotPassword.continueButton': 'Введите код сброса',
   'forgotPassword.eyebrow': 'Не беспокойся',
   'forgotPassword.subheading':
     'Мы отправим вам на электронную почту ссылку для простой перезагрузки аккаунта.',
@@ -59,14 +80,22 @@ export const ui: UiTranslations = {
     'Тем пока нет — добавьте к своим записям один или два тега, и они соберутся здесь.',
   'insights.themesHeading': 'Главные темы',
   'insights.triggerFrequency': 'заметил {{count}} × в этом месяце',
+  'insights.triggersEmpty':
+    'Пока нечего отметить. Несколько записей за несколько дней покажут ваши закономерности.',
   'insights.triggersHeading': 'Узоры, влияющие на ваше настроение',
+  'journal.empty':
+    'Нет подходящих размышлений — попробуйте другой фильтр или напишите новую запись.',
   'journal.eyebrow': 'Ваши размышления',
   'journal.heading': 'Журнал',
   'journal.loadError': 'Не удалось загрузить записи.',
   'journal.loading': 'Загрузка записей…',
+  'journal.newEntry': 'Новая запись',
   'journal.searchPlaceholder': 'Ищите чувство, имя, момент…',
   'journal.subheading': '{{count}} Записи — каждая из них заслуживает сохранения.',
   'journalEntryCard.encryptedLabel': 'Зашифровано',
+  'landing.ctaBody':
+    'Начать можно бесплатно. Pro открывает экспорт данных, более объёмный дневник и полный год истории.',
+  'landing.ctaButton': 'Начните свою первую запись',
   'landing.ctaTitle': 'Несколько минут тишины в день. Вот и всё.',
   'landing.eyebrow': 'Мягкая ежедневная практика',
   'landing.featuresBody':
@@ -85,6 +114,8 @@ export const ui: UiTranslations = {
   'login.subheading': 'Уютное место для ежедневных размышлений.',
   'mentalHealthJournalLayout.closeMenu': 'Закрыть меню',
   'mentalHealthJournalLayout.openMenu': 'Открыть меню',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Основная навигация',
+  'moodHeroCard.entriesThisWeek': '{{count}} На этой неделе',
   'moodHeroCard.streakSuffix': 'дневная серия',
   'moodHeroCard.title': 'Сегодняшние размышления',
   'moodTrendChart.aiBadge': 'Аналитические данные ИИ готовы',
@@ -95,11 +126,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Ваше путешествие',
   'profile.fallbackName': 'Отражатель',
   'profile.loadError': 'Не удалось загрузить статистику.',
+  'profile.loading': 'Обновляем вашу статистику…',
   'profile.longestStreak': 'Самая длинная серия',
   'profile.memberSince': 'Размышляя с тех пор {{date}}',
   'profile.milestones': 'Важные этапы',
   'profile.milestonesEmpty':
     'До первого важного этапа осталась всего одна запись — пишите, когда почувствуете готовность.',
+  'profile.moodMix': 'Ваша палитра настроений в этом сезоне',
   'profile.streakValue': '{{days}} д',
   'profile.totalEntries': 'Размышления',
   'profile.totalWords': 'написанные слова',
@@ -113,6 +146,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Напишите об этом',
   'resetPassword.eyebrow': 'Новое начало',
   'resetPassword.mismatchError': 'Пароли не совпадают.',
+  'resetPassword.passwordLabel': 'Новый пароль',
   'resetPassword.subheading': 'Выберите что-нибудь безопасное — ваше отражение этого заслуживает.',
   'resetPassword.tokenPlaceholder': 'Код сброса из электронного письма',
   'settings.dangerDescription':
@@ -125,11 +159,14 @@ export const ui: UiTranslations = {
   'settings.exportDescription':
     'Ваши слова всегда принадлежат вам. Вы можете скачать копию в любое время.',
   'settings.exportDone': 'Экспортировано {{format}}.',
+  'settings.exportError': 'Экспорт не удался.',
+  'settings.exportHeading': 'Экспортируйте свои размышления',
   'settings.exportLoading': 'Подготовка…',
   'settings.eyebrow': 'Ваше пространство, ваши правила',
   'settings.languageHeading': 'Язык',
   'settings.privacyHeading': 'Конфиденциальность и шифрование',
   'settings.remindersHeading': 'Ежедневное напоминание',
+  'settings.reminderToggleAria': 'Переключить ежедневное напоминание',
   'settings.reminderToggleDescription':
     'Одно-единственное спокойное напоминание в выбранное вами время. Никаких значков или чувства вины за серию побед.',
   'settings.reminderToggleLabel': 'Ненавязчиво подтолкните',
@@ -142,6 +179,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Создание дневника…',
   'signup.subheading': 'Безопасное пространство для ваших мыслей.',
   'wellnessRingsTriad.mindfulnessCaption': 'Цель {{goal}} мин сегодня',
+  'wellnessRingsTriad.mindfulnessLabel': 'Осознанность',
   'wellnessRingsTriad.sleepCaption': 'Цель {{goal}} ч / ночь',
   'wellnessRingsTriad.sleepLabel': 'Спать',
+  'wellnessRingsTriad.sleepValue': '{{hours}} ч.',
+  'wellnessRingsTriad.streakCaption': 'Цель {{goal}} дней',
+  'wellnessRingsTriad.streakLabel': 'Серия записей',
+  'wellnessRingsTriad.streakValue': '{{days}} д',
 }

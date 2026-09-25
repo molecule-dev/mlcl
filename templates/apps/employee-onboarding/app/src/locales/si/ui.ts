@@ -1,32 +1,49 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ඔබේ කණ්ඩායමට වඩාත් උණුසුම් පිළිගැනීමක් ලබා දීමට කැමතිද, දෝෂයක් හමු වුණාද, නැතහොත් අදහස් තිබේද? ඔබේ ගිණුම් සැකසුම් වෙතින් අප හා සම්බන්ධ වන්න — සෑම පණිවිඩයක්ම උදව් කළ හැකි සැබෑ මිනිසෙකු වෙත යයි.',
   'about.contactTitle': 'අප හා සම්බන්ධ වන්න',
   'about.eyebrow': 'ගැන',
+  'about.missionTitle': 'අපගේ මෙහෙවර',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'ඔබගේ මුරපදය නැවත සකසන්න.',
+  'auth.forgotPassword.panel.body':
+    'නැවත සැකසීමට තත්පර 30ක් ගත වේ — ඔබේ ලැයිස්තු ප්‍රගතිය රැඳී ඇත.',
+  'auth.forgotPassword.panel.headline': 'ඔබ නැවැත්වූ තැනටම නැවත.',
+  'auth.forgotPassword.subheading':
+    'ඔබේ සේවා ඊමේල් ලිපිනය ඇතුළත් කරන්න, අපි ඔබට නැවත සැකසීමේ සබැඳියක් එවන්නෙමු.',
   'auth.forgotPassword.successSubheading':
     'ඔබගේ එන ලිපි පරීක්ෂා කරන්න — අපි යළි පිහිටුවීමේ උපදෙස් යවා ඇත.',
   'auth.login.emailPlaceholder': 'name@yourcompany.com',
   'auth.login.heading': 'ආපසු සාදරයෙන් පිළිගනිමු.',
   'auth.login.passwordPlaceholder': 'ඔබගේ මුරපදය',
+  'auth.login.signupPrompt': 'ඔබේ කණ්ඩායමට අලුත්ද?',
   'auth.login.subheading': 'ඔබ නතර කළ තැනින් ඔබේ ගොඩබෑමේ ගමන ආරම්භ කිරීමට පුරන්න.',
   'auth.login.submit': 'ඔබේ ගමන දිගටම කරගෙන යන්න.',
+  'auth.panel.body':
+    'ඔබේ පුද්ගලික ලැයිස්තුව, පුහුණු සන්ධිස්ථාන, සහ කණ්ඩායම් හඳුන්වාදීම් — සියල්ල එකම සන්සුන් තැනක.',
   'auth.panel.footnote': '© එම්බාර්ක් — අද සිට මුලින්ම පුද්ගලයින් බඳවා ගැනීම.',
   'auth.panel.headline': 'විශ්වාසදායක පළමු දින 90 මෙතැනින් ආරම්භ වේ.',
   'auth.resetPassword.heading': 'නව මුරපදයක් සකසන්න.',
   'auth.resetPassword.newPasswordLabel': 'නව මුරපදය',
+  'auth.resetPassword.panel.body':
+    'නව මුරපදයක් සුරකින්න, අපි ඔබව නැවත ඔබේ පිළිගැනීමේ ගමනට ගෙන එන්නෙමු.',
+  'auth.resetPassword.panel.headline': 'නැවත ඇතුළු වීමට ආසන්නයි.',
   'auth.resetPassword.subheading': 'ඔබට මතක ඇති දෙයක් තෝරන්න - අවම වශයෙන් අක්ෂර 8 ක්.',
   'auth.signup.emailPlaceholder': 'name@yourcompany.com',
   'auth.signup.heading': 'ඔබේ පළමු දින 90ට සාදරයෙන් පිළිගනිමු.',
   'auth.signup.panel.body':
     'මඟ පෙන්වන ලද පිරික්සුම් ලැයිස්තුවක්, භූමිකාව පිළිබඳ දැනුවත් පුහුණුවක් සහ මානව හඳුන්වාදීම් - ඔබ ඇතුළු වීමට පෙර සූදානම්.',
+  'auth.signup.panel.headline': 'පළමු දිනය, පළමු දිනයේම.',
   'auth.signup.subheading': 'ඔබගේ මාර්ගෝපදේශක ඇතුල්වීමේ ගමන ආරම්භ කිරීමට ඔබගේ Embark ගිණුම සාදන්න.',
   'checklist.empty.body': 'අනෙකුත් කාර්යයන් බැලීමට පෙරහන මාරු කරන්න.',
   'checklist.empty.title': 'දැන් මෙතන කිසිම දෙයක් නැහැ.',
   'checklist.eyebrow': 'ඇතුළත් කිරීම · පිරික්සුම් ලැයිස්තුව',
   'checklist.loading': 'ඔබගේ පිරික්සුම් ලැයිස්තුව පූරණය කරමින්...',
   'checklist.stat.actionNeeded': 'ක්‍රියාමාර්ගයක් අවශ්‍යයි',
+  'checklist.stat.completion': 'සම්පූර්ණ කිරීම',
+  'checklist.stat.inProgress': 'ප්රගතියේ',
   'checklist.stat.inProgressHelper': 'ඔබ නතර කළ තැනින් පටන් ගන්න',
   'checklist.stat.overdueHelper': 'මුලින්ම මේවා අල්ලගන්න',
   'checklist.subtitle':
@@ -58,6 +75,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'තවමත් ලේඛන නොමැත.',
   'documents.eyebrow': 'ඇතුළත් කිරීම · ලේඛන',
   'documents.loading': 'ලේඛන පූරණය වෙමින්…',
+  'documents.stat.actionNeeded': 'දැන් අත්සන් කරන්න',
+  'documents.stat.all': 'සියලුම ලේඛන',
   'documents.stat.allHelper': 'කාණ්ඩ හරහා',
   'documents.stat.pending': 'පොරොත්තු අත්සන්',
   'documents.stat.pendingHelper': 'සම්පූර්ණ කිරීම සඳහා අවශ්‍යයි',
@@ -65,21 +84,27 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'ආරක්ෂිතව ගබඩා කර ඇත',
   'documents.status.optional': 'විකල්ප',
   'documents.status.required': 'අවශ්‍යයි',
+  'documents.status.signed': 'අත්සන් කරන ලදී',
   'documents.subtitle': 'ඔබගේ අත්පොත, පෝරම සහ අත්සන් කරන ලද ගිවිසුම් - සියල්ල එකම තැනකින්.',
   'documents.title': 'ඔබට කියවා අත්සන් කිරීමට අවශ්‍ය සියල්ල.',
   'documents.uploadedRecently': 'මෑතකදී උඩුගත කරන ලද',
   'documentViewer.breadcrumbCurrent': 'නරඹන්නා',
   'documentViewer.breadcrumbDocs': 'ලේඛන',
   'documentViewer.downloadMeta': 'පාර-දත්ත බාගන්න',
+  'documentViewer.helpBody':
+    'People & Culture කණ්ඩායම Slack හි #ask-people හරහා අත්පොත ප්‍රශ්නවලට පිළිතුරු දෙයි.',
   'documentViewer.helpEyebrow': 'උදව් අවශ්‍යද?',
   'documentViewer.loadError': 'අපට මෙම ලේඛනය පූරණය කිරීමට නොහැකි විය.',
   'documentViewer.loading': 'ලේඛනය පූරණය වෙමින්...',
   'documentViewer.notFound': 'ලේඛනය හමු නොවීය.',
+  'documentViewer.previewBody':
+    'උඩුගත කිරීම් වින්‍යාස කළ විට අපි ගොනුව එතැනම පෙන්වමු. දැනට, මෙටාදත්ත බාගැනීම මගින් වාර්තාව සැබෑ බව තහවුරු කළ හැක.',
   'documentViewer.previewBodyExternal': 'ගොනුව නව ටැබයක විවෘත කිරීමට බාගැනීම් බොත්තම භාවිතා කරන්න.',
   'documentViewer.previewTitle': 'ලේඛන පෙරදසුන',
   'documentViewer.sign': 'අත්සන් කර පිළිගන්න',
   'documentViewer.signatureBody': 'ලේඛනය කියවා, අත්සන් කර පිළිගැනීමට පහත ක්ලික් කරන්න.',
   'documentViewer.signatureHeading': 'අත්සන අවශ්‍යයි',
+  'documentViewer.signed': '✓ අත්සන් කර ගොනු කර ඇත',
   'documentViewer.signing': 'අත්සන් කරමින්...',
   'documentViewer.uploadedRecently': 'මෑතකදී උඩුගත කරන ලද',
   'landing.closing.body':
@@ -89,10 +114,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'මට දැනටමත් ගිණුමක් තියෙනවා.',
   'landing.feature1.body':
     'සෑම කාර්යයක්ම - ලේඛන කටයුතු, ගිණුම්, හැඳින්වීම් - නියමිත දිනයන් සහ නිවැරදි හිමිකරු සමඟ පූර්ව-අදියර කර ඇත.',
+  'landing.feature1.title': 'මඟපෙන්වන ලැයිස්තුවක්',
   'landing.feature2.body':
     '30/60/90 සන්ධිස්ථානවලදී මොඩියුල අගුළු හරිනු ලැබේ, භූමිකාවට සහ කුලියට ගන්නා කණ්ඩායමක් එක්වන විට සුසර කරනු ලැබේ.',
+  'landing.feature2.title': 'භූමිකාව අනුව පුහුණුව',
   'landing.feature3.body':
     'මිතුරන්, කළමනාකරුවන් සහ හරස්-ක්‍රියාකාරී හැඳින්වීම් කාලසටහන්ගත කර ඇත - එබැවින් කිසිවෙකු තනිවම ආරම්භ නොකරයි.',
+  'landing.feature3.title': 'සැබෑ හඳුන්වාදීම්',
   'landing.featureEyebrow': 'ඇයි එම්බාර්ක්',
   'landing.featureHeadline': 'පළමු දිනයේදීම Embark විශ්වාසය උපයා ගන්නා ක්‍රම තුනක්.',
   'landing.footer.rights': 'සියලු හිමිකම් ඇවිරිණි.',
@@ -102,6 +130,7 @@ export const ui: UiTranslations = {
   'landing.preview.body':
     'ඊළඟට: විනාඩි 30ක කෝපි කතාබහක් සඳහා ඔබේ මිතුරා හමුවන්න — අඟහරුවාදා පෙ.ව. 10:00 ට.',
   'landing.preview.eyebrow': '90න් 14 වන දිනය — නියැදි උපකරණ පුවරුව',
+  'landing.preview.headline': 'නැවත සාදරයෙන් පිළිගනිමු, Maya.',
   'landing.proof.spec': 'SOC 2 + GDPR සූදානම්',
   'landing.proof.teams': '50–5,000 කණ්ඩායම් සඳහා ඉදිකරන ලද්දකි',
   'landing.proof.time': 'දින-14ක නොමිලේ අත්හදා බැලීම',
@@ -118,16 +147,25 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'ඊයේ',
   'planUpdated.message': 'ඔයා ඔක්කොම හරි.',
   'planUpdated.preparing': 'ඔබේ සැලැස්ම යාවත්කාලීන කරමින්...',
+  'planUpdated.retry': 'නැවත උත්සාහ කරන්න',
+  'planUpdated.verifyFailed': 'අපට තවමත් ඔබගේ ගෙවීම තහවුරු කිරීමට නොහැකි විය.',
+  'planUpdated.verifyFailedBody':
+    'ඔබේ ගෙවීම තවමත් සැකසෙමින් තිබිය හැක. මොහොතකින් නැවත උත්සාහ කරන්න.',
   'planUpdated.verifying': 'ඔබේ ගෙවීම තහවුරු කරමින්…',
   'pricing.documentsLabel': 'ලේඛන',
   'pricing.onboardingsLabel': 'ඇතුළත් කිරීම්',
   'pricing.tasksLabel': 'කාර්යයන්',
   'profile.dayNumber': 'දහවල',
   'profile.detailsHeading': 'ඇතුළත් වීමේ විස්තර',
+  'profile.encouragementBody': 'ඔබේ යහළුවා සහ කළමනාකරු දැනුවත් කර තබන්න — කුඩා පියවර එකතු වේ.',
   'profile.milestones': 'සන්ධිස්ථාන',
   'profile.progressEyebrow': 'ඇතුළත් කිරීමේ ප්‍රගතිය',
   'profile.tasks': 'කාර්යයන්',
   'profile.unknownName': 'සාදරයෙන් පිළිගනිමු',
+  'settings.appearance.description': 'ආලෝකය සහ අඳුරු මාදිලිය අතර මාරු වන්න.',
+  'settings.appearance.title': 'පෙනුම',
+  'settings.subtitle':
+    'දැනුම්දීම්, ආරක්ෂාව, උපාංග, සහ දත්ත නිර්යාත කිරීම සකසන්න — සියල්ල මෙතැනම, ඔබේ කොන්දේසි අනුව.',
   'settings.title': 'සැකසුම් සහ මනාපයන්.',
   'taskDetail.backToChecklist': 'පිරික්සුම් ලැයිස්තුවට ආපසු',
   'taskDetail.breadcrumbChecklist': 'පිරික්සුම් ලැයිස්තුව',
@@ -140,7 +178,10 @@ export const ui: UiTranslations = {
   'taskDetail.notFound': 'කාර්යය හමු නොවීය',
   'taskDetail.notFoundBody':
     'මෙම කාර්යය මකා දමා තිබිය හැකිය, නැතහොත් වෙනත් පරිශීලකයෙකුට අයත් විය හැකිය.',
+  'taskDetail.tipBody':
+    'ඔබට බාධාවක් ඇත්නම්, Slack හි ඔබේ පිළිගැනීමේ යහළුවාට පණිවිඩයක් යවන්න — ඔවුන් ඔබේ පළමු උපකාරයයි.',
   'taskDetail.tipEyebrow': 'ඉක්මන් ඉඟිය',
+  'team.empty.body': 'පුළුල් සෙවුමක් උත්සාහ කරන්න හෝ වෙනත් අංශයක් තෝරන්න.',
   'team.empty.title': 'කණ්ඩායම් සගයන් කිසිවෙකු ගැලපෙන්නේ නැත',
   'team.eyebrow': 'බඳවා ගැනීම · පුද්ගලයින්',
   'team.loading': 'කණ්ඩායම් සගයන් පූරණය වෙමින්...',
@@ -163,14 +204,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'සන්ධිස්ථාන',
   'timeline.stat.current': 'වත්මන් සන්ධිස්ථානය',
   'timeline.stat.next': 'ඊළඟ අගුළු හැරීම',
+  'timeline.stat.progress': 'සමස්තයක් වශයෙන්',
   'timeline.subtitle':
     'සෑම සන්ධිස්ථානයක්ම නව මොඩියුල, හැඳින්වීම් සහ වර්ධන සංවාද අගුළු හරියි. පීඩනයක් නැත - ප්‍රගතිය පමණි.',
+  'timeline.tipBody':
+    'දින 30, 60, සහ 90 දී ඔබේ කළමනාකරු සමඟ මිනිත්තු 30ක ප්‍රතිචින්තනයක් සැලසුම් කරන්න — එය ප්‍රතිපෝෂණ නිශ්චිත කර ප්‍රගතිය දෘශ්‍යමාන කරයි.',
   'timeline.tipEyebrow': 'කළමනාකරු ඉඟිය',
+  'timeline.tipTitle': 'සන්ධිස්ථාන සඳහා දින දර්ශනයේ වේලාව වෙන් කරන්න.',
   'timeline.title': 'ඔබේ 30 / 60 / 90 ගමන.',
   'training.badge.notStarted': 'ආරම්භ කර නැත',
   'training.empty': 'තවමත් පුහුණු මොඩියුල නොමැත.',
   'training.eyebrow': 'බඳවා ගැනීම · පුහුණුව',
   'training.loading': 'මොඩියුල පූරණය වෙමින්...',
+  'training.stat.all': 'මොඩියුල පවරා ඇත',
   'training.subtitle':
     'ඔබේ භූමිකාවට ගැළපෙන පරිදි මොඩියුල 30/60/90 ට අගුළු හරිනු ලැබේ. අවශ්‍ය ඒවා පළමුව පැමිණේ.',
   'training.title': 'කුසලතා, මෙවලම් සහ කථා - ඔබේ වේගයෙන්.',
@@ -183,9 +229,12 @@ export const ui: UiTranslations = {
   'trainingModule.quizBody':
     'මෙම මොඩියුලය සම්පූර්ණ බව සලකුණු කිරීමට 80% හෝ ඊට වැඩි ලකුණු ලබා ගන්න.',
   'trainingModule.quizHeading': 'මොඩියුලයේ අවසානය පිළිබඳ ප්‍රශ්නාවලිය',
+  'trainingModule.quizLocked': 'පළමුව මොඩියුලය අරඹන්න',
   'trainingModule.quizNone': 'මෙම මොඩියුලයේ ප්‍රශ්නාවලියක් නොමැත.',
   'trainingModule.quizRetry': 'නැවත උත්සාහ කරන්න',
+  'trainingModule.quizStart': 'ප්‍රශ්නාවලිය අරඹන්න',
   'trainingModule.quizSubmit': 'පිළිතුරු ඉදිරිපත් කරන්න',
+  'trainingModule.start': 'මොඩියුලය අරඹන්න',
   'trainingModule.statusNotStarted': 'ආරම්භ කර නැත',
   'welcomeHeroCard.completeLabel': 'සම්පූර්ණයි',
   'welcomeHeroCard.milestonesLabel': 'සන්ධිස්ථාන',

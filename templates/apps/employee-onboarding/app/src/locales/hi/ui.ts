@@ -1,26 +1,39 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'अपनी टीम के लिए बेहतर ऑनबोर्डिंग शुरू करना चाहते हैं, कोई बग मिला है, या सुझाव देना चाहते हैं? अपनी अकाउंट सेटिंग्स से संपर्क करें — हर संदेश एक असली इंसान तक पहुँचता है जो मदद कर सकता है।',
   'about.contactTitle': 'हमसे बात करें',
   'about.eyebrow': 'परिचय',
+  'about.missionTitle': 'हमारा विशेष कार्य',
   'auth.forgotPassword.emailPlaceholder': 'name@yourcompany.com',
   'auth.forgotPassword.heading': 'अपना पासवर्ड रीसेट करें।',
+  'auth.forgotPassword.panel.body':
+    'रीसेट में 30 सेकंड लगते हैं — आपकी चेकलिस्ट की प्रगति आपका इंतज़ार कर रही है।',
+  'auth.forgotPassword.panel.headline': 'ठीक वहीं से जहाँ आपने छोड़ा था।',
+  'auth.forgotPassword.subheading': 'अपना काम का ईमेल डालें और हम आपको रीसेट लिंक भेजेंगे।',
   'auth.forgotPassword.successSubheading': 'अपना इनबॉक्स देखें — हमने रीसेट निर्देश भेज दिए हैं।',
   'auth.login.emailPlaceholder': 'name@yourcompany.com',
   'auth.login.heading': 'वापसी पर स्वागत है।',
   'auth.login.passwordPlaceholder': 'आपका पासवर्ड',
+  'auth.login.signupPrompt': 'अपनी टीम में नए हैं?',
   'auth.login.subheading':
     'जहाँ आपने छोड़ा था वहीं से अपनी ऑनबोर्डिंग यात्रा फिर से शुरू करने के लिए साइन इन करें।',
   'auth.login.submit': 'अपनी यात्रा जारी रखें',
+  'auth.panel.body': 'आपकी निजी चेकलिस्ट, ट्रेनिंग माइलस्टोन और टीम परिचय — सब एक शांत जगह पर।',
   'auth.panel.footnote': '© Embark — आज से लोगों को प्राथमिकता देते हुए ऑनबोर्डिंग।',
   'auth.panel.headline': 'एक आत्मविश्वासी पहले 90 दिन यहाँ से शुरू होते हैं।',
   'auth.resetPassword.heading': 'एक नया पासवर्ड सेट करें।',
   'auth.resetPassword.newPasswordLabel': 'नया पासवर्ड',
+  'auth.resetPassword.panel.body':
+    'नया पासवर्ड सेव करें और हम आपको सीधे आपकी ऑनबोर्डिंग यात्रा में वापस ले जाएँगे।',
+  'auth.resetPassword.panel.headline': 'लगभग वापस पहुँच गए।',
   'auth.resetPassword.subheading': 'कुछ ऐसा चुनें जो आप याद रख सकें — कम से कम 8 अक्षर।',
   'auth.signup.emailPlaceholder': 'name@yourcompany.com',
   'auth.signup.heading': 'अपने पहले 90 दिनों में आपका स्वागत है।',
   'auth.signup.panel.body':
     'एक मार्गदर्शित चेकलिस्ट, भूमिका-जागरूक प्रशिक्षण और मानवीय परिचय — आपके अंदर आने से पहले तैयार।',
+  'auth.signup.panel.headline': 'पहला दिन, पहले ही दिन।',
   'auth.signup.subheading':
     'अपनी मार्गदर्शित ऑनबोर्डिंग यात्रा शुरू करने के लिए अपना Embark खाता बनाएँ।',
   'checklist.empty.body': 'अन्य कार्य देखने के लिए फ़िल्टर बदलें।',
@@ -28,6 +41,8 @@ export const ui: UiTranslations = {
   'checklist.eyebrow': 'ऑनबोर्डिंग · चेकलिस्ट',
   'checklist.loading': 'आपकी चेकलिस्ट लोड हो रही है…',
   'checklist.stat.actionNeeded': 'कार्रवाई आवश्यक',
+  'checklist.stat.completion': 'पूर्णता',
+  'checklist.stat.inProgress': 'प्रगति में',
   'checklist.stat.inProgressHelper': 'जहाँ छोड़ा था वहीं से शुरू करें',
   'checklist.stat.overdueHelper': 'पहले इन्हें पूरा करें',
   'checklist.subtitle':
@@ -59,6 +74,8 @@ export const ui: UiTranslations = {
   'documents.empty.title': 'अभी कोई दस्तावेज़ नहीं',
   'documents.eyebrow': 'ऑनबोर्डिंग · दस्तावेज़',
   'documents.loading': 'दस्तावेज़ लोड हो रहे हैं…',
+  'documents.stat.actionNeeded': 'अभी हस्ताक्षर करें',
+  'documents.stat.all': 'सभी दस्तावेज़',
   'documents.stat.allHelper': 'सभी श्रेणियों में',
   'documents.stat.pending': 'लंबित हस्ताक्षर',
   'documents.stat.pendingHelper': 'पूर्णता के लिए आवश्यक',
@@ -66,16 +83,21 @@ export const ui: UiTranslations = {
   'documents.stat.signedHelper': 'सुरक्षित रूप से संग्रहीत',
   'documents.status.optional': 'वैकल्पिक',
   'documents.status.required': 'आवश्यक',
+  'documents.status.signed': 'हस्ताक्षरित',
   'documents.subtitle': 'आपकी हैंडबुक, फ़ॉर्म और हस्ताक्षरित समझौते — सब एक जगह।',
   'documents.title': 'पढ़ने और हस्ताक्षर करने के लिए सब कुछ।',
   'documents.uploadedRecently': 'हाल ही में अपलोड किया गया',
   'documentViewer.breadcrumbCurrent': 'व्यूअर',
   'documentViewer.breadcrumbDocs': 'दस्तावेज़',
   'documentViewer.downloadMeta': 'मेटाडेटा डाउनलोड करें',
+  'documentViewer.helpBody':
+    'People & Culture, Slack पर #ask-people में हैंडबुक के सवालों के जवाब देती है।',
   'documentViewer.helpEyebrow': 'सहायता चाहिए?',
   'documentViewer.loadError': 'हम यह दस्तावेज़ लोड नहीं कर सके।',
   'documentViewer.loading': 'दस्तावेज़ लोड हो रहा है…',
   'documentViewer.notFound': 'दस्तावेज़ नहीं मिला',
+  'documentViewer.previewBody':
+    'जब अपलोड कॉन्फ़िगर हो जाते हैं तो हम फ़ाइल इनलाइन दिखाते हैं। अभी के लिए, मेटाडेटा डाउनलोड से आप पुष्टि कर सकते हैं कि रिकॉर्ड असली है।',
   'documentViewer.previewBodyExternal':
     'फ़ाइल को नए टैब में खोलने के लिए डाउनलोड बटन का उपयोग करें।',
   'documentViewer.previewTitle': 'दस्तावेज़ पूर्वावलोकन',
@@ -83,6 +105,7 @@ export const ui: UiTranslations = {
   'documentViewer.signatureBody':
     'दस्तावेज़ पढ़ें, फिर हस्ताक्षर करने और पुष्टि करने के लिए नीचे क्लिक करें।',
   'documentViewer.signatureHeading': 'हस्ताक्षर आवश्यक',
+  'documentViewer.signed': '✓ साइन और फ़ाइल किया गया',
   'documentViewer.signing': 'हस्ताक्षर हो रहे हैं…',
   'documentViewer.uploadedRecently': 'हाल ही में अपलोड किया गया',
   'landing.closing.body':
@@ -92,10 +115,13 @@ export const ui: UiTranslations = {
   'landing.ctaSecondary': 'मेरा पहले से खाता है',
   'landing.feature1.body':
     'हर कार्य — दस्तावेज़, खाते, परिचय — नियत तिथियों और सही स्वामी के साथ पहले से तैयार।',
+  'landing.feature1.title': 'एक गाइडेड चेकलिस्ट',
   'landing.feature2.body':
     'मॉड्यूल 30/60/90 माइलस्टोन पर अनलॉक होते हैं, जो उस भूमिका और टीम के अनुरूप ट्यून किए गए हैं जिसमें कोई शामिल हो रहा है।',
+  'landing.feature2.title': 'भूमिका के अनुसार ट्रेनिंग',
   'landing.feature3.body':
     'बडी, मैनेजर और क्रॉस-फ़ंक्शनल परिचय निर्धारित — ताकि कोई भी अकेले शुरू न करे।',
+  'landing.feature3.title': 'असली परिचय',
   'landing.featureEyebrow': 'Embark क्यों',
   'landing.featureHeadline': 'Embark पहले दिन से तीन तरीकों से विश्वास अर्जित करता है।',
   'landing.footer.rights': 'सर्वाधिकार सुरक्षित।',
@@ -104,6 +130,7 @@ export const ui: UiTranslations = {
   'landing.headlineLine2': 'एक गर्मजोशी भरे स्वागत के।',
   'landing.preview.body': 'आगे: अपने बडी से 30 मिनट की कॉफ़ी चैट के लिए मिलें — मंगल 10:00 AM।',
   'landing.preview.eyebrow': '90 का दिन 14 — नमूना डैशबोर्ड',
+  'landing.preview.headline': 'वापसी पर स्वागत, Maya।',
   'landing.proof.spec': 'SOC 2 + GDPR तैयार',
   'landing.proof.teams': '50–5,000 की टीमों के लिए निर्मित',
   'landing.proof.time': '14-दिन का निःशुल्क परीक्षण',
@@ -120,16 +147,26 @@ export const ui: UiTranslations = {
   'notifications.yesterday': 'कल',
   'planUpdated.message': 'तुम सब सेट हो।',
   'planUpdated.preparing': 'आपकी योजना अपडेट हो रही है…',
+  'planUpdated.retry': 'फिर से प्रयास करें',
+  'planUpdated.verifyFailed': 'हम अभी तक आपके भुगतान की पुष्टि नहीं कर पाए हैं।',
+  'planUpdated.verifyFailedBody':
+    'आपका भुगतान अभी भी प्रक्रियाधीन हो सकता है। कृपया कुछ देर बाद पुनः प्रयास करें।',
   'planUpdated.verifying': 'आपके भुगतान की पुष्टि की जा रही है…',
   'pricing.documentsLabel': 'दस्तावेज़',
   'pricing.onboardingsLabel': 'ऑनबोर्डिंग',
   'pricing.tasksLabel': 'कार्य',
   'profile.dayNumber': 'दिन',
   'profile.detailsHeading': 'ऑनबोर्डिंग विवरण',
+  'profile.encouragementBody':
+    'अपने बडी और मैनेजर को जानकारी में रखें — छोटे कदम मिलकर बड़ा बदलाव लाते हैं।',
   'profile.milestones': 'माइलस्टोन',
   'profile.progressEyebrow': 'ऑनबोर्डिंग प्रगति',
   'profile.tasks': 'कार्य',
   'profile.unknownName': 'स्वागत है',
+  'settings.appearance.description': 'लाइट और डार्क मोड के बीच टॉगल करें।',
+  'settings.appearance.title': 'रूप',
+  'settings.subtitle':
+    'नोटिफ़िकेशन, सुरक्षा, डिवाइस और डेटा एक्सपोर्ट सेट करें — सब कुछ यहीं रहता है, आपकी शर्तों पर।',
   'settings.title': 'सेटिंग्स और प्राथमिकताएँ।',
   'taskDetail.backToChecklist': 'चेकलिस्ट पर वापस जाएँ',
   'taskDetail.breadcrumbChecklist': 'चेकलिस्ट',
@@ -142,7 +179,10 @@ export const ui: UiTranslations = {
   'taskDetail.notFound': 'कार्य नहीं मिला',
   'taskDetail.notFoundBody':
     'यह कार्य हटा दिया गया हो सकता है या किसी अन्य उपयोगकर्ता का हो सकता है।',
+  'taskDetail.tipBody':
+    'अगर आप अटके हैं, तो Slack पर अपने ऑनबोर्डिंग बडी को संदेश भेजें — वे आपकी पहली मदद हैं।',
   'taskDetail.tipEyebrow': 'त्वरित सुझाव',
+  'team.empty.body': 'कोई व्यापक खोज आज़माएँ या कोई दूसरा विभाग चुनें।',
   'team.empty.title': 'कोई साथी मेल नहीं खाता',
   'team.eyebrow': 'ऑनबोर्डिंग · लोग',
   'team.loading': 'साथी लोड हो रहे हैं…',
@@ -165,14 +205,19 @@ export const ui: UiTranslations = {
   'timeline.milestonesHeading': 'माइलस्टोन',
   'timeline.stat.current': 'वर्तमान उपलब्धि',
   'timeline.stat.next': 'अगला अनलॉक',
+  'timeline.stat.progress': 'समग्र',
   'timeline.subtitle':
     'प्रत्येक माइलस्टोन नए मॉड्यूल, परिचय और विकास वार्तालापों को अनलॉक करता है। कोई दबाव नहीं — बस प्रगति।',
+  'timeline.tipBody':
+    'दिन 30, 60 और 90 पर अपने मैनेजर के साथ 30 मिनट का रिफ़्लेक्शन शेड्यूल करें — इससे फ़ीडबैक सटीक और प्रगति स्पष्ट होती है।',
   'timeline.tipEyebrow': 'मैनेजर सुझाव',
+  'timeline.tipTitle': 'माइलस्टोन के लिए कैलेंडर में समय ब्लॉक करें।',
   'timeline.title': 'आपकी 30 / 60 / 90 यात्रा।',
   'training.badge.notStarted': 'प्रारंभ नहीं हुआ',
   'training.empty': 'अभी कोई प्रशिक्षण मॉड्यूल नहीं।',
   'training.eyebrow': 'ऑनबोर्डिंग · प्रशिक्षण',
   'training.loading': 'मॉड्यूल लोड हो रहे हैं…',
+  'training.stat.all': 'मॉड्यूल असाइन किए गए',
   'training.subtitle':
     'आपकी भूमिका के अनुसार मॉड्यूल 30/60/90 पर अनलॉक होते हैं। आवश्यक पहले आते हैं।',
   'training.title': 'कौशल, उपकरण और कहानियाँ — आपकी गति पर।',
@@ -184,9 +229,12 @@ export const ui: UiTranslations = {
   'trainingModule.notFound': 'मॉड्यूल नहीं मिला',
   'trainingModule.quizBody': 'इस मॉड्यूल को पूरा करने के लिए 80% या उससे अधिक अंक प्राप्त करें।',
   'trainingModule.quizHeading': 'मॉड्यूल-अंत क्विज़',
+  'trainingModule.quizLocked': 'पहले मॉड्यूल शुरू करें',
   'trainingModule.quizNone': 'इस मॉड्यूल पर कोई क्विज़ नहीं।',
   'trainingModule.quizRetry': 'फिर से प्रयास करें',
+  'trainingModule.quizStart': 'क्विज़ शुरू करें',
   'trainingModule.quizSubmit': 'उत्तर जमा करें',
+  'trainingModule.start': 'मॉड्यूल शुरू करें',
   'trainingModule.statusNotStarted': 'प्रारंभ नहीं हुआ',
   'welcomeHeroCard.completeLabel': 'पूर्ण',
   'welcomeHeroCard.milestonesLabel': 'माइलस्टोन',

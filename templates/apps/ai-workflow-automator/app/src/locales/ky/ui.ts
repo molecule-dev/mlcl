@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Dendrite - бул триггерлерди, жасалма интеллект шарттарын жана көп кадамдуу аракеттерди бириктирген жумуш агымын автоматташтыруу платформасы, ошондуктан командалар клей кодун жазбастан системалардын ортосунда жумушту жылдыра алышат.',
+  'about.philosophy':
+    'Ар бир иш агымы кичинекей, байкалуучу кадамдардын графиги болуп саналат. Ар бир кадам өзүнүн киргизүүлөрүн, чыгарууларын жана убакыттарын жазат, ошондуктан аны текшерүүгө, кайра ойнотууга же артка кайтарууга болот. Аларды визуалдык түрдө түзүңүз, код сыяктуу версиялаңыз.',
   'about.title': 'Дендрит жөнүндө',
   'authShell.brand': 'Дендрит',
   'authShell.support': 'Колдоо',
@@ -15,9 +17,14 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Планды өзгөртүү',
   'billing.description':
     'Колдонууну көзөмөлдөңүз, планыңызды башкарыңыз жана бухгалтердик эсеп үчүн эсеп-фактураларды алыңыз.',
+  'billing.eyebrow': 'Аккаунт · План жана колдонуу',
+  'billing.failedLabel': 'Ишке ашпаган иштетүүлөр · 24с',
+  'billing.invoicesEmpty':
+    'Азырынча эсеп-фактуралар жок. Алар биринчи төлөнгөн жаңыртуудан кийин ушул жерде пайда болот.',
   'billing.invoicesTitle': 'Эсеп-фактура тарыхы',
   'billing.planNoteFree':
     'Эркин деңгээл — {{runs}} чуркап баратат жана {{workflows}} активдүү жумуш агымдары. Жогорку чектөөлөр үчүн жаңыртыңыз.',
+  'billing.planNotePaid': 'Төлөнгөн план — {{runs}} иштетүү жана {{workflows}} активдүү иш агымы.',
   'billing.runsLabel': 'Акыркы 24 саатта аткарылгандар',
   'billing.tiersBlurb':
     'Ар бир деңгээлди — чуркоолорду, активдүү жумуш агымдарын, өркүндөтүлгөн функцияларды жана колдоону — атайын баа барагында салыштырып көрүңүз.',
@@ -35,10 +42,14 @@ export const ui: UiTranslations = {
     'Бир дагы интеграция катталган жок. Байланыштарды иштетүү үчүн провайдердин ачкычтарын конфигурациялаңыз.',
   'connections.error': 'Байланыштар жүктөлбөй койду.',
   'connections.eyebrow': 'Интеграциялар · {{connected}} байланышкан',
+  'connections.loading': 'Интеграциялар жүктөлүүдө…',
+  'connections.openEnv':
+    'Бул провайдерди туташтыруу үчүн, анын API ачкычын api/.env файлында коюңуз жана серверди кайра иштетиңиз.',
   'dashboard.description':
     '{{active}} жумуш агымдары активдүү. {{failed}} акыркы 24 сааттын ичинде ишке ашкан жок.',
   'dashboard.error': 'Башкаруу панели жүктөлбөй койду.',
   'dashboard.eyebrow': 'Операциялар · түз эфирде',
+  'dashboard.hero.label': 'Бүгүнкү иштетүүлөр',
   'dashboard.hero.medianLatency': 'p50 кечигүүсү',
   'dashboard.hero.queue': 'Кезектин тереңдиги',
   'dashboard.hero.success': 'Ийгилик',
@@ -46,14 +57,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Орточо узактык',
   'dashboard.kpi.failedRuns': 'Ишке ашкан жок · 24 саат',
   'dashboard.kpi.outOf': '...нын {{total}} жалпы',
+  'dashboard.kpi.successRate': 'Ийгилик деңгээли · 24с',
   'dashboard.loading': 'Башкаруу панели жүктөлүүдө…',
   'dashboard.recentRuns.empty':
     'Азырынча эч кандай чуркоо жок. Жумуш агымын иштетүү бул түрмөктү толтурат.',
   'dashboard.recentRuns.title': 'Акыркы чуркоолор',
   'dashboard.recentRuns.viewAll': 'Ачык өлүм жазалары →',
+  'dashboard.recentWorkflows.browse': 'Шаблондорду карап чыгуу →',
   'dashboard.recentWorkflows.empty':
     'Азырынча жумуш агымдары жок. Шаблонду орнотуңуз же башынан түзүңүз.',
   'dashboard.recentWorkflows.title': 'Жакында иштетилген',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'Башталды',
   'dashboard.run.col.trigger': 'Триггер',
   'dashboard.run.col.workflow': 'Жумуш агымы',
@@ -89,6 +103,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Жумуш агымы',
   'executions.description':
     'Ар бир жумуш агымынын аткарылышы, ар бир кайталоо, ар бир кадамдын чыгышы — мунун баарын байкоого болот.',
+  'executions.empty.filter': 'Бул фильтрге эч бир иштетүү туура келбейт.',
   'executions.empty.first':
     'Азырынча эч кандай тапшырма аткарыла элек — бул тизмени толтуруу үчүн жумуш агымын иштетиңиз.',
   'executions.error': 'Аткаруулар жүктөлбөй койду.',
@@ -99,30 +114,43 @@ export const ui: UiTranslations = {
   'executions.loading': 'Иштөө тарыхы жүктөлүүдө…',
   'executions.title': 'өлүм жазасына тартуу',
   'forgotPassword.confirmation': 'Баштапкы абалга келтирүү шилтемеси жөнөтүлдү {{email}} .',
+  'forgotPassword.subhead':
+    'Кайра калыбына келтирүү шилтемесин алуу үчүн электрондук почтаңызды киргизиңиз.',
   'forgotPassword.successSubhead':
     'Биз баштапкы абалга келтирүү шилтемесин жөнөттүк {{email}} Ал 30 мүнөттөн кийин бүтөт.',
   'help.connections.body':
     'Жасалма интеллект, электрондук почта жана сактоо кадамдары провайдердин ачкычтарын api/.env файлында орнотууну талап кылат. Ачкыч конфигурациялангандан кийин, тиешелүү интеграция Байланыштар барагында туташкан катары көрсөтүлөт.',
+  'help.connections.cta': 'Туташууларды ачуу →',
   'help.connections.title': 'Провайдерлерди туташтыруу',
   'help.gettingStarted.body':
     'Жаңы жумуш агымдарын шаблондор китепканасынан орнотсо болот же жумуш агымын куруучуда нөлдөн баштап түзсө болот. Ар бир жумуш агымынын триггери (кол менен, вебхук же cron) жана тартип менен аткарылуучу кадамдардын ырааттуулугу бар.',
+  'help.gettingStarted.cta': 'Шаблондор китепканасын карап чыгуу →',
+  'help.gettingStarted.title': 'Баштоо',
   'help.intro':
     'Жумуш агымдарын түзүү, байланыштарды конфигурациялоо жана аткаруунун жыйынтыгын чечмелөө боюнча кеңири таралган суроолорго жоопторду табыңыз. Эң кеңири таралган темалар төмөндө келтирилген; камтылбаган нерселер үчүн жумуш мейкиндигиңиздин администраторуна кайрылыңыз.',
   'help.runs.body':
     'Ар бир аткарылган кадам ар бир кадамды статусу (ийгилик, ийгиликсиздик, өткөрүлүп жиберилген) жана чыгаруунун үзүндүсү менен өз-өзүнчө каттайт. Аткаруунун чоо-жайы барагында толук кадам-кадам байкоо жана болжолдуу көрсөткүчтөр көрсөтүлгөн.',
+  'help.runs.cta': 'Ачык өлүм жазалары →',
   'help.runs.title': 'Иштөө жыйынтыгын окуу',
   'help.title': 'Жардам борбору',
   'integrationCard.manage': 'Башкаруу',
   'landing.brand': 'Дендрит',
   'landing.demo.action.subtitle': 'Айланма · аймак',
+  'landing.demo.action.title': 'Өкүлгө кабарлаңыз',
   'landing.demo.condition.subtitle': 'AI ниет классификатору',
+  'landing.demo.condition.title': 'Баа ≥ орточо?',
   'landing.demo.trigger.subtitle': 'POST /формалар/байланыш',
   'landing.demo.trigger.title': 'Кирүүчү вебхук',
+  'landing.features.body':
+    'Триггерлер иштейт. Шарттар бутактанат. Аракеттер ишти аткарат. Аларды визуалдык түрдө түзүңүз, код сыяктуу версиялаңыз.',
   'landing.features.heading': 'Үч түйүн түрү. Чексиз формалар.',
   'landing.footer.help': 'Жардам',
   'landing.footer.tagline': 'Кыймылдагы акыл',
+  'landing.hero.body':
+    "{{appName}} — Zapier'ден өскөн операциялык командалар үчүн иш агымынын кыймылдаткычы. Триггер, шарт, аракет — сиз чындап колдонгон ар бир системага туташтырылган.",
   'landing.hero.eyebrow': 'Кыймылдагы акыл',
   'landing.hero.headline': 'Зымдарды бириктириңиз. Иштин бүтүшүн күтүңүз.',
+  'landing.hero.primaryCta': 'Биринчи иш агымыңызды түзүңүз',
   'landing.hero.proof.ai': 'Орнотулган AI түйүндөрү',
   'landing.hero.proof.free': 'Айына 1 миң чуркоо акысыз',
   'landing.hero.proof.soc2': 'SOC 2 II түрү',
@@ -130,10 +158,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Орундар үчүн эмес, чуркоо үчүн төлөңүз.',
   'landing.templates.body':
     'Ар бир команда үчүн алдын ала зымдалган жумуш агымдары — сатуу, колдоо, иштеп чыгуу, каржылоо. Бир чыкылдатуу менен орнотуңуз; каалаган нерсени өзгөртүңүз.',
+  'landing.templates.cta': 'Шаблондорду карап чыгуу үчүн катталыңыз →',
   'landing.templates.eyebrow': 'Бир нече секунддан кийин баштаңыз',
   'landing.templates.heading': 'Текшерилген рецепттердин китепканасы.',
   'landing.templates.signupHint': 'Орнотуу үчүн катталыңыз',
   'login.hidePassword': 'Сырсөздү жашыруу',
+  'login.noAccount': 'Тессерага жаңы келдиңизби?',
   'login.showPassword': 'Сырсөздү көрсөтүү',
   'login.subhead': 'Автоматташтырууларыңыздын үзгүлтүксүз иштеши үчүн кириңиз.',
   'mobileNav.drawerLabel': 'Негизги навигация',
@@ -149,8 +179,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Бул түрмөктү толтурууну баштоо үчүн жумуш агымын иштетиңиз.',
   'notifications.empty.title': 'Баарыңыздар жетиштиңиздер',
   'notifications.eyebrow': '{{n}} окула элек',
+  'planUpdated.body':
+    'Төлөм өзгөртүүңүз эми активдүү. Планыңызды каалаган убакта төлөм барагынан башкара аласыз.',
+  'planUpdated.retry': 'Кайра аракет кыл',
+  'planUpdated.verifyFailed': 'Төлөмүңүздү азырынча ырастай алган жокпуз.',
+  'planUpdated.verifyFailedBody':
+    'Төлөмүңүз дагы эле иштетилип жатышы мүмкүн. Бир аздан кийин кайра аракет кылыңыз.',
   'planUpdated.verifying': 'Төлөмүңүз тастыкталууда…',
   'pricing.heading': 'чуркоолор',
+  'pricing.runsSuffix': 'иштетүүлөр',
   'pricing.workflowsSuffix': 'жумуш агымдары',
   'privacy.collect.body':
     'Биз сиз катталган электрондук почта дарегин, конфигурациялаган жумуш агымдарын жана ар бир иштетүү жөнүндө метадайындарды (баштоо убактысы, аяктоо убактысы, абалы) чогултабыз. Биз эч качан триггерлерден же кадамдардын жыйынтыктарынан жумуш мейкиндигинин ээси үчүн иштетүүнү көрүүчүдө көрсөтүү үчүн зарыл болгон жүктөмдүн мазмунун чогултпайбыз же сактабайбыз.',
@@ -166,12 +203,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Сырсөз жаңыртылган жок.',
   'resetPassword.newPassword': 'Жаңы сыр сөз',
   'resetPassword.subhead': 'Сиз гана божомолдой турган нерсени тандаңыз.',
+  'settings.appearance.description': 'Жарык жана караңгы режимдердин ортосунда которулуңуз.',
+  'settings.appearance.title': 'Көрүнүшү',
   'settings.billingShortcut.cta': 'Ачык эсеп-фактура',
   'settings.billingShortcut.description':
     'План, колдонуу жана эсеп-фактуралар атайын эсеп-фактура барагында жайгашкан.',
   'settings.danger.confirm':
     'Ишенесизби? Бул сиздин жумуш мейкиндигиңизди өчүрүү үчүн кезекке коет.',
   'settings.danger.confirmYes': 'Ооба, кезекти өчүрүү',
+  'settings.danger.deleteWorkspace.cta': 'Жумуш ордун жок кылуу',
   'settings.danger.deleteWorkspace.hint':
     '14 күндүк жеңилдик мөөнөтүнөн кийин бардык жумуш агымдарын, чуркоолорду жана байланыштарды алып салат.',
   'settings.danger.deleteWorkspace.title': 'Жумуш ордун жок кылуу',
@@ -183,10 +223,15 @@ export const ui: UiTranslations = {
     'Аккаунтуңузду, жумуш мейкиндигиңизди, интеграцияларыңызды жана эсептешүүлөрүңүздү бир жерден башкарыңыз.',
   'settings.notifications.description':
     'Кайсы иш-чараларды баракчаңызга жөнөтөөрүңүздү, электрондук почта аркылуу жөнөтөөрүңүздү тандаңыз же унчукпай туруңуз.',
+  'settings.notifications.failures.hint':
+    'Ар бир ишке ашпаган иштетүүдө электрондук почта жана колдонмодогу эскертүү.',
+  'settings.notifications.failures.title': 'Иш агымынын ишке ашпай калышы',
   'settings.notifications.product.hint':
     'Жаңы шаблондор жана функциялар жөнүндө маал-маалы менен электрондук каттар келип турат.',
+  'settings.notifications.product.title': 'Продукт жаңыртуулары',
   'settings.notifications.weekly.hint':
     'Дүйшөмбү күнү эртең менен өткөн аптадагы чуркоолор жана үнөмдөөлөрдүн кыскача баяндамасы.',
+  'settings.notifications.weekly.title': 'Апталык дайджест',
   'settings.profile.description':
     'Жумуш агымынын иштеткичинде кандай көрүнөөрүңүз. Жумуш мейкиндигиндеги иш-аракеттерде колдонулат.',
   'settings.profile.noEmail': 'Электрондук почта каттар жок',
@@ -194,12 +239,24 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Профиль өзгөртүүлөрү сакталган жок.',
   'settings.profile.unnamedUser': 'Аты аталбаган колдонуучу',
   'settings.security.audit.hint': "Ар бир аракетти вебхук аркылуу SIEM'иңизге агылтыңыз.",
+  'settings.security.audit.title': 'Аудит журналын жөнөтүү',
   'settings.security.description': 'Эки факторлуу аутентификация, SSO жана активдүү сеанстар.',
   'settings.security.sso.hint': 'Scale жана Enterprise пландарында жеткиликтүү.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': 'Ар кандай иш мейкиндигинин ээсинин аракети үчүн талап кылынат.',
+  'settings.security.totp.title': 'Эки факторлуу аутентификация (TOTP)',
   'settings.twoFactorCode': 'Аутентификация коду',
   'settings.twoFactorDisable': 'Өчүрүү',
+  'settings.twoFactorDisableTitle': 'Эки факторлуу аутентификацияны өчүрүү',
   'settings.twoFactorEnable': 'Иштетүү',
+  'settings.twoFactorEnableTitle': 'Эки факторлуу аутентификацияны күйгүзүү',
   'settings.twoFactorInvalidCode': 'Жараксыз код',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Эки факторлуу QR код',
+  'settings.twoFactorScan':
+    'Бул QR кодду аутентификатор колдонмоңуз менен скандаңыз, анан 6 орундуу кодду киргизиңиз.',
+  'settings.twoFactorUnavailable':
+    'Бул колдонмо үчүн эки факторлуу аутентификация жеткиликтүү эмес.',
   'settings.twoFactorVerify': 'Текшерүү жана иштетүү',
   'settings.workspace.description':
     'Командаңыз үчүн жалпы идентификация, аймак жана иштетүү демейки жөндөөлөрү.',
@@ -228,6 +285,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Шаблон',
   'templates.description':
     'Эң кеңири таралган автоматташтыруулар үчүн алдын ала түзүлгөн чиймелер. Айрыкча, ыңгайлаштырыңыз, жөнөтүңүз.',
+  'templates.empty.filter': 'Издөөңүзгө эч бир шаблон туура келбейт.',
   'templates.empty.first': 'Учурда эч кандай шаблондор жок.',
   'templates.error': 'Шаблондор жүктөлбөй койду.',
   'templates.installs': 'орнотуулар',
@@ -253,6 +311,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Өчүрүү',
   'workflowBuilder.enable': 'Иштетүү',
   'workflowBuilder.error': 'Жумуш агымы жүктөлбөй койду.',
+  'workflowBuilder.inspector.config': 'Конфигурация',
+  'workflowBuilder.inspector.cron': 'Cron туюнтмасы',
+  'workflowBuilder.inspector.disabled': 'Өчүрүлгөн — автоматтык түрдө иштебейт.',
   'workflowBuilder.inspector.enabled': 'Иштетилген — триггерде иштейт.',
   'workflowBuilder.inspector.eyebrow': 'Инспектор',
   'workflowBuilder.inspector.id': 'ID',
@@ -270,18 +331,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Которуштуруу/өчүрүү ишке ашкан жок.',
   'workflowBuilder.workflow': 'Жумуш агымы · v {{v}}',
   'workflowBuilder.zoom.in': 'Жакындатуу',
+  'workflowBuilder.zoom.label': 'Канвастын масштабдоо башкаруулары',
+  'workflowBuilder.zoom.out': 'Жакындатуу',
   'workflowCard.lastRun': 'Акыркы чуркоо {{when}}',
   'workflowCard.runs': '{{count}} чуркоолор',
+  'workflowCard.success': '{{rate}}% ийгилик',
   'workflowHeroCard.last24h': 'Акыркы 24 саатта',
+  'workflows.browseTemplates': 'Шаблондорду карап чыгуу →',
   'workflows.description':
     'Жумуш мейкиндигиңиздеги ар бир автоматташтыруу, ден соолук жана акыркы иш-аракеттер бир көз карашта.',
+  'workflows.empty.body': 'Фильтрди тазалоону же шаблондон баштоону аракет кылыңыз.',
   'workflows.empty.firstBody': 'Бир нече секунддун ичинде баштоо үчүн шаблонду орнотуңуз.',
   'workflows.empty.firstTitle': 'Азырынча жумуш агымдары жок',
   'workflows.empty.title': 'Жумуш агымдарына дал келген эч нерсе жок',
   'workflows.error': 'Жумуш агымдары жүктөлбөй койду.',
   'workflows.eyebrow': 'Китепкана · {{count}} жалпы',
+  'workflows.loading': 'Иш ағымдары жүктөлүүдө…',
   'workflows.newFromTemplate': 'Шаблондон жаңы',
   'workflows.searchPlaceholder': 'Иш агымдарын издөө…',
+  'workflows.title': 'Иш ағымдары',
   'workflowSidebar.brand': 'Дендрит',
   'workflowSidebar.status': 'Бардык иштеп жаткан системалар',
   'workflowSidebar.tagline': 'Кыймылдагы акыл',

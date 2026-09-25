@@ -1,9 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Għandek feedback, sibt bug, jew trid tgħidilna kif il-ġurnalizzazzjoni għenitek? Aħna naqraw kull messaġġ — ikkuntattjana meta trid u persuna vera terġa' lura għandek.",
+  'about.contactTitle': 'Kellem magħna',
+  'about.featureInsights':
+    'Riflessjonijiet imħaddma mill-AI li bil-mod jixħtu dawl fuq dak li jqanqlek, it-temi u l-gratitudni — mingħajr ma titlef leħnek.',
+  'about.featureMood':
+    "Traċċar tal-burdata u tal-attività b'veduta tal-kalendarju u grafiċi tax-xejriet li juru x'jgħinek tiffjorixxi.",
+  'about.featurePrivacy':
+    "Kriptaġġ minn tarf sa tarf, lock b'passcode, u esportazzjoni sħiħa CSV biex ir-riflessjonijiet tiegħek jibqgħu privati u portabbli.",
+  'about.featurePrompts':
+    "Mistoqsijiet ġentili ta' kuljum biex dejjem ikollok minn fejn tibda — qatt paġna vojta.",
+  'about.intro':
+    "{{app}} huwa ġurnal ġentili u privat tas-saħħa mentali għar-riflessjoni ta' kuljum, it-traċċar tal-burdata u l-gratitudni. Mistoqsijiet maħsuba sew jieħdu post il-paġna vojta, it-tfittxija kwieta tal-mudelli tgħinek tifhem x'jaffettwa kif tħossok, u l-kriptaġġ minn tarf sa tarf iżomm kliemek tiegħek.",
+  'about.missionBody':
+    'Aħna nemmnu li l-kontroll miegħek innifsek għandu jħossu kalma, qatt kliniķi — u qatt bħal app oħra li titlob l-attenzjoni tiegħek. {{app}} inbena biex jgħin, mhux biex idejjaq: ftit minuti kwieti kuljum biex tinnota l-burdata tiegħek, tikteb bil-verità, u bil-mod tara lilek innifsek aktar ċar.',
+  'about.missionTitle': 'Il-missjoni tagħna',
   'about.pageTitle': 'Dwar {{app}}',
   'authShell.encryptionBadge': 'Id-dħul tiegħek huwa encrypted minn tarf sa tarf.',
   'authShell.tagline': '{{app}} — {{tagline}}',
+  'calendar.cellEmpty': 'Jum {{day}} — l-ebda entrata',
   'calendar.cellMood': 'Jum {{day}} — {{mood}}',
   'calendar.distributionHeading': "Dan ix-xahar f'daqqa t'għajn",
   'calendar.eyebrow': "Il-burdata f'daqqa t'għajn",
@@ -15,6 +32,7 @@ export const ui: UiTranslations = {
   'calendar.subheading': "Traċċat {{tracked}} ta' {{total}} jiem dan ix-xahar.",
   'common.goToDashboard': 'Mur għad-Dashboard',
   'common.tryAgain': 'Erġa’ pprova',
+  'entryComposer.bodyPlaceholder': 'Ikteb dak kollu li jħossu onest. Ħadd ieħor mhu se jaqra dan.',
   'entryComposer.cancel': 'Lura għall-ġurnal',
   'entryComposer.heading': 'Ir-riflessjoni tal-lum',
   'entryComposer.moodLabel': 'Kif qed tħossok?',
@@ -23,6 +41,7 @@ export const ui: UiTranslations = {
   'entryComposer.removeTag': 'Neħħi {{tag}}',
   'entryComposer.save': 'Issejvja r-riflessjoni',
   'entryComposer.saveError': 'Ma stajtx insalva l-entrata tiegħek.',
+  'entryComposer.tagPlaceholder': 'Żid tag u agħfas enter',
   'entryComposer.titlePlaceholder': 'Agħti isem lil din ir-riflessjoni…',
   'entryDetail.back': 'Lura għall-ġurnal',
   'entryDetail.delete': 'Ħassar din l-entrata',
@@ -36,6 +55,7 @@ export const ui: UiTranslations = {
   'entryDetail.loading': 'Qed tiċċarġja r-riflessjoni…',
   'entryDetail.notFound': 'Dħul mhux misjub.',
   'entryDetail.reflectionsHeading': 'Riflessjonijiet tal-AI',
+  'forgotPassword.continueButton': 'Daħħal il-kodiċi tar-reset',
   'forgotPassword.eyebrow': 'Tinkwetax',
   'forgotPassword.subheading': "Se nibagħtulek link ta' reset ġentili fl-email tiegħek.",
   'forgotPassword.successBody': "Jekk jeżisti kont għal {{email}}, link ta' reset ġej fi triqtu.",
@@ -57,14 +77,22 @@ export const ui: UiTranslations = {
     "Għad m'hemm l-ebda tema — żid tikketta jew tnejn mad-dħul tiegħek u dawn jinġabru hawn.",
   'insights.themesHeading': 'Temi ewlenin',
   'insights.triggerFrequency': 'innutat {{count}} × dan ix-xahar',
+  'insights.triggersEmpty':
+    "Għad m'hemm xejn x'tinnota. Ftit entrati matul xi jiem juru l-mudelli tiegħek.",
   'insights.triggersHeading': 'Mudelli li jbiddlu l-burdata tiegħek',
+  'journal.empty':
+    'L-ebda riflessjoni ma taqbel — ipprova filtru differenti jew ikteb entrata ġdida.',
   'journal.eyebrow': 'Ir-riflessjonijiet tiegħek',
   'journal.heading': 'Ġurnal',
   'journal.loadError': 'Ma rnexxiex it-tagħbija tad-dħul.',
   'journal.loading': 'Qed jitgħabbew l-entrati…',
+  'journal.newEntry': 'Dħul ġdid',
   'journal.searchPlaceholder': 'Fittex sentiment, isem, mument…',
   'journal.subheading': '{{count}} entrati — kull waħda ta’ min iżżommha.',
   'journalEntryCard.encryptedLabel': 'Kriptat',
+  'landing.ctaBody':
+    "Biex tibda b'xejn. Pro jiftaħ l-esportazzjoni tad-data, ġurnal akbar, u sena sħiħa ta' storja.",
+  'landing.ctaButton': 'Ibda l-ewwel dħul tiegħek',
   'landing.ctaTitle': 'Ftit minuti ta’ kwiet kuljum. Dak kollu.',
   'landing.eyebrow': 'Prattika ġentili ta’ kuljum',
   'landing.featuresBody':
@@ -83,6 +111,8 @@ export const ui: UiTranslations = {
   'login.subheading': "Spazju ġentili għal riflessjoni ta' kuljum.",
   'mentalHealthJournalLayout.closeMenu': 'Agħlaq il-menù',
   'mentalHealthJournalLayout.openMenu': 'Iftaħ il-menù',
+  'mentalHealthJournalLayout.primaryNavLabel': 'Navigazzjoni primarja',
+  'moodHeroCard.entriesThisWeek': '{{count}} din il-ġimgħa',
   'moodHeroCard.streakSuffix': "sensiela ta' ġurnata",
   'moodHeroCard.title': 'Ir-riflessjoni tal-lum',
   'moodTrendChart.aiBadge': 'Għarfien tal-AI lest',
@@ -93,11 +123,13 @@ export const ui: UiTranslations = {
   'profile.eyebrow': 'Il-vjaġġ tiegħek',
   'profile.fallbackName': 'Riflettur',
   'profile.loadError': "Ma rnexxiex ittella' l-istatistika.",
+  'profile.loading': 'Qed jirrefreskjaw l-istatistiċi tiegħek…',
   'profile.longestStreak': 'L-itwal sensiela',
   'profile.memberSince': 'Nirrifletti minn dakinhar {{date}}',
   'profile.milestones': 'Avvenimenti Importanti',
   'profile.milestonesEmpty':
     "L-ewwel pass importanti tiegħek huwa dħul wieħed 'il bogħod — ikteb kull meta tħossok lest/a.",
+  'profile.moodMix': 'It-taħlita tal-burdata tiegħek dan l-istaġun',
   'profile.streakValue': '{{days}} d',
   'profile.totalEntries': 'Riflessjonijiet',
   'profile.totalWords': 'Kliem miktub',
@@ -110,6 +142,7 @@ export const ui: UiTranslations = {
   'prompts.writeAbout': 'Ikteb dwar dan',
   'resetPassword.eyebrow': 'Bidu ġdid',
   'resetPassword.mismatchError': 'Il-passwords ma jaqblux.',
+  'resetPassword.passwordLabel': 'Password ġdida',
   'resetPassword.subheading': 'Agħżel xi ħaġa sigura — ir-riflessjonijiet tiegħek jistħoqqilhomha.',
   'resetPassword.tokenPlaceholder': 'Irrisettja l-kodiċi mill-email',
   'settings.dangerDescription':
@@ -121,11 +154,14 @@ export const ui: UiTranslations = {
   'settings.deleteError': 'Ma setax jitħassar il-kont.',
   'settings.exportDescription': "Kliemek dejjem ikun tiegħek. Niżżel kopja f'kull ħin.",
   'settings.exportDone': 'Esportat {{format}}.',
+  'settings.exportError': 'L-esportazzjoni falliet.',
+  'settings.exportHeading': 'Esporta r-riflessjonijiet tiegħek',
   'settings.exportLoading': 'Qed nippreparaw…',
   'settings.eyebrow': 'L-ispazju tiegħek, ir-regoli tiegħek',
   'settings.languageHeading': 'Lingwa',
   'settings.privacyHeading': 'Privatezza u kriptaġġ',
   'settings.remindersHeading': "Tifkira ta' kuljum",
+  'settings.reminderToggleAria': "Ixgħel jew itfi l-fakkar ta' kuljum",
   'settings.reminderToggleDescription':
     'Tifkira waħda kalma fil-ħin li tagħżel int. Bla badges jew ħtija strixxata.',
   'settings.reminderToggleLabel': 'Ibgħat daqqa ħafifa',
@@ -138,6 +174,11 @@ export const ui: UiTranslations = {
   'signup.signingUp': 'Qed noħloq ġurnal…',
   'signup.subheading': 'Spazju sigur għall-ħsibijiet tiegħek.',
   'wellnessRingsTriad.mindfulnessCaption': 'Gowl {{goal}} minuta llum',
+  'wellnessRingsTriad.mindfulnessLabel': 'Mindfulness',
   'wellnessRingsTriad.sleepCaption': 'Gowl {{goal}} siegħa / lejl',
   'wellnessRingsTriad.sleepLabel': 'Irqad',
+  'wellnessRingsTriad.sleepValue': '{{hours}}s',
+  'wellnessRingsTriad.streakCaption': 'Għan {{goal}} jiem',
+  'wellnessRingsTriad.streakLabel': 'Serje tal-ġurnal',
+  'wellnessRingsTriad.streakValue': '{{days}} d',
 }

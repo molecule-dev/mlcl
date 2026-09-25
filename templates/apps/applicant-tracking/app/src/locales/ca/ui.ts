@@ -1,15 +1,26 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Tens preguntes, comentaris o vols una demostració per al teu equip de contractació? Escriu a hello@example.com i una persona real de l'equip et respondrà en un termini de dos dies laborables.",
   'about.contactHeading': 'Poseu-vos en contacte',
+  'about.intro':
+    "{{app}} és un sistema de seguiment de candidats per a reclutadors i responsables de contractació que volen senyal, no soroll: un pipeline net, cribratge amb IA que s'explica per si mateix i analítiques de contractació, tot en un sol lloc.",
+  'about.missionBody':
+    'La contractació és una de les decisions de més risc que pren un equip, i tot i això la major part encara viu en fulls de càlcul escampats i fils de correu. {{app}} porta tot el cicle a un sol tauler perquè cada candidat estigui seguit, cada entrevista estigui estructurada i cada decisió sigui justa, ràpida i explicable.',
+  'about.missionHeading': 'La nostra missió',
   'auth.legalConsent': 'En continuar, acceptes les nostres',
   'billing.cardExp': 'Caduca {{exp}}',
+  'billing.cardLinkError': "No s'ha pogut iniciar el flux d'actualització de la targeta.",
   'billing.cardLinkSent':
     "S'ha iniciat el flux d'actualització de la targeta. Consulta el correu electrònic.",
+  'billing.cardLinkUnavailable':
+    'Les actualitzacions de targeta no estan disponibles: aquest desplegament no té cap proveïdor de pagament configurat.',
   'billing.cardMissing': 'No hi ha cap targeta registrada',
   'billing.col.invoice': 'Factura',
   'billing.downloadUnavailable': '—',
   'billing.editCard': 'Actualitza la targeta',
+  'billing.eyebrow': 'Pla i ús',
   'billing.invoiceHeading': 'Factures recents',
   'billing.invoicesEmpty': 'Encara no hi ha factures.',
   'billing.invoicesLoading': "S'estan carregant les factures…",
@@ -18,11 +29,12 @@ export const ui: UiTranslations = {
   'billing.nextChargeHint': 'Activat {{date}}',
   'billing.nextChargeLabel': 'Pròxim càrrec',
   'billing.planLoading': 'Carregant el pla…',
-  'billing.planSummary': '{{per seient}} / seient · {{seients}} seients · {{total}} / mes',
+  'billing.planSummary': '{{perSeat}} / seient · {{seats}} seients · {{total}} / mes',
   'billing.seatsAdded': "S'ha actualitzat el nombre de seients.",
   'billing.seatsError':
     'Aquest pla és per a un sol usuari. Actualitza a Team per a ús amb diversos usuaris.',
   'billing.seatsHint': '{{used}} de {{max}} inclòs',
+  'billing.seatsLabel': 'Seients actius',
   'billing.spentLabel': "Gastat fins a la data de l'any",
   'billing.subheading': "Subscripció, seients, ús de cribratge d'IA i factures.",
   'billing.unlimited': 'Il·limitat',
@@ -38,6 +50,7 @@ export const ui: UiTranslations = {
   'candidateDetail.advanceError': "No s'ha pogut actualitzar l'etapa.",
   'candidateDetail.advanceFinal': 'Ja a la fase final.',
   'candidateDetail.advanceHeading': "Passa a l'escenari",
+  'candidateDetail.appliedOn': 'Sol·licitat el {{date}} via {{source}}.',
   'candidateDetail.back': 'Tots els candidats',
   'candidateDetail.loadError': "No s'ha pogut carregar el candidat.",
   'candidateDetail.noInterviews': 'Encara no hi ha entrevistes.',
@@ -47,8 +60,14 @@ export const ui: UiTranslations = {
   'candidateDetail.notePlaceholder':
     "Comparteix comentaris, impressions sobre l'entrevista, propers passos...",
   'candidateDetail.noteSave': 'Desa la nota',
+  'candidateDetail.panel': 'Panell: {{panel}}',
+  'candidateDetail.panelScore': 'Puntuació del panell: {{score}}/100',
+  'candidateDetail.resumeMissing':
+    'Encara no hi ha cap previsualització del currículum disponible per a aquest candidat.',
   'candidateDetail.scheduleError': "No s'ha pogut programar l'entrevista.",
+  'candidateDetail.scheduleHeading': 'Programa una entrevista',
   'candidateDetail.scheduleInterviewer': 'Entrevistador/a',
+  'candidateDetail.scheduleInterviewerPlaceholder': "Nom de l'entrevistador",
   'candidateDetail.scheduleMinutes': 'Durada (min)',
   'candidateDetail.scheduleMissing': 'Trieu primer una data i una hora.',
   'candidateDetail.scoreEmpty': "Pendent d'avaluació de la IA.",
@@ -71,6 +90,7 @@ export const ui: UiTranslations = {
   'candidates.heading': 'Candidats',
   'candidates.loadError': "No s'han pogut carregar els candidats.",
   'candidates.searchPlaceholder': 'Cerca candidat, rol o feina\\u2026',
+  'candidates.sourceLabel': 'Font',
   'candidates.sourcePlaceholder': 'Font (LinkedIn, Referència…)',
   'candidates.subheading':
     "Base de dades de candidats interprofessionals amb puntuació d'IA i atribució de fonts.",
@@ -85,6 +105,7 @@ export const ui: UiTranslations = {
   'dashboard.kpi.interviews': "Entrevistes d'aquesta setmana",
   'dashboard.kpi.openJobs': 'Feines obertes',
   'dashboard.loading': "S'està carregant\\u2026",
+  'dashboard.newJobCta': 'Publica una oferta de treball',
   'dashboard.subheading':
     "Estat de la cartera de clients, càrrega d'entrevistes i ofertes en moviment.",
   'dashboard.topEmpty': 'Encara no hi ha candidats.',
@@ -106,6 +127,7 @@ export const ui: UiTranslations = {
   'jobDetail.back': 'Totes les feines',
   'jobDetail.descriptionEyebrow': 'Descripció del rol',
   'jobDetail.descriptionMissing': "Encara no s'ha proporcionat cap descripció.",
+  'jobDetail.employmentType': 'Tipus de contracte: {{type}}',
   'jobDetail.empty': 'Encara no hi ha sol·licitants.',
   'jobDetail.funnelEyebrow': "Embut d'etapa",
   'jobDetail.funnelHeading': 'On es troben els sol·licitants',
@@ -114,6 +136,7 @@ export const ui: UiTranslations = {
   'jobDetail.kpi.hires': 'Contractacions',
   'jobDetail.kpi.inInterview': 'En entrevista',
   'jobDetail.loadError': "No s'ha pogut carregar la feina.",
+  'jobDetail.requirementsHeading': 'Requisits',
   'jobDetail.topEyebrow': 'Principals sol·licitants',
   'jobDetail.topHeading': 'Primer coincidència amb IA',
   'jobDetail.unavailable': 'Aquesta feina ja no apareix a la llista.',
@@ -129,6 +152,7 @@ export const ui: UiTranslations = {
   'jobs.heading': 'Treballs',
   'jobs.loadError': "No s'han pogut carregar les feines.",
   'jobs.newCta': 'Publica una oferta de treball',
+  'landing.copyright': '© {{year}} {{app}} Construït amb Molecule.',
   'landing.eyebrow': 'Contractació assistida per IA · v2',
   'landing.featuresEyebrow': 'Com funciona',
   'landing.featuresHeading': 'Senyal, no fulls de càlcul.',
@@ -138,8 +162,11 @@ export const ui: UiTranslations = {
   'landing.heroProof':
     'No es pot pagar amb targeta de crèdit. Cancel·la quan vulguis. SSO disponible a Pro.',
   'landing.heroSecondary': 'Veure preus →',
+  'landing.heroSubtitle':
+    "Un pipeline kanban net, cribratge amb IA que s'explica per si mateix i analítiques d'equitat per etapa. Pensat per a reclutadors i responsables de contractació que volen senyal, no soroll.",
   'landing.heroTitle': 'Contracta amb claredat.',
   'landing.previewHeading': 'Enginyer/a sènior de backend',
+  'landing.previewLabel': 'Pipeline · Enginyeria',
   'landing.pricingEyebrow': 'Preus',
   'landing.pricingHeading': 'Plans per a equips de totes les mides.',
   'landing.socialEyebrow': 'Utilitzat per contractar equips a',
@@ -155,6 +182,9 @@ export const ui: UiTranslations = {
   'loginBrandPanel.headlineLine2': 'claredat.',
   'loginBrandPanel.stage.interview': 'Entrevista',
   'loginBrandPanel.stage.screening': 'Cribratge',
+  'loginBrandPanel.stage.sourced': 'Captat',
+  'loginBrandPanel.subtext':
+    "Arrossega els candidats per Captat → Cribratge → Entrevista → Oferta → Contractat. La IA fa el cribratge. El pols d'equitat manté cada etapa honesta.",
   'nav.closeMenu': 'Tanca el menú',
   'nav.legal': 'Legal',
   'nav.openMenu': 'Obre el menú',
@@ -163,6 +193,7 @@ export const ui: UiTranslations = {
     'Currículums classificats segons els requisits; el reclutador revisa primer les millors coincidències.',
   'newJob.aiToggle': 'Avaluació automàtica de nous sol·licitants',
   'newJob.back': 'Torna a les feines',
+  'newJob.basicsHeading': 'Conceptes bàsics del lloc',
   'newJob.compHeading': 'Compensació',
   'newJob.departmentLabel': 'Departament',
   'newJob.descHeading': 'Descripció i requisits',
@@ -172,6 +203,7 @@ export const ui: UiTranslations = {
   'newJob.failed': "No s'ha pogut desar la feina.",
   'newJob.heading': 'Publica una oferta de treball',
   'newJob.publish': 'Publica la feina',
+  'newJob.reqLabel': 'Requisits (un per línia)',
   'newJob.salaryMax': 'Salari màxim (USD)',
   'newJob.salaryMin': 'Salari mínim (USD)',
   'newJob.stagesHeading': 'Etapes de la canonada',
@@ -187,6 +219,7 @@ export const ui: UiTranslations = {
   'newJob.type.fullTime': 'Jornada completa',
   'newJob.type.partTime': 'Temps parcial',
   'newJob.typeLabel': "Tipus d'ocupació",
+  'pipeline.advanceTo': 'Avança',
   'pipeline.allRoles': 'Tots els rols',
   'pipeline.daysInStage': '{{days}} d',
   'pipeline.empty': 'Cap candidat',
@@ -200,13 +233,22 @@ export const ui: UiTranslations = {
     "Arrossega els candidats entre etapes. La puntuació de la IA i els dies a l'etapa es mostren a cada targeta.",
   'pipeline.viewTable': 'Vista de taula →',
   'pipelineFunnelHero.totalLabel': 'En moviment',
+  'planUpdated.body':
+    'El canvi de facturació ja és actiu. Pots gestionar el teu pla en qualsevol moment des de la pàgina de facturació.',
+  'planUpdated.retry': 'Torna-ho a intentar',
+  'planUpdated.verifyFailed': 'Encara no hem pogut confirmar el vostre pagament.',
+  'planUpdated.verifyFailedBody':
+    "És possible que el vostre pagament encara s'estigui processant. Torneu-ho a provar en un moment.",
   'planUpdated.verifying': 'Confirmant el teu pagament…',
   'pricing.heading': 'aplicacions',
+  'pricing.limits.applications': 'sol·licituds',
   'pricing.limits.candidates': 'candidats',
   'pricing.limits.jobs': 'llocs de treball',
   'pricing.limits.scorecards': 'targetes de puntuació',
   'privacy.dataBody':
     'Correu electrònic del compte, contrasenya amb hash, metadades del perfil i els registres de candidats/feines que creeu. Mai venem ni compartim aquestes dades.',
+  'privacy.intro':
+    "{{app}} tracta dades de reclutament en nom dels clients. Tractem els registres de candidats, els currículums i les comunicacions de l'equip de contractació com a confidencials i els emmagatzemem xifrats en repòs.",
   'privacy.retentionBody':
     'Pots eliminar el teu compte en qualsevol moment des de Configuració. Eliminem els registres associats en un termini de 30 dies, excepte quan la llei exigeix la retenció.',
   'privacy.title': 'Política de privacitat',
@@ -216,6 +258,7 @@ export const ui: UiTranslations = {
     'Permet que els candidats i sol·licitants vegin el teu nom i càrrec a les ofertes de treball.',
   'profile.publicLabel': 'Perfil públic',
   'profile.publicOff': 'Ocult',
+  'profile.publicOn': 'Visible',
   'profile.recentEmpty': 'Encara no hi ha cap col·locació.',
   'profile.recentError': "No s'han pogut carregar les ubicacions recents.",
   'profile.recentEyebrow': 'Col·locacions recents',
@@ -242,9 +285,14 @@ export const ui: UiTranslations = {
   'resetPassword.missingToken':
     "Falta l'enllaç de restabliment o ha caducat; sol·licita'n un de nou.",
   'resetPassword.passwordLabel': 'Nova contrasenya',
+  'resetPassword.signInCta': 'Inicia la sessió →',
+  'resetPassword.signInPrompt': 'Utilitza la contrasenya nova per iniciar sessió.',
   'resetPassword.subheading':
     'Trieu una contrasenya segura: com a mínim 12 caràcters amb majúscules i minúscules.',
+  'settings.appearance.description': 'Alterna entre el mode clar i el mode fosc.',
   'settings.appearance.title': 'Aspecte',
+  'settings.deleteAccountModal.confirm':
+    'Introdueix la contrasenya per confirmar-ho. Aquesta acció és permanent.',
   'settings.emailTemplates.empty': "Encara no s'ha configurat cap plantilla.",
   'settings.emailTemplates.heading': 'Plantilles de correu electrònic',
   'settings.emailTemplates.loadError': "No s'han pogut carregar les plantilles.",
@@ -255,10 +303,17 @@ export const ui: UiTranslations = {
   'settings.integrations.statusDisconnected': 'No connectat',
   'settings.integrations.updateError': "No s'ha pogut actualitzar la integració.",
   'settings.name': 'Nom',
+  'settings.passwordHelp': 'Actualitza la contrasenya que fas servir per iniciar sessió.',
+  'settings.revokeDeviceWarning':
+    "L'accés d'aquest dispositiu es revocarà aviat. Voleu tancar la sessió?",
   'settings.saveEmail': 'Desa el correu electrònic',
   'settings.signOutDevice': 'Tanca la sessió',
   'settings.stages.empty': "Encara no s'ha configurat cap etapa.",
+  'settings.stages.heading': 'Etapes de la canonada',
+  'settings.stages.help':
+    'Les etapes per les quals passen els candidats. Elimina les que no facis servir.',
   'settings.stages.loadError': "No s'han pogut carregar les etapes.",
+  'settings.stages.loading': "S'estan carregant les etapes…",
   'settings.stages.removeAria': 'Elimina {{name}} escenari',
   'settings.stages.removeError': "No s'ha pogut eliminar l'escenari.",
   'settings.team.empty': "Encara no hi ha cap company d'equip; convida el primer de sota.",
@@ -274,9 +329,16 @@ export const ui: UiTranslations = {
   'settings.team.removeError': "No s'ha pogut eliminar el membre.",
   'settings.twoFactorCode': "Codi d'autenticació",
   'settings.twoFactorDisable': 'Desactiva',
+  'settings.twoFactorDisableTitle': "Desactiva l'autenticació de dos factors",
   'settings.twoFactorEnable': 'Activa',
+  'settings.twoFactorEnableTitle': "Activa l'autenticació de dos factors",
   'settings.twoFactorInvalidCode': 'Codi no vàlid',
   'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Codi QR de dos factors',
+  'settings.twoFactorScan':
+    "Escaneja aquest codi QR amb la teva aplicació d'autenticació i després introdueix el codi de 6 dígits.",
+  'settings.twoFactorUnavailable':
+    "L'autenticació de dos factors no està disponible per a aquesta aplicació.",
   'settings.twoFactorVerify': 'Verifica i activa',
   'settings.unknownDevice': 'Dispositiu desconegut',
   'signup.confirmPlaceholder': 'Torneu a introduir la vostra contrasenya',
@@ -286,6 +348,8 @@ export const ui: UiTranslations = {
   'signup.subheading': "Crea un tauler de contractació en 60 segons. Convida l'equip més tard.",
   'terms.acceptableUseBody':
     "No abusaràs del servei, no executaràs rastreig automàtic, no intentaràs trencar la seguretat ni l'utilitzaràs per discriminar contra les classes protegides.",
+  'terms.intro':
+    'En utilitzar {{app}} acceptes aquests termes. El servei es proporciona tal com és, amb les obligacions i limitacions descrites a continuació.',
   'terms.subscriptionBody':
     'Els plans de pagament es renoven mensualment fins que es cancel·len. Podeu cancel·lar des de Facturació en qualsevol moment; el vostre pla roman actiu fins al final del període actual.',
   'terms.title': 'Condicions del servei',

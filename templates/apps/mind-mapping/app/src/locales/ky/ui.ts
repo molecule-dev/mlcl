@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пикириңиз барбы, ката таптыңызбы же идеяларыңызды кантип картага түшүргөнүңүздү айткыңыз келеби? Биз ар бир билдирүүнү окуйбуз — каалаган убакта кайрылыңыз, командадагы чыныгы адам сизге жооп берет.',
+  'about.contactTitle': 'Биз менен байланышуу',
   'about.eyebrow': 'Жөнүндө',
+  'about.featureCanvas':
+    'Чексиз канвас: жылдыруучу түйүндөр, жылмақай ийри сызыктар менен байланыштар, эркин масштабдоо жана жылдыруу.',
+  'about.featureCollab':
+    'Реалдуу убакыттагы кызматташуу жандуу курсорлор менен — командаңыз кезегин күтпөстөн сиз менен катар бутактай алат.',
+  'about.featurePricing':
+    'Жеке ойчулдар үчүн түбөлүк акысыз; Pro жана Team пландары көбүрөөк карталарды, көбүрөөк түйүндөрдү, өркүндөтүлгөн функцияларды жана маалыматтарды экспорттоону кошот.',
+  'about.featureTemplates':
+    'Баштоочу шаблондордун китепканасы жана толук версия тарыхы — картаны тез баштап, каалаган өзгөртүүнү артка кайтара аласыз.',
+  'about.intro':
+    '{{app}} — акыл картасы үчүн кенен, чексиз канвас: брейнштормдор, концепция диаграммалары, SWOT жана долбоор пландары. Түйүндөрдү каалаган жерге жылдырыңыз, идеяларды агымдуу байланыштар менен туташтырыңыз, чектерге тирелбестен масштабдап жылдырыңыз жана карта ой жүгүртүүңүз менен өсүп турсун.',
+  'about.missionBody':
+    'Үн чыгарып ойлонуу жеңил жана бөлүшүлгөн болушу керек. Биз жолго тоскоол болбоочу куралдарды жасайбыз — катуу торлор жок, кутучага салынган шаблондор жок, көңүлдү уурдаган интерфейс жок — ошондуктан адамдар жана командалар идеяларды пайда болгон замат кармап, чогуу иштеп чыга алышат.',
+  'about.missionTitle': 'Биздин миссиябыз',
   'about.pageTitle': '{{app}} жөнүндө',
   'auth.brandEyebrow': 'Идеялар кайсы жерде таралат',
   'auth.brandStatement':
@@ -13,19 +29,26 @@ export const ui: UiTranslations = {
   'billing.feature.export': 'SVG / PNG форматына экспорттоо',
   'billing.feature.maps': '{{count}} карталар',
   'billing.feature.nodes': '{{count}} картадагы түйүндөр',
+  'billing.freeNoticeBody':
+    'Көбүрөөк карталарды ачуу үчүн жогорудагы акы төлөнүүчү планды тандаңыз.',
   'billing.loadError': 'Эсеп-кысап абалы жүктөлбөй койду.',
+  'billing.loading': 'Эсеп-фактура жүктөлүүдө…',
   'billing.perMonth': ' / ай',
   'billing.plansTitle': 'Пландар',
+  'billing.priceMissing': "Stripe баасынын ID'си конфигурацияланган эмес.",
   'billing.starting': 'Кассадан төлөө башталууда…',
   'billing.title': 'Эсеп-кысап жана план',
   'billing.unavailableTier':
     'Бул деңгээл төлөө үчүн азырынча конфигурациялана элек — чөйрөңүздө Stripe баасынын идентификаторун орнотуңуз.',
   'billing.unlimited': 'Чексиз',
   'billing.upgradeMonthly': 'Жаңыртуу {{name}} (ай сайын)',
+  'billing.upgradeYearly': 'Жылдык төлөм · {{price}}',
   'brand.tagline': 'Идеялар кайсы жерде таралат',
   'common.and': 'жана',
   'common.goToDashboard': 'Башкы бетке өтүү',
   'dashboard.activityAction': 'жаңыртылган',
+  'dashboard.activityEmpty':
+    'Азырынча активдүүлүк жок — таймлайныңызды баштоо үчүн картаны түзөңүз.',
   'dashboard.daysAgo': '{{count}} күн мурун',
   'dashboard.empty.body':
     'Идеяларды бутактап баштоо үчүн карта түзүңүз. Шаблондор баштоону жеңилдетет.',
@@ -44,26 +67,35 @@ export const ui: UiTranslations = {
   'dendriteHero.activeMaps': 'Активдүү карталар',
   'dendriteHero.eyebrow': 'Бүгүн полотнодо',
   'dendriteHero.greeting': 'Жаңы идеяларды бутактоо, {{name}}',
+  'dendriteHero.greetingAnon': 'Жаңы идеяларды бутактаңыз',
   'dendriteHero.openMaps': 'Менин карталарымды ачуу',
   'dendriteHero.subtitle':
     'Сүйрөп, туташтырып, ой жүгүртүүңүздүн өсүшүнө мүмкүнчүлүк бериңиз. Ар бир учкун экинчисинен бир түйүн алыстыкта.',
   'dendriteHero.weeklyChange': '{{sign}} {{count}} бул аптада',
+  'forgotPassword.brandStatement':
+    'Карталарыңыз коопсуз. Бир аздан кийин бутактарыңызга кайтарабыз.',
   'forgotPassword.subheading':
     'Электрондук почтаңызды киргизиңиз, биз жаңы баштапкы абалга келтирүү шилтемесин жөнөтөбүз.',
   'forgotPassword.success':
     'Эгер ошол электрондук почтасы бар аккаунт бар болсо, баштапкы абалга келтирүү шилтемеси жөнөтүлүүдө.',
   'landing.cta.body':
     'Жалгыз ой жүгүрткөндөр үчүн түбөлүккө бекер. Командаңыз сиз менен бирге тармакташа баштаганда гана жаңыртыңыз.',
+  'landing.cta.button': 'Биринчи картаңызды түзүңүз',
   'landing.cta.title': 'Бүгүн биринчи идеяңызды отургузуңуз.',
   'landing.feature.branch.body':
     'Башка түйүндөн түйүндү сүйрөңүз — байланыштар жылмакай ийри сызыктар катары агат, катуу торчонун кереги жок.',
+  'landing.feature.branch.title': 'Органикалык бутактануу',
   'landing.feature.canvas.body':
     'Картаны панорамалап, чоңойтуп, четтерине тийбестен чоңойтуңуз. Ой жүгүртүүңүз дем алууга орун татыктуу.',
   'landing.feature.canvas.title': 'Чексиз полотно',
   'landing.feature.collab.body':
     'Командалаштарыңыздын сиз менен реалдуу убакытта алмашып турганын көрүңүз. Сериялар боюнча эмес, чогуу мээ чабуулу.',
+  'landing.feature.collab.title': 'Кызматташ курсорлор',
   'landing.feature.shortcuts.body':
     'Бала кошуу үчүн Tab баскычын, бир тууган кошуу үчүн Enter баскычын, ал эми каалаган жерге секирүү үчүн ⌘K баскычын басыңыз. Энергия колдонуучулары агым боюнча кала беришет.',
+  'landing.feature.shortcuts.title': 'Баскычтоп биринчи',
+  'landing.featuresBody':
+    'Куралдар тилкелери, панелдер жана жарлыктар айлана-чөйрөдөй сезилет — керек болгондо бар, керек болбогондо көрүнбөйт.',
   'landing.featuresEyebrow': 'Ойчулдар үчүн курулган',
   'landing.featuresTitle': 'Ар бир өз ара аракеттенүү полотнодо өз ордун табат',
   'landing.footer.copyright': '© {{year}} {{appName}} . Molecule.dev менен түзүлгөн.',
@@ -71,6 +103,7 @@ export const ui: UiTranslations = {
     '{{appName}} – бул мээ чабуулу, концептуалдык диаграммалар жана SWOT үчүн кенен, чексиз кенен полотно. Картаны сүйрөп, туташтырып, аны сиз менен кошо өстүрүңүз — катуу торчолорсуз, кутучага салынган шаблондорсуз.',
   'landing.hero.ctaPrimary': 'Акысыз бутактанууну баштаңыз',
   'landing.hero.eyebrow': 'Дизайнерлер жана ойчулдар үчүн акыл картасын түзүү',
+  'landing.hero.title': 'Идеялар бутактанган жер.',
   'landing.nav.start': 'Бутактанууну баштоо',
   'landing.proof.export': 'PNG, SVG же Markdown форматтарына экспорттоо',
   'landing.proof.free': '3 карта үчүн акысыз',
@@ -78,6 +111,7 @@ export const ui: UiTranslations = {
   'layout.closeMenu': 'Навигация менюсун жабуу',
   'layout.openMenu': 'Навигация менюсун ачуу',
   'layout.searchPlaceholder': 'Карталарды, шаблондорду же түйүндөрдү издөө…',
+  'login.noAccount': 'Бул жерде жаңысызбы?',
   'login.signIn': "Nimbus'ка кириңиз",
   'login.subheading': 'Токтогон жериңизден тармактоону улантуу үчүн кириңиз.',
   'login.twoFactor': 'Эки факторлуу токен (эгер иштетилген болсо)',
@@ -96,9 +130,11 @@ export const ui: UiTranslations = {
     '+ куралын тандап, андан кийин биринчи түйүнүңүздү кошуу үчүн каалаган жерди чыкылдатыңыз',
   'mapEditor.export': 'Экспорттоо',
   'mapEditor.exportError': 'Картаны экспорттой алган жок.',
+  'mapEditor.exportLocked': 'Экспорттоо — Pro функциясы.',
   'mapEditor.exportMarkdown': 'Маркдаун (.md)',
   'mapEditor.exportPng': 'Сүрөт (.png)',
   'mapEditor.exportSvg': 'Вектордук (.svg)',
+  'mapEditor.exportUpgrade': 'Экспорттоо үчүн жаңыртыңыз →',
   'mapEditor.hint.add': 'Түйүндү таштоо үчүн холстту басыңыз',
   'mapEditor.hint.connectSource': 'Баштапкы түйүндү чыкылдатыңыз…',
   'mapEditor.hint.connectTarget': 'Максаттуу түйүндү чыкылдатыңыз…',
@@ -107,6 +143,7 @@ export const ui: UiTranslations = {
   'mapEditor.loading': 'Холст жүктөлүүдө…',
   'mapEditor.newNodeText': 'New idea',
   'mapEditor.panel.color': 'Түс',
+  'mapEditor.panel.eyebrow': 'Тандалган түйүн',
   'mapEditor.panel.nodes': 'Түйүндөр',
   'mapEditor.panel.noSelection': 'Аны түзөтүү үчүн түйүндү чыкылдатыңыз.',
   'mapEditor.panel.stats': 'Карта статистикасы',
@@ -146,12 +183,19 @@ export const ui: UiTranslations = {
   'notifications.accept': 'Кабыл алуу',
   'notifications.acceptAndOpen': 'Кабыл алуу жана ачуу',
   'notifications.acceptedInvite': 'Кошулган {{title}}.',
+  'notifications.acceptError': 'Чакырууну кабыл алуу мүмкүн болбоду.',
   'notifications.empty.body':
     'Командалаштарыңыз сизди карталарга чакырганда, алар бул жерде пайда болушат.',
   'notifications.empty.title': 'Күтүлүп жаткан чакыруулар жок',
+  'notifications.inviteBody': '{{email}} жөнөтүлдү',
   'notifications.inviteTitle': 'Чакырылган катары {{role}}"га"{{title}}"',
   'notifications.subtitle': '{{count}} күтүлүп жаткан чакыруулар.',
   'notifications.view': 'Көрүү',
+  'pricing.limit.advanced': 'Өркүндөтүлгөн функциялар: {{state}}',
+  'pricing.limit.connections': '{{count}} байланыш',
+  'pricing.limit.export': 'Маалыматтарды экспорттоо: {{state}}',
+  'pricing.limit.maps': '{{count}} карталар',
+  'pricing.limit.nodes': '{{count}} картадагы түйүндөр',
   'profile.loading': 'Статистикаңыз жүктөлүүдө…',
   'profile.stat.collabs': 'Кызматташтыктар',
   'profile.stat.maps': 'Карталар түзүлдү',
@@ -163,25 +207,37 @@ export const ui: UiTranslations = {
   'publicMap.loadError': 'Бул карта мындан ары бөлүшүлбөйт же шилтеме жараксыз.',
   'publicMap.loading': 'Карта жүктөлүүдө…',
   'publicMap.notFound': 'Карта табылган жок.',
+  'resetPassword.newPassword': 'Жаңы сыр сөз',
   'resetPassword.subheading':
     'Эсте каларлык нерсени тандаңыз. Биз сизди автоматтык түрдө кайра киргизебиз.',
   'resetPassword.submit': 'Сырсөздү баштапкы абалга келтирүү жана кирүү',
   'resetPassword.tokenPlaceholder': 'Электрондук почтаңыздан чапталды',
   'settings.account.subtitle':
     'Көрсөтүлүүчү атыңызды жана электрондук почта дарегиңизди жаңыртыңыз.',
+  'settings.field.currentPassword': 'Учурдагы сырсөз',
   'settings.field.newPassword': 'Жаңы сыр сөз',
   'settings.password.subtitle': 'Күчтүү сырсөз тандаңыз (жок дегенде 8 белги).',
   'settings.passwordError': 'Сырсөздү өзгөртө алган жок. Учурдагы сырсөзүңүздү текшериңиз.',
+  'settings.passwordMismatch': 'Жаңы сырсөздөр дал келген жок.',
   'settings.passwordSaved': 'Сырсөз ийгиликтүү өзгөртүлдү.',
   'settings.passwordTooShort': 'Сырсөз кеминде 8 белгиден турушу керек.',
   'settings.profileError': 'Профиль өзгөртүүлөрү сакталган жок.',
   'settings.subtitle': 'Аккаунтуңузду жана коопсуздугуңузду тууралаңыз.',
   'settings.twoFactorCode': 'Аутентификация коду',
   'settings.twoFactorDisable': 'Өчүрүү',
+  'settings.twoFactorDisableTitle': 'Эки факторлуу аутентификацияны өчүрүү',
   'settings.twoFactorEnable': 'Иштетүү',
+  'settings.twoFactorEnableTitle': 'Эки факторлуу аутентификацияны күйгүзүү',
   'settings.twoFactorInvalidCode': 'Жараксыз код. Кайра аракет кылып көрүңүз.',
+  'settings.twoFactorOffLine': 'Эки факторлуу аутентификация өчүк.',
+  'settings.twoFactorOnLine': 'Эки факторлуу аутентификация күйүк.',
+  'settings.twoFactorQrAlt': 'Эки факторлуу QR код',
+  'settings.twoFactorScan':
+    'Бул QR кодду аутентификатор колдонмоңуз менен скандаңыз, анан 6 орундуу кодду киргизиңиз.',
   'settings.twoFactorSubtitle':
     'Сырсөзүңүздүн үстүнө аутентификация колдонмоңуздан бир жолку кодду кошуңуз.',
+  'settings.twoFactorUnavailable':
+    'Бул колдонмо үчүн эки факторлуу аутентификация жеткиликтүү эмес.',
   'settings.twoFactorVerify': 'Текшерүү жана иштетүү',
   'share.accepted': 'Кабыл алынды',
   'share.backToMap': 'Картага кайтуу',
@@ -192,7 +248,10 @@ export const ui: UiTranslations = {
   'share.copySuccess': 'Шилтеме көчүрүлдү.',
   'share.invite.button': 'Чакыруу',
   'share.invite.title': 'Электрондук почта аркылуу чакыруу',
+  'share.inviteError': 'Чакыруу жөнөтүлгөн жок.',
   'share.inviteSuccess': 'Чакырылган {{email}}.',
+  'share.link.disabledHint':
+    'Бул картага ачык, окууга гана арналган шилтеме жаратуу үчүн күйгүзүңүз.',
   'share.link.title': 'Коомдук шилтеме',
   'share.loadError': 'Бөлүшүү жөндөөлөрү жүктөлбөй койду.',
   'share.pending': 'Күтүлүп жаткан чакыруу',
@@ -204,13 +263,19 @@ export const ui: UiTranslations = {
   'share.roleError': 'Ролду жаңыртуу мүмкүн болгон жок.',
   'share.title': 'Бул картаны бөлүшүү',
   'share.unnamedCollaborator': 'Күтүлүп жаткан чакыруу',
+  'signup.brandStatement':
+    'Эң эр жүрөк брейнштормго жеткидей кенен — жана ойлонууга жеткидей тынч канвас.',
+  'signup.haveAccount': 'Мурунтан эле мүчөсүзбү?',
   'signup.heading': 'Биринчи идеяңызды отургузуңуз',
   'signup.namePlaceholder': 'Эйвери Чен',
   'signup.subheading': '3 карта үчүн түбөлүккө бекер. Кредиттик карта талап кылынбайт.',
   'templateDetail.backToTemplates': 'Бардык шаблондор',
   'templateDetail.browseMore': 'Көбүрөөк карап чыгуу',
+  'templateDetail.editableHint':
+    'Шаблонду ишке ашыргандан кийин ар бир түйүн жана байланыш толук оңдолот.',
   'templateDetail.instantiateError': 'Бул шаблондон карта түзүү мүмкүн болгон жок.',
   'templateDetail.loadError': 'Бул шаблон жүктөлбөй койду.',
+  'templateDetail.loading': 'Шаблон жүктөлүүдө…',
   'templateDetail.nodes': 'Алдын ала себилген түйүндөр',
   'templateDetail.notFound': 'Шаблон табылган жок.',
   'templateDetail.systemEyebrow': 'Орнотулган шаблон',
@@ -233,6 +298,7 @@ export const ui: UiTranslations = {
   'trash.empty.body': 'Эч нерсе тазаланбай турат. Бутактарыңыз коопсуз.',
   'trash.empty.title': 'Таштанды бош',
   'trash.loadError': 'Таштандыга айланган карталар жүктөлбөй койду.',
+  'trash.loading': 'Таштанды жүктөлүүдө…',
   'trash.restore': 'Калыбына келтирүү',
   'trash.restoreError': 'Картаны калыбына келтирүү мүмкүн болгон жок.',
   'trash.subtitle':
@@ -241,11 +307,13 @@ export const ui: UiTranslations = {
   'versionHistory.backToMap': 'Картага кайтуу',
   'versionHistory.empty':
     'Азырынча сүрөттөр жок. Текшерүү пунктун сактоо үчүн биринчисин сактап коюңуз.',
+  'versionHistory.emptyDetail': 'Таймлайныңызды баштоо үчүн сүрөт тартыңыз.',
   'versionHistory.loadError': 'Версия тарыхы жүктөлбөй койду.',
   'versionHistory.nodeCount': 'Түйүндөр',
   'versionHistory.restoreButton': 'Бул версияны калыбына келтирүү',
   'versionHistory.restoreError': 'Сүрөттү калыбына келтирүү мүмкүн болгон жок.',
   'versionHistory.restoreSuccess': 'Сүрөт калыбына келтирилди.',
+  'versionHistory.selectHint': 'Көрүү үчүн сүрөттү тандаңыз.',
   'versionHistory.snapshotDefault': 'Кол менен тартылган сүрөттүн сүрөтү',
   'versionHistory.snapshotError': 'Көз ирмемдик сүрөт сакталган жок.',
   'versionHistory.snapshotEyebrow': 'Сүрөт',

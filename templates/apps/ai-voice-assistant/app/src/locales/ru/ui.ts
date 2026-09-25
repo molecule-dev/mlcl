@@ -5,7 +5,13 @@ export const ui: UiTranslations = {
     'Хотите оставить отзыв, предложить новую функцию или сообщить об ошибке? Свяжитесь с командой {{app}} через ссылку «Поддержка» в меню вашего аккаунта — каждое сообщение попадает к реальному сотруднику.',
   'about.contactTitle': 'Свяжитесь с нами',
   'about.eyebrow': 'О',
+  'about.intro':
+    '{{app}} — это голосовой ИИ-ассистент. Говорите естественно, наблюдайте, как ваши слова превращаются в текст, и получайте ответы вслух — так вы можете думать вслух, а не печатать всё вручную.',
+  'about.missionBody':
+    'Печать — это узкое место между вашими идеями и их воплощением. {{app}} создан, чтобы его устранить: свободный разговорный способ генерировать идеи, писать черновики и принимать решения — на основе лучших моделей речи и рассуждений, с сохранением приватности ваших данных.',
+  'about.missionTitle': 'Наша миссия',
   'agentDetail.back': 'Все агенты',
+  'agentDetail.behavior': 'Поведение',
   'agentDetail.capabilities': 'Возможности',
   'agentDetail.delete': 'Удалить персону',
   'agentDetail.deleteConfirm': 'Удалить этот образ? Этого уже не вернуть.',
@@ -39,15 +45,20 @@ export const ui: UiTranslations = {
   'agents.subtitle':
     'У каждого агента свой тон, темп и специализация. Переключиться можно в любой момент во время разговора.',
   'agents.title': 'Выберите голос, которым вы будете размышлять.',
+  'authShell.tagline': '{{tagline}} — {{brand}}',
+  'billing.cardNoneBody':
+    'Добавьте её при переходе на платный тариф — Stripe берёт всё хранение на себя.',
   'billing.cardNoneTitle': 'Карта не сохранена.',
   'billing.choose': 'Выключатель',
   'billing.currentPlan': 'Ваш план',
   'billing.currentPlanReadout': '{{plan}} план',
   'billing.eyebrow': 'Планирование и использование',
   'billing.fetchError': 'Не удалось загрузить платежную информацию.',
+  'billing.loadingStatus': 'Статус загрузки…',
   'billing.noTiers': 'В настоящий момент нет доступных планов.',
   'billing.plansTitle': 'Планы',
   'billing.switching': 'Переключение…',
+  'billing.updateAcknowledged': 'Обновление подтверждено в {{time}}',
   'billing.updateError': 'Не удалось запустить обновление.',
   'billing.usageHeading': 'Использование голоса в этом цикле',
   'chatBubble.source.text': 'текст',
@@ -66,11 +77,13 @@ export const ui: UiTranslations = {
   'conversation.title': 'Обсудите это.',
   'conversation.toggleMic': 'Переключить микрофон',
   'conversation.toggleVoicePlayback': 'Воспроизведение голоса',
+  'conversation.transcribeError': 'Не удалось расшифровать аудио.',
   'conversation.transcriptionEmpty': 'Мы ничего не слышали. Попробуйте ещё раз?',
   'conversation.voiceOff': 'Голос выключен',
   'conversation.voiceOn': 'Голос включен',
   'conversationDetail.assistant': 'Помощник',
   'conversationDetail.back': 'Назад к истории',
+  'conversationDetail.elapsed': '00:00 / {{duration}}',
   'conversationDetail.empty': 'В этой переписке пока нет сообщений.',
   'conversationDetail.eyebrow': 'Стенограмма',
   'conversationDetail.fetchError': 'Не удалось загрузить стенограмму.',
@@ -81,6 +94,7 @@ export const ui: UiTranslations = {
   'conversationDetail.setSpeed': 'Установите скорость воспроизведения на {{speed}}',
   'conversationDetail.system': 'Система',
   'conversationDetail.untitled': 'Беседа без названия',
+  'conversationListItem.messageCount': '{{count}} сообщ.',
   'forgotPassword.subheading':
     'Введите свой адрес электронной почты, и мы вышлем вам ссылку для сброса пароля.',
   'forgotPassword.successBody': 'Мы только что отправили ссылку для сброса пароля. {{email}} .',
@@ -97,6 +111,9 @@ export const ui: UiTranslations = {
   'history.voiceOnly': 'Только голос',
   'landing.copyright': '© {{year}} {{brand}} Подумайте вслух.',
   'landing.demoMessage1': 'Привет, Сара! Готова обсудить идеи для новой рекламной кампании?',
+  'landing.demoMessage2': 'Да — давайте сосредоточимся на стратегиях органического роста на Q3.',
+  'landing.demoMessage3':
+    'Отлично. Я бы начал с инициативы, ведомой сообществом. Хотите, я распишу этапы?',
   'landing.eyebrow': 'Искусственный интеллект, изначально предназначенный для работы с голосом',
   'landing.featuresSubtitle':
     'Создан для естественного диалога — адаптируется к вашей скорости, тону и контексту.',
@@ -126,10 +143,12 @@ export const ui: UiTranslations = {
   'parlanceLayout.openMenu': 'Открыть меню навигации',
   'parlanceLayout.primaryNavLabel': 'Основная навигация',
   'pricing.conversations': '{{count}} разговоры',
+  'pricing.cta.start': 'Выбрать {{tierName}}',
   'pricing.cta.startFree': 'Начните бесплатно',
   'pricing.cta.upgrade': 'Обновить до {{tierName}}',
   'pricing.empty': 'В настоящий момент нет доступных планов.',
   'pricing.error': 'Не удалось загрузить цены. Попробуйте позже.',
+  'pricing.speech': '{{count}} речь',
   'pricing.subtitle':
     'Выберите тарифный план, который соответствует тому, как часто вы общаетесь со своим ассистентом.',
   'privacy.collection.account': 'Адрес электронной почты вашей учетной записи и отображаемое имя',
@@ -138,6 +157,8 @@ export const ui: UiTranslations = {
   'privacy.deletion.body':
     'Вы можете удалить беседу, профиль или аудиозапись в любое время на соответствующей странице. Удаление учетной записи в разделе «Настройки» удаляет все беседы, стенограммы и строки с профилями, связанные с вашим рабочим пространством.',
   'privacy.eyebrow': 'Юридические',
+  'privacy.intro':
+    '{{app}} хранит созданные вами разговоры и голосовые фрагменты только столько, сколько нужно для работы ассистента. Мы никогда не продаём ваши данные и никогда не используем аудио или расшифровки клиентов для обучения внешних ИИ-моделей.',
   'privacy.lastUpdated': 'Последнее обновление: 01.05.2026',
   'privacy.processors.body':
     'Когда вы разговариваете со своим ассистентом, мы передаем ваш аудиофайл в OpenAI Whisper для транскрипции, вашу транскрипцию — в Anthropic (Claude) для ответа, а ответ — в ElevenLabs или OpenAI для синтеза голоса. Каждый поставщик связан своими собственными условиями обработки данных; данные не сохраняются для переобучения.',
@@ -159,13 +180,19 @@ export const ui: UiTranslations = {
   'resetPassword.newPassword': 'Новый пароль',
   'resetPassword.subheading': 'Выберите новый пароль, чтобы продолжить общение.',
   'search.agentPreview': 'Нет описания',
+  'search.emptyBody': 'Попробуйте другое ключевое слово или произнесите его вслух.',
   'search.emptyTitle': 'Совпадений нет',
   'search.eyebrow': 'Палитра команд',
   'search.fetchError': 'Не удалось загрузить поисковый индекс.',
+  'search.static.billing.preview': 'Тарифы, способ оплаты и счета',
+  'search.static.billing.title': 'Выставление счетов',
   'search.static.profile.preview': 'Отображаемое имя, ник, биография',
+  'search.static.profile.title': 'Профиль',
+  'search.static.voice.preview': 'Голос и язык по умолчанию',
   'search.static.voice.title': 'Голос',
   'search.title': 'Поисковая терминология',
   'search.transcriptPreview': 'Открыть стенограмму',
+  'settings.appearance.description': 'Переключайтесь между светлым и темным режимом.',
   'settings.appearance.title': 'Появление',
   'settings.loadError': 'Не удалось загрузить настройки.',
   'settings.privacy.${row.key}.label': 'Уведомления',
@@ -182,6 +209,8 @@ export const ui: UiTranslations = {
   'terms.changes.body':
     'Мы уведомим вас в приложении, если эти условия существенно изменятся; дальнейшее использование после уведомления означает, что вы принимаете обновления.',
   'terms.eyebrow': 'Юридические',
+  'terms.intro':
+    'Эти условия регулируют использование {{app}}. Создавая аккаунт, вы соглашаетесь с ними.',
   'terms.lastUpdated': 'Последнее обновление: 01.05.2026',
   'terms.title': 'Условия предоставления услуг',
   'terms.usage.body':

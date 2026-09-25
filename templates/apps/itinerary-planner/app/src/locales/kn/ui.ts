@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ಪ್ರತಿಕ್ರಿಯೆ ಇದೆಯೇ, ದೋಷ ಸಿಕ್ಕಿದೆಯೇ, ಅಥವಾ ಮಹತ್ವಾಕಾಂಕ್ಷೆಯ ಯೋಜನೆ ಇದೆಯೇ? ನಿಮ್ಮ ಖಾತೆ ಸೆಟ್ಟಿಂಗ್ಗಳಿಂದ ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ — ಪ್ರತಿ ಸಂದೇಶವೂ ತಂಡದ ನಿಜವಾದ ವ್ಯಕ್ತಿಗೆ ತಲುಪುತ್ತದೆ.',
+  'about.contactTitle': 'ನಮ್ಮೊಂದಿಗೆ ಮಾತನಾಡಿ',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'ಒಂದೇ ಇನ್ಬಾಕ್ಸ್ನಲ್ಲಿ ಬುಕಿಂಗ್ಗಳು — ವಿಮಾನ, ಹೋಟೆಲ್ ಮತ್ತು ಚಟುವಟಿಕೆ ದೃಢೀಕರಣಗಳು ಅವು ಸೇರಬೇಕಾದ ನಿಖರ ದಿನದಂದೇ ಬಂದು ಸೇರುತ್ತವೆ.',
+  'about.featureCollab':
+    'ನೈಜ-ಸಮಯ ಸಹಯೋಗ — ಪ್ರತಿ ಪ್ರವಾಸಕ್ಕೆ ಐದು ಪ್ರಯಾಣಿಕರವರೆಗೆ ಆಹ್ವಾನಿಸಿ, ಪ್ರತಿ ಬದಲಾವಣೆಯೂ ನೇರವಾಗಿ ಸಿಂಕ್ ಆಗುತ್ತದೆ ಮತ್ತು ಪ್ರತಿ ನಿಲ್ದಾಣದ ಕೆಳಗೆ ಕಾಮೆಂಟ್ಗಳು ಥ್ರೆಡ್ ಆಗುತ್ತವೆ.',
+  'about.featureMapsBudget':
+    'ನಕ್ಷೆಗಳು, ತಾಣಗಳು ಮತ್ತು ಹಂಚಿಕೊಂಡ ಬಜೆಟ್ — ಇಡೀ ಪ್ರವಾಸವನ್ನು ನಕ್ಷೆಯಲ್ಲಿ ನೋಡಿ, ಸಂಪಾದಕರು ಆಯ್ಕೆ ಮಾಡಿದ ತಾಣಗಳನ್ನು ಅನ್ವೇಷಿಸಿ, ಮತ್ತು ಯಾರೂ ಮಿತಿ ಮೀರದಂತೆ ಖರ್ಚುಗಳನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ.',
+  'about.featureTimelines':
+    'ದಿನದಿಂದ ದಿನದ ಟೈಮ್ಲೈನ್ಗಳು — ನಿಲ್ದಾಣಗಳನ್ನು ಎಳೆದು ಮರುಕ್ರಮಗೊಳಿಸಿ, ಸಾರಿಗೆ ವಿಭಾಗಗಳನ್ನು ಸೇರಿಸಿ, ಮತ್ತು ಒಂದು ಜೀವಂತ ದಾಖಲೆಯಂತೆ ಪ್ರಯಾಣ ಯೋಜನೆ ಮರು ಲೆಕ್ಕಾಚಾರವಾಗುವುದನ್ನು ನೋಡಿ.',
+  'about.intro':
+    '{{app}} ಅರ್ಧ-ರೂಪುಗೊಂಡ ಯೋಜನೆಗಳಿಂದ ತುಂಬಿದ ಫೋಲ್ಡರ್ ಅನ್ನು ನಿಮ್ಮ ಇಡೀ ಗುಂಪು ನಿಜವಾಗಿಯೂ ಅನುಸರಿಸಬಹುದಾದ ಒಂದೇ, ಹಂಚಿಕೊಂಡ ಪ್ರವಾಸವಾಗಿ ಪರಿವರ್ತಿಸುತ್ತದೆ. ದಿನದಿಂದ ದಿನದ ಪ್ರಯಾಣ ಯೋಜನೆ ರೂಪಿಸಿ, ವಿಮಾನ ಮತ್ತು ಹೋಟೆಲ್ಗಳನ್ನು ಸೇರಿಸಿ, ಪ್ರತಿ ನಿಲ್ದಾಣವನ್ನೂ ನಕ್ಷೆಯಲ್ಲಿ ಗುರುತಿಸಿ, ಮತ್ತು ಬಜೆಟ್ ಟ್ರ್ಯಾಕ್ ಮಾಡಿ — ಹತ್ತಾರು ಟ್ಯಾಬ್ಗಳು ಮತ್ತು ಗುಂಪು ಚಾಟ್ ಬದಲು ಇದೆಲ್ಲವೂ ಒಂದೇ ಶಾಂತ ಸ್ಥಳದಲ್ಲಿ.',
+  'about.missionBody':
+    'ಪ್ರವಾಸ ಯೋಜನೆ ಎಂಬುದು ಮನೆಪಾಠದಂತೆ ಅಲ್ಲ, ಪ್ರವಾಸವೇ ಈಗಾಗಲೇ ಉತ್ತಮವಾಗುತ್ತಿದೆ ಎಂಬಂತೆ ಅನಿಸಬೇಕು. ಸಹಯೋಗದ ಪ್ರವಾಸಗಳನ್ನು ಸುಲಭಗೊಳಿಸಲು {{app}} ಇದೆ — ಪ್ರತಿ ಪ್ರಯಾಣಿಕನೂ ಯೋಜನೆ ತಿಳಿದು ಬರಲಿ, ಮತ್ತು ಪ್ರತಿ ನಿಲ್ದಾಣವೂ ನೆನಪಿಡಲು ಯೋಗ್ಯವಾದ ಕಥೆ ಹೇಳಲಿ.',
+  'about.missionTitle': 'ನಮ್ಮ ಧ್ಯೇಯ',
   'about.pageTitle': '{{app}} ಬಗ್ಗೆ',
   'auth.legalConsent': 'ಮುಂದುವರಿಸುವ ಮೂಲಕ, ನೀವು ನಮ್ಮನ್ನು ಒಪ್ಪುತ್ತೀರಿ',
   'bookings.empty.body': 'ಇನ್‌ಬಾಕ್ಸ್ ಪ್ರಾರಂಭಿಸಲು ವಿಮಾನ, ಹೋಟೆಲ್ ಅಥವಾ ಚಟುವಟಿಕೆಯನ್ನು ಸೇರಿಸಿ.',
@@ -30,7 +46,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'ಹೋಟೆಲ್',
   'bookings.type.other': 'ಇತರೆ',
   'budgetSpendCard.budgetTotal': 'ನ {{total}} ಯೋಜಿಸಲಾಗಿದೆ',
+  'budgetSpendCard.overBy': '{{amount}} ಬಜೆಟ್ ಮೀರಿದೆ',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} ಇತ್ತೀಚಿನ',
+  'budgetSpendCard.remaining': '{{amount}} ಉಳಿದಿದೆ',
   'calendar.eyebrow': 'ಮುಂಬರುವ ವರ್ಷ',
   'calendar.heading': 'ಪ್ರತಿಯೊಂದು ಪ್ರವಾಸವು ಒಂದೇ ಕ್ಯಾಲೆಂಡರ್‌ನಲ್ಲಿ.',
   'calendar.legendHeading': 'ಈ ತಿಂಗಳ ಪ್ರವಾಸಗಳು',
@@ -41,18 +60,27 @@ export const ui: UiTranslations = {
   'common.and': 'ಮತ್ತು',
   'common.goToDashboard': 'ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಹೋಗಿ',
   'dashboard.budgetHeading': 'ಬಜೆಟ್ ಪಲ್ಸ್',
+  'dashboard.empty.body':
+    'ನಿಮ್ಮ ಮೊದಲ ಪ್ರವಾಸವನ್ನು ಯೋಜಿಸಿ, ನಿಮ್ಮ ಡ್ಯಾಶ್ಬೋರ್ಡ್ ದಿನದಿಂದ ದಿನದ ಟೈಮ್ಲೈನ್ಗಳು, ಬಜೆಟ್ ಮಾಹಿತಿ ಮತ್ತು ಬುಕಿಂಗ್ಗಳಿಂದ ತುಂಬುತ್ತದೆ.',
+  'dashboard.empty.cta': 'ನಿಮ್ಮ ಮೊದಲ ಪ್ರವಾಸವನ್ನು ಯೋಜಿಸಿ',
   'dashboard.empty.heading': 'ಇನ್ನೂ ಯಾವುದೇ ಪ್ರವಾಸಗಳಿಲ್ಲ — ನಿಮ್ಮ ಅಟ್ಲಾಸ್ ಖಾಲಿಯಾಗಿದೆ.',
   'dashboard.eyebrow': 'ಮಿಷನ್ ನಿಯಂತ್ರಣ',
   'dashboard.heading': 'ನಿಮ್ಮ ಮುಂದಿನ ಸಾಹಸ, ಒಂದು ನಿಶ್ಯಬ್ದ ಮೂಲೆಯಲ್ಲಿ.',
   'dashboard.newTripCta': 'ಹೊಸ ಪ್ರಯಾಣವನ್ನು ಪ್ರಾರಂಭಿಸಿ',
+  'dashboard.subheading':
+    'ಮುಂದಿನ ಪ್ರವಾಸದ ಕೌಂಟ್ಡೌನ್, ಇಂದಿನ ಖರ್ಚಿನ ಮಾಹಿತಿ, ಮತ್ತು ನಡೆಯುತ್ತಿರುವ ಪ್ರತಿ ಪ್ರಯಾಣ ಯೋಜನೆಯ ಒಂದು ನೋಟ.',
   'dashboard.tripsHeading': 'ಚಲನೆಯಲ್ಲಿರುವ ಪ್ರಯಾಣಗಳು',
   'dashboard.viewAllExpenses': 'ಪ್ರತಿ ಖರ್ಚನ್ನು ವೀಕ್ಷಿಸಿ',
   'dashboard.viewAllTrips': 'ಪ್ರತಿ ಪ್ರವಾಸವನ್ನು ನೋಡಿ',
   'dayTimelineRow.category.accommodation': 'ಇರಿ',
+  'dayTimelineRow.category.food': 'ಆಹಾರ ಮತ್ತು ಪಾನೀಯ',
+  'dayTimelineRow.category.sightseeing': 'ಪ್ರವಾಸ ದರ್ಶನ',
   'dayTimelineRow.category.transport': 'ಸಾರಿಗೆ',
   'destinationOrbCard.exploreCta': 'ಪ್ರವಾಸಕ್ಕೆ ಸೇರಿಸಿ',
   'destinationOrbCard.tripCount': '{{count}} ಪ್ರವಾಸಗಳು',
+  'destinations.empty.body': 'ಎಲ್ಲಾ ಗೆ ವಾಪಸ್ ಬದಲಿಸಿದರೆ ಸಂಪಾದಕರ ಆಯ್ಕೆಗಳು ಮತ್ತೆ ಕಾಣಿಸುತ್ತವೆ.',
   'destinations.empty.heading': 'ಇನ್ನೂ ಯಾವುದೇ ಗಮ್ಯಸ್ಥಾನಗಳಿಲ್ಲ.',
+  'destinations.emptyFiltered.heading': 'ಇನ್ನೂ ಹಾಗೆ ಟ್ಯಾಗ್ ಮಾಡಿದ ಯಾವುದೂ ಇಲ್ಲ.',
   'destinations.errors.load': 'ಗಮ್ಯಸ್ಥಾನಗಳನ್ನು ಲೋಡ್ ಮಾಡಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'destinations.eyebrow': 'ಮುಂದೆ ಎಲ್ಲಿಗೆ ಹೋಗಬೇಕು',
   'destinations.heading': 'ಉಳಿಸಿದ ಮೂಲೆಗಳು ಮತ್ತು ಸಂಪಾದಕರ ಹುಡುಕಾಟಗಳು.',
@@ -71,7 +99,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'ಮಾರಾಟಗಾರ',
   'expenses.formHeading': 'ಇದಕ್ಕಾಗಿ ವೆಚ್ಚವನ್ನು ಲಾಗ್ ಮಾಡಿ {{trip}}',
   'expenses.heading': 'ಪ್ರವಾಸದ ಬಜೆಟ್ ನಿಜವಾಗಿಯೂ ಎಲ್ಲಿಗೆ ಹೋಗುತ್ತದೆ.',
+  'expenses.heroBudget': '{{total}} ರಲ್ಲಿ {{pct}}% ಯೋಜಿಸಲಾಗಿದೆ',
   'expenses.heroEyebrow': '{{trip}} • ಬಜೆಟ್ ಸ್ನ್ಯಾಪ್‌ಶಾಟ್',
+  'expenses.heroNoBudget': 'ಈ ಪ್ರವಾಸದಲ್ಲಿ ಇನ್ನೂ ಬಜೆಟ್ ಸೆಟ್ ಮಾಡಿಲ್ಲ.',
   'expenses.noTrips.body': 'ಮೊದಲು ಪ್ರವಾಸವನ್ನು ಯೋಜಿಸಿ — ವೆಚ್ಚಗಳು ಪ್ರವಾಸದ ಬಜೆಟ್‌ಗೆ ಲಗತ್ತಿಸಿ.',
   'expenses.noTrips.heading': 'ಇನ್ನೂ ಯಾವುದೇ ಪ್ರವಾಸಗಳಿಲ್ಲ.',
   'expenses.receiptCount': '{{count}} ರಶೀದಿಗಳು',
@@ -83,12 +113,16 @@ export const ui: UiTranslations = {
     'ಪ್ರತಿಯೊಂದು ರಶೀದಿ ಮತ್ತು ದೃಢೀಕರಣವು ಇಲ್ಲಿ ಸರಿಯಾದ ವರ್ಗಕ್ಕೆ ಸೇರುತ್ತದೆ — ಯಾವುದೇ ಸ್ಪ್ರೆಡ್‌ಶೀಟ್ ಅಗತ್ಯವಿಲ್ಲ.',
   'forgotPassword.eyebrow': 'ನಿಮ್ಮ ಪ್ರಯಾಣದ ವೇಳಾಪಟ್ಟಿಯನ್ನು ಮರಳಿ ಪಡೆಯಿರಿ',
   'forgotPassword.heading': 'ನಿಮ್ಮ ಗುಪ್ತಪದವನ್ನು ಮರೆತಿರಾ?',
+  'forgotPassword.subheading':
+    '{{appName}} ಗಾಗಿ ನೀವು ಬಳಸಿದ ಇಮೇಲ್ ನಮೂದಿಸಿ, ಪಾಸ್ವರ್ಡ್ ಮರುಹೊಂದಿಸಲು ನಾವು ಲಿಂಕ್ ಕಳುಹಿಸುತ್ತೇವೆ.',
   'forgotPassword.submit': 'ಮರುಪ್ರಾಪ್ತಿ ಇಮೇಲ್ ಕಳುಹಿಸಿ',
   'forgotPassword.submitPending': 'ಮರುಪ್ರಾಪ್ತಿ ಇಮೇಲ್ ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ...',
   'forgotPassword.successHint':
     'ಇನ್ನೂ ಇಮೇಲ್ ಇಲ್ಲವೇ? ನಿಮ್ಮ ಸ್ಪ್ಯಾಮ್ ಫೋಲ್ಡರ್ ಪರಿಶೀಲಿಸಿ, ಅಥವಾ ಬೇರೆ ವಿಳಾಸದೊಂದಿಗೆ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.',
   'forgotPassword.successSubheading':
     'ನಾವು ಮರುಪಡೆಯುವಿಕೆ ಲಿಂಕ್ ಅನ್ನು ಇಲ್ಲಿಗೆ ಕಳುಹಿಸಿದ್ದೇವೆ {{email}} . ಲಿಂಕ್ 30 ನಿಮಿಷಗಳವರೆಗೆ ಮಾನ್ಯವಾಗಿರುತ್ತದೆ.',
+  'forgotPassword.tryAgain': 'ಬೇರೆ ಇಮೇಲ್ಗೆ ಕಳುಹಿಸಿ',
+  'landing.cta.eyebrow': 'ಉಚಿತ ಯೋಜನೆಯಲ್ಲಿ ಪ್ರಾರಂಭಿಸಿ',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'ಉಚಿತ ಖಾತೆಯನ್ನು ರಚಿಸಿ',
   'landing.cta.subheading':
@@ -100,8 +134,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'ಉಚಿತ ಪ್ರಯಾಣವನ್ನು ಪ್ರಾರಂಭಿಸಿ',
   'landing.hero.ctaSecondary': 'ಮಾದರಿ ಪ್ರವಾಸವನ್ನು ನೋಡಿ',
+  'landing.hero.eyebrow': 'ಪ್ರವಾಸ ಯೋಜಕ · {{tagline}}',
   'landing.hero.subtitle':
     'ವೇಪಾಯಿಂಟ್ ಅರ್ಧ-ರೂಪಿಸಲಾದ ಯೋಜನೆಗಳಿಂದ ತುಂಬಿದ ಫೋಲ್ಡರ್ ಅನ್ನು ನಿಮ್ಮ ಗುಂಪು ವಾಸ್ತವವಾಗಿ ಅನುಸರಿಸಬಹುದಾದ ಹಂಚಿಕೆಯ, ದಿನನಿತ್ಯದ ಪ್ರಯಾಣದ ಪಟ್ಟಿಯನ್ನಾಗಿ ಪರಿವರ್ತಿಸುತ್ತದೆ - ಬುಕಿಂಗ್‌ಗಳು, ನಕ್ಷೆಗಳು ಮತ್ತು ಬಜೆಟ್ ಅನ್ನು ಒಂದೇ ಸ್ಥಳದಲ್ಲಿ ಟ್ರ್ಯಾಕ್ ಮಾಡಲಾಗುತ್ತದೆ.',
+  'landing.hero.title': 'ಒಮ್ಮೆ ಯೋಜನೆ ಮಾಡಿ. ಒಟ್ಟಿಗೆ ಸುತ್ತಾಡಿ.',
   'landing.nav.join': 'ಉಚಿತ ಪ್ರಯಾಣವನ್ನು ಪ್ರಾರಂಭಿಸಿ',
   'landing.nav.preview': 'ಇನ್‌ಸೈಡ್ ವೇಪಾಯಿಂಟ್',
   'landing.preview.cta': 'ನಿಮ್ಮದೇ ಆದ ಒಂದನ್ನು ಯೋಜಿಸಿ',
@@ -109,6 +145,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'ಪ್ರಯಾಣಿಕರು ಇದೀಗ ಅಲೆದಾಡುತ್ತಿರುವ ಕೆಲವು ಪ್ರವಾಸಗಳು',
   'login.eyebrow': 'ಸದಸ್ಯರ ಪ್ರದೇಶ',
   'login.heading': 'ಮತ್ತೆ ಸ್ವಾಗತ, ಪ್ರಯಾಣಿಕ.',
+  'login.noAccount': 'ಟೆಸ್ಸೆರಾಗೆ ಹೊಸಬರೇ?',
   'login.signupLink': 'ಉಚಿತ ಖಾತೆಯನ್ನು ರಚಿಸಿ',
   'login.subheading':
     'ನಿಮ್ಮ ಪ್ರವಾಸಗಳು, ದಿನದ ಯೋಜನೆಗಳು, ಬುಕಿಂಗ್‌ಗಳು ಮತ್ತು ನೀವು ಈಗಾಗಲೇ ಪ್ರಾರಂಭಿಸಿರುವ ಜರ್ನಲ್ ನಮೂದುಗಳನ್ನು ನಿರ್ವಹಿಸಲು ಸೈನ್ ಇನ್ ಮಾಡಿ.',
@@ -119,6 +156,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'ಅಧಿಸೂಚನೆಯನ್ನು ನವೀಕರಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
   'notifications.heading': 'ಇಂದು ನಿಮ್ಮ ಪ್ರವಾಸಗಳಲ್ಲಿ ಏನು ಬದಲಾಗಿದೆ.',
   'notifications.markUnread': 'ಓದಿಲ್ಲ ಎಂದು ಗುರುತಿಸಿ',
+  'notifications.subheading':
+    '{{count}} ಹೊಸದು — ಬುಕಿಂಗ್ ದೃಢೀಕರಣಗಳು, ಸಹಯೋಗಿ ಟಿಪ್ಪಣಿಗಳು, ದರ ಇಳಿಕೆಗಳು ಮತ್ತು ಜ್ಞಾಪನೆಗಳು.',
   'notifications.time.daysAgo': '{{count}} ಡಿ ಹಿಂದೆ',
   'notifications.time.hoursAgo': '{{count}} ಗಂ ಹಿಂದೆ',
   'notifications.time.justNow': 'ಈಗ ತಾನೇ',
@@ -137,6 +176,7 @@ export const ui: UiTranslations = {
     'ಸಂಪರ್ಕಿತ ಸೇವೆಗಳು, ಕರೆನ್ಸಿ, ಪುಶ್ ಅಧಿಸೂಚನೆಗಳು ಮತ್ತು ನೀವು ಸೈನ್ ಇನ್ ಮಾಡುವ ರುಜುವಾತುಗಳು.',
   'signup.and': 'ಮತ್ತು',
   'signup.eyebrow': 'ವೇಪಾಯಿಂಟ್‌ಗೆ ಸೇರಿ',
+  'signup.haveAccount': 'ಈಗಾಗಲೇ ಅಲೆಯುತ್ತಿದ್ದೀರಾ?',
   'signup.heading': 'ಒಮ್ಮೆ ಯೋಜನೆ ಮಾಡಿ. ಒಟ್ಟಿಗೆ ಸುತ್ತಾಡಿ.',
   'signup.namePlaceholder': 'ಐರಿಸ್ ಲಾರ್ಸೆನ್',
   'signup.subheading':
@@ -148,6 +188,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'ಪ್ರಯಾಣ ಯೋಜನೆಯನ್ನು ತೆರೆಯಿರಿ',
   'tripCountdownHeroCard.ctaSecondary': 'ಇನ್ನೊಂದು ಪ್ರವಾಸವನ್ನು ಯೋಜಿಸಿ',
   'tripCountdownHeroCard.daysLabel': '{{days}} ಇನ್ನು ಕೆಲವು ದಿನಗಳು',
+  'tripCountdownHeroCard.eyebrow': 'ಮುಂದಿನ ಸಾಹಸ · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · {{nights}} ರಾತ್ರಿಗಳು — ನಿಮ್ಮ ಪ್ರಯಾಣ ಯೋಜನೆ ಪ್ರಯಾಣಕ್ಕೆ ಸಿದ್ಧವಾಗಿದೆ.',
   'tripCoverCard.stops': '{{count}} ನಿಲ್ಲುತ್ತದೆ',
   'tripCoverCard.travelers': '{{count}} ಪ್ರಯಾಣಿಕರು',
   'tripDetail.addActivity': 'ಚಟುವಟಿಕೆಯನ್ನು ಸೇರಿಸಿ',
@@ -157,6 +200,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'ಚಟುವಟಿಕೆಯ ಶೀರ್ಷಿಕೆ',
   'tripDetail.adding': 'ಸೇರಿಸಲಾಗುತ್ತಿದೆ…',
   'tripDetail.backToTrips': 'ಎಲ್ಲಾ ಪ್ರವಾಸಗಳಿಗೆ ಹಿಂತಿರುಗಿ',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'ಪ್ರಯಾಣಿಕರು',
   'tripDetail.dayLabel': 'ದಿನ {{day}}',
   'tripDetail.empty': 'ಇನ್ನೂ ಯಾವುದೇ ಚಟುವಟಿಕೆಗಳಿಲ್ಲ — ಟೈಮ್‌ಲೈನ್ ಪ್ರಾರಂಭಿಸಲು ಒಂದನ್ನು ಸೇರಿಸಿ.',
@@ -167,14 +211,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'ಪ್ರಯಾಣ ವಿವರ • {{country}}',
   'tripDetail.invite': 'ಆಹ್ವಾನಿಸಿ',
   'tripDetail.inviteLabel': 'ಇಮೇಲ್ ಮೂಲಕ ಆಹ್ವಾನಿಸಿ',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'ಆಹ್ವಾನ ಕಳುಹಿಸಲಾಗಿದೆ {{email}} .',
   'tripDetail.inviting': 'ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ…',
   'tripDetail.loading': 'ಪ್ರವಾಸ ಲೋಡ್ ಆಗುತ್ತಿದೆ…',
   'tripDetail.noCollaborators': 'ಇದೀಗ, ನೀವು ಮಾತ್ರ.',
+  'tripDetail.notesHeading': 'ಪ್ರವಾಸ ಟಿಪ್ಪಣಿಗಳು',
   'tripDetail.notesPlaceholder': 'ಇನ್ನೂ ಯಾವುದೇ ಟಿಪ್ಪಣಿಗಳಿಲ್ಲ.',
   'tripDetail.notFound.heading': 'ಪ್ರವಾಸ ಕಂಡುಬಂದಿಲ್ಲ.',
   'tripDetail.openBookings': 'ಬುಕಿಂಗ್ ಇನ್‌ಬಾಕ್ಸ್ ತೆರೆಯಿರಿ',
   'tripDetail.shareCopied': 'ಹಂಚಿಕೆ ಲಿಂಕ್ ಅನ್ನು ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಿಸಲಾಗಿದೆ:',
+  'tripDetail.shareReady': 'ಹಂಚಿಕೆ ಲಿಂಕ್ ಸಿದ್ಧವಾಗಿದೆ:',
   'tripDetail.stops': '{{count}} ನಿಲ್ಲುತ್ತದೆ',
   'tripDetail.timelineEyebrow': 'ದಿನದ ಟೈಮ್‌ಲೈನ್',
   'tripDetail.timelineHeading': 'ದಿನನಿತ್ಯದ ಯೋಜನೆ',
@@ -192,6 +239,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'ಪ್ರಯಾಣಿಕರು',
   'tripPlanner.heading': 'ಒಂದು ನಿಮಿಷಕ್ಕಿಂತ ಕಡಿಮೆ ಅವಧಿಯಲ್ಲಿ ಪ್ರವಾಸದ ರೇಖಾಚಿತ್ರ ರಚಿಸಿ.',
   'tripPlanner.preview.eyebrow': 'ಲೈವ್ ಪೂರ್ವವೀಕ್ಷಣೆ',
+  'tripPlanner.preview.placeholderCountry': 'ಒಂದು ದೇಶವನ್ನು ಆಯ್ಕೆಮಾಡಿ',
   'tripPlanner.preview.placeholderDestination': 'ನಿಮ್ಮ ಮುಂದಿನ ಸಾಹಸ',
   'tripPlanner.section1.title': 'ಎಲ್ಲಿ ಮತ್ತು ಯಾವಾಗ',
   'tripPlanner.section2.title': 'ಪ್ರಯಾಣಿಕರು ಮತ್ತು ಬಜೆಟ್',
@@ -203,10 +251,14 @@ export const ui: UiTranslations = {
     'ದಿನ {{day}} — ಇಲ್ಲಿ ನಿಲ್ದಾಣಗಳು, ಸಾರಿಗೆ ಮತ್ತು ಬುಕಿಂಗ್‌ಗಳನ್ನು ಸೇರಿಸಿ.',
   'tripPlanner.section3.day3':
     'ದಿನ {{day}} — ಇಲ್ಲಿ ನಿಲ್ದಾಣಗಳು, ಸಾರಿಗೆ ಮತ್ತು ಬುಕಿಂಗ್‌ಗಳನ್ನು ಸೇರಿಸಿ.',
+  'tripPlanner.section3.title': 'ದಿನದ ಯೋಜನೆ ಆರಂಭಿಕ',
   'tripPlanner.subheading':
     'ಮೂಲಭೂತ ಅಂಶಗಳನ್ನು ಕೆಳಗೆ ಬರೆಯಿರಿ — ನೀವು ಯಾವಾಗಲೂ ಸಹಯೋಗಿಗಳನ್ನು ಆಹ್ವಾನಿಸಬಹುದು, ನಿಲ್ದಾಣಗಳನ್ನು ಎಳೆಯಬಹುದು ಮತ್ತು ನಂತರ ಬುಕಿಂಗ್‌ಗಳನ್ನು ಮುಂದಕ್ಕೆ ಕಳುಹಿಸಬಹುದು.',
   'tripPlanner.submit': 'ಪ್ರವಾಸ ರಚಿಸಿ',
   'tripPlanner.submitting': 'ರಚಿಸಲಾಗುತ್ತಿದೆ…',
+  'trips.empty.body':
+    'ಎಲ್ಲಾ ಪ್ರವಾಸಗಳಿಗೆ ವಾಪಸ್ ಬದಲಿಸಿ ಅಥವಾ ನಿಮ್ಮ ಮುಂದಿನ ಅಲೆಮಾರಿತನವನ್ನು ಯೋಜಿಸಲು ಪ್ರಾರಂಭಿಸಿ.',
+  'trips.empty.cta': 'ಪ್ರವಾಸವನ್ನು ಯೋಜಿಸಿ',
   'trips.empty.heading': 'ಆ ಫಿಲ್ಟರ್‌ಗೆ ಇನ್ನೂ ಯಾವುದೂ ಹೊಂದಿಕೆಯಾಗುತ್ತಿಲ್ಲ.',
   'trips.eyebrow': 'ಅಟ್ಲಾಸ್',
   'trips.filterLabel': 'ಸ್ಥಿತಿಯ ಪ್ರಕಾರ ಪ್ರವಾಸಗಳನ್ನು ಫಿಲ್ಟರ್ ಮಾಡಿ',
@@ -218,6 +270,11 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'ಇನ್ನೂ ಯಾವುದೇ ಪ್ರವಾಸಗಳಿಲ್ಲ.',
   'trips.pastHeading': 'ಹಿಂದಿನ ಸಾಹಸಗಳು',
   'trips.subheading': '{{count}} ಪ್ರಯಾಣ ಯೋಜನೆಗಳು - ಭೂತ, ವರ್ತಮಾನ ಮತ್ತು ಒಂದು ದಿನ.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading': 'ಒಮ್ಮೆ ಯೋಜಿಸಿ. ಜೊತೆಯಾಗಿ ಅಲೆಯಿರಿ. ಶಾಶ್ವತವಾಗಿ ನೆನಪಿಡಿ.',
+  'waypointAuthShell.testimonial.author': 'ಐರಿಸ್ ಮತ್ತು ಜೋನಾಸ್ · 2024 ರಿಂದ {{appName}} ಸದಸ್ಯರು',
+  'waypointAuthShell.testimonial.quote':
+    'ನಾಲ್ಕು ದೇಶಗಳಾದ್ಯಂತ 3 ವಾರಗಳ ಕ್ಲಿಷ್ಟ ಪ್ರವಾಸವನ್ನು {{appName}} ನಾವು ಇದುವರೆಗೆ ಹಂಚಿಕೊಂಡ ಅತ್ಯಂತ ಆರಾಮದಾಯಕ ಪ್ರಯಾಣ ಯೋಜನೆಯಾಗಿ ಪರಿವರ್ತಿಸಿತು.',
   'waypointLayout.mobileNavClose': 'ನ್ಯಾವಿಗೇಷನ್ ಮೆನು ಮುಚ್ಚಿರಿ',
   'waypointLayout.primaryNavLabel': 'ಪ್ರಾಥಮಿಕ ನ್ಯಾವಿಗೇಷನ್',
 }

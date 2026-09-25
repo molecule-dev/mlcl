@@ -1,7 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactTitle': 'Wasiliana nasi',
   'about.eyebrow': 'Kuhusu',
+  'about.featureConnections':
+    'Kidhibiti cha muunganisho kinachohifadhi kwa usalama na kuweka rangi kwenye hifadhidata zako — vitambulisho vimesimbwa kwa njia fiche wakati wa kuhifadhi, kamwe si kwa maandishi wazi.',
+  'about.featureMonitoring':
+    'Ufuatiliaji wa moja kwa moja wa utendaji wa hoja na shughuli za hifadhidata, pamoja na njia za mkato za kibodi na palette ya amri ili kuendesha yote bila kutumia mikono.',
+  'about.featurePlans':
+    'Mipango inayokua nawe — Bure kwa kazi ya mtu mmoja, Pro na Team kwa miunganisho zaidi, uhifadhi wa hoja kwa muda mrefu, uhamishaji, na vipengele vya hali ya juu.',
+  'about.featureQueryEditor':
+    'Kihariri cha SQL kinachotumia Monaco chenye historia ya hoja, hoja zilizohifadhiwa, na uhamishaji wa CSV kwa mbofyo mmoja wa matokeo yako.',
+  'about.featureSchema':
+    'Kichunguzi cha skema na kivinjari cha majedwali ili kuvinjari hifadhidata, majedwali, na safu wima, kisha kuvinjari, kuchuja, na kuhariri safu moja kwa moja.',
+  'about.missionTitle': 'Dhamira yetu',
   'authShell.commands': 'Amri',
   'authShell.ssoSupported': 'Huduma ya SSO inaungwa mkono',
   'common.run': 'Run',
@@ -18,6 +30,7 @@ export const ui: UiTranslations = {
   'connections.queries': 'Maswali',
   'connections.schema': 'Mpango',
   'connections.subtitle': 'Dhibiti miunganisho yako ya hifadhidata.',
+  'connections.test': 'Mtihani',
   'databaseAdminLayout.adminRole': 'Jukumu la msimamizi',
   'databaseAdminLayout.commandPalette': 'Paleti ya amri',
   'databaseAdminLayout.commands': 'amri',
@@ -26,9 +39,11 @@ export const ui: UiTranslations = {
   'databaseAdminLayout.newConnection': 'Muunganisho mpya',
   'databaseAdminLayout.queries': 'Maswali',
   'databaseAdminLayout.ready': 'Tayari',
+  'databaseAdminLayout.searchPlaceholder': '⌘K Tafuta amri, hoja, majedwali…',
   'databaseAdminLayout.user': 'Mtumiaji',
   'editConnection.confirmDelete': 'Ungependa kufuta muunganisho huu?',
   'editConnection.deleteButton': 'Futa muunganisho',
+  'editConnection.newPassword': 'Nenosiri jipya (acha wazi ili kubaki)',
   'editConnection.saved': 'Muunganisho umehifadhiwa.',
   'editConnection.title': 'Hariri muunganisho',
   'forgotPassword.success': 'Ikiwa akaunti hiyo ipo, kiungo cha kuweka upya kiko njiani.',
@@ -46,6 +61,7 @@ export const ui: UiTranslations = {
   'monitoring.successes': 'Mafanikio',
   'monitoring.title': 'Ufuatiliaji',
   'monitoring.totalQueries': 'Jumla ya maswali',
+  'nav.schema': 'Mpango',
   'newConnection.database': 'Hifadhidata',
   'newConnection.engine': 'Injini',
   'newConnection.host': 'Mwenyeji',
@@ -82,6 +98,7 @@ export const ui: UiTranslations = {
   'savedQuery.noConnection': 'Hakuna muunganisho unaohusiana na kipande hiki.',
   'savedQuery.notBound': 'Haijafungwa',
   'savedQuery.title': 'Hoja iliyohifadhiwa',
+  'schema.columns': 'Safu wima',
   'schema.foreignKeys': 'Funguo za kigeni',
   'schema.indexes': 'Vielelezo',
   'schemaExplorer.browseRows': 'Vinjari safu mlalo',
@@ -90,14 +107,17 @@ export const ui: UiTranslations = {
   'schemaExplorer.colNullable': 'isiyoweza kubatilishwa',
   'schemaExplorer.colType': 'aina',
   'schemaExplorer.noColumns': 'Hakuna safu wima.',
+  'schemaExplorer.noForeignKeys': 'Hakuna funguo za kigeni.',
   'schemaExplorer.noIndexes': 'Hakuna faharasa.',
   'schemaExplorer.noTables': 'Hakuna meza',
   'schemaExplorer.pickATable': 'Chagua meza kutoka kwenye upau wa pembeni.',
   'schemaExplorer.tables': 'Meza',
   'schemaExplorer.title': 'Mchunguzi wa skimu',
+  'settings.session': 'Kipindi',
   'settings.subtitle': 'Dhibiti akaunti yako na mpango.',
   'signup.heading': 'Fungua akaunti yako ya Machimbo',
   'signup.tagline': 'Ongeza ufikiaji ndani ya dakika moja.',
   'tableBrowser.noRows': 'Jedwali hili halina safu mlalo bado.',
+  'tableBrowser.subtitle': 'Kuvinjari safu kutoka hifadhidata yako ya mbali.',
   'tableBrowser.title': 'Kuvinjari safu kutoka kwa hifadhidata yako ya mbali.',
 }

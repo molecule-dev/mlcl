@@ -3,6 +3,8 @@ import type { UiTranslations } from '../types.js'
 export const ui: UiTranslations = {
   'about.intro':
     'Is ardán uathoibrithe sreabha oibre é Dendrite a cheanglaíonn spreagthóirí, coinníollacha AI, agus gníomhartha ilchéime le chéile ionas gur féidir le foirne obair a bhogadh idir chórais gan cód greamaitheach a scríobh.',
+  'about.philosophy':
+    'Is graf de chéimeanna beaga inbhraite é gach sreabhadh oibre. Taifeadann gach céim a hionchuir, a haschuir agus a hamú, ionas gur féidir í a iniúchadh, a athsheinm nó a rolladh siar. Cum iad go hamharcach, déan iad a leaganú mar chód.',
   'about.title': 'Maidir le Deindrít',
   'authShell.brand': 'Deindrít',
   'authShell.support': 'Tacaíocht',
@@ -15,9 +17,15 @@ export const ui: UiTranslations = {
   'billing.changePlan': 'Athraigh an plean',
   'billing.description':
     'Rianaigh úsáid, bainistigh do phlean, agus tarraing sonraisc le haghaidh cuntasaíochta.',
+  'billing.eyebrow': 'Cuntas · Plean agus úsáid',
+  'billing.failedLabel': 'Ritheanna teipthe · 24u',
+  'billing.invoicesEmpty':
+    'Níl aon sonrasc ann fós. Beidh siad le feiceáil anseo tar éis do chéad athnuachana íoctha.',
   'billing.invoicesTitle': 'Stair na sonraisc',
   'billing.planNoteFree':
     'Leibhéal saor in aisce — {{runs}} ritheann agus {{workflows}} Sreafaí oibre gníomhacha. Uasghrádaigh le haghaidh teorainneacha níos airde.',
+  'billing.planNotePaid':
+    'Plean íoctha — {{runs}} rith agus {{workflows}} sreabhadh oibre gníomhach.',
   'billing.runsLabel': 'Rith sna 24 uair an chloig seo caite',
   'billing.tiersBlurb':
     'Déan comparáid idir gach leibhéal — ritheanna, sreafaí oibre gníomhacha, gnéithe ardleibhéil, agus tacaíocht — ar an leathanach praghsála tiomnaithe.',
@@ -35,10 +43,14 @@ export const ui: UiTranslations = {
     'Gan aon chomhtháthú cláraithe. Cumraigh eochracha soláthraí chun bannaí a chumasú.',
   'connections.error': 'Níorbh fhéidir naisc a luchtú.',
   'connections.eyebrow': 'Comhtháthúcháin · {{connected}} ceangailte',
+  'connections.loading': 'Ag lódáil comhtháthúcháin…',
+  'connections.openEnv':
+    'Chun an soláthraí seo a nascadh, socraigh a eochair API in api/.env agus atosaigh an freastalaí.',
   'dashboard.description':
     '{{active}} sreafaí oibre gníomhacha. {{failed}} theip sna 24 uair an chloig seo caite.',
   'dashboard.error': 'Níorbh fhéidir an painéal rialaithe a lódáil.',
   'dashboard.eyebrow': 'Oibríochtaí · beo',
+  'dashboard.hero.label': 'Ritheanna inniu',
   'dashboard.hero.medianLatency': 'latency p50',
   'dashboard.hero.queue': 'Doimhneacht na scuaine',
   'dashboard.hero.success': 'Rath',
@@ -46,14 +58,17 @@ export const ui: UiTranslations = {
   'dashboard.kpi.avgDuration': 'Fad meánach',
   'dashboard.kpi.failedRuns': 'Theip ar · 24 uair an chloig',
   'dashboard.kpi.outOf': 'de {{total}} iomlán',
+  'dashboard.kpi.successRate': 'Ráta ratha · 24u',
   'dashboard.loading': 'Ag lódáil an painéal rialaithe…',
   'dashboard.recentRuns.empty':
     'Gan aon ritheanna fós. Líonfar an fotha seo má chuirtear sreabhadh oibre i ngníomh.',
   'dashboard.recentRuns.title': 'Rith le déanaí',
   'dashboard.recentRuns.viewAll': 'Forghníomhuithe oscailte →',
+  'dashboard.recentWorkflows.browse': 'Brabhsáil teimpléid →',
   'dashboard.recentWorkflows.empty':
     'Gan aon sreafaí oibre fós. Suiteáil teimpléad nó tóg ceann ón tús.',
   'dashboard.recentWorkflows.title': 'Rith le déanaí',
+  'dashboard.run.col.run': 'Run',
   'dashboard.run.col.started': 'Thosaigh',
   'dashboard.run.col.trigger': 'Spriocdhíriú',
   'dashboard.run.col.workflow': 'Sreabhadh Oibre',
@@ -89,6 +104,7 @@ export const ui: UiTranslations = {
   'executions.col.workflow': 'Sreabhadh Oibre',
   'executions.description':
     'Gach rith sreabha oibre, gach athiarracht, gach aschur céime — is féidir iad uile a bhreathnú.',
+  'executions.empty.filter': 'Níl aon rith ag teacht leis an scagaire seo.',
   'executions.empty.first':
     'Gan aon ritheanna fós — cuir sreabhadh oibre ar bun chun an liosta seo a líonadh.',
   'executions.error': 'Níorbh fhéidir na forghníomhaithe a luchtú.',
@@ -99,30 +115,42 @@ export const ui: UiTranslations = {
   'executions.loading': 'Ag lódáil stair rith…',
   'executions.title': 'Forghníomhuithe',
   'forgotPassword.confirmation': 'Athshocraigh an nasc a seoladh chuig {{email}} .',
+  'forgotPassword.subhead': 'Cuir isteach do sheoladh ríomhphoist chun nasc athshocraithe a fháil.',
   'forgotPassword.successSubhead':
     'Chuireamar nasc athshocraithe chuig {{email}} Rachaidh sé in éag i gceann 30 nóiméad.',
   'help.connections.body':
     'Éilíonn céimeanna AI, ríomhphoist agus stórála go socrófar eochracha soláthraithe sa chomhad api/.env. Nuair a bheidh eochair cumraithe, feictear an comhtháthú comhfhreagrach mar nasctha ar an leathanach Naisc.',
+  'help.connections.cta': 'Nascanna oscailte →',
   'help.connections.title': 'Soláthraithe ag ceangal',
   'help.gettingStarted.body':
     'Is féidir sreafaí oibre nua a shuiteáil ón leabharlann teimpléid nó a thógáil ón tús sa tógálaí sreabha oibre. Tá spreagthóir (lámhleabhar, crúca gréasáin, nó cron) agus sraith céimeanna a ritheann in ord ag gabháil le gach sreabha oibre.',
+  'help.gettingStarted.cta': 'Brabhsáil leabharlann na teimpléad →',
+  'help.gettingStarted.title': 'Tús a chur',
   'help.intro':
     'Faigh freagraí ar cheisteanna coitianta faoi shreabhanna oibre a thógáil, naisc a chumrú, agus aschur reatha a léirmhíniú. Tá na topaicí is coitianta liostaithe thíos; i gcás aon rud nach bhfuil clúdaithe, déan teagmháil le riarthóir do spáis oibre.',
   'help.runs.body':
     'Logálann gach rith gach céim go neamhspleách le stádas (rath, teip, scipeáilte) agus píosa aschuir. Taispeánann an leathanach sonraí forghníomhaithe an rian céim ar chéim iomlán móide na méadrachtaí infheartha.',
+  'help.runs.cta': 'Forghníomhuithe oscailte →',
   'help.runs.title': 'Aschur rith a léamh',
   'help.title': 'Ionad cabhrach',
   'integrationCard.manage': 'Bainistigh',
   'landing.brand': 'Deindrít',
   'landing.demo.action.subtitle': 'Round-robin · críoch',
+  'landing.demo.action.title': 'Cuir an t-ionadaí ar an eolas',
   'landing.demo.condition.subtitle': 'Aicmitheoir intinne AI',
+  'landing.demo.condition.title': 'Scór ≥ meánach?',
   'landing.demo.trigger.subtitle': 'POST /foirmeacha/teagmháil',
   'landing.demo.trigger.title': 'Crúca gréasáin isteach',
+  'landing.features.body':
+    'Spreagann truicir. Brainseálann coinníollacha. Seolann gníomhartha an obair. Cum iad go hamharcach, déan iad a leaganú mar chód.',
   'landing.features.heading': 'Trí chineál nóid. Cruthanna gan teorainn.',
   'landing.footer.help': 'Cabhair',
   'landing.footer.tagline': 'Faisnéis i ngluaiseacht',
+  'landing.hero.body':
+    "Is é {{appName}} an t-inneall sreafa oibre d'fhoirne oibríochta a d'fhás as Zapier. Truicir, coinníoll, gníomh — sreangaithe le gach córas a úsáideann tú i ndáiríre.",
   'landing.hero.eyebrow': 'Faisnéis i ngluaiseacht',
   'landing.hero.headline': 'Sreangaigh do chruach le chéile. Lig don obair tarlú.',
+  'landing.hero.primaryCta': 'Tóg do chéad sreabhadh oibre',
   'landing.hero.proof.ai': 'Nóid AI ionsuite',
   'landing.hero.proof.free': 'Saor in aisce le haghaidh 1k rith/mí',
   'landing.hero.proof.soc2': 'SOC 2 Cineál II',
@@ -130,10 +158,12 @@ export const ui: UiTranslations = {
   'landing.pricing.heading': 'Íoc as rith, ní as suíocháin.',
   'landing.templates.body':
     'Sreafaí oibre réamhshreangaithe do gach foireann — díolacháin, tacaíocht, forbróirí, airgeadas. Suiteáil le cliceáil amháin; is féidir leat aon rud a choigeartú.',
+  'landing.templates.cta': 'Cláraigh chun teimpléid a bhrabhsáil →',
   'landing.templates.eyebrow': 'Tosaigh i soicindí',
   'landing.templates.heading': 'Leabharlann d’oidis scrúdaithe.',
   'landing.templates.signupHint': 'Cláraigh le suiteáil',
   'login.hidePassword': 'Folaigh an focal faire',
+  'login.noAccount': 'Nua i dTessera?',
   'login.showPassword': 'Taispeáin an focal faire',
   'login.subhead': 'Sínigh isteach chun do uathoibrithe a choinneáil ag sileadh.',
   'mobileNav.drawerLabel': 'Príomh-loingseoireacht',
@@ -149,8 +179,15 @@ export const ui: UiTranslations = {
   'notifications.empty.body': 'Rith sreabhadh oibre chun tús a chur leis an bhfotha seo a líonadh.',
   'notifications.empty.title': 'Tá sibh go léir gafa suas',
   'notifications.eyebrow': '{{n}} gan léamh',
+  'planUpdated.body':
+    "Tá d'athrú billeála gníomhach anois. Is féidir leat do phlean a bhainistiú am ar bith ón leathanach billeála.",
+  'planUpdated.retry': 'Déan iarracht arís',
+  'planUpdated.verifyFailed': 'Ní raibh muid in ann d’íocaíocht a dheimhniú go fóill.',
+  'planUpdated.verifyFailedBody':
+    'B’fhéidir go bhfuil d’íocaíocht fós á próiseáil. Bain triail eile as i gceann nóiméid.',
   'planUpdated.verifying': "Ag dearbhú d'íocaíochta…",
   'pricing.heading': 'ritheann',
+  'pricing.runsSuffix': 'ritheanna',
   'pricing.workflowsSuffix': 'sreafaí oibre',
   'privacy.collect.body':
     'Bailímid an seoladh ríomhphoist a úsáideann tú chun clárú, na sreafaí oibre a chumraíonn tú, agus meiteashonraí faoi gach rith (am tosaithe, am críochnaithe, stádas). Ní bhailímid ná ní stórálaimid ábhar ualaigh ó spreagthóirí ná aschuir chéime riamh thar a bhfuil riachtanach le taispeáint san amharcóir rith d’úinéir an spáis oibre.',
@@ -166,12 +203,15 @@ export const ui: UiTranslations = {
   'resetPassword.failed': 'Níorbh fhéidir an focal faire a nuashonrú.',
   'resetPassword.newPassword': 'Pasfhocal nua',
   'resetPassword.subhead': 'Roghnaigh rud éigin a mbeadh buille faoi thuairim agat air amháin.',
+  'settings.appearance.description': 'Athraigh idir mód geal agus dorcha.',
+  'settings.appearance.title': 'Dealramh',
   'settings.billingShortcut.cta': 'Billeáil oscailte',
   'settings.billingShortcut.description':
     'Tá plean, úsáid agus sonraisc beo ar an leathanach billeála tiomnaithe.',
   'settings.danger.confirm':
     'An bhfuil tú cinnte? Cuirfidh sé seo do spás oibre sa scuaine le haghaidh scriosadh.',
   'settings.danger.confirmYes': 'Sea, scriosadh scuaine',
+  'settings.danger.deleteWorkspace.cta': 'Scrios spás oibre',
   'settings.danger.deleteWorkspace.hint':
     'Baintear gach sreabhadh oibre, rith agus nasc tar éis tréimhse cairde 14 lá.',
   'settings.danger.deleteWorkspace.title': 'Scrios spás oibre',
@@ -182,10 +222,14 @@ export const ui: UiTranslations = {
     'Bainistigh do chuntas, spás oibre, comhtháthúcháin agus billeáil in aon áit amháin.',
   'settings.notifications.description':
     'Roghnaigh cé na himeachtaí a sheolfaidh tú chuig an suíomh gréasáin, a sheolfaidh ríomhphost chugat, nó a bhfanfaidh ina dtost.',
+  'settings.notifications.failures.hint': 'Fógra ríomhphoist agus in-aip ar gach rith teipthe.',
+  'settings.notifications.failures.title': 'Teipeanna sreafa oibre',
   'settings.notifications.product.hint':
     'Ríomhphoist ó am go ham faoi theimpléid agus gnéithe nua.',
+  'settings.notifications.product.title': 'Nuashonruithe táirge',
   'settings.notifications.weekly.hint':
     'Achoimre maidin Dé Luain ar rith agus coigilteas na seachtaine seo caite.',
+  'settings.notifications.weekly.title': 'Achoimre sheachtainiúil',
   'settings.profile.description':
     'An chuma atá ort taobh istigh den rithire sreabha oibre. Úsáidte i ngníomhaíocht spás oibre.',
   'settings.profile.noEmail': 'Gan aon ríomhphost ar taifead',
@@ -193,12 +237,23 @@ export const ui: UiTranslations = {
   'settings.profile.saveFailed': 'Níorbh fhéidir athruithe próifíle a shábháil.',
   'settings.profile.unnamedUser': 'Úsáideoir gan ainm',
   'settings.security.audit.hint': 'Sruthlaigh gach gníomh chuig do SIEM trí webhook.',
+  'settings.security.audit.title': 'Seoladh loga iniúchta ar aghaidh',
   'settings.security.description': 'Údarú dhá fhachtóir, SSO, agus seisiúin ghníomhacha.',
   'settings.security.sso.hint': 'Ar fáil ar phleananna Scála agus Fiontair.',
+  'settings.security.sso.title': 'SAML SSO',
+  'settings.security.totp.hint': "Riachtanach d'aon ghníomh úinéara spáis oibre.",
+  'settings.security.totp.title': 'Fíordheimhniú dhá fhachtóir (TOTP)',
   'settings.twoFactorCode': 'Cód fíordheimhnithe',
   'settings.twoFactorDisable': 'Díchumasaigh',
+  'settings.twoFactorDisableTitle': 'Díchumasaigh fíordheimhniú dhá fhachtóir',
   'settings.twoFactorEnable': 'Cumasaigh',
+  'settings.twoFactorEnableTitle': 'Cumasaigh fíordheimhniú dhá fhachtóir',
   'settings.twoFactorInvalidCode': 'Cód neamhbhailí',
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorQrAlt': 'Cód QR dhá fhachtóir',
+  'settings.twoFactorScan':
+    "Scan an cód QR seo le d'aip fhíordheimhniúcháin, ansin cuir isteach an cód 6 dhigit.",
+  'settings.twoFactorUnavailable': 'Níl fíordheimhniú dhá fhachtóir ar fáil don aip seo.',
   'settings.twoFactorVerify': 'Fíoraigh & cumasaigh',
   'settings.workspace.description':
     "Céannacht chomhroinnte, réigiún, agus réamhshocruithe rith do d'fhoireann.",
@@ -227,6 +282,7 @@ export const ui: UiTranslations = {
   'templateDetail.title': 'Teimpléad',
   'templates.description':
     'Pleananna réamhthógtha do na huathoibrithe is coitianta. Forcaigh, saincheap, loingseoireacht.',
+  'templates.empty.filter': 'Níl aon teimpléad ag teacht le do chuardach.',
   'templates.empty.first': 'Níl aon teimpléid ar fáil faoi láthair.',
   'templates.error': 'Níorbh fhéidir na teimpléid a luchtú.',
   'templates.installs': 'suiteálacha',
@@ -252,6 +308,9 @@ export const ui: UiTranslations = {
   'workflowBuilder.disable': 'Díchumasaigh',
   'workflowBuilder.enable': 'Cumasaigh',
   'workflowBuilder.error': 'Níorbh fhéidir an sreabhadh oibre a lódáil.',
+  'workflowBuilder.inspector.config': 'Cumraíocht',
+  'workflowBuilder.inspector.cron': 'Slonn cron',
+  'workflowBuilder.inspector.disabled': 'Díchumasaithe — ní rithfidh sé go huathoibríoch.',
   'workflowBuilder.inspector.enabled': 'Cumasaithe — ritheann sé ar an truicear.',
   'workflowBuilder.inspector.eyebrow': 'Cigire',
   'workflowBuilder.inspector.id': 'Aitheantas',
@@ -270,18 +329,25 @@ export const ui: UiTranslations = {
   'workflowBuilder.toggleFailed': 'Theip ar an scorán.',
   'workflowBuilder.workflow': 'Sreabhadh Oibre · v {{v}}',
   'workflowBuilder.zoom.in': 'Zúmáil isteach',
+  'workflowBuilder.zoom.label': 'Rialuithe súmála an chanbháis',
+  'workflowBuilder.zoom.out': 'Zúmáil amach',
   'workflowCard.lastRun': 'Rith dheireanach {{when}}',
   'workflowCard.runs': '{{count}} ritheann',
+  'workflowCard.success': '{{rate}}% rath',
   'workflowHeroCard.last24h': '24 uair an chloig dheireanacha',
+  'workflows.browseTemplates': 'Brabhsáil teimpléid →',
   'workflows.description':
     'Gach uathoibriú i do spás oibre, le sláinte agus gníomhaíocht le déanaí ar an toirt.',
+  'workflows.empty.body': 'Bain triail as an scagaire a ghlanadh nó tosú ó theimpléad.',
   'workflows.empty.firstBody': 'Suiteáil teimpléad chun tosú i gceann soicindí.',
   'workflows.empty.firstTitle': 'Gan aon sreafaí oibre fós',
   'workflows.empty.title': 'Níl aon sreabhadh oibre ag teacht le chéile',
   'workflows.error': 'Níorbh fhéidir sreafaí oibre a lódáil.',
   'workflows.eyebrow': 'Leabharlann · {{count}} iomlán',
+  'workflows.loading': 'Sreafaí oibre á lódáil…',
   'workflows.newFromTemplate': 'Nua ón teimpléad',
   'workflows.searchPlaceholder': 'Cuardaigh sreafaí oibre…',
+  'workflows.title': 'Sreafaí oibre',
   'workflowSidebar.brand': 'Deindrít',
   'workflowSidebar.status': 'Gach córas ag rith',
   'workflowSidebar.tagline': 'Faisnéis i ngluaiseacht',

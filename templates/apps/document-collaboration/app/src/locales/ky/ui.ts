@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Пикириңиз барбы, ката таптыңызбы же студияңызга же командаңызга {{app}} каалайсызбы? Аккаунт жөндөөлөрүңүздөн байланышыңыз — ар бир билдирүү командадагы чыныгы адамга жетет.',
   'about.contactTitle': 'Биз менен байланышуу',
+  'about.intro':
+    '{{app}} — редакторлор, жазуучулар жана командалар реалдуу убакытта чогуу жаза турган кызматташтык жазуу студиясы. Документти ачсаңыз, барак бөлүшүлөт — курсорлор жылат, комментарийлер четте талкууланат, ал эми ар бир өзгөртүү тарыхта коопсуз сакталат.',
+  'about.missionBody':
+    'Биз узун тексттерди жазуу тынч, көңүл топтоочу жайга татыктуу деп эсептейбиз — ал жыйынга же кирүү кутусуна эмес, кол жазмага негизделген. Биздин редактор, реалдуу убакыттагы катышуу жана версиялардын тарыхы кызматташуучуларга эч ким абзацты же ойду жоготпой тез иштөөгө мүмкүндүк берүү үчүн иштелип чыккан.',
+  'about.missionTitle': 'Биздин миссиябыз',
+  'about.subtitle': 'Чогуу ойлон, түбөлүк жаз.',
   'about.title': '{{app}} жөнүндө',
   'comments.addFailed': 'Комментарий калтыра алган жок.',
   'comments.backToDoc': 'Кол жазмага кайтуу',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Комментарийлер',
   'comments.loading': 'Талкууларды жүктөө…',
   'comments.newPlaceholder': 'Кол жазмага комментарий кошуңуз...',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Кайра ачуу',
   'comments.reopenFailed': 'Кайра ачылбай койду.',
   'comments.replyFailed': 'Жооп жарыяланган жок.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Акыркы долбоорлор, бөлүшүлгөн иштер жана күнүмдүк түзөтүүлөр.',
   'dashboard.viewFeed': 'Түрмөк →',
   'editor.back': 'Кол жазмаларга кайтуу',
+  'editor.bodyLabel': 'Документтин негизги бөлүгү',
   'editor.bodyPlaceholder': 'Курсор жыпылыктаган жерден баштаңыз.',
   'editor.comments': 'Комментарийлер',
   'editor.createFailed': 'Документ түзүлбөй койду.',
@@ -63,14 +73,20 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Эгерде аккаунт бар болсо {{email}} , баштапкы абалга келтирүү шилтемеси жакында чыгат.',
+  'forgotPassword.sentHeading': 'Электрондук почтаңызды текшериңиз',
+  'forgotPassword.submitting': 'Жөнөтүлүүдө\\u2026',
   'forgotPassword.subtitle':
     'Биз сизге баштапкы абалга келтирүү шилтемесин электрондук почта аркылуу жөнөтөбүз.',
   'landing.copyright': '\\u00a9 {{year}} {{app}} . Molecule менен курулган.',
+  'landing.ctaBody':
+    'Жалгыз жазуучулар үчүн акысыз. Редакторлор, көлөкө жазуучулар жана рецензенттер командалары үчүн студия пландары.',
   'landing.ctaHeading': 'Баракты ачыңыз. Курсорду иштетиңиз.',
   'landing.ctaPrimary': 'Студия ачуу',
   'landing.eyebrow': 'Жазуучулар, редакторлор жана командалар үчүн',
   'landing.featuresEyebrow': 'Эмне аласыз',
   'landing.featuresHeading': 'Узак мөөнөттүү драфт үчүн студия.',
+  'landing.featuresSubtitle':
+    '{{appName}} кол жазманын айланасында курулган — жыйындын же кирүү кутусунун эмес.',
   'landing.getStarted': 'Студияны ачыңыз',
   'landing.heroCta': 'Жазууну баштоо',
   'landing.heroSubtitle':
@@ -96,6 +112,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} окулбаган · комментарийлер, эскерүүлөр, бөлүшүү чакыруулары жана сунуш өтүнүчтөрү.',
   'presenceAvatars.label': '{{count}} кызматташтар',
+  'privacy.intro': 'Биз сиздин маалыматыңызды кантип чогултабыз, колдонобуз жана коргойбуз.',
   'privacy.title': 'Купуялык саясаты',
   'profile.about.description':
     'Коомдук профилиңиз жана салым кошуучу баракчаларыңыз үчүн кыскача өмүр баяны.',
@@ -108,7 +125,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Бар болуу',
   'profile.pronouns': 'Ат атоочтор',
   'profile.publicToggle': 'Профилди командалаштарга көрсөтүү',
+  'profile.role': 'Роль / кызмат',
   'profile.subtitle': 'Кызматташтарыңызга кандай көрүнөсүз.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} студияда активдүү иштеген жазуучулар',
   'quillonAuthBrandPanel.quote':
     '«Жазуу – мен аны менен алектенгенде, башка бир нерсе менен алектенишим керек эмес деп эсептеген жалгыз нерсе».',
@@ -116,6 +135,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Ачуу →',
   'quillonKpiCard.trend': 'Акыркы тенденция',
   'quillonLayout.menu': 'Меню',
+  'quillonLayout.mobileNavLabel': 'Мобилдик навигация',
   'quillonLayout.primaryNavLabel': 'Негизги навигация',
   'quillonStudioHero.collab': 'Кызматташтар',
   'quillonStudioHero.docs': 'Документтерге кол коюлду',
@@ -125,7 +145,9 @@ export const ui: UiTranslations = {
     'Кол жазманы алыңыз, комментарий калтырыңыз, абзацты алдыга жылдырыңыз.',
   'quillonStudioHero.words': 'Бүгүнкү сөздөр',
   'resetPassword.confirmPlaceholder': 'Жаңы сырсөздү кайталаңыз',
+  'resetPassword.passwordLabel': 'Жаңы сыр сөз',
   'resetPassword.passwordPlaceholder': 'Жаңы сырсөз киргизиңиз',
+  'resetPassword.submitting': 'Баштапкы абалга келтирилүүдө…',
   'resetPassword.subtitle': 'Күчтүү сырсөз тандаңыз — кеминде 12 белгиден турушу керек.',
   'settings.account.description': 'Кантип киресиз.',
   'settings.billing.canceled': 'Жазылуу жокко чыгарылды.',
@@ -134,7 +156,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Конфигурацияланган эмес',
   'settings.billing.updated': 'План жаңыртылды.',
   'settings.editor.description': 'Сиз жазып жатканда полотно кандай иштейт.',
+  'settings.editor.title': 'Редактордун жөндөөлөрү',
   'settings.eyebrow': 'Студиянын жөндөөлөрү',
+  'settings.language.title': 'Тил',
   'settings.notifications.${n.key}.description': 'Тил',
   'settings.notifications.description': 'Кирүү кутучаңызга эмне жетерин тандаңыз.',
   'settings.subtitle':
@@ -145,6 +169,7 @@ export const ui: UiTranslations = {
   'shared.loadFailed': 'Бөлүшүлгөн документтер жүктөлбөй койду.',
   'shared.subtitle':
     'Студиянын калган мүчөлөрүнөн кол жазмалар, кыскача баяндамалар жана жазуулар.',
+  'signup.brandAttribution': 'Anaïs Park — Редактор, The Quarterly',
   'signup.brandQuote':
     '\\u201cБиринчи кол жазмаңыз эң кыйыны. Квиллон аны жалгыздыкты азайтат.\\u201d',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -152,6 +177,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Анаис',
   'signup.heading': 'Quillon аккаунтуңузду түзүңүз',
   'signup.lastNamePlaceholder': 'Парк',
+  'signup.submitting': 'Студияңыз ачылууда\\u2026',
   'signup.subtitle':
     'Тынч столго, айланадагы кызматташтарга жана сизге тоскоолдук кылбай турган узун форматтагы редакторго ээ болуңуз.',
   'templates.blank.subtitle': 'Таза барак. Курсор башталат.',
@@ -164,11 +190,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Ойлонулган түзүмдөн баштаңыз. Чексиз ыңгайлаштырыңыз.',
   'templates.useFailed': 'Бул шаблондон документти баштоо мүмкүн болгон жок.',
   'templates.useTemplate': 'Бул шаблонду колдонуңуз',
+  'terms.intro': 'Бул кызматты колдонуу шарттары.',
   'terms.title': 'Тейлөө шарттары',
   'time.daysAgo': '{{days}} күн мурун',
   'time.hoursAgo': '{{hours}} саат мурун',
   'time.justNow': 'азыр эле',
   'trash.confirmDelete': 'Өчүрүүнү ырастоо',
+  'trash.confirmEmpty': 'Ырастоо — баарын өчүрүү',
   'trash.deleteFailed': 'Өчүрө алган жок.',
   'trash.deleteForever': 'Түбөлүккө өчүрүү',
   'trash.empty': 'Калыбына келтире турган эч нерсе жок.',
@@ -183,7 +211,9 @@ export const ui: UiTranslations = {
   'versionHistory.backToDoc': 'Кол жазмага кайтуу',
   'versionHistory.empty': 'Азырынча түзөтүүлөр жок — документтин тарыхын баштоо үчүн аны сактаңыз.',
   'versionHistory.heading': 'Версия тарыхы',
+  'versionHistory.latest': 'Акыркы',
   'versionHistory.loadFailed': 'Тарых жүктөлбөй койду.',
+  'versionHistory.noContent': 'Бул версия үчүн мазмун сакталган жок.',
   'versionHistory.previewing': 'Алдын ала көрүү',
   'versionHistory.restore': 'Бул версияны калыбына келтирүү',
   'versionHistory.restoreFailed': 'Калыбына келтирүү ишке ашкан жок.',

@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'ප්‍රශ්නයක් තිබේද, දෝෂයක් හමු වුණාද, නැතහොත් ඔබේ කණ්ඩායමට ආදර්ශනයක් අවශ්‍යද? ඔබේ ගිණුම් සැකසුම් වෙතින් අප හා සම්බන්ධ වන්න — සෑම පණිවිඩයක්ම කණ්ඩායමේ සැබෑ පුද්ගලයෙකුට ලැබේ.',
   'about.contactTitle': 'සම්බන්ධ වන්න',
+  'about.intro':
+    '{{app}} ස්කෑන් කළ ලේඛන සහ PDF ගොඩගැසීම් ව්‍යුහගත, සොයාගත හැකි, ගොනුගත දත්ත බවට පත් කරයි. ඉන්වොයිස්, රිසිට්පත්, ගිවිසුම් හෝ පෝරම ඇතුළත් කරන්න — AI මගින් ඒවා කියවා, උපුටා ගෙන, වර්ගීකරණය කර ගොනු කරයි — විශ්වාස මට්ටම් වර්ණ සමඟ, එවිට ඔබේ කණ්ඩායම සැබවින්ම මිනිස් සමාලෝචනයක් අවශ්‍ය දේ පමණක් සමාලෝචනය කරයි.',
+  'about.missionBody':
+    'ලේඛනවල කරදරකාරී කටයුතු ඔබේ කණ්ඩායමේ දවස ගිල නොගත යුතුය. උපුටා ගන්නා සෑම අගයක්ම පැහැදිලි කළ හැකි සහ විගණනය කළ හැකි විය යුතුය යැයි අපි විශ්වාස කරමු — එවිට ලේඛන මාර්ගය නැති නොකර ස්වයංක්‍රීයකරණය විශ්වාස කළ හැක. {{app}} නිර්මාණය කර ඇත්තේ එක් එක් ගොඩට පැය ගණනක් ඉතිරි කරමින්, වැදගත් තැන්වල මිනිසෙකු ක්‍රියාවලියේ තබා ගැනීමටයි.',
+  'about.missionTitle': 'අපගේ මෙහෙවර',
+  'about.subtitle': 'ඔබේ ලේඛන සඳහා OCR, AI උපුටා ගැනීම, වර්ගීකරණය සහ ස්වයංක්‍රීය ගොනුකිරීම.',
   'about.title': '{{app}} පිළිබඳව',
+  'about.whatYouGetTitle': 'ඔබට ලැබෙන දේ',
   'authShell.backToLanding': '← ගොඩබෑමට ආපසු යන්න',
   'common.goToDashboard': 'උපකරණ පුවරුවට යන්න',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'අද · මෙහෙයුම් දළ විශ්ලේෂණය',
   'dashboard.heading': 'ලේඛන බුද්ධිය',
+  'dashboard.metric.accuracy': 'සාමාන්‍ය නිරවද්‍යතාව',
   'dashboard.metric.filed': 'අද ගොනු කරන ලදී',
   'dashboard.metric.filedCaption': 'ගොනු කිරීමේ නීති මගින් මෙහෙයවනු ලැබේ',
   'dashboard.metric.processed': 'අද සකසන ලදී',
@@ -23,11 +33,14 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'ලේඛනය',
   'dashboard.recent.col.uploaded': 'උඩුගත කරන ලදී',
   'dashboard.recent.heading': 'මෑත කාලීන ලේඛන',
+  'dashboard.recent.typeUnknown': 'වර්ගීකරණය බලාපොරොත්තුවෙන්',
   'dashboard.subheading':
     'සෑම පිටුවක්ම වර්ගීකරණය කර, උපුටා ගෙන, ගොනු කර ඇත - විශ්වාසනීය වර්ණ සහිතව, එබැවින් සමාලෝචනය අවධානයෙන් පවතී.',
   'documentDetail.audit.heading': 'විගණන කාලරේඛාව',
+  'documentDetail.audit.subheading': 'මෙම ලේඛනය මත ගන්නා ලද සෑම පියවරක්ම, වගකිවයුතු පුද්ගලයා සමඟ.',
   'documentDetail.back': 'සියලුම ලේඛන',
   'documentDetail.downloadHint': 'මුල් ගොනුව විවෘත කිරීමට බාගැනීම භාවිතා කරන්න.',
+  'documentDetail.extracted.empty': 'තවම කිසිදු ක්ෂේත්‍රයක් උපුටා ගෙන නැත.',
   'documentDetail.extracted.heading': 'උපුටා ගත් ක්ෂේත්‍ර',
   'documentDetail.extracted.subheading':
     '{{count}} ක්ෂේත්‍ර · පිටුවේ උද්දීපනය කිරීමට ඕනෑම ක්ෂේත්‍රයක් ක්ලික් කරන්න',
@@ -55,13 +68,24 @@ export const ui: UiTranslations = {
   'documents.searchPlaceholder': 'ලේඛන සොයන්න...',
   'documents.subheading': '{{count}} ඔබගේ පුස්තකාලයේ ඇති ලේඛන, නවතම ඒවා පළමුව වර්ග කර ඇත.',
   'documents.uploadCta': 'ලේඛන උඩුගත කරන්න',
+  'documentTypeBreakdown.barAria': 'වර්ගය අනුව ලේඛන සංයුතිය',
   'documentTypeBreakdown.empty': 'තවමත් කිසිදු ලේඛනයක් සකසා නොමැත.',
   'documentTypeBreakdown.subtitle': '{{total}} සැකසූ',
   'documentTypeBreakdown.title': 'ලේඛන සංයුතිය',
+  'forgotPassword.backToSignIn': '← නැවත පුරනය වීමට',
   'forgotPassword.checkEmail': 'ඔබගේ විද්‍යුත් තැපෑල පරීක්ෂා කරන්න',
   'forgotPassword.tip': 'තේරුනේ නැද්ද? අයාචිත තැපැල් පරීක්ෂා කරන්න හෝ වෙනත් ලිපිනයක් උත්සාහ කරන්න.',
+  'landing.copyright':
+    '© {{year}} {{app}}. සෑම පිටුවක්ම විගණනය කරන මෙහෙයුම් කණ්ඩායම් සඳහා නිර්මිතයි.',
+  'landing.ctaBody':
+    'දින 14ක අත්හදා බැලීම. කාඩ්පතක් අවශ්‍ය නැත. ඕනෑම වේලාවක අවලංගු කරන්න. වේගයෙන් ගමන් කර මන්දගාමීව විගණනය කරන මෙහෙයුම් කණ්ඩායම් සඳහා නිර්මිතයි.',
   'landing.ctaHeading': 'රිසිට්පත් ටයිප් කිරීම නවත්වන්න. ඒවා ගොනු කිරීම ආරම්භ කරන්න.',
   'landing.eyebrow': 'OCR · උපුටා ගැනීම · AI ගොනු කිරීම',
+  'landing.featuresHeading': 'තමන්ම පැහැදිලි කරන ලේඛන බුද්ධිය',
+  'landing.heroSubtitle':
+    'ඉන්වොයිස්, රිසිට්පත්, ගිවිසුම් හෝ පෝරම ගොඩක් ඇතුළත් කරන්න. {{app}} ඒවා වර්ගීකරණය කර, උපුටා ගෙන, ගොනු කරයි — විශ්වාස මට්ටම් වර්ණ සමඟ, එවිට ඔබේ කණ්ඩායම සැබවින්ම මිනිස් සමාලෝචනයක් අවශ්‍ය දේ පමණක් සමාලෝචනය කරයි.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'දෛනික පරිමාව · පසුගිය දින 7',
   'landing.sampleCardLabel': 'අද දින සකසන ලද ලේඛන',
   'landing.sampleCardSubtitle':
     'ඉන්වොයිසි, රිසිට්පත් සහ පෝරම හරහා 96.2% ක සාමාන්‍ය නිරවද්‍යතාවයක්.',
@@ -75,6 +99,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'ගොඩබෑමේ පිටුව විවෘත කරන්න',
   'notFound.title': 'එම පිටුව ගොනුවේ නොමැත.',
+  'parcelaHeroCard.accuracy': 'සියලුම උපුටා ගැනීම් හරහා සාමාන්‍ය නිරවද්‍යතාව {{value}}%',
   'parcelaHeroCard.change': '{{sign}} {{amount}} ඊයේට සාපේක්ෂව %',
   'parcelaHeroCard.title': 'අද දින සකසන ලද ලේඛන',
   'parcelaLayout.primaryNavLabel': 'ප්‍රාථමික සංචාලනය',
@@ -82,6 +107,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'ලේඛන',
   'pricing.processingLabel': 'සැකසුම් රැකියා',
   'resetPassword.confirmPlaceholder': 'නව මුරපදය නැවත කරන්න',
+  'resetPassword.hidePassword': 'මුරපදය සඟවන්න',
   'resetPassword.passwordLabel': 'නව මුරපදය',
   'resetPassword.showPassword': 'මුරපදය පෙන්වන්න',
   'resetPassword.subtitle': 'අවම වශයෙන් අක්ෂර 8ක් දිග දෙයක් තෝරන්න.',
@@ -98,10 +124,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'නීති පූරණය කිරීමට අසමත් විය.',
   'rules.loading': 'නීති පූරණය කරමින්...',
   'rules.matched30d': '{{count}} පසුගිය දින 30 තුළ ගැළපුණු ලේඛන',
+  'rules.neverUsed': 'කිසිදා භාවිතා නොකළ',
   'rules.newRule': 'නව රීතිය',
   'rules.saveError': 'රීතිය සුරැකීමට අසමත් විය.',
   'rules.subheading':
     'එක් එක් වර්ගයේ ලේඛන යා යුත්තේ කොතැනටද යන්න පද්ධතියට කියන්න. කොන්දේසි දාමය ඉහළ සිට පහළට — පළමු තරඟයේ ජයග්‍රහණ.',
+  'rules.templatesEmpty': 'තවම උපුටා ගැනීමේ අච්චු නැත.',
   'rules.templatesHeading': 'උපුටා ගැනීමේ සැකිලි',
   'rules.templatesSubheading': 'එක් එක් ලේඛන වර්ගය සඳහා නිස්සාරකය භාවිතා කරන ක්ෂේත්‍ර යෝජනා ක්‍රම.',
   'rules.then': 'ඉන්පසු',
@@ -110,17 +138,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'වැඩබිමේ නම',
   'settings.account.subheading':
     'දැනුම්දීම් සහ විගණන ඉතිහාසය සඳහා නම සහ ප්‍රාථමික විද්‍යුත් තැපෑල පෙන්වන්න.',
+  'settings.api.confirmRevoke': 'තහවුරු කරන්නද?',
   'settings.api.copyOnce': 'මෙම යතුර පිටපත් කරන්න — එය නැවත නොපෙන්වයි.',
   'settings.api.createdOn': 'නිර්මාණය කරන ලදී {{date}}',
   'settings.api.empty': 'තවමත් API යතුරු නොමැත. ඉහත එකක් ජනනය කරන්න.',
   'settings.api.error': 'යතුර නිර්මාණය කිරීමට අසමත් විය.',
+  'settings.api.generating': 'උත්පාදනය කරමින්…',
+  'settings.api.heading': 'API යතුරු',
   'settings.api.labelPlaceholder': 'යතුරු ලේබලය (උදා: CI උඩුගත කරන්නා)',
+  'settings.api.loading': 'යතුරු පූරණය වෙමින්…',
   'settings.api.newKey': 'යතුර ජනනය කරන්න',
   'settings.api.subheading':
     'ස්ක්‍රිප්ට් එකකින් හෝ ඔබේ ERP එකකින් ලේඛන තල්ලු කිරීමට මේවා භාවිතා කරන්න. ඕනෑම වේලාවක ඕනෑම යතුරක් කරකවන්න.',
   'settings.integrations.heading': 'ගොනු කිරීමේ ඒකාබද්ධ කිරීම්',
   'settings.integrations.subheading':
     'ඔබගේ කණ්ඩායම දැනටමත් ජීවත් වන වලාකුළු ධාවකයට හෝ කතාබස් මෙවලමට ගොනු කළ ලේඛන යවන්න.',
+  'settings.subheading':
+    'ඔබේ {{app}} වැඩබිම සඳහා ගිණුම, API යතුරු සහ ගොනුකිරීමේ ඒකාබද්ධතා කළමනාකරණය කරන්න.',
+  'signup.hidePassword': 'මුරපදය සඟවන්න',
   'signup.identityPrompt': 'අපි ඔබව ආමන්ත්‍රණය කළ යුත්තේ කෙසේද?',
   'signup.showPassword': 'මුරපදය පෙන්වන්න',
   'signup.subtitle': 'දින 14ක් නොමිලේ, කාඩ්පතක් අවශ්‍ය නොවේ.',
@@ -128,6 +163,7 @@ export const ui: UiTranslations = {
   'upload.error': 'උඩුගත කිරීම අසාර්ථක විය.',
   'upload.eyebrow': 'ශරීරගත වීම',
   'upload.heading': 'ලේඛන උඩුගත කරන්න',
+  'upload.queue.clear': 'සම්පූර්ණ කළ ඒවා ඉවත් කරන්න',
   'upload.queue.col.confidence': 'විශ්වාසය',
   'upload.queue.col.file': 'ගොනුව',
   'upload.queue.detecting': 'අනාවරණය කරමින්...',
@@ -140,5 +176,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'නැතහොත් කාණ්ඩ නිස්සාරණය, වර්ගීකරණය සහ ගොනු කිරීම සඳහා එකවර ගොනු කිහිපයක් දමන්න.',
   'uploadDropZone.cta': 'ගොනු තෝරන්න',
+  'uploadDropZone.maxSize': 'එක් ගොනුවකට උපරිම 25 MB · අග සිට අග දක්වා සංකේතනය කර ඇත',
   'uploadDropZone.title': 'සැකසීම ආරම්භ කිරීමට ලේඛන අතහරින්න',
 }

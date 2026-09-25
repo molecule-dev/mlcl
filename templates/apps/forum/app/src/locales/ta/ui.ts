@@ -1,20 +1,44 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'கருத்து உள்ளதா, பிழை கண்டீர்களா, அல்லது {{appName}}-இல் ஒரு சமூகத்தைத் தொடங்க விரும்புகிறீர்களா? குழுவை அணுக உங்கள் அமைப்புகளைத் திறக்கவும் — ஒவ்வொரு செய்தியும் அதைப் படிக்கும் ஒரு உண்மையான மனிதரையே சென்றடைகிறது.',
+  'about.contactTitle': 'எங்களிடம் பேசுங்கள்',
+  'about.featureModeration':
+    'ஒவ்வொரு சமூகமும் ஆரோக்கியமாகவும் சுய-ஆட்சியுடனும் இருக்க உதவும் உள்ளமைந்த மிதரேஷன் வரிசை மற்றும் புகார் கருவிகள்.',
+  'about.featurePricing':
+    'சேரவும் பங்கேற்கவும் இலவசம்; Pro மற்றும் Team திட்டங்கள் அதிக வரம்புகள், மேம்பட்ட மிதரேஷன் மற்றும் தரவு ஏற்றுமதியைத் திறக்கின்றன.',
+  'about.featureThreads':
+    'பின்தொடரவும் தேடவும் எளிதான, தொடர்-இழை மற்றும் markdown நிறைந்த விவாதங்களுடன் ஒழுங்கமைக்கப்பட்ட சமூகங்கள் மற்றும் பிரிவுகள்.',
+  'about.featureVoting':
+    'மிகவும் உதவிகரமான பங்களிப்பாளர்களையும் சிறந்த பதில்களையும் முன்னிறுத்தும் மேல்/கீழ் வாக்களிப்பு மற்றும் ஈட்டப்பட்ட நற்பெயர் அமைப்பு.',
+  'about.intro':
+    '{{appName}} என்பது சமூகத்தை முதன்மையாகக் கொண்ட விவாத தளம் — Reddit-பாணி இழைகள், வாக்களிப்பு மற்றும் நற்பெயர், ஒரு ஊட்டத்தைத் துரத்துவதை விட ஒரு நல்ல உரையாடலை விரும்புவோருக்காக உருவாக்கப்பட்டது. ஒவ்வொரு குரலும் கணக்கிடப்படுகிறது, சிறந்த கருத்துகள் அளவால் அல்ல, தகுதியால் மேலெழுகின்றன.',
+  'about.missionBody':
+    'ஆன்லைன் விவாதம் ஆத்திரத்தை அல்ல, சிந்தனையைப் பரிசளிக்க வேண்டும் என்று நாங்கள் நம்புகிறோம். ஒவ்வொரு சமூகமும் நாகரிகமாகவும் சுய-ஆட்சியுடனும் இருக்க {{appName}} அனைத்து கருவிகளையும் வழங்குகிறது — வெளிப்படையான வாக்களிப்பு, ஈட்டப்பட்ட நற்பெயர், நம்பகமான உறுப்பினர்களைக் கட்டுப்பாட்டில் வைக்கும் மிதரேஷன் — எனவே இழைகள் மீண்டும் வரத் தகுந்த ஒன்றாக வளர்கின்றன.',
+  'about.missionTitle': 'எங்கள் நோக்கம்',
   'authShell.communities': 'சமூகங்கள்',
+  'authShell.copyright': '{{appName}} — ஒவ்வொரு குரலும் கணக்கிடப்படுகிறது.',
   'authShell.trending': 'பிரபலமானவை',
+  'categories.emptyFilter': 'காட்ட சமூகங்கள் இல்லை.',
+  'categories.emptySubscribed': 'நீங்கள் இன்னும் எந்த சமூகத்திற்கும் குழுசேரவில்லை.',
+  'categories.emptySubscribedHint':
+    'ஒரு சமூகத்தைத் திறந்து Subscribe என்பதை அழுத்தி அதை இங்கே சேர்க்கவும்.',
   'categories.eyebrow': 'சமூகங்கள்',
   'categories.loadError': 'சமூகங்களை ஏற்ற முடியவில்லை.',
   'categories.loading': 'சமூகங்கள் ஏற்றப்படுகின்றன…',
   'categories.subtitle':
     'செயல்பாடு, தலைப்பு மற்றும் அவற்றின் செல்வாக்கு ஆகியவற்றின் அடிப்படையில் குவோரம் சமூகங்களை உலாவுக. உங்கள் முகப்புப் பக்கத்திற்கு ஒரு ஃபீடைச் சேர்க்க சந்தா செலுத்துங்கள்.',
   'categories.title': 'உங்கள் அறையைக் கண்டறியவும்',
+  'categoryCard.activeNow': '{{count}} செயலில்',
   'categoryCard.namePrefix': 'சி/',
   'categoryCard.subscribers': '{{count}} உறுப்பினர்கள்',
   'categoryDetail.empty': 'இன்னும் இங்கே எந்த இழைகளும் இல்லை.',
   'categoryDetail.namePrefix': 'சி/',
   'categoryDetail.newPost': 'புதிய பதிவு',
   'categoryDetail.ruleBeKind': 'கனிவாக இருங்கள். நபரைப் பற்றி அல்ல, வேலையைப் பற்றி விவாதியுங்கள்.',
+  'categoryDetail.ruleNoSpam': 'ஸ்பேம் இல்லை, சந்தை இணைப்புகள் இல்லை.',
+  'categoryDetail.ruleStayOnTopic': 'இந்த சமூகத்திற்கான தலைப்பில் இருங்கள்.',
   'categoryDetail.startFirst': 'முதல் இழையைத் தொடங்கு →',
   'categoryDetail.subscribe': 'சந்தா சேருங்கள்',
   'categoryDetail.subscribed': 'சந்தா செலுத்தப்பட்டது',
@@ -35,6 +59,7 @@ export const ui: UiTranslations = {
   'compose.eyebrow': 'ஒரு உரையாடலைத் தொடங்குங்கள்',
   'compose.flairLabel': 'ஃப்ளேர் (விருப்பத்திற்குரியது)',
   'compose.imageUrlPrompt': 'பட URL',
+  'compose.insertUrl': 'சேர்க்கவும்',
   'compose.linkUrlPrompt': 'இணைப்பு URL',
   'compose.markdownHint': 'மார்க்டவுன் ஆதரிக்கப்படுகிறது.',
   'compose.publishFailed': 'திரியை வெளியிட முடியவில்லை.',
@@ -53,11 +78,18 @@ export const ui: UiTranslations = {
   'feed.emptyHint':
     'கலந்துரையாடலைத் தொடங்கும் முதல் நபராக இருங்கள் — Compose பகுதிக்குச் செல்லுங்கள்.',
   'feed.loadError': 'ஊட்டத்தை ஏற்ற முடியவில்லை.',
+  'feed.metaCommunityDescription':
+    '{{appName}}-ஐ வடிவமைக்கும் அனைவருக்குமான மெட்டா சமூகம் — வாக்களிப்பு, ஆட்சி மற்றும் அம்ச விவாதங்கள்.',
+  'feed.ruleBeCivil': 'நாகரிகமாக இருங்கள். எப்போதும்.',
   'feed.ruleBeCivilDesc':
     'மனிதத்தன்மையற்ற முறையில் நடத்தாமல் கருத்து வேறுபாடு கொள்ளுங்கள். தனிப்பட்ட தாக்குதல்களை நிர்வாகிகள் விரைவாக தீவிரப்படுத்துவார்கள்.',
+  'feed.ruleCiteSources': 'நீங்கள் எதிர்வினையாற்றும் விஷயத்தை இணைக்கவும்.',
+  'feed.ruleOnePerWeek': 'ஒரு கணக்கிற்கு வாரத்திற்கு ஒரு மெட்டா இடுகை.',
   'feed.subtitle':
     'நீங்கள் பின்தொடரும் சமூகங்களின் உரையாடல்கள், மேலும் நீங்கள் பின்தொடரக்கூடிய சிலவும். அல்காரிதத்திற்குக் கற்பிக்க வாக்களியுங்கள்.',
   'feed.title': 'உங்கள் ஊட்டம்',
+  'forgotPassword.description':
+    'உங்கள் மின்னஞ்சலை உள்ளிடவும், மீட்டமைப்பதற்கான இணைப்பை நாங்கள் உங்களுக்கு அனுப்புவோம்.',
   'forgotPassword.successBody':
     'நாங்கள் ஒரு மீட்டமைப்பு இணைப்பை அனுப்பினோம் {{email}} இது 30 நிமிடங்களில் காலாவதியாகிவிடும்.',
   'forgotPassword.tryAnother': 'வேறு மின்னஞ்சலை முயற்சிக்கவும்',
@@ -68,9 +100,15 @@ export const ui: UiTranslations = {
   'landing.communitiesSubtitle':
     'பயன் ஈட்டுங்கள், படைப்புகளைப் பகிர்ந்து கொள்ளுங்கள், சிறந்த கேள்விகளைக் கேளுங்கள்.',
   'landing.communitiesTitle': 'ஆரம்பத்தில் சமூகங்கள்',
+  'landing.ctaBody':
+    'இலவசமாக பதிவு செய்யுங்கள். உங்களுக்கு முக்கியமான தலைப்புகளில் நற்பெயரை உருவாக்குங்கள், மீதமுள்ள நாங்கள் இன்னும் கொஞ்சம் தெளிவாக சிந்திக்க உதவுங்கள்.',
   'landing.ctaEyebrow': 'நீங்கள் தயாராக இருக்கும்போது நானும் தயார்.',
   'landing.ctaHeadline': 'உங்கள் சமூகத்தைக் கண்டறியுங்கள். உங்கள் குரலை எழுப்புங்கள்.',
   'landing.heroCtaSecondary': 'சமூகங்களை உலாவுக',
+  'landing.heroEyebrow': '{{appName}}-க்கு வரவேற்கிறோம் — {{tagline}}',
+  'landing.heroHeadline': 'மறைந்துவிடாமல், வளரும் விவாதங்கள்.',
+  'landing.heroLede':
+    '{{appName}} என்பது பொழுதுபோக்காளர்கள், உருவாக்குபவர்கள் மற்றும் அமைதியான கருத்துள்ள நிபுணர்களுக்கான மெதுவாக வளர்க்கப்படும் மன்றம். ஒரு நல்ல இழையாக நற்பெயரை ஈட்டுங்கள்.',
   'landing.heroStat1': '847k',
   'landing.heroStat2': '2,180',
   'landing.heroStat2Label': 'சமூகங்கள்',
@@ -85,13 +123,17 @@ export const ui: UiTranslations = {
   'landing.trendingViewAll': 'அனைத்தையும் காண்க',
   'login.description': 'உரையாடல் விட்ட இடத்திலிருந்து தொடருங்கள்.',
   'login.heading': 'Agora-இல் உள்நுழைக',
+  'login.noAccount': 'இங்கு புதிதா?',
   'login.passwordPlaceholder': 'உங்கள் கடவுச்சொல்',
   'login.twoFactorLabel': '2FA குறியீடு (விருப்பத்திற்குரியது)',
   'login.twoFactorPlaceholder': '6-இலக்க குறியீடு',
+  'login.twoFactorRequiredHint':
+    'இந்தக் கணக்கில் இரு-காரணி அங்கீகாரம் இயக்கப்பட்டுள்ளது. தொடர உங்கள் authenticator ஆப்-இலிருந்து 6-இலக்கக் குறியீட்டை உள்ளிடவும்.',
   'login.twoFactorRequiredLabel': 'உங்கள் 2FA குறியீட்டை உள்ளிடவும்',
   'modQueue.automodEmpty':
     'இந்த சமூகத்திற்கு இன்னும் தானியங்கு மட்டுப்படுத்தல் விதிகள் எதுவும் அமைக்கப்படவில்லை.',
   'modQueue.automodTitle': 'தானியங்கு மாற்றியமைப்பு செயல்பாடு (கடந்த 24 மணிநேரம்)',
+  'modQueue.empty': 'இன்பாக்ஸ் பூஜ்யம். எதுவும் நிலுவையில் இல்லை.',
   'modQueue.eyebrow': 'மிதவாதம்',
   'modQueue.kindThread': 'நூல்',
   'modQueue.loadError': 'அறிக்கைகளை ஏற்ற முடியவில்லை.',
@@ -118,8 +160,12 @@ export const ui: UiTranslations = {
   'notifications.mentionedYouIn': 'உங்களைக் குறிப்பிட்டதில்',
   'notifications.repliedTo': 'பதில் அளிக்க',
   'notifications.subtitle': 'உங்களிடம் {{count}} படிக்காத அறிவிப்புகள்.',
+  'pricing.limits.advancedFeatures': 'மேம்பட்ட அம்சங்கள்:',
   'pricing.limits.categories': '{{count}} பிரிவுகள்',
   'pricing.limits.export': 'தரவு ஏற்றுமதி:',
+  'pricing.limits.moderation': '{{count}} மிதரேஷன் நடவடிக்கைகள்',
+  'pricing.limits.threads': '{{count}} இழைகள்',
+  'pricing.limits.votes': '{{count}} வாக்குகள்',
   'profile.noComments': 'இன்னும் கருத்துகள் எதுவும் இல்லை.',
   'profile.noPosts': 'இன்னும் பதிவுகள் இல்லை.',
   'profile.noSaved': 'இன்னும் சேமிக்கப்பட்ட பதிவுகள் எதுவும் இல்லை.',
@@ -130,6 +176,7 @@ export const ui: UiTranslations = {
     'வலிமையான ஒன்றைத் தேர்ந்தெடுங்கள். மீட்டமைப்பு வெற்றிகரமாக முடிந்தவுடன் நாங்கள் உங்களை உள்நுழையச் செய்வோம்.',
   'resetPassword.newPasswordLabel': 'புதிய கடவுச்சொல்',
   'resetPassword.tokenPlaceholder': 'இணைப்பு டோக்கனை ஒட்டவும்',
+  'search.clear': 'தெளிவான',
   'search.communitiesEmpty': 'எந்த சமூகங்களும் பொருந்தவில்லை.',
   'search.communitiesHeading': 'சமூகங்கள்',
   'search.empty': 'எந்த இழைகளும் பொருந்தவில்லை.',
@@ -144,19 +191,27 @@ export const ui: UiTranslations = {
   'settings.displayTitle': 'காட்சி',
   'settings.emailDigestDesc':
     'ஒவ்வொரு திங்கட்கிழமையும் நீங்கள் சந்தா செலுத்திய சமூகங்களின் சிறந்த உரையாடல்கள்.',
+  'settings.emailDigestLabel': 'வாராந்திர தொகுப்பு',
+  'settings.emailMentionsDesc': 'ஒரு இழை அல்லது கருத்தில் யாராவது உங்களை @-குறிப்பிடும்போது.',
+  'settings.emailMentionsLabel': 'குறிப்பிடும்போது எனக்கு மின்னஞ்சல் அனுப்பு',
+  'settings.emailRepliesDesc': 'நீங்கள் தொடங்கிய அல்லது பதிலளித்த திரிகள்.',
   'settings.emailRepliesLabel': 'பதில்களில் எனக்கு மின்னஞ்சல் அனுப்புங்கள்',
   'settings.loadError': 'உங்கள் கணக்கை ஏற்ற முடியவில்லை.',
   'settings.loading': 'உங்கள் அமைப்புகள் ஏற்றப்படுகின்றன…',
   'settings.notificationsSubtitle':
     'உங்கள் இன்பாக்ஸிற்கு எது சென்றடைகிறது, புஷ் அறிவிப்புச் சாதனத்திற்கு எது சென்றடைகிறது என்பதை முடிவு செய்யுங்கள்.',
+  'settings.pushRepliesLabel': 'பதில்களுக்கு push',
+  'settings.pushVotesDesc': '100, 500, 1000-இல் வரம்பு அறிவிப்பு.',
   'settings.pushVotesLabel': 'ஆதரவு வாக்கு மைல்கற்களை அடைய முயற்சி செய்யுங்கள்',
   'settings.saveAccount': 'கணக்கைச் சேமிக்கவும்',
   'settings.showFlair': 'இழைகளில் வகை அடையாளத்தைக் காட்டு',
+  'settings.showThumbnails': 'இணைப்பு/படம் சிறுபடங்களைக் காட்டு',
   'settings.usernamePlaceholder': 'ஒரு கைப்பிடியைத் தேர்ந்தெடுக்கவும்',
   'signup.confirmPlaceholder': 'மீண்டும் தட்டச்சு செய்யவும்',
   'signup.description': 'ஒவ்வொரு நல்ல இழையாக நன்மதிப்பைப் பெறுங்கள்.',
   'signup.eyebrow': 'அறையில் சேருங்கள்',
   'threadRow.authorPrefix': 'யு/',
+  'threadRow.commentCount': '{{count}} கருத்துகள்',
   'threadRow.statusFlagged': 'மதிப்பாய்வின் கீழ்',
   'threadRow.statusHot': 'சூடான',
   'threadRow.statusLocked': 'பூட்டப்பட்டது',
@@ -178,6 +233,7 @@ export const ui: UiTranslations = {
   'threadView.lockedNotice': 'இந்தத் தலைப்பு பூட்டப்பட்டுள்ளது. புதிய பதில்கள் முடக்கப்பட்டுள்ளன.',
   'threadView.modActionFailed': 'நெறியாளரின் நடவடிக்கை தோல்வியடைந்தது.',
   'threadView.modTools': 'மோட் கருவிகள்',
+  'threadView.noComments': 'இன்னும் கருத்துகள் இல்லை. முதல்வராக இருங்கள்.',
   'threadView.notFound': 'இழை காணப்படவில்லை.',
   'threadView.pin': 'பின்',
   'threadView.pinned': 'பின் செய்யப்பட்டது',

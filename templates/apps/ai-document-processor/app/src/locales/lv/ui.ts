@@ -1,8 +1,17 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Vai jums ir jautājums, esat atraduši kļūdu vai vēlaties demonstrāciju savai komandai? Sazinieties no sava konta iestatījumiem — katrs ziņojums nonāk pie īsta komandas cilvēka.',
   'about.contactTitle': 'Sazinieties ar mums',
+  'about.intro':
+    '{{app}} pārvērš skenētu dokumentu un PDF kaudzes strukturētos, meklējamos, sakārtotos datos. Ievietojiet rēķinus, kvītis, līgumus vai veidlapas un ļaujiet AI tos nolasīt, izgūt, klasificēt un sakārtot — ar ticamības krāsām, lai jūsu komanda pārbaudītu tikai to, kam patiešām nepieciešams cilvēks.',
+  'about.missionBody':
+    'Dokumentu rutīnas darbiem nevajadzētu apēst jūsu komandas dienu. Mēs ticam, ka katrai izgūtajai vērtībai jābūt izskaidrojamai un auditējamai — lai jūs varētu uzticēties automatizācijai, nezaudējot dokumentu pēdas. {{app}} ir veidots, lai ietaupītu stundas uz katras kaudzes, vienlaikus saglabājot cilvēku procesā tur, kur tas ir svarīgi.',
+  'about.missionTitle': 'Mūsu misija',
+  'about.subtitle': 'OCR, AI izgūšana, klasifikācija un automatizēta dokumentu sakārtošana.',
   'about.title': 'Par {{app}}',
+  'about.whatYouGetTitle': 'Ko jūs iegūstat',
   'authShell.backToLanding': '← Atgriezties uz sākuma lapu',
   'common.goToDashboard': 'Uz informācijas paneli',
   'common.no': '—',
@@ -10,6 +19,7 @@ export const ui: UiTranslations = {
   'common.yes': '✓',
   'dashboard.eyebrow': 'Šodien · Darbības pārskats',
   'dashboard.heading': 'Dokumentu analīze',
+  'dashboard.metric.accuracy': 'Vid. precizitāte',
   'dashboard.metric.filed': 'Iesniegts šodien',
   'dashboard.metric.filedCaption': 'Saskaņā ar arhivēšanas noteikumiem',
   'dashboard.metric.processed': 'Apstrādāts šodien',
@@ -23,11 +33,15 @@ export const ui: UiTranslations = {
   'dashboard.recent.col.name': 'Document',
   'dashboard.recent.col.uploaded': 'Augšupielādēts',
   'dashboard.recent.heading': 'Jaunākie dokumenti',
+  'dashboard.recent.typeUnknown': 'Gaida klasifikāciju',
   'dashboard.subheading':
     'Katra lapa ir klasificēta, izvilkta un iesieta — ar atšķirīgām krāsām, lai pārskatīšana būtu mērķtiecīga.',
   'documentDetail.audit.heading': 'Revīzijas grafiks',
+  'documentDetail.audit.subheading':
+    'Katrs solis, kas veikts ar šo dokumentu, ar atbildīgo personu.',
   'documentDetail.back': 'Visi dokumenti',
   'documentDetail.downloadHint': 'Izmanto pogu „Lejupielādēt“, lai atvērtu oriģinālo failu.',
+  'documentDetail.extracted.empty': 'Vēl nav izgūts neviens lauks.',
   'documentDetail.extracted.heading': 'Izgūtie lauki',
   'documentDetail.extracted.subheading':
     '{{count}} lauki · noklikšķiniet uz jebkura lauka, lai to izceltu lapā',
@@ -56,13 +70,23 @@ export const ui: UiTranslations = {
   'documents.subheading':
     '{{count}} dokumenti jūsu bibliotēkā, sakārtoti pēc jaunākajiem pirmām kārtām.',
   'documents.uploadCta': 'Augšupielādēt dokumentus',
+  'documentTypeBreakdown.barAria': 'Dokumentu sastāvs pēc veida',
   'documentTypeBreakdown.empty': 'Vēl nav apstrādāti nekādi dokumenti.',
   'documentTypeBreakdown.subtitle': '{{total}} apstrādāts',
   'documentTypeBreakdown.title': 'Dokumenta struktūra',
+  'forgotPassword.backToSignIn': '← Atpakaļ uz pieteikšanos',
   'forgotPassword.checkEmail': 'Pārbaudi savu e-pastu',
   'forgotPassword.tip': 'Nesaņēmāt? Pārbaudiet mēstuļu pastu vai mēģiniet nosūtīt uz citu adresi.',
+  'landing.copyright': '© {{year}} {{app}}. Veidots operāciju komandām, kas auditē katru lappusi.',
+  'landing.ctaBody':
+    '14 dienu izmēģinājums. Karte nav nepieciešama. Atcelt jebkurā laikā. Veidots operāciju komandām, kas strādā ātri un auditē lēni.',
   'landing.ctaHeading': 'Beidziet ievadīt kvītis. Sāciet tās kārtojiet.',
   'landing.eyebrow': 'OCR · Datu izgūšana · Ar mākslīgo intelektu balstīta dokumentu kārtošana',
+  'landing.featuresHeading': 'Dokumentu inteliģence, kas pati sevi izskaidro',
+  'landing.heroSubtitle':
+    'Ievietojiet rēķinu, kvīšu, līgumu vai veidlapu kaudzi. {{app}} tos klasificē, izgūst un sakārto — ar ticamības krāsām, lai jūsu komanda pārbaudītu tikai to, kam patiešām nepieciešams cilvēks.',
+  'landing.heroTitle': '{{tagline}}',
+  'landing.sampleCardChartLabel': 'Dienas apjoms · pēdējās 7 dienas',
   'landing.sampleCardLabel': 'Šodien apstrādātie dokumenti',
   'landing.sampleCardSubtitle':
     'Vidējā precizitāte 96,2 % attiecībā uz rēķiniem, kvītīm un veidlapām.',
@@ -76,6 +100,7 @@ export const ui: UiTranslations = {
   'notFound.eyebrow': '{{app}} · 404',
   'notFound.home': 'Atvērt mērķlapu',
   'notFound.title': 'Šī lapa nav atrodama',
+  'parcelaHeroCard.accuracy': 'Vid. precizitāte {{value}}% visos izgūšanas gadījumos',
   'parcelaHeroCard.change': '{{sign}} {{amount}} % salīdzinājumā ar vakardienu',
   'parcelaHeroCard.title': 'Šodien apstrādātie dokumenti',
   'parcelaLayout.primaryNavLabel': 'Galvenā navigācija',
@@ -83,6 +108,7 @@ export const ui: UiTranslations = {
   'pricing.documentsLabel': 'dokumenti',
   'pricing.processingLabel': 'apstrādes uzdevumi',
   'resetPassword.confirmPlaceholder': 'Atkārtojiet jauno paroli',
+  'resetPassword.hidePassword': 'Paslēpt paroli',
   'resetPassword.passwordLabel': 'Jauna parole',
   'resetPassword.showPassword': 'Rādīt paroli',
   'resetPassword.subtitle': 'Izvēlieties vārdu, kas sastāv no vismaz 8 rakstzīmēm.',
@@ -100,10 +126,12 @@ export const ui: UiTranslations = {
   'rules.loadError': 'Neizdevās ielādēt noteikumus.',
   'rules.loading': 'Tiek ielādēti noteikumi…',
   'rules.matched30d': '{{count}} dokumenti, kas atrasti pēdējo 30 dienu laikā',
+  'rules.neverUsed': 'Nekad nav lietots',
   'rules.newRule': 'Jauns noteikums',
   'rules.saveError': 'Neizdevās saglabāt noteikumu.',
   'rules.subheading':
     'Norādiet sistēmai, kurā vietā katrs dokumentu veids ir jāievieto. Nosacījumi tiek pārbaudīti secīgi no augšas uz leju — uzvar pirmais atbilstošais nosacījums.',
+  'rules.templatesEmpty': 'Vēl nav izgūšanas veidņu.',
   'rules.templatesHeading': 'Iegūšanas veidnes',
   'rules.templatesSubheading': 'Lauku shēmas, ko izgūšanas rīks izmanto katram dokumentu tipam.',
   'rules.then': 'Tad',
@@ -112,17 +140,24 @@ export const ui: UiTranslations = {
   'settings.account.nameLabel': 'Darba vides nosaukums',
   'settings.account.subheading':
     'Parādāmais vārds un galvenais e-pasta adrese paziņojumiem un pārskatu vēsturei.',
+  'settings.api.confirmRevoke': 'Apstiprināt?',
   'settings.api.copyOnce': 'Nokopējiet šo atslēgu — tā vairs netiks parādīta',
   'settings.api.createdOn': 'Izveidots {{date}}',
   'settings.api.empty': 'API atslēgas vēl nav. Izveidojiet vienu augšā.',
   'settings.api.error': 'Neizdevās izveidot atslēgu.',
+  'settings.api.generating': 'Ģenerē…',
+  'settings.api.heading': 'API atslēgas',
   'settings.api.labelPlaceholder': 'Atslēgas vārds (piem., CI augšupielādētājs)',
+  'settings.api.loading': 'Ielādē atslēgas…',
   'settings.api.newKey': 'Izveidot atslēgu',
   'settings.api.subheading':
     'Izmantojiet šīs funkcijas, lai nosūtītu dokumentus no skripta vai ERP sistēmas. Jebkuru atslēgu var pagriezt jebkurā brīdī.',
   'settings.integrations.heading': 'Datu iesniegšanas integrācijas',
   'settings.integrations.subheading':
     'Nosūtiet sagatavotos dokumentus uz mākoņpakalpojumu vai tērzēšanas rīku, ko jūsu komanda jau izmanto.',
+  'settings.subheading':
+    'Pārvaldiet kontu, API atslēgas un sakārtošanas integrācijas savai {{app}} darbvietai.',
+  'signup.hidePassword': 'Paslēpt paroli',
   'signup.identityPrompt': 'Kā mums Jūs uzrunāt?',
   'signup.showPassword': 'Rādīt paroli',
   'signup.subtitle': '14 dienas bez maksas, kredītkarte nav nepieciešama.',
@@ -130,6 +165,7 @@ export const ui: UiTranslations = {
   'upload.error': 'Augšupielāde neizdevās.',
   'upload.eyebrow': 'Norīšana',
   'upload.heading': 'Augšupielādēt dokumentus',
+  'upload.queue.clear': 'Notīrīt pabeigtos',
   'upload.queue.col.confidence': 'Paļāvība',
   'upload.queue.col.file': 'File',
   'upload.queue.detecting': 'Meklēšana…',
@@ -142,5 +178,6 @@ export const ui: UiTranslations = {
   'uploadDropZone.body':
     'Vai arī vienlaikus ievietojiet vairākus failus, lai veiktu to masveida izgūšanu, klasificēšanu un arhivēšanu.',
   'uploadDropZone.cta': 'Izvēlieties failus',
+  'uploadDropZone.maxSize': 'Maks. 25 MB failā · Pilnīga šifrēšana',
   'uploadDropZone.title': 'Ievietojiet dokumentus, lai sāktu apstrādi',
 }

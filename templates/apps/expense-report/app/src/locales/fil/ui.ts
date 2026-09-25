@@ -1,18 +1,37 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May mga tanong, feedback, o kahilingan para sa feature? Makipag-ugnayan sa {{app}} team mula sa Settings → Notifications, o sumulat sa amin anumang oras — bawat mensahe ay napupunta sa isang tunay na tao.',
+  'about.contactTitle': 'Makipag-ugnayan sa amin',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'about.featureCapture':
+    'Pagkuha ng resibo gamit ang pag-upload ng larawan na naglalakip ng mga imahe sa tamang gastos, linya por linya.',
+  'about.featureExport':
+    'Naa-audit na CSV exports ng bawat report, gastos, at estado ng approval — handa para sa iyong accounting team.',
+  'about.featurePolicy':
+    'Mga guardrail ng patakaran — pang-araw-araw na cap, limitasyon kada kategorya, at mga threshold na kailangan ng resibo na ipinapatupad sa oras ng pagsusumite.',
+  'about.featureWorkflow':
+    'Dalawang antas na approval workflow na may mga tala ng reviewer, mga flag ng paglabag sa patakaran, at one-tap na pagmamarka ng reimbursement.',
+  'about.intro':
+    'Ang {{app}} ay isang platform ng pamamahala ng gastos para sa mga finance team at sa mga taong binabayaran nila. Kunan ng resibo, i-file ang gastos, ipadala ang report sa approval, at subaybayan ang bawat reimbursement — nang walang seremonya ng spreadsheet.',
+  'about.missionBody':
+    'Dapat mabilis, patas, at naa-audit ang reimbursement. Ginawa namin ang {{app}} para mabayaran ang mga nagsumite nang walang pangungulit, makita ng mga approver nang eksakto ang kanilang sinasang-ayunan, at magkaroon ang finance ng malinaw na trail para sa bawat dolyar — kasama ang mga pagsusuri sa patakaran at lahat.',
+  'about.missionTitle': 'Ang aming misyon',
   'approvals.approve': 'Aprubahan',
   'approvals.approving': 'Inaaprubahan…',
   'approvals.confirmReject': 'Kumpirmahin ang pagtanggi',
+  'approvals.empty': 'Wala ka nang dapat gawin — walang report na naghihintay.',
   'approvals.eyebrow': 'Pila ng tagapamahala',
   'approvals.kpi.flaggedLabel': 'Na-flag ang patakaran',
+  'approvals.kpi.queueLabel': 'Naghihintay ng review',
   'approvals.kpi.totalLabel': 'Nakabinbing halaga',
   'approvals.lineCount': '{{count}} mga gastusin',
   'approvals.queueFallback':
     'Hindi magagamit ang live queue — ipinapakita ang napiling data ng demo.',
   'approvals.reject': 'Tanggihan',
   'approvals.rejecting': 'Tinatanggihan…',
+  'approvals.rejectPlaceholder': 'Dahilan (kailangan)',
   'approvals.rejectPrompt': 'Bakit mo tinatanggihan ang ulat na ito?',
   'approvals.review': 'Suriin',
   'approvals.title': 'Nakabinbing mga pag-apruba',
@@ -25,11 +44,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Naaprubahan · MTD',
   'dashboard.kpi.pendingDelta': '+2 ngayong linggo',
+  'dashboard.kpi.pendingLabel': 'Naghihintay ng pagsusuri',
   'dashboard.kpi.receiptsDelta': 'Kinakailangan ang aksyon',
   'dashboard.kpi.receiptsLabel': 'Naghihintay ng mga resibo',
   'dashboard.kpi.reimbursedDelta': '+$2.4k',
   'dashboard.kpi.reimbursedLabel': 'Binayaran · MTD',
   'dashboard.newReport': 'Bagong ulat',
+  'dashboard.recent.empty': 'Wala pang report — simulan ang una mo sa itaas.',
   'dashboard.recent.title': 'Mga kamakailang ulat',
   'dashboard.recent.viewAll': 'Tingnan ang lahat ng ulat',
   'dashboard.summaryFallback':
@@ -41,11 +62,19 @@ export const ui: UiTranslations = {
   'expenses.listFallback':
     'Hindi available ang live na listahan — ipinapakita ang napiling datos ng demo.',
   'expenses.searchPlaceholder': 'Maghanap ng merchant o kategorya…',
+  'expenses.subtotal': '{{count}} gastos · subtotal',
   'expenses.title': 'Mga gastusin',
+  'forgotPassword.continue': 'May code ako · Magpatuloy',
+  'forgotPassword.subheading':
+    'Ilagay ang work email mo at padadalhan ka namin ng link para mag-set ng bagong password.',
   'forgotPassword.successBody':
     'Kung mayroong account para sa {{email}} Makakatanggap ka ng reset link sa susunod na ilang minuto.',
+  'landing.copyright': '© {{year}} {{app}}. Ginawa gamit ang Molecule.dev.',
+  'landing.ctaBody':
+    'Libre para sa unang 25 gastos bawat buwan. Walang credit card, walang implementation call.',
   'landing.ctaHeading': 'Handa ka na bang mabawi ang utang sa iyong koponan?',
   'landing.eyebrow': 'Mga ulat sa gastos para sa mga pangkat sa pananalapi',
+  'landing.featuresHeading': 'Reimbursement, sa isang kalmadong workspace',
   'landing.heroSubtitle':
     'Magsumite, aprubahan, at bayaran ang mga gastusin sa negosyo nang walang seremonya ng spreadsheet. Resibo OCR, mga pagsusuri sa patakaran, at isang malinaw na timeline ng pag-apruba — lahat sa isang tahimik na workspace.',
   'landing.heroTitle': 'Bawat resibo, nabawi.',
@@ -63,10 +92,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Mga tala',
   'newExpense.descriptionPlaceholder':
     'Kung bakit ang gastusing ito ay may kaugnayan sa negosyo (nakikita ng iyong taga-apruba).',
+  'newExpense.eyebrow': 'Reimbursable na item',
   'newExpense.merchant': 'Mangangalakal',
   'newExpense.merchantPlaceholder': 'Hotel Adlon Kempinski',
   'newExpense.policyHint':
     'Paalala: ang mga pagkaing higit sa $80/araw o anumang aytem na higit sa $250 ay nangangailangan ng isang tala ng pagbibigay-katwiran.',
+  'newExpense.receipt': 'Resibo',
+  'newExpense.receiptHint': 'JPG, PNG, o PDF · 10 MB max',
   'newExpense.receiptOcrHint': 'Mga patlang na paunang pinupunan ng OCR',
   'newExpense.receiptPrompt': 'Maglagay ng larawan o PDF dito, o i-click para mag-browse',
   'newExpense.receiptUploadFailed':
@@ -77,17 +109,21 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Mag-snap o mag-upload ng resibo at pupunan ng Recoup ang merchant, petsa, at kabuuan. Kumpirmahin ang lahat sa ibaba bago i-save.',
   'newExpense.title': 'Magdagdag ng gastos',
+  'newReport.approverHint':
+    'Makakatanggap sila ng email kapag isinumite mo ang report na ito para sa review.',
   'newReport.approverLabel': 'Email ng taga-apruba (opsyonal)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com',
   'newReport.availableExpenses': 'Mga magagamit na gastusin',
   'newReport.createFailed': 'Hindi makagawa ng ulat. Pakisubukang muli.',
   'newReport.draftsFallback':
     'Hindi available ang listahan ng mga live na gastos — ipinapakita ang napiling data ng demo.',
+  'newReport.eyebrow': 'Igrupo ang mga gastos · isumite para sa approval',
   'newReport.includedCount': '{{count}} kasama',
   'newReport.purposeLabel': 'Layunin ng negosyo',
   'newReport.purposePlaceholder':
     'Ilarawan ang biyahe o proyektong may kaugnayan sa mga gastusing ito (makikita ng iyong taga-apruba at ng tagapinansya).',
   'newReport.saveDraft': 'I-save bilang draft',
+  'newReport.saveDraftFailed': 'Hindi ma-save ang draft. Pakisubukan muli.',
   'newReport.submit': 'Isumite para sa pag-apruba',
   'newReport.submitFailed': 'Hindi maisumite ang ulat. Pakisubukang muli.',
   'newReport.summary': 'Buod ng ulat',
@@ -101,17 +137,24 @@ export const ui: UiTranslations = {
   'notifications.feedFallback':
     'Hindi available ang live feed — ipinapakita ang napiling datos ng demo.',
   'notifications.openReport': 'Bukas na ulat ›',
+  'pricing.approvalsLabel': 'mga approval',
   'pricing.expensesLabel': 'mga gastusin',
   'pricing.heading': 'mga pag-apruba',
   'pricing.policiesLabel': 'mga patakaran',
   'pricing.receiptsLabel': 'mga resibo',
   'recoveredAmountHeroCard.label': 'Nabawi ang bayad · YTD',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} report ang kasalukuyang nakabinbin sa review sa lahat ng approver.',
+  'reports.approvalFlow': 'Daloy ng approval',
   'reports.backToList': 'Balik sa mga ulat',
   'reports.detailFallback':
     'Hindi magagamit ang live na ulat — ipinapakita ang napiling datos ng demo.',
   'reports.lineItems': 'Mga item sa linya',
   'reports.lineItemsCount': '{{count}} mga gastusin',
+  'reports.lineItemsEmpty': 'Wala pang gastos sa report na ito.',
+  'reports.openLibrary': 'Buksan ang library ng report',
   'reports.policyTitle': 'Watawat ng patakaran',
+  'reports.selectPrompt': 'Pumili ng report mula sa library para makita ang detalye nito.',
   'reports.summary.lineCount': 'Mga item sa linya',
   'reports.summary.reimbursable': 'Maaring ibalik',
   'reports.summary.total': 'Kabuuang naiulat',
@@ -121,6 +164,7 @@ export const ui: UiTranslations = {
   'reportsList.listFallback':
     'Hindi available ang live na listahan — ipinapakita ang napiling datos ng demo.',
   'reportsList.newReport': 'Bagong ulat',
+  'reportsList.submittedOn': 'Isinumite noong {{date}}',
   'reportsList.title': 'Aklatan ng ulat',
   'resetPassword.hidePassword': 'Itago ang password',
   'resetPassword.newPasswordLabel': 'Bagong password',
@@ -146,6 +190,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Na-save ✓',
   'settings.profileSaveFailed': 'Hindi ma-update ang profile. Pakisubukang muli.',
   'signup.heading': 'Gumawa ng iyong Recoup account',
+  'signup.hidePassword': 'Itago ang password',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Ipakita ang password',
   'signup.subheading': 'Libre para sa 25 gastusin bawat buwan — walang credit card.',

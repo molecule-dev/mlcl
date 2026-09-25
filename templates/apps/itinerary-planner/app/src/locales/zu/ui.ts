@@ -1,7 +1,23 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Unombono, uthole iphutha, noma uhlela okuthile okukhulu? Xhumana nathi kusukela kuzilungiselelo ze-akhawunti yakho — yonke imilayezo ifinyelela kumuntu wangempela eqenjini.',
+  'about.contactTitle': 'Xoxa nathi',
   'about.eyebrow': '{{tagline}}',
+  'about.featureBookings':
+    'Ukubhuka ku-inbhokisi eyodwa — izindiza, amahhotela, neziqinisekiso zemisebenzi zifika ngosuku olufanele.',
+  'about.featureCollab':
+    'Ukusebenzisana kwesikhathi sangempela — mema abahambi abangafika kwabahlanu ngohambo ngalunye, nazo zonke izinguquko zivumelaniswa bukhoma nemibono ixoxwa ngaphansi kwesitobhi ngasinye.',
+  'about.featureMapsBudget':
+    'Amamephu, izindawo, nesabelomali esabiwe — bona lonke uhambo kumephu, thola izindawo ezikhethwe abahleli, futhi ulandelele izindleko ukuze kungabikho odlulisa imali.',
+  'about.featureTimelines':
+    'Uhlelo lwezinsuku ngazinye — hudula izitobhi ukuze uzihlele kabusha, faka izingxenye zokuhamba, futhi ubuke uhlelo lokuhamba lubalwa kabusha njengombhalo ophilayo owodwa.',
+  'about.intro':
+    '{{app}} iguqula ifolda egcwele izinhlelo ezingaphelele ibe uhambo olulodwa, olwabiwe iqembu lakho lonke elingaluwalandela ngempela. Yakha uhlelo lwezinsuku ngazinye, faka izindiza namahhotela, yenza imephu yazo zonke izitobhi, futhi ulandelele isabelomali — konke endaweni eyodwa ezolile esikhundleni samathebhu ayishumi nambili nengxoxo yeqembu.',
+  'about.missionBody':
+    'Ukuhlela uhambo kufanele kuzwakale sengathi uhambo seluvele luthuthuka, hhayi njengomsebenzi wesikole. {{app}} ikhona ukwenza uhambo oluhlanganyelwe lube lula — ukuze wonke umhambi afike azi uhlelo, futhi yonke indawo ixoxe indaba efanele ukukhunjulwa.',
+  'about.missionTitle': 'Umsebenzi wethu',
   'about.pageTitle': 'Mayelana ne-{{app}}',
   'auth.legalConsent': 'Ngokuqhubeka, uyavuma',
   'bookings.empty.body':
@@ -31,7 +47,10 @@ export const ui: UiTranslations = {
   'bookings.type.hotel': 'Ihhotela',
   'bookings.type.other': 'Okunye',
   'budgetSpendCard.budgetTotal': 'kwe {{total}} kuhlelwe',
+  'budgetSpendCard.overBy': '{{amount}} ngaphezu kwesabelomali',
   'budgetSpendCard.pct': '{{pct}} %',
+  'budgetSpendCard.recentCount': '{{count}} zakamuva',
+  'budgetSpendCard.remaining': '{{amount}} ezisele',
   'calendar.eyebrow': 'Unyaka ozayo',
   'calendar.heading': 'Uhambo ngalunye lusekhalendeni elilodwa.',
   'calendar.legendHeading': 'Uhambo lwale nyanga',
@@ -42,18 +61,27 @@ export const ui: UiTranslations = {
   'common.and': 'futhi',
   'common.goToDashboard': 'Yiya ku-Dashboard',
   'dashboard.budgetHeading': 'Ukwanda kwesabelomali',
+  'dashboard.empty.body':
+    'Hlela uhambo lwakho lokuqala futhi idashibhodi yakho izogcwala ngohlelo lwezinsuku ngazinye, ukushaya kwesabelomali, nokubhuka.',
+  'dashboard.empty.cta': 'Hlela uhambo lwakho lokuqala',
   'dashboard.empty.heading': 'Azikho izinkambo okwamanje — i-atlas yakho ayinalutho.',
   'dashboard.eyebrow': 'Ukulawula umsebenzi',
   'dashboard.heading': 'Uhambo lwakho olulandelayo, ekhoneni elilodwa elithule.',
   'dashboard.newTripCta': 'Qala uhambo olusha',
+  'dashboard.subheading':
+    'Isibali sokubala esiya ohambweni olulandelayo, ukushaya kwezindleko zanamuhla, nokubuka ngokushesha zonke izinhlelo ezisemsebenzini.',
   'dashboard.tripsHeading': 'Uhambo oluhambayo',
   'dashboard.viewAllExpenses': 'Buka zonke izindleko',
   'dashboard.viewAllTrips': 'Bona lonke uhambo',
   'dayTimelineRow.category.accommodation': 'Hlala',
+  'dayTimelineRow.category.food': 'Ukudla neziphuzo',
+  'dayTimelineRow.category.sightseeing': 'Ukubona izindawo',
   'dayTimelineRow.category.transport': 'Ezokuthutha',
   'destinationOrbCard.exploreCta': 'Engeza ohambweni',
   'destinationOrbCard.tripCount': '{{count}} uhambo',
+  'destinations.empty.body': 'Buyela ku-All futhi okutholwe umhleli kuzovela futhi.',
   'destinations.empty.heading': 'Azikho izindawo oya kuzo okwamanje.',
+  'destinations.emptyFiltered.heading': 'Akukho okumakwe kanjalo okwamanje.',
   'destinations.errors.load': 'Ayikwazanga ukulayisha izindawo oya kuzo.',
   'destinations.eyebrow': 'Lapho uya khona ngokulandelayo',
   'destinations.heading': 'Amakhona agciniwe kanye nokutholwa komhleli.',
@@ -72,7 +100,9 @@ export const ui: UiTranslations = {
   'expenses.field.vendor': 'Umthengisi',
   'expenses.formHeading': 'Izindleko ze-log ze {{trip}}',
   'expenses.heading': 'Lapho isabelomali sohambo siya khona ngempela.',
+  'expenses.heroBudget': '{{pct}}% kwe-{{total}} okuhleliwe',
   'expenses.heroEyebrow': '{{trip}} isifinyezo sesabelomali',
+  'expenses.heroNoBudget': 'Asikho isabelomali esibekiwe kulolu hambo okwamanje.',
   'expenses.noTrips.body': 'Hlela uhambo kuqala izindleko ezihambisana nesabelomali sohambo.',
   'expenses.noTrips.heading': 'Azikho izinkambo okwamanje.',
   'expenses.receiptCount': '{{count}} amarisidi',
@@ -84,12 +114,16 @@ export const ui: UiTranslations = {
     'Irisidi ngalinye kanye nokuqinisekiswa kufakwa esigabeni esifanele lapha — asikho ispredishithi esidingekayo.',
   'forgotPassword.eyebrow': 'Buyisela uhambo lwakho',
   'forgotPassword.heading': 'Ukhohlwe iphasiwedi yakho?',
+  'forgotPassword.subheading':
+    'Faka i-imeyili oyisebenzisile ku-{{appName}} futhi sizokuthumela isixhumanisi sokuhlela kabusha iphasiwedi yakho.',
   'forgotPassword.submit': 'Thumela i-imeyili yokutakula',
   'forgotPassword.submitPending': 'Ithumela i-imeyili yokutakula…',
   'forgotPassword.successHint':
     'Awunayo i-imeyili okwamanje? Hlola ifolda yakho yogaxekile, noma zama futhi ngekheli elihlukile.',
   'forgotPassword.successSubheading':
     'Sithumele isixhumanisi sokutakula ku- {{email}} . Isixhumanisi sisebenza imizuzu engama-30.',
+  'forgotPassword.tryAgain': 'Thumela kwenye i-imeyili',
+  'landing.cta.eyebrow': 'Qala ngephulani yamahhala',
   'landing.cta.heading': '{{tagline}}.',
   'landing.cta.signup': 'Dala i-akhawunti yamahhala',
   'landing.cta.subheading':
@@ -101,8 +135,10 @@ export const ui: UiTranslations = {
   'landing.footer.tagline': '{{tagline}}.',
   'landing.hero.ctaPrimary': 'Qala uhambo lwamahhala',
   'landing.hero.ctaSecondary': 'Bona uhambo oluyisibonelo',
+  'landing.hero.eyebrow': 'Umhleli wohambo · {{tagline}}',
   'landing.hero.subtitle':
     'I-Waypoint iguqula ifolda egcwele izinhlelo ezingakahlelwanga ibe uhlelo lohambo olwabiwe, lwansuku zonke iqembu lakho elingalulandela ngempela — ngokubhukha, amamephu, kanye nesabelomali esilandelwa endaweni eyodwa.',
+  'landing.hero.title': 'Hlela kube kanye. Hambani ndawonye.',
   'landing.nav.join': 'Qala uhambo lwamahhala',
   'landing.nav.preview': 'Iphuzu Langaphakathi Lendlela',
   'landing.preview.cta': 'Hlela eyakho',
@@ -110,6 +146,7 @@ export const ui: UiTranslations = {
   'landing.preview.heading': 'Uhambo olumbalwa abahambi abaluzulazulayo njengamanje',
   'login.eyebrow': 'Indawo yamalungu',
   'login.heading': 'Siyakwamukela futhi, mhambi',
+  'login.noAccount': 'Usanda kufika eTessera?',
   'login.signupLink': 'Dala i-akhawunti yamahhala',
   'login.subheading':
     'Ngena ngemvume ukuze uphathe uhambo lwakho, izinhlelo zosuku, ukubhukha, kanye nokufakwa kwejenali osuqalile kakade.',
@@ -120,6 +157,8 @@ export const ui: UiTranslations = {
   'notifications.errors.toggle': 'Ayikwazanga ukubuyekeza isaziso.',
   'notifications.heading': 'Yini eshintshile ohambweni lwakho namuhla.',
   'notifications.markUnread': 'Maka njengokungafundiwe',
+  'notifications.subheading':
+    '{{count}} okusha \\u2014 iziqinisekiso zokubhuka, amanothi omhlanganyeli, ukwehla kwentengo, nezikhumbuzo.',
   'notifications.time.daysAgo': '{{count}} kudala',
   'notifications.time.hoursAgo': '{{count}} edlule',
   'notifications.time.justNow': 'khona manje',
@@ -138,6 +177,7 @@ export const ui: UiTranslations = {
     'Amasevisi axhunyiwe, uhlobo lwemali, izaziso ze-push, kanye neziqinisekiso ongena ngazo ngemvume.',
   'signup.and': 'futhi',
   'signup.eyebrow': 'Joyina i-Waypoint',
+  'signup.haveAccount': 'Usuvele uzulazula?',
   'signup.heading': 'Hlela kube kanye. Hambani ndawonye.',
   'signup.namePlaceholder': 'U-Iris Larsen',
   'signup.subheading':
@@ -149,6 +189,9 @@ export const ui: UiTranslations = {
   'tripCountdownHeroCard.ctaPrimary': 'Uhlelo lohambo oluvulekile',
   'tripCountdownHeroCard.ctaSecondary': 'Hlela olunye uhambo',
   'tripCountdownHeroCard.daysLabel': '{{days}} izinsuku ezisele',
+  'tripCountdownHeroCard.eyebrow': 'Uhambo olulandelayo · {{tagline}}',
+  'tripCountdownHeroCard.subtitle':
+    '{{country}} · {{dates}} · ubusuku obungu-{{nights}} — uhlelo lwakho lokuhamba lulungele ukuhamba.',
   'tripCoverCard.stops': '{{count}} izitobhi',
   'tripCoverCard.travelers': '{{count}} abahambi',
   'tripDetail.addActivity': 'Engeza umsebenzi',
@@ -158,6 +201,7 @@ export const ui: UiTranslations = {
   'tripDetail.addActivityTitle': 'Isihloko somsebenzi',
   'tripDetail.adding': 'Ukungeza...',
   'tripDetail.backToTrips': 'Buyela kuzo zonke izinkambo',
+  'tripDetail.budget': '{{used}} / {{total}}',
   'tripDetail.collaboratorsHeading': 'Abahambi',
   'tripDetail.dayLabel': 'Usuku {{day}}',
   'tripDetail.empty': 'Akukho misebenzi okwamanje — engeza eyodwa ukuqala umugqa wesikhathi.',
@@ -168,14 +212,17 @@ export const ui: UiTranslations = {
   'tripDetail.eyebrow': 'Uhambo • {{country}}',
   'tripDetail.invite': 'Mema',
   'tripDetail.inviteLabel': 'Mema nge-imeyili',
+  'tripDetail.invitePlaceholder': 'someone@example.com',
   'tripDetail.inviteSent': 'Isimemo sithunyelwe ku- {{email}} .',
   'tripDetail.inviting': 'Iyathumela...',
   'tripDetail.loading': 'Ilayisha uhambo...',
   'tripDetail.noCollaborators': 'Wena nje, okwamanje.',
+  'tripDetail.notesHeading': 'Amanothi ohambo',
   'tripDetail.notesPlaceholder': 'Awekho amanothi okwamanje.',
   'tripDetail.notFound.heading': 'Uhambo alutholakalanga',
   'tripDetail.openBookings': 'Vula ibhokisi lokungenayo lokubhukha',
   'tripDetail.shareCopied': 'Yabelana ngesixhumanisi esikopishwe ebhodini lokunamathisela:',
+  'tripDetail.shareReady': 'Isixhumanisi sokwabelana silungile:',
   'tripDetail.stops': '{{count}} izitobhi',
   'tripDetail.timelineEyebrow': 'Umugqa wesikhathi wosuku',
   'tripDetail.timelineHeading': 'Uhlelo lwansuku zonke',
@@ -193,6 +240,7 @@ export const ui: UiTranslations = {
   'tripPlanner.fields.travelersLabel': 'Abahambi',
   'tripPlanner.heading': 'Dweba uhambo olungaphansi komzuzu.',
   'tripPlanner.preview.eyebrow': 'Ukubuka kuqala okubukhoma',
+  'tripPlanner.preview.placeholderCountry': 'Khetha izwe',
   'tripPlanner.preview.placeholderDestination': 'I-adventure yakho elandelayo',
   'tripPlanner.section1.title': 'Kuphi futhi nini',
   'tripPlanner.section2.title': 'Abahambi kanye nesabelomali',
@@ -204,10 +252,13 @@ export const ui: UiTranslations = {
     'Usuku {{day}} — engeza izitobhi, ezokuthutha, kanye nokubhukha lapha.',
   'tripPlanner.section3.day3':
     'Usuku {{day}} — engeza izitobhi, ezokuthutha, kanye nokubhukha lapha.',
+  'tripPlanner.section3.title': 'Isiqalo sohlelo losuku',
   'tripPlanner.subheading':
     'Faka izisekelo ngezansi — ungamema njalo abahlanganyeli, udonse izitobhi, bese udlulisela phambili ukubhukha kamuva.',
   'tripPlanner.submit': 'Dala uhambo',
   'tripPlanner.submitting': 'Ukudala...',
+  'trips.empty.body': 'Buyela ku-All trips noma qala ukuhlela ukuzulazula kwakho okulandelayo.',
+  'trips.empty.cta': 'Hlela uhambo',
   'trips.empty.heading': 'Akukho okuhambisana naleyo hlungi okwamanje.',
   'trips.eyebrow': 'I-atlas',
   'trips.filterLabel': 'Hlunga uhambo ngesimo',
@@ -219,6 +270,12 @@ export const ui: UiTranslations = {
   'trips.noTrips.heading': 'Azikho izinkambo okwamanje.',
   'trips.pastHeading': 'Izinto ezenzeka esikhathini esidlule',
   'trips.subheading': '{{count}} uhambo — esikhathini esidlule, samanje, kanye nosuku oluthile.',
+  'waypointAuthShell.brand.eyebrow': '{{tagline}}',
+  'waypointAuthShell.brand.heading':
+    'Kuhlele kanye. Zulazulani ndawonye. Khumbulani ingunaphakade.',
+  'waypointAuthShell.testimonial.author': 'Iris & Jonas · {{appName}} amalungu kusukela ngo-2024',
+  'waypointAuthShell.testimonial.quote':
+    '{{appName}} yaguqula uhambo olumatasa lwamaviki angu-3 ezweni ezine lwaba uhlelo lokuhamba olukhululekile kunazo zonke esake sabelana ngalo.',
   'waypointLayout.mobileNavClose': 'Vala imenyu yokuzulazula',
   'waypointLayout.primaryNavLabel': 'Ukuzulazula okuyinhloko',
 }

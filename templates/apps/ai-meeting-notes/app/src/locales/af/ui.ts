@@ -1,19 +1,29 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    "Vrae, terugvoer of 'n kenmerkversoek? E-pos die span by hello@murmur.app — elke boodskap bereik 'n regte mens wat aan die produk werk.",
   'about.contactTitle': 'Praat met ons',
   'about.eyebrow': 'Oor ons',
+  'about.intro':
+    "{{app}} is vergaderingsintelligensie vir spanne wat eerder besluite wil neem as om notules te hou. Dit sluit by jou oproepe aan, transkribeer elke woord met sprekeretikette, en lewer 'n KI-opsomming plus toegewysde aksiepunte sodra die vergadering eindig.",
+  'about.missionBody':
+    "Vergaderings is waar spanne besluite neem — en waar daardie besluite verlore gaan. {{app}} bestaan om te verseker dat die werk wat in 'n gesprek gebeur, die gesprek oorleef: 'n getroue rekord, 'n duidelike opsomming en verantwoordbare volgende stappe, outomaties.",
+  'about.missionTitle': 'Ons missie',
   'actions.empty': 'Geen aksie-items stem ooreen nie.',
   'actions.heading': 'Aksie-items',
   'actions.loadError': 'Kon nie aksie-items laai nie.',
   'actions.subheading': 'Geaggregeer oor elke vergadering. Filtreer volgens status om te fokus.',
   'actions.toggleDoneLabel': 'Merk as klaar',
   'actions.toggleReopenLabel': 'Merk as oop',
+  'auth.footer': '© {{year}} {{app}}. Elke woord, gedistilleer.',
   'calendar.heading': 'Kalender',
   'calendar.joinCta': 'Sluit aan',
   'calendar.loadError': 'Kon nie kalender laai nie.',
   'calendar.nextMonth': 'Volgende maand',
   'calendar.noEventsForDay': 'Geen vergaderings is vir hierdie dag geskeduleer nie.',
+  'calendar.noUpcomingEvents':
+    "Geen komende vergaderings nie. Koppel 'n kalender vanaf Integrasies om hierdie lys te vul.",
   'calendar.previousMonth': 'Vorige maand',
   'calendar.recent': 'Onlangs',
   'common.daysAgo': '{{count}} d gelede',
@@ -25,9 +35,11 @@ export const ui: UiTranslations = {
   'dashboard.actionCount': '{{count}} aksie-items',
   'dashboard.empty.body':
     'Begin ’n opname of koppel Google Kalender sodat Murmur outomaties by jou volgende vergadering aansluit.',
+  'dashboard.empty.cta': 'Begin opname',
   'dashboard.empty.heading': 'Geen vergaderings nog nie',
   'dashboard.eyebrow': 'Jou vergaderingvoer',
   'dashboard.loadError': 'Kon nie dashboard laai nie.',
+  'dashboard.noActions': 'Geen aksies nie',
   'dashboard.recentHeading': 'Onlangse vergaderings',
   'dashboard.recordCta': 'Neem vergadering op',
   'dashboard.stat.actions': 'Aksie-items',
@@ -37,6 +49,7 @@ export const ui: UiTranslations = {
   'dashboard.subheading':
     '{{count}} ongeleesde opsommings sedert jy laas nagegaan het. Murmur het elke woord vasgevang — hier is die opsomming.',
   'dashboard.viewCalendar': 'Bekyk kalender →',
+  'footer.linksLabel': 'Voetstreep',
   'forgot.failed': 'Kon nie herstel-e-pos stuur nie.',
   'forgot.sentBody':
     'Indien ’n rekening bestaan vir {{email}}, jy sal binnekort ’n terugstelskakel kry.',
@@ -47,14 +60,22 @@ export const ui: UiTranslations = {
   'integrations.notConnectedTag': 'Nie gekoppel nie',
   'integrations.subheading': 'Koppel kalenders en videoplatforms sodat Murmur outomaties aansluit.',
   'integrations.updateError': 'Opdatering het misluk.',
+  'landing.ctaBody':
+    "Gratis vir die eerste 5 vergaderings elke maand. Geen kredietkaart. Koppel Google Calendar in minder as 'n minuut.",
   'landing.ctaButton': 'Begin – dis gratis',
   'landing.ctaHeading': 'Hou op om notas te neem. Begin om besluite te neem.',
+  'landing.demo.aiBody':
+    'Lansering geskuif van 5 Mei → 12 Mei om bedryfsbeplanning ruimte te gee. Dashboard-herontwerp afgesplit na 26 Mei.',
   'landing.demo.aiLabel': 'KI-opsomming, regstreeks opgestel',
   'landing.demo.recording': 'Opname · regstreeks',
   'landing.eyebrow': 'KI-vergaderingsintelligensie',
   'landing.featuresHeading': 'Alles wat jou span nodig het na die vergadering',
+  'landing.featuresSubheading':
+    'Nie meer "wag, wie besit dit?" nie. {{appName}} lewer die opsomming voordat die oproep ontkoppel.',
   'landing.getStarted': 'Probeer gratis',
   'landing.heroSecondary': 'Kyk na die 90-sekonde toer',
+  'landing.heroSubtitle':
+    '{{tagline}}. {{appName}} sluit by jou oproepe aan, transkribeer elke woord met sprekeretikette, en lewer KI-opsommings plus toegewysde aksiepunte sodra die vergadering eindig.',
   'landing.heroTitle': 'Neem elke vergadering vas. Bring dit wat saak maak, na vore.',
   'login.altPrompt': 'Nuut by Murmur?',
   'login.failed': 'Kon nie aanmeld nie. Gaan jou e-pos en wagwoord na.',
@@ -62,6 +83,7 @@ export const ui: UiTranslations = {
   'meetingDetail.actionsHeading': 'Aksie-items',
   'meetingDetail.back': 'Alle vergaderings',
   'meetingDetail.decisionsHeading': 'Besluite',
+  'meetingDetail.dueDate': 'verskuldig {{date}}',
   'meetingDetail.followupsHeading': 'Opvolgwerk',
   'meetingDetail.loadError': 'Kon nie vergadering laai nie.',
   'meetingDetail.noActions': 'Geen aksie-items is bespeur nie.',
@@ -75,7 +97,9 @@ export const ui: UiTranslations = {
   'meetings.empty.heading': 'Geen vergaderings nog nie',
   'meetings.heading': 'Vergaderings',
   'meetings.loadError': 'Kon nie vergaderings laai nie.',
+  'meetings.recordCta': 'Neem vergadering op',
   'meetings.subheading': 'Elke opgeneemde, opgelaaide en gesinkroniseerde vergadering.',
+  'murmurLayout.closeMenu': 'Maak navigasiekieslys toe',
   'murmurLayout.openMenu': 'Maak navigasiekieslys oop',
   'murmurLayout.primaryNavLabel': 'Primêre navigasie',
   'nav.legal': 'Regs',
@@ -99,7 +123,15 @@ export const ui: UiTranslations = {
   'profile.loading': 'Laai tans…',
   'profile.navLabel': 'Profielafdelings',
   'profile.notifications.assignments': 'Aksie-items wat aan my toegeken is',
+  'profile.notifications.assignmentsHint':
+    "Stel my in kennis wanneer 'n aksiepunt vir jou vasgevang word.",
+  'profile.notifications.mentions': 'Vermeldings in transkripsies',
+  'profile.notifications.mentionsHint': 'E-pos + push wanneer iemand jou @-noem.',
+  'profile.notifications.subheading': 'Kies watter {{appName}}-gebeurtenisse jou moet bereik.',
   'profile.notifications.summaries': 'Weeklikse oorsig',
+  'profile.notifications.summariesHint':
+    "'n Maandag-opsomming van elke vergadering van verlede week.",
+  'profile.preferences.speakerColor': 'Verstek sprekerkleur',
   'profile.preferences.subheading':
     'Verstekwaardes wat van toepassing is op elke opname waarby jy aansluit.',
   'profile.preferences.timezone': 'Tydsone',
@@ -112,16 +144,21 @@ export const ui: UiTranslations = {
   'record.error.unsupported':
     'Jou blaaier ondersteun nie opname nie. Probeer Chrome, Edge of Safari.',
   'record.error.upload': 'Oplaai het misluk. Probeer weer.',
+  'record.errorLabel': 'Iets het verkeerd geloop',
   'record.heading': 'Rekord',
   'record.idleLabel': 'Tik om opname te begin',
   'record.processingLabel': 'Transkribeer met Whisper, opsom met Claude…',
+  'record.recordingLabel': 'Neem op…',
   'record.retryCta': 'Probeer weer',
   'record.subheading':
     'Druk die mikrofoon om te begin. Murmur neem die klank op, transkribeer via Whisper en skryf ’n Claude-aangedrewe opsomming.',
+  'record.titlePlaceholder': 'Vergaderingstitel (opsioneel)',
+  'reset.altPrompt': 'Van gedagte verander?',
   'reset.hint': 'Gebruik ten minste 8 karakters met ’n mengsel van letters en syfers.',
   'reset.missingToken': 'Die terugstelskakel ontbreek of is verval. Versoek ’n nuwe een.',
   'reset.newPassword': 'Nuwe wagwoord',
   'reset.subheading': 'Kies ’n wagwoord wat jy nêrens anders gebruik nie.',
+  'reset.tooShort': 'Wagwoord moet ten minste 8 karakters lank wees.',
   'search.empty': 'Tik om transkripsies te soek.',
   'search.loadError': 'Soektog het misluk. Probeer weer.',
   'search.noResults': 'Geen resultate vir “ {{q}} ".',
@@ -136,7 +173,10 @@ export const ui: UiTranslations = {
   'settings.retention.audio': 'Hou klank vir',
   'settings.retention.heading': 'Behoud',
   'settings.retention.transcript': 'Hou transkripsies vir',
+  'settings.revokeDeviceWarning':
+    'Hierdie toestel se toegang sal binnekort herroep word. Teken dit uit?',
   'settings.saveError': 'Stoor het misluk.',
+  'settings.security.subheading': 'Dateer die wagwoord op waarmee jy aanmeld.',
   'settings.sharing.exportFormat': 'Uitvoerformaat',
   'settings.sharing.heading': 'Deelverstekwaardes',
   'settings.sharing.scope': 'Standaard deelomvang',
@@ -154,6 +194,7 @@ export const ui: UiTranslations = {
   'team.inviteCta': 'Nooi spanmaat uit',
   'team.invitedAs': 'Genooi as {{role}}',
   'team.inviteFailed': 'Kon nie uitnodiging stuur nie.',
+  'team.invitePlaceholder': 'teammate@company.com',
   'team.inviteSubmit': 'Stuur uitnodiging',
   'team.inviteSubtitle': 'Hulle sal ’n e-pos met ’n aansluitskakel ontvang.',
   'team.inviteTitle': 'Nooi ’n spanmaat',

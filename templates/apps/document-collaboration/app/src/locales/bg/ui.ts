@@ -1,7 +1,15 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Имате обратна връзка, открихте бъг или искате {{app}} за вашето студио или екип? Свържете се с нас от настройките на акаунта си — всяко съобщение стига до реален човек от екипа.',
   'about.contactTitle': 'Свържете се с нас',
+  'about.intro':
+    '{{app}} е студио за съвместно писане, където редактори, автори и екипи пишат заедно в реално време. Отворете документ и страницата става споделена — курсорите се движат, коментарите се подреждат в полето, а всяка редакция се пази в историята.',
+  'about.missionBody':
+    'Вярваме, че дългите текстове заслужават спокойно и фокусирано място — такова, изградено около ръкописа, а не около срещата или входящата поща. Нашият редактор, присъствието в реално време и историята на версиите са създадени така, че сътрудниците да работят бързо заедно, без някой да загуби абзац или мисъл.',
+  'about.missionTitle': 'Нашата мисия',
+  'about.subtitle': 'Мислете заедно, пишете завинаги.',
   'about.title': 'За {{app}}',
   'comments.addFailed': 'Не успях да публикувам коментар.',
   'comments.backToDoc': 'Назад към ръкописа',
@@ -11,6 +19,7 @@ export const ui: UiTranslations = {
   'comments.heading': 'Коментари',
   'comments.loading': 'Зареждане на теми…',
   'comments.newPlaceholder': 'Добавете коментар към ръкописа…',
+  'comments.newSubmit': 'Post',
   'comments.reopen': 'Отвори отново',
   'comments.reopenFailed': 'Не можа да се отвори отново.',
   'comments.replyFailed': 'Не успях да публикувам отговор.',
@@ -38,6 +47,7 @@ export const ui: UiTranslations = {
   'dashboard.subtitle': 'Последни чернови, споделени документи и редакциите за днес.',
   'dashboard.viewFeed': 'Емисия →',
   'editor.back': 'Назад към ръкописите',
+  'editor.bodyLabel': 'Тяло на документа',
   'editor.bodyPlaceholder': 'Започнете от мястото, където мига курсорът.',
   'editor.comments': 'Коментари',
   'editor.createFailed': 'Не е възможно да се създаде документът.',
@@ -63,13 +73,19 @@ export const ui: UiTranslations = {
   'forgotPassword.emailPlaceholder': 'writer@studio.com',
   'forgotPassword.sentBody':
     'Ако имате профил на адрес {{email}}, в момента ви изпращаме линк за възстановяване на паролата.',
+  'forgotPassword.sentHeading': 'Проверете електронната си поща',
+  'forgotPassword.submitting': 'Изпраща се\\u2026',
   'forgotPassword.subtitle': 'Ще Ви изпратим по имейл линк за възстановяване на паролата.',
   'landing.copyright': '\\u00a9 {{year}} {{app}}. Създаден с Molecule.',
+  'landing.ctaBody':
+    'Безплатно за самостоятелни автори. Студийни планове за екипи от редактори, писатели на текстове по поръчка и рецензенти.',
   'landing.ctaHeading': 'Отворете страницата. Нека курсорът започне.',
   'landing.ctaPrimary': 'Откриване на студио',
   'landing.eyebrow': 'За автори, редактори и екипи',
   'landing.featuresEyebrow': 'Какво получавате',
   'landing.featuresHeading': 'Студио за изготвяне на дълги текстове.',
+  'landing.featuresSubtitle':
+    '{{appName}} е изградено около ръкописа — не около срещата, не около входящата поща.',
   'landing.getStarted': 'Отворете студиото',
   'landing.heroCta': 'Започнете да пишете',
   'landing.heroSubtitle':
@@ -95,6 +111,7 @@ export const ui: UiTranslations = {
   'notifications.subtitle':
     '{{count}} непрочетени · коментари, споменавания, покани за споделяне и заявки за предложения.',
   'presenceAvatars.label': '{{count}} сътрудници',
+  'privacy.intro': 'Как събираме, използваме и защитаваме вашата информация.',
   'privacy.title': 'Политика за поверителност',
   'profile.about.description': 'Кратка биография за публичния ви профил и страниците с автори.',
   'profile.eyebrow': 'Идентичност на студиото',
@@ -107,7 +124,9 @@ export const ui: UiTranslations = {
   'profile.presence.title': 'Присъствие',
   'profile.pronouns': 'Местоимения',
   'profile.publicToggle': 'Покажи профила на съотборниците',
+  'profile.role': 'Роля / длъжност',
   'profile.subtitle': 'Как ви възприемат вашите колеги.',
+  'quillonAuthBrandPanel.attribution': 'Gloria Steinem',
   'quillonAuthBrandPanel.presence': '{{count}} активни автори в студиото',
   'quillonAuthBrandPanel.quote':
     '„Писането е единственото нещо, при което, когато го правя, не ми се струва, че трябва да правя нещо друго.“',
@@ -115,6 +134,7 @@ export const ui: UiTranslations = {
   'quillonDocumentCard.open': 'Отвори →',
   'quillonKpiCard.trend': 'Последни тенденции',
   'quillonLayout.menu': 'Меню',
+  'quillonLayout.mobileNavLabel': 'Мобилна навигация',
   'quillonLayout.primaryNavLabel': 'Основна навигация',
   'quillonStudioHero.collab': 'Сътрудници',
   'quillonStudioHero.docs': 'Документи, с които е имало контакт',
@@ -124,7 +144,9 @@ export const ui: UiTranslations = {
     'Вземете ръкописа, оставете коментар, преместете един абзац по-надолу.',
   'quillonStudioHero.words': 'Думи днес',
   'resetPassword.confirmPlaceholder': 'Въведете отново новата парола',
+  'resetPassword.passwordLabel': 'Нова парола',
   'resetPassword.passwordPlaceholder': 'Въведете нова парола',
+  'resetPassword.submitting': 'Нулиране…',
   'resetPassword.subtitle': 'Изберете силна парола — с дължина поне 12 символа.',
   'settings.account.description': 'Как да влезете в системата.',
   'settings.billing.canceled': 'Абонаментът е прекратен.',
@@ -133,7 +155,9 @@ export const ui: UiTranslations = {
   'settings.billing.unconfigured': 'Не е конфигурирано',
   'settings.billing.updated': 'Планът е актуализиран.',
   'settings.editor.description': 'Как се държи платното, докато пишете.',
+  'settings.editor.title': 'Предпочитания на редактора',
   'settings.eyebrow': 'Настройки на студиото',
+  'settings.language.title': 'Език',
   'settings.notifications.${n.key}.description': 'Език',
   'settings.notifications.description': 'Изберете какво да получавате в пощенската си кутия.',
   'settings.subtitle':
@@ -143,6 +167,7 @@ export const ui: UiTranslations = {
   'shared.heading': 'Споделиха го с мен',
   'shared.loadFailed': 'Не е възможно да се заредят споделените документи.',
   'shared.subtitle': 'Ръкописи, доклади и бележки от останалата част на студиото.',
+  'signup.brandAttribution': 'Anaïs Park — редактор, The Quarterly',
   'signup.brandQuote':
     '„Първият ти ръкопис е най-труден. Quillon помага да не се чувстваш толкова самотен.“',
   'signup.emailPlaceholder': 'writer@studio.com',
@@ -150,6 +175,7 @@ export const ui: UiTranslations = {
   'signup.firstNamePlaceholder': 'Анаис',
   'signup.heading': 'Създайте своя профил в Quillon',
   'signup.lastNamePlaceholder': 'Парк',
+  'signup.submitting': 'Отваряне на вашето студио\\u2026',
   'signup.subtitle':
     'Тихо работно място, приятни колеги и редактор за дълги текстове, който не ви пречи.',
   'templates.blank.subtitle': 'Чиста страница. Курсорът е на мястото си.',
@@ -162,11 +188,13 @@ export const ui: UiTranslations = {
   'templates.subtitle': 'Започнете с добре обмислена структура. Персонализирайте без ограничения.',
   'templates.useFailed': 'Не е възможно да се създаде документ въз основа на този шаблон.',
   'templates.useTemplate': 'Използвайте този шаблон',
+  'terms.intro': 'Условията, при които можете да използвате тази услуга.',
   'terms.title': 'Условия за ползване',
   'time.daysAgo': '{{days}}d ago',
   'time.hoursAgo': '{{hours}}h ago',
   'time.justNow': 'току-що',
   'trash.confirmDelete': 'Потвърди изтриването',
+  'trash.confirmEmpty': 'Потвърдете — изтриване на всичко',
   'trash.deleteFailed': 'Не можа да се изтрие.',
   'trash.deleteForever': 'Изтрий завинаги',
   'trash.empty': 'Няма какво да се възстанови.',
@@ -182,7 +210,9 @@ export const ui: UiTranslations = {
   'versionHistory.empty':
     'Все още няма редакции — запазете документа, за да започнете историята му.',
   'versionHistory.heading': 'Хронология на версиите',
+  'versionHistory.latest': 'Последни',
   'versionHistory.loadFailed': 'Не можа да се зареди историята.',
+  'versionHistory.noContent': 'Няма записано съдържание за тази редакция.',
   'versionHistory.previewing': 'Преглед',
   'versionHistory.restore': 'Възстанови тази версия',
   'versionHistory.restoreFailed': 'Възстановяването се провали.',

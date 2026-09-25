@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'प्रश्न, प्रतिक्रिया, वा सुविधा अनुरोध? सेटिङ → सूचनाबाट {{app}} टोलीलाई सम्पर्क गर्नुहोस्, वा कुनै पनि बेला हामीलाई लेख्नुहोस् — हरेक सन्देश वास्तविक मानिससम्म पुग्छ।',
+  'about.contactTitle': 'हामीलाई सम्पर्क गर्नुहोस्',
   'about.eyebrow': 'बारेमा',
+  'about.featureCapture':
+    'फोटो अपलोडसहित रसिद क्याप्चर, जसले तस्बिरहरू सही खर्चमा, लाइन-दर-लाइन जोड्छ।',
+  'about.featureExport':
+    'हरेक रिपोर्ट, खर्च, र स्वीकृति स्थितिको अडिट गर्न मिल्ने CSV निर्यात — तपाईंको लेखा टोलीका लागि तयार।',
+  'about.featurePolicy':
+    'नीति गार्डरेल — दैनिक सीमा, प्रति-श्रेणी सीमा, र रसिद अनिवार्य थ्रेसहोल्डहरू पेस गर्ने बेलामै लागू।',
+  'about.featureWorkflow':
+    'समीक्षक टिप्पणी, नीति-उल्लंघन झन्डा, र एक-ट्याप प्रतिपूर्ति चिन्ह लगाउने सुविधासहितको दुई-स्तरीय स्वीकृति कार्यप्रवाह।',
+  'about.intro':
+    '{{app}} वित्त टोलीहरू र उनीहरूले प्रतिपूर्ति गर्ने व्यक्तिहरूका लागि खर्च व्यवस्थापन प्लेटफर्म हो। रसिद क्याप्चर गर्नुहोस्, खर्च दर्ता गर्नुहोस्, रिपोर्ट स्वीकृतिका लागि पठाउनुहोस्, र हरेक प्रतिपूर्ति ट्र्याक गर्नुहोस् — स्प्रेडसिटको झन्झटबिना।',
+  'about.missionBody':
+    'प्रतिपूर्ति छिटो, न्यायपूर्ण, र अडिट गर्न मिल्ने हुनुपर्छ। हामीले {{app}} बनायौं ताकि पेस गर्नेहरूले तगारोबिना पैसा फिर्ता पाऊन्, स्वीकृति दिनेहरूले केमा हस्ताक्षर गर्दैछन् ठ्याक्कै देखून्, र वित्तलाई हरेक डलरको सफा अभिलेख होस् — नीति जाँचसहित।',
+  'about.missionTitle': 'हाम्रो मिशन',
   'approvals.approve': 'Approve',
   'approvals.approving': 'अनुमोदन गर्दै...',
   'approvals.confirmReject': 'अस्वीकार पुष्टि गर्नुहोस्',
+  'approvals.empty': 'तपाईं सबै अपडेट भइसक्नुभयो — कुनै रिपोर्ट प्रतीक्षामा छैन।',
   'approvals.eyebrow': 'प्रबन्धक क्यु',
   'approvals.kpi.flaggedLabel': 'नीति फ्ल्याग गरियो',
+  'approvals.kpi.queueLabel': 'समीक्षाको प्रतीक्षामा',
   'approvals.kpi.totalLabel': 'विचाराधीन मान',
   'approvals.lineCount': '{{count}} खर्च',
   'approvals.queueFallback': 'लाइभ लाइन उपलब्ध छैन — क्युरेट गरिएको डेमो डेटा देखाउँदै।',
   'approvals.reject': 'Reject',
   'approvals.rejecting': 'अस्वीकार गर्दै...',
+  'approvals.rejectPlaceholder': 'कारण (आवश्यक)',
   'approvals.rejectPrompt': 'तपाईं यो रिपोर्ट किन अस्वीकार गर्दै हुनुहुन्छ?',
   'approvals.review': 'समीक्षा गर्नुहोस्',
   'approvals.title': 'विचाराधीन अनुमोदनहरू',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+१८%',
   'dashboard.kpi.approvedLabel': 'स्वीकृत · MTD',
   'dashboard.kpi.pendingDelta': 'यस हप्ता +२',
+  'dashboard.kpi.pendingLabel': 'समीक्षा विचाराधीन छ',
   'dashboard.kpi.receiptsDelta': 'कारबाही आवश्यक छ',
   'dashboard.kpi.receiptsLabel': 'रसिदहरूको प्रतीक्षा गर्दै',
   'dashboard.kpi.reimbursedDelta': '+$२.४ हजार',
   'dashboard.kpi.reimbursedLabel': 'प्रतिपूर्ति · MTD',
   'dashboard.newReport': 'नयाँ रिपोर्ट',
+  'dashboard.recent.empty': 'अझै कुनै रिपोर्ट छैन — माथिबाट आफ्नो पहिलो सुरु गर्नुहोस्।',
   'dashboard.recent.title': 'हालसालैका रिपोर्टहरू',
   'dashboard.recent.viewAll': 'सबै रिपोर्टहरू हेर्नुहोस्',
   'dashboard.summaryFallback': 'लाइभ सारांश उपलब्ध छैन — क्युरेट गरिएको डेमो डेटा देखाउँदै।',
@@ -38,11 +59,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'रसिद र प्रतिपूर्ति योग्य वस्तुहरू',
   'expenses.listFallback': 'लाइभ सूची उपलब्ध छैन — क्युरेट गरिएको डेमो डेटा देखाउँदै।',
   'expenses.searchPlaceholder': 'व्यापारी वा कोटी खोज्नुहोस्...',
+  'expenses.subtotal': '{{count}} खर्च · उप-जोड',
   'expenses.title': 'खर्चहरू',
+  'forgotPassword.continue': 'मसँग कोड छ · जारी राख्नुहोस्',
+  'forgotPassword.subheading':
+    'आफ्नो कार्य इमेल हाल्नुहोस् र नयाँ पासवर्ड सेट गर्ने लिंक हामी पठाउँछौं।',
   'forgotPassword.successBody':
     'यदि कुनै खाता अवस्थित छ भने {{email}} तपाईंले अर्को केही मिनेटमा रिसेट लिङ्क प्राप्त गर्नुहुनेछ।',
+  'landing.copyright': '© {{year}} {{app}}। Molecule.dev सँग बनाइएको।',
+  'landing.ctaBody':
+    'हरेक महिना पहिलो २५ खर्चका लागि निःशुल्क। क्रेडिट कार्ड चाहिँदैन, कार्यान्वयन कल चाहिँदैन।',
   'landing.ctaHeading': 'तपाईंको टोलीले तिर्नुपर्ने रकम फिर्ता गर्न तयार हुनुहुन्छ?',
   'landing.eyebrow': 'वित्त टोलीहरूको लागि खर्च रिपोर्टहरू',
+  'landing.featuresHeading': 'प्रतिपूर्ति, एउटै शान्त कार्यक्षेत्रमा',
   'landing.heroSubtitle':
     'स्प्रेडसिट समारोह बिना नै व्यावसायिक खर्चहरू बुझाउनुहोस्, अनुमोदन गर्नुहोस् र प्रतिपूर्ति गर्नुहोस्। रसिद OCR, नीति जाँचहरू, र पारदर्शी स्वीकृति समयरेखा - सबै एउटै शान्त कार्यस्थानमा।',
   'landing.heroTitle': 'हरेक रसिद, पुनःप्राप्त।',
@@ -59,10 +88,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'नोटहरू',
   'newExpense.descriptionPlaceholder':
     'यो खर्च किन व्यवसायसँग सम्बन्धित थियो (तपाईंको अनुमोदनकर्ताले देख्न सक्ने)।',
+  'newExpense.eyebrow': 'प्रतिपूर्ति योग्य वस्तु',
   'newExpense.merchant': 'व्यापारी',
   'newExpense.merchantPlaceholder': 'होटल एडलोन केम्पिन्स्की',
   'newExpense.policyHint':
     'सम्झना: प्रति दिन $८० भन्दा बढीको खाना वा $२५० भन्दा बढीको कुनै पनि वस्तुको लागि औचित्य नोट आवश्यक पर्दछ।',
+  'newExpense.receipt': 'रसिद',
+  'newExpense.receiptHint': 'JPG, PNG, वा PDF · अधिकतम १० MB',
   'newExpense.receiptOcrHint': 'OCR ले क्षेत्रहरू पहिले नै भर्छ',
   'newExpense.receiptPrompt': 'यहाँ फोटो वा PDF छोड्नुहोस्, वा ब्राउज गर्न क्लिक गर्नुहोस्',
   'newExpense.receiptUploadFailed':
@@ -73,16 +105,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'रसिद लिनुहोस् वा अपलोड गर्नुहोस् र Recoup ले व्यापारी, मिति र कुल रकम पहिले नै भर्नेछ। बचत गर्नु अघि तलका सबै कुरा पुष्टि गर्नुहोस्।',
   'newExpense.title': 'खर्च थप्नुहोस्',
+  'newReport.approverHint':
+    'तपाईंले यो रिपोर्ट समीक्षाका लागि पेस गर्नुभएपछि उनीहरूले इमेल प्राप्त गर्नेछन्।',
   'newReport.approverLabel': 'अनुमोदनकर्ताको इमेल (वैकल्पिक)',
   'newReport.approverPlaceholder': 'manager@yourcompany.com मा जानुहोस्',
   'newReport.availableExpenses': 'उपलब्ध खर्चहरू',
   'newReport.createFailed': 'रिपोर्ट सिर्जना गर्न सकिएन। कृपया फेरि प्रयास गर्नुहोस्।',
   'newReport.draftsFallback': 'प्रत्यक्ष खर्च सूची उपलब्ध छैन — क्युरेट गरिएको डेमो डेटा देखाउँदै।',
+  'newReport.eyebrow': 'खर्चहरू समूहबद्ध गर्नुहोस् · स्वीकृतिका लागि पेस गर्नुहोस्',
   'newReport.includedCount': '{{count}} समावेश गरिएको',
   'newReport.purposeLabel': 'व्यावसायिक उद्देश्य',
   'newReport.purposePlaceholder':
     'यी खर्चहरू सम्बन्धित यात्रा वा परियोजनाको वर्णन गर्नुहोस् (तपाईंको अनुमोदनकर्ता र वित्तले देख्न सक्ने)।',
   'newReport.saveDraft': 'मस्यौदाको रूपमा बचत गर्नुहोस्',
+  'newReport.saveDraftFailed': 'मस्यौदा सुरक्षित गर्न सकिएन। कृपया फेरि प्रयास गर्नुहोस्।',
   'newReport.submit': 'अनुमोदनको लागि पेश गर्नुहोस्',
   'newReport.submitFailed': 'रिपोर्ट पेश गर्न सकिएन। कृपया फेरि प्रयास गर्नुहोस्।',
   'newReport.summary': 'रिपोर्टको सारांश',
@@ -95,16 +131,23 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'कार्यक्षेत्र गतिविधि',
   'notifications.feedFallback': 'लाइभ फिड उपलब्ध छैन — क्युरेट गरिएको डेमो डेटा देखाउँदै।',
   'notifications.openReport': 'रिपोर्ट खोल्नुहोस् ›',
+  'pricing.approvalsLabel': 'स्वीकृतिहरू',
   'pricing.expensesLabel': 'खर्च',
   'pricing.heading': 'अनुमोदनहरू',
   'pricing.policiesLabel': 'नीतिहरू',
   'pricing.receiptsLabel': 'रसिदहरू',
   'recoveredAmountHeroCard.label': 'क्षतिपूर्ति फिर्ता भयो · YTD',
+  'recoveredAmountHeroCard.pending':
+    'सबै स्वीकृति दिनेहरूमा हाल समीक्षाको प्रतीक्षामा {{count}} रिपोर्ट(हरू)।',
+  'reports.approvalFlow': 'स्वीकृति प्रवाह',
   'reports.backToList': 'रिपोर्टहरूमा फर्कनुहोस्',
   'reports.detailFallback': 'लाइभ रिपोर्ट उपलब्ध छैन — क्युरेट गरिएको डेमो डेटा देखाउँदै।',
   'reports.lineItems': 'लाइन वस्तुहरू',
   'reports.lineItemsCount': '{{count}} खर्च',
+  'reports.lineItemsEmpty': 'यो रिपोर्टमा अझै कुनै खर्च छैन।',
+  'reports.openLibrary': 'रिपोर्ट लाइब्रेरी खोल्नुहोस्',
   'reports.policyTitle': 'नीति झण्डा',
+  'reports.selectPrompt': 'विवरण हेर्न लाइब्रेरीबाट एउटा रिपोर्ट चयन गर्नुहोस्।',
   'reports.summary.lineCount': 'लाइन वस्तुहरू',
   'reports.summary.reimbursable': 'प्रतिपूर्तियोग्य',
   'reports.summary.total': 'रिपोर्ट गरिएको कुल',
@@ -113,6 +156,7 @@ export const ui: UiTranslations = {
   'reportsList.lineItems': '{{count}} खर्च',
   'reportsList.listFallback': 'लाइभ सूची उपलब्ध छैन — क्युरेट गरिएको डेमो डेटा देखाउँदै।',
   'reportsList.newReport': 'नयाँ रिपोर्ट',
+  'reportsList.submittedOn': '{{date}} मा पेश गरिएको',
   'reportsList.title': 'रिपोर्ट लाइब्रेरी',
   'resetPassword.hidePassword': 'पासवर्ड लुकाउनुहोस्',
   'resetPassword.newPasswordLabel': 'नयाँ पासवर्ड',
@@ -138,6 +182,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'सुरक्षित गरिएको ✓',
   'settings.profileSaveFailed': 'प्रोफाइल अद्यावधिक गर्न सकिएन। कृपया फेरि प्रयास गर्नुहोस्।',
   'signup.heading': 'आफ्नो Recoup खाता सिर्जना गर्नुहोस्',
+  'signup.hidePassword': 'पासवर्ड लुकाउनुहोस्',
   'signup.namePlaceholder': 'माया ओकाफोर',
   'signup.showPassword': 'पासवर्ड देखाउनुहोस्',
   'signup.subheading': 'प्रत्येक महिना २५ खर्चको लागि नि:शुल्क — क्रेडिट कार्ड बिना।',

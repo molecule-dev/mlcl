@@ -5,7 +5,13 @@ export const ui: UiTranslations = {
     'Van visszajelzésed, funkciókérésed, vagy hibát találtál? A fiókmenüben található ügyfélszolgálati link segítségével lépj kapcsolatba az {{app}} csapattal — minden üzenetet valódi ember olvas el.',
   'about.contactTitle': 'Lépj velünk kapcsolatba',
   'about.eyebrow': 'Névjegy',
+  'about.intro':
+    'A {{app}} egy hangalapú AI-asszisztens. Beszélj természetesen, nézd, ahogy a szavaid szöveggé alakulnak, és kapj hangos válaszokat — így hangosan gondolkodhatsz ahelyett, hogy mindent begépelnél.',
+  'about.missionBody':
+    'A gépelés szűk keresztmetszet az ötleteid és azok megvalósítása között. A {{app}} azért létezik, hogy megszüntesse ezt: egy kéz nélküli, beszélgetős módja az ötletelésnek, a vázlatírásnak és a döntéshozatalnak — csúcskategóriás beszéd- és érvelési modellekkel, miközben az adataid privátak maradnak.',
+  'about.missionTitle': 'Küldetésünk',
   'agentDetail.back': 'Összes ügynök',
+  'agentDetail.behavior': 'Viselkedés',
   'agentDetail.capabilities': 'Képességek',
   'agentDetail.delete': 'Persona törlése',
   'agentDetail.deleteConfirm': 'Törli ezt a personát? Ez nem vonható vissza.',
@@ -38,15 +44,20 @@ export const ui: UiTranslations = {
   'agents.subtitle':
     'Minden ügynöknek saját tónusa, tempója és szakterülete van. Váltson bármikor a beszélgetés közben.',
   'agents.title': 'Válasszon hangot a gondolkodáshoz.',
+  'authShell.tagline': '{{tagline}} — {{brand}}',
+  'billing.cardNoneBody':
+    'Adj hozzá egyet, amikor előfizetést váltasz — a tárhelyet a Stripe kezeli.',
   'billing.cardNoneTitle': 'Nincs kártya a fájlban',
   'billing.choose': 'Váltás',
   'billing.currentPlan': 'Az Ön csomagja',
   'billing.currentPlanReadout': '{{plan}} csomag',
   'billing.eyebrow': 'Csomag és használat',
   'billing.fetchError': 'A számlázási adatok betöltése nem sikerült.',
+  'billing.loadingStatus': 'Betöltési állapot…',
   'billing.noTiers': 'Jelenleg nem érhetők el csomagok.',
   'billing.plansTitle': 'Csomagok',
   'billing.switching': 'Váltás…',
+  'billing.updateAcknowledged': 'Frissítés visszaigazolva: {{time}}',
   'billing.updateError': 'A frissítés indítása nem sikerült.',
   'billing.usageHeading': 'Hanghasználat ebben a ciklusban',
   'chatBubble.source.text': 'szöveg',
@@ -65,11 +76,13 @@ export const ui: UiTranslations = {
   'conversation.title': 'Beszélje át',
   'conversation.toggleMic': 'Mikrofon be-/kikapcsolása',
   'conversation.toggleVoicePlayback': 'Hanglejátszás',
+  'conversation.transcribeError': 'Nem sikerült átírni a hangot.',
   'conversation.transcriptionEmpty': 'Semmit sem hallottunk. Próbálja újra?',
   'conversation.voiceOff': 'Hang kikapcsolva',
   'conversation.voiceOn': 'Hang bekapcsolva',
   'conversationDetail.assistant': 'Asszisztens',
   'conversationDetail.back': 'Vissza az előzményekhez',
+  'conversationDetail.elapsed': '00:00 / {{duration}}',
   'conversationDetail.empty': 'Ebben a beszélgetésben még nincs üzenet.',
   'conversationDetail.eyebrow': 'Átirat',
   'conversationDetail.fetchError': 'Az átirat betöltése nem sikerült.',
@@ -80,6 +93,7 @@ export const ui: UiTranslations = {
   'conversationDetail.setSpeed': 'Lejátszási sebesség beállítása: {{speed}}',
   'conversationDetail.system': 'Rendszer',
   'conversationDetail.untitled': 'Névtelen beszélgetés',
+  'conversationListItem.messageCount': '{{count}} üzenet',
   'forgotPassword.subheading': 'Adja meg e-mail-címét, és küldünk egy visszaállítási linket.',
   'forgotPassword.successBody':
     'Épp most küldtük el a visszaállítási linket a következő címre: {{email}}.',
@@ -96,6 +110,9 @@ export const ui: UiTranslations = {
   'history.voiceOnly': 'Csak hang',
   'landing.copyright': '© {{year}} {{brand}}. Gondolkodjon hangosan.',
   'landing.demoMessage1': 'Szia Sarah – készen állsz az új kampány ötletelésére?',
+  'landing.demoMessage2': 'Igen — összpontosítsunk a szerves növekedési stratégiákra a Q3-ban.',
+  'landing.demoMessage3':
+    'Remek. Egy közösségvezérelt kezdeményezéssel kezdeném. Felvázoljam a szakaszokat?',
   'landing.eyebrow': 'Hangnativ AI',
   'landing.featuresSubtitle':
     'Természetes párbeszédre tervezve – alkalmazkodik a sebességéhez, tónusához és kontextusához.',
@@ -124,10 +141,12 @@ export const ui: UiTranslations = {
   'parlanceLayout.openMenu': 'Navigációs menü megnyitása',
   'parlanceLayout.primaryNavLabel': 'Elsődleges navigáció',
   'pricing.conversations': '{{count}} beszélgetés',
+  'pricing.cta.start': 'Válaszd ezt: {{tierName}}',
   'pricing.cta.startFree': 'Ingyenes kezdés',
   'pricing.cta.upgrade': 'Váltás: {{tierName}}',
   'pricing.empty': 'Jelenleg nem érhetők el csomagok.',
   'pricing.error': 'Az árak betöltése nem sikerült. Próbálja újra később.',
+  'pricing.speech': '{{count}} beszéd',
   'pricing.subtitle':
     'Válasszon egy olyan tervet, amely illik ahhoz, hogy milyen gyakran beszél az asszisztensével.',
   'privacy.collection.account': 'A fiók e-mail-címe és megjelenített neve',
@@ -136,6 +155,8 @@ export const ui: UiTranslations = {
   'privacy.deletion.body':
     'A vonatkozó oldalon bármikor törölhet egy beszélgetést, personát vagy hangklipet. A fiók törlése a Beállításokban eltávolít minden, a munkaterületéhez kapcsolódó beszélgetést, átiratot és persona-sort.',
   'privacy.eyebrow': 'Jogi',
+  'privacy.intro':
+    'A {{app}} csak addig tárolja az általad létrehozott beszélgetéseket és hangklipeket, ameddig az asszisztensélmény nyújtásához szükséges. Soha nem adjuk el az adataidat, és soha nem használjuk fel az ügyfelek hanganyagát vagy átiratait külső AI-modellek tanítására.',
   'privacy.lastUpdated': 'Utolsó frissítés: 2026-05-01',
   'privacy.processors.body':
     'Amikor az asszisztenssel beszél, a hangját az OpenAI Whispernek küldjük átiratra, az átiratot az Anthropicnak (Claude) a válaszért, a választ pedig az ElevenLabsnak vagy az OpenAI-nak hangszintézisre. Minden szolgáltató saját adatfeldolgozási feltételei szerint köteles eljárni; semmi sem kerül megőrzésre újratanítás céljából.',
@@ -156,13 +177,19 @@ export const ui: UiTranslations = {
   'resetPassword.newPassword': 'Új jelszó',
   'resetPassword.subheading': 'Válasszon új jelszót a folytatáshoz.',
   'search.agentPreview': 'Nincs leírás',
+  'search.emptyBody': 'Próbálj más kulcsszót, vagy mondd ki hangosan.',
   'search.emptyTitle': 'Nincs találat',
   'search.eyebrow': 'Parancspaletta',
   'search.fetchError': 'A keresési index betöltése nem sikerült.',
+  'search.static.billing.preview': 'Csomagok, fizetési mód és számlák',
+  'search.static.billing.title': 'Számlázás',
   'search.static.profile.preview': 'Megjelenítési név, felhasználónév, bemutatkozás',
+  'search.static.profile.title': 'Profil',
+  'search.static.voice.preview': 'Alapértelmezett hang- és nyelvi beállítások',
   'search.static.voice.title': 'Hang',
   'search.title': 'Keresés a Vox-ban',
   'search.transcriptPreview': 'Átirat megnyitása',
+  'settings.appearance.description': 'Váltás a világos és sötét mód között.',
   'settings.appearance.title': 'Megjelenés',
   'settings.loadError': 'A beállítások betöltése nem sikerült.',
   'settings.privacy.${row.key}.label': 'Értesítések',
@@ -179,6 +206,8 @@ export const ui: UiTranslations = {
   'terms.changes.body':
     'Értesítjük az alkalmazásban, ha ezek a feltételek lényegesen megváltoznak; a folytatólagos használat az értesítés után az elfogadást jelenti.',
   'terms.eyebrow': 'Jogi',
+  'terms.intro':
+    'Ezek a feltételek szabályozzák a {{app}} használatát. A fiók létrehozásával elfogadod őket.',
   'terms.lastUpdated': 'Utolsó frissítés: 2026-05-01',
   'terms.title': 'Szolgáltatási feltételek',
   'terms.usage.body':

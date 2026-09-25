@@ -1,17 +1,36 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'Întrebări, feedback sau o solicitare de funcționalitate? Contactează echipa {{app}} din Setări → Notificări sau scrie-ne oricând — fiecare mesaj ajunge la o persoană reală.',
+  'about.contactTitle': 'Contactează-ne',
   'about.eyebrow': 'Despre',
+  'about.featureCapture':
+    'Capturarea chitanțelor cu încărcare de fotografii care atașează imaginile la cheltuiala corectă, rând cu rând.',
+  'about.featureExport':
+    'Exporturi CSV auditabile pentru fiecare raport, cheltuială și stare de aprobare — gata pentru echipa ta de contabilitate.',
+  'about.featurePolicy':
+    'Reguli de politică — plafoane zilnice, limite pe categorii și praguri de chitanță obligatorie aplicate la momentul trimiterii.',
+  'about.featureWorkflow':
+    'Un flux de aprobare în două etape, cu note ale verificatorului, semnalări de încălcare a politicii și marcarea rambursării cu o singură atingere.',
+  'about.intro':
+    '{{app}} este o platformă de gestionare a cheltuielilor pentru echipele financiare și persoanele cărora le rambursează cheltuieli. Capturează o chitanță, înregistrează o cheltuială, trimite un raport spre aprobare și urmărește fiecare rambursare — fără formalitățile din foi de calcul.',
+  'about.missionBody':
+    'Rambursarea ar trebui să fie rapidă, corectă și auditabilă. Am creat {{app}} astfel încât solicitanții să fie rambursați fără insistențe, aprobatorii să vadă exact ce aprobă, iar finanțele să aibă o urmă clară pentru fiecare leu — cu verificări de politică incluse.',
+  'about.missionTitle': 'Misiunea noastră',
   'approvals.approve': 'Aprobați',
   'approvals.approving': 'Se aprobă…',
   'approvals.confirmReject': 'Confirmați respingerea',
+  'approvals.empty': 'Ești la zi — niciun raport în așteptare.',
   'approvals.eyebrow': 'Coadă de manager',
   'approvals.kpi.flaggedLabel': 'Politică semnalată',
+  'approvals.kpi.queueLabel': 'În așteptarea verificării',
   'approvals.kpi.totalLabel': 'Valoare în așteptare',
   'approvals.lineCount': '{{count}} cheltuieli',
   'approvals.queueFallback': 'Coada live nu este disponibilă — se afișează date demo selectate.',
   'approvals.reject': 'Respingeți',
   'approvals.rejecting': 'Respingând…',
+  'approvals.rejectPlaceholder': 'Motiv (obligatoriu)',
   'approvals.rejectPrompt': 'De ce respingeți acest raport?',
   'approvals.review': 'Revizuire',
   'approvals.title': 'Aprobări în așteptare',
@@ -24,11 +43,13 @@ export const ui: UiTranslations = {
   'dashboard.kpi.approvedDelta': '+18%',
   'dashboard.kpi.approvedLabel': 'Aprobat · MTD',
   'dashboard.kpi.pendingDelta': '+2 săptămâna aceasta',
+  'dashboard.kpi.pendingLabel': 'În așteptarea revizuirii',
   'dashboard.kpi.receiptsDelta': 'Acțiune necesară',
   'dashboard.kpi.receiptsLabel': 'În așteptarea chitanțelor',
   'dashboard.kpi.reimbursedDelta': '+2,4 mii USD',
   'dashboard.kpi.reimbursedLabel': 'Rambursat · MTD',
   'dashboard.newReport': 'Raport nou',
+  'dashboard.recent.empty': 'Încă nu există rapoarte — începe primul mai sus.',
   'dashboard.recent.title': 'Rapoarte recente',
   'dashboard.recent.viewAll': 'Vedeți toate rapoartele',
   'dashboard.summaryFallback':
@@ -39,11 +60,19 @@ export const ui: UiTranslations = {
   'expenses.eyebrow': 'Chitanțe și articole rambursabile',
   'expenses.listFallback': 'Lista live nu este disponibilă — se afișează date demo selectate.',
   'expenses.searchPlaceholder': 'Căutați comerciant sau categorie…',
+  'expenses.subtotal': '{{count}} cheltuieli · subtotal',
   'expenses.title': 'Cheltuieli',
+  'forgotPassword.continue': 'Am un cod · Continuă',
+  'forgotPassword.subheading':
+    'Introdu emailul de serviciu și îți trimitem un link pentru a seta o parolă nouă.',
   'forgotPassword.successBody':
     'Dacă există un cont pentru {{email}} Vei primi un link de resetare în următoarele câteva minute.',
+  'landing.copyright': '© {{year}} {{app}}. Construit cu Molecule.dev.',
+  'landing.ctaBody':
+    'Gratuit pentru primele 25 de cheltuieli din fiecare lună. Fără card de credit, fără apel de implementare.',
   'landing.ctaHeading': 'Ești gata să recuperezi ceea ce i se cuvine echipei tale?',
   'landing.eyebrow': 'Rapoarte de cheltuieli pentru echipele financiare',
+  'landing.featuresHeading': 'Rambursare, într-un singur spațiu de lucru calm',
   'landing.heroSubtitle':
     'Trimiteți, aprobați și rambursați cheltuielile de afaceri fără ceremonia foilor de calcul. OCR pentru chitanțe, verificări ale politicilor și un calendar transparent de aprobare - toate într-un singur spațiu de lucru calm.',
   'landing.heroTitle': 'Fiecare chitanță, recuperată.',
@@ -61,10 +90,13 @@ export const ui: UiTranslations = {
   'newExpense.description': 'Note',
   'newExpense.descriptionPlaceholder':
     'De ce această cheltuială a fost legată de afaceri (vizibil pentru persoana care a aprobat-o).',
+  'newExpense.eyebrow': 'Element rambursabil',
   'newExpense.merchant': 'Comerciant',
   'newExpense.merchantPlaceholder': 'Hotelul Adlon Kempinski',
   'newExpense.policyHint':
     'Atenție: mesele de peste 80 USD/zi sau orice articol de peste 250 USD necesită o justificare.',
+  'newExpense.receipt': 'Chitanță',
+  'newExpense.receiptHint': 'JPG, PNG sau PDF · max. 10 MB',
   'newExpense.receiptOcrHint': 'Câmpuri precompletate OCR',
   'newExpense.receiptPrompt':
     'Plasați o fotografie sau un PDF aici sau faceți clic pentru a răsfoi',
@@ -76,17 +108,20 @@ export const ui: UiTranslations = {
   'newExpense.subtitle':
     'Fotografiați sau încărcați o chitanță, iar Recoup va precompleta comerciantul, data și totalul. Confirmați tot ce se află mai jos înainte de a salva.',
   'newExpense.title': 'Adăugați o cheltuială',
+  'newReport.approverHint': 'Vor primi un e-mail când trimiți acest raport spre verificare.',
   'newReport.approverLabel': 'Adresa de e-mail a aprobatorului (opțional)',
   'newReport.approverPlaceholder': 'manager@companiatavoastră.com',
   'newReport.availableExpenses': 'Cheltuieli disponibile',
   'newReport.createFailed': 'Nu s-a putut crea raportul. Vă rugăm să încercați din nou.',
   'newReport.draftsFallback':
     'Lista de cheltuieli live nu este disponibilă — se afișează date demo selectate.',
+  'newReport.eyebrow': 'Cheltuieli de grup · trimite spre aprobare',
   'newReport.includedCount': '{{count}} inclus',
   'newReport.purposeLabel': 'Scopul afacerii',
   'newReport.purposePlaceholder':
     'Descrieți călătoria sau proiectul la care se referă aceste cheltuieli (vizibil pentru persoana care aprobă și pentru cea financiară).',
   'newReport.saveDraft': 'Salvare ca ciornă',
+  'newReport.saveDraftFailed': 'Draftul nu a putut fi salvat. Încearcă din nou.',
   'newReport.submit': 'Trimiteți spre aprobare',
   'newReport.submitFailed': 'Nu s-a putut trimite raportul. Vă rugăm să încercați din nou.',
   'newReport.summary': 'Rezumatul raportului',
@@ -99,16 +134,23 @@ export const ui: UiTranslations = {
   'notifications.eyebrow': 'Activitatea spațiului de lucru',
   'notifications.feedFallback': 'Fluxul live nu este disponibil — se afișează date demo selectate.',
   'notifications.openReport': 'Deschide raportul ›',
+  'pricing.approvalsLabel': 'aprobări',
   'pricing.expensesLabel': 'cheltuieli',
   'pricing.heading': 'aprobări',
   'pricing.policiesLabel': 'politici',
   'pricing.receiptsLabel': 'chitanțe',
   'recoveredAmountHeroCard.label': 'Rambursare recuperată · YTD',
+  'recoveredAmountHeroCard.pending':
+    '{{count}} raport(oare) în așteptarea verificării la toți aprobatorii.',
+  'reports.approvalFlow': 'Flux de aprobare',
   'reports.backToList': 'Înapoi la rapoarte',
   'reports.detailFallback': 'Raport live indisponibil — se afișează date demo selectate.',
   'reports.lineItems': 'Elemente de linie',
   'reports.lineItemsCount': '{{count}} cheltuieli',
+  'reports.lineItemsEmpty': 'Nu există încă cheltuieli în acest raport.',
+  'reports.openLibrary': 'Deschide biblioteca de rapoarte',
   'reports.policyTitle': 'Indicator de politică',
+  'reports.selectPrompt': 'Selectează un raport din bibliotecă pentru a-i vedea detaliile.',
   'reports.summary.lineCount': 'Elemente de linie',
   'reports.summary.reimbursable': 'Rambursabil',
   'reports.summary.total': 'Total raportat',
@@ -117,6 +159,7 @@ export const ui: UiTranslations = {
   'reportsList.lineItems': '{{count}} cheltuieli',
   'reportsList.listFallback': 'Lista live nu este disponibilă — se afișează date demo selectate.',
   'reportsList.newReport': 'Raport nou',
+  'reportsList.submittedOn': 'Trimis {{date}}',
   'reportsList.title': 'Bibliotecă de rapoarte',
   'resetPassword.hidePassword': 'Ascundeți parola',
   'resetPassword.newPasswordLabel': 'Parolă nouă',
@@ -142,6 +185,7 @@ export const ui: UiTranslations = {
   'settings.profile.saved': 'Salvat ✓',
   'settings.profileSaveFailed': 'Nu s-a putut actualiza profilul. Vă rugăm să încercați din nou.',
   'signup.heading': 'Creați-vă contul Recoup',
+  'signup.hidePassword': 'Ascundeți parola',
   'signup.namePlaceholder': 'Maya Okafor',
   'signup.showPassword': 'Afișați parola',
   'signup.subheading': 'Gratuit pentru 25 de cheltuieli în fiecare lună — fără card de credit.',

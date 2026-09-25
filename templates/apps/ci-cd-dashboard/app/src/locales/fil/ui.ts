@@ -1,8 +1,19 @@
 import type { UiTranslations } from '../types.js'
 
 export const ui: UiTranslations = {
+  'about.contactBody':
+    'May mga tanong, feedback, o gusto ng demo para sa iyong team? I-email kami sa hello@conduit.dev — bawat mensahe ay nakakarating sa isang tunay na tao sa team.',
   'about.contactHeading': 'Makipag-ugnayan',
   'about.eyebrow': 'Tungkol Sa Amin',
+  'about.featuresHeading': 'Ano ang matatanggap ninyo',
+  'about.introBody':
+    'Dinadala ng {{app}} ang continuous delivery na tulad ng GitHub Actions sa isang mabilis na dashboard: mga pipeline, build log, artifact, status badge, at deployment environment para sa lahat ng iyong repository sa isang lugar. Walang paglilipat-lipat ng tab, walang hula kung aling build ang nasira — bawat run, log line, at deploy ay isang click lang ang layo.',
+  'about.introHeading': 'Ano ang {{app}}',
+  'about.missionBody':
+    'Ang pagpapadala ng software ay dapat kalmado at predictable, hindi isang pinagmumulan ng pangamba. Binubuo namin ang mga pipeline, log, at deploy tooling para ang landas mula commit hanggang production ay mabilis, nakikita, at mapagkakatiwalaan — ang unang green build sa loob ng limang minuto, at ang bawat build pagkatapos nito ay kasing linaw.',
+  'about.missionHeading': 'Ang aming misyon',
+  'about.subtitle':
+    'Ang {{app}} ay isang CI/CD dashboard para sa mga team na gustong i-monitor ang mga build, deployment, at environment sa bawat repository — at magpadala nang may katiyakan.',
   'artifacts.empty': 'Wala pang mga artifact.',
   'artifacts.heading': 'Mga Artifact',
   'artifacts.loadError': 'Nabigo ang pag-load ng mga artifact.',
@@ -29,8 +40,11 @@ export const ui: UiTranslations = {
   'environments.eyebrow': '$ conduit env --list',
   'environments.heading': 'Mga Kapaligiran',
   'environments.loadError': 'Nabigo ang pag-load ng mga kapaligiran.',
+  'environments.loading': 'Nilo-load ang mga environment…',
   'environments.subheading': 'Real-time na katayuan ng deployment sa lahat ng target.',
   'forgotPassword.runnerStatus': 'i-reset · ligtas na tunnel',
+  'forgotPassword.success':
+    'Kung may account para sa email na iyon, may reset link na paparating. Tingnan ang iyong inbox.',
   'insights.changeFailureRate': 'Rate ng pagkabigo ng pagbabago',
   'insights.deployFrequency': 'Mga deploy / araw',
   'insights.empty': 'Hindi pa sapat ang data.',
@@ -39,13 +53,18 @@ export const ui: UiTranslations = {
   'insights.loadError': 'Nabigo ang pag-load ng mga insight.',
   'insights.meanP95': 'mean {{mean}} · p95 {{p95}}',
   'insights.mttr': 'MTTR',
+  'insights.slowestStepsHeading': 'Pinakamabagal na hakbang ng pipeline',
   'insights.successRateHeading': 'Rate ng tagumpay ng pipeline (huling 14 na araw)',
   'landing.choosePlan': 'Pumili ng plano',
+  'landing.copyright': '© {{year}} {{app}}. Magpadala nang may katiyakan.',
   'landing.ctaBody':
     'Walang credit card. Hindi kailangan ng platform engineer. Gawin itong berde ang unang pipeline sa loob ng limang minuto.',
   'landing.ctaHeading': 'Mag-ship nang may katiyakan.',
   'landing.featuresEyebrow': '// platform features',
   'landing.featuresHeading': 'Ginawa ng mga shipper, para sa mga shipper',
+  'landing.heroSubtitle':
+    'Mga pipeline na natatapos sa ilang segundo. Mga log na mababasa mo. Mga deploy na mapagkakatiwalaan mo.',
+  'landing.heroTitle': '{{tagline}}',
   'landing.kicker': '$ ./conduit deploy --safely',
   'landing.pricingEyebrow': '// $ pricing --plain',
   'landing.pricingHeading': 'Simple at predictable na pagpepresyo',
@@ -84,7 +103,13 @@ export const ui: UiTranslations = {
   'pipelines.metric.runningCaption': 'Kasalukuyang tumatakbo',
   'pipelines.metric.successCaption': '{{count}} sa {{total}} na run',
   'pipelines.metric.successRate': 'Rate ng tagumpay',
+  'pipelines.realtimeOn': 'realtime',
   'pipelines.subheading': 'Mga real-time na update mula sa bawat pinapanatiling repository.',
+  'pricing.advancedFeatures': 'Mga advanced na feature: {{mark}}',
+  'pricing.canExport': 'Data export: {{mark}}',
+  'pricing.maxArtifacts': '{{count}} artifacts',
+  'pricing.maxBuilds': '{{count}} builds',
+  'pricing.maxPipelines': '{{count}} pipelines',
   'privacy.dataAccount': 'Account: pangalan, email, hashed na password, antas ng plano.',
   'privacy.intro':
     'Ang {{app}} ay nangongolekta lamang ng pinakamababang data na kailangan namin upang patakbuhin ang iyong continuous-delivery account: ang iyong email, ang mga repository na iyong ikinonekta, ang mga commit at build metadata na ginagawa ng iyong mga runner, at ang mga lihim na pinili mong iimbak sa amin. Hindi namin kailanman binabasa ang iyong source code sa labas ng build runner; ang mga artifact ng build ay nakaimbak sa iyong S3 bucket kapag na-configure.',
@@ -92,6 +117,8 @@ export const ui: UiTranslations = {
     'Gumagamit kami ng Stripe para sa pagsingil, Mailgun para sa mga transaksyonal na email, at AWS S3 para sa pag-iimbak ng artifact ng build. Ang bawat isa ay kontraktwal na nakatali sa pinakamababang saklaw ng data na kinakailangan upang maihatid ang serbisyo nito.',
   'privacy.rightsBody':
     'Maaari mong i-export ang bawat byte ng iyong data, burahin ang iyong account anumang oras mula sa Mga Setting, at humiling ng talaan ng bawat paghahatid ng webhook sa iyong account. Tumutugon kami sa mga kahilingan ng GDPR / CCPA sa loob ng 30 araw.',
+  'privacy.subtitle':
+    'Paano kinokolekta, iniimbak, at pinoprotektahan ng {{app}} ang iyong data habang pinapatakbo namin ang iyong mga pipeline.',
   'privacy.title': 'Patakaran sa privacy',
   'repositories.empty': 'Walang nakakonektang mga repository.',
   'repositories.heading': 'Mga Repository',
@@ -100,11 +127,14 @@ export const ui: UiTranslations = {
   'repositoryDetail.backLink': 'Lahat ng repository',
   'repositoryDetail.configHeading': '.conduit.yml',
   'repositoryDetail.loadError': 'Nabigo ang pag-load ng repository.',
+  'repositoryDetail.meanDuration': 'Mean duration',
   'repositoryDetail.notFound': 'Hindi nahanap ang repository.',
+  'repositoryDetail.successRate': 'Rate ng tagumpay',
   'repositoryDetail.totalBuilds': 'Kabuuang build',
   'repositoryDetail.webhookActive': 'aktibo',
   'repositoryDetail.webhookPaused': 'nakahinto',
   'repositoryDetail.webhooksHeading': 'Mga Webhook',
+  'resetPassword.passwordLabel': 'Bagong password',
   'resetPassword.runnerStatus': 'i-reset · na-verify ang token',
   'resetPassword.subtitle': 'Pumili ng matibay na password na hindi mo pa ginamit dati.',
   'resetPassword.tokenPlaceholder': 'i-paste mula sa email',
@@ -117,6 +147,7 @@ export const ui: UiTranslations = {
   'settings.repositories.body':
     'Mga repository na pinapanatiling bantayan ng Conduit. Idiskonekta mula sa iyong VCS provider upang ihinto ang pagtanggap ng mga event.',
   'settings.repositories.empty': 'Wala pang nakakonektang mga repository.',
+  'settings.repositories.heading': 'Mga koneksyon sa repository',
   'settings.repositories.loadError': 'Nabigo ang pag-load ng mga repository.',
   'settings.secrets.addCta': 'Magdagdag ng lihim',
   'settings.secrets.addError': 'Nabigong idagdag ang sikreto.',
@@ -124,6 +155,7 @@ export const ui: UiTranslations = {
   'settings.secrets.deleteError': 'Nabigong burahin ang sikreto.',
   'settings.secrets.empty': 'Walang nakaimbak na mga lihim.',
   'settings.secrets.heading': 'Mga Lihim',
+  'settings.secrets.lastUsed': 'huling ginamit {{date}}',
   'settings.secrets.loadError': 'Nabigo ang pag-load ng mga lihim.',
   'settings.secrets.neverUsed': 'hindi pa ginamit',
   'settings.secrets.rotateCta': 'I-rotate',
@@ -147,6 +179,8 @@ export const ui: UiTranslations = {
   'settings.webhooks.updateError': 'Nabigong i-update ang webhook.',
   'signup.namePlaceholder': 'Riley Park',
   'signup.runnerStatus': 'libreng antas · 1,000 build min/buwan',
+  'terms.intro':
+    'Sa paggawa ng {{app}} account, sumasang-ayon ka sa mga tuntuning ito. Saklaw nila ang katanggap-tanggap na paggamit ng build runners, ang mga hangganan ng aming SLA, at ang mga kondisyon kung saan maaari naming suspindihin o wakasan ang iyong account para sa mga abusadong workload.',
   'terms.slaBody':
     'Ang mga plano ng Pro at Team ay nagta-target ng 99.95% buwanang uptime para sa API at runner pool. Ang libreng plano ay ibinibigay ayon sa kung ano ito. Ang mga outage ay iniuulat sa status.conduit.dev at kina-credit ayon sa formula sa iyong invoice.',
   'terms.terminationBody':
